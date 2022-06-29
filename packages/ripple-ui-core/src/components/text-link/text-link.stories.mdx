@@ -43,11 +43,9 @@ export const Template = (args) => ({
   }}
 />
 
-# Text link states
-
 <ArgsTable of={RplTextLink} />
 
-## Text link / Default
+## Default
 
 <Canvas>
   <Story
@@ -58,69 +56,7 @@ export const Template = (args) => ({
   </Story>
 </Canvas>
 
-## Text link / Hover
-
-<Canvas>
-  <Story
-    name='Default/Hover'
-    play={a11yStoryCheck}
-    parameters={{ pseudo: { hover: true } }}
-  >
-    {Template.bind()}
-  </Story>
-</Canvas>
-
-## Text link / Active
-
-<Canvas>
-  <Story
-    name='Default/Active'
-    play={a11yStoryCheck}
-    parameters={{ pseudo: { active: true } }}
-  >
-    {Template.bind()}
-  </Story>
-</Canvas>
-
-## Text link / Focus
-
-<Canvas>
-  <Story
-    name='Default/Focus'
-    play={a11yStoryCheck}
-    parameters={{ pseudo: { focus: true } }}
-  >
-    {Template.bind()}
-  </Story>
-</Canvas>
-
-## Text link / Visited
-
-<Canvas>
-  <Story
-    name='Default/Visited'
-    play={a11yStoryCheck}
-    parameters={{ pseudo: { visited: true } }}
-  >
-    {Template.bind()}
-  </Story>
-</Canvas>
-
-## Text link / Visited Hover
-
-<Canvas>
-  <Story
-    name='Default/VisitedHover'
-    play={a11yStoryCheck}
-    parameters={{ pseudo: { hover: true, visited: true } }}
-  >
-    {Template.bind()}
-  </Story>
-</Canvas>
-
-# Text link examples
-
-## Text link / Content examples
+## Content examples
 
 <Canvas>
   <Story name="Examples/Content/Accent" play={a11yStoryCheck}>
@@ -152,7 +88,7 @@ export const Template = (args) => ({
   </Story>
 </Canvas>
 
-## Text link / Component examples
+## Component examples
 
 <Canvas>
   <Story name="Examples/Component/Icon" play={a11yStoryCheck}>
@@ -164,9 +100,18 @@ export const Template = (args) => ({
       }
     }}
   </Story>
+  <Story name="Examples/Component/Themeless" play={a11yStoryCheck}>
+    {(args) => {
+      return {
+        components: { RplTextLink },
+        setup() { return { args } },
+        template: `<p class="sb-container">This para contains a <RplTextLink :theme="false">themeless link (for use in non-themed components)</RplTextLink> in the middle.</p>`
+      }
+    }}
+  </Story>
 </Canvas>
 
-## Text link / Eventbus
+## Eventbus
 
 <Canvas>
   <Story
@@ -177,7 +122,7 @@ export const Template = (args) => ({
       return {
         components: { RplTextLink },
         setup() { return { args } },
-        template: `<p class="sb-container">This para contains an <RplTextLink @click.prevent="args.onClick()">event-tracked link</RplTextLink> in the middle.</p>`
+        template: `<p class="sb-container">This para contains an <RplTextLink @click.prevent="args.onClick()" :theme="false">event-tracked link</RplTextLink> in the middle.</p>`
       }
     }}
   </Story>

@@ -28,10 +28,6 @@
     margin: 0;
     padding: 0;
     display: inline;
-
-    @media (--rpl-bp-m) {
-      display: block;
-    }
   }
 
   &__item {
@@ -42,7 +38,7 @@
 
       &::before {
         content: '<';
-        padding: 0 var(--rpl-sp-2);
+        padding: 0 var(--rpl-sp-2) 0 0;
       }
     }
 

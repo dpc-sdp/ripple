@@ -4,15 +4,15 @@ export default { name: 'RplChip' }
 
 <script setup lang="ts">
 import { PropType } from 'vue'
-import { RplChipThemes } from './constants'
+import { RplChipVariants } from './constants'
 
 import { rplEventBus } from '../../index'
 rplEventBus.register('rpl-text-link/click')
 
 defineProps({
-  theme: {
-    type: String as PropType<typeof RplChipThemes[number]>,
-    default: RplChipThemes[0]
+  variant: {
+    type: String as PropType<typeof RplChipVariants[number]>,
+    default: RplChipVariants[0]
   },
   label: {
     type: String,
@@ -31,7 +31,7 @@ const onClick = (payload?: any) => {
 
 <template>
   <a
-    :class="`rpl-chip rpl-chip--${theme} rpl-type-label`"
+    :class="`rpl-chip rpl-chip--${variant} rpl-type-label rpl-u-focusable`"
     :href="url"
     @click="onClick()"
     >{{ label }}</a

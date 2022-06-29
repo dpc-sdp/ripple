@@ -11,7 +11,7 @@ rplEventBus.register('rpl-text-link/click')
 
 defineProps({
   theme: {
-    type: String as PropType<RplTheme>,
+    type: [String, Boolean] as PropType<RplTheme | boolean>,
     default: 'primary'
   },
   url: {
@@ -27,7 +27,9 @@ const onClick = (payload?: any) => {
 
 <template>
   <a
-    :class="`rpl-text-link rpl-text-link--${theme}`"
+    :class="`rpl-text-link${
+      theme ? ' rpl-text-link--' + theme : ''
+    } rpl-u-focusable`"
     :href="url"
     @click="onClick()"
   >

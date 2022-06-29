@@ -5,7 +5,6 @@ import { ref, computed } from 'vue'
 
 import RplIcon from '../icon/icon.vue'
 import { rplEventBus } from '../../index'
-import { element } from 'prop-types';
 
 rplEventBus.register('rpl-accordion/open-all')
 rplEventBus.register('rpl-accordion/close-all')
@@ -177,7 +176,6 @@ const toggleAllLabel = computed(() => {
           :aria-labelledby="`accordion-${id}-${index}-toggle`"
           :aria-hidden="isActive(index) === false ? 'true' : null"
         >
-          <!-- eslint-disable-next-line vue/no-v-html -->
           <div class="rpl-accordion__item-content-inner" v-html="item.content"></div>
         </div>
       </div>

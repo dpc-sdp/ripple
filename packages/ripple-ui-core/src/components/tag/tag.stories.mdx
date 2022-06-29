@@ -5,7 +5,7 @@ import {
   ArgsTable
 } from '@storybook/addon-docs'
 import RplTag from './tag.vue'
-import { RplTagThemes } from './constants'
+import { RplTagVariants } from './constants'
 import { a11yStoryCheck } from './../../../.storybook/interactions.js'
 
 export const SingleTemplate = (args) => ({
@@ -22,17 +22,17 @@ export const SingleTemplate = (args) => ({
 
 <ArgsTable of={RplTag} />
 
-## Default / White
+## Default
 
 <Canvas>
   <Story
-    name='Default/White'
+    name='Default'
     play={a11yStoryCheck}
     argTypes={{
-      theme: {
+      variant: {
         control: { type: 'select' },
-        options: RplTagThemes,
-        defaultValue: 'white'
+        options: RplTagVariants,
+        defaultValue: 'default'
       }
     }}
     args={{
@@ -43,16 +43,16 @@ export const SingleTemplate = (args) => ({
   </Story>
 </Canvas>
 
-## Default / Neutral
+## Neutral
 
 <Canvas>
   <Story
-    name='Default/Neutral'
+    name='Neutral'
     play={a11yStoryCheck}
     argTypes={{
-      theme: {
+      variant: {
         control: { type: 'select' },
-        options: RplTagThemes,
+        options: RplTagVariants,
         defaultValue: 'neutral'
       }
     }}

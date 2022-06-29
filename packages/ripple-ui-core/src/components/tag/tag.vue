@@ -4,11 +4,11 @@ export default { name: 'RplTag' }
 
 <script setup lang="ts">
 import { PropType } from 'vue'
-import { RplTagThemes } from './constants'
+import { RplTagVariants } from './constants'
 defineProps({
-  theme: {
-    type: String as PropType<typeof RplTagThemes[number]>,
-    default: RplTagThemes[0]
+  variant: {
+    type: String as PropType<typeof RplTagVariants[number]>,
+    default: RplTagVariants[0]
   },
   label: {
     type: String,
@@ -18,7 +18,7 @@ defineProps({
 </script>
 
 <template>
-  <span :className="`rpl-tag rpl-tag--${theme} rpl-type-label-small`">{{
+  <span :className="`rpl-tag rpl-tag--${variant} rpl-type-label-small`">{{
     label
   }}</span>
 </template>

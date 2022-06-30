@@ -46,8 +46,8 @@ exports[`Markup transpiler should able transpile html into vue template with plu
 </blockquote>
 
 <!-- pluginButton -->
-<p><rpl-button href=\\"Primary-button-link\\" theme=\\"primary\\">Primary button text</rpl-button></p>
-<p><rpl-button href=\\"Secondary-button-link\\" theme=\\"secondary\\">Secondary button text</rpl-button></p>
+<p><rpl-button href=\\"Primary-button-link\\" target theme=\\"primary\\">Primary button text</rpl-button></p>
+<p><rpl-button href=\\"Secondary-button-link\\" target theme=\\"secondary\\">Secondary button text</rpl-button></p>
 
 <!-- Embedded image -->
 <article class=\\"embedded-entity embedded-entity--media embedded-entity--media--image\\">

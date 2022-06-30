@@ -170,3 +170,6 @@ for (let i = 1; i <= 14; i++) {
 }
 
 export { RplSizeUtilities }
+
+/* Icon and Text */
+export const RplIconAndTextPositions = ['left', 'right'] as const

@@ -8,7 +8,7 @@ import { eventCheck, a11yCheck, a11yStoryCheck } from './../../../.storybook/int
 import RplButton from './button.vue';
 import {
   RplButtonThemes,
-  RplButtonTypes,
+  RplButtonVariants,
   RplButtonIconPositions
 } from './constants';
 import { RplIconNames } from './../icon/constants.ts';
@@ -43,9 +43,9 @@ export const Template = (args) => ({
       defaultValue: 'Button text',
       type: 'string'
     },
-    type: {
+    variant: {
       control: { type: 'select' },
-      options: RplButtonTypes
+      options: RplButtonVariants
     },
     theme: {
       control: { type: 'select' },
@@ -64,76 +64,47 @@ export const Template = (args) => ({
   }}
 />
 
-## Example
-
-<Story
-  name='1. Example'
-  parameters={{viewMode: 'story'}}
-  play={a11yStoryCheck}
-  args={{
-    theme: 'primary',
-    type: 'filled'
-  }}
->
-  {Template.bind()}
-</Story>
-
-## Core
+## Default
 
 <Canvas>
   <Story
-    name='Core/Filled'
+    name='Default/Filled'
     args={{
-      type: 'filled'
+      variant: 'filled'
     }}
   >
     {Template.bind()}
   </Story>
   <Story
-    name='Core/Outlined'
+    name='Default/Outlined'
     args={{
-      type: 'outlined'
+      variant: 'outlined'
     }}
   >
     {Template.bind()}
   </Story>
   <Story
-    name='Core/White'
+    name='Default/White'
     args={{
-      type: 'white'
+      variant: 'white'
     }}
   >
     {Template.bind()}
   </Story>
   <Story
-    name='Core/Elevated'
+    name='Default/Elevated'
     args={{
-      type: 'elevated',
+      variant: 'elevated',
       iconName: 'icon-chevron-up'
     }}
   >
     {Template.bind()}
   </Story>
   <Story
-    name='Core/Destructive'
+    name='Default/Destructive'
     args={{
-      type: 'filled',
+      variant: 'filled',
       theme: 'error'
-    }}
-  >
-    {Template.bind()}
-  </Story>
-</Canvas>
-
-### Focus
-
-<Canvas>
-  <Story
-    name='Focus'
-    play={buttonFocusInteraction}
-    args={{
-      type: 'filled',
-      iconName: 'icon-star'
     }}
   >
     {Template.bind()}
@@ -146,7 +117,7 @@ export const Template = (args) => ({
   <Story
     name='Neutral/Outlined'
     args={{
-      type: 'outlined',
+      variant: 'outlined',
       theme: 'neutral'
     }}
   >
@@ -155,7 +126,7 @@ export const Template = (args) => ({
   <Story
     name='Neutral/White'
     args={{
-      type: 'white',
+      variant: 'white',
       theme: 'neutral'
     }}
   >
@@ -164,7 +135,7 @@ export const Template = (args) => ({
   <Story
     name='Neutral/Elevated'
     args={{
-      type: 'elevated',
+      variant: 'elevated',
       theme: 'neutral',
       iconName: 'icon-chevron-up'
     }}
@@ -180,7 +151,7 @@ export const Template = (args) => ({
   <Story
     name='With Icons/Filled'
     args={{
-      type: 'filled',
+      variant: 'filled',
       iconName: 'icon-chevron-right'
     }}
   >
@@ -189,7 +160,7 @@ export const Template = (args) => ({
   <Story
     name='With Icons/Outlined'
     args={{
-      type: 'outlined',
+      variant: 'outlined',
       iconName: 'icon-chevron-up'
     }}
   >
@@ -198,7 +169,7 @@ export const Template = (args) => ({
   <Story
     name='With Icons/left'
     args={{
-      type: 'filled',
+      variant: 'filled',
       iconPosition: 'left',
       iconName: 'icon-chevron-left'
     }}
@@ -208,7 +179,7 @@ export const Template = (args) => ({
   <Story
     name='With Icons/right'
     args={{
-      type: 'filled',
+      variant: 'filled',
       iconPosition: 'right',
       iconName: 'icon-chevron-right'
     }}
@@ -224,8 +195,24 @@ Test for emitting events on click
 <Canvas>
   <Story
     name='Eventbus'
-    args={{type: 'filled', theme: 'primary', iconName: 'icon-star'}}
+    args={{variant: 'filled', theme: 'primary', iconName: 'icon-pin'}}
     play={playFunction}
+  >
+    {Template.bind()}
+  </Story>
+</Canvas>
+
+## Focus state
+
+<Canvas>
+  <Story
+    name='Focus state'
+    play={buttonFocusInteraction}
+    args={{
+      variant: 'filled',
+      label: 'Focused',
+      iconName: 'icon-exclamation-circle-filled'
+    }}
   >
     {Template.bind()}
   </Story>

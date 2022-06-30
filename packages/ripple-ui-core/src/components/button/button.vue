@@ -4,7 +4,7 @@ export default { name: 'RplButton' }
 
 <script setup lang="ts">
 import { PropType, computed } from 'vue'
-import { RplButtonTypes, RplButtonThemes } from './constants'
+import { RplButtonVariants, RplButtonThemes } from './constants'
 import { RplIconAndTextPositions } from '../global/constants'
 import { RplIconNames } from '../icon/constants'
 import RplIcon from '../icon/icon.vue'
@@ -13,8 +13,8 @@ import { rplEventBus } from '../../index'
 rplEventBus.register('rpl-button/click')
 
 const props = defineProps({
-  type: {
-    type: String as PropType<typeof RplButtonTypes[number]>,
+  variant: {
+    type: String as PropType<typeof RplButtonVariants[number]>,
     default: 'filled'
   },
   theme: {
@@ -54,7 +54,7 @@ const onClick = (payload?: any) => {
 <template>
   <button
     type="button"
-    :class="`rpl-button rpl-button--${type} rpl-button--${theme} rpl-u-focusable rpl-icon-and-text${directionClass}`"
+    :class="`rpl-button rpl-button--${variant} rpl-button--${theme} rpl-u-focusable rpl-icon-and-text${directionClass}`"
     :disabled="disabled"
     @click="onClick()"
   >

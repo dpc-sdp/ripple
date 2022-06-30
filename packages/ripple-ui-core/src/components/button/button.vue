@@ -54,7 +54,7 @@ const onClick = (payload?: any) => {
 <template>
   <button
     type="button"
-    :class="`rpl-button rpl-button--${variant} rpl-button--${theme} rpl-u-focusable rpl-icon-and-text${directionClass}`"
+    :class="`rpl-button rpl-button--${variant} rpl-button--${theme} rpl-u-focusable rpl-icon-and-text rpl-icon-and-text--white${directionClass}`"
     :disabled="disabled"
     @click="onClick()"
   >

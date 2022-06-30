@@ -1,4 +1,8 @@
 .rpl-icon-and-text {
+  --rpl-icon-and-text-bg-clr: var(--rpl-clr-light);
+  --rpl-icon-and-text-clr: var(--rpl-clr-type-default);
+  --rpl-icon-and-text-icon: var(--rpl-clr-primary);
+
   background-color: var(--rpl-icon-and-text-bg-clr);
   color: var(--rpl-icon-and-text-clr);
   display: inline-flex;
@@ -9,11 +13,11 @@
   box-sizing: border-box;
 
   &__icon {
+    color: var(--rpl-icon-and-text-icon);
     display: flex;
     align-items: center;
 
     svg {
-      fill: var(--rpl-icon-and-text-icon);
       padding: 0;
     }
   }
@@ -26,12 +30,6 @@
 
   &--reverse {
     flex-direction: row-reverse;
-  }
-
-  &--default {
-    --rpl-icon-and-text-bg-clr: var(--rpl-clr-light);
-    --rpl-icon-and-text-clr: var(--rpl-clr-type-default);
-    --rpl-icon-and-text-icon: var(--rpl-clr-primary);
   }
 
   &--link {

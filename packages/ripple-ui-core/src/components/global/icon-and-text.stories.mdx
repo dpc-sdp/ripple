@@ -1,0 +1,24 @@
+import { Meta, Canvas, Story } from '@storybook/addon-docs'
+import { RplIconAndTextSamples } from './constants'
+
+<Meta
+  title='Base Styles/Icon & Text'
+  parameters={{
+    viewMode: 'docs'
+  }}
+/>
+
+# Icon & text
+
+<Canvas>
+  <Story
+    name='Icon & Text'
+  >
+    {() => {
+      return {
+        setup() { },
+        template: RplIconAndTextSamples
+      }
+    }}
+  </Story>
+</Canvas>

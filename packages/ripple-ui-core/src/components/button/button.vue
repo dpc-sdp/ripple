@@ -4,11 +4,8 @@ export default { name: 'RplButton' }
 
 <script setup lang="ts">
 import { PropType, computed } from 'vue'
-import {
-  RplButtonTypes,
-  RplButtonThemes,
-  RplButtonIconPositions
-} from './constants'
+import { RplButtonTypes, RplButtonThemes } from './constants'
+import { RplIconAndTextPositions } from '../global/constants'
 import { RplIconNames } from '../icon/constants'
 import RplIcon from '../icon/icon.vue'
 import { rplEventBus } from '../../index'
@@ -31,7 +28,7 @@ const props = defineProps({
     default: undefined
   },
   iconPosition: {
-    type: String as PropType<typeof RplButtonIconPositions[number]>,
+    type: String as PropType<typeof RplIconAndTextPositions[number]>,
     default: 'right'
   },
   label: {
@@ -46,7 +43,7 @@ const props = defineProps({
 })
 
 const directionClass = computed(() => {
-  return props.iconPosition === 'left' ? 'rpl-button--reverse' : ''
+  return props.iconPosition === 'left' ? ' rpl-icon-and-text--reverse' : ''
 })
 
 const onClick = (payload?: any) => {
@@ -57,17 +54,17 @@ const onClick = (payload?: any) => {
 <template>
   <button
     type="button"
-    :class="`rpl-button rpl-button--${type} rpl-button--${theme} ${directionClass} rpl-u-focusable`"
+    :class="`rpl-button rpl-button--${type} rpl-button--${theme} rpl-u-focusable rpl-icon-and-text${directionClass}`"
     :disabled="disabled"
     @click="onClick()"
   >
-    <span class="rpl-button__label rpl-type-label rpl-type-weight-bold">
+    <span class="rpl-icon-and-text__label rpl-type-label rpl-type-weight-bold">
       <template v-if="label">
         {{ label }}
       </template>
       <slot></slot>
     </span>
-    <span v-if="iconName" class="rpl-button__icon">
+    <span v-if="iconName" class="rpl-icon-and-text__icon">
       <RplIcon :name="iconName"></RplIcon>
     </span>
   </button>

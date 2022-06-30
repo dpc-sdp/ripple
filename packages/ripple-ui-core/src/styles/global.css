@@ -15,6 +15,7 @@
 @import 'utilities/_padding.css';
 @import 'utilities/_size.css';
 @import 'utilities/_typography.css';
+@import 'utilities/_icon-and-text.css';
 
 /* Global styles */
 @import '_fonts.css';

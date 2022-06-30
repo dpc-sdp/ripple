@@ -24,7 +24,11 @@ const pluginButton = function () {
     if ($button.hasClass('button--secondary')) {
       theme = 'secondary'
     }
-    const button = `<rpl-button href="${buttonHref}" target="${buttonTarget}" theme="${theme}">${buttonText}</rpl-button>`
+    const button = `<rpl-button
+      href="${buttonHref}"
+      ${buttonTarget ? 'target="' + buttonTarget + '"' : ''}
+      theme="${theme}"
+    >${buttonText}</rpl-button>`
     return $button.replaceWith(button)
   })
 }

@@ -1,3 +1,3 @@
 // This file is used to declare component specific constants. Delete if not needed
 
-export const RplTagThemes = ['white', 'neutral'] as const
+export const RplTagVariants = ['default', 'neutral'] as const

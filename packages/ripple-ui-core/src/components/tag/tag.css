@@ -1,9 +1,10 @@
 .rpl-tag {
   background-color: var(--rpl-tag-bg-clr);
   color: var(--rpl-tag-clr);
+  display: inline-block;
   padding: var(--rpl-sp-1) var(--rpl-sp-2);
 
-  &--white {
+  &--default {
     --rpl-tag-bg-clr: var(--rpl-clr-light);
     --rpl-tag-clr: var(--rpl-clr-type-default);
   }

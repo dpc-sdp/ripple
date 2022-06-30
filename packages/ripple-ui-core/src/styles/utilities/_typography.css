@@ -309,16 +309,17 @@
     color: var(--rpl-clr-dark);
     text-decoration: none;
     text-decoration-line: none;
+    outline: 0;
     position: relative;
 
     &::after {
       content: '';
       background-color: var(--rpl-clr-dark);
       position: absolute;
-      left: calc(0 - var(--rpl-focusable-border-width, 0));
-      bottom: calc(var(--rpl-border-2) * -1);
-      height: var(--rpl-border-4);
-      width: calc(100% + var(--rpl-focusable-border-width, 0) * 2);
+      left: calc(0px - var(--rpl-focusable-border-width, 0px));
+      bottom: calc(var(--rpl-focusable-border-width, 0px) * -1);
+      height: var(--rpl-border-3);
+      width: calc(100% + var(--rpl-focusable-border-width, 0%) * 2);
     }
   }
 }

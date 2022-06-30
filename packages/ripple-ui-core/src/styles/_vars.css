@@ -37,7 +37,7 @@
   --rpl-type-weight-regular: 400;
   --rpl-type-font-family: VIC, Arial, Helvetica, sans-serif;
   --rpl-speed-fast: 120ms;
-  --rpl-speed-slow: 320ms;
+  --rpl-speed-slow: 420ms;
   --rpl-sp-14: 120px;
   --rpl-sp-13: 80px;
   --rpl-sp-12: 64px;
@@ -93,6 +93,6 @@
   --rpl-clr-type-light: var(--rpl-clr-light);
   --rpl-clr-type-default: var(--rpl-clr-dark);
   --rpl-clr-type-focus-contrast: var(--rpl-clr-dark);
-  --rpl-clr-type-accent-contrast: var(--rpl-clr-dark);
+  --rpl-clr-type-accent-contrast: var(--rpl-clr-light);
   --rpl-clr-type-primary-contrast: var(--rpl-clr-light);
 }

@@ -19,7 +19,7 @@ clr:
         value: '{clr.light}'
     accent:
       contrast:
-        value: '{clr.dark}'
+        value: '{clr.light}'
     focus:
       contrast:
         value: '{clr.dark}'

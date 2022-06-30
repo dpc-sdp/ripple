@@ -2,7 +2,6 @@
 
 import { RplPropLabel, RplPropUrl } from '../../lib/constants'
 
-export const RplBreadcrumbsThemes = ['primary', 'accent', 'neutral'] as const
 export const RplBreadcrumbsItemArray = {
   label: typeof RplPropLabel as string,
   url: typeof RplPropUrl as string

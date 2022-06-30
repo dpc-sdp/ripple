@@ -19906,11 +19906,6 @@ storybook-addon-designs@^6.2.1:
   dependencies:
     "@figspec/react" "^1.0.0"
 
-storybook-addon-pseudo-states@^1.14.0:
-  version "1.15.1"
-  resolved "https://registry.yarnpkg.com/storybook-addon-pseudo-states/-/storybook-addon-pseudo-states-1.15.1.tgz#2a03b8a7c307be63ec10595c490b6c76673caa0e"
-  integrity sha512-GRBf63wRHoFwN65hRTdTaIcE7jn2Yj2B/dNyj03o8TRBevnmOL80NfLAGsmDYP4a7Ye3kBkILX952aUkK4P+ZA==
-
 stream-browserify@^2.0.1:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/stream-browserify/-/stream-browserify-2.0.2.tgz#87521d38a44aa7ee91ce1cd2a47df0cb49dd660b"

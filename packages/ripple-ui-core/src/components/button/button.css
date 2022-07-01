@@ -1,6 +1,7 @@
 .rpl-button {
   --rpl-button-border-width: var(--rpl-border-2);
   --rpl-focusable-border-width: var(--rpl-button-border-width);
+  --rpl-icon-and-text-icon: currentcolor;
 
   border-radius: var(--rpl-theme-button-radius, var(--rpl-border-radius-2));
   border-width: var(--rpl-button-border-width);

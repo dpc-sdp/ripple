@@ -321,5 +321,9 @@
       height: var(--rpl-border-3);
       width: calc(100% + var(--rpl-focusable-border-width, 0%) * 2);
     }
+
+    .rpl-icon-and-text__icon {
+      --rpl-icon-and-text-icon: currentcolor;
+    }
   }
 }

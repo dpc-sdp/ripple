@@ -1,0 +1,50 @@
+import {
+  Canvas,
+  Meta,
+  Story,
+  ArgsTable
+} from '@storybook/addon-docs'
+import RplSocialShare from './social-share.vue'
+import { a11yStoryCheck } from './../../../.storybook/interactions.js'
+
+export const SingleTemplate = (args) => ({
+  components: { RplSocialShare },
+  setup() {
+    return { args }
+  },
+  template: '<RplSocialShare v-bind="args" />'
+})
+
+<Meta title='Components/Navigation/Social share' component={RplSocialShare} />
+
+# Social share
+
+<ArgsTable of={RplSocialShare} />
+
+<Canvas>
+  <Story
+    name='Default'
+    play={a11yStoryCheck}
+    args={{
+      items: [
+        {
+          label: 'Facebook',
+          url: 'https:/f',
+          icon: 'icon-facebook'
+        },
+        {
+          label: 'Twitter',
+          url: 'https:/t',
+          icon: 'icon-twitter'
+        },
+        {
+          label: 'LinkedIn',
+          url: 'https://l',
+          icon: 'icon-linkedin'
+        }
+      ]
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>

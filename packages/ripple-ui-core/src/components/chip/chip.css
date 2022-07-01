@@ -7,7 +7,7 @@
   border-radius: var(--rpl-border-radius-full);
   border-style: solid;
   border-width: var(--rpl-chip-border-width);
-  color: var(--rpl-chip-clr);
+  color: var(--rpl-chip-type-clr);
   display: inline-block;
   padding-top: calc(var(--rpl-sp-2) - var(--rpl-border-2));
   padding-right: calc(var(--rpl-sp-3) - var(--rpl-border-2));
@@ -17,22 +17,22 @@
 
   &--default {
     --rpl-chip-border-clr: var(--rpl-clr-primary);
-    --rpl-chip-clr: var(--rpl-clr-primary);
+    --rpl-chip-type-clr: var(--rpl-clr-primary);
 
     &:hover {
       --rpl-chip-border-clr: var(--rpl-clr-primary-alt);
-      --rpl-chip-clr: var(--rpl-clr-primary-alt);
+      --rpl-chip-type-clr: var(--rpl-clr-primary-alt);
     }
 
     &:active {
       --rpl-chip-border-clr: var(--rpl-clr-primary-alt);
-      --rpl-chip-clr: var(--rpl-clr-primary-alt);
+      --rpl-chip-type-clr: var(--rpl-clr-primary-alt);
     }
   }
 
   &--reverse {
     --rpl-chip-border-clr: var(--rpl-clr-light);
-    --rpl-chip-clr: var(--rpl-clr-type-light);
+    --rpl-chip-type-clr: var(--rpl-clr-type-light);
   }
 
   &:hover {

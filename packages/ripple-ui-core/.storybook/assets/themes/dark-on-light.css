@@ -12,4 +12,9 @@
   --rpl-theme-button-white-text-clr: var(--rpl-clr-dark);
 
   --rpl-clr-link: var(--rpl-clr-accent);
+  --rpl-clr-gradient-vertical: linear-gradient(
+    90deg,
+    var(--rpl-clr-primary) 0%,
+    var(--rpl-clr-primary) 100%
+  );
 }

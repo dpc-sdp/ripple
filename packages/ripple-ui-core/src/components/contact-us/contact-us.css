@@ -1,0 +1,30 @@
+.rpl-contact-us {
+  &__details {
+    border-left-style: solid;
+    border-left-width: var(--rpl-border-3);
+    border-image: var(--rpl-clr-gradient-vertical) 1 100%;
+    margin: var(--rpl-sp-4) 0;
+    padding-left: var(--rpl-sp-3);
+  }
+
+  &__items {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    margin-top: 0;
+    padding-left: 0;
+  }
+
+  &__item {
+    list-style-type: none;
+  }
+
+  &__link {
+    color: var(--rpl-clr-type-default);
+    padding: var(--rpl-sp-1) 0;
+
+    &:focus-visible {
+      --rpl-icon-and-text-icon: currentcolor;
+    }
+  }
+}

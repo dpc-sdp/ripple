@@ -32,7 +32,7 @@ defineProps({
     <div v-if="address" class="rpl-contact-us__details rpl-type-p">
       <p>
         <template v-if="address.name"
-          >{{ address.name }}<br v-if="address.department"
+          >{{ address.name }}<br v-if="address.department || address.street"
         /></template>
         <template v-if="address.department"
           >{{ address.department }}<br v-if="address.street"

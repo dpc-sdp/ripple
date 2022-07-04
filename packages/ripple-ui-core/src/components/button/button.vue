@@ -42,8 +42,19 @@ const props = defineProps({
   }
 })
 
-const directionClass = computed(() => {
-  return props.iconPosition === 'left' ? ' rpl-icon-and-text--reverse' : ''
+const classes = computed(() => {
+  const classTokens = [
+    'rpl-button',
+    `rpl-button--${props.variant}`,
+    `rpl-button--${props.theme}`,
+    'rpl-u-focusable',
+    'rpl-icon-and-text',
+    'rpl-icon-and-text--white'
+  ]
+  if (props.iconPosition === 'left') {
+    classTokens.push('rpl-icon-and-text--reverse')
+  }
+  return classTokens.join(' ')
 })
 
 const onClick = (payload?: any) => {
@@ -54,7 +65,7 @@ const onClick = (payload?: any) => {
 <template>
   <button
     type="button"
-    :class="`rpl-button rpl-button--${variant} rpl-button--${theme} rpl-u-focusable rpl-icon-and-text rpl-icon-and-text--white${directionClass}`"
+    :class="classes"
     :disabled="disabled"
     @click="onClick()"
   >

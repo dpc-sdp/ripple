@@ -4,7 +4,7 @@ import { withDesign } from 'storybook-addon-designs'
 import './storybook.css'
 import './../src/styles/global.css'
 
-import svgPlaceholder from '../storybook-components/svgPlaceholder'
+import svgPlaceholder from './components/svgPlaceholder'
 window.svgPlaceholder = svgPlaceholder
 
 export const parameters = {

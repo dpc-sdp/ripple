@@ -3,4 +3,4 @@ to: packages/ripple-ui-core/src/components/<%= h.changeCase.paramCase(name) %>/c
 ---
 // This file is used to declare component specific constants. Delete if not needed
 
-export const <%= h.rplcomponentname(name) %>Themes = ['primary', 'accent', 'neutral'] as const
+export const <%= h.rplcomponentname(name) %>Variants = ['default', 'neutral'] as const

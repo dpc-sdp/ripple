@@ -1,0 +1,52 @@
+.rpl-icon-and-text {
+  --rpl-icon-and-text-bg-clr: var(--rpl-clr-light);
+  --rpl-icon-and-text-clr: var(--rpl-clr-type-default);
+  --rpl-icon-and-text-icon: var(--rpl-clr-primary);
+
+  background-color: var(--rpl-icon-and-text-bg-clr);
+  color: var(--rpl-icon-and-text-clr);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--rpl-sp-2);
+  padding: var(--rpl-sp-4) var(--rpl-sp-5);
+  box-sizing: border-box;
+
+  &__icon {
+    color: var(--rpl-icon-and-text-icon);
+    display: flex;
+    align-items: center;
+
+    svg {
+      padding: 0;
+    }
+  }
+
+  &__label {
+    &--underline {
+      text-decoration: underline;
+    }
+  }
+
+  &--reverse {
+    flex-direction: row-reverse;
+  }
+
+  &--link {
+    --rpl-icon-and-text-bg-clr: var(--rpl-clr-light);
+    --rpl-icon-and-text-clr: var(--rpl-clr-primary);
+    --rpl-icon-and-text-icon: var(--rpl-clr-primary);
+  }
+
+  &--white {
+    --rpl-icon-and-text-bg-clr: transparent;
+    --rpl-icon-and-text-clr: var(--rpl-clr-type-primary-contrast);
+    --rpl-icon-and-text-icon: var(--rpl-clr-type-primary-contrast);
+  }
+
+  &--text {
+    --rpl-icon-and-text-bg-clr: var(--rpl-clr-light);
+    --rpl-icon-and-text-clr: var(--rpl-clr-type-default);
+    --rpl-icon-and-text-icon: var(--rpl-clr-type-default);
+  }
+}

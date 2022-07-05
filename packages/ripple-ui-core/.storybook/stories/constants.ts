@@ -1,4 +1,4 @@
-import rplSpacing from './../settings/spacing.yaml'
+import rplSpacing from './../../tokens/settings/spacing.yaml'
 
 /* Typography */
 const base = 'rpl-type'
@@ -170,3 +170,6 @@ for (let i = 1; i <= 14; i++) {
 }
 
 export { RplSizeUtilities }
+
+/* Icon and Text */
+export const RplIconAndTextPositions = ['left', 'right'] as const

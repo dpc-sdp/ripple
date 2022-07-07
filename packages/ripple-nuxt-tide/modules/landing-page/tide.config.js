@@ -463,6 +463,15 @@ module.exports = {
         }
       },
 
+      'paragraph--content_collection_enhanced': {
+        component: 'content-collection',
+        props: {
+          'title': 'field_cc_enhanced_title',
+          'description': ['field_cc_enhanced_description', 'processed'],
+          'schema': 'field_content_collection_config'
+        }
+      },
+
       'paragraph--form_embed_openforms': {
         component: 'tide-open-form',
         props: {

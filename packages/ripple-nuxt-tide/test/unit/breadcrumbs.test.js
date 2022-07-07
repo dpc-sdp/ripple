@@ -128,4 +128,30 @@ describe('breadcrumbs', () => {
     const result = breadcrumbs('/null-menu', 'Null Menu', null)
     expect(result).toEqual(expectedResult)
   })
+
+  test('should ignore site id when evaluating activepath', async () => {
+    const expectedResult = [
+      {
+        text: 'Home',
+        url: '/'
+      },
+      {
+        text: 'Alpha 1',
+        url: '/alpha-1'
+      },
+      {
+        text: 'Alpha 2',
+        url: '/alpha-2'
+      },
+      {
+        text: 'Alpha 3',
+        url: '/site-123/alpha-3'
+      }
+    ]
+    const testMenu = JSON.parse(JSON.stringify(nestedMenu))
+    testMenu[0].children[0].children[0].url = '/site-123/alpha-3'
+
+    const result = breadcrumbs('/alpha-3', 'Alpha 3', testMenu)
+    expect(result).toEqual(expectedResult)
+  })
 })

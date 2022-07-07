@@ -194,7 +194,8 @@ export default {
               case 'rpl-markup':
                 if (component.data.html) {
                   let showSubHeading = false
-                  if (this.page.field_node_display_headings && this.page.field_node_display_headings === 'showH2AndH3') {
+                  // field_node_display_headings == 'showH2AndH3' | 'showH2AndH3AndAccordionTitle'
+                  if (this.page.field_node_display_headings && this.page.field_node_display_headings.indexOf('showH2AndH3') !== -1) {
                     showSubHeading = true
                   }
                   anchors.push(...anchorUtils.getAnchorLinks(component.data.html, showSubHeading))
@@ -202,7 +203,26 @@ export default {
                 break
               case 'rpl-accordion':
                 if (component.data.title) {
-                  anchors.push({ text: component.data.title, url: `#${getAnchorLinkName(component.data.title)}` })
+                  // Add title of accordion set to anchors collection
+                  const url = `#${getAnchorLinkName(component.data.title)}`
+                  anchors.push({
+                    text: component.data.title,
+                    url: url,
+                    type: 'accordion'
+                  })
+
+                  // Add accordion triggers to anchors collection
+                  // field_node_display_headings == 'showH2AndAccordionTitle' | 'showH2AndH3AndAccordionTitle'
+                  if (this.page.field_node_display_headings && this.page.field_node_display_headings.indexOf('AccordionTitle') !== -1) {
+                    component.data.accordions.map((accordion, i) => {
+                      anchors.push({
+                        text: accordion.title,
+                        url: url,
+                        type: 'accordion',
+                        index: i + 1 // pre-render encode (0 index is falsy)
+                      })
+                    })
+                  }
                 }
                 break
             }

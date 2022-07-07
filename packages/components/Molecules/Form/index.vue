@@ -100,6 +100,15 @@ export default {
       }
       return []
     }
+    // Custom 'required' validator which uses the drupal 'required message'
+    // if the field is empty.
+    VueFormGenerator.validators.rplRequired = function (value, field) {
+      if (!value || value === '') {
+        return field.requiredMessage
+      }
+
+      return null
+    }
     // Validate if multiple select is a required field, then atleast one value should be selected.
     VueFormGenerator.validators.rplSelectMultipleRequired = function (value, field) {
       if (value && value.length >= field.min) {

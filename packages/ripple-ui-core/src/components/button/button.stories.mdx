@@ -50,7 +50,7 @@ export const Template = (args) => ({
     theme: {
       control: { type: 'select' },
       options: RplButtonThemes,
-      defaultValue: 'primary'
+      defaultValue: 'default'
     },
     iconName: {
       control: { type: 'select' },
@@ -103,8 +103,7 @@ export const Template = (args) => ({
   <Story
     name='Default/Destructive'
     args={{
-      variant: 'filled',
-      theme: 'error'
+      variant: 'destructive',
     }}
   >
     {Template.bind()}
@@ -195,7 +194,7 @@ Test for emitting events on click
 <Canvas>
   <Story
     name='Eventbus'
-    args={{variant: 'filled', theme: 'primary', iconName: 'icon-pin'}}
+    args={{variant: 'filled', theme: 'default', iconName: 'icon-pin'}}
     play={playFunction}
   >
     {Template.bind()}

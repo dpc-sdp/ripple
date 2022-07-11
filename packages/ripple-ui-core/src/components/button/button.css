@@ -3,133 +3,90 @@
   --rpl-focusable-border-width: var(--rpl-button-border-width);
   --rpl-icon-and-text-icon: currentcolor;
 
-  border-radius: var(--rpl-theme-button-radius, var(--rpl-border-radius-2));
+  border-radius: var(--rpl-border-radius-2);
+  border-style: var(--rpl-border-solid);
   border-width: var(--rpl-button-border-width);
+  text-decoration: none;
 
   &:hover {
     cursor: pointer;
+    text-decoration: underline;
   }
 
   /* Variants */
   &--filled {
-    color: var(--rpl-button-filled-color);
-    background-color: var(--rpl-button-filled-bg-color);
-    border-style: var(--rpl-border-solid);
-    border-color: var(--rpl-button-filled-bg-color);
+    color: var(--rpl-button-filled-type-clr);
+    background-color: var(--rpl-button-filled-bg-clr);
+    border-color: var(--rpl-button-filled-bg-clr);
 
     &:hover {
-      text-decoration: underline;
-      background-color: var(--rpl-button-filled-bg-hover-color);
-      border-color: var(--rpl-button-filled-bg-hover-color);
+      background-color: var(--rpl-button-filled-bg-clr-hover);
+      border-color: var(--rpl-button-filled-bg-clr-hover);
     }
   }
 
   &--outlined {
-    color: var(--rpl-button-outlined-color);
+    color: var(--rpl-button-outlined-type-clr);
     background-color: var(--rpl-clr-light);
-    border-color: var(--rpl-button-outlined-bdr-color);
-    border-style: var(--rpl-border-solid);
+    border-color: var(--rpl-button-outlined-border-clr);
 
     &:hover {
-      color: var(--rpl-button-outlined-hover-color);
-      text-decoration: underline;
-      border-color: var(--rpl-button-outlined-bdr-hover-color);
+      color: var(--rpl-button-outlined-type-clr-hover);
+      border-color: var(--rpl-button-outlined-border-clr-hover);
     }
   }
 
   &--white {
     --rpl-button-border-width: var(--rpl-border-1);
 
-    color: var(--rpl-button-white-clr);
+    color: var(--rpl-button-white-type-clr);
     background-color: var(--rpl-clr-light);
     border-color: var(--rpl-clr-light);
-    border-style: var(--rpl-border-solid);
-    text-decoration: none;
 
     &:hover {
-      color: var(--rpl-button-white-hover-clr);
-      text-decoration: underline;
+      color: var(--rpl-button-white-type-clr-hover);
     }
   }
 
   &--elevated {
-    color: var(--rpl-button-white-clr);
+    color: var(--rpl-button-white-type-clr);
     background-color: var(--rpl-clr-light);
     border-color: var(--rpl-clr-neutral-200);
     box-shadow: var(--rpl-elevation-1);
-    text-decoration: none;
 
     &:hover {
-      color: var(--rpl-button-white-hover-clr);
-      text-decoration: underline;
+      color: var(--rpl-button-white-type-clr-hover);
     }
   }
 
-  &--primary {
-    --rpl-button-filled-color: var(--rpl-clr-type-primary-contrast);
-    --rpl-button-filled-bg-color: var(--rpl-clr-primary);
-    --rpl-button-filled-bg-hover-color: var(--rpl-clr-primary-alt);
-    --rpl-button-outlined-color: var(
-      --rpl-theme-button-white-text-clr,
-      var(--rpl-clr-primary)
-    );
-    --rpl-button-outlined-bdr-color: var(--rpl-clr-primary);
-    --rpl-button-outlined-hover-color: var(
-      --rpl-theme-button-white-text-clr,
-      var(--rpl-clr-primary-alt)
-    );
-    --rpl-button-outlined-bdr-hover-color: var(--rpl-clr-primary-alt);
-    --rpl-button-white-clr: var(
-      --rpl-theme-button-white-text-clr,
-      var(--rpl-clr-primary)
-    );
-    --rpl-button-white-hover-clr: var(
-      --rpl-theme-button-white-text-clr,
-      var(--rpl-clr-primary-alt)
-    );
+  &--destructive {
+    color: var(--rpl-clr-light);
+    background-color: var(--rpl-clr-error);
+    border-color: var(--rpl-clr-error);
+
+    &:hover {
+      background-color: var(--rpl-clr-error-alt);
+    }
   }
 
-  &--accent {
-    --rpl-button-filled-color: var(--rpl-clr-type-accent-contrast);
-    --rpl-button-filled-bg-color: var(--rpl-clr-accent);
-    --rpl-button-filled-bg-hover-color: var(--rpl-clr-accent-alt);
-    --rpl-button-outlined-color: var(
-      --rpl-theme-button-white-text-clr,
-      var(--rpl-clr-accent)
-    );
-    --rpl-button-outlined-bdr-color: var(--rpl-clr-accent);
-    --rpl-button-outlined-hover-color: var(
-      --rpl-theme-button-white-text-clr,
-      var(--rpl-clr-accent-alt)
-    );
-    --rpl-button-outlined-bdr-hover-color: var(--rpl-clr-accent-alt);
-    --rpl-button-white-clr: var(
-      --rpl-theme-button-white-text-clr,
-      var(--rpl-clr-accent)
-    );
-    --rpl-button-white-hover-clr: var(
-      --rpl-theme-button-white-text-clr,
-      var(--rpl-clr-accent-alt)
-    );
+  /* Themes */
+  &--default {
+    --rpl-button-filled-bg-clr: var(--rpl-clr-primary);
+    --rpl-button-filled-bg-clr-hover: var(--rpl-clr-primary-alt);
+    --rpl-button-filled-type-clr: var(--rpl-clr-type-primary-contrast);
+    --rpl-button-outlined-border-clr: var(--rpl-clr-primary);
+    --rpl-button-outlined-border-clr-hover: var(--rpl-clr-primary-alt);
+    --rpl-button-outlined-type-clr: var(--rpl-clr-primary);
+    --rpl-button-outlined-type-clr-hover: var(--rpl-clr-primary-alt);
+    --rpl-button-white-type-clr: var(--rpl-clr-primary);
+    --rpl-button-white-type-clr-hover: var(--rpl-clr-primary-alt);
   }
 
   &--neutral {
-    /* Note: There is no neutral filled style */
-    --rpl-button-outlined-color: var(--rpl-clr-neutral-800);
-    --rpl-button-outlined-bdr-color: var(--rpl-clr-neutral-600);
-    --rpl-button-outlined-bdr-hover-color: var(--rpl-clr-neutral-800);
-    --rpl-button-outlined-hover-color: var(--rpl-clr-neutral-800);
-    --rpl-button-white-clr: var(--rpl-clr-dark);
-  }
-
-  &--error {
-    --rpl-button-filled-color: var(--rpl-clr-light);
-    --rpl-button-filled-bg-color: var(--rpl-clr-error);
-    --rpl-button-filled-bg-hover-color: var(--rpl-clr-error-alt);
-    --rpl-button-outlined-color: var(--rpl-clr-error);
-    --rpl-button-outlined-bdr-color: var(--rpl-clr-error);
-    --rpl-button-outlined-bdr-hover-color: var(--rpl-clr-error-alt);
-    --rpl-button-outlined-hover-color: var(--rpl-clr-error-alt);
-    --rpl-button-white-clr: var(--rpl-clr-error);
+    --rpl-button-outlined-border-clr: var(--rpl-clr-neutral-600);
+    --rpl-button-outlined-border-clr-hover: var(--rpl-clr-neutral-800);
+    --rpl-button-outlined-type-clr: var(--rpl-clr-neutral-800);
+    --rpl-button-outlined-type-clr-hover: var(--rpl-clr-neutral-800);
+    --rpl-button-white-type-clr: var(--rpl-clr-dark);
   }
 }

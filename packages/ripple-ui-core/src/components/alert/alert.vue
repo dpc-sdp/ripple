@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { PropType, computed, ref, onMounted } from 'vue'
+import { PropType, computed, ref, onMounted, onUnmounted } from 'vue'
 import { RplAlertTypes } from './constants'
+import onResize from './../../composables/onResize'
 import { RplIconNames } from './../icon/constants'
 import RplIcon from './../icon/icon.vue'
 import RplTextLink from './../text-link/text-link.vue'
@@ -52,12 +53,17 @@ const classes = computed(() => {
   }
 })
 
-const alertContainer = ref(null)
+const alertRef = ref(null)
+
 onMounted(() => {
-  alertContainer.value.style.setProperty(
-    '--local-container-height',
-    `${alertContainer?.value?.clientHeight}px`
-  )
+  // sets container height variable on resize for animation
+  const alertContainer = alertRef.value
+  onResize(alertContainer, (el) => {
+    alertContainer.style.setProperty(
+      '--local-container-height',
+      `${el.contentRect.height}px`
+    )
+  })
 })
 </script>
 

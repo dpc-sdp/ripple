@@ -1,6 +1,6 @@
 .rpl-alert {
   transition: all var(--rpl-speed-fast) ease-in-out;
-  height: 92px; /* container height for transition */
+  height: var(--local-container-height); /* container height for transition */
   margin-bottom: 1px;
 
   &__inner {
@@ -21,7 +21,7 @@
   &__message {
     margin-top: var(--rpl-sp-1);
     margin-bottom: var(--rpl-sp-4);
-    color: var(--rpl-clr-light);
+    color: var(--rpl-clr-type-light);
 
     &-wrap {
       width: 100%;
@@ -29,7 +29,7 @@
   }
 
   &__link {
-    color: var(--rpl-clr-light);
+    color: var(--rpl-clr-type-light);
     display: inline-flex;
     align-items: center;
 
@@ -47,7 +47,7 @@
 
     &:visited,
     &:hover {
-      color: var(--rpl-clr-light);
+      color: var(--rpl-clr-type-light);
     }
 
     &:focus {
@@ -55,19 +55,19 @@
     }
   }
 
-  &--info {
+  &--information {
     background-color: var(--rpl-clr-neutral-700);
-    color: var(--rpl-clr-type-white);
+    color: var(--rpl-clr-type-light);
   }
 
   &--warning {
     background-color: var(--rpl-clr-warning);
-    color: var(--rpl-clr-type-white);
+    color: var(--rpl-clr-type-light);
   }
 
   &--error {
     background-color: var(--rpl-clr-error);
-    color: var(--rpl-clr-type-white);
+    color: var(--rpl-clr-type-light);
   }
 
   &--closed {

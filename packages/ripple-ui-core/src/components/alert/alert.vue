@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { PropType, computed } from 'vue'
+import { PropType, computed, ref, onMounted } from 'vue'
 import { RplAlertTypes } from './constants'
 import { RplIconNames } from './../icon/constants'
 import RplIcon from './../icon/icon.vue'
@@ -10,9 +10,9 @@ rplEventBus.register('rpl-alert/dismiss')
 const emit = defineEmits(['dismiss'])
 
 const props = defineProps({
-  type: {
+  variant: {
     type: String as PropType<typeof RplAlertTypes[number]>,
-    default: 'info'
+    default: 'information'
   },
   iconName: {
     type: String as PropType<typeof RplIconNames[number]>,
@@ -47,14 +47,22 @@ const onClose = () => {
 const classes = computed(() => {
   return {
     'rpl-alert': true,
-    [`rpl-alert--${props.type}`]: props.type,
+    [`rpl-alert--${props.variant}`]: props.variant,
     'rpl-alert--closed': props.dismissed
   }
+})
+
+const alertContainer = ref(null)
+onMounted(() => {
+  alertContainer.value.style.setProperty(
+    '--local-container-height',
+    `${alertContainer?.value?.clientHeight}px`
+  )
 })
 </script>
 
 <template>
-  <div :class="classes">
+  <div :class="classes" ref="alertContainer">
     <div
       v-if="!dismissed"
       class="rpl-alert__inner"

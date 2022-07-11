@@ -1,0 +1,80 @@
+import {
+  Canvas,
+  Meta,
+  Story,
+  ArgsTable
+} from '@storybook/addon-docs'
+import RplContactUs from './contact-us.vue'
+import { a11yStoryCheck } from './../../../.storybook/interactions.js'
+
+export const SingleTemplate = (args) => ({
+  components: { RplContactUs },
+  setup() {
+    return { args }
+  },
+  template: '<RplContactUs v-bind="args" />'
+})
+
+<Meta title='Components/Containers/Contact us' component={RplContactUs} />
+
+# Social share
+
+<ArgsTable of={RplContactUs} />
+
+<Canvas>
+  <Story
+    name='Contact us'
+    play={a11yStoryCheck}
+    args={{
+      address: {
+        name: 'First Name Last Name',
+        department: 'Department Name',
+        street: 'Address Line, Suburb, 3019'
+      },
+      items: [
+        {
+          label: '99 Street St, Suburb VIC 3000',
+          url: 'googlemaps',
+          icon: 'icon-pin'
+        },
+        {
+          label: '03 9999 9999',
+          url: 'tel:0399999999',
+          icon: 'icon-phone'
+        },
+        {
+          label: '0400 000 000',
+          url: 'tel:0400000000',
+          icon: 'icon-phone'
+        },
+        {
+          label: 'email@vic.gov.au',
+          url: 'mailto:email',
+          icon: 'icon-mail'
+        },
+        {
+          label: '@facebookhandle',
+          url: 'https:/f',
+          icon: 'icon-facebook'
+        },
+        {
+          label: '@twitterhandle',
+          url: 'https:/t',
+          icon: 'icon-twitter'
+        },
+        {
+          label: '@linkedinhandle',
+          url: 'https://l',
+          icon: 'icon-linkedin'
+        },
+        {
+          label: '@instagramhandle',
+          url: 'https://i',
+          icon: 'icon-instagram'
+        }
+      ]
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>

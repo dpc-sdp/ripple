@@ -9,7 +9,7 @@ import {
   ArgsTable
 } from '@storybook/addon-docs'
 import <%= h.rplcomponentname(name) %> from './<%= h.changeCase.paramCase(name) %>.vue'
-import { <%= h.rplcomponentname(name) %>Themes } from './constants'
+import { <%= h.rplcomponentname(name) %>Variants } from './constants'
 import { a11yStoryCheck } from './../../../.storybook/interactions.js'
 
 export const SingleTemplate = (args) => ({
@@ -31,10 +31,10 @@ export const SingleTemplate = (args) => ({
     name='Default'
     play={a11yStoryCheck}
     argTypes={{
-      theme: {
+      variant: {
         control: { type: 'select' },
-        options: <%= h.rplcomponentname(name) %>Themes,
-        defaultValue: <%= h.rplcomponentname(name) %>Themes[0]
+        options: <%= h.rplcomponentname(name) %>Variants,
+        defaultValue: <%= h.rplcomponentname(name) %>Variants[0]
       }
     }}
   >

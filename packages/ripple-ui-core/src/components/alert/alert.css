@@ -1,5 +1,5 @@
 .rpl-alert {
-  transition: all var(--rpl-motion-speed-2) ease-in-out;
+  transition: all var(--rpl-motion-speed-2) ease-out;
   height: var(--local-container-height); /* container height for transition */
   margin-bottom: 1px;
 
@@ -35,7 +35,7 @@
 
     svg {
       display: flex;
-      transition: margin-left var(--rpl-motion-speed-2) ease-in-out;
+      transition: margin-left var(--rpl-motion-speed-2) ease-out;
       margin-left: var(--rpl-sp-1);
     }
 

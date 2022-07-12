@@ -34,11 +34,6 @@ export const Template = (args) => ({
   }}
   component={{RplTextLink}}
   argTypes={{
-    theme: {
-      control: { type: 'select' },
-      options: ['primary', 'accent', 'neutral'],
-      defaultValue: 'primary'
-    },
     onClick: { action: 'clicked' }
   }}
 />
@@ -96,16 +91,7 @@ export const Template = (args) => ({
       return {
         components: { RplTextLink, RplIcon },
         setup() { return { args } },
-        template: `<p class="sb-container">This para contains a <RplTextLink><RplIcon name="icon-download" title="download icon"></RplIcon></RplTextLink> in the middle.</p>`
-      }
-    }}
-  </Story>
-  <Story name="Examples/Component/Themeless" play={a11yStoryCheck}>
-    {(args) => {
-      return {
-        components: { RplTextLink },
-        setup() { return { args } },
-        template: `<p class="sb-container">This para contains a <RplTextLink :theme="false">themeless link (for use in non-themed components)</RplTextLink> in the middle.</p>`
+        template: `<p class="sb-container">This para contains a <RplTextLink><RplIcon name="icon-pin" title="download icon"></RplIcon></RplTextLink> in the middle.</p>`
       }
     }}
   </Story>

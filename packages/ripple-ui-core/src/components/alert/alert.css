@@ -29,20 +29,22 @@
   }
 
   &__link {
+    --rpl-icon-and-text-icon-pad-h: 0;
+    --rpl-icon-and-text-icon-pad-v: var(--rpl-sp-2);
+
     color: var(--rpl-clr-type-light);
     display: inline-flex;
     align-items: center;
+    margin-top: calc(var(--rpl-sp-2) * -1);
+    gap: var(--rpl-sp-1);
+    transition: gap var(--rpl-motion-speed-2) ease-out;
 
-    svg {
-      display: flex;
-      transition: margin-left var(--rpl-motion-speed-2) ease-out;
-      margin-left: var(--rpl-sp-1);
+    .rpl-icon {
+      border-bottom: 0;
     }
 
     &:hover {
-      svg {
-        margin-left: var(--rpl-sp-2);
-      }
+      gap: var(--rpl-sp-2);
     }
 
     &:visited,

@@ -36,8 +36,15 @@
   --rpl-type-weight-bold: 700;
   --rpl-type-weight-regular: 400;
   --rpl-type-font-family: VIC, Arial, Helvetica, sans-serif;
-  --rpl-speed-fast: 120ms;
-  --rpl-speed-slow: 420ms;
+  --rpl-motion-speed-9: 500ms;
+  --rpl-motion-speed-8: 420ms;
+  --rpl-motion-speed-7: 360ms;
+  --rpl-motion-speed-6: 300ms;
+  --rpl-motion-speed-5: 240ms;
+  --rpl-motion-speed-4: 200ms;
+  --rpl-motion-speed-3: 160ms;
+  --rpl-motion-speed-2: 120ms;
+  --rpl-motion-speed-1: 80ms;
   --rpl-sp-14: 120px;
   --rpl-sp-13: 80px;
   --rpl-sp-12: 64px;

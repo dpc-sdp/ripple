@@ -1,13 +1,15 @@
 import { onMounted, onUnmounted } from 'vue'
 
-export default (el, callback) => {
+export default (refItm, callback) => {
   const resizeObserver = new ResizeObserver((entries) => {
-    callback(entries[0])
+    callback(entries[0].contentRect.height)
   })
 
   onMounted(() => {
-    resizeObserver.observe(el)
-    window.addEventListener('resize', callback)
+    if (refItm.value) {
+      resizeObserver.observe(refItm.value)
+      window.addEventListener('resize', callback)
+    }
   })
   onUnmounted(() => {
     resizeObserver.disconnect()

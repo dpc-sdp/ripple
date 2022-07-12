@@ -1,5 +1,5 @@
 .rpl-alert {
-  transition: all var(--rpl-speed-fast) ease-in-out;
+  transition: all var(--rpl-motion-speed-2) ease-in-out;
   height: var(--local-container-height); /* container height for transition */
   margin-bottom: 1px;
 
@@ -14,8 +14,8 @@
   }
 
   &__btn-close {
-    padding-left: var(--rpl-sp-5);
-    display: flex;
+    margin-left: var(--rpl-sp-5);
+    height: 100%;
   }
 
   &__message {
@@ -35,7 +35,7 @@
 
     svg {
       display: flex;
-      transition: margin-left var(--rpl-speed-fast) ease-in-out;
+      transition: margin-left var(--rpl-motion-speed-2) ease-in-out;
       margin-left: var(--rpl-sp-1);
     }
 
@@ -50,8 +50,12 @@
       color: var(--rpl-clr-type-light);
     }
 
-    &:focus {
+    &:focus-visible {
       color: var(--rpl-clr-dark);
+
+      svg {
+        color: var(--rpl-clr-dark);
+      }
     }
   }
 

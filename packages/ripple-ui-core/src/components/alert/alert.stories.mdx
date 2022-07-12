@@ -111,9 +111,9 @@ export const SingleTemplate = (args) => ({
         components: { RplAlert },
         setup() {
           const dismissed = reactive({
-            information: false,
-            warning: false,
             error: false,
+            warning: false,
+            information: false
           })
           return {
             args,
@@ -162,7 +162,7 @@ export const SingleTemplate = (args) => ({
         },
         template: `<div style="position: relative;">
             <RplAlert v-bind="args"
-              variant="info"
+              variant="information"
               alertId="123"
               :dismissed="dismissed"
               @dismiss="onDismiss"

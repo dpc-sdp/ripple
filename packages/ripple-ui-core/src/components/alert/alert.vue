@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { PropType, computed, ref, onMounted, onUnmounted } from 'vue'
+import { PropType, computed, ref } from 'vue'
 import { RplAlertTypes } from './constants'
-import onResize from './../../composables/onResize'
+import onResizeHeight from './../../composables/onResizeHeight'
 import { RplIconNames } from './../icon/constants'
 import RplIcon from './../icon/icon.vue'
 import RplTextLink from './../text-link/text-link.vue'
@@ -55,20 +55,13 @@ const classes = computed(() => {
 
 const alertRef = ref(null)
 
-onMounted(() => {
-  // sets container height variable on resize for animation
-  const alertContainer = alertRef.value
-  onResize(alertContainer, (el) => {
-    alertContainer.style.setProperty(
-      '--local-container-height',
-      `${el.contentRect.height}px`
-    )
-  })
+onResizeHeight(alertRef, (height) => {
+  alertRef.value.style.setProperty('--local-container-height', `${height}px`)
 })
 </script>
 
 <template>
-  <div :class="classes" ref="alertContainer">
+  <div ref="alertRef" :class="classes">
     <div
       v-if="!dismissed"
       class="rpl-alert__inner"
@@ -102,13 +95,8 @@ onMounted(() => {
           ></rpl-icon>
         </RplTextLink>
       </div>
-      <button class="rpl-alert__btn-close" @click="onClose">
-        <rpl-icon
-          title="Dismiss alert"
-          size="s"
-          name="icon-cancel"
-          colour="white"
-        ></rpl-icon>
+      <button class="rpl-alert__btn-close rpl-u-focusable" @click="onClose">
+        <rpl-icon title="Dismiss alert" size="s" name="icon-cancel"></rpl-icon>
       </button>
     </div>
   </div>

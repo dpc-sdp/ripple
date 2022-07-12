@@ -29,10 +29,10 @@ export const SingleTemplate = (args) => ({
     },
   }}
   argTypes={{
-    type: {
+    variant: {
       control: { type: 'select' },
-      options: ['info', 'warning', 'error'],
-      defaultValue: 'info'
+      options: ['information', 'warning', 'error'],
+      defaultValue: 'information'
     },
     iconName: {
       control: { type: 'select' },
@@ -63,7 +63,7 @@ export const SingleTemplate = (args) => ({
   <Story
     name='Information'
     args={{
-      type: 'info',
+      variant: 'information',
       message: 'An informative message.',
       iconName: 'icon-information-circle-filled',
       alertId: 'info-1'
@@ -74,7 +74,7 @@ export const SingleTemplate = (args) => ({
   <Story
     name='Warning'
     args={{
-      type: 'warning',
+      variant: 'warning',
       message: 'A warning message.',
       iconName: 'icon-fire',
       alertId: 'fire-1'
@@ -85,7 +85,7 @@ export const SingleTemplate = (args) => ({
   <Story
     name='Danger'
     args={{
-      type: 'error',
+      variant: 'error',
       message: 'A critical message.',
       iconName: 'icon-exclamation-circle-filled',
       alertId: 'danger-1'
@@ -101,7 +101,7 @@ export const SingleTemplate = (args) => ({
   <Story
     name='Stacked'
     args={{
-      type: 'error',
+      variant: 'error',
       iconName: 'icon-exclamation-circle-filled'
     }}
     parameters={{ actions: { argTypesRegex: '^on.*' } }}
@@ -111,9 +111,9 @@ export const SingleTemplate = (args) => ({
         components: { RplAlert },
         setup() {
           const dismissed = reactive({
-            info: false,
-            warning: false,
             error: false,
+            warning: false,
+            information: false
           })
           return {
             args,
@@ -124,7 +124,7 @@ export const SingleTemplate = (args) => ({
         template: `<div style="position: relative;" v-for="(alert, i) in Object.keys(dismissed)">
             <RplAlert v-bind="args"
               :key="'alert-' + i"
-              :type="alert"
+              :variant="alert"
               :alertId="alert"
               :dismissed="dismissed[alert]"
               @dismiss="onDismiss"
@@ -142,7 +142,7 @@ export const SingleTemplate = (args) => ({
   <Story
     name='Dismissed'
     args={{
-      type: 'error',
+      variant: 'error',
       iconName: 'icon-exclamation-circle-filled'
     }}
     play={playFunction}
@@ -162,7 +162,7 @@ export const SingleTemplate = (args) => ({
         },
         template: `<div style="position: relative;">
             <RplAlert v-bind="args"
-              type="info"
+              variant="information"
               alertId="123"
               :dismissed="dismissed"
               @dismiss="onDismiss"

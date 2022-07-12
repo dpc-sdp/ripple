@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { PropType, computed } from 'vue'
+import { PropType, computed, ref } from 'vue'
 import { RplAlertTypes } from './constants'
+import onResizeHeight from './../../composables/onResizeHeight'
 import { RplIconNames } from './../icon/constants'
 import RplIcon from './../icon/icon.vue'
 import RplTextLink from './../text-link/text-link.vue'
@@ -10,9 +11,9 @@ rplEventBus.register('rpl-alert/dismiss')
 const emit = defineEmits(['dismiss'])
 
 const props = defineProps({
-  type: {
+  variant: {
     type: String as PropType<typeof RplAlertTypes[number]>,
-    default: 'info'
+    default: 'information'
   },
   iconName: {
     type: String as PropType<typeof RplIconNames[number]>,
@@ -47,14 +48,20 @@ const onClose = () => {
 const classes = computed(() => {
   return {
     'rpl-alert': true,
-    [`rpl-alert--${props.type}`]: props.type,
+    [`rpl-alert--${props.variant}`]: props.variant,
     'rpl-alert--closed': props.dismissed
   }
+})
+
+const alertRef = ref(null)
+
+onResizeHeight(alertRef, (height) => {
+  alertRef.value.style.setProperty('--local-container-height', `${height}px`)
 })
 </script>
 
 <template>
-  <div :class="classes">
+  <div ref="alertRef" :class="classes">
     <div
       v-if="!dismissed"
       class="rpl-alert__inner"
@@ -77,24 +84,21 @@ const classes = computed(() => {
         </div>
         <RplTextLink
           v-if="linkText && linkUrl"
-          class="rpl-alert__link rpl-type-label"
+          class="rpl-alert__link rpl-icon-and-text rpl-type-label"
           :url="linkUrl"
         >
-          <span>{{ linkText }}</span>
-          <rpl-icon
-            size="s"
-            colour="white"
-            name="icon-chevron-right"
-          ></rpl-icon>
+          <span class="rpl-icon-and-text__label">{{ linkText }}</span>
+          <span class="rpl-icon-and-text__icon">
+            <rpl-icon
+              size="s"
+              colour="white"
+              name="icon-chevron-right"
+            ></rpl-icon>
+          </span>
         </RplTextLink>
       </div>
-      <button class="rpl-alert__btn-close" @click="onClose">
-        <rpl-icon
-          title="Dismiss alert"
-          size="s"
-          name="icon-cancel"
-          colour="white"
-        ></rpl-icon>
+      <button class="rpl-alert__btn-close rpl-u-focusable" @click="onClose">
+        <rpl-icon title="Dismiss alert" size="s" name="icon-cancel"></rpl-icon>
       </button>
     </div>
   </div>

@@ -2,6 +2,8 @@
   --rpl-icon-and-text-bg-clr: var(--rpl-clr-light);
   --rpl-icon-and-text-clr: var(--rpl-clr-type-default);
   --rpl-icon-and-text-icon: var(--rpl-clr-primary);
+  --rpl-icon-and-text-icon-pad-v: var(--rpl-sp-4);
+  --rpl-icon-and-text-icon-pad-h: var(--rpl-sp-5);
 
   background-color: var(--rpl-icon-and-text-bg-clr);
   color: var(--rpl-icon-and-text-clr);
@@ -9,7 +11,8 @@
   align-items: center;
   justify-content: center;
   gap: var(--rpl-sp-2);
-  padding: var(--rpl-sp-4) var(--rpl-sp-5);
+  padding: var(--rpl-icon-and-text-icon-pad-v)
+    var(--rpl-icon-and-text-icon-pad-h);
   box-sizing: border-box;
 
   &__icon {

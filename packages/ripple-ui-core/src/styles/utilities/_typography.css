@@ -300,6 +300,8 @@
 }
 
 .rpl-u-focusable {
+  cursor: pointer;
+
   &:focus-visible,
   &:focus-visible:hover {
     background-color: var(--rpl-clr-focus);

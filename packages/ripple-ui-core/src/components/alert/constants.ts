@@ -1,1 +1,1 @@
-export const RplAlertTypes = ['info', 'warning', 'error'] as const
+export const RplAlertTypes = ['information', 'warning', 'error'] as const

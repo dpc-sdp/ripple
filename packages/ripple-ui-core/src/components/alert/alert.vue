@@ -73,7 +73,6 @@ onResizeHeight(alertRef, (height) => {
         size="m"
         nopad
         :name="iconName"
-        colour="white"
       ></rpl-icon>
       <div class="rpl-alert__message-wrap">
         <div
@@ -84,14 +83,13 @@ onResizeHeight(alertRef, (height) => {
         </div>
         <RplTextLink
           v-if="linkText && linkUrl"
-          class="rpl-alert__link rpl-icon-and-text rpl-type-label"
+          class="rpl-alert__link rpl-icon-and-text rpl-icon-and-text--text rpl-type-label"
           :url="linkUrl"
         >
           <span class="rpl-icon-and-text__label">{{ linkText }}</span>
           <span class="rpl-icon-and-text__icon">
             <rpl-icon
               size="s"
-              colour="white"
               name="icon-chevron-right"
             ></rpl-icon>
           </span>

@@ -52,14 +52,6 @@
     &:hover {
       color: var(--rpl-clr-type-light);
     }
-
-    &:focus-visible {
-      color: var(--rpl-clr-dark);
-
-      svg {
-        color: var(--rpl-clr-dark);
-      }
-    }
   }
 
   &--information {

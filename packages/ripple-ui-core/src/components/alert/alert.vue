@@ -95,7 +95,7 @@ onResizeHeight(alertRef, (height) => {
           </span>
         </RplTextLink>
       </div>
-      <button class="rpl-alert__btn-close rpl-u-focusable" @click="onClose">
+      <button class="rpl-alert__btn-close rpl-u-focusable rpl-u-focusable--inline" @click="onClose">
         <rpl-icon title="Dismiss alert" size="s" name="icon-cancel"></rpl-icon>
       </button>
     </div>

@@ -63,6 +63,8 @@
   }
 
   &__item-link {
+    display: inline-block;
+
     &,
     &:visited {
       color: var(--rpl-clr-link);

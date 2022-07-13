@@ -4,6 +4,11 @@
 */
 /* stylelint-disable no-descending-specificity */
 
+/* Global */
+html {
+  color: var(--rpl-clr-type-default);
+}
+
 /*
   Headings
   1. Magic number value so that the UI visually matches the design system.
@@ -297,35 +302,4 @@
 /* Modifiers */
 .rpl-type-weight-bold {
   font-weight: var(--rpl-type-weight-bold);
-}
-
-.rpl-u-focusable {
-  cursor: pointer;
-
-  &:focus-visible,
-  &:focus-visible:hover {
-    background-color: var(--rpl-clr-focus);
-    border-color: var(--rpl-clr-focus);
-    border-radius: 0;
-    border-width: var(--rpl-focusable-border-width, 0);
-    color: var(--rpl-clr-dark);
-    text-decoration: none;
-    text-decoration-line: none;
-    outline: 0;
-    position: relative;
-
-    &::after {
-      content: '';
-      background-color: var(--rpl-clr-dark);
-      position: absolute;
-      left: calc(0px - var(--rpl-focusable-border-width, 0px));
-      bottom: calc(var(--rpl-focusable-border-width, 0px) * -1);
-      height: var(--rpl-border-3);
-      width: calc(100% + var(--rpl-focusable-border-width, 0%) * 2);
-    }
-
-    .rpl-icon-and-text__icon {
-      --rpl-icon-and-text-icon: currentcolor;
-    }
-  }
 }

@@ -38,9 +38,10 @@
 import { abstractField, dateFieldHelper } from 'vue-form-generator'
 import moment from 'moment'
 import pikaday from '../formPikaday.vue'
+import deprecate from '@dpc-sdp/ripple-global/mixins/deprecate'
 
 export default {
-  mixins: [abstractField],
+  mixins: [abstractField, deprecate],
   components: {
     pikaday
   },
@@ -131,6 +132,9 @@ export default {
       this.value = val ? moment(val).format() : null
     },
     ...dateFieldHelper
+  },
+  mounted () {
+    this.deprecatedWarn('"fieldRpldatepicker" is deprecated, please use "fieldRpldateinput" instead.')
   }
 }
 </script>

@@ -56,7 +56,7 @@ html {
   font-weight: var(--rpl-type-weight-bold);
   line-height: var(--rpl-type-lh-6);
   letter-spacing: var(--rpl-type-ls-4);
-  color: var(--rpl-theme-text-heading-color, var(--rpl-clr-type-default));
+  color: var(--rpl-theme-text-heading-color, inherit);
   margin-bottom: var(--rpl-sp-4);
 
   @media (--rpl-bp-l) {
@@ -95,7 +95,7 @@ html {
   font-weight: var(--rpl-type-weight-bold);
   line-height: var(--rpl-type-lh-5);
   letter-spacing: var(--rpl-type-ls-2);
-  color: var(--rpl-theme-text-heading-color, var(--rpl-clr-type-default));
+  color: var(--rpl-theme-text-heading-color, inherit);
   margin-bottom: var(--rpl-sp-3);
 
   @media (--rpl-bp-l) {
@@ -112,7 +112,6 @@ html {
   font-weight: var(--rpl-type-weight-bold);
   line-height: var(--rpl-type-lh-4);
   letter-spacing: var(--rpl-type-ls-1);
-  color: var(--rpl-clr-type-default);
   margin-bottom: var(--rpl-sp-2);
 
   @media (--rpl-bp-l) {
@@ -129,7 +128,6 @@ html {
   font-size: var(--rpl-type-size-3);
   line-height: var(--rpl-type-lh-5);
   letter-spacing: var(--rpl-type-ls-2);
-  color: var(--rpl-clr-type-default);
 
   @media (--rpl-bp-l) {
     font-size: var(--rpl-type-size-5);
@@ -143,7 +141,6 @@ html {
   font-size: var(--rpl-type-size-2);
   line-height: var(--rpl-type-lh-4);
   letter-spacing: var(--rpl-type-ls-1);
-  color: var(--rpl-clr-type-default);
   margin-bottom: var(--rpl-sp-8);
 }
 
@@ -152,7 +149,6 @@ html {
   font-size: var(--rpl-type-size-1);
   line-height: var(--rpl-type-lh-3);
   letter-spacing: var(--rpl-type-ls-1);
-  color: var(--rpl-clr-type-default);
   margin-bottom: var(--rpl-sp-8);
 }
 
@@ -162,7 +158,6 @@ html {
   font-size: var(--rpl-type-size-2);
   line-height: var(--rpl-type-lh-4);
   letter-spacing: var(--rpl-type-ls-1);
-  color: var(--rpl-clr-type-default);
   margin-bottom: var(--rpl-sp-8);
   margin-left: var(--rpl-sp-4);
   padding-left: var(--rpl-sp-4);
@@ -214,7 +209,6 @@ html {
   font-size: var(--rpl-type-size-2);
   line-height: var(--rpl-type-lh-4);
   letter-spacing: var(--rpl-type-ls-1);
-  color: var(--rpl-clr-type-default);
   margin-bottom: var(--rpl-sp-8);
   margin-left: var(--rpl-sp-4);
   padding-left: var(--rpl-sp-4);

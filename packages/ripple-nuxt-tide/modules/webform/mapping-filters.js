@@ -405,7 +405,7 @@ module.exports = {
           break
 
         case 'date':
-          field.type = 'rpldatepicker'
+          field.type = 'rpldateinput'
           break
 
         case 'webform_actions':

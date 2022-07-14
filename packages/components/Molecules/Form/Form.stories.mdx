@@ -200,19 +200,10 @@ export const formData = {
         }
       },
       {
-        type: 'rpldatepicker',
-        range: true,
-        label: 'Date Range',
-        model: 'dateRange',
-        startPlaceholder: 'Enter start date',
-        endPlaceholder: 'Enter end date'
-      },
-      {
-        type: 'rpldatepicker',
-        ranged: false,
-        label: 'Date',
+        type: 'rpldateinput',
+        label: 'Date Input',
         model: 'date',
-        placeholder: 'Enter a date'
+        placeholder: 'DD/MM/YYYY'
       },
       {
         type: 'rplslider',
@@ -362,6 +353,50 @@ export const formData = {
   },
   formState: {}
 };
+
+<Canvas>
+  <Story
+    name="Date mask form"
+    argTypes={{
+      formData: { table: { disable: true } }
+    }}
+    args={{
+      formData: {
+        model: {
+          date: ''
+        },
+        schema: {
+          fields: [
+            {
+              type: 'rpldateinput',
+              label: 'Date Input',
+              model: 'date',
+              placeholder: 'DD-MM-YYYY',
+              mask: {
+                delimiter: '-',
+              }
+            }
+          ]
+        },
+        tag: 'rpl-fieldset',
+        formOptions: {
+          validateAfterLoad: false,
+          validateAfterChanged: true
+        },
+        formState: {}
+      },
+      title: 'Date mask form',
+      fullWidth: false,
+      isNewModel: true,
+      options: {
+        validateAfterChanged: true,
+        validateAfterLoad: false
+      }
+    }}
+  >
+    {TemplateForm.bind({})}
+  </Story>
+</Canvas>
 
 <Canvas>
   <Story

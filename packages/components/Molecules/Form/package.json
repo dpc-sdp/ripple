@@ -12,6 +12,7 @@
   "dependencies": {
     "@dpc-sdp/ripple-global": "1.30.5",
     "@dpc-sdp/ripple-icon": "1.30.5",
+    "cleave.js": "^1.6.0",
     "moment": "^2.29.1",
     "pikaday": "^1.8.2",
     "vue-form-generator": "^2.2.2",

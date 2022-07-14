@@ -26,6 +26,7 @@ import fieldRplselect from './fields/fieldRplselect.vue'
 import fieldRplslider from './fields/fieldRplslider.vue'
 import fieldRplcheckbox from './fields/fieldRplcheckbox.vue'
 import fieldRplchecklist from './fields/fieldRplchecklist.vue'
+import fieldRpldateinput from './fields/fieldRpldateinput.vue'
 import fieldRpldatepicker from './fields/fieldRpldatepicker.vue'
 import fieldRplsubmitloader from './fields/fieldRplsubmitloader.vue'
 import fieldRploptionbutton from './fields/fieldRploptionbutton.vue'
@@ -40,6 +41,7 @@ Vue.component('fieldRplselect', fieldRplselect)
 Vue.component('fieldRplslider', fieldRplslider)
 Vue.component('fieldRplcheckbox', fieldRplcheckbox)
 Vue.component('fieldRplchecklist', fieldRplchecklist)
+Vue.component('fieldRpldateinput', fieldRpldateinput)
 Vue.component('fieldRpldatepicker', fieldRpldatepicker)
 Vue.component('fieldRplsubmitloader', fieldRplsubmitloader)
 Vue.component('fieldRploptionbutton', fieldRploptionbutton)
@@ -56,6 +58,7 @@ export default {
     fieldRplselect,
     fieldRplslider,
     fieldRplchecklist,
+    fieldRpldateinput,
     fieldRpldatepicker,
     fieldRplsubmitloader,
     fieldRploptionbutton,

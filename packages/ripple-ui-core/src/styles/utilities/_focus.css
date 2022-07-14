@@ -32,17 +32,19 @@
 }
 
 .rpl-u-focusable--inline {
-  --rpl-focusable-inline-spacing: 2px;
-
   &:focus-visible,
   &:focus-visible:visited,
   &:focus-visible:hover {
-    box-shadow: 0 0 0 var(--rpl-focusable-inline-spacing) var(--rpl-clr-focus);
+    box-shadow:
+      -1px 0 var(--rpl-clr-focus), /* left */
+      1px 0 var(--rpl-clr-focus), /* right */
+      -1px -2px var(--rpl-clr-focus), /* top - shifted left 1px */
+      1px -2px var(--rpl-clr-focus), /* top - shifted right 1px */
+      1px 4px var(--rpl-clr-dark), /* bottom - shifted left 1px */
+      -1px 4px var(--rpl-clr-dark); /* bottom - shifted right 1px */
 
     &::after {
-      bottom: -2px;
-      left: calc(0px - var(--rpl-focusable-border-width, 0px) - var(--rpl-focusable-inline-spacing)); /* 0 - left border width - left spacing */
-      width: calc(100% + (var(--rpl-focusable-border-width, 0%) * 2) + (var(--rpl-focusable-inline-spacing) * 2)); /* 100% + left and right border width + left and right spacing */
+      display: none;
     }
   }
 }

@@ -20,11 +20,16 @@
   }
 
   &__link {
-    color: var(--rpl-clr-type-default);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--rpl-sp-2);
+    box-sizing: border-box;
     padding: var(--rpl-sp-1) 0;
+    color: var(--rpl-clr-type-default);
+  }
 
-    &:focus-visible {
-      --rpl-icon-and-text-icon: currentcolor;
-    }
+  &__icon {
+    color: var(--rpl-clr-primary);
   }
 }

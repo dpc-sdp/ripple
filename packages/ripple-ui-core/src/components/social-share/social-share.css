@@ -1,7 +1,7 @@
 .rpl-social-share {
   &__items {
-    align-items: flex-start;
     display: flex;
+    align-items: flex-start;
     flex-direction: column;
     margin-top: 0;
     padding-left: 0;
@@ -12,7 +12,16 @@
   }
 
   &__link {
-    color: var(--rpl-clr-type-default);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--rpl-sp-2);
+    box-sizing: border-box;
     padding: var(--rpl-sp-1) 0;
+    color: var(--rpl-clr-type-default);
+  }
+
+  &__icon {
+    color: var(--rpl-clr-primary);
   }
 }

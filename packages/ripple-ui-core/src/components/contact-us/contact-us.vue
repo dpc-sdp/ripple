@@ -49,14 +49,14 @@ defineProps({
         <RplTextLink
           :url="item.url"
           :theme="false"
-          class="rpl-contact-us__link rpl-icon-and-text rpl-u-focusable"
+          class="rpl-contact-us__link rpl-u-focusable"
         >
           <RplIcon
             v-if="item.icon"
-            class="rpl-icon-and-text__icon"
+            class="rpl-contact-us__icon"
             :name="item.icon"
           ></RplIcon>
-          <span class="rpl-icon-and-text__label rpl-type-label-small">{{
+          <span class="rpl-type-label-small">{{
             item.label
           }}</span>
         </RplTextLink>

@@ -39,11 +39,6 @@
     gap: var(--rpl-sp-1);
     transition: gap var(--rpl-motion-speed-2) ease-out;
 
-    .rpl-icon {
-      border-bottom: 0;
-      margin-bottom: 0;
-    }
-
     &:hover {
       gap: var(--rpl-sp-2);
     }
@@ -60,6 +55,11 @@
         color: var(--rpl-clr-dark);
       }
     }
+  }
+
+  &__icon {
+    border-bottom: 0;
+    margin-bottom: 0;
   }
 
   &--information {

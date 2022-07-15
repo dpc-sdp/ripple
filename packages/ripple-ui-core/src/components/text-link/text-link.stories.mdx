@@ -59,7 +59,7 @@ export const Template = (args) => ({
       return {
         components: { RplTextLink },
         setup() { return { args } },
-        template: '<p class="sb-container">This para contains a <RplTextLink>voilà</RplTextLink> in the middle.</p>'
+        template: '<p class="sb-container rpl-type-p">This para contains a <RplTextLink>voilà</RplTextLink> in the middle.</p>'
       }
     }}
   </Story>
@@ -68,7 +68,7 @@ export const Template = (args) => ({
       return {
         components: { RplTextLink },
         setup() { return { args } },
-        template: '<p class="sb-container">This para contains a <RplTextLink>😍</RplTextLink> in the middle.</p>'
+        template: '<p class="sb-container rpl-type-p">This para contains a <RplTextLink>😍</RplTextLink> in the middle.</p>'
       }
     }}
   </Story>
@@ -77,7 +77,7 @@ export const Template = (args) => ({
       return {
         components: { RplTextLink },
         setup() { return { args } },
-        template: `<p class="sb-container">This para contains a <RplTextLink target="_blank">link that opens in a new window</RplTextLink> in the middle.</p>`
+        template: `<p class="sb-container rpl-type-p">This para contains a <RplTextLink target="_blank">link that opens in a new window</RplTextLink> in the middle.</p>`
       }
     }}
   </Story>
@@ -91,7 +91,7 @@ export const Template = (args) => ({
       return {
         components: { RplTextLink, RplIcon },
         setup() { return { args } },
-        template: `<p class="sb-container">This para contains a <RplTextLink><RplIcon name="icon-pin" title="download icon"></RplIcon></RplTextLink> in the middle.</p>`
+        template: `<p class="sb-container rpl-type-p">This para contains a <RplTextLink>some text before <RplIcon name="icon-pin" title="download icon"></RplIcon> and after</RplTextLink> in the middle.</p>`
       }
     }}
   </Story>
@@ -108,7 +108,7 @@ export const Template = (args) => ({
       return {
         components: { RplTextLink },
         setup() { return { args } },
-        template: `<p class="sb-container">This para contains an <RplTextLink @click.prevent="args.onClick()" :theme="false">event-tracked link</RplTextLink> in the middle.</p>`
+        template: `<p class="sb-container rpl-type-p">This para contains an <RplTextLink @click.prevent="args.onClick()" :theme="false">event-tracked link</RplTextLink> in the middle.</p>`
       }
     }}
   </Story>

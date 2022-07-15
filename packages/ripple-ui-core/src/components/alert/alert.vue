@@ -83,11 +83,11 @@ onResizeHeight(alertRef, (height) => {
         </div>
         <RplTextLink
           v-if="linkText && linkUrl"
-          class="rpl-alert__link rpl-icon-and-text rpl-icon-and-text--text rpl-type-label"
+          class="rpl-alert__link rpl-type-label"
           :url="linkUrl"
         >
-          <span class="rpl-icon-and-text__label">{{ linkText }}</span>
-          <span class="rpl-icon-and-text__icon">
+          <span class="rpl-alert__link-label">{{ linkText }}</span>
+          <span class="rpl-alert__link-icon">
             <rpl-icon
               size="s"
               name="icon-chevron-right"

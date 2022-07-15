@@ -64,6 +64,17 @@
     background-color: var(--rpl-clr-light);
     border-color: var(--rpl-clr-neutral-200);
     box-shadow: var(--rpl-elevation-1);
+    width: auto;
+
+    .rpl-icon-and-text__label {
+      display: none;
+    }
+
+    @media (--rpl-bp-s) {
+      .rpl-icon-and-text__label {
+        display: inline-flex;
+      }
+    }
 
     &:active,
     &:hover {

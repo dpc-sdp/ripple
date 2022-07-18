@@ -1,0 +1,50 @@
+/*
+  Focus utility classes that can be used to show consistent focus styles across
+  any focusable element.
+*/
+
+.rpl-u-focusable {
+  cursor: pointer;
+
+  &:focus-visible,
+  &:focus-visible:visited,
+  &:focus-visible:hover {
+    background-color: var(--rpl-clr-focus);
+    border-color: var(--rpl-clr-focus);
+    border-radius: 0;
+    border-width: var(--rpl-focusable-border-width, 0);
+    color: var(--rpl-clr-dark);
+    text-decoration: none;
+    text-decoration-line: none;
+    outline: 0;
+    position: relative;
+
+    &::after {
+      content: '';
+      background-color: var(--rpl-clr-dark);
+      position: absolute;
+      left: calc(0px - var(--rpl-focusable-border-width, 0px));
+      bottom: calc(var(--rpl-focusable-border-width, 0px) * -1); /* invert border width as bottom position */
+      height: var(--rpl-border-3);
+      width: calc(100% + var(--rpl-focusable-border-width, 0%) * 2); /* 100% + left and right border width */
+    }
+  }
+}
+
+.rpl-u-focusable--inline {
+  &:focus-visible,
+  &:focus-visible:visited,
+  &:focus-visible:hover {
+    box-shadow:
+      -1px 0 var(--rpl-clr-focus), /* left */
+      1px 0 var(--rpl-clr-focus), /* right */
+      -1px -2px var(--rpl-clr-focus), /* top - shifted left 1px */
+      1px -2px var(--rpl-clr-focus), /* top - shifted right 1px */
+      1px 4px var(--rpl-clr-dark), /* bottom - shifted left 1px */
+      -1px 4px var(--rpl-clr-dark); /* bottom - shifted right 1px */
+
+    &::after {
+      display: none;
+    }
+  }
+}

@@ -49,7 +49,7 @@
 
   &--text {
     --rpl-icon-and-text-bg-clr: var(--rpl-clr-light);
-    --rpl-icon-and-text-clr: var(--rpl-clr-type-default);
-    --rpl-icon-and-text-icon: var(--rpl-clr-type-default);
+    --rpl-icon-and-text-clr: currentcolor;
+    --rpl-icon-and-text-icon: currentcolor;
   }
 }

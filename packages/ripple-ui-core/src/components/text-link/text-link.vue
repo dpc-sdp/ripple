@@ -18,7 +18,7 @@ const onClick = (payload?: any) => {
 </script>
 
 <template>
-  <a class="rpl-text-link rpl-u-focusable" :href="url" @click="onClick()">
+  <a class="rpl-text-link rpl-u-focusable rpl-u-focusable--inline" :href="url" @click="onClick()">
     <slot />
   </a>
 </template>

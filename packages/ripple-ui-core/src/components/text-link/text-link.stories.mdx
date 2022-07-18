@@ -91,7 +91,7 @@ export const Template = (args) => ({
       return {
         components: { RplTextLink, RplIcon },
         setup() { return { args } },
-        template: `<p class="sb-container rpl-type-p">This para contains a <RplTextLink>some text before <RplIcon name="icon-pin" title="download icon"></RplIcon> and after</RplTextLink> in the middle.</p>`
+        template: `<p class="sb-container rpl-type-p">This para contains an <RplTextLink>inline icon <RplIcon name="icon-pin" title="download icon"></RplIcon> inside of a link</RplTextLink> in the middle.</p>`
       }
     }}
   </Story>

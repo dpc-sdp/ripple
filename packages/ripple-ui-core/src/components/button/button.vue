@@ -4,8 +4,11 @@ export default { name: 'RplButton' }
 
 <script setup lang="ts">
 import { PropType, computed } from 'vue'
-import { RplButtonVariants, RplButtonThemes } from './constants'
-import { RplIconAndTextPositions } from '../global/constants'
+import {
+  RplButtonVariants,
+  RplButtonThemes,
+  RplButtonIconPositions
+} from './constants'
 import { RplIconNames } from '../icon/constants'
 import RplIcon from '../icon/icon.vue'
 import { rplEventBus } from '../../index'
@@ -28,7 +31,7 @@ const props = defineProps({
     default: undefined
   },
   iconPosition: {
-    type: String as PropType<typeof RplIconAndTextPositions[number]>,
+    type: String as PropType<typeof RplButtonIconPositions[number]>,
     default: 'right'
   },
   label: {

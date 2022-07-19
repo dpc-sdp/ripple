@@ -19,8 +19,7 @@
   }
 
   &__message {
-    margin-top: var(--rpl-sp-1);
-    margin-bottom: var(--rpl-sp-3);
+    margin-bottom: var(--rpl-sp-4);
     color: var(--rpl-clr-type-light);
 
     &-wrap {
@@ -29,15 +28,17 @@
   }
 
   &__link {
-    --rpl-icon-and-text-icon-pad-h: 0;
-    --rpl-icon-and-text-icon-pad-v: var(--rpl-sp-1);
-
-    padding-bottom: var(--rpl-sp-2);
     color: var(--rpl-clr-type-light);
     display: inline-flex;
     align-items: center;
     gap: var(--rpl-sp-1);
     transition: gap var(--rpl-motion-speed-2) ease-out;
+
+    .rpl-icon {
+      border-bottom: 0;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
 
     &:hover {
       gap: var(--rpl-sp-2);
@@ -46,14 +47,6 @@
     &:visited,
     &:hover {
       color: var(--rpl-clr-type-light);
-    }
-
-    &:focus-visible {
-      color: var(--rpl-clr-dark);
-
-      svg {
-        color: var(--rpl-clr-dark);
-      }
     }
   }
 

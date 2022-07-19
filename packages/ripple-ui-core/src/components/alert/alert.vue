@@ -73,7 +73,6 @@ onResizeHeight(alertRef, (height) => {
         size="m"
         nopad
         :name="iconName"
-        colour="white"
       ></rpl-icon>
       <div class="rpl-alert__message-wrap">
         <div
@@ -84,19 +83,19 @@ onResizeHeight(alertRef, (height) => {
         </div>
         <RplTextLink
           v-if="linkText && linkUrl"
-          :theme="false"
           class="rpl-alert__link rpl-type-label"
           :url="linkUrl"
         >
           <span class="rpl-alert__link-label">{{ linkText }}</span>
-          <rpl-icon
-            size="s"
-            colour="white"
-            name="icon-chevron-right"
-          ></rpl-icon>
+          <span class="rpl-alert__link-icon">
+            <rpl-icon
+              size="s"
+              name="icon-chevron-right"
+            ></rpl-icon>
+          </span>
         </RplTextLink>
       </div>
-      <button class="rpl-alert__btn-close rpl-u-focusable" @click="onClose">
+      <button class="rpl-alert__btn-close rpl-u-focusable rpl-u-focusable--inline" @click="onClose">
         <rpl-icon title="Dismiss alert" size="s" name="icon-cancel"></rpl-icon>
       </button>
     </div>

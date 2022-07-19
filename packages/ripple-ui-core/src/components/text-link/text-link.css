@@ -10,7 +10,6 @@
 
   &:active {
     color: var(--rpl-clr-dark);
-    text-decoration: none;
   }
 
   &:hover {

@@ -14,7 +14,7 @@ defineProps({
     default: 'Contact us'
   },
   address: {
-    type: Object as PropType<typeof RplContactUsDetailsArray[]>,
+    type: Object as PropType<typeof RplContactUsDetailsArray>,
     default: () => RplContactUsDetailsArray
   },
   items: {
@@ -56,9 +56,7 @@ defineProps({
             class="rpl-contact-us__icon"
             :name="item.icon"
           ></RplIcon>
-          <span class="rpl-type-label-small">{{
-            item.label
-          }}</span>
+          <span class="rpl-type-label-small">{{ item.label }}</span>
         </RplTextLink>
       </li>
     </ul>

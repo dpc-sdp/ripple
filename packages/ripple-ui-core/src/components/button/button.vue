@@ -47,12 +47,10 @@ const classes = computed(() => {
     'rpl-button',
     `rpl-button--${props.variant}`,
     `rpl-button--${props.theme}`,
-    'rpl-u-focusable',
-    'rpl-icon-and-text',
-    'rpl-icon-and-text--white'
+    'rpl-u-focusable'
   ]
   if (props.iconPosition === 'left') {
-    classTokens.push('rpl-icon-and-text--reverse')
+    classTokens.push('rpl-button--reverse')
   }
   return classTokens.join(' ')
 })
@@ -69,15 +67,13 @@ const onClick = (payload?: any) => {
     :disabled="disabled"
     @click="onClick()"
   >
-    <span class="rpl-icon-and-text__label rpl-type-label rpl-type-weight-bold">
+    <span class="rpl-type-label rpl-type-weight-bold">
       <template v-if="label">
         {{ label }}
       </template>
       <slot></slot>
     </span>
-    <span v-if="iconName" class="rpl-icon-and-text__icon">
-      <RplIcon :name="iconName"></RplIcon>
-    </span>
+    <RplIcon v-if="iconName" :name="iconName"></RplIcon>
   </button>
 </template>
 

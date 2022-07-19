@@ -32,16 +32,14 @@ defineProps({
         <RplTextLink
           :url="item.url"
           :theme="false"
-          class="rpl-social-share__link rpl-icon-and-text rpl-u-focusable"
+          class="rpl-social-share__link rpl-u-focusable"
         >
           <RplIcon
             v-if="item.icon"
-            class="rpl-icon-and-text__icon"
+            class="rpl-social-share__icon"
             :name="item.icon"
           ></RplIcon>
-          <span class="rpl-icon-and-text__label rpl-type-label-small">{{
-            item.label
-          }}</span>
+          <span class="rpl-type-label-small">{{ item.label }}</span>
         </RplTextLink>
       </li>
     </ul>

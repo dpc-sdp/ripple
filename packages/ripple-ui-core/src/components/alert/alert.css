@@ -50,6 +50,11 @@
     }
   }
 
+  &__icon {
+    border-bottom: 0;
+    margin-bottom: 0;
+  }
+
   &--information {
     background-color: var(--rpl-clr-neutral-700);
     color: var(--rpl-clr-type-light);

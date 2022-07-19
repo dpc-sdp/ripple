@@ -5,6 +5,11 @@
   --rpl-focusable-border-width: var(--local-border-width);
   --rpl-icon-and-text-icon: currentcolor;
 
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--rpl-sp-2);
+  box-sizing: border-box;
   border-radius: var(--rpl-border-radius-2);
   border-style: var(--rpl-border-solid);
   border-width: var(--local-border-width);
@@ -20,6 +25,10 @@
 
   @media (--rpl-bp-s) {
     width: auto;
+  }
+
+  &--reverse {
+    flex-direction: row-reverse;
   }
 
   /* Variants */

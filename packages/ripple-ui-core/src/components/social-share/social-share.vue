@@ -22,18 +22,16 @@ defineProps({
 
 <template>
   <div class="rpl-social-share">
-    <h3 v-if="title" class="rpl-type-h3">{{ title }}</h3>
-    <ul v-if="items.length > 0" class="rpl-social-share__items rpl-type-p">
+    <h3 v-if="title" class="rpl-social-share__title rpl-type-label-large">
+      {{ title }}
+    </h3>
+    <ul v-if="items.length > 0" class="rpl-social-share__items">
       <li
         v-for="(item, index) of items"
         :key="index"
         class="rpl-social-share__item"
       >
-        <RplTextLink
-          :url="item.url"
-          :theme="false"
-          class="rpl-social-share__link rpl-u-focusable"
-        >
+        <RplTextLink :url="item.url" class="rpl-social-share__link">
           <RplIcon
             v-if="item.icon"
             class="rpl-social-share__icon"

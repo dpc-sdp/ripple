@@ -1,27 +1,34 @@
 .rpl-social-share {
+  &__title {
+    margin-top: 0;
+    margin-bottom: var(--rpl-sp-4);
+  }
+
   &__items {
     display: flex;
     align-items: flex-start;
     flex-direction: column;
     margin-top: 0;
+    margin-bottom: 0;
     padding-left: 0;
   }
 
   &__item {
     list-style-type: none;
+    line-height: 1;
+    padding: 0 0 var(--rpl-sp-2);
   }
 
   &__link {
     display: inline-flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
     gap: var(--rpl-sp-2);
     box-sizing: border-box;
-    padding: var(--rpl-sp-1) 0;
     color: var(--rpl-clr-type-default);
   }
 
   &__icon {
-    color: var(--rpl-clr-primary);
+    color: var(--rpl-clr-link);
   }
 }

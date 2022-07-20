@@ -1,35 +1,42 @@
 .rpl-contact-us {
+  &__title {
+    margin-top: 0;
+    margin-bottom: var(--rpl-sp-4);
+  }
+
   &__details {
     border-left-style: solid;
     border-left-width: var(--rpl-border-3);
     border-image: var(--rpl-clr-gradient-vertical) 1 100%;
-    margin: var(--rpl-sp-4) 0;
+    margin: 0 0 var(--rpl-sp-4);
     padding-left: var(--rpl-sp-3);
   }
 
   &__items {
-    align-items: flex-start;
     display: flex;
+    align-items: flex-start;
     flex-direction: column;
     margin-top: 0;
+    margin-bottom: 0;
     padding-left: 0;
   }
 
   &__item {
     list-style-type: none;
+    line-height: 1;
+    padding: 0 0 var(--rpl-sp-2);
   }
 
   &__link {
     display: inline-flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
     gap: var(--rpl-sp-2);
     box-sizing: border-box;
-    padding: var(--rpl-sp-1) 0;
     color: var(--rpl-clr-type-default);
   }
 
   &__icon {
-    color: var(--rpl-clr-primary);
+    color: var(--rpl-clr-link);
   }
 }

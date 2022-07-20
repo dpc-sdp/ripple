@@ -26,7 +26,7 @@ defineProps({
 
 <template>
   <div class="rpl-contact-us">
-    <h3 v-if="title" class="rpl-u-margin-b-3 rpl-type-label-large">
+    <h3 v-if="title" class="rpl-contact-us__title rpl-type-label-large">
       {{ title }}
     </h3>
     <div v-if="address" class="rpl-contact-us__details rpl-type-p">
@@ -46,11 +46,7 @@ defineProps({
         :key="index"
         class="rpl-contact-us__item"
       >
-        <RplTextLink
-          :url="item.url"
-          :theme="false"
-          class="rpl-contact-us__link rpl-u-focusable"
-        >
+        <RplTextLink :url="item.url" class="rpl-contact-us__link">
           <RplIcon
             v-if="item.icon"
             class="rpl-contact-us__icon"

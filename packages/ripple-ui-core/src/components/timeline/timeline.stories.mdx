@@ -43,7 +43,7 @@ export const SingleTemplate = (args) => ({
           subtitle: 'Contains title and custom subtitle.'
         },
         {
-          image: svgPlaceholder({ width: 88, height: 88 }),
+          image: svgPlaceholder({ width: 80, height: 80 }),
           title: 'Timeline item 3',
           dateStart: '2018-01-01T09:00:00.000+10:00',
           dateEnd: '2018-01-15T09:00:00.000+10:00',
@@ -57,7 +57,7 @@ export const SingleTemplate = (args) => ({
           description: 'Contains title, matching start / end date and description.'
         },
         {
-          image: svgPlaceholder({ width: 88, height: 88 }),
+          image: svgPlaceholder({ width: 80, height: 80 }),
           title: 'Timeline item 5 with link',
           url: 'https://www.google.com',
           description: 'Contains an image, title, external URL and description.'
@@ -69,44 +69,351 @@ export const SingleTemplate = (args) => ({
   </Story>
 </Canvas>
 
-## With progress
+## Headings only
 
 <Canvas>
   <Story
-    name='With progress'
+    name='Headings only'
+    play={a11yStoryCheck}
+    args={{
+      title: 'Timeline heading',
+      items: [
+        {
+          title: 'Timeline item 1'
+        },
+        {
+          title: 'Timeline item 2'
+        },
+        {
+          title: 'Timeline item 3 with link',
+          url: 'https://www.google.com'
+        },
+        {
+          title: 'Timeline item 4'
+        },
+        {
+          title: 'Timeline item 5'
+        }
+      ]
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>
+
+## Progressive / Active
+
+<Canvas columns={3}>
+  <Story
+    name='Progressive/Active/1'
     play={a11yStoryCheck}
     args={{
       title: false,
       items: [
         {
-          image: '',
-          dateStart: '',
-          dateEnd: '',
           title: 'First item',
-          subtitle: '',
           description: '<p>Text</p><p>Another line, why not</p>',
-          current: false,
-          url: '',
+          current: true,
+        },
+        {
+          title: '2nd item',
+          description: '',
         },
         {
           image: '',
-          dateStart: '',
-          dateEnd: '',
+          title: 'The last item',
+          description: '<p>Different <em>markup</em></p>',
+          url: 'https://g',
+        }
+      ]
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+  <Story
+    name='Progressive/Active/2'
+    play={a11yStoryCheck}
+    args={{
+      title: false,
+      items: [
+        {
+          title: 'First item',
+          description: '<p>Text</p><p>Another line, why not</p>',
+        },
+        {
           title: '2nd item',
-          subtitle: '',
           description: '',
           current: true,
-          url: '',
         },
         {
           image: '',
-          dateStart: '',
-          dateEnd: '',
           title: 'The last item',
-          subtitle: '',
+          description: '<p>Different <em>markup</em></p>',
+          url: 'https://g',
+        }
+      ]
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+  <Story
+    name='Progressive/Active/3'
+    play={a11yStoryCheck}
+    args={{
+      title: false,
+      items: [
+        {
+          title: 'First item',
+          description: '<p>Text</p><p>Another line, why not</p>',
+        },
+        {
+          title: '2nd item',
+          description: '',
+        },
+        {
+          image: '',
+          title: 'The last item',
+          description: '<p>Different <em>markup</em></p>',
+          url: 'https://g',
+          current: true,
+        }
+      ]
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>
+
+## Progressive / With images
+
+<Canvas columns={3}>
+  <Story
+    name='Progressive/Image/1'
+    play={a11yStoryCheck}
+    args={{
+      title: false,
+      items: [
+        {
+          image: svgPlaceholder({ width: 80, height: 80 }),
+          title: 'First item',
+          description: '<p>Text</p><p>Another line, why not</p>',
+          current: true,
+        },
+        {
+          title: '2nd item',
+          description: '',
+        },
+        {
+          image: '',
+          title: 'The last item',
+          description: '<p>Different <em>markup</em></p>',
+          url: 'https://g',
+        }
+      ]
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+  <Story
+    name='Progressive/Image/2'
+    play={a11yStoryCheck}
+    args={{
+      title: false,
+      items: [
+        {
+          title: 'First item',
+          description: '<p>Text</p><p>Another line, why not</p>',
+          current: true,
+        },
+        {
+          image: svgPlaceholder({ width: 80, height: 80 }),
+          title: '2nd item',
+        },
+        {
+          title: 'The last item',
           description: '<p>Different <em>markup</em></p>',
           current: false,
           url: 'https://g',
+        }
+      ]
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+  <Story
+    name='Progressive/Image/3'
+    play={a11yStoryCheck}
+    args={{
+      title: false,
+      items: [
+        {
+          title: 'First item',
+          description: '<p>Text</p><p>Another line, why not</p>',
+          current: true,
+        },
+        {
+          title: '2nd item',
+        },
+        {
+          image: svgPlaceholder({ width: 80, height: 80 }),
+          title: 'The last item',
+          description: '<p>Different <em>markup</em></p>',
+          url: 'https://g',
+        }
+      ]
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+  <Story
+    name='Progressive/Image/4'
+    play={a11yStoryCheck}
+    args={{
+      title: false,
+      items: [
+        {
+          image: svgPlaceholder({ width: 80, height: 80 }),
+          title: 'First item',
+          description: '<p>Text</p><p>Another line, why not</p>',
+        },
+        {
+          title: '2nd item',
+          description: '',
+          current: true,
+        },
+        {
+          image: '',
+          title: 'The last item',
+          description: '<p>Different <em>markup</em></p>',
+          url: 'https://g',
+        }
+      ]
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+  <Story
+    name='Progressive/Image/5'
+    play={a11yStoryCheck}
+    args={{
+      title: false,
+      items: [
+        {
+          title: 'First item',
+          description: '<p>Text</p><p>Another line, why not</p>',
+        },
+        {
+          image: svgPlaceholder({ width: 80, height: 80, bgColor: 'rgb(0, 82, 194)', fgColor: '#fff' }),
+          title: '2nd item',
+          current: true,
+        },
+        {
+          title: 'The last item',
+          description: '<p>Different <em>markup</em></p>',
+          current: false,
+          url: 'https://g',
+        }
+      ]
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+  <Story
+    name='Progressive/Image/6'
+    play={a11yStoryCheck}
+    args={{
+      title: false,
+      items: [
+        {
+          title: 'First item',
+          description: '<p>Text</p><p>Another line, why not</p>',
+        },
+        {
+          title: '2nd item',
+          current: true,
+        },
+        {
+          image: svgPlaceholder({ width: 80, height: 80 }),
+          title: 'The last item',
+          description: '<p>Different <em>markup</em></p>',
+          url: 'https://g',
+        }
+      ]
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+  <Story
+    name='Progressive/Image/7'
+    play={a11yStoryCheck}
+    args={{
+      title: false,
+      items: [
+        {
+          image: svgPlaceholder({ width: 80, height: 80 }),
+          title: 'First item',
+          description: '<p>Text</p><p>Another line, why not</p>',
+        },
+        {
+          title: '2nd item',
+          description: '',
+        },
+        {
+          image: '',
+          title: 'The last item',
+          description: '<p>Different <em>markup</em></p>',
+          url: 'https://g',
+          current: true,
+        }
+      ]
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+  <Story
+    name='Progressive/Image/8'
+    play={a11yStoryCheck}
+    args={{
+      title: false,
+      items: [
+        {
+          title: 'First item',
+          description: '<p>Text</p><p>Another line, why not</p>',
+        },
+        {
+          image: svgPlaceholder({ width: 80, height: 80 }),
+          title: '2nd item',
+        },
+        {
+          title: 'The last item',
+          description: '<p>Different <em>markup</em></p>',
+          current: true,
+          url: 'https://g',
+        }
+      ]
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+  <Story
+    name='Progressive/Image/9'
+    play={a11yStoryCheck}
+    args={{
+      title: false,
+      items: [
+        {
+          title: 'First item',
+          description: '<p>Text</p><p>Another line, why not</p>',
+        },
+        {
+          title: '2nd item',
+        },
+        {
+          image: svgPlaceholder({ width: 80, height: 80 }),
+          title: 'The last item',
+          description: '<p>Different <em>markup</em></p>',
+          url: 'https://g',
+          current: true,
         }
       ]
     }}

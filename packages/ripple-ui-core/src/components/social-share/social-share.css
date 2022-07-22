@@ -1,6 +1,5 @@
 .rpl-social-share {
   &__title {
-    margin-top: 0;
     margin-bottom: var(--rpl-sp-4);
   }
 

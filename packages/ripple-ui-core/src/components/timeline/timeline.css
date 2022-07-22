@@ -5,7 +5,7 @@
   --local-clr-border: var(--rpl-clr-neutral-300);
 
   &__heading {
-    margin: 0;
+    margin-bottom: 0;
   }
 
   &__items {

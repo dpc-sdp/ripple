@@ -24,7 +24,7 @@
     "build:ripple": "lerna run build --scope @dpc-sdp/ripple*",
     "build:examples": "lerna run build --scope nuxt-app vue-app webcomponents",
     "build:docs": "lerna run build --scope docs",
-    "postinstall": "patch-package&&husky install",
+    "postinstall": "patch-package&&husky install&&yarn build:ripple",
     "release:dev": "lerna publish --canary minor --preid alpha --no-git-tag-version --registry $NPM_REGISTRY --dist-tag next",
     "release:prod": "lerna publish --conventional-commits --create-release github",
     "lint": "eslint . --ext .ts,.vue && yarn workspace @dpc-sdp/ripple-ui-core stylelint \"**/*.css\"",

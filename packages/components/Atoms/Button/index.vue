@@ -2,6 +2,7 @@
   <rpl-link
     v-if="href"
     :href="href"
+    :target="target"
     class="rpl-button"
     :class="{
       'rpl-button--primary': (theme === 'primary'),
@@ -37,6 +38,10 @@ export default {
      * The URL destination of when button is clicked.
      */
     href: String,
+    /**
+     * The button target, e.g. _blank, _parent
+     */
+    target: String,
     /**
      * Button theme or colour styling e.g. primary, secondary.
      */

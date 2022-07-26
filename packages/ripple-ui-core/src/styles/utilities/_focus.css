@@ -28,6 +28,10 @@
       height: var(--rpl-border-3);
       width: calc(100% + var(--rpl-focusable-border-width, 0%) * 2); /* 100% + left and right border width */
     }
+
+    .rpl-icon {
+      color: var(--rpl-clr-dark);
+    }
   }
 }
 

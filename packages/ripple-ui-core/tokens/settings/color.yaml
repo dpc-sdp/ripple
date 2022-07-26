@@ -21,7 +21,7 @@ clr:
       contrast:
         value: '{clr.light}'
       accessible:
-        value: '{clr.dark}'
+        value: '{theme.clr.primary.500}'
     accent:
       contrast:
         value: '{clr.light}'

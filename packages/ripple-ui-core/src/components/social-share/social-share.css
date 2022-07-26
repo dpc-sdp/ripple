@@ -16,7 +16,7 @@
     color: var(--rpl-clr-link);
   }
 
-  a[class^='share-network-'] {
+  &__link {
     line-height: 1;
     margin: 0 0 var(--rpl-sp-2);
     display: inline-flex;

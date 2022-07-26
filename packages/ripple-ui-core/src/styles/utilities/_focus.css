@@ -3,9 +3,7 @@
   any focusable element.
 */
 
-/* stylelint-disable no-descending-specificity */
-.rpl-u-focusable,
-.rpl-u-focusable-container a {
+.rpl-u-focusable {
   cursor: pointer;
 
   &:focus-visible,
@@ -38,8 +36,7 @@
   }
 }
 
-.rpl-u-focusable--inline,
-.rpl-u-focusable-container a {
+.rpl-u-focusable--inline {
   &:focus-visible,
   &:focus-visible:visited,
   &:focus-visible:hover {
@@ -55,4 +52,3 @@
     }
   }
 }
-/* stylelint-enable no-descending-specificity */

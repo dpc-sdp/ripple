@@ -35,21 +35,20 @@ defineProps({
     <h3 v-if="title" class="rpl-social-share__title rpl-type-label-large">
       {{ title }}
     </h3>
-    <div class="rpl-social-share__items rpl-u-focusable-container">
+    <div class="rpl-social-share__items">
       <ShareNetwork
         v-for="network in networks"
-        :key="network"
-        :network="network"
+        :key="network.toLowerCase()"
+        :network="network.toLowerCase()"
         :title="page.title"
         :url="page.url"
+        class="rpl-social-share__link rpl-u-focusable rpl-u-focusable--inline"
       >
         <RplIcon
           class="rpl-social-share__icon"
-          :name="`icon-${network}`"
+          :name="`icon-${network.toLowerCase()}`"
         ></RplIcon>
-        <span class="rpl-type-label-small">{{
-          network.charAt(0).toUpperCase() + network.substring(1)
-        }}</span>
+        <span class="rpl-type-label-small">{{ network }}</span>
       </ShareNetwork>
     </div>
   </div>

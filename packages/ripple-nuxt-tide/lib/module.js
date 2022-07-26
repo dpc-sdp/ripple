@@ -84,11 +84,15 @@ const nuxtTide = function (moduleOptions) {
     this.addServerMiddleware(require('./server-middleware/basic-auth.js'))
   }
 
-  if (options.searchApi) {
+  if (options.modules?.landingPage?.contentCollection !== false) {
+    const searchApiOptions = options.searchApi || {}
     this.addServerMiddleware(tideSearchApiMiddleware({
       templates: options.searchTemplates,
       tide: options,
-      ...options.searchApi
+      apiBase: 'search-api',
+      apiVersion: 'v2',
+      cacheAge: 30,
+      ...searchApiOptions
     }))
   }
 
@@ -103,12 +107,11 @@ const nuxtTide = function (moduleOptions) {
 
   // Content Collection - default to enabled
   if (options.modules?.landingPage?.contentCollection !== false) {
-    const customCCPath = path.resolve('tide/tide.content-collection.js')
     this.addPlugin({
       src: path.resolve(__dirname, 'templates/content-collection.js'),
       fileName: 'tide-content-collection.js',
       options: {
-        useCustomPath: fs.existsSync(customCCPath)
+        useCustomPath: fs.existsSync('tide/tide.content-collection.js')
       }
     })
   }

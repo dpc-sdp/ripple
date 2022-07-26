@@ -79,10 +79,6 @@
 
     &-link {
       color: var(--rpl-clr-type-default);
-
-      &:focus-visible {
-        --rpl-icon-and-text-icon: currentcolor;
-      }
     }
 
     &-subtitle,

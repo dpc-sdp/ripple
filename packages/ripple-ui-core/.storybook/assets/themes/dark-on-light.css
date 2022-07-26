@@ -5,6 +5,7 @@
 :root {
   --rpl-clr-primary: #fdda24;
   --rpl-clr-primary-alt: #fef0a7;
+  --rpl-clr-type-primary-accessible: var(--rpl-clr-dark);
   --rpl-clr-type-primary-contrast: var(--rpl-clr-dark);
   --rpl-clr-accent: #88dbdf;
   --rpl-clr-accent-alt: #f3fcfc;

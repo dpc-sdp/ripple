@@ -46,9 +46,9 @@ const classes = (item: typeof RplTimelineItemArray, index: number) => {
 
 <template>
   <div class="rpl-timeline">
-    <h3 v-if="title" class="rpl-type-h2 rpl-u-margin-b-3">
+    <h2 v-if="title" class="rpl-type-h2 rpl-timeline__heading">
       {{ title }}
-    </h3>
+    </h2>
     <ul v-if="items.length > 1" class="rpl-timeline__items rpl-type-p">
       <li
         v-for="(item, index) of items"
@@ -62,16 +62,15 @@ const classes = (item: typeof RplTimelineItemArray, index: number) => {
           alt=""
           class="rpl-timeline__item-image"
         />
-        <h4 v-if="item.title" class="rpl-timeline__item-title rpl-type-h3">
+        <h3 v-if="item.title" class="rpl-timeline__item-title">
           <RplTextLink
             v-if="item.url"
-            class="rpl-timeline__item-link rpl-u-focusable"
+            class="rpl-timeline__item-link"
             :url="item.url"
-            :theme="false"
             >{{ item.title }}</RplTextLink
           >
           <template v-else>{{ item.title }}</template>
-        </h4>
+        </h3>
         <p v-if="hasSubtitle(item)" class="rpl-timeline__item-subtitle">
           {{ subtitle(item) }}
         </p>

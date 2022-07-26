@@ -29,30 +29,24 @@
 
   &__link {
     color: var(--rpl-clr-type-light);
-    display: inline-flex;
-    align-items: center;
-    gap: var(--rpl-sp-1);
     transition: gap var(--rpl-motion-speed-2) ease-out;
 
     .rpl-icon {
-      border-bottom: 0;
-      margin-bottom: 0;
-      padding-bottom: 0;
-    }
-
-    &:hover {
-      gap: var(--rpl-sp-2);
+      transition: transform var(--rpl-motion-speed-2) ease-out;
+      transform: translateX(var(--rpl-sp-1));
     }
 
     &:visited,
     &:hover {
       color: var(--rpl-clr-type-light);
     }
-  }
 
-  &__icon {
-    border-bottom: 0;
-    margin-bottom: 0;
+    &:hover,
+    &:active {
+      .rpl-icon {
+        transform: translateX(var(--rpl-sp-2));
+      }
+    }
   }
 
   &--information {

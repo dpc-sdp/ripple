@@ -1,7 +1,10 @@
 .rpl-icon {
-  display: inline-flex;
+  display: inline-block;
+  width: var(--rpl-icon-size);
+  height: var(--rpl-icon-size);
 
   svg {
+    display: block;
     fill: currentcolor;
     width: var(--rpl-icon-size);
     height: var(--rpl-icon-size);

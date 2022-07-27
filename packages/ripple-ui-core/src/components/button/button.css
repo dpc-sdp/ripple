@@ -3,7 +3,6 @@
 .rpl-button {
   --local-border-width: var(--rpl-border-2);
   --rpl-focusable-border-width: var(--local-border-width);
-  --rpl-icon-and-text-icon: currentcolor;
 
   display: inline-flex;
   align-items: center;
@@ -75,19 +74,19 @@
     box-shadow: var(--rpl-elevation-1);
     width: auto;
 
-    .rpl-icon-and-text__label {
+    &:active,
+    &:hover {
+      color: var(--local-white-type-clr-hover);
+    }
+
+    .rpl-button__label {
       display: none;
     }
 
     @media (--rpl-bp-s) {
-      .rpl-icon-and-text__label {
+      .rpl-button__label {
         display: inline-flex;
       }
-    }
-
-    &:active,
-    &:hover {
-      color: var(--local-white-type-clr-hover);
     }
   }
 

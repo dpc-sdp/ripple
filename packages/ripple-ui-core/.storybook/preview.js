@@ -4,6 +4,10 @@ import { withDesign } from 'storybook-addon-designs'
 import './storybook.css'
 import './../src/styles/global.css'
 
+import VueSocialSharing from 'vue-social-sharing'
+import { app } from '@storybook/vue3'
+app.use(VueSocialSharing)
+
 import svgPlaceholder from './components/svgPlaceholder'
 window.svgPlaceholder = svgPlaceholder
 

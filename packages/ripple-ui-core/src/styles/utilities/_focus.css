@@ -13,7 +13,7 @@
     border-color: var(--rpl-clr-focus);
     border-radius: 0;
     border-width: var(--rpl-focusable-border-width, 0);
-    color: var(--rpl-clr-dark);
+    color: var(--rpl-clr-type-focus-contrast);
     text-decoration: none;
     text-decoration-line: none;
     outline: 0;
@@ -35,7 +35,7 @@
     }
 
     .rpl-icon {
-      color: var(--rpl-clr-dark);
+      color: var(--rpl-clr-type-focus-contrast);
     }
   }
 }

@@ -11,6 +11,7 @@
   border: $rpl-button-border;
   border-radius: $rpl-button-border-radius;
   cursor: pointer;
+  background-color: red !important;
 
   @include rpl_breakpoint('s') {
     width: auto;

@@ -121,7 +121,7 @@ const toggleAllLabel = computed(() => {
     <div class="rpl-accordion__toggle-all-wrapper">
       <button
         v-if="items.length > 1"
-        class="rpl-accordion__toggle-all  rpl-u-focusable"
+        class="rpl-accordion__toggle-all  rpl-u-focusable  rpl-u-focusable--inline"
         @click="toggleAll()"
       >
         {{ toggleAllLabel }}

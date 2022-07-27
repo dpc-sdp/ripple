@@ -335,7 +335,9 @@ export const tide = (axios, site, config) => ({
   },
 
   getPathData: async function (path, params, headersConfig) {
-    let routeParams = { path: path }
+    // Strip trailing slash
+    const cleanPath = path.charAt(path.length - 1) === '/' ? path.substring(0, path.length - 1) : path
+    let routeParams = { path: cleanPath }
     if (!isEmpty(params)) {
       merge(routeParams, params)
     }

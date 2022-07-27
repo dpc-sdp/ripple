@@ -32,6 +32,7 @@
     transition: gap var(--rpl-motion-speed-2) ease-out;
 
     .rpl-icon {
+      margin-bottom: -0.2em;
       transition: transform var(--rpl-motion-speed-2) ease-out;
       transform: translateX(var(--rpl-sp-1));
     }

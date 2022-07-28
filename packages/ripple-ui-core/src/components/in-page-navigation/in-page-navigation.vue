@@ -4,9 +4,8 @@ export default { name: 'RplInPageNavigation' }
 
 <script setup lang="ts">
 import { PropType } from 'vue'
-import { RplInPageNavigationItemArray } from './constants'
-import RplIcon from '../icon/icon.vue'
-import RplTextLink from '../text-link/text-link.vue'
+import { RplListItemArray } from '../list/constants'
+import RplList from '../list/list.vue'
 
 defineProps({
   title: {
@@ -14,14 +13,10 @@ defineProps({
     default: 'On this page'
   },
   links: {
-    type: Array as PropType<typeof RplInPageNavigationItemArray[]>,
+    type: Array as PropType<typeof RplListItemArray[]>,
     default: () => []
   }
 })
-
-const sub = (item: typeof RplInPageNavigationItemArray) => {
-  return String(item.type) === 'h3'
-}
 </script>
 
 <template>
@@ -29,22 +24,11 @@ const sub = (item: typeof RplInPageNavigationItemArray) => {
     <h3 class="rpl-in-page-navigation__title rpl-type-h3">
       {{ title }}
     </h3>
-    <ul v-if="links.length > 0" class="rpl-in-page-navigation__items">
-      <li
-        v-for="(item, index) of links"
-        :key="index"
-        class="rpl-in-page-navigation__item rpl-type-p-small"
-      >
-        <RplTextLink :url="item.url" class="rpl-in-page-navigation__link">
-          <RplIcon
-            v-if="sub(item)"
-            class="rpl-in-page-navigation__icon"
-            :name="`icon-indent`"
-          ></RplIcon
-          >{{ item.text }}
-        </RplTextLink>
-      </li>
-    </ul>
+    <RplList
+      :items="links"
+      component-prefix="rpl-in-page-navigation"
+      item-class="rpl-type-p-small"
+    ></RplList>
   </div>
 </template>
 

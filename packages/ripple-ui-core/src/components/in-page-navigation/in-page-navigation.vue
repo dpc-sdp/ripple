@@ -35,9 +35,13 @@ const sub = (item: typeof RplInPageNavigationItemArray) => {
         :key="index"
         class="rpl-in-page-navigation__item rpl-type-p-small"
       >
-        <RplTextLink :url="item.url">
-          <RplIcon v-if="sub(item)" :name="`icon-indent`"></RplIcon>
-          {{ item.text }}
+        <RplTextLink :url="item.url" class="rpl-in-page-navigation__link">
+          <RplIcon
+            v-if="sub(item)"
+            class="rpl-in-page-navigation__icon"
+            :name="`icon-indent`"
+          ></RplIcon
+          >{{ item.text }}
         </RplTextLink>
       </li>
     </ul>

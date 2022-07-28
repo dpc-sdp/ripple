@@ -17,5 +17,25 @@
 
   &__item {
     list-style-type: none;
+    margin-bottom: var(--rpl-sp-3);
+
+    @media (--rpl-bp-m) {
+      margin-bottom: var(--rpl-sp-4);
+    }
+  }
+
+  &__link {
+    color: var(--rpl-clr-type-default);
+  }
+
+  &__icon {
+    width: var(--rpl-sp-2);
+    margin: 0 var(--rpl-sp-2);
+
+    svg {
+      width: var(--rpl-sp-2);
+      height: var(--rpl-sp-3);
+      margin: 0;
+    }
   }
 }

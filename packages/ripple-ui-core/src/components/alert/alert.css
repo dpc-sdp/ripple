@@ -33,8 +33,9 @@
 
     .rpl-icon {
       margin-bottom: -0.2em;
+      margin-left: var(--rpl-sp-1);
       transition: transform var(--rpl-motion-speed-2) ease-out;
-      transform: translateX(var(--rpl-sp-1));
+      transform: translateX(0);
     }
 
     &:visited,
@@ -45,7 +46,14 @@
     &:hover,
     &:active {
       .rpl-icon {
-        transform: translateX(var(--rpl-sp-2));
+        transform: translateX(var(--rpl-sp-1));
+      }
+    }
+
+    &:hover:focus-visible,
+    &:active:focus-visible {
+      .rpl-icon {
+        transform: translateX(0);
       }
     }
   }

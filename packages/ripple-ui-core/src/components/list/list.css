@@ -1,0 +1,15 @@
+.rpl-list {
+  background-color: var(--rpl-list-bg-clr);
+  color: var(--rpl-list-clr);
+  padding: var(--rpl-space-2);
+
+  &--default {
+    --rpl-list-bg-clr: var(--rpl-clr-core-primary);
+    --rpl-list-clr: var(--rpl-clr-core-primary-contrast);
+  }
+
+  &--neutral {
+    --rpl-list-bg-clr: var(--rpl-clr-dark);
+    --rpl-list-clr: var(--rpl-clr-white);
+  }
+}

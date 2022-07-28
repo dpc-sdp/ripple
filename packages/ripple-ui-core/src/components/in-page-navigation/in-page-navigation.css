@@ -1,0 +1,21 @@
+@import '@dpc-sdp/ripple-ui-core/style/breakpoints';
+
+.rpl-in-page-navigation {
+  border-left-style: solid;
+  border-left-width: var(--rpl-border-3);
+  border-image: var(--rpl-clr-gradient-vertical) 1 100%;
+  margin: 0 0 var(--rpl-sp-4);
+  padding-left: var(--rpl-sp-3);
+
+  @media (--rpl-bp-m) {
+    padding-left: var(--rpl-sp-4);
+  }
+
+  &__items {
+    padding-left: 0;
+  }
+
+  &__item {
+    list-style-type: none;
+  }
+}

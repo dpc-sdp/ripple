@@ -91,6 +91,10 @@
       margin-bottom: 0;
     }
 
+    &-link {
+      display: inline-block;
+    }
+
     &-link,
     &-link:visited {
       color: var(--rpl-clr-type-default);

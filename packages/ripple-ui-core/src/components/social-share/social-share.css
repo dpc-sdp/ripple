@@ -12,22 +12,15 @@
     padding-left: 0;
   }
 
-  &__icon {
-    color: var(--rpl-clr-link);
+  &__link {
+    display: inline-block;
+    margin: 0 0 var(--rpl-sp-1);
+    color: var(--rpl-clr-type-default);
   }
 
-  &__link {
-    line-height: 1;
-    margin: 0 0 var(--rpl-sp-2);
-    display: inline-flex;
-    align-items: flex-end;
-    justify-content: center;
-    gap: var(--rpl-sp-2);
-    box-sizing: border-box;
-    color: var(--rpl-clr-type-default);
-
-    &:focus-visible .rpl-social-share__icon {
-      color: var(--rpl-clr-focus-contrast);
-    }
+  &__icon {
+    color: var(--rpl-clr-link);
+    margin-right: var(--rpl-sp-2);
+    margin-bottom: -0.2em;
   }
 }

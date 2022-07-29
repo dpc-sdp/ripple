@@ -14,7 +14,7 @@
 
   &__link {
     display: inline-block;
-    margin: 0 0 var(--rpl-sp-1);
+    margin: 0 0 var(--rpl-sp-2);
     color: var(--rpl-clr-type-default);
   }
 

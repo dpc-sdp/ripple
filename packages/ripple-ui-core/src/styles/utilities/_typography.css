@@ -7,7 +7,7 @@
 /* Global */
 html {
   color: var(--rpl-clr-type-default);
-	-webkit-font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
@@ -22,10 +22,7 @@ html {
   font-weight: var(--rpl-type-weight-bold);
   line-height: var(--rpl-type-lh-10);
   letter-spacing: var(--rpl-type-ls-5);
-  color: var(
-    --rpl-theme-text-h1-highlight-color,
-    var(--rpl-clr-type-accent-contrast)
-  );
+  color: var(--rpl-clr-type-accent-contrast);
   background-color: var(--rpl-clr-accent);
   box-decoration-break: clone;
 
@@ -43,7 +40,7 @@ html {
   font-weight: var(--rpl-type-weight-bold);
   line-height: var(--rpl-type-lh-9);
   letter-spacing: var(--rpl-type-ls-5);
-  color: var(--rpl-theme-text-h1-color, var(--rpl-clr-primary));
+  color: var(--rpl-clr-primary);
 
   @media (--rpl-bp-l) {
     font-size: var(--rpl-type-size-8);
@@ -58,7 +55,6 @@ html {
   font-weight: var(--rpl-type-weight-bold);
   line-height: var(--rpl-type-lh-6);
   letter-spacing: var(--rpl-type-ls-4);
-  color: var(--rpl-theme-text-heading-color, inherit);
   margin-bottom: var(--rpl-sp-4);
 
   @media (--rpl-bp-l) {
@@ -76,10 +72,7 @@ html {
   font-weight: var(--rpl-type-weight-bold);
   line-height: var(--rpl-type-lh-7);
   letter-spacing: var(--rpl-type-ls-2);
-  color: var(
-    --rpl-theme-text-h3-highlight-color,
-    var(--rpl-clr-type-primary-contrast)
-  );
+  color: var(--rpl-clr-type-primary-contrast);
   background-color: var(--rpl-clr-primary);
   box-decoration-break: clone;
 
@@ -97,7 +90,6 @@ html {
   font-weight: var(--rpl-type-weight-bold);
   line-height: var(--rpl-type-lh-5);
   letter-spacing: var(--rpl-type-ls-2);
-  color: var(--rpl-theme-text-heading-color, inherit);
   margin-bottom: var(--rpl-sp-3);
 
   @media (--rpl-bp-l) {

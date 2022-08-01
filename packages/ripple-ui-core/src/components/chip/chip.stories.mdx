@@ -44,7 +44,12 @@ export const SingleTemplate = (args) => ({
 <Canvas>
   <Story
     name='Default'
-    play={a11yStoryCheck}
+     parameters={{
+      backgrounds: {
+        default: 'default'
+      },
+    }}
+   play={a11yStoryCheck}
     argTypes={{
       variant: {
         control: { type: 'select' },
@@ -73,6 +78,11 @@ export const ManyTemplate = (args) => ({
 <Canvas>
   <Story
     name='Example/Two chips'
+    parameters={{
+      backgrounds: {
+        default: 'default'
+      },
+    }}
     play={a11yStoryCheck}
     argTypes={{
       variant: {
@@ -88,16 +98,6 @@ export const ManyTemplate = (args) => ({
     {ManyTemplate.bind()}
   </Story>
 </Canvas>
-
-export const SingleTemplateReversed = (args) => ({
-  components: { RplChip },
-  setup() {
-    const el = document.querySelector('#story--components-navigation-chip--reversed')
-    if (el) el.parentElement.parentElement.parentElement.parentElement.parentElement.style.backgroundColor='#003174'
-    return { args }
-  },
-  template: '<div class="sb-container" style="background:#003174"><RplChip v-bind="args" /></div>'
-})
 
 ## Reverse
 
@@ -121,6 +121,6 @@ export const SingleTemplateReversed = (args) => ({
       label: 'Chip'
     }}
   >
-    {SingleTemplateReversed.bind()}
+    {SingleTemplate.bind()}
   </Story>
 </Canvas>

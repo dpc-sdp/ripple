@@ -6,12 +6,10 @@
   border-radius: var(--rpl-border-radius-2);
   box-shadow: var(--rpl-elevation-1);
   display: inline-block;
-  line-height: var(--rpl-type-lh-5);
-  padding-top: calc(var(--rpl-sp-2) - var(--rpl-border-1));
+  padding-top: calc(var(--rpl-sp-3) - var(--rpl-border-1));
   padding-right: calc(var(--rpl-sp-5) - var(--rpl-border-1));
-  padding-bottom: calc(var(--rpl-sp-2) - var(--rpl-border-1));
+  padding-bottom: calc(var(--rpl-sp-3) - var(--rpl-border-1));
   padding-left: calc(var(--rpl-sp-5) - var(--rpl-border-1));
-  height: calc(1rem + var(--rpl-sp-3));
   max-width: calc(100% - (2 * var(--rpl-sp-5)) - (2 * var(--rpl-border-1)));
   overflow: hidden;
   text-overflow: ellipsis;
@@ -27,7 +25,10 @@
     list-style-type: none;
     margin: 0;
     padding: 0;
-    display: inline;
+
+    @media (--rpl-bp-m) {
+      margin: calc(0px - var(--rpl-sp-2)) 0 0 0; /* Offset item top padding */
+    }
   }
 
   &__item {
@@ -45,6 +46,7 @@
     @media (--rpl-bp-m) {
       display: inline;
       float: left;
+      padding: var(--rpl-sp-2) 0 0 0;
 
       &::before {
         display: none;

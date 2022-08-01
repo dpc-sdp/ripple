@@ -31,8 +31,8 @@
   }
 
   &--reverse {
-    --rpl-chip-border-clr: var(--rpl-clr-primary-contrast);
-    --rpl-chip-type-clr: var(--rpl-clr-type-light);
+    --rpl-chip-border-clr: var(--rpl-clr-type-primary-contrast);
+    --rpl-chip-type-clr: var(--rpl-clr-type-primary-contrast);
   }
 
   &:hover {

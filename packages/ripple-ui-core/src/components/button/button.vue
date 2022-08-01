@@ -70,7 +70,7 @@ const onClick = (payload?: any) => {
     :disabled="disabled"
     @click="onClick()"
   >
-    <span class="rpl-type-label rpl-type-weight-bold">
+    <span class="rpl-button__label rpl-type-label rpl-type-weight-bold">
       <template v-if="label">
         {{ label }}
       </template>

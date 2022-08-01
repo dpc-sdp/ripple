@@ -4,8 +4,7 @@ export default { name: 'RplSocialShare' }
 
 <script setup lang="ts">
 import { PropType } from 'vue'
-import { RplSocialShareItemArray } from './constants'
-import RplTextLink from '../text-link/text-link.vue'
+import { RplSocialSharePage } from './constants'
 import RplIcon from '../icon/icon.vue'
 
 defineProps({
@@ -13,34 +12,45 @@ defineProps({
     type: [String, Boolean] as PropType<string | boolean>,
     default: 'Share this'
   },
-  items: {
-    type: Array as PropType<typeof RplSocialShareItemArray[]>,
-    default: () => []
+  networks: {
+    type: Array as PropType<string[]>,
+    required: true,
+    default: () => ['facebook', 'twitter', 'linkedin']
+  },
+  page: {
+    type: Object as PropType<typeof RplSocialSharePage>,
+    required: true,
+    default: () => {
+      return {
+        title: '',
+        url: ''
+      }
+    }
   }
 })
 </script>
 
 <template>
-  <div class="rpl-social-share">
+  <div v-if="page.title && page.url" class="rpl-social-share">
     <h3 v-if="title" class="rpl-social-share__title rpl-type-label-large">
       {{ title }}
     </h3>
-    <ul v-if="items.length > 0" class="rpl-social-share__items">
-      <li
-        v-for="(item, index) of items"
-        :key="index"
-        class="rpl-social-share__item"
+    <div class="rpl-social-share__items">
+      <ShareNetwork
+        v-for="network in networks"
+        :key="network.toLowerCase()"
+        :network="network.toLowerCase()"
+        :title="page.title"
+        :url="page.url"
+        class="rpl-social-share__link rpl-u-focusable rpl-u-focusable--inline rpl-type-p-small"
       >
-        <RplTextLink :url="item.url" class="rpl-social-share__link">
-          <RplIcon
-            v-if="item.icon"
-            class="rpl-social-share__icon"
-            :name="item.icon"
-          ></RplIcon>
-          <span class="rpl-type-label-small">{{ item.label }}</span>
-        </RplTextLink>
-      </li>
-    </ul>
+        <RplIcon
+          class="rpl-social-share__icon"
+          :name="`icon-${network.toLowerCase()}`"
+        ></RplIcon>
+        <span>{{ network }}</span>
+      </ShareNetwork>
+    </div>
   </div>
 </template>
 

@@ -4,16 +4,18 @@
 */
 
 .rpl-u-focusable {
+  --local-background-colour: var(--rpl-clr-focus);
+
   cursor: pointer;
 
   &:focus-visible,
   &:focus-visible:visited,
   &:focus-visible:hover {
-    background-color: var(--rpl-clr-focus);
+    background-color: var(--local-background-colour);
     border-color: var(--rpl-clr-focus);
     border-radius: 0;
     border-width: var(--rpl-focusable-border-width, 0);
-    color: var(--rpl-clr-dark);
+    color: var(--rpl-clr-type-focus-contrast);
     text-decoration: none;
     text-decoration-line: none;
     outline: 0;
@@ -24,27 +26,46 @@
       background-color: var(--rpl-clr-dark);
       position: absolute;
       left: calc(0px - var(--rpl-focusable-border-width, 0px));
-      bottom: calc(var(--rpl-focusable-border-width, 0px) * -1); /* invert border width as bottom position */
+      bottom: calc(
+        var(--rpl-focusable-border-width, 0px) * -1
+      ); /* invert border width as bottom position */
+
       height: var(--rpl-border-3);
-      width: calc(100% + var(--rpl-focusable-border-width, 0%) * 2); /* 100% + left and right border width */
+      width: calc(
+        100% + var(--rpl-focusable-border-width, 0%) * 2
+      ); /* 100% + left and right border width */
+    }
+
+    .rpl-icon {
+      color: var(--rpl-clr-type-focus-contrast);
     }
   }
-}
 
-.rpl-u-focusable--inline {
-  &:focus-visible,
-  &:focus-visible:visited,
-  &:focus-visible:hover {
-    box-shadow:
-      -1px 0 var(--rpl-clr-focus), /* left */
-      1px 0 var(--rpl-clr-focus), /* right */
-      -1px -2px var(--rpl-clr-focus), /* top - shifted left 1px */
-      1px -2px var(--rpl-clr-focus), /* top - shifted right 1px */
-      1px 4px var(--rpl-clr-dark), /* bottom - shifted left 1px */
-      -1px 4px var(--rpl-clr-dark); /* bottom - shifted right 1px */
+  /* Alt colour variant for areas where the background colour does not meet AA
+  compliance against the default focus background colour */
+  &.rpl-u-focusable--alt-colour {
+    &:focus-visible,
+    &:focus-visible:visited,
+    &:focus-visible:hover {
+      --local-background-colour: var(--rpl-clr-light);
+    }
+  }
 
-    &::after {
-      display: none;
+  /* Inline variant */
+  &.rpl-u-focusable--inline {
+    &:focus-visible,
+    &:focus-visible:visited,
+    &:focus-visible:hover {
+      box-shadow: -1px 0 var(--local-background-colour), /* left */
+        1px 0 var(--local-background-colour), /* right */
+        -1px -2px var(--local-background-colour), /* top - shifted left 1px */
+        1px -2px var(--local-background-colour), /* top - shifted right 1px */
+        1px 4px var(--rpl-clr-dark), /* bottom - shifted left 1px */
+        -1px 4px var(--rpl-clr-dark); /* bottom - shifted right 1px */
+
+      &::after {
+        display: none;
+      }
     }
   }
 }

@@ -5,7 +5,6 @@ import {
   ArgsTable
 } from '@storybook/addon-docs'
 import RplSocialShare from './social-share.vue'
-import { RplIconGroups } from './../icon/constants'
 import { a11yStoryCheck } from './../../../.storybook/interactions.js'
 
 export const SingleTemplate = (args) => ({
@@ -27,13 +26,11 @@ export const SingleTemplate = (args) => ({
     name='Social share'
     play={a11yStoryCheck}
     args={{
-      items: RplIconGroups.social.map(soc => {
-        return {
-          label: soc.charAt(5).toUpperCase() + soc.substring(6),
-          url: 'https://' + soc.charAt(5),
-          icon: soc
-        }
-      })
+      networks: ['Facebook', 'Twitter', 'LinkedIn'],
+      page: {
+        title: 'Sample page title',
+        url: 'https://sample.page.link'
+      }
     }}
   >
     {SingleTemplate.bind()}

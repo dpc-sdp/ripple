@@ -29,6 +29,10 @@
     &__link {
       display: inline-block;
       color: var(--rpl-clr-type-default);
+
+      &:focus-visible {
+        color: var(--rpl-clr-type-focus-contrast);
+      }
     }
 
     &__icon {

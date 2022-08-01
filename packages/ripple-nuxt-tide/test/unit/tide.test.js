@@ -242,6 +242,22 @@ describe('tide', () => {
     expect(data).toBe(resp)
   })
 
+  test('should get data for root request', async () => {
+    const resp = { page: 'root' }
+    mockAxios.$get.mockImplementation((url) => {
+      const path = '/api/v1/route?site=1&path=%2F'
+      if (url === path) {
+        return Promise.resolve(resp)
+      } else {
+        return Promise.resolve({ response: { status: 404 } })
+      }
+    })
+
+    expect.assertions(1)
+    const data = (await tideApi.getPathData('/'))
+    expect(data).toBe(resp)
+  })
+
   test('should get 404 for a not exist path', async () => {
     const error = {
       response: {

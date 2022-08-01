@@ -48,6 +48,12 @@
     &:focus-visible:visited,
     &:focus-visible:hover {
       --local-background-colour: var(--rpl-clr-light);
+
+      color: var(--rpl-clr-type-default);
+
+      .rpl-icon {
+        color: var(--rpl-clr-type-default);
+      }
     }
   }
 
@@ -56,12 +62,12 @@
     &:focus-visible,
     &:focus-visible:visited,
     &:focus-visible:hover {
-      box-shadow: -1px 0 var(--local-background-colour), /* left */
-        1px 0 var(--local-background-colour), /* right */
-        -1px -2px var(--local-background-colour), /* top - shifted left 1px */
-        1px -2px var(--local-background-colour), /* top - shifted right 1px */
-        1px 4px var(--rpl-clr-dark), /* bottom - shifted left 1px */
-        -1px 4px var(--rpl-clr-dark); /* bottom - shifted right 1px */
+      box-shadow: -1px 0 var(--local-background-colour),
+        /* left */ 1px 0 var(--local-background-colour),
+        /* right */ -1px -2px var(--local-background-colour),
+        /* top - shifted left 1px */ 1px -2px var(--local-background-colour),
+        /* top - shifted right 1px */ 1px 4px var(--rpl-clr-dark),
+        /* bottom - shifted left 1px */ -1px 4px var(--rpl-clr-dark); /* bottom - shifted right 1px */
 
       &::after {
         display: none;

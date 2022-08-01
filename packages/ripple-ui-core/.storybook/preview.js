@@ -26,14 +26,8 @@ export const parameters = {
   },
   cssresources: [
     {
-      id: 'Dark on Light',
+      id: 'Light theme',
       code: `<link rel="stylesheet" type="text/css" href="/themes/dark-on-light.css"></link>`,
-      picked: false,
-      hideCode: true
-    },
-    {
-      id: 'Light on Dark',
-      code: `<link rel="stylesheet" type="text/css" href="/themes/light-on-dark.css"></link>`,
       picked: false,
       hideCode: true
     }

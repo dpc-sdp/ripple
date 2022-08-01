@@ -72,9 +72,12 @@
       color: var(--rpl-clr-link);
     }
 
-    &:focus,
     &:active {
       color: var(--rpl-clr-type-default);
+    }
+
+    &:focus-visible {
+      color: var(--rpl-clr-type-focus-contrast);
     }
   }
 }

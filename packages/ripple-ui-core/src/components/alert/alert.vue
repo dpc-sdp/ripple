@@ -89,7 +89,13 @@ onResizeHeight(alertRef, (height) => {
           {{ linkText }}<rpl-icon name="icon-chevron-right"></rpl-icon>
         </RplTextLink>
       </div>
-      <button class="rpl-alert__btn-close rpl-u-focusable rpl-u-focusable--alt-colour rpl-u-focusable--inline" @click="onClose">
+      <button
+        class="
+          rpl-alert__btn-close
+          rpl-u-focusable rpl-u-focusable--alt-colour rpl-u-focusable--inline
+        "
+        @click="onClose"
+      >
         <rpl-icon title="Dismiss alert" name="icon-cancel"></rpl-icon>
       </button>
     </div>

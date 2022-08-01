@@ -4,9 +4,9 @@ export default { name: 'RplContactUs' }
 
 <script setup lang="ts">
 import { PropType } from 'vue'
-import { RplContactUsDetailsArray, RplContactUsItemArray } from './constants'
-import RplTextLink from '../text-link/text-link.vue'
-import RplIcon from '../icon/icon.vue'
+import { RplContactUsDetailsArray } from './constants'
+import { RplListItemArray } from '../list/constants'
+import RplList from '../list/list.vue'
 
 defineProps({
   title: {
@@ -18,7 +18,7 @@ defineProps({
     default: () => RplContactUsDetailsArray
   },
   items: {
-    type: Array as PropType<typeof RplContactUsItemArray[]>,
+    type: Array as PropType<typeof RplListItemArray[]>,
     default: () => []
   }
 })
@@ -40,22 +40,7 @@ defineProps({
         <template v-if="address.street">{{ address.street }}</template>
       </p>
     </div>
-    <ul v-if="items.length > 0" class="rpl-contact-us__items rpl-type-p">
-      <li
-        v-for="(item, index) of items"
-        :key="index"
-        class="rpl-contact-us__item"
-      >
-        <RplTextLink :url="item.url" class="rpl-contact-us__link">
-          <RplIcon
-            v-if="item.icon"
-            class="rpl-contact-us__icon"
-            :name="item.icon"
-          ></RplIcon>
-          <span>{{ item.label }}</span>
-        </RplTextLink>
-      </li>
-    </ul>
+    <RplList :items="items" class="rpl-type-p"></RplList>
   </div>
 </template>
 

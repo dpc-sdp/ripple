@@ -11,28 +11,30 @@
     padding-left: var(--rpl-sp-3);
   }
 
-  &__items {
-    display: flex;
-    align-items: flex-start;
-    flex-direction: column;
-    margin-top: 0;
-    margin-bottom: 0;
-    padding-left: 0;
-  }
+  .rpl-list {
+    &__items {
+      display: flex;
+      align-items: flex-start;
+      flex-direction: column;
+      margin-top: 0;
+      margin-bottom: 0;
+      padding-left: 0;
+    }
 
-  &__item {
-    list-style-type: none;
-    padding: 0 0 var(--rpl-sp-2);
-  }
+    &__item {
+      list-style-type: none;
+      padding: 0 0 var(--rpl-sp-2);
+    }
 
-  &__link {
-    display: inline-block;
-    color: var(--rpl-clr-type-default);
-  }
+    &__link {
+      display: inline-block;
+      color: var(--rpl-clr-type-default);
+    }
 
-  &__icon {
-    color: var(--rpl-clr-link);
-    margin-right: var(--rpl-sp-2);
-    margin-bottom: -0.2em;
+    &__icon {
+      color: var(--rpl-clr-link);
+      margin-right: var(--rpl-sp-2);
+      margin-bottom: -0.2em;
+    }
   }
 }

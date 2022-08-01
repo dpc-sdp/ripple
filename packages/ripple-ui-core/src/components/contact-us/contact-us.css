@@ -22,20 +22,17 @@
 
   &__item {
     list-style-type: none;
-    line-height: 1;
     padding: 0 0 var(--rpl-sp-2);
   }
 
   &__link {
-    display: inline-flex;
-    align-items: flex-end;
-    justify-content: center;
-    gap: var(--rpl-sp-2);
-    box-sizing: border-box;
+    display: inline-block;
     color: var(--rpl-clr-type-default);
   }
 
   &__icon {
     color: var(--rpl-clr-link);
+    margin-right: var(--rpl-sp-2);
+    margin-bottom: -0.2em;
   }
 }

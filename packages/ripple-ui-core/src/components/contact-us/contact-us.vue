@@ -52,7 +52,7 @@ defineProps({
             class="rpl-contact-us__icon"
             :name="item.icon"
           ></RplIcon>
-          <span class="rpl-type-label-small">{{ item.label }}</span>
+          <span>{{ item.label }}</span>
         </RplTextLink>
       </li>
     </ul>

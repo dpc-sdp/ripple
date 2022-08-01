@@ -18,10 +18,6 @@ const props = defineProps({
     type: String as PropType<typeof RplListTypes[number]>,
     default: 'ul'
   },
-  componentPrefix: {
-    type: String,
-    default: 'rpl-list'
-  },
   itemClass: {
     type: String,
     default: ''
@@ -32,14 +28,16 @@ const props = defineProps({
   }
 })
 
+const componentPrefix = 'rpl-list'
+
 const itemClasses = computed(() => {
-  const classes = [`${props.componentPrefix}__item`]
+  const classes = [`${componentPrefix}__item`]
   if (props.itemClass) classes.push(props.itemClass)
   return classes.join(' ')
 })
 
 const containerClasses = computed(() => {
-  const classes = [`${props.componentPrefix}__items`]
+  const classes = [`${componentPrefix}__items`]
   if (props.containerClass) classes.push(props.containerClass)
   return classes.join(' ')
 })
@@ -58,11 +56,11 @@ const containerClasses = computed(() => {
           :name="item.icon"
           :class="`${componentPrefix}__icon`"
         ></RplIcon
-        >{{ item.text }}
+        ><span :class="`${componentPrefix}__label`">{{ item.text }}</span>
       </RplTextLink>
       <RplList
-        v-if="item.links"
-        :items="item.links"
+        v-if="item.items"
+        :items="item.items"
         :component-prefix="componentPrefix"
         :item-class="itemClass"
         :container-class="`${componentPrefix}__items--sub`"

@@ -19,29 +19,19 @@ const _escapeQuotes = (text: string) => {
   return text.replace('"', '&quot;')
 }
 
-const pluginButton = function (this: any) {
-  // Button
-  this.find('.button').map((i: any, el: any) => {
-    const $button = this.find(el)
-    const buttonHref = $button.attr('href')
-    const buttonText = $button.text()
-    const attributes: string[] = []
-    attributes.push(`:icon="false"`)
-    if (buttonHref) {
-      attributes.push(`link="${buttonHref}"`)
-    }
-    const button = `<rpl-button ${attributes.join(
-      ' '
-    )}>${buttonText}</rpl-button>`
-    return $button.replaceWith(button)
-  })
-}
-
 const pluginTables = function (this: any) {
   // Wrap tables with a div.
   this.find('table').map((i: any, el: any) => {
     const $table = this.find(el)
-    return $table.wrap(`<div class="rpl-markup__table"></div>`)
+    return $table.wrap(`<div class="rpl-table"></div>`)
+  })
+}
+
+const pluginCallout = function (this: any) {
+  // replace drupal class with rpl class
+  this.find('.wysiwyg-callout').map((i: any, el: any) => {
+    const $callout = this.find(el)
+    return $callout.removeClass().addClass('rpl-callout')
   })
 }
 
@@ -190,112 +180,4 @@ const pluginEmbeddedDocument = function (this: any) {
   })
 }
 
-// const parseForLinks = function () {
-//   // Give h2 headings an id so they can be linked to
-//   this.find('h2').map((i, element) => {
-//     const el = this.find(element)
-//     const idName = el.text()
-//     return el.attr('id', idName)
-//   })
-// }
-
-const pluginImage = function (this: any) {
-  // wrap iframes
-  this.find('.embedded-entity--media--image').map((i: any, el: any) => {
-    const $container = this.find(el)
-    if ($container) {
-      const $img = $container.find('img')
-      const height = $img.attr('height')
-      const src = $img.attr('src')
-      const alt = $img.attr('alt')
-      return $container.replaceWith(
-        `<div class="rpl-markup__image"><rpl-responsive-img src="${src}" alt="${alt}" :height="${height}" fit="contain" :blur="true" :srcset="[375, 696, 696, 1200]" width="818" ></rpl-responsive-img></div>`
-      )
-    }
-  })
-}
-
-const pluginIframe = function (this: any) {
-  // wrap iframes
-  this.find('iframe').map((i: any, el: any) => {
-    const $iframe = this.find(el)
-    if ($iframe.hasClass('rpl-markup__embedded-video-frame') !== true) {
-      return $iframe.wrap(`<div class="rpl-markup__iframe-container"></div>`)
-    }
-  })
-}
-
-const pluginEmbeddedMediaVideo = function (this: any) {
-  // wrap iframes
-  this.find('.embedded-entity--media--embedded-video').map(
-    (i: any, el: any) => {
-      // Component data
-      const element = this.find(el)
-      const iframe = element.find('iframe')
-      const height = iframe.attr('height')
-      const width = iframe.attr('width')
-      const src = iframe.attr('src')
-      const figcaption = element.find('figcaption')
-      const transcript = figcaption ? figcaption.text() : null
-      const link = element.find('.field--name-field-media-link a')
-      // For Obj type props, using data to pass value to avoid HTML syntax and encoding issue.
-      const mediaLink: { text: string; url: string } = {
-        text: link.text() || '',
-        url: link.attr('href') || ''
-      }
-      const variant = mediaLink ? 'link' : 'full'
-
-      let html = `
-    <div class="rpl-markup__embedded-video">
-      <div class="rpl-markup__embedded-video-iframe-container">
-        <iframe class="rpl-markup__embedded-video-frame" width="${width}" height="${height}" src="${src}" allowfullscreen></iframe>
-      </div>
-    `
-      if (variant === 'link') {
-        html += `
-      <div class="rpl-markup__embedded-video-link">
-        <rpl-text-link link="${mediaLink.url}" :icon="false">${mediaLink.text}</rpl-text-link>
-      </div>
-      `
-      }
-      if (variant === 'full' || transcript) {
-        html += `<div class="rpl-markup__embedded-video-transcript">${transcript}</div>`
-      }
-      html += `</div>`
-      return element.replaceWith(html)
-    }
-  )
-}
-
-const pluginLinks = function (this: any) {
-  this.find('a').map((i: any, el: any) => {
-    const $a = this.find(el)
-    const href = $a.attr('href')
-    const isRelative = isRelativeUrl(href)
-    const text = $a.text()
-    const target = $a.attr('target')
-
-    const attributes: string[] = []
-    attributes.push(!isRelative ? `icon="external"` : `:icon="false"`)
-    if (href) {
-      attributes.push(`link="${href}"`)
-    }
-    if (target) {
-      attributes.push(`target="${target}"`)
-    }
-    const a = `<rpl-text-link ${attributes.join(' ')}>${_escapeQuotes(
-      text
-    )}</rpl-text-link>`
-    return $a.replaceWith(a)
-  })
-}
-
-export default [
-  pluginButton,
-  pluginEmbeddedDocument,
-  pluginEmbeddedMediaVideo,
-  pluginIframe,
-  pluginImage,
-  pluginLinks,
-  pluginTables
-]
+export default [pluginCallout, pluginEmbeddedDocument, pluginTables]

@@ -34,6 +34,7 @@ html {
   }
 }
 
+.rpl-content h1,
 .rpl-type-h1 {
   display: block;
   font-size: var(--rpl-type-size-6);
@@ -49,6 +50,7 @@ html {
   }
 }
 
+.rpl-content h2,
 .rpl-type-h2 {
   display: block;
   font-size: var(--rpl-type-size-4);
@@ -84,6 +86,7 @@ html {
   }
 }
 
+.rpl-content h3,
 .rpl-type-h3 {
   display: block;
   font-size: var(--rpl-type-size-3);
@@ -100,6 +103,7 @@ html {
   }
 }
 
+.rpl-content h4,
 .rpl-type-h4 {
   display: block;
   font-size: var(--rpl-type-size-2);
@@ -130,6 +134,7 @@ html {
   }
 }
 
+.rpl-content p,
 .rpl-type-p {
   display: block;
   font-size: var(--rpl-type-size-2);
@@ -147,6 +152,7 @@ html {
 }
 
 /* Lists */
+.rpl-content ol,
 .rpl-type-list-ol {
   display: block;
   font-size: var(--rpl-type-size-2);
@@ -198,6 +204,7 @@ html {
   }
 }
 
+.rpl-content ul,
 .rpl-type-list-ul {
   display: block;
   font-size: var(--rpl-type-size-2);

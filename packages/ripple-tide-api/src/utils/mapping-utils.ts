@@ -1,10 +1,5 @@
 import { get } from 'lodash-es'
-// import markupTranspiler from './markup-transpiler/index'
-
-const markupTranspiler = (html, plugins) => {
-  console.log('stub markup for now', plugins)
-  return html
-}
+import markupTranspiler from './markup-transpiler/index.js'
 
 export type mediaImage = {
   src: string

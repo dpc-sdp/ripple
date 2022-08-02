@@ -179,7 +179,6 @@ const toggleAllLabel = computed(() => {
         </button>
 
         <!-- Item content -->
-        <!-- TODO: Use rplmarkup component instead when its available -->
         <div
           :id="`accordion-${id}-${index}-content`"
           :ref="

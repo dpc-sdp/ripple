@@ -69,7 +69,7 @@ export default {
     }
   },
   created: function () {
-    if (!isAnchorLink(this.href) && isRelativeUrl(this.href)) {
+    if (!isAnchorLink(this.href) && !this.linkTarget && isRelativeUrl(this.href)) {
       this.isNuxtLink = this.rplOptions.nuxt
     }
   }

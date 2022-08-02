@@ -18,12 +18,17 @@ const pluginButton = function () {
   this.find('.button').map((i, el) => {
     const $button = this.find(el)
     const buttonHref = $button.attr('href')
+    const buttonTarget = $button.attr('target') ? $button.attr('target') : ''
     const buttonText = $button.text()
     let theme = 'primary'
     if ($button.hasClass('button--secondary')) {
       theme = 'secondary'
     }
-    const button = `<rpl-button href="${buttonHref}" theme="${theme}">${buttonText}</rpl-button>`
+    const button = `<rpl-button
+      href="${buttonHref}"
+      ${buttonTarget ? 'target="' + buttonTarget + '"' : ''}
+      theme="${theme}"
+    >${buttonText}</rpl-button>`
     return $button.replaceWith(button)
   })
 }

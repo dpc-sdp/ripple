@@ -52,6 +52,8 @@
 
     &:hover:focus-visible,
     &:active:focus-visible {
+      color: var(--rpl-clr-type-focus-contrast);
+
       .rpl-icon {
         transform: translateX(0);
       }

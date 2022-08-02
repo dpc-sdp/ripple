@@ -19,7 +19,10 @@ const tideBanners = async (context, pageData) => {
   heroBanner.keyJourneys = pageData.tidePage.field_landing_page_key_journeys || {}
   heroBanner.theme = pageData.tidePage.field_landing_page_hero_theme
   heroBanner.showLinks = !hasImageBanner
-  heroBanner.logo = pageData.tidePage.field_landing_page_hero_logo ? pageData.tidePage.field_landing_page_hero_logo.field_media_image.url : null
+  heroBanner.logo = pageData.tidePage.field_landing_page_hero_logo ? {
+    url: pageData.tidePage.field_landing_page_hero_logo.field_media_image.url,
+    alt: pageData.tidePage.field_landing_page_hero_logo.field_media_image.meta.alt || ''
+  } : {}
 
   if (pageData.tidePage.field_landing_page_hero_image && pageData.tidePage.field_landing_page_hero_image.field_media_image) {
     const mediaImage = pageData.tidePage.field_landing_page_hero_image.field_media_image

@@ -1,0 +1,46 @@
+.rpl-card {
+  background-color: var(--rpl-clr-light);
+  display: inline-block;
+  border: var(--rpl-border-1) solid var(--rpl-clr-neutral-300);
+  border-radius: var(--rpl-border-radius-2);
+  margin: 0;
+  width: 33%;
+
+  &__media img {
+    display: block;
+    width: 100%;
+  }
+
+  &__meta {
+    color: var(--rpl-clr-neutral-600);
+  }
+
+  &__body {
+    margin: var(--rpl-sp-5) var(--rpl-sp-5) 0;
+  }
+
+  &__cta {
+    display: inline-block;
+    margin-top: var(--rpl-sp-5);
+  }
+
+  &:hover {
+    cursor: pointer;
+    box-shadow: var(--rpl-elevation-1);
+
+    .rpl-card__cta {
+      text-decoration: underline;
+
+      &:focus-visible {
+        text-decoration: none;
+      }
+    }
+  }
+
+  &--highlight::before {
+    content: '';
+    display: block;
+    height: var(--rpl-border-4);
+    background: var(--rpl-clr-gradient-horizontal);
+  }
+}

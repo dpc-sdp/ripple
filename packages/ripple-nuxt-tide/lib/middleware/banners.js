@@ -22,7 +22,7 @@ const tideBanners = async (context, pageData) => {
   heroBanner.logo = pageData.tidePage.field_landing_page_hero_logo ? {
     url: pageData.tidePage.field_landing_page_hero_logo.field_media_image.url,
     alt: pageData.tidePage.field_landing_page_hero_logo.field_media_image.meta.alt || ''
-  } : {}
+  } : null
 
   if (pageData.tidePage.field_landing_page_hero_image && pageData.tidePage.field_landing_page_hero_image.field_media_image) {
     const mediaImage = pageData.tidePage.field_landing_page_hero_image.field_media_image

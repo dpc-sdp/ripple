@@ -20,3 +20,6 @@
 /* Global styles */
 @import '_fonts.css';
 @import '_reset.css';
+
+/* CSS only Components */
+@import 'components/_callout.css';

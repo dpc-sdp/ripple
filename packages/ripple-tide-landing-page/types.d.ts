@@ -6,4 +6,5 @@ export default interface TideLandingPagePage extends TidePageBase {
    * @example 'Hello world from TideLandingPagePage'
    */
   example: string
+  bodyComponents: unknown[]
 }

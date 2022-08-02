@@ -9,6 +9,8 @@ html {
   Headings
   1. Magic number value so that the UI visually matches the design system.
 */
+
+/* h1 */
 .rpl-type-h1-highlight {
   display: inline;
   padding: 0.25rem var(--rpl-sp-3); /* [1] */
@@ -65,6 +67,7 @@ html {
   color: var(--rpl-clr-primary);
 }
 
+/* h2 */
 .rpl-content h2,
 .rpl-type-h2 {
   display: block;
@@ -72,13 +75,11 @@ html {
   font-weight: var(--rpl-type-weight-bold);
   line-height: var(--rpl-type-lh-6);
   letter-spacing: var(--rpl-type-ls-4);
-  margin-bottom: var(--rpl-sp-4);
 
   @media (--rpl-bp-l) {
     font-size: var(--rpl-type-size-7);
     line-height: var(--rpl-type-lh-10);
     letter-spacing: var(--rpl-type-ls-6);
-    margin-bottom: var(--rpl-sp-5);
   }
 }
 
@@ -90,6 +91,7 @@ html {
   letter-spacing: var(--rpl-type-ls-4);
 }
 
+/* h3 */
 .rpl-type-h3-highlight {
   display: inline;
   padding: 0.25rem var(--rpl-sp-2); /* [1] */
@@ -128,13 +130,11 @@ html {
   font-weight: var(--rpl-type-weight-bold);
   line-height: var(--rpl-type-lh-5);
   letter-spacing: var(--rpl-type-ls-2);
-  margin-bottom: var(--rpl-sp-3);
 
   @media (--rpl-bp-l) {
     font-size: var(--rpl-type-size-5);
     line-height: var(--rpl-type-lh-8);
     letter-spacing: var(--rpl-type-ls-5);
-    margin-bottom: var(--rpl-sp-4);
   }
 }
 
@@ -146,6 +146,7 @@ html {
   letter-spacing: var(--rpl-type-ls-2);
 }
 
+/* h4 */
 .rpl-content h4,
 .rpl-type-h4 {
   display: block;
@@ -153,13 +154,11 @@ html {
   font-weight: var(--rpl-type-weight-bold);
   line-height: var(--rpl-type-lh-4);
   letter-spacing: var(--rpl-type-ls-1);
-  margin-bottom: var(--rpl-sp-2);
 
   @media (--rpl-bp-l) {
     font-size: var(--rpl-type-size-4);
     line-height: var(--rpl-type-lh-6);
     letter-spacing: var(--rpl-type-ls-4);
-    margin-bottom: var(--rpl-sp-3);
   }
 }
 
@@ -198,7 +197,6 @@ html {
   font-size: var(--rpl-type-size-2);
   line-height: var(--rpl-type-lh-4);
   letter-spacing: var(--rpl-type-ls-1);
-  margin-bottom: var(--rpl-sp-8);
 }
 
 .rpl-type-p-small {
@@ -206,7 +204,6 @@ html {
   font-size: var(--rpl-type-size-1);
   line-height: var(--rpl-type-lh-3);
   letter-spacing: var(--rpl-type-ls-1);
-  margin-bottom: var(--rpl-sp-8);
 }
 
 /* Labels */

@@ -1,9 +1,11 @@
 module.exports = {
   darkMode: 'class',
-  plugins: [require('@tailwindcss/typography')],
   content: ['content/**/*.{md,yml,json,json5,csv}'],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['VIC']
+      },
       lineHeight: {
         3: '1.2rem',
         4: '1.6rem',

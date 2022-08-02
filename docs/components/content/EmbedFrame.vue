@@ -15,8 +15,7 @@ const props = defineProps({
   },
   storyBase: {
     type: String,
-    default:
-      'https://624ac117357335003a84dac3-kfposchlfa.chromatic.com/iframe.html'
+    default: 'https://uat--624ac117357335003a84dac3.chromatic.com/iframe.html'
   },
   figmaBase: {
     type: String,
@@ -29,6 +28,10 @@ const props = defineProps({
   fullscreen: {
     type: Boolean,
     default: true
+  },
+  hideTabs: {
+    type: Boolean,
+    default: false
   }
 })
 

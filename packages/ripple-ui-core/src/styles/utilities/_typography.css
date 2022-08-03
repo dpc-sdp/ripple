@@ -47,13 +47,13 @@ html {
   display: block;
   font-size: var(--rpl-type-size-6);
   font-weight: var(--rpl-type-weight-bold);
-  line-height: var(--rpl-type-lh-9);
+  line-height: var(--rpl-type-lh-8);
   letter-spacing: var(--rpl-type-ls-5);
   color: var(--rpl-clr-primary);
 
   @media (--rpl-bp-l) {
     font-size: var(--rpl-type-size-8);
-    line-height: var(--rpl-type-lh-12);
+    line-height: var(--rpl-type-lh-11);
     letter-spacing: var(--rpl-type-ls-7);
   }
 }
@@ -62,7 +62,7 @@ html {
   display: block;
   font-size: var(--rpl-type-size-6);
   font-weight: var(--rpl-type-weight-bold);
-  line-height: var(--rpl-type-lh-9);
+  line-height: var(--rpl-type-lh-8);
   letter-spacing: var(--rpl-type-ls-5);
   color: var(--rpl-clr-primary);
 }
@@ -77,9 +77,9 @@ html {
   letter-spacing: var(--rpl-type-ls-4);
 
   @media (--rpl-bp-l) {
-    font-size: var(--rpl-type-size-7);
-    line-height: var(--rpl-type-lh-10);
-    letter-spacing: var(--rpl-type-ls-6);
+    font-size: var(--rpl-type-size-6);
+    line-height: var(--rpl-type-lh-8);
+    letter-spacing: var(--rpl-type-ls-5);
   }
 }
 
@@ -94,20 +94,20 @@ html {
 /* h3 */
 .rpl-type-h3-highlight {
   display: inline;
-  padding: 0.25rem var(--rpl-sp-2); /* [1] */
+  padding: 0.05rem var(--rpl-sp-2); /* [1] */
   font-size: var(--rpl-type-size-3);
   font-weight: var(--rpl-type-weight-bold);
-  line-height: var(--rpl-type-lh-7);
+  line-height: var(--rpl-type-lh-6);
   letter-spacing: var(--rpl-type-ls-2);
   color: var(--rpl-clr-type-primary-contrast);
   background-color: var(--rpl-clr-primary);
   box-decoration-break: clone;
 
   @media (--rpl-bp-l) {
-    padding: 0.1rem var(--rpl-sp-3); /* [1] */
-    font-size: var(--rpl-type-size-5);
-    line-height: 4.4rem; /* [1] */
-    letter-spacing: var(--rpl-type-ls-5);
+    padding: 0 var(--rpl-sp-2);
+    font-size: var(--rpl-type-size-4);
+    line-height: var(--rpl-type-lh-7);
+    letter-spacing: var(--rpl-type-ls-4);
   }
 }
 
@@ -116,7 +116,7 @@ html {
   padding: 0.25rem var(--rpl-sp-2); /* [1] */
   font-size: var(--rpl-type-size-3);
   font-weight: var(--rpl-type-weight-bold);
-  line-height: var(--rpl-type-lh-7);
+  line-height: var(--rpl-type-lh-6);
   letter-spacing: var(--rpl-type-ls-2);
   color: var(--rpl-clr-type-primary-contrast);
   background-color: var(--rpl-clr-primary);
@@ -132,9 +132,9 @@ html {
   letter-spacing: var(--rpl-type-ls-2);
 
   @media (--rpl-bp-l) {
-    font-size: var(--rpl-type-size-5);
-    line-height: var(--rpl-type-lh-8);
-    letter-spacing: var(--rpl-type-ls-5);
+    font-size: var(--rpl-type-size-4);
+    line-height: var(--rpl-type-lh-6);
+    letter-spacing: var(--rpl-type-ls-4);
   }
 }
 
@@ -156,9 +156,9 @@ html {
   letter-spacing: var(--rpl-type-ls-1);
 
   @media (--rpl-bp-l) {
-    font-size: var(--rpl-type-size-4);
-    line-height: var(--rpl-type-lh-6);
-    letter-spacing: var(--rpl-type-ls-4);
+    font-size: var(--rpl-type-size-3);
+    line-height: var(--rpl-type-lh-5);
+    letter-spacing: var(--rpl-type-ls-2);
   }
 }
 
@@ -178,9 +178,9 @@ html {
   letter-spacing: var(--rpl-type-ls-2);
 
   @media (--rpl-bp-l) {
-    font-size: var(--rpl-type-size-5);
-    line-height: var(--rpl-type-lh-7);
-    letter-spacing: var(--rpl-type-ls-5);
+    font-size: var(--rpl-type-size-4);
+    line-height: var(--rpl-type-lh-6);
+    letter-spacing: var(--rpl-type-ls-4);
   }
 }
 

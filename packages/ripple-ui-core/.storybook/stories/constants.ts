@@ -9,11 +9,23 @@ export const RplTypeStyles = [
     class: `${base}-h1-highlight`
   },
   {
+    title: 'H1 / Highlight / Fixed',
+    class: `${base}-h1-highlight-fixed`
+  },
+  {
     title: 'H1 / Heading',
     class: `${base}-h1`
   },
   {
+    title: 'H1 / Heading / Fixed',
+    class: `${base}-h1-fixed`
+  },
+  {
     title: 'H2 / Heading',
+    class: `${base}-h2`
+  },
+  {
+    title: 'H2 / Heading / Fixed',
     class: `${base}-h2`
   },
   {
@@ -21,18 +33,34 @@ export const RplTypeStyles = [
     class: `${base}-h3-highlight`
   },
   {
+    title: 'H3 / Highlight / Fixed',
+    class: `${base}-h3-highlight-fixed`
+  },
+  {
     title: 'H3 / Heading',
     class: `${base}-h3`
   },
   {
+    title: 'H3 / Heading / Fixed',
+    class: `${base}-h3-fixed`
+  },
+  {
     title: 'H4 / Heading',
     class: `${base}-h4`
+  },
+  {
+    title: 'H4 / Heading / Fixed',
+    class: `${base}-h4-fixed`
   },
 
   /* Paragraphs */
   {
     title: 'Paragraph / Large',
     class: `${base}-p-large`
+  },
+  {
+    title: 'Paragraph / Large / Fixed',
+    class: `${base}-p-large-fixed`
   },
   {
     title: 'Paragraph / Large / Bold',

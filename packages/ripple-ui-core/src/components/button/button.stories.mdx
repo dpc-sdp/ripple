@@ -8,10 +8,11 @@ import { eventCheck, a11yCheck, a11yStoryCheck } from './../../../.storybook/int
 import RplButton from './button.vue';
 import {
   RplButtonThemes,
-  RplButtonTypes,
+  RplButtonVariants,
   RplButtonIconPositions
 } from './constants';
 import { RplIconNames } from './../icon/constants.ts';
+import { buttonFocusInteraction } from './button.interactions.ts'
 const playFunction = async ({ canvasElement }) => {
   const canvas = await within(canvasElement)
   const button = await canvas.getByRole('button')
@@ -28,9 +29,8 @@ export const Template = (args) => ({
 });
 
 <Meta
-  title='WIP/Components/Atoms/Button'
+  title='Components/Navigation/Button'
   parameters={{
-    viewMode: 'docs',
     design: {
       type: 'figma',
       url:
@@ -43,14 +43,14 @@ export const Template = (args) => ({
       defaultValue: 'Button text',
       type: 'string'
     },
-    type: {
+    variant: {
       control: { type: 'select' },
-      options: RplButtonTypes
+      options: RplButtonVariants
     },
     theme: {
       control: { type: 'select' },
       options: RplButtonThemes,
-      defaultValue: 'primary'
+      defaultValue: 'default'
     },
     iconName: {
       control: { type: 'select' },
@@ -64,125 +64,46 @@ export const Template = (args) => ({
   }}
 />
 
-## Example
-
-<Story
-  name='1. Example'
-  parameters={{viewMode: 'story'}}
-  play={a11yStoryCheck}
-  args={{
-    theme: 'primary',
-    type: 'filled'
-  }}
->
-  {Template.bind()}
-</Story>
-
-## Core
+## Default
 
 <Canvas>
   <Story
-    name='Core/Filled'
+    name='Default/Filled'
     args={{
-      type: 'filled'
+      variant: 'filled'
     }}
   >
     {Template.bind()}
   </Story>
   <Story
-    name='Core/Outlined'
+    name='Default/Outlined'
     args={{
-      type: 'outlined'
+      variant: 'outlined'
     }}
   >
     {Template.bind()}
   </Story>
   <Story
-    name='Core/White'
+    name='Default/White'
     args={{
-      type: 'white'
+      variant: 'white'
     }}
   >
     {Template.bind()}
   </Story>
   <Story
-    name='Core/Elevated'
+    name='Default/Elevated'
     args={{
-      type: 'elevated'
+      variant: 'elevated',
+      iconName: 'icon-arrow-up'
     }}
   >
     {Template.bind()}
   </Story>
   <Story
-    name='Core/Destructive'
+    name='Default/Destructive'
     args={{
-      type: 'filled',
-      theme: 'error'
-    }}
-  >
-    {Template.bind()}
-  </Story>
-</Canvas>
-
-### Core / Hover
-
-<Canvas>
-  <Story
-    name='Core/Filled/Hover'
-    parameters={{ pseudo: { hover: true } }}
-    args={{
-      type: 'filled'
-    }}
-  >
-    {Template.bind()}
-  </Story>
-  <Story
-    name='Core/Outlined/Hover'
-    parameters={{ pseudo: { hover: true } }}
-    args={{
-      type: 'outlined'
-    }}
-  >
-    {Template.bind()}
-  </Story>
-  <Story
-    name='Core/White/Hover'
-    parameters={{ pseudo: { hover: true } }}
-    args={{
-      type: 'white'
-    }}
-  >
-    {Template.bind()}
-  </Story>
-  <Story
-    name='Core/Elevated/Hover'
-    parameters={{ pseudo: { hover: true } }}
-    args={{
-      type: 'elevated'
-    }}
-  >
-    {Template.bind()}
-  </Story>
-  <Story
-    name='Core/Destructive/Hover'
-    parameters={{ pseudo: { hover: true } }}
-    args={{
-      type: 'filled',
-      theme: 'error'
-    }}
-  >
-    {Template.bind()}
-  </Story>
-</Canvas>
-
-### Focus
-
-<Canvas>
-  <Story
-    name='Focus'
-    parameters={{ pseudo: { focus: true } }}
-    args={{
-      type: 'filled'
+      variant: 'destructive',
     }}
   >
     {Template.bind()}
@@ -195,7 +116,7 @@ export const Template = (args) => ({
   <Story
     name='Neutral/Outlined'
     args={{
-      type: 'outlined',
+      variant: 'outlined',
       theme: 'neutral'
     }}
   >
@@ -204,7 +125,7 @@ export const Template = (args) => ({
   <Story
     name='Neutral/White'
     args={{
-      type: 'white',
+      variant: 'white',
       theme: 'neutral'
     }}
   >
@@ -213,8 +134,9 @@ export const Template = (args) => ({
   <Story
     name='Neutral/Elevated'
     args={{
-      type: 'elevated',
-      theme: 'neutral'
+      variant: 'elevated',
+      theme: 'neutral',
+      iconName: 'icon-arrow-up'
     }}
   >
     {Template.bind()}
@@ -228,8 +150,8 @@ export const Template = (args) => ({
   <Story
     name='With Icons/Filled'
     args={{
-      type: 'filled',
-      iconName: 'icon-chevron-right'
+      variant: 'filled',
+      iconName: 'icon-arrow-right'
     }}
   >
     {Template.bind()}
@@ -237,9 +159,8 @@ export const Template = (args) => ({
   <Story
     name='With Icons/Outlined'
     args={{
-      type: 'outlined',
-      iconPosition: 'left',
-      iconName: 'icon-chevron-left'
+      variant: 'outlined',
+      iconName: 'icon-arrow-up'
     }}
   >
     {Template.bind()}
@@ -247,8 +168,19 @@ export const Template = (args) => ({
   <Story
     name='With Icons/left'
     args={{
-      type: 'white',
-      iconName: 'icon-chevron-up'
+      variant: 'filled',
+      iconPosition: 'left',
+      iconName: 'icon-arrow-left'
+    }}
+  >
+    {Template.bind()}
+  </Story>
+  <Story
+    name='With Icons/right'
+    args={{
+      variant: 'filled',
+      iconPosition: 'right',
+      iconName: 'icon-arrow-right'
     }}
   >
     {Template.bind()}
@@ -262,8 +194,24 @@ Test for emitting events on click
 <Canvas>
   <Story
     name='Eventbus'
-    args={{type: 'filled', theme: 'accent', iconName: 'icon-star'}}
+    args={{variant: 'filled', theme: 'default', iconName: 'icon-pin'}}
     play={playFunction}
+  >
+    {Template.bind()}
+  </Story>
+</Canvas>
+
+## Focus state
+
+<Canvas>
+  <Story
+    name='Focus state'
+    play={buttonFocusInteraction}
+    args={{
+      variant: 'filled',
+      label: 'Focused',
+      iconName: 'icon-exclamation-circle-filled'
+    }}
   >
     {Template.bind()}
   </Story>

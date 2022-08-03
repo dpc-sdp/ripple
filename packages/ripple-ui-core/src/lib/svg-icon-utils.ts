@@ -1,5 +1,5 @@
 import fs from 'fs'
-import path from 'pathe'
+import { resolve } from 'pathe'
 import { promisify } from 'util'
 import { optimize } from 'svgo'
 import type { OptimizeOptions } from 'svgo'
@@ -70,7 +70,7 @@ export const generateSprite = async (
     ariaHidden: true
   }
 ) => {
-  const resolvedPath = path.resolve(folderPath)
+  const resolvedPath = resolve(folderPath)
   if (!resolvedPath) {
     return ''
   }

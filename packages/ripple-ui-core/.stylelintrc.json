@@ -3,11 +3,17 @@
   "rules": {
     "color-hex-length": "long",
     "selector-class-pattern": "^rpl-[a-z0-9]+(?:-[a-z0-9$]+)*(?:__[a-z0-9]+(?:-[a-z0-9]+)*)?(?:--[a-z0-9]+(?:-[a-z0-9]+)*)?(?:\\[.+\\])?$",
-    "custom-property-pattern": "rpl-[a-z0-9]+(?:-[a-z0-9$()]+)+",
+    "custom-property-pattern": "(rpl|local)-[a-z0-9]+(?:-[a-z0-9$()]+)+",
     "at-rule-no-unknown": [
       true,
       {
         "ignoreAtRules": ["for"]
+      }
+    ],
+    "declaration-block-no-redundant-longhand-properties": [
+      true,
+      {
+        "ignoreShorthands": ["padding"]
       }
     ]
   }

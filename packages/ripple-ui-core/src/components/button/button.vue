@@ -3,21 +3,21 @@ export default { name: 'RplButton' }
 </script>
 
 <script setup lang="ts">
+import { PropType, computed } from 'vue'
 import {
-  RplButtonTypes,
+  RplButtonVariants,
   RplButtonThemes,
   RplButtonIconPositions
 } from './constants'
 import { RplIconNames } from '../icon/constants'
-
-import { PropType, computed } from 'vue'
 import RplIcon from '../icon/icon.vue'
 import { rplEventBus } from '../../index'
+
 rplEventBus.register('rpl-button/click')
 
 const props = defineProps({
-  type: {
-    type: String as PropType<typeof RplButtonTypes[number]>,
+  variant: {
+    type: String as PropType<typeof RplButtonVariants[number]>,
     default: 'filled'
   },
   theme: {
@@ -45,8 +45,17 @@ const props = defineProps({
   }
 })
 
-const directionClass = computed(() => {
-  return props.iconPosition === 'left' ? 'rpl-button--reverse' : ''
+const classes = computed(() => {
+  const classTokens = [
+    'rpl-button',
+    `rpl-button--${props.variant}`,
+    `rpl-button--${props.theme}`,
+    'rpl-u-focusable'
+  ]
+  if (props.iconPosition === 'left') {
+    classTokens.push('rpl-button--reverse')
+  }
+  return classTokens.join(' ')
 })
 
 const onClick = (payload?: any) => {
@@ -57,7 +66,7 @@ const onClick = (payload?: any) => {
 <template>
   <button
     type="button"
-    :class="`rpl-button rpl-button--${type} rpl-button--${theme} ${directionClass}`"
+    :class="classes"
     :disabled="disabled"
     @click="onClick()"
   >
@@ -67,9 +76,7 @@ const onClick = (payload?: any) => {
       </template>
       <slot></slot>
     </span>
-    <span v-if="iconName" class="rpl-button__icon">
-      <RplIcon :name="iconName"></RplIcon>
-    </span>
+    <RplIcon v-if="iconName" :name="iconName"></RplIcon>
   </button>
 </template>
 

@@ -1,7 +1,7 @@
 ---
 title: Button
 description: 'About the Docus Starter.'
-layout: docs
+layout: component-doc
 ---
 
 # Button
@@ -15,7 +15,7 @@ this is a demo
 
 ::component-example
 
-  ::rpl-button{type="filled"}
+  ::rpl-button{type="filled" iconName="icon-arrow-right"}
     ::markdown{unwrap="p"}
       test
     ::

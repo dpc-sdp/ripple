@@ -1,35 +1,113 @@
-<script lang="ts"> export default { name: 'RplAccordion' }</script>
+<script lang="ts">
+export default { name: 'RplAccordion' }
+</script>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { PropType, ref, computed } from 'vue'
 
-import RplButton from '../button/button.vue'
 import RplIcon from '../icon/icon.vue'
+import RplContent from '../content/content.vue'
+import { rplEventBus } from '../../index'
+
+rplEventBus.register('rpl-accordion/open-all')
+rplEventBus.register('rpl-accordion/close-all')
+rplEventBus.register('rpl-accordion/open-item')
+rplEventBus.register('rpl-accordion/close-item')
+
+type RplAccordionItem = {
+  title: string
+  content: string
+}
 
 const props = defineProps({
+  id: {
+    type: String,
+    required: true
+  },
   items: {
-    type: Array,
+    type: Array as PropType<RplAccordionItem[]>,
     default: () => [],
     required: true
+  },
+  numbered: {
+    type: Boolean,
+    default: false
   }
 })
 
 const activeItems = ref([])
+
+const itemContentEls = {}
 
 const isActive = (index) => {
   return activeItems.value.includes(index)
 }
 
 const toggleItem = (itemIndex) => {
-  const itemFound = activeItems.value.indexOf(itemIndex)
+  const activeItemIndex = activeItems.value.indexOf(itemIndex)
+  const itemContentEl = itemContentEls[itemIndex]
+  const itemContentHeight = itemContentEl.scrollHeight
 
-  // Item needs to be removed from activeItems
-  if (itemFound !== -1) {
-    activeItems.value.splice(itemFound, 1)
-  }
-  // Item needs to be added to activeItems
-  else {
+  // Item needs to open
+  if (activeItemIndex === -1) {
+    // Add the item from the activeItems array
     activeItems.value.push(itemIndex)
+
+    rplEventBus.emit('rpl-accordion/open-item')
+
+    // Set the elements height to that of its content so that we aren't
+    // transitioning to 'auto'
+    itemContentEl.style.height = `${itemContentHeight}px`
+
+    // When the transition ends remove the set height so it can default to auto
+    itemContentEl.addEventListener(
+      'transitionend',
+      () => {
+        itemContentEl.style.height = null
+      },
+      { once: true }
+    )
+  }
+
+  // Item needs to close
+  else {
+    rplEventBus.emit('rpl-accordion/close-item')
+
+    // Set the elements height to that of its content so that we aren't
+    // transitioning from 'auto'
+    itemContentEl.style.height = `${itemContentHeight}px`
+
+    // Remove the item from the activeItems array
+    activeItems.value.splice(activeItemIndex, 1)
+
+    // Set the height to 0 so that it can transition to closed
+    requestAnimationFrame(() => {
+      itemContentEl.style.height = '0'
+    })
+  }
+}
+
+const toggleAll = () => {
+  // Open all
+  if (activeItems.value.length !== props.items.length) {
+    rplEventBus.emit('rpl-accordion/open-all')
+
+    props.items.forEach((item, index) => {
+      if (!isActive(index)) {
+        toggleItem(index)
+      }
+    })
+  }
+
+  // Close all
+  else {
+    rplEventBus.emit('rpl-accordion/close-all')
+
+    props.items.forEach((item, index) => {
+      if (isActive(index)) {
+        toggleItem(index)
+      }
+    })
   }
 }
 
@@ -42,39 +120,26 @@ const toggleAllLabel = computed(() => {
 
   return label
 })
-
-const toggleAll = () => {
-  // Open all
-  if (activeItems.value.length !== props.items.length) {
-    activeItems.value = []
-
-    props.items.forEach((item, index) => {
-      activeItems.value.push(index)
-    })
-  }
-
-  // Close all
-  else {
-    activeItems.value = []
-  }
-}
 </script>
 
 <template>
-  <div :className="`rpl-accordion`" style="width: 450px;">
+  <div class="rpl-accordion">
     <!-- Toggle all -->
     <div class="rpl-accordion__toggle-all-wrapper">
-      <RplButton
+      <button
         v-if="items.length > 1"
-        theme="white"
-        :label="toggleAllLabel"
-        class="rpl-accordion__toggle-all"
-        @click="toggleAll"
-      />
+        class="
+          rpl-accordion__toggle-all
+          rpl-u-focusable rpl-u-focusable--inline
+        "
+        @click="toggleAll()"
+      >
+        {{ toggleAllLabel }}
+      </button>
     </div>
 
-    <div className="rpl-accordion__items">
-      <!-- TODO: Seperate the items into their own component -->
+    <!-- Items -->
+    <div class="rpl-accordion__items">
       <div
         v-for="(item, index) in items"
         :key="index"
@@ -85,22 +150,52 @@ const toggleAll = () => {
       >
         <!-- Item toggle -->
         <button
-          className="rpl-accordion__item-toggle"
+          :id="`accordion-${id}-${index}-toggle`"
+          class="rpl-accordion__item-toggle rpl-u-focusable"
+          type="button"
+          :aria-controls="`accordion-${id}-${index}-content`"
+          :aria-expanded="isActive(index)"
           @click="toggleItem(index)"
         >
-          <span className="rpl-accordion__item-heading  rpl-type-h4">
-            {{ item.title }}
+          <span class="rpl-accordion__item-heading-wrapper">
+            <!-- Number -->
+            <span
+              v-if="numbered"
+              class="rpl-accordion__item-number rpl-type-h4"
+            >
+              {{ index + 1 }}
+            </span>
+
+            <!-- Title -->
+            <span class="rpl-accordion__item-heading rpl-type-h4">
+              {{ item.title }}
+            </span>
           </span>
-          <span className="rpl-accordion__item-icon">
+
+          <!-- Icon -->
+          <span class="rpl-accordion__item-icon" aria-hidden="true">
             <RplIcon name="icon-chevron-down"></RplIcon>
           </span>
         </button>
 
         <!-- Item content -->
-        <!-- TODO: Use rplmarkup component instead when its available -->
-        <div className="rpl-accordion__item-content">
-          <!-- eslint-disable-next-line vue/no-v-html -->
-          <div className="rpl-accordion__item-content-inner" v-html="item.content"></div>
+        <div
+          :id="`accordion-${id}-${index}-content`"
+          :ref="
+            (el) => {
+              itemContentEls[index] = el
+            }
+          "
+          class="rpl-accordion__item-content"
+          role="region"
+          :aria-labelledby="`accordion-${id}-${index}-toggle`"
+          :aria-hidden="isActive(index) === false ? 'true' : null"
+        >
+          <RplContent
+            class="rpl-accordion__item-content-inner"
+            :html="item.content"
+          >
+          </RplContent>
         </div>
       </div>
     </div>

@@ -36,6 +36,15 @@
   --rpl-type-weight-bold: 700;
   --rpl-type-weight-regular: 400;
   --rpl-type-font-family: VIC, Arial, Helvetica, sans-serif;
+  --rpl-motion-speed-9: 500ms;
+  --rpl-motion-speed-8: 420ms;
+  --rpl-motion-speed-7: 360ms;
+  --rpl-motion-speed-6: 300ms;
+  --rpl-motion-speed-5: 240ms;
+  --rpl-motion-speed-4: 200ms;
+  --rpl-motion-speed-3: 160ms;
+  --rpl-motion-speed-2: 120ms;
+  --rpl-motion-speed-1: 80ms;
   --rpl-sp-14: 120px;
   --rpl-sp-13: 80px;
   --rpl-sp-12: 64px;
@@ -82,8 +91,10 @@
   --rpl-clr-focus: #FF9E1B;
   --rpl-clr-link-visited: #9F46B1;
   --rpl-clr-link: #0052C2;
+  --rpl-clr-type-primary-accessible: #0052C2;
   --rpl-clr-accent-alt: #E6F5FD;
   --rpl-clr-accent: #0095EC;
+  --rpl-clr-primary-alt-accessible: #003174;
   --rpl-clr-primary-alt: #003174;
   --rpl-clr-primary: #0052C2;
   --rpl-clr-dark: var(--rpl-clr-neutral-800);

@@ -4,6 +4,13 @@ import { withDesign } from 'storybook-addon-designs'
 import './storybook.css'
 import './../src/styles/global.css'
 
+import VueSocialSharing from 'vue-social-sharing'
+import { app } from '@storybook/vue3'
+app.use(VueSocialSharing)
+
+import svgPlaceholder from './components/svgPlaceholder'
+window.svgPlaceholder = svgPlaceholder
+
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
   options: {
@@ -19,14 +26,8 @@ export const parameters = {
   },
   cssresources: [
     {
-      id: 'Dark on Light',
+      id: 'Light theme',
       code: `<link rel="stylesheet" type="text/css" href="/themes/dark-on-light.css"></link>`,
-      picked: false,
-      hideCode: true
-    },
-    {
-      id: 'Light on Dark',
-      code: `<link rel="stylesheet" type="text/css" href="/themes/light-on-dark.css"></link>`,
       picked: false,
       hideCode: true
     }

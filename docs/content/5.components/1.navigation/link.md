@@ -1,7 +1,7 @@
 ---
 title: Link
 description: 'About the Docus Starter.'
-layout: docs
+layout: component-doc
 ---
 
 # Text Link

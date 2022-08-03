@@ -1,0 +1,11 @@
+.rpl-callout {
+  padding: var(--rpl-sp-6);
+  border-left: var(--rpl-border-3) solid;
+  border-color: var(--rpl-clr-accent);
+  background-color: var(--rpl-clr-accent-alt);
+  margin-bottom: var(--rpl-sp-8); /* same as paragraph */
+
+  > *:last-child {
+    margin-bottom: 0;
+  }
+}

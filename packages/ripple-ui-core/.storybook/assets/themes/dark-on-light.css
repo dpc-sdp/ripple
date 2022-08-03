@@ -1,13 +1,30 @@
 /**
- * Branding theme with dark text on light ui primary
+ * Branding theme with dark text on LIGHT ui primary
  */
 
 :root {
-  --rpl-clr-core-primary: #fdda24;
-  --rpl-clr-core-primary-alt: #fef0a7;
-  --rpl-clr-core-primary-contrast: var(--rpl-clr-dark);
-  --rpl-clr-core-accent: #88dbdf;
-  --rpl-clr-core-accent-alt: #f3fcfc;
-  --rpl-clr-core-accent-contrast: var(--rpl-clr-dark);
-  --rpl-theme-button-white-text-clr: var(--rpl-clr-dark);
+  --rpl-clr-primary: #fdda24;
+  --rpl-clr-primary-alt: #fef0a7;
+  --rpl-clr-accent: #ef4a81;
+  --rpl-clr-accent-alt: #fdedf2;
+
+  --rpl-clr-link: #be3c67;
+  --rpl-clr-focus: #1c3bdd;
+  --rpl-clr-type-focus-contrast: var(--rpl-clr-light);
+
+  --rpl-clr-gradient-vertical: linear-gradient(
+    90deg,
+    var(--rpl-clr-accent) 0%,
+    var(--rpl-clr-accent) 100%
+  );
+  --rpl-clr-gradient-horizontal: linear-gradient(
+    90deg,
+    var(--rpl-clr-accent) 0%,
+    var(--rpl-clr-accent) 100%
+  );
+
+  --rpl-clr-type-primary-contrast: var(--rpl-clr-dark);
+  --rpl-clr-type-accent-contrast: var(--rpl-clr-dark);
+  --rpl-clr-type-primary-accessible: var(--rpl-clr-type-default);
+  --rpl-clr-type-primary-alt-accessible: var(--rpl-clr-type-default);
 }

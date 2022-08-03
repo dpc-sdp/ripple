@@ -2,7 +2,7 @@
 to: "<%= mdx ? null : `packages/ripple-ui-core/src/components/${h.changeCase.paramCase(name)}/${h.changeCase.paramCase(name)}.stories.js` %>"
 ---
 import <%= h.rplcomponentname(name) %> from './<%= h.changeCase.paramCase(name) %>.vue'
-import { <%= h.rplcomponentname(name) %>Themes } from './constants.ts'
+import { <%= h.rplcomponentname(name) %>Variants } from './constants.ts'
 import { a11yStoryCheck } from './../../../.storybook/interactions.js'
 
 export default {
@@ -10,9 +10,9 @@ export default {
   component: <%= h.rplcomponentname(name) %>,
   // More on argTypes: https://storybook.js.org/docs/vue/api/argtypes
   argTypes: {
-    theme: {
+    variant: {
       control: { type: 'select' },
-      options: <%= h.rplcomponentname(name) %>Themes
+      options: <%= h.rplcomponentname(name) %>Variants
     }
   }
 }
@@ -29,6 +29,6 @@ const Template = (args) => ({
 export const Default = Template.bind({})
 Default.play = a11yStoryCheck
 Default.args = {
-  theme: <%= h.rplcomponentname(name) %>Themes[0]
+  variant: <%= h.rplcomponentname(name) %>Variants[0]
 }
 

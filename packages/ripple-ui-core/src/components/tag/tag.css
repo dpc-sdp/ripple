@@ -1,0 +1,18 @@
+.rpl-tag {
+  background-color: var(--rpl-tag-bg-clr);
+  color: var(--rpl-clr-type-default);
+  display: inline-block;
+  padding: var(--rpl-sp-1) var(--rpl-sp-2);
+
+  &--default {
+    --rpl-tag-bg-clr: var(--rpl-clr-light);
+  }
+
+  &--neutral {
+    --rpl-tag-bg-clr: var(--rpl-clr-neutral-100);
+  }
+
+  & + & {
+    margin-left: var(--rpl-sp-3);
+  }
+}

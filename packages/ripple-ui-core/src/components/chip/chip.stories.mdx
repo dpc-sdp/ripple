@@ -1,0 +1,126 @@
+import {
+  Canvas,
+  Meta,
+  Story,
+  ArgsTable
+} from '@storybook/addon-docs'
+import RplChip from './chip.vue'
+import { RplChipVariants } from './constants'
+import { a11yStoryCheck } from './../../../.storybook/interactions.js'
+
+export const SingleTemplate = (args) => ({
+  components: { RplChip },
+  setup() {
+    return { args }
+  },
+  template: '<div class="sb-container"><RplChip v-bind="args" /></div>'
+})
+
+<Meta
+  title='Components/Navigation/Chip'
+  component={RplChip}
+  parameters={{
+    backgrounds: {
+      default: 'default',
+      values: [
+        { name: 'default', value: '#ffffff' },
+        { name: 'reverse', value: '#003174' },
+      ],
+    },
+    design: {
+      type: 'figma',
+      url:
+        'https://www.figma.com/file/jtsOPNk1k4cWnumzkZgclD/Ripple-2.0-PoC?node-id=2797%3A185839',
+    }
+  }}
+/>
+
+# Chip
+
+<ArgsTable of={RplChip} />
+
+## Default
+
+<Canvas>
+  <Story
+    name='Default'
+     parameters={{
+      backgrounds: {
+        default: 'default'
+      },
+    }}
+   play={a11yStoryCheck}
+    argTypes={{
+      variant: {
+        control: { type: 'select' },
+        options: RplChipVariants,
+        defaultValue: RplChipVariants[0]
+      }
+    }}
+    args={{
+      label: 'Chip'
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>
+
+## Example / Two chips
+
+export const ManyTemplate = (args) => ({
+  components: { RplChip },
+  setup() {
+    return { args }
+  },
+  template: '<div class="sb-container"><RplChip v-bind="args" /><RplChip v-bind="args" /></div>'
+})
+
+<Canvas>
+  <Story
+    name='Example/Two chips'
+    parameters={{
+      backgrounds: {
+        default: 'default'
+      },
+    }}
+    play={a11yStoryCheck}
+    argTypes={{
+      variant: {
+        control: { type: 'select' },
+        options: RplChipVariants,
+        defaultValue: RplChipVariants[0]
+      }
+    }}
+    args={{
+      label: 'Chip'
+    }}
+  >
+    {ManyTemplate.bind()}
+  </Story>
+</Canvas>
+
+## Reverse
+
+<Canvas>
+  <Story
+    name='Reversed'
+    parameters={{
+      backgrounds: {
+        default: 'reverse'
+      },
+    }}
+    play={a11yStoryCheck}
+    argTypes={{
+      variant: {
+        control: { type: 'select' },
+        options: RplChipVariants,
+        defaultValue: RplChipVariants[1]
+      }
+    }}
+    args={{
+      label: 'Chip'
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>

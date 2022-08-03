@@ -1,21 +1,15 @@
-export const RplButtonTypes = [
+export const RplButtonVariants = [
   'filled',
   'outlined',
   'white',
-  'elevated'
+  'elevated',
+  'destructive'
 ] as const
 export const RplButtonIconPositions = ['left', 'right'] as const
-export const RplButtonThemes = [
-  'primary',
-  'neutral',
-  'error',
-  'warning',
-  'info',
-  'success'
-] as const
+export const RplButtonThemes = ['default', 'neutral'] as const
 
 export default {
-  RplButtonTypes,
+  RplButtonVariants,
   RplButtonIconPositions,
   RplButtonThemes
 }

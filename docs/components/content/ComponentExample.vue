@@ -1,10 +1,25 @@
 <template>
-  <div class="docs-component-example flex content-center rounded-md">
-    <div class="m-auto p-4 flex flex-row space-x-4">
+  <div class="my-8 docs-component-example flex content-center rounded-md">
+    <div
+      class="docs-component-example__inner m-auto p-4 space-x-4"
+      :class="innerClasses"
+    >
       <slot></slot>
     </div>
   </div>
 </template>
+
+<script lang="ts" setup>
+const props = defineProps({
+  fullWidth: {
+    type: Boolean,
+    default: false
+  }
+})
+const innerClasses = props.fullWidth
+  ? ['block', 'w-full']
+  : ['flex', 'flex-row']
+</script>
 
 <style>
 .docs-component-example {

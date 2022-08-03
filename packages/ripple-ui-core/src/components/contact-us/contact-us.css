@@ -1,0 +1,44 @@
+.rpl-contact-us {
+  &__title {
+    margin-bottom: var(--rpl-sp-4);
+  }
+
+  &__details {
+    border-left-style: solid;
+    border-left-width: var(--rpl-border-3);
+    border-image: var(--rpl-clr-gradient-vertical) 1 100%;
+    margin: 0 0 var(--rpl-sp-4);
+    padding-left: var(--rpl-sp-3);
+  }
+
+  .rpl-list {
+    &__items {
+      display: flex;
+      align-items: flex-start;
+      flex-direction: column;
+      margin-top: 0;
+      margin-bottom: 0;
+      padding-left: 0;
+    }
+
+    &__item {
+      list-style-type: none;
+      padding: 0 0 var(--rpl-sp-2);
+    }
+
+    &__link {
+      display: inline-block;
+      color: var(--rpl-clr-type-default);
+
+      &:focus-visible {
+        color: var(--rpl-clr-type-focus-contrast);
+      }
+    }
+
+    &__icon {
+      color: var(--rpl-clr-link);
+      margin-right: var(--rpl-sp-2);
+      margin-bottom: -0.2em;
+    }
+  }
+}

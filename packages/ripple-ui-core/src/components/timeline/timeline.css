@@ -4,10 +4,6 @@
   --local-point-thickness: calc(var(--local-title-height) / 4);
   --local-clr-border: var(--rpl-clr-neutral-300);
 
-  &__heading {
-    margin-bottom: 0;
-  }
-
   &__items {
     align-items: flex-start;
     display: flex;
@@ -87,8 +83,6 @@
       font-weight: var(--rpl-type-weight-bold);
       line-height: var(--rpl-type-lh-5);
       letter-spacing: var(--rpl-type-ls-2);
-      margin-top: 0;
-      margin-bottom: 0;
     }
 
     &-link {
@@ -118,6 +112,7 @@
     }
 
     &-subtitle {
+      margin-top: 0;
       margin-bottom: 0;
     }
 
@@ -132,10 +127,6 @@
 
       &:first-child::after {
         top: calc((var(--local-img-height) - var(--local-point-thickness)) / 2);
-      }
-
-      .rpl-timeline__item-title {
-        margin-top: 0;
       }
 
       &:last-child::after {

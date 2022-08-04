@@ -4,8 +4,4 @@
   border-color: var(--rpl-clr-accent);
   background-color: var(--rpl-clr-accent-alt);
   margin-top: var(--rpl-sp-4); /* same as paragraph */
-
-  > *:last-child {
-    margin-bottom: 0;
-  }
 }

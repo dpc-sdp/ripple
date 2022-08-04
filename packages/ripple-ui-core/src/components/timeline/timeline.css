@@ -175,10 +175,6 @@
         color: var(--rpl-clr-link);
       }
 
-      .rpl-timeline__item-link:focus-visible {
-        color: var(--rpl-clr-type-focus-contrast);
-      }
-
       &::before,
       &:last-child::after {
         background-color: var(--rpl-clr-link);

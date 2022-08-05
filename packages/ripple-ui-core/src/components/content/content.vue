@@ -12,11 +12,7 @@ defineProps({
 </script>
 
 <template>
-  <div class="rpl-content">
-    <slot>
-      <div v-html="html"></div>
-    </slot>
-  </div>
+  <div class="rpl-content" v-html="html"></div>
 </template>
 
 <style src="./content.css" />

@@ -1,8 +1,3 @@
-<script setup lang="ts">
-import { useSlots } from '#imports'
-const slots = useSlots()
-</script>
-
 <template>
   <div>
     <ComponentExample>

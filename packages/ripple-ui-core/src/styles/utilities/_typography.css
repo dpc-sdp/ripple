@@ -1,9 +1,3 @@
-/*
-  Due to the complexities of ul and ol styling the stylint rule for
-  'no-descending-specificity' has been disabled for this file.
-*/
-/* stylelint-disable no-descending-specificity */
-
 /* Global */
 html {
   color: var(--rpl-clr-type-default);
@@ -15,6 +9,8 @@ html {
   Headings
   1. Magic number value so that the UI visually matches the design system.
 */
+
+/* h1 */
 .rpl-type-h1-highlight {
   display: inline;
   padding: 0.25rem var(--rpl-sp-3); /* [1] */
@@ -34,22 +30,44 @@ html {
   }
 }
 
+.rpl-type-h1-highlight-fixed {
+  display: inline;
+  padding: 0.25rem var(--rpl-sp-3); /* [1] */
+  font-size: var(--rpl-type-size-6);
+  font-weight: var(--rpl-type-weight-bold);
+  line-height: var(--rpl-type-lh-10);
+  letter-spacing: var(--rpl-type-ls-5);
+  color: var(--rpl-clr-type-accent-contrast);
+  background-color: var(--rpl-clr-accent);
+  box-decoration-break: clone;
+}
+
 .rpl-content h1,
 .rpl-type-h1 {
   display: block;
   font-size: var(--rpl-type-size-6);
   font-weight: var(--rpl-type-weight-bold);
-  line-height: var(--rpl-type-lh-9);
+  line-height: var(--rpl-type-lh-8);
   letter-spacing: var(--rpl-type-ls-5);
   color: var(--rpl-clr-primary);
 
   @media (--rpl-bp-l) {
     font-size: var(--rpl-type-size-8);
-    line-height: var(--rpl-type-lh-12);
+    line-height: var(--rpl-type-lh-11);
     letter-spacing: var(--rpl-type-ls-7);
   }
 }
 
+.rpl-type-h1-fixed {
+  display: block;
+  font-size: var(--rpl-type-size-6);
+  font-weight: var(--rpl-type-weight-bold);
+  line-height: var(--rpl-type-lh-8);
+  letter-spacing: var(--rpl-type-ls-5);
+  color: var(--rpl-clr-primary);
+}
+
+/* h2 */
 .rpl-content h2,
 .rpl-type-h2 {
   display: block;
@@ -57,33 +75,52 @@ html {
   font-weight: var(--rpl-type-weight-bold);
   line-height: var(--rpl-type-lh-6);
   letter-spacing: var(--rpl-type-ls-4);
-  margin-bottom: var(--rpl-sp-4);
 
   @media (--rpl-bp-l) {
-    font-size: var(--rpl-type-size-7);
-    line-height: var(--rpl-type-lh-10);
-    letter-spacing: var(--rpl-type-ls-6);
-    margin-bottom: var(--rpl-sp-5);
+    font-size: var(--rpl-type-size-6);
+    line-height: var(--rpl-type-lh-8);
+    letter-spacing: var(--rpl-type-ls-5);
   }
 }
 
+.rpl-type-h2-fixed {
+  display: block;
+  font-size: var(--rpl-type-size-4);
+  font-weight: var(--rpl-type-weight-bold);
+  line-height: var(--rpl-type-lh-6);
+  letter-spacing: var(--rpl-type-ls-4);
+}
+
+/* h3 */
 .rpl-type-h3-highlight {
   display: inline;
-  padding: 0.25rem var(--rpl-sp-2); /* [1] */
+  padding: 0.05rem var(--rpl-sp-2); /* [1] */
   font-size: var(--rpl-type-size-3);
   font-weight: var(--rpl-type-weight-bold);
-  line-height: var(--rpl-type-lh-7);
+  line-height: var(--rpl-type-lh-6);
   letter-spacing: var(--rpl-type-ls-2);
   color: var(--rpl-clr-type-primary-contrast);
   background-color: var(--rpl-clr-primary);
   box-decoration-break: clone;
 
   @media (--rpl-bp-l) {
-    padding: 0.1rem var(--rpl-sp-3); /* [1] */
-    font-size: var(--rpl-type-size-5);
-    line-height: 4.4rem; /* [1] */
-    letter-spacing: var(--rpl-type-ls-5);
+    padding: 0 var(--rpl-sp-2);
+    font-size: var(--rpl-type-size-4);
+    line-height: var(--rpl-type-lh-7);
+    letter-spacing: var(--rpl-type-ls-4);
   }
+}
+
+.rpl-type-h3-highlight-fixed {
+  display: inline;
+  padding: 0.25rem var(--rpl-sp-2); /* [1] */
+  font-size: var(--rpl-type-size-3);
+  font-weight: var(--rpl-type-weight-bold);
+  line-height: var(--rpl-type-lh-6);
+  letter-spacing: var(--rpl-type-ls-2);
+  color: var(--rpl-clr-type-primary-contrast);
+  background-color: var(--rpl-clr-primary);
+  box-decoration-break: clone;
 }
 
 .rpl-content h3,
@@ -93,16 +130,23 @@ html {
   font-weight: var(--rpl-type-weight-bold);
   line-height: var(--rpl-type-lh-5);
   letter-spacing: var(--rpl-type-ls-2);
-  margin-bottom: var(--rpl-sp-3);
 
   @media (--rpl-bp-l) {
-    font-size: var(--rpl-type-size-5);
-    line-height: var(--rpl-type-lh-8);
-    letter-spacing: var(--rpl-type-ls-5);
-    margin-bottom: var(--rpl-sp-4);
+    font-size: var(--rpl-type-size-4);
+    line-height: var(--rpl-type-lh-6);
+    letter-spacing: var(--rpl-type-ls-4);
   }
 }
 
+.rpl-type-h3-fixed {
+  display: block;
+  font-size: var(--rpl-type-size-3);
+  font-weight: var(--rpl-type-weight-bold);
+  line-height: var(--rpl-type-lh-5);
+  letter-spacing: var(--rpl-type-ls-2);
+}
+
+/* h4 */
 .rpl-content h4,
 .rpl-type-h4 {
   display: block;
@@ -110,14 +154,20 @@ html {
   font-weight: var(--rpl-type-weight-bold);
   line-height: var(--rpl-type-lh-4);
   letter-spacing: var(--rpl-type-ls-1);
-  margin-bottom: var(--rpl-sp-2);
 
   @media (--rpl-bp-l) {
-    font-size: var(--rpl-type-size-4);
-    line-height: var(--rpl-type-lh-6);
-    letter-spacing: var(--rpl-type-ls-4);
-    margin-bottom: var(--rpl-sp-3);
+    font-size: var(--rpl-type-size-3);
+    line-height: var(--rpl-type-lh-5);
+    letter-spacing: var(--rpl-type-ls-2);
   }
+}
+
+.rpl-type-h4-fixed {
+  display: block;
+  font-size: var(--rpl-type-size-2);
+  font-weight: var(--rpl-type-weight-bold);
+  line-height: var(--rpl-type-lh-4);
+  letter-spacing: var(--rpl-type-ls-1);
 }
 
 /* Paragraphs */
@@ -128,10 +178,17 @@ html {
   letter-spacing: var(--rpl-type-ls-2);
 
   @media (--rpl-bp-l) {
-    font-size: var(--rpl-type-size-5);
-    line-height: var(--rpl-type-lh-7);
-    letter-spacing: var(--rpl-type-ls-5);
+    font-size: var(--rpl-type-size-4);
+    line-height: var(--rpl-type-lh-6);
+    letter-spacing: var(--rpl-type-ls-4);
   }
+}
+
+.rpl-type-p-large-fixed {
+  display: block;
+  font-size: var(--rpl-type-size-3);
+  line-height: var(--rpl-type-lh-5);
+  letter-spacing: var(--rpl-type-ls-2);
 }
 
 .rpl-content p,
@@ -140,7 +197,6 @@ html {
   font-size: var(--rpl-type-size-2);
   line-height: var(--rpl-type-lh-4);
   letter-spacing: var(--rpl-type-ls-1);
-  margin-bottom: var(--rpl-sp-8);
 }
 
 .rpl-type-p-small {
@@ -148,130 +204,6 @@ html {
   font-size: var(--rpl-type-size-1);
   line-height: var(--rpl-type-lh-3);
   letter-spacing: var(--rpl-type-ls-1);
-  margin-bottom: var(--rpl-sp-8);
-}
-
-/* Lists */
-.rpl-content ol,
-.rpl-type-list-ol {
-  display: block;
-  font-size: var(--rpl-type-size-2);
-  line-height: var(--rpl-type-lh-4);
-  letter-spacing: var(--rpl-type-ls-1);
-  margin-bottom: var(--rpl-sp-8);
-  margin-left: var(--rpl-sp-4);
-  padding-left: var(--rpl-sp-4);
-
-  @media (--rpl-bp-l) {
-    margin-left: var(--rpl-sp-5);
-  }
-
-  li {
-    padding: 0 0 var(--rpl-sp-2) var(--rpl-sp-2);
-
-    &:last-of-type {
-      padding-bottom: 0;
-    }
-  }
-
-  ::marker {
-    font-size: var(--rpl-type-size-2);
-    line-height: var(--rpl-type-lh-4);
-    letter-spacing: 0;
-  }
-
-  /* Sub lists */
-  & &,
-  .rpl-type-list-ul {
-    margin-bottom: 0;
-    margin-left: 0;
-    padding-top: var(--rpl-sp-2);
-    padding-left: var(--rpl-sp-5);
-  }
-
-  /* Level 2 */
-  & & {
-    list-style-type: lower-alpha;
-  }
-
-  /* Level 3 */
-  & & & {
-    list-style-type: lower-roman;
-
-    ::marker {
-      letter-spacing: var(--rpl-type-ls-1);
-    }
-  }
-}
-
-.rpl-content ul,
-.rpl-type-list-ul {
-  display: block;
-  font-size: var(--rpl-type-size-2);
-  line-height: var(--rpl-type-lh-4);
-  letter-spacing: var(--rpl-type-ls-1);
-  margin-bottom: var(--rpl-sp-8);
-  margin-left: var(--rpl-sp-4);
-  padding-left: var(--rpl-sp-4);
-  list-style-type: none;
-
-  @media (--rpl-bp-l) {
-    margin-left: var(--rpl-sp-5);
-  }
-
-  > li {
-    position: relative;
-    padding: 0 0 var(--rpl-sp-2) var(--rpl-sp-2);
-
-    &::before {
-      content: '';
-      display: block;
-      position: absolute;
-      top: 1.1rem;
-      left: -0.9rem;
-      background-color: currentcolor;
-      width: 0.5rem;
-      height: 0.5rem;
-      border-radius: 50%;
-    }
-
-    &:last-of-type {
-      padding-bottom: 0;
-    }
-  }
-
-  ::marker {
-    font-size: var(--rpl-type-size-2);
-    line-height: var(--rpl-type-lh-4);
-    letter-spacing: 0;
-  }
-
-  /* Sub lists */
-  & &,
-  .rpl-type-list-ol {
-    margin-bottom: 0;
-    margin-left: 0;
-    padding-top: var(--rpl-sp-2);
-    padding-left: var(--rpl-sp-5);
-  }
-
-  /* Level 2 */
-  & & {
-    list-style-type: none;
-
-    li {
-      position: relative;
-
-      &::before {
-        content: '-';
-        display: block;
-        position: absolute;
-        top: 0;
-        left: -1rem;
-        background-color: transparent;
-      }
-    }
-  }
 }
 
 /* Labels */

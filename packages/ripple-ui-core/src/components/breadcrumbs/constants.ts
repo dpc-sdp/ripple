@@ -6,3 +6,7 @@ export const RplBreadcrumbsItemArray = {
   label: typeof RplPropLabel as string,
   url: typeof RplPropUrl as string
 } as const
+
+export default {
+  RplBreadcrumbsItemArray
+}

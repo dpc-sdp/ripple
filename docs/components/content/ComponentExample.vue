@@ -1,5 +1,5 @@
 <template>
-  <div class="docs-component-example flex content-center rounded-md">
+  <div class="my-8 docs-component-example flex content-center rounded-md">
     <div
       class="docs-component-example__inner m-auto p-4 space-x-4"
       :class="innerClasses"

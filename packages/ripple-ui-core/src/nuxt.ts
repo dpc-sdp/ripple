@@ -19,6 +19,7 @@ export default defineNuxtModule({
       // Add ./components dir to the list
       console.log('Added Ripple UI components')
       dirs.push({
+        extensions: ['vue'],
         path: join(__dirname, './../src/components'),
         prefix: 'rpl',
         global: true

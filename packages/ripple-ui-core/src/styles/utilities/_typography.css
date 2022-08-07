@@ -113,7 +113,7 @@ html {
 
 .rpl-type-h3-highlight-fixed {
   display: inline;
-  padding: 0.25rem var(--rpl-sp-2); /* [1] */
+  padding: 0.05rem var(--rpl-sp-2); /* [1] */
   font-size: var(--rpl-type-size-3);
   font-weight: var(--rpl-type-weight-bold);
   line-height: var(--rpl-type-lh-6);

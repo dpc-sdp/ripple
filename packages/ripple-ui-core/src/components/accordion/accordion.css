@@ -1,4 +1,4 @@
-@import '../../styles/_breakpoints.css';
+@import '@dpc-sdp/ripple-ui-core/style/breakpoints';
 
 /* Toggle all button */
 .rpl-accordion__toggle-all-wrapper {

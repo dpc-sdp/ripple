@@ -26,7 +26,7 @@ export const RplTypeStyles = [
   },
   {
     title: 'H2 / Heading / Fixed',
-    class: `${base}-h2`
+    class: `${base}-h2-fixed`
   },
   {
     title: 'H3 / Highlight',

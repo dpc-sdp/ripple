@@ -10,8 +10,9 @@
   }
 
   &__flag {
-    width: 5.8rem;
-    padding-top: var(--rpl-sp-1);
+    width: 5.5rem;
+    margin-top: var(--rpl-sp-1);
+    border: 1px solid var(--rpl-clr-neutral-0);
   }
 
   &__flag + &__flag {

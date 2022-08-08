@@ -3,6 +3,9 @@ export default { name: 'RplAcknowledgement' }
 </script>
 
 <script setup lang="ts">
+import aboriginalFlag from './../../assets/flags/flag-aboriginal.svg?url'
+import torresStraitIslanderFlag from './../../assets/flags/flag-torres-strait-islander.svg?url'
+
 defineProps({
   message: {
     type: String,
@@ -13,8 +16,8 @@ defineProps({
 
 <template>
   <div class="rpl-acknowledgement">
-    <img class="rpl-acknowledgement__flag" src="../../assets/flags/flag-aboriginal.svg" alt="Aboriginal flag" />
-    <img class="rpl-acknowledgement__flag" src="../../assets/flags/flag-torres-strait-islander.svg" alt="Torres Strait Islander flag" />
+    <img class="rpl-acknowledgement__flag" :src="aboriginalFlag" alt="Aboriginal flag" />
+    <img class="rpl-acknowledgement__flag" :src="torresStraitIslanderFlag" alt="Torres Strait Islander flag" />
     <p class="rpl-acknowledgement__message rpl-type-p rpl-type-weight-bold">
       {{ message }}
     </p>

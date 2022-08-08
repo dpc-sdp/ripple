@@ -2,7 +2,6 @@
 
 .rpl-acknowledgement {
   display: flex;
-  align-items: flex-start;
   flex-wrap: wrap;
 
   @media (--rpl-bp-m) {
@@ -11,7 +10,6 @@
 
   &__flag {
     width: 5.5rem;
-    margin-top: var(--rpl-sp-1);
     border: 1px solid var(--rpl-clr-neutral-0);
   }
 

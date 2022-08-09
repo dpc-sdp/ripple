@@ -35,8 +35,29 @@ export const SingleTemplate = (args) => ({
     play={a11yStoryCheck}
     args={{html: `
     <div class="rpl-callout">
-      <h3>Callout heading</h3>
-      <p>Dolore quidem unde quisquam provident ad dicta est id. Sunt aut blanditiis voluptas quis velit eos non cupiditate. Reprehenderit qui nesciunt quas.</p>
+      <h3>H3 Heading</h3>
+      <p>
+        Paragraph. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+        do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+        ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+        aliquip ex ea commodo consequat.
+      </p>
+    </div>
+    `}}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+  <Story
+    name='Callout - Neutral'
+    play={a11yStoryCheck}
+    args={{html: `
+    <div class="rpl-callout rpl-callout--neutral">
+      <p>
+        Paragraph. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+        do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+        ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+        aliquip ex ea commodo consequat.
+      </p>
     </div>
     `}}
   >

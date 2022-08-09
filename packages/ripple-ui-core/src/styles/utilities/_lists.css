@@ -33,7 +33,9 @@
 
   /* Sub lists */
   & &,
-  .rpl-type-list-ul {
+  .rpl-type-list-ul,
+  ol,
+  ul {
     margin-left: 0;
     padding-top: var(--rpl-sp-2);
     padding-left: var(--rpl-sp-5);
@@ -97,7 +99,9 @@
 
   /* Sub lists */
   & &,
-  .rpl-type-list-ol {
+  .rpl-type-list-ol,
+  ul,
+  ol {
     margin-left: 0;
     padding-top: var(--rpl-sp-2);
     padding-left: var(--rpl-sp-5);

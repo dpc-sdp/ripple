@@ -4,6 +4,11 @@
 html {
   font-family: var(--rpl-type-font-family);
   font-size: 62.5%; /* [1] */
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
 }
 
 h1,

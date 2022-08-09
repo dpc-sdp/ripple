@@ -118,9 +118,9 @@
     --local-outlined-border-clr: var(--rpl-clr-primary);
     --local-outlined-border-clr-hover: var(--rpl-clr-primary-alt);
     --local-outlined-type-clr: var(--rpl-clr-type-primary-accessible);
-    --local-outlined-type-clr-hover: var(--rpl-clr-primary-alt-accessible);
+    --local-outlined-type-clr-hover: var(--rpl-clr-type-primary-alt-accessible);
     --local-white-type-clr: var(--rpl-clr-type-primary-accessible);
-    --local-white-type-clr-hover: var(--rpl-clr-primary-alt-accessible);
+    --local-white-type-clr-hover: var(--rpl-clr-type-primary-alt-accessible);
   }
 
   &--neutral {

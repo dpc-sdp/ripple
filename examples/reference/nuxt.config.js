@@ -45,11 +45,6 @@ export default {
   modules: [
     // https://www.npmjs.com/package/@dpc-sdp/ripple-nuxt-tide
     '@dpc-sdp/ripple-nuxt-tide',
-    // we want to always disallow bots on the example site
-    ['@nuxtjs/robots', {
-      UserAgent: '*',
-      Disallow: '/'
-    }],
     '@nuxtjs/gtm',
     ['@dpc-sdp/ripple-data-vic-api', {
       logLevel: ['development', 'test'].includes(process.env.NODE_ENV) ? 'development' : 'production',
@@ -184,6 +179,11 @@ export default {
       },
       loadOnDemand: 1 // 0 for previous load mode. If you have a custom search page before Ripple v1.5.7, you need small change your code to turn on this. A example: https://github.com/dpc-sdp/ripple/pull/630/files#diff-c797d3457e8f4ca26b5707a65bc76189R37
     },
-    cachePurgePattern: []
+    cachePurgePattern: [],
+    // Example of custom robots config to get merge with the default, adding a robots property here lets ripple-nuxt-tide manage @nuxtjs/robots
+    robots: [{
+      UserAgent: 'Googlebot',
+      Disallow: '/private'
+    }]
   }
 }

@@ -4,11 +4,24 @@
     <div class="rpl-accordion__collapse">
       <button class="rpl-accordion__collapse-btn" @click="closeOpenAll">{{ closeOpenLabel }}</button>
     </div>
-    <component :is="isNumbered ? 'ol' : 'ul'" class="rpl-accordion__list">
+    <ol class="rpl-accordion__list" v-if="type === 'numbered'">
+      <li class="rpl-accordion__list-item" v-for="(accordion, index) in accordions" :key="index" :class="{'rpl-accordion__list-item--expanded': accordionIsOpen(index)}">
+        <h3 class="rpl-accordion__title" :class="{'rpl-accordion__title--expanded': accordionIsOpen(index)}">
+          <button @click="accordionClick(index)" class="rpl-accordion__button" :class="{'rpl-accordion__button--expanded': accordionIsOpen(index)}" :aria-expanded="accordionIsOpen(index).toString()" :aria-controls="accordionId(index)">
+            <span aria-hidden="true" class="rpl-accordion__title-number">{{ (index + 1) }}</span>
+            <span :class="{'rpl-accordion__button-text--rtl': isRtl()}">{{ accordion.title }}</span>
+            <rpl-icon symbol="arrow_down_tertiary" color="primary" class="rpl-accordion__icon" :class="{'rpl-accordion__icon--expanded': accordionIsOpen(index)}"/>
+          </button>
+        </h3>
+        <div class="rpl-accordion__content" :id="accordionId(index)" :ref="accordionId(index)">
+          <rpl-markup class="rpl-accordion__content-inner" :html="accordion.content" />
+        </div>
+      </li>
+    </ol>
+    <ul class="rpl-accordion__list" v-else>
       <li class="rpl-accordion__list-item" v-for="(accordion, index) in accordions" :key="index" :class="{'rpl-accordion__list-item--expanded': accordionIsOpen(index)}">
         <h2 class="rpl-accordion__title" :class="{'rpl-accordion__title--expanded': accordionIsOpen(index)}">
           <button @click="accordionClick(index)" class="rpl-accordion__button" :class="{'rpl-accordion__button--expanded': accordionIsOpen(index)}" :aria-expanded="accordionIsOpen(index).toString()" :aria-controls="accordionId(index)">
-            <span v-if="isNumbered" aria-hidden="true" class="rpl-accordion__title-number">{{ (index + 1) }}</span>
             <span class="rpl-accordion__button-text" :class="{'rpl-accordion__button-text--rtl': isRtl()}">{{ accordion.title }}</span>
             <rpl-icon symbol="arrow_down_tertiary" color="primary" class="rpl-accordion__icon" :class="{'rpl-accordion__icon--expanded': accordionIsOpen(index)}"/>
           </button>
@@ -21,7 +34,7 @@
           <rpl-markup class="rpl-accordion__content-inner" :html="accordion.content" />
         </div>
       </li>
-    </component>
+    </ul>
   </div>
 </template>
 
@@ -32,7 +45,6 @@ import RplMarkup from '@dpc-sdp/ripple-markup'
 import Vue from 'vue'
 import { getAnchorLinkName } from '@dpc-sdp/ripple-global/utils/helpers.js'
 import rtl from '@dpc-sdp/ripple-global/mixins/rtl.js'
-import { RplAccordionEventBus } from './index.js'
 
 export default {
   name: 'RplAccordion',
@@ -58,15 +70,6 @@ export default {
     for (const index in this.accordions) {
       Vue.set(this.itemOpen, index, false)
     }
-    RplAccordionEventBus.$on('open-panel', (item) => {
-      // AnchorLinks can't narrow down to a single accordion, so check AnchorLinkName
-      if (item.url === `#${this.titleId}`) {
-        // Only open if closed
-        if (!this.accordionIsOpen(item.index)) {
-          this.accordionClick(item.index)
-        }
-      }
-    })
   },
   computed: {
     titleId () {
@@ -81,9 +84,6 @@ export default {
         }
       }
       return true
-    },
-    isNumbered () {
-      return this.type === 'numbered'
     }
   },
   methods: {

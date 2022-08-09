@@ -5,8 +5,6 @@ clr:
     alt:
       _:
         value: '{theme.clr.primary.700}'
-      accessible:
-        value: '{theme.clr.primary.700}'
   accent:
     _:
       value: '{theme.clr.accent.500}'
@@ -22,6 +20,9 @@ clr:
         value: '{clr.light}'
       accessible:
         value: '{theme.clr.primary.500}'
+      alt:
+        accessible:
+          value: '{theme.clr.primary.700}'
     accent:
       contrast:
         value: '{clr.light}'

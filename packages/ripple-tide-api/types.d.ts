@@ -29,6 +29,7 @@ export interface TidePageBase {
   description: string
   created: string
   modified: string
+  nid: number
 }
 
 export interface RplTideModuleConfig {

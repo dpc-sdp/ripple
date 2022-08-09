@@ -1,9 +1,7 @@
 <script setup lang="ts">
-const props = defineProps({
-  tabs: {
-    type: Array
-  }
-})
+defineProps<{
+  tabs: { text: string; id: number }[]
+}>()
 </script>
 <template>
   <ul

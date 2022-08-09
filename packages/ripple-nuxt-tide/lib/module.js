@@ -134,7 +134,7 @@ const nuxtTide = function (moduleOptions) {
 
     let robots = [
       { UserAgent: 'SemrushBot', Disallow: '/' },
-      { UserAgent: '*', Disallow: excludedPaths },
+      { UserAgent: '*', Disallow: excludedPaths }
     ]
 
     // Add supplied options to default robot options

@@ -118,30 +118,34 @@ const nuxtTide = function (moduleOptions) {
 
   // Add robots.txt
   if (options?.robots) {
-    // Setup the main list of excluded paths
-    let excludedPaths = ['/']
+    // Setup excluded paths
+    let excludedPaths = [
+      '/js',
+      '/img',
+      '/_nuxt/*',
+      '/oauth/*',
+      '/preview/*',
+      '/share-link'
+    ]
 
-    if (process.env.LAGOON_ENVIRONMENT_TYPE === 'production') {
-      excludedPaths = [
-        '/js',
-        '/img',
-        '/_nuxt',
-        '/_nuxt/*',
-        '/preview/*',
-        '/share-link'
-      ]
+    if (process.env.LAGOON_ENVIRONMENT_TYPE !== 'production') {
+      excludedPaths.push('/')
     }
 
     let robots = [
       { UserAgent: 'SemrushBot', Disallow: '/' },
       { UserAgent: '*', Disallow: excludedPaths },
-      ...options.robots
     ]
 
-    // Add sitemap if it's not already defined, this only works when the build target is server
-    const sitemapDefined = options.robots.find(entry => Object.keys(entry).includes('Sitemap'))
+    // Add supplied options to default robot options
+    if (Array.isArray(options.robots)) {
+      robots.push(...options.robots)
+    } else if (typeof options.robots === 'object') {
+      robots.push(options.robots)
+    }
 
-    if (!sitemapDefined && this.options.target === 'server') {
+    // Add sitemap, this only works when the build target is server
+    if (this.options.target === 'server') {
       robots.push({ Sitemap: (req) => `https://${req.headers.host}/sitemap.xml` })
     }
 

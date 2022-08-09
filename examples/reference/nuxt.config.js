@@ -180,10 +180,10 @@ export default {
       loadOnDemand: 1 // 0 for previous load mode. If you have a custom search page before Ripple v1.5.7, you need small change your code to turn on this. A example: https://github.com/dpc-sdp/ripple/pull/630/files#diff-c797d3457e8f4ca26b5707a65bc76189R37
     },
     cachePurgePattern: [],
-    // Example of custom robots config to get merge with the default, adding a robots property here lets ripple-nuxt-tide manage @nuxtjs/robots
-    robots: [{
-      UserAgent: 'Googlebot',
-      Disallow: '/private'
-    }]
+    // Opting into robot.txt generation from ripple-nuxt-tide (@nuxtjs/robots)
+    // boolean | robots: true (use defaults)
+    // object | robots: { UserAgent: 'Googlebot', Disallow: '/private' }
+    // array | robots:  [{ UserAgent: 'Googlebot', Disallow: '/private' }, { UserAgent: 'msnbot', Disallow: '/draft' }]
+    robots: true
   }
 }

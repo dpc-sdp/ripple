@@ -61,7 +61,10 @@ You Can move some setting value into your env variables.
     // For devOps to set custom cache purge regex patterns if needs
     cachePurgePattern: [
       'your-custom-api-url-regex-pattern'
-    ]
+    ],
+    // Lets ripple-nuxt-tide manage the robots.txt file
+    robots: true // Optional. Accepts boolean i.e. true to use defaults, an object or an array or objects.
+  }
 }
 ```
 

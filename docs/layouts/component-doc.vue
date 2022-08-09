@@ -7,11 +7,6 @@ const aside = computed(() => {
   if (typeof page.value?.aside !== 'undefined') return page.value.aside
   return true
 })
-
-const toc = computed(() => {
-  if (typeof page.value?.toc !== 'undefined') return page.value.toc
-  return page.value.toc
-})
 </script>
 
 <template>

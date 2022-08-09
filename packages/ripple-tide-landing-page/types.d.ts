@@ -1,10 +1,19 @@
 import type { TidePageBase } from '@dpc-sdp/ripple-tide-api/types'
 
+export type TideLandingPageComponent = {
+  id: string
+  component: string
+  props: Record<string, any>
+  class?: Record<string, any>
+}
+
 export default interface TideLandingPagePage extends TidePageBase {
   /**
-   * @description Example field - change this to your own!
-   * @example 'Hello world from TideLandingPagePage'
+   * @description Dynamic components for the header section
    */
-  example: string
-  bodyComponents: unknown[]
+  headerComponents: TideLandingPageComponent[]
+  /**
+   * @description Dynamic components for the body section
+   */
+  bodyComponents: TideLandingPageComponent[]
 }

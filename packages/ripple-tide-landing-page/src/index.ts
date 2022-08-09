@@ -11,6 +11,13 @@ const tideLandingPageModule: RplTideMapping = {
   mapping: {
     ...tidePageMappingBase,
     summary: 'field_landing_page_summary',
+    headerComponents: async (page) => {
+      return await getLandingPageComponents(
+        page,
+        'field_landing_page_header',
+        componentMapping
+      )
+    },
     bodyComponents: async (page) => {
       return await getLandingPageComponents(
         page,

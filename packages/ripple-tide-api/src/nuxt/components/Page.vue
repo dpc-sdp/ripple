@@ -8,7 +8,7 @@
         </rpl-nav-primary>
       </slot>
     </header>
-    <main v-if="page" class="rpl-tide-page__body">
+    <main v-if="page" class="rpl-tide-page__body rpl-container">
       <slot name="body">
         <component :is="componentName" :page="page" />
       </slot>
@@ -48,6 +48,13 @@ const componentName = computed(
 
 <style>
 .rpl-tide-page {
-  padding: var(--rpl-space-3);
+  &__header {
+    padding: var(--rpl-sp-5);
+  }
+  &__body {
+    padding: var(--rpl-sp-5);
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 </style>

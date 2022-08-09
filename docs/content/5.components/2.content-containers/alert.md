@@ -33,47 +33,6 @@ Informs user about important changes or conditions in the interface. Use this co
 | D   | Close icon |
 | E   | Container  |
 
-### Colours
-
-::token-table
-  ::token-row
-    ::token-col
-      Information
-    ::
-    ::token-col
-      ::token-swatch{size="24" color="#333333" }
-      ::
-    ::
-    ::token-col
-      #333333
-    ::
-  ::
-  ::token-row
-    ::token-col
-      Information
-    ::
-    ::token-col
-      ::token-swatch{size="24" color="#333333" }
-      ::
-    ::
-    ::token-col
-      #333333
-    ::
-  ::
-  ::token-row
-    ::token-col
-      Information
-    ::
-    ::token-col
-      ::token-swatch{size="24" color="#333333" }
-      ::
-    ::
-    ::token-col
-      #333333
-    ::
-  ::
-::
-
 
 
 ## Variants

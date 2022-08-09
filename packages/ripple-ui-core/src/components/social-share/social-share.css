@@ -16,6 +16,10 @@
     display: inline-block;
     margin: 0 0 var(--rpl-sp-2);
     color: var(--rpl-clr-type-default);
+
+    &:active {
+      text-decoration: underline;
+    }
   }
 
   &__icon {

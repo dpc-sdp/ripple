@@ -31,7 +31,7 @@
   Add a background colour to the rpl-grid cells so that they are visible while
   viewing in storybook.
 */
-.rpl-grid div {
+.rpl-storybook__grid .rpl-grid div {
   background-color: #eeeeee;
   text-align: center;
   padding: 20px;

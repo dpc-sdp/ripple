@@ -14,34 +14,36 @@ export const SingleTemplate = (args) => ({
     return { args }
   },
   template: `
-  <RplCard v-bind="args">
-    <template v-if="${'upper' in args}" v-slot:upper>${args.upper}</template>
-    <template v-if="${'meta' in args}" v-slot:meta>${args.meta}</template>
-    <template v-if="${'title' in args}" v-slot:title>${args.title}</template>
-    <template v-if="${'default' in args}" v-slot>${args.default}</template>
-    <template v-if="${'lower' in args}" v-slot:lower>${args.lower}</template>
-  </RplCard>
-  <RplCard v-bind="args">
-    <template v-if="${'upper' in args}" v-slot:upper>${args.upper}</template>
-    <template v-if="${'meta' in args}" v-slot:meta>${args.meta}</template>
-    <template v-if="${'title' in args}" v-slot:title>${args.title}</template>
-    <template v-if="${'default' in args}" v-slot>${args.default}</template>
-    <template v-if="${'lower' in args}" v-slot:lower>${args.lower}</template>
-  </RplCard>
-  <RplCard v-bind="args">
-    <template v-if="${'upper' in args}" v-slot:upper>${args.upper}</template>
-    <template v-if="${'meta' in args}" v-slot:meta>${args.meta}</template>
-    <template v-if="${'title' in args}" v-slot:title>${args.title}</template>
-    <template v-if="${'default' in args}" v-slot>${args.default}</template>
-    <template v-if="${'lower' in args}" v-slot:lower>${args.lower}</template>
-  </RplCard>
-  <RplCard v-bind="args">
-    <template v-if="${'upper' in args}" v-slot:upper>${args.upper}</template>
-    <template v-if="${'meta' in args}" v-slot:meta>${args.meta}</template>
-    <template v-if="${'title' in args}" v-slot:title>${args.title}</template>
-    <template v-if="${'default' in args}" v-slot>${args.default}</template>
-    <template v-if="${'lower' in args}" v-slot:lower>${args.lower}</template>
-  </RplCard>
+  <div class="rpl-grid">
+    <RplCard v-bind="args" class="rpl-col-4-m">
+      <template v-if="${'upper' in args}" v-slot:upper>${args.upper}</template>
+      <template v-if="${'meta' in args}" v-slot:meta>${args.meta}</template>
+      <template v-if="${'title' in args}" v-slot:title>${args.title}</template>
+      <template v-if="${'default' in args}" v-slot>${args.default}</template>
+      <template v-if="${'lower' in args}" v-slot:lower>${args.lower}</template>
+    </RplCard>
+    <RplCard v-bind="args" class="rpl-col-4-m">
+      <template v-if="${'upper' in args}" v-slot:upper>${args.upper}</template>
+      <template v-if="${'meta' in args}" v-slot:meta>${args.meta}</template>
+      <template v-if="${'title' in args}" v-slot:title>${args.title}</template>
+      <template v-if="${'default' in args}" v-slot>${args.default}</template>
+      <template v-if="${'lower' in args}" v-slot:lower>${args.lower}</template>
+    </RplCard>
+    <RplCard v-bind="args" class="rpl-col-4-m">
+      <template v-if="${'upper' in args}" v-slot:upper>${args.upper}</template>
+      <template v-if="${'meta' in args}" v-slot:meta>${args.meta}</template>
+      <template v-if="${'title' in args}" v-slot:title>${args.title}</template>
+      <template v-if="${'default' in args}" v-slot>${args.default}</template>
+      <template v-if="${'lower' in args}" v-slot:lower>${args.lower}</template>
+    </RplCard>
+    <RplCard v-bind="args" class="rpl-col-4-m">
+      <template v-if="${'upper' in args}" v-slot:upper>${args.upper}</template>
+      <template v-if="${'meta' in args}" v-slot:meta>${args.meta}</template>
+      <template v-if="${'title' in args}" v-slot:title>${args.title}</template>
+      <template v-if="${'default' in args}" v-slot>${args.default}</template>
+      <template v-if="${'lower' in args}" v-slot:lower>${args.lower}</template>
+    </RplCard>
+  </div>
   `
 })
 

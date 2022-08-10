@@ -1,10 +1,8 @@
 .rpl-card {
   background-color: var(--rpl-clr-light);
-  display: inline-block;
   border: var(--rpl-border-1) solid var(--rpl-clr-neutral-300);
   border-radius: var(--rpl-border-radius-2);
   margin: 0;
-  width: 33%;
 
   &__media img {
     display: block;

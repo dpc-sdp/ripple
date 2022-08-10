@@ -40,6 +40,7 @@
     "test:storybook-ci": "concurrently -k -s first -n \"SB,TEST\" -c \"magenta,blue\" \"npx http-server storybook-static --port 6006 --silent\" \"wait-on tcp:6006 && yarn test:storybook\""
   },
   "dependencies": {
+    "@formkit/vue": "^1.0.0-beta.10",
     "mitt": "^3.0.0",
     "normalize.css": "^8.0.1",
     "postcss-for": "^2.1.1",

@@ -1,0 +1,27 @@
+import {
+  Canvas,
+  Meta,
+  Story,
+  ArgsTable
+} from '@storybook/addon-docs'
+import { a11yStoryCheck } from './../../../.storybook/interactions.js'
+import testcontent from './testcontent.html?raw'
+export const SingleTemplate = (args) => ({
+  setup() {
+    return { args, testcontent }
+  },
+  template: '<div class="rpl-form" v-html="testcontent"></div>'
+})
+
+<Meta title='Components/Forms/HTML' />
+
+# HTML Forms
+
+<Canvas>
+  <Story
+    name='Default'
+    play={a11yStoryCheck}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>

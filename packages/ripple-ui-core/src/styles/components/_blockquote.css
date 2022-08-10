@@ -43,12 +43,13 @@
     padding-left: var(--rpl-sp-8);
     color: var(--rpl-clr-neutral-600);
 
-    span {
+    &-name,
+    &-title {
       display: block;
+    }
 
-      &:not(:first-of-type) {
-        margin-top: var(--rpl-sp-2);
-      }
+    &-title {
+      margin-top: var(--rpl-sp-2);
     }
   }
 }

@@ -1,0 +1,54 @@
+@import '@dpc-sdp/ripple-ui-core/style/breakpoints';
+
+.rpl-blockquote {
+  --local-icon-size: 3.5rem;
+
+  margin: var(--rpl-sp-5) 0 0;
+  padding: 0 var(--rpl-sp-2) var(--rpl-sp-6);
+
+  &__quote {
+    margin: 0;
+    padding-left: var(--rpl-sp-8);
+    position: relative;
+
+    &::before {
+      content: '"';
+      font-style: italic;
+      font-size: var(--local-icon-size);
+      font-weight: var(--rpl-type-weight-bold);
+      line-height: var(--rpl-type-lh-3);
+      color: var(--rpl-clr-primary);
+      position: absolute;
+      top: var(--rpl-sp-2);
+      left: 0;
+    }
+
+    :first-child {
+      margin-top: 0;
+    }
+
+    :last-child {
+      margin-bottom: 0;
+    }
+
+    p {
+      font-size: inherit;
+      line-height: inherit;
+      letter-spacing: inherit;
+    }
+  }
+
+  &__author {
+    margin-top: var(--rpl-sp-3);
+    padding-left: var(--rpl-sp-8);
+    color: var(--rpl-clr-neutral-600);
+
+    span {
+      display: block;
+
+      &:not(:first-of-type) {
+        margin-top: var(--rpl-sp-2);
+      }
+    }
+  }
+}

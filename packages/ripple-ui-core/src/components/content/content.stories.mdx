@@ -63,4 +63,21 @@ export const SingleTemplate = (args) => ({
   >
     {SingleTemplate.bind()}
   </Story>
+  <Story
+    name='Blockquote'
+    play={a11yStoryCheck}
+    args={{html: `
+      <figure class="rpl-blockquote">
+        <blockquote class="rpl-blockquote__quote rpl-type-p-large-fixed">
+          <p>"Berios sim destrum facientota nis ex eost aut prae vendis explam aliquis dolorpo rrorem reptaep elenis net."</p>
+        </blockquote>
+        <figcaption class="rpl-blockquote__author rpl-type-label-small">
+          <span>Her Excellency the Honourable Linda Dessau AC</span>
+          <span>Governor of Victoria</span>
+        </figcaption>
+      </figure>
+    `}}
+  >
+    {SingleTemplate.bind()}
+  </Story>
 </Canvas>

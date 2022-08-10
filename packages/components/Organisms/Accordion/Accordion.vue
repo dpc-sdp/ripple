@@ -20,17 +20,13 @@
     </ol>
     <ul class="rpl-accordion__list" v-else>
       <li class="rpl-accordion__list-item" v-for="(accordion, index) in accordions" :key="index" :class="{'rpl-accordion__list-item--expanded': accordionIsOpen(index)}">
-        <h2 class="rpl-accordion__title" :class="{'rpl-accordion__title--expanded': accordionIsOpen(index)}">
+        <h3 class="rpl-accordion__title" :class="{'rpl-accordion__title--expanded': accordionIsOpen(index)}">
           <button @click="accordionClick(index)" class="rpl-accordion__button" :class="{'rpl-accordion__button--expanded': accordionIsOpen(index)}" :aria-expanded="accordionIsOpen(index).toString()" :aria-controls="accordionId(index)">
             <span class="rpl-accordion__button-text" :class="{'rpl-accordion__button-text--rtl': isRtl()}">{{ accordion.title }}</span>
             <rpl-icon symbol="arrow_down_tertiary" color="primary" class="rpl-accordion__icon" :class="{'rpl-accordion__icon--expanded': accordionIsOpen(index)}"/>
           </button>
-        </h2>
-        <div
-          class="rpl-accordion__content"
-          :id="accordionId(index)"
-          :ref="accordionId(index)"
-        >
+        </h3>
+        <div class="rpl-accordion__content" :id="accordionId(index)" :ref="accordionId(index)">
           <rpl-markup class="rpl-accordion__content-inner" :html="accordion.content" />
         </div>
       </li>

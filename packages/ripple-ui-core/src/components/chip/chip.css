@@ -21,12 +21,12 @@
 
     &:hover {
       --rpl-chip-border-clr: var(--rpl-clr-primary-alt);
-      --rpl-chip-type-clr: var(--rpl-clr-primary-alt-accessible);
+      --rpl-chip-type-clr: var(--rpl-clr-type-primary-alt-accessible);
     }
 
     &:active {
       --rpl-chip-border-clr: var(--rpl-clr-primary-alt);
-      --rpl-chip-type-clr: var(--rpl-clr-primary-alt-accessible);
+      --rpl-chip-type-clr: var(--rpl-clr-type-primary-alt-accessible);
     }
   }
 

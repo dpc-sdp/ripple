@@ -42,7 +42,12 @@ defineProps({
         :network="network.toLowerCase()"
         :title="page.title"
         :url="page.url"
-        class="rpl-social-share__link rpl-u-focusable rpl-u-focusable--inline rpl-type-p-small"
+        class="
+          rpl-text-link
+          rpl-social-share__link
+          rpl-u-focusable rpl-u-focusable--inline
+          rpl-type-p-small
+        "
       >
         <RplIcon
           class="rpl-social-share__icon"

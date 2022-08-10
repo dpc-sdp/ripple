@@ -1,22 +1,16 @@
 <script lang="ts">
 export default { name: 'RplContent' }
+export type RplContentProps = {
+  html: string
+}
 </script>
 
 <script setup lang="ts">
-defineProps({
-  html: {
-    type: [String, undefined],
-    default: undefined
-  }
-})
+defineProps<RplContentProps>()
 </script>
 
 <template>
-  <div class="rpl-content">
-    <slot>
-      <div v-html="html"></div>
-    </slot>
-  </div>
+  <div class="rpl-content" v-html="html"></div>
 </template>
 
 <style src="./content.css" />

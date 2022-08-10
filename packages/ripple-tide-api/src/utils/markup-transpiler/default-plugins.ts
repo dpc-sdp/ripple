@@ -13,12 +13,6 @@ export const isRelativeUrl = (str: string): boolean => {
   return false
 }
 
-// Encode double quote before pass it into Vue template prop, otherwise it breaks the template.
-const _escapeQuotes = (text: string) => {
-  text = text || ''
-  return text.replace('"', '&quot;')
-}
-
 const pluginTables = function (this: any) {
   // Wrap tables with a div.
   this.find('table').map((i: any, el: any) => {
@@ -35,149 +29,20 @@ const pluginCallout = function (this: any) {
   })
 }
 
-const pluginEmbeddedDocument = function (this: any) {
-  this.find(
-    '.embedded-entity--media--file, .embedded-entity--media--document, .embedded-entity .media--type-document'
-  ).map((i: any, element: any) => {
-    const el = this.find(element)
-    const mediaType = el.hasClass('embedded-entity--media--file')
-      ? 'file'
-      : 'document'
-    const titleSelector =
-      mediaType === 'document' ? '.file--title' : '.field--name-name'
-    const fileSizeSelector = '.file--size'
-
-    let url = el.find('a').attr('href')
-    const fileName = el.find(titleSelector).text()
-    const fileSize = el.find(fileSizeSelector).text()
-    const caption = el.find('figcaption').text()
-    let fileType = ''
-    const fileTypeClasses = el.find('.file').attr('class')
-
-    // TODO - Add other icons for file types. Only PDF correctly displays.
-    if (fileTypeClasses) {
-      fileTypeClasses
-        .split(' ')
-        .filter(
-          (cls: string | string[]) =>
-            cls.includes('file--mime') || cls.includes('file--x')
-        )
-        .forEach((mimeType: any) => {
-          if (fileType === '') {
-            switch (mimeType) {
-              case 'file--mime-application-zip':
-                fileType = 'zip'
-                break
-              case 'file--mime-application-msword':
-                fileType = 'doc'
-                break
-              case 'file--mime-application-postscript':
-                fileType = 'eps'
-                break
-              case 'file--x-office-document':
-              case 'file--mime-application-rtf':
-              case 'file--mime-application-vnd-openxmlformats-officedocument-wordprocessingml-document':
-                fileType = 'docx'
-                break
-              case 'file--x-office-spreadsheet':
-              case 'file--mime-application-vnd-ms-excel':
-                fileType = 'xlsx'
-                break
-              case 'file--mime-text-plain':
-                fileType = 'txt'
-                break
-              case 'file--mime-text-csv':
-                fileType = 'csv'
-                break
-              case 'file--mime-text-calendar':
-                fileType = 'ics'
-                break
-              case 'file--mime-application-pdf':
-                fileType = 'pdf'
-                break
-            }
-          }
-        })
-    }
-
-    if (url) {
-      url = url.replace(/^.*\/\/[^/]+/, '')
-    }
-
-    if (fileType === '') {
-      fileType = el.find('.file--type').text().toLowerCase()
-    }
-
-    if (url && fileName && fileSize && fileType) {
-      const name = _escapeQuotes(fileName)
-      const extension = fileType
-      const filesize = fileSize
-      const ariaLabel = `${name} File type: ${extension}. Size: ${filesize}`
-      const supportedIcons = [
-        'ai',
-        'csv',
-        'doc',
-        'docx',
-        'dot',
-        'dotm',
-        'dotx',
-        'eps',
-        'ics',
-        'indd',
-        'pdf',
-        'ppt',
-        'pptx',
-        'tif',
-        'txt',
-        'xls',
-        'xlsx',
-        'zip'
-      ]
-      const icon = supportedIcons.indexOf(fileType) >= 0 ? fileType : 'document'
-      const isExternalLink = !isRelativeUrl(url)
-      const documentlink = `
-      <figure class="rpl-markup__document-link">
-        <rpl-text-link class="rpl-markup__document-link-link" aria-label="${ariaLabel}" link="${url}" :icon="false" :underline="false" download="${
-        isExternalLink ? 'false' : ''
-      }" target="_blank">
-          ${
-            icon
-              ? `<svg-icon role="presentation" class="rpl-markup__document-link-icon" name="${icon}" width="30px" height="30px"></svg-icon>`
-              : ''
-          }
-          <div class="rpl-markup__document-link-info">
-            <span class="rpl-markup__document-link-title">${name}</span>
-            <div class="rpl-markup__document-link-meta">
-              ${
-                extension
-                  ? `<span class="rpl-markup__document-link-type">${extension}</span>`
-                  : ''
-              }
-              ${
-                filesize
-                  ? `<span class="rpl-markup__document-link-size${
-                      extension && filesize
-                        ? ' rpl-markup__document-link-size--seperator'
-                        : ''
-                    }">${filesize}</span>`
-                  : ''
-              }
-            </div>
-          </div>
-        </rpl-text-link>
-        ${
-          caption
-            ? `<figcaption class="rpl-markup__document-link-caption">${_escapeQuotes(
-                caption
-              )}</figcaption>`
-            : ''
-        }
-      </figure>
-      `
-      return el.replaceWith(documentlink)
-    }
-    return el
+const pluginImages = function (this: any) {
+  // Find all drupal image embeds
+  this.find('.embedded-entity--media--image').map((i: any, el: any) => {
+    const $img = this.find('img')
+    const width = $img.attr('width')
+    const src = $img.attr('src')
+    const alt = $img.attr('alt')
+    // this is the max width of the content area
+    const contentWidth = 606
+    return this.find(el).replaceWith(
+      `<img src="${src}" class="rpl-img" width="${width}" alt="${alt}" srcset="${src}?width=${contentWidth},
+      ${src}?width=${contentWidth * 2} 2x"></img>`
+    )
   })
 }
 
-export default [pluginCallout, pluginEmbeddedDocument, pluginTables]
+export default [pluginCallout, pluginTables, pluginImages]

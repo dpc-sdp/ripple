@@ -1,0 +1,31 @@
+@import '@dpc-sdp/ripple-ui-core/style/breakpoints';
+
+.rpl-acknowledgement {
+  --local-flag-width: 5.5rem;
+
+  display: flex;
+  flex-wrap: wrap;
+
+  @media (--rpl-bp-m) {
+    flex-wrap: nowrap;
+  }
+
+  &__flag {
+    width: var(--local-flag-width);
+    border: 1px solid var(--rpl-clr-neutral-0);
+  }
+
+  &__flag + &__flag {
+    margin-left: var(--rpl-sp-2);
+  }
+
+  &__message {
+    margin-top: var(--rpl-sp-3);
+    margin-bottom: 0;
+
+    @media (--rpl-bp-m) {
+      margin-top: 0;
+      margin-left: var(--rpl-sp-4);
+    }
+  }
+}

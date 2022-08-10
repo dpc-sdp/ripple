@@ -71,7 +71,7 @@ const classes = (item: typeof RplTimelineItemArray, index: number) => {
           >
           <template v-else>{{ item.title }}</template>
         </h3>
-        <p v-if="hasSubtitle(item)" class="rpl-timeline__item-subtitle">
+        <p v-if="hasSubtitle(item)" class="rpl-timeline__item-subtitle rpl-type-p">
           {{ subtitle(item) }}
         </p>
         <div

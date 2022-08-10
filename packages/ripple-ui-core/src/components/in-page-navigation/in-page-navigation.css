@@ -44,8 +44,8 @@
             content: '';
             display: inline-block;
             float: left;
-            height: calc(var(--local-icon-h) - var(--rpl-border-1));
-            width: calc(var(--local-icon-w) - var(--rpl-border-1));
+            height: var(--local-icon-h);
+            width: var(--local-icon-w);
             margin: var(--rpl-sp-1) var(--rpl-sp-2) 0;
             border-left: var(--rpl-border-1) solid var(--rpl-clr-type-default);
             border-bottom: var(--rpl-border-1) solid var(--rpl-clr-type-default);

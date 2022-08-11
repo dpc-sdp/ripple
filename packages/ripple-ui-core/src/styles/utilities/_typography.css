@@ -42,8 +42,8 @@ html {
   box-decoration-break: clone;
 }
 
-.rpl-content h1,
-.rpl-type-h1 {
+.rpl-type-h1,
+:where(.rpl-content) h1 {
   display: block;
   font-size: var(--rpl-type-size-6);
   font-weight: var(--rpl-type-weight-bold);
@@ -68,8 +68,8 @@ html {
 }
 
 /* h2 */
-.rpl-content h2,
-.rpl-type-h2 {
+.rpl-type-h2,
+:where(.rpl-content) h2 {
   display: block;
   font-size: var(--rpl-type-size-4);
   font-weight: var(--rpl-type-weight-bold);
@@ -123,8 +123,8 @@ html {
   box-decoration-break: clone;
 }
 
-.rpl-content h3,
-.rpl-type-h3 {
+.rpl-type-h3,
+:where(.rpl-content) h3 {
   display: block;
   font-size: var(--rpl-type-size-3);
   font-weight: var(--rpl-type-weight-bold);
@@ -147,8 +147,8 @@ html {
 }
 
 /* h4 */
-.rpl-content h4,
-.rpl-type-h4 {
+.rpl-type-h4,
+:where(.rpl-content) h4 {
   display: block;
   font-size: var(--rpl-type-size-2);
   font-weight: var(--rpl-type-weight-bold);
@@ -191,8 +191,8 @@ html {
   letter-spacing: var(--rpl-type-ls-2);
 }
 
-.rpl-content p,
-.rpl-type-p {
+.rpl-type-p,
+:where(.rpl-content) p {
   display: block;
   font-size: var(--rpl-type-size-2);
   line-height: var(--rpl-type-lh-4);

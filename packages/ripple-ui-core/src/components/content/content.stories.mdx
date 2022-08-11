@@ -7,6 +7,7 @@ import {
 import RplContent from './content.vue'
 import { a11yStoryCheck } from './../../../.storybook/interactions.js'
 import testcontent from './testcontent.html?raw'
+
 export const SingleTemplate = (args) => ({
   components: { RplContent },
   setup() {
@@ -68,8 +69,11 @@ export const SingleTemplate = (args) => ({
     play={a11yStoryCheck}
     args={{html: `
       <figure class="rpl-blockquote">
-        <blockquote class="rpl-blockquote__quote rpl-type-p-large-fixed">
-          <p>"Berios sim destrum facientota nis ex eost aut prae vendis explam aliquis dolorpo rrorem reptaep elenis net."</p>
+        <span class="rpl-blockquote__icon rpl-icon rpl-icon--size-s rpl-icon--icon-quotation-mark">
+          <svg role="presentation"><use xlink:href="#icon-quotation-mark"></use></svg>
+        </span>
+        <blockquote class="rpl-blockquote__quote">
+          <p class="rpl-type-p-large-fixed">"Berios sim destrum facientota nis ex eost aut prae vendis explam aliquis dolorpo rrorem reptaep elenis net."</p>
         </blockquote>
         <figcaption class="rpl-blockquote__author rpl-type-label-small">
           <span class="rpl-blockquote__author-name">Her Excellency the Honourable Linda Dessau AC</span>

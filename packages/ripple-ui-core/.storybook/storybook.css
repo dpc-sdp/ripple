@@ -1,3 +1,7 @@
+.rpl-storybook__page {
+  max-width: 1120px;
+}
+
 .rpl-storybook__icon-list {
   display: flex;
   flex-wrap: wrap;

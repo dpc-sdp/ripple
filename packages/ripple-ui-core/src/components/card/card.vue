@@ -11,13 +11,17 @@ const props = defineProps({
     type: String as PropType<typeof RplCardTypes[number]>,
     default: 'promo'
   },
+  highlight: {
+    type: Boolean,
+    default: false
+  },
   url: {
     type: [String, undefined],
     default: undefined
   }
 })
 
-const clicked = function (e) {
+const clicked = function (_e: Event) {
   // go to url
 }
 
@@ -29,17 +33,20 @@ const containerClasses = computed(() => {
 </script>
 
 <template>
-  <div :class="containerClasses" @click="clicked">
+  <a tabindex="-1" :class="containerClasses" :href="url" @click="clicked">
+    <div v-if="highlight" class="rpl-card__highlight"></div>
     <div v-if="$slots.upper" class="rpl-card__upper">
       <slot name="upper"></slot>
     </div>
     <div class="rpl-card__body">
       <slot name="meta"></slot>
       <slot name="title"></slot>
-      <slot></slot>
+      <div class="rpl-card__content">
+        <slot></slot>
+      </div>
     </div>
     <slot name="lower"></slot>
-  </div>
+  </a>
 </template>
 
 <style src="./card.css" />

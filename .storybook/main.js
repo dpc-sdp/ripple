@@ -36,11 +36,8 @@ const vitePlugins = [
   })
 ]
 module.exports = {
-  stories: [
-    '../tokens/**/*.stories.mdx',
-    '../src/components/**/*.stories.@(mdx|js|jsx|ts|tsx)',
-    './stories/**/*.stories.@(js|jsx|ts|tsx|mdx)'
-  ],
+  stories: ['./../packages/**/*.stories.@(js|jsx|ts|tsx|mdx)'],
+  framework: '@storybook/vue3',
   staticDirs: ['./assets'],
   features: {
     interactionsDebugger: true,

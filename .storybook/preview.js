@@ -1,22 +1,19 @@
-import IconSprite from './../src/assets/icons/sprite.svg?component'
+import { RplIconSprite } from '@dpc-sdp/ripple-ui-core'
+import { registerRplFormPlugin } from '@dpc-sdp/ripple-ui-forms'
+import '@dpc-sdp/ripple-ui-core/style'
 import { withCssResources } from '@storybook/addon-cssresources'
 import { withDesign } from 'storybook-addon-designs'
-import { plugin, defaultConfig } from '@formkit/vue'
 import './storybook.css'
-import './../src/styles/global.css'
+
 import VueSocialSharing from 'vue-social-sharing'
 import { app } from '@storybook/vue3'
 app.use(VueSocialSharing)
-app.use(plugin, defaultConfig({}))
-
-import svgPlaceholder from './components/svgPlaceholder'
-window.svgPlaceholder = svgPlaceholder
-
+registerRplFormPlugin(app)
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
   options: {
     storySort: {
-      order: ['Base Styles', 'Components', '*']
+      order: ['Base Styles', 'Core', '*', 'WIP']
     }
   },
   controls: {
@@ -37,8 +34,8 @@ export const parameters = {
 export const decorators = [
   withCssResources,
   (story) => ({
-    components: { story, IconSprite },
-    template: '<div><IconSprite style="display: none;" /><story /></div>'
+    components: { story, RplIconSprite },
+    template: '<div><RplIconSprite /><story /></div>'
   }),
   withDesign
 ]

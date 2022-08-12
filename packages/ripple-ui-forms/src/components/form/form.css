@@ -33,7 +33,7 @@
 
     select,
     input {
-      width: calc(100% - var(--rpl-sp-4) * 2);
+      width: 100%;
       padding-top: var(--rpl-sp-3);
       padding-right: var(--rpl-sp-4);
       padding-bottom: var(--rpl-sp-3);
@@ -41,8 +41,8 @@
       font-size: var(--rpl-type-size-2);
       line-height: var(--rpl-type-lh-4);
       letter-spacing: var(--rpl-type-ls-1);
-      border: var(--rpl-border-1) solid var(--rpl-clr-dark);
-      border-radius: var(--rpl-border-radius-1);
+      border: var(--rpl-border-1) solid var(--rpl-clr-neutral-300);
+      border-radius: var(--rpl-border-radius-2);
     }
 
     select {

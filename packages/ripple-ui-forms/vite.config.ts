@@ -1,22 +1,28 @@
 import { defineConfig } from 'vite'
 import path from 'path'
 import vue from '@vitejs/plugin-vue'
-import dts from 'vite-dts'
+import { viteStaticCopy } from 'vite-plugin-static-copy'
 
 // https://vitejs.dev/config/
 // https://vitejs.dev/guide/build.html#library-mode
 export default defineConfig({
-  resolve: {
-    alias: {
-      '@': path.resolve(__dirname, './src')
-    }
-  },
-  plugins: [vue(), dts()],
+  plugins: [
+    vue(),
+    viteStaticCopy({
+      targets: [
+        {
+          src: 'src/components/**/*.vue',
+          dest: '.'
+        }
+      ],
+      flatten: false
+    })
+  ],
   build: {
     emptyOutDir: false,
     lib: {
       entry: path.resolve(__dirname, 'src/index.ts'),
-      name: 'rpl',
+      name: 'rpl-form',
       formats: ['es'],
       fileName: (f) => `rpl-forms.${f}.js`
     },

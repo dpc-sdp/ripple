@@ -67,8 +67,8 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/app
-        # Runs the Chromatic CLI
-      - run: yarn chromatic --storybook-build-dir=packages/ripple-ui-core/storybook-static --project-token=${CHROMATIC_PROJECT_TOKEN} --exit-zero-on-changes --exit-once-uploaded
+        # Runs the Chromatic CLI for core and forms packages
+      - run: yarn chromatic --project-token=${CHROMATIC_PROJECT_TOKEN} --exit-zero-on-changes --exit-once-uploaded
 
 workflows:
   commit:

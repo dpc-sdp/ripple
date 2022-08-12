@@ -7,41 +7,45 @@ import {
   help,
   messages,
   message,
-  icon,
   prefix,
   suffix,
-  textInput,
-  $attrs
+  icon,
+  selectInput,
+  option,
+  optionSlot,
+  $if,
+  options,
+  selects,
+  defaultIcon
 } from '@formkit/inputs'
 
 /**
- * Input definition for a text.
+ * Input definition for a select.
  * @public
  */
-export const text: FormKitTypeDefinition = {
+export const select: FormKitTypeDefinition = {
   /**
    * The actual schema of the input, or a function that returns the schema.
    */
   schema: outer(
     wrapper(
       label('$label'),
+      help('$help'),
       inner(
-        icon('prefix', 'label'),
+        icon('prefix'),
         prefix(),
-        textInput(),
-        suffix(),
-        $attrs(
-          {
-            class: '$classes.labelFloating',
-            'data-has-value': '$_value !== "" && $_value !== undefined',
-            for: '$id'
-          },
-          label('$label')
+        selectInput(
+          $if(
+            '$slots.default',
+            () => '$slots.default',
+            $if('$slots.option', optionSlot, option('$option.label'))
+          )
         ),
+        $if('$attrs.multiple !== undefined', () => '', icon('select')),
+        suffix(),
         icon('suffix')
       )
     ),
-    help('$help'),
     messages(message('$message.value'))
   ),
   /**
@@ -49,20 +53,15 @@ export const text: FormKitTypeDefinition = {
    */
   type: 'input',
   /**
-   * The family of inputs this one belongs too. For example "text" and "email"
-   * are both part of the "text" family. This is primary used for styling.
-   */
-  family: 'text',
-  /**
    * An array of extra props to accept for this input.
    */
-  props: [],
+  props: ['options', 'placeholder'],
   /**
    * Forces node.props.type to be this explicit value.
    */
-  forceTypeProp: 'text',
+  forceTypeProp: 'select',
   /**
    * Additional features that should be added to your input
    */
-  features: []
+  features: [options, selects, defaultIcon('select', 'select')]
 }

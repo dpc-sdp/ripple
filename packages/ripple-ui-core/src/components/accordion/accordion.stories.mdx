@@ -5,7 +5,7 @@ import {
   ArgsTable
 } from '@storybook/addon-docs'
 import { within } from '@storybook/testing-library';
-import { eventCheck, a11yCheck, a11yStoryCheck } from './../../../.storybook/interactions.js'
+import { eventCheck, a11yCheck, a11yStoryCheck } from './../../../stories/interactions.js'
 import RplAccordion from './accordion.vue'
 import { RplAccordionItems } from './constants'
 const playFunction = async ({ canvasElement }) => {
@@ -30,7 +30,7 @@ export const Template = (args) => ({
 })
 
 <Meta
-  title='Components/Containers/Accordion'
+  title='Core/Containers/Accordion'
   component={RplAccordion}
   argTypes={{
     id: {

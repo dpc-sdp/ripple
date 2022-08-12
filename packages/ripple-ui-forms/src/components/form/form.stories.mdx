@@ -1,0 +1,98 @@
+import {
+  Canvas,
+  Meta,
+  Story,
+  ArgsTable
+} from '@storybook/addon-docs'
+import RplForm from './form.vue'
+import RplFormElement from './../element/element.vue'
+
+export const SingleTemplate = (args) => ({
+  components: { RplForm },
+  setup() {
+    return { args }
+  },
+  template: '<RplForm v-bind="args" />'
+})
+
+export const SlotTemplate = (args) => ({
+  components: { RplForm,RplFormElement },
+  setup() {
+    return { args }
+  },
+  template: `
+  <RplForm>
+    <RplFormElement type="text" label="Text element" />
+    <RplFormElement type="select" :options="['My way', 'Highway']" label="Select element" />
+    <RplFormElement type="text" label="test" />
+    <RplFormElement type="text" label="test" />
+  </RplForm>
+  `
+})
+
+<Meta title='Forms/Form' component={RplForm} />
+
+# Forms
+
+<ArgsTable of={RplForm} />
+
+<Canvas>
+  <Story
+    name='Default'
+    argTypes={{
+      schema: {
+        defaultValue: [
+          {
+            $formkit: 'text',
+            name: 'Text',
+            label: 'Should you flush tissues down the toilet?',
+            id: 'text',
+            help: 'Do you need help?',
+            validation: 'required'
+          },
+          {
+            $formkit: 'select',
+            type: 'select',
+            label: 'Should you flush tissues down the toilet?',
+            options: [
+              'No',
+              'Never',
+              'What are you a monster?',
+              'Who does that?'
+            ]
+          },
+          {
+            $formkit: 'date',
+            name: 'date',
+            label: 'Date of Birth',
+            id: 'date',
+            help: 'Do you need help?',
+            validation: 'required'
+          },
+          {
+            $formkit: 'checkbox',
+            type: "checkbox",
+            label: "Toppings",
+            options: ['Mushrooms', 'Olives', 'Salami', 'Anchovies'],
+            help: "Select your pizza toppings",
+            validation: "required|min:3"
+          },
+          {
+            $formkit: 'submit',
+            label: 'Submit form',
+            id: '123',
+            icon: 'icon-arrow-right'
+          }
+        ]
+      }
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name='With slots'>
+    {SlotTemplate.bind()}
+  </Story>
+</Canvas>

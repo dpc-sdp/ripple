@@ -1,4 +1,4 @@
-import rplSpacing from './../../tokens/settings/spacing.yaml'
+import rplSpacing from './../tokens/settings/spacing.yaml'
 
 /* Typography */
 const base = 'rpl-type'

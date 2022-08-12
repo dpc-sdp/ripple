@@ -1,6 +1,6 @@
 import { get } from 'lodash-es'
-import rplColors from './../../tokens/settings/color.yaml'
-import theme from './../../tokens/settings/theme.yaml'
+import rplColors from './../tokens/settings/color.yaml'
+import theme from './../tokens/settings/theme.yaml'
 export const tokens = { ...theme, ...rplColors }
 
 const getVal = (v: string) => {

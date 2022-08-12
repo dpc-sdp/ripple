@@ -3,9 +3,9 @@
     "noImplicitAny": false,
     "outDir": "dist",
     "baseUrl": "./src",
-    "target": "ES6",
+    "target": "esnext",
     "useDefineForClassFields": true,
-    "module": "commonjs",
+    "module": "esnext",
     "moduleResolution": "node",
     "isolatedModules": true,
     "strict": true,
@@ -20,5 +20,6 @@
     "lib": ["esnext", "dom", "dom.iterable", "scripthost"],
     "skipLibCheck": true,
     "declaration": true
-  }
+  },
+  "include": ["src/nuxt.ts"]
 }

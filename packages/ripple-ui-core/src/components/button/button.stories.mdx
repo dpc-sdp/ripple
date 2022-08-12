@@ -4,7 +4,7 @@ import {
   Story
 } from '@storybook/addon-docs'
 import { within } from '@storybook/testing-library';
-import { eventCheck, a11yCheck, a11yStoryCheck } from './../../../.storybook/interactions.js'
+import { eventCheck, a11yCheck, a11yStoryCheck } from './../../../stories/interactions.js'
 import RplButton from './button.vue';
 import {
   RplButtonThemes,
@@ -29,7 +29,7 @@ export const Template = (args) => ({
 });
 
 <Meta
-  title='Components/Navigation/Button'
+  title='Core/Navigation/Button'
   parameters={{
     design: {
       type: 'figma',

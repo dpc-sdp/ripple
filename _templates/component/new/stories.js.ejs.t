@@ -3,7 +3,7 @@ to: "<%= mdx ? null : `packages/ripple-ui-core/src/components/${h.changeCase.par
 ---
 import <%= h.rplcomponentname(name) %> from './<%= h.changeCase.paramCase(name) %>.vue'
 import { <%= h.rplcomponentname(name) %>Variants } from './constants.ts'
-import { a11yStoryCheck } from './../../../.storybook/interactions.js'
+import { a11yStoryCheck } from './../../../stories/interactions.js'
 
 export default {
   title: 'Components/<%= h.inflection.humanize(h.inflection.underscore(name)) %>',

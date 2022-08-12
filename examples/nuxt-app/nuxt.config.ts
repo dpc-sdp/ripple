@@ -32,9 +32,14 @@ export default defineNuxtConfig({
       devtools: true
     }
   },
+  formkit: {
+    configFile:
+      './../../node_modules/@dpc-sdp/ripple-ui-forms/dist/formkit.config.js'
+  },
   modules: [
     '@dpc-sdp/ripple-tide-api/nuxt',
-    '@dpc-sdp/ripple-tide-landing-page/nuxt'
-  ],
-  buildModules: ['@dpc-sdp/ripple-ui-core/nuxt']
+    '@dpc-sdp/ripple-tide-landing-page/nuxt',
+    '@dpc-sdp/ripple-ui-core/nuxt',
+    '@dpc-sdp/ripple-ui-forms/nuxt'
+  ]
 })

@@ -1,16 +1,8 @@
-<script setup lang="ts">
-import { useDocus } from '#imports'
-
-const { theme } = useDocus()
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <div id="docus-docs-page docs-layout">
     <RplIconSprite />
-    <template v-if="theme?.debug">
-      <component :is="'debug'" :config="theme?.debug" />
-    </template>
-
     <DocsNavbar />
     <DocsPageContent class="min-h-page">
       <main class="lg:px-30">

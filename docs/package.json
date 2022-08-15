@@ -9,11 +9,13 @@
     "preview": "nuxt preview"
   },
   "devDependencies": {
-    "@docus/docs-theme": "npm:@docus/docs-theme-edge@latest",
     "@dpc-sdp/ripple-ui-core": "0.0.0",
-    "@nuxt/content": "^2.0.0",
-    "nuxt": "3.0.0-rc.3",
+    "@nuxt/content": "^2.0.1",
+    "nuxt": "^3.0.0-rc.8",
     "parse-entities": "4.0.0",
     "unist-builder": "3.0.0"
+  },
+  "dependencies": {
+    "detab": "^3.0.1"
   }
 }

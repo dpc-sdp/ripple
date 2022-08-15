@@ -33,7 +33,6 @@ export default {
   'icon-play-circle-lined': () => import('./custom/icon-play-circle-lined.svg?component'),
   'icon-print-lined': () => import('./custom/icon-print-lined.svg?component'),
   'icon-question-circle-lined': () => import('./custom/icon-question-circle-lined.svg?component'),
-  'icon-quotation-mark': () => import('./custom/icon-quotation-mark.svg?component'),
   'icon-search': () => import('./custom/icon-search.svg?component'),
   'icon-senior': () => import('./custom/icon-senior.svg?component'),
   'icon-share': () => import('./custom/icon-share.svg?component'),

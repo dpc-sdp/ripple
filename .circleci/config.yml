@@ -17,8 +17,14 @@ jobs:
           pkg-manager: yarn
           app-dir: ~/app
       - run:
-          name: build nuxt app site
-          command: yarn run build
+          name: build all ripple package
+          command: yarn run build:ripple
+      - run:
+          name: build example apps
+          command: yarn run build:examples
+      - run:
+          name: build docs site
+          command: yarn run build:docs
       - persist_to_workspace:
           root: ~/app
           paths: [.]

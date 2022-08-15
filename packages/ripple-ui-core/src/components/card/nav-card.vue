@@ -3,10 +3,16 @@ export default { name: 'RplNavCard' }
 </script>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { PropType, computed, ref } from 'vue'
+import { RplCardElements } from './constants'
 import RplCard from './card.vue'
+import RplTextLink from '../text-link/text-link.vue'
 
 const props = defineProps({
+  el: {
+    type: String as PropType<typeof RplCardElements[number]>,
+    default: 'div'
+  },
   image: {
     type: [String, undefined],
     default: undefined
@@ -48,10 +54,15 @@ const imgClasses = computed(() => {
   if (props.inset) classes.push('rpl-card__media--inset')
   return classes.join(' ')
 })
+
+const callToAction = ref(null)
+const navigate = () => {
+  callToAction.value.triggerClick()
+}
 </script>
 
 <template>
-  <RplCard :href="url" type="nav">
+  <RplCard :href="url" type="nav" :el="el" @click="navigate">
     <template v-if="image" #upper>
       <img :class="imgClasses" :src="image" alt="" />
     </template>
@@ -61,8 +72,8 @@ const imgClasses = computed(() => {
       </div>
     </template>
     <template #title>
-      <h3 :class="titleClasses" role="button" tabindex="0">
-        {{ title }}
+      <h3 :class="titleClasses">
+        <RplTextLink ref="callToAction" :url="url">{{ title }}</RplTextLink>
       </h3>
     </template>
     <slot></slot>

@@ -4,26 +4,22 @@ export default { name: 'RplCard' }
 
 <script setup lang="ts">
 import { PropType, computed } from 'vue'
-import { RplCardTypes } from './constants'
+import { RplCardElements, RplCardTypes } from './constants'
 
 const props = defineProps({
   type: {
     type: String as PropType<typeof RplCardTypes[number]>,
     default: 'promo'
   },
+  el: {
+    type: String as PropType<typeof RplCardElements[number]>,
+    default: 'div'
+  },
   highlight: {
     type: Boolean,
     default: false
-  },
-  url: {
-    type: [String, undefined],
-    default: undefined
   }
 })
-
-const clicked = function (_e: Event) {
-  // go to url
-}
 
 const containerClasses = computed(() => {
   const classes = ['rpl-card', 'rpl-type-p']
@@ -33,7 +29,7 @@ const containerClasses = computed(() => {
 </script>
 
 <template>
-  <a tabindex="-1" :class="containerClasses" :href="url" @click="clicked">
+  <component :is="el" :class="containerClasses">
     <div v-if="highlight" class="rpl-card__highlight"></div>
     <div v-if="$slots.upper" class="rpl-card__upper">
       <slot name="upper"></slot>
@@ -46,7 +42,7 @@ const containerClasses = computed(() => {
       </div>
     </div>
     <slot name="lower"></slot>
-  </a>
+  </component>
 </template>
 
 <style src="./card.css" />

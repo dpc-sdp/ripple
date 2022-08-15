@@ -30,10 +30,11 @@ export const SingleTemplate = (args) => ({
     return { args, img }
   },
   template: `
-  <div class="rpl-storybook__page rpl-grid">
+  <ul class="rpl-storybook__page rpl-grid">
     <RplPromoCard
       v-for="(item, index) of args.number"
       :key="index"
+      el="li"
       v-bind="args"
       class="rpl-col-12 rpl-col-6-m rpl-col-4-l"
       :image="img"
@@ -45,7 +46,7 @@ export const SingleTemplate = (args) => ({
       </template>
       ${args.default}
     </RplPromoCard>
-  </div>
+  </ul>
   `
 })
 

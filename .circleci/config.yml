@@ -48,12 +48,12 @@ jobs:
       - attach_workspace:
           at: ~/app
       - run:
-          command: yarn workspace @dpc-sdp/ripple-ui-core storybook:build
+          command: yarn build:storybook
           name: Build static storybook
       - persist_to_workspace:
           root: ~/app
           paths:
-            - packages/ripple-ui-core/storybook-static
+            - storybook-static
 
   test-storybook:
     docker:

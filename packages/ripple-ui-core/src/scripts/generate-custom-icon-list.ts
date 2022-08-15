@@ -3,5 +3,5 @@ import { join } from 'pathe'
 
 generateIconImports(
   join(__dirname, './../assets/icons/custom'),
-  join(__dirname, './../assets/icons/custom1.js')
+  join(__dirname, './../assets/icons/custom.js')
 )

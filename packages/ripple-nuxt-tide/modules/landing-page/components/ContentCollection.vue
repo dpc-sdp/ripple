@@ -4,7 +4,7 @@
     <div class="app-content-collection__header">
       <div class="app-content-collection__header-left">
         <h2 v-if="title" class="app-content-collection__heading">{{ title }}</h2>
-        <p v-if="description">{{ description }}</p>
+        <rpl-markup class="app-content-collection__description" v-if="description" :html="description" />
         <div class="app-content-collection__skip-link rpl-skip-link ">
           <a v-if="showSkipToResultLink" class="app-content-collection__skip-link__link rpl-skip-link__link" :href="getSkipToResultLinkAnchor">{{ skipToResultLinkLabel }}</a>
         </div>
@@ -83,6 +83,7 @@ import { RplForm } from '@dpc-sdp/ripple-form'
 import { RplCol } from '@dpc-sdp/ripple-grid'
 import provideChildCols from '@dpc-sdp/ripple-global/mixins/ProvideChildCols'
 import RplPagination from '@dpc-sdp/ripple-pagination'
+import RplMarkup from '@dpc-sdp/ripple-markup'
 import { RplSearchResultsLayout, RplSearchResult } from '@dpc-sdp/ripple-search'
 import { RplCardPromo } from '@dpc-sdp/ripple-card'
 import { RplDivider } from '@dpc-sdp/ripple-global'
@@ -98,12 +99,15 @@ export default {
     RplSearchResultsLayout,
     RplSearchResult,
     RplCardPromo,
-    RplPagination
+    RplPagination,
+    RplMarkup
   },
   props: {
     schema: Object,
     environment: Object,
     preloadSearchResponse: Object,
+    description: String,
+    title: String,
     sidebar: {
       type: Boolean,
       default: false
@@ -117,7 +121,6 @@ export default {
       defaultState: dataManager.getDefaultState(),
       state: dataManager.getDefaultState(),
       results: [],
-      resultTotal: null,
       resultCount: null,
       resultsLoading: false,
       error: null,
@@ -135,11 +138,11 @@ export default {
     }
   },
   computed: {
-    title () {
-      return this.dataManager.getTitle()
+    computedTitle () {
+      return this.title || this.dataManager.getTitle()
     },
-    description () {
-      return this.dataManager.getDescription()
+    computedDescription () {
+      return this.description || this.dataManager.getDescription()
     },
     cta () {
       return this.dataManager.getCTA()
@@ -188,6 +191,13 @@ export default {
     searchEndpoint (dsl) {
       return this.$tideSearchApi.searchByPost(dsl)
     },
+    resultTotal (esTotal) {
+      let total = 0
+      if (esTotal) {
+        total = (typeof esTotal === 'object') ? esTotal.value : esTotal
+      }
+      return total
+    },
     async getResults () {
       this.resultsLoading = true
       this.announcerText = ''
@@ -195,7 +205,7 @@ export default {
       if (response) {
         this.error = null
         this.updateInterfaceFromSearchResponse(response)
-        this.announcerText = response.total > 0 ? this.resultCount : this.noResultsText
+        this.announcerText = this.resultTotal(response.total) > 0 ? this.resultCount : this.noResultsText
       } else {
         this.error = { message: this.errorText }
         this.announcerText = this.errorText
@@ -226,14 +236,15 @@ export default {
     },
     updateInterfaceFromSearchResponse (response) {
       this.results = response.hits
-      this.resultCount = this.dataManager.getProcessedResultsCount(this.state, response.total)
+      const responseTotal = this.resultTotal(response.total)
+      this.resultCount = this.dataManager.getProcessedResultsCount(this.state, responseTotal)
       if (this.exposedFilterFormData && response.aggregations) {
         this.dataManager.updateFiltersFromAggregation(response.aggregations, this.exposedFilterFormData, this.state, (field, isDisabled) => {
           Vue.set(field, 'disabled', isDisabled)
         })
       }
       if (this.paginationData) {
-        this.paginationData.totalSteps = this.dataManager.getPaginationTotalSteps(this.state, response.total)
+        this.paginationData.totalSteps = this.dataManager.getPaginationTotalSteps(this.state, responseTotal)
       }
     },
     syncTo (from, to, allowed) {
@@ -366,6 +377,11 @@ $app-content-collection-link-border-radius: 0 0 rem(4px) 0 !default;
         @include rpl-typography-font('s', 1.2rem, 'semibold');
       }
     }
+  }
+
+  &__description {
+    margin-top: $rpl-space-4;
+    margin-bottom: $rpl-space-4;
   }
 
   &__heading {

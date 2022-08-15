@@ -46,7 +46,7 @@ const anchorUtils = {
         headings.push({
           indexStart: match.index,
           text: match[0].replace(/<.+?>/gi, ''),
-          type: match[0].substr(1, 2)
+          type: match[0].substring(1, 3)
         })
       }
       match = reg.exec(html)

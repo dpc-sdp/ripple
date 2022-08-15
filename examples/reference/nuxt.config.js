@@ -155,9 +155,7 @@ export default {
       site: 1,
       // Content types
       page: 1,
-      landingPage: {
-        contentCollection: true
-      },
+      landingPage: 1,
       event: 1,
       news: 1,
       grant: 1,
@@ -185,14 +183,6 @@ export default {
         password: process.env.SEARCH_AUTH_PASSWORD
       },
       loadOnDemand: 1 // 0 for previous load mode. If you have a custom search page before Ripple v1.5.7, you need small change your code to turn on this. A example: https://github.com/dpc-sdp/ripple/pull/630/files#diff-c797d3457e8f4ca26b5707a65bc76189R37
-    },
-    /*
-     * This is the V2 API - See @dpc-sdp/ripple-tide-search-api for details
-    */
-    searchApi: {
-      apiBase: 'search-api',
-      apiVersion: 'v2',
-      cacheAge: 30
     },
     cachePurgePattern: []
   }

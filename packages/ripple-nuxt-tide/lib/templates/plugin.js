@@ -27,7 +27,7 @@ export default ({ app, req, store , route }, inject) => {
       return window.location.origin + apiRoot
     }
   }
-  if (options.searchApi) {
+  if (options.modules?.landingPage?.contentCollection !== false) {
     inject('tideSearchApi', new TideSearchApi({
       client: app.$axios,
       baseUrl: getBaseUrl()

@@ -19,7 +19,7 @@
     "clean": "git clean -dfx && git reset --hard && yarn",
     "build": "lerna run build --ignore docs",
     "build:ripple": "lerna run build --scope @dpc-sdp/ripple*",
-    "build:examples": "lerna run build --scope nuxt-app vue-app webcomponents",
+    "build:examples": "lerna run build --scope nuxt-app --scope vue-app --scope webcomponents",
     "build:docs": "lerna run build --scope docs",
     "postinstall": "patch-package&&husky install&&yarn build:ripple",
     "release:dev": "lerna publish --canary minor --preid alpha --no-git-tag-version --registry $NPM_REGISTRY --dist-tag next",

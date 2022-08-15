@@ -40,6 +40,7 @@
     "test:storybook-ci": "concurrently -k -s first -n \"SB,TEST\" -c \"magenta,blue\" \"npx http-server storybook-static --port 6006 --silent\" \"wait-on tcp:6006 && yarn test:storybook\""
   },
   "dependencies": {
+    "@nuxt/kit": "^3.0.0-rc.8",
     "mitt": "^3.0.0",
     "normalize.css": "^8.0.1",
     "postcss-for": "^2.1.1",
@@ -63,7 +64,6 @@
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-standard": "^25.0.0",
     "ts-node": "^10.7.0",
-    "vite": "^2.8.4",
     "vite-dts": "^1.0.4",
     "vite-plugin-copy": "^0.1.6",
     "vite-plugin-svg-icons": "^2.0.1",

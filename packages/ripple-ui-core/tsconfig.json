@@ -19,7 +19,7 @@
     },
     "lib": ["esnext", "dom", "dom.iterable", "scripthost"],
     "skipLibCheck": true,
-    "declaration": true
+    "declaration": false
   },
   "include": ["env.d.ts", "src/nuxt.ts", "src/index.ts", "src/tokens/index.ts"],
   "exclude": ["src/components/global/stories/*"]

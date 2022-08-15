@@ -13,7 +13,11 @@ export default defineNuxtModule({
       }
     },
     'vite:extendConfig'(viteInlineConfig) {
-      viteInlineConfig.plugins.push(vitePlugins)
+      if (Array.isArray(viteInlineConfig.plugins)) {
+        viteInlineConfig.plugins?.push(vitePlugins)
+      } else {
+        viteInlineConfig.plugins = vitePlugins
+      }
     },
     'components:dirs'(dirs) {
       // Add ./components dir to the list

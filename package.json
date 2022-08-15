@@ -17,7 +17,7 @@
     "storybook:build": "build-storybook",
     "dev": "yarn run build && concurrently \"yarn storybook\" \"yarn workspace nuxt-app dev\"",
     "clean": "git clean -dfx && git reset --hard && yarn",
-    "build": "lerna run build",
+    "build": "lerna run build --ignore docs",
     "build:ripple": "lerna run build --scope @dpc-sdp/ripple*",
     "build:examples": "lerna run build --scope nuxt-app vue-app webcomponents",
     "build:docs": "lerna run build --scope docs",

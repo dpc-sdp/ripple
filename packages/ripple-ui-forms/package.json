@@ -15,7 +15,7 @@
     "@dpc-sdp/ripple-ui-core": "0.0.0",
     "@formkit/nuxt": "^1.0.0-beta.10",
     "@formkit/vue": "^1.0.0-beta.10",
-    "@nuxt/kit": "npm:@nuxt/kit-edge@latest"
+    "@nuxt/kit": "^3.0.0-rc.8"
   },
   "devDependencies": {
     "@babel/core": "^7.18.10",

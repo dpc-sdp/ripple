@@ -3,31 +3,35 @@ export default { name: 'RplAvatarCard' }
 </script>
 
 <script setup lang="ts">
+import { computed, ref } from 'vue'
+import { RplPropEl, RplPropStringRequired } from '../../lib/constants'
+import { RplCardTitleClasses } from './constants'
+import { useContainerTrigger } from '../../composables/useContainerTrigger'
+
 import RplCard from './card.vue'
 import RplTag from '../tag/tag.vue'
+import RplTextLink from '../text-link/text-link.vue'
 
 defineProps({
-  image: {
-    type: String,
-    required: true
-  },
-  meta: {
-    type: String,
-    required: true
-  },
-  title: {
-    type: String,
-    required: true
-  },
+  el: RplPropEl,
+  image: RplPropStringRequired,
+  meta: RplPropStringRequired,
+  title: RplPropStringRequired,
   url: {
     type: [String, undefined],
     default: undefined
   }
 })
+
+const titleClasses = computed(() => RplCardTitleClasses)
+
+const card = ref(null)
+const callToAction = ref(null)
+useContainerTrigger(card, callToAction)
 </script>
 
 <template>
-  <RplCard :href="url" type="avatar">
+  <RplCard ref="card" :href="url" :el="el" type="avatar">
     <template #upper>
       <img
         class="rpl-card__media rpl-card__media--avatar"
@@ -41,12 +45,8 @@ defineProps({
       </div>
     </template>
     <template #title>
-      <h3
-        class="rpl-card__cta rpl-type-h3 rpl-u-focusable"
-        role="button"
-        tabindex="0"
-      >
-        {{ title }}
+      <h3 :class="titleClasses">
+        <RplTextLink ref="callToAction" :url="url">{{ title }}</RplTextLink>
       </h3>
     </template>
     <slot></slot>

@@ -4,16 +4,14 @@ export default { name: 'RplCard' }
 
 <script setup lang="ts">
 import { PropType, computed } from 'vue'
-import { RplCardElements, RplCardTypes } from './constants'
+import { RplPropEl } from '../../lib/constants'
+import { RplCardTypes } from './constants'
 
 const props = defineProps({
+  el: RplPropEl,
   type: {
     type: String as PropType<typeof RplCardTypes[number]>,
     default: 'promo'
-  },
-  el: {
-    type: String as PropType<typeof RplCardElements[number]>,
-    default: 'div'
   },
   highlight: {
     type: Boolean,
@@ -21,11 +19,11 @@ const props = defineProps({
   }
 })
 
-const containerClasses = computed(() => {
-  const classes = ['rpl-card', 'rpl-type-p']
-  classes.push(`rpl-card--${props.type}`)
-  return classes.join(' ')
-})
+const containerClasses = computed(() => [
+  'rpl-card',
+  'rpl-type-p',
+  `rpl-card--${props.type}`
+])
 </script>
 
 <template>
@@ -41,7 +39,9 @@ const containerClasses = computed(() => {
         <slot></slot>
       </div>
     </div>
-    <slot name="lower"></slot>
+    <div v-if="$slots.lower" class="rpl-card__lower">
+      <slot name="lower"></slot>
+    </div>
   </component>
 </template>
 

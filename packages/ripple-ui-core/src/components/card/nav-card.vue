@@ -3,23 +3,22 @@ export default { name: 'RplNavCard' }
 </script>
 
 <script setup lang="ts">
-import { PropType, computed, ref } from 'vue'
-import { RplCardElements } from './constants'
+import { computed, ref } from 'vue'
+import { RplPropEl, RplPropStringRequired } from '../../lib/constants'
+import { useContainerTrigger } from '../../composables/useContainerTrigger'
+
 import RplCard from './card.vue'
 import RplTextLink from '../text-link/text-link.vue'
 
 const props = defineProps({
-  el: {
-    type: String as PropType<typeof RplCardElements[number]>,
-    default: 'div'
+  el: RplPropEl,
+  highlight: {
+    type: Boolean,
+    default: false
   },
   image: {
     type: [String, undefined],
     default: undefined
-  },
-  highlight: {
-    type: Boolean,
-    default: false
   },
   inset: {
     type: Boolean,
@@ -29,40 +28,32 @@ const props = defineProps({
     type: [String, undefined],
     default: undefined
   },
-  title: {
-    type: String,
-    required: true
-  },
+  title: RplPropStringRequired,
   url: {
     type: [String, undefined],
     default: undefined
   }
 })
 
-const titleClasses = computed(() => {
-  const classes = [
-    'rpl-card__cta',
-    'rpl-u-focusable',
-    'rpl-u-focusable--inline'
-  ]
-  classes.push(props.highlight ? 'rpl-type-h3-highlight' : 'rpl-type-h3')
-  return classes.join(' ')
-})
+const titleClasses = computed(() => [
+  'rpl-card__cta',
+  props.highlight ? 'rpl-type-h3-highlight' : 'rpl-type-h3',
+  'rpl-u-focusable',
+  'rpl-u-focusable--inline'
+])
 
-const imgClasses = computed(() => {
-  const classes = ['rpl-card__media']
-  if (props.inset) classes.push('rpl-card__media--inset')
-  return classes.join(' ')
-})
+const imgClasses = computed(() => [
+  'rpl-card__media',
+  props.inset ? 'rpl-card__media--inset' : null
+])
 
+const card = ref(null)
 const callToAction = ref(null)
-const navigate = () => {
-  callToAction.value.triggerClick()
-}
+useContainerTrigger(card, callToAction)
 </script>
 
 <template>
-  <RplCard :href="url" type="nav" :el="el" @click="navigate">
+  <RplCard ref="card" type="nav" :el="el">
     <template v-if="image" #upper>
       <img :class="imgClasses" :src="image" alt="" />
     </template>

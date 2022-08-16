@@ -25,6 +25,11 @@
       margin: var(--rpl-sp-5) var(--rpl-sp-5) 0;
       width: calc(100% - var(--rpl-sp-5) * 2);
     }
+
+    &--category-grid {
+      height: 5.2rem;
+      width: 5.2rem;
+    }
   }
 
   &__meta {
@@ -54,9 +59,20 @@
     margin-bottom: var(--rpl-sp-3);
   }
 
+  &__lower {
+    border-top: 1px solid var(--rpl-clr-neutral-300);
+    margin: var(--rpl-sp-5) var(--rpl-sp-5);
+    padding-top: var(--rpl-sp-3);
+  }
+
   &__cta {
     .rpl-card__upper & {
       margin: var(--rpl-sp-5) var(--rpl-sp-5) 0;
+    }
+
+    .rpl-card__lower & {
+      color: var(--rpl-clr-type-default);
+      font-weight: var(--rpl-type-weight-bold);
     }
 
     .rpl-text-link {
@@ -74,6 +90,20 @@
     display: block;
     height: var(--rpl-border-4);
     background: var(--rpl-clr-gradient-horizontal);
+  }
+
+  &__keydates {
+    margin: var(--rpl-sp-5) 0;
+    padding-left: 0;
+  }
+
+  &__keydate {
+    list-style-type: none;
+    margin-bottom: var(--rpl-sp-6);
+
+    .rpl-type-h4-fixed {
+      margin-top: var(--rpl-sp-2);
+    }
   }
 
   &--avatar {
@@ -96,7 +126,7 @@
   }
 
   &:hover {
-    cursor: pointer;
+    /* cursor: pointer; */
     box-shadow: var(--rpl-elevation-1);
 
     .rpl-text-link {
@@ -106,11 +136,17 @@
         text-decoration: none;
       }
     }
+
+    .rpl-card__lower .rpl-card__cta {
+      color: var(--rpl-clr-link);
+      text-decoration: none;
+    }
   }
 
+  &:active .rpl-card__lower .rpl-card__cta,
   &:active .rpl-card__cta .rpl-text-link,
   &:hover .rpl-card__cta .rpl-text-link {
-    color: var(--rpl-clr-primary);
+    color: var(--rpl-clr-link);
   }
 
   &:active .rpl-card__cta.rpl-type-h3-highlight .rpl-text-link,
@@ -141,6 +177,34 @@
 
     &:hover .rpl-button {
       text-decoration: underline;
+    }
+  }
+
+  &--category-grid {
+    background-color: transparent;
+    border-radius: 0;
+    border: none;
+    margin-top: var(--rpl-sp-4);
+
+    .rpl-card__cta .rpl-text-link {
+      text-decoration: underline;
+    }
+
+    .rpl-card__body {
+      margin-right: 0;
+      margin-left: 0;
+    }
+
+    &:hover {
+      box-shadow: none;
+
+      .rpl-card__cta .rpl-text-link {
+        text-decoration: none;
+      }
+    }
+
+    .rpl-card__cta .rpl-text-link:focus-visible {
+      text-decoration: none;
     }
   }
   /* stylelint-enable no-descending-specificity */

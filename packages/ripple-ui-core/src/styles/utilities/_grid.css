@@ -61,6 +61,13 @@
       grid-column-end: span $i;
     }
   }
+
+  /* XL */
+  .rpl-col-$(i)-xl {
+    @media (--rpl-bp-xl) {
+      grid-column-end: span $i;
+    }
+  }
 }
 
 /* Column start utility classes */

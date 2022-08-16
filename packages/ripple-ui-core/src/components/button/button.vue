@@ -3,12 +3,14 @@ export default { name: 'RplButton' }
 </script>
 
 <script setup lang="ts">
-import { PropType, computed } from 'vue'
+import { PropType, computed, ref } from 'vue'
 import {
+  RplButtonElements,
   RplButtonVariants,
   RplButtonThemes,
   RplButtonIconPositions
 } from './constants'
+import { RplPropUrl } from '../../lib/constants'
 import { RplIconNames } from '../icon/constants'
 import RplIcon from '../icon/icon.vue'
 import { rplEventBus } from '../../index'
@@ -16,6 +18,11 @@ import { rplEventBus } from '../../index'
 rplEventBus.register('rpl-button/click')
 
 const props = defineProps({
+  el: {
+    type: String as PropType<typeof RplButtonElements[number]>,
+    default: 'button'
+  },
+  url: RplPropUrl,
   variant: {
     type: String as PropType<typeof RplButtonVariants[number]>,
     default: 'filled'
@@ -61,10 +68,20 @@ const classes = computed(() => {
 const onClick = (payload?: any) => {
   rplEventBus.emit('rpl-button/click', payload)
 }
+
+const link = ref(null)
+const triggerClick = () => {
+  link.value.click()
+}
+
+defineExpose({ triggerClick })
 </script>
 
 <template>
-  <button
+  <component
+    :is="el"
+    ref="link"
+    :href="el === 'a' ? url : null"
     type="button"
     :class="classes"
     :disabled="disabled"
@@ -77,7 +94,7 @@ const onClick = (payload?: any) => {
       <slot></slot>
     </span>
     <RplIcon v-if="iconName" :name="iconName"></RplIcon>
-  </button>
+  </component>
 </template>
 
 <style src="./button.css" />

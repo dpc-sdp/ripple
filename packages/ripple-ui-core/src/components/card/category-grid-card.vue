@@ -1,5 +1,5 @@
 <script lang="ts">
-export default { name: 'RplPromoCard' }
+export default { name: 'RplCategoryGridCard' }
 </script>
 
 <script setup lang="ts">
@@ -13,18 +13,7 @@ import RplTextLink from '../text-link/text-link.vue'
 
 defineProps({
   el: RplPropEl,
-  highlight: {
-    type: Boolean,
-    default: false
-  },
-  image: {
-    type: [String, undefined],
-    default: undefined
-  },
-  meta: {
-    type: [String, undefined],
-    default: undefined
-  },
+  image: RplPropStringRequired,
   title: RplPropStringRequired,
   url: {
     type: [String, undefined],
@@ -40,14 +29,13 @@ useContainerTrigger(card, callToAction)
 </script>
 
 <template>
-  <RplCard ref="card" type="promo" :highlight="highlight" :el="el">
-    <template v-if="image" #upper>
-      <img class="rpl-card__media" :src="image" alt="" />
-    </template>
-    <template #meta>
-      <div class="rpl-card__meta">
-        <slot name="meta"></slot>
-      </div>
+  <RplCard ref="card" :href="url" :el="el" type="category-grid">
+    <template #upper>
+      <img
+        class="rpl-card__media rpl-card__media--category-grid"
+        :src="image"
+        alt=""
+      />
     </template>
     <template #title>
       <h3 :class="titleClasses">

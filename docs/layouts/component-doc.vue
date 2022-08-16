@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { computed, useContent } from '#imports'
+import { computed, useDocus } from '#imports'
 import InPageTabs from '~/components/app/InPageTabs.vue'
-const { page } = useContent()
+const { theme, page } = useDocus()
 
 const aside = computed(() => {
   if (typeof page.value?.aside !== 'undefined') return page.value.aside

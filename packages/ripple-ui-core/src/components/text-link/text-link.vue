@@ -4,13 +4,13 @@ export default { name: 'RplTextLink' }
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { RplPropUrl } from '../../lib/constants'
+import { RplPropStringRequired } from '../../lib/constants'
 
 import { rplEventBus } from '../../index'
 rplEventBus.register('rpl-text-link/click')
 
 defineProps({
-  url: RplPropUrl
+  url: RplPropStringRequired
 })
 
 const onClick = (payload?: any) => {

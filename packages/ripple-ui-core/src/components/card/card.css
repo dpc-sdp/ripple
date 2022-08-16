@@ -51,7 +51,7 @@
   }
 
   &__body {
-    margin: var(--rpl-sp-5) var(--rpl-sp-5) 0;
+    margin: var(--rpl-sp-5) var(--rpl-sp-5);
   }
 
   &__content {
@@ -160,6 +160,7 @@
   /* stylelint-disable no-descending-specificity */
   &--call-to-action {
     .rpl-button {
+      margin-top: var(--rpl-sp-3);
       margin-bottom: var(--rpl-sp-3);
     }
 

@@ -6,7 +6,7 @@ export default { name: 'RplPromoCard' }
 import { computed, ref } from 'vue'
 import { RplPropEl, RplPropStringRequired } from '../../lib/constants'
 import { RplCardTitleClasses } from './constants'
-import { useContainerTrigger } from '../../composables/useContainerTrigger'
+import { useAccessibleCardPattern } from '../../composables/useAccessibleCardPattern'
 
 import RplCard from './card.vue'
 import RplTextLink from '../text-link/text-link.vue'
@@ -34,13 +34,12 @@ defineProps({
 
 const titleClasses = computed(() => RplCardTitleClasses)
 
-const card = ref(null)
 const callToAction = ref(null)
-useContainerTrigger(card, callToAction)
+useAccessibleCardPattern(callToAction)
 </script>
 
 <template>
-  <RplCard ref="card" type="promo" :highlight="highlight" :el="el">
+  <RplCard type="promo" :highlight="highlight" :el="el">
     <template v-if="image" #upper>
       <img class="rpl-card__media" :src="image" alt="" />
     </template>

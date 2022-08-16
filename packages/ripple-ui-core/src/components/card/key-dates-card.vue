@@ -6,7 +6,7 @@ export default { name: 'RplKeyDatesCard' }
 import { PropType, ref } from 'vue'
 import { RplPropEl, RplPropStringRequired } from '../../lib/constants'
 import { RplCardItemArray } from './constants'
-import { useContainerTrigger } from '../../composables/useContainerTrigger'
+import { useAccessibleCardPattern } from '../../composables/useAccessibleCardPattern'
 
 import RplCard from './card.vue'
 import RplTextLink from '../text-link/text-link.vue'
@@ -28,13 +28,12 @@ defineProps({
   }
 })
 
-const card = ref(null)
 const callToAction = ref(null)
-useContainerTrigger(card, callToAction)
+useAccessibleCardPattern(callToAction)
 </script>
 
 <template>
-  <RplCard ref="card" type="key-dates" :highlight="true" :el="el">
+  <RplCard type="key-dates" :highlight="true" :el="el">
     <template #title>
       <h3 class="rpl-type-h3-fixed">{{ title }}</h3>
     </template>

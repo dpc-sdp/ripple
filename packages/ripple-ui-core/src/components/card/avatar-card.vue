@@ -6,7 +6,7 @@ export default { name: 'RplAvatarCard' }
 import { computed, ref } from 'vue'
 import { RplPropEl, RplPropStringRequired } from '../../lib/constants'
 import { RplCardTitleClasses } from './constants'
-import { useContainerTrigger } from '../../composables/useContainerTrigger'
+import { useAccessibleCardPattern } from '../../composables/useAccessibleCardPattern'
 
 import RplCard from './card.vue'
 import RplTag from '../tag/tag.vue'
@@ -25,13 +25,12 @@ defineProps({
 
 const titleClasses = computed(() => RplCardTitleClasses)
 
-const card = ref(null)
 const callToAction = ref(null)
-useContainerTrigger(card, callToAction)
+useAccessibleCardPattern(callToAction)
 </script>
 
 <template>
-  <RplCard ref="card" :href="url" :el="el" type="avatar">
+  <RplCard :href="url" :el="el" type="avatar">
     <template #upper>
       <img
         class="rpl-card__media rpl-card__media--avatar"

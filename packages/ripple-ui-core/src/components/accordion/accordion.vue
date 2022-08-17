@@ -8,11 +8,7 @@ import { PropType, ref, computed } from 'vue'
 import RplIcon from '../icon/icon.vue'
 import RplContent from '../content/content.vue'
 import { rplEventBus } from '../../index'
-
-rplEventBus.register('rpl-accordion/open-all')
-rplEventBus.register('rpl-accordion/close-all')
-rplEventBus.register('rpl-accordion/open-item')
-rplEventBus.register('rpl-accordion/close-item')
+import { useExpandableCollection } from '../../composables/useExpandableCollection'
 
 type RplAccordionItem = {
   title: string
@@ -35,86 +31,25 @@ const props = defineProps({
   }
 })
 
-const activeItems = ref([])
+const itemContentEls = ref([])
 
-const itemContentEls = {}
+const {
+  items,
+  setItems,
+  setContentEls,
+  isItemExpanded,
+  isAllExpanded,
+  toggleItem,
+  toggleAll
+} = useExpandableCollection()
 
-const isActive = (index) => {
-  return activeItems.value.includes(index)
-}
-
-const toggleItem = (itemIndex) => {
-  const activeItemIndex = activeItems.value.indexOf(itemIndex)
-  const itemContentEl = itemContentEls[itemIndex]
-  const itemContentHeight = itemContentEl.scrollHeight
-
-  // Item needs to open
-  if (activeItemIndex === -1) {
-    // Add the item from the activeItems array
-    activeItems.value.push(itemIndex)
-
-    rplEventBus.emit('rpl-accordion/open-item')
-
-    // Set the elements height to that of its content so that we aren't
-    // transitioning to 'auto'
-    itemContentEl.style.height = `${itemContentHeight}px`
-
-    // When the transition ends remove the set height so it can default to auto
-    itemContentEl.addEventListener(
-      'transitionend',
-      () => {
-        itemContentEl.style.height = null
-      },
-      { once: true }
-    )
-  }
-
-  // Item needs to close
-  else {
-    rplEventBus.emit('rpl-accordion/close-item')
-
-    // Set the elements height to that of its content so that we aren't
-    // transitioning from 'auto'
-    itemContentEl.style.height = `${itemContentHeight}px`
-
-    // Remove the item from the activeItems array
-    activeItems.value.splice(activeItemIndex, 1)
-
-    // Set the height to 0 so that it can transition to closed
-    requestAnimationFrame(() => {
-      itemContentEl.style.height = '0'
-    })
-  }
-}
-
-const toggleAll = () => {
-  // Open all
-  if (activeItems.value.length !== props.items.length) {
-    rplEventBus.emit('rpl-accordion/open-all')
-
-    props.items.forEach((item, index) => {
-      if (!isActive(index)) {
-        toggleItem(index)
-      }
-    })
-  }
-
-  // Close all
-  else {
-    rplEventBus.emit('rpl-accordion/close-all')
-
-    props.items.forEach((item, index) => {
-      if (isActive(index)) {
-        toggleItem(index)
-      }
-    })
-  }
-}
+setItems(props.items)
+setContentEls(itemContentEls)
 
 const toggleAllLabel = computed(() => {
   let label = 'Open all'
 
-  if (activeItems.value.length === props.items.length) {
+  if (isAllExpanded()) {
     label = 'Close all'
   }
 
@@ -139,13 +74,13 @@ const toggleAllLabel = computed(() => {
     </div>
 
     <!-- Items -->
-    <div class="rpl-accordion__items">
-      <div
+    <component :is="numbered ? 'ol' : 'ul'" class="rpl-accordion__items">
+      <li
         v-for="(item, index) in items"
         :key="index"
         :class="{
           'rpl-accordion__item': true,
-          'rpl-accordion__item--active': isActive(index)
+          'rpl-accordion__item--active': isItemExpanded(index)
         }"
       >
         <!-- Item toggle -->
@@ -154,7 +89,7 @@ const toggleAllLabel = computed(() => {
           class="rpl-accordion__item-toggle rpl-u-focusable"
           type="button"
           :aria-controls="`accordion-${id}-${index}-content`"
-          :aria-expanded="isActive(index)"
+          :aria-expanded="isItemExpanded(index)"
           @click="toggleItem(index)"
         >
           <span class="rpl-accordion__item-heading-wrapper">
@@ -189,7 +124,7 @@ const toggleAllLabel = computed(() => {
           class="rpl-accordion__item-content"
           role="region"
           :aria-labelledby="`accordion-${id}-${index}-toggle`"
-          :aria-hidden="isActive(index) === false ? 'true' : null"
+          :aria-hidden="isItemExpanded(index) === false ? 'true' : null"
         >
           <RplContent
             class="rpl-accordion__item-content-inner"
@@ -197,8 +132,8 @@ const toggleAllLabel = computed(() => {
           >
           </RplContent>
         </div>
-      </div>
-    </div>
+      </li>
+    </component>
   </div>
 </template>
 

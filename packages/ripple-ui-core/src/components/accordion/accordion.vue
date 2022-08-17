@@ -7,7 +7,6 @@ import { PropType, ref, computed } from 'vue'
 
 import RplIcon from '../icon/icon.vue'
 import RplContent from '../content/content.vue'
-import { rplEventBus } from '../../index'
 import { useExpandableCollection } from '../../composables/useExpandableCollection'
 
 type RplAccordionItem = {

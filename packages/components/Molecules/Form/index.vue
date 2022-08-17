@@ -7,7 +7,7 @@
     <vue-form-generator
       :schema="formData.schema"
       :model="formData.model"
-      :options="formData.formOptions"
+      :options="formOptions"
       ref="vfg"
       :tag="formData.tag"
       v-show="hideForm()"
@@ -34,6 +34,7 @@ import fieldRpldivider from './fields/fieldRpldivider.vue'
 import fieldRplmarkup from './fields/fieldRplmarkup.vue'
 import VueScrollTo from 'vue-scrollto'
 import { RplFormEventBus } from './index.js'
+import uniqueid from '@dpc-sdp/ripple-global/mixins/uniqueid'
 
 Vue.component('fieldRplinput', fieldRplinput)
 Vue.component('fieldRplselect', fieldRplselect)
@@ -76,6 +77,7 @@ export default {
     fullWidth: { type: Boolean, default: true },
     listenForClearForm: { type: Boolean, default: true }
   },
+  mixins: [uniqueid],
   data () {
     return {
       isClearingForm: false
@@ -118,6 +120,14 @@ export default {
   destroyed () {
     if (this.listenForClearForm) {
       RplFormEventBus.$off('clearform', this.clearForm)
+    }
+  },
+  computed: {
+    formOptions () {
+      // Set default form options, i.e. we want all form ids scoped with a prefix unique to this form instance
+      const defaultOptions = { fieldIdPrefix: `form-${this.getGlobalUniqueId()}-` }
+
+      return { ...defaultOptions, ...this.formData.formOptions }
     }
   },
   methods: {

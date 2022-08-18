@@ -1,7 +1,8 @@
 <!-- GENERATED_DOCS -->
 # @dpc-sdp/ripple-sitemap
 
-> A component to display nested, navigational links.
+> A component to display nested, navigational links. 
+> Table of content can be enabled/disabled with customisable title.
 
 --------------------------------------------------------------------------------
 

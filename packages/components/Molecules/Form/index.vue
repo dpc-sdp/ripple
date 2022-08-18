@@ -80,6 +80,7 @@ export default {
   mixins: [uniqueid],
   data () {
     return {
+      formPrefix: '',
       isClearingForm: false
     }
   },
@@ -116,6 +117,9 @@ export default {
       }
       return ['More than ' + field.max + ' selections are not allowed']
     }
+
+    // We want all form ids scoped with a prefix unique to this form instance
+    this.formPrefix = `form-${this.getGlobalUniqueId()}-`;
   },
   destroyed () {
     if (this.listenForClearForm) {
@@ -124,8 +128,8 @@ export default {
   },
   computed: {
     formOptions () {
-      // Set default form options, i.e. we want all form ids scoped with a prefix unique to this form instance
-      const defaultOptions = { fieldIdPrefix: `form-${this.getGlobalUniqueId()}-` }
+      // Set default form options
+      const defaultOptions = { fieldIdPrefix: this.formPrefix }
 
       return { ...defaultOptions, ...this.formData.formOptions }
     }

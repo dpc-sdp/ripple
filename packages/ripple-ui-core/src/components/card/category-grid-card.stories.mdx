@@ -1,0 +1,81 @@
+import {
+  Canvas,
+  Meta,
+  Story,
+  ArgsTable
+} from '@storybook/addon-docs'
+import RplCategoryGridCard from './category-grid-card.vue'
+import { a11yStoryCheck } from './../../../.storybook/interactions.js'
+
+export const SingleTemplate = (args) => ({
+  components: { RplCategoryGridCard },
+  setup() {
+    return { args }
+  },
+  template: `
+  <div class="rpl-storybook__page">
+    <h2 class="rpl-type-h2">${args.heading}</h2>
+    <ul class="rpl-grid">
+      <RplCategoryGridCard
+        v-for="(item, index) of args.number"
+        :key="index"
+        el="li"
+        v-bind="args"
+        class="rpl-col-12 rpl-col-6-m rpl-col-4-l rpl-col-3-xl"
+        url="${args.url}"
+        image="${args.image}"
+        title="${args.title}"
+      >
+        ${args.default}
+      </RplCategoryGridCard>
+    </ul>
+  </div>
+  `
+})
+
+<Meta
+  title='Components/Navigation/Card'
+  component={RplCategoryGridCard}
+  parameters={{
+    backgrounds: {
+      default: 'light',
+    },
+  }}
+  argTypes={{
+    number: {
+      control: { type: 'select' },
+      options: [1, 2, 4, 8],
+      defaultValue: 1
+    },
+    heading: {
+      control: 'text',
+      defaultValue: 'Species'
+    },
+    image: {
+      table: {
+        disable: true
+      }
+    }
+  }}
+/>
+
+# Card
+
+<ArgsTable of={RplCategoryGridCard} />
+
+## Category grid
+
+<Canvas>
+  <Story
+    name='Category grid'
+    play={a11yStoryCheck}
+    args={{
+      url: 'https://www.vic.gov.au',
+      image: svgPlaceholder({ width: 53, height: 53, bgColor: '#4c6', fgColor: '#333' }),
+      title: 'Ash',
+      default: '<p><em>Fraxinus</em>, commonly called ash, is a genus of flowering plants in the olive and lilac family, Oleaceae.</p>'
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>

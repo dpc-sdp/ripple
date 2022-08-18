@@ -3,6 +3,7 @@
 import { RplPropLabel, RplPropUrl } from '../../lib/constants'
 
 export const RplListTypes = ['ul', 'ol'] as const
+
 export const RplListItemArray = {
   text: typeof RplPropLabel as string,
   icon: typeof RplPropLabel as string,

@@ -119,7 +119,7 @@ export default {
     }
 
     // We want all form ids scoped with a prefix unique to this form instance
-    this.formPrefix = `form-${this.getGlobalUniqueId()}-`;
+    this.formPrefix = `form-${this.getGlobalUniqueId()}-`
   },
   destroyed () {
     if (this.listenForClearForm) {

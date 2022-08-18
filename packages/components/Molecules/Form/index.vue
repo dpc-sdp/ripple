@@ -81,7 +81,7 @@ export default {
       isClearingForm: false
     }
   },
-  mounted () {
+  created () {
     if (this.listenForClearForm) {
       RplFormEventBus.$on('clearform', this.clearForm)
     }
@@ -99,6 +99,15 @@ export default {
         return ['You have too few words. Minimum is ' + field.rplWordCountMin + ', you have ' + wordCount + ' words.']
       }
       return []
+    }
+    // Custom 'required' validator which uses the drupal 'required message'
+    // if the field is empty.
+    VueFormGenerator.validators.rplRequired = function (value, field) {
+      if (!value || value === '') {
+        return field.requiredMessage
+      }
+
+      return null
     }
     // Validate if multiple select is a required field, then atleast one value should be selected.
     VueFormGenerator.validators.rplSelectMultipleRequired = function (value, field) {

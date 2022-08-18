@@ -5413,7 +5413,7 @@
     "@types/scheduler" "*"
     csstype "^3.0.2"
 
-"@types/react@file:.stub/types__react":
+"@types/react@file:stub/types__react":
   version "0.0.0"
 
 "@types/resolve@1.17.1":

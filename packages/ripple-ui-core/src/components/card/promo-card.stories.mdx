@@ -1,0 +1,113 @@
+import {
+  Canvas,
+  Meta,
+  Story,
+  ArgsTable
+} from '@storybook/addon-docs'
+import RplPromoCard from './promo-card.vue'
+import RplIcon from '../icon/icon.vue'
+import RplTag from '../tag/tag.vue'
+import { a11yStoryCheck } from './../../../.storybook/interactions.js'
+
+export const samples = {
+  meta: [
+    '',
+    '<span class="rpl-card__topic">ENVIRONMENT</span>',
+    '<span class="rpl-card__topic">ENVIRONMENT</span><span>10 Aug 2022</span>',
+    '<span>10 Aug 2022</span>',
+    '<RplTag variant="neutral" label="Publication"></RplTag>',
+    '<RplTag variant="neutral" label="Event"></RplTag><span>10 Aug 2022</span>',
+    '<RplTag variant="neutral" label="Grant"></RplTag><RplIcon class="rpl-icon--colour-success" name="icon-check-circle-filled"></RplIcon><span>Ongoing</span>',
+    '<RplTag variant="neutral" label="Grant"></RplTag><RplIcon class="rpl-icon--colour-error" name="icon-cancel-circle-filled"></RplIcon><span>Closed</span>',
+  ]
+}
+
+export const SingleTemplate = (args) => ({
+  components: { RplPromoCard, RplIcon, RplTag },
+  setup() {
+    const img = args.graphicElement === 'Image' ?
+      svgPlaceholder({ width: 400, height: 300, bgColor: '#ad9', fgColor: '#efc' }) : null
+    return { args, img }
+  },
+  template: `
+  <ul class="rpl-storybook__page rpl-grid">
+    <RplPromoCard
+      v-for="(item, index) of args.number"
+      :key="index"
+      el="li"
+      v-bind="args"
+      class="rpl-col-12 rpl-col-6-m rpl-col-4-l"
+      :image="img"
+      :heading-highlight="args.headingStyle !== 'Normal'"
+      :highlight="args.graphicElement === 'Highlight'"
+    >
+      <template #meta>
+        ${args.meta}
+      </template>
+      ${args.default}
+    </RplPromoCard>
+  </ul>
+  `
+})
+
+<Meta title='Components/Navigation/Card' component={RplPromoCard} />
+
+# Card
+
+<ArgsTable of={RplPromoCard} />
+
+## Promo
+
+<Canvas>
+  <Story
+    name='Promo'
+    play={a11yStoryCheck}
+    parameters={{
+      backgrounds: {
+        default: 'light',
+      },
+    }}
+    argTypes={{
+      number: {
+        control: { type: 'select' },
+        options: [1, 2, 4, 8],
+        defaultValue: 1
+      },
+      graphicElement: {
+        control: 'radio',
+        options: ['Image', 'Highlight', 'None'],
+        defaultValue: 'Image'
+      },
+      image: {
+        table: {
+          disable: true
+        }
+      },
+      el: {
+        table: {
+          disable: true
+        }
+      },
+      highlight: {
+        table: {
+          disable: true
+        }
+      },
+      default: {
+        control: 'text'
+      },
+      meta: {
+        control: { type: 'select' },
+        options: samples.meta,
+        defaultValue: samples.meta[1]
+      }
+    }}
+    args={{
+      url: 'https://www.vic.gov.au',
+      title: 'Protected grasslands under threat',
+      default: '<p>The natural temperate grassland and the grassy eucalypt woodlands of the Victorian volcanic plain are two of Australia&rsquo;s most endangered ecosystems.</p>'
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>

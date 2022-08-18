@@ -1,3 +1,7 @@
+import { PropType } from 'vue'
+
+export const RplCardElements = ['div', 'li'] as const
+
 export const RplColorThemes = [
   'default',
   'white',
@@ -14,7 +18,17 @@ export const RplPropLabel = {
   default: ''
 } as const
 
-export const RplPropUrl = {
+export const RplPropStringRequired = {
   type: String,
-  default: '#'
+  required: true
+} as const
+
+export const RplPropUrl = {
+  type: [String, undefined],
+  default: undefined
+} as const
+
+export const RplPropEl = {
+  type: String as PropType<typeof RplCardElements[number]>,
+  default: 'div'
 } as const

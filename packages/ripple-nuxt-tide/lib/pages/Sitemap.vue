@@ -6,7 +6,7 @@
 
     <rpl-row row-gutter>
       <rpl-col cols="full">
-        <rpl-sitemap :menu="menu" />
+        <rpl-sitemap :menu="menu" :toc="toc" />
       </rpl-col>
     </rpl-row>
   </rpl-page-layout>
@@ -40,7 +40,11 @@ export default {
     this.$store.dispatch('tide/setPageHead', { title: pageTitle })
     return {
       pageTitle: pageTitle,
-      menu: this.$store.state.tide.siteData.hierarchicalMenus.menuMain
+      menu: this.$store.state.tide.siteData.hierarchicalMenus.menuMain,
+      toc: {
+        'show': this.$store.state.tide.siteData.field_show_table_of_contents || false,
+        'title': this.$store.state.tide.siteData.field_title_of_table_of_contents || 'Jump to'
+      }
     }
   },
   computed: {

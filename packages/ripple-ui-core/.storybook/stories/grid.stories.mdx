@@ -164,7 +164,17 @@ export const StartingColumnModifierLTemplate = (args) => ({
   `
 });
 
-<Meta title='Base Styles/Grid' parameters={{ viewMode: 'docs'}}/>
+<Meta
+  title='Base Styles/Grid'
+  parameters={{
+    viewMode: 'docs'
+  }}
+  decorators={[
+    () => ({
+      template: '<div class="rpl-storybook__grid"><story /></div>'
+    }),
+  ]}
+/>
 
 # Grid
 

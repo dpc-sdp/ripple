@@ -5,7 +5,7 @@
   }" :style="heroBannerStyles">
     <rpl-row v-if="logo">
       <div class="rpl-hero-banner__left">
-        <img class="rpl-hero-banner__logo" :src="logo" alt="" />
+        <img class="rpl-hero-banner__logo" :src="logo.url" :alt="logo.alt" />
       </div>
     </rpl-row>
     <rpl-row>
@@ -95,7 +95,7 @@ export default {
     moreLink: Object,
     theme: { type: String, default: 'light' },
     showLinks: { type: Boolean, default: true },
-    logo: String,
+    logo: Object,
     backgroundGraphic: String
   },
   components: {

@@ -7,25 +7,7 @@
       <ul v-if="links" class="rpl-anchor-links__items">
         <li v-for="(item, index) of links" :key="index" :class="['rpl-anchor-links__item', {'rpl-anchor-links__item--indent': (item.type && item.type === 'h3')}]">
           <rpl-icon v-if="(item.type && item.type === 'h3')" class="rpl-anchor-links__item--indent-icon" symbol="list_indent" size="1.05"/>
-          <a
-            v-if="item.index && item.index > 0"
-            @click="triggerComponent(item)"
-            :href="item.url"
-            class="rpl-link rpl-text-link rpl-text-link--underline"
-          >
-            <span class="rpl-link__inner">
-              <span class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline">
-                <span>{{item.text}}</span>
-              </span>
-            </span>
-          </a>
-          <rpl-text-link
-            v-else
-            :url="item.url"
-            :text="item.text"
-            :underline="true"
-            size="small"
-          />
+          <rpl-text-link :url="item.url" :text="item.text" :underline="true" size="small"/>
         </li>
       </ul>
     </div>
@@ -36,7 +18,6 @@
 import { RplTextLink } from '@dpc-sdp/ripple-link'
 import { RplIcon } from '@dpc-sdp/ripple-icon'
 import rtl from '@dpc-sdp/ripple-global/mixins/rtl.js'
-import { RplAccordionEventBus } from '@dpc-sdp/ripple-accordion'
 
 export default {
   name: 'RplAnchorLinks',
@@ -48,14 +29,6 @@ export default {
   components: {
     RplTextLink,
     RplIcon
-  },
-  methods: {
-    triggerComponent: function (item) {
-      RplAccordionEventBus.$emit('open-panel', {
-        url: item.url,
-        index: item.index - 1 // post-render decode (0 index is falsy)
-      })
-    }
   }
 }
 </script>
@@ -148,6 +121,7 @@ export default {
       &--indent {
         display: flex;
         padding-left: $rpl-anchor-links-item-indent-padding-left;
+
         &-icon {
           margin-right: $rpl-anchor-links-item-indent-icon-marign-right;
         }
@@ -155,25 +129,25 @@ export default {
     }
 
     &--rtl {
-     padding-right: $rpl-anchor-links-left-padding-xs;
-     border-right: $rpl-anchor-links-border;
-     border-left: 0;
+      padding-right: $rpl-anchor-links-left-padding-xs;
+      border-right: $rpl-anchor-links-border;
+      border-left: 0;
 
-     @include rpl_print {
-       border-right: 0;
-     }
+      @include rpl_print {
+        border-right: 0;
+      }
 
-     @include rpl_breakpoint('s') {
-       padding-right: $rpl-anchor-links-left-padding-s;
-     }
+      @include rpl_breakpoint('s') {
+        padding-right: $rpl-anchor-links-left-padding-s;
+      }
 
-     @include rpl_breakpoint('l') {
-       padding-left: 0;
-     }
+      @include rpl_breakpoint('l') {
+        padding-left: 0;
+      }
 
-     @include rpl_breakpoint('xl') {
-       padding-right: $rpl-anchor-links-left-padding-xl;
-     }
+      @include rpl_breakpoint('xl') {
+        padding-right: $rpl-anchor-links-left-padding-xl;
+      }
     }
   }
 </style>

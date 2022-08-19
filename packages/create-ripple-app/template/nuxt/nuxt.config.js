@@ -118,6 +118,7 @@ export default {
         password: process.env.SEARCH_AUTH_PASSWORD
       },
       loadOnDemand: 1
-    }
+    },
+    robots: true
   }
 }

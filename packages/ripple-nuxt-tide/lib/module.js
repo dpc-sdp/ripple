@@ -116,6 +116,42 @@ const nuxtTide = function (moduleOptions) {
     })
   }
 
+  // Add robots.txt
+  if (options?.robots) {
+    // Setup excluded paths
+    let excludedPaths = [
+      '/js',
+      '/img',
+      '/_nuxt/*',
+      '/oauth/*',
+      '/preview/*',
+      '/share-link'
+    ]
+
+    if (process.env.LAGOON_ENVIRONMENT_TYPE !== 'production') {
+      excludedPaths.push('/')
+    }
+
+    let robots = [
+      { UserAgent: 'SemrushBot', Disallow: '/' },
+      { UserAgent: '*', Disallow: excludedPaths }
+    ]
+
+    // Add supplied options to default robot options
+    if (Array.isArray(options.robots)) {
+      robots.push(...options.robots)
+    } else if (typeof options.robots === 'object') {
+      robots.push(options.robots)
+    }
+
+    // Add sitemap, this only works when the build target is server
+    if (this.options.target === 'server') {
+      robots.push({ Sitemap: (req) => `https://${req.headers.host}/sitemap.xml` })
+    }
+
+    this.addModule(['@nuxtjs/robots', robots])
+  }
+
   // https://toor.co/blog/nuxtjs-smooth-scrolling-with-hash-links/
   this.options.router.scrollBehavior = async (to, from, savedPosition) => {
     if (savedPosition) {

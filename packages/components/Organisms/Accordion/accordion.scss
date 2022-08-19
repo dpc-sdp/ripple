@@ -58,12 +58,6 @@ $rpl-accordion-collapse-color: rpl_color('primary') !default;
 
   &__title-top {
     margin-top: 0;
-    // TODO: Lines below should be removed on merging of SDPA-1810.
-    @include rpl_mobile_padding;
-    @include rpl_breakpoint(m) {
-      padding-left: 0;
-      padding-right: 0;
-    }
   }
 
   &__list {

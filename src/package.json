@@ -1,5 +1,5 @@
 {
-  "name": "@dpc-sdp/storybook",
+  "name": "storybook",
   "description": "Storybook instance for ripple component testing",
   "homepage": "https://ripple.sdp.vic.gov.au",
   "version": "1.30.5",

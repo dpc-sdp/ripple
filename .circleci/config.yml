@@ -16,6 +16,7 @@ jobs:
       - node/install-packages:
           pkg-manager: yarn
           app-dir: ~/app
+          cache-version: v1
       - run:
           name: build all ripple package
           command: yarn run build:ripple

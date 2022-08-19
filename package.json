@@ -29,7 +29,6 @@
     "test:storybook": "test-storybook --stories-json",
     "test:storybook-ci": "concurrently -k -s first -n \"SB,TEST\" -c \"magenta,blue\" \"npx http-server storybook-static --port 6006 --silent\" \"wait-on tcp:6006 && yarn test:storybook\"",
     "chromatic": "npx chromatic --storybook-base-dir ./packages/ripple-ui-core --storybook-config-dir ./packages/ripple-ui-core",
-    "chromatic:forms": "npx chromatic --storybook-base-dir ./packages/ripple-ui-forms --storybook-config-dir ./packages/ripple-ui-forms",
     "generate:component": "hygen component new",
     "generate:content-type": "hygen content-type new"
   },

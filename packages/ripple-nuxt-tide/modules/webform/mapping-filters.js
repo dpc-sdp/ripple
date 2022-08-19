@@ -20,7 +20,7 @@ module.exports = {
       formOptions: {
         validateAfterLoad: false,
         validateAfterChanged: true,
-        fieldIdPrefix: drupalFormEntity.drupal_internal__id
+        fieldIdPrefix: `${drupalFormEntity.drupal_internal__id}-`
       },
       formState: {},
       settings: {

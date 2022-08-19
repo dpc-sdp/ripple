@@ -39,7 +39,7 @@ const vitePlugins = [
 module.exports = {
   stories: ['./../packages/**/*.stories.@(js|jsx|ts|tsx|mdx)'],
   framework: '@storybook/vue3',
-  staticDirs: ['./assets'],
+  staticDirs: ['./public'],
   features: {
     interactionsDebugger: true,
     buildStoriesJson: true

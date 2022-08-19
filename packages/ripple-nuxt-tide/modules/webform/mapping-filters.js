@@ -19,7 +19,8 @@ module.exports = {
       isNewModel: true,
       formOptions: {
         validateAfterLoad: false,
-        validateAfterChanged: true
+        validateAfterChanged: true,
+        fieldIdPrefix: drupalFormEntity.drupal_internal__id
       },
       formState: {},
       settings: {

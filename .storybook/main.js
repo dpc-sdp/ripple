@@ -1,5 +1,6 @@
 const svgLoader = require('vite-svg-loader')
 const contentLoader = require('@originjs/vite-plugin-content').default
+const path = require('path')
 
 const vitePlugins = [
   contentLoader(),
@@ -58,6 +59,10 @@ module.exports = {
   async viteFinal(config, { configType }) {
     // customize the Vite config here
     config.plugins.push(...vitePlugins)
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      '~/storybook': path.resolve(__dirname, './')
+    }
     return config
   }
 }

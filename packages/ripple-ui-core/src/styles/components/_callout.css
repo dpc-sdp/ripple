@@ -12,6 +12,10 @@
   }
 
   > {
+    :first-child {
+      margin-top: 0;
+    }
+
     :last-child {
       margin-bottom: 0;
     }
@@ -21,5 +25,11 @@
     padding: var(--rpl-sp-2) var(--rpl-sp-6);
     background-color: transparent;
     border-color: var(--rpl-clr-neutral-600);
+
+    p {
+      font-size: var(--rpl-type-size-3);
+      line-height: var(--rpl-type-lh-5);
+      letter-spacing: var(--rpl-type-ls-2);
+    }
   }
 }

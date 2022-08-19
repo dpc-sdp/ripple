@@ -10,7 +10,7 @@ import { within, userEvent } from '@storybook/testing-library'
 import { eventCheck, a11yCheck, a11yStoryCheck } from './../../../stories/interactions.js'
 const eventTestFunction = async ({ canvasElement }) => {
   const canvas = await within(canvasElement)
-  const link = await canvas.getByRole('link')
+  const link = await canvas.getByText(/event-tracked link/i)
   await a11yCheck(canvasElement)
   await eventCheck(link, 'rpl-text-link/click')
 }
@@ -108,7 +108,7 @@ export const Template = (args) => ({
       return {
         components: { RplTextLink },
         setup() { return { args } },
-        template: `<p class="sb-container rpl-type-p">This para contains an <RplTextLink @click.prevent="args.onClick()" :theme="false">event-tracked link</RplTextLink> in the middle.</p>`
+        template: `<p class="sb-container rpl-type-p">This para contains an <RplTextLink @click.prevent="args.onClick()">event-tracked link</RplTextLink> in the middle.</p>`
       }
     }}
   </Story>

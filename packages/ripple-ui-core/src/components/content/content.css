@@ -1,10 +1,8 @@
 @import '@dpc-sdp/ripple-ui-core/style/breakpoints';
 
 .rpl-content {
-  max-width: var(--rpl-content-max-width-1);
-
   @media (--rpl-bp-m) {
-    max-width: var(--rpl-content-max-width-2);
+    max-width: var(--rpl-content-max-width);
   }
 
   > {

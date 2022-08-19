@@ -67,7 +67,7 @@ jobs:
       - attach_workspace:
           at: ~/app
       - run:
-          command: yarn workspace @dpc-sdp/ripple-ui-core test:storybook-ci
+          command: yarn test:storybook-ci
           name: Run storybook Tests
 
   chromatic:

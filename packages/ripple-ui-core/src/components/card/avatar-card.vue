@@ -25,12 +25,13 @@ defineProps({
 
 const titleClasses = computed(() => RplCardTitleClasses)
 
-const callToAction = ref(null)
-useAccessibleCardPattern(callToAction)
+const card = ref(null)
+const trigger = ref(null)
+useAccessibleCardPattern(card, trigger)
 </script>
 
 <template>
-  <RplCard :href="url" :el="el" type="avatar">
+  <RplCard ref="card" :href="url" :el="el" type="avatar">
     <template #upper>
       <img
         class="rpl-card__media rpl-card__media--avatar"
@@ -45,7 +46,7 @@ useAccessibleCardPattern(callToAction)
     </template>
     <template #title>
       <h3 :class="titleClasses">
-        <RplTextLink ref="callToAction" :url="url">{{ title }}</RplTextLink>
+        <RplTextLink ref="trigger" :url="url">{{ title }}</RplTextLink>
       </h3>
     </template>
     <slot></slot>

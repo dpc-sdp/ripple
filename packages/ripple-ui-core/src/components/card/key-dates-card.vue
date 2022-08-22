@@ -28,12 +28,13 @@ defineProps({
   }
 })
 
-const callToAction = ref(null)
-useAccessibleCardPattern(callToAction)
+const card = ref(null)
+const trigger = ref(null)
+useAccessibleCardPattern(card, trigger)
 </script>
 
 <template>
-  <RplCard type="key-dates" :highlight="true" :el="el">
+  <RplCard ref="card" type="key-dates" :highlight="true" :el="el">
     <template #title>
       <h3 class="rpl-type-h3-fixed">{{ title }}</h3>
     </template>
@@ -51,7 +52,7 @@ useAccessibleCardPattern(callToAction)
       </ol>
     </template>
     <template #lower>
-      <RplTextLink ref="callToAction" class="rpl-card__cta" :url="url">{{
+      <RplTextLink ref="trigger" class="rpl-card__cta" :url="url">{{
         ctaTitle
       }}</RplTextLink>
     </template>

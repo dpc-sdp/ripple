@@ -1,7 +1,8 @@
-import { unref, onMounted, getCurrentInstance } from 'vue'
+import { onMounted, onBeforeUnmount } from 'vue'
 import type { Ref } from 'vue'
+import { useEventListener } from '@vueuse/core'
 
-export function useAccessibleCardPattern(r: Ref) {
+export function useAccessibleCardPattern(card: Ref, trigger: Ref) {
   const checkLeftMouseButton = (evt: MouseEvent) => {
     // https://stackoverflow.com/a/3944291
     evt = evt || window.event
@@ -11,33 +12,34 @@ export function useAccessibleCardPattern(r: Ref) {
     return evt.button === 1
   }
 
-  onMounted(() => {
-    const link = unref(r)
+  let up: number
+  let down: number
+  let isLeftBtn = false
 
-    let up: number
-    let down: number
-    let isLeftBtn = false
+  useEventListener(card, 'mousedown', (e: MouseEvent) => {
+    if (checkLeftMouseButton(e)) {
+      isLeftBtn = true
+      down = +new Date()
+    }
+  })
 
-    const instance = getCurrentInstance()?.subTree.el
-    if (instance) {
-      instance.style.cursor = 'pointer'
-      instance.onmousedown = (e: MouseEvent) => {
-        if (checkLeftMouseButton(e)) {
-          isLeftBtn = true
-          down = +new Date()
-        }
-      }
-      instance.onmouseup = (e: MouseEvent) => {
-        if (isLeftBtn) {
-          e.preventDefault()
-          up = +new Date()
-          if (up - down < 200) {
-            if (link !== e.target) {
-              link.triggerClick()
-            }
-          }
+  useEventListener(card, 'mouseup', (e: MouseEvent) => {
+    if (isLeftBtn) {
+      e.preventDefault()
+      up = +new Date()
+      if (up - down < 200) {
+        if (trigger.value !== e.target) {
+          trigger.value.triggerClick()
         }
       }
     }
+  })
+
+  onMounted(() => {
+    card.value.setActive()
+  })
+
+  onBeforeUnmount(() => {
+    card.value.setInactive()
   })
 }

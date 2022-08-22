@@ -40,6 +40,7 @@
     "@commitlint/cli": "^16.2.1",
     "@commitlint/config-conventional": "^16.2.1",
     "@types/jest": "^27.4.1",
+    "@types/react": "file:stub/types__react",
     "@typescript-eslint/eslint-plugin": "^5.12.1",
     "@typescript-eslint/parser": "^5.12.1",
     "babel-core": "^7.0.0-bridge.0",
@@ -65,7 +66,6 @@
     "node": "^14.16.0 || ^16.11.0 || ^17.0.0"
   },
   "dependencies": {
-    "@types/react": "file:.stub/types__react",
     "@vue/vue3-jest": "^27.0.0-alpha.4",
     "concurrently": "^7.0.0",
     "rimraf": "^3.0.2",

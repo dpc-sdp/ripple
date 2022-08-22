@@ -5,6 +5,7 @@ export default { name: 'RplList' }
 <script setup lang="ts">
 import { PropType, computed } from 'vue'
 import { RplListTypes, RplListItemArray } from './constants'
+
 import RplIcon from '../icon/icon.vue'
 import RplList from '../list/list.vue'
 import RplTextLink from '../text-link/text-link.vue'
@@ -30,17 +31,15 @@ const props = defineProps({
 
 const componentPrefix = 'rpl-list'
 
-const itemClasses = computed(() => {
-  const classes = [`${componentPrefix}__item`]
-  if (props.itemClass) classes.push(props.itemClass)
-  return classes.join(' ')
-})
+const itemClasses = computed(() => [
+  `${componentPrefix}__item`,
+  props.itemClass ? props.itemClass : null
+])
 
-const containerClasses = computed(() => {
-  const classes = [`${componentPrefix}__items`]
-  if (props.containerClass) classes.push(props.containerClass)
-  return classes.join(' ')
-})
+const containerClasses = computed(() => [
+  `${componentPrefix}__items`,
+  props.containerClass ? props.containerClass : null
+])
 </script>
 
 <template>

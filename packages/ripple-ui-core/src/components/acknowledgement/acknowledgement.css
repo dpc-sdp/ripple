@@ -5,6 +5,7 @@
 
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
 
   @media (--rpl-bp-m) {
     flex-wrap: nowrap;

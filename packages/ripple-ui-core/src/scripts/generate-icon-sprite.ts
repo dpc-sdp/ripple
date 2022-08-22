@@ -3,5 +3,5 @@ import { join } from 'pathe'
 
 saveSprite(
   join(__dirname, './../assets/icons/core'),
-  join(__dirname, './../../public/assets/icons')
+  join(__dirname, './../assets/icons')
 )

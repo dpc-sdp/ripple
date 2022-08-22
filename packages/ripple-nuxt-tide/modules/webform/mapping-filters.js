@@ -19,7 +19,8 @@ module.exports = {
       isNewModel: true,
       formOptions: {
         validateAfterLoad: false,
-        validateAfterChanged: true
+        validateAfterChanged: true,
+        fieldIdPrefix: `${drupalFormEntity.drupal_internal__id}-`
       },
       formState: {},
       settings: {
@@ -74,8 +75,16 @@ module.exports = {
       }
 
       if (element['#required']) {
-        field.required = true
-        field.validator.push('required')
+        // If a custom required error message is set, use the custom required
+        // validator instead
+        if (element['#required_error']) {
+          field.required = false
+          field.requiredMessage = element['#required_error']
+          field.validator.push('rplRequired')
+        } else {
+          field.required = true
+          field.validator.push('required')
+        }
       } else {
         field.required = false
       }
@@ -429,6 +438,23 @@ module.exports = {
         case 'webform_privacy_statement':
           group.fields = []
           group.legend = element['#privacy_statement_heading']
+
+          // If a custom required error message is set, use the custom required
+          // validator instead
+          let checkboxRequired = false
+          let checkboxRequiredMessage = element['#required_error'] ? element['#required_error'] : null
+          let checkboxValidator = []
+
+          if (element['#required']) {
+            if (checkboxRequiredMessage) {
+              checkboxRequired = false
+              checkboxValidator = ['rplRequired']
+            } else {
+              checkboxRequired = true
+              checkboxValidator = ['required']
+            }
+          }
+
           group.fields.push(
             {
               type: 'rplmarkup',
@@ -438,8 +464,9 @@ module.exports = {
               type: 'rplcheckbox',
               label: null,
               inlineLabel: element['#title'] ? element['#title'] : null,
-              required: element['#required'],
-              validator: element['#required'] ? ['required'] : [],
+              required: checkboxRequired,
+              requiredMessage: checkboxRequiredMessage,
+              validator: checkboxValidator,
               model: eName
             }
           )

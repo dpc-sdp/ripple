@@ -78,7 +78,7 @@ export default ({ app, req, store , route }, inject) => {
             commit('setHost', req.headers.host)
 
             // Set protocol
-            const protocol = process.server ? (req.connection.encrypted ? 'https:' : 'http:') : window.location.protocol
+            const protocol = process.server ? (req.socket.encrypted ? 'https:' : 'http:') : window.location.protocol
             commit('setProtocol', protocol)
 
             // Load site module store.

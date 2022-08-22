@@ -1,20 +1,31 @@
 <template>
   <div class="rpl-sitemap-menu">
     <h1 class="rpl-sitemap-header">Site Map</h1>
+    <template v-if="toc.show && vhAnchorLinks && vhAnchorLinks.length > 0">
+      <rpl-anchor-links :title="toc.title" :links="vhAnchorLinks" />
+    </template>
     <rpl-sitemap-menu :menu="menu"></rpl-sitemap-menu>
   </div>
 </template>
 
 <script>
 import RplSitemapMenu from './SitemapMenu.vue'
+import RplAnchorLinks from '@dpc-sdp/ripple-anchor-links'
 
 export default {
   name: 'RplSitemap',
   props: {
-    menu: Array
+    menu: Array,
+    toc: Object
   },
   components: {
-    RplSitemapMenu
+    RplSitemapMenu,
+    RplAnchorLinks
+  },
+  computed: {
+    vhAnchorLinks () {
+      return this.menu.map(({ text, uuid }) => ({ text, url: `#id-${uuid}`, type: 'a' }))
+    }
   }
 }
 </script>
@@ -36,6 +47,9 @@ export default {
   $rpl-sitemap-menu-list-item-level-2-ruleset: ('s', 1.5em, 'medium') !default;
   $rpl-sitemap-menu-list-item-ruleset: ('s', 1.5em, 'regular') !default;
   $rpl-sitemap-menu-link-color: rpl-color('extra_dark_neutral') !default;
+  $rpl-sitemap-menu-toc-title-color: rpl-color('extra_dark_neutral') !default;
+  $rpl-sitemap-menu-toc-link-color: rpl-color('extra_dark_neutral') !default;
+  $rpl-sitemap-menu-toc-link-underline-color: rpl-color('mid_neutral_1') !default;
 
   .rpl-sitemap-header {
     @include rpl_text_color($rpl-sitemap-header-text-color);
@@ -65,6 +79,7 @@ export default {
 
       &--depth-0 {
         padding-left: 0;
+        margin-top: $rpl-space * 18;
       }
 
       &--depth-1 {
@@ -102,6 +117,30 @@ export default {
 
       &:last-child {
         margin-bottom: 0;
+      }
+    }
+
+    .rpl-anchor-links {
+      margin-top: $rpl-space * 10;
+
+      &__title {
+        @include rpl_text_color($rpl-sitemap-menu-toc-title-color);
+      }
+
+      .rpl-text-link {
+        .rpl-text-label {
+          @include rpl_text_color($rpl-sitemap-menu-toc-link-color);
+
+          &--small {
+            &--underline {
+              border-bottom-color: $rpl-sitemap-menu-toc-link-underline-color;
+              &:hover,
+              &:focus {
+                color: inherit;
+              }
+            }
+          }
+        }
       }
     }
   }

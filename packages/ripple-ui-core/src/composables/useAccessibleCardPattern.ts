@@ -27,7 +27,10 @@ export function useAccessibleCardPattern(card: Ref, trigger: Ref) {
     if (isLeftBtn) {
       e.preventDefault()
       up = +new Date()
+
+      // Add 200ms delay to allow text selection
       if (up - down < 200) {
+        // Only fire a click if the target is not the trigger el
         if (trigger.value !== e.target) {
           trigger.value.triggerClick()
         }

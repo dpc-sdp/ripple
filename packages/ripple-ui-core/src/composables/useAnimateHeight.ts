@@ -1,5 +1,5 @@
-export function animateOpening(el) {
-  // TODO: Type as ref
+
+export function animateOpening(el: HTMLElement) {
   const elContentHeight = el.scrollHeight
 
   // Set the elements height to that of its content so that we aren't
@@ -10,14 +10,13 @@ export function animateOpening(el) {
   el.addEventListener(
     'transitionend',
     () => {
-      el.style.height = null
+      el.style.height = ''
     },
     { once: true }
   )
 }
 
-export function animateClosing(el) {
-  // TODO: Type as ref
+export function animateClosing(el: HTMLElement) {
   const elContentHeight = el.scrollHeight
 
   // Set the elements height to that of its content so that we aren't

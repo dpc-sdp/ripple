@@ -23,13 +23,6 @@ const state = reactive({
   active: false
 })
 
-const containerClasses = computed(() => [
-  'rpl-card',
-  'rpl-type-p',
-  `rpl-card--${props.type}`,
-  state.active ? 'rpl-card--active' : null
-])
-
 const setActive = () => {
   state.active = true
 }
@@ -37,6 +30,13 @@ const setActive = () => {
 const setInactive = () => {
   state.active = false
 }
+
+const containerClasses = computed(() => [
+  'rpl-card',
+  'rpl-type-p',
+  `rpl-card--${props.type}`,
+  state.active ? 'rpl-card--active' : null
+])
 
 defineExpose({ setActive, setInactive })
 </script>

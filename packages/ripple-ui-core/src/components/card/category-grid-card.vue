@@ -3,10 +3,10 @@ export default { name: 'RplCategoryGridCard' }
 </script>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed } from 'vue'
 import { RplPropEl, RplPropStringRequired } from '../../lib/constants'
 import { RplCardTitleClasses } from './constants'
-import { useAccessibleCardPattern } from '../../composables/useAccessibleCardPattern'
+import { useAccessibleContainer } from '../../composables/useAccessibleContainer'
 
 import RplCard from './card.vue'
 import RplTextLink from '../text-link/text-link.vue'
@@ -23,13 +23,11 @@ defineProps({
 
 const titleClasses = computed(() => RplCardTitleClasses)
 
-const card = ref(null)
-const trigger = ref(null)
-useAccessibleCardPattern(card, trigger)
+const { container, trigger } = useAccessibleContainer()
 </script>
 
 <template>
-  <RplCard ref="card" :href="url" :el="el" type="category-grid">
+  <RplCard ref="container" :href="url" :el="el" type="category-grid">
     <template #upper>
       <img
         class="rpl-card__media rpl-card__media--category-grid"

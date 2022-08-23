@@ -16,6 +16,10 @@
     }
   }
 
+  &--size-xs {
+    --rpl-icon-size: var(--rpl-sp-3);
+  }
+
   &--size-s {
     --rpl-icon-size: var(--rpl-sp-4);
   }

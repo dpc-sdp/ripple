@@ -22,10 +22,6 @@
   }
 
   &__items {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-
     @media (--rpl-bp-m) {
       margin: calc(0px - var(--rpl-sp-2)) 0 0 0; /* Offset item top padding */
     }

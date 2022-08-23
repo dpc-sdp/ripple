@@ -1,5 +1,11 @@
 @import '@dpc-sdp/ripple-ui-core/style/breakpoints';
 
+.rpl-accordion {
+  @media (--rpl-bp-m) {
+    max-width: var(--rpl-content-max-width);
+  }
+}
+
 /* Toggle all button */
 .rpl-accordion__toggle-all-wrapper {
   display: flex;

@@ -5,10 +5,13 @@ export default { name: 'RplProfile' }
 <script setup lang="ts">
 import { PropType } from 'vue'
 import { RplProfileItemArray } from './constants'
-import { RplPropStringRequired } from '../../lib/constants'
+import type { ImgHTMLAttributes } from 'vue'
 
 defineProps({
-  image: RplPropStringRequired,
+  image: {
+    type: Object as PropType<ImgHTMLAttributes>,
+    required: true
+  }, // TODO replace with image component
   items: {
     type: Array as PropType<typeof RplProfileItemArray[]>,
     default: () => []
@@ -19,7 +22,7 @@ defineProps({
 <template>
   <div class="rpl-profile">
     <div class="rpl-profile__media">
-      <img :src="image" alt="" />
+      <img v-bind="image" />
     </div>
     <div v-if="items.length > 0" class="rpl-profile__items">
       <dl v-for="(item, index) of items" :key="index" class="rpl-profile__item">

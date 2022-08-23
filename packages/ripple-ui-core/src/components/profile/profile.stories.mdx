@@ -26,7 +26,10 @@ export const SingleTemplate = (args) => ({
     name='Profile'
     play={a11yStoryCheck}
     args={{
-      image: svgPlaceholder({ width: 400, height: 600 }),
+      image: {
+        src: svgPlaceholder({ width: 400, height: 600 }),
+        alt: ''
+      },
       items: [
         {
           title: 'Name',

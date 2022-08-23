@@ -1,0 +1,77 @@
+import {
+  Canvas,
+  Meta,
+  Story,
+  ArgsTable
+} from '@storybook/addon-docs'
+import RplFile from './file.vue'
+import { a11yStoryCheck } from './../../../.storybook/interactions.js'
+
+export const SingleTemplate = (args) => ({
+  components: { RplFile },
+  setup() {
+    return { args }
+  },
+  template: '<RplFile v-bind="args" />'
+})
+
+<Meta title='WIP/Components/File' component={RplFile} />
+
+# File
+
+<ArgsTable of={RplFile} />
+
+<Canvas>
+  <Story
+    name='Default'
+    play={a11yStoryCheck}
+    args={{
+      name: 'An example of a document title that goes across two lines',
+      url: 'https://vic.gov.au/',
+      size: '1.5mb',
+      extension: 'pdf',
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>
+
+## Example / With Date
+
+This is example shows the file component with the caption copy below.
+
+<Canvas>
+  <Story
+    name='With Date'
+    play={a11yStoryCheck}
+    args={{
+      name: 'This is an example of a document title',
+      url: 'https://vic.gov.au/',
+      size: '1.5mb',
+      extension: 'pdf',
+      updated: 'July 17, 2022'
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>
+
+## Example / With Caption
+
+This is example shows the file component with the caption copy below.
+
+<Canvas>
+  <Story
+    name='With Caption'
+    play={a11yStoryCheck}
+    args={{
+      name: 'This is an example of a document title',
+      url: 'https://vic.gov.au/',
+      caption: 'And this is example of a longer description of the document, this one seems very descriptive.',
+      size: '1.5mb',
+      extension: 'pdf',
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>

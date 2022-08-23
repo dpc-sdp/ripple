@@ -7,6 +7,7 @@ import {
 import RplContent from './content.vue'
 import { a11yStoryCheck } from './../../../.storybook/interactions.js'
 import testcontent from './testcontent.html?raw'
+
 export const SingleTemplate = (args) => ({
   components: { RplContent },
   setup() {
@@ -59,6 +60,47 @@ export const SingleTemplate = (args) => ({
         aliquip ex ea commodo consequat.
       </p>
     </div>
+    `}}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+  <Story
+    name='Blockquote'
+    play={a11yStoryCheck}
+    args={{html: `
+      <figure class="rpl-blockquote">
+        <blockquote class="rpl-blockquote__quote">
+          <p class="rpl-type-p-large-fixed">
+            "Berios sim destrum facientota nis ex eost aut prae vendis explam aliquis dolorpo rrorem reptaep elenis net."
+          </p>
+        </blockquote>
+        <figcaption class="rpl-blockquote__author rpl-type-label-small">
+          <span class="rpl-blockquote__author-name">Her Excellency the Honourable Linda Dessau AC</span>
+          <span class="rpl-blockquote__author-title">Governor of Victoria</span>
+        </figcaption>
+      </figure>
+    `}}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+  <Story
+    name='Blockquote - Multiline'
+    play={a11yStoryCheck}
+    args={{html: `
+      <figure class="rpl-blockquote">
+        <blockquote class="rpl-blockquote__quote">
+          <p class="rpl-type-p-large-fixed">
+            "Berios sim destrum facientota nis ex eost aut prae vendis explam aliquis dolorpo rrorem reptaep elenis net."
+          </p>
+          <p class="rpl-type-p-large-fixed">
+            "Destrum facientota nis ex eost aut prae vendis explam aliquis dolorpo rrorem reptaep elenis net."
+          </p>
+        </blockquote>
+        <figcaption class="rpl-blockquote__author rpl-type-label-small">
+          <span class="rpl-blockquote__author-name">Her Excellency the Honourable Linda Dessau AC</span>
+          <span class="rpl-blockquote__author-title">Governor of Victoria</span>
+        </figcaption>
+      </figure>
     `}}
   >
     {SingleTemplate.bind()}

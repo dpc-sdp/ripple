@@ -33,17 +33,11 @@ const props = defineProps({
 const itemContentEls = ref([])
 
 const {
-  items,
-  setItems,
-  setContentEls,
   isItemExpanded,
   isAllExpanded,
   toggleItem,
   toggleAll
-} = useExpandableCollection()
-
-setItems(props.items)
-setContentEls(itemContentEls)
+} = useExpandableCollection(props.items, itemContentEls)
 
 const toggleAllLabel = computed(() => {
   let label = 'Open all'

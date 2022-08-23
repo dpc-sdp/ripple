@@ -1,26 +1,16 @@
-import { ref, unref } from 'vue'
+import { ref } from 'vue'
 import type { Ref } from 'vue'
 import { animateOpening, animateClosing } from './useAnimateHeight'
 
-export function useExpandableCollection() {
-  const items: Ref<object[]> = ref([])
+export function useExpandableCollection(items, contentEls) {
   const activeItems: Ref<number[]> = ref([])
-  const contentEls: Ref<object[]> = ref([])
-
-  function setItems(toAdd) {
-    items.value = unref(toAdd)
-  }
-
-  function setContentEls(toAdd) {
-    contentEls.value = unref(toAdd)
-  }
 
   function isItemExpanded(index) {
     return activeItems.value.includes(index)
   }
 
   function isAllExpanded() {
-    return activeItems.value.length === items.value.length
+    return activeItems.value.length === items.length
   }
 
   function toggleItem(itemIndex) {
@@ -42,7 +32,7 @@ export function useExpandableCollection() {
   function toggleAll() {
     // Make all items active
     if (!isAllExpanded()) {
-      items.value.forEach((item, index) => {
+      items.forEach((item, index) => {
         if (!isItemExpanded(index)) {
           toggleItem(index)
         }
@@ -51,7 +41,7 @@ export function useExpandableCollection() {
 
     // Make all items inactive
     else {
-      items.value.forEach((item, index) => {
+      items.forEach((item, index) => {
         if (isItemExpanded(index)) {
           toggleItem(index)
         }
@@ -59,5 +49,5 @@ export function useExpandableCollection() {
     }
   }
 
-  return { items, setItems, setContentEls, isItemExpanded, isAllExpanded, toggleItem, toggleAll }
+  return { isItemExpanded, isAllExpanded, toggleItem, toggleAll }
 }

@@ -13,7 +13,7 @@
   &:focus-visible,
   &:focus-visible:visited,
   &:focus-visible:hover {
-    background-color: var(--local-background-colour);
+    background-color: var(--local-background-colour) !important;
     border-color: var(--rpl-clr-focus);
     border-radius: 0;
     border-width: var(--rpl-focusable-border-width, 0);
@@ -67,12 +67,12 @@
     &:focus-visible,
     &:focus-visible:visited,
     &:focus-visible:hover {
-      box-shadow: -1px 0 var(--local-background-colour), /* left */
-        1px 0 var(--local-background-colour), /* right */
-        -1px -2px var(--local-background-colour), /* top - shifted left 1px */
-        1px -2px var(--local-background-colour), /* top - shifted right 1px */
-        1px 4px var(--rpl-clr-dark), /* bottom - shifted left 1px */
-        -1px 4px var(--rpl-clr-dark); /* bottom - shifted right 1px */
+      box-shadow: -1px 0 var(--local-background-colour),
+        /* left */ 1px 0 var(--local-background-colour),
+        /* right */ -1px -2px var(--local-background-colour),
+        /* top - shifted left 1px */ 1px -2px var(--local-background-colour),
+        /* top - shifted right 1px */ 1px 4px var(--rpl-clr-dark),
+        /* bottom - shifted left 1px */ -1px 4px var(--rpl-clr-dark); /* bottom - shifted right 1px */
 
       &::after {
         display: none;

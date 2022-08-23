@@ -3,9 +3,9 @@ export default { name: 'RplNavCard' }
 </script>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed } from 'vue'
 import { RplPropEl, RplPropStringRequired } from '../../lib/constants'
-import { useAccessibleCardPattern } from '../../composables/useAccessibleCardPattern'
+import { useAccessibleContainer } from '../../composables/useAccessibleContainer'
 
 import RplCard from './card.vue'
 import RplTextLink from '../text-link/text-link.vue'
@@ -47,12 +47,11 @@ const imgClasses = computed(() => [
   props.inset ? 'rpl-card__media--inset' : null
 ])
 
-const callToAction = ref(null)
-useAccessibleCardPattern(callToAction)
+const { container, trigger } = useAccessibleContainer()
 </script>
 
 <template>
-  <RplCard type="nav" :el="el">
+  <RplCard ref="container" type="nav" :el="el">
     <template v-if="image" #upper>
       <img :class="imgClasses" :src="image" alt="" />
     </template>
@@ -63,7 +62,7 @@ useAccessibleCardPattern(callToAction)
     </template>
     <template #title>
       <h3 :class="titleClasses">
-        <RplTextLink ref="callToAction" :url="url">{{ title }}</RplTextLink>
+        <RplTextLink ref="trigger" :url="url">{{ title }}</RplTextLink>
       </h3>
     </template>
     <slot></slot>

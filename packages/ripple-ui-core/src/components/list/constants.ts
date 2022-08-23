@@ -8,5 +8,6 @@ export const RplListItemArray = {
   text: typeof RplPropLabel as string,
   icon: typeof RplPropLabel as string,
   url: typeof RplPropUrl as string,
+  active: Boolean,
   items: Array
 } as const

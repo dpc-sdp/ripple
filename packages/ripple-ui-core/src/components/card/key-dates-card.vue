@@ -3,10 +3,10 @@ export default { name: 'RplKeyDatesCard' }
 </script>
 
 <script setup lang="ts">
-import { PropType, ref } from 'vue'
+import { PropType } from 'vue'
 import { RplPropEl, RplPropStringRequired } from '../../lib/constants'
 import { RplCardItemArray } from './constants'
-import { useAccessibleCardPattern } from '../../composables/useAccessibleCardPattern'
+import { useAccessibleContainer } from '../../composables/useAccessibleContainer'
 
 import RplCard from './card.vue'
 import RplTextLink from '../text-link/text-link.vue'
@@ -28,12 +28,11 @@ defineProps({
   }
 })
 
-const callToAction = ref(null)
-useAccessibleCardPattern(callToAction)
+const { container, trigger } = useAccessibleContainer()
 </script>
 
 <template>
-  <RplCard type="key-dates" :highlight="true" :el="el">
+  <RplCard ref="container" type="key-dates" :highlight="true" :el="el">
     <template #title>
       <h3 class="rpl-type-h3-fixed">{{ title }}</h3>
     </template>
@@ -51,7 +50,7 @@ useAccessibleCardPattern(callToAction)
       </ol>
     </template>
     <template #lower>
-      <RplTextLink ref="callToAction" class="rpl-card__cta" :url="url">{{
+      <RplTextLink ref="trigger" class="rpl-card__cta" :url="url">{{
         ctaTitle
       }}</RplTextLink>
     </template>

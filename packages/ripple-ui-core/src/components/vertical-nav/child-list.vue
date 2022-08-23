@@ -15,6 +15,10 @@ defineProps({
   level: {
     type: Number,
     required: true
+  },
+  isExpanded: {
+    type: Boolean,
+    required: true
   }
 })
 </script>
@@ -35,13 +39,16 @@ defineProps({
       <RplVerticalNavLink
         :text="item.text"
         :href="item.url"
+        :active="item?.active"
         :show-child-icon="level > 2"
+        :tabindex="isExpanded ? '0' : '-1'"
       />
 
       <RplVerticalNavChildList
         v-if="item.items"
         :items="item.items"
         :level="level+1"
+        :is-expanded="isExpanded"
       />
     </li>
   </ul>

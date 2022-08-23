@@ -14,6 +14,10 @@ defineProps({
     type: String as PropType<string>,
     required: true
   },
+  active: {
+    type: Boolean,
+    default: false
+  },
   showChildIcon: {
     type: Boolean,
     default: false
@@ -24,11 +28,12 @@ defineProps({
 <template>
   <a
     :href="href"
-    class="
-      rpl-vertical-nav__item
-      rpl-vertical-nav__link
-      rpl-u-focusable
-    "
+    :class="{
+      'rpl-vertical-nav__item': true,
+      'rpl-vertical-nav__item--active': active,
+      'rpl-vertical-nav__link': true,
+      'rpl-u-focusable': true
+    }"
   >
     <span
       v-if="showChildIcon"

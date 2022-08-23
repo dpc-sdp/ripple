@@ -27,6 +27,16 @@
   }
 }
 
+.rpl-vertical-nav__list-item-children {
+  height: 0;
+  overflow: hidden;
+  transition: height var(--rpl-motion-speed-8) ease-out;
+
+  .rpl-vertical-nav__list-item--expanded & {
+    height: auto;
+  }
+}
+
 /* Item */
 .rpl-vertical-nav__item {
   /* stylelint-disable-next-line length-zero-no-unit */
@@ -98,10 +108,11 @@
   }
 
   /* Hide the divider when it sits next to an item that has the same background
-  colour as the divider */
+  colour as the divider, or is a level 2 or lower item */
   .rpl-vertical-nav__list-item:first-of-type &,
   &.rpl-vertical-nav__item--active,
-  &:hover {
+  &:hover,
+  .rpl-vertical-nav__list--level-2 & {
     &::after {
       display: none;
     }
@@ -118,6 +129,11 @@
 .rpl-vertical-nav__toggle-icon {
   margin-left: var(--rpl-sp-2);
   color: var(--rpl-clr-neutral-600);
+  transition: transform var(--rpl-motion-speed-6) linear;
+
+  .rpl-vertical-nav__list-item--expanded & {
+    transform: rotate(-180deg);
+  }
 }
 
 /* Links */

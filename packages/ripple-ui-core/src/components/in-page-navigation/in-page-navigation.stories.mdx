@@ -36,7 +36,11 @@ export const SingleTemplate = (args) => ({
         { text: 'Link to additional content', url: '#' },
         { text: 'Another link to extra content', url: '#', items: [
           { text: 'This is another sub heading', url: '#' },
-          { text: 'And another sub heading', url: '#' },
+          { text: 'And another sub heading', url: '#', items: [
+            { text: 'Theoretical 3rd level with an extra long title', url: '#', items: [
+              { text: 'Theoretical 4th level', url: '#' }
+            ]},
+          ]},
         ]},
         { text: 'This is another link', url: '#' }
       ]

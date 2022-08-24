@@ -105,4 +105,288 @@ export const SingleTemplate = (args) => ({
   >
     {SingleTemplate.bind()}
   </Story>
+  <Story
+    name='Table'
+    play={a11yStoryCheck}
+    args={{html: `
+     <div class="rpl-table">
+      <table>
+        <tbody>
+          <tr>
+            <td>Lorem quis do ea aliqua est.</td>
+            <td>Lorem quis do ea aliqua est ea Lorem nostrud tempor.</td>
+            <td>Lorem quis do ea aliqua est, quis.</td>
+            <td>Lorem quis do ea aliqua est commodo et laborum.</td>
+          </tr>
+          <tr>
+            <td>Lorem quis do ea aliqua est.</td>
+            <td>Lorem quis do ea aliqua est ea Lorem nostrud tempor.</td>
+            <td>Lorem quis do ea aliqua est, quis.</td>
+            <td>Lorem quis do ea aliqua est commodo et laborum.</td>
+          </tr>
+          <tr>
+            <td>Lorem quis do ea aliqua est.</td>
+            <td>Lorem quis do ea aliqua est ea Lorem nostrud tempor.</td>
+            <td>Lorem quis do ea aliqua est, quis.</td>
+            <td>Lorem quis do ea aliqua est commodo et laborum.</td>
+          </tr>
+          <tr>
+            <td>Lorem quis do ea aliqua est.</td>
+            <td>Lorem quis do ea aliqua est ea Lorem nostrud tempor.</td>
+            <td>Lorem quis do ea aliqua est, quis.</td>
+            <td>Lorem quis do ea aliqua est commodo et laborum.</td>
+          </tr>
+          <tr>
+            <td>Lorem quis do ea aliqua est.</td>
+            <td>Lorem quis do ea aliqua est ea Lorem nostrud tempor.</td>
+            <td>Lorem quis do ea aliqua est, quis.</td>
+            <td>Lorem quis do ea aliqua est commodo et laborum.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  `}}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+  <Story
+    name='Table - Header'
+    play={a11yStoryCheck}
+    args={{html: `
+     <div class="rpl-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Column 1</th>
+            <th>Column 2</th>
+            <th>Column 3</th>
+            <th>Column 4</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Lorem quis do ea aliqua est.</td>
+            <td>Lorem quis do ea aliqua est ea Lorem nostrud tempor.</td>
+            <td>Lorem quis do ea aliqua est, quis.</td>
+            <td>Lorem quis do ea aliqua est commodo et laborum.</td>
+          </tr>
+          <tr>
+            <td>Lorem quis do ea aliqua est.</td>
+            <td>Lorem quis do ea aliqua est ea Lorem nostrud tempor.</td>
+            <td>Lorem quis do ea aliqua est, quis.</td>
+            <td>Lorem quis do ea aliqua est commodo et laborum.</td>
+          </tr>
+          <tr>
+            <td>Lorem quis do ea aliqua est.</td>
+            <td>Lorem quis do ea aliqua est ea Lorem nostrud tempor.</td>
+            <td>Lorem quis do ea aliqua est, quis.</td>
+            <td>Lorem quis do ea aliqua est commodo et laborum.</td>
+          </tr>
+          <tr>
+            <td>Lorem quis do ea aliqua est.</td>
+            <td>Lorem quis do ea aliqua est ea Lorem nostrud tempor.</td>
+            <td>Lorem quis do ea aliqua est, quis.</td>
+            <td>Lorem quis do ea aliqua est commodo et laborum.</td>
+          </tr>
+          <tr>
+            <td>Lorem quis do ea aliqua est.</td>
+            <td>Lorem quis do ea aliqua est ea Lorem nostrud tempor.</td>
+            <td>Lorem quis do ea aliqua est, quis.</td>
+            <td>Lorem quis do ea aliqua est commodo et laborum.</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="4">Optional table footer</td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  `}}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+  <Story
+    name='Table - Caption'
+    play={a11yStoryCheck}
+    args={{html: `
+     <div class="rpl-table">
+      <table>
+        <caption>
+          <h4 class="rpl-type-h4-fixed">Optional table caption</h4>
+          <p class="rpl-type-p-small">Optional table summary</p>
+        </caption>
+        <tbody>
+          <tr>
+            <th>Lorem quis do ea aliqua est.</th>
+            <td>Lorem quis do ea aliqua est ea Lorem nostrud tempor.</td>
+            <td>Lorem quis do ea aliqua est, quis.</td>
+            <td>Lorem quis do ea aliqua est commodo et laborum.</td>
+          </tr>
+          <tr>
+            <th>Lorem quis do ea aliqua est.</th>
+            <td>Lorem quis do ea aliqua est ea Lorem nostrud tempor.</td>
+            <td>Lorem quis do ea aliqua est, quis.</td>
+            <td>Lorem quis do ea aliqua est commodo et laborum.</td>
+          </tr>
+          <tr>
+            <th>Lorem quis do ea aliqua est.</th>
+            <td>Lorem quis do ea aliqua est ea Lorem nostrud tempor.</td>
+            <td>Lorem quis do ea aliqua est, quis.</td>
+            <td>Lorem quis do ea aliqua est commodo et laborum.</td>
+          </tr>
+          <tr>
+            <th>Lorem quis do ea aliqua est.</th>
+            <td>Lorem quis do ea aliqua est ea Lorem nostrud tempor.</td>
+            <td>Lorem quis do ea aliqua est, quis.</td>
+            <td>Lorem quis do ea aliqua est commodo et laborum.</td>
+          </tr>
+          <tr>
+            <th>Lorem quis do ea aliqua est.</th>
+            <td>Lorem quis do ea aliqua est ea Lorem nostrud tempor.</td>
+            <td>Lorem quis do ea aliqua est, quis.</td>
+            <td>Lorem quis do ea aliqua est commodo et laborum.</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="4">Optional table footer</td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  `}}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+  <Story
+    name='Table - Header & Caption'
+    play={a11yStoryCheck}
+    args={{html: `
+     <div class="rpl-table">
+      <table>
+        <caption>
+          <h4 class="rpl-type-h4-fixed">Optional table caption</h4>
+          <p class="rpl-type-p-small">Optional table summary</p>
+        </caption>
+        <thead>
+          <tr>
+            <th>Column 1</th>
+            <th>Column 2</th>
+            <th>Column 3</th>
+            <th>Column 4</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Lorem quis do ea aliqua est.</td>
+            <td>Lorem quis do ea aliqua est ea Lorem nostrud tempor.</td>
+            <td>Lorem quis do ea aliqua est, quis.</td>
+            <td>Lorem quis do ea aliqua est commodo et laborum.</td>
+          </tr>
+          <tr>
+            <td>Lorem quis do ea aliqua est.</td>
+            <td>Lorem quis do ea aliqua est ea Lorem nostrud tempor.</td>
+            <td>Lorem quis do ea aliqua est, quis.</td>
+            <td>Lorem quis do ea aliqua est commodo et laborum.</td>
+          </tr>
+          <tr>
+            <td>Lorem quis do ea aliqua est.</td>
+            <td>Lorem quis do ea aliqua est ea Lorem nostrud tempor.</td>
+            <td>Lorem quis do ea aliqua est, quis.</td>
+            <td>Lorem quis do ea aliqua est commodo et laborum.</td>
+          </tr>
+          <tr>
+            <td>Lorem quis do ea aliqua est.</td>
+            <td>Lorem quis do ea aliqua est ea Lorem nostrud tempor.</td>
+            <td>Lorem quis do ea aliqua est, quis.</td>
+            <td>Lorem quis do ea aliqua est commodo et laborum.</td>
+          </tr>
+          <tr>
+            <td>Lorem quis do ea aliqua est.</td>
+            <td>Lorem quis do ea aliqua est ea Lorem nostrud tempor.</td>
+            <td>Lorem quis do ea aliqua est, quis.</td>
+            <td>Lorem quis do ea aliqua est commodo et laborum.</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="4">Optional table footer</td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  `}}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+  <Story
+    name='Table - Scrollable'
+    play={a11yStoryCheck}
+    args={{html: `
+     <div class="rpl-table">
+      <div class="rpl-table__info rpl-type-p-small">
+        This content is scrollable
+        <span class="rpl-table__info-icon rpl-icon rpl-icon--size-xs rpl-icon--colour-default">
+          <svg role="presentation"><use xlink:href="#icon-chevron-right"></use></svg>
+        </span>
+      </div>
+      <div class="rpl-table__scroll-container" tabindex="0">
+        <table>
+          <caption>
+            <h4 class="rpl-type-h4-fixed">Optional table caption</h4>
+            <p class="rpl-type-p-small">Optional table summary</p>
+          </caption>
+          <thead>
+            <tr>
+              <th>Column 1</th>
+              <th>Column 2</th>
+              <th>Column 3</th>
+              <th>Column 4</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Lorem quis do quiceaaliquaest.</td>
+              <td>Loremquisdoealiqua est ea Lorem nostrud tempor.</td>
+              <td>Lorem quisdoeaaliquaest, quis.</td>
+              <td>Lorem quis do ea aliqua est commodoetlaborumetata.</td>
+            </tr>
+            <tr>
+              <td>Lorem quis do quiceaaliquaest.</td>
+              <td>Loremquisdoealiqua est ea Lorem nostrud tempor.</td>
+              <td>Lorem quisdoeaaliquaest, quis.</td>
+              <td>Lorem quis do ea aliqua est commodoetlaborumetata.</td>
+            </tr>
+            <tr>
+              <td>Lorem quis do quiceaaliquaest.</td>
+              <td>Loremquisdoealiqua est ea Lorem nostrud tempor.</td>
+              <td>Lorem quisdoeaaliquaest, quis.</td>
+              <td>Lorem quis do ea aliqua est commodoetlaborumetata.</td>
+            </tr>
+            <tr>
+              <td>Lorem quis do quiceaaliquaest.</td>
+              <td>Loremquisdoealiqua est ea Lorem nostrud tempor.</td>
+              <td>Lorem quisdoeaaliquaest, quis.</td>
+              <td>Lorem quis do ea aliqua est commodoetlaborumetata.</td>
+            </tr>
+            <tr>
+              <td>Lorem quis do quiceaaliquaest.</td>
+              <td>Loremquisdoealiqua est ea Lorem nostrud tempor.</td>
+              <td>Lorem quisdoeaaliquaest, quis.</td>
+              <td>Lorem quis do ea aliqua est commodoetlaborumetata.</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="4">Optional table footer</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+  `}}
+  >
+    {SingleTemplate.bind()}
+  </Story>
 </Canvas>

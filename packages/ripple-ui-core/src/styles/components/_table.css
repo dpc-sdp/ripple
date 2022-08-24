@@ -1,0 +1,95 @@
+@import '@dpc-sdp/ripple-ui-core/style/breakpoints';
+
+.rpl-table {
+  --local-dividing-border: var(--rpl-border-1) solid var(--rpl-clr-neutral-300);
+  --local-scroll-indicator-width: 2rem;
+
+  margin-top: var(--rpl-sp-5);
+  background-color: var(--rpl-clr-neutral-0);
+
+  @media (--rpl-bp-l) {
+    margin-top: var(--rpl-sp-6);
+  }
+
+  &__info {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    margin-bottom: var(--rpl-sp-2);
+
+    &-icon {
+      margin: 0 0 var(--rpl-sp-1) var(--rpl-sp-2);
+    }
+  }
+
+  table {
+    border-collapse: collapse;
+    font-size: var(--rpl-type-size-1);
+    line-height: var(--rpl-type-lh-3);
+    letter-spacing: var(--rpl-type-ls-1);
+  }
+
+  thead {
+    border-bottom: var(--rpl-border-2) solid var(--rpl-clr-neutral-600);
+  }
+
+  tbody,
+  tfoot {
+    border-bottom: var(--local-dividing-border);
+  }
+
+  th {
+    font-weight: var(--rpl-type-weight-bold);
+  }
+
+  tbody tr,
+  tfoot,
+  caption,
+  caption + thead {
+    border-top: var(--local-dividing-border);
+  }
+
+  caption, th, td {
+    text-align: left;
+    padding: var(--rpl-sp-4) var(--rpl-sp-3);
+
+    &:first-child,
+    &:last-child {
+      padding-left: var(--rpl-sp-4);
+      padding-right: var(--rpl-sp-4);
+    }
+  }
+
+  tbody {
+    tr:nth-child(odd) {
+      mix-blend-mode: darken;
+      background-color: var(--rpl-clr-neutral-100);
+    }
+  }
+
+  &__scroll-container {
+    z-index: 1;
+    position: relative;
+    overflow-x: auto;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    background-repeat: no-repeat;
+    background-position: 0 0, 100% 0;
+    background-image: linear-gradient(to right, var(--rpl-clr-neutral-200), transparent), linear-gradient(to left, var(--rpl-clr-neutral-200), transparent);
+    background-size: calc(var(--local-scroll-indicator-width) / 2) 100%;
+
+    &::before,
+    &::after {
+      content: "";
+      z-index: -1;
+      position: relative;
+      min-width: var(--local-scroll-indicator-width);
+      background: var(--rpl-clr-light);
+    }
+
+    table {
+      margin: 0 calc(-1 * var(--local-scroll-indicator-width));
+    }
+  }
+}

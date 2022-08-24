@@ -20,7 +20,7 @@ export const SingleTemplate = (args) => ({
   template: '<<%= h.rplcomponentname(name) %> v-bind="args" />'
 })
 
-<Meta title='Components/<%= h.changeCase.sentenceCase(name) %>' component={<%= h.rplcomponentname(name) %>} />
+<Meta title='WIP/<%= h.changeCase.sentenceCase(name) %>' component={<%= h.rplcomponentname(name) %>} />
 
 # <%= h.changeCase.sentenceCase(name) %>
 

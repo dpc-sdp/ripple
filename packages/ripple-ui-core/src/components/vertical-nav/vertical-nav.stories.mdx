@@ -5,7 +5,7 @@ import {
   ArgsTable
 } from '@storybook/addon-docs'
 import RplVerticalNav from './vertical-nav.vue'
-import { a11yStoryCheck } from './../../../.storybook/interactions.js'
+import { a11yStoryCheck } from './../../../stories/interactions.js'
 
 export const SingleTemplate = (args) => ({
   components: { RplVerticalNav },
@@ -15,7 +15,7 @@ export const SingleTemplate = (args) => ({
   template: '<RplVerticalNav v-bind="args" />'
 })
 
-<Meta title='Components/Vertical nav' component={RplVerticalNav} />
+<Meta title='Core/Navigation/Vertical navigation' component={RplVerticalNav} />
 
 # Vertical nav
 
@@ -23,7 +23,7 @@ export const SingleTemplate = (args) => ({
 
 <Canvas>
   <Story
-    name='Vertical nav'
+    name='Vertical navigation'
     play={a11yStoryCheck}
     args={{
       title: 'Section name',

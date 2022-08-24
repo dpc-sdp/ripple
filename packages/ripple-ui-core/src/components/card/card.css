@@ -110,6 +110,10 @@
     text-align: center;
   }
 
+  &--active {
+    cursor: pointer;
+  }
+
   @media (--rpl-bp-l) {
     &--inset {
       display: flex;

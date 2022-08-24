@@ -1,0 +1,38 @@
+{
+  "name": "@dpc-sdp/ripple-ui-forms",
+  "version": "0.0.0",
+  "license": "Apache-2.0",
+  "main": "./dist/rpl-forms.umd.js",
+  "module": "./dist/rpl-forms.es.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": "./dist/rpl-forms.es.js",
+    "./components": "./dist/components",
+    "./nuxt": "./dist/nuxt.js",
+    "./style": "./dist/style.css"
+  },
+  "dependencies": {
+    "@dpc-sdp/ripple-ui-core": "0.0.0",
+    "@formkit/nuxt": "^1.0.0-beta.10",
+    "@formkit/vue": "^1.0.0-beta.10",
+    "@nuxt/kit": "^3.0.0-rc.8"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.18.10",
+    "@vitejs/plugin-vue": "^2.2.2",
+    "babel-loader": "^8.2.5",
+    "postcss-nested": "^5.0.6",
+    "postcss-normalize": "^10.0.1",
+    "postcss-preset-env": "^7.4.3",
+    "ts-node": "^10.7.0",
+    "vite-plugin-static-copy": "^0.7.0",
+    "vite-svg-loader": "^3.2.0",
+    "vue-loader": "^16.8.3",
+    "vue-tsc": "^0.31.2"
+  },
+  "scripts": {
+    "build": "yarn build:vite && yarn build:types",
+    "build:vite": "vite build",
+    "build:types": "tsc -p tsconfig.json"
+  }
+}

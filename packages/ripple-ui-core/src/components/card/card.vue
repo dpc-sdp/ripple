@@ -3,7 +3,7 @@ export default { name: 'RplCard' }
 </script>
 
 <script setup lang="ts">
-import { PropType, computed } from 'vue'
+import { PropType, computed, reactive } from 'vue'
 import { RplPropEl } from '../../lib/constants'
 import { RplCardTypes } from './constants'
 
@@ -19,11 +19,26 @@ const props = defineProps({
   }
 })
 
+const state = reactive({
+  active: false
+})
+
+const setActive = () => {
+  state.active = true
+}
+
+const setInactive = () => {
+  state.active = false
+}
+
 const containerClasses = computed(() => [
   'rpl-card',
   'rpl-type-p',
-  `rpl-card--${props.type}`
+  `rpl-card--${props.type}`,
+  state.active ? 'rpl-card--active' : null
 ])
+
+defineExpose({ setActive, setInactive })
 </script>
 
 <template>

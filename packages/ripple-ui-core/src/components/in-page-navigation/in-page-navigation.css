@@ -1,6 +1,8 @@
 @import '@dpc-sdp/ripple-ui-core/style/breakpoints';
 
 .rpl-in-page-navigation {
+  --local-sub-indent: 2.4rem;
+
   border-left-style: solid;
   border-left-width: var(--rpl-border-3);
   border-image: var(--rpl-clr-gradient-vertical) 1 100%;
@@ -12,6 +14,22 @@
   }
 
   .rpl-list {
+    &__link {
+      color: var(--rpl-clr-type-default);
+      display: flex;
+
+      .rpl-list__label {
+        text-decoration: underline;
+      }
+
+      &:hover,
+      &:focus-visible {
+        .rpl-list__label {
+          text-decoration: none;
+        }
+      }
+    }
+
     &__item {
       margin-bottom: var(--rpl-sp-3);
 
@@ -36,6 +54,14 @@
             margin-top: var(--rpl-sp-4);
           }
 
+          .rpl-list__items--sub .rpl-list__item {
+            margin-left: var(--local-sub-indent);
+          }
+
+          .rpl-list__label {
+            width: calc(100% - var(--local-sub-indent));
+          }
+
           &::before {
             --local-icon-w: 5px;
             --local-icon-h: 8px;
@@ -45,20 +71,12 @@
             float: left;
             height: var(--local-icon-h);
             width: var(--local-icon-w);
-            margin: var(--rpl-sp-1) var(--rpl-sp-2) 0;
+            margin: var(--rpl-sp-1) 1rem 0 0.9rem;
             border-left: var(--rpl-border-1) solid var(--rpl-clr-type-default);
             border-bottom: var(--rpl-border-1) solid var(--rpl-clr-type-default);
             text-decoration: none;
           }
         }
-      }
-    }
-
-    &__link {
-      color: var(--rpl-clr-type-default);
-
-      &:active {
-        text-decoration: underline;
       }
     }
   }

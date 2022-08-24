@@ -10,7 +10,7 @@ import {
 } from '@storybook/addon-docs'
 import <%= h.rplcomponentname(name) %> from './<%= h.changeCase.paramCase(name) %>.vue'
 import { <%= h.rplcomponentname(name) %>Variants } from './constants'
-import { a11yStoryCheck } from './../../../.storybook/interactions.js'
+import { a11yStoryCheck } from './../../../stories/interactions.js'
 
 export const SingleTemplate = (args) => ({
   components: { Rpl<%= h.changeCase.pascal(name) %> },
@@ -20,7 +20,7 @@ export const SingleTemplate = (args) => ({
   template: '<<%= h.rplcomponentname(name) %> v-bind="args" />'
 })
 
-<Meta title='Components/<%= h.changeCase.sentenceCase(name) %>' component={<%= h.rplcomponentname(name) %>} />
+<Meta title='WIP/<%= h.changeCase.sentenceCase(name) %>' component={<%= h.rplcomponentname(name) %>} />
 
 # <%= h.changeCase.sentenceCase(name) %>
 

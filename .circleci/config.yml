@@ -16,9 +16,17 @@ jobs:
       - node/install-packages:
           pkg-manager: yarn
           app-dir: ~/app
+          cache-version: v1
+          with-cache: false
       - run:
-          name: build nuxt app site
-          command: yarn run build
+          name: build all ripple package
+          command: yarn run build:ripple
+      - run:
+          name: build example apps
+          command: yarn run build:examples
+      - run:
+          name: build docs site
+          command: yarn run build:docs
       - persist_to_workspace:
           root: ~/app
           paths: [.]
@@ -42,16 +50,16 @@ jobs:
       - attach_workspace:
           at: ~/app
       - run:
-          command: yarn workspace @dpc-sdp/ripple-ui-core storybook:build
+          command: yarn build:storybook
           name: Build static storybook
       - persist_to_workspace:
           root: ~/app
           paths:
-            - packages/ripple-ui-core/storybook-static
+            - storybook-static
 
   test-storybook:
     docker:
-      - image: mcr.microsoft.com/playwright:v1.22.0-focal
+      - image: mcr.microsoft.com/playwright:v1.25.0-focal
     environment:
       NODE_ENV: development
     working_directory: ~/app
@@ -59,7 +67,7 @@ jobs:
       - attach_workspace:
           at: ~/app
       - run:
-          command: yarn workspace @dpc-sdp/ripple-ui-core test:storybook-ci
+          command: yarn test:storybook-ci
           name: Run storybook Tests
 
   chromatic:
@@ -67,8 +75,8 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/app
-        # Runs the Chromatic CLI
-      - run: yarn chromatic --storybook-build-dir=packages/ripple-ui-core/storybook-static --project-token=${CHROMATIC_PROJECT_TOKEN} --exit-zero-on-changes --exit-once-uploaded
+        # Runs the Chromatic CLI for core and forms packages
+      - run: yarn chromatic --project-token=${CHROMATIC_PROJECT_TOKEN} --exit-zero-on-changes --exit-once-uploaded
 
 workflows:
   commit:

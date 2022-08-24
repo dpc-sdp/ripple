@@ -6,7 +6,7 @@ const theme = useTheme()
 </script>
 
 <template>
-  <header class="flex justify-between px-4 py-4 mx-auto sm:px-8">
+  <header class="flex justify-between px-6 py-6 mx-auto">
     <!-- Logo -->
     <a
       aria-current="page"
@@ -15,9 +15,12 @@ const theme = useTheme()
       aria-label="false"
       ><img class="w-8" src="/img/ripple-logo.png" width="100" />
       <span class="flex text-sm font-bold mx-2 dark:text-white">
-        Ripple 2
-      </span></a
-    >
+        {{ theme?.title }}
+      </span>
+      <span class="flex text-xs text-gray-700 dark:text-gray-400"
+        >v{{ theme?.version }}</span
+      >
+    </a>
     <div class="flex justify-between max-w-4xl mx-auto">
       <!-- Navigation -->
       <div class="text-primary-700 dark:text-primary-200">
@@ -49,16 +52,10 @@ const theme = useTheme()
         v-if="theme.socials?.github"
         :href="`https://github.com/${theme.socials?.github}`"
         title="Twitter"
-        class="
-          text-gray-900 dark:text-gray-200
-        "
+        class="text-gray-900 dark:text-gray-200"
         ><Icon name="fa-brands:github"
       /></a>
-      <ColorModeSwitch
-        class="
-text-gray-900 dark:text-gray-200
-        "
-      />
+      <ColorModeSwitch class="text-gray-900 dark:text-gray-200" />
     </div>
   </header>
 </template>

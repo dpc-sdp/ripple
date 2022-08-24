@@ -28,12 +28,14 @@ const { container, trigger } = useAccessibleContainer()
 
 <template>
   <RplCard ref="container" :href="url" :el="el" type="category-grid">
-    <template #upper>
-      <img
-        class="rpl-card__media rpl-card__media--category-grid"
-        :src="image"
-        alt=""
-      />
+    <template v-if="image" #upper>
+      <slot name="image">
+        <img
+          class="rpl-card__media rpl-card__media--category-grid"
+          :src="image"
+          alt=""
+        />
+      </slot>
     </template>
     <template #title>
       <h3 :class="titleClasses">

@@ -1,0 +1,7 @@
+z-index:
+  default:
+    _:
+      value: 0
+  above-content:
+    _:
+      value: 1

@@ -1,6 +1,8 @@
 @import '@dpc-sdp/ripple-ui-core/style/breakpoints';
 
 .rpl-profile {
+  --local-image-size: 8rem;
+
   display: flex;
   align-items: center;
 
@@ -10,12 +12,11 @@
     img {
       border-radius: var(--rpl-border-radius-full);
       object-fit: cover;
-      height: 8rem;
-      width: 8rem;
+      height: var(--local-image-size);
+      width: var(--local-image-size);
 
       @media (--rpl-bp-m) {
-        height: 14.8rem;
-        width: 14.8rem;
+        --local-image-size: 14.8rem;
       }
     }
 

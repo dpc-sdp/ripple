@@ -1,5 +1,5 @@
 <template>
-  <h2 class="rpl-type-h2" v-if="title">{{ title }}</h2>
+  <h2 v-if="title" class="rpl-type-h2">{{ title }}</h2>
   <RplForm :schema="schema" @submit="submitHandler" />
 </template>
 

@@ -24,8 +24,8 @@ export const RplPropStringRequired = {
 } as const
 
 export const RplPropUrl = {
-  type: [String, undefined],
-  default: undefined
+  type: String,
+  default: ''
 } as const
 
 export const RplPropEl = {

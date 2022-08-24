@@ -25,6 +25,13 @@ ol {
   margin-block-end: 0;
 }
 
+ul,
+ol {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
 /* https://gist.github.com/MoOx/9137295 */
 button {
   outline: 0;

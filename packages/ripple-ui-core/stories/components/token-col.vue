@@ -4,7 +4,10 @@ export default {
     center: Boolean,
     collapse: Boolean,
     expand: Boolean,
-    width: String
+    width: {
+      type: String,
+      required: true
+    }
   }
 }
 </script>

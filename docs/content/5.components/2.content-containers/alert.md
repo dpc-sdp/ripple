@@ -1,7 +1,6 @@
 ---
 title: Alert
 description: 'Used to attract the attention of users with important messages or required actions and typically appear at the top of pages. '
-layout: component-doc
 ---
 ## Overview
 

@@ -13,7 +13,6 @@
 
   .rpl-list {
     &__item {
-      list-style-type: none;
       margin-bottom: var(--rpl-sp-3);
 
       @media (--rpl-bp-m) {

@@ -6,7 +6,8 @@ export default {
   components: { sbTokenTableRow, sbTokenTableCol },
   props: {
     columns: {
-      type: Array
+      type: Array,
+      required: true
     },
     full: Boolean
   }

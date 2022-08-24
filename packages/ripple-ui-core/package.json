@@ -51,6 +51,7 @@
     "@originjs/vite-plugin-content": "^1.0.1",
     "@vitejs/plugin-vue": "^2.2.2",
     "@vue/compiler-sfc": "^3.2.31",
+    "@vueuse/core": "^9.1.0",
     "autoprefixer": "^10.4.2",
     "chromatic": "^6.5.3",
     "http-server": "^14.1.0",

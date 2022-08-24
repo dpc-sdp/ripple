@@ -13,7 +13,7 @@ const props = defineProps({
   },
   max: {
     type: Number,
-    default: null
+    default: 3
   },
   parent: {
     type: Object as PropType<any>,
@@ -59,9 +59,9 @@ onMounted(() => {
 <template>
   <ul>
     <li
-      v-for="(link, index) in links"
+      v-for="(link, index) of links"
       :key="link._path"
-      class="transition-colors transition-base"
+      class="transition-colors transition-base text-gray-900 dark:text-gray-200"
       :class="{
         'ml-2': parent?.icon,
         'my-4': link.children,
@@ -104,12 +104,12 @@ onMounted(() => {
         }"
       >
         <span class="inline-flex items-center">
-          <Icon v-if="link.icon" :name="link.icon" class="w-4 h-4 mr-1" />
+          <Icon v-if="link.icon" :name="link.icon" class="w-4 h-4 mr-2" />
           <span>{{ link.title }}</span>
         </span>
       </NuxtLink>
 
-      <DocsAsideTree
+      <SidebarNavigation
         v-if="link.children?.length && (max === null || level + 1 < max)"
         :links="link.children"
         :level="level + 1"

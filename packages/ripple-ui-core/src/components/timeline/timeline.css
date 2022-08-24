@@ -15,7 +15,6 @@
 
   &__item {
     width: calc(100% - var(--local-point-thickness) * 7);
-    list-style-type: none;
     position: relative;
     min-height: calc(var(--local-title-height) * 2);
     padding-bottom: var(--rpl-sp-5);

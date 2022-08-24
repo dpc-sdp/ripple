@@ -3,10 +3,10 @@ export default { name: 'RplCallToAction' }
 </script>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed } from 'vue'
 import { RplPropEl, RplPropStringRequired } from '../../lib/constants'
 import { RplCardTitleClasses } from './constants'
-import { useAccessibleCardPattern } from '../../composables/useAccessibleCardPattern'
+import { useAccessibleContainer } from '../../composables/useAccessibleContainer'
 
 import RplCard from './card.vue'
 import RplButton from '../button/button.vue'
@@ -26,12 +26,16 @@ defineProps({
 
 const titleClasses = computed(() => RplCardTitleClasses)
 
-const callToAction = ref(null)
-useAccessibleCardPattern(callToAction)
+const { container, trigger } = useAccessibleContainer()
 </script>
 
 <template>
-  <RplCard type="call-to-action" class="rpl-card--inset" :el="el">
+  <RplCard
+    ref="container"
+    type="call-to-action"
+    class="rpl-card--inset"
+    :el="el"
+  >
     <template v-if="image" #upper>
       <img class="rpl-card__media rpl-card__media--inset" :src="image" alt="" />
     </template>
@@ -40,7 +44,7 @@ useAccessibleCardPattern(callToAction)
     </template>
     <slot></slot>
     <RplButton
-      ref="callToAction"
+      ref="trigger"
       el="a"
       :url="url"
       role="button"

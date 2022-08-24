@@ -1,7 +1,10 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 const props = defineProps({
-  context: Object
+  context: {
+    type: Object,
+    required: true
+  }
 })
 const value = ref(props.context.value || '')
 const classes = ref(props.context.classes.select || '')

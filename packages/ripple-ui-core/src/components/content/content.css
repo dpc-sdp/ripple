@@ -1,7 +1,9 @@
 @import '@dpc-sdp/ripple-ui-core/style/breakpoints';
 
 .rpl-content {
-  max-width: 606px; /* Needs a global variable */
+  @media (--rpl-bp-m) {
+    max-width: var(--rpl-content-max-width);
+  }
 
   > {
     &:first-child {

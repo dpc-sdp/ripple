@@ -112,13 +112,3 @@ onMounted(() => {
     />
   </div>
 </template>
-
-<style lang="postcss" scoped>
-.sandbox {
-  @apply rounded-lg overflow-hidden rounded-lg text-3xl surface surface-border border-2;
-
-  iframe {
-    @apply h-64 w-full overflow-hidden rounded-lg rounded-tl-none rounded-tr-none;
-  }
-}
-</style>

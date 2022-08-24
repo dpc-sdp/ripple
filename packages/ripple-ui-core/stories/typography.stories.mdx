@@ -1,0 +1,116 @@
+import { Meta, Canvas, Story } from '@storybook/addon-docs'
+import { RplTypeStyles } from './constants'
+import sbTokenTable from './components/token-table.vue'
+import sbTokenTableRow from './components/token-row.vue'
+import sbTokenTableCol from './components/token-col.vue'
+import sbTokenTableSwatch from './components/token-swatch.vue'
+
+
+export const TypeTemplate = (args) => ({
+  components: { sbTokenTable, sbTokenTableRow, sbTokenTableCol, sbTokenTableSwatch },
+  setup() {
+    return {
+      columns: ['Style', 'class'],
+      items: RplTypeStyles
+    }
+  },
+  template: `
+    <sbTokenTable :columns="columns" full class="rpl-u-margin-b-10">
+      <sbTokenTableRow lined v-for="item in items" :key="item">
+        <sbTokenTableCol><span :className="item.class">{{item.title}}</span></sbTokenTableCol>
+        <sbTokenTableCol>{{item.class}}</sbTokenTableCol>
+      </sbTokenTableRow>
+    </sbTokenTable>
+  `
+});
+
+export const ListsTemplate = (args) => ({
+  components: { sbTokenTable, sbTokenTableRow, sbTokenTableCol, sbTokenTableSwatch },
+  setup() {
+    return {
+      columns: ['Style', 'class'],
+      items: RplTypeStyles
+    }
+  },
+  template: `
+    <div>
+      <p class="rpl-type-p">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sed
+        lorem at magna hendrerit eleifend sed non mauris. Praesent ut libero eu
+        sapien accumsan mollis sit amet a massa.
+      </p>
+      <ol class="rpl-type-list-ol">
+        <li>Ordered list item / L1</li>
+        <li>Another ordered list item / L1
+          <ol class="rpl-type-list-ol">
+            <li>Ordered list item / L2</li>
+            <li>Another ordered list item / L2
+              <ol class="rpl-type-list-ol">
+                <li>Ordered list item / L3</li>
+                <li>Another ordered list item / L3</li>
+                <li>Yet another ordered list item / L3</li>
+                <li>Even more ordered list item / L3</li>
+              </ol>
+            </li>
+          </ol>
+        </li>
+        <li>Another ordered list item / L1 lorem ipsum dolor sit amet</li>
+      </ol>
+      <ol class="rpl-type-list-ol">
+        <li>Ordered list item / L1</li>
+        <li>Another ordered list item / L1
+          <ul class="rpl-type-list-ul">
+            <li>Ordered list item / L2</li>
+            <li>Another ordered list item / L2
+              <ol class="rpl-type-list-ol">
+                <li>Ordered list item / L3</li>
+                <li>Another ordered list item / L3</li>
+                <li>Yet another ordered list item / L3</li>
+                <li>Even more ordered list item / L3</li>
+              </ol>
+            </li>
+          </ul>
+        </li>
+      </ol>
+      <ul class="rpl-type-list-ul">
+        <li>Unordered list item / L1</li>
+        <li>Another Unordered list item / L1
+          <ul class="rpl-type-list-ul">
+            <li>Unordered list item / L2</li>
+            <li>Another Unordered list item / L2
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  `
+});
+
+
+<Meta title='Base Styles/Typography' parameters={{ viewMode: 'docs'}}/>
+
+# Lists
+
+<Canvas>
+  <Story name="Lists" parameters={{
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/jtsOPNk1k4cWnumzkZgclD/Ripple-2.0-PoC?node-id=1746%3A67424',
+    }
+  }}>
+    {ListsTemplate.bind({})}
+  </Story>
+</Canvas>
+
+# Typography
+
+<Canvas>
+  <Story name="Typography" parameters={{
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/jtsOPNk1k4cWnumzkZgclD/Ripple-2.0-PoC?node-id=1746%3A67424',
+    }
+  }}>
+    {TypeTemplate.bind({})}
+  </Story>
+</Canvas>

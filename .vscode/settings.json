@@ -12,7 +12,8 @@
     "webcomponents",
     "nuxt-app",
     "docs",
-    "@dpc-sdp/ripple-tide-landing-page"
+    "@dpc-sdp/ripple-tide-landing-page",
+    "@dpc-sdp/ripple-ui-forms"
   ],
   "cSpell.words": ["nuxt", "pathe", "scripthost", "stylelint", "vite", "vitejs"]
 }

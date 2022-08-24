@@ -20,7 +20,8 @@
     "watch": "yarn clean && tsc -p tsconfig.json -w"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-tide-api": "0.0.0"
+    "@dpc-sdp/ripple-tide-api": "0.0.0",
+    "@dpc-sdp/ripple-ui-forms": "0.0.0"
   },
   "devDependencies": {
   },

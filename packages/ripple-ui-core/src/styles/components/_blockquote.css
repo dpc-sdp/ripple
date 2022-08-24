@@ -38,7 +38,7 @@
   }
 
   &__author {
-    margin-top: var(--rpl-sp-3);
+    margin: var(--rpl-sp-3) 0 var(--rpl-sp-2);
     padding-left: var(--rpl-sp-8);
     color: var(--rpl-clr-neutral-600);
 

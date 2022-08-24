@@ -6,7 +6,7 @@ import {
 } from '@storybook/addon-docs'
 import RplTag from './tag.vue'
 import { RplTagVariants } from './constants'
-import { a11yStoryCheck } from './../../../.storybook/interactions.js'
+import { a11yStoryCheck } from './../../../stories/interactions.js'
 
 export const SingleTemplate = (args) => ({
   components: { RplTag },
@@ -16,7 +16,7 @@ export const SingleTemplate = (args) => ({
   template: '<div class="sb-container"><RplTag v-bind="args" /></div>'
 })
 
-<Meta title='Components/Containers/Tag' component={RplTag} />
+<Meta title='Core/Containers/Tag' component={RplTag} />
 
 # Tag
 

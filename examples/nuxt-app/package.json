@@ -15,9 +15,10 @@
     "@dpc-sdp/ripple-tide-event": "0.0.0",
     "@dpc-sdp/ripple-tide-landing-page": "0.0.0",
     "@dpc-sdp/ripple-ui-core": "0.0.0",
+    "@dpc-sdp/ripple-ui-forms": "0.0.0",
     "dotenv": "^16.0.0"
   },
   "devDependencies": {
-    "nuxt": "3.0.0-rc.3"
+    "nuxt": "^3.0.0-rc.8"
   }
 }

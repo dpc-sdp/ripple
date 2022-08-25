@@ -42,6 +42,13 @@
     font-weight: var(--rpl-type-weight-bold);
   }
 
+  caption {
+    font-size: var(--rpl-type-size-2);
+    font-weight: var(--rpl-type-weight-bold);
+    line-height: var(--rpl-type-lh-4);
+    letter-spacing: var(--rpl-type-ls-1);
+  }
+
   tbody tr,
   tfoot,
   caption,

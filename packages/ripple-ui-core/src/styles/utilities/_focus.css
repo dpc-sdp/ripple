@@ -75,7 +75,7 @@
         /* bottom - shifted left 1px */ -1px 4px var(--rpl-clr-dark); /* bottom - shifted right 1px */
 
       &::after {
-        display: none;
+        display: none !important;
       }
     }
   }

@@ -12,7 +12,13 @@ export const SingleTemplate = (args) => ({
   setup() {
     return { args }
   },
-  template: '<RplVerticalNav v-bind="args" />'
+  template: `
+  <div class="rpl-storybook__page rpl-grid">
+    <div class="rpl-col-4-m">
+      <RplVerticalNav v-bind="args" />
+    </div>
+  </div>
+  `
 })
 
 <Meta title='Core/Navigation/Vertical navigation' component={RplVerticalNav} />

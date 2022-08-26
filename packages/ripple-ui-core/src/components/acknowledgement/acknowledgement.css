@@ -1,7 +1,7 @@
 @import '@dpc-sdp/ripple-ui-core/style/breakpoints';
 
 .rpl-acknowledgement {
-  --local-flag-width: 5.7rem;
+  --local-flag-width: 5.629rem;
 
   display: flex;
   flex-wrap: wrap;

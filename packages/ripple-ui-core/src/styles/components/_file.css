@@ -18,7 +18,6 @@
 
   &__name {
     text-decoration: underline;
-    text-underline-offset: 1px;
     line-height: var(--rpl-type-lh-3);
   }
 

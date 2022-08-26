@@ -1,0 +1,15 @@
+.rpl-related-links {
+  background-color: var(--rpl-related-links-bg-clr);
+  color: var(--rpl-related-links-clr);
+  padding: var(--rpl-space-2);
+
+  &--default {
+    --rpl-related-links-bg-clr: var(--rpl-clr-core-primary);
+    --rpl-related-links-clr: var(--rpl-clr-core-primary-contrast);
+  }
+
+  &--neutral {
+    --rpl-related-links-bg-clr: var(--rpl-clr-dark);
+    --rpl-related-links-clr: var(--rpl-clr-white);
+  }
+}

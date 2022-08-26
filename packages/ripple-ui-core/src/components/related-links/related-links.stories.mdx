@@ -1,0 +1,39 @@
+import {
+  Canvas,
+  Meta,
+  Story,
+  ArgsTable
+} from '@storybook/addon-docs'
+import RplRelatedLinks from './related-links.vue'
+import { RplRelatedLinksVariants } from './constants'
+import { a11yStoryCheck } from './../../../stories/interactions.js'
+
+export const SingleTemplate = (args) => ({
+  components: { RplRelatedLinks },
+  setup() {
+    return { args }
+  },
+  template: '<RplRelatedLinks v-bind="args" />'
+})
+
+<Meta title='WIP/Related links' component={RplRelatedLinks} />
+
+# Related links
+
+<ArgsTable of={RplRelatedLinks} />
+
+<Canvas>
+  <Story
+    name='Default'
+    play={a11yStoryCheck}
+    argTypes={{
+      variant: {
+        control: { type: 'select' },
+        options: RplRelatedLinksVariants,
+        defaultValue: RplRelatedLinksVariants[0]
+      }
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>

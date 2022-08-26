@@ -26,6 +26,10 @@ const props = defineProps({
   containerClass: {
     type: String,
     default: ''
+  },
+  depth: {
+    type: Number,
+    default: 0
   }
 })
 
@@ -50,6 +54,7 @@ const containerClasses = computed(() => [
         :url="item.url"
         :class="`${componentPrefix}__link`"
       >
+        <span v-if="depth > 0" class="rpl-icon--child"></span>
         <RplIcon
           v-if="item.icon"
           :name="item.icon"
@@ -63,6 +68,7 @@ const containerClasses = computed(() => [
         :component-prefix="componentPrefix"
         :item-class="itemClass"
         :container-class="`${componentPrefix}__items--sub`"
+        :depth="depth + 1"
       ></RplList>
     </li>
   </component>

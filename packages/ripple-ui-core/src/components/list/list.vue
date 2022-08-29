@@ -3,14 +3,14 @@ export default { name: 'RplList' }
 </script>
 
 <script setup lang="ts">
-import { PropType, computed } from 'vue'
+import { PropType } from 'vue'
 import { RplListTypes, RplListItemArray } from './constants'
 
 import RplIcon from '../icon/icon.vue'
 import RplList from '../list/list.vue'
 import RplTextLink from '../text-link/text-link.vue'
 
-const props = defineProps({
+defineProps({
   items: {
     type: Array as PropType<typeof RplListItemArray[]>,
     default: () => []
@@ -26,43 +26,41 @@ const props = defineProps({
   containerClass: {
     type: String,
     default: ''
+  },
+  depth: {
+    type: Number,
+    default: 0
   }
 })
-
-const componentPrefix = 'rpl-list'
-
-const itemClasses = computed(() => [
-  `${componentPrefix}__item`,
-  props.itemClass ? props.itemClass : null
-])
-
-const containerClasses = computed(() => [
-  `${componentPrefix}__items`,
-  props.containerClass ? props.containerClass : null
-])
 </script>
 
 <template>
-  <component :is="type" v-if="items.length > 0" :class="containerClasses">
-    <li v-for="(item, index) of items" :key="index" :class="itemClasses">
-      <RplTextLink
-        v-if="item.url"
-        :url="item.url"
-        :class="`${componentPrefix}__link`"
-      >
+  <component
+    :is="type"
+    v-if="items.length > 0"
+    :class="['rpl-list__items', containerClass ? containerClass : null]"
+  >
+    <li
+      v-for="(item, index) of items"
+      :key="index"
+      :class="['rpl-list__item', itemClass ? itemClass : null]"
+    >
+      <RplTextLink v-if="item.url" :url="item.url" class="rpl-list__link">
+        <span v-if="depth > 0" class="rpl-icon--child"></span>
         <RplIcon
           v-if="item.icon"
           :name="item.icon"
-          :class="`${componentPrefix}__icon`"
+          class="rpl-list__icon"
         ></RplIcon
-        ><span :class="`${componentPrefix}__label`">{{ item.text }}</span>
+        ><span class="rpl-list__label">{{ item.text }}</span>
       </RplTextLink>
       <RplList
         v-if="item.items"
+        :key="`${depth}-${index}`"
         :items="item.items"
-        :component-prefix="componentPrefix"
         :item-class="itemClass"
-        :container-class="`${componentPrefix}__items--sub`"
+        container-class="rpl-list__items--sub"
+        :depth="depth + 1"
       ></RplList>
     </li>
   </component>

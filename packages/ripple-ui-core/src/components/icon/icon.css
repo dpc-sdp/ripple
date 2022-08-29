@@ -10,6 +10,19 @@
     height: var(--rpl-icon-size);
   }
 
+  &--child {
+    --local-icon-w: 5px;
+    --local-icon-h: 8px;
+
+    flex-shrink: 0;
+    height: var(--local-icon-h);
+    width: var(--local-icon-w);
+    border-left: var(--rpl-border-1) solid var(--rpl-clr-type-default);
+    border-bottom: var(--rpl-border-1) solid var(--rpl-clr-type-default);
+    margin-top: 0.2em;
+    margin-right: var(--rpl-sp-2);
+  }
+
   &--padded {
     svg {
       padding: calc(var(--rpl-icon-size) / 2);

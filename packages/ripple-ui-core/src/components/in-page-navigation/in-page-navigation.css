@@ -16,7 +16,7 @@
   .rpl-list {
     &__link {
       color: var(--rpl-clr-type-default);
-      display: flex;
+      display: inline-flex;
 
       .rpl-list__label {
         text-decoration: underline;
@@ -62,19 +62,8 @@
             width: calc(100% - var(--local-sub-indent));
           }
 
-          &::before {
-            --local-icon-w: 5px;
-            --local-icon-h: 8px;
-
-            content: '';
-            display: inline-block;
-            float: left;
-            height: var(--local-icon-h);
-            width: var(--local-icon-w);
+          .rpl-icon--child {
             margin: var(--rpl-sp-1) 1rem 0 0.9rem;
-            border-left: var(--rpl-border-1) solid var(--rpl-clr-type-default);
-            border-bottom: var(--rpl-border-1) solid var(--rpl-clr-type-default);
-            text-decoration: none;
           }
         }
       }

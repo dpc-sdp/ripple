@@ -2,18 +2,30 @@
 
 <script setup lang="ts">
 import { PropType } from 'vue'
-import { RplRelatedLinksVariants } from './constants'
+import { RplListItemArray } from '../list/constants'
+import RplList from '../list/list.vue'
+
 defineProps({
-  variant: {
-    type: String as PropType<typeof RplRelatedLinksVariants[number]>,
-    default: RplRelatedLinksVariants[0]
+  title: {
+    type: String as PropType<string>,
+    default: 'Related links'
+  },
+  items: {
+    type: Array as PropType<typeof RplListItemArray[]>,
+    default: () => []
   }
 })
 </script>
 
 <template>
-  <div :class="`rpl-related-links rpl-related-links--${variant}`">
-    TODO: RplRelatedLinks functionality
+  <div class="rpl-related-links">
+    <div class="rpl-related-links__heading rpl-type-label-large">{{ title }}</div>
+    <RplList
+      :items="items"
+      container-class="rpl-related-links__list"
+      item-class="rpl-related-links__item rpl-type-p"
+    >
+    </RplList>
   </div>
 </template>
 

@@ -1,15 +1,21 @@
 .rpl-related-links {
-  background-color: var(--rpl-related-links-bg-clr);
-  color: var(--rpl-related-links-clr);
-  padding: var(--rpl-space-2);
+  padding: var(--rpl-sp-7) var(--rpl-sp-6) var(--rpl-sp-8);
+  background-color: var(--rpl-clr-neutral-200);
+  border-radius: var(--rpl-border-radius-2);
+}
 
-  &--default {
-    --rpl-related-links-bg-clr: var(--rpl-clr-core-primary);
-    --rpl-related-links-clr: var(--rpl-clr-core-primary-contrast);
+.rpl-related-links__heading {
+  margin-bottom: var(--rpl-sp-4);
+}
+
+.rpl-related-links__item {
+  margin-bottom: var(--rpl-sp-2);
+
+  &:last-of-type {
+    margin-bottom: 0;
   }
 
-  &--neutral {
-    --rpl-related-links-bg-clr: var(--rpl-clr-dark);
-    --rpl-related-links-clr: var(--rpl-clr-white);
+  a {
+    color: var(--rpl-clr-neutral-800);
   }
 }

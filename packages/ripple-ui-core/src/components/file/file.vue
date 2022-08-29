@@ -30,13 +30,13 @@ const isExternal = computed(() => isExternalLink(props.url))
       <RplIcon name="icon-document-lined" class="rpl-file__icon" size="l" colour="default"></RplIcon>
       <div class="rpl-file__info">
         <span class="rpl-file__name rpl-type-label rpl-type-weight-bold rpl-u-focusable rpl-u-focusable--inline" tabindex="0">{{ name }}</span>
-        <div class="rpl-file__meta rpl-type-p-small">
+        <div class="rpl-file__meta rpl-type-label-small">
           <span class="rpl-file__type">{{ extension }}</span>
           <span class="rpl-file__size">{{ size }}</span>
           <div v-if="updated" class="rpl-file__updated">Updated {{ updated }}</div>
         </div>
       </div>
     </a>
-    <figcaption v-if="caption" class="rpl-file__caption rpl-type-p" v-html="caption"></figcaption>
+    <figcaption v-if="caption" class="rpl-file__caption rpl-type-label" v-html="caption"></figcaption>
   </figure>
 </template>

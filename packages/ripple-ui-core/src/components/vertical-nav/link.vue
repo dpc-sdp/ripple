@@ -35,10 +35,7 @@ defineProps({
       'rpl-u-focusable': true
     }"
   >
-    <span
-      v-if="showChildIcon"
-      class="rpl-vertical-nav__link-child-icon"
-    ></span>
+    <span v-if="showChildIcon" class="rpl-icon--child"></span>
     <span>{{ text }}</span>
   </a>
 </template>

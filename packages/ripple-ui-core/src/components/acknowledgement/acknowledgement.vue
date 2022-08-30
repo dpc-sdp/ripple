@@ -16,8 +16,10 @@ defineProps({
 
 <template>
   <div class="rpl-acknowledgement">
-    <img class="rpl-acknowledgement__flag" :src="aboriginalFlag" alt="Aboriginal flag" />
-    <img class="rpl-acknowledgement__flag" :src="torresStraitIslanderFlag" alt="Torres Strait Islander flag" />
+    <div class="rpl-acknowledgement__flags">
+      <img class="rpl-acknowledgement__flag" :src="aboriginalFlag" alt="Aboriginal flag" />
+      <img class="rpl-acknowledgement__flag" :src="torresStraitIslanderFlag" alt="Torres Strait Islander flag" />
+    </div>
     <p class="rpl-acknowledgement__message rpl-type-p rpl-type-weight-bold">
       {{ message }}
     </p>

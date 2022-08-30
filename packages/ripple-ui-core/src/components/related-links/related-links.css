@@ -1,0 +1,21 @@
+.rpl-related-links {
+  padding: var(--rpl-sp-7) var(--rpl-sp-6) var(--rpl-sp-8);
+  background-color: var(--rpl-clr-neutral-200);
+  border-radius: var(--rpl-border-radius-2);
+}
+
+.rpl-related-links__heading {
+  margin-bottom: var(--rpl-sp-4);
+}
+
+.rpl-related-links__item {
+  margin-bottom: var(--rpl-sp-2);
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+
+  a {
+    color: var(--rpl-clr-neutral-800);
+  }
+}

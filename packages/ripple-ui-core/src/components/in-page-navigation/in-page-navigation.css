@@ -16,7 +16,7 @@
   .rpl-list {
     &__link {
       color: var(--rpl-clr-type-default);
-      display: inline-flex;
+      display: inline;
 
       .rpl-list__label {
         text-decoration: underline;
@@ -49,6 +49,7 @@
       &--sub {
         .rpl-list__item {
           margin-top: var(--rpl-sp-3);
+          margin-left: var(--local-sub-indent);
 
           @media (--rpl-bp-m) {
             margin-top: var(--rpl-sp-4);
@@ -63,7 +64,9 @@
           }
 
           .rpl-icon--child {
-            margin: var(--rpl-sp-1) 1rem 0 0.9rem;
+            float: left;
+            margin: var(--rpl-sp-1) 1rem 0
+              calc(-1 * var(--local-sub-indent) + 0.9rem);
           }
         }
       }

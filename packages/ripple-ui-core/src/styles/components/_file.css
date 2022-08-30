@@ -14,7 +14,6 @@
   }
 
   &__name {
-    display: inline-block;
     text-decoration: underline;
     line-height: var(--rpl-type-lh-2);
   }

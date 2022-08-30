@@ -6,6 +6,8 @@
  */
 
 :root {
+  --rpl-z-index-above-content: 1;
+  --rpl-z-index-default: 0;
   --rpl-type-ls-7: 0.008em;
   --rpl-type-ls-6: 0.012em;
   --rpl-type-ls-5: 0.014em;
@@ -71,6 +73,7 @@
   --rpl-border-3: 4px;
   --rpl-border-2: 2px;
   --rpl-border-1: 1px;
+  --rpl-content-max-width: 615px;
   --rpl-clr-gradient-vertical: linear-gradient(180deg, #0052C2 0%, #825DFF 12%, #EF4A81 24%, #E57200 36%, #FFC166 52%, #F9E062 80%);
   --rpl-clr-gradient-horizontal: linear-gradient(90deg, #0052C2 0%, #825DFF 12%, #EF4A81 24%, #E57200 36%, #FFC166 52%, #F9E062 80%);
   --rpl-clr-error-alt: #880020;

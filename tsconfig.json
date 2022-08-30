@@ -14,7 +14,12 @@
     "jsx": "preserve",
     "resolveJsonModule": true,
     "baseUrl": "./packages",
-    "types": ["vite/client", "@types/jest"],
+    "types": [
+      "vite/client",
+      "@types/jest",
+      "vite-plugin-svg-icons/client",
+      "@types/react"
+    ],
     "paths": {
       "@dpc-sdp/ripple-tide-api": ["ripple-tide-api/src"],
       "@dpc-sdp/ripple-core-ui": ["ripple-core-ui/src"],

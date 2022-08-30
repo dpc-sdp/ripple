@@ -22,7 +22,6 @@
     }
 
     &__item {
-      list-style-type: none;
       padding: 0 0 var(--rpl-sp-2);
     }
 

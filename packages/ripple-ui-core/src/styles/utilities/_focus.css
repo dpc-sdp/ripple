@@ -1,3 +1,5 @@
+/* stylelint-disable declaration-empty-line-before */
+
 /*
   Focus utility classes that can be used to show consistent focus styles across
   any focusable element.
@@ -22,14 +24,17 @@
     position: relative;
 
     &::after {
+      display: block !important;
       content: '';
       background-color: var(--rpl-clr-dark);
       position: absolute;
-      left: calc(0px - var(--rpl-focusable-border-width, 0px));
+      z-index: var(--rpl-z-index-above-content);
+      top: auto !important;
+      right: auto !important;
       bottom: calc(
         var(--rpl-focusable-border-width, 0px) * -1
-      ); /* invert border width as bottom position */
-
+      ) !important; /* invert border width as bottom position */
+      left: calc(0px - var(--rpl-focusable-border-width, 0px)) !important;
       height: var(--rpl-border-3);
       width: calc(
         100% + var(--rpl-focusable-border-width, 0%) * 2
@@ -70,7 +75,7 @@
         /* bottom - shifted left 1px */ -1px 4px var(--rpl-clr-dark); /* bottom - shifted right 1px */
 
       &::after {
-        display: none;
+        display: none !important;
       }
     }
   }

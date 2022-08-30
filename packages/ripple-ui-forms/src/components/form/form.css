@@ -1,0 +1,62 @@
+.rpl-form {
+  --local-max-width: 60.6rem;
+
+  max-width: var(--local-max-width);
+  display: block;
+
+  &__label {
+    display: inline-block;
+    font-size: var(--rpl-type-size-2);
+    line-height: var(--rpl-type-lh-2);
+    letter-spacing: var(--rpl-type-ls-1);
+    font-weight: var(--rpl-type-weight-bold);
+  }
+
+  &__label,
+  &__help {
+    margin-bottom: var(--rpl-sp-2);
+  }
+
+  &__messages,
+  &__help {
+    font-size: var(--rpl-type-size-1);
+    line-height: var(--rpl-type-lh-3);
+    letter-spacing: var(--rpl-type-ls-1);
+  }
+
+  &__messages {
+    padding-left: var(--rpl-sp-4);
+  }
+
+  &__inner {
+    position: relative;
+
+    select,
+    input {
+      width: 100%;
+      padding-top: var(--rpl-sp-3);
+      padding-right: var(--rpl-sp-4);
+      padding-bottom: var(--rpl-sp-3);
+      padding-left: var(--rpl-sp-4);
+      font-size: var(--rpl-type-size-2);
+      line-height: var(--rpl-type-lh-4);
+      letter-spacing: var(--rpl-type-ls-1);
+      border: var(--rpl-border-1) solid var(--rpl-clr-neutral-300);
+      border-radius: var(--rpl-border-radius-2);
+    }
+
+    select {
+      width: 100%;
+    }
+  }
+
+  &__suffixIcon {
+    position: absolute;
+    top: var(--rpl-sp-4);
+    right: var(--rpl-sp-4);
+
+    svg {
+      width: var(--rpl-sp-4);
+    }
+  }
+}

@@ -3,17 +3,19 @@
 <h4>Heading level 4</h4>
 
 <p>
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sed
-  lorem at magna hendrerit eleifend sed non mauris. Praesent ut libero eu
-  sapien accumsan mollis sit amet a massa.
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sed lorem at
+  magna hendrerit eleifend sed non mauris. Praesent ut libero eu sapien accumsan
+  mollis sit amet a massa.
 </p>
 
 <ol>
   <li>Ordered list item / L1</li>
-  <li>Another ordered list item / L1
+  <li>
+    Another ordered list item / L1
     <ol>
       <li>Ordered list item / L2</li>
-      <li>Another ordered list item / L2
+      <li>
+        Another ordered list item / L2
         <ol>
           <li>Ordered list item / L3</li>
           <li>Another ordered list item / L3</li>
@@ -26,12 +28,14 @@
   <li>Another ordered list item / L1 lorem ipsum dolor sit amet</li>
 </ol>
 
-<ol >
+<ol>
   <li>Ordered list item / L1</li>
-  <li>Another ordered list item / L1
+  <li>
+    Another ordered list item / L1
     <ul>
       <li>Ordered list item / L2</li>
-      <li>Another ordered list item / L2
+      <li>
+        Another ordered list item / L2
         <ol>
           <li>Ordered list item / L3</li>
           <li>Another ordered list item / L3</li>
@@ -45,11 +49,11 @@
 
 <ul>
   <li>Unordered list item / L1</li>
-  <li>Another Unordered list item / L1
+  <li>
+    Another Unordered list item / L1
     <ul>
       <li>Unordered list item / L2</li>
-      <li>Another Unordered list item / L2
-      </li>
+      <li>Another Unordered list item / L2</li>
     </ul>
   </li>
 </ul>
@@ -76,11 +80,14 @@
 <figure class="rpl-blockquote">
   <blockquote class="rpl-blockquote__quote">
     <p class="rpl-type-p-large-fixed">
-      "Berios sim destrum facientota nis ex eost aut prae vendis explam aliquis dolorpo rrorem reptaep elenis net."
+      "Berios sim destrum facientota nis ex eost aut prae vendis explam aliquis
+      dolorpo rrorem reptaep elenis net."
     </p>
   </blockquote>
   <figcaption class="rpl-blockquote__author rpl-type-label-small">
-    <span class="rpl-blockquote__author-name">Her Excellency the Honourable Linda Dessau AC</span>
+    <span class="rpl-blockquote__author-name"
+      >Her Excellency the Honourable Linda Dessau AC</span
+    >
     <span class="rpl-blockquote__author-title">Governor of Victoria</span>
   </figcaption>
 </figure>
@@ -88,15 +95,63 @@
 <figure class="rpl-blockquote">
   <blockquote class="rpl-blockquote__quote">
     <p class="rpl-type-p-large-fixed">
-      "Berios sim destrum facientota nis ex eost aut prae vendis explam aliquis dolorpo rrorem reptaep elenis net."
+      "Berios sim destrum facientota nis ex eost aut prae vendis explam aliquis
+      dolorpo rrorem reptaep elenis net."
     </p>
     <p class="rpl-type-p-large-fixed">
-      "Destrum facientota nis ex eost aut prae vendis explam aliquis dolorpo rrorem reptaep elenis net."
+      "Destrum facientota nis ex eost aut prae vendis explam aliquis dolorpo
+      rrorem reptaep elenis net."
     </p>
   </blockquote>
   <figcaption class="rpl-blockquote__author rpl-type-label-small">
-    <span class="rpl-blockquote__author-name">Her Excellency the Honourable Linda Dessau AC</span>
+    <span class="rpl-blockquote__author-name"
+      >Her Excellency the Honourable Linda Dessau AC</span
+    >
     <span class="rpl-blockquote__author-title">Governor of Victoria</span>
+  </figcaption>
+</figure>
+
+<figure class="rpl-file">
+  <a
+    tabindex="-1"
+    class="rpl-file__link"
+    aria-label="Example file File type: PDF. Size: 1.5 mb."
+    href="http://vic.gov.au/"
+    target="_blank">
+      <span class="rpl-file__link rpl-icon rpl-icon--size-l rpl-icon--colour-default rpl-icon--icon-document-lined">
+        <svg role="presentation"><use xlink:href="#icon-document-lined"></use></svg>
+      </span>
+    <div class="rpl-file__info">
+      <span class="rpl-file__name rpl-type-label rpl-type-weight-bold rpl-u-focusable rpl-u-focusable--inline" tabindex="0">This is an example of a document title</span>
+      <div class="rpl-file__meta rpl-type-p-small">
+        <span class="rpl-file__type">PDF</span>
+        <span class="rpl-file__size">1.5 mb</span>
+      </div>
+    </div>
+  </a>
+</figure>
+
+<figure class="rpl-file">
+  <a
+    tabindex="-1"
+    class="rpl-file__link"
+    aria-label="Example file File type: PDF. Size: 1.5 mb."
+    href="http://vic.gov.au/"
+    target="_blank">
+    <span class="rpl-file__link rpl-icon rpl-icon--size-l rpl-icon--colour-default rpl-icon--icon-document-lined">
+      <svg role="presentation"><use xlink:href="#icon-document-lined"></use></svg>
+    </span>
+    <div class="rpl-file__info">
+      <span class="rpl-file__name rpl-type-label rpl-type-weight-bold rpl-u-focusable rpl-u-focusable--inline" tabindex="0">This is an example of a document title</span>
+      <div class="rpl-file__meta rpl-type-p-small">
+        <span class="rpl-file__type">PDF</span>
+        <span class="rpl-file__size">1.5 mb</span>
+        <div class="rpl-file__updated">Updated July 17, 2022</div>
+      </div>
+    </div>
+  </a>
+  <figcaption v-if="caption" class="rpl-file__caption rpl-type-p">
+    And this is example of a longer description of the document, this one seems very descriptive.
   </figcaption>
 </figure>
 

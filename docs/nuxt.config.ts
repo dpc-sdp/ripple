@@ -1,28 +1,39 @@
 import { defineNuxtConfig } from 'nuxt'
 
-// https://v3.nuxtjs.org/api/configuration/nuxt.config
+// https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
 export default defineNuxtConfig({
-  extends: ['./../node_modules/@docus/docs-theme'],
-  buildModules: ['@dpc-sdp/ripple-ui-core/nuxt'],
-  target: 'static',
-  github: {
-    repo: 'nuxtlabs/docus-starter'
+  modules: [
+    '@dpc-sdp/ripple-ui-core/nuxt',
+    '@nuxt-themes/config/module',
+    '@nuxtjs/design-tokens/module',
+    '@nuxt/content',
+    '@nuxtjs/tailwindcss',
+    '@nuxtjs/color-mode'
+  ],
+  colorMode: {
+    classSuffix: ''
   },
-  algolia: {
-    apiKey: 'b2950a4074034ae56a3647c7e0fc9aae',
-    applicationId: 'PZLGV82Q8R',
-    instantSearch: {
-      theme: 'reset'
+  // https://content.nuxtjs.org
+  content: {
+    navigation: {
+      fields: ['icon']
     },
-    crawler: {
-      apiKey: 'b2950a4074034ae56a3647c7e0fc9aae',
-      indexName: 'ripple_2_docs',
-      meta: ['title', 'description'],
-      include: () => true
+    documentDriven: {
+      layoutFallbacks: ['page']
     },
-    // DocSearch key is used to configure DocSearch extension.
-    docSearch: {
-      indexName: 'ripple_2_docs'
+    highlight: {
+      // See the available themes on https://github.com/shikijs/shiki/blob/main/docs/themes.md#all-theme
+      theme: 'material-ocean'
+    }
+  },
+  app: {
+    theme: {
+      meta: {
+        name: 'Ripple Docs',
+        author: 'Single Digital Presence Team',
+        description:
+          'A lightweight Nuxt theme to build a Markdown driven website, based on Nuxt Content, TailwindCSS and Iconify ✨'
+      }
     }
   }
 })

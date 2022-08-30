@@ -1,0 +1,64 @@
+.rpl-file {
+  margin: 0;
+
+  :where(.rpl-content) & {
+    margin-top: var(--rpl-sp-5);
+
+    @media (--rpl-bp-l) {
+      margin-top: var(--rpl-sp-6);
+    }
+  }
+
+  &__info {
+    --local-info-width: 40ch;
+
+    margin-left: var(--rpl-sp-4);
+    max-width: var(--local-info-width);
+  }
+
+  &__name {
+    text-decoration: underline;
+    line-height: var(--rpl-type-lh-3);
+  }
+
+  &__meta {
+    color: var(--rpl-clr-neutral-600);
+    margin-top: var(--rpl-sp-1);
+    line-height: var(--rpl-type-lh-1);
+  }
+
+  &__type,
+  &__size {
+    text-transform: uppercase;
+  }
+
+  &__type + &__size {
+    &::before {
+      content: ' | ';
+    }
+  }
+
+  &__updated {
+    margin-top: var(--rpl-sp-1);
+  }
+
+  &__caption {
+    margin-top: var(--rpl-sp-4);
+  }
+
+  &__link {
+    display: flex;
+    align-items: flex-start;
+    color: var(--rpl-clr-type-default);
+    text-decoration: none;
+
+    &:hover .rpl-file__name {
+      text-decoration: none;
+      color: var(--rpl-clr-link);
+    }
+
+    &:active .rpl-file__name {
+      text-decoration: underline;
+    }
+  }
+}

@@ -1,0 +1,145 @@
+/* stylelint-disable no-descending-specificity */
+@import '@dpc-sdp/ripple-ui-core/style/breakpoints';
+
+.rpl-vertical-nav {
+  background-color: var(--rpl-clr-neutral-200);
+  border-radius: var(--rpl-border-radius-2);
+  padding: var(--rpl-sp-6) 0 var(--rpl-sp-5) 0;
+}
+
+/* Heading */
+.rpl-vertical-nav__heading {
+  padding: 0 var(--rpl-sp-6) var(--rpl-sp-2);
+}
+
+/* Items */
+.rpl-vertical-nav__list {
+  &.rpl-vertical-nav__list--level-1 {
+    font-weight: bold;
+  }
+
+  &.rpl-vertical-nav__list--level-2 {
+    font-weight: normal;
+  }
+}
+
+.rpl-vertical-nav__list-item-children {
+  height: 0;
+  overflow: hidden;
+  transition: height var(--rpl-motion-speed-8) ease-out;
+
+  .rpl-vertical-nav__list-item--expanded & {
+    height: auto;
+  }
+}
+
+/* Item */
+.rpl-vertical-nav__item {
+  /* stylelint-disable-next-line length-zero-no-unit */
+  --local-left-indentation: 0px;
+
+  position: relative;
+  text-align: left;
+  padding-top: var(--rpl-sp-3);
+  padding-right: var(--rpl-sp-6);
+  padding-bottom: var(--rpl-sp-3);
+  padding-left: calc(var(--rpl-sp-6) + var(--local-left-indentation));
+  width: 100%;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--rpl-clr-neutral-300);
+    text-decoration: underline;
+  }
+
+  /* Indent padding for level 2 items */
+  .rpl-vertical-nav__list--level-2 & {
+    --local-left-indentation: var(--rpl-sp-4);
+  }
+
+  /* Indent padding for level 3 items */
+  .rpl-vertical-nav__list--level-3 & {
+    --local-left-indentation: var(--rpl-sp-8);
+  }
+
+  /* Indent padding for level 4 items */
+  .rpl-vertical-nav__list--level-4 & {
+    --local-left-indentation: var(--rpl-sp-10);
+  }
+
+  /* Active state */
+  &.rpl-vertical-nav__item--active {
+    background-color: var(--rpl-clr-neutral-300);
+    text-decoration: underline;
+
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: var(--rpl-sp-1);
+      height: 100%;
+      background-color: var(--rpl-clr-link);
+    }
+
+    /* Hide the coloured line psuedo element when .rpl-u-focusable is active */
+    &:focus-visible {
+      &::before {
+        display: none;
+      }
+    }
+  }
+
+  /* Divider */
+  &::after {
+    display: block;
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: var(--rpl-sp-6);
+    width: calc(100% - (var(--rpl-sp-6) * 2));
+    height: 1px;
+    background-color: var(--rpl-clr-neutral-300);
+  }
+
+  /* Hide the divider when it sits next to an item that has the same background
+  colour as the divider, or is a level 2 or lower item */
+  .rpl-vertical-nav__list-item:first-of-type &,
+  &.rpl-vertical-nav__item--active,
+  &:hover,
+  .rpl-vertical-nav__list--level-2 & {
+    &::after {
+      display: none;
+    }
+  }
+}
+
+/* Toggles */
+.rpl-vertical-nav__toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.rpl-vertical-nav__toggle-icon {
+  margin-left: var(--rpl-sp-2);
+  color: var(--rpl-clr-neutral-600);
+  transition: transform var(--rpl-motion-speed-6) linear;
+
+  .rpl-vertical-nav__list-item--expanded & {
+    transform: rotate(-180deg);
+  }
+}
+
+/* Links */
+.rpl-vertical-nav__link {
+  display: block;
+  text-decoration: none;
+  color: var(--rpl-type-link);
+
+  .rpl-vertical-nav__list--level-3 & {
+    display: flex;
+    align-items: flex-start;
+  }
+}

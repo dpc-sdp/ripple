@@ -1,18 +1,26 @@
 @import '@dpc-sdp/ripple-ui-core/style/breakpoints';
 
 .rpl-acknowledgement {
-  --local-flag-width: 5.5rem;
+  --local-flag-height: 4rem;
 
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: flex-start;
 
   @media (--rpl-bp-m) {
     flex-wrap: nowrap;
   }
 
+  &__flags {
+    display: flex;
+
+    @media (--rpl-bp-m) {
+      margin: var(--rpl-sp-1) 0;
+    }
+  }
+
   &__flag {
-    width: var(--local-flag-width);
+    height: var(--local-flag-height);
     border: 1px solid var(--rpl-clr-neutral-0);
   }
 

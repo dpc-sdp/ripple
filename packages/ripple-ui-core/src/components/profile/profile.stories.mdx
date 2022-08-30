@@ -23,7 +23,7 @@ export const SingleTemplate = (args) => ({
 
 <Canvas>
   <Story
-    name='Profile'
+    name='Default'
     play={a11yStoryCheck}
     args={{
       image: {
@@ -33,11 +33,36 @@ export const SingleTemplate = (args) => ({
       items: [
         {
           title: 'Name',
-          content: 'Professor Beverley Vollenhoven'
+          content: 'Professor Jan Kowalski'
         },
         {
           title: 'Field of expertise',
           content: 'Design, architecture and planning'
+        }
+      ]
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    name='Long title'
+    play={a11yStoryCheck}
+    args={{
+      image: {
+        src: svgPlaceholder({ width: 400, height: 600 }),
+        alt: ''
+      },
+      items: [
+        {
+          title: 'Name',
+          content: 'Adjunct Associate Professor Emeritus Jan Kowalski'
+        },
+        {
+          title: 'Field of expertise',
+          content: 'Design, architecture and planning and Design, architecture and planning and Design, architecture and planning and Design, architecture and planning and Design, architecture and planning and Design, architecture and planning and Design, architecture and planning'
         }
       ]
     }}

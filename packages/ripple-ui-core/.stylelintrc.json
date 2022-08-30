@@ -13,7 +13,7 @@
     "declaration-block-no-redundant-longhand-properties": [
       true,
       {
-        "ignoreShorthands": ["padding"]
+        "ignoreShorthands": ["padding", "margin"]
       }
     ]
   }

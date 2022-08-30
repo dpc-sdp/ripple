@@ -63,10 +63,16 @@
             width: calc(100% - var(--local-sub-indent));
           }
 
+          /*
+            4px wide + 1px border-left + 10px margin-right + 9px margin-left = 24px (--local-sub-indent)
+            To remove icon from focus state, the li is offset and icon is floating with a negative margin-left
+          */
           .rpl-icon--child {
             float: left;
-            margin: var(--rpl-sp-1) 1rem 0
-              calc(-1 * var(--local-sub-indent) + 0.9rem);
+            margin-top: var(--rpl-sp-1);
+            margin-right: 1rem;
+            margin-bottom: 0;
+            margin-left: calc(-1 * var(--local-sub-indent) + 0.9rem);
           }
         }
       }

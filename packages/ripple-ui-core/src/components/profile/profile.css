@@ -11,6 +11,7 @@
     margin-right: var(--rpl-sp-4);
 
     img {
+      display: block;
       border-radius: var(--rpl-border-radius-full);
       object-fit: cover;
       height: var(--local-image-size);

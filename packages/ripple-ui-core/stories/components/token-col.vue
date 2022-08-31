@@ -5,8 +5,8 @@ export default {
     collapse: Boolean,
     expand: Boolean,
     width: {
-      type: String,
-      required: true
+      type: [String, undefined],
+      default: undefined
     }
   }
 }

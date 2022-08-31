@@ -24,7 +24,6 @@ export const Template = (args) => ({
   template: `
     <RplAccordion
       v-bind="args"
-      :items="RplAccordionItems"
     />
   `
 })
@@ -32,12 +31,6 @@ export const Template = (args) => ({
 <Meta
   title='Core/Containers/Accordion'
   component={RplAccordion}
-  argTypes={{
-    id: {
-      defaultValue: 'example',
-      type: 'string'
-    }
-  }}
 />
 
 # Accordion
@@ -48,6 +41,11 @@ export const Template = (args) => ({
   <Story
     name='Accordion'
     play={playFunction}
+    args={{
+      id: 'example',
+      items: RplAccordionItems,
+      numbered: false
+    }}
   >
     {Template.bind()}
   </Story>

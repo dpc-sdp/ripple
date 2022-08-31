@@ -16,9 +16,10 @@
     "@dpc-sdp/ripple-tide-landing-page": "0.0.0",
     "@dpc-sdp/ripple-ui-core": "0.0.0",
     "@dpc-sdp/ripple-ui-forms": "0.0.0",
-    "dotenv": "^16.0.0"
+    "dotenv": "^16.0.2"
   },
   "devDependencies": {
+    "@nuxt/vite-builder": "^3.0.0-rc.8",
     "nuxt": "^3.0.0-rc.8"
   }
 }

@@ -40,7 +40,6 @@ export const Template = (args) => ({
   component={{RplButton}}
   argTypes={{
     label: {
-      defaultValue: 'Button text',
       type: 'string'
     },
     variant: {
@@ -49,8 +48,7 @@ export const Template = (args) => ({
     },
     theme: {
       control: { type: 'select' },
-      options: RplButtonThemes,
-      defaultValue: 'default'
+      options: RplButtonThemes
     },
     iconName: {
       control: { type: 'select' },
@@ -61,6 +59,10 @@ export const Template = (args) => ({
       options: RplButtonIconPositions
     },
     onClick: { action: 'clicked' }
+  }}
+  args={{
+    label: 'Button text',
+    theme: 'default'
   }}
 />
 
@@ -194,7 +196,11 @@ Test for emitting events on click
 <Canvas>
   <Story
     name='Eventbus'
-    args={{variant: 'filled', theme: 'default', iconName: 'icon-pin'}}
+    args={{
+      variant: 'filled',
+      theme: 'default',
+      iconName: 'icon-pin'
+    }}
     play={playFunction}
   >
     {Template.bind()}

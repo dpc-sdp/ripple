@@ -16,6 +16,14 @@ export const SingleTemplate = (args) => ({
   template: '<div class="sb-container"><RplChip v-bind="args" /></div>'
 })
 
+export const ManyTemplate = (args) => ({
+  components: { RplChip },
+  setup() {
+    return { args }
+  },
+  template: '<div class="sb-container"><RplChip v-bind="args" /><RplChip v-bind="args" /></div>'
+})
+
 <Meta
   title='Core/Navigation/Chip'
   component={RplChip}
@@ -26,12 +34,18 @@ export const SingleTemplate = (args) => ({
         { name: 'default', value: '#ffffff' },
         { name: 'reverse', value: '#003174' },
       ],
-    },
-    design: {
-      type: 'figma',
-      url:
-        'https://www.figma.com/file/jtsOPNk1k4cWnumzkZgclD/Ripple-2.0-PoC?node-id=2797%3A185839',
     }
+  }}
+  argTypes={{
+    variant: {
+      control: { type: 'radio' },
+      options: RplChipVariants
+    }
+  }}
+  args={{
+    label: 'Chip',
+    variant: 'default',
+    url: 'https://vic.gov.au'
   }}
 />
 
@@ -44,22 +58,7 @@ export const SingleTemplate = (args) => ({
 <Canvas>
   <Story
     name='Default'
-     parameters={{
-      backgrounds: {
-        default: 'default'
-      },
-    }}
-   play={a11yStoryCheck}
-    argTypes={{
-      variant: {
-        control: { type: 'select' },
-        options: RplChipVariants,
-        defaultValue: RplChipVariants[0]
-      }
-    }}
-    args={{
-      label: 'Chip'
-    }}
+    play={a11yStoryCheck}
   >
     {SingleTemplate.bind()}
   </Story>
@@ -67,33 +66,10 @@ export const SingleTemplate = (args) => ({
 
 ## Example / Two chips
 
-export const ManyTemplate = (args) => ({
-  components: { RplChip },
-  setup() {
-    return { args }
-  },
-  template: '<div class="sb-container"><RplChip v-bind="args" /><RplChip v-bind="args" /></div>'
-})
-
 <Canvas>
   <Story
     name='Example/Two chips'
-    parameters={{
-      backgrounds: {
-        default: 'default'
-      },
-    }}
     play={a11yStoryCheck}
-    argTypes={{
-      variant: {
-        control: { type: 'select' },
-        options: RplChipVariants,
-        defaultValue: RplChipVariants[0]
-      }
-    }}
-    args={{
-      label: 'Chip'
-    }}
   >
     {ManyTemplate.bind()}
   </Story>
@@ -109,17 +85,10 @@ export const ManyTemplate = (args) => ({
         default: 'reverse'
       },
     }}
-    play={a11yStoryCheck}
-    argTypes={{
-      variant: {
-        control: { type: 'select' },
-        options: RplChipVariants,
-        defaultValue: RplChipVariants[1]
-      }
-    }}
     args={{
-      label: 'Chip'
+      variant: 'reverse'
     }}
+    play={a11yStoryCheck}
   >
     {SingleTemplate.bind()}
   </Story>

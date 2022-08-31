@@ -18,12 +18,12 @@
     "@nuxt/kit": "^3.0.0-rc.8"
   },
   "devDependencies": {
-    "@babel/core": "^7.18.10",
+    "@babel/core": "^7.18.13",
     "@vitejs/plugin-vue": "^2.2.2",
     "babel-loader": "^8.2.5",
     "postcss-nested": "^5.0.6",
     "postcss-normalize": "^10.0.1",
-    "postcss-preset-env": "^7.4.3",
+    "postcss-preset-env": "^7.8.0",
     "ts-node": "^10.7.0",
     "vite-plugin-static-copy": "^0.7.0",
     "vite-svg-loader": "^3.2.0",

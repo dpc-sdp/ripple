@@ -15,7 +15,24 @@ export const SingleTemplate = (args) => ({
   template: '<RplFile v-bind="args" />'
 })
 
-<Meta title='WIP/Components/File' component={RplFile} />
+<Meta
+  title='Core/Containers/File'
+  component={RplFile}
+  argTypes={{
+    name: { type: 'string' },
+    url: { type: 'string' },
+    size: { type: 'string' },
+    extension: { type: 'string' },
+    caption: { type: 'string' },
+    updated: { type: 'string' }
+  }}
+  args={{
+    name: 'This is an example of a document title',
+    url: 'https://vic.gov.au/',
+    size: '1.5mb',
+    extension: 'pdf',
+  }}
+/>
 
 # File
 
@@ -26,10 +43,7 @@ export const SingleTemplate = (args) => ({
     name='Default'
     play={a11yStoryCheck}
     args={{
-      name: 'An example of a document title that is a little longer',
-      url: 'https://vic.gov.au/',
-      size: '1.5mb',
-      extension: 'pdf',
+      name: 'An example of a document title that is a little longer'
     }}
   >
     {SingleTemplate.bind()}
@@ -45,10 +59,6 @@ This is example shows the file component with the caption copy below.
     name='With Date'
     play={a11yStoryCheck}
     args={{
-      name: 'This is an example of a document title',
-      url: 'https://vic.gov.au/',
-      size: '1.5mb',
-      extension: 'pdf',
       updated: 'July 17, 2022'
     }}
   >
@@ -65,11 +75,7 @@ This is example shows the file component with the caption copy below.
     name='With Caption'
     play={a11yStoryCheck}
     args={{
-      name: 'This is an example of a document title',
-      url: 'https://vic.gov.au/',
-      caption: 'And this is example of a longer description of the document, this one seems very descriptive.',
-      size: '1.5mb',
-      extension: 'pdf',
+      caption: 'And this is example of a longer description of the document, this one seems very descriptive.'
     }}
   >
     {SingleTemplate.bind()}

@@ -20,7 +20,19 @@ export const SingleTemplate = (args) => ({
   template: '<<%= h.rplcomponentname(name) %> v-bind="args" />'
 })
 
-<Meta title='WIP/<%= h.changeCase.sentenceCase(name) %>' component={<%= h.rplcomponentname(name) %>} />
+<Meta
+  title='WIP/Components/<%= h.changeCase.sentenceCase(name) %>'
+  component={<%= h.rplcomponentname(name) %>}
+  argTypes={{
+    variant: {
+      control: { type: 'radio' },
+      options: <%= h.rplcomponentname(name) %>Variants,
+    }
+  }}
+  args={{
+    variant: <%= h.rplcomponentname(name) %>Variants[0]
+  }}
+/>
 
 # <%= h.changeCase.sentenceCase(name) %>
 
@@ -28,15 +40,8 @@ export const SingleTemplate = (args) => ({
 
 <Canvas>
   <Story
-    name='Default'
+    name='<%= h.changeCase.sentenceCase(name) %>'
     play={a11yStoryCheck}
-    argTypes={{
-      variant: {
-        control: { type: 'select' },
-        options: <%= h.rplcomponentname(name) %>Variants,
-        defaultValue: <%= h.rplcomponentname(name) %>Variants[0]
-      }
-    }}
   >
     {SingleTemplate.bind()}
   </Story>

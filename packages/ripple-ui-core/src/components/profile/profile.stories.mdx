@@ -15,7 +15,26 @@ export const SingleTemplate = (args) => ({
   template: '<RplProfile v-bind="args" />'
 })
 
-<Meta title='Core/Containers/Profile' component={RplProfile} />
+<Meta
+  title='Core/Containers/Profile'
+  component={RplProfile}
+  args={{
+    image: {
+      src: svgPlaceholder({ width: 400, height: 600 }),
+      alt: ''
+    },
+    items: [
+      {
+        title: 'Name',
+        content: 'Professor Jan Kowalski'
+      },
+      {
+        title: 'Field of expertise',
+        content: 'Design, architecture and planning'
+      }
+    ]
+  }}
+/>
 
 # Profile
 
@@ -25,22 +44,6 @@ export const SingleTemplate = (args) => ({
   <Story
     name='Default'
     play={a11yStoryCheck}
-    args={{
-      image: {
-        src: svgPlaceholder({ width: 400, height: 600 }),
-        alt: ''
-      },
-      items: [
-        {
-          title: 'Name',
-          content: 'Professor Jan Kowalski'
-        },
-        {
-          title: 'Field of expertise',
-          content: 'Design, architecture and planning'
-        }
-      ]
-    }}
   >
     {SingleTemplate.bind()}
   </Story>
@@ -51,10 +54,6 @@ export const SingleTemplate = (args) => ({
     name='Long title'
     play={a11yStoryCheck}
     args={{
-      image: {
-        src: svgPlaceholder({ width: 400, height: 600 }),
-        alt: ''
-      },
       items: [
         {
           title: 'Name',

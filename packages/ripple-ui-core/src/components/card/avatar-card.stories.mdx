@@ -31,7 +31,48 @@ export const SingleTemplate = (args) => ({
   `
 })
 
-<Meta title='Core/Navigation/Card' component={RplAvatarCard} />
+<Meta
+  title='Core/Navigation/Card'
+  component={RplAvatarCard}
+  argTypes={{
+    number: {
+      control: { type: 'select' },
+      options: [1, 2, 4, 8]
+    },
+    meta: {
+      control: 'text'
+    },
+    title: {
+      control: 'text'
+    },
+    url: {
+      control: 'text'
+    },
+    el: {
+      table: {
+        disable: true
+      }
+    },
+    image: {
+      table: {
+        disable: true
+      }
+    }
+  }}
+  parameters={{
+    backgrounds: {
+      default: 'light',
+    },
+  }}
+  args={{
+    number: 1,
+    url: 'https://www.vic.gov.au',
+    image: svgPlaceholder({ width: 220, height: 220, bgColor: '#da7', fgColor: '#333' }),
+    meta: 'Profile',
+    title: 'Mary Sherman Morgan',
+    default: '<p>America&rsquo;s first female rocket scientist.</p>'
+  }}
+/>
 
 # Card
 
@@ -43,30 +84,6 @@ export const SingleTemplate = (args) => ({
   <Story
     name='Avatar'
     play={a11yStoryCheck}
-    parameters={{
-      backgrounds: {
-        default: 'light',
-      },
-    }}
-    argTypes={{
-      number: {
-        control: { type: 'select' },
-        options: [1, 2, 4, 8],
-        defaultValue: 1
-      },
-      image: {
-        table: {
-          disable: true
-        }
-      }
-    }}
-    args={{
-      url: 'https://www.vic.gov.au',
-      image: svgPlaceholder({ width: 220, height: 220, bgColor: '#da7', fgColor: '#333' }),
-      meta: 'Profile',
-      title: 'Mary Sherman Morgan',
-      default: '<p>America&rsquo;s first female rocket scientist.</p>'
-    }}
   >
     {SingleTemplate.bind()}
   </Story>

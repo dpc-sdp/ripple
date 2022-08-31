@@ -51,7 +51,63 @@ export const SingleTemplate = (args) => ({
   `
 })
 
-<Meta title='Core/Navigation/Card' component={RplNavCard} />
+<Meta
+  title='Core/Navigation/Card'
+  component={RplNavCard}
+  argTypes={{
+    number: {
+      control: { type: 'select' },
+      options: [1, 2, 4, 8]
+    },
+    graphicElement: {
+      control: 'radio',
+      options: ['Image inset', 'Heading highlighted', 'None'],
+    },
+    url: {
+      control: 'text'
+    },
+    title: {
+      control: 'text'
+    },
+    image: {
+      table: {
+        disable: true
+      }
+    },
+    el: {
+      table: {
+        disable: true
+      }
+    },
+    inset: {
+      table: {
+        disable: true
+      }
+    },
+    highlight: {
+      table: {
+        disable: true
+      }
+    },
+    meta: {
+      control: { type: 'select' },
+      options: samples.meta
+    }
+  }}
+  parameters={{
+    backgrounds: {
+      default: 'light',
+    },
+  }}
+  args={{
+    number: 1,
+    graphicElement: 'Image inset',
+    meta: samples.meta[6],
+    url: 'https://www.vic.gov.au',
+    title: 'Small Business Ventilation Program',
+    default: '<p>Funding for public-facing small businesses to purchase equipment and upgrades to improve ventilation and reduce the spread of COVID-19 and boost customer confidence.</p>'
+  }}
+/>
 
 # Card
 
@@ -63,51 +119,6 @@ export const SingleTemplate = (args) => ({
   <Story
     name='Nav'
     play={a11yStoryCheck}
-    parameters={{
-      backgrounds: {
-        default: 'light',
-      },
-    }}
-    argTypes={{
-      number: {
-        control: { type: 'select' },
-        options: [1, 2, 4, 8],
-        defaultValue: 1
-      },
-      graphicElement: {
-        control: 'radio',
-        options: ['Image inset', 'Heading highlighted', 'None'],
-        defaultValue: 'Image inset'
-      },
-      image: {
-        table: {
-          disable: true
-        }
-      },
-      inset: {
-        table: {
-          disable: true
-        }
-      },
-      highlight: {
-        table: {
-          disable: true
-        }
-      },
-      default: {
-        control: 'text'
-      },
-      meta: {
-        control: { type: 'select' },
-        options: samples.meta,
-        defaultValue: samples.meta[6]
-      }
-    }}
-    args={{
-      url: 'https://www.vic.gov.au',
-      title: 'Small Business Ventilation Program',
-      default: '<p>Funding for public-facing small businesses to purchase equipment and upgrades to improve ventilation and reduce the spread of COVID-19 and boost customer confidence.</p>'
-    }}
   >
     {SingleTemplate.bind()}
   </Story>

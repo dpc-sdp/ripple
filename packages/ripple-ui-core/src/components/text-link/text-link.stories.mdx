@@ -25,13 +25,6 @@ export const Template = (args) => ({
 
 <Meta
   title='Core/Navigation/Text link'
-  parameters={{
-    design: {
-      type: 'figma',
-      url:
-        'https://www.figma.com/file/jtsOPNk1k4cWnumzkZgclD/Ripple-2.0-PoC?node-id=2415%3A122102',
-    }
-  }}
   component={{RplTextLink}}
   argTypes={{
     onClick: { action: 'clicked' }
@@ -51,46 +44,42 @@ export const Template = (args) => ({
   </Story>
 </Canvas>
 
-## Content examples
+## Content example
 
 <Canvas>
-  <Story name="Examples/Content/Accent" play={a11yStoryCheck}>
-    {(args) => {
+  <Story name="Example/Content/Accent" play={a11yStoryCheck}>
+    {() => {
       return {
         components: { RplTextLink },
-        setup() { return { args } },
         template: '<p class="sb-container rpl-type-p">This para contains a <RplTextLink>voilà</RplTextLink> in the middle.</p>'
       }
     }}
   </Story>
-  <Story name="Examples/Content/Emoji" play={a11yStoryCheck}>
-    {(args) => {
+  <Story name="Example/Content/Emoji" play={a11yStoryCheck}>
+    {() => {
       return {
         components: { RplTextLink },
-        setup() { return { args } },
         template: '<p class="sb-container rpl-type-p">This para contains a <RplTextLink>😍</RplTextLink> in the middle.</p>'
       }
     }}
   </Story>
-  <Story name="Examples/Content/Target" play={a11yStoryCheck}>
-    {(args) => {
+  <Story name="Example/Content/Target" play={a11yStoryCheck}>
+    {() => {
       return {
         components: { RplTextLink },
-        setup() { return { args } },
         template: `<p class="sb-container rpl-type-p">This para contains a <RplTextLink target="_blank">link that opens in a new window</RplTextLink> in the middle.</p>`
       }
     }}
   </Story>
 </Canvas>
 
-## Component examples
+## Component example
 
 <Canvas>
-  <Story name="Examples/Component/Icon" play={a11yStoryCheck}>
-    {(args) => {
+  <Story name="Example/Component/Icon" play={a11yStoryCheck}>
+    {() => {
       return {
         components: { RplTextLink, RplIcon },
-        setup() { return { args } },
         template: `<p class="sb-container rpl-type-p">This para contains an <RplTextLink><RplIcon name="icon-pin" title="download icon"></RplIcon></RplTextLink> in the middle.</p>`
       }
     }}
@@ -101,7 +90,7 @@ export const Template = (args) => ({
 
 <Canvas>
   <Story
-    name="Examples/Eventbus"
+    name="Example/Eventbus"
     play={eventTestFunction}
   >
     {(args) => {

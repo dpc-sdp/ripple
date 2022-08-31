@@ -50,7 +50,55 @@ export const SingleTemplate = (args) => ({
   `
 })
 
-<Meta title='Core/Navigation/Card' component={RplPromoCard} />
+<Meta
+  title='Core/Navigation/Card'
+  component={RplPromoCard}
+  parameters={{
+    backgrounds: {
+      default: 'light',
+    },
+  }}
+  argTypes={{
+    number: {
+      control: { type: 'select' },
+      options: [1, 2, 4, 8]
+    },
+    graphicElement: {
+      control: 'radio',
+      options: ['Image', 'Highlight', 'None']
+    },
+    image: {
+      table: {
+        disable: true
+      }
+    },
+    el: {
+      table: {
+        disable: true
+      }
+    },
+    highlight: {
+      table: {
+        disable: true
+      }
+    },
+    default: {
+      control: 'text'
+    },
+    meta: {
+      control: { type: 'select' },
+      options: samples.meta
+    }
+  }}
+  args={{
+    number: 1,
+    graphicElement: 'Image',
+    meta: samples.meta[1],
+    url: 'https://www.vic.gov.au',
+    title: 'Protected grasslands under threat',
+    default: '<p>The natural temperate grassland and the grassy eucalypt woodlands of the Victorian volcanic plain are two of Australia&rsquo;s most endangered ecosystems.</p>'
+  }}
+/>
 
 # Card
 
@@ -62,51 +110,6 @@ export const SingleTemplate = (args) => ({
   <Story
     name='Promo'
     play={a11yStoryCheck}
-    parameters={{
-      backgrounds: {
-        default: 'light',
-      },
-    }}
-    argTypes={{
-      number: {
-        control: { type: 'select' },
-        options: [1, 2, 4, 8],
-        defaultValue: 1
-      },
-      graphicElement: {
-        control: 'radio',
-        options: ['Image', 'Highlight', 'None'],
-        defaultValue: 'Image'
-      },
-      image: {
-        table: {
-          disable: true
-        }
-      },
-      el: {
-        table: {
-          disable: true
-        }
-      },
-      highlight: {
-        table: {
-          disable: true
-        }
-      },
-      default: {
-        control: 'text'
-      },
-      meta: {
-        control: { type: 'select' },
-        options: samples.meta,
-        defaultValue: samples.meta[1]
-      }
-    }}
-    args={{
-      url: 'https://www.vic.gov.au',
-      title: 'Protected grasslands under threat',
-      default: '<p>The natural temperate grassland and the grassy eucalypt woodlands of the Victorian volcanic plain are two of Australia&rsquo;s most endangered ecosystems.</p>'
-    }}
   >
     {SingleTemplate.bind()}
   </Story>

@@ -10,7 +10,7 @@
   padding-right: calc(var(--rpl-sp-5) - var(--rpl-border-1));
   padding-bottom: calc(var(--rpl-sp-3) - var(--rpl-border-1));
   padding-left: calc(var(--rpl-sp-5) - var(--rpl-border-1));
-  max-width: calc(100% - (2 * var(--rpl-sp-5)) - (2 * var(--rpl-border-1)));
+  max-width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -22,7 +22,10 @@
   }
 
   &__items {
+    display: inline; /* This needs to be inline for text-overflow:ellipsis to work */
+
     @media (--rpl-bp-m) {
+      display: block;
       margin: calc(0px - var(--rpl-sp-2)) 0 0 0; /* Offset item top padding */
     }
   }
@@ -61,7 +64,7 @@
   }
 
   &__item-link {
-    display: inline-block;
+    display: inline;
 
     &,
     &:visited {

@@ -5,11 +5,11 @@
     max-width: var(--rpl-content-max-width);
   }
 
-  > {
-    &:first-child {
-      margin-top: 0;
-    }
+  & > :first-child {
+    margin-top: 0;
+  }
 
+  :where(&) {
     h2 {
       margin-top: var(--rpl-sp-7);
 

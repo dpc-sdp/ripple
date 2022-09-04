@@ -6,7 +6,7 @@
         sm:px-6
         mx-auto
         max-w-full
-        lg:max-w-8xl
+        lg:max-w-7xl
         relative
         flex flex-col-reverse
         pb-4
@@ -19,7 +19,7 @@
       <AppSidebar class="lg:col-span-2"></AppSidebar>
       <main
         class="
-          lg:col-span-7
+          lg:col-span-8
           pt-8
           lg:pt-1
           relative
@@ -30,6 +30,21 @@
           dark:text-gray-200
         "
       >
+        <h1
+          class="
+            rpl-type-h1
+            pb-16
+            mb-8
+            border-b
+            text-gray-900
+            dark:text-gray-200
+          "
+        >
+          {{ page.title }}
+        </h1>
+        <p v-if="page.description" class="rpl-type-p-large pb-8">
+          {{ page.description }}
+        </p>
         <ContentRenderer
           tag="RplContent"
           v-if="page"
@@ -38,7 +53,7 @@
         >
         </ContentRenderer>
       </main>
-      <aside class="lg:col-span-3 ml-8" v-if="toc && toc.links">
+      <aside class="lg:col-span-2 ml-8" v-if="toc && toc.links">
         <nav>
           <RplInPageNavigation
             title="On this page"

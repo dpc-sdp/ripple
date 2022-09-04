@@ -1,6 +1,7 @@
 module.exports = {
   darkMode: 'class',
   content: ['content/**/*.{md,yml,json,json5,csv}'],
+  plugins: [require('@tailwindcss/typography')],
   theme: {
     extend: {
       fontFamily: {

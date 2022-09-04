@@ -36,6 +36,27 @@
           <template #description>
             {{ theme?.description }}
           </template>
+          <template #cta v-if="page?.primarycta || page?.secondarycta">
+            <div class="block">
+              <h3 class="rpl-type-h3-fixed mb-4">Get started</h3>
+              <div class="inline-flex gap-3">
+                <RplButton
+                  el="a"
+                  :href="page.primarycta?.link"
+                  iconName="icon-arrow-right"
+                >
+                  {{ page.primarycta?.label }}
+                </RplButton>
+                <RplButton
+                  el="a"
+                  :href="page.secondarycta?.link"
+                  iconName="icon-arrow-right"
+                >
+                  {{ page.secondarycta?.label }}
+                </RplButton>
+              </div>
+            </div>
+          </template>
           <template #right>
             <img src="/img/SDP-logo.png" />
           </template>

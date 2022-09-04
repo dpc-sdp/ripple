@@ -45,18 +45,20 @@ const containerClasses = computed(() => [
 <template>
   <component :is="type" v-if="items.length > 0" :class="containerClasses">
     <li v-for="(item, index) of items" :key="index" :class="itemClasses">
-      <RplTextLink
-        v-if="item.url"
-        :url="item.url"
-        :class="`${componentPrefix}__link`"
-      >
-        <RplIcon
-          v-if="item.icon"
-          :name="item.icon"
-          :class="`${componentPrefix}__icon`"
-        ></RplIcon
-        ><span :class="`${componentPrefix}__label`">{{ item.text }}</span>
-      </RplTextLink>
+      <slot name="item" v-bind="item">
+        <RplTextLink
+          v-if="item.url"
+          :url="item.url"
+          :class="`${componentPrefix}__link`"
+        >
+          <RplIcon
+            v-if="item.icon"
+            :name="item.icon"
+            :class="`${componentPrefix}__icon`"
+          ></RplIcon
+          ><span :class="`${componentPrefix}__label`">{{ item.text }}</span>
+        </RplTextLink>
+      </slot>
       <RplList
         v-if="item.items"
         :items="item.items"

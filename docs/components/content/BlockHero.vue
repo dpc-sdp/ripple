@@ -26,7 +26,7 @@ defineProps({
     <div class="grid gap-8 lg:grid-cols-3">
       <div class="lg:col-span-2">
         <p v-if="$slots.top" class="mb-2 text-center lg:text-left">
-          <Markdown :use="$slots.top" unwrap="p" />
+          <ContentSlot :use="$slots.top" unwrap="p" />
         </p>
 
         <h1
@@ -39,7 +39,7 @@ defineProps({
             lg:text-left lg:text-6xl
           "
         >
-          <Markdown :use="$slots.title" unwrap="p" />
+          <ContentSlot :use="$slots.title" unwrap="p" />
         </h1>
 
         <p
@@ -51,16 +51,16 @@ defineProps({
             lg:text-left
           "
         >
-          <Markdown :use="$slots.description" unwrap="p" />
+          <ContentSlot :use="$slots.description" unwrap="p" />
         </p>
 
         <div v-if="$slots.extra" class="mt-6">
-          <Markdown :use="$slots.extra" unwrap="p" />
+          <ContentSlot :use="$slots.extra" unwrap="p" />
         </div>
 
         <div
           class="
-            mt-6
+            mt-4
             flex flex-col
             items-center
             justify-center
@@ -71,15 +71,7 @@ defineProps({
             sm:gap-6
           "
         >
-          <RplButton
-            v-if="cta"
-            class="!mb-0"
-            bold
-            size="large"
-            :href="(cta[1] as any)"
-          >
-            {{ cta[0] }}
-          </RplButton>
+          <slot name="cta"></slot>
 
           <a
             v-if="secondary"

@@ -1,7 +1,7 @@
 import { onMounted, onUnmounted } from 'vue'
 
 export default (refItm, callback) => {
-  if (window) {
+  if (typeof window !== 'undefined') {
     const resizeObserver = new ResizeObserver((entries) => {
       callback(entries[0].contentRect.height)
     })

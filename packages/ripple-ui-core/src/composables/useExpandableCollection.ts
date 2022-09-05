@@ -2,10 +2,17 @@ import { ref } from 'vue'
 import type { Ref } from 'vue'
 import { animateOpening, animateClosing } from './useAnimateHeight'
 
-export function useExpandableCollection(items, contentEls) {
+export function useExpandableCollection(items: [], contentEls: []) {
   const activeItems: Ref<number[]> = ref([])
 
-  function isItemExpanded(index) {
+  // During setup add any of the active items to the activeItems array
+  items.forEach((item, index) => {
+    if (item?.active) {
+      activeItems.value.push(index)
+    }
+  })
+
+  function isItemExpanded(index: number) {
     return activeItems.value.includes(index)
   }
 
@@ -13,7 +20,7 @@ export function useExpandableCollection(items, contentEls) {
     return activeItems.value.length === items.length
   }
 
-  function toggleItem(itemIndex) {
+  function toggleItem(itemIndex: number) {
     const activeItemIndex = activeItems.value.indexOf(itemIndex)
 
     // Item needs to made active

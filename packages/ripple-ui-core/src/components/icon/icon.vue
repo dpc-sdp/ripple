@@ -6,33 +6,23 @@ import customIconImports from './../../assets/icons/custom.js'
 </script>
 
 <script setup lang="ts">
-import { PropType, ref, computed, defineAsyncComponent } from 'vue'
+import { ref, computed, defineAsyncComponent } from 'vue'
 import { RplIconSizes, RplCoreIconNames } from './constants'
 import { RplColorThemes } from './../../lib/constants'
 
-const props = defineProps({
-  name: {
-    type: String,
-    required: true
-  },
-  colour: {
-    type: [String, undefined] as PropType<
-      typeof RplColorThemes[number] | undefined
-    >,
-    default: undefined
-  },
-  size: {
-    type: String as PropType<typeof RplIconSizes[number]>,
-    default: 's'
-  },
-  padded: {
-    type: Boolean,
-    default: false
-  },
-  title: {
-    type: String,
-    default: undefined
-  }
+interface Props {
+  name: string,
+  colour?: typeof RplColorThemes[number],
+  size?: typeof RplIconSizes[number],
+  padded?: boolean,
+  title?: string,
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  colour: undefined,
+  size: 's',
+  padded: false,
+  title: undefined,
 })
 
 const inSprite = ref(RplCoreIconNames.find((key) => key === props.name))

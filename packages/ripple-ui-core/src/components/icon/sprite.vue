@@ -6,15 +6,15 @@ export default {
 
 <script setup lang="ts">
 import svgSprite from './../../assets/icons/sprite.svg?component'
-defineProps({
-  hidden: {
-    type: Boolean,
-    default: true
-  },
-  customSprite: {
-    type: [Object, Boolean],
-    default: false
-  }
+
+interface Props {
+  hidden?: boolean,
+  customSprite?: any | boolean,
+}
+
+withDefaults(defineProps<Props>(), {
+  hidden: true,
+  customSprite: false,
 })
 </script>
 

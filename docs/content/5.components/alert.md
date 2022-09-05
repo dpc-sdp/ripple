@@ -93,7 +93,7 @@ Used to attract the attention of users with important messages or required actio
 
 ### Component usage
 
-::alert{type=info}
+::alert{type=info class="my-4"}
 Note: Alert does not handle the dismissed state itself. To dismiss an alert you should pass the `dismissed` prop to the component. Use the `dismiss` event to handle the close button press.
 ::
 

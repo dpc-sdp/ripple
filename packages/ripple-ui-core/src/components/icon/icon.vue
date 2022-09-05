@@ -36,25 +36,21 @@ const props = defineProps({
 })
 
 const inSprite = ref(RplCoreIconNames.find((key) => key === props.name))
+
 const asyncIcon = computed(() => {
   if (!inSprite.value) {
     return defineAsyncComponent(customIconImports[props.name])
   }
   return false
 })
-const classes = computed(() => {
-  const c = ['rpl-icon', `rpl-icon--size-${props.size}`]
-  if (props.name) {
-    c.push(`rpl-icon--${props.name}`)
-  }
-  if (props.colour) {
-    c.push(`rpl-icon--colour-${props.colour}`)
-  }
-  if (props.padded) {
-    c.push(`rpl-icon--padded`)
-  }
-  return c
-})
+
+const classes = computed(() => [
+  'rpl-icon',
+  `rpl-icon--size-${props.size}`,
+  props.name ? `rpl-icon--${props.name}` : null,
+  props.colour ? `rpl-icon--colour-${props.colour}` : null,
+  props.padded ? `rpl-icon--padded` : null
+])
 </script>
 
 <template>

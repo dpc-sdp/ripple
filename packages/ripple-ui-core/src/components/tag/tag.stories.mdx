@@ -16,7 +16,20 @@ export const SingleTemplate = (args) => ({
   template: '<div class="sb-container"><RplTag v-bind="args" /></div>'
 })
 
-<Meta title='Core/Containers/Tag' component={RplTag} />
+<Meta
+  title='Core/Containers/Tag'
+  component={RplTag}
+  argTypes={{
+    variant: {
+      control: { type: 'radio' },
+      options: RplTagVariants
+    }
+  }}
+  args={{
+    variant: 'default',
+    label: 'Tag'
+  }}
+/>
 
 # Tag
 
@@ -28,16 +41,6 @@ export const SingleTemplate = (args) => ({
   <Story
     name='Default'
     play={a11yStoryCheck}
-    argTypes={{
-      variant: {
-        control: { type: 'select' },
-        options: RplTagVariants,
-        defaultValue: 'default'
-      }
-    }}
-    args={{
-      label: 'Tag'
-    }}
   >
     {SingleTemplate.bind()}
   </Story>
@@ -49,15 +52,8 @@ export const SingleTemplate = (args) => ({
   <Story
     name='Neutral'
     play={a11yStoryCheck}
-    argTypes={{
-      variant: {
-        control: { type: 'select' },
-        options: RplTagVariants,
-        defaultValue: 'neutral'
-      }
-    }}
     args={{
-      label: 'Tag'
+      variant: 'neutral'
     }}
   >
     {SingleTemplate.bind()}

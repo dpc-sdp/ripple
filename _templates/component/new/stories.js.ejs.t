@@ -6,7 +6,7 @@ import { <%= h.rplcomponentname(name) %>Variants } from './constants.ts'
 import { a11yStoryCheck } from './../../../stories/interactions.js'
 
 export default {
-  title: 'WIP/<%= h.inflection.humanize(h.inflection.underscore(name)) %>',
+  title: 'WIP/Components/<%= h.inflection.humanize(h.inflection.underscore(name)) %>',
   component: <%= h.rplcomponentname(name) %>,
   // More on argTypes: https://storybook.js.org/docs/vue/api/argtypes
   argTypes: {

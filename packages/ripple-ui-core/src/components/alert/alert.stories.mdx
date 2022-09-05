@@ -31,25 +31,25 @@ export const SingleTemplate = (args) => ({
   argTypes={{
     variant: {
       control: { type: 'select' },
-      options: ['information', 'warning', 'error'],
-      defaultValue: 'information'
+      options: ['information', 'warning', 'error']
     },
     iconName: {
       control: { type: 'select' },
-      options: ['icon-information-circle-filled', 'icon-fire', 'icon-flood'],
-      defaultValue: 'icon-information-circle-filled'
-    },
-    message: {
-      defaultValue: 'An informative message.'
+      options: ['icon-information-circle-filled', 'icon-fire', 'icon-flood']
     },
     linkText: {
-      type: 'string',
-      defaultValue: 'Find out more'
+      type: 'string'
     },
     linkUrl: {
-      type: 'string',
-      defaultValue: '/'
+      type: 'string'
     }
+  }}
+  args={{
+    variant: 'information',
+    iconName: 'icon-information-circle-filled',
+    message: 'An informative message.',
+    linkText: 'Find out more',
+    linkUrl: '/'
   }}
 />
 

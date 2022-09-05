@@ -42,7 +42,28 @@ export const SingleTemplate = (args) => ({
   `
 })
 
-<Meta title='Core/Navigation/Card' component={RplKeyDatesCard} />
+<Meta
+  title='Core/Navigation/Card'
+  component={RplKeyDatesCard}
+  parameters={{
+    backgrounds: {
+      default: 'light',
+    },
+  }}
+  argTypes={{
+    el: {
+      table: {
+        disable: true
+      }
+    }
+  }}
+  args={{
+    title: 'Key calendar dates',
+    ctaTitle: 'Find all public holidays',
+    url: 'https://business.vic.gov.au/business-information/public-holidays/victorian-public-holidays-2022',
+    items: sample.items
+  }}
+/>
 
 # Card
 
@@ -54,24 +75,6 @@ export const SingleTemplate = (args) => ({
   <Story
     name='Key dates'
     play={a11yStoryCheck}
-    parameters={{
-      backgrounds: {
-        default: 'light',
-      },
-    }}
-    argTypes={{
-      el: {
-        table: {
-          disable: true
-        }
-      }
-    }}
-    args={{
-      title: 'Key calendar dates',
-      ctaTitle: 'Find all public holidays',
-      url: 'https://business.vic.gov.au/business-information/public-holidays/victorian-public-holidays-2022',
-      items: sample.items
-    }}
   >
     {SingleTemplate.bind()}
   </Story>

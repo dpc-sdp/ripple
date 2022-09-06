@@ -99,9 +99,14 @@
   --rpl-clr-accent-alt: #E6F5FD;
   --rpl-clr-accent: #0095EC;
   --rpl-clr-primary-alt: #003174;
+  --rpl-clr-primary-alpha: 0, 82, 194, 50%;
   --rpl-clr-primary: #0052C2;
+  --rpl-clr-footer-alt: var(--rpl-clr-primary);
+  --rpl-clr-footer: var(--rpl-clr-primary-alt);
+  --rpl-clr-type-footer-accessible: var(--rpl-clr-primary-alt);
   --rpl-clr-dark: var(--rpl-clr-neutral-800);
   --rpl-clr-light: var(--rpl-clr-neutral-0);
+  --rpl-clr-type-footer-contrast: var(--rpl-clr-light);
   --rpl-clr-type-light: var(--rpl-clr-light);
   --rpl-clr-type-default: var(--rpl-clr-dark);
   --rpl-clr-type-focus-contrast: var(--rpl-clr-dark);

@@ -8,19 +8,3 @@ export const RplColorThemes = [
   'error',
   'inactive'
 ] as const
-
-export const RplPropLabel = {
-  type: String,
-  default: ''
-} as const
-
-export const RplPropStringRequired = {
-  type: String,
-  required: true
-} as const
-
-export const RplPropUrl = {
-  type: String,
-  default: ''
-} as const
-

@@ -99,7 +99,7 @@
   --rpl-clr-accent-alt: #E6F5FD;
   --rpl-clr-accent: #0095EC;
   --rpl-clr-primary-alt: #003174;
-  --rpl-clr-primary-alpha: 0, 82, 194, 50%;
+  --rpl-clr-primary-alpha: rgb(0, 82, 194, .5);
   --rpl-clr-primary: #0052C2;
   --rpl-clr-footer-alt: var(--rpl-clr-primary);
   --rpl-clr-footer: var(--rpl-clr-primary-alt);

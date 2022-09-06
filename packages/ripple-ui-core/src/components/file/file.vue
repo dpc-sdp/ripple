@@ -27,9 +27,11 @@ const isExternal = computed(() => isExternalLink(props.url))
       :href="url"
       :download="isExternal ? null : ''"
       :target="isExternal ? '_blank' : null">
-      <RplIcon name="icon-document-lined" class="rpl-file__icon" size="l" colour="default"></RplIcon>
+      <div class="rpl-file__icon">
+        <RplIcon name="icon-document-lined" size="l" colour="default" />
+      </div>
       <div class="rpl-file__info">
-        <span class="rpl-file__name rpl-type-label rpl-type-weight-bold rpl-u-focusable rpl-u-focusable--inline" tabindex="0">{{ name }}</span>
+        <span class="rpl-file__name rpl-type-p rpl-type-weight-bold rpl-u-focusable rpl-u-focusable--inline" tabindex="0">{{ name }}</span>
         <div class="rpl-file__meta rpl-type-label-small">
           <span class="rpl-file__type">{{ extension }}</span>
           <span class="rpl-file__size">{{ size }}</span>
@@ -37,6 +39,8 @@ const isExternal = computed(() => isExternalLink(props.url))
         </div>
       </div>
     </a>
-    <figcaption v-if="caption" class="rpl-file__caption rpl-type-label" v-html="caption"></figcaption>
+    <figcaption v-if="caption" class="rpl-file__caption rpl-type-p-small" v-html="caption"></figcaption>
   </figure>
 </template>
+
+<style />

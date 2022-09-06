@@ -11,17 +11,22 @@
     }
   }
 
+  &__icon {
+    margin-top: 1px;
+  }
+
   &__info {
     margin-left: var(--rpl-sp-4);
   }
 
   &__name {
+    display: inline;
     text-decoration: underline;
   }
 
   &__meta {
     color: var(--rpl-clr-neutral-600);
-    margin-top: var(--rpl-sp-1);
+    margin-top: var(--rpl-sp-2);
     line-height: var(--rpl-type-lh-1);
   }
 
@@ -41,7 +46,7 @@
   }
 
   &__caption {
-    margin-top: var(--rpl-sp-4);
+    margin-top: var(--rpl-sp-3);
   }
 
   &__link {

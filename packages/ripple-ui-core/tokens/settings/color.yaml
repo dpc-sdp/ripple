@@ -2,8 +2,9 @@ clr:
   primary:
     _:
       value: '{theme.clr.primary.500}'
+    alpha:
+        value: '{theme.clr.primary.alpha}'
     alt:
-      _:
         value: '{theme.clr.primary.700}'
   accent:
     _:
@@ -33,6 +34,11 @@ clr:
       value: '{clr.dark}'
     light:
       value: '{clr.light}'
+    footer:
+      contrast:
+        value: '{clr.light}'
+      accessible:
+        value: '{clr.primary.alt}'
   link:
     value: '{theme.clr.link}'
   link-visited:
@@ -76,3 +82,8 @@ clr:
       value: 'linear-gradient(90deg, {theme.clr.gradient.0} 0%, {theme.clr.gradient.12} 12%, {theme.clr.gradient.24} 24%, {theme.clr.gradient.36} 36%, {theme.clr.gradient.52} 52%, {theme.clr.gradient.80} 80%)'
     vertical:
       value: 'linear-gradient(180deg, {theme.clr.gradient.0} 0%, {theme.clr.gradient.12} 12%, {theme.clr.gradient.24} 24%, {theme.clr.gradient.36} 36%, {theme.clr.gradient.52} 52%, {theme.clr.gradient.80} 80%)'
+  footer:
+    _:
+      value: '{clr.primary.alt}'
+    alt:
+      value: '{clr.primary._}'

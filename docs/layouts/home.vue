@@ -70,13 +70,22 @@
         >
         </ContentRenderer>
       </main>
+      <footer>
+        <a href="https://www.netlify.com">
+          <img :src="netlifyImg" alt="Deploys by Netlify" />
+        </a>
+      </footer>
     </Container>
   </AppLayout>
 </template>
 
 <script setup lang="ts">
 import { useContent, useContentHead } from '#imports'
-
+const colorMode = useColorMode()
+const netlifyImg =
+  colorMode.value === 'dark'
+    ? 'https://www.netlify.com/v3/img/components/netlify-dark.svg'
+    : 'https://www.netlify.com/v3/img/components/netlify-light.svg'
 const { page, toc } = useContent()
 const theme = useTheme()
 useContentHead(page)

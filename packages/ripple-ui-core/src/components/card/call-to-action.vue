@@ -11,16 +11,16 @@ import RplCard from './card.vue'
 import RplButton from '../button/button.vue'
 
 interface Props {
-  el?: typeof RplCardElements[number],
-  image?: string,
-  title: string,
-  url?: string,
+  el?: typeof RplCardElements[number]
+  image?: string
+  title: string
+  url?: string
 }
 
 withDefaults(defineProps<Props>(), {
   el: 'div',
   image: undefined,
-  url: undefined,
+  url: undefined
 })
 
 const titleClasses = computed(() => RplCardTitleClasses)

@@ -24,10 +24,10 @@ const props = defineProps({
 
 const itemContentEls = ref([])
 
-const {
-  isItemExpanded,
-  toggleItem
-} = useExpandableCollection(props.items, itemContentEls)
+const { isItemExpanded, toggleItem } = useExpandableCollection(
+  props.items,
+  itemContentEls
+)
 </script>
 
 <template>
@@ -36,8 +36,7 @@ const {
 
     <ul
       class="
-        rpl-vertical-nav__list
-        rpl-vertical-nav__list--level-1
+        rpl-vertical-nav__list rpl-vertical-nav__list--level-1
         rpl-type-p-small
       "
     >

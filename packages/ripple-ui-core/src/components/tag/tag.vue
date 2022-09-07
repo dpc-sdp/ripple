@@ -6,13 +6,13 @@ export default { name: 'RplTag' }
 import { RplTagVariants } from './constants'
 
 interface Props {
-  variant?: typeof RplTagVariants[number],
-  label?: string,
+  variant?: typeof RplTagVariants[number]
+  label?: string
 }
 
 withDefaults(defineProps<Props>(), {
   variant: 'default',
-  label: '',
+  label: ''
 })
 </script>
 

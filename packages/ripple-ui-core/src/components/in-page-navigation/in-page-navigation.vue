@@ -7,13 +7,13 @@ import { RplListItemArray } from '../list/constants'
 import RplList from '../list/list.vue'
 
 interface Props {
-  title?: string,
-  items?: RplListItemArray[],
+  title?: string
+  items?: RplListItemArray[]
 }
 
 withDefaults(defineProps<Props>(), {
   title: 'On this page',
-  items: () => [],
+  items: () => []
 })
 </script>
 

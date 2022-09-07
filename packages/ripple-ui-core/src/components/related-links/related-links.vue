@@ -1,23 +1,27 @@
-<script lang="ts"> export default { name: 'RplRelatedLinks' }</script>
+<script lang="ts">
+export default { name: 'RplRelatedLinks' }
+</script>
 
 <script setup lang="ts">
 import { RplListItemArray } from '../list/constants'
 import RplList from '../list/list.vue'
 
 interface Props {
-  title?: string,
-  items?: RplListItemArray[],
+  title?: string
+  items?: RplListItemArray[]
 }
 
 withDefaults(defineProps<Props>(), {
   title: 'Related links',
-  items: () => [],
+  items: () => []
 })
 </script>
 
 <template>
   <div class="rpl-related-links">
-    <div class="rpl-related-links__heading rpl-type-label-large">{{ title }}</div>
+    <div class="rpl-related-links__heading rpl-type-label-large">
+      {{ title }}
+    </div>
     <RplList
       :items="items"
       container-class="rpl-related-links__list"

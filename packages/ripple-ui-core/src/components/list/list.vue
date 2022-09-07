@@ -10,11 +10,11 @@ import RplList from '../list/list.vue'
 import RplTextLink from '../text-link/text-link.vue'
 
 export interface Props {
-  items?: RplListItemArray[],
-  type?: RplListTypes,
-  itemClass?: string,
-  containerClass?: string,
-  depth?: number,
+  items?: RplListItemArray[]
+  type?: RplListTypes
+  itemClass?: string
+  containerClass?: string
+  depth?: number
 }
 
 withDefaults(defineProps<Props>(), {
@@ -22,7 +22,7 @@ withDefaults(defineProps<Props>(), {
   type: 'ul',
   itemClass: '',
   containerClass: '',
-  depth: 0,
+  depth: 0
 })
 </script>
 

@@ -7,13 +7,13 @@ import { RplTimelineItem } from './constants'
 import RplTextLink from '../text-link/text-link.vue'
 
 interface Props {
-  title?: string | null,
-  items?: RplTimelineItem[],
+  title?: string | null
+  items?: RplTimelineItem[]
 }
 
-const props= withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<Props>(), {
   title: 'Timeline heading',
-  items: () => [],
+  items: () => []
 })
 
 const subtitle = (item: RplTimelineItem) => {

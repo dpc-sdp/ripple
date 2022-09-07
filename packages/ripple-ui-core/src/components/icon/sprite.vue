@@ -8,13 +8,13 @@ export default {
 import svgSprite from './../../assets/icons/sprite.svg?component'
 
 interface Props {
-  hidden?: boolean,
-  customSprite?: any | boolean,
+  hidden?: boolean
+  customSprite?: any | boolean
 }
 
 withDefaults(defineProps<Props>(), {
   hidden: true,
-  customSprite: false,
+  customSprite: false
 })
 </script>
 

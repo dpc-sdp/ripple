@@ -3,15 +3,17 @@ export default { name: 'RplAccordion' }
 </script>
 
 <script setup lang="ts">
-import { PropType, ref, computed } from 'vue'
+import { PropType, computed } from 'vue'
 
 import RplIcon from '../icon/icon.vue'
 import RplContent from '../content/content.vue'
-import { useExpandableCollection } from '../../composables/useExpandableCollection'
+import RplAccordionItemContent from './itemContent.vue'
+import { useExpandableState } from '../../composables/useExpandableState'
 
 type RplAccordionItem = {
   title: string
   content: string
+  active: boolean
 }
 
 const props = defineProps({
@@ -30,14 +32,17 @@ const props = defineProps({
   }
 })
 
-const itemContentEls = ref([])
+const initialActiveIndexes =
+  props.items
+    .filter(item => item.active)
+    .map((item, i) => i)
 
 const {
   isItemExpanded,
   isAllExpanded,
   toggleItem,
   toggleAll
-} = useExpandableCollection(props.items, itemContentEls)
+} = useExpandableState(initialActiveIndexes, props.items.length)
 
 const toggleAllLabel = computed(() => {
   let label = 'Open all'
@@ -107,24 +112,18 @@ const toggleAllLabel = computed(() => {
         </button>
 
         <!-- Item content -->
-        <div
+        <RplAccordionItemContent
           :id="`accordion-${id}-${index}-content`"
-          :ref="
-            (el) => {
-              itemContentEls[index] = el
-            }
-          "
-          class="rpl-accordion__item-content"
-          role="region"
           :aria-labelledby="`accordion-${id}-${index}-toggle`"
           :aria-hidden="isItemExpanded(index) === false ? 'true' : null"
+          :expanded="isItemExpanded(index)"
         >
           <RplContent
             class="rpl-accordion__item-content-inner"
             :html="item.content"
           >
           </RplContent>
-        </div>
+        </RplAccordionItemContent>
       </li>
     </component>
   </div>

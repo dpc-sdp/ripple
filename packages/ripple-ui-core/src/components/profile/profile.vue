@@ -3,19 +3,16 @@ export default { name: 'RplProfile' }
 </script>
 
 <script setup lang="ts">
-import { PropType } from 'vue'
-import { RplProfileItemArray } from './constants'
+import { RplProfileItem } from './constants'
 import type { ImgHTMLAttributes } from 'vue'
 
-defineProps({
-  image: {
-    type: Object as PropType<ImgHTMLAttributes>,
-    required: true
-  }, // TODO replace with image component
-  items: {
-    type: Array as PropType<typeof RplProfileItemArray[]>,
-    default: () => []
-  }
+interface Props {
+  image: ImgHTMLAttributes,
+  items?: RplProfileItem[],
+}
+
+withDefaults(defineProps<Props>(), {
+  items: () => [],
 })
 </script>
 

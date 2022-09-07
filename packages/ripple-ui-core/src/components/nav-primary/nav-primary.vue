@@ -4,16 +4,17 @@ export default { name: 'RplNavPrimary' }
 
 <script setup lang="ts">
 import { ref } from 'vue'
-defineProps({
-  primaryLogoSrc: {
-    type: String,
-    default: 'https://www.vic.gov.au/_nuxt/img/logo-primary.d4f973b.png'
-  },
-  secondaryLogoSrc: {
-    type: String,
-    default: 'https://www.ripple.sdp.vic.gov.au/cobrand-logo.png'
-  }
+
+interface Props {
+  primaryLogoSrc?: string,
+  secondaryLogoSrc?: string,
+}
+
+withDefaults(defineProps<Props>(), {
+  primaryLogoSrc: 'https://www.vic.gov.au/_nuxt/img/logo-primary.d4f973b.png',
+  secondaryLogoSrc: 'https://www.ripple.sdp.vic.gov.au/cobrand-logo.png',
 })
+
 const open = ref(false)
 </script>
 

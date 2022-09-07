@@ -3,7 +3,7 @@ export default { name: 'RplAccordion' }
 </script>
 
 <script setup lang="ts">
-import { PropType, computed } from 'vue'
+import { ref, computed } from 'vue'
 
 import RplIcon from '../icon/icon.vue'
 import RplContent from '../content/content.vue'
@@ -16,20 +16,15 @@ type RplAccordionItem = {
   active: boolean
 }
 
-const props = defineProps({
-  id: {
-    type: String,
-    required: true
-  },
-  items: {
-    type: Array as PropType<RplAccordionItem[]>,
-    default: () => [],
-    required: true
-  },
-  numbered: {
-    type: Boolean,
-    default: false
-  }
+interface Props {
+  id: string,
+  items: RplAccordionItem[],
+  numbered: boolean,
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  items: () => [],
+  numbered: false,
 })
 
 const initialActiveIndexes =

@@ -3,53 +3,39 @@ export default { name: 'RplButton' }
 </script>
 
 <script setup lang="ts">
-import { PropType, computed, ref } from 'vue'
+import { computed, ref } from 'vue'
 import {
   RplButtonElements,
   RplButtonVariants,
   RplButtonThemes,
   RplButtonIconPositions
 } from './constants'
-import { RplPropUrl } from '../../lib/constants'
 import { RplIconNames } from '../icon/constants'
 import RplIcon from '../icon/icon.vue'
 import { rplEventBus } from '../../index'
 
 rplEventBus.register('rpl-button/click')
 
-const props = defineProps({
-  el: {
-    type: String as PropType<typeof RplButtonElements[number]>,
-    default: 'button'
-  },
-  url: RplPropUrl,
-  variant: {
-    type: String as PropType<typeof RplButtonVariants[number]>,
-    default: 'filled'
-  },
-  theme: {
-    type: String as PropType<typeof RplButtonThemes[number]>,
-    default: 'primary'
-  },
-  iconName: {
-    type: [String, undefined] as PropType<
-      typeof RplIconNames[number] | undefined
-    >,
-    default: undefined
-  },
-  iconPosition: {
-    type: String as PropType<typeof RplButtonIconPositions[number]>,
-    default: 'right'
-  },
-  label: {
-    type: [String, undefined],
-    required: false,
-    default: undefined
-  },
-  disabled: {
-    type: Boolean,
-    default: false
-  }
+interface Props {
+  el?: typeof RplButtonElements[number],
+  url?: string,
+  variant?: typeof RplButtonVariants[number],
+  theme?: typeof RplButtonThemes[number],
+  iconName?: typeof RplIconNames[number],
+  iconPosition?: typeof RplButtonIconPositions[number],
+  label?: string,
+  disabled?: boolean,
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  el: 'button',
+  url: '',
+  variant: 'filled',
+  theme: 'default',
+  iconName: undefined,
+  iconPosition: 'right',
+  label: undefined,
+  disabled: false,
 })
 
 const classes = computed(() => {

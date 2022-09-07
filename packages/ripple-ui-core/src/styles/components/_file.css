@@ -11,10 +11,6 @@
     }
   }
 
-  &__icon {
-    margin-top: 1px;
-  }
-
   &__info {
     margin-left: var(--rpl-sp-4);
   }

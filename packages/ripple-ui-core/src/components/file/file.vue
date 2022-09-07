@@ -34,7 +34,7 @@ const isExternal = computed(() => isExternalLink(props.url))
       :target="isExternal ? '_blank' : null">
       <RplIcon name="icon-document-lined" class="rpl-file__icon" size="l" colour="default"></RplIcon>
       <div class="rpl-file__info">
-        <span class="rpl-file__name rpl-type-label rpl-type-weight-bold rpl-u-focusable rpl-u-focusable--inline" tabindex="0">{{ name }}</span>
+        <span class="rpl-file__name rpl-type-label rpl-type-weight-bold rpl-u-focusable-inline" tabindex="0">{{ name }}</span>
         <div class="rpl-file__meta rpl-type-label-small">
           <span class="rpl-file__type">{{ extension }}</span>
           <span class="rpl-file__size">{{ size }}</span>

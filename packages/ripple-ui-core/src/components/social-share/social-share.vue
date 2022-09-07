@@ -39,7 +39,7 @@ withDefaults(defineProps<Props>(), {
         class="
           rpl-text-link
           rpl-social-share__link
-          rpl-u-focusable rpl-u-focusable--inline
+          rpl-u-focusable-inline
           rpl-type-p-small
         "
       >

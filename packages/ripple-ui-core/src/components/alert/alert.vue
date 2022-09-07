@@ -80,7 +80,7 @@ onResizeHeight(alertRef, (height) => {
       <button
         class="
           rpl-alert__btn-close
-          rpl-u-focusable rpl-u-focusable--alt-colour rpl-u-focusable--inline
+          rpl-u-focusable-inline rpl-u-focusable--alt-colour
         "
         @click="onClose"
       >

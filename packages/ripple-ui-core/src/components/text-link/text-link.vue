@@ -29,7 +29,7 @@ defineExpose({ triggerClick })
 <template>
   <a
     ref="link"
-    class="rpl-text-link rpl-u-focusable rpl-u-focusable--inline"
+    class="rpl-text-link rpl-u-focusable-inline"
     :href="url"
     @click="onClick()"
   >

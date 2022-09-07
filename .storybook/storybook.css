@@ -31,6 +31,15 @@
   font-size: 1.6rem;
 }
 
+.sb-demo-container {
+  padding: 1rem;
+}
+
+.sb-demo-container--dark {
+  background: var(--rpl-clr-neutral-200);
+  color: var(--rpl-clr-type-light)
+}
+
 /*
   Add a background colour to the rpl-grid cells so that they are visible while
   viewing in storybook.

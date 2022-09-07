@@ -32,8 +32,7 @@ const props = withDefaults(defineProps<Props>(), {
 const titleClasses = computed(() => [
   'rpl-card__cta',
   props.highlight ? 'rpl-type-h3-highlight' : 'rpl-type-h3',
-  'rpl-u-focusable',
-  'rpl-u-focusable--inline'
+  'rpl-u-focusable-inline'
 ])
 
 const imgClasses = computed(() => [

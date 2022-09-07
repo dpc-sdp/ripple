@@ -3,8 +3,8 @@ export default { name: 'RplAccordionItemContent' }
 </script>
 
 <script setup lang="ts">
-import { animateClosing, animateOpening } from '../../composables/useAnimateHeight'
 import { ref, watch } from 'vue';
+import { animateClosing, animateOpening } from '../../composables/useAnimateHeight'
 
 interface Props {
   expanded?: boolean
@@ -16,7 +16,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 const containerRef = ref(null)
 
-watch(() => props.expanded, (wasExpanded, isExpanded) => {
+watch(() => props.expanded, (isExpanded, wasExpanded) => {
   // Was closed, is opening
   if (!wasExpanded && isExpanded) {
     if (containerRef.value) {
@@ -34,9 +34,9 @@ watch(() => props.expanded, (wasExpanded, isExpanded) => {
 
 <template>
   <div
+    ref="containerRef"
     class="rpl-accordion__item-content"
     role="region"
-    ref="containerRef"
   >
     <slot />
   </div>

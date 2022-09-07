@@ -12,7 +12,6 @@ html {
 
 /* h1 */
 .rpl-type-h1-highlight {
-  display: inline;
   padding: 0.25rem var(--rpl-sp-3); /* [1] */
   font-size: var(--rpl-type-size-6);
   font-weight: var(--rpl-type-weight-bold);
@@ -31,7 +30,6 @@ html {
 }
 
 .rpl-type-h1-highlight-fixed {
-  display: inline;
   padding: 0.25rem var(--rpl-sp-3); /* [1] */
   font-size: var(--rpl-type-size-6);
   font-weight: var(--rpl-type-weight-bold);
@@ -44,7 +42,6 @@ html {
 
 .rpl-type-h1,
 :where(.rpl-content) h1 {
-  display: block;
   font-size: var(--rpl-type-size-6);
   font-weight: var(--rpl-type-weight-bold);
   line-height: var(--rpl-type-lh-8);
@@ -59,7 +56,6 @@ html {
 }
 
 .rpl-type-h1-fixed {
-  display: block;
   font-size: var(--rpl-type-size-6);
   font-weight: var(--rpl-type-weight-bold);
   line-height: var(--rpl-type-lh-8);
@@ -70,7 +66,6 @@ html {
 /* h2 */
 .rpl-type-h2,
 :where(.rpl-content) h2 {
-  display: block;
   font-size: var(--rpl-type-size-4);
   font-weight: var(--rpl-type-weight-bold);
   line-height: var(--rpl-type-lh-6);
@@ -84,7 +79,6 @@ html {
 }
 
 .rpl-type-h2-fixed {
-  display: block;
   font-size: var(--rpl-type-size-4);
   font-weight: var(--rpl-type-weight-bold);
   line-height: var(--rpl-type-lh-6);
@@ -125,7 +119,6 @@ html {
 
 .rpl-type-h3,
 :where(.rpl-content) h3 {
-  display: block;
   font-size: var(--rpl-type-size-3);
   font-weight: var(--rpl-type-weight-bold);
   line-height: var(--rpl-type-lh-5);
@@ -139,7 +132,6 @@ html {
 }
 
 .rpl-type-h3-fixed {
-  display: block;
   font-size: var(--rpl-type-size-3);
   font-weight: var(--rpl-type-weight-bold);
   line-height: var(--rpl-type-lh-5);
@@ -149,7 +141,6 @@ html {
 /* h4 */
 .rpl-type-h4,
 :where(.rpl-content) h4 {
-  display: block;
   font-size: var(--rpl-type-size-2);
   font-weight: var(--rpl-type-weight-bold);
   line-height: var(--rpl-type-lh-4);
@@ -163,7 +154,6 @@ html {
 }
 
 .rpl-type-h4-fixed {
-  display: block;
   font-size: var(--rpl-type-size-2);
   font-weight: var(--rpl-type-weight-bold);
   line-height: var(--rpl-type-lh-4);
@@ -172,7 +162,6 @@ html {
 
 /* Paragraphs */
 .rpl-type-p-large {
-  display: block;
   font-size: var(--rpl-type-size-3);
   line-height: var(--rpl-type-lh-5);
   letter-spacing: var(--rpl-type-ls-2);
@@ -185,7 +174,6 @@ html {
 }
 
 .rpl-type-p-large-fixed {
-  display: block;
   font-size: var(--rpl-type-size-3);
   line-height: var(--rpl-type-lh-5);
   letter-spacing: var(--rpl-type-ls-2);
@@ -200,7 +188,6 @@ html {
 }
 
 .rpl-type-p-small {
-  display: block;
   font-size: var(--rpl-type-size-1);
   line-height: var(--rpl-type-lh-3);
   letter-spacing: var(--rpl-type-ls-1);

@@ -19,7 +19,7 @@
   }
 
   &__message {
-    margin-bottom: var(--rpl-sp-4);
+    margin-bottom: var(--rpl-sp-3);
     color: var(--rpl-clr-type-light);
 
     &-wrap {
@@ -28,6 +28,7 @@
   }
 
   &__link {
+    display: inline;
     color: var(--rpl-clr-type-light);
     transition: gap var(--rpl-motion-speed-2) ease-out;
 

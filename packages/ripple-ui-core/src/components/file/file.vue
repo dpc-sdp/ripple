@@ -8,18 +8,18 @@ import RplIcon from '../icon/icon.vue'
 import { isExternalLink } from '../../lib/helpers'
 
 interface Props {
-  name: string,
-  url?: string,
-  extension: string,
-  size: string,
-  updated?: string,
-  caption?: string,
+  name: string
+  url?: string
+  extension: string
+  size: string
+  updated?: string
+  caption?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
   url: '',
   updated: '',
-  caption: '',
+  caption: ''
 })
 
 const isExternal = computed(() => isExternalLink(props.url))

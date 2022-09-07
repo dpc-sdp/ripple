@@ -11,18 +11,18 @@ import { RplIconSizes, RplCoreIconNames } from './constants'
 import { RplColorThemes } from './../../lib/constants'
 
 interface Props {
-  name: string,
-  colour?: typeof RplColorThemes[number],
-  size?: typeof RplIconSizes[number],
-  padded?: boolean,
-  title?: string,
+  name: string
+  colour?: typeof RplColorThemes[number]
+  size?: typeof RplIconSizes[number]
+  padded?: boolean
+  title?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
   colour: undefined,
   size: 's',
   padded: false,
-  title: undefined,
+  title: undefined
 })
 
 const inSprite = ref(RplCoreIconNames.find((key) => key === props.name))

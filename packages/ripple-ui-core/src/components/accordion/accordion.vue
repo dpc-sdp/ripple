@@ -15,24 +15,20 @@ type RplAccordionItem = {
 }
 
 interface Props {
-  id: string,
-  items: RplAccordionItem[],
-  numbered: boolean,
+  id: string
+  items: RplAccordionItem[]
+  numbered: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
   items: () => [],
-  numbered: false,
+  numbered: false
 })
 
 const itemContentEls = ref([])
 
-const {
-  isItemExpanded,
-  isAllExpanded,
-  toggleItem,
-  toggleAll
-} = useExpandableCollection(props.items, itemContentEls)
+const { isItemExpanded, isAllExpanded, toggleItem, toggleAll } =
+  useExpandableCollection(props.items, itemContentEls)
 
 const toggleAllLabel = computed(() => {
   let label = 'Open all'

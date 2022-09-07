@@ -17,14 +17,14 @@ import { rplEventBus } from '../../index'
 rplEventBus.register('rpl-button/click')
 
 interface Props {
-  el?: typeof RplButtonElements[number],
-  url?: string,
-  variant?: typeof RplButtonVariants[number],
-  theme?: typeof RplButtonThemes[number],
-  iconName?: typeof RplIconNames[number],
-  iconPosition?: typeof RplButtonIconPositions[number],
-  label?: string,
-  disabled?: boolean,
+  el?: typeof RplButtonElements[number]
+  url?: string
+  variant?: typeof RplButtonVariants[number]
+  theme?: typeof RplButtonThemes[number]
+  iconName?: typeof RplIconNames[number]
+  iconPosition?: typeof RplButtonIconPositions[number]
+  label?: string
+  disabled?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -35,7 +35,7 @@ const props = withDefaults(defineProps<Props>(), {
   iconName: undefined,
   iconPosition: 'right',
   label: undefined,
-  disabled: false,
+  disabled: false
 })
 
 const classes = computed(() => {

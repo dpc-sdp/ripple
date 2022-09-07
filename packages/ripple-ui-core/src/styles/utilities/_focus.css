@@ -1,4 +1,5 @@
 /* stylelint-disable declaration-empty-line-before */
+/* stylelint-disable no-descending-specificity */
 
 /*
   Focus utility classes that can be used to show consistent focus styles across
@@ -10,9 +11,6 @@
 
   cursor: pointer;
 
-  .rpl-icon {
-    color: var(--rpl-clr-type-focus-contrast);
-  }
 
   /* Alt colour variant for areas where the background colour does not meet AA
   compliance against the default focus background colour */
@@ -46,6 +44,10 @@
     text-decoration-line: none;
     outline: 0;
     position: relative;
+
+    .rpl-icon {
+      color: var(--rpl-clr-type-focus-contrast);
+    }
 
     &::after {
       display: block !important;
@@ -81,6 +83,10 @@
     text-decoration-line: none;
     outline: 0;
     position: relative;
+
+    .rpl-icon {
+      color: var(--rpl-clr-type-focus-contrast);
+    }
 
     box-shadow: -1px 0 var(--local-background-colour),
         /* left */ 1px 0 var(--local-background-colour),

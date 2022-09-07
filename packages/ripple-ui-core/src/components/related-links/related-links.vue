@@ -1,19 +1,17 @@
 <script lang="ts"> export default { name: 'RplRelatedLinks' }</script>
 
 <script setup lang="ts">
-import { PropType } from 'vue'
 import { RplListItemArray } from '../list/constants'
 import RplList from '../list/list.vue'
 
-defineProps({
-  title: {
-    type: String as PropType<string>,
-    default: 'Related links'
-  },
-  items: {
-    type: Array as PropType<typeof RplListItemArray[]>,
-    default: () => []
-  }
+interface Props {
+  title?: string,
+  items?: RplListItemArray[],
+}
+
+withDefaults(defineProps<Props>(), {
+  title: 'Related links',
+  items: () => [],
 })
 </script>
 

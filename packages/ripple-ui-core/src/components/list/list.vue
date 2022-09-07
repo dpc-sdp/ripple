@@ -3,34 +3,26 @@ export default { name: 'RplList' }
 </script>
 
 <script setup lang="ts">
-import { PropType } from 'vue'
 import { RplListTypes, RplListItemArray } from './constants'
 
 import RplIcon from '../icon/icon.vue'
 import RplList from '../list/list.vue'
 import RplTextLink from '../text-link/text-link.vue'
 
-defineProps({
-  items: {
-    type: Array as PropType<typeof RplListItemArray[]>,
-    default: () => []
-  },
-  type: {
-    type: String as PropType<typeof RplListTypes[number]>,
-    default: 'ul'
-  },
-  itemClass: {
-    type: String,
-    default: ''
-  },
-  containerClass: {
-    type: String,
-    default: ''
-  },
-  depth: {
-    type: Number,
-    default: 0
-  }
+export interface Props {
+  items?: RplListItemArray[],
+  type?: RplListTypes,
+  itemClass?: string,
+  containerClass?: string,
+  depth?: number,
+}
+
+withDefaults(defineProps<Props>(), {
+  items: () => [],
+  type: 'ul',
+  itemClass: '',
+  containerClass: '',
+  depth: 0,
 })
 </script>
 

@@ -18,8 +18,8 @@ export const RplCardTitleClasses = [
   'rpl-u-focusable--inline'
 ]
 
-export const RplCardItemArray = {
-  title: String,
-  subtitle: String,
-  content: String
-} as const
+export interface RplCardItem {
+  title: string,
+  subtitle: string,
+  content: string
+}

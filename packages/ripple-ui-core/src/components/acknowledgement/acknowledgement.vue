@@ -6,11 +6,12 @@ export default { name: 'RplAcknowledgement' }
 import aboriginalFlag from './../../assets/flags/flag-aboriginal.svg?url'
 import torresStraitIslanderFlag from './../../assets/flags/flag-torres-strait-islander.svg?url'
 
-defineProps({
-  message: {
-    type: String,
-    default: 'The Victorian Government acknowledges Aboriginal and Torres Strait Islander people as the Traditional Custodians of the land and acknowledges and pays respect to their Elders, past and present.'
-  },
+interface Props {
+  message?: string,
+}
+
+withDefaults(defineProps<Props>(), {
+  message: 'The Victorian Government acknowledges Aboriginal and Torres Strait Islander people as the Traditional Custodians of the land and acknowledges and pays respect to their Elders, past and present.',
 })
 </script>
 

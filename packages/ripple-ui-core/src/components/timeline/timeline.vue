@@ -3,21 +3,20 @@ export default { name: 'RplTimeline' }
 </script>
 
 <script setup lang="ts">
-import { PropType } from 'vue'
-import { RplTimelineItemArray } from './constants'
+import { RplTimelineItem } from './constants'
 import RplTextLink from '../text-link/text-link.vue'
 
-const props = defineProps({
-  title: {
-    type: [String, Boolean] as PropType<string | boolean>,
-    default: 'Timeline heading'
-  },
-  items: {
-    type: Array as PropType<typeof RplTimelineItemArray[]>,
-    default: () => []
-  }
+interface Props {
+  title?: string | null,
+  items?: RplTimelineItem[],
+}
+
+const props= withDefaults(defineProps<Props>(), {
+  title: 'Timeline heading',
+  items: () => [],
 })
-const subtitle = (item: typeof RplTimelineItemArray) => {
+
+const subtitle = (item: RplTimelineItem) => {
   if (item.dateStart && item.dateEnd) {
     // return this.formatDateRange(item.dateStart, item.dateEnd)
     return `${item.dateStart} - ${item.dateEnd}`
@@ -26,10 +25,10 @@ const subtitle = (item: typeof RplTimelineItemArray) => {
   }
   return null
 }
-const hasSubtitle = (item: typeof RplTimelineItemArray) => {
+const hasSubtitle = (item: RplTimelineItem) => {
   return item.dateStart || item.dateEnd || item.subtitle
 }
-const classes = (item: typeof RplTimelineItemArray, index: number) => {
+const classes = (item: RplTimelineItem, index: number) => {
   const classList = ['rpl-timeline__item']
   if (item.image) {
     classList.push('rpl-timeline__item--with-image')

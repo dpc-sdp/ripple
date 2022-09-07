@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { PropType, computed, ref } from 'vue'
+import { computed, ref } from 'vue'
 import { RplAlertTypes } from './constants'
 import onResizeHeight from './../../composables/onResizeHeight'
 import { RplIconNames } from './../icon/constants'
@@ -10,35 +10,23 @@ import { rplEventBus } from '../../index'
 rplEventBus.register('rpl-alert/dismiss')
 const emit = defineEmits(['dismiss'])
 
-const props = defineProps({
-  variant: {
-    type: String as PropType<typeof RplAlertTypes[number]>,
-    default: 'information'
-  },
-  iconName: {
-    type: String as PropType<typeof RplIconNames[number]>,
-    default: 'icon-information-circle-filled'
-  },
-  message: {
-    type: String,
-    default: ''
-  },
-  linkText: {
-    type: String,
-    default: undefined
-  },
-  linkUrl: {
-    type: String,
-    default: undefined
-  },
-  dismissed: {
-    type: Boolean,
-    default: false
-  },
-  alertId: {
-    type: String,
-    required: true
-  }
+interface Props {
+  variant?: RplAlertTypes,
+  iconName?: typeof RplIconNames[number],
+  message?: string,
+  linkText?: string,
+  linkUrl?: string,
+  dismissed?: string,
+  alertId: string,
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  variant: 'information',
+  iconName: 'icon-information-circle-filled',
+  message: '',
+  linkText: '',
+  linkUrl: '',
+  dismissed: '',
 })
 
 const onClose = () => {

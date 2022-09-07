@@ -3,24 +3,20 @@ export default { name: 'RplContactUs' }
 </script>
 
 <script setup lang="ts">
-import { PropType } from 'vue'
-import { RplContactUsDetailsArray } from './constants'
+import { RplContactUsDetails } from './constants'
 import { RplListItemArray } from '../list/constants'
 import RplList from '../list/list.vue'
 
-defineProps({
-  title: {
-    type: [String, Boolean] as PropType<string | boolean>,
-    default: 'Contact us'
-  },
-  address: {
-    type: Object as PropType<typeof RplContactUsDetailsArray>,
-    default: () => RplContactUsDetailsArray
-  },
-  items: {
-    type: Array as PropType<typeof RplListItemArray[]>,
-    default: () => []
-  }
+interface Props {
+  title?: string | boolean,
+  address?: RplContactUsDetails,
+  items?: RplListItemArray[],
+}
+
+withDefaults(defineProps<Props>(), {
+  title: 'Contact us',
+  address: null,
+  items: () => [],
 })
 </script>
 

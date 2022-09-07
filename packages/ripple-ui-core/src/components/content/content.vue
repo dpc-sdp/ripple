@@ -1,7 +1,7 @@
 <script lang="ts">
 export default { name: 'RplContent' }
 export type RplContentProps = {
-  html: [string, undefined]
+  html?: string
 }
 </script>
 

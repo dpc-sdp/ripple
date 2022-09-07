@@ -6,19 +6,20 @@ export default { name: 'RplFile' }
 import { computed } from 'vue'
 import RplIcon from '../icon/icon.vue'
 import { isExternalLink } from '../../lib/helpers'
-import {
-  RplPropLabel,
-  RplPropStringRequired,
-  RplPropUrl
-} from '../../lib/constants'
 
-const props = defineProps({
-  name: RplPropStringRequired,
-  url: RplPropUrl,
-  extension: RplPropStringRequired,
-  size: RplPropStringRequired,
-  updated: RplPropLabel,
-  caption: RplPropLabel
+interface Props {
+  name: string,
+  url?: string,
+  extension: string,
+  size: string,
+  updated?: string,
+  caption?: string,
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  url: '',
+  updated: '',
+  caption: '',
 })
 
 const isExternal = computed(() => isExternalLink(props.url))

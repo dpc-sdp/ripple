@@ -3,31 +3,29 @@ export default { name: 'RplVerticalNav' }
 </script>
 
 <script setup lang="ts">
-import { PropType, ref } from 'vue'
 import { RplListItemArray } from '../list/constants'
 import RplVerticalNavLink from './link.vue'
 import RplVerticalNavToggle from './toggle.vue'
+import RplVerticalNavExpandable from './expandable.vue'
 import RplVerticalNavChildList from './child-list.vue'
-import { useExpandableCollection } from '../../composables/useExpandableCollection'
+import { useExpandableState } from '../../composables/useExpandableState'
 
-const props = defineProps({
-  title: {
-    type: String as PropType<string>,
-    required: true
-  },
-  items: {
-    type: Array as PropType<typeof RplListItemArray[]>,
-    default: () => [],
-    required: true
-  }
-})
+interface Props {
+  title: string,
+  items: RplListItemArray[]
+}
 
-const itemContentEls = ref([])
+const props = defineProps<Props>()
+
+const initialActiveIndexes =
+  props.items
+    .map((item, i) => { if (item.active) return i })
+    .filter(Number.isInteger)
 
 const {
   isItemExpanded,
   toggleItem
-} = useExpandableCollection(props.items, itemContentEls)
+} = useExpandableState(initialActiveIndexes, props.items.length)
 </script>
 
 <template>
@@ -56,24 +54,33 @@ const {
           @click="toggleItem(index)"
         />
 
-        <div
+        <RplVerticalNavExpandable
           v-if="item.items"
-          :ref="
-            (el) => {
-              itemContentEls[index] = el
-            }
-          "
-          role="region"
           :aria-labelledby="`rpl-vertical-nav-${index}-toggle`"
           :aria-hidden="isItemExpanded(index) === false ? 'true' : null"
-          class="rpl-vertical-nav__list-item-children"
+          :expanded="isItemExpanded(index)"
         >
           <RplVerticalNavChildList
             :items="item.items"
             :level="2"
             :is-expanded="isItemExpanded(index)"
           />
-        </div>
+        </RplVerticalNavExpandable>
+
+        <!-- <div
+          v-if="item.items"
+          role="region"
+          :aria-labelledby="`rpl-vertical-nav-${index}-toggle`"
+          :aria-hidden="isItemExpanded(index) === false ? 'true' : null"
+          class="rpl-vertical-nav__list-item-children"
+          :expanded="isItemExpanded(index)"
+        >
+          <RplVerticalNavChildList
+            :items="item.items"
+            :level="2"
+            :is-expanded="isItemExpanded(index)"
+          />
+        </div> -->
 
         <RplVerticalNavLink
           v-else

@@ -3,7 +3,7 @@ export default { name: 'RplAccordion' }
 </script>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { computed } from 'vue'
 
 import RplIcon from '../icon/icon.vue'
 import RplContent from '../content/content.vue'
@@ -29,8 +29,8 @@ const props = withDefaults(defineProps<Props>(), {
 
 const initialActiveIndexes =
   props.items
-    .filter(item => item.active)
-    .map((item, i) => i)
+    .map((item, i) => { if (item.active) return i })
+    .filter(Number.isInteger)
 
 const {
   isItemExpanded,

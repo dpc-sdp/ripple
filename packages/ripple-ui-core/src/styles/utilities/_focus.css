@@ -100,14 +100,14 @@
 .rpl-u-focusable-outline {
   &:focus,
   &.rpl-u-focusable--force-on {
-    border: var(--rpl-border-2) solid var(--rpl-clr-dark);
+    box-shadow: 0 0 0 var(--rpl-border-2) var(--rpl-clr-dark) inset;
     outline: var(--rpl-border-3) solid var(--rpl-clr-focus);
   }
 
   &.rpl-u-focusable--alt-colour {
     &:focus,
     &.rpl-u-focusable--force-on {
-      border-color: var(--rpl-clr-type-primary-contrast);
+      box-shadow: 0 0 0 var(--rpl-border-2) var(--rpl-clr-type-primary-contrast) inset;
     }
   }
 }

@@ -70,7 +70,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div :class="`sandbox my-4 min-h-[${height}px] w-full`">
+  <div :class="`sandbox my-4 min-h-${height} w-full`">
     <div
       v-if="fullscreen"
       class="tabs-header relative text-white bg-gray-700 min-h-[35px]"
@@ -107,7 +107,7 @@ onMounted(() => {
       :src="url"
       title="Figma link"
       sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
-      :class="`h-full min-h-[${height}px] w-full overflow-hidden`"
+      :class="`min-h-${height} w-full overflow-hidden`"
       :height="height"
     />
   </div>

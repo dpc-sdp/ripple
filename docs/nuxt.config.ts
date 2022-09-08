@@ -22,8 +22,7 @@ export default defineNuxtConfig({
       layoutFallbacks: ['page']
     },
     highlight: {
-      // See the available themes on https://github.com/shikijs/shiki/blob/main/docs/themes.md#all-theme
-      theme: 'material-ocean'
+      preload: ['vue', 'bash']
     }
   },
   app: {

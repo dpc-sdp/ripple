@@ -27,10 +27,18 @@ const props = withDefaults(defineProps<Props>(), {
   numbered: false,
 })
 
-const initialActiveIndexes =
+const initialActiveIndexes: number[] =
   props.items
-    .map((item, i) => { if (item.active) return i })
-    .filter(Number.isInteger)
+    .reduce((result: number[], current: RplAccordionItem, i: number): number[] => {
+      if (current.active) {
+        return [
+          ...result,
+          i
+        ]
+      }
+
+      return result
+    }, [])
 
 const {
   isItemExpanded,

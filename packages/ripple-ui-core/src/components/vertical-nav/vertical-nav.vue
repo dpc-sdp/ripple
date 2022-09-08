@@ -17,10 +17,18 @@ interface Props {
 
 const props = defineProps<Props>()
 
-const initialActiveIndexes =
+const initialActiveIndexes: number[] =
   props.items
-    .map((item, i) => { if (item.active) return i })
-    .filter(Number.isInteger)
+    .reduce((result: number[], current: RplListItemArray, i: number): number[] => {
+      if (current.active) {
+        return [
+          ...result,
+          i
+        ]
+      }
+
+      return result
+    }, [])
 
 const {
   isItemExpanded,
@@ -66,21 +74,6 @@ const {
             :is-expanded="isItemExpanded(index)"
           />
         </RplVerticalNavExpandable>
-
-        <!-- <div
-          v-if="item.items"
-          role="region"
-          :aria-labelledby="`rpl-vertical-nav-${index}-toggle`"
-          :aria-hidden="isItemExpanded(index) === false ? 'true' : null"
-          class="rpl-vertical-nav__list-item-children"
-          :expanded="isItemExpanded(index)"
-        >
-          <RplVerticalNavChildList
-            :items="item.items"
-            :level="2"
-            :is-expanded="isItemExpanded(index)"
-          />
-        </div> -->
 
         <RplVerticalNavLink
           v-else

@@ -7,12 +7,12 @@ import { RplProfileItem } from './constants'
 import type { ImgHTMLAttributes } from 'vue'
 
 interface Props {
-  image: ImgHTMLAttributes,
-  items?: RplProfileItem[],
+  image: ImgHTMLAttributes
+  items?: RplProfileItem[]
 }
 
 withDefaults(defineProps<Props>(), {
-  items: () => [],
+  items: () => []
 })
 </script>
 

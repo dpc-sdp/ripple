@@ -8,15 +8,15 @@ import { RplListItemArray } from '../list/constants'
 import RplList from '../list/list.vue'
 
 interface Props {
-  title?: string | boolean,
-  address?: RplContactUsDetails,
-  items?: RplListItemArray[],
+  title?: string | boolean
+  address?: RplContactUsDetails
+  items?: RplListItemArray[]
 }
 
 withDefaults(defineProps<Props>(), {
   title: 'Contact us',
   address: null,
-  items: () => [],
+  items: () => []
 })
 </script>
 

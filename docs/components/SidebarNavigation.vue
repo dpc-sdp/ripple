@@ -13,7 +13,11 @@ const props = defineProps({
   },
   max: {
     type: Number,
-    default: 3
+    default: 4
+  },
+  depth: {
+    type: Number,
+    default: 0
   },
   parent: {
     type: Object as PropType<any>,
@@ -66,7 +70,7 @@ onMounted(() => {
         'ml-2': parent?.icon,
         'my-4': link.children,
         'pl-4': level > 0 && link.children,
-        'border-l': level > 0 || !hasNesting,
+        'border-l-2': level > 0 || !hasNesting,
         'border-primary-400 dark:border-primary-600': isActive(link),
         'hover:border-gray-300 border-gray-100 dark:border-gray-700 hover:dark:border-gray-500':
           !isActive(link),
@@ -74,7 +78,7 @@ onMounted(() => {
       }"
     >
       <div
-        v-if="link.children"
+        v-if="link.children && depth < max"
         class="flex pt-2 text-sm font-semibold text-gray-900 dark:text-gray-200"
       >
         <button
@@ -115,6 +119,7 @@ onMounted(() => {
         :level="level + 1"
         :parent="link"
         :max="max"
+        :depth="depth + 1"
         :class="{
           hidden: isHidden(link)
         }"

@@ -7,7 +7,7 @@ import { RplBreadcrumbsItem } from './constants'
 import RplTextLink from '../text-link/text-link.vue'
 
 interface Props {
-  items: RplBreadcrumbsItem[],
+  items: RplBreadcrumbsItem[]
 }
 
 withDefaults(defineProps<Props>(), {

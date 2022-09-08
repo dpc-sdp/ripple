@@ -11,29 +11,27 @@ import RplVerticalNavChildList from './child-list.vue'
 import { useExpandableState } from '../../composables/useExpandableState'
 
 interface Props {
-  title: string,
+  title: string
   items: RplListItemArray[]
 }
 
 const props = defineProps<Props>()
 
-const initialActiveIndexes: number[] =
-  props.items
-    .reduce((result: number[], current: RplListItemArray, i: number): number[] => {
-      if (current.active) {
-        return [
-          ...result,
-          i
-        ]
-      }
+const initialActiveIndexes: number[] = props.items.reduce(
+  (result: number[], current: RplListItemArray, i: number): number[] => {
+    if (current.active) {
+      return [...result, i]
+    }
 
-      return result
-    }, [])
+    return result
+  },
+  []
+)
 
-const {
-  isItemExpanded,
-  toggleItem
-} = useExpandableState(initialActiveIndexes, props.items.length)
+const { isItemExpanded, toggleItem } = useExpandableState(
+  initialActiveIndexes,
+  props.items.length
+)
 </script>
 
 <template>
@@ -42,8 +40,7 @@ const {
 
     <ul
       class="
-        rpl-vertical-nav__list
-        rpl-vertical-nav__list--level-1
+        rpl-vertical-nav__list rpl-vertical-nav__list--level-1
         rpl-type-p-small
       "
     >

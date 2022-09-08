@@ -11,13 +11,13 @@ import RplTextLink from '../text-link/text-link.vue'
 import { RplCardElements } from './constants'
 
 interface Props {
-  el?: typeof RplCardElements[number],
-  highlight?: boolean,
-  image?: string,
-  inset?: boolean,
-  meta?: string,
-  title: string,
-  url?: string,
+  el?: typeof RplCardElements[number]
+  highlight?: boolean
+  image?: string
+  inset?: boolean
+  meta?: string
+  title: string
+  url?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -26,7 +26,7 @@ const props = withDefaults(defineProps<Props>(), {
   inset: false,
   image: undefined,
   meta: undefined,
-  url: undefined,
+  url: undefined
 })
 
 const titleClasses = computed(() => [

@@ -1,5 +1,5 @@
 <template>
-  <div class="block">
+  <div class="my-8">
     <div class="rpl-grid">
       <slot></slot>
     </div>
@@ -12,7 +12,7 @@
   padding-left: 0;
   margin-left: 0;
 }
-.rpl-content .rpl-grid >li:before {
-  display: none ;
+.rpl-content .rpl-grid > li:before {
+  display: none;
 }
 </style>

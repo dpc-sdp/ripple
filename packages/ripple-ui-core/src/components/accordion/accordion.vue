@@ -17,35 +17,29 @@ type RplAccordionItem = {
 }
 
 interface Props {
-  id: string,
-  items: RplAccordionItem[],
-  numbered: boolean,
+  id: string
+  items: RplAccordionItem[]
+  numbered: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
   items: () => [],
-  numbered: false,
+  numbered: false
 })
 
-const initialActiveIndexes: number[] =
-  props.items
-    .reduce((result: number[], current: RplAccordionItem, i: number): number[] => {
-      if (current.active) {
-        return [
-          ...result,
-          i
-        ]
-      }
+const initialActiveIndexes: number[] = props.items.reduce(
+  (result: number[], current: RplAccordionItem, i: number): number[] => {
+    if (current.active) {
+      return [...result, i]
+    }
 
-      return result
-    }, [])
+    return result
+  },
+  []
+)
 
-const {
-  isItemExpanded,
-  isAllExpanded,
-  toggleItem,
-  toggleAll
-} = useExpandableState(initialActiveIndexes, props.items.length)
+const { isItemExpanded, isAllExpanded, toggleItem, toggleAll } =
+  useExpandableState(initialActiveIndexes, props.items.length)
 
 const toggleAllLabel = computed(() => {
   let label = 'Open all'

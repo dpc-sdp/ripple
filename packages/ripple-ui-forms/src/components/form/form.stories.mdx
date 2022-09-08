@@ -39,52 +39,50 @@ export const SlotTemplate = (args) => ({
 <Canvas>
   <Story
     name='Default'
-    argTypes={{
-      schema: {
-        defaultValue: [
-          {
-            $formkit: 'text',
-            name: 'Text',
-            label: 'Should you flush tissues down the toilet?',
-            id: 'text',
-            help: 'Do you need help?',
-            validation: 'required'
-          },
-          {
-            $formkit: 'select',
-            type: 'select',
-            label: 'Should you flush tissues down the toilet?',
-            options: [
-              'No',
-              'Never',
-              'What are you a monster?',
-              'Who does that?'
-            ]
-          },
-          {
-            $formkit: 'date',
-            name: 'date',
-            label: 'Date of Birth',
-            id: 'date',
-            help: 'Do you need help?',
-            validation: 'required'
-          },
-          {
-            $formkit: 'checkbox',
-            type: "checkbox",
-            label: "Toppings",
-            options: ['Mushrooms', 'Olives', 'Salami', 'Anchovies'],
-            help: "Select your pizza toppings",
-            validation: "required|min:3"
-          },
-          {
-            $formkit: 'submit',
-            label: 'Submit form',
-            id: '123',
-            icon: 'icon-arrow-right'
-          }
-        ]
-      }
+    args={{
+      schema: [
+        {
+          $formkit: 'text',
+          name: 'Text',
+          label: 'Should you flush tissues down the toilet?',
+          id: 'text',
+          help: 'Do you need help?',
+          validation: 'required'
+        },
+        {
+          $formkit: 'select',
+          type: 'select',
+          label: 'Should you flush tissues down the toilet?',
+          options: [
+            'No',
+            'Never',
+            'What are you a monster?',
+            'Who does that?'
+          ]
+        },
+        {
+          $formkit: 'date',
+          name: 'date',
+          label: 'Date of Birth',
+          id: 'date',
+          help: 'Do you need help?',
+          validation: 'required'
+        },
+        {
+          $formkit: 'checkbox',
+          type: "checkbox",
+          label: "Toppings",
+          options: ['Mushrooms', 'Olives', 'Salami', 'Anchovies'],
+          help: "Select your pizza toppings",
+          validation: "required|min:3"
+        },
+        {
+          $formkit: 'submit',
+          label: 'Submit form',
+          id: '123',
+          icon: 'icon-arrow-right'
+        }
+      ]
     }}
   >
     {SingleTemplate.bind()}

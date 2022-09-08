@@ -3,19 +3,17 @@ export default { name: 'RplInPageNavigation' }
 </script>
 
 <script setup lang="ts">
-import { PropType } from 'vue'
 import { RplListItemArray } from '../list/constants'
 import RplList from '../list/list.vue'
 
-defineProps({
-  title: {
-    type: String as PropType<string>,
-    default: 'On this page'
-  },
-  items: {
-    type: Array as PropType<typeof RplListItemArray[]>,
-    default: () => []
-  }
+interface Props {
+  title?: string
+  items?: RplListItemArray[]
+}
+
+withDefaults(defineProps<Props>(), {
+  title: 'On this page',
+  items: () => []
 })
 </script>
 

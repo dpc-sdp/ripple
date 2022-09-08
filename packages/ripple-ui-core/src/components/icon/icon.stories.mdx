@@ -38,23 +38,25 @@ Core icons are delivered through an SVG sprite, capturing all of the most common
     argTypes={{
       colour: {
         control: { type: 'select' },
-        options: RplColorThemes,
-        defaultValue: RplColorThemes[0]
+        options: RplColorThemes
       },
       name: {
         control: { type: 'select' },
-        defaultValue: RplIconNames[0],
         options: RplIconNames
       },
       size: {
         control: { type: 'select' },
-        defaultValue: 'l',
         options: RplIconSizes
       },
       padded: {
-        control: { type: 'boolean' },
-        defaultValue: false
+        control: { type: 'boolean' }
       }
+    }}
+    args={{
+      colour: RplColorThemes[0],
+      name: RplIconNames[0],
+      size: 'l',
+      padded: false
     }}
   >
     {SingleTemplate.bind()}
@@ -85,14 +87,16 @@ Custom icons can be imported and passed into a slot to facilitate client specifi
     argTypes={{
       theme: {
         control: { type: 'select' },
-        options: RplColorThemes,
-        defaultValue: RplColorThemes[0]
+        options: RplColorThemes
       },
       size: {
         control: { type: 'select' },
-        defaultValue: 'l',
         options: RplIconSizes
       }
+    }}
+    args={{
+      theme: RplColorThemes[0],
+      size: 'l'
     }}
   >
     {(args) => {

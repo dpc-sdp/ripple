@@ -1,0 +1,71 @@
+import {
+  Canvas,
+  Meta,
+  Story,
+  ArgsTable
+} from '@storybook/addon-docs'
+import RplProfile from './profile.vue'
+import { a11yStoryCheck } from './../../../stories/interactions.js'
+
+export const SingleTemplate = (args) => ({
+  components: { RplProfile },
+  setup() {
+    return { args }
+  },
+  template: '<RplProfile v-bind="args" />'
+})
+
+<Meta
+  title='Core/Containers/Profile'
+  component={RplProfile}
+  args={{
+    image: {
+      src: svgPlaceholder({ width: 400, height: 600 }),
+      alt: ''
+    },
+    items: [
+      {
+        title: 'Name',
+        content: 'Professor Jan Kowalski'
+      },
+      {
+        title: 'Field of expertise',
+        content: 'Design, architecture and planning'
+      }
+    ]
+  }}
+/>
+
+# Profile
+
+<ArgsTable of={RplProfile} />
+
+<Canvas>
+  <Story
+    name='Default'
+    play={a11yStoryCheck}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    name='Long title'
+    play={a11yStoryCheck}
+    args={{
+      items: [
+        {
+          title: 'Name',
+          content: 'Adjunct Associate Professor Emeritus Jan Kowalski'
+        },
+        {
+          title: 'Field of expertise',
+          content: 'Design, architecture and planning and Design, architecture and planning and Design, architecture and planning and Design, architecture and planning and Design, architecture and planning and Design, architecture and planning and Design, architecture and planning'
+        }
+      ]
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>

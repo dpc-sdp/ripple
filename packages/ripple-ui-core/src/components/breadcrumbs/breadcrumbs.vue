@@ -3,27 +3,28 @@ export default { name: 'RplBreadcrumbs' }
 </script>
 
 <script setup lang="ts">
-import { PropType } from 'vue'
-import { RplBreadcrumbsItemArray } from './constants'
+import { RplBreadcrumbsItem } from './constants'
 import RplTextLink from '../text-link/text-link.vue'
 
-defineProps({
-  items: {
-    type: Array as PropType<typeof RplBreadcrumbsItemArray[]>,
-    default: () => []
-  }
+interface Props {
+  items: RplBreadcrumbsItem[]
+}
+
+withDefaults(defineProps<Props>(), {
+  items: () => []
 })
 </script>
 
 <template>
-  <nav aria-label="breadcrumbs" :class="`rpl-breadcrumbs`">
+  <nav aria-label="breadcrumbs" class="rpl-breadcrumbs">
     <ol v-if="items.length > 0" class="rpl-breadcrumbs__items rpl-type-p">
       <li
         v-for="(item, index) of items"
         :key="index"
-        :class="`rpl-breadcrumbs__item${
-          index === items.length - 2 ? ' rpl-breadcrumbs__item--parent' : ''
-        }`"
+        :class="{
+          'rpl-breadcrumbs__item': true,
+          'rpl-breadcrumbs__item--parent': index === items.length - 2
+        }"
       >
         <RplTextLink
           v-if="index < items.length - 1"

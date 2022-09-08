@@ -1,30 +1,27 @@
+@import '@dpc-sdp/ripple-ui-core/style/breakpoints';
+
 .rpl-file {
   margin: 0;
 
   :where(.rpl-content) & {
     margin-top: var(--rpl-sp-5);
 
-    @media (--rpl-bp-l) {
+    @media (--rpl-bp-m) {
       margin-top: var(--rpl-sp-6);
     }
   }
 
   &__info {
-    --local-info-width: 40ch;
-
     margin-left: var(--rpl-sp-4);
-    max-width: var(--local-info-width);
   }
 
   &__name {
     text-decoration: underline;
-    text-underline-offset: 1px;
-    line-height: var(--rpl-type-lh-3);
   }
 
   &__meta {
     color: var(--rpl-clr-neutral-600);
-    margin-top: var(--rpl-sp-1);
+    margin-top: var(--rpl-sp-2);
     line-height: var(--rpl-type-lh-1);
   }
 
@@ -44,7 +41,7 @@
   }
 
   &__caption {
-    margin-top: var(--rpl-sp-4);
+    margin-top: var(--rpl-sp-3);
   }
 
   &__link {
@@ -59,6 +56,7 @@
     }
 
     &:active .rpl-file__name {
+      color: var(--rpl-clr-link);
       text-decoration: underline;
     }
   }

@@ -1,0 +1,46 @@
+import {
+  Canvas,
+  Meta,
+  Story,
+  ArgsTable
+} from '@storybook/addon-docs'
+import RplRelatedLinks from './related-links.vue'
+import { a11yStoryCheck } from './../../../stories/interactions.js'
+
+export const SingleTemplate = (args) => ({
+  components: { RplRelatedLinks },
+  setup() {
+    return { args }
+  },
+  template: `
+  <div class="rpl-storybook__page rpl-grid">
+    <div class="rpl-col-12 rpl-col-4-m">
+      <RplRelatedLinks v-bind="args" />
+    </div>
+  </div>`
+})
+
+<Meta title='Core/Navigation/Related links' component={RplRelatedLinks} />
+
+# Related links
+
+<ArgsTable of={RplRelatedLinks} />
+
+<Canvas>
+  <Story
+    name='Related links'
+    play={a11yStoryCheck}
+    args={{
+      title: 'Related Links',
+      items: [
+        { text: 'Link title on default that travels over two lines', url: '#' },
+        { text: 'Link title on default', url: '#' },
+        { text: 'Link title on default', url: '#' },
+        { text: 'Link title on default', url: '#' },
+        { text: 'Link title on default', url: '#' },
+      ]
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>

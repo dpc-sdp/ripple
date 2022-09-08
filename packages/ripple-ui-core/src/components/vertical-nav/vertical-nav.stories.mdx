@@ -1,0 +1,74 @@
+import {
+  Canvas,
+  Meta,
+  Story,
+  ArgsTable
+} from '@storybook/addon-docs'
+import RplVerticalNav from './vertical-nav.vue'
+import { a11yStoryCheck } from './../../../stories/interactions.js'
+
+export const SingleTemplate = (args) => ({
+  components: { RplVerticalNav },
+  setup() {
+    return { args }
+  },
+  template: `
+  <div class="rpl-storybook__page rpl-grid">
+    <div class="rpl-col-12 rpl-col-4-m">
+      <RplVerticalNav v-bind="args" />
+    </div>
+  </div>
+  `
+})
+
+<Meta title='Core/Navigation/Vertical navigation' component={RplVerticalNav} />
+
+# Vertical nav
+
+<ArgsTable of={RplVerticalNav} />
+
+<Canvas>
+  <Story
+    name='Vertical navigation'
+    play={a11yStoryCheck}
+    args={{
+      title: 'Section name',
+      items: [
+        { text: 'First level', items: [
+          { text: 'First level repeat', url: '#' },
+          { text: 'Second level', url: '#', items: [
+            { text: 'Third level link with some text that will need to wrap', url: '#', items: [
+              { text: 'Fourth level', url: '#' }
+            ]}
+          ]},
+          { text: 'Second level active', url: '#', active: true },
+          { text: 'Second level', url: '#' }
+        ]},
+        { text: 'First level', items: [
+          { text: 'First level repeat', url: '#' },
+          { text: 'Second level', url: '#', items: [
+            { text: 'Third level link with some text that will need to wrap', url: '#', items: [
+              { text: 'Fourth level', url: '#' }
+            ]}
+          ]},
+          { text: 'Second level', url: '#' },
+          { text: 'Second level', url: '#' }
+        ]},
+        { text: 'First level no children', url: '#' },
+        { text: 'First level no children active', url: '#', active: true },
+        { text: 'First level', items: [
+          { text: 'First level repeat', url: '#' },
+          { text: 'Second level', url: '#', items: [
+            { text: 'Third level link with some text that will need to wrap', url: '#', items: [
+              { text: 'Fourth level', url: '#' }
+            ]}
+          ]},
+          { text: 'Second level active', url: '#', active: true },
+          { text: 'Second level', url: '#' }
+        ]},
+      ]
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>

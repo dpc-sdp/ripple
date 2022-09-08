@@ -33,9 +33,9 @@
   <li>
     Another ordered list item / L1
     <ul>
-      <li>Ordered list item / L2</li>
+      <li>Unordered list item / L2</li>
       <li>
-        Another ordered list item / L2
+        Another unordered list item / L2
         <ol>
           <li>Ordered list item / L3</li>
           <li>Another ordered list item / L3</li>
@@ -118,12 +118,12 @@
     aria-label="Example file File type: PDF. Size: 1.5 mb."
     href="http://vic.gov.au/"
     target="_blank">
-      <span class="rpl-file__link rpl-icon rpl-icon--size-l rpl-icon--colour-default rpl-icon--icon-document-lined">
-        <svg role="presentation"><use xlink:href="#icon-document-lined"></use></svg>
-      </span>
+    <span class="rpl-icon rpl-icon--size-l rpl-icon--colour-default rpl-icon--icon-document-lined">
+      <svg role="presentation"><use xlink:href="#icon-document-lined"></use></svg>
+    </span>
     <div class="rpl-file__info">
-      <span class="rpl-file__name rpl-type-label rpl-type-weight-bold rpl-u-focusable rpl-u-focusable--inline" tabindex="0">This is an example of a document title</span>
-      <div class="rpl-file__meta rpl-type-p-small">
+      <span class="rpl-file__name rpl-type-p rpl-type-weight-bold rpl-u-focusable rpl-u-focusable--inline" tabindex="0">This is an example of a document title</span>
+      <div class="rpl-file__meta rpl-type-label-small">
         <span class="rpl-file__type">PDF</span>
         <span class="rpl-file__size">1.5 mb</span>
       </div>
@@ -138,19 +138,141 @@
     aria-label="Example file File type: PDF. Size: 1.5 mb."
     href="http://vic.gov.au/"
     target="_blank">
-    <span class="rpl-file__link rpl-icon rpl-icon--size-l rpl-icon--colour-default rpl-icon--icon-document-lined">
+    <span class="rpl-icon rpl-icon--size-l rpl-icon--colour-default rpl-icon--icon-document-lined">
       <svg role="presentation"><use xlink:href="#icon-document-lined"></use></svg>
     </span>
     <div class="rpl-file__info">
-      <span class="rpl-file__name rpl-type-label rpl-type-weight-bold rpl-u-focusable rpl-u-focusable--inline" tabindex="0">This is an example of a document title</span>
-      <div class="rpl-file__meta rpl-type-p-small">
+      <span class="rpl-file__name rpl-type-p rpl-type-weight-bold rpl-u-focusable rpl-u-focusable--inline" tabindex="0">This is an example of a document title</span>
+      <div class="rpl-file__meta rpl-type-label-small">
         <span class="rpl-file__type">PDF</span>
         <span class="rpl-file__size">1.5 mb</span>
         <div class="rpl-file__updated">Updated July 17, 2022</div>
       </div>
     </div>
   </a>
-  <figcaption v-if="caption" class="rpl-file__caption rpl-type-p">
+  <figcaption v-if="caption" class="rpl-file__caption rpl-type-p-small">
     And this is example of a longer description of the document, this one seems very descriptive.
   </figcaption>
 </figure>
+
+<div class="rpl-table">
+  <table>
+    <tbody>
+    <tr>
+      <td>Lorem quis do ea aliqua est.</td>
+      <td>Lorem quis do ea aliqua est ea Lorem nostrud tempor.</td>
+      <td>Lorem quis do ea aliqua est, quis.</td>
+      <td>Lorem quis do ea aliqua est commodo et laborum.</td>
+    </tr>
+    <tr>
+      <td>Lorem quis do ea aliqua est.</td>
+      <td>Lorem quis do ea aliqua est ea Lorem nostrud tempor.</td>
+      <td>Lorem quis do ea aliqua est, quis.</td>
+      <td>Lorem quis do ea aliqua est commodo et laborum.</td>
+    </tr>
+    <tr>
+      <td>Lorem quis do ea aliqua est.</td>
+      <td>Lorem quis do ea aliqua est ea Lorem nostrud tempor.</td>
+      <td>Lorem quis do ea aliqua est, quis.</td>
+      <td>Lorem quis do ea aliqua est commodo et laborum.</td>
+    </tr>
+    <tr>
+      <td>Lorem quis do ea aliqua est.</td>
+      <td>Lorem quis do ea aliqua est ea Lorem nostrud tempor.</td>
+      <td>Lorem quis do ea aliqua est, quis.</td>
+      <td>Lorem quis do ea aliqua est commodo et laborum.</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="rpl-table">
+  <table>
+    <thead>
+    <tr>
+      <th>Column 1</th>
+      <th>Column 2</th>
+      <th>Column 3</th>
+      <th>Column 4</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Lorem quis do ea aliqua est.</td>
+      <td>Lorem quis do ea aliqua est ea Lorem nostrud tempor.</td>
+      <td>Lorem quis do ea aliqua est, quis.</td>
+      <td>Lorem quis do ea aliqua est commodo et laborum.</td>
+    </tr>
+    <tr>
+      <td>Lorem quis do ea aliqua est.</td>
+      <td>Lorem quis do ea aliqua est ea Lorem nostrud tempor.</td>
+      <td>Lorem quis do ea aliqua est, quis.</td>
+      <td>Lorem quis do ea aliqua est commodo et laborum.</td>
+    </tr>
+    <tr>
+      <td>Lorem quis do ea aliqua est.</td>
+      <td>Lorem quis do ea aliqua est ea Lorem nostrud tempor.</td>
+      <td>Lorem quis do ea aliqua est, quis.</td>
+      <td>Lorem quis do ea aliqua est commodo et laborum.</td>
+    </tr>
+    <tr>
+      <td>Lorem quis do ea aliqua est.</td>
+      <td>Lorem quis do ea aliqua est ea Lorem nostrud tempor.</td>
+      <td>Lorem quis do ea aliqua est, quis.</td>
+      <td>Lorem quis do ea aliqua est commodo et laborum.</td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+      <td colspan="4">Optional table footer</td>
+    </tr>
+    </tfoot>
+  </table>
+</div>
+
+<div class="rpl-table">
+  <div class="rpl-table__scroll-container" tabindex="0">
+    <table>
+      <caption>Optional table caption</caption>
+      <thead>
+      <tr>
+        <th>Column 1</th>
+        <th>Column 2</th>
+        <th>Column 3</th>
+        <th>Column 4</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>Lorem quis do quiceaaliquaest.</td>
+        <td>Loremquisdoealiqua est ea Lorem nostrud tempor.</td>
+        <td>Lorem quisdoeaaliquaest, quis.</td>
+        <td>Lorem quis do ea aliqua est commodoetlaborumetata.</td>
+      </tr>
+      <tr>
+        <td>Lorem quis do quiceaaliquaest.</td>
+        <td>Loremquisdoealiqua est ea Lorem nostrud tempor.</td>
+        <td>Lorem quisdoeaaliquaest, quis.</td>
+        <td>Lorem quis do ea aliqua est commodoetlaborumetata.</td>
+      </tr>
+      <tr>
+        <td>Lorem quis do quiceaaliquaest.</td>
+        <td>Loremquisdoealiqua est ea Lorem nostrud tempor.</td>
+        <td>Lorem quisdoeaaliquaest, quis.</td>
+        <td>Lorem quis do ea aliqua est commodoetlaborumetata.</td>
+      </tr>
+      <tr>
+        <td>Lorem quis do quiceaaliquaest.</td>
+        <td>Loremquisdoealiqua est ea Lorem nostrud tempor.</td>
+        <td>Lorem quisdoeaaliquaest, quis.</td>
+        <td>Lorem quis do ea aliqua est commodoetlaborumetata.</td>
+      </tr>
+      </tbody>
+      <tfoot>
+      <tr>
+        <td colspan="4">Optional table footer</td>
+      </tr>
+      </tfoot>
+    </table>
+  </div>
+</div>

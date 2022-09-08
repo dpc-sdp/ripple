@@ -4,23 +4,24 @@ export default { name: 'RplAvatarCard' }
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import { RplPropEl, RplPropStringRequired } from '../../lib/constants'
-import { RplCardTitleClasses } from './constants'
+import { RplCardElements, RplCardTitleClasses } from './constants'
 import { useAccessibleContainer } from '../../composables/useAccessibleContainer'
 
 import RplCard from './card.vue'
 import RplTag from '../tag/tag.vue'
 import RplTextLink from '../text-link/text-link.vue'
 
-defineProps({
-  el: RplPropEl,
-  image: RplPropStringRequired,
-  meta: RplPropStringRequired,
-  title: RplPropStringRequired,
-  url: {
-    type: [String, undefined],
-    default: undefined
-  }
+interface Props {
+  el?: typeof RplCardElements[number]
+  image: string
+  meta: string
+  title: string
+  url?: string
+}
+
+withDefaults(defineProps<Props>(), {
+  el: 'div',
+  url: undefined
 })
 
 const titleClasses = computed(() => RplCardTitleClasses)

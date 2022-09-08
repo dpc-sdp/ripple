@@ -32,7 +32,43 @@ export const SingleTemplate = (args) => ({
   `
 })
 
-<Meta title='Core/Navigation/Card' component={RplCallToAction} />
+<Meta
+  title='Core/Navigation/Card'
+  component={RplCallToAction}
+  argTypes={{
+    number: {
+      control: { type: 'select' },
+      options: [1, 2, 4, 8]
+    },
+    title: {
+      control: 'text'
+    },
+    url: {
+      control: 'text'
+    },
+    el: {
+      table: {
+        disable: true
+      }
+    },
+    image: {
+      table: {
+        disable: true
+      }
+    }
+  }}
+  parameters={{
+    backgrounds: {
+      default: 'light',
+    },
+  }}
+  args={{
+    number: 1,
+    url: 'https://www.vic.gov.au',
+    title: 'Small Business Ventilation Program',
+    default: '<p>Funding for public-facing small businesses to purchase equipment and upgrades to improve ventilation and reduce the spread of COVID-19 and boost customer confidence.</p>'
+  }}
+/>
 
 # Card
 
@@ -44,31 +80,6 @@ export const SingleTemplate = (args) => ({
   <Story
     name='Call to action'
     play={a11yStoryCheck}
-    parameters={{
-      backgrounds: {
-        default: 'light',
-      },
-    }}
-    argTypes={{
-      number: {
-        control: { type: 'select' },
-        options: [1, 2, 4, 8],
-        defaultValue: 1
-      },
-      image: {
-        table: {
-          disable: true
-        }
-      },
-      default: {
-        control: 'text'
-      }
-    }}
-    args={{
-      url: 'https://www.vic.gov.au',
-      title: 'Small Business Ventilation Program',
-      default: '<p>Funding for public-facing small businesses to purchase equipment and upgrades to improve ventilation and reduce the spread of COVID-19 and boost customer confidence.</p>'
-    }}
   >
     {SingleTemplate.bind()}
   </Story>

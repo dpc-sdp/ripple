@@ -3,20 +3,19 @@ export default { name: 'RplCard' }
 </script>
 
 <script setup lang="ts">
-import { PropType, computed, reactive } from 'vue'
-import { RplPropEl } from '../../lib/constants'
-import { RplCardTypes } from './constants'
+import { computed, reactive } from 'vue'
+import { RplCardElements, RplCardTypes } from './constants'
 
-const props = defineProps({
-  el: RplPropEl,
-  type: {
-    type: String as PropType<typeof RplCardTypes[number]>,
-    default: 'promo'
-  },
-  highlight: {
-    type: Boolean,
-    default: false
-  }
+interface Props {
+  el?: typeof RplCardElements[number]
+  type: typeof RplCardTypes[number]
+  highlight: boolean
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  el: 'div',
+  type: 'promo',
+  highlight: false
 })
 
 const state = reactive({

@@ -3,28 +3,22 @@ export default { name: 'RplSocialShare' }
 </script>
 
 <script setup lang="ts">
-import { PropType } from 'vue'
 import { RplSocialSharePage } from './constants'
 import RplIcon from '../icon/icon.vue'
 
-defineProps({
-  title: {
-    type: [String, Boolean] as PropType<string | boolean>,
-    default: 'Share this'
-  },
-  networks: {
-    type: Array as PropType<string[]>,
-    required: true,
-    default: () => ['facebook', 'twitter', 'linkedin']
-  },
-  page: {
-    type: Object as PropType<typeof RplSocialSharePage>,
-    required: true,
-    default: () => {
-      return {
-        title: '',
-        url: ''
-      }
+interface Props {
+  title?: string | null
+  networks?: string[]
+  page?: RplSocialSharePage
+}
+
+withDefaults(defineProps<Props>(), {
+  title: 'Share this',
+  networks: () => ['facebook', 'twitter', 'linkedin'],
+  page: () => {
+    return {
+      title: '',
+      url: ''
     }
   }
 })

@@ -4,35 +4,29 @@ export default { name: 'RplNavCard' }
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import { RplPropEl, RplPropStringRequired } from '../../lib/constants'
 import { useAccessibleContainer } from '../../composables/useAccessibleContainer'
 
 import RplCard from './card.vue'
 import RplTextLink from '../text-link/text-link.vue'
+import { RplCardElements } from './constants'
 
-const props = defineProps({
-  el: RplPropEl,
-  highlight: {
-    type: Boolean,
-    default: false
-  },
-  image: {
-    type: [String, undefined],
-    default: undefined
-  },
-  inset: {
-    type: Boolean,
-    default: true
-  },
-  meta: {
-    type: [String, undefined],
-    default: undefined
-  },
-  title: RplPropStringRequired,
-  url: {
-    type: [String, undefined],
-    default: undefined
-  }
+interface Props {
+  el?: typeof RplCardElements[number]
+  highlight?: boolean
+  image?: string
+  inset?: boolean
+  meta?: string
+  title: string
+  url?: string
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  el: 'div',
+  highlight: false,
+  inset: false,
+  image: undefined,
+  meta: undefined,
+  url: undefined
 })
 
 const titleClasses = computed(() => [

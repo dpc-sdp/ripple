@@ -31,6 +31,40 @@
   font-size: 1.6rem;
 }
 
+.sb-demo-container {
+  padding: 2rem;
+}
+
+.sb-demo-container--dark {
+  background: var(--rpl-clr-primary-alt);
+  color: var(--rpl-clr-type-light);
+
+  .sb-demo-input {
+    border-color: var(--rpl-clr-type-primary-contrast);
+
+    &,
+    &::placeholder {
+      color: var(--rpl-clr-light);
+    }
+  }
+
+  a,
+  a:visited {
+    color: var(--rpl-clr-light);
+  }
+}
+
+.sb-demo-input {
+  border: var(--rpl-border-1) var(--rpl-border-solid) var(--rpl-clr-dark);
+  background: transparent;
+  padding: 1rem;
+  font-size: var(--rpl-type-size-2)
+}
+
+.sb-demo-input--rounded {
+  border-radius: 20px;
+}
+
 /*
   Add a background colour to the rpl-grid cells so that they are visible while
   viewing in storybook.

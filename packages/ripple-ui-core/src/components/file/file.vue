@@ -42,10 +42,7 @@ const isExternal = computed(() => isExternalLink(props.url))
         <span
           class="
             rpl-file__name
-            rpl-type-p
-            rpl-type-weight-bold
-            rpl-u-focusable
-            rpl-u-focusable--inline
+            rpl-type-p rpl-type-weight-bold rpl-u-focusable-inline
           "
           tabindex="0"
           >{{ name }}</span

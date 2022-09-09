@@ -1,18 +1,39 @@
 /* stylelint-disable declaration-empty-line-before */
+/* stylelint-disable no-descending-specificity */
 
 /*
   Focus utility classes that can be used to show consistent focus styles across
   any focusable element.
 */
-
-.rpl-u-focusable {
+.rpl-u-focusable-block,
+.rpl-u-focusable-inline {
   --local-background-colour: var(--rpl-clr-focus);
 
   cursor: pointer;
 
+  /* Alt colour variant for areas where the background colour does not meet AA
+  compliance against the default focus background colour */
+  &.rpl-u-focusable--alt-colour {
+    &.rpl-u-focusable--force-on,
+    &:focus-visible,
+    &:focus-visible:visited,
+    &:focus-visible:hover {
+      --local-background-colour: var(--rpl-clr-light);
+
+      color: var(--rpl-clr-type-default);
+
+      .rpl-icon {
+        color: var(--rpl-clr-type-default);
+      }
+    }
+  }
+}
+
+.rpl-u-focusable-block {
   &:focus-visible,
   &:focus-visible:visited,
-  &:focus-visible:hover {
+  &:focus-visible:hover,
+  &.rpl-u-focusable--force-on {
     background-color: var(--local-background-colour) !important;
     border-color: var(--rpl-clr-focus);
     border-radius: 0;
@@ -22,6 +43,10 @@
     text-decoration-line: none;
     outline: 0;
     position: relative;
+
+    .rpl-icon {
+      color: var(--rpl-clr-type-focus-contrast);
+    }
 
     &::after {
       display: block !important;
@@ -40,43 +65,66 @@
         100% + var(--rpl-focusable-border-width, 0%) * 2
       ); /* 100% + left and right border width */
     }
+  }
+}
+
+.rpl-u-focusable-inline {
+  &:focus-visible,
+  &:focus-visible:visited,
+  &:focus-visible:hover,
+  &.rpl-u-focusable--force-on {
+    background-color: var(--local-background-colour) !important;
+    border-color: var(--rpl-clr-focus);
+    border-radius: 0;
+    border-width: var(--rpl-focusable-border-width, 0);
+    color: var(--rpl-clr-type-focus-contrast) !important;
+    text-decoration: none;
+    text-decoration-line: none;
+    outline: 0;
+    position: relative;
 
     .rpl-icon {
       color: var(--rpl-clr-type-focus-contrast);
     }
+
+    /* prettier-ignore */
+    box-shadow: -1px 0 var(--local-background-colour), /* left */
+      1px 0 var(--local-background-colour), /* right */
+      -1px -2px var(--local-background-colour), /* top - shifted left 1px */
+      1px -2px var(--local-background-colour), /* top - shifted right 1px */
+      1px 4px var(--rpl-clr-dark), /* bottom - shifted left 1px */
+      -1px 4px var(--rpl-clr-dark); /* bottom - shifted right 1px */
+  }
+}
+
+.rpl-u-focusable-outline {
+  &:focus,
+  &.rpl-u-focusable--force-on {
+    outline: none;
+    box-shadow: 0 0 0 var(--rpl-border-1) var(--rpl-clr-dark) inset,
+      0 0 0 var(--rpl-border-3) var(--rpl-clr-focus);
   }
 
-  /* Alt colour variant for areas where the background colour does not meet AA
-  compliance against the default focus background colour */
   &.rpl-u-focusable--alt-colour {
-    &:focus-visible,
-    &:focus-visible:visited,
-    &:focus-visible:hover {
-      --local-background-colour: var(--rpl-clr-light);
-
-      color: var(--rpl-clr-type-default);
-
-      .rpl-icon {
-        color: var(--rpl-clr-type-default);
-      }
-    }
-  }
-
-  /* Inline variant */
-  &.rpl-u-focusable--inline {
-    &:focus-visible,
-    &:focus-visible:visited,
-    &:focus-visible:hover {
-      box-shadow: -1px 0 var(--local-background-colour),
-        /* left */ 1px 0 var(--local-background-colour),
-        /* right */ -1px -2px var(--local-background-colour),
-        /* top - shifted left 1px */ 1px -2px var(--local-background-colour),
-        /* top - shifted right 1px */ 1px 4px var(--rpl-clr-dark),
-        /* bottom - shifted left 1px */ -1px 4px var(--rpl-clr-dark); /* bottom - shifted right 1px */
-
-      &::after {
-        display: none !important;
-      }
+    &:focus,
+    &.rpl-u-focusable--force-on {
+      box-shadow: 0 0 0 var(--rpl-border-1) var(--rpl-clr-type-primary-contrast) inset,
+        0 0 0 var(--rpl-border-3) var(--rpl-clr-focus);
     }
   }
 }
+
+.rpl-u-focusable-outline--no-border {
+  &:focus,
+  &.rpl-u-focusable--force-on {
+    box-shadow: 0 0 0 var(--rpl-border-3) var(--rpl-clr-focus);
+  }
+
+  &.rpl-u-focusable--alt-colour {
+    &:focus,
+    &.rpl-u-focusable--force-on {
+      box-shadow: 0 0 0 var(--rpl-border-3) var(--rpl-clr-focus);
+    }
+  }
+}
+

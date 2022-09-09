@@ -32,7 +32,7 @@ defineProps({
       'rpl-vertical-nav__item': true,
       'rpl-vertical-nav__item--active': active,
       'rpl-vertical-nav__link': true,
-      'rpl-u-focusable': true
+      'rpl-u-focusable-block': true
     }"
   >
     <span v-if="showChildIcon" class="rpl-icon--child"></span>

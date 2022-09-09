@@ -7,15 +7,15 @@ import { computed, reactive } from 'vue'
 import { RplCardElements, RplCardTypes } from './constants'
 
 interface Props {
-  el?: typeof RplCardElements[number],
-  type: typeof RplCardTypes[number],
-  highlight: boolean,
+  el?: typeof RplCardElements[number]
+  type: typeof RplCardTypes[number]
+  highlight: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
   el: 'div',
   type: 'promo',
-  highlight: false,
+  highlight: false
 })
 
 const state = reactive({

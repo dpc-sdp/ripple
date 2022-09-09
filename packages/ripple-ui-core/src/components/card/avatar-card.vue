@@ -12,16 +12,16 @@ import RplTag from '../tag/tag.vue'
 import RplTextLink from '../text-link/text-link.vue'
 
 interface Props {
-  el?: typeof RplCardElements[number],
-  image: string,
-  meta: string,
-  title: string,
-  url?: string,
+  el?: typeof RplCardElements[number]
+  image: string
+  meta: string
+  title: string
+  url?: string
 }
 
 withDefaults(defineProps<Props>(), {
   el: 'div',
-  url: undefined,
+  url: undefined
 })
 
 const titleClasses = computed(() => RplCardTitleClasses)

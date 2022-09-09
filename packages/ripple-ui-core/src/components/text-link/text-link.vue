@@ -9,7 +9,7 @@ import { rplEventBus } from '../../index'
 rplEventBus.register('rpl-text-link/click')
 
 interface Props {
-  url: string,
+  url: string
 }
 
 defineProps<Props>()

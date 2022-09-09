@@ -10,18 +10,18 @@ import RplCard from './card.vue'
 import RplTextLink from '../text-link/text-link.vue'
 
 interface Props {
-  ctaTitle: string,
-  el?: typeof RplCardElements[number],
-  items: RplCardItem[],
-  title?: string,
-  url?: string,
+  ctaTitle: string
+  el?: typeof RplCardElements[number]
+  items: RplCardItem[]
+  title?: string
+  url?: string
 }
 
 withDefaults(defineProps<Props>(), {
   el: 'div',
   url: undefined,
   items: () => [],
-  title: 'Key calendar dates',
+  title: 'Key calendar dates'
 })
 
 const { container, trigger } = useAccessibleContainer()

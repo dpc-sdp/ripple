@@ -17,8 +17,7 @@ defineProps({
 <template>
   <button
     class="
-      rpl-vertical-nav__item
-      rpl-vertical-nav__toggle
+      rpl-vertical-nav__item rpl-vertical-nav__toggle
       rpl-u-focusable-block
     "
   >

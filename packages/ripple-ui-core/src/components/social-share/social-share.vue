@@ -7,9 +7,9 @@ import { RplSocialSharePage } from './constants'
 import RplIcon from '../icon/icon.vue'
 
 interface Props {
-  title?: string | null,
-  networks?: string[],
-  page?: RplSocialSharePage,
+  title?: string | null
+  networks?: string[]
+  page?: RplSocialSharePage
 }
 
 withDefaults(defineProps<Props>(), {

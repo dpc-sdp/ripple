@@ -99,7 +99,8 @@
     "**/trim-newlines": "~3.0.1",
     "**/postcss-for/**/postcss": "~7.0.36",
     "**/watchpack-chokidar2/**/glob-parent": "~5.1.2",
-    "**/cpy/**/glob-parent": "~5.1.2"
+    "**/cpy/**/glob-parent": "~5.1.2",
+    "@types/react": "file:stub/types__react"
   },
   "version": "0.0.0"
 }

@@ -9,15 +9,15 @@ import { rplEventBus } from '../../index'
 rplEventBus.register('rpl-text-link/click')
 
 interface Props {
-  variant?: typeof RplChipVariants[number],
-  label?: string,
-  url?: string,
+  variant?: typeof RplChipVariants[number]
+  label?: string
+  url?: string
 }
 
 withDefaults(defineProps<Props>(), {
   variant: 'default',
   label: '',
-  url: '#',
+  url: '#'
 })
 
 const onClick = (payload?: any) => {

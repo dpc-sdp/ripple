@@ -11,13 +11,13 @@ rplEventBus.register('rpl-alert/dismiss')
 const emit = defineEmits(['dismiss'])
 
 interface Props {
-  variant?: RplAlertTypes,
-  iconName?: typeof RplIconNames[number],
-  message?: string,
-  linkText?: string,
-  linkUrl?: string,
-  dismissed?: string,
-  alertId: string,
+  variant?: RplAlertTypes
+  iconName?: typeof RplIconNames[number]
+  message?: string
+  linkText?: string
+  linkUrl?: string
+  dismissed?: string
+  alertId: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -26,7 +26,7 @@ const props = withDefaults(defineProps<Props>(), {
   message: '',
   linkText: '',
   linkUrl: '',
-  dismissed: '',
+  dismissed: ''
 })
 
 const onClose = () => {

@@ -47,7 +47,7 @@ defineProps({
       <RplVerticalNavChildList
         v-if="item.items"
         :items="item.items"
-        :level="level+1"
+        :level="level + 1"
         :is-expanded="isExpanded"
       />
     </li>

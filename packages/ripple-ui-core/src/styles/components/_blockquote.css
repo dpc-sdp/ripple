@@ -32,7 +32,7 @@
     }
 
     p + p {
-      margin-top: var(--rpl-sp-2);
+      margin-top: var(--rpl-sp-3);
     }
   }
 

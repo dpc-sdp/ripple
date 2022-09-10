@@ -1,0 +1,135 @@
+import {
+  Canvas,
+  Meta,
+  Story,
+  ArgsTable
+} from '@storybook/addon-docs'
+import RplImage from './image.vue'
+import { a11yStoryCheck } from './../../../stories/interactions.js'
+
+export const SingleTemplate = (args) => ({
+  components: { RplImage },
+  setup() {
+    return { args }
+  },
+  template: '<RplImage v-bind="args" />'
+})
+
+<Meta
+  title='WIP/Components/Image'
+  component={RplImage}
+  argTypes={{
+    height: {
+      control: { type: 'number' }
+    },
+    width: {
+      control: { type: 'number' }
+    },
+  }}
+/>
+
+# Responsive image
+
+<ArgsTable of={RplImage} />
+
+<Canvas>
+  <Story
+    name='Image'
+    args={{
+      src: 'https://via.placeholder.com/350x150'
+    }}
+    play={a11yStoryCheck}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+  <Story
+    name='Circle'
+    args={{
+      src: 'https://images.unsplash.com/photo-1584728889059-e980d06f7900?w=2340&q=80',
+      height: 300,
+      circle: true
+    }}
+    play={a11yStoryCheck}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+  <Story
+    name='Square'
+    args={{
+      src: 'https://images.unsplash.com/photo-1584728889059-e980d06f7900?w=2340&q=80',
+      height: 300,
+      aspect: '1'
+    }}
+    play={a11yStoryCheck}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+  <Story
+    name='4:3 Ratio'
+    args={{
+      src: 'https://images.unsplash.com/photo-1584728889059-e980d06f7900?w=2340&q=80',
+      height: 300,
+      aspect: '2'
+    }}
+    play={a11yStoryCheck}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+  <Story
+    name='4:3 Ratio'
+    args={{
+      src: 'https://images.unsplash.com/photo-1584728889059-e980d06f7900?w=2340&q=80',
+      height: 300,
+      aspect: '3'
+    }}
+    play={a11yStoryCheck}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+  <Story
+    name='19:9 Ratio'
+    args={{
+      src: 'https://images.unsplash.com/photo-1584728889059-e980d06f7900?w=2340&q=80',
+      height: 300,
+      aspect: '4'
+    }}
+    play={a11yStoryCheck}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+  <Story
+    name='3:1 Ratio'
+    args={{
+      src: 'https://images.unsplash.com/photo-1584728889059-e980d06f7900?w=2340&q=80',
+      height: 300,
+      aspect: '5'
+    }}
+    play={a11yStoryCheck}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+  <Story
+    name='Lazy loading'
+    args={{
+      src: 'https://images.unsplash.com/photo-1584728889059-e980d06f7900?w=2340&q=80',
+      height: 300,
+      aspect: '1',
+      priority: 'low'
+    }}
+    play={a11yStoryCheck}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+  <Story
+    name='Responsive aspects'
+    args={{
+      src: 'https://images.unsplash.com/photo-1584728889059-e980d06f7900?w=2340&q=80',
+      height: 300,
+      aspect: {xs: 1, s: 2, m: 3, l: 4},
+      priority: 'low'
+    }}
+    play={a11yStoryCheck}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>

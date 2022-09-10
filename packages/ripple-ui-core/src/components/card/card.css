@@ -9,7 +9,6 @@
 
   &__media {
     display: block;
-    object-fit: cover;
     max-height: 24rem;
     width: 100%;
 

@@ -8,6 +8,7 @@ import { useAccessibleContainer } from '../../composables/useAccessibleContainer
 
 import RplCard from './card.vue'
 import RplTextLink from '../text-link/text-link.vue'
+import RplImage from './../image/image.vue'
 import { RplCardElements } from './constants'
 
 interface Props {
@@ -46,7 +47,14 @@ const { container, trigger } = useAccessibleContainer()
 <template>
   <RplCard ref="container" type="nav" :el="el">
     <template v-if="image" #upper>
-      <img :class="imgClasses" :src="image" alt="" />
+      <div :class="imgClasses">
+        <RplImage
+          :src="image"
+          alt=""
+          :aspect="{ xs: '3', s: '4', m: '5', l: '2' }"
+          class="rpl-card__media"
+        />
+      </div>
     </template>
     <template #meta>
       <div class="rpl-card__meta">

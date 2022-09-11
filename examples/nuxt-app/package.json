@@ -8,7 +8,10 @@
     "dev:debug": "node --inspect node_modules/.bin/nuxi dev",
     "build": "nuxi build",
     "compile": "tsc --build",
-    "start": "node .output/server/index.mjs"
+    "start": "node .output/server/index.mjs",
+    "cy:open": "cypress open --e2e --browser chrome",
+    "cy:run": "cypress run",
+    "test:integration": "start-test 'yarn dev' http-get://localhost:3000/api/tide/site?id=8888 'cy:open'"
   },
   "dependencies": {
     "@dpc-sdp/ripple-tide-api": "0.0.0",
@@ -19,7 +22,12 @@
     "dotenv": "^16.0.2"
   },
   "devDependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^12.2.0",
     "@nuxt/vite-builder": "^3.0.0-rc.8",
-    "nuxt": "^3.0.0-rc.8"
+    "@testing-library/cypress": "^8.0.3",
+    "cypress": "^10.7.0",
+    "mockttp": "^3.3.1",
+    "nuxt": "^3.0.0-rc.8",
+    "start-server-and-test": "^1.14.0"
   }
 }

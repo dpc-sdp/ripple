@@ -1,0 +1,17 @@
+.rpl-u-aspect {
+  @each $name, $ratio in (square, full, wide, ultrawide, panorama), (1/1, 4/3, 16/9, 21/9, 3/1) {
+    &-$(name) {
+        aspect-ratio: $(ratio);
+    }
+  }
+
+  @each $size in (s, m, l, lg, xl) {
+    @each $name, $ratio in (square, full, wide, ultrawide, panorama), (1/1, 4/3, 16/9, 21/9, 3/1) {
+      &-$(name)-$(size) {
+        @media (--rpl-bp-$(size)) {
+          aspect-ratio: $(ratio);
+        }
+      }
+    }
+  }
+}

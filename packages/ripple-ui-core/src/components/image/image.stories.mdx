@@ -5,6 +5,7 @@ import {
   ArgsTable
 } from '@storybook/addon-docs'
 import RplImage from './image.vue'
+import { RplImagePriority } from './constants'
 import { a11yStoryCheck } from './../../../stories/interactions.js'
 
 export const SingleTemplate = (args) => ({
@@ -25,6 +26,16 @@ export const SingleTemplate = (args) => ({
     width: {
       control: { type: 'number' }
     },
+    srcSet: {
+      control: { type: 'text' }
+    },
+    sizes: {
+      control: { type: 'text' }
+    },
+    priority: {
+      type: 'select',
+      options: RplImagePriority
+    }
   }}
 />
 
@@ -36,7 +47,7 @@ export const SingleTemplate = (args) => ({
   <Story
     name='Image'
     args={{
-      src: 'https://via.placeholder.com/350x150'
+      src: 'https://via.placeholder.com/900x600'
     }}
     play={a11yStoryCheck}
   >
@@ -45,64 +56,70 @@ export const SingleTemplate = (args) => ({
   <Story
     name='Circle'
     args={{
-      src: 'https://images.unsplash.com/photo-1584728889059-e980d06f7900?w=2340&q=80',
-      height: 300,
-      circle: true
+      src: 'https://images.unsplash.com/photo-1634926878768-2a5b3c42f139?w=1680&q=80',
+      height: 200,
+      width: 200,
+      circle: true,
     }}
     play={a11yStoryCheck}
   >
     {SingleTemplate.bind()}
   </Story>
   <Story
-    name='Square'
+    name='Square 1/1'
     args={{
-      src: 'https://images.unsplash.com/photo-1584728889059-e980d06f7900?w=2340&q=80',
-      height: 300,
-      aspect: '1'
+      src: 'https://images.unsplash.com/photo-1514395462725-fb4566210144?w=1680&q=80',
+      height: 500,
+      width: 600,
+      aspect: '1/1'
     }}
     play={a11yStoryCheck}
   >
     {SingleTemplate.bind()}
   </Story>
   <Story
-    name='4:3 Ratio'
+    name='Full 4/3'
     args={{
-      src: 'https://images.unsplash.com/photo-1584728889059-e980d06f7900?w=2340&q=80',
-      height: 300,
-      aspect: '2'
+      src: 'https://images.unsplash.com/photo-1514395462725-fb4566210144?w=1680&q=80',
+      height: 500,
+      width: 600,
+      aspect: '4/3'
     }}
     play={a11yStoryCheck}
   >
     {SingleTemplate.bind()}
   </Story>
   <Story
-    name='4:3 Ratio'
+    name='Wide 16/9'
     args={{
-      src: 'https://images.unsplash.com/photo-1584728889059-e980d06f7900?w=2340&q=80',
-      height: 300,
-      aspect: '3'
+      src: 'https://images.unsplash.com/photo-1514395462725-fb4566210144?w=1680&q=80',
+      height: 500,
+      width: 600,
+      aspect: '16/9'
     }}
     play={a11yStoryCheck}
   >
     {SingleTemplate.bind()}
   </Story>
   <Story
-    name='19:9 Ratio'
+    name='Ultrawide 21/9'
     args={{
-      src: 'https://images.unsplash.com/photo-1584728889059-e980d06f7900?w=2340&q=80',
-      height: 300,
-      aspect: '4'
+      src: 'https://images.unsplash.com/photo-1514395462725-fb4566210144?w=1680&q=80',
+      height: 500,
+      width: 600,
+      aspect: '21/9'
     }}
     play={a11yStoryCheck}
   >
     {SingleTemplate.bind()}
   </Story>
   <Story
-    name='3:1 Ratio'
+    name='Panorama 3/1'
     args={{
-      src: 'https://images.unsplash.com/photo-1584728889059-e980d06f7900?w=2340&q=80',
-      height: 300,
-      aspect: '5'
+      src: 'https://images.unsplash.com/photo-1514395462725-fb4566210144?w=1680&q=80',
+      height: 500,
+      width: 600,
+      aspect: '3/1'
     }}
     play={a11yStoryCheck}
   >
@@ -111,9 +128,9 @@ export const SingleTemplate = (args) => ({
   <Story
     name='Lazy loading'
     args={{
-      src: 'https://images.unsplash.com/photo-1584728889059-e980d06f7900?w=2340&q=80',
-      height: 300,
-      aspect: '1',
+      src: 'https://images.unsplash.com/photo-1514395462725-fb4566210144?w=1680&q=80',
+      height: 500,
+      width: 600,
       priority: 'low'
     }}
     play={a11yStoryCheck}
@@ -121,12 +138,41 @@ export const SingleTemplate = (args) => ({
     {SingleTemplate.bind()}
   </Story>
   <Story
-    name='Responsive aspects'
+    name='Responsive ratios'
     args={{
-      src: 'https://images.unsplash.com/photo-1584728889059-e980d06f7900?w=2340&q=80',
-      height: 300,
-      aspect: {xs: 1, s: 2, m: 3, l: 4},
-      priority: 'low'
+      src: 'https://images.unsplash.com/photo-1514395462725-fb4566210144?w=1680&q=80',
+      height: 500,
+      width: 600,
+      aspect: { xs: '1/1', s: '4/3', m: '16/9', l: '21/9', xl: '3/1' },
+      priority: 'high'
+    }}
+    play={a11yStoryCheck}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+  <Story
+    name='Focal position'
+    args={{
+      src: 'https://images.unsplash.com/photo-1561618030-ecca407d3ba4?w=1600&q=80',
+      height: 1067,
+      width: 1600,
+      focalPoint: {
+        x: 250,
+        y: 900
+      },
+      aspect: { xs: '1/1', s: '4/3', m: '16/9', l: '21/9', xl: '3/1' },
+      priority: 'high'
+    }}
+    play={a11yStoryCheck}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+  <Story
+    name='Source sets'
+    args={{
+      src: 'https://via.placeholder.com/480x500',
+      srcSet: 'https://via.placeholder.com/640x350 640w, https://via.placeholder.com/960x500 960w',
+      sizes: '(min-width: 640px) 640px, (min-width: 960px) 960px'
     }}
     play={a11yStoryCheck}
   >

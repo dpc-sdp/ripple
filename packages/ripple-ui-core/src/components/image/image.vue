@@ -4,79 +4,88 @@ export default { name: 'RplImage' }
 
 <script setup lang="ts">
 import { computed } from 'vue'
-
-type RplMediaAspect = {
-  xs?: string
-  s?: string
-  m?: string
-  l?: string
-  xl?: string
-}
+import { distanceAsPercentage } from '../../lib/helpers'
+import { RplImagePriority, RplImageFocalPoint, RplImageAspect, RplImageAspectMap } from './constants'
 
 interface Props {
   src: string
+  alt?: string
   width?: number
   height?: number
-  alt?: string
-  focalPoint?: {
-    x: number
-    y: number
-  }
-  sizes?: string | undefined
-  aspect?: string | RplMediaAspect
+  sizes?: string
+  srcSet?: string
   circle?: boolean
-  priority?: string
+  focalPoint?: RplImageFocalPoint
+  aspect?: RplImageAspect | string
+  priority?: typeof RplImagePriority[string]
 }
 
 const props = withDefaults(defineProps<Props>(), {
+  alt: '',
   height: undefined,
   width: undefined,
   sizes: undefined,
-  aspect: 'auto',
-  priority: 'auto',
+  srcSet: undefined,
   circle: false,
-  focalPoint: undefined,
-  alt: ''
+  focalPoint: null,
+  aspect: null,
+  priority: 'auto'
 })
 
 const aspectClasses = computed(() => {
-  const base = `${name}--aspect`
+  const base = `rpl-u-aspect`
+
   if (props.circle) {
-    return { [`${base}-1`]: true }
+    return { [`${base}-square`]: true }
   }
   if (typeof props.aspect === 'string') {
-    return { [`${base}-${props.aspect}`]: true }
+    return { [`${base}-${RplImageAspectMap[props.aspect]}`]: true }
   }
   if (typeof props.aspect === 'object') {
     const o = {}
     for (const bp in props.aspect) {
-      o[`${base}-${bp}-${props.aspect[bp]}`] = true
+      const breakpoint = bp !== 'xs' ? `-${bp}`: ''
+      o[`${base}-${RplImageAspectMap[props.aspect[bp]]}${breakpoint}`] = true
     }
     return o
   }
   return false
 })
 
-const name = 'rpl-image'
+const classes = computed(() => ({
+  ['rpl-image']: true,
+  ['rpl-image--circle']: props.circle,
+  ...aspectClasses.value
+}))
 
-const classes = computed(() => {
-  return {
-    [`${name}`]: name,
-    [`${name}--circle`]: props.circle,
-    ...aspectClasses.value
-  }
+const objectPosition = computed(() => {
+  if (!props.focalPoint || !props.height || !props.width) return null
+
+  const isCentered = props.focalPoint.x === 0 && props.focalPoint.y === 0
+  const focalPoint = isCentered
+    ? '50% 50%'
+    : `${distanceAsPercentage(
+        props.focalPoint.x,
+        props.width
+      )}% ${distanceAsPercentage(props.focalPoint.y, props.height)}%`
+
+  return { [`object-position`]: focalPoint }
 })
+
+const loading = computed(() => (props.priority === 'high' ? 'eager' : 'lazy'))
 </script>
 
 <template>
   <img
     :class="classes"
     :src="src"
-    :loading="priority === 'high' ? 'eager' : 'lazy'"
-    :fetchpriority="priority"
+    :srcset="srcSet"
     :alt="alt"
     :width="width"
     :height="height"
+    :loading="loading"
+    :fetchpriority="priority"
+    :style="objectPosition"
   />
 </template>
 

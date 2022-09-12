@@ -130,7 +130,7 @@ export const SingleTemplate = (args) => ({
             <svg role="presentation"><use xlink:href="#icon-document-lined"></use></svg>
           </span>
           <div class="rpl-file__info">
-            <span class="rpl-file__name rpl-type-p rpl-type-weight-bold rpl-u-focusable rpl-u-focusable--inline" tabindex="0">This is an example of a document title</span>
+            <span class="rpl-file__name rpl-type-p rpl-type-weight-bold rpl-u-focusable-line" tabindex="0">This is an example of a document title</span>
             <div class="rpl-file__meta rpl-type-label-small">
               <span class="rpl-file__type">PDF</span>
               <span class="rpl-file__size">1.5 mb</span>
@@ -159,7 +159,7 @@ export const SingleTemplate = (args) => ({
             <svg role="presentation"><use xlink:href="#icon-document-lined"></use></svg>
           </span>
           <div class="rpl-file__info">
-            <span class="rpl-file__name rpl-type-p rpl-type-weight-bold rpl-u-focusable rpl-u-focusable--inline" tabindex="0">This is an example of a document title</span>
+            <span class="rpl-file__name rpl-type-p rpl-type-weight-bold rpl-u-focusable-inline" tabindex="0">This is an example of a document title</span>
             <div class="rpl-file__meta rpl-type-label-small">
               <span class="rpl-file__type">PDF</span>
               <span class="rpl-file__size">1.5 mb</span>
@@ -181,40 +181,42 @@ export const SingleTemplate = (args) => ({
     play={a11yStoryCheck}
     args={{html: `
      <div class="rpl-table">
-      <table>
-        <tbody>
-          <tr>
-            <td>Lorem quis do ea aliqua est.</td>
-            <td>Lorem quis do ea aliqua est ea Lorem nostrud tempor.</td>
-            <td>Lorem quis do ea aliqua est, quis.</td>
-            <td>Lorem quis do ea aliqua est commodo et laborum.</td>
-          </tr>
-          <tr>
-            <td>Lorem quis do ea aliqua est.</td>
-            <td>Lorem quis do ea aliqua est ea Lorem nostrud tempor.</td>
-            <td>Lorem quis do ea aliqua est, quis.</td>
-            <td>Lorem quis do ea aliqua est commodo et laborum.</td>
-          </tr>
-          <tr>
-            <td>Lorem quis do ea aliqua est.</td>
-            <td>Lorem quis do ea aliqua est ea Lorem nostrud tempor.</td>
-            <td>Lorem quis do ea aliqua est, quis.</td>
-            <td>Lorem quis do ea aliqua est commodo et laborum.</td>
-          </tr>
-          <tr>
-            <td>Lorem quis do ea aliqua est.</td>
-            <td>Lorem quis do ea aliqua est ea Lorem nostrud tempor.</td>
-            <td>Lorem quis do ea aliqua est, quis.</td>
-            <td>Lorem quis do ea aliqua est commodo et laborum.</td>
-          </tr>
-          <tr>
-            <td>Lorem quis do ea aliqua est.</td>
-            <td>Lorem quis do ea aliqua est ea Lorem nostrud tempor.</td>
-            <td>Lorem quis do ea aliqua est, quis.</td>
-            <td>Lorem quis do ea aliqua est commodo et laborum.</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="rpl-table__scroll-container" tabindex="0">
+        <table>
+          <tbody>
+            <tr>
+              <td>Lorem quis do ea aliqua est.</td>
+              <td>Lorem quis do ea aliqua est ea Lorem nostrud tempor.</td>
+              <td>Lorem quis do ea aliqua est, quis.</td>
+              <td>Lorem quis do ea aliqua est commodo et laborum.</td>
+            </tr>
+            <tr>
+              <td>Lorem quis do ea aliqua est.</td>
+              <td>Lorem quis do ea aliqua est ea Lorem nostrud tempor.</td>
+              <td>Lorem quis do ea aliqua est, quis.</td>
+              <td>Lorem quis do ea aliqua est commodo et laborum.</td>
+            </tr>
+            <tr>
+              <td>Lorem quis do ea aliqua est.</td>
+              <td>Lorem quis do ea aliqua est ea Lorem nostrud tempor.</td>
+              <td>Lorem quis do ea aliqua est, quis.</td>
+              <td>Lorem quis do ea aliqua est commodo et laborum.</td>
+            </tr>
+            <tr>
+              <td>Lorem quis do ea aliqua est.</td>
+              <td>Lorem quis do ea aliqua est ea Lorem nostrud tempor.</td>
+              <td>Lorem quis do ea aliqua est, quis.</td>
+              <td>Lorem quis do ea aliqua est commodo et laborum.</td>
+            </tr>
+            <tr>
+              <td>Lorem quis do ea aliqua est.</td>
+              <td>Lorem quis do ea aliqua est ea Lorem nostrud tempor.</td>
+              <td>Lorem quis do ea aliqua est, quis.</td>
+              <td>Lorem quis do ea aliqua est commodo et laborum.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   `}}
   >
@@ -225,53 +227,55 @@ export const SingleTemplate = (args) => ({
     play={a11yStoryCheck}
     args={{html: `
      <div class="rpl-table">
-      <table>
-        <thead>
-          <tr>
-            <th>Column 1</th>
-            <th>Column 2</th>
-            <th>Column 3</th>
-            <th>Column 4</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Lorem quis do ea aliqua est.</td>
-            <td>Lorem quis do ea aliqua est ea Lorem nostrud tempor.</td>
-            <td>Lorem quis do ea aliqua est, quis.</td>
-            <td>Lorem quis do ea aliqua est commodo et laborum.</td>
-          </tr>
-          <tr>
-            <td>Lorem quis do ea aliqua est.</td>
-            <td>Lorem quis do ea aliqua est ea Lorem nostrud tempor.</td>
-            <td>Lorem quis do ea aliqua est, quis.</td>
-            <td>Lorem quis do ea aliqua est commodo et laborum.</td>
-          </tr>
-          <tr>
-            <td>Lorem quis do ea aliqua est.</td>
-            <td>Lorem quis do ea aliqua est ea Lorem nostrud tempor.</td>
-            <td>Lorem quis do ea aliqua est, quis.</td>
-            <td>Lorem quis do ea aliqua est commodo et laborum.</td>
-          </tr>
-          <tr>
-            <td>Lorem quis do ea aliqua est.</td>
-            <td>Lorem quis do ea aliqua est ea Lorem nostrud tempor.</td>
-            <td>Lorem quis do ea aliqua est, quis.</td>
-            <td>Lorem quis do ea aliqua est commodo et laborum.</td>
-          </tr>
-          <tr>
-            <td>Lorem quis do ea aliqua est.</td>
-            <td>Lorem quis do ea aliqua est ea Lorem nostrud tempor.</td>
-            <td>Lorem quis do ea aliqua est, quis.</td>
-            <td>Lorem quis do ea aliqua est commodo et laborum.</td>
-          </tr>
-        </tbody>
-        <tfoot>
-          <tr>
-            <td colspan="4">Optional table footer</td>
-          </tr>
-        </tfoot>
-      </table>
+      <div class="rpl-table__scroll-container" tabindex="0">
+        <table>
+          <thead>
+            <tr>
+              <th>Column 1</th>
+              <th>Column 2</th>
+              <th>Column 3</th>
+              <th>Column 4</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Lorem quis do ea aliqua est.</td>
+              <td>Lorem quis do ea aliqua est ea Lorem nostrud tempor.</td>
+              <td>Lorem quis do ea aliqua est, quis.</td>
+              <td>Lorem quis do ea aliqua est commodo et laborum.</td>
+            </tr>
+            <tr>
+              <td>Lorem quis do ea aliqua est.</td>
+              <td>Lorem quis do ea aliqua est ea Lorem nostrud tempor.</td>
+              <td>Lorem quis do ea aliqua est, quis.</td>
+              <td>Lorem quis do ea aliqua est commodo et laborum.</td>
+            </tr>
+            <tr>
+              <td>Lorem quis do ea aliqua est.</td>
+              <td>Lorem quis do ea aliqua est ea Lorem nostrud tempor.</td>
+              <td>Lorem quis do ea aliqua est, quis.</td>
+              <td>Lorem quis do ea aliqua est commodo et laborum.</td>
+            </tr>
+            <tr>
+              <td>Lorem quis do ea aliqua est.</td>
+              <td>Lorem quis do ea aliqua est ea Lorem nostrud tempor.</td>
+              <td>Lorem quis do ea aliqua est, quis.</td>
+              <td>Lorem quis do ea aliqua est commodo et laborum.</td>
+            </tr>
+            <tr>
+              <td>Lorem quis do ea aliqua est.</td>
+              <td>Lorem quis do ea aliqua est ea Lorem nostrud tempor.</td>
+              <td>Lorem quis do ea aliqua est, quis.</td>
+              <td>Lorem quis do ea aliqua est commodo et laborum.</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="4">Optional table footer</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
     </div>
   `}}
   >
@@ -282,46 +286,48 @@ export const SingleTemplate = (args) => ({
     play={a11yStoryCheck}
     args={{html: `
      <div class="rpl-table">
-      <table>
-        <caption>Optional table caption</caption>
-        <tbody>
-          <tr>
-            <th>Lorem quis do ea aliqua est.</th>
-            <td>Lorem quis do ea aliqua est ea Lorem nostrud tempor.</td>
-            <td>Lorem quis do ea aliqua est, quis.</td>
-            <td>Lorem quis do ea aliqua est commodo et laborum.</td>
-          </tr>
-          <tr>
-            <th>Lorem quis do ea aliqua est.</th>
-            <td>Lorem quis do ea aliqua est ea Lorem nostrud tempor.</td>
-            <td>Lorem quis do ea aliqua est, quis.</td>
-            <td>Lorem quis do ea aliqua est commodo et laborum.</td>
-          </tr>
-          <tr>
-            <th>Lorem quis do ea aliqua est.</th>
-            <td>Lorem quis do ea aliqua est ea Lorem nostrud tempor.</td>
-            <td>Lorem quis do ea aliqua est, quis.</td>
-            <td>Lorem quis do ea aliqua est commodo et laborum.</td>
-          </tr>
-          <tr>
-            <th>Lorem quis do ea aliqua est.</th>
-            <td>Lorem quis do ea aliqua est ea Lorem nostrud tempor.</td>
-            <td>Lorem quis do ea aliqua est, quis.</td>
-            <td>Lorem quis do ea aliqua est commodo et laborum.</td>
-          </tr>
-          <tr>
-            <th>Lorem quis do ea aliqua est.</th>
-            <td>Lorem quis do ea aliqua est ea Lorem nostrud tempor.</td>
-            <td>Lorem quis do ea aliqua est, quis.</td>
-            <td>Lorem quis do ea aliqua est commodo et laborum.</td>
-          </tr>
-        </tbody>
-        <tfoot>
-          <tr>
-            <td colspan="4">Optional table footer</td>
-          </tr>
-        </tfoot>
-      </table>
+      <div class="rpl-table__scroll-container" tabindex="0">
+        <table>
+          <caption>Optional table caption</caption>
+          <tbody>
+            <tr>
+              <th>Lorem quis do ea aliqua est.</th>
+              <td>Lorem quis do ea aliqua est ea Lorem nostrud tempor.</td>
+              <td>Lorem quis do ea aliqua est, quis.</td>
+              <td>Lorem quis do ea aliqua est commodo et laborum.</td>
+            </tr>
+            <tr>
+              <th>Lorem quis do ea aliqua est.</th>
+              <td>Lorem quis do ea aliqua est ea Lorem nostrud tempor.</td>
+              <td>Lorem quis do ea aliqua est, quis.</td>
+              <td>Lorem quis do ea aliqua est commodo et laborum.</td>
+            </tr>
+            <tr>
+              <th>Lorem quis do ea aliqua est.</th>
+              <td>Lorem quis do ea aliqua est ea Lorem nostrud tempor.</td>
+              <td>Lorem quis do ea aliqua est, quis.</td>
+              <td>Lorem quis do ea aliqua est commodo et laborum.</td>
+            </tr>
+            <tr>
+              <th>Lorem quis do ea aliqua est.</th>
+              <td>Lorem quis do ea aliqua est ea Lorem nostrud tempor.</td>
+              <td>Lorem quis do ea aliqua est, quis.</td>
+              <td>Lorem quis do ea aliqua est commodo et laborum.</td>
+            </tr>
+            <tr>
+              <th>Lorem quis do ea aliqua est.</th>
+              <td>Lorem quis do ea aliqua est ea Lorem nostrud tempor.</td>
+              <td>Lorem quis do ea aliqua est, quis.</td>
+              <td>Lorem quis do ea aliqua est commodo et laborum.</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="4">Optional table footer</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
     </div>
   `}}
   >
@@ -332,54 +338,56 @@ export const SingleTemplate = (args) => ({
     play={a11yStoryCheck}
     args={{html: `
      <div class="rpl-table">
-      <table>
-        <caption>Optional table caption</caption>
-        <thead>
-          <tr>
-            <th>Column 1</th>
-            <th>Column 2</th>
-            <th>Column 3</th>
-            <th>Column 4</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Lorem quis do ea aliqua est.</td>
-            <td>Lorem quis do ea aliqua est ea Lorem nostrud tempor.</td>
-            <td>Lorem quis do ea aliqua est, quis.</td>
-            <td>Lorem quis do ea aliqua est commodo et laborum.</td>
-          </tr>
-          <tr>
-            <td>Lorem quis do ea aliqua est.</td>
-            <td>Lorem quis do ea aliqua est ea Lorem nostrud tempor.</td>
-            <td>Lorem quis do ea aliqua est, quis.</td>
-            <td>Lorem quis do ea aliqua est commodo et laborum.</td>
-          </tr>
-          <tr>
-            <td>Lorem quis do ea aliqua est.</td>
-            <td>Lorem quis do ea aliqua est ea Lorem nostrud tempor.</td>
-            <td>Lorem quis do ea aliqua est, quis.</td>
-            <td>Lorem quis do ea aliqua est commodo et laborum.</td>
-          </tr>
-          <tr>
-            <td>Lorem quis do ea aliqua est.</td>
-            <td>Lorem quis do ea aliqua est ea Lorem nostrud tempor.</td>
-            <td>Lorem quis do ea aliqua est, quis.</td>
-            <td>Lorem quis do ea aliqua est commodo et laborum.</td>
-          </tr>
-          <tr>
-            <td>Lorem quis do ea aliqua est.</td>
-            <td>Lorem quis do ea aliqua est ea Lorem nostrud tempor.</td>
-            <td>Lorem quis do ea aliqua est, quis.</td>
-            <td>Lorem quis do ea aliqua est commodo et laborum.</td>
-          </tr>
-        </tbody>
-        <tfoot>
-          <tr>
-            <td colspan="4">Optional table footer</td>
-          </tr>
-        </tfoot>
-      </table>
+        <div class="rpl-table__scroll-container" tabindex="0">
+          <table>
+            <caption>Optional table caption</caption>
+            <thead>
+              <tr>
+                <th>Column 1</th>
+                <th>Column 2</th>
+                <th>Column 3</th>
+                <th>Column 4</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Lorem quis do ea aliqua est.</td>
+                <td>Lorem quis do ea aliqua est ea Lorem nostrud tempor.</td>
+                <td>Lorem quis do ea aliqua est, quis.</td>
+                <td>Lorem quis do ea aliqua est commodo et laborum.</td>
+              </tr>
+              <tr>
+                <td>Lorem quis do ea aliqua est.</td>
+                <td>Lorem quis do ea aliqua est ea Lorem nostrud tempor.</td>
+                <td>Lorem quis do ea aliqua est, quis.</td>
+                <td>Lorem quis do ea aliqua est commodo et laborum.</td>
+              </tr>
+              <tr>
+                <td>Lorem quis do ea aliqua est.</td>
+                <td>Lorem quis do ea aliqua est ea Lorem nostrud tempor.</td>
+                <td>Lorem quis do ea aliqua est, quis.</td>
+                <td>Lorem quis do ea aliqua est commodo et laborum.</td>
+              </tr>
+              <tr>
+                <td>Lorem quis do ea aliqua est.</td>
+                <td>Lorem quis do ea aliqua est ea Lorem nostrud tempor.</td>
+                <td>Lorem quis do ea aliqua est, quis.</td>
+                <td>Lorem quis do ea aliqua est commodo et laborum.</td>
+              </tr>
+              <tr>
+                <td>Lorem quis do ea aliqua est.</td>
+                <td>Lorem quis do ea aliqua est ea Lorem nostrud tempor.</td>
+                <td>Lorem quis do ea aliqua est, quis.</td>
+                <td>Lorem quis do ea aliqua est commodo et laborum.</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="4">Optional table footer</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
     </div>
   `}}
   >

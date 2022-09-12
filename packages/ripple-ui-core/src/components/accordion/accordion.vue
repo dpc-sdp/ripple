@@ -60,7 +60,7 @@ const toggleAllLabel = computed(() => {
         v-if="items.length > 1"
         class="
           rpl-accordion__toggle-all
-          rpl-u-focusable rpl-u-focusable--inline
+          rpl-u-focusable-inline
         "
         @click="toggleAll()"
       >
@@ -81,7 +81,7 @@ const toggleAllLabel = computed(() => {
         <!-- Item toggle -->
         <button
           :id="`accordion-${id}-${index}-toggle`"
-          class="rpl-accordion__item-toggle rpl-u-focusable"
+          class="rpl-accordion__item-toggle rpl-u-focusable-block"
           type="button"
           :aria-controls="`accordion-${id}-${index}-content`"
           :aria-expanded="isItemExpanded(index)"

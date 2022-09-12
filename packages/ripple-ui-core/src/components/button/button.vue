@@ -43,7 +43,7 @@ const classes = computed(() => {
     'rpl-button',
     `rpl-button--${props.variant}`,
     `rpl-button--${props.theme}`,
-    'rpl-u-focusable'
+    'rpl-u-focusable-block'
   ]
   if (props.iconPosition === 'left') {
     classTokens.push('rpl-button--reverse')

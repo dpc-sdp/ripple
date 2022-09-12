@@ -3,7 +3,7 @@ export default { name: 'RplVerticalNav' }
 </script>
 
 <script setup lang="ts">
-import { RplListItemArray } from '../list/constants'
+import { RplVerticalNavItem } from './constants'
 import RplVerticalNavLink from './link.vue'
 import RplVerticalNavToggle from './toggle.vue'
 import RplVerticalNavExpandable from './expandable.vue'
@@ -12,13 +12,13 @@ import { useExpandableState } from '../../composables/useExpandableState'
 
 interface Props {
   title: string
-  items: RplListItemArray[]
+  items: RplVerticalNavItem[]
 }
 
 const props = defineProps<Props>()
 
 const initialActiveIndexes: number[] = props.items.reduce(
-  (result: number[], current: RplListItemArray, i: number): number[] => {
+  (result: number[], current: RplVerticalNavItem, i: number): number[] => {
     if (current.active) {
       return [...result, i]
     }

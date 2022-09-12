@@ -14,8 +14,7 @@ export const RplCardTypes = [
 export const RplCardTitleClasses = [
   'rpl-card__cta',
   'rpl-type-h3',
-  'rpl-u-focusable',
-  'rpl-u-focusable--inline'
+  'rpl-u-focusable-inline'
 ]
 
 export interface RplCardItem {

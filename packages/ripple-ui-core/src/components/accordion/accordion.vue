@@ -7,7 +7,7 @@ import { computed } from 'vue'
 
 import RplIcon from '../icon/icon.vue'
 import RplContent from '../content/content.vue'
-import RplAccordionItemContent from './itemContent.vue'
+import RplExpandable from '../expandable/expandable.vue'
 import { useExpandableState } from '../../composables/useExpandableState'
 
 type RplAccordionItem = {
@@ -58,10 +58,7 @@ const toggleAllLabel = computed(() => {
     <div class="rpl-accordion__toggle-all-wrapper">
       <button
         v-if="items.length > 1"
-        class="
-          rpl-accordion__toggle-all
-          rpl-u-focusable-inline
-        "
+        class="rpl-accordion__toggle-all rpl-u-focusable-inline"
         @click="toggleAll()"
       >
         {{ toggleAllLabel }}
@@ -109,18 +106,19 @@ const toggleAllLabel = computed(() => {
         </button>
 
         <!-- Item content -->
-        <RplAccordionItemContent
+        <RplExpandable
           :id="`accordion-${id}-${index}-content`"
           :aria-labelledby="`accordion-${id}-${index}-toggle`"
           :aria-hidden="isItemExpanded(index) === false ? 'true' : null"
           :expanded="isItemExpanded(index)"
+          class="rpl-accordion__item-content"
         >
           <RplContent
             class="rpl-accordion__item-content-inner"
             :html="item.content"
           >
           </RplContent>
-        </RplAccordionItemContent>
+        </RplExpandable>
       </li>
     </component>
   </div>

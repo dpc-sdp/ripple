@@ -6,8 +6,8 @@ export default { name: 'RplVerticalNav' }
 import { RplVerticalNavItem } from './constants'
 import RplVerticalNavLink from './link.vue'
 import RplVerticalNavToggle from './toggle.vue'
-import RplVerticalNavExpandable from './expandable.vue'
 import RplVerticalNavChildList from './child-list.vue'
+import RplExpandable from '../expandable/expandable.vue'
 import { useExpandableState } from '../../composables/useExpandableState'
 
 interface Props {
@@ -59,18 +59,19 @@ const { isItemExpanded, toggleItem } = useExpandableState(
           @click="toggleItem(index)"
         />
 
-        <RplVerticalNavExpandable
+        <RplExpandable
           v-if="item.items"
           :aria-labelledby="`rpl-vertical-nav-${index}-toggle`"
           :aria-hidden="isItemExpanded(index) === false ? 'true' : null"
           :expanded="isItemExpanded(index)"
+          class="rpl-vertical-nav__list-item-children"
         >
           <RplVerticalNavChildList
             :items="item.items"
             :level="2"
             :is-expanded="isItemExpanded(index)"
           />
-        </RplVerticalNavExpandable>
+        </RplExpandable>
 
         <RplVerticalNavLink
           v-else

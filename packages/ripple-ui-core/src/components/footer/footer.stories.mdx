@@ -1,0 +1,77 @@
+import {
+  Canvas,
+  Meta,
+  Story,
+  ArgsTable
+} from '@storybook/addon-docs'
+import RplFooter from './footer.vue'
+import { RplFooterVariants } from './constants'
+import { a11yStoryCheck } from './../../../stories/interactions.js'
+
+export const SingleTemplate = (args) => ({
+  components: { RplFooter },
+  setup() {
+    return { args }
+  },
+  template: '<RplFooter v-bind="args" />'
+})
+
+<Meta
+  title='WIP/Components/Footer'
+  component={RplFooter}
+/>
+
+# Footer
+
+<ArgsTable of={RplFooter} />
+
+<Canvas>
+  <Story
+    name='Footer'
+    play={a11yStoryCheck}
+    parameters={{
+      layout: 'fullscreen',
+    }}
+    argTypes={{
+      variant: {
+        control: { type: 'select' },
+        options: RplFooterVariants
+      },
+    }}
+    args={{
+      variant: 'default',
+      links: [
+        { label: 'Privacy', url: '#' },
+        { label: 'Disclaimer', url: '#' },
+        { label: 'Terms of use', url: '#' },
+        { label: 'Sitemap', url: '#' },
+        { label: 'Accessibility Statement', url: '#' },
+        { label: 'Help', url: '#' },
+      ],
+      logoLinks: [
+        {
+          imgSrc: svgPlaceholder({ width: 112, height: 52 }),
+          label: 'Max native size',
+          url: '#'
+        },
+        {
+          imgSrc: svgPlaceholder({ width: 32, height: 32 }),
+          label: 'Smaller than max size',
+          url: '#'
+        },
+        {
+          imgSrc: svgPlaceholder({ width: 80, height: 200 }),
+          label: 'Portrait',
+          url: '#'
+        },
+        {
+          imgSrc: svgPlaceholder({ width: 200, height: 80 }),
+          label: 'Landscape',
+          url: '#'
+        }
+      ]
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>

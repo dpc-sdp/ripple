@@ -1,15 +1,15 @@
 .rpl-text-link {
   background-color: transparent;
-  color: var(--rpl-clr-link);
+  color: var(--local-clr-link, --rpl-clr-link);
   cursor: pointer;
   text-decoration: underline;
 
   &:visited {
-    color: var(--rpl-clr-link-visited);
+    color: var(--local-clr-visited, --rpl-clr-link-visited);
   }
 
   &:active {
-    color: var(--rpl-clr-dark);
+    color: var(--local-clr-active, --rpl-clr-dark);
     text-decoration: none;
   }
 

@@ -1,0 +1,68 @@
+@import '@dpc-sdp/ripple-ui-core/style/breakpoints';
+
+.rpl-footer--neutral {
+  --rpl-clr-footer: var(--rpl-clr-neutral-200);
+  --rpl-clr-footer-alt: var(--rpl-clr-neutral-300);
+  --rpl-clr-type-footer-contrast: var(--rpl-clr-dark);
+  --rpl-clr-type-footer-accessible: var(--rpl-clr-dark);
+}
+
+.rpl-footer {
+  background-color: var(--rpl-clr-footer);
+  padding-top: var(--rpl-sp-6);
+  padding-bottom: var(--rpl-sp-8);
+  color: var(--rpl-clr-type-footer-contrast);
+  border-top: var(--rpl-border-3) var(--rpl-border-solid) var(--rpl-clr-type-footer-accessible);
+}
+
+.rpl-footer__custom-content {
+  border-bottom: var(--rpl-border-1) var(--rpl-border-solid) var(--rpl-clr-footer-alt);
+  padding-top: var(--rpl-sp-6);
+  padding-bottom: var(--rpl-sp-6);
+}
+
+.rpl-footer-bottom {
+  padding-top: var(--rpl-sp-6);
+  display: grid;
+  grid-gap: var(--rpl-sp-4);
+
+  @media (--rpl-bp-l) {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.rpl-footer-bottom__branding {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  column-gap: var(--rpl-sp-6);
+}
+
+.rpl-footer-logo-link__img {
+  display: block;
+  object-fit: contain;
+  max-width: 100%; /* allow images to scale down on very small breakpoints */
+  max-height: 48px; /* max height for branding images */
+
+  @media (--rpl-bp-s) {
+    max-width: 120px; /* max width for branding images */
+  }
+}
+
+.rpl-footer-vic-gov-logo {
+  fill: var(--rpl-clr-type-footer-contrast);
+  width: 74px; /* Magic number specially requested for this logo  */
+}
+
+.rpl-footer-core-links {
+  --local-clr-text-link: var(--rpl-clr-type-footer-contrast);
+  --local-clr-text-link-visited: var(--rpl-clr-type-footer-contrast);
+  --local-clr-text-link-active: var(--rpl-clr-type-footer-contrast);
+
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: var(--rpl-sp-2);
+  column-gap: var(--rpl-sp-5);
+  margin-bottom: var(--rpl-sp-2);
+}

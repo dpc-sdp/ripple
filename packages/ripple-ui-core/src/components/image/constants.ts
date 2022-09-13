@@ -9,10 +9,12 @@ export interface RplImageFocalPoint {
 
 type RplImageAspectOptions = 'square' | 'full' | 'wide' | 'ultrawide' | 'panorama'
 
-export interface RplImageAspect {
+interface RplImageAspectBreakpoints {
   xs?: RplImageAspectOptions
   s?: RplImageAspectOptions
   m?: RplImageAspectOptions
   l?: RplImageAspectOptions
   xl?: RplImageAspectOptions
 }
+
+export type RplImageAspect = RplImageAspectBreakpoints | RplImageAspectOptions

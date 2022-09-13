@@ -20,10 +20,10 @@ interface Props {
   sizes?: string
   srcSet?: string
   circle?: boolean
-  fit?: RplImageFit
   focalPoint?: RplImageFocalPoint
-  aspect?: RplImageAspect | string
-  priority?: typeof RplImagePriority[string]
+  aspect?: RplImageAspect
+  fit?: typeof RplImageFit[number]
+  priority?: typeof RplImagePriority[number]
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -33,9 +33,9 @@ const props = withDefaults(defineProps<Props>(), {
   sizes: undefined,
   srcSet: undefined,
   circle: false,
+  focalPoint: undefined,
+  aspect: undefined,
   fit: 'cover',
-  focalPoint: null,
-  aspect: null,
   priority: 'auto'
 })
 
@@ -70,7 +70,7 @@ const classes = computed(() => ({
 
 const objectPosition = computed(() => {
   if (!props.height || !props.width || !props.focalPoint?.x || !props.focalPoint?.y) {
-    return null
+    return
   }
 
   const xPercent = distanceAsPercentage(props.focalPoint.x, props.width)

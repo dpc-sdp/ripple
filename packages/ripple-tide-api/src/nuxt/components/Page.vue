@@ -15,7 +15,9 @@
     </main>
     <div v-else>Error</div>
     <footer v-if="site" class="rpl-tide-page__footer">
-      <slot name="footer"></slot>
+      <slot name="footer">
+        {{ site.menuFooter }}
+      </slot>
     </footer>
   </div>
 </template>
@@ -28,13 +30,16 @@ import { pascalCase } from 'change-case'
 
 const route = useRoute()
 const config = useRuntimeConfig()
+// @ts-ignore
 const [{ data: site }, { data: page }] = await Promise.all([
   useFetch('/api/tide/site', {
+    baseURL: config.API_URL || '',
     params: {
       id: config.SITEID
     }
   }),
   useFetch('/api/tide/page', {
+    baseURL: config.API_URL || '',
     params: {
       path: route.path,
       site: config.SITEID

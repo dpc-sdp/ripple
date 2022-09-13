@@ -1,11 +1,11 @@
 import 'dotenv/config'
 import { defineNuxtConfig } from 'nuxt'
 export default defineNuxtConfig({
-  privateRuntimeConfig: {
-    API_URL: process.env.API_URL
-  },
-  publicRuntimeConfig: {
-    SITEID: 8888
+  runtimeConfig: {
+    public: {
+      API_URL: process.env.API_URL,
+      SITEID: 8888
+    }
   },
   tide: {
     contentApi: {

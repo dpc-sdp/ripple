@@ -15,11 +15,11 @@
 /* Items */
 .rpl-vertical-nav__list {
   &.rpl-vertical-nav__list--level-1 {
-    font-weight: bold;
+    font-weight: var(--rpl-type-weight-bold);
   }
 
   &.rpl-vertical-nav__list--level-2 {
-    font-weight: normal;
+    font-weight: var(--rpl-type-weight-regular);
   }
 }
 
@@ -52,6 +52,10 @@
     text-decoration: underline;
   }
 
+  &:active {
+    background-color: var(--rpl-clr-neutral-300);
+  }
+
   /* Indent padding for level 2 items */
   .rpl-vertical-nav__list--level-2 & {
     --local-left-indentation: var(--rpl-sp-4);
@@ -78,7 +82,7 @@
       position: absolute;
       left: 0;
       top: 0;
-      width: var(--rpl-sp-1);
+      width: var(--rpl-border-3);
       height: 100%;
       background-color: var(--rpl-clr-link);
     }
@@ -125,10 +129,13 @@
 .rpl-vertical-nav__toggle-icon {
   margin-left: var(--rpl-sp-2);
   color: var(--rpl-clr-neutral-600);
-  transition: transform var(--rpl-motion-speed-6) linear;
 
-  .rpl-vertical-nav__list-item--expanded & {
-    transform: rotate(-180deg);
+  .rpl-icon {
+    transition: transform var(--rpl-motion-speed-6) linear;
+
+    .rpl-vertical-nav__list-item--expanded & {
+      transform: rotate(-180deg);
+    }
   }
 }
 

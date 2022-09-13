@@ -3,30 +3,34 @@ export default { name: 'RplVerticalNav' }
 </script>
 
 <script setup lang="ts">
-import { PropType, ref } from 'vue'
-import { RplListItemArray } from '../list/constants'
+import { RplVerticalNavItem } from './constants'
 import RplVerticalNavLink from './link.vue'
 import RplVerticalNavToggle from './toggle.vue'
 import RplVerticalNavChildList from './child-list.vue'
-import { useExpandableCollection } from '../../composables/useExpandableCollection'
+import RplExpandable from '../expandable/expandable.vue'
+import { useExpandableState } from '../../composables/useExpandableState'
 
-const props = defineProps({
-  title: {
-    type: String as PropType<string>,
-    required: true
+interface Props {
+  title: string
+  items: RplVerticalNavItem[]
+}
+
+const props = defineProps<Props>()
+
+const initialActiveIndexes: number[] = props.items.reduce(
+  (result: number[], current: RplVerticalNavItem, i: number): number[] => {
+    if (current.active) {
+      return [...result, i]
+    }
+
+    return result
   },
-  items: {
-    type: Array as PropType<typeof RplListItemArray[]>,
-    default: () => [],
-    required: true
-  }
-})
+  []
+)
 
-const itemContentEls = ref([])
-
-const { isItemExpanded, toggleItem } = useExpandableCollection(
-  props.items,
-  itemContentEls
+const { isItemExpanded, toggleItem } = useExpandableState(
+  initialActiveIndexes,
+  props.items.length
 )
 </script>
 
@@ -55,16 +59,11 @@ const { isItemExpanded, toggleItem } = useExpandableCollection(
           @click="toggleItem(index)"
         />
 
-        <div
+        <RplExpandable
           v-if="item.items"
-          :ref="
-            (el) => {
-              itemContentEls[index] = el
-            }
-          "
-          role="region"
           :aria-labelledby="`rpl-vertical-nav-${index}-toggle`"
           :aria-hidden="isItemExpanded(index) === false ? 'true' : null"
+          :expanded="isItemExpanded(index)"
           class="rpl-vertical-nav__list-item-children"
         >
           <RplVerticalNavChildList
@@ -72,7 +71,7 @@ const { isItemExpanded, toggleItem } = useExpandableCollection(
             :level="2"
             :is-expanded="isItemExpanded(index)"
           />
-        </div>
+        </RplExpandable>
 
         <RplVerticalNavLink
           v-else

@@ -1,19 +1,22 @@
 diff --git a/node_modules/vite-svg-loader/index.js b/node_modules/vite-svg-loader/index.js
-index 133df06..3caa73d 100644
+index c2f93f3..00bc2c2 100644
 --- a/node_modules/vite-svg-loader/index.js
 +++ b/node_modules/vite-svg-loader/index.js
-@@ -32,14 +32,14 @@ module.exports = function svgLoader (options = {}) {
-         return // File couldn't be loaded, fallback to default loader
+@@ -33,10 +33,6 @@ module.exports = function svgLoader (options = {}) {
+         return
        }
-
+ 
 -      if (importType === 'raw') {
 -        return `export default ${JSON.stringify(svg)}`
 -      }
 -
-       if (svgo !== false) {
-         svg = optimizeSvg(svg, svgoConfig).data
+       if (svgo !== false && query !== 'skipsvgo') {
+         svg = optimizeSvg(svg, {
+           ...svgoConfig,
+@@ -44,6 +40,10 @@ module.exports = function svgLoader (options = {}) {
+         }).data
        }
-
+ 
 +      if (importType === 'raw') {
 +        return `export default ${JSON.stringify(svg)}`
 +      }

@@ -3,36 +3,28 @@ export default { name: 'RplVerticalNavChildList' }
 </script>
 
 <script setup lang="ts">
-import { PropType } from 'vue'
-import { RplListItemArray } from '../list/constants'
+import { RplVerticalNavItem } from './constants'
 import RplVerticalNavLink from './link.vue'
 
-defineProps({
-  items: {
-    type: Array as PropType<typeof RplListItemArray[]>,
-    default: () => []
-  },
-  level: {
-    type: Number,
-    required: true
-  },
-  isExpanded: {
-    type: Boolean,
-    required: true
-  }
-})
+interface Props {
+  items: RplVerticalNavItem[]
+  level: number
+  isExpanded: boolean
+}
+
+const props = defineProps<Props>()
 </script>
 
 <template>
   <ul
     :class="`
       rpl-vertical-nav__list
-      rpl-vertical-nav__list--level-${level}
+      rpl-vertical-nav__list--level-${props.level}
       rpl-type-p-small
     `"
   >
     <li
-      v-for="(item, index) in items"
+      v-for="(item, index) in props.items"
       :key="index"
       class="rpl-vertical-nav__list-item"
     >
@@ -40,15 +32,15 @@ defineProps({
         :text="item.text"
         :href="item.url"
         :active="item?.active"
-        :show-child-icon="level > 2"
-        :tabindex="isExpanded ? '0' : '-1'"
+        :show-child-icon="props.level > 2"
+        :tabindex="props.isExpanded ? '0' : '-1'"
       />
 
       <RplVerticalNavChildList
         v-if="item.items"
         :items="item.items"
-        :level="level + 1"
-        :is-expanded="isExpanded"
+        :level="props.level + 1"
+        :is-expanded="props.isExpanded"
       />
     </li>
   </ul>

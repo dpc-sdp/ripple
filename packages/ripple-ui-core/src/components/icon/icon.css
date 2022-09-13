@@ -19,7 +19,7 @@
     width: var(--local-icon-w);
     border-left: var(--rpl-border-1) solid var(--rpl-clr-type-default);
     border-bottom: var(--rpl-border-1) solid var(--rpl-clr-type-default);
-    margin-top: 0.2em;
+    margin-top: var(--rpl-sp-1);
     margin-right: var(--rpl-sp-2);
   }
 

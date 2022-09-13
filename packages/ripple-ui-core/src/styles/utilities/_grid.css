@@ -48,6 +48,13 @@
     grid-column-end: span $i;
   }
 
+  /* Small */
+  .rpl-col-$(i)-s {
+    @media (--rpl-bp-s) {
+      grid-column-end: span $i;
+    }
+  }
+
   /* Medium */
   .rpl-col-$(i)-m {
     @media (--rpl-bp-m) {

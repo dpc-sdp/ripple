@@ -5,6 +5,7 @@ export default { name: 'RplCallToAction' }
 <script setup lang="ts">
 import { computed } from 'vue'
 import { RplCardElements, RplCardTitleClasses } from './constants'
+import { RplButtonThemes, RplButtonVariants } from '../button/constants'
 import { useAccessibleContainer } from '../../composables/useAccessibleContainer'
 
 import RplCard from './card.vue'
@@ -15,12 +16,16 @@ interface Props {
   image?: string
   title: string
   url?: string
+  theme?: typeof RplButtonThemes[number]
+  variant?: typeof RplButtonVariants[number]
 }
 
 withDefaults(defineProps<Props>(), {
   el: 'div',
   image: undefined,
-  url: undefined
+  url: undefined,
+  theme: 'default',
+  variant: 'filled'
 })
 
 const titleClasses = computed(() => RplCardTitleClasses)
@@ -48,8 +53,8 @@ const { container, trigger } = useAccessibleContainer()
       :url="url"
       role="button"
       tabindex="0"
-      variant="filled"
-      theme="default"
+      :variant="variant"
+      :theme="theme"
       label="Call to action"
     ></RplButton>
   </RplCard>

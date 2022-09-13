@@ -9,7 +9,7 @@
   }
 
   &--circle {
-    border-radius: 100%;
+    border-radius: var(--rpl-border-radius-full);
   }
 
   &--none {

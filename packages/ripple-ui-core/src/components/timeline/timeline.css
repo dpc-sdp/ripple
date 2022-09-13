@@ -71,7 +71,6 @@
       height: var(--local-img-height);
       width: var(--local-img-height);
       margin-bottom: var(--rpl-sp-2);
-      border-radius: var(--rpl-border-radius-full);
     }
 
     &-link {

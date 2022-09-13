@@ -14,7 +14,6 @@
 
     &--avatar {
       display: inline-block;
-      border-radius: var(--rpl-border-radius-full);
       height: 14.8rem;
       width: 14.8rem;
       margin: var(--rpl-sp-11) var(--rpl-sp-5) 0;

@@ -47,14 +47,11 @@ const { container, trigger } = useAccessibleContainer()
 <template>
   <RplCard ref="container" type="nav" :el="el">
     <template v-if="image" #upper>
-      <div :class="imgClasses">
-        <RplImage
-          :src="image"
-          alt=""
-          :aspect="{ xs: '3', s: '4', m: '5', l: '2' }"
-          class="rpl-card__media"
-        />
-      </div>
+      <RplImage
+        :class="imgClasses"
+        :src="image"
+        alt=""
+      />
     </template>
     <template #meta>
       <div class="rpl-card__meta">

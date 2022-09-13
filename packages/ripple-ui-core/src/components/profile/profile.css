@@ -12,8 +12,6 @@
 
     img {
       display: block;
-      border-radius: var(--rpl-border-radius-full);
-      object-fit: cover;
       height: var(--local-image-size);
       width: var(--local-image-size);
 

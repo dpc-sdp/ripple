@@ -7,7 +7,7 @@ export interface RplImageFocalPoint {
   y: number
 }
 
-type RplImageAspectOptions = '1/1' | '4/3' | '16/9' | '21/9' | '3/1'
+type RplImageAspectOptions = 'square' | 'full' | 'wide' | 'ultrawide' | 'panorama'
 
 export interface RplImageAspect {
   xs?: RplImageAspectOptions
@@ -15,12 +15,4 @@ export interface RplImageAspect {
   m?: RplImageAspectOptions
   l?: RplImageAspectOptions
   xl?: RplImageAspectOptions
-}
-
-export const RplImageAspectMap = {
-  '1/1': 'square',
-  '4/3': 'full',
-  '16/9': 'wide',
-  '21/9': 'ultrawide',
-  '3/1': 'panorama'
 }

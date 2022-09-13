@@ -10,7 +10,6 @@ import {
   RplImageFit,
   RplImageFocalPoint,
   RplImageAspect,
-  RplImageAspectMap
 } from './constants'
 
 interface Props {
@@ -47,13 +46,13 @@ const aspectClasses = computed(() => {
     return { [`${base}-square`]: true }
   }
   if (typeof props.aspect === 'string') {
-    return { [`${base}-${RplImageAspectMap[props.aspect]}`]: true }
+    return { [`${base}-${props.aspect}`]: true }
   }
   if (typeof props.aspect === 'object') {
     const o = {}
     for (const bp in props.aspect) {
       const breakpoint = bp !== 'xs' ? `-${bp}` : ''
-      o[`${base}-${RplImageAspectMap[props.aspect[bp]]}${breakpoint}`] = true
+      o[`${base}-${props.aspect[bp]}${breakpoint}`] = true
     }
     return o
   }
@@ -63,8 +62,8 @@ const aspectClasses = computed(() => {
 
 const classes = computed(() => ({
   ['rpl-image']: true,
-  ['rpl-image--circle']: props.circle,
   ['rpl-image--fill']: props.aspect,
+  ['rpl-image--circle']: props.circle,
   [`rpl-image--${props.fit}`]: props.fit,
   ...aspectClasses.value
 }))

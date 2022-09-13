@@ -1,5 +1,7 @@
 export const RplImagePriority = ['auto', 'low', 'high'] as const
 
+export const RplImageFit = ['none', 'contain', 'cover'] as const
+
 export interface RplImageFocalPoint {
   x: number
   y: number

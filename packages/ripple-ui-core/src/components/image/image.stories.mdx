@@ -5,7 +5,7 @@ import {
   ArgsTable
 } from '@storybook/addon-docs'
 import RplImage from './image.vue'
-import { RplImagePriority } from './constants'
+import { RplImageFit, RplImagePriority } from './constants'
 import { a11yStoryCheck } from './../../../stories/interactions.js'
 
 export const SingleTemplate = (args) => ({
@@ -31,6 +31,10 @@ export const SingleTemplate = (args) => ({
     },
     sizes: {
       control: { type: 'text' }
+    },
+    fit: {
+      type: 'select',
+      options: RplImageFit
     },
     priority: {
       type: 'select',
@@ -162,6 +166,18 @@ export const SingleTemplate = (args) => ({
       },
       aspect: { xs: '1/1', s: '4/3', m: '16/9', l: '21/9', xl: '3/1' },
       priority: 'high'
+    }}
+    play={a11yStoryCheck}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+  <Story
+    name='Image fit'
+    args={{
+      src: 'https://images.unsplash.com/photo-1561618030-ecca407d3ba4?w=1600&q=80',
+      height: 800,
+      width: 800,
+      fit: 'contain'
     }}
     play={a11yStoryCheck}
   >

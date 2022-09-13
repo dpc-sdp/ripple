@@ -5,7 +5,13 @@ export default { name: 'RplImage' }
 <script setup lang="ts">
 import { computed } from 'vue'
 import { distanceAsPercentage } from '../../lib/helpers'
-import { RplImagePriority, RplImageFocalPoint, RplImageAspect, RplImageAspectMap } from './constants'
+import {
+  RplImagePriority,
+  RplImageFit,
+  RplImageFocalPoint,
+  RplImageAspect,
+  RplImageAspectMap
+} from './constants'
 
 interface Props {
   src: string
@@ -15,6 +21,7 @@ interface Props {
   sizes?: string
   srcSet?: string
   circle?: boolean
+  fit?: RplImageFit
   focalPoint?: RplImageFocalPoint
   aspect?: RplImageAspect | string
   priority?: typeof RplImagePriority[string]
@@ -27,6 +34,7 @@ const props = withDefaults(defineProps<Props>(), {
   sizes: undefined,
   srcSet: undefined,
   circle: false,
+  fit: 'cover',
   focalPoint: null,
   aspect: null,
   priority: 'auto'
@@ -44,32 +52,32 @@ const aspectClasses = computed(() => {
   if (typeof props.aspect === 'object') {
     const o = {}
     for (const bp in props.aspect) {
-      const breakpoint = bp !== 'xs' ? `-${bp}`: ''
+      const breakpoint = bp !== 'xs' ? `-${bp}` : ''
       o[`${base}-${RplImageAspectMap[props.aspect[bp]]}${breakpoint}`] = true
     }
     return o
   }
+
   return false
 })
 
 const classes = computed(() => ({
   ['rpl-image']: true,
   ['rpl-image--circle']: props.circle,
+  ['rpl-image--fill']: props.aspect,
+  [`rpl-image--${props.fit}`]: props.fit,
   ...aspectClasses.value
 }))
 
 const objectPosition = computed(() => {
-  if (!props.focalPoint || !props.height || !props.width) return null
+  if (!props.height || !props.width || !props.focalPoint?.x || !props.focalPoint?.y) {
+    return null
+  }
 
-  const isCentered = props.focalPoint.x === 0 && props.focalPoint.y === 0
-  const focalPoint = isCentered
-    ? '50% 50%'
-    : `${distanceAsPercentage(
-        props.focalPoint.x,
-        props.width
-      )}% ${distanceAsPercentage(props.focalPoint.y, props.height)}%`
+  const xPercent = distanceAsPercentage(props.focalPoint.x, props.width)
+  const yPercent = distanceAsPercentage(props.focalPoint.y, props.height)
 
-  return { [`object-position`]: focalPoint }
+  return { [`object-position`]: `${xPercent}% ${yPercent}%` }
 })
 
 const loading = computed(() => (props.priority === 'high' ? 'eager' : 'lazy'))

@@ -1,12 +1,26 @@
 .rpl-image {
-  height: 100%;
   max-width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  object-fit: cover;
+
+  &--fill {
+    height: 100%;
+  }
 
   &--circle {
     border-radius: 100%;
+  }
+
+  &--none {
+    object-fit: none;
+  }
+
+  &--contain {
+    object-fit: contain;
+  }
+
+  &--cover {
+    object-fit: cover;
   }
 }

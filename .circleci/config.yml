@@ -57,10 +57,13 @@ jobs:
           paths: [.]
 
   integration-nuxt:
+    working_directory: ~/app
     docker:
       - image: cypress/base:14.16.0
+        user: circleci
         environment:
           TERM: xterm
+
     steps:
       - attach_workspace:
           at: ~/app
@@ -112,6 +115,9 @@ workflows:
   commit:
     jobs:
       - build
+      - unit:
+          requires:
+            - build
       - build-storybook:
           requires:
             - build

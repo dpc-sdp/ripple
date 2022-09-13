@@ -3,9 +3,10 @@ orbs:
   node: circleci/node@5.0.0
 
 defaults: &defaults
-  executor:
-    name: node/default
-    tag: 'lts'
+  docker:
+    - image: cypress/base:14.16.0
+      environment:
+        TERM: xterm
   working_directory: ~/app
 
 jobs:
@@ -57,12 +58,7 @@ jobs:
           paths: [.]
 
   integration-nuxt:
-    working_directory: ~/app
-    docker:
-      - image: cypress/base:14.16.0
-        environment:
-          TERM: xterm
-
+    <<: *defaults
     steps:
       - attach_workspace:
           at: ~/app

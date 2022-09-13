@@ -9,19 +9,23 @@ import VicGovLogo from './../../assets/logos/logo-victoria.svg?component'
 import {
   CoreLink,
   LogoLink,
+  NavSectionItem,
   RplFooterVariants,
   vicGovHomeLabel,
   vicGovHomeUrl
 } from './constants'
+import NavSection from './nav-section.vue'
 
 interface Props {
   variant?: typeof RplFooterVariants[number]
+  nav?: NavSectionItem[]
   links?: CoreLink[]
   logoLinks?: LogoLink[]
 }
 
 withDefaults(defineProps<Props>(), {
   variant: 'default',
+  nav: () => [],
   links: () => [],
   logoLinks: () => []
 })
@@ -31,8 +35,11 @@ withDefaults(defineProps<Props>(), {
   <footer :class="`rpl-footer rpl-footer--${variant}`">
     <div class="rpl-container">
       <nav class="rpl-footer__nav">
-        <!-- TODO -->
-        test
+        <NavSection
+          v-for="(navSection, i) in nav"
+          :key="i"
+          :section="navSection"
+        />
       </nav>
     </div>
     <div class="rpl-container rpl-footer__custom-content">

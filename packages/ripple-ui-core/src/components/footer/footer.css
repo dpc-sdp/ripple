@@ -15,6 +15,23 @@
   border-top: var(--rpl-border-3) var(--rpl-border-solid) var(--rpl-clr-type-footer-accessible);
 }
 
+.rpl-footer__nav {
+  @media (--rpl-bp-m) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (--rpl-bp-l) {
+    display: block;
+    column-count: 3;
+  }
+
+  @media (--rpl-bp-xl) {
+    display: block;
+    column-count: 4;
+  }
+}
+
 .rpl-footer__custom-content {
   border-bottom: var(--rpl-border-1) var(--rpl-border-solid) var(--rpl-clr-footer-alt);
   padding-top: var(--rpl-sp-6);

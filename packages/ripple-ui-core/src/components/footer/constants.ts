@@ -5,6 +5,15 @@ export const vicGovHomeLabel = 'Victoria government home';
 
 export const RplFooterVariants = ['default', 'neutral'] as const
 
+export interface NavSectionItem {
+  text: string,
+  url: string,
+  children?: {
+    text: string,
+    url: string,
+  }[],
+}
+
 export interface CoreLink {
   label: string,
   url: string,

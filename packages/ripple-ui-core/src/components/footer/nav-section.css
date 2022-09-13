@@ -1,0 +1,11 @@
+@import '@dpc-sdp/ripple-ui-core/style/breakpoints';
+
+.rpl-footer-nav-section {
+  margin-bottom: var(--rpl-sp-6);
+
+  @media (--rpl-bp-l) {
+    display: table;
+    break-inside: avoid-column;
+    width: 100%;
+  }
+}

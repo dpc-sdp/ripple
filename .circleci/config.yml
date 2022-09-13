@@ -4,7 +4,7 @@ orbs:
 
 defaults: &defaults
   docker:
-    - image: cypress/base:14.16.0
+    - image: cypress/base:16.13.0
       environment:
         TERM: xterm
   working_directory: ~/app

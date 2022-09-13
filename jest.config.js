@@ -1,6 +1,8 @@
 module.exports = {
   verbose: true,
-  testURL: 'http://localhost',
+  testEnvironmentOptions: {
+    url: 'http://localhost'
+  },
   collectCoverage: true,
   testMatch: ['**/*.test.js', '**/*.test.ts'],
   moduleFileExtensions: ['js', 'ts', 'vue'],

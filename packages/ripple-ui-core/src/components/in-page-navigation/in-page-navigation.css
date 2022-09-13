@@ -69,7 +69,6 @@
           */
           .rpl-icon--child {
             float: left;
-            margin-top: var(--rpl-sp-1);
             margin-right: 1rem;
             margin-bottom: 0;
             margin-left: calc(-1 * var(--local-sub-indent) + 0.9rem);

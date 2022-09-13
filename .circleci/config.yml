@@ -19,9 +19,6 @@ jobs:
           cache-version: v1
           with-cache: false
       - run:
-          name: build all ripple package
-          command: yarn run build:ripple
-      - run:
           name: build example apps
           command: yarn run build:examples
       - run:
@@ -30,7 +27,7 @@ jobs:
       - persist_to_workspace:
           root: ~/app
           paths: [.]
-  test:
+  unit:
     <<: *defaults
     steps:
       - attach_workspace:
@@ -41,6 +38,17 @@ jobs:
       - run:
           command: yarn run test:unit
           name: Run unit tests
+      - store_test_results:
+          path: test-results
+
+  integration-nuxt:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/app
+      - run:
+          command: yarn run test-ci:nuxt-app
+          name: Run cypress integration test against nuxt-app
       - store_test_results:
           path: test-results
 
@@ -85,7 +93,10 @@ workflows:
       - build-storybook:
           requires:
             - build
-      - test:
+      - unit:
+          requires:
+            - build
+      - integration-nuxt:
           requires:
             - build
       - test-storybook:

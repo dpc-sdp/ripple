@@ -17,13 +17,7 @@ jobs:
           pkg-manager: yarn
           app-dir: ~/app
           cache-version: v1
-          with-cache: false
-      - run:
-          name: build example apps
-          command: yarn run build:examples
-      - run:
-          name: build docs site
-          command: yarn run build:docs
+          with-cache: true
       - persist_to_workspace:
           root: ~/app
           paths: [.]
@@ -41,16 +35,44 @@ jobs:
       - store_test_results:
           path: test-results
 
-  integration-nuxt:
+  build-docs:
     <<: *defaults
     steps:
       - attach_workspace:
           at: ~/app
       - run:
-          command: yarn run test-ci:nuxt-app
-          name: Run cypress integration test against nuxt-app
+          name: build docs site
+          command: yarn run build:docs
+
+  build-examples:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/app
+      - run:
+          name: build example apps
+          command: yarn run build:examples
+      - persist_to_workspace:
+          root: ~/app
+          paths: [.]
+
+  integration-nuxt:
+    docker:
+      - image: cypress/base:14.16.0
+        environment:
+          TERM: xterm
+    steps:
+      - attach_workspace:
+          at: ~/app
+      - run:
+          command: yarn run ci:nuxt-app
+          name: Run integration tests with Cypress
+      - store_artifacts:
+          path: examples/nuxt-app/test/videos
+      - store_artifacts:
+          path: examples/nuxt-app/test/screenshots
       - store_test_results:
-          path: test-results
+          path: examples/nuxt-app/test/results
 
   build-storybook:
     <<: *defaults
@@ -93,12 +115,12 @@ workflows:
       - build-storybook:
           requires:
             - build
-      - unit:
+      - build-examples:
           requires:
             - build
       - integration-nuxt:
           requires:
-            - build
+            - build-examples
       - test-storybook:
           requires:
             - build-storybook

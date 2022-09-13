@@ -10,6 +10,7 @@ import apiMocking from './test/mockttp'
 const testFolder = resolve(__dirname, './test')
 
 export default defineConfig({
+  projectId: 'mie4kg',
   e2e: {
     baseUrl: 'http://localhost:3000',
     specPattern: '**/*.{feature,feature.ts}',

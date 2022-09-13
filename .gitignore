@@ -10,9 +10,10 @@ dist-ssr
 coverage
 .jest-test-results.json
 storybook-static
+
 examples/**/test/videos/*
 examples/**/test/screenshots/*
-
+examples/**/test/results/*
 # Typescript
 tsconfig.tsbuildinfo
 

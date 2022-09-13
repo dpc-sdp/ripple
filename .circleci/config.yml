@@ -7,6 +7,10 @@ defaults: &defaults
     - image: cypress/base:16.13.0
       environment:
         TERM: xterm
+        TZ: 'Australia/Melbourne'
+      auth:
+        username: $DOCKERHUB_USERNAME
+        password: $DOCKERHUB_PASSWORD
   working_directory: ~/app
 
 jobs:
@@ -14,11 +18,13 @@ jobs:
     <<: *defaults
     steps:
       - checkout
-      - node/install-packages:
-          pkg-manager: yarn
-          app-dir: ~/app
-          cache-version: v1
-          with-cache: true
+      - run:
+          name: Install Dependencies
+          command: yarn install --frozen-lockfile --cache-folder ~/.cache/yarn
+      - save_cache:
+          key: v10-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.cache
       - persist_to_workspace:
           root: ~/app
           paths: [.]
@@ -60,6 +66,11 @@ jobs:
   integration-nuxt:
     <<: *defaults
     steps:
+      - restore_cache:
+          keys:
+            - v10-deps-{{ checksum "yarn.lock" }}
+            - v10-deps-{{ .Branch }}
+            - v9-deps
       - attach_workspace:
           at: ~/app
       - run:

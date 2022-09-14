@@ -71,19 +71,21 @@ defineProps({
             sm:gap-6
           "
         >
-          <slot name="cta"></slot>
-
+          <template v-if="$slots.cta">
+            <ContentSlot :use="$slots.cta" unwrap="p" />
+          </template>
           <a
             v-if="secondary"
-            :href="(secondary[1] as any)"
+            :href="secondary[1]"
             class="u-text-gray-500 hover:u-text-gray-700 py-px font-medium"
           >
             {{ secondary[0] }}
           </a>
         </div>
       </div>
-
-      <slot name="right"> </slot>
+      <div v-if="$slots.right">
+        <ContentSlot :use="$slots.right" unwrap="p" />
+      </div>
     </div>
   </section>
 </template>

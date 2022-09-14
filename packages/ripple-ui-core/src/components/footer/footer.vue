@@ -3,6 +3,7 @@ export default { name: 'RplFooter' }
 </script>
 
 <script setup lang="ts">
+import { useBreakpoints } from '@vueuse/core'
 import Acknowledgement from '../acknowledgement/acknowledgement.vue'
 import TextLink from '../text-link/text-link.vue'
 import VicGovLogo from './../../assets/logos/logo-victoria.svg?component'
@@ -29,6 +30,15 @@ withDefaults(defineProps<Props>(), {
   links: () => [],
   logoLinks: () => []
 })
+
+const breakpoints = useBreakpoints({
+  s: 576,
+  m: 768,
+  l: 992,
+  xl: 1200
+})
+
+const isLargeScreen = breakpoints.greater('l')
 </script>
 
 <template>
@@ -37,8 +47,10 @@ withDefaults(defineProps<Props>(), {
       <nav class="rpl-footer__nav">
         <NavSection
           v-for="(navSection, i) in nav"
+          :id="`${i}`"
           :key="i"
           :section="navSection"
+          :is-expandable="!isLargeScreen"
         />
       </nav>
     </div>
@@ -65,7 +77,10 @@ withDefaults(defineProps<Props>(), {
           <a
             v-for="(logoLink, index) in logoLinks"
             :key="index"
-            class="rpl-footer-logo-link"
+            class="
+              rpl-footer-logo-link rpl-u-focusable-outline
+              rpl-u-focusable--alt-colour
+            "
             :href="logoLink.url"
           >
             <img
@@ -74,7 +89,13 @@ withDefaults(defineProps<Props>(), {
               :alt="logoLink.label"
             />
           </a>
-          <a class="rpl-footer-logo-link" :href="vicGovHomeUrl">
+          <a
+            class="
+              rpl-footer-logo-link rpl-u-focusable-outline
+              rpl-u-focusable--alt-colour
+            "
+            :href="vicGovHomeUrl"
+          >
             <span class="rpl-u-visually-hidden">{{ vicGovHomeLabel }}</span>
             <VicGovLogo class="rpl-footer-vic-gov-logo" />
           </a>

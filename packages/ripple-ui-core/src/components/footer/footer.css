@@ -19,6 +19,7 @@
   @media (--rpl-bp-m) {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    grid-gap: 0 var(--rpl-sp-6);
   }
 
   @media (--rpl-bp-l) {
@@ -29,6 +30,7 @@
   @media (--rpl-bp-xl) {
     display: block;
     column-count: 4;
+    grid-gap: 0 var(--rpl-sp-8);
   }
 }
 

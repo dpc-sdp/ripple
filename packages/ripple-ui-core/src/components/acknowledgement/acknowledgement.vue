@@ -5,6 +5,7 @@ export default { name: 'RplAcknowledgement' }
 <script setup lang="ts">
 import aboriginalFlag from './../../assets/flags/flag-aboriginal.svg?url'
 import torresStraitIslanderFlag from './../../assets/flags/flag-torres-strait-islander.svg?url'
+import RplImage from '../image/image.vue'
 
 interface Props {
   message?: string
@@ -19,12 +20,11 @@ withDefaults(defineProps<Props>(), {
 <template>
   <div class="rpl-acknowledgement">
     <div class="rpl-acknowledgement__flags">
-      <img
+      <RplImage
         class="rpl-acknowledgement__flag"
         :src="aboriginalFlag"
-        alt="Aboriginal flag"
-      />
-      <img
+        alt="Aboriginal flag" />
+      <RplImage
         class="rpl-acknowledgement__flag"
         :src="torresStraitIslanderFlag"
         alt="Torres Strait Islander flag"

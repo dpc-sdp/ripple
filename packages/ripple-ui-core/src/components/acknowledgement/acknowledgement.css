@@ -13,6 +13,7 @@
 
   &__flags {
     display: flex;
+    flex-shrink: 0;
 
     @media (--rpl-bp-m) {
       margin: var(--rpl-sp-1) 0;

@@ -7,20 +7,21 @@ export const RplFooterVariants = ['default', 'neutral'] as const
 
 export interface NavSectionItem {
   text: string,
-  url: string,
+  url?: string,
   children?: {
     text: string,
     url: string,
+    icon?: string,
   }[],
 }
 
 export interface CoreLink {
-  label: string,
+  text: string,
   url: string,
 }
 
 export interface LogoLink {
-  label: string,
+  alt: string,
   url: string,
-  imgSrc: string,
+  src: string,
 }

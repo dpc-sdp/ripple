@@ -154,47 +154,79 @@ export const SingleTemplate = (args) => ({
           url: '',
           children: [
             {
-              text: 'Education',
-              url: '#'
+              text: 'DFFH Twitter',
+              url: '#',
+              icon: 'icon-twitter'
             },
             {
-              text: 'Housing and Property',
-              url: '#'
+              text: 'DH Twitter',
+              url: '#',
+              icon: 'icon-twitter'
             },
             {
-              text: 'Health',
-              url: '#'
+              text: 'DFFH LinkedIn',
+              url: '#',
+              icon: 'icon-linkedin'
+            },
+            {
+              text: 'DFFH Facebook',
+              url: '#',
+              icon: 'icon-facebook'
+            },
+            {
+              text: 'Youtube',
+              url: '#',
+              icon: 'icon-youtube'
             }
           ]
         }
       ],
       links: [
-        { label: 'Privacy', url: '#' },
-        { label: 'Disclaimer', url: '#' },
-        { label: 'Terms of use', url: '#' },
-        { label: 'Sitemap', url: '#' },
-        { label: 'Accessibility Statement', url: '#' },
-        { label: 'Help', url: '#' },
+        {
+          text: 'Privacy',
+          url: '#'
+        },
+        {
+          text: 'Disclaimer',
+          url: '#'
+        },
+        {
+          text: 'Terms of use',
+          url: '#'
+        },
+        {
+          text: 'Sitemap',
+          url: '#'
+        },
+        {
+          text: 'Accessibility Statement',
+          url: '#'
+        },
+        {
+          text: 'Help',
+          url: '#'
+        }
       ],
-      logoLinks: [
+      copyright: '© Copyright State Government of Victoria',
+      logos: [
         {
-          imgSrc: svgPlaceholder({ width: 112, height: 52 }),
-          label: 'Max native size',
+          src: svgPlaceholder({ width: 112, height: 52 }),
+          alt: 'Max native size',
           url: '#'
         },
         {
-          imgSrc: svgPlaceholder({ width: 32, height: 32 }),
-          label: 'Smaller than max size',
+          src: svgPlaceholder({ width: 32, height: 32 }),
+          alt: 'Smaller than max size',
           url: '#'
         },
         {
-          imgSrc: svgPlaceholder({ width: 80, height: 200 }),
-          label: 'Portrait',
+          src: svgPlaceholder({ width: 80, height: 200 }),
+          alt: 'Portrait',
           url: '#'
         },
         {
-          imgSrc: svgPlaceholder({ width: 200, height: 80 }),
-          label: 'Landscape',
+          src: svgPlaceholder({ width: 200, height: 80 }),
+          alt: 'Landscape',
           url: '#'
         }
       ]

@@ -32,6 +32,15 @@
     column-count: 4;
     grid-gap: 0 var(--rpl-sp-8);
   }
+
+  .rpl-list__link {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .rpl-list__icon {
+    margin-right: var(--rpl-sp-2);
+  }
 }
 
 .rpl-footer__custom-content {

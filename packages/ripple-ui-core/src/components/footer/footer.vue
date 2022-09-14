@@ -21,14 +21,16 @@ interface Props {
   variant?: typeof RplFooterVariants[number]
   nav?: NavSectionItem[]
   links?: CoreLink[]
-  logoLinks?: LogoLink[]
+  logos?: LogoLink[]
+  copyright?: string
 }
 
 withDefaults(defineProps<Props>(), {
   variant: 'default',
   nav: () => [],
   links: () => [],
-  logoLinks: () => []
+  logos: () => [],
+  copyright: '© Copyright State Government of Victoria'
 })
 
 const breakpoints = useBreakpoints({
@@ -65,17 +67,17 @@ const isLargeScreen = breakpoints.greater('l')
           <ul class="rpl-footer-core-links">
             <li v-for="link in links" :key="link.url">
               <TextLink class="rpl-type-p-small" :url="link.url">{{
-                link.label
+                link.text
               }}</TextLink>
             </li>
           </ul>
           <p class="rpl-type-p-small">
-            &copy; Copyright State Government of Victoria
+            {{ copyright }}
           </p>
         </div>
         <div class="rpl-footer-bottom__branding">
           <a
-            v-for="(logoLink, index) in logoLinks"
+            v-for="(logoLink, index) in logos"
             :key="index"
             class="
               rpl-footer-logo-link rpl-u-focusable-outline
@@ -85,8 +87,8 @@ const isLargeScreen = breakpoints.greater('l')
           >
             <img
               class="rpl-footer-logo-link__img"
-              :src="logoLink.imgSrc"
-              :alt="logoLink.label"
+              :src="logoLink.src"
+              :alt="logoLink.alt"
             />
           </a>
           <a

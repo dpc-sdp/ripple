@@ -12,10 +12,11 @@
     "@iconify/vue": "^4.0.0",
     "@nuxt-themes/config": "npm:@nuxt-themes/config-edge@latest",
     "@nuxt/content": "npm:@nuxt/content-edge@latest",
+    "@nuxt/kit": "^3.0.0-rc.9",
     "@nuxtjs/color-mode": "^3.1.4",
     "@nuxtjs/tailwindcss": "^5.3.3",
     "@tailwindcss/typography": "^0.5.7",
-    "@nuxt/kit": "^3.0.0-rc.9"
+    "jest": "^29.0.3"
   },
   "dependencies": {
     "@dpc-sdp/ripple-ui-core": "^0.0.0"

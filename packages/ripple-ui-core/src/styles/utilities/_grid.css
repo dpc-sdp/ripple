@@ -48,6 +48,13 @@
     grid-column-end: span $i;
   }
 
+  /* Small */
+  .rpl-col-$(i)-s {
+    @media (--rpl-bp-s) {
+      grid-column-end: span $i;
+    }
+  }
+
   /* Medium */
   .rpl-col-$(i)-m {
     @media (--rpl-bp-m) {
@@ -77,6 +84,13 @@
     grid-column-start: $i;
   }
 
+  /* Small */
+  .rpl-col-start-$(i)-s {
+    @media (--rpl-bp-s) {
+      grid-column-start: $i;
+    }
+  }
+
   /* Medium */
   .rpl-col-start-$(i)-m {
     @media (--rpl-bp-m) {
@@ -87,6 +101,13 @@
   /* Large */
   .rpl-col-start-$(i)-l {
     @media (--rpl-bp-l) {
+      grid-column-start: $i;
+    }
+  }
+
+  /* XL */
+  .rpl-col-start-$(i)-xl {
+    @media (--rpl-bp-xl) {
       grid-column-start: $i;
     }
   }

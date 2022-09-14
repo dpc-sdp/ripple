@@ -14,14 +14,14 @@ export const SingleTemplate = (args) => ({
   },
   template: `
   <div class="rpl-storybook__page">
-    <h2 class="rpl-type-h2">${args.heading}</h2>
-    <ul class="rpl-grid">
+    <h2 class="rpl-type-h2-fixed">${args.heading}</h2>
+    <ul class="rpl-grid rpl-card--category-grid-container">
       <RplCategoryGridCard
         v-for="(item, index) of args.number"
         :key="index"
         el="li"
         v-bind="args"
-        class="rpl-col-12 rpl-col-6-m rpl-col-4-l rpl-col-3-xl"
+        class="rpl-col-12 rpl-col-6-s rpl-col-4-l rpl-col-3-xl"
         url="${args.url}"
         image="${args.image}"
         title="${args.title}"

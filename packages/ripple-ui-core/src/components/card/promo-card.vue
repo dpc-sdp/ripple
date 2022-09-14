@@ -35,10 +35,14 @@ const { container, trigger } = useAccessibleContainer()
 <template>
   <RplCard ref="container" type="promo" :highlight="highlight" :el="el">
     <template v-if="image" #upper>
-      <RplImage :src="image" alt="" class="rpl-card__media" />
+      <RplImage
+        class="rpl-card__media rpl-card__media--round-top"
+        :src="image"
+        alt=""
+      />
     </template>
-    <template #meta>
-      <div class="rpl-card__meta">
+    <template v-if="meta" #meta>
+      <div class="rpl-card__meta rpl-type-p-small">
         <slot name="meta"></slot>
       </div>
     </template>

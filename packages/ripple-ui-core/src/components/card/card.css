@@ -126,7 +126,11 @@
       display: flex;
 
       .rpl-card__upper {
-        flex: 0 0 calc(32rem + 2 * var(--rpl-sp-5)); /* basis = 320px + l/r margin */
+        flex-shrink: 0;
+        flex-basis: calc(
+          32rem + 2 * var(--rpl-sp-5)
+        ); /* basis = 320px + l/r margin */
+
         margin-bottom: var(--rpl-sp-5);
       }
 

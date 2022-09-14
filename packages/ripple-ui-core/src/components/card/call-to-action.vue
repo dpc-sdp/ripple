@@ -10,6 +10,7 @@ import { useAccessibleContainer } from '../../composables/useAccessibleContainer
 
 import RplCard from './card.vue'
 import RplButton from '../button/button.vue'
+import RplImage from '../image/image.vue'
 
 interface Props {
   el?: typeof RplCardElements[number]
@@ -41,7 +42,7 @@ const { container, trigger } = useAccessibleContainer()
     :el="el"
   >
     <template v-if="image" #upper>
-      <img class="rpl-card__media rpl-card__media--inset" :src="image" alt="" />
+      <RplImage class="rpl-card__media rpl-card__media--inset" :src="image" alt="" />
     </template>
     <template #title>
       <h3 :class="titleClasses">{{ title }}</h3>

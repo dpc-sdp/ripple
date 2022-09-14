@@ -9,12 +9,10 @@
 
   &__media {
     display: block;
-    object-fit: cover;
     max-height: 24rem;
     width: 100%;
 
     &--avatar {
-      border-radius: var(--rpl-border-radius-full);
       height: 14.8rem;
       width: 14.8rem;
       margin: var(--rpl-sp-11) auto 0;

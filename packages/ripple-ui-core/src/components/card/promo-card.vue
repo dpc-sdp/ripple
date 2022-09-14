@@ -6,7 +6,7 @@ export default { name: 'RplPromoCard' }
 import { computed } from 'vue'
 import { RplCardElements, RplCardTitleClasses } from './constants'
 import { useAccessibleContainer } from '../../composables/useAccessibleContainer'
-
+import RplImage from './../image/image.vue'
 import RplCard from './card.vue'
 import RplTextLink from '../text-link/text-link.vue'
 
@@ -35,7 +35,7 @@ const { container, trigger } = useAccessibleContainer()
 <template>
   <RplCard ref="container" type="promo" :highlight="highlight" :el="el">
     <template v-if="image" #upper>
-      <img
+      <RplImage
         class="rpl-card__media rpl-card__media--round-top"
         :src="image"
         alt=""

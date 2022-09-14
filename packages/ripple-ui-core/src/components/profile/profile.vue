@@ -5,6 +5,7 @@ export default { name: 'RplProfile' }
 <script setup lang="ts">
 import { RplProfileItem } from './constants'
 import type { ImgHTMLAttributes } from 'vue'
+import RplImage from '../image/image.vue'
 
 interface Props {
   image: ImgHTMLAttributes
@@ -19,7 +20,7 @@ withDefaults(defineProps<Props>(), {
 <template>
   <div class="rpl-profile">
     <div class="rpl-profile__media">
-      <img v-bind="image" />
+      <RplImage v-bind="image" circle />
     </div>
     <div v-if="items.length > 0" class="rpl-profile__items">
       <dl v-for="(item, index) of items" :key="index" class="rpl-profile__item">

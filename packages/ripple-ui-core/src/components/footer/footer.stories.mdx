@@ -13,12 +13,215 @@ export const SingleTemplate = (args) => ({
   setup() {
     return { args }
   },
-  template: '<RplFooter v-bind="args" />'
+  template: `<div>
+    <RplFooter v-bind="args" />
+    <div class="rpl-u-margin-b-10"></div>
+    <RplFooter v-bind="args" variant="neutral" />
+    </div>`
 })
 
 <Meta
   title='WIP/Components/Footer'
   component={RplFooter}
+  argTypes={{
+    variant: {
+      control: { type: 'select' },
+      options: RplFooterVariants
+    },
+  }}
+  args={{
+  variant: 'default',
+  nav: [
+    {
+      text: 'Your Services',
+      url: '#',
+      children: [
+        {
+          text: 'Grants awards and assistance',
+          url: '#'
+        },
+        {
+          text: 'Law and safety',
+          url: '#'
+        },
+        {
+          text: 'Business and Industry',
+          url: '#'
+        },
+        {
+          text: 'Jobs and the Workplace',
+          url: '#'
+        },
+        {
+          text: 'Transport and Traffic',
+          url: '#'
+        },
+        {
+          text: 'Education',
+          url: '#'
+        },
+        {
+          text: 'Housing and Property',
+          url: '#'
+        },
+        {
+          text: 'Health',
+          url: '#'
+        },
+        {
+          text: 'Community',
+          url: '#'
+        },
+        {
+          text: 'Art, Culture and Sport',
+          url: '#'
+        },
+        {
+          text: 'Environment and Water',
+          url: '#'
+        }
+      ]
+    },
+    {
+      text: 'About VIC Government',
+      url: '#',
+      children: [
+        {
+          text: 'Grants awards and assistance',
+          url: '#'
+        },
+        {
+          text: 'Law and safety',
+          url: '#'
+        },
+        {
+          text: 'Business and Industry',
+          url: '#'
+        },
+        {
+          text: 'Jobs and the Workplace',
+          url: '#'
+        },
+        {
+          text: 'Transport and Traffic',
+          url: '#'
+        },
+        {
+          text: 'Education',
+          url: '#'
+        },
+        {
+          text: 'Housing and Property',
+          url: '#'
+        },
+        {
+          text: 'Health',
+          url: '#'
+        },
+        {
+          text: 'Community',
+          url: '#'
+        },
+        {
+          text: 'Art, Culture and Sport',
+          url: '#'
+        },
+        {
+          text: 'Environment and Water',
+          url: '#'
+        }
+      ]
+    },
+    {
+      text: 'News',
+      url: '#'
+    },
+    {
+      text: 'Events',
+      url: '#'
+    },
+    {
+      text: 'Connect with us',
+      url: '',
+      children: [
+        {
+          text: 'DFFH Twitter',
+          url: '#',
+          icon: 'icon-twitter'
+        },
+        {
+          text: 'DH Twitter',
+          url: '#',
+          icon: 'icon-twitter'
+        },
+        {
+          text: 'DFFH LinkedIn',
+          url: '#',
+          icon: 'icon-linkedin'
+        },
+        {
+          text: 'DFFH Facebook',
+          url: '#',
+          icon: 'icon-facebook'
+        },
+        {
+          text: 'Youtube',
+          url: '#',
+          icon: 'icon-youtube'
+        }
+      ]
+    }
+  ],
+  links: [
+    {
+      text: 'Privacy',
+      url: '#'
+    },
+    {
+      text: 'Disclaimer',
+      url: '#'
+    },
+    {
+      text: 'Terms of use',
+      url: '#'
+    },
+    {
+      text: 'Sitemap',
+      url: '#'
+    },
+    {
+      text: 'Accessibility Statement',
+      url: '#'
+    },
+    {
+      text: 'Help',
+      url: '#'
+    }
+  ],
+  copyright: '© Copyright State Government of Victoria',
+  logos: [
+    {
+      src: svgPlaceholder({ width: 112, height: 52 }),
+      alt: 'Max native size',
+      url: '#'
+    },
+    {
+      src: svgPlaceholder({ width: 32, height: 32 }),
+      alt: 'Smaller than max size',
+      url: '#'
+    },
+    {
+      src: svgPlaceholder({ width: 80, height: 200 }),
+      alt: 'Portrait',
+      url: '#'
+    },
+    {
+      src: svgPlaceholder({ width: 200, height: 80 }),
+      alt: 'Landscape',
+      url: '#'
+    }
+  ]
+}}
 />
 
 # Footer
@@ -31,205 +234,6 @@ export const SingleTemplate = (args) => ({
     play={a11yStoryCheck}
     parameters={{
       layout: 'fullscreen',
-    }}
-    argTypes={{
-      variant: {
-        control: { type: 'select' },
-        options: RplFooterVariants
-      },
-    }}
-    args={{
-      variant: 'default',
-      nav: [
-        {
-          text: 'Your Services',
-          url: '#',
-          children: [
-            {
-              text: 'Grants awards and assistance',
-              url: '#'
-            },
-            {
-              text: 'Law and safety',
-              url: '#'
-            },
-            {
-              text: 'Business and Industry',
-              url: '#'
-            },
-            {
-              text: 'Jobs and the Workplace',
-              url: '#'
-            },
-            {
-              text: 'Transport and Traffic',
-              url: '#'
-            },
-            {
-              text: 'Education',
-              url: '#'
-            },
-            {
-              text: 'Housing and Property',
-              url: '#'
-            },
-            {
-              text: 'Health',
-              url: '#'
-            },
-            {
-              text: 'Community',
-              url: '#'
-            },
-            {
-              text: 'Art, Culture and Sport',
-              url: '#'
-            },
-            {
-              text: 'Environment and Water',
-              url: '#'
-            }
-          ]
-        },
-        {
-          text: 'About VIC Government',
-          url: '#',
-          children: [
-            {
-              text: 'Grants awards and assistance',
-              url: '#'
-            },
-            {
-              text: 'Law and safety',
-              url: '#'
-            },
-            {
-              text: 'Business and Industry',
-              url: '#'
-            },
-            {
-              text: 'Jobs and the Workplace',
-              url: '#'
-            },
-            {
-              text: 'Transport and Traffic',
-              url: '#'
-            },
-            {
-              text: 'Education',
-              url: '#'
-            },
-            {
-              text: 'Housing and Property',
-              url: '#'
-            },
-            {
-              text: 'Health',
-              url: '#'
-            },
-            {
-              text: 'Community',
-              url: '#'
-            },
-            {
-              text: 'Art, Culture and Sport',
-              url: '#'
-            },
-            {
-              text: 'Environment and Water',
-              url: '#'
-            }
-          ]
-        },
-        {
-          text: 'News',
-          url: '#'
-        },
-        {
-          text: 'Events',
-          url: '#'
-        },
-        {
-          text: 'Connect with us',
-          url: '',
-          children: [
-            {
-              text: 'DFFH Twitter',
-              url: '#',
-              icon: 'icon-twitter'
-            },
-            {
-              text: 'DH Twitter',
-              url: '#',
-              icon: 'icon-twitter'
-            },
-            {
-              text: 'DFFH LinkedIn',
-              url: '#',
-              icon: 'icon-linkedin'
-            },
-            {
-              text: 'DFFH Facebook',
-              url: '#',
-              icon: 'icon-facebook'
-            },
-            {
-              text: 'Youtube',
-              url: '#',
-              icon: 'icon-youtube'
-            }
-          ]
-        }
-      ],
-      links: [
-        {
-          text: 'Privacy',
-          url: '#'
-        },
-        {
-          text: 'Disclaimer',
-          url: '#'
-        },
-        {
-          text: 'Terms of use',
-          url: '#'
-        },
-        {
-          text: 'Sitemap',
-          url: '#'
-        },
-        {
-          text: 'Accessibility Statement',
-          url: '#'
-        },
-        {
-          text: 'Help',
-          url: '#'
-        }
-      ],
-      copyright: '© Copyright State Government of Victoria',
-      logos: [
-        {
-          src: svgPlaceholder({ width: 112, height: 52 }),
-          alt: 'Max native size',
-          url: '#'
-        },
-        {
-          src: svgPlaceholder({ width: 32, height: 32 }),
-          alt: 'Smaller than max size',
-          url: '#'
-        },
-        {
-          src: svgPlaceholder({ width: 80, height: 200 }),
-          alt: 'Portrait',
-          url: '#'
-        },
-        {
-          src: svgPlaceholder({ width: 200, height: 80 }),
-          alt: 'Landscape',
-          url: '#'
-        }
-      ]
     }}
   >
     {SingleTemplate.bind()}

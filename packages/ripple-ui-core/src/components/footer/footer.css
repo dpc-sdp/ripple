@@ -12,7 +12,7 @@
   padding-top: var(--rpl-sp-6);
   padding-bottom: var(--rpl-sp-8);
   color: var(--rpl-clr-type-footer-contrast);
-  border-top: var(--rpl-border-3) var(--rpl-border-solid) var(--rpl-clr-type-footer-accessible);
+  border-top: var(--rpl-border-3) solid var(--rpl-clr-type-footer-accessible);
 
   --local-clr-link: var(--rpl-clr-type-footer-contrast);
   --local-clr-link-visited: var(--rpl-clr-type-footer-contrast);
@@ -48,7 +48,7 @@
 }
 
 .rpl-footer__custom-content {
-  border-bottom: var(--rpl-border-1) var(--rpl-border-solid) var(--rpl-clr-footer-alt);
+  border-bottom: var(--rpl-border-1) solid var(--rpl-clr-footer-alt);
   padding-top: var(--rpl-sp-6);
   padding-bottom: var(--rpl-sp-6);
 }

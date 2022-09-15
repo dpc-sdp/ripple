@@ -1,7 +1,7 @@
 @import '@dpc-sdp/ripple-ui-core/style/breakpoints';
 
 .rpl-footer-nav-section {
-  border-bottom: var(--rpl-border-1) var(--rpl-border-solid) var(--rpl-clr-footer-alt);
+  border-bottom: var(--rpl-border-1) solid var(--rpl-clr-footer-alt);
 
   @media (--rpl-bp-l) {
     border-bottom: none;

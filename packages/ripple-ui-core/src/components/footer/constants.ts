@@ -1,5 +1,3 @@
-// This file is used to declare component specific constants. Delete if not needed
-
 export const vicGovHomeUrl = 'https://vic.gov.au';
 export const vicGovHomeLabel = 'Victoria government home';
 

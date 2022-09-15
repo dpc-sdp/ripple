@@ -5,7 +5,6 @@ export default defineNuxtConfig({
   modules: [
     '@dpc-sdp/ripple-ui-core/nuxt',
     '@nuxt-themes/config/module',
-    '@nuxtjs/design-tokens/module',
     '@nuxt/content',
     '@nuxtjs/tailwindcss',
     '@nuxtjs/color-mode'

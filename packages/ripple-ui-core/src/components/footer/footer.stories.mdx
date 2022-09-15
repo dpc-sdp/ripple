@@ -14,9 +14,9 @@ export const SingleTemplate = (args) => ({
     return { args }
   },
   template: `<div>
-    <RplFooter v-bind="args" />
+    <RplFooter v-bind="args" id="footer1" />
     <div class="rpl-u-margin-b-10"></div>
-    <RplFooter v-bind="args" variant="neutral" />
+    <RplFooter v-bind="args" id="footer2" variant="neutral" />
     </div>`
 })
 

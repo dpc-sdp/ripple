@@ -19,6 +19,7 @@ import {
 import NavSection from './nav-section.vue'
 
 interface Props {
+  id?: string
   variant?: typeof RplFooterVariants[number]
   nav?: NavSectionItem[]
   links?: CoreLink[]
@@ -27,6 +28,7 @@ interface Props {
 }
 
 withDefaults(defineProps<Props>(), {
+  id: 'rpl-footer', // used to prefix ids so there can be multiple footers on a page
   variant: 'default',
   nav: () => [],
   links: () => [],
@@ -45,7 +47,7 @@ const isLargeScreen = breakpoints.greater('l')
       <nav class="rpl-footer__nav">
         <NavSection
           v-for="(navSection, i) in nav"
-          :id="`${i}`"
+          :id="`${id}${i}`"
           :key="i"
           :section="navSection"
           :is-expandable="!isLargeScreen"

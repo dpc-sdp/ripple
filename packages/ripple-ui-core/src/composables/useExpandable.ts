@@ -16,7 +16,7 @@ export function useExpandable(_id: string, _isExpanded: MaybeRef<boolean>) {
     }
 
     triggerProps.value = {
-      id: `accordion-${id.value}-content`,
+      id: `${id.value}-content`,
       ariaLabelledby: `${id.value}-toggle`,
       // ariaHidden: isExpanded === false ? 'true' : null
     }

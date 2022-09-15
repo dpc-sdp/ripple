@@ -4,6 +4,8 @@ export default { name: 'RplFooter' }
 
 <script setup lang="ts">
 import { useBreakpoints } from '@vueuse/core'
+import { watch } from 'fs'
+import { computed, watchEffect } from 'vue'
 import { bpMin } from '../../lib/breakpoints'
 import Acknowledgement from '../acknowledgement/acknowledgement.vue'
 import TextLink from '../text-link/text-link.vue'
@@ -19,7 +21,6 @@ import {
 import NavSection from './nav-section.vue'
 
 interface Props {
-  id?: string
   variant?: typeof RplFooterVariants[number]
   nav?: NavSectionItem[]
   links?: CoreLink[]
@@ -27,8 +28,7 @@ interface Props {
   copyright?: string
 }
 
-withDefaults(defineProps<Props>(), {
-  id: 'rpl-footer', // used to prefix ids so there can be multiple footers on a page
+const props = withDefaults(defineProps<Props>(), {
   variant: 'default',
   nav: () => [],
   links: () => [],
@@ -38,20 +38,79 @@ withDefaults(defineProps<Props>(), {
 
 const breakpoints = useBreakpoints(bpMin)
 
-const isLargeScreen = breakpoints.greater('l')
+const isLargeScreen = breakpoints.between('l', 'xl')
+const isXLargeScreen = breakpoints.greater('xl')
+const isExpandable = computed(() => {
+  return !isLargeScreen && !isXLargeScreen
+})
+
+const getColumnBreaks = (numItems: number, numColumns: number): number[] => {
+  // Get the number of items that can be evenly distributed across all columns
+  const base = Math.floor(numItems / numColumns)
+
+  // Get the number of left over items that couldn't be evenly distributed
+  const remainder = numItems % numColumns
+
+  const itemsPerColumn = Array(numColumns)
+    .fill(base)
+    .map((n, i) => (i < remainder ? n + 1 : n))
+
+  const columnBreaks = itemsPerColumn
+    .slice(0, itemsPerColumn.length - 1)
+    .reduce(
+      (results, n, i) => {
+        return [...results, results[i] + n]
+      },
+      [0]
+    )
+
+  return columnBreaks
+}
+
+const columns = computed(() => {
+  let numColumns
+
+  console.log('asjdnjkasndkjansdkjn')
+
+  if (isLargeScreen.value) {
+    numColumns = 3
+  } else if (isXLargeScreen.value) {
+    numColumns = 4
+  } else {
+    numColumns = 1
+  }
+
+  const columnBreaks = getColumnBreaks(props.nav.length, numColumns)
+
+  return columnBreaks.reduce((results, breakIndex, i) => {
+    if (i < columnBreaks.length - 1) {
+      return [...results, props.nav.slice(breakIndex, columnBreaks[i + 1])]
+    } else {
+      return [...results, props.nav.slice(breakIndex)]
+    }
+  }, [])
+})
+
+watchEffect(() => {
+  console.log(columns.value)
+  console.log(isLargeScreen.value)
+  console.log(isXLargeScreen.value)
+})
 </script>
 
 <template>
   <footer :class="`rpl-footer rpl-footer--${variant}`">
     <div class="rpl-container">
       <nav class="rpl-footer__nav">
-        <NavSection
-          v-for="(navSection, i) in nav"
-          :id="`${id}${i}`"
-          :key="i"
-          :section="navSection"
-          :is-expandable="!isLargeScreen"
-        />
+        <div v-for="(col, colIndex) in columns" :key="colIndex">
+          <NavSection
+            v-for="(navSection, i) in col"
+            :id="`rpl-footer-nav-${colIndex}${i}`"
+            :key="i"
+            :section="navSection"
+            :is-expandable="isExpandable"
+          />
+        </div>
       </nav>
     </div>
     <div class="rpl-container rpl-footer__custom-content">

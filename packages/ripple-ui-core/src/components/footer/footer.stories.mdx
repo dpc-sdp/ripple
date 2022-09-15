@@ -13,11 +13,7 @@ export const SingleTemplate = (args) => ({
   setup() {
     return { args }
   },
-  template: `<div>
-    <RplFooter v-bind="args" id="footer1" />
-    <div class="rpl-u-margin-b-10"></div>
-    <RplFooter v-bind="args" id="footer2" variant="neutral" />
-    </div>`
+  template: `<RplFooter v-bind="args"/>`
 })
 
 <Meta
@@ -230,10 +226,22 @@ export const SingleTemplate = (args) => ({
 
 <Canvas>
   <Story
-    name='Footer'
+    name='Default'
     play={a11yStoryCheck}
     parameters={{
       layout: 'fullscreen',
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+    <Story
+    name='Neutral'
+    play={a11yStoryCheck}
+    parameters={{
+      layout: 'fullscreen',
+    }}
+    args={{
+      variant: 'neutral'
     }}
   >
     {SingleTemplate.bind()}

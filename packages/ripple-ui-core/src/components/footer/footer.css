@@ -27,13 +27,11 @@
   }
 
   @media (--rpl-bp-l) {
-    display: block;
-    column-count: 3;
+    grid-template-columns: 1fr 1fr 1fr;
   }
 
   @media (--rpl-bp-xl) {
-    display: block;
-    column-count: 4;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 0 var(--rpl-sp-8);
   }
 

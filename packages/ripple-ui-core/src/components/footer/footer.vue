@@ -4,6 +4,7 @@ export default { name: 'RplFooter' }
 
 <script setup lang="ts">
 import { useBreakpoints } from '@vueuse/core'
+import { bpMin } from '../../lib/breakpoints'
 import Acknowledgement from '../acknowledgement/acknowledgement.vue'
 import TextLink from '../text-link/text-link.vue'
 import VicGovLogo from './../../assets/logos/logo-victoria.svg?component'
@@ -33,12 +34,7 @@ withDefaults(defineProps<Props>(), {
   copyright: '© Copyright State Government of Victoria'
 })
 
-const breakpoints = useBreakpoints({
-  s: 576,
-  m: 768,
-  l: 992,
-  xl: 1200
-})
+const breakpoints = useBreakpoints(bpMin)
 
 const isLargeScreen = breakpoints.greater('l')
 </script>

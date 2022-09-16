@@ -4,6 +4,7 @@ export default { name: 'RplNavPrimary' }
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import RplImage from '../image/image.vue'
 
 interface Props {
   primaryLogoSrc?: string
@@ -23,10 +24,10 @@ const open = ref(false)
     <div class="rpl-nav-primary__logos">
       <slot name="logos">
         <div class="rpl-nav-primary__logo-primary">
-          <img :src="primaryLogoSrc" alt="vic gov logo" />
+          <RplImage :src="primaryLogoSrc" alt="vic gov logo" />
         </div>
         <div class="rpl-nav-primary__logo-secondary">
-          <img :src="secondaryLogoSrc" alt="secondary logo" />
+          <RplImage :src="secondaryLogoSrc" alt="secondary logo" />
         </div>
       </slot>
     </div>

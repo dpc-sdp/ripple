@@ -17,7 +17,6 @@ Used to attract the attention of users with important messages or required actio
 ::embed-frame{figma="https%3A%2F%2Fwww.figma.com%2Ffile%2FnCqetprXV74mdvi4D7e4ew%2FRipple-2.0-Documentation-Specs%3Fnode-id%3D2255%253A130145" :fullscreen="false" :height="400"}
 ::
 
-::DocTable{style="labels"}
 | Key | Label          |
 | --- | ----------     |
 | A   | Alert Icon     |
@@ -25,7 +24,6 @@ Used to attract the attention of users with important messages or required actio
 | C   | Call to action |
 | D   | Close icon     |
 | E   | Container      |
-::
 
 ## Variants
 ::component-explorer

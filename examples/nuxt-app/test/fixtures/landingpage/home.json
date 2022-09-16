@@ -1,0 +1,86 @@
+{
+  "title": "Dylans amazing homepage",
+  "changed": "2022-09-12T09:37:43+10:00",
+  "created": "2022-09-12T09:37:43+10:00",
+  "type": "landing_page",
+  "summary": "Welcome to GeoCities",
+  "headerComponents": [
+    {
+      "uuid": "7fd837a9-4b0e-4f53-997c-2cf6cf0c8bcf",
+      "component": "TideLandingPageIntroBanner",
+      "id": 697,
+      "props": {
+        "title": "Intro banner title test jksdhfsdjkh",
+        "links": [
+          {
+            "title": "Nullam laoreet",
+            "url": "https://vic.gov.au"
+          },
+          {
+            "title": "Morbi cursus placerat mi",
+            "url": "https://vic.gov.au"
+          }
+        ],
+        "html": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet ligula sit amet lacinia. In a leo nec tortor aliquet faucibus."
+      }
+    }
+  ],
+  "bodyComponents": [
+    {
+      "uuid": "3ac22d81-a5d0-4274-b2e1-810b325cdfa5",
+      "component": "RplContent",
+      "id": 678,
+      "props": {
+        "html": "<h2>Nulla ultricies dignissim leo, posuere vestibulum erat cursus vitae</h2>\n<h3>Phasellus congue aliquam vehicula</h3>\n<p class=\"rpl-callout\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet ligula sit amet lacinia. In a leo nec tortor aliquet faucibus. Quisque nec congue ligula, vitae condimentum tellus. Nulla nec urna augue. Curabitur commodo nisi est, eu pulvinar tortor cursus vel. Morbi dictum ex est, et semper diam finibus eu. Cras rutrum, nunc a fringilla convallis, massa est vulputate velit, in blandit augue dui vitae elit. Donec hendrerit commodo augue, in maximus orci tempor congue. Mauris ultricies euismod orci, nec vehicula quam vehicula ac. Nunc dictum tortor dolor, nec eleifend orci luctus sed.</p>\n<h3>Donec scelerisque cursus ex varius efficitur</h3>\n<h4>Morbi cursus placerat mi</h4>\n<h5>Nullam laoreet ante placerat</h5>\n<p>Integer interdum nisl ut neque dictum, et sagittis metus feugiat. Sed in mattis neque. Duis at risus non ipsum semper dapibus. Sed enim sapien, molestie sed commodo vel, lacinia vitae risus. Proin sagittis diam nisi, sed rhoncus diam varius id. Sed malesuada felis tortor, scelerisque pretium elit tempor non. Pellentesque ultrices volutpat tincidunt. Fusce quis viverra urna, quis finibus nulla.</p>\n<blockquote class=\"quotation\">\n  <p>Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus. Phasellus lacus lectus, sollicitudin sed posuere non, ultricies ut quam.</p>\n  <footer>\n    <cite>\n      <span class=\"quotation__author\">Duis ligula lacus</span><br>\n      <span class=\"quotation__author-title\">Phasellus est turpis, efficitur nec odio imperdiet</span><br>\n    </cite>\n  </footer>\n</blockquote>\nMauris tincidunt tincidunt felis vel tempus\n<img src=\"https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg\" class=\"rpl-img\" width=\"1413\" alt=\"Demo: Melbourne tram\" srcset=\"https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg?width=606,\n      https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg?width=1212 2x\">\n\n<p>Phasellus in varius leo. Suspendisse potenti. Donec scelerisque cursus ex varius efficitur. Vivamus pretium nisi sed libero accumsan mattis. Duis convallis, velit eget varius tempus, orci erat aliquam sem, eget porta mauris nisl at mauris.</p>\n<div data-embed-button=\"tide_media\" data-entity-embed-display=\"view_mode:media.embedded\" data-entity-type=\"media\" data-entity-uuid=\"11dede11-10c0-111e1-1100-000000000007\" data-langcode=\"en\" class=\"embedded-entity embedded-entity--media embedded-entity--media--document\"><article class=\"media media--type-document media--view-mode-embedded\">\n  \n      \n            <div class=\"field field--name-field-media-file field--type-file field--label-hidden field__item\">\n<span class=\"file file--mime-application-vnd-openxmlformats-officedocument-wordprocessingml-document file--x-office-document\"> <a href=\"https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/sample.docx\" class=\"x-office-document\" aria-label=\"Demo Sample Document File type: Word. Size: 7.53 KB.\"><span class=\"file--title\">Demo Sample Document</span><span class=\"file--type\">Word</span><span class=\"file--size\">7.53 KB</span></a></span>\n</div>\n      \n  </article>\n</div>\n"
+      }
+    },
+    {
+      "uuid": "82c09ab2-83e7-431f-bc5b-33d3f3bee5ed",
+      "component": "TideLandingPageAccordion",
+      "id": 682,
+      "props": {
+        "id": 682,
+        "title": "This is an Accordion header (basic)",
+        "numbered": true,
+        "items": [
+          {
+            "title": "Accordion #1",
+            "content": "<p>Phasellus in varius leo. Suspendisse potenti. Donec scelerisque cursus ex varius efficitur. Vivamus pretium nisi sed libero accumsan mattis. Duis convallis, velit eget varius tempus, orci erat aliquam sem, eget porta mauris nisl at mauris.</p>"
+          },
+          {
+            "title": "Accordion #2",
+            "content": "<p>Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus. Phasellus lacus lectus, sollicitudin sed posuere non, ultricies ut quam.</p>"
+          },
+          {
+            "title": "Accordion #3",
+            "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet ligula sit amet lacinia. In a leo nec tortor aliquet faucibus. Quisque nec congue ligula, vitae condimentum tellus.</p>"
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "ce476f78-771e-4f0a-a14a-b880991cdf21",
+      "component": "TideLandingPageAccordion",
+      "id": 686,
+      "props": {
+        "id": 686,
+        "title": "Accordion header (numbered)",
+        "numbered": true,
+        "items": [
+          {
+            "title": "Accordion #1",
+            "content": "<p>Phasellus in varius leo. Suspendisse potenti. Donec scelerisque cursus ex varius efficitur. Vivamus pretium nisi sed libero accumsan mattis. Duis convallis, velit eget varius tempus, orci erat aliquam sem, eget porta mauris nisl at mauris.</p>"
+          },
+          {
+            "title": "Accordion #2",
+            "content": "<p>Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus. Phasellus lacus lectus, sollicitudin sed posuere non, ultricies ut quam.</p>"
+          },
+          {
+            "title": "Accordion #3",
+            "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet ligula sit amet lacinia. In a leo nec tortor aliquet faucibus. Quisque nec congue ligula, vitae condimentum tellus.</p>"
+          }
+        ]
+      }
+    }
+  ]
+}

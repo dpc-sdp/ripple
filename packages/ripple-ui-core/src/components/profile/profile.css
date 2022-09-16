@@ -7,13 +7,12 @@
   align-items: center;
 
   &__media {
+    flex-shrink: 0;
     align-self: flex-start;
     margin-right: var(--rpl-sp-4);
 
     img {
       display: block;
-      border-radius: var(--rpl-border-radius-full);
-      object-fit: cover;
       height: var(--local-image-size);
       width: var(--local-image-size);
 

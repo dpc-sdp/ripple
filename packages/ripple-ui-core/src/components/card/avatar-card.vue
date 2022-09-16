@@ -10,6 +10,7 @@ import { useAccessibleContainer } from '../../composables/useAccessibleContainer
 import RplCard from './card.vue'
 import RplTag from '../tag/tag.vue'
 import RplTextLink from '../text-link/text-link.vue'
+import RplImage from '../image/image.vue'
 
 interface Props {
   el?: typeof RplCardElements[number]
@@ -32,10 +33,11 @@ const { container, trigger } = useAccessibleContainer()
 <template>
   <RplCard ref="container" :href="url" :el="el" type="avatar">
     <template #upper>
-      <img
+      <RplImage
         class="rpl-card__media rpl-card__media--avatar"
         :src="image"
         alt=""
+        circle
       />
     </template>
     <template #meta>

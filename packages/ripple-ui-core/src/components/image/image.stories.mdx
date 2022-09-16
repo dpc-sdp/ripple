@@ -1,0 +1,197 @@
+import {
+  Canvas,
+  Meta,
+  Story,
+  ArgsTable
+} from '@storybook/addon-docs'
+import RplImage from './image.vue'
+import { RplImageFit, RplImagePriority } from './constants'
+import { a11yStoryCheck } from './../../../stories/interactions.js'
+
+export const SingleTemplate = (args) => ({
+  components: { RplImage },
+  setup() {
+    return { args }
+  },
+  template: '<RplImage v-bind="args" />'
+})
+
+<Meta
+  title='WIP/Components/Image'
+  component={RplImage}
+  argTypes={{
+    height: {
+      control: { type: 'number' }
+    },
+    width: {
+      control: { type: 'number' }
+    },
+    srcSet: {
+      control: { type: 'text' }
+    },
+    sizes: {
+      control: { type: 'text' }
+    },
+    fit: {
+      type: 'select',
+      options: RplImageFit
+    },
+    priority: {
+      type: 'select',
+      options: RplImagePriority
+    }
+  }}
+/>
+
+# Responsive image
+
+<ArgsTable of={RplImage} />
+
+<Canvas>
+  <Story
+    name='Image'
+    args={{
+      src: 'https://via.placeholder.com/900x600'
+    }}
+    play={a11yStoryCheck}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+  <Story
+    name='Circle'
+    args={{
+      src: 'https://images.unsplash.com/photo-1634926878768-2a5b3c42f139?w=1680&q=80',
+      height: 200,
+      width: 200,
+      circle: true,
+    }}
+    play={a11yStoryCheck}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+  <Story
+    name='Square 1/1'
+    args={{
+      src: 'https://images.unsplash.com/photo-1514395462725-fb4566210144?w=1680&q=80',
+      height: 500,
+      width: 600,
+      aspect: 'square'
+    }}
+    play={a11yStoryCheck}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+  <Story
+    name='Full 4/3'
+    args={{
+      src: 'https://images.unsplash.com/photo-1514395462725-fb4566210144?w=1680&q=80',
+      height: 500,
+      width: 600,
+      aspect: 'full'
+    }}
+    play={a11yStoryCheck}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+  <Story
+    name='Wide 16/9'
+    args={{
+      src: 'https://images.unsplash.com/photo-1514395462725-fb4566210144?w=1680&q=80',
+      height: 500,
+      width: 600,
+      aspect: 'wide'
+    }}
+    play={a11yStoryCheck}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+  <Story
+    name='Ultrawide 21/9'
+    args={{
+      src: 'https://images.unsplash.com/photo-1514395462725-fb4566210144?w=1680&q=80',
+      height: 500,
+      width: 600,
+      aspect: 'ultrawide'
+    }}
+    play={a11yStoryCheck}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+  <Story
+    name='Panorama 3/1'
+    args={{
+      src: 'https://images.unsplash.com/photo-1514395462725-fb4566210144?w=1680&q=80',
+      height: 500,
+      width: 600,
+      aspect: 'panorama'
+    }}
+    play={a11yStoryCheck}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+  <Story
+    name='Lazy loading'
+    args={{
+      src: 'https://images.unsplash.com/photo-1514395462725-fb4566210144?w=1680&q=80',
+      height: 500,
+      width: 600,
+      priority: 'low'
+    }}
+    play={a11yStoryCheck}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+  <Story
+    name='Responsive ratios'
+    args={{
+      src: 'https://images.unsplash.com/photo-1514395462725-fb4566210144?w=1680&q=80',
+      height: 500,
+      width: 600,
+      aspect: { xs: 'square', s: 'full', m: 'wide', l: 'ultrawide', xl: 'panorama' },
+      priority: 'high'
+    }}
+    play={a11yStoryCheck}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+  <Story
+    name='Focal position'
+    args={{
+      src: 'https://images.unsplash.com/photo-1561618030-ecca407d3ba4?w=1600&q=80',
+      height: 1067,
+      width: 1600,
+      focalPoint: {
+        x: 250,
+        y: 900
+      },
+      aspect: { xs: 'square', s: 'full', m: 'wide', l: 'ultrawide', xl: 'panorama' },
+      priority: 'high'
+    }}
+    play={a11yStoryCheck}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+  <Story
+    name='Image fit'
+    args={{
+      src: 'https://images.unsplash.com/photo-1561618030-ecca407d3ba4?w=1600&q=80',
+      height: 800,
+      width: 800,
+      fit: 'contain'
+    }}
+    play={a11yStoryCheck}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+  <Story
+    name='Source sets'
+    args={{
+      src: 'https://via.placeholder.com/480x500',
+      srcSet: 'https://via.placeholder.com/640x350 640w, https://via.placeholder.com/960x500 960w',
+      sizes: '(min-width: 640px) 640px, (min-width: 960px) 960px'
+    }}
+    play={a11yStoryCheck}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>

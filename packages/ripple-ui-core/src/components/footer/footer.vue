@@ -38,6 +38,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 const breakpoints = useBreakpoints(bpMin)
 
+const isExpandable = breakpoints.smaller('l');
 const isLargeScreen = breakpoints.between('l', 'xl')
 const isXLargeScreen = breakpoints.greater('xl')
 
@@ -111,13 +112,13 @@ const columns = computed(() => {
     <div class="rpl-container">
       <nav class="rpl-footer__nav">
         <!-- Expandable small screen nav -->
-        <template v-if="!isLargeScreen && !isXLargeScreen">
+        <template v-if="columns.length <= 1">
           <NavSection
             v-for="(navSection, i) in nav"
             :id="`rpl-footer-nav-${i}`"
             :key="i"
             :section="navSection"
-            :is-expandable="true"
+            :is-expandable="isExpandable"
           />
         </template>
         <!-- Non-expandable larger screen nav with tricky column setup -->
@@ -128,7 +129,7 @@ const columns = computed(() => {
               :id="`rpl-footer-nav-${colIndex}${i}`"
               :key="i"
               :section="navSection"
-              :is-expandable="false"
+              :is-expandable="isExpandable"
             />
           </div>
         </template>

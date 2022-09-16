@@ -4,8 +4,7 @@ export default { name: 'RplFooter' }
 
 <script setup lang="ts">
 import { useBreakpoints } from '@vueuse/core'
-import { watch } from 'fs'
-import { computed, watchEffect } from 'vue'
+import { computed } from 'vue'
 import { bpMin } from '../../lib/breakpoints'
 import Acknowledgement from '../acknowledgement/acknowledgement.vue'
 import TextLink from '../text-link/text-link.vue'
@@ -40,9 +39,6 @@ const breakpoints = useBreakpoints(bpMin)
 
 const isLargeScreen = breakpoints.between('l', 'xl')
 const isXLargeScreen = breakpoints.greater('xl')
-const isExpandable = computed(() => {
-  return !isLargeScreen && !isXLargeScreen
-})
 
 const getColumnBreaks = (numItems: number, numColumns: number): number[] => {
   // Get the number of items that can be evenly distributed across all columns
@@ -51,10 +47,27 @@ const getColumnBreaks = (numItems: number, numColumns: number): number[] => {
   // Get the number of left over items that couldn't be evenly distributed
   const remainder = numItems % numColumns
 
+  // Figure out the number of items each column should have if all items
+  // are distributed as evenly as possible across the columns.
+  //
+  // For example, if you have 10 items and 4 columns (B=base, r=remainder):
+  // | B | B | B | B |
+  // | B | B | B | B |
+  // | r | r |   |   |
+  // Items per column = [3, 3, 2, 2]
+  //
+  // Or if you have 10 items and 3 columns (B=base, r=remainder):
+  // | B | B | B |
+  // | B | B | B |
+  // | B | B | B |
+  // | r |   |   |
+  // Items per column = [4, 3, 3]
   const itemsPerColumn = Array(numColumns)
     .fill(base)
     .map((n, i) => (i < remainder ? n + 1 : n))
 
+  // Now figure out, based on the itemsPerColumn, the indexes of the first item in
+  // each column (i.e. the column breaks)
   const columnBreaks = itemsPerColumn
     .slice(0, itemsPerColumn.length - 1)
     .reduce(
@@ -67,10 +80,10 @@ const getColumnBreaks = (numItems: number, numColumns: number): number[] => {
   return columnBreaks
 }
 
+// Split the nav section items into seperate arrays for each columns so that we can easily
+// render them into separate divs
 const columns = computed(() => {
   let numColumns
-
-  console.log('asjdnjkasndkjansdkjn')
 
   if (isLargeScreen.value) {
     numColumns = 3
@@ -90,27 +103,34 @@ const columns = computed(() => {
     }
   }, [])
 })
-
-watchEffect(() => {
-  console.log(columns.value)
-  console.log(isLargeScreen.value)
-  console.log(isXLargeScreen.value)
-})
 </script>
 
 <template>
   <footer :class="`rpl-footer rpl-footer--${variant}`">
     <div class="rpl-container">
       <nav class="rpl-footer__nav">
-        <div v-for="(col, colIndex) in columns" :key="colIndex">
+        <!-- Expandable small screen nav -->
+        <template v-if="!isLargeScreen && !isXLargeScreen">
           <NavSection
-            v-for="(navSection, i) in col"
-            :id="`rpl-footer-nav-${colIndex}${i}`"
+            v-for="(navSection, i) in nav"
+            :id="`rpl-footer-nav-${i}`"
             :key="i"
             :section="navSection"
-            :is-expandable="isExpandable"
+            :is-expandable="true"
           />
-        </div>
+        </template>
+        <!-- Non-expandable larger screen nav with tricky column setup -->
+        <template v-else>
+          <div v-for="(col, colIndex) in columns" :key="colIndex">
+            <NavSection
+              v-for="(navSection, i) in col"
+              :id="`rpl-footer-nav-${colIndex}${i}`"
+              :key="i"
+              :section="navSection"
+              :is-expandable="false"
+            />
+          </div>
+        </template>
       </nav>
     </div>
     <div class="rpl-container rpl-footer__custom-content">

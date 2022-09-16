@@ -20,6 +20,7 @@
 }
 
 .rpl-footer-nav-section__header-inner {
+  text-align: inherit;
   width: 100%;
   padding-top: var(--rpl-sp-4);
   padding-bottom: var(--rpl-sp-4);

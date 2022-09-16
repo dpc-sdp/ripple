@@ -15,6 +15,10 @@ export const SingleTemplate = (args) => ({
   },
   template: `<RplFooter v-bind="args"/>`
 })
+const FooterStory = SingleTemplate.bind()
+FooterStory.parameters = {
+  chromatic: { delay: 300 },
+};
 
 <Meta
   title='WIP/Components/Footer'
@@ -232,7 +236,7 @@ export const SingleTemplate = (args) => ({
       layout: 'fullscreen',
     }}
   >
-    {SingleTemplate.bind()}
+    {FooterStory}
   </Story>
     <Story
     name='Neutral'
@@ -244,6 +248,6 @@ export const SingleTemplate = (args) => ({
       variant: 'neutral'
     }}
   >
-    {SingleTemplate.bind()}
+    {FooterStory}
   </Story>
 </Canvas>

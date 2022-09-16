@@ -1,0 +1,82 @@
+import {
+  Canvas,
+  Meta,
+  Story,
+  ArgsTable
+} from '@storybook/addon-docs'
+import RplPrimaryNav from './primary-nav.vue'
+import { a11yStoryCheck } from './../../../stories/interactions.js'
+
+import primaryLogo from './assets/logo-primary.svg?url'
+import secondaryLogo from './assets/logo-secondary.svg?url'
+
+export const SingleTemplate = (args) => ({
+  components: { RplPrimaryNav },
+  setup() {
+    return { args }
+  },
+  template: '<RplPrimaryNav v-bind="args" />'
+})
+
+<Meta
+  title='WIP/Components/Primary nav'
+  component={RplPrimaryNav}
+/>
+
+# Primary nav
+
+<ArgsTable of={RplPrimaryNav} />
+
+<Canvas>
+  <Story
+    name='Primary nav'
+    play={a11yStoryCheck}
+    args={{
+      primaryLogo: {
+        href: '#',
+        src: primaryLogo,
+        altText: 'Primary logo alt text'
+      },
+      secondaryLogo: {
+        href: '#',
+        src: secondaryLogo,
+        altText: 'Secondary logo alt text'
+      },
+      items: [
+        { text: 'First level', items: [
+          { text: 'First level repeat', href: '#' },
+          { text: 'Second level', items: [
+            { text: 'Third level link with some text that will need to wrap', items: [
+              { text: 'Fourth level', href: '#' }
+            ]}
+          ]},
+          { text: 'Second level', href: '#' },
+          { text: 'Second level', href: '#' }
+        ]},
+        { text: 'First level that will go over two lines', items: [
+          { text: 'First level repeat', href: '#' },
+          { text: 'Second level', items: [
+            { text: 'Third level link with some text that will need to wrap', items: [
+              { text: 'Fourth level', href: '#' }
+            ]}
+          ]},
+          { text: 'Second level', href: '#' },
+          { text: 'Second level', href: '#' }
+        ]},
+        { text: 'First level no children', href: '#' },
+        { text: 'First level', items: [
+          { text: 'First level repeat', href: '#' },
+          { text: 'Second level', items: [
+            { text: 'Third level link with some text that will need to wrap', items: [
+              { text: 'Fourth level', href: '#' }
+            ]}
+          ]},
+          { text: 'Second level', href: '#' },
+          { text: 'Second level', href: '#' }
+        ]},
+      ]
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>

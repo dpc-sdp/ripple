@@ -16,6 +16,9 @@ export const SingleTemplate = (args) => ({
   template: `<RplFooter v-bind="args"/>`
 })
 const DefaultStory = SingleTemplate.bind()
+DefaultStory.args = {
+  with: 'props',
+};
 DefaultStory.parameters = {
   chromatic: {
     delay: 10000,

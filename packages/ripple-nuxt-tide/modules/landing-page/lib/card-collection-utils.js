@@ -4,46 +4,46 @@
  * @param {Object} settings Settings from card collection
  * @returns {Object} queryParams to pass to pass to tideSearchApi
  */
-export const getQueryParams = (settings) => {
-  if (settings) {
+export const getQueryParams = (data) => {
+  const config = data.hasOwnProperty('config') ? data.config : data
+  if (config) {
     const queryParams = {
-      type: settings.content_type || 'all'
+      type: config.content_type || 'all'
     }
 
-    if (settings.filters) {
-      delete settings.filters.type
-      queryParams.filters = settings.filters
+    if (config.filters) {
+      delete config.filters.type
+      queryParams.filters = config.filters
     }
 
-    if (settings.sort && settings.sort.field !== '') {
-      queryParams.sort = [{ [`${settings.sort.field}`]: settings.sort.direction }]
+    if (config.sort && config.sort.field !== '') {
+      queryParams.sort = [{ [`${config.sort.field}`]: config.sort.direction }]
     }
 
-    if (settings.sort && settings.sort.field) {
-      queryParams.sort = [{ [`${settings.sort.field}`]: settings.sort.direction }]
+    if (config.sort && config.sort.field) {
+      queryParams.sort = [{ [`${config.sort.field}`]: config.sort.direction }]
     }
 
-    if (settings.filter_today && settings.filter_today.status) {
+    if (config.filter_today && config.filter_today.status) {
       queryParams.date_filter = {
-        start_field: settings.filter_today.start_date,
-        end_field: settings.filter_today.end_date,
-        criteria: settings.filter_today.criteria
+        start_field: config.filter_today.start_date,
+        end_field: config.filter_today.end_date,
+        criteria: config.filter_today.criteria
       }
     }
 
     const carouselLimit = 9
 
-    if (settings.display) {
-      if (settings.display.type === 'grid' && settings.display.items_per_page) {
-        queryParams.limit = settings.display.items_per_page
-      } else if (settings.display.items_per_page && settings.display.items_per_page !== 0 && settings.display.items_per_page < carouselLimit) {
-        queryParams.limit = settings.display.items_per_page
-      } else {
-        queryParams.limit = carouselLimit
-      }
+    if (config.field_listing_display_type === 'grid' && config.perPage) {
+      queryParams.limit = config.perPage
+    } else if (data.perPage && data.perPage !== 0 && data.perPage < carouselLimit) {
+      queryParams.limit = data.perPage
+    } else {
+      queryParams.limit = carouselLimit
     }
-    if (settings.page) {
-      queryParams.page = settings.page
+
+    if (config.page) {
+      queryParams.page = config.page
     }
 
     return queryParams

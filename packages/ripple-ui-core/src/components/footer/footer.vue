@@ -18,6 +18,7 @@ import {
   vicGovHomeUrl
 } from './constants'
 import NavSection from './nav-section.vue'
+import Image from '../image/image.vue'
 
 interface Props {
   variant?: typeof RplFooterVariants[number]
@@ -162,7 +163,7 @@ const columns = computed(() => {
             "
             :href="logoLink.url"
           >
-            <img
+            <Image
               class="rpl-footer-logo-link__img"
               :src="logoLink.src"
               :alt="logoLink.alt"

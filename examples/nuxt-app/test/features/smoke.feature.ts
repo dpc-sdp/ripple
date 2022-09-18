@@ -1,6 +1,6 @@
 describe('test', () => {
   before(() => {
-    cy.task('startMockServer')
+    cy.task('startMockServer', true)
   })
   it('should work', () => {
     cy.fixture('/landingpage/home').then((fixture) => {

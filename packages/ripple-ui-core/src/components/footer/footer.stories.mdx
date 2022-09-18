@@ -15,20 +15,6 @@ export const SingleTemplate = (args) => ({
   },
   template: `<RplFooter v-bind="args"/>`
 })
-const DefaultStory = SingleTemplate.bind()
-DefaultStory.args = {
-  with: 'props',
-};
-DefaultStory.parameters = {
-  chromatic: {
-    delay: 10000,
-    viewports: [320, 700, 1300]
-  },
-};
-const NeutralStory = SingleTemplate.bind()
-NeutralStory.parameters = {
-  chromatic: { delay: 10000 },
-};
 
 <Meta
   title='WIP/Components/Footer'
@@ -244,9 +230,10 @@ NeutralStory.parameters = {
     play={a11yStoryCheck}
     parameters={{
       layout: 'fullscreen',
+      viewports: [320, 700, 1300]
     }}
   >
-    {DefaultStory}
+    {SingleTemplate.bind()}
   </Story>
     <Story
     name='Neutral'
@@ -258,6 +245,6 @@ NeutralStory.parameters = {
       variant: 'neutral'
     }}
   >
-    {NeutralStory}
+    {SingleTemplate.bind()}
   </Story>
 </Canvas>

@@ -4,10 +4,11 @@
     "esbenp.prettier-vscode",
     "eamodio.gitlens",
     "streetsidesoftware.code-spell-checker",
-    "Vue.volar",
+    "vue.volar",
     "vivaxy.vscode-conventional-commits",
     "csstools.postcss",
     "editorconfig.editorconfig",
-    "stylelint.vscode-stylelint"
+    "stylelint.vscode-stylelint",
+    "alexkrechik.cucumberautocomplete"
   ]
 }

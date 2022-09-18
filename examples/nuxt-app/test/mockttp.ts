@@ -2,7 +2,7 @@ import { getLocal } from 'mockttp'
 const mockServer = getLocal()
 
 export default {
-  async startMockServer() {
+  async startMockServer(proxy = false) {
     const port = 3001
     try {
       if (mockServer.url) {
@@ -14,13 +14,18 @@ export default {
       console.log(error)
       await mockServer.start(port)
     }
-    mockServer.forAnyRequest().thenForwardTo('http://localhost:3000')
+    if (proxy) {
+      mockServer.forAnyRequest().thenForwardTo('http://localhost:3000')
+    }
     return mockServer.url
+  },
+  async stopMockServer() {
+    await mockServer.stop()
+    return true
   },
   async setMockRoute({ route, status, response }) {
     const endpointMock = await mockServer
       .forGet(route)
-      .always()
       .thenJson(status, response)
 
     return endpointMock
@@ -28,7 +33,6 @@ export default {
   async setMockRouteWithQuery({ route, status, response, query }) {
     const endpointMock = await mockServer
       .forGet(route)
-      .always()
       .withExactQuery(query)
       .thenJson(status, response)
     return endpointMock

@@ -40,7 +40,7 @@ const breakpoints = useBreakpoints(bpMin)
 
 const isExpandable = breakpoints.smaller('l');
 const isLargeScreen = breakpoints.between('l', 'xl')
-const isXLargeScreen = breakpoints.greater('xl')
+const isXLargeScreen = breakpoints.greaterOrEqual('xl')
 
 const getColumnBreaks = (numItems: number, numColumns: number): number[] => {
   // Get the number of items that can be evenly distributed across all columns

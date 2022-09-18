@@ -49,6 +49,7 @@
     "@bahmutov/cypress-esbuild-preprocessor": "^2.1.3",
     "@commitlint/cli": "^17.1.2",
     "@commitlint/config-conventional": "^17.1.0",
+    "@outlinestudio/designtokenscss": "^1.0.6",
     "@storybook/addon-a11y": "^6.5.10",
     "@storybook/addon-actions": "^6.5.10",
     "@storybook/addon-cssresources": "^6.2.9",

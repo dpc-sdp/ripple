@@ -5,3 +5,4 @@ export const bpMin = {
   l: 992,
   xl: 1200
 }
+

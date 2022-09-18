@@ -230,7 +230,9 @@ export const SingleTemplate = (args) => ({
     play={a11yStoryCheck}
     parameters={{
       layout: 'fullscreen',
-      viewports: [320, 700, 1300]
+      chromatic: {
+        viewports: [320, 700, 1300]
+      }
     }}
   >
     {SingleTemplate.bind()}

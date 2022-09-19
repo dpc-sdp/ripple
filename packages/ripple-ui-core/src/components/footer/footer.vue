@@ -6,8 +6,8 @@ export default { name: 'RplFooter' }
 import { useBreakpoints } from '@vueuse/core'
 import { computed } from 'vue'
 import { bpMin } from '../../lib/breakpoints'
-import Acknowledgement from '../acknowledgement/acknowledgement.vue'
-import TextLink from '../text-link/text-link.vue'
+import RplAcknowledgement from '../acknowledgement/acknowledgement.vue'
+import RplTextLink from '../text-link/text-link.vue'
 import VicGovLogo from './../../assets/logos/logo-victoria.svg?component'
 import {
   CoreLink,
@@ -137,7 +137,7 @@ const columns = computed(() => {
     </div>
     <div class="rpl-container rpl-footer__custom-content">
       <slot name="custom-content">
-        <Acknowledgement />
+        <RplAcknowledgement />
       </slot>
     </div>
     <div class="rpl-container">
@@ -145,9 +145,9 @@ const columns = computed(() => {
         <div class="rpl-footer-bottom__links">
           <ul class="rpl-footer-core-links">
             <li v-for="link in links" :key="link.url">
-              <TextLink class="rpl-type-p-small" :url="link.url">{{
+              <RplTextLink class="rpl-type-p-small" :url="link.url">{{
                 link.text
-              }}</TextLink>
+              }}</RplTextLink>
             </li>
           </ul>
           <p class="rpl-type-p-small">

@@ -17,8 +17,8 @@ import {
   vicGovHomeLabel,
   vicGovHomeUrl
 } from './constants'
-import NavSection from './nav-section.vue'
-import Image from '../image/image.vue'
+import RplNavSection from './nav-section.vue'
+import RplImage from '../image/image.vue'
 
 interface Props {
   variant?: typeof RplFooterVariants[number]
@@ -113,7 +113,7 @@ const columns = computed(() => {
       <nav class="rpl-footer__nav">
         <!-- Expandable small screen nav -->
         <template v-if="columns.length <= 1">
-          <NavSection
+          <RplNavSection
             v-for="(navSection, i) in nav"
             :id="`rpl-footer-nav-${i}`"
             :key="i"
@@ -124,7 +124,7 @@ const columns = computed(() => {
         <!-- Non-expandable larger screen nav with tricky column setup -->
         <template v-else>
           <div v-for="(col, colIndex) in columns" :key="colIndex">
-            <NavSection
+            <RplNavSection
               v-for="(navSection, i) in col"
               :id="`rpl-footer-nav-${colIndex}${i}`"
               :key="i"
@@ -164,7 +164,7 @@ const columns = computed(() => {
             "
             :href="logoLink.url"
           >
-            <Image
+            <RplImage
               class="rpl-footer-logo-link__img"
               :src="logoLink.src"
               :alt="logoLink.alt"

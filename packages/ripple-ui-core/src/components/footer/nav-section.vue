@@ -1,9 +1,9 @@
 <script lang="ts">
-export default { name: 'NavSection' }
+export default { name: 'RplNavSection' }
 </script>
 
 <script setup lang="ts">
-import List from '../list/list.vue'
+import RplList from '../list/list.vue'
 import { NavSectionItem } from './constants'
 import RplIcon from '../icon/icon.vue'
 import Expandable from '../expandable/expandable.vue'
@@ -86,7 +86,7 @@ const children = computed(() => {
       :expanded="isExpandable ? isExpanded : undefined"
       v-bind="triggerProps"
     >
-      <List :items="children" item-class="rpl-type-p-small rpl-u-margin-b-3" />
+      <RplList :items="children" item-class="rpl-type-p-small rpl-u-margin-b-3" />
     </component>
   </div>
 </template>

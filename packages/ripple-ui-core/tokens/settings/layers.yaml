@@ -18,8 +18,6 @@ border:
       value: '12px'
     full:
       value: '999px'
-  solid:
-    value: 'solid'
 elevation:
   1:
     comment: '2px spread'

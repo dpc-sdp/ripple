@@ -151,17 +151,6 @@
   }
 }
 
-/* Item content */
-.rpl-accordion__item-content {
-  height: 0;
-  overflow: hidden;
-  transition: height var(--rpl-motion-speed-8) ease-out;
-
-  .rpl-accordion__item--active & {
-    height: auto;
-  }
-}
-
 .rpl-accordion__item-content-inner {
   padding-top: var(--rpl-border-1);
   padding-right: var(--rpl-sp-5);

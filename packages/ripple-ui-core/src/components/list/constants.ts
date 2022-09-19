@@ -4,8 +4,8 @@ export type RplListTypes = 'ul' | 'ol'
 
 export interface RplListItemArray {
   text: string,
-  icon: string,
+  icon?: string,
   url: string,
-  active: boolean,
-  items: RplListItemArray[],
+  active?: boolean,
+  items?: RplListItemArray[],
 }

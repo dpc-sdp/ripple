@@ -52,7 +52,7 @@ module.exports = {
     '@storybook/addon-interactions',
     '@storybook/addon-jest',
     '@storybook/addon-a11y',
-    '@storybook/addon-cssresources',
+    '@outlinestudio/designtokenscss',
     'storybook-addon-designs'
   ],
 

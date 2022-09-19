@@ -41,7 +41,23 @@ watch(
 </script>
 
 <template>
-  <div ref="containerRef" :class="props.class" role="region">
+  <div
+    ref="containerRef"
+    :class="`expandable ${expanded ? 'isExpanded' : ''} ${props.class}`"
+    role="region"
+  >
     <slot />
   </div>
 </template>
+
+<style scoped>
+.expandable {
+  height: 0;
+  overflow: hidden;
+  transition: height var(--rpl-motion-speed-8) ease-out;
+}
+
+.isExpanded {
+  height: auto;
+}
+</style>

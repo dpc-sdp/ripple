@@ -45,10 +45,6 @@ watch(
     ref="containerRef"
     :class="`expandable ${expanded ? 'isExpanded' : ''} ${props.class}`"
     role="region"
-    style="{
-      overflow: 'hidden',
-      height: expanded ? auto : 0,
-    }"
   >
     <slot />
   </div>

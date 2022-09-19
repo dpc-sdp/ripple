@@ -5,7 +5,7 @@ export default { name: 'NavSection' }
 <script setup lang="ts">
 import List from '../list/list.vue'
 import { NavSectionItem } from './constants'
-import Icon from '../icon/icon.vue'
+import RplIcon from '../icon/icon.vue'
 import Expandable from '../expandable/expandable.vue'
 import { computed, ref } from 'vue'
 import { useExpandable } from '../../composables/useExpandable'
@@ -70,7 +70,7 @@ const children = computed(() => {
         >
           {{ section.text }}
 
-          <Icon
+          <RplIcon
             v-if="isExpandable"
             role="presentation"
             name="icon-chevron-down"

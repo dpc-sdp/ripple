@@ -6,6 +6,7 @@ export interface RplPrimaryNavLogo {
 
 export interface RplPrimaryNavItem {
   text: string
-  href?: string
+  href: string
   items?: RplPrimaryNavItem[]
+  active: boolean
 }

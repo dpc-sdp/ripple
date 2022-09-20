@@ -11,6 +11,7 @@ interface Props {
   primaryLogo: RplPrimaryNavLogo
   secondaryLogo?: RplPrimaryNavLogo
   items: RplPrimaryNavItem[]
+  toggleItem: (itemIndex: number) => void
 }
 
 const props = defineProps<Props>()
@@ -56,21 +57,33 @@ const props = defineProps<Props>()
     <ul class="rpl-primary-nav__nav-bar-actions-list">
       <li v-for="(item, index) in items" :key="index">
         <!-- Toggle -->
-        <RplPrimaryNavBarAction v-if="item.items" type="toggle">
+        <RplPrimaryNavBarAction
+          v-if="item.items"
+          type="toggle"
+          :href="item.href"
+          :active="item.active"
+          @click="toggleItem(index)"
+        >
           <span>{{ item.text }}</span
           >&NoBreak;<span class="rpl-primary-nav__nav-bar-icon rpl-u-margin-l-2"
             ><RplIcon name="icon-chevron-down" size="xs"></RplIcon
           ></span>
         </RplPrimaryNavBarAction>
 
-        <RplPrimaryNavBarAction v-else type="link" :href="item.href">
+        <RplPrimaryNavBarAction
+          v-else
+          type="link"
+          :href="item.href"
+          :active="item.active"
+        >
           <span>{{ item.text }}</span>
         </RplPrimaryNavBarAction>
       </li>
 
       <!-- Login slot -->
+      <!-- TODO: Make this a slot, or at least have a reactive href -->
       <li>
-        <RplPrimaryNavBarAction type="link" href="#">
+        <RplPrimaryNavBarAction type="link" href="/login">
           <span
             class="
               rpl-primary-nav__nav-bar-icon rpl-primary-nav__nav-bar-icon--large
@@ -82,8 +95,9 @@ const props = defineProps<Props>()
       </li>
 
       <!-- Search slot -->
+      <!-- TODO: Make this a slot, or at least have a reactive href -->
       <li>
-        <RplPrimaryNavBarAction type="toggle">
+        <RplPrimaryNavBarAction type="toggle" href="/search">
           <span>Search</span>&NoBreak;<span
             class="
               rpl-primary-nav__nav-bar-icon rpl-primary-nav__nav-bar-icon--large

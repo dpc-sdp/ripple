@@ -5,11 +5,12 @@ export default { name: 'RplPrimaryNavBarAction' }
 <script setup lang="ts">
 interface Props {
   type: string
-  href?: string
+  href: string
+  active?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  href: undefined
+  active: false
 })
 </script>
 
@@ -20,6 +21,7 @@ const props = withDefaults(defineProps<Props>(), {
       'rpl-primary-nav__nav-bar-action': true,
       'rpl-primary-nav__nav-bar-action--toggle': props.type === 'toggle',
       'rpl-primary-nav__nav-bar-action--link': props.type === 'link',
+      'rpl-primary-nav__nav-bar-action--active': props.active,
       'rpl-type-label-small': true,
       'rpl-type-weight-bold': true,
       'rpl-u-focusable-block': true

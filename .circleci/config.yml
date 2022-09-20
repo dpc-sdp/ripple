@@ -3,9 +3,15 @@ orbs:
   node: circleci/node@5.0.0
 
 defaults: &defaults
-  executor:
-    name: node/default
-    tag: 'lts'
+  docker:
+    - image: cypress/base:16.13.0
+      environment:
+        TERM: xterm
+        TZ: 'Australia/Melbourne'
+        API_URL: http://localhost:3001
+      auth:
+        username: $DOCKERHUB_USERNAME
+        password: $DOCKERHUB_PASSWORD
   working_directory: ~/app
 
 jobs:
@@ -13,24 +19,17 @@ jobs:
     <<: *defaults
     steps:
       - checkout
-      - node/install-packages:
-          pkg-manager: yarn
-          app-dir: ~/app
-          cache-version: v1
-          with-cache: false
       - run:
-          name: build all ripple package
-          command: yarn run build:ripple
-      - run:
-          name: build example apps
-          command: yarn run build:examples
-      - run:
-          name: build docs site
-          command: yarn run build:docs
+          name: Install Dependencies
+          command: yarn install --frozen-lockfile --cache-folder ~/.cache/yarn
+      - save_cache:
+          key: v10-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.cache
       - persist_to_workspace:
           root: ~/app
           paths: [.]
-  test:
+  unit:
     <<: *defaults
     steps:
       - attach_workspace:
@@ -43,6 +42,47 @@ jobs:
           name: Run unit tests
       - store_test_results:
           path: test-results
+
+  build-docs:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/app
+      - run:
+          name: build docs site
+          command: yarn run build:docs
+
+  build-examples:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/app
+      - run:
+          name: build example apps
+          command: yarn run build:examples
+      - persist_to_workspace:
+          root: ~/app
+          paths: [.]
+
+  integration-nuxt:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/app
+      - restore_cache:
+          keys:
+            - v10-deps-{{ checksum "yarn.lock" }}
+            - v10-deps-{{ .Branch }}
+            - v9-deps
+      - run:
+          command: yarn run ci:nuxt-app
+          name: Run integration tests with Cypress
+      - store_artifacts:
+          path: examples/nuxt-app/test/videos
+      - store_artifacts:
+          path: examples/nuxt-app/test/screenshots
+      - store_test_results:
+          path: examples/nuxt-app/test/results
 
   build-storybook:
     <<: *defaults
@@ -82,12 +122,18 @@ workflows:
   commit:
     jobs:
       - build
+      - unit:
+          requires:
+            - build
       - build-storybook:
           requires:
             - build
-      - test:
+      - build-examples:
           requires:
             - build
+      - integration-nuxt:
+          requires:
+            - build-examples
       - test-storybook:
           requires:
             - build-storybook

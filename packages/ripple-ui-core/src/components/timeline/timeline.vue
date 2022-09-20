@@ -5,6 +5,7 @@ export default { name: 'RplTimeline' }
 <script setup lang="ts">
 import { RplTimelineItem } from './constants'
 import RplTextLink from '../text-link/text-link.vue'
+import RplImage from '../image/image.vue'
 
 interface Props {
   title?: string | null
@@ -54,12 +55,13 @@ const classes = (item: RplTimelineItem, index: number) => {
         :key="index"
         :class="classes(item, index)"
       >
-        <img
+        <RplImage
           v-if="item.image"
           ref="image"
           :src="item.image"
           alt=""
           class="rpl-timeline__item-image"
+          circle
         />
         <h3
           v-if="item.title"

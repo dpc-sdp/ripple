@@ -43,7 +43,6 @@
     "@nuxt/kit": "^3.0.0-rc.9",
     "mitt": "^3.0.0",
     "normalize.css": "^8.0.1",
-    "postcss-for": "^2.1.1",
     "vue": "^3.2.39",
     "vue-social-sharing": "^4.0.0-alpha4"
   },
@@ -56,6 +55,8 @@
     "chromatic": "^6.9.0",
     "http-server": "^14.1.0",
     "jest-axe": "^6.0.0",
+    "postcss-each": "^1.1.0",
+    "postcss-for": "^2.1.1",
     "postcss-nested": "^5.0.6",
     "postcss-normalize": "^10.0.1",
     "postcss-preset-env": "^7.8.1",

@@ -9,13 +9,17 @@
 }
 
 .rpl-related-links__item {
-  margin-bottom: var(--rpl-sp-2);
+  margin-bottom: var(--rpl-sp-3);
 
   &:last-of-type {
     margin-bottom: 0;
   }
 
   a {
-    color: var(--rpl-clr-neutral-800);
+    color: var(--rpl-clr-type-default);
+
+    &:active {
+      text-decoration: underline;
+    }
   }
 }

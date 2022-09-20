@@ -10,7 +10,7 @@
   gap: var(--rpl-sp-2);
   box-sizing: border-box;
   border-radius: var(--rpl-border-radius-2);
-  border-style: var(--rpl-border-solid);
+  border-style: solid;
   border-width: var(--local-border-width);
   text-decoration: none;
   padding: calc(var(--rpl-sp-4) - var(--local-border-width))

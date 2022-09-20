@@ -23,16 +23,6 @@
   }
 }
 
-.rpl-vertical-nav__list-item-children {
-  height: 0;
-  overflow: hidden;
-  transition: height var(--rpl-motion-speed-8) ease-out;
-
-  .rpl-vertical-nav__list-item--expanded & {
-    height: auto;
-  }
-}
-
 /* Item */
 .rpl-vertical-nav__item {
   /* stylelint-disable-next-line length-zero-no-unit */

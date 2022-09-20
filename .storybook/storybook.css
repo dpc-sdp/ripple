@@ -55,10 +55,10 @@
 }
 
 .sb-demo-input {
-  border: var(--rpl-border-1) var(--rpl-border-solid) var(--rpl-clr-dark);
+  border: var(--rpl-border-1) solid var(--rpl-clr-dark);
   background: transparent;
   padding: 1rem;
-  font-size: var(--rpl-type-size-2)
+  font-size: var(--rpl-type-size-2);
 }
 
 .sb-demo-input--rounded {

@@ -37,7 +37,24 @@ export const parameters = {
       picked: false,
       hideCode: true
     }
-  ]
+  ],
+  backgrounds: {
+    default: 'light',
+    values: [
+      {
+        name: 'light',
+        value: 'white',
+      },
+      {
+        name: 'gray',
+        value: 'var(--rpl-clr-neutral-100)',
+      },
+      {
+        name: 'reverse',
+        value: 'var(--rpl-clr-primary-alt)',
+      },
+    ],
+  },
 }
 export const decorators = [
   withCssResources,

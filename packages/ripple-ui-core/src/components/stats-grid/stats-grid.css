@@ -1,0 +1,28 @@
+.rpl-stats-grid {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: var(--rpl-sp-2);
+}
+
+.rpl-stats-grid-item {
+  background: var(--rpl-clr-neutral-100);
+  padding: var(--rpl-sp-9) var(--rpl-sp-4);
+  flex-shrink: 0;
+  flex-basis: 45%;
+  overflow: hidden;
+  text-align: center;
+  word-break: break-word;
+
+  @media (--rpl-bp-s) {
+    flex-basis: 27%;
+  }
+
+  @media (--rpl-bp-l) {
+    flex-basis: 20%;
+  }
+
+  .rpl-stats-grid--on-dark & {
+    background: var(--rpl-clr-light);
+  }
+}

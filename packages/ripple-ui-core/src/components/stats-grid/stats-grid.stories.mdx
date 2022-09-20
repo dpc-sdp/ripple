@@ -27,6 +27,11 @@ export const SingleTemplate = (args) => ({
 <Meta
   title='WIP/Components/Stats grid'
   component={RplStatsGrid}
+  parameters={{
+    chromatic: {
+      viewports: [bpMin.s - 100, bpMin.s, bpMin.m, bpMin.l, bpMin.xl]
+    }
+  }}
   argTypes={{
     variant: {
       control: { type: 'radio' },

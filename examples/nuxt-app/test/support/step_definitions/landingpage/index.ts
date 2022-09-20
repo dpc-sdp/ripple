@@ -1,8 +1,30 @@
-import { When, Given } from '@badeball/cypress-cucumber-preprocessor'
+import { When, Given, Before, After } from '@badeball/cypress-cucumber-preprocessor'
+
+Before({ tags: "@mockserver" }, () => {
+  cy.log('the mock server has started')
+  cy.task('startMockServer')
+})
+
+After({ tags: "@mockserver" }, () => {
+  cy.log('the mock server has stopped')
+  cy.task('stopMockServer')
+})
+
 
 Given(`the mock server has started`, () => {
   cy.log('the mock server has started')
   cy.task('startMockServer')
+})
+
+Given(`the mock server has started with proxy`, () => {
+  cy.log('the mock server has started, unmatched routes will be proxied')
+  cy.task('startMockServer', true)
+})
+
+Given(`the mock server has been stopped`, () => {
+
+  cy.task('stopMockServer')
+  cy.log('the mock server has been stopped')
 })
 
 Given(

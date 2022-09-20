@@ -20,7 +20,6 @@ import { default as RplIconCmp } from './components/icon/icon.vue'
 import { default as RplIconSpriteCmp } from './components/icon/sprite.vue'
 import { default as RplInPageNavigationCmp } from './components/in-page-navigation/in-page-navigation.vue'
 import { default as RplListCmp } from './components/list/list.vue'
-import { default as RplNavPrimaryCmp } from './components/nav-primary/nav-primary.vue' // WIP
 import { default as RplProfileCmp } from './components/profile/profile.vue'
 import { default as RplRelatedLinksCmp } from './components/related-links/related-links.vue'
 import { default as RplSocialShareCmp } from './components/social-share/social-share.vue'
@@ -120,7 +119,6 @@ export function registerRplWebComponents() {
   customElements.define('rpl-icon-sprite', RplIconSprite)
   customElements.define('rpl-in-page-navigation', RplInPageNavigation)
   customElements.define('rpl-list', RplList)
-  customElements.define('rpl-nav-primary', RplNavPrimary)
   customElements.define('rpl-profile', RplProfile)
   customElements.define('rpl-related-links', RplRelatedLinks)
   customElements.define('rpl-social-share', RplSocialShare)

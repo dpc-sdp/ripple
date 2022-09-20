@@ -3888,6 +3888,11 @@
     xlsx "^0.17.1"
     xml2js "^0.4.23"
 
+"@outlinestudio/designtokenscss@^1.0.6":
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/@outlinestudio/designtokenscss/-/designtokenscss-1.0.6.tgz#4fda9e30c6b5135c0b7af3372732bf3c478abdca"
+  integrity sha512-lY3DdKU9qzkna1ec2mgxKKskCpReaKrmkdXJ7MGq0do+IOUOh/vXO4s9j/Wjdfu8D2wuGadSGERgplNYSgi+6w==
+
 "@parcel/watcher@2.0.4":
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/@parcel/watcher/-/watcher-2.0.4.tgz#f300fef4cc38008ff4b8c29d92588eced3ce014b"

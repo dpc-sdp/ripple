@@ -5,7 +5,7 @@ import { withCssResources } from '@storybook/addon-cssresources'
 import { withDesign } from 'storybook-addon-designs'
 import VueSocialSharing from 'vue-social-sharing'
 import { app } from '@storybook/vue3'
-
+import themes from './themes.json'
 // Storybook specific CSS
 import './storybook.css'
 
@@ -30,14 +30,6 @@ export const parameters = {
       date: /Date$/
     }
   },
-  cssresources: [
-    {
-      id: 'Light theme',
-      code: `<link rel="stylesheet" type="text/css" href="/themes/dark-on-light.css"></link>`,
-      picked: false,
-      hideCode: true
-    }
-  ],
   backgrounds: {
     default: 'light',
     values: [
@@ -55,6 +47,11 @@ export const parameters = {
       },
     ],
   },
+  designTokensCss: {
+    label: "Themes",
+    persistData: true,
+    themes
+  }
 }
 export const decorators = [
   withCssResources,

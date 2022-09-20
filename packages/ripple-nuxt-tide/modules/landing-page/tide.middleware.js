@@ -41,7 +41,7 @@ export default {
             key,
             promise: context.app.$tideSearchApi.search('/cards', {
               site: context.store.state.tideSite.siteId,
-              ...getQueryParams(component.data.config)
+              ...getQueryParams(component.data)
             })
           })
         }
@@ -56,7 +56,6 @@ export default {
           component.data.initialResults = response.results
           component.data.total = response.total
           component.data.sidebar = pageData.tideLayout.sidebar
-          component.data.config.results.min_not_met = 'no_results_message'
         })
       }
     }

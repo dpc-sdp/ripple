@@ -12,10 +12,12 @@ withDefaults(defineProps<Props>(), {})
 
 <template>
   <li class="rpl-stats-grid-item">
-    <span class="rpl-type-h3">{{ value }}</span>
-    <span class="rpl-type-p">
-      <slot></slot>
-    </span>
+    <div class="rpl-stats-grid-item__inner">
+      <span class="rpl-type-h3">{{ value }}</span>
+      <span class="rpl-type-p">
+        <slot></slot>
+      </span>
+    </div>
   </li>
 </template>
 

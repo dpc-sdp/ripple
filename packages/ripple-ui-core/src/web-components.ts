@@ -15,7 +15,7 @@ import { default as RplPromoCardCmp } from './components/card/promo-card.vue'
 import { default as RplChipCmp } from './components/chip/chip.vue'
 import { default as RplContactUsCmp } from './components/contact-us/contact-us.vue'
 import { default as RplContentCmp } from './components/content/content.vue'
-import { default as RplFileCmp } from './components/file/file.vue'
+import { default as RplDocumentCmp } from './components/document/document.vue'
 import { default as RplIconCmp } from './components/icon/icon.vue'
 import { default as RplIconSpriteCmp } from './components/icon/sprite.vue'
 import { default as RplInPageNavigationCmp } from './components/in-page-navigation/in-page-navigation.vue'
@@ -48,7 +48,7 @@ const RplPromoCard = defineCustomElement(RplPromoCardCmp)
 const RplChip = defineCustomElement(RplChipCmp)
 const RplContactUs = defineCustomElement(RplContactUsCmp)
 const RplContent = defineCustomElement(RplContentCmp)
-const RplFile = defineCustomElement(RplFileCmp)
+const RplDocument = defineCustomElement(RplDocumentCmp)
 const RplIcon = defineCustomElement(RplIconCmp)
 const RplIconSprite = defineCustomElement(RplIconSpriteCmp)
 const RplInPageNavigation = defineCustomElement(RplInPageNavigationCmp)
@@ -81,7 +81,7 @@ export { RplPromoCard }
 export { RplChip }
 export { RplContactUs }
 export { RplContent }
-export { RplFile }
+export { RplDocument }
 export { RplIcon }
 export { RplIconSprite }
 export { RplInPageNavigation }
@@ -115,7 +115,7 @@ export function registerRplWebComponents() {
   customElements.define('rpl-chip', RplChip)
   customElements.define('rpl-contact-us', RplContactUs)
   customElements.define('rpl-content', RplContent)
-  customElements.define('rpl-file', RplFile)
+  customElements.define('rpl-document', RplDocument)
   customElements.define('rpl-icon', RplIcon)
   customElements.define('rpl-icon-sprite', RplIconSprite)
   customElements.define('rpl-in-page-navigation', RplInPageNavigation)

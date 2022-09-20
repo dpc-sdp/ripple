@@ -4,27 +4,28 @@ import {
   Story,
   ArgsTable
 } from '@storybook/addon-docs'
-import RplFile from './file.vue'
+import RplDocument from './document.vue'
 import { a11yStoryCheck } from './../../../stories/interactions.js'
 
 export const SingleTemplate = (args) => ({
-  components: { RplFile },
+  components: { RplDocument },
   setup() {
     return { args }
   },
-  template: '<RplFile v-bind="args" />'
+  template: '<RplDocument v-bind="args" />'
 })
 
 <Meta
-  title='Core/Containers/File'
-  component={RplFile}
+  title='Core/Containers/Document'
+  component={RplDocument}
   argTypes={{
     name: { type: 'string' },
     url: { type: 'string' },
     size: { type: 'string' },
     extension: { type: 'string' },
     caption: { type: 'string' },
-    updated: { type: 'string' }
+    updated: { type: 'string' },
+    icon: { type: 'string' }
   }}
   args={{
     name: 'This is an example of a document title',
@@ -36,7 +37,7 @@ export const SingleTemplate = (args) => ({
 
 # File
 
-<ArgsTable of={RplFile} />
+<ArgsTable of={RplDocument} />
 
 <Canvas>
   <Story

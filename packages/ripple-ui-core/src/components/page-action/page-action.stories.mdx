@@ -1,0 +1,114 @@
+import {
+  Canvas,
+  Meta,
+  Story,
+  ArgsTable
+} from '@storybook/addon-docs'
+import RplPageAction from './page-action.vue'
+import RplDocument from '../document/document.vue'
+import { a11yStoryCheck } from './../../../stories/interactions.js'
+
+<Meta
+  title='WIP/Components/Page action'
+  component={RplPageAction}
+/>
+
+# Page Action
+
+<ArgsTable of={RplPageAction} />
+
+<Canvas>
+  <Story
+    name='Default'
+    play={a11yStoryCheck}
+    args={{
+      name: 'The document title',
+      url: 'https://vic.gov.au/',
+      size: '0.75mb',
+      extension: 'csv'
+    }}
+  >
+    {(args) => {
+      return {
+        components: { RplPageAction, RplDocument },
+        setup() {
+          return { args }
+        },
+        template: `
+          <RplPageAction>
+            <template #upper>
+              <RplDocument
+                name="Print document"
+                url="https://vic.gov.au/print"
+                icon="print-lined"
+              />
+            </template>
+            <RplDocument v-bind="args" />
+            <RplDocument v-bind="args" />
+          </RplPageAction>
+        `
+      }
+    }}
+  </Story>
+</Canvas>
+
+## Example / With only documents
+
+This is example shows the page action component with only documents.
+
+<Canvas>
+  <Story
+    name='Only Documents'
+    play={a11yStoryCheck}
+    args={{
+      name: 'Another document title',
+      url: 'https://vic.gov.au/',
+      size: '0.75mb',
+      extension: 'csv'
+    }}
+  >
+    {(args) => {
+      return {
+        components: { RplPageAction, RplDocument },
+        setup() {
+          return { args }
+        },
+        template: `
+          <RplPageAction>
+            <RplDocument v-bind="args" />
+            <RplDocument v-bind="args" />
+            <RplDocument v-bind="args" />
+          </RplPageAction>
+        `
+      }
+    }}
+  </Story>
+</Canvas>
+
+## Example / With only print
+
+This is example shows the page action component with only print.
+
+<Canvas>
+  <Story
+    name='Only Print'
+    play={a11yStoryCheck}
+  >
+  {() => {
+    return {
+        components: { RplPageAction, RplDocument },
+        template: `
+          <RplPageAction>
+            <template #upper>
+              <RplDocument
+                name="Print document"
+                url="https://vic.gov.au/print"
+                icon="print-lined"
+              />
+            </template>
+          </RplPageAction>
+        `
+      }
+    }}
+  </Story>
+</Canvas>

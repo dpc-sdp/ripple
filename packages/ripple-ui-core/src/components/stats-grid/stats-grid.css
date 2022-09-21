@@ -27,7 +27,7 @@
   flex-basis: 50%;
 
   /* Fallback to a 3 column layout if number of items not specified */
-  @media (--rpl-bp-s) {
+  @media (--rpl-bp-m) {
     flex-basis: 33.33%;
   }
 
@@ -41,19 +41,19 @@
   * See the vue component for how these are added.
   */
   .rpl-stats-grid--2-cols & {
-    @media (--rpl-bp-s) {
+    @media (--rpl-bp-m) {
       flex-basis: 50%;
     }
   }
 
   .rpl-stats-grid--3-cols & {
-    @media (--rpl-bp-s) {
+    @media (--rpl-bp-m) {
       flex-basis: 33.33%;
     }
   }
 
   .rpl-stats-grid--4-cols & {
-    @media (--rpl-bp-s) {
+    @media (--rpl-bp-m) {
       flex-basis: 25%;
     }
   }

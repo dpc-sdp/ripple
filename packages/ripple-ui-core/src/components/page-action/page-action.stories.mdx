@@ -10,7 +10,7 @@ import RplFile from '../file/file.vue'
 import RplIcon from '../icon/icon.vue'
 import { a11yStoryCheck } from './../../../stories/interactions.js'
 
-export const PrintDocument = `<RplDocument url="https://vic.gov.au/#print">
+export const sampleUpper = `<RplDocument url="https://vic.gov.au/#print">
   <template #icon>
     <RplIcon name="icon-print-lined" size="l" colour="default" />
   </template>
@@ -19,15 +19,14 @@ export const PrintDocument = `<RplDocument url="https://vic.gov.au/#print">
   </template>
 </RplDocument>`
 
+export const sampleDefault = `<RplFile v-bind="args" /><RplFile v-bind="args" /><RplFile v-bind="args" />`
+
 <Meta
   title='WIP/Components/Page action'
   component={RplPageAction}
   args={{
-    name: 'The document title',
-    url: 'https://vic.gov.au/',
-    size: '1.5mb',
-    extension: 'pdf',
-    printDocument: PrintDocument
+    upper: sampleUpper,
+    default: sampleDefault
   }}
 />
 
@@ -39,6 +38,12 @@ export const PrintDocument = `<RplDocument url="https://vic.gov.au/#print">
   <Story
     name='Default'
     play={a11yStoryCheck}
+    args={{
+      name: 'The document title',
+      url: 'https://vic.gov.au/',
+      size: '1.5mb',
+      extension: 'pdf'
+    }}
   >
     {(args) => {
       return {
@@ -49,10 +54,9 @@ export const PrintDocument = `<RplDocument url="https://vic.gov.au/#print">
         template: `
           <RplPageAction>
             <template #upper>
-              ${args.printDocument}
+              ${args.upper}
             </template>
-            <RplFile v-bind="args" />
-            <RplFile v-bind="args" />
+            ${args.default}
           </RplPageAction>
         `
       }
@@ -68,6 +72,12 @@ This is example shows the page action component with only documents.
   <Story
     name='Only Documents'
     play={a11yStoryCheck}
+    args={{
+      name: 'Another document title',
+      url: 'https://vic.gov.au/',
+      size: '0.5mb',
+      extension: 'csv'
+    }}
   >
     {(args) => {
       return {
@@ -77,9 +87,7 @@ This is example shows the page action component with only documents.
         },
         template: `
           <RplPageAction>
-            <RplFile v-bind="args" />
-            <RplFile v-bind="args" />
-            <RplFile v-bind="args" caption="A short description of the document" />
+            ${args.default}
           </RplPageAction>
         `
       }
@@ -102,7 +110,7 @@ This is example shows the page action component with only print.
         template: `
           <RplPageAction>
             <template #upper>
-              ${args.printDocument}
+              ${args.upper}
             </template>
           </RplPageAction>
         `

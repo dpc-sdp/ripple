@@ -6,11 +6,29 @@ import {
 } from '@storybook/addon-docs'
 import RplPageAction from './page-action.vue'
 import RplDocument from '../document/document.vue'
+import RplFile from '../file/file.vue'
+import RplIcon from '../icon/icon.vue'
 import { a11yStoryCheck } from './../../../stories/interactions.js'
+
+export const PrintDocument = `<RplDocument url="https://vic.gov.au/#print">
+  <template #icon>
+    <RplIcon name="icon-print-lined" size="l" colour="default" />
+  </template>
+  <template #name>
+    Print document
+  </template>
+</RplDocument>`
 
 <Meta
   title='WIP/Components/Page action'
   component={RplPageAction}
+  args={{
+    name: 'The document title',
+    url: 'https://vic.gov.au/',
+    size: '1.5mb',
+    extension: 'pdf',
+    printDocument: PrintDocument
+  }}
 />
 
 # Page Action
@@ -21,30 +39,20 @@ import { a11yStoryCheck } from './../../../stories/interactions.js'
   <Story
     name='Default'
     play={a11yStoryCheck}
-    args={{
-      name: 'The document title',
-      url: 'https://vic.gov.au/',
-      size: '0.75mb',
-      extension: 'csv'
-    }}
   >
     {(args) => {
       return {
-        components: { RplPageAction, RplDocument },
+        components: { RplPageAction, RplDocument, RplFile, RplIcon },
         setup() {
           return { args }
         },
         template: `
           <RplPageAction>
             <template #upper>
-              <RplDocument
-                name="Print document"
-                url="https://vic.gov.au/print"
-                icon="print-lined"
-              />
+              ${args.printDocument}
             </template>
-            <RplDocument v-bind="args" />
-            <RplDocument v-bind="args" />
+            <RplFile v-bind="args" />
+            <RplFile v-bind="args" />
           </RplPageAction>
         `
       }
@@ -60,24 +68,18 @@ This is example shows the page action component with only documents.
   <Story
     name='Only Documents'
     play={a11yStoryCheck}
-    args={{
-      name: 'Another document title',
-      url: 'https://vic.gov.au/',
-      size: '0.75mb',
-      extension: 'csv'
-    }}
   >
     {(args) => {
       return {
-        components: { RplPageAction, RplDocument },
+        components: { RplPageAction, RplDocument, RplFile },
         setup() {
           return { args }
         },
         template: `
           <RplPageAction>
-            <RplDocument v-bind="args" />
-            <RplDocument v-bind="args" />
-            <RplDocument v-bind="args" />
+            <RplFile v-bind="args" />
+            <RplFile v-bind="args" />
+            <RplFile v-bind="args" caption="A short description of the document" />
           </RplPageAction>
         `
       }
@@ -94,17 +96,13 @@ This is example shows the page action component with only print.
     name='Only Print'
     play={a11yStoryCheck}
   >
-  {() => {
+  {(args) => {
     return {
-        components: { RplPageAction, RplDocument },
+        components: { RplPageAction, RplDocument, RplFile, RplIcon },
         template: `
           <RplPageAction>
             <template #upper>
-              <RplDocument
-                name="Print document"
-                url="https://vic.gov.au/print"
-                icon="print-lined"
-              />
+              ${args.printDocument}
             </template>
           </RplPageAction>
         `

@@ -13,20 +13,6 @@ interface Props {
 const props = defineProps<Props>()
 
 const isExternal = computed(() => isExternalLink(props.url))
-
-const ariaLabel = computed(() => {
-  let label = props.name
-  if (props.extension) {
-    label += ` File type: ${props.extension}`
-  }
-  if (props.size) {
-    label += ` Size: ${props.size}`
-  }
-  if (isExternal.value) {
-    label += `Opens in new tab`
-  }
-  return label
-})
 </script>
 
 <template>
@@ -35,7 +21,6 @@ const ariaLabel = computed(() => {
       tabindex="-1"
       class="rpl-document__link"
       :href="url"
-      :aria-label="ariaLabel"
       :download="isExternal ? null : ''"
       :target="isExternal ? '_blank' : null"
     >
@@ -49,7 +34,7 @@ const ariaLabel = computed(() => {
           tabindex="0">
             <slot name="name"></slot>
         </div>
-        <div v-if="$slots.name" class="rpl-document__meta rpl-type-label-small">
+        <div v-if="$slots.meta" class="rpl-document__meta rpl-type-label-small">
           <slot name="meta"></slot>
         </div>
       </div>

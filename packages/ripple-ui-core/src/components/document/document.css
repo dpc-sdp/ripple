@@ -12,8 +12,8 @@
   }
 }
 
-.rpl-document__info {
-  margin-left: var(--rpl-sp-4);
+.rpl-document__icon {
+  margin-right: var(--rpl-sp-4);
 }
 
 .rpl-document__name {

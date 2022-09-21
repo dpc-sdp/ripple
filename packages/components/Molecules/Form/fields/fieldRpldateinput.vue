@@ -2,6 +2,7 @@
   <div class="rpl-date-input">
     <input
       v-model.lazy="displayValue"
+      :id="getFieldID(schema)"
       :autocomplete="schema.autocomplete"
       :disabled="disabled"
       :placeholder="schema.placeholder"

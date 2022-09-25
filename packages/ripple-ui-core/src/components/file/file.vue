@@ -23,7 +23,7 @@ const props = withDefaults(defineProps<Props>(), {
   caption: undefined
 })
 
-const hasMeta = computed(() => props.extension || props.size || props.updated)
+const hasInfo = computed(() => props.extension || props.size || props.updated)
 </script>
 
 <template>
@@ -34,12 +34,10 @@ const hasMeta = computed(() => props.extension || props.size || props.updated)
     <template #name>
       {{ name }}
     </template>
-    <template v-if="hasMeta" #meta>
-      <span v-if="extension" class="rpl-file__type">{{ extension }}</span>
-      <span v-if="size" class="rpl-file__size">{{ size }}</span>
-      <div v-if="updated" class="rpl-file__updated">
-        Updated {{ updated }}
-      </div>
+    <template v-if="hasInfo" #info>
+      <span v-if="extension" class="rpl-document__meta">{{ extension }}</span>
+      <span v-if="size" class="rpl-document__meta">{{ size }}</span>
+      <div v-if="updated" class="rpl-document__updated">Updated {{ updated }}</div>
     </template>
     <template v-if="caption" #caption>
       <span v-html="caption"></span>
@@ -47,4 +45,3 @@ const hasMeta = computed(() => props.extension || props.size || props.updated)
   </RplDocument>
 </template>
 
-<style src="./file.css" />

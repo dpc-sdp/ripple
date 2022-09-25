@@ -26,5 +26,6 @@
 /* CSS only Components */
 @import 'components/_blockquote.css';
 @import 'components/_callout.css';
+@import 'components/_document.css';
 @import 'components/_img.css';
 @import 'components/_table.css';

@@ -81,7 +81,7 @@ This is example shows the page action component with only documents.
   >
     {(args) => {
       return {
-        components: { RplPageAction, RplDocument, RplFile },
+        components: { RplPageAction, RplFile },
         setup() {
           return { args }
         },
@@ -106,7 +106,7 @@ This is example shows the page action component with only print.
   >
   {(args) => {
     return {
-        components: { RplPageAction, RplDocument, RplFile, RplIcon },
+        components: { RplPageAction, RplDocument, RplIcon },
         template: `
           <RplPageAction>
             <template #upper>

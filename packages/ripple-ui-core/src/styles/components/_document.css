@@ -14,16 +14,32 @@
 
 .rpl-document__icon {
   margin-right: var(--rpl-sp-4);
+
+  .rpl-icon {
+    vertical-align: middle;
+  }
 }
 
 .rpl-document__name {
   text-decoration: underline;
 }
 
-.rpl-document__meta {
+.rpl-document__info {
   color: var(--rpl-clr-neutral-600);
   margin-top: var(--rpl-sp-2);
   line-height: var(--rpl-type-lh-1);
+}
+
+.rpl-document__meta {
+  text-transform: uppercase;
+
+  + .rpl-document__meta::before {
+    content: ' | ';
+  }
+}
+
+.rpl-document__updated {
+  margin-top: var(--rpl-sp-1);
 }
 
 .rpl-document__caption {

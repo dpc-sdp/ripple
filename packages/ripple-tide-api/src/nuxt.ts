@@ -59,7 +59,7 @@ export default defineNuxtModule({
     }
   },
   hooks: {
-    'autoImports:dirs'(dirs) {
+    'imports:dirs'(dirs) {
       dirs.push(join(__dirname, './../src/nuxt/composables'))
     },
     'components:dirs'(dirs) {

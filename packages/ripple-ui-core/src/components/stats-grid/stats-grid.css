@@ -1,0 +1,72 @@
+@import '@dpc-sdp/ripple-ui-core/style/breakpoints';
+
+/*
+* Explanation for using calc(var(--rpl-sp-2) * 0.5) and negative margins:
+*
+* Ideally we would just use flex-basis: XX% and gap: var(--rpl-sp-2), however combining
+* these doesn't work well and we would have to decrease the flex-basis percentage to
+* account for the gap. There is no nice way to do this, so we use margins around each
+* item and a negative margin around the container to emulate the flex 'gap'.
+*/
+
+.rpl-stats-grid {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  margin: calc(var(--rpl-sp-2) * -0.5);
+}
+
+.rpl-stats-grid-item {
+  flex-shrink: 0;
+  flex-grow: 1;
+  overflow: hidden;
+  padding: calc(var(--rpl-sp-2) * 0.5);
+
+  /* Small screens always have two columns */
+  /* stylelint-disable-next-line declaration-block-no-redundant-longhand-properties */
+  flex-basis: 50%;
+
+  /* Fallback to a 3 column layout if number of items not specified */
+  @media (--rpl-bp-m) {
+    flex-basis: 33.33%;
+  }
+
+  /* Fallback to a 4 column layout if number of items not specified */
+  @media (--rpl-bp-l) {
+    flex-basis: 25%;
+  }
+
+  /*
+  * These .rpl-stats-grid--X-cols are added based on the number of items in the grid
+  * See the vue component for how these are added.
+  */
+  .rpl-stats-grid--2-cols & {
+    @media (--rpl-bp-m) {
+      flex-basis: 50%;
+    }
+  }
+
+  .rpl-stats-grid--3-cols & {
+    @media (--rpl-bp-m) {
+      flex-basis: 33.33%;
+    }
+  }
+
+  .rpl-stats-grid--4-cols & {
+    @media (--rpl-bp-m) {
+      flex-basis: 25%;
+    }
+  }
+}
+
+.rpl-stats-grid-item__inner {
+  background: var(--rpl-clr-neutral-100);
+  padding: var(--rpl-sp-9) var(--rpl-sp-4);
+  text-align: center;
+  word-break: break-word;
+  height: 100%;
+
+  .rpl-stats-grid--on-dark & {
+    background: var(--rpl-clr-light);
+  }
+}

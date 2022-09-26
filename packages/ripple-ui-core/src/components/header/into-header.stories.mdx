@@ -1,0 +1,67 @@
+import {
+  Canvas,
+  Meta,
+  Story,
+  ArgsTable
+} from '@storybook/addon-docs'
+import RplIntroHeader from './intro-header.vue'
+import { a11yStoryCheck } from './../../../stories/interactions.js'
+
+export const SingleTemplate = (args) => ({
+  components: { RplIntroHeader },
+  setup() {
+    return { args }
+  },
+  template: '<RplIntroHeader v-bind="args" />'
+})
+
+<Meta
+  title='WIP/Components/Header'
+  component={RplIntroHeader}
+  argTypes={{
+    title: {
+      control: 'text'
+    },
+    content: {
+      control: 'text'
+    },
+  }}
+  args={{
+    title: 'The main intro title',
+    content: 'In do dolore dolore sint ipsum est est, commodo ex laborum Lorem ut deserunt dolore ullamco.'
+  }}
+/>
+
+# Header
+
+<ArgsTable of={RplIntroHeader} />
+
+<Canvas>
+  <Story
+    name='Intro'
+    play={a11yStoryCheck}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    name='Intro/Links'
+    play={a11yStoryCheck}
+    args={{
+      links: {
+        title: 'Want to know more about..',
+        more: { text: 'See more', url: '#more' },
+        items: [
+          {text: 'First links', url: '#first', icon: 'icon-arrow-right'},
+          {text: 'Second link', url: '#second', icon: 'icon-arrow-right'},
+          {text: 'A third link', url: '#third', icon: 'icon-arrow-right'},
+          {text: 'And a forth link', url: '#forth', icon: 'icon-arrow-right'}
+        ]
+      }
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>

@@ -161,6 +161,14 @@ html {
 }
 
 /* Paragraphs */
+
+/* TODO */
+.rpl-type-p-highlight {
+  padding: 0.25em 0.5em;
+  background-color: var(--rpl-clr-accent-alt);
+  box-decoration-break: clone;
+}
+
 .rpl-type-p-large {
   font-size: var(--rpl-type-size-3);
   line-height: var(--rpl-type-lh-5);

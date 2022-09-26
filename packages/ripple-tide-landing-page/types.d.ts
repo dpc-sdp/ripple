@@ -3,6 +3,7 @@ import type { TidePageBase } from '@dpc-sdp/ripple-tide-api/types'
 export type TideLandingPageComponent = {
   id: string
   component: string
+  title?: string
   props: Record<string, any>
   class?: Record<string, any>
 }
@@ -16,4 +17,8 @@ export default interface TideLandingPagePage extends TidePageBase {
    * @description Dynamic components for the body section
    */
   bodyComponents: TideLandingPageComponent[]
+  /**
+   * @description Background body colour
+   */
+  background: string
 }

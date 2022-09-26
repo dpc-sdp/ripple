@@ -1,16 +1,29 @@
 <template>
-  <div class="rpl-grid">
-    <DynamicComponents
-      v-if="page.headerComponents?.length > 0"
-      :components="page.headerComponents"
-      class="rpl-col-12"
-    />
-    <DynamicComponents
-      v-if="page.bodyComponents?.length > 0"
-      class="rpl-u-margin-t-9 rpl-u-margin-b-9 rpl-col-9"
-      :components="page.bodyComponents"
-    />
-  </div>
+  <RplLayout :background="page.background">
+    <template #aboveHeader>
+      <slot name="aboveHeader"></slot>
+    </template>
+    <template #primaryNav>
+      <slot name="primaryNav"></slot>
+    </template>
+    <template #breadcrumbs>
+      <slot name="breadcrumbs"></slot>
+    </template>
+    <template #aboveBody>
+      <DynamicComponents v-if="page.headerComponents?.length > 0" :components="page.headerComponents"
+        class="rpl-col-12" />
+    </template>
+    <template #body>
+      <DynamicComponents v-if="page.bodyComponents?.length > 0" :components="page.bodyComponents" />
+    </template>
+    <template #sidebar>
+      <slot name="sidebar"></slot>
+    </template>
+    <template #footer>
+      <slot name="footer">
+      </slot>
+    </template>
+  </RplLayout>
 </template>
 
 <script setup lang="ts">

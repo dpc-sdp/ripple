@@ -1,26 +1,59 @@
 <template>
-  <div class="rpl-tide-page">
-    <rpl-icon-sprite />
-    <header v-if="site" class="rpl-tide-page__header">
-      <slot name="header">
-        <rpl-nav-primary>
-          <template #open>Open Menu</template>
-        </rpl-nav-primary>
-      </slot>
-    </header>
-    <main v-if="page" class="rpl-tide-page__body rpl-container">
-      <slot name="body">
-        <h1>{{site.name}}</h1>
-        <component :is="componentName" :page="page" />
-      </slot>
-    </main>
-    <div v-else>Error</div>
-    <footer v-if="site" class="rpl-tide-page__footer">
-      <slot name="footer">
-        {{ site.menuFooter }}
-      </slot>
-    </footer>
-  </div>
+  <slot v-if="page" :name="`${componentName}Page`" v-bind="{page, site}">
+    <component :is="`${componentName}Page`" :page="page">
+      <template #aboveHeader>
+        <RplIconSprite />
+        <slot name="aboveHeader">
+          <RplAlert v-for="alert in site.alerts" v-bind="alert" :key="alert.alertId" />
+        </slot>
+      </template>
+      <template #primaryNav>
+        <slot name="primaryNav">
+          <RplNavPrimary></RplNavPrimary>
+        </slot>
+      </template>
+      <template #breadcrumbs>
+        <slot name="breadcrumbs">
+          <RplBreadcrumbs v-if="breadcrumbs" v-bind="breadcrumbs"></RplBreadcrumbs>
+        </slot>
+      </template>
+      <template #sidebar>
+        <slot v-if="page.sidebar" name="sidebar" v-bind="page.sidebar">
+          <RplContactUs v-if="page.sidebar" v-bind="page.sidebar?.contact" />
+          <RplVerticalNav v-if="page.sidebar" v-bind="page.sidebar?.contact" title="Section name" :items="[]" />
+        </slot>
+      </template>
+      <template #footer>
+        <slot name="footer">
+          <RplFooter></RplFooter>
+        </slot>
+      </template>
+    </component>
+  </slot>
+  <slot v-else-if="pageError || siteError" name="error">
+    <RplLayout>
+      <template #aboveHeader>
+        <RplIconSprite />
+        <slot v-if="site && site.alerts" name="aboveHeader">
+          <RplAlert v-for="alert in site.alerts" v-bind="alert" :key="alert.alertId" />
+        </slot>
+      </template>
+      <template #primaryNav>
+        <slot name="primaryNav">
+          <RplNavPrimary></RplNavPrimary>
+        </slot>
+      </template>
+      <template #body>
+        <!-- TODO: Add error handling in Error component -->
+        <h1>{{pageError.data?.error?.message}}</h1>
+      </template>
+      <template #footer>
+        <slot name="footer">
+          <RplFooter></RplFooter>
+        </slot>
+      </template>
+    </RplLayout>
+  </slot>
 </template>
 
 <script setup lang="ts">
@@ -32,7 +65,7 @@ import { pascalCase } from 'change-case'
 const route = useRoute()
 const config = useRuntimeConfig()
 // @ts-ignore
-const [{ data: site }, { data: page }] = await Promise.all([
+const [{ data: site, error: siteError }, { data: page, error: pageError }] = await Promise.all([
   useFetch('/api/tide/site', {
     baseURL: config.API_URL || '',
     params: {
@@ -49,8 +82,15 @@ const [{ data: site }, { data: page }] = await Promise.all([
 ])
 
 const componentName = computed(
-  () => page.value && `Tide${pascalCase(page.value.type)}Page`
+  () => page.value && `Tide${pascalCase(page.value.type)}`
 )
+
+// TODO: Will need to implement breadcrumb business logic
+const breadcrumbs = computed(() => {
+  return {
+    items: [{ label: 'Home', url: '/' }, { label: 'Page title', url: '/page-title' }]
+  }
+})
 
 const style = useSiteTheme(site.value?.theme)
 useHead({

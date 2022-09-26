@@ -30,18 +30,6 @@
   line-height: var(--rpl-type-lh-1);
 }
 
-.rpl-document__meta {
-  text-transform: uppercase;
-
-  + .rpl-document__meta::before {
-    content: ' | ';
-  }
-}
-
-.rpl-document__updated {
-  margin-top: var(--rpl-sp-1);
-}
-
 .rpl-document__caption {
   margin-top: var(--rpl-sp-3);
 }

@@ -35,9 +35,9 @@ const hasInfo = computed(() => props.extension || props.size || props.updated)
       {{ name }}
     </template>
     <template v-if="hasInfo" #info>
-      <span v-if="extension" class="rpl-document__meta">{{ extension }}</span>
-      <span v-if="size" class="rpl-document__meta">{{ size }}</span>
-      <div v-if="updated" class="rpl-document__updated">Updated {{ updated }}</div>
+      <span v-if="extension" class="rpl-file__meta">{{ extension }}</span>
+      <span v-if="size" class="rpl-file__meta">{{ size }}</span>
+      <div v-if="updated" class="rpl-file__updated">Updated {{ updated }}</div>
     </template>
     <template v-if="caption" #caption>
       <span v-html="caption"></span>

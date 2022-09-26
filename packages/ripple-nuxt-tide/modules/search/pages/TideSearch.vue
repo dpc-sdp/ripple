@@ -89,7 +89,6 @@ export default {
         sFields: [
           'changed',
           'created',
-          'field_news_date',
           'field_landing_page_summary',
           'field_node_primary_site',
           'field_page_intro_text',
@@ -123,13 +122,7 @@ export default {
     },
     mapSearchResults (source) {
       const site = this.$store.state.tide.siteData.drupal_internal__tid
-      const type = source.type[0]
-      let date
-      if (type === 'news') {
-        date = source.field_news_date[0]
-      } else {
-        date = source.changed ? source.changed[0] : source.created[0]
-      }
+      let date = source.changed ? source.changed[0] : source.created[0]
       return {
         title: source.title ? source.title[0] : '',
         link: this.getLink(source.url, site, source.field_node_primary_site, this.$store.state.tideSite.sitesDomainMap, { text: 'linkText', url: 'linkUrl' }),

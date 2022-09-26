@@ -992,13 +992,13 @@ module.exports = class ContentCollection {
     let mappedResult = null
     const _source = item._source
     const link = this.getLocalisedLinkFromSource(_source)
-    console.log(_source)
+    const newsDate = _source.field_news_date
     switch (this.getDisplayResultComponentType()) {
       case 'search-result':
         mappedResult = {
           title: _source.title?.[0],
           link: link ? { linkText: link.domain + link.path, linkUrl: link.path } : null,
-          date: _source.field_news_date?.[0],
+          date: newsDate ? _source.field_news_date?.[0] : _source.created?.[0],
           description: _source.field_landing_page_summary?.[0]
         }
         break

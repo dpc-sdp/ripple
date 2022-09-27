@@ -19,6 +19,9 @@ export const SingleTemplate = (args) => ({
 <Meta
   title='WIP/Components/Header'
   component={RplHeroHeader}
+  parameters={{
+    layout: 'fullscreen',
+  }}
   argTypes={{
     title: {
       control: 'text'
@@ -80,7 +83,7 @@ This is an example the hero header with optional actions i.e. cta
     play={a11yStoryCheck}
     args={{
       primaryAction: { text: 'Primary action', url: '#primary' },
-      secondaryAction: { text: 'Secondary action', url: '#secondary' },
+      secondaryAction: { title: 'Want to find out more', text: 'Secondary action', url: '#secondary' },
     }}
   >
     {SingleTemplate.bind()}
@@ -97,7 +100,7 @@ This is an example the hero header with optional links
     play={a11yStoryCheck}
     args={{
       links: {
-        heading: 'Want to know more about..',
+        title: 'Want to know more about..',
         more: { text: 'See more', url: '#more' },
         items: [
           {text: 'First links', url: '#first'},
@@ -121,7 +124,7 @@ This is an example the hero header with optional links
     name='Hero/Logo'
     play={a11yStoryCheck}
     args={{
-      logo: svgPlaceholder({ width: 150, height: 50, bgColor: '#ad9', fgColor: '#efc' })
+      logo: svgPlaceholder({ width: 300, height: 200 })
     }}
   >
     {SingleTemplate.bind()}

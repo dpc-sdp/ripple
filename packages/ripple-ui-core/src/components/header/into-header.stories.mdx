@@ -18,6 +18,9 @@ export const SingleTemplate = (args) => ({
 <Meta
   title='WIP/Components/Header'
   component={RplIntroHeader}
+  parameters={{
+    layout: 'fullscreen',
+  }}
   argTypes={{
     title: {
       control: 'text'
@@ -50,6 +53,7 @@ export const SingleTemplate = (args) => ({
     name='Intro/Links'
     play={a11yStoryCheck}
     args={{
+      iconName: 'icon-information-circle-filled',
       links: {
         title: 'Want to know more about..',
         more: { text: 'See more', url: '#more' },

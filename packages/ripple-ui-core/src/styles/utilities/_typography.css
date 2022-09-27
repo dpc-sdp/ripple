@@ -161,10 +161,10 @@ html {
 }
 
 /* Paragraphs */
-
-/* TODO */
 .rpl-type-p-highlight {
-  padding: 0.25em 0.5em;
+  display: inline;
+  padding-left: var(--rpl-sp-2);
+  padding-right: var(--rpl-sp-2);
   background-color: var(--rpl-clr-accent-alt);
   box-decoration-break: clone;
 }

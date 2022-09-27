@@ -10,12 +10,12 @@ import RplIcon from '../icon/icon.vue'
 import { RplListItemArray } from '../list/constants'
 
 interface Props {
-  title: string
-  items?: RplListItemArray[]
-  moreLink: CoreLink
+  title?: string
+  items: RplListItemArray[]
+  moreLink?: CoreLink
 }
 
-const props = withDefaults(defineProps<Props>(), {
+withDefaults(defineProps<Props>(), {
   title: undefined,
   moreLink: undefined
 })
@@ -34,9 +34,11 @@ const props = withDefaults(defineProps<Props>(), {
     <RplTextLink
       v-if="moreLink"
       :url="moreLink.url"
-      class="rpl-header-links__more rpl-header-links__list"
+      class="rpl-header__icon-link rpl-header-links__item rpl-type-p rpl-type-weight-bold"
     >
-      {{ moreLink.text }} <RplIcon name="icon-arrow-right" size="s" />
+      {{ moreLink.text }} <RplIcon name="icon-arrow-right" size="xs" />
     </RplTextLink>
   </div>
 </template>
+
+<style src="./header-links.css" />

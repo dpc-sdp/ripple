@@ -6,11 +6,11 @@ export default { name: 'RplHeroHeader' }
 import { computed } from 'vue'
 import RplHeader from './header.vue'
 import RplImage from '../image/image.vue'
-import RplList from '../list/list.vue'
 import RplTextLink from '../text-link/text-link.vue'
 import RplIcon from '../icon/icon.vue'
 import RplButton from '../button/button.vue'
-import { CoreLink, Links, RplHeaderThemes } from './constants'
+import { ContextLink, CoreLink, Links, RplHeaderThemes } from './constants'
+import RplHeaderLinks from './header-links.vue'
 
 interface Props {
   title: string
@@ -19,7 +19,7 @@ interface Props {
   background?: object // TODO
   content?: string
   primaryAction: CoreLink // TODO
-  secondaryAction: CoreLink
+  secondaryAction: ContextLink
   links?: Links[]
 }
 
@@ -33,15 +33,19 @@ const props = withDefaults(defineProps<Props>(), {
   links: undefined
 })
 
+const highlight = computed(
+  () => props.theme === 'reverse' || props.theme === 'neutral'
+)
+
 const titleClasses = computed(() => ({
   'rpl-header__title': true,
-  'rpl-type-h1': props.theme === 'default',
-  'rpl-type-h1-highlight': props.theme === 'reverse'
+  'rpl-type-h1': !highlight.value,
+  'rpl-type-h1-highlight': highlight.value
 }))
 
 const contentClasses = computed(() => ({
   'rpl-type-p-large': true,
-  'rpl-type-p-highlight': props.theme === 'reverse'
+  'rpl-type-p-highlight': highlight.value
 }))
 </script>
 
@@ -56,35 +60,35 @@ const contentClasses = computed(() => ({
         priority="high"
       />
     </template>
-    <template v-if="logo" #upper>
+    <template v-if="logo && !background" #upper>
       <RplImage class="rpl-header__logo" :src="logo" alt="" />
     </template>
     <template #title>
       <h1 :class="titleClasses">{{ title }}</h1>
     </template>
-    <p v-if="content" v-html="content" :class="contentClasses"></p>
-    <template v-if="primaryAction || secondaryAction" #lower>
-      <RplButton v-if="primaryAction" :url="primaryAction.url" el="a">
+    <p v-if="content" :class="contentClasses" v-html="content"></p>
+    <template v-if="(primaryAction || secondaryAction) && !background" #lower>
+      <RplButton
+        v-if="primaryAction"
+        :url="primaryAction.url"
+        class="rpl-header__action-button"
+        el="a"
+      >
         {{ primaryAction.text }}
       </RplButton>
-      <RplTextLink
-        v-if="secondaryAction"
-        :url="secondaryAction.url"
-        class="rpl-header__action-link"
-      >
-        {{ secondaryAction.text }} <RplIcon name="icon-arrow-right" size="s" />
-      </RplTextLink>
+      <div class="rpl-header__action-secondary">
+        <p v-if="secondaryAction.title" class="rpl-type-p">{{ secondaryAction.title }}</p>
+        <RplTextLink
+          v-if="secondaryAction"
+          :url="secondaryAction.url"
+          class="rpl-header__icon-link rpl-header-links__more rpl-type-label rpl-type-weight-bold"
+        >
+          {{ secondaryAction.text }} <RplIcon name="icon-arrow-right" size="s" />
+        </RplTextLink>
+      </div>
     </template>
-    <template v-if="links" #aside>
-      <h2 v-if="links.heading" class="rpl-type-h4">{{ links.heading }}</h2>
-      <RplList
-        :items="links.items"
-        container-class="rpl-header-links__list"
-        item-class="rpl-header-links__item rpl-type-p"
-      />
-      <RplTextLink v-if="links?.more" :url="links.more.url">
-        {{ links.more.text }} <RplIcon name="icon-arrow-right" size="s" />
-      </RplTextLink>
+    <template v-if="links && !background" #aside>
+      <RplHeaderLinks :title="links?.title" :items="links.items" :more-link="links.more" />
     </template>
   </RplHeader>
 </template>

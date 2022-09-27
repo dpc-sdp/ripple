@@ -1,0 +1,25 @@
+.rpl-header-links a {
+  color: inherit;
+  display: inline-flex;
+}
+
+.rpl-header-links__item,
+.rpl-header-links__more {
+  @media (--rpl-bp-l) {
+    font-size: var(--rpl-type-size-3);
+    line-height: var(--rpl-type-lh-5);
+    letter-spacing: var(--rpl-type-ls-2);
+  }
+
+  .rpl-icon--size-xs {
+    @media (--rpl-bp-l) {
+      --rpl-icon-size: var(--rpl-sp-4);
+    }
+  }
+}
+
+.rpl-header-links__item {
+  .rpl-icon {
+    order: 1;
+  }
+}

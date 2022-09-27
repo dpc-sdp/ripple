@@ -17,9 +17,7 @@ const eventTestFunction = async ({ canvasElement }) => {
 
 export const Template = (args) => ({
   components: { RplTextLink },
-  setup() {
-    return { args }
-  },
+  setup() { return { args } },
   template: '<p class="sb-container rpl-type-p">This para contains a <RplTextLink @click.prevent="args.onClick()" v-bind="args">link</RplTextLink> in the middle.</p>'
 })
 
@@ -27,7 +25,13 @@ export const Template = (args) => ({
   title='Core/Navigation/Text link'
   component={{RplTextLink}}
   argTypes={{
-    onClick: { action: 'clicked' }
+    onClick: { action: 'clicked' },
+    url: {
+      control: 'text'
+    }
+  }}
+  args={{
+    url: "https://www.vic.gov.au/non-visited"
   }}
 />
 
@@ -48,26 +52,29 @@ export const Template = (args) => ({
 
 <Canvas>
   <Story name="Example/Content/Accent" play={a11yStoryCheck}>
-    {() => {
+    {(args) => {
       return {
         components: { RplTextLink },
-        template: '<p class="sb-container rpl-type-p">This para contains a <RplTextLink>voilà</RplTextLink> in the middle.</p>'
+        setup() { return { args } },
+        template: '<p class="sb-container rpl-type-p">This para contains a <RplTextLink v-bind="args">voilà</RplTextLink> in the middle.</p>'
       }
     }}
   </Story>
   <Story name="Example/Content/Emoji" play={a11yStoryCheck}>
-    {() => {
+    {(args) => {
       return {
         components: { RplTextLink },
-        template: '<p class="sb-container rpl-type-p">This para contains a <RplTextLink>😍</RplTextLink> in the middle.</p>'
+        setup() { return { args } },
+        template: '<p class="sb-container rpl-type-p">This para contains a <RplTextLink v-bind="args">😍</RplTextLink> in the middle.</p>'
       }
     }}
   </Story>
   <Story name="Example/Content/Target" play={a11yStoryCheck}>
-    {() => {
+    {(args) => {
       return {
         components: { RplTextLink },
-        template: `<p class="sb-container rpl-type-p">This para contains a <RplTextLink target="_blank">link that opens in a new window</RplTextLink> in the middle.</p>`
+        setup() { return { args } },
+        template: `<p class="sb-container rpl-type-p">This para contains a <RplTextLink v-bind="args" target="_blank">link that opens in a new window</RplTextLink> in the middle.</p>`
       }
     }}
   </Story>
@@ -77,10 +84,11 @@ export const Template = (args) => ({
 
 <Canvas>
   <Story name="Example/Component/Icon" play={a11yStoryCheck}>
-    {() => {
+    {(args) => {
       return {
         components: { RplTextLink, RplIcon },
-        template: `<p class="sb-container rpl-type-p">This para contains an <RplTextLink><RplIcon name="icon-pin" title="download icon"></RplIcon></RplTextLink> in the middle.</p>`
+        setup() { return { args } },
+        template: `<p class="sb-container rpl-type-p">This para contains an <RplTextLink v-bind="args"><RplIcon name="icon-pin" title="download icon"></RplIcon></RplTextLink> in the middle.</p>`
       }
     }}
   </Story>
@@ -97,7 +105,7 @@ export const Template = (args) => ({
       return {
         components: { RplTextLink },
         setup() { return { args } },
-        template: `<p class="sb-container rpl-type-p">This para contains an <RplTextLink @click.prevent="args.onClick()">event-tracked link</RplTextLink> in the middle.</p>`
+        template: `<p class="sb-container rpl-type-p">This para contains an <RplTextLink v-bind="args" @click.prevent="args.onClick()">event-tracked link</RplTextLink> in the middle.</p>`
       }
     }}
   </Story>

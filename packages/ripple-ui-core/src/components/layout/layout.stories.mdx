@@ -16,6 +16,7 @@ import { RplAccordionItems } from './../accordion/constants.ts'
 import RplTimeline from './../timeline/timeline.vue'
 import RplContactUs from './../contact-us/contact-us.vue'
 import RplPageComponent from './page-component.vue'
+import RplSidebarComponent from './sidebar-component.vue'
 import RplInPageNavigation from './../in-page-navigation/in-page-navigation.vue'
 import RplAlert from './../alert/alert.vue'
 import RplNavPrimary from './../nav-primary/nav-primary.vue'
@@ -25,7 +26,7 @@ import { verticalNavItems } from './storydata.ts'
 
 
 export const ExampleTemplate = (args) => ({
-  components: { RplLayout, sbSpacer },
+  components: { RplLayout, RplPageComponent, RplSidebarComponent, sbSpacer },
   setup() {
     return { args }
   },
@@ -34,20 +35,42 @@ export const ExampleTemplate = (args) => ({
       <template #aboveHeader>
         <sb-spacer color="pink">#aboveHeader - Alerts go here</sb-spacer>
       </template>
-      <template #header>
+      <template #primaryNav>
         <sb-spacer color="lightblue">#header - Nav primary goes here</sb-spacer>
       </template>
-      <template #belowHeader>
-        <sb-spacer color="lightgreen">#belowHeader - Breadcrumbs go here</sb-spacer>
+      <template #breadcrumbs>
+        <sb-spacer color="lightgreen">#breadcrumbs - Breadcrumbs go here</sb-spacer>
       </template>
       <template #aboveBody>
         <sb-spacer color="lightsalmon">#aboveBody - Campaign banner goes here</sb-spacer>
       </template>
       <template #body>
-        <sb-spacer color="lightpurple">#body components go here, they are really long and take up lots of space</sb-spacer>
+        <RplPageComponent>
+          <sb-spacer color="mistyrose">
+            #body components go here, they are really long and take up lots of space
+          </sb-spacer>
+        </RplPageComponent>
+        <RplPageComponent>
+          <sb-spacer color="mistyrose">
+            #body components go here, they are really long and take up lots of space
+          </sb-spacer>
+        </RplPageComponent>
+        <RplPageComponent>
+          <sb-spacer color="mistyrose">
+            #body components go here, they are really long and take up lots of space
+          </sb-spacer>
+        </RplPageComponent>
       </template>
       <template #sidebar>
-        <sb-spacer color="lavender">#sidebar - Sidebar goes here</sb-spacer>
+        <RplPageComponent>
+          <sb-spacer color="lavender">#sidebar - Sidebar goes here</sb-spacer>
+        </RplPageComponent>
+        <RplPageComponent>
+          <sb-spacer color="lavender">#sidebar - Sidebar goes here</sb-spacer>
+        </RplPageComponent>
+        <RplPageComponent>
+          <sb-spacer color="lavender">#sidebar - Sidebar goes here</sb-spacer>
+        </RplPageComponent>
       </template>
       <template #belowBody>
         <sb-spacer color="lightyellow">#belowBody - Content rating form goes here</sb-spacer>
@@ -69,6 +92,7 @@ export const PageLayoutContentTemplate = (args) => ({
     RplContactUs,
     RplInPageNavigation,
     RplPageComponent,
+    RplSidebarComponent,
     RplVerticalNav,
     RplBreadcrumbs,
     RplNavPrimary,
@@ -109,17 +133,21 @@ export const PageLayoutContentTemplate = (args) => ({
         </RplPageComponent>
       </template>
       <template #sidebar>
-        <RplContactUs
-          :address="{
-            name: 'First Name Last Name',
-            department: 'Department Name',
-            street: 'Address Line, Suburb, 3019'
-          }"
-        />
-        <RplVerticalNav
-          title="Section name"
-          :items="verticalNavItems"
-        />
+        <RplSidebarComponent>
+          <RplContactUs
+            :address="{
+              name: 'First Name Last Name',
+              department: 'Department Name',
+              street: 'Address Line, Suburb, 3019'
+            }"
+          />
+        </RplSidebarComponent>
+        <RplSidebarComponent>
+          <RplVerticalNav
+            title="Section name"
+            :items="verticalNavItems"
+          />
+        </RplSidebarComponent>
       </template>
       <template #footer>
         <RplFooter />
@@ -142,7 +170,7 @@ export const PageLayoutNavigationTemplate = (args) => ({
     return { args, RplNavCard, img }
   },
   template: `
-    <RplLayout v-bind="args" >
+    <RplLayout v-bind="args">
       <template #primaryNav>
         <RplNavPrimary></RplNavPrimary>
       </template>
@@ -178,9 +206,6 @@ export const PageLayoutNavigationTemplate = (args) => ({
   parameters={{
     layout: 'fullscreen'
   }}
-  args={{
-    variant: 'alt'
-  }}
 />
 
 # Layout
@@ -201,20 +226,7 @@ export const PageLayoutNavigationTemplate = (args) => ({
     name='Landing page / Content'
     play={a11yStoryCheck}
     args={{
-      variant: 'default',
-      footer: {
-        links: [
-          { text: 'Privacy', url: '#'}
-        ]
-      },
-      header: {
-      },
-      breadcrumbs: {
-        items: [
-          { label: 'Home', url: '/' },
-          { label: 'Test page', url: '/test-page' },
-        ]
-      }
+      background: 'default'
     }}
   >
     {PageLayoutContentTemplate.bind()}
@@ -226,20 +238,7 @@ export const PageLayoutNavigationTemplate = (args) => ({
     name='Landing page / Navigation'
     play={a11yStoryCheck}
     args={{
-      variant: 'alt',
-      footer: {
-        links: [
-          { text: 'Privacy', url: '#'}
-        ]
-      },
-      header: {
-      },
-      breadcrumbs: {
-        items: [
-          { label: 'Home', url: '/' },
-          { label: 'Test page', url: '/test-page' },
-        ]
-      }
+      background: 'alt'
     }}
   >
     {PageLayoutNavigationTemplate.bind()}

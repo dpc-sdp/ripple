@@ -10,18 +10,23 @@
       <slot name="breadcrumbs"></slot>
     </template>
     <template #aboveBody>
-      <DynamicComponents v-if="page.headerComponents?.length > 0" :components="page.headerComponents"
-        class="rpl-col-12" />
+      <DynamicComponents
+        v-if="page.headerComponents?.length > 0"
+        :components="page.headerComponents"
+        class="rpl-col-12"
+      />
     </template>
     <template #body>
-      <DynamicComponents v-if="page.bodyComponents?.length > 0" :components="page.bodyComponents" />
+      <DynamicComponents
+        v-if="page.bodyComponents?.length > 0"
+        :components="page.bodyComponents"
+      />
     </template>
     <template #sidebar>
       <slot name="sidebar"></slot>
     </template>
     <template #footer>
-      <slot name="footer">
-      </slot>
+      <slot name="footer"> </slot>
     </template>
   </RplLayout>
 </template>

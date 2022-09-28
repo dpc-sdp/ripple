@@ -12,6 +12,7 @@ interface Props {
   secondaryLogo?: RplPrimaryNavLogo
   items: RplPrimaryNavItem[]
   toggleItem: (itemIndex: number) => void
+  toggleSearch: () => void
 }
 
 const props = defineProps<Props>()
@@ -81,31 +82,39 @@ const props = defineProps<Props>()
       </li>
 
       <!-- Login slot -->
-      <!-- TODO: Make this a slot, or at least have a reactive href -->
       <li>
-        <RplPrimaryNavBarAction type="link" href="/login">
-          <span
-            class="
-              rpl-primary-nav__nav-bar-icon rpl-primary-nav__nav-bar-icon--large
-              rpl-u-margin-r-2
-            "
-            ><RplIcon name="icon-user-circle-filled"></RplIcon></span
-          >&NoBreak;<span>Login</span>
-        </RplPrimaryNavBarAction>
+        <slot name="login">
+          <RplPrimaryNavBarAction type="link" href="/login">
+            <span
+              class="
+                rpl-primary-nav__nav-bar-icon
+                rpl-primary-nav__nav-bar-icon--large
+                rpl-u-margin-r-2
+              "
+              ><RplIcon name="icon-user-circle-filled"></RplIcon></span
+            >&NoBreak;<span>Login</span>
+          </RplPrimaryNavBarAction>
+        </slot>
       </li>
 
       <!-- Search slot -->
-      <!-- TODO: Make this a slot, or at least have a reactive href -->
       <li>
-        <RplPrimaryNavBarAction type="toggle" href="/search">
-          <span>Search</span>&NoBreak;<span
-            class="
-              rpl-primary-nav__nav-bar-icon rpl-primary-nav__nav-bar-icon--large
-              rpl-u-margin-l-2
-            "
-            ><RplIcon name="icon-search"></RplIcon>
-          </span>
-        </RplPrimaryNavBarAction>
+        <slot name="search">
+          <RplPrimaryNavBarAction
+            type="toggle"
+            href="/search"
+            @click="toggleSearch()"
+          >
+            <span>Search</span>&NoBreak;<span
+              class="
+                rpl-primary-nav__nav-bar-icon
+                rpl-primary-nav__nav-bar-icon--large
+                rpl-u-margin-l-2
+              "
+              ><RplIcon name="icon-search"></RplIcon>
+            </span>
+          </RplPrimaryNavBarAction>
+        </slot>
       </li>
     </ul>
   </div>

@@ -5,16 +5,15 @@ export default { name: 'RplPrimaryNav' }
 <script setup lang="ts">
 /*
   TODO:
-    - Setup slots for login / search buttons (currently hard coded)
     - Fix menu disappearing before closing animation has finished
     - Setup functionality for primary nav to show / hide based on page scroll direction
-    - Add search bar component (currently in development)
     - Add mobile styling / markup
     - Improve example menu structure in storybook to reflect a real site example
 */
 import { ref, computed } from 'vue'
 import RplPrimaryNavBar from './nav-bar.vue'
 import RplPrimaryNavMenu from './nav-menu.vue'
+import RplPrimaryNavSearchForm from './search-form.vue'
 
 import { RplPrimaryNavLogo, RplPrimaryNavItem } from './constants'
 
@@ -37,15 +36,29 @@ const toggleItem = (itemIndex: number) => {
     item.active = index == itemIndex ? !item.active : false
     return item
   })
+
+  // Ensure search is not active
+  isSearchOpen.value = false
 }
 
 const activeItem = computed(() => {
   return items.value.find((item) => item.active)
 })
 
+const isSearchOpen = ref(false)
+
+const toggleSearch = () => {
+  isSearchOpen.value = !isSearchOpen.value
+
+  // Ensure no other nav bar items are active
+  items.value = items.value.map((item) => {
+    item.active = false
+    return item
+  })
+}
+
 const isPrimaryNavOpen = computed(() => {
-  // TODO: Implement logic to check for search being active
-  return activeItem.value ? true : false
+  return activeItem.value || isSearchOpen.value ? true : false
 })
 </script>
 
@@ -56,14 +69,20 @@ const isPrimaryNavOpen = computed(() => {
       'rpl-primary-nav--open': isPrimaryNavOpen
     }"
   >
+    <!-- Nav bar -->
     <RplPrimaryNavBar
       :primary-logo="props.primaryLogo"
       :secondary-logo="props.secondaryLogo"
       :items="items"
       :toggle-item="toggleItem"
+      :toggle-search="toggleSearch"
     />
 
+    <!-- Nav menu -->
     <RplPrimaryNavMenu v-if="activeItem" :item="activeItem" />
+
+    <!-- Search form -->
+    <RplPrimaryNavSearchForm v-if="isSearchOpen" />
   </nav>
 </template>
 

@@ -1,28 +1,35 @@
+/* stylelint-disable comment-empty-line-before */
 @import '@dpc-sdp/ripple-ui-core/style/breakpoints';
 
 .rpl-primary-nav {
+  --local-nav-bar-height-xs: 48px;
+  --local-nav-bar-height-s: 52px;
+  --local-nav-bar-height-m: 60px;
+
   margin: var(--rpl-sp-3);
-  height: 48px;
+  height: var(--local-nav-bar-height-xs);
   color: var(--rpl-clr-type-primary-contrast);
   background-color: var(--rpl-clr-primary);
   border-radius: var(--rpl-border-radius-2);
   transition: height var(--rpl-motion-speed-6) ease-in;
 
   @media (--rpl-bp-s) {
-    height: 52px;
+    height: var(--local-nav-bar-height-s);
   }
 
   @media (--rpl-bp-m) {
     margin: var(--rpl-sp-4);
-    height: 60px;
+    height: var(--local-nav-bar-height-m);
   }
 
   &.rpl-primary-nav--open {
     background-color: var(--rpl-clr-primary-alt);
+    /* 100vh - top and bottom margin */
     height: calc(100vh - (var(--rpl-sp-3) * 2));
     transition-timing-function: ease-out;
 
     @media (--rpl-bp-m) {
+      /* 100vh - top and bottom margin */
       height: calc(100vh - (var(--rpl-sp-4) * 2));
     }
   }
@@ -132,18 +139,27 @@
 
 /* Nav menu */
 .rpl-primary-nav__nav-menu {
-  max-width: 400px;
+  display: flex;
+  width: 100%;
+  height: calc(100% - var(--local-nav-bar-height-xs) - var(--rpl-sp-8));
+  overflow-y: scroll;
   padding-top: var(--rpl-sp-4);
   padding-right: var(--rpl-sp-4);
   padding-bottom: var(--rpl-sp-8);
   padding-left: var(--rpl-sp-4);
 
   @media (--rpl-bp-s) {
+    height: calc(100% - var(--local-nav-bar-height-s) - var(--rpl-sp-8));
     padding-right: var(--rpl-sp-5);
     padding-left: var(--rpl-sp-5);
   }
 
+  @media (--rpl-bp-m) {
+    height: calc(100% - var(--local-nav-bar-height-m) - var(--rpl-sp-8));
+  }
+
   @media (--rpl-bp-l) {
+    height: calc(100% - var(--local-nav-bar-height-m) - var(--rpl-sp-9));
     padding-top: var(--rpl-sp-7);
     padding-right: var(--rpl-sp-10);
     padding-bottom: var(--rpl-sp-9);
@@ -156,9 +172,14 @@
   }
 }
 
-.rpl-primary-nav__section-title {
+.rpl-primary-nav__nav-menu-section-title {
+  width: 25%;
   padding: 0 var(--rpl-sp-2);
   margin-bottom: var(--rpl-sp-4);
+}
+
+.rpl-primary-nav__nav-menu-column {
+  width: 25%;
 }
 
 .rpl-primary-nav__nav-menu-action {

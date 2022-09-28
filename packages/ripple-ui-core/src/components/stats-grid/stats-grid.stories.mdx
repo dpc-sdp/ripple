@@ -1,0 +1,104 @@
+import {
+  Canvas,
+  Meta,
+  Story,
+  ArgsTable
+} from '@storybook/addon-docs'
+import RplStatsGrid from './stats-grid.vue'
+import RplStatsGridItem from './stats-grid-item.vue'
+import RplContent from '../content/content.vue'
+import { StatsGridVariants } from './constants'
+import { a11yStoryCheck } from './../../../stories/interactions.js'
+import { bpMin } from '../../lib/breakpoints'
+
+export const SingleTemplate = (args) => ({
+  components: { RplStatsGrid, RplStatsGridItem, RplContent },
+  setup() {
+    return { args }
+  },
+  template: `
+    <RplStatsGrid :variant="args.variant">
+      <RplStatsGridItem v-for="item in args.items" :value="item.stat">
+        <span v-html="item.label" />
+      </RplStatsGridItem>
+    </RplStatsGrid>
+  `
+})
+
+<Meta
+  title='WIP/Components/Stats grid'
+  component={RplStatsGrid}
+  parameters={{
+    chromatic: {
+      viewports: [bpMin.s - 100, bpMin.s, bpMin.m, bpMin.l, bpMin.xl]
+    }
+  }}
+  argTypes={{
+    variant: {
+      control: { type: 'radio' },
+      options: StatsGridVariants,
+    }
+  }}
+  args={{
+    variant: 'onLight',
+    items: [
+      {
+        "stat": "One long stat",
+        "label": "Descriptive label"
+      },
+      {
+        "stat": "6000",
+        "label": "Descriptive label"
+      },
+      {
+        "stat": "22%",
+        "label": "Descriptive label"
+      },
+      {
+        "stat": "$3,000,000",
+        "label": "Descriptive label"
+      },
+      {
+        "stat": "4 Hours",
+        "label": "Descriptive label"
+      },
+      {
+        "stat": "555",
+        "label": "Descriptive label"
+      },
+      {
+        "stat": "One more longer statistic",
+        "label": "Descriptive label"
+      },
+      {
+        "stat": "7,500,000,000",
+        "label": "Descriptive label this one should fill the mobile width"
+      }
+    ]
+  }}
+/>
+
+# Stats grid
+
+<ArgsTable of={RplStatsGrid} />
+
+<Canvas>
+  <Story
+    name='On light'
+    play={a11yStoryCheck}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+  <Story
+    name='On dark'
+    args={{
+      variant: 'onDark'
+    }}
+    play={a11yStoryCheck}
+    parameters={{
+      backgrounds: { default: 'gray' },
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>

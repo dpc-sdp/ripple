@@ -36,9 +36,9 @@ clr:
       value: '{clr.light}'
     footer:
       contrast:
-        value: '{clr.light}'
+        value: '{clr.type.primary.contrast}'
       accessible:
-        value: '{clr.primary.alt}'
+        value: '{clr.type.primary.alt.accessible}'
   link:
     value: '{theme.clr.link}'
   link-visited:

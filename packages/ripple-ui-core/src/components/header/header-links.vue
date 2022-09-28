@@ -34,7 +34,11 @@ withDefaults(defineProps<Props>(), {
     <RplTextLink
       v-if="moreLink"
       :url="moreLink.url"
-      class="rpl-header__icon-link rpl-header-links__item rpl-type-p rpl-type-weight-bold"
+      class="
+        rpl-header__icon-link
+        rpl-header-links__more
+        rpl-type-p rpl-type-weight-bold
+      "
     >
       {{ moreLink.text }} <RplIcon name="icon-arrow-right" size="xs" />
     </RplTextLink>

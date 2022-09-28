@@ -1,6 +1,13 @@
 .rpl-header-links a {
   color: inherit;
-  display: inline-flex;
+}
+
+.rpl-header-links__title {
+  margin-bottom: var(--rpl-sp-3);
+
+  @media (--rpl-bp-l) {
+    margin-bottom: var(--rpl-sp-4);
+  }
 }
 
 .rpl-header-links__item,
@@ -18,8 +25,28 @@
   }
 }
 
-.rpl-header-links__item {
+.rpl-header-links__item .rpl-list__link {
+  display: inline-flex;
+  align-items: center;
+
   .rpl-icon {
     order: 1;
+    margin-left: var(--rpl-sp-2);
+    transition: transform ease-out var(--rpl-motion-speed-2);
+  }
+
+  &:hover .rpl-icon {
+    transform: translateX(var(--rpl-sp-1));
+  }
+}
+
+/* Subgrid would be nicer here, but not fully supported */
+.rpl-header-links__title + .rpl-header-links__item,
+.rpl-list__items + .rpl-header-links__more,
+.rpl-header-links__item + .rpl-header-links__item {
+  margin-top: var(--rpl-sp-3);
+
+  @media (--rpl-bp-l) {
+    margin-top: var(--rpl-sp-4);
   }
 }

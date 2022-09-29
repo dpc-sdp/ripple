@@ -9,17 +9,10 @@ export default { name: 'RplPrimaryNav' }
     - Setup functionality for primary nav to show / hide based on page scroll direction
     - Add mobile styling / markup
     - Improve example menu structure in storybook to reflect a real site example
-
-  Reasons why useExpandableState maybe isn't a good idea:
-    - Isnt using:
-      itemsLength
-      isAllExpanded()
-    - Additional logic is required when toggling, e.g. if one toggles open,
-      all other active items including search need to be closed
 */
 import { ref, computed } from 'vue'
 import RplPrimaryNavBar from './nav-bar.vue'
-import RplPrimaryNavMenu from './nav-menu.vue'
+import RplPrimaryNavMegaMenu from './mega-menu.vue'
 import RplPrimaryNavSearchForm from './search-form.vue'
 import { useExpandableState } from '../../composables/useExpandableState'
 
@@ -94,8 +87,8 @@ const isPrimaryNavOpen = computed(() => {
       :toggle-search="toggleSearch"
     />
 
-    <!-- Nav menu -->
-    <RplPrimaryNavMenu
+    <!-- Mega menu -->
+    <RplPrimaryNavMegaMenu
       v-if="activeItem"
       :item="activeItem"
       :is-item-expanded="isItemExpanded"

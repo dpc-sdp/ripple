@@ -1,10 +1,10 @@
 <script lang="ts">
-export default { name: 'RplPrimaryNavMenu' }
+export default { name: 'RplPrimaryMegaMenu' }
 </script>
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import RplPrimaryNavMenuList from './nav-menu-list.vue'
+import RplPrimaryMegaMenuList from './mega-menu-list.vue'
 import { RplPrimaryNavItem } from './constants'
 
 interface Props {
@@ -27,19 +27,19 @@ const level4ActiveItem = computed(() => {
 </script>
 
 <template>
-  <div class="rpl-primary-nav__nav-menu">
-    <div class="rpl-primary-nav__nav-menu-section-title rpl-type-h3-fixed">
+  <div class="rpl-primary-nav__mega-menu">
+    <div class="rpl-primary-nav__mega-menu-section-title rpl-type-h3-fixed">
       {{ props.item.text }}
     </div>
 
     <!-- Level 2 -->
     <div
       class="
-        rpl-primary-nav__nav-menu-column
-        rpl-primary-nav__nav-menu-column--level-2
+        rpl-primary-nav__mega-menu-column
+        rpl-primary-nav__mega-menu-column--level-2
       "
     >
-      <RplPrimaryNavMenuList
+      <RplPrimaryMegaMenuList
         :parent="props.item"
         :items="props.item.items ? props.item.items : []"
         :is-item-expanded="isItemExpanded"
@@ -51,11 +51,11 @@ const level4ActiveItem = computed(() => {
     <div
       v-if="level3ActiveItem?.items?.length"
       class="
-        rpl-primary-nav__nav-menu-column
-        rpl-primary-nav__nav-menu-column--level-3
+        rpl-primary-nav__mega-menu-column
+        rpl-primary-nav__mega-menu-column--level-3
       "
     >
-      <RplPrimaryNavMenuList
+      <RplPrimaryMegaMenuList
         :parent="level3ActiveItem"
         :items="level3ActiveItem.items ? level3ActiveItem.items : []"
         :is-item-expanded="isItemExpanded"
@@ -67,11 +67,11 @@ const level4ActiveItem = computed(() => {
     <div
       v-if="level4ActiveItem?.items?.length"
       class="
-        rpl-primary-nav__nav-menu-column
-        rpl-primary-nav__nav-menu-column--level-4
+        rpl-primary-nav__mega-menu-column
+        rpl-primary-nav__mega-menu-column--level-4
       "
     >
-      <RplPrimaryNavMenuList
+      <RplPrimaryMegaMenuList
         :parent="level4ActiveItem"
         :items="level4ActiveItem.items ? level4ActiveItem.items : []"
         :is-item-expanded="isItemExpanded"

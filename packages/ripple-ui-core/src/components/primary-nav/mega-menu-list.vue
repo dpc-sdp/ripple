@@ -1,9 +1,9 @@
 <script lang="ts">
-export default { name: 'RplPrimaryNavMenuList' }
+export default { name: 'RplPrimaryMegaMenuList' }
 </script>
 
 <script setup lang="ts">
-import RplPrimaryNavMenuAction from './nav-menu-action.vue'
+import RplPrimaryNavMegaMenuAction from './mega-menu-action.vue'
 import { RplPrimaryNavItem } from './constants'
 
 interface Props {
@@ -20,15 +20,15 @@ const props = withDefaults(defineProps<Props>(), {
 </script>
 
 <template>
-  <ul class="rpl-primary-nav__nav-menu-list">
+  <ul class="rpl-primary-nav__mega-menu-list">
     <!-- Repeat of parent as a clickable link -->
-    <li class="rpl-primary-nav__nav-menu-item">
-      <RplPrimaryNavMenuAction :item="props.parent" type="link" />
+    <li class="rpl-primary-nav__mega-menu-item">
+      <RplPrimaryNavMegaMenuAction :item="props.parent" type="link" />
     </li>
 
     <!-- Children -->
     <li v-for="child in props.items" :key="child.id">
-      <RplPrimaryNavMenuAction
+      <RplPrimaryNavMegaMenuAction
         :item="child"
         :type="child.items?.length ? 'toggle' : 'link'"
         :is-item-expanded="isItemExpanded"

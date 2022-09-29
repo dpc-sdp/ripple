@@ -1,5 +1,5 @@
 <script lang="ts">
-export default { name: 'RplPrimaryNavMenuAction' }
+export default { name: 'RplPrimaryMegaMenuAction' }
 </script>
 
 <script setup lang="ts">
@@ -29,10 +29,10 @@ const clickHandler = (id: string) => {
   <component
     :is="type === 'toggle' ? 'button' : 'a'"
     :class="{
-      'rpl-primary-nav__nav-menu-action': true,
-      'rpl-primary-nav__nav-menu-action--toggle': type === 'toggle',
-      'rpl-primary-nav__nav-menu-action--link': type === 'link',
-      'rpl-primary-nav__nav-menu-action--active': isItemExpanded
+      'rpl-primary-nav__mega-menu-action': true,
+      'rpl-primary-nav__mega-menu-action--toggle': type === 'toggle',
+      'rpl-primary-nav__mega-menu-action--link': type === 'link',
+      'rpl-primary-nav__mega-menu-action--active': isItemExpanded
         ? isItemExpanded(props.item.id)
         : false,
       'rpl-type-p-small': true
@@ -41,7 +41,7 @@ const clickHandler = (id: string) => {
     @click="clickHandler(props.item.id)"
   >
     <span>{{ props.item.text }}</span>
-    <span class="rpl-primary-nav__nav-menu-action-icon">
+    <span class="rpl-primary-nav__mega-menu-action-icon">
       <RplIcon v-if="type === 'toggle'" name="icon-chevron-right" size="xs" />
     </span>
   </component>

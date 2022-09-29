@@ -1,4 +1,4 @@
-# Ripple 2
+# Ripple 2.0
 
 <a href="https://vuejs.org/">
   <img src="https://img.shields.io/badge/vue.js-3-brightgreen" alt="">

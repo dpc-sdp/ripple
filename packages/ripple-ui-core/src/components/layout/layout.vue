@@ -15,7 +15,7 @@ withDefaults(defineProps<Props>(), {
 
 const $slots = useSlots()
 const mainCols = computed(() => {
-  if ($slots.sidebar()[0].children.length) {
+  if ($slots.sidebar && $slots.sidebar()[0].children.length) {
     return ['rpl-col-12', 'rpl-col-7-l']
   }
   return 'rpl-col-12'

@@ -23,13 +23,14 @@ const props = withDefaults(defineProps<Props>(), {
   <ul class="rpl-primary-nav__nav-menu-list">
     <!-- Repeat of parent as a clickable link -->
     <li class="rpl-primary-nav__nav-menu-item">
-      <RplPrimaryNavMenuAction :item="props.parent" />
+      <RplPrimaryNavMenuAction :item="props.parent" type="link" />
     </li>
 
     <!-- Children -->
-    <li v-for="(child, childIndex) in props.items" :key="childIndex">
+    <li v-for="child in props.items" :key="child.id">
       <RplPrimaryNavMenuAction
         :item="child"
+        :type="child.items?.length ? 'toggle' : 'link'"
         :is-item-expanded="isItemExpanded"
         :toggle-item="toggleItem"
       />

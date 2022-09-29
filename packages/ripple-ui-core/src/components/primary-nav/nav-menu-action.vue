@@ -3,12 +3,12 @@ export default { name: 'RplPrimaryNavMenuAction' }
 </script>
 
 <script setup lang="ts">
-import { computed } from 'vue'
 import { RplPrimaryNavItem } from './constants'
 import RplIcon from '../icon/icon.vue'
 
 interface Props {
   item: RplPrimaryNavItem
+  type: 'toggle' | 'link'
   isItemExpanded?: (id: string) => boolean
   toggleItem?: (id: string) => void
 }
@@ -18,12 +18,8 @@ const props = withDefaults(defineProps<Props>(), {
   toggleItem: undefined
 })
 
-const type = computed(() => {
-  return props.item.items ? 'toggle' : 'link'
-})
-
 const clickHandler = (id: string) => {
-  if (type.value == 'toggle') {
+  if (props.type == 'toggle') {
     props.toggleItem(id)
   }
 }

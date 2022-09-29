@@ -5,6 +5,7 @@ export interface RplPrimaryNavLogo {
 }
 
 export interface RplPrimaryNavItem {
+  id: string
   text: string
   href: string
   items?: RplPrimaryNavItem[]

@@ -9,9 +9,14 @@ import { RplPrimaryNavItem } from './constants'
 interface Props {
   parent: RplPrimaryNavItem
   items: RplPrimaryNavItem[]
+  isItemExpanded?: (id: string) => boolean
+  toggleItem?: (id: string) => void
 }
 
-const props = withDefaults(defineProps<Props>(), {})
+const props = withDefaults(defineProps<Props>(), {
+  isItemExpanded: undefined,
+  toggleItem: undefined
+})
 </script>
 
 <template>
@@ -23,7 +28,11 @@ const props = withDefaults(defineProps<Props>(), {})
 
     <!-- Children -->
     <li v-for="(child, childIndex) in props.items" :key="childIndex">
-      <RplPrimaryNavMenuAction :item="child" />
+      <RplPrimaryNavMenuAction
+        :item="child"
+        :is-item-expanded="isItemExpanded"
+        :toggle-item="toggleItem"
+      />
     </li>
   </ul>
 </template>

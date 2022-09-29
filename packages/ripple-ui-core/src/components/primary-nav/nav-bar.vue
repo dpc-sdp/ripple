@@ -11,7 +11,8 @@ interface Props {
   primaryLogo: RplPrimaryNavLogo
   secondaryLogo?: RplPrimaryNavLogo
   items: RplPrimaryNavItem[]
-  toggleItem: (itemIndex: number) => void
+  isItemExpanded: (id: string) => boolean
+  toggleItem: (id: string) => void
   toggleSearch: () => void
 }
 
@@ -56,14 +57,14 @@ const props = defineProps<Props>()
 
     <!-- Menu -->
     <ul class="rpl-primary-nav__nav-bar-actions-list">
-      <li v-for="(item, index) in items" :key="index">
+      <li v-for="item in items" :key="item.id">
         <!-- Toggle -->
         <RplPrimaryNavBarAction
           v-if="item.items"
           type="toggle"
           :href="item.href"
-          :active="item.active"
-          @click="toggleItem(index)"
+          :active="isItemExpanded(item.id)"
+          @click="toggleItem(item.id)"
         >
           <span>{{ item.text }}</span
           >&NoBreak;<span class="rpl-primary-nav__nav-bar-icon rpl-u-margin-l-2"

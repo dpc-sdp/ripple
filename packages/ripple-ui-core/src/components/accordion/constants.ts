@@ -1,5 +1,6 @@
 export const RplAccordionItems = [
   {
+    id: '1',
     title: 'Accordion one',
     content: `
       <h4>H4 heading</h4>
@@ -13,6 +14,7 @@ export const RplAccordionItems = [
     `
   },
   {
+    id: '2',
     title:
       'Accordion two with a really long title that wraps over multiple lines so that we can see how the icon and number align vertically',
     content: `
@@ -33,6 +35,7 @@ export const RplAccordionItems = [
     `
   },
   {
+    id: '3',
     title: 'Accordion three',
     content: `
       <p class="rpl-type-p">

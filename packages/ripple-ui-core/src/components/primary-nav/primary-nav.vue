@@ -9,11 +9,19 @@ export default { name: 'RplPrimaryNav' }
     - Setup functionality for primary nav to show / hide based on page scroll direction
     - Add mobile styling / markup
     - Improve example menu structure in storybook to reflect a real site example
+
+  Reasons why useExpandableState maybe isn't a good idea:
+    - Isnt using:
+      itemsLength
+      isAllExpanded()
+    - Additional logic is required when toggling, e.g. if one toggles open,
+      all other active items including search need to be closed
 */
 import { ref, computed } from 'vue'
 import RplPrimaryNavBar from './nav-bar.vue'
 import RplPrimaryNavMenu from './nav-menu.vue'
 import RplPrimaryNavSearchForm from './search-form.vue'
+import { useExpandableState } from '../../composables/useExpandableState'
 
 import { RplPrimaryNavLogo, RplPrimaryNavItem } from './constants'
 
@@ -27,34 +35,41 @@ const props = withDefaults(defineProps<Props>(), {
   secondaryLogo: undefined
 })
 
-const items = ref(props.items)
-
-const toggleItem = (itemIndex: number) => {
-  // Loop over items, if its the target itemIndex invert its active boolean,
-  // otherwise set it to false
-  items.value = items.value.map((item, index) => {
-    item.active = index == itemIndex ? !item.active : false
-    return item
-  })
-
-  // Ensure search is not active
-  isSearchOpen.value = false
-}
-
-const activeItem = computed(() => {
-  return items.value.find((item) => item.active)
-})
+const { isItemExpanded, toggleItem } = useExpandableState(
+  [],
+  props.items.length
+)
 
 const isSearchOpen = ref(false)
 
-const toggleSearch = () => {
-  isSearchOpen.value = !isSearchOpen.value
+const activeItem = computed(() => {
+  return props.items.find((item) => isItemExpanded(item.id))
+})
 
-  // Ensure no other nav bar items are active
-  items.value = items.value.map((item) => {
-    item.active = false
-    return item
+const toggleNavBarItem = (id: string) => {
+  // Ensure all other items besides the target id are closed
+  props.items.forEach((item) => {
+    if (item.id != id && isItemExpanded(item.id)) {
+      toggleItem(item.id)
+    }
   })
+
+  // Ensure search is not open
+  isSearchOpen.value = false
+
+  // Toggle the target id open
+  toggleItem(id)
+}
+
+const toggleSearch = () => {
+  // Any currently active nav items need to be toggled off
+  props.items.forEach((item) => {
+    if (isItemExpanded(item.id)) {
+      toggleItem(item.id)
+    }
+  })
+
+  isSearchOpen.value = !isSearchOpen.value
 }
 
 const isPrimaryNavOpen = computed(() => {
@@ -74,12 +89,18 @@ const isPrimaryNavOpen = computed(() => {
       :primary-logo="props.primaryLogo"
       :secondary-logo="props.secondaryLogo"
       :items="items"
-      :toggle-item="toggleItem"
+      :is-item-expanded="isItemExpanded"
+      :toggle-item="toggleNavBarItem"
       :toggle-search="toggleSearch"
     />
 
     <!-- Nav menu -->
-    <RplPrimaryNavMenu v-if="activeItem" :item="activeItem" />
+    <RplPrimaryNavMenu
+      v-if="activeItem"
+      :item="activeItem"
+      :is-item-expanded="isItemExpanded"
+      :toggle-item="toggleItem"
+    />
 
     <!-- Search form -->
     <RplPrimaryNavSearchForm v-if="isSearchOpen" />

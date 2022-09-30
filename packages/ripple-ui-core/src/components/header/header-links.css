@@ -30,13 +30,23 @@
   align-items: center;
 
   .rpl-icon {
+    --rpl-icon-size: var(--rpl-sp-3);
+
     order: 1;
     margin-left: var(--rpl-sp-2);
     transition: transform ease-out var(--rpl-motion-speed-2);
+
+    @media (--rpl-bp-l) {
+      --rpl-icon-size: var(--rpl-sp-4);
+    }
   }
 
   &:hover .rpl-icon {
     transform: translateX(var(--rpl-sp-1));
+  }
+
+  &:active {
+    text-decoration: underline;
   }
 }
 

@@ -40,7 +40,7 @@ withDefaults(defineProps<Props>(), {
         class="rpl-header__icon-link rpl-type-label rpl-type-weight-bold"
       >
         {{ secondary.text }}
-        <RplIcon name="icon-arrow-right" size="s" />
+        <RplIcon name="icon-arrow-right" size="xs" />
       </RplTextLink>
     </div>
   </div>

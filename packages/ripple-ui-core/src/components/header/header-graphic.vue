@@ -6,7 +6,7 @@ export default { name: 'RplHeaderGraphic' }
 import { computed } from 'vue'
 import { RplHeaderGraphicPlacement } from './constants'
 import RplImage from '../image/image.vue'
-import RplHeaderPattern from './header-pattern.vue'
+import RplTriangles from '../../assets/patterns/triangles.svg?component'
 
 interface Props {
   image?: string | boolean
@@ -31,7 +31,7 @@ const classes = computed(() => ({
 <template>
   <div :class="classes">
     <RplImage v-if="suppliedImage" :src="image" />
-    <RplHeaderPattern v-else />
+    <RplTriangles v-else />
   </div>
 </template>
 

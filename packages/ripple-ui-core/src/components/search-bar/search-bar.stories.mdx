@@ -1,0 +1,78 @@
+import {
+  Canvas,
+  Meta,
+  Story,
+  ArgsTable
+} from '@storybook/addon-docs'
+import RplSearchBar from './search-bar.vue'
+import { RplSearchBarVariants } from './constants'
+import { a11yStoryCheck } from './../../../stories/interactions.js'
+import { action } from '@storybook/addon-actions';
+
+export const SingleTemplate = (args) => ({
+  components: { RplSearchBar },
+  setup() {
+    return { args }
+  },
+  template: '<RplSearchBar v-bind="args" @onSubmit="submitAction" />',
+  methods: {
+    submitAction: action('onSubmit')
+  }
+})
+
+<Meta
+  title='WIP/Components/Search bar'
+  component={RplSearchBar}
+  argTypes={{
+    variant: {
+      control: { type: 'radio' },
+      options: RplSearchBarVariants,
+    }
+  }}
+  args={{
+    variant: 'default',
+    placeholder: 'Placeholder text'
+  }}
+/>
+
+# Search bar
+
+<ArgsTable of={RplSearchBar} />
+
+<Canvas>
+  <Story
+    name='Default'
+    play={a11yStoryCheck}
+    args={{
+      id: 'default'
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+  <Story
+    name='Reverse'
+    play={a11yStoryCheck}
+    args={{
+      id: 'reverse',
+      variant: 'reverse'
+    }}
+    parameters={{
+      backgrounds: { default: 'gray' },
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+  <Story
+    name='Menu'
+    play={a11yStoryCheck}
+    args={{
+      id: 'menu',
+      variant: 'menu'
+    }}
+    parameters={{
+      backgrounds: { default: 'reverse' },
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>

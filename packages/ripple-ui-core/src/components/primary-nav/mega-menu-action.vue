@@ -35,6 +35,7 @@ const clickHandler = (id: string) => {
       'rpl-primary-nav__mega-menu-action--active': isItemExpanded
         ? isItemExpanded(props.item.id)
         : false,
+      'rpl-u-focusable-block': true,
       'rpl-type-p-small': true
     }"
     :href="type == 'link' ? props.item.href : undefined"

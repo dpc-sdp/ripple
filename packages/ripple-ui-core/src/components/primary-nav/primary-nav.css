@@ -139,10 +139,9 @@
 
 /* Mega menu */
 .rpl-primary-nav__mega-menu {
-  display: flex;
   width: 100%;
   height: calc(100% - var(--local-nav-bar-height-xs) - var(--rpl-sp-8));
-  overflow-y: scroll;
+  overflow-y: auto;
   padding-top: var(--rpl-sp-4);
   padding-right: var(--rpl-sp-4);
   padding-bottom: var(--rpl-sp-8);
@@ -173,13 +172,8 @@
 }
 
 .rpl-primary-nav__mega-menu-section-title {
-  width: 25%;
   padding: 0 var(--rpl-sp-2);
   margin-bottom: var(--rpl-sp-4);
-}
-
-.rpl-primary-nav__mega-menu-column {
-  width: 25%;
 }
 
 .rpl-primary-nav__mega-menu-action {

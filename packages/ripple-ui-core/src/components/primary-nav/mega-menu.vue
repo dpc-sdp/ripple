@@ -27,8 +27,13 @@ const level4ActiveItem = computed(() => {
 </script>
 
 <template>
-  <div class="rpl-primary-nav__mega-menu">
-    <div class="rpl-primary-nav__mega-menu-section-title rpl-type-h3-fixed">
+  <div class="rpl-primary-nav__mega-menu rpl-grid">
+    <div
+      class="
+        rpl-primary-nav__mega-menu-section-title
+        rpl-type-h3-fixed rpl-col-12-l rpl-col-3-xl
+      "
+    >
       {{ props.item.text }}
     </div>
 
@@ -37,6 +42,7 @@ const level4ActiveItem = computed(() => {
       class="
         rpl-primary-nav__mega-menu-column
         rpl-primary-nav__mega-menu-column--level-2
+        rpl-col-4-l rpl-col-3-xl
       "
     >
       <RplPrimaryMegaMenuList
@@ -53,6 +59,7 @@ const level4ActiveItem = computed(() => {
       class="
         rpl-primary-nav__mega-menu-column
         rpl-primary-nav__mega-menu-column--level-3
+        rpl-col-4-l rpl-col-3-xl
       "
     >
       <RplPrimaryMegaMenuList
@@ -69,6 +76,7 @@ const level4ActiveItem = computed(() => {
       class="
         rpl-primary-nav__mega-menu-column
         rpl-primary-nav__mega-menu-column--level-4
+        rpl-col-4-l rpl-col-3-xl
       "
     >
       <RplPrimaryMegaMenuList

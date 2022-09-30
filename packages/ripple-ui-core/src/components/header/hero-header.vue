@@ -6,22 +6,28 @@ export default { name: 'RplHeroHeader' }
 import { computed } from 'vue'
 import RplHeader from './header.vue'
 import RplImage from '../image/image.vue'
-import { ContextLink, CoreLink, Links, RplHeaderThemes } from './constants'
+import {
+  RplHeaderLinkExtended,
+  RplHeaderLinksList,
+  RplHeaderThemes
+} from './constants'
 import RplHeaderLinks from './header-links.vue'
 import RplHeaderGraphic from './header-graphic.vue'
 import RplHeaderActions from './header-actions.vue'
+import { RplLink } from '../../lib/constants'
 
 interface Props {
   theme?: RplHeaderThemes[number]
   title: string
   logo?: string
-  background?: object // TODO
+  background?: object
   cornerTop?: boolean
   cornerBottom?: boolean
   content?: string
-  primaryAction: CoreLink // TODO
-  secondaryAction: ContextLink
-  links?: Links[]
+  primaryAction?: RplLink
+  secondaryAction?: RplHeaderLinkExtended
+  links?: RplHeaderLinksList
+  breadcrumbs: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -33,12 +39,21 @@ const props = withDefaults(defineProps<Props>(), {
   content: undefined,
   primaryAction: undefined,
   secondaryAction: undefined,
-  links: undefined
+  links: undefined,
+  breadcrumbs: false
 })
 
 const highlight = computed(
   () => props.theme === 'reverse' || props.theme === 'neutral'
 )
+
+const classes = computed(() => ({
+  'rpl-header--hero': true,
+  [`rpl-header--${props.theme}`]: props.theme,
+  'rpl-header--breadcrumbs': props.breadcrumbs,
+  'rpl-header--graphic-top': props.cornerTop,
+  'rpl-header--graphic-bottom': props.cornerBottom
+}))
 
 const titleClasses = computed(() => ({
   'rpl-header__title': true,
@@ -53,18 +68,15 @@ const contentClasses = computed(() => ({
 </script>
 
 <template>
-  <RplHeader :theme="theme" class="rpl-header--hero">
-    <template v-if="background || cornerTop || cornerBottom" #backdrop>
-      <RplImage
-        v-if="background"
-        :src="background.src"
-        :sizes="background.sizes"
-        :src-set="background.srcSet"
-        :focal-point="background.focalPoint"
-        priority="high"
+  <RplHeader :class="classes">
+    <template v-if="background || cornerTop || cornerBottom" #behind>
+      <RplImage v-if="background" v-bind="background" priority="high" />
+      <RplHeaderGraphic v-if="cornerTop" :image="cornerTop" placement="top" />
+      <RplHeaderGraphic
+        v-if="cornerBottom"
+        :image="cornerBottom"
+        placement="bottom"
       />
-      <RplHeaderGraphic v-if="cornerTop" placement="top" />
-      <RplHeaderGraphic v-if="cornerBottom" placement="bottom" />
     </template>
     <template v-if="logo && !background" #upper>
       <RplImage class="rpl-header__logo" :src="logo" alt="" />

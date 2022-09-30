@@ -6,11 +6,12 @@ export default { name: 'RplHeaderActions' }
 import RplTextLink from '../text-link/text-link.vue'
 import RplIcon from '../icon/icon.vue'
 import RplButton from '../button/button.vue'
-import { ContextLink, CoreLink } from './constants'
+import { RplHeaderLinkExtended } from './constants'
+import { RplLink } from '../../lib/constants'
 
 interface Props {
-  primary: CoreLink // TODO
-  secondary: ContextLink
+  primary?: RplLink
+  secondary?: RplHeaderLinkExtended
 }
 
 withDefaults(defineProps<Props>(), {

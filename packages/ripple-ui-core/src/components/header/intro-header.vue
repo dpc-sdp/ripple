@@ -4,30 +4,28 @@ export default { name: 'RplHeroHeader' }
 
 <script setup lang="ts">
 import RplHeader from './header.vue'
-import { Links, RplHeaderThemes } from './constants'
+import { RplHeaderLinksList } from './constants'
 import RplIcon from '../icon/icon.vue'
 import RplHeaderLinks from './header-links.vue'
 import { RplIconNames } from '../icon/constants'
 
 interface Props {
-  theme?: RplHeaderThemes[number]
   title: string
   content?: string
-  links?: Links
+  links?: RplHeaderLinksList
   iconName?: typeof RplIconNames[number]
 }
 
 withDefaults(defineProps<Props>(), {
-  theme: 'default',
   content: undefined,
   links: undefined,
-  iconName: 'icon-exclamation-circle-filled'
+  iconName: undefined
 })
 </script>
 
 <template>
-  <RplHeader :theme="theme" class="rpl-header--intro">
-    <template #upper>
+  <RplHeader class="rpl-header--intro">
+    <template v-if="iconName" #upper>
       <RplIcon :name="iconName" size="l" />
     </template>
     <template #title>

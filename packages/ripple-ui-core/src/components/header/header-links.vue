@@ -4,15 +4,15 @@ export default { name: 'RplHeaderLinks' }
 
 <script setup lang="ts">
 import RplList from '../list/list.vue'
-import { CoreLink } from './constants'
 import RplTextLink from '../text-link/text-link.vue'
 import RplIcon from '../icon/icon.vue'
 import { RplListItemArray } from '../list/constants'
+import { RplLink } from '../../lib/constants'
 
 interface Props {
   title?: string
   items: RplListItemArray[]
-  moreLink?: CoreLink
+  moreLink?: RplLink
 }
 
 withDefaults(defineProps<Props>(), {

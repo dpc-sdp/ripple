@@ -1,20 +1,16 @@
 import { RplListItemArray } from '../list/constants'
+import { RplLink } from '../../lib/constants'
 
 export const RplHeaderThemes = ['default', 'reverse', 'neutral'] as const
 
-export interface CoreLink {
-  text: string
-  url: string
-}
-
-export interface ContextLink extends CoreLink {
+export interface RplHeaderLinkExtended extends RplLink {
   title?: string
 }
 
-export interface Links {
+export interface RplHeaderLinksList {
   title?: string
   items: RplListItemArray[]
-  more?: CoreLink
+  more?: RplLink
 }
 
-export type RplGraphicPlacement = 'top' | 'bottom'
+export type RplHeaderGraphicPlacement = 'top' | 'bottom'

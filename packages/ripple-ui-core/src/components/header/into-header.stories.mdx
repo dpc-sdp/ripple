@@ -48,6 +48,26 @@ export const SingleTemplate = (args) => ({
   </Story>
 </Canvas>
 
+## Example / With Icon
+
+This is an example the intro header with optional icon
+
+<Canvas>
+  <Story
+    name='Intro/Icon'
+    play={a11yStoryCheck}
+    args={{
+      iconName: 'icon-exclamation-circle-filled',
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>
+
+## Example / With Links
+
+This is an example the intro header with optional links
+
 <Canvas>
   <Story
     name='Intro/Links'

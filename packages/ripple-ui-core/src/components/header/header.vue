@@ -4,22 +4,8 @@ export default { name: 'RplHeader' }
 
 <script setup lang="ts">
 import { computed, useSlots } from 'vue'
-import { RplHeaderThemes } from './constants'
-
-interface Props {
-  theme: typeof RplHeaderThemes[number]
-}
-
-const props = withDefaults(defineProps<Props>(), {
-  theme: 'default'
-})
 
 const slots = useSlots()
-
-const classes = computed(() => ({
-  'rpl-header': true,
-  [`rpl-header--${props.theme}`]: props.theme
-}))
 
 const mainClasses = computed(() => ({
   'rpl-header__main': true,
@@ -30,12 +16,9 @@ const mainClasses = computed(() => ({
 </script>
 
 <template>
-  <div :class="classes">
-    <div v-if="$slots.backdrop" class="rpl-header__backdrop">
-      <slot name="backdrop"></slot>
-    </div>
-    <div v-if="$slots.before" class="rpl-header__before">
-      <slot name="before"></slot>
+  <div class="rpl-header">
+    <div v-if="$slots.behind" class="rpl-header__behind">
+      <slot name="behind"></slot>
     </div>
     <div class="rpl-container">
       <div class="rpl-grid">
@@ -55,14 +38,11 @@ const mainClasses = computed(() => ({
         </div>
         <div
           v-if="$slots.aside"
-          class="rpl-header__aside rpl-col-12 rpl-col-4-m"
+          class="rpl-header__aside rpl-col-12 rpl-col-4-m rpl-col-start-9-m"
         >
           <slot name="aside"></slot>
         </div>
       </div>
-    </div>
-    <div v-if="$slots.after" class="rpl-header__after">
-      <slot name="after"></slot>
     </div>
   </div>
 </template>

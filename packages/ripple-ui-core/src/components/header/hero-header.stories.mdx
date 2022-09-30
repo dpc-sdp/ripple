@@ -50,6 +50,14 @@ export const SingleTemplate = (args) => ({
   <Story
     name='Hero'
     play={a11yStoryCheck}
+    argTypes={{
+      cornerTop: {
+        control: { type: 'text' },
+      },
+      cornerBottom: {
+        control: { type: 'text' },
+      },
+    }}
     args={{
       cornerTop: '/img/hero-corner-top.png',
       cornerBottom: '/img/hero-corner-bottom.png'

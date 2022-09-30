@@ -80,7 +80,7 @@
 .rpl-header-graphic--pattern {
   background-image: var(--rpl-clr-gradient-horizontal);
 
-  .rpl-image {
+  svg {
     mix-blend-mode: screen;
   }
 }

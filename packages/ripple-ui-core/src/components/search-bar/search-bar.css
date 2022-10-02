@@ -30,7 +30,9 @@
   border-bottom: var(--rpl-border-2) solid
     var(--local-search-bar-clr-bottom-bar);
   padding: var(--rpl-sp-3);
-  padding-right: calc(var(--rpl-sp-4) + 20px + var(--rpl-sp-3));
+
+  /* Magic number to represent the width of the search button */
+  padding-right: calc(var(--rpl-sp-4) + 24px + var(--rpl-sp-3));
   width: 100%;
   color: var(--local-search-bar-clr-input-text);
 
@@ -62,7 +64,9 @@
 
   @media (--rpl-bp-m) {
     padding-left: var(--rpl-sp-4);
-    padding-right: calc(var(--rpl-sp-4) + 100px + var(--rpl-sp-4));
+
+    /* Magic number to represent the width of the search button */
+    padding-right: calc(var(--rpl-sp-4) + 94px + var(--rpl-sp-4));
 
     /* rpl-type-p-large-fixed */
     font-size: var(--rpl-type-size-3);

@@ -81,7 +81,8 @@
   --local-pattern-fill-100: #cccccc;
   --local-pattern-fill-200: #aaaaaa;
   --local-pattern-fill-300: #888888;
-  --local-pattern-fill-400: #555555;
+  --local-pattern-fill-400: #666666;
+  --local-pattern-fill-500: #444444;
 
   background-image: var(--rpl-clr-gradient-horizontal);
 
@@ -89,19 +90,23 @@
     mix-blend-mode: screen;
   }
 
-  path:nth-child(4n) {
+  path {
     fill: var(--local-pattern-fill-100);
   }
 
-  path:nth-child(4n + 1) {
+  path:nth-child(odd) {
     fill: var(--local-pattern-fill-200);
   }
 
-  path:nth-child(4n + 2) {
+  path:nth-child(3n + 1) {
     fill: var(--local-pattern-fill-300);
   }
 
-  path:nth-child(4n + 3) {
+  path:nth-child(4n + 2) {
     fill: var(--local-pattern-fill-400);
+  }
+
+  path:nth-child(5n + 1) {
+    fill: var(--local-pattern-fill-500);
   }
 }

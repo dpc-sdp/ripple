@@ -1,5 +1,13 @@
-.rpl-header-links a {
-  color: inherit;
+.rpl-header-links {
+  a {
+    color: inherit;
+    white-space: nowrap;
+  }
+
+  .rpl-list__label,
+  .rpl-list__icon {
+    white-space: normal;
+  }
 }
 
 .rpl-header-links__title {
@@ -12,6 +20,8 @@
 
 .rpl-header-links__item,
 .rpl-header-links__more {
+  padding-right: var(--rpl-sp-6);
+
   @media (--rpl-bp-l) {
     font-size: var(--rpl-type-size-3);
     line-height: var(--rpl-type-lh-5);
@@ -26,13 +36,9 @@
 }
 
 .rpl-header-links__item .rpl-list__link {
-  display: inline-flex;
-  align-items: center;
-
   .rpl-icon {
     --rpl-icon-size: var(--rpl-sp-3);
 
-    order: 1;
     margin-left: var(--rpl-sp-2);
     transition: transform ease-out var(--rpl-motion-speed-2);
 

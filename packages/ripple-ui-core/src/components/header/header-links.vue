@@ -30,6 +30,7 @@ withDefaults(defineProps<Props>(), {
       :items="items"
       container-class="rpl-header-links__list"
       item-class="rpl-header-links__item rpl-type-p"
+      icon-placement="after"
     />
     <RplTextLink
       v-if="moreLink"
@@ -40,7 +41,8 @@ withDefaults(defineProps<Props>(), {
         rpl-type-p rpl-type-weight-bold
       "
     >
-      {{ moreLink.text }} <RplIcon name="icon-arrow-right" size="xs" />
+      <span>{{ moreLink.text }}</span
+      ><RplIcon name="icon-arrow-right" size="xs" />
     </RplTextLink>
   </div>
 </template>

@@ -25,7 +25,7 @@ withDefaults(defineProps<Props>(), {
     <RplButton
       v-if="primary"
       :url="primary.url"
-      class="rpl-header-actions__button"
+      class="rpl-header-actions__primary"
       el="a"
     >
       {{ primary.text }}
@@ -39,8 +39,8 @@ withDefaults(defineProps<Props>(), {
         :url="secondary.url"
         class="rpl-header__icon-link rpl-type-label rpl-type-weight-bold"
       >
-        {{ secondary.text }}
-        <RplIcon name="icon-arrow-right" size="xs" />
+        <span>{{ secondary.text }}</span
+        ><RplIcon name="icon-arrow-right" size="xs" />
       </RplTextLink>
     </div>
   </div>

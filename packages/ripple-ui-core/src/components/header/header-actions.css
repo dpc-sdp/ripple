@@ -11,12 +11,22 @@
   }
 }
 
+.rpl-header-actions__primary {
+  min-width: max-content;
+}
+
 .rpl-header-actions__secondary {
   padding-left: var(--rpl-sp-3);
   border-left: var(--rpl-border-3) solid var(--rpl-clr-neutral-300);
 
   @media (--rpl-bp-l) {
     padding-left: var(--rpl-sp-4);
+  }
+
+  .rpl-text-link {
+    display: block;
+    white-space: nowrap;
+    padding-right: var(--rpl-sp-5);
   }
 
   .rpl-type-p + .rpl-text-link {

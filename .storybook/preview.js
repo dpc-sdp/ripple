@@ -31,6 +31,9 @@ export const parameters = {
       date: /Date$/
     }
   },
+  backgrounds: {
+    disable: true
+  },
   designTokensCss: {
     label: "Themes",
     persistData: true,

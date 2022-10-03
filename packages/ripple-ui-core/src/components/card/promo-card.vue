@@ -39,6 +39,11 @@ const { container, trigger } = useAccessibleContainer()
         class="rpl-card__media rpl-card__media--round-top"
         :src="image"
         alt=""
+        :aspect="{
+          xs: 'wide',
+          s: 'ultrawide',
+          m: 'wide'
+        }"
       />
     </template>
     <template v-if="meta" #meta>

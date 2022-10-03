@@ -6,9 +6,9 @@ export default { name: 'RplPrimaryNav' }
 /*
   TODO:
     - Fix menu disappearing before closing animation has finished
+    - Investigate ways to handle tabbing order in mega nav levels
     - Setup functionality for primary nav to show / hide based on page scroll direction
     - Add mobile styling / markup
-    - Improve example menu structure in storybook to reflect a real site example
 */
 import { ref, computed } from 'vue'
 import RplPrimaryNavBar from './nav-bar.vue'

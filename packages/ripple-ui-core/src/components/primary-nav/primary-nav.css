@@ -88,6 +88,20 @@
   @media (--rpl-bp-s) {
     padding-right: var(--rpl-sp-5);
   }
+
+  &.rpl-primary-nav__nav-bar-actions-list--mobile {
+    @media (--rpl-bp-l) {
+      display: none;
+    }
+  }
+
+  &.rpl-primary-nav__nav-bar-actions-list--desktop {
+    display: none;
+
+    @media (--rpl-bp-l) {
+      display: flex;
+    }
+  }
 }
 
 .rpl-primary-nav__nav-bar-action {
@@ -128,12 +142,36 @@
     transform: translateY(3px);
   }
 
+  &.rpl-primary-nav__nav-bar-icon--mobile-search {
+    @media (--rpl-bp-s) {
+      margin-left: var(--rpl-sp-2);
+    }
+  }
+
   .rpl-primary-nav__nav-bar-action--active & {
     transform: rotate(180deg);
   }
 
   span {
     display: block;
+  }
+}
+
+.rpl-primary-nav__nav-bar-search-divider {
+  border-left: solid 1px var(--rpl-clr-type-primary-contrast);
+  height: var(--rpl-sp-4);
+  margin: var(--rpl-sp-4) 0;
+
+  @media (--rpl-bp-s) {
+    display: none;
+  }
+}
+
+.rpl-primary-nav__nav-bar-mobile-search-label {
+  display: none;
+
+  @media (--rpl-bp-s) {
+    display: inline;
   }
 }
 

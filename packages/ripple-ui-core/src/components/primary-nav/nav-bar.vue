@@ -57,8 +57,57 @@ const props = defineProps<Props>()
       </a>
     </div>
 
-    <!-- Menu -->
-    <ul class="rpl-primary-nav__nav-bar-actions-list">
+    <!-- Mobile actions -->
+    <ul
+      class="
+        rpl-primary-nav__nav-bar-actions-list
+        rpl-primary-nav__nav-bar-actions-list--mobile
+      "
+    >
+      <li>
+        <RplPrimaryNavBarAction type="toggle" href="/">
+          <span>Menu</span>&NoBreak;<span
+            class="
+              rpl-primary-nav__nav-bar-icon rpl-primary-nav__nav-bar-icon--large
+              rpl-u-margin-l-2
+            "
+            ><RplIcon name="icon-chevron-down"></RplIcon>
+          </span>
+        </RplPrimaryNavBarAction>
+      </li>
+      <li>
+        <div class="rpl-primary-nav__nav-bar-search-divider"></div>
+      </li>
+      <li>
+        <slot v-if="props.showSearch" name="search">
+          <RplPrimaryNavBarAction
+            type="toggle"
+            href="/search"
+            @click="toggleSearch()"
+          >
+            <span class="rpl-primary-nav__nav-bar-mobile-search-label"
+              >Search</span
+            >&NoBreak;<span
+              class="
+                rpl-primary-nav__nav-bar-icon
+                rpl-primary-nav__nav-bar-icon--large
+                rpl-primary-nav__nav-bar-icon--mobile-search
+              "
+              ><RplIcon name="icon-search"></RplIcon>
+            </span>
+          </RplPrimaryNavBarAction>
+        </slot>
+      </li>
+    </ul>
+
+    <!-- Desktop actions -->
+    <ul
+      class="
+        rpl-primary-nav__nav-bar-actions-list
+        rpl-primary-nav__nav-bar-actions-list--desktop
+      "
+    >
+      <!-- Items -->
       <li v-for="item in items" :key="item.id">
         <!-- Toggle -->
         <RplPrimaryNavBarAction
@@ -74,6 +123,7 @@ const props = defineProps<Props>()
           ></span>
         </RplPrimaryNavBarAction>
 
+        <!-- Link -->
         <RplPrimaryNavBarAction
           v-else
           type="link"
@@ -84,7 +134,7 @@ const props = defineProps<Props>()
         </RplPrimaryNavBarAction>
       </li>
 
-      <!-- Login slot -->
+      <!-- Login slot - Hidden on mobile -->
       <li>
         <slot v-if="props.showLogin" name="login">
           <RplPrimaryNavBarAction type="link" href="/login">

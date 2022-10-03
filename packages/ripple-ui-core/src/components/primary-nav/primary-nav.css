@@ -140,7 +140,7 @@
 /* Mega menu */
 .rpl-primary-nav__mega-menu {
   width: 100%;
-  height: calc(100% - var(--local-nav-bar-height-xs) - var(--rpl-sp-8));
+  max-height: calc(100% - var(--local-nav-bar-height-xs) - var(--rpl-sp-8));
   overflow-y: auto;
   padding-top: var(--rpl-sp-4);
   padding-right: var(--rpl-sp-4);
@@ -148,17 +148,17 @@
   padding-left: var(--rpl-sp-4);
 
   @media (--rpl-bp-s) {
-    height: calc(100% - var(--local-nav-bar-height-s) - var(--rpl-sp-8));
+    max-height: calc(100% - var(--local-nav-bar-height-s) - var(--rpl-sp-8));
     padding-right: var(--rpl-sp-5);
     padding-left: var(--rpl-sp-5);
   }
 
   @media (--rpl-bp-m) {
-    height: calc(100% - var(--local-nav-bar-height-m) - var(--rpl-sp-8));
+    max-height: calc(100% - var(--local-nav-bar-height-m) - var(--rpl-sp-8));
   }
 
   @media (--rpl-bp-l) {
-    height: calc(100% - var(--local-nav-bar-height-m) - var(--rpl-sp-9));
+    max-height: calc(100% - var(--local-nav-bar-height-m) - var(--rpl-sp-9));
     padding-top: var(--rpl-sp-7);
     padding-right: var(--rpl-sp-10);
     padding-bottom: var(--rpl-sp-9);
@@ -173,7 +173,6 @@
 
 .rpl-primary-nav__mega-menu-section-title {
   padding: 0 var(--rpl-sp-2);
-  margin-bottom: var(--rpl-sp-4);
 }
 
 .rpl-primary-nav__mega-menu-action {

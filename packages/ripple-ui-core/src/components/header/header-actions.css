@@ -22,18 +22,18 @@
   @media (--rpl-bp-l) {
     padding-left: var(--rpl-sp-4);
   }
+}
 
-  .rpl-text-link {
-    display: block;
-    white-space: nowrap;
-    padding-right: var(--rpl-sp-5);
-  }
+.rpl-header-actions__secondary-link {
+  display: block;
+  white-space: nowrap;
+  padding-right: var(--rpl-sp-5);
+}
 
-  .rpl-type-p + .rpl-text-link {
-    margin-top: var(--rpl-sp-1);
+.rpl-header-actions__secondary-title + .rpl-header-actions__secondary-link {
+  margin-top: var(--rpl-sp-1);
 
-    @media (--rpl-bp-l) {
-      margin-top: var(--rpl-sp-2);
-    }
+  @media (--rpl-bp-l) {
+    margin-top: var(--rpl-sp-2);
   }
 }

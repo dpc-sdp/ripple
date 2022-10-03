@@ -21,6 +21,7 @@
 }
 
 .rpl-document__name {
+  display: inline;
   text-decoration: underline;
 }
 

@@ -30,6 +30,23 @@ export const parameters = {
       date: /Date$/
     }
   },
+  backgrounds: {
+    default: 'light',
+    values: [
+      {
+        name: 'light',
+        value: 'white',
+      },
+      {
+        name: 'gray',
+        value: 'var(--rpl-clr-neutral-100)',
+      },
+      {
+        name: 'reverse',
+        value: 'var(--rpl-clr-primary-alt)',
+      },
+    ],
+  },
   designTokensCss: {
     label: "Themes",
     persistData: true,

@@ -14,7 +14,7 @@ export const SingleTemplate = (args) => ({
   setup() {
     return { args }
   },
-  template: '<RplSearchBar v-bind="args" @onSubmit="submitAction" />',
+  template: `<RplSearchBar v-bind="args" @onSubmit="submitAction" />`,
   methods: {
     submitAction: action('onSubmit')
   }
@@ -57,7 +57,7 @@ export const SingleTemplate = (args) => ({
       variant: 'reverse'
     }}
     parameters={{
-      backgrounds: { default: 'gray' },
+      background: 'gray',
     }}
   >
     {SingleTemplate.bind()}
@@ -70,7 +70,7 @@ export const SingleTemplate = (args) => ({
       variant: 'menu'
     }}
     parameters={{
-      backgrounds: { default: 'reverse' },
+      background: 'reverse',
     }}
   >
     {SingleTemplate.bind()}

@@ -15,7 +15,7 @@ withDefaults(defineProps<Props>(), {
 
 const $slots = useSlots()
 const mainCols = computed(() => {
-  if ($slots.sidebar && $slots.sidebar()[0].children.length) {
+  if ($slots.sidebar && $slots.sidebar().length) {
     return ['rpl-col-12', 'rpl-col-7-l']
   }
   return 'rpl-col-12'
@@ -44,7 +44,7 @@ const mainCols = computed(() => {
     </section>
     <div class="rpl-layout__body-wrap">
       <div class="rpl-container">
-        <div class="rpl-grid rpl-layout__body">
+        <div class="rpl-grid grid--no-row-gap rpl-layout__body">
           <main id="rpl-main" :class="mainCols" class="rpl-layout__main">
             <slot name="body"> </slot>
           </main>

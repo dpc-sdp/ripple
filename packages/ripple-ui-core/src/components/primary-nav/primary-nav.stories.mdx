@@ -20,6 +20,23 @@ export const SingleTemplate = (args) => ({
   template: '<RplPrimaryNav v-bind="args" />'
 })
 
+export const CustomLoginButtonTemplate = (args) => ({
+  components: { RplPrimaryNav },
+  setup() {
+    return { args }
+  },
+  template: `<RplPrimaryNav v-bind="args" >
+    <template #login>
+      <a class="rpl-primary-nav__nav-bar-action rpl-primary-nav__nav-bar-action--link rpl-type-label-small rpl-type-weight-bold rpl-u-focusable-block" href="tel:1300123123">
+        <div>
+          <span class="rpl-primary-nav__nav-bar-icon rpl-primary-nav__nav-bar-icon--large rpl-u-margin-r-2"><span class="rpl-icon rpl-icon--size-s rpl-icon--icon-phone"><svg role="presentation"><use xlink:href="#icon-phone"></use></svg></span></span>&NoBreak;<span>Call now</span>
+        </div>
+      </a>
+    </template>
+  </RplPrimaryNav>
+  `
+})
+
 <Meta
   title='WIP/Components/Primary nav'
   component={RplPrimaryNav}
@@ -65,5 +82,27 @@ export const SingleTemplate = (args) => ({
     }}
   >
     {SingleTemplate.bind()}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    name='Primary nav - Replace login button'
+    play={a11yStoryCheck}
+    args={{
+      primaryLogo: {
+        href: '#',
+        src: primaryLogo,
+        altText: 'Primary logo alt text'
+      },
+      secondaryLogo: {
+        href: '#',
+        src: secondaryLogo,
+        altText: 'Secondary logo alt text'
+      },
+      items: RplPrimaryNavItems
+    }}
+  >
+    {CustomLoginButtonTemplate.bind()}
   </Story>
 </Canvas>

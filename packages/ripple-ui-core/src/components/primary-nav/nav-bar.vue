@@ -11,6 +11,8 @@ interface Props {
   primaryLogo: RplPrimaryNavLogo
   secondaryLogo?: RplPrimaryNavLogo
   items: RplPrimaryNavItem[]
+  showLogin: boolean
+  showSearch: boolean
   isItemExpanded: (id: string) => boolean
   toggleItem: (id: string) => void
   toggleSearch: () => void
@@ -84,7 +86,7 @@ const props = defineProps<Props>()
 
       <!-- Login slot -->
       <li>
-        <slot name="login">
+        <slot v-if="props.showLogin" name="login">
           <RplPrimaryNavBarAction type="link" href="/login">
             <span
               class="
@@ -100,7 +102,7 @@ const props = defineProps<Props>()
 
       <!-- Search slot -->
       <li>
-        <slot name="search">
+        <slot v-if="props.showSearch" name="search">
           <RplPrimaryNavBarAction
             type="toggle"
             href="/search"

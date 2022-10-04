@@ -3,6 +3,7 @@ export default { name: 'RplPrimaryMegaMenuList' }
 </script>
 
 <script setup lang="ts">
+import RplIcon from '../icon/icon.vue'
 import RplPrimaryNavMegaMenuAction from './mega-menu-action.vue'
 import { RplPrimaryNavItem } from './constants'
 
@@ -31,6 +32,23 @@ const props = withDefaults(defineProps<Props>(), {
       rpl-col-3-xl
     `"
   >
+    <!-- 'Home' link - Only visible on mobile -->
+    <li v-if="level == '1'">
+      <a
+        class="
+          rpl-primary-nav__mega-menu-action
+          rpl-primary-nav__mega-menu-action--home
+          rpl-u-focusable-block rpl-type-p-small
+        "
+        href="/"
+      >
+        <span class="rpl-primary-nav__mega-menu-action-icon rpl-u-margin-r-2">
+          <RplIcon name="icon-home" size="s" />
+        </span>
+        <span>Home</span>
+      </a>
+    </li>
+
     <!-- Repeat of parent as a clickable link -->
     <li v-if="parent" class="rpl-primary-nav__mega-menu-item">
       <RplPrimaryNavMegaMenuAction :item="props.parent" type="link" />

@@ -34,7 +34,16 @@ const level4ActiveItem = computed(() => {
 
 <template>
   <div class="rpl-primary-nav__mega-menu rpl-grid">
-    <!-- Section title - Only visible on desktop -->
+    <!-- Level 1 - Only visible on mobile -->
+    <RplPrimaryMegaMenuList
+      v-if="props.items.length"
+      level="1"
+      :items="props.items ? props.items : []"
+      :is-item-expanded="isItemExpanded"
+      :toggle-item="toggleItem"
+    />
+
+    <!-- Section title -->
     <div
       v-if="level2ActiveItem"
       class="
@@ -44,15 +53,6 @@ const level4ActiveItem = computed(() => {
     >
       {{ level2ActiveItem.text }}
     </div>
-
-    <!-- Level 1 - Only visible on mobile -->
-    <RplPrimaryMegaMenuList
-      v-if="props.items.length"
-      level="1"
-      :items="props.items ? props.items : []"
-      :is-item-expanded="isItemExpanded"
-      :toggle-item="toggleItem"
-    />
 
     <!-- Level 2 -->
     <RplPrimaryMegaMenuList

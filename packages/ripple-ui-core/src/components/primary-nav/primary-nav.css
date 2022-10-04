@@ -193,7 +193,9 @@
 /* Mega menu */
 .rpl-primary-nav__mega-menu {
   width: 100%;
+  max-width: calc(400px + (var(--rpl-sp-4) * 2));
   max-height: calc(100% - var(--local-nav-bar-height-xs) - var(--rpl-sp-8));
+  margin: 0 auto;
   overflow-y: auto;
   padding-top: var(--rpl-sp-4);
   padding-right: var(--rpl-sp-4);
@@ -201,6 +203,7 @@
   padding-left: var(--rpl-sp-4);
 
   @media (--rpl-bp-s) {
+    max-width: calc(400px + (var(--rpl-sp-5) * 2));
     max-height: calc(100% - var(--local-nav-bar-height-s) - var(--rpl-sp-8));
     padding-right: var(--rpl-sp-5);
     padding-left: var(--rpl-sp-5);
@@ -211,6 +214,7 @@
   }
 
   @media (--rpl-bp-l) {
+    max-width: none;
     max-height: calc(100% - var(--local-nav-bar-height-m) - var(--rpl-sp-9));
     padding-top: var(--rpl-sp-7);
     padding-right: var(--rpl-sp-10);
@@ -225,15 +229,12 @@
 }
 
 .rpl-primary-nav__mega-menu-section-title {
-  display: none;
   padding: 0 var(--rpl-sp-2);
-
-  @media (--rpl-bp-l) {
-    display: block;
-  }
 }
 
 .rpl-primary-nav__mega-menu-list {
+  /* Hide the level 1 mega menu list on desktop because the nav bar will show
+  it instead */
   &.rpl-primary-nav__mega-menu-list--level-1 {
     @media (--rpl-bp-l) {
       display: none;
@@ -256,6 +257,12 @@
   &:active,
   &.rpl-primary-nav__mega-menu-action--active {
     background-color: var(--rpl-clr-primary-alpha);
+  }
+
+  &.rpl-primary-nav__mega-menu-action--home {
+    justify-content: flex-start;
+    align-items: center;
+    font-weight: var(--rpl-type-weight-bold);
   }
 }
 

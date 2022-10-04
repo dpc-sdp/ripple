@@ -21,7 +21,11 @@ export const SingleTemplate = (args) => ({
   setup() {
     return { args }
   },
-  template: '<RplHeroHeader v-bind="args" />'
+  template: `
+    <RplHeroHeader v-bind="args">
+      ${args.content}
+    </RplHeroHeader>
+  `
 })
 
 <Meta

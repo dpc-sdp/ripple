@@ -210,7 +210,7 @@
     }
   }
 
-  .rpl-header__content .rpl-type-p {
+  .rpl-header__content p {
     @media (--rpl-bp-l) {
       font-size: var(--rpl-type-size-3);
       line-height: var(--rpl-type-lh-5);

@@ -5,14 +5,19 @@ import {
   ArgsTable
 } from '@storybook/addon-docs'
 import RplIntroHeader from './intro-header.vue'
+import RplContent from '../content/content.vue'
 import { a11yStoryCheck } from './../../../stories/interactions.js'
 
 export const SingleTemplate = (args) => ({
-  components: { RplIntroHeader },
+  components: { RplIntroHeader, RplContent },
   setup() {
     return { args }
   },
-  template: '<RplIntroHeader v-bind="args" />'
+  template: `
+    <RplIntroHeader v-bind="args">
+      <RplContent html="${args.content}" />
+    </RplIntroHeader>
+  `
 })
 
 <Meta
@@ -31,7 +36,7 @@ export const SingleTemplate = (args) => ({
   }}
   args={{
     title: 'The intro title',
-    content: 'In do dolore dolore sint ipsum est est, commodo ex laborum Lorem ut deserunt dolore ullamco.'
+    content: '<p>In do dolore dolore sint ipsum est est, commodo ex laborum Lorem ut deserunt dolore ullamco.</p>'
   }}
 />
 

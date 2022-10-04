@@ -31,7 +31,9 @@ withDefaults(defineProps<Props>(), {
     <template #title>
       <h1 class="rpl-header__title rpl-type-h2">{{ title }}</h1>
     </template>
-    <div v-if="content" class="rpl-type-p" v-html="content"></div>
+    <div v-if="$slots.default">
+      <slot></slot>
+    </div>
     <template v-if="links" #aside>
       <RplHeaderLinks
         :title="links?.title"

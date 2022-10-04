@@ -23,7 +23,6 @@ interface Props {
   background?: object
   cornerTop?: boolean
   cornerBottom?: boolean
-  content?: string
   primaryAction?: RplLink
   secondaryAction?: RplHeaderLinkExtended
   links?: RplHeaderLinksList
@@ -36,7 +35,6 @@ const props = withDefaults(defineProps<Props>(), {
   background: undefined,
   cornerTop: false,
   cornerBottom: false,
-  content: undefined,
   primaryAction: undefined,
   secondaryAction: undefined,
   links: undefined,
@@ -84,7 +82,9 @@ const contentClasses = computed(() => ({
     <template #title>
       <h1 :class="titleClasses">{{ title }}</h1>
     </template>
-    <p v-if="content" :class="contentClasses" v-html="content"></p>
+    <p v-if="$slots.default" :class="contentClasses">
+      <slot></slot>
+    </p>
     <template v-if="(primaryAction || secondaryAction) && !background" #lower>
       <RplHeaderActions :primary="primaryAction" :secondary="secondaryAction" />
     </template>

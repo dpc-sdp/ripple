@@ -1,5 +1,5 @@
 <script lang="ts">
-export default { name: 'RplPrimaryMegaMenuAction' }
+export default { name: 'RplPrimaryNavMegaMenuAction' }
 </script>
 
 <script setup lang="ts">

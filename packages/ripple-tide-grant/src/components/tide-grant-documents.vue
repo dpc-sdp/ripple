@@ -6,13 +6,16 @@ export default { name: 'TideGrantDocuments' }
   <div class="tide-grant__documents">
     <ul v-if="documents.length > 0" class="rpl-type-p">
       <li v-for="(doc, i) in documents" :key="i">
-        <rpl-text-link :url="doc.url">{{ doc.name }}</rpl-text-link>
-        <!-- <rpl-file
-          :name="doc.name"
-          :url="doc.url"
-          :size="doc.filesize"
-          :extension="doc.extension"
-        ></rpl-file> -->
+        <RplDocument :url="doc.url">
+          <template #icon>
+            <RplIcon name="icon-document-lined" size="l" colour="default" />
+          </template>
+          <template #name>{{ doc.name }} </template>
+          <template #info>
+            <span class="rpl-file__meta">{{ doc.extension }}</span>
+            <span class="rpl-file__meta">{{ doc.filesize }}</span>
+          </template>
+        </RplDocument>
       </li>
     </ul>
   </div>

@@ -1,18 +1,34 @@
 <template>
-  <tide-grant-layout :raw="page">
-    <template #aboveContainer>
-      <tide-grant-header :header="page.header"></tide-grant-header>
+  <RplLayout :background="page.background">
+    <template #aboveHeader>
+      <slot name="aboveHeader"></slot>
     </template>
-    <tide-grant-overview :overview="page.overview"></tide-grant-overview>
-    <tide-grant-timeline :timeline="page.timeline"></tide-grant-timeline>
-    <tide-grant-guidelines v-bind="page.guidelines"></tide-grant-guidelines>
-    <tide-grant-documents :documents="page.documents"></tide-grant-documents>
-  </tide-grant-layout>
+    <template #primaryNav>
+      <slot name="primaryNav"></slot>
+    </template>
+    <template #breadcrumbs>
+      <slot name="breadcrumbs"></slot>
+    </template>
+    <template #aboveBody>
+      <TideGrantHeader :header="page.header"></TideGrantHeader>
+    </template>
+    <template #body>
+      <TideGrantOverview :overview="page.overview"></TideGrantOverview>
+      <TideGrantTimeline :timeline="page.timeline"></TideGrantTimeline>
+      <TideGrantGuidelines v-bind="page.guidelines"></TideGrantGuidelines>
+      <TideGrantDocuments :documents="page.documents"></TideGrantDocuments>
+    </template>
+    <template #sidebar>
+      <slot name="sidebar"></slot>
+    </template>
+    <template #footer>
+      <slot name="footer"></slot>
+    </template>
+  </RplLayout>
 </template>
 
 <script setup lang="ts">
 import type TideGrantPage from './../types'
-import TideGrantLayout from './components/tide-grant-layout.vue'
 import TideGrantHeader from './components/tide-grant-header.vue'
 import TideGrantOverview from './components/tide-grant-overview.vue'
 import TideGrantTimeline from './components/tide-grant-timeline.vue'

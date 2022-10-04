@@ -7,16 +7,6 @@ export default { name: 'TideGrantOverview' }
     <h2 class="tide-grant__title rpl-type-h2">{{ overview.title }}</h2>
     <ol class="tide-grant__overview-items">
       <li
-        v-if="overview.date"
-        class="
-          tide-grant__overview-item tide-grant__overview-item--status
-          rpl-type-label
-        "
-      >
-        <rpl-icon name="icon-cancel-circle-filled" colour="error"></rpl-icon
-        ><span class="rpl-list__label"> {{ formattedDate }} </span>
-      </li>
-      <li
         v-if="formattedFunding"
         class="
           tide-grant__overview-item tide-grant__overview-item--funding
@@ -37,6 +27,16 @@ export default { name: 'TideGrantOverview' }
       >
         <rpl-icon name="icon-user-circle-filled"></rpl-icon
         ><span class="rpl-list__label"> {{ overview.audience }}</span>
+      </li>
+      <li
+        v-if="overview.date"
+        class="
+          tide-grant__overview-item tide-grant__overview-item--status
+          rpl-type-label
+        "
+      >
+        <rpl-icon name="icon-cancel-circle-filled" colour="error"></rpl-icon
+        ><span class="rpl-list__label"> {{ formattedDate }} </span>
       </li>
       <li
         class="tide-grant__overview-item tide-grant__overview-item--description"

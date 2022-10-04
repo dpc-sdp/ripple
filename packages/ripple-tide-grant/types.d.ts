@@ -62,4 +62,5 @@ export default interface TideGrantPage extends TidePageBase {
   guidelines: TideGrantGuidelines
   documents: Array<TideGrantDocument>
   sidebarComponents: any
+  background: string
 }

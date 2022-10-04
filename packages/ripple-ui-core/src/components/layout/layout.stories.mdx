@@ -19,6 +19,7 @@ import RplPageComponent from './page-component.vue'
 import RplSidebarComponent from './sidebar-component.vue'
 import RplInPageNavigation from './../in-page-navigation/in-page-navigation.vue'
 import RplAlert from './../alert/alert.vue'
+import RplHeroHeader from './../header/hero-header.vue'
 import RplNavPrimary from './../nav-primary/nav-primary.vue'
 import { a11yStoryCheck } from './../../../stories/interactions.js'
 import sbSpacer from './../../../stories/components/spacer.vue'
@@ -96,7 +97,8 @@ export const PageLayoutContentTemplate = (args) => ({
     RplVerticalNav,
     RplBreadcrumbs,
     RplNavPrimary,
-    RplFooter
+    RplFooter,
+    RplHeroHeader
   },
   setup() {
     return {
@@ -123,6 +125,18 @@ export const PageLayoutContentTemplate = (args) => ({
       </template>
       <template #breadcrumbs>
         <RplBreadcrumbs :items="[{ label: 'Home', url: '/' }, { label: 'Page title', url: '/page-title' }]"></RplBreadcrumbs>
+      </template>
+      <template #aboveBody>
+        <RplHeroHeader
+          title="Here is the header wow"
+          :cornerTop="true"
+          content="Very cool"
+          :cornerBottom="true"
+          :behindNav="true"
+          :breadcrumbs="true"
+        >
+          <p>Very cool</p>
+        </RplHeroHeader>
       </template>
       <template #body>
         <RplPageComponent>
@@ -163,7 +177,8 @@ export const PageLayoutNavigationTemplate = (args) => ({
     RplNavCard,
     RplNavPrimary,
     RplBreadcrumbs,
-    RplFooter
+    RplFooter,
+    RplHeroHeader
   },
   setup() {
     const img = svgPlaceholder({ width: 1200, height: 800, bgColor: '#e76', fgColor: '#a31' })
@@ -176,6 +191,23 @@ export const PageLayoutNavigationTemplate = (args) => ({
       </template>
       <template #breadcrumbs>
         <RplBreadcrumbs :items="[{ label: 'Home', url: '/' }, { label: 'Page title', url: '/page-title' }]"></RplBreadcrumbs>
+      </template>
+      <template #aboveBody>
+        <RplHeroHeader
+          title="Here is the header wow"
+          :behindNav="true"
+          :breadcrumbs="true"
+          theme="reverse"
+          :background="{
+            src: '/img/image-landscape-s.jpg',
+            srcSet: '/img/image-landscape-s.jpg 640w, /img/image-landscape-m.jpg 960w , /img/image-landscape-l.jpg 1240w',
+            sizes: '(min-width: 640px) 640px, (min-width: 960px) 960px, (min-width: 1240px) 1240px',
+            height: 1920,
+            width: 2880,
+          }"
+        >
+          <p>Very cool</p>
+        </RplHeroHeader>
       </template>
       <template #body>
         <RplPageComponent>

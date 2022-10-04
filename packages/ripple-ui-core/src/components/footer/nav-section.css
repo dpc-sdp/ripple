@@ -1,31 +1,13 @@
 @import '@dpc-sdp/ripple-ui-core/style/breakpoints';
 
 .rpl-footer-nav-section {
-  position: relative;
+  border-bottom: var(--rpl-border-1) solid var(--rpl-clr-footer-alt);
 
   @media (--rpl-bp-l) {
+    border-bottom: none;
     display: table;
     break-inside: avoid-column;
     width: 100%;
-  }
-
-  &::before {
-    content: '';
-    display: block;
-    position: absolute;
-    left: 0;
-    bottom: -1px;
-    width: 100%;
-    height: 1px;
-    background-color: var(--rpl-clr-footer-alt);
-
-    @media (--rpl-bp-l) {
-      display: none;
-    }
-  }
-
-  &:not(.rpl-footer-nav-section--expanded):focus-within::before {
-    display: none;
   }
 }
 
@@ -40,8 +22,10 @@
 .rpl-footer-nav-section__header-inner {
   text-align: inherit;
   width: 100%;
-  padding-top: var(--rpl-sp-4);
-  padding-bottom: var(--rpl-sp-4);
+  margin-top: -1px;
+  margin-bottom: -1px;
+  padding-top: calc(var(--rpl-sp-4) + 1px);
+  padding-bottom: calc(var(--rpl-sp-4) + 1px);
   padding-left: var(--rpl-sp-4);
   padding-right: var(--rpl-sp-4);
 

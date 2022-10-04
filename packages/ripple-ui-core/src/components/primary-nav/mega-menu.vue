@@ -30,10 +30,32 @@ const level4ActiveItem = computed(() => {
     props.isItemExpanded(item.id)
   )
 })
+
+const currentLevel = computed(() => {
+  if (!level2ActiveItem.value) {
+    return '1'
+  }
+
+  if (!level3ActiveItem.value) {
+    return '2'
+  }
+
+  if (!level4ActiveItem.value) {
+    return '3'
+  }
+
+  return 4
+})
 </script>
 
 <template>
-  <div class="rpl-primary-nav__mega-menu rpl-grid">
+  <div
+    :class="`
+      rpl-primary-nav__mega-menu
+      rpl-primary-nav__mega-menu--current-level-${currentLevel}
+      rpl-grid
+    `"
+  >
     <!-- Level 1 - Only visible on mobile -->
     <RplPrimaryMegaMenuList
       v-if="props.items.length"

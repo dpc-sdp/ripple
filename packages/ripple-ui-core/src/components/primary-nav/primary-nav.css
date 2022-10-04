@@ -233,12 +233,38 @@
 }
 
 .rpl-primary-nav__mega-menu-list {
+  display: none;
+
+  @media (--rpl-bp-l) {
+    display: grid;
+  }
+
   /* Hide the level 1 mega menu list on desktop because the nav bar will show
   it instead */
   &.rpl-primary-nav__mega-menu-list--level-1 {
     @media (--rpl-bp-l) {
       display: none;
     }
+  }
+
+  .rpl-primary-nav__mega-menu--current-level-1
+    &.rpl-primary-nav__mega-menu-list--level-1 {
+    display: grid;
+  }
+
+  .rpl-primary-nav__mega-menu--current-level-2
+    &.rpl-primary-nav__mega-menu-list--level-2 {
+    display: grid;
+  }
+
+  .rpl-primary-nav__mega-menu--current-level-3
+    &.rpl-primary-nav__mega-menu-list--level-3 {
+    display: grid;
+  }
+
+  .rpl-primary-nav__mega-menu--current-level-4
+    &.rpl-primary-nav__mega-menu-list--level-4 {
+    display: grid;
   }
 }
 

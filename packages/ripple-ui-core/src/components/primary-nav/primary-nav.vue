@@ -8,7 +8,7 @@ export default { name: 'RplPrimaryNav' }
     - Fix menu disappearing before closing animation has finished
     - Investigate ways to handle tabbing order in mega nav levels
     - Setup functionality for primary nav to show / hide based on page scroll direction
-    - Add mobile styling / markup
+    - Find a better name for the 'login' slot
 */
 import { ref, computed } from 'vue'
 import RplPrimaryNavBar from './nav-bar.vue'
@@ -37,40 +37,61 @@ const { isItemExpanded, toggleItem } = useExpandableState(
   props.items.length
 )
 
-const isSearchOpen = ref(false)
+const isSearchActive = ref(false)
+const isMegaNavActive = ref(false)
 
 const activeItem = computed(() => {
   return props.items.find((item) => isItemExpanded(item.id))
 })
 
 const toggleNavBarItem = (id: string) => {
-  // Ensure all other items besides the target id are closed
+  // Make all other items besides the target id inactive
   props.items.forEach((item) => {
     if (item.id != id && isItemExpanded(item.id)) {
       toggleItem(item.id)
     }
   })
 
-  // Ensure search is not open
-  isSearchOpen.value = false
-
-  // Toggle the target id open
+  // Toggle the target item
   toggleItem(id)
+
+  // Make search inactive
+  isSearchActive.value = false
+
+  // If the target item is now active, make sure the mega nav is also active
+  if (isItemExpanded(id) && !isMegaNavActive.value) {
+    isMegaNavActive.value = true
+  }
+
+  // Else if the target item is now inactive, make sure the mega nav is also inactive
+  else if (!isItemExpanded(id) && isMegaNavActive.value) {
+    isMegaNavActive.value = false
+  }
+}
+
+const toggleMegaNav = () => {
+  // Make search inactive
+  isSearchActive.value = false
+
+  isMegaNavActive.value = !isMegaNavActive.value
 }
 
 const toggleSearch = () => {
-  // Any currently active nav items need to be toggled off
+  // Make all nav items inactive
   props.items.forEach((item) => {
     if (isItemExpanded(item.id)) {
       toggleItem(item.id)
     }
   })
 
-  isSearchOpen.value = !isSearchOpen.value
+  // Make mega nav inactive
+  isMegaNavActive.value = false
+
+  isSearchActive.value = !isSearchActive.value
 }
 
-const isPrimaryNavOpen = computed(() => {
-  return activeItem.value || isSearchOpen.value ? true : false
+const isPrimaryNavExpanded = computed(() => {
+  return isMegaNavActive.value || isSearchActive.value ? true : false
 })
 </script>
 
@@ -78,7 +99,7 @@ const isPrimaryNavOpen = computed(() => {
   <nav
     :class="{
       'rpl-primary-nav': true,
-      'rpl-primary-nav--open': isPrimaryNavOpen
+      'rpl-primary-nav--expanded': isPrimaryNavExpanded
     }"
   >
     <!-- Nav bar -->
@@ -89,6 +110,7 @@ const isPrimaryNavOpen = computed(() => {
       :show-login="props.showLogin"
       :show-search="props.showSearch"
       :is-item-expanded="isItemExpanded"
+      :toggle-mega-nav="toggleMegaNav"
       :toggle-item="toggleNavBarItem"
       :toggle-search="toggleSearch"
     >
@@ -109,7 +131,7 @@ const isPrimaryNavOpen = computed(() => {
     />
 
     <!-- Search form -->
-    <RplPrimaryNavSearchForm v-if="isSearchOpen" />
+    <RplPrimaryNavSearchForm v-if="isSearchActive" />
   </nav>
 </template>
 

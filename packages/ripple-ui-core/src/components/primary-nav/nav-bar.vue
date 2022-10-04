@@ -14,6 +14,7 @@ interface Props {
   showLogin: boolean
   showSearch: boolean
   isItemExpanded: (id: string) => boolean
+  toggleMegaNav: () => void
   toggleItem: (id: string) => void
   toggleSearch: () => void
 }
@@ -24,7 +25,12 @@ const props = defineProps<Props>()
 <template>
   <div class="rpl-primary-nav__nav-bar">
     <!-- Logos -->
-    <div class="rpl-primary-nav__logos">
+    <div
+      :class="{
+        'rpl-primary-nav__logos': true,
+        'rpl-primary-nav__logos--has-secondary-logo': props.secondaryLogo
+      }"
+    >
       <!-- Primary logo -->
       <a
         class="rpl-primary-nav__primary-logo-link rpl-u-focusable-outline"
@@ -64,8 +70,9 @@ const props = defineProps<Props>()
         rpl-primary-nav__nav-bar-actions-list--mobile
       "
     >
+      <!-- Mobile menu toggle -->
       <li>
-        <RplPrimaryNavBarAction type="toggle" href="/">
+        <RplPrimaryNavBarAction type="toggle" href="/" @click="toggleMegaNav()">
           <span>Menu</span>&NoBreak;<span
             class="
               rpl-primary-nav__nav-bar-icon rpl-primary-nav__nav-bar-icon--large
@@ -75,9 +82,13 @@ const props = defineProps<Props>()
           </span>
         </RplPrimaryNavBarAction>
       </li>
+
+      <!-- Mobile menu divider -->
       <li>
         <div class="rpl-primary-nav__nav-bar-search-divider"></div>
       </li>
+
+      <!-- Mobile search -->
       <li>
         <slot v-if="props.showSearch" name="search">
           <RplPrimaryNavBarAction

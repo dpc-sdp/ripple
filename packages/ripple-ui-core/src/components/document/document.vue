@@ -16,7 +16,9 @@ const isExternal = computed(() => isExternalLink(props.url))
 </script>
 
 <template>
-  <figure :class="{ 'rpl-document': true, 'rpl-document--centered': !$slots.info }">
+  <figure
+    :class="{ 'rpl-document': true, 'rpl-document--centered': !$slots.info }"
+  >
     <a
       tabindex="-1"
       class="rpl-document__link"
@@ -30,9 +32,13 @@ const isExternal = computed(() => isExternalLink(props.url))
       <div class="rpl-document__content">
         <div
           v-if="$slots.name"
-          class="rpl-document__name rpl-type-p rpl-type-weight-bold rpl-u-focusable-inline"
-          tabindex="0">
-            <slot name="name"></slot>
+          class="
+            rpl-document__name
+            rpl-type-p rpl-type-weight-bold rpl-u-focusable-inline
+          "
+          tabindex="0"
+        >
+          <slot name="name"></slot>
         </div>
         <div v-if="$slots.info" class="rpl-document__info rpl-type-label-small">
           <slot name="info"></slot>

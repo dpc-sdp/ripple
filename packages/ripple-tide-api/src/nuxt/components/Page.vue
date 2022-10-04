@@ -8,16 +8,17 @@
         </rpl-nav-primary>
       </slot>
     </header>
+    <slot name="aboveContainer"></slot>
     <main v-if="page" class="rpl-tide-page__body rpl-container">
       <slot name="body">
-        <h1>{{site.name}}</h1>
         <component :is="componentName" :page="page" />
       </slot>
     </main>
     <div v-else>Error</div>
+    <slot name="belowContainer"></slot>
     <footer v-if="site" class="rpl-tide-page__footer">
       <slot name="footer">
-        {{ site.menuFooter }}
+        <rpl-footer></rpl-footer>
       </slot>
     </footer>
   </div>
@@ -25,7 +26,13 @@
 
 <script setup lang="ts">
 // @ts-ignore
-import { useRoute, useRuntimeConfig, useFetch, useHead, useSiteTheme } from '#imports'
+import {
+  useRoute,
+  useRuntimeConfig,
+  useFetch,
+  useHead,
+  useSiteTheme
+} from '#imports'
 import { computed } from 'vue'
 import { pascalCase } from 'change-case'
 
@@ -56,11 +63,11 @@ const style = useSiteTheme(site.value?.theme)
 useHead({
   title: page.value?.title,
   htmlAttrs: {
-    lang: page.value?.lang || 'en-AU',
+    lang: page.value?.lang || 'en-AU'
   },
   style: style && [
     {
-      children: `body { ${style} }`,
+      children: `body { ${style} }`
     }
   ],
   meta: [
@@ -70,9 +77,6 @@ useHead({
     }
   ]
 })
-
-
-
 </script>
 
 <style>
@@ -86,6 +90,5 @@ useHead({
     margin-left: auto;
     margin-right: auto;
   }
-
 }
 </style>

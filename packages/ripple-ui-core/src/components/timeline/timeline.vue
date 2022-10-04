@@ -13,7 +13,7 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  title: 'Timeline heading',
+  title: null,
   items: () => []
 })
 

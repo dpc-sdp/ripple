@@ -29,6 +29,7 @@
     "test:storybook": "test-storybook --stories-json",
     "test:storybook-ci": "concurrently -k -s first -n \"SB,TEST\" -c \"magenta,blue\" \"npx http-server storybook-static --port 6006 --silent\" \"wait-on tcp:6006 && yarn test:storybook\"",
     "test:nuxt-app": "API_URL=http://localhost:3001 start-test 'yarn workspace nuxt-app dev' 3000 'yarn workspace nuxt-app cy:open'",
+    "test:nuxt-app-edge": "API_URL=http://localhost:3001 start-test 'yarn workspace nuxt-app dev' 3000 'yarn workspace nuxt-app cy:open-edge'",
     "ci:nuxt-app": "API_URL=http://localhost:3001 start-test 'yarn workspace nuxt-app start' 3000 'yarn workspace nuxt-app cy:run --reporter junit --reporter-options \"mochaFile=test/results/cypress-output.xml\"'",
     "start:nuxt": "yarn workspace nuxt-app start",
     "start:vue": "yarn workspace vue-app start",

@@ -1,7 +1,6 @@
-// @ts-ignore: fix types on h3
-import { defineEventHandler, useQuery } from 'h3'
-export default defineEventHandler(async (event) => {
-  const query = await useQuery(event)
+import { defineEventHandler, getQuery, CompatibilityEvent } from 'h3'
+export default defineEventHandler(async (event: CompatibilityEvent) => {
+  const query = await getQuery(event)
   const page = await event.context.tide.pageApi.getPageByPath(
     query.path,
     query.site

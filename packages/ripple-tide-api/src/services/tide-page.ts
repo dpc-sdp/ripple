@@ -166,7 +166,9 @@ export default class TidePage extends TideApiBase {
             return response
           })
           .catch((error) => {
-            return Promise.reject(this.handleError('', error.response.status))
+            return Promise.reject(
+              this.handleError('', error.response?.status | 404)
+            )
           })
       }
       throw this.handleError('Invalid route')
@@ -174,7 +176,7 @@ export default class TidePage extends TideApiBase {
       return Promise.reject(
         this.handleError(
           'Application Error - getPageByRouteData',
-          error.response.status || 500
+          error.response?.status | 500
         )
       )
     }

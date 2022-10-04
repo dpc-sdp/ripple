@@ -15,6 +15,7 @@ export interface Props {
   itemClass?: string
   containerClass?: string
   depth?: number
+  iconPlacement?: string
 }
 
 withDefaults(defineProps<Props>(), {
@@ -22,7 +23,8 @@ withDefaults(defineProps<Props>(), {
   type: 'ul',
   itemClass: '',
   containerClass: '',
-  depth: 0
+  depth: 0,
+  iconPlacement: 'before'
 })
 </script>
 
@@ -40,11 +42,16 @@ withDefaults(defineProps<Props>(), {
       <RplTextLink v-if="item.url" :url="item.url" class="rpl-list__link">
         <span v-if="depth > 0" class="rpl-icon--child"></span>
         <RplIcon
-          v-if="item.icon"
+          v-if="item.icon && iconPlacement === 'before'"
           :name="item.icon"
           class="rpl-list__icon"
         ></RplIcon
-        ><span class="rpl-list__label">{{ item.text }}</span>
+        ><span class="rpl-list__label">{{ item.text }}</span
+        ><RplIcon
+          v-if="item.icon && iconPlacement === 'after'"
+          :name="item.icon"
+          class="rpl-list__icon"
+        ></RplIcon>
       </RplTextLink>
       <RplList
         v-if="item.items"

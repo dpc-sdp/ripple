@@ -161,6 +161,14 @@ html {
 }
 
 /* Paragraphs */
+.rpl-type-p-highlight {
+  display: inline;
+  padding-left: var(--rpl-sp-2);
+  padding-right: var(--rpl-sp-2);
+  background-color: var(--rpl-clr-accent-alt);
+  box-decoration-break: clone;
+}
+
 .rpl-type-p-large {
   font-size: var(--rpl-type-size-3);
   line-height: var(--rpl-type-lh-5);

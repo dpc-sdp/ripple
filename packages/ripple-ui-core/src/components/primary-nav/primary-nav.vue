@@ -7,8 +7,12 @@ export default { name: 'RplPrimaryNav' }
   TODO:
     - Fix menu disappearing before closing animation has finished
     - Investigate ways to handle tabbing order in mega nav levels
-    - Setup functionality for primary nav to show / hide based on page scroll direction
-    - Find a better name for the 'login' slot
+    - Setup functionality for primary nav to show / hide based on page scroll
+      direction
+    - If the sliding animation between mobile mega nav levels is not needed,
+      simplify the way the 'current level' classes and styling work
+    - Discuss login slot with FED team, see notes. Once discussed, finish
+      styling the login button on mobile mega menu. Check classes etc.
 */
 import { ref, computed } from 'vue'
 import RplPrimaryNavBar from './nav-bar.vue'
@@ -37,8 +41,8 @@ const { isItemExpanded, toggleItem } = useExpandableState(
   props.items.length
 )
 
-const isSearchActive = ref(false)
 const isMegaNavActive = ref(false)
+const isSearchActive = ref(false)
 
 const toggleNavBarItem = (id: string) => {
   // Make all other items besides the target id inactive
@@ -106,6 +110,7 @@ const isPrimaryNavExpanded = computed(() => {
       :show-login="props.showLogin"
       :show-search="props.showSearch"
       :is-mega-nav-active="isMegaNavActive"
+      :is-search-active="isSearchActive"
       :is-item-expanded="isItemExpanded"
       :toggle-mega-nav="toggleMegaNav"
       :toggle-item="toggleNavBarItem"
@@ -123,9 +128,14 @@ const isPrimaryNavExpanded = computed(() => {
     <RplPrimaryNavMegaMenu
       v-if="isMegaNavActive"
       :items="props.items"
+      :show-login="props.showLogin"
       :is-item-expanded="isItemExpanded"
       :toggle-item="toggleItem"
-    />
+    >
+      <template #login>
+        <slot name="login"></slot>
+      </template>
+    </RplPrimaryNavMegaMenu>
 
     <!-- Search form -->
     <RplPrimaryNavSearchForm v-if="isSearchActive" />

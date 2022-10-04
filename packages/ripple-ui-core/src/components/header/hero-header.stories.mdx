@@ -1,0 +1,226 @@
+import {
+  Canvas,
+  Meta,
+  Story,
+  ArgsTable
+} from '@storybook/addon-docs'
+import RplHeroHeader from './hero-header.vue'
+import { RplHeaderThemes } from './constants'
+import { a11yStoryCheck } from './../../../stories/interactions.js'
+
+export const backgroundSample = {
+  src: '/img/image-landscape-s.jpg',
+  srcSet: '/img/image-landscape-s.jpg 640w, /img/image-landscape-m.jpg 960w , /img/image-landscape-l.jpg 1240w',
+  sizes: '(min-width: 640px) 640px, (min-width: 960px) 960px, (min-width: 1240px) 1240px',
+  height: 1920,
+  width: 2880,
+}
+
+export const SingleTemplate = (args) => ({
+  components: { RplHeroHeader },
+  setup() {
+    return { args }
+  },
+  template: `
+    <RplHeroHeader v-bind="args">
+      ${args.content}
+    </RplHeroHeader>
+  `
+})
+
+<Meta
+  title='WIP/Components/Header'
+  component={RplHeroHeader}
+  parameters={{
+    layout: 'fullscreen',
+  }}
+  argTypes={{
+    theme: {
+      control: { type: 'select' },
+      options: RplHeaderThemes
+    },
+  }}
+  args={{
+    title: 'The hero title',
+    content: 'In do dolore dolore sint ipsum est est, commodo ex laborum Lorem ut deserunt dolore ullamco.'
+  }}
+/>
+
+# Header
+
+<ArgsTable of={RplHeroHeader} />
+
+<Canvas>
+  <Story
+    name='Hero'
+    play={a11yStoryCheck}
+    argTypes={{
+      cornerTop: {
+        control: { type: 'text' },
+      },
+      cornerBottom: {
+        control: { type: 'text' },
+      },
+    }}
+    args={{
+      cornerTop: '/img/hero-corner-top.png',
+      cornerBottom: '/img/hero-corner-bottom.png'
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>
+
+## Example / With Pattern
+
+This is an example the hero header using patterned corners
+
+<Canvas>
+  <Story
+    name='Hero/Pattern'
+    play={a11yStoryCheck}
+    args={{
+      cornerTop: true,
+      cornerBottom: true
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>
+
+## Example / With Logo
+
+This is an example the hero header with optional links
+
+<Canvas>
+  <Story
+    name='Hero/Logo'
+    play={a11yStoryCheck}
+    args={{
+      cornerTop: true,
+      logo: svgPlaceholder({ width: 300, height: 200 })
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>
+
+## Example / With Actions
+
+This is an example the hero header with optional actions i.e. cta
+
+<Canvas>
+  <Story
+    name='Hero/Actions'
+    play={a11yStoryCheck}
+    args={{
+      primaryAction: { text: 'Primary action', url: '#primary' },
+      secondaryAction: { title: 'Want to know more', text: 'Secondary action', url: '#secondary' },
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>
+
+## Example / With Links
+
+This is an example the hero header with optional links
+
+<Canvas>
+  <Story
+    name='Hero/Links'
+    play={a11yStoryCheck}
+    args={{
+      links: {
+        title: 'Want to know more',
+        items: [
+          {text: 'First links', url: '#first', icon: 'icon-arrow-right'},
+          {text: 'Second link', url: '#second', icon: 'icon-arrow-right'},
+          {text: 'A third link', url: '#third', icon: 'icon-arrow-right'},
+        ]
+      }
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>
+
+## Example / With Actions and Links
+
+This is an example the hero header with logo, actions and links
+
+<Canvas>
+  <Story
+    name='Hero/Actions & Links'
+    play={a11yStoryCheck}
+    args={{
+      primaryAction: { text: 'Primary action', url: '#primary' },
+      secondaryAction: { title: 'Want to know more', text: 'Secondary action', url: '#secondary' },
+      links: {
+        title: 'Want to know more',
+        more: { text: 'See more', url: '#more' },
+        items: [
+          {text: 'First links', url: '#first', icon: 'icon-arrow-right'},
+          {text: 'Second link', url: '#second', icon: 'icon-arrow-right'},
+          {text: 'A third link', url: '#third', icon: 'icon-arrow-right'},
+          {text: 'And a forth link', url: '#forth', icon: 'icon-arrow-right'}
+        ]
+      }
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>
+
+## Example / With Background
+
+This is an example the hero header with optional background
+
+<Canvas>
+  <Story
+    name='Hero/Background'
+    play={a11yStoryCheck}
+    args={{
+      background: {
+        src: '/img/image-light.jpg',
+      }
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>
+
+## Example / Reversed
+
+This is an example the hero header using the reversed theme
+
+<Canvas>
+  <Story
+    name='Hero/Reversed'
+    play={a11yStoryCheck}
+    args={{
+      theme: 'reverse',
+      background: backgroundSample
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>
+
+## Example / Neutral
+
+This is an example the hero header using the neutral theme
+
+<Canvas>
+  <Story
+    name='Hero/Neutral'
+    play={a11yStoryCheck}
+    args={{
+      theme: 'neutral',
+      title: 'A longer hero title, over several lines',
+      background: backgroundSample
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>

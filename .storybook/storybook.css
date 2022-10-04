@@ -1,3 +1,7 @@
+body {
+  background: var(--storybook-bg-color, transparent);
+}
+
 .rpl-storybook__page {
   max-width: 1120px;
 }

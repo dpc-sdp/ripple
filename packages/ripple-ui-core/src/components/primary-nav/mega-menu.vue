@@ -8,15 +8,21 @@ import RplPrimaryMegaMenuList from './mega-menu-list.vue'
 import { RplPrimaryNavItem } from './constants'
 
 interface Props {
-  item: RplPrimaryNavItem
+  items: RplPrimaryNavItem[]
   isItemExpanded: (id: string) => boolean
   toggleItem: (id: string) => void
 }
 
 const props = withDefaults(defineProps<Props>(), {})
 
+const level2ActiveItem = computed(() => {
+  return props.items?.find((item) => props.isItemExpanded(item.id))
+})
+
 const level3ActiveItem = computed(() => {
-  return props.item.items?.find((item) => props.isItemExpanded(item.id))
+  return level2ActiveItem.value?.items?.find((item) =>
+    props.isItemExpanded(item.id)
+  )
 })
 
 const level4ActiveItem = computed(() => {
@@ -28,17 +34,36 @@ const level4ActiveItem = computed(() => {
 
 <template>
   <div class="rpl-primary-nav__mega-menu rpl-grid">
+    <!-- Level 1 - Only visible on mobile -->
     <div
+      v-if="props.items.length"
+      class="
+        rpl-primary-nav__mega-menu-column
+        rpl-primary-nav__mega-menu-column--level-1
+        rpl-col-4-l rpl-col-3-xl
+      "
+    >
+      <RplPrimaryMegaMenuList
+        :items="props.items ? props.items : []"
+        :is-item-expanded="isItemExpanded"
+        :toggle-item="toggleItem"
+      />
+    </div>
+
+    <!-- Section title - Only visible on desktop -->
+    <div
+      v-if="level2ActiveItem"
       class="
         rpl-primary-nav__mega-menu-section-title
         rpl-type-h3-fixed rpl-col-12-l rpl-col-3-xl
       "
     >
-      {{ props.item.text }}
+      {{ level2ActiveItem.text }}
     </div>
 
     <!-- Level 2 -->
     <div
+      v-if="level2ActiveItem?.items?.length"
       class="
         rpl-primary-nav__mega-menu-column
         rpl-primary-nav__mega-menu-column--level-2
@@ -46,8 +71,8 @@ const level4ActiveItem = computed(() => {
       "
     >
       <RplPrimaryMegaMenuList
-        :parent="props.item"
-        :items="props.item.items ? props.item.items : []"
+        :parent="level2ActiveItem"
+        :items="level2ActiveItem.items ? level2ActiveItem.items : []"
         :is-item-expanded="isItemExpanded"
         :toggle-item="toggleItem"
       />

@@ -7,13 +7,14 @@ import RplPrimaryNavMegaMenuAction from './mega-menu-action.vue'
 import { RplPrimaryNavItem } from './constants'
 
 interface Props {
-  parent: RplPrimaryNavItem
+  parent?: RplPrimaryNavItem
   items: RplPrimaryNavItem[]
   isItemExpanded?: (id: string) => boolean
   toggleItem?: (id: string) => void
 }
 
 const props = withDefaults(defineProps<Props>(), {
+  parent: undefined,
   isItemExpanded: undefined,
   toggleItem: undefined
 })
@@ -22,7 +23,7 @@ const props = withDefaults(defineProps<Props>(), {
 <template>
   <ul class="rpl-primary-nav__mega-menu-list">
     <!-- Repeat of parent as a clickable link -->
-    <li class="rpl-primary-nav__mega-menu-item">
+    <li v-if="parent" class="rpl-primary-nav__mega-menu-item">
       <RplPrimaryNavMegaMenuAction :item="props.parent" type="link" />
     </li>
 

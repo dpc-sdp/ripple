@@ -40,10 +40,6 @@ const { isItemExpanded, toggleItem } = useExpandableState(
 const isSearchActive = ref(false)
 const isMegaNavActive = ref(false)
 
-const activeItem = computed(() => {
-  return props.items.find((item) => isItemExpanded(item.id))
-})
-
 const toggleNavBarItem = (id: string) => {
   // Make all other items besides the target id inactive
   props.items.forEach((item) => {
@@ -124,8 +120,8 @@ const isPrimaryNavExpanded = computed(() => {
 
     <!-- Mega menu -->
     <RplPrimaryNavMegaMenu
-      v-if="activeItem"
-      :item="activeItem"
+      v-if="isMegaNavActive"
+      :items="props.items"
       :is-item-expanded="isItemExpanded"
       :toggle-item="toggleItem"
     />

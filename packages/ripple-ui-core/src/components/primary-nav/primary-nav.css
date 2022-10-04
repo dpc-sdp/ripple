@@ -228,6 +228,14 @@
   padding: 0 var(--rpl-sp-2);
 }
 
+.rpl-primary-nav__mega-menu-column {
+  &.rpl-primary-nav__mega-menu-column--level-1 {
+    @media (--rpl-bp-l) {
+      display: none;
+    }
+  }
+}
+
 .rpl-primary-nav__mega-menu-action {
   display: flex;
   justify-content: space-between;

@@ -218,3 +218,11 @@
     }
   }
 }
+
+.rpl-header--behind-nav {
+  margin-top: -84px;
+
+  &.rpl-header--breadcrumbs {
+    margin-top: -139px;
+  }
+}

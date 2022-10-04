@@ -17,7 +17,7 @@ import RplHeaderActions from './header-actions.vue'
 import { RplLink } from '../../lib/constants'
 
 interface Props {
-  theme?: RplHeaderThemes[number]
+  theme?: typeof RplHeaderThemes[number]
   title: string
   logo?: string
   background?: object
@@ -26,7 +26,8 @@ interface Props {
   primaryAction?: RplLink
   secondaryAction?: RplHeaderLinkExtended
   links?: RplHeaderLinksList
-  breadcrumbs: boolean
+  breadcrumbs?: boolean
+  behindNav?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -38,7 +39,8 @@ const props = withDefaults(defineProps<Props>(), {
   primaryAction: undefined,
   secondaryAction: undefined,
   links: undefined,
-  breadcrumbs: false
+  breadcrumbs: false,
+  behindNav: false
 })
 
 const highlight = computed(
@@ -48,6 +50,7 @@ const highlight = computed(
 const classes = computed(() => ({
   'rpl-header--hero': true,
   [`rpl-header--${props.theme}`]: props.theme,
+  'rpl-header--behind-nav': props.behindNav,
   'rpl-header--breadcrumbs': props.breadcrumbs,
   'rpl-header--graphic-top': props.cornerTop,
   'rpl-header--graphic-bottom': props.cornerBottom

@@ -22,12 +22,6 @@
 .rpl-header-links__more {
   padding-right: var(--rpl-sp-6);
 
-  @media (--rpl-bp-l) {
-    font-size: var(--rpl-type-size-3);
-    line-height: var(--rpl-type-lh-5);
-    letter-spacing: var(--rpl-type-ls-2);
-  }
-
   .rpl-icon--size-xs {
     @media (--rpl-bp-l) {
       --rpl-icon-size: var(--rpl-sp-4);

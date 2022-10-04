@@ -33,7 +33,11 @@ withDefaults(defineProps<Props>(), {
     <div class="rpl-header-actions__secondary">
       <p
         v-if="secondary.title"
-        class="rpl-header-actions__secondary-title rpl-type-p"
+        class="
+          rpl-header-actions__secondary-title
+          rpl-header__text-large-fixed
+          rpl-type-p
+        "
       >
         {{ secondary.title }}
       </p>
@@ -42,7 +46,7 @@ withDefaults(defineProps<Props>(), {
         :url="secondary.url"
         class="
           rpl-header-actions__secondary-link
-          rpl-header__icon-link
+          rpl-header__icon-link rpl-header__text-large-fixed
           rpl-type-label rpl-type-weight-bold
         "
       >

@@ -10,7 +10,7 @@
       "component": "TideLandingPageIntroBanner",
       "id": 697,
       "props": {
-        "title": "Intro banner title test jksdhfsdjkh",
+        "title": "Intro banner title test",
         "links": [
           {
             "title": "Nullam laoreet",
@@ -82,5 +82,14 @@
         ]
       }
     }
-  ]
+  ],
+  "sidebar": {
+    "contact": {
+      "address": {
+        "name": "First Name Last Name",
+        "department": "Department Name",
+        "street": "Address Line, Suburb, 3019"
+      }
+    }
+  }
 }

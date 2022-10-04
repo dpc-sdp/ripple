@@ -27,11 +27,11 @@ export default {
   },
   'paragraph--accordion': (field): TideLandingPageComponent => {
     return {
-      component: 'TideLandingPageAccordion',
+      component: 'RplAccordion',
       id: field.drupal_internal__id,
+      title: field.field_paragraph_title,
       props: {
         id: field.drupal_internal__id,
-        title: field.field_paragraph_title,
         numbered: field.field_paragraph_accordion_style === 'numbered',
         items: field.field_paragraph_accordion.map((acc) => {
           return {

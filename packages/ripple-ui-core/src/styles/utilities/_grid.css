@@ -14,30 +14,9 @@
     gap: var(--rpl-sp-7);
   }
 
-  /* Small gap variant */
-  &.rpl-grid--gap-s {
-    gap: var(--rpl-sp-2);
-
-    @media (--rpl-bp-m) {
-      gap: var(--rpl-sp-3);
-    }
-
-    @media (--rpl-bp-xl) {
-      gap: var(--rpl-sp-4);
-    }
-  }
-
-  /* Large gap variant */
-  &.rpl-grid--gap-l {
-    gap: var(--rpl-sp-6);
-
-    @media (--rpl-bp-m) {
-      gap: var(--rpl-sp-8);
-    }
-
-    @media (--rpl-bp-xl) {
-      gap: var(--rpl-sp-10);
-    }
+  /* No row-gap variant */
+  &.rpl-grid--no-row-gap {
+    row-gap: 0;
   }
 }
 

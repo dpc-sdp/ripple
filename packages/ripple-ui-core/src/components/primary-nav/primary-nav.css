@@ -233,8 +233,8 @@
   }
 }
 
-.rpl-primary-nav__mega-menu-column {
-  &.rpl-primary-nav__mega-menu-column--level-1 {
+.rpl-primary-nav__mega-menu-list {
+  &.rpl-primary-nav__mega-menu-list--level-1 {
     @media (--rpl-bp-l) {
       display: none;
     }

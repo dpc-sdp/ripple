@@ -46,70 +46,42 @@ const level4ActiveItem = computed(() => {
     </div>
 
     <!-- Level 1 - Only visible on mobile -->
-    <div
+    <RplPrimaryMegaMenuList
       v-if="props.items.length"
-      class="
-        rpl-primary-nav__mega-menu-column
-        rpl-primary-nav__mega-menu-column--level-1
-        rpl-col-12 rpl-col-4-l rpl-col-3-xl
-      "
-    >
-      <RplPrimaryMegaMenuList
-        :items="props.items ? props.items : []"
-        :is-item-expanded="isItemExpanded"
-        :toggle-item="toggleItem"
-      />
-    </div>
+      level="1"
+      :items="props.items ? props.items : []"
+      :is-item-expanded="isItemExpanded"
+      :toggle-item="toggleItem"
+    />
 
     <!-- Level 2 -->
-    <div
+    <RplPrimaryMegaMenuList
       v-if="level2ActiveItem?.items?.length"
-      class="
-        rpl-primary-nav__mega-menu-column
-        rpl-primary-nav__mega-menu-column--level-2
-        rpl-col-12 rpl-col-4-l rpl-col-3-xl
-      "
-    >
-      <RplPrimaryMegaMenuList
-        :parent="level2ActiveItem"
-        :items="level2ActiveItem.items ? level2ActiveItem.items : []"
-        :is-item-expanded="isItemExpanded"
-        :toggle-item="toggleItem"
-      />
-    </div>
+      level="2"
+      :parent="level2ActiveItem"
+      :items="level2ActiveItem.items ? level2ActiveItem.items : []"
+      :is-item-expanded="isItemExpanded"
+      :toggle-item="toggleItem"
+    />
 
     <!-- Level 3 -->
-    <div
+    <RplPrimaryMegaMenuList
       v-if="level3ActiveItem?.items?.length"
-      class="
-        rpl-primary-nav__mega-menu-column
-        rpl-primary-nav__mega-menu-column--level-3
-        rpl-col-12 rpl-col-4-l rpl-col-3-xl
-      "
-    >
-      <RplPrimaryMegaMenuList
-        :parent="level3ActiveItem"
-        :items="level3ActiveItem.items ? level3ActiveItem.items : []"
-        :is-item-expanded="isItemExpanded"
-        :toggle-item="toggleItem"
-      />
-    </div>
+      level="3"
+      :parent="level3ActiveItem"
+      :items="level3ActiveItem.items ? level3ActiveItem.items : []"
+      :is-item-expanded="isItemExpanded"
+      :toggle-item="toggleItem"
+    />
 
     <!-- Level 4 -->
-    <div
+    <RplPrimaryMegaMenuList
       v-if="level4ActiveItem?.items?.length"
-      class="
-        rpl-primary-nav__mega-menu-column
-        rpl-primary-nav__mega-menu-column--level-4
-        rpl-col-12 rpl-col-4-l rpl-col-3-xl
-      "
-    >
-      <RplPrimaryMegaMenuList
-        :parent="level4ActiveItem"
-        :items="level4ActiveItem.items ? level4ActiveItem.items : []"
-        :is-item-expanded="isItemExpanded"
-        :toggle-item="toggleItem"
-      />
-    </div>
+      level="4"
+      :parent="level4ActiveItem"
+      :items="level4ActiveItem.items ? level4ActiveItem.items : []"
+      :is-item-expanded="isItemExpanded"
+      :toggle-item="toggleItem"
+    />
   </div>
 </template>

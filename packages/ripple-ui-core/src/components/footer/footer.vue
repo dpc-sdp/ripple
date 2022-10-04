@@ -25,6 +25,7 @@ interface Props {
   nav?: NavSectionItem[]
   links?: CoreLink[]
   logos?: LogoLink[]
+  credit?: string
   copyright?: string
 }
 
@@ -33,12 +34,13 @@ const props = withDefaults(defineProps<Props>(), {
   nav: () => [],
   links: () => [],
   logos: () => [],
+  credit: undefined,
   copyright: '© Copyright State Government of Victoria'
 })
 
 const breakpoints = useBreakpoints(bpMin)
 
-const isExpandable = breakpoints.smaller('l');
+const isExpandable = breakpoints.smaller('l')
 const isLargeScreen = breakpoints.between('l', 'xl')
 const isXLargeScreen = breakpoints.greaterOrEqual('xl')
 
@@ -135,10 +137,15 @@ const columns = computed(() => {
         </template>
       </nav>
     </div>
-    <div class="rpl-container rpl-footer__custom-content">
-      <slot name="custom-content">
-        <RplAcknowledgement />
-      </slot>
+    <div class="rpl-footer__custom-content">
+      <div class="rpl-container">
+        <slot name="custom-content">
+          <RplAcknowledgement />
+        </slot>
+        <p v-if="credit" class="rpl-footer__credit rpl-type-label-small">
+          {{ credit }}
+        </p>
+      </div>
     </div>
     <div class="rpl-container">
       <div class="rpl-footer-bottom">
@@ -150,7 +157,7 @@ const columns = computed(() => {
               }}</RplTextLink>
             </li>
           </ul>
-          <p class="rpl-type-p-small">
+          <p class="rpl-type-label-small">
             {{ copyright }}
           </p>
         </div>
@@ -172,7 +179,9 @@ const columns = computed(() => {
           </a>
           <a
             class="
-              rpl-footer-logo-link rpl-u-focusable-outline
+              rpl-footer-logo-link
+              rpl-u-focusable-outline
+              rpl-u-focusable-outline--no-border
               rpl-u-focusable--alt-colour
             "
             :href="vicGovHomeUrl"

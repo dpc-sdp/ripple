@@ -1,13 +1,31 @@
 @import '@dpc-sdp/ripple-ui-core/style/breakpoints';
 
 .rpl-footer-nav-section {
-  border-bottom: var(--rpl-border-1) solid var(--rpl-clr-footer-alt);
+  position: relative;
 
   @media (--rpl-bp-l) {
-    border-bottom: none;
     display: table;
     break-inside: avoid-column;
     width: 100%;
+  }
+
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 100%;
+    height: 1px;
+    background-color: var(--rpl-clr-footer-alt);
+
+    @media (--rpl-bp-l) {
+      display: none;
+    }
+  }
+
+  &:not(.rpl-footer-nav-section--expanded):focus-within::before {
+    display: none;
   }
 }
 
@@ -33,13 +51,25 @@
   }
 }
 
+.rpl-footer-nav-section__header-inner-button {
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &:active {
+    text-decoration: none;
+  }
+}
+
 .rpl-footer-nav-section__title {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .rpl-footer-nav-section__expand-icon {
+  margin-top: var(--local-icon-vertical-spacing);
+  margin-left: var(--rpl-sp-3);
   transition: transform var(--rpl-motion-speed-6) linear;
 
   .rpl-footer-nav-section--expanded & {

@@ -95,6 +95,7 @@
   --rpl-clr-link: #0052C2;
   --rpl-clr-type-primary-alt-accessible: #003174;
   --rpl-clr-type-primary-accessible: #0052C2;
+  --rpl-clr-type-primary-contrast-alpha: rgb(255 255 255 / .75);
   --rpl-clr-accent-alt: #E6F5FD;
   --rpl-clr-accent: #0095EC;
   --rpl-clr-primary-alt: #003174;

@@ -19,6 +19,8 @@ clr:
     primary:
       contrast:
         value: '{clr.light}'
+      contrast-alpha:
+        value: '{theme.clr.neutral.alpha}'
       accessible:
         value: '{theme.clr.primary.500}'
       alt:

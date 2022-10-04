@@ -225,7 +225,12 @@
 }
 
 .rpl-primary-nav__mega-menu-section-title {
+  display: none;
   padding: 0 var(--rpl-sp-2);
+
+  @media (--rpl-bp-l) {
+    display: block;
+  }
 }
 
 .rpl-primary-nav__mega-menu-column {

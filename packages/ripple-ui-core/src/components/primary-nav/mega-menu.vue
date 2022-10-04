@@ -34,13 +34,24 @@ const level4ActiveItem = computed(() => {
 
 <template>
   <div class="rpl-primary-nav__mega-menu rpl-grid">
+    <!-- Section title - Only visible on desktop -->
+    <div
+      v-if="level2ActiveItem"
+      class="
+        rpl-primary-nav__mega-menu-section-title
+        rpl-col-12 rpl-type-h3-fixed rpl-col-12-l rpl-col-3-xl
+      "
+    >
+      {{ level2ActiveItem.text }}
+    </div>
+
     <!-- Level 1 - Only visible on mobile -->
     <div
       v-if="props.items.length"
       class="
         rpl-primary-nav__mega-menu-column
         rpl-primary-nav__mega-menu-column--level-1
-        rpl-col-4-l rpl-col-3-xl
+        rpl-col-12 rpl-col-4-l rpl-col-3-xl
       "
     >
       <RplPrimaryMegaMenuList
@@ -50,24 +61,13 @@ const level4ActiveItem = computed(() => {
       />
     </div>
 
-    <!-- Section title - Only visible on desktop -->
-    <div
-      v-if="level2ActiveItem"
-      class="
-        rpl-primary-nav__mega-menu-section-title
-        rpl-type-h3-fixed rpl-col-12-l rpl-col-3-xl
-      "
-    >
-      {{ level2ActiveItem.text }}
-    </div>
-
     <!-- Level 2 -->
     <div
       v-if="level2ActiveItem?.items?.length"
       class="
         rpl-primary-nav__mega-menu-column
         rpl-primary-nav__mega-menu-column--level-2
-        rpl-col-4-l rpl-col-3-xl
+        rpl-col-12 rpl-col-4-l rpl-col-3-xl
       "
     >
       <RplPrimaryMegaMenuList
@@ -84,7 +84,7 @@ const level4ActiveItem = computed(() => {
       class="
         rpl-primary-nav__mega-menu-column
         rpl-primary-nav__mega-menu-column--level-3
-        rpl-col-4-l rpl-col-3-xl
+        rpl-col-12 rpl-col-4-l rpl-col-3-xl
       "
     >
       <RplPrimaryMegaMenuList
@@ -101,7 +101,7 @@ const level4ActiveItem = computed(() => {
       class="
         rpl-primary-nav__mega-menu-column
         rpl-primary-nav__mega-menu-column--level-4
-        rpl-col-4-l rpl-col-3-xl
+        rpl-col-12 rpl-col-4-l rpl-col-3-xl
       "
     >
       <RplPrimaryMegaMenuList

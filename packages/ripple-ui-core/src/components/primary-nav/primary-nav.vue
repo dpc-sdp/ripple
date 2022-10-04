@@ -105,6 +105,7 @@ const isPrimaryNavExpanded = computed(() => {
       :items="items"
       :show-login="props.showLogin"
       :show-search="props.showSearch"
+      :is-mega-nav-active="isMegaNavActive"
       :is-item-expanded="isItemExpanded"
       :toggle-mega-nav="toggleMegaNav"
       :toggle-item="toggleNavBarItem"

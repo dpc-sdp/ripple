@@ -13,6 +13,7 @@ interface Props {
   items: RplPrimaryNavItem[]
   showLogin: boolean
   showSearch: boolean
+  isMegaNavActive: boolean
   isItemExpanded: (id: string) => boolean
   toggleMegaNav: () => void
   toggleItem: (id: string) => void
@@ -72,13 +73,18 @@ const props = defineProps<Props>()
     >
       <!-- Mobile menu toggle -->
       <li>
-        <RplPrimaryNavBarAction type="toggle" href="/" @click="toggleMegaNav()">
+        <RplPrimaryNavBarAction
+          type="toggle"
+          href="/"
+          :active="isMegaNavActive"
+          @click="toggleMegaNav()"
+        >
           <span>Menu</span>&NoBreak;<span
             class="
               rpl-primary-nav__nav-bar-icon rpl-primary-nav__nav-bar-icon--large
               rpl-u-margin-l-2
             "
-            ><RplIcon name="icon-chevron-down"></RplIcon>
+            ><RplIcon name="icon-chevron-down" size="xs"></RplIcon>
           </span>
         </RplPrimaryNavBarAction>
       </li>

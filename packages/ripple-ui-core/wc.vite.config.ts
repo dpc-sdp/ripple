@@ -1,7 +1,8 @@
 import { defineConfig } from 'vite'
 import path from 'path'
 import vue from '@vitejs/plugin-vue'
-import dts from 'vite-dts'
+// import dts from 'vite-dts'
+import dts from 'vite-plugin-dts'
 
 // https://vitejs.dev/config/
 // https://vitejs.dev/guide/build.html#library-mode

@@ -51,7 +51,7 @@ export const SingleTemplate = (args) => ({
   <Story
     name='Image'
     args={{
-      src: 'https://via.placeholder.com/900x600'
+      src: '/img/image-landscape-m.jpg'
     }}
     play={a11yStoryCheck}
   >
@@ -60,7 +60,7 @@ export const SingleTemplate = (args) => ({
   <Story
     name='Circle'
     args={{
-      src: 'https://images.unsplash.com/photo-1634926878768-2a5b3c42f139?w=1680&q=80',
+      src: '/img/image-landscape-s.jpg',
       height: 200,
       width: 200,
       circle: true,
@@ -72,7 +72,7 @@ export const SingleTemplate = (args) => ({
   <Story
     name='Square 1/1'
     args={{
-      src: 'https://images.unsplash.com/photo-1514395462725-fb4566210144?w=1680&q=80',
+      src: '/img/image-landscape-m.jpg',
       height: 500,
       width: 600,
       aspect: 'square'
@@ -84,7 +84,7 @@ export const SingleTemplate = (args) => ({
   <Story
     name='Full 4/3'
     args={{
-      src: 'https://images.unsplash.com/photo-1514395462725-fb4566210144?w=1680&q=80',
+      src: '/img/image-landscape-m.jpg',
       height: 500,
       width: 600,
       aspect: 'full'
@@ -96,7 +96,7 @@ export const SingleTemplate = (args) => ({
   <Story
     name='Wide 16/9'
     args={{
-      src: 'https://images.unsplash.com/photo-1514395462725-fb4566210144?w=1680&q=80',
+      src: '/img/image-landscape-m.jpg',
       height: 500,
       width: 600,
       aspect: 'wide'
@@ -108,7 +108,7 @@ export const SingleTemplate = (args) => ({
   <Story
     name='Ultrawide 21/9'
     args={{
-      src: 'https://images.unsplash.com/photo-1514395462725-fb4566210144?w=1680&q=80',
+      src: '/img/image-landscape-m.jpg',
       height: 500,
       width: 600,
       aspect: 'ultrawide'
@@ -120,7 +120,7 @@ export const SingleTemplate = (args) => ({
   <Story
     name='Panorama 3/1'
     args={{
-      src: 'https://images.unsplash.com/photo-1514395462725-fb4566210144?w=1680&q=80',
+      src: '/img/image-landscape-m.jpg',
       height: 500,
       width: 600,
       aspect: 'panorama'
@@ -132,7 +132,7 @@ export const SingleTemplate = (args) => ({
   <Story
     name='Lazy loading'
     args={{
-      src: 'https://images.unsplash.com/photo-1514395462725-fb4566210144?w=1680&q=80',
+      src: '/img/image-landscape-m.jpg',
       height: 500,
       width: 600,
       priority: 'low'
@@ -144,7 +144,7 @@ export const SingleTemplate = (args) => ({
   <Story
     name='Responsive ratios'
     args={{
-      src: 'https://images.unsplash.com/photo-1514395462725-fb4566210144?w=1680&q=80',
+      src: '/img/image-landscape-m.jpg',
       height: 500,
       width: 600,
       aspect: { xs: 'square', s: 'full', m: 'wide', l: 'ultrawide', xl: 'panorama' },
@@ -157,12 +157,12 @@ export const SingleTemplate = (args) => ({
   <Story
     name='Focal position'
     args={{
-      src: 'https://images.unsplash.com/photo-1561618030-ecca407d3ba4?w=1600&q=80',
-      height: 1067,
-      width: 1600,
+      src: '/img/image-landscape-l.jpg',
+      height: 1920,
+      width: 2880,
       focalPoint: {
-        x: 250,
-        y: 900
+        x: 2620,
+        y: 620
       },
       aspect: { xs: 'square', s: 'full', m: 'wide', l: 'ultrawide', xl: 'panorama' },
       priority: 'high'
@@ -174,7 +174,7 @@ export const SingleTemplate = (args) => ({
   <Story
     name='Image fit'
     args={{
-      src: 'https://images.unsplash.com/photo-1561618030-ecca407d3ba4?w=1600&q=80',
+      src: '/img/image-landscape-m.jpg',
       height: 800,
       width: 800,
       fit: 'contain'
@@ -186,9 +186,9 @@ export const SingleTemplate = (args) => ({
   <Story
     name='Source sets'
     args={{
-      src: 'https://via.placeholder.com/480x500',
-      srcSet: 'https://via.placeholder.com/640x350 640w, https://via.placeholder.com/960x500 960w',
-      sizes: '(min-width: 640px) 640px, (min-width: 960px) 960px'
+      src: '/img/image-landscape-s.jpg',
+      srcSet: '/img/image-landscape-s.jpg 640w, /img/image-landscape-m.jpg 960w , /img/image-landscape-l.jpg 1240w',
+      sizes: '(min-width: 640px) 640px, (min-width: 960px) 960px, (min-width: 1240px) 1240px'
     }}
     play={a11yStoryCheck}
   >

@@ -5,63 +5,43 @@ export default { name: 'RplFile' }
 <script setup lang="ts">
 import { computed } from 'vue'
 import RplIcon from '../icon/icon.vue'
-import { isExternalLink } from '../../lib/helpers'
+import RplDocument from '../document/document.vue'
 
 interface Props {
   name: string
-  url?: string
-  extension: string
-  size: string
+  url: string
+  extension?: string
+  size?: string
   updated?: string
   caption?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  url: '',
-  updated: '',
-  caption: ''
+  extension: undefined,
+  size: undefined,
+  updated: undefined,
+  caption: undefined
 })
 
-const isExternal = computed(() => isExternalLink(props.url))
+const hasInfo = computed(() => props.extension || props.size || props.updated)
 </script>
 
 <template>
-  <figure class="rpl-file">
-    <a
-      tabindex="-1"
-      class="rpl-file__link"
-      :aria-label="`${name} File type: ${extension}. Size: ${size}. ${
-        isExternal ? 'Opens in new tab.' : ''
-      }`"
-      :href="url"
-      :download="isExternal ? null : ''"
-      :target="isExternal ? '_blank' : null"
-    >
+  <RplDocument :url="url">
+    <template #icon>
       <RplIcon name="icon-document-lined" size="l" colour="default" />
-      <div class="rpl-file__info">
-        <span
-          class="
-            rpl-file__name
-            rpl-type-p rpl-type-weight-bold rpl-u-focusable-inline
-          "
-          tabindex="0"
-          >{{ name }}</span
-        >
-        <div class="rpl-file__meta rpl-type-label-small">
-          <span class="rpl-file__type">{{ extension }}</span>
-          <span class="rpl-file__size">{{ size }}</span>
-          <div v-if="updated" class="rpl-file__updated">
-            Updated {{ updated }}
-          </div>
-        </div>
-      </div>
-    </a>
-    <figcaption
-      v-if="caption"
-      class="rpl-file__caption rpl-type-p-small"
-      v-html="caption"
-    ></figcaption>
-  </figure>
+    </template>
+    <template #name>
+      {{ name }}
+    </template>
+    <template v-if="hasInfo" #info>
+      <span v-if="extension" class="rpl-file__meta">{{ extension }}</span>
+      <span v-if="size" class="rpl-file__meta">{{ size }}</span>
+      <div v-if="updated" class="rpl-file__updated">Updated {{ updated }}</div>
+    </template>
+    <template v-if="caption" #caption>
+      <span v-html="caption"></span>
+    </template>
+  </RplDocument>
 </template>
 
-<style />

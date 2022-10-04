@@ -90,7 +90,7 @@ const props = defineProps<Props>()
       </li>
 
       <!-- Mobile menu divider -->
-      <li>
+      <li v-if="props.showSearch">
         <div class="rpl-primary-nav__nav-bar-search-divider"></div>
       </li>
 
@@ -151,7 +151,7 @@ const props = defineProps<Props>()
         </RplPrimaryNavBarAction>
       </li>
 
-      <!-- Login slot - Hidden on mobile -->
+      <!-- Login slot - Desktop -->
       <li>
         <slot v-if="props.showLogin" name="login">
           <RplPrimaryNavBarAction type="link" href="/login">

@@ -176,7 +176,7 @@ export default class TidePage extends TideApiBase {
       return Promise.reject(
         this.handleError(
           'Application Error - getPageByRouteData',
-          error.response?.status | 500
+          error.response?.status || 500
         )
       )
     }

@@ -17,11 +17,13 @@
 
 .rpl-search-bar--menu {
   --local-search-bar-clr-bg: transparent;
-  --local-search-bar-clr-bottom-bar: var(--rpl-clr-neutral-300);
+  --local-search-bar-clr-bottom-bar: var(--rpl-clr-type-primary-contrast-alpha);
   --local-search-bar-clr-border-active: var(--rpl-clr-type-primary-contrast);
   --local-search-bar-clr-submit: var(--rpl-clr-type-primary-contrast);
   --local-search-bar-clr-input-text: var(--rpl-clr-type-primary-contrast);
-  --local-search-bar-clr-placeholder: var(--rpl-clr-neutral-300);
+  --local-search-bar-clr-placeholder: var(
+    --rpl-clr-type-primary-contrast-alpha
+  );
 }
 
 .rpl-search-bar__input {

@@ -35,17 +35,30 @@ export default { name: 'TideGrantOverview' }
           rpl-type-label
         "
       >
-        <rpl-icon name="icon-cancel-circle-filled" colour="error"></rpl-icon
+        <rpl-icon
+          v-if="openState"
+          name="icon-check-circle-filled"
+          colour="success"
+        ></rpl-icon
+        ><rpl-icon
+          v-else
+          name="icon-cancel-circle-filled"
+          colour="error"
+        ></rpl-icon
         ><span class="rpl-list__label"> {{ formattedDate }} </span>
       </li>
       <li
+        v-if="overview.description"
         class="tide-grant__overview-item tide-grant__overview-item--description"
       >
         <p class="rpl-type-p">
           {{ overview.description }}
         </p>
       </li>
-      <li v-if="overview.link">
+      <li
+        v-if="overview.link"
+        class="tide-grant__overview-item tide-grant__overview-item--link"
+      >
         <rpl-button el="a" :href="overview.link.uri">{{
           overview.link.title
         }}</rpl-button>
@@ -64,7 +77,7 @@ const props =
   }>()
 
 const formattedFunding = computed(() => {
-  const formatOptions = {
+  const formatOptions: Intl.NumberFormatOptions = {
     style: 'currency',
     minimumFractionDigits: 0,
     currency: 'AUD'
@@ -91,23 +104,35 @@ const formattedFunding = computed(() => {
   return null
 })
 
+const to = new Date(props.overview.date.to)
+const now = new Date()
+
+const openState = computed(
+  () => props.overview.ongoing || !props.overview.date.to || now < to
+)
+
 const formattedDate = computed(() => {
   if (props.overview.ongoing) {
     return 'Ongoing'
   }
 
-  const now = new Date()
-  const to = new Date(props.overview.date.to)
-  const from = new Date(props.overview.date.from)
+  if (props.overview.date.to) {
+    if (now > to) {
+      return 'Closed'
+    }
 
-  if (now < to) {
+    const from = new Date(props.overview.date.from)
+
     if (from < now) {
-      // calculate days remaining
+      // Calculate days remaining
       const days = Math.floor(
         to.valueOf() / 86400000 - now.valueOf() / 86400000
       )
+
       if (days > 0) {
-        return `Open, closing in ${days} day${days > 1 ? 's' : ''}`
+        return `Open, closing in ${new Intl.NumberFormat('en-AU').format(
+          days
+        )} day${days > 1 ? 's' : ''}`
       } else {
         return 'Open, closing today'
       }
@@ -117,7 +142,8 @@ const formattedDate = computed(() => {
       }).format(from)}`
     }
   }
-  return 'Closed'
+
+  return 'Ongoing'
 })
 </script>
 

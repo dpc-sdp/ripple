@@ -102,24 +102,7 @@ const sectionTitleMobile = computed(() => {
     <ul class="rpl-primary-nav__supplementary-mobile-links">
       <li><RplPrimaryNavQuickExit /></li>
       <li>
-        <slot name="login">
-          <a
-            class="
-              rpl-primary-nav__mega-menu-mobile-link
-              rpl-u-focusable-inline rpl-type-label-small rpl-type-weight-bold
-            "
-            href="/login"
-          >
-            <span
-              class="
-                rpl-primary-nav__nav-bar-icon
-                rpl-primary-nav__nav-bar-icon--large
-                rpl-u-margin-r-2
-              "
-              ><RplIcon name="icon-user-circle-filled"></RplIcon></span
-            >&NoBreak;<span>Login</span>
-          </a>
-        </slot>
+        <slot name="userAction"></slot>
       </li>
     </ul>
 

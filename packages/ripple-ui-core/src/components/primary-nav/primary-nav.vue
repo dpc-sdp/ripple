@@ -111,8 +111,8 @@ const isPrimaryNavExpanded = computed(() => {
       :toggle-item="toggleNavBarItem"
       :toggle-search="toggleSearch"
     >
-      <template #login>
-        <slot name="login"></slot>
+      <template #userAction>
+        <slot name="userAction"></slot>
       </template>
       <template #search>
         <slot name="search"></slot>
@@ -126,8 +126,8 @@ const isPrimaryNavExpanded = computed(() => {
       :is-item-expanded="isItemExpanded"
       :toggle-item="toggleItem"
     >
-      <template #login>
-        <slot name="login"></slot>
+      <template #userAction>
+        <slot name="userAction"></slot>
       </template>
     </RplPrimaryNavMegaMenu>
 

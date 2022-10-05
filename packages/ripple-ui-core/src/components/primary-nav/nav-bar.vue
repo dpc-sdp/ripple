@@ -165,20 +165,9 @@ const props = defineProps<Props>()
         </RplPrimaryNavBarAction>
       </li>
 
-      <!-- Login slot - Desktop -->
+      <!-- User action slot - Desktop -->
       <li>
-        <slot name="login">
-          <RplPrimaryNavBarAction type="link" href="/login">
-            <span
-              class="
-                rpl-primary-nav__nav-bar-icon
-                rpl-primary-nav__nav-bar-icon--large
-                rpl-u-margin-r-2
-              "
-              ><RplIcon name="icon-user-circle-filled"></RplIcon></span
-            >&NoBreak;<span>Login</span>
-          </RplPrimaryNavBarAction>
-        </slot>
+        <slot name="userAction"></slot>
       </li>
 
       <!-- Search slot - Desktop -->

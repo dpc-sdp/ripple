@@ -20,7 +20,7 @@ import RplSidebarComponent from './sidebar-component.vue'
 import RplInPageNavigation from './../in-page-navigation/in-page-navigation.vue'
 import RplAlert from './../alert/alert.vue'
 import RplHeroHeader from './../header/hero-header.vue'
-import RplNavPrimary from './../nav-primary/nav-primary.vue'
+// import RplNavPrimary from './../nav-primary/nav-primary.vue'
 import { a11yStoryCheck } from './../../../stories/interactions.js'
 import sbSpacer from './../../../stories/components/spacer.vue'
 import { verticalNavItems } from './storydata.ts'
@@ -37,7 +37,7 @@ export const ExampleTemplate = (args) => ({
         <sb-spacer color="pink">#aboveHeader - Alerts go here</sb-spacer>
       </template>
       <template #primaryNav>
-        <sb-spacer color="lightblue">#header - Nav primary goes here</sb-spacer>
+        <sb-spacer color="lightblue">#header - Primary nav goes here</sb-spacer>
       </template>
       <template #breadcrumbs>
         <sb-spacer color="lightgreen">#breadcrumbs - Breadcrumbs go here</sb-spacer>
@@ -96,7 +96,7 @@ export const PageLayoutContentTemplate = (args) => ({
     RplSidebarComponent,
     RplVerticalNav,
     RplBreadcrumbs,
-    RplNavPrimary,
+    // RplNavPrimary,
     RplFooter,
     RplHeroHeader
   },
@@ -121,7 +121,7 @@ export const PageLayoutContentTemplate = (args) => ({
         />
       </template>
       <template #primaryNav>
-        <RplNavPrimary></RplNavPrimary>
+        RplPrimaryNav will go here
       </template>
       <template #breadcrumbs>
         <RplBreadcrumbs :items="[{ label: 'Home', url: '/' }, { label: 'Page title', url: '/page-title' }]"></RplBreadcrumbs>
@@ -175,7 +175,7 @@ export const PageLayoutNavigationTemplate = (args) => ({
     RplAlert,
     RplPageComponent,
     RplNavCard,
-    RplNavPrimary,
+    // RplNavPrimary,
     RplBreadcrumbs,
     RplFooter,
     RplHeroHeader
@@ -187,7 +187,7 @@ export const PageLayoutNavigationTemplate = (args) => ({
   template: `
     <RplLayout v-bind="args">
       <template #primaryNav>
-        <RplNavPrimary></RplNavPrimary>
+        RplPrimaryNav will go here
       </template>
       <template #breadcrumbs>
         <RplBreadcrumbs :items="[{ label: 'Home', url: '/' }, { label: 'Page title', url: '/page-title' }]"></RplBreadcrumbs>

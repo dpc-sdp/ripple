@@ -34,6 +34,7 @@ theme:
       700: '#333333'
       800: '#1A1A1A'
       900: '#0D0D0D'
+      alpha: 'rgb(255 255 255 / .75)'
     information:
       50: '#E6EFF6'
       100: '#CCDEED'

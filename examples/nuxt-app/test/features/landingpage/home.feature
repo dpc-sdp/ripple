@@ -1,8 +1,8 @@
 Feature: Home page
 
-    Example of mocked page
+  Example of mocked page
 
-  @focus
+
   Scenario: On load
     Given the mock server has started
     And the endpoint "/api/tide/page" with query "?path=/&site=8888" returns fixture "/landingpage/home" with status 200
@@ -16,6 +16,8 @@ Feature: Home page
 
   Scenario: On 404
     Given the mock server has started
-    And the endpoint "/api/tide/page" with query "?path=/&site=8888" returns fixture "/landingpage/home" with status 404
-    Given I visit the page "/"
-
+    And the endpoint "/api/tide/page" with query "?path=/404&site=8888" returns fixture "/errors/404" with status 404
+    Given I visit the page "/404"
+#   Then the page title should be ""
+#   Then the primary nav should exist
+#   Then the footer should exist

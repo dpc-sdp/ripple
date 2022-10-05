@@ -6,6 +6,7 @@ import { withDesign } from 'storybook-addon-designs'
 import VueSocialSharing from 'vue-social-sharing'
 import { app } from '@storybook/vue3'
 import themes from './themes.json'
+import withBackground from './utils/withBackground'
 // Storybook specific CSS
 import './storybook.css'
 
@@ -31,21 +32,7 @@ export const parameters = {
     }
   },
   backgrounds: {
-    default: 'light',
-    values: [
-      {
-        name: 'light',
-        value: 'white',
-      },
-      {
-        name: 'gray',
-        value: 'var(--rpl-clr-neutral-100)',
-      },
-      {
-        name: 'reverse',
-        value: 'var(--rpl-clr-primary-alt)',
-      },
-    ],
+    disable: true
   },
   designTokensCss: {
     label: "Themes",
@@ -53,11 +40,13 @@ export const parameters = {
     themes
   }
 }
+
 export const decorators = [
   withCssResources,
   (story) => ({
     components: { story, RplIconSprite },
     template: '<div><RplIconSprite /><story /></div>'
   }),
-  withDesign
+  withBackground,
+  withDesign,
 ]

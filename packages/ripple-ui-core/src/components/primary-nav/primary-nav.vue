@@ -11,8 +11,6 @@ export default { name: 'RplPrimaryNav' }
       direction
     - If the sliding animation between mobile mega nav levels is not needed,
       simplify the way the 'current level' classes and styling work
-    - Discuss login slot with FED team, see notes. Once discussed, finish
-      styling the login button on mobile mega menu. Check classes etc.
 */
 import { ref, computed } from 'vue'
 import RplPrimaryNavBar from './nav-bar.vue'
@@ -26,13 +24,11 @@ interface Props {
   primaryLogo: RplPrimaryNavLogo
   secondaryLogo?: RplPrimaryNavLogo
   items: RplPrimaryNavItem[]
-  showLogin?: boolean
   showSearch?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
   secondaryLogo: undefined,
-  showLogin: true,
   showSearch: true
 })
 
@@ -107,7 +103,6 @@ const isPrimaryNavExpanded = computed(() => {
       :primary-logo="props.primaryLogo"
       :secondary-logo="props.secondaryLogo"
       :items="items"
-      :show-login="props.showLogin"
       :show-search="props.showSearch"
       :is-mega-nav-active="isMegaNavActive"
       :is-search-active="isSearchActive"
@@ -128,7 +123,6 @@ const isPrimaryNavExpanded = computed(() => {
     <RplPrimaryNavMegaMenu
       v-if="isMegaNavActive"
       :items="props.items"
-      :show-login="props.showLogin"
       :is-item-expanded="isItemExpanded"
       :toggle-item="toggleItem"
     >

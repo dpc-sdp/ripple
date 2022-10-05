@@ -11,7 +11,6 @@ interface Props {
   primaryLogo: RplPrimaryNavLogo
   secondaryLogo?: RplPrimaryNavLogo
   items: RplPrimaryNavItem[]
-  showLogin: boolean
   showSearch: boolean
   isMegaNavActive: boolean
   isSearchActive: boolean
@@ -168,7 +167,7 @@ const props = defineProps<Props>()
 
       <!-- Login slot - Desktop -->
       <li>
-        <slot v-if="props.showLogin" name="login">
+        <slot name="login">
           <RplPrimaryNavBarAction type="link" href="/login">
             <span
               class="

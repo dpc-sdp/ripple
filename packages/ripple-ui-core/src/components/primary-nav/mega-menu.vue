@@ -13,7 +13,6 @@ interface Props {
   items: RplPrimaryNavItem[]
   isItemExpanded: (id: string) => boolean
   toggleItem: (id: string) => void
-  showLogin: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {})
@@ -103,7 +102,7 @@ const sectionTitleMobile = computed(() => {
     <ul class="rpl-primary-nav__supplementary-mobile-links">
       <li><RplPrimaryNavQuickExit /></li>
       <li>
-        <slot v-if="props.showLogin" name="login">
+        <slot name="login">
           <a
             class="
               rpl-primary-nav__mega-menu-mobile-link

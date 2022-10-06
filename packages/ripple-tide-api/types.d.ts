@@ -1,7 +1,10 @@
 import type { AxiosInstance } from 'axios'
+
+export type TideApiResponse = any
+
 export interface RplTideModuleMappingFunction {
   // eslint-disable-next-line @typescript-eslint/ban-types
-  [key: string]: Function | string | string[] | object
+  [key: string]: function | string | string[] | object
 }
 
 export interface RplTideMapping {
@@ -30,6 +33,9 @@ export interface TidePageBase {
   created: string
   modified: string
   nid: number
+  sidebar: {
+    contacts?: IContacts[]
+  }
 }
 
 export interface RplTideModuleConfig {

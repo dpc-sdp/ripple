@@ -25,14 +25,8 @@
         </slot>
       </template>
       <template #sidebar>
-        <slot v-if="page.sidebar" name="sidebar" v-bind="page.sidebar">
-          <RplContactUs v-if="page.sidebar" v-bind="page.sidebar?.contact" />
-          <RplVerticalNav
-            v-if="page.sidebar"
-            v-bind="page.sidebar?.contact"
-            title="Section name"
-            :items="[]"
-          />
+        <slot v-if="page.sidebar" name="sidebar">
+          <TideSidebarContactUs :contacts="page.sidebar.contacts" />
         </slot>
       </template>
       <template #footer>

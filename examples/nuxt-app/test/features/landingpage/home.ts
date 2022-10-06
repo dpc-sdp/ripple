@@ -8,6 +8,10 @@ Then('the landing page component {string} should exist', (type: string) => {
   cy.get(`[data-component-type="${type}"]`).should('exist')
 })
 
+Then('the sidebar component with ID {string} should exist', (id: string) => {
+  cy.get(`[data-sidebar-component-id="${id}"]`).should('exist')
+})
+
 When(
   'I click the open all button on RplAccordion with ID {int}',
   (id: number) => {

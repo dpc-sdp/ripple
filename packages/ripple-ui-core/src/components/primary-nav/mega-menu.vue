@@ -69,12 +69,12 @@ const backButtonHandler = () => {
   }
 
   // Go back to level 2
-  if (currentLevel.value == 3 && level3ActiveItem.value) {
+  else if (currentLevel.value == 3 && level3ActiveItem.value) {
     props.toggleItem(level3ActiveItem.value.id)
   }
 
   // Go back to level 1
-  if (currentLevel.value == 2 && level2ActiveItem.value) {
+  else if (currentLevel.value == 2 && level2ActiveItem.value) {
     props.toggleItem(level2ActiveItem.value.id)
   }
 }

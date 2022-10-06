@@ -111,7 +111,7 @@ const isPrimaryNavExpanded = computed(() => {
       :toggle-item="toggleNavBarItem"
       :toggle-search="toggleSearch"
     >
-      <template #userAction>
+      <template v-if="$slots.userAction" #userAction>
         <slot name="userAction"></slot>
       </template>
       <template #search>

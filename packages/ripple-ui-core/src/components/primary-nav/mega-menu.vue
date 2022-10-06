@@ -101,7 +101,7 @@ const sectionTitleMobile = computed(() => {
     <!-- Supplementary mobile links -->
     <ul class="rpl-primary-nav__supplementary-mobile-links">
       <li><RplPrimaryNavQuickExit /></li>
-      <li>
+      <li v-if="$slots.userAction">
         <slot name="userAction"></slot>
       </li>
     </ul>

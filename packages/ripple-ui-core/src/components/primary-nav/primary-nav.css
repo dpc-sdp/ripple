@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 /* stylelint-disable comment-empty-line-before */
 @import '@dpc-sdp/ripple-ui-core/style/breakpoints';
 
@@ -117,33 +118,34 @@
       display: flex;
     }
   }
-}
 
-.rpl-primary-nav__nav-bar-action {
-  display: flex;
-  align-items: center;
-  max-width: 172px;
-  height: 48px;
-  padding: var(--rpl-sp-2) 10px;
-  color: white;
-  text-decoration: none;
-  text-align: center;
-  white-space: nowrap;
+  a,
+  button {
+    display: flex;
+    align-items: center;
+    max-width: 172px;
+    height: 48px;
+    padding: var(--rpl-sp-2) 10px;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    white-space: nowrap;
 
-  @media (--rpl-bp-s) {
-    height: 52px;
-  }
+    @media (--rpl-bp-s) {
+      height: 52px;
+    }
 
-  @media (--rpl-bp-m) {
-    height: 60px;
-  }
+    @media (--rpl-bp-m) {
+      height: 60px;
+    }
 
-  span {
-    white-space: normal;
-  }
+    span {
+      white-space: normal;
+    }
 
-  &.rpl-primary-nav__nav-bar-action--active {
-    text-decoration: underline;
+    &.rpl-primary-nav__nav-bar-action--active {
+      text-decoration: underline;
+    }
   }
 }
 
@@ -343,6 +345,16 @@
 
   a {
     color: white;
+    text-decoration: none;
+    white-space: nowrap;
+
+    span {
+      white-space: normal;
+    }
+  }
+
+  .rpl-icon--size-s {
+    transform: translateY(2px);
   }
 }
 

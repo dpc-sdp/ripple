@@ -166,7 +166,7 @@ const props = defineProps<Props>()
       </li>
 
       <!-- User action slot - Desktop -->
-      <li>
+      <li v-if="$slots.userAction">
         <slot name="userAction"></slot>
       </li>
 

@@ -15,12 +15,13 @@ import RplHeaderLinks from './header-links.vue'
 import RplHeaderGraphic from './header-graphic.vue'
 import RplHeaderActions from './header-actions.vue'
 import { RplLink } from '../../lib/constants'
+import { RplImageType } from '../image/constants'
 
 interface Props {
   theme?: typeof RplHeaderThemes[number]
   title: string
-  logo?: object
-  background?: object
+  logo?: RplImageType
+  background?: RplImageType
   cornerTop?: boolean
   cornerBottom?: boolean
   primaryAction?: RplLink

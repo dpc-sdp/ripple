@@ -28,6 +28,12 @@
   display: block;
   white-space: nowrap;
   padding-right: var(--rpl-sp-5);
+
+  .rpl-icon--size-xs {
+    @media (--rpl-bp-l) {
+      --rpl-icon-size: var(--rpl-sp-4);
+    }
+  }
 }
 
 .rpl-header-actions__secondary-title + .rpl-header-actions__secondary-link {

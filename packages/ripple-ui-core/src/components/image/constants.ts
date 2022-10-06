@@ -7,7 +7,12 @@ export interface RplImageFocalPoint {
   y: number
 }
 
-type RplImageAspectOptions = 'square' | 'full' | 'wide' | 'ultrawide' | 'panorama'
+type RplImageAspectOptions =
+  | 'square'
+  | 'full'
+  | 'wide'
+  | 'ultrawide'
+  | 'panorama'
 
 interface RplImageAspectBreakpoints {
   xs?: RplImageAspectOptions
@@ -18,3 +23,17 @@ interface RplImageAspectBreakpoints {
 }
 
 export type RplImageAspect = RplImageAspectBreakpoints | RplImageAspectOptions
+
+export interface RplImageType {
+  src: string
+  alt?: string
+  width?: number
+  height?: number
+  sizes?: string
+  srcSet?: string
+  circle?: boolean
+  focalPoint?: RplImageFocalPoint
+  aspect?: RplImageAspect
+  fit?: typeof RplImageFit[number]
+  priority?: typeof RplImagePriority[number]
+}

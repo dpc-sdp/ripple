@@ -1,21 +1,13 @@
 import { When, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Then('the title should be {string}', (title: string) => {
-  cy.get('.rpl-header__title').should('have.text', title)
-})
-
-Then('the {string} should be visible', (section: string) => {
-  if (section.toLowerCase() === 'header') {
-    cy.get('.rpl-nav-primary').should('be.visible')
-  } else {
-    cy.get(`.rpl-${section}`).should('be.visible')
-  }
+  cy.get('[data-cy="title"]').should('have.text', title)
 })
 
 Then(
   'the overview should display a status of {string} with a {string} {string} icon',
   (status: string, colour: string, icon: string) => {
-    cy.get('.tide-grant__overview-item--status').as('status')
+    cy.get('[data-cy="status"]').as('status')
 
     cy.get('@status').find('.rpl-list__label').should('have.text', status)
 
@@ -39,15 +31,7 @@ Then(
 )
 
 Then('the overview should display funding of {string}', (funding: string) => {
-  cy.get('.tide-grant__overview-item--funding').should('have.text', funding)
-})
-
-Then('the overview description is visible', () => {
-  cy.get('.tide-grant__overview-item--description').should('be.visible')
-})
-
-Then('the overview link is visible', () => {
-  cy.get('.tide-grant__overview-item--link').should('be.visible')
+  cy.get('[data-cy="funding"]').should('have.text', funding)
 })
 
 Then(
@@ -85,7 +69,7 @@ Then(
 Then(
   'the first document should have a title of {string}, and filesize of {string}',
   (title: string, size: string) => {
-    cy.get('.tide-grant__documents li:first-of-type').as('document')
+    cy.get('[data-cy="document"]:first-of-type').as('document')
     cy.get('@document').find('.rpl-document__name').should('have.text', title)
     cy.get('@document').find('.rpl-file__meta').should('include.text', size)
   }

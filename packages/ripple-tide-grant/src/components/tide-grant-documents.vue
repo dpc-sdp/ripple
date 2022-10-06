@@ -6,7 +6,7 @@ export default { name: 'TideGrantDocuments' }
   <div class="tide-grant__documents">
     <ul v-if="documents.length > 0" class="rpl-type-p">
       <li v-for="(doc, i) in documents" :key="i">
-        <RplDocument :url="doc.url">
+        <RplDocument :url="doc.url" data-cy="document">
           <template #icon>
             <RplIcon name="icon-document-lined" size="l" colour="default" />
           </template>

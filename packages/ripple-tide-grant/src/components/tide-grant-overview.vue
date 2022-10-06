@@ -8,6 +8,7 @@ export default { name: 'TideGrantOverview' }
     <ol class="tide-grant__overview-items">
       <li
         v-if="formattedFunding"
+        data-cy="funding"
         class="
           tide-grant__overview-item tide-grant__overview-item--funding
           rpl-type-label
@@ -30,6 +31,7 @@ export default { name: 'TideGrantOverview' }
       </li>
       <li
         v-if="overview.date"
+        data-cy="status"
         class="
           tide-grant__overview-item tide-grant__overview-item--status
           rpl-type-label

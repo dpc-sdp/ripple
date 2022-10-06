@@ -37,8 +37,22 @@ export default defineNuxtConfig({
     configFile:
       './../../node_modules/@dpc-sdp/ripple-ui-forms/dist/formkit.config.js'
   },
+  postcss: {
+    plugins: {
+      'postcss-normalize': {},
+      'postcss-nested': {},
+      'postcss-preset-env': {
+        features: {
+          'custom-properties': false
+        }
+      },
+      'postcss-for': {},
+      'postcss-each': {}
+    }
+  },
   modules: [
     '@dpc-sdp/ripple-tide-api/nuxt',
+    '@dpc-sdp/ripple-tide-grant/nuxt',
     '@dpc-sdp/ripple-tide-landing-page/nuxt',
     '@dpc-sdp/ripple-ui-core/nuxt',
     '@dpc-sdp/ripple-ui-forms/nuxt'

@@ -114,9 +114,6 @@ const isPrimaryNavExpanded = computed(() => {
       <template v-if="$slots.userAction" #userAction>
         <slot name="userAction"></slot>
       </template>
-      <template #search>
-        <slot name="search"></slot>
-      </template>
     </RplPrimaryNavBar>
 
     <!-- Mega menu -->

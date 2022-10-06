@@ -8,3 +8,8 @@ export const RplColorThemes = [
   'error',
   'inactive'
 ] as const
+
+export interface RplLink {
+  text: string
+  url: string
+}

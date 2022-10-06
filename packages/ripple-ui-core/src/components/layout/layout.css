@@ -1,0 +1,45 @@
+@import '@dpc-sdp/ripple-ui-core/style/breakpoints';
+
+.rpl-layout__body-wrap {
+  padding-top: var(--rpl-sp-8);
+  padding-bottom: var(--rpl-sp-8);
+
+  @media (--rpl-bp-m) {
+    padding-top: var(--rpl-sp-10);
+    padding-bottom: var(--rpl-sp-10);
+  }
+
+  @media (--rpl-bp-l) {
+    padding-top: var(--rpl-sp-12);
+    padding-bottom: var(--rpl-sp-12);
+  }
+
+  @media (--rpl-bp-xl) {
+    padding-top: var(--rpl-sp-13);
+    padding-bottom: var(--rpl-sp-13);
+  }
+}
+
+.rpl-layout__sidebar {
+  padding-top: var(--rpl-sp-8);
+
+  @media (--rpl-bp-m) {
+    padding-top: var(--rpl-sp-10);
+  }
+
+  @media (--rpl-bp-l) {
+    padding-top: 0;
+  }
+}
+
+.rpl-layout--alt {
+  .rpl-layout__body-wrap {
+    background-color: var(--rpl-clr-neutral-100);
+  }
+}
+
+.rpl-layout__header {
+  margin: var(--rpl-sp-2);
+  z-index: var(--rpl-z-index-above-content);
+  position: relative;
+}

@@ -1,0 +1,228 @@
+@import '@dpc-sdp/ripple-ui-core/style/breakpoints';
+
+.rpl-header {
+  position: relative;
+  color: var(--rpl-clr-type-default);
+  background-color: var(--rpl-clr-light);
+  border-bottom: var(--rpl-border-1) solid var(--rpl-clr-neutral-300);
+
+  .rpl-container {
+    position: relative;
+  }
+
+  .rpl-icon {
+    color: var(--rpl-clr-link);
+  }
+}
+
+.rpl-header__icon-link {
+  color: inherit;
+
+  span {
+    white-space: normal;
+  }
+
+  .rpl-icon {
+    margin-left: var(--rpl-sp-2);
+    transition: transform ease-out var(--rpl-motion-speed-2);
+  }
+
+  &:hover .rpl-icon {
+    transform: translateX(var(--rpl-sp-1));
+  }
+
+  &:active {
+    text-decoration: underline;
+  }
+}
+
+.rpl-header__behind {
+  position: absolute;
+  inset: 0;
+
+  .rpl-image {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+/* Main */
+.rpl-header__logo {
+  --local-logo-width: 212px;
+  --local-logo-height: 56px;
+
+  width: auto;
+  height: auto;
+  max-width: var(--local-logo-width);
+  max-height: var(--local-logo-height);
+  margin-top: var(--rpl-sp-1);
+  margin-bottom: var(--rpl-sp-4);
+
+  @media (--rpl-bp-l) {
+    --local-logo-width: 358px;
+    --local-logo-height: 92px;
+
+    margin-top: var(--rpl-sp-2);
+    margin-bottom: var(--rpl-sp-5);
+  }
+}
+
+.rpl-header__title {
+  display: inline;
+  margin-bottom: 0;
+
+  &:not(.rpl-type-h1-highlight) {
+    color: var(--rpl-clr-type-primary-accessible);
+  }
+}
+
+.rpl-header__content {
+  margin-top: var(--rpl-sp-2);
+
+  p:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+.rpl-header__lower {
+  padding-top: var(--rpl-sp-6);
+}
+
+/* Aside */
+.rpl-header__aside {
+  padding-top: var(--rpl-sp-2);
+
+  @media (--rpl-bp-m) {
+    padding-top: 0;
+  }
+}
+
+/* Themes */
+.rpl-header--neutral {
+  .rpl-type-h1-highlight {
+    color: var(--rpl-clr-type-default);
+    background-color: var(--rpl-clr-light);
+  }
+
+  .rpl-type-p-highlight {
+    background-color: var(--rpl-clr-neutral-200);
+  }
+}
+
+/* Modifiers */
+.rpl-header--graphic-top {
+  .rpl-container {
+    margin-top: var(--rpl-sp-2);
+
+    @media (--rpl-bp-l) {
+      margin-top: var(--rpl-sp-3);
+    }
+  }
+
+  &.rpl-header--breadcrumbs {
+    .rpl-container {
+      margin-top: var(--rpl-sp-8);
+
+      @media (--rpl-bp-m) {
+        margin-top: var(--rpl-sp-6);
+      }
+
+      @media (--rpl-bp-l) {
+        margin-top: var(--rpl-sp-7);
+      }
+    }
+  }
+}
+
+/* Variants */
+.rpl-header--hero {
+  --local-min-height: 256px;
+  --local-padding-top: 112px;
+  --local-padding-bottom: var(--rpl-sp-9);
+
+  min-height: var(--local-min-height);
+  padding-top: var(--local-padding-top);
+  padding-bottom: var(--local-padding-bottom);
+
+  @media (--rpl-bp-s) {
+    --local-min-height: 224px;
+    --local-padding-top: 128px;
+    --local-padding-bottom: var(--rpl-sp-10);
+  }
+
+  @media (--rpl-bp-m) {
+    --local-min-height: 288px;
+    --local-padding-top: 148px;
+    --local-padding-bottom: var(--rpl-sp-11);
+  }
+
+  @media (--rpl-bp-l) {
+    --local-min-height: 384px;
+    --local-padding-top: 200px;
+    --local-padding-bottom: var(--rpl-sp-13);
+  }
+
+  @media (--rpl-bp-xl) {
+    --local-padding-top: 232px;
+  }
+
+  .rpl-header__content {
+    @media (--rpl-bp-xs) {
+      margin-top: var(--rpl-sp-1);
+    }
+  }
+
+  .rpl-type-h1-highlight + .rpl-header__content {
+    margin-top: var(--rpl-sp-3);
+
+    @media (--rpl-bp-l) {
+      margin-top: var(--rpl-sp-5);
+    }
+  }
+}
+
+.rpl-header--intro {
+  padding-top: var(--rpl-sp-7);
+  padding-bottom: var(--rpl-sp-8);
+
+  @media (--rpl-bp-m) {
+    padding-top: var(--rpl-sp-8);
+    padding-bottom: var(--rpl-sp-9);
+  }
+
+  @media (--rpl-bp-l) {
+    padding-top: var(--rpl-sp-10);
+    padding-bottom: var(--rpl-sp-11);
+  }
+
+  .rpl-header__main {
+    display: flex;
+    flex-direction: column;
+    gap: var(--rpl-sp-3);
+
+    @media (--rpl-bp-m) {
+      flex-direction: row;
+      gap: var(--rpl-sp-5);
+    }
+
+    @media (--rpl-bp-m) {
+      gap: var(--rpl-sp-6);
+    }
+  }
+
+  .rpl-header__content p {
+    @media (--rpl-bp-l) {
+      font-size: var(--rpl-type-size-3);
+      line-height: var(--rpl-type-lh-5);
+      letter-spacing: var(--rpl-type-ls-2);
+    }
+  }
+}
+
+.rpl-header--behind-nav {
+  margin-top: -84px;
+
+  &.rpl-header--breadcrumbs {
+    margin-top: -139px;
+  }
+}

@@ -1,6 +1,5 @@
 <template>
   <TidePage>
-    <template #footer> CUSTOM FOOTER </template>
   </TidePage>
 </template>
 

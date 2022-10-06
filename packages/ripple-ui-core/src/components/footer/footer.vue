@@ -41,6 +41,7 @@ const props = withDefaults(defineProps<Props>(), {
 const breakpoints = useBreakpoints(bpMin)
 
 const isExpandable = breakpoints.smaller('l')
+const isMediumScreen = breakpoints.between('m', 'l')
 const isLargeScreen = breakpoints.between('l', 'xl')
 const isXLargeScreen = breakpoints.greaterOrEqual('xl')
 
@@ -89,7 +90,9 @@ const getColumnBreaks = (numItems: number, numColumns: number): number[] => {
 const columns = computed(() => {
   let numColumns
 
-  if (isLargeScreen.value) {
+  if (isMediumScreen.value) {
+    numColumns = 2
+  } else if (isLargeScreen.value) {
     numColumns = 3
   } else if (isXLargeScreen.value) {
     numColumns = 4
@@ -140,7 +143,9 @@ const columns = computed(() => {
     <div class="rpl-footer__custom-content">
       <div class="rpl-container">
         <slot name="custom-content">
-          <RplAcknowledgement />
+          <div class="rpl-footer__custom-content-inner">
+            <RplAcknowledgement />
+          </div>
         </slot>
         <p v-if="credit" class="rpl-footer__credit rpl-type-label-small">
           {{ credit }}

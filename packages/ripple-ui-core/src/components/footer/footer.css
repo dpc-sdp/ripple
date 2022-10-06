@@ -55,7 +55,11 @@
 .rpl-footer__custom-content {
   border-bottom: var(--rpl-border-1) solid var(--rpl-clr-footer-alt);
   padding-top: var(--rpl-sp-6);
-  padding-bottom: var(--rpl-sp-6);
+  padding-bottom: var(--rpl-sp-4);
+}
+
+.rpl-footer__custom-content-inner {
+  margin-bottom: var(--rpl-sp-2);
 }
 
 .rpl-footer__credit {

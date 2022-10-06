@@ -12,6 +12,7 @@ interface Props {
   secondaryLogo?: RplPrimaryNavLogo
   items: RplPrimaryNavItem[]
   showSearch: boolean
+  showQuickExit: boolean
   isMegaNavActive: boolean
   isSearchActive: boolean
   isItemExpanded: (id: string) => boolean
@@ -64,15 +65,12 @@ const props = defineProps<Props>()
       </a>
     </div>
 
-    <!-- Mobile actions -->
-    <ul
-      class="
-        rpl-primary-nav__nav-bar-actions-list
-        rpl-primary-nav__nav-bar-actions-list--mobile
-      "
-    >
+    <ul class="rpl-primary-nav__nav-bar-actions-list">
       <!-- Mobile menu toggle -->
-      <li v-if="!props.isSearchActive">
+      <li
+        v-if="!props.isSearchActive"
+        class="rpl-primary-nav__nav-bar-mobile-menu-toggle-container"
+      >
         <RplPrimaryNavBarAction
           type="toggle"
           href="/"
@@ -90,55 +88,19 @@ const props = defineProps<Props>()
       </li>
 
       <!-- Mobile menu divider -->
-      <li v-if="props.showSearch && !props.isSearchActive">
-        <div class="rpl-primary-nav__nav-bar-search-divider"></div>
-      </li>
+      <li
+        v-if="props.showSearch && !props.isSearchActive"
+        class="rpl-primary-nav__nav-bar-mobile-menu-divider"
+        aria-role="presentation"
+        aria-hidden="true"
+      ></li>
 
-      <!-- Search - Mobile -->
-      <li v-if="props.showSearch">
-        <RplPrimaryNavBarAction
-          type="toggle"
-          href="/search"
-          @click="toggleSearch()"
-        >
-          <div v-if="!props.isSearchActive">
-            <span class="rpl-primary-nav__nav-bar-mobile-search-label"
-              >Search</span
-            >&NoBreak;<span
-              class="
-                rpl-primary-nav__nav-bar-icon
-                rpl-primary-nav__nav-bar-icon--large
-                rpl-primary-nav__nav-bar-icon--mobile-search
-              "
-              ><RplIcon name="icon-search"></RplIcon>
-            </span>
-          </div>
-          <div v-else>
-            <span class="rpl-primary-nav__nav-bar-mobile-search-label"
-              >Close</span
-            >&NoBreak;<span
-              class="
-                rpl-primary-nav__nav-bar-icon
-                rpl-primary-nav__nav-bar-icon--large
-                rpl-primary-nav__nav-bar-icon--mobile-search
-              "
-              ><RplIcon name="icon-cancel"></RplIcon>
-            </span>
-          </div>
-        </RplPrimaryNavBarAction>
-      </li>
-    </ul>
-
-    <!-- Desktop actions -->
-    <ul
-      class="
-        rpl-primary-nav__nav-bar-actions-list
-        rpl-primary-nav__nav-bar-actions-list--desktop
-      "
-    >
-      <!-- Items -->
-      <li v-for="item in items" :key="item.id">
-        <!-- Toggle -->
+      <!-- Desktop items -->
+      <li
+        v-for="item in items"
+        :key="item.id"
+        class="rpl-primary-nav__nav-bar-item"
+      >
         <RplPrimaryNavBarAction
           v-if="item.items"
           type="toggle"
@@ -152,7 +114,6 @@ const props = defineProps<Props>()
           ></span>
         </RplPrimaryNavBarAction>
 
-        <!-- Link -->
         <RplPrimaryNavBarAction
           v-else
           type="link"
@@ -163,25 +124,40 @@ const props = defineProps<Props>()
         </RplPrimaryNavBarAction>
       </li>
 
-      <!-- User action slot - Desktop -->
-      <li v-if="$slots.userAction">
+      <!-- User action slot - Desktop only -->
+      <li v-if="$slots.userAction" class="rpl-primary-nav__nav-bar-user-action">
         <slot name="userAction"></slot>
       </li>
 
-      <!-- Search - Desktop -->
+      <!-- Search -->
       <li v-if="props.showSearch">
         <RplPrimaryNavBarAction
           type="toggle"
           href="/search"
           @click="toggleSearch()"
         >
-          <span>Search</span>&NoBreak;<span
-            class="
-              rpl-primary-nav__nav-bar-icon rpl-primary-nav__nav-bar-icon--large
-              rpl-u-margin-l-2
-            "
-            ><RplIcon name="icon-search"></RplIcon>
-          </span>
+          <div v-if="!props.isSearchActive">
+            <span class="rpl-primary-nav__nav-bar-search-label">Search</span
+            >&NoBreak;<span
+              class="
+                rpl-primary-nav__nav-bar-icon
+                rpl-primary-nav__nav-bar-icon--large
+                rpl-u-margin-l-2
+              "
+              ><RplIcon name="icon-search"></RplIcon>
+            </span>
+          </div>
+          <div v-else>
+            <span class="rpl-primary-nav__nav-bar-search-label">Close</span
+            >&NoBreak;<span
+              class="
+                rpl-primary-nav__nav-bar-icon
+                rpl-primary-nav__nav-bar-icon--large
+                rpl-u-margin-l-2
+              "
+              ><RplIcon name="icon-cancel"></RplIcon>
+            </span>
+          </div>
         </RplPrimaryNavBarAction>
       </li>
     </ul>

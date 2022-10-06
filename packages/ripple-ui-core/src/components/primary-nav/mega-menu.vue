@@ -11,6 +11,7 @@ import { RplPrimaryNavItem } from './constants'
 
 interface Props {
   items: RplPrimaryNavItem[]
+  showQuickExit: boolean
   isItemExpanded: (id: string) => boolean
   toggleItem: (id: string) => void
 }
@@ -98,9 +99,9 @@ const sectionTitleMobile = computed(() => {
       rpl-primary-nav__mega-menu--current-level-${currentLevel}
     `"
   >
-    <!-- Supplementary mobile links -->
-    <ul class="rpl-primary-nav__supplementary-mobile-links">
-      <li><RplPrimaryNavQuickExit /></li>
+    <!-- Mobile links (Quick exit / User action slot) -->
+    <ul class="rpl-primary-nav__mega-menu-mobile-links">
+      <li v-if="props.showQuickExit"><RplPrimaryNavQuickExit /></li>
       <li v-if="$slots.userAction">
         <slot name="userAction"></slot>
       </li>

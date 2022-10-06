@@ -25,11 +25,13 @@ interface Props {
   secondaryLogo?: RplPrimaryNavLogo
   items: RplPrimaryNavItem[]
   showSearch?: boolean
+  showQuickExit?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
   secondaryLogo: undefined,
-  showSearch: true
+  showSearch: true,
+  showQuickExit: true
 })
 
 const { isItemExpanded, toggleItem } = useExpandableState(
@@ -104,6 +106,7 @@ const isPrimaryNavExpanded = computed(() => {
       :secondary-logo="props.secondaryLogo"
       :items="items"
       :show-search="props.showSearch"
+      :show-quick-exit="props.showQuickExit"
       :is-mega-nav-active="isMegaNavActive"
       :is-search-active="isSearchActive"
       :is-item-expanded="isItemExpanded"
@@ -120,6 +123,7 @@ const isPrimaryNavExpanded = computed(() => {
     <RplPrimaryNavMegaMenu
       v-if="isMegaNavActive"
       :items="props.items"
+      :show-quick-exit="props.showQuickExit"
       :is-item-expanded="isItemExpanded"
       :toggle-item="toggleItem"
     >

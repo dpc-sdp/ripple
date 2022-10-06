@@ -25,7 +25,12 @@ const props = defineProps<Props>()
 </script>
 
 <template>
-  <div class="rpl-primary-nav__nav-bar">
+  <div
+    :class="{
+      'rpl-primary-nav__nav-bar': true,
+      'rpl-primary-nav__nav-bar--search-active': props.isSearchActive
+    }"
+  >
     <!-- Logos -->
     <div
       :class="{
@@ -67,10 +72,7 @@ const props = defineProps<Props>()
 
     <ul class="rpl-primary-nav__nav-bar-actions-list">
       <!-- Mobile menu toggle -->
-      <li
-        v-if="!props.isSearchActive"
-        class="rpl-primary-nav__nav-bar-mobile-menu-toggle-container"
-      >
+      <li class="rpl-primary-nav__nav-bar-mobile-menu-toggle-container">
         <RplPrimaryNavBarAction
           type="toggle"
           href="/"
@@ -89,7 +91,7 @@ const props = defineProps<Props>()
 
       <!-- Mobile menu divider -->
       <li
-        v-if="props.showSearch && !props.isSearchActive"
+        v-if="props.showSearch"
         class="rpl-primary-nav__nav-bar-mobile-menu-divider"
         aria-role="presentation"
         aria-hidden="true"
@@ -129,7 +131,7 @@ const props = defineProps<Props>()
         <slot name="userAction"></slot>
       </li>
 
-      <!-- Search -->
+      <!-- Search toggle -->
       <li v-if="props.showSearch">
         <RplPrimaryNavBarAction
           type="toggle"

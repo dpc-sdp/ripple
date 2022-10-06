@@ -139,6 +139,10 @@
   @media (--rpl-bp-l) {
     display: none;
   }
+
+  .rpl-primary-nav__nav-bar--search-active & {
+    display: none;
+  }
 }
 
 .rpl-primary-nav__nav-bar-mobile-menu-divider {
@@ -149,6 +153,10 @@
   @media (--rpl-bp-s) {
     display: none;
   }
+
+  .rpl-primary-nav__nav-bar--search-active & {
+    display: none;
+  }
 }
 
 .rpl-primary-nav__nav-bar-item,
@@ -157,6 +165,10 @@
 
   @media (--rpl-bp-l) {
     display: block;
+  }
+
+  .rpl-primary-nav__nav-bar--search-active & {
+    display: none;
   }
 }
 

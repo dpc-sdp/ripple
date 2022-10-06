@@ -19,7 +19,7 @@ import { RplLink } from '../../lib/constants'
 interface Props {
   theme?: typeof RplHeaderThemes[number]
   title: string
-  logo?: string
+  logo?: object
   background?: object
   cornerTop?: boolean
   cornerBottom?: boolean
@@ -80,7 +80,7 @@ const contentClasses = computed(() => ({
       />
     </template>
     <template v-if="logo && !background" #upper>
-      <RplImage class="rpl-header__logo" :src="logo" alt="" />
+      <RplImage class="rpl-header__logo" v-bind="logo" />
     </template>
     <template #title>
       <h1 :class="titleClasses">{{ title }}</h1>

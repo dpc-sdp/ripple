@@ -5,21 +5,22 @@ import {
 } from '@storybook/addon-docs'
 
 import fixture from '../../../examples/nuxt-app/test/fixtures/grant/tc-9a-grant-simple-test-date-range.json'
-import MockGrantPage from './mock.vue'
+import MockPage from '../../ripple-ui-core/stories/components/mock-page.vue'
+import TideGrantPage from './index.vue'
 
 export const GrantTemplate = (args) => ({
   components: {
-    MockGrantPage
+    MockPage
   },
   setup() {
     return { args }
   },
-  template: `<MockGrantPage v-bind="args"></MockGrantPage>`
+  template: `<MockPage v-bind="args"></MockPage>`
 })
 
 <Meta
   title='Grant/Template'
-  component={MockGrantPage}
+  component={TideGrantPage}
   argTypes={{
     componentName: { table: { disable: true } },
     aboveHeader: { table: { disable: true } },
@@ -30,6 +31,7 @@ export const GrantTemplate = (args) => ({
   }}
   args={{
     componentName: 'TideGrant',
+    pageComponent: TideGrantPage,
     url: 'https://www.vic.gov.au',
     breadcrumbs: {
       items: [

@@ -1,9 +1,9 @@
 <script lang="ts">
-export default { name: 'MockedPage' }
+export default { name: 'MockPage' }
 </script>
 <template>
   <slot v-if="page" :name="`${componentName}Page`" v-bind="{ page, site }">
-    <TideGrantPage :page="page">
+    <component :is="pageComponent" :page="page">
       <template #aboveHeader>
         <RplIconSprite />
         <slot name="aboveHeader">
@@ -28,14 +28,14 @@ export default { name: 'MockedPage' }
         </slot>
       </template>
       <template #sidebar>
-        <RplSocialShare :page="socialLink"></RplSocialShare>
+        <RplSocialShare v-if="url" :page="socialLink"></RplSocialShare>
       </template>
       <template #footer>
         <slot name="footer">
           <RplFooter></RplFooter>
         </slot>
       </template>
-    </TideGrantPage>
+    </component>
   </slot>
 </template>
 
@@ -49,10 +49,10 @@ import {
   RplSocialShare,
   RplFooter
 } from '@dpc-sdp/ripple-ui-core'
-import TideGrantPage from './index.vue'
 
 interface Props {
   page: any
+  pageComponent: any
   url: string
   site: any
   breadcrumbs: any

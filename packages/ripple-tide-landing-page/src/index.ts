@@ -1,6 +1,7 @@
 import {
-  tidePageMappingBase,
-  getLandingPageComponents
+  getLandingPageComponents,
+  tidePageBaseMapping,
+  tidePageBaseIncludes,
 } from '@dpc-sdp/ripple-tide-api'
 import componentMapping from './component.mapping.js'
 import type { RplTideMapping } from '@dpc-sdp/ripple-tide-api/types'
@@ -9,7 +10,9 @@ const tideLandingPageModule: RplTideMapping = {
   component: '@dpc-sdp/ripple-tide-landing-page/component',
   schema: '@dpc-sdp/ripple-tide-landing-page/types',
   mapping: {
-    ...tidePageMappingBase,
+    ...tidePageBaseMapping({
+      withSidebar: true
+    }),
     summary: 'field_landing_page_summary',
     background: () => 'alt',
     headerComponents: async (page) => {
@@ -28,6 +31,9 @@ const tideLandingPageModule: RplTideMapping = {
     }
   },
   includes: [
+    ...tidePageBaseIncludes({
+      withSidebar: true
+    }),
     'field_whats_next',
     'field_graphical_image.field_media_image',
     'field_bottom_graphical_image.field_media_image',

@@ -4,7 +4,11 @@
     :key="contact.id"
     :data-sidebar-component-id="contact.id"
   >
-    <RplContactUs :address="contact.address" :items="contact.items" />
+    <RplContactUs
+      :title="contact.title"
+      :address="contact.address"
+      :items="contact.items"
+    />
   </RplLayoutSidebarComponent>
 </template>
 
@@ -44,7 +48,7 @@ const mappedContacts = computed(() => {
     const address = {
       name: contact.contactName,
       department: contact.department,
-      street: formatAddress(contact.postalAddress)
+      street: contact.postalAddress ? formatAddress(contact.postalAddress) : ''
     }
 
     let items: Array<{
@@ -56,7 +60,7 @@ const mappedContacts = computed(() => {
 
     if (contact.locationAddress) {
       items.push({
-        id: contact.locationAddress.id,
+        id: `contact-us-location-${contact.id}`,
         icon: 'icon-pin',
         text: formatAddress(contact.locationAddress),
         url: makeAddressLink(contact.locationAddress)
@@ -96,6 +100,7 @@ const mappedContacts = computed(() => {
 
     return {
       id: contact.id,
+      title: contact.contactTitle,
       address,
       items
     }

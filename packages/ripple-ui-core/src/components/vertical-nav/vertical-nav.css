@@ -114,6 +114,8 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  line-height: inherit;
+  letter-spacing: inherit;
 }
 
 .rpl-vertical-nav__toggle-icon {

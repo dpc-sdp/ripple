@@ -9,8 +9,7 @@ export default { name: 'RplPrimaryNav' }
     - Investigate ways to handle tabbing order in mega nav levels
     - Setup functionality for primary nav to show / hide based on page scroll
       direction
-    - If the sliding animation between mobile mega nav levels is not needed,
-      simplify the way the 'current level' classes and styling work
+    - Add sliding animation for mobile mega menu levels changing
 */
 import { ref, computed } from 'vue'
 import RplPrimaryNavBar from './nav-bar.vue'

@@ -7,25 +7,26 @@ Then('the title should be {string}', (title: string) => {
 Then(
   'the overview should display a status of {string} with a {string} {string} icon',
   (status: string, colour: string, icon: string) => {
-    cy.get('[data-cy="status"]').as('status')
-
-    cy.get('@status').find('.rpl-list__label').should('have.text', status)
+    cy.get('[data-cy="statusText"]').should('have.text', status)
 
     // icon type
-    cy.get('@status')
-      .find('.rpl-icon')
-      .should('have.class', `rpl-icon--icon-${icon}-circle-filled`)
+    cy.get('[data-cy="statusIcon"]').should(
+      'have.class',
+      `rpl-icon--icon-${icon}-circle-filled`
+    )
 
     // icon colour
     if (colour.toLowerCase() === 'red') {
-      cy.get('@status')
-        .find('.rpl-icon')
-        .should('have.class', 'rpl-icon--colour-error')
+      cy.get('[data-cy="statusIcon"]').should(
+        'have.class',
+        'rpl-icon--colour-error'
+      )
     }
     if (colour.toLowerCase() === 'green') {
-      cy.get('@status')
-        .find('.rpl-icon')
-        .should('have.class', 'rpl-icon--colour-success')
+      cy.get('[data-cy="statusIcon"]').should(
+        'have.class',
+        'rpl-icon--colour-success'
+      )
     }
   }
 )

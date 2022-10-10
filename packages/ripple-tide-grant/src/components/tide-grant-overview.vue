@@ -4,7 +4,9 @@ export default { name: 'TideGrantOverview' }
 
 <template>
   <div class="tide-grant__overview">
-    <h2 class="tide-grant__title rpl-type-h2">{{ overview.title }}</h2>
+    <h2 class="tide-grant__title rpl-type-h2-fixed rpl-u-margin-b-6">
+      {{ overview.title }}
+    </h2>
     <ol class="tide-grant__overview-items">
       <li
         v-if="formattedFunding"
@@ -15,7 +17,7 @@ export default { name: 'TideGrantOverview' }
         "
       >
         <rpl-icon name="icon-dollar-circle-filled"></rpl-icon
-        ><span class="rpl-list__label">
+        ><span class="rpl-type-h4-fixed">
           {{ formattedFunding }}
         </span>
       </li>
@@ -27,11 +29,10 @@ export default { name: 'TideGrantOverview' }
         "
       >
         <rpl-icon name="icon-user-circle-filled"></rpl-icon
-        ><span class="rpl-list__label"> {{ overview.audience }}</span>
+        ><span class="rpl-type-h4-fixed"> {{ overview.audience }}</span>
       </li>
       <li
         v-if="overview.date"
-        data-cy="status"
         class="
           tide-grant__overview-item tide-grant__overview-item--status
           rpl-type-label
@@ -41,13 +42,17 @@ export default { name: 'TideGrantOverview' }
           v-if="openState"
           name="icon-check-circle-filled"
           colour="success"
+          data-cy="statusIcon"
         ></rpl-icon
         ><rpl-icon
           v-else
           name="icon-cancel-circle-filled"
           colour="error"
+          data-cy="statusIcon"
         ></rpl-icon
-        ><span class="rpl-list__label"> {{ formattedDate }} </span>
+        ><span class="rpl-type-h4-fixed" data-cy="statusText">
+          {{ formattedDate }}
+        </span>
       </li>
       <li
         v-if="overview.description"
@@ -72,6 +77,7 @@ export default { name: 'TideGrantOverview' }
 <script setup lang="ts">
 import { computed } from 'vue'
 import type { TideGrantOverview } from '../../types'
+import { RplButton, RplIcon } from '@dpc-sdp/ripple-ui-core'
 
 const props =
   defineProps<{

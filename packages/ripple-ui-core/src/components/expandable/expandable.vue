@@ -50,7 +50,7 @@ watch(
   </div>
 </template>
 
-<style scoped>
+<style>
 .expandable {
   height: 0;
   overflow: hidden;

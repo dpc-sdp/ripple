@@ -1,3 +1,7 @@
+<script lang="ts">
+export default { name: 'TideGrantPage' }
+</script>
+
 <template>
   <RplLayout :background="page.background">
     <template #aboveHeader>
@@ -29,6 +33,7 @@
 
 <script setup lang="ts">
 import type TideGrantPage from './../types'
+import { RplLayout } from '@dpc-sdp/ripple-ui-core'
 import TideGrantHeader from './components/tide-grant-header.vue'
 import TideGrantOverview from './components/tide-grant-overview.vue'
 import TideGrantTimeline from './components/tide-grant-timeline.vue'
@@ -41,10 +46,3 @@ interface Props {
 
 defineProps<Props>()
 </script>
-
-<style>
-.tide-grant__title {
-  margin-top: var(--rpl-sp-8);
-  margin-bottom: var(--rpl-sp-4);
-}
-</style>

@@ -3,7 +3,7 @@ export default { name: 'TideGrantDocuments' }
 </script>
 
 <template>
-  <div class="tide-grant__documents">
+  <div class="tide-grant__documents rpl-u-margin-t-9">
     <ul v-if="documents.length > 0" class="rpl-type-p">
       <li v-for="(doc, i) in documents" :key="i">
         <RplDocument :url="doc.url" data-cy="document">
@@ -23,15 +23,9 @@ export default { name: 'TideGrantDocuments' }
 
 <script setup lang="ts">
 import type { TideGrantDocument } from '../../types'
+import { RplDocument, RplIcon } from '@dpc-sdp/ripple-ui-core'
 
 defineProps<{
   documents: Array<TideGrantDocument>
 }>()
 </script>
-
-<style>
-.tide-grant__documents {
-  margin-top: var(--rpl-sp-12);
-  margin-bottom: var(--rpl-sp-12);
-}
-</style>

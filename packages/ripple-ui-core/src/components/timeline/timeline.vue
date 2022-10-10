@@ -18,9 +18,6 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 const subtitle = (item: RplTimelineItem) => {
-  if (item.subtitle) {
-    return item.subtitle
-  }
   if (item.dateStart && item.dateEnd) {
     // Format raw dates
     const options: Intl.DateTimeFormatOptions = {
@@ -39,6 +36,8 @@ const subtitle = (item: RplTimelineItem) => {
     } else {
       return `${start} - ${end}`
     }
+  } else if (item.subtitle) {
+    return item.subtitle
   }
   return null
 }

@@ -4,7 +4,8 @@
 
 .tide-grant__overview-item {
   display: flex;
-  gap: var(--rpl-sp-2);
+  gap: var(--rpl-sp-3);
+  align-items: center;
   margin-bottom: var(--rpl-sp-4);
 }
 

@@ -1,8 +1,8 @@
 <template>
-  <h1>{{ title }}</h1>
+  <RplIntroHeader :title="title"></RplIntroHeader>
 </template>
 <script setup lang="ts">
-// TODO: Add Introbanner component when ready
+import { RplIntroHeader } from '@dpc-sdp/ripple-ui-core'
 defineProps({
   title: {
     type: String,

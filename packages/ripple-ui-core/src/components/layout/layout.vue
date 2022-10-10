@@ -6,7 +6,7 @@ export default { name: 'RplLayout' }
 import { computed, useSlots } from 'vue'
 
 interface Props {
-  background: 'default' | 'alt'
+  background?: 'default' | 'alt'
 }
 
 withDefaults(defineProps<Props>(), {

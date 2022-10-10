@@ -1,0 +1,13 @@
+.tide-grant__overview {
+  margin-bottom: var(--rpl-sp-12);
+}
+
+.tide-grant__overview-item {
+  display: flex;
+  gap: var(--rpl-sp-2);
+  margin-bottom: var(--rpl-sp-4);
+}
+
+.tide-grant__overview-item--description {
+  margin: var(--rpl-sp-8) 0;
+}

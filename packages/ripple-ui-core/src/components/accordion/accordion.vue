@@ -78,7 +78,7 @@ const toggleAllLabel = computed(() => {
 </script>
 
 <template>
-  <div class="rpl-accordion">
+  <div :id="id" class="rpl-accordion">
     <!-- Toggle all -->
     <div class="rpl-accordion__toggle-all-wrapper">
       <button

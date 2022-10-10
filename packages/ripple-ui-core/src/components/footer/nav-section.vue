@@ -6,9 +6,10 @@ export default { name: 'RplNavSection' }
 import RplList from '../list/list.vue'
 import { NavSectionItem } from './constants'
 import RplIcon from '../icon/icon.vue'
-import Expandable from '../expandable/expandable.vue'
+import RplExpandable from '../expandable/expandable.vue'
 import { computed, ref } from 'vue'
 import { useExpandable } from '../../composables/useExpandable'
+
 interface Props {
   id: string
   section: NavSectionItem
@@ -57,6 +58,7 @@ const children = computed(() => {
         :is="isExpandable ? 'button' : 'div'"
         :class="{
           'rpl-footer-nav-section__header-inner': true,
+          'rpl-footer-nav-section__header-inner-button': isExpandable,
           'rpl-u-focusable-block': isExpandable
         }"
         v-bind="isExpandable ? toggleProps : {}"
@@ -82,11 +84,14 @@ const children = computed(() => {
     </div>
 
     <component
-      :is="isExpandable ? Expandable : 'div'"
+      :is="isExpandable ? RplExpandable : 'div'"
       :expanded="isExpandable ? isExpanded : undefined"
-      v-bind="triggerProps"
+      v-bind="isExpandable ? triggerProps : null"
     >
-      <RplList :items="children" item-class="rpl-type-p-small rpl-u-margin-b-3" />
+      <RplList
+        :items="children"
+        item-class="rpl-type-p-small rpl-u-margin-b-3"
+      />
     </component>
   </div>
 </template>

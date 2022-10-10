@@ -26,7 +26,6 @@ export { default as RplInPageNavigation } from './components/in-page-navigation/
 export { default as RplLayout } from './components/layout/layout.vue'
 export { default as RplPageComponent } from './components/layout/page-component.vue'
 export { default as RplList } from './components/list/list.vue'
-export { default as RplNavPrimary } from './components/nav-primary/nav-primary.vue' // WIP
 export { default as RplProfile } from './components/profile/profile.vue'
 export { default as RplRelatedLinks } from './components/related-links/related-links.vue'
 export { default as RplSocialShare } from './components/social-share/social-share.vue'

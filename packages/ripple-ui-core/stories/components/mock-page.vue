@@ -16,7 +16,19 @@ export default { name: 'MockPage' }
       </template>
       <template #primaryNav>
         <slot name="primaryNav">
-          <RplNavPrimary></RplNavPrimary>
+          <RplPrimaryNav
+            :primary-logo="{
+              href: '#',
+              src: '/img/primary-nav-logo-primary.svg',
+              altText: 'Primary logo alt text'
+            }"
+            :secondary-logo="{
+              href: '#',
+              src: '/img/primary-nav-logo-secondary.svg',
+              altText: 'Secondary logo alt text'
+            }"
+            :items="[]"
+          ></RplPrimaryNav>
         </slot>
       </template>
       <template #breadcrumbs>
@@ -44,7 +56,7 @@ import { computed } from 'vue'
 import {
   RplIconSprite,
   RplAlert,
-  RplNavPrimary,
+  RplPrimaryNav,
   RplBreadcrumbs,
   RplSocialShare,
   RplFooter

@@ -82,6 +82,7 @@
     text-decoration-line: none;
     outline: 0;
     position: relative;
+    box-decoration-break: clone;
 
     .rpl-icon {
       color: var(--rpl-clr-type-focus-contrast);
@@ -90,8 +91,8 @@
     /* prettier-ignore */
     box-shadow: -1px 0 var(--local-background-colour), /* left */
       1px 0 var(--local-background-colour), /* right */
-      -1px -2px var(--local-background-colour), /* top - shifted left 1px */
-      1px -2px var(--local-background-colour), /* top - shifted right 1px */
+      -1px -3px var(--local-background-colour), /* top - shifted left 1px */
+      1px -3px var(--local-background-colour), /* top - shifted right 1px */
       1px 4px var(--rpl-clr-dark), /* bottom - shifted left 1px */
       -1px 4px var(--rpl-clr-dark); /* bottom - shifted right 1px */
   }
@@ -108,7 +109,8 @@
   &.rpl-u-focusable--alt-colour {
     &:focus,
     &.rpl-u-focusable--force-on {
-      box-shadow: 0 0 0 var(--rpl-border-1) var(--rpl-clr-type-primary-contrast) inset,
+      box-shadow: 0 0 0 var(--rpl-border-1) var(--rpl-clr-type-primary-contrast)
+          inset,
         0 0 0 var(--rpl-border-3) var(--rpl-clr-focus);
     }
   }
@@ -127,4 +129,3 @@
     }
   }
 }
-

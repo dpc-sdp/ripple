@@ -29,14 +29,14 @@ withDefaults(defineProps<Props>(), {
     <RplList
       :items="items"
       container-class="rpl-header-links__list"
-      item-class="rpl-header-links__item rpl-type-p"
+      item-class="rpl-header-links__item rpl-header__text-large-fixed rpl-type-p"
       icon-placement="after"
     />
     <RplTextLink
       v-if="moreLink"
       :url="moreLink.url"
       class="
-        rpl-header__icon-link
+        rpl-header__text-large-fixed rpl-header__icon-link
         rpl-header-links__more
         rpl-type-p rpl-type-weight-bold
       "

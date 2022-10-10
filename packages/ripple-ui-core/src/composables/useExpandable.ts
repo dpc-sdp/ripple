@@ -11,13 +11,13 @@ export function useExpandable(_id: string, _isExpanded: MaybeRef<boolean>) {
   watchEffect(() => {
     toggleProps.value = {
       id: `${id.value}-toggle`,
-      ariaControls: `${id.value}-content`,
-      ariaExpanded: isExpanded,
+      'aria-controls': `${id.value}-content`,
+      'aria-expanded': isExpanded
     }
 
     triggerProps.value = {
       id: `${id.value}-content`,
-      ariaLabelledby: `${id.value}-toggle`,
+      'aria-labelledby': `${id.value}-toggle`
     }
   })
 

@@ -98,7 +98,10 @@ This is an example the hero header with optional links
     play={a11yStoryCheck}
     args={{
       cornerTop: true,
-      logo: svgPlaceholder({ width: 300, height: 200 })
+      logo: {
+        src: svgPlaceholder({ width: 300, height: 200 }),
+        alt: 'A description of the logo'
+      }
     }}
   >
     {SingleTemplate.bind()}

@@ -21,6 +21,8 @@ import RplInPageNavigation from './../in-page-navigation/in-page-navigation.vue'
 import RplAlert from './../alert/alert.vue'
 import RplHeroHeader from './../header/hero-header.vue'
 import RplPrimaryNav from './../primary-nav/primary-nav.vue'
+import RplPrimaryCampaign from './../campaign-banner/primary-campaign.vue'
+import RplSecondaryCampaign from './../campaign-banner/secondary-campaign.vue'
 import { a11yStoryCheck } from './../../../stories/interactions.js'
 import sbSpacer from './../../../stories/components/spacer.vue'
 import { primaryNavItems, verticalNavItems } from './storydata.ts'
@@ -98,7 +100,9 @@ export const PageLayoutContentTemplate = (args) => ({
     RplBreadcrumbs,
     RplPrimaryNav,
     RplFooter,
-    RplHeroHeader
+    RplHeroHeader,
+    RplPrimaryCampaign,
+    RplSecondaryCampaign
   },
   setup() {
     return {
@@ -144,20 +148,38 @@ export const PageLayoutContentTemplate = (args) => ({
           title="Here is the header wow"
           :cornerTop="true"
           content="Very cool"
-          :cornerBottom="true"
           :behindNav="true"
           :breadcrumbs="true"
         >
           Very cool
         </RplHeroHeader>
+        <RplPrimaryCampaign
+          title="Primary campaign banner title"
+          :link="{ text: 'Campaign link', url: '#' }"
+          :image="{ src: '/img/image-landscape-m.jpg' }"
+        >
+          <RplContent html="<p>Aenean sed lorem at magna hendrerit eleifend sed non mauris.</p>" />
+          <template #meta>
+            Some metadata, probably about the image
+          </template>
+        </RplPrimaryCampaign>
       </template>
       <template #body>
         <RplPageComponent>
           <RplContent :html="RplContentBody" />
         </RplPageComponent>
-        <RplPageComponent title="Accordion heading">
-          <RplAccordion :items="RplAccordionItems" />
-        </RplPageComponent>
+      </template>
+      <template #belowBody>
+        <RplSecondaryCampaign
+          title="Secondary campaign banner title"
+          :link="{ text: 'Campaign link', url: '#' }"
+          :image="{ src: '/img/image-landscape-m.jpg' }"
+        >
+          <RplContent html="<p>Hendrerit eleifend sed non mauris, Aenean sed lorem at magna hie non mauri, Lorem quis do ea aliqua est ea Lorem nostrud tempor..</p>" />
+          <template #meta>
+            Some metadata, probably about the image
+          </template>
+        </RplSecondaryCampaign>
       </template>
       <template #sidebar>
         <RplSidebarComponent>

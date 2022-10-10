@@ -20,10 +20,10 @@ import RplSidebarComponent from './sidebar-component.vue'
 import RplInPageNavigation from './../in-page-navigation/in-page-navigation.vue'
 import RplAlert from './../alert/alert.vue'
 import RplHeroHeader from './../header/hero-header.vue'
-import RplNavPrimary from './../nav-primary/nav-primary.vue'
+import RplPrimaryNav from './../primary-nav/primary-nav.vue'
 import { a11yStoryCheck } from './../../../stories/interactions.js'
 import sbSpacer from './../../../stories/components/spacer.vue'
-import { verticalNavItems } from './storydata.ts'
+import { primaryNavItems, verticalNavItems } from './storydata.ts'
 
 
 export const ExampleTemplate = (args) => ({
@@ -37,7 +37,7 @@ export const ExampleTemplate = (args) => ({
         <sb-spacer color="pink">#aboveHeader - Alerts go here</sb-spacer>
       </template>
       <template #primaryNav>
-        <sb-spacer color="lightblue">#header - Nav primary goes here</sb-spacer>
+        <sb-spacer color="lightblue">#header - Primary nav goes here</sb-spacer>
       </template>
       <template #breadcrumbs>
         <sb-spacer color="lightgreen">#breadcrumbs - Breadcrumbs go here</sb-spacer>
@@ -96,13 +96,14 @@ export const PageLayoutContentTemplate = (args) => ({
     RplSidebarComponent,
     RplVerticalNav,
     RplBreadcrumbs,
-    RplNavPrimary,
+    RplPrimaryNav,
     RplFooter,
     RplHeroHeader
   },
   setup() {
     return {
       args,
+      primaryNavItems,
       RplAccordionItems,
       RplContentBody,
       verticalNavItems
@@ -121,7 +122,19 @@ export const PageLayoutContentTemplate = (args) => ({
         />
       </template>
       <template #primaryNav>
-        <RplNavPrimary></RplNavPrimary>
+        <RplPrimaryNav
+          :primary-logo="{
+            href: '#',
+            src: '/img/primary-nav-logo-primary.svg',
+            altText: 'Primary logo alt text'
+          }"
+          :secondary-logo="{
+            href: '#',
+            src: '/img/primary-nav-logo-secondary.svg',
+            altText: 'Secondary logo alt text'
+          }"
+          :items="primaryNavItems"
+        />
       </template>
       <template #breadcrumbs>
         <RplBreadcrumbs :items="[{ label: 'Home', url: '/' }, { label: 'Page title', url: '/page-title' }]"></RplBreadcrumbs>
@@ -175,19 +188,31 @@ export const PageLayoutNavigationTemplate = (args) => ({
     RplAlert,
     RplPageComponent,
     RplNavCard,
-    RplNavPrimary,
+    RplPrimaryNav,
     RplBreadcrumbs,
     RplFooter,
     RplHeroHeader
   },
   setup() {
     const img = svgPlaceholder({ width: 1200, height: 800, bgColor: '#e76', fgColor: '#a31' })
-    return { args, RplNavCard, img }
+    return { args, primaryNavItems, RplNavCard, img }
   },
   template: `
     <RplLayout v-bind="args">
       <template #primaryNav>
-        <RplNavPrimary></RplNavPrimary>
+        <RplPrimaryNav
+          :primary-logo="{
+            href: '#',
+            src: '/img/primary-nav-logo-primary.svg',
+            altText: 'Primary logo alt text'
+          }"
+          :secondary-logo="{
+            href: '#',
+            src: '/img/primary-nav-logo-secondary.svg',
+            altText: 'Secondary logo alt text'
+          }"
+          :items="primaryNavItems"
+        />
       </template>
       <template #breadcrumbs>
         <RplBreadcrumbs :items="[{ label: 'Home', url: '/' }, { label: 'Page title', url: '/page-title' }]"></RplBreadcrumbs>

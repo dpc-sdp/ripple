@@ -31,7 +31,7 @@ const classes = computed(() => ({
 <template>
   <div :class="classes">
     <RplImage v-if="suppliedImage" :src="image" />
-    <RplTriangles v-else />
+    <RplTriangles v-else role="presentation" />
   </div>
 </template>
 

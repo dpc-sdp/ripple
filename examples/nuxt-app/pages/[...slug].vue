@@ -1,6 +1,5 @@
 <template>
-  <TidePage>
-  </TidePage>
+  <TidePage> </TidePage>
 </template>
 
 <script>

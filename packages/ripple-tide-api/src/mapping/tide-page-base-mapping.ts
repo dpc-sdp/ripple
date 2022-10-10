@@ -17,7 +17,7 @@ export const tidePageBaseMapping = ({ withSidebar = false }) => {
     title: 'title',
     created: 'created',
     modified: 'modified',
-    nid: 'nid',
+    nid: 'id',
     sidebar: withSidebar ? sidebar : undefined,
     _src: (src) => (process.env.NODE_ENV === 'development' ? src : undefined)
   }

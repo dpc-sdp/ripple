@@ -6,6 +6,7 @@
   border-radius: var(--rpl-border-radius-2);
   box-shadow: var(--rpl-elevation-1);
   display: inline-block;
+  margin-left: var(--rpl-sp-3);
   padding-top: calc(var(--rpl-sp-3) - var(--rpl-border-1));
   padding-right: calc(var(--rpl-sp-5) - var(--rpl-border-1));
   padding-bottom: calc(var(--rpl-sp-3) - var(--rpl-border-1));
@@ -19,6 +20,7 @@
     height: auto;
     overflow: visible;
     white-space: normal;
+    margin-left: var(--rpl-sp-4);
   }
 
   &__items {

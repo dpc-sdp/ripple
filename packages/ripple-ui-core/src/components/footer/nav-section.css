@@ -22,8 +22,10 @@
 .rpl-footer-nav-section__header-inner {
   text-align: inherit;
   width: 100%;
-  padding-top: var(--rpl-sp-4);
-  padding-bottom: var(--rpl-sp-4);
+  margin-top: -1px;
+  margin-bottom: -1px;
+  padding-top: calc(var(--rpl-sp-4) + 1px);
+  padding-bottom: calc(var(--rpl-sp-4) + 1px);
   padding-left: var(--rpl-sp-4);
   padding-right: var(--rpl-sp-4);
 
@@ -33,13 +35,25 @@
   }
 }
 
+.rpl-footer-nav-section__header-inner-button {
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &:active {
+    text-decoration: none;
+  }
+}
+
 .rpl-footer-nav-section__title {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .rpl-footer-nav-section__expand-icon {
+  margin-top: var(--local-icon-vertical-spacing);
+  margin-left: var(--rpl-sp-3);
   transition: transform var(--rpl-motion-speed-6) linear;
 
   .rpl-footer-nav-section--expanded & {

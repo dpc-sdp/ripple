@@ -15,12 +15,13 @@ import RplHeaderLinks from './header-links.vue'
 import RplHeaderGraphic from './header-graphic.vue'
 import RplHeaderActions from './header-actions.vue'
 import { RplLink } from '../../lib/constants'
+import { RplImageType } from '../image/constants'
 
 interface Props {
   theme?: typeof RplHeaderThemes[number]
   title: string
-  logo?: string
-  background?: object
+  logo?: RplImageType
+  background?: RplImageType
   cornerTop?: boolean
   cornerBottom?: boolean
   primaryAction?: RplLink
@@ -80,10 +81,10 @@ const contentClasses = computed(() => ({
       />
     </template>
     <template v-if="logo && !background" #upper>
-      <RplImage class="rpl-header__logo" :src="logo" alt="" />
+      <RplImage class="rpl-header__logo" v-bind="logo" />
     </template>
     <template #title>
-      <h1 :class="titleClasses">{{ title }}</h1>
+      <h1 :class="titleClasses" data-cy="title">{{ title }}</h1>
     </template>
     <p v-if="$slots.default" :class="contentClasses">
       <slot></slot>

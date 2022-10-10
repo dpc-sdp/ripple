@@ -44,4 +44,3 @@ const hasInfo = computed(() => props.extension || props.size || props.updated)
     </template>
   </RplDocument>
 </template>
-

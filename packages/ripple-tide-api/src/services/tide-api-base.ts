@@ -19,10 +19,10 @@ export default class TideApiBase extends HttpClient {
     this.logger = new Logger()
   }
 
-  async getMappedData(mapping, resource) {
+  async getMappedData(mapping = {}, resource = {}) {
     if (!mapping || !resource) {
       this.handleError(
-        'Error: Unable to retrive data from mapping' + mapping,
+        'Error: Unable to retrieve data from mapping' + mapping,
         500
       )
     }
@@ -50,7 +50,7 @@ export default class TideApiBase extends HttpClient {
     return data
   }
 
-  async get(url, config = {}) {
+  async get(url: string, config = {}) {
     if (this.debug) {
       this.logger.info(
         `Req - ${this.client.defaults.baseURL}${this.client.getUri({
@@ -62,7 +62,7 @@ export default class TideApiBase extends HttpClient {
     return this.client.get(url, { ...config })
   }
 
-  getErrorMessage(status) {
+  getErrorMessage(status: number) {
     switch (status) {
       case 404:
       case 403:
@@ -87,9 +87,9 @@ export default class TideApiBase extends HttpClient {
         this.logger.error(msg)
       }
     }
-    const getReturnStatus = (code) => {
+    const getReturnStatus = (code: number) => {
       switch (code) {
-        // obscure 403 errors to prevent leaking existance of secure pages
+        // obscure 403 errors to prevent leaking existence of secure pages
         case 404:
         case 403:
           return 404

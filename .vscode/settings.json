@@ -13,7 +13,8 @@
     "nuxt-app",
     "docs",
     "@dpc-sdp/ripple-tide-landing-page",
-    "@dpc-sdp/ripple-ui-forms"
+    "@dpc-sdp/ripple-ui-forms",
+    "@dpc-sdp/ripple-tide-grant"
   ],
   "cSpell.words": [
     "colour",

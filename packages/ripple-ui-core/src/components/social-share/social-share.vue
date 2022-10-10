@@ -13,7 +13,7 @@ interface Props {
 }
 
 withDefaults(defineProps<Props>(), {
-  title: 'Share this',
+  title: 'Share this page',
   networks: () => ['facebook', 'twitter', 'linkedin'],
   page: () => {
     return {
@@ -39,8 +39,7 @@ withDefaults(defineProps<Props>(), {
         class="
           rpl-text-link
           rpl-social-share__link
-          rpl-u-focusable-inline
-          rpl-type-p-small
+          rpl-u-focusable-inline rpl-type-p-small
         "
       >
         <RplIcon

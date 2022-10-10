@@ -39,7 +39,6 @@
 }
 
 .rpl-layout__header {
-  margin: var(--rpl-sp-2);
   z-index: var(--rpl-z-index-above-content);
   position: relative;
 }

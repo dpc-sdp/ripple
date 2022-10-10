@@ -36,6 +36,15 @@
   }
 }
 
+.rpl-header__text-large-fixed {
+  @media (--rpl-bp-l) {
+    /* rpl-type-p-large-fixed */
+    font-size: var(--rpl-type-size-3);
+    line-height: var(--rpl-type-lh-5);
+    letter-spacing: var(--rpl-type-ls-2);
+  }
+}
+
 .rpl-header__behind {
   position: absolute;
   inset: 0;

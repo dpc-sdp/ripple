@@ -9,9 +9,6 @@ import { a11yStoryCheck } from './../../../stories/interactions.js'
 
 import { RplPrimaryNavItems } from './constants'
 
-import primaryLogo from './assets/logo-primary.svg?url'
-import secondaryLogo from './assets/logo-secondary.svg?url'
-
 export const SingleTemplate = (args) => ({
   components: { RplPrimaryNav },
   setup() {
@@ -63,7 +60,7 @@ export const CustomLoginButtonTemplate = (args) => ({
     args={{
       primaryLogo: {
         href: '#',
-        src: primaryLogo,
+        src: '/img/primary-nav-logo-primary.svg',
         altText: 'Primary logo alt text'
       },
       items: RplPrimaryNavItems
@@ -80,12 +77,12 @@ export const CustomLoginButtonTemplate = (args) => ({
     args={{
       primaryLogo: {
         href: '#',
-        src: primaryLogo,
+        src: '/img/primary-nav-logo-primary.svg',
         altText: 'Primary logo alt text'
       },
       secondaryLogo: {
         href: '#',
-        src: secondaryLogo,
+        src: '/img/primary-nav-logo-secondary.svg',
         altText: 'Secondary logo alt text'
       },
       items: RplPrimaryNavItems
@@ -102,12 +99,12 @@ export const CustomLoginButtonTemplate = (args) => ({
     args={{
       primaryLogo: {
         href: '#',
-        src: primaryLogo,
+        src: '/img/primary-nav-logo-primary.svg',
         altText: 'Primary logo alt text'
       },
       secondaryLogo: {
         href: '#',
-        src: secondaryLogo,
+        src: '/img/primary-nav-logo-secondary.svg',
         altText: 'Secondary logo alt text'
       },
       items: RplPrimaryNavItems

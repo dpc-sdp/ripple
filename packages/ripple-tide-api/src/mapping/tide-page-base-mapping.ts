@@ -1,10 +1,16 @@
-import { map as sidebarContactsMapping, includes as sidebarContactsIncludes } from './sidebar-contacts/sidebar-contacts-mapping.js';
+import {
+  map as sidebarContactsMapping,
+  includes as sidebarContactsIncludes
+} from './sidebar-contacts/sidebar-contacts-mapping.js'
+import {
+  map as sidebarRelatedLinksMapping,
+  includes as sidebarRelatedLinksIncludes
+} from './sidebar-related-links/sidebar-related-links-mapping.js'
 
-export const tidePageBaseMapping = ({
-  withSidebar = false
-}) => {
+export const tidePageBaseMapping = ({ withSidebar = false }) => {
   const sidebar = {
-    contacts: sidebarContactsMapping
+    contacts: sidebarContactsMapping,
+    relatedLinks: sidebarRelatedLinksMapping
   }
 
   return {
@@ -17,14 +23,11 @@ export const tidePageBaseMapping = ({
   }
 }
 
-export const tidePageBaseIncludes = ({
-  withSidebar = false
-}) => {
+export const tidePageBaseIncludes = ({ withSidebar = false }) => {
   const sidebarIncludes = [
-    ...sidebarContactsIncludes
+    ...sidebarContactsIncludes,
+    ...sidebarRelatedLinksIncludes
   ]
 
-  return [
-    ...(withSidebar ? sidebarIncludes : []),
-  ]
+  return [...(withSidebar ? sidebarIncludes : [])]
 }

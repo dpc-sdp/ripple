@@ -1,4 +1,5 @@
 import type { AxiosInstance } from 'axios'
+import { TideContact } from './src/mapping/sidebar-contacts/sidebar-contacts-mapping-types'
 
 export type TideApiResponse = any
 
@@ -34,7 +35,8 @@ export interface TidePageBase {
   modified: string
   nid: number
   sidebar: {
-    contacts?: IContacts[]
+    contacts?: TideContact[]
+    relatedLinks?: TideLink[]
   }
 }
 

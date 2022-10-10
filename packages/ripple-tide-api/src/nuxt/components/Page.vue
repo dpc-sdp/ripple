@@ -27,6 +27,7 @@
       <template #sidebar>
         <slot v-if="page.sidebar" name="sidebar">
           <TideSidebarContactUs :contacts="page.sidebar.contacts" />
+          <TideSidebarRelatedLinks :items="page.sidebar.relatedLinks" />
         </slot>
       </template>
       <template #footer>

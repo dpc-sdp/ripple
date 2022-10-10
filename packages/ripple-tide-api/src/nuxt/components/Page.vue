@@ -13,7 +13,7 @@
       </template>
       <template #primaryNav>
         <slot name="primaryNav">
-          <RplNavPrimary></RplNavPrimary>
+          <RplPrimaryNav v-bind="primaryNavProps"></RplPrimaryNav>
         </slot>
       </template>
       <template #breadcrumbs>
@@ -56,7 +56,7 @@
       </template>
       <template #primaryNav>
         <slot name="primaryNav">
-          <RplNavPrimary></RplNavPrimary>
+          <RplPrimaryNav v-bind="primaryNavProps"></RplPrimaryNav>
         </slot>
       </template>
       <template #body>
@@ -79,7 +79,8 @@ import {
   useRuntimeConfig,
   useFetch,
   useHead,
-  useSiteTheme
+  useSiteTheme,
+  useSiteMenu
 } from '#imports'
 import { computed } from 'vue'
 import { pascalCase } from 'change-case'
@@ -107,6 +108,10 @@ const [{ data: site, error: siteError }, { data: page, error: pageError }] =
 const componentName = computed(
   () => page.value && `Tide${pascalCase(page.value.type)}`
 )
+
+// TODO: Wire useSiteMenu up to real content, currently hardcoded with example
+// from storybook.
+const primaryNavProps = useSiteMenu(site)
 
 // TODO: Will need to implement breadcrumb business logic
 const breadcrumbs = computed(() => {

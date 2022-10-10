@@ -17,10 +17,10 @@ interface Props {
 
 const props = defineProps<Props>()
 
-const initialActiveIndexes: number[] = props.items.reduce(
-  (result: number[], current: RplVerticalNavItem, i: number): number[] => {
+const initialActiveIndexes: string[] = props.items.reduce(
+  (result: string[], current: RplVerticalNavItem): string[] => {
     if (current.active) {
-      return [...result, i]
+      return [...result, current.id]
     }
 
     return result
@@ -49,27 +49,27 @@ const { isItemExpanded, toggleItem } = useExpandableState(
         :key="index"
         :class="{
           'rpl-vertical-nav__list-item': true,
-          'rpl-vertical-nav__list-item--expanded': isItemExpanded(index)
+          'rpl-vertical-nav__list-item--expanded': isItemExpanded(item.id)
         }"
       >
         <RplVerticalNavToggle
           v-if="item.items"
-          :id="`rpl-vertical-nav-${index}-toggle`"
+          :id="`rpl-vertical-nav-${item.id}-toggle`"
           :text="item.text"
-          @click="toggleItem(index)"
+          @click="toggleItem(item.id)"
         />
 
         <RplExpandable
           v-if="item.items"
           :aria-labelledby="`rpl-vertical-nav-${index}-toggle`"
-          :aria-hidden="isItemExpanded(index) === false ? 'true' : null"
-          :expanded="isItemExpanded(index)"
+          :aria-hidden="isItemExpanded(item.id) === false ? 'true' : null"
+          :expanded="isItemExpanded(item.id)"
           class="rpl-vertical-nav__list-item-children"
         >
           <RplVerticalNavChildList
             :items="item.items"
             :level="2"
-            :is-expanded="isItemExpanded(index)"
+            :is-expanded="isItemExpanded(item.id)"
           />
         </RplExpandable>
 

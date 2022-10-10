@@ -33,11 +33,9 @@
 
 .rpl-campaign-banner__content {
   margin-top: var(--rpl-sp-3);
-  margin-bottom: var(--rpl-sp-7);
 
   @media (--rpl-bp-l) {
     margin-top: var(--rpl-sp-4);
-    margin-bottom: var(--rpl-sp-11);
   }
 }
 
@@ -130,6 +128,14 @@
     }
   }
 
+  .rpl-campaign-banner__content {
+    margin-bottom: var(--rpl-sp-7);
+
+    @media (--rpl-bp-l) {
+      margin-bottom: var(--rpl-sp-11);
+    }
+  }
+
   .rpl-campaign-banner__media + .rpl-campaign-banner__body {
     flex-basis: calc(50% - var(--local-flex-sapcer));
   }
@@ -137,7 +143,12 @@
 
 .rpl-campaign-banner--secondary {
   padding-top: var(--rpl-sp-5);
+  padding-bottom: var(--rpl-sp-7);
   border-top: var(--rpl-border-1) solid var(--local-clr-border);
+
+  @media (--rpl-bp-m) {
+    padding-bottom: var(--rpl-sp-8);
+  }
 
   @media (--rpl-bp-l) {
     padding-top: var(--rpl-sp-8);
@@ -174,12 +185,6 @@
 
     @media (--rpl-bp-l) {
       margin-top: 0;
-    }
-  }
-
-  .rpl-campaign-banner__content {
-    @media (--rpl-bp-m) {
-      margin-bottom: var(--rpl-sp-8);
     }
   }
 }

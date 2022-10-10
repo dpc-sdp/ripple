@@ -44,7 +44,7 @@ html {
 :where(.rpl-content) h1 {
   font-size: var(--rpl-type-size-6);
   font-weight: var(--rpl-type-weight-bold);
-  line-height: var(--rpl-type-lh-8);
+  line-height: var(--rpl-type-lh-7);
   letter-spacing: var(--rpl-type-ls-5);
   color: var(--rpl-clr-primary);
 
@@ -58,7 +58,7 @@ html {
 .rpl-type-h1-fixed {
   font-size: var(--rpl-type-size-6);
   font-weight: var(--rpl-type-weight-bold);
-  line-height: var(--rpl-type-lh-8);
+  line-height: var(--rpl-type-lh-7);
   letter-spacing: var(--rpl-type-ls-5);
   color: var(--rpl-clr-primary);
 }

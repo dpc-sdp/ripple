@@ -49,13 +49,13 @@ type:
     8:
       value: 4rem
     9:
-      value: 4.8rem
+      value: 4.4rem
     10:
       value: 5.2rem
     11:
-      value: 6.8rem
+      value: 6rem
     12:
-      value: 8.8rem
+      value: 8rem
 
   # Letter spacing
   ls:

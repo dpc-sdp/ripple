@@ -100,7 +100,9 @@ export const PageLayoutContentTemplate = (args) => ({
     RplBreadcrumbs,
     RplNavPrimary,
     RplFooter,
-    RplHeroHeader
+    RplHeroHeader,
+    RplPrimaryCampaign,
+    RplSecondaryCampaign
   },
   setup() {
     return {
@@ -133,12 +135,21 @@ export const PageLayoutContentTemplate = (args) => ({
           title="Here is the header wow"
           :cornerTop="true"
           content="Very cool"
-          :cornerBottom="true"
           :behindNav="true"
           :breadcrumbs="true"
         >
           Very cool
         </RplHeroHeader>
+        <RplPrimaryCampaign
+          title="Primary campaign banner title"
+          :link="{ text: 'Campaign link', url: '#' }"
+          :image="{ src: '/img/image-landscape-m.jpg' }"
+        >
+          <RplContent html="<p>Aenean sed lorem at magna hendrerit eleifend sed non mauris.</p>" />
+          <template #meta>
+            Some metadata, probably about the image
+          </template>
+        </RplPrimaryCampaign>
       </template>
       <template #body>
         <RplPageComponent>
@@ -147,6 +158,18 @@ export const PageLayoutContentTemplate = (args) => ({
         <RplPageComponent title="Accordion heading">
           <RplAccordion :items="RplAccordionItems" />
         </RplPageComponent>
+      </template>
+      <template #belowBody>
+        <RplSecondaryCampaign
+          title="Secondary campaign banner title"
+          :link="{ text: 'Campaign link', url: '#' }"
+          :image="{ src: '/img/image-landscape-m.jpg' }"
+        >
+          <RplContent html="<p>Hendrerit eleifend sed non mauris, Aenean sed lorem at magna hie non mauri, Lorem quis do ea aliqua est ea Lorem nostrud tempor..</p>" />
+          <template #meta>
+            Some metadata, probably about the image
+          </template>
+        </RplSecondaryCampaign>
       </template>
       <template #sidebar>
         <RplSidebarComponent>
@@ -234,89 +257,6 @@ export const PageLayoutNavigationTemplate = (args) => ({
   `
 })
 
-export const PageLayoutCampaignTemplate = (args) => ({
-  components: {
-    RplLayout,
-    RplContent,
-    RplInPageNavigation,
-    RplPageComponent,
-    RplSidebarComponent,
-    RplVerticalNav,
-    RplBreadcrumbs,
-    RplNavPrimary,
-    RplFooter,
-    RplHeroHeader,
-    RplPrimaryCampaign,
-    RplSecondaryCampaign
-  },
-  setup() {
-    return {
-      args,
-      RplAccordionItems,
-      RplContentBody,
-      verticalNavItems
-    }
-  },
-  template: `
-    <RplLayout v-bind="args" >
-      <template #primaryNav>
-        <RplNavPrimary />
-      </template>
-      <template #breadcrumbs>
-        <RplBreadcrumbs :items="[{ label: 'Home', url: '/' }, { label: 'Campaign Page', url: '/campaign-page' }]" />
-      </template>
-      <template #aboveBody>
-        <RplHeroHeader
-          title="Here is the header"
-          :cornerTop="true"
-          :behindNav="true"
-          :breadcrumbs="true"
-        >
-          And here is some content
-        </RplHeroHeader>
-        <RplPrimaryCampaign
-          title="Primary campaign banner title"
-          :link="{ text: 'Campaign link', url: '#' }"
-          :image="{ src: '/img/image-landscape-m.jpg' }"
-        >
-          <RplContent html="<p>Aenean sed lorem at magna hendrerit eleifend sed non mauris.</p>" />
-          <template #meta>
-            Some metadata, probably about the image
-          </template>
-        </RplPrimaryCampaign>
-      </template>
-      <template #body>
-        <RplPageComponent>
-          <RplContent :html="RplContentBody" />
-        </RplPageComponent>
-      </template>
-      <template #belowBody>
-        <RplSecondaryCampaign
-          title="Secondary campaign banner title"
-          :link="{ text: 'Campaign link', url: '#' }"
-          :image="{ src: '/img/image-landscape-m.jpg' }"
-        >
-          <RplContent html="<p>Hendrerit eleifend sed non mauris, Aenean sed lorem at magna hie non mauri, Lorem quis do ea aliqua est ea Lorem nostrud tempor..</p>" />
-          <template #meta>
-            Some metadata, probably about the image
-          </template>
-          </RplSecondaryCampaign>
-      </template>
-      <template #sidebar>
-        <RplSidebarComponent>
-          <RplVerticalNav
-            title="Section name"
-            :items="verticalNavItems"
-          />
-        </RplSidebarComponent>
-      </template>
-      <template #footer>
-        <RplFooter />
-      </template>
-    </RplLayout>
-  `
-})
-
 <Meta
   title='Core/Templates'
   component={RplLayout}
@@ -359,14 +299,5 @@ export const PageLayoutCampaignTemplate = (args) => ({
     }}
   >
     {PageLayoutNavigationTemplate.bind()}
-  </Story>
-</Canvas>
-
-<Canvas>
-  <Story
-    name='Landing page / Campaign'
-    play={a11yStoryCheck}
-  >
-    {PageLayoutCampaignTemplate.bind()}
   </Story>
 </Canvas>

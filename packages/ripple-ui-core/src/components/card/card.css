@@ -6,6 +6,7 @@
   border-radius: var(--rpl-border-radius-2);
   color: var(--rpl-clr-type-default);
   text-decoration: none;
+  overflow: hidden;
 
   &__media {
     display: block;
@@ -16,10 +17,6 @@
       height: 14.8rem;
       width: 14.8rem;
       margin: var(--rpl-sp-11) auto 0;
-    }
-
-    &--round-top {
-      border-radius: var(--rpl-border-radius-2) var(--rpl-border-radius-2) 0 0;
     }
 
     &--inset {
@@ -48,6 +45,12 @@
   &__topic {
     color: var(--rpl-clr-neutral-600);
     text-transform: uppercase;
+  }
+
+  &__status {
+    display: flex;
+    align-items: center;
+    gap: var(--rpl-sp-2);
   }
 
   &__body {
@@ -90,7 +93,6 @@
     display: block;
     height: var(--rpl-border-4);
     background: var(--rpl-clr-gradient-horizontal);
-    border-radius: var(--rpl-border-radius-2) var(--rpl-border-radius-2) 0 0;
   }
 
   &__keydates {

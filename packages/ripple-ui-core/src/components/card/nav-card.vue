@@ -38,7 +38,6 @@ const titleClasses = computed(() => [
 
 const imgClasses = computed(() => [
   'rpl-card__media',
-  props.highlight ? 'rpl-card__media--round-top' : null,
   props.inset ? 'rpl-card__media--inset' : null
 ])
 
@@ -52,10 +51,16 @@ const { container, trigger } = useAccessibleContainer()
         :class="imgClasses"
         :src="image"
         alt=""
+        :aspect="{
+          xs: 'wide',
+          s: 'ultrawide',
+          m: 'panorama',
+          l: highlight ? 'panorama' : 'full'
+        }"
       />
     </template>
     <template v-if="meta" #meta>
-      <div class="rpl-card__meta rpl-type-p-small">
+      <div class="rpl-card__meta rpl-type-label-small">
         <slot name="meta"></slot>
       </div>
     </template>

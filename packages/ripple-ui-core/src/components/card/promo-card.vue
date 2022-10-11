@@ -36,7 +36,7 @@ const { container, trigger } = useAccessibleContainer()
   <RplCard ref="container" type="promo" :highlight="highlight" :el="el">
     <template v-if="image" #upper>
       <RplImage
-        class="rpl-card__media rpl-card__media--round-top"
+        class="rpl-card__media"
         :src="image"
         alt=""
         :aspect="{
@@ -47,7 +47,7 @@ const { container, trigger } = useAccessibleContainer()
       />
     </template>
     <template v-if="meta" #meta>
-      <div class="rpl-card__meta rpl-type-p-small">
+      <div class="rpl-card__meta rpl-type-label-small">
         <slot name="meta"></slot>
       </div>
     </template>

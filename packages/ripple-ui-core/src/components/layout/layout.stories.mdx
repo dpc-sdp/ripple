@@ -1,0 +1,325 @@
+import {
+  Canvas,
+  Meta,
+  Story,
+  ArgsTable
+} from '@storybook/addon-docs'
+import RplLayout from './layout.vue'
+import RplFooter from './../footer/footer.vue'
+import RplContent from './../content/content.vue'
+import RplContentBody from './../content/testcontent.html?raw'
+import RplAccordion from './../accordion/accordion.vue'
+import RplBreadcrumbs from './../breadcrumbs/breadcrumbs.vue'
+import RplVerticalNav from './../vertical-nav/vertical-nav.vue'
+import RplNavCard from './../card/nav-card.vue'
+import { RplAccordionItems } from './../accordion/constants.ts'
+import RplTimeline from './../timeline/timeline.vue'
+import RplContactUs from './../contact-us/contact-us.vue'
+import RplPageComponent from './page-component.vue'
+import RplSidebarComponent from './sidebar-component.vue'
+import RplInPageNavigation from './../in-page-navigation/in-page-navigation.vue'
+import RplAlert from './../alert/alert.vue'
+import RplHeroHeader from './../header/hero-header.vue'
+import RplPrimaryNav from './../primary-nav/primary-nav.vue'
+import RplPrimaryCampaign from './../campaign-banner/primary-campaign.vue'
+import RplSecondaryCampaign from './../campaign-banner/secondary-campaign.vue'
+import { a11yStoryCheck } from './../../../stories/interactions.js'
+import sbSpacer from './../../../stories/components/spacer.vue'
+import { primaryNavItems, verticalNavItems } from './storydata.ts'
+
+
+export const ExampleTemplate = (args) => ({
+  components: { RplLayout, RplPageComponent, RplSidebarComponent, sbSpacer },
+  setup() {
+    return { args }
+  },
+  template: `
+    <RplLayout v-bind="args" >
+      <template #aboveHeader>
+        <sb-spacer color="pink">#aboveHeader - Alerts go here</sb-spacer>
+      </template>
+      <template #primaryNav>
+        <sb-spacer color="lightblue">#header - Primary nav goes here</sb-spacer>
+      </template>
+      <template #breadcrumbs>
+        <sb-spacer color="lightgreen">#breadcrumbs - Breadcrumbs go here</sb-spacer>
+      </template>
+      <template #aboveBody>
+        <sb-spacer color="lightsalmon">#aboveBody - Campaign banner goes here</sb-spacer>
+      </template>
+      <template #body>
+        <RplPageComponent>
+          <sb-spacer color="mistyrose">
+            #body components go here, they are really long and take up lots of space
+          </sb-spacer>
+        </RplPageComponent>
+        <RplPageComponent>
+          <sb-spacer color="mistyrose">
+            #body components go here, they are really long and take up lots of space
+          </sb-spacer>
+        </RplPageComponent>
+        <RplPageComponent>
+          <sb-spacer color="mistyrose">
+            #body components go here, they are really long and take up lots of space
+          </sb-spacer>
+        </RplPageComponent>
+      </template>
+      <template #sidebar>
+        <RplPageComponent>
+          <sb-spacer color="lavender">#sidebar - Sidebar goes here</sb-spacer>
+        </RplPageComponent>
+        <RplPageComponent>
+          <sb-spacer color="lavender">#sidebar - Sidebar goes here</sb-spacer>
+        </RplPageComponent>
+        <RplPageComponent>
+          <sb-spacer color="lavender">#sidebar - Sidebar goes here</sb-spacer>
+        </RplPageComponent>
+      </template>
+      <template #belowBody>
+        <sb-spacer color="lightyellow">#belowBody - Content rating form goes here</sb-spacer>
+      </template>
+      <template #footer>
+        <sb-spacer color="aqua">#footer - Site footer goes here</sb-spacer>
+      </template>
+    </RplLayout>
+  `
+})
+
+export const PageLayoutContentTemplate = (args) => ({
+  components: {
+    RplLayout,
+    RplAlert,
+    RplContent,
+    RplAccordion,
+    RplTimeline,
+    RplContactUs,
+    RplInPageNavigation,
+    RplPageComponent,
+    RplSidebarComponent,
+    RplVerticalNav,
+    RplBreadcrumbs,
+    RplPrimaryNav,
+    RplFooter,
+    RplHeroHeader,
+    RplPrimaryCampaign,
+    RplSecondaryCampaign
+  },
+  setup() {
+    return {
+      args,
+      primaryNavItems,
+      RplAccordionItems,
+      RplContentBody,
+      verticalNavItems
+    }
+  },
+  template: `
+    <RplLayout v-bind="args" >
+      <template #aboveHeader>
+        <RplAlert
+          variant="information"
+          iconName="icon-information-circle-filled"
+          message="An informative message."
+          linkText="Find out more"
+          linkUrl="/"
+          alertId="info-1"
+        />
+      </template>
+      <template #primaryNav>
+        <RplPrimaryNav
+          :primary-logo="{
+            href: '#',
+            src: '/img/primary-nav-logo-primary.svg',
+            altText: 'Primary logo alt text'
+          }"
+          :secondary-logo="{
+            href: '#',
+            src: '/img/primary-nav-logo-secondary.svg',
+            altText: 'Secondary logo alt text'
+          }"
+          :items="primaryNavItems"
+        />
+      </template>
+      <template #breadcrumbs>
+        <RplBreadcrumbs :items="[{ label: 'Home', url: '/' }, { label: 'Page title', url: '/page-title' }]"></RplBreadcrumbs>
+      </template>
+      <template #aboveBody>
+        <RplHeroHeader
+          title="Here is the header wow"
+          :cornerTop="true"
+          content="Very cool"
+          :behindNav="true"
+          :breadcrumbs="true"
+        >
+          Very cool
+        </RplHeroHeader>
+        <RplPrimaryCampaign
+          title="Primary campaign banner title"
+          :link="{ text: 'Campaign link', url: '#' }"
+          :image="{ src: '/img/image-landscape-m.jpg' }"
+        >
+          <RplContent html="<p>Aenean sed lorem at magna hendrerit eleifend sed non mauris.</p>" />
+          <template #meta>
+            Some metadata, probably about the image
+          </template>
+        </RplPrimaryCampaign>
+      </template>
+      <template #body>
+        <RplPageComponent>
+          <RplContent :html="RplContentBody" />
+        </RplPageComponent>
+      </template>
+      <template #belowBody>
+        <RplSecondaryCampaign
+          title="Secondary campaign banner title"
+          :link="{ text: 'Campaign link', url: '#' }"
+          :image="{ src: '/img/image-landscape-m.jpg' }"
+        >
+          <RplContent html="<p>Hendrerit eleifend sed non mauris, Aenean sed lorem at magna hie non mauri, Lorem quis do ea aliqua est ea Lorem nostrud tempor..</p>" />
+          <template #meta>
+            Some metadata, probably about the image
+          </template>
+        </RplSecondaryCampaign>
+      </template>
+      <template #sidebar>
+        <RplSidebarComponent>
+          <RplContactUs
+            :address="{
+              name: 'First Name Last Name',
+              department: 'Department Name',
+              street: 'Address Line, Suburb, 3019'
+            }"
+          />
+        </RplSidebarComponent>
+        <RplSidebarComponent>
+          <RplVerticalNav
+            title="Section name"
+            :items="verticalNavItems"
+          />
+        </RplSidebarComponent>
+      </template>
+      <template #footer>
+        <RplFooter />
+      </template>
+    </RplLayout>
+  `
+})
+export const PageLayoutNavigationTemplate = (args) => ({
+  components: {
+    RplLayout,
+    RplAlert,
+    RplPageComponent,
+    RplNavCard,
+    RplPrimaryNav,
+    RplBreadcrumbs,
+    RplFooter,
+    RplHeroHeader
+  },
+  setup() {
+    const img = svgPlaceholder({ width: 1200, height: 800, bgColor: '#e76', fgColor: '#a31' })
+    return { args, primaryNavItems, RplNavCard, img }
+  },
+  template: `
+    <RplLayout v-bind="args">
+      <template #primaryNav>
+        <RplPrimaryNav
+          :primary-logo="{
+            href: '#',
+            src: '/img/primary-nav-logo-primary.svg',
+            altText: 'Primary logo alt text'
+          }"
+          :secondary-logo="{
+            href: '#',
+            src: '/img/primary-nav-logo-secondary.svg',
+            altText: 'Secondary logo alt text'
+          }"
+          :items="primaryNavItems"
+        />
+      </template>
+      <template #breadcrumbs>
+        <RplBreadcrumbs :items="[{ label: 'Home', url: '/' }, { label: 'Page title', url: '/page-title' }]"></RplBreadcrumbs>
+      </template>
+      <template #aboveBody>
+        <RplHeroHeader
+          title="Here is the header wow"
+          :behindNav="true"
+          :breadcrumbs="true"
+          theme="reverse"
+          :background="{
+            src: '/img/image-landscape-s.jpg',
+            srcSet: '/img/image-landscape-s.jpg 640w, /img/image-landscape-m.jpg 960w , /img/image-landscape-l.jpg 1240w',
+            sizes: '(min-width: 640px) 640px, (min-width: 960px) 960px, (min-width: 1240px) 1240px',
+            height: 1920,
+            width: 2880,
+          }"
+        >
+          Very cool
+        </RplHeroHeader>
+      </template>
+      <template #body>
+        <RplPageComponent>
+          <ul class="rpl-grid">
+            <RplNavCard
+              v-for="index of 6"
+              :key="index"
+              el="li"
+              class="rpl-col-4"
+              :image="img"
+              title="Card title"
+            >
+            <p>Funding for public-facing small businesses to purchase equipment and upgrades to improve ventilation and reduce the spread of COVID-19 and boost customer confidence.</p>
+            </RplNavCard>
+          </ul>
+        </RplPageComponent>
+      </template>
+      <template #footer>
+        <RplFooter />
+      </template>
+    </RplLayout>
+  `
+})
+
+<Meta
+  title='Core/Templates'
+  component={RplLayout}
+  parameters={{
+    layout: 'fullscreen'
+  }}
+/>
+
+# Layout
+
+<ArgsTable of={RplLayout} />
+
+<Canvas>
+  <Story
+    name='Example template'
+    play={a11yStoryCheck}
+  >
+    {ExampleTemplate.bind()}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    name='Landing page / Content'
+    play={a11yStoryCheck}
+    args={{
+      background: 'default'
+    }}
+  >
+    {PageLayoutContentTemplate.bind()}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    name='Landing page / Navigation'
+    play={a11yStoryCheck}
+    args={{
+      background: 'alt'
+    }}
+  >
+    {PageLayoutNavigationTemplate.bind()}
+  </Story>
+</Canvas>

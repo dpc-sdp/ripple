@@ -15,10 +15,10 @@
   --rpl-type-ls-3: 0.0168em;
   --rpl-type-ls-2: 0.018em;
   --rpl-type-ls-1: 0.0192em;
-  --rpl-type-lh-12: 8.8rem;
-  --rpl-type-lh-11: 6.8rem;
+  --rpl-type-lh-12: 8rem;
+  --rpl-type-lh-11: 6rem;
   --rpl-type-lh-10: 5.2rem;
-  --rpl-type-lh-9: 4.8rem;
+  --rpl-type-lh-9: 4.4rem;
   --rpl-type-lh-8: 4rem;
   --rpl-type-lh-7: 3.6rem;
   --rpl-type-lh-6: 3.2rem;
@@ -95,6 +95,7 @@
   --rpl-clr-link: #0052C2;
   --rpl-clr-type-primary-alt-accessible: #003174;
   --rpl-clr-type-primary-accessible: #0052C2;
+  --rpl-clr-type-primary-contrast-alpha: rgb(255 255 255 / .75);
   --rpl-clr-accent-alt: #E6F5FD;
   --rpl-clr-accent: #0095EC;
   --rpl-clr-primary-alt: #003174;

@@ -11,13 +11,14 @@
     "start": "node .output/server/index.mjs",
     "mockserver": "node ./mockserver.js",
     "start:mock": "API_URL=http://localhost:3001 concurrently 'yarn mockserver' 'yarn start'",
-    "cy:open": "cypress open --e2e --browser chrome",
+    "cy:open": "cypress open --e2e --browser electron",
     "cy:run": "cypress run",
     "test:integration": "API_URL=http://localhost:3001 start-test 'yarn dev' http-get://localhost:3000/api/tide/site?id=8888 'cy:open'"
   },
   "dependencies": {
     "@dpc-sdp/ripple-tide-api": "0.0.0",
     "@dpc-sdp/ripple-tide-event": "0.0.0",
+    "@dpc-sdp/ripple-tide-grant": "0.0.0",
     "@dpc-sdp/ripple-tide-landing-page": "0.0.0",
     "@dpc-sdp/ripple-ui-core": "0.0.0",
     "@dpc-sdp/ripple-ui-forms": "0.0.0",

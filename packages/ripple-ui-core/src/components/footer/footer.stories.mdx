@@ -195,23 +195,9 @@ export const SingleTemplate = (args) => ({
       url: '#'
     }
   ],
+  credit: 'Image credit: image metadata slash credit goes here.',
   copyright: '© Copyright State Government of Victoria',
   logos: [
-    {
-      src: svgPlaceholder({ width: 112, height: 52 }),
-      alt: 'Max native size',
-      url: '#'
-    },
-    {
-      src: svgPlaceholder({ width: 32, height: 32 }),
-      alt: 'Smaller than max size',
-      url: '#'
-    },
-    {
-      src: svgPlaceholder({ width: 80, height: 200 }),
-      alt: 'Portrait',
-      url: '#'
-    },
     {
       src: svgPlaceholder({ width: 200, height: 80 }),
       alt: 'Landscape',
@@ -238,7 +224,7 @@ export const SingleTemplate = (args) => ({
   >
     {SingleTemplate.bind()}
   </Story>
-    <Story
+  <Story
     name='Neutral'
     play={a11yStoryCheck}
     parameters={{

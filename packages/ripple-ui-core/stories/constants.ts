@@ -71,6 +71,10 @@ export const RplTypeStyles = [
     class: `${base}-p`
   },
   {
+    title: 'Paragraph / Highlight',
+    class: `${base}-p-highlight`
+  },
+  {
     title: 'Paragraph / Default / Bold',
     class: `${base}-p  ${base}-weight-bold`
   },

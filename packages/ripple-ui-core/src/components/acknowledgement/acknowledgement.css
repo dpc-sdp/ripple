@@ -22,7 +22,8 @@
 
   &__flag {
     height: var(--local-flag-height);
-    border: 1px solid var(--rpl-clr-neutral-0);
+    border: 1px solid
+      var(--local-clr-flag-border, var(--rpl-clr-type-primary-contrast));
   }
 
   &__flag + &__flag {

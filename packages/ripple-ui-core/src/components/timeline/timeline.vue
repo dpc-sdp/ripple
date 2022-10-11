@@ -13,14 +13,29 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  title: 'Timeline heading',
+  title: null,
   items: () => []
 })
 
 const subtitle = (item: RplTimelineItem) => {
   if (item.dateStart && item.dateEnd) {
-    // return this.formatDateRange(item.dateStart, item.dateEnd)
-    return `${item.dateStart} - ${item.dateEnd}`
+    // Format raw dates
+    const options: Intl.DateTimeFormatOptions = {
+      day: '2-digit',
+      month: 'long'
+    }
+    const start = new Intl.DateTimeFormat('en-AU', options).format(
+      new Date(item.dateStart)
+    )
+    const end = new Intl.DateTimeFormat('en-AU', options).format(
+      new Date(item.dateEnd)
+    )
+    // Only send a range if the days are different
+    if (start === end) {
+      return start
+    } else {
+      return `${start} - ${end}`
+    }
   } else if (item.subtitle) {
     return item.subtitle
   }

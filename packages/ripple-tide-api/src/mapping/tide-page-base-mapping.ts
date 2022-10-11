@@ -7,10 +7,18 @@ import {
   includes as sidebarRelatedLinksIncludes
 } from './sidebar-related-links/sidebar-related-links-mapping.js'
 
-export const tidePageBaseMapping = ({ withSidebar = false }) => {
-  const sidebar = {
-    contacts: sidebarContactsMapping,
-    relatedLinks: sidebarRelatedLinksMapping
+export const tidePageBaseMapping = ({
+  withSidebarContacts = false,
+  withSidebarRelatedLinks = false
+}) => {
+  const sidebar: any = {}
+
+  if (withSidebarContacts) {
+    sidebar.contacts = sidebarContactsMapping
+  }
+
+  if (withSidebarRelatedLinks) {
+    sidebar.relatedLinks = sidebarRelatedLinksMapping
   }
 
   return {
@@ -18,16 +26,17 @@ export const tidePageBaseMapping = ({ withSidebar = false }) => {
     created: 'created',
     modified: 'modified',
     nid: 'id',
-    sidebar: withSidebar ? sidebar : undefined,
+    sidebar: sidebar,
     _src: (src) => (process.env.NODE_ENV === 'development' ? src : undefined)
   }
 }
 
-export const tidePageBaseIncludes = ({ withSidebar = false }) => {
-  const sidebarIncludes = [
-    ...sidebarContactsIncludes,
-    ...sidebarRelatedLinksIncludes
+export const tidePageBaseIncludes = ({
+  withSidebarContacts = false,
+  withSidebarRelatedLinks = false
+}) => {
+  return [
+    ...(withSidebarContacts ? sidebarContactsIncludes : []),
+    ...(withSidebarRelatedLinks ? sidebarRelatedLinksIncludes : [])
   ]
-
-  return [...(withSidebar ? sidebarIncludes : [])]
 }

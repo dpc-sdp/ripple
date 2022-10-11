@@ -1,7 +1,7 @@
 import {
   getLandingPageComponents,
   tidePageBaseMapping,
-  tidePageBaseIncludes,
+  tidePageBaseIncludes
 } from '@dpc-sdp/ripple-tide-api'
 import componentMapping from './component.mapping.js'
 import type { RplTideMapping } from '@dpc-sdp/ripple-tide-api/types'
@@ -11,7 +11,8 @@ const tideLandingPageModule: RplTideMapping = {
   schema: '@dpc-sdp/ripple-tide-landing-page/types',
   mapping: {
     ...tidePageBaseMapping({
-      withSidebar: true
+      withSidebarContacts: true,
+      withSidebarRelatedLinks: true
     }),
     summary: 'field_landing_page_summary',
     background: () => 'alt',
@@ -32,7 +33,8 @@ const tideLandingPageModule: RplTideMapping = {
   },
   includes: [
     ...tidePageBaseIncludes({
-      withSidebar: true
+      withSidebarContacts: true,
+      withSidebarRelatedLinks: true
     }),
     'field_whats_next',
     'field_graphical_image.field_media_image',

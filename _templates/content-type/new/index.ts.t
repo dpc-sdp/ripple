@@ -13,13 +13,15 @@ const tide<%= h.changeCase.pascalCase(name) %>Module: RplTideMapping = {
   schema: '@dpc-sdp/ripple-tide-<%= h.changeCase.paramCase(name) %>/types',
   mapping: {
     ...tidePageBaseMapping({
-      withSidebar: true
+      withSidebarContacts: true,
+      withSidebarRelatedLinks: true
     }),
     summary: 'field_landing_page_summary',
   },
   includes: [
     ...tidePageBaseIncludes({
-      withSidebar: true
+      withSidebarContacts: true,
+      withSidebarRelatedLinks: true
     }),
   ]
 }

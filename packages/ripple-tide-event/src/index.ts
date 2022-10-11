@@ -4,7 +4,7 @@ import {
   getAddress,
   formatDate,
   tidePageBaseMapping,
-  tidePageBaseIncludes,
+  tidePageBaseIncludes
 } from '@dpc-sdp/ripple-tide-api'
 
 import type { RplTideMapping } from '@dpc-sdp/ripple-tide-api/types'
@@ -14,7 +14,8 @@ const tideEventModule: RplTideMapping = {
   schema: '@dpc-sdp/ripple-tide-event/types',
   mapping: {
     ...tidePageBaseMapping({
-      withSidebar: true
+      withSidebarContacts: true,
+      withSidebarRelatedLinks: true
     }),
     summary: 'field_landing_page_summary',
     link: (src) => ({
@@ -55,7 +56,8 @@ const tideEventModule: RplTideMapping = {
   },
   includes: [
     ...tidePageBaseIncludes({
-      withSidebar: true
+      withSidebarContacts: true,
+      withSidebarRelatedLinks: true
     }),
     'field_landing_page_contact.field_paragraph_phones',
     'field_landing_page_contact.field_paragraph_social_media',

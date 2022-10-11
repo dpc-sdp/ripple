@@ -142,6 +142,11 @@
         "url": "https://www.vic.gov.au/department-premier-and-cabinet",
         "text": "Department of Premier and Cabinet"
       }
+    ],
+    "socialShareNetworks": [
+      "facebook",
+      "twitter",
+      "linkedin"
     ]
   }
 }

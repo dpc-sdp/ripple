@@ -12,7 +12,8 @@ const tideLandingPageModule: RplTideMapping = {
   mapping: {
     ...tidePageBaseMapping({
       withSidebarContacts: true,
-      withSidebarRelatedLinks: true
+      withSidebarRelatedLinks: true,
+      withSidebarSocialShare: true
     }),
     summary: 'field_landing_page_summary',
     background: () => 'alt',
@@ -34,7 +35,8 @@ const tideLandingPageModule: RplTideMapping = {
   includes: [
     ...tidePageBaseIncludes({
       withSidebarContacts: true,
-      withSidebarRelatedLinks: true
+      withSidebarRelatedLinks: true,
+      withSidebarSocialShare: true
     }),
     'field_whats_next',
     'field_graphical_image.field_media_image',

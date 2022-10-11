@@ -34,7 +34,8 @@ const tideGrantModule: RplTideMapping = {
   mapping: {
     ...tidePageBaseMapping({
       withSidebarContacts: true,
-      withSidebarRelatedLinks: false
+      withSidebarRelatedLinks: false,
+      withSidebarSocialShare: true
     }),
     summary: 'field_landing_page_summary',
     header: {
@@ -110,7 +111,8 @@ const tideGrantModule: RplTideMapping = {
   includes: [
     ...tidePageBaseIncludes({
       withSidebarContacts: true,
-      withSidebarRelatedLinks: false
+      withSidebarRelatedLinks: false,
+      withSidebarSocialShare: true
     }),
     'field_audience',
     'field_node_guidelines',

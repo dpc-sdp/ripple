@@ -28,6 +28,10 @@
         <slot v-if="page.sidebar" name="sidebar">
           <TideSidebarContactUs :contacts="page.sidebar.contacts" />
           <TideSidebarRelatedLinks :items="page.sidebar.relatedLinks" />
+          <TideSidebarSocialShare
+            :networks="page.sidebar.socialShareNetworks"
+            :pageTitle="page.title"
+          />
         </slot>
       </template>
       <template #footer>

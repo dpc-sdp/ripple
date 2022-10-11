@@ -6,10 +6,15 @@ import {
   map as sidebarRelatedLinksMapping,
   includes as sidebarRelatedLinksIncludes
 } from './sidebar-related-links/sidebar-related-links-mapping.js'
+import {
+  map as sidebarSocialShareMapping,
+  includes as sidebarSocialShareIncludes
+} from './sidebar-social-share/sidebar-social-share-mapping.js'
 
 export const tidePageBaseMapping = ({
   withSidebarContacts = false,
-  withSidebarRelatedLinks = false
+  withSidebarRelatedLinks = false,
+  withSidebarSocialShare = false
 }) => {
   const sidebar: any = {}
 
@@ -19,6 +24,10 @@ export const tidePageBaseMapping = ({
 
   if (withSidebarRelatedLinks) {
     sidebar.relatedLinks = sidebarRelatedLinksMapping
+  }
+
+  if (withSidebarSocialShare) {
+    sidebar.socialShareNetworks = sidebarSocialShareMapping
   }
 
   return {
@@ -33,10 +42,12 @@ export const tidePageBaseMapping = ({
 
 export const tidePageBaseIncludes = ({
   withSidebarContacts = false,
-  withSidebarRelatedLinks = false
+  withSidebarRelatedLinks = false,
+  withSidebarSocialShare = false
 }) => {
   return [
     ...(withSidebarContacts ? sidebarContactsIncludes : []),
-    ...(withSidebarRelatedLinks ? sidebarRelatedLinksIncludes : [])
+    ...(withSidebarRelatedLinks ? sidebarRelatedLinksIncludes : []),
+    ...(withSidebarSocialShare ? sidebarSocialShareIncludes : [])
   ]
 }

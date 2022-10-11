@@ -13,6 +13,7 @@ Feature: Home page
     Then the landing page component with ID 682 should exist
     Then the sidebar component with ID "CONTACT_US" should exist
     Then the sidebar component with ID "tide-sidebar-related-links" should exist
+    Then the sidebar component with ID "tide-sidebar-social-share" should exist
     When I click the open all button on RplAccordion with ID 682
     Then all accordion items in accordion ID 682 should be visible
 

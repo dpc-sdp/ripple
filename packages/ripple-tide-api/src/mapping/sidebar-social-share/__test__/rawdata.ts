@@ -5,7 +5,7 @@
  * The api call to get this data was:
  * https://develop.content.reference.sdp.vic.gov.au/api/v1/node/landing_page/1de5a395-bc1b-4bdd-a0c8-9dab428abecf?site=8888&include=field_related_links
  *
- * Extra (empty) relationship and includes fields were removed for simplicity
+ * Extra stuff was removed
  */
 
 // eslint-disable-next-line
@@ -107,106 +107,20 @@ export const rawData = {
           }
         }
       },
-      field_related_links: {
-        data: [
-          {
-            type: 'paragraph--related_links',
-            id: '95d9896a-8109-4d50-b331-04b0189f4e33',
-            meta: { target_revision_id: 1028 }
-          },
-          {
-            type: 'paragraph--related_links',
-            id: '3d451454-bac7-4936-8bfb-089f33e6999c',
-            meta: { target_revision_id: 1029 }
-          }
-        ],
+      field_bottom_graphical_image: {
+        data: null,
         links: {
           related: {
-            href: 'https://develop.content.reference.sdp.vic.gov.au/api/v1/node/landing_page/1de5a395-bc1b-4bdd-a0c8-9dab428abecf/field_related_links?resourceVersion=id%3A217'
+            href: 'https://develop.content.reference.sdp.vic.gov.au/api/v1/node/landing_page/1de5a395-bc1b-4bdd-a0c8-9dab428abecf/field_bottom_graphical_image?resourceVersion=id%3A217'
           },
           self: {
-            href: 'https://develop.content.reference.sdp.vic.gov.au/api/v1/node/landing_page/1de5a395-bc1b-4bdd-a0c8-9dab428abecf/relationships/field_related_links?resourceVersion=id%3A217'
+            href: 'https://develop.content.reference.sdp.vic.gov.au/api/v1/node/landing_page/1de5a395-bc1b-4bdd-a0c8-9dab428abecf/relationships/field_bottom_graphical_image?resourceVersion=id%3A217'
           }
         }
       }
     }
   },
-  included: [
-    {
-      type: 'paragraph--related_links',
-      id: '95d9896a-8109-4d50-b331-04b0189f4e33',
-      links: {
-        self: {
-          href: 'https://develop.content.reference.sdp.vic.gov.au/api/v1/paragraph/related_links/95d9896a-8109-4d50-b331-04b0189f4e33'
-        }
-      },
-      attributes: {
-        drupal_internal__id: 972,
-        drupal_internal__revision_id: 1028,
-        langcode: 'en',
-        status: true,
-        created: '2022-10-07T04:38:13+00:00',
-        parent_id: '136',
-        parent_type: 'node',
-        parent_field_name: 'field_related_links',
-        behavior_settings: [],
-        default_langcode: true,
-        revision_translation_affected: true,
-        field_paragraph_link: {
-          uri: 'https://www.vic.gov.au',
-          title: 'State Government of Victoria',
-          options: []
-        }
-      },
-      relationships: {
-        entity_type: {
-          data: null,
-          links: {
-            self: {
-              href: 'https://develop.content.reference.sdp.vic.gov.au/api/v1/paragraph/related_links/95d9896a-8109-4d50-b331-04b0189f4e33/relationships/entity_type'
-            }
-          }
-        }
-      }
-    },
-    {
-      type: 'paragraph--related_links',
-      id: '3d451454-bac7-4936-8bfb-089f33e6999c',
-      links: {
-        self: {
-          href: 'https://develop.content.reference.sdp.vic.gov.au/api/v1/paragraph/related_links/3d451454-bac7-4936-8bfb-089f33e6999c'
-        }
-      },
-      attributes: {
-        drupal_internal__id: 973,
-        drupal_internal__revision_id: 1029,
-        langcode: 'en',
-        status: true,
-        created: '2022-10-07T04:38:43+00:00',
-        parent_id: '136',
-        parent_type: 'node',
-        parent_field_name: 'field_related_links',
-        behavior_settings: [],
-        default_langcode: true,
-        revision_translation_affected: true,
-        field_paragraph_link: {
-          uri: 'https://www.vic.gov.au/department-premier-and-cabinet',
-          title: 'Department of Premier and Cabinet',
-          options: []
-        }
-      },
-      relationships: {
-        entity_type: {
-          data: null,
-          links: {
-            self: {
-              href: 'https://develop.content.reference.sdp.vic.gov.au/api/v1/paragraph/related_links/3d451454-bac7-4936-8bfb-089f33e6999c/relationships/entity_type'
-            }
-          }
-        }
-      }
-    }
-  ],
+  included: [],
   links: {
     self: {
       href: 'https://develop.content.reference.sdp.vic.gov.au/api/v1/node/landing_page/1de5a395-bc1b-4bdd-a0c8-9dab428abecf?include=field_related_links\u0026site=8888'

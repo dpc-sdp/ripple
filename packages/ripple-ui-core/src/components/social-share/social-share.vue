@@ -14,7 +14,7 @@ interface Props {
 
 withDefaults(defineProps<Props>(), {
   title: 'Share this page',
-  networks: () => ['facebook', 'twitter', 'linkedin'],
+  networks: () => ['Facebook', 'Twitter', 'LinkedIn'],
   page: () => {
     return {
       title: '',

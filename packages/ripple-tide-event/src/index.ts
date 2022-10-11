@@ -15,7 +15,8 @@ const tideEventModule: RplTideMapping = {
   mapping: {
     ...tidePageBaseMapping({
       withSidebarContacts: true,
-      withSidebarRelatedLinks: true
+      withSidebarRelatedLinks: true,
+      withSidebarSocialShare: true
     }),
     summary: 'field_landing_page_summary',
     link: (src) => ({
@@ -57,7 +58,8 @@ const tideEventModule: RplTideMapping = {
   includes: [
     ...tidePageBaseIncludes({
       withSidebarContacts: true,
-      withSidebarRelatedLinks: true
+      withSidebarRelatedLinks: true,
+      withSidebarSocialShare: true
     }),
     'field_landing_page_contact.field_paragraph_phones',
     'field_landing_page_contact.field_paragraph_social_media',

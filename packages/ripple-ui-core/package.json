@@ -40,24 +40,24 @@
     "test:storybook-ci": "concurrently -k -s first -n \"SB,TEST\" -c \"magenta,blue\" \"npx http-server storybook-static --port 6006 --silent\" \"wait-on tcp:6006 && yarn test:storybook\""
   },
   "dependencies": {
-    "@nuxt/kit": "^3.0.0-rc.10",
+    "@nuxt/kit": "3.0.0-rc.10",
     "mitt": "^3.0.0",
     "normalize.css": "^8.0.1",
-    "vue": "^3.2.39",
-    "vue-social-sharing": "^4.0.0-alpha4"
+    "vue": "3.2.39",
+    "vue-social-sharing": "4.0.0-alpha4"
   },
   "devDependencies": {
     "@originjs/vite-plugin-content": "^1.0.1",
-    "@vitejs/plugin-vue": "^3.1.0",
-    "@vue/compiler-sfc": "^3.2.39",
+    "@vitejs/plugin-vue": "^3.1.2",
+    "@vue/compiler-sfc": "^3.2.40",
     "@vueuse/core": "^9.2.0",
-    "autoprefixer": "^10.4.11",
+    "autoprefixer": "^10.4.12",
     "chromatic": "^6.9.0",
     "http-server": "^14.1.0",
     "jest-axe": "^6.0.0",
     "postcss-each": "^1.1.0",
     "postcss-for": "^2.1.1",
-    "postcss-nested": "^5.0.6",
+    "postcss-nested": "^6.0.0",
     "postcss-normalize": "^10.0.1",
     "postcss-preset-env": "^7.8.2",
     "storybook-addon-designs": "^6.2.1",

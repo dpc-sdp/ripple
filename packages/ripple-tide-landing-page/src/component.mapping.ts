@@ -31,7 +31,7 @@ export default {
       id: field.drupal_internal__id,
       title: field.field_paragraph_title,
       props: {
-        id: field.drupal_internal__id,
+        id: `acc-${field.drupal_internal__id}`,
         numbered: field.field_paragraph_accordion_style === 'numbered',
         items: field.field_paragraph_accordion.map((acc) => {
           return {

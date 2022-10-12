@@ -21,7 +21,7 @@
     "watch": "tsc -p tsconfig.json -w"
   },
   "dependencies": {
-    "@nuxt/kit": "^3.0.0-rc.10",
+    "@nuxt/kit": "3.0.0-rc.10",
     "axios": "^0.27.2",
     "change-case": "^4.1.2",
     "cheerio": "^1.0.0-rc.10",
@@ -35,7 +35,7 @@
     "typescript-json-schema": "^0.54.0"
   },
   "devDependencies": {
-    "@nuxt/schema": "^3.0.0-rc.10",
+    "@nuxt/schema": "3.0.0-rc.10",
     "@types/cheerio": "^0.22.31",
     "axios-mock-adapter": "^1.21.1",
     "defu": "^6.1.0",

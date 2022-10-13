@@ -11,7 +11,8 @@
     "./nuxt": "./dist/nuxt.js",
     "./types": "./types.d.ts",
     "./components": "./dist/nuxt/components",
-    "./services": "./dist/services/index.js"
+    "./services": "./dist/services/index.js",
+    "./mapping/site": "./dist/mapping/site.js"
   },
   "license": "MIT",
   "keywords": [],

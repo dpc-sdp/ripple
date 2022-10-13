@@ -10,7 +10,7 @@ export default defineNuxtConfig({
   tide: {
     contentApi: {
       site: '8888',
-      baseUrl: 'https://develop.content.reference.sdp.vic.gov.au/',
+      baseUrl: process.env.CONTENT_API_SERVER,
       apiPrefix: 'api/v1',
       auth: {
         username: 'dpc',
@@ -23,7 +23,7 @@ export default defineNuxtConfig({
         grant: '@dpc-sdp/ripple-tide-grant',
         landing_page: '@dpc-sdp/ripple-tide-landing-page'
       },
-      site: './tide/site.mjs'
+      site: '@dpc-sdp/ripple-tide-api/mapping/site'
     },
     debug: false
   },

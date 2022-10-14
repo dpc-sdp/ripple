@@ -19,24 +19,29 @@
   }
 
   &__message {
-    margin-bottom: var(--rpl-sp-3);
     color: var(--rpl-clr-type-light);
 
     &-wrap {
       width: 100%;
+      margin-top: var(--rpl-sp-1);
     }
   }
 
   &__link {
-    display: inline;
+    display: inline-block;
     color: var(--rpl-clr-type-light);
+    margin-top: var(--rpl-sp-3);
     transition: gap var(--rpl-motion-speed-2) ease-out;
 
     .rpl-icon {
       margin-bottom: -0.2em;
-      margin-left: var(--rpl-sp-1);
+      margin-left: var(--rpl-sp-2);
       transition: transform var(--rpl-motion-speed-2) ease-out;
       transform: translateX(0);
+    }
+
+    &:active {
+      text-decoration: underline;
     }
 
     &:visited,

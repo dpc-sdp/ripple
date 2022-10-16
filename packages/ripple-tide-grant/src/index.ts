@@ -1,6 +1,7 @@
 import mime from 'mime-types'
 import {
-  tidePageMappingBase,
+  tidePageBaseMapping,
+  tidePageBaseIncludes,
   getField,
   humanizeFilesize
 } from '@dpc-sdp/ripple-tide-api'
@@ -31,7 +32,11 @@ const tideGrantModule: RplTideMapping = {
   component: '@dpc-sdp/ripple-tide-grant/component',
   schema: '@dpc-sdp/ripple-tide-grant/types',
   mapping: {
-    ...tidePageMappingBase,
+    ...tidePageBaseMapping({
+      withSidebarContacts: true,
+      withSidebarRelatedLinks: false,
+      withSidebarSocialShare: true
+    }),
     summary: 'field_landing_page_summary',
     header: {
       title: 'title',
@@ -104,6 +109,11 @@ const tideGrantModule: RplTideMapping = {
     sidebarComponents: ['RplSocialShare']
   },
   includes: [
+    ...tidePageBaseIncludes({
+      withSidebarContacts: true,
+      withSidebarRelatedLinks: false,
+      withSidebarSocialShare: true
+    }),
     'field_audience',
     'field_node_guidelines',
     'field_node_timeline',

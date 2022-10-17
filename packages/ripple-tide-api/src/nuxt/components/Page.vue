@@ -27,8 +27,8 @@
       <template #sidebar>
         <slot v-if="page.sidebar" name="sidebar">
           <TideSidebarSiteSectionNav :nav="page.sidebar.siteSectionNav" />
-          <TideSidebarContactUs :contacts="page.sidebar.contacts" />
           <TideSidebarRelatedLinks :items="page.sidebar.relatedLinks" />
+          <TideSidebarContactUs :contacts="page.sidebar.contacts" />
           <TideSidebarSocialShare
             :networks="page.sidebar.socialShareNetworks"
             :pageTitle="page.title"

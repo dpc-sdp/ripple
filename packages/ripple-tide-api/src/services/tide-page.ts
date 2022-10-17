@@ -6,15 +6,19 @@ export default class TidePage extends TideApiBase {
   contentTypes: object
   site: string
   sectionId: string
+  path: string
 
   constructor(config: RplTideModuleConfig) {
     super(config)
     this.site = config.contentApi.site
     this.sectionId = ''
+    this.path = ''
     this.contentTypes = config.mapping.content
   }
 
   async getRouteByPath(path: string, site: string = this.site) {
+    this.path = path
+
     const routeUrl = `/route?site=${site}&path=${path}`
     return this.get(routeUrl)
       .then((response) => response?.data?.attributes)

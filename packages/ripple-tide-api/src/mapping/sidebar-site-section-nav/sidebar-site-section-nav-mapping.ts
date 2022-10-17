@@ -16,7 +16,11 @@ export const map = async (src, tidePageApi: TidePageApi) => {
   // Finally, this site data will contain a reference to the menu we need to fetch
   const menuData = siteData.field_site_main_menu
 
-  const menu = await tidePageApi.getSiteMenu(siteId, menuData)
+  const menu = await tidePageApi.getSiteMenu(
+    tidePageApi.site,
+    menuData,
+    tidePageApi.path
+  )
 
   return {
     title: src.field_landing_page_nav_title,

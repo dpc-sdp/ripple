@@ -33,10 +33,8 @@ export default {
       return socialImages
     },
     menus: async function (src, tideSiteApi) {
-      const siteId = src.drupal_internal__tid
-
-      const menuMain = await tideSiteApi.getSiteMenu(siteId, src.field_site_main_menu)
-      const menuFooter = await tideSiteApi.getSiteMenu(siteId, src.field_site_footer_menu)
+      const menuMain = await tideSiteApi.getSiteMenu(tideSiteApi.site, src.field_site_main_menu)
+      const menuFooter = await tideSiteApi.getSiteMenu(tideSiteApi.site, src.field_site_footer_menu)
 
       return {
         menuMain,

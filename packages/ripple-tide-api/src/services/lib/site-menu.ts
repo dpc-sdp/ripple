@@ -59,6 +59,22 @@ const _buildHierarchy = function (menus) {
   return roots
 }
 
+const _setActivePath = function (branch, path) {
+  let isActivePath = false
+  for (const item of branch) {
+    if (item.url === path) {
+      item['active'] = true
+      isActivePath = true
+    } else if (item.items) {
+      if (_setActivePath(item.items, path)) {
+        item['active'] = true
+        isActivePath = true
+      }
+    }
+  }
+  return isActivePath
+}
+
 /**
  * Returns menus organised into hierarchy based on the parent key of menu items.
  *
@@ -68,7 +84,7 @@ const _buildHierarchy = function (menus) {
  * @return {Object}
  * Hierarchical menu object
  */
-const getHierarchicalMenu = function (menu) {
+const getHierarchicalMenu = function (menu, activeUrl) {
   const linkValues = [] as any
   for (const link of menu) {
     if (link.attributes.enabled) {
@@ -84,6 +100,10 @@ const getHierarchicalMenu = function (menu) {
     }
   }
   const hierarchy = _buildHierarchy(linkValues)
+
+  if (activeUrl) {
+    _setActivePath(hierarchy, activeUrl)
+  }
 
   return hierarchy
 }

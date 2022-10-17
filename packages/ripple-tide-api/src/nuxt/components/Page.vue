@@ -61,7 +61,8 @@
       </template>
       <template #body>
         <!-- TODO: Add error handling in Error component -->
-        <h1>{{ pageError.data?.error?.message }}</h1>
+        ERROR!
+        <h1>{{ pageError?.message }}</h1>
       </template>
       <template #footer>
         <slot name="footer">

@@ -104,7 +104,7 @@ export default class TideApiBase extends HttpClient {
     }
   }
 
-  async getSiteMenu(siteId, menuData) {
+  async getSiteMenu(siteId, menuData, activePath?) {
     if (menuData) {
       const menuName = menuData.drupal_internal__id
 
@@ -116,7 +116,7 @@ export default class TideApiBase extends HttpClient {
 
         if (menusResponse) {
           const menu = menusResponse
-          return getHierarchicalMenu(menu)
+          return getHierarchicalMenu(menu, activePath)
         }
       } catch (error) {
         return Promise.reject(this.handleError('Error fetching site menus'))

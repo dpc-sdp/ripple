@@ -81,7 +81,7 @@ export default {
       isClearingForm: false
     }
   },
-  created () {
+  mounted () {
     if (this.listenForClearForm) {
       RplFormEventBus.$on('clearform', this.clearForm)
     }

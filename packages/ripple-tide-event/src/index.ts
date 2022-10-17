@@ -3,7 +3,8 @@ import {
   getImageFromField,
   getAddress,
   formatDate,
-  tidePageMappingBase
+  tidePageBaseMapping,
+  tidePageBaseIncludes
 } from '@dpc-sdp/ripple-tide-api'
 
 import type { RplTideMapping } from '@dpc-sdp/ripple-tide-api/types'
@@ -12,7 +13,11 @@ const tideEventModule: RplTideMapping = {
   component: '@dpc-sdp/ripple-tide-event/component',
   schema: '@dpc-sdp/ripple-tide-event/types',
   mapping: {
-    ...tidePageMappingBase,
+    ...tidePageBaseMapping({
+      withSidebarContacts: true,
+      withSidebarRelatedLinks: true,
+      withSidebarSocialShare: true
+    }),
     summary: 'field_landing_page_summary',
     link: (src) => ({
       text: 'See event details',
@@ -51,6 +56,11 @@ const tideEventModule: RplTideMapping = {
     requirements: (src) => src.field_event_details[0]?.field_event_requirements
   },
   includes: [
+    ...tidePageBaseIncludes({
+      withSidebarContacts: true,
+      withSidebarRelatedLinks: true,
+      withSidebarSocialShare: true
+    }),
     'field_landing_page_contact.field_paragraph_phones',
     'field_landing_page_contact.field_paragraph_social_media',
     'field_event_category',

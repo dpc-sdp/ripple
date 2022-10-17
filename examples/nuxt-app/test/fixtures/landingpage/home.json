@@ -84,12 +84,69 @@
     }
   ],
   "sidebar": {
-    "contact": {
-      "address": {
-        "name": "First Name Last Name",
-        "department": "Department Name",
-        "street": "Address Line, Suburb, 3019"
+    "contacts": [
+      {
+        "id": "CONTACT_US",
+        "contactTitle": "A contact title",
+        "contactName": "A contact name",
+        "department": "Department of Premier and Cabinet",
+        "email": "contact@dpc.vic.gov.au",
+        "locationAddress": {
+          "id": "988",
+          "countryCode": "AU",
+          "administrativeArea": "VIC",
+          "locality": "Melbourne",
+          "postalCode": "3000",
+          "addressLine1": "Department of Premier and Cabinet",
+          "addressLine2": "35 Collins Street"
+        },
+        "postalAddress": {
+          "id": "988",
+          "countryCode": "AU",
+          "administrativeArea": "VIC",
+          "locality": "Coburg",
+          "postalCode": "3058",
+          "addressLine1": "Department of Premier and Cabinet",
+          "addressLine2": "GPO Box 4509"
+        },
+        "phones": [
+          {
+            "id": "989",
+            "title": "Calls in Australia",
+            "number": "1300 366 356"
+          },
+          {
+            "id": "989",
+            "title": "Calls from overseas",
+            "number": "+61 3 9603 8804"
+          }
+        ],
+        "socialMedia": [
+          {
+            "id": "990",
+            "type": "twitter",
+            "text": "@VicGovAu",
+            "url": "https://twitter.com/VicGovAu"
+          }
+        ]
       }
-    }
+    ],
+    "relatedLinks": [
+      {
+        "id": "777",
+        "url": "https://www.vic.gov.au",
+        "text": "State Government of Victoria"
+      },
+      {
+        "id": "778",
+        "url": "https://www.vic.gov.au/department-premier-and-cabinet",
+        "text": "Department of Premier and Cabinet"
+      }
+    ],
+    "socialShareNetworks": [
+      "facebook",
+      "twitter",
+      "linkedin"
+    ]
   }
 }

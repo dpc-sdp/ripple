@@ -1,4 +1,4 @@
 export interface RplSocialSharePage {
-  title: string,
+  title?: string
   url: string
 }

@@ -32,16 +32,16 @@ export default {
       }
       return socialImages
     },
-    menus: async function (src) {
-      const menuFields = {
-        menuMain: 'field_site_main_menu',
-        menuFooter: 'field_site_footer_menu'
+    menus: async function (src, tideSiteApi) {
+      const siteId = src.drupal_internal__tid
+
+      const menuMain = await tideSiteApi.getSiteMenu(siteId, src.field_site_main_menu)
+      const menuFooter = await tideSiteApi.getSiteMenu(siteId, src.field_site_footer_menu)
+
+      return {
+        menuMain,
+        menuFooter
       }
-      const menus = await this.getSiteMenus(src, menuFields)
-      if (menus) {
-        return menus
-      }
-      return []
     }
   },
   includes: [

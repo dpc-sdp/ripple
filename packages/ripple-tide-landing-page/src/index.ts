@@ -11,6 +11,7 @@ const tideLandingPageModule: RplTideMapping = {
   schema: '@dpc-sdp/ripple-tide-landing-page/types',
   mapping: {
     ...tidePageBaseMapping({
+      withSidebarSiteSectionNav: true,
       withSidebarContacts: true,
       withSidebarRelatedLinks: true,
       withSidebarSocialShare: true
@@ -34,6 +35,7 @@ const tideLandingPageModule: RplTideMapping = {
   },
   includes: [
     ...tidePageBaseIncludes({
+      withSidebarSiteSectionNav: true,
       withSidebarContacts: true,
       withSidebarRelatedLinks: true,
       withSidebarSocialShare: true

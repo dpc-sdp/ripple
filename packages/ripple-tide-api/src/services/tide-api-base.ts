@@ -2,6 +2,7 @@ import HttpClient from './http-client.js'
 import Logger from './lib/api-logger.js'
 import { get } from 'lodash-es'
 import type { RplTideModuleConfig } from './../../types'
+import getHierarchicalMenu from './lib/site-menu.js'
 
 export default class TideApiBase extends HttpClient {
   debug: boolean | undefined
@@ -34,8 +35,7 @@ export default class TideApiBase extends HttpClient {
           if (typeof resolver === 'string' || Array.isArray(resolver)) {
             data[key] = get(resource, resolver)
           } else if (resolver.constructor.name === 'AsyncFunction') {
-            const resolveFn = resolver.bind(this)
-            data[key] = await resolveFn(resource)
+            data[key] = await resolver(resource, this)
           } else if (typeof resolver === 'function') {
             const resolveFn = resolver.bind(this)
             data[key] = resolveFn(resource)
@@ -50,7 +50,7 @@ export default class TideApiBase extends HttpClient {
     return data
   }
 
-  async get(url: string, config = {}) {
+  async get(url: string, config = {}): Promise<any> {
     if (this.debug) {
       this.logger.info(
         `Req - ${this.client.defaults.baseURL}${this.client.getUri({
@@ -101,6 +101,68 @@ export default class TideApiBase extends HttpClient {
       status: getReturnStatus(status),
       message: this.getErrorMessage(status),
       debug: this.debug && msg // only return debug info if enabled
+    }
+  }
+
+  async getSiteMenu(siteId, menuData) {
+    if (menuData) {
+      const menuName = menuData.drupal_internal__id
+
+      try {
+        const menusResponse = await this.getAllPaginatedMenuLinks(
+          siteId,
+          menuName
+        )
+
+        if (menusResponse) {
+          const menu = menusResponse
+          return getHierarchicalMenu(menu)
+        }
+      } catch (error) {
+        return Promise.reject(this.handleError('Error fetching site menus'))
+      }
+    }
+  }
+
+  async getAllPaginatedMenuLinks(siteId, menuName) {
+    try {
+      // Get the first page of links, this will also give us a link to the next page
+      let response = await this.get(
+        '/menu_link_content/menu_link_content?site=' + siteId,
+        {
+          params: {
+            filter: {
+              menu_link_content: {
+                path: 'menu_name',
+                value: menuName
+              }
+            }
+          }
+        }
+      )
+
+      let menuLinks = [...response.data]
+
+      // FIXME - For local dev, return only the first page of the results otherwise development
+      // is slowed down to a crawl
+      if (process.env.DISABLE_MENU_PAGINATION) {
+        return menuLinks
+      }
+
+      // Get the rest of the menu links by following their 'next' link until a response has no next link
+      while (response?.links?.next) {
+        try {
+          response = await this.get(response.links.next.href)
+          menuLinks = [...menuLinks, ...response.data]
+        } catch (error) {
+          this.logger.error('Failed to get next page data')
+          throw error
+        }
+      }
+
+      return menuLinks
+    } catch (error) {
+      return Promise.reject(this.handleError('Error fetching menu links'))
     }
   }
 }

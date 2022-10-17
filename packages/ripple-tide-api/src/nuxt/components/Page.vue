@@ -26,6 +26,7 @@
       </template>
       <template #sidebar>
         <slot v-if="page.sidebar" name="sidebar">
+          <TideSidebarSiteSectionNav :nav="page.sidebar.siteSectionNav" />
           <TideSidebarContactUs :contacts="page.sidebar.contacts" />
           <TideSidebarRelatedLinks :items="page.sidebar.relatedLinks" />
           <TideSidebarSocialShare
@@ -83,6 +84,7 @@ import {
 } from '#imports'
 import { computed } from 'vue'
 import { pascalCase } from 'change-case'
+import TideSidebarSiteSectionNav from './sidebar/TideSidebarSiteSectionNav.vue'
 
 const route = useRoute()
 const config = useRuntimeConfig()

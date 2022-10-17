@@ -10,11 +10,16 @@ import {
   map as sidebarSocialShareMapping,
   includes as sidebarSocialShareIncludes
 } from './sidebar-social-share/sidebar-social-share-mapping.js'
+import {
+  map as sidebarSiteSectionNavMapping,
+  includes as sidebarSiteSectionNavIncludes
+} from './sidebar-site-section-nav/sidebar-site-section-nav-mapping.js'
 
 export const tidePageBaseMapping = ({
   withSidebarContacts = false,
   withSidebarRelatedLinks = false,
-  withSidebarSocialShare = false
+  withSidebarSocialShare = false,
+  withSidebarSiteSectionNav = false
 }) => {
   const sidebar: any = {}
 
@@ -30,6 +35,10 @@ export const tidePageBaseMapping = ({
     sidebar.socialShareNetworks = sidebarSocialShareMapping
   }
 
+  if (withSidebarSiteSectionNav) {
+    sidebar.siteSectionNav = sidebarSiteSectionNavMapping
+  }
+
   return {
     title: 'title',
     created: 'created',
@@ -43,11 +52,13 @@ export const tidePageBaseMapping = ({
 export const tidePageBaseIncludes = ({
   withSidebarContacts = false,
   withSidebarRelatedLinks = false,
-  withSidebarSocialShare = false
+  withSidebarSocialShare = false,
+  withSidebarSiteSectionNav = false
 }) => {
   return [
     ...(withSidebarContacts ? sidebarContactsIncludes : []),
     ...(withSidebarRelatedLinks ? sidebarRelatedLinksIncludes : []),
-    ...(withSidebarSocialShare ? sidebarSocialShareIncludes : [])
+    ...(withSidebarSocialShare ? sidebarSocialShareIncludes : []),
+    ...(withSidebarSiteSectionNav ? sidebarSiteSectionNavIncludes : [])
   ]
 }

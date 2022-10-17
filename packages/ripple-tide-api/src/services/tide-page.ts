@@ -5,9 +5,12 @@ import type { RplTideModuleConfig } from './../../types'
 export default class TidePage extends TideApiBase {
   contentTypes: object
   site: string
+  sectionId: string
+
   constructor(config: RplTideModuleConfig) {
     super(config)
     this.site = config.contentApi.site
+    this.sectionId = ''
     this.contentTypes = config.mapping.content
   }
 
@@ -156,6 +159,11 @@ export default class TidePage extends TideApiBase {
   async getPageByRouteData(route, config) {
     try {
       if (route && route.entity_type && route.bundle && route.uuid) {
+        // The route response has a 'section' attribute, which is the site id used to
+        // determine which menu appears in the 'site section navigation'
+        // We capture it here so that it can be used in the mapping functions
+        this.sectionId = route.section
+
         const nodeUrl = `/${route.entity_type}/${route.bundle}/${route.uuid}`
         return this.get(nodeUrl, config)
           .then((response) => {

@@ -9,7 +9,6 @@
   width: 100%;
   height: calc(var(--local-nav-bar-height) + var(--rpl-sp-3));
   padding: var(--rpl-sp-3);
-  background-color: red;
 
   @media (--rpl-bp-s) {
     --local-nav-bar-height: 52px;

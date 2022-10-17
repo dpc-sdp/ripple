@@ -26,14 +26,14 @@
     }
 
     &.rpl-header--breadcrumbs {
-      margin-top: -115px;
+      margin-top: -116px;
 
       @media (--rpl-bp-s) {
-        margin-top: -119px;
+        margin-top: -120px;
       }
 
       @media (--rpl-bp-m) {
-        margin-top: -131px;
+        margin-top: -132px;
       }
     }
   }

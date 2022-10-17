@@ -35,11 +35,7 @@ const mainCols = computed(() => {
         <slot name="breadcrumbs"></slot>
       </div>
     </header>
-    <section
-      v-if="$slots.aboveBody"
-      id="rpl-above-body"
-      class="rpl-u-margin-t-1"
-    >
+    <section v-if="$slots.aboveBody" id="rpl-above-body">
       <slot name="aboveBody"></slot>
     </section>
     <div class="rpl-layout__body-wrap">

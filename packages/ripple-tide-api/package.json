@@ -29,9 +29,9 @@
     "js-yaml": "^4.1.0",
     "jsonapi-parse": "^2.0.1",
     "lodash-es": "^4.17.21",
-    "pathe": "^0.3.8",
+    "pathe": "^0.3.9",
     "qs": "^6.10.3",
-    "ts-json-schema-generator": "^1.0.0",
+    "ts-json-schema-generator": "^1.1.2",
     "typescript-json-schema": "^0.54.0"
   },
   "devDependencies": {

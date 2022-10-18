@@ -30,7 +30,7 @@
           <TideSidebarRelatedLinks :items="page.sidebar.relatedLinks" />
           <TideSidebarSocialShare
             :networks="page.sidebar.socialShareNetworks"
-            :pageTitle="page.title"
+            :page-title="page.title"
           />
         </slot>
       </template>

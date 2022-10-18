@@ -31,14 +31,15 @@ export type TideGrantTimeline = {
 }
 
 export type TideGrantGuidelineItem = {
+  id: string
   title: string
   content: string
   active: boolean
 }
 
 export type TideGrantGuidelines = {
-  title: string
   id: string
+  title: string
   accordions: Array<TideGrantGuidelineItem>
 }
 

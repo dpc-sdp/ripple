@@ -56,18 +56,22 @@
     "id": "ef9ef2ee-f5d6-482b-b4f4-fa2445b9eccf",
     "accordions": [
       {
+        "id": "ef9ef2ee-f5d6-482b-b4f4-fa2445b9eccd",
         "title": "Eligibility",
         "content": "Lorem ipsum"
       },
       {
+        "id": "ef9ef2ee-f5d6-482b-b4f4-fa2445b9eccc",
         "title": "Assessment criteria",
         "content": "Lorem ipsum"
       },
       {
+        "id": "ef9ef2ee-f5d6-482b-b4f4-fa2445b9eccb",
         "title": "Assessment process",
         "content": "Lorem ipsum"
       },
       {
+        "id": "ef9ef2ee-f5d6-482b-b4f4-fa2445b9ecca",
         "title": "How to apply",
         "content": "Lorem ipsum"
       }

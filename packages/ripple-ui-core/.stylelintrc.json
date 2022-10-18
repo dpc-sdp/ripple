@@ -21,6 +21,7 @@
       {
         "ignoreShorthands": ["padding", "margin"]
       }
-    ]
+    ],
+    "import-notation": null
   }
 }

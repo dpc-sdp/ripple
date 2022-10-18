@@ -17,7 +17,13 @@ const tideLandingPageModule: RplTideMapping = {
       withSidebarSocialShare: true
     }),
     summary: 'field_landing_page_summary',
-    background: () => 'alt',
+    background: (src) => {
+      if (src.field_landing_page_bg_colour === 'grey') {
+        return 'alt'
+      }
+
+      return 'default'
+    },
     headerComponents: async (page) => {
       return await getLandingPageComponents(
         page,

@@ -38,6 +38,12 @@ export default async function (context, pageData) {
       response = await context.app.$tide.getPageByPath(context.route.path, tideParams, headersConfig)
     }
 
+    // Redirect /node/nid to node alias url.
+    if (context.route.path.match(/node\/(\d+)/)) {
+      response.redirect_url = response.path.origin_url
+      response.status_code  = 302
+    }
+
     // If redirect required, redirect.
     if (response && response.redirect_url) {
       return context.redirect(response.status_code, response.redirect_url)

@@ -31,7 +31,10 @@ export const formatDate = (date) => {
   return date
 }
 
-export const getImageFromField = (field: object, path: string): mediaImage => {
+export const getImageFromField = (
+  field: object,
+  path: string | string[]
+): mediaImage => {
   let getPath
   if (Array.isArray(path)) {
     getPath = [...path, 'field_media_image']

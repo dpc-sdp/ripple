@@ -1,4 +1,6 @@
-import { getImageFromField } from '@dpc-sdp/ripple-tide-api'
+import { getImageFromField } from './../utils/mapping-utils.js'
+import TideSite from './../services/tide-site.js'
+
 export default {
   mapping: {
     name: 'name',
@@ -11,6 +13,14 @@ export default {
       }
     },
     acknowledgement: 'field_prominence_ack_to_country',
+    theme: (src) => {
+      if (src.field_site_theme_values) {
+        return src.field_site_theme_values.reduce((map, obj) => {
+          map[obj.key] = obj.value
+          return map
+        }, {})
+      }
+    },
     socialImages: (src) => {
       const socialImages = {
         twitter: {},
@@ -32,7 +42,7 @@ export default {
       }
       return socialImages
     },
-    menus: async function (src) {
+    menus: async function (this: TideSite, src) {
       const menuFields = {
         menuMain: 'field_site_main_menu',
         menuFooter: 'field_site_footer_menu'

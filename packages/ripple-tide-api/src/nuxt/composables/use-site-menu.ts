@@ -1,6 +1,4 @@
-import { computed } from 'vue'
-
-export default (site: any) => {
+export default () => {
   // TODO: Wire useSiteMenu up to real content, currently hardcoded with example
   // from storybook.
   return {

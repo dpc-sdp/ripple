@@ -35,9 +35,7 @@ withDefaults(defineProps<Props>(), {
 </template>
 
 <style>
-.rpl-svg-sprite {
-  &--hidden {
-    display: none;
-  }
+.rpl-svg-sprite--hidden {
+  display: none;
 }
 </style>

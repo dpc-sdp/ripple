@@ -56,11 +56,12 @@ export default { name: 'TideGrantOverview' }
       </li>
       <li
         v-if="overview.description"
-        class="tide-grant__overview-item tide-grant__overview-item--description"
+        class="
+          tide-grant__overview-item tide-grant__overview-item--description
+          rpl-type-p
+        "
       >
-        <p class="rpl-type-p">
-          {{ overview.description }}
-        </p>
+        <rpl-content :html="overview.description"></rpl-content>
       </li>
       <li
         v-if="overview.link"
@@ -77,7 +78,7 @@ export default { name: 'TideGrantOverview' }
 <script setup lang="ts">
 import { computed } from 'vue'
 import type { TideGrantOverview } from '../../types'
-import { RplButton, RplIcon } from '@dpc-sdp/ripple-ui-core'
+import { RplButton, RplIcon, RplContent } from '@dpc-sdp/ripple-ui-core'
 
 const props =
   defineProps<{

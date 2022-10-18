@@ -22,13 +22,13 @@
     "@dpc-sdp/ripple-tide-landing-page": "0.0.0",
     "@dpc-sdp/ripple-ui-core": "0.0.0",
     "@dpc-sdp/ripple-ui-forms": "0.0.0",
-    "dotenv": "^16.0.2"
+    "dotenv": "^16.0.3"
   },
   "devDependencies": {
-    "@badeball/cypress-cucumber-preprocessor": "^13.0.0",
+    "@badeball/cypress-cucumber-preprocessor": "^13.0.2",
     "@testing-library/cypress": "^8.0.3",
-    "mockttp": "^3.3.1",
-    "nuxt": "^3.0.0-rc.10",
+    "mockttp": "^3.4.0",
+    "nuxt": "3.0.0-rc.10",
     "start-server-and-test": "^1.14.0"
   }
 }

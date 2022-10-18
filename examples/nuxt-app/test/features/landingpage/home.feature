@@ -2,6 +2,10 @@ Feature: Home page
 
   Example of mocked page
 
+  Scenario: On 404
+    Given the mock server has started
+    And the endpoint "/api/tide/page" with query "?path=/404&site=8888" returns fixture "/errors/404" with status 404
+    Given I visit the page "/404"
 
   Scenario: On load
     Given the mock server has started
@@ -14,13 +18,5 @@ Feature: Home page
     Then the sidebar component with ID "CONTACT_US" should exist
     Then the sidebar component with ID "tide-sidebar-related-links" should exist
     Then the sidebar component with ID "tide-sidebar-social-share" should exist
-    When I click the open all button on RplAccordion with ID 682
-    Then all accordion items in accordion ID 682 should be visible
-
-  Scenario: On 404
-    Given the mock server has started
-    And the endpoint "/api/tide/page" with query "?path=/404&site=8888" returns fixture "/errors/404" with status 404
-    Given I visit the page "/404"
-#   Then the page title should be ""
-#   Then the primary nav should exist
-#   Then the footer should exist
+    When I click the open all button on RplAccordion with ID "682"
+    Then all accordion items in accordion ID "682" should be visible

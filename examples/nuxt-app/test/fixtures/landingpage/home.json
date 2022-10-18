@@ -39,19 +39,22 @@
       "component": "TideLandingPageAccordion",
       "id": 682,
       "props": {
-        "id": 682,
+        "id": "82c09ab2-83e7-431f-bc5b-33d3f3bee5ed",
         "title": "This is an Accordion header (basic)",
         "numbered": true,
         "items": [
           {
+            "id": "82c09ab2-83e7-431f-bc5b-33d3f3bee5ed",
             "title": "Accordion #1",
             "content": "<p>Phasellus in varius leo. Suspendisse potenti. Donec scelerisque cursus ex varius efficitur. Vivamus pretium nisi sed libero accumsan mattis. Duis convallis, velit eget varius tempus, orci erat aliquam sem, eget porta mauris nisl at mauris.</p>"
           },
           {
+            "id": "82c09ab2-83e7-431f-bc5b-33d3f3bee5dd",
             "title": "Accordion #2",
             "content": "<p>Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus. Phasellus lacus lectus, sollicitudin sed posuere non, ultricies ut quam.</p>"
           },
           {
+            "id": "82c09ab2-83e7-431f-bc5b-33d3f3beeced",
             "title": "Accordion #3",
             "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet ligula sit amet lacinia. In a leo nec tortor aliquet faucibus. Quisque nec congue ligula, vitae condimentum tellus.</p>"
           }
@@ -61,21 +64,24 @@
     {
       "uuid": "ce476f78-771e-4f0a-a14a-b880991cdf21",
       "component": "TideLandingPageAccordion",
-      "id": 686,
+      "id": "ce476f78-771e-4f0a-a14a-b880991cdf21",
       "props": {
-        "id": 686,
+        "id": "ce476f78-771e-4f0a-a14a-b880991cdf21",
         "title": "Accordion header (numbered)",
         "numbered": true,
         "items": [
           {
+            "id": "ce476f78-771e-4f0a-a14a-b880991cdf31",
             "title": "Accordion #1",
             "content": "<p>Phasellus in varius leo. Suspendisse potenti. Donec scelerisque cursus ex varius efficitur. Vivamus pretium nisi sed libero accumsan mattis. Duis convallis, velit eget varius tempus, orci erat aliquam sem, eget porta mauris nisl at mauris.</p>"
           },
           {
+            "id": "ce476f78-771e-4f0a-a14a-b880991cdf41",
             "title": "Accordion #2",
             "content": "<p>Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus. Phasellus lacus lectus, sollicitudin sed posuere non, ultricies ut quam.</p>"
           },
           {
+            "id": "ce476f78-771e-4f0a-a14a-b880991cdf51",
             "title": "Accordion #3",
             "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet ligula sit amet lacinia. In a leo nec tortor aliquet faucibus. Quisque nec congue ligula, vitae condimentum tellus.</p>"
           }
@@ -143,10 +149,6 @@
         "text": "Department of Premier and Cabinet"
       }
     ],
-    "socialShareNetworks": [
-      "facebook",
-      "twitter",
-      "linkedin"
-    ]
+    "socialShareNetworks": ["facebook", "twitter", "linkedin"]
   }
 }

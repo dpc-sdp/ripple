@@ -13,6 +13,30 @@
   .rpl-icon {
     color: var(--rpl-clr-link);
   }
+
+  &.rpl-header--behind-nav {
+    margin-top: -60px;
+
+    @media (--rpl-bp-s) {
+      margin-top: -64px;
+    }
+
+    @media (--rpl-bp-m) {
+      margin-top: -76px;
+    }
+
+    &.rpl-header--breadcrumbs {
+      margin-top: -116px;
+
+      @media (--rpl-bp-s) {
+        margin-top: -120px;
+      }
+
+      @media (--rpl-bp-m) {
+        margin-top: -132px;
+      }
+    }
+  }
 }
 
 .rpl-header__icon-link {
@@ -225,13 +249,5 @@
       line-height: var(--rpl-type-lh-5);
       letter-spacing: var(--rpl-type-ls-2);
     }
-  }
-}
-
-.rpl-header--behind-nav {
-  margin-top: -84px;
-
-  &.rpl-header--breadcrumbs {
-    margin-top: -139px;
   }
 }

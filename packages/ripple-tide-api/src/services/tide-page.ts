@@ -18,8 +18,8 @@ export default class TidePage extends TideApiBase {
       .catch((error) => {
         return Promise.reject(
           this.handleError(
-            `Error: ${error.response.status} `,
-            error.response.status
+            `Error: ${error.response?.status} `,
+            error.response?.status
           )
         )
       })

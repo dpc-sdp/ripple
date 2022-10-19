@@ -8,7 +8,7 @@ Feature: Site theme
     Given the endpoint "/api/tide/site" with query "?id=8888" returns fixture "/site/reference" with status 200
     And the endpoint "/api/tide/page" with query "?path=/&site=8888" returns fixture "/landingpage/home" with status 200
     Given I visit the page "/"
-    Then the site header background color should be "rgb(175, 39, 46)"
+    Then the site header background color should be "rgb(128, 0, 128)"
 
   @mockserver
   Scenario: Alternate Theme

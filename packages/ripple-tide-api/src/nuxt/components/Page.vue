@@ -25,6 +25,7 @@
         </slot>
       </template>
       <template #sidebar>
+        <slot name="aboveSidebar"></slot>
         <slot v-if="page.sidebar" name="sidebar">
           <TideSidebarSiteSectionNav :nav="page.sidebar.siteSectionNav" />
           <TideSidebarRelatedLinks :items="page.sidebar.relatedLinks" />
@@ -34,6 +35,7 @@
             :pageTitle="page.title"
           />
         </slot>
+        <slot name="belowSidebar"></slot>
       </template>
       <template #footer>
         <slot name="footer">

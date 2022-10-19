@@ -16,6 +16,10 @@ const tide<%= h.changeCase.pascalCase(name) %>Module: RplTideMapping = {
       withSidebarContacts: true,
       withSidebarRelatedLinks: true
     }),
+    header: {
+      title: 'title',
+      summary: 'field_landing_page_intro_text'
+    },
     summary: 'field_landing_page_summary',
   },
   includes: [

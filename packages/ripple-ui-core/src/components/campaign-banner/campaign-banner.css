@@ -1,0 +1,200 @@
+@import '@dpc-sdp/ripple-ui-core/style/breakpoints';
+
+.rpl-campaign-banner {
+  --local-flex-spacer: var(--rpl-sp-6);
+  --local-flex-wide: calc(100% / 12 * 7 - var(--local-flex-spacer));
+  --local-flex-narrow: calc(100% / 12 * 4 - var(--local-flex-spacer));
+  --local-clr-border: var(--rpl-clr-neutral-300);
+
+  position: relative;
+  color: var(--rpl-clr-type-default);
+  background-color: var(--rpl-clr-light);
+
+  @media (--rpl-bp-xl) {
+    --local-flex-spacer: var(--rpl-sp-7);
+  }
+}
+
+.rpl-campaign-banner__inner {
+  display: flex;
+  flex-direction: column;
+
+  @media (--rpl-bp-l) {
+    flex-direction: row;
+  }
+}
+
+.rpl-campaign-banner__media {
+  .rpl-image {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.rpl-campaign-banner__content {
+  margin-top: var(--rpl-sp-3);
+
+  @media (--rpl-bp-l) {
+    margin-top: var(--rpl-sp-4);
+  }
+}
+
+.rpl-campaign-banner__action {
+  margin-top: var(--rpl-sp-6);
+
+  @media (--rpl-bp-l) {
+    margin-top: var(--rpl-sp-7);
+  }
+}
+
+.rpl-campaign-banner__meta {
+  color: var(--rpl-clr-neutral-600);
+  margin-bottom: var(--rpl-sp-4);
+
+  @media (--rpl-bp-l) {
+    margin-bottom: var(--rpl-sp-5);
+  }
+}
+
+/* Variants */
+.rpl-campaign-banner--primary {
+  border-bottom: var(--rpl-border-1) solid var(--local-clr-border);
+
+  .rpl-campaign-banner__inner {
+    @media (--rpl-bp-m) {
+      flex-direction: row;
+    }
+  }
+
+  .rpl-campaign-banner__media {
+    /* 100% width + left and right padding */
+    width: calc(100% + (var(--rpl-sp-4) * 2));
+    margin-left: calc(0px - var(--rpl-sp-4));
+
+    @media (--rpl-bp-m) {
+      margin-left: 0;
+      margin-right: 0;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: auto;
+      max-width: calc(50% + var(--local-flex-spacer));
+    }
+
+    .rpl-image {
+      --local-media-min-width: 396px;
+      --local-media-min-height: 240px;
+      --local-media-max-width: 507px;
+      --local-media-max-height: 308px;
+
+      @media (--rpl-bp-m) {
+        min-width: var(--local-media-min-width);
+        min-height: var(--local-media-min-height);
+        max-width: var(--local-media-max-width);
+        max-height: var(--local-media-max-height);
+        clip-path: polygon(15% 44%, 100% 0, 100% 100%, 0% 100%);
+      }
+
+      @media (--rpl-bp-l) {
+        --local-media-min-width: 508px;
+        --local-media-min-height: 300px;
+        --local-media-max-width: 611px;
+        --local-media-max-height: 360px;
+      }
+
+      @media (--rpl-bp-xl) {
+        --local-media-min-height: 360px;
+        --local-media-min-width: 614px;
+        --local-media-max-width: 715px;
+        --local-media-max-height: 412px;
+      }
+
+      @media (--rpl-bp-m) {
+        aspect-ratio: unset;
+      }
+    }
+  }
+
+  .rpl-campaign-banner__body {
+    margin-top: var(--rpl-sp-5);
+
+    @media (--rpl-bp-m) {
+      flex-shrink: 0;
+      flex-basis: var(--local-flex-wide);
+      margin-top: var(--rpl-sp-8);
+    }
+
+    @media (--rpl-bp-l) {
+      margin-top: var(--rpl-sp-10);
+    }
+  }
+
+  .rpl-campaign-banner__content {
+    margin-bottom: var(--rpl-sp-7);
+
+    @media (--rpl-bp-l) {
+      margin-bottom: var(--rpl-sp-11);
+    }
+  }
+
+  .rpl-campaign-banner__media + .rpl-campaign-banner__body {
+    flex-basis: calc(50% - var(--local-flex-spacer));
+  }
+}
+
+.rpl-campaign-banner--secondary {
+  padding-top: var(--rpl-sp-5);
+  padding-bottom: var(--rpl-sp-7);
+  border-top: var(--rpl-border-1) solid var(--local-clr-border);
+
+  @media (--rpl-bp-m) {
+    padding-bottom: var(--rpl-sp-8);
+  }
+
+  @media (--rpl-bp-l) {
+    padding-top: var(--rpl-sp-8);
+  }
+
+  &.rpl-campaign-banner--media {
+    padding-top: var(--rpl-sp-4);
+
+    @media (--rpl-bp-m) {
+      padding-top: var(--rpl-sp-8);
+    }
+  }
+
+  .rpl-campaign-banner__media {
+    @media (--rpl-bp-l) {
+      margin-right: var(--rpl-sp-6);
+      flex-basis: var(--local-flex-narrow);
+    }
+
+    @media (--rpl-bp-xl) {
+      margin-right: var(--rpl-sp-7);
+    }
+  }
+
+  /* stylelint-disable no-descending-specificity */
+  .rpl-campaign-banner__body {
+    @media (--rpl-bp-l) {
+      flex-basis: var(--local-flex-wide);
+    }
+  }
+
+  .rpl-campaign-banner__media + .rpl-campaign-banner__body {
+    margin-top: var(--rpl-sp-5);
+
+    @media (--rpl-bp-l) {
+      margin-top: 0;
+    }
+  }
+}
+
+/* Modifiers */
+.rpl-campaign-banner--meta {
+  .rpl-campaign-banner__content {
+    @media (--rpl-bp-l) {
+      margin-bottom: var(--rpl-sp-9);
+    }
+  }
+}

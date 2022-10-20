@@ -74,13 +74,14 @@ onResizeHeight(alertRef, (height) => {
           class="rpl-alert__link rpl-type-p rpl-u-focusable--alt-colour"
           :url="linkUrl"
         >
-          {{ linkText }}<rpl-icon name="icon-chevron-right"></rpl-icon>
+          {{ linkText }}<rpl-icon name="icon-arrow-right"></rpl-icon>
         </RplTextLink>
       </div>
       <button
         class="
           rpl-alert__btn-close
-          rpl-u-focusable-inline rpl-u-focusable--alt-colour
+          rpl-u-focusable-inline
+          rpl-u-focusable--alt-colour
         "
         @click="onClose"
       >

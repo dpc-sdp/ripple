@@ -3,27 +3,51 @@
 @import '@dpc-sdp/ripple-ui-core/style/breakpoints';
 
 .rpl-primary-nav {
-  --local-nav-bar-height-xs: 48px;
-  --local-nav-bar-height-s: 52px;
-  --local-nav-bar-height-m: 60px;
+  --local-nav-bar-height: 48px;
 
+  position: relative;
+  width: 100%;
+  height: calc(var(--local-nav-bar-height) + var(--rpl-sp-3));
+  padding: var(--rpl-sp-3);
+
+  @media (--rpl-bp-s) {
+    --local-nav-bar-height: 52px;
+  }
+
+  @media (--rpl-bp-m) {
+    --local-nav-bar-height: 60px;
+
+    height: calc(var(--local-nav-bar-height) + var(--rpl-sp-4));
+    padding: var(--rpl-sp-4);
+  }
+}
+
+.rpl-primary-nav__inner {
+  --local-nav-bar-height: 48px;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(100% - var(--rpl-sp-3) * 2);
+  height: var(--local-nav-bar-height);
   margin: var(--rpl-sp-3);
-  height: var(--local-nav-bar-height-xs);
   color: var(--rpl-clr-type-primary-contrast);
   background-color: var(--rpl-clr-primary);
   border-radius: var(--rpl-border-radius-2);
   transition: height var(--rpl-motion-speed-6) ease-in;
 
   @media (--rpl-bp-s) {
-    height: var(--local-nav-bar-height-s);
+    --local-nav-bar-height: 52px;
   }
 
   @media (--rpl-bp-m) {
+    --local-nav-bar-height: 60px;
+
+    width: calc(100% - var(--rpl-sp-4) * 2);
     margin: var(--rpl-sp-4);
-    height: var(--local-nav-bar-height-m);
   }
 
-  &.rpl-primary-nav--expanded {
+  .rpl-primary-nav--expanded & {
     background-color: var(--rpl-clr-primary-alt);
     /* 100vh - top and bottom margin */
     height: calc(100vh - (var(--rpl-sp-3) * 2));
@@ -202,7 +226,7 @@
 /* Mega menu */
 .rpl-primary-nav__mega-menu {
   width: 100%;
-  max-height: calc(100% - var(--local-nav-bar-height-xs) - var(--rpl-sp-8));
+  max-height: calc(100% - var(--local-nav-bar-height) - var(--rpl-sp-8));
   overflow-y: auto;
   padding-top: var(--rpl-sp-4);
   padding-right: var(--rpl-sp-4);
@@ -210,17 +234,12 @@
   padding-left: var(--rpl-sp-4);
 
   @media (--rpl-bp-s) {
-    max-height: calc(100% - var(--local-nav-bar-height-s) - var(--rpl-sp-8));
     padding-right: var(--rpl-sp-5);
     padding-left: var(--rpl-sp-5);
   }
 
-  @media (--rpl-bp-m) {
-    max-height: calc(100% - var(--local-nav-bar-height-m) - var(--rpl-sp-8));
-  }
-
   @media (--rpl-bp-l) {
-    max-height: calc(100% - var(--local-nav-bar-height-m) - var(--rpl-sp-9));
+    max-height: calc(100% - var(--local-nav-bar-height) - var(--rpl-sp-9));
     padding-top: var(--rpl-sp-7);
     padding-right: var(--rpl-sp-10);
     padding-bottom: var(--rpl-sp-9);

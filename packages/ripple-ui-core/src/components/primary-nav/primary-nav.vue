@@ -99,40 +99,42 @@ const isPrimaryNavExpanded = computed(() => {
       'rpl-primary-nav--expanded': isPrimaryNavExpanded
     }"
   >
-    <!-- Nav bar -->
-    <RplPrimaryNavBar
-      :primary-logo="props.primaryLogo"
-      :secondary-logo="props.secondaryLogo"
-      :items="items"
-      :show-search="props.showSearch"
-      :show-quick-exit="props.showQuickExit"
-      :is-mega-nav-active="isMegaNavActive"
-      :is-search-active="isSearchActive"
-      :is-item-expanded="isItemExpanded"
-      :toggle-mega-nav="toggleMegaNav"
-      :toggle-item="toggleNavBarItem"
-      :toggle-search="toggleSearch"
-    >
-      <template v-if="$slots.userAction" #userAction>
-        <slot name="userAction"></slot>
-      </template>
-    </RplPrimaryNavBar>
+    <div class="rpl-primary-nav__inner">
+      <!-- Nav bar -->
+      <RplPrimaryNavBar
+        :primary-logo="props.primaryLogo"
+        :secondary-logo="props.secondaryLogo"
+        :items="items"
+        :show-search="props.showSearch"
+        :show-quick-exit="props.showQuickExit"
+        :is-mega-nav-active="isMegaNavActive"
+        :is-search-active="isSearchActive"
+        :is-item-expanded="isItemExpanded"
+        :toggle-mega-nav="toggleMegaNav"
+        :toggle-item="toggleNavBarItem"
+        :toggle-search="toggleSearch"
+      >
+        <template v-if="$slots.userAction" #userAction>
+          <slot name="userAction"></slot>
+        </template>
+      </RplPrimaryNavBar>
 
-    <!-- Mega menu -->
-    <RplPrimaryNavMegaMenu
-      v-if="isMegaNavActive"
-      :items="props.items"
-      :show-quick-exit="props.showQuickExit"
-      :is-item-expanded="isItemExpanded"
-      :toggle-item="toggleItem"
-    >
-      <template #userAction>
-        <slot name="userAction"></slot>
-      </template>
-    </RplPrimaryNavMegaMenu>
+      <!-- Mega menu -->
+      <RplPrimaryNavMegaMenu
+        v-if="isMegaNavActive"
+        :items="props.items"
+        :show-quick-exit="props.showQuickExit"
+        :is-item-expanded="isItemExpanded"
+        :toggle-item="toggleItem"
+      >
+        <template #userAction>
+          <slot name="userAction"></slot>
+        </template>
+      </RplPrimaryNavMegaMenu>
 
-    <!-- Search form -->
-    <RplPrimaryNavSearchForm v-if="isSearchActive" />
+      <!-- Search form -->
+      <RplPrimaryNavSearchForm v-if="isSearchActive" />
+    </div>
   </nav>
 </template>
 

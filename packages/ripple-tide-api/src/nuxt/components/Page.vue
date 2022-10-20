@@ -32,7 +32,7 @@
           <TideSidebarContactUs :contacts="page.sidebar.contacts" />
           <TideSidebarSocialShare
             :networks="page.sidebar.socialShareNetworks"
-            :pageTitle="page.title"
+            :page-title="page.title"
           />
         </slot>
         <slot name="belowSidebar"></slot>

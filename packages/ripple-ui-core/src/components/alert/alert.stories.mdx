@@ -5,7 +5,7 @@ import {
   ArgsTable
 } from '@storybook/addon-docs'
 import RplAlert from './alert.vue'
-import { RplColorThemes } from './../../lib/constants'
+import { RplIconNames } from './../icon/constants.ts';
 import { reactive, ref } from 'vue'
 import { playFunction } from './alert.play.ts'
 
@@ -35,7 +35,7 @@ export const SingleTemplate = (args) => ({
     },
     iconName: {
       control: { type: 'select' },
-      options: ['icon-information-circle-filled', 'icon-fire', 'icon-flood']
+      options: RplIconNames
     },
     linkText: {
       type: 'string'
@@ -118,11 +118,13 @@ export const SingleTemplate = (args) => ({
           return {
             args,
             dismissed,
-            onDismiss: (id) => dismissed[id] = !dismissed[id]
+            onDismiss: (id) => dismissed[id] = !dismissed[id],
+            messages: ['An informative message.', 'A warning message.', 'A critical message.']
           }
         },
         template: `<div style="position: relative;" v-for="(alert, i) in Object.keys(dismissed)">
             <RplAlert v-bind="args"
+              :message="messages[i]"
               :key="'alert-' + i"
               :variant="alert"
               :alertId="alert"
@@ -171,5 +173,22 @@ export const SingleTemplate = (args) => ({
           </div>`
       }
     }}
+  </Story>
+</Canvas>
+
+
+## Without CTA
+
+<Canvas>
+  <Story
+    name='Without CTA'
+    args={{
+      variant: 'warning',
+      message: 'An example of an alert without the CTA.',
+      alertId: 'no-cta',
+      linkUrl: null
+    }}
+  >
+    {SingleTemplate.bind()}
   </Story>
 </Canvas>

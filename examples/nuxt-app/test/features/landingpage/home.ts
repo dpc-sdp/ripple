@@ -13,15 +13,15 @@ Then('the sidebar component with ID {string} should exist', (id: string) => {
 })
 
 When(
-  'I click the open all button on RplAccordion with ID {int}',
-  (id: number) => {
+  'I click the open all button on RplAccordion with ID {string}',
+  (id: string) => {
     cy.get(`[data-component-id="${id}"]`).contains('Open all').click()
   }
 )
 
 Then(
-  'all accordion items in accordion ID {int} should be visible',
-  (id: number) => {
+  'all accordion items in accordion ID {string} should be visible',
+  (id: string) => {
     cy.get(`[data-component-id="${id}"]`)
       .find('li > button')
       .each(($btn) => {

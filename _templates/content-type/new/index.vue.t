@@ -35,6 +35,7 @@ export default { name: 'Tide<%= h.changeCase.pascalCase(name) %>Page' }
 <script setup lang="ts">
 import type Tide<%= h.changeCase.pascalCase(name) %>Page from './../types'
 import { RplLayout } from '@dpc-sdp/ripple-ui-core'
+import Tide<%= h.changeCase.pascalCase(name) %>Header from './components/tide-<%= h.changeCase.paramCase(name) %>-header.vue'
 
 interface Props {
   page: Tide<%= h.changeCase.pascalCase(name) %>Page

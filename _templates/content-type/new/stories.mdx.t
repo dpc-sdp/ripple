@@ -8,7 +8,7 @@ import {
   Story
 } from '@storybook/addon-docs'
 
-// import fixture from '../../../examples/nuxt-app/test/fixtures/<%= h.changeCase.paramCase(name) %>/url-of-reference-node.json'
+import fixture from '../../../examples/nuxt-app/test/fixtures/<%= h.changeCase.paramCase(name) %>/sample-<%= h.changeCase.paramCase(name) %>.json'
 import MockPage from '../../ripple-ui-core/stories/components/mock-page.vue'
 import Tide<%= h.changeCase.pascalCase(name) %>Page from './index.vue'
 

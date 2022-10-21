@@ -1,5 +1,5 @@
 <script lang="ts">
-export default { name: 'TideGrantHeader' }
+export default { name: 'TidePublicationHeader' }
 </script>
 
 <template>
@@ -15,10 +15,10 @@ export default { name: 'TideGrantHeader' }
 </template>
 
 <script setup lang="ts">
-import type { TideGrantHeader } from '../../types'
+import type { TidePublicationHeader } from '../../types'
 import { RplHeroHeader } from '@dpc-sdp/ripple-ui-core'
 
 defineProps<{
-  header: TideGrantHeader
+  header: TidePublicationHeader
 }>()
 </script>

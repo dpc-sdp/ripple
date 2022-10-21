@@ -57,7 +57,7 @@ export default interface TideGrantPage extends TidePageBase {
    * @example 'Hello world from TideGrantPage'
    */
   name: string
-  header: any
+  header: TideGrantHeader
   overview: TideGrantOverview
   timeline: TideGrantTimeline
   guidelines: TideGrantGuidelines

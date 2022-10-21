@@ -1,0 +1,73 @@
+<script lang="ts">
+export default { name: 'TidePublicationPage' }
+</script>
+
+<template>
+  <RplLayout :background="page.background">
+    <template #aboveHeader>
+      <slot name="aboveHeader"></slot>
+    </template>
+    <template #primaryNav>
+      <slot name="primaryNav"></slot>
+    </template>
+    <template #breadcrumbs>
+      <slot name="breadcrumbs"></slot>
+    </template>
+    <template #aboveBody>
+      <TidePublicationHeader :header="page.header"></TidePublicationHeader>
+    </template>
+    <template #body>
+      <RplInPageNavigation
+        v-if="placeholder.length > 0"
+        :items="placeholder"
+      ></RplInPageNavigation>
+      <TidePublicationBody
+        :details="page.details"
+        :components="page.dynamicComponents"
+      ></TidePublicationBody>
+      <TidePublicationChapters
+        :chapters="page.chapters"
+      ></TidePublicationChapters>
+    </template>
+    <template #sidebar>
+      <TidePublicationPageActions></TidePublicationPageActions>
+      <TidePublicationSideNav></TidePublicationSideNav>
+      <slot name="sidebar"></slot>
+    </template>
+    <template #footer>
+      <slot name="footer"></slot>
+    </template>
+  </RplLayout>
+</template>
+
+<script setup lang="ts">
+import type TidePublicationPage from './../types'
+import { computed } from 'vue'
+import { RplLayout, RplInPageNavigation } from '@dpc-sdp/ripple-ui-core'
+import TidePublicationHeader from './components/tide-publication-header.vue'
+import TidePublicationBody from './components/tide-publication-body.vue'
+import TidePublicationChapters from './components/tide-publication-chapters.vue'
+import TidePublicationPageActions from './components/tide-publication-page-actions.vue'
+import TidePublicationSideNav from './components/tide-publication-side-nav.vue'
+
+interface Props {
+  page: TidePublicationPage
+}
+
+defineProps<Props>()
+
+// Need to figure this out dynamically from content - maybe a RplLayout concern?
+const placeholder = computed(() => {
+  return []
+  // [
+  //   {
+  //     text: 'This is the first anchor link',
+  //     url: '#',
+  //     items: [
+  //       { text: 'This is sub heading following first anchor link', url: '#' }
+  //     ]
+  //   },
+  //   { text: 'Second link to extra content', url: '#' }
+  // ]
+})
+</script>

@@ -1,0 +1,123 @@
+{
+  "title": "Demo Publication",
+  "changed": "2022-10-06T13:35:09+11:00",
+  "created": "2022-10-06T13:35:09+11:00",
+  "type": "publication",
+  "nid": "11dede11-10c0-111e1-1100-000000000500",
+  "sidebar": {
+    "contacts": [
+      {
+        "id": "62e92fd2-5a7f-4154-8078-58b517853f76",
+        "contactTitle": "Victorian Government",
+        "contactName": "Victorian Government",
+        "department": "Department of Premier and Cabinet",
+        "email": "no-reply@vic.gov.au",
+        "locationAddress": {
+          "countryCode": "AU",
+          "administrativeArea": "VIC",
+          "locality": "Melbourne",
+          "postalCode": "3001",
+          "addressLine1": "Department of Premier and Cabinet",
+          "addressLine2": "GPO Box 4509"
+        },
+        "postalAddress": {
+          "countryCode": "AU",
+          "administrativeArea": "VIC",
+          "locality": "Melbourne",
+          "postalCode": "3001",
+          "addressLine1": "Department of Premier and Cabinet",
+          "addressLine2": "GPO Box 4509"
+        },
+        "phones": [
+          {
+            "id": "bf6e2a74-4535-4df6-b6c4-fb37b783bf8a",
+            "title": "Calls in Australia",
+            "number": "1300 366 356"
+          },
+          {
+            "id": "8b028fd0-2f2c-49a2-a048-e5c3a6a132d6",
+            "title": "Calls from overseas",
+            "number": "+61 3 9603 8804"
+          }
+        ],
+        "socialMedia": [
+          {
+            "id": "85e2138f-8746-4d44-977f-508004a85656",
+            "type": "twitter",
+            "text": "Twitter",
+            "url": "https://twitter.com/VicGovAu"
+          }
+        ]
+      }
+    ],
+    "relatedLinks": [
+      {
+        "id": "9904ca0b-8fe3-4b57-a801-6761b1c131ee",
+        "text": "State Government of Victoria",
+        "url": "https://www.vic.gov.au"
+      },
+      {
+        "id": "9cf5048d-7163-48d9-b100-e73ded10c928",
+        "text": "Department of Premier and Cabinet",
+        "url": "https://www.vic.gov.au/department-premier-and-cabinet"
+      }
+    ]
+  },
+  "_src": {},
+  "header": {
+    "title": "Demo Publication",
+    "summary": "Nulla ultricies dignissim leo, posuere vestibulum erat cursus vitae"
+  },
+  "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet ligula sit amet lacinia. In a leo nec tortor aliquet faucibus.",
+  "class": "publication",
+  "breadcrumbs": [
+    {
+      "text": "Home",
+      "url": "/"
+    },
+    {
+      "text": "Demo Publication"
+    }
+  ],
+  "heroBanner": {
+    "title": "Demo Publication",
+    "introText": "Nulla ultricies dignissim leo, posuere vestibulum erat cursus vitae",
+    "theme": "dark",
+    "showLinks": false,
+    "visible": true
+  },
+  "publishingInfo": {
+    "author": ["Demo Department"],
+    "date": "2019-07-01T10:00:00+10:00"
+  },
+  "chapters": [
+    {
+      "id": "11dede11-10c0-111e1-1100-000000000510",
+      "title": "Demo Publication - Chapter 1",
+      "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet ligula sit amet lacinia. In a leo nec tortor aliquet faucibus.",
+      "link": {
+        "url": "/demo-publication/demo-publication-chapter-1",
+        "text": "Read more"
+      }
+    },
+    {
+      "id": "11dede11-10c0-111e1-1100-000000000520",
+      "title": "Demo Publication - Chapter 2",
+      "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet ligula sit amet lacinia. In a leo nec tortor aliquet faucibus.",
+      "link": {
+        "url": "/demo-publication/demo-publication-chapter-2",
+        "text": "Read more"
+      }
+    },
+    {
+      "id": "11dede11-10c0-111e1-1100-000000000530",
+      "title": "Demo Publication - Chapter 3",
+      "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet ligula sit amet lacinia. In a leo nec tortor aliquet faucibus.",
+      "link": {
+        "url": "/demo-publication/demo-publication-chapter-3",
+        "text": "Read more"
+      }
+    }
+  ],
+  "showLastUpdated": true
+}

@@ -68,8 +68,15 @@
     "title": "Demo Publication",
     "summary": "Nulla ultricies dignissim leo, posuere vestibulum erat cursus vitae"
   },
+  "heroBanner": {
+    "title": "Demo Publication",
+    "introText": "Nulla ultricies dignissim leo, posuere vestibulum erat cursus vitae",
+    "theme": "dark",
+    "showLinks": false,
+    "visible": true
+  },
   "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet ligula sit amet lacinia. In a leo nec tortor aliquet faucibus.",
-  "class": "publication",
+  "intro": "Nulla ultricies dignissim leo, posuere vestibulum erat cursus vitae",
   "breadcrumbs": [
     {
       "text": "Home",
@@ -79,15 +86,8 @@
       "text": "Demo Publication"
     }
   ],
-  "heroBanner": {
-    "title": "Demo Publication",
-    "introText": "Nulla ultricies dignissim leo, posuere vestibulum erat cursus vitae",
-    "theme": "dark",
-    "showLinks": false,
-    "visible": true
-  },
-  "publishingInfo": {
-    "author": ["Demo Department"],
+  "details": {
+    "author": "Demo Department",
     "date": "2019-07-01T10:00:00+10:00"
   },
   "chapters": [

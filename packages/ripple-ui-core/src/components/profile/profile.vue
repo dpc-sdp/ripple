@@ -3,13 +3,14 @@ export default { name: 'RplProfile' }
 </script>
 
 <script setup lang="ts">
-import { RplProfileItem } from './constants'
+import { RplDescriptionListItem } from '../description-list/constants'
 import type { ImgHTMLAttributes } from 'vue'
 import RplImage from '../image/image.vue'
+import RplDescriptionList from '../description-list/description-list.vue'
 
 interface Props {
   image: ImgHTMLAttributes
-  items?: RplProfileItem[]
+  items?: Array<RplDescriptionListItem>
 }
 
 withDefaults(defineProps<Props>(), {
@@ -23,10 +24,12 @@ withDefaults(defineProps<Props>(), {
       <RplImage v-bind="image" circle />
     </div>
     <div v-if="items.length > 0" class="rpl-profile__items">
-      <dl v-for="(item, index) of items" :key="index" class="rpl-profile__item">
-        <dt class="rpl-profile__title rpl-type-p">{{ item.title }}</dt>
-        <dd class="rpl-profile__content rpl-type-p">{{ item.content }}</dd>
-      </dl>
+      <RplDescriptionList
+        v-for="(row, i) in items"
+        :key="i"
+        :items="[row]"
+        class="rpl-description-list--inline"
+      ></RplDescriptionList>
     </div>
   </div>
 </template>

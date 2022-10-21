@@ -21,6 +21,8 @@ import { default as RplChipCmp } from './components/chip/chip.vue'
 import { default as RplContactUsCmp } from './components/contact-us/contact-us.vue'
 import { default as RplContentCmp } from './components/content/content.vue'
 
+import { default as RplDescriptionListCmp } from './components/description-list/description-list.vue'
+
 import { default as RplDocumentCmp } from './components/document/document.vue'
 import { default as RplFileCmp } from './components/file/file.vue'
 
@@ -79,6 +81,8 @@ const RplPromoCard = defineCustomElement(RplPromoCardCmp)
 const RplChip = defineCustomElement(RplChipCmp)
 const RplContactUs = defineCustomElement(RplContactUsCmp)
 const RplContent = defineCustomElement(RplContentCmp)
+
+const RplDescriptionList = defineCustomElement(RplDescriptionListCmp)
 
 const RplDocument = defineCustomElement(RplDocumentCmp)
 const RplFile = defineCustomElement(RplFileCmp)
@@ -139,6 +143,8 @@ export { RplChip }
 export { RplContactUs }
 export { RplContent }
 
+export { RplDescriptionList }
+
 export { RplDocument }
 export { RplFile }
 
@@ -198,6 +204,8 @@ export function registerRplWebComponents() {
   customElements.define('rpl-chip', RplChip)
   customElements.define('rpl-contact-us', RplContactUs)
   customElements.define('rpl-content', RplContent)
+
+  customElements.define('rpl-description-list', RplDescriptionList)
 
   customElements.define('rpl-document', RplDocument)
   customElements.define('rpl-file', RplFile)

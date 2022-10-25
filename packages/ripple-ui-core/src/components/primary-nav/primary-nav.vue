@@ -108,13 +108,15 @@ const isExpanded = computed(() => {
   return isMegaNavActive.value || isSearchActive.value
 })
 
-watch(isMegaNavActive, () => {
+watch(isMegaNavActive, (newValue) => {
   // If mega nav closes, toggle off any currently active menu items
-  props.items.forEach((item) => {
-    if (isItemExpanded(item.id)) {
-      toggleItem(item.id)
-    }
-  })
+  if (!newValue) {
+    props.items.forEach((item) => {
+      if (isItemExpanded(item.id)) {
+        toggleItem(item.id)
+      }
+    })
+  }
 })
 
 watch(isExpanded, (newValue) => {

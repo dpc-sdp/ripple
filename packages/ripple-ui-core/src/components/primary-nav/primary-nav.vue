@@ -39,6 +39,7 @@ const { isItemExpanded, toggleItem } = useExpandableState(
 const isHidden = ref(false)
 const isMegaNavActive = ref(false)
 const isSearchActive = ref(false)
+const lastActiveItem = ref('')
 
 const handleScroll = () => {
   // If the page is not scrolled to the top, set isHidden to true
@@ -117,6 +118,18 @@ watch(isMegaNavActive, (newValue) => {
       }
     })
   }
+
+  // If mega nav opens, set the lastActiveItem
+  else {
+    lastActiveItem.value = 'meganav'
+  }
+})
+
+watch(isSearchActive, (newValue) => {
+  // If search opens, set the lastActiveItem
+  if (newValue) {
+    lastActiveItem.value = 'search'
+  }
 })
 
 watch(isExpanded, (newValue) => {
@@ -161,7 +174,7 @@ watch(isExpanded, (newValue) => {
 
       <!-- Mega menu -->
       <RplPrimaryNavMegaMenu
-        v-if="isMegaNavActive"
+        v-if="lastActiveItem == 'meganav'"
         :items="props.items"
         :show-quick-exit="props.showQuickExit"
         :is-item-expanded="isItemExpanded"
@@ -173,7 +186,7 @@ watch(isExpanded, (newValue) => {
       </RplPrimaryNavMegaMenu>
 
       <!-- Search form -->
-      <RplPrimaryNavSearchForm v-if="isSearchActive" />
+      <RplPrimaryNavSearchForm v-if="lastActiveItem == 'search'" />
     </div>
   </nav>
 </template>

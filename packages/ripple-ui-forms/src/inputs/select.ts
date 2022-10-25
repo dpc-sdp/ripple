@@ -1,3 +1,4 @@
+import { markRaw } from 'vue'
 import { FormKitTypeDefinition } from '@formkit/core'
 import {
   outer,
@@ -10,14 +11,13 @@ import {
   prefix,
   suffix,
   icon,
-  selectInput,
-  option,
-  optionSlot,
-  $if,
   options,
   selects,
-  defaultIcon
+  defaultIcon,
+  createSection
 } from '@formkit/inputs'
+
+import RplFormSelect from './../components/select/select.vue'
 
 /**
  * Input definition for a select.
@@ -32,22 +32,27 @@ export const select: FormKitTypeDefinition = {
       label('$label'),
       help('$help'),
       inner(
-        icon('prefix'),
-        prefix(),
-        selectInput(
-          $if(
-            '$slots.default',
-            () => '$slots.default',
-            $if('$slots.option', optionSlot, option('$option.label'))
-          )
-        ),
-        $if('$attrs.multiple !== undefined', () => '', icon('select')),
+        createSection('input', () => ({
+          $cmp: 'rplFormSelect',
+          class: '$classes.select',
+          props: {
+            onBlur: '$handlers.blur',
+            id: '$id',
+            prefixIcon: '$node.props.prefixIcon',
+            value: '$node.value',
+            disabled: '$node.attrs.disabled',
+            options: '$node.context.options',
+            test: '$node'
+          }
+        }))(),
         suffix(),
         icon('suffix')
       )
     ),
+
     messages(message('$message.value'))
   ),
+  library: { rplFormSelect: markRaw(RplFormSelect) },
   /**
    * The type of node, can be a list, group, or input.
    */

@@ -1,3 +1,4 @@
+import { markRaw } from 'vue'
 import { FormKitTypeDefinition } from '@formkit/core'
 import {
   outer,
@@ -10,8 +11,10 @@ import {
   icon,
   prefix,
   suffix,
-  textInput
+  createSection
 } from '@formkit/inputs'
+
+import RplFormText from './../components/text/text.vue'
 
 /**
  * Input definition for a text.
@@ -28,13 +31,19 @@ export const text: FormKitTypeDefinition = {
       inner(
         icon('prefix', 'label'),
         prefix(),
-        textInput(),
+        createSection('input', () => ({
+          $cmp: 'rplFormText',
+          props: {
+            context: '$node.context'
+          }
+        }))(),
         suffix(),
         icon('suffix')
       )
     ),
     messages(message('$message.value'))
   ),
+  library: { rplFormText: markRaw(RplFormText) },
   /**
    * The type of node, can be a list, group, or input.
    */

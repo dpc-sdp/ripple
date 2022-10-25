@@ -25,6 +25,10 @@ export const SlotTemplate = (args) => ({
     <RplFormElement type="text" label="Text element" />
     <RplFormElement type="select" :options="['My way', 'Highway']" label="Select element" />
     <RplFormElement type="text" label="test" />
+    <RplFormElement
+      type="rplTest"
+      label="test"
+    />
     <RplFormElement type="text" label="test" />
   </RplForm>
   `
@@ -40,11 +44,41 @@ export const SlotTemplate = (args) => ({
   <Story
     name='Default'
     args={{
+      id: 'test123form',
+      validationVisibility: 'blur',
       schema: [
+        {
+          $formkit: 'RplFormText',
+          name: 'long_enquiry',
+          label: 'What kind of long enquiry do you have?',
+          id: 'text',
+          suffixIcon: 'icon-search',
+          prefixIcon: 'icon-search',
+          help: 'Do you need help?',
+          validationLabel: 'enquiry',
+          validation: 'required|length:0,20',
+        },
+        {
+          $formkit: 'RplFormText',
+          name: 'Text no icons',
+          label: 'RplFormText Should you flush tissues down the toilet?',
+          id: 'textnoicons',
+          value: 'test content',
+          help: 'Do you need help?',
+          validation: 'required'
+        },
+        {
+          $formkit: 'RplFormEmail',
+          name: 'Text',
+          label: 'RplFormEmail Should you flush tissues down the toilet?',
+          id: 'email',
+          help: 'Do you need help?',
+          validation: 'required'
+        },
         {
           $formkit: 'text',
           name: 'Text',
-          label: 'Should you flush tissues down the toilet?',
+          label: 'default text Should you flush tissues down the toilet?',
           id: 'text',
           help: 'Do you need help?',
           validation: 'required'

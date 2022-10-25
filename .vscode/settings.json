@@ -18,12 +18,14 @@
   ],
   "cSpell.words": [
     "colour",
+    "formkit",
     "nuxt",
     "pathe",
     "scripthost",
     "stylelint",
     "vite",
-    "vitejs"
+    "vitejs",
+    "Webform"
   ],
   "cucumberautocomplete.steps": [
     "./examples/**/test/support/step_definitions/**/*.ts",

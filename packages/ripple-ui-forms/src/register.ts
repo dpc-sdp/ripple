@@ -1,23 +1,5 @@
-import { text, tel, date, checkbox, radio, submit } from './inputs'
-import { plugin, defaultConfig, createInput } from '@formkit/vue'
-import RplFormSelect from './components/select/select.vue'
-
-export const defaultRplFormConfig = {
-  config: {
-    classes: {
-      outer: 'rpl-u-margin-b-4'
-    }
-  },
-  inputs: {
-    text,
-    tel,
-    date,
-    checkbox,
-    radio,
-    select: createInput(RplFormSelect),
-    submit
-  }
-}
+import { plugin, defaultConfig } from '@formkit/vue'
+import defaultRplFormConfig from './formkit.config'
 
 export default function registerRplFormPlugin(
   vueApp,

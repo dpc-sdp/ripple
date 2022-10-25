@@ -14,7 +14,10 @@ export const SingleTemplate = (args) => ({
   setup() {
     return { args }
   },
-  template: '<RplPrimaryNav v-bind="args" />'
+  template: `
+    <RplPrimaryNav v-bind="args" />
+    <div style="height: 200vh;"></div>
+  `
 })
 
 export const CustomLoginButtonTemplate = (args) => ({
@@ -22,7 +25,8 @@ export const CustomLoginButtonTemplate = (args) => ({
   setup() {
     return { args }
   },
-  template: `<RplPrimaryNav v-bind="args" >
+  template: `
+  <RplPrimaryNav v-bind="args" >
     <template #userAction>
       <a
         class="
@@ -41,6 +45,7 @@ export const CustomLoginButtonTemplate = (args) => ({
       </a>
     </template>
   </RplPrimaryNav>
+  <div style="height: 200vh;"></div>
   `
 })
 

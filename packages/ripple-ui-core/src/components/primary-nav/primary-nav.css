@@ -47,6 +47,10 @@
     margin: var(--rpl-sp-4);
   }
 
+  .rpl-primary-nav--hidden & {
+    display: none;
+  }
+
   .rpl-primary-nav--expanded & {
     background-color: var(--rpl-clr-primary-alt);
     /* 100vh - top and bottom margin */

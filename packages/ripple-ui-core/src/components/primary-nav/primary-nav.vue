@@ -11,7 +11,7 @@ export default { name: 'RplPrimaryNav' }
       direction
     - Add sliding animation for mobile mega menu levels changing
 */
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted, onUnmounted } from 'vue'
 import RplPrimaryNavBar from './nav-bar.vue'
 import RplPrimaryNavMegaMenu from './mega-menu.vue'
 import RplPrimaryNavSearchForm from './search-form.vue'
@@ -38,8 +38,25 @@ const { isItemExpanded, toggleItem } = useExpandableState(
   props.items.length
 )
 
+const isHidden = ref(false)
 const isMegaNavActive = ref(false)
 const isSearchActive = ref(false)
+
+const handleScroll = () => {
+  // If the page is not scrolled to the top, set isHidden to true
+  isHidden.value = window.scrollY > 0 ? true : false
+}
+
+onMounted(() => {
+  // Run handleScroll when mounted in case an anchor link was used
+  handleScroll()
+
+  window.addEventListener('scroll', handleScroll)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll)
+})
 
 const toggleNavBarItem = (id: string) => {
   // Make all other items besides the target id inactive
@@ -96,6 +113,7 @@ const isPrimaryNavExpanded = computed(() => {
   <nav
     :class="{
       'rpl-primary-nav': true,
+      'rpl-primary-nav--hidden': isHidden,
       'rpl-primary-nav--expanded': isPrimaryNavExpanded
     }"
   >

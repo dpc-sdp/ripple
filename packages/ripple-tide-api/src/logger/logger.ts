@@ -2,7 +2,7 @@ import * as winston from 'winston'
 
 const setupWinston = () => {
   const winstonLogger = winston.createLogger({
-    level: 'debug',
+    level: process.env.LOG_LEVEL || 'debug',
     format: winston.format.combine(
       winston.format.timestamp({
         format: 'YYYY-MM-DD HH:mm:ss'
@@ -18,12 +18,13 @@ const setupWinston = () => {
     const { timestamp, message, level, label, error, ...rest } = info
     const printLabel = label ? `[${label}] ` : ' '
     let log = `${timestamp} ${printLabel}${level} ${message}`
-    // Only if there is an error
+
     // Must pass error obj by using `error` meta.
     if (error) {
       log = error.stack ? `${log}\n${error.stack}` : log
     }
 
+    // Also log the error 'cause'
     if (error?.cause) {
       log = error?.cause?.stack
         ? `${log}\nCaused by: ${error?.cause?.stack}`
@@ -37,8 +38,6 @@ const setupWinston = () => {
   // If we're not in production then **ALSO** log to the `console`
   // with human readable formatting
   if (process.env.NODE_ENV !== 'production') {
-    // Add background color for server console.
-    // However the background color is not working in browser console.
     const colors = {
       error: 'white redBG',
       warn: 'black yellowBG',

@@ -6,10 +6,11 @@ export default { name: 'RplPrimaryNav' }
 /*
   TODO:
     - Fix menu disappearing before closing animation has finished
+    - When menu closes any active items should be cleared
     - Investigate ways to handle tabbing order in mega nav levels
     - Add sliding animation for mobile mega menu levels changing
 */
-import { ref, computed, onMounted, onUnmounted } from 'vue'
+import { ref, computed, watch, onMounted, onUnmounted } from 'vue'
 import RplPrimaryNavBar from './nav-bar.vue'
 import RplPrimaryNavMegaMenu from './mega-menu.vue'
 import RplPrimaryNavSearchForm from './search-form.vue'
@@ -85,6 +86,7 @@ const toggleMegaNav = () => {
   // Make search inactive
   isSearchActive.value = false
 
+  // Toggle mega nav
   isMegaNavActive.value = !isMegaNavActive.value
 }
 
@@ -99,11 +101,23 @@ const toggleSearch = () => {
   // Make mega nav inactive
   isMegaNavActive.value = false
 
+  // Toggle search
   isSearchActive.value = !isSearchActive.value
 }
 
-const isPrimaryNavExpanded = computed(() => {
-  return isMegaNavActive.value || isSearchActive.value ? true : false
+const isExpanded = computed(() => {
+  return isMegaNavActive.value || isSearchActive.value
+})
+
+watch(isExpanded, (newValue) => {
+  // If running in a browser and isExpanded changes toggle viewport locked class
+  if (typeof window !== 'undefined') {
+    if (newValue) {
+      document.body.classList.add('rpl-viewport-locked')
+    } else {
+      document.body.classList.remove('rpl-viewport-locked')
+    }
+  }
 })
 </script>
 
@@ -112,7 +126,7 @@ const isPrimaryNavExpanded = computed(() => {
     :class="{
       'rpl-primary-nav': true,
       'rpl-primary-nav--hidden': isHidden,
-      'rpl-primary-nav--expanded': isPrimaryNavExpanded
+      'rpl-primary-nav--expanded': isExpanded
     }"
   >
     <div class="rpl-primary-nav__inner">

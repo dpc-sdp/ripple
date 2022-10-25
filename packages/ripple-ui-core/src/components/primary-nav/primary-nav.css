@@ -22,6 +22,11 @@
   }
 }
 
+.rpl-viewport-locked {
+  height: 100vh;
+  overflow: hidden;
+}
+
 .rpl-primary-nav__inner {
   --local-nav-bar-height: 48px;
 

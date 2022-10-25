@@ -7,8 +7,6 @@ export default { name: 'RplPrimaryNav' }
   TODO:
     - Fix menu disappearing before closing animation has finished
     - Investigate ways to handle tabbing order in mega nav levels
-    - Setup functionality for primary nav to show / hide based on page scroll
-      direction
     - Add sliding animation for mobile mega menu levels changing
 */
 import { ref, computed, onMounted, onUnmounted } from 'vue'

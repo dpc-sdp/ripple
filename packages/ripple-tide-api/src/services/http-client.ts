@@ -32,7 +32,6 @@ export default class HttpClient {
   _initializeRequestInterceptor() {
     this.client.interceptors.request.use(
       (request) => {
-        console.log(request)
         this.logger.debug(
           `${request.method?.toUpperCase()} request to ${this.client.getUri(
             request

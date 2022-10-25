@@ -3,6 +3,7 @@ import TideApiBase from './tide-api-base.js'
 import defaultMapping from './lib/default-mapping.js'
 import type { RplTideModuleConfig } from './../../types'
 import { ApplicationError, NotFoundError } from '../errors/errors.js'
+import { ILogger } from '../logger/logger'
 export default class TidePage extends TideApiBase {
   contentTypes: object
   site: string

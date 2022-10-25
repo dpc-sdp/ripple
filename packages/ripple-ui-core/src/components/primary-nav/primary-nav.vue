@@ -6,7 +6,6 @@ export default { name: 'RplPrimaryNav' }
 /*
   TODO:
     - Fix menu disappearing before closing animation has finished
-    - When menu closes any active items should be cleared
     - Investigate ways to handle tabbing order in mega nav levels
     - Add sliding animation for mobile mega menu levels changing
 */
@@ -107,6 +106,15 @@ const toggleSearch = () => {
 
 const isExpanded = computed(() => {
   return isMegaNavActive.value || isSearchActive.value
+})
+
+watch(isMegaNavActive, () => {
+  // If mega nav closes, toggle off any currently active menu items
+  props.items.forEach((item) => {
+    if (isItemExpanded(item.id)) {
+      toggleItem(item.id)
+    }
+  })
 })
 
 watch(isExpanded, (newValue) => {

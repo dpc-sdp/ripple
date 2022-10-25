@@ -40,6 +40,7 @@
   background-color: var(--rpl-clr-primary);
   border-radius: var(--rpl-border-radius-2);
   transition: height var(--rpl-motion-speed-6) ease-in;
+  overflow: hidden;
 
   @media (--rpl-bp-s) {
     --local-nav-bar-height: 52px;

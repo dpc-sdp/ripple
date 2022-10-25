@@ -91,6 +91,7 @@ import TideSidebarSiteSectionNav from './sidebar/TideSidebarSiteSectionNav.vue'
 
 const route = useRoute()
 const config = useRuntimeConfig()
+
 // @ts-ignore
 const [{ data: site, error: siteError }, { data: page, error: pageError }] =
   await Promise.all([

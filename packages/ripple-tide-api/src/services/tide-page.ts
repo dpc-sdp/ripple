@@ -2,18 +2,20 @@ import jsonapiParse from 'jsonapi-parse'
 import TideApiBase from './tide-api-base.js'
 import defaultMapping from './lib/default-mapping.js'
 import type { RplTideModuleConfig } from './../../types'
+import { ApplicationError, NotFoundError } from '../errors/errors.js'
 export default class TidePage extends TideApiBase {
   contentTypes: object
   site: string
   sectionId: string
   path: string
 
-  constructor(config: RplTideModuleConfig) {
-    super(config)
+  constructor(config: RplTideModuleConfig, logger: ILogger) {
+    super(config, logger)
     this.site = config.contentApi.site
     this.sectionId = ''
     this.path = ''
     this.contentTypes = config.mapping.content
+    this.logLabel = 'TidePage'
   }
 
   async getRouteByPath(path: string, site: string = this.site) {
@@ -23,11 +25,11 @@ export default class TidePage extends TideApiBase {
     return this.get(routeUrl)
       .then((response) => response?.data?.attributes)
       .catch((error) => {
-        return Promise.reject(
-          this.handleError(
-            `Error: ${error.response?.status} `,
-            error.response?.status
-          )
+        throw new NotFoundError(
+          `Route for site "${site}" and path "${path}" not found`,
+          {
+            cause: error
+          }
         )
       })
   }
@@ -37,35 +39,30 @@ export default class TidePage extends TideApiBase {
     siteQuery: string | undefined,
     config = {}
   ) {
-    try {
-      // if (this.isShareLink(path)) {
-      //   return this.getPageFromShareLink(path, config)
-      // }
-      // if (this.isPreviewLink(path)) {
-      //   return this.getPageFromPreviewLink(path, config)
-      // }
-      const site = siteQuery || this.site
-      const route = await this.getRouteByPath(path, site)
-      if (route && !route.error) {
-        if (route.hasOwnProperty('redirect_type')) {
-          return {
-            type: 'redirect',
-            ...route
-          }
+    // if (this.isShareLink(path)) {
+    //   return this.getPageFromShareLink(path, config)
+    // }
+    // if (this.isPreviewLink(path)) {
+    //   return this.getPageFromPreviewLink(path, config)
+    // }
+    const site = siteQuery || this.site
+    const route = await this.getRouteByPath(path, site)
+    if (route && !route.error) {
+      if (route.hasOwnProperty('redirect_type')) {
+        return {
+          type: 'redirect',
+          ...route
         }
-        const includes = this.getResourceIncludes(route.bundle)
-        const params = {
-          site,
-          ...config
-        }
-        if (includes !== '') {
-          params['include'] = includes
-        }
-        return this.getPageByRouteData(route, { params })
       }
-      return Promise.reject(route)
-    } catch (error) {
-      return Promise.reject(error)
+      const includes = this.getResourceIncludes(route.bundle)
+      const params = {
+        site,
+        ...config
+      }
+      if (includes !== '') {
+        params['include'] = includes
+      }
+      return this.getPageByRouteData(route, { params })
     }
   }
 
@@ -161,54 +158,22 @@ export default class TidePage extends TideApiBase {
   }
 
   async getPageByRouteData(route, config) {
-    try {
-      if (route && route.entity_type && route.bundle && route.uuid) {
-        // The route response has a 'section' attribute, which is the site id used to
-        // determine which menu appears in the 'site section navigation'
-        // We capture it here so that it can be used in the mapping functions
-        this.sectionId = route.section
+    if (route && route.entity_type && route.bundle && route.uuid) {
+      // The route response has a 'section' attribute, which is the site id used to
+      // determine which menu appears in the 'site section navigation'
+      // We capture it here so that it can be used in the mapping functions
+      this.sectionId = route.section
 
-        const nodeUrl = `/${route.entity_type}/${route.bundle}/${route.uuid}`
-        return this.get(nodeUrl, config)
-          .then((response) => {
-            if (response.data) {
-              const data = jsonapiParse.parse(response).data || response.data
-              return this.getTidePage(data, route.bundle)
-            }
-            return response
-          })
-          .catch((error) => {
-            return Promise.reject(
-              this.handleError('', error.response?.status | 404)
-            )
-          })
-      }
-      throw this.handleError('Invalid route')
-    } catch (error: any) {
-      return Promise.reject(
-        this.handleError(
-          'Application Error - getPageByRouteData',
-          error.response?.status || 500
-        )
-      )
-    }
-  }
-
-  async getTaxonomyItems(taxonomyName, config) {
-    try {
-      const url = `/taxonomy_term/${taxonomyName}`
-      return this.client.get(url, config).then((response) => {
+      const nodeUrl = `/${route.entity_type}/${route.bundle}/${route.uuid}`
+      return await this.get(nodeUrl, config).then((response) => {
         if (response.data) {
           const data = jsonapiParse.parse(response).data || response.data
-          return data
+          return this.getTidePage(data, route.bundle)
         }
         return response
       })
-    } catch (error: any) {
-      return Promise.reject(
-        this.handleError('Application Error - getTaxonomyItems', 500)
-      )
     }
+    throw new Error('Invalid route')
   }
 
   async getTidePage(resource, type) {
@@ -220,9 +185,7 @@ export default class TidePage extends TideApiBase {
       this.contentTypes[type].hasOwnProperty('mapping') &&
       this.contentTypes[type].mapping
     if (!contentTypeMapping) {
-      return Promise.reject(
-        this.handleError('Unable to resolve content type - ' + type, 500)
-      )
+      throw new ApplicationError(`Unable to resolve content type - ${type}`)
     }
     return this.getMappedData(
       { ...defaultMapping.mapping, ...contentTypeMapping },

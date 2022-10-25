@@ -1,7 +1,9 @@
-import { createApp, App, getQuery, CompatibilityEvent } from 'h3'
+import { createApp, App, CompatibilityEvent } from 'h3'
 import { TidePageApi, TideSiteApi } from './index.js'
 import getSchema from './schema/index.js'
 import type { RplTideModuleConfig } from './../types'
+import { createSiteHandler } from './nuxt/handlers/siteHandler.js'
+import { createPageHandler } from './nuxt/handlers/pageHandler.js'
 
 const tideHandler = async (config: RplTideModuleConfig): Promise<App> => {
   const app = createApp()
@@ -9,19 +11,11 @@ const tideHandler = async (config: RplTideModuleConfig): Promise<App> => {
   const tidePageApi = new TidePageApi(config)
 
   app.use('/page', async (event: CompatibilityEvent) => {
-    const query = await getQuery(event)
-    if (!query.path || Array.isArray(query.path)) {
-      throw new Error('No path supplied')
-    }
-    if (Array.isArray(query.site)) {
-      throw new Error('Duplicate site values')
-    }
-    return tidePageApi.getPageByPath(query.path, query.site)
+    return createPageHandler(event, tidePageApi)
   })
 
   app.use('/site', async (event: CompatibilityEvent) => {
-    const query = await getQuery(event)
-    return tideSiteApi.getSiteData(query.id)
+    return createSiteHandler(event, tideSiteApi)
   })
 
   app.use('/schema', async () => {

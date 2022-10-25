@@ -10,6 +10,7 @@
     ".": "./dist/index.js",
     "./nuxt": "./dist/nuxt.js",
     "./types": "./types.d.ts",
+    "./errors": "./dist/errors/errors.js",
     "./components": "./dist/nuxt/components",
     "./services": "./dist/services/index.js",
     "./mapping/site": "./dist/mapping/site.js"

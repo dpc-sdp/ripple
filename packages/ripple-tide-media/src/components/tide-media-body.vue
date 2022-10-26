@@ -25,7 +25,7 @@ export default { name: 'TideMediaBody' }
     </figcaption>
   </figure>
   <p class="tide-media__date rpl-type-p rpl-u-margin-t-6">
-    Last updated: {{ updatedAt }}
+    Last updated: <time :datetime="date">{{ updatedAt }}</time>
   </p>
 </template>
 
@@ -43,7 +43,7 @@ const props =
 const updatedAt = computed(() => {
   const date = new Date(props.date)
 
-  return Intl.DateTimeFormat('default', {
+  return Intl.DateTimeFormat('en-AU', {
     dateStyle: 'full'
   }).format(date)
 })

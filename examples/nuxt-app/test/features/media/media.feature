@@ -10,5 +10,5 @@ Feature: Media page
     Then the title should be "Demo: Wodonga Local Aboriginal Network - Bringing People Together"
 
   Example: Media
-    Then the media should display content which includes "Transcript content"
-    And the media should have a date of "26 October 2022"
+    Then the media item should display content which includes "Transcript content"
+    And the media item should have the timestamp of "2022-10-26T01:06:33+00:00"

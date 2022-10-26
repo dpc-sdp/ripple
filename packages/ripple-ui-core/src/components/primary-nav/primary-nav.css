@@ -39,7 +39,6 @@
   color: var(--rpl-clr-type-primary-contrast);
   background-color: var(--rpl-clr-primary);
   border-radius: var(--rpl-border-radius-2);
-  transition: background-color var(--rpl-motion-speed-6) ease-in;
   overflow: hidden;
 
   @media (--rpl-bp-s) {

@@ -5,10 +5,6 @@ export default { name: 'RplPrimaryNav' }
 <script setup lang="ts">
 /*
   TODO:
-    - Fix menu disappearing before closing animation has finished
-      - If the menu ends up snapping closed, revert the 'lastActiveItem' change
-      - If menu animation is kept, come up with a better name / solution for 'lastActiveItem'
-    - Investigate ways to handle tabbing order in mega nav levels
     - Add sliding animation for mobile mega menu levels changing
 */
 import { ref, computed, watch, onMounted, onUnmounted } from 'vue'
@@ -36,7 +32,6 @@ const props = withDefaults(defineProps<Props>(), {
 const isHidden: Ref<boolean> = ref(false)
 const isMegaNavActive: Ref<boolean> = ref(false)
 const isSearchActive: Ref<boolean> = ref(false)
-const lastActiveItem: Ref<'meganav' | 'search'> = ref('meganav')
 const activeNavItems: Ref<string[]> = ref([])
 
 const handleScroll = () => {
@@ -107,18 +102,6 @@ watch(isMegaNavActive, (newValue) => {
   if (!newValue) {
     activeNavItems.value = []
   }
-
-  // If mega nav opens, set the lastActiveItem
-  else {
-    lastActiveItem.value = 'meganav'
-  }
-})
-
-watch(isSearchActive, (newValue) => {
-  // If search opens, set the lastActiveItem
-  if (newValue) {
-    lastActiveItem.value = 'search'
-  }
 })
 
 watch(isExpanded, (newValue) => {
@@ -163,7 +146,7 @@ watch(isExpanded, (newValue) => {
 
       <!-- Mega menu -->
       <RplPrimaryNavMegaMenu
-        v-if="lastActiveItem == 'meganav'"
+        v-if="isMegaNavActive"
         :items="props.items"
         :show-quick-exit="props.showQuickExit"
         :is-item-expanded="isNavItemActive"
@@ -175,7 +158,7 @@ watch(isExpanded, (newValue) => {
       </RplPrimaryNavMegaMenu>
 
       <!-- Search form -->
-      <RplPrimaryNavSearchForm v-if="lastActiveItem == 'search'" />
+      <RplPrimaryNavSearchForm v-if="isSearchActive" />
     </div>
   </nav>
 </template>

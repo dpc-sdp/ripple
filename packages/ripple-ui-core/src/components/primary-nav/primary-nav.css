@@ -39,7 +39,7 @@
   color: var(--rpl-clr-type-primary-contrast);
   background-color: var(--rpl-clr-primary);
   border-radius: var(--rpl-border-radius-2);
-  transition: height var(--rpl-motion-speed-6) ease-in;
+  transition: background-color var(--rpl-motion-speed-6) ease-in;
   overflow: hidden;
 
   @media (--rpl-bp-s) {
@@ -58,6 +58,8 @@
   }
 
   .rpl-primary-nav--expanded & {
+    transition: height var(--rpl-motion-speed-6) ease-in,
+      background-color var(--rpl-motion-speed-6) ease-in;
     background-color: var(--rpl-clr-primary-alt);
     /* 100vh - top and bottom margin */
     height: calc(100vh - (var(--rpl-sp-3) * 2));

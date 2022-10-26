@@ -195,7 +195,7 @@ const pluginLinks = function () {
       a = `<rpl-text-link :url="${dataName}.href" theme="${theme}" :text="${dataName}.text"></rpl-text-link>`
     }
 
-    return $a.replaceWith(a)
+    return data.href ? $a.replaceWith(a) : data.text
   })
   // Return data
   return linkData

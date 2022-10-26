@@ -2,6 +2,7 @@ import jsonapiParse from 'jsonapi-parse'
 import TideApiBase from './tide-api-base.js'
 import defaultMapping from './lib/default-mapping.js'
 import type { RplTideModuleConfig } from './../../types'
+
 export default class TidePage extends TideApiBase {
   contentTypes: object
   site: string
@@ -46,7 +47,7 @@ export default class TidePage extends TideApiBase {
             ...route
           }
         }
-        const includes = this.getResourceIncludes(route.bundle)
+        const includes = this.getResourceIncludes(route)
         const params = {
           site,
           ...config
@@ -125,10 +126,8 @@ export default class TidePage extends TideApiBase {
   //   return Promise.reject(this.handleError({ message: 'Unauthorized' }, 401))
   // }
 
-  getResourceIncludes(type: string) {
-    const includes = this.contentTypes[type]
-      ? this.contentTypes[type].includes
-      : []
+  getResourceIncludes(route) {
+    const includes = this.getContentTypeField('includes', route) ?? []
     if (
       defaultMapping &&
       Array.isArray(defaultMapping.includes) &&
@@ -161,7 +160,7 @@ export default class TidePage extends TideApiBase {
           .then((response) => {
             if (response.data) {
               const data = jsonapiParse.parse(response).data || response.data
-              return this.getTidePage(data, route.bundle)
+              return this.getTidePage(data, route)
             }
             return response
           })
@@ -199,17 +198,14 @@ export default class TidePage extends TideApiBase {
     }
   }
 
-  async getTidePage(resource, type) {
+  async getTidePage(resource, route) {
     if (this.debug) {
       defaultMapping.mapping['_source'] = (src) => src
     }
-    const contentTypeMapping =
-      this.contentTypes[type] &&
-      this.contentTypes[type].hasOwnProperty('mapping') &&
-      this.contentTypes[type].mapping
+    const contentTypeMapping = this.getContentTypeField('mapping', route)
     if (!contentTypeMapping) {
       return Promise.reject(
-        this.handleError('Unable to resolve content type - ' + type, 500)
+        this.handleError('Unable to resolve content type - ' + route.type, 500)
       )
     }
     return this.getMappedData(
@@ -217,7 +213,20 @@ export default class TidePage extends TideApiBase {
       resource
     )
   }
-  getResourceType(type) {
-    return type.replace('node--', '')
+
+  getContentTypeField(key: string, route) {
+    const contentType =
+      this.contentTypes?.[route.bundle] ||
+      this.contentTypes?.[route.entity_type]
+
+    let field =
+      contentType && contentType.hasOwnProperty(key) && contentType?.[key]
+
+    // check for any nested mapping
+    if (field && !Array.isArray(field) && field.hasOwnProperty(route.bundle)) {
+      field = field?.[route.bundle]
+    }
+
+    return field
   }
 }

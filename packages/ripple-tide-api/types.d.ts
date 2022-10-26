@@ -12,7 +12,7 @@ export interface RplTideMapping {
   component?: string | string[]
   schema?: string
   mapping: RplTideModuleMappingFunction
-  includes: string[]
+  includes: string[] | object
 }
 
 export interface TideUrlField {

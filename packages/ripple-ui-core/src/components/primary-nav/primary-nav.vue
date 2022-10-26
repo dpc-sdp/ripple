@@ -6,14 +6,16 @@ export default { name: 'RplPrimaryNav' }
 /*
   TODO:
     - Fix menu disappearing before closing animation has finished
+      - If the menu ends up snapping closed, revert the 'lastActiveItem' change
+      - If menu animation is kept, come up with a better name / solution for 'lastActiveItem'
     - Investigate ways to handle tabbing order in mega nav levels
     - Add sliding animation for mobile mega menu levels changing
 */
 import { ref, computed, watch, onMounted, onUnmounted } from 'vue'
+import type { Ref } from 'vue'
 import RplPrimaryNavBar from './nav-bar.vue'
 import RplPrimaryNavMegaMenu from './mega-menu.vue'
 import RplPrimaryNavSearchForm from './search-form.vue'
-import { useExpandableState } from '../../composables/useExpandableState'
 
 import { RplPrimaryNavLogo, RplPrimaryNavItem } from './constants'
 
@@ -31,15 +33,11 @@ const props = withDefaults(defineProps<Props>(), {
   showQuickExit: true
 })
 
-const { isItemExpanded, toggleItem } = useExpandableState(
-  [],
-  props.items.length
-)
-
-const isHidden = ref(false)
-const isMegaNavActive = ref(false)
-const isSearchActive = ref(false)
-const lastActiveItem = ref('')
+const isHidden: Ref<boolean> = ref(false)
+const isMegaNavActive: Ref<boolean> = ref(false)
+const isSearchActive: Ref<boolean> = ref(false)
+const lastActiveItem: Ref<'meganav' | 'search'> = ref('meganav')
+const activeNavItems: Ref<string[]> = ref([])
 
 const handleScroll = () => {
   // If the page is not scrolled to the top, set isHidden to true
@@ -57,32 +55,34 @@ onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll)
 })
 
-const toggleNavBarItem = (id: string) => {
-  // Make all other items besides the target id inactive
-  props.items.forEach((item) => {
-    if (item.id != id && isItemExpanded(item.id)) {
-      toggleItem(item.id)
-    }
-  })
+const isNavItemActive = (id: string) => {
+  return activeNavItems.value.includes(id)
+}
 
-  // Toggle the target item
-  toggleItem(id)
+const toggleNavItem = (id: string) => {
+  // Item needs to be made active
+  if (isNavItemActive(id) == false) {
+    activeNavItems.value.push(id)
+  }
+
+  // Item needs to be made inactive
+  else {
+    activeNavItems.value = activeNavItems.value.filter((item) => item != id)
+  }
+}
+
+const toggleNavBarItem = (id: string) => {
+  // Toggle the target item while also clearing any other active items
+  activeNavItems.value = isNavItemActive(id) ? [] : [id]
 
   // Make search inactive
   isSearchActive.value = false
 
   // If the target item is now active, make sure the mega nav is also active
-  if (isItemExpanded(id) && !isMegaNavActive.value) {
-    isMegaNavActive.value = true
-  }
-
-  // Else if the target item is now inactive, make sure the mega nav is also inactive
-  else if (!isItemExpanded(id) && isMegaNavActive.value) {
-    isMegaNavActive.value = false
-  }
+  isMegaNavActive.value = isNavItemActive(id)
 }
 
-const toggleMegaNav = () => {
+const toggleMobileMenu = () => {
   // Make search inactive
   isSearchActive.value = false
 
@@ -91,13 +91,6 @@ const toggleMegaNav = () => {
 }
 
 const toggleSearch = () => {
-  // Make all nav items inactive
-  props.items.forEach((item) => {
-    if (isItemExpanded(item.id)) {
-      toggleItem(item.id)
-    }
-  })
-
   // Make mega nav inactive
   isMegaNavActive.value = false
 
@@ -112,11 +105,7 @@ const isExpanded = computed(() => {
 watch(isMegaNavActive, (newValue) => {
   // If mega nav closes, toggle off any currently active menu items
   if (!newValue) {
-    props.items.forEach((item) => {
-      if (isItemExpanded(item.id)) {
-        toggleItem(item.id)
-      }
-    })
+    activeNavItems.value = []
   }
 
   // If mega nav opens, set the lastActiveItem
@@ -162,8 +151,8 @@ watch(isExpanded, (newValue) => {
         :show-quick-exit="props.showQuickExit"
         :is-mega-nav-active="isMegaNavActive"
         :is-search-active="isSearchActive"
-        :is-item-expanded="isItemExpanded"
-        :toggle-mega-nav="toggleMegaNav"
+        :is-item-expanded="isNavItemActive"
+        :toggle-mobile-menu="toggleMobileMenu"
         :toggle-item="toggleNavBarItem"
         :toggle-search="toggleSearch"
       >
@@ -177,8 +166,8 @@ watch(isExpanded, (newValue) => {
         v-if="lastActiveItem == 'meganav'"
         :items="props.items"
         :show-quick-exit="props.showQuickExit"
-        :is-item-expanded="isItemExpanded"
-        :toggle-item="toggleItem"
+        :is-item-expanded="isNavItemActive"
+        :toggle-item="toggleNavItem"
       >
         <template #userAction>
           <slot name="userAction"></slot>

@@ -149,7 +149,7 @@ watch(isExpanded, (newValue) => {
         v-if="isMegaNavActive"
         :items="props.items"
         :show-quick-exit="props.showQuickExit"
-        :is-item-expanded="isNavItemActive"
+        :is-item-active="isNavItemActive"
         :toggle-item="toggleNavItem"
       >
         <template #userAction>

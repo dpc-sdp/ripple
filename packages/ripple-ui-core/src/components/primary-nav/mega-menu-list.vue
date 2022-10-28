@@ -11,13 +11,13 @@ interface Props {
   parent?: RplPrimaryNavItem
   items: RplPrimaryNavItem[]
   level: '1' | '2' | '3' | '4'
-  isItemExpanded?: (id: string) => boolean
+  isItemActive?: (id: string) => boolean
   toggleItem?: (id: string) => void
 }
 
 const props = withDefaults(defineProps<Props>(), {
   parent: undefined,
-  isItemExpanded: undefined,
+  isItemActive: undefined,
   toggleItem: undefined
 })
 </script>
@@ -56,7 +56,7 @@ const props = withDefaults(defineProps<Props>(), {
       <RplPrimaryNavMegaMenuAction
         :item="child"
         :type="child.items?.length ? 'toggle' : 'link'"
-        :is-item-expanded="isItemExpanded"
+        :is-item-active="isItemActive"
         :toggle-item="toggleItem"
       />
     </li>

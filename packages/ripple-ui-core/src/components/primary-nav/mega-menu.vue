@@ -12,25 +12,25 @@ import { RplPrimaryNavItem } from './constants'
 interface Props {
   items: RplPrimaryNavItem[]
   showQuickExit: boolean
-  isItemExpanded: (id: string) => boolean
+  isItemActive: (id: string) => boolean
   toggleItem: (id: string) => void
 }
 
 const props = withDefaults(defineProps<Props>(), {})
 
 const level2ActiveItem = computed(() => {
-  return props.items?.find((item) => props.isItemExpanded(item.id))
+  return props.items?.find((item) => props.isItemActive(item.id))
 })
 
 const level3ActiveItem = computed(() => {
   return level2ActiveItem.value?.items?.find((item) =>
-    props.isItemExpanded(item.id)
+    props.isItemActive(item.id)
   )
 })
 
 const level4ActiveItem = computed(() => {
   return level3ActiveItem.value?.items?.find((item) =>
-    props.isItemExpanded(item.id)
+    props.isItemActive(item.id)
   )
 })
 
@@ -115,7 +115,7 @@ const backButtonHandler = () => {
             v-if="props.items.length"
             level="1"
             :items="props.items ? props.items : []"
-            :is-item-expanded="isItemExpanded"
+            :is-item-active="isItemActive"
             :toggle-item="toggleItem"
           />
         </div>
@@ -145,7 +145,7 @@ const backButtonHandler = () => {
             level="2"
             :parent="level2ActiveItem"
             :items="level2ActiveItem.items ? level2ActiveItem.items : []"
-            :is-item-expanded="isItemExpanded"
+            :is-item-active="isItemActive"
             :toggle-item="toggleItem"
           />
         </div>
@@ -175,7 +175,7 @@ const backButtonHandler = () => {
             level="3"
             :parent="level3ActiveItem"
             :items="level3ActiveItem.items ? level3ActiveItem.items : []"
-            :is-item-expanded="isItemExpanded"
+            :is-item-active="isItemActive"
             :toggle-item="toggleItem"
           />
         </div>
@@ -205,7 +205,7 @@ const backButtonHandler = () => {
             level="4"
             :parent="level4ActiveItem"
             :items="level4ActiveItem.items ? level4ActiveItem.items : []"
-            :is-item-expanded="isItemExpanded"
+            :is-item-active="isItemActive"
             :toggle-item="toggleItem"
           />
         </div>

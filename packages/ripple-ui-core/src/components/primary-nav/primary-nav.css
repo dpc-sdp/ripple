@@ -217,6 +217,14 @@
     transform: translateY(3px);
   }
 
+  &.rpl-primary-nav__nav-bar-icon--search {
+    margin-right: var(--rpl-sp-2);
+
+    @media (--rpl-bp-s) {
+      margin-right: 0;
+    }
+  }
+
   .rpl-primary-nav__nav-bar-action--active & {
     transform: rotate(180deg);
   }

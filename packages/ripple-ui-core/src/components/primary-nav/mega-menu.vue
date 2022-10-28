@@ -50,18 +50,6 @@ const currentLevel = computed(() => {
   return 4
 })
 
-const backButtonLabel = computed(() => {
-  if (currentLevel.value == 4 && level3ActiveItem.value) {
-    return level3ActiveItem.value.text
-  }
-
-  if (currentLevel.value == 3 && level2ActiveItem.value) {
-    return level2ActiveItem.value.text
-  }
-
-  return 'Main menu'
-})
-
 const backButtonHandler = () => {
   // Go back to level 3
   if (currentLevel.value == 4 && level4ActiveItem.value) {
@@ -124,7 +112,7 @@ const backButtonHandler = () => {
         <div class="rpl-col-4-l rpl-col-3-xl">
           <!-- Back button - Only visible on mobile -->
           <RplPrimaryNavBackButton
-            :label="backButtonLabel"
+            label="Main menu"
             @click="backButtonHandler()"
           />
 
@@ -154,7 +142,8 @@ const backButtonHandler = () => {
         <div class="rpl-col-4-l rpl-col-3-xl">
           <!-- Back button - Only visible on mobile -->
           <RplPrimaryNavBackButton
-            :label="backButtonLabel"
+            v-if="level2ActiveItem"
+            :label="level2ActiveItem.text"
             @click="backButtonHandler()"
           />
 
@@ -184,7 +173,8 @@ const backButtonHandler = () => {
         <div class="rpl-col-4-l rpl-col-3-xl">
           <!-- Back button - Only visible on mobile -->
           <RplPrimaryNavBackButton
-            :label="backButtonLabel"
+            v-if="level3ActiveItem"
+            :label="level3ActiveItem.text"
             @click="backButtonHandler()"
           />
 

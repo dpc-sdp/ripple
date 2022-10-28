@@ -42,16 +42,20 @@ export default {
       }
       return socialImages
     },
-    menus: async function (this: TideSite, src) {
-      const menuFields = {
-        menuMain: 'field_site_main_menu',
-        menuFooter: 'field_site_footer_menu'
+    menus: async function (src, tideSiteApi: TideSite) {
+      const menuMain = await tideSiteApi.getSiteMenu(
+        tideSiteApi.site,
+        src.field_site_main_menu
+      )
+      const menuFooter = await tideSiteApi.getSiteMenu(
+        tideSiteApi.site,
+        src.field_site_footer_menu
+      )
+
+      return {
+        menuMain,
+        menuFooter
       }
-      const menus = await this.getSiteMenus(src, menuFields)
-      if (menus) {
-        return menus
-      }
-      return []
     }
   },
   includes: [

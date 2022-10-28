@@ -22,8 +22,14 @@
         :components="page.bodyComponents"
       />
     </template>
+    <template #aboveSidebar>
+      <slot name="aboveSidebar"></slot>
+    </template>
     <template #sidebar>
       <slot name="sidebar"></slot>
+    </template>
+    <template #belowSidebar>
+      <slot name="aboveSidebar"></slot>
     </template>
     <template #footer>
       <slot name="footer"> </slot>

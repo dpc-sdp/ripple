@@ -14,6 +14,7 @@ const tideEventModule: RplTideMapping = {
   schema: '@dpc-sdp/ripple-tide-event/types',
   mapping: {
     ...tidePageBaseMapping({
+      withSidebarSiteSectionNav: false,
       withSidebarContacts: true,
       withSidebarRelatedLinks: true,
       withSidebarSocialShare: true
@@ -57,6 +58,7 @@ const tideEventModule: RplTideMapping = {
   },
   includes: [
     ...tidePageBaseIncludes({
+      withSidebarSiteSectionNav: false,
       withSidebarContacts: true,
       withSidebarRelatedLinks: true,
       withSidebarSocialShare: true

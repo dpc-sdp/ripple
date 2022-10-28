@@ -1,8 +1,26 @@
+import { TideImageField, TideUrlField } from '@dpc-sdp/ripple-tide-api'
 import {
   getField,
   getImageFromField,
   getLinkFromField
 } from '@dpc-sdp/ripple-tide-api'
+
+export interface ITideCardBase {
+  title: string
+  summary: string
+  image: TideImageField | null
+  link: TideUrlField
+  showMetadata: boolean
+  metadata: {
+    dateStart: string
+    dateEnd: string
+    topic: string
+    contentType: string
+    fvRecommendationStatus: string
+    inductionYear: string
+    isGrantOnGoing: boolean
+  }
+}
 
 const getCardTitle = (field) => {
   // There are two possible titles to choose from:
@@ -38,7 +56,7 @@ const getCardSummary = (field) => {
   return linkedSummary ? linkedSummary : ownSummary
 }
 
-export const genericCardMapping = (field) => {
+export const genericCardMapping = (field): ITideCardBase => {
   return {
     title: getCardTitle(field),
     summary: getCardSummary(field),

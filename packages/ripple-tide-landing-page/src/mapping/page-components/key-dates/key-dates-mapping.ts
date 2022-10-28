@@ -1,8 +1,5 @@
-import {
-  TideDynamicPageComponent,
-  getField,
-  getLinkFromField
-} from '@dpc-sdp/ripple-tide-api'
+import { getField, getLinkFromField } from '@dpc-sdp/ripple-tide-api'
+import { TideDynamicPageComponent } from '@dpc-sdp/ripple-tide-api/types'
 
 export interface ITideKeyDates {
   title: string
@@ -22,7 +19,6 @@ export const keyDatesMapping = (
   return {
     component: 'RplCardKeyDatesCard',
     id: field.drupal_internal__id.toString(),
-    title: field.field_paragraph_title,
     props: {
       title: 'Key calendar dates',
       items: getField(field, 'field_paragraph_keydates', []).map((item) => {

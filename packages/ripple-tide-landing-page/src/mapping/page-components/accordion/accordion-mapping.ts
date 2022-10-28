@@ -1,4 +1,5 @@
-import { TideDynamicPageComponent, getBody } from '@dpc-sdp/ripple-tide-api'
+import { getBody } from '@dpc-sdp/ripple-tide-api'
+import { TideDynamicPageComponent } from '@dpc-sdp/ripple-tide-api/types'
 
 export interface ITideAccordion {
   id: string
@@ -24,7 +25,7 @@ export const accordionMapping = (
         return {
           id: acc.drupal_internal__id.toString(),
           title: acc.field_paragraph_accordion_name,
-          content: getBody(acc?.field_paragraph_accordion_body?.value)
+          content: getBody(acc?.field_paragraph_accordion_body?.processed)
         }
       })
     }

@@ -158,7 +158,10 @@ watch(isExpanded, (newValue) => {
       </RplPrimaryNavMegaMenu>
 
       <!-- Search form -->
-      <RplPrimaryNavSearchForm v-if="isSearchActive" />
+      <RplPrimaryNavSearchForm
+        v-if="isSearchActive"
+        :show-quick-exit="props.showQuickExit"
+      />
     </div>
   </nav>
 </template>

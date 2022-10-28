@@ -9,7 +9,7 @@ import RplPrimaryNavQuickExit from './quick-exit.vue'
 <template>
   <div class="rpl-primary-nav__search-form">
     <!-- Supplementary mobile links -->
-    <div class="rpl-primary-nav__search-form-quick-exit-container">
+    <div class="rpl-primary-nav__search-form-quick-links">
       <RplPrimaryNavQuickExit />
     </div>
 

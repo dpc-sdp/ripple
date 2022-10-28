@@ -75,10 +75,13 @@ const backButtonHandler = () => {
       rpl-primary-nav__mega-menu--current-level-${currentLevel}
     `"
   >
-    <!-- Mobile links (Quick exit / User action slot) -->
-    <ul class="rpl-primary-nav__mega-menu-mobile-links">
+    <!-- Quick links (Quick exit / User action slot) -->
+    <ul class="rpl-primary-nav__mega-menu-quick-links">
       <li v-if="props.showQuickExit"><RplPrimaryNavQuickExit /></li>
-      <li v-if="$slots.userAction && $slots?.userAction()[0].children?.length">
+      <li
+        v-if="$slots.userAction && $slots?.userAction()[0].children?.length"
+        class="rpl-primary-nav__mega-menu-user-action"
+      >
         <slot name="userAction"></slot>
       </li>
     </ul>

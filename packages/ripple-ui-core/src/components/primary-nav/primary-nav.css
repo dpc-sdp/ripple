@@ -263,11 +263,16 @@
   }
 }
 
-.rpl-primary-nav__mega-menu-mobile-links {
+.rpl-primary-nav__mega-menu-quick-links {
   text-align: right;
+  margin-bottom: var(--rpl-sp-10);
 
   @media (--rpl-bp-l) {
-    display: none;
+    margin-bottom: var(--rpl-sp-7);
+  }
+
+  &:empty {
+    margin-bottom: var(--rpl-sp-6);
   }
 
   li {
@@ -286,6 +291,14 @@
     span {
       white-space: normal;
     }
+  }
+}
+
+.rpl-primary-nav__mega-menu-user-action {
+  /* Hide the mega menu user action slot on desktop because it will appear in
+  the nav bar */
+  @media (--rpl-bp-l) {
+    display: none;
   }
 }
 
@@ -457,6 +470,6 @@
   }
 }
 
-.rpl-primary-nav__search-form-quick-exit-container {
+.rpl-primary-nav__search-form-quick-links {
   text-align: right;
 }

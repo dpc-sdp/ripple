@@ -95,22 +95,22 @@ const backButtonHandler = () => {
       </li>
     </ul>
 
-    <div class="rpl-primary-nav__mega-menu-grid rpl-grid">
-      <!-- Section title - Desktop -->
-      <div
-        v-if="level2ActiveItem"
-        class="
-          rpl-primary-nav__mega-menu-section-title
-          rpl-primary-nav__mega-menu-section-title--desktop
-          rpl-type-h3-fixed rpl-col-12-l rpl-col-3-xl
-        "
-      >
-        {{ level2ActiveItem.text }}
-      </div>
+    <div class="rpl-primary-nav__mega-menu-grid-container">
+      <div class="rpl-primary-nav__mega-menu-grid rpl-grid">
+        <!-- Section title - Desktop -->
+        <div
+          v-if="level2ActiveItem"
+          class="
+            rpl-primary-nav__mega-menu-section-title
+            rpl-primary-nav__mega-menu-section-title--desktop
+            rpl-type-h3-fixed rpl-col-12-l rpl-col-3-xl
+          "
+        >
+          {{ level2ActiveItem.text }}
+        </div>
 
-      <div class="rpl-primary-nav__mega-menu-columns rpl-col-12 rpl-grid">
         <!-- Level 1 - Only visible on mobile -->
-        <div class="rpl-primary-nav__mega-menu-column rpl-col-4-l rpl-col-3-xl">
+        <div class="rpl-col-4-l rpl-col-3-xl">
           <RplPrimaryNavMegaMenuList
             v-if="props.items.length"
             level="1"
@@ -121,7 +121,7 @@ const backButtonHandler = () => {
         </div>
 
         <!-- Level 2 -->
-        <div class="rpl-primary-nav__mega-menu-column rpl-col-4-l rpl-col-3-xl">
+        <div class="rpl-col-4-l rpl-col-3-xl">
           <!-- Back button - Only visible on mobile -->
           <RplPrimaryNavBackButton
             :label="backButtonLabel"
@@ -151,7 +151,7 @@ const backButtonHandler = () => {
         </div>
 
         <!-- Level 3 -->
-        <div class="rpl-primary-nav__mega-menu-column rpl-col-4-l rpl-col-3-xl">
+        <div class="rpl-col-4-l rpl-col-3-xl">
           <!-- Back button - Only visible on mobile -->
           <RplPrimaryNavBackButton
             :label="backButtonLabel"
@@ -181,7 +181,7 @@ const backButtonHandler = () => {
         </div>
 
         <!-- Level 4 -->
-        <div class="rpl-primary-nav__mega-menu-column rpl-col-4-l rpl-col-3-xl">
+        <div class="rpl-col-4-l rpl-col-3-xl">
           <!-- Back button - Only visible on mobile -->
           <RplPrimaryNavBackButton
             :label="backButtonLabel"

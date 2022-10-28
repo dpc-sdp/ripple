@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import type { TideLandingPageComponent } from './../../types'
+import type { TideDynamicPageComponent } from './../../types'
 import { RplPageComponent } from '@dpc-sdp/ripple-ui-core'
 interface Props {
-  components: TideLandingPageComponent[]
+  components: TideDynamicPageComponent[]
 }
 defineProps<Props>()
 </script>
@@ -10,7 +10,7 @@ defineProps<Props>()
 <template>
   <RplPageComponent
     v-for="cmp in components"
-    :key="`component-${cmp.id}`"
+    :key="cmp.id"
     :data-component-id="cmp.id"
     :data-component-type="cmp.component"
     :class="$attrs.class"

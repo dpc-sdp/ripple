@@ -6,13 +6,20 @@ import type { RplTideModuleConfig } from './../../types'
 export default class TidePage extends TideApiBase {
   contentTypes: object
   site: string
+  sectionId: string
+  path: string
+
   constructor(config: RplTideModuleConfig) {
     super(config)
     this.site = config.contentApi.site
+    this.sectionId = ''
+    this.path = ''
     this.contentTypes = config.mapping.content
   }
 
   async getRouteByPath(path: string, site: string = this.site) {
+    this.path = path
+
     const routeUrl = `/route?site=${site}&path=${path}`
     return this.get(routeUrl)
       .then((response) => response?.data?.attributes)
@@ -155,6 +162,11 @@ export default class TidePage extends TideApiBase {
   async getPageByRouteData(route, config) {
     try {
       if (route && route.entity_type && route.bundle && route.uuid) {
+        // The route response has a 'section' attribute, which is the site id used to
+        // determine which menu appears in the 'site section navigation'
+        // We capture it here so that it can be used in the mapping functions
+        this.sectionId = route.section
+
         const nodeUrl = `/${route.entity_type}/${route.bundle}/${route.uuid}`
         return this.get(nodeUrl, config)
           .then((response) => {

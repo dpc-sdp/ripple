@@ -33,6 +33,7 @@ const tideGrantModule: RplTideMapping = {
   schema: '@dpc-sdp/ripple-tide-grant/types',
   mapping: {
     ...tidePageBaseMapping({
+      withSidebarSiteSectionNav: false,
       withSidebarContacts: true,
       withSidebarRelatedLinks: false,
       withSidebarSocialShare: true
@@ -111,6 +112,7 @@ const tideGrantModule: RplTideMapping = {
   },
   includes: [
     ...tidePageBaseIncludes({
+      withSidebarSiteSectionNav: false,
       withSidebarContacts: true,
       withSidebarRelatedLinks: false,
       withSidebarSocialShare: true

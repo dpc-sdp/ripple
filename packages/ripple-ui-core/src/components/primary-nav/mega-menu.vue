@@ -4,7 +4,7 @@ export default { name: 'RplPrimaryNavMegaMenu' }
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import RplIcon from '../icon/icon.vue'
+import RplPrimaryNavBackButton from './mega-menu-back-button.vue'
 import RplPrimaryNavMegaMenuList from './mega-menu-list.vue'
 import RplPrimaryNavQuickExit from './quick-exit.vue'
 import { RplPrimaryNavItem } from './constants'
@@ -78,18 +78,6 @@ const backButtonHandler = () => {
     props.toggleItem(level2ActiveItem.value.id)
   }
 }
-
-const sectionTitleMobile = computed(() => {
-  if (currentLevel.value == 4 && level4ActiveItem.value) {
-    return level4ActiveItem.value.text
-  }
-
-  if (currentLevel.value == 3 && level3ActiveItem.value) {
-    return level3ActiveItem.value.text
-  }
-
-  return level2ActiveItem?.value?.text
-})
 </script>
 
 <template>
@@ -108,47 +96,7 @@ const sectionTitleMobile = computed(() => {
     </ul>
 
     <div class="rpl-primary-nav__mega-menu-grid rpl-grid">
-      <!-- Level 1 - Only visible on mobile -->
-      <RplPrimaryNavMegaMenuList
-        v-if="props.items.length"
-        level="1"
-        :items="props.items ? props.items : []"
-        :is-item-expanded="isItemExpanded"
-        :toggle-item="toggleItem"
-      />
-
-      <!-- Back button - Only visible on mobile -->
-      <div
-        v-if="currentLevel != 1"
-        class="rpl-primary-nav__mega-menu-back-container rpl-col-12"
-      >
-        <button
-          class="
-            rpl-primary-nav__mega-menu-back
-            rpl-type-label-small rpl-type-weight-bold
-          "
-          @click="backButtonHandler()"
-        >
-          <RplIcon
-            name="icon-chevron-left"
-            size="xs"
-            class="rpl-u-margin-r-2"
-          ></RplIcon>
-          <span>{{ backButtonLabel }}</span>
-        </button>
-      </div>
-
-      <!-- Section title -->
-      <div
-        v-if="currentLevel > 1"
-        class="
-          rpl-primary-nav__mega-menu-section-title
-          rpl-primary-nav__mega-menu-section-title--mobile
-          rpl-type-h3-fixed rpl-col-12
-        "
-      >
-        {{ sectionTitleMobile }}
-      </div>
+      <!-- Section title - Desktop -->
       <div
         v-if="level2ActiveItem"
         class="
@@ -160,35 +108,108 @@ const sectionTitleMobile = computed(() => {
         {{ level2ActiveItem.text }}
       </div>
 
-      <!-- Level 2 -->
-      <RplPrimaryNavMegaMenuList
-        v-if="level2ActiveItem?.items?.length"
-        level="2"
-        :parent="level2ActiveItem"
-        :items="level2ActiveItem.items ? level2ActiveItem.items : []"
-        :is-item-expanded="isItemExpanded"
-        :toggle-item="toggleItem"
-      />
+      <div class="rpl-primary-nav__mega-menu-columns rpl-col-12 rpl-grid">
+        <!-- Level 1 - Only visible on mobile -->
+        <div class="rpl-primary-nav__mega-menu-column rpl-col-4-l rpl-col-3-xl">
+          <RplPrimaryNavMegaMenuList
+            v-if="props.items.length"
+            level="1"
+            :items="props.items ? props.items : []"
+            :is-item-expanded="isItemExpanded"
+            :toggle-item="toggleItem"
+          />
+        </div>
 
-      <!-- Level 3 -->
-      <RplPrimaryNavMegaMenuList
-        v-if="level3ActiveItem?.items?.length"
-        level="3"
-        :parent="level3ActiveItem"
-        :items="level3ActiveItem.items ? level3ActiveItem.items : []"
-        :is-item-expanded="isItemExpanded"
-        :toggle-item="toggleItem"
-      />
+        <!-- Level 2 -->
+        <div class="rpl-primary-nav__mega-menu-column rpl-col-4-l rpl-col-3-xl">
+          <!-- Back button - Only visible on mobile -->
+          <RplPrimaryNavBackButton
+            :label="backButtonLabel"
+            @click="backButtonHandler()"
+          />
 
-      <!-- Level 4 -->
-      <RplPrimaryNavMegaMenuList
-        v-if="level4ActiveItem?.items?.length"
-        level="4"
-        :parent="level4ActiveItem"
-        :items="level4ActiveItem.items ? level4ActiveItem.items : []"
-        :is-item-expanded="isItemExpanded"
-        :toggle-item="toggleItem"
-      />
+          <!-- Section title - Mobile - Level 2 -->
+          <div
+            v-if="level2ActiveItem"
+            class="
+              rpl-primary-nav__mega-menu-section-title
+              rpl-primary-nav__mega-menu-section-title--mobile
+              rpl-type-h3-fixed rpl-col-12
+            "
+          >
+            {{ level2ActiveItem.text }}
+          </div>
+
+          <RplPrimaryNavMegaMenuList
+            v-if="level2ActiveItem?.items?.length"
+            level="2"
+            :parent="level2ActiveItem"
+            :items="level2ActiveItem.items ? level2ActiveItem.items : []"
+            :is-item-expanded="isItemExpanded"
+            :toggle-item="toggleItem"
+          />
+        </div>
+
+        <!-- Level 3 -->
+        <div class="rpl-primary-nav__mega-menu-column rpl-col-4-l rpl-col-3-xl">
+          <!-- Back button - Only visible on mobile -->
+          <RplPrimaryNavBackButton
+            :label="backButtonLabel"
+            @click="backButtonHandler()"
+          />
+
+          <!-- Section title - Mobile - Level 3 -->
+          <div
+            v-if="level3ActiveItem"
+            class="
+              rpl-primary-nav__mega-menu-section-title
+              rpl-primary-nav__mega-menu-section-title--mobile
+              rpl-type-h3-fixed rpl-col-12
+            "
+          >
+            {{ level3ActiveItem.text }}
+          </div>
+
+          <RplPrimaryNavMegaMenuList
+            v-if="level3ActiveItem?.items?.length"
+            level="3"
+            :parent="level3ActiveItem"
+            :items="level3ActiveItem.items ? level3ActiveItem.items : []"
+            :is-item-expanded="isItemExpanded"
+            :toggle-item="toggleItem"
+          />
+        </div>
+
+        <!-- Level 4 -->
+        <div class="rpl-primary-nav__mega-menu-column rpl-col-4-l rpl-col-3-xl">
+          <!-- Back button - Only visible on mobile -->
+          <RplPrimaryNavBackButton
+            :label="backButtonLabel"
+            @click="backButtonHandler()"
+          />
+
+          <!-- Section title - Mobile - Level 4 -->
+          <div
+            v-if="level4ActiveItem"
+            class="
+              rpl-primary-nav__mega-menu-section-title
+              rpl-primary-nav__mega-menu-section-title--mobile
+              rpl-type-h3-fixed rpl-col-12
+            "
+          >
+            {{ level4ActiveItem.text }}
+          </div>
+
+          <RplPrimaryNavMegaMenuList
+            v-if="level4ActiveItem?.items?.length"
+            level="4"
+            :parent="level4ActiveItem"
+            :items="level4ActiveItem.items ? level4ActiveItem.items : []"
+            :is-item-expanded="isItemExpanded"
+            :toggle-item="toggleItem"
+          />
+        </div>
+      </div>
     </div>
   </div>
 </template>

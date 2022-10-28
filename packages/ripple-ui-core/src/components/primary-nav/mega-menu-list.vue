@@ -27,9 +27,6 @@ const props = withDefaults(defineProps<Props>(), {
     :class="`
       rpl-primary-nav__mega-menu-list
       rpl-primary-nav__mega-menu-list--level-${props.level}
-      rpl-col-12
-      rpl-col-4-l
-      rpl-col-3-xl
     `"
   >
     <!-- 'Home' link - Only visible on mobile -->

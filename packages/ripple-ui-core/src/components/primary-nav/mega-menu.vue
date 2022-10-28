@@ -85,20 +85,21 @@ const backButtonHandler = () => {
 
     <div class="rpl-primary-nav__mega-menu-grid-container">
       <div class="rpl-primary-nav__mega-menu-grid rpl-grid">
-        <!-- Section title - Desktop -->
-        <div
-          v-if="level2ActiveItem"
-          class="
-            rpl-primary-nav__mega-menu-section-title
-            rpl-primary-nav__mega-menu-section-title--desktop
-            rpl-type-h3-fixed rpl-col-12-l rpl-col-3-xl
-          "
-        >
-          {{ level2ActiveItem.text }}
-        </div>
-
-        <!-- Level 1 - Only visible on mobile -->
+        <!-- Level 1 -->
         <div class="rpl-col-4-l rpl-col-3-xl">
+          <!-- Section title - Desktop -->
+          <div
+            v-if="level2ActiveItem"
+            class="
+              rpl-primary-nav__mega-menu-section-title
+              rpl-primary-nav__mega-menu-section-title--desktop
+              rpl-type-h3-fixed rpl-col-12-l rpl-col-3-xl
+            "
+          >
+            {{ level2ActiveItem.text }}
+          </div>
+
+          <!-- List - Only visible on mobile -->
           <RplPrimaryNavMegaMenuList
             v-if="props.items.length"
             level="1"

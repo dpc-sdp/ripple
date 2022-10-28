@@ -22,8 +22,14 @@ export default { name: 'TideGrantPage' }
       <TideGrantGuidelines v-bind="page.guidelines"></TideGrantGuidelines>
       <TideGrantDocuments :documents="page.documents"></TideGrantDocuments>
     </template>
+    <template #aboveSidebar>
+      <slot name="aboveSidebar"></slot>
+    </template>
     <template #sidebar>
       <slot name="sidebar"></slot>
+    </template>
+    <template #belowSidebar>
+      <slot name="aboveSidebar"></slot>
     </template>
     <template #footer>
       <slot name="footer"></slot>

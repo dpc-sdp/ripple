@@ -27,17 +27,17 @@ const { toggleProps, triggerProps } = useExpandable(
   isExpanded
 )
 
-const children = computed(() => {
+const items = computed(() => {
   if (props.section.url) {
     return [
       {
         text: props.section.text,
         url: props.section.url
       },
-      ...(props.section.children || [])
+      ...(props.section.items || [])
     ]
   } else {
-    return props.section.children || []
+    return props.section.items || []
   }
 })
 </script>
@@ -88,10 +88,7 @@ const children = computed(() => {
       :expanded="isExpandable ? isExpanded : undefined"
       v-bind="isExpandable ? triggerProps : null"
     >
-      <RplList
-        :items="children"
-        item-class="rpl-type-p-small rpl-u-margin-b-3"
-      />
+      <RplList :items="items" item-class="rpl-type-p-small rpl-u-margin-b-3" />
     </component>
   </div>
 </template>

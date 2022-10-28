@@ -77,7 +77,7 @@ const { isItemExpanded, toggleItem } = useExpandableState(
           v-else
           :text="item.text"
           :href="item.url"
-          :active="item?.active"
+          :active="item?.active && !item?.items?.length"
         />
       </li>
     </ul>

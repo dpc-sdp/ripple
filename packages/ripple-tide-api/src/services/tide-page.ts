@@ -227,18 +227,16 @@ export default class TidePage extends TideApiBase {
   }
 
   getContentTypeField(key: string, route) {
-    const contentType =
+    let contentType =
       this.contentTypes?.[route.bundle] ||
       this.contentTypes?.[route.entity_type]
 
-    let field =
-      contentType && contentType.hasOwnProperty(key) && contentType?.[key]
-
-    // check for any nested mapping
-    if (field && !Array.isArray(field) && field.hasOwnProperty(route.bundle)) {
-      field = field?.[route.bundle]
+    // Check for "submodules", i.e. modules that are packaged together
+    // for example embedded video and audio are packaged under "media"
+    if (contentType && contentType.hasOwnProperty(route.bundle)) {
+      contentType = contentType[route.bundle]
     }
 
-    return field
+    return contentType && contentType.hasOwnProperty(key) && contentType?.[key]
   }
 }

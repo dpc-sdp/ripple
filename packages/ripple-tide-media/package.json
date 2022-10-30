@@ -8,7 +8,8 @@
   "type": "module",
   "exports": {
     ".": "./dist/index.js",
-    "./component": "./src/index.vue",
+    "./audio": "./src/pages/tide-media-audio-page.vue",
+    "./embedded-video": "./src/pages/tide-media-embedded-video-page.vue",
     "./types": "./types.d.ts",
     "./nuxt": "./src/nuxt.ts"
   },

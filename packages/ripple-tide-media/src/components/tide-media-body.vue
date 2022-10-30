@@ -3,20 +3,8 @@ export default { name: 'TideMediaBody' }
 </script>
 
 <template>
-  <!-- TODO: swap out for media embed component once ready -->
-  <figure style="margin: 0">
-    <iframe
-      v-if="media.type === 'embedded_video'"
-      :src="media.url"
-      width="100%"
-      class="tide-media__media rpl-u-aspect-wide"
-    />
-    <audio
-      v-if="media.type === 'audio'"
-      class="tide-media__media"
-      :src="media.url"
-      controls
-    />
+  <figure class="rpl-u-margin-none">
+    <slot />
     <figcaption>
       <RplContent
         :html="media.content"

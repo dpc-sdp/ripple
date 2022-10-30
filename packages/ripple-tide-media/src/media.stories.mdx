@@ -4,9 +4,11 @@ import {
   Story
 } from '@storybook/addon-docs'
 
-import fixture from '../../../examples/nuxt-app/test/fixtures/media/36.json'
+import embeddedVideoFixture from '../../../examples/nuxt-app/test/fixtures/media/36.json'
+import audioFixture from '../../../examples/nuxt-app/test/fixtures/media/271.json'
 import MockPage from '../../ripple-ui-core/stories/components/mock-page.vue'
-import TideMediaPage from './index.vue'
+import TideMediaEmbeddedVideoPage from './pages/tide-media-embedded-video-page.vue'
+import TideMediaAudioPage from './pages/tide-media-audio-page.vue'
 
 export const MediaTemplate = (args) => ({
   components: {
@@ -19,8 +21,7 @@ export const MediaTemplate = (args) => ({
 })
 
 <Meta
-  title='Media/Template'
-  component={TideMediaPage}
+  title='Media/Templates'
   argTypes={{
     componentName: { table: { disable: true } },
     pageComponent: { table: { disable: true } },
@@ -31,9 +32,6 @@ export const MediaTemplate = (args) => ({
     default: { table: { disable: true } }
   }}
   args={{
-    componentName: 'TideMedia',
-    pageComponent: TideMediaPage,
-    url: 'https://www.vic.gov.au',
     breadcrumbs: {
       items: [
         { label: 'Home', url: '/' },
@@ -41,7 +39,6 @@ export const MediaTemplate = (args) => ({
       ]
     },
     site: {},
-    page: fixture
   }}
   parameters={{
     layout: 'fullscreen'
@@ -51,7 +48,29 @@ export const MediaTemplate = (args) => ({
 # Media - Video
 
 <Canvas>
-  <Story name='Template'>
+  <Story
+    name='Embedded Video'
+    component={TideMediaEmbeddedVideoPage}
+    args={{
+      componentName: 'TideMediaEmbeddedVideoPage',
+      pageComponent: TideMediaEmbeddedVideoPage,
+      page: embeddedVideoFixture
+    }}
+  >
+    {MediaTemplate.bind()}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    name='Audio'
+    component={TideMediaAudioPage}
+    args={{
+      componentName: 'TideMediaAudio',
+      pageComponent: TideMediaAudioPage,
+      page: audioFixture
+    }}
+  >
     {MediaTemplate.bind()}
   </Story>
 </Canvas>

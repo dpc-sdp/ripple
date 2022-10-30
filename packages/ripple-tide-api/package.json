@@ -10,6 +10,7 @@
     ".": "./dist/index.js",
     "./nuxt": "./dist/nuxt.js",
     "./types": "./types.d.ts",
+    "./errors": "./dist/errors/errors.js",
     "./components": "./dist/nuxt/components",
     "./services": "./dist/services/index.js",
     "./mapping/site": "./dist/mapping/site.js"
@@ -33,7 +34,8 @@
     "pathe": "^0.3.9",
     "qs": "^6.10.3",
     "ts-json-schema-generator": "^1.1.2",
-    "typescript-json-schema": "^0.54.0"
+    "typescript-json-schema": "^0.54.0",
+    "winston": "^3.8.2"
   },
   "devDependencies": {
     "@nuxt/schema": "3.0.0-rc.10",

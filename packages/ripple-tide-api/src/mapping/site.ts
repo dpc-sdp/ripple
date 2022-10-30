@@ -30,15 +30,21 @@ export default {
         src.field_site_og_image &&
         src.field_site_og_image.hasOwnProperty('field_media_image')
       ) {
-        socialImages.og = getImageFromField(src, ['field_site_og_image'])
+        socialImages.og =
+          getImageFromField(src, [
+            'field_site_og_image',
+            'field_media_image'
+          ]) || {}
       }
       if (
         src.field_site_twitter_image &&
         src.field_site_twitter_image.hasOwnProperty('field_media_image')
       ) {
-        socialImages.twitter = getImageFromField(src, [
-          'field_site_twitter_image'
-        ])
+        socialImages.twitter =
+          getImageFromField(src, [
+            'field_site_twitter_image',
+            'field_media_image'
+          ]) || {}
       }
       return socialImages
     },

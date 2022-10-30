@@ -40,6 +40,14 @@ export interface TidePageBase {
   }
 }
 
+export type TideDynamicPageComponent<T> = {
+  id: string
+  component: string
+  title?: string
+  props: T
+  class?: Record<string, any>
+}
+
 export interface RplTideModuleConfig {
   contentApi: {
     /**

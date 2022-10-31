@@ -66,8 +66,10 @@ export default defineNuxtModule({
       // Adds components dir to auto imports
       console.log('Added Tide UI components')
       dirs.push({
+        extensions: ['vue'],
         path: join(__dirname, './../src/nuxt/components'),
-        prefix: 'tide'
+        prefix: 'tide',
+        global: true
       })
     }
   }

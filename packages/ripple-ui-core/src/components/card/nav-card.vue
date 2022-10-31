@@ -16,7 +16,6 @@ interface Props {
   highlight?: boolean
   image?: string
   inset?: boolean
-  meta?: string
   title: string
   url?: string
 }
@@ -26,9 +25,12 @@ const props = withDefaults(defineProps<Props>(), {
   highlight: false,
   inset: false,
   image: undefined,
-  meta: undefined,
   url: undefined
 })
+
+const cardClasses = computed(() => ({
+  'rpl-card--inset': props.inset
+}))
 
 const titleClasses = computed(() => [
   'rpl-card__cta',
@@ -46,15 +48,11 @@ const { container, trigger } = useAccessibleContainer()
 </script>
 
 <template>
-  <RplCard ref="container" type="nav" :el="el">
+  <RplCard ref="container" type="nav" :el="el" :class="cardClasses">
     <template v-if="image" #upper>
-      <RplImage
-        :class="imgClasses"
-        :src="image"
-        alt=""
-      />
+      <RplImage :class="imgClasses" :src="image" alt="" />
     </template>
-    <template v-if="meta" #meta>
+    <template v-if="$slots.meta" #meta>
       <div class="rpl-card__meta rpl-type-p-small">
         <slot name="meta"></slot>
       </div>

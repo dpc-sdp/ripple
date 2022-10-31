@@ -4,6 +4,14 @@ import axios from 'axios'
 import MockAdapter from 'axios-mock-adapter'
 const mockClient = new MockAdapter(axios)
 
+const mockLogger = {
+  log: jest.fn(),
+  debug: jest.fn(),
+  info: jest.fn(),
+  warn: jest.fn(),
+  error: jest.fn()
+}
+
 const exampleMapping = {
   includes: [],
   mapping: {
@@ -18,16 +26,19 @@ const exampleApiConfig = {
 
 describe('TideApiBase', () => {
   describe('getMappedData', () => {
-    const tideApiBase = new TideApiBase({
-      debug: false,
-      contentApi: exampleApiConfig,
-      mapping: {
-        site: exampleMapping,
-        content: {
-          event: exampleMapping
+    const tideApiBase = new TideApiBase(
+      {
+        debug: false,
+        contentApi: exampleApiConfig,
+        mapping: {
+          site: exampleMapping,
+          content: {
+            event: exampleMapping
+          }
         }
-      }
-    })
+      },
+      mockLogger
+    )
     it('should return mapped data', async () => {
       const mapping = {
         stringField: 'title',
@@ -62,16 +73,19 @@ describe('TideApiBase', () => {
     })
   })
   describe('get', () => {
-    const tideApiBase = new TideApiBase({
-      contentApi: exampleApiConfig,
-      debug: false,
-      mapping: {
-        site: exampleMapping,
-        content: {
-          event: exampleMapping
+    const tideApiBase = new TideApiBase(
+      {
+        contentApi: exampleApiConfig,
+        debug: false,
+        mapping: {
+          site: exampleMapping,
+          content: {
+            event: exampleMapping
+          }
         }
-      }
-    })
+      },
+      mockLogger
+    )
     it('should call http client get method', async () => {
       mockClient.onGet(`${exampleApiConfig.apiPrefix}/site`).reply(200, {
         field: 'test'
@@ -79,50 +93,6 @@ describe('TideApiBase', () => {
       const result = await tideApiBase.get('/site')
       expect(result).toEqual({ field: 'test' })
       mockClient.reset()
-    })
-  })
-  describe('handleError', () => {
-    const tideApiBase = new TideApiBase({
-      contentApi: exampleApiConfig,
-      debug: true,
-      mapping: {
-        site: exampleMapping,
-        content: {
-          event: exampleMapping
-        }
-      }
-    })
-    it('should return 404 error', () => {
-      const test = tideApiBase.handleError('there was an error', 404)
-      expect(test).toEqual({
-        debug: 'there was an error',
-        status: 404,
-        message: 'Page not found'
-      })
-    })
-    it('should return 403 error as 404', () => {
-      const test = tideApiBase.handleError('forbidden', 403)
-      expect(test).toEqual({
-        debug: 'forbidden',
-        status: 404,
-        message: 'Page not found'
-      })
-    })
-    it('should return 400 error', () => {
-      const test = tideApiBase.handleError('error', 400)
-      expect(test).toEqual({
-        debug: 'error',
-        status: 400,
-        message: 'Bad request'
-      })
-    })
-    it('should return 500 error by default', () => {
-      const test = tideApiBase.handleError()
-      expect(test).toEqual({
-        debug: 'error',
-        status: 500,
-        message: 'Server is not available'
-      })
     })
   })
 })

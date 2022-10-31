@@ -10,16 +10,27 @@
       <slot name="breadcrumbs"></slot>
     </template>
     <template #aboveBody>
+      <TideLandingPageHeroHeader :header="page.heroHeader" />
       <TideDynamicComponents
         v-if="page.headerComponents?.length > 0"
         :components="page.headerComponents"
         class="rpl-col-12"
+      />
+      <TideLandingPagePrimaryCampaignBanner
+        v-if="page.primaryCampaign"
+        :campaign="page.primaryCampaign"
       />
     </template>
     <template #body>
       <TideDynamicComponents
         v-if="page.bodyComponents?.length > 0"
         :components="page.bodyComponents"
+      />
+    </template>
+    <template #belowBody>
+      <TideLandingPageSecondaryCampaignBanner
+        v-if="page.secondaryCampaign"
+        :campaign="page.secondaryCampaign"
       />
     </template>
     <template #aboveSidebar>

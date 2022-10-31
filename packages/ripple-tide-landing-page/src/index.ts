@@ -8,6 +8,18 @@ import {
   landingPageComponentsIncludes
 } from './mapping/page-components/page-components-mapping.js'
 import type { RplTideMapping } from '@dpc-sdp/ripple-tide-api/types'
+import {
+  heroHeaderMapping,
+  heroHeaderIncludes
+} from './mapping/hero-header/hero-header-mapping.js'
+import {
+  primaryCampaignIncludes,
+  primaryCampaignMapping
+} from './mapping/primary-campaign/primary-campaign-mapping.js'
+import {
+  secondaryCampaignIncludes,
+  secondaryCampaignMapping
+} from './mapping/secondary-campaign/secondary-campaign-mapping.js'
 
 const tideLandingPageModule: RplTideMapping = {
   component: '@dpc-sdp/ripple-tide-landing-page/component',
@@ -27,6 +39,9 @@ const tideLandingPageModule: RplTideMapping = {
 
       return 'default'
     },
+    heroHeader: heroHeaderMapping,
+    primaryCampaign: primaryCampaignMapping,
+    secondaryCampaign: secondaryCampaignMapping,
     headerComponents: async (src) => {
       return await getDynamicPageComponents(
         src,
@@ -50,15 +65,11 @@ const tideLandingPageModule: RplTideMapping = {
       withSidebarSocialShare: true
     }),
     ...landingPageComponentsIncludes,
-    'field_graphical_image.field_media_image',
-    'field_bottom_graphical_image.field_media_image',
-    'field_landing_page_hero_logo.field_media_image',
-    'field_landing_page_hero_image.field_media_image',
-    'field_landing_page_hero_banner',
-    'field_landing_page_c_primary.field_block_image.field_media_image',
+    ...heroHeaderIncludes,
+    ...primaryCampaignIncludes,
+    ...secondaryCampaignIncludes,
     'field_landing_page_c_secondary.field_block_image.field_media_image',
     'field_landing_page_c_secondary.field_block_embedded_video',
-    'field_landing_page_key_journeys',
     'field_landing_page_header',
     'field_landing_page_component.field_paragraph_media.field_media_image',
     'field_landing_page_component.field_paragraph_topic',

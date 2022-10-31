@@ -22,6 +22,10 @@ import {
   statisticsGridIncludes,
   statisticsGridMapping
 } from './statistics-grid/statistics-grid-mapping.js'
+import {
+  introBannerIncludes,
+  introBannerMapping
+} from './intro-banner/intro-banner-mapping.js'
 
 export const landingPageComponentsMapping = {
   'paragraph--basic_text': basicTextMapping,
@@ -29,7 +33,8 @@ export const landingPageComponentsMapping = {
   'paragraph--promotion_card': promoCardMapping,
   'paragraph--navigation_card': navigationCardMapping,
   'paragraph--card_keydates': keyDatesMapping,
-  'paragraph--statistics_grid': statisticsGridMapping
+  'paragraph--statistics_grid': statisticsGridMapping,
+  'paragraph--introduction_banner': introBannerMapping
 }
 
 export const landingPageComponentsIncludes = [
@@ -38,5 +43,6 @@ export const landingPageComponentsIncludes = [
   ...promoCardIncludes,
   ...navigationCardIncludes,
   ...keyDatesIncludes,
-  ...statisticsGridIncludes
+  ...statisticsGridIncludes,
+  ...introBannerIncludes
 ]

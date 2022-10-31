@@ -1,4 +1,6 @@
+import { link } from 'fs'
 import { get } from 'lodash-es'
+import { TideUrlField } from '../../types'
 import markupTranspiler from './markup-transpiler/index.js'
 
 export type mediaImage = {
@@ -45,42 +47,63 @@ export const removeDomainFromPath = (path: string) =>
     : path
 
 export const getMediaImage = (fieldMediaImage: fieldMediaImage): mediaImage => {
-  const focalPoint = fieldMediaImage.meta.focal_point
-  delete fieldMediaImage.meta.focal_point
+  const focalPoint = fieldMediaImage.meta?.focal_point
+  if (fieldMediaImage.meta?.focal_point) {
+    delete fieldMediaImage.meta.focal_point
+  }
   // Replace BE domain for images as they will be proxied through FE
   return {
     src: fieldMediaImage.url ? removeDomainFromPath(fieldMediaImage.url) : '',
+    // src: `https://develop.content.reference.sdp.vic.gov.au${
+    //   fieldMediaImage.url ? removeDomainFromPath(fieldMediaImage.url) : ''
+    // }`,
     ...fieldMediaImage.meta,
     focalPoint
   }
 }
 
+// export const getLinkFromField = (
+//   field: drupalField,
+//   path: string | string[] | unknown
+// ) => {
+//   let url, text
+//   if (Array.isArray(path)) {
+//     text = get(field, [...path, 'title'], false)
+//     url = get(
+//       field,
+//       [...path, 'url'],
+//       get(field, [...path, 'origin_url'], get(field, [...path, 'uri'])),
+//       false
+//     )
+//   } else if (typeof path === 'string') {
+//     text = get(field, `${path}.title`, false)
+//     url = get(
+//       field,
+//       `${path}.url`,
+//       get(field, `${path}.origin_url`, get(field, `${path}.uri`)),
+//       false
+//     )
+//   } else {
+//     text = get(field, 'title', false)
+//     url = get(field, 'url', get(field, 'origin_url', get(field, 'uri')))
+//   }
+//   return { text: url && text === '' ? url : text, url }
+// }
+
 export const getLinkFromField = (
   field: drupalField,
-  path: string | string[] | unknown
-) => {
-  let url, text
-  if (Array.isArray(path)) {
-    text = get(field, [...path, 'title'], false)
-    url = get(
-      field,
-      [...path, 'url'],
-      get(field, [...path, 'origin_url'], get(field, [...path, 'uri'])),
-      false
-    )
-  } else if (typeof path === 'string') {
-    text = get(field, `${path}.title`, false)
-    url = get(
-      field,
-      `${path}.url`,
-      get(field, `${path}.origin_url`, get(field, `${path}.uri`)),
-      false
-    )
-  } else {
-    text = get(field, 'title', false)
-    url = get(field, 'url', get(field, 'origin_url', get(field, 'uri')))
+  path?: string | string[]
+): TideUrlField | null => {
+  const linkField = path ? get(field, path, null) : field
+
+  if (!linkField) {
+    return null
   }
-  return { text: url && text === '' ? url : text, url }
+
+  return {
+    text: linkField.title || '',
+    url: linkField.url || linkField.origin_url || linkField.uri || ''
+  }
 }
 
 export const getAddress = (field: drupalField) => {

@@ -1,24 +1,22 @@
 import { join } from 'pathe'
-import { defineNuxtModule, addComponent } from '@nuxt/kit'
+import { defineNuxtModule, addComponent, addComponentsDir } from '@nuxt/kit'
 
 export default defineNuxtModule({
-  hooks: {
-    'components:dirs'(dirs) {
-      console.log('Added Tide Media UI components')
-      dirs.push({
-        extensions: ['vue'],
-        path: join(__dirname, './components'),
-        prefix: 'TideMedia',
-        global: true
-      })
-
-      console.log('Added Tide Media Page components')
-      dirs.push({
-        extensions: ['vue'],
-        path: join(__dirname, './pages'),
-        prefix: 'TideMedia',
-        global: true
-      })
-    }
+  setup() {
+    addComponent({
+      name: 'TideMediaEmbeddedVideoPage',
+      filePath: '@dpc-sdp/ripple-tide-media/embedded-video',
+      global: true
+    })
+    addComponent({
+      name: 'TideMediaAudioPage',
+      filePath: '@dpc-sdp/ripple-tide-media/audio',
+      global: true
+    })
+    addComponentsDir({
+      extensions: ['vue'],
+      path: join(__dirname, './components'),
+      global: true
+    })
   }
 })

@@ -12,6 +12,7 @@ Feature: Media page
   Example: Video
     Then the media page should display content which includes "Video transcript content"
     And the media page should have the timestamp of "2022-10-26T01:06:33+00:00"
+    And the media page should include a video embed with source "https://www.youtube.com/embed/YYrvm5zaAjk?autoplay=0&start=0&rel=0"
 
   Example: On load
     Given the mock server has started
@@ -23,3 +24,4 @@ Feature: Media page
   Example: Audio
     Then the media page should display content which includes "Audio transcript content"
     And the media page should have the timestamp of "2022-08-22T01:06:00+00:00"
+    And the media page should include a audio embed with source "#audio-source"

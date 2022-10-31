@@ -1,7 +1,8 @@
 import type { RplTideMapping } from '@dpc-sdp/ripple-tide-api/types'
-import { tideMediaMapping, tideMediaIncludes } from '../media-mapping'
+import { tideMediaMapping, tideMediaIncludes } from '../media-mapping.js'
 
 const tideMediaAudioMapping: RplTideMapping = {
+  key: 'audio',
   schema: '@dpc-sdp/ripple-tide-media/types',
   mapping: {
     ...tideMediaMapping,

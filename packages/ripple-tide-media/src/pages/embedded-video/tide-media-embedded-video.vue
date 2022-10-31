@@ -18,6 +18,7 @@ export default { name: 'TideMediaEmbeddedVideoPage' }
     </template>
     <template #body>
       <TideMediaBody :media="page.media" :date="page.modified">
+        <!-- NOTE: this may be changed to the future video component -->
         <iframe
           :src="page.media.url"
           width="100%"

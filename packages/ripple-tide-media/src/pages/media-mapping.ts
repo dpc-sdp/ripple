@@ -12,8 +12,7 @@ export const tideMediaMapping = {
   title: 'name',
   modified: 'changed',
   header: {
-    title: 'name',
-    summary: 'field_media_summary'
+    title: 'name'
   },
   media: {
     summary: 'field_media_summary',

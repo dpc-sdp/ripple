@@ -1,16 +1,24 @@
 import { join } from 'pathe'
-import { defineNuxtModule, addComponent, addComponentsDir } from '@nuxt/kit'
+import {
+  defineNuxtModule,
+  addComponent,
+  addComponentsDir,
+  resolvePath
+} from '@nuxt/kit'
 
 export default defineNuxtModule({
   setup() {
     addComponent({
       name: 'TideMediaEmbeddedVideoPage',
-      filePath: '@dpc-sdp/ripple-tide-media/embedded-video',
+      filePath: join(
+        __dirname,
+        './pages/embedded-video/tide-media-embedded-video.vue'
+      ),
       global: true
     })
     addComponent({
       name: 'TideMediaAudioPage',
-      filePath: '@dpc-sdp/ripple-tide-media/audio',
+      filePath: join(__dirname, './pages/audio/tide-media-audio.vue'),
       global: true
     })
     addComponentsDir({

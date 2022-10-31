@@ -1,7 +1,4 @@
-import tideMediaEmbeddedVideoMapping from './pages/embedded-video/embedded-video-mapping'
-import tideMediaAudioMapping from './pages/audio/audio-mapping'
+import tideMediaEmbeddedVideoMapping from './pages/embedded-video/embedded-video-mapping.js'
+import tideMediaAudioMapping from './pages/audio/audio-mapping.js'
 
-export default {
-  embedded_video: tideMediaEmbeddedVideoMapping,
-  audio: tideMediaAudioMapping
-}
+export default [tideMediaEmbeddedVideoMapping, tideMediaAudioMapping]

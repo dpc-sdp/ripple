@@ -55,7 +55,7 @@ export default class TidePage extends TideApiBase {
           ...route
         }
       }
-      const includes = this.getResourceIncludes(route.bundle)
+      const includes = this.getResourceIncludes(route)
       const params = {
         site,
         ...config
@@ -130,12 +130,11 @@ export default class TidePage extends TideApiBase {
   //   return Promise.reject(this.handleError({ message: 'Unauthorized' }, 401))
   // }
 
-  getResourceIncludes(type: string) {
-    const includes = this.contentTypes[type]
-      ? this.contentTypes[type].includes
-      : []
+  getResourceIncludes(route) {
+    const includes = this.getContentTypeField('includes', route)
     if (
       defaultMapping &&
+      Array.isArray(includes) &&
       Array.isArray(defaultMapping.includes) &&
       defaultMapping.includes.length > 0
     ) {
@@ -169,7 +168,7 @@ export default class TidePage extends TideApiBase {
       return await this.get(nodeUrl, config).then((response) => {
         if (response.data) {
           const data = jsonapiParse.parse(response).data || response.data
-          return this.getTidePage(data, route.bundle)
+          return this.getTidePage(data, route)
         }
         return response
       })
@@ -177,16 +176,15 @@ export default class TidePage extends TideApiBase {
     throw new Error('Invalid route')
   }
 
-  async getTidePage(resource, type) {
+  async getTidePage(resource, route) {
     if (this.debug) {
       defaultMapping.mapping['_source'] = (src) => src
     }
-    const contentTypeMapping =
-      this.contentTypes[type] &&
-      this.contentTypes[type].hasOwnProperty('mapping') &&
-      this.contentTypes[type].mapping
+    const contentTypeMapping = this.getContentTypeField('mapping', route)
     if (!contentTypeMapping) {
-      throw new ApplicationError(`Unable to resolve content type - ${type}`)
+      throw new ApplicationError(
+        `Unable to resolve content type - ${route.type}`
+      )
     }
     return this.getMappedData(
       { ...defaultMapping.mapping, ...contentTypeMapping },
@@ -195,5 +193,18 @@ export default class TidePage extends TideApiBase {
   }
   getResourceType(type) {
     return type.replace('node--', '')
+  }
+  getContentTypeField(key: string, route) {
+    let contentType =
+      this.contentTypes?.[route.bundle] ||
+      this.contentTypes?.[route.entity_type]
+
+    // Check for "submodules", i.e. modules that are packaged together
+    // for example embedded video and audio are packaged under "media"
+    if (contentType && Array.isArray(contentType)) {
+      contentType = contentType.find((type) => type?.key === route.bundle)
+    }
+
+    return contentType && contentType.hasOwnProperty(key) && contentType?.[key]
   }
 }

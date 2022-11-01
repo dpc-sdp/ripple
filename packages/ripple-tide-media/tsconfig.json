@@ -1,7 +1,3 @@
----
-to: packages/ripple-tide-<%= h.changeCase.paramCase(name) %>/tsconfig.json
----
-
 {
   "extends": "../../tsconfig.build.json",
   "compilerOptions": {

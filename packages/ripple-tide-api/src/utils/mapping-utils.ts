@@ -1,28 +1,39 @@
-import { link } from 'fs'
 import { get } from 'lodash-es'
-import { TideUrlField } from '../../types'
+import { TideImageField, TideUrlField } from '../../types'
 import markupTranspiler from './markup-transpiler/index.js'
-
-export type mediaImage = {
-  src: string
-  alt: string
-  focalPoint?: {
-    x: string
-    y: string
-  }
-}
 
 export type drupalField = Record<string, any>
 
-export type fieldMediaImage = {
+interface RawMediaImage {
   url: string
   meta: {
     alt: string
+    title: string
+    width: number
+    height: number
     focal_point?: {
       x: string
       y: string
     }
   }
+}
+
+interface RawCardImageData {
+  alt: string
+  title: string
+  width: string
+  height: string
+}
+
+interface RawCardImage {
+  url: string
+  meta: {
+    focal_point?: {
+      x: string
+      y: string
+    }
+  }
+  data: RawCardImageData[]
 }
 
 export const formatDate = (date) => {
@@ -33,20 +44,30 @@ export const formatDate = (date) => {
   return date
 }
 
-export const getImageFromField = (
-  field: object,
-  path: string | string[]
-): mediaImage | null => {
-  const image = get(field, path)
-  return image ? getMediaImage(image) : null
-}
-
 export const removeDomainFromPath = (path: string) =>
   typeof path === 'string' && path.length > 0
     ? path.replace(/^.*(?=(\/sites\/default\/files))/, '')
     : path
 
-export const getMediaImage = (fieldMediaImage: fieldMediaImage): mediaImage => {
+export const getImageFromField = (
+  field: object,
+  path: string | string[]
+): TideImageField | null => {
+  const image = get(field, path)
+  return image ? getMediaImage(image) : null
+}
+
+export const getCardImageFromField = (
+  field: object,
+  path: string | string[]
+): TideImageField | null => {
+  const image = get(field, path)
+  return image ? getCardImage(image) : null
+}
+
+export const getMediaImage = (
+  fieldMediaImage: RawMediaImage
+): TideImageField => {
   const focalPoint = fieldMediaImage.meta?.focal_point
   if (fieldMediaImage.meta?.focal_point) {
     delete fieldMediaImage.meta.focal_point
@@ -59,6 +80,30 @@ export const getMediaImage = (fieldMediaImage: fieldMediaImage): mediaImage => {
     // }`,
     ...fieldMediaImage.meta,
     focalPoint
+  }
+}
+
+export const getCardImage = (fieldMediaImage: RawCardImage): TideImageField => {
+  const focalPoint = fieldMediaImage.meta?.focal_point
+  if (fieldMediaImage.meta?.focal_point) {
+    delete fieldMediaImage.meta.focal_point
+  }
+
+  const data: RawCardImageData | null = fieldMediaImage.data.length
+    ? fieldMediaImage.data[0]
+    : null
+
+  // Replace BE domain for images as they will be proxied through FE
+  return {
+    src: fieldMediaImage.url ? removeDomainFromPath(fieldMediaImage.url) : '',
+    // src: `https://develop.content.reference.sdp.vic.gov.au${
+    //   fieldMediaImage.url ? removeDomainFromPath(fieldMediaImage.url) : ''
+    // }`,
+    focalPoint,
+    alt: data?.alt,
+    width: data?.width ? parseInt(data.width) : undefined,
+    height: data?.height ? parseInt(data.height) : undefined,
+    title: data?.title
   }
 }
 

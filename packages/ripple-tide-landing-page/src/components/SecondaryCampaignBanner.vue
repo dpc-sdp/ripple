@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { RplSecondaryCampaign } from '@dpc-sdp/ripple-ui-core'
-import { ITideCampaign } from '../mapping/primary-campaign/primary-campaign-mapping'
+import { ITideSecondaryCampaign } from '../mapping/primary-campaign/primary-campaign-mapping'
 
 defineProps<{
-  campaign: ITideCampaign
+  campaign: ITideSecondaryCampaign
 }>()
 </script>
 

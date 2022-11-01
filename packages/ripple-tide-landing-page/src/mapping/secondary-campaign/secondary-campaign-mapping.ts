@@ -1,5 +1,4 @@
-import { TideImageField } from '@dpc-sdp/ripple-tide-api'
-import { TideUrlField } from '@dpc-sdp/ripple-tide-api'
+import { TideImageField, TideUrlField } from '@dpc-sdp/ripple-tide-api/types'
 import {
   getBody,
   getLinkFromField,
@@ -7,15 +6,17 @@ import {
   getImageFromField
 } from '@dpc-sdp/ripple-tide-api'
 
-export interface ITideCampaign {
+export interface ITideSecondaryCampaign {
   title: string
   summaryHtml: string | null
   cta: TideUrlField
   image: TideImageField
-  imageCaption: string
+  imageCaption: string | null
 }
 
-export const secondaryCampaignMapping = (src): ITideCampaign | null => {
+export const secondaryCampaignMapping = (
+  src
+): ITideSecondaryCampaign | null => {
   if (!src.field_landing_page_c_secondary) {
     return null
   }
@@ -44,5 +45,6 @@ export const secondaryCampaignMapping = (src): ITideCampaign | null => {
 }
 
 export const secondaryCampaignIncludes = [
-  'field_landing_page_c_primary.field_block_image.field_media_image'
+  'field_landing_page_c_secondary.field_block_image.field_media_image',
+  'field_landing_page_c_secondary.field_block_embedded_video'
 ]

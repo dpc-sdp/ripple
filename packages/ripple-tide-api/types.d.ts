@@ -21,8 +21,11 @@ export interface TideUrlField {
 }
 export interface TideImageField {
   src: string
-  alt: string
-  focalPoint: {
+  alt?: string
+  title?: string
+  width?: number
+  height?: number
+  focalPoint?: {
     x: string
     y: string
   }

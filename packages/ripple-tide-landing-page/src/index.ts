@@ -68,8 +68,6 @@ const tideLandingPageModule: RplTideMapping = {
     ...heroHeaderIncludes,
     ...primaryCampaignIncludes,
     ...secondaryCampaignIncludes,
-    'field_landing_page_c_secondary.field_block_image.field_media_image',
-    'field_landing_page_c_secondary.field_block_embedded_video',
     'field_landing_page_header',
     'field_landing_page_component.field_paragraph_media.field_media_image',
     'field_landing_page_component.field_paragraph_topic',

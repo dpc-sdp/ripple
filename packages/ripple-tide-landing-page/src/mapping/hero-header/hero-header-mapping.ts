@@ -17,10 +17,10 @@ export interface ITideHeroHeader {
     more: TideUrlField
   }
   theme: 'default' | 'reverse' | 'neutral'
-  logoImage: TideImageField
-  backgroundImage: TideImageField
-  cornerTopImage: TideImageField
-  cornerBottomImage: TideImageField
+  logoImage: TideImageField | null
+  backgroundImage: TideImageField | null
+  cornerTopImage: TideImageField | null
+  cornerBottomImage: TideImageField | null
   primaryAction: TideUrlField | null
   secondaryAction: TideUrlField | null
   secondaryActionLabel: string
@@ -59,10 +59,7 @@ export const heroHeaderMapping = (src): ITideHeroHeader => {
       items: (
         src.field_landing_page_key_journeys?.field_paragraph_links || []
       ).map((link): TideUrlField => {
-        return {
-          text: link.title,
-          url: link.url
-        }
+        return getLinkFromField(link)
       }),
       more: getLinkFromField(src, [
         'field_landing_page_key_journeys',

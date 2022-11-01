@@ -10,7 +10,7 @@ export interface ITideIntroBanner {
   links: {
     title: string
     items: TideUrlField[]
-    more: TideUrlField
+    more: TideUrlField | null
   }
   html: string | null
 }
@@ -27,10 +27,7 @@ export const introBannerMapping = (
       links: {
         title: getField(field, 'field_call_to_action_title', ''),
         items: (field.field_paragraph_links || []).map((link): TideUrlField => {
-          return {
-            text: link.title,
-            url: link.url
-          }
+          return getLinkFromField(link)
         }),
         more: getLinkFromField(field, ['field_paragraph_cta'])
       },

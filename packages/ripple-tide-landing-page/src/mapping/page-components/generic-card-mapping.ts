@@ -1,7 +1,7 @@
 import { TideImageField, TideUrlField } from '@dpc-sdp/ripple-tide-api'
 import {
   getField,
-  getImageFromField,
+  getCardImageFromField,
   getLinkFromField
 } from '@dpc-sdp/ripple-tide-api'
 
@@ -60,7 +60,7 @@ export const genericCardMapping = (field): ITideCardBase => {
   return {
     title: getCardTitle(field),
     summary: getCardSummary(field),
-    image: getImageFromField(field, 'field_paragraph_link.image'),
+    image: getCardImageFromField(field, 'field_paragraph_link.image'),
     link: getLinkFromField(field, 'field_paragraph_link'),
     showMetadata: getField(field, 'field_customise', ''),
     metadata: {

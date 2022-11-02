@@ -83,7 +83,7 @@ let logger = createLogger({
 })
 
 // Use Logstash transport in Lagoon server instead of console
-if (true) {
+if (process.env.LAGOON_GIT_SAFE_BRANCH && !process.client) {
   // Sumo Logic
   // Sumo Host = LAGOON_PROJECT-LAGOON_GIT_SAFE_BRANCH
 
@@ -104,8 +104,10 @@ if (true) {
     customSourceHost: sumoHost,
     customSourceCategory: sumoCategory,
   }
+
+  const sumo = new SumoLogic(options)
   
-  logger.add(SumoLogic, options)
+  logger.add(sumo)
   logger.remove(consoleLog)
 }
 

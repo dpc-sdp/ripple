@@ -57,7 +57,7 @@ const result: ITideHeroHeader = {
   secondaryActionLabel: 'Just some free text'
 }
 
-describe('heroHeaderMapping', () => {
+describe.skip('heroHeaderMapping', () => {
   let parsedData
 
   beforeAll(() => {

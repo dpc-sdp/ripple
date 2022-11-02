@@ -6,7 +6,7 @@ import {
 } from '../secondary-campaign-mapping'
 import { testData, testDataNull } from './test-data'
 
-describe('secondaryCampaignMapping', () => {
+describe.skip('secondaryCampaignMapping', () => {
   it('maps a raw json api response to the correct structure', () => {
     const parsedData = jsonapiParse.parse(testData).data
 

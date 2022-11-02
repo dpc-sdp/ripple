@@ -1,9 +1,5 @@
----
-to: packages/ripple-tide-<%= h.changeCase.paramCase(name) %>/src/index.vue
----
-
 <script lang="ts">
-export default { name: 'Tide<%= h.changeCase.pascalCase(name) %>Page' }
+export default { name: 'TideMediaAudioPage' }
 </script>
 
 <template>
@@ -18,10 +14,12 @@ export default { name: 'Tide<%= h.changeCase.pascalCase(name) %>Page' }
       <slot name="breadcrumbs"></slot>
     </template>
     <template #aboveBody>
-      <Tide<%= h.changeCase.pascalCase(name) %>Header :header="page.header"></Tide<%= h.changeCase.pascalCase(name) %>Header>
+      <TideMediaHeader :header="page.header" />
     </template>
     <template #body>
-
+      <TideMediaBody :media="page.media" :date="page.modified">
+        <audio class="tide-media__audio" :src="page.media.url" controls />
+      </TideMediaBody>
     </template>
     <template #sidebar>
       <slot name="sidebar"></slot>
@@ -33,12 +31,13 @@ export default { name: 'Tide<%= h.changeCase.pascalCase(name) %>Page' }
 </template>
 
 <script setup lang="ts">
-import type Tide<%= h.changeCase.pascalCase(name) %>Page from './../types'
+import type TideMediaPage from '../../../types'
 import { RplLayout } from '@dpc-sdp/ripple-ui-core'
-import Tide<%= h.changeCase.pascalCase(name) %>Header from './components/tide-<%= h.changeCase.paramCase(name) %>-header.vue'
+import TideMediaHeader from '../../components/tide-media-header.vue'
+import TideMediaBody from '../../components/tide-media-body.vue'
 
 interface Props {
-  page: Tide<%= h.changeCase.pascalCase(name) %>Page
+  page: TideMediaPage
 }
 
 defineProps<Props>()

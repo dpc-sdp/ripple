@@ -11,6 +11,7 @@ export interface RplTideModuleMappingFunction {
 export interface RplTideMapping {
   component?: string | string[]
   schema?: string
+  key?: string
   mapping: RplTideModuleMappingFunction
   includes: string[]
 }

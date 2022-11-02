@@ -89,7 +89,7 @@ const backButtonHandler = () => {
     <div class="rpl-primary-nav__mega-menu-grid-container">
       <div class="rpl-primary-nav__mega-menu-grid rpl-grid">
         <!-- Level 1 -->
-        <div class="rpl-col-4-l rpl-col-3-xl">
+        <div class="rpl-col-12-l rpl-col-3-xl">
           <!-- Section title - Desktop -->
           <div
             v-if="level2ActiveItem"

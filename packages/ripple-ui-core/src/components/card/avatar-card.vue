@@ -8,14 +8,12 @@ import { RplCardElements, RplCardTitleClasses } from './constants'
 import { useAccessibleContainer } from '../../composables/useAccessibleContainer'
 
 import RplCard from './card.vue'
-import RplTag from '../tag/tag.vue'
 import RplTextLink from '../text-link/text-link.vue'
 import RplImage from '../image/image.vue'
 
 interface Props {
   el?: typeof RplCardElements[number]
   image: string
-  meta: string
   title: string
   url?: string
 }
@@ -40,9 +38,9 @@ const { container, trigger } = useAccessibleContainer()
         circle
       />
     </template>
-    <template #meta>
+    <template v-if="$slots.meta" #meta>
       <div class="rpl-card__meta">
-        <RplTag :label="meta" :variant="`neutral`" />
+        <slot name="meta"></slot>
       </div>
     </template>
     <template #title>

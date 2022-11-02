@@ -1,9 +1,12 @@
 import {
-  getLandingPageComponents,
+  getDynamicPageComponents,
   tidePageBaseMapping,
   tidePageBaseIncludes
 } from '@dpc-sdp/ripple-tide-api'
-import componentMapping from './component.mapping.js'
+import {
+  landingPageComponentsMapping,
+  landingPageComponentsIncludes
+} from './mapping/page-components/page-components-mapping.js'
 import type { RplTideMapping } from '@dpc-sdp/ripple-tide-api/types'
 
 const tideLandingPageModule: RplTideMapping = {
@@ -24,18 +27,18 @@ const tideLandingPageModule: RplTideMapping = {
 
       return 'default'
     },
-    headerComponents: async (page) => {
-      return await getLandingPageComponents(
-        page,
+    headerComponents: async (src) => {
+      return await getDynamicPageComponents(
+        src,
         'field_landing_page_header',
-        componentMapping
+        landingPageComponentsMapping
       )
     },
-    bodyComponents: async (page) => {
-      return await getLandingPageComponents(
-        page,
+    bodyComponents: async (src) => {
+      return await getDynamicPageComponents(
+        src,
         'field_landing_page_component',
-        componentMapping
+        landingPageComponentsMapping
       )
     }
   },
@@ -46,7 +49,7 @@ const tideLandingPageModule: RplTideMapping = {
       withSidebarRelatedLinks: true,
       withSidebarSocialShare: true
     }),
-    'field_whats_next',
+    ...landingPageComponentsIncludes,
     'field_graphical_image.field_media_image',
     'field_bottom_graphical_image.field_media_image',
     'field_landing_page_hero_logo.field_media_image',
@@ -56,14 +59,10 @@ const tideLandingPageModule: RplTideMapping = {
     'field_landing_page_c_secondary.field_block_image.field_media_image',
     'field_landing_page_c_secondary.field_block_embedded_video',
     'field_landing_page_key_journeys',
-    'field_landing_page_contact.field_paragraph_phones',
-    'field_landing_page_contact.field_paragraph_social_media',
     'field_landing_page_header',
     'field_landing_page_component.field_paragraph_media.field_media_image',
     'field_landing_page_component.field_paragraph_topic',
     'field_landing_page_component.field_timeline.field_paragraph_media.field_media_image',
-    'field_landing_page_component.field_paragraph_accordion',
-    'field_landing_page_component.field_paragraph_keydates',
     'field_landing_page_component.field_paragraph_media_gallery.field_gallery_media.field_media_image',
     'field_landing_page_component.field_paragraph_items.field_paragraph_reference.field_event_details',
     'field_landing_page_component.field_paragraph_items.field_paragraph_reference.field_topic',
@@ -71,7 +70,6 @@ const tideLandingPageModule: RplTideMapping = {
     'field_landing_page_component.field_paragraph_items.field_paragraph_keydates',
     'field_landing_page_component.field_paragraph_items.field_paragraph_media.field_media_image',
     'field_landing_page_component.field_complex_image_media.field_media_image',
-    'field_landing_page_component.field_statistic_block',
     'field_landing_page_component.field_paragraph_webform'
   ]
 }

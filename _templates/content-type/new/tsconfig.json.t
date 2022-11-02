@@ -10,6 +10,7 @@ to: packages/ripple-tide-<%= h.changeCase.paramCase(name) %>/tsconfig.json
     "noImplicitAny": false,
     "declaration": false,
     "jsx": "preserve",
+    "sourceMap": true,
     "paths": {
       "@dpc-sdp/ripple-tide-api": ["./../ripple-tide-api/dist/index.js"]
     }

@@ -1,6 +1,6 @@
 <template>
-  <slot v-if="page" :name="`${componentName}Page`" v-bind="{ page, site }">
-    <component :is="`${componentName}Page`" :page="page">
+  <slot v-if="page" :name="componentName" v-bind="{ page, site }">
+    <component :is="componentName" :page="page">
       <template #aboveHeader>
         <RplIconSprite />
         <slot name="aboveHeader">
@@ -91,6 +91,7 @@ import TideSidebarSiteSectionNav from './sidebar/TideSidebarSiteSectionNav.vue'
 
 const route = useRoute()
 const config = useRuntimeConfig()
+
 // @ts-ignore
 const [{ data: site, error: siteError }, { data: page, error: pageError }] =
   await Promise.all([
@@ -110,7 +111,7 @@ const [{ data: site, error: siteError }, { data: page, error: pageError }] =
   ])
 
 const componentName = computed(
-  () => page.value && `Tide${pascalCase(page.value.type)}`
+  () => page.value && `Tide${pascalCase(page.value.type)}Page`
 )
 
 // TODO: Wire useSiteMenu up to real content, currently hardcoded with example

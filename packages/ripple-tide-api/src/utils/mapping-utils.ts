@@ -34,15 +34,9 @@ export const formatDate = (date) => {
 export const getImageFromField = (
   field: object,
   path: string | string[]
-): mediaImage => {
-  let getPath
-  if (Array.isArray(path)) {
-    getPath = [...path, 'field_media_image']
-  } else if (typeof path === 'string') {
-    getPath = `${path}.field_media_image`
-  }
-  const image = get(field, getPath)
-  return getMediaImage(image)
+): mediaImage | null => {
+  const image = get(field, path)
+  return image ? getMediaImage(image) : null
 }
 
 export const removeDomainFromPath = (path: string) =>
@@ -101,7 +95,7 @@ export const getAddress = (field: drupalField) => {
   return address.length > 3 ? address : ''
 }
 
-export const getLandingPageComponents = async (
+export const getDynamicPageComponents = async (
   pageData,
   componentFieldPath,
   componentMapping,
@@ -109,6 +103,7 @@ export const getLandingPageComponents = async (
 ) => {
   const componentFields = pageData[componentFieldPath]
   const mappedComponents: Record<string, any>[] = []
+
   if (componentFields && Array.isArray(componentFields)) {
     for (let i = 0; i < componentFields.length; i++) {
       const cmpData = componentFields[i]
@@ -169,7 +164,7 @@ export default {
   getImageFromField,
   getLinkFromField,
   getAddress,
-  getLandingPageComponents,
+  getDynamicPageComponents,
   getBody,
   getBodyFromField,
   humanizeFilesize,

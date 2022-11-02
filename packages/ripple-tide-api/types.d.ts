@@ -11,6 +11,7 @@ export interface RplTideModuleMappingFunction {
 export interface RplTideMapping {
   component?: string | string[]
   schema?: string
+  key?: string
   mapping: RplTideModuleMappingFunction
   includes: string[]
 }
@@ -38,6 +39,14 @@ export interface TidePageBase {
     contacts?: TideContact[]
     relatedLinks?: TideLink[]
   }
+}
+
+export type TideDynamicPageComponent<T> = {
+  id: string
+  component: string
+  title?: string
+  props: T
+  class?: Record<string, any>
 }
 
 export interface RplTideModuleConfig {

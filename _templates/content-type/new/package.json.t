@@ -12,7 +12,8 @@ to: packages/ripple-tide-<%= h.changeCase.paramCase(name) %>/package.json
   "exports": {
     ".": "./dist/index.js",
     "./component": "./src/index.vue",
-    "./types": "./types.d.ts"
+    "./types": "./types.d.ts",
+    "./nuxt": "./src/nuxt.ts"
   },
   "license": "MIT",
   "keywords": [],

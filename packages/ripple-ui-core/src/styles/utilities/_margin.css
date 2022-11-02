@@ -20,3 +20,7 @@
     margin-left: var(--rpl-sp-$(i));
   }
 }
+
+.rpl-u-margin-none {
+  margin: 0;
+}

@@ -6,7 +6,7 @@ import {
 } from '../primary-campaign-mapping'
 import { testData, testDataNull } from './test-data'
 
-describe.skip('primaryCampaignMapping', () => {
+describe('primaryCampaignMapping', () => {
   let parsedData
 
   beforeAll(() => {

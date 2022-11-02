@@ -38,7 +38,7 @@ jobs:
           name: Lint code.
           command: yarn run lint
       - run:
-          command: yarn run test:unit --runInBand
+          command: yarn run test:unit
           name: Run unit tests
       - store_test_results:
           path: test-results

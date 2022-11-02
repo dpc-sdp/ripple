@@ -25,7 +25,7 @@
     "release:dev": "lerna publish --canary minor --preid alpha --no-git-tag-version --registry $NPM_REGISTRY --dist-tag next",
     "release:prod": "lerna publish --conventional-commits --create-release github",
     "lint": "eslint . --ext .ts,.vue && yarn workspace @dpc-sdp/ripple-ui-core stylelint \"**/*.css\"",
-    "test:unit": "jest --colors",
+    "test:unit": "jest --colors  --runInBand",
     "test:storybook": "test-storybook --stories-json",
     "test:storybook-ci": "concurrently -k -s first -n \"SB,TEST\" -c \"magenta,blue\" \"npx http-server storybook-static --port 6006 --silent\" \"wait-on tcp:6006 && yarn test:storybook\"",
     "test:nuxt-app": "API_URL=http://localhost:3001 start-test 'yarn workspace nuxt-app dev' 3000 'yarn workspace nuxt-app cy:open'",

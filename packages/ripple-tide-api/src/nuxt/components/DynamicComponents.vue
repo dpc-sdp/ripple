@@ -13,6 +13,7 @@ defineProps<Props>()
     :key="cmp.id"
     :data-component-id="cmp.id"
     :data-component-type="cmp.component"
+    :title="cmp.title"
     :class="$attrs.class"
   >
     <component :is="cmp.component" v-bind="cmp.props"></component>

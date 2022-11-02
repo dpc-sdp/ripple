@@ -26,6 +26,10 @@ import {
   introBannerIncludes,
   introBannerMapping
 } from './intro-banner/intro-banner-mapping.js'
+import {
+  timelineMapping,
+  timelineIncludes
+} from './timeline/timeline-mapping.js'
 
 export const landingPageComponentsMapping = {
   'paragraph--basic_text': basicTextMapping,
@@ -34,7 +38,8 @@ export const landingPageComponentsMapping = {
   'paragraph--navigation_card': navigationCardMapping,
   'paragraph--card_keydates': keyDatesMapping,
   'paragraph--statistics_grid': statisticsGridMapping,
-  'paragraph--introduction_banner': introBannerMapping
+  'paragraph--introduction_banner': introBannerMapping,
+  'paragraph--timelines': timelineMapping
 }
 
 export const landingPageComponentsIncludes = [
@@ -44,5 +49,6 @@ export const landingPageComponentsIncludes = [
   ...navigationCardIncludes,
   ...keyDatesIncludes,
   ...statisticsGridIncludes,
-  ...introBannerIncludes
+  ...introBannerIncludes,
+  ...timelineIncludes
 ]

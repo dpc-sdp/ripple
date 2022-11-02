@@ -4,8 +4,8 @@ import {
   Story,
   ArgsTable
 } from '@storybook/addon-docs'
-import RplForm from './form.vue'
-import RplFormElement from './../element/element.vue'
+import RplForm from './RplForm.vue'
+import RplFormElement from './../RplFormElement/RplFormElement.vue'
 
 export const SingleTemplate = (args) => ({
   components: { RplForm },
@@ -53,10 +53,9 @@ export const SlotTemplate = (args) => ({
           label: 'What kind of long enquiry do you have?',
           id: 'text',
           suffixIcon: 'icon-search',
-          prefixIcon: 'icon-search',
           help: 'Do you need help?',
           validationLabel: 'enquiry',
-          validation: 'required|length:0,20',
+          validation: 'required|length:0,20'
         },
         {
           $formkit: 'RplFormText',
@@ -70,51 +69,27 @@ export const SlotTemplate = (args) => ({
         {
           $formkit: 'RplFormEmail',
           name: 'Text',
-          label: 'RplFormEmail Should you flush tissues down the toilet?',
+          label: 'Email',
           id: 'email',
-          help: 'Do you need help?',
+          help: 'Add your work email',
           validation: 'required'
         },
         {
-          $formkit: 'text',
-          name: 'Text',
-          label: 'default text Should you flush tissues down the toilet?',
-          id: 'text',
-          help: 'Do you need help?',
-          validation: 'required'
+          $formkit: 'RplFormTel',
+          name: 'tel',
+          label: 'Mobile number',
+          id: 'tel',
+          help: 'Please enter a valid mobile number',
+          validation:[['required'],['matches', /^(?:\+?(61))? ?(?:\((?=.*\)))?(0?[2-57-8])\)? ?(\d\d(?:[- ](?=\d{3})|(?!\d\d[- ]?\d[- ]))\d\d[- ]?\d[- ]?\d{3})$/]],
+          validationMessages: {
+            required: 'We require a mobile for verification purposes',
+            matches: 'Please enter a valid mobile number'
+          }
         },
         {
-          $formkit: 'select',
-          type: 'select',
-          label: 'Should you flush tissues down the toilet?',
-          options: [
-            'No',
-            'Never',
-            'What are you a monster?',
-            'Who does that?'
-          ]
-        },
-        {
-          $formkit: 'date',
-          name: 'date',
-          label: 'Date of Birth',
-          id: 'date',
-          help: 'Do you need help?',
-          validation: 'required'
-        },
-        {
-          $formkit: 'checkbox',
-          type: "checkbox",
-          label: "Toppings",
-          options: ['Mushrooms', 'Olives', 'Salami', 'Anchovies'],
-          help: "Select your pizza toppings",
-          validation: "required|min:3"
-        },
-        {
-          $formkit: 'submit',
+          $formkit: 'RplFormSubmit',
           label: 'Submit form',
-          id: '123',
-          icon: 'icon-arrow-right'
+          id: '123'
         }
       ]
     }}

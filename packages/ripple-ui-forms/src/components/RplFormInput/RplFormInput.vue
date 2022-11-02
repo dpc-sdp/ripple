@@ -9,9 +9,7 @@ interface Props {
   value: string
   type: string
   name: string
-  handlers?: Record<string, any>
-  // eslint-disable-next-line @typescript-eslint/ban-types
-  onInput: Function
+  handlers: Record<string, any>
   prefixIcon?: string | undefined
   suffixIcon?: string | undefined
   maxlength?: string
@@ -38,10 +36,10 @@ const classes = computed(() => {
 })
 /*
 TODO - Wire up event bus handling
-function handleInput(e) {
-  props.handlers.DOMInput(e.target.value)
-}
- */
+*/
+// function handleInput(e: Event) {
+//   props.handlers?.DOMInput(e)
+// }
 
 </script>
 
@@ -50,12 +48,12 @@ function handleInput(e) {
     <RplIcon v-if="prefixIcon" :name="prefixIcon" :class="`${props.className}-icon ${props.className}-icon__prefix`">
     </RplIcon>
     <input :id="id" :type="type" :disabled="disabled" v-bind="$attrs" :name="name" :value="value" :maxlength="maxlength"
-      @blur="handlers?.blur" @input="handlers.DOMInput" />
+      @blur="handlers?.blur" @input="handlers?.DOMInput" />
     <RplIcon v-if="suffixIcon" :name="suffixIcon" :class="`${props.className}-icon ${props.className}-icon__suffix`">
     </RplIcon>
   </div>
 </template>
 
-<style src="./input.css">
+<style src="./RplFormInput.css">
 
 </style>

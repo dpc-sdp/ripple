@@ -1,11 +1,7 @@
-<script lang="ts">
-export default { name: 'RplForm' }
-</script>
-
 <script setup lang="ts">
 import { ref, defineProps } from 'vue'
 import { FormKitSchemaNode, FormKitConfig } from '@formkit/core'
-import rplFormInputs from './../../plugin'
+import rplFormInputs from '../../plugin'
 
 const submitted = ref(false)
 
@@ -38,15 +34,17 @@ withDefaults(defineProps<Props>(), {
   })
 })
 
+const emit = defineEmits(['submit'])
+
 function submitHandler(form) {
-  console.log(form)
+  emit('submit', form)
   submitted.value = true
 }
 
 </script>
 
 <template>
-  <FormKit type="form" :id="id" :plugins="[rplFormInputs]" form-class="rpl-form" :config="config"
+  <FormKit :id="id" type="form" :plugins="[rplFormInputs]" form-class="rpl-form" :config="config"
     :validation-visibility="validationVisibility" :actions="false" @submit="submitHandler">
     <slot name="aboveForm">
       <span v-if="submitted">Form Submitted</span>
@@ -58,92 +56,6 @@ function submitHandler(form) {
   </FormKit>
 </template>
 
+<style src="./RplForm.css">
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<style src="./form.css" />
+</style>

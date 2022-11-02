@@ -22,11 +22,14 @@
 
 .rpl-description-list--inline {
   display: block;
+}
+
+.rpl-description-list__inline-wrap {
   margin-top: var(--rpl-sp-2);
   margin-bottom: var(--rpl-sp-2);
 }
 
-.rpl-description-list--inline .rpl-description-list__term,
-.rpl-description-list--inline .rpl-description-list__description {
+.rpl-description-list__inline-wrap .rpl-description-list__term,
+.rpl-description-list__inline-wrap .rpl-description-list__description {
   display: inline;
 }

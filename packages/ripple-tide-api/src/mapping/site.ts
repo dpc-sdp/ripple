@@ -30,28 +30,38 @@ export default {
         src.field_site_og_image &&
         src.field_site_og_image.hasOwnProperty('field_media_image')
       ) {
-        socialImages.og = getImageFromField(src, ['field_site_og_image'])
+        socialImages.og =
+          getImageFromField(src, [
+            'field_site_og_image',
+            'field_media_image'
+          ]) || {}
       }
       if (
         src.field_site_twitter_image &&
         src.field_site_twitter_image.hasOwnProperty('field_media_image')
       ) {
-        socialImages.twitter = getImageFromField(src, [
-          'field_site_twitter_image'
-        ])
+        socialImages.twitter =
+          getImageFromField(src, [
+            'field_site_twitter_image',
+            'field_media_image'
+          ]) || {}
       }
       return socialImages
     },
-    menus: async function (this: TideSite, src) {
-      const menuFields = {
-        menuMain: 'field_site_main_menu',
-        menuFooter: 'field_site_footer_menu'
+    menus: async function (src, tideSiteApi: TideSite) {
+      const menuMain = await tideSiteApi.getSiteMenu(
+        tideSiteApi.site,
+        src.field_site_main_menu
+      )
+      const menuFooter = await tideSiteApi.getSiteMenu(
+        tideSiteApi.site,
+        src.field_site_footer_menu
+      )
+
+      return {
+        menuMain,
+        menuFooter
       }
-      const menus = await this.getSiteMenus(src, menuFields)
-      if (menus) {
-        return menus
-      }
-      return []
     }
   },
   includes: [

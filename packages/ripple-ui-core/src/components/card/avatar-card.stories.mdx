@@ -7,6 +7,13 @@ import {
 import RplAvatarCard from './avatar-card.vue'
 import { a11yStoryCheck } from './../../../stories/interactions.js'
 
+export const samples = {
+  meta: [
+    '',
+    '<RplTag variant="neutral" label="Profile"></RplTag>',
+  ]
+}
+
 export const SingleTemplate = (args) => ({
   components: { RplAvatarCard },
   setup() {
@@ -22,9 +29,11 @@ export const SingleTemplate = (args) => ({
       class="rpl-col-12 rpl-col-6-m rpl-col-4-l"
       url="${args.url}"
       image="${args.image}"
-      meta="${args.meta}"
       title="${args.title}"
     >
+      <template #meta>
+        ${args.meta}
+      </template>
       ${args.default}
     </RplAvatarCard>
   </ul>
@@ -40,7 +49,8 @@ export const SingleTemplate = (args) => ({
       options: [1, 2, 4, 8]
     },
     meta: {
-      control: 'text'
+      control: { type: 'select' },
+      options: samples.meta
     },
     title: {
       control: 'text'
@@ -63,7 +73,7 @@ export const SingleTemplate = (args) => ({
     number: 1,
     url: 'https://www.vic.gov.au',
     image: svgPlaceholder({ width: 220, height: 220, bgColor: '#da7', fgColor: '#333' }),
-    meta: 'Profile',
+    meta: samples.meta[1],
     title: 'Mary Sherman Morgan',
     default: '<p>America&rsquo;s first female rocket scientist.</p>'
   }}

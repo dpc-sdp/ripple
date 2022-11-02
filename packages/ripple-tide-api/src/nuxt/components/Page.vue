@@ -1,6 +1,6 @@
 <template>
-  <slot v-if="page" :name="`${componentName}Page`" v-bind="{ page, site }">
-    <component :is="`${componentName}Page`" :page="page">
+  <slot v-if="page" :name="componentName" v-bind="{ page, site }">
+    <component :is="componentName" :page="page">
       <template #aboveHeader>
         <RplIconSprite />
         <slot name="aboveHeader">
@@ -25,14 +25,17 @@
         </slot>
       </template>
       <template #sidebar>
+        <slot name="aboveSidebar"></slot>
         <slot v-if="page.sidebar" name="sidebar">
-          <TideSidebarContactUs :contacts="page.sidebar.contacts" />
+          <TideSidebarSiteSectionNav :nav="page.sidebar.siteSectionNav" />
           <TideSidebarRelatedLinks :items="page.sidebar.relatedLinks" />
+          <TideSidebarContactUs :contacts="page.sidebar.contacts" />
           <TideSidebarSocialShare
             :networks="page.sidebar.socialShareNetworks"
             :page-title="page.title"
           />
         </slot>
+        <slot name="belowSidebar"></slot>
       </template>
       <template #footer>
         <slot name="footer">
@@ -60,7 +63,8 @@
       </template>
       <template #body>
         <!-- TODO: Add error handling in Error component -->
-        <h1>{{ pageError.data?.error?.message }}</h1>
+        ERROR!
+        <h1>{{ pageError?.message }}</h1>
       </template>
       <template #footer>
         <slot name="footer">
@@ -83,9 +87,11 @@ import {
 } from '#imports'
 import { computed } from 'vue'
 import { pascalCase } from 'change-case'
+import TideSidebarSiteSectionNav from './sidebar/TideSidebarSiteSectionNav.vue'
 
 const route = useRoute()
 const config = useRuntimeConfig()
+
 // @ts-ignore
 const [{ data: site, error: siteError }, { data: page, error: pageError }] =
   await Promise.all([
@@ -105,7 +111,7 @@ const [{ data: site, error: siteError }, { data: page, error: pageError }] =
   ])
 
 const componentName = computed(
-  () => page.value && `Tide${pascalCase(page.value.type)}`
+  () => page.value && `Tide${pascalCase(page.value.type)}Page`
 )
 
 // TODO: Wire useSiteMenu up to real content, currently hardcoded with example

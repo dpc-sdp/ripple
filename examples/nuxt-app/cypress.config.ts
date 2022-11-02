@@ -36,5 +36,6 @@ export default defineConfig({
 
       return config
     }
-  }
+  },
+  blockHosts: ['*youtube.com', '*doubleclick.net']
 })

@@ -37,7 +37,6 @@ export const SingleTemplate = (args) => ({
       el="li"
       v-bind="args"
       class="rpl-col-12"
-      :class="args.graphicElement === 'Image inset' ? 'rpl-card--inset' : null"
       :image="img"
       :highlight="args.graphicElement === 'Heading highlighted'"
       :inset="args.graphicElement === 'Image inset'"

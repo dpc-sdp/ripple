@@ -3,27 +3,29 @@ import { text, email, tel, submit } from './inputs/index.js'
 const rplFormInputs = (node) => {
   // Adds required value
   node.on('created', () => {
-    const schemaFn = node.props.definition.schema
-    node.props.definition.schema = (sectionsSchema = { label: {} }) => {
-      const isRequired = node.props.parsedRules.some(
-        (rule) => rule.name === 'required'
-      )
+    const schemaFn = node.props?.definition?.schema
+    if (schemaFn) {
+      node.props.definition.schema = (sectionsSchema = { label: {} }) => {
+        const isRequired = node.props.parsedRules.some(
+          (rule) => rule.name === 'required'
+        )
 
-      if (isRequired) {
-        sectionsSchema.label = {
-          children: [
-            '$label',
-            {
-              $el: 'span',
-              attrs: {
-                class: 'rpl-form__required rpl-type-label-small'
-              },
-              children: '(Required)'
-            }
-          ]
+        if (isRequired) {
+          sectionsSchema.label = {
+            children: [
+              '$label',
+              {
+                $el: 'span',
+                attrs: {
+                  class: 'rpl-form__required rpl-type-label-small'
+                },
+                children: '(Required)'
+              }
+            ]
+          }
         }
+        return schemaFn(sectionsSchema)
       }
-      return schemaFn(sectionsSchema)
     }
   })
 }

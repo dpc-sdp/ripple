@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { ref, defineProps } from 'vue'
-import { FormKitSchemaNode, FormKitConfig } from '@formkit/core'
+import { ref } from 'vue'
+import { FormKitSchemaCondition, FormKitSchemaNode, FormKitConfig } from '@formkit/core'
 import rplFormInputs from '../../plugin'
 
 const submitted = ref(false)
 
 interface Props {
   id: string
-  schema: FormKitSchemaNode
+  schema?: FormKitSchemaCondition | FormKitSchemaNode[] | undefined
   config?: Record<string, any>
   validationVisibility: string
 }
@@ -15,6 +15,7 @@ interface Props {
 
 withDefaults(defineProps<Props>(), {
   validationVisibility: 'submit',
+  schema: undefined,
   config: (): FormKitConfig => ({
     delimiter: '.',
     messages: {

@@ -22,7 +22,7 @@ describe('primaryCampaignMapping', () => {
         url: 'https://www.vic.gov.au'
       },
       image: {
-        src: 'https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-skyline-at-dusk.jpg',
+        src: '/sites/default/files/tide_demo_content/Melbourne-skyline-at-dusk.jpg',
         alt: 'Demo: Melbourne skyline at dusk',
         title: 'Demo: Melbourne skyline at dusk',
         width: 2560,
@@ -43,7 +43,7 @@ describe('primaryCampaignMapping', () => {
         url: 'https://www.vic.gov.au'
       },
       image: {
-        src: 'https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-skyline-at-dusk.jpg',
+        src: '/sites/default/files/tide_demo_content/Melbourne-skyline-at-dusk.jpg',
         alt: 'Demo: Melbourne skyline at dusk',
         title: 'Demo: Melbourne skyline at dusk',
         width: 2560,

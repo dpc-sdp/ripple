@@ -2,6 +2,7 @@ import { TideImageField, TideUrlField } from '@dpc-sdp/ripple-tide-api'
 import {
   getField,
   getCardImageFromField,
+  getImageFromField,
   getLinkFromField
 } from '@dpc-sdp/ripple-tide-api'
 
@@ -56,11 +57,28 @@ const getCardSummary = (field) => {
   return linkedSummary ? linkedSummary : ownSummary
 }
 
+const getCardImage = (field): TideImageField => {
+  // There are two possible images to choose from:
+  // - one is linked to another drupal node (i.e. an event page)
+  // - one is the image of this node, used if there is no linked node
+  //
+  // Must prioritise displaying the linked image if it exists before the own image
+  const linkedImage = getCardImageFromField(field, 'field_paragraph_link.image')
+  const ownImage = getImageFromField(
+    field,
+    'field_paragraph_media.field_media_image'
+  )
+
+  return linkedImage ? linkedImage : ownImage
+}
+
 export const genericCardMapping = (field): ITideCardBase => {
+  // Image
+
   return {
     title: getCardTitle(field),
     summary: getCardSummary(field),
-    image: getCardImageFromField(field, 'field_paragraph_link.image'),
+    image: getCardImage(field),
     link: getLinkFromField(field, 'field_paragraph_link'),
     showMetadata: getField(field, 'field_customise', ''),
     metadata: {

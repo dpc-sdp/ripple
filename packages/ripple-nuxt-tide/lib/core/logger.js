@@ -1,4 +1,3 @@
-const { LogstashTransport } = require('winston-logstash-transport')
 const { SumoLogic } = require('winston-sumologic-transport')
 const { createLogger, format, transports, addColors } = require('winston')
 
@@ -98,15 +97,15 @@ if (process.env.LAGOON_GIT_SAFE_BRANCH && !process.client) {
   if (process.env.SUMOLOGIC_CATEGORY) {
     sumoCategory = process.env.SUMOLOGIC_CATEGORY
   }
-  
+
   var options = {
     url: process.env.SUMOLOGIC_HOST || 'sumologic-otel-collector.sdp-services.svc.cluster.local',
     customSourceHost: sumoHost,
-    customSourceCategory: sumoCategory,
+    customSourceCategory: sumoCategory
   }
 
   const sumo = new SumoLogic(options)
-  
+
   logger.add(sumo)
   logger.remove(consoleLog)
 }

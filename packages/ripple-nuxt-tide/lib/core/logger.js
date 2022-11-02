@@ -97,9 +97,9 @@ if (process.env.LAGOON_GIT_SAFE_BRANCH && !process.client) {
   if (process.env.SUMOLOGIC_CATEGORY) {
     sumoCategory = process.env.SUMOLOGIC_CATEGORY
   }
-
+  // port 5514 udp
   var options = {
-    url: process.env.SUMOLOGIC_HOST || 'sumologic-otel-collector.sdp-services.svc.cluster.local',
+    url: process.env.SUMOLOGIC_HOST || 'sumologic-otel-collector.sdp-services.svc.cluster.local:5514',
     customSourceHost: sumoHost,
     customSourceCategory: sumoCategory
   }

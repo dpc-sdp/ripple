@@ -1,5 +1,6 @@
 // Lib
 export { default as rplEventBus } from './lib/eventbus'
+export { useAccessibleContainer } from './composables/useAccessibleContainer'
 
 // Components
 export { default as RplAccordion } from './components/accordion/accordion.vue'
@@ -22,6 +23,8 @@ export { default as RplPromoCard } from './components/card/promo-card.vue'
 export { default as RplChip } from './components/chip/chip.vue'
 export { default as RplContactUs } from './components/contact-us/contact-us.vue'
 export { default as RplContent } from './components/content/content.vue'
+
+export { default as RplDescriptionList } from './components/description-list/description-list.vue'
 
 export { default as RplDocument } from './components/document/document.vue'
 export { default as RplFile } from './components/file/file.vue'

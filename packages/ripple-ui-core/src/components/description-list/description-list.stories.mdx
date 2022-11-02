@@ -1,0 +1,116 @@
+import {
+  Canvas,
+  Meta,
+  Story,
+  ArgsTable
+} from '@storybook/addon-docs'
+import RplDescriptionList from './description-list.vue'
+import { a11yStoryCheck } from './../../../stories/interactions.js'
+
+export const SingleTemplate = (args) => ({
+  components: { RplDescriptionList },
+  setup() {
+    return { args }
+  },
+  template: '<RplDescriptionList v-bind="args" />'
+})
+
+export const InlineTemplate = (args) => ({
+  components: { RplDescriptionList },
+  setup() {
+    return { args }
+  },
+  template: '<div class="rpl-storybook__page"><RplDescriptionList v-bind="args" /></div>'
+})
+
+<Meta
+  title='Core/Containers/Description list'
+  component={RplDescriptionList}
+/>
+
+# Description list
+
+<ArgsTable of={RplDescriptionList} />
+
+## Align to column
+
+<Canvas>
+  <Story
+    name='Default'
+    play={a11yStoryCheck}
+    args={{
+      items: [
+        { term: "Author:", description: "Department of Premier and Cabinet" },
+        { term: "Date:", description: "November 2021" }
+      ]
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    name='Default / Long title'
+    play={a11yStoryCheck}
+    args={{
+      items: [
+        { term: "Author:", description:  "Department of Premier and Cabinet" },
+        { term: "Date:", description:  "November 2021" },
+        { term: "Content:", description:  "This is a line of text to use for testing extreme long-title edge cases: it is so long that it will not only fill, but also overflow, the entire width of an ordinary device." }
+      ]
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>
+
+
+## Inline
+
+<Canvas>
+  <Story
+    name='Inline'
+    play={a11yStoryCheck}
+    argTypes={{
+      items: {
+        table: {
+          disable: true
+        }
+      }
+    }}
+    args={{
+      inline: true,
+      items: [
+        { term: "Author:", description: "Department of Premier and Cabinet" },
+        { term: "Date:", description: "November 2021" }
+      ]
+    }}
+  >
+    {InlineTemplate.bind()}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    name='Inline / Long title'
+    play={a11yStoryCheck}
+    argTypes={{
+      items: {
+        table: {
+          disable: true
+        }
+      }
+    }}
+    args={{
+      inline: true,
+      items: [
+        { term: "Author:", description:  "Department of Premier and Cabinet" },
+        { term: "Date:", description:  "November 2021" },
+        { term: "Content:", description:  "This is a line of text to use for testing extreme long-title edge cases: it is so long that it will not only fill, but also overflow, the entire width of an ordinary device." }
+      ]
+    }}
+  >
+    {InlineTemplate.bind()}
+  </Story>
+</Canvas>

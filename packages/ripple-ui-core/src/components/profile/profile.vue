@@ -24,12 +24,7 @@ withDefaults(defineProps<Props>(), {
       <RplImage v-bind="image" circle />
     </div>
     <div v-if="items.length > 0" class="rpl-profile__items">
-      <RplDescriptionList
-        v-for="(row, i) in items"
-        :key="i"
-        :items="[row]"
-        class="rpl-description-list--inline"
-      ></RplDescriptionList>
+      <RplDescriptionList :items="items" inline></RplDescriptionList>
     </div>
   </div>
 </template>

@@ -1,0 +1,76 @@
+import {
+  Canvas,
+  Meta,
+  Story
+} from '@storybook/addon-docs'
+
+import embeddedVideoFixture from '../../../examples/nuxt-app/test/fixtures/media/36.json'
+import audioFixture from '../../../examples/nuxt-app/test/fixtures/media/271.json'
+import MockPage from '../../ripple-ui-core/stories/components/mock-page.vue'
+import TideMediaEmbeddedVideoPage from './pages/embedded-video/tide-media-embedded-video.vue'
+import TideMediaAudioPage from './pages/audio/tide-media-audio.vue'
+
+export const MediaTemplate = (args) => ({
+  components: {
+    MockPage
+  },
+  setup() {
+    return { args }
+  },
+  template: `<MockPage v-bind="args"></MockPage>`
+})
+
+<Meta
+  title='Media/Templates'
+  argTypes={{
+    componentName: { table: { disable: true } },
+    pageComponent: { table: { disable: true } },
+    aboveHeader: { table: { disable: true } },
+    primaryNav: { table: { disable: true } },
+    sidebar: { table: { disable: true } },
+    footer: { table: { disable: true } },
+    default: { table: { disable: true } }
+  }}
+  args={{
+    breadcrumbs: {
+      items: [
+        { label: 'Home', url: '/' },
+        { label: 'Media item', url: '/media/36' }
+      ]
+    },
+    site: {},
+  }}
+  parameters={{
+    layout: 'fullscreen'
+  }}
+/>
+
+# Media - Video
+
+<Canvas>
+  <Story
+    name='Embedded Video'
+    component={TideMediaEmbeddedVideoPage}
+    args={{
+      componentName: 'TideMediaEmbeddedVideoPage',
+      pageComponent: TideMediaEmbeddedVideoPage,
+      page: embeddedVideoFixture
+    }}
+  >
+    {MediaTemplate.bind()}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    name='Audio'
+    component={TideMediaAudioPage}
+    args={{
+      componentName: 'TideMediaAudio',
+      pageComponent: TideMediaAudioPage,
+      page: audioFixture
+    }}
+  >
+    {MediaTemplate.bind()}
+  </Story>
+</Canvas>

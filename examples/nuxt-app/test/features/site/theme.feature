@@ -2,7 +2,7 @@ Feature: Site theme
 
   As a site admin I can change the theme colours in the backend and they will populate to the site.
 
-  @mockserverwithproxy
+  @mockserver
   Scenario: Default Theme
     Given the mock server has started with proxy
     Given the endpoint "/api/tide/site" with query "?id=8888" returns fixture "/site/reference" with status 200

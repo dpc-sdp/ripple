@@ -22,6 +22,7 @@ export default defineNuxtConfig({
         event: '@dpc-sdp/ripple-tide-event',
         grant: '@dpc-sdp/ripple-tide-grant',
         landing_page: '@dpc-sdp/ripple-tide-landing-page',
+        media: '@dpc-sdp/ripple-tide-media',
         publication: '@dpc-sdp/ripple-tide-publication'
       },
       site: '@dpc-sdp/ripple-tide-api/mapping/site'
@@ -55,7 +56,6 @@ export default defineNuxtConfig({
     '@dpc-sdp/ripple-tide-api/nuxt',
     '@dpc-sdp/ripple-tide-grant/nuxt',
     '@dpc-sdp/ripple-tide-landing-page/nuxt',
-    '@dpc-sdp/ripple-tide-publication/nuxt',
     '@dpc-sdp/ripple-ui-core/nuxt',
     '@dpc-sdp/ripple-ui-forms/nuxt'
   ]

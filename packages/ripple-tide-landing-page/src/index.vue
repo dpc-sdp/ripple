@@ -10,20 +10,26 @@
       <slot name="breadcrumbs"></slot>
     </template>
     <template #aboveBody>
-      <DynamicComponents
+      <TideDynamicComponents
         v-if="page.headerComponents?.length > 0"
         :components="page.headerComponents"
         class="rpl-col-12"
       />
     </template>
     <template #body>
-      <DynamicComponents
+      <TideDynamicComponents
         v-if="page.bodyComponents?.length > 0"
         :components="page.bodyComponents"
       />
     </template>
+    <template #aboveSidebar>
+      <slot name="aboveSidebar"></slot>
+    </template>
     <template #sidebar>
       <slot name="sidebar"></slot>
+    </template>
+    <template #belowSidebar>
+      <slot name="aboveSidebar"></slot>
     </template>
     <template #footer>
       <slot name="footer"> </slot>
@@ -33,7 +39,6 @@
 
 <script setup lang="ts">
 import type TideLandingPagePage from './../types'
-import DynamicComponents from './components/DynamicComponents.vue'
 
 defineProps<{
   page: TideLandingPagePage

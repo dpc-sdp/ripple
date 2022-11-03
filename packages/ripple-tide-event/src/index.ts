@@ -14,6 +14,7 @@ const tideEventModule: RplTideMapping = {
   schema: '@dpc-sdp/ripple-tide-event/types',
   mapping: {
     ...tidePageBaseMapping({
+      withSidebarSiteSectionNav: false,
       withSidebarContacts: true,
       withSidebarRelatedLinks: true,
       withSidebarSocialShare: true
@@ -23,7 +24,8 @@ const tideEventModule: RplTideMapping = {
       text: 'See event details',
       url: getField(src, 'path.url', null)
     }),
-    image: (src) => getImageFromField(src, 'field_featured_image'),
+    image: (src) =>
+      getImageFromField(src, 'field_featured_image.field_media_image'),
     date: (src) => {
       const format = src.field_event_details[0]?.field_show_time
         ? 'DD MMMM YYYY hh:mm a'
@@ -57,6 +59,7 @@ const tideEventModule: RplTideMapping = {
   },
   includes: [
     ...tidePageBaseIncludes({
+      withSidebarSiteSectionNav: false,
       withSidebarContacts: true,
       withSidebarRelatedLinks: true,
       withSidebarSocialShare: true

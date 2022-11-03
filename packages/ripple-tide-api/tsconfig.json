@@ -5,7 +5,8 @@
     "outDir": "./dist",
     "noImplicitAny": false,
     "declaration": false,
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "sourceMap": true
   },
   "include": ["./src", "./types.d.ts"]
 }

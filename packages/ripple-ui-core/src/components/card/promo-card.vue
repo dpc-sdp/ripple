@@ -14,7 +14,6 @@ interface Props {
   el?: typeof RplCardElements[number]
   highlight?: boolean
   image?: string
-  meta?: string
   title: string
   url?: string
 }
@@ -23,7 +22,6 @@ withDefaults(defineProps<Props>(), {
   el: 'div',
   highlight: false,
   image: undefined,
-  meta: undefined,
   url: undefined
 })
 
@@ -41,7 +39,7 @@ const { container, trigger } = useAccessibleContainer()
         alt=""
       />
     </template>
-    <template v-if="meta" #meta>
+    <template v-if="$slots.meta" #meta>
       <div class="rpl-card__meta rpl-type-p-small">
         <slot name="meta"></slot>
       </div>

@@ -68,14 +68,16 @@ const mappedContacts = computed(() => {
     }
 
     if (contact.phones) {
-      ;(contact.phones || []).forEach((phone) => {
-        items.push({
-          id: phone.id,
-          icon: 'icon-phone',
-          text: `${phone.title ? phone.title + ' ' : ''}${phone.number}`,
-          url: `tel:${phone.number.replace(/ /g, '')}`
+      ;(contact.phones || [])
+        .filter((phone) => !!phone.number)
+        .forEach((phone) => {
+          items.push({
+            id: phone.id,
+            icon: 'icon-phone',
+            text: `${phone.title ? phone.title + ' ' : ''}${phone.number}`,
+            url: `tel:${phone.number.replace(/ /g, '')}`
+          })
         })
-      })
     }
 
     if (contact.email) {

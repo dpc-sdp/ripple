@@ -20,7 +20,7 @@ export const InlineTemplate = (args) => ({
   setup() {
     return { args }
   },
-  template: '<div class="rpl-storybook__page"><RplDescriptionList v-for="(list, i) in args.rows" :items="[list]" :index="i" class="rpl-description-list--inline" /></div>'
+  template: '<div class="rpl-storybook__page"><RplDescriptionList v-bind="args" /></div>'
 })
 
 <Meta
@@ -40,8 +40,8 @@ export const InlineTemplate = (args) => ({
     play={a11yStoryCheck}
     args={{
       items: [
-        { "Author:": "Department of Premier and Cabinet" },
-        { "Date:": "November 2021" }
+        { term: "Author:", description: "Department of Premier and Cabinet" },
+        { term: "Date:", description: "November 2021" }
       ]
     }}
   >
@@ -55,9 +55,9 @@ export const InlineTemplate = (args) => ({
     play={a11yStoryCheck}
     args={{
       items: [
-        { "Author:": "Department of Premier and Cabinet" },
-        { "Date:": "November 2021" },
-        { "Content:": "This is a line of text to use for testing extreme long-title edge cases: it is so long that it will not only fill, but also overflow, the entire width of an ordinary device." }
+        { term: "Author:", description:  "Department of Premier and Cabinet" },
+        { term: "Date:", description:  "November 2021" },
+        { term: "Content:", description:  "This is a line of text to use for testing extreme long-title edge cases: it is so long that it will not only fill, but also overflow, the entire width of an ordinary device." }
       ]
     }}
   >
@@ -67,8 +67,6 @@ export const InlineTemplate = (args) => ({
 
 
 ## Inline
-
-Use multiple `RplDescriptionList` components with the `rpl-description-list--inline` variant class to display the term inline.
 
 <Canvas>
   <Story
@@ -82,9 +80,10 @@ Use multiple `RplDescriptionList` components with the `rpl-description-list--inl
       }
     }}
     args={{
-      rows: [
-        { "Author:": "Department of Premier and Cabinet" },
-        { "Date:": "November 2021" }
+      inline: true,
+      items: [
+        { term: "Author:", description: "Department of Premier and Cabinet" },
+        { term: "Date:", description: "November 2021" }
       ]
     }}
   >
@@ -104,10 +103,11 @@ Use multiple `RplDescriptionList` components with the `rpl-description-list--inl
       }
     }}
     args={{
-      rows: [
-        { "Author:": "Department of Premier and Cabinet" },
-        { "Date:": "November 2021" },
-        { "Content:": "This is a line of text to use for testing extreme long-title edge cases: it is so long that it will not only fill, but also overflow, the entire width of an ordinary device." }
+      inline: true,
+      items: [
+        { term: "Author:", description:  "Department of Premier and Cabinet" },
+        { term: "Date:", description:  "November 2021" },
+        { term: "Content:", description:  "This is a line of text to use for testing extreme long-title edge cases: it is so long that it will not only fill, but also overflow, the entire width of an ordinary device." }
       ]
     }}
   >

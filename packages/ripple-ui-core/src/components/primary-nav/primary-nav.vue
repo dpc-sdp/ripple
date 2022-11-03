@@ -5,17 +5,13 @@ export default { name: 'RplPrimaryNav' }
 <script setup lang="ts">
 /*
   TODO:
-    - Fix menu disappearing before closing animation has finished
-    - Investigate ways to handle tabbing order in mega nav levels
-    - Setup functionality for primary nav to show / hide based on page scroll
-      direction
     - Add sliding animation for mobile mega menu levels changing
 */
-import { ref, computed } from 'vue'
+import { ref, computed, watch, onMounted, onUnmounted } from 'vue'
+import type { Ref } from 'vue'
 import RplPrimaryNavBar from './nav-bar.vue'
 import RplPrimaryNavMegaMenu from './mega-menu.vue'
 import RplPrimaryNavSearchForm from './search-form.vue'
-import { useExpandableState } from '../../composables/useExpandableState'
 
 import { RplPrimaryNavLogo, RplPrimaryNavItem } from './constants'
 
@@ -33,62 +29,90 @@ const props = withDefaults(defineProps<Props>(), {
   showQuickExit: true
 })
 
-const { isItemExpanded, toggleItem } = useExpandableState(
-  [],
-  props.items.length
-)
+const isHidden: Ref<boolean> = ref(false)
+const isMegaNavActive: Ref<boolean> = ref(false)
+const isSearchActive: Ref<boolean> = ref(false)
+const activeNavItems: Ref<string[]> = ref([])
 
-const isMegaNavActive = ref(false)
-const isSearchActive = ref(false)
+const handleScroll = () => {
+  // If the page is not scrolled to the top, set isHidden to true
+  isHidden.value = window.scrollY > 0 ? true : false
+}
+
+onMounted(() => {
+  // Run handleScroll when mounted in case an anchor link was used
+  handleScroll()
+
+  window.addEventListener('scroll', handleScroll)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll)
+})
+
+const isNavItemActive = (id: string) => {
+  return activeNavItems.value.includes(id)
+}
+
+const toggleNavItem = (id: string) => {
+  // Item needs to be made active
+  if (isNavItemActive(id) == false) {
+    activeNavItems.value.push(id)
+  }
+
+  // Item needs to be made inactive
+  else {
+    activeNavItems.value = activeNavItems.value.filter((item) => item != id)
+  }
+}
 
 const toggleNavBarItem = (id: string) => {
-  // Make all other items besides the target id inactive
-  props.items.forEach((item) => {
-    if (item.id != id && isItemExpanded(item.id)) {
-      toggleItem(item.id)
-    }
-  })
-
-  // Toggle the target item
-  toggleItem(id)
+  // Toggle the target item while also clearing any other active items
+  activeNavItems.value = isNavItemActive(id) ? [] : [id]
 
   // Make search inactive
   isSearchActive.value = false
 
   // If the target item is now active, make sure the mega nav is also active
-  if (isItemExpanded(id) && !isMegaNavActive.value) {
-    isMegaNavActive.value = true
-  }
-
-  // Else if the target item is now inactive, make sure the mega nav is also inactive
-  else if (!isItemExpanded(id) && isMegaNavActive.value) {
-    isMegaNavActive.value = false
-  }
+  isMegaNavActive.value = isNavItemActive(id)
 }
 
-const toggleMegaNav = () => {
+const toggleMobileMenu = () => {
   // Make search inactive
   isSearchActive.value = false
 
+  // Toggle mega nav
   isMegaNavActive.value = !isMegaNavActive.value
 }
 
 const toggleSearch = () => {
-  // Make all nav items inactive
-  props.items.forEach((item) => {
-    if (isItemExpanded(item.id)) {
-      toggleItem(item.id)
-    }
-  })
-
   // Make mega nav inactive
   isMegaNavActive.value = false
 
+  // Toggle search
   isSearchActive.value = !isSearchActive.value
 }
 
-const isPrimaryNavExpanded = computed(() => {
-  return isMegaNavActive.value || isSearchActive.value ? true : false
+const isExpanded = computed(() => {
+  return isMegaNavActive.value || isSearchActive.value
+})
+
+watch(isMegaNavActive, (newValue) => {
+  // If mega nav closes, toggle off any currently active menu items
+  if (!newValue) {
+    activeNavItems.value = []
+  }
+})
+
+watch(isExpanded, (newValue) => {
+  // If running in a browser and isExpanded changes toggle viewport locked class
+  if (typeof window !== 'undefined') {
+    if (newValue) {
+      document.body.classList.add('rpl-viewport-locked')
+    } else {
+      document.body.classList.remove('rpl-viewport-locked')
+    }
+  }
 })
 </script>
 
@@ -96,7 +120,8 @@ const isPrimaryNavExpanded = computed(() => {
   <nav
     :class="{
       'rpl-primary-nav': true,
-      'rpl-primary-nav--expanded': isPrimaryNavExpanded
+      'rpl-primary-nav--hidden': isHidden,
+      'rpl-primary-nav--expanded': isExpanded
     }"
   >
     <div class="rpl-primary-nav__inner">
@@ -109,8 +134,8 @@ const isPrimaryNavExpanded = computed(() => {
         :show-quick-exit="props.showQuickExit"
         :is-mega-nav-active="isMegaNavActive"
         :is-search-active="isSearchActive"
-        :is-item-expanded="isItemExpanded"
-        :toggle-mega-nav="toggleMegaNav"
+        :is-item-expanded="isNavItemActive"
+        :toggle-mobile-menu="toggleMobileMenu"
         :toggle-item="toggleNavBarItem"
         :toggle-search="toggleSearch"
       >
@@ -124,8 +149,8 @@ const isPrimaryNavExpanded = computed(() => {
         v-if="isMegaNavActive"
         :items="props.items"
         :show-quick-exit="props.showQuickExit"
-        :is-item-expanded="isItemExpanded"
-        :toggle-item="toggleItem"
+        :is-item-active="isNavItemActive"
+        :toggle-item="toggleNavItem"
       >
         <template #userAction>
           <slot name="userAction"></slot>
@@ -133,7 +158,10 @@ const isPrimaryNavExpanded = computed(() => {
       </RplPrimaryNavMegaMenu>
 
       <!-- Search form -->
-      <RplPrimaryNavSearchForm v-if="isSearchActive" />
+      <RplPrimaryNavSearchForm
+        v-if="isSearchActive"
+        :show-quick-exit="props.showQuickExit"
+      />
     </div>
   </nav>
 </template>

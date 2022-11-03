@@ -3,7 +3,7 @@ import { defineNuxtConfig } from 'nuxt/config'
 export default defineNuxtConfig({
   runtimeConfig: {
     public: {
-      API_URL: process.env.API_URL,
+      API_URL: '',
       SITEID: 8888
     }
   },

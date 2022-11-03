@@ -13,21 +13,21 @@ Then('the sidebar component with ID {string} should exist', (id: string) => {
 })
 
 When(
-  'I click the open all button on RplAccordion with ID {string}',
+  'I click the open all button on accordion with ID {string}',
   (id: string) => {
-    cy.get(`[data-component-id="${id}"]`).contains('Open all').click()
+    cy.get(`[id="${id}"]`).contains('Open all').click()
   }
 )
 
 Then(
   'all accordion items in accordion ID {string} should be visible',
   (id: string) => {
-    cy.get(`[data-component-id="${id}"]`)
+    cy.get(`#${id}`)
       .find('li > button')
       .each(($btn) => {
         cy.wrap($btn).should('have.attr', 'aria-expanded', 'true')
       })
-    cy.get(`[data-component-id="${id}"]`)
+    cy.get(`#${id}`)
       .find('.rpl-accordion__item-content')
       .each(($el) => {
         cy.wrap($el).should('be.visible')

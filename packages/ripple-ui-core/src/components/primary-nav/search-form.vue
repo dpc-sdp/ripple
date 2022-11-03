@@ -4,15 +4,28 @@ export default { name: 'RplPrimaryNavSearchForm' }
 
 <script setup lang="ts">
 import RplPrimaryNavQuickExit from './quick-exit.vue'
+import RplSearchBar from '../search-bar/search-bar.vue'
+
+interface Props {
+  showQuickExit: boolean
+}
+
+const props = withDefaults(defineProps<Props>(), {})
 </script>
 
 <template>
   <div class="rpl-primary-nav__search-form">
-    <!-- Supplementary mobile links -->
-    <div class="rpl-primary-nav__search-form-quick-exit-container">
-      <RplPrimaryNavQuickExit />
+    <!-- Quick links -->
+    <div class="rpl-primary-nav__search-form-quick-links">
+      <RplPrimaryNavQuickExit v-if="props.showQuickExit" />
     </div>
 
-    <span class="rpl-type-h4">Search form component will go here. </span>
+    <div class="rpl-primary-nav__search-bar-wrapper">
+      <RplSearchBar
+        id="primary-nav-search"
+        variant="menu"
+        placeholder="Placeholder text"
+      />
+    </div>
   </div>
 </template>

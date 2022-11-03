@@ -22,6 +22,11 @@
   }
 }
 
+.rpl-viewport-locked {
+  height: 100vh;
+  overflow: hidden;
+}
+
 .rpl-primary-nav__inner {
   --local-nav-bar-height: 48px;
 
@@ -34,7 +39,7 @@
   color: var(--rpl-clr-type-primary-contrast);
   background-color: var(--rpl-clr-primary);
   border-radius: var(--rpl-border-radius-2);
-  transition: height var(--rpl-motion-speed-6) ease-in;
+  overflow: hidden;
 
   @media (--rpl-bp-s) {
     --local-nav-bar-height: 52px;
@@ -47,7 +52,13 @@
     margin: var(--rpl-sp-4);
   }
 
+  .rpl-primary-nav--hidden & {
+    display: none;
+  }
+
   .rpl-primary-nav--expanded & {
+    transition: height var(--rpl-motion-speed-6) ease-in,
+      background-color var(--rpl-motion-speed-6) ease-in;
     background-color: var(--rpl-clr-primary-alt);
     /* 100vh - top and bottom margin */
     height: calc(100vh - (var(--rpl-sp-3) * 2));
@@ -206,6 +217,14 @@
     transform: translateY(3px);
   }
 
+  &.rpl-primary-nav__nav-bar-icon--search {
+    margin-right: var(--rpl-sp-2);
+
+    @media (--rpl-bp-s) {
+      margin-right: 0;
+    }
+  }
+
   .rpl-primary-nav__nav-bar-action--active & {
     transform: rotate(180deg);
   }
@@ -252,15 +271,24 @@
   }
 }
 
-.rpl-primary-nav__mega-menu-mobile-links {
+.rpl-primary-nav__mega-menu-quick-links {
   text-align: right;
+  margin-bottom: var(--rpl-sp-10);
 
   @media (--rpl-bp-l) {
-    display: none;
+    margin-bottom: var(--rpl-sp-7);
+  }
+
+  &:empty {
+    margin-bottom: var(--rpl-sp-6);
   }
 
   li {
     margin-bottom: var(--rpl-sp-4);
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
   }
 
   a {
@@ -274,33 +302,85 @@
   }
 }
 
-.rpl-primary-nav__mega-menu-grid {
+.rpl-primary-nav__mega-menu-user-action {
+  /* Hide the mega menu user action slot on desktop because it will appear in
+  the nav bar */
+  @media (--rpl-bp-l) {
+    display: none;
+  }
+}
+
+.rpl-primary-nav__mega-menu-grid-container {
   width: 100%;
   max-width: 400px;
   margin: 0 auto;
+  overflow-x: hidden;
 
   @media (--rpl-bp-l) {
     max-width: none;
   }
 }
 
-.rpl-primary-nav__mega-menu-back-container {
-  margin-bottom: var(--rpl-sp-4);
+.rpl-primary-nav__mega-menu-grid {
+  display: flex;
+  /* width = 4 full width columns with sp-4 gap between them */
+  width: calc(400% + (var(--rpl-sp-4) * 4));
+  transition: transform var(--rpl-motion-speed-8) ease;
+
+  @media (--rpl-bp-l) {
+    display: grid;
+    width: 100%;
+    transition: none;
+  }
+
+  .rpl-primary-nav__mega-menu--current-level-2 & {
+    /* show second column with column gap offset */
+    transform: translateX(calc(-25% - 6px));
+
+    @media (--rpl-bp-l) {
+      transform: none;
+    }
+  }
+
+  .rpl-primary-nav__mega-menu--current-level-3 & {
+    /* show third column with column gap offset */
+    transform: translateX(calc(-50% - 8px));
+
+    @media (--rpl-bp-l) {
+      transform: none;
+    }
+  }
+
+  .rpl-primary-nav__mega-menu--current-level-4 & {
+    /* show fourth column with column gap offset */
+    transform: translateX(calc(-75% - 12px));
+
+    @media (--rpl-bp-l) {
+      transform: none;
+    }
+  }
+
+  > div {
+    width: 100%;
+  }
+}
+
+.rpl-primary-nav__mega-menu-back-button {
+  display: flex;
+  margin-bottom: var(--rpl-sp-8);
+  cursor: pointer;
 
   @media (--rpl-bp-l) {
     display: none;
   }
 }
 
-.rpl-primary-nav__mega-menu-back {
-  display: flex;
-  cursor: pointer;
-}
-
 .rpl-primary-nav__mega-menu-section-title {
   padding: 0 var(--rpl-sp-2);
 
   &.rpl-primary-nav__mega-menu-section-title--mobile {
+    margin-bottom: var(--rpl-sp-4);
+
     @media (--rpl-bp-l) {
       display: none;
     }
@@ -316,12 +396,6 @@
 }
 
 .rpl-primary-nav__mega-menu-list {
-  display: none;
-
-  @media (--rpl-bp-l) {
-    display: block;
-  }
-
   /* Hide the level 1 mega menu list on desktop because the nav bar will show
   it instead */
   &.rpl-primary-nav__mega-menu-list--level-1 {
@@ -404,6 +478,20 @@
   }
 }
 
-.rpl-primary-nav__search-form-quick-exit-container {
+.rpl-primary-nav__search-form-quick-links {
   text-align: right;
+  margin-bottom: var(--rpl-sp-10);
+
+  @media (--rpl-bp-l) {
+    margin-bottom: var(--rpl-sp-7);
+  }
+
+  &:empty {
+    margin-bottom: var(--rpl-sp-6);
+  }
+}
+
+.rpl-primary-nav__search-bar-wrapper {
+  max-width: 684px;
+  margin: 0 auto;
 }

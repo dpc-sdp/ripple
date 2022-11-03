@@ -4,7 +4,6 @@ Feature: Site theme
 
   @mockserver
   Scenario: Default Theme
-    Given the mock server has started with proxy
     Given the endpoint "/api/tide/site" with query "?id=8888" returns fixture "/site/reference" with status 200
     And the endpoint "/api/tide/page" with query "?path=/&site=8888" returns fixture "/landingpage/home" with status 200
     Given I visit the page "/"

@@ -8,7 +8,7 @@ defaults: &defaults
       environment:
         TERM: xterm
         TZ: 'Australia/Melbourne'
-        API_URL: http://localhost:3001
+        NUXT_PUBLIC_API_URL: http://localhost:3001
       auth:
         username: $DOCKERHUB_USERNAME
         password: $DOCKERHUB_PASSWORD

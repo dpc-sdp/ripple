@@ -11,7 +11,6 @@ export default {
         console.log(`Mock server running at : ${mockServer.url}`)
       }
     } catch (error) {
-      console.log(error)
       await mockServer.start(port)
     }
     if (proxy) {
@@ -20,8 +19,12 @@ export default {
     return mockServer.url
   },
   async stopMockServer() {
-    await mockServer.stop()
-    return true
+    try {
+      await mockServer.stop()
+      return true
+    } catch (error) {
+      return false
+    }
   },
   async setMockRoute({ route, status, response }) {
     const endpointMock = await mockServer

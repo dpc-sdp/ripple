@@ -109,7 +109,12 @@ if (true) {
   const udp = new UDPTransport({
     host: 'sumologic-otel-collector.sdp-services.svc.cluster.local',
     port: '5514',
-    handleExceptions: true
+    handleExceptions: true,
+    format: format.combine(
+      lagoonFormat(),
+      errorPrint(),
+      format.json()
+    )
   })
   logger.add(udp)
   logger.remove(consoleLog)

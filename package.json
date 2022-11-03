@@ -107,6 +107,8 @@
     "**/basic-examples/nuxt/@nuxt/webpack/terser-webpack-plugin/cacache/tar": "^6.1.9"
   },
   "dependencies": {
+    "udp-transport-winston": "^1.2.11",
+    "winston": "^3.8.2",
     "winston-sumologic-transport": "^5.2.1"
   }
 }

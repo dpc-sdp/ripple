@@ -1,4 +1,4 @@
-const { SumoLogic } = require('winston-sumologic-transport')
+const { UDPTransport } = require('udp-transport-winston')
 const { createLogger, format, transports, addColors } = require('winston')
 
 // Set up level based on env settings.
@@ -99,14 +99,15 @@ if (process.env.LAGOON_GIT_SAFE_BRANCH && !process.client) {
   }
   // port 5514 udp
   var options = {
-    url: process.env.SUMOLOGIC_HOST || 'http://sumologic-otel-collector.sdp-services.svc.cluster.local:5514',
+    host: process.env.SUMOLOGIC_HOST || 'sumologic-otel-collector.sdp-services.svc.cluster.local',
+    port: process.env.SUMOLOGIC_PORT || '5514',
     customSourceHost: sumoHost,
     customSourceCategory: sumoCategory
   }
 
-  const sumo = new SumoLogic(options)
+  var udpTransport = new UDPTransport(options)
 
-  logger.add(sumo)
+  logger.add(udpTransport)
   logger.remove(consoleLog)
 }
 

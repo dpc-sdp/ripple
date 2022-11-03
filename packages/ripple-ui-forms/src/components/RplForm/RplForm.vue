@@ -9,15 +9,13 @@ interface Props {
   id: string
   schema?: FormKitSchemaCondition | FormKitSchemaNode[] | undefined
   config?: Record<string, any>
-  validationVisibility: string
 }
 
 
-withDefaults(defineProps<Props>(), {
-  validationVisibility: 'submit',
+const props = withDefaults(defineProps<Props>(), {
   schema: undefined,
-  config: (): FormKitConfig => ({
-    delimiter: '.',
+  config: (): Partial<Omit<FormKitConfig, 'rootClasses' | 'delimiter'>> => ({
+    validationVisibility: 'submit',
     messages: {
       en: {
         validation: {
@@ -25,11 +23,6 @@ withDefaults(defineProps<Props>(), {
             return `${name} is a required field.`
           }
         }
-      }
-    },
-    rootClasses: function (sectionKey) {
-      return {
-        [`rpl-form__${sectionKey}`]: true
       }
     }
   })
@@ -42,11 +35,20 @@ function submitHandler(form) {
   submitted.value = true
 }
 
+const rplFormConfig = ref({
+  rootClasses: function (sectionKey) {
+    return {
+      [`rpl-form__${sectionKey}`]: true
+    }
+  },
+  ...props.config,
+})
+
 </script>
 
 <template>
-  <FormKit :id="id" type="form" :plugins="[rplFormInputs]" form-class="rpl-form" :config="config"
-    :validation-visibility="validationVisibility" :actions="false" @submit="submitHandler">
+  <FormKit :id="id" type="form" :plugins="[rplFormInputs]" form-class="rpl-form" :config="rplFormConfig"
+    :actions="false" @submit="submitHandler">
     <slot name="aboveForm">
       <span v-if="submitted">Form Submitted</span>
     </slot>

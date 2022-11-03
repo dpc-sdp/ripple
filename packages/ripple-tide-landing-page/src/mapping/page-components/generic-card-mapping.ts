@@ -6,21 +6,23 @@ import {
   getLinkFromField
 } from '@dpc-sdp/ripple-tide-api'
 
+export interface ITideCardMeta {
+  dateStart: string
+  dateEnd: string
+  topic: string
+  contentType: string
+  fvRecommendationStatus: string
+  inductionYear: string
+  isGrantOngoing: boolean
+}
+
 export interface ITideCardBase {
   title: string
   summary: string
   image: TideImageField | null
   link: TideUrlField
   showMetadata: boolean
-  metadata: {
-    dateStart: string
-    dateEnd: string
-    topic: string
-    contentType: string
-    fvRecommendationStatus: string
-    inductionYear: string
-    isGrantOnGoing: boolean
-  }
+  metadata: ITideCardMeta
 }
 
 const getCardTitle = (field) => {
@@ -72,9 +74,22 @@ const getCardImage = (field): TideImageField => {
   return linkedImage ? linkedImage : ownImage
 }
 
-export const genericCardMapping = (field): ITideCardBase => {
-  // Image
+const getIsGrantOngoing = (field): TideImageField => {
+  const value = getField(
+    field,
+    ['field_paragraph_link', 'internal_node_fields', 'ongoing'],
+    ''
+  )
 
+  // False value comes back as '0' from the backend
+  if (value === '0') {
+    return false
+  }
+
+  return !!value
+}
+
+export const genericCardMapping = (field): ITideCardBase => {
   return {
     title: getCardTitle(field),
     summary: getCardSummary(field),
@@ -116,11 +131,7 @@ export const genericCardMapping = (field): ITideCardBase => {
         ['field_paragraph_link', 'internal_node_fields', 'induction_year'],
         ''
       ),
-      isGrantOnGoing: getField(
-        field,
-        ['field_paragraph_link', 'internal_node_fields', 'ongoing'],
-        ''
-      )
+      isGrantOngoing: getIsGrantOngoing(field)
     }
   }
 }

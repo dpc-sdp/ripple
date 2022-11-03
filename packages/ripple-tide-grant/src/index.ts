@@ -64,8 +64,8 @@ const tideGrantModule: RplTideMapping = {
             title: getField(timeline, 'field_paragraph_title'),
             subtitle: getField(timeline, 'field_paragraph_cta_text'),
             url:
-              timeline.field_paragraph_link.origin_url ||
-              timeline.field_paragraph_link.uri,
+              timeline.field_paragraph_link?.origin_url ||
+              timeline.field_paragraph_link?.uri,
             image:
               timeline.field_paragraph_media &&
               timeline.field_paragraph_media.field_media_image

@@ -32,14 +32,16 @@ export default { name: 'TideGrantOverview' }
         ><span class="rpl-type-h4-fixed"> {{ overview.audience }}</span>
       </li>
       <li
-        v-if="overview.date"
         class="
           tide-grant__overview-item tide-grant__overview-item--status
           rpl-type-label
         "
       >
         <rpl-icon
-          v-if="openState"
+          v-if="
+            grantStatus.status === 'open' ||
+            grantStatus.status === 'opening_soon'
+          "
           name="icon-check-circle-filled"
           colour="success"
           data-cy="statusIcon"
@@ -51,7 +53,7 @@ export default { name: 'TideGrantOverview' }
           data-cy="statusIcon"
         ></rpl-icon
         ><span class="rpl-type-h4-fixed" data-cy="statusText">
-          {{ formattedDate }}
+          {{ grantStatus.displayLabel }}
         </span>
       </li>
       <li
@@ -78,7 +80,12 @@ export default { name: 'TideGrantOverview' }
 <script setup lang="ts">
 import { computed } from 'vue'
 import type { TideGrantOverview } from '../../types'
-import { RplButton, RplIcon, RplContent } from '@dpc-sdp/ripple-ui-core'
+import {
+  RplButton,
+  RplIcon,
+  RplContent,
+  getGrantStatus
+} from '@dpc-sdp/ripple-ui-core'
 
 const props =
   defineProps<{
@@ -113,46 +120,15 @@ const formattedFunding = computed(() => {
   return null
 })
 
-const to = new Date(props.overview.date.to)
 const now = new Date()
 
-const openState = computed(
-  () => props.overview.ongoing || !props.overview.date.to || now < to
-)
-
-const formattedDate = computed(() => {
-  if (props.overview.ongoing) {
-    return 'Ongoing'
-  }
-
-  if (props.overview.date.to) {
-    if (now > to) {
-      return 'Closed'
-    }
-
-    const from = new Date(props.overview.date.from)
-
-    if (from < now) {
-      // Calculate days remaining
-      const days = Math.floor(
-        to.valueOf() / 86400000 - now.valueOf() / 86400000
-      )
-
-      if (days > 0) {
-        return `Open, closing in ${new Intl.NumberFormat('en-AU').format(
-          days
-        )} day${days > 1 ? 's' : ''}`
-      } else {
-        return 'Open, closing today'
-      }
-    } else {
-      return `Opening on ${new Intl.DateTimeFormat('default', {
-        dateStyle: 'long'
-      }).format(from)}`
-    }
-  }
-
-  return 'Ongoing'
+const grantStatus = computed(() => {
+  return getGrantStatus(
+    now,
+    props.overview.ongoing,
+    props.overview.date.from,
+    props.overview.date.to
+  )
 })
 </script>
 

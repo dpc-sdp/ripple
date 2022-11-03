@@ -30,6 +30,10 @@ import {
   timelineMapping,
   timelineIncludes
 } from './timeline/timeline-mapping.js'
+import {
+  callToActionMapping,
+  callToActionIncludes
+} from './call-to-action/call-to-action-mapping.js'
 
 export const landingPageComponentsMapping = {
   'paragraph--basic_text': basicTextMapping,
@@ -39,7 +43,8 @@ export const landingPageComponentsMapping = {
   'paragraph--card_keydates': keyDatesMapping,
   'paragraph--statistics_grid': statisticsGridMapping,
   'paragraph--introduction_banner': introBannerMapping,
-  'paragraph--timelines': timelineMapping
+  'paragraph--timelines': timelineMapping,
+  'paragraph--call_to_action': callToActionMapping
 }
 
 export const landingPageComponentsIncludes = [
@@ -50,5 +55,6 @@ export const landingPageComponentsIncludes = [
   ...keyDatesIncludes,
   ...statisticsGridIncludes,
   ...introBannerIncludes,
-  ...timelineIncludes
+  ...timelineIncludes,
+  ...callToActionIncludes
 ]

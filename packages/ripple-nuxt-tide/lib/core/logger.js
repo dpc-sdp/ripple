@@ -1,4 +1,5 @@
-const { UDPTransport } = require('udp-transport-winston')
+const { LogstashTransport } = require('winston-logstash-transport')
+import { UDPTransport } from 'udp-transport-winston';
 const { createLogger, format, transports, addColors } = require('winston')
 
 // Set up level based on env settings.
@@ -82,32 +83,35 @@ let logger = createLogger({
 })
 
 // Use Logstash transport in Lagoon server instead of console
-if (process.env.LAGOON_GIT_SAFE_BRANCH && !process.client) {
-  // Sumo Logic
-  // Sumo Host = LAGOON_PROJECT-LAGOON_GIT_SAFE_BRANCH
+if (true) {
+  // Create the Lagoon Logstash transport.
+  // Add lagoon required meta.
+  const lagoonFormat = format(info => {
+    const LAGOON_LOGS_DEFAULT_SAFE_BRANCH = 'safe_branch_unset'
+    const LAGOON_LOGS_DEFAULT_LAGOON_PROJECT = 'project_unset'
+    const k8sNamespace = process.env.LAGOON_PROJECT || LAGOON_LOGS_DEFAULT_LAGOON_PROJECT
+    const gitBranch = process.env.LAGOON_GIT_SAFE_BRANCH || LAGOON_LOGS_DEFAULT_SAFE_BRANCH
+    const type = [k8sNamespace, gitBranch]
+    info.type = type.join('-')
+    return info
+  })
 
-  var sumoHost = 'project_unset-safe_branch_unset'
-  if (process.env.LAGOON_PROJECT && process.env.LAGOON_GIT_SAFE_BRANCH) {
-    sumoHost = process.env.LAGOON_PROJECT + '-' + process.env.LAGOON_GIT_SAFE_BRANCH
-  }
-
-  // Sumo Category = SUMOLOGIC_CATEGORY envvar
-
-  var sumoCategory = ''
-  if (process.env.SUMOLOGIC_CATEGORY) {
-    sumoCategory = process.env.SUMOLOGIC_CATEGORY
-  }
-  // port 5514 udp
-  var options = {
-    host: process.env.SUMOLOGIC_HOST || 'sumologic-otel-collector.sdp-services.svc.cluster.local',
-    port: process.env.SUMOLOGIC_PORT || '5514',
-    customSourceHost: sumoHost,
-    customSourceCategory: sumoCategory
-  }
-
-  var udpTransport = new UDPTransport(options)
-
-  logger.add(udpTransport)
+  // const logstash = new LogstashTransport({
+  //   host: process.env.LAGOON_LOG_HOST || 'application-logs.lagoon.svc.cluster.local',
+  //   port: process.env.LAGOON_LOG_PORT || 5140,
+  //   handleExceptions: true,
+  //   format: format.combine(
+  //     lagoonFormat(),
+  //     errorPrint(),
+  //     format.json()
+  //   )
+  // })
+  const udp = new UDPTransport({
+    host: 'sumologic-otel-collector.sdp-services.svc.cluster.local',
+    port: '5514',
+    handleExceptions: true
+  })
+  logger.add(udp)
   logger.remove(consoleLog)
 }
 

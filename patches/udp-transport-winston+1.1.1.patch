@@ -1,0 +1,18 @@
+diff --git a/node_modules/udp-transport-winston/dist/udp-transport.js b/node_modules/udp-transport-winston/dist/udp-transport.js
+index 12eb95c..e7fd1d1 100644
+--- a/node_modules/udp-transport-winston/dist/udp-transport.js
++++ b/node_modules/udp-transport-winston/dist/udp-transport.js
+@@ -32,11 +32,12 @@ var UDPTransport = /** @class */ (function (_super) {
+         return _this;
+     }
+     UDPTransport.prototype.log = function (info, callback) {
++        console.error(info)
+         var _this = this;
+         if (this.silent) {
+             return callback(null, true);
+         }
+-        this.sendLog(info[Symbol.for('message')], function (err) {
++        this.sendLog(info['message'], function (err) {
+             _this.emit('logged', !err);
+             callback(err, !err);
+         });

@@ -34,6 +34,7 @@ export const email: FormKitTypeDefinition = {
    * An array of extra props to accept for this input.
    */
   props: ['maxlength', 'minlength', 'placeholder', 'validationMeta'],
+  forceTypeProp: 'email',
   /**
    * Additional features that should be added to your input
    */

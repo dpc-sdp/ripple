@@ -16,14 +16,7 @@ Then(
         .then((item) => {
           cy.wrap(item).as('item')
           if (row.type) {
-            switch (row.type) {
-              case 'text':
-                cy.get('@item').should('have.data', 'type', 'RplFormText')
-                break
-
-              default:
-                break
-            }
+            cy.get('@item').should('have.data', 'type', row.type)
           }
           if (row.label) {
             cy.get('@item')

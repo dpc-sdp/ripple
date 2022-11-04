@@ -37,5 +37,9 @@ export const tel: FormKitTypeDefinition = {
   /**
    * Additional features that should be added to your input
    */
-  features: []
+  features: [],
+  /**
+   * Forces node.props.type to be this explicit value.
+   */
+  forceTypeProp: 'tel'
 }

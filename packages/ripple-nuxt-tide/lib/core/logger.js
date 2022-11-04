@@ -121,10 +121,9 @@ if (true) {
   })
   logger.add(udp)
 
-  logger.log({
-    level: 'info',
-    message: 'Sample message from Ripple pr-1256'
-  })
+  logger.info("Sample INFO from Ripple pr-1256")
+  logger.error("Sample INFO from Ripple pr-1256")
+
 }
 
 //

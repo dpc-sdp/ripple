@@ -1,14 +1,10 @@
 <template>
-  <slot v-if="page" :name="componentName" v-bind="{ page, site }">
-    <component :is="componentName" :page="page">
+  <slot v-if="page" :name="`${componentName}Page`" v-bind="{ page, site }">
+    <component :is="`${componentName}Page`" :page="page">
       <template #aboveHeader>
         <RplIconSprite />
         <slot name="aboveHeader">
-          <RplAlert
-            v-for="alert in site.alerts"
-            v-bind="alert"
-            :key="alert.alertId"
-          />
+          <RplAlert v-for="alert in site.alerts" v-bind="alert" :key="alert.alertId" />
         </slot>
       </template>
       <template #primaryNav>
@@ -18,24 +14,15 @@
       </template>
       <template #breadcrumbs>
         <slot name="breadcrumbs">
-          <RplBreadcrumbs
-            v-if="breadcrumbs"
-            v-bind="breadcrumbs"
-          ></RplBreadcrumbs>
+          <RplBreadcrumbs v-if="breadcrumbs" v-bind="breadcrumbs"></RplBreadcrumbs>
         </slot>
       </template>
       <template #sidebar>
-        <slot name="aboveSidebar"></slot>
         <slot v-if="page.sidebar" name="sidebar">
-          <TideSidebarSiteSectionNav :nav="page.sidebar.siteSectionNav" />
-          <TideSidebarRelatedLinks :items="page.sidebar.relatedLinks" />
           <TideSidebarContactUs :contacts="page.sidebar.contacts" />
-          <TideSidebarSocialShare
-            :networks="page.sidebar.socialShareNetworks"
-            :page-title="page.title"
-          />
+          <TideSidebarRelatedLinks :items="page.sidebar.relatedLinks" />
+          <TideSidebarSocialShare :networks="page.sidebar.socialShareNetworks" :page-title="page.title" />
         </slot>
-        <slot name="belowSidebar"></slot>
       </template>
       <template #footer>
         <slot name="footer">
@@ -49,11 +36,7 @@
       <template #aboveHeader>
         <RplIconSprite />
         <slot v-if="site && site.alerts" name="aboveHeader">
-          <RplAlert
-            v-for="alert in site.alerts"
-            v-bind="alert"
-            :key="alert.alertId"
-          />
+          <RplAlert v-for="alert in site.alerts" v-bind="alert" :key="alert.alertId" />
         </slot>
       </template>
       <template #primaryNav>
@@ -63,8 +46,7 @@
       </template>
       <template #body>
         <!-- TODO: Add error handling in Error component -->
-        ERROR!
-        <h1>{{ pageError?.message }}</h1>
+        <h1>{{ pageError.data?.error?.message }}</h1>
       </template>
       <template #footer>
         <slot name="footer">
@@ -83,15 +65,15 @@ import {
   useFetch,
   useHead,
   useSiteTheme,
-  useSiteMenu
+  useSiteMenu,
+  useAppConfig
 } from '#imports'
+
 import { computed } from 'vue'
 import { pascalCase } from 'change-case'
-import TideSidebarSiteSectionNav from './sidebar/TideSidebarSiteSectionNav.vue'
 
 const route = useRoute()
 const config = useRuntimeConfig()
-
 // @ts-ignore
 const [{ data: site, error: siteError }, { data: page, error: pageError }] =
   await Promise.all([
@@ -111,7 +93,7 @@ const [{ data: site, error: siteError }, { data: page, error: pageError }] =
   ])
 
 const componentName = computed(
-  () => page.value && `Tide${pascalCase(page.value.type)}Page`
+  () => page.value && `Tide${pascalCase(page.value.type)}`
 )
 
 // TODO: Wire useSiteMenu up to real content, currently hardcoded with example
@@ -128,7 +110,7 @@ const breadcrumbs = computed(() => {
   }
 })
 
-const style = useSiteTheme(site.value?.theme)
+const style = useSiteTheme(site.value?.theme || useAppConfig().theme)
 useHead({
   title: page.value?.title,
   htmlAttrs: {

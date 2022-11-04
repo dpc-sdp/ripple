@@ -46,6 +46,7 @@
   },
   "files": [
     "dist",
+    "src",
     "!**/*.spec.*",
     "!**/*.json",
     "types.d.ts",

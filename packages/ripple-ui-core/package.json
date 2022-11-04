@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/ripple-ui-core",
-  "version": "2.0.1-alpha.2",
+  "version": "2.0.1-alpha.3",
   "license": "Apache-2.0",
   "files": [
     "dist",
@@ -40,18 +40,18 @@
   },
   "dependencies": {
     "@nuxt/kit": "3.0.0-rc.10",
+    "@vueuse/core": "^9.3.1",
+    "date-fns": "^2.29.3",
     "mitt": "^3.0.0",
     "normalize.css": "^8.0.1",
-    "vue": "3.2.39",
-    "vue-social-sharing": "4.0.0-alpha4",
     "postcss-each": "^1.1.0",
     "postcss-for": "^2.1.1",
     "postcss-nested": "^6.0.0",
     "postcss-normalize": "^10.0.1",
     "postcss-preset-env": "^7.8.2",
-    "@vueuse/core": "^9.3.1",
     "vite-svg-loader": "^3.6.0",
-    "date-fns": "^2.29.3"
+    "vue": "3.2.39",
+    "vue-social-sharing": "4.0.0-alpha4"
   },
   "devDependencies": {
     "@originjs/vite-plugin-content": "^1.0.1",

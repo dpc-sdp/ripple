@@ -2,7 +2,7 @@
   "private": true,
   "license": "Apache-2.0",
   "name": "nuxt-app",
-  "version": "2.0.1-alpha.2",
+  "version": "2.0.1-alpha.3",
   "scripts": {
     "dev": "nuxi dev",
     "dev:debug": "node --inspect node_modules/.bin/nuxi dev",
@@ -16,13 +16,13 @@
     "test:integration": "start-test 'NUXT_PUBLIC_API_URL=http://localhost:3001 yarn dev' http-get://localhost:3000/api/tide/site?id=8888 'cy:open'"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-tide-api": "2.0.1-alpha.2",
-    "@dpc-sdp/ripple-tide-event": "2.0.1-alpha.2",
-    "@dpc-sdp/ripple-tide-grant": "2.0.1-alpha.2",
-    "@dpc-sdp/ripple-tide-landing-page": "2.0.1-alpha.2",
-    "@dpc-sdp/ripple-tide-media": "2.0.1-alpha.2",
-    "@dpc-sdp/ripple-ui-core": "2.0.1-alpha.2",
-    "@dpc-sdp/ripple-ui-forms": "2.0.1-alpha.2",
+    "@dpc-sdp/ripple-tide-api": "2.0.1-alpha.3",
+    "@dpc-sdp/ripple-tide-event": "2.0.1-alpha.3",
+    "@dpc-sdp/ripple-tide-grant": "2.0.1-alpha.3",
+    "@dpc-sdp/ripple-tide-landing-page": "2.0.1-alpha.3",
+    "@dpc-sdp/ripple-tide-media": "2.0.1-alpha.3",
+    "@dpc-sdp/ripple-ui-core": "2.0.1-alpha.3",
+    "@dpc-sdp/ripple-ui-forms": "2.0.1-alpha.3",
     "dotenv": "^16.0.3"
   },
   "devDependencies": {

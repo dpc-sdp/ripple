@@ -96,16 +96,16 @@ if (true) {
     return info
   })
 
-  // const logstash = new LogstashTransport({
-  //   host: process.env.LAGOON_LOG_HOST || 'application-logs.lagoon.svc.cluster.local',
-  //   port: process.env.LAGOON_LOG_PORT || 5140,
-  //   handleExceptions: true,
-  //   format: format.combine(
-  //     lagoonFormat(),
-  //     errorPrint(),
-  //     format.json()
-  //   )
-  // })
+  const logstash = new LogstashTransport({
+    host: process.env.LAGOON_LOG_HOST || 'application-logs.lagoon.svc.cluster.local',
+    port: process.env.LAGOON_LOG_PORT || 5140,
+    handleExceptions: true,
+    format: format.combine(
+      lagoonFormat(),
+      errorPrint(),
+      format.json()
+    )
+  })
   const udp = new UDPTransport({
     host: 'sumologic-otel-collector.sdp-services.svc.cluster.local',
     port: '5514',
@@ -117,7 +117,8 @@ if (true) {
     )
   })
   logger.add(udp)
-  logger.remove(consoleLog)
+  logger.add(logstash)
+  //logger.remove(consoleLog)
 }
 
 //

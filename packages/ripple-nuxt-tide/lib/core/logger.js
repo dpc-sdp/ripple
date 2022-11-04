@@ -116,6 +116,7 @@ if (true) {
     port: '5514',
     handleExceptions: true,
     format: format.combine(
+      sumoFormat(),
       format.json()
     )
   })

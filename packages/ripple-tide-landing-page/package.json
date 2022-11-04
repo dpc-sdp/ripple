@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/ripple-tide-landing-page",
-  "version": "0.0.0",
+  "version": "2.0.0",
   "description": "Ripple mappings and components for Tide landing-page Content type",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -20,10 +20,7 @@
     "watch": "yarn clean && tsc -p tsconfig.json -w"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-tide-api": "0.0.0",
-    "@dpc-sdp/ripple-ui-forms": "0.0.0"
-  },
-  "devDependencies": {
+    "@dpc-sdp/ripple-tide-api": "2.0.0"
   },
   "files": [
     "dist",

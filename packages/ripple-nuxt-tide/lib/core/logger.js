@@ -119,6 +119,11 @@ if (true) {
   logger.add(udp)
   logger.add(logstash)
   //logger.remove(consoleLog)
+
+  logger.log({
+    level: 'info',
+    message: 'Sample message from Ripple pr-1256'
+  })
 }
 
 //

@@ -37,11 +37,12 @@ const secondaryAction = computed(() => {
 
 <template>
   <RplHeroHeader
+    v-if="header"
     :title="header.title"
     :links="{
-      title: header.links.title,
-      items: header.links.items,
-      more: header.links.more
+      title: header.links?.title,
+      items: header.links?.items,
+      more: header.links?.more
     }"
     :theme="header.theme"
     :logo="header.logoImage"

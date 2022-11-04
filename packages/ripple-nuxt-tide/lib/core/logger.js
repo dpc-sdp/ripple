@@ -84,6 +84,11 @@ let logger = createLogger({
 
 // Use Logstash transport in Lagoon server instead of console
 if (true) {
+  const sumoFormat = format(info => {
+    const source_host = process.env.LAGOON_PROJECT + '-' + process.env.LAGOON_GIT_SAFE_BRANCH
+    const source_category = 'sdp/dev/origin/app/ripple'
+  })
+  
   // Create the Lagoon Logstash transport.
   // Add lagoon required meta.
   const lagoonFormat = format(info => {
@@ -111,6 +116,7 @@ if (true) {
     port: '5514',
     handleExceptions: true,
     format: format.combine(
+      sumoFormat(),
       format.json()
     )
   })

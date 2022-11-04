@@ -111,14 +111,10 @@ if (true) {
     port: '5514',
     handleExceptions: true,
     format: format.combine(
-      lagoonFormat(),
-      errorPrint(),
       format.json()
     )
   })
   logger.add(udp)
-  logger.add(logstash)
-  //logger.remove(consoleLog)
 
   logger.log({
     level: 'info',

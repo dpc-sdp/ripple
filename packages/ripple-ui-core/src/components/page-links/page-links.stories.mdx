@@ -18,10 +18,6 @@ export const SingleTemplate = (args) => ({
 <Meta
   title='WIP/Components/Page links'
   component={RplPageLinks}
-  args={{
-    prev: { text: 'Check out this page', url: '#page' },
-    next: { text: 'Another page to look at', url: '#another-page' },
-  }}
 />
 
 # Page links
@@ -32,6 +28,10 @@ export const SingleTemplate = (args) => ({
   <Story
     name='Page links'
     play={a11yStoryCheck}
+    args={{
+      prev: { text: 'Check out this page', url: '#page' },
+      next: { text: 'Another page to look at', url: '#another-page' },
+    }}
   >
     {SingleTemplate.bind()}
   </Story>
@@ -48,6 +48,22 @@ This is an example page links showing supplied "Page count""
     args={{
       prev: { text: '2 of 5', url: '#page' },
       next: { text: '4 of 5', url: '#another-page' },
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>
+
+# Example / Last page
+
+This is an example of the page links on the final linkable page
+
+<Canvas>
+  <Story
+    name='Example/Final page'
+    play={a11yStoryCheck}
+    args={{
+      prev: { text: 'The title of a page', url: '#page' }
     }}
   >
     {SingleTemplate.bind()}

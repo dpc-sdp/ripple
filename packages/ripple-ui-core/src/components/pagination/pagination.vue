@@ -8,6 +8,7 @@ import { rplEventBus } from '../../index'
 import { useStepNavigation } from '../../composables/useStepNavigation'
 
 rplEventBus.register('rpl-pagination/click')
+const emit = defineEmits<{ (e: 'change', value: number): void }>()
 
 interface Props {
   label?: string
@@ -33,6 +34,7 @@ const { activeStep, visibleSteps, updateStep, isFirstStep, isLastStep } =
 
 const onClick = (payload: any, index: number) => {
   updateStep(index)
+  emit('change', index)
   rplEventBus.emit('rpl-pagination/click', payload)
 }
 </script>
@@ -43,7 +45,7 @@ const onClick = (payload: any, index: number) => {
       v-if="!isFirstStep"
       icon-name="icon-arrow-left"
       :aria-label="`Go to previous ${contentType}`"
-      @click.prevent="(e) => onClick(e, activeStep - 1)"
+      @click="(e) => onClick(e, activeStep - 1)"
     >
       Previous
     </RplPaginationLink>
@@ -58,7 +60,7 @@ const onClick = (payload: any, index: number) => {
           class="rpl-pagination__page rpl-u-focusable-block"
           :aria-label="`Go to ${contentType} ${step}`"
           :aria-current="step === activeStep ? true : null"
-          @click.prevent="(e) => onClick(e, step)"
+          @click="(e) => onClick(e, step)"
         >
           <span>{{ step }}</span>
         </button>
@@ -72,7 +74,7 @@ const onClick = (payload: any, index: number) => {
       icon-name="icon-arrow-right"
       icon-placement="after"
       :aria-label="`Go to next ${contentType}`"
-      @click.prevent="(e) => onClick(e, activeStep + 1)"
+      @click="(e) => onClick(e, activeStep + 1)"
     >
       Previous
     </RplPaginationLink>

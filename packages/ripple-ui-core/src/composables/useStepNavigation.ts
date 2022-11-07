@@ -13,7 +13,6 @@ export function useStepNavigation({
 }: RplStepNavigation) {
   const activeStep = ref(initialStep)
 
-  const addEdges = computed(() => surroundingSteps > 2)
   const stepRange = computed(() => surroundingSteps * 2 + 1)
   const isFirstStep = computed(() => activeStep.value === 1)
   const isLastStep = computed(() => activeStep.value === totalSteps)
@@ -25,9 +24,9 @@ export function useStepNavigation({
   // Figure of the visible step range and check if we need to show the first and last pages
   function getSteps() {
     let start = Math.max(1, Math.round(activeStep.value - stepRange.value / 2))
-    const hasFirst = addEdges.value && start > 1
+    const hasFirst = surroundingSteps > 2 && start > 1
     const end = Math.min(start + stepRange.value - 1, totalSteps)
-    const hasLast = addEdges.value && end < totalSteps
+    const hasLast = surroundingSteps > 2 && end < totalSteps
 
     if (end - start + 1 < stepRange.value) {
       start = Math.max(1, end - stepRange.value + 1)

@@ -40,10 +40,10 @@
   }
 
   &[aria-current] {
+    text-decoration: none;
     color: var(--rpl-clr-link);
     padding-left: var(--rpl-sp-2);
     padding-right: var(--rpl-sp-2);
-    text-decoration: none;
     font-weight: var(--rpl-type-weight-bold);
     box-shadow: 0 0 0 var(--rpl-border-2) currentcolor;
 

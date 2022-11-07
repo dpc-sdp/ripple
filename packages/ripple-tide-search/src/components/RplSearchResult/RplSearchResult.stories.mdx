@@ -1,0 +1,38 @@
+import {
+  Canvas,
+  Meta,
+  Story,
+  ArgsTable
+} from '@storybook/addon-docs'
+import RplSearchResult from './RplSearchResult.vue'
+
+export const SingleTemplate = (args) => ({
+  components: { RplSearchResult },
+  setup() {
+    return { args }
+  },
+  template: '<RplSearchResult v-bind="args" />'
+})
+
+<Meta
+  title='Search/Result listing'
+  component={RplSearchResult}
+/>
+
+# Search
+
+<ArgsTable of={RplSearchResult} />
+
+<Canvas>
+  <Story
+    name='Search result listing'
+    args={{
+      title: 'Title',
+      url: 'vic.gov.au/link/thatwill/showthepath',
+      summary: 'Page summary information paragraph default. Keyword libero justo laoreet sit amet cursus sit amet dictum sit amet justo donec enim diam vulputate...',
+      updated: 'DD Month YYYY'
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>

@@ -1,0 +1,20 @@
+@import '@dpc-sdp/ripple-ui-core/style/breakpoints';
+
+.rpl-search-result {
+  margin-top: var(--rpl-sp-5);
+  margin-bottom: var(--rpl-sp-5);
+}
+.rpl-search-result__meta {
+  margin-top: var(--rpl-sp-1);
+  color: var(--rpl-clr-neutral-600);
+}
+
+.rpl-search-result__body {
+  margin-top: var(--rpl-sp-2);
+  color: var(--rpl-clr-type-default);
+}
+
+.rpl-search-result__date {
+  margin-top: var(--rpl-sp-2);
+  color: var(--rpl-clr-type-default);
+}

@@ -7,11 +7,19 @@ import { computed, useSlots } from 'vue'
 
 const slots = useSlots()
 
+interface Props {
+  fullWidth?: boolean
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  fullWidth: false
+})
+
 const mainClasses = computed(() => ({
   'rpl-header__main': true,
   'rpl-col-12': true,
   'rpl-col-7-m': slots.aside,
-  'rpl-col-8-m': !slots.aside
+  'rpl-col-8-m': !!slots.aside && !!props.fullWidth
 }))
 </script>
 
@@ -36,15 +44,26 @@ const mainClasses = computed(() => ({
             <slot name="lower"></slot>
           </div>
         </div>
-        <div
-          v-if="$slots.aside"
-          class="rpl-header__aside rpl-col-12 rpl-col-4-m rpl-col-start-9-m"
-        >
+        <div v-if="$slots.aside" class="rpl-header__aside rpl-col-12 rpl-col-4-m rpl-col-start-9-m">
           <slot name="aside"></slot>
         </div>
       </div>
     </div>
   </div>
 </template>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <style src="./header.css" />

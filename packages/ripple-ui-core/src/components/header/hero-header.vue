@@ -29,6 +29,7 @@ interface Props {
   links?: RplHeaderLinksList
   breadcrumbs?: boolean
   behindNav?: boolean
+  fullWidth?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -41,7 +42,8 @@ const props = withDefaults(defineProps<Props>(), {
   secondaryAction: undefined,
   links: undefined,
   breadcrumbs: false,
-  behindNav: false
+  behindNav: false,
+  fullWidth: false
 })
 
 const highlight = computed(
@@ -70,15 +72,11 @@ const contentClasses = computed(() => ({
 </script>
 
 <template>
-  <RplHeader :class="classes">
+  <RplHeader :class="classes" :full-width="fullWidth">
     <template v-if="background || cornerTop || cornerBottom" #behind>
       <RplImage v-if="background" v-bind="background" priority="high" />
       <RplHeaderGraphic v-if="cornerTop" :image="cornerTop" placement="top" />
-      <RplHeaderGraphic
-        v-if="cornerBottom"
-        :image="cornerBottom"
-        placement="bottom"
-      />
+      <RplHeaderGraphic v-if="cornerBottom" :image="cornerBottom" placement="bottom" />
     </template>
     <template v-if="logo && !background" #upper>
       <RplImage class="rpl-header__logo" v-bind="logo" />
@@ -93,16 +91,12 @@ const contentClasses = computed(() => ({
       <RplHeaderActions :primary="primaryAction" :secondary="secondaryAction" />
     </template>
     <template v-if="links && !background" #aside>
-      <RplHeaderLinks
-        :title="links?.title"
-        :items="
-          (links.items || []).map((item) => ({
-            ...item,
-            icon: item.icon || 'icon-arrow-right'
-          }))
-        "
-        :more-link="links.more"
-      />
+      <RplHeaderLinks :title="links?.title" :items="
+        (links.items || []).map((item) => ({
+          ...item,
+          icon: item.icon || 'icon-arrow-right'
+        }))
+      " :more-link="links.more" />
     </template>
   </RplHeader>
 </template>

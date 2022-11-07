@@ -4,7 +4,7 @@
       <template #aboveHeader>
         <RplIconSprite />
         <slot name="aboveHeader">
-          <RplAlert v-for="alert in site.alerts" v-bind="alert" :key="alert.alertId" />
+          <RplAlert v-for="alert in site?.alerts" v-bind="alert" :key="alert.alertId" />
         </slot>
       </template>
       <template #primaryNav>
@@ -39,7 +39,7 @@
     <RplLayout>
       <template #aboveHeader>
         <RplIconSprite />
-        <slot v-if="site && site.alerts" name="aboveHeader">
+        <slot v-if="site && site?.alerts" name="aboveHeader">
           <RplAlert v-for="alert in site.alerts" v-bind="alert" :key="alert.alertId" />
         </slot>
       </template>
@@ -55,7 +55,7 @@
       </template>
       <template #footer>
         <slot name="footer">
-          <RplFooter :items="site?.menus.menuFooter"></RplFooter>
+          <RplFooter :items="site?.menus.menu"></RplFooter>
         </slot>
       </template>
     </RplLayout>

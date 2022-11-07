@@ -34,6 +34,7 @@ import {
   callToActionMapping,
   callToActionIncludes
 } from './call-to-action/call-to-action-mapping.js'
+import { webformIncludes, webformMapping } from './webforms/webforms-mapping.js'
 
 export const landingPageComponentsMapping = {
   'paragraph--basic_text': basicTextMapping,
@@ -44,7 +45,8 @@ export const landingPageComponentsMapping = {
   'paragraph--statistics_grid': statisticsGridMapping,
   'paragraph--introduction_banner': introBannerMapping,
   'paragraph--timelines': timelineMapping,
-  'paragraph--call_to_action': callToActionMapping
+  'paragraph--call_to_action': callToActionMapping,
+  'paragraph--embedded_webform': webformMapping
 }
 
 export const landingPageComponentsIncludes = [
@@ -56,5 +58,6 @@ export const landingPageComponentsIncludes = [
   ...statisticsGridIncludes,
   ...introBannerIncludes,
   ...timelineIncludes,
-  ...callToActionIncludes
+  ...callToActionIncludes,
+  ...webformIncludes
 ]

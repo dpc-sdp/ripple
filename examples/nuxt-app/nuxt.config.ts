@@ -12,6 +12,18 @@ export default defineNuxtConfig({
       }
     }
   },
+  tide: {
+    mapping: {
+      content: {
+        event: '@dpc-sdp/ripple-tide-event',
+        grant: '@dpc-sdp/ripple-tide-grant',
+        landing_page: '@dpc-sdp/ripple-tide-landing-page',
+        media: '@dpc-sdp/ripple-tide-media'
+      },
+      site: '@dpc-sdp/ripple-tide-api/mapping/site'
+    },
+    debug: false
+  },
   modules: [
     '@dpc-sdp/ripple-tide-api/nuxt',
     '@dpc-sdp/ripple-tide-grant/nuxt',

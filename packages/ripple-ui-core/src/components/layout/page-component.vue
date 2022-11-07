@@ -2,7 +2,7 @@
 
 <template>
   <div class="rpl-page-component">
-    <h2 v-if="title" class="rpl-type-h2">{{ title }}</h2>
+    <h2 v-if="title" class="rpl-type-h2 rpl-u-margin-b-2">{{ title }}</h2>
     <slot></slot>
   </div>
 </template>
@@ -12,6 +12,8 @@ export interface Props {
 }
 defineProps<Props>()
 </script>
+
+
 
 
 <style src="./page-component.css" />

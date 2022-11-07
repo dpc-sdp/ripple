@@ -1,0 +1,100 @@
+import {
+  Canvas,
+  Meta,
+  Story,
+  ArgsTable
+} from '@storybook/addon-docs'
+import RplForm from './RplForm.vue'
+import RplFormElement from './../RplFormElement/RplFormElement.vue'
+
+export const SingleTemplate = (args) => ({
+  components: { RplForm },
+  setup() {
+    return { args }
+  },
+  template: '<RplForm v-bind="args" />'
+})
+
+export const SlotTemplate = (args) => ({
+  components: { RplForm,RplFormElement },
+  setup() {
+    return { args }
+  },
+  template: `
+  <RplForm>
+    <RplFormElement
+      type="RplFormText"
+      label="test"
+    />
+  </RplForm>
+  `
+})
+
+<Meta title='Forms/Form' component={RplForm} />
+
+# Forms
+
+<ArgsTable of={RplForm} />
+
+<Canvas>
+  <Story
+    name='Default'
+    args={{
+      id: 'test123form',
+      schema: [
+        {
+          $formkit: 'RplFormText',
+          name: 'long_enquiry',
+          label: 'What kind of long enquiry do you have?',
+          id: 'text',
+          suffixIcon: 'icon-search',
+          help: 'Do you need help?',
+          validationLabel: 'enquiry',
+          validation: 'required|length:0,20'
+        },
+        {
+          $formkit: 'RplFormText',
+          name: 'Text no icons',
+          label: 'RplFormText Should you flush tissues down the toilet?',
+          id: 'textnoicons',
+          value: 'test content',
+          help: 'Do you need help?',
+          validation: 'required'
+        },
+        {
+          $formkit: 'RplFormEmail',
+          name: 'Text',
+          label: 'Email',
+          id: 'email',
+          help: 'Add your work email',
+          validation: 'required'
+        },
+        {
+          $formkit: 'RplFormTel',
+          name: 'tel',
+          label: 'Mobile number',
+          id: 'tel',
+          help: 'Please enter a valid mobile number',
+          validation:[['required'],['matches', /^(?:\+?(61))? ?(?:\((?=.*\)))?(0?[2-57-8])\)? ?(\d\d(?:[- ](?=\d{3})|(?!\d\d[- ]?\d[- ]))\d\d[- ]?\d[- ]?\d{3})$/]],
+          validationMessages: {
+            required: 'We require a mobile for verification purposes',
+            matches: 'Please enter a valid mobile number'
+          }
+        },
+        {
+          $formkit: 'RplFormSubmit',
+          label: 'Submit form',
+          id: '123'
+        }
+      ]
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name='With slots'>
+    {SlotTemplate.bind()}
+  </Story>
+</Canvas>

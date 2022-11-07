@@ -1,16 +1,31 @@
+import { markRaw } from 'vue'
 import { FormKitTypeDefinition } from '@formkit/core'
-import { localize, ignores } from '@formkit/inputs'
-import RplFormSubmit from './../components/submit/submit.vue'
+import { localize, ignores, outer, createSection } from '@formkit/inputs'
+import RplFormSubmit from './../components/RplFormSubmit/RplFormSubmit.vue'
 
 /**
- * Input definition for a button.
+ * Input definition for a submit button.
  * @public
  */
-export const button: FormKitTypeDefinition = {
+export const submit: FormKitTypeDefinition = {
   /**
-   * The component to render
+   * The actual schema of the input, or a function that returns the schema.
    */
-  component: RplFormSubmit,
+  schema: outer(
+    createSection('input', () => ({
+      $cmp: 'RplFormSubmit',
+      props: {
+        id: '$id',
+        label: '$label',
+        variant: '$variant',
+        prefixIcon: '$node.props.prefixIcon',
+        suffixIcon: '$node.props.suffixIcon'
+      }
+    }))()
+  ),
+  library: {
+    RplFormSubmit: markRaw(RplFormSubmit)
+  },
   /**
    * The type of node, can be a list, group, or input.
    */

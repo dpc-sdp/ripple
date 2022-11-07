@@ -121,6 +121,7 @@ jobs:
   publish-alpha:
     <<: *defaults
     steps:
+      - checkout
       - attach_workspace:
           at: ~/app
       - restore_cache:
@@ -139,6 +140,7 @@ jobs:
   publish:
     <<: *defaults
     steps:
+      - checkout
       - attach_workspace:
           at: ~/app
       - restore_cache:
@@ -183,6 +185,8 @@ workflows:
             - build-storybook
             - unit
             - integration-nuxt
+            - test-storybook
+            - chromatic
           filters:
             branches:
               only:
@@ -194,6 +198,8 @@ workflows:
             - build-storybook
             - unit
             - integration-nuxt
+            - test-storybook
+            - chromatic
           filters:
             branches:
               only:

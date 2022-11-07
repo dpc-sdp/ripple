@@ -72,12 +72,8 @@ export const getMediaImage = (
   if (fieldMediaImage.meta?.focal_point) {
     delete fieldMediaImage.meta.focal_point
   }
-  // Replace BE domain for images as they will be proxied through FE
   return {
-    src: fieldMediaImage.url ? removeDomainFromPath(fieldMediaImage.url) : '',
-    // src: `https://develop.content.reference.sdp.vic.gov.au${
-    //   fieldMediaImage.url ? removeDomainFromPath(fieldMediaImage.url) : ''
-    // }`,
+    src: fieldMediaImage.url,
     ...fieldMediaImage.meta,
     focalPoint
   }

@@ -176,29 +176,6 @@ workflows:
       - chromatic:
           requires:
             - build-storybook
-  release:
-    jobs:
-      - build:
-          filters:
-            branches:
-              only:
-                - master
-                - develop
-      - unit:
-          requires:
-            - build
-      - build-storybook:
-          requires:
-            - build
-      - build-examples:
-          requires:
-            - build
-      - integration-nuxt:
-          requires:
-            - build-examples
-      - test-storybook:
-          requires:
-            - build-storybook
       - publish-alpha:
           requires:
             - build

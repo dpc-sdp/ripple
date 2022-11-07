@@ -128,8 +128,8 @@ jobs:
       - run:
           name: Publish alpha prerelease to NPM
           command: |
-          npm set //registry.npmjs.org/:_authToken=$NPM_TOKEN
-          yarn release:publish
+            npm set //registry.npmjs.org/:_authToken=$NPM_TOKEN
+            yarn release:publish
   publish:
     <<: *defaults
     steps:
@@ -140,8 +140,8 @@ jobs:
       - run:
           name: Publish prod release to NPM
           command: |
-          npm set //registry.npmjs.org/:_authToken=$NPM_TOKEN
-          yarn release:publish
+            npm set //registry.npmjs.org/:_authToken=$NPM_TOKEN
+            yarn release:publish
 workflows:
   commit:
     jobs:

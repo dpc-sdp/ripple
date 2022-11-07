@@ -19,8 +19,8 @@
     "watch": "yarn clean && tsc -p tsconfig.json -w"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-tide-api": "0.0.0",
-    "@dpc-sdp/ripple-tide-landing-page": "0.0.0"
+    "@dpc-sdp/ripple-tide-api": "2.0.1-alpha.4",
+    "@dpc-sdp/ripple-tide-landing-page": "2.0.1-alpha.4"
   },
   "devDependencies": {
   },

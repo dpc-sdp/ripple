@@ -1,4 +1,19 @@
-import { When, Then } from '@badeball/cypress-cucumber-preprocessor'
+import {
+  When,
+  Then,
+  Before,
+  After
+} from '@badeball/cypress-cucumber-preprocessor'
+
+Before({ tags: '@mockserver' }, () => {
+  cy.log('the mock server has started')
+  cy.task('startMockServer')
+})
+
+After({ tags: '@mockserver' }, () => {
+  cy.log('the mock server has stopped')
+  cy.task('stopMockServer')
+})
 
 Then('the title should be {string}', (title: string) => {
   cy.get('[data-cy="title"]').should('have.text', title)
@@ -41,29 +56,6 @@ Then(
     cy.get(
       '.tide-grant__timeline .rpl-timeline__item:first-of-type > .rpl-timeline__item-subtitle'
     ).should('have.text', date)
-  }
-)
-
-When(
-  'I click the open all button on accordion with ID {string}',
-  (id: string) => {
-    cy.get(`[id="${id}"]`).contains('Open all').click()
-  }
-)
-
-Then(
-  'all accordion items in accordion ID {string} should be visible',
-  (id: string) => {
-    cy.get(`[id="${id}"]`)
-      .find('li > button')
-      .each(($btn) => {
-        cy.wrap($btn).should('have.attr', 'aria-expanded', 'true')
-      })
-    cy.get(`[id="${id}"]`)
-      .find('.rpl-accordion__item-content')
-      .each(($el) => {
-        cy.wrap($el).should('be.visible')
-      })
   }
 )
 

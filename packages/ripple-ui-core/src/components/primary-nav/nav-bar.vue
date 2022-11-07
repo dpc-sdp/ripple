@@ -16,7 +16,7 @@ interface Props {
   isMegaNavActive: boolean
   isSearchActive: boolean
   isItemExpanded: (id: string) => boolean
-  toggleMegaNav: () => void
+  toggleMobileMenu: () => void
   toggleItem: (id: string) => void
   toggleSearch: () => void
 }
@@ -77,7 +77,7 @@ const props = defineProps<Props>()
           type="toggle"
           href="/"
           :active="isMegaNavActive"
-          @click="toggleMegaNav()"
+          @click="toggleMobileMenu()"
         >
           <span>Menu</span>&NoBreak;<span
             class="
@@ -144,6 +144,7 @@ const props = defineProps<Props>()
               class="
                 rpl-primary-nav__nav-bar-icon
                 rpl-primary-nav__nav-bar-icon--large
+                rpl-primary-nav__nav-bar-icon--search
                 rpl-u-margin-l-2
               "
               ><RplIcon name="icon-search"></RplIcon>
@@ -155,6 +156,7 @@ const props = defineProps<Props>()
               class="
                 rpl-primary-nav__nav-bar-icon
                 rpl-primary-nav__nav-bar-icon--large
+                rpl-primary-nav__nav-bar-icon--search
                 rpl-u-margin-l-2
               "
               ><RplIcon name="icon-cancel"></RplIcon>

@@ -74,7 +74,7 @@ export default {
                 {
                   type: 'input',
                   inputType: 'text',
-                  label: 'Tell me your email',
+                  label: 'Tell me your email for content rating',
                   model: 'honeypot',
                   styleClasses: 'tide-tell-me-your-email',
                   autocomplete: 'off'
@@ -140,7 +140,7 @@ export default {
       const formData = this.formData.model
       const formId = this.formData.tideId
 
-      if (formData.honeypot) {
+      if (this.isHoneypotSet()) {
         this.formData.formState = {
           response: {
             status: 'success',

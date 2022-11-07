@@ -97,8 +97,10 @@ export default {
       if (!this.formData.schema.fields) {
         this.formData.schema.fields = []
       }
-
-      this.formData.schema.fields.unshift(honeypot)
+      if (this.formData.schema.fields.length === 0 || this.formData.schema.fields[0].model !== 'honeypot') {
+        this.formData.model['honeypot'] = null
+        this.formData.schema.fields.unshift(honeypot)
+      }
     }
   },
   mounted () {

@@ -135,6 +135,8 @@ jobs:
       - run:
           name: Publish alpha prerelease to NPM
           command: |
+            git config --global user.email "sdp.devs@dpc.vic.gov.au"
+            git config --global user.name "SDP Deploy"
             npm set //registry.npmjs.org/:_authToken=$NPM_TOKEN
             yarn release:publish
   publish:
@@ -154,6 +156,8 @@ jobs:
       - run:
           name: Publish prod release to NPM
           command: |
+            git config --global user.email "sdp.devs@dpc.vic.gov.au"
+            git config --global user.name "SDP Deploy"
             npm set //registry.npmjs.org/:_authToken=$NPM_TOKEN
             yarn release:publish
 workflows:

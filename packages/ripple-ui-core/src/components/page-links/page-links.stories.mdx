@@ -1,0 +1,55 @@
+import {
+  Canvas,
+  Meta,
+  Story,
+  ArgsTable
+} from '@storybook/addon-docs'
+import RplPageLinks from './page-links.vue'
+import { a11yStoryCheck } from './../../../stories/interactions.js'
+
+export const SingleTemplate = (args) => ({
+  components: { RplPageLinks },
+  setup() {
+    return { args }
+  },
+  template: '<RplPageLinks v-bind="args" />'
+})
+
+<Meta
+  title='WIP/Components/Page links'
+  component={RplPageLinks}
+  args={{
+    prev: { text: 'Check out this page', url: '#page' },
+    next: { text: 'Another page to look at', url: '#another-page' },
+  }}
+/>
+
+# Page links
+
+<ArgsTable of={RplPageLinks} />
+
+<Canvas>
+  <Story
+    name='Page links'
+    play={a11yStoryCheck}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>
+
+## Example / With "Page counts"
+
+This is an example page links showing supplied "Page count""
+
+<Canvas>
+  <Story
+    name='Example/Count'
+    play={a11yStoryCheck}
+    args={{
+      prev: { text: '2 of 5', url: '#page' },
+      next: { text: '4 of 5', url: '#another-page' },
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>

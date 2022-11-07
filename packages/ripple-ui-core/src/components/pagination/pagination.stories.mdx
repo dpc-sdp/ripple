@@ -1,0 +1,73 @@
+import {
+  Canvas,
+  Meta,
+  Story,
+  ArgsTable
+} from '@storybook/addon-docs'
+import RplPagination from './pagination.vue'
+import { a11yStoryCheck } from './../../../stories/interactions.js'
+
+export const SingleTemplate = (args) => ({
+  components: { RplPagination },
+  setup() {
+    return { args }
+  },
+  template: '<RplPagination v-bind="args" />'
+})
+
+<Meta
+  title='WIP/Components/Pagination'
+  component={RplPagination}
+  args={{
+    label: 'Page navigation',
+    totalPages: 20,
+    initialPage: 10,
+    surroundingPages: 3,
+    contentType: 'Page'
+  }}
+/>
+
+# Pagination
+
+<ArgsTable of={RplPagination} />
+
+<Canvas>
+  <Story
+    name='Pagination'
+    play={a11yStoryCheck}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>
+
+## Example / First Page
+
+This is an example showing the first page as active
+
+<Canvas>
+  <Story
+    name='Example/First page'
+    play={a11yStoryCheck}
+    args={{
+      initialPage: 1
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>
+
+## Example / Last Page
+
+This is an example showing the last page as active
+
+<Canvas>
+  <Story
+    name='Example/Last page'
+    play={a11yStoryCheck}
+    args={{
+      initialPage: 20
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>

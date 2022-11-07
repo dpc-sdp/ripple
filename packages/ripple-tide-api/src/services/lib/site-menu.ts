@@ -90,7 +90,7 @@ const getHierarchicalMenu = function (menu, activeUrl) {
     if (link.attributes.enabled) {
       linkValues.push({
         text: link.attributes.title,
-        url: link.attributes.link.url || link.attributes.link.uri,
+        href: link.attributes.link.url || link.attributes.link.uri,
         id: link.id,
         parent: !link.attributes.parent
           ? null

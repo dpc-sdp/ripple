@@ -1,4 +1,4 @@
-import { RplIconSprite, registerRplCorePlugins } from '@dpc-sdp/ripple-ui-core'
+import { RplIconSprite } from '@dpc-sdp/ripple-ui-core'
 import { registerRplFormPlugin } from '@dpc-sdp/ripple-ui-forms'
 import '@dpc-sdp/ripple-ui-core/style'
 import { withCssResources } from '@storybook/addon-cssresources'
@@ -14,7 +14,6 @@ import svgPlaceholder from '~/storybook/utils/svgPlaceholder'
 window.svgPlaceholder = svgPlaceholder
 
 // Ripple vue plugins
-registerRplCorePlugins(app)
 registerRplFormPlugin(app)
 
 export const parameters = {

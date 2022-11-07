@@ -5,7 +5,9 @@ import {
   humanizeFilesize,
   landingPageComponentsMapping,
   basicTextIncludes,
-  accordionIncludes,
+  accordionIncludes
+} from '@dpc-sdp/ripple-tide-landing-page'
+import {
   tidePageBaseMapping,
   tidePageBaseIncludes
 } from '@dpc-sdp/ripple-tide-api'

@@ -1,5 +1,4 @@
-import { TideDynamicPageComponent } from '@dpc-sdp/ripple-tide-api'
-import { getField } from '../../../utils/mapping-utils.js'
+import { getField, TideDynamicPageComponent } from '@dpc-sdp/ripple-tide-api'
 
 export const statisticsGridMapping = (field): TideDynamicPageComponent<any> => {
   const theme = getField(field, 'field_statistics_grid_theme', '')

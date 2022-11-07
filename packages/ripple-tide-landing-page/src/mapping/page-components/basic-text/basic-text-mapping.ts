@@ -1,5 +1,4 @@
-import { TideDynamicPageComponent } from '@dpc-sdp/ripple-tide-api'
-import { getBody } from '../../../utils/mapping-utils.js'
+import { getBody, TideDynamicPageComponent } from '@dpc-sdp/ripple-tide-api'
 
 export interface ITideBasicText {
   html: string | null

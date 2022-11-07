@@ -7,15 +7,5 @@ export {
   tidePageBaseMapping,
   tidePageBaseIncludes
 } from './mapping/tide-page-base-mapping.js'
-export {
-  landingPageComponentsMapping,
-  landingPageComponentsIncludes,
-  basicTextIncludes,
-  accordionIncludes,
-  promoCardIncludes,
-  navigationCardIncludes,
-  keyDatesIncludes,
-  statisticsGridIncludes
-} from './mapping/page-components/page-components-mapping.js'
 export * from './mapping/index.js'
 export * from './utils/define-module.js'

@@ -1,5 +1,8 @@
-import { TideDynamicPageComponent } from '@dpc-sdp/ripple-tide-api'
-import { getField, getLinkFromField } from '../../../utils/mapping-utils.js'
+import {
+  getField,
+  getLinkFromField,
+  TideDynamicPageComponent
+} from '@dpc-sdp/ripple-tide-api'
 
 export interface ITideKeyDates {
   title: string

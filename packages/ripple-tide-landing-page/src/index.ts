@@ -73,3 +73,13 @@ const tideLandingPageModule: RplTideMapping = {
 }
 
 export default tideLandingPageModule
+export {
+  landingPageComponentsMapping,
+  landingPageComponentsIncludes,
+  basicTextIncludes,
+  accordionIncludes,
+  promoCardIncludes,
+  navigationCardIncludes,
+  keyDatesIncludes,
+  statisticsGridIncludes
+} from './mapping/page-components/page-components-mapping.js'

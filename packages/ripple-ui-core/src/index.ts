@@ -1,7 +1,6 @@
 // Lib
 export { default as rplEventBus } from './lib/eventbus'
 export { useAccessibleContainer } from './composables/useAccessibleContainer'
-export { default as registerRplCorePlugins } from './plugins/index'
 
 // Components
 export { default as RplAccordion } from './components/accordion/accordion.vue'

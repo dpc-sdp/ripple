@@ -73,7 +73,7 @@ export default {
     async submitForm () {
       const formData = this.formData.model
       const formId = this.formData.tideId
-      if (this.isHoneypotSet()) {
+      if (this.isHoneypotSet(`#${this.formData.tideId}-important-email`)) {
         this.formData.formState = {
           response: {
             status: 'success',

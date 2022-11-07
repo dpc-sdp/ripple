@@ -9,8 +9,8 @@ module.exports = {
     let data = {
       tideId: drupalFormEntity.drupal_internal__id,
       messages: {
-        success: drupalFormEntity.settings.confirmation_message ? drupalFormEntity.settings.confirmation_message : null,
-        failure: drupalFormEntity.settings.submission_exception_message ? drupalFormEntity.settings.submission_exception_message : null
+        success: drupalFormEntity.settings?.confirmation_message ? drupalFormEntity.settings.confirmation_message : null,
+        failure: drupalFormEntity.settings?.submission_exception_message ? drupalFormEntity.settings.submission_exception_message : null
       },
       model: {},
       schema: {
@@ -31,12 +31,12 @@ module.exports = {
       // TODO: Below category & redirect_url is used by VicPol only at this moment and the it's not in Tide.
       // The implementation need to be reviewed.
       category: drupalFormEntity.category,
-      redirect_url: drupalFormEntity.settings.confirmation_url
+      redirect_url: drupalFormEntity.settings?.confirmation_url
     }
 
     // If form confirmation type is inline, always hide the form after it has been successfully submitted.
     // This switch can be used to define whether or not the form is hidden after submission based on the submission confirmation type set in Drupal
-    switch (drupalFormEntity.settings.confirmation_type) {
+    switch (drupalFormEntity.settings?.confirmation_type) {
       case ('inline'):
         data.settings.shouldHideFormAfterSuccess = true
         break

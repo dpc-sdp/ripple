@@ -35,9 +35,9 @@ const webform = {
         return false
       }
     },
-    isHoneypotSet () {
-      if (this.formData.settings.spamProtect) {
-        const honeypotElement = document.querySelector('#tide_event_submission-important-email')
+    isHoneypotSet (selector = `#${this.formData.tideId}-important-email`) {
+      if (this.formData.settings?.spamProtect) {
+        const honeypotElement = document.querySelector(selector)
         if (honeypotElement) {
           return honeypotElement.value
         }

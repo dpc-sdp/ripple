@@ -14,7 +14,8 @@
     "docs",
     "@dpc-sdp/ripple-tide-landing-page",
     "@dpc-sdp/ripple-ui-forms",
-    "@dpc-sdp/ripple-tide-grant"
+    "@dpc-sdp/ripple-tide-grant",
+    "@dpc-sdp/ripple-tide-publication"
   ],
   "cSpell.words": [
     "colour",

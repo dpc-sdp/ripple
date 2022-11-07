@@ -3,7 +3,14 @@ export default { name: 'TidePublicationSideNav' }
 </script>
 
 <template>
-  <div class="rpl-type-label rpl-u-margin-b-6">[ SIDE NAV ]</div>
+  <RplVerticalNav :title="title" :items="items"></RplVerticalNav>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { RplVerticalNav } from '@dpc-sdp/ripple-ui-core'
+
+defineProps<{
+  title: any
+  items: any
+}>()
+</script>

@@ -1,4 +1,5 @@
-import { TideDynamicPageComponent, getField } from '@dpc-sdp/ripple-tide-api'
+import { TideDynamicPageComponent } from '@dpc-sdp/ripple-tide-api'
+import { getField } from '../../../utils/mapping-utils.js'
 import { genericCardMapping } from '../generic-card-mapping.js'
 
 export const promoCardMapping = (field): TideDynamicPageComponent<any> => {

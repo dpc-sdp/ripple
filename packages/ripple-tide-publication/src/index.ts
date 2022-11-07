@@ -1,9 +1,15 @@
+import mime from 'mime-types'
 import {
+  getDynamicPageComponents,
+  getField,
+  humanizeFilesize,
+  landingPageComponentsMapping,
+  basicTextIncludes,
+  accordionIncludes,
   tidePageBaseMapping,
   tidePageBaseIncludes
 } from '@dpc-sdp/ripple-tide-api'
 import type { RplTideMapping } from '@dpc-sdp/ripple-tide-api/types'
-import { getField, getLinkFromField } from '@dpc-sdp/ripple-tide-api'
 
 const chapters = (src: string) =>
   getField(src, 'publication_children')
@@ -24,26 +30,14 @@ const tidePublicationModule: RplTideMapping = {
   mapping: {
     ...tidePageBaseMapping({
       withSidebarContacts: true,
-      withSidebarRelatedLinks: true
+      withSidebarRelatedLinks: true,
+      withSidebarSocialShare: true
     }),
     header: {
       title: 'title',
       summary: 'field_landing_page_intro_text'
     },
-    heroBanner: {
-      links: (src: any) =>
-        src.field_landing_page_key_journeys?.field_paragraph_links?.map(
-          (l: string) => getLinkFromField(l)
-        ),
-      title: 'title',
-      introText: 'field_landing_page_intro_text',
-      image: 'field_featured_image.field_media_image.url',
-      theme: () => 'dark',
-      showLinks: () => false,
-      visible: () => true
-    },
     summary: 'field_landing_page_summary',
-    intro: 'field_landing_page_intro_text',
     breadcrumbs: (src: string) => [
       { text: 'Home', url: '/' },
       { text: getField(src, 'title') }
@@ -55,22 +49,36 @@ const tidePublicationModule: RplTideMapping = {
       copyright: 'field_license_type.description'
     },
     chapters,
-    // sidebarComponents: getSideBarComponents,
-    // dynamicComponents: getBodyComponents,
-    dynamicComponents: [],
+    dynamicComponents: async (src: any) => {
+      return await getDynamicPageComponents(
+        src,
+        'field_landing_page_component',
+        landingPageComponentsMapping
+      )
+    },
+    documents: (src: string) =>
+      getField(src, 'field_node_documents').map((doc: any) => ({
+        name: doc.name,
+        url: doc.field_media_file.url || doc.field_media_file.uri,
+        size: humanizeFilesize(doc.field_media_file.filesize),
+        extension: mime.extension(doc.field_media_file.filemime),
+        id: doc.id
+      })),
     showLastUpdated: () => true
   },
   includes: [
     ...tidePageBaseIncludes({
       withSidebarContacts: true,
-      withSidebarRelatedLinks: true
+      withSidebarRelatedLinks: true,
+      withSidebarSocialShare: true
     }),
+    ...basicTextIncludes,
+    ...accordionIncludes,
     'field_node_documents.field_media_file',
     'field_landing_page_contact.field_paragraph_phones',
     'field_landing_page_contact.field_paragraph_social_media',
     'field_landing_page_hero_image.field_media_image',
     'field_license_type',
-    'field_landing_page_component.field_paragraph_accordion',
     'field_landing_page_component.field_complex_image_media.field_media_image',
     'field_publication_authors',
     'field_related_links'

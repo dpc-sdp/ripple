@@ -1,13 +1,13 @@
 {
   "title": "Demo Publication",
-  "changed": "2022-10-06T13:35:09+11:00",
-  "created": "2022-10-06T13:35:09+11:00",
+  "changed": "2022-11-02T12:47:29+11:00",
+  "created": "2022-11-02T12:47:29+11:00",
   "type": "publication",
   "nid": "11dede11-10c0-111e1-1100-000000000500",
   "sidebar": {
     "contacts": [
       {
-        "id": "62e92fd2-5a7f-4154-8078-58b517853f76",
+        "id": "6d1fd699-2843-453b-8942-fb2f6ce8a507",
         "contactTitle": "Victorian Government",
         "contactName": "Victorian Government",
         "department": "Department of Premier and Cabinet",
@@ -30,19 +30,19 @@
         },
         "phones": [
           {
-            "id": "bf6e2a74-4535-4df6-b6c4-fb37b783bf8a",
+            "id": "b8afb558-39ba-4b0c-9bd9-63f04a2a7cec",
             "title": "Calls in Australia",
             "number": "1300 366 356"
           },
           {
-            "id": "8b028fd0-2f2c-49a2-a048-e5c3a6a132d6",
+            "id": "a56af5ec-e2a1-403f-961e-39b0e9233946",
             "title": "Calls from overseas",
             "number": "+61 3 9603 8804"
           }
         ],
         "socialMedia": [
           {
-            "id": "85e2138f-8746-4d44-977f-508004a85656",
+            "id": "2fb8bf4c-ae50-4593-ab57-570c56196cd8",
             "type": "twitter",
             "text": "Twitter",
             "url": "https://twitter.com/VicGovAu"
@@ -52,12 +52,12 @@
     ],
     "relatedLinks": [
       {
-        "id": "9904ca0b-8fe3-4b57-a801-6761b1c131ee",
+        "id": "e59f0987-2128-4e4f-8953-ae1bd35e7d2e",
         "text": "State Government of Victoria",
         "url": "https://www.vic.gov.au"
       },
       {
-        "id": "9cf5048d-7163-48d9-b100-e73ded10c928",
+        "id": "3703e7fd-8a3e-4ff5-ac79-ec79eb32b932",
         "text": "Department of Premier and Cabinet",
         "url": "https://www.vic.gov.au/department-premier-and-cabinet"
       }
@@ -116,6 +116,70 @@
       "link": {
         "url": "/demo-publication/demo-publication-chapter-3",
         "text": "Read more"
+      }
+    }
+  ],
+  "dynamicComponents": [
+    {
+      "uuid": "1274a106-b329-4550-a4e8-3e26d3cc731d",
+      "component": "RplContent",
+      "id": 427,
+      "props": {
+        "html": "<h2>Nulla ultricies dignissim leo, posuere vestibulum erat cursus vitae</h2>\n<h3>Phasellus congue aliquam vehicula</h3>\n<p class=\"rpl-callout\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet ligula sit amet lacinia. In a leo nec tortor aliquet faucibus. Quisque nec congue ligula, vitae condimentum tellus. Nulla nec urna augue. Curabitur commodo nisi est, eu pulvinar tortor cursus vel. Morbi dictum ex est, et semper diam finibus eu. Cras rutrum, nunc a fringilla convallis, massa est vulputate velit, in blandit augue dui vitae elit. Donec hendrerit commodo augue, in maximus orci tempor congue. Mauris ultricies euismod orci, nec vehicula quam vehicula ac. Nunc dictum tortor dolor, nec eleifend orci luctus sed.</p>\n<h3>Donec scelerisque cursus ex varius efficitur</h3>\n<h4>Morbi cursus placerat mi</h4>\n<h5>Nullam laoreet ante placerat</h5>\n<p>Integer interdum nisl ut neque dictum, et sagittis metus feugiat. Sed in mattis neque. Duis at risus non ipsum semper dapibus. Sed enim sapien, molestie sed commodo vel, lacinia vitae risus. Proin sagittis diam nisi, sed rhoncus diam varius id. Sed malesuada felis tortor, scelerisque pretium elit tempor non. Pellentesque ultrices volutpat tincidunt. Fusce quis viverra urna, quis finibus nulla.</p>\n<blockquote class=\"quotation\">\n  <p>Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus. Phasellus lacus lectus, sollicitudin sed posuere non, ultricies ut quam.</p>\n  <footer>\n    <cite>\n      <span class=\"quotation__author\">Duis ligula lacus</span><br>\n      <span class=\"quotation__author-title\">Phasellus est turpis, efficitur nec odio imperdiet</span><br>\n    </cite>\n  </footer>\n</blockquote>\nMauris tincidunt tincidunt felis vel tempus\n<img src=\"https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg\" class=\"rpl-img\" width=\"1413\" alt=\"Demo: Melbourne tram\" srcset=\"https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg?width=606,\n      https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg?width=1212 2x\">\n\n<p>Phasellus in varius leo. Suspendisse potenti. Donec scelerisque cursus ex varius efficitur. Vivamus pretium nisi sed libero accumsan mattis. Duis convallis, velit eget varius tempus, orci erat aliquam sem, eget porta mauris nisl at mauris.</p>\n<div data-embed-button=\"tide_media\" data-entity-embed-display=\"view_mode:media.embedded\" data-entity-type=\"media\" data-entity-uuid=\"11dede11-10c0-111e1-1100-000000000007\" data-langcode=\"en\" class=\"embedded-entity embedded-entity--media embedded-entity--media--document\"><article class=\"media media--type-document media--view-mode-embedded\">\n  \n      \n            <div class=\"field field--name-field-media-file field--type-file field--label-hidden field__item\">\n<span class=\"file file--mime-application-vnd-openxmlformats-officedocument-wordprocessingml-document file--x-office-document\"> <a href=\"https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/sample.docx\" class=\"x-office-document\" aria-label=\"Demo Sample Document File type: Word. Size: 7.53 KB.\"><span class=\"file--title\">Demo Sample Document</span><span class=\"file--type\">Word</span><span class=\"file--size\">7.53 KB</span></a></span>\n</div>\n      \n  </article>\n</div>\n"
+      }
+    },
+    {
+      "uuid": "df978c38-6f49-4d04-a144-4ef96d2bf5d5",
+      "component": "RplAccordion",
+      "id": "431",
+      "title": "Accordion header (basic)",
+      "props": {
+        "id": "431",
+        "numbered": true,
+        "items": [
+          {
+            "id": "428",
+            "title": "Accordion #1",
+            "content": "<p>Phasellus in varius leo. Suspendisse potenti. Donec scelerisque cursus ex varius efficitur. Vivamus pretium nisi sed libero accumsan mattis. Duis convallis, velit eget varius tempus, orci erat aliquam sem, eget porta mauris nisl at mauris.</p>"
+          },
+          {
+            "id": "429",
+            "title": "Accordion #2",
+            "content": "<p>Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus. Phasellus lacus lectus, sollicitudin sed posuere non, ultricies ut quam.</p>"
+          },
+          {
+            "id": "430",
+            "title": "Accordion #3",
+            "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet ligula sit amet lacinia. In a leo nec tortor aliquet faucibus. Quisque nec congue ligula, vitae condimentum tellus.</p>"
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "87fce95f-c546-4f1b-bb86-f0dc50d9d874",
+      "component": "RplAccordion",
+      "id": "435",
+      "title": "Accordion header (numbered)",
+      "props": {
+        "id": "435",
+        "numbered": true,
+        "items": [
+          {
+            "id": "432",
+            "title": "Accordion #1",
+            "content": "<p>Phasellus in varius leo. Suspendisse potenti. Donec scelerisque cursus ex varius efficitur. Vivamus pretium nisi sed libero accumsan mattis. Duis convallis, velit eget varius tempus, orci erat aliquam sem, eget porta mauris nisl at mauris.</p>"
+          },
+          {
+            "id": "433",
+            "title": "Accordion #2",
+            "content": "<p>Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus. Phasellus lacus lectus, sollicitudin sed posuere non, ultricies ut quam.</p>"
+          },
+          {
+            "id": "434",
+            "title": "Accordion #3",
+            "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet ligula sit amet lacinia. In a leo nec tortor aliquet faucibus. Quisque nec congue ligula, vitae condimentum tellus.</p>"
+          }
+        ]
       }
     }
   ],

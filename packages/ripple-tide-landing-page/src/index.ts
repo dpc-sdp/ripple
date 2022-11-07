@@ -1,12 +1,10 @@
 import {
   getDynamicPageComponents,
+  landingPageComponentsMapping,
+  landingPageComponentsIncludes,
   tidePageBaseMapping,
   tidePageBaseIncludes
 } from '@dpc-sdp/ripple-tide-api'
-import {
-  landingPageComponentsMapping,
-  landingPageComponentsIncludes
-} from './mapping/page-components/page-components-mapping.js'
 import type { RplTideMapping } from '@dpc-sdp/ripple-tide-api/types'
 
 const tideLandingPageModule: RplTideMapping = {

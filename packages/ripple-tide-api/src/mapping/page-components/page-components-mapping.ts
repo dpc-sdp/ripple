@@ -40,3 +40,12 @@ export const landingPageComponentsIncludes = [
   ...keyDatesIncludes,
   ...statisticsGridIncludes
 ]
+
+export {
+  basicTextIncludes,
+  accordionIncludes,
+  promoCardIncludes,
+  navigationCardIncludes,
+  keyDatesIncludes,
+  statisticsGridIncludes
+}

@@ -3,38 +3,46 @@ export default { name: 'TidePublicationBody' }
 </script>
 
 <template>
-  <RplDescriptionList :items="processed"></RplDescriptionList>
-  <p class="rpl-type-label rpl-u-margin-t-6 rpl-u-margin-b-9">
-    [ DYNAMIC COMPONENTS ]
-  </p>
+  <div v-if="details" class="tide-publication__details rpl-u-margin-t-9">
+    <RplDescriptionList :items="processed"></RplDescriptionList>
+  </div>
+  <TideDynamicComponents
+    v-if="components?.length > 0"
+    :components="components"
+  ></TideDynamicComponents>
 </template>
 
 <script setup lang="ts">
 import { computed } from 'vue'
 import { RplDescriptionList } from '@dpc-sdp/ripple-ui-core'
-import { TideLandingPageComponent } from '@dpc-sdp/ripple-tide-landing-page'
+import type { TideDynamicPageComponent } from '@dpc-sdp/ripple-tide-api'
 
 const props =
   defineProps<{
     details: any
-    components: Array<TideLandingPageComponent>
+    components: Array<TideDynamicPageComponent>
   }>()
 
-const detailTerm = (str: string) =>
-  str[0].toUpperCase() + str.substring(1) + ':'
+interface RplDescriptionListItem {
+  term: string
+  description: any
+}
 
 const processed = computed(() => {
-  let out = {}
+  const out: Array<RplDescriptionListItem> = []
   for (const [key, value] of Object.entries(props.details)) {
+    let val = value
     if (key === 'date') {
       const published = new Date(props.details.date)
-      out[detailTerm(key)] = new Intl.DateTimeFormat('default', {
-        dateStyle: 'long'
-      }).format(published)
-    } else {
-      out[detailTerm(key)] = value
+      val = new Intl.DateTimeFormat('default', { dateStyle: 'long' }).format(
+        published
+      )
     }
+    out.push({
+      term: key[0].toUpperCase() + key.substring(1) + ':',
+      description: val
+    })
   }
-  return [out]
+  return out
 })
 </script>

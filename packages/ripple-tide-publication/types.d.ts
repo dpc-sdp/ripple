@@ -1,5 +1,7 @@
-import { TidePageBase } from '@dpc-sdp/ripple-tide-api/types'
-import { TideLandingPageComponent } from '@dpc-sdp/ripple-tide-landing-page/types'
+import type {
+  TidePageBase,
+  TideDynamicPageComponent
+} from '@dpc-sdp/ripple-tide-api'
 
 export type TidePublicationHeader = {
   title: string
@@ -14,11 +16,27 @@ export type TidePublicationChapter = {
 
 export default interface TidePublicationPage extends TidePageBase {
   /**
-   * @description Example field - change this to your own!
-   * @example 'Hello world from TidePublicationPage'
+   * @description Page title
+   */
+  title: string
+  /**
+   * @description RplHeader
    */
   header: TidePublicationHeader
+  /**
+   * @description RplDescriptionList
+   */
   details: any
+  /**
+   * @description List of cards
+   */
   chapters: Array<TidePublicationChapter>
-  dynamicComponents: Array<TideLandingPageComponent>
+  /**
+   * @description Landing page components
+   */
+  dynamicComponents: TideDynamicPageComponent[]
+  /**
+   * @description Page action documents
+   */
+  documents: any
 }

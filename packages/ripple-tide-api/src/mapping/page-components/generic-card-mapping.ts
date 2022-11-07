@@ -2,7 +2,7 @@ import {
   getField,
   getImageFromField,
   getLinkFromField
-} from '@dpc-sdp/ripple-tide-api'
+} from '../../utils/mapping-utils.js'
 
 const getCardTitle = (field) => {
   // There are two possible titles to choose from:

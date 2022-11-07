@@ -18,8 +18,8 @@ export default { name: 'TidePublicationPage' }
     </template>
     <template #body>
       <RplInPageNavigation
-        v-if="placeholder.length > 0"
-        :items="placeholder"
+        v-if="toc.length > 0"
+        :items="toc"
       ></RplInPageNavigation>
       <TidePublicationBody
         :details="page.details"
@@ -30,8 +30,13 @@ export default { name: 'TidePublicationPage' }
       ></TidePublicationChapters>
     </template>
     <template #sidebar>
-      <TidePublicationPageActions></TidePublicationPageActions>
-      <TidePublicationSideNav></TidePublicationSideNav>
+      <TidePublicationPageActions
+        :documents="page.documents"
+      ></TidePublicationPageActions>
+      <TidePublicationSideNav
+        :items="items"
+        :title="page.title"
+      ></TidePublicationSideNav>
       <slot name="sidebar"></slot>
     </template>
     <template #footer>
@@ -50,24 +55,49 @@ import TidePublicationChapters from './components/tide-publication-chapters.vue'
 import TidePublicationPageActions from './components/tide-publication-page-actions.vue'
 import TidePublicationSideNav from './components/tide-publication-side-nav.vue'
 
-interface Props {
+defineProps<{
   page: TidePublicationPage
-}
+}>()
 
-defineProps<Props>()
+// Placeholder for in-page nave, will need to figure this out dynamically from content - maybe a RplLayout concern?
+const toc = computed(() =>
+  // []
+  [
+    {
+      text: 'This is the first anchor link',
+      url: '#',
+      items: [
+        { text: 'This is sub heading following first anchor link', url: '#' }
+      ]
+    },
+    { text: 'Second link to extra content', url: '#' }
+  ]
+)
 
-// Need to figure this out dynamically from content - maybe a RplLayout concern?
-const placeholder = computed(() => {
-  return []
-  // [
-  //   {
-  //     text: 'This is the first anchor link',
-  //     url: '#',
-  //     items: [
-  //       { text: 'This is sub heading following first anchor link', url: '#' }
-  //     ]
-  //   },
-  //   { text: 'Second link to extra content', url: '#' }
-  // ]
-})
+// Placeholder for Publication sidebar nav
+const items = computed(() => [
+  { id: '15', text: 'First level no children', url: '#', active: true },
+  {
+    id: '17',
+    text: 'First level',
+    items: [
+      { id: '18', text: 'First level repeat', url: '#' },
+      {
+        id: '19',
+        text: 'Second level',
+        url: '#',
+        items: [
+          {
+            id: '20',
+            text: 'Third level link with some text that will need to wrap',
+            url: '#',
+            items: [{ id: '21', text: 'Fourth level', url: '#' }]
+          }
+        ]
+      },
+      { id: '22', text: 'Second level', url: '#' },
+      { id: '23', text: 'Second level', url: '#' }
+    ]
+  }
+])
 </script>

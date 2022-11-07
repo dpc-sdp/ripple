@@ -80,7 +80,7 @@ import { pascalCase } from 'change-case'
 const route = useRoute()
 const { public: config } = useRuntimeConfig()
 const siteId = config.tide?.contentApi.site
-console.log('useRuntimeConfig', config)
+
 // @ts-ignore
 const [{ data: site, error: siteError }, { data: page, error: pageError }] =
   await Promise.all([

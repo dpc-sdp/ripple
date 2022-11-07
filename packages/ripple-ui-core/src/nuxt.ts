@@ -1,5 +1,5 @@
 import { join } from 'pathe'
-import { defineNuxtModule } from '@nuxt/kit'
+import { defineNuxtModule, addPlugin } from '@nuxt/kit'
 import vitePlugins from './vite.plugins'
 
 export default defineNuxtModule({
@@ -23,6 +23,11 @@ export default defineNuxtModule({
     }
   },
   async setup(_options, nuxt) {
+    // Adds all ripple plugins, note this is not compiled and is directly used in Nuxt
+    addPlugin({
+      src: join(__dirname, './../src/plugins/nuxt.mjs')
+    })
+
     nuxt.options.postcss.plugins = {
       ...nuxt.options.postcss.plugins,
       autoprefixer: {},

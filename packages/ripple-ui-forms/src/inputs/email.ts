@@ -1,40 +1,26 @@
 import { FormKitTypeDefinition } from '@formkit/core'
 import {
-  outer,
-  inner,
-  wrapper,
-  label,
-  help,
-  messages,
-  message,
-  icon,
-  prefix,
-  suffix,
-  textInput
-} from '@formkit/inputs'
+  createRplFormInput,
+  defaultRplFormInputProps,
+  inputLibrary
+} from './input-utils'
 
 /**
- * Input definition for a text.
+ * Input definition for Ripple email input.
  * @public
  */
-export const text: FormKitTypeDefinition = {
+export const email: FormKitTypeDefinition = {
   /**
    * The actual schema of the input, or a function that returns the schema.
    */
-  schema: outer(
-    wrapper(
-      label('$label'),
-      help('$help'),
-      inner(
-        icon('prefix', 'label'),
-        prefix(),
-        textInput(),
-        suffix(),
-        icon('suffix')
-      )
-    ),
-    messages(message('$message.value'))
-  ),
+  schema: createRplFormInput({
+    $cmp: 'RplFormInput',
+    props: {
+      ...defaultRplFormInputProps,
+      type: 'email'
+    }
+  }),
+  library: inputLibrary,
   /**
    * The type of node, can be a list, group, or input.
    */
@@ -47,11 +33,8 @@ export const text: FormKitTypeDefinition = {
   /**
    * An array of extra props to accept for this input.
    */
-  props: [],
-  /**
-   * Forces node.props.type to be this explicit value.
-   */
-  forceTypeProp: 'date',
+  props: ['maxlength', 'minlength', 'placeholder', 'validationMeta'],
+  forceTypeProp: 'email',
   /**
    * Additional features that should be added to your input
    */

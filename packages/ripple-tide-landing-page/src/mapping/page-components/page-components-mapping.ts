@@ -22,6 +22,7 @@ import {
   statisticsGridIncludes,
   statisticsGridMapping
 } from './statistics-grid/statistics-grid-mapping.js'
+import { webformIncludes, webformMapping } from './webforms/webforms-mapping.js'
 
 export const landingPageComponentsMapping = {
   'paragraph--basic_text': basicTextMapping,
@@ -29,7 +30,8 @@ export const landingPageComponentsMapping = {
   'paragraph--promotion_card': promoCardMapping,
   'paragraph--navigation_card': navigationCardMapping,
   'paragraph--card_keydates': keyDatesMapping,
-  'paragraph--statistics_grid': statisticsGridMapping
+  'paragraph--statistics_grid': statisticsGridMapping,
+  'paragraph--embedded_webform': webformMapping
 }
 
 export const landingPageComponentsIncludes = [
@@ -38,5 +40,6 @@ export const landingPageComponentsIncludes = [
   ...promoCardIncludes,
   ...navigationCardIncludes,
   ...keyDatesIncludes,
-  ...statisticsGridIncludes
+  ...statisticsGridIncludes,
+  ...webformIncludes
 ]

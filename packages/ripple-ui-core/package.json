@@ -29,7 +29,6 @@
     "build:svg-sprite": "ts-node ./src/scripts/generate-icon-sprite.ts",
     "build:custom-svg-list": "ts-node ./src/scripts/generate-custom-icon-list.ts",
     "build:tokens": "node ./tokens/processor.js",
-    "types:check": "vue-tsc --noEmit",
     "watch": "yarn build:types && vite build --watch",
     "clean": "rimraf dist* && rimraf tsconfig.tsbuildinfo",
     "preview": "vite preview",
@@ -71,7 +70,6 @@
     "vite-plugin-svg-icons": "^2.0.1",
     "vite-plugin-vue-svg": "^0.1.0",
     "vite-svg-loader": "^3.6.0",
-    "vue-tsc": "^0.40.13",
     "wait-on": "^6.0.1"
   }
 }

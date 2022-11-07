@@ -1,4 +1,4 @@
-import { registerRplSocialSharingPlugin } from './vue-social-sharing'
+import registerRplSocialSharingPlugin from './vue-social-sharing'
 
 export default (vueApp) => {
   registerRplSocialSharingPlugin(vueApp)

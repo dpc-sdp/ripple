@@ -27,7 +27,7 @@ export default defineNuxtModule({
 
     // Adds all ripple plugins, note this is not compiled and is directly used in Nuxt
     addPlugin({
-      src: join(__dirname, './../src/plugins/nuxt.mjs')
+      src: join(__dirname, './../src/plugins/nuxt')
     })
 
     // Adds required PostCss plugins

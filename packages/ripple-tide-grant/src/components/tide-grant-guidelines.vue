@@ -18,7 +18,7 @@ export default { name: 'TideGrantGuidelines' }
 
 <script setup lang="ts">
 import { RplAccordion } from '@dpc-sdp/ripple-ui-core'
-import type { TideGrantGuidelineItem } from '../../types'
+import type { TideGrantGuidelineItem } from '../types'
 
 // Redefining TideGrantGuidelines type here since vue can't import child interfaces
 defineProps<{

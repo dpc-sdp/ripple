@@ -10,7 +10,7 @@ export default { name: 'TideGrantTimeline' }
 </template>
 
 <script setup lang="ts">
-import type { TideGrantTimeline } from '../../types'
+import type { TideGrantTimeline } from '../types'
 import { RplTimeline } from '@dpc-sdp/ripple-ui-core'
 
 defineProps<{

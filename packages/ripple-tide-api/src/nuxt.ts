@@ -28,8 +28,53 @@ export default defineNuxtModule({
     name: 'ripple-tide-api',
     configKey: 'tide'
   },
+  defaults: {
+    contentApi: {
+      site: '8888',
+      baseUrl: 'https://develop.content.reference.sdp.vic.gov.au/',
+      apiPrefix: 'api/v1',
+      auth: {
+        username: 'dpc',
+        password: 'sdp'
+      }
+    },
+    mapping: {
+      content: {
+        event: '@dpc-sdp/ripple-tide-event',
+        grant: '@dpc-sdp/ripple-tide-grant',
+        landing_page: '@dpc-sdp/ripple-tide-landing-page',
+        media: '@dpc-sdp/ripple-tide-media',
+        publication: '@dpc-sdp/ripple-tide-publication'
+      },
+      site: '@dpc-sdp/ripple-tide-api/mapping/site'
+    },
+    debug: false
+  },
   async setup(options: RplTideModuleConfig, nuxt) {
     const { resolve } = createResolver(import.meta.url)
+    // Setup config from runtimeConfig and options
+    if (nuxt.options.runtimeConfig.public['tideserver']) {
+      options.contentApi.baseUrl =
+        nuxt.options.runtimeConfig.public['tideserver']
+    }
+    if (nuxt.options.runtimeConfig.public['site']) {
+      options.contentApi.site = nuxt.options.runtimeConfig.public['site']
+    }
+
+    for (const key in options.mapping.content) {
+      const modulePath = await resolvePath(
+        `${options.mapping.content[`${key}`]}`
+      )
+      options.mapping.content[`${key}`] = modulePath
+      const module = await import(modulePath)
+      if (module && module.hasOwnProperty('component')) {
+        await loadComponents(key, module.component)
+      }
+    }
+    if (typeof options.mapping.site === 'string') {
+      options.mapping.site = await resolvePath(options.mapping.site)
+    }
+
     nuxt.options.runtimeConfig.public.tide = options
 
     // API endpoint handlers - See https://v3.nuxtjs.org/guide/directory-structure/server#api-routes
@@ -46,22 +91,6 @@ export default defineNuxtModule({
       handler: resolve('./nuxt/handlers/siteHandler.js')
     })
 
-    for (const key in options.mapping.content) {
-      const modulePath = await resolvePath(
-        `${options.mapping.content[`${key}`]}`
-      )
-      nuxt.options.runtimeConfig.public.tide.mapping.content[`${key}`] =
-        modulePath
-      const module = await import(modulePath)
-      if (module && module.hasOwnProperty('component')) {
-        await loadComponents(key, module.component)
-      }
-    }
-    if (options.mapping.site) {
-      nuxt.options.runtimeConfig.public.tide.mapping.site = await resolvePath(
-        nuxt.options.runtimeConfig.public.tide.mapping.site
-      )
-    }
     // Add nuxt components and composables to imports
     addComponentsDir({
       extensions: ['vue'],

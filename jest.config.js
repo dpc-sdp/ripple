@@ -6,7 +6,7 @@ module.exports = {
   collectCoverage: true,
   testMatch: ['**/*.test.js', '**/*.test.ts'],
   moduleFileExtensions: ['js', 'ts', 'vue'],
-  modulePathIgnorePatterns: ['node_modules', '.jest-test-results.json'],
+  modulePathIgnorePatterns: ['node_modules', '.jest-test-results.json', 'dist'],
   testEnvironment: 'jsdom',
   transform: {
     '^.+\\.js$': '<rootDir>/node_modules/babel-jest',

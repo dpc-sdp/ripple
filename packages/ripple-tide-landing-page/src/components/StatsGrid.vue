@@ -1,5 +1,5 @@
 <template>
-  <RplStatsGrid>
+  <RplStatsGrid :variant="variant">
     <RplStatsGridItem
       v-for="item in items"
       :key="item.id"

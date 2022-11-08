@@ -22,8 +22,8 @@ interface Props {
   title: string
   logo?: RplImageType
   background?: RplImageType
-  cornerTop?: boolean
-  cornerBottom?: boolean
+  cornerTop?: string | boolean
+  cornerBottom?: string | boolean
   primaryAction?: RplLink
   secondaryAction?: RplHeaderLinkExtended
   links?: RplHeaderLinksList
@@ -95,7 +95,12 @@ const contentClasses = computed(() => ({
     <template v-if="links && !background" #aside>
       <RplHeaderLinks
         :title="links?.title"
-        :items="links.items"
+        :items="
+          (links.items || []).map((item) => ({
+            ...item,
+            icon: item.icon || 'icon-arrow-right'
+          }))
+        "
         :more-link="links.more"
       />
     </template>

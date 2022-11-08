@@ -8,8 +8,14 @@ defineProps<Props>()
 </script>
 
 <template>
-  <RplPageComponent v-for="cmp in components" :key="cmp.id" :title="cmp.title" :data-component-id="cmp.id"
-    :data-component-type="cmp.component" :class="$attrs.class">
+  <RplPageComponent
+    v-for="cmp in components"
+    :key="cmp.id"
+    :data-component-id="cmp.id"
+    :data-component-type="cmp.component"
+    :title="cmp.title"
+    :class="$attrs.class"
+  >
     <component :is="cmp.component" v-bind="cmp.props"></component>
   </RplPageComponent>
 </template>

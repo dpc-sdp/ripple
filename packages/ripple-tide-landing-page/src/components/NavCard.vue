@@ -7,7 +7,6 @@
     :inset="displayStyle === 'thumbnail'"
   >
     <p>{{ summary }}</p>
-    <!-- TODO DE-DUPE THIS -->
     <template v-if="showMetadata" #meta>
       <TideLandingPageCardSharedMeta :meta="metadata" />
     </template>

@@ -50,6 +50,12 @@
     text-transform: uppercase;
   }
 
+  &__status {
+    display: flex;
+    align-items: center;
+    gap: var(--rpl-sp-2);
+  }
+
   &__body {
     margin: var(--rpl-sp-5) var(--rpl-sp-5);
   }

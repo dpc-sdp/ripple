@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.1](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.0...v2.1.0-alpha.1) (2022-11-08)
+
+
+### Features
+
+* **@dpc-sdp/ripple-tide-landing-page:** added support for card grid layout on landing page ([5f2896e](https://github.com/dpc-sdp/ripple-framework/commit/5f2896e2b5062c26c36b6070c71a29658af4598f))
+* **@dpc-sdp/ripple-ui-core:** add padding for chromatic tests ([b33e895](https://github.com/dpc-sdp/ripple-framework/commit/b33e895bfb70f789f1c51ca75c6445431c60ab76))
+* **@dpc-sdp/ripple-ui-core:** adding pagination component and step navigation composable ([32c20ae](https://github.com/dpc-sdp/ripple-framework/commit/32c20ae5b6a8e044072ff21e44d12abc2ab220db))
+* **@dpc-sdp/ripple-ui-core:** update classes, pixel pushing ([fa02500](https://github.com/dpc-sdp/ripple-framework/commit/fa025009c02540c71c47c0fdff90b663a97e84d7))
+* **@dpc-sdp/ripple-ui-core:** update pagination events ([2c87848](https://github.com/dpc-sdp/ripple-framework/commit/2c878487c685f54f7ae8b87bcd6049182a6bd562))
+
+
+
+
+
 # 2.1.0-alpha.0 (2022-11-08)
 
 

@@ -1,9 +1,13 @@
 {
-  "version": "2.1.0-alpha.0",
+  "version": "2.1.0-alpha.1",
   "npmClient": "yarn",
   "exact": true,
   "useWorkspaces": true,
-  "packages": ["packages/*", "examples/*", "docs"],
+  "packages": [
+    "packages/*",
+    "examples/*",
+    "docs"
+  ],
   "command": {
     "publish": {
       "message": "chore(release): publish %s [skip ci]",

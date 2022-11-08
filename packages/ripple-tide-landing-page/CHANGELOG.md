@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.1](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.0...v2.1.0-alpha.1) (2022-11-08)
+
+
+### Features
+
+* **@dpc-sdp/ripple-tide-landing-page:** added support for card grid layout on landing page ([5f2896e](https://github.com/dpc-sdp/ripple-framework/commit/5f2896e2b5062c26c36b6070c71a29658af4598f))
+
+
+
+
+
 # 2.1.0-alpha.0 (2022-11-08)
 
 

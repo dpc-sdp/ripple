@@ -10,7 +10,7 @@
 <script setup lang="ts">
 // @ts-ignore
 import { useTideImage } from '#imports'
-import type TideEventPage from './../types'
+import type TideEventPage from './types'
 
 const props =
   defineProps<{

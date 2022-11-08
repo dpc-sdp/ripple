@@ -1,10 +1,5 @@
 import { join } from 'pathe'
-import {
-  defineNuxtModule,
-  addComponent,
-  addComponentsDir,
-  resolvePath
-} from '@nuxt/kit'
+import { defineNuxtModule, addComponent, addComponentsDir } from '@nuxt/kit'
 
 export default defineNuxtModule({
   setup() {

@@ -1,17 +1,17 @@
 import mime from 'mime-types'
 import {
-  getDynamicPageComponents,
-  getField,
-  humanizeFilesize,
   landingPageComponentsMapping,
   basicTextIncludes,
   accordionIncludes
 } from '@dpc-sdp/ripple-tide-landing-page'
 import {
+  getDynamicPageComponents,
+  getField,
+  humanizeFilesize,
   tidePageBaseMapping,
   tidePageBaseIncludes
 } from '@dpc-sdp/ripple-tide-api'
-import type { RplTideMapping } from '@dpc-sdp/ripple-tide-api/types'
+import type { RplTideMapping } from '@dpc-sdp/ripple-tide-api'
 
 const chapters = (src: string) =>
   getField(src, 'publication_children')

@@ -3,15 +3,15 @@ import type {
   TideDynamicPageComponent
 } from '@dpc-sdp/ripple-tide-api/types'
 
-export default interface TideLandingPagePage extends TidePageBase {
+export interface TideLandingPagePage extends TidePageBase {
   /**
    * @description Dynamic components for the header section
    */
-  headerComponents: TideDynamicPageComponent[]
+  headerComponents: TideDynamicPageComponent<any>[]
   /**
    * @description Dynamic components for the body section
    */
-  bodyComponents: TideDynamicPageComponent[]
+  bodyComponents: TideDynamicPageComponent<any>[]
   /**
    * @description Background body colour
    */

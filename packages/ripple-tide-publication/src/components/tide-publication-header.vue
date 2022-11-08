@@ -15,7 +15,7 @@ export default { name: 'TidePublicationHeader' }
 </template>
 
 <script setup lang="ts">
-import type { TidePublicationHeader } from '../../types'
+import type { TidePublicationHeader } from '../types'
 import { RplHeroHeader } from '@dpc-sdp/ripple-ui-core'
 
 defineProps<{

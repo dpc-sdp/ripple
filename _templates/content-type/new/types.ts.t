@@ -1,5 +1,5 @@
 ---
-to: packages/ripple-tide-<%= h.changeCase.paramCase(name) %>/types.d.ts
+to: packages/ripple-tide-<%= h.changeCase.paramCase(name) %>/src/types.ts
 ---
 
 import type { TidePageBase } from '@dpc-sdp/ripple-tide-api/types'

@@ -25,7 +25,7 @@ import {
   RplTextLink,
   useAccessibleContainer
 } from '@dpc-sdp/ripple-ui-core'
-import { TidePublicationChapter } from '../../types'
+import { TidePublicationChapter } from '../types'
 
 const { container, trigger } = useAccessibleContainer()
 

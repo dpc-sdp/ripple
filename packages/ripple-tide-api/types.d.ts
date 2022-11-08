@@ -50,6 +50,12 @@ export type TideDynamicPageComponent<T> = {
   title?: string
   props: T
   class?: Record<string, any>
+  layout?: 'card' | string
+}
+
+export type TideDynamicComponentGroup = {
+  grouping: string
+  components: TideDynamicPageComponent<any>[]
 }
 
 export interface RplTideModuleConfig {

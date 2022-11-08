@@ -13,7 +13,7 @@ const cornerTop = computed(() => {
     return false
   }
 
-  return props.header.cornerTopImage?.src || false
+  return props.header.cornerTopImage?.src || true
 })
 
 const cornerBottom = computed(() => {
@@ -21,7 +21,7 @@ const cornerBottom = computed(() => {
     return false
   }
 
-  return props.header.cornerBottomImage?.src || false
+  return props.header.cornerBottomImage?.src || true
 })
 
 const secondaryAction = computed(() => {

@@ -19,6 +19,7 @@ export const keyDatesMapping = (
   return {
     component: 'RplCardKeyDatesCard',
     id: field.drupal_internal__id.toString(),
+    layout: 'card',
     props: {
       title: 'Key calendar dates',
       items: getField(field, 'field_paragraph_keydates', []).map((item) => {

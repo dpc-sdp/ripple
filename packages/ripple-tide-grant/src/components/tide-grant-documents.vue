@@ -22,7 +22,7 @@ export default { name: 'TideGrantDocuments' }
 </template>
 
 <script setup lang="ts">
-import type { TideGrantDocument } from '../../types'
+import type { TideGrantDocument } from '../types'
 import { RplDocument, RplIcon } from '@dpc-sdp/ripple-ui-core'
 
 defineProps<{

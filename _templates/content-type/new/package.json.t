@@ -7,12 +7,11 @@ to: packages/ripple-tide-<%= h.changeCase.paramCase(name) %>/package.json
   "description": "Ripple mappings and components for Tide <%= name %> Content type",
   "main": "dist/index.js",
   "module": "dist/index.js",
-  "types": "./types.d.ts",
   "type": "module",
   "exports": {
     ".": "./dist/index.js",
     "./component": "./src/index.vue",
-    "./types": "./types.d.ts",
+    "./types": "./src/types.ts",
     "./nuxt": "./src/nuxt.ts"
   },
   "license": "MIT",
@@ -23,7 +22,7 @@ to: packages/ripple-tide-<%= h.changeCase.paramCase(name) %>/package.json
     "watch": "yarn clean && tsc -p tsconfig.json -w"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-tide-api": "0.0.0"
+    "@dpc-sdp/ripple-tide-api": "^2.0.0"
   },
   "devDependencies": {
   },

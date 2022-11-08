@@ -37,7 +37,12 @@ withDefaults(defineProps<Props>(), {
     <template v-if="links" #aside>
       <RplHeaderLinks
         :title="links?.title"
-        :items="links.items"
+        :items="
+          (links.items || []).map((item) => ({
+            ...item,
+            icon: item.icon || 'icon-arrow-right'
+          }))
+        "
         :more-link="links.more"
       />
     </template>

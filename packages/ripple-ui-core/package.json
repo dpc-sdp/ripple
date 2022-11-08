@@ -43,7 +43,8 @@
     "mitt": "^3.0.0",
     "normalize.css": "^8.0.1",
     "vue": "3.2.39",
-    "vue-social-sharing": "4.0.0-alpha4"
+    "vue-social-sharing": "4.0.0-alpha4",
+    "date-fns": "^2.29.3"
   },
   "devDependencies": {
     "@originjs/vite-plugin-content": "^1.0.1",

@@ -13,7 +13,7 @@ import { useExpandable } from '../../composables/useExpandable'
 interface Props {
   id: string
   section: NavSectionItem
-  isExpandable: boolean
+  isExpandable?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {

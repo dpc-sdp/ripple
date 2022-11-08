@@ -56,7 +56,7 @@
 </template>
 
 <script setup lang="ts">
-import type TideLandingPagePage from './../types'
+import type { TideLandingPagePage } from './types'
 
 defineProps<{
   page: TideLandingPagePage

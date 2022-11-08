@@ -61,3 +61,12 @@ export const landingPageComponentsIncludes = [
   ...callToActionIncludes,
   ...webformIncludes
 ]
+
+export {
+  basicTextIncludes,
+  accordionIncludes,
+  promoCardIncludes,
+  navigationCardIncludes,
+  keyDatesIncludes,
+  statisticsGridIncludes
+}

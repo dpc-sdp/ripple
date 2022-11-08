@@ -4,6 +4,8 @@ import {
   defineNuxtModule,
   addServerHandler,
   addComponent,
+  addComponentsDir,
+  addImportsDir,
   resolvePath,
   createResolver
 } from '@nuxt/kit'
@@ -29,6 +31,8 @@ export default defineNuxtModule({
   async setup(options: RplTideModuleConfig, nuxt) {
     const { resolve } = createResolver(import.meta.url)
     nuxt.options.runtimeConfig.public.tide = options
+
+    // API endpoint handlers - See https://v3.nuxtjs.org/guide/directory-structure/server#api-routes
     addServerHandler({
       middleware: true,
       handler: resolve('./nuxt/handlers/tideMiddleware.js')
@@ -41,6 +45,7 @@ export default defineNuxtModule({
       route: '/api/tide/site',
       handler: resolve('./nuxt/handlers/siteHandler.js')
     })
+
     for (const key in options.mapping.content) {
       const modulePath = await resolvePath(
         `${options.mapping.content[`${key}`]}`
@@ -57,20 +62,13 @@ export default defineNuxtModule({
         nuxt.options.runtimeConfig.public.tide.mapping.site
       )
     }
-  },
-  hooks: {
-    'imports:dirs'(dirs) {
-      dirs.push(join(__dirname, './../src/nuxt/composables'))
-    },
-    'components:dirs'(dirs) {
-      // Adds components dir to auto imports
-      console.log('Added Tide UI components')
-      dirs.push({
-        extensions: ['vue'],
-        path: join(__dirname, './../src/nuxt/components'),
-        prefix: 'tide',
-        global: true
-      })
-    }
+    // Add nuxt components and composables to imports
+    addComponentsDir({
+      extensions: ['vue'],
+      path: join(__dirname, './../src/nuxt/components'),
+      prefix: 'tide',
+      global: true
+    })
+    addImportsDir(join(__dirname, './../src/nuxt/composables'))
   }
 })

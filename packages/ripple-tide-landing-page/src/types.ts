@@ -2,11 +2,11 @@ import type {
   TidePageBase,
   TideDynamicPageComponent
 } from '@dpc-sdp/ripple-tide-api/types'
-import { ITideHeroHeader } from './src/mapping/hero-header/hero-header-mapping'
-import { ITidePrimaryCampaign } from './src/mapping/primary-campaign/primary-campaign-mapping'
-import { ITideSecondaryCampaign } from './src/mapping/secondary-campaign/secondary-campaign-mapping'
+import { ITideHeroHeader } from './mapping/hero-header/hero-header-mapping'
+import { ITidePrimaryCampaign } from './mapping/primary-campaign/primary-campaign-mapping'
+import { ITideSecondaryCampaign } from './mapping/secondary-campaign/secondary-campaign-mapping'
 
-export default interface TideLandingPagePage extends TidePageBase {
+export interface TideLandingPagePage extends TidePageBase {
   showInPageNav: boolean
   inPageNavHeadingLevel: 'h2' | 'h3'
   background: string
@@ -16,11 +16,11 @@ export default interface TideLandingPagePage extends TidePageBase {
   /**
    * @description Dynamic components for the header section
    */
-  headerComponents: TideDynamicPageComponent[]
+  headerComponents: TideDynamicPageComponent<any>[]
   /**
    * @description Dynamic components for the body section
    */
-  bodyComponents: TideDynamicPageComponent[]
+  bodyComponents: TideDynamicPageComponent<any>[]
   /**
    * @description Background body colour
    */

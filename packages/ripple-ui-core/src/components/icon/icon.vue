@@ -19,7 +19,7 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  colour: 'default',
+  colour: undefined,
   size: 's',
   padded: false,
   title: undefined

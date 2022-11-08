@@ -64,7 +64,7 @@ const onClick = (payload: any, index: number) => {
         >
           <span>{{ step }}</span>
         </button>
-        <span v-else class="rpl-pagination__page">
+        <span v-else class="rpl-pagination__spacer">
           <span>{{ '&hellip;' }}</span>
         </span>
       </li>
@@ -76,7 +76,7 @@ const onClick = (payload: any, index: number) => {
       :aria-label="`Go to next ${contentType}`"
       @click="(e) => onClick(e, activeStep + 1)"
     >
-      Previous
+      Next
     </RplPaginationLink>
   </nav>
 </template>

@@ -39,4 +39,3 @@ withDefaults(defineProps<Props>(), {
 </template>
 
 <style src="./page-links.css" />
-<style src="./page-links-focus.css" />

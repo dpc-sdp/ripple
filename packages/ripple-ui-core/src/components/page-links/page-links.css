@@ -1,7 +1,5 @@
 .rpl-page-links {
   color: var(--rpl-clr-type-default);
-  padding-top: var(--rpl-sp-4);
-  padding-bottom: var(--rpl-sp-4);
 }
 
 .rpl-page-links__item + .rpl-page-links__item {
@@ -9,6 +7,7 @@
 }
 
 .rpl-page-links__link {
+  display: inline;
   position: relative;
 
   --local-clr-link: var(--rpl-clr-type-default);
@@ -24,9 +23,8 @@
 
 .rpl-page-links__link-icon {
   position: absolute;
-  top: -2px;
+  top: 3px;
   left: 0;
-  z-index: var(--rpl-z-index-above-content);
 }
 
 .rpl-page-links__link-text,
@@ -40,9 +38,4 @@
     content: '';
     display: block;
   }
-}
-
-.rpl-page-links__link-text {
-  display: inline-block;
-  margin-top: var(--rpl-sp-2);
 }

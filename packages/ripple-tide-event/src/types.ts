@@ -4,7 +4,7 @@ import type {
   TidePageBase
 } from '@dpc-sdp/ripple-tide-api/types'
 
-export default interface TideEventPage extends TidePageBase {
+export interface TideEventPage extends TidePageBase {
   /**
    * @description Link to the event
    */

@@ -25,6 +25,7 @@ const grouped: TideDynamicPageComponent<any> | TideDynamicComponentGroup =
     <RplCardGrid v-if="item.grouping" :hasSidebar="hasSidebar">
       <RplPageComponent
         v-for="child in item.components"
+        :id="`page-component-${child.id}`"
         :key="child.id"
         :data-component-id="child.id"
         :data-component-type="child.component"
@@ -36,6 +37,7 @@ const grouped: TideDynamicPageComponent<any> | TideDynamicComponentGroup =
     </RplCardGrid>
     <RplPageComponent
       v-else
+      :id="`page-component-${item.id}`"
       :data-component-id="item.id"
       :data-component-type="item.component"
       :title="item.title"

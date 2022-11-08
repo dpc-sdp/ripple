@@ -67,7 +67,7 @@ const hasSidebar = computed(() => {
             id="rpl-main"
             :class="{
               'rpl-col-12': true,
-              'rpl-col-7-l': hasSidebar
+              'rpl-col-7-m': hasSidebar
             }"
             class="rpl-layout__main"
           >

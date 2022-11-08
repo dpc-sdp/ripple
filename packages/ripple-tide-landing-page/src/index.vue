@@ -23,6 +23,11 @@
       />
     </template>
     <template #body="{ hasSidebar }">
+      <TideLandingPageInPageNavigation
+        v-if="page.showInPageNav"
+        :headingLevel="page.inPageNavHeadingLevel"
+        :components="page.bodyComponents"
+      />
       <TideDynamicComponents
         v-if="page.bodyComponents?.length > 0"
         :components="page.bodyComponents"

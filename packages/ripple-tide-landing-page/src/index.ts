@@ -32,6 +32,14 @@ const tideLandingPageModule: RplTideMapping = {
       withSidebarSocialShare: true
     }),
     summary: 'field_landing_page_summary',
+    showInPageNav: 'field_show_table_of_content',
+    inPageNavHeadingLevel: (src) => {
+      if (src.field_node_display_headings === 'showH2AndH3') {
+        return 'h3'
+      }
+
+      return 'h2'
+    },
     background: (src) => {
       if (src.field_landing_page_bg_colour === 'grey') {
         return 'alt'
@@ -77,8 +85,7 @@ const tideLandingPageModule: RplTideMapping = {
     'field_landing_page_component.field_paragraph_items.field_paragraph_reference.field_featured_image.field_media_image',
     'field_landing_page_component.field_paragraph_items.field_paragraph_keydates',
     'field_landing_page_component.field_paragraph_items.field_paragraph_media.field_media_image',
-    'field_landing_page_component.field_complex_image_media.field_media_image',
-    'field_landing_page_component.field_paragraph_webform'
+    'field_landing_page_component.field_complex_image_media.field_media_image'
   ]
 }
 

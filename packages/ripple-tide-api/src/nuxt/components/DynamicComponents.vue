@@ -18,10 +18,6 @@ const grouped: TideDynamicPageComponent<any> | TideDynamicComponentGroup =
   computed(() => {
     return groupDynamicComponents(props.components)
   })
-
-onMounted(() => {
-  console.log(grouped.value)
-})
 </script>
 
 <template>

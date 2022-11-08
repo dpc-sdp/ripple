@@ -31,7 +31,7 @@ export default { name: 'TideMediaAudioPage' }
 </template>
 
 <script setup lang="ts">
-import type TideMediaPage from '../../../types'
+import type { TideMediaPage } from '../../types'
 import { RplLayout } from '@dpc-sdp/ripple-ui-core'
 import TideMediaHeader from '../../components/tide-media-header.vue'
 import TideMediaBody from '../../components/tide-media-body.vue'

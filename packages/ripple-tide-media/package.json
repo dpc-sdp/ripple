@@ -4,11 +4,10 @@
   "description": "Ripple mappings and components for Tide Media content type",
   "main": "dist/index.js",
   "module": "dist/index.js",
-  "types": "./types.d.ts",
   "type": "module",
   "exports": {
     ".": "./dist/index.js",
-    "./types": "./types.d.ts",
+    "./types": "./src/types.ts",
     "./nuxt": "./src/nuxt.ts"
   },
   "license": "MIT",

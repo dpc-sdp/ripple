@@ -79,7 +79,7 @@ export default { name: 'TideGrantOverview' }
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import type { TideGrantOverview } from '../../types'
+import type { TideGrantOverview } from '../types'
 import {
   RplButton,
   RplIcon,

@@ -95,6 +95,7 @@ describe('keyDatesMapping', () => {
     const result: TideDynamicPageComponent<ITideKeyDates> = {
       id: '4776',
       component: 'RplCardKeyDatesCard',
+      layout: 'card',
       props: {
         title: 'Key calendar dates',
         ctaTitle: 'Test CTA Text',

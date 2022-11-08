@@ -89,7 +89,7 @@ export const getCardImage = (fieldMediaImage: RawCardImage): TideImageField => {
     delete fieldMediaImage.meta.focal_point
   }
 
-  const data: RawCardImageData | null = fieldMediaImage.data.length
+  const data: RawCardImageData | null = fieldMediaImage.data?.length
     ? fieldMediaImage.data[0]
     : null
 

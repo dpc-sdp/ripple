@@ -1,21 +1,48 @@
 <script setup lang="ts">
 import type { TideDynamicPageComponent } from './../../types'
-import { RplPageComponent } from '@dpc-sdp/ripple-ui-core'
+import { RplPageComponent, RplCardGrid } from '@dpc-sdp/ripple-ui-core'
+import { computed, onMounted } from 'vue'
+import groupDynamicComponents from '../../utils/groupDynamicComponents'
+import { TideDynamicComponentGroup } from '../../../types'
 interface Props {
   components: TideDynamicPageComponent[]
+  fullWidth: boolean
+  hasSidebar: boolean
 }
-defineProps<Props>()
+const props = withDefaults(defineProps<Props>(), {
+  fullWidth: false,
+  hasSidebar: false
+})
+
+const grouped: TideDynamicPageComponent<any> | TideDynamicComponentGroup =
+  computed(() => {
+    return groupDynamicComponents(props.components)
+  })
 </script>
 
 <template>
-  <RplPageComponent
-    v-for="cmp in components"
-    :key="cmp.id"
-    :data-component-id="cmp.id"
-    :data-component-type="cmp.component"
-    :title="cmp.title"
-    :class="$attrs.class"
-  >
-    <component :is="cmp.component" v-bind="cmp.props"></component>
-  </RplPageComponent>
+  <template v-for="item in grouped" :key="item.id">
+    <RplCardGrid v-if="item.grouping" :hasSidebar="hasSidebar">
+      <RplPageComponent
+        v-for="child in item.components"
+        :key="child.id"
+        :data-component-id="child.id"
+        :data-component-type="child.component"
+        :title="child.title"
+        :class="$attrs.class"
+      >
+        <component :is="child.component" v-bind="child.props"></component>
+      </RplPageComponent>
+    </RplCardGrid>
+    <RplPageComponent
+      v-else
+      :data-component-id="item.id"
+      :data-component-type="item.component"
+      :title="item.title"
+      :class="$attrs.class"
+      :fullWidth="fullWidth"
+    >
+      <component :is="item.component" v-bind="item.props"></component>
+    </RplPageComponent>
+  </template>
 </template>

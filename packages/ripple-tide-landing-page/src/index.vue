@@ -15,16 +15,18 @@
         v-if="page.headerComponents?.length > 0"
         :components="page.headerComponents"
         class="rpl-col-12"
+        :fullWidth="true"
       />
       <TideLandingPagePrimaryCampaignBanner
         v-if="page.primaryCampaign"
         :campaign="page.primaryCampaign"
       />
     </template>
-    <template #body>
+    <template #body="{ hasSidebar }">
       <TideDynamicComponents
         v-if="page.bodyComponents?.length > 0"
         :components="page.bodyComponents"
+        :hasSidebar="hasSidebar"
       />
     </template>
     <template #belowBody>

@@ -1,0 +1,17 @@
+@import '@dpc-sdp/ripple-ui-core/style/breakpoints';
+
+.rpl-media-embed {
+  background-color: var(--rpl-media-embed-bg-clr);
+  color: var(--rpl-media-embed-clr);
+  padding: var(--rpl-space-2);
+
+  &--default {
+    --rpl-media-embed-bg-clr: var(--rpl-clr-core-primary);
+    --rpl-media-embed-clr: var(--rpl-clr-core-primary-contrast);
+  }
+
+  &--neutral {
+    --rpl-media-embed-bg-clr: var(--rpl-clr-dark);
+    --rpl-media-embed-clr: var(--rpl-clr-white);
+  }
+}

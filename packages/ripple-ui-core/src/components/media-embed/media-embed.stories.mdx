@@ -1,0 +1,55 @@
+import {
+  Canvas,
+  Meta,
+  Story,
+  ArgsTable
+} from '@storybook/addon-docs'
+import RplMediaEmbed from './media-embed.vue'
+import { a11yStoryCheck } from './../../../stories/interactions.js'
+
+export const SingleTemplate = (args) => ({
+  components: { RplMediaEmbed },
+  setup() {
+    return { args }
+  },
+  template: '<RplMediaEmbed v-bind="args" />'
+})
+
+export const dataContent = `
+<p>
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec commodo est eu
+  venenatis tincidunt. Sed sit amet magna tortor. Nullam gravida, nibh a
+  tincidunt tempor.
+</p>
+<p>
+  Nulla mauris turpis, mollis et fermentum in, tincidunt vitae enim. Aenean
+  gravida, mi a pharetra tempor.
+</p>
+`
+
+<Meta
+  title='WIP/Components/Media embed'
+  component={RplMediaEmbed}
+  argTypes={{}}
+  args={{}}
+/>
+
+# Media embed
+
+<ArgsTable of={RplMediaEmbed} />
+
+<Canvas>
+  <Story
+    name='Media embed'
+    play={a11yStoryCheck}
+    args={{
+      title: 'Media title',
+      src: '/img/image-landscape-s.jpg',
+      transcriptUrl: '#',
+      caption: 'Optional media caption content section',
+      dataContent: dataContent
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>

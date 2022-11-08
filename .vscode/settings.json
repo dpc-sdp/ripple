@@ -15,12 +15,14 @@
     "@dpc-sdp/ripple-tide-landing-page",
     "@dpc-sdp/ripple-ui-forms",
     "@dpc-sdp/ripple-tide-grant",
-    "@dpc-sdp/ripple-tide-publication"
+    "@dpc-sdp/ripple-tide-publication",
+    "vue-app"
   ],
   "cSpell.words": [
     "colour",
     "formkit",
     "maxlength",
+    "composables",
     "mockserver",
     "nuxt",
     "pathe",

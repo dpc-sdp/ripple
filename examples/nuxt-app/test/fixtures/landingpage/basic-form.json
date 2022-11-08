@@ -1,0 +1,73 @@
+{
+  "title": "Basic form",
+  "changed": "2022-09-12T09:37:43+10:00",
+  "created": "2022-09-12T09:37:43+10:00",
+  "type": "landing_page",
+  "summary": "Webform example",
+  "sidebar": {
+    "contact": {
+      "address": {
+        "name": "First Name Last Name",
+        "department": "Department Name",
+        "street": "Address Line, Suburb, 3019"
+      }
+    }
+  },
+  "headerComponents": [],
+  "bodyComponents": [
+    {
+      "uuid": "300fad83-5ad3-4761-8f83-14476ef5f6bc",
+      "component": "RplForm",
+      "id": 5384,
+      "props": {
+        "id": "basic_form",
+        "schema": [
+          {
+            "$el": "span",
+            "attrs": {
+              "class": "rpl-form__input--unsupported"
+            },
+            "children": ["checkbox is not yet supported"]
+          },
+          {
+            "$formkit": "RplFormText",
+            "name": "name",
+            "label": "Name",
+            "id": "name",
+            "validation": "required",
+            "validationMessages": {
+              "required": "Name is required"
+            }
+          },
+          {
+            "$formkit": "RplFormText",
+            "name": "last_name",
+            "label": "Last name",
+            "id": "last_name",
+            "validation": "",
+            "validationMessages": {}
+          },
+          {
+            "$formkit": "RplFormEmail",
+            "name": "email",
+            "label": "Email",
+            "id": "email",
+            "help": "Enter your email address",
+            "validation": "email",
+            "validationMessages": {
+              "email": "Email must be a valid email address"
+            },
+            "prefixIcon": "icon-mail"
+          },
+          {
+            "$formkit": "RplFormSubmit",
+            "name": "submit",
+            "variant": "filled",
+            "label": "Submit",
+            "id": "actions"
+          }
+        ]
+      }
+    }
+  ]
+}

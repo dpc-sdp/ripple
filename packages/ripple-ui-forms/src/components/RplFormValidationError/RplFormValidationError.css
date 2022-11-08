@@ -1,0 +1,9 @@
+.rpl-form-validation-error {
+  color: var(--rpl-clr-error);
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--rpl-sp-2);
+  .rpl-icon {
+    margin-right: var(--rpl-sp-2);
+  }
+}

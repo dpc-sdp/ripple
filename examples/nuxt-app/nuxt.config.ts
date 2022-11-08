@@ -34,10 +34,6 @@ export default defineNuxtConfig({
       devtools: true
     }
   },
-  formkit: {
-    configFile:
-      './../../node_modules/@dpc-sdp/ripple-ui-forms/dist/formkit.config.js'
-  },
   postcss: {
     plugins: {
       'postcss-normalize': {},

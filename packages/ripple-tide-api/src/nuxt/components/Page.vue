@@ -26,7 +26,7 @@
       </template>
       <template #footer>
         <slot name="footer">
-          <RplFooter></RplFooter>
+          <RplFooter :nav="site.menus.menuMain"></RplFooter>
         </slot>
       </template>
     </component>

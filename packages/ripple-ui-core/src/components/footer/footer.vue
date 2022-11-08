@@ -4,7 +4,7 @@ export default { name: 'RplFooter' }
 
 <script setup lang="ts">
 import { useBreakpoints } from '@vueuse/core'
-import { computed } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import { bpMin } from '../../lib/breakpoints'
 import RplAcknowledgement from '../acknowledgement/acknowledgement.vue'
 import RplTextLink from '../text-link/text-link.vue'
@@ -36,6 +36,15 @@ const props = withDefaults(defineProps<Props>(), {
   logos: () => [],
   credit: undefined,
   copyright: '© Copyright State Government of Victoria'
+})
+
+const isMounted = ref(false)
+
+onMounted(() => {
+  // We need to know if the component has mounted so that we can avoid SSR hydration mismatches.
+  // This is because the rendering of the footer nav is heavily tied to the current breakpoint, which
+  // is unknown when rendering on the server.
+  isMounted.value = true
 })
 
 const breakpoints = useBreakpoints(bpMin)
@@ -116,8 +125,17 @@ const columns = computed(() => {
   <footer :class="`rpl-footer rpl-footer--${variant}`">
     <div class="rpl-container">
       <nav class="rpl-footer__nav">
-        <!-- Expandable small screen nav -->
-        <template v-if="columns.length <= 1">
+        <!-- Fallback rendering for SSR, this ensures that the server and client render the same thing initially -->
+        <template v-if="!isMounted">
+          <RplNavSection
+            v-for="(navSection, i) in nav"
+            :id="`rpl-footer-nav-${i}`"
+            :key="i"
+            :section="navSection"
+          />
+        </template>
+        <!-- Expandable nav items for small screens -->
+        <template v-else-if="columns.length <= 1">
           <RplNavSection
             v-for="(navSection, i) in nav"
             :id="`rpl-footer-nav-${i}`"
@@ -126,7 +144,7 @@ const columns = computed(() => {
             :is-expandable="isExpandable"
           />
         </template>
-        <!-- Non-expandable larger screen nav with tricky column setup -->
+        <!-- Non-expandable nav with tricky column setup for larger screens -->
         <template v-else>
           <div v-for="(col, colIndex) in columns" :key="colIndex">
             <RplNavSection

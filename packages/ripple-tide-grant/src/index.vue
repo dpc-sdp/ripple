@@ -38,7 +38,7 @@ export default { name: 'TideGrantPage' }
 </template>
 
 <script setup lang="ts">
-import type TideGrantPage from './types'
+import type { TideGrantPage } from './types'
 import { RplLayout } from '@dpc-sdp/ripple-ui-core'
 import TideGrantHeader from './components/tide-grant-header.vue'
 import TideGrantOverview from './components/tide-grant-overview.vue'

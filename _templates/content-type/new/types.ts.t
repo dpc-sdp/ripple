@@ -9,7 +9,7 @@ export type Tide<%= h.changeCase.pascalCase(name) %>Header = {
   summary: string
 }
 
-export default interface Tide<%= h.changeCase.pascalCase(name) %>Page extends TidePageBase {
+export interface Tide<%= h.changeCase.pascalCase(name) %>Page extends TidePageBase {
   /**
    * @description Example field - change this to your own!
    * @example 'Hello world from Tide<%= h.changeCase.pascalCase(name) %>Page'

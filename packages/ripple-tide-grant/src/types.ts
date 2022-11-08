@@ -51,7 +51,7 @@ export type TideGrantDocument = {
   id: string
 }
 
-export default interface TideGrantPage extends TidePageBase {
+export interface TideGrantPage extends TidePageBase {
   /**
    * @description Example field - change this to your own!
    * @example 'Hello world from TideGrantPage'

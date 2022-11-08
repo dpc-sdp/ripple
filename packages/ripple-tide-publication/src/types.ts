@@ -14,7 +14,7 @@ export type TidePublicationChapter = {
   link: any
 }
 
-export default interface TidePublicationPage extends TidePageBase {
+export interface TidePublicationPage extends TidePageBase {
   /**
    * @description Page title
    */

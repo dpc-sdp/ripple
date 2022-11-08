@@ -46,7 +46,7 @@ export default { name: 'TidePublicationPage' }
 </template>
 
 <script setup lang="ts">
-import type TidePublicationPage from './types'
+import type { TidePublicationPage } from './types'
 import { computed } from 'vue'
 import { RplLayout, RplInPageNavigation } from '@dpc-sdp/ripple-ui-core'
 import TidePublicationHeader from './components/tide-publication-header.vue'

@@ -15,6 +15,7 @@ import RplImage from '../image/image.vue'
 interface Props {
   el?: typeof RplCardElements[number]
   image?: string
+  imageAlt?: string
   title: string
   url?: string
   theme?: typeof RplButtonThemes[number]
@@ -24,6 +25,7 @@ interface Props {
 withDefaults(defineProps<Props>(), {
   el: 'div',
   image: undefined,
+  imageAlt: '',
   url: undefined,
   theme: 'default',
   variant: 'filled'
@@ -42,7 +44,11 @@ const { container, trigger } = useAccessibleContainer()
     :el="el"
   >
     <template v-if="image" #upper>
-      <RplImage class="rpl-card__media rpl-card__media--inset" :src="image" alt="" />
+      <RplImage
+        class="rpl-card__media rpl-card__media--inset"
+        :src="image"
+        :alt="imageAlt"
+      />
     </template>
     <template #title>
       <h3 :class="titleClasses">{{ title }}</h3>

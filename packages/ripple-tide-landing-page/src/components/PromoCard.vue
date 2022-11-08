@@ -7,7 +7,6 @@
     :highlight="displayStyle === 'noImage'"
   >
     <p>{{ summary }}</p>
-    <!-- TODO DE-DUPE THIS -->
     <template v-if="showMetadata" #meta>
       <TideLandingPageCardSharedMeta :meta="metadata" />
     </template>
@@ -18,7 +17,6 @@
     :image="image?.src"
     :url="link.url"
   >
-    <!-- TODO DE-DUPE THIS -->
     <template v-if="showMetadata" #meta>
       <TideLandingPageCardSharedMeta :meta="metadata" />
     </template>

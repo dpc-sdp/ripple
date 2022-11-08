@@ -35,19 +35,6 @@ export default defineNuxtConfig({
       devtools: true
     }
   },
-  postcss: {
-    plugins: {
-      'postcss-normalize': {},
-      'postcss-nested': {},
-      'postcss-preset-env': {
-        features: {
-          'custom-properties': false
-        }
-      },
-      'postcss-for': {},
-      'postcss-each': {}
-    }
-  },
   modules: [
     '@dpc-sdp/ripple-tide-api/nuxt',
     '@dpc-sdp/ripple-tide-grant/nuxt',

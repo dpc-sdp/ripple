@@ -24,10 +24,6 @@
   padding-top: var(--rpl-sp-8);
 
   @media (--rpl-bp-m) {
-    padding-top: var(--rpl-sp-10);
-  }
-
-  @media (--rpl-bp-l) {
     padding-top: 0;
   }
 }

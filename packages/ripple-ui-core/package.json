@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/ripple-ui-core",
-  "version": "0.0.0",
+  "version": "2.1.0-alpha.0",
   "license": "Apache-2.0",
   "files": [
     "dist",
@@ -39,27 +39,28 @@
     "test:storybook-ci": "concurrently -k -s first -n \"SB,TEST\" -c \"magenta,blue\" \"npx http-server storybook-static --port 6006 --silent\" \"wait-on tcp:6006 && yarn test:storybook\""
   },
   "dependencies": {
-    "@nuxt/kit": "3.0.0-rc.10",
+    "@nuxt/kit": "3.0.0-rc.13",
+    "@vueuse/core": "^9.3.1",
+    "date-fns": "^2.29.3",
     "mitt": "^3.0.0",
     "normalize.css": "^8.0.1",
-    "vue": "3.2.39",
-    "vue-social-sharing": "4.0.0-alpha4",
-    "date-fns": "^2.29.3"
-  },
-  "devDependencies": {
-    "@originjs/vite-plugin-content": "^1.0.1",
-    "@vitejs/plugin-vue": "^3.1.2",
-    "@vue/compiler-sfc": "^3.2.41",
-    "@vueuse/core": "^9.3.1",
-    "autoprefixer": "^10.4.12",
-    "chromatic": "^6.10.2",
-    "http-server": "^14.1.0",
-    "jest-axe": "^6.0.0",
     "postcss-each": "^1.1.0",
     "postcss-for": "^2.1.1",
     "postcss-nested": "^6.0.0",
     "postcss-normalize": "^10.0.1",
     "postcss-preset-env": "^7.8.2",
+    "vite-svg-loader": "^3.6.0",
+    "vue": "^3.2.41",
+    "vue-social-sharing": "4.0.0-alpha4"
+  },
+  "devDependencies": {
+    "@originjs/vite-plugin-content": "^1.0.1",
+    "@vitejs/plugin-vue": "^3.1.2",
+    "@vue/compiler-sfc": "^3.2.41",
+    "autoprefixer": "^10.4.12",
+    "chromatic": "^6.10.2",
+    "http-server": "^14.1.0",
+    "jest-axe": "^6.0.0",
     "storybook-addon-designs": "^6.2.1",
     "style-dictionary": "^3.1.1",
     "stylelint": "^14.14.0",

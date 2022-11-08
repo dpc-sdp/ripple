@@ -7,4 +7,4 @@ Feature: Publication page
     And the endpoint "/api/tide/page" with query "?path=/sample-publication&site=8888" returns fixture "/publication/sample-publication" with status 200
     And the endpoint "/api/tide/site" with query "?id=8888" returns fixture "/site/reference" with status 200
     Given I visit the page "/sample-publication"
-    Then the title should be "Sample Publication"
+    Then the title should be "Demo Publication"

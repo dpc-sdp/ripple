@@ -4,6 +4,7 @@ import TideSite from './../services/tide-site.js'
 export default {
   mapping: {
     name: 'name',
+    _src: (src) => (process.env.NODE_ENV === 'development' ? src : undefined),
     siteLogo: (src) => {
       if (src.field_site_logo) {
         return {

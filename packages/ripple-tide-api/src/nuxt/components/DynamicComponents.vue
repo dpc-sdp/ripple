@@ -6,8 +6,8 @@ import groupDynamicComponents from '../../utils/groupDynamicComponents'
 import { TideDynamicComponentGroup } from '../../../types'
 interface Props {
   components: TideDynamicPageComponent[]
-  fullWidth: boolean
-  hasSidebar: boolean
+  fullWidth?: boolean
+  hasSidebar?: boolean
 }
 const props = withDefaults(defineProps<Props>(), {
   fullWidth: false,

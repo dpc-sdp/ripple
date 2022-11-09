@@ -4,6 +4,7 @@
     :image="image"
     :imageAlt="imageAlt"
     :url="url"
+    :ctaText="ctaText"
   >
     <div v-html="summary"></div>
   </RplCallToActionCard>
@@ -17,6 +18,7 @@ interface Props {
   image: string
   imageAlt: string
   url: string
+  ctaText: string
   summary: string
 }
 

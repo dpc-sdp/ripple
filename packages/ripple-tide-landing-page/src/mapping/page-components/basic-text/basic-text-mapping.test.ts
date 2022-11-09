@@ -23,7 +23,7 @@ const rawData = {
   field_paragraph_body: {
     value: '<h2>Test value</h2>',
     format: 'rich_text',
-    processed: '<h2>Test processed</h2>'
+    processed: '<h2>Test processed</h2><p>Test para</p><h3>Test subheading</h3>'
   },
   id: 'ae1ffcca-fd04-4733-ae35-85a65d6d6452',
   type: 'paragraph--basic_text'
@@ -32,8 +32,20 @@ const rawData = {
 const result: TideDynamicPageComponent<ITideBasicText> = {
   component: 'RplContent',
   id: '4768',
+  internalAnchors: [
+    {
+      id: 'test-processed',
+      text: 'Test processed',
+      type: 'h2'
+    },
+    {
+      id: 'test-subheading',
+      text: 'Test subheading',
+      type: 'h3'
+    }
+  ],
   props: {
-    html: '<h2>Test processed</h2>'
+    html: '<h2 id="test-processed">Test processed</h2><p>Test para</p><h3 id="test-subheading">Test subheading</h3>'
   }
 }
 

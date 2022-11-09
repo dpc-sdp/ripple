@@ -54,6 +54,7 @@ export type TideDynamicPageComponent<T> = {
   internalAnchors?: {
     id: string
     text: string
+    type: 'h2' | 'h3'
   }[]
 }
 

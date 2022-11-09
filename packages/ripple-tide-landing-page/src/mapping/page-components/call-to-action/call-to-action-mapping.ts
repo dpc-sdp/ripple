@@ -10,6 +10,7 @@ export interface ITideCallToAction {
   image: string
   imageAlt: string
   url: string
+  ctaText: string
   summary: string
 }
 
@@ -21,6 +22,8 @@ export const callToActionMapping = (
     'field_paragraph_media.field_media_image'
   )
 
+  const link = getLinkFromField(field, 'field_paragraph_cta')
+
   return {
     component: 'TideLandingPageCallToAction',
     id: field.drupal_internal__id,
@@ -28,7 +31,8 @@ export const callToActionMapping = (
       title: field.field_paragraph_title,
       image: image ? image.src : '',
       imageAlt: image ? image.alt : '',
-      url: getLinkFromField(field, 'field_paragraph_cta'),
+      url: link?.url,
+      ctaText: link?.text,
       summary: getBody(field.field_paragraph_body?.processed)
     }
   }

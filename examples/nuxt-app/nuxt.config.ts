@@ -4,35 +4,12 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       API_URL: '',
-      SITEID: 8888
-    }
-  },
-  tide: {
-    contentApi: {
-      site: '8888',
-      baseUrl: process.env.CONTENT_API_SERVER,
-      apiPrefix: 'api/v1',
-      auth: {
-        username: 'dpc',
-        password: 'sdp'
+      tide: {
+        contentApi: {
+          baseUrl: 'https://develop.content.reference.sdp.vic.gov.au',
+          site: '8888'
+        }
       }
-    },
-    mapping: {
-      content: {
-        event: '@dpc-sdp/ripple-tide-event',
-        grant: '@dpc-sdp/ripple-tide-grant',
-        landing_page: '@dpc-sdp/ripple-tide-landing-page',
-        media: '@dpc-sdp/ripple-tide-media',
-        publication: '@dpc-sdp/ripple-tide-publication'
-      },
-      site: '@dpc-sdp/ripple-tide-api/mapping/site'
-    },
-    debug: false
-  },
-  vue: {
-    config: {
-      productionTip: false,
-      devtools: true
     }
   },
   modules: [

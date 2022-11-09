@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.7](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.6...v2.1.0-alpha.7) (2022-11-09)
+
+
+### Bug Fixes
+
+* fix missing publication module ([d59da74](https://github.com/dpc-sdp/ripple-framework/commit/d59da742549ea91c3c5f9447fe9b50e1cb5b244c))
+
+
+
+
+
 # [2.1.0-alpha.6](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.5...v2.1.0-alpha.6) (2022-11-09)
 
 

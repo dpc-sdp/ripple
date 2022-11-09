@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/ripple-tide-event",
-  "version": "2.1.0-alpha.4",
+  "version": "2.1.0-alpha.7",
   "description": "Ripple mappings and components for Tide Event Content type",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -18,7 +18,7 @@
     "watch": "yarn clean && tsc -p tsconfig.json -w"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-tide-api": "2.1.0-alpha.4"
+    "@dpc-sdp/ripple-tide-api": "2.1.0-alpha.7"
   },
   "files": [
     "dist",

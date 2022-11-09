@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/ripple-tide-api",
-  "version": "2.1.0-alpha.4",
+  "version": "2.1.0-alpha.7",
   "description": "Ripple API endpoints for Tide Drupal backend",
   "main": "./dist/index.js",
   "module": "./dist/index.js",

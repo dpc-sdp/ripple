@@ -372,7 +372,7 @@ describe('timelineMapping', () => {
             description:
               '<p>Milestone 1 <strong>summary</strong> <em>text</em></p>',
             image:
-              '/sites/default/files/tide_demo_content/Bendigo-Hospital.jpg',
+              'https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Bendigo-Hospital.jpg',
             current: false,
             dateStart: '2022-06-02T09:00:00+10:00',
             dateEnd: '2022-11-12T14:00:00+11:00'

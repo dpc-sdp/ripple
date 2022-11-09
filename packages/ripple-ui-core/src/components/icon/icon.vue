@@ -19,7 +19,7 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  colour: 'default',
+  colour: undefined,
   size: 's',
   padded: false,
   title: undefined
@@ -37,8 +37,8 @@ const asyncIcon = computed(() => {
 const classes = computed(() => [
   'rpl-icon',
   `rpl-icon--size-${props.size}`,
-  `rpl-icon--colour-${props.colour}`,
   props.name ? `rpl-icon--${props.name}` : null,
+  props.colour ? `rpl-icon--colour-${props.colour}` : null,
   props.padded ? `rpl-icon--padded` : null
 ])
 </script>

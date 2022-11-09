@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.4](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.3...v2.1.0-alpha.4) (2022-11-09)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-api:** add back alerts ([a3997da](https://github.com/dpc-sdp/ripple-framework/commit/a3997dae4f8863579f82bed1fcf959623e43172f))
+
+
+### Features
+
+* **@dpc-sdp/ripple-tide-api:** wire up site menu ([d20d197](https://github.com/dpc-sdp/ripple-framework/commit/d20d1977aa4cb5c7d8f03e4b7e79515dc33f0cb6))
+
+
+
+
+
 # [2.1.0-alpha.3](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.2...v2.1.0-alpha.3) (2022-11-09)
 
 

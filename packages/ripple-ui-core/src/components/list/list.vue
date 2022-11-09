@@ -8,6 +8,7 @@ import { RplListTypes, RplListItemArray } from './constants'
 import RplIcon from '../icon/icon.vue'
 import RplList from '../list/list.vue'
 import RplTextLink from '../text-link/text-link.vue'
+import { RplIconPlacement } from '../icon/constants'
 
 export interface Props {
   items?: RplListItemArray[]
@@ -15,7 +16,7 @@ export interface Props {
   itemClass?: string
   containerClass?: string
   depth?: number
-  iconPlacement?: string
+  iconPlacement?: RplIconPlacement
 }
 
 withDefaults(defineProps<Props>(), {

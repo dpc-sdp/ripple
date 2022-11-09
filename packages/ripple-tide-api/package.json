@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/ripple-tide-api",
-  "version": "0.0.0",
+  "version": "2.1.0-alpha.1",
   "description": "Ripple API endpoints for Tide Drupal backend",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
@@ -23,7 +23,7 @@
     "watch": "tsc -p tsconfig.json -w"
   },
   "dependencies": {
-    "@nuxt/kit": "3.0.0-rc.10",
+    "@nuxt/kit": "3.0.0-rc.13",
     "axios": "^0.27.2",
     "change-case": "^4.1.2",
     "cheerio": "^1.0.0-rc.10",
@@ -38,7 +38,7 @@
     "winston": "^3.8.2"
   },
   "devDependencies": {
-    "@nuxt/schema": "3.0.0-rc.10",
+    "@nuxt/schema": "3.0.0-rc.13",
     "@types/cheerio": "^0.22.31",
     "axios-mock-adapter": "^1.21.1",
     "defu": "^6.1.0",
@@ -46,12 +46,12 @@
   },
   "files": [
     "dist",
+    "src",
     "!**/*.spec.*",
     "!**/*.json",
     "types.d.ts",
     "CHANGELOG.md",
     "LICENSE",
     "README.md"
-  ],
-  "peerDependencies": {}
+  ]
 }

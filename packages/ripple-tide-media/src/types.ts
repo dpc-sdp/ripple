@@ -10,7 +10,7 @@ export type TideMediaMedia = {
   content: string
 }
 
-export default interface TideMediaPage extends TidePageBase {
+export interface TideMediaPage extends TidePageBase {
   header: TideMediaHeader
   media: TideMediaMedia
 }

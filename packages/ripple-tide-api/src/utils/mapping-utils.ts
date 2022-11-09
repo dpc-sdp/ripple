@@ -44,6 +44,9 @@ export const formatDate = (date) => {
   return date
 }
 
+/**
+ * @deprecated Need to make a decision on whether we proxy images or use direct url
+ */
 export const removeDomainFromPath = (path: string) =>
   typeof path === 'string' && path.length > 0
     ? path.replace(/^.*(?=(\/sites\/default\/files))/, '')
@@ -72,12 +75,8 @@ export const getMediaImage = (
   if (fieldMediaImage.meta?.focal_point) {
     delete fieldMediaImage.meta.focal_point
   }
-  // Replace BE domain for images as they will be proxied through FE
   return {
-    src: fieldMediaImage.url ? removeDomainFromPath(fieldMediaImage.url) : '',
-    // src: `https://develop.content.reference.sdp.vic.gov.au${
-    //   fieldMediaImage.url ? removeDomainFromPath(fieldMediaImage.url) : ''
-    // }`,
+    src: fieldMediaImage.url,
     ...fieldMediaImage.meta,
     focalPoint
   }
@@ -93,12 +92,8 @@ export const getCardImage = (fieldMediaImage: RawCardImage): TideImageField => {
     ? fieldMediaImage.data[0]
     : null
 
-  // Replace BE domain for images as they will be proxied through FE
   return {
-    src: fieldMediaImage.url ? removeDomainFromPath(fieldMediaImage.url) : '',
-    // src: `https://develop.content.reference.sdp.vic.gov.au${
-    //   fieldMediaImage.url ? removeDomainFromPath(fieldMediaImage.url) : ''
-    // }`,
+    src: fieldMediaImage.url,
     focalPoint,
     alt: data?.alt,
     width: data?.width ? parseInt(data.width) : undefined,

@@ -4,7 +4,11 @@
       <template #aboveHeader>
         <RplIconSprite />
         <slot name="aboveHeader">
-          <RplAlert v-for="alert in site.alerts" v-bind="alert" :key="alert.alertId" />
+          <RplAlert
+            v-for="alert in site.alerts"
+            v-bind="alert"
+            :key="alert.alertId"
+          />
         </slot>
       </template>
       <template #primaryNav>
@@ -14,15 +18,34 @@
       </template>
       <template #breadcrumbs>
         <slot name="breadcrumbs">
-          <RplBreadcrumbs v-if="breadcrumbs" v-bind="breadcrumbs"></RplBreadcrumbs>
+          <RplBreadcrumbs
+            v-if="breadcrumbs"
+            v-bind="breadcrumbs"
+          ></RplBreadcrumbs>
         </slot>
       </template>
       <template #sidebar>
+        <slot name="aboveSidebar"></slot>
         <slot v-if="page.sidebar" name="sidebar">
-          <TideSidebarContactUs :contacts="page.sidebar.contacts" />
-          <TideSidebarRelatedLinks :items="page.sidebar.relatedLinks" />
-          <TideSidebarSocialShare :networks="page.sidebar.socialShareNetworks" :page-title="page.title" />
+          <TideSidebarSiteSectionNav
+            v-if="page.sidebar.siteSectionNav"
+            :nav="page.sidebar.siteSectionNav"
+          />
+          <TideSidebarRelatedLinks
+            v-if="page.sidebar.relatedLinks?.length"
+            :items="page.sidebar.relatedLinks"
+          />
+          <TideSidebarContactUs
+            v-if="page.sidebar.contacts?.length"
+            :contacts="page.sidebar.contacts"
+          />
+          <TideSidebarSocialShare
+            v-if="page.sidebar.socialShareNetworks?.length"
+            :networks="page.sidebar.socialShareNetworks"
+            :page-title="page.title"
+          />
         </slot>
+        <slot name="belowSidebar"></slot>
       </template>
       <template #footer>
         <slot name="footer">
@@ -36,7 +59,11 @@
       <template #aboveHeader>
         <RplIconSprite />
         <slot v-if="site && site.alerts" name="aboveHeader">
-          <RplAlert v-for="alert in site.alerts" v-bind="alert" :key="alert.alertId" />
+          <RplAlert
+            v-for="alert in site.alerts"
+            v-bind="alert"
+            :key="alert.alertId"
+          />
         </slot>
       </template>
       <template #primaryNav>

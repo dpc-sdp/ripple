@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.6](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.5...v2.1.0-alpha.6) (2022-11-09)
+
+
+### Bug Fixes
+
+* remove nuxt plugins temporarily ([2310635](https://github.com/dpc-sdp/ripple-framework/commit/2310635414306dc802ae29d55d239ffb77f55c6f))
+
+
+
+
+
 # [2.1.0-alpha.5](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.4...v2.1.0-alpha.5) (2022-11-09)
 
 **Note:** Version bump only for package @dpc-sdp/ripple-ui-forms

@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.8](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.7...v2.1.0-alpha.8) (2022-11-09)
+
+
+### Performance Improvements
+
+* **@dpc-sdp/ripple-ui-core:** :zap: tidy svg assets ([fccbed5](https://github.com/dpc-sdp/ripple-framework/commit/fccbed52a87eea8f1e0d9b79a1b96344710042fa))
+
+
+### Reverts
+
+* **@dpc-sdp/ripple-ui-core:** :rewind: revert explicit default ([28af1a9](https://github.com/dpc-sdp/ripple-framework/commit/28af1a91240bc3eb0301efc272d5bbf709267bba))
+
+
+
+
+
 # [2.1.0-alpha.6](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.5...v2.1.0-alpha.6) (2022-11-09)
 
 

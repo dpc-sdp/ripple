@@ -1,6 +1,6 @@
 <template>
-  <div class="app-card-collection" :class="`app-card-collection--${displayType}`">
-    <h2 v-if="title && (hasResults || noResultsMsg)" ref="title" class="app-card-collection__title">{{ title }}</h2>
+  <div class="app-card-collection" :class="`app-card-collection--${displayType}`" v-if="showComponent">
+    <h2 v-if="title" ref="title" class="app-card-collection__title">{{ title }}</h2>
     <template v-if="hasResults">
       <div class="app-card-collection__carousel" v-if="displayType === 'carousel'">
         <client-only>
@@ -25,14 +25,13 @@
         </div>
       </div>
     </template>
-    <div v-else-if="noResultsMsg" class="app-card-collection__no-results">
+    <div v-else class="app-card-collection__no-results">
       {{noResultsMsg}}
     </div>
   </div>
 </template>
 
 <script>
-import get from 'lodash.get'
 import { RplRow, RplCol } from '@dpc-sdp/ripple-grid'
 import { RplCardCarousel, RplCardPromo } from '@dpc-sdp/ripple-card'
 import RplPagination from '@dpc-sdp/ripple-pagination'
@@ -45,6 +44,23 @@ export default {
     config: Object,
     initialResults: Array,
     total: Number,
+    minimum: Number,
+    perPage: {
+      type: Number,
+      default: 9
+    },
+    displayType: {
+      type: String,
+      default: 'grid'
+    },
+    noResultsMessage: {
+      type: String,
+      default: ''
+    },
+    noResultsBehaviour: {
+      type: String,
+      default: 'hide'
+    },
     sidebar: {
       type: Boolean,
       default: false
@@ -86,7 +102,8 @@ export default {
       const response = await this.$tideSearchApi.search('/cards', {
         ...params,
         site: this.$store.state.tideSite.siteId,
-        page: this.page
+        page: this.page,
+        limit: this.perPage
       })
       this.results = response.results
     }
@@ -103,17 +120,6 @@ export default {
   computed: {
     totalSteps () {
       return Math.ceil(Number(this.total) / this.perPage)
-    },
-    perPage () {
-      return get(this.config, ['display', 'items'], 9)
-    },
-    displayType () {
-      if (this.config) {
-        return get(this.config, ['display', 'type'], 'grid')
-      }
-    },
-    minResults () {
-      return get(this.config, ['results', 'min'], 1)
     },
     cards () {
       if (this.results.length > 0) {
@@ -138,13 +144,14 @@ export default {
       }
       return []
     },
+    showComponent () {
+      return this.hasResults || this.noResultsBehaviour !== 'hide'
+    },
     hasResults () {
-      return this.results.length >= this.minResults
+      return this.minimum ? this.results.length >= this.minimum : this.results.length
     },
     noResultsMsg () {
-      if (!this.hasResults && this.config.results.min_not_met === 'no_results_message') {
-        return this.config.results.no_results_message || 'There are currently no results'
-      }
+      return this.noResultsMessage || 'There are currently no results'
     }
   }
 }

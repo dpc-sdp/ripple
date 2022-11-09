@@ -7,7 +7,7 @@
       <ul v-if="links" class="rpl-anchor-links__items">
         <li v-for="(item, index) of links" :key="index" :class="['rpl-anchor-links__item', {'rpl-anchor-links__item--indent': (item.type && item.type === 'h3')}]">
           <rpl-icon v-if="(item.type && item.type === 'h3')" class="rpl-anchor-links__item--indent-icon" symbol="list_indent" size="1.05"/>
-          <rpl-text-link :url="item.url" :text="item.text" :underline="true" size="small" />
+          <rpl-text-link :url="item.url" :text="item.text" :underline="true" size="small"/>
         </li>
       </ul>
     </div>
@@ -121,6 +121,7 @@ export default {
       &--indent {
         display: flex;
         padding-left: $rpl-anchor-links-item-indent-padding-left;
+
         &-icon {
           margin-right: $rpl-anchor-links-item-indent-icon-marign-right;
         }
@@ -128,25 +129,25 @@ export default {
     }
 
     &--rtl {
-     padding-right: $rpl-anchor-links-left-padding-xs;
-     border-right: $rpl-anchor-links-border;
-     border-left: 0;
+      padding-right: $rpl-anchor-links-left-padding-xs;
+      border-right: $rpl-anchor-links-border;
+      border-left: 0;
 
-     @include rpl_print {
-       border-right: 0;
-     }
+      @include rpl_print {
+        border-right: 0;
+      }
 
-     @include rpl_breakpoint('s') {
-       padding-right: $rpl-anchor-links-left-padding-s;
-     }
+      @include rpl_breakpoint('s') {
+        padding-right: $rpl-anchor-links-left-padding-s;
+      }
 
-     @include rpl_breakpoint('l') {
-       padding-left: 0;
-     }
+      @include rpl_breakpoint('l') {
+        padding-left: 0;
+      }
 
-     @include rpl_breakpoint('xl') {
-       padding-right: $rpl-anchor-links-left-padding-xl;
-     }
+      @include rpl_breakpoint('xl') {
+        padding-right: $rpl-anchor-links-left-padding-xl;
+      }
     }
   }
 </style>

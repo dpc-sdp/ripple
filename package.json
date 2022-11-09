@@ -27,7 +27,7 @@
     "reference:start": "yarn workspace reference start:build",
     "reference:integration": "yarn workspace reference test:integration",
     "test:unit": "jest --colors",
-    "build:storybook": "cd src && yarn build-storybook",
+    "build:storybook": "yarn workspace storybook build-storybook",
     "build:vic-gov-au": "cd examples/vic-gov-au && yarn run build --modern=client",
     "lint": "sass-lint && yarn lint:es",
     "lint:es": "eslint --ext .js,.vue . --max-warnings 0",

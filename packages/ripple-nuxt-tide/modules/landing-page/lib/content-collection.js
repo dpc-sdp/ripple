@@ -37,6 +37,7 @@ module.exports = class ContentCollection {
       ExposedFilterKeywordDefaultFields: ['title', 'body', 'summary_processed', 'field_landing_page_summary', 'field_paragraph_summary', 'field_page_intro_text', 'field_paragraph_body'],
       ExposedFilterAggregationOrder: 'asc',
       ExposedFilterAggregationSize: 30,
+      DisplayResultComponentType: 'card',
       DisplayResultComponentCardStyle: 'noImage',
       DisplayResultComponentColumns: cardColsSetting,
       DisplayPaginationComponentColumns: cardColsSetting,
@@ -230,7 +231,7 @@ module.exports = class ContentCollection {
   }
 
   getDisplayResultComponentType () {
-    return this.config?.interface?.display?.resultComponent?.type
+    return this.config?.interface?.display?.resultComponent?.type || this.getDefault('DisplayResultComponentType')
   }
 
   getDisplayPagination () {
@@ -264,7 +265,6 @@ module.exports = class ContentCollection {
         returnName = 'rpl-search-result'
         break
       case 'card':
-      default:
         returnName = 'rpl-card-promo'
         break
     }
@@ -539,18 +539,38 @@ module.exports = class ContentCollection {
   }
 
   getSimpleDSLSort (state) {
-    let filters = []
-    let sortValue = null
-    const stateValue = this.getStateValue(state, 'ExposedControlSortModel')
-    if (stateValue) {
-      sortValue = this.getFieldValueFromId(stateValue, this.getExposedSortValues())
+    if (this.config?.internal?.managedSort) {
+      let filters = []
+      let sortValue = null
+      let internalSort = this.getInternalSort()
+      let displaySort = this.getDisplaySort()
+
+      if (displaySort) {
+        const stateValue = this.getStateValue(state, 'ExposedControlSortModel')
+        if (stateValue) {
+          sortValue = this.getFieldValueFromId(stateValue, this.getExposedSortValues())
+        }
+      } else if (internalSort) {
+        sortValue = internalSort
+      }
+
+      if (sortValue) {
+        filters = sortValue.map(item => ({ [item.field]: item.direction }))
+      }
+      return filters
     } else {
-      sortValue = this.getInternalSort()
+      // SDPA-6254 default to just sorting by date, enable config.managedSort for previous behaviour
+      if (state && state.q && state.q.length > 0) {
+        return []
+      }
+      const contentTypes = this.getSimpleDSLContentTypes()
+      // sort news content type by the news item date
+      if (contentTypes.type.includes('news')) {
+        return [{ field_news_date: 'desc' }, { created: 'desc' }]
+      }
+      // All other items sorted by created date
+      return [{ created: 'desc' }]
     }
-    if (sortValue) {
-      filters = sortValue.map(item => ({ [item.field]: item.direction }))
-    }
-    return filters
   }
 
   getSimpleDSLDateRange () {
@@ -704,11 +724,54 @@ module.exports = class ContentCollection {
     switch (schemaField.type) {
       case 'basic':
         const field = this.cloneObject(schemaField.options)
-        field.styleClasses = schemaField.additionalClasses
+        field.styleClasses = this.getExposedFilterFieldClass(schemaField)
         returnFilterField = field
         break
     }
     return returnFilterField
+  }
+
+  getExposedFilterFieldClass (schemaField) {
+    let returnClasses = []
+    if (schemaField.additionalClasses) {
+      returnClasses = returnClasses.concat(schemaField.additionalClasses)
+    }
+    if (this.config.interface.filters?.defaultStyling) {
+      const filterCount = this.config.interface.filters.fields.length
+      let suffix = ''
+      if (this.envConfig?.sidebar) {
+        suffix = (filterCount === 1) ? 'full' : '2'
+      } else {
+        switch (filterCount) {
+          case 1:
+          case 2:
+            suffix = '2'
+            break
+          case 4:
+            suffix = '4'
+            break
+          default:
+            suffix = '3'
+            break
+        }
+      }
+      returnClasses.push(`app-content-collection__form-col-${suffix}`)
+    }
+    return returnClasses
+  }
+
+  getExposedFilterFromModelName (model) {
+    let returnFilter = null
+    const filters = this.config?.interface?.filters?.fields
+    if (filters) {
+      for (let i = 0; i < filters.length; i++) {
+        if (filters[i].options.model === model) {
+          returnFilter = filters[i]
+          break
+        }
+      }
+    }
+    return returnFilter
   }
 
   getExposedFilterSubmissionGroup () {
@@ -929,18 +992,16 @@ module.exports = class ContentCollection {
     let mappedResult = null
     const _source = item._source
     const link = this.getLocalisedLinkFromSource(_source)
-
     switch (this.getDisplayResultComponentType()) {
       case 'search-result':
         mappedResult = {
           title: _source.title?.[0],
           link: link ? { linkText: link.domain + link.path, linkUrl: link.path } : null,
-          date: _source.created?.[0],
+          date: _source.field_news_date?.[0] || _source.created?.[0],
           description: _source.field_landing_page_summary?.[0]
         }
         break
       case 'card':
-      default:
         const style = this.getDisplayResultComponent()?.style
         mappedResult = {
           title: _source.title?.[0],
@@ -963,7 +1024,8 @@ module.exports = class ContentCollection {
       formData.schema.groups.forEach(group => {
         group.fields.forEach(field => {
           if (field.model === model) {
-            let values = this.getAggregatedFilterValues(aggregations[model].buckets, state[model])
+            let dataField = this.getExposedFilterFromModelName(model)
+            let values = this.getAggregatedFilterValues(aggregations[model].buckets, state[model], dataField)
             field.values = values
             const disableField = (values.length === 0)
             disableFieldCallback(field, disableField)
@@ -973,18 +1035,19 @@ module.exports = class ContentCollection {
     })
   }
 
-  getAggregatedFilterValues (buckets, stateValue) {
+  getAggregatedFilterValues (buckets, stateValue, dataField) {
     let returnValues = []
+    let hideCount = (dataField['elasticsearch-aggregation-show-count'] === false)
     if (buckets.length > 0) {
       // Has Aggregations
       returnValues = buckets.map(({ key, doc_count: count }) => {
-        return { id: key, name: `${key} (${count})` }
+        return hideCount ? { id: key, name: key } : { id: key, name: `${key} (${count})` }
       })
     } else {
       // No result aggregations - return state value
       if (stateValue && Array.isArray(stateValue)) {
         returnValues = stateValue.map(item => {
-          return { id: item, name: `${item} (0)` }
+          return hideCount ? { id: item, name: item } : { id: item, name: `${item} (0)` }
         })
       }
     }
@@ -1085,6 +1148,7 @@ module.exports = class ContentCollection {
   }
 
   getPaginationTotalSteps (state, count) {
-    return Math.ceil(parseInt(count) / this.getItemsToLoad(state))
+    const total = typeof count === 'object' && count.hasOwnProperty('value') ? count.value : count
+    return Math.ceil(parseInt(total) / this.getItemsToLoad(state))
   }
 }

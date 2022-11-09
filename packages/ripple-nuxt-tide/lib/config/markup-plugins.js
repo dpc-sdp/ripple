@@ -18,12 +18,17 @@ const pluginButton = function () {
   this.find('.button').map((i, el) => {
     const $button = this.find(el)
     const buttonHref = $button.attr('href')
+    const buttonTarget = $button.attr('target') ? $button.attr('target') : ''
     const buttonText = $button.text()
     let theme = 'primary'
     if ($button.hasClass('button--secondary')) {
       theme = 'secondary'
     }
-    const button = `<rpl-button href="${buttonHref}" theme="${theme}">${buttonText}</rpl-button>`
+    const button = `<rpl-button
+      href="${buttonHref}"
+      ${buttonTarget ? 'target="' + buttonTarget + '"' : ''}
+      theme="${theme}"
+    >${buttonText}</rpl-button>`
     return $button.replaceWith(button)
   })
 }
@@ -141,6 +146,7 @@ const pluginEmbeddedMediaVideo = function () {
     const height = iframe.attr('height')
     const width = iframe.attr('width')
     const src = iframe.attr('src')
+    const title = element.attr('title') ? element.attr('title') : ''
     const figcaption = element.find('figcaption')
     const transcript = figcaption ? figcaption.text() : null
     const link = element.find('.field--name-field-media-link a')
@@ -154,6 +160,7 @@ const pluginEmbeddedMediaVideo = function () {
 width="${width}"
 height="${height}"
 src="${src}"
+title="${title}"
 class="rpl-markup__embedded-video"
 variant="${data.mediaLink ? 'link' : 'full'}"
 :display-transcript="true"
@@ -188,7 +195,7 @@ const pluginLinks = function () {
       a = `<rpl-text-link :url="${dataName}.href" theme="${theme}" :text="${dataName}.text"></rpl-text-link>`
     }
 
-    return $a.replaceWith(a)
+    return data.href ? $a.replaceWith(a) : data.text
   })
   // Return data
   return linkData

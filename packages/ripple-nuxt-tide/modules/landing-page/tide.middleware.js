@@ -41,7 +41,7 @@ export default {
             key,
             promise: context.app.$tideSearchApi.search('/cards', {
               site: context.store.state.tideSite.siteId,
-              ...getQueryParams(component.data.config)
+              ...getQueryParams(component.data)
             })
           })
         }
@@ -56,7 +56,6 @@ export default {
           component.data.initialResults = response.results
           component.data.total = response.total
           component.data.sidebar = pageData.tideLayout.sidebar
-          component.data.config.results.min_not_met = 'no_results_message'
         })
       }
     }
@@ -77,7 +76,11 @@ export default {
           const collection = contentCollections[i]
           collection.data.environment = environment
           if (collection.data.schema) {
-            const dataManager = new context.app.$tideContentCollection(collection.data.schema, (dsl) => {
+            const dataManager = new context.app.$tideContentCollection({
+              ...collection.data.schema,
+              title: collection.data.title,
+              description: collection.data.description
+            }, (dsl) => {
               return context.app.$tideSearchApi.searchByPost(dsl)
             }, environment)
             const state = dataManager.getDefaultState()

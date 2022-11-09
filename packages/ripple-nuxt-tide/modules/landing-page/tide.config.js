@@ -446,12 +446,12 @@ module.exports = {
         component: 'automated-card-listing',
         props: {
           title: 'field_paragraph_title',
-          cardCtaText: 'field_paragraph_cta_text',
           config: ['field_paragraph_auto_listing'],
-          ctaLink: {
-            field: 'field_paragraph_cta',
-            filters: ['paragraphCta']
-          }
+          perPage: ['field_listings_per_page'],
+          minimum: ['field_listings_minimum'],
+          displayType: ['field_listing_display_type'],
+          noResultsMessage: ['field_no_results_message'],
+          noResultsBehaviour: ['field_no_result_behaviour']
         },
         childCols: cardColsSetting
       },
@@ -459,6 +459,15 @@ module.exports = {
       'paragraph--content_collection': {
         component: 'content-collection',
         props: {
+          'schema': 'field_content_collection_config'
+        }
+      },
+
+      'paragraph--content_collection_enhanced': {
+        component: 'content-collection',
+        props: {
+          'title': 'field_cc_enhanced_title',
+          'description': ['field_cc_enhanced_description', 'processed'],
           'schema': 'field_content_collection_config'
         }
       },

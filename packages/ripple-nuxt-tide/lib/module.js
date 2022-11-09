@@ -84,11 +84,15 @@ const nuxtTide = function (moduleOptions) {
     this.addServerMiddleware(require('./server-middleware/basic-auth.js'))
   }
 
-  if (options.searchApi) {
+  if (options.modules?.landingPage?.contentCollection !== false) {
+    const searchApiOptions = options.searchApi || {}
     this.addServerMiddleware(tideSearchApiMiddleware({
       templates: options.searchTemplates,
       tide: options,
-      ...options.searchApi
+      apiBase: 'search-api',
+      apiVersion: 'v2',
+      cacheAge: 30,
+      ...searchApiOptions
     }))
   }
 
@@ -101,16 +105,51 @@ const nuxtTide = function (moduleOptions) {
   })
   this.options.router.middleware.push('request-id')
 
-  // Content Collection
-  if (options.modules?.landingPage?.contentCollection) {
-    const customCCPath = path.resolve('tide/tide.content-collection.js')
+  // Content Collection - default to enabled
+  if (options.modules?.landingPage?.contentCollection !== false) {
     this.addPlugin({
       src: path.resolve(__dirname, 'templates/content-collection.js'),
       fileName: 'tide-content-collection.js',
       options: {
-        useCustomPath: fs.existsSync(customCCPath)
+        useCustomPath: fs.existsSync('tide/tide.content-collection.js')
       }
     })
+  }
+
+  // Add robots.txt
+  if (options?.robots) {
+    // Setup excluded paths
+    let excludedPaths = [
+      '/js',
+      '/img',
+      '/_nuxt/*',
+      '/oauth/*',
+      '/preview/*',
+      '/share-link'
+    ]
+
+    if (process.env.LAGOON_ENVIRONMENT_TYPE !== 'production') {
+      excludedPaths.push('/')
+    }
+
+    let robots = [
+      { UserAgent: 'SemrushBot', Disallow: '/' },
+      { UserAgent: '*', Disallow: excludedPaths }
+    ]
+
+    // Add supplied options to default robot options
+    if (Array.isArray(options.robots)) {
+      robots.push(...options.robots)
+    } else if (typeof options.robots === 'object') {
+      robots.push(options.robots)
+    }
+
+    // Add sitemap, this only works when the build target is server
+    if (this.options.target === 'server') {
+      robots.push({ Sitemap: (req) => `https://${req.headers.host}/sitemap.xml` })
+    }
+
+    this.addModule(['@nuxtjs/robots', robots])
   }
 
   // https://toor.co/blog/nuxtjs-smooth-scrolling-with-hash-links/

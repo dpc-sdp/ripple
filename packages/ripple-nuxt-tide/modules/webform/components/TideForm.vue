@@ -6,6 +6,7 @@
     :formData="formData"
     :submitHandler="submitForm"
     :hideAfterSuccess="formData.settings.shouldHideFormAfterSuccess"
+    :spamProtect="formData.settings.spamProtect"
     :title="title"
     :fullWidth="false"
   >
@@ -72,9 +73,7 @@ export default {
     async submitForm () {
       const formData = this.formData.model
       const formId = this.formData.tideId
-
       const res = await this.postForm(formId, formData)
-
       if (res) {
         this.formData.formState = {
           response: {

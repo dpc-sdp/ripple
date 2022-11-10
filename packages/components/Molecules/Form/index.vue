@@ -73,12 +73,32 @@ export default {
     submitFormOnClear: { type: Boolean, default: false },
     scrollToMessage: { type: Boolean, default: true },
     validateOnSubmit: { type: Boolean, default: true },
+    spamProtect: { type: Boolean, default: false },
     fullWidth: { type: Boolean, default: true },
     listenForClearForm: { type: Boolean, default: true }
   },
   data () {
     return {
       isClearingForm: false
+    }
+  },
+  created () {
+    // If spam protection is enabled, add a honeypot field to the beginning of the form.
+    if (this.spamProtect) {
+      const honeypot = {
+        inputType: 'text',
+        label: 'Important email',
+        model: 'honeypot',
+        type: 'input',
+        autocomplete: 'off',
+        styleClasses: ['rpl-hidden']
+      }
+
+      if (!this.formData.schema.fields) {
+        this.formData.schema.fields = []
+      }
+
+      this.formData.schema.fields.unshift(honeypot)
     }
   },
   mounted () {
@@ -170,10 +190,24 @@ export default {
         this.$refs.vfg.validate()
       }
 
-      // Run custom submit callback if no error in validation
       if (this.$refs.vfg.errors.length === 0) {
         RplFormEventBus.$emit('loading', true)
-        await this.submitHandler()
+
+        // Check whether honeypot field is set when spam protection is enabled.
+        if (this.spamProtect && this.formData.model.honeypot) {
+          setTimeout(() => {
+            this.formData.formState = {
+              response: {
+                status: 'success',
+                message: this.$parent.messages?.success || 'Form submitted, thank you.'
+              }
+            }
+          }, 2000)
+        } else {
+          // Run custom submit callback if no error in validation
+          await this.submitHandler()
+        }
+
         if (this.scrollToMessage) {
           VueScrollTo.scrollTo(this.$el, 500, { offset: -150 })
         }

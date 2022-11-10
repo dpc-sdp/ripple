@@ -1,4 +1,4 @@
-const { UDPTransport } = require('udp-transport-winston');
+const { UDPTransport } = require('udp-transport-winston')
 const { createLogger, format, transports, addColors } = require('winston')
 
 // Set up level based on env settings.

@@ -1,5 +1,4 @@
-const { LogstashTransport } = require('winston-logstash-transport')
-import { UDPTransport } from 'udp-transport-winston';
+const { UDPTransport } = require('udp-transport-winston');
 const { createLogger, format, transports, addColors } = require('winston')
 
 // Set up level based on env settings.
@@ -83,47 +82,27 @@ let logger = createLogger({
 })
 
 // Use Logstash transport in Lagoon server instead of console
-if (true) {
+if (process.env.LAGOON_GIT_SAFE_BRANCH && !process.client) {
   const sumoFormat = format(info => {
-    const source_host = process.env.LAGOON_PROJECT + '-' + process.env.LAGOON_GIT_SAFE_BRANCH
-    const source_category = 'sdp/dev/origin/app/ripple'
-  })
-  
-  // Create the Lagoon Logstash transport.
-  // Add lagoon required meta.
-  const lagoonFormat = format(info => {
-    const LAGOON_LOGS_DEFAULT_SAFE_BRANCH = 'safe_branch_unset'
-    const LAGOON_LOGS_DEFAULT_LAGOON_PROJECT = 'project_unset'
-    const k8sNamespace = process.env.LAGOON_PROJECT || LAGOON_LOGS_DEFAULT_LAGOON_PROJECT
-    const gitBranch = process.env.LAGOON_GIT_SAFE_BRANCH || LAGOON_LOGS_DEFAULT_SAFE_BRANCH
-    const type = [k8sNamespace, gitBranch]
-    info.type = type.join('-')
+    const LAGOON_PROJECT = process.env.LAGOON_PROJECT || 'project_unset'
+    const LAGOON_GIT_SAFE_BRANCH = process.env.LAGOON_GIT_SAFE_BRANCH || 'safe_branch_unset'
+    info.source_host = LAGOON_PROJECT + '-' + LAGOON_GIT_SAFE_BRANCH
+    info.source_category = process.env.SUMOLOGIC_CATEGORY || 'sdp/dev/origin/app/ripple'
     return info
   })
 
-  const logstash = new LogstashTransport({
-    host: process.env.LAGOON_LOG_HOST || 'application-logs.lagoon.svc.cluster.local',
-    port: process.env.LAGOON_LOG_PORT || 5140,
+  const udp = new UDPTransport({
+    host: process.env.SUMO_HOST || 'sumologic-otel-collector.sdp-services.svc.cluster.local',
+    port: process.env.SUMO_PORT || '5514',
     handleExceptions: true,
     format: format.combine(
-      lagoonFormat(),
+      sumoFormat(),
       errorPrint(),
       format.json()
     )
   })
-  const udp = new UDPTransport({
-    host: 'sumologic-otel-collector.sdp-services.svc.cluster.local',
-    port: '5514',
-    handleExceptions: true,
-    format: format.combine(
-      format.json()
-    )
-  })
   logger.add(udp)
-
-  logger.info("Sample INFO from Ripple pr-1256")
-  logger.error("Sample INFO from Ripple pr-1256")
-
+  logger.remove(consoleLog)
 }
 
 //

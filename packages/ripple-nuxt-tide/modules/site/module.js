@@ -24,6 +24,12 @@ module.exports = function () {
         return baseUrl + 'sitemap.xml?site=' + options.site + getQuery(req)
       }
     },
+    '/**/sitemap.xml': {
+      target: baseUrl,
+      pathRewrite: (path, req) => {
+        return baseUrl + path + '?site=' + options.site + getQuery(req)
+      }
+    },
     '/sitemaps/**/sitemap.xml': {
       target: baseUrl,
       pathRewrite: (path, req) => {

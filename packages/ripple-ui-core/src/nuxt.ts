@@ -1,5 +1,5 @@
 import { join } from 'pathe'
-import { defineNuxtModule, addPlugin, addComponentsDir } from '@nuxt/kit'
+import { defineNuxtModule, addComponentsDir } from '@nuxt/kit'
 import vitePlugins from './vite.plugins'
 
 export default defineNuxtModule({
@@ -23,11 +23,6 @@ export default defineNuxtModule({
       path: join(__dirname, './../src/components'),
       prefix: 'rpl',
       global: true
-    })
-
-    // Adds all ripple plugins, note this is not compiled and is directly used in Nuxt
-    addPlugin({
-      src: join(__dirname, './../src/plugins/nuxt.mjs')
     })
 
     // Adds required PostCss plugins

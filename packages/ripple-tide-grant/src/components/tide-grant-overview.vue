@@ -16,7 +16,7 @@ export default { name: 'TideGrantOverview' }
           rpl-type-label
         "
       >
-        <rpl-icon name="icon-dollar-circle-filled"></rpl-icon
+        <rpl-icon colour="default" name="icon-dollar-circle-filled"></rpl-icon
         ><span class="rpl-type-h4-fixed">
           {{ formattedFunding }}
         </span>
@@ -28,7 +28,7 @@ export default { name: 'TideGrantOverview' }
           rpl-type-label
         "
       >
-        <rpl-icon name="icon-user-circle-filled"></rpl-icon
+        <rpl-icon colour="default" name="icon-user-circle-filled"></rpl-icon
         ><span class="rpl-type-h4-fixed"> {{ overview.audience }}</span>
       </li>
       <li

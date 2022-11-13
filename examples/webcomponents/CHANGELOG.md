@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.8](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.7...v2.1.0-alpha.8) (2022-11-09)
+
+**Note:** Version bump only for package webcomponents
+
+
+
+
+
+# [2.1.0-alpha.6](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.5...v2.1.0-alpha.6) (2022-11-09)
+
+**Note:** Version bump only for package webcomponents
+
+
+
+
+
+# [2.1.0-alpha.5](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.4...v2.1.0-alpha.5) (2022-11-09)
+
+**Note:** Version bump only for package webcomponents
+
+
+
+
+
 # [2.1.0-alpha.1](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.0...v2.1.0-alpha.1) (2022-11-08)
 
 **Note:** Version bump only for package webcomponents

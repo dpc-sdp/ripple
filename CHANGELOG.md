@@ -3,6 +3,91 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.8](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.7...v2.1.0-alpha.8) (2022-11-09)
+
+
+### Performance Improvements
+
+* **@dpc-sdp/ripple-ui-core:** :zap: tidy svg assets ([fccbed5](https://github.com/dpc-sdp/ripple-framework/commit/fccbed52a87eea8f1e0d9b79a1b96344710042fa))
+
+
+### Reverts
+
+* **@dpc-sdp/ripple-ui-core:** :rewind: revert explicit default ([28af1a9](https://github.com/dpc-sdp/ripple-framework/commit/28af1a91240bc3eb0301efc272d5bbf709267bba))
+
+
+
+
+
+# [2.1.0-alpha.7](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.6...v2.1.0-alpha.7) (2022-11-09)
+
+
+### Bug Fixes
+
+* fix missing publication module ([d59da74](https://github.com/dpc-sdp/ripple-framework/commit/d59da742549ea91c3c5f9447fe9b50e1cb5b244c))
+
+
+
+
+
+# [2.1.0-alpha.6](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.5...v2.1.0-alpha.6) (2022-11-09)
+
+
+### Bug Fixes
+
+* remove nuxt plugins temporarily ([2310635](https://github.com/dpc-sdp/ripple-framework/commit/2310635414306dc802ae29d55d239ffb77f55c6f))
+* remove social sharing plugin ([45b94b3](https://github.com/dpc-sdp/ripple-framework/commit/45b94b369c759d94ce4a49713ba1a2564e360760))
+
+
+
+
+
+# [2.1.0-alpha.5](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.4...v2.1.0-alpha.5) (2022-11-09)
+
+**Note:** Version bump only for package root
+
+
+
+
+
+# [2.1.0-alpha.4](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.3...v2.1.0-alpha.4) (2022-11-09)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-api:** add back alerts ([a3997da](https://github.com/dpc-sdp/ripple-framework/commit/a3997dae4f8863579f82bed1fcf959623e43172f))
+
+
+### Features
+
+* **@dpc-sdp/ripple-tide-api:** wire up site menu ([d20d197](https://github.com/dpc-sdp/ripple-framework/commit/d20d1977aa4cb5c7d8f03e4b7e79515dc33f0cb6))
+
+
+
+
+
+# [2.1.0-alpha.3](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.2...v2.1.0-alpha.3) (2022-11-09)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-api:** remove stripping of backend url from images ([4b18930](https://github.com/dpc-sdp/ripple-framework/commit/4b189307f7ac019fff2a1bfefb425e1134c764c1))
+
+
+
+
+
+# [2.1.0-alpha.2](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.1...v2.1.0-alpha.2) (2022-11-09)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-api:** fixed merge issue removing some sidebar components ([540a6a7](https://github.com/dpc-sdp/ripple-framework/commit/540a6a76b0af456a1dd01e598ba444e5d8f2d98e))
+
+
+
+
+
 # [2.1.0-alpha.1](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.0...v2.1.0-alpha.1) (2022-11-08)
 
 

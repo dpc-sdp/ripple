@@ -3,6 +3,52 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.7](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.6...v2.1.0-alpha.7) (2022-11-09)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-api
+
+
+
+
+
+# [2.1.0-alpha.4](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.3...v2.1.0-alpha.4) (2022-11-09)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-api:** add back alerts ([a3997da](https://github.com/dpc-sdp/ripple-framework/commit/a3997dae4f8863579f82bed1fcf959623e43172f))
+
+
+### Features
+
+* **@dpc-sdp/ripple-tide-api:** wire up site menu ([d20d197](https://github.com/dpc-sdp/ripple-framework/commit/d20d1977aa4cb5c7d8f03e4b7e79515dc33f0cb6))
+
+
+
+
+
+# [2.1.0-alpha.3](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.2...v2.1.0-alpha.3) (2022-11-09)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-api:** remove stripping of backend url from images ([4b18930](https://github.com/dpc-sdp/ripple-framework/commit/4b189307f7ac019fff2a1bfefb425e1134c764c1))
+
+
+
+
+
+# [2.1.0-alpha.2](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.1...v2.1.0-alpha.2) (2022-11-09)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-api:** fixed merge issue removing some sidebar components ([540a6a7](https://github.com/dpc-sdp/ripple-framework/commit/540a6a76b0af456a1dd01e598ba444e5d8f2d98e))
+
+
+
+
+
 # [2.1.0-alpha.1](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.0...v2.1.0-alpha.1) (2022-11-08)
 
 

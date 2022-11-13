@@ -1,4 +1,4 @@
-import { text, email, tel, submit } from './inputs/index.js'
+import { text, email, tel, submit } from './inputs/index'
 
 const rplFormInputs = (node) => {
   // Adds required value

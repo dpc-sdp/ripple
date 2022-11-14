@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.9](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.8...v2.1.0-alpha.9) (2022-11-14)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-event
+
+
+
+
+
 # [2.1.0-alpha.7](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.6...v2.1.0-alpha.7) (2022-11-09)
 
 **Note:** Version bump only for package @dpc-sdp/ripple-tide-event

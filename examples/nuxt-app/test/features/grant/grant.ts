@@ -1,9 +1,4 @@
-import {
-  When,
-  Then,
-  Before,
-  After
-} from '@badeball/cypress-cucumber-preprocessor'
+import { Then, Before, After } from '@badeball/cypress-cucumber-preprocessor'
 
 Before({ tags: '@mockserver' }, () => {
   cy.log('the mock server has started')

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { TideDynamicPageComponent } from './../../types'
 import { RplPageComponent, RplCardGrid } from '@dpc-sdp/ripple-ui-core'
-import { computed, onMounted } from 'vue'
+import { computed } from 'vue'
 import groupDynamicComponents from '../../utils/groupDynamicComponents'
 import { TideDynamicComponentGroup } from '../../../types'
 interface Props {

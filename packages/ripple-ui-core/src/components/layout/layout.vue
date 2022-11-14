@@ -3,15 +3,7 @@ export default { name: 'RplLayout' }
 </script>
 
 <script setup lang="ts">
-import {
-  Comment,
-  Text,
-  VNode,
-  Fragment,
-  computed,
-  useSlots,
-  isVNode
-} from 'vue'
+import { Comment, Fragment, computed, useSlots, isVNode } from 'vue'
 
 interface Props {
   background?: 'default' | 'alt'

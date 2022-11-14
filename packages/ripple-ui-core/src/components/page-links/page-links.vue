@@ -3,12 +3,12 @@ export default { name: 'RplPageLinks' }
 </script>
 
 <script setup lang="ts">
-import { RplLink } from '../../lib/constants'
+import { RplLinkExtended } from '../../lib/constants'
 import RplPageLinksItem from './page-links-item.vue'
 
 interface Props {
-  prev?: RplLink
-  next?: RplLink
+  prev?: RplLinkExtended
+  next?: RplLinkExtended
 }
 
 withDefaults(defineProps<Props>(), {
@@ -22,18 +22,18 @@ withDefaults(defineProps<Props>(), {
     <RplPageLinksItem
       v-if="prev"
       :link="prev"
-      label="Previous"
+      :label="prev.text || 'Previous'"
       icon-name="icon-arrow-left"
     >
-      {{ prev.text }}
+      {{ prev.description }}
     </RplPageLinksItem>
     <RplPageLinksItem
       v-if="next"
       :link="next"
-      label="Next"
+      :label="next.text || 'Next'"
       icon-name="icon-arrow-right"
     >
-      {{ next.text }}
+      {{ next.description }}
     </RplPageLinksItem>
   </nav>
 </template>

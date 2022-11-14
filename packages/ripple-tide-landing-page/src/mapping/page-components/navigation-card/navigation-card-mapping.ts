@@ -11,7 +11,7 @@ export const navigationCardMapping = (
 ): TideDynamicPageComponent<ITideNavCard> => {
   return {
     component: 'TideLandingPageNavCard',
-    id: field.drupal_internal__id,
+    id: `${field.drupal_internal__id}`,
     props: {
       displayStyle: getField(field, 'field_nav_card_display_style', ''),
       ...genericCardMapping(field)

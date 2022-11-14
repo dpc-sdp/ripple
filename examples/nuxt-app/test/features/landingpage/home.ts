@@ -87,3 +87,10 @@ Then(
     })
   }
 )
+
+Then('the hero acknowledgement of country should exist on the page', () => {
+  cy.get(`[data-cy="hero-ack"]`).should(
+    'contain',
+    'The Victorian Government acknowledges Aboriginal and Torres Strait Islander people as the Traditional Custodians of the land and acknowledges and pays respect to their Elders, past and present.'
+  )
+})

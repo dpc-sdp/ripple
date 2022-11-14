@@ -81,6 +81,7 @@
     }
   },
   "summary": "Page summary",
+  "showHeroAcknowledgement": true,
   "showInPageNav": true,
   "inPageNavHeadingLevel": "h3",
   "background": "default",

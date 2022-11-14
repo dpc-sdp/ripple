@@ -7,6 +7,7 @@ import { ITidePrimaryCampaign } from './mapping/primary-campaign/primary-campaig
 import { ITideSecondaryCampaign } from './mapping/secondary-campaign/secondary-campaign-mapping'
 
 export interface TideLandingPagePage extends TidePageBase {
+  showHeroAcknowledgement: boolean
   showInPageNav: boolean
   inPageNavHeadingLevel: 'h2' | 'h3'
   background: string

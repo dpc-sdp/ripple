@@ -11,6 +11,7 @@
     </template>
     <template #aboveBody>
       <TideLandingPageHeroHeader :header="page.heroHeader" />
+      <TideLandingPageHeroAcknowledgement v-if="page.showHeroAcknowledgement" />
       <TideDynamicComponents
         v-if="page.headerComponents?.length > 0"
         :components="page.headerComponents"

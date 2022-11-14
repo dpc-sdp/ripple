@@ -23,6 +23,10 @@ Feature: Home page
     Then the hero intro text should be "Test landing page title introduction text"
 
   @mockserver
+  Scenario: Hero acknowledgement
+    Then the hero acknowledgement of country should exist on the page
+
+  @mockserver
   Scenario: Primary campaign
     Then the "primary" campaign title should be "Demo primary campaign"
     Then the "primary" campaign summary should be "Test summary for primary campaign"

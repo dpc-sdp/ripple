@@ -198,6 +198,16 @@
         },
         "html": "<p>And here's the <strong>summary</strong></p>"
       }
+    },
+    {
+      "uuid": "3a29034c-b50c-4d83-a5f5-e6b6adaa6513",
+      "component": "TideLandingPageSearchBanner",
+      "id": "1911",
+      "props": {
+        "placeholder": "Test search placeholder",
+        "searchUrl": "/search?q=[SEARCH-KEYWORDS]",
+        "openInNewWindow": false
+      }
     }
   ],
   "bodyComponents": [

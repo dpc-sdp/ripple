@@ -49,7 +49,7 @@ defineExpose({ setActive, setInactive })
     <div class="rpl-card__body">
       <slot name="meta"></slot>
       <slot name="title"></slot>
-      <div class="rpl-card__content">
+      <div class="rpl-card__content" data-cy="content">
         <slot></slot>
       </div>
     </div>

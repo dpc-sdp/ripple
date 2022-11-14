@@ -6,7 +6,7 @@
     :url="url"
     :ctaText="ctaText"
   >
-    <div v-html="summary"></div>
+    <div v-html="summary" data-cy="summary"></div>
   </RplCallToActionCard>
 </template>
 

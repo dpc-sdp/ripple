@@ -50,10 +50,11 @@ const { container, trigger } = useAccessibleContainer()
         class="rpl-card__media rpl-card__media--inset"
         :src="image"
         :alt="imageAlt"
+        data-cy="image"
       />
     </template>
     <template #title>
-      <h3 :class="titleClasses">{{ title }}</h3>
+      <h3 :class="titleClasses" data-cy="title">{{ title }}</h3>
     </template>
     <slot></slot>
     <RplButton
@@ -65,6 +66,7 @@ const { container, trigger } = useAccessibleContainer()
       :variant="variant"
       :theme="theme"
       :label="ctaText"
+      data-cy="cta"
     ></RplButton>
   </RplCard>
 </template>

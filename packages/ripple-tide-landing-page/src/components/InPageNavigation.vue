@@ -63,5 +63,9 @@ const items = computed(() => {
 </script>
 
 <template>
-  <RplInPageNavigation title="On this page" :items="items" />
+  <RplInPageNavigation
+    title="On this page"
+    :items="items"
+    data-cy="in-page-nav"
+  />
 </template>

@@ -22,7 +22,7 @@ const state = reactive({
 })
 
 onMounted(() => {
-  state.url = window.location.toString()
+  state.url = location.href
 })
 </script>
 

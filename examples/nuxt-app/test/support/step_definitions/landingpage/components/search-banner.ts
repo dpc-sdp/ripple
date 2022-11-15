@@ -31,6 +31,6 @@ Then(
       cy.get('button[type="submit"]').click()
     })
 
-    cy.location('search').should('eq', destination)
+    cy.location('pathname').should('eq', destination)
   }
 )

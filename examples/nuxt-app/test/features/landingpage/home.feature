@@ -63,7 +63,7 @@ Feature: Home page
   @mockserver
   Scenario: Header component - Search banner
     Then a search banner with ID "1911" should exist with the placeholder "Test search placeholder"
-    Then in a search banner with ID "1911", searching for "cats" should take me to "/search?q=cats"
+    Then in a search banner with ID "1911", searching for "cats" should take me to "/search/cats"
 
   @mockserver
   Scenario: Page component - Basic text

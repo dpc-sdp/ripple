@@ -1,5 +1,5 @@
 <template>
-  <RplLayout :background="page.background">
+  <TideBaseLayout :background="page.background">
     <template #aboveHeader>
       <slot name="aboveHeader"></slot>
     </template>
@@ -56,13 +56,14 @@
     <template #footer>
       <slot name="footer"> </slot>
     </template>
-  </RplLayout>
+  </TideBaseLayout>
 </template>
 
 <script setup lang="ts">
 import type { TideLandingPagePage } from './types'
 
 defineProps<{
+  site: any
   page: TideLandingPagePage
 }>()
 </script>

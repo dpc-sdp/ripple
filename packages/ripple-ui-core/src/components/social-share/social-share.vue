@@ -3,48 +3,42 @@ export default { name: 'RplSocialShare' }
 </script>
 
 <script setup lang="ts">
-import RplIcon from '../icon/icon.vue'
-import ShareNetwork from 'vue-social-sharing/src/share-network'
+import { reactive, onMounted } from 'vue'
+import RplSocialShareLink from './social-share-link.vue'
 
 interface Props {
   title?: string
   networks?: string[]
-  pagetitle?: string
-  pageurl?: string
+  pagetitle: string
 }
 
 withDefaults(defineProps<Props>(), {
   title: 'Share this page',
-  networks: () => ['Facebook', 'Twitter', 'LinkedIn'],
-  pagetitle: '',
-  pageurl: ''
+  networks: () => ['Facebook', 'Twitter', 'LinkedIn']
+})
+
+const state = reactive({
+  url: ''
+})
+
+onMounted(() => {
+  state.url = window.location.toString()
 })
 </script>
 
 <template>
-  <div v-if="pagetitle && pageurl" class="rpl-social-share">
+  <div v-if="pagetitle && state.url" class="rpl-social-share">
     <h3 v-if="title" class="rpl-social-share__title rpl-type-label-large">
       {{ title }}
     </h3>
     <div class="rpl-social-share__items">
-      <ShareNetwork
+      <RplSocialShareLink
         v-for="network in networks"
         :key="network.toLowerCase()"
-        :network="network.toLowerCase()"
+        :network="network"
         :title="pagetitle"
-        :url="pageurl"
-        class="
-          rpl-text-link
-          rpl-social-share__link
-          rpl-u-focusable-inline rpl-type-p-small
-        "
-      >
-        <RplIcon
-          class="rpl-social-share__icon"
-          :name="`icon-${network.toLowerCase()}`"
-        ></RplIcon>
-        <span>{{ network }}</span>
-      </ShareNetwork>
+        :url="state.url"
+      ></RplSocialShareLink>
     </div>
   </div>
 </template>

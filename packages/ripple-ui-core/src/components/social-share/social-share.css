@@ -12,7 +12,7 @@
     padding-left: 0;
   }
 
-  &__link {
+  &-link {
     display: inline-block;
     margin: 0 0 var(--rpl-sp-2);
     color: var(--rpl-clr-type-default);

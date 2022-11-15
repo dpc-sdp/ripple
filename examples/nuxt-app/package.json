@@ -21,6 +21,8 @@
     "@dpc-sdp/ripple-tide-grant": "2.1.0-alpha.8",
     "@dpc-sdp/ripple-tide-landing-page": "2.1.0-alpha.7",
     "@dpc-sdp/ripple-tide-media": "2.1.0-alpha.7",
+    "@dpc-sdp/ripple-tide-publication": "2.1.0-alpha.7",
+    "@dpc-sdp/ripple-tide-publication-page": "0.0.0",
     "@dpc-sdp/ripple-ui-core": "2.1.0-alpha.8",
     "@dpc-sdp/ripple-ui-forms": "2.1.0-alpha.8",
     "dotenv": "^16.0.3"

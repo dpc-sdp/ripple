@@ -19,6 +19,8 @@ export interface TidePublicationPage extends TidePageBase {
    * @description Page title
    */
   title: string
+  url: string
+  background: string
   /**
    * @description RplHeader
    */
@@ -39,4 +41,8 @@ export interface TidePublicationPage extends TidePageBase {
    * @description Page action documents
    */
   documents: any
+
+  publication: Array<any>
+  children: Array<any>
+  breadcrumbs: Array<any>
 }

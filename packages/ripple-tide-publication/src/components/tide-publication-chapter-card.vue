@@ -19,12 +19,7 @@ export default { name: 'TidePublicationChapterCard' }
 </template>
 
 <script setup lang="ts">
-import {
-  RplCard,
-  RplIcon,
-  RplTextLink,
-  useAccessibleContainer
-} from '@dpc-sdp/ripple-ui-core'
+import { useAccessibleContainer } from '@dpc-sdp/ripple-ui-core'
 import { TidePublicationChapter } from '../types'
 
 const { container, trigger } = useAccessibleContainer()

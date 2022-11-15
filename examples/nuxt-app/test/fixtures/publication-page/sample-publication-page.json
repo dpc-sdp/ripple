@@ -1,0 +1,12 @@
+{
+  "title": "Sample Publication page",
+  "changed": "2022-09-15T15:14:30+10:00",
+  "created": "2022-09-15T15:14:30+10:00",
+  "type": "publication-page",
+  "nid": "2526ba4a-e12b-4fbd-a15a-38ac2528b922",
+  "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet ligula sit amet lacinia. In a leo nec tortor aliquet faucibus.",
+  "header": {
+    "title": "Sample Publication page",
+    "summary": "news intro test"
+  }
+}

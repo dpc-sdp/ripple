@@ -14,8 +14,7 @@ export default { name: 'TidePublicationBody' }
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import { RplDescriptionList } from '@dpc-sdp/ripple-ui-core'
-import type { TideDynamicPageComponent } from '@dpc-sdp/ripple-tide-api'
+import { TideDynamicPageComponent } from '@dpc-sdp/ripple-tide-api'
 
 const props =
   defineProps<{

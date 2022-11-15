@@ -7,10 +7,40 @@ export default { name: 'TidePublicationSideNav' }
 </template>
 
 <script setup lang="ts">
-import { RplVerticalNav } from '@dpc-sdp/ripple-ui-core'
+import { computed } from 'vue'
 
-defineProps<{
+interface Props {
   title: any
-  items: any
-}>()
+  publication: any
+  children: any
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  children: []
+})
+
+/* eslint-disable no-undef */
+// @ts-ignore Nuxt auto import
+const route = useRoute()
+/* eslint-enable no-undef */
+
+const items = computed(() => [
+  {
+    ...props.publication,
+    id: 'root',
+    active: props.publication.url === route.path
+  },
+  ...props.children.map((child: any) => {
+    return {
+      ...child,
+      active: child.url === route.path,
+      items: [
+        {
+          ...child,
+          active: child.url === route.path
+        }
+      ]
+    }
+  })
+])
 </script>

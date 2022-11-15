@@ -1,5 +1,5 @@
 <script lang="ts">
-export default { name: 'TidePublicationHeader' }
+export default { name: 'TidePublicationPageHeader' }
 </script>
 
 <template>
@@ -15,9 +15,9 @@ export default { name: 'TidePublicationHeader' }
 </template>
 
 <script setup lang="ts">
-import type { TidePublicationHeader } from '../types'
+import { TidePublicationPageHeader } from '../types'
 
 defineProps<{
-  header: TidePublicationHeader
+  header: TidePublicationPageHeader
 }>()
 </script>

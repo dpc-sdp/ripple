@@ -1,5 +1,7 @@
 <script lang="ts">
-export default { name: 'TidePublicationPage' }
+export default {
+  name: 'TidePublicationPagePage'
+}
 </script>
 
 <template>
@@ -14,37 +16,32 @@ export default { name: 'TidePublicationPage' }
       <RplBreadcrumbs v-bind="page.breadcrumbs"></RplBreadcrumbs>
     </template>
     <template #aboveBody>
-      <TidePublicationHeader :header="page.header"></TidePublicationHeader>
+      <TidePublicationPageHeader
+        :header="page.header"
+      ></TidePublicationPageHeader>
     </template>
     <template #body>
       <RplInPageNavigation
         v-if="toc.length > 0"
         :items="toc"
       ></RplInPageNavigation>
-      <TidePublicationBody
-        :details="page.details"
+      <TidePublicationPageBody
         :components="page.dynamicComponents"
-      ></TidePublicationBody>
-      <TidePublicationChapters
-        :chapters="page.chapters"
-      ></TidePublicationChapters>
+      ></TidePublicationPageBody>
+      <TidePublicationPagePagination
+        :pagination="page.pagination"
+      ></TidePublicationPagePagination>
     </template>
     <template #sidebar>
-      <TidePublicationPageActions
-        :documents="page.documents"
-      ></TidePublicationPageActions>
       <TidePublicationSideNav
         :publication="page.publication"
-        :children="page.children"
         :title="page.title"
       ></TidePublicationSideNav>
       <slot name="sidebar"></slot>
-      <RplLayoutSidebarComponent>
-        <RplSocialShare
-          :pagetitle="page.title"
-          :pageurl="page.url"
-        ></RplSocialShare>
-      </RplLayoutSidebarComponent>
+      <RplSocialShare
+        :pagetitle="page.title"
+        :pageurl="page.url"
+      ></RplSocialShare>
     </template>
     <template #footer>
       <slot name="footer"></slot>
@@ -53,11 +50,11 @@ export default { name: 'TidePublicationPage' }
 </template>
 
 <script setup lang="ts">
-import type { TidePublicationPage } from './types'
+import { TidePublicationPagePage } from './types'
 import { computed } from 'vue'
 
 defineProps<{
-  page: TidePublicationPage
+  page: TidePublicationPagePage
 }>()
 
 // Placeholder for in-page nave, will need to figure this out dynamically from content - maybe a RplLayout concern?

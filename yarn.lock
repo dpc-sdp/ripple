@@ -1677,6 +1677,25 @@
     typescript-json-schema "^0.54.0"
     winston "^3.8.2"
 
+"@dpc-sdp/ripple-tide-api@alpha":
+  version "2.1.0-alpha.7"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-tide-api/-/ripple-tide-api-2.1.0-alpha.7.tgz#e2a59c0a7d9e45697298acc0eb1065d3283d636e"
+  integrity sha512-hr3SSYYkpDYycHQ4OIN5mX1MLVsxQvxb71Bc9d3CpGLzYt77q/qb4fhVc/aRv+4iMyJzw9YUC3QDief36GXxrQ==
+  dependencies:
+    "@nuxt/kit" "3.0.0-rc.13"
+    axios "^0.27.2"
+    change-case "^4.1.2"
+    cheerio "^1.0.0-rc.10"
+    h3 "^0.7.21"
+    js-yaml "^4.1.0"
+    jsonapi-parse "^2.0.1"
+    lodash-es "^4.17.21"
+    pathe "^0.3.9"
+    qs "^6.10.3"
+    ts-json-schema-generator "^1.1.2"
+    typescript-json-schema "^0.54.0"
+    winston "^3.8.2"
+
 "@dpc-sdp/ripple-tide-landing-page@2.1.0-alpha.3":
   version "2.1.0-alpha.3"
   resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-tide-landing-page/-/ripple-tide-landing-page-2.1.0-alpha.3.tgz#96e73be587de787b77ede9c214051a782307bb89"

@@ -3,7 +3,8 @@ export default { name: 'RplSocialShare' }
 </script>
 
 <script setup lang="ts">
-import { reactive, onMounted } from 'vue'
+import { reactive, onMounted, computed } from 'vue'
+import { RplSocialShareNetworks } from './constants'
 import RplSocialShareLink from './social-share-link.vue'
 
 interface Props {
@@ -12,10 +13,15 @@ interface Props {
   pagetitle: string
 }
 
-withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<Props>(), {
   title: 'Share this page',
-  networks: () => ['Facebook', 'Twitter', 'LinkedIn']
+  networks: () => Object.keys(RplSocialShareNetworks)
 })
+
+// Check that network has a template in constants
+const validNetworks = computed(() =>
+  props.networks.filter((k) => Object.keys(RplSocialShareNetworks).includes(k))
+)
 
 const state = reactive({
   url: ''
@@ -33,7 +39,7 @@ onMounted(() => {
     </h3>
     <div class="rpl-social-share__items">
       <RplSocialShareLink
-        v-for="network in networks"
+        v-for="network in validNetworks"
         :key="network.toLowerCase()"
         :network="network"
         :title="pagetitle"

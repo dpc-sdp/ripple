@@ -3,29 +3,26 @@ export default { name: 'RplSocialShare' }
 </script>
 
 <script setup lang="ts">
-import { RplSocialSharePage } from './constants'
 import RplIcon from '../icon/icon.vue'
+import ShareNetwork from 'vue-social-sharing/src/share-network'
 
 interface Props {
-  title?: string | null
+  title?: string
   networks?: string[]
-  page?: RplSocialSharePage
+  pagetitle?: string
+  pageurl?: string
 }
 
 withDefaults(defineProps<Props>(), {
   title: 'Share this page',
   networks: () => ['Facebook', 'Twitter', 'LinkedIn'],
-  page: () => {
-    return {
-      title: '',
-      url: ''
-    }
-  }
+  pagetitle: '',
+  pageurl: ''
 })
 </script>
 
 <template>
-  <div v-if="page.title && page.url" class="rpl-social-share">
+  <div v-if="pagetitle && pageurl" class="rpl-social-share">
     <h3 v-if="title" class="rpl-social-share__title rpl-type-label-large">
       {{ title }}
     </h3>
@@ -34,8 +31,8 @@ withDefaults(defineProps<Props>(), {
         v-for="network in networks"
         :key="network.toLowerCase()"
         :network="network.toLowerCase()"
-        :title="page.title"
-        :url="page.url"
+        :title="pagetitle"
+        :url="pageurl"
         class="
           rpl-text-link
           rpl-social-share__link

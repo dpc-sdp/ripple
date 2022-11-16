@@ -94,8 +94,8 @@ interface Props {
   pageLanguage?: string
   pageDescription?: string
   footerImageCaption?: string
-  topicTags: TideTopicTag[]
-  updatedDate: string
+  topicTags?: TideTopicTag[]
+  updatedDate?: string | null
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -103,7 +103,8 @@ const props = withDefaults(defineProps<Props>(), {
   pageLanguage: 'en-AU',
   pageDescription: '',
   footerImageCaption: '',
-  topicTags: () => []
+  topicTags: () => [],
+  updatedDate: null
 })
 
 onMounted(() => {

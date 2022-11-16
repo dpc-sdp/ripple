@@ -1,5 +1,14 @@
 <template>
-  <TideBaseLayout :background="page.background">
+  <TideBaseLayout
+    :site="site"
+    :background="page.background"
+    :pageTitle="page.title"
+    :pageDescription="page.description"
+    :pageLanguage="page.lang"
+    :footerImageCaption="
+      page.showHeroImageCaption ? page.heroHeader.backgroundImageCaption : ''
+    "
+  >
     <template #aboveHeader>
       <slot name="aboveHeader"></slot>
     </template>
@@ -14,7 +23,10 @@
         :header="page.heroHeader"
         :hideBottomCornerGraphic="!!page.primaryCampaign"
       />
-      <TideLandingPageHeroAcknowledgement v-if="page.showHeroAcknowledgement" />
+      <TideLandingPageHeroAcknowledgement
+        v-if="page.showHeroAcknowledgement"
+        :message="site?.acknowledgementHeader"
+      />
       <TideDynamicComponents
         v-if="page.headerComponents?.length > 0"
         :components="page.headerComponents"

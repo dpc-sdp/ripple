@@ -2,16 +2,16 @@ export default () => {
   // TODO: Wire useSiteMenu up to real content, currently hardcoded with example
   // from storybook.
   return {
-    primaryLogo: {
-      href: '#',
-      src: '/img/primary-nav-logo-primary.svg',
-      altText: 'Primary logo alt text'
-    },
-    secondaryLogo: {
-      href: '#',
-      src: '/img/primary-nav-logo-secondary.svg',
-      altText: 'Secondary logo alt text'
-    },
+    // primaryLogo: {
+    //   href: '#',
+    //   src: '/img/primary-nav-logo-primary.svg',
+    //   altText: 'Primary logo alt text'
+    // },
+    // secondaryLogo: {
+    //   href: '#',
+    //   src: '/img/primary-nav-logo-secondary.svg',
+    //   altText: 'Secondary logo alt text'
+    // },
     items: [
       {
         id: '1',

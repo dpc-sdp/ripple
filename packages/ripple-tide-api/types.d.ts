@@ -38,6 +38,7 @@ export interface TidePageBase {
   created: string
   modified: string
   nid: number
+  lang: string
   sidebar: {
     contacts?: TideContact[]
     relatedLinks?: TideLink[]

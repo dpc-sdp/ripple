@@ -19,6 +19,7 @@ export interface ITideHeroHeader {
   theme: 'default' | 'reverse' | 'neutral'
   logoImage: TideImageField | null
   backgroundImage: TideImageField | null
+  backgroundImageCaption: string
   cornerTopImage: TideImageField | null
   cornerBottomImage: TideImageField | null
   primaryAction: TideUrlField | null
@@ -66,6 +67,10 @@ export const heroHeaderMapping = (src): ITideHeroHeader => {
         'field_paragraph_cta'
       ])
     },
+    backgroundImageCaption: getField(
+      src,
+      'field_landing_page_hero_image.field_media_caption'
+    ),
     theme: getHeaderTheme(src),
     logoImage: getImageFromField(
       src,

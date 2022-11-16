@@ -14,7 +14,14 @@
       <slot name="primaryNav">
         <RplPrimaryNav
           v-bind="primaryNavProps"
+          :primaryLogo="{
+            src: '/img/primary-nav-logo-primary.svg',
+            altText: 'Victoria government logo',
+            href: '/'
+          }"
+          :secondaryLogo="site?.siteLogo"
           :items="site?.menus.menuMain"
+          :showQuickExit="site?.showQuickExit"
         ></RplPrimaryNav>
       </slot>
     </template>
@@ -46,7 +53,18 @@
     </template>
     <template #footer>
       <slot name="footer">
-        <RplFooter :nav="site?.menus.menuMain"></RplFooter>
+        <RplFooter
+          :nav="site?.menus.menuMain"
+          :links="site.menus.menuFooter"
+          :copyright="site.copyright"
+          :acknowledgement="site.acknowledgementFooter"
+          :logos="site.footerLogos"
+          :credit="footerImageCaption"
+        >
+          <template #copyright>
+            <div v-html="site.copyrightHtml"></div>
+          </template>
+        </RplFooter>
       </slot>
     </template>
   </RplLayout>
@@ -54,52 +72,34 @@
 
 <script setup lang="ts">
 // @ts-ignore
-import {
-  useRuntimeConfig,
-  useFetch,
-  useHead,
-  useSiteTheme,
-  useSiteMenu,
-  useAppConfig
-} from '#imports'
+import { useHead, useSiteTheme, useSiteMenu, useAppConfig } from '#imports'
 import { computed, onMounted } from 'vue'
 
 interface Props {
+  site: any
   background?: string
   pageTitle: string
   pageLanguage?: string
   pageDescription?: string
+  footerImageCaption?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
   background: 'default',
   pageLanguage: 'en-AU',
-  pageDescription: ''
+  pageDescription: '',
+  footerImageCaption: ''
 })
 
 onMounted(() => {
   // Used for knowing when page is ready for cypress testing
   document.body.setAttribute('data-nuxt-hydrated', 'true')
+  console.log(props.site)
 })
-
-const { public: config } = useRuntimeConfig()
-const siteId = config.tide?.contentApi.site
-
-// @ts-ignore
-const { data: site, error: siteError } = useFetch('/api/tide/site', {
-  baseURL: config.API_URL || '',
-  params: {
-    id: siteId
-  }
-})
-
-if (siteError) {
-  throw new Error("Site data couldn't be fetched")
-}
 
 // TODO: Wire useSiteMenu up to real content, currently hardcoded with example
 // from storybook.
-const primaryNavProps = useSiteMenu(site)
+const primaryNavProps = useSiteMenu(props.site.value)
 
 // TODO: Will need to implement breadcrumb business logic
 const breadcrumbs = computed(() => {
@@ -111,7 +111,7 @@ const breadcrumbs = computed(() => {
   }
 })
 
-const style = useSiteTheme(site.value?.theme || useAppConfig().theme)
+const style = useSiteTheme(props.site.value?.theme || useAppConfig().theme)
 useHead({
   title: props.pageTitle,
   htmlAttrs: {

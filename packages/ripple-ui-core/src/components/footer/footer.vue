@@ -26,7 +26,7 @@ interface Props {
   links?: CoreLink[]
   logos?: LogoLink[]
   credit?: string
-  copyright?: string
+  acknowledgement?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -35,7 +35,7 @@ const props = withDefaults(defineProps<Props>(), {
   links: () => [],
   logos: () => [],
   credit: undefined,
-  copyright: '© Copyright State Government of Victoria'
+  acknowledgement: undefined
 })
 
 const isMounted = ref(false)
@@ -162,7 +162,7 @@ const columns = computed(() => {
       <div class="rpl-container">
         <slot name="custom-content">
           <div class="rpl-footer__custom-content-inner">
-            <RplAcknowledgement />
+            <RplAcknowledgement :message="acknowledgement" />
           </div>
         </slot>
         <p v-if="credit" class="rpl-footer__credit rpl-type-label-small">
@@ -180,9 +180,11 @@ const columns = computed(() => {
               }}</RplTextLink>
             </li>
           </ul>
-          <p class="rpl-type-label-small">
-            {{ copyright }}
-          </p>
+          <div class="rpl-type-label-small">
+            <slot name="copyright">
+              <p>© Copyright State Government of Victoria</p>
+            </slot>
+          </div>
         </div>
         <div class="rpl-footer-bottom__branding">
           <a

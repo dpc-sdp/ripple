@@ -1,6 +1,6 @@
 <template>
-  <slot v-if="page" :name="`${componentName}Page`" v-bind="{ page }">
-    <component :is="`${componentName}Page`" :page="page">
+  <slot v-if="page" :name="`${componentName}Page`" v-bind="{ page, site }">
+    <component :is="`${componentName}Page`" :page="page" :site="site">
       <template #sidebar>
         <slot name="aboveSidebar"></slot>
         <slot v-if="page.sidebar" name="sidebar">
@@ -41,19 +41,38 @@
 // @ts-ignore
 import { useRoute, useRuntimeConfig, useFetch } from '#imports'
 
-import { computed } from 'vue'
+import { computed, onMounted } from 'vue'
 import { pascalCase } from 'change-case'
 
 const route = useRoute()
 const { public: config } = useRuntimeConfig()
 const siteId = config.tide?.contentApi.site
 
-const { data: page, error: pageError } = useFetch('/api/tide/page', {
-  baseURL: config.API_URL || '',
-  params: {
-    path: route.path,
-    site: siteId
-  }
+const [{ data: site, error: siteError }, { data: page, error: pageError }] =
+  await Promise.all([
+    useFetch('/api/tide/site', {
+      baseURL: config.API_URL || '',
+      params: {
+        id: siteId
+      }
+    }),
+    useFetch('/api/tide/page', {
+      baseURL: config.API_URL || '',
+      params: {
+        path: route.path,
+        site: siteId
+      }
+    })
+  ])
+
+// TODO: Properly handle this
+if (siteError.value) {
+  throw new Error("Site data couldn't be fetched")
+}
+
+onMounted(() => {
+  console.log('we', site)
+  console.log('w', page.value)
 })
 
 const componentName = computed(

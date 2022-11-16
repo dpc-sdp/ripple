@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import { RplAcknowledgement } from '@dpc-sdp/ripple-ui-core'
+defineProps<{
+  message: string
+}>()
 </script>
 
 <template>
@@ -8,7 +11,7 @@ import { RplAcknowledgement } from '@dpc-sdp/ripple-ui-core'
     class="tide-hero-ack rpl-u-padding-t-4 rpl-u-padding-b-4"
   >
     <div class="rpl-container">
-      <RplAcknowledgement />
+      <RplAcknowledgement :message="message" />
     </div>
   </div>
 </template>

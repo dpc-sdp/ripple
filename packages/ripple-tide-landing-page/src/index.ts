@@ -34,6 +34,7 @@ const tideLandingPageModule: RplTideMapping = {
     summary: 'field_landing_page_summary',
     showHeroAcknowledgement: 'field_show_ack_of_country',
     showInPageNav: 'field_show_table_of_content',
+    showHeroImageCaption: 'field_show_hero_image_caption',
     inPageNavHeadingLevel: (src) => {
       if (src.field_node_display_headings === 'showH2AndH3') {
         return 'h3'

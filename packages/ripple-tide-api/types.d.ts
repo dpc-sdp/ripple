@@ -51,6 +51,11 @@ export type TideDynamicPageComponent<T> = {
   props: T
   class?: Record<string, any>
   layout?: 'card' | string
+  internalAnchors?: {
+    id: string
+    text: string
+    type: 'h2' | 'h3'
+  }[]
 }
 
 export type TideDynamicComponentGroup = {

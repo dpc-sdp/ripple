@@ -34,6 +34,7 @@ const { container, trigger } = useAccessibleContainer()
   <RplCard ref="container" type="promo" :highlight="highlight" :el="el">
     <template v-if="image" #upper>
       <RplImage
+        data-cy="image"
         class="rpl-card__media rpl-card__media--round-top"
         :src="image"
         alt=""
@@ -45,7 +46,7 @@ const { container, trigger } = useAccessibleContainer()
       </div>
     </template>
     <template #title>
-      <h3 :class="titleClasses">
+      <h3 :class="titleClasses" data-cy="title">
         <RplTextLink ref="trigger" :url="url">{{ title }}</RplTextLink>
       </h3>
     </template>

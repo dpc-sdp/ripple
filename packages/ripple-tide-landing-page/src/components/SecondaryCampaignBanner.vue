@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { RplSecondaryCampaign } from '@dpc-sdp/ripple-ui-core'
-import { ITideSecondaryCampaign } from '../mapping/primary-campaign/primary-campaign-mapping'
+import { ITideSecondaryCampaign } from '../mapping/secondary-campaign/secondary-campaign-mapping'
 
 defineProps<{
   campaign: ITideSecondaryCampaign
@@ -12,8 +12,9 @@ defineProps<{
     :title="campaign.title"
     :link="campaign.cta"
     :image="campaign.image"
+    data-cy="secondary-campaign"
   >
-    <RplContent :html="campaign.summaryHtml" />
+    <RplContent :html="campaign.summaryHtml" data-cy="summary" />
     <template #meta>
       {{ campaign.imageCaption }}
     </template>

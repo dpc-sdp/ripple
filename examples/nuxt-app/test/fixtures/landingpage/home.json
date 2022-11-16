@@ -62,7 +62,11 @@
         "url": "https://www.vic.gov.au/department-premier-and-cabinet"
       }
     ],
-    "socialShareNetworks": ["Facebook", "Twitter", "LinkedIn"],
+    "socialShareNetworks": [
+      "Facebook",
+      "Twitter",
+      "LinkedIn"
+    ],
     "siteSectionNav": {
       "title": "Site-section Navigation",
       "items": [
@@ -76,120 +80,489 @@
       ]
     }
   },
-  "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet ligula sit amet lacinia. In a leo nec tortor aliquet faucibus.",
+  "summary": "Page summary",
+  "showHeroAcknowledgement": true,
+  "showInPageNav": true,
+  "inPageNavHeadingLevel": "h3",
   "background": "default",
-  "headerComponents": [],
+  "heroHeader": {
+    "title": "Test landing page title",
+    "introText": "Test landing page title introduction text",
+    "links": {
+      "title": "Want to know more about...",
+      "items": [
+        {
+          "text": "Test link 1",
+          "url": "/embedded-video-test"
+        },
+        {
+          "text": "Test link 2",
+          "url": "/sdpta-statistics-grid-eight-landing-page-fixture"
+        },
+        {
+          "text": "Test link 3",
+          "url": "/sdpta-accordion-landing-page-fixture"
+        }
+      ],
+      "more": {
+        "text": "Test header CTA",
+        "url": "/demo-publication/demo-publication-chapter-2/demo-publication-chapter-2-page-1"
+      }
+    },
+    "theme": "default",
+    "logoImage": {
+      "src": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Bendigo-Hospital.jpg",
+      "alt": "Demo: Bendigo Hospital",
+      "title": "Demo: Bendigo Hospital.jpg",
+      "width": 1280,
+      "height": 959
+    },
+    "backgroundImage": null,
+    "cornerTopImage": {
+      "src": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Parliament-of-Victoria.jpg",
+      "alt": "Demo: Parliament of Victoria",
+      "title": "Demo: Parliament of Victoria",
+      "width": 1650,
+      "height": 915
+    },
+    "cornerBottomImage": {
+      "src": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/VicFleet-Police-car-on-road.jpg",
+      "alt": "Demo: VicFleet - Police car on road",
+      "title": "Demo: VicFleet - Police car on road",
+      "width": 1065,
+      "height": 617
+    },
+    "primaryAction": {
+      "text": "Testing call to action",
+      "url": "/clone-sdpta-113-clone-landing-page-fixture"
+    },
+    "secondaryAction": {
+      "text": "Testing some link text",
+      "url": "/sdpta-secondary-campaign-landing-page-fixture"
+    },
+    "secondaryActionLabel": "Just some free text"
+  },
+  "primaryCampaign": {
+    "title": "Demo primary campaign",
+    "summaryHtml": "<p>Test summary for <strong>primary campaign</strong></p>",
+    "cta": {
+      "text": "Testing CTA text",
+      "url": "/demo-destination"
+    },
+    "image": {
+      "src": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-skyline-at-dusk.jpg",
+      "alt": "Demo: Melbourne skyline at dusk",
+      "title": "Demo: Melbourne skyline at dusk",
+      "width": 2560,
+      "height": 650
+    },
+    "imageCaption": null
+  },
+  "secondaryCampaign": {
+    "title": "Demo secondary campaign",
+    "summaryHtml": "<p>Test summary for <strong>secondary campaign</strong></p>",
+    "cta": {
+      "text": "Testing secondary CTA text",
+      "url": "/demo-secondary-destination"
+    },
+    "image": {
+      "src": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg",
+      "alt": "Demo: Melbourne tram",
+      "title": "Demo: Melbourne tram",
+      "width": 1413,
+      "height": 785
+    },
+    "imageCaption": null
+  },
+  "headerComponents": [
+    {
+      "uuid": "3a29034c-b50c-4d83-a5f5-e6b6adaa6513",
+      "component": "TideLandingPageSearchBanner",
+      "id": "1911",
+      "props": {
+        "placeholder": "Test search placeholder",
+        "searchUrl": "/search/[SEARCH-KEYWORDS]",
+        "openInNewWindow": false
+      }
+    },
+    {
+      "uuid": "cc5ab146-a5eb-4502-afa7-ae8813b8ae18",
+      "component": "TideLandingPageIntroBanner",
+      "id": "1030",
+      "props": {
+        "title": "Test introduction banner",
+        "withIcon": true,
+        "links": {
+          "title": "Button heading",
+          "items": [
+            {
+              "text": "Test link 1",
+              "url": "/demo-link-1"
+            },
+            {
+              "text": "Test link 2",
+              "url": "/demo-link-2"
+            }
+          ],
+          "more": null
+        },
+        "html": "<p>And here's the <strong>summary</strong></p>"
+      }
+    }
+  ],
   "bodyComponents": [
     {
-      "uuid": "50a9b950-e488-4eb5-8847-4f700787aff8",
+      "uuid": "a99aa287-7fac-430b-864e-3a1b044460b1",
       "component": "RplContent",
-      "id": 678,
+      "id": "969",
+      "internalAnchors": [
+        {
+          "text": "Content Anchor 1",
+          "id": "content-anchor-1",
+          "type": "h2"
+        },
+        {
+          "text": "Content Anchor 2",
+          "id": "content-anchor-2",
+          "type": "h3"
+        }
+      ],
       "props": {
-        "html": "<h2>Nulla ultricies dignissim leo, posuere vestibulum erat cursus vitae</h2>\n<h3>Phasellus congue aliquam vehicula</h3>\n<p class=\"rpl-callout\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet ligula sit amet lacinia. In a leo nec tortor aliquet faucibus. Quisque nec congue ligula, vitae condimentum tellus. Nulla nec urna augue. Curabitur commodo nisi est, eu pulvinar tortor cursus vel. Morbi dictum ex est, et semper diam finibus eu. Cras rutrum, nunc a fringilla convallis, massa est vulputate velit, in blandit augue dui vitae elit. Donec hendrerit commodo augue, in maximus orci tempor congue. Mauris ultricies euismod orci, nec vehicula quam vehicula ac. Nunc dictum tortor dolor, nec eleifend orci luctus sed.</p>\n<h3>Donec scelerisque cursus ex varius efficitur</h3>\n<h4>Morbi cursus placerat mi</h4>\n<h5>Nullam laoreet ante placerat</h5>\n<p>Integer interdum nisl ut neque dictum, et sagittis metus feugiat. Sed in mattis neque. Duis at risus non ipsum semper dapibus. Sed enim sapien, molestie sed commodo vel, lacinia vitae risus. Proin sagittis diam nisi, sed rhoncus diam varius id. Sed malesuada felis tortor, scelerisque pretium elit tempor non. Pellentesque ultrices volutpat tincidunt. Fusce quis viverra urna, quis finibus nulla.</p>\n<blockquote class=\"quotation\">\n  <p>Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus. Phasellus lacus lectus, sollicitudin sed posuere non, ultricies ut quam.</p>\n  <footer>\n    <cite>\n      <span class=\"quotation__author\">Duis ligula lacus</span><br>\n      <span class=\"quotation__author-title\">Phasellus est turpis, efficitur nec odio imperdiet</span><br>\n    </cite>\n  </footer>\n</blockquote>\nMauris tincidunt tincidunt felis vel tempus\n<img src=\"https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg\" class=\"rpl-img\" width=\"1413\" alt=\"Demo: Melbourne tram\" srcset=\"https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg?width=606,\n      https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg?width=1212 2x\">\n\n<p>Phasellus in varius leo. Suspendisse potenti. Donec scelerisque cursus ex varius efficitur. Vivamus pretium nisi sed libero accumsan mattis. Duis convallis, velit eget varius tempus, orci erat aliquam sem, eget porta mauris nisl at mauris.</p>\n<div data-embed-button=\"tide_media\" data-entity-embed-display=\"view_mode:media.embedded\" data-entity-type=\"media\" data-entity-uuid=\"11dede11-10c0-111e1-1100-000000000007\" data-langcode=\"en\" class=\"embedded-entity embedded-entity--media embedded-entity--media--document\"><article class=\"media media--type-document media--view-mode-embedded\">\n  \n      \n            <div class=\"field field--name-field-media-file field--type-file field--label-hidden field__item\">\n<span class=\"file file--mime-application-vnd-openxmlformats-officedocument-wordprocessingml-document file--x-office-document\"> <a href=\"https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/sample.docx\" class=\"x-office-document\" aria-label=\"Demo Sample Document File type: Word. Size: 7.53 KB.\"><span class=\"file--title\">Demo Sample Document</span><span class=\"file--type\">Word</span><span class=\"file--size\">7.53 KB</span></a></span>\n</div>\n      \n  </article>\n</div>\n"
+        "html": "<p>Here is <em>some</em> sample <strong>rich</strong> text content</p>"
       }
     },
     {
-      "uuid": "e7e029fb-be19-4443-bf9e-0f7f4358985a",
+      "uuid": "9ac2e9a6-958f-47d4-beb1-d1576e424571",
       "component": "RplAccordion",
-      "id": "682",
-      "title": "Accordion header (basic)",
+      "id": "972",
+      "title": "Test accordion title",
       "props": {
-        "id": "682",
-        "numbered": true,
+        "id": "972",
+        "numbered": false,
         "items": [
           {
-            "id": "679",
+            "id": "970",
             "title": "Accordion #1",
-            "content": "<p>Phasellus in varius leo. Suspendisse potenti. Donec scelerisque cursus ex varius efficitur. Vivamus pretium nisi sed libero accumsan mattis. Duis convallis, velit eget varius tempus, orci erat aliquam sem, eget porta mauris nisl at mauris.</p>"
+            "content": "<p>Test <b>rich</b> text content #1</p>"
           },
           {
-            "id": "680",
+            "id": "971",
             "title": "Accordion #2",
-            "content": "<p>Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus. Phasellus lacus lectus, sollicitudin sed posuere non, ultricies ut quam.</p>"
-          },
-          {
-            "id": "681",
-            "title": "Accordion #3",
-            "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet ligula sit amet lacinia. In a leo nec tortor aliquet faucibus. Quisque nec congue ligula, vitae condimentum tellus.</p>"
+            "content": "<p>Test <b>rich</b> text content #2</p>"
           }
         ]
       }
     },
     {
-      "uuid": "33c607ca-e062-4fbc-9a1f-37133841fad4",
-      "component": "RplAccordion",
-      "id": "686",
-      "title": "Accordion header (numbered)",
-      "props": {
-        "id": "686",
-        "numbered": true,
-        "items": [
-          {
-            "id": "683",
-            "title": "Accordion #1",
-            "content": "<p>Phasellus in varius leo. Suspendisse potenti. Donec scelerisque cursus ex varius efficitur. Vivamus pretium nisi sed libero accumsan mattis. Duis convallis, velit eget varius tempus, orci erat aliquam sem, eget porta mauris nisl at mauris.</p>"
-          },
-          {
-            "id": "684",
-            "title": "Accordion #2",
-            "content": "<p>Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus. Phasellus lacus lectus, sollicitudin sed posuere non, ultricies ut quam.</p>"
-          },
-          {
-            "id": "685",
-            "title": "Accordion #3",
-            "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet ligula sit amet lacinia. In a leo nec tortor aliquet faucibus. Quisque nec congue ligula, vitae condimentum tellus.</p>"
-          }
-        ]
-      }
-    },
-    {
-      "uuid": "cff0839c-f0a7-4eb6-9fe9-91e5d95d12b3",
+      "uuid": "a59f6283-df71-44b2-8bbc-43979749e8d0",
       "component": "TideLandingPagePromoCard",
-      "id": 689,
+      "id": "976",
+      "layout": "card",
       "props": {
-        "displayStyle": "thumbnail",
-        "title": "Card Promotion",
-        "summary": "Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus.",
-        "image": null,
+        "displayStyle": "noImage",
+        "title": "Promo card (noImage)",
+        "summary": "Sample description",
+        "image": {
+          "src": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg",
+          "focalPoint": {
+            "x": 707,
+            "y": 393
+          },
+          "alt": "Demo: Melbourne tram",
+          "width": 1413,
+          "height": 785,
+          "title": "Demo: Melbourne tram"
+        },
         "link": {
-          "text": "Vestibulum rhoncus",
-          "url": "https://www.vic.gov.au"
+          "text": "",
+          "url": "/demo-destination"
         },
         "showMetadata": true,
         "metadata": {
-          "dateStart": "",
-          "dateEnd": "",
-          "topic": "",
-          "contentType": "",
+          "dateStart": "2019-07-02 09:00:00",
+          "dateEnd": "2019-07-07 10:00:00",
+          "topic": "Demo Topic",
+          "contentType": "Event",
           "fvRecommendationStatus": "",
           "inductionYear": "",
-          "isGrantOnGoing": ""
+          "isGrantOngoing": false
         }
       }
     },
     {
-      "uuid": "ee380cf5-cfe4-4bb0-a103-94e8648201d1",
-      "component": "TideLandingPageNavCard",
-      "id": 690,
+      "uuid": "a8d41037-383f-4f0b-8b43-9a6162873cb8",
+      "component": "TideLandingPagePromoCard",
+      "id": "977",
+      "layout": "card",
       "props": {
-        "displayStyle": "noImage",
-        "title": "Navigation card",
-        "summary": "Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus.",
-        "image": null,
-        "link": {
-          "text": "Vestibulum rhoncus",
-          "url": "https://www.vic.gov.au"
+        "displayStyle": "thumbnail",
+        "title": "Promo card (thumbnail)",
+        "summary": "Sample description",
+        "image": {
+          "src": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg",
+          "focalPoint": {
+            "x": 707,
+            "y": 393
+          },
+          "alt": "Demo: Melbourne tram",
+          "width": 1413,
+          "height": 785,
+          "title": "Demo: Melbourne tram"
         },
-        "showMetadata": false,
+        "link": {
+          "text": "",
+          "url": "/demo-destination"
+        },
+        "showMetadata": true,
         "metadata": {
-          "dateStart": "",
-          "dateEnd": "",
-          "topic": "",
-          "contentType": "",
+          "dateStart": "2019-07-02 09:00:00",
+          "dateEnd": "2019-07-07 10:00:00",
+          "topic": "Demo Topic",
+          "contentType": "Event",
           "fvRecommendationStatus": "",
           "inductionYear": "",
-          "isGrantOnGoing": ""
+          "isGrantOngoing": false
         }
+      }
+    },
+    {
+      "uuid": "c509edfe-89a6-4b8d-b8e1-f72e6774da1f",
+      "component": "TideLandingPagePromoCard",
+      "id": "978",
+      "layout": "card",
+      "props": {
+        "displayStyle": "profile",
+        "title": "Promo card (profile)",
+        "summary": "Sample description",
+        "image": {
+          "src": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg",
+          "focalPoint": {
+            "x": 707,
+            "y": 393
+          },
+          "alt": "Demo: Melbourne tram",
+          "width": 1413,
+          "height": 785,
+          "title": "Demo: Melbourne tram"
+        },
+        "link": {
+          "text": "",
+          "url": "/demo-destination"
+        },
+        "showMetadata": true,
+        "metadata": {
+          "dateStart": "2019-07-02 09:00:00",
+          "dateEnd": "2019-07-07 10:00:00",
+          "topic": "Demo Topic",
+          "contentType": "Event",
+          "fvRecommendationStatus": "",
+          "inductionYear": "",
+          "isGrantOngoing": false
+        }
+      }
+    },
+    {
+      "uuid": "e92bbc8b-a2b6-4fdf-aa10-2329a0b0bc5a",
+      "component": "TideLandingPageNavCard",
+      "id": "981",
+      "props": {
+        "displayStyle": "noImage",
+        "title": "Nav card (noImage)",
+        "summary": "Sample description",
+        "image": {
+          "src": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg",
+          "focalPoint": {
+            "x": 707,
+            "y": 393
+          },
+          "alt": "Demo: Melbourne tram",
+          "width": 1413,
+          "height": 785,
+          "title": "Demo: Melbourne tram"
+        },
+        "link": {
+          "text": "",
+          "url": "/tc-9a-grant-simple-test-date-range"
+        },
+        "showMetadata": true,
+        "metadata": {
+          "dateStart": "2019-04-08T08:00:00",
+          "dateEnd": "2019-05-08T10:00:00",
+          "topic": "Demo Topic",
+          "contentType": "Grant",
+          "fvRecommendationStatus": "",
+          "inductionYear": "",
+          "isGrantOngoing": false
+        }
+      }
+    },
+    {
+      "uuid": "77e1ae48-8bf7-44ce-8561-79fe4b528611",
+      "component": "TideLandingPageNavCard",
+      "id": "982",
+      "props": {
+        "displayStyle": "thumbnail",
+        "title": "Nav card (thumbnail)",
+        "summary": "Sample description",
+        "image": {
+          "src": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg",
+          "focalPoint": {
+            "x": 707,
+            "y": 393
+          },
+          "alt": "Demo: Melbourne tram",
+          "width": 1413,
+          "height": 785,
+          "title": "Demo: Melbourne tram"
+        },
+        "link": {
+          "text": "",
+          "url": "/test-grant"
+        },
+        "showMetadata": true,
+        "metadata": {
+          "dateStart": "2022-11-01T05:41:38",
+          "dateEnd": "2022-11-06T06:12:00",
+          "topic": "Demo Topic",
+          "contentType": "Grant",
+          "fvRecommendationStatus": "",
+          "inductionYear": "",
+          "isGrantOngoing": false
+        }
+      }
+    },
+    {
+      "uuid": "6294cfdb-3059-48a4-8ece-d64d32e63558",
+      "component": "TideLandingPageNavCard",
+      "id": "983",
+      "props": {
+        "displayStyle": "featured",
+        "title": "Nav card (featured)",
+        "summary": "Sample description",
+        "image": {
+          "src": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg",
+          "focalPoint": {
+            "x": 707,
+            "y": 393
+          },
+          "alt": "Demo: Melbourne tram",
+          "width": 1413,
+          "height": 785,
+          "title": "Demo: Melbourne tram"
+        },
+        "link": {
+          "text": "",
+          "url": "/tc-9a-grant-simple-test-date-range"
+        },
+        "showMetadata": true,
+        "metadata": {
+          "dateStart": "2019-04-08T08:00:00",
+          "dateEnd": "2019-05-08T10:00:00",
+          "topic": "Demo Topic",
+          "contentType": "Grant",
+          "fvRecommendationStatus": "",
+          "inductionYear": "",
+          "isGrantOngoing": false
+        }
+      }
+    },
+    {
+      "uuid": "ec0ec723-df8d-4e6c-8a5f-3780381b04f3",
+      "component": "RplCardKeyDatesCard",
+      "id": "988",
+      "layout": "card",
+      "props": {
+        "title": "Key calendar dates",
+        "items": [
+          {
+            "title": "An event",
+            "subtitle": "12th October 2022",
+            "content": "Summary of an event"
+          },
+          {
+            "title": "Another event",
+            "subtitle": "13th October 2022",
+            "content": "Summary of another event"
+          }
+        ],
+        "ctaTitle": "Test CTA text",
+        "url": "/test-cta-link"
+      }
+    },
+    {
+      "uuid": "c83c8494-1cb9-429c-af8f-9a4fa3a1fc94",
+      "component": "RplTimeline",
+      "id": "992",
+      "title": "Test timeline title",
+      "props": {
+        "items": [
+          {
+            "id": "989",
+            "title": "Milestone 1 title",
+            "subtitle": "Milestone 1 text",
+            "url": "/test-destination-1",
+            "description": "<p>Milestone 1 <strong>summary</strong> <em>field</em></p>",
+            "image": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/VicFleet-Police-car-on-road.jpg",
+            "current": false,
+            "dateStart": "2022-06-02T04:53:53+10:00",
+            "dateEnd": "2022-11-11T21:58:55+11:00"
+          },
+          {
+            "id": "990",
+            "title": "Milestone 2 title",
+            "subtitle": "Milestone 1 text",
+            "url": "/test-destination-2",
+            "description": "<p>Milestone 2 <strong>summary</strong> <em>field</em></p>",
+            "image": "",
+            "current": true,
+            "dateStart": "2022-10-04T04:54:11+11:00",
+            "dateEnd": "2022-11-17T16:59:14+11:00"
+          },
+          {
+            "id": "991",
+            "title": "Milestone 3 title",
+            "subtitle": "Milestone 3 text",
+            "url": "",
+            "description": "",
+            "image": "",
+            "current": false,
+            "dateStart": null,
+            "dateEnd": null
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "5706a002-8b3b-4318-a553-455514495080",
+      "component": "TideLandingPageCallToAction",
+      "id": "1024",
+      "props": {
+        "title": "Test call to action title",
+        "image": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Two-men-working-in-hi-vis-clothing.jpg",
+        "imageAlt": "Demo: Two men working in hi-vis clothing",
+        "url": "/test-cta-destination",
+        "ctaText": "Test CTA text",
+        "summary": "<p>This is <strong>the description</strong></p>"
+      }
+    },
+    {
+      "uuid": "96d21d9a-f5c2-4ae5-8b0f-54664945bcf9",
+      "component": "TideLandingPageStatsGrid",
+      "id": "1028",
+      "props": {
+        "variant": "onLight",
+        "items": [
+          {
+            "id": "1026",
+            "label": "Label 1",
+            "value": "Value 1"
+          },
+          {
+            "id": "1027",
+            "label": "Label 2",
+            "value": "Value 2"
+          }
+        ]
       }
     }
   ]

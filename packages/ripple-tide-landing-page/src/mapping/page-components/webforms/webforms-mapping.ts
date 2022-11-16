@@ -1,4 +1,4 @@
-import { TideDynamicPageComponent, getBody } from '@dpc-sdp/ripple-tide-api'
+import { TideDynamicPageComponent } from '@dpc-sdp/ripple-tide-api'
 import { FormKitSchemaNode } from '@formkit/core'
 
 export interface ITideWebform {

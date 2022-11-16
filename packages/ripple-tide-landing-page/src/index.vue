@@ -10,7 +10,11 @@
       <slot name="breadcrumbs"></slot>
     </template>
     <template #aboveBody>
-      <TideLandingPageHeroHeader :header="page.heroHeader" />
+      <TideLandingPageHeroHeader
+        :header="page.heroHeader"
+        :hideBottomCornerGraphic="!!page.primaryCampaign"
+      />
+      <TideLandingPageHeroAcknowledgement v-if="page.showHeroAcknowledgement" />
       <TideDynamicComponents
         v-if="page.headerComponents?.length > 0"
         :components="page.headerComponents"
@@ -23,6 +27,11 @@
       />
     </template>
     <template #body="{ hasSidebar }">
+      <TideLandingPageInPageNavigation
+        v-if="page.showInPageNav"
+        :headingLevel="page.inPageNavHeadingLevel"
+        :components="page.bodyComponents"
+      />
       <TideDynamicComponents
         v-if="page.bodyComponents?.length > 0"
         :components="page.bodyComponents"

@@ -1,4 +1,4 @@
-import { TideImageField, TideUrlField } from '@dpc-sdp/ripple-tide-api'
+import { TideImageField } from '@dpc-sdp/ripple-tide-api/types'
 import {
   getField,
   getCardImageFromField,
@@ -20,7 +20,7 @@ export interface ITideCardBase {
   title: string
   summary: string
   image: TideImageField | null
-  link: TideUrlField
+  url: string
   showMetadata: boolean
   metadata: ITideCardMeta
 }
@@ -74,7 +74,7 @@ const getCardImage = (field): TideImageField => {
   return linkedImage ? linkedImage : ownImage
 }
 
-const getIsGrantOngoing = (field): TideImageField => {
+const getIsGrantOngoing = (field): boolean => {
   const value = getField(
     field,
     ['field_paragraph_link', 'internal_node_fields', 'ongoing'],
@@ -90,11 +90,13 @@ const getIsGrantOngoing = (field): TideImageField => {
 }
 
 export const genericCardMapping = (field): ITideCardBase => {
+  const link = getLinkFromField(field, 'field_paragraph_link')
+
   return {
     title: getCardTitle(field),
     summary: getCardSummary(field),
     image: getCardImage(field),
-    link: getLinkFromField(field, 'field_paragraph_link'),
+    url: link?.url,
     showMetadata: getField(field, 'field_customise', ''),
     metadata: {
       dateStart: getField(

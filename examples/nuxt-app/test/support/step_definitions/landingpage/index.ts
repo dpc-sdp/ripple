@@ -1,15 +1,19 @@
-import { When, Given, Before, After } from '@badeball/cypress-cucumber-preprocessor'
+import {
+  When,
+  Given,
+  Before,
+  After
+} from '@badeball/cypress-cucumber-preprocessor'
 
-Before({ tags: "@mockserver" }, () => {
+Before({ tags: '@mockserver' }, () => {
   cy.log('the mock server has started')
   cy.task('startMockServer')
 })
 
-After({ tags: "@mockserver" }, () => {
+After({ tags: '@mockserver' }, () => {
   cy.log('the mock server has stopped')
   cy.task('stopMockServer')
 })
-
 
 Given(`the mock server has started`, () => {
   cy.log('the mock server has started')
@@ -22,7 +26,6 @@ Given(`the mock server has started with proxy`, () => {
 })
 
 Given(`the mock server has been stopped`, () => {
-
   cy.task('stopMockServer')
   cy.log('the mock server has been stopped')
 })
@@ -38,4 +41,5 @@ Given(
 
 When('I visit the page {string}', (route: string) => {
   cy.visit(route)
+  cy.get('body').should('have.attr', 'data-nuxt-hydrated', 'true')
 })

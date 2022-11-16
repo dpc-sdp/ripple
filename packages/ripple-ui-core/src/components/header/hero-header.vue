@@ -84,9 +84,9 @@ const contentClasses = computed(() => ({
       <RplImage class="rpl-header__logo" v-bind="logo" />
     </template>
     <template #title>
-      <h1 :class="titleClasses" data-cy="title">{{ title }}</h1>
+      <h1 :class="titleClasses" data-cy="hero-title">{{ title }}</h1>
     </template>
-    <p v-if="$slots.default" :class="contentClasses">
+    <p v-if="$slots.default" :class="contentClasses" data-cy="hero-summary">
       <slot></slot>
     </p>
     <template v-if="(primaryAction || secondaryAction) && !background" #lower>

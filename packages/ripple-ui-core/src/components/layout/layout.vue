@@ -3,15 +3,7 @@ export default { name: 'RplLayout' }
 </script>
 
 <script setup lang="ts">
-import {
-  Comment,
-  Text,
-  VNode,
-  Fragment,
-  computed,
-  useSlots,
-  isVNode
-} from 'vue'
+import { Comment, Fragment, computed, useSlots, isVNode } from 'vue'
 
 interface Props {
   background?: 'default' | 'alt'
@@ -67,7 +59,7 @@ const hasSidebar = computed(() => {
             id="rpl-main"
             :class="{
               'rpl-col-12': true,
-              'rpl-col-7-l': hasSidebar
+              'rpl-col-7-m': hasSidebar
             }"
             class="rpl-layout__main"
           >

@@ -34,7 +34,6 @@ const share = usePopupWindow(shareTemplate.value, key.value)
     :aria-label="`Share this page on ${network}`"
     class="rpl-social-share-link rpl-type-p-small"
     @click.prevent="share"
-    @keydown.enter="share"
   >
     <RplIcon class="rpl-social-share__icon" :name="`icon-${key}`"></RplIcon>
     <span>{{ network }}</span>

@@ -1,7 +1,7 @@
 import type {
   TidePageBase,
   TideDynamicPageComponent
-} from '@dpc-sdp/ripple-tide-api'
+} from '@dpc-sdp/ripple-tide-api/types'
 
 export type TidePublicationHeader = {
   title: string

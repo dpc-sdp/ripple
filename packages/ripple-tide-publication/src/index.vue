@@ -3,7 +3,13 @@ export default { name: 'TidePublicationPage' }
 </script>
 
 <template>
-  <RplLayout :background="page.background">
+  <TideBaseLayout
+    :site="site"
+    :pageTitle="page.title"
+    :pageDescription="page.description"
+    :pageLanguage="page.lang"
+    :updatedDate="page.changed || page.created"
+  >
     <template #aboveHeader>
       <slot name="aboveHeader"></slot>
     </template>
@@ -42,13 +48,13 @@ export default { name: 'TidePublicationPage' }
     <template #footer>
       <slot name="footer"></slot>
     </template>
-  </RplLayout>
+  </TideBaseLayout>
 </template>
 
 <script setup lang="ts">
 import type { TidePublicationPage } from './types'
 import { computed } from 'vue'
-import { RplLayout, RplInPageNavigation } from '@dpc-sdp/ripple-ui-core'
+import { RplInPageNavigation } from '@dpc-sdp/ripple-ui-core'
 import TidePublicationHeader from './components/tide-publication-header.vue'
 import TidePublicationBody from './components/tide-publication-body.vue'
 import TidePublicationChapters from './components/tide-publication-chapters.vue'
@@ -56,6 +62,7 @@ import TidePublicationPageActions from './components/tide-publication-page-actio
 import TidePublicationSideNav from './components/tide-publication-side-nav.vue'
 
 defineProps<{
+  site: any
   page: TidePublicationPage
 }>()
 

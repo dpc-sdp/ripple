@@ -3,7 +3,13 @@ export default { name: 'TideMediaEmbeddedVideoPage' }
 </script>
 
 <template>
-  <RplLayout :background="page.background">
+  <TideBaseLayout
+    :site="site"
+    :pageTitle="page.title"
+    :pageDescription="page.description"
+    :pageLanguage="page.lang"
+    :updatedDate="page.changed || page.created"
+  >
     <template #aboveHeader>
       <slot name="aboveHeader"></slot>
     </template>
@@ -17,7 +23,7 @@ export default { name: 'TideMediaEmbeddedVideoPage' }
       <TideMediaHeader :header="page.header" />
     </template>
     <template #body>
-      <TideMediaBody :media="page.media" :date="page.changed">
+      <TideMediaBody :media="page.media">
         <!-- NOTE: this may be changed to the future video component -->
         <iframe
           :src="page.media.url"
@@ -32,16 +38,16 @@ export default { name: 'TideMediaEmbeddedVideoPage' }
     <template #footer>
       <slot name="footer"></slot>
     </template>
-  </RplLayout>
+  </TideBaseLayout>
 </template>
 
 <script setup lang="ts">
 import type { TideMediaPage } from '../../types'
-import { RplLayout } from '@dpc-sdp/ripple-ui-core'
 import TideMediaHeader from '../../components/tide-media-header.vue'
 import TideMediaBody from '../../components/tide-media-body.vue'
 
 interface Props {
+  site: any
   page: TideMediaPage
 }
 

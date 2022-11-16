@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.10](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.9...v2.1.0-alpha.10) (2022-11-16)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** :bug: remove redundant key handler ([f2aa391](https://github.com/dpc-sdp/ripple-framework/commit/f2aa391ae27cd804fbaf3bf625797ea0db5b94bf))
+
+
+
+
+
 # [2.1.0-alpha.9](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.8...v2.1.0-alpha.9) (2022-11-14)
 
 

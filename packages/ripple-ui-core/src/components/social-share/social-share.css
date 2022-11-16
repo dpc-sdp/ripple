@@ -20,6 +20,10 @@
     &:active {
       text-decoration: underline;
     }
+
+    &:visited {
+      color: var(--rpl-clr-type-default);
+    }
   }
 
   &__icon {

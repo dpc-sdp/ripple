@@ -8,7 +8,7 @@
     :footerImageCaption="
       page.showHeroImageCaption ? page.heroHeader.backgroundImageCaption : ''
     "
-    :topicTags="page.topicTags"
+    :topicTags="page.showTopicTags ? page.topicTags : []"
     :updatedDate="page.changed || page.created"
   >
     <template #aboveHeader>

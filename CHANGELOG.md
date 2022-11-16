@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.11](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.10...v2.1.0-alpha.11) (2022-11-16)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-landing-page:** cleanup console warnings and fix tests ([413f222](https://github.com/dpc-sdp/ripple-framework/commit/413f222be55a35915732772dbf4d1ccf8556f74e))
+
+
+### Features
+
+* **@dpc-sdp/ripple-tide-landing-page:** added header acknowledgement of country to landing ([57e7bbe](https://github.com/dpc-sdp/ripple-framework/commit/57e7bbefa7ad5c7cb8ec73ebc0b5b18141c72af9))
+* **@dpc-sdp/ripple-tide-landing-page:** added in page navigation to landing page ([b7e7568](https://github.com/dpc-sdp/ripple-framework/commit/b7e75688e071ef060595a7a1061d0b9e44d0be4a))
+* **@dpc-sdp/ripple-tide-landing-page:** added logic for hiding corner graphic ([5a8bc30](https://github.com/dpc-sdp/ripple-framework/commit/5a8bc309717d8feebf15ae2dcec27f699e87c69f))
+* **@dpc-sdp/ripple-tide-landing-page:** added search banner to landing page ([87492f1](https://github.com/dpc-sdp/ripple-framework/commit/87492f1ec7533f9baa66decc608fc6e669c9c183))
+
+
+
+
+
+# [2.1.0-alpha.10](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.9...v2.1.0-alpha.10) (2022-11-16)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** :bug: remove redundant key handler ([f2aa391](https://github.com/dpc-sdp/ripple-framework/commit/f2aa391ae27cd804fbaf3bf625797ea0db5b94bf))
+
+
+
+
+
 # [2.1.0-alpha.9](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.8...v2.1.0-alpha.9) (2022-11-14)
 
 

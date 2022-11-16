@@ -1,5 +1,6 @@
 import type { AxiosInstance } from 'axios'
 import { TideContact } from './src/mapping/sidebar-contacts/sidebar-contacts-mapping-types'
+import { TideTopicTag } from './src/mapping/topic-tags/topic-tags-mapping'
 
 export type TideApiResponse = any
 
@@ -36,9 +37,10 @@ export interface TidePageBase {
   title: string
   description: string
   created: string
-  modified: string
+  changed: string
   nid: number
   lang: string
+  topicTags: TideTopicTag[]
   sidebar: {
     contacts?: TideContact[]
     relatedLinks?: TideLink[]

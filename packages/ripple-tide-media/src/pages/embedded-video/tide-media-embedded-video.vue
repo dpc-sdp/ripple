@@ -17,7 +17,7 @@ export default { name: 'TideMediaEmbeddedVideoPage' }
       <TideMediaHeader :header="page.header" />
     </template>
     <template #body>
-      <TideMediaBody :media="page.media" :date="page.modified">
+      <TideMediaBody :media="page.media" :date="page.changed">
         <!-- NOTE: this may be changed to the future video component -->
         <iframe
           :src="page.media.url"

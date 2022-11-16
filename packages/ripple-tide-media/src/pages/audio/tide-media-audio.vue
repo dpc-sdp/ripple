@@ -17,7 +17,7 @@ export default { name: 'TideMediaAudioPage' }
       <TideMediaHeader :header="page.header" />
     </template>
     <template #body>
-      <TideMediaBody :media="page.media" :date="page.modified">
+      <TideMediaBody :media="page.media" :date="page.changed">
         <audio class="tide-media__audio" :src="page.media.url" controls />
       </TideMediaBody>
     </template>

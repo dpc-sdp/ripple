@@ -8,6 +8,8 @@
     :footerImageCaption="
       page.showHeroImageCaption ? page.heroHeader.backgroundImageCaption : ''
     "
+    :topicTags="page.topicTags"
+    :updatedDate="page.changed || page.created"
   >
     <template #aboveHeader>
       <slot name="aboveHeader"></slot>

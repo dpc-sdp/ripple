@@ -38,6 +38,16 @@
     </template>
     <template #body="{ hasSidebar }">
       <slot name="body" :hasSidebar="hasSidebar"></slot>
+      <div>
+        <RplChip
+          v-for="tag in topicTags"
+          :key="tag.url"
+          :label="tag.text"
+          :url="tag.url"
+        />
+      </div>
+
+      <TideUpdatedDate :date="updatedDate" />
     </template>
     <template #belowBody>
       <slot name="belowBody"></slot>
@@ -73,7 +83,11 @@
 <script setup lang="ts">
 // @ts-ignore
 import { useHead, useSiteTheme, useSiteMenu, useAppConfig } from '#imports'
+import { RplChip } from '@dpc-sdp/ripple-ui-core'
 import { computed, onMounted } from 'vue'
+import { string } from 'yargs'
+import { TideTopicTag } from '../../mapping/topic-tags/topic-tags-mapping'
+import UpdatedDate from './UpdatedDate.vue'
 
 interface Props {
   site: any
@@ -82,13 +96,16 @@ interface Props {
   pageLanguage?: string
   pageDescription?: string
   footerImageCaption?: string
+  topicTags: TideTopicTag[]
+  updatedDate: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
   background: 'default',
   pageLanguage: 'en-AU',
   pageDescription: '',
-  footerImageCaption: ''
+  footerImageCaption: '',
+  topicTags: () => []
 })
 
 onMounted(() => {

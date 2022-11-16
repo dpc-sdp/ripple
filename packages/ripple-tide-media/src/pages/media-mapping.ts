@@ -4,13 +4,9 @@ import {
 } from '@dpc-sdp/ripple-tide-api'
 
 export const tideMediaMapping = {
-  ...tidePageBaseMapping({
-    withSidebarContacts: false,
-    withSidebarRelatedLinks: false
-  }),
+  ...tidePageBaseMapping(),
   type: (data) => data.type,
   title: 'name',
-  modified: 'changed',
   header: {
     title: 'name'
   },
@@ -20,7 +16,4 @@ export const tideMediaMapping = {
   }
 }
 
-export const tideMediaIncludes = tidePageBaseIncludes({
-  withSidebarContacts: false,
-  withSidebarRelatedLinks: false
-})
+export const tideMediaIncludes = tidePageBaseIncludes()

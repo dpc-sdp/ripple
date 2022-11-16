@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.10](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.9...v2.1.0-alpha.10) (2022-11-16)
+
+**Note:** Version bump only for package nuxt-app
+
+
+
+
+
+# [2.1.0-alpha.9](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.8...v2.1.0-alpha.9) (2022-11-14)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** fixed footer and section nav by changing primary nav to be consistant ([f49e414](https://github.com/dpc-sdp/ripple-framework/commit/f49e4142382a2e31ed92ca142dc0a15e32582695))
+
+
+
+
+
 # [2.1.0-alpha.8](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.7...v2.1.0-alpha.8) (2022-11-09)
 
 **Note:** Version bump only for package nuxt-app

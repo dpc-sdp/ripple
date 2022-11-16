@@ -13,7 +13,6 @@
     <template #primaryNav>
       <slot name="primaryNav">
         <RplPrimaryNav
-          v-bind="primaryNavProps"
           :primaryLogo="{
             src: '/img/primary-nav-logo-primary.svg',
             altText: 'Victoria government logo',
@@ -27,10 +26,11 @@
     </template>
     <template #breadcrumbs>
       <slot name="breadcrumbs">
-        <RplBreadcrumbs
-          v-if="breadcrumbs"
-          v-bind="breadcrumbs"
-        ></RplBreadcrumbs>
+        <TideBreadcrumbs
+          :siteMenu="site?.menus.menuMain"
+          :currentPath="route.path"
+          :currentPageTitle="pageTitle"
+        />
       </slot>
     </template>
     <template #aboveBody>
@@ -47,7 +47,7 @@
         />
       </div>
 
-      <TideUpdatedDate :date="updatedDate" />
+      <TideUpdatedDate v-if="updatedDate" :date="updatedDate" />
     </template>
     <template #belowBody>
       <slot name="belowBody"></slot>
@@ -82,12 +82,10 @@
 
 <script setup lang="ts">
 // @ts-ignore
-import { useHead, useSiteTheme, useSiteMenu, useAppConfig } from '#imports'
+import { useHead, useSiteTheme, useAppConfig, useRoute } from '#imports'
 import { RplChip } from '@dpc-sdp/ripple-ui-core'
-import { computed, onMounted } from 'vue'
-import { string } from 'yargs'
+import { onMounted } from 'vue'
 import { TideTopicTag } from '../../mapping/topic-tags/topic-tags-mapping'
-import UpdatedDate from './UpdatedDate.vue'
 
 interface Props {
   site: any
@@ -114,21 +112,9 @@ onMounted(() => {
   console.log(props.site)
 })
 
-// TODO: Wire useSiteMenu up to real content, currently hardcoded with example
-// from storybook.
-const primaryNavProps = useSiteMenu(props.site.value)
+const route = useRoute()
 
-// TODO: Will need to implement breadcrumb business logic
-const breadcrumbs = computed(() => {
-  return {
-    items: [
-      { label: 'Home', url: '/' },
-      { label: 'Page title', url: '/page-title' }
-    ]
-  }
-})
-
-const style = useSiteTheme(props.site.value?.theme || useAppConfig().theme)
+const style = useSiteTheme(props.site?.value?.theme || useAppConfig().theme)
 useHead({
   title: props.pageTitle,
   htmlAttrs: {

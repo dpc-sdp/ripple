@@ -27,7 +27,7 @@
     </component>
   </slot>
   <slot v-else-if="pageError" name="error">
-    <TideBaseLayout>
+    <TideBaseLayout :site="site">
       <template #body>
         <!-- TODO: Add error handling in Error component -->
         <h1>{{ pageError.data?.error?.message }}</h1>
@@ -48,22 +48,19 @@ const route = useRoute()
 const { public: config } = useRuntimeConfig()
 const siteId = config.tide?.contentApi.site
 
-const [{ data: site, error: siteError }, { data: page, error: pageError }] =
-  await Promise.all([
-    useFetch('/api/tide/site', {
-      baseURL: config.API_URL || '',
-      params: {
-        id: siteId
-      }
-    }),
-    useFetch('/api/tide/page', {
-      baseURL: config.API_URL || '',
-      params: {
-        path: route.path,
-        site: siteId
-      }
-    })
-  ])
+const { data: site, error: siteError } = await useFetch('/api/tide/site', {
+  baseURL: config.API_URL || '',
+  params: {
+    id: siteId
+  }
+})
+const { data: page, error: pageError } = await useFetch('/api/tide/page', {
+  baseURL: config.API_URL || '',
+  params: {
+    path: route.path,
+    site: siteId
+  }
+})
 
 // TODO: Properly handle this
 if (siteError.value) {

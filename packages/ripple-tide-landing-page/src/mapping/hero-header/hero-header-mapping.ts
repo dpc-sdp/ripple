@@ -69,7 +69,8 @@ export const heroHeaderMapping = (src): ITideHeroHeader => {
     },
     backgroundImageCaption: getField(
       src,
-      'field_landing_page_hero_image.field_media_caption'
+      'field_landing_page_hero_image.field_media_caption',
+      ''
     ),
     theme: getHeaderTheme(src),
     logoImage: getImageFromField(

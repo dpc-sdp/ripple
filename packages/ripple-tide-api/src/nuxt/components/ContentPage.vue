@@ -41,7 +41,7 @@
 // @ts-ignore
 import { useRoute, useRuntimeConfig, useFetch } from '#imports'
 
-import { computed, onMounted } from 'vue'
+import { computed } from 'vue'
 import { pascalCase } from 'change-case'
 
 const route = useRoute()
@@ -66,11 +66,6 @@ const { data: page, error: pageError } = await useFetch('/api/tide/page', {
 if (siteError.value) {
   throw new Error("Site data couldn't be fetched")
 }
-
-onMounted(() => {
-  console.log('we', site)
-  console.log('w', page.value)
-})
 
 const componentName = computed(
   () => page.value && `Tide${pascalCase(page.value.type)}`

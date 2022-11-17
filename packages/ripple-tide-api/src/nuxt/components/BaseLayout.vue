@@ -72,7 +72,7 @@
           :credit="footerImageCaption"
         >
           <template #copyright>
-            <div v-html="site.copyrightHtml" data-cy="footer-copyright"></div>
+            <div data-cy="footer-copyright" v-html="site.copyrightHtml"></div>
           </template>
         </RplFooter>
       </slot>
@@ -110,7 +110,6 @@ const props = withDefaults(defineProps<Props>(), {
 onMounted(() => {
   // Used for knowing when page is ready for cypress testing
   document.body.setAttribute('data-nuxt-hydrated', 'true')
-  console.log(props.site)
 })
 
 const route = useRoute()

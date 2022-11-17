@@ -4,7 +4,7 @@ export default { name: 'TideNewsBody' }
 
 <template>
   <div v-if="details" class="tide-news__details rpl-page-component rpl-content">
-    <RplDescriptionList :items="detailsList" />
+    <RplDescriptionList :items="detailsList" data-cy="details" />
   </div>
   <figure v-if="body.image" class="tide-news__image rpl-u-margin-none">
     <RplImage
@@ -13,6 +13,7 @@ export default { name: 'TideNewsBody' }
       :alt="body.image.alt"
       :width="body.image.width"
       :height="body.image.height"
+      data-cy="featured-image"
     />
     <figcaption v-if="body.caption" class="rpl-type-p rpl-u-margin-t-2">
       {{ body.caption }}

@@ -16,8 +16,17 @@ export default { name: 'TideNewsPage' }
     <template #aboveBody>
       <TideNewsHeader :header="page.header" />
     </template>
-    <template #body>
-      <TideNewsBody :body="page.body" :details="page.details" />
+    <template #body="{ hasSidebar }">
+      <TideNewsBody
+        :body="page.body"
+        :details="page.details"
+        :components="page.dynamicComponents"
+      />
+      <TideDynamicComponents
+        v-if="page.dynamicComponents?.length > 0"
+        :components="page.dynamicComponents"
+        :hasSidebar="hasSidebar"
+      />
     </template>
     <template #sidebar>
       <slot name="sidebar"></slot>

@@ -1,5 +1,8 @@
 import type { TidePageBase } from '@dpc-sdp/ripple-tide-api/types'
-import { TideImageField } from '@dpc-sdp/ripple-tide-api'
+import {
+  TideDynamicPageComponent,
+  TideImageField
+} from '@dpc-sdp/ripple-tide-api'
 
 export type TideNewsHeader = {
   title: string
@@ -22,4 +25,5 @@ export interface TideNewsPage extends TidePageBase {
   header: TideNewsHeader
   overview: TideNewsDetails
   body: TideNewsBody
+  dynamicComponents: TideDynamicPageComponent<any>[]
 }

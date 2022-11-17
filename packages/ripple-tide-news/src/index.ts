@@ -5,8 +5,13 @@ import {
   getImageFromField,
   getBodyFromField,
   getField,
-  formatDate
+  formatDate,
+  getDynamicPageComponents
 } from '@dpc-sdp/ripple-tide-api'
+import {
+  landingPageComponentsMapping,
+  landingPageComponentsIncludes
+} from '@dpc-sdp/ripple-tide-landing-page'
 
 const tideNewsModule: RplTideMapping = {
   component: '@dpc-sdp/ripple-tide-news/component',
@@ -39,6 +44,13 @@ const tideNewsModule: RplTideMapping = {
       caption: (src) =>
         getField(src, 'field_featured_image.field_media_caption'),
       content: (src) => getBodyFromField(src, 'body')
+    },
+    dynamicComponents: async (src: any) => {
+      return await getDynamicPageComponents(
+        src,
+        'field_landing_page_component',
+        landingPageComponentsMapping
+      )
     }
   },
   includes: [
@@ -49,6 +61,7 @@ const tideNewsModule: RplTideMapping = {
       withSidebarRelatedLinks: true,
       withSidebarSocialShare: true
     }),
+    ...landingPageComponentsIncludes,
     'field_location',
     'field_node_department',
     'field_featured_image',

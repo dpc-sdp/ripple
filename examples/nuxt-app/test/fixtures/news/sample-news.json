@@ -37,5 +37,15 @@
       "text": "Demo Tag",
       "url": "/tags/demo-tag"
     }
+  ],
+  "dynamicComponents": [
+    {
+      "uuid": "a99aa287-7fac-430b-864e-3a1b044460b1",
+      "component": "RplContent",
+      "id": "969",
+      "props": {
+        "html": "<p>Here is <em>some</em> sample <strong>rich</strong> text content</p>"
+      }
+    }
   ]
 }

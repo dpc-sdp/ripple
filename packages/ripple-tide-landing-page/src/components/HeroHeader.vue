@@ -6,6 +6,7 @@ import { ITideHeroHeader } from '../mapping/hero-header/hero-header-mapping'
 const props =
   defineProps<{
     header: ITideHeroHeader
+    hideBottomCornerGraphic: boolean
   }>()
 
 const cornerTop = computed(() => {
@@ -17,7 +18,7 @@ const cornerTop = computed(() => {
 })
 
 const cornerBottom = computed(() => {
-  if (props.header.backgroundImage) {
+  if (props.header.backgroundImage || props.hideBottomCornerGraphic) {
     return false
   }
 

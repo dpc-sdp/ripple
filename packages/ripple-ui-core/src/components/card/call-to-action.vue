@@ -18,6 +18,7 @@ interface Props {
   imageAlt?: string
   title: string
   url?: string
+  ctaText?: string
   theme?: typeof RplButtonThemes[number]
   variant?: typeof RplButtonVariants[number]
 }
@@ -28,7 +29,8 @@ withDefaults(defineProps<Props>(), {
   imageAlt: '',
   url: undefined,
   theme: 'default',
-  variant: 'filled'
+  variant: 'filled',
+  ctaText: 'Call to action'
 })
 
 const titleClasses = computed(() => RplCardTitleClasses)
@@ -48,10 +50,11 @@ const { container, trigger } = useAccessibleContainer()
         class="rpl-card__media rpl-card__media--inset"
         :src="image"
         :alt="imageAlt"
+        data-cy="image"
       />
     </template>
     <template #title>
-      <h3 :class="titleClasses">{{ title }}</h3>
+      <h3 :class="titleClasses" data-cy="title">{{ title }}</h3>
     </template>
     <slot></slot>
     <RplButton
@@ -62,7 +65,8 @@ const { container, trigger } = useAccessibleContainer()
       tabindex="0"
       :variant="variant"
       :theme="theme"
-      label="Call to action"
+      :label="ctaText"
+      data-cy="cta"
     ></RplButton>
   </RplCard>
 </template>

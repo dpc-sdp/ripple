@@ -9,6 +9,9 @@ export default defineNuxtConfig({
           baseUrl: 'https://develop.content.reference.sdp.vic.gov.au',
           site: '8888'
         }
+      },
+      ripple: {
+        hostname: ''
       }
     }
   },

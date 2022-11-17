@@ -1,9 +1,4 @@
-import {
-  When,
-  Then,
-  Before,
-  After
-} from '@badeball/cypress-cucumber-preprocessor'
+import { Then, Before, After } from '@badeball/cypress-cucumber-preprocessor'
 
 Before({ tags: '@mockserver' }, () => {
   cy.log('the mock server has started')
@@ -16,7 +11,7 @@ After({ tags: '@mockserver' }, () => {
 })
 
 Then('the title should be {string}', (title: string) => {
-  cy.get('[data-cy="title"]').should('have.text', title)
+  cy.get('[data-cy="hero-title"]').should('have.text', title)
 })
 
 Then(

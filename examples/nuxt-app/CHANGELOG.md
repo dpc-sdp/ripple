@@ -3,6 +3,37 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.11](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.10...v2.1.0-alpha.11) (2022-11-16)
+
+
+### Features
+
+* **@dpc-sdp/ripple-tide-landing-page:** added header acknowledgement of country to landing ([57e7bbe](https://github.com/dpc-sdp/ripple-framework/commit/57e7bbefa7ad5c7cb8ec73ebc0b5b18141c72af9))
+* **@dpc-sdp/ripple-tide-landing-page:** added search banner to landing page ([87492f1](https://github.com/dpc-sdp/ripple-framework/commit/87492f1ec7533f9baa66decc608fc6e669c9c183))
+
+
+
+
+
+# [2.1.0-alpha.10](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.9...v2.1.0-alpha.10) (2022-11-16)
+
+**Note:** Version bump only for package nuxt-app
+
+
+
+
+
+# [2.1.0-alpha.9](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.8...v2.1.0-alpha.9) (2022-11-14)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** fixed footer and section nav by changing primary nav to be consistant ([f49e414](https://github.com/dpc-sdp/ripple-framework/commit/f49e4142382a2e31ed92ca142dc0a15e32582695))
+
+
+
+
+
 # [2.1.0-alpha.8](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.7...v2.1.0-alpha.8) (2022-11-09)
 
 **Note:** Version bump only for package nuxt-app

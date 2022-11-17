@@ -36,7 +36,9 @@ export default {
 
       formData: {
         tideId: 'tide_webform_content_rating',
-
+        settings: {
+          spamProtect: true
+        },
         model: {
           url: '',
           site_section_name: '',
@@ -74,7 +76,7 @@ export default {
                 {
                   type: 'input',
                   inputType: 'text',
-                  label: 'Tell me your email',
+                  label: 'Tell me your email for content rating',
                   model: 'honeypot',
                   styleClasses: 'tide-tell-me-your-email',
                   autocomplete: 'off'
@@ -140,7 +142,7 @@ export default {
       const formData = this.formData.model
       const formId = this.formData.tideId
 
-      if (formData.honeypot) {
+      if (this.isHoneypotSet('#tell-me-your-email-for-content-rating')) {
         this.formData.formState = {
           response: {
             status: 'success',

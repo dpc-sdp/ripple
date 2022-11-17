@@ -34,6 +34,18 @@ const webform = {
       } catch (e) {
         return false
       }
+    },
+    isHoneypotSet (selector = `#${this.formData.tideId}-important-email`) {
+      if (this.formData.settings?.spamProtect) {
+        const honeypotElement = document.querySelector(selector)
+        if (honeypotElement) {
+          return honeypotElement.value
+        }
+        if (this.formData.honeypot) {
+          return this.formData.honeypot
+        }
+      }
+      return false
     }
   }
 }

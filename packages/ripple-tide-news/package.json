@@ -19,11 +19,9 @@
     "watch": "yarn clean && tsc -p tsconfig.json -w"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-tide-api": "2.1.0-alpha.11",
-    "@dpc-sdp/ripple-tide-landing-page": "2.1.0-alpha.11"
+    "@dpc-sdp/ripple-tide-api": "2.1.0-alpha.11"
   },
-  "devDependencies": {
-  },
+  "devDependencies": {},
   "files": [
     "dist",
     "src/*.vue",

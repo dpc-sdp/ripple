@@ -41,9 +41,15 @@ const props =
   }>()
 
 const detailsList = computed(() => {
-  return Object.keys(props.details).map((key) => ({
-    term: key[0].toUpperCase() + key.substring(1) + ':',
-    description: props.details[key]
-  }))
+  return Object.keys(props.details)
+    .map((key) => {
+      if (!props.details[key]) return null
+
+      return {
+        term: key[0].toUpperCase() + key.substring(1) + ':',
+        description: props.details[key]
+      }
+    })
+    .filter(Boolean)
 })
 </script>

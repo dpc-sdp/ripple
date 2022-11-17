@@ -38,7 +38,7 @@
     </template>
     <template #body="{ hasSidebar }">
       <slot name="body" :hasSidebar="hasSidebar"></slot>
-      <div>
+      <div data-cy="topic-tags">
         <RplChip
           v-for="tag in topicTags"
           :key="tag.url"
@@ -72,7 +72,7 @@
           :credit="footerImageCaption"
         >
           <template #copyright>
-            <div v-html="site.copyrightHtml"></div>
+            <div v-html="site.copyrightHtml" data-cy="footer-copyright"></div>
           </template>
         </RplFooter>
       </slot>

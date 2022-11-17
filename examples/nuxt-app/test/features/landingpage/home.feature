@@ -24,7 +24,7 @@ Feature: Home page
 
   @mockserver
   Scenario: Hero acknowledgement
-    Then the hero acknowledgement of country should exist on the page
+    Then the hero acknowledgement of country should exist on the page and read "Test hero acknowledgement"
 
   @mockserver
   Scenario: Primary campaign

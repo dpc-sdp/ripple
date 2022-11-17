@@ -1,5 +1,9 @@
 <template>
-  <RplBreadcrumbs v-if="breadcrumbs" :items="breadcrumbs" />
+  <RplBreadcrumbs
+    v-if="breadcrumbs"
+    :items="breadcrumbs"
+    data-cy="breadcrumbs"
+  />
 </template>
 
 <script setup lang="ts">

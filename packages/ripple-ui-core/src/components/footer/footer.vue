@@ -122,7 +122,7 @@ const columns = computed(() => {
 </script>
 
 <template>
-  <footer :class="`rpl-footer rpl-footer--${variant}`">
+  <footer :class="`rpl-footer rpl-footer--${variant}`" data-cy="site-footer">
     <div class="rpl-container">
       <nav class="rpl-footer__nav">
         <!-- Fallback rendering for SSR, this ensures that the server and client render the same thing initially -->

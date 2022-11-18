@@ -116,7 +116,20 @@ const isActionsListEmpty = computed(() => {
       />
 
       <!-- Video -->
-      <div v-else-if="props.type == 'video'">[VIDEO EMBED WILL GO HERE]</div>
+      <div
+        v-else-if="props.type == 'video'"
+        class="rpl-media-embed__video-container"
+      >
+        <iframe
+          class="rpl-media-embed__video"
+          :src="src"
+          allow="autoplay; fullscreen; picture-in-picture"
+          allowfullscreen
+          data-chromatic="ignore"
+          :title="props.title"
+        >
+        </iframe>
+      </div>
 
       <!-- Caption and source caption -->
       <figcaption
@@ -211,6 +224,8 @@ const isActionsListEmpty = computed(() => {
             rpl-media-embed__download-link rpl-media-embed__action
             rpl-type-p
           "
+          :href="props.downloadUrl"
+          download
         >
           <RplIcon name="icon-download" />Download '{{ props.title }}'
         </a>

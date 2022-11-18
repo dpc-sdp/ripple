@@ -114,7 +114,8 @@ onMounted(() => {
 
 const route = useRoute()
 
-const style = useSiteTheme(props.site?.value?.theme || useAppConfig().theme)
+const style = useSiteTheme(props.site?.theme || useAppConfig().theme)
+
 useHead({
   title: props.pageTitle,
   htmlAttrs: {

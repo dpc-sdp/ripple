@@ -45,7 +45,7 @@
 // @ts-ignore
 import { useRoute, useRuntimeConfig, useFetch } from '#imports'
 
-import { computed } from 'vue'
+import { computed, onMounted } from 'vue'
 import { pascalCase } from 'change-case'
 
 const route = useRoute()
@@ -64,6 +64,10 @@ const { data: page, error: pageError } = await useFetch('/api/tide/page', {
     path: route.path,
     site: siteId
   }
+})
+
+onMounted(() => {
+  console.log(page.value)
 })
 
 // TODO: Properly handle this, it's currently breaking cypress tests in CI if we throw the error here

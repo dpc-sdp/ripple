@@ -3,7 +3,7 @@ export default { name: 'RplLayout' }
 </script>
 
 <script setup lang="ts">
-import { computed, useSlots } from 'vue'
+import { Comment, Fragment, computed, useSlots, isVNode } from 'vue'
 
 interface Props {
   background?: 'default' | 'alt'
@@ -13,12 +13,26 @@ withDefaults(defineProps<Props>(), {
   background: 'default'
 })
 
+// Currently in Vue 3 there is no standard way to check if a slot has anything in it because
+// empty fragments and comments will still appear in the data returned from `useSlots`
+// We need to recursively check if each fragments contain any actual rendered nodes
+// Solution taken from: https://github.com/vuejs/rfcs/discussions/453
+const getSlotContent = (vNodes) => {
+  if (!vNodes) return null
+  return vNodes.some((child) => {
+    if (!isVNode(child)) return true
+    if (child.type === Comment) return false
+    if (child.type === Fragment && !getSlotContent(child.children)) return false
+    return true
+  })
+    ? vNodes
+    : null
+}
+
 const $slots = useSlots()
-const mainCols = computed(() => {
-  if ($slots.sidebar && $slots.sidebar().length) {
-    return ['rpl-col-12', 'rpl-col-7-l']
-  }
-  return 'rpl-col-12'
+
+const hasSidebar = computed(() => {
+  return $slots.sidebar && !!getSlotContent($slots.sidebar())
 })
 </script>
 
@@ -40,14 +54,21 @@ const mainCols = computed(() => {
     </section>
     <div class="rpl-layout__body-wrap">
       <div class="rpl-container">
-        <div class="rpl-grid grid--no-row-gap rpl-layout__body">
-          <main id="rpl-main" :class="mainCols" class="rpl-layout__main">
-            <slot name="body"> </slot>
+        <div class="rpl-grid rpl-grid--no-row-gap rpl-layout__body">
+          <main
+            id="rpl-main"
+            :class="{
+              'rpl-col-12': true,
+              'rpl-col-7-m': hasSidebar
+            }"
+            class="rpl-layout__main"
+          >
+            <slot name="body" :hasSidebar="hasSidebar"> </slot>
           </main>
           <aside
             v-if="$slots.sidebar"
             id="rpl-sidebar"
-            class="rpl-layout__sidebar rpl-col-4-l rpl-col-start-9-l rpl-col-12"
+            class="rpl-layout__sidebar rpl-col-4-m rpl-col-start-9-m rpl-col-12"
           >
             <slot name="sidebar"> </slot>
           </aside>

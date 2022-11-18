@@ -8,7 +8,7 @@ defaults: &defaults
       environment:
         TERM: xterm
         TZ: 'Australia/Melbourne'
-        API_URL: http://localhost:3001
+        NUXT_PUBLIC_API_URL: http://localhost:3001
       auth:
         username: $DOCKERHUB_USERNAME
         password: $DOCKERHUB_PASSWORD
@@ -99,7 +99,7 @@ jobs:
 
   test-storybook:
     docker:
-      - image: mcr.microsoft.com/playwright:v1.25.0-focal
+      - image: mcr.microsoft.com/playwright:v1.27.1-focal
     environment:
       NODE_ENV: development
     working_directory: ~/app
@@ -118,6 +118,56 @@ jobs:
         # Runs the Chromatic CLI for core and forms packages
       - run: yarn chromatic --project-token=${CHROMATIC_PROJECT_TOKEN} --exit-zero-on-changes --exit-once-uploaded
 
+  publish-alpha:
+    <<: *defaults
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/app
+      - restore_cache:
+          keys:
+            - v10-deps-{{ checksum "yarn.lock" }}
+            - v10-deps-{{ .Branch }}
+            - v9-deps
+      - run:
+          name: set git credentials
+          command: |
+            git config --global user.email "sdp.devs@dpc.vic.gov.au"
+            git config --global user.name "SDP Deploy"
+      - run:
+          name: Bump version to latest prerelease
+          command: yarn release:pre
+      - run:
+          name: Publish alpha prerelease to NPM
+          command: |
+            npm config set access public
+            npm set //registry.npmjs.org/:_authToken=$NPM_TOKEN
+            yarn release:publish
+  publish:
+    <<: *defaults
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/app
+      - restore_cache:
+          keys:
+            - v10-deps-{{ checksum "yarn.lock" }}
+            - v10-deps-{{ .Branch }}
+            - v9-deps
+      - run:
+          name: set git credentials
+          command: |
+            git config --global user.email "sdp.devs@dpc.vic.gov.au"
+            git config --global user.name "SDP Deploy"
+      - run:
+          name: Bump version to production release
+          command: yarn release:prod
+      - run:
+          name: Publish prod release to NPM
+          command: |
+            npm config set access public
+            npm set //registry.npmjs.org/:_authToken=$NPM_TOKEN
+            yarn release:publish
 workflows:
   commit:
     jobs:
@@ -140,3 +190,29 @@ workflows:
       - chromatic:
           requires:
             - build-storybook
+      - publish-alpha:
+          requires:
+            - build
+            - build-examples
+            - build-storybook
+            - unit
+            - integration-nuxt
+            - test-storybook
+            - chromatic
+          filters:
+            branches:
+              only:
+                - develop
+      - publish:
+          requires:
+            - build
+            - build-examples
+            - build-storybook
+            - unit
+            - integration-nuxt
+            - test-storybook
+            - chromatic
+          filters:
+            branches:
+              only:
+                - main

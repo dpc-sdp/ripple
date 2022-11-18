@@ -106,7 +106,7 @@ const props = defineProps<Props>()
         <RplPrimaryNavBarAction
           v-if="item.items"
           type="toggle"
-          :href="item.href"
+          :href="item.url"
           :active="isItemExpanded(item.id)"
           @click="toggleItem(item.id)"
         >
@@ -119,7 +119,7 @@ const props = defineProps<Props>()
         <RplPrimaryNavBarAction
           v-else
           type="link"
-          :href="item.href"
+          :href="item.url"
           :active="item.active"
         >
           <span>{{ item.text }}</span>

@@ -22,8 +22,11 @@ export interface TideUrlField {
 }
 export interface TideImageField {
   src: string
-  alt: string
-  focalPoint: {
+  alt?: string
+  title?: string
+  width?: number
+  height?: number
+  focalPoint?: {
     x: string
     y: string
   }
@@ -47,6 +50,17 @@ export type TideDynamicPageComponent<T> = {
   title?: string
   props: T
   class?: Record<string, any>
+  layout?: 'card' | string
+  internalAnchors?: {
+    id: string
+    text: string
+    type: 'h2' | 'h3'
+  }[]
+}
+
+export type TideDynamicComponentGroup = {
+  grouping: string
+  components: TideDynamicPageComponent<any>[]
 }
 
 export interface RplTideModuleConfig {

@@ -3,7 +3,7 @@ import sbTokenTable from './../../../stories/components/token-table.vue'
 import sbTokenTableRow from './../../../stories/components/token-row.vue'
 import sbTokenTableCol from './../../../stories/components/token-col.vue'
 import sbTokenTableSwatch from './../../../stories/components/token-swatch.vue'
-import { RplCoreIconNames, RplCustomIconNames, RplIconGroups } from './constants'
+import { RplCoreIconNames, RplCustomIconNames, RplIconGroups, RplIconSizes } from './constants'
 import { RplColorThemes } from './../../lib/constants'
 import RplIcon from './icon.vue'
 
@@ -18,7 +18,7 @@ export const IconListTemplate = (args) => ({
     <sbTokenTable :columns="args.columns" >
       <sbTokenTableRow v-for="item in args.items" :key="item">
         <sbTokenTableCol>{{item}}</sbTokenTableCol>
-        <sbTokenTableCol><RplIcon :name="item" :colour="args.colour" size="m" /></sbTokenTableCol>
+        <sbTokenTableCol><RplIcon :name="item" :colour="args.colour" :size="args.size" /></sbTokenTableCol>
       </sbTokenTableRow>
     </sbTokenTable>
   `
@@ -35,7 +35,7 @@ export const IconSpriteSheetOnDemandTemplate = (args) => ({
     <sbTokenTable :columns="args.columns" >
       <sbTokenTableRow v-for="item in args.items" :key="item">
         <sbTokenTableCol>{{item}}</sbTokenTableCol>
-        <sbTokenTableCol><RplIcon :name="item" colour="default" size="m" /></sbTokenTableCol>
+        <sbTokenTableCol><RplIcon :name="item" :colour="args.colour" :size="args.size" /></sbTokenTableCol>
       </sbTokenTableRow>
     </sbTokenTable>
   `
@@ -48,10 +48,25 @@ export const IconSpriteSheetOnDemandTemplate = (args) => ({
     colour: {
       control: { type: 'select' },
       options: RplColorThemes
+    },
+    size: {
+      control: { type: 'select' },
+      options: RplIconSizes
+    },
+    items: {
+      table: {
+        disable: true
+      }
+    },
+    columns: {
+      table: {
+        disable: true
+      }
     }
   }}
   args={{
-    colour: 'default'
+    colour: 'default',
+    size: 'm'
   }}
 />
 

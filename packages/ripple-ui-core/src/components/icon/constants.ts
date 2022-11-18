@@ -5,6 +5,7 @@ export const RplCoreIconNames = coreIconKeys
 export const RplCustomIconNames = Object.keys(customIconImports)
 export const RplIconNames = [...RplCoreIconNames, ...RplCustomIconNames]
 export const RplIconSizes = ['xs', 's', 'm', 'l'] as const
+export type RplIconPlacement = 'before' | 'after'
 export const RplIconGroups = {
   alert: [
     'icon-fire',

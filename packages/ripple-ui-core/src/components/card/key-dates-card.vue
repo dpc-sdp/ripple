@@ -30,7 +30,7 @@ const { container, trigger } = useAccessibleContainer()
 <template>
   <RplCard ref="container" type="key-dates" :highlight="true" :el="el">
     <template #title>
-      <h3 class="rpl-type-h3-fixed">{{ title }}</h3>
+      <h3 class="rpl-type-h3-fixed" data-cy="title">{{ title }}</h3>
     </template>
     <template #default>
       <ol v-if="items.length > 0" class="rpl-card__keydates">
@@ -46,9 +46,13 @@ const { container, trigger } = useAccessibleContainer()
       </ol>
     </template>
     <template #lower>
-      <RplTextLink ref="trigger" class="rpl-card__cta" :url="url">{{
-        ctaTitle
-      }}</RplTextLink>
+      <RplTextLink
+        ref="trigger"
+        class="rpl-card__cta"
+        :url="url"
+        data-cy="cta"
+        >{{ ctaTitle }}</RplTextLink
+      >
     </template>
   </RplCard>
 </template>

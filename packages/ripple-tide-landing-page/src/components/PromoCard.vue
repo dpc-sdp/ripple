@@ -3,11 +3,10 @@
     v-if="displayStyle === 'noImage' || displayStyle === 'thumbnail'"
     :title="title"
     :image="displayStyle !== 'noImage' ? image?.src : null"
-    :url="link.url"
+    :url="url"
     :highlight="displayStyle === 'noImage'"
   >
     <p>{{ summary }}</p>
-    <!-- TODO DE-DUPE THIS -->
     <template v-if="showMetadata" #meta>
       <TideLandingPageCardSharedMeta :meta="metadata" />
     </template>
@@ -16,9 +15,8 @@
     v-if="displayStyle === 'profile'"
     :title="title"
     :image="image?.src"
-    :url="link.url"
+    :url="url"
   >
-    <!-- TODO DE-DUPE THIS -->
     <template v-if="showMetadata" #meta>
       <TideLandingPageCardSharedMeta :meta="metadata" />
     </template>
@@ -32,10 +30,7 @@ import { RplAvatarCard, RplPromoCard } from '@dpc-sdp/ripple-ui-core'
 interface Props {
   title: string
   summary: string
-  link: {
-    text: string
-    url: string
-  }
+  url: string
   image: {
     src: string
     alt: string
@@ -53,5 +48,5 @@ interface Props {
   }
 }
 
-const props = withDefaults(defineProps<Props>(), {})
+withDefaults(defineProps<Props>(), {})
 </script>

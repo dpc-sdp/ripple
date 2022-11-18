@@ -1,0 +1,35 @@
+{
+  "name": "@dpc-sdp/ripple-tide-publication",
+  "version": "2.1.0-alpha.7",
+  "description": "Ripple mappings and components for Tide Publication Content type",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "type": "module",
+  "exports": {
+    ".": "./dist/index.js",
+    "./component": "./src/index.vue",
+    "./types": "./src/types.ts",
+    "./nuxt": "./src/nuxt.ts"
+  },
+  "license": "MIT",
+  "keywords": [],
+  "scripts": {
+    "clean": "rimraf dist* && rimraf tsconfig.tsbuildinfo",
+    "build": "yarn clean && tsc -p tsconfig.json",
+    "watch": "yarn clean && tsc -p tsconfig.json -w"
+  },
+  "dependencies": {
+    "@dpc-sdp/ripple-tide-api": "2.1.0-alpha.3",
+    "@dpc-sdp/ripple-tide-landing-page": "2.1.0-alpha.3"
+  },
+  "files": [
+    "dist",
+    "src",
+    "src/components/*.vue",
+    "!**/*.test.*",
+    "!**/*.json",
+    "CHANGELOG.md",
+    "LICENSE",
+    "README.md"
+  ]
+}

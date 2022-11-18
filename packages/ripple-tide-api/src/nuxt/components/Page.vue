@@ -1,11 +1,15 @@
 <template>
-  <slot v-if="page" :name="componentName" v-bind="{ page, site }">
-    <component :is="componentName" :page="page">
+  <slot
+    v-if="page && site"
+    :name="`${componentName}Page`"
+    v-bind="{ page, site }"
+  >
+    <component :is="`${componentName}Page`" :page="page">
       <template #aboveHeader>
         <RplIconSprite />
         <slot name="aboveHeader">
           <RplAlert
-            v-for="alert in site.alerts"
+            v-for="alert in site?.alerts"
             v-bind="alert"
             :key="alert.alertId"
           />
@@ -13,7 +17,10 @@
       </template>
       <template #primaryNav>
         <slot name="primaryNav">
-          <RplPrimaryNav v-bind="primaryNavProps"></RplPrimaryNav>
+          <RplPrimaryNav
+            v-bind="primaryNavProps"
+            :items="site?.menus.menuMain"
+          ></RplPrimaryNav>
         </slot>
       </template>
       <template #breadcrumbs>
@@ -27,10 +34,20 @@
       <template #sidebar>
         <slot name="aboveSidebar"></slot>
         <slot v-if="page.sidebar" name="sidebar">
-          <TideSidebarSiteSectionNav :nav="page.sidebar.siteSectionNav" />
-          <TideSidebarRelatedLinks :items="page.sidebar.relatedLinks" />
-          <TideSidebarContactUs :contacts="page.sidebar.contacts" />
+          <TideSidebarSiteSectionNav
+            v-if="page.sidebar.siteSectionNav"
+            :nav="page.sidebar.siteSectionNav"
+          />
+          <TideSidebarRelatedLinks
+            v-if="page.sidebar.relatedLinks?.length"
+            :items="page.sidebar.relatedLinks"
+          />
+          <TideSidebarContactUs
+            v-if="page.sidebar.contacts?.length"
+            :contacts="page.sidebar.contacts"
+          />
           <TideSidebarSocialShare
+            v-if="page.sidebar.socialShareNetworks?.length"
             :networks="page.sidebar.socialShareNetworks"
             :page-title="page.title"
           />
@@ -39,7 +56,7 @@
       </template>
       <template #footer>
         <slot name="footer">
-          <RplFooter></RplFooter>
+          <RplFooter :nav="site?.menus.menuMain"></RplFooter>
         </slot>
       </template>
     </component>
@@ -48,7 +65,7 @@
     <RplLayout>
       <template #aboveHeader>
         <RplIconSprite />
-        <slot v-if="site && site.alerts" name="aboveHeader">
+        <slot v-if="site && site?.alerts" name="aboveHeader">
           <RplAlert
             v-for="alert in site.alerts"
             v-bind="alert"
@@ -63,12 +80,12 @@
       </template>
       <template #body>
         <!-- TODO: Add error handling in Error component -->
-        ERROR!
-        <h1>{{ pageError?.message }}</h1>
+        <h1>{{ pageError.data?.error?.message }}</h1>
+        <p>There was an error</p>
       </template>
       <template #footer>
         <slot name="footer">
-          <RplFooter></RplFooter>
+          <RplFooter :items="site?.menus.menu"></RplFooter>
         </slot>
       </template>
     </RplLayout>
@@ -83,14 +100,16 @@ import {
   useFetch,
   useHead,
   useSiteTheme,
-  useSiteMenu
+  useSiteMenu,
+  useAppConfig
 } from '#imports'
-import { computed } from 'vue'
+
+import { computed, onMounted } from 'vue'
 import { pascalCase } from 'change-case'
-import TideSidebarSiteSectionNav from './sidebar/TideSidebarSiteSectionNav.vue'
 
 const route = useRoute()
-const config = useRuntimeConfig()
+const { public: config } = useRuntimeConfig()
+const siteId = config.tide?.contentApi.site
 
 // @ts-ignore
 const [{ data: site, error: siteError }, { data: page, error: pageError }] =
@@ -98,20 +117,24 @@ const [{ data: site, error: siteError }, { data: page, error: pageError }] =
     useFetch('/api/tide/site', {
       baseURL: config.API_URL || '',
       params: {
-        id: config.SITEID
+        id: siteId
       }
     }),
     useFetch('/api/tide/page', {
       baseURL: config.API_URL || '',
       params: {
         path: route.path,
-        site: config.SITEID
+        site: siteId
       }
     })
   ])
 
+onMounted(() => {
+  document.body.setAttribute('data-nuxt-hydrated', 'true')
+})
+
 const componentName = computed(
-  () => page.value && `Tide${pascalCase(page.value.type)}Page`
+  () => page.value && `Tide${pascalCase(page.value.type)}`
 )
 
 // TODO: Wire useSiteMenu up to real content, currently hardcoded with example
@@ -128,7 +151,7 @@ const breadcrumbs = computed(() => {
   }
 })
 
-const style = useSiteTheme(site.value?.theme)
+const style = useSiteTheme(site.value?.theme || useAppConfig().theme)
 useHead({
   title: page.value?.title,
   htmlAttrs: {

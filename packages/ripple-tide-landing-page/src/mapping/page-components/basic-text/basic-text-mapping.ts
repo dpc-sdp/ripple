@@ -1,4 +1,9 @@
-import { TideDynamicPageComponent, getBody } from '@dpc-sdp/ripple-tide-api'
+import {
+  getBody,
+  addAnchorLinksToHTML,
+  getAnchorLinksFromHTML
+} from '@dpc-sdp/ripple-tide-api'
+import { TideDynamicPageComponent } from '@dpc-sdp/ripple-tide-api/types'
 
 export interface ITideBasicText {
   html: string | null
@@ -7,11 +12,14 @@ export interface ITideBasicText {
 export const basicTextMapping = (
   field
 ): TideDynamicPageComponent<ITideBasicText> => {
+  const rawHTML = getBody(field?.field_paragraph_body?.processed)
+
   return {
     component: 'RplContent',
-    id: field.drupal_internal__id,
+    id: `${field.drupal_internal__id}`,
+    internalAnchors: getAnchorLinksFromHTML(rawHTML, true),
     props: {
-      html: getBody(field?.field_paragraph_body?.processed)
+      html: addAnchorLinksToHTML(rawHTML)
     }
   }
 }

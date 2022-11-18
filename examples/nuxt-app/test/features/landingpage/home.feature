@@ -1,22 +1,147 @@
 Feature: Home page
 
   Example of mocked page
-
-  Scenario: On 404
-    Given the mock server has started
-    And the endpoint "/api/tide/page" with query "?path=/404&site=8888" returns fixture "/errors/404" with status 404
-    Given I visit the page "/404"
-
-  Scenario: On load
-    Given the mock server has started
-    And the endpoint "/api/tide/page" with query "?path=/&site=8888" returns fixture "/landingpage/home" with status 200
+  Background:
+    Given the endpoint "/api/tide/page" with query "?path=/&site=8888" returns fixture "/landingpage/home" with status 200
     And the endpoint "/api/tide/site" with query "?id=8888" returns fixture "/site/reference" with status 200
     Given I visit the page "/"
-    Then the landing page component "RplContent" should exist
-    Then the landing page component with ID 678 should exist
-    Then the landing page component with ID 682 should exist
-    Then the sidebar component with ID "CONTACT_US" should exist
+
+  @mockserver
+  Scenario: On 404
+    Given the endpoint "/api/tide/page" with query "?path=/404&site=8888" returns fixture "/errors/404" with status 404
+    Given I visit the page "/404"
+
+  @mockserver
+  Scenario: On load
+    Then the sidebar component with ID "26146cba-f307-449e-885c-7446efb3f315" should exist
     Then the sidebar component with ID "tide-sidebar-related-links" should exist
     Then the sidebar component with ID "tide-sidebar-social-share" should exist
-    When I click the open all button on RplAccordion with ID "682"
-    Then all accordion items in accordion ID "682" should be visible
+
+  @mockserver
+  Scenario: Hero header
+    Then the hero title should be "Test landing page title"
+    Then the hero intro text should be "Test landing page title introduction text"
+
+  @mockserver
+  Scenario: Hero acknowledgement
+    Then the hero acknowledgement of country should exist on the page
+
+  @mockserver
+  Scenario: Primary campaign
+    Then the "primary" campaign title should be "Demo primary campaign"
+    Then the "primary" campaign summary should be "Test summary for primary campaign"
+    Then the "primary" campaign image src should be "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-skyline-at-dusk.jpg"
+    Then the "primary" campaign CTA label should be "Testing CTA text"
+    Then clicking the "primary" campaign CTA should take me to "/demo-destination"
+
+  @mockserver
+  Scenario: Secondary campaign
+    Then the "secondary" campaign title should be "Demo secondary campaign"
+    Then the "secondary" campaign summary should be "Test summary for secondary campaign"
+    Then the "secondary" campaign image src should be "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg"
+    Then the "secondary" campaign CTA label should be "Testing secondary CTA text"
+    Then clicking the "secondary" campaign CTA should take me to "/demo-secondary-destination"
+
+  @mockserver
+  Scenario: In page nav
+    Then the in page nav should have the following items
+      | text                 | url                 |
+      | Content Anchor 1     | #content-anchor-1   |
+      | Content Anchor 2     | #content-anchor-2   |
+      | Test accordion title | #page-component-972 |
+      | Test timeline title  | #page-component-992 |
+
+  @mockserver
+  Scenario: Header component - Intro banner
+    Then an intro banner with ID "1030" should exist with the title "Test introduction banner"
+    Then an intro banner with ID "1030" should exist with the summary "And here's the summary"
+    Then an intro banner with ID "1030" should exist with the following links
+      | text        | url          |
+      | Test link 1 | /demo-link-1 |
+      | Test link 2 | /demo-link-2 |
+
+  @mockserver
+  Scenario: Header component - Search banner
+    Then a search banner with ID "1911" should exist with the placeholder "Test search placeholder"
+    Then in a search banner with ID "1911", searching for "cats" should take me to "/search/cats"
+
+  @mockserver
+  Scenario: Page component - Basic text
+    Then a wysiwyg content area with ID "969" should exist with the content "Here is some sample rich text content"
+
+  @mockserver
+  Scenario: Page component - Accordion
+    Then an accordion with ID "972" should exist with title "Test accordion title" and have the following accordion items
+      | title        | content                   |
+      | Accordion #1 | Test rich text content #1 |
+      | Accordion #2 | Test rich text content #2 |
+
+  @mockserver
+  Scenario: Page component - Accordion (Open/close all)
+    When I click the open all button on accordion with ID "972"
+    Then all accordion items in accordion ID "972" should be visible
+
+    When I click the close all button on accordion with ID "972"
+    Then all accordion items in accordion ID "972" should be hidden
+
+  @mockserver
+  Scenario: Page component - Promo card
+    Then a promo card with ID "976" should exist with the following properties
+      | displayStyle | title                | content            | image |
+      | noImage      | Promo card (noImage) | Sample description |       |
+
+    Then a promo card with ID "977" should exist with the following properties
+      | displayStyle | title                  | content            | image                                                                                                     |
+      | thumbnail    | Promo card (thumbnail) | Sample description | https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg |
+
+    Then a promo card with ID "978" should exist with the following properties
+      | displayStyle | title                | content            | image                                                                                                     |
+      | profile      | Promo card (profile) | Sample description | https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg |
+
+  @mockserver
+  Scenario: Page component - Nav card
+    Then a nav card with ID "981" should exist with the following properties
+      | displayStyle | title              | content            | image |
+      | noImage      | Nav card (noImage) | Sample description |       |
+
+    Then a nav card with ID "982" should exist with the following properties
+      | displayStyle | title                | content            | image                                                                                                     |
+      | thumbnail    | Nav card (thumbnail) | Sample description | https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg |
+
+    Then a nav card with ID "983" should exist with the following properties
+      | displayStyle | title               | content            | image                                                                                                     |
+      | featured     | Nav card (featured) | Sample description | https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg |
+
+
+  @mockserver
+  Scenario: Page component - Key dates card
+    Then a key dates card with ID "988" should exist with the title "Key calendar dates"
+    Then a key dates card with ID "988" should exist with the following dates
+      | title         | date              | summary                  |
+      | An event      | 12th October 2022 | Summary of an event      |
+      | Another event | 13th October 2022 | Summary of another event |
+    Then a key dates card with ID "988" should exist with cta text "Test CTA text" and link to "/test-cta-link"
+
+  @mockserver
+  Scenario: Page component - Timeline
+    Then a timeline with ID "992" should exist with the title "Test timeline title"
+    Then a timeline with ID "992" should exist with the following items
+      | title             | date                     | summary                   | url                 | image                                                                                                                  |
+      | Milestone 1 title | 02 June - 11 November    | Milestone 1 summary field | /test-destination-1 | https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/VicFleet-Police-car-on-road.jpg |
+      | Milestone 2 title | 04 October - 17 November | Milestone 2 summary field | /test-destination-2 |                                                                                                                        |
+      | Milestone 3 title |                          | Milestone 3 text          |                     |                                                                                                                        |
+
+  @mockserver
+  Scenario: Page component - Call to action
+    Then a call to action with ID "1024" should exist with the following properties
+      | title                     | summary                 | ctaText       | image                                                                                                                         |
+      | Test call to action title | This is the description | Test CTA text | https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Two-men-working-in-hi-vis-clothing.jpg |
+
+
+  @mockserver
+  Scenario: Page component - Stats grid
+    Then a stats grid with ID "1028" should exist with the following items
+      | label   | value   |
+      | Label 1 | Value 1 |
+      | Label 2 | Value 2 |
+

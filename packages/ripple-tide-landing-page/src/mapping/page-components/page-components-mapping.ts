@@ -22,6 +22,23 @@ import {
   statisticsGridIncludes,
   statisticsGridMapping
 } from './statistics-grid/statistics-grid-mapping.js'
+import {
+  introBannerIncludes,
+  introBannerMapping
+} from './intro-banner/intro-banner-mapping.js'
+import {
+  searchBannerIncludes,
+  searchBannerMapping
+} from './search-banner/search-banner-mapping.js'
+import {
+  timelineMapping,
+  timelineIncludes
+} from './timeline/timeline-mapping.js'
+import {
+  callToActionMapping,
+  callToActionIncludes
+} from './call-to-action/call-to-action-mapping.js'
+import { webformIncludes, webformMapping } from './webforms/webforms-mapping.js'
 
 export const landingPageComponentsMapping = {
   'paragraph--basic_text': basicTextMapping,
@@ -29,7 +46,12 @@ export const landingPageComponentsMapping = {
   'paragraph--promotion_card': promoCardMapping,
   'paragraph--navigation_card': navigationCardMapping,
   'paragraph--card_keydates': keyDatesMapping,
-  'paragraph--statistics_grid': statisticsGridMapping
+  'paragraph--statistics_grid': statisticsGridMapping,
+  'paragraph--introduction_banner': introBannerMapping,
+  'paragraph--embedded_search_form': searchBannerMapping,
+  'paragraph--timelines': timelineMapping,
+  'paragraph--call_to_action': callToActionMapping,
+  'paragraph--embedded_webform': webformMapping
 }
 
 export const landingPageComponentsIncludes = [
@@ -38,5 +60,19 @@ export const landingPageComponentsIncludes = [
   ...promoCardIncludes,
   ...navigationCardIncludes,
   ...keyDatesIncludes,
-  ...statisticsGridIncludes
+  ...statisticsGridIncludes,
+  ...introBannerIncludes,
+  ...searchBannerIncludes,
+  ...timelineIncludes,
+  ...callToActionIncludes,
+  ...webformIncludes
 ]
+
+export {
+  basicTextIncludes,
+  accordionIncludes,
+  promoCardIncludes,
+  navigationCardIncludes,
+  keyDatesIncludes,
+  statisticsGridIncludes
+}

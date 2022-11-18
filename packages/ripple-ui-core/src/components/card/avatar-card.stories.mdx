@@ -5,6 +5,7 @@ import {
   ArgsTable
 } from '@storybook/addon-docs'
 import RplAvatarCard from './avatar-card.vue'
+import RplTag from '../tag/tag.vue'
 import { a11yStoryCheck } from './../../../stories/interactions.js'
 
 export const samples = {
@@ -15,7 +16,7 @@ export const samples = {
 }
 
 export const SingleTemplate = (args) => ({
-  components: { RplAvatarCard },
+  components: { RplAvatarCard, RplTag },
   setup() {
     return { args }
   },

@@ -45,6 +45,7 @@ export { default as RplInPageNavigation } from './components/in-page-navigation/
 export { default as RplLayout } from './components/layout/layout.vue'
 export { default as RplPageComponent } from './components/layout/page-component.vue'
 export { default as RplSidebarComponent } from './components/layout/sidebar-component.vue'
+export { default as RplCardGrid } from './components/layout/card-grid.vue'
 
 export { default as RplList } from './components/list/list.vue'
 
@@ -65,3 +66,5 @@ export { default as RplVerticalNav } from './components/vertical-nav/vertical-na
 export { default as RplVerticalNavToggle } from './components/vertical-nav/toggle.vue'
 export { default as RplVerticalNavChildList } from './components/vertical-nav/child-list.vue'
 export { default as RplVerticalNavLink } from './components/vertical-nav/link.vue'
+
+export { default as getGrantStatus } from './utils/getGrantStatus'

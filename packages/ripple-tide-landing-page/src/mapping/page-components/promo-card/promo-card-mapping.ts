@@ -1,10 +1,18 @@
-import { TideDynamicPageComponent, getField } from '@dpc-sdp/ripple-tide-api'
-import { genericCardMapping } from '../generic-card-mapping.js'
+import { getField } from '@dpc-sdp/ripple-tide-api'
+import { TideDynamicPageComponent } from '@dpc-sdp/ripple-tide-api/types'
+import { genericCardMapping, ITideCardBase } from '../generic-card-mapping.js'
 
-export const promoCardMapping = (field): TideDynamicPageComponent<any> => {
+export interface ITidePromoCard extends ITideCardBase {
+  displayStyle: 'noImage' | 'thumbnail' | 'profile'
+}
+
+export const promoCardMapping = (
+  field
+): TideDynamicPageComponent<ITidePromoCard> => {
   return {
     component: 'TideLandingPagePromoCard',
-    id: field.drupal_internal__id,
+    id: `${field.drupal_internal__id}`,
+    layout: 'card',
     props: {
       displayStyle: getField(field, 'field_promo_card_display_style', ''),
       ...genericCardMapping(field)

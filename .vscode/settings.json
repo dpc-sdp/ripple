@@ -14,16 +14,23 @@
     "docs",
     "@dpc-sdp/ripple-tide-landing-page",
     "@dpc-sdp/ripple-ui-forms",
-    "@dpc-sdp/ripple-tide-grant"
+    "@dpc-sdp/ripple-tide-grant",
+    "@dpc-sdp/ripple-tide-publication",
+    "vue-app"
   ],
   "cSpell.words": [
     "colour",
+    "formkit",
+    "maxlength",
+    "composables",
+    "mockserver",
     "nuxt",
     "pathe",
     "scripthost",
     "stylelint",
     "vite",
-    "vitejs"
+    "vitejs",
+    "Webform"
   ],
   "cucumberautocomplete.steps": [
     "./examples/**/test/support/step_definitions/**/*.ts",

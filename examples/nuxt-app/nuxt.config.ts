@@ -6,11 +6,8 @@ export default defineNuxtConfig({
       API_URL: '',
       tide: {
         contentApi: {
-          baseUrl:
-            'https://nginx-php.pr-136.content-reference-sdp-vic-gov-au.sdp4.sdp.vic.gov.au/',
-          // baseUrl: 'https://develop.content.reference.sdp.vic.gov.au',
-          // site: '8888'
-          site: '8936'
+          baseUrl: 'https://develop.content.reference.sdp.vic.gov.au',
+          site: '8888'
         }
       },
       ripple: {

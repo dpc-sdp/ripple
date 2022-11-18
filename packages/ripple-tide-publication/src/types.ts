@@ -22,6 +22,8 @@ export interface TidePublicationPage extends TidePageBase {
   url: string
   background: string
   nid: string
+  showInPageNav: boolean
+  inPageNavHeadingLevel: string
   /**
    * @description RplHeader
    */

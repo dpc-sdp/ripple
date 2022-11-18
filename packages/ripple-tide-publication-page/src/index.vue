@@ -21,10 +21,11 @@ export default {
       ></TidePublicationPageHeader>
     </template>
     <template #body>
-      <RplInPageNavigation
-        v-if="toc.length > 0"
-        :items="toc"
-      ></RplInPageNavigation>
+      <TideLandingPageInPageNavigation
+        v-if="page.showInPageNav"
+        :headingLevel="page.inPageNavHeadingLevel"
+        :components="page.dynamicComponents"
+      />
       <TidePublicationPageBody
         :components="page.dynamicComponents"
       ></TidePublicationPageBody>
@@ -46,24 +47,10 @@ export default {
 
 <script setup lang="ts">
 import { TidePublicationPagePage } from './types'
-import { computed } from 'vue'
 
-defineProps<{
+interface Props {
   page: TidePublicationPagePage
-}>()
+}
 
-// Placeholder for in-page nave, will need to figure this out dynamically from content - maybe a RplLayout concern?
-const toc = computed(() =>
-  // []
-  [
-    {
-      text: 'This is the first anchor link',
-      url: '#',
-      items: [
-        { text: 'This is sub heading following first anchor link', url: '#' }
-      ]
-    },
-    { text: 'Second link to extra content', url: '#' }
-  ]
-)
+defineProps<Props>()
 </script>

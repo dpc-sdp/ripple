@@ -41,6 +41,13 @@ const tidePublicationModule: RplTideMapping = {
       summary: 'field_landing_page_intro_text'
     },
     summary: 'field_landing_page_summary',
+    showInPageNav: 'field_show_table_of_content',
+    inPageNavHeadingLevel: (src) => {
+      if (src.field_node_display_headings === 'showH2AndH3') {
+        return 'h3'
+      }
+      return 'h2'
+    },
     breadcrumbs: (src: string) => {
       return {
         items: [{ label: 'Home', url: '/' }, { label: getField(src, 'title') }]

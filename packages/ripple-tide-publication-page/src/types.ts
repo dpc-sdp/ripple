@@ -28,6 +28,8 @@ export interface TidePublicationPagePage extends TidePageBase {
   background: string
   breadcrumbs: any
   publication: any
+  showInPageNav: boolean
+  inPageNavHeadingLevel: string
   /**
    * @description RplHeader
    */

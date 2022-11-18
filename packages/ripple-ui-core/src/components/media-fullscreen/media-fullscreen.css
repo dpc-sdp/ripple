@@ -1,0 +1,67 @@
+@import '@dpc-sdp/ripple-ui-core/style/breakpoints';
+
+.rpl-media-fullscreen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--rpl-clr-neutral-alpha-700);
+}
+
+.rpl-media-fullscreen__actions {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: var(--rpl-sp-4);
+  padding-right: var(--rpl-sp-4);
+  padding-bottom: var(--rpl-sp-5);
+  padding-left: var(--rpl-sp-4);
+}
+
+.rpl-media-fullscreen__media {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: var(--rpl-sp-4);
+  padding-bottom: var(--rpl-sp-7);
+  padding-left: var(--rpl-sp-4);
+
+  @media (--rpl-bp-m) {
+    padding-right: var(--rpl-sp-8);
+    padding-left: var(--rpl-sp-8);
+  }
+
+  @media (--rpl-bp-l) {
+    padding-right: var(--rpl-sp-12);
+    padding-bottom: var(--rpl-sp-9);
+    padding-left: var(--rpl-sp-12);
+  }
+
+  @media (--rpl-bp-xl) {
+    padding-right: var(--rpl-sp-13);
+    padding-left: var(--rpl-sp-13);
+  }
+}
+
+.rpl-media-fullscreen__caption {
+  padding-top: var(--rpl-sp-5);
+  padding-right: var(--rpl-sp-5);
+  padding-bottom: var(--rpl-sp-5);
+  padding-left: var(--rpl-sp-5);
+  background-color: white;
+
+  @media (--rpl-bp-m) {
+    padding-right: var(--rpl-sp-8);
+    padding-left: var(--rpl-sp-8);
+  }
+
+  @media (--rpl-bp-l) {
+    padding-top: var(--rpl-sp-8);
+    padding-right: var(--rpl-sp-10);
+    padding-bottom: var(--rpl-sp-8);
+    padding-left: var(--rpl-sp-10);
+  }
+}

@@ -5,6 +5,7 @@ export default { name: 'RplMediaEmbed' }
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 import RplIcon from '../icon/icon.vue'
+import RplMediaFullscreen from '../media-fullscreen/media-fullscreen.vue'
 import RplContent from '../content/content.vue'
 import RplExpandable from '../expandable/expandable.vue'
 
@@ -30,6 +31,7 @@ const props = withDefaults(defineProps<Props>(), {
   downloadUrl: undefined
 })
 
+const isFullScreenOpen = ref(false)
 const isDataContentOpen = ref(false)
 
 const isActionsListEmpty = computed(() => {
@@ -101,10 +103,23 @@ const isActionsListEmpty = computed(() => {
             rpl-type-p
           "
           type="button"
+          @click="isFullScreenOpen = !isFullScreenOpen"
         >
           <RplIcon name="icon-enlarge-square-filled" />View '{{ props.title }}'
           fullscreen
         </button>
+
+        <RplMediaFullscreen
+          :title="props.title"
+          :src="props.src"
+          :caption="props.caption"
+          :is-open="isFullScreenOpen"
+          :on-close-click="
+            () => {
+              isFullScreenOpen = false
+            }
+          "
+        />
       </li>
 
       <!-- View data toggle & content -->

@@ -1,6 +1,43 @@
-.rpl-media-embed__iframe {
-  border: 0;
+.rpl-media-embed__image {
+  width: 100%;
   margin-bottom: var(--rpl-sp-3);
+
+  &.rpl-media-embed__image--small {
+    max-width: 148px;
+  }
+
+  &.rpl-media-embed__image--medium {
+    max-width: 264px;
+  }
+
+  /* Landscape */
+  &.rpl-media-embed__image--landscape {
+    &.rpl-media-emebed__image--large {
+      max-width: none;
+    }
+  }
+
+  /* Portrait */
+  &.rpl-media-embed__image--portrait {
+    &.rpl-media-emebed__image--large {
+      max-width: none;
+      max-height: 595px;
+    }
+  }
+
+  /* Square */
+  &.rpl-media-embed__image--square {
+    &.rpl-media-embed__image--large {
+      max-width: 595px;
+    }
+  }
+
+  /* Avatar */
+  &.rpl-media-embed__image--avatar {
+    &.rpl-media-embed__image--large {
+      max-width: 264px;
+    }
+  }
 }
 
 .rpl-media-embed__figcaption {

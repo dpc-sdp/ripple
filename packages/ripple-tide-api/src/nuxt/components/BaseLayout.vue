@@ -65,14 +65,14 @@
       <slot name="footer">
         <RplFooter
           :nav="site?.menus.menuMain"
-          :links="site.menus.menuFooter"
-          :copyright="site.copyright"
-          :acknowledgement="site.acknowledgementFooter"
-          :logos="site.footerLogos"
+          :links="site?.menus.menuFooter"
+          :copyright="site?.copyright"
+          :acknowledgement="site?.acknowledgementFooter"
+          :logos="site?.footerLogos"
           :credit="footerImageCaption"
         >
           <template #copyright>
-            <div data-cy="footer-copyright" v-html="site.copyrightHtml"></div>
+            <div data-cy="footer-copyright" v-html="site?.copyrightHtml"></div>
           </template>
         </RplFooter>
       </slot>

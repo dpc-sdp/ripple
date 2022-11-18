@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.12](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.11...v2.1.0-alpha.12) (2022-11-18)
+
+
+### Features
+
+* **@dpc-sdp/ripple-ui-core:** add height auto for default image ([f713670](https://github.com/dpc-sdp/ripple-framework/commit/f713670559601b0adc3878fb72c0efeef5c425fa))
+* **@dpc-sdp/ripple-ui-core:** add support for future dynamic components ([671ed09](https://github.com/dpc-sdp/ripple-framework/commit/671ed090c1b77c6b9a3c429b86b73968d5e2e505))
+* **@dpc-sdp/ripple-ui-core:** adding news content type ([f809df3](https://github.com/dpc-sdp/ripple-framework/commit/f809df3820118688c955a0d386ee2ea32add18e6))
+* **@dpc-sdp/ripple-ui-core:** fix display when details is return but value is falsy ([191d795](https://github.com/dpc-sdp/ripple-framework/commit/191d79522dab012dc92ab8eddd494cb8aaa1f43b))
+* **@dpc-sdp/ripple-ui-core:** merge fix ([a65d585](https://github.com/dpc-sdp/ripple-framework/commit/a65d58523b083edb0eccbb0b559a872822fa46e5))
+* **@dpc-sdp/ripple-ui-core:** update content type template to us setup function ([c01a791](https://github.com/dpc-sdp/ripple-framework/commit/c01a791c9c78f76592f8eeb83d3e685bcb0fe40b))
+* **@dpc-sdp/ripple-ui-core:** use data attributes for tests ([bf58538](https://github.com/dpc-sdp/ripple-framework/commit/bf585383d38e9b8e6086fd710516c595c7a95794))
+
+
+
+
+
 # [2.1.0-alpha.11](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.10...v2.1.0-alpha.11) (2022-11-16)
 
 

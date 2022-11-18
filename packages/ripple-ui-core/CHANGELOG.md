@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.12](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.11...v2.1.0-alpha.12) (2022-11-18)
+
+
+### Features
+
+* **@dpc-sdp/ripple-ui-core:** add height auto for default image ([f713670](https://github.com/dpc-sdp/ripple-framework/commit/f713670559601b0adc3878fb72c0efeef5c425fa))
+
+
+
+
+
 # [2.1.0-alpha.11](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.10...v2.1.0-alpha.11) (2022-11-16)
 
 

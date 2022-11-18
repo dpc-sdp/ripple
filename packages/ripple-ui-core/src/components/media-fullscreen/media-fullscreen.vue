@@ -4,6 +4,7 @@ export default { name: 'RplMediaFullscreen' }
 
 <script setup lang="ts">
 import { watch } from 'vue'
+import RplImage from '../image/image.vue'
 import RplButton from '../button/button.vue'
 
 interface Props {
@@ -35,27 +36,29 @@ watch(
 
 <template>
   <div v-if="props.isOpen" class="rpl-media-fullscreen">
-    <div class="rpl-media-fullscreen__actions">
-      <RplButton
-        label="Close"
-        icon-name="icon-cancel"
-        theme="neutral"
-        variant="elevated"
-        @click="props.onCloseClick"
-      />
-    </div>
+    <div class="rpl-media-fullscreen__inner">
+      <div class="rpl-media-fullscreen__actions">
+        <RplButton
+          label="Close"
+          icon-name="icon-cancel"
+          theme="neutral"
+          variant="elevated"
+          @click="props.onCloseClick"
+        />
+      </div>
 
-    <div class="rpl-media-fullscreen__media">
-      <iframe
-        class="rpl-media-embed__iframe"
-        :title="props.title"
-        :src="props.src"
-      ></iframe>
-    </div>
+      <div class="rpl-media-fullscreen__image-wrapper">
+        <RplImage
+          :src="props.src"
+          :alt="props.caption"
+          class="rpl-media-fullscreen__image"
+        />
+      </div>
 
-    <div class="rpl-media-fullscreen__caption">
-      <h3 class="rpl-type-h3 rpl-u-margin-b-2">{{ props.title }}</h3>
-      <p class="rpl-type-p">{{ props.caption }}</p>
+      <div class="rpl-media-fullscreen__caption">
+        <h3 class="rpl-type-h3 rpl-u-margin-b-2">{{ props.title }}</h3>
+        <p class="rpl-type-p">{{ props.caption }}</p>
+      </div>
     </div>
   </div>
 </template>

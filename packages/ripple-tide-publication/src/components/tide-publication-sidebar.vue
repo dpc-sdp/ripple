@@ -54,32 +54,31 @@ interface indexNode {
   active: boolean
 }
 
-const parseChildren = (node) => {
-  if (node.children) {
-    const returnNode: indexNode[] = []
-
-    node.children.map((child) => {
-      returnNode.push({
-        text: child.text,
-        url: child.url,
-        id: child.id,
-        active: child.url === route.path,
-        items: parseChildren(child)
-      })
-    })
-    return returnNode
+const parseChildren = (node): indexNode[] => {
+  if (!node.children) {
+    return []
   }
+
+  return node.children.map((child) => ({
+    text: child.text,
+    url: child.url,
+    id: child.id,
+    active: child.url === route.path,
+    items: parseChildren(child)
+  }))
 }
 
-const transformNode = (node) =>
-  [
-    {
-      text: node.text,
-      url: node.url,
-      id: node.id,
-      active: node.url === route.path
-    }
-  ].concat(parseChildren(node))
+const transformNode = (node): indexNode[] => {
+  const parent: indexNode = {
+    text: node.text,
+    url: node.url,
+    id: node.id,
+    active: node.url === route.path,
+    items: undefined
+  }
+
+  return [parent, ...parseChildren(node)]
+}
 
 const items = computed(() => [
   {

@@ -29,19 +29,14 @@ export default {
         :components="page.dynamicComponents"
       ></TidePublicationPageBody>
       <TidePublicationPagePagination
-        :pagination="page.pagination"
+        :pagination="page.publication.pagination"
       ></TidePublicationPagePagination>
     </template>
     <template #sidebar>
-      <TidePublicationSideNav
+      <TidePublicationSidebar
         :publication="page.publication"
-        :title="page.title"
-      ></TidePublicationSideNav>
+      ></TidePublicationSidebar>
       <slot name="sidebar"></slot>
-      <RplSocialShare
-        :pagetitle="page.title"
-        :pageurl="page.url"
-      ></RplSocialShare>
     </template>
     <template #footer>
       <slot name="footer"></slot>

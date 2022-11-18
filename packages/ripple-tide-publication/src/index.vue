@@ -30,21 +30,10 @@ export default { name: 'TidePublicationPage' }
       ></TidePublicationChapters>
     </template>
     <template #sidebar>
-      <TidePublicationPageActions
-        :documents="page.documents"
-      ></TidePublicationPageActions>
-      <TidePublicationSideNav
+      <TidePublicationSidebar
         :publication="page.publication"
-        :children="page.children"
-        :title="page.title"
-      ></TidePublicationSideNav>
+      ></TidePublicationSidebar>
       <slot name="sidebar"></slot>
-      <RplLayoutSidebarComponent>
-        <RplSocialShare
-          :pagetitle="page.title"
-          :pageurl="page.url"
-        ></RplSocialShare>
-      </RplLayoutSidebarComponent>
     </template>
     <template #footer>
       <slot name="footer"></slot>
@@ -61,17 +50,5 @@ defineProps<{
 }>()
 
 // Placeholder for in-page nave, will need to figure this out dynamically from content - maybe a RplLayout concern?
-const toc = computed(() =>
-  // []
-  [
-    {
-      text: 'This is the first anchor link',
-      url: '#',
-      items: [
-        { text: 'This is sub heading following first anchor link', url: '#' }
-      ]
-    },
-    { text: 'Second link to extra content', url: '#' }
-  ]
-)
+const toc = computed(() => [])
 </script>

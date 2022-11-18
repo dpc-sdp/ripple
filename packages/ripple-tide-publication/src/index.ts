@@ -33,7 +33,7 @@ const tidePublicationModule: RplTideMapping = {
     ...tidePageBaseMapping({
       withSidebarContacts: true,
       withSidebarRelatedLinks: true,
-      withSidebarSocialShare: false
+      withSidebarSocialShare: true
     }),
     url: 'path.url',
     header: {
@@ -60,31 +60,26 @@ const tidePublicationModule: RplTideMapping = {
         landingPageComponentsMapping
       )
     },
-    documents: (src: string) =>
-      getField(src, 'field_node_documents').map((doc: any) => ({
-        name: doc.name,
-        url: doc.field_media_file.url || doc.field_media_file.uri,
-        size: humanizeFilesize(doc.field_media_file.filesize),
-        extension: mime.extension(doc.field_media_file.filemime),
-        id: doc.id
-      })),
     publication: {
       text: 'title',
-      url: 'path.url'
+      url: 'path.url',
+      id: 'id',
+      documents: (src: string) =>
+        getField(src, 'field_node_documents').map((doc: any) => ({
+          name: doc.name,
+          url: doc.field_media_file.url || doc.field_media_file.uri,
+          size: humanizeFilesize(doc.field_media_file.filesize),
+          extension: mime.extension(doc.field_media_file.filemime),
+          id: doc.id
+        }))
     },
-    children: (src: string) =>
-      getField(src, 'publication_children').map((child: any) => ({
-        text: child.meta.title,
-        url: child.meta.url,
-        id: child.id
-      })),
     showLastUpdated: () => true
   },
   includes: [
     ...tidePageBaseIncludes({
       withSidebarContacts: true,
       withSidebarRelatedLinks: true,
-      withSidebarSocialShare: false
+      withSidebarSocialShare: true
     }),
     ...basicTextIncludes,
     ...accordionIncludes,

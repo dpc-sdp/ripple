@@ -1703,6 +1703,14 @@
   dependencies:
     "@dpc-sdp/ripple-tide-api" "2.1.0-alpha.3"
 
+"@dpc-sdp/ripple-tide-publication@alpha":
+  version "2.1.0-alpha.7"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-tide-publication/-/ripple-tide-publication-2.1.0-alpha.7.tgz#0f60d93f26ece2ed073b1db553557491084c174e"
+  integrity sha512-3PxQkSUAYmgvz5odGGRFee00yDTjlG9UWvpJnbQvGMxvg6o3t6GhkzrM77MVyLEekUCQXBkZudbbSzWTmrudvg==
+  dependencies:
+    "@dpc-sdp/ripple-tide-api" "2.1.0-alpha.3"
+    "@dpc-sdp/ripple-tide-landing-page" "2.1.0-alpha.3"
+
 "@emotion/cache@^10.0.27":
   version "10.0.29"
   resolved "https://registry.yarnpkg.com/@emotion/cache/-/cache-10.0.29.tgz#87e7e64f412c060102d589fe7c6dc042e6f9d1e0"

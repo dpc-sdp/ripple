@@ -5,12 +5,13 @@ export default { name: 'RplPrimaryNavBarAction' }
 <script setup lang="ts">
 interface Props {
   type: string
-  href: string
+  href?: string | undefined
   active?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  active: false
+  active: false,
+  href: undefined
 })
 </script>
 

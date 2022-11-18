@@ -9,6 +9,8 @@ export default { name: 'TidePublicationBody' }
   <TideDynamicComponents
     v-if="components?.length > 0"
     :components="components"
+    :has-sidebar="false"
+    :full-width="false"
   ></TideDynamicComponents>
 </template>
 

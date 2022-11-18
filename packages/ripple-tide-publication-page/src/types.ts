@@ -39,5 +39,5 @@ export interface TidePublicationPagePage extends TidePageBase {
   /**
    * @description Previous / next pagination
    */
-  pagination: TidePublicationPagePagination
+  // pagination: TidePublicationPagePagination
 }

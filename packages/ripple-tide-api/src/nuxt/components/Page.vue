@@ -1,30 +1,56 @@
 <template>
-  <slot v-if="page && site" :name="`${componentName}Page`" v-bind="{ page, site }">
+  <slot
+    v-if="page && site"
+    :name="`${componentName}Page`"
+    v-bind="{ page, site }"
+  >
     <component :is="`${componentName}Page`" :page="page">
       <template #aboveHeader>
         <RplIconSprite />
         <slot name="aboveHeader">
-          <RplAlert v-for="alert in site?.alerts" v-bind="alert" :key="alert.alertId" />
+          <RplAlert
+            v-for="alert in site?.alerts"
+            v-bind="alert"
+            :key="alert.alertId"
+          />
         </slot>
       </template>
       <template #primaryNav>
         <slot name="primaryNav">
-          <RplPrimaryNav v-bind="primaryNavProps" :items="site?.menus.menuMain"></RplPrimaryNav>
+          <RplPrimaryNav
+            v-bind="primaryNavProps"
+            :items="site?.menus.menuMain"
+          ></RplPrimaryNav>
         </slot>
       </template>
       <template #breadcrumbs>
         <slot name="breadcrumbs">
-          <RplBreadcrumbs v-if="breadcrumbs" v-bind="breadcrumbs"></RplBreadcrumbs>
+          <RplBreadcrumbs
+            v-if="breadcrumbs"
+            v-bind="breadcrumbs"
+          ></RplBreadcrumbs>
         </slot>
       </template>
       <template #sidebar>
         <slot name="aboveSidebar"></slot>
         <slot v-if="page.sidebar" name="sidebar">
-          <TideSidebarSiteSectionNav v-if="page.sidebar.siteSectionNav" :nav="page.sidebar.siteSectionNav" />
-          <TideSidebarRelatedLinks v-if="page.sidebar.relatedLinks?.length" :items="page.sidebar.relatedLinks" />
-          <TideSidebarContactUs v-if="page.sidebar.contacts?.length" :contacts="page.sidebar.contacts" />
-          <TideSidebarSocialShare v-if="page.sidebar.socialShareNetworks?.length"
-            :networks="page.sidebar.socialShareNetworks" :page-title="page.title" />
+          <TideSidebarSiteSectionNav
+            v-if="page.sidebar.siteSectionNav"
+            :nav="page.sidebar.siteSectionNav"
+          />
+          <TideSidebarRelatedLinks
+            v-if="page.sidebar.relatedLinks?.length"
+            :items="page.sidebar.relatedLinks"
+          />
+          <TideSidebarContactUs
+            v-if="page.sidebar.contacts?.length"
+            :contacts="page.sidebar.contacts"
+          />
+          <TideSidebarSocialShare
+            v-if="page.sidebar.socialShareNetworks?.length"
+            :networks="page.sidebar.socialShareNetworks"
+            :page-title="page.title"
+          />
         </slot>
         <slot name="belowSidebar"></slot>
       </template>
@@ -40,7 +66,11 @@
       <template #aboveHeader>
         <RplIconSprite />
         <slot v-if="site && site?.alerts" name="aboveHeader">
-          <RplAlert v-for="alert in site.alerts" v-bind="alert" :key="alert.alertId" />
+          <RplAlert
+            v-for="alert in site.alerts"
+            v-bind="alert"
+            :key="alert.alertId"
+          />
         </slot>
       </template>
       <template #primaryNav>
@@ -63,7 +93,6 @@
 </template>
 
 <script setup lang="ts">
-// @ts-ignore
 import {
   useRoute,
   useRuntimeConfig,
@@ -72,6 +101,7 @@ import {
   useSiteTheme,
   useSiteMenu,
   useAppConfig
+  // @ts-ignore
 } from '#imports'
 
 import { computed } from 'vue'
@@ -81,7 +111,6 @@ const route = useRoute()
 const { public: config } = useRuntimeConfig()
 const siteId = config.tide?.contentApi.site
 
-// @ts-ignore
 const [{ data: site, error: siteError }, { data: page, error: pageError }] =
   await Promise.all([
     useFetch('/api/tide/site', {

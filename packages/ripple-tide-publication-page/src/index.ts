@@ -23,18 +23,11 @@ const tidePublicationPageModule: RplTideMapping = {
       withSidebarSocialShare: true
     }),
     url: 'path.url',
+    summary: 'field_landing_page_summary',
     header: {
       title: 'title',
       summary: 'field_landing_page_intro_text'
     },
-    social: {
-      networks: ['Facebook', 'Twitter', 'LinkedIn'],
-      page: {
-        title: 'title',
-        url: 'path.url'
-      }
-    },
-    summary: 'field_landing_page_summary',
     breadcrumbs: (src: string) => {
       return {
         items: [
@@ -54,30 +47,36 @@ const tidePublicationPageModule: RplTideMapping = {
         landingPageComponentsMapping
       )
     },
-    // documents: (src: string) =>
-    //   getField(src, 'field_node_documents').map((doc: any) => ({
-    //     name: doc.name,
-    //     url: doc.field_media_file.url || doc.field_media_file.uri,
-    //     size: humanizeFilesize(doc.field_media_file.filesize),
-    //     extension: mime.extension(doc.field_media_file.filemime),
-    //     id: doc.id
-    //   })),
     publication: {
       text: 'publication_navigation_root.meta.title',
-      url: 'publication_navigation_root.meta.url'
-    },
-    pagination: {
-      prev: {
-        text: 'publication_navigation_prev.meta.title',
-        url: 'publication_navigation_prev.meta.url',
-        description:
-          'publication_navigation_prev.meta.field_landing_page_summary'
-      },
-      next: {
-        text: 'publication_navigation_next.meta.title',
-        url: 'publication_navigation_next.meta.url',
-        description:
-          'publication_navigation_next.meta.field_landing_page_summary'
+      url: 'publication_navigation_root.meta.url',
+      id: 'publication_navigation_root.meta.id',
+      documents: (src) =>
+        getField(
+          src,
+          src.field_publication.field_publication
+            ? 'field_publication.field_publication.field_node_documents'
+            : 'field_publication.field_node_documents'
+        ).map((doc: any) => ({
+          name: doc.name,
+          url: doc.field_media_file.url || doc.field_media_file.uri,
+          size: humanizeFilesize(doc.field_media_file.filesize),
+          extension: mime.extension(doc.field_media_file.filemime),
+          id: doc.id
+        })),
+      pagination: {
+        prev: {
+          text: 'publication_navigation_prev.meta.title',
+          url: 'publication_navigation_prev.meta.url',
+          description:
+            'publication_navigation_prev.meta.field_landing_page_summary'
+        },
+        next: {
+          text: 'publication_navigation_next.meta.title',
+          url: 'publication_navigation_next.meta.url',
+          description:
+            'publication_navigation_next.meta.field_landing_page_summary'
+        }
       }
     },
     showLastUpdated: () => true
@@ -93,6 +92,10 @@ const tidePublicationPageModule: RplTideMapping = {
     'field_node_primary_site',
     'field_node_site.field_site_main_menu',
     'field_related_links',
+    'field_publication',
+    'field_publication.field_node_documents.field_media_file',
+    'field_publication.field_publication',
+    'field_publication.field_publication.field_node_documents.field_media_file',
     'field_landing_page_contact.field_paragraph_phones',
     'field_landing_page_contact.field_paragraph_social_media',
     'field_landing_page_component.field_paragraph_media.field_media_image',

@@ -9,6 +9,7 @@
     ".": "./dist/index.js",
     "./component": "./src/index.vue",
     "./page-components": "./src/components",
+    "./handlers": "./dist/handlers",
     "./types": "./src/types.ts",
     "./nuxt": "./src/nuxt.ts"
   },

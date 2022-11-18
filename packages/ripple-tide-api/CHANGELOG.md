@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.12](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.11...v2.1.0-alpha.12) (2022-11-18)
+
+
+### Features
+
+* **@dpc-sdp/ripple-ui-core:** adding news content type ([f809df3](https://github.com/dpc-sdp/ripple-framework/commit/f809df3820118688c955a0d386ee2ea32add18e6))
+
+
+
+
+
 # [2.1.0-alpha.11](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.10...v2.1.0-alpha.11) (2022-11-16)
 
 

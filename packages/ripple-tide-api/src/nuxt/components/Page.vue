@@ -104,7 +104,7 @@ import {
   // @ts-ignore
 } from '#imports'
 
-import { computed } from 'vue'
+import { computed, onMounted } from 'vue'
 import { pascalCase } from 'change-case'
 
 const route = useRoute()
@@ -127,6 +127,10 @@ const [{ data: site, error: siteError }, { data: page, error: pageError }] =
       }
     })
   ])
+
+onMounted(() => {
+  document.body.setAttribute('data-nuxt-hydrated', 'true')
+})
 
 const componentName = computed(
   () => page.value && `Tide${pascalCase(page.value.type)}`

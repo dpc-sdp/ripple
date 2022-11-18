@@ -9,7 +9,13 @@ export default { name: 'RplPageComponent' }
       'rpl-page-component--full-width': fullWidth
     }"
   >
-    <h2 v-if="title" class="rpl-type-h2 rpl-u-margin-b-2">{{ title }}</h2>
+    <h2
+      v-if="title"
+      class="rpl-type-h2 rpl-u-margin-b-2"
+      data-cy="page-component-title"
+    >
+      {{ title }}
+    </h2>
     <slot></slot>
   </div>
 </template>

@@ -36,6 +36,7 @@ const { container, trigger } = useAccessibleContainer()
         :src="image"
         alt=""
         circle
+        data-cy="image"
       />
     </template>
     <template v-if="$slots.meta" #meta>
@@ -44,7 +45,7 @@ const { container, trigger } = useAccessibleContainer()
       </div>
     </template>
     <template #title>
-      <h3 :class="titleClasses">
+      <h3 :class="titleClasses" data-cy="title">
         <RplTextLink ref="trigger" :url="url">{{ title }}</RplTextLink>
       </h3>
     </template>

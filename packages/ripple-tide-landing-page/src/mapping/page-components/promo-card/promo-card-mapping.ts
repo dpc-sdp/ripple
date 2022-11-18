@@ -11,7 +11,7 @@ export const promoCardMapping = (
 ): TideDynamicPageComponent<ITidePromoCard> => {
   return {
     component: 'TideLandingPagePromoCard',
-    id: field.drupal_internal__id,
+    id: `${field.drupal_internal__id}`,
     layout: 'card',
     props: {
       displayStyle: getField(field, 'field_promo_card_display_style', ''),

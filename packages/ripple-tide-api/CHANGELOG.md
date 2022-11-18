@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.12](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.11...v2.1.0-alpha.12) (2022-11-18)
+
+
+### Features
+
+* **@dpc-sdp/ripple-ui-core:** adding news content type ([f809df3](https://github.com/dpc-sdp/ripple-framework/commit/f809df3820118688c955a0d386ee2ea32add18e6))
+
+
+
+
+
+# [2.1.0-alpha.11](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.10...v2.1.0-alpha.11) (2022-11-16)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-landing-page:** cleanup console warnings and fix tests ([413f222](https://github.com/dpc-sdp/ripple-framework/commit/413f222be55a35915732772dbf4d1ccf8556f74e))
+
+
+### Features
+
+* **@dpc-sdp/ripple-tide-landing-page:** added in page navigation to landing page ([b7e7568](https://github.com/dpc-sdp/ripple-framework/commit/b7e75688e071ef060595a7a1061d0b9e44d0be4a))
+
+
+
+
+
 # [2.1.0-alpha.10](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.9...v2.1.0-alpha.10) (2022-11-16)
 
 **Note:** Version bump only for package @dpc-sdp/ripple-tide-api

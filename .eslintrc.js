@@ -22,6 +22,7 @@ module.exports = {
     'vue/multi-word-component-names': 'off',
     'vue/max-attributes-per-line': 'off',
     'vue/first-attribute-linebreak': 'off',
+    'vue/attribute-hyphenation': 'off',
     'vue/no-v-html': 'off',
     'no-prototype-builtins': 'off',
     '@typescript-eslint/ban-ts-comment': 'off',

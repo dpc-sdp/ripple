@@ -50,7 +50,7 @@ const { container, trigger } = useAccessibleContainer()
 <template>
   <RplCard ref="container" type="nav" :el="el" :class="cardClasses">
     <template v-if="image" #upper>
-      <RplImage :class="imgClasses" :src="image" alt="" />
+      <RplImage :class="imgClasses" :src="image" alt="" data-cy="image" />
     </template>
     <template v-if="$slots.meta" #meta>
       <div class="rpl-card__meta rpl-type-p-small">
@@ -58,7 +58,7 @@ const { container, trigger } = useAccessibleContainer()
       </div>
     </template>
     <template #title>
-      <h3 :class="titleClasses">
+      <h3 :class="titleClasses" data-cy="title">
         <RplTextLink ref="trigger" :url="url">{{ title }}</RplTextLink>
       </h3>
     </template>

@@ -12,8 +12,9 @@ defineProps<{
     :title="campaign.title"
     :link="campaign.cta"
     :image="campaign.image"
+    data-cy="primary-campaign"
   >
-    <RplContent :html="campaign.summaryHtml" />
+    <RplContent :html="campaign.summaryHtml" data-cy="summary" />
     <template #meta>
       {{ campaign.imageCaption }}
     </template>

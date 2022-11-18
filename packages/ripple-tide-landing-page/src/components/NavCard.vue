@@ -2,7 +2,7 @@
   <RplNavCard
     :title="title"
     :image="displayStyle !== 'noImage' ? image?.src : null"
-    :url="link.url"
+    :url="url"
     :highlight="displayStyle === 'featured'"
     :inset="displayStyle === 'thumbnail'"
   >
@@ -19,10 +19,7 @@ import { RplNavCard } from '@dpc-sdp/ripple-ui-core'
 interface Props {
   title: string
   summary: string
-  link: {
-    text: string
-    url: string
-  }
+  url: string
   image: {
     src: string
     alt: string
@@ -40,5 +37,5 @@ interface Props {
   }
 }
 
-const props = withDefaults(defineProps<Props>(), {})
+withDefaults(defineProps<Props>(), {})
 </script>

@@ -36,12 +36,16 @@ interface RawCardImage {
   data: RawCardImageData[]
 }
 
-export const formatDate = (date) => {
-  // Example output: 26 January 2022 01:30 pm - 26 January 2022 08:45 pm
-  //   format = format === undefined ? 'DD MMMM' : format
-  //   dayjs.locale('en-au')
-  //   return dayjs(date).format(format)
-  return date
+export const formatDate = (value, options = {}) => {
+  const date = new Date(value)
+  const defaultOptions = { dateStyle: 'full' }
+
+  options = {
+    ...defaultOptions,
+    ...options
+  }
+
+  return new Intl.DateTimeFormat('en-AU', options).format(date)
 }
 
 /**

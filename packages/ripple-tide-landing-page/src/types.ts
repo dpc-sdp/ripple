@@ -9,6 +9,8 @@ import { ITideSecondaryCampaign } from './mapping/secondary-campaign/secondary-c
 export interface TideLandingPagePage extends TidePageBase {
   showHeroAcknowledgement: boolean
   showInPageNav: boolean
+  showHeroImageCaption: boolean
+  showTopicTags: boolean
   inPageNavHeadingLevel: 'h2' | 'h3'
   background: string
   heroHeader: ITideHeroHeader

@@ -88,7 +88,11 @@ const items = computed(() => {
       :expanded="isExpandable ? isExpanded : undefined"
       v-bind="isExpandable ? triggerProps : null"
     >
-      <RplList :items="items" item-class="rpl-type-p-small rpl-u-margin-b-3" />
+      <RplList
+        :items="items"
+        item-class="rpl-type-p-small rpl-u-margin-b-3"
+        :max-depth="0"
+      />
     </component>
   </div>
 </template>

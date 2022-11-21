@@ -9,6 +9,7 @@ import RplIcon from '../icon/icon.vue'
 import RplList from '../list/list.vue'
 import RplTextLink from '../text-link/text-link.vue'
 import { RplIconPlacement } from '../icon/constants'
+import { computed } from 'vue'
 
 export interface Props {
   items?: RplListItemArray[]
@@ -16,16 +17,25 @@ export interface Props {
   itemClass?: string
   containerClass?: string
   depth?: number
+  maxDepth?: number | null
   iconPlacement?: RplIconPlacement
 }
 
-withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<Props>(), {
   items: () => [],
   type: 'ul',
   itemClass: '',
   containerClass: '',
   depth: 0,
+  maxDepth: null,
   iconPlacement: 'before'
+})
+
+const shouldRenderChildren = computed(() => {
+  if (props.maxDepth !== null) {
+    return props.depth < props.maxDepth
+  }
+  return true
 })
 </script>
 
@@ -55,7 +65,7 @@ withDefaults(defineProps<Props>(), {
         ></RplIcon>
       </RplTextLink>
       <RplList
-        v-if="item.items"
+        v-if="shouldRenderChildren && item.items"
         :key="`${depth}-${index}`"
         :items="item.items"
         :item-class="itemClass"

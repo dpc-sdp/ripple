@@ -32,6 +32,7 @@ const result: ITideHeroHeader = {
     height: 915
   },
   backgroundImage: null,
+  backgroundImageCaption: '',
   cornerTopImage: {
     src: 'https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Aerial-shot-of-new-housing-development.jpg',
     alt: 'Demo: Aerial shot of new housing development',

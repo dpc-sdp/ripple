@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.13](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.12...v2.1.0-alpha.13) (2022-11-21)
+
+
+### Features
+
+* **@dpc-sdp/ripple-tide-api:** added check for topic tag toggle ([16001a0](https://github.com/dpc-sdp/ripple-framework/commit/16001a0bb4bc2864e68fa8411080feaaaaf20f43))
+* **@dpc-sdp/ripple-tide-api:** added mapping and ui for last updated and topic tags ([4923a69](https://github.com/dpc-sdp/ripple-framework/commit/4923a693dd182fa5ca50b245c0432509d996452e))
+* **@dpc-sdp/ripple-tide-api:** first pass at global element refactor ([16199c6](https://github.com/dpc-sdp/ripple-framework/commit/16199c686f2d80e0e8533309ffdf58ad6e49e80c))
+* **@dpc-sdp/ripple-tide-api:** hooked up breadcrumbs ([47b8b2a](https://github.com/dpc-sdp/ripple-framework/commit/47b8b2aff4bb58092a8fe9cda934ed877bdc9b32))
+* **@dpc-sdp/ripple-tide-api:** mapped primary nav, footer and acknowledgement ([92684c0](https://github.com/dpc-sdp/ripple-framework/commit/92684c01b2c4393419853457cbddba266f4c77c6))
+
+
+
+
+
 # [2.1.0-alpha.12](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.11...v2.1.0-alpha.12) (2022-11-18)
 
 **Note:** Version bump only for package @dpc-sdp/ripple-tide-landing-page

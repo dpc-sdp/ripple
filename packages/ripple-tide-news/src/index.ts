@@ -18,6 +18,7 @@ const tideNewsModule: RplTideMapping = {
       withSidebarSiteSectionNav: true,
       withSidebarSocialShare: true
     }),
+    showTopicTags: 'field_show_topic_term_and_tags',
     header: {
       title: 'title',
       summary: 'field_news_intro_text'

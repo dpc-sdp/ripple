@@ -22,8 +22,9 @@ export type TideNewsBody = {
 }
 
 export interface TideNewsPage extends TidePageBase {
+  showTopicTags: boolean
   header: TideNewsHeader
-  overview: TideNewsDetails
+  details: TideNewsDetails
   body: TideNewsBody
   dynamicComponents: TideDynamicPageComponent<any>[]
 }

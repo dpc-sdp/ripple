@@ -38,7 +38,7 @@ const clickHandler = (id: string) => {
       'rpl-u-focusable-block': true,
       'rpl-type-p-small': true
     }"
-    :href="type == 'link' ? props.item.href : undefined"
+    :href="type == 'link' ? props.item.url : undefined"
     @click="clickHandler(props.item.id)"
   >
     <span>{{ props.item.text }}</span>

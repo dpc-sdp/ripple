@@ -3,7 +3,14 @@ export default { name: 'TideNewsPage' }
 </script>
 
 <template>
-  <RplLayout :background="page.background">
+  <TideBaseLayout
+    :site="site"
+    :pageTitle="page.title"
+    :pageDescription="page.description"
+    :pageLanguage="page.lang"
+    :topicTags="page.showTopicTags ? page.topicTags : []"
+    :updatedDate="page.changed || page.created"
+  >
     <template #aboveHeader>
       <slot name="aboveHeader"></slot>
     </template>
@@ -34,16 +41,16 @@ export default { name: 'TideNewsPage' }
     <template #footer>
       <slot name="footer"></slot>
     </template>
-  </RplLayout>
+  </TideBaseLayout>
 </template>
 
 <script setup lang="ts">
 import type { TideNewsPage } from './types'
-import { RplLayout } from '@dpc-sdp/ripple-ui-core'
 import TideNewsHeader from './components/tide-news-header.vue'
 import TideNewsBody from './components/tide-news-body.vue'
 
 interface Props {
+  site: any
   page: TideNewsPage
 }
 

@@ -3,7 +3,14 @@ export default { name: 'TideGrantPage' }
 </script>
 
 <template>
-  <RplLayout :background="page.background">
+  <TideBaseLayout
+    :site="site"
+    :background="page.background"
+    :pageTitle="page.title"
+    :pageDescription="page.description"
+    :pageLanguage="page.lang"
+    :updatedDate="page.changed || page.created"
+  >
     <template #aboveHeader>
       <slot name="aboveHeader"></slot>
     </template>
@@ -34,12 +41,11 @@ export default { name: 'TideGrantPage' }
     <template #footer>
       <slot name="footer"></slot>
     </template>
-  </RplLayout>
+  </TideBaseLayout>
 </template>
 
 <script setup lang="ts">
 import type { TideGrantPage } from './types'
-import { RplLayout } from '@dpc-sdp/ripple-ui-core'
 import TideGrantHeader from './components/tide-grant-header.vue'
 import TideGrantOverview from './components/tide-grant-overview.vue'
 import TideGrantTimeline from './components/tide-grant-timeline.vue'
@@ -47,6 +53,7 @@ import TideGrantGuidelines from './components/tide-grant-guidelines.vue'
 import TideGrantDocuments from './components/tide-grant-documents.vue'
 
 interface Props {
+  site: any
   page: TideGrantPage
 }
 

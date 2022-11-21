@@ -12,7 +12,7 @@ Then(
 )
 
 Then('the media page should have the timestamp of {string}', (date: string) => {
-  cy.get('.tide-media__date time').should('have.attr', 'datetime', date)
+  cy.get('[data-cy="updated-date"] time').should('have.attr', 'datetime', date)
 })
 
 Then(

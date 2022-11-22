@@ -7,7 +7,15 @@ export default { name: 'Tide<%= h.changeCase.pascalCase(name) %>Page' }
 </script>
 
 <template>
-  <RplLayout :background="page.background">
+  <TideBaseLayout
+    :site="site"
+    :background="page.background"
+    :pageTitle="page.title"
+    :pageDescription="page.description"
+    :pageLanguage="page.lang"
+    :topicTags="[]"
+    :updatedDate="page.changed || page.created"
+  >
     <template #aboveHeader>
       <slot name="aboveHeader"></slot>
     </template>
@@ -17,10 +25,10 @@ export default { name: 'Tide<%= h.changeCase.pascalCase(name) %>Page' }
     <template #breadcrumbs>
       <slot name="breadcrumbs"></slot>
     </template>
-    <template #aboveBody>
-      <Tide<%= h.changeCase.pascalCase(name) %>Header :header="page.header"></Tide<%= h.changeCase.pascalCase(name) %>Header>
+    <template #aboveBody="{ hasBreadcrumbs }">
+      <Tide<%= h.changeCase.pascalCase(name) %>Header :header="page.header" :hasBreadcrumbs="hasBreadcrumbs"></Tide<%= h.changeCase.pascalCase(name) %>Header>
     </template>
-    <template #body>
+    <template #body="{ hasSidebar }">
 
     </template>
     <template #sidebar>
@@ -34,10 +42,10 @@ export default { name: 'Tide<%= h.changeCase.pascalCase(name) %>Page' }
 
 <script setup lang="ts">
 import type Tide<%= h.changeCase.pascalCase(name) %>Page from './../types'
-import { RplLayout } from '@dpc-sdp/ripple-ui-core'
 import Tide<%= h.changeCase.pascalCase(name) %>Header from './components/tide-<%= h.changeCase.paramCase(name) %>-header.vue'
 
 interface Props {
+  site: any
   page: Tide<%= h.changeCase.pascalCase(name) %>Page
 }
 

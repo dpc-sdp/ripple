@@ -67,7 +67,16 @@ const { data: page, error: pageError } = await useFetch('/api/tide/page', {
 })
 
 onMounted(() => {
-  console.log(page.value)
+  if (process.env.NODE_ENV === 'development') {
+    console.group('TIDE DEBUG DATA')
+    console.group('Site response:')
+    console.log(site.value)
+    console.groupEnd()
+    console.group('Page response:')
+    console.log(page.value)
+    console.groupEnd()
+    console.groupEnd()
+  }
 })
 
 // TODO: Properly handle this, it's currently breaking cypress tests in CI if we throw the error here

@@ -19,8 +19,11 @@ export default { name: 'TidePublicationPage' }
     <template #breadcrumbs>
       <slot name="breadcrumbs"></slot>
     </template>
-    <template #aboveBody>
-      <TidePublicationHeader :header="page.header"></TidePublicationHeader>
+    <template #aboveBody="{ hasBreadcrumbs }">
+      <TidePublicationHeader
+        :header="page.header"
+        :hasBreadcrumbs="hasBreadcrumbs"
+      ></TidePublicationHeader>
     </template>
     <template #body>
       <RplInPageNavigation

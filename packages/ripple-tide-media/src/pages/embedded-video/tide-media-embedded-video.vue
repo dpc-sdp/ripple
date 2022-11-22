@@ -19,8 +19,8 @@ export default { name: 'TideMediaEmbeddedVideoPage' }
     <template #breadcrumbs>
       <slot name="breadcrumbs"></slot>
     </template>
-    <template #aboveBody>
-      <TideMediaHeader :header="page.header" />
+    <template #aboveBody="{ hasBreadcrumbs }">
+      <TideMediaHeader :header="page.header" :hasBreadcrumbs="hasBreadcrumbs" />
     </template>
     <template #body>
       <TideMediaBody :media="page.media">

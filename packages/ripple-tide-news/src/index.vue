@@ -20,8 +20,8 @@ export default { name: 'TideNewsPage' }
     <template #breadcrumbs>
       <slot name="breadcrumbs"></slot>
     </template>
-    <template #aboveBody>
-      <TideNewsHeader :header="page.header" />
+    <template #aboveBody="{ hasBreadcrumbs }">
+      <TideNewsHeader :header="page.header" :hasBreadcrumbs="hasBreadcrumbs" />
     </template>
     <template #body="{ hasSidebar }">
       <TideNewsBody

@@ -4,6 +4,7 @@ export default { name: 'RplMediaFullscreen' }
 
 <script setup lang="ts">
 import { watch } from 'vue'
+import { UseFocusTrap } from '@vueuse/integrations/useFocusTrap/component'
 import RplImage from '../image/image.vue'
 import RplButton from '../button/button.vue'
 
@@ -35,32 +36,34 @@ watch(
 </script>
 
 <template>
-  <div v-if="props.isOpen" class="rpl-media-fullscreen">
-    <div class="rpl-media-fullscreen__inner">
-      <div class="rpl-media-fullscreen__actions">
-        <RplButton
-          label="Close"
-          icon-name="icon-cancel"
-          theme="neutral"
-          variant="elevated"
-          @click="props.onCloseClick"
-        />
-      </div>
+  <UseFocusTrap v-if="props.isOpen" :options="{ immediate: true }">
+    <div class="rpl-media-fullscreen">
+      <div class="rpl-media-fullscreen__inner">
+        <div class="rpl-media-fullscreen__actions">
+          <RplButton
+            label="Close"
+            icon-name="icon-cancel"
+            theme="neutral"
+            variant="elevated"
+            @click="props.onCloseClick"
+          />
+        </div>
 
-      <div class="rpl-media-fullscreen__image-wrapper">
-        <RplImage
-          :src="props.src"
-          :alt="props.caption"
-          class="rpl-media-fullscreen__image"
-        />
-      </div>
+        <div class="rpl-media-fullscreen__image-wrapper">
+          <RplImage
+            :src="props.src"
+            :alt="props.caption"
+            class="rpl-media-fullscreen__image"
+          />
+        </div>
 
-      <div class="rpl-media-fullscreen__caption">
-        <h3 class="rpl-type-h3 rpl-u-margin-b-2">{{ props.title }}</h3>
-        <p class="rpl-type-p">{{ props.caption }}</p>
+        <div class="rpl-media-fullscreen__caption">
+          <h3 class="rpl-type-h3 rpl-u-margin-b-2">{{ props.title }}</h3>
+          <p class="rpl-type-p">{{ props.caption }}</p>
+        </div>
       </div>
     </div>
-  </div>
+  </UseFocusTrap>
 </template>
 
 <style src="./media-fullscreen.css" />

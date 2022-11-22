@@ -42,12 +42,13 @@ export default { name: 'TideMediaEmbeddedVideoPage' }
 </template>
 
 <script setup lang="ts">
+import { TideSiteData } from '@dpc-sdp/ripple-tide-api/types'
 import type { TideMediaPage } from '../../types'
 import TideMediaHeader from '../../components/tide-media-header.vue'
 import TideMediaBody from '../../components/tide-media-body.vue'
 
 interface Props {
-  site: any
+  site: TideSiteData
   page: TideMediaPage
 }
 

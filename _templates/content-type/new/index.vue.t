@@ -41,11 +41,12 @@ export default { name: 'Tide<%= h.changeCase.pascalCase(name) %>Page' }
 </template>
 
 <script setup lang="ts">
+import { TideSiteData } from '@dpc-sdp/ripple-tide-api/types'
 import type Tide<%= h.changeCase.pascalCase(name) %>Page from './../types'
 import Tide<%= h.changeCase.pascalCase(name) %>Header from './components/tide-<%= h.changeCase.paramCase(name) %>-header.vue'
 
 interface Props {
-  site: any
+  site: TideSiteData
   page: Tide<%= h.changeCase.pascalCase(name) %>Page
 }
 

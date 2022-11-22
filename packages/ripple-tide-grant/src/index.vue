@@ -48,6 +48,7 @@ export default { name: 'TideGrantPage' }
 </template>
 
 <script setup lang="ts">
+import { TideSiteData } from '@dpc-sdp/ripple-tide-api/types'
 import type { TideGrantPage } from './types'
 import TideGrantHeader from './components/tide-grant-header.vue'
 import TideGrantOverview from './components/tide-grant-overview.vue'
@@ -56,7 +57,7 @@ import TideGrantGuidelines from './components/tide-grant-guidelines.vue'
 import TideGrantDocuments from './components/tide-grant-documents.vue'
 
 interface Props {
-  site: any
+  site: TideSiteData
   page: TideGrantPage
 }
 

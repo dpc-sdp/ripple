@@ -1,3 +1,5 @@
+import type { TideMenuItem } from '../../../types'
+
 /**
  * Filter menu items and separate into root (parent) and children (child) for
  * consumption by _findChildren().

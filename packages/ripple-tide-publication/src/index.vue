@@ -55,6 +55,7 @@ export default { name: 'TidePublicationPage' }
 </template>
 
 <script setup lang="ts">
+import { TideSiteData } from '@dpc-sdp/ripple-tide-api/types'
 import type { TidePublicationPage } from './types'
 import { computed } from 'vue'
 import { RplInPageNavigation } from '@dpc-sdp/ripple-ui-core'
@@ -65,7 +66,7 @@ import TidePublicationPageActions from './components/tide-publication-page-actio
 import TidePublicationSideNav from './components/tide-publication-side-nav.vue'
 
 defineProps<{
-  site: any
+  site: TideSiteData
   page: TidePublicationPage
 }>()
 

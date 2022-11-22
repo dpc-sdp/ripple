@@ -75,10 +75,11 @@
 </template>
 
 <script setup lang="ts">
+import { TideSiteData } from '@dpc-sdp/ripple-tide-api/types'
 import type { TideLandingPagePage } from './types'
 
 defineProps<{
-  site: any
+  site: TideSiteData
   page: TideLandingPagePage
 }>()
 </script>

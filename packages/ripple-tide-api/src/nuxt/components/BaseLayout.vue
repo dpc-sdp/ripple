@@ -2,13 +2,8 @@
   <RplLayout :background="background">
     <template #aboveHeader>
       <RplIconSprite />
-      <slot name="aboveHeader">
-        <RplAlert
-          v-for="alert in site?.alerts"
-          v-bind="alert"
-          :key="alert.alertId"
-        />
-      </slot>
+      <slot name="aboveHeader"></slot>
+      <TideAlerts :siteAlerts="site?.siteAlerts" />
     </template>
     <template #primaryNav>
       <slot name="primaryNav">
@@ -27,14 +22,15 @@
     <template #breadcrumbs>
       <slot name="breadcrumbs">
         <TideBreadcrumbs
+          v-if="showBreadcrumbs"
           :siteMenu="site?.menus.menuMain"
           :currentPath="route.path"
           :currentPageTitle="pageTitle"
         />
       </slot>
     </template>
-    <template #aboveBody>
-      <slot name="aboveBody"></slot>
+    <template #aboveBody="{ hasBreadcrumbs }">
+      <slot name="aboveBody" :hasBreadcrumbs="hasBreadcrumbs"></slot>
     </template>
     <template #body="{ hasSidebar }">
       <slot name="body" :hasSidebar="hasSidebar"></slot>
@@ -84,7 +80,7 @@
 // @ts-ignore
 import { useHead, useSiteTheme, useAppConfig, useRoute } from '#imports'
 import { RplChip } from '@dpc-sdp/ripple-ui-core'
-import { onMounted } from 'vue'
+import { computed, onMounted } from 'vue'
 import { TideTopicTag } from '../../mapping/topic-tags/topic-tags-mapping'
 
 interface Props {
@@ -114,8 +110,11 @@ onMounted(() => {
 
 const route = useRoute()
 
-const style = useSiteTheme(props.site?.theme || useAppConfig().theme)
+const showBreadcrumbs = computed(() => {
+  return route.path !== '/'
+})
 
+const style = useSiteTheme(props.site?.theme || useAppConfig().theme)
 useHead({
   title: props.pageTitle,
   htmlAttrs: {

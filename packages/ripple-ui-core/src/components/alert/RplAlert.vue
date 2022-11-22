@@ -1,10 +1,15 @@
+<script lang="ts">
+export default { name: 'RplAlert' }
+</script>
+
 <script setup lang="ts">
 import { computed, ref } from 'vue'
+import type { Ref } from 'vue'
 import { RplAlertTypes } from './constants'
-import onResizeHeight from './../../composables/onResizeHeight'
-import { RplIconNames } from './../icon/constants'
-import RplIcon from './../icon/icon.vue'
-import RplTextLink from './../text-link/text-link.vue'
+import onResizeHeight from '../../composables/onResizeHeight'
+import { RplIconNames } from '../icon/constants'
+import RplIcon from '../icon/icon.vue'
+import RplTextLink from '../text-link/text-link.vue'
 import { rplEventBus } from '../../index'
 
 rplEventBus.register('rpl-alert/dismiss')
@@ -41,10 +46,12 @@ const classes = computed(() => {
   }
 })
 
-const alertRef = ref(null)
+const alertRef: Ref<HTMLDivElement | null> = ref(null)
 
 onResizeHeight(alertRef, (height) => {
-  alertRef.value.style.setProperty('--local-container-height', `${height}px`)
+  if (alertRef.value) {
+    alertRef.value.style.setProperty('--local-container-height', `${height}px`)
+  }
 })
 </script>
 
@@ -83,6 +90,7 @@ onResizeHeight(alertRef, (height) => {
           rpl-u-focusable-inline
           rpl-u-focusable--alt-colour
         "
+        data-cy="dismiss"
         @click="onClose"
       >
         <rpl-icon title="Dismiss alert" name="icon-cancel"></rpl-icon>

@@ -20,9 +20,10 @@
     <template #breadcrumbs>
       <slot name="breadcrumbs"></slot>
     </template>
-    <template #aboveBody>
+    <template #aboveBody="{ hasBreadcrumbs }">
       <TideLandingPageHeroHeader
         :header="page.heroHeader"
+        :hasBreadcrumbs="hasBreadcrumbs"
         :hideBottomCornerGraphic="!!page.primaryCampaign"
       />
       <TideLandingPageHeroAcknowledgement

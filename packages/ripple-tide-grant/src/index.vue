@@ -20,8 +20,11 @@ export default { name: 'TideGrantPage' }
     <template #breadcrumbs>
       <slot name="breadcrumbs"></slot>
     </template>
-    <template #aboveBody>
-      <TideGrantHeader :header="page.header"></TideGrantHeader>
+    <template #aboveBody="{ hasBreadcrumbs }">
+      <TideGrantHeader
+        :header="page.header"
+        :hasBreadcrumbs="hasBreadcrumbs"
+      ></TideGrantHeader>
     </template>
     <template #body>
       <TideGrantOverview :overview="page.overview"></TideGrantOverview>

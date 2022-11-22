@@ -3,6 +3,39 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.14](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.13...v2.1.0-alpha.14) (2022-11-21)
+
+
+### Features
+
+* **@dpc-sdp/ripple-ui-core:** adding new pagination variant ([3d203fd](https://github.com/dpc-sdp/ripple-framework/commit/3d203fdc5e17a67ff31d5869a8693b951ef431ef))
+
+
+
+
+
+# [2.1.0-alpha.13](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.12...v2.1.0-alpha.13) (2022-11-21)
+
+
+### Bug Fixes
+
+* fixed up tests and news template ([7a95029](https://github.com/dpc-sdp/ripple-framework/commit/7a950297a3447c5097be8a024ee776f1c060954a))
+
+
+### Features
+
+* **@dpc-sdp/ripple-tide-api:** added check for topic tag toggle ([16001a0](https://github.com/dpc-sdp/ripple-framework/commit/16001a0bb4bc2864e68fa8411080feaaaaf20f43))
+* **@dpc-sdp/ripple-tide-api:** added mapping and ui for last updated and topic tags ([4923a69](https://github.com/dpc-sdp/ripple-framework/commit/4923a693dd182fa5ca50b245c0432509d996452e))
+* **@dpc-sdp/ripple-tide-api:** first pass at global element refactor ([16199c6](https://github.com/dpc-sdp/ripple-framework/commit/16199c686f2d80e0e8533309ffdf58ad6e49e80c))
+* **@dpc-sdp/ripple-tide-api:** hooked up breadcrumbs ([47b8b2a](https://github.com/dpc-sdp/ripple-framework/commit/47b8b2aff4bb58092a8fe9cda934ed877bdc9b32))
+* **@dpc-sdp/ripple-tide-api:** mapped primary nav, footer and acknowledgement ([92684c0](https://github.com/dpc-sdp/ripple-framework/commit/92684c01b2c4393419853457cbddba266f4c77c6))
+* added an example page to demonstrate shared layout ([ef93158](https://github.com/dpc-sdp/ripple-framework/commit/ef93158d5bd03b3647770f3dbf16ae271f89892c))
+* added new base layout to all content types ([8357ac9](https://github.com/dpc-sdp/ripple-framework/commit/8357ac93e1ee22493562d88da8343644ca1264a8))
+
+
+
+
+
 # [2.1.0-alpha.12](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.11...v2.1.0-alpha.12) (2022-11-18)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.13](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.12...v2.1.0-alpha.13) (2022-11-21)
+
+
+### Features
+
+* added new base layout to all content types ([8357ac9](https://github.com/dpc-sdp/ripple-framework/commit/8357ac93e1ee22493562d88da8343644ca1264a8))
+
+
+
+
+
 # [2.1.0-alpha.12](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.11...v2.1.0-alpha.12) (2022-11-18)
 
 **Note:** Version bump only for package @dpc-sdp/ripple-tide-grant

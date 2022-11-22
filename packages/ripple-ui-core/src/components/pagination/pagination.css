@@ -3,12 +3,13 @@
 .rpl-pagination {
   display: flex;
   align-items: center;
-  flex-flow: column wrap;
   gap: var(--rpl-sp-6);
+}
 
-  @media (--rpl-bp-l) {
-    flex-direction: row;
-  }
+.rpl-pagination__tally {
+  flex-grow: 1;
+  flex-shrink: 0;
+  padding-right: var(--rpl-sp-2);
 }
 
 .rpl-pagination__link {
@@ -72,5 +73,41 @@
 
   &:active {
     text-decoration: underline;
+  }
+}
+
+/* Variants */
+.rpl-pagination--complex {
+  flex-flow: column wrap;
+
+  @media (--rpl-bp-l) {
+    flex-direction: row;
+  }
+
+  .rpl-pagination__link {
+    font-weight: var(--rpl-type-weight-bold);
+  }
+}
+
+.rpl-pagination--simple {
+  justify-content: flex-end;
+
+  .rpl-pagination__link {
+    text-decoration: underline;
+
+    &[disabled] {
+      opacity: 0.3;
+      pointer-events: none;
+    }
+
+    &[disabled],
+    &:hover,
+    &:focus-visible {
+      text-decoration: none;
+    }
+
+    &:active {
+      text-decoration: underline;
+    }
   }
 }

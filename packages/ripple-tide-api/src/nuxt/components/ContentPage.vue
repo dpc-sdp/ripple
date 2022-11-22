@@ -1,9 +1,5 @@
 <template>
-  <slot
-    v-if="page && site"
-    :name="`${componentName}Page`"
-    v-bind="{ page, site }"
-  >
+  <slot :name="`${componentName}Page`" v-bind="{ page, site }">
     <component :is="`${componentName}Page`" :page="page" :site="site">
       <template #sidebar>
         <slot name="aboveSidebar"></slot>
@@ -30,50 +26,15 @@
       </template>
     </component>
   </slot>
-  <slot v-else-if="pageError" name="error">
-    <TideBaseLayout :site="site">
-      <template #body>
-        <!-- TODO: Add error handling in Error component -->
-        <h1>{{ pageError.data?.error?.message }}</h1>
-        <p>There was a 404 error</p>
-      </template>
-    </TideBaseLayout>
-  </slot>
 </template>
 
 <script setup lang="ts">
-// @ts-ignore
-import { useRoute, useRuntimeConfig, useFetch } from '#imports'
-
-import { computed, onMounted } from 'vue'
+import { computed } from 'vue'
 import { pascalCase } from 'change-case'
+import { useTidePage, useTideSite } from '../composables'
 
-const route = useRoute()
-const { public: config } = useRuntimeConfig()
-const siteId = config.tide?.contentApi.site
-
-const { data: site, error: siteError } = await useFetch('/api/tide/site', {
-  baseURL: config.API_URL || '',
-  params: {
-    id: siteId
-  }
-})
-const { data: page, error: pageError } = await useFetch('/api/tide/page', {
-  baseURL: config.API_URL || '',
-  params: {
-    path: route.path,
-    site: siteId
-  }
-})
-
-onMounted(() => {
-  console.log(page.value)
-})
-
-// TODO: Properly handle this, it's currently breaking cypress tests in CI if we throw the error here
-if (siteError.value) {
-  // throw new Error("Site data couldn't be fetched")
-}
+const site = await useTideSite()
+const page = await useTidePage()
 
 const componentName = computed(
   () => page.value && `Tide${pascalCase(page.value.type)}`

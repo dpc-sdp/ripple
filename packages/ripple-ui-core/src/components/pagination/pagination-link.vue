@@ -20,7 +20,7 @@ withDefaults(defineProps<Props>(), {
   <button
     class="
       rpl-pagination__link rpl-pagination__link
-      rpl-type-p rpl-type-weight-bold rpl-u-focusable-inline
+      rpl-type-p rpl-u-focusable-inline
     "
   >
     <RplIcon

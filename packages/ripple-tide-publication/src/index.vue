@@ -17,7 +17,7 @@ export default { name: 'TidePublicationPage' }
       <slot name="primaryNav"></slot>
     </template>
     <template #breadcrumbs>
-      <RplBreadcrumbs v-bind="page.breadcrumbs"></RplBreadcrumbs>
+      <slot name="breadcrumbs"></slot>
     </template>
     <template #aboveBody>
       <TidePublicationHeader :header="page.header"></TidePublicationHeader>

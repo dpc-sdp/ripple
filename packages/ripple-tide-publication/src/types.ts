@@ -36,7 +36,6 @@ export interface TidePublicationPage extends TidePageBase {
   title: string
   url: string
   background: string
-  nid: string
   showInPageNav: boolean
   inPageNavHeadingLevel: string
   /**

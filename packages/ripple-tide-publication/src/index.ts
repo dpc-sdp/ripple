@@ -11,7 +11,7 @@ import {
   tidePageBaseMapping,
   tidePageBaseIncludes
 } from '@dpc-sdp/ripple-tide-api'
-import type { RplTideMapping } from '@dpc-sdp/ripple-tide-api'
+import type { RplTideMapping } from '@dpc-sdp/ripple-tide-api/types'
 
 const chapters = (src: string) =>
   getField(src, 'publication_children')

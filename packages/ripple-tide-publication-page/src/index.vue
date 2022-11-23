@@ -5,7 +5,13 @@ export default {
 </script>
 
 <template>
-  <RplLayout :background="page.background">
+  <TideBaseLayout
+    :site="site"
+    :pageTitle="page.title"
+    :pageDescription="page.description"
+    :pageLanguage="page.lang"
+    :updatedDate="page.changed || page.created"
+  >
     <template #aboveHeader>
       <slot name="aboveHeader"></slot>
     </template>
@@ -13,7 +19,7 @@ export default {
       <slot name="primaryNav"></slot>
     </template>
     <template #breadcrumbs>
-      <RplBreadcrumbs v-bind="page.breadcrumbs"></RplBreadcrumbs>
+      <slot name="breadcrumbs"></slot>
     </template>
     <template #aboveBody>
       <TidePublicationPageHeader
@@ -42,13 +48,14 @@ export default {
     <template #footer>
       <slot name="footer"></slot>
     </template>
-  </RplLayout>
+  </TideBaseLayout>
 </template>
 
 <script setup lang="ts">
 import { TidePublicationPagePage } from './types'
 
 interface Props {
+  site: any
   page: TidePublicationPagePage
 }
 

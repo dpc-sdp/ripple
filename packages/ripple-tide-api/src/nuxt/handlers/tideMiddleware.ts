@@ -3,7 +3,6 @@ import { defineEventHandler } from 'h3'
 import {
   TidePageApi,
   TideSiteApi,
-  TidePublicationIndexApi,
   defineRplTideModule,
   logger
 } from '@dpc-sdp/ripple-tide-api'
@@ -27,16 +26,8 @@ export default defineEventHandler(async (event) => {
     },
     logger
   )
-  const publicationIndexApi = new TidePublicationIndexApi(
-    {
-      ...tideConfig,
-      mapping: rplTideModules
-    },
-    logger
-  )
   event.context.tide = {
     pageApi,
-    siteApi,
-    publicationIndexApi
+    siteApi
   }
 })

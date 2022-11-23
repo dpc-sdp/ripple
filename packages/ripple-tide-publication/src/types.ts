@@ -14,6 +14,21 @@ export type TidePublicationChapter = {
   link: any
 }
 
+export interface apiNode {
+  title: string
+  url: string
+  id: string
+  children: apiNode[] | undefined
+}
+
+export interface indexNode {
+  text: string
+  url: string
+  id: string
+  items: indexNode[] | undefined
+  active: boolean | undefined
+}
+
 export interface TidePublicationPage extends TidePageBase {
   /**
    * @description Page title

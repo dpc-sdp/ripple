@@ -1,8 +1,15 @@
 import { join } from 'pathe'
-import { defineNuxtModule, addComponentsDir, addServerHandler } from '@nuxt/kit'
+import {
+  defineNuxtModule,
+  addServerHandler,
+  addComponentsDir,
+  createResolver
+} from '@nuxt/kit'
 
 export default defineNuxtModule({
   setup() {
+    const { resolve } = createResolver(import.meta.url)
+
     // Add TidePublication components as dynamic imports in Nuxt apps - See https://v3.nuxtjs.org/guide/concepts/auto-imports
     addComponentsDir({
       extensions: ['vue'],
@@ -11,9 +18,9 @@ export default defineNuxtModule({
       global: true
     })
 
-    // addServerHandler({
-    //   route: '/api/tide/publication/menu',
-    //   handler: join('./handlers/publication-menu-handler.js')
-    // })
+    addServerHandler({
+      route: '/api/tide/publication-index',
+      handler: resolve('../dist/publicationIndexHandler.js')
+    })
   }
 })

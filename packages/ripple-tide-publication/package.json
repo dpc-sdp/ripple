@@ -9,7 +9,6 @@
     ".": "./dist/index.js",
     "./component": "./src/index.vue",
     "./page-components": "./src/components",
-    "./handlers": "./dist/handlers",
     "./types": "./src/types.ts",
     "./nuxt": "./src/nuxt.ts"
   },
@@ -21,8 +20,8 @@
     "watch": "yarn clean && tsc -p tsconfig.json -w"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-tide-api": "2.1.0-alpha.3",
-    "@dpc-sdp/ripple-tide-landing-page": "2.1.0-alpha.3"
+    "@dpc-sdp/ripple-tide-api": "2.1.0-alpha.12",
+    "@dpc-sdp/ripple-tide-landing-page": "2.1.0-alpha.12"
   },
   "files": [
     "dist",

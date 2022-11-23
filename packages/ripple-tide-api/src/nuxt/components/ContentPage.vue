@@ -33,6 +33,7 @@
 </template>
 
 <script setup lang="ts">
+// @ts-ignore
 import { useRoute, useRuntimeConfig, useFetch, createError } from '#imports'
 import { computed, unref } from 'vue'
 import { pascalCase } from 'change-case'

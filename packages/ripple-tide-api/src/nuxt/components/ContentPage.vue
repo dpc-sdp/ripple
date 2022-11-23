@@ -1,5 +1,9 @@
 <template>
-  <slot :name="`${componentName}Page`" v-bind="{ page, site }">
+  <slot
+    v-if="page && site"
+    :name="`${componentName}Page`"
+    v-bind="{ page, site }"
+  >
     <component :is="`${componentName}Page`" :page="page" :site="site">
       <template #sidebar>
         <slot name="aboveSidebar"></slot>
@@ -29,12 +33,48 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { useRoute, useRuntimeConfig, useFetch, createError } from '#imports'
+import { computed, unref } from 'vue'
 import { pascalCase } from 'change-case'
-import { useTidePage, useTideSite } from '../composables'
 
-const site = await useTideSite()
-const page = await useTidePage()
+const route = useRoute()
+const { public: config } = useRuntimeConfig()
+const siteId = config.tide?.contentApi.site
+
+const { data: site, error: siteError } = await useFetch('/api/tide/site', {
+  baseURL: config.API_URL || '',
+  params: {
+    id: siteId
+  }
+})
+
+if (siteError.value) {
+  throw createError({
+    statusCode: 500,
+    statusMessage: 'We have a glitch in our system.',
+    message: `<p>We are aware of the issue. We appreciate your patience while we’re looking into it.</p>`
+  })
+}
+
+const { data: page, error: pageError } = await useFetch('/api/tide/page', {
+  baseURL: config.API_URL || '',
+  params: {
+    path: route.path,
+    site: siteId
+  }
+})
+
+if (pageError.value || !page.value) {
+  throw createError({
+    statusCode: 404,
+    statusMessage: "Sorry, we couldn't find the page you were looking for.",
+    message: `
+        <p>Have a look at the web address to make sure it was typed correctly. We may also have deleted this page.</p>
+        <p>If none of our suggestions help you find the information you were looking for, please <a href="/connect-with-us" class="rpl-text-link rpl-u-focusable-inline">contact us</a>.</p>
+      `,
+    data: JSON.stringify({ site: unref(site) })
+  })
+}
 
 const componentName = computed(
   () => page.value && `Tide${pascalCase(page.value.type)}`

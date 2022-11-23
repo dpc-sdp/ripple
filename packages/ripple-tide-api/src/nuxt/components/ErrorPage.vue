@@ -13,6 +13,7 @@
         :title="title"
         :intro="props.error?.statusMessage"
         :link="{ url: '/', text: 'Go back home' }"
+        data-cy="error-message"
       >
         <div v-if="props.error?.message">
           <RplContent :html="props.error.message" />
@@ -24,7 +25,6 @@
 
 <script setup lang="ts">
 import { RplHeaderGraphic, RplErrorMessage } from '@dpc-sdp/ripple-ui-core'
-import useTideSite from '../composables/use-tide-site'
 import { computed } from 'vue'
 
 interface Props {
@@ -35,8 +35,9 @@ const props = defineProps<Props>()
 
 const is404 = computed(() => props.error?.statusCode === '404')
 const title = computed(() => (is404.value ? 'Oops!' : 'Sorry!'))
-
-const site = is404.value ? await useTideSite() : null
+const site = computed(() =>
+  is404.value ? JSON.parse(props.error.data)?.site || null : null
+)
 </script>
 
 <style>

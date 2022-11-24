@@ -181,7 +181,7 @@
 }
 
 .rpl-primary-nav__nav-bar-mobile-menu-divider {
-  border-left: solid 1px var(--rpl-clr-type-primary-contrast);
+  border-left: solid var(--rpl-border-1) var(--rpl-clr-type-primary-contrast);
   height: var(--rpl-sp-4);
   margin: var(--rpl-sp-4) 0;
 

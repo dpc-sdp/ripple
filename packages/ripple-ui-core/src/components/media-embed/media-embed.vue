@@ -155,7 +155,7 @@ const isActionsListEmpty = computed(() => {
         <a
           class="
             rpl-media-embed__transcript-link rpl-media-embed__action
-            rpl-type-p
+            rpl-u-focusable-inline rpl-type-p
           "
           target="_blank"
           :href="props.transcriptUrl"
@@ -169,7 +169,7 @@ const isActionsListEmpty = computed(() => {
         <button
           class="
             rpl-media-embed__fullscreen-button rpl-media-embed__action
-            rpl-type-p
+            rpl-u-focusable-inline rpl-type-p
           "
           type="button"
           @click="isFullScreenOpen = !isFullScreenOpen"
@@ -196,7 +196,7 @@ const isActionsListEmpty = computed(() => {
         <button
           class="
             rpl-media-embed__view-data-toggle rpl-media-embed__action
-            rpl-type-p
+            rpl-u-focusable-inline rpl-type-p
           "
           @click="isDataContentOpen = !isDataContentOpen"
         >
@@ -222,7 +222,7 @@ const isActionsListEmpty = computed(() => {
         <a
           class="
             rpl-media-embed__download-link rpl-media-embed__action
-            rpl-type-p
+            rpl-u-focusable-inline rpl-type-p
           "
           :href="props.downloadUrl"
           download

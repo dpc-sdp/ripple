@@ -3,7 +3,7 @@ export default { name: 'RplMediaFullscreen' }
 </script>
 
 <script setup lang="ts">
-import { watch } from 'vue'
+import { watch, onMounted, onUnmounted } from 'vue'
 import { UseFocusTrap } from '@vueuse/integrations/useFocusTrap/component'
 import RplImage from '../image/image.vue'
 import RplButton from '../button/button.vue'
@@ -20,6 +20,12 @@ const props = withDefaults(defineProps<Props>(), {
   caption: undefined
 })
 
+const escapeKeyHandler = (event) => {
+  if (event.key === 'Escape' && props.isOpen) {
+    props.onCloseClick()
+  }
+}
+
 watch(
   () => props.isOpen,
   (newValue) => {
@@ -33,6 +39,14 @@ watch(
     }
   }
 )
+
+onMounted(() => {
+  window.addEventListener('keydown', escapeKeyHandler, false)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('keydown', escapeKeyHandler, false)
+})
 </script>
 
 <template>

@@ -121,6 +121,7 @@ module.exports = {
         case 'hidden':
           field.type = 'input'
           field.inputType = 'hidden'
+          field.visible = false
           if (defaultValue) data.model[eName] = defaultValue
           break
 

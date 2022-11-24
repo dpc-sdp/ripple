@@ -111,7 +111,7 @@
 
 .rpl-primary-nav__logo-divider {
   display: none;
-  border-left: solid 1px var(--rpl-clr-type-primary-contrast);
+  border-left: solid 2px var(--rpl-clr-type-primary-contrast);
   height: var(--rpl-sp-4);
   margin: 0 var(--rpl-sp-4);
 

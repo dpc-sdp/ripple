@@ -147,7 +147,7 @@
     max-width: 172px;
     height: 48px;
     padding: var(--rpl-sp-2) 10px;
-    color: white;
+    color: var(--rpl-clr-type-primary-contrast);
     text-decoration: none;
     text-align: center;
     white-space: nowrap;

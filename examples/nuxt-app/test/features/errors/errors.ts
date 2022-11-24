@@ -1,6 +1,6 @@
-import { Given, Then } from '@badeball/cypress-cucumber-preprocessor'
+import { Then } from '@badeball/cypress-cucumber-preprocessor'
 
-Given(
+Then(
   'the error page {string} has a status of {int}',
   (route: string, status: number) => {
     cy.request({
@@ -12,9 +12,6 @@ Given(
   }
 )
 
-Then('the error page displays the title {string}', (text: string) => {
-  cy.get('[data-cy="error-message"] .rpl-error-message__title').should(
-    'contain',
-    text
-  )
+Then('the error content contains the status {int}', (status: number) => {
+  cy.get(`[data-cy="error-${status}"]`).should('exist')
 })

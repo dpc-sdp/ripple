@@ -13,7 +13,7 @@
         :title="title"
         :intro="props.error?.statusMessage"
         :link="{ url: '/', text: 'Go back home' }"
-        data-cy="error-message"
+        :data-cy="`error-${props.error.statusCode}`"
       >
         <div v-if="props.error?.message">
           <RplContent :html="props.error.message" />

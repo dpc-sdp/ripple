@@ -53,10 +53,10 @@ const isChecked = (optionId: string): boolean => {
   <div class="rpl-form-checkbox-group">
     <RplFormCheckbox
       v-for="option in options"
-      :variant="variant"
       :id="option.id"
-      :name="option.id"
       :key="option.id"
+      :variant="variant"
+      :name="option.id"
       :label="option.label"
       :disabled="disabled || option.disabled"
       :checked="isChecked(option.id)"

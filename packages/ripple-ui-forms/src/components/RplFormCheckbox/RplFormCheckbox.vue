@@ -19,7 +19,7 @@ const props = withDefaults(defineProps<RplFormCheckboxProps>(), {
   variant: 'default',
   onChange: () => undefined,
   onValue: true,
-  offValue: true
+  offValue: false
 })
 
 const emit = defineEmits<{ (e: 'onChange', value: boolean): void }>()

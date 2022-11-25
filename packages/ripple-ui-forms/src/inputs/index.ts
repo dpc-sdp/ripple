@@ -1,4 +1,5 @@
 export { text } from './text'
 export { email } from './email'
 export { tel } from './tel'
+export { checkbox } from './checkbox'
 export { submit } from './submit'

@@ -82,6 +82,19 @@ export const SlotTemplate = (args) => ({
           }
         },
         {
+          $formkit: 'RplFormCheckbox',
+          id: 'single-checkbox',
+          name: 'single-checkbox',
+          label: 'How are you?',
+          checkboxLabel: 'I am good thanks',
+          help: 'A common human greeting',
+          value: false,
+          validation: 'accepted',
+          validationMessages: {
+            accepted: 'Please confirm that you are good thanks',
+          }
+        },
+        {
           $formkit: 'RplFormSubmit',
           label: 'Submit form',
           id: '123'

@@ -45,6 +45,7 @@ const onClick = (payload: any, index: number) => {
 }
 
 const isComplex = computed(() => props.variant === 'complex')
+const iconSize = computed(() => (isComplex.value ? 's' : 'xs'))
 </script>
 
 <template>
@@ -58,6 +59,7 @@ const isComplex = computed(() => props.variant === 'complex')
     <RplPaginationLink
       v-if="!isComplex || !isFirstStep"
       icon-name="icon-arrow-left"
+      :icon-size="iconSize"
       :aria-label="`Go to previous ${contentType}`"
       :disabled="!isComplex && isFirstStep"
       @click="(e) => onClick(e, activeStep - 1)"
@@ -88,6 +90,7 @@ const isComplex = computed(() => props.variant === 'complex')
       v-if="!isComplex || !isLastStep"
       icon-name="icon-arrow-right"
       icon-placement="after"
+      :icon-size="iconSize"
       :aria-label="`Go to next ${contentType}`"
       :disabled="!isComplex && isLastStep"
       @click="(e) => onClick(e, activeStep + 1)"

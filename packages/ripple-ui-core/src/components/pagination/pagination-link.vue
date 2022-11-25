@@ -4,14 +4,16 @@ export default { name: 'RplPaginationLink' }
 
 <script setup lang="ts">
 import RplIcon from '../icon/icon.vue'
-import { RplIconNames, RplIconPlacement } from '../icon/constants'
+import { RplIconNames, RplIconPlacement, RplIconSizes } from '../icon/constants'
 
 interface Props {
   iconName: typeof RplIconNames[number]
+  iconSize: typeof RplIconSizes[number]
   iconPlacement?: RplIconPlacement
 }
 
 withDefaults(defineProps<Props>(), {
+  iconSize: 's',
   iconPlacement: 'before'
 })
 </script>
@@ -26,6 +28,7 @@ withDefaults(defineProps<Props>(), {
     <RplIcon
       v-if="iconPlacement === 'before'"
       :name="iconName"
+      :size="iconSize"
       colour="default"
       class="rpl-pagination__link-icon"
     />
@@ -33,6 +36,7 @@ withDefaults(defineProps<Props>(), {
     <RplIcon
       v-if="iconPlacement === 'after'"
       :name="iconName"
+      :size="iconSize"
       colour="default"
       class="rpl-pagination__link-icon"
     />

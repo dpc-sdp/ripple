@@ -1,0 +1,104 @@
+import {
+  Canvas,
+  Meta,
+  Story,
+  ArgsTable
+} from '@storybook/addon-docs'
+import RplCardCarousel from './card-carousel.vue'
+import RplPromoCard from '../card/promo-card.vue'
+import { a11yStoryCheck } from './../../../stories/interactions.js'
+
+export const exampleCard = (args, index) => `
+  <RplPromoCard
+    url="#"
+    title="${args.title}"
+    :highlight="true"
+  >
+    <template #meta>
+      <span class="rpl-card__topic">${args.topic} - ${index}</span>
+    </template>
+    <p>The natural temperate grassland and the grassy eucalypt woodlands of the Victorian volcanic plain are two of Australia&rsquo;s most endangered ecosystems.</p>
+  </RplPromoCard>
+`
+export const exampleContent = [
+  {
+    title: 'Example title',
+    topic: 'Environment'
+  },
+  {
+    title: 'Another title',
+    topic: 'Health'
+  },
+  {
+    title: 'A great title',
+    topic: 'Community'
+  }
+]
+
+export const randomContent = () => exampleContent[Math.floor(Math.random() * exampleContent.length)]
+export const exampleCards = (number) => Array.from({ length: number }).map((_, i) => exampleCard(randomContent(), i + 1)).join('')
+
+export const SingleTemplate = (args) => ({
+  components: { RplCardCarousel, RplPromoCard },
+  setup() {
+    return { args }
+  },
+  template: `<RplCardCarousel v-bind="args">
+    ${args.cards}
+  </RplCardCarousel>`
+})
+
+<Meta
+  title='WIP/Components/Card carousel'
+  component={RplCardCarousel}
+/>
+
+# Card carousel
+
+<ArgsTable of={RplCardCarousel} />
+
+<Canvas>
+  <Story
+    name='Default'
+    play={a11yStoryCheck}
+    args={{
+      perView: 1,
+      cards: exampleCards(3)
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>
+
+# Card carousel with Breakpoints
+
+<ArgsTable of={RplCardCarousel} />
+
+<Canvas>
+  <Story
+    name='Breakpoints'
+    play={a11yStoryCheck}
+    args={{
+      perView: { xs: 1, m: 2, l: 3 },
+      cards: exampleCards(6)
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>
+
+# Card carousel with single card
+
+<ArgsTable of={RplCardCarousel} />
+
+<Canvas>
+  <Story
+    name='Single Card'
+    play={a11yStoryCheck}
+    args={{
+      cards: exampleCards(1)
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>

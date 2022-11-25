@@ -7,7 +7,7 @@ import RplPaginationLink from './pagination-link.vue'
 import { rplEventBus } from '../../index'
 import { useStepNavigation } from '../../composables/useStepNavigation'
 import { RplPaginationVariants } from './constants'
-import { computed } from 'vue'
+import { computed, watch } from 'vue'
 
 rplEventBus.register('rpl-pagination/click')
 const emit = defineEmits<{ (e: 'change', value: number): void }>()
@@ -15,7 +15,7 @@ const emit = defineEmits<{ (e: 'change', value: number): void }>()
 interface Props {
   label?: string
   totalPages: number
-  initialPage?: number
+  currentPage?: number
   surroundingPages?: number
   contentType?: string
   showTally?: boolean
@@ -24,19 +24,24 @@ interface Props {
 
 const props = withDefaults(defineProps<Props>(), {
   label: undefined,
-  initialPage: 1,
+  currentPage: 1,
   surroundingPages: 2,
   contentType: undefined,
   showTally: false,
   variant: 'complex'
 })
 
+const totalSteps = computed(() => props.totalPages)
+const currentStep = computed(() => props.currentPage)
+
 const { activeStep, visibleSteps, updateStep, isFirstStep, isLastStep } =
   useStepNavigation({
-    totalSteps: props.totalPages,
-    initialStep: props.initialPage,
+    totalSteps,
+    currentStep: props.currentPage,
     surroundingSteps: props.surroundingPages
   })
+
+watch(currentStep, (step) => updateStep(step))
 
 const onClick = (payload: any, index: number) => {
   updateStep(index)

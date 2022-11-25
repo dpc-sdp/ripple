@@ -53,7 +53,7 @@ export const SingleTemplate = (args) => ({
   <Story
     name='Inactive'
     args={{
-      id: 'checkbox-reverse',
+      id: 'checkbox-inactive',
       label: 'Here is a checkbox',
       disabled: true,
     }}
@@ -69,6 +69,20 @@ export const SingleTemplate = (args) => ({
     args={{
       id: 'checkbox-long-label',
       label: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ',
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    name='Custom on/off values'
+    args={{
+      id: 'checkbox-on-off',
+      label: `I'm either 'yes' or 'no'. Check the actions tab`,
+      onValue: 'yes',
+      offValue: 'no',
     }}
   >
     {SingleTemplate.bind()}

@@ -10,12 +10,16 @@ export interface RplFormCheckboxProps {
   disabled?: boolean
   variant?: 'default' | 'reverse'
   onChange: (checked: boolean) => void
+  onValue?: boolean | string | number
+  offValue?: boolean | string | number
 }
 
 const props = withDefaults(defineProps<RplFormCheckboxProps>(), {
   disabled: false,
   variant: 'default',
-  onChange: () => undefined
+  onChange: () => undefined,
+  onValue: true,
+  offValue: true
 })
 
 const emit = defineEmits<{ (e: 'onChange', value: boolean): void }>()
@@ -26,8 +30,10 @@ const classes = computed(() => {
 
 const handleChange = (e: Event) => {
   const el = e.target as HTMLInputElement
+  const newValue = el.checked ? props.onValue : props.offValue
+
   // TODO - Wire up event bus handling here
-  useFormkitFriendlyEventEmitter(props, emit, 'onChange', el.checked)
+  useFormkitFriendlyEventEmitter(props, emit, 'onChange', newValue)
 }
 </script>
 

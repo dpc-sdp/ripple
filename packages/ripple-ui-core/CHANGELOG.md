@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.16](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.15...v2.1.0-alpha.16) (2022-11-25)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** :bug: fix media overflowing container in media-fullscreen ([2e975fd](https://github.com/dpc-sdp/ripple-framework/commit/2e975fd5b3f2b909637d05810dfd7fc13c4389c3))
+* **@dpc-sdp/ripple-ui-core:** :lipstick: add focusable classes to media-embed actions ([c4eb8e7](https://github.com/dpc-sdp/ripple-framework/commit/c4eb8e70007ff2fd1a61fe3a72c54f372cc2489f))
+
+
+### Features
+
+* **@dpc-sdp/ripple-ui-core:** :lipstick: add reset to remove margins from figure element ([1f0ecae](https://github.com/dpc-sdp/ripple-framework/commit/1f0ecae3d82e4fb3f42258db8fa71b2b3ae7b3d1))
+* **@dpc-sdp/ripple-ui-core:** :lipstick: add styles for media-embed ([bbf276d](https://github.com/dpc-sdp/ripple-framework/commit/bbf276dd1b2d204c2ee8c6e080544c5dad8fd1f6))
+* **@dpc-sdp/ripple-ui-core:** :sparkles: add basic layout for media-embed ([4811409](https://github.com/dpc-sdp/ripple-framework/commit/48114094c2036bb770083f27763202b9288985be))
+* **@dpc-sdp/ripple-ui-core:** :sparkles: add fullscreen complex image functionality ([30c89e8](https://github.com/dpc-sdp/ripple-framework/commit/30c89e8f03e98706cbf8e3143b946fc37c0ca32b))
+* **@dpc-sdp/ripple-ui-core:** :sparkles: add image variants to media-embed ([bdce18d](https://github.com/dpc-sdp/ripple-framework/commit/bdce18d00101f323cdadf1bea0b9a1d53a66cc52))
+* **@dpc-sdp/ripple-ui-core:** :sparkles: add useFocusTrap to media-fullscreen ([49f4c7c](https://github.com/dpc-sdp/ripple-framework/commit/49f4c7c99dc2f2fee25f8f683e6a5ec50c4a4ea0))
+* **@dpc-sdp/ripple-ui-core:** :sparkles: close media-fullscreen when escape key pressed ([fdaad0b](https://github.com/dpc-sdp/ripple-framework/commit/fdaad0baa8b8a2f542d4f343321fe08f161479b7))
+* **@dpc-sdp/ripple-ui-core:** :sparkles: wire up video embed in media-embed components ([24c5212](https://github.com/dpc-sdp/ripple-framework/commit/24c5212ed50d2609b3f9c3c8d9ac162e2ae5dce8))
+
+
+
+
+
 # [2.1.0-alpha.15](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.14...v2.1.0-alpha.15) (2022-11-23)
 
 

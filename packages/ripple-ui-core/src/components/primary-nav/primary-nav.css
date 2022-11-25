@@ -164,8 +164,10 @@
       white-space: normal;
     }
 
-    &.rpl-primary-nav__nav-bar-action--active {
+    &.rpl-primary-nav__nav-bar-action--active,
+    &:hover {
       text-decoration: underline;
+      text-decoration-thickness: 2px;
     }
   }
 }

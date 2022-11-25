@@ -1,4 +1,11 @@
-import { text, email, tel, submit, checkbox } from './inputs/index'
+import {
+  text,
+  email,
+  tel,
+  submit,
+  checkbox,
+  checkboxGroup
+} from './inputs/index'
 
 const rplFormInputs = (node) => {
   // Adds required value
@@ -47,6 +54,8 @@ rplFormInputs.library = (node) => {
       return node.define(tel)
     case 'RplFormCheckbox':
       return node.define(checkbox)
+    case 'RplFormCheckboxGroup':
+      return node.define(checkboxGroup)
     case 'RplFormSubmit':
       return node.define(submit)
   }

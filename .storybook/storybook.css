@@ -27,6 +27,12 @@ body {
   margin-top: 0;
 }
 
+.rpl-storybook-form-values {
+  font-size: 16px;
+  background: #eee;
+  padding: 30px;
+}
+
 .sb-flex-container .innerZoomElementWrapper {
   display: flex;
 }

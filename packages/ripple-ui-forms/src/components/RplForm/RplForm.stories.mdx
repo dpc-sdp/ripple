@@ -12,7 +12,16 @@ export const SingleTemplate = (args) => ({
   setup() {
     return { args }
   },
-  template: '<RplForm v-bind="args" />'
+  template: `
+    <RplForm v-bind="args">
+      <template #belowForm="{ value }">
+        <div class="rpl-storybook-form-values">
+          <h2 class="rpl-type-h4">Internal form values</h2>
+          <pre wrap>{{ value }}</pre>
+        </div>
+      </template>
+    </RplForm>
+  `
 })
 
 export const SlotTemplate = (args) => ({
@@ -26,6 +35,12 @@ export const SlotTemplate = (args) => ({
       type="RplFormText"
       label="test"
     />
+    <template #belowForm="{ value }">
+      <div class="rpl-storybook-form-values">
+        <h2 class="rpl-type-h4">Internal form values</h2>
+        <pre wrap>{{ value }}</pre>
+      </div>
+    </template>
   </RplForm>
   `
 })

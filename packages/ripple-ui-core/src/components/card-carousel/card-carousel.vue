@@ -19,11 +19,10 @@ const props = withDefaults(defineProps<Props>(), {
   perView: 1
 })
 
-const slots = useSlots()
-const bp = useBreakpoints(bpMin)
-
 const swiper = ref()
 const activePage = ref()
+const slots = useSlots()
+const bp = useBreakpoints(bpMin)
 
 const isXSmallScreen = bp.greaterOrEqual('xs')
 const isSmallScreen = bp.greaterOrEqual('s')
@@ -74,7 +73,7 @@ const paginationClick = (currentPage) => {
   swiper.value.$el.swiper.slideTo(currentPage - 1)
 }
 
-const slideUpdated = ({ activeIndex }) => {
+const slideUpdate = ({ activeIndex }) => {
   activePage.value = activeIndex + 1
 }
 </script>
@@ -82,6 +81,7 @@ const slideUpdated = ({ activeIndex }) => {
 <template>
   <div class="rpl-card-carousel">
     <RplPagination
+      v-if="cards.length > 1"
       variant="simple"
       :current-page="activePage"
       :total-pages="totalPages"
@@ -92,7 +92,7 @@ const slideUpdated = ({ activeIndex }) => {
       ref="swiper"
       :space-between="20"
       :breakpoints="breakpoints"
-      @slide-change="slideUpdated"
+      @slide-change="slideUpdate"
     >
       <SwiperSlide
         v-for="(card, i) in cards"

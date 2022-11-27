@@ -32,7 +32,6 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 const totalSteps = computed(() => props.totalPages)
-const currentStep = computed(() => props.currentPage)
 
 const { activeStep, visibleSteps, updateStep, isFirstStep, isLastStep } =
   useStepNavigation({
@@ -41,7 +40,10 @@ const { activeStep, visibleSteps, updateStep, isFirstStep, isLastStep } =
     surroundingSteps: props.surroundingPages
   })
 
-watch(currentStep, (step) => updateStep(step))
+watch(
+  () => props.currentPage,
+  (step) => updateStep(step)
+)
 
 const onClick = (payload: any, index: number) => {
   updateStep(index)

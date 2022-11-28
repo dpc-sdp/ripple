@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/ripple-tide-publication-page",
-  "version": "2.1.0-alpha.18",
+  "version": "2.1.0-alpha.19",
   "description": "Ripple mappings and components for Tide PublicationPage Content type",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -19,10 +19,8 @@
     "watch": "yarn clean && tsc -p tsconfig.json -w"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-tide-api": "2.1.0-alpha.18",
-    "@dpc-sdp/ripple-tide-publication": "2.1.0-alpha.18"
-  },
-  "devDependencies": {
+    "@dpc-sdp/ripple-tide-api": "2.1.0-alpha.19",
+    "@dpc-sdp/ripple-tide-publication": "2.1.0-alpha.19"
   },
   "files": [
     "dist",

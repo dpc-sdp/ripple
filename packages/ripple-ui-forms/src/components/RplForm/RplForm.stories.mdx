@@ -12,7 +12,16 @@ export const SingleTemplate = (args) => ({
   setup() {
     return { args }
   },
-  template: '<RplForm v-bind="args" />'
+  template: `
+    <RplForm v-bind="args">
+      <template #belowForm="{ value }">
+        <div class="rpl-storybook-form-values">
+          <h2 class="rpl-type-h4">Internal form values</h2>
+          <pre wrap>{{ value }}</pre>
+        </div>
+      </template>
+    </RplForm>
+  `
 })
 
 export const SlotTemplate = (args) => ({
@@ -26,6 +35,12 @@ export const SlotTemplate = (args) => ({
       type="RplFormText"
       label="test"
     />
+    <template #belowForm="{ value }">
+      <div class="rpl-storybook-form-values">
+        <h2 class="rpl-type-h4">Internal form values</h2>
+        <pre wrap>{{ value }}</pre>
+      </div>
+    </template>
   </RplForm>
   `
 })
@@ -80,6 +95,46 @@ export const SlotTemplate = (args) => ({
             required: 'We require a mobile for verification purposes',
             matches: 'Please enter a valid mobile number'
           }
+        },
+        {
+          $formkit: 'RplFormCheckbox',
+          id: 'single-checkbox',
+          name: 'single-checkbox',
+          label: 'How are you?',
+          checkboxLabel: 'I am good thanks',
+          help: 'A common human greeting',
+          value: false,
+          validation: 'accepted',
+          validationMessages: {
+            accepted: 'Please confirm that you are good thanks',
+          }
+        },
+        {
+          $formkit: 'RplFormCheckboxGroup',
+          id: 'checkbox-group',
+          name: 'checkbox-group',
+          label: 'What is the answer?',
+          help: 'There may be multiple answers',
+          validationLabel: 'enquiry',
+          validation: 'required|length:2,3',
+          validationMessages: {
+            required: 'Please provide an answer',
+            length: 'You must choose at least two answers',
+          },
+          options: [
+            {
+              id: "thing-1",
+              label: "Thing 1",
+            },
+            {
+              id: "thing-2",
+              label: "Thing 2",
+            },
+            {
+              id: "thing-3",
+              label: "Thing 3",
+            }
+          ]
         },
         {
           $formkit: 'RplFormSubmit',

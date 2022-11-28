@@ -32,9 +32,17 @@ const getFormSchemaFromMapping = (elements): FormKitSchemaNode[] => {
       // Validation states from Drupal
       // Currently supports required, pattern
       if (field['#required']) {
-        validationStates.push('required')
-        validationMessages['required'] =
+        const requiredMessage =
           field['#required_error'] || `${field['#title']} is required`
+
+        validationStates.push('required')
+        validationMessages['required'] = requiredMessage
+
+        // The formkit required rule accepts `false` as a value, so we need to use add the 'accepted' rule as well
+        if (field['#type'] === 'checkbox') {
+          validationStates.push('accepted')
+          validationMessages['accepted'] = requiredMessage
+        }
       }
       if (field['#pattern']) {
         validationStates.push(`matches:${field['#pattern']}`)
@@ -74,7 +82,7 @@ const getFormSchemaFromMapping = (elements): FormKitSchemaNode[] => {
           name: fieldKey,
           label: field['#title'],
           id: fieldKey,
-          help: field['#help_title'] || field['#help_title'],
+          help: field['#description'] || field['#help_title'],
           ...getValidation(field),
           ...getInputIcons(field)
         }
@@ -84,9 +92,20 @@ const getFormSchemaFromMapping = (elements): FormKitSchemaNode[] => {
           name: fieldKey,
           label: field['#title'],
           id: fieldKey,
-          help: field['#help_title'] || field['#help_title'],
+          help: field['#description'] || field['#help_title'],
           ...getValidation(field),
           ...getInputIcons(field)
+        }
+      case 'checkbox':
+        return {
+          $formkit: 'RplFormCheckbox',
+          id: fieldKey,
+          name: fieldKey,
+          // TODO: It's not clear what field we should be using for the 'label' here because it's a new requirement, setting as 'help title' for now
+          label: field['#help_title'],
+          help: field['#description'],
+          checkboxLabel: field['#title'],
+          ...getValidation(field)
         }
       case 'webform_actions':
         return {
@@ -99,11 +118,11 @@ const getFormSchemaFromMapping = (elements): FormKitSchemaNode[] => {
         }
     }
     return {
-      $el: 'span',
+      $el: 'div',
       attrs: {
-        class: 'rpl-form__input--unsupported'
+        class: 'rpl-form__outer rpl-form__input--unsupported'
       },
-      children: [`${field['#type']} is not yet supported`]
+      children: [`"${field['#type']}" is not yet supported`]
     }
   })
   return fields

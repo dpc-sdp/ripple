@@ -34,6 +34,7 @@ export { default as RplFooter } from './components/footer/footer.vue'
 export { default as RplHeader } from './components/header/header.vue'
 export { default as RplHeroHeader } from './components/header/hero-header.vue'
 export { default as RplIntroHeader } from './components/header/intro-header.vue'
+export { default as RplHeaderGraphic } from './components/header/header-graphic.vue'
 
 export { default as RplIcon } from './components/icon/icon.vue'
 export { default as RplIconSprite } from './components/icon/sprite.vue'
@@ -66,5 +67,7 @@ export { default as RplVerticalNav } from './components/vertical-nav/vertical-na
 export { default as RplVerticalNavToggle } from './components/vertical-nav/toggle.vue'
 export { default as RplVerticalNavChildList } from './components/vertical-nav/child-list.vue'
 export { default as RplVerticalNavLink } from './components/vertical-nav/link.vue'
+
+export { default as RplErrorMessage } from './components/error-message/error-message.vue'
 
 export { default as getGrantStatus } from './utils/getGrantStatus'

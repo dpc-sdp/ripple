@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.18](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.17...v2.1.0-alpha.18) (2022-11-28)
+
+
+### Features
+
+* **@dpc-sdp/ripple-tide-media:** limit video width ([3248044](https://github.com/dpc-sdp/ripple-framework/commit/3248044cf592dd4a566c9b7b017bbded4264096c))
+
+
+
+
+
 # [2.1.0-alpha.13](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.12...v2.1.0-alpha.13) (2022-11-21)
 
 

@@ -81,12 +81,12 @@ export default {
           }
         }
       } else {
-        const res = await this.postForm(formId, formData)
-        if (res) {
+        const resData = await this.postForm(formId, formData)
+        if (resData) {
           this.formData.formState = {
             response: {
               status: 'success',
-              message: this.formData.messages.success || this.messages.success
+              message: resData.attributes.notes ? resData.attributes.notes : (this.formData.messages.success || this.messages.success)
             }
           }
           // TODO: vicpol support, need to be reviewed when we add this feature into SDP.

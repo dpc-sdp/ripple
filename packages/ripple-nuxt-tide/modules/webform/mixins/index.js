@@ -28,7 +28,7 @@ const webform = {
         const url = formResource + '/' + formId
         const res = await this.$tide.post(url, data)
         if (res.data) {
-          return true
+          return res.data
         }
         return false
       } catch (e) {

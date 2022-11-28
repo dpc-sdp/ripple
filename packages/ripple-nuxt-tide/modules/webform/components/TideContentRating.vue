@@ -150,13 +150,13 @@ export default {
           }
         }
       } else {
-        const res = await this.postForm(formId, formData)
+        const resData = await this.postForm(formId, formData)
 
-        if (res) {
+        if (resData) {
           this.formData.formState = {
             response: {
               status: 'success',
-              message: this.messages.success
+              message: resData.attributes.notes ? resData.attributes.notes : this.messages.success
             }
           }
         } else {

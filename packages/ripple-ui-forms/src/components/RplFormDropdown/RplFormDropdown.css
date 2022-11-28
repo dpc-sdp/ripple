@@ -60,6 +60,7 @@
 }
 
 .rpl-form-dropdown-menu {
+  z-index: var(--rpl-z-index-above-content);
   border: var(--rpl-border-2) solid var(--rpl-clr-dark);
   background: var(--rpl-clr-light);
   max-height: calc(

@@ -17,7 +17,6 @@ export interface RplFormDropdownProps {
     id: string
     label: string
     value: string
-    disabled?: boolean
   }[]
   maxItemsDisplayed: number
 }
@@ -210,7 +209,10 @@ const hasValue = computed((): boolean => {
     :style="{
       '--local-max-items': maxItemsDisplayed
     }"
-    :class="['rpl-form-dropdown', `rpl-form-dropdown--${props.variant}`]"
+    :class="{
+      'rpl-form-dropdown': true,
+      [`rpl-form-dropdown--${props.variant}`]: true
+    }"
     @keydown.down.prevent="handleArrowUp"
     @keydown.up.prevent="handleArrowDown"
     @keydown.esc.prevent="handleClose(true)"

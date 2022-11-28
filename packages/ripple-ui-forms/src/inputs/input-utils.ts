@@ -2,6 +2,7 @@ import { markRaw } from 'vue'
 import RplFormInput from './../components/RplFormInput/RplFormInput.vue'
 import RplFormCheckbox from './../components/RplFormCheckbox/RplFormCheckbox.vue'
 import RplFormCheckboxGroup from './../components/RplFormCheckbox/RplFormCheckboxGroup.vue'
+import RplFormDropdown from './../components/RplFormDropdown/RplFormDropdown.vue'
 import RplFormValidationError from './../components/RplFormValidationError/RplFormValidationError.vue'
 import {
   outer,
@@ -25,6 +26,7 @@ export const inputLibrary = {
   RplFormInput: markRaw(RplFormInput),
   RplFormCheckbox: markRaw(RplFormCheckbox),
   RplFormCheckboxGroup: markRaw(RplFormCheckboxGroup),
+  RplFormDropdown: markRaw(RplFormDropdown),
   RplFormValidationError: markRaw(RplFormValidationError)
 }
 

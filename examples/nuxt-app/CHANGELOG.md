@@ -3,6 +3,35 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.18](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.17...v2.1.0-alpha.18) (2022-11-28)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-api:** testing ci tests ([22c3897](https://github.com/dpc-sdp/ripple-framework/commit/22c38971d12e53bb354154b4829a1d4af82cffb1))
+
+
+### Features
+
+* **@dpc-sdp/ripple-tide-media:** add basic tests ([47e315c](https://github.com/dpc-sdp/ripple-framework/commit/47e315c00e3e496cda80b5afe7761c36ac4457e8))
+
+
+### Reverts
+
+* **@dpc-sdp/ripple-tide-api:** restore 500 test ([8f9f027](https://github.com/dpc-sdp/ripple-framework/commit/8f9f027aa13b1e6db0f1cf06cec096033f1bd6eb))
+
+
+
+
+
+# [2.1.0-alpha.17](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.16...v2.1.0-alpha.17) (2022-11-28)
+
+**Note:** Version bump only for package nuxt-app
+
+
+
+
+
 # [2.1.0-alpha.16](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.15...v2.1.0-alpha.16) (2022-11-25)
 
 **Note:** Version bump only for package nuxt-app

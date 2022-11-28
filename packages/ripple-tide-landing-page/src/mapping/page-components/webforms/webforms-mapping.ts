@@ -81,8 +81,10 @@ const getFormSchemaFromMapping = (elements): FormKitSchemaNode[] => {
           $formkit: 'RplFormText',
           name: fieldKey,
           label: field['#title'],
+          disabled: field['#disabled'],
           id: fieldKey,
           help: field['#description'] || field['#help_title'],
+          value: field['#default_value'],
           ...getValidation(field),
           ...getInputIcons(field)
         }
@@ -91,8 +93,10 @@ const getFormSchemaFromMapping = (elements): FormKitSchemaNode[] => {
           $formkit: 'RplFormEmail',
           name: fieldKey,
           label: field['#title'],
+          disabled: field['#disabled'],
           id: fieldKey,
           help: field['#description'] || field['#help_title'],
+          value: field['#default_value'],
           ...getValidation(field),
           ...getInputIcons(field)
         }
@@ -101,10 +105,32 @@ const getFormSchemaFromMapping = (elements): FormKitSchemaNode[] => {
           $formkit: 'RplFormCheckbox',
           id: fieldKey,
           name: fieldKey,
+          disabled: field['#disabled'],
           // TODO: It's not clear what field we should be using for the 'label' here because it's a new requirement, setting as 'help title' for now
           label: field['#help_title'],
           help: field['#description'],
           checkboxLabel: field['#title'],
+          value: field['#default_value'],
+          ...getValidation(field)
+        }
+      case 'select':
+        return {
+          $formkit: 'RplFormDropdown',
+          id: fieldKey,
+          name: fieldKey,
+          disabled: field['#disabled'],
+          label: field['#title'],
+          help: field['#description'],
+          options: Object.entries(field['#options'] || {}).map(
+            ([value, label]) => {
+              return {
+                id: value,
+                value,
+                label
+              }
+            }
+          ),
+          value: field['#default_value'],
           ...getValidation(field)
         }
       case 'webform_actions':

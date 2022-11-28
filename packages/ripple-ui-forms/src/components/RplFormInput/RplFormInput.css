@@ -24,18 +24,21 @@
   border-radius: var(--rpl-border-radius-2);
 
   &:focus {
-    border: var(--rpl-border-1) solid var(--rpl-clr-neutral-900);
+    border: var(--rpl-border-1) solid var(--rpl-clr-dark);
     border-radius: 0;
-    outline: var(--rpl-focusable-border-width, 4px) solid var(--rpl-clr-focus);
   }
 }
 
-.rpl-form__input--with-prefix-icon input{
-  padding-left: calc(var(--rpl-sp-4) + var(--local-icon-spacing) + var(--rpl-sp-2));
+.rpl-form__input--with-prefix-icon input {
+  padding-left: calc(
+    var(--rpl-sp-4) + var(--local-icon-spacing) + var(--rpl-sp-2)
+  );
 }
 
-.rpl-form__input--with-suffix-icon input{
-  padding-right: calc(var(--rpl-sp-4) + var(--local-icon-spacing) + var(--rpl-sp-2));
+.rpl-form__input--with-suffix-icon input {
+  padding-right: calc(
+    var(--rpl-sp-4) + var(--local-icon-spacing) + var(--rpl-sp-2)
+  );
 }
 
 .rpl-form__input-icon {

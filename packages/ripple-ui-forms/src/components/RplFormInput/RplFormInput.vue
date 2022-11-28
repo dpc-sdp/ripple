@@ -15,7 +15,6 @@ interface Props {
   maxlength?: string
 }
 
-
 const props = withDefaults(defineProps<Props>(), {
   type: 'text',
   className: 'rpl-form__input',
@@ -31,7 +30,7 @@ const classes = computed(() => {
     [`${props.className}--type-${props.type}`]: props.type,
     [`${props.className}--disabled`]: props.disabled,
     [`${props.className}--with-prefix-icon`]: props.prefixIcon,
-    [`${props.className}--with-suffix-icon`]: props.suffixIcon,
+    [`${props.className}--with-suffix-icon`]: props.suffixIcon
   }
 })
 /*
@@ -40,20 +39,35 @@ TODO - Wire up event bus handling
 // function handleInput(e: Event) {
 //   props.handlers?.DOMInput(e)
 // }
-
 </script>
 
 <template>
   <div :class="classes">
-    <RplIcon v-if="prefixIcon" :name="prefixIcon" :class="`${props.className}-icon ${props.className}-icon__prefix`">
+    <RplIcon
+      v-if="prefixIcon"
+      :name="prefixIcon"
+      :class="`${props.className}-icon ${props.className}-icon__prefix`"
+    >
     </RplIcon>
-    <input :id="id" :type="type" :disabled="disabled" v-bind="$attrs" :name="name" :value="value" :maxlength="maxlength"
-      @blur="handlers?.blur" @input="handlers?.DOMInput" />
-    <RplIcon v-if="suffixIcon" :name="suffixIcon" :class="`${props.className}-icon ${props.className}-icon__suffix`">
+    <input
+      :id="id"
+      :type="type"
+      class="rpl-u-focusable-outline"
+      :disabled="disabled"
+      v-bind="$attrs"
+      :name="name"
+      :value="value"
+      :maxlength="maxlength"
+      @blur="handlers?.blur"
+      @input="handlers?.DOMInput"
+    />
+    <RplIcon
+      v-if="suffixIcon"
+      :name="suffixIcon"
+      :class="`${props.className}-icon ${props.className}-icon__suffix`"
+    >
     </RplIcon>
   </div>
 </template>
 
-<style src="./RplFormInput.css">
-
-</style>
+<style src="./RplFormInput.css"></style>

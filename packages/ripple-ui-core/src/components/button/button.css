@@ -110,6 +110,11 @@
     }
   }
 
+  &--none {
+    padding: 0;
+    border: none;
+  }
+
   /* Themes */
   &--default {
     --local-filled-bg-clr: var(--rpl-clr-primary);

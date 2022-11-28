@@ -1,4 +1,6 @@
 .rpl-form-dropdown {
+  --local-item-height: 48px;
+
   position: relative;
 }
 
@@ -46,6 +48,12 @@
 .rpl-form-dropdown-menu {
   border: var(--rpl-border-2) solid var(--rpl-clr-dark);
   background: var(--rpl-clr-light);
+  max-height: calc(
+    var(--local-max-items) * var(--local-item-height) + var(--rpl-border-2) +
+      var(--rpl-border-2)
+  );
+  overflow-y: auto;
+  scroll-behavior: auto;
 
   position: absolute;
   width: 100%;

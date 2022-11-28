@@ -19,6 +19,7 @@ export interface RplFormDropdownProps {
     value: string
     disabled?: boolean
   }[]
+  maxItemsDisplayed: number
 }
 
 const props = withDefaults(defineProps<RplFormDropdownProps>(), {
@@ -26,7 +27,8 @@ const props = withDefaults(defineProps<RplFormDropdownProps>(), {
   variant: 'default',
   placeholder: '',
   onChange: () => undefined,
-  options: () => []
+  options: () => [],
+  maxItemsDisplayed: 6
 })
 
 const emit = defineEmits<{ (e: 'onChange', value: string[]): void }>()
@@ -151,18 +153,33 @@ const isOptionSelected = (optionValue) => {
   }
 }
 
+const focusOption = (optionId) => {
+  const optionEl = optionRefs.value.find((r) => {
+    return r.id === optionId
+  })
+  const menu = menuRef.value
+
+  // This makes the scrolling much nicer when using the arrow keys
+  if (menu.scrollHeight > menu.clientHeight) {
+    let scrollBottom = menu.clientHeight + menu.scrollTop
+    let elementBottom = optionEl.offsetTop + optionEl.offsetHeight
+    if (elementBottom > scrollBottom) {
+      menu.scrollTop = elementBottom - menu.clientHeight
+    } else if (optionEl.offsetTop < menu.scrollTop) {
+      menu.scrollTop = optionEl.offsetTop
+    }
+  }
+
+  if (optionEl) {
+    optionEl.focus()
+  }
+}
+
 watch(activeOptionId, async (newId) => {
   if (newId !== null) {
     // Must wait for next tick so that the right event handlers get called
     await nextTick()
-
-    const optionEl = optionRefs.value.find((r) => {
-      return r.id === newId
-    })
-
-    if (optionEl) {
-      optionEl.focus()
-    }
+    focusOption(newId)
   }
 })
 
@@ -190,10 +207,13 @@ const hasValue = computed((): boolean => {
 <template>
   <div
     ref="containerRef"
+    :style="{
+      '--local-max-items': maxItemsDisplayed
+    }"
     :class="['rpl-form-dropdown', `rpl-form-dropdown--${props.variant}`]"
-    @keydown.down="handleArrowUp"
-    @keydown.up="handleArrowDown"
-    @keydown.esc="handleClose(true)"
+    @keydown.down.prevent="handleArrowUp"
+    @keydown.up.prevent="handleArrowDown"
+    @keydown.esc.prevent="handleClose(true)"
     @keydown.exact.tab="handleClose(false)"
     @keydown.shift.tab="handleClose(false)"
   >
@@ -212,7 +232,7 @@ const hasValue = computed((): boolean => {
       role="combobox"
       tabindex="0"
       @click="handleToggle(false)"
-      @keydown.space="handleToggle(true)"
+      @keydown.space.prevent="handleToggle(true)"
     >
       <span
         v-if="hasValue"
@@ -250,7 +270,7 @@ const hasValue = computed((): boolean => {
         }"
         :aria-selected="isOptionSelected(option.value)"
         tabindex="-1"
-        @keydown.space="handleSelectOption(option.value)"
+        @keydown.space.prevent="handleSelectOption(option.value)"
         @click="handleSelectOption(option.value)"
       >
         <span

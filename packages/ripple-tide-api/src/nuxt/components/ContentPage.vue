@@ -30,22 +30,12 @@
       </template>
     </component>
   </slot>
-  <slot v-else-if="pageError" name="error">
-    <TideBaseLayout :site="site">
-      <template #body>
-        <!-- TODO: Add error handling in Error component -->
-        <h1>{{ pageError.data?.error?.message }}</h1>
-        <p>There was a 404 error</p>
-      </template>
-    </TideBaseLayout>
-  </slot>
 </template>
 
 <script setup lang="ts">
 // @ts-ignore
-import { useRoute, useRuntimeConfig, useFetch } from '#imports'
-
-import { computed, onMounted } from 'vue'
+import { useRoute, useRuntimeConfig, useFetch, createError } from '#imports'
+import { computed, unref } from 'vue'
 import { pascalCase } from 'change-case'
 
 const route = useRoute()
@@ -58,6 +48,15 @@ const { data: site, error: siteError } = await useFetch('/api/tide/site', {
     id: siteId
   }
 })
+
+if (siteError.value) {
+  throw createError({
+    statusCode: 500,
+    statusMessage: 'We have a glitch in our system.',
+    message: `<p>We are aware of the issue. We appreciate your patience while we’re looking into it.</p>`
+  })
+}
+
 const { data: page, error: pageError } = await useFetch('/api/tide/page', {
   baseURL: config.API_URL || '',
   params: {
@@ -66,13 +65,16 @@ const { data: page, error: pageError } = await useFetch('/api/tide/page', {
   }
 })
 
-onMounted(() => {
-  console.log(page.value)
-})
-
-// TODO: Properly handle this, it's currently breaking cypress tests in CI if we throw the error here
-if (siteError.value) {
-  // throw new Error("Site data couldn't be fetched")
+if (pageError.value || !page.value) {
+  throw createError({
+    statusCode: 404,
+    statusMessage: "Sorry, we couldn't find the page you were looking for.",
+    message: `
+        <p>Have a look at the web address to make sure it was typed correctly. We may also have deleted this page.</p>
+        <p>If none of our suggestions help you find the information you were looking for, please <a href="/connect-with-us" class="rpl-text-link rpl-u-focusable-inline">contact us</a>.</p>
+      `,
+    data: JSON.stringify({ site: unref(site) })
+  })
 }
 
 const componentName = computed(

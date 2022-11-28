@@ -3,7 +3,7 @@ export default { name: 'TideMediaBody' }
 </script>
 
 <template>
-  <figure class="rpl-u-margin-none">
+  <figure class="rpl-u-margin-none rpl-content">
     <slot />
     <figcaption>
       <RplContent

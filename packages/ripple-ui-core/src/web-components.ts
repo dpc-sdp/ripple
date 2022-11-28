@@ -60,6 +60,8 @@ import { default as RplTextLinkCmp } from './components/text-link/text-link.vue'
 import { default as RplTimelineCmp } from './components/timeline/timeline.vue'
 import { default as RplVerticalNavCmp } from './components/vertical-nav/vertical-nav.vue'
 
+import { default as RplErrorMessageCmp } from './components/error-message/error-message.vue'
+
 // register custom el
 const RplAccordion = defineCustomElement(RplAccordionCmp)
 const RplAcknowledgement = defineCustomElement(RplAcknowledgementCmp)
@@ -120,6 +122,8 @@ const RplTag = defineCustomElement(RplTagCmp)
 const RplTextLink = defineCustomElement(RplTextLinkCmp)
 const RplTimeline = defineCustomElement(RplTimelineCmp)
 const RplVerticalNav = defineCustomElement(RplVerticalNavCmp)
+
+const RplErrorMessage = defineCustomElement(RplErrorMessageCmp)
 
 // export each wc
 export { RplAccordion }
@@ -182,6 +186,8 @@ export { RplTextLink }
 export { RplTimeline }
 export { RplVerticalNav }
 
+export { RplErrorMessage }
+
 // export register function for all webcomponents
 export function registerRplWebComponents() {
   customElements.define('rpl-accordion', RplAccordion)
@@ -243,4 +249,6 @@ export function registerRplWebComponents() {
   customElements.define('rpl-text-link', RplTextLink)
   customElements.define('rpl-timeline', RplTimeline)
   customElements.define('rpl-vertical-nav', RplVerticalNav)
+
+  customElements.define('rpl-error-message', RplErrorMessage)
 }

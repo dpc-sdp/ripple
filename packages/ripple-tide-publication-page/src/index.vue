@@ -1,11 +1,12 @@
 <script lang="ts">
-export default { name: 'TideGrantPage' }
+export default {
+  name: 'TidePublicationPagePage'
+}
 </script>
 
 <template>
   <TideBaseLayout
     :site="site"
-    :background="page.background"
     :pageTitle="page.title"
     :pageDescription="page.description"
     :pageLanguage="page.lang"
@@ -21,22 +22,28 @@ export default { name: 'TideGrantPage' }
       <slot name="breadcrumbs"></slot>
     </template>
     <template #aboveBody>
-      <TideGrantHeader :header="page.header"></TideGrantHeader>
+      <TidePublicationPageHeader
+        :header="page.header"
+      ></TidePublicationPageHeader>
     </template>
     <template #body>
-      <TideGrantOverview :overview="page.overview"></TideGrantOverview>
-      <TideGrantTimeline :timeline="page.timeline"></TideGrantTimeline>
-      <TideGrantGuidelines v-bind="page.guidelines"></TideGrantGuidelines>
-      <TideGrantDocuments :documents="page.documents"></TideGrantDocuments>
-    </template>
-    <template #aboveSidebar>
-      <slot name="aboveSidebar"></slot>
+      <TideLandingPageInPageNavigation
+        v-if="page.showInPageNav"
+        :headingLevel="page.inPageNavHeadingLevel"
+        :components="page.dynamicComponents"
+      />
+      <TidePublicationPageBody
+        :components="page.dynamicComponents"
+      ></TidePublicationPageBody>
+      <TidePublicationPagePagination
+        :pagination="page.publication.pagination"
+      ></TidePublicationPagePagination>
     </template>
     <template #sidebar>
+      <TidePublicationSidebar
+        :publication="page.publication"
+      ></TidePublicationSidebar>
       <slot name="sidebar"></slot>
-    </template>
-    <template #belowSidebar>
-      <slot name="aboveSidebar"></slot>
     </template>
     <template #footer>
       <slot name="footer"></slot>
@@ -45,11 +52,11 @@ export default { name: 'TideGrantPage' }
 </template>
 
 <script setup lang="ts">
-import type { TideGrantPage } from './types'
+import { TidePublicationPagePage } from './types'
 
 interface Props {
   site: any
-  page: TideGrantPage
+  page: TidePublicationPagePage
 }
 
 defineProps<Props>()

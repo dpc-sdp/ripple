@@ -1,13 +1,13 @@
 {
-  "title": "Demo Publication",
+  "title": "Demo Publication - Chapter 1",
   "changed": "2022-11-10T11:59:26+11:00",
   "created": "2022-11-10T11:59:26+11:00",
-  "type": "publication",
-  "nid": "11dede11-10c0-111e1-1100-000000000500",
+  "type": "publication_page",
+  "nid": "11dede11-10c0-111e1-1100-000000000510",
   "sidebar": {
     "contacts": [
       {
-        "id": "11c2122d-7a26-4861-b445-9719cc9664ec",
+        "id": "466037bf-904e-4ce2-bf80-121b1e02191c",
         "contactTitle": "Victorian Government",
         "contactName": "Victorian Government",
         "department": "Department of Premier and Cabinet",
@@ -30,19 +30,19 @@
         },
         "phones": [
           {
-            "id": "a26dc1ce-b281-4d3a-8bee-697ca2588c90",
+            "id": "d87b3dac-fe12-4c87-84fc-6be02d432966",
             "title": "Calls in Australia",
             "number": "1300 366 356"
           },
           {
-            "id": "ce44c10f-437e-43b2-b87e-bc94bb7d4ffd",
+            "id": "c25e6a8c-c06c-4515-8559-69160a8e2b3d",
             "title": "Calls from overseas",
             "number": "+61 3 9603 8804"
           }
         ],
         "socialMedia": [
           {
-            "id": "17b55358-a746-4671-8b7e-d38bd7f78126",
+            "id": "85458e70-37b7-408d-9533-9b672056c024",
             "type": "twitter",
             "text": "Twitter",
             "url": "https://twitter.com/VicGovAu"
@@ -52,26 +52,26 @@
     ],
     "relatedLinks": [
       {
-        "id": "bcad79f3-c40d-4be6-b637-09fe4d5446cf",
+        "id": "c808db39-d1b6-4ab7-add6-48f5ce42dd0b",
         "text": "State Government of Victoria",
         "url": "https://www.vic.gov.au"
       },
       {
-        "id": "3c34c546-8538-4ae5-a3da-168ee555660d",
+        "id": "c9fde3ac-9a7f-40c8-b163-8399ecb65a93",
         "text": "Department of Premier and Cabinet",
         "url": "https://www.vic.gov.au/department-premier-and-cabinet"
       }
     ],
     "socialShareNetworks": ["Facebook", "Twitter", "LinkedIn"]
   },
-  "url": "/demo-publication",
-  "header": {
-    "title": "Demo Publication",
-    "summary": "Nulla ultricies dignissim leo, posuere vestibulum erat cursus vitae"
-  },
+  "url": "/demo-publication/demo-publication-chapter-1",
   "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet ligula sit amet lacinia. In a leo nec tortor aliquet faucibus.",
   "showInPageNav": true,
   "inPageNavHeadingLevel": "h2",
+  "header": {
+    "title": "Demo Publication - Chapter 1",
+    "summary": "Nulla ultricies dignissim leo, posuere vestibulum erat cursus vitae"
+  },
   "breadcrumbs": {
     "items": [
       {
@@ -79,48 +79,19 @@
         "url": "/"
       },
       {
-        "label": "Demo Publication"
+        "label": "Demo Publication",
+        "url": "/demo-publication"
+      },
+      {
+        "label": "Demo Publication - Chapter 1"
       }
     ]
   },
-  "details": {
-    "author": "Demo Department",
-    "date": "2019-07-01T10:00:00+10:00"
-  },
-  "chapters": [
-    {
-      "id": "11dede11-10c0-111e1-1100-000000000510",
-      "title": "Demo Publication - Chapter 1",
-      "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet ligula sit amet lacinia. In a leo nec tortor aliquet faucibus.",
-      "link": {
-        "url": "/demo-publication/demo-publication-chapter-1",
-        "text": "Read more"
-      }
-    },
-    {
-      "id": "11dede11-10c0-111e1-1100-000000000520",
-      "title": "Demo Publication - Chapter 2",
-      "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet ligula sit amet lacinia. In a leo nec tortor aliquet faucibus.",
-      "link": {
-        "url": "/demo-publication/demo-publication-chapter-2",
-        "text": "Read more"
-      }
-    },
-    {
-      "id": "11dede11-10c0-111e1-1100-000000000530",
-      "title": "Demo Publication - Chapter 3",
-      "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet ligula sit amet lacinia. In a leo nec tortor aliquet faucibus.",
-      "link": {
-        "url": "/demo-publication/demo-publication-chapter-3",
-        "text": "Read more"
-      }
-    }
-  ],
   "dynamicComponents": [
     {
-      "uuid": "7411203a-9a11-42a7-9917-5b7ab6319fec",
+      "uuid": "1f5ad114-4266-45bf-910c-d6a211ebf8c3",
       "component": "RplContent",
-      "id": "427",
+      "id": "442",
       "internalAnchors": [
         {
           "text": "Nulla ultricies dignissim leo, posuere vestibulum erat cursus vitae",
@@ -143,26 +114,26 @@
       }
     },
     {
-      "uuid": "901fa135-fbbc-45d4-9801-b7c7ead83456",
+      "uuid": "2eddf456-4f4d-4a18-b75e-937a4fa52752",
       "component": "RplAccordion",
-      "id": "431",
+      "id": "446",
       "title": "Accordion header (basic)",
       "props": {
-        "id": "431",
+        "id": "446",
         "numbered": true,
         "items": [
           {
-            "id": "428",
+            "id": "443",
             "title": "Accordion #1",
             "content": "&lt;p&gt;Phasellus in varius leo. Suspendisse potenti. Donec scelerisque cursus ex varius efficitur. Vivamus pretium nisi sed libero accumsan mattis. Duis convallis, velit eget varius tempus, orci erat aliquam sem, eget porta mauris nisl at mauris.&lt;/p&gt;"
           },
           {
-            "id": "429",
+            "id": "444",
             "title": "Accordion #2",
             "content": "&lt;p&gt;Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus. Phasellus lacus lectus, sollicitudin sed posuere non, ultricies ut quam.&lt;/p&gt;"
           },
           {
-            "id": "430",
+            "id": "445",
             "title": "Accordion #3",
             "content": "&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet ligula sit amet lacinia. In a leo nec tortor aliquet faucibus. Quisque nec congue ligula, vitae condimentum tellus.&lt;/p&gt;"
           }
@@ -170,26 +141,26 @@
       }
     },
     {
-      "uuid": "9bd378c8-32b1-4be4-bda4-9b6665652815",
+      "uuid": "2734e7fe-65a2-477f-82de-32dd5c374017",
       "component": "RplAccordion",
-      "id": "435",
+      "id": "450",
       "title": "Accordion header (numbered)",
       "props": {
-        "id": "435",
+        "id": "450",
         "numbered": true,
         "items": [
           {
-            "id": "432",
+            "id": "447",
             "title": "Accordion #1",
             "content": "&lt;p&gt;Phasellus in varius leo. Suspendisse potenti. Donec scelerisque cursus ex varius efficitur. Vivamus pretium nisi sed libero accumsan mattis. Duis convallis, velit eget varius tempus, orci erat aliquam sem, eget porta mauris nisl at mauris.&lt;/p&gt;"
           },
           {
-            "id": "433",
+            "id": "448",
             "title": "Accordion #2",
             "content": "&lt;p&gt;Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus. Phasellus lacus lectus, sollicitudin sed posuere non, ultricies ut quam.&lt;/p&gt;"
           },
           {
-            "id": "434",
+            "id": "449",
             "title": "Accordion #3",
             "content": "&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet ligula sit amet lacinia. In a leo nec tortor aliquet faucibus. Quisque nec congue ligula, vitae condimentum tellus.&lt;/p&gt;"
           }
@@ -216,7 +187,19 @@
         "extension": "pdf",
         "id": "11dede11-10c0-111e1-1100-000000000100"
       }
-    ]
+    ],
+    "pagination": {
+      "prev": {
+        "text": "Demo Publication",
+        "url": "/demo-publication",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet ligula sit amet lacinia. In a leo nec tortor aliquet faucibus."
+      },
+      "next": {
+        "text": "Demo Publication - Chapter 1 - Page 1",
+        "url": "/demo-publication/demo-publication-chapter-1/demo-publication-chapter-1-page-1",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet ligula sit amet lacinia. In a leo nec tortor aliquet faucibus."
+      }
+    }
   },
   "showLastUpdated": true
 }

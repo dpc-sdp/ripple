@@ -22,8 +22,9 @@ export default defineNuxtConfig({
         grant: '@dpc-sdp/ripple-tide-grant',
         landing_page: '@dpc-sdp/ripple-tide-landing-page',
         media: '@dpc-sdp/ripple-tide-media',
+        news: '@dpc-sdp/ripple-tide-news',
         publication: '@dpc-sdp/ripple-tide-publication',
-        news: '@dpc-sdp/ripple-tide-news'
+        publication_page: '@dpc-sdp/ripple-tide-publication-page'
       },
       site: '@dpc-sdp/ripple-tide-api/mapping/site'
     },
@@ -34,8 +35,9 @@ export default defineNuxtConfig({
     '@dpc-sdp/ripple-tide-grant/nuxt',
     '@dpc-sdp/ripple-tide-landing-page/nuxt',
     '@dpc-sdp/ripple-tide-media/nuxt',
-    '@dpc-sdp/ripple-tide-publication/nuxt',
     '@dpc-sdp/ripple-tide-news/nuxt',
+    '@dpc-sdp/ripple-tide-publication/nuxt',
+    '@dpc-sdp/ripple-tide-publication-page/nuxt',
     '@dpc-sdp/ripple-ui-core/nuxt',
     '@dpc-sdp/ripple-ui-forms/nuxt'
   ]

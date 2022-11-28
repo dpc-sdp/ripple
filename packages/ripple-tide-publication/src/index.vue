@@ -23,10 +23,11 @@ export default { name: 'TidePublicationPage' }
       <TidePublicationHeader :header="page.header"></TidePublicationHeader>
     </template>
     <template #body>
-      <RplInPageNavigation
-        v-if="toc.length > 0"
-        :items="toc"
-      ></RplInPageNavigation>
+      <TideLandingPageInPageNavigation
+        v-if="page.showInPageNav"
+        :headingLevel="page.inPageNavHeadingLevel"
+        :components="page.dynamicComponents"
+      />
       <TidePublicationBody
         :details="page.details"
         :components="page.dynamicComponents"
@@ -36,13 +37,9 @@ export default { name: 'TidePublicationPage' }
       ></TidePublicationChapters>
     </template>
     <template #sidebar>
-      <TidePublicationPageActions
-        :documents="page.documents"
-      ></TidePublicationPageActions>
-      <TidePublicationSideNav
-        :items="items"
-        :title="page.title"
-      ></TidePublicationSideNav>
+      <TidePublicationSidebar
+        :publication="page.publication"
+      ></TidePublicationSidebar>
       <slot name="sidebar"></slot>
     </template>
     <template #footer>
@@ -53,58 +50,11 @@ export default { name: 'TidePublicationPage' }
 
 <script setup lang="ts">
 import type { TidePublicationPage } from './types'
-import { computed } from 'vue'
-import { RplInPageNavigation } from '@dpc-sdp/ripple-ui-core'
-import TidePublicationHeader from './components/tide-publication-header.vue'
-import TidePublicationBody from './components/tide-publication-body.vue'
-import TidePublicationChapters from './components/tide-publication-chapters.vue'
-import TidePublicationPageActions from './components/tide-publication-page-actions.vue'
-import TidePublicationSideNav from './components/tide-publication-side-nav.vue'
 
-defineProps<{
+interface Props {
   site: any
   page: TidePublicationPage
-}>()
+}
 
-// Placeholder for in-page nave, will need to figure this out dynamically from content - maybe a RplLayout concern?
-const toc = computed(() =>
-  // []
-  [
-    {
-      text: 'This is the first anchor link',
-      url: '#',
-      items: [
-        { text: 'This is sub heading following first anchor link', url: '#' }
-      ]
-    },
-    { text: 'Second link to extra content', url: '#' }
-  ]
-)
-
-// Placeholder for Publication sidebar nav
-const items = computed(() => [
-  { id: '15', text: 'First level no children', url: '#', active: true },
-  {
-    id: '17',
-    text: 'First level',
-    items: [
-      { id: '18', text: 'First level repeat', url: '#' },
-      {
-        id: '19',
-        text: 'Second level',
-        url: '#',
-        items: [
-          {
-            id: '20',
-            text: 'Third level link with some text that will need to wrap',
-            url: '#',
-            items: [{ id: '21', text: 'Fourth level', url: '#' }]
-          }
-        ]
-      },
-      { id: '22', text: 'Second level', url: '#' },
-      { id: '23', text: 'Second level', url: '#' }
-    ]
-  }
-])
+defineProps<Props>()
 </script>

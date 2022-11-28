@@ -20,9 +20,10 @@
   ],
   "cSpell.words": [
     "colour",
-    "formkit",
-    "maxlength",
     "composables",
+    "formkit",
+    "jsonapi",
+    "maxlength",
     "mockserver",
     "nuxt",
     "pathe",

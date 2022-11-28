@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.17](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.16...v2.1.0-alpha.17) (2022-11-28)
+
+
+### Features
+
+* **@dpc-sdp/ripple-tide-landing-page:** added webforms mapping for checkbox ([fb1dbf5](https://github.com/dpc-sdp/ripple-framework/commit/fb1dbf587a30a01927dde3c4f1405202b0dabe69))
+* **@dpc-sdp/ripple-ui-forms:** added checkbox group form component ([6dee1b4](https://github.com/dpc-sdp/ripple-framework/commit/6dee1b41b80e375f32a7f282c03a0eabc1b15dd1))
+* **@dpc-sdp/ripple-ui-forms:** added checkbox group to formkit ([1da2646](https://github.com/dpc-sdp/ripple-framework/commit/1da26468c60ce854221ece8dc0b1af6e5391c04a))
+* **@dpc-sdp/ripple-ui-forms:** added single checkbox form component ([2d7805a](https://github.com/dpc-sdp/ripple-framework/commit/2d7805ad258752949f8fca30291d4b84995ef805))
+* **@dpc-sdp/ripple-ui-forms:** added single checkbox to formkit ([24bd76b](https://github.com/dpc-sdp/ripple-framework/commit/24bd76b0969edcd50c8eaf06eaadb31aa5c50a46))
+
+
+
+
+
 # [2.1.0-alpha.16](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.15...v2.1.0-alpha.16) (2022-11-25)
 
 

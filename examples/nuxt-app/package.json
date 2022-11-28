@@ -2,7 +2,7 @@
   "private": true,
   "license": "Apache-2.0",
   "name": "nuxt-app",
-  "version": "2.1.0-alpha.16",
+  "version": "2.1.0-alpha.17",
   "scripts": {
     "dev": "nuxi dev",
     "dev:debug": "node --inspect node_modules/.bin/nuxi dev",
@@ -19,11 +19,11 @@
     "@dpc-sdp/ripple-tide-api": "2.1.0-alpha.13",
     "@dpc-sdp/ripple-tide-event": "2.1.0-alpha.13",
     "@dpc-sdp/ripple-tide-grant": "2.1.0-alpha.13",
-    "@dpc-sdp/ripple-tide-landing-page": "2.1.0-alpha.13",
+    "@dpc-sdp/ripple-tide-landing-page": "2.1.0-alpha.17",
     "@dpc-sdp/ripple-tide-media": "2.1.0-alpha.13",
     "@dpc-sdp/ripple-tide-news": "2.1.0-alpha.13",
     "@dpc-sdp/ripple-ui-core": "2.1.0-alpha.16",
-    "@dpc-sdp/ripple-ui-forms": "2.1.0-alpha.16",
+    "@dpc-sdp/ripple-ui-forms": "2.1.0-alpha.17",
     "dotenv": "^16.0.3"
   },
   "devDependencies": {

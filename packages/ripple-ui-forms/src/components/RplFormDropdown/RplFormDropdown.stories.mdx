@@ -60,7 +60,7 @@ export const SingleTemplate = (args) => ({
   <Story
     name='Single select'
     args={{
-      id: 'dropdown-default',
+      id: 'dropdown-single',
       multiple: false,
     }}
   >
@@ -72,8 +72,23 @@ export const SingleTemplate = (args) => ({
   <Story
     name='Multi select'
     args={{
-      id: 'dropdown-default',
+      id: 'dropdown-multi',
       multiple: true,
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    name='Reverse variant'
+    parameters={{
+      background: 'gray'
+    }}
+    args={{
+      id: 'dropdown-reverse',
+      variant: 'reverse',
     }}
   >
     {SingleTemplate.bind()}

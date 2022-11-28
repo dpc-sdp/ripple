@@ -151,7 +151,7 @@ const isOptionSelected = (optionValue) => {
   }
 }
 
-watch(activeOptionId, async (newId, oldId) => {
+watch(activeOptionId, async (newId) => {
   if (newId !== null) {
     // Must wait for next tick so that the right event handlers get called
     await nextTick()
@@ -190,7 +190,7 @@ const hasValue = computed((): boolean => {
 <template>
   <div
     ref="containerRef"
-    class="rpl-form-dropdown"
+    :class="['rpl-form-dropdown', `rpl-form-dropdown--${props.variant}`]"
     @keydown.down="handleArrowUp"
     @keydown.up="handleArrowDown"
     @keydown.esc="handleClose(true)"
@@ -221,7 +221,11 @@ const hasValue = computed((): boolean => {
       >
       <span v-else-if="multiple" class="rpl-type-p">asdasd</span>
       <span v-else class="rpl-type-p"> {{ singleValueDisplay }} </span>
-      <RplIcon name="icon-chevron-down" size="s" />
+      <RplIcon
+        name="icon-chevron-down"
+        size="s"
+        class="rpl-form-dropdown__chevron"
+      />
     </div>
     <div
       v-if="isOpen"
@@ -249,10 +253,17 @@ const hasValue = computed((): boolean => {
         @keydown.space="handleSelectOption(option.value)"
         @click="handleSelectOption(option.value)"
       >
-        <RplIcon
-          v-if="isOptionSelected(option.value)"
-          name="icon-check"
-        ></RplIcon>
+        <span
+          :class="{
+            'rpl-form-dropdown-option__check': multiple,
+            'rpl-form-dropdown-option__tick': !multiple
+          }"
+        >
+          <RplIcon
+            v-if="isOptionSelected(option.value)"
+            name="icon-check"
+          ></RplIcon>
+        </span>
         {{ option.label }}
       </div>
     </div>

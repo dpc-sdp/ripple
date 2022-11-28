@@ -35,6 +35,20 @@
   &[aria-expanded='true'] .rpl-form-dropdown__chevron {
     transform: rotate(-180deg);
   }
+
+  &[aria-disabled='true'] {
+    pointer-events: none;
+    border-color: var(--rpl-clr-neutral-100);
+    color: var(--rpl-clr-neutral-300);
+
+    .rpl-form-dropdown-input__placeholder {
+      color: var(--rpl-clr-neutral-300);
+    }
+
+    .rpl-form-dropdown__chevron {
+      color: var(--rpl-clr-neutral-300);
+    }
+  }
 }
 
 .rpl-form-dropdown-input__placeholder {
@@ -78,6 +92,7 @@
   display: block;
   width: var(--rpl-sp-4);
   margin-right: var(--rpl-sp-2);
+  flex-shrink: 0;
 }
 
 .rpl-form-dropdown-option__check {

@@ -229,8 +229,10 @@ const hasValue = computed((): boolean => {
       :aria-expanded="isOpen"
       aria-haspopup="listbox"
       :aria-labelledby="labelId"
+      :aria-disabled="disabled"
+      :disabled="disabled"
       role="combobox"
-      tabindex="0"
+      :tabindex="disabled ? -1 : 0"
       @click="handleToggle(false)"
       @keydown.space.prevent="handleToggle(true)"
     >
@@ -253,6 +255,7 @@ const hasValue = computed((): boolean => {
       ref="menuRef"
       class="rpl-form-dropdown-menu"
       role="listbox"
+      :aria-multiselectable="!!multiple"
       :aria-labelledby="labelId"
       tabindex="-1"
     >

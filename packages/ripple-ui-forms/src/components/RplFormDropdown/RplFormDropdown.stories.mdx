@@ -128,3 +128,43 @@ export const SingleTemplate = (args) => ({
     {SingleTemplate.bind()}
   </Story>
 </Canvas>
+
+<Canvas>
+  <Story
+    name='Long labels'
+    args={{
+      id: 'dropdown-long-labels',
+      options: [
+        {
+          id: 'item-1',
+          value: 'item-1',
+          label: 'Value 1'
+        },
+        {
+          id: 'item-2',
+          value: 'item-2',
+          label: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+        },
+        {
+          id: 'item-3',
+          value: 'item-3',
+          label: 'Value 3'
+        }
+      ]
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    name='Inactive'
+    args={{
+      id: 'dropdown-long-labels',
+      disabled: true
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>

@@ -1658,51 +1658,6 @@
   resolved "https://registry.yarnpkg.com/@discoveryjs/json-ext/-/json-ext-0.5.7.tgz#1d572bfbbe14b7704e0ba0f39b74815b84870d70"
   integrity sha512-dBVuXR082gk3jsFp7Rd/JI4kytwGHecnCoTtXFb7DB6CNHp4rg5k1bhg0nWdLGLnOV71lmDzGQaLMy8iPLY0pw==
 
-"@dpc-sdp/ripple-tide-api@2.1.0-alpha.12":
-  version "2.1.0-alpha.12"
-  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-tide-api/-/ripple-tide-api-2.1.0-alpha.12.tgz#75b2e26cf9890d3e03659d4f069ed2f96b249f8f"
-  integrity sha512-7RWI4iMmFEwy66HtFHVUjeO1jk14DmFeycQWg4sAhAD39MeEUNGLPbrxANR1c2XM4XRMd3v1hSZZeyx2XRTm7A==
-  dependencies:
-    "@nuxt/kit" "3.0.0-rc.13"
-    axios "^0.27.2"
-    change-case "^4.1.2"
-    cheerio "^1.0.0-rc.10"
-    h3 "^0.7.21"
-    js-yaml "^4.1.0"
-    jsonapi-parse "^2.0.1"
-    lodash-es "^4.17.21"
-    pathe "^0.3.9"
-    qs "^6.10.3"
-    ts-json-schema-generator "^1.1.2"
-    typescript-json-schema "^0.54.0"
-    winston "^3.8.2"
-
-"@dpc-sdp/ripple-tide-api@alpha":
-  version "2.1.0-alpha.7"
-  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-tide-api/-/ripple-tide-api-2.1.0-alpha.7.tgz#e2a59c0a7d9e45697298acc0eb1065d3283d636e"
-  integrity sha512-hr3SSYYkpDYycHQ4OIN5mX1MLVsxQvxb71Bc9d3CpGLzYt77q/qb4fhVc/aRv+4iMyJzw9YUC3QDief36GXxrQ==
-  dependencies:
-    "@nuxt/kit" "3.0.0-rc.13"
-    axios "^0.27.2"
-    change-case "^4.1.2"
-    cheerio "^1.0.0-rc.10"
-    h3 "^0.7.21"
-    js-yaml "^4.1.0"
-    jsonapi-parse "^2.0.1"
-    lodash-es "^4.17.21"
-    pathe "^0.3.9"
-    qs "^6.10.3"
-    ts-json-schema-generator "^1.1.2"
-    typescript-json-schema "^0.54.0"
-    winston "^3.8.2"
-
-"@dpc-sdp/ripple-tide-landing-page@2.1.0-alpha.12":
-  version "2.1.0-alpha.12"
-  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-tide-landing-page/-/ripple-tide-landing-page-2.1.0-alpha.12.tgz#622058682a953e8f8675ba06081877b141e23ec3"
-  integrity sha512-YgygnXF3nFkwpBl8OsB7H6r/Jljjw+i0gPrpk8UktPRCGOWSN0N0hKaN3xAUn6yF2/PoCq5cKhtVYfEy4OwqLg==
-  dependencies:
-    "@dpc-sdp/ripple-tide-api" "2.1.0-alpha.12"
-
 "@emotion/cache@^10.0.27":
   version "10.0.29"
   resolved "https://registry.yarnpkg.com/@emotion/cache/-/cache-10.0.29.tgz#87e7e64f412c060102d589fe7c6dc042e6f9d1e0"

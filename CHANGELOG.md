@@ -3,6 +3,32 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.18](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.17...v2.1.0-alpha.18) (2022-11-28)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-api:** testing ci tests ([a87cf9f](https://github.com/dpc-sdp/ripple-framework/commit/a87cf9f1c6eace36cef81eaf3a57df7e9f318ab1))
+* **@dpc-sdp/ripple-tide-api:** testing ci tests ([22c3897](https://github.com/dpc-sdp/ripple-framework/commit/22c38971d12e53bb354154b4829a1d4af82cffb1))
+
+
+### Features
+
+* **@dpc-sdp/ripple-tide-api:** adding error pages ([f914e92](https://github.com/dpc-sdp/ripple-framework/commit/f914e926955ddb0e7e4d48e4a62e24da893c7c44))
+* **@dpc-sdp/ripple-tide-media:** add // [@ts-ignore](https://github.com/ts-ignore) ([2d65248](https://github.com/dpc-sdp/ripple-framework/commit/2d6524806549cdec435915fe7ae6cd5f40b536d5))
+* **@dpc-sdp/ripple-tide-media:** add basic tests ([47e315c](https://github.com/dpc-sdp/ripple-framework/commit/47e315c00e3e496cda80b5afe7761c36ac4457e8))
+* **@dpc-sdp/ripple-tide-media:** limit video width ([3248044](https://github.com/dpc-sdp/ripple-framework/commit/3248044cf592dd4a566c9b7b017bbded4264096c))
+* **@dpc-sdp/ripple-ui-core:** adding error message component ([4d507de](https://github.com/dpc-sdp/ripple-framework/commit/4d507de2ac88275830fbacdb23e0e06b7d5419ee))
+
+
+### Reverts
+
+* **@dpc-sdp/ripple-tide-api:** restore 500 test ([8f9f027](https://github.com/dpc-sdp/ripple-framework/commit/8f9f027aa13b1e6db0f1cf06cec096033f1bd6eb))
+
+
+
+
+
 # [2.1.0-alpha.17](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.16...v2.1.0-alpha.17) (2022-11-28)
 
 

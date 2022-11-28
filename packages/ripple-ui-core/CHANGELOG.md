@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.18](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.17...v2.1.0-alpha.18) (2022-11-28)
+
+
+### Features
+
+* **@dpc-sdp/ripple-ui-core:** adding error message component ([4d507de](https://github.com/dpc-sdp/ripple-framework/commit/4d507de2ac88275830fbacdb23e0e06b7d5419ee))
+
+
+
+
+
 # [2.1.0-alpha.16](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.15...v2.1.0-alpha.16) (2022-11-25)
 
 

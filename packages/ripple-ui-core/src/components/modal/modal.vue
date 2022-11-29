@@ -52,31 +52,29 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <Teleport to="body">
-    <UseFocusTrap v-if="props.isOpen" :options="{ immediate: true }">
-      <div class="rpl-modal">
-        <div class="rpl-modal__inner">
-          <slot name="above">
-            <div class="rpl-modal__actions">
-              <RplButton
-                label="Close"
-                icon-name="icon-cancel"
-                theme="neutral"
-                variant="elevated"
-                @click="closeModal"
-              />
-            </div>
-          </slot>
-          <div class="rpl-modal__main">
-            <slot />
+  <UseFocusTrap v-if="props.isOpen" :options="{ immediate: true }">
+    <div class="rpl-modal">
+      <div class="rpl-modal__inner">
+        <slot name="above">
+          <div class="rpl-modal__actions">
+            <RplButton
+              label="Close"
+              icon-name="icon-cancel"
+              theme="neutral"
+              variant="elevated"
+              @click="closeModal"
+            />
           </div>
-          <div v-if="$slots.below" class="rpl-modal__below">
-            <slot name="below" />
-          </div>
+        </slot>
+        <div class="rpl-modal__main">
+          <slot />
+        </div>
+        <div v-if="$slots.below" class="rpl-modal__below">
+          <slot name="below" />
         </div>
       </div>
-    </UseFocusTrap>
-  </Teleport>
+    </div>
+  </UseFocusTrap>
 </template>
 
 <style src="./modal.css" />

@@ -3,105 +3,34 @@ export default { name: 'RplCardCarousel' }
 </script>
 
 <script setup lang="ts">
-import { computed, ref, useSlots } from 'vue'
-import RplPagination from '../pagination/pagination.vue'
-import { bpMin } from '../../lib/breakpoints'
-import { RplSlidesPerView } from './constants'
-import { Swiper, SwiperSlide } from 'swiper/vue'
-import { useBreakpoints } from '@vueuse/core'
-import 'swiper/css'
+import RplPromoCard from '../card/promo-card.vue'
+import RplSlider from '../slider/slider.vue'
+import { RplCardCarouselItem } from '../card-carousel/constants'
+import { RplSlidesPerView } from '../slider/constants'
 
 interface Props {
   perView?: RplSlidesPerView
+  items: RplCardCarouselItem[]
 }
 
-const props = withDefaults(defineProps<Props>(), {
+withDefaults(defineProps<Props>(), {
   perView: 1
 })
-
-const swiper = ref()
-const activePage = ref()
-const slots = useSlots()
-const bp = useBreakpoints(bpMin)
-
-const isXSmallScreen = bp.greaterOrEqual('xs')
-const isSmallScreen = bp.greaterOrEqual('s')
-const isMediumScreen = bp.greaterOrEqual('m')
-const isLargeScreen = bp.greaterOrEqual('l')
-const isXLargeScreen = bp.greaterOrEqual('l')
-
-const cards = computed(() => slots?.default?.() || [])
-
-const totalPages = computed(() => {
-  let bp = null
-  let total = cards.value.length
-
-  if (Number.isInteger(props.perView)) {
-    return total
-  }
-
-  if (isXLargeScreen.value && props.perView?.xl) {
-    bp = 'xl'
-  } else if (isLargeScreen.value && props.perView?.l) {
-    bp = 'l'
-  } else if (isMediumScreen.value && props.perView?.m) {
-    bp = 'm'
-  } else if (isSmallScreen.value && props.perView?.s) {
-    bp = 's'
-  } else if (isXSmallScreen.value && props.perView?.xs) {
-    bp = 'xs'
-  }
-
-  return total - props.perView?.[bp] + 1
-})
-
-const breakpoints = computed(() => {
-  let breakpoints = {}
-
-  if (Number.isInteger(props.perView)) {
-    breakpoints[0] = { slidesPerView: props.perView }
-  } else {
-    Object.keys(props.perView).forEach((bp) => {
-      breakpoints[bpMin[bp]] = { slidesPerView: props.perView[bp] }
-    })
-  }
-
-  return breakpoints
-})
-
-const paginationClick = (currentPage) => {
-  swiper.value.$el.swiper.slideTo(currentPage - 1)
-}
-
-const slideUpdate = ({ activeIndex }) => {
-  activePage.value = activeIndex + 1
-}
 </script>
 
 <template>
   <div class="rpl-card-carousel">
-    <RplPagination
-      v-if="cards.length > 1"
-      variant="simple"
-      :current-page="activePage"
-      :total-pages="totalPages"
-      class="rpl-card-carousel__pagination"
-      @change="paginationClick"
-    />
-    <Swiper
-      ref="swiper"
-      :space-between="20"
-      :breakpoints="breakpoints"
-      @slide-change="slideUpdate"
-    >
-      <SwiperSlide
-        v-for="(card, i) in cards"
+    <RplSlider :per-view="perView">
+      <RplPromoCard
+        v-for="(card, i) in items"
         :key="i"
-        class="rpl-card-carousel__slide"
+        :url="card.url"
+        :title="card.title"
+        :highlight="true"
       >
-        <component :is="card" />
-      </SwiperSlide>
-    </Swiper>
+        <p>{{ card.content }}</p>
+      </RplPromoCard>
+    </RplSlider>
   </div>
 </template>
 

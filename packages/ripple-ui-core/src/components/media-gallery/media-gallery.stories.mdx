@@ -18,24 +18,6 @@ export const SingleTemplate = (args) => ({
 <Meta
   title='WIP/Components/Media gallery'
   component={RplMediaGallery}
-  args={{
-    items: [{
-      title: 'Media title',
-      caption: 'Optional media caption content section',
-      thumbnail: svgPlaceholder({ width: 1200, height: 800, bgColor: '#ccc', fgColor: '#444' }),
-      image: svgPlaceholder({ width: 2400, height: 1440, bgColor: '#ccc', fgColor: '#444' })
-    }, {
-      title: 'Another media title',
-      caption: 'Another optional media caption content section',
-      thumbnail: svgPlaceholder({ width: 1200, height: 800, bgColor: '#a0e6fb', fgColor: '#283437' }),
-      image: svgPlaceholder({ width: 2400, height: 1440, bgColor: '#a0e6fb', fgColor: '#283437' })
-    }, {
-      title: 'The media title',
-      caption: 'Yet another optional media caption content section',
-      thumbnail: svgPlaceholder({ width: 1200, height: 800, bgColor: '#ecd9ff', fgColor: '#2e2537' }),
-      image: svgPlaceholder({ width: 2400, height: 1440, bgColor: '#ecd9ff', fgColor: '#2e2537' })
-    }]
-  }}
 />
 
 # Media gallery
@@ -44,8 +26,45 @@ export const SingleTemplate = (args) => ({
 
 <Canvas>
   <Story
-    name='Media gallery'
+    name='Default'
     play={a11yStoryCheck}
+    args={{
+      items: [{
+        title: 'Media title',
+        caption: 'Optional media caption content section',
+        thumbnail: svgPlaceholder({ width: 1200, height: 800, bgColor: '#ccc', fgColor: '#444' }),
+        image: svgPlaceholder({ width: 2400, height: 1440, bgColor: '#ccc', fgColor: '#444' })
+      }, {
+        title: 'Another media title',
+        caption: 'Another optional media caption content section',
+        thumbnail: svgPlaceholder({ width: 1200, height: 800, bgColor: '#a0e6fb', fgColor: '#283437' }),
+        image: svgPlaceholder({ width: 2400, height: 1440, bgColor: '#a0e6fb', fgColor: '#283437' })
+      }, {
+        title: 'The media title',
+        caption: 'Yet another optional media caption content section',
+        thumbnail: svgPlaceholder({ width: 1200, height: 800, bgColor: '#ecd9ff', fgColor: '#2e2537' }),
+        image: svgPlaceholder({ width: 2400, height: 1440, bgColor: '#ecd9ff', fgColor: '#2e2537' })
+      }]
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>
+
+# Media gallery with one item
+
+<Canvas>
+  <Story
+    name='Single item'
+    play={a11yStoryCheck}
+    args={{
+      items: [{
+        title: 'Media title',
+        caption: 'Optional media caption content section',
+        thumbnail: svgPlaceholder({ width: 1200, height: 800, bgColor: '#ccc', fgColor: '#444' }),
+        image: svgPlaceholder({ width: 2400, height: 1440, bgColor: '#ccc', fgColor: '#444' })
+      }]
+    }}
   >
     {SingleTemplate.bind()}
   </Story>

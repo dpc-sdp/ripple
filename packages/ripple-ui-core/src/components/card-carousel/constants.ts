@@ -1,3 +1,5 @@
-import { RplBreakpoints } from '../../lib/breakpoints'
-
-export type RplSlidesPerView = RplBreakpoints | number | undefined
+export interface RplCardCarouselItem {
+  title: string
+  url: string
+  content: string
+}

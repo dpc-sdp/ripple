@@ -5,11 +5,9 @@ export default { name: 'RplMediaGallery' }
 <script setup lang="ts">
 import RplMediaGalleryContent from './media-gallery-content.vue'
 import RplImage from '../image/image.vue'
-import RplPagination from '../pagination/pagination.vue'
+import RplSlider from '../slider/slider.vue'
 import RplModal from '../modal/modal.vue'
 import { RplMediaGalleryItem } from './constants'
-import { Swiper, SwiperSlide } from 'swiper/vue'
-import { EffectFade } from 'swiper'
 import { ref } from 'vue'
 import 'swiper/css'
 import 'swiper/css/effect-fade'
@@ -20,125 +18,78 @@ interface Props {
 
 defineProps<Props>()
 
-const imageSwiper = ref()
-const contentSwiper = ref()
-const activePage = ref()
 const showModal = ref(false)
+const activeImageSlide = ref(0)
+const activeContentSlide = ref(0)
 
-const paginationClick = (currentPage) => {
-  imageSwiper.value.$el.swiper.slideTo(currentPage - 1)
-  contentSwiper.value.$el.swiper.slideTo(currentPage - 1)
+const contentSlideUpdate = (currentPage) => {
+  activeImageSlide.value = currentPage
 }
 
-const imageSlideUpdate = ({ activeIndex }) => {
-  activePage.value = activeIndex + 1
-  contentSwiper.value.$el.swiper.slideTo(activeIndex)
+const imageSlideUpdate = (currentPage) => {
+  activeContentSlide.value = currentPage
 }
 
-const contentSlideUpdate = ({ activeIndex }) => {
-  activePage.value = activeIndex + 1
-  imageSwiper.value.$el.swiper.slideTo(activeIndex)
-}
-
-const toggleModal = (index?: number | undefined) => {
+const toggleModal = () => {
   showModal.value = !showModal.value
-
-  if (index) {
-    activePage.value = index + 1
-  }
 }
 </script>
 
 <template>
   <div class="rpl-media-gallery">
-    <Swiper
-      ref="imageSwiper"
-      :space-between="20"
-      class="rpl-media-gallery__image"
-      @slide-change="imageSlideUpdate"
+    <RplSlider
+      :current-slide="activeImageSlide"
+      :show-pagination="false"
+      @change="imageSlideUpdate"
     >
-      <SwiperSlide
+      <RplImage
         v-for="(item, i) in items"
         :key="i"
-        class="rpl-media-gallery__slide"
-      >
-        <RplImage :src="item.thumbnail" />
-      </SwiperSlide>
-    </Swiper>
-
-    <RplPagination
-      v-if="items.length > 1"
-      variant="simple"
-      :show-tally="true"
-      :current-page="activePage"
-      :total-pages="items.length"
-      class="rpl-media-gallery__pagination"
-      @change="paginationClick"
-    />
-    <Swiper
-      ref="contentSwiper"
-      :modules="[EffectFade]"
+        :src="item.thumbnail"
+        class="rpl-media-gallery__image"
+      />
+    </RplSlider>
+    <RplSlider
       effect="fade"
-      class="rpl-media-gallery__content"
-      @slide-change="contentSlideUpdate"
+      :show-tally="true"
+      :auto-height="true"
+      :current-slide="activeContentSlide"
+      @change="contentSlideUpdate"
     >
-      <SwiperSlide
+      <RplMediaGalleryContent
         v-for="(item, index) in items"
         :key="index"
-        class="rpl-media-gallery__slide"
-      >
-        <RplMediaGalleryContent
-          :title="item.title"
-          :caption="item.caption"
-          :show-full-screen="true"
-          @fullscreen="() => toggleModal(index)"
-        />
-      </SwiperSlide>
-    </Swiper>
+        :title="item.title"
+        :caption="item.caption"
+        :show-full-screen="true"
+        @fullscreen="toggleModal"
+      />
+    </RplSlider>
 
     <RplModal :is-open="showModal" @close="toggleModal">
-      <Swiper
-        ref="imageSwiper"
-        :space-between="20"
-        :initial-slide="activePage - 1"
-        class="rpl-media-gallery__image"
+      <RplSlider
+        :current-slide="activeImageSlide"
+        :show-pagination="false"
+        @change="imageSlideUpdate"
       >
-        <SwiperSlide
-          v-for="(item, i) in items"
-          :key="i"
-          class="rpl-media-gallery__slide"
-        >
-          <RplImage :src="item.image" />
-        </SwiperSlide>
-      </Swiper>
+        <RplImage v-for="(item, i) in items" :key="i" :src="item.thumbnail" />
+      </RplSlider>
       <template #below>
-        <RplPagination
-          v-if="items.length > 1"
-          variant="simple"
-          :show-tally="true"
-          :current-page="activePage"
-          :total-pages="items.length"
-          class="rpl-media-gallery__pagination"
-          @change="paginationClick"
-        />
-        <Swiper
-          ref="contentSwiper"
-          :modules="[EffectFade]"
+        <RplSlider
           effect="fade"
-          class="rpl-media-gallery__content"
-          :initial-slide="activePage - 1"
+          :show-tally="true"
+          :auto-height="true"
+          :current-slide="activeContentSlide"
+          @change="contentSlideUpdate"
         >
-          <SwiperSlide
+          <RplMediaGalleryContent
             v-for="(item, index) in items"
             :key="index"
-            class="rpl-media-gallery__slide"
-          >
-            <RplMediaGalleryContent
-              :title="item.title"
-              :caption="item.caption"
-            />
-          </SwiperSlide>
-        </Swiper>
+            :title="item.title"
+            :caption="item.caption"
+            :show-full-screen="false"
+          />
+        </RplSlider>
       </template>
     </RplModal>
   </div>

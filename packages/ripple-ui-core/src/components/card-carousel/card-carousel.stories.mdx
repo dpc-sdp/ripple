@@ -8,47 +8,43 @@ import RplCardCarousel from './card-carousel.vue'
 import RplPromoCard from '../card/promo-card.vue'
 import { a11yStoryCheck } from './../../../stories/interactions.js'
 
-export const exampleComponents = (args, index) => `
-  <RplPromoCard
-    url="#"
-    title="${args.title}"
-    :highlight="true"
-  >
-    <template #meta>
-      <span class="rpl-card__topic">${args.topic} - ${index}</span>
-    </template>
-    <p>${args.content}</p>
-  </RplPromoCard>
-`
 export const exampleData = [
   {
     title: 'Example title',
     topic: 'Environment',
+    url: '#',
     content: 'Labore mollit labore tempor quis ex fugiat eu proident aliqua ipsum duis, fugiat eu proident aliqua.'
   },
   {
     title: 'Another title',
     topic: 'Health',
+    url: '#',
     content: 'Elit adipisicing velit exercitation fugiat ex incididunt ullamco magna cupidatat dolore eiusmod sit amet.'
   },
   {
     title: 'A great title',
     topic: 'Community',
+    url: '#',
     content: 'Consequat deserunt fugiat eu proident velit exercitation fugiat ex aliqua ipsumnisi dolore id eata quest.'
   }
 ]
 
-export const randomContent = () => exampleData[Math.floor(Math.random() * exampleData.length)]
-export const exampleContent = (number) => Array.from({ length: number }).map((_, i) => exampleComponents(randomContent(), i + 1)).join('')
+export const randomContent = () => {
+  return exampleData[Math.floor(Math.random() * exampleData.length)]
+}
+export const exampleContent = (number) => {
+  return Array.from({ length: number }).map((_, i) => {
+    const content = randomContent()
+    return { ...content, title: `${content.title} - ${i + 1}`}
+  })
+}
 
 export const SingleTemplate = (args) => ({
   components: { RplCardCarousel, RplPromoCard },
   setup() {
     return { args }
   },
-  template: `<RplCardCarousel v-bind="args">
-    ${args.cards}
-  </RplCardCarousel>`
+  template: `<RplCardCarousel v-bind="args" />`
 })
 
 <Meta
@@ -66,7 +62,7 @@ export const SingleTemplate = (args) => ({
     play={a11yStoryCheck}
     args={{
       perView: 1,
-      cards: exampleContent(3)
+      items: exampleContent(3)
     }}
   >
     {SingleTemplate.bind()}
@@ -83,7 +79,7 @@ export const SingleTemplate = (args) => ({
     play={a11yStoryCheck}
     args={{
       perView: { xs: 1, m: 2, l: 3 },
-      cards: exampleContent(6)
+      items: exampleContent(6)
     }}
   >
     {SingleTemplate.bind()}
@@ -99,7 +95,7 @@ export const SingleTemplate = (args) => ({
     name='Single Card'
     play={a11yStoryCheck}
     args={{
-      cards: exampleContent(1)
+      items: exampleContent(1)
     }}
   >
     {SingleTemplate.bind()}

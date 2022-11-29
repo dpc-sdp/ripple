@@ -25,7 +25,7 @@ export interface RplFormDropdownProps {
 const props = withDefaults(defineProps<RplFormDropdownProps>(), {
   disabled: false,
   variant: 'default',
-  placeholder: '',
+  placeholder: 'Select',
   onChange: () => undefined,
   options: () => [],
   maxItemsDisplayed: 6
@@ -188,7 +188,9 @@ const isMenuItemKeyboardFocused = (optionId: string): boolean => {
 }
 
 const selectedOptions = computed(() => {
-  return (props.options || []).filter((opt) => props.value.includes(opt.value))
+  return (props.options || []).filter((opt) =>
+    (props.value || []).includes(opt.value)
+  )
 })
 
 const singleValueDisplay = computed((): string => {
@@ -197,9 +199,9 @@ const singleValueDisplay = computed((): string => {
 
 const hasValue = computed((): boolean => {
   if (props.multiple) {
-    return !props.value || !props.value.length
+    return !!props.value && !!props.value.length
   } else {
-    return !props.value
+    return !!props.value
   }
 })
 </script>
@@ -240,7 +242,7 @@ const hasValue = computed((): boolean => {
       @keydown.space.prevent="handleToggle(true)"
     >
       <span
-        v-if="hasValue"
+        v-if="!hasValue"
         class="rpl-form-dropdown-input__placeholder rpl-type-p"
         >{{ placeholder }}</span
       >
@@ -248,7 +250,9 @@ const hasValue = computed((): boolean => {
         v-else-if="multiple"
         :selectedOptions="selectedOptions"
       />
-      <span v-else class="rpl-type-p"> {{ singleValueDisplay }} </span>
+      <span v-else class="rpl-form-dropdown-input__single-value rpl-type-p">
+        {{ singleValueDisplay }}
+      </span>
       <RplIcon
         name="icon-chevron-down"
         size="s"

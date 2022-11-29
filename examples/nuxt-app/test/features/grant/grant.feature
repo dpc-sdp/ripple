@@ -19,8 +19,8 @@ Feature: Grant page
     Then the first timeline item should have a date of "01 January"
 
   Example: Guidelines
-    When I click the open all button on accordion with ID "ef9ef2ee-f5d6-482b-b4f4-fa2445b9eccf"
-    Then all accordion items in accordion ID "ef9ef2ee-f5d6-482b-b4f4-fa2445b9eccf" should be visible
+    When I click the open all button on accordion with ID "bc20d770-8a49-427c-a9eb-80d10dc06b51"
+    Then all accordion items in accordion ID "bc20d770-8a49-427c-a9eb-80d10dc06b51" should be visible
 
   Example: Documents
     Then the first document should have a title of "Demo Sample Document", and filesize of "7.53 KB"

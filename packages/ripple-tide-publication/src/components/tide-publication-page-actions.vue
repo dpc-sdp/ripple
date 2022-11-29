@@ -19,8 +19,6 @@ export default { name: 'TidePublicationPageActions' }
 </template>
 
 <script setup lang="ts">
-import { RplPageAction, RplFile, RplDocument } from '@dpc-sdp/ripple-ui-core'
-
 defineProps<{
   documents: any
 }>()

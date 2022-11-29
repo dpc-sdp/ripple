@@ -1,5 +1,5 @@
 import { FormKitTypeDefinition } from '@formkit/core'
-import { createRplFormGroup, inputLibrary } from './input-utils'
+import { createRplFormInput, inputLibrary } from './input-utils'
 
 /**
  * Input definition for a checkbox(ess).
@@ -9,7 +9,7 @@ export const dropdown: FormKitTypeDefinition = {
   /**
    * The actual schema of the input, or a function that returns the schema.
    */
-  schema: createRplFormGroup({
+  schema: createRplFormInput({
     $cmp: 'RplFormDropdown',
     props: {
       multiple: '$node.props.multiple',

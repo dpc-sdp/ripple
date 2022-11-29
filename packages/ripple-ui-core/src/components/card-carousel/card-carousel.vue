@@ -25,13 +25,15 @@ withDefaults(defineProps<Props>(), {
         v-for="(card, i) in items"
         :key="i"
         :url="card.url"
+        :image="card.image"
         :title="card.title"
-        :highlight="true"
+        :highlight="!card.image"
       >
-        <p>{{ card.content }}</p>
+        <template v-if="card.meta" #meta>
+          {{ card.meta }}
+        </template>
+        <p v-if="card.content">{{ card.content }}</p>
       </RplPromoCard>
     </RplSlider>
   </div>
 </template>
-
-<style src="./card-carousel.css" />

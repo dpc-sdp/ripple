@@ -1,5 +1,0 @@
-@import '@dpc-sdp/ripple-ui-core/style/breakpoints';
-
-.rpl-card-carousel__pagination {
-  margin-bottom: var(--rpl-sp-4);
-}

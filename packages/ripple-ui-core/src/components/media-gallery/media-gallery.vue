@@ -40,14 +40,10 @@ const toggleModal = () => {
     <RplSlider
       :current-slide="activeImageSlide"
       :show-pagination="false"
+      class="rpl-media-gallery__images"
       @change="imageSlideUpdate"
     >
-      <RplImage
-        v-for="(item, i) in items"
-        :key="i"
-        :src="item.thumbnail"
-        class="rpl-media-gallery__image"
-      />
+      <RplImage v-for="(item, i) in items" :key="i" :src="item.thumbnail" />
     </RplSlider>
     <RplSlider
       effect="fade"

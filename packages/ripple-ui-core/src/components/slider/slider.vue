@@ -12,7 +12,9 @@ import { EffectFade } from 'swiper'
 import { useBreakpoints } from '@vueuse/core'
 import 'swiper/css'
 import 'swiper/css/effect-fade'
+import { rplEventBus } from '../../index'
 
+rplEventBus.register('rpl-button/click')
 const emit = defineEmits(['change'])
 
 interface Props {
@@ -85,6 +87,16 @@ const breakpoints = computed(() => {
   return breakpoints
 })
 
+const spaceBetween = computed(() => {
+  if (isXLargeScreen.value) {
+    return 28
+  } else if (isMediumScreen.value) {
+    return 24
+  } else {
+    return 16
+  }
+})
+
 watch(
   () => props.currentSlide,
   (slide) => swiper.value.$el.swiper.slideTo(slide)
@@ -97,6 +109,7 @@ const paginationClick = (currentPage) => {
 const slideUpdate = ({ activeIndex }) => {
   activePage.value = activeIndex + 1
   emit('change', activeIndex)
+  rplEventBus.emit('rpl-slider/slide', activeIndex)
 }
 </script>
 
@@ -113,7 +126,7 @@ const slideUpdate = ({ activeIndex }) => {
     />
     <Swiper
       ref="swiper"
-      :space-between="20"
+      :space-between="spaceBetween"
       :initial-slide="currentSlide"
       :breakpoints="breakpoints"
       :modules="[EffectFade]"

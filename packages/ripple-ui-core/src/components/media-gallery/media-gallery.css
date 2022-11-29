@@ -1,19 +1,22 @@
 @import '@dpc-sdp/ripple-ui-core/style/breakpoints';
 
 .rpl-media-gallery {
-  padding: var(--rpl-sp-2);
+  .rpl-slider__pagination + .rpl-slider__swiper {
+    margin-top: var(--rpl-sp-3);
+  }
 }
 
-.rpl-media-gallery__image,
-.rpl-media-gallery__pagination {
+.rpl-media-gallery__images {
   margin-bottom: var(--rpl-sp-3);
 }
 
 .rpl-media-gallery__content {
   background-color: var(--rpl-clr-light);
+  max-width: var(--rpl-content-max-width);
 }
 
 .rpl-media-gallery__button {
+  text-align: left;
   text-decoration: underline;
   margin-top: var(--rpl-sp-3);
 

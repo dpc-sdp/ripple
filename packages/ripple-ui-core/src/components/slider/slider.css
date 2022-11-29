@@ -1,6 +1,15 @@
 .rpl-slider__pagination + .rpl-slider__swiper,
 .rpl-slider__swiper + .rpl-slider__pagination {
-  margin-top: var(--rpl-sp-3);
+  margin-top: var(--rpl-sp-4);
+}
+
+.rpl-slider__slide {
+  display: flex;
+  height: auto;
+
+  > * {
+    width: 100%;
+  }
 }
 
 .rpl-modal__main {

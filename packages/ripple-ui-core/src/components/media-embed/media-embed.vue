@@ -226,8 +226,10 @@ const isActionsListEmpty = computed(() => {
     >
       <RplImage :src="props.src" :alt="props.caption" />
       <template #below>
-        <h3 class="rpl-type-h3 rpl-u-margin-b-2">{{ props.title }}</h3>
-        <p class="rpl-type-p">{{ props.caption }}</p>
+        <div class="rpl-media-embed__content">
+          <h3 class="rpl-type-h3 rpl-u-margin-b-2">{{ props.title }}</h3>
+          <p class="rpl-type-p">{{ props.caption }}</p>
+        </div>
       </template>
     </RplModal>
   </div>

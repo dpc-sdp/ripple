@@ -31,13 +31,9 @@ const onFullScreen = (event) => {
 <template>
   <div class="rpl-media-gallery__content">
     <h3 class="rpl-type-h3 rpl-u-margin-b-1">{{ title }}</h3>
-    <figure class="rpl-media-gallery__figure">
-      <figcaption v-if="caption" class="rpl-media-gallery__figcaption">
-        <p class="rpl-media-gallery__caption rpl-type-p">
-          {{ caption }}
-        </p>
-      </figcaption>
-    </figure>
+    <p v-if="caption" class="rpl-media-gallery__caption rpl-type-p">
+      {{ caption }}
+    </p>
     <RplButton
       v-if="showFullScreen"
       variant="none"

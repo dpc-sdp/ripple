@@ -11,19 +11,20 @@ import { a11yStoryCheck } from './../../../stories/interactions.js'
 export const exampleData = [
   {
     title: 'Example title',
-    topic: 'Environment',
+    meta: 'Environment',
     url: '#',
     content: 'Labore mollit labore tempor quis ex fugiat eu proident aliqua ipsum duis, fugiat eu proident aliqua.'
   },
   {
     title: 'Another title',
-    topic: 'Health',
+    meta: 'Health',
     url: '#',
+    image: svgPlaceholder({ width: 400, height: 300, bgColor: '#4b4352', fgColor: '#efeef0' }),
     content: 'Elit adipisicing velit exercitation fugiat ex incididunt ullamco magna cupidatat dolore eiusmod sit amet.'
   },
   {
     title: 'A great title',
-    topic: 'Community',
+    meta: 'Community',
     url: '#',
     content: 'Consequat deserunt fugiat eu proident velit exercitation fugiat ex aliqua ipsumnisi dolore id eata quest.'
   }
@@ -62,7 +63,7 @@ export const SingleTemplate = (args) => ({
     play={a11yStoryCheck}
     args={{
       perView: 1,
-      items: exampleContent(3)
+      items: exampleData
     }}
   >
     {SingleTemplate.bind()}

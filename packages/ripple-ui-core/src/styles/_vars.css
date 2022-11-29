@@ -80,6 +80,8 @@
   --rpl-clr-warning: #B75B00;
   --rpl-clr-success: #007D85;
   --rpl-clr-information: #005BA5;
+  --rpl-clr-neutral-alpha-700: rgb(51 51 51 / .9);
+  --rpl-clr-neutral-alpha-0: rgb(255 255 255 / .75);
   --rpl-clr-neutral-900: #0D0D0D;
   --rpl-clr-neutral-800: #1A1A1A;
   --rpl-clr-neutral-700: #333333;

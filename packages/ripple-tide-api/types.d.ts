@@ -7,7 +7,7 @@ export type TideApiResponse = any
 
 export interface RplTideModuleMappingFunction {
   // eslint-disable-next-line @typescript-eslint/ban-types
-  [key: string]: function | string | string[] | object
+  [key: string]: Function | string | string[] | object
 }
 export interface RplTideMapping {
   component?: string | string[]
@@ -79,11 +79,12 @@ export interface TidePageBase {
   created: string
   changed: string
   nid: number
+  background: string
   lang: string
   topicTags: TideTopicTag[]
   sidebar: {
     contacts?: TideContact[]
-    relatedLinks?: TideLink[]
+    relatedLinks?: any[]
   }
 }
 
@@ -149,3 +150,5 @@ export interface RplTideModuleConfig {
    */
   client?: AxiosInstance
 }
+
+export type { ILogger } from './src/logger/logger.js'

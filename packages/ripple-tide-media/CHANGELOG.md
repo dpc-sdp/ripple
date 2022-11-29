@@ -3,6 +3,37 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.19](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.18...v2.1.0-alpha.19) (2022-11-28)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-media
+
+
+
+
+
+# [2.1.0-alpha.18](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.17...v2.1.0-alpha.18) (2022-11-28)
+
+
+### Features
+
+* **@dpc-sdp/ripple-tide-media:** limit video width ([3248044](https://github.com/dpc-sdp/ripple-framework/commit/3248044cf592dd4a566c9b7b017bbded4264096c))
+
+
+
+
+
+# [2.1.0-alpha.13](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.12...v2.1.0-alpha.13) (2022-11-21)
+
+
+### Features
+
+* **@dpc-sdp/ripple-tide-api:** added mapping and ui for last updated and topic tags ([4923a69](https://github.com/dpc-sdp/ripple-framework/commit/4923a693dd182fa5ca50b245c0432509d996452e))
+* added new base layout to all content types ([8357ac9](https://github.com/dpc-sdp/ripple-framework/commit/8357ac93e1ee22493562d88da8343644ca1264a8))
+
+
+
+
+
 # [2.1.0-alpha.12](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.11...v2.1.0-alpha.12) (2022-11-18)
 
 **Note:** Version bump only for package @dpc-sdp/ripple-tide-media

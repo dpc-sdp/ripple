@@ -67,7 +67,7 @@
           :logos="site?.footerLogos"
           :credit="footerImageCaption"
         >
-          <template #copyright>
+          <template v-if="site?.copyrightHtml" #copyright>
             <div data-cy="footer-copyright" v-html="site?.copyrightHtml"></div>
           </template>
         </RplFooter>

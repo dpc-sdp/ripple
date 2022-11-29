@@ -6,6 +6,8 @@ export default { name: 'RplPagination' }
 import RplPaginationLink from './pagination-link.vue'
 import { rplEventBus } from '../../index'
 import { useStepNavigation } from '../../composables/useStepNavigation'
+import { RplPaginationVariants } from './constants'
+import { computed } from 'vue'
 
 rplEventBus.register('rpl-pagination/click')
 const emit = defineEmits<{ (e: 'change', value: number): void }>()
@@ -16,13 +18,17 @@ interface Props {
   initialPage?: number
   surroundingPages?: number
   contentType?: string
+  showTally?: boolean
+  variant?: typeof RplPaginationVariants[number]
 }
 
 const props = withDefaults(defineProps<Props>(), {
   label: undefined,
   initialPage: 1,
   surroundingPages: 2,
-  contentType: undefined
+  contentType: undefined,
+  showTally: false,
+  variant: 'complex'
 })
 
 const { activeStep, visibleSteps, updateStep, isFirstStep, isLastStep } =
@@ -37,19 +43,30 @@ const onClick = (payload: any, index: number) => {
   emit('change', index)
   rplEventBus.emit('rpl-pagination/click', payload)
 }
+
+const isComplex = computed(() => props.variant === 'complex')
+const iconSize = computed(() => (isComplex.value ? 's' : 'xs'))
 </script>
 
 <template>
-  <nav class="rpl-pagination" :aria-label="label">
+  <nav :class="`rpl-pagination rpl-pagination--${variant}`" :aria-label="label">
+    <p
+      v-if="showTally && !isComplex"
+      class="rpl-pagination__tally rpl-type-label"
+    >
+      {{ activeStep }} of {{ totalPages }}
+    </p>
     <RplPaginationLink
-      v-if="!isFirstStep"
+      v-if="!isComplex || !isFirstStep"
       icon-name="icon-arrow-left"
+      :icon-size="iconSize"
       :aria-label="`Go to previous ${contentType}`"
+      :disabled="!isComplex && isFirstStep"
       @click="(e) => onClick(e, activeStep - 1)"
     >
       Previous
     </RplPaginationLink>
-    <ol class="rpl-pagination__list">
+    <ol v-if="isComplex" class="rpl-pagination__list">
       <li
         v-for="(step, index) in visibleSteps"
         :key="index"
@@ -70,10 +87,12 @@ const onClick = (payload: any, index: number) => {
       </li>
     </ol>
     <RplPaginationLink
-      v-if="!isLastStep"
+      v-if="!isComplex || !isLastStep"
       icon-name="icon-arrow-right"
       icon-placement="after"
+      :icon-size="iconSize"
       :aria-label="`Go to next ${contentType}`"
+      :disabled="!isComplex && isLastStep"
       @click="(e) => onClick(e, activeStep + 1)"
     >
       Next

@@ -3,6 +3,132 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.19](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.18...v2.1.0-alpha.19) (2022-11-28)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-publication:** :bug: post-merge fixes ([d8f5207](https://github.com/dpc-sdp/ripple-framework/commit/d8f52074f42dcbf325f2c62a2ed99f8829182801))
+
+
+### Features
+
+* **@dpc-sdp/ripple-tide-api:** :sparkles: add publication index api, mapping ([8d393e7](https://github.com/dpc-sdp/ripple-framework/commit/8d393e78dad09bb617e0979f8efd9620ee79bcbe))
+* **@dpc-sdp/ripple-tide-publication:** :sparkles: add child content type ([8f0c6ce](https://github.com/dpc-sdp/ripple-framework/commit/8f0c6ceaba2abae282261bbf39c01d7f417de42c))
+
+
+
+
+
+# [2.1.0-alpha.18](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.17...v2.1.0-alpha.18) (2022-11-28)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-api:** testing ci tests ([a87cf9f](https://github.com/dpc-sdp/ripple-framework/commit/a87cf9f1c6eace36cef81eaf3a57df7e9f318ab1))
+* **@dpc-sdp/ripple-tide-api:** testing ci tests ([22c3897](https://github.com/dpc-sdp/ripple-framework/commit/22c38971d12e53bb354154b4829a1d4af82cffb1))
+
+
+### Features
+
+* **@dpc-sdp/ripple-tide-api:** adding error pages ([f914e92](https://github.com/dpc-sdp/ripple-framework/commit/f914e926955ddb0e7e4d48e4a62e24da893c7c44))
+* **@dpc-sdp/ripple-tide-media:** add // [@ts-ignore](https://github.com/ts-ignore) ([2d65248](https://github.com/dpc-sdp/ripple-framework/commit/2d6524806549cdec435915fe7ae6cd5f40b536d5))
+* **@dpc-sdp/ripple-tide-media:** add basic tests ([47e315c](https://github.com/dpc-sdp/ripple-framework/commit/47e315c00e3e496cda80b5afe7761c36ac4457e8))
+* **@dpc-sdp/ripple-tide-media:** limit video width ([3248044](https://github.com/dpc-sdp/ripple-framework/commit/3248044cf592dd4a566c9b7b017bbded4264096c))
+* **@dpc-sdp/ripple-ui-core:** adding error message component ([4d507de](https://github.com/dpc-sdp/ripple-framework/commit/4d507de2ac88275830fbacdb23e0e06b7d5419ee))
+
+
+### Reverts
+
+* **@dpc-sdp/ripple-tide-api:** restore 500 test ([8f9f027](https://github.com/dpc-sdp/ripple-framework/commit/8f9f027aa13b1e6db0f1cf06cec096033f1bd6eb))
+
+
+
+
+
+# [2.1.0-alpha.17](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.16...v2.1.0-alpha.17) (2022-11-28)
+
+
+### Features
+
+* **@dpc-sdp/ripple-tide-landing-page:** added webforms mapping for checkbox ([fb1dbf5](https://github.com/dpc-sdp/ripple-framework/commit/fb1dbf587a30a01927dde3c4f1405202b0dabe69))
+* **@dpc-sdp/ripple-ui-forms:** added checkbox group form component ([6dee1b4](https://github.com/dpc-sdp/ripple-framework/commit/6dee1b41b80e375f32a7f282c03a0eabc1b15dd1))
+* **@dpc-sdp/ripple-ui-forms:** added checkbox group to formkit ([1da2646](https://github.com/dpc-sdp/ripple-framework/commit/1da26468c60ce854221ece8dc0b1af6e5391c04a))
+* **@dpc-sdp/ripple-ui-forms:** added single checkbox form component ([2d7805a](https://github.com/dpc-sdp/ripple-framework/commit/2d7805ad258752949f8fca30291d4b84995ef805))
+* **@dpc-sdp/ripple-ui-forms:** added single checkbox to formkit ([24bd76b](https://github.com/dpc-sdp/ripple-framework/commit/24bd76b0969edcd50c8eaf06eaadb31aa5c50a46))
+
+
+
+
+
+# [2.1.0-alpha.16](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.15...v2.1.0-alpha.16) (2022-11-25)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** :bug: fix media overflowing container in media-fullscreen ([2e975fd](https://github.com/dpc-sdp/ripple-framework/commit/2e975fd5b3f2b909637d05810dfd7fc13c4389c3))
+* **@dpc-sdp/ripple-ui-core:** :lipstick: add focusable classes to media-embed actions ([c4eb8e7](https://github.com/dpc-sdp/ripple-framework/commit/c4eb8e70007ff2fd1a61fe3a72c54f372cc2489f))
+
+
+### Features
+
+* **@dpc-sdp/ripple-ui-core:** :lipstick: add reset to remove margins from figure element ([1f0ecae](https://github.com/dpc-sdp/ripple-framework/commit/1f0ecae3d82e4fb3f42258db8fa71b2b3ae7b3d1))
+* **@dpc-sdp/ripple-ui-core:** :lipstick: add styles for media-embed ([bbf276d](https://github.com/dpc-sdp/ripple-framework/commit/bbf276dd1b2d204c2ee8c6e080544c5dad8fd1f6))
+* **@dpc-sdp/ripple-ui-core:** :sparkles: add basic layout for media-embed ([4811409](https://github.com/dpc-sdp/ripple-framework/commit/48114094c2036bb770083f27763202b9288985be))
+* **@dpc-sdp/ripple-ui-core:** :sparkles: add fullscreen complex image functionality ([30c89e8](https://github.com/dpc-sdp/ripple-framework/commit/30c89e8f03e98706cbf8e3143b946fc37c0ca32b))
+* **@dpc-sdp/ripple-ui-core:** :sparkles: add image variants to media-embed ([bdce18d](https://github.com/dpc-sdp/ripple-framework/commit/bdce18d00101f323cdadf1bea0b9a1d53a66cc52))
+* **@dpc-sdp/ripple-ui-core:** :sparkles: add useFocusTrap to media-fullscreen ([49f4c7c](https://github.com/dpc-sdp/ripple-framework/commit/49f4c7c99dc2f2fee25f8f683e6a5ec50c4a4ea0))
+* **@dpc-sdp/ripple-ui-core:** :sparkles: close media-fullscreen when escape key pressed ([fdaad0b](https://github.com/dpc-sdp/ripple-framework/commit/fdaad0baa8b8a2f542d4f343321fe08f161479b7))
+* **@dpc-sdp/ripple-ui-core:** :sparkles: wire up video embed in media-embed components ([24c5212](https://github.com/dpc-sdp/ripple-framework/commit/24c5212ed50d2609b3f9c3c8d9ac162e2ae5dce8))
+
+
+
+
+
+# [2.1.0-alpha.15](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.14...v2.1.0-alpha.15) (2022-11-23)
+
+
+### Features
+
+* **@dpc-sdp/ripple-tide-media:** update icon size for 'simple' variant ([fa627d1](https://github.com/dpc-sdp/ripple-framework/commit/fa627d142e9bd4c3f76908bb79aed834988d3e89))
+
+
+
+
+
+# [2.1.0-alpha.14](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.13...v2.1.0-alpha.14) (2022-11-21)
+
+
+### Features
+
+* **@dpc-sdp/ripple-ui-core:** adding new pagination variant ([3d203fd](https://github.com/dpc-sdp/ripple-framework/commit/3d203fdc5e17a67ff31d5869a8693b951ef431ef))
+
+
+
+
+
+# [2.1.0-alpha.13](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.12...v2.1.0-alpha.13) (2022-11-21)
+
+
+### Bug Fixes
+
+* fixed up tests and news template ([7a95029](https://github.com/dpc-sdp/ripple-framework/commit/7a950297a3447c5097be8a024ee776f1c060954a))
+
+
+### Features
+
+* **@dpc-sdp/ripple-tide-api:** added check for topic tag toggle ([16001a0](https://github.com/dpc-sdp/ripple-framework/commit/16001a0bb4bc2864e68fa8411080feaaaaf20f43))
+* **@dpc-sdp/ripple-tide-api:** added mapping and ui for last updated and topic tags ([4923a69](https://github.com/dpc-sdp/ripple-framework/commit/4923a693dd182fa5ca50b245c0432509d996452e))
+* **@dpc-sdp/ripple-tide-api:** first pass at global element refactor ([16199c6](https://github.com/dpc-sdp/ripple-framework/commit/16199c686f2d80e0e8533309ffdf58ad6e49e80c))
+* **@dpc-sdp/ripple-tide-api:** hooked up breadcrumbs ([47b8b2a](https://github.com/dpc-sdp/ripple-framework/commit/47b8b2aff4bb58092a8fe9cda934ed877bdc9b32))
+* **@dpc-sdp/ripple-tide-api:** mapped primary nav, footer and acknowledgement ([92684c0](https://github.com/dpc-sdp/ripple-framework/commit/92684c01b2c4393419853457cbddba266f4c77c6))
+* added an example page to demonstrate shared layout ([ef93158](https://github.com/dpc-sdp/ripple-framework/commit/ef93158d5bd03b3647770f3dbf16ae271f89892c))
+* added new base layout to all content types ([8357ac9](https://github.com/dpc-sdp/ripple-framework/commit/8357ac93e1ee22493562d88da8343644ca1264a8))
+
+
+
+
+
 # [2.1.0-alpha.12](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.11...v2.1.0-alpha.12) (2022-11-18)
 
 

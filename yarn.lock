@@ -1658,32 +1658,6 @@
   resolved "https://registry.yarnpkg.com/@discoveryjs/json-ext/-/json-ext-0.5.7.tgz#1d572bfbbe14b7704e0ba0f39b74815b84870d70"
   integrity sha512-dBVuXR082gk3jsFp7Rd/JI4kytwGHecnCoTtXFb7DB6CNHp4rg5k1bhg0nWdLGLnOV71lmDzGQaLMy8iPLY0pw==
 
-"@dpc-sdp/ripple-tide-api@2.1.0-alpha.3":
-  version "2.1.0-alpha.3"
-  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-tide-api/-/ripple-tide-api-2.1.0-alpha.3.tgz#2af2cbeda14ad49dbc8032ca492852a575b3b282"
-  integrity sha512-II+XRouoNx+gsVPrTjiDurqYr7hq8EG6zEpLo1nc+kz1SZYSS3eQnveTKieSXtOhpm3JE6k/Rbj/Kz+byjnoNA==
-  dependencies:
-    "@nuxt/kit" "3.0.0-rc.13"
-    axios "^0.27.2"
-    change-case "^4.1.2"
-    cheerio "^1.0.0-rc.10"
-    h3 "^0.7.21"
-    js-yaml "^4.1.0"
-    jsonapi-parse "^2.0.1"
-    lodash-es "^4.17.21"
-    pathe "^0.3.9"
-    qs "^6.10.3"
-    ts-json-schema-generator "^1.1.2"
-    typescript-json-schema "^0.54.0"
-    winston "^3.8.2"
-
-"@dpc-sdp/ripple-tide-landing-page@2.1.0-alpha.3":
-  version "2.1.0-alpha.3"
-  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-tide-landing-page/-/ripple-tide-landing-page-2.1.0-alpha.3.tgz#96e73be587de787b77ede9c214051a782307bb89"
-  integrity sha512-Mu6xt4QltECA3MiUz1dJ1tuyZvmgZNrgLaRBLuKUmewIVoOKjbylNfq9wMeHcGvoi+XDeN5XINejyx8hcLkb1Q==
-  dependencies:
-    "@dpc-sdp/ripple-tide-api" "2.1.0-alpha.3"
-
 "@emotion/cache@^10.0.27":
   version "10.0.29"
   resolved "https://registry.yarnpkg.com/@emotion/cache/-/cache-10.0.29.tgz#87e7e64f412c060102d589fe7c6dc042e6f9d1e0"

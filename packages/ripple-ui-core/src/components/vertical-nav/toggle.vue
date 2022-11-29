@@ -3,15 +3,11 @@ export default { name: 'RplVerticalNavToggle' }
 </script>
 
 <script setup lang="ts">
-import { PropType } from 'vue'
 import RplIcon from '../icon/icon.vue'
 
-defineProps({
-  text: {
-    type: String as PropType<string>,
-    required: true
-  }
-})
+defineProps<{
+  text: string
+}>()
 </script>
 
 <template>

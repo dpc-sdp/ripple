@@ -46,6 +46,7 @@ import { default as RplSidebarComponentCmp } from './components/layout/sidebar-c
 import { default as RplListCmp } from './components/list/list.vue'
 
 import { default as RplPageActionCmp } from './components/page-action/page-action.vue'
+import { default as RplPageLinksCmp } from './components/page-links/page-links.vue'
 import { default as RplPrimaryNavCmp } from './components/primary-nav/primary-nav.vue'
 import { default as RplProfileCmp } from './components/profile/profile.vue'
 import { default as RplRelatedLinksCmp } from './components/related-links/related-links.vue'
@@ -109,6 +110,7 @@ const RplSidebarComponent = defineCustomElement(RplSidebarComponentCmp)
 const RplList = defineCustomElement(RplListCmp)
 
 const RplPageAction = defineCustomElement(RplPageActionCmp)
+const RplPageLinks = defineCustomElement(RplPageLinksCmp)
 const RplPrimaryNav = defineCustomElement(RplPrimaryNavCmp)
 const RplProfile = defineCustomElement(RplProfileCmp)
 const RplRelatedLinks = defineCustomElement(RplRelatedLinksCmp)
@@ -172,6 +174,7 @@ export { RplSidebarComponent }
 export { RplList }
 
 export { RplPageAction }
+export { RplPageLinks }
 export { RplPrimaryNav }
 export { RplProfile }
 export { RplRelatedLinks }
@@ -236,6 +239,7 @@ export function registerRplWebComponents() {
   customElements.define('rpl-list', RplList)
 
   customElements.define('rpl-page-action', RplPageAction)
+  customElements.define('rpl-page-links', RplPageLinks)
   customElements.define('rpl-primary-nav', RplPrimaryNav)
   customElements.define('rpl-profile', RplProfile)
   customElements.define('rpl-related-links', RplRelatedLinks)

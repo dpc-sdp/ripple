@@ -1,7 +1,7 @@
 import { createApp, App, CompatibilityEvent } from 'h3'
 import { TidePageApi, TideSiteApi, logger } from './index.js'
 import getSchema from './schema/index.js'
-import type { RplTideModuleConfig } from './../types'
+import type { RplTideModuleConfig } from '../types'
 import { createSiteHandler } from './nuxt/handlers/siteHandler.js'
 import { createPageHandler } from './nuxt/handlers/pageHandler.js'
 

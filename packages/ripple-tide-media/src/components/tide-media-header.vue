@@ -7,7 +7,7 @@ export default { name: 'TideMediaHeader' }
     :corner-top="true"
     :corner-bottom="true"
     :behind-nav="true"
-    :breadcrumbs="true"
+    :breadcrumbs="hasBreadcrumbs"
     :title="header.title"
   />
 </template>
@@ -18,5 +18,6 @@ import { RplHeroHeader } from '@dpc-sdp/ripple-ui-core'
 
 defineProps<{
   header: TideMediaHeader
+  hasBreadcrumbs: boolean
 }>()
 </script>

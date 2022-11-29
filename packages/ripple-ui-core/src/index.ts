@@ -5,7 +5,10 @@ export { useAccessibleContainer } from './composables/useAccessibleContainer'
 // Components
 export { default as RplAccordion } from './components/accordion/accordion.vue'
 export { default as RplAcknowledgement } from './components/acknowledgement/acknowledgement.vue'
-export { default as RplAlert } from './components/alert/alert.vue'
+
+export { default as RplAlert } from './components/alert/RplAlert.vue'
+export { default as RplAlertsContainer } from './components/alert/RplAlertsContainer.vue'
+
 export { default as RplBreadcrumbs } from './components/breadcrumbs/breadcrumbs.vue'
 export { default as RplButton } from './components/button/button.vue'
 

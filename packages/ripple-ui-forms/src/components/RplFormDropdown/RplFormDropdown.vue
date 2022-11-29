@@ -3,6 +3,7 @@ import { RplIcon } from '@dpc-sdp/ripple-ui-core'
 import { computed, ref, watch, nextTick } from 'vue'
 import { onClickOutside } from '@vueuse/core'
 import useFormkitFriendlyEventEmitter from '../../composables/useFormkitFriendlyEventEmitter'
+import MultiValueLabel from './MultiValueLabel.vue'
 
 export interface RplFormDropdownProps {
   id: string
@@ -24,7 +25,7 @@ export interface RplFormDropdownProps {
 const props = withDefaults(defineProps<RplFormDropdownProps>(), {
   disabled: false,
   variant: 'default',
-  placeholder: 'Select',
+  placeholder: '',
   onChange: () => undefined,
   options: () => [],
   maxItemsDisplayed: 6
@@ -243,7 +244,10 @@ const hasValue = computed((): boolean => {
         class="rpl-form-dropdown-input__placeholder rpl-type-p"
         >{{ placeholder }}</span
       >
-      <span v-else-if="multiple" class="rpl-type-p">asdasd</span>
+      <MultiValueLabel
+        v-else-if="multiple"
+        :selectedOptions="selectedOptions"
+      />
       <span v-else class="rpl-type-p"> {{ singleValueDisplay }} </span>
       <RplIcon
         name="icon-chevron-down"

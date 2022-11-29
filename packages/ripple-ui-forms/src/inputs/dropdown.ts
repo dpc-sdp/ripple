@@ -16,6 +16,7 @@ export const dropdown: FormKitTypeDefinition = {
       id: `$id`,
       name: '$node.context.name',
       disabled: '$node.context.disabled',
+      placeholder: '$node.props.placeholder',
       value: '$_value',
       onChange: '$node.input',
       options: '$node.props.options',
@@ -35,7 +36,7 @@ export const dropdown: FormKitTypeDefinition = {
   /**
    * An array of extra props to accept for this input.
    */
-  props: ['multiple', 'options'],
+  props: ['placeholder', 'multiple', 'options'],
   /**
    * Additional features that should be added to your input
    */

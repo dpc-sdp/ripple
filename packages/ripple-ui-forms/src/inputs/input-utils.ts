@@ -91,6 +91,7 @@ export const defaultRplFormInputProps = {
   suffixIcon: '$node.props.suffixIcon',
   value: '$_value',
   disabled: '$node.context.disabled',
+  placeholder: '$node.context.placeholder',
   options: '$node.context.options',
   name: '$node.context.name',
   className: '$node.context.classes.input',

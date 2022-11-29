@@ -24,7 +24,7 @@ export interface RplFormDropdownProps {
 const props = withDefaults(defineProps<RplFormDropdownProps>(), {
   disabled: false,
   variant: 'default',
-  placeholder: '',
+  placeholder: 'Select',
   onChange: () => undefined,
   options: () => [],
   maxItemsDisplayed: 6

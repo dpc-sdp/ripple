@@ -58,7 +58,7 @@
 
   .rpl-primary-nav--expanded & {
     transition: height var(--rpl-motion-speed-6) ease-in,
-      background-color var(--rpl-motion-speed-6) ease-in;
+      background-color var(--rpl-motion-speed-3) ease-in;
     background-color: var(--rpl-clr-primary-alt);
     /* 100vh - top and bottom margin */
     height: calc(100vh - (var(--rpl-sp-3) * 2));
@@ -134,10 +134,10 @@
 /* Nav bar */
 .rpl-primary-nav__nav-bar-actions-list {
   display: flex;
-  padding-right: var(--rpl-sp-4);
+  padding-right: calc(var(--rpl-sp-4) - 10px);
 
   @media (--rpl-bp-s) {
-    padding-right: var(--rpl-sp-5);
+    padding-right: calc(var(--rpl-sp-5) - 10px);
   }
 
   a,

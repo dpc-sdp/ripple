@@ -109,6 +109,7 @@
 }
 
 .rpl-form-dropdown-option__check {
+  color: var(--rpl-clr-dark);
   width: var(--rpl-sp-6);
   height: var(--rpl-sp-6);
   background: var(--rpl-clr-neutral-100);

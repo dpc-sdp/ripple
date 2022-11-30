@@ -72,9 +72,9 @@
     "moment-timezone": "0.5.33",
     "qs": "^6.9.4",
     "serialize-javascript": "^3.1.0",
+    "udp-transport-winston": "1.1.1",
     "vuex-persistedstate": "^2.5.4",
-    "winston": "3.3.3",
-    "winston-logstash-transport": "^2.0.0"
+    "winston": "3.3.3"
   },
   "peerDependencies": {
     "nuxt": "^2.15.2"

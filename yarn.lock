@@ -3121,6 +3121,11 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
+"@colors/colors@1.5.0":
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/@colors/colors/-/colors-1.5.0.tgz#bb504579c1cae923e6576a4f5da43d25f97bdbd9"
+  integrity sha512-ooWCrlZP11i8GImSjTHYHLkvFDP48nS4+204nGb1RiX/WXYHmJA2III9/e2DWVabCESdW7hBAEzHRqUn9OUVvQ==
+
 "@csstools/convert-colors@^1.4.0":
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
@@ -6573,13 +6578,6 @@
     "@types/webpack-sources" "*"
     source-map "^0.6.0"
 
-"@types/winston@^2.3.9":
-  version "2.4.4"
-  resolved "https://registry.yarnpkg.com/@types/winston/-/winston-2.4.4.tgz#48cc744b7b42fad74b9a2e8490e0112bd9a3d08d"
-  integrity sha512-BVGCztsypW8EYwJ+Hq+QNYiT/MUyCif0ouBH+flrY66O5W+KIXAMML6E/0fJpm7VjIzgangahl5S03bJJQGrZw==
-  dependencies:
-    winston "*"
-
 "@types/ws@*":
   version "8.2.0"
   resolved "https://registry.yarnpkg.com/@types/ws/-/ws-8.2.0.tgz#75faefbe2328f3b833cb8dc640658328990d04f3"
@@ -7828,6 +7826,11 @@ async@^3.1.0, async@^3.2.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/async/-/async-3.2.0.tgz#b3a2685c5ebb641d3de02d161002c60fc9f85720"
   integrity sha512-TR2mEZFVOj2pLStYxLht7TyfuRzaydfpxr3k9RpHIzMgw7A64dzsdqCxH1WJyQdoe8T10nDXd9wnEigmiuHIZw==
+
+async@^3.2.3:
+  version "3.2.4"
+  resolved "https://registry.yarnpkg.com/async/-/async-3.2.4.tgz#2d22e00f8cddeb5fde5dd33522b56d1cf569a81c"
+  integrity sha512-iAB+JbDEGXhyIUavoDl9WP/Jj106Kz9DEn1DPgYw5ruDn0e3Wgi3sKFm55sASdGBNOQB8F59d9qQ7deqrHA8wQ==
 
 asynckit@^0.4.0:
   version "0.4.0"
@@ -18124,6 +18127,17 @@ logform@2.2.0, logform@^2.2.0:
     ms "^2.1.1"
     triple-beam "^1.3.0"
 
+logform@^2.3.2, logform@^2.4.0:
+  version "2.4.2"
+  resolved "https://registry.yarnpkg.com/logform/-/logform-2.4.2.tgz#a617983ac0334d0c3b942c34945380062795b47c"
+  integrity sha512-W4c9himeAwXEdZ05dQNerhFz2XG80P9Oj0loPUMV23VC2it0orMHQhJm4hdnnor3rd1HsGf6a2lPwBM1zeXHGw==
+  dependencies:
+    "@colors/colors" "1.5.0"
+    fecha "^4.2.0"
+    ms "^2.1.1"
+    safe-stable-stringify "^2.3.1"
+    triple-beam "^1.3.0"
+
 loglevel@^1.6.8:
   version "1.7.0"
   resolved "https://registry.yarnpkg.com/loglevel/-/loglevel-1.7.0.tgz#728166855a740d59d38db01cf46f042caa041bb0"
@@ -23414,6 +23428,11 @@ safe-regex@^1.1.0:
   dependencies:
     ret "~0.1.10"
 
+safe-stable-stringify@^2.3.1:
+  version "2.4.1"
+  resolved "https://registry.yarnpkg.com/safe-stable-stringify/-/safe-stable-stringify-2.4.1.tgz#34694bd8a30575b7f94792aa51527551bd733d61"
+  integrity sha512-dVHE6bMtS/bnL2mwualjc6IxEv1F+OCUpA46pKUj6F8uDbUM0jCCulPqRNPSnWwGNKx5etqMjZYdXtrm5KJZGA==
+
 "safer-buffer@>= 2.1.2 < 3", "safer-buffer@>= 2.1.2 < 3.0.0", safer-buffer@^2.0.2, safer-buffer@^2.1.0, safer-buffer@~2.1.0:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/safer-buffer/-/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a"
@@ -24053,7 +24072,16 @@ socket.io-client@^2.2.0:
     socket.io-parser "~3.3.0"
     to-array "0.1.4"
 
-socket.io-parser@^3.3.2, socket.io-parser@~3.3.0, socket.io-parser@~3.4.0:
+socket.io-parser@^3.3.2, socket.io-parser@~3.3.0:
+  version "3.4.2"
+  resolved "https://registry.yarnpkg.com/socket.io-parser/-/socket.io-parser-3.4.2.tgz#d70a69f34900d8290a511995d26f581828a49065"
+  integrity sha512-QFZBaZDNqZXeemwejc7D39jrq2eGK/qZuVDiMPKzZK1hLlNvjGilGt4ckfQZeVX4dGmuPzCytN9ZW1nQlEWjgA==
+  dependencies:
+    component-emitter "1.2.1"
+    debug "~4.1.0"
+    isarray "2.0.1"
+
+socket.io-parser@~3.4.0:
   version "3.4.1"
   resolved "https://registry.yarnpkg.com/socket.io-parser/-/socket.io-parser-3.4.1.tgz#b06af838302975837eab2dc980037da24054d64a"
   integrity sha512-11hMgzL+WCLWf1uFtHSNvliI++tcRUWdoeYuwIl+Axvwy9z2gQM+7nJyN3STj1tLj5JyIUH8/gpDGxzAlDdi0A==
@@ -25005,10 +25033,22 @@ tar@^4.4.12:
     safe-buffer "^5.2.1"
     yallist "^3.1.1"
 
-tar@^6.0.2, tar@^6.1.0, tar@^6.1.9:
+tar@^6.0.2, tar@^6.1.0:
   version "6.1.11"
   resolved "https://registry.yarnpkg.com/tar/-/tar-6.1.11.tgz#6760a38f003afa1b2ffd0ffe9e9abbd0eab3d621"
   integrity sha512-an/KZQzQUkZCkuoAA64hM92X0Urb6VpRhAFllDzz44U2mcD5scmT3zBc4VgVpkugF580+DQn8eAFSyoQt0tznA==
+  dependencies:
+    chownr "^2.0.0"
+    fs-minipass "^2.0.0"
+    minipass "^3.0.0"
+    minizlib "^2.1.1"
+    mkdirp "^1.0.3"
+    yallist "^4.0.0"
+
+tar@^6.1.9:
+  version "6.1.12"
+  resolved "https://registry.yarnpkg.com/tar/-/tar-6.1.12.tgz#3b742fb05669b55671fb769ab67a7791ea1a62e6"
+  integrity sha512-jU4TdemS31uABHd+Lt5WEYJuzn+TJTCBLljvIAHZOz6M9Os5pJ4dD+vRFLxPa/n3T0iEFzpi+0x1UfuDZYbRMw==
   dependencies:
     chownr "^2.0.0"
     fs-minipass "^2.0.0"
@@ -25740,6 +25780,13 @@ ua-parser-js@^0.7.24:
   version "0.7.24"
   resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.24.tgz#8d3ecea46ed4f1f1d63ec25f17d8568105dc027c"
   integrity sha512-yo+miGzQx5gakzVK3QFfN0/L9uVhosXBBO7qmnk7c2iw1IhL212wfA3zbnI54B0obGwC/5NWub/iT9sReMx+Fw==
+
+udp-transport-winston@1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/udp-transport-winston/-/udp-transport-winston-1.1.1.tgz#aa83c2d400c5994aeb98452f1da98198210610a2"
+  integrity sha512-cKrn90m6W0HbVTjZa0MneaeIxjcboCtfe5D2lPi4cEhL6s6UuPZkfNMN8ik8XsYey4U5jPWbj0TVixfaH++NGg==
+  dependencies:
+    winston "^3.2.1"
 
 ufo@^0.6.7:
   version "0.6.7"
@@ -27097,14 +27144,6 @@ widest-line@^3.1.0:
   dependencies:
     string-width "^4.0.0"
 
-winston-logstash-transport@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/winston-logstash-transport/-/winston-logstash-transport-2.0.0.tgz#a691805774551d10b146dfa6bee83b5739587e7a"
-  integrity sha512-Ku9DgDqvCKZQbsEL9bAVxus6oUbWpCQMt4J7Z6JwrvWCHaWU5KyumaSZO6ZYW1St7h0iaCZAAQU0yRewM8o23Q==
-  dependencies:
-    "@types/winston" "^2.3.9"
-    winston "^3.0.0"
-
 winston-transport@^4.4.0:
   version "4.4.0"
   resolved "https://registry.yarnpkg.com/winston-transport/-/winston-transport-4.4.0.tgz#17af518daa690d5b2ecccaa7acf7b20ca7925e59"
@@ -27113,7 +27152,16 @@ winston-transport@^4.4.0:
     readable-stream "^2.3.7"
     triple-beam "^1.2.0"
 
-winston@*, winston@3.3.3, winston@^3.0.0:
+winston-transport@^4.5.0:
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/winston-transport/-/winston-transport-4.5.0.tgz#6e7b0dd04d393171ed5e4e4905db265f7ab384fa"
+  integrity sha512-YpZzcUzBedhlTAfJg6vJDlyEai/IFMIVcaEZZyl3UXIl4gmqRpU7AE89AHLkbzLUsv0NVmw7ts+iztqKxxPW1Q==
+  dependencies:
+    logform "^2.3.2"
+    readable-stream "^3.6.0"
+    triple-beam "^1.3.0"
+
+winston@3.3.3:
   version "3.3.3"
   resolved "https://registry.yarnpkg.com/winston/-/winston-3.3.3.tgz#ae6172042cafb29786afa3d09c8ff833ab7c9170"
   integrity sha512-oEXTISQnC8VlSAKf1KYSSd7J6IWuRPQqDdo8eoRNaYKLvwSb5+79Z3Yi1lrl6KDpU6/VWaxpakDAtb1oQ4n9aw==
@@ -27127,6 +27175,23 @@ winston@*, winston@3.3.3, winston@^3.0.0:
     stack-trace "0.0.x"
     triple-beam "^1.3.0"
     winston-transport "^4.4.0"
+
+winston@^3.2.1:
+  version "3.8.2"
+  resolved "https://registry.yarnpkg.com/winston/-/winston-3.8.2.tgz#56e16b34022eb4cff2638196d9646d7430fdad50"
+  integrity sha512-MsE1gRx1m5jdTTO9Ld/vND4krP2To+lgDoMEHGGa4HIlAUyXJtfc7CxQcGXVyz2IBpw5hbFkj2b/AtUdQwyRew==
+  dependencies:
+    "@colors/colors" "1.5.0"
+    "@dabh/diagnostics" "^2.0.2"
+    async "^3.2.3"
+    is-stream "^2.0.0"
+    logform "^2.4.0"
+    one-time "^1.0.0"
+    readable-stream "^3.4.0"
+    safe-stable-stringify "^2.3.1"
+    stack-trace "0.0.x"
+    triple-beam "^1.3.0"
+    winston-transport "^4.5.0"
 
 with@^7.0.0:
   version "7.0.2"

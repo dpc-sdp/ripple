@@ -6,8 +6,16 @@
   }
 }
 
-.rpl-media-gallery__images {
+.rpl-media-gallery__primary-images {
   margin-bottom: var(--rpl-sp-3);
+
+  .rpl-media-gallery__image {
+    max-height: 595px;
+  }
+}
+
+.rpl-media-gallery__modal-images .rpl-media-gallery__image {
+  width: auto;
 }
 
 .rpl-media-gallery__content {

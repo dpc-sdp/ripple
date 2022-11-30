@@ -4,8 +4,8 @@
 }
 
 .rpl-slider__slide {
-  display: flex;
   height: auto;
+  display: flex;
 
   > * {
     width: 100%;

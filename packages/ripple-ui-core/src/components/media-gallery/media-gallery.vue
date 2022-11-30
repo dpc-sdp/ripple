@@ -40,15 +40,20 @@ const toggleModal = () => {
     <RplSlider
       :current-slide="activeImageSlide"
       :show-pagination="false"
-      class="rpl-media-gallery__images"
+      class="rpl-media-gallery__primary-images"
       @change="imageSlideUpdate"
     >
-      <RplImage v-for="(item, i) in items" :key="i" :src="item.thumbnail" />
+      <RplImage
+        v-for="(item, i) in items"
+        :key="i"
+        :src="item.thumbnail"
+        aspect="wide"
+        class="rpl-media-gallery__image"
+      />
     </RplSlider>
     <RplSlider
       effect="fade"
       :show-tally="true"
-      :auto-height="true"
       :current-slide="activeContentSlide"
       @change="contentSlideUpdate"
     >
@@ -66,15 +71,20 @@ const toggleModal = () => {
       <RplSlider
         :current-slide="activeImageSlide"
         :show-pagination="false"
+        class="rpl-media-gallery__modal-images"
         @change="imageSlideUpdate"
       >
-        <RplImage v-for="(item, i) in items" :key="i" :src="item.thumbnail" />
+        <RplImage
+          v-for="(item, i) in items"
+          :key="i"
+          :src="item.image"
+          class="rpl-media-gallery__image"
+        />
       </RplSlider>
       <template #below>
         <RplSlider
           effect="fade"
           :show-tally="true"
-          :auto-height="true"
           :current-slide="activeContentSlide"
           @change="contentSlideUpdate"
         >

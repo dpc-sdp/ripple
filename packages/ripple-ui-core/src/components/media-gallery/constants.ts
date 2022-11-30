@@ -1,6 +1,6 @@
 export interface RplMediaGalleryItem {
   title: string
-  thumbnail: string
   image: string
+  thumbnail: string
   caption?: string
 }

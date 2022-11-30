@@ -23,7 +23,8 @@ interface Props {
   showTally?: boolean
   effect?: undefined | 'fade'
   currentSlide?: number
-  autoHeight?: boolean
+  label?: string
+  contentType?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -32,7 +33,8 @@ const props = withDefaults(defineProps<Props>(), {
   showTally: false,
   effect: undefined,
   currentSlide: 0,
-  autoHeight: false
+  label: undefined,
+  contentType: 'item'
 })
 
 const swiper = ref()
@@ -46,16 +48,15 @@ const isMediumScreen = bp.greaterOrEqual('m')
 const isLargeScreen = bp.greaterOrEqual('l')
 const isXLargeScreen = bp.greaterOrEqual('l')
 
-const cards = computed(
+const slides = computed(
   () => slots?.default?.()?.[0].children || slots?.default?.() || []
 )
 
-const totalPages = computed(() => {
+const slidesInView = computed(() => {
   let bp = null
-  let total = cards.value.length
 
   if (Number.isInteger(props.perView)) {
-    return total
+    return props.perView
   }
 
   if (isXLargeScreen.value && props.perView?.xl) {
@@ -70,7 +71,11 @@ const totalPages = computed(() => {
     bp = 'xs'
   }
 
-  return total - props.perView?.[bp] + 1
+  return props.perView?.[bp] || 1
+})
+
+const totalPages = computed(() => {
+  return slides.value.length - slidesInView.value + 1
 })
 
 const breakpoints = computed(() => {
@@ -106,21 +111,33 @@ const paginationClick = (currentPage) => {
   swiper.value.$el.swiper.slideTo(currentPage - 1)
 }
 
-const slideUpdate = ({ activeIndex }) => {
+const slideUpdate = ({ activeIndex, slides }) => {
   activePage.value = activeIndex + 1
   emit('change', activeIndex)
   rplEventBus.emit('rpl-slider/slide', activeIndex)
+
+  setInert({ activeIndex, slides })
 }
+
+const setInert = ({ activeIndex, slides }) =>
+  slides.each((slide, index) =>
+    slide.toggleAttribute(
+      'inert',
+      index < activeIndex || index >= activeIndex + slidesInView.value
+    )
+  )
 </script>
 
 <template>
   <div class="rpl-slider">
     <RplPagination
-      v-if="showPagination && cards.length > 1"
+      v-if="showPagination && slides.length > 1"
       variant="simple"
       :current-page="activePage"
       :total-pages="totalPages"
       :show-tally="showTally"
+      :label="label"
+      :content-type="contentType"
       class="rpl-slider__pagination"
       @change="paginationClick"
     />
@@ -131,16 +148,17 @@ const slideUpdate = ({ activeIndex }) => {
       :breakpoints="breakpoints"
       :modules="[EffectFade]"
       :effect="effect"
-      :autoHeight="autoHeight"
+      :speed="300"
       class="rpl-slider__swiper"
+      @after-init="setInert"
       @slide-change="slideUpdate"
     >
       <SwiperSlide
-        v-for="(card, i) in cards"
+        v-for="(slide, i) in slides"
         :key="i"
         class="rpl-slider__slide"
       >
-        <component :is="card" />
+        <component :is="slide" />
       </SwiperSlide>
     </Swiper>
   </div>

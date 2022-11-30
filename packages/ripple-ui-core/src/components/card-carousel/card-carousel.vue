@@ -5,7 +5,7 @@ export default { name: 'RplCardCarousel' }
 <script setup lang="ts">
 import RplPromoCard from '../card/promo-card.vue'
 import RplSlider from '../slider/slider.vue'
-import { RplCardCarouselItem } from '../card-carousel/constants'
+import { RplCardCarouselItem } from './constants'
 import { RplSlidesPerView } from '../slider/constants'
 
 interface Props {
@@ -29,7 +29,7 @@ withDefaults(defineProps<Props>(), {
         :title="card.title"
         :highlight="!card.image"
       >
-        <template v-if="card.meta" #meta>
+        <template v-if="card?.meta" #meta>
           {{ card.meta }}
         </template>
         <p v-if="card.content">{{ card.content }}</p>

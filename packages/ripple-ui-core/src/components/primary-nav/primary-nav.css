@@ -112,7 +112,7 @@
 .rpl-primary-nav__logo-divider {
   display: none;
   border-left: solid 2px var(--rpl-clr-type-primary-contrast);
-  height: var(--rpl-sp-4);
+  height: var(--rpl-sp-6);
   margin: 0 var(--rpl-sp-4);
 
   @media (--rpl-bp-s) {
@@ -146,7 +146,7 @@
     align-items: center;
     max-width: 172px;
     height: 48px;
-    padding: var(--rpl-sp-2) 10px;
+    padding: var(--rpl-sp-2) 16px;
     color: var(--rpl-clr-type-primary-contrast);
     text-decoration: none;
     text-align: center;
@@ -154,6 +154,7 @@
 
     @media (--rpl-bp-s) {
       height: 52px;
+      padding: var(--rpl-sp-2) 10px;
     }
 
     @media (--rpl-bp-m) {
@@ -220,10 +221,8 @@
   }
 
   &.rpl-primary-nav__nav-bar-icon--search {
-    margin-right: var(--rpl-sp-2);
-
     @media (--rpl-bp-s) {
-      margin-right: 0;
+      margin-left: var(--rpl-sp-2);
     }
   }
 

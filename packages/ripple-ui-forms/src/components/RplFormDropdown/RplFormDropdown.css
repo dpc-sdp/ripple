@@ -10,6 +10,16 @@
   }
 }
 
+.rpl-form-dropdown--invalid {
+  .rpl-form-dropdown-input {
+    border: var(--rpl-border-1) solid var(--rpl-clr-error);
+
+    &:hover {
+      border: var(--rpl-border-1) solid var(--rpl-clr-error-dark);
+    }
+  }
+}
+
 .rpl-form-dropdown-input {
   background: var(--rpl-clr-neutral-100);
   border: 0;

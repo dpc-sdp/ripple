@@ -80,7 +80,10 @@ clr:
   warning:
     value: '{theme.clr.warning.500}'
   error:
-    value: '{theme.clr.error.500}'
+    _:
+      value: '{theme.clr.error.500}'
+    dark:
+      value: '{theme.clr.error.600}'
   error-alt:
     value: '{theme.clr.error.600}'
   gradient:

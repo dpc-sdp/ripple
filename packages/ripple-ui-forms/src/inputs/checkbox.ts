@@ -1,5 +1,4 @@
 import { FormKitTypeDefinition } from '@formkit/core'
-import { concatStrings } from '../formkit-features'
 import { createRplFormGroup, inputLibrary } from './input-utils'
 
 /**
@@ -13,7 +12,7 @@ export const checkbox: FormKitTypeDefinition = {
   schema: createRplFormGroup({
     $cmp: 'RplFormCheckbox',
     props: {
-      id: `$fns.concatStrings($id, '__checkbox')`,
+      id: `$id + '__checkbox'`,
       name: '$node.context.name',
       disabled: '$node.context.disabled',
       label: '$node.props.checkboxLabel',
@@ -45,5 +44,5 @@ export const checkbox: FormKitTypeDefinition = {
   /**
    * Additional features that should be added to your input
    */
-  features: [concatStrings]
+  features: []
 }

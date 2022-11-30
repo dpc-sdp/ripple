@@ -8,7 +8,6 @@ import {
   outer,
   inner,
   wrapper,
-  label,
   help,
   icon,
   prefix,
@@ -21,6 +20,7 @@ import {
   FormKitSchemaComponent,
   FormKitExtendableSchemaRoot
 } from '@formkit/core'
+import { rplLabel } from '../sections/rplLabel'
 
 export const inputLibrary = {
   RplFormInput: markRaw(RplFormInput),
@@ -39,7 +39,7 @@ export const createRplFormInput = (
 ): FormKitExtendableSchemaRoot => {
   return outer(
     wrapper(
-      label('$label'),
+      rplLabel('$label'),
       help('$help'),
       createSection('error', () => ({
         $cmp: 'RplFormValidationError',

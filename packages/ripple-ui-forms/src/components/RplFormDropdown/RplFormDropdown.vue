@@ -1,3 +1,9 @@
+<script lang="ts">
+export default {
+  inheritAttrs: false
+}
+</script>
+
 <script setup lang="ts">
 import { RplIcon } from '@dpc-sdp/ripple-ui-core'
 import { computed, ref, watch, nextTick } from 'vue'
@@ -13,6 +19,8 @@ export interface RplFormDropdownProps {
   variant?: 'default' | 'reverse'
   multiple: boolean
   placeholder?: string
+  required?: boolean
+  invalid?: boolean
   onChange: (value: string | string[]) => void
   options: {
     id: string
@@ -28,7 +36,9 @@ const props = withDefaults(defineProps<RplFormDropdownProps>(), {
   placeholder: 'Select',
   onChange: () => undefined,
   options: () => [],
-  maxItemsDisplayed: 6
+  maxItemsDisplayed: 6,
+  required: false,
+  invalid: false
 })
 
 const emit = defineEmits<{ (e: 'onChange', value: string[]): void }>()
@@ -63,6 +73,10 @@ const getDefaultActiveId = (): string => {
     // Get the id of currently selected option, if we're in a single selection mode.
     return selectedOption ? selectedOption.id : firstOptionId
   }
+}
+
+const getUniqueOptionId = (optionId: string): string => {
+  return optionId ? `${props.id}-${optionId}` : ''
 }
 
 const handleToggle = (fromKeyboard = false): void => {
@@ -155,7 +169,7 @@ const isOptionSelected = (optionValue) => {
 
 const focusOption = (optionId) => {
   const optionEl = optionRefs.value.find((r) => {
-    return r.id === optionId
+    return r.dataset.optionId === optionId
   })
   const menu = menuRef.value
 
@@ -214,7 +228,8 @@ const hasValue = computed((): boolean => {
     }"
     :class="{
       'rpl-form-dropdown': true,
-      [`rpl-form-dropdown--${props.variant}`]: true
+      [`rpl-form-dropdown--${props.variant}`]: true,
+      'rpl-form-dropdown--invalid': invalid
     }"
     @keydown.down.prevent="handleArrowUp"
     @keydown.up.prevent="handleArrowDown"
@@ -233,8 +248,11 @@ const hasValue = computed((): boolean => {
       :aria-controls="menuId"
       :aria-expanded="isOpen"
       aria-haspopup="listbox"
-      :aria-labelledby="labelId"
       :aria-disabled="disabled"
+      :aria-required="required"
+      :aria-invalid="invalid"
+      :aria-labelledby="labelId"
+      :aria-activedescendant="getUniqueOptionId(activeOptionId)"
       :disabled="disabled"
       role="combobox"
       :tabindex="disabled ? -1 : 0"
@@ -266,14 +284,17 @@ const hasValue = computed((): boolean => {
       class="rpl-form-dropdown-menu"
       role="listbox"
       :aria-multiselectable="!!multiple"
+      :aria-required="required"
+      :aria-invalid="invalid"
       :aria-labelledby="labelId"
       tabindex="-1"
     >
       <div
         v-for="option in options"
-        :id="option.id"
+        :id="getUniqueOptionId(option.id)"
         :key="option.id"
         ref="optionRefs"
+        :data-option-id="option.id"
         role="option"
         :class="{
           'rpl-form-dropdown-option': true,

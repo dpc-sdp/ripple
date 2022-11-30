@@ -1,4 +1,5 @@
 import { FormKitTypeDefinition } from '@formkit/core'
+import { isFieldRequired, isFieldInvalid } from '../formkit-features'
 import { createRplFormInput, inputLibrary } from './input-utils'
 
 /**
@@ -14,13 +15,16 @@ export const dropdown: FormKitTypeDefinition = {
     props: {
       multiple: '$node.props.multiple',
       id: `$id`,
+      labelId: `$id + '__label'`,
       name: '$node.context.name',
       disabled: '$node.context.disabled',
       placeholder: '$node.props.placeholder',
       value: '$_value',
       onChange: '$node.input',
       options: '$node.props.options',
-      validationMeta: '$node.props.validationMeta'
+      validationMeta: '$node.props.validationMeta',
+      required: '$fns.isFieldRequired()',
+      invalid: '$fns.isFieldInvalid()'
     }
   }),
   library: inputLibrary,
@@ -40,5 +44,5 @@ export const dropdown: FormKitTypeDefinition = {
   /**
    * Additional features that should be added to your input
    */
-  features: []
+  features: [isFieldRequired, isFieldInvalid]
 }

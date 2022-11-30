@@ -3,6 +3,82 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.20](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.19...v2.1.0-alpha.20) (2022-11-29)
+
+
+### Bug Fixes
+
+* fixed broken build ([0e94fb6](https://github.com/dpc-sdp/ripple-framework/commit/0e94fb6121dd5f9d6519bc41096b72b95a817b36))
+
+
+### Features
+
+* **@dpc-sdp/ripple-tide-api:** added site alerts mapping and ui ([fbdbdf2](https://github.com/dpc-sdp/ripple-framework/commit/fbdbdf24cdc30a2216d6b387f3305a0c75e46eca))
+* **@dpc-sdp/ripple-tide-api:** update content type generator with new shared layout ([8d123fb](https://github.com/dpc-sdp/ripple-framework/commit/8d123fb91cb821cc46c1b73d50d5cbfa52f00e4c))
+* ensure all content types used the 'hasbreadcrumbs' prop for header ([52008a8](https://github.com/dpc-sdp/ripple-framework/commit/52008a8a7d478505ed6d6d0390f80e4be4151498))
+
+
+
+
+
+# [2.1.0-alpha.19](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.18...v2.1.0-alpha.19) (2022-11-28)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-publication:** :bug: post-merge fixes ([d8f5207](https://github.com/dpc-sdp/ripple-framework/commit/d8f52074f42dcbf325f2c62a2ed99f8829182801))
+
+
+### Features
+
+* **@dpc-sdp/ripple-tide-api:** :sparkles: add publication index api, mapping ([8d393e7](https://github.com/dpc-sdp/ripple-framework/commit/8d393e78dad09bb617e0979f8efd9620ee79bcbe))
+* **@dpc-sdp/ripple-tide-publication:** :sparkles: add child content type ([8f0c6ce](https://github.com/dpc-sdp/ripple-framework/commit/8f0c6ceaba2abae282261bbf39c01d7f417de42c))
+
+
+
+
+
+# [2.1.0-alpha.18](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.17...v2.1.0-alpha.18) (2022-11-28)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-api:** testing ci tests ([a87cf9f](https://github.com/dpc-sdp/ripple-framework/commit/a87cf9f1c6eace36cef81eaf3a57df7e9f318ab1))
+* **@dpc-sdp/ripple-tide-api:** testing ci tests ([22c3897](https://github.com/dpc-sdp/ripple-framework/commit/22c38971d12e53bb354154b4829a1d4af82cffb1))
+
+
+### Features
+
+* **@dpc-sdp/ripple-tide-api:** adding error pages ([f914e92](https://github.com/dpc-sdp/ripple-framework/commit/f914e926955ddb0e7e4d48e4a62e24da893c7c44))
+* **@dpc-sdp/ripple-tide-media:** add // [@ts-ignore](https://github.com/ts-ignore) ([2d65248](https://github.com/dpc-sdp/ripple-framework/commit/2d6524806549cdec435915fe7ae6cd5f40b536d5))
+* **@dpc-sdp/ripple-tide-media:** add basic tests ([47e315c](https://github.com/dpc-sdp/ripple-framework/commit/47e315c00e3e496cda80b5afe7761c36ac4457e8))
+* **@dpc-sdp/ripple-tide-media:** limit video width ([3248044](https://github.com/dpc-sdp/ripple-framework/commit/3248044cf592dd4a566c9b7b017bbded4264096c))
+* **@dpc-sdp/ripple-ui-core:** adding error message component ([4d507de](https://github.com/dpc-sdp/ripple-framework/commit/4d507de2ac88275830fbacdb23e0e06b7d5419ee))
+
+
+### Reverts
+
+* **@dpc-sdp/ripple-tide-api:** restore 500 test ([8f9f027](https://github.com/dpc-sdp/ripple-framework/commit/8f9f027aa13b1e6db0f1cf06cec096033f1bd6eb))
+
+
+
+
+
+# [2.1.0-alpha.17](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.16...v2.1.0-alpha.17) (2022-11-28)
+
+
+### Features
+
+* **@dpc-sdp/ripple-tide-landing-page:** added webforms mapping for checkbox ([fb1dbf5](https://github.com/dpc-sdp/ripple-framework/commit/fb1dbf587a30a01927dde3c4f1405202b0dabe69))
+* **@dpc-sdp/ripple-ui-forms:** added checkbox group form component ([6dee1b4](https://github.com/dpc-sdp/ripple-framework/commit/6dee1b41b80e375f32a7f282c03a0eabc1b15dd1))
+* **@dpc-sdp/ripple-ui-forms:** added checkbox group to formkit ([1da2646](https://github.com/dpc-sdp/ripple-framework/commit/1da26468c60ce854221ece8dc0b1af6e5391c04a))
+* **@dpc-sdp/ripple-ui-forms:** added single checkbox form component ([2d7805a](https://github.com/dpc-sdp/ripple-framework/commit/2d7805ad258752949f8fca30291d4b84995ef805))
+* **@dpc-sdp/ripple-ui-forms:** added single checkbox to formkit ([24bd76b](https://github.com/dpc-sdp/ripple-framework/commit/24bd76b0969edcd50c8eaf06eaadb31aa5c50a46))
+
+
+
+
+
 # [2.1.0-alpha.16](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.15...v2.1.0-alpha.16) (2022-11-25)
 
 

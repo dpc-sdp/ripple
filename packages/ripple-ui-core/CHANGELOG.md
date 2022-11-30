@@ -3,6 +3,40 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.20](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.19...v2.1.0-alpha.20) (2022-11-29)
+
+
+### Features
+
+* **@dpc-sdp/ripple-tide-api:** added site alerts mapping and ui ([fbdbdf2](https://github.com/dpc-sdp/ripple-framework/commit/fbdbdf24cdc30a2216d6b387f3305a0c75e46eca))
+
+
+
+
+
+# [2.1.0-alpha.19](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.18...v2.1.0-alpha.19) (2022-11-28)
+
+
+### Features
+
+* **@dpc-sdp/ripple-tide-api:** :sparkles: add publication index api, mapping ([8d393e7](https://github.com/dpc-sdp/ripple-framework/commit/8d393e78dad09bb617e0979f8efd9620ee79bcbe))
+* **@dpc-sdp/ripple-tide-publication:** :sparkles: add child content type ([8f0c6ce](https://github.com/dpc-sdp/ripple-framework/commit/8f0c6ceaba2abae282261bbf39c01d7f417de42c))
+
+
+
+
+
+# [2.1.0-alpha.18](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.17...v2.1.0-alpha.18) (2022-11-28)
+
+
+### Features
+
+* **@dpc-sdp/ripple-ui-core:** adding error message component ([4d507de](https://github.com/dpc-sdp/ripple-framework/commit/4d507de2ac88275830fbacdb23e0e06b7d5419ee))
+
+
+
+
+
 # [2.1.0-alpha.16](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.15...v2.1.0-alpha.16) (2022-11-25)
 
 

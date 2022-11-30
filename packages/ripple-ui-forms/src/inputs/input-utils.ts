@@ -1,5 +1,7 @@
 import { markRaw } from 'vue'
 import RplFormInput from './../components/RplFormInput/RplFormInput.vue'
+import RplFormCheckbox from './../components/RplFormCheckbox/RplFormCheckbox.vue'
+import RplFormCheckboxGroup from './../components/RplFormCheckbox/RplFormCheckboxGroup.vue'
 import RplFormValidationError from './../components/RplFormValidationError/RplFormValidationError.vue'
 import {
   outer,
@@ -10,6 +12,8 @@ import {
   icon,
   prefix,
   suffix,
+  fieldset,
+  legend,
   createSection
 } from '@formkit/inputs'
 import {
@@ -19,11 +23,14 @@ import {
 
 export const inputLibrary = {
   RplFormInput: markRaw(RplFormInput),
+  RplFormCheckbox: markRaw(RplFormCheckbox),
+  RplFormCheckboxGroup: markRaw(RplFormCheckboxGroup),
   RplFormValidationError: markRaw(RplFormValidationError)
 }
 
 /*
- * Creates a Formkit schema based on Ripple opinionated defaults for label and help messages, etc
+ * Creates a Formkit schema based on Ripple opinionated defaults for label and help messages, use
+ * this to wrap fields like text inputs
  */
 export const createRplFormInput = (
   cmp: FormKitSchemaComponent
@@ -37,7 +44,6 @@ export const createRplFormInput = (
         if: '$fns.length($messages)',
         props: {
           id: '$id',
-          msg: 'Error',
           messages: '$messages'
         }
       }))(),
@@ -48,6 +54,30 @@ export const createRplFormInput = (
         suffix(),
         icon('suffix')
       )
+    )
+  )
+}
+
+/*
+ * Creates a Formkit schema based on Ripple opinionated defaults for a field that requires a
+ * fieldset and legend instead of plain label (e.g. radios, checkboxes, date field)
+ */
+export const createRplFormGroup = (
+  cmp: FormKitSchemaComponent
+): FormKitExtendableSchemaRoot => {
+  return outer(
+    fieldset(
+      legend('$label'),
+      help('$help'),
+      createSection('error', () => ({
+        $cmp: 'RplFormValidationError',
+        if: '$fns.length($messages)',
+        props: {
+          id: '$id',
+          messages: '$messages'
+        }
+      }))(),
+      createSection('input', () => cmp)()
     )
   )
 }

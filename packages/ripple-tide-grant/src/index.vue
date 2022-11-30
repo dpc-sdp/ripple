@@ -20,8 +20,11 @@ export default { name: 'TideGrantPage' }
     <template #breadcrumbs>
       <slot name="breadcrumbs"></slot>
     </template>
-    <template #aboveBody>
-      <TideGrantHeader :header="page.header"></TideGrantHeader>
+    <template #aboveBody="{ hasBreadcrumbs }">
+      <TideGrantHeader
+        :header="page.header"
+        :hasBreadcrumbs="hasBreadcrumbs"
+      ></TideGrantHeader>
     </template>
     <template #body>
       <TideGrantOverview :overview="page.overview"></TideGrantOverview>
@@ -45,15 +48,11 @@ export default { name: 'TideGrantPage' }
 </template>
 
 <script setup lang="ts">
+import { TideSiteData } from '@dpc-sdp/ripple-tide-api/types'
 import type { TideGrantPage } from './types'
-import TideGrantHeader from './components/tide-grant-header.vue'
-import TideGrantOverview from './components/tide-grant-overview.vue'
-import TideGrantTimeline from './components/tide-grant-timeline.vue'
-import TideGrantGuidelines from './components/tide-grant-guidelines.vue'
-import TideGrantDocuments from './components/tide-grant-documents.vue'
 
 interface Props {
-  site: any
+  site: TideSiteData
   page: TideGrantPage
 }
 

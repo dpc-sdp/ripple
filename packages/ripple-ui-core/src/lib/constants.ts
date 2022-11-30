@@ -13,3 +13,7 @@ export interface RplLink {
   text: string
   url: string
 }
+
+export interface RplLinkExtended extends RplLink {
+  description: string
+}

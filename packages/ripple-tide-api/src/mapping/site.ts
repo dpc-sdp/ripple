@@ -4,11 +4,16 @@ import {
   getLinkFromField
 } from './../utils/mapping-utils.js'
 import TideSite from './../services/tide-site.js'
+import {
+  map as siteAlertsMapping,
+  includes as siteAlertsIncludes
+} from './alerts/site-alerts-mapping.js'
 
 export default {
   mapping: {
     name: 'name',
     _src: (src) => (process.env.NODE_ENV === 'development' ? src : undefined),
+    siteAlerts: siteAlertsMapping,
     siteLogo: (src) => {
       if (src.field_site_logo) {
         return {
@@ -99,6 +104,7 @@ export default {
     }
   },
   includes: [
+    ...siteAlertsIncludes,
     'field_site_og_image',
     'field_site_og_image.field_media_image',
     'field_site_main_menu',

@@ -93,5 +93,10 @@ export default defineNuxtModule({
       global: true
     })
     addImportsDir(join(__dirname, './../src/nuxt/composables'))
+
+    // Add error page component
+    nuxt.hook('app:resolve', (app) => {
+      app.errorComponent = resolve('./../src/nuxt/components/ErrorPage.vue')
+    })
   }
 })

@@ -2,7 +2,7 @@ import { defineCustomElement } from 'vue'
 
 import { default as RplAccordionCmp } from './components/accordion/accordion.vue'
 import { default as RplAcknowledgementCmp } from './components/acknowledgement/acknowledgement.vue'
-import { default as RplAlertCmp } from './components/alert/alert.vue'
+import { default as RplAlertCmp } from './components/alert/RplAlert.vue'
 import { default as RplBreadcrumbsCmp } from './components/breadcrumbs/breadcrumbs.vue'
 import { default as RplButtonCmp } from './components/button/button.vue'
 
@@ -46,6 +46,7 @@ import { default as RplSidebarComponentCmp } from './components/layout/sidebar-c
 import { default as RplListCmp } from './components/list/list.vue'
 
 import { default as RplPageActionCmp } from './components/page-action/page-action.vue'
+import { default as RplPageLinksCmp } from './components/page-links/page-links.vue'
 import { default as RplPrimaryNavCmp } from './components/primary-nav/primary-nav.vue'
 import { default as RplProfileCmp } from './components/profile/profile.vue'
 import { default as RplRelatedLinksCmp } from './components/related-links/related-links.vue'
@@ -59,6 +60,8 @@ import { default as RplTagCmp } from './components/tag/tag.vue'
 import { default as RplTextLinkCmp } from './components/text-link/text-link.vue'
 import { default as RplTimelineCmp } from './components/timeline/timeline.vue'
 import { default as RplVerticalNavCmp } from './components/vertical-nav/vertical-nav.vue'
+
+import { default as RplErrorMessageCmp } from './components/error-message/error-message.vue'
 
 // register custom el
 const RplAccordion = defineCustomElement(RplAccordionCmp)
@@ -107,6 +110,7 @@ const RplSidebarComponent = defineCustomElement(RplSidebarComponentCmp)
 const RplList = defineCustomElement(RplListCmp)
 
 const RplPageAction = defineCustomElement(RplPageActionCmp)
+const RplPageLinks = defineCustomElement(RplPageLinksCmp)
 const RplPrimaryNav = defineCustomElement(RplPrimaryNavCmp)
 const RplProfile = defineCustomElement(RplProfileCmp)
 const RplRelatedLinks = defineCustomElement(RplRelatedLinksCmp)
@@ -120,6 +124,8 @@ const RplTag = defineCustomElement(RplTagCmp)
 const RplTextLink = defineCustomElement(RplTextLinkCmp)
 const RplTimeline = defineCustomElement(RplTimelineCmp)
 const RplVerticalNav = defineCustomElement(RplVerticalNavCmp)
+
+const RplErrorMessage = defineCustomElement(RplErrorMessageCmp)
 
 // export each wc
 export { RplAccordion }
@@ -168,6 +174,7 @@ export { RplSidebarComponent }
 export { RplList }
 
 export { RplPageAction }
+export { RplPageLinks }
 export { RplPrimaryNav }
 export { RplProfile }
 export { RplRelatedLinks }
@@ -181,6 +188,8 @@ export { RplTag }
 export { RplTextLink }
 export { RplTimeline }
 export { RplVerticalNav }
+
+export { RplErrorMessage }
 
 // export register function for all webcomponents
 export function registerRplWebComponents() {
@@ -230,6 +239,7 @@ export function registerRplWebComponents() {
   customElements.define('rpl-list', RplList)
 
   customElements.define('rpl-page-action', RplPageAction)
+  customElements.define('rpl-page-links', RplPageLinks)
   customElements.define('rpl-primary-nav', RplPrimaryNav)
   customElements.define('rpl-profile', RplProfile)
   customElements.define('rpl-related-links', RplRelatedLinks)
@@ -243,4 +253,6 @@ export function registerRplWebComponents() {
   customElements.define('rpl-text-link', RplTextLink)
   customElements.define('rpl-timeline', RplTimeline)
   customElements.define('rpl-vertical-nav', RplVerticalNav)
+
+  customElements.define('rpl-error-message', RplErrorMessage)
 }

@@ -7,6 +7,7 @@ const props =
   defineProps<{
     header: ITideHeroHeader
     hideBottomCornerGraphic: boolean
+    hasBreadcrumbs: boolean
   }>()
 
 const cornerTop = computed(() => {
@@ -48,7 +49,7 @@ const secondaryAction = computed(() => {
     :theme="header.theme"
     :logo="header.logoImage"
     :behindNav="true"
-    :breadcrumbs="true"
+    :breadcrumbs="hasBreadcrumbs"
     :background="header.backgroundImage"
     :cornerTop="cornerTop"
     :cornerBottom="cornerBottom"

@@ -8,8 +8,8 @@ import { RplCardElements, RplCardTypes } from './constants'
 
 interface Props {
   el?: typeof RplCardElements[number]
-  type: typeof RplCardTypes[number]
-  highlight: boolean
+  type?: typeof RplCardTypes[number]
+  highlight?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {

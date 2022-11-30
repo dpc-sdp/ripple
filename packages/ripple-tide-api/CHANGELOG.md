@@ -3,6 +3,52 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.20](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.19...v2.1.0-alpha.20) (2022-11-29)
+
+
+### Bug Fixes
+
+* fixed broken build ([0e94fb6](https://github.com/dpc-sdp/ripple-framework/commit/0e94fb6121dd5f9d6519bc41096b72b95a817b36))
+
+
+### Features
+
+* **@dpc-sdp/ripple-tide-api:** added site alerts mapping and ui ([fbdbdf2](https://github.com/dpc-sdp/ripple-framework/commit/fbdbdf24cdc30a2216d6b387f3305a0c75e46eca))
+* ensure all content types used the 'hasbreadcrumbs' prop for header ([52008a8](https://github.com/dpc-sdp/ripple-framework/commit/52008a8a7d478505ed6d6d0390f80e4be4151498))
+
+
+
+
+
+# [2.1.0-alpha.19](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.18...v2.1.0-alpha.19) (2022-11-28)
+
+
+### Features
+
+* **@dpc-sdp/ripple-tide-api:** :sparkles: add publication index api, mapping ([8d393e7](https://github.com/dpc-sdp/ripple-framework/commit/8d393e78dad09bb617e0979f8efd9620ee79bcbe))
+
+
+
+
+
+# [2.1.0-alpha.18](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.17...v2.1.0-alpha.18) (2022-11-28)
+
+
+### Features
+
+* **@dpc-sdp/ripple-tide-api:** adding error pages ([f914e92](https://github.com/dpc-sdp/ripple-framework/commit/f914e926955ddb0e7e4d48e4a62e24da893c7c44))
+* **@dpc-sdp/ripple-tide-media:** add // [@ts-ignore](https://github.com/ts-ignore) ([2d65248](https://github.com/dpc-sdp/ripple-framework/commit/2d6524806549cdec435915fe7ae6cd5f40b536d5))
+* **@dpc-sdp/ripple-tide-media:** add basic tests ([47e315c](https://github.com/dpc-sdp/ripple-framework/commit/47e315c00e3e496cda80b5afe7761c36ac4457e8))
+
+
+### Reverts
+
+* **@dpc-sdp/ripple-tide-api:** restore 500 test ([8f9f027](https://github.com/dpc-sdp/ripple-framework/commit/8f9f027aa13b1e6db0f1cf06cec096033f1bd6eb))
+
+
+
+
+
 # [2.1.0-alpha.13](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.12...v2.1.0-alpha.13) (2022-11-21)
 
 

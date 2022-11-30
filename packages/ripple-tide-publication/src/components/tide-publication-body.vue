@@ -9,13 +9,14 @@ export default { name: 'TidePublicationBody' }
   <TideDynamicComponents
     v-if="components?.length > 0"
     :components="components"
+    :has-sidebar="false"
+    :full-width="false"
   ></TideDynamicComponents>
 </template>
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import { RplDescriptionList } from '@dpc-sdp/ripple-ui-core'
-import type { TideDynamicPageComponent } from '@dpc-sdp/ripple-tide-api'
+import { TideDynamicPageComponent } from '@dpc-sdp/ripple-tide-api'
 
 const props =
   defineProps<{

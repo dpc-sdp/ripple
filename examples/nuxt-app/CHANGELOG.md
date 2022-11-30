@@ -3,6 +3,63 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.20](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.19...v2.1.0-alpha.20) (2022-11-29)
+
+
+### Features
+
+* **@dpc-sdp/ripple-tide-api:** added site alerts mapping and ui ([fbdbdf2](https://github.com/dpc-sdp/ripple-framework/commit/fbdbdf24cdc30a2216d6b387f3305a0c75e46eca))
+
+
+
+
+
+# [2.1.0-alpha.19](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.18...v2.1.0-alpha.19) (2022-11-28)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-publication:** :bug: post-merge fixes ([d8f5207](https://github.com/dpc-sdp/ripple-framework/commit/d8f52074f42dcbf325f2c62a2ed99f8829182801))
+
+
+### Features
+
+* **@dpc-sdp/ripple-tide-api:** :sparkles: add publication index api, mapping ([8d393e7](https://github.com/dpc-sdp/ripple-framework/commit/8d393e78dad09bb617e0979f8efd9620ee79bcbe))
+* **@dpc-sdp/ripple-tide-publication:** :sparkles: add child content type ([8f0c6ce](https://github.com/dpc-sdp/ripple-framework/commit/8f0c6ceaba2abae282261bbf39c01d7f417de42c))
+
+
+
+
+
+# [2.1.0-alpha.18](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.17...v2.1.0-alpha.18) (2022-11-28)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-api:** testing ci tests ([22c3897](https://github.com/dpc-sdp/ripple-framework/commit/22c38971d12e53bb354154b4829a1d4af82cffb1))
+
+
+### Features
+
+* **@dpc-sdp/ripple-tide-media:** add basic tests ([47e315c](https://github.com/dpc-sdp/ripple-framework/commit/47e315c00e3e496cda80b5afe7761c36ac4457e8))
+
+
+### Reverts
+
+* **@dpc-sdp/ripple-tide-api:** restore 500 test ([8f9f027](https://github.com/dpc-sdp/ripple-framework/commit/8f9f027aa13b1e6db0f1cf06cec096033f1bd6eb))
+
+
+
+
+
+# [2.1.0-alpha.17](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.16...v2.1.0-alpha.17) (2022-11-28)
+
+**Note:** Version bump only for package nuxt-app
+
+
+
+
+
 # [2.1.0-alpha.16](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.15...v2.1.0-alpha.16) (2022-11-25)
 
 **Note:** Version bump only for package nuxt-app

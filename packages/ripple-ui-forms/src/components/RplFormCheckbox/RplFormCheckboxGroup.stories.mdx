@@ -1,0 +1,105 @@
+import {
+  Canvas,
+  Meta,
+  Story,
+  ArgsTable
+} from '@storybook/addon-docs'
+import RplFormCheckboxGroup from './RplFormCheckboxGroup.vue'
+
+export const SingleTemplate = (args) => ({
+  components: { RplFormCheckboxGroup },
+  setup() {
+    return { args }
+  },
+  template: '<RplFormCheckboxGroup v-bind="args" />'
+})
+
+<Meta title='Forms/Checkbox group' component={RplFormCheckboxGroup} args={{
+      id: 'checkbox-default',
+      options: [
+        {
+          id: 'item-1',
+          label: 'Here is a checkbox'
+        },
+        {
+          id: 'item-2',
+          label: 'Here is a checkbox with a very long label, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+        },
+        {
+          id: 'item-3',
+          label: 'Here is another checkbox'
+        }
+      ],
+      value: ['item-1', 'item-2']
+    }} />
+
+# Forms
+
+<ArgsTable of={RplFormCheckbox} />
+
+<Canvas>
+  <Story
+    name='Default variant'
+    args={{
+      id: 'checkbox-default'
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>
+
+
+<Canvas>
+  <Story
+    name='Reverse variant'
+    parameters={{
+      background: 'gray'
+    }}
+    args={{
+      id: 'checkbox-reverse',
+      variant: 'reverse'
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    name='Inactive'
+    args={{
+      id: 'checkbox-inactive',
+      label: 'Here is a checkbox',
+      disabled: true,
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>
+
+
+<Canvas>
+  <Story
+    name='Inactive - single item'
+    args={{
+      id: 'checkbox-long-label',
+      label: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ',
+      options: [
+        {
+          id: 'item-1',
+          label: 'Here is a checkbox',
+          disabled: true
+        },
+        {
+          id: 'item-2',
+          label: 'Here is a checkbox with a very long label, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+        },
+      ],
+      value: ['item-1']
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>
+
+

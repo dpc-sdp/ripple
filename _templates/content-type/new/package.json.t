@@ -22,7 +22,7 @@ to: packages/ripple-tide-<%= h.changeCase.paramCase(name) %>/package.json
     "watch": "yarn clean && tsc -p tsconfig.json -w"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-tide-api": "^2.0.0"
+    "@dpc-sdp/ripple-tide-api": "alpha"
   },
   "devDependencies": {
   },

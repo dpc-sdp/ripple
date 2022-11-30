@@ -4,6 +4,7 @@ import RplFormCheckbox from './../components/RplFormCheckbox/RplFormCheckbox.vue
 import RplFormCheckboxGroup from './../components/RplFormCheckbox/RplFormCheckboxGroup.vue'
 import RplFormDropdown from './../components/RplFormDropdown/RplFormDropdown.vue'
 import RplFormValidationError from './../components/RplFormValidationError/RplFormValidationError.vue'
+import RplFormHelpText from './../components/RplFormHelpText/RplFormHelpText.vue'
 import {
   outer,
   inner,
@@ -21,13 +22,15 @@ import {
   FormKitExtendableSchemaRoot
 } from '@formkit/core'
 import { rplLabel } from '../sections/rplLabel'
+import { rplHelp } from '../sections/rplHelp'
 
 export const inputLibrary = {
   RplFormInput: markRaw(RplFormInput),
   RplFormCheckbox: markRaw(RplFormCheckbox),
   RplFormCheckboxGroup: markRaw(RplFormCheckboxGroup),
   RplFormDropdown: markRaw(RplFormDropdown),
-  RplFormValidationError: markRaw(RplFormValidationError)
+  RplFormValidationError: markRaw(RplFormValidationError),
+  RplFormHelpText: markRaw(RplFormHelpText)
 }
 
 /*
@@ -40,7 +43,7 @@ export const createRplFormInput = (
   return outer(
     wrapper(
       rplLabel('$label'),
-      help('$help'),
+      rplHelp('$help'),
       createSection('error', () => ({
         $cmp: 'RplFormValidationError',
         if: '$fns.length($messages)',
@@ -70,7 +73,7 @@ export const createRplFormGroup = (
   return outer(
     fieldset(
       legend('$label'),
-      help('$help'),
+      rplHelp('$help'),
       createSection('error', () => ({
         $cmp: 'RplFormValidationError',
         if: '$fns.length($messages)',

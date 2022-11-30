@@ -1,8 +1,5 @@
 import { createSection } from '@formkit/inputs'
 
-/**
- * @public
- */
 export const rplLabel = createSection('label', () => ({
   $el: 'label',
   if: '$label',

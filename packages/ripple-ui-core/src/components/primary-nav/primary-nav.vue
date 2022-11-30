@@ -3,10 +3,6 @@ export default { name: 'RplPrimaryNav' }
 </script>
 
 <script setup lang="ts">
-/*
-  TODO:
-    - Add sliding animation for mobile mega menu levels changing
-*/
 import { ref, computed, watch, onMounted, onUnmounted } from 'vue'
 import type { Ref } from 'vue'
 import RplPrimaryNavBar from './nav-bar.vue'
@@ -39,15 +35,26 @@ const handleScroll = () => {
   isHidden.value = window.scrollY > 0 ? true : false
 }
 
+const handleEscapeKey = (event) => {
+  if (event.key === 'Escape' && isExpanded) {
+    isMegaNavActive.value = false
+    isSearchActive.value = false
+  }
+}
+
 onMounted(() => {
   // Run handleScroll when mounted in case an anchor link was used
   handleScroll()
 
   window.addEventListener('scroll', handleScroll)
+
+  window.addEventListener('keydown', handleEscapeKey, false)
 })
 
 onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll)
+
+  window.removeEventListener('keydown', handleEscapeKey, false)
 })
 
 const isNavItemActive = (id: string) => {

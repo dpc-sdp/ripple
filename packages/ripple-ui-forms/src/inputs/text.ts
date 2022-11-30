@@ -2,7 +2,8 @@ import { FormKitTypeDefinition } from '@formkit/core'
 import {
   createRplFormInput,
   defaultRplFormInputProps,
-  inputLibrary
+  inputLibrary,
+  rplFeatures
 } from './input-utils'
 
 /**
@@ -41,5 +42,5 @@ export const text: FormKitTypeDefinition = {
   /**
    * Additional features that should be added to your input
    */
-  features: []
+  features: rplFeatures
 }

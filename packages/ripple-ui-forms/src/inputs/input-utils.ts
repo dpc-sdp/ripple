@@ -23,6 +23,11 @@ import {
 } from '@formkit/core'
 import { rplLabel } from '../sections/rplLabel'
 import { rplHelp } from '../sections/rplHelp'
+import {
+  isFieldRequired,
+  isFieldInvalid,
+  getAriaDescribedBy
+} from '../formkit-features'
 
 export const inputLibrary = {
   RplFormInput: markRaw(RplFormInput),
@@ -32,6 +37,8 @@ export const inputLibrary = {
   RplFormValidationError: markRaw(RplFormValidationError),
   RplFormHelpText: markRaw(RplFormHelpText)
 }
+
+export const rplFeatures = [isFieldRequired, isFieldInvalid, getAriaDescribedBy]
 
 /*
  * Creates a Formkit schema based on Ripple opinionated defaults for label and help messages, use
@@ -48,7 +55,7 @@ export const createRplFormInput = (
         $cmp: 'RplFormValidationError',
         if: '$fns.length($messages)',
         props: {
-          id: '$id',
+          id: `$id + '_error'`,
           messages: '$messages'
         }
       }))(),
@@ -78,7 +85,7 @@ export const createRplFormGroup = (
         $cmp: 'RplFormValidationError',
         if: '$fns.length($messages)',
         props: {
-          id: '$id',
+          id: `$id + '_error'`,
           messages: '$messages'
         }
       }))(),
@@ -98,5 +105,8 @@ export const defaultRplFormInputProps = {
   options: '$node.context.options',
   name: '$node.context.name',
   className: '$node.context.classes.input',
-  validationMeta: '$node.props.validationMeta'
+  validationMeta: '$node.props.validationMeta',
+  'aria-describedby': '$fns.getAriaDescribedBy()',
+  invalid: '$fns.isFieldInvalid()',
+  required: '$fns.isFieldRequired()'
 }

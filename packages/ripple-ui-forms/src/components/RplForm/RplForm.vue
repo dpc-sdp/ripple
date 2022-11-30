@@ -57,6 +57,7 @@ const rplFormConfig = ref({
     form-class="rpl-form"
     :config="rplFormConfig"
     :actions="false"
+    novalidate
     @submit="submitHandler"
   >
     <slot name="aboveForm">

@@ -1,6 +1,5 @@
 import { FormKitTypeDefinition } from '@formkit/core'
-import { isFieldRequired, isFieldInvalid } from '../formkit-features'
-import { createRplFormInput, inputLibrary } from './input-utils'
+import { createRplFormInput, inputLibrary, rplFeatures } from './input-utils'
 
 /**
  * Input definition for a checkbox(ess).
@@ -16,6 +15,7 @@ export const dropdown: FormKitTypeDefinition = {
       multiple: '$node.props.multiple',
       id: `$id`,
       labelId: `$id + '__label'`,
+      'aria-describedby': '$fns.getAriaDescribedBy()',
       name: '$node.context.name',
       disabled: '$node.context.disabled',
       placeholder: '$node.props.placeholder',
@@ -44,5 +44,5 @@ export const dropdown: FormKitTypeDefinition = {
   /**
    * Additional features that should be added to your input
    */
-  features: [isFieldRequired, isFieldInvalid]
+  features: rplFeatures
 }

@@ -238,6 +238,7 @@ const hasValue = computed((): boolean => {
     @keydown.shift.tab="handleClose(false)"
   >
     <div
+      v-bind="$attrs"
       :id="inputId"
       ref="inputRef"
       :class="{

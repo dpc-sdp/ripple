@@ -1,5 +1,5 @@
 import { FormKitTypeDefinition } from '@formkit/core'
-import { createRplFormGroup, inputLibrary } from './input-utils'
+import { createRplFormGroup, inputLibrary, rplFeatures } from './input-utils'
 
 /**
  * Input definition for a checkbox.
@@ -20,7 +20,10 @@ export const checkbox: FormKitTypeDefinition = {
       offValue: '$node.props.offValue',
       checked: '$_value',
       onChange: '$node.input',
-      validationMeta: '$node.props.validationMeta'
+      validationMeta: '$node.props.validationMeta',
+      'aria-invalid': '$fns.isFieldInvalid()',
+      'aria-required': '$fns.isFieldRequired()',
+      required: '$fns.isFieldRequired()'
     }
   }),
   library: inputLibrary,
@@ -44,5 +47,5 @@ export const checkbox: FormKitTypeDefinition = {
   /**
    * Additional features that should be added to your input
    */
-  features: []
+  features: rplFeatures
 }

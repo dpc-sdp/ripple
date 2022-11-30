@@ -29,6 +29,14 @@
   }
 }
 
+.rpl-form__input--invalid input {
+  border: var(--rpl-border-1) solid var(--rpl-clr-error);
+
+  &:hover {
+    border: var(--rpl-border-1) solid var(--rpl-clr-error-dark);
+  }
+}
+
 .rpl-form__input--with-prefix-icon input {
   padding-left: calc(
     var(--rpl-sp-4) + var(--local-icon-spacing) + var(--rpl-sp-2)

@@ -1,5 +1,5 @@
 import { FormKitTypeDefinition } from '@formkit/core'
-import { createRplFormGroup, inputLibrary } from './input-utils'
+import { createRplFormGroup, inputLibrary, rplFeatures } from './input-utils'
 
 /**
  * Input definition for a checkbox(ess).
@@ -38,5 +38,5 @@ export const checkboxGroup: FormKitTypeDefinition = {
   /**
    * Additional features that should be added to your input
    */
-  features: []
+  features: rplFeatures
 }

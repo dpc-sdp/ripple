@@ -13,6 +13,8 @@ interface Props {
   prefixIcon?: string | undefined
   suffixIcon?: string | undefined
   maxlength?: string
+  invalid?: boolean
+  required?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -21,7 +23,9 @@ const props = withDefaults(defineProps<Props>(), {
   prefixIcon: undefined,
   suffixIcon: undefined,
   maxlength: undefined,
-  disabled: false
+  disabled: false,
+  required: false,
+  invalid: false
 })
 
 const classes = computed(() => {
@@ -30,7 +34,8 @@ const classes = computed(() => {
     [`${props.className}--type-${props.type}`]: props.type,
     [`${props.className}--disabled`]: props.disabled,
     [`${props.className}--with-prefix-icon`]: props.prefixIcon,
-    [`${props.className}--with-suffix-icon`]: props.suffixIcon
+    [`${props.className}--with-suffix-icon`]: props.suffixIcon,
+    [`${props.className}--invalid`]: props.invalid
   }
 })
 /*
@@ -54,6 +59,9 @@ TODO - Wire up event bus handling
       :type="type"
       class="rpl-u-focusable-outline"
       :disabled="disabled"
+      :required="required"
+      :aria-required="required"
+      :aria-invalid="invalid"
       v-bind="$attrs"
       :name="name"
       :value="value"

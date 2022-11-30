@@ -35,3 +35,29 @@ export const isFieldInvalid = (node: FormKitNode): void => {
     }
   })
 }
+
+export const getAriaDescribedBy = (node: FormKitNode): void => {
+  node.on('created', () => {
+    if (node.context?.fns) {
+      node.context.fns.getAriaDescribedBy = () => {
+        console.log(node)
+        const helpId = `${node.context.id}__help`
+        const errorId = `${node.context.id}__error`
+
+        const describedBy = []
+
+        if (node.context.state.validationVisible && !node.context.state.valid) {
+          describedBy.push(errorId)
+        }
+
+        if (node.context.help) {
+          describedBy.push(helpId)
+        }
+
+        console.log(describedBy.join(' '))
+
+        return describedBy.join(' ')
+      }
+    }
+  })
+}

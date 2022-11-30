@@ -85,7 +85,7 @@ import provideChildCols from '@dpc-sdp/ripple-global/mixins/ProvideChildCols'
 import RplPagination from '@dpc-sdp/ripple-pagination'
 import RplMarkup from '@dpc-sdp/ripple-markup'
 import { RplSearchResultsLayout, RplSearchResult } from '@dpc-sdp/ripple-search'
-import { RplCardPromo } from '@dpc-sdp/ripple-card'
+import { RplCardPromo, RplCardPromotion, RplCardProfile } from '@dpc-sdp/ripple-card'
 import { RplDivider } from '@dpc-sdp/ripple-global'
 
 export default {
@@ -99,6 +99,8 @@ export default {
     RplSearchResultsLayout,
     RplSearchResult,
     RplCardPromo,
+    RplCardPromotion,
+    RplCardProfile,
     RplPagination,
     RplMarkup
   },

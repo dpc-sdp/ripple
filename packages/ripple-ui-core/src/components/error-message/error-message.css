@@ -1,0 +1,34 @@
+@import '@dpc-sdp/ripple-ui-core/style/breakpoints';
+
+.rpl-error-message {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__title {
+    --local-title-size: 8rem;
+
+    line-height: 0.8;
+    font-size: var(--local-title-size);
+    color: var(--rpl-clr-type-primary-accessible);
+
+    @media (--rpl-bp-l) {
+      --local-title-size: 16rem;
+    }
+  }
+
+  &__intro {
+    font-weight: var(--rpl-type-weight-regular);
+  }
+
+  &__title,
+  &__intro,
+  &__body {
+    margin-bottom: var(--rpl-sp-8);
+
+    @media (--rpl-bp-l) {
+      margin-bottom: var(--rpl-sp-9);
+    }
+  }
+}

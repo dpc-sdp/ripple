@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/ripple-tide-media",
-  "version": "2.1.0-alpha.13",
+  "version": "2.1.0-alpha.21",
   "description": "Ripple mappings and components for Tide Media content type",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -18,7 +18,7 @@
     "watch": "yarn clean && tsc -p tsconfig.json -w"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-tide-api": "2.1.0-alpha.13"
+    "@dpc-sdp/ripple-tide-api": "2.1.0-alpha.20"
   },
   "files": [
     "dist",

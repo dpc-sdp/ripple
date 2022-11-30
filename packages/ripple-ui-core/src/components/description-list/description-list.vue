@@ -6,7 +6,7 @@ export default { name: 'RplDescriptionList' }
 import { RplDescriptionListItem } from './constants'
 
 interface Props {
-  inline: boolean
+  inline?: boolean
   items: Array<RplDescriptionListItem>
 }
 

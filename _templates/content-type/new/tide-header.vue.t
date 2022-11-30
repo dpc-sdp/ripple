@@ -11,7 +11,7 @@ export default { name: 'Tide<%= h.changeCase.pascalCase(name) %>Header' }
     :corner-top="true"
     :corner-bottom="true"
     :behind-nav="true"
-    :breadcrumbs="true"
+    :breadcrumbs="hasBreadcrumbs"
     :title="header.title"
   >
     <p class="rpl-type-p-large">{{ header.summary }}</p>
@@ -23,6 +23,7 @@ import type { Tide<%= h.changeCase.pascalCase(name) %>Header } from '../../types
 import { RplHeroHeader } from '@dpc-sdp/ripple-ui-core'
 
 defineProps<{
+  hasBreadcrumbs: boolean
   header: Tide<%= h.changeCase.pascalCase(name) %>Header
 }>()
 </script>

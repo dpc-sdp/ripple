@@ -63,3 +63,7 @@ button {
     outline: none;
   }
 }
+
+figure {
+  margin: 0;
+}

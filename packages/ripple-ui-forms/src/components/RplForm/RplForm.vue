@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { FormKitSchemaCondition, FormKitSchemaNode, FormKitConfig } from '@formkit/core'
+import {
+  FormKitSchemaCondition,
+  FormKitSchemaNode,
+  FormKitConfig
+} from '@formkit/core'
 import rplFormInputs from '../../plugin'
 
 const submitted = ref(false)
@@ -10,7 +14,6 @@ interface Props {
   schema?: FormKitSchemaCondition | FormKitSchemaNode[] | undefined
   config?: Record<string, any>
 }
-
 
 const props = withDefaults(defineProps<Props>(), {
   schema: undefined,
@@ -41,24 +44,29 @@ const rplFormConfig = ref({
       [`rpl-form__${sectionKey}`]: true
     }
   },
-  ...props.config,
+  ...props.config
 })
-
 </script>
 
 <template>
-  <FormKit :id="id" type="form" :plugins="[rplFormInputs]" form-class="rpl-form" :config="rplFormConfig"
-    :actions="false" @submit="submitHandler">
+  <FormKit
+    :id="id"
+    v-slot="{ value }"
+    type="form"
+    :plugins="[rplFormInputs]"
+    form-class="rpl-form"
+    :config="rplFormConfig"
+    :actions="false"
+    @submit="submitHandler"
+  >
     <slot name="aboveForm">
       <span v-if="submitted">Form Submitted</span>
     </slot>
     <slot>
       <FormKitSchema v-if="schema" :schema="schema"></FormKitSchema>
     </slot>
-    <slot name="belowForm"></slot>
+    <slot name="belowForm" :value="value"></slot>
   </FormKit>
 </template>
 
-<style src="./RplForm.css">
-
-</style>
+<style src="./RplForm.css"></style>

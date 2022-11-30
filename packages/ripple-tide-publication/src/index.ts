@@ -11,7 +11,7 @@ import {
   tidePageBaseMapping,
   tidePageBaseIncludes
 } from '@dpc-sdp/ripple-tide-api'
-import type { RplTideMapping } from '@dpc-sdp/ripple-tide-api'
+import type { RplTideMapping } from '@dpc-sdp/ripple-tide-api/types'
 
 const chapters = (src: string) =>
   getField(src, 'publication_children')
@@ -35,15 +35,24 @@ const tidePublicationModule: RplTideMapping = {
       withSidebarRelatedLinks: true,
       withSidebarSocialShare: true
     }),
+    url: 'path.url',
     header: {
       title: 'title',
       summary: 'field_landing_page_intro_text'
     },
     summary: 'field_landing_page_summary',
-    breadcrumbs: (src: string) => [
-      { text: 'Home', url: '/' },
-      { text: getField(src, 'title') }
-    ],
+    showInPageNav: 'field_show_table_of_content',
+    inPageNavHeadingLevel: (src) => {
+      if (src.field_node_display_headings === 'showH2AndH3') {
+        return 'h3'
+      }
+      return 'h2'
+    },
+    breadcrumbs: (src: string) => {
+      return {
+        items: [{ label: 'Home', url: '/' }, { label: getField(src, 'title') }]
+      }
+    },
     details: {
       author: (src: any) =>
         src.field_publication_authors.map((x: any) => x.name).join(', '),
@@ -58,14 +67,19 @@ const tidePublicationModule: RplTideMapping = {
         landingPageComponentsMapping
       )
     },
-    documents: (src: string) =>
-      getField(src, 'field_node_documents').map((doc: any) => ({
-        name: doc.name,
-        url: doc.field_media_file.url || doc.field_media_file.uri,
-        size: humanizeFilesize(doc.field_media_file.filesize),
-        extension: mime.extension(doc.field_media_file.filemime),
-        id: doc.id
-      })),
+    publication: {
+      text: 'title',
+      url: 'path.url',
+      id: 'id',
+      documents: (src: string) =>
+        getField(src, 'field_node_documents').map((doc: any) => ({
+          name: doc.name,
+          url: doc.field_media_file.url || doc.field_media_file.uri,
+          size: humanizeFilesize(doc.field_media_file.filesize),
+          extension: mime.extension(doc.field_media_file.filemime),
+          id: doc.id
+        }))
+    },
     showLastUpdated: () => true
   },
   includes: [

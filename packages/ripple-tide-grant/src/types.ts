@@ -52,15 +52,26 @@ export type TideGrantDocument = {
 }
 
 export interface TideGrantPage extends TidePageBase {
-  /**
-   * @description Example field - change this to your own!
-   * @example 'Hello world from TideGrantPage'
-   */
   name: string
+  /**
+   * @description Props for component wrapper
+   */
   header: TideGrantHeader
+  /**
+   * @description Props for component wrapper
+   */
   overview: TideGrantOverview
+  /**
+   * @description Props for component wrapper
+   */
   timeline: TideGrantTimeline
+  /**
+   * @description Props for component wrapper
+   */
   guidelines: TideGrantGuidelines
+  /**
+   * @description Props for component wrapper
+   */
   documents: Array<TideGrantDocument>
   sidebarComponents: any
   background: string

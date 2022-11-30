@@ -15,7 +15,6 @@ export default { name: 'TidePublicationChapters' }
 </template>
 
 <script setup lang="ts">
-import TidePublicationChapterCard from './tide-publication-chapter-card.vue'
 import { TidePublicationChapter } from '../types'
 
 defineProps<{

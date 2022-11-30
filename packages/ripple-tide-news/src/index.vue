@@ -20,8 +20,8 @@ export default { name: 'TideNewsPage' }
     <template #breadcrumbs>
       <slot name="breadcrumbs"></slot>
     </template>
-    <template #aboveBody>
-      <TideNewsHeader :header="page.header" />
+    <template #aboveBody="{ hasBreadcrumbs }">
+      <TideNewsHeader :header="page.header" :hasBreadcrumbs="hasBreadcrumbs" />
     </template>
     <template #body="{ hasSidebar }">
       <TideNewsBody
@@ -45,12 +45,13 @@ export default { name: 'TideNewsPage' }
 </template>
 
 <script setup lang="ts">
+import { TideSiteData } from '@dpc-sdp/ripple-tide-api/types'
 import type { TideNewsPage } from './types'
 import TideNewsHeader from './components/tide-news-header.vue'
 import TideNewsBody from './components/tide-news-body.vue'
 
 interface Props {
-  site: any
+  site: TideSiteData
   page: TideNewsPage
 }
 

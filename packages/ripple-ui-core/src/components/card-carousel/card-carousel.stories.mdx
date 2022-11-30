@@ -30,16 +30,6 @@ export const exampleData = [
   }
 ]
 
-export const randomContent = () => {
-  return exampleData[Math.floor(Math.random() * exampleData.length)]
-}
-export const exampleContent = (number) => {
-  return Array.from({ length: number }).map((_, i) => {
-    const content = randomContent()
-    return { ...content, title: `${content.title} - ${i + 1}`}
-  })
-}
-
 export const SingleTemplate = (args) => ({
   components: { RplCardCarousel, RplPromoCard },
   setup() {
@@ -80,7 +70,7 @@ export const SingleTemplate = (args) => ({
     play={a11yStoryCheck}
     args={{
       perView: { xs: 1, m: 2, l: 3 },
-      items: exampleContent(6)
+      items: [...exampleData, ...exampleData]
     }}
   >
     {SingleTemplate.bind()}
@@ -96,7 +86,7 @@ export const SingleTemplate = (args) => ({
     name='Single Card'
     play={a11yStoryCheck}
     args={{
-      items: exampleContent(1)
+      items: [exampleData[0]]
     }}
   >
     {SingleTemplate.bind()}

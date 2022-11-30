@@ -25,7 +25,6 @@
   "files": [
     "dist",
     "src",
-    "src/components/*.vue",
     "!**/*.test.*",
     "!**/*.json",
     "CHANGELOG.md",

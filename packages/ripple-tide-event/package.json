@@ -22,7 +22,7 @@
   },
   "files": [
     "dist",
-    "src/*.vue",
+    "src",
     "!**/*.spec.*",
     "!**/*.json",
     "CHANGELOG.md",

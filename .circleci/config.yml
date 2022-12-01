@@ -177,13 +177,8 @@ jobs:
           command: |
             curl --location --request POST 'https://circleci.com/api/v2/project/github/dpc-sdp/reference-sdp-vic-gov-au/pipeline' \
             --header 'Content-Type: application/json' \
-            -u "${CIRCLECI_API_TOKEN}:"
-            --data-raw '{
-                    "branch": "'v2'",
-                    "parameters": {
-                        "update": true
-                    }
-                }'
+            --header "Circle-Token: $CIRCLECI_API_TOKEN" \
+            --data '{"branch": "v2","parameters": {"update": true}}'
 
 workflows:
   commit:

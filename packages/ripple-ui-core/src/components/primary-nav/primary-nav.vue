@@ -3,7 +3,7 @@ export default { name: 'RplPrimaryNav' }
 </script>
 
 <script setup lang="ts">
-import { ref, computed, watch, onMounted, onUnmounted } from 'vue'
+import { ref, computed, watch, onMounted, onUnmounted, useSlots } from 'vue'
 import type { Ref } from 'vue'
 import RplPrimaryNavBar from './nav-bar.vue'
 import RplPrimaryNavMegaMenu from './mega-menu.vue'
@@ -24,6 +24,8 @@ const props = withDefaults(defineProps<Props>(), {
   showSearch: true,
   showQuickExit: true
 })
+
+const slots = useSlots()
 
 const isHidden: Ref<boolean> = ref(false)
 const isMegaNavActive: Ref<boolean> = ref(false)
@@ -121,16 +123,54 @@ watch(isExpanded, (newValue) => {
     }
   }
 })
+
+const classList = computed(() => {
+  const classes = ['rpl-primary-nav']
+
+  if (isHidden.value) {
+    classes.push('rpl-primary-nav--hidden')
+  }
+
+  if (isExpanded.value) {
+    classes.push('rpl-primary-nav--expanded')
+  }
+
+  let itemCount = props.items.length ? props.items.length : 0
+  if (props.showSearch) {
+    itemCount++
+  }
+  if (slots.userAction) {
+    itemCount++
+  }
+  // Add classes to control when the desktop version of the nav bar appears
+  // show mobile nav bar until 'xl' breakpoint if:
+  // - nav bar has 6 items without secondary logo
+  // - nav bar has 5 items with secondary logo
+  // show mobile nav bar for all breakpoints if:
+  // - nav bar has 7 or more items without secondary logo
+  // - nav bar has 6 or more items with secondary logo
+  // else show mobile nav bar until 'l' breakpoint
+  console.log('item count: ', itemCount)
+  if (
+    (itemCount == 6 && !props.secondaryLogo) ||
+    (itemCount == 5 && props.secondaryLogo)
+  ) {
+    classes.push('rpl-primary-nav--collapse-until-xl')
+  } else if (
+    (itemCount >= 7 && !props.secondaryLogo) ||
+    (itemCount >= 6 && props.secondaryLogo)
+  ) {
+    classes.push('rpl-primary-nav--collapse-always')
+  } else {
+    classes.push('rpl-primary-nav--collapse-until-l')
+  }
+
+  return classes.join(' ')
+})
 </script>
 
 <template>
-  <nav
-    :class="{
-      'rpl-primary-nav': true,
-      'rpl-primary-nav--hidden': isHidden,
-      'rpl-primary-nav--expanded': isExpanded
-    }"
-  >
+  <nav :class="classList">
     <div class="rpl-primary-nav__inner">
       <!-- Nav bar -->
       <RplPrimaryNavBar

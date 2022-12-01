@@ -174,8 +174,16 @@
 }
 
 .rpl-primary-nav__nav-bar-mobile-menu-toggle-container {
-  @media (--rpl-bp-l) {
-    display: none;
+  .rpl-primary-nav--collapse-until-l & {
+    @media (--rpl-bp-l) {
+      display: none;
+    }
+  }
+
+  .rpl-primary-nav--collapse-until-xl & {
+    @media (--rpl-bp-xl) {
+      display: none;
+    }
   }
 
   .rpl-primary-nav__nav-bar--search-active & {
@@ -201,8 +209,16 @@
 .rpl-primary-nav__nav-bar-user-action {
   display: none;
 
-  @media (--rpl-bp-l) {
-    display: block;
+  .rpl-primary-nav--collapse-until-l & {
+    @media (--rpl-bp-l) {
+      display: block;
+    }
+  }
+
+  .rpl-primary-nav--collapse-until-xl & {
+    @media (--rpl-bp-xl) {
+      display: block;
+    }
   }
 
   .rpl-primary-nav__nav-bar--search-active & {
@@ -304,10 +320,18 @@
 }
 
 .rpl-primary-nav__mega-menu-user-action {
-  /* Hide the mega menu user action slot on desktop because it will appear in
-  the nav bar */
-  @media (--rpl-bp-l) {
-    display: none;
+  /* Hide the mega menu user action slot when the desktop version is active
+  because it will appear in the nav bar */
+  .rpl-primary-nav--collapse-until-l & {
+    @media (--rpl-bp-l) {
+      display: none;
+    }
+  }
+
+  .rpl-primary-nav--collapse-until-xl & {
+    @media (--rpl-bp-xl) {
+      display: none;
+    }
   }
 }
 
@@ -371,8 +395,16 @@
   margin-bottom: var(--rpl-sp-8);
   cursor: pointer;
 
-  @media (--rpl-bp-l) {
-    display: none;
+  .rpl-primary-nav--collapse-until-l & {
+    @media (--rpl-bp-l) {
+      display: none;
+    }
+  }
+
+  .rpl-primary-nav--collapse-until-xl & {
+    @media (--rpl-bp-xl) {
+      display: none;
+    }
   }
 }
 
@@ -397,11 +429,19 @@
 }
 
 .rpl-primary-nav__mega-menu-list {
-  /* Hide the level 1 mega menu list on desktop because the nav bar will show
-  it instead */
+  /* Hide the level 1 mega menu list when the desktop version is active because
+  the nav bar will show it instead */
   &.rpl-primary-nav__mega-menu-list--level-1 {
-    @media (--rpl-bp-l) {
-      display: none;
+    .rpl-primary-nav--collapse-until-l & {
+      @media (--rpl-bp-l) {
+        display: none;
+      }
+    }
+
+    .rpl-primary-nav--collapse-until-xl & {
+      @media (--rpl-bp-xl) {
+        display: none;
+      }
     }
   }
 

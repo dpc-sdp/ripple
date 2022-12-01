@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/ripple-tide-publication-page",
-  "version": "2.1.0-alpha.21",
+  "version": "2.1.0-alpha.22",
   "description": "Ripple mappings and components for Tide PublicationPage Content type",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -24,7 +24,7 @@
   },
   "files": [
     "dist",
-    "src/*.vue",
+    "src",
     "!**/*.test.*",
     "!**/*.json",
     "CHANGELOG.md",

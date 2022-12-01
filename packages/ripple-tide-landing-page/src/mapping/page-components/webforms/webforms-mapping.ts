@@ -115,6 +115,48 @@ const getFormSchemaFromMapping = async (
           ...getInputIcons(field)
         }
         break
+      case 'number':
+        mappedField = {
+          $formkit: 'RplFormNumber',
+          name: fieldKey,
+          label: field['#title'],
+          disabled: field['#disabled'],
+          placeholder: field['#placeholder'],
+          id: fieldKey,
+          help: field['#description'] || field['#help_title'],
+          value: field['#default_value'],
+          ...getValidation(field),
+          ...getInputIcons(field)
+        }
+        break
+      case 'tel':
+        mappedField = {
+          $formkit: 'RplFormTel',
+          name: fieldKey,
+          label: field['#title'],
+          disabled: field['#disabled'],
+          placeholder: field['#placeholder'],
+          id: fieldKey,
+          help: field['#description'] || field['#help_title'],
+          value: field['#default_value'],
+          ...getValidation(field),
+          ...getInputIcons(field)
+        }
+        break
+      case 'url':
+        mappedField = {
+          $formkit: 'RplFormUrl',
+          name: fieldKey,
+          label: field['#title'],
+          disabled: field['#disabled'],
+          placeholder: field['#placeholder'],
+          id: fieldKey,
+          help: field['#description'] || field['#help_title'],
+          value: field['#default_value'],
+          ...getValidation(field),
+          ...getInputIcons(field)
+        }
+        break
       case 'checkbox':
         mappedField = {
           $formkit: 'RplFormCheckbox',

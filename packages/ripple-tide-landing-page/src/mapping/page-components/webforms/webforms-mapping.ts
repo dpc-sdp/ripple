@@ -39,7 +39,10 @@ const getFormSchemaFromMapping = async (
       validationMessages['required'] = requiredMessage
 
       // The formkit required rule accepts `false` as a value, so we need to use add the 'accepted' rule as well
-      if (field['#type'] === 'checkbox') {
+      if (
+        field['#type'] === 'checkbox' ||
+        field['#type'] === 'webform_privacy_statement'
+      ) {
         validationStates.push('accepted')
         validationMessages['accepted'] = requiredMessage
       }
@@ -166,6 +169,20 @@ const getFormSchemaFromMapping = async (
           // TODO: It's not clear what field we should be using for the 'label' here because it's a new requirement, setting as 'help title' for now
           label: field['#help_title'],
           help: field['#description'],
+          checkboxLabel: field['#title'],
+          value: field['#default_value'],
+          ...getValidation(field)
+        }
+        break
+      case 'webform_privacy_statement':
+        mappedField = {
+          $formkit: 'RplFormCheckbox',
+          id: fieldKey,
+          name: fieldKey,
+          disabled: field['#disabled'],
+          // TODO: It's not clear what field we should be using for the 'label' here because it's a new requirement, setting as 'help title' for now
+          label: field['#privacy_statement_heading'],
+          help: field['#privacy_statement_content'],
           checkboxLabel: field['#title'],
           value: field['#default_value'],
           ...getValidation(field)

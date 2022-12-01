@@ -181,7 +181,7 @@ jobs:
             --data-raw '{
                     "branch": "'v2'",
                     "parameters": {
-                        "update": true,
+                        "update": true
                     }
                 }'
 

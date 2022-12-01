@@ -47,6 +47,7 @@ const toggleModal = () => {
         v-for="(item, i) in items"
         :key="i"
         :src="item.thumbnail"
+        :alt="item.alt"
         aspect="wide"
         class="rpl-media-gallery__image"
       />
@@ -78,6 +79,7 @@ const toggleModal = () => {
           v-for="(item, i) in items"
           :key="i"
           :src="item.image"
+          :alt="item.alt"
           class="rpl-media-gallery__image"
         />
       </RplSlider>

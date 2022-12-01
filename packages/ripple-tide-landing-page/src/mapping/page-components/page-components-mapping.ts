@@ -38,6 +38,10 @@ import {
   callToActionMapping,
   callToActionIncludes
 } from './call-to-action/call-to-action-mapping.js'
+import {
+  mediaGalleryMapping,
+  mediaGalleryIncludes
+} from './media-gallery/media-gallery-mapping.js'
 import { webformIncludes, webformMapping } from './webforms/webforms-mapping.js'
 
 export const landingPageComponentsMapping = {
@@ -51,6 +55,7 @@ export const landingPageComponentsMapping = {
   'paragraph--embedded_search_form': searchBannerMapping,
   'paragraph--timelines': timelineMapping,
   'paragraph--call_to_action': callToActionMapping,
+  'paragraph--media_gallery': mediaGalleryMapping,
   'paragraph--embedded_webform': webformMapping
 }
 
@@ -65,6 +70,7 @@ export const landingPageComponentsIncludes = [
   ...searchBannerIncludes,
   ...timelineIncludes,
   ...callToActionIncludes,
+  ...mediaGalleryIncludes,
   ...webformIncludes
 ]
 

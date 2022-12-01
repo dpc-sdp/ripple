@@ -168,6 +168,22 @@ jobs:
             npm config set access public
             npm set //registry.npmjs.org/:_authToken=$NPM_TOKEN
             yarn release:publish
+
+  update-reference:
+    steps:
+      - run:
+        name: Kick off new pipeline
+        command: |
+          curl --location --request POST 'https://circleci.com/api/v2/project/github/dpc-sdp/reference-sdp-vic-gov-au/pipeline' \
+          --header 'Content-Type: application/json' \
+          -u "${CIRCLECI_API_TOKEN}:"
+          --data-raw '{
+                  "branch": "'v2'",
+                  "parameters": {
+                      "update": true,
+                  }
+              }'
+
 workflows:
   commit:
     jobs:
@@ -203,6 +219,9 @@ workflows:
             branches:
               only:
                 - develop
+      - update-reference:
+          requires:
+            - publish-alpha
       - publish:
           requires:
             - build

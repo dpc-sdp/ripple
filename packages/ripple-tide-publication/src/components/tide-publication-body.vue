@@ -3,7 +3,7 @@ export default { name: 'TidePublicationBody' }
 </script>
 
 <template>
-  <div v-if="details" class="tide-publication__details rpl-u-margin-t-9">
+  <div v-if="details" class="tide-publication__details">
     <RplDescriptionList :items="processed"></RplDescriptionList>
   </div>
   <TideDynamicComponents
@@ -33,16 +33,18 @@ const processed = computed(() => {
   const out: Array<RplDescriptionListItem> = []
   for (const [key, value] of Object.entries(props.details)) {
     let val = value
-    if (key === 'date') {
-      const published = new Date(props.details.date)
-      val = new Intl.DateTimeFormat('default', { dateStyle: 'long' }).format(
-        published
-      )
+    if (val) {
+      if (key === 'date') {
+        const published = new Date(props.details.date)
+        val = new Intl.DateTimeFormat('default', { dateStyle: 'long' }).format(
+          published
+        )
+      }
+      out.push({
+        term: key[0].toUpperCase() + key.substring(1) + ':',
+        description: val
+      })
     }
-    out.push({
-      term: key[0].toUpperCase() + key.substring(1) + ':',
-      description: val
-    })
   }
   return out
 })

@@ -11,6 +11,12 @@
   margin-bottom: var(--rpl-sp-2);
 }
 
+.rpl-form__input--disabled {
+  .rpl-form__input-icon {
+    color: var(--rpl-clr-neutral-300);
+  }
+}
+
 .rpl-form__input input {
   border: 0;
   outline: 0;
@@ -22,11 +28,26 @@
   padding-right: var(--rpl-sp-4);
   border: var(--rpl-border-1) solid var(--rpl-clr-neutral-300);
   border-radius: var(--rpl-border-radius-2);
+  background: var(--rpl-clr-neutral-100);
 
   &:focus {
     border: var(--rpl-border-1) solid var(--rpl-clr-dark);
     border-radius: 0;
   }
+
+  &::placeholder {
+    color: var(--rpl-clr-neutral-600);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    color: var(--rpl-clr-neutral-300);
+    border-color: var(--rpl-clr-neutral-200);
+  }
+}
+
+.rpl-form__input--reverse input {
+  background: var(--rpl-clr-light);
 }
 
 .rpl-form__input--invalid input {
@@ -52,6 +73,7 @@
 .rpl-form__input-icon {
   align-self: center;
   position: absolute;
+  color: var(--rpl-clr-link);
 }
 
 .rpl-form__input-icon__prefix {

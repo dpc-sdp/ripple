@@ -24,7 +24,7 @@ Then(
               .should('contain', row.label)
           }
           if (row.help) {
-            cy.get('@item').find('.rpl-form__help').should('contain', row.help)
+            cy.get('@item').find('.rpl-form-help').should('contain', row.help)
           }
           if (row.required) {
             if (row.required === 'true') {

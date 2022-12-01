@@ -208,7 +208,11 @@ const selectedOptions = computed(() => {
 })
 
 const singleValueDisplay = computed((): string => {
-  return selectedOptions.value?.length ? selectedOptions.value[0].label : ''
+  const selectedOption = (props.options || []).find(
+    (opt) => props.value === opt.value
+  )
+
+  return selectedOption ? selectedOption.label : ''
 })
 
 const hasValue = computed((): boolean => {

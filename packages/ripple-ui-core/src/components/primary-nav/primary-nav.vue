@@ -150,7 +150,6 @@ const classList = computed(() => {
   // - nav bar has 7 or more items without secondary logo
   // - nav bar has 6 or more items with secondary logo
   // else show mobile nav bar until 'l' breakpoint
-  console.log('item count: ', itemCount)
   if (
     (itemCount == 6 && !props.secondaryLogo) ||
     (itemCount == 5 && props.secondaryLogo)

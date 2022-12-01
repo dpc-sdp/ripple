@@ -170,14 +170,15 @@ jobs:
             yarn release:publish
 
   update-reference:
+    <<: *defaults
     steps:
       - run:
-        name: Kick off new pipeline
-        command: |
-          curl --location --request POST 'https://circleci.com/api/v2/project/github/dpc-sdp/reference-sdp-vic-gov-au/pipeline' \
-          --header 'Content-Type: application/json' \
-          --header "Circle-Token: $CIRCLECI_API_TOKEN" \
-          --data '{"branch": "v2","parameters": {"update": true}}'
+          name: Kick off new pipeline
+          command: |
+            curl --location --request POST 'https://circleci.com/api/v2/project/github/dpc-sdp/reference-sdp-vic-gov-au/pipeline' \
+            --header 'Content-Type: application/json' \
+            --header "Circle-Token: $CIRCLECI_API_TOKEN" \
+            --data '{"branch": "v2","parameters": {"update": true}}'
 
 workflows:
   commit:

@@ -34,6 +34,10 @@ const $slots = useSlots()
 const hasSidebar = computed(() => {
   return $slots.sidebar && !!getSlotContent($slots.sidebar())
 })
+
+const hasBreadcrumbs = computed(() => {
+  return $slots.breadcrumbs && !!getSlotContent($slots.breadcrumbs())
+})
 </script>
 
 <template>
@@ -41,16 +45,12 @@ const hasSidebar = computed(() => {
     <slot name="aboveHeader"></slot>
     <header v-if="$slots.primaryNav" id="rpl-header" class="rpl-layout__header">
       <slot name="primaryNav"></slot>
-      <div
-        v-if="$slots.breadcrumbs"
-        id="rpl-below-header"
-        class="rpl-u-margin-t-1"
-      >
+      <div v-if="hasBreadcrumbs" id="rpl-below-header" class="rpl-u-margin-t-1">
         <slot name="breadcrumbs"></slot>
       </div>
     </header>
     <section v-if="$slots.aboveBody" id="rpl-above-body">
-      <slot name="aboveBody"></slot>
+      <slot name="aboveBody" :hasBreadcrumbs="hasBreadcrumbs"></slot>
     </section>
     <div class="rpl-layout__body-wrap">
       <div class="rpl-container">

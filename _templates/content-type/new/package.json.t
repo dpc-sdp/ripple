@@ -28,7 +28,7 @@ to: packages/ripple-tide-<%= h.changeCase.paramCase(name) %>/package.json
   },
   "files": [
     "dist",
-    "src/*.vue",
+    "src",
     "!**/*.test.*",
     "!**/*.json",
     "CHANGELOG.md",

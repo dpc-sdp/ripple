@@ -1,7 +1,6 @@
 .rpl-alert {
   transition: all var(--rpl-motion-speed-2) ease-out;
   height: var(--local-container-height); /* container height for transition */
-  margin-bottom: 1px;
 
   &__inner {
     padding: var(--rpl-sp-5);
@@ -28,6 +27,9 @@
   }
 
   &__link {
+    --local-clr-link: var(--rpl-clr-type-light);
+    --local-clr-link-visited: var(--rpl-clr-type-light);
+
     display: inline-block;
     color: var(--rpl-clr-type-light);
     margin-top: var(--rpl-sp-3);

@@ -19,8 +19,11 @@ export default { name: 'TidePublicationPage' }
     <template #breadcrumbs>
       <slot name="breadcrumbs"></slot>
     </template>
-    <template #aboveBody>
-      <TidePublicationHeader :header="page.header"></TidePublicationHeader>
+    <template #aboveBody="{ hasBreadcrumbs }">
+      <TidePublicationHeader
+        :header="page.header"
+        :hasBreadcrumbs="hasBreadcrumbs"
+      ></TidePublicationHeader>
     </template>
     <template #body>
       <TideLandingPageInPageNavigation
@@ -50,10 +53,11 @@ export default { name: 'TidePublicationPage' }
 </template>
 
 <script setup lang="ts">
+import { TideSiteData } from '@dpc-sdp/ripple-tide-api/types'
 import type { TidePublicationPage } from './types'
 
 interface Props {
-  site: any
+  site: TideSiteData
   page: TidePublicationPage
 }
 

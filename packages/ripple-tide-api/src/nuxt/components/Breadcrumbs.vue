@@ -20,10 +20,6 @@ interface Props {
 const props = withDefaults(defineProps<Props>(), {})
 
 const breadcrumbs = computed(() => {
-  if (props.currentPath === '/') {
-    return null
-  }
-
   return getBreadcrumbs(
     unref(props.currentPath),
     unref(props.currentPageTitle),

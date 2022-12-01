@@ -5,6 +5,7 @@ export default { name: 'RplPrimaryNav' }
 <script setup lang="ts">
 import { ref, computed, watch, onMounted, onUnmounted, useSlots } from 'vue'
 import type { Ref } from 'vue'
+import { UseFocusTrap } from '@vueuse/integrations/useFocusTrap/component'
 import RplPrimaryNavBar from './nav-bar.vue'
 import RplPrimaryNavMegaMenu from './mega-menu.vue'
 import RplPrimaryNavSearchForm from './search-form.vue'
@@ -191,23 +192,23 @@ const classList = computed(() => {
       </RplPrimaryNavBar>
 
       <!-- Mega menu -->
-      <RplPrimaryNavMegaMenu
-        v-if="isMegaNavActive"
-        :items="props.items"
-        :show-quick-exit="props.showQuickExit"
-        :is-item-active="isNavItemActive"
-        :toggle-item="toggleNavItem"
-      >
-        <template #userAction>
-          <slot name="userAction"></slot>
-        </template>
-      </RplPrimaryNavMegaMenu>
+      <UseFocusTrap v-if="isMegaNavActive" :options="{ immediate: true }">
+        <RplPrimaryNavMegaMenu
+          :items="props.items"
+          :show-quick-exit="props.showQuickExit"
+          :is-item-active="isNavItemActive"
+          :toggle-item="toggleNavItem"
+        >
+          <template #userAction>
+            <slot name="userAction"></slot>
+          </template>
+        </RplPrimaryNavMegaMenu>
+      </UseFocusTrap>
 
       <!-- Search form -->
-      <RplPrimaryNavSearchForm
-        v-if="isSearchActive"
-        :show-quick-exit="props.showQuickExit"
-      />
+      <UseFocusTrap v-if="isSearchActive" :options="{ immediate: true }">
+        <RplPrimaryNavSearchForm :show-quick-exit="props.showQuickExit" />
+      </UseFocusTrap>
     </div>
   </nav>
 </template>

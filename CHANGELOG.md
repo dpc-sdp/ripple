@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.23](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.22...v2.1.0-alpha.23) (2022-12-02)
+
+
+### Features
+
+* **@dpc-sdp/ripple-ui-core:** minor tweaks for swiper components ([b6f6d62](https://github.com/dpc-sdp/ripple-framework/commit/b6f6d62fe14816b2187b9fff9b1ee83c83bc9932))
+* **@dpc-sdp/ripple-ui-core:** remove random data as it'll cause issues with chromatic ([8f85ffe](https://github.com/dpc-sdp/ripple-framework/commit/8f85ffe49c6d74bdfb974196b889167fd0930888))
+* **@dpc-sdp/ripple-ui-core:** swiper components wip ([8ad8bf8](https://github.com/dpc-sdp/ripple-framework/commit/8ad8bf8f3b5f1b6f28db0903df382f20d9ec6d51))
+* **@dpc-sdp/ripple-ui-core:** swiper components wip continued ([50b4f95](https://github.com/dpc-sdp/ripple-framework/commit/50b4f9507cc8552dbb5cd60874a6f34b7566e206))
+* **@dpc-sdp/ripple-ui-core:** swiper components wip dynamic gap ([a250f2c](https://github.com/dpc-sdp/ripple-framework/commit/a250f2c42a9224eeeb9b2f3f834a124723234e38))
+* **@dpc-sdp/ripple-ui-core:** swiper poc/wip ([d581061](https://github.com/dpc-sdp/ripple-framework/commit/d581061eb69eda42ca4442aa51c2287ac543a20e))
+* **@dpc-sdp/ripple-ui-core:** update pagination watch, hide pagination when only 1 card ([177b64f](https://github.com/dpc-sdp/ripple-framework/commit/177b64f774fafa9ae1db41a7feeb8f190df47ec0))
+* **@dpc-sdp/ripple-ui-core:** update prop name ([e904db4](https://github.com/dpc-sdp/ripple-framework/commit/e904db418e82ee812802831389c78c0100057c30))
+
+
+
+
+
 # [2.1.0-alpha.22](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.21...v2.1.0-alpha.22) (2022-12-01)
 
 **Note:** Version bump only for package root

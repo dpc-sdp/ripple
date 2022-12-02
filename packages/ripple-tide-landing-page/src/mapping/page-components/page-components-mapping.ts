@@ -42,6 +42,10 @@ import {
   mediaGalleryMapping,
   mediaGalleryIncludes
 } from './media-gallery/media-gallery-mapping.js'
+import {
+  cardCarouselMapping,
+  cardCarouselIncludes
+} from './card-carousel/card-carousel-mapping.js'
 import { webformIncludes, webformMapping } from './webforms/webforms-mapping.js'
 
 export const landingPageComponentsMapping = {
@@ -56,6 +60,7 @@ export const landingPageComponentsMapping = {
   'paragraph--timelines': timelineMapping,
   'paragraph--call_to_action': callToActionMapping,
   'paragraph--media_gallery': mediaGalleryMapping,
+  'paragraph--card_carousel': cardCarouselMapping,
   'paragraph--embedded_webform': webformMapping
 }
 
@@ -71,6 +76,7 @@ export const landingPageComponentsIncludes = [
   ...timelineIncludes,
   ...callToActionIncludes,
   ...mediaGalleryIncludes,
+  ...cardCarouselIncludes,
   ...webformIncludes
 ]
 

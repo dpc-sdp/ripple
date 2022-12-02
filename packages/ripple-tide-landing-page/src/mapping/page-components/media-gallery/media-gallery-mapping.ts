@@ -14,7 +14,7 @@ export const mediaGalleryMapping = (
   field
 ): TideDynamicPageComponent<ITideMediaGallery> => {
   return {
-    component: 'RplMediaGallery',
+    component: 'TideLandingPageMediaGallery',
     id: field.drupal_internal__id.toString(),
     title: field.field_paragraph_media_gallery.info,
     props: {

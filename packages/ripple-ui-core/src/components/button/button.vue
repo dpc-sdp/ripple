@@ -15,6 +15,7 @@ import RplIcon from '../icon/icon.vue'
 import { rplEventBus } from '../../index'
 
 rplEventBus.register('rpl-button/click')
+const emit = defineEmits(['click'])
 
 interface Props {
   el?: typeof RplButtonElements[number]
@@ -53,6 +54,7 @@ const classes = computed(() => {
 
 const onClick = (payload?: any) => {
   rplEventBus.emit('rpl-button/click', payload)
+  emit('click', payload)
 }
 
 const link = ref(null)

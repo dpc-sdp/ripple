@@ -1,21 +1,22 @@
-import { computed, ref } from 'vue'
+import { computed, ref, ComputedRef } from 'vue'
 
 interface RplStepNavigation {
-  initialStep: number
+  currentStep: number
   surroundingSteps: number
-  totalSteps: number
+  totalSteps: number | ComputedRef
 }
 
 export function useStepNavigation({
-  initialStep,
+  currentStep,
   surroundingSteps,
   totalSteps
 }: RplStepNavigation) {
-  const activeStep = ref(initialStep)
+  const activeStep = ref(currentStep)
+  const totalStepsRef = ref(totalSteps)
 
   const stepRange = computed(() => surroundingSteps * 2 + 1)
   const isFirstStep = computed(() => activeStep.value === 1)
-  const isLastStep = computed(() => activeStep.value === totalSteps)
+  const isLastStep = computed(() => activeStep.value === totalStepsRef.value)
 
   function updateStep(step: number) {
     activeStep.value = step
@@ -25,8 +26,8 @@ export function useStepNavigation({
   function getSteps() {
     let start = Math.max(1, Math.round(activeStep.value - stepRange.value / 2))
     const hasFirst = surroundingSteps > 2 && start > 1
-    const end = Math.min(start + stepRange.value - 1, totalSteps)
-    const hasLast = surroundingSteps > 2 && end < totalSteps
+    const end = Math.min(start + stepRange.value - 1, totalStepsRef.value)
+    const hasLast = surroundingSteps > 2 && end < totalStepsRef.value
 
     if (end - start + 1 < stepRange.value) {
       start = Math.max(1, end - stepRange.value + 1)
@@ -50,12 +51,12 @@ export function useStepNavigation({
     for (let i = start; i <= end; i += 1) {
       // Check if we need to display this step as a truncated divider i.e …
       const firstSpacer = i === start && hasFirst && i > 2
-      const lastSpacer = i === end && hasLast && i < totalSteps - 1
+      const lastSpacer = i === end && hasLast && i < totalStepsRef.value - 1
 
       steps.push(firstSpacer || lastSpacer ? null : i)
     }
 
-    if (hasLast) steps.push(totalSteps)
+    if (hasLast) steps.push(totalStepsRef.value)
 
     return steps
   })

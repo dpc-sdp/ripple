@@ -11,7 +11,7 @@ import {
 } from './constants'
 import RplImage from '../image/image.vue'
 import RplIcon from '../icon/icon.vue'
-import RplMediaFullscreen from '../media-fullscreen/media-fullscreen.vue'
+import RplModal from '../modal/modal.vue'
 import RplContent from '../content/content.vue'
 import RplExpandable from '../expandable/expandable.vue'
 
@@ -99,25 +99,25 @@ const isActionsListEmpty = computed(() => {
 <template>
   <div class="rpl-media-embed">
     <!-- Title -->
-    <h3 v-if="props.showTitle" class="rpl-type-h3 rpl-u-margin-b-3">
-      {{ props.title }}
+    <h3 v-if="showTitle" class="rpl-type-h3 rpl-u-margin-b-3">
+      {{ title }}
     </h3>
 
     <!-- Figure (iframe, caption, source info) -->
     <figure class="rpl-media-embed__figure">
       <!-- Image -->
       <RplImage
-        v-if="props.type == 'image'"
-        :src="props.src"
-        :alt="props.caption"
+        v-if="type === 'image'"
+        :src="src"
+        :alt="caption"
         :aspect="imageAspect"
-        :circle="props.variant == 'avatar'"
+        :circle="variant === 'avatar'"
         :class="imageClasses"
       />
 
       <!-- Video -->
       <div
-        v-else-if="props.type == 'video'"
+        v-else-if="type === 'video'"
         class="rpl-media-embed__video-container"
       >
         <iframe
@@ -126,24 +126,24 @@ const isActionsListEmpty = computed(() => {
           allow="autoplay; fullscreen; picture-in-picture"
           allowfullscreen
           data-chromatic="ignore"
-          :title="props.title"
+          :title="title"
         >
         </iframe>
       </div>
 
       <!-- Caption and source caption -->
       <figcaption
-        v-if="props.caption || props.sourceCaption"
+        v-if="caption || sourceCaption"
         class="rpl-media-embed__figcaption"
       >
-        <p v-if="props.caption" class="rpl-media-embed__caption rpl-type-p">
-          {{ props.caption }}
+        <p v-if="caption" class="rpl-media-embed__caption rpl-type-p">
+          {{ caption }}
         </p>
         <p
-          v-if="props.sourceCaption"
+          v-if="sourceCaption"
           class="rpl-media-embed__source-caption rpl-type-p-small"
         >
-          {{ props.sourceCaption }}
+          {{ sourceCaption }}
         </p>
       </figcaption>
     </figure>
@@ -151,21 +151,21 @@ const isActionsListEmpty = computed(() => {
     <!-- Actions list -->
     <ul v-if="!isActionsListEmpty" class="rpl-media-embed__actions-list">
       <!-- Transcript link -->
-      <li v-if="props.transcriptUrl">
+      <li v-if="transcriptUrl">
         <a
           class="
             rpl-media-embed__transcript-link rpl-media-embed__action
             rpl-u-focusable-inline rpl-type-p
           "
           target="_blank"
-          :href="props.transcriptUrl"
+          :href="transcriptUrl"
         >
           <RplIcon name="icon-view" />View transcript
         </a>
       </li>
 
       <!-- Fullscreen button -->
-      <li v-if="props.allowFullscreen">
+      <li v-if="allowFullscreen">
         <button
           class="
             rpl-media-embed__fullscreen-button rpl-media-embed__action
@@ -174,25 +174,13 @@ const isActionsListEmpty = computed(() => {
           type="button"
           @click="isFullScreenOpen = !isFullScreenOpen"
         >
-          <RplIcon name="icon-enlarge-square-filled" />View '{{ props.title }}'
+          <RplIcon name="icon-enlarge-square-filled" />View '{{ title }}'
           fullscreen
         </button>
-
-        <RplMediaFullscreen
-          :title="props.title"
-          :src="props.src"
-          :caption="props.caption"
-          :is-open="isFullScreenOpen"
-          :on-close-click="
-            () => {
-              isFullScreenOpen = false
-            }
-          "
-        />
       </li>
 
       <!-- View data toggle & content -->
-      <li v-if="props.dataContent">
+      <li v-if="dataContent">
         <button
           class="
             rpl-media-embed__view-data-toggle rpl-media-embed__action
@@ -201,10 +189,10 @@ const isActionsListEmpty = computed(() => {
           @click="isDataContentOpen = !isDataContentOpen"
         >
           <span v-if="isDataContentOpen">
-            <RplIcon name="icon-cancel" />Close '{{ props.title }}' data
+            <RplIcon name="icon-cancel" />Close '{{ title }}' data
           </span>
           <span v-else>
-            <RplIcon name="icon-table-lined" />View '{{ props.title }}'' data
+            <RplIcon name="icon-table-lined" />View '{{ title }}'' data
           </span>
         </button>
 
@@ -213,24 +201,37 @@ const isActionsListEmpty = computed(() => {
           :expanded="isDataContentOpen"
           class="rpl-media-embed__view-data-content"
         >
-          <RplContent :html="props.dataContent"></RplContent>
+          <RplContent :html="dataContent"></RplContent>
         </RplExpandable>
       </li>
 
       <!-- Download link -->
-      <li v-if="props.downloadUrl">
+      <li v-if="downloadUrl">
         <a
           class="
             rpl-media-embed__download-link rpl-media-embed__action
             rpl-u-focusable-inline rpl-type-p
           "
-          :href="props.downloadUrl"
+          :href="downloadUrl"
           download
         >
-          <RplIcon name="icon-download" />Download '{{ props.title }}'
+          <RplIcon name="icon-download" />Download '{{ title }}'
         </a>
       </li>
     </ul>
+
+    <RplModal
+      :is-open="isFullScreenOpen"
+      @close="() => (isFullScreenOpen = false)"
+    >
+      <RplImage :src="props.src" :alt="props.caption" />
+      <template #below>
+        <div class="rpl-media-embed__content">
+          <h3 class="rpl-type-h3 rpl-u-margin-b-2">{{ props.title }}</h3>
+          <p class="rpl-type-p">{{ props.caption }}</p>
+        </div>
+      </template>
+    </RplModal>
   </div>
 </template>
 

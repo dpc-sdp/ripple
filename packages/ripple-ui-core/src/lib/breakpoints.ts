@@ -6,3 +6,10 @@ export const bpMin = {
   xl: 1200
 }
 
+export type RplBreakpoints = {
+  xs?: number
+  s?: number
+  m?: number
+  l?: number
+  xl?: number
+}

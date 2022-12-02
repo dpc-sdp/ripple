@@ -20,8 +20,11 @@ export default { name: 'TideEventPage' }
     <template #breadcrumbs>
       <slot name="breadcrumbs"></slot>
     </template>
-    <template #aboveBody>
-      <TideEventHeader :header="page.header"></TideEventHeader>
+    <template #aboveBody="{ hasBreadcrumbs }">
+      <TideEventHeader
+        :header="page.header"
+        :hasBreadcrumbs="hasBreadcrumbs"
+      ></TideEventHeader>
     </template>
     <template #body>
       <TideEventOverview

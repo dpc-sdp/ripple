@@ -7,7 +7,7 @@ export default { name: 'TideEventHeader' }
     :corner-top="true"
     :corner-bottom="true"
     :behind-nav="true"
-    :breadcrumbs="true"
+    :breadcrumbs="hasBreadcrumbs"
     :title="header.title"
   >
     <p class="rpl-type-p-large">{{ header.summary }}</p>
@@ -19,6 +19,7 @@ import type { TideEventHeader } from '../types'
 
 interface Props {
   header: TideEventHeader
+  hasBreadcrumbs: boolean
 }
 
 defineProps<Props>()

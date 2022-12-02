@@ -53,13 +53,13 @@ export default { name: 'TideEventOverview' }
 
 <script setup lang="ts">
 import { TideEventLink, TideEventDate } from '../types'
+import { formatDateRange, expandDetail } from '../utils.js'
 import { computed } from 'vue'
-import { formatDateRange } from '@dpc-sdp/ripple-tide-api'
 
 interface Props {
   description: any
   overview: any
-  // details: string[]
+  details: string[]
   link: TideEventLink
   date: TideEventDate
   showTime: boolean
@@ -68,26 +68,6 @@ interface Props {
 const props = defineProps<Props>()
 
 const displayDate = computed(() => formatDateRange(props.date, props.showTime))
-
-// test details
-const details = ['Free admission', 'Seniors', 'Online webinar']
-
-const expandDetail = (item: string) => {
-  switch (item) {
-    case 'Accessible venue':
-      return 'This event is wheelchair accessible.'
-    case 'This event is child friendly.':
-      return 'child-lined'
-    case 'Free admission':
-      return 'This event has free admission.'
-    case 'Online webinar':
-      return 'This is an online event.'
-    case 'Seniors':
-      return 'This event is senior friendly.'
-    default:
-      return item
-  }
-}
 </script>
 
 <style>

@@ -34,8 +34,8 @@ describe('Formatting a date range', () => {
     expect(formatDateRange(apiMock, showTime)).toEqual('02 July 2019')
   })
 
-  it('formats a single date without time even when the end date is different', () => {
-    apiMock.to = '2019-07-02T09:00:00+1300'
+  it('formats a single date without time even when the end time is different', () => {
+    apiMock.to = '2019-07-02T11:00:00+1300'
     apiMock.to = apiMock.from
     expect(formatDateRange(apiMock, showTime)).toEqual('02 July 2019')
   })

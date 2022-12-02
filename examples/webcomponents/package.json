@@ -2,13 +2,13 @@
   "name": "webcomponents",
   "private": true,
   "license": "Apache-2.0",
-  "version": "2.1.0-alpha.23",
+  "version": "2.1.0-alpha.24",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-ui-core": "2.1.0-alpha.23"
+    "@dpc-sdp/ripple-ui-core": "2.1.0-alpha.24"
   }
 }

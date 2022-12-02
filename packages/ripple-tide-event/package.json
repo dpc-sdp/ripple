@@ -8,7 +8,8 @@
   "exports": {
     ".": "./dist/index.js",
     "./component": "./src/index.vue",
-    "./types": "./src/types.ts"
+    "./types": "./src/types.ts",
+    "./nuxt": "./src/nuxt.ts"
   },
   "license": "MIT",
   "keywords": [],
@@ -23,7 +24,7 @@
   "files": [
     "dist",
     "src",
-    "!**/*.spec.*",
+    "!**/*.test.*",
     "!**/*.json",
     "CHANGELOG.md",
     "LICENSE",

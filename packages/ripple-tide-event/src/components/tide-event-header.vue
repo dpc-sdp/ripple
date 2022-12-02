@@ -1,5 +1,5 @@
 <script lang="ts">
-export default { name: 'TideGrantHeader' }
+export default { name: 'TideEventHeader' }
 </script>
 
 <template>
@@ -7,7 +7,7 @@ export default { name: 'TideGrantHeader' }
     :corner-top="true"
     :corner-bottom="true"
     :behind-nav="true"
-    :breadcrumbs="hasBreadcrumbs"
+    :breadcrumbs="true"
     :title="header.title"
   >
     <p class="rpl-type-p-large">{{ header.summary }}</p>
@@ -15,10 +15,11 @@ export default { name: 'TideGrantHeader' }
 </template>
 
 <script setup lang="ts">
-import type { TideGrantHeader } from '../types'
+import type { TideEventHeader } from '../types'
 
-defineProps<{
-  header: TideGrantHeader
-  hasBreadcrumbs: boolean
-}>()
+interface Props {
+  header: TideEventHeader
+}
+
+defineProps<Props>()
 </script>

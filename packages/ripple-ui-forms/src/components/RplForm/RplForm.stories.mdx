@@ -137,6 +137,68 @@ export const SlotTemplate = (args) => ({
           ]
         },
         {
+          $formkit: 'RplFormDropdown',
+          multiple: false,
+          id: 'dropdown-single',
+          name: 'dropdown-single',
+          label: 'What is the answer?',
+          help: 'There may be multiple answers',
+          validationLabel: 'enquiry',
+          validation: 'required|length:2,3',
+          validationMessages: {
+            required: 'Please provide an answer',
+            length: 'You must choose at least two answers',
+          },
+          options: [
+            {
+              id: "thing-1",
+              value: "thing-1",
+              label: "Thing 1",
+            },
+            {
+              id: "thing-2",
+              value: "thing-2",
+              label: "Thing 2",
+            },
+            {
+              id: "thing-3",
+              value: "thing-3",
+              label: "Thing 3",
+            }
+          ]
+        },
+        {
+          $formkit: 'RplFormDropdown',
+          multiple: true,
+          id: 'dropdown-multi',
+          name: 'dropdown-multi',
+          label: 'What is the answer?',
+          help: 'There may be multiple answers',
+          validationLabel: 'enquiry',
+          validation: 'required|length:2,3',
+          validationMessages: {
+            required: 'Please provide an answer',
+            length: 'You must choose at least two answers',
+          },
+          options: [
+            {
+              id: "thing-1",
+              value: "thing-1",
+              label: "Thing 1",
+            },
+            {
+              id: "thing-2",
+              value: "thing-2",
+              label: "Thing 2",
+            },
+            {
+              id: "thing-3",
+              value: "thing-3",
+              label: "Thing 3",
+            }
+          ]
+        },
+        {
           $formkit: 'RplFormSubmit',
           label: 'Submit form',
           id: '123'

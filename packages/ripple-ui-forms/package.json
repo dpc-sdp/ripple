@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/ripple-ui-forms",
-  "version": "2.1.0-alpha.20",
+  "version": "2.1.0-alpha.23",
   "license": "Apache-2.0",
   "main": "./dist/rpl-forms.umd.js",
   "module": "./dist/rpl-forms.es.js",
@@ -12,7 +12,7 @@
     "./style": "./dist/style.css"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-ui-core": "2.1.0-alpha.20",
+    "@dpc-sdp/ripple-ui-core": "2.1.0-alpha.23",
     "@formkit/nuxt": "1.0.0-beta.11-c95e605",
     "@formkit/vue": "1.0.0-beta.10",
     "@nuxt/kit": "3.0.0-rc.13"

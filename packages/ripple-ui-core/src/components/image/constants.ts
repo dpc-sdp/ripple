@@ -1,3 +1,5 @@
+import { RplBreakpoints } from '../../lib/breakpoints'
+
 export const RplImagePriority = ['auto', 'low', 'high'] as const
 
 export const RplImageFit = ['none', 'contain', 'cover'] as const
@@ -14,13 +16,11 @@ type RplImageAspectOptions =
   | 'ultrawide'
   | 'panorama'
 
-interface RplImageAspectBreakpoints {
-  xs?: RplImageAspectOptions
-  s?: RplImageAspectOptions
-  m?: RplImageAspectOptions
-  l?: RplImageAspectOptions
-  xl?: RplImageAspectOptions
+type RplImageAspectBreakpointsMap<Type> = {
+  [Property in keyof Type]: RplImageAspectOptions
 }
+
+type RplImageAspectBreakpoints = RplImageAspectBreakpointsMap<RplBreakpoints>
 
 export type RplImageAspect = RplImageAspectBreakpoints | RplImageAspectOptions
 

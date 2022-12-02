@@ -179,7 +179,8 @@ export const getDynamicPageComponents = async (
         if (componentMappingFunction.constructor.name === 'AsyncFunction') {
           const data = await componentMappingFunction.apply(tideApi, [
             cmpData,
-            pageData
+            pageData,
+            tideApi
           ])
           mappedComponents.push({
             uuid: cmpData.uuid || cmpData.id,

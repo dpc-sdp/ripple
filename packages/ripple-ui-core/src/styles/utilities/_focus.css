@@ -20,11 +20,7 @@
     &:focus-visible:hover {
       --local-background-colour: var(--rpl-clr-light);
 
-      color: var(--rpl-clr-type-default);
-
-      .rpl-icon {
-        color: var(--rpl-clr-type-default);
-      }
+      color: var(--rpl-clr-type-default) !important;
     }
   }
 }
@@ -43,10 +39,6 @@
     text-decoration-line: none;
     outline: 0;
     position: relative;
-
-    .rpl-icon {
-      color: var(--rpl-clr-type-focus-contrast);
-    }
 
     &::after {
       display: block !important;
@@ -83,10 +75,6 @@
     outline: 0;
     position: relative;
     box-decoration-break: clone;
-
-    .rpl-icon {
-      color: var(--rpl-clr-type-focus-contrast);
-    }
 
     /* prettier-ignore */
     box-shadow: -1px 0 var(--local-background-colour), /* left */

@@ -1,29 +1,30 @@
 import { FormKitTypeDefinition } from '@formkit/core'
-import { createRplFormGroup, inputLibrary, rplFeatures } from './input-utils'
+import { createRplFormInput, inputLibrary, rplFeatures } from './input-utils'
 
 /**
- * Input definition for a checkbox.
+ * Input definition for a checkbox(ess).
  * @public
  */
-export const checkbox: FormKitTypeDefinition = {
+export const dropdown: FormKitTypeDefinition = {
   /**
    * The actual schema of the input, or a function that returns the schema.
    */
-  schema: createRplFormGroup({
-    $cmp: 'RplFormCheckbox',
+  schema: createRplFormInput({
+    $cmp: 'RplFormDropdown',
     props: {
-      id: `$id + '__checkbox'`,
+      multiple: '$node.props.multiple',
+      id: `$id`,
+      labelId: `$id + '__label'`,
+      'aria-describedby': '$fns.getAriaDescribedBy()',
       name: '$node.context.name',
       disabled: '$node.context.disabled',
-      label: '$node.props.checkboxLabel',
-      onValue: '$node.props.onValue',
-      offValue: '$node.props.offValue',
-      checked: '$_value',
+      placeholder: '$node.props.placeholder',
+      value: '$_value',
       onChange: '$node.input',
+      options: '$node.props.options',
       validationMeta: '$node.props.validationMeta',
-      'aria-invalid': '$fns.isFieldInvalid()',
-      'aria-required': '$fns.isFieldRequired()',
-      required: '$fns.isFieldRequired()'
+      required: '$fns.isFieldRequired()',
+      invalid: '$fns.isFieldInvalid()'
     }
   }),
   library: inputLibrary,
@@ -39,11 +40,7 @@ export const checkbox: FormKitTypeDefinition = {
   /**
    * An array of extra props to accept for this input.
    */
-  props: ['checkboxLabel', 'onValue', 'offValue'],
-  /**
-   * Forces node.props.type to be this explicit value.
-   */
-  forceTypeProp: 'checkbox',
+  props: ['placeholder', 'multiple', 'options'],
   /**
    * Additional features that should be added to your input
    */

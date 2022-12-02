@@ -2,12 +2,13 @@ import { markRaw } from 'vue'
 import RplFormInput from './../components/RplFormInput/RplFormInput.vue'
 import RplFormCheckbox from './../components/RplFormCheckbox/RplFormCheckbox.vue'
 import RplFormCheckboxGroup from './../components/RplFormCheckbox/RplFormCheckboxGroup.vue'
+import RplFormDropdown from './../components/RplFormDropdown/RplFormDropdown.vue'
 import RplFormValidationError from './../components/RplFormValidationError/RplFormValidationError.vue'
+import RplFormHelpText from './../components/RplFormHelpText/RplFormHelpText.vue'
 import {
   outer,
   inner,
   wrapper,
-  label,
   help,
   icon,
   prefix,
@@ -20,13 +21,24 @@ import {
   FormKitSchemaComponent,
   FormKitExtendableSchemaRoot
 } from '@formkit/core'
+import { rplLabel } from '../sections/rplLabel'
+import { rplHelp } from '../sections/rplHelp'
+import {
+  isFieldRequired,
+  isFieldInvalid,
+  getAriaDescribedBy
+} from '../formkit-features'
 
 export const inputLibrary = {
   RplFormInput: markRaw(RplFormInput),
   RplFormCheckbox: markRaw(RplFormCheckbox),
   RplFormCheckboxGroup: markRaw(RplFormCheckboxGroup),
-  RplFormValidationError: markRaw(RplFormValidationError)
+  RplFormDropdown: markRaw(RplFormDropdown),
+  RplFormValidationError: markRaw(RplFormValidationError),
+  RplFormHelpText: markRaw(RplFormHelpText)
 }
+
+export const rplFeatures = [isFieldRequired, isFieldInvalid, getAriaDescribedBy]
 
 /*
  * Creates a Formkit schema based on Ripple opinionated defaults for label and help messages, use
@@ -37,13 +49,13 @@ export const createRplFormInput = (
 ): FormKitExtendableSchemaRoot => {
   return outer(
     wrapper(
-      label('$label'),
-      help('$help'),
+      rplLabel('$label'),
+      rplHelp('$help'),
       createSection('error', () => ({
         $cmp: 'RplFormValidationError',
         if: '$fns.length($messages)',
         props: {
-          id: '$id',
+          id: `$id + '_error'`,
           messages: '$messages'
         }
       }))(),
@@ -68,12 +80,12 @@ export const createRplFormGroup = (
   return outer(
     fieldset(
       legend('$label'),
-      help('$help'),
+      rplHelp('$help'),
       createSection('error', () => ({
         $cmp: 'RplFormValidationError',
         if: '$fns.length($messages)',
         props: {
-          id: '$id',
+          id: `$id + '_error'`,
           messages: '$messages'
         }
       }))(),
@@ -89,8 +101,12 @@ export const defaultRplFormInputProps = {
   suffixIcon: '$node.props.suffixIcon',
   value: '$_value',
   disabled: '$node.context.disabled',
+  placeholder: '$node.context.placeholder',
   options: '$node.context.options',
   name: '$node.context.name',
   className: '$node.context.classes.input',
-  validationMeta: '$node.props.validationMeta'
+  validationMeta: '$node.props.validationMeta',
+  'aria-describedby': '$fns.getAriaDescribedBy()',
+  invalid: '$fns.isFieldInvalid()',
+  required: '$fns.isFieldRequired()'
 }

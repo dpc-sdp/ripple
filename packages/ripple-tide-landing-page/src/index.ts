@@ -54,18 +54,20 @@ const tideLandingPageModule: RplTideMapping = {
     heroHeader: heroHeaderMapping,
     primaryCampaign: primaryCampaignMapping,
     secondaryCampaign: secondaryCampaignMapping,
-    headerComponents: async (src) => {
+    headerComponents: async (src, tidePageApi) => {
       return await getDynamicPageComponents(
         src,
         'field_landing_page_header',
-        landingPageComponentsMapping
+        landingPageComponentsMapping,
+        tidePageApi
       )
     },
-    bodyComponents: async (src) => {
+    bodyComponents: async (src, tidePageApi) => {
       return await getDynamicPageComponents(
         src,
         'field_landing_page_component',
-        landingPageComponentsMapping
+        landingPageComponentsMapping,
+        tidePageApi
       )
     }
   },

@@ -207,4 +207,21 @@ export default class TidePage extends TideApiBase {
 
     return contentType && contentType.hasOwnProperty(key) && contentType?.[key]
   }
+
+  async getTaxonomy(taxonomyName: string) {
+    const params = {
+      site: this.site
+    }
+    try {
+      const response = await this.get(`/taxonomy_term/${taxonomyName}`, {
+        params
+      })
+      if (response) {
+        const resource = jsonapiParse.parse(response).data
+        return resource
+      }
+    } catch (error: any) {
+      throw new ApplicationError('Error fetching taxonomy', { cause: error })
+    }
+  }
 }

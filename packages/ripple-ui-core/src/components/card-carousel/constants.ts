@@ -1,12 +1,10 @@
 import { RplCardItem } from '../card/constants'
 
 export interface RplCardCarouselMeta {
-  tag?: string
+  topic?: string
   date?: string
-  dateRange?: {
-    start: string
-    end: string
-  }
+  dateStart?: string
+  dateEnd?: string
 }
 
 export interface RplCardCarouselItem {
@@ -16,5 +14,5 @@ export interface RplCardCarouselItem {
   image: string
   summary: string
   meta?: RplCardCarouselMeta
-  keyDates?: RplCardItem
+  keyDates?: RplCardItem[]
 }

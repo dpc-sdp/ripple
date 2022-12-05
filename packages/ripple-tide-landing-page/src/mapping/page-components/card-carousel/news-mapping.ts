@@ -20,12 +20,12 @@ export const query = {
 
 export const mapping = (field) => ({
   type: 'promo',
-  title: getField(field, 'title'),
-  url: getField(field, 'path.url'),
-  image: getField(field, 'field_featured_image.thumbnail.url'),
+  title: getField(field, 'title', ''),
+  url: getField(field, 'path.url', ''),
+  image: getField(field, 'field_featured_image.thumbnail.url', null),
   meta: {
-    tag: getField(field, 'field_topic.name'),
-    date: getField(field, 'field_news_date')
+    topic: getField(field, 'field_topic.name', null),
+    date: getField(field, 'field_news_date', null)
   },
-  summary: getField(field, 'field_landing_page_summary')
+  summary: getField(field, 'field_landing_page_summary', '')
 })

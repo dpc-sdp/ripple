@@ -7,7 +7,7 @@ import { ITideMediaGallery } from './media-gallery-mapping'
 describe('mediaGalleryMapping', () => {
   it('maps a raw json api response to the correct structure', () => {
     const result: TideDynamicPageComponent<ITideMediaGallery> = {
-      component: 'RplMediaGallery',
+      component: 'TideLandingPageMediaGallery',
       id: '975',
       title: 'Image gallery-fixture',
       props: {

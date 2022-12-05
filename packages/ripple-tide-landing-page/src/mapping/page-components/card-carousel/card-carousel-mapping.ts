@@ -4,20 +4,42 @@ import {
   mapping as eventMapping
 } from './event-mapping.js'
 import { mapping as customMapping } from './custom-mapping.js'
+import { TideDynamicPageComponent } from '@dpc-sdp/ripple-tide-api/types'
 
-// import { TideDynamicPageComponent } from '@dpc-sdp/ripple-tide-api/types'
-//
-// export interface ITideCardCarousel {
-//   items: Array<{
-//     title: string
-//     caption: string | null
-//     alt: string | null
-//     thumbnail: string
-//     image: string
-//   }>
-// }
+export interface ITideCardCarouselItemMeta {
+  topic?: string | null
+  date?: string | null
+  dateStart?: string | null
+  dateEnd?: string | null
+}
 
-const getCardsFromType = async (field: any, tidePageApi): Promise<any> => {
+export interface ITideCardCarouselKeyDates {
+  title?: string
+  subtitle?: string
+  content?: string
+}
+
+export interface ITideCardCarouselItem {
+  type: string
+  title: string
+  url: string
+  caption?: string
+  alt?: string
+  thumbnail?: string | null
+  image?: string | null
+  summary?: string | null
+  meta?: ITideCardCarouselItemMeta
+  keyDates?: ITideCardCarouselKeyDates[]
+}
+
+export interface ITideCardCarousel {
+  items: ITideCardCarouselItem[] | Array<null>
+}
+
+const getCardsFromType = async (
+  field,
+  tidePageApi
+): Promise<Array<ITideCardCarouselItem> | Array<null>> => {
   let items = []
 
   switch (field.field_paragraph_latest_items) {
@@ -45,7 +67,7 @@ export const cardCarouselMapping = async (
   field,
   page,
   tidePageApi
-): Promise<any> => {
+): Promise<TideDynamicPageComponent<ITideCardCarousel>> => {
   return {
     component: 'TideLandingPageCardCarousel',
     id: field.drupal_internal__id.toString(),

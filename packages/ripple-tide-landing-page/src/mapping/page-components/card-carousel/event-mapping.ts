@@ -22,21 +22,21 @@ export const query = {
 
 export const mapping = (field) => ({
   type: 'promo',
-  title: getField(field, 'title'),
-  url: getField(field, 'path.url'),
-  image: getField(field, 'field_featured_image.thumbnail.url'),
+  title: getField(field, 'title', ''),
+  url: getField(field, 'path.url', ''),
+  image: getField(field, 'field_featured_image.thumbnail.url', null),
   meta: {
-    tag: getField(field, 'field_topic.name'),
-    dateRange: {
-      start: getField(
-        field,
-        'field_event_details.[0].field_paragraph_date_range.value'
-      ),
-      end: getField(
-        field,
-        'field_event_details.[0].field_paragraph_date_range.end_value'
-      )
-    }
+    topic: getField(field, 'field_topic.name', null),
+    dateStart: getField(
+      field,
+      'field_event_details.[0].field_paragraph_date_range.value',
+      null
+    ),
+    dateEnd: getField(
+      field,
+      'field_event_details.[0].field_paragraph_date_range.end_value',
+      null
+    )
   },
-  summary: getField(field, 'field_landing_page_summary')
+  summary: getField(field, 'field_landing_page_summary', '')
 })

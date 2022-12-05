@@ -33,12 +33,12 @@ withDefaults(defineProps<Props>(), {
         >
           <template v-if="card?.meta" #meta>
             <RplTag
-              v-if="card.meta?.tag"
-              :label="card.meta.tag"
+              v-if="card.meta?.topic"
+              :label="card.meta.topic"
               variant="neutral"
             />
-            <span v-if="card?.meta?.dateRange">
-              {{ card.meta.dateRange.start }} to {{ card.meta.dateRange.end }}
+            <span v-if="card?.meta?.dateStart && card?.meta?.dateEnd">
+              {{ card.meta.dateStart }} to {{ card.meta.dateEnd }}
             </span>
             <span v-if="card?.meta?.date">
               {{ card.meta.date }}

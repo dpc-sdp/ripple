@@ -39,7 +39,7 @@
     "test:storybook-ci": "concurrently -k -s first -n \"SB,TEST\" -c \"magenta,blue\" \"npx http-server storybook-static --port 6006 --silent\" \"wait-on tcp:6006 && yarn test:storybook\""
   },
   "dependencies": {
-    "@nuxt/kit": "3.0.0-rc.13",
+    "@nuxt/kit": "3.0.0",
     "@vueuse/core": "^9.3.1",
     "@vueuse/integrations": "^9.5.0",
     "date-fns": "^2.29.3",

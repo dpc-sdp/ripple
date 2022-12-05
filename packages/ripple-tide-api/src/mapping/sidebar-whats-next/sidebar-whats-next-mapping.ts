@@ -1,5 +1,5 @@
 import { TideApiResponse, TideLink } from '../../../types'
-import { getLinkFromField } from '../../utils/mapping-utils'
+import { getLinkFromField } from '../../utils/mapping-utils.js'
 
 export const map = (src: TideApiResponse): TideLink[] => {
   if (!src.field_show_whats_next) {

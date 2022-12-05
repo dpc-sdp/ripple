@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/ripple-tide-publication-page",
-  "version": "2.1.0-alpha.24",
+  "version": "2.1.0-alpha.25",
   "description": "Ripple mappings and components for Tide PublicationPage Content type",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "@dpc-sdp/ripple-tide-api": "2.1.0-alpha.24",
-    "@dpc-sdp/ripple-tide-publication": "2.1.0-alpha.24"
+    "@dpc-sdp/ripple-tide-publication": "2.1.0-alpha.25"
   },
   "files": [
     "dist",

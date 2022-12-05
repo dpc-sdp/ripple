@@ -40,6 +40,10 @@
   }
 }
 
+.rpl-media-embed__content {
+  max-width: var(--rpl-content-max-width);
+}
+
 .rpl-media-embed__video-container {
   position: relative;
   padding-top: 56.25%;

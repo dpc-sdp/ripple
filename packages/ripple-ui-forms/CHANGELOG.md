@@ -3,6 +3,44 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.24](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.23...v2.1.0-alpha.24) (2022-12-02)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-forms:** fixed dropdown incorrectly using fieldset ([97e5974](https://github.com/dpc-sdp/ripple-framework/commit/97e597474461dc6e23a0454cfdb74bd62dba2265))
+* **@dpc-sdp/ripple-ui-forms:** fixed failing test ([7010ecb](https://github.com/dpc-sdp/ripple-framework/commit/7010ecb222a0707edf64ca58539609ad97258e4e))
+* **@dpc-sdp/ripple-ui-forms:** fixed issue with display of single dropdown value ([53d0609](https://github.com/dpc-sdp/ripple-framework/commit/53d06098f842154d76a1772be2318f96ec9aef63))
+* **@dpc-sdp/ripple-ui-forms:** fixed up dropdown label and placeholder display ([120329d](https://github.com/dpc-sdp/ripple-framework/commit/120329d8b2b62e2a6fbb4ea82f2956ab095f466a))
+* **@dpc-sdp/ripple-ui-forms:** removed messy example markup ([a1439bb](https://github.com/dpc-sdp/ripple-framework/commit/a1439bb23606fd22c582d7fce370b0ddb26574c3))
+* fixed up focused checkmark stying ([142d665](https://github.com/dpc-sdp/ripple-framework/commit/142d66532821f9d8309135dca94d7cf6d600f965))
+
+
+### Features
+
+* **@dpc-sdp/ripple-ui-forms:** :zap: added dropdown to formkit ([daebdf7](https://github.com/dpc-sdp/ripple-framework/commit/daebdf7f8359ce485cd547116211373f081d3206))
+* **@dpc-sdp/ripple-ui-forms:** add support for rich text labels ([dbb9ceb](https://github.com/dpc-sdp/ripple-framework/commit/dbb9ceb51f1e20eb9d68d82de68b83de41a7ea85))
+* **@dpc-sdp/ripple-ui-forms:** added disabled state for dropdown ([76fe139](https://github.com/dpc-sdp/ripple-framework/commit/76fe13959218edb0a52141d677890e7fcf0575a2))
+* **@dpc-sdp/ripple-ui-forms:** added first pass at the dropdown form component ([dabe224](https://github.com/dpc-sdp/ripple-framework/commit/dabe2244f052e8fb3355d1876047c8dc634b5313))
+* **@dpc-sdp/ripple-ui-forms:** added logic for display multiple selected dropdown values ([a8868c6](https://github.com/dpc-sdp/ripple-framework/commit/a8868c64a4f5686b35442c8ed21496bb29cafe48))
+* **@dpc-sdp/ripple-ui-forms:** added mapping for 'webform-term-select' ([a6efdb2](https://github.com/dpc-sdp/ripple-framework/commit/a6efdb281c387bc7deb9b0c0336a1a1d1f459b1f))
+* **@dpc-sdp/ripple-ui-forms:** added required and invalid attributes to form fields ([e903836](https://github.com/dpc-sdp/ripple-framework/commit/e903836e04f025b924c9397c6b260225e5a094e1))
+* **@dpc-sdp/ripple-ui-forms:** added scroll functionality to dropdown component ([88c3441](https://github.com/dpc-sdp/ripple-framework/commit/88c34417d742b0ffb2baafee6acb2407c22cdbab))
+* **@dpc-sdp/ripple-ui-forms:** connected label and error state to dropdown ([97ab27e](https://github.com/dpc-sdp/ripple-framework/commit/97ab27e619337fb6f711f96af1675162c42ebbc1))
+* **@dpc-sdp/ripple-ui-forms:** more basic styling of dropdown ([5ede317](https://github.com/dpc-sdp/ripple-framework/commit/5ede31709a6cfb5a195156a6ffe42df44a9718b0))
+
+
+
+
+
+# [2.1.0-alpha.23](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.22...v2.1.0-alpha.23) (2022-12-02)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-ui-forms
+
+
+
+
+
 # [2.1.0-alpha.20](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.19...v2.1.0-alpha.20) (2022-11-29)
 
 **Note:** Version bump only for package @dpc-sdp/ripple-ui-forms

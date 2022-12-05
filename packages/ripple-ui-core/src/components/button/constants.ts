@@ -4,7 +4,8 @@ export const RplButtonVariants = [
   'outlined',
   'white',
   'elevated',
-  'destructive'
+  'destructive',
+  'none'
 ] as const
 export const RplButtonIconPositions = ['left', 'right'] as const
 export const RplButtonThemes = ['default', 'neutral'] as const

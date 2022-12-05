@@ -45,8 +45,8 @@ const handleChange = (e: Event) => {
       class="rpl-form-checkbox__input"
       :disabled="disabled"
       :checked="checked"
-      @change="handleChange"
       v-bind="$attrs"
+      @change="handleChange"
     />
     <label class="rpl-form-checkbox__label" :for="id">
       <span class="rpl-form-checkbox__box">

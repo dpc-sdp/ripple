@@ -5,7 +5,9 @@ import {
   submit,
   checkbox,
   checkboxGroup,
-  dropdown
+  dropdown,
+  number,
+  url
 } from './inputs/index'
 
 const rplFormInputs = (node) => {
@@ -53,6 +55,10 @@ rplFormInputs.library = (node) => {
       return node.define(email)
     case 'RplFormTel':
       return node.define(tel)
+    case 'RplFormUrl':
+      return node.define(url)
+    case 'RplFormNumber':
+      return node.define(number)
     case 'RplFormCheckbox':
       return node.define(checkbox)
     case 'RplFormCheckboxGroup':

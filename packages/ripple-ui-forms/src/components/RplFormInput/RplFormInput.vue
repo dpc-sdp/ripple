@@ -13,6 +13,7 @@ interface Props {
   prefixIcon?: string | undefined
   suffixIcon?: string | undefined
   maxlength?: string
+  variant?: 'default' | 'reverse'
   invalid?: boolean
   required?: boolean
 }
@@ -25,12 +26,14 @@ const props = withDefaults(defineProps<Props>(), {
   maxlength: undefined,
   disabled: false,
   required: false,
-  invalid: false
+  invalid: false,
+  variant: 'default'
 })
 
 const classes = computed(() => {
   return {
     [`${props.className}`]: props.className,
+    [`${props.className}--${props.variant}`]: true,
     [`${props.className}--type-${props.type}`]: props.type,
     [`${props.className}--disabled`]: props.disabled,
     [`${props.className}--with-prefix-icon`]: props.prefixIcon,
@@ -52,6 +55,7 @@ TODO - Wire up event bus handling
       v-if="prefixIcon"
       :name="prefixIcon"
       :class="`${props.className}-icon ${props.className}-icon__prefix`"
+      size="s"
     >
     </RplIcon>
     <input
@@ -73,6 +77,7 @@ TODO - Wire up event bus handling
       v-if="suffixIcon"
       :name="suffixIcon"
       :class="`${props.className}-icon ${props.className}-icon__suffix`"
+      size="s"
     >
     </RplIcon>
   </div>

@@ -29,7 +29,7 @@
     "dotenv": "^16.0.3"
   },
   "devDependencies": {
-    "@badeball/cypress-cucumber-preprocessor": "^13.0.2",
+    "@badeball/cypress-cucumber-preprocessor": "^14.0.0",
     "@testing-library/cypress": "^8.0.7",
     "mockttp": "^3.4.0",
     "nuxt": "3.0.0-rc.13",

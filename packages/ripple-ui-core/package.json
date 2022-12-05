@@ -62,7 +62,7 @@
     "autoprefixer": "^10.4.12",
     "chromatic": "^6.10.2",
     "http-server": "^14.1.0",
-    "jest-axe": "^6.0.0",
+    "jest-axe": "^7.0.0",
     "storybook-addon-designs": "^6.2.1",
     "style-dictionary": "^3.1.1",
     "stylelint": "^14.16.0",

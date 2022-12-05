@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "@badeball/cypress-cucumber-preprocessor": "^13.0.2",
-    "@testing-library/cypress": "^8.0.3",
+    "@testing-library/cypress": "^8.0.7",
     "mockttp": "^3.4.0",
     "nuxt": "3.0.0-rc.13",
     "start-server-and-test": "^1.14.0"

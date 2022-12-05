@@ -1654,21 +1654,19 @@
     tunnel-agent "^0.6.0"
     uuid "^8.3.2"
 
-"@cypress/vite-dev-server@^3.3.1":
-  version "3.4.0"
-  resolved "https://registry.yarnpkg.com/@cypress/vite-dev-server/-/vite-dev-server-3.4.0.tgz#94e09b5a4a311e3211a5bc0148a0b62dca63867e"
-  integrity sha512-mrqJlzQUSUCNHVshApTOCUT83W9M+B0ivr1JY1UkPlWoeQD6ZFFgvdg6Ov8G/gpWhV0oYDe2QNOwLvAd9szgOA==
+"@cypress/vite-dev-server@^5.0.0":
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/@cypress/vite-dev-server/-/vite-dev-server-5.0.0.tgz#09d8483bbb14369fc5fb38cdd69542d14f2056a1"
+  integrity sha512-ORu1BhFxK09KWIN7EtrCvMGwJr58Y4sx50VBg0cNf+3N9+vrCZoJ1xug43OsvhKODsCl95U6Rc51si4TugF0tg==
   dependencies:
-    debug "4.3.3"
+    debug "^4.3.4"
     find-up "6.3.0"
-    local-pkg "0.4.1"
     node-html-parser "5.3.3"
-    pathe "0.2.0"
 
-"@cypress/vue@^4.2.1":
-  version "4.2.2"
-  resolved "https://registry.yarnpkg.com/@cypress/vue/-/vue-4.2.2.tgz#907d0e7bf490b2dc1340c626e440e979873a03c7"
-  integrity sha512-M5u8w3OwEwvhYo43tBwduYn3hra5m5yIIAak8mFt+mt58yCmkW57q6mkNkZNZNtVei2eMHIcCfAWLoZmpqg4fg==
+"@cypress/vue@^5.0.3":
+  version "5.0.3"
+  resolved "https://registry.yarnpkg.com/@cypress/vue/-/vue-5.0.3.tgz#c9a35cdec8a35567c222484ce63d4722ab3b84b6"
+  integrity sha512-wGOr/aI5KAwpbO44Anb0lgi3mdOUg8V+F16Mam7txBqSCIoX4nRHNDVOx6MR3fSUEsDRhYi3reF+mQgdZdc9rQ==
 
 "@cypress/xvfb@^1.2.4":
   version "1.2.4"
@@ -1885,13 +1883,6 @@
     "@figspec/components" "^1.0.1"
     "@lit-labs/react" "^1.0.2"
 
-"@formkit/core@1.0.0-beta.10":
-  version "1.0.0-beta.10"
-  resolved "https://registry.yarnpkg.com/@formkit/core/-/core-1.0.0-beta.10.tgz#eb8315a80d9e74cb612b1faebf765a8f8f344bf9"
-  integrity sha512-L6dLPUFLjhaqKv6f/cm+YYk1bfDI7fY8nDbEh8XHqmFVIPMf4OeBAEUfORFAh5PmCcIlgtDKvPkRwopVkxEvxA==
-  dependencies:
-    "@formkit/utils" "1.0.0-beta.10"
-
 "@formkit/core@1.0.0-beta.11-c95e605":
   version "1.0.0-beta.11-c95e605"
   resolved "https://registry.yarnpkg.com/@formkit/core/-/core-1.0.0-beta.11-c95e605.tgz#9d7d93a447b0703059c688ff8c9c2136152b3ee2"
@@ -1899,13 +1890,12 @@
   dependencies:
     "@formkit/utils" "1.0.0-beta.11-c95e605"
 
-"@formkit/dev@1.0.0-beta.10":
-  version "1.0.0-beta.10"
-  resolved "https://registry.yarnpkg.com/@formkit/dev/-/dev-1.0.0-beta.10.tgz#bffca738d8bab2bc4e6326adbf3240bd2bb1aece"
-  integrity sha512-SS008mrwNycd+icZjRPom6ji98ZbJ+IO3w5+VWla9+s7h4h/FkDLmL2pnSsWpVW+Mp3AfyGCItSNTLx7jM0m9g==
+"@formkit/core@1.0.0-beta.12":
+  version "1.0.0-beta.12"
+  resolved "https://registry.yarnpkg.com/@formkit/core/-/core-1.0.0-beta.12.tgz#bf3ad011ea6b219b572526ed04362711dc070566"
+  integrity sha512-/Pod7k4N58eDOG+0LE0ccV7BOYD5sEA4RqaRNJn9m6Jg9nF/JATmSNL46kVCH3mV6sSoV045L3Zir8//rya0Lw==
   dependencies:
-    "@formkit/core" "1.0.0-beta.10"
-    "@formkit/utils" "1.0.0-beta.10"
+    "@formkit/utils" "1.0.0-beta.12"
 
 "@formkit/dev@1.0.0-beta.11-c95e605":
   version "1.0.0-beta.11-c95e605"
@@ -1915,14 +1905,13 @@
     "@formkit/core" "1.0.0-beta.11-c95e605"
     "@formkit/utils" "1.0.0-beta.11-c95e605"
 
-"@formkit/i18n@1.0.0-beta.10":
-  version "1.0.0-beta.10"
-  resolved "https://registry.yarnpkg.com/@formkit/i18n/-/i18n-1.0.0-beta.10.tgz#7c674cdf4793257bb543b590cde71162f638a37a"
-  integrity sha512-IWa1Nyi53Hk+pD9LXilRj0rmUUFHNI7exWXZpy0O2x+CMTnZz0sDrupVOXYoDGloFEWNUuScToYAp7YMGm1lgQ==
+"@formkit/dev@1.0.0-beta.12":
+  version "1.0.0-beta.12"
+  resolved "https://registry.yarnpkg.com/@formkit/dev/-/dev-1.0.0-beta.12.tgz#dc612e86b72315215859bf4e979a84b11940a438"
+  integrity sha512-0d0RMZBp93zkUutH65u1ba8eD8A5zqboqdfK5/BGvMGsDLfN5IJCC/kdCY3hxyQhhHquwYS2rPv1o5XFJJ7Pkg==
   dependencies:
-    "@formkit/core" "1.0.0-beta.10"
-    "@formkit/utils" "1.0.0-beta.10"
-    "@formkit/validation" "1.0.0-beta.10"
+    "@formkit/core" "1.0.0-beta.12"
+    "@formkit/utils" "1.0.0-beta.12"
 
 "@formkit/i18n@1.0.0-beta.11-c95e605":
   version "1.0.0-beta.11-c95e605"
@@ -1933,12 +1922,14 @@
     "@formkit/utils" "1.0.0-beta.11-c95e605"
     "@formkit/validation" "1.0.0-beta.11-c95e605"
 
-"@formkit/inputs@1.0.0-beta.10":
-  version "1.0.0-beta.10"
-  resolved "https://registry.yarnpkg.com/@formkit/inputs/-/inputs-1.0.0-beta.10.tgz#4f587cc1108f5620908edf8d6c8acace93c13c0b"
-  integrity sha512-RiFJEJU28mdX2feN+mojl61jffGPUtFn2ICGRBI3RTdAHB2mvew2VWc+W/ZatfKx4dq++C2eoaCbNI29XKCOMQ==
+"@formkit/i18n@1.0.0-beta.12":
+  version "1.0.0-beta.12"
+  resolved "https://registry.yarnpkg.com/@formkit/i18n/-/i18n-1.0.0-beta.12.tgz#e113f5d8fa66cc952ab94552a0ad170beff59f34"
+  integrity sha512-ul9nE/ORtpIxHgT3B6uCoxmKJnr6MhAdGnXPpX64q1Tx8ePh73Nm6Cm4KxE5GYkFVNpI/KfxUs5D/icHMO73tg==
   dependencies:
-    "@formkit/core" "1.0.0-beta.10"
+    "@formkit/core" "1.0.0-beta.12"
+    "@formkit/utils" "1.0.0-beta.12"
+    "@formkit/validation" "1.0.0-beta.12"
 
 "@formkit/inputs@1.0.0-beta.11-c95e605":
   version "1.0.0-beta.11-c95e605"
@@ -1946,6 +1937,13 @@
   integrity sha512-y9m/iY+aZYY8/YmQPzk8IpnDxa91VnX9UO2jkz5DhcGZSgQU/hilomkAfGvguHEc+GJjEAilGOJZ1sLl6H7bmQ==
   dependencies:
     "@formkit/core" "1.0.0-beta.11-c95e605"
+
+"@formkit/inputs@1.0.0-beta.12":
+  version "1.0.0-beta.12"
+  resolved "https://registry.yarnpkg.com/@formkit/inputs/-/inputs-1.0.0-beta.12.tgz#2dd64ecee4149ca635071adc504aca9f30f3cfb5"
+  integrity sha512-aUejQw5amEG/Q3sORxlp4kHvAQdoxk4RyNKbU3etziAB9Ytz2E3WaU7TDcGVqjNlvcvrweL1Ou4V0WPmIDn+zQ==
+  dependencies:
+    "@formkit/core" "1.0.0-beta.12"
 
 "@formkit/nuxt@1.0.0-beta.11-c95e605":
   version "1.0.0-beta.11-c95e605"
@@ -1955,14 +1953,6 @@
     "@formkit/vue" "1.0.0-beta.11-c95e605"
     "@nuxt/kit" "npm:@nuxt/kit-edge@latest"
 
-"@formkit/observer@1.0.0-beta.10":
-  version "1.0.0-beta.10"
-  resolved "https://registry.yarnpkg.com/@formkit/observer/-/observer-1.0.0-beta.10.tgz#12e8b8063c4a286ca0d720dfccea0662e8e11480"
-  integrity sha512-YJE4YjiB4jDq/5TeHB+Umidx4KJ2vhOmlsWBcGW4/Ph8L4i34wLT7s5UTB58L8JoQ0+bKToLwNRyR4qntck+3Q==
-  dependencies:
-    "@formkit/core" "1.0.0-beta.10"
-    "@formkit/utils" "1.0.0-beta.10"
-
 "@formkit/observer@1.0.0-beta.11-c95e605":
   version "1.0.0-beta.11-c95e605"
   resolved "https://registry.yarnpkg.com/@formkit/observer/-/observer-1.0.0-beta.11-c95e605.tgz#757507ea1526fdda4f370e349d15a799cd2dafc7"
@@ -1971,14 +1961,13 @@
     "@formkit/core" "1.0.0-beta.11-c95e605"
     "@formkit/utils" "1.0.0-beta.11-c95e605"
 
-"@formkit/rules@1.0.0-beta.10":
-  version "1.0.0-beta.10"
-  resolved "https://registry.yarnpkg.com/@formkit/rules/-/rules-1.0.0-beta.10.tgz#72662ccc7d7a42a65aa3ada7baabc097710abefc"
-  integrity sha512-V1e6JN3/1r0twH9bEfI2kjsZIGpDfq6ixj1ERTT2tnortzj2cVVhRMG2ZvCfpBOdUw3c+DqCFyLxLzPAWLkoXA==
+"@formkit/observer@1.0.0-beta.12":
+  version "1.0.0-beta.12"
+  resolved "https://registry.yarnpkg.com/@formkit/observer/-/observer-1.0.0-beta.12.tgz#2be425d28dffc9a6313d028cea91d3832a54158f"
+  integrity sha512-kXVWUkjbNsymwv50QuI5thjlCknGy8azPlzepTDj3fsuZANuHG8qaj3W5h9mY6cCgvil4d4WeBz5f54iJsaEXA==
   dependencies:
-    "@formkit/core" "1.0.0-beta.10"
-    "@formkit/utils" "1.0.0-beta.10"
-    "@formkit/validation" "1.0.0-beta.10"
+    "@formkit/core" "1.0.0-beta.12"
+    "@formkit/utils" "1.0.0-beta.12"
 
 "@formkit/rules@1.0.0-beta.11-c95e605":
   version "1.0.0-beta.11-c95e605"
@@ -1989,12 +1978,14 @@
     "@formkit/utils" "1.0.0-beta.11-c95e605"
     "@formkit/validation" "1.0.0-beta.11-c95e605"
 
-"@formkit/themes@1.0.0-beta.10":
-  version "1.0.0-beta.10"
-  resolved "https://registry.yarnpkg.com/@formkit/themes/-/themes-1.0.0-beta.10.tgz#ebe676c02db18fc16d7c16d3e0aeff7bdba4d071"
-  integrity sha512-oFZq11JvGZQ7e/aGEstH7jcV/yYOzfCvscgS3NQD/C3/WsM0MTZNirBvK8jrt68uB4aZnzmDCEeb93HSJ0Rsyg==
+"@formkit/rules@1.0.0-beta.12":
+  version "1.0.0-beta.12"
+  resolved "https://registry.yarnpkg.com/@formkit/rules/-/rules-1.0.0-beta.12.tgz#30c31fde7f260c077203a068119a736f3bd59523"
+  integrity sha512-i0puOJwnQVBEbYrrjvnKa3Y61AKa67BI5xkILoj7lxe7GLuodakK0J8Fd4svxa0wKMDj+GPzaDroFYT6L2TN1w==
   dependencies:
-    "@formkit/core" "1.0.0-beta.10"
+    "@formkit/core" "1.0.0-beta.12"
+    "@formkit/utils" "1.0.0-beta.12"
+    "@formkit/validation" "1.0.0-beta.12"
 
 "@formkit/themes@1.0.0-beta.11-c95e605":
   version "1.0.0-beta.11-c95e605"
@@ -2003,23 +1994,22 @@
   dependencies:
     "@formkit/core" "1.0.0-beta.11-c95e605"
 
-"@formkit/utils@1.0.0-beta.10":
-  version "1.0.0-beta.10"
-  resolved "https://registry.yarnpkg.com/@formkit/utils/-/utils-1.0.0-beta.10.tgz#c02032e704a0659c92cbe8746cb2aa7e23402aa9"
-  integrity sha512-uMx2HKdyeFGNFuHckKuyW3ABYzrhgeoH2GO+gX94+hay4heWHpB65ZIdvEvCSBSxR83qfJ2k32USbW3AJlSQHg==
+"@formkit/themes@1.0.0-beta.12":
+  version "1.0.0-beta.12"
+  resolved "https://registry.yarnpkg.com/@formkit/themes/-/themes-1.0.0-beta.12.tgz#4d7425dfac49e00731366b2abb538a4fa159d539"
+  integrity sha512-r/nJ/R9VKijOZ0awmb/IBiPNvgZl/Vb1iXifij+LaZJ78djK8ou2mfzQ8hNYDliMsE7fzIFVhIkDhcEXywwbRA==
+  dependencies:
+    "@formkit/core" "1.0.0-beta.12"
 
 "@formkit/utils@1.0.0-beta.11-c95e605":
   version "1.0.0-beta.11-c95e605"
   resolved "https://registry.yarnpkg.com/@formkit/utils/-/utils-1.0.0-beta.11-c95e605.tgz#0b4bd8414e81b56ea98f2fb62eac3d9db69365fa"
   integrity sha512-J5PZvRPooauUGcIkkwiN7osWH8Ym8a9cyf9OTOm2i4JDwouFrapu6vaw/gBqmiLILsqVdyOOrKM69hQghbLQRA==
 
-"@formkit/validation@1.0.0-beta.10":
-  version "1.0.0-beta.10"
-  resolved "https://registry.yarnpkg.com/@formkit/validation/-/validation-1.0.0-beta.10.tgz#113076fc6d2761661d75bb7671dd9fc9000fde4b"
-  integrity sha512-c+RS8dyQ4ZUvxkrUNa2sVgctBF8UaBPPkYXFEYkbmydMpB3mWrpv4CMsfMSfjtF0XlIkg/47hv2VZaESySsrbw==
-  dependencies:
-    "@formkit/core" "1.0.0-beta.10"
-    "@formkit/observer" "1.0.0-beta.10"
+"@formkit/utils@1.0.0-beta.12":
+  version "1.0.0-beta.12"
+  resolved "https://registry.yarnpkg.com/@formkit/utils/-/utils-1.0.0-beta.12.tgz#84f26ab60728f3ec3f5e82d57d081c3497a77fef"
+  integrity sha512-L2P221teC+58Y1A4TZpJsLt/Y+WErLxbBt4hH6XhokssVX7mYR56YWienY9StN5jmiGVWtcK1+riXCb0n1aMOA==
 
 "@formkit/validation@1.0.0-beta.11-c95e605":
   version "1.0.0-beta.11-c95e605"
@@ -2029,20 +2019,13 @@
     "@formkit/core" "1.0.0-beta.11-c95e605"
     "@formkit/observer" "1.0.0-beta.11-c95e605"
 
-"@formkit/vue@1.0.0-beta.10":
-  version "1.0.0-beta.10"
-  resolved "https://registry.yarnpkg.com/@formkit/vue/-/vue-1.0.0-beta.10.tgz#1580b7f206f8bd7bb017477d3ea72e1d0f8c446b"
-  integrity sha512-78lyQXIjuigrZ7TSkiJA/xF/3aiNHBUhkd9bbsUxAketFNTqKXtINnfqvY/+4U1xOKhR2RAcMuDHTZin4TjlfA==
+"@formkit/validation@1.0.0-beta.12":
+  version "1.0.0-beta.12"
+  resolved "https://registry.yarnpkg.com/@formkit/validation/-/validation-1.0.0-beta.12.tgz#310a5f6e946a3372f6042de280d5ca8b3d21fa03"
+  integrity sha512-ZSD5llsfSqXfIYMtSeeDwx7h421JCKobi00RxpGJkuHgpnAi3oxTJB7J6u+3pMrO9BqcidGtk5G/rk9F4fCNEw==
   dependencies:
-    "@formkit/core" "1.0.0-beta.10"
-    "@formkit/dev" "1.0.0-beta.10"
-    "@formkit/i18n" "1.0.0-beta.10"
-    "@formkit/inputs" "1.0.0-beta.10"
-    "@formkit/observer" "1.0.0-beta.10"
-    "@formkit/rules" "1.0.0-beta.10"
-    "@formkit/themes" "1.0.0-beta.10"
-    "@formkit/utils" "1.0.0-beta.10"
-    "@formkit/validation" "1.0.0-beta.10"
+    "@formkit/core" "1.0.0-beta.12"
+    "@formkit/observer" "1.0.0-beta.12"
 
 "@formkit/vue@1.0.0-beta.11-c95e605":
   version "1.0.0-beta.11-c95e605"
@@ -2058,6 +2041,21 @@
     "@formkit/themes" "1.0.0-beta.11-c95e605"
     "@formkit/utils" "1.0.0-beta.11-c95e605"
     "@formkit/validation" "1.0.0-beta.11-c95e605"
+
+"@formkit/vue@1.0.0-beta.12":
+  version "1.0.0-beta.12"
+  resolved "https://registry.yarnpkg.com/@formkit/vue/-/vue-1.0.0-beta.12.tgz#d22cc35615ffae8722f8f59a43b42e636a4d1524"
+  integrity sha512-v5x3me7W5HYVCzJuj730Wo4CaNdMytRrSd9huixTN6e9ujwboefWQzT7aMfVbI3tSg2M+5+MXmgke35wxzcYtA==
+  dependencies:
+    "@formkit/core" "1.0.0-beta.12"
+    "@formkit/dev" "1.0.0-beta.12"
+    "@formkit/i18n" "1.0.0-beta.12"
+    "@formkit/inputs" "1.0.0-beta.12"
+    "@formkit/observer" "1.0.0-beta.12"
+    "@formkit/rules" "1.0.0-beta.12"
+    "@formkit/themes" "1.0.0-beta.12"
+    "@formkit/utils" "1.0.0-beta.12"
+    "@formkit/validation" "1.0.0-beta.12"
 
 "@gar/promisify@^1.0.1", "@gar/promisify@^1.1.3":
   version "1.1.3"
@@ -7251,10 +7249,24 @@ ajv-errors@^1.0.0:
   resolved "https://registry.yarnpkg.com/ajv-errors/-/ajv-errors-1.0.1.tgz#f35986aceb91afadec4102fbd85014950cefa64d"
   integrity sha512-DCRfO/4nQ+89p/RK43i8Ezd41EqdGIU4ld7nGF8OQ14oc/we5rEntLCUa7+jrn3nn83BosfwZA0wb4pon2o8iQ==
 
+ajv-formats@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/ajv-formats/-/ajv-formats-2.1.1.tgz#6e669400659eb74973bbf2e33327180a0996b520"
+  integrity sha512-Wx0Kx52hxE7C18hkMEggYlEifqWZtYaRgouJor+WMdPnQyEK13vgEWyVNup7SoeeoLMsr4kf5h6dOW11I15MUA==
+  dependencies:
+    ajv "^8.0.0"
+
 ajv-keywords@^3.1.0, ajv-keywords@^3.4.1, ajv-keywords@^3.5.2:
   version "3.5.2"
   resolved "https://registry.yarnpkg.com/ajv-keywords/-/ajv-keywords-3.5.2.tgz#31f29da5ab6e00d1c2d329acf7b5929614d5014d"
   integrity sha512-5p6WTN0DdTGVQk6VjcEju19IgaHudalcfabD7yhDGeA6bcQnmL+CpveLJq/3hvfwd1aof6L386Ougkx6RfyMIQ==
+
+ajv-keywords@^5.0.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/ajv-keywords/-/ajv-keywords-5.1.0.tgz#69d4d385a4733cdbeab44964a1170a88f87f0e16"
+  integrity sha512-YCS/JNFAUyr5vAuhk1DWm1CBxRHW9LbJ2ozWeemrIqpbsqKjHVxYPyi5GC0rjZIT5JxJ3virVTS8wk4i/Z+krw==
+  dependencies:
+    fast-deep-equal "^3.1.3"
 
 ajv@^6.1.0, ajv@^6.10.0, ajv@^6.10.2, ajv@^6.12.2, ajv@^6.12.4, ajv@^6.12.5, ajv@~6.12.6:
   version "6.12.6"
@@ -7264,6 +7276,16 @@ ajv@^6.1.0, ajv@^6.10.0, ajv@^6.10.2, ajv@^6.12.2, ajv@^6.12.4, ajv@^6.12.5, ajv
     fast-deep-equal "^3.1.1"
     fast-json-stable-stringify "^2.0.0"
     json-schema-traverse "^0.4.1"
+    uri-js "^4.2.2"
+
+ajv@^8.0.0, ajv@^8.8.0:
+  version "8.11.2"
+  resolved "https://registry.yarnpkg.com/ajv/-/ajv-8.11.2.tgz#aecb20b50607acf2569b6382167b65a96008bb78"
+  integrity sha512-E4bfmKAhGiSTvMfL1Myyycaub+cUEU2/IvpylXkUu7CHBkBj1f/ikdzbD7YQ6FKUbixDxeYvB/xY4fvyroDlQg==
+  dependencies:
+    fast-deep-equal "^3.1.1"
+    json-schema-traverse "^1.0.0"
+    require-from-string "^2.0.2"
     uri-js "^4.2.2"
 
 ajv@^8.0.1, ajv@^8.11.0:
@@ -7854,7 +7876,7 @@ babel-jest@^29.3.1:
     graceful-fs "^4.2.9"
     slash "^3.0.0"
 
-babel-loader@^8.0.0, babel-loader@^8.2.3, babel-loader@^8.2.5:
+babel-loader@^8.0.0:
   version "8.3.0"
   resolved "https://registry.yarnpkg.com/babel-loader/-/babel-loader-8.3.0.tgz#124936e841ba4fe8176786d6ff28add1f134d6a8"
   integrity sha512-H8SvsMF+m9t15HNLMipppzkC+Y2Yq+v3SonZyU70RBL/h1gxPkH08Ot8pEE9Z4Kd+czyWJClmFS8qzIP9OZ04Q==
@@ -7863,6 +7885,14 @@ babel-loader@^8.0.0, babel-loader@^8.2.3, babel-loader@^8.2.5:
     loader-utils "^2.0.0"
     make-dir "^3.1.0"
     schema-utils "^2.6.5"
+
+babel-loader@^9.1.0:
+  version "9.1.0"
+  resolved "https://registry.yarnpkg.com/babel-loader/-/babel-loader-9.1.0.tgz#839e9ae88aea930864ef9ec0f356dfca96ecf238"
+  integrity sha512-Antt61KJPinUMwHwIIz9T5zfMgevnfZkEVWYDWlG888fgdvRRGD0JTuf/fFozQnfT+uq64sk1bmdHDy/mOEWnA==
+  dependencies:
+    find-cache-dir "^3.3.2"
+    schema-utils "^4.0.0"
 
 babel-messages@^6.23.0:
   version "6.23.0"
@@ -10234,10 +10264,10 @@ cyclist@^1.0.1:
   resolved "https://registry.yarnpkg.com/cyclist/-/cyclist-1.0.1.tgz#596e9698fd0c80e12038c2b82d6eb1b35b6224d9"
   integrity sha512-NJGVKPS81XejHcLhaLJS7plab0fK3slPh11mESeeDq2W4ZI5kUKK/LRRdVDvjJseojbPB7ZwjnyOybg3Igea/A==
 
-cypress@^10.10.0:
-  version "10.11.0"
-  resolved "https://registry.yarnpkg.com/cypress/-/cypress-10.11.0.tgz#e9fbdd7638bae3d8fb7619fd75a6330d11ebb4e8"
-  integrity sha512-lsaE7dprw5DoXM00skni6W5ElVVLGAdRUUdZjX2dYsGjbY/QnpzWZ95Zom1mkGg0hAaO/QVTZoFVS7Jgr/GUPA==
+cypress@^11.2.0:
+  version "11.2.0"
+  resolved "https://registry.yarnpkg.com/cypress/-/cypress-11.2.0.tgz#63edef8c387b687066c5493f6f0ad7b9ced4b2b7"
+  integrity sha512-u61UGwtu7lpsNWLUma/FKNOsrjcI6wleNmda/TyKHe0dOBcVjbCPlp1N6uwFZ0doXev7f/91YDpU9bqDCFeBLA==
   dependencies:
     "@cypress/request" "^2.88.10"
     "@cypress/xvfb" "^1.2.4"
@@ -10354,13 +10384,6 @@ debug@4.3.2:
   version "4.3.2"
   resolved "https://registry.yarnpkg.com/debug/-/debug-4.3.2.tgz#f0a49c18ac8779e31d4a0c6029dfb76873c7428b"
   integrity sha512-mOp8wKcvj7XxC78zLgw/ZA+6TSgkoE2C/ienthhRD298T7UNwAg9diBpLRxC0mOezLl4B0xV7M0cCO6P/O0Xhw==
-  dependencies:
-    ms "2.1.2"
-
-debug@4.3.3:
-  version "4.3.3"
-  resolved "https://registry.yarnpkg.com/debug/-/debug-4.3.3.tgz#04266e0b70a98d4462e6e288e38259213332b664"
-  integrity sha512-/zxw5+vh1Tfv+4Qn7a5nsbcJKPaSvCDhojn6FEl9vupwK2VCSDtEiEtqr8DFtzYFOdz63LBkxec7DYuc2jon6Q==
   dependencies:
     ms "2.1.2"
 
@@ -12359,7 +12382,7 @@ find-cache-dir@^2.0.0, find-cache-dir@^2.1.0:
     make-dir "^2.0.0"
     pkg-dir "^3.0.0"
 
-find-cache-dir@^3.2.0, find-cache-dir@^3.3.1:
+find-cache-dir@^3.2.0, find-cache-dir@^3.3.1, find-cache-dir@^3.3.2:
   version "3.3.2"
   resolved "https://registry.yarnpkg.com/find-cache-dir/-/find-cache-dir-3.3.2.tgz#b30c5b6eff0730731aea9bbd9dbecbd80256d64b"
   integrity sha512-wXZV5emFEjrridIgED11OoUKLxiYjAcqot/NJdAkOhlJ+vGzwhOAfcG5OX1jP+S0PcjEn8bdMJv+g2jwQ3Onig==
@@ -16505,11 +16528,6 @@ loader-utils@^1.2.3, loader-utils@^2.0.0, loader-utils@^2.0.4, loader-utils@~2.0
     emojis-list "^3.0.0"
     json5 "^2.1.2"
 
-local-pkg@0.4.1:
-  version "0.4.1"
-  resolved "https://registry.yarnpkg.com/local-pkg/-/local-pkg-0.4.1.tgz#e7b0d7aa0b9c498a1110a5ac5b00ba66ef38cfff"
-  integrity sha512-lL87ytIGP2FU5PWwNDo0w3WhIo2gopIAxPg9RxDYF7m4rr5ahuZxP22xnJHIvaLTe4Z9P6uKKY2UHiwyB4pcrw==
-
 local-pkg@^0.4.2:
   version "0.4.2"
   resolved "https://registry.yarnpkg.com/local-pkg/-/local-pkg-0.4.2.tgz#13107310b77e74a0e513147a131a2ba288176c2f"
@@ -19360,7 +19378,7 @@ path-type@^4.0.0:
   resolved "https://registry.yarnpkg.com/path-type/-/path-type-4.0.0.tgz#84ed01c0a7ba380afe09d90a8c180dcd9d03043b"
   integrity sha512-gDKb8aZMDeD/tZWs9P6+q0J9Mwkdl6xMV8TjnGP3qJVJ06bdMgkbBlLU8IdfOsIsFz2BW1rNVT3XuNEl8zPAvw==
 
-pathe@0.2.0, pathe@^0.2.0:
+pathe@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/pathe/-/pathe-0.2.0.tgz#30fd7bbe0a0d91f0e60bae621f5d19e9e225c339"
   integrity sha512-sTitTPYnn23esFR3RlqYBWn4c45WGeLcsKzQiUpXJAyfcWkolvlYpV8FLo7JishK946oQwMFUCHXQ9AjGPKExw==
@@ -21908,6 +21926,16 @@ schema-utils@^3.0.0, schema-utils@^3.1.0, schema-utils@^3.1.1:
     ajv "^6.12.5"
     ajv-keywords "^3.5.2"
 
+schema-utils@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/schema-utils/-/schema-utils-4.0.0.tgz#60331e9e3ae78ec5d16353c467c34b3a0a1d3df7"
+  integrity sha512-1edyXKgh6XnJsJSQ8mKWXnN/BVaIbFMLpouRUrXgVq7WYne5kw3MW7UPhO44uRXQSIpTSXoJbmrR2X0w9kUTyg==
+  dependencies:
+    "@types/json-schema" "^7.0.9"
+    ajv "^8.8.0"
+    ajv-formats "^2.1.1"
+    ajv-keywords "^5.0.0"
+
 scule@^0.3.2:
   version "0.3.2"
   resolved "https://registry.yarnpkg.com/scule/-/scule-0.3.2.tgz#472445cecd8357165a94a067f78cee40e700b596"
@@ -23647,7 +23675,7 @@ ts-morph@^16.0.0:
     "@ts-morph/common" "~0.17.0"
     code-block-writer "^11.0.3"
 
-ts-node@^10.2.1, ts-node@^10.7.0, ts-node@^10.8.1:
+ts-node@^10.7.0, ts-node@^10.8.1, ts-node@^10.9.1:
   version "10.9.1"
   resolved "https://registry.yarnpkg.com/ts-node/-/ts-node-10.9.1.tgz#e73de9102958af9e1f0b168a6ff320e25adcff4b"
   integrity sha512-NtVysVPkxxrwFGUUxGYhfux8k78pQB3JqYBXlLRZgdGUqTO5wU/UyHop5p70iEbGhB7q5KmiZiU0Y3KlJrScEw==
@@ -23824,21 +23852,21 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha512-/aCDEGatGvZ2BIk+HmLf4ifCJFwvKFNb9/JeZPMulfgFracn9QFcAf5GO8B/mweUjSoblS5In0cWhqpfs/5PQA==
 
-typescript-json-schema@^0.54.0:
-  version "0.54.0"
-  resolved "https://registry.yarnpkg.com/typescript-json-schema/-/typescript-json-schema-0.54.0.tgz#b3fc42ad90df6a0f6ab57571ebc8b4d41125df4f"
-  integrity sha512-/MNhm1pjdxXiVspjjyRCrQAA1B768cRzHU83aIqN5vQqQEW2NgyyKOfcguiRIMM64lseIZIelegnHOHEu7YDCg==
+typescript-json-schema@^0.55.0:
+  version "0.55.0"
+  resolved "https://registry.yarnpkg.com/typescript-json-schema/-/typescript-json-schema-0.55.0.tgz#f268d27ac0b76284a929c6f72714c6ca4e1b5e20"
+  integrity sha512-BXaivYecUdiXWWNiUqXgY6A9cMWerwmhtO+lQE7tDZGs7Mf38sORDeQZugfYOZOHPZ9ulsD+w0LWjFDOQoXcwg==
   dependencies:
     "@types/json-schema" "^7.0.9"
     "@types/node" "^16.9.2"
     glob "^7.1.7"
     path-equal "^1.1.2"
     safe-stable-stringify "^2.2.0"
-    ts-node "^10.2.1"
-    typescript "~4.6.0"
+    ts-node "^10.9.1"
+    typescript "~4.8.2"
     yargs "^17.1.1"
 
-"typescript@^3 || ^4", typescript@^4.6.4, typescript@^4.8.4, typescript@~4.8.3, typescript@~4.8.4:
+"typescript@^3 || ^4", typescript@^4.6.4, typescript@^4.8.4, typescript@~4.8.2, typescript@~4.8.3, typescript@~4.8.4:
   version "4.8.4"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.8.4.tgz#c464abca159669597be5f96b8943500b238e60e6"
   integrity sha512-QCh+85mCy+h0IGff8r5XWzOVSbBO+KfeYrMQh7NJ58QujwcE22u+NUSmUxqF+un70P9GXKxa2HCNiTTMJknyjQ==
@@ -23847,11 +23875,6 @@ typescript@^4.9.3:
   version "4.9.3"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.9.3.tgz#3aea307c1746b8c384435d8ac36b8a2e580d85db"
   integrity sha512-CIfGzTelbKNEnLpLdGFgdyKhG23CKdKgQPOBc+OUNrkJ2vr+KSzsSV5kq5iWhEQbok+quxgGzrAtGWCyU7tHnA==
-
-typescript@~4.6.0:
-  version "4.6.4"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.6.4.tgz#caa78bbc3a59e6a5c510d35703f6a09877ce45e9"
-  integrity sha512-9ia/jWHIEbo49HfjrLGfKbZSuWo9iTMwXO+Ca3pRsSpbsMbc7/IU8NKdCZVRRBafVPGnoJeFL76ZOAA84I9fEg==
 
 ufo@^0.8.3, ufo@^0.8.5, ufo@^0.8.6:
   version "0.8.6"
@@ -24660,10 +24683,10 @@ vite-plugin-dts@^1.7.1:
     kolorist "^1.6.0"
     ts-morph "^16.0.0"
 
-vite-plugin-static-copy@^0.9.0:
-  version "0.9.0"
-  resolved "https://registry.yarnpkg.com/vite-plugin-static-copy/-/vite-plugin-static-copy-0.9.0.tgz#68a39b02d4fb7ca1d33d9e28b6a6b988abf6fab4"
-  integrity sha512-0h8esPoZn6zdTK8KoDbiZPJum7+Nw2t4oLTpu2i2haP2HmgysRH+Xy6FaE6lLyCpgODYR5RiRjbLH0UKUZpIPw==
+vite-plugin-static-copy@^0.12.0:
+  version "0.12.0"
+  resolved "https://registry.yarnpkg.com/vite-plugin-static-copy/-/vite-plugin-static-copy-0.12.0.tgz#a7dbdaccc67725124cd950dc06cb54cea28d3f09"
+  integrity sha512-5a8hCjYJdf/rl8s7ct/YWt97gXdGPGNSOoJtkY5IYhbnSq04X1gTt5GpFHKfAxhHoed1Grfw3Ed13t7AjJi7gw==
   dependencies:
     chokidar "^3.5.3"
     fast-glob "^3.2.11"

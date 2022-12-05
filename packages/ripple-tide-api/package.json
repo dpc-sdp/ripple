@@ -34,7 +34,7 @@
     "pathe": "^0.3.9",
     "qs": "^6.10.3",
     "ts-json-schema-generator": "^1.1.2",
-    "typescript-json-schema": "^0.54.0",
+    "typescript-json-schema": "^0.55.0",
     "winston": "^3.8.2"
   },
   "devDependencies": {

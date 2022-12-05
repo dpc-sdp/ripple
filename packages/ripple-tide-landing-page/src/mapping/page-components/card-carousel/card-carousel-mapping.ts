@@ -5,6 +5,7 @@ import {
 } from './event-mapping.js'
 import { mapping as customMapping } from './custom-mapping.js'
 import { TideDynamicPageComponent } from '@dpc-sdp/ripple-tide-api/types'
+import { TideImageField } from '@dpc-sdp/ripple-tide-api'
 
 export interface ITideCardCarouselItemMeta {
   topic?: string | null
@@ -26,7 +27,7 @@ export interface ITideCardCarouselItem {
   caption?: string
   alt?: string
   thumbnail?: string | null
-  image?: string | null
+  image?: TideImageField | null
   summary?: string | null
   meta?: ITideCardCarouselItemMeta
   keyDates?: ITideCardCarouselKeyDates[]

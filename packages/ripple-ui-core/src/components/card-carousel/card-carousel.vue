@@ -32,7 +32,7 @@ withDefaults(defineProps<Props>(), {
           :highlight="!card.image"
         >
           <template v-if="card?.meta" #meta>
-            <span class="rpl-card__topic" v-if="card.meta?.topic">
+            <span v-if="card.meta?.topic" class="rpl-card__topic">
               {{ card.meta.topic }}
             </span>
             <span v-if="card?.meta?.dateStart && card?.meta?.dateEnd">

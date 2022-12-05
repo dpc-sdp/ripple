@@ -1,4 +1,4 @@
-import { getField } from '@dpc-sdp/ripple-tide-api'
+import { getField, getImageFromField } from '@dpc-sdp/ripple-tide-api'
 
 export const query = {
   include: [
@@ -24,7 +24,7 @@ export const mapping = (field) => ({
   type: 'promo',
   title: getField(field, 'title', ''),
   url: getField(field, 'path.url', ''),
-  image: getField(field, 'field_featured_image.thumbnail.url', null),
+  image: getImageFromField(field, 'field_featured_image.field_media_image'),
   meta: {
     topic: getField(field, 'field_topic.name', null),
     dateStart: getField(

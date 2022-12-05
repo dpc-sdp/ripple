@@ -1,12 +1,13 @@
 <script setup lang="ts">
-import { RplCardCarousel } from '@dpc-sdp/ripple-ui-core'
 import { computed } from 'vue'
+import { RplCardCarousel } from '@dpc-sdp/ripple-ui-core'
+import { ITideCardCarouselItem } from '../mapping/page-components/card-carousel/card-carousel-mapping'
 
 const props =
   defineProps<{
     id: string
     title: string
-    items: Array<any>
+    items: ITideCardCarouselItem[]
     hasSidebar: boolean
   }>()
 

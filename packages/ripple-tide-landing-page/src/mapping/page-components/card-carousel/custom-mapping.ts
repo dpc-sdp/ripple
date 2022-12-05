@@ -1,4 +1,4 @@
-import { getField } from '@dpc-sdp/ripple-tide-api'
+import { getField, getImageFromField } from '@dpc-sdp/ripple-tide-api'
 
 export const mapping = (field) => {
   let item = {}
@@ -9,7 +9,10 @@ export const mapping = (field) => {
         type: 'promo',
         title: getField(field, 'field_paragraph_title', ''),
         url: getField(field, 'field_paragraph_cta.url', ''),
-        image: getField(field, 'field_paragraph_media.thumbnail.url', ''),
+        image: getImageFromField(
+          field,
+          'field_paragraph_media.field_media_image'
+        ),
         meta: {
           topic: getField(field, 'field_topic.name', null),
           dateStart: getField(field, 'field_paragraph_date_range.value', null),
@@ -24,15 +27,13 @@ export const mapping = (field) => {
         title: getField(field, 'field_paragraph_reference.title', ''),
         url: getField(field, 'field_paragraph_reference.path.url', ''),
         image:
-          getField(
+          getImageFromField(
             field,
-            'field_paragraph_reference.field_featured_image.field_media_image.url',
-            ''
+            'field_paragraph_reference.field_featured_image.field_media_image'
           ) ||
-          getField(
+          getImageFromField(
             field,
-            'field_paragraph_reference.field_media_image.url',
-            null
+            'field_paragraph_reference.field_media_image'
           ),
         meta: {
           topic: getField(field, 'field_topic.name', null),
@@ -71,7 +72,10 @@ export const mapping = (field) => {
         type: 'promo',
         title: getField(field, 'field_paragraph_title', ''),
         url: getField(field, 'field_paragraph_link.url', ''),
-        image: getField(field, 'field_paragraph_media.thumbnail.url', null),
+        image: getImageFromField(
+          field,
+          'field_paragraph_media.field_media_image'
+        ),
         meta: {
           topic: getField(field, 'field_paragraph_topic.[0].name', null),
           date: getField(field, 'field_paragraph_date', null)
@@ -84,10 +88,9 @@ export const mapping = (field) => {
         type: 'promo',
         title: getField(field, 'field_paragraph_reference.title', ''),
         url: getField(field, 'field_paragraph_reference.path.url', ''),
-        image: getField(
+        image: getImageFromField(
           field,
-          'field_paragraph_reference.field_media_image.url',
-          null
+          'field_paragraph_reference.field_media_image'
         ),
         meta: {
           topic: getField(field, 'field_paragraph_display_topic', false)

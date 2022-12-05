@@ -12,8 +12,15 @@ describe('cardCarouselMapping', () => {
         type: 'promo',
         title: 'Event title',
         url: '/demo-event',
-        image:
-          'https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Aerial-shot-of-new-housing-development.jpg',
+        image: {
+          alt: 'Demo: Aerial shot of new housing development',
+          drupal_internal__target_id: 42,
+          focalPoint: undefined,
+          height: 571,
+          src: 'https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Aerial-shot-of-new-housing-development.jpg',
+          title: 'Demo: Aerial shot of new housing development',
+          width: 1024
+        },
         meta: {
           dateStart: '2022-12-01T09:30:00+11:00',
           dateEnd: '2022-12-31T17:00:00+11:00',
@@ -25,8 +32,15 @@ describe('cardCarouselMapping', () => {
         type: 'promo',
         title: 'Demo Event',
         url: '/demo-event',
-        image:
-          'https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg',
+        image: {
+          alt: 'Demo: Melbourne tram',
+          drupal_internal__target_id: 45,
+          focalPoint: undefined,
+          height: 785,
+          src: 'https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg',
+          title: 'Demo: Melbourne tram',
+          width: 1413
+        },
         meta: {
           dateStart: '2019-07-02T09:00:00+1000',
           dateEnd: '2019-07-07T10:00:00+1000',
@@ -56,8 +70,15 @@ describe('cardCarouselMapping', () => {
         type: 'promo',
         title: 'Promotion Card',
         url: '/sdpta-promotion-card-landing-page-fixture',
-        image:
-          'https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Engage-Vic-photo-hero.jpeg',
+        image: {
+          alt: 'Demo: Engage Vic Hero',
+          drupal_internal__target_id: 52,
+          focalPoint: undefined,
+          height: 500,
+          src: 'https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Engage-Vic-photo-hero.jpeg',
+          title: 'Engage Vic',
+          width: 737
+        },
         meta: {
           topic: 'Demo Topic',
           date: '2022-11-03T03:15:00+11:00'
@@ -88,8 +109,15 @@ describe('cardCarouselMapping', () => {
         type: 'promo',
         title: 'News for CC 1',
         url: '/news-cc-1',
-        image:
-          'https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg',
+        image: {
+          alt: 'Demo: Melbourne tram',
+          drupal_internal__target_id: 45,
+          focalPoint: undefined,
+          height: 785,
+          src: 'https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg',
+          title: 'Demo: Melbourne tram',
+          width: 1413
+        },
         meta: {
           topic: 'Content Collection Topic 1',
           date: '2050-07-02T10:00:00+11:00'
@@ -113,8 +141,15 @@ describe('cardCarouselMapping', () => {
         type: 'promo',
         title: 'SDPTA: news page news - fixture',
         url: '/sdpta-news-page-news-fixture-0',
-        image:
-          'https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/2018-19-State-Budget.jpg',
+        image: {
+          alt: 'Demo: 2018-19 State Budget',
+          drupal_internal__target_id: 41,
+          focalPoint: undefined,
+          height: 270,
+          src: 'https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/2018-19-State-Budget.jpg',
+          title: 'Demo: 2018-19 State Budget',
+          width: 450
+        },
         meta: {
           topic: 'Another Demo Topic',
           date: '2022-12-01T10:33:47+11:00'
@@ -147,8 +182,15 @@ describe('cardCarouselMapping', () => {
         type: 'promo',
         title: 'SDPTA: Test News page - fixture',
         url: '/sdpta-test-news-page-fixture-0',
-        image:
-          'https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/2018-19-State-Budget.jpg',
+        image: {
+          alt: 'Demo: 2018-19 State Budget',
+          drupal_internal__target_id: 41,
+          focalPoint: undefined,
+          height: 270,
+          src: 'https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/2018-19-State-Budget.jpg',
+          title: 'Demo: 2018-19 State Budget',
+          width: 450
+        },
         meta: {
           topic: 'Another Demo Topic',
           date: '2022-12-01T10:01:08+11:00'
@@ -159,8 +201,15 @@ describe('cardCarouselMapping', () => {
         type: 'promo',
         title: 'SDPTA: news page news - fixture',
         url: '/sdpta-news-page-news-fixture',
-        image:
-          'https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/2018-19-State-Budget.jpg',
+        image: {
+          alt: 'Demo: 2018-19 State Budget',
+          drupal_internal__target_id: 41,
+          focalPoint: undefined,
+          height: 270,
+          src: 'https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/2018-19-State-Budget.jpg',
+          title: 'Demo: 2018-19 State Budget',
+          width: 450
+        },
         meta: {
           topic: 'Another Demo Topic',
           date: '2022-12-01T09:54:47+11:00'
@@ -200,8 +249,15 @@ describe('cardCarouselMapping', () => {
         type: 'promo',
         title: '2-BE-event-1',
         url: '/2-be-event-1',
-        image:
-          'https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg',
+        image: {
+          alt: 'Demo: Melbourne tram',
+          drupal_internal__target_id: 45,
+          focalPoint: undefined,
+          height: 785,
+          src: 'https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg',
+          title: 'Demo: Melbourne tram',
+          width: 1413
+        },
         meta: {
           dateStart: '2019-05-20T21:02:20+1000',
           dateEnd: '2019-05-20T21:11:01+1000',
@@ -214,8 +270,15 @@ describe('cardCarouselMapping', () => {
         type: 'promo',
         title: 'Demo Event',
         url: '/demo-event',
-        image:
-          'https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg',
+        image: {
+          alt: 'Demo: Melbourne tram',
+          drupal_internal__target_id: 45,
+          focalPoint: undefined,
+          height: 785,
+          src: 'https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg',
+          title: 'Demo: Melbourne tram',
+          width: 1413
+        },
         meta: {
           dateStart: '2019-07-02T09:00:00+1000',
           dateEnd: '2019-07-07T10:00:00+1000',
@@ -228,8 +291,15 @@ describe('cardCarouselMapping', () => {
         type: 'promo',
         title: 'Roulette Aerial Display - demo',
         url: '/roulette-aerial-display-demo',
-        image:
-          'https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/roulette-aerial-display-card.jpg',
+        image: {
+          alt: 'Demo: Roulette aerial display',
+          drupal_internal__target_id: 55,
+          focalPoint: undefined,
+          height: 496,
+          src: 'https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/roulette-aerial-display-card.jpg',
+          title: 'Demo: Roulette aerial display',
+          width: 818
+        },
         meta: {
           dateStart: '2022-01-26T23:30:00+1100',
           dateEnd: '2022-01-26T23:45:00+1100',

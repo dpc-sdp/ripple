@@ -40,7 +40,6 @@ export const getAriaDescribedBy = (node: FormKitNode): void => {
   node.on('created', () => {
     if (node.context?.fns) {
       node.context.fns.getAriaDescribedBy = () => {
-        console.log(node)
         const helpId = `${node.context.id}__help`
         const errorId = `${node.context.id}__error`
 
@@ -53,8 +52,6 @@ export const getAriaDescribedBy = (node: FormKitNode): void => {
         if (node.context.help) {
           describedBy.push(helpId)
         }
-
-        console.log(describedBy.join(' '))
 
         return describedBy.join(' ')
       }

@@ -575,6 +575,71 @@
           }
         ]
       }
+    },
+    {
+      "uuid": "pd9356djw-f5c2-4ae5-8b0f-54664945bcf9",
+      "component": "TideLandingPageCardCarousel",
+      "id": "1155",
+      "props": {
+        "items": [
+          {
+            "type":"promo",
+            "title":"Sample title",
+            "url":"/sample-page",
+            "image":{
+              "alt":"Demo: Aerial shot of new housing development",
+              "drupal_internal__target_id":42,
+              "focalPoint":null,
+              "height":571,
+              "src":"https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Aerial-shot-of-new-housing-development.jpg",
+              "title":"Demo: Aerial shot of new housing development",
+              "width":1024
+            },
+            "meta":{
+              "dateStart":"2022-12-01T09:30:00+11:00",
+              "dateEnd":"2022-12-31T17:00:00+11:00",
+              "topic":"Health"
+            },
+            "summary":"Sample Card Summary"
+          },
+          {
+            "type":"promo",
+            "title":"Promotion title",
+            "url":"/promo-page",
+            "image":{
+              "alt":"Demo: Engage Vic Hero",
+              "drupal_internal__target_id":52,
+              "focalPoint":null,
+              "height":500,
+              "src":"https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Engage-Vic-photo-hero.jpeg",
+              "title":"Engage Vic",
+              "width":737
+            },
+            "meta":{
+              "topic":"Environment",
+              "date":"2022-11-03T03:15:00+11:00"
+            },
+            "summary":"Promotion Card summary"
+          },
+          {
+            "type":"keydates",
+            "url":"/another-keydates-page",
+            "title":"Key dates heading",
+            "keyDates":[
+              {
+                "title":"April 16th",
+                "subtitle":"Key subtitle 1",
+                "content":"Key content 1"
+              },
+              {
+                "title":"December 1st",
+                "subtitle":"Key subtitle 2",
+                "content":"Key content 2"
+              }
+            ]
+          }
+        ]
+      }
     }
   ]
 }

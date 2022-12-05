@@ -32,17 +32,24 @@ withDefaults(defineProps<Props>(), {
           :highlight="!card.image"
         >
           <template v-if="card?.meta" #meta>
-            <span v-if="card.meta?.topic" class="rpl-card__topic">
+            <span
+              v-if="card.meta?.topic"
+              class="rpl-card__topic"
+              data-cy="topic"
+            >
               {{ card.meta.topic }}
             </span>
-            <span v-if="card?.meta?.dateStart && card?.meta?.dateEnd">
+            <span
+              v-if="card?.meta?.dateStart && card?.meta?.dateEnd"
+              data-cy="date"
+            >
               {{
                 formatDateRange(card.meta.dateStart, card.meta.dateEnd, {
                   month: 'short'
                 })
               }}
             </span>
-            <span v-if="card?.meta?.date">
+            <span v-if="card?.meta?.date" data-cy="date">
               {{ formatDate(card.meta.date) }}
             </span>
           </template>

@@ -137,11 +137,31 @@ Feature: Home page
       | title                     | summary                 | ctaText       | image                                                                                                                         |
       | Test call to action title | This is the description | Test CTA text | https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Two-men-working-in-hi-vis-clothing.jpg |
 
-
   @mockserver
   Scenario: Page component - Stats grid
     Then a stats grid with ID "1028" should exist with the following items
       | label   | value   |
       | Label 1 | Value 1 |
       | Label 2 | Value 2 |
+
+  @mockserver
+  Scenario: Page component - Card carousel
+    Given a card carousel with ID "1155" should exist
+    Then the card carousel with ID "1155" should contain the following promo cards
+      | title           | date            | content                | url          | image                                                                                                                             |
+      | Sample title    | 01 Dec - 31 Dec | Sample Card Summary    | /sample-page | https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Aerial-shot-of-new-housing-development.jpg |
+      | Promotion title | 3 Nov 2022      | Promotion Card summary | /promo-page  | https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Engage-Vic-photo-hero.jpeg                 |
+    And the carousel with ID "1155" should contain a key dates card with the title "Key calendar dates" and the following entries
+      | title        | subtitle       | content       |
+      | April 16th   | Key subtitle 1 | Key content 1 |
+      | December 1st | Key subtitle 2 | Key content 2 |
+
+  @mockserver
+  Scenario: Page component - Card carousel (Pagination)
+    When I click the button "Next" on the carousel with ID "1155"
+    Then the active carousel item on "1155" should be "2"
+    And the pagination button "Next" on "1155" should be disabled
+    When I click the button "Previous" on the carousel with ID "1155"
+    Then the active carousel item on "1155" should be "1"
+    And the pagination button "Previous" on "1155" should be disabled
 

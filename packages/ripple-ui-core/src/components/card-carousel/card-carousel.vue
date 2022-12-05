@@ -3,12 +3,12 @@ export default { name: 'RplCardCarousel' }
 </script>
 
 <script setup lang="ts">
-import RplTag from '../tag/tag.vue'
 import RplPromoCard from '../card/promo-card.vue'
 import RplKeyDatesCard from '../card/key-dates-card.vue'
 import RplSlider from '../slider/slider.vue'
 import { RplCardCarouselItem } from './constants'
 import { RplSlidesPerView } from '../slider/constants'
+import { formatDate, formatDateRange } from '../../lib/helpers'
 
 interface Props {
   perView?: RplSlidesPerView
@@ -32,16 +32,18 @@ withDefaults(defineProps<Props>(), {
           :highlight="!card.image"
         >
           <template v-if="card?.meta" #meta>
-            <RplTag
-              v-if="card.meta?.topic"
-              :label="card.meta.topic"
-              variant="neutral"
-            />
+            <span class="rpl-card__topic" v-if="card.meta?.topic">
+              {{ card.meta.topic }}
+            </span>
             <span v-if="card?.meta?.dateStart && card?.meta?.dateEnd">
-              {{ card.meta.dateStart }} to {{ card.meta.dateEnd }}
+              {{
+                formatDateRange(card.meta.dateStart, card.meta.dateEnd, {
+                  month: 'short'
+                })
+              }}
             </span>
             <span v-if="card?.meta?.date">
-              {{ card.meta.date }}
+              {{ formatDate(card.meta.date) }}
             </span>
           </template>
           <p v-if="card.summary">{{ card.summary }}</p>

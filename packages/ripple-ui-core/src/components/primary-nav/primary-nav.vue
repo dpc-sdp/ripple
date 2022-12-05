@@ -23,7 +23,7 @@ interface Props {
   showQuickExit?: boolean
 }
 
-const props = withDefaults(defineProps<Props>(), {
+withDefaults(defineProps<Props>(), {
   secondaryLogo: undefined,
   showSearch: true,
   showQuickExit: true
@@ -127,11 +127,11 @@ watch(isExpanded, (newValue) => {
     <div class="rpl-primary-nav__inner">
       <!-- Nav bar -->
       <RplPrimaryNavBar
-        :primary-logo="props.primaryLogo"
-        :secondary-logo="props.secondaryLogo"
+        :primary-logo="primaryLogo"
+        :secondary-logo="secondaryLogo"
         :items="items"
-        :show-search="props.showSearch"
-        :show-quick-exit="props.showQuickExit"
+        :show-search="showSearch"
+        :show-quick-exit="showQuickExit"
         :is-mega-nav-active="isMegaNavActive"
         :is-search-active="isSearchActive"
         :is-item-expanded="isNavItemActive"
@@ -147,8 +147,8 @@ watch(isExpanded, (newValue) => {
       <!-- Mega menu -->
       <RplPrimaryNavMegaMenu
         v-if="isMegaNavActive"
-        :items="props.items"
-        :show-quick-exit="props.showQuickExit"
+        :items="items"
+        :show-quick-exit="showQuickExit"
         :is-item-active="isNavItemActive"
         :toggle-item="toggleNavItem"
       >
@@ -160,7 +160,7 @@ watch(isExpanded, (newValue) => {
       <!-- Search form -->
       <RplPrimaryNavSearchForm
         v-if="isSearchActive"
-        :show-quick-exit="props.showQuickExit"
+        :show-quick-exit="showQuickExit"
       />
     </div>
   </nav>

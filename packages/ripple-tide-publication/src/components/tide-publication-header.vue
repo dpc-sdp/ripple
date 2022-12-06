@@ -17,8 +17,10 @@ export default { name: 'TidePublicationHeader' }
 <script setup lang="ts">
 import type { TidePublicationHeader } from '../types'
 
-defineProps<{
+interface Props {
   header: TidePublicationHeader
   hasBreadcrumbs: boolean
-}>()
+}
+
+defineProps<Props>()
 </script>

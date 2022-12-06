@@ -40,7 +40,10 @@ const props = defineProps<Props>()
     >
       <!-- Primary logo -->
       <a
-        class="rpl-primary-nav__primary-logo-link rpl-u-focusable-outline"
+        class="
+          rpl-primary-nav__primary-logo-link
+          rpl-u-focusable-outline rpl-u-focusable-outline--no-border
+        "
         :href="props.primaryLogo.href"
       >
         <img
@@ -59,7 +62,10 @@ const props = defineProps<Props>()
       <!-- Secondary logo -->
       <a
         v-if="props.secondaryLogo"
-        class="rpl-primary-nav__secondary-logo-link rpl-u-focusable-outline"
+        class="
+          rpl-primary-nav__secondary-logo-link
+          rpl-u-focusable-outline rpl-u-focusable-outline--no-border
+        "
         :href="props.secondaryLogo.href"
       >
         <img
@@ -145,7 +151,6 @@ const props = defineProps<Props>()
                 rpl-primary-nav__nav-bar-icon
                 rpl-primary-nav__nav-bar-icon--large
                 rpl-primary-nav__nav-bar-icon--search
-                rpl-u-margin-l-2
               "
               ><RplIcon name="icon-search"></RplIcon>
             </span>
@@ -157,7 +162,6 @@ const props = defineProps<Props>()
                 rpl-primary-nav__nav-bar-icon
                 rpl-primary-nav__nav-bar-icon--large
                 rpl-primary-nav__nav-bar-icon--search
-                rpl-u-margin-l-2
               "
               ><RplIcon name="icon-cancel"></RplIcon>
             </span>

@@ -58,7 +58,7 @@
 
   .rpl-primary-nav--expanded & {
     transition: height var(--rpl-motion-speed-6) ease-in,
-      background-color var(--rpl-motion-speed-6) ease-in;
+      background-color var(--rpl-motion-speed-3) ease-in;
     background-color: var(--rpl-clr-primary-alt);
     /* 100vh - top and bottom margin */
     height: calc(100vh - (var(--rpl-sp-3) * 2));
@@ -111,8 +111,8 @@
 
 .rpl-primary-nav__logo-divider {
   display: none;
-  border-left: solid 1px var(--rpl-clr-type-primary-contrast);
-  height: var(--rpl-sp-4);
+  border-left: solid 2px var(--rpl-clr-type-primary-contrast);
+  height: var(--rpl-sp-6);
   margin: 0 var(--rpl-sp-4);
 
   @media (--rpl-bp-s) {
@@ -134,10 +134,10 @@
 /* Nav bar */
 .rpl-primary-nav__nav-bar-actions-list {
   display: flex;
-  padding-right: var(--rpl-sp-4);
+  padding-right: calc(var(--rpl-sp-4) - 10px);
 
   @media (--rpl-bp-s) {
-    padding-right: var(--rpl-sp-5);
+    padding-right: calc(var(--rpl-sp-5) - 10px);
   }
 
   a,
@@ -146,14 +146,15 @@
     align-items: center;
     max-width: 172px;
     height: 48px;
-    padding: var(--rpl-sp-2) 10px;
-    color: white;
+    padding: var(--rpl-sp-2) 16px;
+    color: var(--rpl-clr-type-primary-contrast);
     text-decoration: none;
     text-align: center;
     white-space: nowrap;
 
     @media (--rpl-bp-s) {
       height: 52px;
+      padding: var(--rpl-sp-2) 10px;
     }
 
     @media (--rpl-bp-m) {
@@ -164,15 +165,25 @@
       white-space: normal;
     }
 
-    &.rpl-primary-nav__nav-bar-action--active {
+    &.rpl-primary-nav__nav-bar-action--active,
+    &:hover {
       text-decoration: underline;
+      text-decoration-thickness: 2px;
     }
   }
 }
 
 .rpl-primary-nav__nav-bar-mobile-menu-toggle-container {
-  @media (--rpl-bp-l) {
-    display: none;
+  .rpl-primary-nav--collapse-until-l & {
+    @media (--rpl-bp-l) {
+      display: none;
+    }
+  }
+
+  .rpl-primary-nav--collapse-until-xl & {
+    @media (--rpl-bp-xl) {
+      display: none;
+    }
   }
 
   .rpl-primary-nav__nav-bar--search-active & {
@@ -181,7 +192,7 @@
 }
 
 .rpl-primary-nav__nav-bar-mobile-menu-divider {
-  border-left: solid 1px var(--rpl-clr-type-primary-contrast);
+  border-left: solid var(--rpl-border-1) var(--rpl-clr-type-primary-contrast);
   height: var(--rpl-sp-4);
   margin: var(--rpl-sp-4) 0;
 
@@ -198,8 +209,16 @@
 .rpl-primary-nav__nav-bar-user-action {
   display: none;
 
-  @media (--rpl-bp-l) {
-    display: block;
+  .rpl-primary-nav--collapse-until-l & {
+    @media (--rpl-bp-l) {
+      display: block;
+    }
+  }
+
+  .rpl-primary-nav--collapse-until-xl & {
+    @media (--rpl-bp-xl) {
+      display: block;
+    }
   }
 
   .rpl-primary-nav__nav-bar--search-active & {
@@ -218,10 +237,8 @@
   }
 
   &.rpl-primary-nav__nav-bar-icon--search {
-    margin-right: var(--rpl-sp-2);
-
     @media (--rpl-bp-s) {
-      margin-right: 0;
+      margin-left: var(--rpl-sp-2);
     }
   }
 
@@ -303,10 +320,18 @@
 }
 
 .rpl-primary-nav__mega-menu-user-action {
-  /* Hide the mega menu user action slot on desktop because it will appear in
-  the nav bar */
-  @media (--rpl-bp-l) {
-    display: none;
+  /* Hide the mega menu user action slot when the desktop version is active
+  because it will appear in the nav bar */
+  .rpl-primary-nav--collapse-until-l & {
+    @media (--rpl-bp-l) {
+      display: none;
+    }
+  }
+
+  .rpl-primary-nav--collapse-until-xl & {
+    @media (--rpl-bp-xl) {
+      display: none;
+    }
   }
 }
 
@@ -370,8 +395,16 @@
   margin-bottom: var(--rpl-sp-8);
   cursor: pointer;
 
-  @media (--rpl-bp-l) {
-    display: none;
+  .rpl-primary-nav--collapse-until-l & {
+    @media (--rpl-bp-l) {
+      display: none;
+    }
+  }
+
+  .rpl-primary-nav--collapse-until-xl & {
+    @media (--rpl-bp-xl) {
+      display: none;
+    }
   }
 }
 
@@ -396,11 +429,19 @@
 }
 
 .rpl-primary-nav__mega-menu-list {
-  /* Hide the level 1 mega menu list on desktop because the nav bar will show
-  it instead */
+  /* Hide the level 1 mega menu list when the desktop version is active because
+  the nav bar will show it instead */
   &.rpl-primary-nav__mega-menu-list--level-1 {
-    @media (--rpl-bp-l) {
-      display: none;
+    .rpl-primary-nav--collapse-until-l & {
+      @media (--rpl-bp-l) {
+        display: none;
+      }
+    }
+
+    .rpl-primary-nav--collapse-until-xl & {
+      @media (--rpl-bp-xl) {
+        display: none;
+      }
     }
   }
 

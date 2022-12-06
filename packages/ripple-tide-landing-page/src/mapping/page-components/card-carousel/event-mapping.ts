@@ -1,11 +1,8 @@
-import { getField, getImageFromField } from '@dpc-sdp/ripple-tide-api'
+import { getField } from '@dpc-sdp/ripple-tide-api'
+import { baseIncludes, baseMapping } from './base-mapping.js'
 
 export const query = {
-  include: [
-    'field_event_details',
-    'field_featured_image',
-    'field_featured_image.field_media_image'
-  ],
+  include: [...baseIncludes, 'field_event_details'],
   page: {
     offset: 0,
     limit: 6
@@ -20,23 +17,24 @@ export const query = {
   }
 }
 
-export const mapping = (field) => ({
-  type: 'promo',
-  title: getField(field, 'title', ''),
-  url: getField(field, 'path.url', ''),
-  image: getImageFromField(field, 'field_featured_image.field_media_image'),
-  meta: {
-    topic: getField(field, 'field_topic.name', null),
-    dateStart: getField(
-      field,
-      'field_event_details.[0].field_paragraph_date_range.value',
-      null
-    ),
-    dateEnd: getField(
-      field,
-      'field_event_details.[0].field_paragraph_date_range.end_value',
-      null
-    )
-  },
-  summary: getField(field, 'field_landing_page_summary', '')
-})
+export const mapping = (field) => {
+  const baseFields = baseMapping(field)
+
+  return {
+    type: 'promo',
+    ...baseFields,
+    meta: {
+      ...baseFields.meta,
+      dateStart: getField(
+        field,
+        'field_event_details.[0].field_paragraph_date_range.value',
+        null
+      ),
+      dateEnd: getField(
+        field,
+        'field_event_details.[0].field_paragraph_date_range.end_value',
+        null
+      )
+    }
+  }
+}

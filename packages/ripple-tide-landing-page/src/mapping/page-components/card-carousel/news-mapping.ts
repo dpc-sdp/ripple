@@ -1,11 +1,8 @@
-import { getField, getImageFromField } from '@dpc-sdp/ripple-tide-api'
+import { getField } from '@dpc-sdp/ripple-tide-api'
+import { baseIncludes, baseMapping } from './base-mapping.js'
 
 export const query = {
-  include: [
-    'field_topic',
-    'field_featured_image',
-    'field_featured_image.field_media_image'
-  ],
+  include: [...baseIncludes, 'field_topic'],
   page: {
     offset: 0,
     limit: 9
@@ -18,14 +15,15 @@ export const query = {
   }
 }
 
-export const mapping = (field) => ({
-  type: 'promo',
-  title: getField(field, 'title', ''),
-  url: getField(field, 'path.url', ''),
-  image: getImageFromField(field, 'field_featured_image.field_media_image'),
-  meta: {
-    topic: getField(field, 'field_topic.name', null),
-    date: getField(field, 'field_news_date', null)
-  },
-  summary: getField(field, 'field_landing_page_summary', '')
-})
+export const mapping = (field) => {
+  const baseFields = baseMapping(field)
+
+  return {
+    type: 'promo',
+    ...baseFields,
+    meta: {
+      ...baseFields.meta,
+      date: getField(field, 'field_news_date', null)
+    }
+  }
+}

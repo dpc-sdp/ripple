@@ -640,6 +640,36 @@
           }
         ]
       }
+    },
+    {
+      "uuid":"5288de89-f5c2-4ae5-8b0f-54664945bcf9",
+      "component":"TideLandingPageMediaGallery",
+      "id":"1056",
+      "props":{
+        "items":[
+          {
+            "title":"Media title one",
+            "caption":"The first media caption",
+            "alt":"Demo: 2018-19 State Budget",
+            "thumbnail":"https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/2018-19-State-Budget.jpg",
+            "image":"https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/2018-19-State-Budget.jpg"
+          },
+          {
+            "title":"Media title two",
+            "caption":"The second media caption",
+            "alt":"Demo: Aerial shot of new housing development",
+            "thumbnail":"https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Aerial-shot-of-new-housing-development.jpg",
+            "image":"https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Aerial-shot-of-new-housing-development.jpg"
+          },
+          {
+            "title":"Media title three",
+            "caption":"The third media caption",
+            "alt":"Demo: Bendigo Hospital",
+            "thumbnail":"https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Bendigo-Hospital.jpg",
+            "image":"https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Bendigo-Hospital.jpg"
+          }
+        ]
+      }
     }
   ]
 }

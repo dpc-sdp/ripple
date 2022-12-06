@@ -21,7 +21,7 @@ export interface ITideCardCarouselKeyDates {
 }
 
 export interface ITideCardCarouselItem {
-  type: string
+  type?: string
   title: string
   url: string
   caption?: string

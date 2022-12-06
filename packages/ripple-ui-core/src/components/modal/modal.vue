@@ -53,7 +53,7 @@ onUnmounted(() => {
 
 <template>
   <UseFocusTrap v-if="props.isOpen" :options="{ immediate: true }">
-    <div class="rpl-modal">
+    <div class="rpl-modal" data-cy="modal">
       <div class="rpl-modal__inner">
         <slot name="above">
           <div class="rpl-modal__actions">

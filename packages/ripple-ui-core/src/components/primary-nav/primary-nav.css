@@ -457,7 +457,7 @@
 .rpl-primary-nav__search-form {
   padding-top: var(--rpl-sp-4);
   padding-right: var(--rpl-sp-4);
-  padding-bottom: var(--rpl-sp-8);
+  padding-bottom: var(--rpl-sp-14);
   padding-left: var(--rpl-sp-4);
 
   @media (--rpl-bp-s) {
@@ -468,7 +468,6 @@
   @media (--rpl-bp-l) {
     padding-top: var(--rpl-sp-7);
     padding-right: var(--rpl-sp-10);
-    padding-bottom: var(--rpl-sp-9);
     padding-left: var(--rpl-sp-10);
   }
 
@@ -492,6 +491,9 @@
 }
 
 .rpl-primary-nav__search-bar-wrapper {
-  max-width: 684px;
   margin: 0 auto;
+
+  @media (--rpl-bp-l) {
+    max-width: 684px;
+  }
 }

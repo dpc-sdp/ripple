@@ -1,5 +1,5 @@
 <script lang="ts">
-export default { name: 'TideGrantHeader' }
+export default { name: 'TideEventHeader' }
 </script>
 
 <template>
@@ -15,10 +15,12 @@ export default { name: 'TideGrantHeader' }
 </template>
 
 <script setup lang="ts">
-import type { TideGrantHeader } from '../types'
+import type { TideEventHeader } from '../types'
 
-defineProps<{
-  header: TideGrantHeader
+interface Props {
+  header: TideEventHeader
   hasBreadcrumbs: boolean
-}>()
+}
+
+defineProps<Props>()
 </script>

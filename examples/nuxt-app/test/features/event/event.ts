@@ -1,7 +1,3 @@
----
-to: examples/nuxt-app/test/features/<%= h.changeCase.paramCase(name) %>/<%= h.changeCase.paramCase(name) %>.ts
----
-
 import { Then, Before, After } from '@badeball/cypress-cucumber-preprocessor'
 
 Before({ tags: '@mockserver' }, () => {

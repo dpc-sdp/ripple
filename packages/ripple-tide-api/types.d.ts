@@ -107,6 +107,11 @@ export type TideDynamicComponentGroup = {
   components: TideDynamicPageComponent<any>[]
 }
 
+export type TidePropRange = {
+  from: string | number
+  to: string | number
+}
+
 export interface RplTideModuleConfig {
   contentApi: {
     /**

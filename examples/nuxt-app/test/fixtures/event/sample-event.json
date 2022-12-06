@@ -1,0 +1,120 @@
+{
+  "title": "Demo Event",
+  "changed": "2022-12-01T09:17:45+11:00",
+  "created": "2022-12-01T09:17:45+11:00",
+  "type": "event",
+  "nid": "11dede11-10c0-111e1-1100-000000000310",
+  "sidebar": {
+    "contacts": [
+      {
+        "id": "cf88bfe7-0442-4e50-b76f-579dd682bd3f",
+        "contactTitle": "Victorian Government",
+        "contactName": "Victorian Government",
+        "department": "Department of Premier and Cabinet",
+        "email": "no-reply@vic.gov.au",
+        "locationAddress": {
+          "countryCode": "AU",
+          "administrativeArea": "VIC",
+          "locality": "Melbourne",
+          "postalCode": "3001",
+          "addressLine1": "Department of Premier and Cabinet",
+          "addressLine2": "GPO Box 4509"
+        },
+        "postalAddress": {
+          "countryCode": "AU",
+          "administrativeArea": "VIC",
+          "locality": "Melbourne",
+          "postalCode": "3001",
+          "addressLine1": "Department of Premier and Cabinet",
+          "addressLine2": "GPO Box 4509"
+        },
+        "phones": [
+          {
+            "id": "67562981-8930-4f41-a6c9-a481ee8c4530",
+            "title": "Calls in Australia",
+            "number": "1300 366 356"
+          },
+          {
+            "id": "44606919-b4db-4fdb-8b1a-791cdb382a3c",
+            "title": "Calls from overseas",
+            "number": "+61 3 9603 8804"
+          }
+        ],
+        "socialMedia": [
+          {
+            "id": "c7215a1d-6f2e-4404-98c5-8315fa16e61e",
+            "type": "twitter",
+            "text": "Twitter",
+            "url": "https://twitter.com/VicGovAu"
+          }
+        ]
+      }
+    ],
+    "relatedLinks": [
+      {
+        "id": "6c1aff34-f995-4f4a-ae46-ba724826bb5a",
+        "text": "State Government of Victoria",
+        "url": "https://www.vic.gov.au"
+      },
+      {
+        "id": "68148d2b-fd9e-4c44-91b1-2ef964120565",
+        "text": "Department of Premier and Cabinet",
+        "url": "https://www.vic.gov.au/department-premier-and-cabinet"
+      }
+    ],
+    "socialShareNetworks": ["Facebook", "Twitter", "LinkedIn"]
+  },
+  "topicTags": [
+    {
+      "url": ""
+    },
+    {
+      "url": ""
+    },
+    {
+      "url": ""
+    }
+  ],
+  "url": "/demo-event",
+  "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet ligula sit amet lacinia. In a leo nec tortor aliquet faucibus.",
+  "inPageNavHeadingLevel": "h2",
+  "header": {
+    "title": "Demo Event",
+    "summary": "Nulla ultricies dignissim leo, posuere vestibulum erat cursus vitae"
+  },
+  "breadcrumbs": {
+    "items": [
+      {
+        "label": "Home",
+        "url": "/"
+      },
+      {},
+      {
+        "label": "Demo Event"
+      }
+    ]
+  },
+  "date": {
+    "from": "2019-07-02T09:00:00+1000",
+    "to": "2019-07-07T10:00:00+1000"
+  },
+  "showTime": true,
+  "overview": [
+    {
+      "term": "Price:",
+      "description": "Free entry"
+    },
+    {
+      "term": "Location:",
+      "description": "\n Department of Premier and Cabinet, \n GPO Box 4509, \n Melbourne, \n VIC 3001\n"
+    }
+  ],
+  "details": [],
+  "description": "<p>Integer interdum nisl ut neque dictum, et sagittis metus feugiat. Sed in mattis neque. Duis at risus non ipsum semper dapibus. Sed enim sapien, molestie sed commodo vel, lacinia vitae risus. Proin sagittis diam nisi, sed rhoncus diam varius id. Sed malesuada felis tortor, scelerisque pretium elit tempor non. Pellentesque ultrices volutpat tincidunt. Fusce quis viverra urna, quis finibus nulla.</p>",
+  "body": "<h2>Nulla ultricies dignissim leo, posuere vestibulum erat cursus vitae</h2>\n<h3>Phasellus congue aliquam vehicula</h3>\n<p class=\"rpl-callout\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet ligula sit amet lacinia. In a leo nec tortor aliquet faucibus. Quisque nec congue ligula, vitae condimentum tellus. Nulla nec urna augue. Curabitur commodo nisi est, eu pulvinar tortor cursus vel. Morbi dictum ex est, et semper diam finibus eu. Cras rutrum, nunc a fringilla convallis, massa est vulputate velit, in blandit augue dui vitae elit. Donec hendrerit commodo augue, in maximus orci tempor congue. Mauris ultricies euismod orci, nec vehicula quam vehicula ac. Nunc dictum tortor dolor, nec eleifend orci luctus sed.</p>\n<h3>Donec scelerisque cursus ex varius efficitur</h3>\n<h4>Morbi cursus placerat mi</h4>\n<h5>Nullam laoreet ante placerat</h5>\n<p>Integer interdum nisl ut neque dictum, et sagittis metus feugiat. Sed in mattis neque. Duis at risus non ipsum semper dapibus. Sed enim sapien, molestie sed commodo vel, lacinia vitae risus. Proin sagittis diam nisi, sed rhoncus diam varius id. Sed malesuada felis tortor, scelerisque pretium elit tempor non. Pellentesque ultrices volutpat tincidunt. Fusce quis viverra urna, quis finibus nulla.</p>\n<blockquote class=\"quotation\">\n  <p>Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus. Phasellus lacus lectus, sollicitudin sed posuere non, ultricies ut quam.</p>\n  <footer><cite>\n      <span class=\"quotation__author\">Duis ligula lacus</span><br><span class=\"quotation__author-title\">Phasellus est turpis, efficitur nec odio imperdiet</span><br></cite>\n  </footer></blockquote>\nMauris tincidunt tincidunt felis vel tempus\n<img src=\"https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg\" class=\"rpl-img\" width=\"1413\" alt=\"Demo: Melbourne tram\" srcset=\"https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg?width=606,\n      https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg?width=1212 2x\">\n<p>Phasellus in varius leo. Suspendisse potenti. Donec scelerisque cursus ex varius efficitur. Vivamus pretium nisi sed libero accumsan mattis. Duis convallis, velit eget varius tempus, orci erat aliquam sem, eget porta mauris nisl at mauris.</p>\n<div data-embed-button=\"tide_media\" data-entity-embed-display=\"view_mode:media.embedded\" data-entity-type=\"media\" data-entity-uuid=\"11dede11-10c0-111e1-1100-000000000007\" data-langcode=\"en\" data-entity-embed-display-settings=\"[]\" class=\"embedded-entity embedded-entity--media embedded-entity--media--document\"><article class=\"media media--type-document media--view-mode-embedded\"><div class=\"field field--name-field-media-file field--type-file field--label-hidden field__item\">\n<span class=\"file file--mime-application-vnd-openxmlformats-officedocument-wordprocessingml-document file--x-office-document\"> <a href=\"https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/sample.docx\" class=\"x-office-document\" aria-label=\"Demo Sample Document File type: Word. Size: 7.53 KB.\"><span class=\"file--title\">Demo Sample Document</span><span class=\"file--type\">Word</span><span class=\"file--size\">7.53 KB</span></a></span>\n</div>\n      \n  </article></div>\n",
+  "link": {
+    "text": "Booking URL",
+    "url": "https://www.vic.gov.au"
+  },
+  "showLastUpdated": true
+}

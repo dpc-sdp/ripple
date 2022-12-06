@@ -17,7 +17,9 @@ export default { name: 'TidePublicationPageHeader' }
 <script setup lang="ts">
 import { TidePublicationPageHeader } from '../types'
 
-defineProps<{
+interface Props {
   header: TidePublicationPageHeader
-}>()
+}
+
+defineProps<Props>()
 </script>

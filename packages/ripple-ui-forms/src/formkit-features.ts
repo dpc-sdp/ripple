@@ -53,8 +53,6 @@ export const getAriaDescribedBy = (node: FormKitNode): void => {
           describedBy.push(helpId)
         }
 
-        console.log(describedBy.join(' '))
-
         return describedBy.join(' ')
       }
     }

@@ -30,9 +30,10 @@
   },
   "devDependencies": {
     "@badeball/cypress-cucumber-preprocessor": "^14.0.0",
+    "@nuxt/vite-builder": "^3.0.0",
     "@testing-library/cypress": "^8.0.7",
     "mockttp": "^3.6.1",
-    "nuxt": "3.0.0-rc.13",
+    "nuxt": "3.0.0",
     "start-server-and-test": "^1.15.0"
   }
 }

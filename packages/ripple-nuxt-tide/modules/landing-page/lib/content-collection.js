@@ -1042,7 +1042,7 @@ module.exports = class ContentCollection {
           },
           date: _source.field_news_date?.[0],
           summary: _source.field_landing_page_summary?.[0],
-          image: _source.field_media_image_absolute_path?.[0],
+          image: _source.field_media_image_absolute_path?.[0]
         }
         break
     }

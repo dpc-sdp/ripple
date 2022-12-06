@@ -270,6 +270,9 @@ module.exports = class ContentCollection {
       case 'card-profile':
         returnName = 'rpl-card-profile'
         break
+      case 'card-promotion':
+        returnName = 'rpl-card-promotion'
+        break
     }
     return returnName
   }
@@ -279,6 +282,7 @@ module.exports = class ContentCollection {
     switch (this.getDisplayResultComponentType()) {
       case 'card':
       case 'card-profile':
+      case 'card-promotion':
         const columnSettings = this.getDefault('DisplayResultComponentColumns')
         returnColumn = this.envConfig?.sidebar ? columnSettings.narrow : columnSettings.wide
         break
@@ -1017,16 +1021,6 @@ module.exports = class ContentCollection {
           displayStyle: style || this.getDefault('DisplayResultComponentCardStyle')
         }
         break
-      // case 'cardPromotion':
-      //   // const style = this.getDisplayResultComponent()?.style
-      //   mappedResult = {
-      //     title: _source.title?.[0],
-      //     link: link ? { text: link.path, url: link.path } : null,
-      //     date: _source.created?.[0],
-      //     summary: _source.field_landing_page_summary?.[0],
-      //     image: _source.field_media_image_absolute_path?.[0]
-      //   }
-      //   break
       case 'card-profile':
         mappedResult = {
           name: _source.title?.[0],
@@ -1036,6 +1030,19 @@ module.exports = class ContentCollection {
             text: 'Read'.concat(' ', _source.title?.[0], "'s profile"),
             url: _source.url[0]
           }
+        }
+        break
+      case 'card-promotion':
+        mappedResult = {
+          title: _source.title?.[0],
+          topic: _source.field_topic_name[0],
+          link: {
+            text: 'Read now',
+            url: link.path
+          },
+          date: _source.field_news_date?.[0],
+          summary: _source.field_landing_page_summary?.[0],
+          image: _source.field_media_image_absolute_path?.[0],
         }
         break
     }

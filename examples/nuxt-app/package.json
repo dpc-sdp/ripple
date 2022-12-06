@@ -33,6 +33,6 @@
     "@testing-library/cypress": "^8.0.7",
     "mockttp": "^3.6.1",
     "nuxt": "3.0.0-rc.13",
-    "start-server-and-test": "^1.14.0"
+    "start-server-and-test": "^1.15.0"
   }
 }

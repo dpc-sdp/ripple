@@ -13,6 +13,10 @@ interface Props {
   id: string
   schema?: FormKitSchemaCondition | FormKitSchemaNode[] | undefined
   config?: Record<string, any>
+  submissionState: {
+    status: 'idle' | 'submitting' | 'success' | 'failure'
+    message: string
+  }
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -28,6 +32,10 @@ const props = withDefaults(defineProps<Props>(), {
         }
       }
     }
+  }),
+  submissionState: () => ({
+    status: 'idle',
+    message: ''
   })
 })
 
@@ -60,13 +68,25 @@ const rplFormConfig = ref({
     novalidate
     @submit="submitHandler"
   >
-    <slot name="aboveForm">
-      <span v-if="submitted">Form Submitted</span>
-    </slot>
-    <slot>
-      <FormKitSchema v-if="schema" :schema="schema"></FormKitSchema>
-    </slot>
-    <slot name="belowForm" :value="value"></slot>
+    <fieldset
+      class="rpl-form__submit-guard"
+      :disabled="submissionState.status === 'submitting'"
+    >
+      <slot name="aboveForm">
+        <div>
+          <div>
+            {{ submissionState.status }}
+          </div>
+          <div>
+            {{ submissionState.message }}
+          </div>
+        </div>
+      </slot>
+      <slot>
+        <FormKitSchema v-if="schema" :schema="schema"></FormKitSchema>
+      </slot>
+      <slot name="belowForm" :value="value"></slot>
+    </fieldset>
   </FormKit>
 </template>
 

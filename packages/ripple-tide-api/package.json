@@ -35,7 +35,8 @@
     "qs": "^6.10.3",
     "ts-json-schema-generator": "^1.1.2",
     "typescript-json-schema": "^0.54.0",
-    "winston": "^3.8.2"
+    "winston": "^3.8.2",
+    "http-proxy-middleware": "^2.0.6"
   },
   "devDependencies": {
     "@nuxt/schema": "3.0.0-rc.13",

@@ -84,6 +84,10 @@ export default defineNuxtModule({
       route: '/api/tide/site',
       handler: resolve('./nuxt/handlers/siteHandler.js')
     })
+    addServerHandler({
+      route: '/api/tide/webform_submission/**',
+      handler: resolve('./nuxt/handlers/webformSubmissionHandler.js')
+    })
 
     // Add nuxt components and composables to imports
     addComponentsDir({

@@ -10,6 +10,12 @@
   }
 }
 
+.rpl-form__submit-guard {
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
 .rpl-form__label,
 .rpl-form__legend {
   display: inline-block;

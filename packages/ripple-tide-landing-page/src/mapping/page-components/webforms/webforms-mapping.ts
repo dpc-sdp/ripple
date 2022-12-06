@@ -266,11 +266,11 @@ export const webformMapping = async (
   tidePageApi
 ): TideDynamicPageComponent<ITideWebform> => {
   return {
-    component: 'RplForm',
+    component: 'TideLandingPageWebForm',
     id: field.drupal_internal__id,
     title: field.field_paragraph_title,
     props: {
-      id: field?.field_paragraph_webform?.drupal_internal__id,
+      formId: field?.field_paragraph_webform?.drupal_internal__id,
       schema: await getFormSchemaFromMapping(
         field?.field_paragraph_webform?.elements,
         tidePageApi

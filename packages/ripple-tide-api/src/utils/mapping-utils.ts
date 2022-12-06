@@ -154,7 +154,7 @@ export const getAddress = (field: drupalField) => {
   // Example output: Flagstaff Gardens, Melbourne, VIC 3000
   // Deliberate choice to not use template literals here to increase readability
   const line1 = field.address_line1 ? field.address_line1 + ', ' : ''
-  const line2 = field.address_line2
+  const line2 = field.address_line2 ? field.address_line2 + ', ' : ''
   const suburb = field.locality + (line2 || field.locality ? ', ' : '')
   const stateAndPostcode = field.administrative_area + ' ' + field.postal_code
   const address = line1 + line2 + suburb + stateAndPostcode

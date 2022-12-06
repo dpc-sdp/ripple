@@ -30,6 +30,7 @@ export default { name: 'TidePublicationPage' }
         v-if="page.showInPageNav"
         :headingLevel="page.inPageNavHeadingLevel"
         :components="page.dynamicComponents"
+        class="rpl-u-margin-b-9"
       />
       <TidePublicationBody
         :details="page.details"

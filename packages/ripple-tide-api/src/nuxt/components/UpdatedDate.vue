@@ -1,5 +1,5 @@
 <template>
-  <p class="rpl-type-p rpl-u-margin-t-6" data-cy="updated-date">
+  <p class="rpl-type-p-small rpl-u-margin-t-6" data-cy="updated-date">
     Last updated: <time :datetime="date">{{ formattedDate }}</time>
   </p>
 </template>

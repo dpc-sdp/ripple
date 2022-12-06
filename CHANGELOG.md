@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.26](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.25...v2.1.0-alpha.26) (2022-12-06)
+
+
+### Features
+
+* **@dpc-sdp/ripple-tide-event:** :sparkles: add event content type ([e079cd5](https://github.com/dpc-sdp/ripple-framework/commit/e079cd5580274f57ec9d082c81a312e349048531))
+
+
+
+
+
+# [2.1.0-alpha.25](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.24...v2.1.0-alpha.25) (2022-12-05)
+
+
+### Features
+
+* **@dpc-sdp/ripple-ui-forms:** added mapping for privacy statement field ([706b06a](https://github.com/dpc-sdp/ripple-framework/commit/706b06a1cc55d6381a09379c08a05104cddbe7f1))
+* **@dpc-sdp/ripple-ui-forms:** added mapping for url, tel and number fields ([b980ec5](https://github.com/dpc-sdp/ripple-framework/commit/b980ec5d7f965447f34a9e7a76950883120df02f))
+* **@dpc-sdp/ripple-ui-forms:** finished off input field styling ([e127ba1](https://github.com/dpc-sdp/ripple-framework/commit/e127ba134cc4fccc86af12293f09fbde93a36621))
+
+
+
+
+
 # [2.1.0-alpha.24](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.23...v2.1.0-alpha.24) (2022-12-02)
 
 

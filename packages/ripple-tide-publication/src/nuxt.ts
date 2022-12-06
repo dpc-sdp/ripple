@@ -17,10 +17,12 @@ export default defineNuxtModule({
       prefix: 'TidePublication',
       global: true
     })
+    console.log('Added TidePublication UI components')
 
     addServerHandler({
       route: '/api/tide/publication-index',
       handler: resolve('../dist/publicationIndexHandler.js')
     })
+    console.log('Added TidePublication Index API handler')
   }
 })

@@ -3,12 +3,13 @@ import { defineNuxtModule, addComponentsDir } from '@nuxt/kit'
 
 export default defineNuxtModule({
   setup() {
-    // Add TideGrantPage components as dynamic imports in Nuxt apps - See https://v3.nuxtjs.org/guide/concepts/auto-imports
+    // Add TideGrant components as dynamic imports in Nuxt apps - See https://v3.nuxtjs.org/guide/concepts/auto-imports
     addComponentsDir({
       extensions: ['vue'],
       path: join(__dirname, './components'),
-      prefix: 'TideGrantPage',
+      prefix: 'TideGrant',
       global: true
     })
+    console.log('Added TideGrant UI components')
   }
 })

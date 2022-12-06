@@ -11,7 +11,9 @@ export default { name: 'TidePublicationPagePagination' }
 <script setup lang="ts">
 import { TidePublicationPagePagination } from '../types'
 
-defineProps<{
+interface Props {
   pagination: TidePublicationPagePagination
-}>()
+}
+
+defineProps<Props>()
 </script>

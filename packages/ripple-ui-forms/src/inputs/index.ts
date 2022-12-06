@@ -1,6 +1,8 @@
 export { text } from './text'
 export { email } from './email'
 export { tel } from './tel'
+export { number } from './number'
+export { url } from './url'
 export { checkbox } from './checkbox'
 export { checkboxGroup } from './checkboxGroup'
 export { dropdown } from './dropdown'

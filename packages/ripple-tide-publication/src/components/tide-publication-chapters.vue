@@ -17,7 +17,9 @@ export default { name: 'TidePublicationChapters' }
 <script setup lang="ts">
 import { TidePublicationChapter } from '../types'
 
-defineProps<{
+interface Props {
   chapters: Array<TidePublicationChapter>
-}>()
+}
+
+defineProps<Props>()
 </script>

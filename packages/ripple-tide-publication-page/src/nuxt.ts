@@ -1,16 +1,15 @@
 import { join } from 'pathe'
-import { defineNuxtModule } from '@nuxt/kit'
+import { defineNuxtModule, addComponentsDir } from '@nuxt/kit'
 
 export default defineNuxtModule({
-  hooks: {
-    'components:dirs'(dirs) {
-      console.log('Added Tide PublicationPage UI components')
-      dirs.push({
-        extensions: ['vue'],
-        path: join(__dirname, './components'),
-        prefix: 'TidePublicationPage',
-        global: true
-      })
-    }
+  setup() {
+    // Add TidePublicationPage components as dynamic imports in Nuxt apps - See https://v3.nuxtjs.org/guide/concepts/auto-imports
+    addComponentsDir({
+      extensions: ['vue'],
+      path: join(__dirname, './components'),
+      prefix: 'TidePublicationPage',
+      global: true
+    })
+    console.log('Added TidePublicationPage UI components')
   }
 })

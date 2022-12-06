@@ -31,19 +31,24 @@ export default { name: 'Tide<%= h.changeCase.pascalCase(name) %>Page' }
     <template #body="{ hasSidebar }">
 
     </template>
+    <template #aboveSidebar>
+      <slot name="aboveSidebar"></slot>
+    </template>
     <template #sidebar>
       <slot name="sidebar"></slot>
+    </template>
+    <template #belowSidebar>
+      <slot name="aboveSidebar"></slot>
     </template>
     <template #footer>
       <slot name="footer"></slot>
     </template>
-  </RplLayout>
+  </TideBaseLayout>
 </template>
 
 <script setup lang="ts">
 import { TideSiteData } from '@dpc-sdp/ripple-tide-api/types'
-import type Tide<%= h.changeCase.pascalCase(name) %>Page from './../types'
-import Tide<%= h.changeCase.pascalCase(name) %>Header from './components/tide-<%= h.changeCase.paramCase(name) %>-header.vue'
+import type { Tide<%= h.changeCase.pascalCase(name) %>Page } from './types'
 
 interface Props {
   site: TideSiteData

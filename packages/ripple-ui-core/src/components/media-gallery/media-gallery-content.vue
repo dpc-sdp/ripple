@@ -30,8 +30,12 @@ const onFullScreen = (event) => {
 
 <template>
   <div class="rpl-media-gallery__content">
-    <h3 class="rpl-type-h3 rpl-u-margin-b-1">{{ title }}</h3>
-    <p v-if="caption" class="rpl-media-gallery__caption rpl-type-p">
+    <h3 class="rpl-type-h3 rpl-u-margin-b-1" data-cy="title">{{ title }}</h3>
+    <p
+      v-if="caption"
+      class="rpl-media-gallery__caption rpl-type-p"
+      data-cy="caption"
+    >
       {{ caption }}
     </p>
     <RplButton

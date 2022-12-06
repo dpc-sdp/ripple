@@ -61,6 +61,8 @@ import { default as RplTextLinkCmp } from './components/text-link/text-link.vue'
 import { default as RplTimelineCmp } from './components/timeline/timeline.vue'
 import { default as RplVerticalNavCmp } from './components/vertical-nav/vertical-nav.vue'
 
+import { default as RplCardCarouselCmp } from './components/card-carousel/card-carousel.vue'
+import { default as RplMediaGalleryCmp } from './components/media-gallery/media-gallery.vue'
 import { default as RplErrorMessageCmp } from './components/error-message/error-message.vue'
 
 // register custom el
@@ -126,6 +128,8 @@ const RplTimeline = defineCustomElement(RplTimelineCmp)
 const RplVerticalNav = defineCustomElement(RplVerticalNavCmp)
 
 const RplErrorMessage = defineCustomElement(RplErrorMessageCmp)
+const RplCardCarousel = defineCustomElement(RplCardCarouselCmp)
+const RplMediaGallery = defineCustomElement(RplMediaGalleryCmp)
 
 // export each wc
 export { RplAccordion }
@@ -190,6 +194,8 @@ export { RplTimeline }
 export { RplVerticalNav }
 
 export { RplErrorMessage }
+export { RplCardCarousel }
+export { RplMediaGallery }
 
 // export register function for all webcomponents
 export function registerRplWebComponents() {
@@ -255,4 +261,6 @@ export function registerRplWebComponents() {
   customElements.define('rpl-vertical-nav', RplVerticalNav)
 
   customElements.define('rpl-error-message', RplErrorMessage)
+  customElements.define('rpl-card-carousel', RplCardCarousel)
+  customElements.define('rpl-media-gallery', RplMediaGallery)
 }

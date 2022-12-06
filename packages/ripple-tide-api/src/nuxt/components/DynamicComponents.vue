@@ -44,7 +44,11 @@ const grouped: TideDynamicPageComponent<any> | TideDynamicComponentGroup =
       :class="$attrs.class"
       :fullWidth="fullWidth"
     >
-      <component :is="item.component" v-bind="item.props"></component>
+      <component
+        :is="item.component"
+        :hasSidebar="hasSidebar"
+        v-bind="item.props"
+      ></component>
     </RplPageComponent>
   </template>
 </template>

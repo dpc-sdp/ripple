@@ -8,25 +8,55 @@ import RplCardCarousel from './card-carousel.vue'
 import RplPromoCard from '../card/promo-card.vue'
 import { a11yStoryCheck } from './../../../stories/interactions.js'
 
-export const exampleData = [
+export const exampleKeyDates = {
+  type: 'keydates',
+  url: '#',
+  title: 'Key dates link',
+  keyDates: [
+    {
+      title: 'June 13th, 2023 and beyond',
+      subtitle: 'Key Dates Card',
+      content: 'Key Dates Card Summary'
+    },
+    {
+      title: 'Another key date is Feb 21st',
+      subtitle: 'Key Dates Card 2',
+      content: 'Key Dates Card Summary 2'
+    }
+  ]
+}
+
+export const examplePromo = [
   {
+    type: 'promo',
     title: 'Example title',
-    meta: 'Environment',
+    meta: {
+      topic: 'Environment'
+    },
     url: '#',
-    content: 'Labore mollit labore tempor quis ex fugiat eu proident aliqua ipsum duis, fugiat eu proident aliqua.'
+    summary: 'Labore mollit labore tempor quis ex fugiat eu proident aliqua ipsum duis, fugiat eu proident aliqua.'
   },
   {
+    type: 'promo',
     title: 'Another title',
-    meta: 'Health',
+    meta: {
+      topic: 'Health',
+      dateStart: '2019-01-01T09:00:00.000+10:00',
+      dateEnd: '2020-12-01T09:00:00.000+10:00',
+    },
     url: '#',
-    image: svgPlaceholder({ width: 400, height: 300, bgColor: '#4b4352', fgColor: '#efeef0' }),
-    content: 'Elit adipisicing velit exercitation fugiat ex incididunt ullamco magna cupidatat dolore eiusmod sit amet.'
+    image: { src: svgPlaceholder({ width: 400, height: 300, bgColor: '#4b4352', fgColor: '#efeef0' }) },
+    summary: 'Elit adipisicing velit exercitation fugiat ex incididunt ullamco magna cupidatat dolore eiusmod sit amet.'
   },
   {
+    type: 'promo',
     title: 'A great title',
-    meta: 'Community',
+    meta: {
+      topic: 'Community',
+      date: '2020-12-01T09:00:00.000+10:00'
+    },
     url: '#',
-    content: 'Consequat deserunt fugiat eu proident velit exercitation fugiat ex aliqua ipsumnisi dolore id eata quest.'
+    summary: 'Consequat deserunt fugiat eu proident velit exercitation fugiat ex aliqua ipsumnisi dolore id eata quest.'
   }
 ]
 
@@ -53,7 +83,7 @@ export const SingleTemplate = (args) => ({
     play={a11yStoryCheck}
     args={{
       perView: 1,
-      items: exampleData
+      items: examplePromo
     }}
   >
     {SingleTemplate.bind()}
@@ -70,7 +100,7 @@ export const SingleTemplate = (args) => ({
     play={a11yStoryCheck}
     args={{
       perView: { xs: 1, m: 2, l: 3 },
-      items: [...exampleData, ...exampleData]
+      items: [...examplePromo, exampleKeyDates, ...examplePromo]
     }}
   >
     {SingleTemplate.bind()}
@@ -86,7 +116,7 @@ export const SingleTemplate = (args) => ({
     name='Single Card'
     play={a11yStoryCheck}
     args={{
-      items: [exampleData[0]]
+      items: [examplePromo[0]]
     }}
   >
     {SingleTemplate.bind()}

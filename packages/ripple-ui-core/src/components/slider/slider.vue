@@ -157,6 +157,7 @@ const setInert = ({ activeIndex, slides }) =>
         v-for="(slide, i) in slides"
         :key="i"
         class="rpl-slider__slide"
+        data-cy="slide"
       >
         <component :is="slide" />
       </SwiperSlide>

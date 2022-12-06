@@ -174,11 +174,11 @@ const classList = computed(() => {
     <div class="rpl-primary-nav__inner">
       <!-- Nav bar -->
       <RplPrimaryNavBar
-        :primary-logo="props.primaryLogo"
-        :secondary-logo="props.secondaryLogo"
+        :primary-logo="primaryLogo"
+        :secondary-logo="secondaryLogo"
         :items="items"
-        :show-search="props.showSearch"
-        :show-quick-exit="props.showQuickExit"
+        :show-search="showSearch"
+        :show-quick-exit="showQuickExit"
         :is-mega-nav-active="isMegaNavActive"
         :is-search-active="isSearchActive"
         :is-item-expanded="isNavItemActive"
@@ -194,8 +194,8 @@ const classList = computed(() => {
       <!-- Mega menu -->
       <UseFocusTrap v-if="isMegaNavActive" :options="{ immediate: true }">
         <RplPrimaryNavMegaMenu
-          :items="props.items"
-          :show-quick-exit="props.showQuickExit"
+          :items="items"
+          :show-quick-exit="showQuickExit"
           :is-item-active="isNavItemActive"
           :toggle-item="toggleNavItem"
         >
@@ -207,7 +207,7 @@ const classList = computed(() => {
 
       <!-- Search form -->
       <UseFocusTrap v-if="isSearchActive" :options="{ immediate: true }">
-        <RplPrimaryNavSearchForm :show-quick-exit="props.showQuickExit" />
+        <RplPrimaryNavSearchForm :show-quick-exit="showQuickExit" />
       </UseFocusTrap>
     </div>
   </nav>

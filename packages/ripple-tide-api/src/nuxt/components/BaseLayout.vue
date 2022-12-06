@@ -14,7 +14,7 @@
             href: '/'
           }"
           :secondaryLogo="site?.siteLogo"
-          :items="site?.menus.menuMain"
+          :items="site?.menus.menuMain || []"
           :showQuickExit="site?.showQuickExit"
         ></RplPrimaryNav>
       </slot>

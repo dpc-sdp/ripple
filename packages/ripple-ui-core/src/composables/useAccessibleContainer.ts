@@ -6,7 +6,7 @@ export function useAccessibleContainer(
   setActive = 'setActive',
   setInactive = 'setInactive'
 ) {
-  const checkLeftMouseButton = (evt: MouseEvent) => {
+  const checkLeftMouseButton = (evt: any) => {
     // https://stackoverflow.com/a/3944291
     evt = evt || window.event
     if ('buttons' in evt) {

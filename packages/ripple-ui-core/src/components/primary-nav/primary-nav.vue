@@ -136,7 +136,7 @@ const classList = computed(() => {
     classes.push('rpl-primary-nav--expanded')
   }
 
-  let itemCount = props.items.length ? props.items.length : 0
+  let itemCount = props?.items?.length ? props.items.length : 0
   if (props.showSearch) {
     itemCount++
   }

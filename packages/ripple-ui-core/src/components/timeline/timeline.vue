@@ -6,6 +6,7 @@ export default { name: 'RplTimeline' }
 import { RplTimelineItem } from './constants'
 import RplTextLink from '../text-link/text-link.vue'
 import RplImage from '../image/image.vue'
+import { formatDateRange } from '../../lib/helpers'
 
 interface Props {
   title?: string | null
@@ -20,22 +21,7 @@ const props = withDefaults(defineProps<Props>(), {
 const subtitle = (item: RplTimelineItem) => {
   if (item.dateStart && item.dateEnd) {
     // Format raw dates
-    const options: Intl.DateTimeFormatOptions = {
-      day: '2-digit',
-      month: 'long'
-    }
-    const start = new Intl.DateTimeFormat('en-AU', options).format(
-      new Date(item.dateStart)
-    )
-    const end = new Intl.DateTimeFormat('en-AU', options).format(
-      new Date(item.dateEnd)
-    )
-    // Only send a range if the days are different
-    if (start === end) {
-      return start
-    } else {
-      return `${start} - ${end}`
-    }
+    return formatDateRange(item.dateStart, item.dateEnd)
   } else if (item.subtitle) {
     return item.subtitle
   }

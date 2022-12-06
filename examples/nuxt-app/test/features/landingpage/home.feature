@@ -137,7 +137,6 @@ Feature: Home page
       | title                     | summary                 | ctaText       | image                                                                                                                         |
       | Test call to action title | This is the description | Test CTA text | https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Two-men-working-in-hi-vis-clothing.jpg |
 
-
   @mockserver
   Scenario: Page component - Stats grid
     Then a stats grid with ID "1028" should exist with the following items
@@ -145,3 +144,48 @@ Feature: Home page
       | Label 1 | Value 1 |
       | Label 2 | Value 2 |
 
+  @mockserver
+  Scenario: Page component - Card carousel
+    Given a card carousel with ID "1155" should exist with the following promo cards
+      | title           | date            | content                | url          | image                                                                                                                             |
+      | Sample title    | 01 Dec - 31 Dec | Sample Card Summary    | /sample-page | https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Aerial-shot-of-new-housing-development.jpg |
+      | Promotion title | 3 Nov 2022      | Promotion Card summary | /promo-page  | https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Engage-Vic-photo-hero.jpeg                 |
+    And the card carousel with ID "1155" should contain a key dates card with the title "Key calendar dates" and the following entries
+      | title        | subtitle       | content       |
+      | April 16th   | Key subtitle 1 | Key content 1 |
+      | December 1st | Key subtitle 2 | Key content 2 |
+
+  @mockserver
+  Scenario: Page component - Card carousel (Slider)
+    When I click the button "Next" on the component with ID "1155"
+    Then the active slide on "1155" should be "2"
+    And the pagination button "Next" on "1155" should be disabled
+    When I click the button "Previous" on the component with ID "1155"
+    Then the active slide on "1155" should be "1"
+    And the pagination button "Previous" on "1155" should be disabled
+
+  @mockserver
+  Scenario: Page component - Media Gallery
+    Given a media gallery with ID "1056" should exist with the following gallery items
+      | title             | caption                  | image                                                                                                                             |
+      | Media title one   | The first media caption  | https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/2018-19-State-Budget.jpg                   |
+      | Media title two   | The second media caption | https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Aerial-shot-of-new-housing-development.jpg |
+      | Media title three | The third media caption  | https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Bendigo-Hospital.jpg                       |
+
+  @mockserver
+  Scenario: Page component - Media Gallery (Slider)
+    Given the pagination button "Previous" on "1056" should be disabled
+    When I click the button "Next" on the component with ID "1056"
+    Then the active slide on "1056" should be "2"
+    When I click the button "Next" on the component with ID "1056"
+    Then the active slide on "1056" should be "3"
+    And the pagination button "Next" on "1056" should be disabled
+    When I click the button "Previous" on the component with ID "1056"
+    Then the active slide on "1056" should be "2"
+
+  @mockserver
+  Scenario: Page component - Media Gallery (Modal)
+    When I click the button "View 'Media title one' fullscreen" on the component with ID "1056"
+    Then the modal for gallery "1056" should be "visible"
+    When I click the button "Close" on the component with ID "1056"
+    Then the modal for gallery "1056" should be "hidden"

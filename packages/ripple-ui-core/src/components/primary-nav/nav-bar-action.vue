@@ -20,9 +20,9 @@ const props = withDefaults(defineProps<Props>(), {
     :is="type === 'toggle' ? 'button' : 'a'"
     :class="{
       'rpl-primary-nav__nav-bar-action': true,
-      'rpl-primary-nav__nav-bar-action--toggle': props.type === 'toggle',
-      'rpl-primary-nav__nav-bar-action--link': props.type === 'link',
-      'rpl-primary-nav__nav-bar-action--active': props.active,
+      'rpl-primary-nav__nav-bar-action--toggle': type === 'toggle',
+      'rpl-primary-nav__nav-bar-action--link': type === 'link',
+      'rpl-primary-nav__nav-bar-action--active': active,
       'rpl-type-label-small': true,
       'rpl-type-weight-bold': true,
       'rpl-u-focusable-block': true

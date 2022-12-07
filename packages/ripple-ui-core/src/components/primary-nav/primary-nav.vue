@@ -201,8 +201,8 @@ const classList = computed(() => {
       <!-- Mega menu -->
       <RplPrimaryNavMegaMenu
         v-if="isMegaNavActive"
-        :items="props.items"
-        :show-quick-exit="props.showQuickExit"
+        :items="items"
+        :show-quick-exit="showQuickExit"
         :is-item-active="isNavItemActive"
         :toggle-item="toggleNavItem"
       >
@@ -214,7 +214,7 @@ const classList = computed(() => {
       <!-- Search form -->
       <RplPrimaryNavSearchForm
         v-if="isSearchActive"
-        :show-quick-exit="props.showQuickExit"
+        :show-quick-exit="showQuickExit"
       />
     </div>
   </nav>

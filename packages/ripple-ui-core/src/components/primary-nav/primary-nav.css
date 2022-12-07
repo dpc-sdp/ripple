@@ -392,6 +392,7 @@
 
 .rpl-primary-nav__mega-menu-back-button {
   display: flex;
+  align-items: center;
   margin-bottom: var(--rpl-sp-8);
   cursor: pointer;
 

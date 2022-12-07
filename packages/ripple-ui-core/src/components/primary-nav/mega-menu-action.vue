@@ -9,12 +9,12 @@ import RplIcon from '../icon/icon.vue'
 interface Props {
   item: RplPrimaryNavItem
   type: 'toggle' | 'link'
-  isItemExpanded?: (id: string) => boolean
+  isItemActive?: (id: string) => boolean
   toggleItem?: (id: string) => void
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  isItemExpanded: undefined,
+  isItemActive: undefined,
   toggleItem: undefined
 })
 
@@ -32,8 +32,8 @@ const clickHandler = (id: string) => {
       'rpl-primary-nav__mega-menu-action': true,
       'rpl-primary-nav__mega-menu-action--toggle': type === 'toggle',
       'rpl-primary-nav__mega-menu-action--link': type === 'link',
-      'rpl-primary-nav__mega-menu-action--active': isItemExpanded
-        ? isItemExpanded(props.item.id)
+      'rpl-primary-nav__mega-menu-action--active': isItemActive
+        ? isItemActive(props.item.id)
         : false,
       'rpl-u-focusable-block': true,
       'rpl-type-p-small': true

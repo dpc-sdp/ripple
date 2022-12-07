@@ -48,6 +48,13 @@ export interface TideSiteData {
   }
 }
 
+export interface TideLink {
+  id: string
+  text: string
+  url: string
+}
+3
+
 export interface TideMenuItem {
   text: string
   url: string
@@ -105,6 +112,11 @@ export type TideDynamicPageComponent<T> = {
 export type TideDynamicComponentGroup = {
   grouping: string
   components: TideDynamicPageComponent<any>[]
+}
+
+export type TidePropRange = {
+  from: string | number
+  to: string | number
 }
 
 export interface RplTideModuleConfig {

@@ -14,7 +14,7 @@
             href: '/'
           }"
           :secondaryLogo="site?.siteLogo"
-          :items="site?.menus.menuMain"
+          :items="site?.menus.menuMain || []"
           :showQuickExit="site?.showQuickExit"
         ></RplPrimaryNav>
       </slot>
@@ -34,7 +34,7 @@
     </template>
     <template #body="{ hasSidebar }">
       <slot name="body" :hasSidebar="hasSidebar"></slot>
-      <div data-cy="topic-tags">
+      <div data-cy="topic-tags" class="rpl-u-margin-t-6">
         <RplChip
           v-for="tag in topicTags"
           :key="tag.url"

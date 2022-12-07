@@ -3,6 +3,55 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.28](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.27...v2.1.0-alpha.28) (2022-12-07)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-ui-core
+
+
+
+
+
+# [2.1.0-alpha.27](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.26...v2.1.0-alpha.27) (2022-12-06)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** :bug: add optional chaining to nav bar item count ([73824d8](https://github.com/dpc-sdp/ripple-framework/commit/73824d8100de4c490747d84169a6262a31a6d074))
+* **@dpc-sdp/ripple-ui-core:** :bug: fix nav bar items using incorrect colour ([e0b5e7e](https://github.com/dpc-sdp/ripple-framework/commit/e0b5e7e1633b860db2c20f875f9066165d8c8e9b))
+* **@dpc-sdp/ripple-ui-core:** :lipstick: change logo focus utility to use no border variant ([219d8e9](https://github.com/dpc-sdp/ripple-framework/commit/219d8e90453998ae092915d7b26d75783b8f6fa0))
+* **@dpc-sdp/ripple-ui-core:** :lipstick: token tweaks for nav bar ([3c2f37b](https://github.com/dpc-sdp/ripple-framework/commit/3c2f37b74413c176bca159bec366527c9c1f257f))
+* **@dpc-sdp/ripple-ui-core:** :lipstick: token tweaks for nav bar ([1f18a34](https://github.com/dpc-sdp/ripple-framework/commit/1f18a34ec5297b1cfa5dfd60fb08b0762763d12a))
+* **@dpc-sdp/ripple-ui-core:** :memo: remove console.log from primary-nav ([735d7b9](https://github.com/dpc-sdp/ripple-framework/commit/735d7b9d4ba05af53e9546e52f70da819eaf47d2))
+
+
+### Features
+
+* **@dpc-sdp/ripple-ui-core:** :sparkles: add escape key handler to primary nav ([f6d49cc](https://github.com/dpc-sdp/ripple-framework/commit/f6d49cca4039aab7dba10b7e37cbf4598617d830))
+* **@dpc-sdp/ripple-ui-core:** :sparkles: add focus trap to mega menu and search form ([472b843](https://github.com/dpc-sdp/ripple-framework/commit/472b8438ab475f32a71d3e388f3e6508163fe6f1))
+* **@dpc-sdp/ripple-ui-core:** :sparkles: make nav bar responsive based on amount of items ([fadf582](https://github.com/dpc-sdp/ripple-framework/commit/fadf582da7531cfb5be2fb5a2d9ca02e44b171ff))
+* **@dpc-sdp/ripple-ui-core:** add basic gallery/slider/modal tests ([2d93f36](https://github.com/dpc-sdp/ripple-framework/commit/2d93f3631324c869930efbe1a2755b31eb7c0aa4))
+* **@dpc-sdp/ripple-ui-core:** add/update date formatting, use full image on promo cards ([80ab8af](https://github.com/dpc-sdp/ripple-framework/commit/80ab8af94aefb725208e89188ecce2612cf82b24))
+* **@dpc-sdp/ripple-ui-core:** adding media gallery to nuxt app ([5b52523](https://github.com/dpc-sdp/ripple-framework/commit/5b52523274ab145f33b016f00c2dd3d7ccbffd44))
+* **@dpc-sdp/ripple-ui-core:** update tests, use getImageFromField for carousel images ([89369a7](https://github.com/dpc-sdp/ripple-framework/commit/89369a744ef638b8821e38bd18f256bbd13f8771))
+* **@dpc-sdp/ripple-ui-core:** update tests, use getImageFromField for carousel images ([6e59ce2](https://github.com/dpc-sdp/ripple-framework/commit/6e59ce2d6e243250e8c764b259de5e94b82c9e88))
+* **@dpc-sdp/ripple-ui-core:** wip card carousel mapping tests ([c85cf33](https://github.com/dpc-sdp/ripple-framework/commit/c85cf33eb451322d177bf7606a749c7b8967b3c0))
+* **@dpc-sdp/ripple-ui-core:** wip wiring up card carousel ([78afe80](https://github.com/dpc-sdp/ripple-framework/commit/78afe807bed9b8012257bc55dadb43809be07c9f))
+
+
+
+
+
+# [2.1.0-alpha.26](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.25...v2.1.0-alpha.26) (2022-12-06)
+
+
+### Features
+
+* **@dpc-sdp/ripple-tide-event:** :sparkles: add event content type ([e079cd5](https://github.com/dpc-sdp/ripple-framework/commit/e079cd5580274f57ec9d082c81a312e349048531))
+
+
+
+
+
 # [2.1.0-alpha.24](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.23...v2.1.0-alpha.24) (2022-12-02)
 
 

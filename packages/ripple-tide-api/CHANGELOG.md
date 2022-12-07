@@ -3,6 +3,46 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.28](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.27...v2.1.0-alpha.28) (2022-12-07)
+
+
+### Performance Improvements
+
+* **@dpc-sdp/ripple-tide-api:** :zap: supress warning on empty items ([19e9430](https://github.com/dpc-sdp/ripple-framework/commit/19e9430e83eb6e2cb18ddd70eeb77350327443c6))
+
+
+
+
+
+# [2.1.0-alpha.27](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.26...v2.1.0-alpha.27) (2022-12-06)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-api:** fixed failing build ([3f44d8c](https://github.com/dpc-sdp/ripple-framework/commit/3f44d8c98f1ce448022f3bd782f9291e5abf5010))
+
+
+### Features
+
+* **@dpc-sdp/ripple-tide-api:** add margin to topic tags (same margin as updated date) ([fd1d16e](https://github.com/dpc-sdp/ripple-framework/commit/fd1d16e2fc2614163a9a691a50204af3a114cb52))
+* **@dpc-sdp/ripple-tide-landing-page:** added what's next sidebar component ([c7a966d](https://github.com/dpc-sdp/ripple-framework/commit/c7a966df8214069099715855770355a9a1a541ef))
+* **@dpc-sdp/ripple-ui-core:** wip wiring up card carousel ([78afe80](https://github.com/dpc-sdp/ripple-framework/commit/78afe807bed9b8012257bc55dadb43809be07c9f))
+
+
+
+
+
+# [2.1.0-alpha.26](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.25...v2.1.0-alpha.26) (2022-12-06)
+
+
+### Features
+
+* **@dpc-sdp/ripple-tide-event:** :sparkles: add event content type ([e079cd5](https://github.com/dpc-sdp/ripple-framework/commit/e079cd5580274f57ec9d082c81a312e349048531))
+
+
+
+
+
 # [2.1.0-alpha.24](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.23...v2.1.0-alpha.24) (2022-12-02)
 
 

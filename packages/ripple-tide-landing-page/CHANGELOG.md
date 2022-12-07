@@ -3,6 +3,51 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.28](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.27...v2.1.0-alpha.28) (2022-12-07)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-landing-page
+
+
+
+
+
+# [2.1.0-alpha.27](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.26...v2.1.0-alpha.27) (2022-12-06)
+
+
+### Features
+
+* **@dpc-sdp/ripple-tide-landing-page:** added what's next sidebar component ([c7a966d](https://github.com/dpc-sdp/ripple-framework/commit/c7a966df8214069099715855770355a9a1a541ef))
+* **@dpc-sdp/ripple-ui-core:** add basic gallery/slider/modal tests ([2d93f36](https://github.com/dpc-sdp/ripple-framework/commit/2d93f3631324c869930efbe1a2755b31eb7c0aa4))
+* **@dpc-sdp/ripple-ui-core:** add/update date formatting, use full image on promo cards ([80ab8af](https://github.com/dpc-sdp/ripple-framework/commit/80ab8af94aefb725208e89188ecce2612cf82b24))
+* **@dpc-sdp/ripple-ui-core:** adding media gallery to nuxt app ([5b52523](https://github.com/dpc-sdp/ripple-framework/commit/5b52523274ab145f33b016f00c2dd3d7ccbffd44))
+* **@dpc-sdp/ripple-ui-core:** update tests, use getImageFromField for carousel images ([6e59ce2](https://github.com/dpc-sdp/ripple-framework/commit/6e59ce2d6e243250e8c764b259de5e94b82c9e88))
+* **@dpc-sdp/ripple-ui-core:** wip card carousel mapping tests ([c85cf33](https://github.com/dpc-sdp/ripple-framework/commit/c85cf33eb451322d177bf7606a749c7b8967b3c0))
+* **@dpc-sdp/ripple-ui-core:** wip wiring up card carousel ([78afe80](https://github.com/dpc-sdp/ripple-framework/commit/78afe807bed9b8012257bc55dadb43809be07c9f))
+
+
+
+
+
+# [2.1.0-alpha.26](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.25...v2.1.0-alpha.26) (2022-12-06)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-landing-page
+
+
+
+
+
+# [2.1.0-alpha.25](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.24...v2.1.0-alpha.25) (2022-12-05)
+
+
+### Features
+
+* **@dpc-sdp/ripple-ui-forms:** added mapping for privacy statement field ([706b06a](https://github.com/dpc-sdp/ripple-framework/commit/706b06a1cc55d6381a09379c08a05104cddbe7f1))
+* **@dpc-sdp/ripple-ui-forms:** added mapping for url, tel and number fields ([b980ec5](https://github.com/dpc-sdp/ripple-framework/commit/b980ec5d7f965447f34a9e7a76950883120df02f))
+
+
+
+
+
 # [2.1.0-alpha.24](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.23...v2.1.0-alpha.24) (2022-12-02)
 
 

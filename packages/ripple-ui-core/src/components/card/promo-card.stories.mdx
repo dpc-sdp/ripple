@@ -27,7 +27,7 @@ export const SingleTemplate = (args) => ({
   setup() {
     const img = args.graphicElement === 'Image' ?
       svgPlaceholder({ width: 400, height: 300, bgColor: '#ad9', fgColor: '#efc' }) : null
-    return { args, img }
+    return { args, img: { src: img } }
   },
   template: `
   <ul class="rpl-storybook__page rpl-grid">

@@ -3,6 +3,7 @@
     :pageTitle="`${props.error?.statusCode} - ${props.error?.statusMessage}`"
     :pageDescription="props.error?.statusMessage"
     :site="site"
+    class="tide-error"
   >
     <template #breadcrumbs><span></span></template>
     <template #aboveBody>
@@ -41,7 +42,7 @@ const site = computed(() =>
 </script>
 
 <style>
-.rpl-layout__main {
+.tide-error .rpl-layout__main {
   margin-top: var(--rpl-sp-6);
 
   @media (--rpl-bp-l) {

@@ -2,7 +2,7 @@
   <RplPromoCard
     v-if="displayStyle === 'noImage' || displayStyle === 'thumbnail'"
     :title="title"
-    :image="displayStyle !== 'noImage' ? image?.src : null"
+    :image="displayStyle !== 'noImage' ? image : null"
     :url="url"
     :highlight="displayStyle === 'noImage'"
   >

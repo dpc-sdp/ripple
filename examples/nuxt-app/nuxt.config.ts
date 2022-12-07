@@ -32,6 +32,7 @@ export default defineNuxtConfig({
   },
   modules: [
     '@dpc-sdp/ripple-tide-api/nuxt',
+    '@dpc-sdp/ripple-tide-event/nuxt',
     '@dpc-sdp/ripple-tide-grant/nuxt',
     '@dpc-sdp/ripple-tide-landing-page/nuxt',
     '@dpc-sdp/ripple-tide-media/nuxt',

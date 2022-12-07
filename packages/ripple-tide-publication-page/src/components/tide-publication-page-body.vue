@@ -14,7 +14,9 @@ export default { name: 'TidePublicationPageBody' }
 <script setup lang="ts">
 import { TideDynamicPageComponent } from '@dpc-sdp/ripple-tide-api'
 
-defineProps<{
+interface Props {
   components: Array<TideDynamicPageComponent>
-}>()
+}
+
+defineProps<Props>()
 </script>

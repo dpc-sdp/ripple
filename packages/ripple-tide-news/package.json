@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/ripple-tide-news",
-  "version": "2.1.0-alpha.24",
+  "version": "2.1.0-alpha.28",
   "description": "Ripple mappings and components for Tide News Content type",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -19,7 +19,7 @@
     "watch": "yarn clean && tsc -p tsconfig.json -w"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-tide-api": "2.1.0-alpha.24"
+    "@dpc-sdp/ripple-tide-api": "2.1.0-alpha.28"
   },
   "files": [
     "dist",

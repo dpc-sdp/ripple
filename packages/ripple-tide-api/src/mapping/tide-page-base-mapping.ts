@@ -11,6 +11,10 @@ import {
   includes as sidebarRelatedLinksIncludes
 } from './sidebar-related-links/sidebar-related-links-mapping.js'
 import {
+  map as sidebarWhatsNextMapping,
+  includes as sidebarWhatsNextIncludes
+} from './sidebar-whats-next/sidebar-whats-next-mapping.js'
+import {
   map as sidebarSocialShareMapping,
   includes as sidebarSocialShareIncludes
 } from './sidebar-social-share/sidebar-social-share-mapping.js'
@@ -23,6 +27,7 @@ export const tidePageBaseMapping = ({
   withTopicTags = false,
   withSidebarContacts = false,
   withSidebarRelatedLinks = false,
+  withSidebarWhatsNext = false,
   withSidebarSocialShare = false,
   withSidebarSiteSectionNav = false
 } = {}) => {
@@ -34,6 +39,10 @@ export const tidePageBaseMapping = ({
 
   if (withSidebarRelatedLinks) {
     sidebar.relatedLinks = sidebarRelatedLinksMapping
+  }
+
+  if (withSidebarWhatsNext) {
+    sidebar.whatsNext = sidebarWhatsNextMapping
   }
 
   if (withSidebarSocialShare) {
@@ -59,6 +68,7 @@ export const tidePageBaseIncludes = ({
   withTopicTags = false,
   withSidebarContacts = false,
   withSidebarRelatedLinks = false,
+  withSidebarWhatsNext = false,
   withSidebarSocialShare = false,
   withSidebarSiteSectionNav = false
 } = {}) => {
@@ -66,6 +76,7 @@ export const tidePageBaseIncludes = ({
     ...(withTopicTags ? topicTagsIncludes : []),
     ...(withSidebarContacts ? sidebarContactsIncludes : []),
     ...(withSidebarRelatedLinks ? sidebarRelatedLinksIncludes : []),
+    ...(withSidebarWhatsNext ? sidebarWhatsNextIncludes : []),
     ...(withSidebarSocialShare ? sidebarSocialShareIncludes : []),
     ...(withSidebarSiteSectionNav ? sidebarSiteSectionNavIncludes : [])
   ]

@@ -8,11 +8,14 @@ export default { name: 'TidePublicationSidebar' }
       v-if="publication.documents"
       :documents="publication.documents"
     ></TidePublicationPageActions>
-    <RplVerticalNav
-      v-if="!error && sidebar.items.length > 0"
-      :title="publication.text"
-      :items="sidebar.items"
-    ></RplVerticalNav>
+    <RplLayoutSidebarComponent>
+      <RplVerticalNav
+        v-if="!error && sidebar.items.length > 0"
+        :title="publication.text"
+        :items="sidebar.items"
+        class="rpl-u-margin-b-9"
+      ></RplVerticalNav>
+    </RplLayoutSidebarComponent>
   </div>
 </template>
 

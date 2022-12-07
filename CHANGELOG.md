@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.29](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.28...v2.1.0-alpha.29) (2022-12-07)
+
+
+### Features
+
+* **@dpc-sdp/ripple-ui-core:** adding missed breakpoints import ([4b74c67](https://github.com/dpc-sdp/ripple-framework/commit/4b74c67f2e3dfaa6179299ab4946f830e5a7608d))
+
+
+
+
+
 # [2.1.0-alpha.28](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.27...v2.1.0-alpha.28) (2022-12-07)
 
 

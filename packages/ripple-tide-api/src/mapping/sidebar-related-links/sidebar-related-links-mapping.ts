@@ -1,5 +1,5 @@
-import { TideApiResponse } from '../../../types'
-import { TideLink } from './sidebar-related-links-mapping-types'
+import { TideApiResponse, TideLink } from '../../../types'
+import { getLinkFromField } from '../../utils/mapping-utils.js'
 
 export const map = (src: TideApiResponse): TideLink[] => {
   if (!src.field_show_related_content) {
@@ -7,12 +7,12 @@ export const map = (src: TideApiResponse): TideLink[] => {
   }
 
   return (src.field_related_links || []).map((rawLink): TideLink => {
+    const link = getLinkFromField(rawLink, 'field_paragraph_link')
+
     return {
       id: rawLink.id,
-      text: rawLink.field_paragraph_link.title,
-      url: rawLink.field_paragraph_link.uri
-        ? rawLink.field_paragraph_link.uri
-        : rawLink.field_paragraph_link.url
+      text: link?.text || '',
+      url: link?.url || ''
     }
   })
 }

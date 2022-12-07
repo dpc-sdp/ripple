@@ -41,13 +41,16 @@ const toggleModal = () => {
       :current-slide="activeImageSlide"
       :show-pagination="false"
       class="rpl-media-gallery__primary-images"
+      data-cy="gallery-images"
       @change="imageSlideUpdate"
     >
       <RplImage
         v-for="(item, i) in items"
         :key="i"
         :src="item.thumbnail"
+        :alt="item.alt"
         aspect="wide"
+        data-cy="image"
         class="rpl-media-gallery__image"
       />
     </RplSlider>
@@ -55,6 +58,8 @@ const toggleModal = () => {
       effect="fade"
       :show-tally="true"
       :current-slide="activeContentSlide"
+      class="rpl-media-gallery__primary-content"
+      data-cy="gallery-content"
       @change="contentSlideUpdate"
     >
       <RplMediaGalleryContent
@@ -78,6 +83,7 @@ const toggleModal = () => {
           v-for="(item, i) in items"
           :key="i"
           :src="item.image"
+          :alt="item.alt"
           class="rpl-media-gallery__image"
         />
       </RplSlider>

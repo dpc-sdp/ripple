@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.28](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.27...v2.1.0-alpha.28) (2022-12-07)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-forms:** :bug: typo ([a465e1a](https://github.com/dpc-sdp/ripple-framework/commit/a465e1a3a52331ffe86ab864d0e216abdd422d36))
+
+
+
+
+
+# [2.1.0-alpha.27](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.26...v2.1.0-alpha.27) (2022-12-06)
+
+
+### Features
+
+* **@dpc-sdp/ripple-tide-landing-page:** added what's next sidebar component ([c7a966d](https://github.com/dpc-sdp/ripple-framework/commit/c7a966df8214069099715855770355a9a1a541ef))
+
+
+
+
+
 # [2.1.0-alpha.26](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.25...v2.1.0-alpha.26) (2022-12-06)
 
 **Note:** Version bump only for package @dpc-sdp/ripple-ui-forms

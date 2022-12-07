@@ -181,11 +181,11 @@ const classList = computed(() => {
     <div class="rpl-primary-nav__inner">
       <!-- Nav bar -->
       <RplPrimaryNavBar
-        :primary-logo="props.primaryLogo"
-        :secondary-logo="props.secondaryLogo"
+        :primary-logo="primaryLogo"
+        :secondary-logo="secondaryLogo"
         :items="items"
-        :show-search="props.showSearch"
-        :show-quick-exit="props.showQuickExit"
+        :show-search="showSearch"
+        :show-quick-exit="showQuickExit"
         :is-mega-nav-active="isMegaNavActive"
         :is-search-active="isSearchActive"
         :is-item-expanded="isNavItemActive"

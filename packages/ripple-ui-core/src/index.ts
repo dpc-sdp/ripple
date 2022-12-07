@@ -72,6 +72,8 @@ export { default as RplVerticalNavToggle } from './components/vertical-nav/toggl
 export { default as RplVerticalNavChildList } from './components/vertical-nav/child-list.vue'
 export { default as RplVerticalNavLink } from './components/vertical-nav/link.vue'
 
+export { default as RplCardCarousel } from './components/card-carousel/card-carousel.vue'
+export { default as RplMediaGallery } from './components/media-gallery/media-gallery.vue'
 export { default as RplErrorMessage } from './components/error-message/error-message.vue'
 
 export { default as getGrantStatus } from './utils/getGrantStatus'

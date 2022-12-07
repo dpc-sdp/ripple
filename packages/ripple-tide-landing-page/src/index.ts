@@ -30,6 +30,7 @@ const tideLandingPageModule: RplTideMapping = {
       withSidebarSiteSectionNav: true,
       withSidebarContacts: true,
       withSidebarRelatedLinks: true,
+      withSidebarWhatsNext: true,
       withSidebarSocialShare: true
     }),
     summary: 'field_landing_page_summary',
@@ -77,6 +78,7 @@ const tideLandingPageModule: RplTideMapping = {
       withSidebarSiteSectionNav: true,
       withSidebarContacts: true,
       withSidebarRelatedLinks: true,
+      withSidebarWhatsNext: true,
       withSidebarSocialShare: true
     }),
     ...landingPageComponentsIncludes,

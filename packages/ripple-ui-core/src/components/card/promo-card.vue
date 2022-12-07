@@ -9,11 +9,12 @@ import { useAccessibleContainer } from '../../composables/useAccessibleContainer
 import RplImage from './../image/image.vue'
 import RplCard from './card.vue'
 import RplTextLink from '../text-link/text-link.vue'
+import { RplImageType } from '../image/constants'
 
 interface Props {
   el?: typeof RplCardElements[number]
   highlight?: boolean
-  image?: string
+  image?: RplImageType
   title: string
   url?: string
 }
@@ -36,8 +37,7 @@ const { container, trigger } = useAccessibleContainer()
       <RplImage
         data-cy="image"
         class="rpl-card__media rpl-card__media--round-top"
-        :src="image"
-        alt=""
+        v-bind="image"
       />
     </template>
     <template v-if="$slots.meta" #meta>

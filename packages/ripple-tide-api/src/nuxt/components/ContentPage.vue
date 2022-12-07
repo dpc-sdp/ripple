@@ -14,7 +14,13 @@
           />
           <TideSidebarRelatedLinks
             v-if="page.sidebar.relatedLinks?.length"
+            title="Related links"
             :items="page.sidebar.relatedLinks"
+          />
+          <TideSidebarRelatedLinks
+            v-if="page.sidebar.whatsNext?.length"
+            title="What's next"
+            :items="page.sidebar.whatsNext"
           />
           <TideSidebarContactUs
             v-if="page.sidebar.contacts?.length"

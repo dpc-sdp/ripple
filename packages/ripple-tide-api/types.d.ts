@@ -48,6 +48,13 @@ export interface TideSiteData {
   }
 }
 
+export interface TideLink {
+  id: string
+  text: string
+  url: string
+}
+3
+
 export interface TideMenuItem {
   text: string
   url: string

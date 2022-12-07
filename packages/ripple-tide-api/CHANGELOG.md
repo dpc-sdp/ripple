@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.28](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.27...v2.1.0-alpha.28) (2022-12-07)
+
+
+### Performance Improvements
+
+* **@dpc-sdp/ripple-tide-api:** :zap: supress warning on empty items ([19e9430](https://github.com/dpc-sdp/ripple-framework/commit/19e9430e83eb6e2cb18ddd70eeb77350327443c6))
+
+
+
+
+
 # [2.1.0-alpha.27](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.26...v2.1.0-alpha.27) (2022-12-06)
 
 

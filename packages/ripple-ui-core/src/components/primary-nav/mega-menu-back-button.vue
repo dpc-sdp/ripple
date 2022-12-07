@@ -24,6 +24,6 @@ const props = withDefaults(defineProps<Props>(), {})
       size="xs"
       class="rpl-u-margin-r-2"
     ></RplIcon>
-    <span>{{ props.label }}</span>
+    <span>{{ label }}</span>
   </button>
 </template>

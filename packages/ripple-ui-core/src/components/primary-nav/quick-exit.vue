@@ -27,8 +27,8 @@ const clickHandler = () => {
 <template>
   <RplButton
     el="a"
-    :url="props.url"
-    :label="props.label"
+    :url="url"
+    :label="label"
     variant="destructive"
     @click="clickHandler()"
   />

@@ -1,20 +1,21 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { nextTick, ref, watch } from 'vue'
 import {
   FormKitSchemaCondition,
   FormKitSchemaNode,
   FormKitConfig
 } from '@formkit/core'
 import rplFormInputs from '../../plugin'
-
-const submitted = ref(false)
+import RplFormAlert from '../RplFormAlert/RplFormAlert.vue'
+import { RplContent } from '@dpc-sdp/ripple-ui-core'
 
 interface Props {
   id: string
   schema?: FormKitSchemaCondition | FormKitSchemaNode[] | undefined
   config?: Record<string, any>
   submissionState: {
-    status: 'idle' | 'submitting' | 'success' | 'failure'
+    status: 'idle' | 'submitting' | 'success' | 'error'
+    title: string
     message: string
   }
 }
@@ -35,15 +36,18 @@ const props = withDefaults(defineProps<Props>(), {
   }),
   submissionState: () => ({
     status: 'idle',
+    title: '',
     message: ''
   })
 })
 
 const emit = defineEmits(['submit'])
 
-function submitHandler(form) {
+const serverSuccessRef = ref(null)
+const serverErrorRef = ref(null)
+
+const submitHandler = (form) => {
   emit('submit', form)
-  submitted.value = true
 }
 
 const rplFormConfig = ref({
@@ -54,10 +58,39 @@ const rplFormConfig = ref({
   },
   ...props.config
 })
+
+// Scroll to and focus on success and error messages when they appear
+watch(
+  () => props.submissionState.status,
+  async (newStatus, oldStatus) => {
+    if (oldStatus === 'submitting' && newStatus === 'success') {
+      await nextTick()
+      if (serverSuccessRef.value) {
+        serverSuccessRef.value.focus()
+      }
+    } else if (oldStatus === 'submitting' && newStatus === 'error') {
+      await nextTick()
+      if (serverErrorRef.value) {
+        serverErrorRef.value.focus()
+      }
+    }
+  }
+)
 </script>
 
 <template>
+  <RplFormAlert
+    v-if="submissionState.status === 'success'"
+    ref="serverSuccessRef"
+    :status="submissionState.status"
+    :title="submissionState.title"
+  >
+    <template #default>
+      <RplContent :html="submissionState.message" />
+    </template>
+  </RplFormAlert>
   <FormKit
+    v-else
     :id="id"
     v-slot="{ value }"
     type="form"
@@ -73,14 +106,16 @@ const rplFormConfig = ref({
       :disabled="submissionState.status === 'submitting'"
     >
       <slot name="aboveForm">
-        <div>
-          <div>
-            {{ submissionState.status }}
-          </div>
-          <div>
-            {{ submissionState.message }}
-          </div>
-        </div>
+        <RplFormAlert
+          v-if="submissionState.status === 'error'"
+          ref="serverErrorRef"
+          :status="submissionState.status"
+          :title="submissionState.title"
+        >
+          <template #default>
+            <RplContent :html="submissionState.message" />
+          </template>
+        </RplFormAlert>
       </slot>
       <slot>
         <FormKitSchema v-if="schema" :schema="schema"></FormKitSchema>

@@ -2,6 +2,9 @@ import { TideDynamicPageComponent } from '@dpc-sdp/ripple-tide-api'
 import { FormKitSchemaNode } from '@formkit/core'
 
 export interface ITideWebform {
+  formId: string
+  successMessageHTML: string
+  errorMessageHTML: string
   schema: FormKitSchemaNode
 }
 
@@ -271,6 +274,13 @@ export const webformMapping = async (
     title: field.field_paragraph_title,
     props: {
       formId: field?.field_paragraph_webform?.drupal_internal__id,
+      successMessageHTML:
+        field?.field_paragraph_webform?.settings?.confirmation_message ||
+        'Thank you! Your response has been submitted.',
+      errorMessageHTML:
+        field?.field_paragraph_webform?.settings
+          ?.submission_exception_message ||
+        'We are experiencing a server error. Please try again, otherwise contact us.',
       schema: await getFormSchemaFromMapping(
         field?.field_paragraph_webform?.elements,
         tidePageApi

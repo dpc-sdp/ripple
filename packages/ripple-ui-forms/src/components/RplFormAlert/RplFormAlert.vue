@@ -25,7 +25,6 @@ const classes = computed(() => {
 const containerRef = ref(null)
 
 const fieldLinks = computed(() => {
-  console.log(props.fields)
   return (props.fields || []).map((field) => {
     return {
       url: `#${field.fieldId}`,

@@ -1,12 +1,14 @@
 <script setup lang="ts">
 import { useRuntimeConfig, useFetch } from '#imports'
 import { FormKitSchemaNode } from '@formkit/core'
+import { $fetch } from 'ohmyfetch'
 import { ref } from 'vue'
 
 const props =
   defineProps<{
     formId: string
-    title: string
+    successMessageHTML: string
+    errorMessageHTML: string
     schema: Array<FormKitSchemaNode>
   }>()
 
@@ -34,7 +36,7 @@ const postForm = async (formId, formData = {}) => {
   // It's blocked by Tide webform response issue SDPA-477.
   // Currently the Tide webform has no right response.
   const url = `api/tide/${formResource}/${formId}`
-  const { data, error } = await useFetch(url, {
+  const { data, error } = await $fetch(url, {
     method: 'POST',
     baseURL: config.API_URL || '',
     body,
@@ -46,11 +48,11 @@ const postForm = async (formId, formData = {}) => {
     }
   })
 
-  if (error.value) {
-    throw error.value
+  if (error) {
+    throw error
   }
 
-  if (!data.value) {
+  if (!data) {
     throw new Error('Form submission failed')
   }
 
@@ -59,12 +61,14 @@ const postForm = async (formId, formData = {}) => {
 
 const submissionState = ref({
   status: 'idle',
+  title: '',
   message: ''
 })
 
 const submitHandler = async (values) => {
   submissionState.value = {
     status: 'submitting',
+    title: '',
     message: ''
   }
   try {
@@ -72,20 +76,22 @@ const submitHandler = async (values) => {
 
     submissionState.value = {
       status: 'success',
-      message: 'Success!'
+      title: 'Form submitted',
+      message: props.successMessageHTML
     }
   } catch (error) {
     console.error(error)
+
     submissionState.value = {
       status: 'error',
-      message: 'Failure!'
+      title: 'Form not submitted',
+      message: props.errorMessageHTML
     }
   }
 }
 </script>
 
 <template>
-  <h2 v-if="title" class="rpl-type-h2">{{ title }}</h2>
   <RplForm
     :schema="schema"
     :submissionState="submissionState"

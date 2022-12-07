@@ -52,7 +52,7 @@ defineExpose({
 </script>
 
 <template>
-  <div ref="containerRef" :class="classes">
+  <div ref="containerRef" :class="classes" tabindex="-1">
     <h3 class="rpl-form-alert__title rpl-type-label-large">
       <RplIcon :name="iconName" size="m" />
       {{ title }}

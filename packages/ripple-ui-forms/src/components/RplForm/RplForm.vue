@@ -5,6 +5,7 @@ import {
   FormKitSchemaNode,
   FormKitConfig
 } from '@formkit/core'
+import { getValidationMessages } from '@formkit/validation'
 import rplFormInputs from '../../plugin'
 import RplFormAlert from '../RplFormAlert/RplFormAlert.vue'
 import { RplContent } from '@dpc-sdp/ripple-ui-core'
@@ -46,8 +47,37 @@ const emit = defineEmits(['submit'])
 const serverSuccessRef = ref(null)
 const serverErrorRef = ref(null)
 
+const errorSummaryRef = ref(null)
+const errorSummaryMessages = ref([])
+
 const submitHandler = (form) => {
+  // Reset the error summary as it is not reactive
+  errorSummaryMessages.value = []
+
   emit('submit', form)
+}
+
+const submitInvalidHandler = async (node) => {
+  const validations = getValidationMessages(node)
+
+  const fieldMessages = []
+
+  // Note: validations is a JS Map https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map
+  validations.forEach((inputMessages, fieldNode) => {
+    const fieldId = fieldNode.context.id
+
+    fieldMessages.push({
+      fieldId: fieldId,
+      text: inputMessages.map((message) => message.value)[0]
+    })
+  })
+
+  errorSummaryMessages.value = fieldMessages
+
+  await nextTick()
+  if (errorSummaryRef.value) {
+    errorSummaryRef.value.focus()
+  }
 }
 
 const rplFormConfig = ref({
@@ -99,24 +129,31 @@ watch(
     :config="rplFormConfig"
     :actions="false"
     novalidate
+    @submitInvalid="submitInvalidHandler"
     @submit="submitHandler"
   >
     <fieldset
       class="rpl-form__submit-guard"
       :disabled="submissionState.status === 'submitting'"
     >
-      <slot name="aboveForm">
-        <RplFormAlert
-          v-if="submissionState.status === 'error'"
-          ref="serverErrorRef"
-          :status="submissionState.status"
-          :title="submissionState.title"
-        >
-          <template #default>
-            <RplContent :html="submissionState.message" />
-          </template>
-        </RplFormAlert>
-      </slot>
+      <RplFormAlert
+        v-if="errorSummaryMessages && errorSummaryMessages.length"
+        ref="errorSummaryRef"
+        status="error"
+        title="Form not submitted"
+        :fields="errorSummaryMessages"
+      />
+      <RplFormAlert
+        v-else-if="submissionState.status === 'error'"
+        ref="serverErrorRef"
+        :status="submissionState.status"
+        :title="submissionState.title"
+      >
+        <template #default>
+          <RplContent :html="submissionState.message" />
+        </template>
+      </RplFormAlert>
+      <slot name="aboveForm"></slot>
       <slot>
         <FormKitSchema v-if="schema" :schema="schema"></FormKitSchema>
       </slot>

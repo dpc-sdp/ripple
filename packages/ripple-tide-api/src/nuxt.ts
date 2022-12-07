@@ -7,7 +7,8 @@ import {
   addComponentsDir,
   addImportsDir,
   resolvePath,
-  createResolver
+  createResolver,
+  installModule
 } from '@nuxt/kit'
 import { pascalCase } from 'change-case'
 
@@ -45,6 +46,8 @@ export default defineNuxtModule({
     debug: false
   },
   async setup(options: RplTideModuleConfig, nuxt) {
+    await installModule('nuxt-proxy')
+
     const { resolve } = createResolver(import.meta.url)
     // Setup config from runtimeConfig and options
     if (nuxt.options.runtimeConfig.public['tideserver']) {
@@ -83,10 +86,6 @@ export default defineNuxtModule({
     addServerHandler({
       route: '/api/tide/site',
       handler: resolve('./nuxt/handlers/siteHandler.js')
-    })
-    addServerHandler({
-      route: '/api/tide/webform_submission/**',
-      handler: resolve('./nuxt/handlers/webformSubmissionHandler.js')
     })
 
     // Add nuxt components and composables to imports

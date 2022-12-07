@@ -40,6 +40,9 @@ const postForm = async (formId, formData = {}) => {
     body,
     params: {
       site: config.tide.contentApi.site
+    },
+    headers: {
+      'Content-Type': 'application/vnd.api+json;charset=UTF-8'
     }
   })
 

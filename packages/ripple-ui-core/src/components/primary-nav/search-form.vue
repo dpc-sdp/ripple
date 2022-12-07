@@ -16,8 +16,11 @@ const props = withDefaults(defineProps<Props>(), {})
 <template>
   <div class="rpl-primary-nav__search-form">
     <!-- Quick links -->
-    <div class="rpl-primary-nav__search-form-quick-links">
-      <RplPrimaryNavQuickExit v-if="props.showQuickExit" />
+    <div
+      v-if="props.showQuickExit"
+      class="rpl-primary-nav__search-form-quick-links"
+    >
+      <RplPrimaryNavQuickExit />
     </div>
 
     <div class="rpl-primary-nav__search-bar-wrapper">

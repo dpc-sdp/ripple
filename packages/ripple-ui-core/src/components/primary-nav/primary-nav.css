@@ -473,7 +473,7 @@
   padding: var(--rpl-sp-4) var(--rpl-sp-2);
   text-align: left;
   text-decoration: none;
-  color: white;
+  color: var(--rpl-clr-type-primary-contrast);
   border-bottom: 1px solid var(--rpl-clr-primary);
   cursor: pointer;
 

@@ -4,13 +4,19 @@ import { FormKitSchemaNode } from '@formkit/core'
 import { $fetch } from 'ohmyfetch'
 import { ref } from 'vue'
 
-const props =
-  defineProps<{
-    formId: string
-    successMessageHTML: string
-    errorMessageHTML: string
-    schema: Array<FormKitSchemaNode>
-  }>()
+interface Props {
+  formId: string
+  successMessageTitle: string
+  successMessageHTML: string
+  errorMessageTitle: string
+  errorMessageHTML: string
+  schema: Array<FormKitSchemaNode>
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  successMessageTitle: 'Form submitted',
+  errorMessageTitle: 'Form not submitted'
+})
 
 /**
  * Post form data to Tide API
@@ -76,7 +82,7 @@ const submitHandler = async (values) => {
 
     submissionState.value = {
       status: 'success',
-      title: 'Form submitted',
+      title: props.successMessageTitle,
       message: props.successMessageHTML
     }
   } catch (error) {
@@ -84,7 +90,7 @@ const submitHandler = async (values) => {
 
     submissionState.value = {
       status: 'error',
-      title: 'Form not submitted',
+      title: props.errorMessageTitle,
       message: props.errorMessageHTML
     }
   }

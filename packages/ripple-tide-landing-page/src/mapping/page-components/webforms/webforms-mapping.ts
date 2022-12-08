@@ -274,9 +274,13 @@ export const webformMapping = async (
     title: field.field_paragraph_title,
     props: {
       formId: field?.field_paragraph_webform?.drupal_internal__id,
+      successMessageTitle:
+        field?.field_paragraph_webform?.settings?.confirmation_title ||
+        'Form submitted',
       successMessageHTML:
         field?.field_paragraph_webform?.settings?.confirmation_message ||
         'Thank you! Your response has been submitted.',
+      errorMessageTitle: 'Form not submitted',
       errorMessageHTML:
         field?.field_paragraph_webform?.settings
           ?.submission_exception_message ||

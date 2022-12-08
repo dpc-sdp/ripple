@@ -264,32 +264,17 @@
   width: 100%;
   max-height: calc(100% - var(--local-nav-bar-height) - var(--rpl-sp-8));
   overflow-y: auto;
-  padding-top: var(--rpl-sp-4);
-  padding-right: var(--rpl-sp-4);
-  padding-bottom: var(--rpl-sp-8);
-  padding-left: var(--rpl-sp-4);
-
-  @media (--rpl-bp-s) {
-    padding-right: var(--rpl-sp-5);
-    padding-left: var(--rpl-sp-5);
-  }
 
   @media (--rpl-bp-l) {
     max-height: calc(100% - var(--local-nav-bar-height) - var(--rpl-sp-9));
-    padding-top: var(--rpl-sp-7);
-    padding-right: var(--rpl-sp-10);
-    padding-bottom: var(--rpl-sp-9);
-    padding-left: var(--rpl-sp-10);
-  }
-
-  @media (--rpl-bp-xl) {
-    padding-right: var(--rpl-sp-11);
-    padding-left: var(--rpl-sp-11);
   }
 }
 
 .rpl-primary-nav__mega-menu-quick-links {
   text-align: right;
+  padding-top: var(--rpl-sp-4);
+  padding-right: var(--rpl-sp-4);
+  padding-left: var(--rpl-sp-4);
   margin-bottom: var(--rpl-sp-10);
 
   @media (--rpl-bp-l) {
@@ -340,9 +325,27 @@
   max-width: 400px;
   margin: 0 auto;
   overflow-x: hidden;
+  padding-top: var(--rpl-sp-4);
+  padding-right: var(--rpl-sp-4);
+  padding-bottom: var(--rpl-sp-8);
+  padding-left: var(--rpl-sp-4);
+
+  @media (--rpl-bp-s) {
+    padding-right: var(--rpl-sp-5);
+    padding-left: var(--rpl-sp-5);
+  }
 
   @media (--rpl-bp-l) {
     max-width: none;
+    padding-top: var(--rpl-sp-7);
+    padding-right: var(--rpl-sp-10);
+    padding-bottom: var(--rpl-sp-9);
+    padding-left: var(--rpl-sp-10);
+  }
+
+  @media (--rpl-bp-xl) {
+    padding-right: var(--rpl-sp-11);
+    padding-left: var(--rpl-sp-11);
   }
 }
 

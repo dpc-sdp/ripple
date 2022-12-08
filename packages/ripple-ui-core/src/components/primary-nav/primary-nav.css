@@ -335,8 +335,9 @@
   }
 
   @media (--rpl-bp-xl) {
-    padding-right: var(--rpl-sp-11);
-    padding-left: var(--rpl-sp-11);
+    max-width: 1056px;
+    padding-right: 0;
+    padding-left: 0;
   }
 }
 

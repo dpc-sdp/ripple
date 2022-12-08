@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import { RplIcon, RplList } from '@dpc-sdp/ripple-ui-core'
+import { RplIcon } from '@dpc-sdp/ripple-ui-core'
+import { useMediaQuery } from '@vueuse/core'
 
 interface Props {
   status: 'error' | 'success'
@@ -15,6 +16,8 @@ const props = withDefaults(defineProps<Props>(), {
   fields: () => []
 })
 
+const prefersReducedMotion = useMediaQuery('(prefers-reduced-motion: reduce)')
+
 const classes = computed(() => {
   return {
     'rpl-form-alert': true,
@@ -24,25 +27,58 @@ const classes = computed(() => {
 
 const containerRef = ref(null)
 
-const fieldLinks = computed(() => {
-  return (props.fields || []).map((field) => {
-    return {
-      url: `#${field.fieldId}`,
-      text: field.text
-    }
-  })
-})
-
 const iconName = computed(() => {
   return props.status === 'success'
     ? 'icon-check-circle-filled'
     : 'icon-exclamation-circle-filled'
 })
 
+const scrollToElement = (element) => {
+  if (!element) {
+    return
+  }
+
+  const topOffset = -10
+  const elementYPos =
+    element.getBoundingClientRect().top + window.pageYOffset + topOffset
+
+  window.scrollTo({
+    top: elementYPos,
+    behavior: prefersReducedMotion.value ? 'auto' : 'smooth'
+  })
+}
+
+const handleFieldClick = (fieldId: string) => {
+  const fieldContainerSelector = '.rpl-form__outer'
+
+  // First look for this data attribute which allows inputs to specify exactly which element should be focused
+  let input: HTMLElement = document.querySelector(
+    `[data-rpl-focus-input="${fieldId}"]`
+  )
+
+  // Then fallback to just getting the element by it's id
+  if (!input) {
+    input = document.getElementById(fieldId)
+  }
+
+  if (input) {
+    // Try to get the wrapper of the input as a nicer target for scrolling, otherwise fallback to scrolling to the input itself
+    const container = input.closest(fieldContainerSelector)
+
+    input.focus({ preventScroll: true })
+
+    if (container) {
+      scrollToElement(container)
+    } else {
+      scrollToElement(input)
+    }
+  }
+}
+
 const focus = () => {
   if (containerRef.value) {
     containerRef.value.focus({ preventScroll: true })
-    containerRef.value.scrollIntoView({ behavior: 'smooth' })
+    scrollToElement(containerRef.value)
   }
 }
 
@@ -60,11 +96,21 @@ defineExpose({
     <div class="rpl-form-alert__description rpl-type-p">
       <slot></slot>
     </div>
-    <RplList
-      :items="fieldLinks"
-      class="rpl-form-alert__fields"
-      item-class="rpl-form-alert__field rpl-type-p"
-    />
+    <ul class="rpl-form-alert__fields">
+      <li
+        v-for="field in fields"
+        :key="field.fieldId"
+        class="rpl-form-alert__field"
+      >
+        <RplTextLink
+          class="rpl-form-alert__field-link rpl-type-p"
+          :url="`#${field.fieldId}`"
+          @click.prevent="handleFieldClick(field.fieldId)"
+        >
+          {{ field.text }}
+        </RplTextLink>
+      </li>
+    </ul>
   </div>
 </template>
 

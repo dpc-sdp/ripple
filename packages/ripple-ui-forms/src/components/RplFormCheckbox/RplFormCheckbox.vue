@@ -1,3 +1,9 @@
+<script lang="ts">
+export default {
+  inheritAttrs: false
+}
+</script>
+
 <script setup lang="ts">
 import { computed } from 'vue'
 import { RplIcon } from '@dpc-sdp/ripple-ui-core'

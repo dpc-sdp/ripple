@@ -39,6 +39,10 @@
   }
 }
 
+.rpl-form-alert__field-link {
+  display: inline;
+}
+
 .rpl-form-alert--success {
   border-left-color: var(--rpl-clr-success);
   background: var(--rpl-clr-success-light);

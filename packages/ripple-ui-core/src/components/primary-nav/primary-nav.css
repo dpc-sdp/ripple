@@ -394,6 +394,7 @@
   display: flex;
   align-items: center;
   margin-bottom: var(--rpl-sp-8);
+  text-align: left;
   cursor: pointer;
 
   .rpl-primary-nav--collapse-until-l & {
@@ -406,6 +407,10 @@
     @media (--rpl-bp-xl) {
       display: none;
     }
+  }
+
+  .rpl-icon {
+    transform: translateY(-1px);
   }
 }
 

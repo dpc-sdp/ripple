@@ -275,15 +275,6 @@
   padding-top: var(--rpl-sp-4);
   padding-right: var(--rpl-sp-4);
   padding-left: var(--rpl-sp-4);
-  margin-bottom: var(--rpl-sp-10);
-
-  @media (--rpl-bp-l) {
-    margin-bottom: var(--rpl-sp-7);
-  }
-
-  &:empty {
-    margin-bottom: var(--rpl-sp-6);
-  }
 
   li {
     margin-bottom: var(--rpl-sp-4);
@@ -325,7 +316,7 @@
   max-width: 400px;
   margin: 0 auto;
   overflow-x: hidden;
-  padding-top: var(--rpl-sp-4);
+  padding-top: var(--rpl-sp-9);
   padding-right: var(--rpl-sp-4);
   padding-bottom: var(--rpl-sp-8);
   padding-left: var(--rpl-sp-4);

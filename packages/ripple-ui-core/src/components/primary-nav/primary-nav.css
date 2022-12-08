@@ -470,6 +470,7 @@
 .rpl-primary-nav__mega-menu-action {
   display: flex;
   justify-content: space-between;
+  position: relative;
   width: 100%;
   padding: var(--rpl-sp-4) var(--rpl-sp-2);
   text-align: left;
@@ -482,6 +483,18 @@
   &:active,
   &.rpl-primary-nav__mega-menu-action--active {
     background-color: var(--rpl-clr-primary-alpha);
+  }
+
+  &.rpl-primary-nav__mega-menu-action--active {
+    &::after {
+      display: block;
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      border-bottom: 2px solid var(--rpl-clr-type-primary-contrast);
+      width: 100%;
+    }
   }
 
   &.rpl-primary-nav__mega-menu-action--home {

@@ -145,6 +145,21 @@ export default {
       }
       return ['More than ' + field.max + ' selections are not allowed']
     }
+    // Validate if the field matches the supplied regex pattern, this displays the 'Pattern message' if it doesn't match.
+    VueFormGenerator.validators.rplMatchPattern = function (value, field) {
+      if (value) {
+        try {
+          const regex = new RegExp(field.pattern)
+
+          if (!regex.test(value)) {
+            return field.patternMessage || 'Please ensure data is entered in the correct format'
+          }
+        } catch (error) {
+          return null
+        }
+      }
+      return null
+    }
   },
   destroyed () {
     if (this.listenForClearForm) {
@@ -374,6 +389,10 @@ $rpl-form-input-search-icon: url("data:image/svg+xml,%3Csvg width='16' height='1
       order: 2;
       margin-bottom: $rpl-space-2;
       color: rpl-color('danger');
+
+      span {
+        margin-right: $rpl-space-2;
+      }
     }
   }
 

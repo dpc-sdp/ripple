@@ -42,7 +42,7 @@ const clickHandler = (id: string) => {
     @click="clickHandler(item.id)"
   >
     <span>{{ item.text }}</span>
-    <span class="rpl-primary-nav__mega-menu-action-icon">
+    <span class="rpl-primary-nav__mega-menu-action-icon rpl-u-margin-l-2">
       <RplIcon v-if="type === 'toggle'" name="icon-chevron-right" size="xs" />
     </span>
   </component>

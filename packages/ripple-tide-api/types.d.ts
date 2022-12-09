@@ -119,6 +119,15 @@ export type TidePropRange = {
   to: string | number
 }
 
+export interface RplTideModuleMappingConfig {
+  /**
+   * ContentType Mapping or path to file
+   */
+  content: {
+    [key: string]: string | RplTideMapping
+  }
+}
+
 export interface RplTideModuleConfig {
   contentApi: {
     /**

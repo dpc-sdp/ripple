@@ -1,43 +1,22 @@
 import { join } from 'pathe'
 import type { RplTideModuleConfig } from './../types'
-import contentTypes from './content-types.js'
 import {
   defineNuxtModule,
   addServerHandler,
-  addComponent,
   addComponentsDir,
   addImportsDir,
   resolvePath,
   createResolver,
   installModule
 } from '@nuxt/kit'
-import { pascalCase } from 'change-case'
-
-const loadComponents = async (key, path) => {
-  const getComponentName = (name) => `Tide${pascalCase(name)}Page`
-  if (Array.isArray(path)) {
-    for (let i = 0; i < path.length; i++) {
-      const filePath = await resolvePath(path[i])
-      addComponent({ name: getComponentName(key), filePath, global: true })
-    }
-  }
-  const filePath = await resolvePath(path)
-  addComponent({ name: getComponentName(key), filePath, global: true })
-}
-
-// Modules to install for ripple-tide-api, tide content types, ripple-ui-core, ripple-ui-forms
-const rippleModules = [
-  '@dpc-sdp/ripple-tide-api/nuxt',
-  ...Object.values(contentTypes).map((item) => `${item}/nuxt`),
-  '@dpc-sdp/ripple-ui-core/nuxt',
-  '@dpc-sdp/ripple-ui-forms/nuxt'
-]
+import rippleModules from './content-types.js'
 
 export default defineNuxtModule({
   meta: {
     name: 'ripple-tide-api',
     configKey: 'tide'
   },
+
   defaults: {
     contentApi: {
       site: '8888',
@@ -54,6 +33,7 @@ export default defineNuxtModule({
     },
     debug: false
   },
+
   async setup(options: RplTideModuleConfig, nuxt) {
     const { resolve } = createResolver(import.meta.url)
     // Setup config from runtimeConfig and options
@@ -65,27 +45,12 @@ export default defineNuxtModule({
       options.contentApi.site = nuxt.options.runtimeConfig.public['site']
     }
 
+    // Add baseUrl and site mapping
     options.mapping = {
-      content: contentTypes,
-      site: '@dpc-sdp/ripple-tide-api/mapping/site'
+      content: {},
+      site: await resolvePath('@dpc-sdp/ripple-tide-api/mapping/site')
     }
-
-    for (const key in options.mapping.content) {
-      const modulePath = await resolvePath(
-        `${options.mapping.content[`${key}`]}`
-      )
-      options.mapping.content[`${key}`] = modulePath
-      const module = await import(modulePath)
-      if (module && module.hasOwnProperty('component')) {
-        await loadComponents(key, module.component)
-      }
-    }
-    if (typeof options.mapping.site === 'string') {
-      options.mapping.site = await resolvePath(options.mapping.site)
-    }
-
     nuxt.options.runtimeConfig.public.tide = options
-    rippleModules.map((mod) => installModule(mod))
 
     // API endpoint handlers - See https://v3.nuxtjs.org/guide/directory-structure/server#api-routes
     addServerHandler({
@@ -114,5 +79,8 @@ export default defineNuxtModule({
     nuxt.hook('app:resolve', (app) => {
       app.errorComponent = resolve('./../src/nuxt/components/ErrorPage.vue')
     })
+
+    // Install modules for tide content types, ripple-ui-core, ripple-ui-forms
+    rippleModules.map((mod) => installModule(mod))
   }
 })

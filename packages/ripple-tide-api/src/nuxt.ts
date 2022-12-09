@@ -1,5 +1,6 @@
 import { join } from 'pathe'
 import type { RplTideModuleConfig } from './../types'
+import contentTypes from './content-types.js'
 import {
   defineNuxtModule,
   addServerHandler,
@@ -7,7 +8,8 @@ import {
   addComponentsDir,
   addImportsDir,
   resolvePath,
-  createResolver
+  createResolver,
+  installModule
 } from '@nuxt/kit'
 import { pascalCase } from 'change-case'
 
@@ -22,6 +24,14 @@ const loadComponents = async (key, path) => {
   const filePath = await resolvePath(path)
   addComponent({ name: getComponentName(key), filePath, global: true })
 }
+
+// Modules to install for ripple-tide-api, tide content types, ripple-ui-core, ripple-ui-forms
+const rippleModules = [
+  '@dpc-sdp/ripple-tide-api/nuxt',
+  ...Object.values(contentTypes).map((item) => `${item}/nuxt`),
+  '@dpc-sdp/ripple-ui-core/nuxt',
+  '@dpc-sdp/ripple-ui-forms/nuxt'
+]
 
 export default defineNuxtModule({
   meta: {
@@ -55,6 +65,11 @@ export default defineNuxtModule({
       options.contentApi.site = nuxt.options.runtimeConfig.public['site']
     }
 
+    options.mapping = {
+      content: contentTypes,
+      site: '@dpc-sdp/ripple-tide-api/mapping/site'
+    }
+
     for (const key in options.mapping.content) {
       const modulePath = await resolvePath(
         `${options.mapping.content[`${key}`]}`
@@ -70,6 +85,7 @@ export default defineNuxtModule({
     }
 
     nuxt.options.runtimeConfig.public.tide = options
+    rippleModules.map((mod) => installModule(mod))
 
     // API endpoint handlers - See https://v3.nuxtjs.org/guide/directory-structure/server#api-routes
     addServerHandler({

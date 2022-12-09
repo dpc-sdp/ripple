@@ -9,7 +9,7 @@ import {
   createResolver,
   installModule
 } from '@nuxt/kit'
-import rippleModules from './content-types.js'
+import rippleModules from './ripple-modules.js'
 
 export default defineNuxtModule({
   meta: {

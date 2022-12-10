@@ -3,7 +3,7 @@ export default { name: 'RplPrimaryNavMegaMenuBackButton' }
 </script>
 
 <script setup lang="ts">
-import RplIcon from '../icon/icon.vue'
+import RplIcon from '../../../icon/icon.vue'
 
 interface Props {
   label: string

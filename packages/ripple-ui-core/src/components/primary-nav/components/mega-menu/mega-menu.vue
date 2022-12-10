@@ -6,8 +6,8 @@ export default { name: 'RplPrimaryNavMegaMenu' }
 import { computed } from 'vue'
 import RplPrimaryNavBackButton from './mega-menu-back-button.vue'
 import RplPrimaryNavMegaMenuList from './mega-menu-list.vue'
-import RplPrimaryNavQuickExit from './quick-exit.vue'
-import { RplPrimaryNavItem } from './constants'
+import RplPrimaryNavQuickExit from '../quick-exit/quick-exit.vue'
+import { RplPrimaryNavItem } from '../../constants'
 
 interface Props {
   items: RplPrimaryNavItem[]
@@ -209,3 +209,5 @@ const backButtonHandler = () => {
     </div>
   </div>
 </template>
+
+<style src="./mega-menu.css" />

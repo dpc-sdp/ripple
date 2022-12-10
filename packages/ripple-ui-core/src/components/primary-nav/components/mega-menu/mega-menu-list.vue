@@ -3,9 +3,9 @@ export default { name: 'RplPrimaryNavMegaMenuList' }
 </script>
 
 <script setup lang="ts">
-import RplIcon from '../icon/icon.vue'
+import RplIcon from '../../../icon/icon.vue'
 import RplPrimaryNavMegaMenuAction from './mega-menu-action.vue'
-import { RplPrimaryNavItem } from './constants'
+import { RplPrimaryNavItem } from '../../constants'
 
 interface Props {
   parent?: RplPrimaryNavItem

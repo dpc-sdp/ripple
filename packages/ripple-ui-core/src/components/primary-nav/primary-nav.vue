@@ -6,9 +6,9 @@ export default { name: 'RplPrimaryNav' }
 import { ref, computed, watch, onMounted, onUnmounted, useSlots } from 'vue'
 import type { Ref } from 'vue'
 import { useFocusTrap } from '@vueuse/integrations/useFocusTrap'
-import RplPrimaryNavBar from './nav-bar.vue'
-import RplPrimaryNavMegaMenu from './mega-menu.vue'
-import RplPrimaryNavSearchForm from './search-form.vue'
+import RplPrimaryNavBar from './components/nav-bar/nav-bar.vue'
+import RplPrimaryNavMegaMenu from './components/mega-menu/mega-menu.vue'
+import RplPrimaryNavSearchForm from './components/search-form/search-form.vue'
 
 import { RplPrimaryNavLogo, RplPrimaryNavItem } from './constants'
 

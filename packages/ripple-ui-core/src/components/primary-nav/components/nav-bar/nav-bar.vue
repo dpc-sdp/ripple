@@ -3,9 +3,9 @@ export default { name: 'RplPrimaryNavBar' }
 </script>
 
 <script setup lang="ts">
-import RplIcon from '../icon/icon.vue'
+import RplIcon from '../../../icon/icon.vue'
 import RplPrimaryNavBarAction from './nav-bar-action.vue'
-import { RplPrimaryNavLogo, RplPrimaryNavItem } from './constants'
+import { RplPrimaryNavLogo, RplPrimaryNavItem } from '../../constants'
 
 interface Props {
   primaryLogo: RplPrimaryNavLogo
@@ -168,3 +168,5 @@ const props = defineProps<Props>()
     </ul>
   </div>
 </template>
+
+<style src="./nav-bar.css" />

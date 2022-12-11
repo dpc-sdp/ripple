@@ -18,6 +18,14 @@ export interface RplTideMapping {
   includes: string[]
 }
 
+export interface RplFeatureFlags {
+  /**
+   * @description Sets the footer component to use the neutral variant
+   */
+  footerTheme?: string
+  [key: string]: string
+}
+
 export interface TideSiteData {
   name: string
   _src?: any
@@ -39,6 +47,7 @@ export interface TideSiteData {
   theme: {
     [key: string]: string
   }
+  featureFlags: RplFeatureFlags
   socialImages: {
     twitter: any
     og: any

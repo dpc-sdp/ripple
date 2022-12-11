@@ -10,3 +10,13 @@ Then(
     )
   }
 )
+
+Then(
+  'the site footer should have the {string} theme applied',
+  (theme: string) => {
+    cy.get(`[data-component-type="site-footer"]`).should(
+      'have.class',
+      `rpl-footer--${theme}`
+    )
+  }
+)

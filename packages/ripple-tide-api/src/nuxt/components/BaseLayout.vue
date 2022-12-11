@@ -70,6 +70,7 @@
           :acknowledgement="site?.acknowledgementFooter"
           :logos="site?.footerLogos"
           :credit="footerImageCaption"
+          :variant="featureFlags['footerTheme'] || 'default'"
         >
           <template v-if="site?.copyrightHtml" #copyright>
             <div data-cy="footer-copyright" v-html="site?.copyrightHtml"></div>
@@ -87,6 +88,7 @@ import { RplChip } from '@dpc-sdp/ripple-ui-core'
 import { computed, onMounted } from 'vue'
 import { TideSiteData } from '../../../types'
 import { TideTopicTag } from '../../mapping/topic-tags/topic-tags-mapping'
+import useFeatureFlags from '../composables/use-feature-flags'
 
 interface Props {
   site: TideSiteData
@@ -120,6 +122,7 @@ const showBreadcrumbs = computed(() => {
 })
 
 const style = useSiteTheme(props.site?.theme || useAppConfig().theme)
+const featureFlags = useFeatureFlags(props.site?.featureFlags)
 useHead({
   title: props.pageTitle,
   htmlAttrs: {

@@ -83,14 +83,16 @@ export default {
       } else {
         const resData = await this.postForm(formId, formData)
         if (resData) {
-          this.formData.formState = {
-            response: {
-              status: 'success',
-              message: resData.attributes.notes ? resData.attributes.notes : (this.formData.messages.success || this.messages.success)
-            }
+          let status = 'success'
+          let message = this.formData.messages.success || this.messages.success
+          if (resData.attributes?.notes) {
+            [status, message] = this.getParsedStatus(resData.attributes.notes)
           }
-          // TODO: vicpol support, need to be reviewed when we add this feature into SDP.
-          this.vicPolRedirect()
+          this.formData.formState = { response: { status, message } }
+          if (status === 'success') {
+            // TODO: vicpol support, need to be reviewed when we add this feature into SDP.
+            this.vicPolRedirect()
+          }
         } else {
           this.formData.formState = {
             response: {
@@ -133,6 +135,13 @@ export default {
           openNewTab(redirectUrl)
         }
       }
+    },
+    getParsedStatus (notes) {
+      const [code, note] = notes.split('|')
+      if (code && Number.isInteger(+code) && (+code <= 199 || +code >= 300)) {
+        return ['danger', note || this.formData.messages.error || this.messages.error]
+      }
+      return ['success', note || this.formData.messages.success || this.messages.success]
     }
   },
   mounted () {

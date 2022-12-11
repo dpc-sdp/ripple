@@ -33,15 +33,15 @@ const clickHandler = (id: string) => {
       'rpl-primary-nav__mega-menu-action--toggle': type === 'toggle',
       'rpl-primary-nav__mega-menu-action--link': type === 'link',
       'rpl-primary-nav__mega-menu-action--active': isItemExpanded
-        ? isItemExpanded(props.item.id)
+        ? isItemExpanded(item.id)
         : false,
       'rpl-u-focusable-block': true,
       'rpl-type-p-small': true
     }"
-    :href="type == 'link' ? props.item.url : undefined"
-    @click="clickHandler(props.item.id)"
+    :href="type == 'link' ? item.url : undefined"
+    @click="clickHandler(item.id)"
   >
-    <span>{{ props.item.text }}</span>
+    <span>{{ item.text }}</span>
     <span class="rpl-primary-nav__mega-menu-action-icon">
       <RplIcon v-if="type === 'toggle'" name="icon-chevron-right" size="xs" />
     </span>

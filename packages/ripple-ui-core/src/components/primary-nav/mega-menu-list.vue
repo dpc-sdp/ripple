@@ -26,7 +26,7 @@ const props = withDefaults(defineProps<Props>(), {
   <ul
     :class="`
       rpl-primary-nav__mega-menu-list
-      rpl-primary-nav__mega-menu-list--level-${props.level}
+      rpl-primary-nav__mega-menu-list--level-${level}
     `"
   >
     <!-- 'Home' link - Only visible on mobile -->
@@ -48,11 +48,11 @@ const props = withDefaults(defineProps<Props>(), {
 
     <!-- Repeat of parent as a clickable link -->
     <li v-if="parent" class="rpl-primary-nav__mega-menu-item">
-      <RplPrimaryNavMegaMenuAction :item="props.parent" type="link" />
+      <RplPrimaryNavMegaMenuAction :item="parent" type="link" />
     </li>
 
     <!-- Children -->
-    <li v-for="child in props.items" :key="child.id">
+    <li v-for="child in items" :key="child.id">
       <RplPrimaryNavMegaMenuAction
         :item="child"
         :type="child.items?.length ? 'toggle' : 'link'"

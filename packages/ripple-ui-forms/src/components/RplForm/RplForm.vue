@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { nextTick, ref, watch } from 'vue'
+import { nextTick, provide, ref, watch } from 'vue'
 import {
   FormKitSchemaCondition,
   FormKitSchemaNode,
@@ -9,9 +9,11 @@ import { getValidationMessages } from '@formkit/validation'
 import rplFormInputs from '../../plugin'
 import RplFormAlert from '../RplFormAlert/RplFormAlert.vue'
 import { RplContent } from '@dpc-sdp/ripple-ui-core'
+import { reset } from '@formkit/vue'
 
 interface Props {
   id: string
+  resetOnSubmit: boolean
   schema?: FormKitSchemaCondition | FormKitSchemaNode[] | undefined
   config?: Record<string, any>
   submissionState: {
@@ -22,6 +24,7 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
+  resetOnSubmit: false,
   schema: undefined,
   config: (): Partial<Omit<FormKitConfig, 'rootClasses' | 'delimiter'>> => ({
     validationVisibility: 'submit',
@@ -44,8 +47,9 @@ const props = withDefaults(defineProps<Props>(), {
 
 const emit = defineEmits(['submit'])
 
-const serverSuccessRef = ref(null)
-const serverErrorRef = ref(null)
+provide('formId', props.id)
+
+const serverMessageRef = ref(null)
 
 const errorSummaryRef = ref(null)
 const errorSummaryMessages = ref([])
@@ -93,15 +97,17 @@ const rplFormConfig = ref({
 watch(
   () => props.submissionState.status,
   async (newStatus, oldStatus) => {
-    if (oldStatus === 'submitting' && newStatus === 'success') {
+    if (
+      (oldStatus === 'submitting' && newStatus === 'success') ||
+      (oldStatus === 'submitting' && newStatus === 'error')
+    ) {
       await nextTick()
-      if (serverSuccessRef.value) {
-        serverSuccessRef.value.focus()
+      if (serverMessageRef.value) {
+        serverMessageRef.value.focus()
       }
-    } else if (oldStatus === 'submitting' && newStatus === 'error') {
-      await nextTick()
-      if (serverErrorRef.value) {
-        serverErrorRef.value.focus()
+
+      if (newStatus === 'success') {
+        reset(props.id)
       }
     }
   }
@@ -109,18 +115,7 @@ watch(
 </script>
 
 <template>
-  <RplFormAlert
-    v-if="submissionState.status === 'success'"
-    ref="serverSuccessRef"
-    :status="submissionState.status"
-    :title="submissionState.title"
-  >
-    <template #default>
-      <RplContent :html="submissionState.message" />
-    </template>
-  </RplFormAlert>
   <FormKit
-    v-else
     :id="id"
     v-slot="{ value }"
     type="form"
@@ -144,8 +139,11 @@ watch(
         :fields="errorSummaryMessages"
       />
       <RplFormAlert
-        v-else-if="submissionState.status === 'error'"
-        ref="serverErrorRef"
+        v-else-if="
+          submissionState.status === 'error' ||
+          submissionState.status === 'success'
+        "
+        ref="serverMessageRef"
         :status="submissionState.status"
         :title="submissionState.title"
       >

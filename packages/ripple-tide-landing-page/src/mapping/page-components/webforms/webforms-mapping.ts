@@ -18,9 +18,11 @@ export interface ITideFormElement {
 }
 
 const getFormSchemaFromMapping = async (
-  elements: ITideFormElement[],
+  webform,
   tidePageApi
 ): Promise<FormKitSchemaNode[]> => {
+  const elements: ITideFormElement[] = webform?.elements || []
+
   const getValidation = (
     field
   ): {
@@ -239,11 +241,12 @@ const getFormSchemaFromMapping = async (
       }
       case 'webform_actions':
         mappedField = {
-          $formkit: 'RplFormSubmit',
+          $formkit: 'RplFormActions',
           name: 'submit',
           variant: 'filled',
           label: field['#submit__label'],
           id: fieldKey,
+          displayResetButton: !!webform?.settings?.form_reset,
           ...getInputIcons(field)
         }
         break
@@ -274,6 +277,9 @@ export const webformMapping = async (
     title: field.field_paragraph_title,
     props: {
       formId: field?.field_paragraph_webform?.drupal_internal__id,
+      hideFormOnSubmit:
+        field?.field_paragraph_webform?.settings?.confirmation_type ===
+        'inline',
       successMessageTitle:
         field?.field_paragraph_webform?.settings?.confirmation_title ||
         'Form submitted',
@@ -286,7 +292,7 @@ export const webformMapping = async (
           ?.submission_exception_message ||
         'We are experiencing a server error. Please try again, otherwise contact us.',
       schema: await getFormSchemaFromMapping(
-        field?.field_paragraph_webform?.elements,
+        field?.field_paragraph_webform,
         tidePageApi
       )
     }

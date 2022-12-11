@@ -2,10 +2,12 @@
 import { useRuntimeConfig, useFetch } from '#imports'
 import { FormKitSchemaNode } from '@formkit/core'
 import { $fetch } from 'ohmyfetch'
-import { ref } from 'vue'
+import { nextTick, ref, watch } from 'vue'
+import { RplFormAlert } from '@dpc-sdp/ripple-ui-forms'
 
 interface Props {
   formId: string
+  hideFormOnSubmit: boolean
   successMessageTitle: string
   successMessageHTML: string
   errorMessageTitle: string
@@ -14,6 +16,7 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
+  hideFormOnSubmit: false,
   successMessageTitle: 'Form submitted',
   errorMessageTitle: 'Form not submitted'
 })
@@ -71,6 +74,8 @@ const submissionState = ref({
   message: ''
 })
 
+const serverSuccessRef = ref<RplFormAlert>(null)
+
 const submitHandler = async (values) => {
   submissionState.value = {
     status: 'submitting',
@@ -95,10 +100,35 @@ const submitHandler = async (values) => {
     }
   }
 }
+
+// Scroll to and focus on success and error messages when they appear
+watch(
+  () => submissionState.value.status,
+  async (newStatus, oldStatus) => {
+    if (oldStatus === 'submitting' && newStatus === 'success') {
+      await nextTick()
+      if (serverSuccessRef.value) {
+        serverSuccessRef.value.focus()
+      }
+    }
+  }
+)
 </script>
 
 <template>
+  <RplFormAlert
+    v-if="hideFormOnSubmit && submissionState.status === 'success'"
+    ref="serverSuccessRef"
+    :status="submissionState.status"
+    :title="submissionState.title"
+  >
+    <template #default>
+      <RplContent :html="submissionState.message" />
+    </template>
+  </RplFormAlert>
   <RplForm
+    v-else
+    :id="formId"
     :schema="schema"
     :submissionState="submissionState"
     @submit="submitHandler"

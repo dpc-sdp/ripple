@@ -11,6 +11,7 @@ import {
   installModule
 } from '@nuxt/kit'
 import { pascalCase } from 'change-case'
+import type { Options } from 'http-proxy-middleware'
 
 const loadComponents = async (key, path) => {
   const getComponentName = (name) => `Tide${pascalCase(name)}Page`
@@ -22,6 +23,25 @@ const loadComponents = async (key, path) => {
   }
   const filePath = await resolvePath(path)
   addComponent({ name: getComponentName(key), filePath, global: true })
+}
+
+const extendNuxtProxyConfig = (nuxtConfig, proxyOption: Options) => {
+  let existingProxyItems: Options[] = []
+  if (nuxtConfig.options?.proxy?.options) {
+    if (Array.isArray(nuxtConfig.options?.proxy?.options)) {
+      existingProxyItems = [...nuxtConfig.options.proxy.options]
+    } else {
+      existingProxyItems = [nuxtConfig.options.proxy.options]
+    }
+  }
+
+  if (nuxtConfig.options.proxy) {
+    nuxtConfig.options.proxy.options = [...existingProxyItems, proxyOption]
+  } else {
+    nuxtConfig.options.proxy = {
+      options: [...existingProxyItems, proxyOption]
+    }
+  }
 }
 
 export default defineNuxtModule({
@@ -43,11 +63,12 @@ export default defineNuxtModule({
       content: {},
       site: ''
     },
-    debug: false
+    debug: false,
+    proxy: {
+      options: []
+    }
   },
   async setup(options: RplTideModuleConfig, nuxt) {
-    await installModule('nuxt-proxy')
-
     const { resolve } = createResolver(import.meta.url)
     // Setup config from runtimeConfig and options
     if (nuxt.options.runtimeConfig.public['tideserver']) {
@@ -73,6 +94,19 @@ export default defineNuxtModule({
     }
 
     nuxt.options.runtimeConfig.public.tide = options
+
+    const webformProxy = {
+      target: options.contentApi.baseUrl,
+      changeOrigin: true,
+      pathRewrite: {
+        '^/api/tide/': '/api/v1/'
+      },
+      pathFilter: ['/api/tide/webform_submission/**']
+    }
+
+    extendNuxtProxyConfig(nuxt, webformProxy)
+
+    await installModule('nuxt-proxy')
 
     // API endpoint handlers - See https://v3.nuxtjs.org/guide/directory-structure/server#api-routes
     addServerHandler({

@@ -110,9 +110,14 @@
 
 .rpl-primary-nav__mega-menu-grid {
   display: flex;
-  /* width = 4 full width columns with sp-4 gap between them */
+  /* width = 4 full width columns, a translateX transform will be applied to
+  move the grid left / right to show the appropriate column */
   width: calc(400%);
   transition: transform var(--rpl-motion-speed-8) ease;
+
+  @media (--rpl-bp-l) {
+    row-gap: var(--rpl-sp-4);
+  }
 
   .rpl-primary-nav--collapse-until-l & {
     @media (--rpl-bp-l) {

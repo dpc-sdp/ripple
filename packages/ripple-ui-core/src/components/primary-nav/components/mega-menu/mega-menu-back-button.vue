@@ -16,7 +16,7 @@ const props = withDefaults(defineProps<Props>(), {})
   <button
     class="
       rpl-primary-nav__mega-menu-back-button
-      rpl-col-12 rpl-type-p-small rpl-type-weight-bold
+      rpl-u-focusable-block rpl-col-12 rpl-type-p-small rpl-type-weight-bold
     "
   >
     <RplIcon

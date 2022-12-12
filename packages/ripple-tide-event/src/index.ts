@@ -70,7 +70,10 @@ const tideEventModule: RplTideMapping = {
           description: getAddress(node.field_paragraph_location)
         }
       ])[0],
-    details: 'field_event_details[0].field_event_requirements',
+    details: (src: string) =>
+      getField(src, 'field_event_details[0].field_event_requirements').map(
+        (node: any) => node.name
+      ),
     description: 'field_event_description.processed',
     body: (src: string) => getBodyFromField(src, 'body'),
     link: (src: string) =>
@@ -84,7 +87,8 @@ const tideEventModule: RplTideMapping = {
       withSidebarSocialShare: true
     }),
     'field_event_details',
-    'field_featured_image'
+    'field_featured_image',
+    'field_event_details.field_event_requirements'
   ]
 }
 

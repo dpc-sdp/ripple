@@ -26,6 +26,12 @@ module.exports = {
     'vue/no-v-html': 'off',
     'no-prototype-builtins': 'off',
     '@typescript-eslint/ban-ts-comment': 'off',
-    '@typescript-eslint/no-explicit-any': 'off' // allow explicit any types for now
+    '@typescript-eslint/no-explicit-any': 'off', // allow explicit any types for now
+    '@typescript-eslint/no-unused-vars': [
+      'error',
+      {
+        varsIgnorePattern: 'props'
+      }
+    ]
   }
 }

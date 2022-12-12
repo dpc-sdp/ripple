@@ -42,7 +42,7 @@ const props = withDefaults(defineProps<Props>(), {
         <span class="rpl-primary-nav__mega-menu-action-icon rpl-u-margin-r-2">
           <RplIcon name="icon-home" size="s" />
         </span>
-        <span>Home</span>
+        <span class="rpl-primary-nav__mega-menu-action-text">Home</span>
       </a>
     </li>
 

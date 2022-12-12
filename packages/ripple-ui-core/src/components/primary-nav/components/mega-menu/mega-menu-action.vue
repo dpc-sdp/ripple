@@ -41,8 +41,8 @@ const clickHandler = (id: string) => {
     :href="type == 'link' ? item.url : undefined"
     @click="clickHandler(item.id)"
   >
-    <span>{{ item.text }}</span>
-    <span class="rpl-primary-nav__mega-menu-action-icon rpl-u-margin-l-2">
+    <span class="rpl-primary-nav__mega-menu-action-text">{{ item.text }}</span>
+    <span class="rpl-primary-nav__mega-menu-action-icon rpl-u-margin-l-5">
       <RplIcon v-if="type === 'toggle'" name="icon-chevron-right" size="xs" />
     </span>
   </component>

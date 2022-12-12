@@ -331,7 +331,7 @@
   text-align: left;
   text-decoration: none;
   color: var(--rpl-clr-type-primary-contrast);
-  border-bottom: 1px solid var(--rpl-clr-primary);
+  border-bottom: var(--rpl-border-1) solid var(--rpl-clr-primary);
   cursor: pointer;
 
   &:hover,

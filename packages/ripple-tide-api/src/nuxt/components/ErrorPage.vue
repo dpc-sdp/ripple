@@ -42,12 +42,28 @@ const site = computed(() =>
 </script>
 
 <style>
-.tide-error .rpl-layout__main {
-  margin-top: var(--rpl-sp-6);
+.tide-error .rpl-error-message {
+  --local-margin-top: var(--rpl-sp-7);
+  --local-margin-bottom: var(--rpl-sp-7);
+
+  margin-top: var(--local-margin-top);
+  margin-bottom: var(--local-margin-bottom);
+
+  @media (--rpl-bp-s) {
+    --local-margin-top: var(--rpl-sp-9);
+  }
+
+  @media (--rpl-bp-m) {
+    --local-margin-top: var(--rpl-sp-7);
+  }
 
   @media (--rpl-bp-l) {
-    margin-top: var(--rpl-sp-12);
-    margin-bottom: var(--rpl-sp-1);
+    --local-margin-top: var(--rpl-sp-12);
+    --local-margin-bottom: var(--rpl-sp-5);
+  }
+
+  @media (--rpl-bp-xl) {
+    --local-margin-top: var(--rpl-sp-13);
   }
 }
 </style>

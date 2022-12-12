@@ -38,3 +38,7 @@
   z-index: var(--rpl-z-index-above-content);
   position: relative;
 }
+
+.rpl-layout__container {
+  position: relative;
+}

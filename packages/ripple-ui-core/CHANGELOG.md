@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.31](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.30...v2.1.0-alpha.31) (2022-12-09)
+
+
+### Features
+
+* **@dpc-sdp/ripple-ui-core:** check for topics, use non concatenated format for css, update spacing values, add main container wrapper, use hasSide in aside check ([4724ae2](https://github.com/dpc-sdp/ripple-framework/commit/4724ae275df5c303f6ae5ab37f71617bdd1dd138))
+
+
+
+
+
+# [2.1.0-alpha.30](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.29...v2.1.0-alpha.30) (2022-12-07)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** :bug: fix focus trap breaking menu close buttons ([f35a5ba](https://github.com/dpc-sdp/ripple-framework/commit/f35a5babc1094d7469b7dcaf09b1afc5df4c26be))
+* **@dpc-sdp/ripple-ui-core:** :lipstick: add fullscreen param to primary-nav story ([3cc64fb](https://github.com/dpc-sdp/ripple-framework/commit/3cc64fb30e0b633a6d70818b7fa7a9c2746150fb))
+* **@dpc-sdp/ripple-ui-core:** :lipstick: adjust search form bottom padding ([b2acef1](https://github.com/dpc-sdp/ripple-framework/commit/b2acef1b7d2cda70d849a65aab9bd08e0dcf2187))
+
+
+
+
+
+# [2.1.0-alpha.29](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.28...v2.1.0-alpha.29) (2022-12-07)
+
+
+### Features
+
+* **@dpc-sdp/ripple-ui-core:** adding missed breakpoints import ([4b74c67](https://github.com/dpc-sdp/ripple-framework/commit/4b74c67f2e3dfaa6179299ab4946f830e5a7608d))
+
+
+
+
+
 # [2.1.0-alpha.28](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.27...v2.1.0-alpha.28) (2022-12-07)
 
 **Note:** Version bump only for package @dpc-sdp/ripple-ui-core

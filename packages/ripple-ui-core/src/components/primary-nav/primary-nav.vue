@@ -5,7 +5,7 @@ export default { name: 'RplPrimaryNav' }
 <script setup lang="ts">
 import { ref, computed, watch, onMounted, onUnmounted, useSlots } from 'vue'
 import type { Ref } from 'vue'
-import { UseFocusTrap } from '@vueuse/integrations/useFocusTrap/component'
+import { useFocusTrap } from '@vueuse/integrations/useFocusTrap'
 import RplPrimaryNavBar from './nav-bar.vue'
 import RplPrimaryNavMegaMenu from './mega-menu.vue'
 import RplPrimaryNavSearchForm from './search-form.vue'
@@ -27,6 +27,10 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 const slots = useSlots()
+
+const focusTrapTarget = ref()
+const { activate: activateFocusTrap, deactivate: deactivateFocusTrap } =
+  useFocusTrap(focusTrapTarget)
 
 const isHidden: Ref<boolean> = ref(false)
 const isMegaNavActive: Ref<boolean> = ref(false)
@@ -116,11 +120,14 @@ watch(isMegaNavActive, (newValue) => {
 
 watch(isExpanded, (newValue) => {
   // If running in a browser and isExpanded changes toggle viewport locked class
+  // and focus trap
   if (typeof window !== 'undefined') {
     if (newValue) {
       document.body.classList.add('rpl-viewport-locked')
+      activateFocusTrap()
     } else {
       document.body.classList.remove('rpl-viewport-locked')
+      deactivateFocusTrap()
     }
   }
 })
@@ -170,7 +177,7 @@ const classList = computed(() => {
 </script>
 
 <template>
-  <nav :class="classList">
+  <nav ref="focusTrapTarget" :class="classList">
     <div class="rpl-primary-nav__inner">
       <!-- Nav bar -->
       <RplPrimaryNavBar
@@ -192,23 +199,23 @@ const classList = computed(() => {
       </RplPrimaryNavBar>
 
       <!-- Mega menu -->
-      <UseFocusTrap v-if="isMegaNavActive" :options="{ immediate: true }">
-        <RplPrimaryNavMegaMenu
-          :items="items"
-          :show-quick-exit="showQuickExit"
-          :is-item-active="isNavItemActive"
-          :toggle-item="toggleNavItem"
-        >
-          <template #userAction>
-            <slot name="userAction"></slot>
-          </template>
-        </RplPrimaryNavMegaMenu>
-      </UseFocusTrap>
+      <RplPrimaryNavMegaMenu
+        v-if="isMegaNavActive"
+        :items="items"
+        :show-quick-exit="showQuickExit"
+        :is-item-active="isNavItemActive"
+        :toggle-item="toggleNavItem"
+      >
+        <template #userAction>
+          <slot name="userAction"></slot>
+        </template>
+      </RplPrimaryNavMegaMenu>
 
       <!-- Search form -->
-      <UseFocusTrap v-if="isSearchActive" :options="{ immediate: true }">
-        <RplPrimaryNavSearchForm :show-quick-exit="showQuickExit" />
-      </UseFocusTrap>
+      <RplPrimaryNavSearchForm
+        v-if="isSearchActive"
+        :show-quick-exit="showQuickExit"
+      />
     </div>
   </nav>
 </template>

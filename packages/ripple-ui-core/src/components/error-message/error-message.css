@@ -5,30 +5,34 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+}
 
-  &__title {
-    --local-title-size: 8rem;
+.rpl-error-message__title {
+  --local-title-size: 8rem;
 
-    line-height: 0.8;
-    font-size: var(--local-title-size);
-    color: var(--rpl-clr-type-primary-accessible);
+  line-height: 1;
+  font-size: var(--local-title-size);
+  color: var(--rpl-clr-type-primary-accessible);
 
-    @media (--rpl-bp-l) {
-      --local-title-size: 16rem;
-    }
+  @media (--rpl-bp-l) {
+    --local-title-size: 16rem;
   }
+}
 
-  &__intro {
-    font-weight: var(--rpl-type-weight-regular);
+.rpl-error-message__intro {
+  font-weight: var(--rpl-type-weight-regular);
+}
+
+.rpl-error-message__title,
+.rpl-error-message__intro,
+.rpl-error-message__body {
+  margin-bottom: var(--rpl-sp-8);
+
+  @media (--rpl-bp-l) {
+    margin-bottom: var(--rpl-sp-9);
   }
+}
 
-  &__title,
-  &__intro,
-  &__body {
-    margin-bottom: var(--rpl-sp-8);
-
-    @media (--rpl-bp-l) {
-      margin-bottom: var(--rpl-sp-9);
-    }
-  }
+.rpl-error-message__button {
+  width: auto;
 }

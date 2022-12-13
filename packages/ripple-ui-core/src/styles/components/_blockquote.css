@@ -45,9 +45,12 @@
     &-title {
       display: block;
     }
+  }
+}
 
-    &-title {
-      margin-top: var(--rpl-sp-2);
-    }
+.rpl-blockquote__author-name {
+  & + .rpl-blockquote__author-name,
+  & + .rpl-blockquote__author-title {
+    margin-top: var(--rpl-sp-2);
   }
 }

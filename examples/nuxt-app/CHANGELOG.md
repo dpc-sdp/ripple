@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.33](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.32...v2.1.0-alpha.33) (2022-12-13)
+
+**Note:** Version bump only for package nuxt-app
+
+
+
+
+
 # [2.1.0-alpha.32](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.31...v2.1.0-alpha.32) (2022-12-11)
 
 **Note:** Version bump only for package nuxt-app

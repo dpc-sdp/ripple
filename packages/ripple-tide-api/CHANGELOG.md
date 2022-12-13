@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.33](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.32...v2.1.0-alpha.33) (2022-12-13)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-api:** fixed issue where alerts would get cached incorrectly ([2f85735](https://github.com/dpc-sdp/ripple-framework/commit/2f85735c4336eb1e4db1125c8b60247078fbfdea))
+
+
+
+
+
 # [2.1.0-alpha.31](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.30...v2.1.0-alpha.31) (2022-12-09)
 
 

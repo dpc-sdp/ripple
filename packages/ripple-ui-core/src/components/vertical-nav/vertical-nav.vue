@@ -61,7 +61,7 @@ const { isItemExpanded, toggleItem } = useExpandableState(
 
         <RplExpandable
           v-if="item.items"
-          :aria-labelledby="`rpl-vertical-nav-${index}-toggle`"
+          :aria-labelledby="`rpl-vertical-nav-${item.id}-toggle`"
           :aria-hidden="isItemExpanded(item.id) === false ? 'true' : null"
           :expanded="isItemExpanded(item.id)"
           class="rpl-vertical-nav__list-item-children"

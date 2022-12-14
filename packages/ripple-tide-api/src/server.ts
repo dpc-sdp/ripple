@@ -1,4 +1,4 @@
-import { createApp, App, CompatibilityEvent } from 'h3'
+import { createApp, App, H3Event } from 'h3'
 import { TidePageApi, TideSiteApi, logger } from './index.js'
 import getSchema from './schema/index.js'
 import type { RplTideModuleConfig } from '../types'
@@ -10,11 +10,11 @@ const tideHandler = async (config: RplTideModuleConfig): Promise<App> => {
   const tideSiteApi = new TideSiteApi(config, logger)
   const tidePageApi = new TidePageApi(config, logger)
 
-  app.use('/page', async (event: CompatibilityEvent) => {
+  app.use('/page', async (event: H3Event) => {
     return createPageHandler(event, tidePageApi)
   })
 
-  app.use('/site', async (event: CompatibilityEvent) => {
+  app.use('/site', async (event: H3Event) => {
     return createSiteHandler(event, tideSiteApi)
   })
 

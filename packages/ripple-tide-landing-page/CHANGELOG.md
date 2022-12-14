@@ -3,6 +3,57 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.38](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.37...v2.1.0-alpha.38) (2022-12-14)
+
+
+### Features
+
+* **@dpc-sdp/ripple-ui-core:** add textarea, minmax/counter support, basic tests, update borders ([85f91e8](https://github.com/dpc-sdp/ripple-framework/commit/85f91e87579164d5083b051e45f6d25bf52d2c4f))
+* **@dpc-sdp/ripple-ui-core:** update missed validation format ([3cd6aeb](https://github.com/dpc-sdp/ripple-framework/commit/3cd6aeb07c679808a91f6a9ca935ab3ca4ded603))
+
+
+
+
+
+# [2.1.0-alpha.37](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.36...v2.1.0-alpha.37) (2022-12-14)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-landing-page
+
+
+
+
+
+# [2.1.0-alpha.36](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.35...v2.1.0-alpha.36) (2022-12-14)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-landing-page
+
+
+
+
+
+# [2.1.0-alpha.35](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.34...v2.1.0-alpha.35) (2022-12-14)
+
+
+### Features
+
+* **@dpc-sdp/ripple-tide-api:** updated proxy to able to be used for other purposes ([b1809ba](https://github.com/dpc-sdp/ripple-framework/commit/b1809ba0d51d8b292d7a50525b982dd01a206018))
+* **@dpc-sdp/ripple-tide-api:** wip for form submit proxy ([91817a2](https://github.com/dpc-sdp/ripple-framework/commit/91817a2b5752d579b67f1899f55542cec13a02a5))
+* **@dpc-sdp/ripple-ui-forms:** added clear form button and cleaned up success message ([54eca81](https://github.com/dpc-sdp/ripple-framework/commit/54eca81466fd27a7dad225e0a3f03f83e344c78b))
+* **@dpc-sdp/ripple-ui-forms:** added submission success and error messages ([c54aed8](https://github.com/dpc-sdp/ripple-framework/commit/c54aed8d66f39bbe64938caedea6bada54b19b1b))
+* **@dpc-sdp/ripple-ui-forms:** get confirmation title from CMS ([256e000](https://github.com/dpc-sdp/ripple-framework/commit/256e0008687d1cb2e64d05965feb8e1cad1269e6))
+
+
+
+
+
+# [2.1.0-alpha.33](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.32...v2.1.0-alpha.33) (2022-12-13)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-landing-page
+
+
+
+
+
 # [2.1.0-alpha.31](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.30...v2.1.0-alpha.31) (2022-12-09)
 
 **Note:** Version bump only for package @dpc-sdp/ripple-tide-landing-page

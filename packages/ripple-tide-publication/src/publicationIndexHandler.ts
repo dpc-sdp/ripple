@@ -1,6 +1,6 @@
 //@ts-nocheck import typing needs fixing
 import jsonapiParse from 'jsonapi-parse'
-import { defineEventHandler, getQuery, CompatibilityEvent } from 'h3'
+import { defineEventHandler, getQuery, H3Event } from 'h3'
 import {
   createHandler,
   defineRplTideModule,
@@ -77,7 +77,7 @@ class TidePublicationIndexApi extends TideApiBase {
 }
 
 // Export server handler for nuxt
-export default defineEventHandler(async (event: CompatibilityEvent) => {
+export default defineEventHandler(async (event: H3Event) => {
   const {
     public: { tide: tideConfig }
   } = useRuntimeConfig()

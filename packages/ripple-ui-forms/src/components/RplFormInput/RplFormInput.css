@@ -1,13 +1,10 @@
 .rpl-form__input {
   --local-icon-spacing: var(--rpl-sp-4);
 
-  width: 100%;
   font-size: var(--rpl-type-size-2);
   line-height: var(--rpl-type-lh-4);
   letter-spacing: var(--rpl-type-ls-1);
   position: relative;
-  display: flex;
-  flex-direction: row;
   margin-bottom: var(--rpl-sp-2);
 }
 
@@ -15,6 +12,12 @@
   .rpl-form__input-icon {
     color: var(--rpl-clr-neutral-300);
   }
+}
+
+.rpl-form__input-wrap {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
 }
 
 .rpl-form__input input {
@@ -26,12 +29,15 @@
   padding-bottom: var(--rpl-sp-3);
   padding-left: var(--rpl-sp-4);
   padding-right: var(--rpl-sp-4);
-  border: var(--rpl-border-1) solid var(--rpl-clr-neutral-300);
+  border: var(--rpl-border-1) solid var(--rpl-clr-neutral-600);
   border-radius: var(--rpl-border-radius-2);
   background: var(--rpl-clr-neutral-100);
 
+  &:hover {
+    border-color: var(--rpl-clr-dark);
+  }
+
   &:focus {
-    border: var(--rpl-border-1) solid var(--rpl-clr-dark);
     border-radius: 0;
   }
 

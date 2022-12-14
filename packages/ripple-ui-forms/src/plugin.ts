@@ -1,8 +1,9 @@
 import {
   text,
+  textarea,
   email,
   tel,
-  submit,
+  actions,
   checkbox,
   checkboxGroup,
   dropdown,
@@ -51,6 +52,8 @@ rplFormInputs.library = (node) => {
   switch (node.props.type) {
     case 'RplFormText':
       return node.define(text)
+    case 'RplFormTextarea':
+      return node.define(textarea)
     case 'RplFormEmail':
       return node.define(email)
     case 'RplFormTel':
@@ -65,8 +68,8 @@ rplFormInputs.library = (node) => {
       return node.define(checkboxGroup)
     case 'RplFormDropdown':
       return node.define(dropdown)
-    case 'RplFormSubmit':
-      return node.define(submit)
+    case 'RplFormActions':
+      return node.define(actions)
   }
 }
 

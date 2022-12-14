@@ -48,7 +48,6 @@ const inputRef = ref(null)
 const menuRef = ref(null)
 const optionRefs = ref([])
 
-const inputId = computed(() => `${props.id}__input`)
 const menuId = computed(() => `${props.id}__menu`)
 
 const isOpen = ref<boolean>(false)
@@ -243,7 +242,7 @@ const hasValue = computed((): boolean => {
   >
     <div
       v-bind="$attrs"
-      :id="inputId"
+      :id="id"
       ref="inputRef"
       :class="{
         'rpl-form-dropdown-input': true,

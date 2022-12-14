@@ -12,5 +12,5 @@ Feature: <%= h.changeCase.sentenceCase(name) %> page
 
   @mockserver
   Example: On load
-    Given I visit the page "/sample-<%= h.changeCase.paramCase(name) %>"
+    When I visit the page "/sample-<%= h.changeCase.paramCase(name) %>"
     Then the title should be "Sample <%= h.changeCase.sentenceCase(name) %>"

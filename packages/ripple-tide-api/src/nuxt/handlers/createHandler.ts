@@ -1,5 +1,5 @@
 //@ts-nocheck import typing needs fixing
-import { CompatibilityEvent, sendError, createError } from 'h3'
+import { H3Event, sendError, createError } from 'h3'
 import { logger } from '@dpc-sdp/ripple-tide-api'
 import { UserFacingError } from '@dpc-sdp/ripple-tide-api/errors'
 
@@ -33,7 +33,7 @@ const getPublicFacingStatusMessage = (status: number) => {
 }
 
 const createHandler = async (
-  event: CompatibilityEvent,
+  event: H3Event,
   logLabel: string,
   handlerFn: () => Promise<any>
 ) => {

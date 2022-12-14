@@ -1,3 +1,4 @@
+import type { NuxtProxyOptions as ModuleOptions } from 'nuxt-proxy'
 import type { AxiosInstance } from 'axios'
 import { TideAlert } from './src/mapping/alerts/site-alerts-mapping'
 import { TideContact } from './src/mapping/sidebar-contacts/sidebar-contacts-mapping-types'
@@ -170,6 +171,10 @@ export interface RplTideModuleConfig {
    * Pass http client (mostly used in testing)
    */
   client?: AxiosInstance
+  /**
+   * nuxt-proxy options
+   */
+  proxy?: ModuleOptions
 }
 
 export type { ILogger } from './src/logger/logger.js'

@@ -49,7 +49,7 @@ const classes = computed(() => {
   if (props.iconPosition === 'left') {
     classTokens.push('rpl-button--reverse')
   }
-  return classTokens.join(' ')
+  return classTokens
 })
 
 const onClick = (payload?: any) => {
@@ -73,7 +73,7 @@ defineExpose({ triggerClick })
     type="button"
     :class="classes"
     :disabled="disabled"
-    @click="onClick()"
+    @click="onClick"
   >
     <span class="rpl-button__label rpl-type-label rpl-type-weight-bold">
       <template v-if="label">

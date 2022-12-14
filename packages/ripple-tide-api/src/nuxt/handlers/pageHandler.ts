@@ -1,11 +1,11 @@
 //@ts-nocheck import typing needs fixing
-import { defineEventHandler, getQuery, CompatibilityEvent } from 'h3'
+import { defineEventHandler, getQuery, H3Event } from 'h3'
 import { createHandler } from '@dpc-sdp/ripple-tide-api'
 import { BadRequestError } from '@dpc-sdp/ripple-tide-api/errors'
 import { TidePage } from '../../services'
 
 export const createPageHandler = async (
-  event: CompatibilityEvent,
+  event: H3Event,
   tidePageApi: TidePage
 ) => {
   return createHandler(event, 'TidePageHandler', async () => {
@@ -23,6 +23,6 @@ export const createPageHandler = async (
   })
 }
 
-export default defineEventHandler(async (event: CompatibilityEvent) => {
+export default defineEventHandler(async (event: H3Event) => {
   return createPageHandler(event, event.context.tide.pageApi)
 })

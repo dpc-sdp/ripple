@@ -3,6 +3,35 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.35](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.34...v2.1.0-alpha.35) (2022-12-14)
+
+
+### Features
+
+* **@dpc-sdp/ripple-tide-api:** moved webform proxy config to live in api module ([f0c278a](https://github.com/dpc-sdp/ripple-framework/commit/f0c278ad4f9257bc39cdf6fb826e5200c5c35b39))
+* **@dpc-sdp/ripple-tide-api:** updated proxy to able to be used for other purposes ([b1809ba](https://github.com/dpc-sdp/ripple-framework/commit/b1809ba0d51d8b292d7a50525b982dd01a206018))
+* **@dpc-sdp/ripple-ui-forms:** added clear form button and cleaned up success message ([54eca81](https://github.com/dpc-sdp/ripple-framework/commit/54eca81466fd27a7dad225e0a3f03f83e344c78b))
+
+
+
+
+
+# [2.1.0-alpha.34](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.33...v2.1.0-alpha.34) (2022-12-13)
+
+**Note:** Version bump only for package nuxt-app
+
+
+
+
+
+# [2.1.0-alpha.33](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.32...v2.1.0-alpha.33) (2022-12-13)
+
+**Note:** Version bump only for package nuxt-app
+
+
+
+
+
 # [2.1.0-alpha.32](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.31...v2.1.0-alpha.32) (2022-12-11)
 
 **Note:** Version bump only for package nuxt-app

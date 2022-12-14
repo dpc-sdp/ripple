@@ -23,6 +23,7 @@ export const checkbox: FormKitTypeDefinition = {
       validationMeta: '$node.props.validationMeta',
       'aria-invalid': '$fns.isFieldInvalid()',
       'aria-required': '$fns.isFieldRequired()',
+      'data-rpl-focus-input': '$id',
       required: '$fns.isFieldRequired()'
     }
   }),

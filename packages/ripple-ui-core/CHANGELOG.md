@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.36](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.35...v2.1.0-alpha.36) (2022-12-14)
+
+
+### Features
+
+* **@dpc-sdp/ripple-tide-api:** :sparkles: add blockquote, document to markup ([6696ea3](https://github.com/dpc-sdp/ripple-framework/commit/6696ea3b4db6a95b9e4ee50940cf338edf79ce77))
+
+
+
+
+
 # [2.1.0-alpha.35](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.34...v2.1.0-alpha.35) (2022-12-14)
 
 

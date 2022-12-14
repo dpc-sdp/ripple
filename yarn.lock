@@ -5961,6 +5961,13 @@
   resolved "https://registry.yarnpkg.com/@types/html-minifier-terser/-/html-minifier-terser-5.1.2.tgz#693b316ad323ea97eed6b38ed1a3cc02b1672b57"
   integrity sha512-h4lTMgMJctJybDp8CQrxTUiiYmedihHWkjnF/8Pxseu2S6Nlfcy8kwboQ8yejh456rP2yWoEVm1sS/FVsfM48w==
 
+"@types/http-proxy@^1.17.8":
+  version "1.17.9"
+  resolved "https://registry.yarnpkg.com/@types/http-proxy/-/http-proxy-1.17.9.tgz#7f0e7931343761efde1e2bf48c40f02f3f75705a"
+  integrity sha512-QsbSjA/fSk7xB+UXlCT3wHBy5ai9wOcNDWwZAtud+jXhwOM3l+EYZh8Lng4+/6n8uar0J7xILzqftJdJ/Wdfkw==
+  dependencies:
+    "@types/node" "*"
+
 "@types/is-function@^1.0.0":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@types/is-function/-/is-function-1.0.1.tgz#2d024eace950c836d9e3335a66b97960ae41d022"
@@ -13435,16 +13442,6 @@ gzip-size@^7.0.0:
   dependencies:
     duplexer "^0.1.2"
 
-h3@^0.7.21:
-  version "0.7.21"
-  resolved "https://registry.yarnpkg.com/h3/-/h3-0.7.21.tgz#2ca1125c6731cf39b0871b3d8cc9c9d27a616f08"
-  integrity sha512-F/qdr3JKh8zBLiZyiprH5kuzG6vjoTK3nFnIYFUIQPLsw755GI5JezAFc3HJxbgYlzawcGeJlmsw4xu2t/0n/Q==
-  dependencies:
-    cookie-es "^0.5.0"
-    destr "^1.1.1"
-    radix3 "^0.1.2"
-    ufo "^0.8.5"
-
 h3@^0.8.1, h3@^0.8.5:
   version "0.8.6"
   resolved "https://registry.yarnpkg.com/h3/-/h3-0.8.6.tgz#8095ef998fe14769b87170b7c8b68ba9c54973d5"
@@ -14041,6 +14038,18 @@ http-proxy-agent@^5.0.0:
     "@tootallnate/once" "2"
     agent-base "6"
     debug "4"
+
+http-proxy-middleware@^3.0.0-beta.0:
+  version "3.0.0-beta.0"
+  resolved "https://registry.yarnpkg.com/http-proxy-middleware/-/http-proxy-middleware-3.0.0-beta.0.tgz#4c32cd1a190ec3c5d4e255b88c267ef47de0ec32"
+  integrity sha512-99DWW7XRJdLGkVKkXh7sOP1adeSMss2wzI6qAI7klyishj/E8/I+EgtvPuFsSdZ+zDy2D8YizF8vs31Y61Y1bA==
+  dependencies:
+    "@types/http-proxy" "^1.17.8"
+    debug "^4.3.4"
+    http-proxy "^1.18.1"
+    is-glob "^4.0.1"
+    is-plain-obj "^3.0.0"
+    micromatch "^4.0.5"
 
 http-proxy@^1.18.1:
   version "1.18.1"
@@ -14790,6 +14799,11 @@ is-plain-obj@^2.0.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/is-plain-obj/-/is-plain-obj-2.1.0.tgz#45e42e37fccf1f40da8e5f76ee21515840c09287"
   integrity sha512-YWnfyRwxL/+SsrWYfOpUtz5b3YD+nyfkHvjbcanzk8zgyO4ASD67uVMRt8k5bM4lLMDnXfriRhOpemw+NfT1eA==
+
+is-plain-obj@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/is-plain-obj/-/is-plain-obj-3.0.0.tgz#af6f2ea14ac5a646183a5bbdb5baabbc156ad9d7"
+  integrity sha512-gwsOE28k+23GP1B6vFl1oVh/WOzmawBrKwo5Ev6wMKzPkaXaCDIQKzLnvsA42DRlbVTWorkgTKIviAKCWkfUwA==
 
 is-plain-obj@^4.0.0:
   version "4.1.0"
@@ -18639,6 +18653,17 @@ nuxi@3.0.0:
   optionalDependencies:
     fsevents "~2.3.2"
 
+nuxt-proxy@^0.3.4:
+  version "0.3.4"
+  resolved "https://registry.yarnpkg.com/nuxt-proxy/-/nuxt-proxy-0.3.4.tgz#077dbe9e962a954de3648361f023878e9ac8857e"
+  integrity sha512-PHW9hN4DRNuLQO0vL3Q20/o7kdvNay3UYkkEL/9MkzxaOd/shLOHRsyyc4Nm2BW3qE03cyJoTgmM5axWSxVzqQ==
+  dependencies:
+    "@nuxt/kit" "3.0.0"
+    defu "^6.1.1"
+    h3 "^1.0.1"
+    http-proxy-middleware "^3.0.0-beta.0"
+    ohash "^1.0.0"
+
 nuxt@3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/nuxt/-/nuxt-3.0.0.tgz#0909e6566d79805f3a4ed6229573817cbde12e89"
@@ -20981,11 +21006,6 @@ quick-lru@^5.1.1:
   version "5.1.1"
   resolved "https://registry.yarnpkg.com/quick-lru/-/quick-lru-5.1.1.tgz#366493e6b3e42a3a6885e2e99d18f80fb7a8c932"
   integrity sha512-WuyALRjWPDGtt/wzJiadO5AXY+8hZ80hVpe6MyivgraREW751X3SbhRvG3eLKOYN+8VEvqLcf3wdnt44Z4S4SA==
-
-radix3@^0.1.2:
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/radix3/-/radix3-0.1.2.tgz#5f7351af7fc5e4b1d9a1b14a7266b6a4a8cac0ba"
-  integrity sha512-Mpfd/OuX0zoJ6ojLD/RTOHvJPg6e6PjINtmYzV87kIXc5iUtDz34i7gg4SV4XjqRJTmSiYO/g9i/mKWGf4z8wg==
 
 radix3@^0.2.1:
   version "0.2.1"

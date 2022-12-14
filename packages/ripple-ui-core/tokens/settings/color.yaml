@@ -74,14 +74,31 @@ clr:
     alpha-700:
       value: '{theme.clr.neutral.alpha-700}'
   information:
-    value: '{theme.clr.information.500}'
+    _:
+      value: '{theme.clr.information.500}'
+    light:
+      value: '{theme.clr.information.50}'
+    dark:
+      value: '{theme.clr.information.600}'
   success:
-    value: '{theme.clr.success.500}'
+    _:
+      value: '{theme.clr.success.500}'
+    light:
+      value: '{theme.clr.success.50}'
+    dark:
+      value: '{theme.clr.success.600}'
   warning:
-    value: '{theme.clr.warning.500}'
+    _:
+      value: '{theme.clr.warning.500}'
+    light:
+      value: '{theme.clr.warning.50}'
+    dark:
+      value: '{theme.clr.warning.600}'
   error:
     _:
       value: '{theme.clr.error.500}'
+    light:
+      value: '{theme.clr.error.50}'
     dark:
       value: '{theme.clr.error.600}'
   error-alt:

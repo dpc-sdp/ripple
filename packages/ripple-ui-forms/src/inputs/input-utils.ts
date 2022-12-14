@@ -6,6 +6,7 @@ import RplFormCheckboxGroup from './../components/RplFormCheckbox/RplFormCheckbo
 import RplFormDropdown from './../components/RplFormDropdown/RplFormDropdown.vue'
 import RplFormValidationError from './../components/RplFormValidationError/RplFormValidationError.vue'
 import RplFormHelpText from './../components/RplFormHelpText/RplFormHelpText.vue'
+import RplFormActions from '../components/RplFormActions/RplFormActions.vue'
 import {
   outer,
   inner,
@@ -36,7 +37,8 @@ export const inputLibrary = {
   RplFormCheckboxGroup: markRaw(RplFormCheckboxGroup),
   RplFormDropdown: markRaw(RplFormDropdown),
   RplFormValidationError: markRaw(RplFormValidationError),
-  RplFormHelpText: markRaw(RplFormHelpText)
+  RplFormHelpText: markRaw(RplFormHelpText),
+  RplFormActions: markRaw(RplFormActions)
 }
 
 export const rplFeatures = [isFieldRequired, isFieldInvalid, getAriaDescribedBy]

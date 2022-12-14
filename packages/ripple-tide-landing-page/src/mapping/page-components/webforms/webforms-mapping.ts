@@ -8,6 +8,9 @@ import {
 } from './webform-utils.js'
 
 export interface ITideWebform {
+  formId: string
+  successMessageHTML: string
+  errorMessageHTML: string
   schema: FormKitSchemaNode
 }
 
@@ -21,9 +24,10 @@ export interface ITideFormElement {
 }
 
 const getFormSchemaFromMapping = async (
-  elements: ITideFormElement[],
+  webform,
   tidePageApi
 ): Promise<FormKitSchemaNode[]> => {
+  const elements: ITideFormElement[] = webform?.elements || []
   const fields: any[] = []
 
   for (const [fieldKey, field] of Object.entries(elements)) {
@@ -197,11 +201,12 @@ const getFormSchemaFromMapping = async (
       }
       case 'webform_actions':
         mappedField = {
-          $formkit: 'RplFormSubmit',
+          $formkit: 'RplFormActions',
           name: 'submit',
           variant: 'filled',
           label: field['#submit__label'],
           id: fieldKey,
+          displayResetButton: !!webform?.settings?.form_reset,
           ...getInputIcons(field)
         }
         break
@@ -227,13 +232,27 @@ export const webformMapping = async (
   tidePageApi
 ): TideDynamicPageComponent<ITideWebform> => {
   return {
-    component: 'RplForm',
+    component: 'TideLandingPageWebForm',
     id: field.drupal_internal__id,
     title: field.field_paragraph_title,
     props: {
-      id: field?.field_paragraph_webform?.drupal_internal__id,
+      formId: field?.field_paragraph_webform?.drupal_internal__id,
+      hideFormOnSubmit:
+        field?.field_paragraph_webform?.settings?.confirmation_type ===
+        'inline',
+      successMessageTitle:
+        field?.field_paragraph_webform?.settings?.confirmation_title ||
+        'Form submitted',
+      successMessageHTML:
+        field?.field_paragraph_webform?.settings?.confirmation_message ||
+        'Thank you! Your response has been submitted.',
+      errorMessageTitle: 'Form not submitted',
+      errorMessageHTML:
+        field?.field_paragraph_webform?.settings
+          ?.submission_exception_message ||
+        'We are experiencing a server error. Please try again, otherwise contact us.',
       schema: await getFormSchemaFromMapping(
-        field?.field_paragraph_webform?.elements,
+        field?.field_paragraph_webform,
         tidePageApi
       )
     }

@@ -3,7 +3,7 @@ import {
   textarea,
   email,
   tel,
-  submit,
+  actions,
   checkbox,
   checkboxGroup,
   dropdown,
@@ -68,8 +68,8 @@ rplFormInputs.library = (node) => {
       return node.define(checkboxGroup)
     case 'RplFormDropdown':
       return node.define(dropdown)
-    case 'RplFormSubmit':
-      return node.define(submit)
+    case 'RplFormActions':
+      return node.define(actions)
   }
 }
 

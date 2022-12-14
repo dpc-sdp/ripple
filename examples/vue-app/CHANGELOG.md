@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.36](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.35...v2.1.0-alpha.36) (2022-12-14)
+
+**Note:** Version bump only for package vue-app
+
+
+
+
+
+# [2.1.0-alpha.35](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.34...v2.1.0-alpha.35) (2022-12-14)
+
+**Note:** Version bump only for package vue-app
+
+
+
+
+
+# [2.1.0-alpha.34](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.33...v2.1.0-alpha.34) (2022-12-13)
+
+**Note:** Version bump only for package vue-app
+
+
+
+
+
 # [2.1.0-alpha.31](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.30...v2.1.0-alpha.31) (2022-12-09)
 
 **Note:** Version bump only for package vue-app

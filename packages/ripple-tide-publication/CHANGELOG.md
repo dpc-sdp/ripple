@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.35](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.34...v2.1.0-alpha.35) (2022-12-14)
+
+
+### Features
+
+* **@dpc-sdp/ripple-tide-api:** updated proxy to able to be used for other purposes ([b1809ba](https://github.com/dpc-sdp/ripple-framework/commit/b1809ba0d51d8b292d7a50525b982dd01a206018))
+
+
+
+
+
 # [2.1.0-alpha.33](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.32...v2.1.0-alpha.33) (2022-12-13)
 
 **Note:** Version bump only for package @dpc-sdp/ripple-tide-publication

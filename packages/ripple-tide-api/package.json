@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/ripple-tide-api",
-  "version": "2.1.0-alpha.33",
+  "version": "2.1.0-alpha.35",
   "description": "Ripple API endpoints for Tide Drupal backend",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
@@ -30,12 +30,12 @@
     "js-yaml": "^4.1.0",
     "jsonapi-parse": "^2.0.1",
     "lodash-es": "^4.17.21",
+    "nuxt-proxy": "^0.3.4",
     "pathe": "^0.3.9",
     "qs": "^6.10.3",
     "ts-json-schema-generator": "^1.1.2",
     "typescript-json-schema": "^0.55.0",
-    "winston": "^3.8.2",
-    "nuxt-proxy": "^0.3.4"
+    "winston": "^3.8.2"
   },
   "devDependencies": {
     "@nuxt/schema": "3.0.0",

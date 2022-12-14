@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import { RplIcon } from '@dpc-sdp/ripple-ui-core'
+import { RplIcon, RplTextLink } from '@dpc-sdp/ripple-ui-core'
 import { useMediaQuery } from '@vueuse/core'
 
 interface Props {
@@ -96,7 +96,7 @@ defineExpose({
     <div class="rpl-form-alert__description rpl-type-p">
       <slot></slot>
     </div>
-    <ul class="rpl-form-alert__fields">
+    <ul v-if="fields && fields.length" class="rpl-form-alert__fields">
       <li
         v-for="field in fields"
         :key="field.fieldId"

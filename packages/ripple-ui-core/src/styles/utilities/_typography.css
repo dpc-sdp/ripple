@@ -160,6 +160,28 @@ html {
   letter-spacing: var(--rpl-type-ls-1);
 }
 
+/* h5 */
+.rpl-type-h5,
+:where(.rpl-content) h5 {
+  font-size: var(--rpl-type-size-1);
+  font-weight: var(--rpl-type-weight-bold);
+  line-height: var(--rpl-type-lh-3);
+  letter-spacing: var(--rpl-type-ls-1);
+
+  @media (--rpl-bp-l) {
+    font-size: var(--rpl-type-size-2);
+    line-height: var(--rpl-type-lh-4);
+    letter-spacing: var(--rpl-type-ls-1);
+  }
+}
+
+.rpl-type-h5-fixed {
+  font-size: var(--rpl-type-size-1);
+  font-weight: var(--rpl-type-weight-bold);
+  line-height: var(--rpl-type-lh-3);
+  letter-spacing: var(--rpl-type-ls-1);
+}
+
 /* Paragraphs */
 .rpl-type-p-highlight {
   display: inline;

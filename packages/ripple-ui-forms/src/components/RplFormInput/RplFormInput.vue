@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { RplIcon } from '@dpc-sdp/ripple-ui-core'
+import RplFormCounter from '../RplFormCounter/RplFormCounter.vue'
 
 interface Props {
   id: string
@@ -12,7 +13,11 @@ interface Props {
   handlers: Record<string, any>
   prefixIcon?: string | undefined
   suffixIcon?: string | undefined
+  minlength?: string
   maxlength?: string
+  counter?: 'word' | 'character'
+  counterMin?: number
+  counterMax?: number
   variant?: 'default' | 'reverse'
   invalid?: boolean
   required?: boolean
@@ -23,7 +28,11 @@ const props = withDefaults(defineProps<Props>(), {
   className: 'rpl-form__input',
   prefixIcon: undefined,
   suffixIcon: undefined,
+  minlength: undefined,
   maxlength: undefined,
+  counter: undefined,
+  counterMin: undefined,
+  counterMax: undefined,
   disabled: false,
   required: false,
   invalid: false,
@@ -41,6 +50,9 @@ const classes = computed(() => {
     [`${props.className}--invalid`]: props.invalid
   }
 })
+
+const isWordCounter = computed(() => props.counter === 'word')
+
 /*
 TODO - Wire up event bus handling
 */
@@ -51,35 +63,46 @@ TODO - Wire up event bus handling
 
 <template>
   <div :class="classes">
-    <RplIcon
-      v-if="prefixIcon"
-      :name="prefixIcon"
-      :class="`${props.className}-icon ${props.className}-icon__prefix`"
-      size="s"
-    >
-    </RplIcon>
-    <input
-      :id="id"
-      :type="type"
-      class="rpl-u-focusable-outline"
-      :disabled="disabled"
-      :required="required"
-      :aria-required="required"
-      :aria-invalid="invalid"
-      v-bind="$attrs"
-      :name="name"
+    <div class="rpl-form__input-wrap">
+      <RplIcon
+        v-if="prefixIcon"
+        :name="prefixIcon"
+        :class="`${props.className}-icon ${props.className}-icon__prefix`"
+        size="s"
+      >
+      </RplIcon>
+      <input
+        :id="id"
+        :type="type"
+        class="rpl-u-focusable-outline"
+        :disabled="disabled"
+        :required="required"
+        :aria-required="required"
+        :aria-invalid="invalid"
+        v-bind="$attrs"
+        :name="name"
+        :value="value"
+        :minlength="!isWordCounter ? minlength : null"
+        :maxlength="!isWordCounter ? maxlength : null"
+        @blur="handlers?.blur"
+        @input="handlers?.DOMInput"
+      />
+      <RplIcon
+        v-if="suffixIcon"
+        :name="suffixIcon"
+        :class="`${props.className}-icon ${props.className}-icon__suffix`"
+        size="s"
+      >
+      </RplIcon>
+    </div>
+    <RplFormCounter
+      v-if="counter"
       :value="value"
-      :maxlength="maxlength"
-      @blur="handlers?.blur"
-      @input="handlers?.DOMInput"
+      :type="counter"
+      :counter-min="counterMin"
+      :counter-max="counterMax"
+      :count-words="isWordCounter"
     />
-    <RplIcon
-      v-if="suffixIcon"
-      :name="suffixIcon"
-      :class="`${props.className}-icon ${props.className}-icon__suffix`"
-      size="s"
-    >
-    </RplIcon>
   </div>
 </template>
 

@@ -30,7 +30,7 @@
   padding-bottom: var(--rpl-sp-3);
   padding-left: var(--rpl-sp-5);
   padding-right: calc(var(--rpl-sp-2) + var(--rpl-sp-4) + var(--rpl-sp-5));
-  border: var(--rpl-border-1) solid var(--rpl-clr-neutral-300);
+  border: var(--rpl-border-1) solid var(--rpl-clr-neutral-600);
   border-radius: var(--rpl-border-radius-2);
   display: flex;
   justify-content: space-between;

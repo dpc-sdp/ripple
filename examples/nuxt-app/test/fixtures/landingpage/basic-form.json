@@ -27,7 +27,9 @@
             "attrs": {
               "class": "rpl-form__input--unsupported"
             },
-            "children": ["checkbox is not yet supported"]
+            "children": [
+              "checkbox is not yet supported"
+            ]
           },
           {
             "$formkit": "RplFormText",
@@ -60,7 +62,7 @@
             "prefixIcon": "icon-mail"
           },
           {
-            "$formkit": "RplFormSubmit",
+            "$formkit": "RplFormActions",
             "name": "submit",
             "variant": "filled",
             "label": "Submit",

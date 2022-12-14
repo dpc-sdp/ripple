@@ -137,6 +137,7 @@ watch(
         status="error"
         title="Form not submitted"
         :fields="errorSummaryMessages"
+        data-component-type="form-error-summary"
       />
       <RplFormAlert
         v-else-if="
@@ -146,6 +147,7 @@ watch(
         ref="serverMessageRef"
         :status="submissionState.status"
         :title="submissionState.title"
+        data-component-type="form-server-message"
       >
         <template #default>
           <RplContent :html="submissionState.message" />

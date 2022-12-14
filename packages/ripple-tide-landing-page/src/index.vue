@@ -1,3 +1,7 @@
+<script lang="ts">
+export default { name: 'TideLandingPagePage' }
+</script>
+
 <template>
   <TideBaseLayout
     :site="site"

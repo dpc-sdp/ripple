@@ -41,7 +41,7 @@ export const getValidation = (
   validationMessages: Record<string, string>
   validationMeta: string | undefined
 } => {
-  const validation: string[][] = []
+  const validation: any[][] = []
   const validationMessages: Record<string, string> = {}
   const validationMeta = undefined
 
@@ -76,7 +76,7 @@ export const getValidation = (
     ] = `${field['#title']} must be a valid email address`
   }
   if (typeof field['#multiple'] === 'number') {
-    validation.push(['length', `0,${field['#multiple']}`])
+    validation.push(['length', 0, field['#multiple']])
     validationMessages['length'] =
       field['#multiple_error'] ||
       `More than ${field['#multiple']} selections are not allowed`

@@ -22,9 +22,9 @@ Feature: Forms
   Scenario: Field counter
     Given the form with ID "basic_form" should exist
     Then 0 characters in the field "message" on "basic_form" should display a counter of "You have 10 characters remaining"
-    Then 5 characters in the field "message" on "basic_form" should display a counter of "You have 5 characters remaining"
-    Then 9 characters in the field "message" on "basic_form" should display a counter of "You have 1 character remaining"
-    Then 10 characters in the field "message" on "basic_form" should display a counter of "You have 10 characters"
-    Then 50 characters in the field "message" on "basic_form" should display a counter of "You have 50 characters"
-    Then 51 characters in the field "message" on "basic_form" should display a counter of "You have 1 character too many"
-    Then 55 characters in the field "message" on "basic_form" should display a counter of "You have 5 characters too many"
+    And 5 characters in the field "message" on "basic_form" should display a counter of "You have 5 characters remaining"
+    And 9 characters in the field "message" on "basic_form" should display a counter of "You have 1 character remaining"
+    And 10 characters in the field "message" on "basic_form" should display a counter of "You have 10 characters"
+    And 50 characters in the field "message" on "basic_form" should display a counter of "You have 50 characters"
+    And 51 characters in the field "message" on "basic_form" should display a counter of "You have 1 character too many"
+    And 55 characters in the field "message" on "basic_form" should display a counter of "You have 5 characters too many"

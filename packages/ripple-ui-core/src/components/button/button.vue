@@ -3,7 +3,7 @@ export default { name: 'RplButton' }
 </script>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed, ref, inject } from 'vue'
 import {
   RplButtonElements,
   RplButtonVariants,
@@ -16,6 +16,7 @@ import { rplEventBus } from '../../index'
 
 rplEventBus.register('rpl-button/click')
 const emit = defineEmits(['click'])
+const featureFlags = inject('featureFlags', { buttonTheme: 'default' })
 
 interface Props {
   el?: typeof RplButtonElements[number]
@@ -31,19 +32,26 @@ interface Props {
 const props = withDefaults(defineProps<Props>(), {
   el: 'button',
   url: '',
+  theme: undefined,
   variant: 'filled',
-  theme: 'default',
   iconName: undefined,
   iconPosition: 'right',
   label: undefined,
   disabled: false
 })
 
+const buttonTheme = computed(() => {
+  if (props.theme && typeof props.theme !== 'undefined') {
+    return props.theme
+  }
+  return featureFlags['buttonTheme'] || 'neutral'
+})
+
 const classes = computed(() => {
   const classTokens = [
     'rpl-button',
     `rpl-button--${props.variant}`,
-    `rpl-button--${props.theme}`,
+    `rpl-button--${buttonTheme.value}`,
     'rpl-u-focusable-block'
   ]
   if (props.iconPosition === 'left') {
@@ -66,15 +74,8 @@ defineExpose({ triggerClick })
 </script>
 
 <template>
-  <component
-    :is="el"
-    ref="link"
-    :href="el === 'a' ? url : null"
-    type="button"
-    :class="classes"
-    :disabled="disabled"
-    @click="onClick"
-  >
+  <component :is="el" ref="link" :href="el === 'a' ? url : null" type="button" :class="classes" :disabled="disabled"
+    @click="onClick">
     <span class="rpl-button__label rpl-type-label rpl-type-weight-bold">
       <template v-if="label">
         {{ label }}
@@ -84,5 +85,23 @@ defineExpose({ triggerClick })
     <RplIcon v-if="iconName" :name="iconName"></RplIcon>
   </component>
 </template>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <style src="./button.css" />

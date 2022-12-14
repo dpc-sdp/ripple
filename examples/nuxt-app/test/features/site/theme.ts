@@ -20,3 +20,9 @@ Then(
     )
   }
 )
+Then(
+  'ripple buttons should have the {string} theme applied',
+  (theme: string) => {
+    cy.get(`.rpl-button`).should('have.class', `rpl-button--${theme}`)
+  }
+)

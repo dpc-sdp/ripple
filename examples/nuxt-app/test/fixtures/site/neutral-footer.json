@@ -7,7 +7,8 @@
     "og": {}
   },
   "featureFlags": {
-    "footerTheme": "neutral"
+    "footerTheme": "neutral",
+    "buttonTheme": "neutral"
   },
   "menus": {
     "menuMain": [

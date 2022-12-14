@@ -31,7 +31,25 @@ export const RplPrimaryNavItems = [
           }
         ]
       },
-      { id: '5', text: 'Second level C', url: '#' },
+      {
+        id: '55',
+        text: 'Second level C',
+        url: '#',
+        items: [
+          {
+            id: '22',
+            text: 'Third level A',
+            url: '#',
+            items: [
+              {
+                id: '33',
+                text: 'Fourth level A link with some text that will need to wrap',
+                url: '#'
+              }
+            ]
+          }
+        ]
+      },
       { id: '6', text: 'Second level D', url: '#' },
       { id: '7', text: 'Second level E', url: '#' },
       { id: '8', text: 'Second level F', url: '#' },

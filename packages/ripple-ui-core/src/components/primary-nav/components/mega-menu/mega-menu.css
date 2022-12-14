@@ -336,24 +336,58 @@
   text-align: left;
   text-decoration: none;
   color: var(--rpl-clr-type-primary-contrast);
-  border-bottom: var(--rpl-border-1) solid var(--rpl-clr-primary);
   cursor: pointer;
 
+  /* Divider - Acts as a bottom border */
+  &::after {
+    display: block;
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: var(--rpl-border-1);
+    background-color: var(--rpl-clr-primary);
+  }
+
+  &:hover,
+  &:active {
+    background-color: var(--rpl-clr-primary-alpha);
+
+    &::after {
+      display: none;
+    }
+  }
+
+  /* On hover or if the item is active, add a before psuedo element to cover the
+   divider of the item above */
   &:hover,
   &:active,
   &.rpl-primary-nav__mega-menu-action--active {
-    background-color: var(--rpl-clr-primary-alpha);
-  }
-
-  &.rpl-primary-nav__mega-menu-action--active {
-    &::after {
+    &::before {
       display: block;
       content: '';
       position: absolute;
-      bottom: 0;
+      top: -1px;
       left: 0;
-      border-bottom: 2px solid var(--rpl-clr-type-primary-contrast);
       width: 100%;
+      height: var(--rpl-border-1);
+      background-color: var(--rpl-clr-primary-alt);
+      border-top: var(--rpl-border-1) solid var(--rpl-clr-primary-alpha);
+    }
+  }
+
+  &.rpl-primary-nav__mega-menu-action--active {
+    background-color: var(--rpl-clr-primary-alpha);
+
+    &,
+    &:hover,
+    &:active {
+      &::after {
+        display: block;
+        height: 2px;
+        background-color: var(--rpl-clr-type-primary-contrast);
+      }
     }
   }
 
@@ -375,6 +409,11 @@
   .rpl-primary-nav__mega-menu-action--home:hover & {
     text-decoration-thickness: 2px;
     transform: none;
+  }
+
+  .rpl-primary-nav__mega-menu-action:active &,
+  .rpl-primary-nav__mega-menu-action--active & {
+    transform: translateX(var(--rpl-sp-3));
   }
 }
 

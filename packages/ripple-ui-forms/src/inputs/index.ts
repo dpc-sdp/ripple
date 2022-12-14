@@ -1,4 +1,5 @@
 export { text } from './text'
+export { textarea } from './textarea'
 export { email } from './email'
 export { tel } from './tel'
 export { number } from './number'

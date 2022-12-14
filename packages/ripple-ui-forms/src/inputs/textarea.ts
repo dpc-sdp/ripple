@@ -1,27 +1,39 @@
 import { FormKitTypeDefinition } from '@formkit/core'
 import {
   createRplFormInput,
-  defaultRplFormInputProps,
   inputLibrary,
-  minMaxProps,
+  rplFeatures,
   minMaxRplFormProps,
-  rplFeatures
+  counterRplFormProps,
+  minMaxProps,
+  counterProps
 } from './input-utils'
 
 /**
- * Input definition for Ripple email input.
+ * Input definition for Ripple text input.
  * @public
  */
-export const email: FormKitTypeDefinition = {
+export const textarea: FormKitTypeDefinition = {
   /**
    * The actual schema of the input, or a function that returns the schema.
    */
   schema: createRplFormInput({
-    $cmp: 'RplFormInput',
+    $cmp: 'RplFormTextarea',
     props: {
-      ...defaultRplFormInputProps,
+      handlers: '$handlers',
+      id: `$id`,
+      value: '$_value',
+      name: '$node.context.name',
+      disabled: '$node.context.disabled',
+      placeholder: '$node.props.placeholder',
+      rows: '$node.props.rows',
+      options: '$node.props.options',
+      validationMeta: '$node.props.validationMeta',
+      'aria-describedby': '$fns.getAriaDescribedBy()',
+      required: '$fns.isFieldRequired()',
+      invalid: '$fns.isFieldInvalid()',
       ...minMaxRplFormProps,
-      type: 'email'
+      ...counterRplFormProps
     }
   }),
   library: inputLibrary,
@@ -33,15 +45,21 @@ export const email: FormKitTypeDefinition = {
    * The family of inputs this one belongs too. For example "text" and "email"
    * are both part of the "text" family. This is primary used for styling.
    */
-  family: 'text',
+  family: 'box',
   /**
    * An array of extra props to accept for this input.
    */
-  props: [...minMaxProps, 'placeholder', 'validationMeta'],
+  props: [
+    ...minMaxProps,
+    ...counterProps,
+    'rows',
+    'placeholder',
+    'validationMeta'
+  ],
   /**
    * Forces node.props.type to be this explicit value.
    */
-  forceTypeProp: 'email',
+  forceTypeProp: 'textarea',
   /**
    * Additional features that should be added to your input
    */

@@ -24,6 +24,7 @@ import {
 } from './sidebar-site-section-nav/sidebar-site-section-nav-mapping.js'
 
 export const tidePageBaseMapping = ({
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   withTopicTags = false,
   withSidebarContacts = false,
   withSidebarRelatedLinks = false,

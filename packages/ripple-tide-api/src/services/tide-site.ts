@@ -8,13 +8,13 @@ export default class TideSite extends TideApiBase {
   site: string
   siteMapping: RplTideMapping
 
-  constructor(config: RplTideModuleConfig, logger: ILogger) {
-    super(config, logger)
-    this.site = config.contentApi.site
-    if (typeof config?.mapping?.site === 'string') {
+  constructor(tide: RplTideModuleConfig, logger: ILogger) {
+    super(tide, logger)
+    this.site = tide.config.site
+    if (typeof tide?.mapping?.site === 'string') {
       throw new Error('Error loading site mapping')
     }
-    this.siteMapping = config?.mapping?.site
+    this.siteMapping = tide?.mapping?.site
     this.logLabel = 'TideSite'
   }
 

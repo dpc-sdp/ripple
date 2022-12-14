@@ -11,5 +11,5 @@
       "@dpc-sdp/ripple-tide-api": ["./../ripple-tide-api/dist/index.js"]
     }
   },
-  "include": ["./src"]
+  "include": ["./src", "index.ts", "index.ts"]
 }

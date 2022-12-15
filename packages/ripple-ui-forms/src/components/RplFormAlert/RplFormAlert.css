@@ -2,6 +2,7 @@
   border-left: var(--rpl-border-3) solid var(--rpl-clr-success);
   padding: var(--rpl-sp-5);
   margin-bottom: var(--rpl-sp-4);
+  outline: none;
 }
 
 .rpl-form-alert__title {

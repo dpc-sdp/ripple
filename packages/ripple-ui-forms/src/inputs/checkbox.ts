@@ -14,7 +14,7 @@ export const checkbox: FormKitTypeDefinition = {
     props: {
       type: 'checkbox',
       id: `$id + '__checkbox'`,
-      name: '$node.context.name',
+      name: '$node.name',
       disabled: '$node.context.disabled',
       label: '$node.props.checkboxLabel',
       onValue: '$node.props.onValue',

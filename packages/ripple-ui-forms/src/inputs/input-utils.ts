@@ -108,7 +108,7 @@ export const defaultRplFormInputProps = {
   disabled: '$node.context.disabled',
   placeholder: '$node.context.placeholder',
   options: '$node.context.options',
-  name: '$node.context.name',
+  name: '$node.name',
   className: '$node.context.classes.input',
   validationMeta: '$node.props.validationMeta',
   'aria-describedby': '$fns.getAriaDescribedBy()',

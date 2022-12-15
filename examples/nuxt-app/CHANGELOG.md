@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.42](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.41...v2.1.0-alpha.42) (2022-12-15)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-forms:** cleanup webforms tests after merge conflicts ([b9f830c](https://github.com/dpc-sdp/ripple-framework/commit/b9f830cfabf92e524e01e40b3d465d3941345dac))
+
+
+
+
+
+# [2.1.0-alpha.41](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.40...v2.1.0-alpha.41) (2022-12-15)
+
+**Note:** Version bump only for package nuxt-app
+
+
+
+
+
+# [2.1.0-alpha.40](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.39...v2.1.0-alpha.40) (2022-12-15)
+
+**Note:** Version bump only for package nuxt-app
+
+
+
+
+
 # [2.1.0-alpha.39](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.38...v2.1.0-alpha.39) (2022-12-14)
 
 **Note:** Version bump only for package nuxt-app

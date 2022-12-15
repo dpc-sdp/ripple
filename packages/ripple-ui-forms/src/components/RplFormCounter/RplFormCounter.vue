@@ -2,8 +2,9 @@
 import { computed } from 'vue'
 
 interface Props {
-  value: string
+  value?: string
   type: string
+  invalid: boolean
   counterMin?: number
   counterMax?: number
   countWords?: boolean
@@ -11,6 +12,7 @@ interface Props {
 
 const props = withDefaults(defineProps<Props>(), {
   type: 'character',
+  value: '',
   counterMin: undefined,
   counterMax: undefined,
   countWords: false
@@ -19,7 +21,7 @@ const props = withDefaults(defineProps<Props>(), {
 const pluralize = (count: number) => (count > 1 ? 's' : '')
 
 const counterMessage = computed(() => {
-  let value = props.value || ''
+  let value = props.value
   let length = value?.length || 0
 
   if (value && props.countWords) {
@@ -27,7 +29,9 @@ const counterMessage = computed(() => {
   }
   if (props.counterMin && length < props.counterMin) {
     const count = props.counterMin - length
-    return `You have ${count} ${props.type}${pluralize(count)} remaining`
+    return props.invalid
+      ? `You have ${count} ${props.type}${pluralize(count)} too little`
+      : `You have ${count} ${props.type}${pluralize(count)} remaining`
   }
   if (props.counterMax && length > props.counterMax) {
     const count = length - props.counterMax

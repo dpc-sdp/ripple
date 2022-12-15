@@ -5,8 +5,8 @@ import RplFormCounter from '../RplFormCounter/RplFormCounter.vue'
 interface Props {
   id: string
   disabled?: boolean
-  className: string
-  value: string
+  className?: string
+  value?: string
   name: string
   rows?: number
   minlength?: number
@@ -23,6 +23,7 @@ interface Props {
 const props = withDefaults(defineProps<Props>(), {
   className: 'rpl-form__textarea',
   rows: 4,
+  value: undefined,
   minlength: undefined,
   maxlength: undefined,
   disabled: false,
@@ -75,6 +76,7 @@ const isWordCounter = computed(() => props.counter === 'word')
       v-if="counter"
       :value="value"
       :type="counter"
+      :invalid="invalid"
       :counter-min="counterMin"
       :counter-max="counterMax"
       :count-words="isWordCounter"

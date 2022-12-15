@@ -4,22 +4,24 @@ import { reset } from '@formkit/vue'
 import { computed, inject } from 'vue'
 interface Props {
   id: string
-  disabled: boolean
-  className: string
+  disabled?: boolean
+  className?: string
   label?: string
-  variant: 'filled' | 'outlined' | 'white' | 'elevated' | 'destructive'
-  name: string
-  type: 'submit' | 'reset' | 'button'
-  prefixIcon: string
-  suffixIcon: string
+  variant?: 'filled' | 'outlined' | 'white' | 'elevated' | 'destructive'
+  prefixIcon?: string
+  suffixIcon?: string
   displayResetButton: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
   type: 'submit',
+  variant: 'filled',
   className: 'rpl-form__input',
   label: 'Submit',
-  displayResetButton: false
+  displayResetButton: false,
+  prefixIcon: undefined,
+  suffixIcon: undefined,
+  disabled: false
 })
 
 const iconPosition = computed(() => {
@@ -42,8 +44,8 @@ const handleReset = () => {
   <div class="rpl-form-actions">
     <RplButton
       :id="id"
-      :variant="variant || 'filled'"
-      :type="type || 'submit'"
+      :variant="variant"
+      type="submit"
       :disabled="disabled"
       :icon-name="prefixIcon || suffixIcon"
       :icon-position="iconPosition"

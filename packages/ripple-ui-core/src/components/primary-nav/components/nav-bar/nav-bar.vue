@@ -3,9 +3,13 @@ export default { name: 'RplPrimaryNavBar' }
 </script>
 
 <script setup lang="ts">
-import RplIcon from '../icon/icon.vue'
+import RplIcon from '../../../icon/icon.vue'
 import RplPrimaryNavBarAction from './nav-bar-action.vue'
-import { RplPrimaryNavLogo, RplPrimaryNavItem } from './constants'
+import {
+  RplPrimaryNavLogo,
+  RplPrimaryNavItem,
+  RplPrimaryNavActiveItems
+} from '../../constants'
 
 interface Props {
   primaryLogo: RplPrimaryNavLogo
@@ -15,9 +19,9 @@ interface Props {
   showQuickExit: boolean
   isMegaNavActive: boolean
   isSearchActive: boolean
-  isItemExpanded: (id: string) => boolean
+  activeNavItems: RplPrimaryNavActiveItems
   toggleMobileMenu: () => void
-  toggleItem: (id: string) => void
+  toggleItem: (level: 1 | 2 | 3, item: RplPrimaryNavItem) => void
   toggleSearch: () => void
 }
 
@@ -110,8 +114,8 @@ const props = defineProps<Props>()
           v-if="item.items"
           type="toggle"
           :href="item.url"
-          :active="isItemExpanded(item.id)"
-          @click="toggleItem(item.id)"
+          :active="activeNavItems.level1?.id == item.id"
+          @click="toggleItem(1, item)"
         >
           <span>{{ item.text }}</span
           >&NoBreak;<span class="rpl-primary-nav__nav-bar-icon rpl-u-margin-l-2"
@@ -168,3 +172,5 @@ const props = defineProps<Props>()
     </ul>
   </div>
 </template>
+
+<style src="./nav-bar.css" />

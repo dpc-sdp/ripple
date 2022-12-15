@@ -3,6 +3,42 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.42](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.41...v2.1.0-alpha.42) (2022-12-15)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-forms:** cleanup webforms tests after merge conflicts ([b9f830c](https://github.com/dpc-sdp/ripple-framework/commit/b9f830cfabf92e524e01e40b3d465d3941345dac))
+* **@dpc-sdp/ripple-ui-forms:** fixed form actions styling ([c394a3c](https://github.com/dpc-sdp/ripple-framework/commit/c394a3c3394106cf9a45554abd535148bcb43a5c))
+* **@dpc-sdp/ripple-ui-forms:** fixed form alert title styling ([18bb3f6](https://github.com/dpc-sdp/ripple-framework/commit/18bb3f60d7004fcbd4ff2234490101cc33f3e0c8))
+* **@dpc-sdp/ripple-ui-forms:** tidied form alert styling ([353aeae](https://github.com/dpc-sdp/ripple-framework/commit/353aeaef5f3ca3f3aaaa070d078677e5ef9d03d7))
+
+
+
+
+
+# [2.1.0-alpha.41](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.40...v2.1.0-alpha.41) (2022-12-15)
+
+
+### Features
+
+* **@dpc-sdp/ripple-ui-core:** remaining copy update ([713d167](https://github.com/dpc-sdp/ripple-framework/commit/713d167d2b1d6d256a9b164b385358b0ce5f44c7))
+
+
+
+
+
+# [2.1.0-alpha.40](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.39...v2.1.0-alpha.40) (2022-12-15)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** :lipstick: add precedence for height ([0c14c6d](https://github.com/dpc-sdp/ripple-framework/commit/0c14c6d0baa3bdbccd2ea48525e7fe7cc09c09fa))
+
+
+
+
+
 # [2.1.0-alpha.39](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.38...v2.1.0-alpha.39) (2022-12-14)
 
 

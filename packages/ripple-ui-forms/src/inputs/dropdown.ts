@@ -16,7 +16,7 @@ export const dropdown: FormKitTypeDefinition = {
       id: `$id`,
       labelId: `$id + '__label'`,
       'aria-describedby': '$fns.getAriaDescribedBy()',
-      name: '$node.context.name',
+      name: '$node.name',
       disabled: '$node.context.disabled',
       placeholder: '$node.props.placeholder',
       value: '$_value',

@@ -7,14 +7,14 @@ interface Props {
   id: string
   disabled?: boolean
   className: string
-  value: string
+  value?: string
   type: string
   name: string
   handlers: Record<string, any>
-  prefixIcon?: string | undefined
-  suffixIcon?: string | undefined
-  minlength?: string
-  maxlength?: string
+  prefixIcon?: string
+  suffixIcon?: string
+  minlength?: number
+  maxlength?: number
   counter?: 'word' | 'character'
   counterMin?: number
   counterMax?: number
@@ -26,6 +26,7 @@ interface Props {
 const props = withDefaults(defineProps<Props>(), {
   type: 'text',
   className: 'rpl-form__input',
+  value: undefined,
   prefixIcon: undefined,
   suffixIcon: undefined,
   minlength: undefined,
@@ -99,6 +100,7 @@ TODO - Wire up event bus handling
       v-if="counter"
       :value="value"
       :type="counter"
+      :invalid="invalid"
       :counter-min="counterMin"
       :counter-max="counterMax"
       :count-words="isWordCounter"

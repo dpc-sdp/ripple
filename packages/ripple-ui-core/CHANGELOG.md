@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.40](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.39...v2.1.0-alpha.40) (2022-12-15)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** :lipstick: add precedence for height ([0c14c6d](https://github.com/dpc-sdp/ripple-framework/commit/0c14c6d0baa3bdbccd2ea48525e7fe7cc09c09fa))
+
+
+
+
+
 # [2.1.0-alpha.36](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.35...v2.1.0-alpha.36) (2022-12-14)
 
 

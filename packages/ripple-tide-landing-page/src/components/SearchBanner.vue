@@ -20,7 +20,7 @@ const handleSubmit = (value) => {
     props.searchUrl.replace('[SEARCH-KEYWORDS]', encodeURIComponent(value))
   )
 
-  const isInternalUrl = isExternalUrl(searchPath, config.ripple.hostname)
+  const isInternalUrl = isExternalUrl(searchPath, config?.ripple?.hostname)
 
   if (props.openInNewWindow) {
     window.open(searchPath, '_blank')

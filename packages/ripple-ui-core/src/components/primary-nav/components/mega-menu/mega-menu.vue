@@ -7,43 +7,27 @@ import { computed } from 'vue'
 import RplPrimaryNavBackButton from './mega-menu-back-button.vue'
 import RplPrimaryNavMegaMenuList from './mega-menu-list.vue'
 import RplPrimaryNavQuickExit from '../quick-exit/quick-exit.vue'
-import { RplPrimaryNavItem } from '../../constants'
+import { RplPrimaryNavItem, RplPrimaryNavActiveItems } from '../../constants'
 
 interface Props {
   items: RplPrimaryNavItem[]
   showQuickExit: boolean
-  isItemActive: (id: string) => boolean
-  toggleItem: (id: string) => void
+  activeNavItems: RplPrimaryNavActiveItems
+  toggleItem: (level: 1 | 2 | 3, item: RplPrimaryNavItem) => void
 }
 
 const props = withDefaults(defineProps<Props>(), {})
 
-const level2ActiveItem = computed(() => {
-  return props.items?.find((item) => props.isItemActive(item.id))
-})
-
-const level3ActiveItem = computed(() => {
-  return level2ActiveItem.value?.items?.find((item) =>
-    props.isItemActive(item.id)
-  )
-})
-
-const level4ActiveItem = computed(() => {
-  return level3ActiveItem.value?.items?.find((item) =>
-    props.isItemActive(item.id)
-  )
-})
-
 const currentLevel = computed(() => {
-  if (!level2ActiveItem.value) {
+  if (!props.activeNavItems.level1) {
     return 1
   }
 
-  if (!level3ActiveItem.value) {
+  if (!props.activeNavItems.level2) {
     return 2
   }
 
-  if (!level4ActiveItem.value) {
+  if (!props.activeNavItems.level3) {
     return 3
   }
 
@@ -52,18 +36,18 @@ const currentLevel = computed(() => {
 
 const backButtonHandler = () => {
   // Go back to level 3
-  if (currentLevel.value == 4 && level4ActiveItem.value) {
-    props.toggleItem(level4ActiveItem.value.id)
+  if (currentLevel.value == 4 && props.activeNavItems.level3) {
+    props.toggleItem(3, props.activeNavItems.level3)
   }
 
   // Go back to level 2
-  else if (currentLevel.value == 3 && level3ActiveItem.value) {
-    props.toggleItem(level3ActiveItem.value.id)
+  else if (currentLevel.value == 3 && props.activeNavItems.level2) {
+    props.toggleItem(2, props.activeNavItems.level2)
   }
 
   // Go back to level 1
-  else if (currentLevel.value == 2 && level2ActiveItem.value) {
-    props.toggleItem(level2ActiveItem.value.id)
+  else if (currentLevel.value == 2 && props.activeNavItems.level1) {
+    props.toggleItem(1, props.activeNavItems.level1)
   }
 }
 </script>
@@ -93,22 +77,22 @@ const backButtonHandler = () => {
           <div class="rpl-primary-nav__mega-menu-column">
             <!-- Section title - Desktop -->
             <div
-              v-if="level2ActiveItem"
+              v-if="props.activeNavItems.level1"
               class="
                 rpl-primary-nav__mega-menu-section-title
                 rpl-primary-nav__mega-menu-section-title--desktop
                 rpl-type-h3-fixed
               "
             >
-              {{ level2ActiveItem.text }}
+              {{ props.activeNavItems.level1.text }}
             </div>
 
             <!-- List - Only visible on mobile -->
             <RplPrimaryNavMegaMenuList
               v-if="items.length"
-              level="1"
+              :level="1"
               :items="items ? items : []"
-              :is-item-active="isItemActive"
+              :active-nav-items="activeNavItems"
               :toggle-item="toggleItem"
             />
           </div>
@@ -123,22 +107,24 @@ const backButtonHandler = () => {
 
             <!-- Section title - Mobile - Level 2 -->
             <div
-              v-if="level2ActiveItem"
+              v-if="activeNavItems.level1"
               class="
                 rpl-primary-nav__mega-menu-section-title
                 rpl-primary-nav__mega-menu-section-title--mobile
                 rpl-type-h3-fixed
               "
             >
-              {{ level2ActiveItem.text }}
+              {{ activeNavItems.level1.text }}
             </div>
 
             <RplPrimaryNavMegaMenuList
-              v-if="level2ActiveItem?.items?.length"
-              level="2"
-              :parent="level2ActiveItem"
-              :items="level2ActiveItem.items ? level2ActiveItem.items : []"
-              :is-item-active="isItemActive"
+              v-if="activeNavItems.level1?.items?.length"
+              :level="2"
+              :parent="activeNavItems.level1"
+              :items="
+                activeNavItems.level1.items ? activeNavItems.level1.items : []
+              "
+              :active-nav-items="activeNavItems"
               :toggle-item="toggleItem"
             />
           </div>
@@ -147,29 +133,31 @@ const backButtonHandler = () => {
           <div class="rpl-primary-nav__mega-menu-column">
             <!-- Back button - Only visible on mobile -->
             <RplPrimaryNavBackButton
-              v-if="level2ActiveItem"
-              :label="level2ActiveItem.text"
+              v-if="activeNavItems.level1"
+              :label="activeNavItems.level1.text"
               @click="backButtonHandler()"
             />
 
             <!-- Section title - Mobile - Level 3 -->
             <div
-              v-if="level3ActiveItem"
+              v-if="activeNavItems.level2"
               class="
                 rpl-primary-nav__mega-menu-section-title
                 rpl-primary-nav__mega-menu-section-title--mobile
                 rpl-type-h3-fixed
               "
             >
-              {{ level3ActiveItem.text }}
+              {{ activeNavItems.level2.text }}
             </div>
 
             <RplPrimaryNavMegaMenuList
-              v-if="level3ActiveItem?.items?.length"
-              level="3"
-              :parent="level3ActiveItem"
-              :items="level3ActiveItem.items ? level3ActiveItem.items : []"
-              :is-item-active="isItemActive"
+              v-if="activeNavItems.level2?.items?.length"
+              :level="3"
+              :parent="activeNavItems.level2"
+              :items="
+                activeNavItems.level2.items ? activeNavItems.level2.items : []
+              "
+              :active-nav-items="activeNavItems"
               :toggle-item="toggleItem"
             />
           </div>
@@ -178,29 +166,31 @@ const backButtonHandler = () => {
           <div class="rpl-primary-nav__mega-menu-column">
             <!-- Back button - Only visible on mobile -->
             <RplPrimaryNavBackButton
-              v-if="level3ActiveItem"
-              :label="level3ActiveItem.text"
+              v-if="activeNavItems.level2"
+              :label="activeNavItems.level2.text"
               @click="backButtonHandler()"
             />
 
             <!-- Section title - Mobile - Level 4 -->
             <div
-              v-if="level4ActiveItem"
+              v-if="activeNavItems.level3"
               class="
                 rpl-primary-nav__mega-menu-section-title
                 rpl-primary-nav__mega-menu-section-title--mobile
                 rpl-type-h3-fixed
               "
             >
-              {{ level4ActiveItem.text }}
+              {{ activeNavItems.level3.text }}
             </div>
 
             <RplPrimaryNavMegaMenuList
-              v-if="level4ActiveItem?.items?.length"
-              level="4"
-              :parent="level4ActiveItem"
-              :items="level4ActiveItem.items ? level4ActiveItem.items : []"
-              :is-item-active="isItemActive"
+              v-if="activeNavItems.level3?.items?.length"
+              :level="4"
+              :parent="activeNavItems.level3"
+              :items="
+                activeNavItems.level3.items ? activeNavItems.level3.items : []
+              "
+              :active-nav-items="activeNavItems"
               :toggle-item="toggleItem"
             />
           </div>

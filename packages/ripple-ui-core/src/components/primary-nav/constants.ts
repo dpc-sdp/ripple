@@ -12,6 +12,12 @@ export interface RplPrimaryNavItem {
   active: boolean
 }
 
+export interface RplPrimaryNavActiveItems {
+  level1?: RplPrimaryNavItem
+  level2?: RplPrimaryNavItem
+  level3?: RplPrimaryNavItem
+}
+
 export const RplPrimaryNavItems = [
   {
     id: '1',

@@ -10,7 +10,11 @@ import RplPrimaryNavBar from './components/nav-bar/nav-bar.vue'
 import RplPrimaryNavMegaMenu from './components/mega-menu/mega-menu.vue'
 import RplPrimaryNavSearchForm from './components/search-form/search-form.vue'
 
-import { RplPrimaryNavLogo, RplPrimaryNavItem } from './constants'
+import {
+  RplPrimaryNavLogo,
+  RplPrimaryNavItem,
+  RplPrimaryNavActiveItems
+} from './constants'
 
 interface Props {
   primaryLogo: RplPrimaryNavLogo
@@ -35,7 +39,11 @@ const { activate: activateFocusTrap, deactivate: deactivateFocusTrap } =
 const isHidden: Ref<boolean> = ref(false)
 const isMegaNavActive: Ref<boolean> = ref(false)
 const isSearchActive: Ref<boolean> = ref(false)
-const activeNavItems: Ref<string[]> = ref([])
+const activeNavItems: Ref<RplPrimaryNavActiveItems> = ref({
+  level1: undefined,
+  level2: undefined,
+  level3: undefined
+})
 
 const handleScroll = () => {
   // If the page is not scrolled to the top, set isHidden to true
@@ -64,31 +72,30 @@ onUnmounted(() => {
   window.removeEventListener('keydown', handleEscapeKey, false)
 })
 
-const isNavItemActive = (id: string) => {
-  return activeNavItems.value.includes(id)
-}
-
-const toggleNavItem = (id: string) => {
+const toggleNavItem = (level: 1 | 2 | 3, item: RplPrimaryNavItem) => {
   // Item needs to be made active
-  if (isNavItemActive(id) == false) {
-    activeNavItems.value.push(id)
+  if (activeNavItems.value['level' + level]?.id !== item?.id) {
+    activeNavItems.value['level' + level] = item
   }
 
   // Item needs to be made inactive
   else {
-    activeNavItems.value = activeNavItems.value.filter((item) => item != id)
+    activeNavItems.value['level' + level] = undefined
   }
-}
 
-const toggleNavBarItem = (id: string) => {
-  // Toggle the target item while also clearing any other active items
-  activeNavItems.value = isNavItemActive(id) ? [] : [id]
+  if (level == 1) {
+    // Make search inactive
+    isSearchActive.value = false
 
-  // Make search inactive
-  isSearchActive.value = false
+    // If the target item is now active, make sure the mega nav is also active
+    isMegaNavActive.value = activeNavItems.value.level1?.id == item.id
 
-  // If the target item is now active, make sure the mega nav is also active
-  isMegaNavActive.value = isNavItemActive(id)
+    // Clear any active sub menus
+    activeNavItems.value.level2 = undefined
+    activeNavItems.value.level3 = undefined
+  } else if (level == 2) {
+    activeNavItems.value.level3 = undefined
+  }
 }
 
 const toggleMobileMenu = () => {
@@ -114,7 +121,11 @@ const isExpanded = computed(() => {
 watch(isMegaNavActive, (newValue) => {
   // If mega nav closes, toggle off any currently active menu items
   if (!newValue) {
-    activeNavItems.value = []
+    activeNavItems.value = {
+      level1: undefined,
+      level2: undefined,
+      level3: undefined
+    }
   }
 })
 
@@ -188,9 +199,9 @@ const classList = computed(() => {
         :show-quick-exit="showQuickExit"
         :is-mega-nav-active="isMegaNavActive"
         :is-search-active="isSearchActive"
-        :is-item-expanded="isNavItemActive"
+        :active-nav-items="activeNavItems"
         :toggle-mobile-menu="toggleMobileMenu"
-        :toggle-item="toggleNavBarItem"
+        :toggle-item="toggleNavItem"
         :toggle-search="toggleSearch"
       >
         <template v-if="$slots.userAction" #userAction>
@@ -203,7 +214,7 @@ const classList = computed(() => {
         v-if="isMegaNavActive"
         :items="items"
         :show-quick-exit="showQuickExit"
-        :is-item-active="isNavItemActive"
+        :active-nav-items="activeNavItems"
         :toggle-item="toggleNavItem"
       >
         <template #userAction>

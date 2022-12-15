@@ -28,44 +28,47 @@ const props = defineProps<Props>()
   <div
     :class="{
       'rpl-primary-nav__nav-bar': true,
-      'rpl-primary-nav__nav-bar--search-active': props.isSearchActive
+      'rpl-primary-nav__nav-bar--search-active': isSearchActive
     }"
   >
     <!-- Logos -->
     <div
       :class="{
         'rpl-primary-nav__logos': true,
-        'rpl-primary-nav__logos--has-secondary-logo': props.secondaryLogo
+        'rpl-primary-nav__logos--has-secondary-logo': secondaryLogo
       }"
     >
       <!-- Primary logo -->
       <a
-        class="rpl-primary-nav__primary-logo-link rpl-u-focusable-outline"
-        :href="props.primaryLogo.href"
+        class="
+          rpl-primary-nav__primary-logo-link
+          rpl-u-focusable-outline rpl-u-focusable-outline--no-border
+        "
+        :href="primaryLogo.href"
       >
         <img
           class="rpl-primary-nav__primary-logo-image"
-          :src="props.primaryLogo.src"
-          :alt="props.primaryLogo.altText"
+          :src="primaryLogo.src"
+          :alt="primaryLogo.altText"
         />
       </a>
 
       <!-- Logo divider -->
-      <div
-        v-if="props.secondaryLogo"
-        class="rpl-primary-nav__logo-divider"
-      ></div>
+      <div v-if="secondaryLogo" class="rpl-primary-nav__logo-divider"></div>
 
       <!-- Secondary logo -->
       <a
-        v-if="props.secondaryLogo"
-        class="rpl-primary-nav__secondary-logo-link rpl-u-focusable-outline"
-        :href="props.secondaryLogo.href"
+        v-if="secondaryLogo"
+        class="
+          rpl-primary-nav__secondary-logo-link
+          rpl-u-focusable-outline rpl-u-focusable-outline--no-border
+        "
+        :href="secondaryLogo.href"
       >
         <img
           class="rpl-primary-nav__secondary-logo-image"
-          :src="props.secondaryLogo.src"
-          :alt="props.secondaryLogo.altText"
+          :src="secondaryLogo.src"
+          :alt="secondaryLogo.altText"
         />
       </a>
     </div>
@@ -91,7 +94,7 @@ const props = defineProps<Props>()
 
       <!-- Mobile menu divider -->
       <li
-        v-if="props.showSearch"
+        v-if="showSearch"
         class="rpl-primary-nav__nav-bar-mobile-menu-divider"
         aria-role="presentation"
         aria-hidden="true"
@@ -132,20 +135,19 @@ const props = defineProps<Props>()
       </li>
 
       <!-- Search toggle -->
-      <li v-if="props.showSearch">
+      <li v-if="showSearch">
         <RplPrimaryNavBarAction
           type="toggle"
           href="/search"
           @click="toggleSearch()"
         >
-          <div v-if="!props.isSearchActive">
+          <div v-if="!isSearchActive">
             <span class="rpl-primary-nav__nav-bar-search-label">Search</span
             >&NoBreak;<span
               class="
                 rpl-primary-nav__nav-bar-icon
                 rpl-primary-nav__nav-bar-icon--large
                 rpl-primary-nav__nav-bar-icon--search
-                rpl-u-margin-l-2
               "
               ><RplIcon name="icon-search"></RplIcon>
             </span>
@@ -157,7 +159,6 @@ const props = defineProps<Props>()
                 rpl-primary-nav__nav-bar-icon
                 rpl-primary-nav__nav-bar-icon--large
                 rpl-primary-nav__nav-bar-icon--search
-                rpl-u-margin-l-2
               "
               ><RplIcon name="icon-cancel"></RplIcon>
             </span>

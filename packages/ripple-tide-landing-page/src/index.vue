@@ -1,3 +1,7 @@
+<script lang="ts">
+export default { name: 'TideLandingPagePage' }
+</script>
+
 <template>
   <TideBaseLayout
     :site="site"
@@ -20,9 +24,10 @@
     <template #breadcrumbs>
       <slot name="breadcrumbs"></slot>
     </template>
-    <template #aboveBody>
+    <template #aboveBody="{ hasBreadcrumbs }">
       <TideLandingPageHeroHeader
         :header="page.heroHeader"
+        :hasBreadcrumbs="hasBreadcrumbs"
         :hideBottomCornerGraphic="!!page.primaryCampaign"
       />
       <TideLandingPageHeroAcknowledgement
@@ -74,10 +79,11 @@
 </template>
 
 <script setup lang="ts">
+import { TideSiteData } from '@dpc-sdp/ripple-tide-api/types'
 import type { TideLandingPagePage } from './types'
 
 defineProps<{
-  site: any
+  site: TideSiteData
   page: TideLandingPagePage
 }>()
 </script>

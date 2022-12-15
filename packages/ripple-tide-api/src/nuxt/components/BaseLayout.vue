@@ -2,13 +2,8 @@
   <RplLayout :background="background">
     <template #aboveHeader>
       <RplIconSprite />
-      <slot name="aboveHeader">
-        <RplAlert
-          v-for="alert in site?.alerts"
-          v-bind="alert"
-          :key="alert.alertId"
-        />
-      </slot>
+      <slot name="aboveHeader"></slot>
+      <TideAlerts :siteAlerts="site?.siteAlerts" />
     </template>
     <template #primaryNav>
       <slot name="primaryNav">
@@ -19,7 +14,7 @@
             href: '/'
           }"
           :secondaryLogo="site?.siteLogo"
-          :items="site?.menus.menuMain"
+          :items="site?.menus.menuMain || []"
           :showQuickExit="site?.showQuickExit"
         ></RplPrimaryNav>
       </slot>
@@ -27,18 +22,23 @@
     <template #breadcrumbs>
       <slot name="breadcrumbs">
         <TideBreadcrumbs
+          v-if="showBreadcrumbs"
           :siteMenu="site?.menus.menuMain"
           :currentPath="route.path"
           :currentPageTitle="pageTitle"
         />
       </slot>
     </template>
-    <template #aboveBody>
-      <slot name="aboveBody"></slot>
+    <template #aboveBody="{ hasBreadcrumbs }">
+      <slot name="aboveBody" :hasBreadcrumbs="hasBreadcrumbs"></slot>
     </template>
     <template #body="{ hasSidebar }">
       <slot name="body" :hasSidebar="hasSidebar"></slot>
-      <div data-cy="topic-tags">
+      <div
+        v-if="topicTags.length"
+        data-cy="topic-tags"
+        class="rpl-u-margin-t-6"
+      >
         <RplChip
           v-for="tag in topicTags"
           :key="tag.url"
@@ -71,7 +71,7 @@
           :logos="site?.footerLogos"
           :credit="footerImageCaption"
         >
-          <template #copyright>
+          <template v-if="site?.copyrightHtml" #copyright>
             <div data-cy="footer-copyright" v-html="site?.copyrightHtml"></div>
           </template>
         </RplFooter>
@@ -84,11 +84,12 @@
 // @ts-ignore
 import { useHead, useSiteTheme, useAppConfig, useRoute } from '#imports'
 import { RplChip } from '@dpc-sdp/ripple-ui-core'
-import { onMounted } from 'vue'
+import { computed, onMounted } from 'vue'
+import { TideSiteData } from '../../../types'
 import { TideTopicTag } from '../../mapping/topic-tags/topic-tags-mapping'
 
 interface Props {
-  site: any
+  site: TideSiteData
   background?: string
   pageTitle: string
   pageLanguage?: string
@@ -114,8 +115,11 @@ onMounted(() => {
 
 const route = useRoute()
 
-const style = useSiteTheme(props.site?.theme || useAppConfig().theme)
+const showBreadcrumbs = computed(() => {
+  return route.path !== '/'
+})
 
+const style = useSiteTheme(props.site?.theme || useAppConfig().theme)
 useHead({
   title: props.pageTitle,
   htmlAttrs: {

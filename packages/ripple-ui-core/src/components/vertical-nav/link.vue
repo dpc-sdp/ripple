@@ -3,25 +3,16 @@ export default { name: 'RplVerticalNavLink' }
 </script>
 
 <script setup lang="ts">
-import { PropType } from 'vue'
+interface Props {
+  text: string
+  href: string
+  active?: boolean
+  showChildIcon?: boolean
+}
 
-defineProps({
-  text: {
-    type: String as PropType<string>,
-    required: true
-  },
-  href: {
-    type: String as PropType<string>,
-    required: true
-  },
-  active: {
-    type: Boolean,
-    default: false
-  },
-  showChildIcon: {
-    type: Boolean,
-    default: false
-  }
+withDefaults(defineProps<Props>(), {
+  active: false,
+  showChildIcon: false
 })
 </script>
 

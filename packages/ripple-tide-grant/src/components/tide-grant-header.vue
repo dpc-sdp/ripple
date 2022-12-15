@@ -3,22 +3,22 @@ export default { name: 'TideGrantHeader' }
 </script>
 
 <template>
-  <RplHeroHeader
+  <RplHeaderHeroHeader
     :corner-top="true"
     :corner-bottom="true"
     :behind-nav="true"
-    :breadcrumbs="true"
+    :breadcrumbs="hasBreadcrumbs"
     :title="header.title"
   >
     <p class="rpl-type-p-large">{{ header.summary }}</p>
-  </RplHeroHeader>
+  </RplHeaderHeroHeader>
 </template>
 
 <script setup lang="ts">
 import type { TideGrantHeader } from '../types'
-import { RplHeroHeader } from '@dpc-sdp/ripple-ui-core'
 
 defineProps<{
   header: TideGrantHeader
+  hasBreadcrumbs: boolean
 }>()
 </script>

@@ -15,6 +15,7 @@ import RplIcon from '../icon/icon.vue'
 import { rplEventBus } from '../../index'
 
 rplEventBus.register('rpl-button/click')
+const emit = defineEmits(['click'])
 
 interface Props {
   el?: typeof RplButtonElements[number]
@@ -48,11 +49,12 @@ const classes = computed(() => {
   if (props.iconPosition === 'left') {
     classTokens.push('rpl-button--reverse')
   }
-  return classTokens.join(' ')
+  return classTokens
 })
 
 const onClick = (payload?: any) => {
   rplEventBus.emit('rpl-button/click', payload)
+  emit('click', payload)
 }
 
 const link = ref(null)
@@ -71,7 +73,7 @@ defineExpose({ triggerClick })
     type="button"
     :class="classes"
     :disabled="disabled"
-    @click="onClick()"
+    @click="onClick"
   >
     <span class="rpl-button__label rpl-type-label rpl-type-weight-bold">
       <template v-if="label">

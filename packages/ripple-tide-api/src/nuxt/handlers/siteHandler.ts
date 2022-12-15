@@ -1,9 +1,9 @@
 //@ts-nocheck import typing needs fixing
-import { defineEventHandler, getQuery, CompatibilityEvent } from 'h3'
+import { defineEventHandler, getQuery, H3Event } from 'h3'
 import { createHandler } from '@dpc-sdp/ripple-tide-api'
 
 export const createSiteHandler = async (
-  event: CompatibilityEvent,
+  event: H3Event,
   tideSiteApi: TidePage
 ) => {
   return createHandler(event, 'TidePageHandler', async () => {
@@ -17,6 +17,6 @@ export const createSiteHandler = async (
   })
 }
 
-export default defineEventHandler(async (event: CompatibilityEvent) => {
+export default defineEventHandler(async (event: H3Event) => {
   return createSiteHandler(event, event.context.tide.siteApi)
 })

@@ -24,7 +24,7 @@ Then(
               .should('contain', row.label)
           }
           if (row.help) {
-            cy.get('@item').find('.rpl-form__help').should('contain', row.help)
+            cy.get('@item').find('.rpl-form-help').should('contain', row.help)
           }
           if (row.required) {
             if (row.required === 'true') {
@@ -34,6 +34,20 @@ Then(
             }
           }
         })
+    })
+  }
+)
+
+Then(
+  '{int} characters in the field {string} on {string} should display a counter of {string}',
+  (length: number, field: string, id: string, counter: string) => {
+    cy.get(`form#${id}`).as('component')
+
+    cy.get('@component').within(() => {
+      if (length) {
+        cy.get(`#${field}`).clear().type('x'.repeat(length))
+      }
+      cy.get('[data-cy="counter"]').should('have.text', counter)
     })
   }
 )

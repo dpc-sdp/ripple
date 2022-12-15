@@ -191,9 +191,34 @@ export default class TidePage extends TideApiBase {
       resource
     )
   }
+
+  async getContentList(type: string, options: any = {}) {
+    const params = {
+      site: this.site,
+      ...options
+    }
+    if (options?.include) {
+      params.include = options.include.toString()
+    }
+
+    try {
+      const response = await this.get(`/node/${type}`, {
+        params
+      })
+      if (response) {
+        return jsonapiParse.parse(response).data
+      }
+    } catch (error: any) {
+      throw new ApplicationError(`Error fetching content list for ${type}`, {
+        cause: error
+      })
+    }
+  }
+
   getResourceType(type) {
     return type.replace('node--', '')
   }
+
   getContentTypeField(key: string, route) {
     let contentType =
       this.contentTypes?.[route.bundle] ||
@@ -206,5 +231,22 @@ export default class TidePage extends TideApiBase {
     }
 
     return contentType && contentType.hasOwnProperty(key) && contentType?.[key]
+  }
+
+  async getTaxonomy(taxonomyName: string) {
+    const params = {
+      site: this.site
+    }
+    try {
+      const response = await this.get(`/taxonomy_term/${taxonomyName}`, {
+        params
+      })
+      if (response) {
+        const resource = jsonapiParse.parse(response).data
+        return resource
+      }
+    } catch (error: any) {
+      throw new ApplicationError('Error fetching taxonomy', { cause: error })
+    }
   }
 }

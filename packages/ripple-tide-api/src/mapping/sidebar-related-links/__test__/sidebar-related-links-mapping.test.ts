@@ -32,7 +32,7 @@ describe('sidebarRelatedLinksMapping', () => {
     ).toEqual([])
   })
 
-  it('maps a raw json api response to the TideContact structure', () => {
+  it('maps a raw json api response to an array of TideLinks', () => {
     expect(sidebarRelatedLinksMapping(parsedData)).toEqual(result)
   })
 })

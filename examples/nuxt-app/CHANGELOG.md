@@ -3,6 +3,245 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.39](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.38...v2.1.0-alpha.39) (2022-12-14)
+
+**Note:** Version bump only for package nuxt-app
+
+
+
+
+
+# [2.1.0-alpha.38](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.37...v2.1.0-alpha.38) (2022-12-14)
+
+
+### Features
+
+* **@dpc-sdp/ripple-ui-core:** add textarea, minmax/counter support, basic tests, update borders ([85f91e8](https://github.com/dpc-sdp/ripple-framework/commit/85f91e87579164d5083b051e45f6d25bf52d2c4f))
+* **@dpc-sdp/ripple-ui-core:** update missed validation format ([3cd6aeb](https://github.com/dpc-sdp/ripple-framework/commit/3cd6aeb07c679808a91f6a9ca935ab3ca4ded603))
+
+
+
+
+
+# [2.1.0-alpha.37](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.36...v2.1.0-alpha.37) (2022-12-14)
+
+
+### Performance Improvements
+
+* :zap: add nuxt modules via ripple-tide-api ([7ba3a80](https://github.com/dpc-sdp/ripple-framework/commit/7ba3a80685c3b037f0eef22b3fd116c3edc1119e))
+
+
+
+
+
+# [2.1.0-alpha.36](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.35...v2.1.0-alpha.36) (2022-12-14)
+
+**Note:** Version bump only for package nuxt-app
+
+
+
+
+
+# [2.1.0-alpha.35](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.34...v2.1.0-alpha.35) (2022-12-14)
+
+
+### Features
+
+* **@dpc-sdp/ripple-tide-api:** moved webform proxy config to live in api module ([f0c278a](https://github.com/dpc-sdp/ripple-framework/commit/f0c278ad4f9257bc39cdf6fb826e5200c5c35b39))
+* **@dpc-sdp/ripple-tide-api:** updated proxy to able to be used for other purposes ([b1809ba](https://github.com/dpc-sdp/ripple-framework/commit/b1809ba0d51d8b292d7a50525b982dd01a206018))
+* **@dpc-sdp/ripple-ui-forms:** added clear form button and cleaned up success message ([54eca81](https://github.com/dpc-sdp/ripple-framework/commit/54eca81466fd27a7dad225e0a3f03f83e344c78b))
+
+
+
+
+
+# [2.1.0-alpha.34](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.33...v2.1.0-alpha.34) (2022-12-13)
+
+**Note:** Version bump only for package nuxt-app
+
+
+
+
+
+# [2.1.0-alpha.33](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.32...v2.1.0-alpha.33) (2022-12-13)
+
+**Note:** Version bump only for package nuxt-app
+
+
+
+
+
+# [2.1.0-alpha.32](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.31...v2.1.0-alpha.32) (2022-12-11)
+
+**Note:** Version bump only for package nuxt-app
+
+
+
+
+
+# [2.1.0-alpha.31](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.30...v2.1.0-alpha.31) (2022-12-09)
+
+**Note:** Version bump only for package nuxt-app
+
+
+
+
+
+# [2.1.0-alpha.30](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.29...v2.1.0-alpha.30) (2022-12-07)
+
+**Note:** Version bump only for package nuxt-app
+
+
+
+
+
+# [2.1.0-alpha.29](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.28...v2.1.0-alpha.29) (2022-12-07)
+
+**Note:** Version bump only for package nuxt-app
+
+
+
+
+
+# [2.1.0-alpha.28](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.27...v2.1.0-alpha.28) (2022-12-07)
+
+**Note:** Version bump only for package nuxt-app
+
+
+
+
+
+# [2.1.0-alpha.27](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.26...v2.1.0-alpha.27) (2022-12-06)
+
+
+### Features
+
+* **@dpc-sdp/ripple-ui-core:** add basic gallery/slider/modal tests ([2d93f36](https://github.com/dpc-sdp/ripple-framework/commit/2d93f3631324c869930efbe1a2755b31eb7c0aa4))
+* **@dpc-sdp/ripple-ui-core:** update tests, use getImageFromField for carousel images ([89369a7](https://github.com/dpc-sdp/ripple-framework/commit/89369a744ef638b8821e38bd18f256bbd13f8771))
+
+
+
+
+
+# [2.1.0-alpha.26](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.25...v2.1.0-alpha.26) (2022-12-06)
+
+
+### Features
+
+* **@dpc-sdp/ripple-tide-event:** :sparkles: add event content type ([e079cd5](https://github.com/dpc-sdp/ripple-framework/commit/e079cd5580274f57ec9d082c81a312e349048531))
+
+
+
+
+
+# [2.1.0-alpha.25](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.24...v2.1.0-alpha.25) (2022-12-05)
+
+**Note:** Version bump only for package nuxt-app
+
+
+
+
+
+# [2.1.0-alpha.24](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.23...v2.1.0-alpha.24) (2022-12-02)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-forms:** fixed failing test ([7010ecb](https://github.com/dpc-sdp/ripple-framework/commit/7010ecb222a0707edf64ca58539609ad97258e4e))
+
+
+
+
+
+# [2.1.0-alpha.23](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.22...v2.1.0-alpha.23) (2022-12-02)
+
+**Note:** Version bump only for package nuxt-app
+
+
+
+
+
+# [2.1.0-alpha.22](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.21...v2.1.0-alpha.22) (2022-12-01)
+
+**Note:** Version bump only for package nuxt-app
+
+
+
+
+
+# [2.1.0-alpha.21](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.20...v2.1.0-alpha.21) (2022-11-30)
+
+**Note:** Version bump only for package nuxt-app
+
+
+
+
+
+# [2.1.0-alpha.20](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.19...v2.1.0-alpha.20) (2022-11-29)
+
+
+### Features
+
+* **@dpc-sdp/ripple-tide-api:** added site alerts mapping and ui ([fbdbdf2](https://github.com/dpc-sdp/ripple-framework/commit/fbdbdf24cdc30a2216d6b387f3305a0c75e46eca))
+
+
+
+
+
+# [2.1.0-alpha.19](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.18...v2.1.0-alpha.19) (2022-11-28)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-publication:** :bug: post-merge fixes ([d8f5207](https://github.com/dpc-sdp/ripple-framework/commit/d8f52074f42dcbf325f2c62a2ed99f8829182801))
+
+
+### Features
+
+* **@dpc-sdp/ripple-tide-api:** :sparkles: add publication index api, mapping ([8d393e7](https://github.com/dpc-sdp/ripple-framework/commit/8d393e78dad09bb617e0979f8efd9620ee79bcbe))
+* **@dpc-sdp/ripple-tide-publication:** :sparkles: add child content type ([8f0c6ce](https://github.com/dpc-sdp/ripple-framework/commit/8f0c6ceaba2abae282261bbf39c01d7f417de42c))
+
+
+
+
+
+# [2.1.0-alpha.18](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.17...v2.1.0-alpha.18) (2022-11-28)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-api:** testing ci tests ([22c3897](https://github.com/dpc-sdp/ripple-framework/commit/22c38971d12e53bb354154b4829a1d4af82cffb1))
+
+
+### Features
+
+* **@dpc-sdp/ripple-tide-media:** add basic tests ([47e315c](https://github.com/dpc-sdp/ripple-framework/commit/47e315c00e3e496cda80b5afe7761c36ac4457e8))
+
+
+### Reverts
+
+* **@dpc-sdp/ripple-tide-api:** restore 500 test ([8f9f027](https://github.com/dpc-sdp/ripple-framework/commit/8f9f027aa13b1e6db0f1cf06cec096033f1bd6eb))
+
+
+
+
+
+# [2.1.0-alpha.17](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.16...v2.1.0-alpha.17) (2022-11-28)
+
+**Note:** Version bump only for package nuxt-app
+
+
+
+
+
+# [2.1.0-alpha.16](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.15...v2.1.0-alpha.16) (2022-11-25)
+
+**Note:** Version bump only for package nuxt-app
+
+
+
+
+
 # [2.1.0-alpha.15](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.14...v2.1.0-alpha.15) (2022-11-23)
 
 **Note:** Version bump only for package nuxt-app

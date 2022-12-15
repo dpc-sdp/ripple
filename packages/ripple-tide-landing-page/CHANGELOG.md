@@ -3,6 +3,168 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.38](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.37...v2.1.0-alpha.38) (2022-12-14)
+
+
+### Features
+
+* **@dpc-sdp/ripple-ui-core:** add textarea, minmax/counter support, basic tests, update borders ([85f91e8](https://github.com/dpc-sdp/ripple-framework/commit/85f91e87579164d5083b051e45f6d25bf52d2c4f))
+* **@dpc-sdp/ripple-ui-core:** update missed validation format ([3cd6aeb](https://github.com/dpc-sdp/ripple-framework/commit/3cd6aeb07c679808a91f6a9ca935ab3ca4ded603))
+
+
+
+
+
+# [2.1.0-alpha.37](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.36...v2.1.0-alpha.37) (2022-12-14)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-landing-page
+
+
+
+
+
+# [2.1.0-alpha.36](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.35...v2.1.0-alpha.36) (2022-12-14)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-landing-page
+
+
+
+
+
+# [2.1.0-alpha.35](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.34...v2.1.0-alpha.35) (2022-12-14)
+
+
+### Features
+
+* **@dpc-sdp/ripple-tide-api:** updated proxy to able to be used for other purposes ([b1809ba](https://github.com/dpc-sdp/ripple-framework/commit/b1809ba0d51d8b292d7a50525b982dd01a206018))
+* **@dpc-sdp/ripple-tide-api:** wip for form submit proxy ([91817a2](https://github.com/dpc-sdp/ripple-framework/commit/91817a2b5752d579b67f1899f55542cec13a02a5))
+* **@dpc-sdp/ripple-ui-forms:** added clear form button and cleaned up success message ([54eca81](https://github.com/dpc-sdp/ripple-framework/commit/54eca81466fd27a7dad225e0a3f03f83e344c78b))
+* **@dpc-sdp/ripple-ui-forms:** added submission success and error messages ([c54aed8](https://github.com/dpc-sdp/ripple-framework/commit/c54aed8d66f39bbe64938caedea6bada54b19b1b))
+* **@dpc-sdp/ripple-ui-forms:** get confirmation title from CMS ([256e000](https://github.com/dpc-sdp/ripple-framework/commit/256e0008687d1cb2e64d05965feb8e1cad1269e6))
+
+
+
+
+
+# [2.1.0-alpha.33](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.32...v2.1.0-alpha.33) (2022-12-13)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-landing-page
+
+
+
+
+
+# [2.1.0-alpha.31](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.30...v2.1.0-alpha.31) (2022-12-09)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-landing-page
+
+
+
+
+
+# [2.1.0-alpha.28](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.27...v2.1.0-alpha.28) (2022-12-07)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-landing-page
+
+
+
+
+
+# [2.1.0-alpha.27](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.26...v2.1.0-alpha.27) (2022-12-06)
+
+
+### Features
+
+* **@dpc-sdp/ripple-tide-landing-page:** added what's next sidebar component ([c7a966d](https://github.com/dpc-sdp/ripple-framework/commit/c7a966df8214069099715855770355a9a1a541ef))
+* **@dpc-sdp/ripple-ui-core:** add basic gallery/slider/modal tests ([2d93f36](https://github.com/dpc-sdp/ripple-framework/commit/2d93f3631324c869930efbe1a2755b31eb7c0aa4))
+* **@dpc-sdp/ripple-ui-core:** add/update date formatting, use full image on promo cards ([80ab8af](https://github.com/dpc-sdp/ripple-framework/commit/80ab8af94aefb725208e89188ecce2612cf82b24))
+* **@dpc-sdp/ripple-ui-core:** adding media gallery to nuxt app ([5b52523](https://github.com/dpc-sdp/ripple-framework/commit/5b52523274ab145f33b016f00c2dd3d7ccbffd44))
+* **@dpc-sdp/ripple-ui-core:** update tests, use getImageFromField for carousel images ([6e59ce2](https://github.com/dpc-sdp/ripple-framework/commit/6e59ce2d6e243250e8c764b259de5e94b82c9e88))
+* **@dpc-sdp/ripple-ui-core:** wip card carousel mapping tests ([c85cf33](https://github.com/dpc-sdp/ripple-framework/commit/c85cf33eb451322d177bf7606a749c7b8967b3c0))
+* **@dpc-sdp/ripple-ui-core:** wip wiring up card carousel ([78afe80](https://github.com/dpc-sdp/ripple-framework/commit/78afe807bed9b8012257bc55dadb43809be07c9f))
+
+
+
+
+
+# [2.1.0-alpha.26](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.25...v2.1.0-alpha.26) (2022-12-06)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-landing-page
+
+
+
+
+
+# [2.1.0-alpha.25](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.24...v2.1.0-alpha.25) (2022-12-05)
+
+
+### Features
+
+* **@dpc-sdp/ripple-ui-forms:** added mapping for privacy statement field ([706b06a](https://github.com/dpc-sdp/ripple-framework/commit/706b06a1cc55d6381a09379c08a05104cddbe7f1))
+* **@dpc-sdp/ripple-ui-forms:** added mapping for url, tel and number fields ([b980ec5](https://github.com/dpc-sdp/ripple-framework/commit/b980ec5d7f965447f34a9e7a76950883120df02f))
+
+
+
+
+
+# [2.1.0-alpha.24](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.23...v2.1.0-alpha.24) (2022-12-02)
+
+
+### Features
+
+* **@dpc-sdp/ripple-ui-forms:** added mapping for 'webform-term-select' ([a6efdb2](https://github.com/dpc-sdp/ripple-framework/commit/a6efdb281c387bc7deb9b0c0336a1a1d1f459b1f))
+* **@dpc-sdp/ripple-ui-forms:** added webforms mapping for select field ([28673ed](https://github.com/dpc-sdp/ripple-framework/commit/28673edcd421432486c520faf6931ab9e3089859))
+
+
+
+
+
+# [2.1.0-alpha.21](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.20...v2.1.0-alpha.21) (2022-11-30)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-landing-page
+
+
+
+
+
+# [2.1.0-alpha.20](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.19...v2.1.0-alpha.20) (2022-11-29)
+
+
+### Features
+
+* **@dpc-sdp/ripple-tide-api:** added site alerts mapping and ui ([fbdbdf2](https://github.com/dpc-sdp/ripple-framework/commit/fbdbdf24cdc30a2216d6b387f3305a0c75e46eca))
+
+
+
+
+
+# [2.1.0-alpha.19](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.18...v2.1.0-alpha.19) (2022-11-28)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-landing-page
+
+
+
+
+
+# [2.1.0-alpha.18](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.17...v2.1.0-alpha.18) (2022-11-28)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-landing-page
+
+
+
+
+
+# [2.1.0-alpha.17](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.16...v2.1.0-alpha.17) (2022-11-28)
+
+
+### Features
+
+* **@dpc-sdp/ripple-tide-landing-page:** added webforms mapping for checkbox ([fb1dbf5](https://github.com/dpc-sdp/ripple-framework/commit/fb1dbf587a30a01927dde3c4f1405202b0dabe69))
+
+
+
+
+
 # [2.1.0-alpha.13](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.12...v2.1.0-alpha.13) (2022-11-21)
 
 

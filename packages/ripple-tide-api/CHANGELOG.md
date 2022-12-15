@@ -3,6 +3,165 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.37](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.36...v2.1.0-alpha.37) (2022-12-14)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-api:** :truck: renamed module collection ([ebbeabe](https://github.com/dpc-sdp/ripple-framework/commit/ebbeabe15bbb4cb2a5d5d9a90b3967d5b3968dbc))
+
+
+### Performance Improvements
+
+* :zap: add nuxt modules via ripple-tide-api ([7ba3a80](https://github.com/dpc-sdp/ripple-framework/commit/7ba3a80685c3b037f0eef22b3fd116c3edc1119e))
+
+
+
+
+
+# [2.1.0-alpha.36](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.35...v2.1.0-alpha.36) (2022-12-14)
+
+
+### Features
+
+* **@dpc-sdp/ripple-tide-api:** :sparkles: add blockquote, document to markup ([6696ea3](https://github.com/dpc-sdp/ripple-framework/commit/6696ea3b4db6a95b9e4ee50940cf338edf79ce77))
+
+
+
+
+
+# [2.1.0-alpha.35](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.34...v2.1.0-alpha.35) (2022-12-14)
+
+
+### Features
+
+* **@dpc-sdp/ripple-tide-api:** moved webform proxy config to live in api module ([f0c278a](https://github.com/dpc-sdp/ripple-framework/commit/f0c278ad4f9257bc39cdf6fb826e5200c5c35b39))
+* **@dpc-sdp/ripple-tide-api:** updated proxy to able to be used for other purposes ([b1809ba](https://github.com/dpc-sdp/ripple-framework/commit/b1809ba0d51d8b292d7a50525b982dd01a206018))
+* **@dpc-sdp/ripple-tide-api:** wip for form submit proxy ([91817a2](https://github.com/dpc-sdp/ripple-framework/commit/91817a2b5752d579b67f1899f55542cec13a02a5))
+
+
+
+
+
+# [2.1.0-alpha.33](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.32...v2.1.0-alpha.33) (2022-12-13)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-api:** fixed issue where alerts would get cached incorrectly ([2f85735](https://github.com/dpc-sdp/ripple-framework/commit/2f85735c4336eb1e4db1125c8b60247078fbfdea))
+
+
+
+
+
+# [2.1.0-alpha.31](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.30...v2.1.0-alpha.31) (2022-12-09)
+
+
+### Features
+
+* **@dpc-sdp/ripple-ui-core:** check for topics, use non concatenated format for css, update spacing values, add main container wrapper, use hasSide in aside check ([4724ae2](https://github.com/dpc-sdp/ripple-framework/commit/4724ae275df5c303f6ae5ab37f71617bdd1dd138))
+
+
+
+
+
+# [2.1.0-alpha.28](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.27...v2.1.0-alpha.28) (2022-12-07)
+
+
+### Performance Improvements
+
+* **@dpc-sdp/ripple-tide-api:** :zap: supress warning on empty items ([19e9430](https://github.com/dpc-sdp/ripple-framework/commit/19e9430e83eb6e2cb18ddd70eeb77350327443c6))
+
+
+
+
+
+# [2.1.0-alpha.27](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.26...v2.1.0-alpha.27) (2022-12-06)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-api:** fixed failing build ([3f44d8c](https://github.com/dpc-sdp/ripple-framework/commit/3f44d8c98f1ce448022f3bd782f9291e5abf5010))
+
+
+### Features
+
+* **@dpc-sdp/ripple-tide-api:** add margin to topic tags (same margin as updated date) ([fd1d16e](https://github.com/dpc-sdp/ripple-framework/commit/fd1d16e2fc2614163a9a691a50204af3a114cb52))
+* **@dpc-sdp/ripple-tide-landing-page:** added what's next sidebar component ([c7a966d](https://github.com/dpc-sdp/ripple-framework/commit/c7a966df8214069099715855770355a9a1a541ef))
+* **@dpc-sdp/ripple-ui-core:** wip wiring up card carousel ([78afe80](https://github.com/dpc-sdp/ripple-framework/commit/78afe807bed9b8012257bc55dadb43809be07c9f))
+
+
+
+
+
+# [2.1.0-alpha.26](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.25...v2.1.0-alpha.26) (2022-12-06)
+
+
+### Features
+
+* **@dpc-sdp/ripple-tide-event:** :sparkles: add event content type ([e079cd5](https://github.com/dpc-sdp/ripple-framework/commit/e079cd5580274f57ec9d082c81a312e349048531))
+
+
+
+
+
+# [2.1.0-alpha.24](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.23...v2.1.0-alpha.24) (2022-12-02)
+
+
+### Features
+
+* **@dpc-sdp/ripple-ui-forms:** added mapping for 'webform-term-select' ([a6efdb2](https://github.com/dpc-sdp/ripple-framework/commit/a6efdb281c387bc7deb9b0c0336a1a1d1f459b1f))
+
+
+
+
+
+# [2.1.0-alpha.20](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.19...v2.1.0-alpha.20) (2022-11-29)
+
+
+### Bug Fixes
+
+* fixed broken build ([0e94fb6](https://github.com/dpc-sdp/ripple-framework/commit/0e94fb6121dd5f9d6519bc41096b72b95a817b36))
+
+
+### Features
+
+* **@dpc-sdp/ripple-tide-api:** added site alerts mapping and ui ([fbdbdf2](https://github.com/dpc-sdp/ripple-framework/commit/fbdbdf24cdc30a2216d6b387f3305a0c75e46eca))
+* ensure all content types used the 'hasbreadcrumbs' prop for header ([52008a8](https://github.com/dpc-sdp/ripple-framework/commit/52008a8a7d478505ed6d6d0390f80e4be4151498))
+
+
+
+
+
+# [2.1.0-alpha.19](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.18...v2.1.0-alpha.19) (2022-11-28)
+
+
+### Features
+
+* **@dpc-sdp/ripple-tide-api:** :sparkles: add publication index api, mapping ([8d393e7](https://github.com/dpc-sdp/ripple-framework/commit/8d393e78dad09bb617e0979f8efd9620ee79bcbe))
+
+
+
+
+
+# [2.1.0-alpha.18](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.17...v2.1.0-alpha.18) (2022-11-28)
+
+
+### Features
+
+* **@dpc-sdp/ripple-tide-api:** adding error pages ([f914e92](https://github.com/dpc-sdp/ripple-framework/commit/f914e926955ddb0e7e4d48e4a62e24da893c7c44))
+* **@dpc-sdp/ripple-tide-media:** add // [@ts-ignore](https://github.com/ts-ignore) ([2d65248](https://github.com/dpc-sdp/ripple-framework/commit/2d6524806549cdec435915fe7ae6cd5f40b536d5))
+* **@dpc-sdp/ripple-tide-media:** add basic tests ([47e315c](https://github.com/dpc-sdp/ripple-framework/commit/47e315c00e3e496cda80b5afe7761c36ac4457e8))
+
+
+### Reverts
+
+* **@dpc-sdp/ripple-tide-api:** restore 500 test ([8f9f027](https://github.com/dpc-sdp/ripple-framework/commit/8f9f027aa13b1e6db0f1cf06cec096033f1bd6eb))
+
+
+
+
+
 # [2.1.0-alpha.13](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.12...v2.1.0-alpha.13) (2022-11-21)
 
 

@@ -24,7 +24,24 @@ export const SingleTemplate = (args) => ({
   <Story
     name='Default'
     args={{
-      type: 'text'
+      type: 'text',
+      placeholder: 'Enter some text'
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    name='Reverse'
+    parameters={{
+      background: 'gray'
+    }}
+    args={{
+      type: 'text',
+      placeholder: 'Enter some text',
+      variant: 'reverse'
     }}
   >
     {SingleTemplate.bind()}
@@ -37,6 +54,20 @@ export const SingleTemplate = (args) => ({
     args={{
       prefixIcon: 'icon-arrow-left',
       suffixIcon: 'icon-arrow-right',
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    name='Inactive'
+    args={{
+      disabled: true,
+      prefixIcon: 'icon-arrow-left',
+      suffixIcon: 'icon-arrow-right',
+      value: 'Some value'
     }}
   >
     {SingleTemplate.bind()}

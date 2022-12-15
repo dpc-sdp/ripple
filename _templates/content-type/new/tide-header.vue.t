@@ -7,22 +7,24 @@ export default { name: 'Tide<%= h.changeCase.pascalCase(name) %>Header' }
 </script>
 
 <template>
-  <RplHeroHeader
+  <RplHeaderHeroHeader
     :corner-top="true"
     :corner-bottom="true"
     :behind-nav="true"
-    :breadcrumbs="true"
+    :breadcrumbs="hasBreadcrumbs"
     :title="header.title"
   >
     <p class="rpl-type-p-large">{{ header.summary }}</p>
-  </RplHeroHeader>
+  </RplHeaderHeroHeader>
 </template>
 
 <script setup lang="ts">
-import type { Tide<%= h.changeCase.pascalCase(name) %>Header } from '../../types'
-import { RplHeroHeader } from '@dpc-sdp/ripple-ui-core'
+import type { Tide<%= h.changeCase.pascalCase(name) %>Header } from '../types'
 
-defineProps<{
+interface Props {
   header: Tide<%= h.changeCase.pascalCase(name) %>Header
-}>()
+  hasBreadcrumbs: boolean
+}
+
+defineProps<Props>()
 </script>

@@ -2,7 +2,10 @@ import { FormKitTypeDefinition } from '@formkit/core'
 import {
   createRplFormInput,
   defaultRplFormInputProps,
-  inputLibrary
+  inputLibrary,
+  minMaxProps,
+  minMaxRplFormProps,
+  rplFeatures
 } from './input-utils'
 
 /**
@@ -17,6 +20,7 @@ export const email: FormKitTypeDefinition = {
     $cmp: 'RplFormInput',
     props: {
       ...defaultRplFormInputProps,
+      ...minMaxRplFormProps,
       type: 'email'
     }
   }),
@@ -33,10 +37,13 @@ export const email: FormKitTypeDefinition = {
   /**
    * An array of extra props to accept for this input.
    */
-  props: ['maxlength', 'minlength', 'placeholder', 'validationMeta'],
+  props: [...minMaxProps, 'placeholder', 'validationMeta'],
+  /**
+   * Forces node.props.type to be this explicit value.
+   */
   forceTypeProp: 'email',
   /**
    * Additional features that should be added to your input
    */
-  features: []
+  features: rplFeatures
 }

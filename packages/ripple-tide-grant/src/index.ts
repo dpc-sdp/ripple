@@ -2,6 +2,7 @@ import mime from 'mime-types'
 import {
   tidePageBaseMapping,
   tidePageBaseIncludes,
+  formatPriceRange,
   getField,
   humanizeFilesize
 } from '@dpc-sdp/ripple-tide-api'
@@ -45,7 +46,11 @@ const tideGrantModule: RplTideMapping = {
     },
     overview: {
       title: 'field_overview_title',
-      funding: 'field_node_funding_level',
+      funding: (src: string) =>
+        formatPriceRange({
+          from: getField(src, 'field_node_funding_level.from'),
+          to: getField(src, 'field_node_funding_level.to')
+        }),
       audience: (src: string) =>
         extractAudiences(getField(src, 'field_audience')),
       date: {

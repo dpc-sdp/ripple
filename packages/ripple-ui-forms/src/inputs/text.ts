@@ -1,8 +1,13 @@
 import { FormKitTypeDefinition } from '@formkit/core'
 import {
+  counterProps,
+  counterRplFormProps,
   createRplFormInput,
   defaultRplFormInputProps,
-  inputLibrary
+  inputLibrary,
+  minMaxProps,
+  minMaxRplFormProps,
+  rplFeatures
 } from './input-utils'
 
 /**
@@ -17,6 +22,8 @@ export const text: FormKitTypeDefinition = {
     $cmp: 'RplFormInput',
     props: {
       ...defaultRplFormInputProps,
+      ...counterRplFormProps,
+      ...minMaxRplFormProps,
       type: 'text'
     }
   }),
@@ -33,7 +40,7 @@ export const text: FormKitTypeDefinition = {
   /**
    * An array of extra props to accept for this input.
    */
-  props: ['placeholder', 'validationMeta'],
+  props: [...minMaxProps, ...counterProps, 'placeholder', 'validationMeta'],
   /**
    * Forces node.props.type to be this explicit value.
    */
@@ -41,5 +48,5 @@ export const text: FormKitTypeDefinition = {
   /**
    * Additional features that should be added to your input
    */
-  features: []
+  features: rplFeatures
 }

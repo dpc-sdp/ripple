@@ -1,0 +1,23 @@
+.rpl-form-dropdown__multi-value-label-wrap {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.rpl-form-dropdown__multi-value-label {
+  position: relative;
+
+  flex-grow: 1;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 100%;
+}
+
+.rpl-form-dropdown__more-label {
+  display: block;
+  font-weight: bold;
+  flex-shrink: 0;
+  text-align: right;
+  white-space: nowrap;
+}

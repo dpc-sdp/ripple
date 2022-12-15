@@ -28,7 +28,7 @@ export const SingleTemplate = (args) => ({
   args={{
     label: 'Page navigation',
     totalPages: 20,
-    initialPage: 1,
+    currentPage: 1,
     surroundingPages: 3,
     contentType: 'Page'
   }}
@@ -42,7 +42,7 @@ export const SingleTemplate = (args) => ({
   <Story
     name='Complex'
     play={a11yStoryCheck}
-    args={{ initialPage: 10 }}
+    args={{ currentPage: 10 }}
   >
     {SingleTemplate.bind()}
   </Story>
@@ -56,7 +56,7 @@ This is an example showing the first page as active
   <Story
     name='Complex/First page'
     play={a11yStoryCheck}
-    args={{ initialPage: 1 }}
+    args={{ currentPage: 1 }}
   >
     {SingleTemplate.bind()}
   </Story>
@@ -70,7 +70,7 @@ This is an example showing the last page as active
   <Story
     name='Complex/Last page'
     play={a11yStoryCheck}
-    args={{ initialPage: 20 }}
+    args={{ currentPage: 20 }}
   >
     {SingleTemplate.bind()}
   </Story>
@@ -84,7 +84,7 @@ This is an example of the simple pagination variant
   <Story
     name='Simple'
     play={a11yStoryCheck}
-    args={{ variant: 'simple' }}
+    args={{ variant: 'simple', totalPages: 3 }}
   >
     {SingleTemplate.bind()}
   </Story>
@@ -99,7 +99,7 @@ This is an example of the simple pagination variant with optional tally
   <Story
     name='Simple/Tally'
     play={a11yStoryCheck}
-    args={{ variant: 'simple', showTally: true }}
+    args={{ variant: 'simple', showTally: true, totalPages: 5 }}
   >
     {SingleTemplate.bind()}
   </Story>

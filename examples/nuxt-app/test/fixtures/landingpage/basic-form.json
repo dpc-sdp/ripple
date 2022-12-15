@@ -27,7 +27,9 @@
             "attrs": {
               "class": "rpl-form__input--unsupported"
             },
-            "children": ["checkbox is not yet supported"]
+            "children": [
+              "checkbox is not yet supported"
+            ]
           },
           {
             "$formkit": "RplFormText",
@@ -60,7 +62,22 @@
             "prefixIcon": "icon-mail"
           },
           {
-            "$formkit": "RplFormSubmit",
+            "$formkit": "RplFormTextarea",
+            "name": "message",
+            "label": "Message",
+            "id": "message",
+            "help": "Enter your message",
+            "counter": "character",
+            "counterMin": 10,
+            "counterMax": 50,
+            "validation": [["required"], ["length", 10, 50]],
+            "validationMessages": {
+              "required": "The message field is required",
+              "matches": "Please enter between 10 and 50 characters"
+            }
+          },
+          {
+            "$formkit": "RplFormActions",
             "name": "submit",
             "variant": "filled",
             "label": "Submit",

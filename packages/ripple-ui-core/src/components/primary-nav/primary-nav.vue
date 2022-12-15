@@ -3,12 +3,9 @@ export default { name: 'RplPrimaryNav' }
 </script>
 
 <script setup lang="ts">
-/*
-  TODO:
-    - Add sliding animation for mobile mega menu levels changing
-*/
-import { ref, computed, watch, onMounted, onUnmounted } from 'vue'
+import { ref, computed, watch, onMounted, onUnmounted, useSlots } from 'vue'
 import type { Ref } from 'vue'
+import { useFocusTrap } from '@vueuse/integrations/useFocusTrap'
 import RplPrimaryNavBar from './nav-bar.vue'
 import RplPrimaryNavMegaMenu from './mega-menu.vue'
 import RplPrimaryNavSearchForm from './search-form.vue'
@@ -29,6 +26,12 @@ const props = withDefaults(defineProps<Props>(), {
   showQuickExit: true
 })
 
+const slots = useSlots()
+
+const focusTrapTarget = ref()
+const { activate: activateFocusTrap, deactivate: deactivateFocusTrap } =
+  useFocusTrap(focusTrapTarget)
+
 const isHidden: Ref<boolean> = ref(false)
 const isMegaNavActive: Ref<boolean> = ref(false)
 const isSearchActive: Ref<boolean> = ref(false)
@@ -39,15 +42,26 @@ const handleScroll = () => {
   isHidden.value = window.scrollY > 0 ? true : false
 }
 
+const handleEscapeKey = (event) => {
+  if (event.key === 'Escape' && isExpanded) {
+    isMegaNavActive.value = false
+    isSearchActive.value = false
+  }
+}
+
 onMounted(() => {
   // Run handleScroll when mounted in case an anchor link was used
   handleScroll()
 
   window.addEventListener('scroll', handleScroll)
+
+  window.addEventListener('keydown', handleEscapeKey, false)
 })
 
 onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll)
+
+  window.removeEventListener('keydown', handleEscapeKey, false)
 })
 
 const isNavItemActive = (id: string) => {
@@ -106,32 +120,72 @@ watch(isMegaNavActive, (newValue) => {
 
 watch(isExpanded, (newValue) => {
   // If running in a browser and isExpanded changes toggle viewport locked class
+  // and focus trap
   if (typeof window !== 'undefined') {
     if (newValue) {
       document.body.classList.add('rpl-viewport-locked')
+      activateFocusTrap()
     } else {
       document.body.classList.remove('rpl-viewport-locked')
+      deactivateFocusTrap()
     }
   }
+})
+
+const classList = computed(() => {
+  const classes = ['rpl-primary-nav']
+
+  if (isHidden.value) {
+    classes.push('rpl-primary-nav--hidden')
+  }
+
+  if (isExpanded.value) {
+    classes.push('rpl-primary-nav--expanded')
+  }
+
+  let itemCount = props?.items?.length ? props.items.length : 0
+  if (props.showSearch) {
+    itemCount++
+  }
+  if (slots.userAction) {
+    itemCount++
+  }
+  // Add classes to control when the desktop version of the nav bar appears
+  // show mobile nav bar until 'xl' breakpoint if:
+  // - nav bar has 6 items without secondary logo
+  // - nav bar has 5 items with secondary logo
+  // show mobile nav bar for all breakpoints if:
+  // - nav bar has 7 or more items without secondary logo
+  // - nav bar has 6 or more items with secondary logo
+  // else show mobile nav bar until 'l' breakpoint
+  if (
+    (itemCount == 6 && !props.secondaryLogo) ||
+    (itemCount == 5 && props.secondaryLogo)
+  ) {
+    classes.push('rpl-primary-nav--collapse-until-xl')
+  } else if (
+    (itemCount >= 7 && !props.secondaryLogo) ||
+    (itemCount >= 6 && props.secondaryLogo)
+  ) {
+    classes.push('rpl-primary-nav--collapse-always')
+  } else {
+    classes.push('rpl-primary-nav--collapse-until-l')
+  }
+
+  return classes.join(' ')
 })
 </script>
 
 <template>
-  <nav
-    :class="{
-      'rpl-primary-nav': true,
-      'rpl-primary-nav--hidden': isHidden,
-      'rpl-primary-nav--expanded': isExpanded
-    }"
-  >
+  <nav ref="focusTrapTarget" :class="classList">
     <div class="rpl-primary-nav__inner">
       <!-- Nav bar -->
       <RplPrimaryNavBar
-        :primary-logo="props.primaryLogo"
-        :secondary-logo="props.secondaryLogo"
+        :primary-logo="primaryLogo"
+        :secondary-logo="secondaryLogo"
         :items="items"
-        :show-search="props.showSearch"
-        :show-quick-exit="props.showQuickExit"
+        :show-search="showSearch"
+        :show-quick-exit="showQuickExit"
         :is-mega-nav-active="isMegaNavActive"
         :is-search-active="isSearchActive"
         :is-item-expanded="isNavItemActive"
@@ -147,8 +201,8 @@ watch(isExpanded, (newValue) => {
       <!-- Mega menu -->
       <RplPrimaryNavMegaMenu
         v-if="isMegaNavActive"
-        :items="props.items"
-        :show-quick-exit="props.showQuickExit"
+        :items="items"
+        :show-quick-exit="showQuickExit"
         :is-item-active="isNavItemActive"
         :toggle-item="toggleNavItem"
       >
@@ -160,7 +214,7 @@ watch(isExpanded, (newValue) => {
       <!-- Search form -->
       <RplPrimaryNavSearchForm
         v-if="isSearchActive"
-        :show-quick-exit="props.showQuickExit"
+        :show-quick-exit="showQuickExit"
       />
     </div>
   </nav>

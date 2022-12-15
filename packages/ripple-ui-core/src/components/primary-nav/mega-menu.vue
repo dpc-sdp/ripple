@@ -77,7 +77,7 @@ const backButtonHandler = () => {
   >
     <!-- Quick links (Quick exit / User action slot) -->
     <ul class="rpl-primary-nav__mega-menu-quick-links">
-      <li v-if="props.showQuickExit"><RplPrimaryNavQuickExit /></li>
+      <li v-if="showQuickExit"><RplPrimaryNavQuickExit /></li>
       <li
         v-if="$slots.userAction && $slots?.userAction()[0].children?.length"
         class="rpl-primary-nav__mega-menu-user-action"
@@ -104,9 +104,9 @@ const backButtonHandler = () => {
 
           <!-- List - Only visible on mobile -->
           <RplPrimaryNavMegaMenuList
-            v-if="props.items.length"
+            v-if="items.length"
             level="1"
-            :items="props.items ? props.items : []"
+            :items="items ? items : []"
             :is-item-active="isItemActive"
             :toggle-item="toggleItem"
           />

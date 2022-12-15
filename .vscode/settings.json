@@ -17,13 +17,15 @@
     "@dpc-sdp/ripple-tide-grant",
     "@dpc-sdp/ripple-tide-publication",
     "vue-app",
-    "@dpc-sdp/ripple-tide-search"
+    "@dpc-sdp/ripple-tide-search",
+    "@dpc-sdp/ripple-tide-event"
   ],
   "cSpell.words": [
     "colour",
-    "formkit",
-    "maxlength",
     "composables",
+    "formkit",
+    "jsonapi",
+    "maxlength",
     "mockserver",
     "nuxt",
     "pathe",

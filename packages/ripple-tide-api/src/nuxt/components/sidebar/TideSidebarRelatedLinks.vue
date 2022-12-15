@@ -3,14 +3,15 @@
     v-if="items && items.length"
     data-sidebar-component-id="tide-sidebar-related-links"
   >
-    <RplRelatedLinks title="Related Links" :items="items" />
+    <RplRelatedLinks :title="title" :items="items" />
   </RplLayoutSidebarComponent>
 </template>
 
 <script setup lang="ts">
-import { TideLink } from '../../../mapping/sidebar-related-links/sidebar-related-links-mapping-types'
+import { TideLink } from '../../../../types'
 
 interface Props {
+  title: string
   items: TideLink[]
 }
 

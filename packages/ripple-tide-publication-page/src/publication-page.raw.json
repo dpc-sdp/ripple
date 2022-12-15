@@ -1,0 +1,1090 @@
+{
+  "links": {
+    "self": {
+      "href": "https://nginx-php.pr-136.content-reference-sdp-vic-gov-au.sdp4.sdp.vic.gov.au/api/v1/node/publication_page/11dede11-10c0-111e1-1100-000000000510?resourceVersion=id%3A51"
+    }
+  },
+  "meta": {},
+  "drupal_internal__nid": 39,
+  "drupal_internal__vid": 51,
+  "langcode": "en",
+  "revision_timestamp": "2022-10-06T05:49:12+00:00",
+  "revision_log": null,
+  "status": true,
+  "title": "Demo Publication - Chapter 1",
+  "created": "2022-10-06T16:49:12+11:00",
+  "changed": "2022-10-06T16:49:12+11:00",
+  "promote": false,
+  "sticky": false,
+  "default_langcode": true,
+  "revision_translation_affected": true,
+  "moderation_state": "published",
+  "metatag": [
+    {
+      "tag": "link",
+      "attributes": {
+        "rel": "canonical",
+        "href": "https://nginx-php.pr-136.content-reference-sdp-vic-gov-au.sdp4.sdp.vic.gov.au/demo-publication/demo-publication-chapter-1"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "name": "title",
+        "content": "Demo Publication - Chapter 1 | Single Digital Presence Content Management System"
+      }
+    }
+  ],
+  "path": {
+    "alias": "/demo-publication/demo-publication-chapter-1",
+    "pid": 267,
+    "langcode": "en",
+    "url": "/demo-publication/demo-publication-chapter-1",
+    "origin_alias": "/site-8936/demo-publication/demo-publication-chapter-1",
+    "origin_url": "/demo-publication/demo-publication-chapter-1"
+  },
+  "field_landing_page_hero_theme": null,
+  "field_landing_page_intro_text": "Nulla ultricies dignissim leo, posuere vestibulum erat cursus vitae",
+  "field_landing_page_show_contact": true,
+  "field_landing_page_summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet ligula sit amet lacinia. In a leo nec tortor aliquet faucibus.",
+  "field_node_display_headings": "showH2",
+  "field_show_content_rating": true,
+  "field_show_publication_nav": true,
+  "field_show_related_content": true,
+  "field_show_social_sharing": true,
+  "field_show_table_of_content": true,
+  "field_landing_page_component": [
+    {
+      "links": {
+        "self": {
+          "href": "https://nginx-php.pr-136.content-reference-sdp-vic-gov-au.sdp4.sdp.vic.gov.au/api/v1/paragraph/basic_text/c644e2bc-f79b-4a44-9669-6952d1d73db3?resourceVersion=id%3A442"
+        }
+      },
+      "meta": {
+        "target_revision_id": 442,
+        "drupal_internal__target_id": 442
+      },
+      "drupal_internal__id": 442,
+      "drupal_internal__revision_id": 442,
+      "langcode": "en",
+      "status": true,
+      "created": "2022-10-06T05:49:12+00:00",
+      "parent_id": "39",
+      "parent_type": "node",
+      "parent_field_name": "field_landing_page_component",
+      "behavior_settings": [],
+      "default_langcode": true,
+      "revision_translation_affected": true,
+      "field_paragraph_body": {
+        "value": "<h2>Nulla ultricies dignissim leo, posuere vestibulum erat cursus vitae</h2>\n<h3>Phasellus congue aliquam vehicula</h3>\n<p class=\"wysiwyg-callout\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet ligula sit amet lacinia. In a leo nec tortor aliquet faucibus. Quisque nec congue ligula, vitae condimentum tellus. Nulla nec urna augue. Curabitur commodo nisi est, eu pulvinar tortor cursus vel. Morbi dictum ex est, et semper diam finibus eu. Cras rutrum, nunc a fringilla convallis, massa est vulputate velit, in blandit augue dui vitae elit. Donec hendrerit commodo augue, in maximus orci tempor congue. Mauris ultricies euismod orci, nec vehicula quam vehicula ac. Nunc dictum tortor dolor, nec eleifend orci luctus sed.</p>\n<h3>Donec scelerisque cursus ex varius efficitur</h3>\n<h4>Morbi cursus placerat mi</h4>\n<h5>Nullam laoreet ante placerat</h5>\n<p>Integer interdum nisl ut neque dictum, et sagittis metus feugiat. Sed in mattis neque. Duis at risus non ipsum semper dapibus. Sed enim sapien, molestie sed commodo vel, lacinia vitae risus. Proin sagittis diam nisi, sed rhoncus diam varius id. Sed malesuada felis tortor, scelerisque pretium elit tempor non. Pellentesque ultrices volutpat tincidunt. Fusce quis viverra urna, quis finibus nulla.</p>\n<blockquote class='quotation'>\n  <p>Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus. Phasellus lacus lectus, sollicitudin sed posuere non, ultricies ut quam.</p>\n  <footer>\n    <cite>\n      <span class=\"quotation__author\">Duis ligula lacus</span><br />\n      <span class=\"quotation__author-title\">Phasellus est turpis, efficitur nec odio imperdiet</span><br />\n    </cite>\n  </footer>\n</blockquote>\n<h6>Mauris tincidunt tincidunt felis vel tempus</h6>\n<drupal-entity data-embed-button=\"tide_media\" data-entity-embed-display=\"view_mode:media.embedded\" data-entity-type=\"media\" data-entity-uuid='11dede11-10c0-111e1-1100-000000000124'></drupal-entity>\n<p>Phasellus in varius leo. Suspendisse potenti. Donec scelerisque cursus ex varius efficitur. Vivamus pretium nisi sed libero accumsan mattis. Duis convallis, velit eget varius tempus, orci erat aliquam sem, eget porta mauris nisl at mauris.</p>\n<drupal-entity data-embed-button=\"tide_media\" data-entity-embed-display=\"view_mode:media.embedded\" data-entity-type=\"media\" data-entity-uuid='11dede11-10c0-111e1-1100-000000000007'></drupal-entity>\n",
+        "format": "rich_text",
+        "processed": "<h2>Nulla ultricies dignissim leo, posuere vestibulum erat cursus vitae</h2>\n<h3>Phasellus congue aliquam vehicula</h3>\n<p class=\"wysiwyg-callout\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet ligula sit amet lacinia. In a leo nec tortor aliquet faucibus. Quisque nec congue ligula, vitae condimentum tellus. Nulla nec urna augue. Curabitur commodo nisi est, eu pulvinar tortor cursus vel. Morbi dictum ex est, et semper diam finibus eu. Cras rutrum, nunc a fringilla convallis, massa est vulputate velit, in blandit augue dui vitae elit. Donec hendrerit commodo augue, in maximus orci tempor congue. Mauris ultricies euismod orci, nec vehicula quam vehicula ac. Nunc dictum tortor dolor, nec eleifend orci luctus sed.</p>\n<h3>Donec scelerisque cursus ex varius efficitur</h3>\n<h4>Morbi cursus placerat mi</h4>\n<h5>Nullam laoreet ante placerat</h5>\n<p>Integer interdum nisl ut neque dictum, et sagittis metus feugiat. Sed in mattis neque. Duis at risus non ipsum semper dapibus. Sed enim sapien, molestie sed commodo vel, lacinia vitae risus. Proin sagittis diam nisi, sed rhoncus diam varius id. Sed malesuada felis tortor, scelerisque pretium elit tempor non. Pellentesque ultrices volutpat tincidunt. Fusce quis viverra urna, quis finibus nulla.</p>\n<blockquote class=\"quotation\">\n  <p>Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus. Phasellus lacus lectus, sollicitudin sed posuere non, ultricies ut quam.</p>\n  <footer><cite>\n      <span class=\"quotation__author\">Duis ligula lacus</span><br /><span class=\"quotation__author-title\">Phasellus est turpis, efficitur nec odio imperdiet</span><br /></cite>\n  </footer></blockquote>\nMauris tincidunt tincidunt felis vel tempus\n<div data-embed-button=\"tide_media\" data-entity-embed-display=\"view_mode:media.embedded\" data-entity-type=\"media\" data-entity-uuid=\"11dede11-10c0-111e1-1100-000000000124\" data-langcode=\"en\" class=\"embedded-entity embedded-entity--media embedded-entity--media--image\"><article class=\"media media--type-image media--view-mode-embedded\"><div class=\"field field--name-field-media-image field--type-image field--label-hidden field__item\">  <img src=\"https://nginx-php.pr-136.content-reference-sdp-vic-gov-au.sdp4.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg\" width=\"1413\" height=\"785\" alt=\"Demo: Melbourne tram\" title=\"Demo: Melbourne tram\" loading=\"lazy\" /></div>\n      \n  </article></div>\n<p>Phasellus in varius leo. Suspendisse potenti. Donec scelerisque cursus ex varius efficitur. Vivamus pretium nisi sed libero accumsan mattis. Duis convallis, velit eget varius tempus, orci erat aliquam sem, eget porta mauris nisl at mauris.</p>\n<div data-embed-button=\"tide_media\" data-entity-embed-display=\"view_mode:media.embedded\" data-entity-type=\"media\" data-entity-uuid=\"11dede11-10c0-111e1-1100-000000000007\" data-langcode=\"en\" class=\"embedded-entity embedded-entity--media embedded-entity--media--document\"><article class=\"media media--type-document media--view-mode-embedded\"><div class=\"field field--name-field-media-file field--type-file field--label-hidden field__item\">\n<span class=\"file file--mime-application-vnd-openxmlformats-officedocument-wordprocessingml-document file--x-office-document\"> <a href=\"https://nginx-php.pr-136.content-reference-sdp-vic-gov-au.sdp4.sdp.vic.gov.au/sites/default/files/tide_demo_content/sample.docx\" class=\"x-office-document\" aria-label=\"Demo Sample Document File type: Word. Size: 7.53 KB.\"><span class=\"file--title\">Demo Sample Document</span><span class=\"file--type\">Word</span><span class=\"file--size\">7.53 KB</span></a></span>\n</div>\n      \n  </article></div>\n"
+      },
+      "id": "c644e2bc-f79b-4a44-9669-6952d1d73db3",
+      "type": "paragraph--basic_text"
+    },
+    {
+      "links": {
+        "self": {
+          "href": "https://nginx-php.pr-136.content-reference-sdp-vic-gov-au.sdp4.sdp.vic.gov.au/api/v1/paragraph/accordion/ece9ff68-e04a-46dd-a3f2-f20c001b63ba?resourceVersion=id%3A446"
+        }
+      },
+      "meta": {
+        "target_revision_id": 446,
+        "drupal_internal__target_id": 446
+      },
+      "drupal_internal__id": 446,
+      "drupal_internal__revision_id": 446,
+      "langcode": "en",
+      "status": true,
+      "created": "2022-10-06T05:49:12+00:00",
+      "parent_id": "39",
+      "parent_type": "node",
+      "parent_field_name": "field_landing_page_component",
+      "behavior_settings": [],
+      "default_langcode": true,
+      "revision_translation_affected": true,
+      "field_paragraph_accordion_style": "numbered",
+      "field_paragraph_title": "Accordion header (basic)",
+      "field_paragraph_accordion": [
+        {
+          "links": {
+            "self": {
+              "href": "https://nginx-php.pr-136.content-reference-sdp-vic-gov-au.sdp4.sdp.vic.gov.au/api/v1/paragraph/accordion_content/4ed9d1a4-ba3c-43c4-a026-3565ecdcef48?resourceVersion=id%3A443"
+            }
+          },
+          "meta": {
+            "target_revision_id": 443,
+            "drupal_internal__target_id": 443
+          },
+          "drupal_internal__id": 443,
+          "drupal_internal__revision_id": 443,
+          "langcode": "en",
+          "status": true,
+          "created": "2022-10-06T05:49:12+00:00",
+          "parent_id": "446",
+          "parent_type": "paragraph",
+          "parent_field_name": "field_paragraph_accordion",
+          "behavior_settings": [],
+          "default_langcode": true,
+          "revision_translation_affected": true,
+          "field_paragraph_accordion_body": {
+            "value": "<p>Phasellus in varius leo. Suspendisse potenti. Donec scelerisque cursus ex varius efficitur. Vivamus pretium nisi sed libero accumsan mattis. Duis convallis, velit eget varius tempus, orci erat aliquam sem, eget porta mauris nisl at mauris.</p>",
+            "format": null,
+            "processed": "&lt;p&gt;Phasellus in varius leo. Suspendisse potenti. Donec scelerisque cursus ex varius efficitur. Vivamus pretium nisi sed libero accumsan mattis. Duis convallis, velit eget varius tempus, orci erat aliquam sem, eget porta mauris nisl at mauris.&lt;/p&gt;"
+          },
+          "field_paragraph_accordion_name": "Accordion #1",
+          "id": "4ed9d1a4-ba3c-43c4-a026-3565ecdcef48",
+          "type": "paragraph--accordion_content"
+        },
+        {
+          "links": {
+            "self": {
+              "href": "https://nginx-php.pr-136.content-reference-sdp-vic-gov-au.sdp4.sdp.vic.gov.au/api/v1/paragraph/accordion_content/fd0f3751-6a50-442c-a3e8-613a1dc74fa8?resourceVersion=id%3A444"
+            }
+          },
+          "meta": {
+            "target_revision_id": 444,
+            "drupal_internal__target_id": 444
+          },
+          "drupal_internal__id": 444,
+          "drupal_internal__revision_id": 444,
+          "langcode": "en",
+          "status": true,
+          "created": "2022-10-06T05:49:12+00:00",
+          "parent_id": "446",
+          "parent_type": "paragraph",
+          "parent_field_name": "field_paragraph_accordion",
+          "behavior_settings": [],
+          "default_langcode": true,
+          "revision_translation_affected": true,
+          "field_paragraph_accordion_body": {
+            "value": "<p>Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus. Phasellus lacus lectus, sollicitudin sed posuere non, ultricies ut quam.</p>",
+            "format": null,
+            "processed": "&lt;p&gt;Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus. Phasellus lacus lectus, sollicitudin sed posuere non, ultricies ut quam.&lt;/p&gt;"
+          },
+          "field_paragraph_accordion_name": "Accordion #2",
+          "id": "fd0f3751-6a50-442c-a3e8-613a1dc74fa8",
+          "type": "paragraph--accordion_content"
+        },
+        {
+          "links": {
+            "self": {
+              "href": "https://nginx-php.pr-136.content-reference-sdp-vic-gov-au.sdp4.sdp.vic.gov.au/api/v1/paragraph/accordion_content/001b9ebb-6d97-42e1-bbd7-35e388b7cc8d?resourceVersion=id%3A445"
+            }
+          },
+          "meta": {
+            "target_revision_id": 445,
+            "drupal_internal__target_id": 445
+          },
+          "drupal_internal__id": 445,
+          "drupal_internal__revision_id": 445,
+          "langcode": "en",
+          "status": true,
+          "created": "2022-10-06T05:49:12+00:00",
+          "parent_id": "446",
+          "parent_type": "paragraph",
+          "parent_field_name": "field_paragraph_accordion",
+          "behavior_settings": [],
+          "default_langcode": true,
+          "revision_translation_affected": true,
+          "field_paragraph_accordion_body": {
+            "value": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet ligula sit amet lacinia. In a leo nec tortor aliquet faucibus. Quisque nec congue ligula, vitae condimentum tellus.</p>",
+            "format": null,
+            "processed": "&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet ligula sit amet lacinia. In a leo nec tortor aliquet faucibus. Quisque nec congue ligula, vitae condimentum tellus.&lt;/p&gt;"
+          },
+          "field_paragraph_accordion_name": "Accordion #3",
+          "id": "001b9ebb-6d97-42e1-bbd7-35e388b7cc8d",
+          "type": "paragraph--accordion_content"
+        }
+      ],
+      "id": "ece9ff68-e04a-46dd-a3f2-f20c001b63ba",
+      "type": "paragraph--accordion"
+    },
+    {
+      "links": {
+        "self": {
+          "href": "https://nginx-php.pr-136.content-reference-sdp-vic-gov-au.sdp4.sdp.vic.gov.au/api/v1/paragraph/accordion/cb0b57d8-b432-4e76-81f8-f327faec465b?resourceVersion=id%3A450"
+        }
+      },
+      "meta": {
+        "target_revision_id": 450,
+        "drupal_internal__target_id": 450
+      },
+      "drupal_internal__id": 450,
+      "drupal_internal__revision_id": 450,
+      "langcode": "en",
+      "status": true,
+      "created": "2022-10-06T05:49:12+00:00",
+      "parent_id": "39",
+      "parent_type": "node",
+      "parent_field_name": "field_landing_page_component",
+      "behavior_settings": [],
+      "default_langcode": true,
+      "revision_translation_affected": true,
+      "field_paragraph_accordion_style": "numbered",
+      "field_paragraph_title": "Accordion header (numbered)",
+      "field_paragraph_accordion": [
+        {
+          "links": {
+            "self": {
+              "href": "https://nginx-php.pr-136.content-reference-sdp-vic-gov-au.sdp4.sdp.vic.gov.au/api/v1/paragraph/accordion_content/0bb627af-bfeb-4eb9-9407-c3d6c619787e?resourceVersion=id%3A447"
+            }
+          },
+          "meta": {
+            "target_revision_id": 447,
+            "drupal_internal__target_id": 447
+          },
+          "drupal_internal__id": 447,
+          "drupal_internal__revision_id": 447,
+          "langcode": "en",
+          "status": true,
+          "created": "2022-10-06T05:49:12+00:00",
+          "parent_id": "450",
+          "parent_type": "paragraph",
+          "parent_field_name": "field_paragraph_accordion",
+          "behavior_settings": [],
+          "default_langcode": true,
+          "revision_translation_affected": true,
+          "field_paragraph_accordion_body": {
+            "value": "<p>Phasellus in varius leo. Suspendisse potenti. Donec scelerisque cursus ex varius efficitur. Vivamus pretium nisi sed libero accumsan mattis. Duis convallis, velit eget varius tempus, orci erat aliquam sem, eget porta mauris nisl at mauris.</p>",
+            "format": null,
+            "processed": "&lt;p&gt;Phasellus in varius leo. Suspendisse potenti. Donec scelerisque cursus ex varius efficitur. Vivamus pretium nisi sed libero accumsan mattis. Duis convallis, velit eget varius tempus, orci erat aliquam sem, eget porta mauris nisl at mauris.&lt;/p&gt;"
+          },
+          "field_paragraph_accordion_name": "Accordion #1",
+          "id": "0bb627af-bfeb-4eb9-9407-c3d6c619787e",
+          "type": "paragraph--accordion_content"
+        },
+        {
+          "links": {
+            "self": {
+              "href": "https://nginx-php.pr-136.content-reference-sdp-vic-gov-au.sdp4.sdp.vic.gov.au/api/v1/paragraph/accordion_content/6dc20d45-daf8-4dee-824e-1be6e9816a5f?resourceVersion=id%3A448"
+            }
+          },
+          "meta": {
+            "target_revision_id": 448,
+            "drupal_internal__target_id": 448
+          },
+          "drupal_internal__id": 448,
+          "drupal_internal__revision_id": 448,
+          "langcode": "en",
+          "status": true,
+          "created": "2022-10-06T05:49:12+00:00",
+          "parent_id": "450",
+          "parent_type": "paragraph",
+          "parent_field_name": "field_paragraph_accordion",
+          "behavior_settings": [],
+          "default_langcode": true,
+          "revision_translation_affected": true,
+          "field_paragraph_accordion_body": {
+            "value": "<p>Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus. Phasellus lacus lectus, sollicitudin sed posuere non, ultricies ut quam.</p>",
+            "format": null,
+            "processed": "&lt;p&gt;Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus. Phasellus lacus lectus, sollicitudin sed posuere non, ultricies ut quam.&lt;/p&gt;"
+          },
+          "field_paragraph_accordion_name": "Accordion #2",
+          "id": "6dc20d45-daf8-4dee-824e-1be6e9816a5f",
+          "type": "paragraph--accordion_content"
+        },
+        {
+          "links": {
+            "self": {
+              "href": "https://nginx-php.pr-136.content-reference-sdp-vic-gov-au.sdp4.sdp.vic.gov.au/api/v1/paragraph/accordion_content/c8e0703a-c92c-4baa-97da-7d2533145aad?resourceVersion=id%3A449"
+            }
+          },
+          "meta": {
+            "target_revision_id": 449,
+            "drupal_internal__target_id": 449
+          },
+          "drupal_internal__id": 449,
+          "drupal_internal__revision_id": 449,
+          "langcode": "en",
+          "status": true,
+          "created": "2022-10-06T05:49:12+00:00",
+          "parent_id": "450",
+          "parent_type": "paragraph",
+          "parent_field_name": "field_paragraph_accordion",
+          "behavior_settings": [],
+          "default_langcode": true,
+          "revision_translation_affected": true,
+          "field_paragraph_accordion_body": {
+            "value": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet ligula sit amet lacinia. In a leo nec tortor aliquet faucibus. Quisque nec congue ligula, vitae condimentum tellus.</p>",
+            "format": null,
+            "processed": "&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet ligula sit amet lacinia. In a leo nec tortor aliquet faucibus. Quisque nec congue ligula, vitae condimentum tellus.&lt;/p&gt;"
+          },
+          "field_paragraph_accordion_name": "Accordion #3",
+          "id": "c8e0703a-c92c-4baa-97da-7d2533145aad",
+          "type": "paragraph--accordion_content"
+        }
+      ],
+      "id": "cb0b57d8-b432-4e76-81f8-f327faec465b",
+      "type": "paragraph--accordion"
+    }
+  ],
+  "field_landing_page_contact": [
+    {
+      "links": {
+        "self": {
+          "href": "https://nginx-php.pr-136.content-reference-sdp-vic-gov-au.sdp4.sdp.vic.gov.au/api/v1/paragraph/contact_us/84082ddf-2560-4883-9de9-eb798a3f9f34?resourceVersion=id%3A454"
+        }
+      },
+      "meta": {
+        "target_revision_id": 454,
+        "drupal_internal__target_id": 454
+      },
+      "drupal_internal__id": 454,
+      "drupal_internal__revision_id": 454,
+      "langcode": "en",
+      "status": true,
+      "created": "2022-10-06T05:49:12+00:00",
+      "parent_id": "39",
+      "parent_type": "node",
+      "parent_field_name": "field_landing_page_contact",
+      "behavior_settings": [],
+      "default_langcode": true,
+      "revision_translation_affected": true,
+      "field_paragraph_department_name": "Department of Premier and Cabinet",
+      "field_paragraph_email": "no-reply@vic.gov.au",
+      "field_paragraph_location": {
+        "langcode": null,
+        "country_code": "AU",
+        "administrative_area": "VIC",
+        "locality": "Melbourne",
+        "postal_code": "3001",
+        "address_line1": "Department of Premier and Cabinet",
+        "address_line2": "GPO Box 4509"
+      },
+      "field_paragraph_name": "Victorian Government",
+      "field_paragraph_postal_address": {
+        "langcode": null,
+        "country_code": "AU",
+        "administrative_area": "VIC",
+        "locality": "Melbourne",
+        "postal_code": "3001",
+        "address_line1": "Department of Premier and Cabinet",
+        "address_line2": "GPO Box 4509"
+      },
+      "field_paragraph_title": "Victorian Government",
+      "field_paragraph_phones": [
+        {
+          "links": {
+            "self": {
+              "href": "https://nginx-php.pr-136.content-reference-sdp-vic-gov-au.sdp4.sdp.vic.gov.au/api/v1/paragraph/phone/5b6bbb61-6ff1-4685-95d6-58f03dd7ec0c?resourceVersion=id%3A451"
+            }
+          },
+          "meta": {
+            "target_revision_id": 451,
+            "drupal_internal__target_id": 451
+          },
+          "drupal_internal__id": 451,
+          "drupal_internal__revision_id": 451,
+          "langcode": "en",
+          "status": true,
+          "created": "2022-10-06T05:49:12+00:00",
+          "parent_id": "454",
+          "parent_type": "paragraph",
+          "parent_field_name": "field_paragraph_phones",
+          "behavior_settings": [],
+          "default_langcode": true,
+          "revision_translation_affected": true,
+          "field_paragraph_phone_number": "1300 366 356",
+          "field_paragraph_phone_title": "Calls in Australia",
+          "id": "5b6bbb61-6ff1-4685-95d6-58f03dd7ec0c",
+          "type": "paragraph--phone"
+        },
+        {
+          "links": {
+            "self": {
+              "href": "https://nginx-php.pr-136.content-reference-sdp-vic-gov-au.sdp4.sdp.vic.gov.au/api/v1/paragraph/phone/bff79a95-511a-42eb-94d3-ec3c73c70092?resourceVersion=id%3A452"
+            }
+          },
+          "meta": {
+            "target_revision_id": 452,
+            "drupal_internal__target_id": 452
+          },
+          "drupal_internal__id": 452,
+          "drupal_internal__revision_id": 452,
+          "langcode": "en",
+          "status": true,
+          "created": "2022-10-06T05:49:12+00:00",
+          "parent_id": "454",
+          "parent_type": "paragraph",
+          "parent_field_name": "field_paragraph_phones",
+          "behavior_settings": [],
+          "default_langcode": true,
+          "revision_translation_affected": true,
+          "field_paragraph_phone_number": "+61 3 9603 8804",
+          "field_paragraph_phone_title": "Calls from overseas",
+          "id": "bff79a95-511a-42eb-94d3-ec3c73c70092",
+          "type": "paragraph--phone"
+        }
+      ],
+      "field_paragraph_social_media": [
+        {
+          "links": {
+            "self": {
+              "href": "https://nginx-php.pr-136.content-reference-sdp-vic-gov-au.sdp4.sdp.vic.gov.au/api/v1/paragraph/social_link/3fefb07f-11e1-4d10-9fb3-cce62bd49c4f?resourceVersion=id%3A453"
+            }
+          },
+          "meta": {
+            "target_revision_id": 453,
+            "drupal_internal__target_id": 453
+          },
+          "drupal_internal__id": 453,
+          "drupal_internal__revision_id": 453,
+          "langcode": "en",
+          "status": true,
+          "created": "2022-10-06T05:49:12+00:00",
+          "parent_id": "454",
+          "parent_type": "paragraph",
+          "parent_field_name": "field_paragraph_social_media",
+          "behavior_settings": [],
+          "default_langcode": true,
+          "revision_translation_affected": true,
+          "field_paragraph_link": {
+            "uri": "https://twitter.com/VicGovAu",
+            "title": "Twitter",
+            "options": []
+          },
+          "field_paragraph_social_list": "twitter",
+          "id": "3fefb07f-11e1-4d10-9fb3-cce62bd49c4f",
+          "type": "paragraph--social_link"
+        }
+      ],
+      "id": "84082ddf-2560-4883-9de9-eb798a3f9f34",
+      "type": "paragraph--contact_us"
+    }
+  ],
+  "field_node_primary_site": {
+    "links": {
+      "self": {
+        "href": "https://nginx-php.pr-136.content-reference-sdp-vic-gov-au.sdp4.sdp.vic.gov.au/api/v1/taxonomy_term/sites/11dede11-10c0-111e1-1100-000000000040?resourceVersion=id%3A72"
+      }
+    },
+    "meta": {
+      "drupal_internal__target_id": 8888
+    },
+    "drupal_internal__tid": 8888,
+    "drupal_internal__revision_id": 72,
+    "revision_created": "2022-10-06T05:49:12+00:00",
+    "revision_log_message": null,
+    "status": true,
+    "name": "Demo Site",
+    "revision_translation_affected": true,
+    "metatag": [
+      {
+        "tag": "link",
+        "attributes": {
+          "rel": "canonical",
+          "href": "https://nginx-php.pr-136.content-reference-sdp-vic-gov-au.sdp4.sdp.vic.gov.au/sites/demo-site"
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "title",
+          "content": "Demo Site | Single Digital Presence Content Management System"
+        }
+      }
+    ],
+    "field_acknowledgement_to_country": "The Victorian Government acknowledges Aboriginal and Torres Strait Islander people as the Traditional Custodians of the land and acknowledges and pays respect to their Elders, past and present.",
+    "field_prominence_ack_to_country": null,
+    "field_show_table_of_contents": true,
+    "field_site_domains": "www.demo.vic.gov.au",
+    "field_site_footer_text": null,
+    "field_site_show_exit_site": false,
+    "field_site_slogan": null,
+    "field_site_social_links": [],
+    "field_site_theme_values": [
+      {
+        "key": "rpl-clr-primary",
+        "description": null,
+        "value": "#B5002C"
+      },
+      {
+        "key": "rpl-clr-primary-alt",
+        "description": null,
+        "value": "#7F001F"
+      },
+      {
+        "key": "rpl-clr-accent",
+        "description": null,
+        "value": "#EC6873"
+      },
+      {
+        "key": "rpl-clr-accent-alt",
+        "description": null,
+        "value": "#FDECED"
+      },
+      {
+        "key": "rpl-clr-link",
+        "description": null,
+        "value": "#B5002C"
+      },
+      {
+        "key": "rpl-clr-focus",
+        "description": null,
+        "value": "#44EAC1"
+      },
+      {
+        "key": "rpl-clr-type-default",
+        "description": null,
+        "value": "var(--rpl-clr-dark)"
+      },
+      {
+        "key": "rpl-clr-primary-alpha",
+        "description": null,
+        "value": "rgba(181, 0, 44, .5)"
+      },
+      {
+        "key": "rpl-clr-type-primary-accessible",
+        "description": null,
+        "value": "var(--rpl-clr-dark)"
+      }
+    ],
+    "field_title_of_table_of_contents": "Jump to",
+    "field_site_footer_logos": [],
+    "field_site_footer_menu": {
+      "type": "menu--menu",
+      "id": "55b9629b-3b3a-42d9-8297-49fc9196555e",
+      "meta": {
+        "drupal_internal__target_id": "footer-tide-demo"
+      }
+    },
+    "field_site_homepage": {
+      "type": "node--landing_page",
+      "id": "11dede11-10c0-111e1-1100-000000000330",
+      "meta": {
+        "drupal_internal__target_id": 65
+      }
+    },
+    "field_site_main_menu": {
+      "links": {
+        "self": {
+          "href": "https://nginx-php.pr-136.content-reference-sdp-vic-gov-au.sdp4.sdp.vic.gov.au/api/v1/menu/menu/a62f9616-a600-4b7e-9c89-5a89a3771f01"
+        }
+      },
+      "meta": {
+        "drupal_internal__target_id": "main-tide-demo"
+      },
+      "langcode": "en",
+      "status": true,
+      "dependencies": [],
+      "drupal_internal__id": "main-tide-demo",
+      "label": "Main menu - demo.vic.gov.au",
+      "description": "Demo main menu",
+      "locked": false,
+      "id": "a62f9616-a600-4b7e-9c89-5a89a3771f01",
+      "type": "menu--menu"
+    },
+    "site_alerts": [
+      {
+        "type": "node--alert",
+        "id": "431587b4-4197-44fb-9a17-dde0e138351a",
+        "meta": {
+          "drupal_internal__target_id": 72
+        }
+      },
+      {
+        "type": "node--alert",
+        "id": "c8a781ed-0288-482a-bde0-162663a0e62c",
+        "meta": {
+          "drupal_internal__target_id": 73
+        }
+      },
+      {
+        "type": "node--alert",
+        "id": "11dede11-10c0-111e1-1100-000000000350",
+        "meta": {
+          "drupal_internal__target_id": 74
+        }
+      }
+    ],
+    "id": "11dede11-10c0-111e1-1100-000000000040",
+    "type": "taxonomy_term--sites"
+  },
+  "field_node_site": [
+    {
+      "links": {
+        "self": {
+          "href": "https://nginx-php.pr-136.content-reference-sdp-vic-gov-au.sdp4.sdp.vic.gov.au/api/v1/taxonomy_term/sites/11dede11-10c0-111e1-1100-000000000040?resourceVersion=id%3A72"
+        }
+      },
+      "meta": {
+        "drupal_internal__target_id": 8888
+      },
+      "drupal_internal__tid": 8888,
+      "drupal_internal__revision_id": 72,
+      "revision_created": "2022-10-06T05:49:12+00:00",
+      "revision_log_message": null,
+      "status": true,
+      "name": "Demo Site",
+      "revision_translation_affected": true,
+      "metatag": [
+        {
+          "tag": "link",
+          "attributes": {
+            "rel": "canonical",
+            "href": "https://nginx-php.pr-136.content-reference-sdp-vic-gov-au.sdp4.sdp.vic.gov.au/sites/demo-site"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "title",
+            "content": "Demo Site | Single Digital Presence Content Management System"
+          }
+        }
+      ],
+      "field_acknowledgement_to_country": "The Victorian Government acknowledges Aboriginal and Torres Strait Islander people as the Traditional Custodians of the land and acknowledges and pays respect to their Elders, past and present.",
+      "field_prominence_ack_to_country": null,
+      "field_show_table_of_contents": true,
+      "field_site_domains": "www.demo.vic.gov.au",
+      "field_site_footer_text": null,
+      "field_site_show_exit_site": false,
+      "field_site_slogan": null,
+      "field_site_social_links": [],
+      "field_site_theme_values": [
+        {
+          "key": "rpl-clr-primary",
+          "description": null,
+          "value": "#B5002C"
+        },
+        {
+          "key": "rpl-clr-primary-alt",
+          "description": null,
+          "value": "#7F001F"
+        },
+        {
+          "key": "rpl-clr-accent",
+          "description": null,
+          "value": "#EC6873"
+        },
+        {
+          "key": "rpl-clr-accent-alt",
+          "description": null,
+          "value": "#FDECED"
+        },
+        {
+          "key": "rpl-clr-link",
+          "description": null,
+          "value": "#B5002C"
+        },
+        {
+          "key": "rpl-clr-focus",
+          "description": null,
+          "value": "#44EAC1"
+        },
+        {
+          "key": "rpl-clr-type-default",
+          "description": null,
+          "value": "var(--rpl-clr-dark)"
+        },
+        {
+          "key": "rpl-clr-primary-alpha",
+          "description": null,
+          "value": "rgba(181, 0, 44, .5)"
+        },
+        {
+          "key": "rpl-clr-type-primary-accessible",
+          "description": null,
+          "value": "var(--rpl-clr-dark)"
+        }
+      ],
+      "field_title_of_table_of_contents": "Jump to",
+      "field_site_footer_logos": [],
+      "field_site_footer_menu": {
+        "type": "menu--menu",
+        "id": "55b9629b-3b3a-42d9-8297-49fc9196555e",
+        "meta": {
+          "drupal_internal__target_id": "footer-tide-demo"
+        }
+      },
+      "field_site_homepage": {
+        "type": "node--landing_page",
+        "id": "11dede11-10c0-111e1-1100-000000000330",
+        "meta": {
+          "drupal_internal__target_id": 65
+        }
+      },
+      "field_site_main_menu": {
+        "links": {
+          "self": {
+            "href": "https://nginx-php.pr-136.content-reference-sdp-vic-gov-au.sdp4.sdp.vic.gov.au/api/v1/menu/menu/a62f9616-a600-4b7e-9c89-5a89a3771f01"
+          }
+        },
+        "meta": {
+          "drupal_internal__target_id": "main-tide-demo"
+        },
+        "langcode": "en",
+        "status": true,
+        "dependencies": [],
+        "drupal_internal__id": "main-tide-demo",
+        "label": "Main menu - demo.vic.gov.au",
+        "description": "Demo main menu",
+        "locked": false,
+        "id": "a62f9616-a600-4b7e-9c89-5a89a3771f01",
+        "type": "menu--menu"
+      },
+      "site_alerts": [
+        {
+          "type": "node--alert",
+          "id": "431587b4-4197-44fb-9a17-dde0e138351a",
+          "meta": {
+            "drupal_internal__target_id": 72
+          }
+        },
+        {
+          "type": "node--alert",
+          "id": "c8a781ed-0288-482a-bde0-162663a0e62c",
+          "meta": {
+            "drupal_internal__target_id": 73
+          }
+        },
+        {
+          "type": "node--alert",
+          "id": "11dede11-10c0-111e1-1100-000000000350",
+          "meta": {
+            "drupal_internal__target_id": 74
+          }
+        }
+      ],
+      "id": "11dede11-10c0-111e1-1100-000000000040",
+      "type": "taxonomy_term--sites"
+    },
+    {
+      "links": {
+        "self": {
+          "href": "https://nginx-php.pr-136.content-reference-sdp-vic-gov-au.sdp4.sdp.vic.gov.au/api/v1/taxonomy_term/sites/11dede11-10c0-111e1-1100-000000000041?resourceVersion=id%3A73"
+        }
+      },
+      "meta": {
+        "drupal_internal__target_id": 8934
+      },
+      "drupal_internal__tid": 8934,
+      "drupal_internal__revision_id": 73,
+      "revision_created": "2022-10-06T05:49:12+00:00",
+      "revision_log_message": null,
+      "status": true,
+      "name": "Demo Section 1",
+      "revision_translation_affected": true,
+      "metatag": [
+        {
+          "tag": "link",
+          "attributes": {
+            "rel": "canonical",
+            "href": "https://nginx-php.pr-136.content-reference-sdp-vic-gov-au.sdp4.sdp.vic.gov.au/sites/demo-section-1"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "title",
+            "content": "Demo Section 1 | Single Digital Presence Content Management System"
+          }
+        }
+      ],
+      "field_acknowledgement_to_country": "The Victorian Government acknowledges Aboriginal and Torres Strait Islander people as the Traditional Custodians of the land and acknowledges and pays respect to their Elders, past and present.",
+      "field_prominence_ack_to_country": null,
+      "field_show_table_of_contents": true,
+      "field_site_domains": null,
+      "field_site_footer_text": null,
+      "field_site_show_exit_site": false,
+      "field_site_slogan": null,
+      "field_site_social_links": [],
+      "field_site_theme_values": [],
+      "field_title_of_table_of_contents": "Jump to",
+      "field_site_footer_logos": [],
+      "field_site_footer_menu": {
+        "type": "menu--menu",
+        "id": "55b9629b-3b3a-42d9-8297-49fc9196555e",
+        "meta": {
+          "drupal_internal__target_id": "footer-tide-demo"
+        }
+      },
+      "field_site_main_menu": {
+        "links": {
+          "self": {
+            "href": "https://nginx-php.pr-136.content-reference-sdp-vic-gov-au.sdp4.sdp.vic.gov.au/api/v1/menu/menu/a62f9616-a600-4b7e-9c89-5a89a3771f01"
+          }
+        },
+        "meta": {
+          "drupal_internal__target_id": "main-tide-demo"
+        },
+        "langcode": "en",
+        "status": true,
+        "dependencies": [],
+        "drupal_internal__id": "main-tide-demo",
+        "label": "Main menu - demo.vic.gov.au",
+        "description": "Demo main menu",
+        "locked": false,
+        "id": "a62f9616-a600-4b7e-9c89-5a89a3771f01",
+        "type": "menu--menu"
+      },
+      "site_alerts": [],
+      "id": "11dede11-10c0-111e1-1100-000000000041",
+      "type": "taxonomy_term--sites"
+    },
+    {
+      "links": {
+        "self": {
+          "href": "https://nginx-php.pr-136.content-reference-sdp-vic-gov-au.sdp4.sdp.vic.gov.au/api/v1/taxonomy_term/sites/11dede11-10c0-111e1-1100-000000000045?resourceVersion=id%3A75"
+        }
+      },
+      "meta": {
+        "drupal_internal__target_id": 8936
+      },
+      "drupal_internal__tid": 8936,
+      "drupal_internal__revision_id": 75,
+      "revision_created": "2022-10-06T05:49:12+00:00",
+      "revision_log_message": null,
+      "status": true,
+      "name": "Another Demo Site",
+      "revision_translation_affected": true,
+      "metatag": [
+        {
+          "tag": "link",
+          "attributes": {
+            "rel": "canonical",
+            "href": "https://nginx-php.pr-136.content-reference-sdp-vic-gov-au.sdp4.sdp.vic.gov.au/sites/another-demo-site"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "title",
+            "content": "Another Demo Site | Single Digital Presence Content Management System"
+          }
+        }
+      ],
+      "field_acknowledgement_to_country": "The Victorian Government acknowledges Aboriginal and Torres Strait Islander people as the Traditional Custodians of the land and acknowledges and pays respect to their Elders, past and present.",
+      "field_prominence_ack_to_country": null,
+      "field_show_table_of_contents": true,
+      "field_site_domains": "www.another.demo.vic.gov.au",
+      "field_site_footer_text": null,
+      "field_site_show_exit_site": false,
+      "field_site_slogan": null,
+      "field_site_social_links": [],
+      "field_site_theme_values": [
+        {
+          "key": "rpl-clr-primary",
+          "description": null,
+          "value": "#003A75"
+        },
+        {
+          "key": "rpl-clr-primary-alt",
+          "description": null,
+          "value": "#002E5E"
+        },
+        {
+          "key": "rpl-clr-primary-alpha",
+          "description": null,
+          "value": "rgba(0, 58, 117, .5)"
+        },
+        {
+          "key": "rpl-clr-accent",
+          "description": null,
+          "value": "#2E6EA5"
+        },
+        {
+          "key": "rpl-clr-accent-alt",
+          "description": null,
+          "value": "#EBF2F8"
+        },
+        {
+          "key": "rpl-clr-link",
+          "description": null,
+          "value": "#003A75"
+        },
+        {
+          "key": "rpl-clr-focus",
+          "description": null,
+          "value": "#FFC58A"
+        },
+        {
+          "key": "rpl-clr-type-primary-accessible",
+          "description": null,
+          "value": "var(--rpl-clr-dark)"
+        }
+      ],
+      "field_title_of_table_of_contents": "Jump to",
+      "field_site_footer_logos": [],
+      "field_site_footer_menu": {
+        "type": "menu--menu",
+        "id": "65ed5d87-1916-4df5-9182-677deb4db0e3",
+        "meta": {
+          "drupal_internal__target_id": "footer-tide-demo-another"
+        }
+      },
+      "field_site_homepage": {
+        "type": "node--landing_page",
+        "id": "11dede11-10c0-111e1-1100-000000000330",
+        "meta": {
+          "drupal_internal__target_id": 65
+        }
+      },
+      "field_site_main_menu": {
+        "links": {
+          "self": {
+            "href": "https://nginx-php.pr-136.content-reference-sdp-vic-gov-au.sdp4.sdp.vic.gov.au/api/v1/menu/menu/668469eb-af90-46d8-8ec2-652f2f65c652"
+          }
+        },
+        "meta": {
+          "drupal_internal__target_id": "main-tide-demo-another"
+        },
+        "langcode": "en",
+        "status": true,
+        "dependencies": [],
+        "drupal_internal__id": "main-tide-demo-another",
+        "label": "Main menu - another.demo.vic.gov.au",
+        "description": "Another Demo main menu",
+        "locked": false,
+        "id": "668469eb-af90-46d8-8ec2-652f2f65c652",
+        "type": "menu--menu"
+      },
+      "site_alerts": [
+        {
+          "type": "node--alert",
+          "id": "431587b4-4197-44fb-9a17-dde0e138351a",
+          "meta": {
+            "drupal_internal__target_id": 72
+          }
+        },
+        {
+          "type": "node--alert",
+          "id": "c8a781ed-0288-482a-bde0-162663a0e62c",
+          "meta": {
+            "drupal_internal__target_id": 73
+          }
+        },
+        {
+          "type": "node--alert",
+          "id": "11dede11-10c0-111e1-1100-000000000350",
+          "meta": {
+            "drupal_internal__target_id": 74
+          }
+        }
+      ],
+      "id": "11dede11-10c0-111e1-1100-000000000045",
+      "type": "taxonomy_term--sites"
+    }
+  ],
+  "field_publication": {
+    "type": "node--publication",
+    "id": "11dede11-10c0-111e1-1100-000000000500",
+    "meta": {
+      "weight": 1,
+      "drupal_internal__target_id": 38,
+      "type": "node--publication",
+      "id": "11dede11-10c0-111e1-1100-000000000500",
+      "entity_type": "node",
+      "bundle": "publication",
+      "title": "Demo Publication",
+      "url": "/demo-publication",
+      "field_landing_page_summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet ligula sit amet lacinia. In a leo nec tortor aliquet faucibus."
+    }
+  },
+  "field_related_links": [
+    {
+      "links": {
+        "self": {
+          "href": "https://nginx-php.pr-136.content-reference-sdp-vic-gov-au.sdp4.sdp.vic.gov.au/api/v1/paragraph/related_links/893b43c6-a497-450f-9d67-07444e6e55e0?resourceVersion=id%3A455"
+        }
+      },
+      "meta": {
+        "target_revision_id": 455,
+        "drupal_internal__target_id": 455
+      },
+      "drupal_internal__id": 455,
+      "drupal_internal__revision_id": 455,
+      "langcode": "en",
+      "status": true,
+      "created": "2022-10-06T05:49:12+00:00",
+      "parent_id": "39",
+      "parent_type": "node",
+      "parent_field_name": "field_related_links",
+      "behavior_settings": [],
+      "default_langcode": true,
+      "revision_translation_affected": true,
+      "field_paragraph_link": {
+        "uri": "https://www.vic.gov.au",
+        "title": "State Government of Victoria",
+        "options": []
+      },
+      "id": "893b43c6-a497-450f-9d67-07444e6e55e0",
+      "type": "paragraph--related_links"
+    },
+    {
+      "links": {
+        "self": {
+          "href": "https://nginx-php.pr-136.content-reference-sdp-vic-gov-au.sdp4.sdp.vic.gov.au/api/v1/paragraph/related_links/d18c0960-cf8b-4ef6-9c4c-8fda8eddce2e?resourceVersion=id%3A456"
+        }
+      },
+      "meta": {
+        "target_revision_id": 456,
+        "drupal_internal__target_id": 456
+      },
+      "drupal_internal__id": 456,
+      "drupal_internal__revision_id": 456,
+      "langcode": "en",
+      "status": true,
+      "created": "2022-10-06T05:49:12+00:00",
+      "parent_id": "39",
+      "parent_type": "node",
+      "parent_field_name": "field_related_links",
+      "behavior_settings": [],
+      "default_langcode": true,
+      "revision_translation_affected": true,
+      "field_paragraph_link": {
+        "uri": "https://www.vic.gov.au/department-premier-and-cabinet",
+        "title": "Department of Premier and Cabinet",
+        "options": []
+      },
+      "id": "d18c0960-cf8b-4ef6-9c4c-8fda8eddce2e",
+      "type": "paragraph--related_links"
+    }
+  ],
+  "publication_navigation_root": {
+    "type": "node--publication",
+    "id": "11dede11-10c0-111e1-1100-000000000500",
+    "meta": {
+      "drupal_internal__target_id": 38,
+      "type": "node--publication",
+      "id": "11dede11-10c0-111e1-1100-000000000500",
+      "entity_type": "node",
+      "bundle": "publication",
+      "title": "Demo Publication",
+      "url": "/demo-publication",
+      "field_landing_page_summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet ligula sit amet lacinia. In a leo nec tortor aliquet faucibus."
+    }
+  },
+  "publication_navigation_prev": {
+    "type": "node--publication",
+    "id": "11dede11-10c0-111e1-1100-000000000500",
+    "meta": {
+      "drupal_internal__target_id": 38,
+      "type": "node--publication",
+      "id": "11dede11-10c0-111e1-1100-000000000500",
+      "entity_type": "node",
+      "bundle": "publication",
+      "title": "Demo Publication",
+      "url": "/demo-publication",
+      "field_landing_page_summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet ligula sit amet lacinia. In a leo nec tortor aliquet faucibus."
+    }
+  },
+  "publication_navigation_next": {
+    "type": "node--publication_page",
+    "id": "11dede11-10c0-111e1-1100-000000000511",
+    "meta": {
+      "drupal_internal__target_id": 40,
+      "type": "node--publication_page",
+      "id": "11dede11-10c0-111e1-1100-000000000511",
+      "entity_type": "node",
+      "bundle": "publication_page",
+      "title": "Demo Publication - Chapter 1 - Page 1",
+      "url": "/demo-publication/demo-publication-chapter-1/demo-publication-chapter-1-page-1",
+      "field_landing_page_summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet ligula sit amet lacinia. In a leo nec tortor aliquet faucibus."
+    }
+  },
+  "id": "11dede11-10c0-111e1-1100-000000000510",
+  "type": "node--publication_page"
+}

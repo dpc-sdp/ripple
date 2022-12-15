@@ -1,9 +1,24 @@
 {
   "title": "TC-9a Grant Simple Test - Date Range",
-  "changed": "2022-09-15T15:14:30+10:00",
-  "created": "2022-09-15T15:14:30+10:00",
+  "changed": "2022-12-01T09:17:45+11:00",
+  "created": "2022-12-01T09:17:45+11:00",
   "type": "grant",
-  "nid": "2526ba4a-e12b-4fbd-a15a-38ac2528b922",
+  "nid": "3f64b1b1-b346-4378-abba-81b507359187",
+  "sidebar": {
+    "contacts": [],
+    "socialShareNetworks": ["Facebook", "Twitter", "LinkedIn"]
+  },
+  "topicTags": [
+    {
+      "url": ""
+    },
+    {
+      "url": ""
+    },
+    {
+      "url": ""
+    }
+  ],
   "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet ligula sit amet lacinia. In a leo nec tortor aliquet faucibus.",
   "header": {
     "title": "TC-9a Grant Simple Test - Date Range",
@@ -11,10 +26,7 @@
   },
   "overview": {
     "title": "Overview title",
-    "funding": {
-      "from": 11326,
-      "to": 26494
-    },
+    "funding": "$11,326 - $26,494",
     "audience": "Businesses",
     "date": {
       "from": "2019-04-08T18:00:00+10:00",
@@ -53,25 +65,25 @@
   },
   "guidelines": {
     "title": "Guidelines",
-    "id": "ef9ef2ee-f5d6-482b-b4f4-fa2445b9eccf",
+    "id": "c6314c43-30f3-4454-84de-523db0e52d48",
     "accordions": [
       {
-        "id": "ef9ef2ee-f5d6-482b-b4f4-fa2445b9eccd",
+        "id": "0bda1d06-b415-4e54-96b6-b63455a703bf",
         "title": "Eligibility",
         "content": "Lorem ipsum"
       },
       {
-        "id": "ef9ef2ee-f5d6-482b-b4f4-fa2445b9eccc",
+        "id": "2a54e4eb-316e-402c-bca7-9cea7930e717",
         "title": "Assessment criteria",
         "content": "Lorem ipsum"
       },
       {
-        "id": "ef9ef2ee-f5d6-482b-b4f4-fa2445b9eccb",
+        "id": "cfe4e3c0-b4a7-4b7f-9d53-289aec09e372",
         "title": "Assessment process",
         "content": "Lorem ipsum"
       },
       {
-        "id": "ef9ef2ee-f5d6-482b-b4f4-fa2445b9ecca",
+        "id": "967b4dae-ea94-470d-8cbe-3c6270e14703",
         "title": "How to apply",
         "content": "Lorem ipsum"
       }

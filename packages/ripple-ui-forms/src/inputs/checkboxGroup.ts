@@ -13,7 +13,7 @@ export const checkboxGroup: FormKitTypeDefinition = {
     $cmp: 'RplFormCheckboxGroup',
     props: {
       id: `$id`,
-      name: '$node.context.name',
+      name: '$node.name',
       disabled: '$node.context.disabled',
       value: '$_value',
       onChange: '$node.input',

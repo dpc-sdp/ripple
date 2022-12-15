@@ -3,8 +3,8 @@ export default { name: 'RplPrimaryNavSearchForm' }
 </script>
 
 <script setup lang="ts">
-import RplPrimaryNavQuickExit from './quick-exit.vue'
-import RplSearchBar from '../search-bar/search-bar.vue'
+import RplPrimaryNavQuickExit from '../quick-exit/quick-exit.vue'
+import RplSearchBar from '../../../search-bar/search-bar.vue'
 
 interface Props {
   showQuickExit: boolean
@@ -29,3 +29,5 @@ const props = withDefaults(defineProps<Props>(), {})
     </div>
   </div>
 </template>
+
+<style src="./search-form.css" />

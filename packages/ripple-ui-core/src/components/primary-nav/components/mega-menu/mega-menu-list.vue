@@ -3,21 +3,20 @@ export default { name: 'RplPrimaryNavMegaMenuList' }
 </script>
 
 <script setup lang="ts">
-import RplIcon from '../icon/icon.vue'
+import RplIcon from '../../../icon/icon.vue'
 import RplPrimaryNavMegaMenuAction from './mega-menu-action.vue'
-import { RplPrimaryNavItem } from './constants'
+import { RplPrimaryNavItem, RplPrimaryNavActiveItems } from '../../constants'
 
 interface Props {
   parent?: RplPrimaryNavItem
   items: RplPrimaryNavItem[]
-  level: '1' | '2' | '3' | '4'
-  isItemActive?: (id: string) => boolean
-  toggleItem?: (id: string) => void
+  level: 1 | 2 | 3 | 4
+  activeNavItems: RplPrimaryNavActiveItems
+  toggleItem?: (level: 1 | 2 | 3, item: RplPrimaryNavItem) => void
 }
 
 const props = withDefaults(defineProps<Props>(), {
   parent: undefined,
-  isItemActive: undefined,
   toggleItem: undefined
 })
 </script>
@@ -30,7 +29,7 @@ const props = withDefaults(defineProps<Props>(), {
     `"
   >
     <!-- 'Home' link - Only visible on mobile -->
-    <li v-if="level == '1'">
+    <li v-if="level == 1">
       <a
         class="
           rpl-primary-nav__mega-menu-action
@@ -42,7 +41,7 @@ const props = withDefaults(defineProps<Props>(), {
         <span class="rpl-primary-nav__mega-menu-action-icon rpl-u-margin-r-2">
           <RplIcon name="icon-home" size="s" />
         </span>
-        <span>Home</span>
+        <span class="rpl-primary-nav__mega-menu-action-text">Home</span>
       </a>
     </li>
 
@@ -56,7 +55,8 @@ const props = withDefaults(defineProps<Props>(), {
       <RplPrimaryNavMegaMenuAction
         :item="child"
         :type="child.items?.length ? 'toggle' : 'link'"
-        :is-item-active="isItemActive"
+        :level="level"
+        :active-nav-items="activeNavItems"
         :toggle-item="toggleItem"
       />
     </li>

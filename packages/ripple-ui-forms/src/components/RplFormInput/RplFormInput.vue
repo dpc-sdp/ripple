@@ -99,6 +99,7 @@ TODO - Wire up event bus handling
       v-if="counter"
       :value="value"
       :type="counter"
+      :invalid="invalid"
       :counter-min="counterMin"
       :counter-max="counterMax"
       :count-words="isWordCounter"

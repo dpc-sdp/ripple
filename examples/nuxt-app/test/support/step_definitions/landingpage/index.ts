@@ -39,7 +39,17 @@ Given(
   }
 )
 
+Given(
+  `posting to endpoint {string} with query {string} returns fixture {string} with status {int}`,
+  (route: string, query: string, fixture: string, status: number) => {
+    cy.fixture(fixture).then((response) => {
+      cy.task('setMockPostRouteWithQuery', { route, status, response, query })
+    })
+  }
+)
+
 When('I visit the page {string}', (route: string) => {
   cy.visit(route, { failOnStatusCode: false })
   cy.get('body').should('have.attr', 'data-nuxt-hydrated', 'true')
+  cy.wait(200)
 })

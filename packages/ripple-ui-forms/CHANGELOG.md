@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.39](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.38...v2.1.0-alpha.39) (2022-12-14)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-forms:** tidied up form alert styling ([b716d95](https://github.com/dpc-sdp/ripple-framework/commit/b716d95323e1a107f22e1c13bd1384c656dada56))
+
+
+
+
+
 # [2.1.0-alpha.38](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.37...v2.1.0-alpha.38) (2022-12-14)
 
 

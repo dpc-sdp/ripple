@@ -63,3 +63,21 @@ export interface TidePublicationPage extends TidePageBase {
   // children: Array<any>
   breadcrumbs: Array<any>
 }
+
+export type TidePublicationPaginationLink = {
+  url: string
+  label: string
+  description: string
+}
+
+export type TidePublicationPagination = {
+  prev: TidePublicationPaginationLink
+  next: TidePublicationPaginationLink
+}
+
+export interface TidePublicationPagePage extends TidePublicationPage {
+  /**
+   * @description Parent publication
+   */
+  publication: any
+}

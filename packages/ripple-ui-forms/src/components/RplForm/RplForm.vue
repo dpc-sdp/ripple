@@ -13,7 +13,7 @@ import { reset } from '@formkit/vue'
 
 interface Props {
   id: string
-  resetOnSubmit: boolean
+  resetOnSubmit?: boolean
   schema?: FormKitSchemaCondition | FormKitSchemaNode[] | undefined
   config?: Record<string, any>
   submissionState: {

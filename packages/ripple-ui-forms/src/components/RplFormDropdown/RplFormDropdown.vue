@@ -14,10 +14,10 @@ import MultiValueLabel from './MultiValueLabel.vue'
 export interface RplFormDropdownProps {
   id: string
   labelId: string
-  value: string | string[]
+  value?: string | string[]
   disabled?: boolean
   variant?: 'default' | 'reverse'
-  multiple: boolean
+  multiple?: boolean
   placeholder?: string
   required?: boolean
   invalid?: boolean
@@ -27,10 +27,11 @@ export interface RplFormDropdownProps {
     label: string
     value: string
   }[]
-  maxItemsDisplayed: number
+  maxItemsDisplayed?: number
 }
 
 const props = withDefaults(defineProps<RplFormDropdownProps>(), {
+  value: undefined,
   disabled: false,
   variant: 'default',
   placeholder: 'Select',
@@ -38,7 +39,8 @@ const props = withDefaults(defineProps<RplFormDropdownProps>(), {
   options: () => [],
   maxItemsDisplayed: 6,
   required: false,
-  invalid: false
+  invalid: false,
+  multiple: false
 })
 
 const emit = defineEmits<{ (e: 'onChange', value: string[]): void }>()

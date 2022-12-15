@@ -152,17 +152,42 @@ export const SlotTemplate = (args) => ({
           ]
         },
         {
+          $formkit: 'RplFormRadioGroup',
+          id: 'radio-group',
+          name: 'radio-group',
+          label: 'Favourite colour?',
+          help: 'There may be multiple answers',
+          validationLabel: 'enquiry',
+          validation: 'required',
+          validationMessages: {
+            required: 'Please choose a colour'
+          },
+          options: [
+            {
+              id: "radio-1",
+              label: "Red",
+            },
+            {
+              id: "radio-2",
+              label: "Green",
+            },
+            {
+              id: "radio-3",
+              label: "Blue",
+            }
+          ]
+        },
+        {
           $formkit: 'RplFormDropdown',
           multiple: false,
           id: 'dropdown-single',
           name: 'dropdown-single',
           label: 'What is the answer?',
-          help: 'There may be multiple answers',
+          help: 'Just one answer',
           validationLabel: 'enquiry',
-          validation: 'required|length:2,3',
+          validation: 'required',
           validationMessages: {
             required: 'Please provide an answer',
-            length: 'You must choose at least two answers',
           },
           options: [
             {

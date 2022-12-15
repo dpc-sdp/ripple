@@ -8,7 +8,8 @@ import {
   checkboxGroup,
   dropdown,
   number,
-  url
+  url,
+  radioGroup
 } from './inputs/index'
 
 const rplFormInputs = (node) => {
@@ -66,6 +67,8 @@ rplFormInputs.library = (node) => {
       return node.define(checkbox)
     case 'RplFormCheckboxGroup':
       return node.define(checkboxGroup)
+    case 'RplFormRadioGroup':
+      return node.define(radioGroup)
     case 'RplFormDropdown':
       return node.define(dropdown)
     case 'RplFormActions':

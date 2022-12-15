@@ -3,6 +3,7 @@ import RplFormInput from './../components/RplFormInput/RplFormInput.vue'
 import RplFormTextarea from './../components/RplFormTextarea/RplFormTextarea.vue'
 import RplFormOption from '../components/RplFormOptions/RplFormOption.vue'
 import RplFormCheckboxGroup from './../components/RplFormOptions/RplFormCheckboxGroup.vue'
+import RplFormRadioGroup from './../components/RplFormOptions/RplFormRadioGroup.vue'
 import RplFormDropdown from './../components/RplFormDropdown/RplFormDropdown.vue'
 import RplFormValidationError from './../components/RplFormValidationError/RplFormValidationError.vue'
 import RplFormHelpText from './../components/RplFormHelpText/RplFormHelpText.vue'
@@ -35,6 +36,7 @@ export const inputLibrary = {
   RplFormTextarea: markRaw(RplFormTextarea),
   RplFormOption: markRaw(RplFormOption),
   RplFormCheckboxGroup: markRaw(RplFormCheckboxGroup),
+  RplFormRadioGroup: markRaw(RplFormRadioGroup),
   RplFormDropdown: markRaw(RplFormDropdown),
   RplFormValidationError: markRaw(RplFormValidationError),
   RplFormHelpText: markRaw(RplFormHelpText),

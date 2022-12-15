@@ -66,7 +66,11 @@
   }
 }
 
-.rpl-form-option__input:focus-visible + .rpl-form-option__label {
+.rpl-form-option__input:focus + .rpl-form-option__label {
+  .rpl-form-option__check {
+    border-radius: 0;
+  }
+
   .rpl-form-option__mark {
     box-shadow: 0 0 0 var(--rpl-border-1) var(--rpl-clr-dark) inset,
       0 0 0 var(--rpl-border-3) var(--rpl-clr-focus);

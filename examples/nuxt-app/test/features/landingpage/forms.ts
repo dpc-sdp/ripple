@@ -108,6 +108,19 @@ When(
   }
 )
 
+When(
+  'I type {string} into the textarea with the label {string}',
+  (value: string, label: string) => {
+    cy.get('label.rpl-form__label')
+      .contains(label)
+      .closest('.rpl-form__outer')
+      .as('field')
+
+    cy.get('@field').should('exist')
+    cy.get('@field').find('textarea').type(value)
+  }
+)
+
 Then(
   'a select field with the label {string} should exist',
   (label: string, dataTable: DataTable) => {
@@ -129,6 +142,29 @@ Then(
 
     cy.get('@field').should('exist')
     cy.get('@field').find('[role="combobox"]').should('exist')
+  }
+)
+
+Then(
+  'a textarea field with the label {string} should exist',
+  (label: string, dataTable: DataTable) => {
+    const data = dataTable?.hashes()[0] || {}
+    cy.get('label.rpl-form__label')
+      .contains(label)
+      .closest('.rpl-form__outer')
+      .as('field')
+
+    if (data.help) {
+      cy.get('@field').should('contain', data.help)
+    }
+
+    if (data.required === 'true') {
+      cy.get('@field')
+        .find('.rpl-form__required')
+        .should('contain', '(Required)')
+    }
+
+    cy.get('@field').find('textarea').should('exist')
   }
 )
 

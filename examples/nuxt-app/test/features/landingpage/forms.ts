@@ -237,3 +237,17 @@ Then(
     cy.get(`@summary`).should('have.focus')
   }
 )
+
+Then(
+  '{int} characters in the field {string} on {string} should display a counter of {string}',
+  (length: number, field: string, id: string, counter: string) => {
+    cy.get(`form#${id}`).as('component')
+
+    cy.get('@component').within(() => {
+      if (length) {
+        cy.get(`#${field}`).clear().type('x'.repeat(length))
+      }
+      cy.get('[data-cy="counter"]').should('have.text', counter)
+    })
+  }
+)

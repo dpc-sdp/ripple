@@ -1,5 +1,6 @@
 import {
   text,
+  textarea,
   email,
   tel,
   actions,
@@ -51,6 +52,8 @@ rplFormInputs.library = (node) => {
   switch (node.props.type) {
     case 'RplFormText':
       return node.define(text)
+    case 'RplFormTextarea':
+      return node.define(textarea)
     case 'RplFormEmail':
       return node.define(email)
     case 'RplFormTel':

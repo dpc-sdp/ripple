@@ -1,5 +1,6 @@
 import { markRaw } from 'vue'
 import RplFormInput from './../components/RplFormInput/RplFormInput.vue'
+import RplFormTextarea from './../components/RplFormTextarea/RplFormTextarea.vue'
 import RplFormCheckbox from './../components/RplFormCheckbox/RplFormCheckbox.vue'
 import RplFormCheckboxGroup from './../components/RplFormCheckbox/RplFormCheckboxGroup.vue'
 import RplFormDropdown from './../components/RplFormDropdown/RplFormDropdown.vue'
@@ -31,6 +32,7 @@ import {
 
 export const inputLibrary = {
   RplFormInput: markRaw(RplFormInput),
+  RplFormTextarea: markRaw(RplFormTextarea),
   RplFormCheckbox: markRaw(RplFormCheckbox),
   RplFormCheckboxGroup: markRaw(RplFormCheckboxGroup),
   RplFormDropdown: markRaw(RplFormDropdown),
@@ -111,3 +113,16 @@ export const defaultRplFormInputProps = {
   invalid: '$fns.isFieldInvalid()',
   required: '$fns.isFieldRequired()'
 }
+
+export const minMaxRplFormProps = {
+  minlength: '$node.props.minlength',
+  maxlength: '$node.props.maxlength'
+}
+export const minMaxProps = Object.keys(minMaxRplFormProps)
+
+export const counterRplFormProps = {
+  counter: '$node.props.counter',
+  counterMin: '$node.props.counterMin',
+  counterMax: '$node.props.counterMax'
+}
+export const counterProps = Object.keys(counterRplFormProps)

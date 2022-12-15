@@ -75,6 +75,7 @@ const isWordCounter = computed(() => props.counter === 'word')
       v-if="counter"
       :value="value"
       :type="counter"
+      :invalid="invalid"
       :counter-min="counterMin"
       :counter-max="counterMax"
       :count-words="isWordCounter"

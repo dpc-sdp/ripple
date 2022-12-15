@@ -4,6 +4,7 @@ import { computed } from 'vue'
 interface Props {
   value: string
   type: string
+  invalid: boolean
   counterMin?: number
   counterMax?: number
   countWords?: boolean
@@ -27,7 +28,9 @@ const counterMessage = computed(() => {
   }
   if (props.counterMin && length < props.counterMin) {
     const count = props.counterMin - length
-    return `You have ${count} ${props.type}${pluralize(count)} remaining`
+    return props.invalid
+      ? `You have ${count} ${props.type}${pluralize(count)} too little`
+      : `You have ${count} ${props.type}${pluralize(count)} remaining`
   }
   if (props.counterMax && length > props.counterMax) {
     const count = length - props.counterMax

@@ -175,6 +175,27 @@ const getFormSchemaFromMapping = async (
           ...getValidation(field)
         }
         break
+      case 'radios':
+        mappedField = {
+          $formkit: 'RplFormRadioGroup',
+          id: fieldKey,
+          name: fieldKey,
+          disabled: field['#disabled'],
+          label: field['#title'],
+          help: field['#description'],
+          options: Object.entries(field['#options'] || {}).map(
+            ([value, label]) => {
+              return {
+                id: value,
+                value,
+                label
+              }
+            }
+          ),
+          value: field['#default_value'],
+          ...getValidation(field)
+        }
+        break
       case 'webform_term_select': {
         const options = await tidePageApi.getTaxonomy(field['#vocabulary'])
 

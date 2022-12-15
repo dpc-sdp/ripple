@@ -2,7 +2,7 @@
   "private": true,
   "license": "Apache-2.0",
   "name": "nuxt-app",
-  "version": "2.1.0-alpha.38",
+  "version": "2.1.0-alpha.41",
   "scripts": {
     "dev": "nuxi dev",
     "dev:debug": "node --inspect node_modules/.bin/nuxi dev",
@@ -24,8 +24,8 @@
     "@dpc-sdp/ripple-tide-news": "2.1.0-alpha.37",
     "@dpc-sdp/ripple-tide-publication": "2.1.0-alpha.38",
     "@dpc-sdp/ripple-tide-publication-page": "2.1.0-alpha.38",
-    "@dpc-sdp/ripple-ui-core": "2.1.0-alpha.36",
-    "@dpc-sdp/ripple-ui-forms": "2.1.0-alpha.38",
+    "@dpc-sdp/ripple-ui-core": "2.1.0-alpha.40",
+    "@dpc-sdp/ripple-ui-forms": "2.1.0-alpha.41",
     "dotenv": "^16.0.3"
   },
   "devDependencies": {

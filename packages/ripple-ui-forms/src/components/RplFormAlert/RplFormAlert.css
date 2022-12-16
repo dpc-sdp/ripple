@@ -1,3 +1,5 @@
+@import '@dpc-sdp/ripple-ui-core/style/breakpoints';
+
 .rpl-form-alert {
   border-left: var(--rpl-border-3) solid var(--rpl-clr-success);
   padding: var(--rpl-sp-5);

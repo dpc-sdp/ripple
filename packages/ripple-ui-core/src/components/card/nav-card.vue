@@ -48,7 +48,7 @@ const { container, trigger } = useAccessibleContainer()
 </script>
 
 <template>
-  <RplCard ref="container" type="nav" :el="el" :class="cardClasses">
+  <RplCard ref="container" type="nav" :el="el" :link="url" :class="cardClasses">
     <template v-if="image" #upper>
       <RplImage :class="imgClasses" :src="image" alt="" data-cy="image" />
     </template>

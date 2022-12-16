@@ -22,6 +22,11 @@ Feature: Forms
       | required |
       | true     |
     Then a select field with the label "Term select" should exist
+    Then a radio group field with the label "Type of person" should exist with the following options
+      | label       |
+      | Dog person  |
+      | Cat person  |
+      | Bird person |
     Then a checkbox field with the label "Terms and conditions" should exist
       | checkboxLabel      | help                    | required |
       | I accept the terms | Please accept the terms | true     |

@@ -211,6 +211,11 @@ const getFormSchemaFromMapping = async (
           html: getBody(field['#text'])
         }
         break
+      case 'webform_horizontal_rule':
+        mappedField = {
+          $formkit: 'RplFormDivider'
+        }
+        break
       case 'webform_actions':
         mappedField = {
           $formkit: 'RplFormActions',

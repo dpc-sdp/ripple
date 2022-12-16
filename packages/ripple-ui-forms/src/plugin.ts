@@ -9,7 +9,8 @@ import {
   dropdown,
   number,
   url,
-  content
+  content,
+  divider
 } from './inputs/index'
 
 const rplFormInputs = (node) => {
@@ -71,6 +72,8 @@ rplFormInputs.library = (node) => {
       return node.define(dropdown)
     case 'RplFormContent':
       return node.define(content)
+    case 'RplFormDivider':
+      return node.define(divider)
     case 'RplFormActions':
       return node.define(actions)
   }

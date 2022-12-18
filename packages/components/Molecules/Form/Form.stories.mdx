@@ -68,7 +68,8 @@ export const TemplateForm = (args, { argTypes }) => ({
       :formData="formData"
       :submitHandler="submitHandler"
       :title="title"
-      :fullWidth="fullWidth">
+      :fullWidth="fullWidth"
+      :spamProtect="spamProtect">
     </rpl-form>
   `
 });
@@ -374,6 +375,7 @@ export const formData = {
       title: 'Demo form',
       fullWidth: false,
       isNewModel: true,
+      spamProtect: true,
       options: {
         validateAfterChanged: true,
         validateAfterLoad: false
@@ -421,6 +423,7 @@ export const formData = {
         },
         formState: {}
       },
+      spamProtect: false,
       title: 'Demo submission alerts',
       fullWidth: false
     }}
@@ -486,6 +489,7 @@ export const optBtnFormData = {
       title: 'Option button, submit on click',
       fullWidth: false,
       isNewModel: true,
+      spamProtect: false,
       options: {
         validateAfterChanged: false,
         validateAfterLoad: false

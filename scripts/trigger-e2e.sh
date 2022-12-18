@@ -8,7 +8,7 @@
 # The reason is CMDB sometimes set develop LAGOON_ROUTE as a project-level variable.
 PR_BRANCH_REGEX="pr-"
 if [[ $(expr match "$LAGOON_GIT_SAFE_BRANCH" $PR_BRANCH_REGEX) != 0 ]]; then
-  FE_URL=https://app.${LAGOON_GIT_SAFE_BRANCH}.ripple.sdp2.sdp.vic.gov.au
+  FE_URL=https://app.${LAGOON_GIT_SAFE_BRANCH}.ripple.sdp4.sdp.vic.gov.au
   BRANCH=$LAGOON_PR_HEAD_BRANCH
 # else
   # TODO: No need to handle as we only trigger on release branch for now.

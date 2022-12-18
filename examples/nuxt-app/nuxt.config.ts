@@ -5,5 +5,5 @@ export default defineNuxtConfig({
       API_URL: ''
     }
   },
-  modules: ['@dpc-sdp/ripple-tide-api/nuxt']
+  modules: ['@dpc-sdp/ripple-tide-api/nuxt', '@dpc-sdp/ripple-tide-search/nuxt']
 })

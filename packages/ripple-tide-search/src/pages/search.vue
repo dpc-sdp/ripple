@@ -11,10 +11,18 @@
     <template #aboveBody>
       <RplHeroHeader title="Search" :behind-nav="true" :breadcrumbs="true" :full-width="true" :corner-top="cnrImg">
         <div class="rpl-search__header">
-          <RplSearchBar variant="default" input-label="Search" :input-value="searchTerm" @on-submit="handleSubmit" />
+          <RplSearchBar variant="default" input-label="Search" :inputValue="queryTerm" @on-submit="handleSubmit"
+            @update:input-value="handleTermUpdate" />
           <RplButton class="rpl-search__refine-btn" variant="white" icon-name="icon-chevron-down" icon-position="right">
             Refine search</RplButton>
         </div>
+        <ul v-if="autocompleteResultsListing.length > 0" class="rpl-search__autocomplete-results">
+          <li v-for="res in autocompleteResultsListing" :key="res">
+            <button class="rpl-text-link rpl-u-focusable-inline" @click="updateQueryTerm(res.title.raw[0])">{{
+                res.title.raw[0]
+            }}</button>
+          </li>
+        </ul>
       </RplHeroHeader>
     </template>
     <template #body>
@@ -36,7 +44,7 @@
   </RplLayout>
 </template>
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref, onMounted } from 'vue'
 import { RplSearchBar, RplHeroHeader } from '@dpc-sdp/ripple-ui-core'
 import RplSearchResult from './../components/RplSearchResult/RplSearchResult.vue'
 import {
@@ -69,11 +77,30 @@ const apiConnectorOptions = {
   searchKey: 'search-r53dt9vrcmow7jehdb7671uy',
   endpointBase:
     'https://search-improvements-poc.ent.australiaeast.azure.elastic-cloud.com',
-  engineName: 'content-vic-production-app-search'
+  engineName: 'content-vic-production-app-search',
+
 }
 
 const searchDriverOptions = {
-  initialState: { resultsPerPage: 10 }
+  initialState: { resultsPerPage: 10 },
+  search_fields: {
+    title: {
+      weight: 10,
+    },
+    body: {},
+    field_paragraph_body: {}
+  },
+  suggestions: {
+    popularQueries: {
+      search_fields: {
+        "event.query_string": {} // fields used to query
+      },
+      index: "ds-logs-app_search.analytics-default-2022.12.09-000002",
+      queryType: "results"
+    }
+  }
+
+
 }
 
 const searchResultsMappingFn = (itm) => {
@@ -90,13 +117,20 @@ const searchResultsMappingFn = (itm) => {
 const {
   results,
   resultsCountText,
-  searchDriver
+  searchDriver,
+  autocompletedSuggestions,
+  autocompletedResults,
+  searchState
 } = await useTideSearch(apiConnectorOptions, searchDriverOptions, searchResultsMappingFn)
 
 searchDriver.setSearchQuery(route.params?.q || '')
 
-
+let searchResultsListing = ref([])
+let suggestionsListing = ref([])
+let autocompleteResultsListing = ref([])
 const { searchTerm } = searchDriver.getState()
+let queryTerm = ref(searchTerm || '')
+
 
 
 const paginationLinks = computed(() => {
@@ -106,11 +140,36 @@ const paginationLinks = computed(() => {
   }
 })
 
-
-function handleSubmit(value) {
-  searchDriver.getActions().setSearchTerm(value)
+function updateQueryTerm(term, searchTermOptions = {}) {
+  queryTerm.value = term
+  handleTermUpdate(term)
+  handleSubmit()
 }
 
+function handleTermUpdate(value) {
+  const searchTermOptions = {
+    autocompleteResults: true,
+    autocompleteSuggestions: true,
+    autocompleteMinimumCharacters: 3,
+  }
+  searchDriver.getActions().setSearchTerm(value, searchTermOptions)
+  suggestionsListing.value = autocompletedSuggestions.value
+  autocompleteResultsListing.value = autocompletedResults.value
+}
+
+
+function handleSubmit() {
+  console.log('handleSubmit')
+  searchResultsListing.value = results.value
+  suggestionsListing.value = []
+  autocompleteResultsListing.value = []
+}
+
+// onMounted(() => {
+//   console.log('onMounted')
+// })
+handleSubmit()
+searchResultsListing.value = results.value
 // TODO: Add pagination
 // function setCurrentPage(page) {
 //   searchDriver.setCurrent(page);
@@ -126,5 +185,11 @@ function handleSubmit(value) {
 
 .rpl-search__refine-btn {
   align-self: flex-end;
+}
+
+.rpl-search__autocomplete-results {
+  position: absolute;
+  background-color: white;
+  z-index: 999;
 }
 </style>

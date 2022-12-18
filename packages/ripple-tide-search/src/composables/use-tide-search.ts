@@ -44,9 +44,19 @@ export default async (
     } results`
   })
 
+  const autocompletedResults = computed(() => {
+    return searchState.value.autocompletedResults
+  })
+  const autocompletedSuggestions = computed(() => {
+    return searchState.value.autocompletedSuggestions
+  })
+
   return {
     results,
     resultsCountText,
-    searchDriver
+    autocompletedResults,
+    autocompletedSuggestions,
+    searchDriver,
+    searchState
   }
 }

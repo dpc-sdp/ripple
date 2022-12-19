@@ -16,10 +16,10 @@
           <RplButton class="rpl-search__refine-btn" variant="white" icon-name="icon-chevron-down" icon-position="right">
             Refine search</RplButton>
         </div>
-        <ul v-if="autocompleteResultsListing.length > 0" class="rpl-search__autocomplete-results">
-          <li v-for="res in autocompleteResultsListing" :key="res">
-            <button class="rpl-text-link rpl-u-focusable-inline" @click="updateQueryTerm(res.title.raw[0])">{{
-                res.title.raw[0]
+        <ul v-if="showSuggestions" class="rpl-search__autocomplete-results">
+          <li v-for="res in displayedSuggestions" :key="res">
+            <button class="rpl-text-link rpl-u-focusable-inline" @click="updateQueryTerm(res)">{{
+                res
             }}</button>
           </li>
         </ul>
@@ -28,7 +28,7 @@
     <template #body>
       <p class="rpl-type-label">{{ resultsCountText }}</p>
       <ul>
-        <li v-for="(result, idx) in results" :key="`result-${idx}-${result.title}`">
+        <li v-for="(result, idx) in displayedResults" :key="`result-${idx}-${result.title}`">
           <RplSearchResult v-bind="result">
 
           </RplSearchResult>
@@ -89,18 +89,7 @@ const searchDriverOptions = {
     },
     body: {},
     field_paragraph_body: {}
-  },
-  suggestions: {
-    popularQueries: {
-      search_fields: {
-        "event.query_string": {} // fields used to query
-      },
-      index: "ds-logs-app_search.analytics-default-2022.12.09-000002",
-      queryType: "results"
-    }
   }
-
-
 }
 
 const searchResultsMappingFn = (itm) => {
@@ -115,22 +104,17 @@ const searchResultsMappingFn = (itm) => {
 }
 
 const {
-  results,
+  displayedResults,
+  displayedSuggestions,
+  updateQueryTerm,
+  handleTermUpdate,
+  handleSubmit,
+  queryTerm,
   resultsCountText,
   searchDriver,
-  autocompletedSuggestions,
-  autocompletedResults,
-  searchState
 } = await useTideSearch(apiConnectorOptions, searchDriverOptions, searchResultsMappingFn)
 
 searchDriver.setSearchQuery(route.params?.q || '')
-
-let searchResultsListing = ref([])
-let suggestionsListing = ref([])
-let autocompleteResultsListing = ref([])
-const { searchTerm } = searchDriver.getState()
-let queryTerm = ref(searchTerm || '')
-
 
 
 const paginationLinks = computed(() => {
@@ -140,36 +124,20 @@ const paginationLinks = computed(() => {
   }
 })
 
-function updateQueryTerm(term, searchTermOptions = {}) {
-  queryTerm.value = term
-  handleTermUpdate(term)
-  handleSubmit()
-}
-
-function handleTermUpdate(value) {
-  const searchTermOptions = {
-    autocompleteResults: true,
-    autocompleteSuggestions: true,
-    autocompleteMinimumCharacters: 3,
-  }
-  searchDriver.getActions().setSearchTerm(value, searchTermOptions)
-  suggestionsListing.value = autocompletedSuggestions.value
-  autocompleteResultsListing.value = autocompletedResults.value
-}
-
-
-function handleSubmit() {
-  console.log('handleSubmit')
-  searchResultsListing.value = results.value
-  suggestionsListing.value = []
-  autocompleteResultsListing.value = []
-}
-
-// onMounted(() => {
-//   console.log('onMounted')
-// })
 handleSubmit()
-searchResultsListing.value = results.value
+
+onMounted(() => {
+  console.log(displayedResults.value)
+  handleSubmit()
+})
+
+
+const showSuggestions = computed(() => {
+  if (displayedSuggestions.value.length > 0 && queryTerm.value.length > 0) {
+    return true
+  }
+  return false
+})
 // TODO: Add pagination
 // function setCurrentPage(page) {
 //   searchDriver.setCurrent(page);

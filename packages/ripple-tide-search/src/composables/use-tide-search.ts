@@ -21,41 +21,84 @@ export default async (
 ) => {
   const searchDriver = getSearchDriver(apiConnectorOptions, config)
   const searchState = ref()
+  const loaded = ref(false)
 
   searchDriver.subscribeToStateChanges((state: SearchState) => {
     searchState.value = state
+    if (!loaded.value && searchState.value.results.length > 0) {
+      displayedResults.value = results.value
+      loaded.value = true
+    }
   })
+
+  const { searchTerm } = searchDriver.getState()
+
+  const displayedResults = ref([])
+  const displayedSuggestions = ref([])
+  const displayedAutocompleteResults = ref([])
+  const queryTerm = ref(searchTerm || '')
+  const resultsCountText = ref('')
 
   const results = computed(() => {
     return searchState.value?.results?.map(resultsMapFn)
   })
-  const resultsCountText = computed(() => {
-    const start =
-      searchState.value?.totalResults === 0
-        ? 0
-        : (searchState.value?.current - 1) * searchState.value?.resultsPerPage +
-          1
-    const end =
-      searchState.value?.totalResults <= searchState.value?.resultsPerPage
-        ? searchState.value?.totalResults
-        : start + searchState.value?.resultsPerPage - 1
-    return `${start} - ${Math.min(end, searchState.value?.totalResults)} of ${
-      searchState.value?.totalResults
-    } results`
-  })
+
+  const updateResultsCountText = () => {
+    const total = searchState.value?.totalResults
+    const perPage = searchState.value?.resultsPerPage
+    const current = searchState.value?.current
+    const start = total === 0 ? 0 : (current - 1) * perPage + 1
+    const end = total <= perPage ? total : start + perPage - 1
+    return `${start} - ${Math.min(end, total)} of ${total} results`
+  }
 
   const autocompletedResults = computed(() => {
     return searchState.value.autocompletedResults
   })
   const autocompletedSuggestions = computed(() => {
-    return searchState.value.autocompletedSuggestions
+    const suggestions = searchState.value.autocompletedSuggestions?.documents
+    if (suggestions && suggestions.length > 0) {
+      return suggestions.map((res) => res.suggestion)
+    }
+    return []
   })
+
+  function updateQueryTerm(term) {
+    handleTermUpdate(term)
+    handleSubmit()
+  }
+
+  function handleTermUpdate(value) {
+    const searchTermOptions = {
+      autocompleteResults: true,
+      autocompleteSuggestions: true,
+      autocompleteMinimumCharacters: 3
+    }
+    searchDriver.getActions().setSearchTerm(value, searchTermOptions)
+    displayedSuggestions.value = autocompletedSuggestions.value
+    displayedAutocompleteResults.value = autocompletedResults.value
+    queryTerm.value = value
+  }
+
+  function handleSubmit() {
+    displayedResults.value = results.value
+    displayedSuggestions.value = []
+    displayedAutocompleteResults.value = []
+    resultsCountText.value = updateResultsCountText()
+  }
 
   return {
     results,
     resultsCountText,
+    displayedResults,
+    displayedSuggestions,
+    displayedAutocompleteResults,
     autocompletedResults,
     autocompletedSuggestions,
+    updateQueryTerm,
+    handleTermUpdate,
+    handleSubmit,
+    queryTerm,
     searchDriver,
     searchState
   }

@@ -3,6 +3,76 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.47](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.46...v2.1.0-alpha.47) (2022-12-19)
+
+
+### Features
+
+* **@dpc-sdp/ripple-ui-forms:** added basic and advanced HTML content to forms ([a2c6ab6](https://github.com/dpc-sdp/ripple-framework/commit/a2c6ab6910bb1c70b4be11a15f3fb3eb0178b9f2))
+* **@dpc-sdp/ripple-ui-forms:** added horizontal rule webform component ([f3f4535](https://github.com/dpc-sdp/ripple-framework/commit/f3f45357becca4c5f18109050c0e8896bc2a0675))
+
+
+
+
+
+# [2.1.0-alpha.46](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.45...v2.1.0-alpha.46) (2022-12-19)
+
+**Note:** Version bump only for package root
+
+
+
+
+
+# [2.1.0-alpha.45](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.44...v2.1.0-alpha.45) (2022-12-19)
+
+
+### Features
+
+* **@dpc-sdp/ripple-ui-core:** adding result listing, stop ally links triggering twice ([3653991](https://github.com/dpc-sdp/ripple-framework/commit/3653991f9f71d61f8fcbf0c62f9cfcc26143230c))
+
+
+
+
+
+# [2.1.0-alpha.44](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.43...v2.1.0-alpha.44) (2022-12-18)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-forms:** added missing breakpoint import ([6ff9c1d](https://github.com/dpc-sdp/ripple-framework/commit/6ff9c1d6e193399aefe22520481a87840d90b317))
+
+
+
+
+
+# [2.1.0-alpha.43](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.42...v2.1.0-alpha.43) (2022-12-15)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** :bug: change font class for mega nav back button ([20ede8f](https://github.com/dpc-sdp/ripple-framework/commit/20ede8f61120be07a66d1091f5f2966c140ecc79))
+* **@dpc-sdp/ripple-ui-core:** :bug: fix incorrect prop name in mega nav action ([35e498a](https://github.com/dpc-sdp/ripple-framework/commit/35e498a86fd46b23c418a47baa0cddfaf80c6518))
+* **@dpc-sdp/ripple-ui-core:** :bug: fix multiple nav items being selected ([3ed148e](https://github.com/dpc-sdp/ripple-framework/commit/3ed148ea06208c295ba3bd7aa8543979c2954f6b))
+* **@dpc-sdp/ripple-ui-core:** :bug: update mega nav action to use border token ([d7a6bb6](https://github.com/dpc-sdp/ripple-framework/commit/d7a6bb61cea130e83a6f6366482211be3187f4c9))
+* **@dpc-sdp/ripple-ui-core:** :lipstick: add focus and hover states to mega menu back button ([d162d72](https://github.com/dpc-sdp/ripple-framework/commit/d162d72af72a045906b982cfdb10d04844e25eb3))
+* **@dpc-sdp/ripple-ui-core:** :lipstick: add left margin to mega menu action icon ([25e1848](https://github.com/dpc-sdp/ripple-framework/commit/25e18484f45015005b3ab37a3f874b263d3fcec4))
+* **@dpc-sdp/ripple-ui-core:** :lipstick: add max width to mega menu grid at xl ([b8775c8](https://github.com/dpc-sdp/ripple-framework/commit/b8775c86351a246e26951cc366cb3a182664814d))
+* **@dpc-sdp/ripple-ui-core:** :lipstick: add missing colours to storybook themes ([9932286](https://github.com/dpc-sdp/ripple-framework/commit/9932286d508080d43ae04e5a3048e1389f1ca3fa))
+* **@dpc-sdp/ripple-ui-core:** :lipstick: add white line at bottom of active mega menu items ([a680d40](https://github.com/dpc-sdp/ripple-framework/commit/a680d40e564dee3d1e48ea6716855f8e0ee854a1))
+* **@dpc-sdp/ripple-ui-core:** :lipstick: adjust padding around mega menu quick exit ([82898d2](https://github.com/dpc-sdp/ripple-framework/commit/82898d26b728642a8eb5e5f26d6cee3e65821fc2))
+* **@dpc-sdp/ripple-ui-core:** :lipstick: fix mega menu collapsing behaviour ([741d03a](https://github.com/dpc-sdp/ripple-framework/commit/741d03a2345ee7f5efe56960d02c4405725435b4))
+* **@dpc-sdp/ripple-ui-core:** :lipstick: fix spacing between section title and links ([d35fd32](https://github.com/dpc-sdp/ripple-framework/commit/d35fd32f5b7862a04e7c8e904222a9bd2e967f97))
+* **@dpc-sdp/ripple-ui-core:** :lipstick: hide top and bottom border on hovered nav items ([992052e](https://github.com/dpc-sdp/ripple-framework/commit/992052e63e524b1f83d9da1ef84c4fdf256b4aeb))
+* **@dpc-sdp/ripple-ui-core:** :lipstick: mega menu action spacing tweaks ([2417f90](https://github.com/dpc-sdp/ripple-framework/commit/2417f90550aa4daca558518164114f32caf02066))
+* **@dpc-sdp/ripple-ui-core:** :lipstick: mega menu back button styling tweaks ([07e88c7](https://github.com/dpc-sdp/ripple-framework/commit/07e88c75e631c4f83cb4d98ac04cf1a92932a1cf))
+* **@dpc-sdp/ripple-ui-core:** :lipstick: spacing tweaks to mega menu wrapper ([1bf1f09](https://github.com/dpc-sdp/ripple-framework/commit/1bf1f09ca06a8eef3fb56678fc23235f252cbd59))
+* **@dpc-sdp/ripple-ui-core:** :lipstick: token replacement for hardcoded 'white' colour ([90b5efa](https://github.com/dpc-sdp/ripple-framework/commit/90b5efaf9a3c760ccaba96584dfda14b36f129f8))
+* **@dpc-sdp/ripple-ui-core:** :lipstick: vertically center mega menu back button content ([28074c3](https://github.com/dpc-sdp/ripple-framework/commit/28074c3797aa3a385f19baec00b53ad790b72db6))
+
+
+
+
+
 # [2.1.0-alpha.42](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.41...v2.1.0-alpha.42) (2022-12-15)
 
 

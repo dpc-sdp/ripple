@@ -6,6 +6,10 @@ body {
   max-width: 1120px;
 }
 
+.rpl-storybook__page-content {
+  max-width: var(--rpl-content-max-width);
+}
+
 .rpl-storybook__icon-list {
   display: flex;
   flex-wrap: wrap;

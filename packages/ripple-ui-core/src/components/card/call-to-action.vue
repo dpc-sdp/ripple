@@ -43,6 +43,7 @@ const { container, trigger } = useAccessibleContainer()
     ref="container"
     type="call-to-action"
     class="rpl-card--inset"
+    :link="url"
     :el="el"
   >
     <template v-if="image" #upper>

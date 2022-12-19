@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.48](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.47...v2.1.0-alpha.48) (2022-12-19)
+
+
+### Features
+
+* **@dpc-sdp/ripple-ui-forms:** added min/max validation to number input ([a149a0b](https://github.com/dpc-sdp/ripple-framework/commit/a149a0b5002cd3d81297c34e07ed6f52c2066ac5))
+
+
+
+
+
 # [2.1.0-alpha.47](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.46...v2.1.0-alpha.47) (2022-12-19)
 
 

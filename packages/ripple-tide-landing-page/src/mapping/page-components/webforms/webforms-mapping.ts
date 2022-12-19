@@ -75,6 +75,9 @@ const getFormSchemaFromMapping = async (
           id: fieldKey,
           help: field['#description'] || field['#help_title'],
           value: field['#default_value'],
+          min: field['#min'],
+          max: field['#max'],
+          step: field['#step'],
           ...getValidation(field),
           ...getInputIcons(field)
         }

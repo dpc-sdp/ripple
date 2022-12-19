@@ -1,4 +1,4 @@
-import { TideDynamicPageComponent } from '@dpc-sdp/ripple-tide-api'
+import { TideDynamicPageComponent, getBody } from '@dpc-sdp/ripple-tide-api'
 import { FormKitSchemaNode } from '@formkit/core'
 import {
   getCounterFields,
@@ -202,6 +202,23 @@ const getFormSchemaFromMapping = async (
         }
         break
       }
+      case 'webform_markup':
+        mappedField = {
+          $formkit: 'RplFormContent',
+          html: getBody(field['#markup'])
+        }
+        break
+      case 'processed_text':
+        mappedField = {
+          $formkit: 'RplFormContent',
+          html: getBody(field['#text'])
+        }
+        break
+      case 'webform_horizontal_rule':
+        mappedField = {
+          $formkit: 'RplFormDivider'
+        }
+        break
       case 'webform_actions':
         mappedField = {
           $formkit: 'RplFormActions',

@@ -122,7 +122,7 @@
     text-align: center;
   }
 
-  &--active {
+  &--link {
     cursor: pointer;
   }
 

@@ -3,41 +3,29 @@ export default { name: 'RplCard' }
 </script>
 
 <script setup lang="ts">
-import { computed, reactive } from 'vue'
+import { computed } from 'vue'
 import { RplCardElements, RplCardTypes } from './constants'
 
 interface Props {
   el?: typeof RplCardElements[number]
   type?: typeof RplCardTypes[number]
   highlight?: boolean
+  link?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
   el: 'div',
   type: 'promo',
-  highlight: false
+  highlight: false,
+  link: undefined
 })
-
-const state = reactive({
-  active: false
-})
-
-const setActive = () => {
-  state.active = true
-}
-
-const setInactive = () => {
-  state.active = false
-}
 
 const containerClasses = computed(() => [
   'rpl-card',
   'rpl-type-p',
   `rpl-card--${props.type}`,
-  state.active ? 'rpl-card--active' : null
+  props.link ? 'rpl-card--link' : null
 ])
-
-defineExpose({ setActive, setInactive })
 </script>
 
 <template>

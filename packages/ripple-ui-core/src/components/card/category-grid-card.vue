@@ -31,7 +31,7 @@ const { container, trigger } = useAccessibleContainer()
 <template>
   <RplCard
     ref="container"
-    :href="url"
+    :link="url"
     :el="el"
     :highlight="false"
     type="category-grid"

@@ -65,15 +65,15 @@ export const formatDateRange = (date: TidePropRange, showTime = false) => {
 export const expandDetail = (item: string) => {
   switch (item) {
     case 'Accessible venue':
-      return 'This event is wheelchair accessible.'
+      return 'This venue is wheelchair accessible.'
     case 'Child friendly':
-      return 'This event is child friendly.'
+      return 'This event is child-friendly.'
     case 'Free admission':
-      return 'This event has free admission.'
+      return 'Admission is free.'
     case 'Online webinar':
       return 'This is an online event.'
     case 'Seniors':
-      return 'This is an event for seniors.'
+      return 'This event is for seniors.'
     default:
       return item
   }

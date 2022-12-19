@@ -7,45 +7,10 @@ export default { name: 'TideGrantOverview' }
     <h2 class="tide-grant__title rpl-type-h2-fixed rpl-u-margin-b-6">
       {{ overview.title }}
     </h2>
-    <ol class="tide-grant__overview-items">
-      <li
-        v-if="overview.funding"
-        data-cy="funding"
-        class="tide-grant__overview-item rpl-type-label"
-      >
-        <RplIcon colour="default" name="icon-dollar-circle-filled"></RplIcon
-        ><span class="rpl-type-h4-fixed">
-          {{ overview.funding }}
-        </span>
-      </li>
-      <li
-        v-if="overview.audience"
-        class="tide-grant__overview-item rpl-type-label"
-      >
-        <RplIcon colour="default" name="icon-user-circle-filled"></RplIcon
-        ><span class="rpl-type-h4-fixed"> {{ overview.audience }}</span>
-      </li>
-      <li class="tide-grant__overview-item rpl-type-label">
-        <RplIcon
-          v-if="
-            grantStatus.status === 'open' ||
-            grantStatus.status === 'opening_soon'
-          "
-          name="icon-check-circle-filled"
-          colour="success"
-          data-cy="statusIcon"
-        ></RplIcon
-        ><RplIcon
-          v-else
-          name="icon-cancel-circle-filled"
-          colour="error"
-          data-cy="statusIcon"
-        ></RplIcon
-        ><span class="rpl-type-h4-fixed" data-cy="statusText">
-          {{ grantStatus.displayLabel }}
-        </span>
-      </li>
-    </ol>
+    <RplList
+      :items="overviewList"
+      item-class="tide-grant__overview-item rpl-type-h4-fixed"
+    />
   </RplLayoutPageComponent>
 
   <RplLayoutPageComponent
@@ -59,9 +24,9 @@ export default { name: 'TideGrantOverview' }
     v-if="overview.link"
     class="tide-grant__overview-item"
   >
-    <RplButton el="a" :href="overview.link.uri">{{
-      overview.link.title
-    }}</RplButton>
+    <RplButton el="a" :href="overview.link.uri">
+      {{ overview.link.title }}
+    </RplButton>
   </RplLayoutPageComponent>
 </template>
 
@@ -83,6 +48,35 @@ const grantStatus = computed(() => {
     props.overview.date.from,
     props.overview.date.to
   )
+})
+
+const overviewList = computed(() => {
+  let list: any[] = []
+
+  if (props.overview?.funding) {
+    list.push({
+      text: props.overview.funding,
+      icon: 'icon-dollar-circle-filled'
+    })
+  }
+  if (props.overview?.funding) {
+    list.push({
+      text: props.overview.audience,
+      icon: 'icon-user-circle-filled'
+    })
+  }
+
+  const open =
+    grantStatus.value.status === 'open' ||
+    grantStatus.value.status === 'opening_soon'
+
+  list.push({
+    text: grantStatus.value.displayLabel,
+    icon: open ? 'icon-check-circle-filled' : 'icon-cancel-circle-filled',
+    iconColour: open ? 'success' : 'error'
+  })
+
+  return list
 })
 </script>
 

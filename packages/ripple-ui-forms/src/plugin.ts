@@ -9,6 +9,7 @@ import {
   dropdown,
   number,
   url,
+  radioGroup,
   content,
   divider
 } from './inputs/index'
@@ -68,6 +69,8 @@ rplFormInputs.library = (node) => {
       return node.define(checkbox)
     case 'RplFormCheckboxGroup':
       return node.define(checkboxGroup)
+    case 'RplFormRadioGroup':
+      return node.define(radioGroup)
     case 'RplFormDropdown':
       return node.define(dropdown)
     case 'RplFormContent':

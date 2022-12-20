@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import RplFormCheckbox from './RplFormCheckbox.vue'
+import RplFormOption from './RplFormOption.vue'
 import useFormkitFriendlyEventEmitter from '../../composables/useFormkitFriendlyEventEmitter'
 
-export interface RplFormCheckboxProps {
+interface Props {
   id: string
   value: string[]
   disabled?: boolean
@@ -15,7 +15,7 @@ export interface RplFormCheckboxProps {
   }[]
 }
 
-const props = withDefaults(defineProps<RplFormCheckboxProps>(), {
+const props = withDefaults(defineProps<Props>(), {
   disabled: false,
   variant: 'default',
   onChange: () => undefined,
@@ -50,9 +50,10 @@ const isChecked = (optionId: string): boolean => {
 </script>
 
 <template>
-  <div class="rpl-form-checkbox-group">
-    <RplFormCheckbox
+  <div class="rpl-form-option-group">
+    <RplFormOption
       v-for="(option, i) in options"
+      type="checkbox"
       :id="option.id"
       :key="option.id"
       :data-rpl-focus-input="i === 0 ? id : undefined"

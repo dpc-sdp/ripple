@@ -1,31 +1,20 @@
 import { FormKitTypeDefinition } from '@formkit/core'
 import { createRplFormGroup, inputLibrary, rplFeatures } from './input-utils'
 
-/**
- * Input definition for a checkbox.
- * @public
- */
-export const checkbox: FormKitTypeDefinition = {
+export const radioGroup: FormKitTypeDefinition = {
   /**
    * The actual schema of the input, or a function that returns the schema.
    */
   schema: createRplFormGroup({
-    $cmp: 'RplFormOption',
+    $cmp: 'RplFormRadioGroup',
     props: {
-      type: 'checkbox',
-      id: `$id + '__checkbox'`,
-      name: '$node.name',
+      id: `$id`,
+      name: '$node.context.name',
       disabled: '$node.context.disabled',
-      label: '$node.props.checkboxLabel',
-      onValue: '$node.props.onValue',
-      offValue: '$node.props.offValue',
-      checked: '$_value',
+      value: '$_value',
       onChange: '$node.input',
-      validationMeta: '$node.props.validationMeta',
-      'aria-invalid': '$fns.isFieldInvalid()',
-      'aria-required': '$fns.isFieldRequired()',
-      'data-rpl-focus-input': '$id',
-      required: '$fns.isFieldRequired()'
+      options: '$node.props.options',
+      validationMeta: '$node.props.validationMeta'
     }
   }),
   library: inputLibrary,
@@ -41,11 +30,7 @@ export const checkbox: FormKitTypeDefinition = {
   /**
    * An array of extra props to accept for this input.
    */
-  props: ['checkboxLabel', 'onValue', 'offValue'],
-  /**
-   * Forces node.props.type to be this explicit value.
-   */
-  forceTypeProp: 'checkbox',
+  props: ['options'],
   /**
    * Additional features that should be added to your input
    */

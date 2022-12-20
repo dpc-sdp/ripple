@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.49](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.48...v2.1.0-alpha.49) (2022-12-20)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-forms:** fixed build after merge conflict ([ef0a8cb](https://github.com/dpc-sdp/ripple-framework/commit/ef0a8cb2196aa2a2b6b13a14b3cc71f37ba8b5a0))
+
+
+### Features
+
+* **@dpc-sdp/ripple-ui-forms:** added radio button to formkit ([6bfe55b](https://github.com/dpc-sdp/ripple-framework/commit/6bfe55b135e98dca9266076f4589eb12c4e9aa59))
+* **@dpc-sdp/ripple-ui-forms:** added ui component for radio group ([c3b0b3d](https://github.com/dpc-sdp/ripple-framework/commit/c3b0b3ddd4fca4c35c37ed71ebd40748361158c6))
+* **@dpc-sdp/ripple-ui-forms:** added webform mapping for radio button ([5602ebd](https://github.com/dpc-sdp/ripple-framework/commit/5602ebd0a22cc28cd8cc013ab9384ad816ef4675))
+
+
+
+
+
 # [2.1.0-alpha.48](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.47...v2.1.0-alpha.48) (2022-12-19)
 
 

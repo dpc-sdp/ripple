@@ -53,8 +53,9 @@ export default {
         }
       })
     },
-    theme: (src) => getSiteKeyValues('field_site_theme_values', src),
-    featureFlags: (src) => getSiteKeyValues('field_site_feature_flags', src),
+    theme: (src) => getSiteKeyValues('field_site_theme_values', src) || {},
+    featureFlags: (src) =>
+      getSiteKeyValues('field_site_feature_flags', src) || {},
     socialImages: (src) => {
       const socialImages = {
         twitter: {},

@@ -48,7 +48,7 @@
       <slot name="footer">
         <RplFooter :nav="site?.menus.menuMain" :links="site?.menus.menuFooter" :copyright="site?.copyright"
           :acknowledgement="site?.acknowledgementFooter" :logos="site?.footerLogos" :credit="footerImageCaption"
-          :variant="site?.featureFlags?.footerTheme || 'default'">
+          :variant="featureFlags?.footerTheme || 'default'">
           <template v-if="site?.copyrightHtml" #copyright>
             <div data-cy="footer-copyright" v-html="site?.copyrightHtml"></div>
           </template>
@@ -62,7 +62,7 @@
 // @ts-ignore
 import { useHead, useSiteTheme, useAppConfig, useRoute } from '#imports'
 import { RplChip } from '@dpc-sdp/ripple-ui-core'
-import { computed, onMounted, provide } from 'vue'
+import { computed, onMounted, provide, ref } from 'vue'
 import { TideSiteData } from '../../../types'
 import { TideTopicTag } from '../../mapping/topic-tags/topic-tags-mapping'
 
@@ -86,7 +86,8 @@ const props = withDefaults(defineProps<Props>(), {
   updatedDate: null
 })
 // Feature flags will be available on component instances with inject('featureFlags') - See https://vuejs.org/guide/components/provide-inject.html#inject
-provide('featureFlags', 'neutral')
+const featureFlags = ref(props.site?.featureFlags || {})
+provide('featureFlags', featureFlags.value)
 
 onMounted(() => {
   // Used for knowing when page is ready for cypress testing

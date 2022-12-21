@@ -26,3 +26,9 @@ Then(
     cy.get(`.rpl-button`).should('have.class', `rpl-button--${theme}`)
   }
 )
+Then(
+  'the hero banner should have the {string} theme applied',
+  (theme: string) => {
+    cy.get(`.rpl-header`).should('have.class', `rpl-header--${theme}`)
+  }
+)

@@ -8,7 +8,8 @@
   },
   "featureFlags": {
     "footerTheme": "neutral",
-    "buttonTheme": "neutral"
+    "buttonTheme": "neutral",
+    "headerTheme": "neutral"
   },
   "menus": {
     "menuMain": [

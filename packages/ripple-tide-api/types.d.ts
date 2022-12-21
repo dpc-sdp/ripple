@@ -187,3 +187,9 @@ export interface RplTideModuleConfig {
 }
 
 export type { ILogger } from './src/logger/logger.js'
+
+export interface IRplFeatureFlags {
+  buttonTheme?: string
+  headerTheme?: string
+  footerTheme?: string
+}

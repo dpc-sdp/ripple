@@ -13,10 +13,11 @@ import {
 import { RplIconNames } from '../icon/constants'
 import RplIcon from '../icon/icon.vue'
 import { rplEventBus } from '../../index'
+import type { IRplFeatureFlags } from '@dpc-sdp/ripple-tide-api/types'
 
 rplEventBus.register('rpl-button/click')
 const emit = defineEmits(['click'])
-const featureFlags = inject('featureFlags', { buttonTheme: 'default' })
+const featureFlags: IRplFeatureFlags = inject('featureFlags', { buttonTheme: 'default' })
 
 interface Props {
   el?: typeof RplButtonElements[number]
@@ -41,10 +42,12 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 const buttonTheme = computed(() => {
-  if (props.theme && typeof props.theme !== 'undefined') {
+  if (props.theme) {
     return props.theme
+  } else if (featureFlags && featureFlags.hasOwnProperty('buttonTheme')) {
+    return featureFlags['buttonTheme']
   }
-  return featureFlags['buttonTheme'] || 'neutral'
+  return 'default'
 })
 
 const classes = computed(() => {
@@ -85,6 +88,38 @@ defineExpose({ triggerClick })
     <RplIcon v-if="iconName" :name="iconName"></RplIcon>
   </component>
 </template>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

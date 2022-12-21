@@ -1,0 +1,24 @@
+{
+  "private": true,
+  "license": "Apache-2.0",
+  "name": "@dpc-sdp/nuxt-ripple",
+  "version": "2.1.0-alpha.31",
+  "scripts": {
+
+  },
+  "dependencies": {
+    "@dpc-sdp/ripple-tide-api": "2.1.0-alpha.31",
+    "@dpc-sdp/ripple-tide-event": "2.1.0-alpha.31",
+    "@dpc-sdp/ripple-tide-grant": "2.1.0-alpha.31",
+    "@dpc-sdp/ripple-tide-landing-page": "2.1.0-alpha.31",
+    "@dpc-sdp/ripple-tide-media": "2.1.0-alpha.31",
+    "@dpc-sdp/ripple-tide-news": "2.1.0-alpha.31",
+    "@dpc-sdp/ripple-tide-publication": "2.1.0-alpha.31",
+    "@dpc-sdp/ripple-tide-publication-page": "2.1.0-alpha.31",
+    "@dpc-sdp/ripple-ui-core": "2.1.0-alpha.31",
+    "@dpc-sdp/ripple-ui-forms": "2.1.0-alpha.31"
+  },
+  "peerDependencies": {
+    "nuxt": "3.0.0"
+  }
+}

@@ -32,7 +32,13 @@ const { container, trigger } = useAccessibleContainer()
 </script>
 
 <template>
-  <RplCard ref="container" type="promo" :highlight="highlight" :el="el">
+  <RplCard
+    ref="container"
+    type="promo"
+    :highlight="highlight"
+    :link="url"
+    :el="el"
+  >
     <template v-if="image" #upper>
       <RplImage
         data-cy="image"

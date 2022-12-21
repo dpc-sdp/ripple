@@ -18,7 +18,10 @@ export const number: FormKitTypeDefinition = {
     $cmp: 'RplFormInput',
     props: {
       ...defaultRplFormInputProps,
-      type: 'number'
+      type: 'number',
+      min: '$node.props.min',
+      max: '$node.props.max',
+      step: '$node.props.step'
     }
   }),
   library: inputLibrary,
@@ -34,7 +37,7 @@ export const number: FormKitTypeDefinition = {
   /**
    * An array of extra props to accept for this input.
    */
-  props: ['placeholder', 'validationMeta'],
+  props: ['min', 'max', 'step', 'placeholder', 'validationMeta'],
   /**
    * Forces node.props.type to be this explicit value.
    */

@@ -23,7 +23,7 @@ export const textarea: FormKitTypeDefinition = {
       handlers: '$handlers',
       id: `$id`,
       value: '$_value',
-      name: '$node.context.name',
+      name: '$node.name',
       disabled: '$node.context.disabled',
       placeholder: '$node.props.placeholder',
       rows: '$node.props.rows',

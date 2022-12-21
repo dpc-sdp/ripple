@@ -29,7 +29,7 @@ const { container, trigger } = useAccessibleContainer()
 </script>
 
 <template>
-  <RplCard ref="container" :href="url" :el="el" type="avatar">
+  <RplCard ref="container" :link="url" :el="el" type="avatar">
     <template #upper>
       <RplImage
         class="rpl-card__media rpl-card__media--avatar"

@@ -121,6 +121,7 @@ watch(
     ref="serverSuccessRef"
     :status="submissionState.status"
     :title="submissionState.title"
+    data-component-type="form-server-message"
   >
     <template #default>
       <RplContent :html="submissionState.message" />

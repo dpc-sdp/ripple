@@ -3,6 +3,48 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.49](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.48...v2.1.0-alpha.49) (2022-12-20)
+
+
+### Features
+
+* **@dpc-sdp/ripple-ui-forms:** added webform mapping for radio button ([5602ebd](https://github.com/dpc-sdp/ripple-framework/commit/5602ebd0a22cc28cd8cc013ab9384ad816ef4675))
+
+
+
+
+
+# [2.1.0-alpha.48](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.47...v2.1.0-alpha.48) (2022-12-19)
+
+
+### Features
+
+* **@dpc-sdp/ripple-ui-forms:** added min/max validation to number input ([a149a0b](https://github.com/dpc-sdp/ripple-framework/commit/a149a0b5002cd3d81297c34e07ed6f52c2066ac5))
+
+
+
+
+
+# [2.1.0-alpha.47](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.46...v2.1.0-alpha.47) (2022-12-19)
+
+
+### Features
+
+* **@dpc-sdp/ripple-ui-forms:** added basic and advanced HTML content to forms ([a2c6ab6](https://github.com/dpc-sdp/ripple-framework/commit/a2c6ab6910bb1c70b4be11a15f3fb3eb0178b9f2))
+* **@dpc-sdp/ripple-ui-forms:** added horizontal rule webform component ([f3f4535](https://github.com/dpc-sdp/ripple-framework/commit/f3f45357becca4c5f18109050c0e8896bc2a0675))
+
+
+
+
+
+# [2.1.0-alpha.42](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.41...v2.1.0-alpha.42) (2022-12-15)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-landing-page
+
+
+
+
+
 # [2.1.0-alpha.38](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.37...v2.1.0-alpha.38) (2022-12-14)
 
 

@@ -10,10 +10,11 @@ export const checkbox: FormKitTypeDefinition = {
    * The actual schema of the input, or a function that returns the schema.
    */
   schema: createRplFormGroup({
-    $cmp: 'RplFormCheckbox',
+    $cmp: 'RplFormOption',
     props: {
+      type: 'checkbox',
       id: `$id + '__checkbox'`,
-      name: '$node.context.name',
+      name: '$node.name',
       disabled: '$node.context.disabled',
       label: '$node.props.checkboxLabel',
       onValue: '$node.props.onValue',

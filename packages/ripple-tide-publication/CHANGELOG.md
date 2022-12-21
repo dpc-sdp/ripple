@@ -3,6 +3,38 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.49](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.48...v2.1.0-alpha.49) (2022-12-20)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-publication
+
+
+
+
+
+# [2.1.0-alpha.48](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.47...v2.1.0-alpha.48) (2022-12-19)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-publication
+
+
+
+
+
+# [2.1.0-alpha.47](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.46...v2.1.0-alpha.47) (2022-12-19)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-publication
+
+
+
+
+
+# [2.1.0-alpha.42](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.41...v2.1.0-alpha.42) (2022-12-15)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-publication
+
+
+
+
+
 # [2.1.0-alpha.38](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.37...v2.1.0-alpha.38) (2022-12-14)
 
 **Note:** Version bump only for package @dpc-sdp/ripple-tide-publication

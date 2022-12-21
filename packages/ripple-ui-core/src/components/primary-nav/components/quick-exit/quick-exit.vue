@@ -3,7 +3,7 @@ export default { name: 'RplPrimaryNavQuickExit' }
 </script>
 
 <script setup lang="ts">
-import RplButton from '../button/button.vue'
+import RplButton from '../../../button/button.vue'
 
 interface Props {
   url?: string

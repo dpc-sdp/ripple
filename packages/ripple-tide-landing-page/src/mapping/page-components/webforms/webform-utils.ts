@@ -63,24 +63,47 @@ export const getValidation = (
       validationMessages['accepted'] = requiredMessage
     }
   }
+
   if (field['#pattern']) {
-    validation.push(['matches', field['#pattern']])
+    validation.push(['matches', `/${field['#pattern']}/`])
     validationMessages['matches'] =
       field['#pattern_error'] ||
       `${field['#title']} must match the pattern ${field['#pattern']}`
   }
+
   if (field['#type'] === 'email') {
     validation.push(['email'])
     validationMessages[
       'email'
     ] = `${field['#title']} must be a valid email address`
   }
+
+  if (field['#type'] === 'number') {
+    validation.push(['number'])
+    validationMessages['number'] = `${field['#title']} must be a number`
+
+    if (typeof field['#min'] === 'number') {
+      validation.push(['min', field['#min']])
+      validationMessages[
+        'min'
+      ] = `${field['#title']} must be at least ${field['#min']}`
+    }
+
+    if (typeof field['#max'] === 'number') {
+      validation.push(['max', field['#max']])
+      validationMessages[
+        'max'
+      ] = `${field['#title']} must be no greater than ${field['#max']}`
+    }
+  }
+
   if (typeof field['#multiple'] === 'number') {
     validation.push(['length', 0, field['#multiple']])
     validationMessages['length'] =
       field['#multiple_error'] ||
       `More than ${field['#multiple']} selections are not allowed`
   }
+
   // Min/max length can set in Drupal via the main min/maxlength fields or via the counter_min/max fields
   // setting the counter min/max values overrides the main min/maxlength fields
   if (
@@ -103,6 +126,7 @@ export const getValidation = (
       validationMessages['length'] = `You must enter at least ${min} characters`
     }
   }
+
   if (field['#counter_type'] && field['#counter_type'] === 'word') {
     validation.push([
       `matches`,

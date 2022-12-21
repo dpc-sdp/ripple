@@ -105,7 +105,7 @@ export default {
       <%}%><% if (search === 'yes') { %>search: 1,
       <%}%><% if (authenticatedContent === 'yes') { %>authenticatedContent: 1,
       <%}%><% if (alert === 'yes') { %>alert: 1,
-      <%}%><% if (preview === 'yes') { %>preivew: 1,
+      <%}%><% if (preview === 'yes') { %>preview: 1,
       <%}%><% if (site === 'yes') { %>site: 1<%}%>
     },
     search: {

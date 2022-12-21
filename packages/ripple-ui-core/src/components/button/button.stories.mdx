@@ -24,7 +24,6 @@ const playFunction = async ({ canvasElement }) => {
 export const Template = (args) => ({
   components: { RplButton },
   setup() {
-    provide('featureFlags', { buttonTheme: 'default'})
     return { args }
   },
   template: '<rpl-button @click="" v-bind="args" />'

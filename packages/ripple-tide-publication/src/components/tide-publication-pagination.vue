@@ -1,5 +1,5 @@
 <script lang="ts">
-export default { name: 'TidePublicationPagePagination' }
+export default { name: 'TidePublicationPagination' }
 </script>
 
 <template>
@@ -9,10 +9,10 @@ export default { name: 'TidePublicationPagePagination' }
 </template>
 
 <script setup lang="ts">
-import { TidePublicationPagePagination } from '../types'
+import { TidePublicationPagination } from '../types'
 
 interface Props {
-  pagination: TidePublicationPagePagination
+  pagination: TidePublicationPagination
 }
 
 defineProps<Props>()

@@ -1,7 +1,5 @@
 <script lang="ts">
-export default {
-  name: 'TidePublicationPagePage'
-}
+export default { name: 'TidePublicationPage' }
 </script>
 
 <template>
@@ -21,23 +19,26 @@ export default {
     <template #breadcrumbs>
       <slot name="breadcrumbs"></slot>
     </template>
-    <template #aboveBody>
-      <TidePublicationPageHeader
+    <template #aboveBody="{ hasBreadcrumbs }">
+      <TidePublicationHeader
         :header="page.header"
-      ></TidePublicationPageHeader>
+        :hasBreadcrumbs="hasBreadcrumbs"
+      ></TidePublicationHeader>
     </template>
     <template #body>
       <TideLandingPageInPageNavigation
         v-if="page.showInPageNav"
         :headingLevel="page.inPageNavHeadingLevel"
         :components="page.dynamicComponents"
+        class="rpl-u-margin-b-9"
       />
-      <TidePublicationPageBody
+      <TidePublicationBody
+        :details="page.details"
         :components="page.dynamicComponents"
-      ></TidePublicationPageBody>
-      <TidePublicationPagePagination
-        :pagination="page.publication.pagination"
-      ></TidePublicationPagePagination>
+      ></TidePublicationBody>
+      <TidePublicationChapters
+        :chapters="page.chapters"
+      ></TidePublicationChapters>
     </template>
     <template #sidebar>
       <TidePublicationSidebar
@@ -52,11 +53,12 @@ export default {
 </template>
 
 <script setup lang="ts">
-import { TidePublicationPagePage } from './types'
+import { TideSiteData } from '@dpc-sdp/ripple-tide-api/types'
+import type { TidePublicationPage } from '../types'
 
 interface Props {
-  site: any
-  page: TidePublicationPagePage
+  site: TideSiteData
+  page: TidePublicationPage
 }
 
 defineProps<Props>()

@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.50](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.49...v2.1.0-alpha.50) (2022-12-21)
+
+**Note:** Version bump only for package docs
+
+
+
+
+
 # [2.1.0-alpha.45](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.44...v2.1.0-alpha.45) (2022-12-19)
 
 **Note:** Version bump only for package docs

@@ -18,14 +18,6 @@ export interface RplTideMapping {
   includes: string[]
 }
 
-export interface RplFeatureFlags {
-  /**
-   * @description Sets the footer component to use the neutral variant
-   */
-  footerTheme?: string
-  [key: string]: string
-}
-
 export interface TideSiteData {
   name: string
   _src?: any
@@ -189,7 +181,16 @@ export interface RplTideModuleConfig {
 export type { ILogger } from './src/logger/logger.js'
 
 export interface IRplFeatureFlags {
-  buttonTheme?: string
-  headerTheme?: string
-  footerTheme?: string
+  /**
+   * @description Sets the theme variant of the button component
+   */
+  buttonTheme?: 'neutral' | 'default'
+  /**
+   * @description Sets the theme variant of the header component
+   */
+  headerTheme?: 'neutral' | 'default'
+  /**
+   * @description Sets the theme variant of the site footer component
+   */
+  footerTheme?: 'neutral' | 'default'
 }

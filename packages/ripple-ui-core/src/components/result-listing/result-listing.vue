@@ -19,9 +19,9 @@ const props = withDefaults(defineProps<Props>(), {
   updated: undefined
 })
 
-const displayUrl = computed(() => props.url.replace('https://', ''))
-
 const { container, trigger } = useAccessibleContainer()
+
+const displayUrl = computed(() => props.url.replace('https://', ''))
 </script>
 
 <template>
@@ -40,9 +40,11 @@ const { container, trigger } = useAccessibleContainer()
     <div v-if="$slots.details" class="rpl-result-listing__details rpl-type-p">
       <slot name="details"></slot>
     </div>
-    <p v-if="content" class="rpl-result-listing__body rpl-type-p">
-      {{ content }}
-    </p>
+    <div
+      v-if="content"
+      class="rpl-result-listing__body rpl-type-p"
+      v-html="content"
+    />
     <p v-if="updated" class="rpl-result-listing__body rpl-type-p-small">
       Updated: {{ updated }}
     </p>

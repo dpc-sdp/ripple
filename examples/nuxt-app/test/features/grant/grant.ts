@@ -7,32 +7,32 @@ Then('the title should be {string}', (title: string) => {
 Then(
   'the overview should display a status of {string} with a {string} {string} icon',
   (status: string, colour: string, icon: string) => {
-    cy.get('[data-cy="statusText"]').should('have.text', status)
+    cy.get('.tide-grant__overview-item .rpl-list__label')
+      .contains(status)
+      .closest('.tide-grant__overview-item')
+      .as('item')
 
     // icon type
-    cy.get('[data-cy="statusIcon"]').should(
-      'have.class',
-      `rpl-icon--icon-${icon}-circle-filled`
-    )
+    cy.get('@item')
+      .find('.rpl-icon')
+      .should('have.class', `rpl-icon--icon-${icon}-circle-filled`)
 
     // icon colour
     if (colour.toLowerCase() === 'red') {
-      cy.get('[data-cy="statusIcon"]').should(
-        'have.class',
-        'rpl-icon--colour-error'
-      )
+      cy.get('@item')
+        .find('.rpl-icon')
+        .should('have.class', 'rpl-icon--colour-error')
     }
     if (colour.toLowerCase() === 'green') {
-      cy.get('[data-cy="statusIcon"]').should(
-        'have.class',
-        'rpl-icon--colour-success'
-      )
+      cy.get('@item')
+        .find('.rpl-icon')
+        .should('have.class', 'rpl-icon--colour-success')
     }
   }
 )
 
 Then('the overview should display funding of {string}', (funding: string) => {
-  cy.get('[data-cy="funding"]').should('have.text', funding)
+  cy.get('.tide-grant__overview-item .rpl-list__label').contains(funding)
 })
 
 Then(

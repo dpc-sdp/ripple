@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/ripple-tide-media",
-  "version": "2.1.0-alpha.50",
+  "version": "2.1.0-alpha.51",
   "description": "Ripple mappings and components for Tide Media content type",
   "main": "dist/index.js",
   "module": "dist/index.js",

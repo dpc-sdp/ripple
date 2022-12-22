@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.51](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.50...v2.1.0-alpha.51) (2022-12-22)
+
+
+### Features
+
+* **@dpc-sdp/ripple-ui-core:** add media embed to exports, use the new media embed in media template ([2241f1a](https://github.com/dpc-sdp/ripple-framework/commit/2241f1a926d12a52443de2ede32ba70e2b591201))
+
+
+
+
+
 # [2.1.0-alpha.50](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.49...v2.1.0-alpha.50) (2022-12-21)
 
 **Note:** Version bump only for package @dpc-sdp/ripple-tide-media

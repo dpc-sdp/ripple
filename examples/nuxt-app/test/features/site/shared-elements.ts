@@ -125,7 +125,7 @@ Then(
 Then(
   'the footer acknowledgement text should be {string}',
   (copyrightText: string) => {
-    cy.get(`[data-cy="site-footer"]`).as('footer')
+    cy.get(`[data-component-type="site-footer"]`).as('footer')
 
     cy.get('@footer').within(() => {
       cy.get(`.rpl-acknowledgement`).should('contain', copyrightText)

@@ -5,7 +5,7 @@
   flex-direction: column;
   gap: var(--rpl-sp-5);
 
-  @media (--rpl-bp-l) {
+  @media (--rpl-bp-s) {
     align-items: center;
     flex-direction: row;
   }

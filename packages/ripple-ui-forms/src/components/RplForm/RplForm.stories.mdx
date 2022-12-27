@@ -130,7 +130,6 @@ export const SlotTemplate = (args) => ({
           name: 'checkbox-group',
           label: 'What is the answer?',
           help: 'There may be multiple answers',
-          validationLabel: 'enquiry',
           validation: 'required|length:2,3',
           validationMessages: {
             required: 'Please provide an answer',
@@ -157,7 +156,6 @@ export const SlotTemplate = (args) => ({
           name: 'radio-group',
           label: 'Favourite colour?',
           help: 'There may be multiple answers',
-          validationLabel: 'enquiry',
           validation: 'required',
           validationMessages: {
             required: 'Please choose a colour'
@@ -188,7 +186,6 @@ export const SlotTemplate = (args) => ({
           name: 'dropdown-single',
           label: 'What is the answer?',
           help: 'Just one answer',
-          validationLabel: 'enquiry',
           validation: 'required',
           validationMessages: {
             required: 'Please provide an answer',
@@ -218,7 +215,6 @@ export const SlotTemplate = (args) => ({
           name: 'dropdown-multi',
           label: 'What is the answer?',
           help: 'There may be multiple answers',
-          validationLabel: 'enquiry',
           validation: 'required|length:2,3',
           validationMessages: {
             required: 'Please provide an answer',
@@ -241,6 +237,19 @@ export const SlotTemplate = (args) => ({
               label: "Thing 3",
             }
           ]
+        },
+        {
+          $formkit: 'RplFormDate',
+          multiple: true,
+          id: 'birthdate',
+          name: 'birthdate',
+          label: 'When is your birthday?',
+          help: 'The date you were born',
+          validation: 'required|date_before:1999-12-25',
+          validationMessages: {
+            required: 'Please provide an answer',
+            date_before: 'Must be before 25th December 1999',
+          }
         },
         {
           $formkit: 'RplFormActions',

@@ -5,6 +5,7 @@ import RplFormOption from '../components/RplFormOptions/RplFormOption.vue'
 import RplFormCheckboxGroup from './../components/RplFormOptions/RplFormCheckboxGroup.vue'
 import RplFormRadioGroup from './../components/RplFormOptions/RplFormRadioGroup.vue'
 import RplFormDropdown from './../components/RplFormDropdown/RplFormDropdown.vue'
+import RplFormDate from './../components/RplFormDate/RplFormDate.vue'
 import RplFormValidationError from './../components/RplFormValidationError/RplFormValidationError.vue'
 import RplFormHelpText from './../components/RplFormHelpText/RplFormHelpText.vue'
 import RplFormContent from '../components/RplFormContent/RplFormContent.vue'
@@ -40,6 +41,7 @@ export const inputLibrary = {
   RplFormCheckboxGroup: markRaw(RplFormCheckboxGroup),
   RplFormRadioGroup: markRaw(RplFormRadioGroup),
   RplFormDropdown: markRaw(RplFormDropdown),
+  RplFormDate: markRaw(RplFormDate),
   RplFormValidationError: markRaw(RplFormValidationError),
   RplFormHelpText: markRaw(RplFormHelpText),
   RplFormContent: markRaw(RplFormContent),
@@ -104,7 +106,8 @@ export const createRplFormGroup = (
 }
 
 export const defaultRplFormInputProps = {
-  handlers: '$handlers',
+  onInput: '$handlers.DOMInput',
+  onBlur: '$handlers.blur',
   id: '$id',
   prefixIcon: '$node.props.prefixIcon',
   suffixIcon: '$node.props.suffixIcon',

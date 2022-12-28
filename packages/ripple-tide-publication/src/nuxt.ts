@@ -11,13 +11,20 @@ export default defineNuxtModule({
     // Add TidePublication component and mapping
     addComponent({
       name: 'TidePublicationPage',
-      filePath: join(__dirname, './index.vue'),
+      filePath: join(__dirname, './pages/publication.vue'),
+      global: true
+    })
+    addComponent({
+      name: 'TidePublicationPagePage',
+      filePath: join(__dirname, './pages/publication-page.vue'),
       global: true
     })
     nuxt.options.runtimeConfig.public.tide.mapping.content.publication = join(
       __dirname,
-      '../dist/index.js'
+      '../dist/mapping/publication.js'
     )
+    nuxt.options.runtimeConfig.public.tide.mapping.content.publication_page =
+      join(__dirname, '../dist/mapping/publication-page.js')
 
     // Add TidePublication page components as dynamic imports for Nuxt apps - See https://v3.nuxtjs.org/guide/concepts/auto-imports
     addComponentsDir({
@@ -31,7 +38,7 @@ export default defineNuxtModule({
     // Add API endpoint for TidePublication Index
     addServerHandler({
       route: '/api/tide/publication-index',
-      handler: join(__dirname, '../dist/publicationIndexHandler.js')
+      handler: join(__dirname, '../dist/services/publicationIndexHandler.js')
     })
     console.log('Added TidePublicationIndex API endpoint')
   }

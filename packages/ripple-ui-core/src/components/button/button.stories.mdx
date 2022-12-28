@@ -4,6 +4,7 @@ import {
   Story
 } from '@storybook/addon-docs'
 import { within } from '@storybook/testing-library';
+import { provide } from 'vue'
 import { eventCheck, a11yCheck, a11yStoryCheck } from './../../../stories/interactions.js'
 import RplButton from './button.vue';
 import {
@@ -61,8 +62,7 @@ export const Template = (args) => ({
     onClick: { action: 'clicked' }
   }}
   args={{
-    label: 'Button text',
-    theme: 'default'
+    label: 'Button text'
   }}
 />
 

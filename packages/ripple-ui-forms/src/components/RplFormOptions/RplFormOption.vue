@@ -9,7 +9,8 @@ import { computed } from 'vue'
 import { RplIcon } from '@dpc-sdp/ripple-ui-core'
 import useFormkitFriendlyEventEmitter from '../../composables/useFormkitFriendlyEventEmitter'
 
-export interface RplFormCheckboxProps {
+export interface RplFormOptionProps {
+  type?: 'radio' | 'checkbox'
   id: string
   label: string
   checked?: boolean
@@ -20,7 +21,8 @@ export interface RplFormCheckboxProps {
   offValue?: boolean | string | number
 }
 
-const props = withDefaults(defineProps<RplFormCheckboxProps>(), {
+const props = withDefaults(defineProps<RplFormOptionProps>(), {
+  type: 'checkbox',
   disabled: false,
   variant: 'default',
   onChange: () => undefined,
@@ -31,7 +33,7 @@ const props = withDefaults(defineProps<RplFormCheckboxProps>(), {
 const emit = defineEmits<{ (e: 'onChange', value: boolean): void }>()
 
 const classes = computed(() => {
-  return ['rpl-form-checkbox', `rpl-form-checkbox--${props.variant}`]
+  return ['rpl-form-option', `rpl-form-option--${props.variant}`]
 })
 
 const handleChange = (e: Event) => {
@@ -47,24 +49,33 @@ const handleChange = (e: Event) => {
   <div :class="classes">
     <input
       :id="id"
-      type="checkbox"
-      class="rpl-form-checkbox__input"
+      :type="type"
+      class="rpl-form-option__input"
       :disabled="disabled"
       :checked="checked"
       v-bind="$attrs"
       @change="handleChange"
     />
-    <label class="rpl-form-checkbox__label" :for="id">
-      <span class="rpl-form-checkbox__box">
+    <label class="rpl-form-option__label" :for="id">
+      <span
+        v-if="type === 'checkbox'"
+        class="rpl-form-option__mark rpl-form-option__check"
+      >
         <RplIcon
-          class="rpl-form-checkbox__box-tick"
+          class="rpl-form-option__mark-tick"
           name="icon-check"
           size="s"
         />
       </span>
-      <span class="rpl-form-checkbox__label-text rpl-type-p">{{ label }}</span>
+      <span
+        v-if="type === 'radio'"
+        class="rpl-form-option__mark rpl-form-option__radio"
+      >
+        <span class="rpl-form-option__mark-tick rpl-form-option__radio-tick" />
+      </span>
+      <span class="rpl-form-option__label-text rpl-type-p">{{ label }}</span>
     </label>
   </div>
 </template>
 
-<style src="./RplFormCheckbox.css"></style>
+<style src="./RplFormOption.css"></style>

@@ -45,7 +45,7 @@ export const SingleTemplate = (args) => ({
     number: 3,
     title: 'The page title',
     url: 'https://www.vic.gov.au/victorian-government-directory',
-    content: 'Adipisicing aliquip culpa dolor proident enim et tempor anim elit occaecat fugiat do dolor consectetur.',
+    content: 'Adipisicing aliquip culpa dolor proident enim et tempor anim elit occaecat fugiat do <strong>volar</strong> consectetur.',
     updated: '22 Dec 2022'
   }}
 />
@@ -88,20 +88,11 @@ This is an example showing the result listing with extra details
     name='With Details'
     play={a11yStoryCheck}
     args={{
-      details: `<ul class="rpl-result-listing__detail-list">
-        <li class="rpl-result-listing__detail-item">
-          <RplIcon colour="default" name="icon-user-circle-filled" />
-          <span>Department</span>
-        </li>
-        <li class="rpl-result-listing__detail-item">
-          <RplIcon colour="default" name="icon-dollar-circle-filled" />
-          <span>$10,000 - $20,000</span>
-        </li>
-        <li class="rpl-result-listing__detail-item">
-          <RplIcon name="icon-cancel-circle-filled" colour="error" />
-          <span>Closed</span>
-        </li>
-      </ul>`
+      details: `<RplList :items="[
+        { text: 'Department', icon: 'icon-user-circle-filled' },
+        { text: '$10,000 - $20,000', icon: 'icon-dollar-circle-filled' },
+        { text: 'Closed', icon: 'icon-cancel-circle-filled', iconColour: 'error' }
+      ]" />`
     }}
   >
     {SingleTemplate.bind()}

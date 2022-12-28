@@ -228,6 +228,15 @@ export const humanizeFilesize = (fileSize) => {
   return ''
 }
 
+export const getSiteKeyValues = (key: string, src: any) => {
+  if (src[key]) {
+    return src[key].reduce((map, obj) => {
+      map[obj.key] = obj.value
+      return map
+    }, {})
+  }
+}
+
 export default {
   getImageFromField,
   getLinkFromField,
@@ -237,5 +246,6 @@ export default {
   getBodyFromField,
   humanizeFilesize,
   getField,
-  formatDate
+  formatDate,
+  getSiteKeyValues
 }

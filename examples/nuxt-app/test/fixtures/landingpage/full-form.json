@@ -194,6 +194,29 @@
             }
           },
           {
+            "$formkit": "RplFormRadioGroup",
+            "id": "person_type",
+            "name": "person_type",
+            "label": "Type of person",
+            "options": [
+              {
+                "id": "8984",
+                "value": "8984",
+                "label": "Dog person"
+              },
+              {
+                "id": "8985",
+                "value": "8985",
+                "label": "Cat person"
+              },
+              {
+                "id": "8986",
+                "value": "8986",
+                "label": "Bird person"
+              }
+            ]
+          },
+          {
             "$formkit": "RplFormCheckbox",
             "id": "i_accept_the_terms",
             "name": "i_accept_the_terms",

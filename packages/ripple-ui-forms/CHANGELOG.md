@@ -3,6 +3,70 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.52](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.51...v2.1.0-alpha.52) (2022-12-22)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-ui-forms
+
+
+
+
+
+# [2.1.0-alpha.51](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.50...v2.1.0-alpha.51) (2022-12-22)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-ui-forms
+
+
+
+
+
+# [2.1.0-alpha.50](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.49...v2.1.0-alpha.50) (2022-12-21)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-ui-forms
+
+
+
+
+
+# [2.1.0-alpha.49](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.48...v2.1.0-alpha.49) (2022-12-20)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-forms:** fixed build after merge conflict ([ef0a8cb](https://github.com/dpc-sdp/ripple-framework/commit/ef0a8cb2196aa2a2b6b13a14b3cc71f37ba8b5a0))
+
+
+### Features
+
+* **@dpc-sdp/ripple-ui-forms:** added radio button to formkit ([6bfe55b](https://github.com/dpc-sdp/ripple-framework/commit/6bfe55b135e98dca9266076f4589eb12c4e9aa59))
+* **@dpc-sdp/ripple-ui-forms:** added ui component for radio group ([c3b0b3d](https://github.com/dpc-sdp/ripple-framework/commit/c3b0b3ddd4fca4c35c37ed71ebd40748361158c6))
+
+
+
+
+
+# [2.1.0-alpha.48](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.47...v2.1.0-alpha.48) (2022-12-19)
+
+
+### Features
+
+* **@dpc-sdp/ripple-ui-forms:** added min/max validation to number input ([a149a0b](https://github.com/dpc-sdp/ripple-framework/commit/a149a0b5002cd3d81297c34e07ed6f52c2066ac5))
+
+
+
+
+
+# [2.1.0-alpha.47](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.46...v2.1.0-alpha.47) (2022-12-19)
+
+
+### Features
+
+* **@dpc-sdp/ripple-ui-forms:** added basic and advanced HTML content to forms ([a2c6ab6](https://github.com/dpc-sdp/ripple-framework/commit/a2c6ab6910bb1c70b4be11a15f3fb3eb0178b9f2))
+* **@dpc-sdp/ripple-ui-forms:** added horizontal rule webform component ([f3f4535](https://github.com/dpc-sdp/ripple-framework/commit/f3f45357becca4c5f18109050c0e8896bc2a0675))
+
+
+
+
+
 # [2.1.0-alpha.45](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.44...v2.1.0-alpha.45) (2022-12-19)
 
 **Note:** Version bump only for package @dpc-sdp/ripple-ui-forms

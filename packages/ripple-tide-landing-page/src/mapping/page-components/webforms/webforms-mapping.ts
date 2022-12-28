@@ -1,4 +1,4 @@
-import { TideDynamicPageComponent } from '@dpc-sdp/ripple-tide-api'
+import { TideDynamicPageComponent, getBody } from '@dpc-sdp/ripple-tide-api'
 import { FormKitSchemaNode } from '@formkit/core'
 import {
   getCounterFields,
@@ -75,6 +75,9 @@ const getFormSchemaFromMapping = async (
           id: fieldKey,
           help: field['#description'] || field['#help_title'],
           value: field['#default_value'],
+          min: field['#min'],
+          max: field['#max'],
+          step: field['#step'],
           ...getValidation(field),
           ...getInputIcons(field)
         }
@@ -175,6 +178,27 @@ const getFormSchemaFromMapping = async (
           ...getValidation(field)
         }
         break
+      case 'radios':
+        mappedField = {
+          $formkit: 'RplFormRadioGroup',
+          id: fieldKey,
+          name: fieldKey,
+          disabled: field['#disabled'],
+          label: field['#title'],
+          help: field['#description'],
+          options: Object.entries(field['#options'] || {}).map(
+            ([value, label]) => {
+              return {
+                id: value,
+                value,
+                label
+              }
+            }
+          ),
+          value: field['#default_value'],
+          ...getValidation(field)
+        }
+        break
       case 'webform_term_select': {
         const options = await tidePageApi.getTaxonomy(field['#vocabulary'])
 
@@ -199,6 +223,23 @@ const getFormSchemaFromMapping = async (
         }
         break
       }
+      case 'webform_markup':
+        mappedField = {
+          $formkit: 'RplFormContent',
+          html: getBody(field['#markup'])
+        }
+        break
+      case 'processed_text':
+        mappedField = {
+          $formkit: 'RplFormContent',
+          html: getBody(field['#text'])
+        }
+        break
+      case 'webform_horizontal_rule':
+        mappedField = {
+          $formkit: 'RplFormDivider'
+        }
+        break
       case 'webform_actions':
         mappedField = {
           $formkit: 'RplFormActions',

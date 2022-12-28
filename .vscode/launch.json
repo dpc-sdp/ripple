@@ -3,12 +3,29 @@
   // Hover to view descriptions of existing attributes.
   // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
   "version": "0.2.0",
+  "compounds": [
+    {
+      "name": "fullstack: Nuxt & Chrome",
+      "configurations": ["server: Nuxt", "client: Chrome"]
+    }
+  ],
   "configurations": [
     {
+      "name": "client: Chrome",
+      "request": "launch",
+      "type": "chrome",
+      "url": "http://localhost:3000",
+      "webRoot": "${workspaceFolder}",
+      "preLaunchTask": "Sleep Delay"
+    },
+    {
+      "name": "server: Nuxt",
       "type": "node",
-      "request": "attach",
-      "name": "Attach to Nuxt",
-      "port": 9229
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "runtimeExecutable": "yarn",
+      "runtimeArgs": ["workspace", "nuxt-app", "dev"],
+      "console": "integratedTerminal"
     }
   ]
 }

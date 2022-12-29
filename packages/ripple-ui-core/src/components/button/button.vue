@@ -3,7 +3,7 @@ export default { name: 'RplButton' }
 </script>
 
 <script setup lang="ts">
-import { computed, ref, inject } from 'vue'
+import { computed, ref, inject, Ref } from 'vue'
 import {
   RplButtonElements,
   RplButtonVariants,
@@ -17,7 +17,9 @@ import type { IRplFeatureFlags } from '@dpc-sdp/ripple-tide-api/types'
 
 rplEventBus.register('rpl-button/click')
 const emit = defineEmits(['click'])
-const featureFlags: IRplFeatureFlags = inject('featureFlags', { buttonTheme: 'default' })
+const featureFlags: IRplFeatureFlags = inject('featureFlags', {
+  buttonTheme: 'default'
+})
 
 interface Props {
   el?: typeof RplButtonElements[number]
@@ -68,17 +70,21 @@ const onClick = (payload?: any) => {
   emit('click', payload)
 }
 
-const link = ref(null)
-const triggerClick = () => {
-  link.value.click()
-}
+const link: Ref = ref(null)
 
-defineExpose({ triggerClick })
+defineExpose({ link })
 </script>
 
 <template>
-  <component :is="el" ref="link" :href="el === 'a' ? url : null" type="button" :class="classes" :disabled="disabled"
-    @click="onClick">
+  <component
+    :is="el"
+    ref="link"
+    :href="el === 'a' ? url : null"
+    type="button"
+    :class="classes"
+    :disabled="disabled"
+    @click="onClick"
+  >
     <span class="rpl-button__label rpl-type-label rpl-type-weight-bold">
       <template v-if="label">
         {{ label }}
@@ -88,55 +94,5 @@ defineExpose({ triggerClick })
     <RplIcon v-if="iconName" :name="iconName"></RplIcon>
   </component>
 </template>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <style src="./button.css" />

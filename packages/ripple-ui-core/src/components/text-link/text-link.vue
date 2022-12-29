@@ -3,13 +3,14 @@ export default { name: 'RplTextLink' }
 </script>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, Ref } from 'vue'
 
 import { rplEventBus } from '../../index'
 rplEventBus.register('rpl-text-link/click')
 
 interface Props {
   url: string
+  text?: string
 }
 
 defineProps<Props>()
@@ -18,12 +19,9 @@ const onClick = (payload?: any) => {
   rplEventBus.emit('rpl-text-link/click', payload)
 }
 
-const link = ref(null)
-const triggerClick = () => {
-  link.value.click()
-}
+const link: Ref = ref(null)
 
-defineExpose({ triggerClick })
+defineExpose({ link })
 </script>
 
 <template>
@@ -33,7 +31,7 @@ defineExpose({ triggerClick })
     :href="url"
     @click="onClick()"
   >
-    <slot />
+    <slot>{{ text }}</slot>
   </a>
 </template>
 

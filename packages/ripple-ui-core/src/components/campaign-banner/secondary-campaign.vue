@@ -27,14 +27,19 @@ withDefaults(defineProps<Props>(), {
       <RplImage
         v-bind="image"
         :aspect="{ xs: 'wide', s: 'ultrawide', l: 'wide' }"
+        data-cy="image"
       />
     </template>
     <template #title>
-      <h1 class="rpl-campaign-banner__title rpl-type-h2">{{ title }}</h1>
+      <h1 class="rpl-campaign-banner__title rpl-type-h2" data-cy="title">
+        {{ title }}
+      </h1>
     </template>
     <slot></slot>
     <div class="rpl-campaign-banner__action">
-      <RplButton v-if="link" el="a" :url="link.url">{{ link.text }}</RplButton>
+      <RplButton v-if="link" el="a" :url="link.url" data-cy="cta">{{
+        link.text
+      }}</RplButton>
     </div>
   </RplCampaignBanner>
 </template>

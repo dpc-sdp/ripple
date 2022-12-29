@@ -3,7 +3,7 @@ export default { name: 'TideGrantDocuments' }
 </script>
 
 <template>
-  <div class="tide-grant__documents rpl-u-margin-t-9">
+  <RplLayoutPageComponent class="tide-grant__documents">
     <ul v-if="documents.length > 0" class="rpl-type-p">
       <li v-for="(doc, i) in documents" :key="i">
         <RplDocument :url="doc.url" data-cy="document">
@@ -18,14 +18,15 @@ export default { name: 'TideGrantDocuments' }
         </RplDocument>
       </li>
     </ul>
-  </div>
+  </RplLayoutPageComponent>
 </template>
 
 <script setup lang="ts">
-import type { TideGrantDocument } from '../../types'
-import { RplDocument, RplIcon } from '@dpc-sdp/ripple-ui-core'
+import type { TideGrantDocument } from '../types'
 
-defineProps<{
+interface Props {
   documents: Array<TideGrantDocument>
-}>()
+}
+
+defineProps<Props>()
 </script>

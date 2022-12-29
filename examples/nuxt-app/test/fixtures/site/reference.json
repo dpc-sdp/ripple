@@ -1,6 +1,7 @@
 {
   "name": "Test site",
-  "acknowledgement": null,
+  "acknowledgementHeader": "Test hero acknowledgement",
+  "acknowledgementFooter": "Test footer acknowledgement",
   "socialImages": {
     "twitter": {},
     "og": {}

@@ -1,14 +1,17 @@
 {
-  "version": "0.0.0",
+  "version": "2.1.0-alpha.52",
   "npmClient": "yarn",
   "exact": true,
   "useWorkspaces": true,
-  "packages": ["packages/*", "examples/*", "docs"],
+  "packages": [
+    "packages/*",
+    "examples/*",
+    "docs"
+  ],
   "command": {
     "publish": {
-      "message": "chore(release): publish %s",
-      "conventionalCommits": true,
-      "yes": true
+      "message": "chore(release): publish %s [skip ci]",
+      "conventionalCommits": true
     }
   }
 }

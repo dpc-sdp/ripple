@@ -4,7 +4,7 @@ export default { name: 'RplFooter' }
 
 <script setup lang="ts">
 import { useBreakpoints } from '@vueuse/core'
-import { computed } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import { bpMin } from '../../lib/breakpoints'
 import RplAcknowledgement from '../acknowledgement/acknowledgement.vue'
 import RplTextLink from '../text-link/text-link.vue'
@@ -26,7 +26,7 @@ interface Props {
   links?: CoreLink[]
   logos?: LogoLink[]
   credit?: string
-  copyright?: string
+  acknowledgement?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -35,7 +35,16 @@ const props = withDefaults(defineProps<Props>(), {
   links: () => [],
   logos: () => [],
   credit: undefined,
-  copyright: '© Copyright State Government of Victoria'
+  acknowledgement: undefined
+})
+
+const isMounted = ref(false)
+
+onMounted(() => {
+  // We need to know if the component has mounted so that we can avoid SSR hydration mismatches.
+  // This is because the rendering of the footer nav is heavily tied to the current breakpoint, which
+  // is unknown when rendering on the server.
+  isMounted.value = true
 })
 
 const breakpoints = useBreakpoints(bpMin)
@@ -113,11 +122,20 @@ const columns = computed(() => {
 </script>
 
 <template>
-  <footer :class="`rpl-footer rpl-footer--${variant}`">
+  <footer :class="`rpl-footer rpl-footer--${variant}`" data-component-type="site-footer">
     <div class="rpl-container">
       <nav class="rpl-footer__nav">
-        <!-- Expandable small screen nav -->
-        <template v-if="columns.length <= 1">
+        <!-- Fallback rendering for SSR, this ensures that the server and client render the same thing initially -->
+        <template v-if="!isMounted">
+          <RplNavSection
+            v-for="(navSection, i) in nav"
+            :id="`rpl-footer-nav-${i}`"
+            :key="i"
+            :section="navSection"
+          />
+        </template>
+        <!-- Expandable nav items for small screens -->
+        <template v-else-if="columns.length <= 1">
           <RplNavSection
             v-for="(navSection, i) in nav"
             :id="`rpl-footer-nav-${i}`"
@@ -126,7 +144,7 @@ const columns = computed(() => {
             :is-expandable="isExpandable"
           />
         </template>
-        <!-- Non-expandable larger screen nav with tricky column setup -->
+        <!-- Non-expandable nav with tricky column setup for larger screens -->
         <template v-else>
           <div v-for="(col, colIndex) in columns" :key="colIndex">
             <RplNavSection
@@ -144,7 +162,7 @@ const columns = computed(() => {
       <div class="rpl-container">
         <slot name="custom-content">
           <div class="rpl-footer__custom-content-inner">
-            <RplAcknowledgement />
+            <RplAcknowledgement :message="acknowledgement" />
           </div>
         </slot>
         <p v-if="credit" class="rpl-footer__credit rpl-type-label-small">
@@ -158,16 +176,18 @@ const columns = computed(() => {
           <ul class="rpl-footer-core-links">
             <li v-for="link in links" :key="link.url">
               <RplTextLink class="rpl-type-p-small" :url="link.url">{{
-                link.text
+                  link.text
               }}</RplTextLink>
             </li>
           </ul>
-          <p class="rpl-type-label-small">
-            {{ copyright }}
-          </p>
+          <div class="rpl-type-label-small">
+            <slot name="copyright">
+              <p>© Copyright State Government of Victoria</p>
+            </slot>
+          </div>
         </div>
         <div class="rpl-footer-bottom__branding">
-          <a
+        <a
             v-for="(logoLink, index) in logos"
             :key="index"
             class="
@@ -182,7 +202,7 @@ const columns = computed(() => {
               :alt="logoLink.alt"
             />
           </a>
-          <a
+          <a 
             class="
               rpl-footer-logo-link
               rpl-u-focusable-outline
@@ -190,7 +210,7 @@ const columns = computed(() => {
               rpl-u-focusable--alt-colour
             "
             :href="vicGovHomeUrl"
-          >
+            >
             <span class="rpl-u-visually-hidden">{{ vicGovHomeLabel }}</span>
             <VicGovLogo class="rpl-footer-vic-gov-logo" />
           </a>

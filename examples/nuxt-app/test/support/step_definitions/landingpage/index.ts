@@ -1,15 +1,19 @@
-import { When, Given, Before, After } from '@badeball/cypress-cucumber-preprocessor'
+import {
+  When,
+  Given,
+  Before,
+  After
+} from '@badeball/cypress-cucumber-preprocessor'
 
-Before({ tags: "@mockserver" }, () => {
+Before({ tags: '@mockserver' }, () => {
   cy.log('the mock server has started')
   cy.task('startMockServer')
 })
 
-After({ tags: "@mockserver" }, () => {
+After({ tags: '@mockserver' }, () => {
   cy.log('the mock server has stopped')
   cy.task('stopMockServer')
 })
-
 
 Given(`the mock server has started`, () => {
   cy.log('the mock server has started')
@@ -22,7 +26,6 @@ Given(`the mock server has started with proxy`, () => {
 })
 
 Given(`the mock server has been stopped`, () => {
-
   cy.task('stopMockServer')
   cy.log('the mock server has been stopped')
 })
@@ -36,6 +39,17 @@ Given(
   }
 )
 
+Given(
+  `posting to endpoint {string} with query {string} returns fixture {string} with status {int}`,
+  (route: string, query: string, fixture: string, status: number) => {
+    cy.fixture(fixture).then((response) => {
+      cy.task('setMockPostRouteWithQuery', { route, status, response, query })
+    })
+  }
+)
+
 When('I visit the page {string}', (route: string) => {
-  cy.visit(route)
+  cy.visit(route, { failOnStatusCode: false })
+  cy.get('body').should('have.attr', 'data-nuxt-hydrated', 'true')
+  cy.wait(200)
 })

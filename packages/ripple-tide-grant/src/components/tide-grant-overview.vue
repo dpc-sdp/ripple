@@ -3,156 +3,88 @@ export default { name: 'TideGrantOverview' }
 </script>
 
 <template>
-  <div class="tide-grant__overview">
+  <RplLayoutPageComponent>
     <h2 class="tide-grant__title rpl-type-h2-fixed rpl-u-margin-b-6">
       {{ overview.title }}
     </h2>
-    <ol class="tide-grant__overview-items">
-      <li
-        v-if="formattedFunding"
-        data-cy="funding"
-        class="
-          tide-grant__overview-item tide-grant__overview-item--funding
-          rpl-type-label
-        "
-      >
-        <rpl-icon name="icon-dollar-circle-filled"></rpl-icon
-        ><span class="rpl-type-h4-fixed">
-          {{ formattedFunding }}
-        </span>
-      </li>
-      <li
-        v-if="overview.audience"
-        class="
-          tide-grant__overview-item tide-grant__overview-item--audience
-          rpl-type-label
-        "
-      >
-        <rpl-icon name="icon-user-circle-filled"></rpl-icon
-        ><span class="rpl-type-h4-fixed"> {{ overview.audience }}</span>
-      </li>
-      <li
-        v-if="overview.date"
-        class="
-          tide-grant__overview-item tide-grant__overview-item--status
-          rpl-type-label
-        "
-      >
-        <rpl-icon
-          v-if="openState"
-          name="icon-check-circle-filled"
-          colour="success"
-          data-cy="statusIcon"
-        ></rpl-icon
-        ><rpl-icon
-          v-else
-          name="icon-cancel-circle-filled"
-          colour="error"
-          data-cy="statusIcon"
-        ></rpl-icon
-        ><span class="rpl-type-h4-fixed" data-cy="statusText">
-          {{ formattedDate }}
-        </span>
-      </li>
-      <li
-        v-if="overview.description"
-        class="tide-grant__overview-item tide-grant__overview-item--description"
-      >
-        <p class="rpl-type-p">
-          {{ overview.description }}
-        </p>
-      </li>
-      <li
-        v-if="overview.link"
-        class="tide-grant__overview-item tide-grant__overview-item--link"
-      >
-        <rpl-button el="a" :href="overview.link.uri">{{
-          overview.link.title
-        }}</rpl-button>
-      </li>
-    </ol>
-  </div>
+    <RplList
+      :items="overviewList"
+      item-class="tide-grant__overview-item rpl-type-h4-fixed"
+    />
+  </RplLayoutPageComponent>
+
+  <RplLayoutPageComponent
+    v-if="overview.description"
+    class="tide-grant__overview-item rpl-type-p"
+  >
+    <RplContent :html="overview.description"></RplContent>
+  </RplLayoutPageComponent>
+
+  <RplLayoutPageComponent
+    v-if="overview.link"
+    class="tide-grant__overview-item"
+  >
+    <RplButton el="a" :href="overview.link.uri">
+      {{ overview.link.title }}
+    </RplButton>
+  </RplLayoutPageComponent>
 </template>
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import type { TideGrantOverview } from '../../types'
-import { RplButton, RplIcon } from '@dpc-sdp/ripple-ui-core'
+import type { TideGrantOverview } from '../types'
+import { getGrantStatus } from '@dpc-sdp/ripple-ui-core'
 
-const props =
-  defineProps<{
-    overview: TideGrantOverview
-  }>()
+interface Props {
+  overview: TideGrantOverview
+}
 
-const formattedFunding = computed(() => {
-  const formatOptions: Intl.NumberFormatOptions = {
-    style: 'currency',
-    minimumFractionDigits: 0,
-    currency: 'AUD'
-  }
-  if (props.overview.funding.from >= 0 && props.overview.funding.to >= 0) {
-    if (
-      props.overview.funding.from === props.overview.funding.to ||
-      props.overview.funding.to === 0
-    ) {
-      return new Intl.NumberFormat('en-AU', formatOptions).format(
-        props.overview.funding.from
-      )
-    } else {
-      return [
-        new Intl.NumberFormat('en-AU', formatOptions).format(
-          props.overview.funding.from
-        ),
-        new Intl.NumberFormat('en-AU', formatOptions).format(
-          props.overview.funding.to
-        )
-      ].join(' - ')
-    }
-  }
-  return null
+const props = defineProps<Props>()
+
+const grantStatus = computed(() => {
+  return getGrantStatus(
+    new Date(),
+    props.overview.ongoing,
+    props.overview.date.from,
+    props.overview.date.to
+  )
 })
 
-const to = new Date(props.overview.date.to)
-const now = new Date()
+const overviewList = computed(() => {
+  let list: any[] = []
 
-const openState = computed(
-  () => props.overview.ongoing || !props.overview.date.to || now < to
-)
-
-const formattedDate = computed(() => {
-  if (props.overview.ongoing) {
-    return 'Ongoing'
+  if (props.overview?.funding) {
+    list.push({
+      text: props.overview.funding,
+      icon: 'icon-dollar-circle-filled'
+    })
+  }
+  if (props.overview?.funding) {
+    list.push({
+      text: props.overview.audience,
+      icon: 'icon-user-circle-filled'
+    })
   }
 
-  if (props.overview.date.to) {
-    if (now > to) {
-      return 'Closed'
-    }
+  const open =
+    grantStatus.value.status === 'open' ||
+    grantStatus.value.status === 'opening_soon'
 
-    const from = new Date(props.overview.date.from)
+  list.push({
+    text: grantStatus.value.displayLabel,
+    icon: open ? 'icon-check-circle-filled' : 'icon-cancel-circle-filled',
+    iconColour: open ? 'success' : 'error'
+  })
 
-    if (from < now) {
-      // Calculate days remaining
-      const days = Math.floor(
-        to.valueOf() / 86400000 - now.valueOf() / 86400000
-      )
-
-      if (days > 0) {
-        return `Open, closing in ${new Intl.NumberFormat('en-AU').format(
-          days
-        )} day${days > 1 ? 's' : ''}`
-      } else {
-        return 'Open, closing today'
-      }
-    } else {
-      return `Opening on ${new Intl.DateTimeFormat('default', {
-        dateStyle: 'long'
-      }).format(from)}`
-    }
-  }
-
-  return 'Ongoing'
+  return list
 })
 </script>
 
-<style src="./tide-grant-overview.css" />
+<style>
+.tide-grant__overview-item {
+  display: flex;
+  gap: var(--rpl-sp-3);
+  align-items: center;
+  margin-bottom: var(--rpl-sp-4);
+}
+</style>

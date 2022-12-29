@@ -1,21 +1,65 @@
+<script lang="ts">
+export default { name: 'TideEventPage' }
+</script>
+
 <template>
-  <div>
-    <h1>{{ page.title }}</h1>
-    <p>{{ page.summary }}</p>
-    <img v-if="page.image" :src="imgUrl" />
-    <a v-if="page.link" :href="page.link?.url">{{ page.link.text }}</a>
-  </div>
+  <TideBaseLayout
+    :site="site"
+    :background="page.background"
+    :pageTitle="page.title"
+    :pageDescription="page.description"
+    :pageLanguage="page.lang"
+    :updatedDate="page.changed || page.created"
+  >
+    <template #aboveHeader>
+      <slot name="aboveHeader"></slot>
+    </template>
+    <template #primaryNav>
+      <slot name="primaryNav"></slot>
+    </template>
+    <template #breadcrumbs>
+      <slot name="breadcrumbs"></slot>
+    </template>
+    <template #aboveBody="{ hasBreadcrumbs }">
+      <TideEventHeader
+        :header="page.header"
+        :hasBreadcrumbs="hasBreadcrumbs"
+      ></TideEventHeader>
+    </template>
+    <template #body>
+      <TideEventOverview
+        :date="page.date"
+        :showTime="page.showTime"
+        :overview="page.overview"
+        :details="page.details"
+        :link="page.link"
+        :description="page.description"
+      ></TideEventOverview>
+      <TideEventBody :body="page.body" :link="page.link"></TideEventBody>
+    </template>
+    <template #aboveSidebar>
+      <slot name="aboveSidebar"></slot>
+    </template>
+    <template #sidebar>
+      <slot name="sidebar"></slot>
+    </template>
+    <template #belowSidebar>
+      <slot name="aboveSidebar"></slot>
+    </template>
+    <template #footer>
+      <slot name="footer"></slot>
+    </template>
+  </TideBaseLayout>
 </template>
 
 <script setup lang="ts">
-// @ts-ignore
-import { useTideImage } from '#imports'
-import type TideEventPage from './../types'
+import { TideSiteData } from '@dpc-sdp/ripple-tide-api/types'
+import type { TideEventPage } from './types'
 
-const props =
-  defineProps<{
-    page: TideEventPage
-  }>()
+interface Props {
+  site: TideSiteData
+  page: TideEventPage
+}
 
-const imgUrl = useTideImage(props.page.image.src, 300)
+defineProps<Props>()
 </script>

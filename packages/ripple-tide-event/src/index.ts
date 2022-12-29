@@ -1,63 +1,94 @@
 import {
+  // getAddress,
+  drupalField,
   getField,
-  getImageFromField,
-  getAddress,
-  formatDate,
-  tidePageMappingBase
+  getBodyFromField,
+  getLinkFromField,
+  formatPriceRange,
+  tidePageBaseMapping,
+  tidePageBaseIncludes
 } from '@dpc-sdp/ripple-tide-api'
-
 import type { RplTideMapping } from '@dpc-sdp/ripple-tide-api/types'
+
+const getAddress = (field: drupalField) => `
+ ${field.address_line1}${field.address_line1 ? ', ' : ''}
+ ${field.address_line2}${field.address_line2 ? ', ' : ''}
+ ${field.locality}${field.address_line2 || field.locality ? ', ' : ''}
+ ${field.administrative_area} ${field.postal_code}
+`
 
 const tideEventModule: RplTideMapping = {
   component: '@dpc-sdp/ripple-tide-event/component',
   schema: '@dpc-sdp/ripple-tide-event/types',
   mapping: {
-    ...tidePageMappingBase,
-    summary: 'field_landing_page_summary',
-    link: (src) => ({
-      text: 'See event details',
-      url: getField(src, 'path.url', null)
+    ...tidePageBaseMapping({
+      withSidebarContacts: true,
+      withSidebarRelatedLinks: true,
+      withSidebarSocialShare: true
     }),
-    image: (src) => getImageFromField(src, 'field_featured_image'),
-    date: (src) => {
-      const format = src.field_event_details[0]?.field_show_time
-        ? 'DD MMMM YYYY hh:mm a'
-        : 'DD MMMM YYYY'
-      const start = formatDate(
-        src.field_event_details[0]?.field_paragraph_date_range?.value,
-        format
-      )
-      const end = formatDate(
-        src.field_event_details[0]?.field_paragraph_date_range?.end_value,
-        format
-      )
-      const range = start + (end ? ` - ${end}` : '')
-
+    url: 'path.url',
+    summary: 'field_landing_page_summary',
+    showInPageNav: 'field_show_table_of_content',
+    inPageNavHeadingLevel: (src) => {
+      if (src.field_node_display_headings === 'showH2AndH3') {
+        return 'h3'
+      }
+      return 'h2'
+    },
+    header: {
+      title: 'title',
+      summary: 'field_news_intro_text'
+    },
+    breadcrumbs: (src: string) => {
       return {
-        start,
-        end,
-        range
+        items: [
+          { label: 'Home', url: '/' },
+          {
+            label: getField(src, 'publication_navigation_root.meta.title'),
+            url: getField(src, 'publication_navigation_root.meta.url')
+          },
+          { label: getField(src, 'title') }
+        ]
       }
     },
-    address: (src) =>
-      getAddress(src.field_event_details[0]?.field_paragraph_location),
-    prices: (src) => {
-      const from = src.field_event_details[0]?.field_paragraph_event_price_from
-      const to = src.field_event_details[0]?.field_paragraph_event_price_to
-
-      return from && from + (to ? ` - ${to}` : '')
+    date: {
+      from: 'field_event_details[0].field_paragraph_date_range.value',
+      to: 'field_event_details[0].field_paragraph_date_range.end_value'
     },
-    bookLink: (src) => src.field_event_details[0]?.field_paragraph_link,
-    requirements: (src) => src.field_event_details[0]?.field_event_requirements
+    showTime: 'field_event_details[0].field_show_time',
+    overview: (src: string) =>
+      getField(src, 'field_event_details').map((node: any) => [
+        {
+          term: 'Price:',
+          description: formatPriceRange({
+            from: node.field_paragraph_event_price_from,
+            to: node.field_paragraph_event_price_to
+          })
+        },
+        {
+          term: 'Location:',
+          description: getAddress(node.field_paragraph_location)
+        }
+      ])[0],
+    details: (src: string) =>
+      getField(src, 'field_event_details[0].field_event_requirements').map(
+        (node: any) => node.name
+      ),
+    description: 'field_event_description.processed',
+    body: (src: string) => getBodyFromField(src, 'body'),
+    link: (src: string) =>
+      getLinkFromField(src, 'field_event_details[0].field_paragraph_link'),
+    showLastUpdated: () => true
   },
   includes: [
-    'field_landing_page_contact.field_paragraph_phones',
-    'field_landing_page_contact.field_paragraph_social_media',
-    'field_event_category',
-    'field_event_details.field_event_requirements',
+    ...tidePageBaseIncludes({
+      withSidebarContacts: true,
+      withSidebarRelatedLinks: true,
+      withSidebarSocialShare: true
+    }),
+    'field_event_details',
     'field_featured_image',
-    'field_featured_image.field_media_image',
-    'field_audience'
+    'field_event_details.field_event_requirements'
   ]
 }
 

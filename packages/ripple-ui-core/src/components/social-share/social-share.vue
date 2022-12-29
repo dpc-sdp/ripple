@@ -3,51 +3,48 @@ export default { name: 'RplSocialShare' }
 </script>
 
 <script setup lang="ts">
-import { RplSocialSharePage } from './constants'
-import RplIcon from '../icon/icon.vue'
+import { reactive, onMounted, computed } from 'vue'
+import { RplSocialShareNetworks } from './constants'
+import RplSocialShareLink from './social-share-link.vue'
 
 interface Props {
-  title?: string | null
+  title?: string
   networks?: string[]
-  page?: RplSocialSharePage
+  pagetitle: string
 }
 
-withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<Props>(), {
   title: 'Share this page',
-  networks: () => ['facebook', 'twitter', 'linkedin'],
-  page: () => {
-    return {
-      title: '',
-      url: ''
-    }
-  }
+  networks: () => Object.keys(RplSocialShareNetworks)
+})
+
+// Check that network has a template in constants
+const validNetworks = computed(() =>
+  props.networks.filter((k) => Object.keys(RplSocialShareNetworks).includes(k))
+)
+
+const state = reactive({
+  url: ''
+})
+
+onMounted(() => {
+  state.url = location.href
 })
 </script>
 
 <template>
-  <div v-if="page.title && page.url" class="rpl-social-share">
+  <div v-if="pagetitle && state.url" class="rpl-social-share">
     <h3 v-if="title" class="rpl-social-share__title rpl-type-label-large">
       {{ title }}
     </h3>
     <div class="rpl-social-share__items">
-      <ShareNetwork
-        v-for="network in networks"
+      <RplSocialShareLink
+        v-for="network in validNetworks"
         :key="network.toLowerCase()"
-        :network="network.toLowerCase()"
-        :title="page.title"
-        :url="page.url"
-        class="
-          rpl-text-link
-          rpl-social-share__link
-          rpl-u-focusable-inline rpl-type-p-small
-        "
-      >
-        <RplIcon
-          class="rpl-social-share__icon"
-          :name="`icon-${network.toLowerCase()}`"
-        ></RplIcon>
-        <span>{{ network }}</span>
-      </ShareNetwork>
+        :network="network"
+        :title="pagetitle"
+        :url="state.url"
+      ></RplSocialShareLink>
     </div>
   </div>
 </template>

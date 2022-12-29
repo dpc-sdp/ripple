@@ -6,6 +6,10 @@ body {
   max-width: 1120px;
 }
 
+.rpl-storybook__page-content {
+  max-width: var(--rpl-content-max-width);
+}
+
 .rpl-storybook__icon-list {
   display: flex;
   flex-wrap: wrap;
@@ -25,6 +29,12 @@ body {
   width: calc(12.5% - 1rem - 2px);
   margin: 0.5rem;
   margin-top: 0;
+}
+
+.rpl-storybook-form-values {
+  font-size: 16px;
+  background: #eee;
+  padding: 30px;
 }
 
 .sb-flex-container .innerZoomElementWrapper {

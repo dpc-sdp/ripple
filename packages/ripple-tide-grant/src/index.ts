@@ -1,6 +1,8 @@
 import mime from 'mime-types'
 import {
-  tidePageMappingBase,
+  tidePageBaseMapping,
+  tidePageBaseIncludes,
+  formatPriceRange,
   getField,
   humanizeFilesize
 } from '@dpc-sdp/ripple-tide-api'
@@ -31,7 +33,12 @@ const tideGrantModule: RplTideMapping = {
   component: '@dpc-sdp/ripple-tide-grant/component',
   schema: '@dpc-sdp/ripple-tide-grant/types',
   mapping: {
-    ...tidePageMappingBase,
+    ...tidePageBaseMapping({
+      withSidebarSiteSectionNav: false,
+      withSidebarContacts: true,
+      withSidebarRelatedLinks: false,
+      withSidebarSocialShare: true
+    }),
     summary: 'field_landing_page_summary',
     header: {
       title: 'title',
@@ -39,7 +46,11 @@ const tideGrantModule: RplTideMapping = {
     },
     overview: {
       title: 'field_overview_title',
-      funding: 'field_node_funding_level',
+      funding: (src: string) =>
+        formatPriceRange({
+          from: getField(src, 'field_node_funding_level.from'),
+          to: getField(src, 'field_node_funding_level.to')
+        }),
       audience: (src: string) =>
         extractAudiences(getField(src, 'field_audience')),
       date: {
@@ -58,8 +69,8 @@ const tideGrantModule: RplTideMapping = {
             title: getField(timeline, 'field_paragraph_title'),
             subtitle: getField(timeline, 'field_paragraph_cta_text'),
             url:
-              timeline.field_paragraph_link.origin_url ||
-              timeline.field_paragraph_link.uri,
+              timeline.field_paragraph_link?.origin_url ||
+              timeline.field_paragraph_link?.uri,
             image:
               timeline.field_paragraph_media &&
               timeline.field_paragraph_media.field_media_image
@@ -89,6 +100,7 @@ const tideGrantModule: RplTideMapping = {
           'field_node_guidelines.field_paragraph_accordion',
           []
         ).map((acc: string) => ({
+          id: getField(acc, 'id'),
           title: getField(acc, 'field_paragraph_accordion_name'),
           content: getField(acc, 'field_paragraph_accordion_body.processed', '')
         }))
@@ -104,6 +116,12 @@ const tideGrantModule: RplTideMapping = {
     sidebarComponents: ['RplSocialShare']
   },
   includes: [
+    ...tidePageBaseIncludes({
+      withSidebarSiteSectionNav: false,
+      withSidebarContacts: true,
+      withSidebarRelatedLinks: false,
+      withSidebarSocialShare: true
+    }),
     'field_audience',
     'field_node_guidelines',
     'field_node_timeline',

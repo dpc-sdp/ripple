@@ -1,80 +1,34 @@
 import { FormKitTypeDefinition } from '@formkit/core'
-import {
-  outer,
-  inner,
-  help,
-  boxHelp,
-  messages,
-  message,
-  prefix,
-  suffix,
-  fieldset,
-  decorator,
-  box,
-  icon,
-  legend,
-  boxOption,
-  boxOptions,
-  boxWrapper,
-  boxLabel,
-  options,
-  checkboxes,
-  $if,
-  $extend,
-  defaultIcon,
-} from '@formkit/inputs'
+import { createRplFormGroup, inputLibrary, rplFeatures } from './input-utils'
 
 /**
- * Input definition for a checkbox(ess).
+ * Input definition for a checkbox.
  * @public
  */
 export const checkbox: FormKitTypeDefinition = {
   /**
    * The actual schema of the input, or a function that returns the schema.
    */
-  schema: outer(
-    $if(
-      '$options == undefined',
-      /**
-       * Single checkbox structure.
-       */
-      boxWrapper(
-        inner(prefix(), box(), decorator(icon('decorator')), suffix()),
-        $if('$label', boxLabel('$label'))
-      ),
-      /**
-       * Multi checkbox structure.
-       */
-      fieldset(
-        legend('$label'),
-        help('$help'),
-        boxOptions(
-          boxOption(
-            boxWrapper(
-              inner(
-                prefix(),
-                $extend(box(), {
-                  bind: '$option.attrs',
-                  attrs: {
-                    id: '$option.attrs.id',
-                    value: '$option.value',
-                    checked: '$fns.isChecked($option.value)',
-                  },
-                }),
-                decorator(icon('decorator')),
-                suffix()
-              ),
-              $if('$option.label', boxLabel('$option.label'))
-            ),
-            boxHelp('$option.help')
-          )
-        )
-      )
-    ),
-    // Help text only goes under the input when it is a single.
-    $if('$options == undefined && $help', help('$help')),
-    messages(message('$message.value'))
-  ),
+  schema: createRplFormGroup({
+    $cmp: 'RplFormOption',
+    props: {
+      type: 'checkbox',
+      id: `$id + '__checkbox'`,
+      name: '$node.name',
+      disabled: '$node.context.disabled',
+      label: '$node.props.checkboxLabel',
+      onValue: '$node.props.onValue',
+      offValue: '$node.props.offValue',
+      checked: '$_value',
+      onChange: '$node.input',
+      validationMeta: '$node.props.validationMeta',
+      'aria-invalid': '$fns.isFieldInvalid()',
+      'aria-required': '$fns.isFieldRequired()',
+      'data-rpl-focus-input': '$id',
+      required: '$fns.isFieldRequired()'
+    }
+  }),
+  library: inputLibrary,
   /**
    * The type of node, can be a list, group, or input.
    */
@@ -87,7 +41,7 @@ export const checkbox: FormKitTypeDefinition = {
   /**
    * An array of extra props to accept for this input.
    */
-  props: ['options', 'onValue', 'offValue'],
+  props: ['checkboxLabel', 'onValue', 'offValue'],
   /**
    * Forces node.props.type to be this explicit value.
    */
@@ -95,9 +49,5 @@ export const checkbox: FormKitTypeDefinition = {
   /**
    * Additional features that should be added to your input
    */
-  features: [
-    options,
-    checkboxes,
-    defaultIcon('decorator', 'checkboxDecorator'),
-  ],
+  features: rplFeatures
 }

@@ -3,7 +3,6 @@ import { registerRplFormPlugin } from '@dpc-sdp/ripple-ui-forms'
 import '@dpc-sdp/ripple-ui-core/style'
 import { withCssResources } from '@storybook/addon-cssresources'
 import { withDesign } from 'storybook-addon-designs'
-import VueSocialSharing from 'vue-social-sharing'
 import { app } from '@storybook/vue3'
 import themes from './themes.json'
 import withBackground from './utils/withBackground'
@@ -15,7 +14,6 @@ import svgPlaceholder from '~/storybook/utils/svgPlaceholder'
 window.svgPlaceholder = svgPlaceholder
 
 // Ripple vue plugins
-app.use(VueSocialSharing)
 registerRplFormPlugin(app)
 
 export const parameters = {
@@ -35,7 +33,7 @@ export const parameters = {
     disable: true
   },
   designTokensCss: {
-    label: "Themes",
+    label: 'Themes',
     persistData: true,
     themes
   }
@@ -48,5 +46,5 @@ export const decorators = [
     template: '<div><RplIconSprite /><story /></div>'
   }),
   withBackground,
-  withDesign,
+  withDesign
 ]

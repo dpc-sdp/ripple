@@ -1,12 +1,8 @@
-import { onMounted, onBeforeUnmount, ref } from 'vue'
+import { ref } from 'vue'
 import { useEventListener } from '@vueuse/core'
 
-export function useAccessibleContainer(
-  callback = 'triggerClick',
-  setActive = 'setActive',
-  setInactive = 'setInactive'
-) {
-  const checkLeftMouseButton = (evt: MouseEvent) => {
+export function useAccessibleContainer() {
+  const checkLeftMouseButton = (evt: any) => {
     // https://stackoverflow.com/a/3944291
     evt = evt || window.event
     if ('buttons' in evt) {
@@ -15,9 +11,7 @@ export function useAccessibleContainer(
     return evt.button === 1
   }
 
-  // container is a RplCard or any comp with a "setActive"/"setInactive" interface
   const container: any = ref(null)
-  // trigger is a RplTextLink or any comp with a "callback" interface
   const trigger: any = ref(null)
 
   let up: number
@@ -39,19 +33,14 @@ export function useAccessibleContainer(
       // Add 200ms delay to allow text selection
       if (up - down < 200) {
         // Only fire a click if the target is not the trigger el
-        if (trigger.value !== e.target) {
-          trigger.value[callback]()
+        // Note, the link can also be nested, so we need to check so said 'nested' ref
+        const clickedElement = trigger.value?.link || trigger.value
+
+        if (clickedElement !== e.target) {
+          clickedElement.click()
         }
       }
     }
-  })
-
-  onMounted(() => {
-    container.value[setActive]()
-  })
-
-  onBeforeUnmount(() => {
-    container.value[setInactive]()
   })
 
   return { container, trigger }

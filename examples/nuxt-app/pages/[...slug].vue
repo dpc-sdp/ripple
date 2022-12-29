@@ -1,5 +1,5 @@
 <template>
-  <TidePage> </TidePage>
+  <TideContentPage />
 </template>
 
 <script>

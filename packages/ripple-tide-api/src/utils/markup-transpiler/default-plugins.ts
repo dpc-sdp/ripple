@@ -29,6 +29,69 @@ const pluginCallout = function (this: any) {
   })
 }
 
+const pluginQuotation = function (this: any) {
+  this.find('.quotation').map((i: number, el: any) => {
+    // Remove drupal class, add type to paras
+    const $quotation = this.find(el)
+    $quotation.removeClass().addClass('rpl-blockquote__quote')
+    $quotation.find('p').map((j: number, item: any) => {
+      this.find(item).addClass('rpl-type-p-large-fixed')
+    })
+
+    // Parse citation block
+    const $citation = $quotation.find('footer')
+    const authors: string[] = []
+    $citation.find('span').map((j: number, item: any) => {
+      authors.push(
+        `<span class="rpl-blockquote__author-name">${this.find(
+          item
+        ).text()}</span>`
+      )
+    })
+    $citation.remove()
+
+    // Rewrite blockquote
+    return $quotation.replaceWith(`
+<figure class="rpl-blockquote">
+  ${$quotation}
+  <figcaption class="rpl-blockquote__author rpl-type-label-small">
+    ${authors.join('')}
+  </figcaption>
+</figure>
+`)
+  })
+}
+
+const pluginDocuments = function (this: any) {
+  this.find('.embedded-entity--media--document').map((i: number, el: any) => {
+    const $document = this.find(el)
+
+    const label = $document.find('a[aria-label]').attr('aria-label'),
+      link = $document.find('a').attr('href'),
+      title = $document.find('.file--title').text(),
+      filetype = $document.find('.file--type').text(),
+      filesize = $document.find('.file--size').text()
+
+    return $document.replaceWith(`
+<figure class="rpl-document">
+  <a tabindex="-1" class="rpl-document__link" aria-label="${label}" href="${link}" target="_blank">
+    <span class="rpl-document__icon rpl-icon rpl-icon--size-l rpl-icon--colour-default rpl-icon--icon-document-lined">
+      <svg role="presentation"><use xlink:href="#icon-document-lined"></use></svg>
+    </span>
+    <div class="rpl-document__content">
+      <span class="rpl-document__name rpl-type-p rpl-type-weight-bold rpl-u-focusable-inline" tabindex="0">${title}</span>
+      <div class="rpl-document__info rpl-type-label-small">
+        <span class="rpl-file__meta">${filetype}</span>
+        <span class="rpl-file__meta">${filesize}</span>
+      </div>
+    </div>
+  </span>
+  </a>
+</figure>
+`)
+  })
+}
+
 const pluginImages = function (this: any) {
   // Find all drupal image embeds
   this.find('.embedded-entity--media--image').map((i: any, el: any) => {
@@ -45,4 +108,10 @@ const pluginImages = function (this: any) {
   })
 }
 
-export default [pluginCallout, pluginTables, pluginImages]
+export default [
+  pluginTables,
+  pluginCallout,
+  pluginQuotation,
+  pluginDocuments,
+  pluginImages
+]

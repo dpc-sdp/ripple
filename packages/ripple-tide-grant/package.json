@@ -1,15 +1,14 @@
 {
   "name": "@dpc-sdp/ripple-tide-grant",
-  "version": "0.0.0",
+  "version": "2.1.0-alpha.52",
   "description": "Ripple mappings and components for Tide Grant Content type",
   "main": "dist/index.js",
   "module": "dist/index.js",
-  "types": "./types.d.ts",
   "type": "module",
   "exports": {
     ".": "./dist/index.js",
     "./component": "./src/index.vue",
-    "./types": "./types.d.ts",
+    "./types": "./src/types.ts",
     "./nuxt": "./src/nuxt.ts"
   },
   "license": "MIT",
@@ -20,13 +19,11 @@
     "watch": "yarn clean && tsc -p tsconfig.json -w"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-tide-api": "0.0.0"
-  },
-  "devDependencies": {
+    "@dpc-sdp/ripple-tide-api": "2.1.0-alpha.52"
   },
   "files": [
     "dist",
-    "src/*.vue",
+    "src",
     "!**/*.test.*",
     "!**/*.json",
     "CHANGELOG.md",

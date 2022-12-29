@@ -1,38 +1,38 @@
-import { When, Then } from '@badeball/cypress-cucumber-preprocessor'
+import { Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Then('the title should be {string}', (title: string) => {
-  cy.get('[data-cy="title"]').should('have.text', title)
+  cy.get('[data-cy="hero-title"]').should('have.text', title)
 })
 
 Then(
   'the overview should display a status of {string} with a {string} {string} icon',
   (status: string, colour: string, icon: string) => {
-    cy.get('[data-cy="statusText"]').should('have.text', status)
+    cy.get('.tide-grant__overview-item .rpl-list__label')
+      .contains(status)
+      .closest('.tide-grant__overview-item')
+      .as('item')
 
     // icon type
-    cy.get('[data-cy="statusIcon"]').should(
-      'have.class',
-      `rpl-icon--icon-${icon}-circle-filled`
-    )
+    cy.get('@item')
+      .find('.rpl-icon')
+      .should('have.class', `rpl-icon--icon-${icon}-circle-filled`)
 
     // icon colour
     if (colour.toLowerCase() === 'red') {
-      cy.get('[data-cy="statusIcon"]').should(
-        'have.class',
-        'rpl-icon--colour-error'
-      )
+      cy.get('@item')
+        .find('.rpl-icon')
+        .should('have.class', 'rpl-icon--colour-error')
     }
     if (colour.toLowerCase() === 'green') {
-      cy.get('[data-cy="statusIcon"]').should(
-        'have.class',
-        'rpl-icon--colour-success'
-      )
+      cy.get('@item')
+        .find('.rpl-icon')
+        .should('have.class', 'rpl-icon--colour-success')
     }
   }
 )
 
 Then('the overview should display funding of {string}', (funding: string) => {
-  cy.get('[data-cy="funding"]').should('have.text', funding)
+  cy.get('.tide-grant__overview-item .rpl-list__label').contains(funding)
 })
 
 Then(
@@ -41,29 +41,6 @@ Then(
     cy.get(
       '.tide-grant__timeline .rpl-timeline__item:first-of-type > .rpl-timeline__item-subtitle'
     ).should('have.text', date)
-  }
-)
-
-When(
-  'I click the open all button on accordion with ID {string}',
-  (id: string) => {
-    cy.get(`[id="${id}"]`).contains('Open all').click()
-  }
-)
-
-Then(
-  'all accordion items in accordion ID {string} should be visible',
-  (id: string) => {
-    cy.get(`[id="${id}"]`)
-      .find('li > button')
-      .each(($btn) => {
-        cy.wrap($btn).should('have.attr', 'aria-expanded', 'true')
-      })
-    cy.get(`[id="${id}"]`)
-      .find('.rpl-accordion__item-content')
-      .each(($el) => {
-        cy.wrap($el).should('be.visible')
-      })
   }
 )
 

@@ -1,0 +1,113 @@
+@import '@dpc-sdp/ripple-ui-core/style/breakpoints';
+
+.rpl-pagination {
+  display: flex;
+  align-items: center;
+  gap: var(--rpl-sp-6);
+}
+
+.rpl-pagination__tally {
+  flex-grow: 1;
+  flex-shrink: 0;
+  padding-right: var(--rpl-sp-2);
+}
+
+.rpl-pagination__link {
+  display: flex;
+  align-items: center;
+  gap: var(--rpl-sp-3);
+}
+
+.rpl-pagination__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--rpl-sp-3);
+  font-size: var(--rpl-type-lh-7);
+}
+
+.rpl-pagination__page,
+.rpl-pagination__spacer {
+  display: inline-block;
+  text-align: center;
+
+  span {
+    display: flex;
+    align-items: center;
+    padding: var(--rpl-sp-2);
+    min-width: var(--rpl-sp-6);
+    line-height: var(--rpl-type-lh-1);
+  }
+}
+
+.rpl-pagination__page {
+  color: var(--rpl-clr-type-default);
+  border-radius: var(--rpl-border-radius-full);
+
+  &[aria-current] {
+    text-decoration: none;
+    color: var(--rpl-clr-link);
+    padding-left: var(--rpl-sp-2);
+    padding-right: var(--rpl-sp-2);
+    font-weight: var(--rpl-type-weight-bold);
+    box-shadow: 0 0 0 var(--rpl-border-2) currentcolor;
+
+    &:focus-visible {
+      box-shadow: none;
+    }
+  }
+}
+
+.rpl-pagination__spacer {
+  color: var(--rpl-clr-neutral-600);
+}
+
+.rpl-pagination__link,
+.rpl-pagination__page {
+  color: var(--rpl-clr-type-default);
+
+  &:hover {
+    text-decoration: none;
+    color: var(--rpl-clr-link);
+  }
+
+  &:active {
+    text-decoration: underline;
+  }
+}
+
+/* Variants */
+.rpl-pagination--complex {
+  flex-flow: column wrap;
+
+  @media (--rpl-bp-l) {
+    flex-direction: row;
+  }
+
+  .rpl-pagination__link {
+    font-weight: var(--rpl-type-weight-bold);
+  }
+}
+
+.rpl-pagination--simple {
+  justify-content: flex-end;
+
+  .rpl-pagination__link {
+    text-decoration: underline;
+
+    &[disabled] {
+      opacity: 0.3;
+      pointer-events: none;
+    }
+
+    &[disabled],
+    &:hover,
+    &:focus-visible {
+      text-decoration: none;
+    }
+
+    &:active {
+      text-decoration: underline;
+    }
+  }
+}

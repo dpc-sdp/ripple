@@ -31,10 +31,10 @@ withDefaults(defineProps<Props>(), {
           :url="item.url"
           :theme="false"
           class="rpl-breadcrumbs__item-link"
-          >{{ item.label }}</RplTextLink
+          >{{ item.text }}</RplTextLink
         >
         <span v-else class="rpl-breadcrumbs__item--current">{{
-          item.label
+          item.text
         }}</span>
       </li>
     </ol>

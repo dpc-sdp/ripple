@@ -1,11 +1,12 @@
-// This file is used to declare component specific constants. Delete if not needed
+import { RplColorThemes } from '../../lib/constants'
 
 export type RplListTypes = 'ul' | 'ol'
 
 export interface RplListItemArray {
-  text: string,
-  icon?: string,
-  url: string,
-  active?: boolean,
-  items?: RplListItemArray[],
+  text: string
+  icon?: string
+  iconColour?: typeof RplColorThemes[number]
+  url?: string
+  active?: boolean
+  items?: RplListItemArray[]
 }

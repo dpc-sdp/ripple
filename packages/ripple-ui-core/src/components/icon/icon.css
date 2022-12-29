@@ -24,9 +24,7 @@
   }
 
   &--padded {
-    svg {
-      padding: calc(var(--rpl-icon-size) / 2);
-    }
+    padding: calc(var(--rpl-icon-size) / 2);
   }
 
   &--size-xs {

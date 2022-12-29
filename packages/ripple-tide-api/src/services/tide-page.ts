@@ -2,25 +2,35 @@ import jsonapiParse from 'jsonapi-parse'
 import TideApiBase from './tide-api-base.js'
 import defaultMapping from './lib/default-mapping.js'
 import type { RplTideModuleConfig } from './../../types'
+import { ApplicationError, NotFoundError } from '../errors/errors.js'
+import { ILogger } from '../logger/logger'
 export default class TidePage extends TideApiBase {
   contentTypes: object
   site: string
-  constructor(config: RplTideModuleConfig) {
-    super(config)
+  sectionId: string
+  path: string
+
+  constructor(config: RplTideModuleConfig, logger: ILogger) {
+    super(config, logger)
     this.site = config.contentApi.site
+    this.sectionId = ''
+    this.path = ''
     this.contentTypes = config.mapping.content
+    this.logLabel = 'TidePage'
   }
 
   async getRouteByPath(path: string, site: string = this.site) {
+    this.path = path
+
     const routeUrl = `/route?site=${site}&path=${path}`
     return this.get(routeUrl)
       .then((response) => response?.data?.attributes)
       .catch((error) => {
-        return Promise.reject(
-          this.handleError(
-            `Error: ${error.response.status} `,
-            error.response.status
-          )
+        throw new NotFoundError(
+          `Route for site "${site}" and path "${path}" not found`,
+          {
+            cause: error
+          }
         )
       })
   }
@@ -30,35 +40,30 @@ export default class TidePage extends TideApiBase {
     siteQuery: string | undefined,
     config = {}
   ) {
-    try {
-      // if (this.isShareLink(path)) {
-      //   return this.getPageFromShareLink(path, config)
-      // }
-      // if (this.isPreviewLink(path)) {
-      //   return this.getPageFromPreviewLink(path, config)
-      // }
-      const site = siteQuery || this.site
-      const route = await this.getRouteByPath(path, site)
-      if (route && !route.error) {
-        if (route.hasOwnProperty('redirect_type')) {
-          return {
-            type: 'redirect',
-            ...route
-          }
+    // if (this.isShareLink(path)) {
+    //   return this.getPageFromShareLink(path, config)
+    // }
+    // if (this.isPreviewLink(path)) {
+    //   return this.getPageFromPreviewLink(path, config)
+    // }
+    const site = siteQuery || this.site
+    const route = await this.getRouteByPath(path, site)
+    if (route && !route.error) {
+      if (route.hasOwnProperty('redirect_type')) {
+        return {
+          type: 'redirect',
+          ...route
         }
-        const includes = this.getResourceIncludes(route.bundle)
-        const params = {
-          site,
-          ...config
-        }
-        if (includes !== '') {
-          params['include'] = includes
-        }
-        return this.getPageByRouteData(route, { params })
       }
-      return Promise.reject(route)
-    } catch (error) {
-      return Promise.reject(error)
+      const includes = this.getResourceIncludes(route)
+      const params = {
+        site,
+        ...config
+      }
+      if (includes !== '') {
+        params['include'] = includes
+      }
+      return this.getPageByRouteData(route, { params })
     }
   }
 
@@ -125,12 +130,11 @@ export default class TidePage extends TideApiBase {
   //   return Promise.reject(this.handleError({ message: 'Unauthorized' }, 401))
   // }
 
-  getResourceIncludes(type: string) {
-    const includes = this.contentTypes[type]
-      ? this.contentTypes[type].includes
-      : []
+  getResourceIncludes(route) {
+    const includes = this.getContentTypeField('includes', route)
     if (
       defaultMapping &&
+      Array.isArray(includes) &&
       Array.isArray(defaultMapping.includes) &&
       defaultMapping.includes.length > 0
     ) {
@@ -154,62 +158,32 @@ export default class TidePage extends TideApiBase {
   }
 
   async getPageByRouteData(route, config) {
-    try {
-      if (route && route.entity_type && route.bundle && route.uuid) {
-        const nodeUrl = `/${route.entity_type}/${route.bundle}/${route.uuid}`
-        return this.get(nodeUrl, config)
-          .then((response) => {
-            if (response.data) {
-              const data = jsonapiParse.parse(response).data || response.data
-              return this.getTidePage(data, route.bundle)
-            }
-            return response
-          })
-          .catch((error) => {
-            return Promise.reject(
-              this.handleError('', error.response?.status | 404)
-            )
-          })
-      }
-      throw this.handleError('Invalid route')
-    } catch (error: any) {
-      return Promise.reject(
-        this.handleError(
-          'Application Error - getPageByRouteData',
-          error.response?.status || 500
-        )
-      )
-    }
-  }
+    if (route && route.entity_type && route.bundle && route.uuid) {
+      // The route response has a 'section' attribute, which is the site id used to
+      // determine which menu appears in the 'site section navigation'
+      // We capture it here so that it can be used in the mapping functions
+      this.sectionId = route.section
 
-  async getTaxonomyItems(taxonomyName, config) {
-    try {
-      const url = `/taxonomy_term/${taxonomyName}`
-      return this.client.get(url, config).then((response) => {
+      const nodeUrl = `/${route.entity_type}/${route.bundle}/${route.uuid}`
+      return await this.get(nodeUrl, config).then((response) => {
         if (response.data) {
           const data = jsonapiParse.parse(response).data || response.data
-          return data
+          return this.getTidePage(data, route)
         }
         return response
       })
-    } catch (error: any) {
-      return Promise.reject(
-        this.handleError('Application Error - getTaxonomyItems', 500)
-      )
     }
+    throw new Error('Invalid route')
   }
 
-  async getTidePage(resource, type) {
+  async getTidePage(resource, route) {
     if (this.debug) {
       defaultMapping.mapping['_source'] = (src) => src
     }
-    const contentTypeMapping =
-      this.contentTypes[type] &&
-      this.contentTypes[type].hasOwnProperty('mapping') &&
-      this.contentTypes[type].mapping
+    const contentTypeMapping = this.getContentTypeField('mapping', route)
     if (!contentTypeMapping) {
-      return Promise.reject(
-        this.handleError('Unable to resolve content type - ' + type, 500)
+      throw new ApplicationError(
+        `Unable to resolve content type - ${route.type}`
       )
     }
     return this.getMappedData(
@@ -217,7 +191,62 @@ export default class TidePage extends TideApiBase {
       resource
     )
   }
+
+  async getContentList(type: string, options: any = {}) {
+    const params = {
+      site: this.site,
+      ...options
+    }
+    if (options?.include) {
+      params.include = options.include.toString()
+    }
+
+    try {
+      const response = await this.get(`/node/${type}`, {
+        params
+      })
+      if (response) {
+        return jsonapiParse.parse(response).data
+      }
+    } catch (error: any) {
+      throw new ApplicationError(`Error fetching content list for ${type}`, {
+        cause: error
+      })
+    }
+  }
+
   getResourceType(type) {
     return type.replace('node--', '')
+  }
+
+  getContentTypeField(key: string, route) {
+    let contentType =
+      this.contentTypes?.[route.bundle] ||
+      this.contentTypes?.[route.entity_type]
+
+    // Check for "submodules", i.e. modules that are packaged together
+    // for example embedded video and audio are packaged under "media"
+    if (contentType && Array.isArray(contentType)) {
+      contentType = contentType.find((type) => type?.key === route.bundle)
+    }
+
+    return contentType && contentType.hasOwnProperty(key) && contentType?.[key]
+  }
+
+  async getTaxonomy(taxonomyName: string) {
+    const params = {
+      site: this.site
+    }
+    try {
+      const response = await this.get(`/taxonomy_term/${taxonomyName}`, {
+        params
+      })
+      if (response) {
+        const resource = jsonapiParse.parse(response).data
+        return resource
+      }
+    } catch (error: any) {
+      throw new ApplicationError('Error fetching taxonomy', { cause: error })
+    }
   }
 }

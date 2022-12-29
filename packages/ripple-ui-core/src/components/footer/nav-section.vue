@@ -13,7 +13,7 @@ import { useExpandable } from '../../composables/useExpandable'
 interface Props {
   id: string
   section: NavSectionItem
-  isExpandable: boolean
+  isExpandable?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -27,17 +27,17 @@ const { toggleProps, triggerProps } = useExpandable(
   isExpanded
 )
 
-const children = computed(() => {
+const items = computed(() => {
   if (props.section.url) {
     return [
       {
         text: props.section.text,
         url: props.section.url
       },
-      ...(props.section.children || [])
+      ...(props.section.items || [])
     ]
   } else {
-    return props.section.children || []
+    return props.section.items || []
   }
 })
 </script>
@@ -89,8 +89,9 @@ const children = computed(() => {
       v-bind="isExpandable ? triggerProps : null"
     >
       <RplList
-        :items="children"
+        :items="items"
         item-class="rpl-type-p-small rpl-u-margin-b-3"
+        :max-depth="0"
       />
     </component>
   </div>

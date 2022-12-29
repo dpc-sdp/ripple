@@ -1,0 +1,19 @@
+@import '@dpc-sdp/ripple-ui-core/style/breakpoints';
+
+.rpl-form-actions {
+  display: flex;
+  gap: var(--rpl-sp-2);
+  flex-direction: column;
+
+  @media (--rpl-bp-s) {
+    flex-direction: row;
+  }
+
+  margin-top: var(--rpl-sp-6);
+}
+
+.rpl-form-actions__reset {
+  .rpl-icon {
+    color: var(--rpl-clr-error);
+  }
+}

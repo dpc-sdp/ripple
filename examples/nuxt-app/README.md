@@ -12,6 +12,8 @@ yarn install
 
 ## Development
 
+- Copy `.example.env` to `.env`  
+
 Start the development server on http://localhost:3000
 
 ```bash

@@ -1,13 +1,10 @@
 import { join } from 'pathe'
 
-import { defineNuxtModule, installModule, createResolver } from '@nuxt/kit'
+import { defineNuxtModule, installModule } from '@nuxt/kit'
 
 export default defineNuxtModule({
-  async setup(options) {
-    const { resolve } = createResolver(import.meta.url)
-    await installModule('@formkit/nuxt', {
-      configFile: options.formkit?.configFile || resolve('./formkit.config.js')
-    })
+  async setup() {
+    await installModule('@formkit/nuxt')
   },
   hooks: {
     'components:dirs'(dirs) {

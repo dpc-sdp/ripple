@@ -1,40 +1,33 @@
 import { FormKitTypeDefinition } from '@formkit/core'
 import {
-  outer,
-  inner,
-  wrapper,
-  label,
-  help,
-  messages,
-  message,
-  icon,
-  prefix,
-  suffix,
-  textInput
-} from '@formkit/inputs'
+  counterProps,
+  counterRplFormProps,
+  createRplFormInput,
+  defaultRplFormInputProps,
+  inputLibrary,
+  minMaxProps,
+  minMaxRplFormProps,
+  rplFeatures
+} from './input-utils'
 
 /**
- * Input definition for a text.
+ * Input definition for Ripple text input.
  * @public
  */
 export const text: FormKitTypeDefinition = {
   /**
    * The actual schema of the input, or a function that returns the schema.
    */
-  schema: outer(
-    wrapper(
-      label('$label'),
-      help('$help'),
-      inner(
-        icon('prefix', 'label'),
-        prefix(),
-        textInput(),
-        suffix(),
-        icon('suffix')
-      )
-    ),
-    messages(message('$message.value'))
-  ),
+  schema: createRplFormInput({
+    $cmp: 'RplFormInput',
+    props: {
+      ...defaultRplFormInputProps,
+      ...counterRplFormProps,
+      ...minMaxRplFormProps,
+      type: 'text'
+    }
+  }),
+  library: inputLibrary,
   /**
    * The type of node, can be a list, group, or input.
    */
@@ -47,7 +40,7 @@ export const text: FormKitTypeDefinition = {
   /**
    * An array of extra props to accept for this input.
    */
-  props: [],
+  props: [...minMaxProps, ...counterProps, 'placeholder', 'validationMeta'],
   /**
    * Forces node.props.type to be this explicit value.
    */
@@ -55,5 +48,5 @@ export const text: FormKitTypeDefinition = {
   /**
    * Additional features that should be added to your input
    */
-  features: []
+  features: rplFeatures
 }

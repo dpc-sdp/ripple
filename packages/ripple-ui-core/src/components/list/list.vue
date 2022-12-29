@@ -4,10 +4,10 @@ export default { name: 'RplList' }
 
 <script setup lang="ts">
 import { RplListTypes, RplListItemArray } from './constants'
-
-import RplIcon from '../icon/icon.vue'
-import RplList from '../list/list.vue'
+import RplListContent from './list-content.vue'
 import RplTextLink from '../text-link/text-link.vue'
+import { RplIconPlacement } from '../icon/constants'
+import { computed } from 'vue'
 
 export interface Props {
   items?: RplListItemArray[]
@@ -15,16 +15,25 @@ export interface Props {
   itemClass?: string
   containerClass?: string
   depth?: number
-  iconPlacement?: string
+  maxDepth?: number | null
+  iconPlacement?: RplIconPlacement
 }
 
-withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<Props>(), {
   items: () => [],
   type: 'ul',
   itemClass: '',
   containerClass: '',
   depth: 0,
+  maxDepth: null,
   iconPlacement: 'before'
+})
+
+const shouldRenderChildren = computed(() => {
+  if (props.maxDepth !== null) {
+    return props.depth < props.maxDepth
+  }
+  return true
 })
 </script>
 
@@ -40,21 +49,26 @@ withDefaults(defineProps<Props>(), {
       :class="['rpl-list__item', itemClass ? itemClass : null]"
     >
       <RplTextLink v-if="item.url" :url="item.url" class="rpl-list__link">
-        <span v-if="depth > 0" class="rpl-icon--child"></span>
-        <RplIcon
-          v-if="item.icon && iconPlacement === 'before'"
-          :name="item.icon"
-          class="rpl-list__icon"
-        ></RplIcon
-        ><span class="rpl-list__label">{{ item.text }}</span
-        ><RplIcon
-          v-if="item.icon && iconPlacement === 'after'"
-          :name="item.icon"
-          class="rpl-list__icon"
-        ></RplIcon>
+        <RplListContent
+          :icon-name="item?.icon"
+          :icon-colour="item?.iconColour"
+          :icon-placement="iconPlacement"
+          :depth="depth"
+        >
+          {{ item.text }}
+        </RplListContent>
       </RplTextLink>
+      <RplListContent
+        v-else
+        :icon-name="item?.icon"
+        :icon-colour="item?.iconColour"
+        :icon-placement="iconPlacement"
+        :depth="depth"
+      >
+        {{ item.text }}
+      </RplListContent>
       <RplList
-        v-if="item.items"
+        v-if="shouldRenderChildren && item.items"
         :key="`${depth}-${index}`"
         :items="item.items"
         :item-class="itemClass"

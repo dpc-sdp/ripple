@@ -1,5 +1,5 @@
 import { getLocal } from 'mockttp'
-const mockServer = getLocal()
+const mockServer = getLocal({ cors: true })
 
 export default {
   async startMockServer(proxy = false) {
@@ -11,7 +11,6 @@ export default {
         console.log(`Mock server running at : ${mockServer.url}`)
       }
     } catch (error) {
-      console.log(error)
       await mockServer.start(port)
     }
     if (proxy) {
@@ -20,8 +19,12 @@ export default {
     return mockServer.url
   },
   async stopMockServer() {
-    await mockServer.stop()
-    return true
+    try {
+      await mockServer.stop()
+      return true
+    } catch (error) {
+      return false
+    }
   },
   async setMockRoute({ route, status, response }) {
     const endpointMock = await mockServer
@@ -37,11 +40,16 @@ export default {
       .thenJson(status, response)
     return endpointMock
   },
+
   async setMockPostRouteWithQuery({ route, status, response, query }) {
     const endpointMock = await mockServer
-      .forGet(route)
+      .forPost(route)
       .withExactQuery(query)
-      .thenJson(status, response)
+      .thenJson(status, response, {
+        'access-control-allow-origin': '*',
+        'access-control-allow-headers': '*',
+        'access-control-allow-methods': '*'
+      })
     return endpointMock
   }
 }

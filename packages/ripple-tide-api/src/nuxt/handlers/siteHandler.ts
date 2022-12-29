@@ -1,6 +1,22 @@
-import { defineEventHandler, getQuery, CompatibilityEvent } from 'h3'
-export default defineEventHandler(async (event: CompatibilityEvent) => {
-  const query = await getQuery(event)
-  const response = await event.context.tide.siteApi.getSiteData(query.id)
-  return response
+//@ts-nocheck import typing needs fixing
+import { defineEventHandler, getQuery, H3Event } from 'h3'
+import { createHandler } from '@dpc-sdp/ripple-tide-api'
+
+export const createSiteHandler = async (
+  event: H3Event,
+  tideSiteApi: TidePage
+) => {
+  return createHandler(event, 'TidePageHandler', async () => {
+    const query = await getQuery(event)
+
+    if (!query.id) {
+      throw new BadRequestError('Site id is required')
+    }
+
+    return await tideSiteApi.getSiteData(query.id)
+  })
+}
+
+export default defineEventHandler(async (event: H3Event) => {
+  return createSiteHandler(event, event.context.tide.siteApi)
 })

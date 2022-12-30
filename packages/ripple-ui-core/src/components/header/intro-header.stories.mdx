@@ -6,6 +6,7 @@ import {
 } from '@storybook/addon-docs'
 import RplIntroHeader from './intro-header.vue'
 import RplContent from '../content/content.vue'
+import { RplIconNames } from '../icon/constants'
 import { a11yStoryCheck } from './../../../stories/interactions.js'
 
 export const SingleTemplate = (args) => ({
@@ -33,6 +34,10 @@ export const SingleTemplate = (args) => ({
     content: {
       control: 'text'
     },
+    iconName: {
+      control: { type: 'select' },
+      options: RplIconNames
+    }
   }}
   args={{
     title: 'The intro title',
@@ -53,13 +58,13 @@ export const SingleTemplate = (args) => ({
   </Story>
 </Canvas>
 
-## Example / With Icon
+## Intro / With Icon
 
 This is an example the intro header with optional icon
 
 <Canvas>
   <Story
-    name='Intro/Icon'
+    name='Intro/With icon'
     play={a11yStoryCheck}
     args={{
       iconName: 'icon-exclamation-circle-filled',
@@ -69,13 +74,13 @@ This is an example the intro header with optional icon
   </Story>
 </Canvas>
 
-## Example / With Links
+## Intro / With Links
 
 This is an example the intro header with optional links
 
 <Canvas>
   <Story
-    name='Intro/Links'
+    name='Intro/With links'
     play={a11yStoryCheck}
     args={{
       iconName: 'icon-information-circle-filled',

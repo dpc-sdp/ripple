@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.53](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.52...v2.1.0-alpha.53) (2022-12-30)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** :lipstick: spacing tweaks for header ([0802720](https://github.com/dpc-sdp/ripple-framework/commit/0802720785868198764cefbcc9343e18354364dd))
+* **@dpc-sdp/ripple-ui-core:** :lipstick: style tweaks for cta secondary link ([334e88b](https://github.com/dpc-sdp/ripple-framework/commit/334e88bb2516c13a901bdf56c698d6c8bcc7dd08))
+* **@dpc-sdp/ripple-ui-core:** :lipstick: styling tweaks for header ([b8ef396](https://github.com/dpc-sdp/ripple-framework/commit/b8ef39683237463bcfe46ffa9eb791f64c13c2f2))
+
+
+### Features
+
+* **@dpc-sdp/ripple-ui-core:** :lipstick: change icon name input to dropdown rather than text box ([9a18b29](https://github.com/dpc-sdp/ripple-framework/commit/9a18b29677edcc0f57e264cf6ed510884e49aa96))
+
+
+
+
+
 # [2.1.0-alpha.52](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.51...v2.1.0-alpha.52) (2022-12-22)
 
 

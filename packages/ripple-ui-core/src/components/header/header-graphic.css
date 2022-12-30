@@ -35,14 +35,6 @@
     --local-graphic-width: 292px;
     --local-graphic-height: 200px;
   }
-
-  @media (--rpl-bp-xl) {
-    --local-graphic-width: auto;
-    --local-graphic-height: auto;
-
-    max-width: 380px;
-    max-height: 232px;
-  }
 }
 
 .rpl-header-graphic--bottom {

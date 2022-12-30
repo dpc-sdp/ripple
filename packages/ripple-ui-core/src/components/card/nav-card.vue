@@ -10,11 +10,12 @@ import RplCard from './card.vue'
 import RplTextLink from '../text-link/text-link.vue'
 import RplImage from './../image/image.vue'
 import { RplCardElements } from './constants'
+import { RplImageType } from '../image/constants'
 
 interface Props {
   el?: typeof RplCardElements[number]
   highlight?: boolean
-  image?: string
+  image?: RplImageType
   inset?: boolean
   title: string
   url?: string
@@ -34,8 +35,7 @@ const cardClasses = computed(() => ({
 
 const titleClasses = computed(() => [
   'rpl-card__cta',
-  props.highlight ? 'rpl-type-h3-highlight' : 'rpl-type-h3',
-  'rpl-u-focusable-inline'
+  props.highlight ? 'rpl-type-h3-highlight' : 'rpl-type-h3'
 ])
 
 const imgClasses = computed(() => [
@@ -50,9 +50,8 @@ const { container, trigger } = useAccessibleContainer()
   <RplCard ref="container" type="nav" :el="el" :link="url" :class="cardClasses">
     <template v-if="image" #upper>
       <RplImage
+        v-bind="image"
         :class="imgClasses"
-        :src="image"
-        alt=""
         :aspect="{
           xs: 'wide',
           s: 'ultrawide',

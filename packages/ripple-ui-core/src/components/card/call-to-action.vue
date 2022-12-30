@@ -11,11 +11,11 @@ import { useAccessibleContainer } from '../../composables/useAccessibleContainer
 import RplCard from './card.vue'
 import RplButton from '../button/button.vue'
 import RplImage from '../image/image.vue'
+import { RplImageType } from '../image/constants'
 
 interface Props {
   el?: typeof RplCardElements[number]
-  image?: string
-  imageAlt?: string
+  image?: RplImageType
   title: string
   url?: string
   ctaText?: string
@@ -26,7 +26,6 @@ interface Props {
 withDefaults(defineProps<Props>(), {
   el: 'div',
   image: undefined,
-  imageAlt: '',
   url: undefined,
   theme: 'default',
   variant: 'filled',
@@ -48,9 +47,14 @@ const { container, trigger } = useAccessibleContainer()
   >
     <template v-if="image" #upper>
       <RplImage
+        v-bind="image"
         class="rpl-card__media rpl-card__media--inset"
-        :src="image"
-        :alt="imageAlt"
+        :aspect="{
+          xs: 'wide',
+          s: 'ultrawide',
+          m: 'panorama',
+          l: 'full'
+        }"
         data-cy="image"
       />
     </template>

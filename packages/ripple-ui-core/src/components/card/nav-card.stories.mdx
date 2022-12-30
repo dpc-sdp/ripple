@@ -25,8 +25,8 @@ export const samples = {
 export const SingleTemplate = (args) => ({
   components: { RplNavCard, RplIcon, RplTag },
   setup() {
-    const img = (args.graphicElement === 'Image inset' || args.graphicElement === 'Heading highlighted')
-      ? svgPlaceholder({ width: 1200, height: 800, bgColor: '#e76', fgColor: '#a31' }) : null
+    const src = svgPlaceholder({ width: 1200, height: 800, bgColor: '#e76', fgColor: '#a31' })
+    const img = args.graphicElement === 'Image inset' || args.graphicElement === 'Heading highlighted' ? { src } : null
     return { args, img }
   },
   template: `

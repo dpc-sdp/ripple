@@ -25,9 +25,9 @@ export const samples = {
 export const SingleTemplate = (args) => ({
   components: { RplPromoCard, RplIcon, RplTag },
   setup() {
-    const img = args.graphicElement === 'Image' ?
-      svgPlaceholder({ width: 400, height: 300, bgColor: '#ad9', fgColor: '#efc' }) : null
-    return { args, img: { src: img } }
+    const src = svgPlaceholder({ width: 400, height: 300, bgColor: '#ad9', fgColor: '#efc' })
+    const img =  args.graphicElement === 'Image' ? { src } : null
+    return { args, img }
   },
   template: `
   <ul class="rpl-storybook__page rpl-grid">

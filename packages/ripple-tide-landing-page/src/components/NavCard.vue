@@ -1,7 +1,7 @@
 <template>
   <RplNavCard
     :title="title"
-    :image="displayStyle !== 'noImage' ? image?.src : null"
+    :image="displayStyle !== 'noImage' ? image : null"
     :url="url"
     :highlight="displayStyle === 'featured'"
     :inset="displayStyle === 'thumbnail'"
@@ -24,8 +24,8 @@ interface Props {
     src: string
     alt: string
     focalPoint?: {
-      x: string
-      y: string
+      x: number
+      y: number
     }
   } | null
   displayStyle: 'noImage' | 'thumbnail' | 'featured'

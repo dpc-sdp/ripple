@@ -20,7 +20,7 @@ withDefaults(defineProps<Props>(), {
 <template>
   <nav class="rpl-page-links">
     <RplPageLinksItem
-      v-if="prev && prev.text"
+      v-if="prev && prev.url"
       :link="prev"
       :label="prev.text || 'Previous'"
       icon-name="icon-arrow-left"
@@ -28,7 +28,7 @@ withDefaults(defineProps<Props>(), {
       {{ prev.description }}
     </RplPageLinksItem>
     <RplPageLinksItem
-      v-if="next && next.text"
+      v-if="next && next.url"
       :link="next"
       :label="next.text || 'Next'"
       icon-name="icon-arrow-right"

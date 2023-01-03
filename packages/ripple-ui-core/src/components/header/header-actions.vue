@@ -44,11 +44,7 @@ withDefaults(defineProps<Props>(), {
       <RplTextLink
         v-if="secondary"
         :url="secondary.url"
-        class="
-          rpl-header-actions__secondary-link
-          rpl-header__icon-link rpl-header__text-large-fixed
-          rpl-type-label rpl-type-weight-bold
-        "
+        class="rpl-header-actions__secondary-link rpl-header__icon-link"
       >
         <span>{{ secondary.text }}</span
         ><RplIcon name="icon-arrow-right" size="xs" />

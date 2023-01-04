@@ -5,7 +5,7 @@ import { BadRequestError } from '@dpc-sdp/ripple-tide-api/errors'
 
 export const createPageHandler = async (
   event: H3Event,
-  tidePageApi: TidePage
+  tidePageApi: TidePageApi
 ) => {
   return createHandler(event, 'TidePageHandler', async () => {
     const query = await getQuery(event)

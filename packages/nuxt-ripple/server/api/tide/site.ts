@@ -1,10 +1,10 @@
 //@ts-nocheck import typing needs fixing
 import { defineEventHandler, getQuery, H3Event } from 'h3'
-import { createHandler, TidePageApi } from '@dpc-sdp/ripple-tide-api'
+import { createHandler, TideSiteApi } from '@dpc-sdp/ripple-tide-api'
 
 export const createSiteHandler = async (
   event: H3Event,
-  tideSiteApi: TidePageApi
+  tideSiteApi: TideSiteApi
 ) => {
   return createHandler(event, 'TidePageHandler', async () => {
     const query = await getQuery(event)

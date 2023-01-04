@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useRuntimeConfig, useFetch } from '#imports'
+import { useRuntimeConfig } from '#imports'
 import { FormKitSchemaNode } from '@formkit/core'
 import { $fetch } from 'ohmyfetch'
 import { nextTick, ref, watch } from 'vue'
@@ -116,22 +116,11 @@ watch(
 </script>
 
 <template>
-  <RplFormAlert
-    v-if="hideFormOnSubmit && submissionState.status === 'success'"
-    ref="serverSuccessRef"
-    :status="submissionState.status"
-    :title="submissionState.title"
-    data-component-type="form-server-message"
-  >
+  <RplFormAlert v-if="hideFormOnSubmit && submissionState.status === 'success'" ref="serverSuccessRef"
+    :status="submissionState.status" :title="submissionState.title" data-component-type="form-server-message">
     <template #default>
       <RplContent :html="submissionState.message" />
     </template>
   </RplFormAlert>
-  <RplForm
-    v-else
-    :id="formId"
-    :schema="schema"
-    :submissionState="submissionState"
-    @submit="submitHandler"
-  />
+  <RplForm v-else :id="formId" :schema="schema" :submissionState="submissionState" @submit="submitHandler" />
 </template>

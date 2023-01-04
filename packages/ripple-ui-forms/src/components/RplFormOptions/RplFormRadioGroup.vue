@@ -39,20 +39,12 @@ const isChecked = (optionId: string): boolean => {
 
 <template>
   <div :class="['rpl-form-radio-group', `rpl-form-radio-group--${layout}`]">
-    <RplFormOption
-      v-for="(option, i) in options"
-      type="radio"
-      :id="option.id"
-      :key="option.id"
-      :data-rpl-focus-input="i === 0 ? id : undefined"
-      :variant="variant"
-      :name="name"
-      :label="option.label"
-      :disabled="disabled || option.disabled"
-      :checked="isChecked(option.id)"
-      @onChange="handleChange(option.id)"
-    />
+    <RplFormOption v-for="(option, i) in options" :id="option.id" :key="option.id" type="radio"
+      :data-rpl-focus-input="i === 0 ? id : undefined" :variant="variant" :name="name" :label="option.label"
+      :disabled="disabled || option.disabled" :checked="isChecked(option.id)" @on-change="handleChange(option.id)" />
   </div>
 </template>
 
-<style src="./RplFormRadioGroup.css"></style>
+<style src="./RplFormRadioGroup.css">
+
+</style>

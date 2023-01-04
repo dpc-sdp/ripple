@@ -47,7 +47,6 @@
 <script setup lang="ts">
 import { TideSiteData } from '@dpc-sdp/ripple-tide-api/types'
 import type { TideLandingPagePage } from '../../types'
-console.log('LazyTideLandingPage')
 defineProps<{
   site: TideSiteData
   page: TideLandingPagePage

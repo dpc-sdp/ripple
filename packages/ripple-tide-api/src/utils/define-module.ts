@@ -1,5 +1,5 @@
 import type { RplTideModuleConfig, RplTideMapping } from './../../types'
-
+import { H3Event } from 'h3'
 export interface RplTideModuleMapping {
   site: RplTideMapping
   content: {
@@ -29,6 +29,20 @@ export const defineRplTideModule = async (
   return {
     site,
     content
+  }
+}
+
+export const registerTideContentType = (
+  event: H3Event,
+  contentType: string,
+  contentTypeModule: RplTideMapping
+) => {
+  if (event.node.req?.url?.includes('/api/tide/page')) {
+    if (
+      !event.context.tide?.pageApi?.contentTypes.hasOwnProperty(contentType)
+    ) {
+      event.context.tide?.pageApi.setContentType(contentType, contentTypeModule)
+    }
   }
 }
 

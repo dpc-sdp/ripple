@@ -10,7 +10,7 @@
   </span>
   <template v-else>
     <span v-if="meta.fvRecommendationStatus">{{
-        meta.fvRecommendationStatus
+      meta.fvRecommendationStatus
     }}</span>
     <span v-if="formattedDate">{{ formattedDate }}</span>
     <span v-if="meta.inductionYear">{{ meta.inductionYear }}</span>
@@ -21,9 +21,9 @@
 import { RplTag } from '@dpc-sdp/ripple-ui-core'
 import { getGrantStatus } from '@dpc-sdp/ripple-ui-core'
 import { computed } from 'vue'
-import { ITideCardMeta } from '../../mapping/page-components/generic-card-mapping'
-import { formatDate, formatDateRange } from '../../utils/dates'
-import getContentTypeLabel from '../../utils/getContentTypeLabel.js'
+import { ITideCardMeta } from '../../../mapping/page-components/generic-card-mapping'
+import getContentTypeLabel from '../../../utils/getContentTypeLabel.js'
+import { formatDateRange, formatDate } from '#imports'
 
 interface Props {
   meta: ITideCardMeta

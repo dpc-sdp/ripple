@@ -7,7 +7,7 @@
   "keywords": [],
   "scripts": {
     "clean": "rimraf dist* && rimraf tsconfig.tsbuildinfo",
-    "build": "yarn clean && tsc -p tsconfig.json",
+    "build": "echo 'no build step needed'",
     "watch": "yarn clean && tsc -p tsconfig.json -w"
   },
   "dependencies": {

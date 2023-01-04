@@ -15,7 +15,7 @@ export default class TidePageApi extends TideApiBase {
     this.site = tide.config.site
     this.sectionId = ''
     this.path = ''
-    this.contentTypes = tide.mapping.content
+    this.contentTypes = {}
     this.logLabel = 'TidePage'
   }
 

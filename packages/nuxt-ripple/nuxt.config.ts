@@ -4,9 +4,6 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       tide: {
-        mapping: {
-          site: '@dpc-sdp/ripple-tide-api/mapping/site'
-        },
         config: {
           baseUrl: 'https://develop.content.reference.sdp.vic.gov.au',
           site: '8888',

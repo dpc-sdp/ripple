@@ -6,20 +6,20 @@ import {
 import {
   landingPageComponentsMapping,
   landingPageComponentsIncludes
-} from './mapping/page-components/page-components-mapping.js'
+} from './page-components/page-components-mapping.js'
 import type { RplTideMapping } from '@dpc-sdp/ripple-tide-api/types'
 import {
   heroHeaderMapping,
   heroHeaderIncludes
-} from './mapping/hero-header/hero-header-mapping.js'
+} from './hero-header/hero-header-mapping.js'
 import {
   primaryCampaignIncludes,
   primaryCampaignMapping
-} from './mapping/primary-campaign/primary-campaign-mapping.js'
+} from './primary-campaign/primary-campaign-mapping.js'
 import {
   secondaryCampaignIncludes,
   secondaryCampaignMapping
-} from './mapping/secondary-campaign/secondary-campaign-mapping.js'
+} from './secondary-campaign/secondary-campaign-mapping.js'
 
 const tideLandingPageModule: RplTideMapping = {
   mapping: {
@@ -107,4 +107,4 @@ export {
   navigationCardIncludes,
   keyDatesIncludes,
   statisticsGridIncludes
-} from './mapping/page-components/page-components-mapping.js'
+} from './page-components/page-components-mapping.js'

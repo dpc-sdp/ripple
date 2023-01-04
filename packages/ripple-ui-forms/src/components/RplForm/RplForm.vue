@@ -125,6 +125,9 @@ const data = reactive({
 
     return targetValue === triggerValue
   },
+  xor: (...args: boolean[]) => {
+    return (args || []).filter((arg) => arg === true).length === 1
+  },
   difference: (targetValue, triggerValue) => {
     const intTargetValue = parseFloat(targetValue)
     const intTriggerValue = parseFloat(triggerValue)

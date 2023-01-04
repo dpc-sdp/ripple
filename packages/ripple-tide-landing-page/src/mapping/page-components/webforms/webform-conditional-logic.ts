@@ -133,6 +133,11 @@ const toFormkitExpression = (rule: NormalisedRule): string => {
     return expressions.join(' || ')
   }
 
+  // The 'xor' operator is to support the 'One of' option in drupal.
+  if (rule.operator === 'xor') {
+    return `$xor(${expressions.join(', ')})`
+  }
+
   return ''
 }
 

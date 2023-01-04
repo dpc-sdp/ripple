@@ -2,7 +2,6 @@
   <RplCallToActionCard
     :title="title"
     :image="image"
-    :imageAlt="imageAlt"
     :url="url"
     :ctaText="ctaText"
   >
@@ -15,8 +14,14 @@ import { RplCallToActionCard } from '@dpc-sdp/ripple-ui-core'
 
 interface Props {
   title: string
-  image: string
-  imageAlt: string
+  image: {
+    src: string
+    alt: string
+    focalPoint?: {
+      x: number
+      y: number
+    }
+  } | null
   url: string
   ctaText: string
   summary: string

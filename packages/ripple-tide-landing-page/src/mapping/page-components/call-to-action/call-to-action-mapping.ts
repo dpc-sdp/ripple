@@ -8,7 +8,6 @@ import { TideDynamicPageComponent } from '@dpc-sdp/ripple-tide-api/types'
 export interface ITideCallToAction {
   title: string
   image: string
-  imageAlt: string
   url: string
   ctaText: string
   summary: string
@@ -29,8 +28,7 @@ export const callToActionMapping = (
     id: field.drupal_internal__id,
     props: {
       title: field.field_paragraph_title,
-      image: image ? image.src : '',
-      imageAlt: image ? image.alt : '',
+      image: image,
       url: link?.url,
       ctaText: link?.text,
       summary: getBody(field.field_paragraph_body?.processed)

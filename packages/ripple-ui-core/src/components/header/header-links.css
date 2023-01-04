@@ -2,7 +2,10 @@
 
 .rpl-header-links {
   a {
-    color: inherit;
+    --local-clr-link: var(--rpl-clr-type-default);
+    --local-clr-link-visited: var(--local-clr-link);
+
+    color: var(--local-clr-link, var(--rpl-clr-link));
     white-space: nowrap;
   }
 

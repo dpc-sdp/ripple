@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { RplHeroHeader } from '@dpc-sdp/ripple-ui-core'
-import { computed } from 'vue'
+import { computed, inject } from 'vue'
 import { ITideHeroHeader } from '../../mapping/hero-header/hero-header-mapping'
+import type { IRplFeatureFlags } from '@dpc-sdp/ripple-tide-api/types'
 
 const props =
   defineProps<{
@@ -35,6 +36,24 @@ const secondaryAction = computed(() => {
     title: props.header.secondaryActionLabel
   }
 })
+
+
+const featureFlags: IRplFeatureFlags = inject('featureFlags', { headerTheme: 'default' })
+
+const headerTheme = computed(() => {
+  /*
+    Theme logic : Reverse and Image variants use the Neutral styling for the blocked title and introduction text.
+    The Neutral styling does not affect the ‘Default’ variant of the Header.
+  */
+  if (props.header.backgroundImage || props.header.theme === 'reverse') {
+    if (featureFlags?.headerTheme) {
+      return featureFlags.headerTheme
+    }
+    return props.header.theme
+  }
+  return props.header.theme
+})
+
 </script>
 
 <template>
@@ -42,7 +61,7 @@ const secondaryAction = computed(() => {
     title: header.links?.title,
     items: header.links?.items,
     more: header.links?.more
-  }" :theme="header.theme" :logo="header.logoImage" :behindNav="true" :breadcrumbs="hasBreadcrumbs"
+  }" :theme="headerTheme" :logo="header.logoImage" :behindNav="true" :breadcrumbs="hasBreadcrumbs"
     :background="header.backgroundImage" :cornerTop="cornerTop" :cornerBottom="cornerBottom"
     :primaryAction="header.primaryAction" :secondaryAction="secondaryAction">
     {{ header.introText }}

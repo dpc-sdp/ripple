@@ -24,11 +24,11 @@ export default { name: 'TideMediaEmbeddedVideoPage' }
     </template>
     <template #body>
       <TideMediaBody :media="page.media">
-        <!-- NOTE: this may be changed to the future video component -->
-        <iframe
+        <RplMediaEmbed
+          :title="page.title"
           :src="page.media.url"
-          width="100%"
-          class="tide-media__embedded-video rpl-u-aspect-wide"
+          type="video"
+          class="tide-media__embedded-video"
         />
       </TideMediaBody>
     </template>
@@ -46,6 +46,7 @@ import { TideSiteData } from '@dpc-sdp/ripple-tide-api/types'
 import type { TideMediaPage } from '../../types'
 import TideMediaHeader from '../../components/tide-media-header.vue'
 import TideMediaBody from '../../components/tide-media-body.vue'
+import { RplMediaEmbed } from '@dpc-sdp/ripple-ui-core'
 
 interface Props {
   site: TideSiteData

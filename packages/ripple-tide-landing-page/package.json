@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/ripple-tide-landing-page",
-  "version": "2.1.0-alpha.50",
+  "version": "2.1.0-alpha.52",
   "description": "Ripple mappings and components for Tide landing-page Content type",
   "main": "nuxt.config.ts",
   "license": "MIT",
@@ -11,7 +11,7 @@
     "watch": "yarn clean && tsc -p tsconfig.json -w"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-tide-api": "2.1.0-alpha.50"
+    "@dpc-sdp/ripple-tide-api": "2.1.0-alpha.52"
   },
   "files": [
     "dist",

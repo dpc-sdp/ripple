@@ -39,6 +39,7 @@ export interface TideSiteData {
   theme: {
     [key: string]: string
   }
+  featureFlags: RplFeatureFlags
   socialImages: {
     twitter: any
     og: any
@@ -172,3 +173,18 @@ export interface RplTideModuleConfig {
 }
 
 export type { ILogger } from './src/logger/logger.js'
+
+export interface IRplFeatureFlags {
+  /**
+   * @description Sets the theme variant of the button component
+   */
+  buttonTheme?: 'neutral' | 'default'
+  /**
+   * @description Sets the theme variant of the header component
+   */
+  headerTheme?: 'neutral' | 'default'
+  /**
+   * @description Sets the theme variant of the site footer component
+   */
+  footerTheme?: 'neutral' | 'default'
+}

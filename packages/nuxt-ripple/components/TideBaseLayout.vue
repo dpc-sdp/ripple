@@ -47,7 +47,8 @@
     <template #footer>
       <slot name="footer">
         <RplFooter :nav="site?.menus.menuMain" :links="site?.menus.menuFooter" :copyright="site?.copyright"
-          :acknowledgement="site?.acknowledgementFooter" :logos="site?.footerLogos" :credit="footerImageCaption">
+          :acknowledgement="site?.acknowledgementFooter" :logos="site?.footerLogos" :credit="footerImageCaption"
+          :variant="featureFlags?.footerTheme || 'default'">
           <template v-if="site?.copyrightHtml" #copyright>
             <div data-cy="footer-copyright" v-html="site?.copyrightHtml"></div>
           </template>
@@ -60,10 +61,10 @@
 <script setup lang="ts">
 // @ts-ignore
 import { useHead, useSiteTheme, useAppConfig, useRoute } from '#imports'
-// import { RplChip } from '@dpc-sdp/ripple-ui-core'
-import { computed, onMounted } from 'vue'
-import { TideSiteData } from '@dpc-sdp/ripple-tide-api/types'
-import { TideTopicTag } from '@dpc-sdp/ripple-tide-api/src/mapping/topic-tags/topic-tags-mapping'
+import { RplChip } from '@dpc-sdp/ripple-ui-core'
+import { computed, onMounted, provide, ref } from 'vue'
+import { TideSiteData } from '../../../types'
+import { TideTopicTag } from '../../mapping/topic-tags/topic-tags-mapping'
 
 interface Props {
   site: TideSiteData
@@ -84,6 +85,9 @@ const props = withDefaults(defineProps<Props>(), {
   topicTags: () => [],
   updatedDate: null
 })
+// Feature flags will be available on component instances with inject('featureFlags') - See https://vuejs.org/guide/components/provide-inject.html#inject
+const featureFlags = ref(props.site?.featureFlags || {})
+provide('featureFlags', featureFlags.value)
 
 onMounted(() => {
   // Used for knowing when page is ready for cypress testing
@@ -97,6 +101,7 @@ const showBreadcrumbs = computed(() => {
 })
 
 const style = useSiteTheme(props.site?.theme || useAppConfig().theme)
+
 useHead({
   title: props.pageTitle,
   htmlAttrs: {

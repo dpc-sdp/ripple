@@ -24,7 +24,12 @@ export default { name: 'TideMediaAudioPage' }
     </template>
     <template #body>
       <TideMediaBody :media="page.media">
-        <audio class="tide-media__audio" :src="page.media.url" controls />
+        <audio
+          class="tide-media__audio"
+          :title="page.title"
+          :src="page.media.url"
+          controls
+        />
       </TideMediaBody>
     </template>
     <template #sidebar>

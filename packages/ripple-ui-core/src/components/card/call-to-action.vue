@@ -67,11 +67,11 @@ const { container, trigger } = useAccessibleContainer()
       el="a"
       :url="url"
       role="button"
-      tabindex="0"
       :variant="variant"
       :theme="theme"
-      :label="ctaText"
       data-cy="cta"
-    ></RplButton>
+    >
+      {{ ctaText }}
+    </RplButton>
   </RplCard>
 </template>

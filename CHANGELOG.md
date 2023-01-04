@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.54](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.53...v2.1.0-alpha.54) (2023-01-03)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** page links disappeared from storybook ([57de409](https://github.com/dpc-sdp/ripple-framework/commit/57de4090f0e521e4cfb336ce2a0f7f3b5ebe14a8))
+* **@dpc-sdp/ripple-ui-core:** remove tabindex, update button to expose link, remove space ([a7e2540](https://github.com/dpc-sdp/ripple-framework/commit/a7e2540336ca9f418c65046315019c5c12a1071d))
+
+
+
+
+
 # [2.1.0-alpha.53](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.52...v2.1.0-alpha.53) (2022-12-30)
 
 

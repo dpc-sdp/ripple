@@ -16,40 +16,7 @@ import {
 } from './inputs/index'
 
 const rplFormInputs = (node) => {
-  // Adds required value
-  node.on('created', () => {
-    const schemaFn = node.props?.definition?.schema
-    if (schemaFn) {
-      node.props.definition.schema = (
-        sectionsSchema = { label: {}, legend: {} }
-      ) => {
-        const isRequired = node.props.parsedRules.some(
-          (rule) => rule.name === 'required' || rule.name === 'accepted'
-        )
-
-        const requiredSchema = {
-          $el: 'span',
-          attrs: {
-            class: 'rpl-form__required rpl-type-label-small'
-          },
-          children: '(Required)'
-        }
-
-        if (isRequired) {
-          // For single fields (e.g. text input)
-          sectionsSchema.label = {
-            children: ['$label', requiredSchema]
-          }
-
-          // For grouped fields (e.g. radio)
-          sectionsSchema.legend = {
-            children: ['$label', requiredSchema]
-          }
-        }
-        return schemaFn(sectionsSchema)
-      }
-    }
-  })
+  // Adds plugins here
 }
 
 rplFormInputs.library = (node) => {

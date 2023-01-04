@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { nextTick, provide, ref, watch } from 'vue'
+import { nextTick, provide, ref, watch, reactive } from 'vue'
 import {
   FormKitSchemaCondition,
   FormKitSchemaNode,
@@ -112,6 +112,29 @@ watch(
     }
   }
 )
+
+const data = reactive({
+  isFilled: (val) =>
+    typeof val === 'number' ? !isNaN(val) : !(val == null || val === ''),
+  isChecked: (val) => !!val,
+  negate: (val) => !val,
+  isEqual: (targetValue, triggerValue) => {
+    if (typeof targetValue === 'number') {
+      return targetValue === parseFloat(triggerValue)
+    }
+
+    return targetValue === triggerValue
+  },
+  difference: (targetValue, triggerValue) => {
+    const intTargetValue = parseFloat(targetValue)
+    const intTriggerValue = parseFloat(triggerValue)
+    return intTargetValue - intTriggerValue
+  },
+  isPatternMatch: (val, pattern) => {
+    const matches = val ? `${val}`.match(new RegExp(pattern)) : null
+    return matches && matches.length > 0
+  }
+})
 </script>
 
 <template>
@@ -155,7 +178,11 @@ watch(
       </RplFormAlert>
       <slot name="aboveForm"></slot>
       <slot>
-        <FormKitSchema v-if="schema" :schema="schema"></FormKitSchema>
+        <FormKitSchema
+          v-if="schema"
+          :schema="schema"
+          :data="data"
+        ></FormKitSchema>
       </slot>
       <slot name="belowForm" :value="value"></slot>
     </fieldset>

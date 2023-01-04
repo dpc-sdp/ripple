@@ -1,7 +1,8 @@
 import {
   getImageFromField,
   getBody,
-  getLinkFromField
+  getLinkFromField,
+  getSiteKeyValues
 } from './../utils/mapping-utils.js'
 import TideSite from './../services/tide-site.js'
 import {
@@ -52,14 +53,9 @@ export default {
         }
       })
     },
-    theme: (src) => {
-      if (src.field_site_theme_values) {
-        return src.field_site_theme_values.reduce((map, obj) => {
-          map[obj.key] = obj.value
-          return map
-        }, {})
-      }
-    },
+    theme: (src) => getSiteKeyValues('field_site_theme_values', src) || {},
+    featureFlags: (src) =>
+      getSiteKeyValues('field_site_feature_flags', src) || {},
     socialImages: (src) => {
       const socialImages = {
         twitter: {},

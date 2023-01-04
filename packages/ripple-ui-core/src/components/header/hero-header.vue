@@ -35,8 +35,8 @@ const props = withDefaults(defineProps<Props>(), {
   theme: 'default',
   logo: undefined,
   background: undefined,
-  cornerTop: false,
-  cornerBottom: false,
+  cornerTop: true,
+  cornerBottom: true,
   primaryAction: undefined,
   secondaryAction: undefined,
   links: undefined,
@@ -54,7 +54,8 @@ const classes = computed(() => ({
   'rpl-header--behind-nav': props.behindNav,
   'rpl-header--breadcrumbs': props.breadcrumbs,
   'rpl-header--graphic-top': props.cornerTop,
-  'rpl-header--graphic-bottom': props.cornerBottom
+  'rpl-header--graphic-bottom': props.cornerBottom,
+  'rpl-header--background': props.background
 }))
 
 const titleClasses = computed(() => ({

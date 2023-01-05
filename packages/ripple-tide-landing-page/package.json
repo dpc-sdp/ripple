@@ -1,8 +1,8 @@
 {
   "name": "@dpc-sdp/ripple-tide-landing-page",
-  "version": "2.1.0-alpha.52",
   "description": "Ripple mappings and components for Tide landing-page Content type",
   "main": "./nuxt.config.ts",
+  "version": "2.1.0-alpha.52",
   "license": "Apache-2.0",
   "exports": {
     ".": "./nuxt.config.ts",

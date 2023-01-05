@@ -1,7 +1,3 @@
-<script lang="ts">
-export default { name: 'TideGrantPage' }
-</script>
-
 <template>
   <TideBaseLayout
     :site="site"
@@ -49,7 +45,7 @@ export default { name: 'TideGrantPage' }
 
 <script setup lang="ts">
 import { TideSiteData } from '@dpc-sdp/ripple-tide-api/types'
-import type { TideGrantPage } from './types'
+import type { TideGrantPage } from '../../types'
 
 interface Props {
   site: TideSiteData

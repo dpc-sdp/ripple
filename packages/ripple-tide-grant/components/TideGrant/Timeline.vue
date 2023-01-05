@@ -1,7 +1,3 @@
-<script lang="ts">
-export default { name: 'TideGrantTimeline' }
-</script>
-
 <template>
   <RplLayoutPageComponent class="tide-grant__timeline">
     <h2 class="tide-grant__title rpl-type-h2-fixed">{{ timeline.title }}</h2>
@@ -10,7 +6,7 @@ export default { name: 'TideGrantTimeline' }
 </template>
 
 <script setup lang="ts">
-import type { TideGrantTimeline } from '../types'
+import type { TideGrantTimeline } from '../../types'
 
 interface Props {
   timeline: TideGrantTimeline

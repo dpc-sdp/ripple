@@ -1,7 +1,3 @@
-<script lang="ts">
-export default { name: 'TideGrantHeader' }
-</script>
-
 <template>
   <RplHeaderHeroHeader
     :corner-top="true"
@@ -15,7 +11,7 @@ export default { name: 'TideGrantHeader' }
 </template>
 
 <script setup lang="ts">
-import type { TideGrantHeader } from '../types'
+import type { TideGrantHeader } from '../../types'
 
 defineProps<{
   header: TideGrantHeader

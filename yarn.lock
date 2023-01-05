@@ -18817,7 +18817,7 @@ nuxt-proxy@^0.3.4:
     http-proxy-middleware "^3.0.0-beta.0"
     ohash "^1.0.0"
 
-nuxt@3.0.0:
+nuxt@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/nuxt/-/nuxt-3.0.0.tgz#0909e6566d79805f3a4ed6229573817cbde12e89"
   integrity sha512-RNlD78uv04ZiXWmlx9f1tnJfrqsYAWHU+4gbgOTQpIBmQzHWPWiox+fm/1m93iKfEd5sJi9TJUoXX5yBObVZYw==

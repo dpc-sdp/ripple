@@ -1,7 +1,3 @@
-<script lang="ts">
-export default { name: 'TideGrantOverview' }
-</script>
-
 <template>
   <RplLayoutPageComponent>
     <h2 class="tide-grant__title rpl-type-h2-fixed rpl-u-margin-b-6">
@@ -32,7 +28,7 @@ export default { name: 'TideGrantOverview' }
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import type { TideGrantOverview } from '../types'
+import type { TideGrantOverview } from '../../types'
 import { getGrantStatus } from '@dpc-sdp/ripple-ui-core'
 
 interface Props {

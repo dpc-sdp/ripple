@@ -1,7 +1,3 @@
-<script lang="ts">
-export default { name: 'TideGrantDocuments' }
-</script>
-
 <template>
   <RplLayoutPageComponent class="tide-grant__documents">
     <ul v-if="documents.length > 0" class="rpl-type-p">
@@ -22,7 +18,7 @@ export default { name: 'TideGrantDocuments' }
 </template>
 
 <script setup lang="ts">
-import type { TideGrantDocument } from '../types'
+import type { TideGrantDocument } from '../../types'
 
 interface Props {
   documents: Array<TideGrantDocument>

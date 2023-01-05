@@ -1,7 +1,3 @@
-<script lang="ts">
-export default { name: 'TideGrantHeader' }
-</script>
-
 <template>
   <RplHeaderHeroHeader
     :corner-top="true"

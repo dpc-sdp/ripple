@@ -1,7 +1,3 @@
-<script lang="ts">
-export default { name: 'TideGrantDocuments' }
-</script>
-
 <template>
   <RplLayoutPageComponent class="tide-grant__documents">
     <ul v-if="documents.length > 0" class="rpl-type-p">

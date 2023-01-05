@@ -1,7 +1,3 @@
-<script lang="ts">
-export default { name: 'TideGrantOverview' }
-</script>
-
 <template>
   <RplLayoutPageComponent>
     <h2 class="tide-grant__title rpl-type-h2-fixed rpl-u-margin-b-6">

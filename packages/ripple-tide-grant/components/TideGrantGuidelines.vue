@@ -1,7 +1,3 @@
-<script lang="ts">
-export default { name: 'TideGrantGuidelines' }
-</script>
-
 <template>
   <RplLayoutPageComponent class="tide-grant__guidelines">
     <h2 v-if="title" class="tide-grant__title rpl-type-h2-fixed">

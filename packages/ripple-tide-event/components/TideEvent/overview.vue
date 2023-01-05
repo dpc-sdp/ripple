@@ -1,7 +1,3 @@
-<script lang="ts">
-export default { name: 'TideEventOverview' }
-</script>
-
 <template>
   <RplLayoutPageComponent>
     <h2 class="tide-event__title rpl-type-h2-fixed rpl-u-margin-b-6">

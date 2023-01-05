@@ -5,8 +5,8 @@
   "version": "2.1.0-alpha.52",
   "dependencies": {
     "@dpc-sdp/ripple-tide-api": "2.1.0-alpha.52",
-    "@dpc-sdp/ripple-ui-core": "2.1.0-alpha.52",
-    "@dpc-sdp/ripple-ui-forms": "2.1.0-alpha.52"
+    "@dpc-sdp/ripple-ui-core": "2.1.0-alpha.54",
+    "@dpc-sdp/ripple-ui-forms": "2.1.0-alpha.54"
   },
   "peerDependencies": {
     "nuxt": "3.0.0"

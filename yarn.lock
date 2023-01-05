@@ -1736,37 +1736,6 @@
   resolved "https://registry.yarnpkg.com/@discoveryjs/json-ext/-/json-ext-0.5.7.tgz#1d572bfbbe14b7704e0ba0f39b74815b84870d70"
   integrity sha512-dBVuXR082gk3jsFp7Rd/JI4kytwGHecnCoTtXFb7DB6CNHp4rg5k1bhg0nWdLGLnOV71lmDzGQaLMy8iPLY0pw==
 
-"@dpc-sdp/ripple-ui-core@2.1.0-alpha.52":
-  version "2.1.0-alpha.52"
-  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-ui-core/-/ripple-ui-core-2.1.0-alpha.52.tgz#f8d6e80dd52077a2fe66126cd104c6e5fbaea493"
-  integrity sha512-ai5BbOR6ur56NmaksfHobKQnhSiscNejUJiiR5EiUWMb4p8+dxySDcrXm2fiVW5UCnYmy+1f2SCqEl0sJYWb3w==
-  dependencies:
-    "@nuxt/kit" "3.0.0"
-    "@vueuse/core" "^9.6.0"
-    "@vueuse/integrations" "^9.6.0"
-    date-fns "^2.29.3"
-    focus-trap "^7.2.0"
-    mitt "^3.0.0"
-    normalize.css "^8.0.1"
-    postcss-each "^1.1.0"
-    postcss-for "^2.1.1"
-    postcss-nested "^6.0.0"
-    postcss-normalize "^10.0.1"
-    postcss-preset-env "^7.8.3"
-    swiper "^8.4.5"
-    vite-svg-loader "^3.6.0"
-    vue "^3.2.41"
-
-"@dpc-sdp/ripple-ui-forms@2.1.0-alpha.52":
-  version "2.1.0-alpha.52"
-  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-ui-forms/-/ripple-ui-forms-2.1.0-alpha.52.tgz#f7225e8ef22802f1084996a009b1e4c63b41ae3e"
-  integrity sha512-BK6YN2W3fk8VuL1woWvRS74uyGIMaiNXDg1cSasU0vImZxRHBLqwR5cVG5Ld5kzFHqcZUfn4HI2w/mu8jKHCKw==
-  dependencies:
-    "@dpc-sdp/ripple-ui-core" "2.1.0-alpha.52"
-    "@formkit/nuxt" "1.0.0-beta.11-c95e605"
-    "@formkit/vue" "1.0.0-beta.12"
-    "@nuxt/kit" "3.0.0"
-
 "@emotion/cache@^10.0.27":
   version "10.0.29"
   resolved "https://registry.yarnpkg.com/@emotion/cache/-/cache-10.0.29.tgz#87e7e64f412c060102d589fe7c6dc042e6f9d1e0"

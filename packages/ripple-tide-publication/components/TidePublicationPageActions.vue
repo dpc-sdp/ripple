@@ -1,7 +1,3 @@
-<script lang="ts">
-export default { name: 'TidePublicationPageActions' }
-</script>
-
 <template>
   <div class="tide-publication__actions rpl-u-margin-b-9">
     <RplPageAction>

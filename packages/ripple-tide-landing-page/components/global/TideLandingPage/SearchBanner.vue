@@ -3,7 +3,7 @@
 import { useRuntimeConfig, useRouter } from '#imports'
 
 import { RplSearchBar } from '@dpc-sdp/ripple-ui-core'
-import { isExternalUrl } from '../../utils/urls'
+import { isExternalUrl } from '../../../utils/urls'
 
 const { public: config } = useRuntimeConfig()
 const router = useRouter()
@@ -35,7 +35,11 @@ const handleSubmit = (value) => {
 <template>
   <div class="tide-search-banner">
     <div class="rpl-container">
-      <RplSearchBar variant="reverse" :placeholder="placeholder" @on-submit="handleSubmit" />
+      <RplSearchBar
+        variant="reverse"
+        :placeholder="placeholder"
+        @on-submit="handleSubmit"
+      />
     </div>
   </div>
 </template>

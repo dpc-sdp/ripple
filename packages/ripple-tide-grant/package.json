@@ -3,8 +3,7 @@
   "version": "2.1.0-alpha.52",
   "description": "Ripple mappings and components for Tide Grant Content type",
   "main": "nuxt.config.ts",
-  "license": "MIT",
-  "keywords": [],
+  "license": "Apache-2.0",
   "dependencies": {
     "@dpc-sdp/nuxt-ripple": "2.1.0-alpha.52"
   }

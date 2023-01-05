@@ -3,7 +3,7 @@ import {
   landingPageComponentsMapping,
   basicTextIncludes,
   accordionIncludes
-} from '@dpc-sdp/ripple-tide-landing-page'
+} from '@dpc-sdp/ripple-tide-landing-page/mapping'
 import {
   getDynamicPageComponents,
   getField,

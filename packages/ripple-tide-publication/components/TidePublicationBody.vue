@@ -1,7 +1,3 @@
-<script lang="ts">
-export default { name: 'TidePublicationBody' }
-</script>
-
 <template>
   <div v-if="details" class="tide-publication__details">
     <RplDescriptionList :items="processed"></RplDescriptionList>
@@ -16,7 +12,7 @@ export default { name: 'TidePublicationBody' }
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import { TideDynamicPageComponent } from '@dpc-sdp/ripple-tide-api'
+import { TideDynamicPageComponent } from '#imports'
 
 const props =
   defineProps<{

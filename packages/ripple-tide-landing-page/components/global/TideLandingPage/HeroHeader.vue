@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { RplHeroHeader } from '@dpc-sdp/ripple-ui-core'
 import { computed, inject } from 'vue'
-import { ITideHeroHeader } from '../../mapping/hero-header/hero-header-mapping'
+import { ITideHeroHeader } from '../../../mapping/hero-header/hero-header-mapping'
 import type { IRplFeatureFlags } from '@dpc-sdp/ripple-tide-api/types'
 
 const props =
@@ -37,8 +37,9 @@ const secondaryAction = computed(() => {
   }
 })
 
-
-const featureFlags: IRplFeatureFlags = inject('featureFlags', { headerTheme: 'default' })
+const featureFlags: IRplFeatureFlags = inject('featureFlags', {
+  headerTheme: 'default'
+})
 
 const headerTheme = computed(() => {
   /*
@@ -53,17 +54,27 @@ const headerTheme = computed(() => {
   }
   return props.header.theme
 })
-
 </script>
 
 <template>
-  <RplHeroHeader v-if="header" :title="header.title" :links="{
-    title: header.links?.title,
-    items: header.links?.items,
-    more: header.links?.more
-  }" :theme="headerTheme" :logo="header.logoImage" :behindNav="true" :breadcrumbs="hasBreadcrumbs"
-    :background="header.backgroundImage" :cornerTop="cornerTop" :cornerBottom="cornerBottom"
-    :primaryAction="header.primaryAction" :secondaryAction="secondaryAction">
+  <RplHeroHeader
+    v-if="header"
+    :title="header.title"
+    :links="{
+      title: header.links?.title,
+      items: header.links?.items,
+      more: header.links?.more
+    }"
+    :theme="headerTheme"
+    :logo="header.logoImage"
+    :behindNav="true"
+    :breadcrumbs="hasBreadcrumbs"
+    :background="header.backgroundImage"
+    :cornerTop="cornerTop"
+    :cornerBottom="cornerBottom"
+    :primaryAction="header.primaryAction"
+    :secondaryAction="secondaryAction"
+  >
     {{ header.introText }}
   </RplHeroHeader>
 </template>

@@ -1,7 +1,3 @@
-<script lang="ts">
-export default { name: 'TidePublicationChapterCard' }
-</script>
-
 <template>
   <RplCard ref="container" class="rpl-col-12 tide-publication-chapter" el="li">
     <h3 class="rpl-type-h3">{{ chapter.title }}</h3>

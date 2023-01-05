@@ -3,7 +3,7 @@ import {
   landingPageComponentsMapping,
   basicTextIncludes,
   accordionIncludes
-} from '@dpc-sdp/ripple-tide-landing-page'
+} from '@dpc-sdp/ripple-tide-landing-page/mapping'
 import {
   getDynamicPageComponents,
   getField,
@@ -25,7 +25,7 @@ const tidePublicationPageModule: RplTideMapping = {
     url: 'path.url',
     summary: 'field_landing_page_summary',
     showInPageNav: 'field_show_table_of_content',
-    inPageNavHeadingLevel: (src) => {
+    inPageNavHeadingLevel: (src: any) => {
       if (src.field_node_display_headings === 'showH2AndH3') {
         return 'h3'
       }

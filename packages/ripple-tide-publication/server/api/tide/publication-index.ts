@@ -1,11 +1,10 @@
-//@ts-nocheck import typing needs fixing
 import jsonapiParse from 'jsonapi-parse'
 import { defineEventHandler, getQuery, H3Event } from 'h3'
 import {
   createHandler,
-  defineRplTideModule,
   TideApiBase,
   ApplicationError,
+  BadRequestError,
   logger
 } from '@dpc-sdp/ripple-tide-api'
 import type {
@@ -13,7 +12,7 @@ import type {
   RplTideMapping,
   ILogger
 } from '@dpc-sdp/ripple-tide-api/types'
-import type { indexNode, apiNode } from './types'
+import type { indexNode, apiNode } from '../../../types'
 import { useRuntimeConfig } from '#imports'
 
 /**
@@ -42,9 +41,9 @@ class TidePublicationIndexApi extends TideApiBase {
   siteId: string
   publicationMapping: RplTideMapping
 
-  constructor(config: RplTideModuleConfig, logger: ILogger) {
-    super(config, logger)
-    this.siteId = config.contentApi.site
+  constructor(tide: RplTideModuleConfig, logger: ILogger) {
+    super(tide, logger)
+    this.siteId = tide.config.site
     this.publicationMapping = {
       mapping: {
         _src: (src: any) =>
@@ -76,16 +75,28 @@ class TidePublicationIndexApi extends TideApiBase {
   }
 }
 
-// Export server handler for nuxt
+export const createPublicationIndexHandler = async (
+  event: H3Event,
+  publicationIndexApi: TidePublicationIndexApi
+) => {
+  return createHandler(event, 'PublicationIndexHandler', async () => {
+    const query: any = await getQuery(event)
+
+    if (!query.id) {
+      throw new BadRequestError('Publication ID is required')
+    }
+
+    return await publicationIndexApi.getPublicationMenu(query.id)
+  })
+}
+
 export default defineEventHandler(async (event: H3Event) => {
   const {
     public: { tide: tideConfig }
   } = useRuntimeConfig()
-  const rplTideModules = await defineRplTideModule(tideConfig)
   const publicationIndexApi = new TidePublicationIndexApi(
     {
-      ...tideConfig,
-      mapping: rplTideModules
+      ...tideConfig
     },
     logger
   )
@@ -94,13 +105,8 @@ export default defineEventHandler(async (event: H3Event) => {
     publicationIndexApi
   }
 
-  return createHandler(event, 'PublicationIndexHandler', async () => {
-    const query: any = await getQuery(event)
-
-    if (!query.id) {
-      throw new BadRequestError('Publication id is required')
-    }
-
-    return await publicationIndexApi.getPublicationMenu(query.id)
-  })
+  return createPublicationIndexHandler(
+    event,
+    event.context.tide.publicationIndexApi
+  )
 })

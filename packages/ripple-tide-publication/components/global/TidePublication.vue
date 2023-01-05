@@ -1,9 +1,3 @@
-<script lang="ts">
-export default {
-  name: 'TidePublicationPagePage'
-}
-</script>
-
 <template>
   <TideBaseLayout
     :site="site"
@@ -32,13 +26,15 @@ export default {
         v-if="page.showInPageNav"
         :headingLevel="page.inPageNavHeadingLevel"
         :components="page.dynamicComponents"
+        class="rpl-u-margin-b-9"
       />
       <TidePublicationBody
+        :details="page.details"
         :components="page.dynamicComponents"
       ></TidePublicationBody>
-      <TidePublicationPagination
-        :pagination="page.publication.pagination"
-      ></TidePublicationPagination>
+      <TidePublicationChapters
+        :chapters="page.chapters"
+      ></TidePublicationChapters>
     </template>
     <template #sidebar>
       <TidePublicationSidebar
@@ -53,11 +49,12 @@ export default {
 </template>
 
 <script setup lang="ts">
-import { TidePublicationPagePage } from '../types'
+import { TideSiteData } from '@dpc-sdp/ripple-tide-api/types'
+import type { TidePublicationPage } from '../../types'
 
 interface Props {
-  site: any
-  page: TidePublicationPagePage
+  site: TideSiteData
+  page: TidePublicationPage
 }
 
 defineProps<Props>()

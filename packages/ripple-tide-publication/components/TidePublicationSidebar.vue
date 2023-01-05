@@ -1,7 +1,3 @@
-<script lang="ts">
-export default { name: 'TidePublicationSidebar' }
-</script>
-
 <template>
   <div class="tide-publication__sidebar">
     <TidePublicationPageActions
@@ -21,7 +17,7 @@ export default { name: 'TidePublicationSidebar' }
 
 <script setup lang="ts">
 import { onMounted, reactive } from 'vue'
-import { indexNode, processMenu } from './processMenu.js'
+import { indexNode, processMenu } from '../utils/processMenu.js'
 import {
   useFetch,
   useRuntimeConfig

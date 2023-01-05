@@ -11,5 +11,9 @@ export default defineNuxtConfig({
       }
     }
   },
-  extends: ['./../../packages/nuxt-ripple']
+  extends: [
+    '@dpc-sdp/nuxt-ripple',
+    '@dpc-sdp/ripple-tide-landing-page',
+    '@dpc-sdp/ripple-tide-event'
+  ]
 })

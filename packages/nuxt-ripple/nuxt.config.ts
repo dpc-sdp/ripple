@@ -17,6 +17,5 @@ export default defineNuxtConfig({
       API_URL: ''
     }
   },
-  extends: ['@dpc-sdp/ripple-tide-landing-page'],
   modules: ['@dpc-sdp/ripple-ui-core/nuxt', '@dpc-sdp/ripple-ui-forms/nuxt']
 })

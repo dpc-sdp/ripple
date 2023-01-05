@@ -1,7 +1,3 @@
-<script lang="ts">
-export default { name: 'TideEventOverview' }
-</script>
-
 <template>
   <RplLayoutPageComponent>
     <h2 class="tide-event__title rpl-type-h2-fixed rpl-u-margin-b-6">
@@ -10,20 +6,20 @@ export default { name: 'TideEventOverview' }
     </h2>
 
     <dl class="rpl-description-list rpl-type-p">
-      <template v-if="displayDate"
-        ><dt class="rpl-description-list__term">Date:</dt>
+      <template v-if="displayDate">
+        <dt class="rpl-description-list__term">Date:</dt>
         <dd class="rpl-description-list__description">
           {{ displayDate }}
         </dd>
       </template>
-      <template v-for="item in overview" :key="item.term"
-        ><dt class="rpl-description-list__term">{{ item.term }}</dt>
+      <template v-for="item in overview" :key="item.term">
+        <dt class="rpl-description-list__term">{{ item.term }}</dt>
         <dd class="rpl-description-list__description">
           {{ item.description }}
         </dd>
       </template>
-      <template v-if="link"
-        ><dt class="rpl-description-list__term">Booking:</dt>
+      <template v-if="link">
+        <dt class="rpl-description-list__term">Booking:</dt>
         <dd class="rpl-description-list__description">
           <RplTextLink class="rpl-type-label" :url="link.url">{{
             link.url
@@ -32,16 +28,9 @@ export default { name: 'TideEventOverview' }
       </template>
       <template v-if="details.length > 0">
         <dt class="rpl-description-list__term">Details:</dt>
-        <dd
-          class="rpl-description-list__description"
-          data-component-type="tide-event__details"
-        >
+        <dd class="rpl-description-list__description" data-component-type="tide-event__details">
           <ul>
-            <li
-              v-for="(feature, i) in details"
-              :key="i"
-              class="tide-event__feature"
-            >
+            <li v-for="(feature, i) in details" :key="i" class="tide-event__feature">
               {{ expandDetail(feature) }}
             </li>
           </ul>
@@ -56,7 +45,7 @@ export default { name: 'TideEventOverview' }
 
 <script setup lang="ts">
 import { TideEventLink, TideEventDate } from '../types'
-import { formatDateRange, expandDetail } from '../utils.js'
+import { formatDateRange, expandDetail } from '#imports'
 import { computed } from 'vue'
 
 interface Props {
@@ -80,9 +69,11 @@ const displayDate = computed(() => formatDateRange(props.date, props.showTime))
   gap: var(--rpl-sp-3);
   align-items: center;
 }
+
 .tide-event__title {
   margin-bottom: var(--rpl-sp-4);
 }
+
 .tide-event__feature {
   margin-bottom: var(--rpl-sp-3);
 }

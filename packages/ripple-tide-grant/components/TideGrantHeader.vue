@@ -11,7 +11,7 @@
 </template>
 
 <script setup lang="ts">
-import type { TideGrantHeader } from '../../types'
+import type { TideGrantHeader } from '../types'
 
 defineProps<{
   header: TideGrantHeader

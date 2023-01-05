@@ -6,7 +6,7 @@
 </template>
 
 <script setup lang="ts">
-import type { TideGrantTimeline } from '../../types'
+import type { TideGrantTimeline } from '../types'
 
 interface Props {
   timeline: TideGrantTimeline

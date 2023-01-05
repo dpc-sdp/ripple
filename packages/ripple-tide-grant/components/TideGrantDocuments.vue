@@ -18,7 +18,7 @@
 </template>
 
 <script setup lang="ts">
-import type { TideGrantDocument } from '../../types'
+import type { TideGrantDocument } from '../types'
 
 interface Props {
   documents: Array<TideGrantDocument>

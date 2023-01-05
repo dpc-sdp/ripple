@@ -28,7 +28,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import type { TideGrantOverview } from '../../types'
+import type { TideGrantOverview } from '../types'
 import { getGrantStatus } from '@dpc-sdp/ripple-ui-core'
 
 interface Props {

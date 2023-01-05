@@ -207,11 +207,11 @@ export const getBody = (html, customPlugins = []) => {
   return markupTranspiler(html, plugins)
 }
 
-export const getField = (field, path, fallback = '') => {
+export const getField = (field, path, fallback = undefined) => {
   return get(field, path, fallback)
 }
 
-export const getBodyFromField = (field, path, fallback) => {
+export const getBodyFromField = (field, path, fallback = undefined) => {
   return getBody(getField(field, [path, 'processed'], fallback))
 }
 

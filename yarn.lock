@@ -1736,122 +1736,10 @@
   resolved "https://registry.yarnpkg.com/@discoveryjs/json-ext/-/json-ext-0.5.7.tgz#1d572bfbbe14b7704e0ba0f39b74815b84870d70"
   integrity sha512-dBVuXR082gk3jsFp7Rd/JI4kytwGHecnCoTtXFb7DB6CNHp4rg5k1bhg0nWdLGLnOV71lmDzGQaLMy8iPLY0pw==
 
-"@dpc-sdp/ripple-tide-api@2.1.0-alpha.31":
-  version "2.1.0-alpha.31"
-  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-tide-api/-/ripple-tide-api-2.1.0-alpha.31.tgz#a0d9acd564548bdf59a3f47f3e17100ade91c8e3"
-  integrity sha512-l0WbiGHr4Go8IGCCGvkN1nVux0+1Jwo9qkosbSzpGbAmSgWQX2StJvi36+3rfmWTGOpbrpo04jcxoXIhFmhNtw==
-  dependencies:
-    "@nuxt/kit" "3.0.0"
-    axios "^0.27.2"
-    change-case "^4.1.2"
-    cheerio "^1.0.0-rc.10"
-    h3 "^0.7.21"
-    js-yaml "^4.1.0"
-    jsonapi-parse "^2.0.1"
-    lodash-es "^4.17.21"
-    pathe "^0.3.9"
-    qs "^6.10.3"
-    ts-json-schema-generator "^1.1.2"
-    typescript-json-schema "^0.55.0"
-    winston "^3.8.2"
-
-"@dpc-sdp/ripple-tide-api@2.1.0-alpha.37":
-  version "2.1.0-alpha.37"
-  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-tide-api/-/ripple-tide-api-2.1.0-alpha.37.tgz#6ccea435174c91b46ea038f391ec275f4484c36a"
-  integrity sha512-0Kl404upZUU2PVnFngMj6YMkXK7So56kvkE2PZ63rnoEaGmcf0zLz5HlcvLFFcIk/fX7lQ69ZtUSBzD4/ezAHw==
-  dependencies:
-    "@nuxt/kit" "3.0.0"
-    axios "^0.27.2"
-    change-case "^4.1.2"
-    cheerio "^1.0.0-rc.10"
-    js-yaml "^4.1.0"
-    jsonapi-parse "^2.0.1"
-    lodash-es "^4.17.21"
-    nuxt-proxy "^0.3.4"
-    pathe "^0.3.9"
-    qs "^6.10.3"
-    ts-json-schema-generator "^1.1.2"
-    typescript-json-schema "^0.55.0"
-    winston "^3.8.2"
-
-"@dpc-sdp/ripple-tide-event@2.1.0-alpha.31":
-  version "2.1.0-alpha.31"
-  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-tide-event/-/ripple-tide-event-2.1.0-alpha.31.tgz#8014709152de560820257fde8d122c9471c637d5"
-  integrity sha512-3cIfDeZAwX3t7JgPXLi4GsdmEGjsHgsp06pEWstwHeRkvEVKbengJznPdfacZuQtrRlV3qdvhEvOVwV/t/nK/g==
-  dependencies:
-    "@dpc-sdp/ripple-tide-api" "2.1.0-alpha.31"
-
-"@dpc-sdp/ripple-tide-grant@2.1.0-alpha.31":
-  version "2.1.0-alpha.31"
-  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-tide-grant/-/ripple-tide-grant-2.1.0-alpha.31.tgz#0336d27358e1e5114ea6c65ffb7e90e73fcaa52a"
-  integrity sha512-AdFNR57/s7/kEC/wpSaFt1x30tFXrqa03RHumKgE6ZQEUdR2JO72oof7UJP8/Facer1YS5BL2drEGhP7FA0OUQ==
-  dependencies:
-    "@dpc-sdp/ripple-tide-api" "2.1.0-alpha.31"
-
-"@dpc-sdp/ripple-tide-landing-page@2.1.0-alpha.31":
-  version "2.1.0-alpha.31"
-  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-tide-landing-page/-/ripple-tide-landing-page-2.1.0-alpha.31.tgz#2ffb315559da5e225db58e3576de64f3c78460f4"
-  integrity sha512-ATrP3dy5qa3eQhfqzNGTnxVVKtU6dve9gYTsF5BcMP1Rh54Jo9CqbkAw4ykAGNcFTC+7sVolsj90QsSqmQSdLg==
-  dependencies:
-    "@dpc-sdp/ripple-tide-api" "2.1.0-alpha.31"
-
-"@dpc-sdp/ripple-tide-landing-page@2.1.0-alpha.49":
-  version "2.1.0-alpha.49"
-  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-tide-landing-page/-/ripple-tide-landing-page-2.1.0-alpha.49.tgz#3c70f7920140c3d27ed06fdedb9c56296157f69a"
-  integrity sha512-VqweWCITyyEWUa2+sPmGV791jopR7CyjIghZZ9mVWEttlUzeKFkFDbkLU9ne/L4ZdYz8Hl2VFtEpHsjlpaMozw==
-  dependencies:
-    "@dpc-sdp/ripple-tide-api" "2.1.0-alpha.37"
-
-"@dpc-sdp/ripple-tide-media@2.1.0-alpha.31":
-  version "2.1.0-alpha.31"
-  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-tide-media/-/ripple-tide-media-2.1.0-alpha.31.tgz#acd27db518a7f169483bc724e80a11814f76c714"
-  integrity sha512-wr9F1eq/6UJTL1zSOlvsVkaiSr7GaEevcqlekshYZKSwjiJILN6xth4jWKDsT9ud+5WzY8D8EAD50Gbj5aKs2w==
-  dependencies:
-    "@dpc-sdp/ripple-tide-api" "2.1.0-alpha.31"
-
-"@dpc-sdp/ripple-tide-news@2.1.0-alpha.31":
-  version "2.1.0-alpha.31"
-  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-tide-news/-/ripple-tide-news-2.1.0-alpha.31.tgz#103c6b2f38f75b558de2c952d97898a13b70c902"
-  integrity sha512-q6LPO3pktKYCZgPdR5FdnBCNvdpHwdrgKvOpnfujV/PyFQawLo48LlmmqcBrt0MsIKvCHX49MXMyWATYeMGD/g==
-  dependencies:
-    "@dpc-sdp/ripple-tide-api" "2.1.0-alpha.31"
-
-"@dpc-sdp/ripple-tide-publication-page@2.1.0-alpha.31":
-  version "2.1.0-alpha.31"
-  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-tide-publication-page/-/ripple-tide-publication-page-2.1.0-alpha.31.tgz#cad67bcea2785456aded707f526f48de03dacd64"
-  integrity sha512-2ssuujJ4u/LmJQMZNmqtU4Daqnci9PkLC6cvAVuVGo1kabfHDbB4JUKvMhScJmlX495Rfh64WeunKa4errllsw==
-  dependencies:
-    "@dpc-sdp/ripple-tide-api" "2.1.0-alpha.31"
-    "@dpc-sdp/ripple-tide-publication" "2.1.0-alpha.31"
-
-"@dpc-sdp/ripple-tide-publication-page@2.1.0-alpha.49":
-  version "2.1.0-alpha.49"
-  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-tide-publication-page/-/ripple-tide-publication-page-2.1.0-alpha.49.tgz#4bffeebee3631d47d3ea3d1816456a23d30a502a"
-  integrity sha512-Hgrrdw2sWnc6DW/LBPcP3L95Gn42qUPZ8nG4ZxVWe5sSs+aN/giP9b7coOBU1wtOYCqMxlff148CYbxBgeP7Lw==
-  dependencies:
-    "@dpc-sdp/ripple-tide-api" "2.1.0-alpha.37"
-    "@dpc-sdp/ripple-tide-publication" "2.1.0-alpha.49"
-
-"@dpc-sdp/ripple-tide-publication@2.1.0-alpha.31":
-  version "2.1.0-alpha.31"
-  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-tide-publication/-/ripple-tide-publication-2.1.0-alpha.31.tgz#3639fb7056738a19a5c3fb7818743b43687874fa"
-  integrity sha512-aJBZjaMa7hpH0K1lGJYQ9CeT6ug2XV3izxzoSJb8WB0spFCTcqEos1ZuDdsZbyLqxW8Eri/mSG4FgushQG//RA==
-  dependencies:
-    "@dpc-sdp/ripple-tide-api" "2.1.0-alpha.31"
-    "@dpc-sdp/ripple-tide-landing-page" "2.1.0-alpha.31"
-
-"@dpc-sdp/ripple-tide-publication@2.1.0-alpha.49":
-  version "2.1.0-alpha.49"
-  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-tide-publication/-/ripple-tide-publication-2.1.0-alpha.49.tgz#f455de7e394139436706555379896848cf04a93e"
-  integrity sha512-nDi37Y6PHPcWnHEbXfrqvwAbcmb+aAoaHtiDOAH8gUBrnTTkHMQ9A4GNWFa/fCyyWag7f7F3QHSUZ6BzGRpcrw==
-  dependencies:
-    "@dpc-sdp/ripple-tide-api" "2.1.0-alpha.37"
-    "@dpc-sdp/ripple-tide-landing-page" "2.1.0-alpha.49"
-
-"@dpc-sdp/ripple-ui-core@2.1.0-alpha.31":
-  version "2.1.0-alpha.31"
-  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-ui-core/-/ripple-ui-core-2.1.0-alpha.31.tgz#c66b0b0fa5db9c36647fb4cbad3d72585253a4ef"
-  integrity sha512-CDsucC4EzbsBMTAjolhVnguluAdYDbEna2HgyF2GDj5g93I+pysLWRxJURalAf08agTyXrc7aSyN0eJvN9mQXA==
+"@dpc-sdp/ripple-ui-core@2.1.0-alpha.52":
+  version "2.1.0-alpha.52"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-ui-core/-/ripple-ui-core-2.1.0-alpha.52.tgz#f8d6e80dd52077a2fe66126cd104c6e5fbaea493"
+  integrity sha512-ai5BbOR6ur56NmaksfHobKQnhSiscNejUJiiR5EiUWMb4p8+dxySDcrXm2fiVW5UCnYmy+1f2SCqEl0sJYWb3w==
   dependencies:
     "@nuxt/kit" "3.0.0"
     "@vueuse/core" "^9.6.0"
@@ -1869,12 +1757,12 @@
     vite-svg-loader "^3.6.0"
     vue "^3.2.41"
 
-"@dpc-sdp/ripple-ui-forms@2.1.0-alpha.31":
-  version "2.1.0-alpha.31"
-  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-ui-forms/-/ripple-ui-forms-2.1.0-alpha.31.tgz#650ec20e6eed47adc877c0566b2e29a005d203a9"
-  integrity sha512-KUkvZDKRwO5JKsuYc1ffH9qTz5dGRGXuymNnrQ4nhEe/66Ns7YOOQOYzKDKAb9Zg9VswlrBRYHbnhBKsKB1HsQ==
+"@dpc-sdp/ripple-ui-forms@2.1.0-alpha.52":
+  version "2.1.0-alpha.52"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-ui-forms/-/ripple-ui-forms-2.1.0-alpha.52.tgz#f7225e8ef22802f1084996a009b1e4c63b41ae3e"
+  integrity sha512-BK6YN2W3fk8VuL1woWvRS74uyGIMaiNXDg1cSasU0vImZxRHBLqwR5cVG5Ld5kzFHqcZUfn4HI2w/mu8jKHCKw==
   dependencies:
-    "@dpc-sdp/ripple-ui-core" "2.1.0-alpha.31"
+    "@dpc-sdp/ripple-ui-core" "2.1.0-alpha.52"
     "@formkit/nuxt" "1.0.0-beta.11-c95e605"
     "@formkit/vue" "1.0.0-beta.12"
     "@nuxt/kit" "3.0.0"
@@ -13585,16 +13473,6 @@ gzip-size@^7.0.0:
   dependencies:
     duplexer "^0.1.2"
 
-h3@^0.7.21:
-  version "0.7.21"
-  resolved "https://registry.yarnpkg.com/h3/-/h3-0.7.21.tgz#2ca1125c6731cf39b0871b3d8cc9c9d27a616f08"
-  integrity sha512-F/qdr3JKh8zBLiZyiprH5kuzG6vjoTK3nFnIYFUIQPLsw755GI5JezAFc3HJxbgYlzawcGeJlmsw4xu2t/0n/Q==
-  dependencies:
-    cookie-es "^0.5.0"
-    destr "^1.1.1"
-    radix3 "^0.1.2"
-    ufo "^0.8.5"
-
 h3@^0.8.1, h3@^0.8.5:
   version "0.8.6"
   resolved "https://registry.yarnpkg.com/h3/-/h3-0.8.6.tgz#8095ef998fe14769b87170b7c8b68ba9c54973d5"
@@ -21159,11 +21037,6 @@ quick-lru@^5.1.1:
   version "5.1.1"
   resolved "https://registry.yarnpkg.com/quick-lru/-/quick-lru-5.1.1.tgz#366493e6b3e42a3a6885e2e99d18f80fb7a8c932"
   integrity sha512-WuyALRjWPDGtt/wzJiadO5AXY+8hZ80hVpe6MyivgraREW751X3SbhRvG3eLKOYN+8VEvqLcf3wdnt44Z4S4SA==
-
-radix3@^0.1.2:
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/radix3/-/radix3-0.1.2.tgz#5f7351af7fc5e4b1d9a1b14a7266b6a4a8cac0ba"
-  integrity sha512-Mpfd/OuX0zoJ6ojLD/RTOHvJPg6e6PjINtmYzV87kIXc5iUtDz34i7gg4SV4XjqRJTmSiYO/g9i/mKWGf4z8wg==
 
 radix3@^0.2.1:
   version "0.2.1"

@@ -1,14 +1,6 @@
-<script lang="ts">
-export default { name: 'TideEventBody' }
-</script>
-
 <template>
-  <RplLayoutPageComponent
-    id="page-component-200"
-    data-component-id="200"
-    data-component-type="RplContent"
-    :fullWidth="true"
-  >
+  <RplLayoutPageComponent id="page-component-200" data-component-id="200" data-component-type="RplContent"
+    :fullWidth="true">
     <RplContent :html="body"></RplContent>
   </RplLayoutPageComponent>
   <RplLayoutPageComponent>

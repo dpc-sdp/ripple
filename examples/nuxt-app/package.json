@@ -16,16 +16,9 @@
     "test:integration": "start-test 'NUXT_PUBLIC_API_URL=http://localhost:3001 yarn dev' http-get://localhost:3000/api/tide/site?id=8888 'cy:open'"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-tide-api": "2.1.0-alpha.52",
+    "@dpc-sdp/nuxt-ripple": "2.1.0-alpha.52",
     "@dpc-sdp/ripple-tide-event": "2.1.0-alpha.52",
-    "@dpc-sdp/ripple-tide-grant": "2.1.0-alpha.52",
     "@dpc-sdp/ripple-tide-landing-page": "2.1.0-alpha.52",
-    "@dpc-sdp/ripple-tide-media": "2.1.0-alpha.52",
-    "@dpc-sdp/ripple-tide-news": "2.1.0-alpha.52",
-    "@dpc-sdp/ripple-tide-publication": "2.1.0-alpha.52",
-    "@dpc-sdp/ripple-tide-publication-page": "2.1.0-alpha.49",
-    "@dpc-sdp/ripple-ui-core": "2.1.0-alpha.54",
-    "@dpc-sdp/ripple-ui-forms": "2.1.0-alpha.54",
     "dotenv": "^16.0.3"
   },
   "devDependencies": {
@@ -33,7 +26,7 @@
     "@nuxt/vite-builder": "^3.0.0",
     "@testing-library/cypress": "^8.0.7",
     "mockttp": "^3.6.1",
-    "nuxt": "^3.0.0",
+    "nuxt": "3.0.0",
     "start-server-and-test": "^1.15.0"
   }
 }

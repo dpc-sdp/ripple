@@ -1,15 +1,6 @@
-<script lang="ts">
-export default { name: 'TideMediaEmbeddedVideoPage' }
-</script>
-
 <template>
-  <TideBaseLayout
-    :site="site"
-    :pageTitle="page.title"
-    :pageDescription="page.description"
-    :pageLanguage="page.lang"
-    :updatedDate="page.changed || page.created"
-  >
+  <TideBaseLayout :site="site" :pageTitle="page.title" :pageDescription="page.description" :pageLanguage="page.lang"
+    :updatedDate="page.changed || page.created">
     <template #aboveHeader>
       <slot name="aboveHeader"></slot>
     </template>
@@ -24,12 +15,7 @@ export default { name: 'TideMediaEmbeddedVideoPage' }
     </template>
     <template #body>
       <TideMediaBody :media="page.media">
-        <RplMediaEmbed
-          :title="page.title"
-          :src="page.media.url"
-          type="video"
-          class="tide-media__embedded-video"
-        />
+        <RplMediaEmbed :title="page.title" :src="page.media.url" type="video" class="tide-media__embedded-video" />
       </TideMediaBody>
     </template>
     <template #sidebar>
@@ -44,8 +30,6 @@ export default { name: 'TideMediaEmbeddedVideoPage' }
 <script setup lang="ts">
 import { TideSiteData } from '@dpc-sdp/ripple-tide-api/types'
 import type { TideMediaPage } from '../../types'
-import TideMediaHeader from '../../components/tide-media-header.vue'
-import TideMediaBody from '../../components/tide-media-body.vue'
 import { RplMediaEmbed } from '@dpc-sdp/ripple-ui-core'
 
 interface Props {

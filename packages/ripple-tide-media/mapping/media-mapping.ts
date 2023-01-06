@@ -3,7 +3,8 @@ import {
   tidePageBaseIncludes
 } from '@dpc-sdp/ripple-tide-api'
 
-export const tideMediaMapping = {
+// Shared mapping between media types
+export const tideMediaBaseMapping = {
   ...tidePageBaseMapping(),
   type: (data) => data.type,
   title: 'name',
@@ -16,4 +17,4 @@ export const tideMediaMapping = {
   }
 }
 
-export const tideMediaIncludes = tidePageBaseIncludes()
+export const tideMediaBaseIncludes = tidePageBaseIncludes()

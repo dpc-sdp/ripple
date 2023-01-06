@@ -2,9 +2,9 @@
   "license": "Apache-2.0",
   "name": "@dpc-sdp/nuxt-ripple",
   "main": "./nuxt.config.ts",
-  "version": "2.1.0-alpha.54",
+  "version": "2.1.0-alpha.56",
   "dependencies": {
-    "@dpc-sdp/ripple-tide-api": "2.1.0-alpha.54",
+    "@dpc-sdp/ripple-tide-api": "2.1.0-alpha.56",
     "@dpc-sdp/ripple-ui-core": "2.1.0-alpha.54",
     "@dpc-sdp/ripple-ui-forms": "2.1.0-alpha.54"
   }

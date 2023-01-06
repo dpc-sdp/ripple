@@ -8,11 +8,8 @@
     "./mapping": "./mapping/index.ts",
     "./types": "./types.ts"
   },
-  "version": "2.1.0-alpha.55",
+  "version": "2.1.0-alpha.54",
   "dependencies": {
-    "@dpc-sdp/nuxt-ripple": "2.1.0-alpha.55"
-  },
-  "peerDependencies": {
-    "nuxt": "3.0.0"
+    "@dpc-sdp/nuxt-ripple": "2.1.0-alpha.54"
   }
 }

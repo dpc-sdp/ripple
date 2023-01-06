@@ -63,8 +63,8 @@
 import { useHead, useSiteTheme, useAppConfig, useRoute } from '#imports'
 import { RplChip } from '@dpc-sdp/ripple-ui-core'
 import { computed, onMounted, provide, ref } from 'vue'
-import { TideSiteData } from '../../../types'
-import { TideTopicTag } from '../../mapping/topic-tags/topic-tags-mapping'
+import { TideSiteData } from '../types'
+import { TideTopicTag } from '../mapping/topic-tags/topic-tags-mapping'
 
 interface Props {
   site: TideSiteData

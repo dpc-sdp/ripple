@@ -9,12 +9,13 @@ import {
   RplImagePriority,
   RplImageFit,
   RplImageFocalPoint,
-  RplImageAspect,
+  RplImageAspect
 } from './constants'
 
 interface Props {
   src: string
   alt?: string
+  title?: string
   width?: number
   height?: number
   sizes?: string
@@ -28,6 +29,7 @@ interface Props {
 
 const props = withDefaults(defineProps<Props>(), {
   alt: '',
+  title: '',
   height: undefined,
   width: undefined,
   sizes: undefined,
@@ -88,6 +90,7 @@ const loading = computed(() => (props.priority === 'high' ? 'eager' : 'lazy'))
     :src="src"
     :srcset="srcSet"
     :alt="alt"
+    :title="title"
     :width="width"
     :height="height"
     :loading="loading"

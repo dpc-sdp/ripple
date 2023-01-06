@@ -14,7 +14,7 @@
   <RplAvatarCard
     v-if="displayStyle === 'profile'"
     :title="title"
-    :image="image?.src"
+    :image="image"
     :url="url"
   >
     <template v-if="showMetadata" #meta>
@@ -35,8 +35,8 @@ interface Props {
     src: string
     alt: string
     focalPoint?: {
-      x: string
-      y: string
+      x: number
+      y: number
     }
   } | null
   displayStyle: 'noImage' | 'thumbnail' | 'profile'

@@ -2,7 +2,7 @@
   "private": true,
   "license": "Apache-2.0",
   "name": "nuxt-app",
-  "version": "2.1.0-alpha.54",
+  "version": "2.1.0-alpha.55",
   "scripts": {
     "dev": "nuxi dev",
     "dev:debug": "node --inspect node_modules/.bin/nuxi dev",

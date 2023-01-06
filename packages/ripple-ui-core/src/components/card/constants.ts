@@ -11,11 +11,7 @@ export const RplCardTypes = [
   'category-grid'
 ] as const
 
-export const RplCardTitleClasses = [
-  'rpl-card__cta',
-  'rpl-type-h3-fixed',
-  'rpl-u-focusable-inline'
-]
+export const RplCardTitleClasses = ['rpl-card__cta', 'rpl-type-h3-fixed']
 
 export interface RplCardItem {
   title: string

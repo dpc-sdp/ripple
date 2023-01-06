@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.56](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.55...v2.1.0-alpha.56) (2023-01-06)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/nuxt-ripple:** :bug: move error.vue to example app until supported in nuxt layers ([de018be](https://github.com/dpc-sdp/ripple-framework/commit/de018be797fb9044acc18dce13141d4602823296))
+* **@dpc-sdp/ripple-tide-grant:** :bug: fix paths ([249a17b](https://github.com/dpc-sdp/ripple-framework/commit/249a17bf1f8653ca6272ef95aa579063b67be136))
+* fix package versions ([02536db](https://github.com/dpc-sdp/ripple-framework/commit/02536dbfba12aeb7e88f40ef6fc3efeac714d969))
+
+
+### Features
+
+* :sparkles: export mapping for content types ([77ea761](https://github.com/dpc-sdp/ripple-framework/commit/77ea761a0f7ee66e055c3010c8c9ef774c5f2e2f))
+* **@dpc-sdp/ripple-tide-api:** :sparkles: give fallback default value of undefined ([d70e298](https://github.com/dpc-sdp/ripple-framework/commit/d70e2986ef5208d9bc7d6b91fcded6166f9a1e7d))
+
+
+
+
+
 # [2.1.0-alpha.55](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.54...v2.1.0-alpha.55) (2023-01-04)
 
 

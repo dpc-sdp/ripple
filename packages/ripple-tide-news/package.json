@@ -1,33 +1,18 @@
 {
+  "license": "Apache-2.0",
   "name": "@dpc-sdp/ripple-tide-news",
-  "version": "2.1.0-alpha.52",
-  "description": "Ripple mappings and components for Tide News Content type",
-  "main": "dist/index.js",
-  "module": "dist/index.js",
-  "type": "module",
+  "description": "Ripple mappings and components for Tide News content type",
+  "main": "./nuxt.config.ts",
   "exports": {
-    ".": "./dist/index.js",
-    "./component": "./src/index.vue",
-    "./types": "./src/types.ts",
-    "./nuxt": "./src/nuxt.ts"
+    ".": "./nuxt.config.ts",
+    "./mapping": "./mapping/index.ts",
+    "./types": "./types.ts"
   },
-  "license": "MIT",
-  "keywords": [],
-  "scripts": {
-    "clean": "rimraf dist* && rimraf tsconfig.tsbuildinfo",
-    "build": "yarn clean && tsc -p tsconfig.json",
-    "watch": "yarn clean && tsc -p tsconfig.json -w"
-  },
+  "version": "2.1.0-alpha.55",
   "dependencies": {
-    "@dpc-sdp/ripple-tide-api": "2.1.0-alpha.52"
+    "@dpc-sdp/nuxt-ripple": "2.1.0-alpha.55"
   },
-  "files": [
-    "dist",
-    "src",
-    "!**/*.test.*",
-    "!**/*.json",
-    "CHANGELOG.md",
-    "LICENSE",
-    "README.md"
-  ]
+  "peerDependencies": {
+    "nuxt": "3.0.0"
+  }
 }

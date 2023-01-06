@@ -9,8 +9,6 @@ import {
 } from '@dpc-sdp/ripple-tide-api'
 
 const tideNewsModule: RplTideMapping = {
-  component: '@dpc-sdp/ripple-tide-news/component',
-  schema: '@dpc-sdp/ripple-tide-news/types',
   mapping: {
     ...tidePageBaseMapping({
       withSidebarContacts: true,

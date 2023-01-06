@@ -17,6 +17,7 @@ export default defineNuxtConfig({
     '@dpc-sdp/ripple-tide-grant',
     '@dpc-sdp/ripple-tide-landing-page',
     '@dpc-sdp/ripple-tide-publication',
-    '@dpc-sdp/ripple-tide-media'
+    '@dpc-sdp/ripple-tide-media',
+    '@dpc-sdp/ripple-tide-news'
   ]
 })

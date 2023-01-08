@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.56](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.55...v2.1.0-alpha.56) (2023-01-06)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-ui-core
+
+
+
+
+
+# [2.1.0-alpha.55](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.54...v2.1.0-alpha.55) (2023-01-04)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** added responsive aspect ratios to promo card image ([fb590c3](https://github.com/dpc-sdp/ripple-framework/commit/fb590c3b71c1bf7b0bb146749f0e186cb1b88939))
+* **@dpc-sdp/ripple-ui-core:** design feedback ([d4214b2](https://github.com/dpc-sdp/ripple-framework/commit/d4214b285a5525d4752ee9206a49643113514d41))
+* **@dpc-sdp/ripple-ui-core:** fixed various design feedback items for nav/promo cards ([3c58aab](https://github.com/dpc-sdp/ripple-framework/commit/3c58aab4bd6dd37fcf339f36dfb21b1fe1dfd986))
+
+
+
+
+
 # [2.1.0-alpha.54](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.53...v2.1.0-alpha.54) (2023-01-03)
 
 

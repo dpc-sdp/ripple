@@ -131,7 +131,7 @@ export interface RplTideModuleMappingConfig {
 }
 
 export interface RplTideModuleConfig {
-  contentApi: {
+  config: {
     /**
      * Site taxonomy id or name
      */
@@ -156,13 +156,7 @@ export interface RplTideModuleConfig {
     /**
      * ContentType Mapping or path to file
      */
-    content: {
-      [key: string]: string | RplTideMapping
-    }
-    /**
-     * Site Mapping or path to file
-     */
-    site: string | RplTideMapping
+    [key: string]: string | RplTideMapping
   }
   /**
    * Enable debug mode

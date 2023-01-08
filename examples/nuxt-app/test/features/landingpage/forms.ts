@@ -1,9 +1,4 @@
-import {
-  Then,
-  DataTable,
-  When,
-  Given
-} from '@badeball/cypress-cucumber-preprocessor'
+import { Then, DataTable, When } from '@badeball/cypress-cucumber-preprocessor'
 
 Then('the form with ID {string} should exist', (id: string) => {
   cy.get(`form#${id}`).should('exist')

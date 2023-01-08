@@ -29,12 +29,10 @@ describe('TideApiBase', () => {
     const tideApiBase = new TideApiBase(
       {
         debug: false,
-        contentApi: exampleApiConfig,
+        config: exampleApiConfig,
         mapping: {
           site: exampleMapping,
-          content: {
-            event: exampleMapping
-          }
+          event: exampleMapping
         }
       },
       mockLogger
@@ -75,13 +73,11 @@ describe('TideApiBase', () => {
   describe('get', () => {
     const tideApiBase = new TideApiBase(
       {
-        contentApi: exampleApiConfig,
+        config: exampleApiConfig,
         debug: false,
         mapping: {
           site: exampleMapping,
-          content: {
-            event: exampleMapping
-          }
+          event: exampleMapping
         }
       },
       mockLogger

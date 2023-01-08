@@ -549,8 +549,11 @@
       "id": "1024",
       "props": {
         "title": "Test call to action title",
-        "image": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Two-men-working-in-hi-vis-clothing.jpg",
-        "imageAlt": "Demo: Two men working in hi-vis clothing",
+        "image": {
+          "src": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Two-men-working-in-hi-vis-clothing.jpg",
+          "alt": "Two men working",
+          "title": "Two men working"
+        },
         "url": "/test-cta-destination",
         "ctaText": "Test CTA text",
         "summary": "<p>This is <strong>the description</strong></p>"

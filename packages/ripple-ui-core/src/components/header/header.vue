@@ -3,9 +3,7 @@ export default { name: 'RplHeader' }
 </script>
 
 <script setup lang="ts">
-import { computed, useSlots } from 'vue'
-
-const slots = useSlots()
+import { computed } from 'vue'
 
 const mainClasses = computed(() => ({
   'rpl-header__main': true,
@@ -35,15 +33,14 @@ const mainClasses = computed(() => ({
             <slot name="lower"></slot>
           </div>
         </div>
-        <div
-          v-if="$slots.aside"
-          class="rpl-header__aside rpl-col-12 rpl-col-4-m rpl-col-start-9-m"
-        >
+        <div v-if="$slots.aside" class="rpl-header__aside rpl-col-12 rpl-col-4-m rpl-col-start-9-m">
           <slot name="aside"></slot>
         </div>
       </div>
     </div>
   </div>
 </template>
+
+
 
 <style src="./header.css" />

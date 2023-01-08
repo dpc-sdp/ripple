@@ -4,19 +4,27 @@ import defaultMapping from './lib/default-mapping.js'
 import type { RplTideModuleConfig } from './../../types'
 import { ApplicationError, NotFoundError } from '../errors/errors.js'
 import { ILogger } from '../logger/logger'
-export default class TidePage extends TideApiBase {
-  contentTypes: object
+export default class TidePageApi extends TideApiBase {
+  contentTypes: any
   site: string
   sectionId: string
   path: string
 
-  constructor(config: RplTideModuleConfig, logger: ILogger) {
-    super(config, logger)
-    this.site = config.contentApi.site
+  constructor(tide: RplTideModuleConfig, logger: ILogger) {
+    super(tide, logger)
+    this.site = tide.config.site
     this.sectionId = ''
     this.path = ''
-    this.contentTypes = config.mapping.content
+    this.contentTypes = {}
     this.logLabel = 'TidePage'
+  }
+
+  getContentTypes() {
+    return this.contentTypes
+  }
+
+  setContentType(key, value) {
+    this.contentTypes[key] = value
   }
 
   async getRouteByPath(path: string, site: string = this.site) {
@@ -183,7 +191,7 @@ export default class TidePage extends TideApiBase {
     const contentTypeMapping = this.getContentTypeField('mapping', route)
     if (!contentTypeMapping) {
       throw new ApplicationError(
-        `Unable to resolve content type - ${route.type}`
+        `Unable to resolve content type - ${route.bundle}`
       )
     }
     return this.getMappedData(
@@ -221,8 +229,7 @@ export default class TidePage extends TideApiBase {
 
   getContentTypeField(key: string, route) {
     let contentType =
-      this.contentTypes?.[route.bundle] ||
-      this.contentTypes?.[route.entity_type]
+      this.contentTypes[route.bundle] || this.contentTypes[route.entity_type]
 
     // Check for "submodules", i.e. modules that are packaged together
     // for example embedded video and audio are packaged under "media"

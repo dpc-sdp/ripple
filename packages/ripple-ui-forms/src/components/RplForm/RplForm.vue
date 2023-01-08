@@ -141,40 +141,16 @@ const data = reactive({
 </script>
 
 <template>
-  <FormKit
-    :id="id"
-    v-slot="{ value }"
-    type="form"
-    :plugins="[rplFormInputs]"
-    form-class="rpl-form"
-    :config="rplFormConfig"
-    :actions="false"
-    novalidate
-    @submitInvalid="submitInvalidHandler"
-    @submit="submitHandler"
-  >
-    <fieldset
-      class="rpl-form__submit-guard"
-      :disabled="submissionState.status === 'submitting'"
-    >
-      <RplFormAlert
-        v-if="errorSummaryMessages && errorSummaryMessages.length"
-        ref="errorSummaryRef"
-        status="error"
-        title="Form not submitted"
-        :fields="errorSummaryMessages"
-        data-component-type="form-error-summary"
-      />
-      <RplFormAlert
-        v-else-if="
-          submissionState.status === 'error' ||
-          submissionState.status === 'success'
-        "
-        ref="serverMessageRef"
-        :status="submissionState.status"
-        :title="submissionState.title"
-        data-component-type="form-server-message"
-      >
+  <FormKit :id="id" v-slot="{ value }" type="form" :plugins="[rplFormInputs]" form-class="rpl-form"
+    :config="rplFormConfig" :actions="false" novalidate @submit-invalid="submitInvalidHandler" @submit="submitHandler">
+    <fieldset class="rpl-form__submit-guard" :disabled="submissionState.status === 'submitting'">
+      <RplFormAlert v-if="errorSummaryMessages && errorSummaryMessages.length" ref="errorSummaryRef" status="error"
+        title="Form not submitted" :fields="errorSummaryMessages" data-component-type="form-error-summary" />
+      <RplFormAlert v-else-if="
+        submissionState.status === 'error' ||
+        submissionState.status === 'success'
+      " ref="serverMessageRef" :status="submissionState.status" :title="submissionState.title"
+        data-component-type="form-server-message">
         <template #default>
           <RplContent :html="submissionState.message" />
         </template>
@@ -192,4 +168,6 @@ const data = reactive({
   </FormKit>
 </template>
 
-<style src="./RplForm.css"></style>
+<style src="./RplForm.css">
+
+</style>

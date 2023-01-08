@@ -1,5 +1,4 @@
 import { Then, DataTable } from '@badeball/cypress-cucumber-preprocessor'
-import { d } from 'vue-bundle-renderer/dist/types-dfcc483f'
 
 Then(
   'the breadcrumbs should have the following items',

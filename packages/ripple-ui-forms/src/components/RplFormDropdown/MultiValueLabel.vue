@@ -90,24 +90,18 @@ useResizeObserver(itemsRef, (entries) => {
 <template>
   <div class="rpl-form-dropdown__multi-value-label-wrap">
     <div ref="itemsRef" class="rpl-form-dropdown__multi-value-label rpl-type-p">
-      <span
-        data-option-label="true"
-        v-for="(option, i) in selectedOptions"
-        :key="option.id"
-        >{{ option.label
-        }}{{ i === selectedOptions.length - 1 ? '' : ', ' }}</span
-      >
+      <span v-for="(option, i) in selectedOptions" :key="option.id" data-option-label="true">{{
+        option.label
+      }}{{ i === selectedOptions.length - 1 ? '' : ', ' }}</span>
     </div>
-    <div
-      v-if="numItemsHidden > 0"
-      :style="{
-        width: `${MORE_LABEL_WIDTH}px`
-      }"
-      class="rpl-form-dropdown__more-label rpl-type-p"
-    >
+    <div v-if="numItemsHidden > 0" :style="{
+      width: `${MORE_LABEL_WIDTH}px`
+    }" class="rpl-form-dropdown__more-label rpl-type-p">
       +{{ numItemsHidden }} more
     </div>
   </div>
 </template>
 
-<style src="./MultiValueLabel.css"></style>
+<style src="./MultiValueLabel.css">
+
+</style>

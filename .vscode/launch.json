@@ -15,14 +15,14 @@
       "request": "launch",
       "type": "chrome",
       "url": "http://localhost:3000",
-      "webRoot": "${workspaceFolder}",
+      "webRoot": "${workspaceFolder}/examples/nuxt-app",
       "preLaunchTask": "Sleep Delay"
     },
     {
       "name": "server: Nuxt",
       "type": "node",
       "request": "launch",
-      "cwd": "${workspaceFolder}",
+      "cwd": "${workspaceFolder}/examples/nuxt-app",
       "runtimeExecutable": "yarn",
       "runtimeArgs": ["workspace", "nuxt-app", "dev"],
       "console": "integratedTerminal"

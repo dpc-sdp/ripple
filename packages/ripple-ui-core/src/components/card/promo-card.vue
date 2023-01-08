@@ -41,13 +41,18 @@ const { container, trigger } = useAccessibleContainer()
   >
     <template v-if="image" #upper>
       <RplImage
-        data-cy="image"
-        class="rpl-card__media rpl-card__media--round-top"
         v-bind="image"
+        class="rpl-card__media"
+        :aspect="{
+          xs: 'wide',
+          s: 'ultrawide',
+          m: 'wide'
+        }"
+        data-cy="image"
       />
     </template>
     <template v-if="$slots.meta" #meta>
-      <div class="rpl-card__meta rpl-type-p-small">
+      <div class="rpl-card__meta rpl-type-label-small">
         <slot name="meta"></slot>
       </div>
     </template>

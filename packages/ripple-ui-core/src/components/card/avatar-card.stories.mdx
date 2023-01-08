@@ -18,7 +18,8 @@ export const samples = {
 export const SingleTemplate = (args) => ({
   components: { RplAvatarCard, RplTag },
   setup() {
-    return { args }
+    const img = { src: svgPlaceholder({ width: 220, height: 220, bgColor: '#da7', fgColor: '#333' }) }
+    return { args, img }
   },
   template: `
   <ul class="rpl-storybook__page rpl-grid">
@@ -28,8 +29,8 @@ export const SingleTemplate = (args) => ({
       el="li"
       v-bind="args"
       class="rpl-col-12 rpl-col-6-m rpl-col-4-l"
+      :image="img"
       url="${args.url}"
-      image="${args.image}"
       title="${args.title}"
     >
       <template #meta>
@@ -73,7 +74,6 @@ export const SingleTemplate = (args) => ({
   args={{
     number: 1,
     url: 'https://www.vic.gov.au',
-    image: svgPlaceholder({ width: 220, height: 220, bgColor: '#da7', fgColor: '#333' }),
     meta: samples.meta[1],
     title: 'Mary Sherman Morgan',
     default: '<p>America&rsquo;s first female rocket scientist.</p>'

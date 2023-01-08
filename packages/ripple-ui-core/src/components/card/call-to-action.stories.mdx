@@ -10,7 +10,7 @@ import { a11yStoryCheck } from './../../../stories/interactions.js'
 export const SingleTemplate = (args) => ({
   components: { RplCallToAction },
   setup() {
-    const img = svgPlaceholder({ width: 1200, height: 800, bgColor: '#ccc', fgColor: '#444' })
+    const img = { src: svgPlaceholder({ width: 1200, height: 800, bgColor: '#ccc', fgColor: '#444' }) }
     return { args, img }
   },
   template: `

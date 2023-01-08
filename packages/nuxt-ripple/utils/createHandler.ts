@@ -1,0 +1,78 @@
+//@ts-nocheck import typing needs fixing
+import { CompatibilityEvent, sendError, createError } from 'h3'
+import { logger } from '@dpc-sdp/ripple-tide-api'
+import { UserFacingError } from '@dpc-sdp/ripple-tide-api/errors'
+
+const getPublicFacingStatusCode = (status: number) => {
+  switch (status) {
+    // obscure 403 errors to prevent leaking existence of secure pages
+    case 404:
+    case 403:
+      return 404
+    default:
+      return status
+  }
+}
+
+const getPublicFacingStatusMessage = (status: number) => {
+  switch (status) {
+    // obscure 403 errors to prevent leaking existence of secure pages
+    case 404:
+    case 403:
+      return 'Page not found'
+    case 401:
+      return 'Unauthorized'
+    case 400:
+      return 'Bad request'
+    case 503:
+    case 500:
+      return 'Server is not available'
+    default:
+      return 'Error fetching data'
+  }
+}
+
+const createHandler = async (
+  event: CompatibilityEvent,
+  logLabel: string,
+  handlerFn: () => Promise<any>
+) => {
+  try {
+    logger.info(`Handling request for ${event.req.url}`, {
+      label: logLabel
+    })
+
+    return await handlerFn()
+  } catch (error) {
+    if (error instanceof UserFacingError) {
+      sendError(
+        event,
+        createError({
+          statusCode: getPublicFacingStatusCode(error.statusCode),
+          statusMessage: getPublicFacingStatusMessage(error.statusCode)
+        })
+      )
+      logger.error(`User error occurred when ${event.req.url} was requested:`, {
+        error,
+        label: logLabel
+      })
+    } else {
+      sendError(
+        event,
+        createError({
+          statusCode: 500,
+          statusMessage: 'Something went wrong'
+        })
+      )
+      logger.error(
+        `Internal error occurred when ${event.req.url} was requested:`,
+        {
+          error,
+          label: logLabel
+        }
+      )
+    }
+  }
+}
+
+export default createHandler

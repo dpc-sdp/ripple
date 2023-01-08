@@ -4,10 +4,12 @@ import RplFormTextarea from './../components/RplFormTextarea/RplFormTextarea.vue
 import RplFormOption from '../components/RplFormOptions/RplFormOption.vue'
 import RplFormCheckboxGroup from './../components/RplFormOptions/RplFormCheckboxGroup.vue'
 import RplFormRadioGroup from './../components/RplFormOptions/RplFormRadioGroup.vue'
+import RplFormOptionButtons from './../components/RplFormOptionButtons/RplFormOptionButtons.vue'
 import RplFormDropdown from './../components/RplFormDropdown/RplFormDropdown.vue'
 import RplFormDate from './../components/RplFormDate/RplFormDate.vue'
 import RplFormValidationError from './../components/RplFormValidationError/RplFormValidationError.vue'
 import RplFormHelpText from './../components/RplFormHelpText/RplFormHelpText.vue'
+import RplFormLabel from './../components/RplFormLabel/RplFormLabel.vue'
 import RplFormContent from '../components/RplFormContent/RplFormContent.vue'
 import RplFormDivider from '../components/RplFormDivider/RplFormDivider.vue'
 import RplFormActions from '../components/RplFormActions/RplFormActions.vue'
@@ -40,10 +42,12 @@ export const inputLibrary = {
   RplFormOption: markRaw(RplFormOption),
   RplFormCheckboxGroup: markRaw(RplFormCheckboxGroup),
   RplFormRadioGroup: markRaw(RplFormRadioGroup),
+  RplFormOptionButtons: markRaw(RplFormOptionButtons),
   RplFormDropdown: markRaw(RplFormDropdown),
   RplFormDate: markRaw(RplFormDate),
   RplFormValidationError: markRaw(RplFormValidationError),
   RplFormHelpText: markRaw(RplFormHelpText),
+  RplFormLabel: markRaw(RplFormLabel),
   RplFormContent: markRaw(RplFormContent),
   RplFormDivider: markRaw(RplFormDivider),
   RplFormActions: markRaw(RplFormActions)

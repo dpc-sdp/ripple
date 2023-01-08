@@ -27,7 +27,11 @@
 }
 
 .rpl-form__outer {
-  margin-bottom: var(--rpl-sp-4);
+  margin-bottom: var(--rpl-sp-7);
+
+  @media (--rpl-bp-m) {
+    margin-bottom: var(--rpl-sp-8);
+  }
 }
 
 .rpl-form__fieldset {

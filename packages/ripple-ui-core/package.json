@@ -40,8 +40,8 @@
   },
   "dependencies": {
     "@nuxt/kit": "3.0.0",
-    "@vueuse/core": "^9.6.0",
-    "@vueuse/integrations": "^9.6.0",
+    "@vueuse/core": "^9.10.0",
+    "@vueuse/integrations": "^9.10.0",
     "date-fns": "^2.29.3",
     "focus-trap": "^7.2.0",
     "mitt": "^3.0.0",
@@ -60,7 +60,7 @@
     "@vitejs/plugin-vue": "^3.1.2",
     "@vue/compiler-sfc": "^3.2.45",
     "autoprefixer": "^10.4.12",
-    "chromatic": "^6.10.2",
+    "chromatic": "^6.14.0",
     "http-server": "^14.1.0",
     "jest-axe": "^7.0.0",
     "storybook-addon-designs": "^6.2.1",
@@ -74,6 +74,6 @@
     "vite-plugin-svg-icons": "^2.0.1",
     "vite-plugin-vue-svg": "^0.1.0",
     "vite-svg-loader": "^3.6.0",
-    "wait-on": "^6.0.1"
+    "wait-on": "^7.0.1"
   }
 }

@@ -25,7 +25,7 @@
     "@dpc-sdp/ripple-tide-publication": "2.1.0-alpha.56"
   },
   "devDependencies": {
-    "@badeball/cypress-cucumber-preprocessor": "^14.0.0",
+    "@badeball/cypress-cucumber-preprocessor": "^15.1.0",
     "@nuxt/vite-builder": "^3.0.0",
     "@testing-library/cypress": "^8.0.7",
     "mockttp": "^3.6.1",

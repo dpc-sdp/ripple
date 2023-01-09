@@ -75,6 +75,7 @@ export const getAdvancedAddressMapping = (fieldKey, field) => {
       id: getFieldId('locality'),
       name: getFieldId('locality'),
       label: 'Suburb',
+      columnClasses: 'rpl-col-12 rpl-col-5-m',
       validation: isFieldRequired('locality') ? [['required']] : []
     },
     administrative_area: {
@@ -82,6 +83,7 @@ export const getAdvancedAddressMapping = (fieldKey, field) => {
       id: getFieldId('administrative_area'),
       name: getFieldId('administrative_area'),
       label: 'State',
+      columnClasses: 'rpl-col-12 rpl-col-5-m',
       options: [
         { id: 'VIC', value: 'VIC', label: 'Victoria' },
         { id: 'NSW', value: 'NSW', label: 'New South Wales' },
@@ -96,6 +98,7 @@ export const getAdvancedAddressMapping = (fieldKey, field) => {
       id: getFieldId('postal_code'),
       name: getFieldId('postal_code'),
       label: 'Postcode',
+      columnClasses: 'rpl-col-6 rpl-col-3-m',
       validation: isFieldRequired('postal_code') ? [['required']] : []
     }
   }

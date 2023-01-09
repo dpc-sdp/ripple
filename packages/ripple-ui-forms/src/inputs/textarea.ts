@@ -54,7 +54,8 @@ export const textarea: FormKitTypeDefinition = {
     ...counterProps,
     'rows',
     'placeholder',
-    'validationMeta'
+    'validationMeta',
+    'columnClasses'
   ],
   /**
    * Forces node.props.type to be this explicit value.

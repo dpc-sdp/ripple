@@ -10,6 +10,7 @@ import RplFormDate from './../components/RplFormDate/RplFormDate.vue'
 import RplFormValidationError from './../components/RplFormValidationError/RplFormValidationError.vue'
 import RplFormHelpText from './../components/RplFormHelpText/RplFormHelpText.vue'
 import RplFormLabel from './../components/RplFormLabel/RplFormLabel.vue'
+import RplFormInputGrid from './../components/RplFormInputGrid/RplFormInputGrid.vue'
 import RplFormContent from '../components/RplFormContent/RplFormContent.vue'
 import RplFormFieldset from '../components/RplFormFieldset/RplFormFieldset.vue'
 import RplFormDivider from '../components/RplFormDivider/RplFormDivider.vue'
@@ -36,6 +37,7 @@ import {
   isFieldInvalid,
   getAriaDescribedBy
 } from '../formkit-features'
+import { rplInputGrid } from '../sections/rplInputGrid'
 
 export const inputLibrary = {
   RplFormInput: markRaw(RplFormInput),
@@ -49,6 +51,7 @@ export const inputLibrary = {
   RplFormValidationError: markRaw(RplFormValidationError),
   RplFormHelpText: markRaw(RplFormHelpText),
   RplFormLabel: markRaw(RplFormLabel),
+  RplFormInputGrid: markRaw(RplFormInputGrid),
   RplFormFieldset: markRaw(RplFormFieldset),
   RplFormContent: markRaw(RplFormContent),
   RplFormDivider: markRaw(RplFormDivider),
@@ -76,12 +79,14 @@ export const createRplFormInput = (
           messages: '$messages'
         }
       }))(),
-      inner(
-        icon('prefix', 'label'),
-        prefix(),
-        createSection('input', () => cmp)(),
-        suffix(),
-        icon('suffix')
+      rplInputGrid(
+        inner(
+          icon('prefix', 'label'),
+          prefix(),
+          createSection('input', () => cmp)(),
+          suffix(),
+          icon('suffix')
+        )
       )
     )
   )
@@ -106,7 +111,7 @@ export const createRplFormGroup = (
           messages: '$messages'
         }
       }))(),
-      createSection('input', () => cmp)()
+      rplInputGrid(createSection('input', () => cmp)())
     )
   )
 }
@@ -126,7 +131,8 @@ export const defaultRplFormInputProps = {
   validationMeta: '$node.props.validationMeta',
   'aria-describedby': '$fns.getAriaDescribedBy()',
   invalid: '$fns.isFieldInvalid()',
-  required: '$fns.isFieldRequired()'
+  required: '$fns.isFieldRequired()',
+  columnClasses: '$node.props.columnClasses'
 }
 
 export const minMaxRplFormProps = {

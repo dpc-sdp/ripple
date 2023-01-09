@@ -24,7 +24,8 @@ export const dropdown: FormKitTypeDefinition = {
       options: '$node.props.options',
       validationMeta: '$node.props.validationMeta',
       required: '$fns.isFieldRequired()',
-      invalid: '$fns.isFieldInvalid()'
+      invalid: '$fns.isFieldInvalid()',
+      columnClasses: '$node.props.columnClasses'
     }
   }),
   library: inputLibrary,
@@ -40,7 +41,7 @@ export const dropdown: FormKitTypeDefinition = {
   /**
    * An array of extra props to accept for this input.
    */
-  props: ['placeholder', 'multiple', 'options'],
+  props: ['placeholder', 'multiple', 'options', 'columnClasses'],
   /**
    * Additional features that should be added to your input
    */

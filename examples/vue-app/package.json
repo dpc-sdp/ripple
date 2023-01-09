@@ -15,14 +15,14 @@
   },
   "dependencies": {
     "@dpc-sdp/ripple-ui-core": "2.1.0-alpha.56",
-    "vue": "^3.2.41",
+    "vue": "^3.2.45",
     "vue-router": "^4.1.5"
   },
   "devDependencies": {
-    "@cypress/vite-dev-server": "^5.0.0",
+    "@cypress/vite-dev-server": "^5.0.2",
     "@cypress/vue": "^5.0.3",
     "@rushstack/eslint-patch": "^1.2.0",
-    "@types/node": "^18.11.11",
+    "@types/node": "^18.11.18",
     "@vitejs/plugin-vue": "^3.1.2",
     "@vue/eslint-config-prettier": "^7.0.0",
     "@vue/eslint-config-typescript": "^11.0.2",
@@ -31,8 +31,8 @@
     "eslint": "^8.29.0",
     "eslint-plugin-cypress": "^2.12.1",
     "eslint-plugin-vue": "^9.8.0",
-    "prettier": "^2.8.0",
-    "start-server-and-test": "^1.15.0",
-    "typescript": "^4.9.3"
+    "prettier": "^2.8.2",
+    "start-server-and-test": "^1.15.2",
+    "typescript": "^4.9.4"
   }
 }

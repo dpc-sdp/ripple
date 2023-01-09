@@ -97,6 +97,13 @@ export const getValidation = (
     }
   }
 
+  if (field['#type'] === 'date') {
+    validation.push(['date_format', 'YYYY-MM-DD'])
+    validationMessages[
+      'date_format'
+    ] = `${field['#title']} must be a valid date in the format DD MM YYYY`
+  }
+
   if (typeof field['#multiple'] === 'number') {
     validation.push(['length', 0, field['#multiple']])
     validationMessages['length'] =

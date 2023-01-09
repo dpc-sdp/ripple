@@ -128,6 +128,19 @@ const getFormSchemaFromMapping = async (
           ...getCounterFields(field)
         }
         break
+      case 'date':
+        mappedField = {
+          $formkit: 'RplFormDate',
+          id: fieldKey,
+          name: fieldKey,
+          label: field['#title'],
+          disabled: field['#disabled'],
+          help: field['#description'] || field['#help_title'],
+          value: field['#default_value'],
+          dateFormat: 'yyyy-MM-dd',
+          ...getValidation(field)
+        }
+        break
       case 'checkbox':
         mappedField = {
           $formkit: 'RplFormCheckbox',

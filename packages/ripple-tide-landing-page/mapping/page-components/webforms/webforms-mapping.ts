@@ -6,6 +6,7 @@ import {
   getMinMaxFields,
   getValidationAndConditionals
 } from './webform-utils.js'
+import { getAdvancedAddressMapping } from './webforms-address'
 
 export interface ITideWebform {
   formId: string
@@ -236,6 +237,9 @@ const getFormSchemaFromMapping = async (
         }
         break
       }
+      case 'address':
+        mappedField = getAdvancedAddressMapping(fieldKey, field)
+        break
       case 'webform_markup':
         mappedField = {
           $formkit: 'RplFormContent',

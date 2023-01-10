@@ -4,7 +4,7 @@ import {
   getCounterFields,
   getInputIcons,
   getMinMaxFields,
-  getValidation
+  getValidationAndConditionals
 } from './webform-utils.js'
 
 export interface ITideWebform {
@@ -44,7 +44,7 @@ const getFormSchemaFromMapping = async (
           id: fieldKey,
           help: field['#description'] || field['#help_title'],
           value: field['#default_value'],
-          ...getValidation(field),
+          ...getValidationAndConditionals(field),
           ...getInputIcons(field),
           ...getMinMaxFields(field),
           ...getCounterFields(field)
@@ -60,7 +60,7 @@ const getFormSchemaFromMapping = async (
           id: fieldKey,
           help: field['#description'] || field['#help_title'],
           value: field['#default_value'],
-          ...getValidation(field),
+          ...getValidationAndConditionals(field),
           ...getInputIcons(field),
           ...getMinMaxFields(field)
         }
@@ -78,7 +78,7 @@ const getFormSchemaFromMapping = async (
           min: field['#min'],
           max: field['#max'],
           step: field['#step'],
-          ...getValidation(field),
+          ...getValidationAndConditionals(field),
           ...getInputIcons(field)
         }
         break
@@ -92,7 +92,7 @@ const getFormSchemaFromMapping = async (
           id: fieldKey,
           help: field['#description'] || field['#help_title'],
           value: field['#default_value'],
-          ...getValidation(field),
+          ...getValidationAndConditionals(field),
           ...getInputIcons(field),
           ...getMinMaxFields(field)
         }
@@ -107,7 +107,7 @@ const getFormSchemaFromMapping = async (
           id: fieldKey,
           help: field['#description'] || field['#help_title'],
           value: field['#default_value'],
-          ...getValidation(field),
+          ...getValidationAndConditionals(field),
           ...getInputIcons(field),
           ...getMinMaxFields(field)
         }
@@ -123,7 +123,7 @@ const getFormSchemaFromMapping = async (
           rows: field['#rows'],
           help: field['#description'] || field['#help_title'],
           value: field['#default_value'],
-          ...getValidation(field),
+          ...getValidationAndConditionals(field),
           ...getMinMaxFields(field),
           ...getCounterFields(field)
         }
@@ -138,7 +138,7 @@ const getFormSchemaFromMapping = async (
           help: field['#description'] || field['#help_title'],
           value: field['#default_value'],
           dateFormat: 'yyyy-MM-dd',
-          ...getValidation(field)
+          ...getValidationAndConditionals(field)
         }
         break
       case 'checkbox':
@@ -152,7 +152,7 @@ const getFormSchemaFromMapping = async (
           help: field['#description'],
           checkboxLabel: field['#title'],
           value: field['#default_value'],
-          ...getValidation(field)
+          ...getValidationAndConditionals(field)
         }
         break
       case 'webform_privacy_statement':
@@ -166,7 +166,7 @@ const getFormSchemaFromMapping = async (
           help: field['#privacy_statement_content'],
           checkboxLabel: field['#title'],
           value: field['#default_value'],
-          ...getValidation(field)
+          ...getValidationAndConditionals(field)
         }
         break
       case 'select':
@@ -188,7 +188,7 @@ const getFormSchemaFromMapping = async (
             }
           ),
           value: field['#default_value'],
-          ...getValidation(field)
+          ...getValidationAndConditionals(field)
         }
         break
       case 'radios':
@@ -209,7 +209,7 @@ const getFormSchemaFromMapping = async (
             }
           ),
           value: field['#default_value'],
-          ...getValidation(field)
+          ...getValidationAndConditionals(field)
         }
         break
       case 'webform_term_select': {
@@ -232,25 +232,28 @@ const getFormSchemaFromMapping = async (
             }
           }),
           value: field['#default_value'],
-          ...getValidation(field)
+          ...getValidationAndConditionals(field)
         }
         break
       }
       case 'webform_markup':
         mappedField = {
           $formkit: 'RplFormContent',
-          html: getBody(field['#markup'])
+          html: getBody(field['#markup']),
+          ...getValidationAndConditionals(field)
         }
         break
       case 'processed_text':
         mappedField = {
           $formkit: 'RplFormContent',
-          html: getBody(field['#text'])
+          html: getBody(field['#text']),
+          ...getValidationAndConditionals(field)
         }
         break
       case 'webform_horizontal_rule':
         mappedField = {
-          $formkit: 'RplFormDivider'
+          $formkit: 'RplFormDivider',
+          ...getValidationAndConditionals(field)
         }
         break
       case 'webform_actions':
@@ -261,6 +264,7 @@ const getFormSchemaFromMapping = async (
           label: field['#submit__label'],
           id: fieldKey,
           displayResetButton: !!webform?.settings?.form_reset,
+          ...getValidationAndConditionals(field),
           ...getInputIcons(field)
         }
         break

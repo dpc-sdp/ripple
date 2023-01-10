@@ -19,7 +19,6 @@ import {
   prefix,
   suffix,
   fieldset,
-  legend,
   createSection
 } from '@formkit/inputs'
 import {
@@ -27,6 +26,7 @@ import {
   FormKitExtendableSchemaRoot
 } from '@formkit/core'
 import { rplLabel } from '../sections/rplLabel'
+import { rplLegend } from '../sections/rplLegend'
 import { rplHelp } from '../sections/rplHelp'
 import {
   isFieldRequired,
@@ -90,7 +90,7 @@ export const createRplFormGroup = (
 ): FormKitExtendableSchemaRoot => {
   return outer(
     fieldset(
-      legend('$label'),
+      rplLegend('$label'),
       rplHelp('$help'),
       createSection('error', () => ({
         $cmp: 'RplFormValidationError',

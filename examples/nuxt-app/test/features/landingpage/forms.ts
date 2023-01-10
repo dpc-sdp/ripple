@@ -20,7 +20,7 @@ Then(
           }
           if (row.label) {
             cy.get('@item')
-              .find('label.rpl-form__label')
+              .find('label.rpl-form-label')
               .should('contain', row.label)
           }
           if (row.help) {
@@ -29,7 +29,7 @@ Then(
           if (row.required) {
             if (row.required === 'true') {
               cy.get('@item')
-                .find('.rpl-form__required')
+                .find('.rpl-form-label__required')
                 .should('contain', '(Required)')
             }
           }
@@ -43,7 +43,7 @@ Then(
   (inputType: string, label: string, dataTable: DataTable) => {
     const data = dataTable?.hashes()[0] || {}
 
-    cy.get('label.rpl-form__label')
+    cy.get('label.rpl-form-label')
       .contains(label)
       .closest('.rpl-form__outer')
       .as('field')
@@ -54,7 +54,7 @@ Then(
 
     if (data.required === 'true') {
       cy.get('@field')
-        .find('.rpl-form__required')
+        .find('.rpl-form-label__required')
         .should('contain', '(Required)')
     }
 
@@ -64,7 +64,7 @@ Then(
 )
 
 Then('the input with the label {string} should be valid', (label: string) => {
-  cy.get('label.rpl-form__label')
+  cy.get('label.rpl-form-label')
     .contains(label)
     .closest('.rpl-form__outer')
     .as('field')
@@ -77,7 +77,7 @@ Then('the input with the label {string} should be valid', (label: string) => {
 Then(
   'the input with the label {string} should be invalid with message {string}',
   (label: string, errorMsg: string) => {
-    cy.get('label.rpl-form__label')
+    cy.get('label.rpl-form-label')
       .contains(label)
       .closest('.rpl-form__outer')
       .as('field')
@@ -93,7 +93,7 @@ Then(
 When(
   'I type {string} into the input with the label {string}',
   (value: string, label: string) => {
-    cy.get('label.rpl-form__label')
+    cy.get('label.rpl-form-label')
       .contains(label)
       .closest('.rpl-form__outer')
       .as('field')
@@ -106,7 +106,7 @@ When(
 When(
   'I type {string} into the textarea with the label {string}',
   (value: string, label: string) => {
-    cy.get('label.rpl-form__label')
+    cy.get('label.rpl-form-label')
       .contains(label)
       .closest('.rpl-form__outer')
       .as('field')
@@ -120,7 +120,7 @@ Then(
   'a select field with the label {string} should exist',
   (label: string, dataTable: DataTable) => {
     const data = dataTable?.hashes()[0] || {}
-    cy.get('label.rpl-form__label')
+    cy.get('label.rpl-form-label')
       .contains(label)
       .closest('.rpl-form__outer')
       .as('field')
@@ -131,7 +131,7 @@ Then(
 
     if (data.required === 'true') {
       cy.get('@field')
-        .find('.rpl-form__required')
+        .find('.rpl-form-label__required')
         .should('contain', '(Required)')
     }
 
@@ -144,7 +144,7 @@ Then(
   'a radio group field with the label {string} should exist with the following options',
   (label: string, dataTable: DataTable) => {
     const table = dataTable?.hashes()
-    cy.get('legend.rpl-form__legend')
+    cy.get('legend.rpl-form-label')
       .contains(label)
       .closest('.rpl-form__outer')
       .as('field')
@@ -167,7 +167,7 @@ Then(
   'a textarea field with the label {string} should exist',
   (label: string, dataTable: DataTable) => {
     const data = dataTable?.hashes()[0] || {}
-    cy.get('label.rpl-form__label')
+    cy.get('label.rpl-form-label')
       .contains(label)
       .closest('.rpl-form__outer')
       .as('field')
@@ -178,7 +178,7 @@ Then(
 
     if (data.required === 'true') {
       cy.get('@field')
-        .find('.rpl-form__required')
+        .find('.rpl-form-label__required')
         .should('contain', '(Required)')
     }
 
@@ -189,7 +189,7 @@ Then(
 When(
   'I click {string} from the select field with label {string}',
   (value: string, label: string) => {
-    cy.get('label.rpl-form__label')
+    cy.get('label.rpl-form-label')
       .contains(label)
       .closest('.rpl-form__outer')
       .as('field')
@@ -206,7 +206,7 @@ Then(
   (label: string, dataTable: DataTable) => {
     const data = dataTable?.hashes()[0] || {}
 
-    cy.get('legend.rpl-form__legend')
+    cy.get('legend.rpl-form-label')
       .contains(label)
       .closest('.rpl-form__outer')
       .as('field')
@@ -217,7 +217,7 @@ Then(
 
     if (data.required === 'true') {
       cy.get('@field')
-        .find('.rpl-form__required')
+        .find('.rpl-form-label__required')
         .should('contain', '(Required)')
     }
 
@@ -228,7 +228,7 @@ Then(
 )
 
 Then('I toggle the checkbox with label {string}', (label: string) => {
-  cy.get('legend.rpl-form__legend')
+  cy.get('legend.rpl-form-label')
     .contains(label)
     .closest('.rpl-form__outer')
     .as('field')

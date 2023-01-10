@@ -11,6 +11,7 @@ import {
   url,
   radioGroup,
   content,
+  label,
   divider,
   date,
   optionButtons,
@@ -49,6 +50,8 @@ rplFormInputs.library = (node) => {
       return node.define(date)
     case 'RplFormContent':
       return node.define(content)
+    case 'RplFormLabel':
+      return node.define(label)
     case 'RplFormFieldset':
       return node.define(fieldset)
     case 'RplFormDivider':

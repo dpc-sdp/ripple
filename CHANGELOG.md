@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.58](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.57...v2.1.0-alpha.58) (2023-01-10)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-api:** removed deprecated video includes ([0edfdc1](https://github.com/dpc-sdp/ripple-framework/commit/0edfdc1e727c48300363e85ff622c52bcd032e54))
+
+
+
+
+
 # [2.1.0-alpha.57](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.56...v2.1.0-alpha.57) (2023-01-09)
 
 

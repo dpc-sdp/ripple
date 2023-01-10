@@ -19,14 +19,11 @@
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
 
-// Ensure global styles are loaded
-import '@dpc-sdp/ripple-ui-core/style'
-import '@dpc-sdp/ripple-ui-core/style/components'
-import { plugin, defaultConfig } from '@formkit/vue'
-
 import { mount } from 'cypress/vue'
 import { h } from 'vue'
 import { RplIconSprite } from '@dpc-sdp/ripple-ui-core'
+// Ensure global styles are loaded
+import '@dpc-sdp/ripple-ui-core/style'
 
 const RplAppWrapper = {
   components: { RplIconSprite },
@@ -37,17 +34,9 @@ const RplAppWrapper = {
 }
 
 Cypress.Commands.add('mount', (component, options = {}) => {
-  return mount(
-    () => {
-      return h(RplAppWrapper, null, () => h(component, { ...options.props }))
-    },
-    {
-      ...options,
-      global: {
-        plugins: [[plugin, defaultConfig]]
-      }
-    }
-  )
+  return mount(() => {
+    return h(RplAppWrapper, null, () => h(component, { ...options.props }))
+  })
 })
 
 // Example use:

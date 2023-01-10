@@ -14,6 +14,8 @@ export const getAdvancedAddressMapping = (fieldKey, field) => {
     'postal_code'
   ]
 
+  const defaultValues = field['#default_value'] || {}
+
   const getFieldId = (name) => `${fieldKey}.${name}`
   const isFieldVisible = (name) => overrides[camelCase(name)] !== 'hidden'
   const hasRequiredOverride = (name) =>
@@ -38,50 +40,56 @@ export const getAdvancedAddressMapping = (fieldKey, field) => {
     organization: {
       $formkit: 'RplFormText',
       id: getFieldId('organization'),
-      name: getFieldId('organization'),
+      name: 'organization',
       label: 'Organization',
-      validation: isFieldRequired('organisation') ? [['required']] : []
+      validation: isFieldRequired('organisation') ? [['required']] : [],
+      value: defaultValues.organization || ''
     },
     given_name: {
       $formkit: 'RplFormText',
       id: getFieldId('given_name'),
-      name: getFieldId('given_name'),
+      name: 'given_name',
       label: 'Given name',
-      validation: isFieldRequired('given_name') ? [['required']] : []
+      validation: isFieldRequired('given_name') ? [['required']] : [],
+      value: defaultValues.given_name || ''
     },
     family_name: {
       $formkit: 'RplFormText',
       id: getFieldId('family_name'),
-      name: getFieldId('family_name'),
+      name: 'family_name',
       label: 'Family name',
-      validation: isFieldRequired('family_name') ? [['required']] : []
+      validation: isFieldRequired('family_name') ? [['required']] : [],
+      value: defaultValues.family_name || ''
     },
     address_line1: {
       $formkit: 'RplFormText',
       id: getFieldId('address_line1'),
-      name: getFieldId('address_line1'),
+      name: 'address_line1',
       label: 'Street address',
-      validation: isFieldRequired('address_line1') ? [['required']] : []
+      validation: isFieldRequired('address_line1') ? [['required']] : [],
+      value: defaultValues.address_line1 || ''
     },
     address_line2: {
       $formkit: 'RplFormText',
       id: getFieldId('address_line2'),
-      name: getFieldId('address_line2'),
+      name: 'address_line2',
       label: 'Street address line 2',
-      validation: isFieldRequired('address_line2') ? [['required']] : []
+      validation: isFieldRequired('address_line2') ? [['required']] : [],
+      value: defaultValues.address_line2 || ''
     },
     locality: {
       $formkit: 'RplFormText',
       id: getFieldId('locality'),
-      name: getFieldId('locality'),
+      name: 'locality',
       label: 'Suburb',
       columnClasses: 'rpl-col-12 rpl-col-5-m',
-      validation: isFieldRequired('locality') ? [['required']] : []
+      validation: isFieldRequired('locality') ? [['required']] : [],
+      value: defaultValues.locality || ''
     },
     administrative_area: {
       $formkit: 'RplFormDropdown',
       id: getFieldId('administrative_area'),
-      name: getFieldId('administrative_area'),
+      name: 'administrative_area',
       label: 'State',
       columnClasses: 'rpl-col-12 rpl-col-5-m',
       options: [
@@ -91,21 +99,30 @@ export const getAdvancedAddressMapping = (fieldKey, field) => {
         { id: 'QLD', value: 'QLD', label: 'Queensland' },
         { id: 'ACT', value: 'ACT', label: 'Australian Capital Territory' }
       ],
-      validation: isFieldRequired('administrative_area') ? [['required']] : []
+      validation: isFieldRequired('administrative_area') ? [['required']] : [],
+      value: defaultValues.administrative_area || ''
     },
     postal_code: {
       $formkit: 'RplFormText',
       id: getFieldId('postal_code'),
-      name: getFieldId('postal_code'),
+      name: 'postal_code',
       label: 'Postcode',
       columnClasses: 'rpl-col-6 rpl-col-3-m',
-      validation: isFieldRequired('postal_code') ? [['required']] : []
+      validation: isFieldRequired('postal_code') ? [['required']] : [],
+      value: defaultValues.postal_code || ''
+    },
+    country_code: {
+      $formkit: 'hidden',
+      id: getFieldId('country_code'),
+      name: 'country_code',
+      value: defaultValues.country_code || 'AU'
     }
   }
 
   return {
     $formkit: 'RplFormFieldset',
     legend: field['#title'],
+    name: fieldKey,
     children: [
       'organization',
       'given_name',
@@ -114,7 +131,8 @@ export const getAdvancedAddressMapping = (fieldKey, field) => {
       'address_line2',
       'locality',
       'administrative_area',
-      'postal_code'
+      'postal_code',
+      'country_code'
     ]
       .filter(isFieldVisible)
       .map((name) => allFields[name])

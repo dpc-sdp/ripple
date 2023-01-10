@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.59](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.58...v2.1.0-alpha.59) (2023-01-10)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-landing-page
+
+
+
+
+
+# [2.1.0-alpha.58](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.57...v2.1.0-alpha.58) (2023-01-10)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-api:** removed deprecated video includes ([0edfdc1](https://github.com/dpc-sdp/ripple-framework/commit/0edfdc1e727c48300363e85ff622c52bcd032e54))
+
+
+
+
+
+# [2.1.0-alpha.57](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.56...v2.1.0-alpha.57) (2023-01-09)
+
+
+### Bug Fixes
+
+* :memo: add comments for example app usage ([7dc6dd6](https://github.com/dpc-sdp/ripple-framework/commit/7dc6dd6dd8ac9ecad3b6256afd6e4617860550e3))
+
+
+### Features
+
+* **@dpc-sdp/ripple-ui-forms:** added date input form component ([e10be60](https://github.com/dpc-sdp/ripple-framework/commit/e10be60a34bd846d1de5c7e6f76c04b466f64356))
+
+
+
+
+
 # [2.1.0-alpha.56](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.55...v2.1.0-alpha.56) (2023-01-06)
 
 

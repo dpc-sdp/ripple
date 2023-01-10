@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.60](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.59...v2.1.0-alpha.60) (2023-01-10)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-forms:** removed unused code ([3343c27](https://github.com/dpc-sdp/ripple-framework/commit/3343c27f95924ccee20cbca706f3a9264f1cd269))
+
+
+### Features
+
+* **@dpc-sdp/ripple-ui-forms:** added conditional logic for drupal webforms ([a41b03b](https://github.com/dpc-sdp/ripple-framework/commit/a41b03b50c3ec54562da2f9b1ce9e5634c68d431))
+* **@dpc-sdp/ripple-ui-forms:** added support for 'one of' conditional webform rules (xor) ([d983d89](https://github.com/dpc-sdp/ripple-framework/commit/d983d8992997c534c6012c4df9b1398a9235cb05))
+
+
+
+
+
 # [2.1.0-alpha.59](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.58...v2.1.0-alpha.59) (2023-01-10)
 
 

@@ -8,14 +8,7 @@
   "license": "MIT",
   "keywords": [],
   "exports": {
-    ".": "./dist/index.js",
-    "./nuxt": "./src/nuxt.ts"
-  },
-  "scripts": {
-    "clean": "rimraf dist* && rimraf tsconfig.tsbuildinfo",
-    "build": "yarn clean && tsc -p tsconfig.json",
-    "start": "node ./dist/index.js",
-    "watch": "tsc -p tsconfig.json -w"
+    ".": "./nuxt.config.ts"
   },
   "dependencies": {
     "@elastic/search-ui": "latest",

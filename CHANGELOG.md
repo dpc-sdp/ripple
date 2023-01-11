@@ -3,6 +3,292 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.60](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.59...v2.1.0-alpha.60) (2023-01-10)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-forms:** removed unused code ([3343c27](https://github.com/dpc-sdp/ripple-framework/commit/3343c27f95924ccee20cbca706f3a9264f1cd269))
+
+
+### Features
+
+* **@dpc-sdp/ripple-ui-forms:** added conditional logic for drupal webforms ([a41b03b](https://github.com/dpc-sdp/ripple-framework/commit/a41b03b50c3ec54562da2f9b1ce9e5634c68d431))
+* **@dpc-sdp/ripple-ui-forms:** added support for 'one of' conditional webform rules (xor) ([d983d89](https://github.com/dpc-sdp/ripple-framework/commit/d983d8992997c534c6012c4df9b1398a9235cb05))
+
+
+
+
+
+# [2.1.0-alpha.59](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.58...v2.1.0-alpha.59) (2023-01-10)
+
+
+### Bug Fixes
+
+* remove nuxt.js export from ripple-tide-api ([ec7934f](https://github.com/dpc-sdp/ripple-framework/commit/ec7934f8a3020cf5013c2519df0a57253766ff3f))
+
+
+
+
+
+# [2.1.0-alpha.58](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.57...v2.1.0-alpha.58) (2023-01-10)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-api:** removed deprecated video includes ([0edfdc1](https://github.com/dpc-sdp/ripple-framework/commit/0edfdc1e727c48300363e85ff622c52bcd032e54))
+
+
+
+
+
+# [2.1.0-alpha.57](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.56...v2.1.0-alpha.57) (2023-01-09)
+
+
+### Bug Fixes
+
+* :memo: add comments for example app usage ([7dc6dd6](https://github.com/dpc-sdp/ripple-framework/commit/7dc6dd6dd8ac9ecad3b6256afd6e4617860550e3))
+* **@dpc-sdp/ripple-ui-core:** fix package version ([b94c40a](https://github.com/dpc-sdp/ripple-framework/commit/b94c40a41a536a7252fd0915be597792597a30bc))
+
+
+### Features
+
+* **@dpc-sdp/ripple-ui-forms:** added date input form component ([e10be60](https://github.com/dpc-sdp/ripple-framework/commit/e10be60a34bd846d1de5c7e6f76c04b466f64356))
+
+
+
+
+
+# [2.1.0-alpha.56](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.55...v2.1.0-alpha.56) (2023-01-06)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/nuxt-ripple:** :bug: move error.vue to example app until supported in nuxt layers ([de018be](https://github.com/dpc-sdp/ripple-framework/commit/de018be797fb9044acc18dce13141d4602823296))
+* **@dpc-sdp/ripple-tide-grant:** :bug: fix paths ([249a17b](https://github.com/dpc-sdp/ripple-framework/commit/249a17bf1f8653ca6272ef95aa579063b67be136))
+* fix package versions ([02536db](https://github.com/dpc-sdp/ripple-framework/commit/02536dbfba12aeb7e88f40ef6fc3efeac714d969))
+
+
+### Features
+
+* :sparkles: export mapping for content types ([77ea761](https://github.com/dpc-sdp/ripple-framework/commit/77ea761a0f7ee66e055c3010c8c9ef774c5f2e2f))
+* **@dpc-sdp/ripple-tide-api:** :sparkles: give fallback default value of undefined ([d70e298](https://github.com/dpc-sdp/ripple-framework/commit/d70e2986ef5208d9bc7d6b91fcded6166f9a1e7d))
+
+
+
+
+
+# [2.1.0-alpha.55](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.54...v2.1.0-alpha.55) (2023-01-04)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** added responsive aspect ratios to promo card image ([fb590c3](https://github.com/dpc-sdp/ripple-framework/commit/fb590c3b71c1bf7b0bb146749f0e186cb1b88939))
+* **@dpc-sdp/ripple-ui-core:** design feedback ([d4214b2](https://github.com/dpc-sdp/ripple-framework/commit/d4214b285a5525d4752ee9206a49643113514d41))
+* **@dpc-sdp/ripple-ui-core:** fixed various design feedback items for nav/promo cards ([3c58aab](https://github.com/dpc-sdp/ripple-framework/commit/3c58aab4bd6dd37fcf339f36dfb21b1fe1dfd986))
+
+
+
+
+
+# [2.1.0-alpha.54](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.53...v2.1.0-alpha.54) (2023-01-03)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** page links disappeared from storybook ([57de409](https://github.com/dpc-sdp/ripple-framework/commit/57de4090f0e521e4cfb336ce2a0f7f3b5ebe14a8))
+* **@dpc-sdp/ripple-ui-core:** remove tabindex, update button to expose link, remove space ([a7e2540](https://github.com/dpc-sdp/ripple-framework/commit/a7e2540336ca9f418c65046315019c5c12a1071d))
+
+
+
+
+
+# [2.1.0-alpha.53](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.52...v2.1.0-alpha.53) (2022-12-30)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** :lipstick: spacing tweaks for header ([0802720](https://github.com/dpc-sdp/ripple-framework/commit/0802720785868198764cefbcc9343e18354364dd))
+* **@dpc-sdp/ripple-ui-core:** :lipstick: style tweaks for cta secondary link ([334e88b](https://github.com/dpc-sdp/ripple-framework/commit/334e88bb2516c13a901bdf56c698d6c8bcc7dd08))
+* **@dpc-sdp/ripple-ui-core:** :lipstick: styling tweaks for header ([b8ef396](https://github.com/dpc-sdp/ripple-framework/commit/b8ef39683237463bcfe46ffa9eb791f64c13c2f2))
+
+
+### Features
+
+* **@dpc-sdp/ripple-ui-core:** :lipstick: change icon name input to dropdown rather than text box ([9a18b29](https://github.com/dpc-sdp/ripple-framework/commit/9a18b29677edcc0f57e264cf6ed510884e49aa96))
+
+
+
+
+
+# [2.1.0-alpha.52](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.51...v2.1.0-alpha.52) (2022-12-22)
+
+
+### Features
+
+* :sparkles: add neutral theme for header via feature flag ([dff7865](https://github.com/dpc-sdp/ripple-framework/commit/dff786541890ff8cfee0670b56f6f8ef7e289825))
+* **@dpc-sdp/ripple-tide-api:** :sparkles: adds site feature flags and sets footer theme variant ([05f8cb0](https://github.com/dpc-sdp/ripple-framework/commit/05f8cb03ae892960a427afa2c68f21b9a18c0ddc))
+* **@dpc-sdp/ripple-ui-core:** add neutral button theme ([94fcf74](https://github.com/dpc-sdp/ripple-framework/commit/94fcf742778d06f05dc05b694e608752e2d5c4e5))
+
+
+
+
+
+# [2.1.0-alpha.51](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.50...v2.1.0-alpha.51) (2022-12-22)
+
+
+### Features
+
+* **@dpc-sdp/ripple-ui-core:** add media embed to exports, use the new media embed in media template ([2241f1a](https://github.com/dpc-sdp/ripple-framework/commit/2241f1a926d12a52443de2ede32ba70e2b591201))
+* **@dpc-sdp/ripple-ui-core:** use list component for grant details ([d608542](https://github.com/dpc-sdp/ripple-framework/commit/d608542340e3ad031fd7fd86c56b5f12e444f2e0))
+
+
+
+
+
+# [2.1.0-alpha.50](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.49...v2.1.0-alpha.50) (2022-12-21)
+
+**Note:** Version bump only for package root
+
+
+
+
+
+# [2.1.0-alpha.49](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.48...v2.1.0-alpha.49) (2022-12-20)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-forms:** fixed build after merge conflict ([ef0a8cb](https://github.com/dpc-sdp/ripple-framework/commit/ef0a8cb2196aa2a2b6b13a14b3cc71f37ba8b5a0))
+
+
+### Features
+
+* **@dpc-sdp/ripple-ui-forms:** added radio button to formkit ([6bfe55b](https://github.com/dpc-sdp/ripple-framework/commit/6bfe55b135e98dca9266076f4589eb12c4e9aa59))
+* **@dpc-sdp/ripple-ui-forms:** added ui component for radio group ([c3b0b3d](https://github.com/dpc-sdp/ripple-framework/commit/c3b0b3ddd4fca4c35c37ed71ebd40748361158c6))
+* **@dpc-sdp/ripple-ui-forms:** added webform mapping for radio button ([5602ebd](https://github.com/dpc-sdp/ripple-framework/commit/5602ebd0a22cc28cd8cc013ab9384ad816ef4675))
+
+
+
+
+
+# [2.1.0-alpha.48](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.47...v2.1.0-alpha.48) (2022-12-19)
+
+
+### Features
+
+* **@dpc-sdp/ripple-ui-forms:** added min/max validation to number input ([a149a0b](https://github.com/dpc-sdp/ripple-framework/commit/a149a0b5002cd3d81297c34e07ed6f52c2066ac5))
+
+
+
+
+
+# [2.1.0-alpha.47](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.46...v2.1.0-alpha.47) (2022-12-19)
+
+
+### Features
+
+* **@dpc-sdp/ripple-ui-forms:** added basic and advanced HTML content to forms ([a2c6ab6](https://github.com/dpc-sdp/ripple-framework/commit/a2c6ab6910bb1c70b4be11a15f3fb3eb0178b9f2))
+* **@dpc-sdp/ripple-ui-forms:** added horizontal rule webform component ([f3f4535](https://github.com/dpc-sdp/ripple-framework/commit/f3f45357becca4c5f18109050c0e8896bc2a0675))
+
+
+
+
+
+# [2.1.0-alpha.46](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.45...v2.1.0-alpha.46) (2022-12-19)
+
+**Note:** Version bump only for package root
+
+
+
+
+
+# [2.1.0-alpha.45](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.44...v2.1.0-alpha.45) (2022-12-19)
+
+
+### Features
+
+* **@dpc-sdp/ripple-ui-core:** adding result listing, stop ally links triggering twice ([3653991](https://github.com/dpc-sdp/ripple-framework/commit/3653991f9f71d61f8fcbf0c62f9cfcc26143230c))
+
+
+
+
+
+# [2.1.0-alpha.44](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.43...v2.1.0-alpha.44) (2022-12-18)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-forms:** added missing breakpoint import ([6ff9c1d](https://github.com/dpc-sdp/ripple-framework/commit/6ff9c1d6e193399aefe22520481a87840d90b317))
+
+
+
+
+
+# [2.1.0-alpha.43](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.42...v2.1.0-alpha.43) (2022-12-15)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** :bug: change font class for mega nav back button ([20ede8f](https://github.com/dpc-sdp/ripple-framework/commit/20ede8f61120be07a66d1091f5f2966c140ecc79))
+* **@dpc-sdp/ripple-ui-core:** :bug: fix incorrect prop name in mega nav action ([35e498a](https://github.com/dpc-sdp/ripple-framework/commit/35e498a86fd46b23c418a47baa0cddfaf80c6518))
+* **@dpc-sdp/ripple-ui-core:** :bug: fix multiple nav items being selected ([3ed148e](https://github.com/dpc-sdp/ripple-framework/commit/3ed148ea06208c295ba3bd7aa8543979c2954f6b))
+* **@dpc-sdp/ripple-ui-core:** :bug: update mega nav action to use border token ([d7a6bb6](https://github.com/dpc-sdp/ripple-framework/commit/d7a6bb61cea130e83a6f6366482211be3187f4c9))
+* **@dpc-sdp/ripple-ui-core:** :lipstick: add focus and hover states to mega menu back button ([d162d72](https://github.com/dpc-sdp/ripple-framework/commit/d162d72af72a045906b982cfdb10d04844e25eb3))
+* **@dpc-sdp/ripple-ui-core:** :lipstick: add left margin to mega menu action icon ([25e1848](https://github.com/dpc-sdp/ripple-framework/commit/25e18484f45015005b3ab37a3f874b263d3fcec4))
+* **@dpc-sdp/ripple-ui-core:** :lipstick: add max width to mega menu grid at xl ([b8775c8](https://github.com/dpc-sdp/ripple-framework/commit/b8775c86351a246e26951cc366cb3a182664814d))
+* **@dpc-sdp/ripple-ui-core:** :lipstick: add missing colours to storybook themes ([9932286](https://github.com/dpc-sdp/ripple-framework/commit/9932286d508080d43ae04e5a3048e1389f1ca3fa))
+* **@dpc-sdp/ripple-ui-core:** :lipstick: add white line at bottom of active mega menu items ([a680d40](https://github.com/dpc-sdp/ripple-framework/commit/a680d40e564dee3d1e48ea6716855f8e0ee854a1))
+* **@dpc-sdp/ripple-ui-core:** :lipstick: adjust padding around mega menu quick exit ([82898d2](https://github.com/dpc-sdp/ripple-framework/commit/82898d26b728642a8eb5e5f26d6cee3e65821fc2))
+* **@dpc-sdp/ripple-ui-core:** :lipstick: fix mega menu collapsing behaviour ([741d03a](https://github.com/dpc-sdp/ripple-framework/commit/741d03a2345ee7f5efe56960d02c4405725435b4))
+* **@dpc-sdp/ripple-ui-core:** :lipstick: fix spacing between section title and links ([d35fd32](https://github.com/dpc-sdp/ripple-framework/commit/d35fd32f5b7862a04e7c8e904222a9bd2e967f97))
+* **@dpc-sdp/ripple-ui-core:** :lipstick: hide top and bottom border on hovered nav items ([992052e](https://github.com/dpc-sdp/ripple-framework/commit/992052e63e524b1f83d9da1ef84c4fdf256b4aeb))
+* **@dpc-sdp/ripple-ui-core:** :lipstick: mega menu action spacing tweaks ([2417f90](https://github.com/dpc-sdp/ripple-framework/commit/2417f90550aa4daca558518164114f32caf02066))
+* **@dpc-sdp/ripple-ui-core:** :lipstick: mega menu back button styling tweaks ([07e88c7](https://github.com/dpc-sdp/ripple-framework/commit/07e88c75e631c4f83cb4d98ac04cf1a92932a1cf))
+* **@dpc-sdp/ripple-ui-core:** :lipstick: spacing tweaks to mega menu wrapper ([1bf1f09](https://github.com/dpc-sdp/ripple-framework/commit/1bf1f09ca06a8eef3fb56678fc23235f252cbd59))
+* **@dpc-sdp/ripple-ui-core:** :lipstick: token replacement for hardcoded 'white' colour ([90b5efa](https://github.com/dpc-sdp/ripple-framework/commit/90b5efaf9a3c760ccaba96584dfda14b36f129f8))
+* **@dpc-sdp/ripple-ui-core:** :lipstick: vertically center mega menu back button content ([28074c3](https://github.com/dpc-sdp/ripple-framework/commit/28074c3797aa3a385f19baec00b53ad790b72db6))
+
+
+
+
+
+# [2.1.0-alpha.42](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.41...v2.1.0-alpha.42) (2022-12-15)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-forms:** cleanup webforms tests after merge conflicts ([b9f830c](https://github.com/dpc-sdp/ripple-framework/commit/b9f830cfabf92e524e01e40b3d465d3941345dac))
+* **@dpc-sdp/ripple-ui-forms:** fixed form actions styling ([c394a3c](https://github.com/dpc-sdp/ripple-framework/commit/c394a3c3394106cf9a45554abd535148bcb43a5c))
+* **@dpc-sdp/ripple-ui-forms:** fixed form alert title styling ([18bb3f6](https://github.com/dpc-sdp/ripple-framework/commit/18bb3f60d7004fcbd4ff2234490101cc33f3e0c8))
+* **@dpc-sdp/ripple-ui-forms:** tidied form alert styling ([353aeae](https://github.com/dpc-sdp/ripple-framework/commit/353aeaef5f3ca3f3aaaa070d078677e5ef9d03d7))
+
+
+
+
+
+# [2.1.0-alpha.41](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.40...v2.1.0-alpha.41) (2022-12-15)
+
+
+### Features
+
+* **@dpc-sdp/ripple-ui-core:** remaining copy update ([713d167](https://github.com/dpc-sdp/ripple-framework/commit/713d167d2b1d6d256a9b164b385358b0ce5f44c7))
+
+
+
+
+
+# [2.1.0-alpha.40](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.39...v2.1.0-alpha.40) (2022-12-15)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** :lipstick: add precedence for height ([0c14c6d](https://github.com/dpc-sdp/ripple-framework/commit/0c14c6d0baa3bdbccd2ea48525e7fe7cc09c09fa))
+
+
+
+
+
 # [2.1.0-alpha.39](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.38...v2.1.0-alpha.39) (2022-12-14)
 
 

@@ -8,19 +8,19 @@ import { ILogger } from '../logger/logger'
 
 export default class TideApiBase extends HttpClient {
   debug: boolean | undefined
-  constructor(config: RplTideModuleConfig, logger: ILogger) {
-    if (!config) {
+  constructor(tide: RplTideModuleConfig, logger: ILogger) {
+    if (!tide) {
       throw new Error('Error - No configuration specified')
     }
     super(
       {
-        client: config.client,
-        baseUrl: `${config.contentApi.baseUrl}${config.contentApi.apiPrefix}`,
-        auth: config.contentApi.auth
+        client: tide.client,
+        baseUrl: `${tide.config.baseUrl}${tide.config.apiPrefix}`,
+        auth: tide.config.auth
       },
       logger
     )
-    this.debug = config.debug
+    this.debug = tide.debug
   }
 
   async getMappedDataAux(mapping = {}, resource = {}) {

@@ -3,6 +3,196 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.60](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.59...v2.1.0-alpha.60) (2023-01-10)
+
+**Note:** Version bump only for package nuxt-app
+
+
+
+
+
+# [2.1.0-alpha.59](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.58...v2.1.0-alpha.59) (2023-01-10)
+
+**Note:** Version bump only for package nuxt-app
+
+
+
+
+
+# [2.1.0-alpha.58](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.57...v2.1.0-alpha.58) (2023-01-10)
+
+**Note:** Version bump only for package nuxt-app
+
+
+
+
+
+# [2.1.0-alpha.57](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.56...v2.1.0-alpha.57) (2023-01-09)
+
+
+### Bug Fixes
+
+* :memo: add comments for example app usage ([7dc6dd6](https://github.com/dpc-sdp/ripple-framework/commit/7dc6dd6dd8ac9ecad3b6256afd6e4617860550e3))
+
+
+
+
+
+# [2.1.0-alpha.56](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.55...v2.1.0-alpha.56) (2023-01-06)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/nuxt-ripple:** :bug: move error.vue to example app until supported in nuxt layers ([de018be](https://github.com/dpc-sdp/ripple-framework/commit/de018be797fb9044acc18dce13141d4602823296))
+* fix package versions ([02536db](https://github.com/dpc-sdp/ripple-framework/commit/02536dbfba12aeb7e88f40ef6fc3efeac714d969))
+
+
+
+
+
+# [2.1.0-alpha.55](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.54...v2.1.0-alpha.55) (2023-01-04)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** design feedback ([d4214b2](https://github.com/dpc-sdp/ripple-framework/commit/d4214b285a5525d4752ee9206a49643113514d41))
+
+
+
+
+
+# [2.1.0-alpha.54](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.53...v2.1.0-alpha.54) (2023-01-03)
+
+**Note:** Version bump only for package nuxt-app
+
+
+
+
+
+# [2.1.0-alpha.53](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.52...v2.1.0-alpha.53) (2022-12-30)
+
+**Note:** Version bump only for package nuxt-app
+
+
+
+
+
+# [2.1.0-alpha.52](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.51...v2.1.0-alpha.52) (2022-12-22)
+
+
+### Features
+
+* :sparkles: add neutral theme for header via feature flag ([dff7865](https://github.com/dpc-sdp/ripple-framework/commit/dff786541890ff8cfee0670b56f6f8ef7e289825))
+* **@dpc-sdp/ripple-tide-api:** :sparkles: adds site feature flags and sets footer theme variant ([05f8cb0](https://github.com/dpc-sdp/ripple-framework/commit/05f8cb03ae892960a427afa2c68f21b9a18c0ddc))
+* **@dpc-sdp/ripple-ui-core:** add neutral button theme ([94fcf74](https://github.com/dpc-sdp/ripple-framework/commit/94fcf742778d06f05dc05b694e608752e2d5c4e5))
+
+
+
+
+
+# [2.1.0-alpha.51](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.50...v2.1.0-alpha.51) (2022-12-22)
+
+
+### Features
+
+* **@dpc-sdp/ripple-ui-core:** add media embed to exports, use the new media embed in media template ([2241f1a](https://github.com/dpc-sdp/ripple-framework/commit/2241f1a926d12a52443de2ede32ba70e2b591201))
+* **@dpc-sdp/ripple-ui-core:** use list component for grant details ([d608542](https://github.com/dpc-sdp/ripple-framework/commit/d608542340e3ad031fd7fd86c56b5f12e444f2e0))
+
+
+
+
+
+# [2.1.0-alpha.50](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.49...v2.1.0-alpha.50) (2022-12-21)
+
+**Note:** Version bump only for package nuxt-app
+
+
+
+
+
+# [2.1.0-alpha.49](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.48...v2.1.0-alpha.49) (2022-12-20)
+
+**Note:** Version bump only for package nuxt-app
+
+
+
+
+
+# [2.1.0-alpha.48](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.47...v2.1.0-alpha.48) (2022-12-19)
+
+**Note:** Version bump only for package nuxt-app
+
+
+
+
+
+# [2.1.0-alpha.47](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.46...v2.1.0-alpha.47) (2022-12-19)
+
+**Note:** Version bump only for package nuxt-app
+
+
+
+
+
+# [2.1.0-alpha.46](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.45...v2.1.0-alpha.46) (2022-12-19)
+
+**Note:** Version bump only for package nuxt-app
+
+
+
+
+
+# [2.1.0-alpha.45](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.44...v2.1.0-alpha.45) (2022-12-19)
+
+**Note:** Version bump only for package nuxt-app
+
+
+
+
+
+# [2.1.0-alpha.44](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.43...v2.1.0-alpha.44) (2022-12-18)
+
+**Note:** Version bump only for package nuxt-app
+
+
+
+
+
+# [2.1.0-alpha.43](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.42...v2.1.0-alpha.43) (2022-12-15)
+
+**Note:** Version bump only for package nuxt-app
+
+
+
+
+
+# [2.1.0-alpha.42](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.41...v2.1.0-alpha.42) (2022-12-15)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-forms:** cleanup webforms tests after merge conflicts ([b9f830c](https://github.com/dpc-sdp/ripple-framework/commit/b9f830cfabf92e524e01e40b3d465d3941345dac))
+
+
+
+
+
+# [2.1.0-alpha.41](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.40...v2.1.0-alpha.41) (2022-12-15)
+
+**Note:** Version bump only for package nuxt-app
+
+
+
+
+
+# [2.1.0-alpha.40](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.39...v2.1.0-alpha.40) (2022-12-15)
+
+**Note:** Version bump only for package nuxt-app
+
+
+
+
+
 # [2.1.0-alpha.39](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.38...v2.1.0-alpha.39) (2022-12-14)
 
 **Note:** Version bump only for package nuxt-app

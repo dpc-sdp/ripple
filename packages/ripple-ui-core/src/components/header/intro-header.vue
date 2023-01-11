@@ -29,7 +29,7 @@ withDefaults(defineProps<Props>(), {
       <RplIcon :name="iconName" size="l" />
     </template>
     <template #title>
-      <h1 class="rpl-header__title rpl-type-h2" data-cy="title">{{ title }}</h1>
+      <h2 class="rpl-header__title rpl-type-h2" data-cy="title">{{ title }}</h2>
     </template>
     <div v-if="$slots.default" data-cy="summary">
       <slot></slot>

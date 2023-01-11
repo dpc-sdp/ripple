@@ -1,5 +1,4 @@
 import { Then, DataTable } from '@badeball/cypress-cucumber-preprocessor'
-import { d } from 'vue-bundle-renderer/dist/types-dfcc483f'
 
 Then(
   'the breadcrumbs should have the following items',
@@ -125,7 +124,7 @@ Then(
 Then(
   'the footer acknowledgement text should be {string}',
   (copyrightText: string) => {
-    cy.get(`[data-cy="site-footer"]`).as('footer')
+    cy.get(`[data-component-type="site-footer"]`).as('footer')
 
     cy.get('@footer').within(() => {
       cy.get(`.rpl-acknowledgement`).should('contain', copyrightText)

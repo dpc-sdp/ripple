@@ -1,32 +1,15 @@
 {
+  "license": "Apache-2.0",
   "name": "@dpc-sdp/ripple-tide-media",
-  "version": "2.1.0-alpha.37",
-  "description": "Ripple mappings and components for Tide Media content type",
-  "main": "dist/index.js",
-  "module": "dist/index.js",
-  "type": "module",
+  "description": "Ripple mappings and components for Tide media",
+  "main": "./nuxt.config.ts",
   "exports": {
-    ".": "./dist/index.js",
-    "./types": "./src/types.ts",
-    "./nuxt": "./src/nuxt.ts"
+    ".": "./nuxt.config.ts",
+    "./mapping": "./mapping/index.ts",
+    "./types": "./types.ts"
   },
-  "license": "MIT",
-  "keywords": [],
-  "scripts": {
-    "clean": "rimraf dist* && rimraf tsconfig.tsbuildinfo",
-    "build": "yarn clean && tsc -p tsconfig.json",
-    "watch": "yarn clean && tsc -p tsconfig.json -w"
-  },
+  "version": "2.1.0-alpha.60",
   "dependencies": {
-    "@dpc-sdp/ripple-tide-api": "2.1.0-alpha.37"
-  },
-  "files": [
-    "dist",
-    "src",
-    "!**/*.test.*",
-    "!**/*.json",
-    "CHANGELOG.md",
-    "LICENSE",
-    "README.md"
-  ]
+    "@dpc-sdp/nuxt-ripple": "2.1.0-alpha.60"
+  }
 }

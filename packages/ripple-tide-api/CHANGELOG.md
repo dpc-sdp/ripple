@@ -3,6 +3,62 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.59](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.58...v2.1.0-alpha.59) (2023-01-10)
+
+
+### Bug Fixes
+
+* remove nuxt.js export from ripple-tide-api ([ec7934f](https://github.com/dpc-sdp/ripple-framework/commit/ec7934f8a3020cf5013c2519df0a57253766ff3f))
+
+
+
+
+
+# [2.1.0-alpha.57](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.56...v2.1.0-alpha.57) (2023-01-09)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-api
+
+
+
+
+
+# [2.1.0-alpha.56](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.55...v2.1.0-alpha.56) (2023-01-06)
+
+
+### Bug Fixes
+
+* fix package versions ([02536db](https://github.com/dpc-sdp/ripple-framework/commit/02536dbfba12aeb7e88f40ef6fc3efeac714d969))
+
+
+### Features
+
+* **@dpc-sdp/ripple-tide-api:** :sparkles: give fallback default value of undefined ([d70e298](https://github.com/dpc-sdp/ripple-framework/commit/d70e2986ef5208d9bc7d6b91fcded6166f9a1e7d))
+
+
+
+
+
+# [2.1.0-alpha.52](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.51...v2.1.0-alpha.52) (2022-12-22)
+
+
+### Features
+
+* :sparkles: add neutral theme for header via feature flag ([dff7865](https://github.com/dpc-sdp/ripple-framework/commit/dff786541890ff8cfee0670b56f6f8ef7e289825))
+* **@dpc-sdp/ripple-tide-api:** :sparkles: adds site feature flags and sets footer theme variant ([05f8cb0](https://github.com/dpc-sdp/ripple-framework/commit/05f8cb03ae892960a427afa2c68f21b9a18c0ddc))
+* **@dpc-sdp/ripple-ui-core:** add neutral button theme ([94fcf74](https://github.com/dpc-sdp/ripple-framework/commit/94fcf742778d06f05dc05b694e608752e2d5c4e5))
+
+
+
+
+
+# [2.1.0-alpha.50](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.49...v2.1.0-alpha.50) (2022-12-21)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-api
+
+
+
+
+
 # [2.1.0-alpha.37](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.36...v2.1.0-alpha.37) (2022-12-14)
 
 

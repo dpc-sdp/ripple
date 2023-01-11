@@ -17,17 +17,17 @@ export const samples = {
     '<span>10 Aug 2022</span>',
     '<RplTag variant="neutral" label="Publication"></RplTag>',
     '<RplTag variant="neutral" label="Event"></RplTag><span>10 Aug 2022</span>',
-    '<RplTag variant="neutral" label="Grant"></RplTag><RplIcon class="rpl-icon--colour-success" name="icon-check-circle-filled"></RplIcon><span>Ongoing</span>',
-    '<RplTag variant="neutral" label="Grant"></RplTag><RplIcon class="rpl-icon--colour-error" name="icon-cancel-circle-filled"></RplIcon><span>Closed</span>',
+    '<RplTag variant="neutral" label="Grant"></RplTag><span class="rpl-card__status"><RplIcon class="rpl-icon--colour-success" name="icon-check-circle-filled"></RplIcon><span>Open</span></span>',
+    '<RplTag variant="neutral" label="Grant"></RplTag><span class="rpl-card__status"><RplIcon class="rpl-icon--colour-error" name="icon-cancel-circle-filled"></RplIcon><span>Closed</span></span>',
   ]
 }
 
 export const SingleTemplate = (args) => ({
   components: { RplPromoCard, RplIcon, RplTag },
   setup() {
-    const img = args.graphicElement === 'Image' ?
-      svgPlaceholder({ width: 400, height: 300, bgColor: '#ad9', fgColor: '#efc' }) : null
-    return { args, img: { src: img } }
+    const src = svgPlaceholder({ width: 400, height: 300, bgColor: '#ad9', fgColor: '#efc' })
+    const img =  args.graphicElement === 'Image' ? { src } : null
+    return { args, img }
   },
   template: `
   <ul class="rpl-storybook__page rpl-grid">

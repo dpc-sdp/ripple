@@ -3,6 +3,66 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.59](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.58...v2.1.0-alpha.59) (2023-01-10)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-grant
+
+
+
+
+
+# [2.1.0-alpha.57](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.56...v2.1.0-alpha.57) (2023-01-09)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-grant
+
+
+
+
+
+# [2.1.0-alpha.56](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.55...v2.1.0-alpha.56) (2023-01-06)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-grant:** :bug: fix paths ([249a17b](https://github.com/dpc-sdp/ripple-framework/commit/249a17bf1f8653ca6272ef95aa579063b67be136))
+* fix package versions ([02536db](https://github.com/dpc-sdp/ripple-framework/commit/02536dbfba12aeb7e88f40ef6fc3efeac714d969))
+
+
+### Features
+
+* :sparkles: export mapping for content types ([77ea761](https://github.com/dpc-sdp/ripple-framework/commit/77ea761a0f7ee66e055c3010c8c9ef774c5f2e2f))
+
+
+
+
+
+# [2.1.0-alpha.52](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.51...v2.1.0-alpha.52) (2022-12-22)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-grant
+
+
+
+
+
+# [2.1.0-alpha.51](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.50...v2.1.0-alpha.51) (2022-12-22)
+
+
+### Features
+
+* **@dpc-sdp/ripple-ui-core:** use list component for grant details ([d608542](https://github.com/dpc-sdp/ripple-framework/commit/d608542340e3ad031fd7fd86c56b5f12e444f2e0))
+
+
+
+
+
+# [2.1.0-alpha.50](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.49...v2.1.0-alpha.50) (2022-12-21)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-grant
+
+
+
+
+
 # [2.1.0-alpha.37](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.36...v2.1.0-alpha.37) (2022-12-14)
 
 **Note:** Version bump only for package @dpc-sdp/ripple-tide-grant

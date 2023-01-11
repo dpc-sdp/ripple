@@ -122,7 +122,7 @@ const columns = computed(() => {
 </script>
 
 <template>
-  <footer :class="`rpl-footer rpl-footer--${variant}`" data-cy="site-footer">
+  <footer :class="`rpl-footer rpl-footer--${variant}`" data-component-type="site-footer">
     <div class="rpl-container">
       <nav class="rpl-footer__nav">
         <!-- Fallback rendering for SSR, this ensures that the server and client render the same thing initially -->
@@ -176,7 +176,7 @@ const columns = computed(() => {
           <ul class="rpl-footer-core-links">
             <li v-for="link in links" :key="link.url">
               <RplTextLink class="rpl-type-p-small" :url="link.url">{{
-                link.text
+                  link.text
               }}</RplTextLink>
             </li>
           </ul>
@@ -187,7 +187,7 @@ const columns = computed(() => {
           </div>
         </div>
         <div class="rpl-footer-bottom__branding">
-          <a
+        <a
             v-for="(logoLink, index) in logos"
             :key="index"
             class="
@@ -202,7 +202,7 @@ const columns = computed(() => {
               :alt="logoLink.alt"
             />
           </a>
-          <a
+          <a 
             class="
               rpl-footer-logo-link
               rpl-u-focusable-outline
@@ -210,7 +210,7 @@ const columns = computed(() => {
               rpl-u-focusable--alt-colour
             "
             :href="vicGovHomeUrl"
-          >
+            >
             <span class="rpl-u-visually-hidden">{{ vicGovHomeLabel }}</span>
             <VicGovLogo class="rpl-footer-vic-gov-logo" />
           </a>

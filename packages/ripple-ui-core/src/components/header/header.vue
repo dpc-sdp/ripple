@@ -44,26 +44,15 @@ const mainClasses = computed(() => ({
             <slot name="lower"></slot>
           </div>
         </div>
-        <div v-if="$slots.aside" class="rpl-header__aside rpl-col-12 rpl-col-4-m rpl-col-start-9-m">
+        <div
+          v-if="$slots.aside"
+          class="rpl-header__aside rpl-col-12 rpl-col-4-m rpl-col-start-9-m"
+        >
           <slot name="aside"></slot>
         </div>
       </div>
     </div>
   </div>
 </template>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <style src="./header.css" />

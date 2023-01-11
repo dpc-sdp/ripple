@@ -3,7 +3,7 @@ export default { name: 'RplButton' }
 </script>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed, ref, inject, Ref } from 'vue'
 import {
   RplButtonElements,
   RplButtonVariants,
@@ -13,9 +13,13 @@ import {
 import { RplIconNames } from '../icon/constants'
 import RplIcon from '../icon/icon.vue'
 import { rplEventBus } from '../../index'
+import type { IRplFeatureFlags } from '@dpc-sdp/ripple-tide-api/types'
 
 rplEventBus.register('rpl-button/click')
 const emit = defineEmits(['click'])
+const featureFlags: IRplFeatureFlags = inject('featureFlags', {
+  buttonTheme: 'default'
+})
 
 interface Props {
   el?: typeof RplButtonElements[number]
@@ -31,19 +35,28 @@ interface Props {
 const props = withDefaults(defineProps<Props>(), {
   el: 'button',
   url: '',
+  theme: undefined,
   variant: 'filled',
-  theme: 'default',
   iconName: undefined,
   iconPosition: 'right',
   label: undefined,
   disabled: false
 })
 
+const buttonTheme = computed(() => {
+  if (props.theme) {
+    return props.theme
+  } else if (featureFlags && featureFlags.hasOwnProperty('buttonTheme')) {
+    return featureFlags['buttonTheme']
+  }
+  return 'default'
+})
+
 const classes = computed(() => {
   const classTokens = [
     'rpl-button',
     `rpl-button--${props.variant}`,
-    `rpl-button--${props.theme}`,
+    `rpl-button--${buttonTheme.value}`,
     'rpl-u-focusable-block'
   ]
   if (props.iconPosition === 'left') {
@@ -57,12 +70,9 @@ const onClick = (payload?: any) => {
   emit('click', payload)
 }
 
-const link = ref(null)
-const triggerClick = () => {
-  link.value.click()
-}
+const link: Ref = ref(null)
 
-defineExpose({ triggerClick })
+defineExpose({ link })
 </script>
 
 <template>

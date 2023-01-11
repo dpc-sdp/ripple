@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { nextTick, provide, ref, watch } from 'vue'
+import { nextTick, provide, ref, watch, reactive } from 'vue'
 import {
   FormKitSchemaCondition,
   FormKitSchemaNode,
@@ -13,7 +13,7 @@ import { reset } from '@formkit/vue'
 
 interface Props {
   id: string
-  resetOnSubmit: boolean
+  resetOnSubmit?: boolean
   schema?: FormKitSchemaCondition | FormKitSchemaNode[] | undefined
   config?: Record<string, any>
   submissionState: {
@@ -112,52 +112,62 @@ watch(
     }
   }
 )
+
+const data = reactive({
+  isFilled: (val) =>
+    typeof val === 'number' ? !isNaN(val) : !(val == null || val === ''),
+  isChecked: (val) => !!val,
+  negate: (val) => !val,
+  isEqual: (targetValue, triggerValue) => {
+    if (typeof targetValue === 'number') {
+      return targetValue === parseFloat(triggerValue)
+    }
+
+    return targetValue === triggerValue
+  },
+  xor: (...args: boolean[]) => {
+    return (args || []).filter((arg) => arg === true).length === 1
+  },
+  difference: (targetValue, triggerValue) => {
+    const intTargetValue = parseFloat(targetValue)
+    const intTriggerValue = parseFloat(triggerValue)
+    return intTargetValue - intTriggerValue
+  },
+  isPatternMatch: (val, pattern) => {
+    const matches = val ? `${val}`.match(new RegExp(pattern)) : null
+    return matches && matches.length > 0
+  }
+})
 </script>
 
 <template>
-  <FormKit
-    :id="id"
-    v-slot="{ value }"
-    type="form"
-    :plugins="[rplFormInputs]"
-    form-class="rpl-form"
-    :config="rplFormConfig"
-    :actions="false"
-    novalidate
-    @submitInvalid="submitInvalidHandler"
-    @submit="submitHandler"
-  >
-    <fieldset
-      class="rpl-form__submit-guard"
-      :disabled="submissionState.status === 'submitting'"
-    >
-      <RplFormAlert
-        v-if="errorSummaryMessages && errorSummaryMessages.length"
-        ref="errorSummaryRef"
-        status="error"
-        title="Form not submitted"
-        :fields="errorSummaryMessages"
-      />
-      <RplFormAlert
-        v-else-if="
-          submissionState.status === 'error' ||
-          submissionState.status === 'success'
-        "
-        ref="serverMessageRef"
-        :status="submissionState.status"
-        :title="submissionState.title"
-      >
+  <FormKit :id="id" v-slot="{ value }" type="form" :plugins="[rplFormInputs]" form-class="rpl-form"
+    :config="rplFormConfig" :actions="false" novalidate @submit-invalid="submitInvalidHandler" @submit="submitHandler">
+    <fieldset class="rpl-form__submit-guard" :disabled="submissionState.status === 'submitting'">
+      <RplFormAlert v-if="errorSummaryMessages && errorSummaryMessages.length" ref="errorSummaryRef" status="error"
+        title="Form not submitted" :fields="errorSummaryMessages" data-component-type="form-error-summary" />
+      <RplFormAlert v-else-if="
+        submissionState.status === 'error' ||
+        submissionState.status === 'success'
+      " ref="serverMessageRef" :status="submissionState.status" :title="submissionState.title"
+        data-component-type="form-server-message">
         <template #default>
           <RplContent :html="submissionState.message" />
         </template>
       </RplFormAlert>
       <slot name="aboveForm"></slot>
       <slot>
-        <FormKitSchema v-if="schema" :schema="schema"></FormKitSchema>
+        <FormKitSchema
+          v-if="schema"
+          :schema="schema"
+          :data="data"
+        ></FormKitSchema>
       </slot>
       <slot name="belowForm" :value="value"></slot>
     </fieldset>
   </FormKit>
 </template>
 
-<style src="./RplForm.css"></style>
+<style src="./RplForm.css">
+
+</style>

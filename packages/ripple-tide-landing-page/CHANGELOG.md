@@ -3,6 +3,141 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.60](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.59...v2.1.0-alpha.60) (2023-01-10)
+
+
+### Features
+
+* **@dpc-sdp/ripple-ui-forms:** added conditional logic for drupal webforms ([a41b03b](https://github.com/dpc-sdp/ripple-framework/commit/a41b03b50c3ec54562da2f9b1ce9e5634c68d431))
+* **@dpc-sdp/ripple-ui-forms:** added support for 'one of' conditional webform rules (xor) ([d983d89](https://github.com/dpc-sdp/ripple-framework/commit/d983d8992997c534c6012c4df9b1398a9235cb05))
+
+
+
+
+
+# [2.1.0-alpha.59](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.58...v2.1.0-alpha.59) (2023-01-10)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-landing-page
+
+
+
+
+
+# [2.1.0-alpha.58](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.57...v2.1.0-alpha.58) (2023-01-10)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-api:** removed deprecated video includes ([0edfdc1](https://github.com/dpc-sdp/ripple-framework/commit/0edfdc1e727c48300363e85ff622c52bcd032e54))
+
+
+
+
+
+# [2.1.0-alpha.57](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.56...v2.1.0-alpha.57) (2023-01-09)
+
+
+### Bug Fixes
+
+* :memo: add comments for example app usage ([7dc6dd6](https://github.com/dpc-sdp/ripple-framework/commit/7dc6dd6dd8ac9ecad3b6256afd6e4617860550e3))
+
+
+### Features
+
+* **@dpc-sdp/ripple-ui-forms:** added date input form component ([e10be60](https://github.com/dpc-sdp/ripple-framework/commit/e10be60a34bd846d1de5c7e6f76c04b466f64356))
+
+
+
+
+
+# [2.1.0-alpha.56](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.55...v2.1.0-alpha.56) (2023-01-06)
+
+
+### Bug Fixes
+
+* fix package versions ([02536db](https://github.com/dpc-sdp/ripple-framework/commit/02536dbfba12aeb7e88f40ef6fc3efeac714d969))
+
+
+### Features
+
+* :sparkles: export mapping for content types ([77ea761](https://github.com/dpc-sdp/ripple-framework/commit/77ea761a0f7ee66e055c3010c8c9ef774c5f2e2f))
+
+
+
+
+
+# [2.1.0-alpha.55](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.54...v2.1.0-alpha.55) (2023-01-04)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** design feedback ([d4214b2](https://github.com/dpc-sdp/ripple-framework/commit/d4214b285a5525d4752ee9206a49643113514d41))
+
+
+
+
+
+# [2.1.0-alpha.52](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.51...v2.1.0-alpha.52) (2022-12-22)
+
+
+### Features
+
+* :sparkles: add neutral theme for header via feature flag ([dff7865](https://github.com/dpc-sdp/ripple-framework/commit/dff786541890ff8cfee0670b56f6f8ef7e289825))
+
+
+
+
+
+# [2.1.0-alpha.50](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.49...v2.1.0-alpha.50) (2022-12-21)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-landing-page
+
+
+
+
+
+# [2.1.0-alpha.49](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.48...v2.1.0-alpha.49) (2022-12-20)
+
+
+### Features
+
+* **@dpc-sdp/ripple-ui-forms:** added webform mapping for radio button ([5602ebd](https://github.com/dpc-sdp/ripple-framework/commit/5602ebd0a22cc28cd8cc013ab9384ad816ef4675))
+
+
+
+
+
+# [2.1.0-alpha.48](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.47...v2.1.0-alpha.48) (2022-12-19)
+
+
+### Features
+
+* **@dpc-sdp/ripple-ui-forms:** added min/max validation to number input ([a149a0b](https://github.com/dpc-sdp/ripple-framework/commit/a149a0b5002cd3d81297c34e07ed6f52c2066ac5))
+
+
+
+
+
+# [2.1.0-alpha.47](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.46...v2.1.0-alpha.47) (2022-12-19)
+
+
+### Features
+
+* **@dpc-sdp/ripple-ui-forms:** added basic and advanced HTML content to forms ([a2c6ab6](https://github.com/dpc-sdp/ripple-framework/commit/a2c6ab6910bb1c70b4be11a15f3fb3eb0178b9f2))
+* **@dpc-sdp/ripple-ui-forms:** added horizontal rule webform component ([f3f4535](https://github.com/dpc-sdp/ripple-framework/commit/f3f45357becca4c5f18109050c0e8896bc2a0675))
+
+
+
+
+
+# [2.1.0-alpha.42](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.41...v2.1.0-alpha.42) (2022-12-15)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-landing-page
+
+
+
+
+
 # [2.1.0-alpha.38](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.37...v2.1.0-alpha.38) (2022-12-14)
 
 

@@ -16,16 +16,6 @@
   margin: 0;
 }
 
-.rpl-form__label,
-.rpl-form__legend {
-  display: inline-block;
-  font-size: var(--rpl-type-size-2);
-  font-weight: var(--rpl-type-weight-bold);
-  line-height: var(--rpl-type-lh-4);
-  letter-spacing: var(--rpl-type-ls-1);
-  margin-bottom: var(--rpl-sp-4);
-}
-
 .rpl-form__messages {
   font-size: var(--rpl-type-size-1);
   line-height: var(--rpl-type-lh-3);
@@ -38,12 +28,6 @@
 
 .rpl-form__outer {
   margin-bottom: var(--rpl-sp-4);
-}
-
-.rpl-form__required {
-  color: var(--rpl-clr-error);
-  margin-left: var(--rpl-sp-1);
-  font-weight: var(--rpl-type-weight-regular);
 }
 
 .rpl-form__fieldset {

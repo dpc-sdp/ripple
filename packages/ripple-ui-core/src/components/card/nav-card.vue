@@ -10,11 +10,12 @@ import RplCard from './card.vue'
 import RplTextLink from '../text-link/text-link.vue'
 import RplImage from './../image/image.vue'
 import { RplCardElements } from './constants'
+import { RplImageType } from '../image/constants'
 
 interface Props {
   el?: typeof RplCardElements[number]
   highlight?: boolean
-  image?: string
+  image?: RplImageType
   inset?: boolean
   title: string
   url?: string
@@ -34,13 +35,11 @@ const cardClasses = computed(() => ({
 
 const titleClasses = computed(() => [
   'rpl-card__cta',
-  props.highlight ? 'rpl-type-h3-highlight' : 'rpl-type-h3',
-  'rpl-u-focusable-inline'
+  props.highlight ? 'rpl-type-h3-highlight' : 'rpl-type-h3'
 ])
 
 const imgClasses = computed(() => [
   'rpl-card__media',
-  props.highlight ? 'rpl-card__media--round-top' : null,
   props.inset ? 'rpl-card__media--inset' : null
 ])
 
@@ -48,12 +47,22 @@ const { container, trigger } = useAccessibleContainer()
 </script>
 
 <template>
-  <RplCard ref="container" type="nav" :el="el" :class="cardClasses">
+  <RplCard ref="container" type="nav" :el="el" :link="url" :class="cardClasses">
     <template v-if="image" #upper>
-      <RplImage :class="imgClasses" :src="image" alt="" data-cy="image" />
+      <RplImage
+        v-bind="image"
+        :class="imgClasses"
+        :aspect="{
+          xs: 'wide',
+          s: 'ultrawide',
+          m: 'panorama',
+          l: highlight ? 'panorama' : 'full'
+        }"
+        data-cy="image"
+      />
     </template>
     <template v-if="$slots.meta" #meta>
-      <div class="rpl-card__meta rpl-type-p-small">
+      <div class="rpl-card__meta rpl-type-label-small">
         <slot name="meta"></slot>
       </div>
     </template>

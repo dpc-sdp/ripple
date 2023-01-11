@@ -39,6 +39,7 @@ export interface TideSiteData {
   theme: {
     [key: string]: string
   }
+  featureFlags: RplFeatureFlags
   socialImages: {
     twitter: any
     og: any
@@ -130,7 +131,7 @@ export interface RplTideModuleMappingConfig {
 }
 
 export interface RplTideModuleConfig {
-  contentApi: {
+  config: {
     /**
      * Site taxonomy id or name
      */
@@ -155,13 +156,7 @@ export interface RplTideModuleConfig {
     /**
      * ContentType Mapping or path to file
      */
-    content: {
-      [key: string]: string | RplTideMapping
-    }
-    /**
-     * Site Mapping or path to file
-     */
-    site: string | RplTideMapping
+    [key: string]: string | RplTideMapping
   }
   /**
    * Enable debug mode
@@ -178,3 +173,18 @@ export interface RplTideModuleConfig {
 }
 
 export type { ILogger } from './src/logger/logger.js'
+
+export interface IRplFeatureFlags {
+  /**
+   * @description Sets the theme variant of the button component
+   */
+  buttonTheme?: 'neutral' | 'default'
+  /**
+   * @description Sets the theme variant of the header component
+   */
+  headerTheme?: 'neutral' | 'default'
+  /**
+   * @description Sets the theme variant of the site footer component
+   */
+  footerTheme?: 'neutral' | 'default'
+}

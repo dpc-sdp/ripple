@@ -3,6 +3,102 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.57](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.56...v2.1.0-alpha.57) (2023-01-09)
+
+**Note:** Version bump only for package webcomponents
+
+
+
+
+
+# [2.1.0-alpha.56](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.55...v2.1.0-alpha.56) (2023-01-06)
+
+**Note:** Version bump only for package webcomponents
+
+
+
+
+
+# [2.1.0-alpha.55](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.54...v2.1.0-alpha.55) (2023-01-04)
+
+**Note:** Version bump only for package webcomponents
+
+
+
+
+
+# [2.1.0-alpha.54](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.53...v2.1.0-alpha.54) (2023-01-03)
+
+**Note:** Version bump only for package webcomponents
+
+
+
+
+
+# [2.1.0-alpha.53](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.52...v2.1.0-alpha.53) (2022-12-30)
+
+**Note:** Version bump only for package webcomponents
+
+
+
+
+
+# [2.1.0-alpha.52](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.51...v2.1.0-alpha.52) (2022-12-22)
+
+**Note:** Version bump only for package webcomponents
+
+
+
+
+
+# [2.1.0-alpha.51](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.50...v2.1.0-alpha.51) (2022-12-22)
+
+**Note:** Version bump only for package webcomponents
+
+
+
+
+
+# [2.1.0-alpha.50](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.49...v2.1.0-alpha.50) (2022-12-21)
+
+**Note:** Version bump only for package webcomponents
+
+
+
+
+
+# [2.1.0-alpha.45](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.44...v2.1.0-alpha.45) (2022-12-19)
+
+**Note:** Version bump only for package webcomponents
+
+
+
+
+
+# [2.1.0-alpha.44](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.43...v2.1.0-alpha.44) (2022-12-18)
+
+**Note:** Version bump only for package webcomponents
+
+
+
+
+
+# [2.1.0-alpha.43](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.42...v2.1.0-alpha.43) (2022-12-15)
+
+**Note:** Version bump only for package webcomponents
+
+
+
+
+
+# [2.1.0-alpha.40](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.39...v2.1.0-alpha.40) (2022-12-15)
+
+**Note:** Version bump only for package webcomponents
+
+
+
+
+
 # [2.1.0-alpha.36](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.35...v2.1.0-alpha.36) (2022-12-14)
 
 **Note:** Version bump only for package webcomponents

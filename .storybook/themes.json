@@ -1,14 +1,14 @@
 [
   {
     "name": "Default",
-    "tokens": {
-    }
+    "tokens": {}
   },
   {
     "name": "Light on dark",
     "tokens": {
       "rpl-clr-primary": "#fdda24",
       "rpl-clr-primary-alt": "#fef0a7",
+      "rpl-clr-primary-alpha": "rgb(253 218 36 / .5)",
       "rpl-clr-accent": "#ef4a81",
       "rpl-clr-accent-alt": "#fdedf2",
       "rpl-clr-link": "#be3c67",
@@ -28,6 +28,7 @@
     "tokens": {
       "rpl-clr-primary": "#af272e",
       "rpl-clr-primary-alt": "#BC2931",
+      "rpl-clr-primary-alpha": "rgb(155 19 26 / .5)",
       "rpl-clr-type-primary-contrast": "#ffffff",
       "rpl-clr-type-primary-accessible": "var(--rpl-clr-primary)",
       "rpl-clr-accent": "#d04950",

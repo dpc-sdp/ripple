@@ -5,12 +5,19 @@
   line-height: var(--rpl-type-lh-4);
   letter-spacing: var(--rpl-type-ls-1);
   position: relative;
-  margin-bottom: var(--rpl-sp-2);
 }
 
 .rpl-form__input--disabled {
   .rpl-form__input-icon {
     color: var(--rpl-clr-neutral-300);
+  }
+}
+
+.rpl-form__input.rpl-form__input--centered {
+  input {
+    padding-left: 0;
+    padding-right: 0;
+    text-align: center;
   }
 }
 

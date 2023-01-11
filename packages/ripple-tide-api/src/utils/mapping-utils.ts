@@ -207,11 +207,11 @@ export const getBody = (html, customPlugins = []) => {
   return markupTranspiler(html, plugins)
 }
 
-export const getField = (field, path, fallback) => {
+export const getField = (field, path, fallback = undefined) => {
   return get(field, path, fallback)
 }
 
-export const getBodyFromField = (field, path, fallback) => {
+export const getBodyFromField = (field, path, fallback = undefined) => {
   return getBody(getField(field, [path, 'processed'], fallback))
 }
 
@@ -228,6 +228,15 @@ export const humanizeFilesize = (fileSize) => {
   return ''
 }
 
+export const getSiteKeyValues = (key: string, src: any) => {
+  if (src[key]) {
+    return src[key].reduce((map, obj) => {
+      map[obj.key] = obj.value
+      return map
+    }, {})
+  }
+}
+
 export default {
   getImageFromField,
   getLinkFromField,
@@ -237,5 +246,6 @@ export default {
   getBodyFromField,
   humanizeFilesize,
   getField,
-  formatDate
+  formatDate,
+  getSiteKeyValues
 }

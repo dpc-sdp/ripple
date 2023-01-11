@@ -14,5 +14,5 @@ Feature: Event page
   Example: Details
     And the overview should list the following details
       | text                                 |
-      | This event is wheelchair accessible. |
-      | This event is child friendly.        |
+      | This venue is wheelchair accessible. |
+      | This event is child-friendly.        |

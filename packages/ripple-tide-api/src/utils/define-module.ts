@@ -1,5 +1,5 @@
 import type { RplTideModuleConfig, RplTideMapping } from './../../types'
-
+import { H3Event } from 'h3'
 export interface RplTideModuleMapping {
   site: RplTideMapping
   content: {
@@ -13,8 +13,8 @@ export const defineRplTideModule = async (
   const content = {} as {
     [key: string]: RplTideMapping
   }
-  for (const key in config.mapping?.content) {
-    const contentTypePath = config.mapping?.content[`${key}`]
+  for (const key in config.mapping) {
+    const contentTypePath = config.mapping[`${key}`]
     if (typeof contentTypePath !== 'string') {
       throw new Error(`unable to load ${key} mapping`)
     }
@@ -24,9 +24,25 @@ export const defineRplTideModule = async (
   if (typeof config.mapping?.site !== 'string') {
     throw new Error('unable to load site mapping')
   }
+  const site = await loadRplTideModule(config.mapping?.site)
+  delete content.site
   return {
-    site: await loadRplTideModule(config.mapping?.site),
+    site,
     content
+  }
+}
+
+export const registerTideContentType = (
+  event: H3Event,
+  contentType: string,
+  contentTypeModule: RplTideMapping
+) => {
+  if (event.node.req?.url?.includes('/api/tide/page')) {
+    if (
+      !event.context.tide?.pageApi?.contentTypes.hasOwnProperty(contentType)
+    ) {
+      event.context.tide?.pageApi.setContentType(contentType, contentTypeModule)
+    }
   }
 }
 

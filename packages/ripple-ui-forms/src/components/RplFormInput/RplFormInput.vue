@@ -1,3 +1,9 @@
+<script lang="ts">
+export default {
+  inheritAttrs: false
+}
+</script>
+
 <script setup lang="ts">
 import { computed } from 'vue'
 import { RplIcon } from '@dpc-sdp/ripple-ui-core'
@@ -7,25 +13,28 @@ interface Props {
   id: string
   disabled?: boolean
   className: string
-  value: string
+  value?: string
   type: string
   name: string
-  handlers: Record<string, any>
-  prefixIcon?: string | undefined
-  suffixIcon?: string | undefined
-  minlength?: string
-  maxlength?: string
+  prefixIcon?: string
+  suffixIcon?: string
+  minlength?: number
+  maxlength?: number
   counter?: 'word' | 'character'
   counterMin?: number
   counterMax?: number
   variant?: 'default' | 'reverse'
   invalid?: boolean
   required?: boolean
+  centeredText?: boolean
+  onInput: (payload: Event) => void
+  onBlur: (payload: Event) => void
 }
 
 const props = withDefaults(defineProps<Props>(), {
   type: 'text',
   className: 'rpl-form__input',
+  value: undefined,
   prefixIcon: undefined,
   suffixIcon: undefined,
   minlength: undefined,
@@ -36,7 +45,10 @@ const props = withDefaults(defineProps<Props>(), {
   disabled: false,
   required: false,
   invalid: false,
-  variant: 'default'
+  variant: 'default',
+  centeredText: false,
+  onInput: () => null,
+  onBlur: () => null
 })
 
 const classes = computed(() => {
@@ -45,6 +57,7 @@ const classes = computed(() => {
     [`${props.className}--${props.variant}`]: true,
     [`${props.className}--type-${props.type}`]: props.type,
     [`${props.className}--disabled`]: props.disabled,
+    [`${props.className}--centered`]: props.centeredText,
     [`${props.className}--with-prefix-icon`]: props.prefixIcon,
     [`${props.className}--with-suffix-icon`]: props.suffixIcon,
     [`${props.className}--invalid`]: props.invalid
@@ -84,8 +97,8 @@ TODO - Wire up event bus handling
         :value="value"
         :minlength="!isWordCounter ? minlength : null"
         :maxlength="!isWordCounter ? maxlength : null"
-        @blur="handlers?.blur"
-        @input="handlers?.DOMInput"
+        @blur="onBlur"
+        @input="onInput"
       />
       <RplIcon
         v-if="suffixIcon"
@@ -99,6 +112,7 @@ TODO - Wire up event bus handling
       v-if="counter"
       :value="value"
       :type="counter"
+      :invalid="invalid"
       :counter-min="counterMin"
       :counter-max="counterMax"
       :count-words="isWordCounter"

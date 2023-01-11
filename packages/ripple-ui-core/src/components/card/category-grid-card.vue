@@ -10,10 +10,11 @@ import { useAccessibleContainer } from '../../composables/useAccessibleContainer
 import RplCard from './card.vue'
 import RplTextLink from '../text-link/text-link.vue'
 import RplImage from '../image/image.vue'
+import { RplImageType } from '../image/constants'
 
 interface Props {
   el?: typeof RplCardElements[number]
-  image: string
+  image: RplImageType
   title: string
   url?: string
 }
@@ -31,7 +32,7 @@ const { container, trigger } = useAccessibleContainer()
 <template>
   <RplCard
     ref="container"
-    :href="url"
+    :link="url"
     :el="el"
     :highlight="false"
     type="category-grid"
@@ -39,8 +40,8 @@ const { container, trigger } = useAccessibleContainer()
     <template #upper>
       <RplImage
         class="rpl-card__media rpl-card__media--category-grid"
-        :src="image"
-        alt=""
+        v-bind="image"
+        data-cy="image"
       />
     </template>
     <template #title>

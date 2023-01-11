@@ -20,11 +20,8 @@ const onClick = (payload?: any) => {
 }
 
 const link: Ref = ref(null)
-const triggerClick = () => {
-  link.value.click()
-}
 
-defineExpose({ triggerClick })
+defineExpose({ link })
 </script>
 
 <template>

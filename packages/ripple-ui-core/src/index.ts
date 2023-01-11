@@ -73,6 +73,7 @@ export { default as RplVerticalNavChildList } from './components/vertical-nav/ch
 export { default as RplVerticalNavLink } from './components/vertical-nav/link.vue'
 
 export { default as RplCardCarousel } from './components/card-carousel/card-carousel.vue'
+export { default as RplMediaEmbed } from './components/media-embed/media-embed.vue'
 export { default as RplMediaGallery } from './components/media-gallery/media-gallery.vue'
 export { default as RplErrorMessage } from './components/error-message/error-message.vue'
 

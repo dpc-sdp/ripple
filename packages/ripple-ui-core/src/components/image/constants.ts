@@ -27,12 +27,13 @@ export type RplImageAspect = RplImageAspectBreakpoints | RplImageAspectOptions
 export interface RplImageType {
   src: string
   alt?: string
+  title?: string
   width?: number
   height?: number
   sizes?: string
   srcSet?: string
   circle?: boolean
-  focalPoint?: RplImageFocalPoint
+  focalPoint?: RplImageFocalPoint | undefined
   aspect?: RplImageAspect
   fit?: typeof RplImageFit[number]
   priority?: typeof RplImagePriority[number]

@@ -1,73 +1,3 @@
-<template>
-  <RplLayout>
-    <template #aboveHeader>
-      <RplIconSprite />
-    </template>
-    <template #primaryNav>
-      <slot name="primaryNav">
-        <RplPrimaryNav
-          :primary-logo="primaryLogo"
-          :items="site?.menus.menuMain"
-        ></RplPrimaryNav>
-      </slot>
-    </template>
-    <template #aboveBody>
-      <RplHeroHeader
-        title="Search"
-        :behind-nav="true"
-        :breadcrumbs="true"
-        :full-width="true"
-        :corner-top="true"
-        :corner-bottom="false"
-      >
-        <div class="rpl-search__header">
-          <RplSearchBar
-            variant="default"
-            input-label="Search"
-            :inputValue="queryTerm"
-            @on-submit="handleSubmit"
-            @update:input-value="handleTermUpdate"
-          />
-          <RplButton
-            class="rpl-search__refine-btn"
-            variant="white"
-            icon-name="icon-chevron-down"
-            icon-position="right"
-          >
-            Refine search</RplButton
-          >
-        </div>
-        <ul v-if="showSuggestions" class="rpl-search__autocomplete-results">
-          <li v-for="res in displayedSuggestions" :key="res">
-            <button
-              class="rpl-text-link rpl-u-focusable-inline"
-              @click="updateQueryTerm(res)"
-            >
-              {{ res }}
-            </button>
-          </li>
-        </ul>
-      </RplHeroHeader>
-    </template>
-    <template #body>
-      <p class="rpl-type-label">{{ resultsCountText }}</p>
-      <ul>
-        <li
-          v-for="(result, idx) in displayedResults"
-          :key="`result-${idx}-${result.title}`"
-        >
-          <RplResultListing v-bind="result"> </RplResultListing>
-        </li>
-      </ul>
-      <RplPageLinks v-bind="paginationLinks" />
-    </template>
-    <template #footer>
-      <slot name="footer">
-        <RplFooter></RplFooter>
-      </slot>
-    </template>
-  </RplLayout>
-</template>
 <script setup lang="ts">
 import { computed, onMounted } from 'vue'
 import { RplSearchBar, RplHeroHeader } from '@dpc-sdp/ripple-ui-core'
@@ -83,12 +13,6 @@ const { data: site } = useFetch('/api/tide/site', {
     id: siteId
   }
 })
-
-const primaryLogo = {
-  href: '#',
-  src: '/img/primary-nav-logo-primary.svg',
-  altText: 'Primary logo alt text'
-}
 
 const apiConnectorOptions = config.tide?.appSearch
 
@@ -156,6 +80,61 @@ const showSuggestions = computed(() => {
 //   searchDriver.setCurrent(page);
 // }
 </script>
+
+<template>
+  <TideBaseLayout :site="site">
+    <template #aboveBody>
+      <RplHeroHeader
+        title="Search"
+        :behind-nav="true"
+        :breadcrumbs="true"
+        :full-width="true"
+        :corner-top="true"
+        :corner-bottom="false"
+      >
+        <div class="rpl-search__header">
+          <RplSearchBar
+            variant="default"
+            input-label="Search"
+            :inputValue="queryTerm"
+            @on-submit="handleSubmit"
+            @update:input-value="handleTermUpdate"
+          />
+          <RplButton
+            class="rpl-search__refine-btn"
+            variant="white"
+            icon-name="icon-chevron-down"
+            icon-position="right"
+          >
+            Refine search</RplButton
+          >
+        </div>
+        <ul v-if="showSuggestions" class="rpl-search__autocomplete-results">
+          <li v-for="res in displayedSuggestions" :key="res">
+            <button
+              class="rpl-text-link rpl-u-focusable-inline"
+              @click="updateQueryTerm(res)"
+            >
+              {{ res }}
+            </button>
+          </li>
+        </ul>
+      </RplHeroHeader>
+    </template>
+    <template #body>
+      <p class="rpl-type-label">{{ resultsCountText }}</p>
+      <ul>
+        <li
+          v-for="(result, idx) in displayedResults"
+          :key="`result-${idx}-${result.title}`"
+        >
+          <RplResultListing v-bind="result"> </RplResultListing>
+        </li>
+      </ul>
+      <RplPageLinks v-bind="paginationLinks" />
+    </template>
+  </TideBaseLayout>
+</template>
 
 <style>
 .rpl-search__header {

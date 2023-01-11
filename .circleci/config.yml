@@ -62,6 +62,11 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/app
+      - restore_cache:
+          keys:
+            - v10-deps-{{ checksum "yarn.lock" }}
+            - v10-deps-{{ .Branch }}
+            - v9-deps
       - run:
           command: yarn run test:components-forms
           name: Run cypress component tests - UI Forms

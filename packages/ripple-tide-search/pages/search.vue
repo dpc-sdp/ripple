@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import { computed, onMounted } from 'vue'
+import { computed } from 'vue'
 import { RplSearchBar, RplHeroHeader } from '@dpc-sdp/ripple-ui-core'
-import { useRuntimeConfig, useFetch, useRoute } from '#imports'
+import { useRuntimeConfig, useFetch } from '#imports'
 import useTideSearch from './../composables/use-tide-search'
-const route = useRoute()
+import { MappedSearchResult } from 'ripple-tide-search/types'
+
 const { public: config } = useRuntimeConfig()
 const siteId = config.tide?.contentApi.site
 
@@ -17,43 +18,53 @@ const { data: site } = useFetch('/api/tide/site', {
 const apiConnectorOptions = config.tide?.appSearch
 
 const searchDriverOptions = {
-  initialState: { resultsPerPage: 10 },
+  initialState: { resultsPerPage: 5 },
   search_fields: {
     title: {
       weight: 10
     },
     body: {},
     field_paragraph_body: {}
+  },
+  autocompleteQuery: {
+    suggestions: {
+      types: {
+        documents: { fields: ['title'] }
+      },
+      size: 10
+    }
   }
 }
 
-const searchResultsMappingFn = (itm) => {
+const searchResultsMappingFn = (item): MappedSearchResult<any> => {
   return {
-    title: itm.title?.raw?.[0],
-    url: itm.url?.raw?.[0].replace(/\/site-(\d+)/, ''),
-    summary:
-      itm.field_paragraph_summary?.raw?.[0] ||
-      itm.field_landing_page_intro_text?.raw?.[0],
-    updated: itm.changed?.raw?.[0]
+    id: item._meta.id,
+    component: 'RplResultListing',
+    props: {
+      title: item.title?.raw?.[0],
+      url: item.url?.raw?.[0].replace(/\/site-(\d+)/, ''),
+      summary:
+        item.field_paragraph_summary?.raw?.[0] ||
+        item.field_landing_page_intro_text?.raw?.[0],
+      updated: item.changed?.raw?.[0]
+    }
   }
 }
 
 const {
-  displayedResults,
-  displayedSuggestions,
-  updateQueryTerm,
-  handleTermUpdate,
-  handleSubmit,
-  queryTerm,
-  resultsCountText,
-  searchDriver
+  updateSearchTerm,
+  doSearch,
+  searchState,
+  searchDriver,
+  searchTermSuggestions,
+  results
 } = await useTideSearch(
   apiConnectorOptions,
   searchDriverOptions,
   searchResultsMappingFn
 )
 
-searchDriver.setSearchQuery(route.params?.q || '')
+searchDriver.URLManager.getStateFromURL
 
 const paginationLinks = computed(() => {
   return {
@@ -61,24 +72,6 @@ const paginationLinks = computed(() => {
     next: { text: 'Another page to look at', url: '#another-page' }
   }
 })
-
-handleSubmit()
-
-onMounted(() => {
-  console.log(displayedResults.value)
-  handleSubmit()
-})
-
-const showSuggestions = computed(() => {
-  if (displayedSuggestions.value.length > 0 && queryTerm.value.length > 0) {
-    return true
-  }
-  return false
-})
-// TODO: Add pagination
-// function setCurrentPage(page) {
-//   searchDriver.setCurrent(page);
-// }
 </script>
 
 <template>
@@ -96,9 +89,9 @@ const showSuggestions = computed(() => {
           <RplSearchBar
             variant="default"
             input-label="Search"
-            :inputValue="queryTerm"
-            @on-submit="handleSubmit"
-            @update:input-value="handleTermUpdate"
+            :inputValue="searchState.searchTerm"
+            @on-submit="doSearch"
+            @update:input-value="updateSearchTerm"
           />
           <RplButton
             class="rpl-search__refine-btn"
@@ -109,7 +102,7 @@ const showSuggestions = computed(() => {
             Refine search</RplButton
           >
         </div>
-        <ul v-if="showSuggestions" class="rpl-search__autocomplete-results">
+        <!-- <ul v-if="showSuggestions" class="rpl-search__autocomplete-results">
           <li v-for="res in displayedSuggestions" :key="res">
             <button
               class="rpl-text-link rpl-u-focusable-inline"
@@ -118,17 +111,24 @@ const showSuggestions = computed(() => {
               {{ res }}
             </button>
           </li>
+        </ul> -->
+        <ul class="rpl-search__autocomplete-results">
+          <li v-for="res in searchTermSuggestions" :key="res">
+            <button class="rpl-text-link rpl-u-focusable-inline">
+              {{ res }}
+            </button>
+          </li>
         </ul>
       </RplHeroHeader>
     </template>
     <template #body>
-      <p class="rpl-type-label">{{ resultsCountText }}</p>
+      <!-- <p class="rpl-type-label">{{ resultsCountText }}</p> -->
       <ul>
         <li
-          v-for="(result, idx) in displayedResults"
-          :key="`result-${idx}-${result.title}`"
+          v-for="(result, idx) in results"
+          :key="`result-${idx}-${result.id}`"
         >
-          <RplResultListing v-bind="result"> </RplResultListing>
+          <component :is="result.component" v-bind="result.props" />
         </li>
       </ul>
       <RplPageLinks v-bind="paginationLinks" />

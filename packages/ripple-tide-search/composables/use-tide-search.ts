@@ -1,8 +1,9 @@
-import { SearchDriver, SearchState } from '@elastic/search-ui'
+import { SearchDriver, SearchResult, SearchState } from '@elastic/search-ui'
 import type { SearchDriverOptions } from '@elastic/search-ui'
 import AppSearchAPIConnector from '@elastic/search-ui-app-search-connector'
 
 import { ref, computed } from 'vue'
+import { MappedSearchResult } from 'ripple-tide-search/types'
 
 const getSearchDriver = (
   apiConnectorOptions,
@@ -17,89 +18,54 @@ const getSearchDriver = (
 export default async (
   apiConnectorOptions,
   config: Omit<SearchDriverOptions, 'apiConnector'>,
-  resultsMapFn
+  resultsMapFn: (result: SearchResult) => MappedSearchResult<any>
 ) => {
   const searchDriver = getSearchDriver(apiConnectorOptions, config)
-  const searchState = ref()
-  const loaded = ref(false)
+  const searchState = ref(searchDriver.getState())
 
   searchDriver.subscribeToStateChanges((state: SearchState) => {
     searchState.value = state
-    if (!loaded.value && searchState.value.results.length > 0) {
-      displayedResults.value = results.value
-      loaded.value = true
-    }
   })
 
-  const { searchTerm } = searchDriver.getState()
-
-  const displayedResults = ref([])
-  const displayedSuggestions = ref([])
-  const displayedAutocompleteResults = ref([])
-  const queryTerm = ref(searchTerm || '')
-  const resultsCountText = ref('')
-
   const results = computed(() => {
+    if (!searchState.value?.results) {
+      return []
+    }
+
     return searchState.value?.results?.map(resultsMapFn)
   })
 
-  const updateResultsCountText = () => {
-    const total = searchState.value?.totalResults
-    const perPage = searchState.value?.resultsPerPage
-    const current = searchState.value?.current
-    const start = total === 0 ? 0 : (current - 1) * perPage + 1
-    const end = total <= perPage ? total : start + perPage - 1
-    return `${start} - ${Math.min(end, total)} of ${total} results`
-  }
-
-  const autocompletedResults = computed(() => {
-    return searchState.value.autocompletedResults
-  })
-  const autocompletedSuggestions = computed(() => {
-    const suggestions = searchState.value.autocompletedSuggestions?.documents
-    if (suggestions && suggestions.length > 0) {
-      return suggestions.map((res) => res.suggestion)
+  const searchTermSuggestions = computed(() => {
+    if (!searchState.value?.autocompletedSuggestions) {
+      return []
     }
-    return []
+
+    return (searchState.value.autocompletedSuggestions.documents || []).map(
+      (d) => d.suggestion
+    )
   })
 
-  function updateQueryTerm(term) {
-    handleTermUpdate(term)
-    handleSubmit()
-  }
-
-  function handleTermUpdate(value) {
+  function updateSearchTerm(value) {
+    // This query will only get the autocomplete suggestions
     const searchTermOptions = {
-      autocompleteResults: true,
+      refresh: false,
       autocompleteSuggestions: true,
-      autocompleteMinimumCharacters: 3
+      autocompleteMinimumCharacters: 3,
+      debounce: 300
     }
     searchDriver.getActions().setSearchTerm(value, searchTermOptions)
-    displayedSuggestions.value = autocompletedSuggestions.value
-    displayedAutocompleteResults.value = autocompletedResults.value
-    queryTerm.value = value
   }
 
-  function handleSubmit() {
-    displayedResults.value = results.value
-    displayedSuggestions.value = []
-    displayedAutocompleteResults.value = []
-    resultsCountText.value = updateResultsCountText()
+  const doSearch = () => {
+    searchDriver.getActions().setSearchTerm(searchDriver.getState().searchTerm)
   }
 
   return {
-    results,
-    resultsCountText,
-    displayedResults,
-    displayedSuggestions,
-    displayedAutocompleteResults,
-    autocompletedResults,
-    autocompletedSuggestions,
-    updateQueryTerm,
-    handleTermUpdate,
-    handleSubmit,
-    queryTerm,
+    updateSearchTerm,
+    doSearch,
+    searchState,
     searchDriver,
-    searchState
+    searchTermSuggestions,
+    results
   }
 }

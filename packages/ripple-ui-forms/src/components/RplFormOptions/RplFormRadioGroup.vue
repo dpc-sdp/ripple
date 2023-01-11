@@ -9,7 +9,7 @@ export interface RplFormRadioProps {
   disabled?: boolean
   variant?: 'default' | 'reverse'
   layout?: 'block' | 'inline'
-  onChange: (value: string[]) => void
+  onChange: (value: string) => void
   options: {
     id: string
     label: string

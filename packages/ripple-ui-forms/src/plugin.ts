@@ -12,7 +12,8 @@ import {
   radioGroup,
   content,
   divider,
-  date
+  date,
+  optionButtons
 } from './inputs/index'
 
 const rplFormInputs = (node) => {
@@ -39,6 +40,8 @@ rplFormInputs.library = (node) => {
       return node.define(checkboxGroup)
     case 'RplFormRadioGroup':
       return node.define(radioGroup)
+    case 'RplFormOptionButtons':
+      return node.define(optionButtons)
     case 'RplFormDropdown':
       return node.define(dropdown)
     case 'RplFormDate':

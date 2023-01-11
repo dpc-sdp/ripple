@@ -1,12 +1,12 @@
 import { FormKitTypeDefinition } from '@formkit/core'
 import { createRplFormGroup, inputLibrary, rplFeatures } from './input-utils'
 
-export const radioGroup: FormKitTypeDefinition = {
+export const optionButtons: FormKitTypeDefinition = {
   /**
    * The actual schema of the input, or a function that returns the schema.
    */
   schema: createRplFormGroup({
-    $cmp: 'RplFormRadioGroup',
+    $cmp: 'RplFormOptionButtons',
     props: {
       id: `$id`,
       name: '$node.name',
@@ -14,7 +14,8 @@ export const radioGroup: FormKitTypeDefinition = {
       value: '$_value',
       onChange: '$node.input',
       options: '$node.props.options',
-      validationMeta: '$node.props.validationMeta'
+      validationMeta: '$node.props.validationMeta',
+      perfectSquares: '$node.props.perfectSquares'
     }
   }),
   library: inputLibrary,
@@ -30,7 +31,7 @@ export const radioGroup: FormKitTypeDefinition = {
   /**
    * An array of extra props to accept for this input.
    */
-  props: ['options'],
+  props: ['options', 'perfectSquares'],
   /**
    * Additional features that should be added to your input
    */

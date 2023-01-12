@@ -1,13 +1,8 @@
 {
   "version": "2.1.0-alpha.56",
-  "npmClient": "yarn",
+  "npmClient": "pnpm",
   "exact": true,
   "useWorkspaces": true,
-  "packages": [
-    "packages/*",
-    "examples/*",
-    "docs"
-  ],
   "command": {
     "publish": {
       "message": "chore(release): publish %s [skip ci]",

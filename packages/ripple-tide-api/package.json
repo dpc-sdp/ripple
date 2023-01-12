@@ -15,11 +15,12 @@
     "./services": "./dist/services/index.js",
     "./mapping/site": "./dist/mapping/site.js"
   },
+  "packageManager": "pnpm@7.23.0",
   "license": "MIT",
   "keywords": [],
   "scripts": {
     "clean": "rimraf dist* && rimraf tsconfig.tsbuildinfo",
-    "build": "yarn clean && tsc -p tsconfig.json && cp ./src/schema/openapi.yml ./dist/schema",
+    "build": "pnpm clean && tsc -p tsconfig.json && cp ./src/schema/openapi.yml ./dist/schema",
     "watch": "tsc -p tsconfig.json -w"
   },
   "dependencies": {
@@ -27,6 +28,7 @@
     "axios": "^0.27.2",
     "change-case": "^4.1.2",
     "cheerio": "^1.0.0-rc.10",
+    "h3": "^1.0.2",
     "js-yaml": "^4.1.0",
     "jsonapi-parse": "^2.0.1",
     "lodash-es": "^4.17.21",

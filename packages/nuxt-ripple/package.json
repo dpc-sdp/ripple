@@ -1,4 +1,5 @@
 {
+  "packageManager": "pnpm@7.23.0",
   "license": "Apache-2.0",
   "name": "@dpc-sdp/nuxt-ripple",
   "main": "./nuxt.config.ts",
@@ -6,6 +7,9 @@
   "dependencies": {
     "@dpc-sdp/ripple-tide-api": "2.1.0-alpha.56",
     "@dpc-sdp/ripple-ui-core": "2.1.0-alpha.56",
-    "@dpc-sdp/ripple-ui-forms": "2.1.0-alpha.56"
+    "@dpc-sdp/ripple-ui-forms": "2.1.0-alpha.56",
+    "@vueuse/core": "^9.10.0",
+    "change-case": "^4.1.2",
+    "vue": "^3.2.45"
   }
 }

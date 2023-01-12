@@ -2,7 +2,7 @@ import { join } from 'pathe'
 
 import { defineNuxtModule, installModule } from '@nuxt/kit'
 
-export default defineNuxtModule({
+export default <any>defineNuxtModule({
   async setup() {
     await installModule('@formkit/nuxt')
   },

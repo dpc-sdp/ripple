@@ -27,7 +27,7 @@ jobs:
           name: Install Dependencies
           command: pnpm install
       - save_cache:
-          key: v10-deps-{{ .Branch }}-{{ checksum "pnpm-lock.yaml" }}
+          key: v11-deps-{{ .Branch }}-{{ checksum "pnpm-lock.yaml" }}
           paths:
             - ~/.cache
       - persist_to_workspace:
@@ -75,8 +75,8 @@ jobs:
           at: ~/app
       - restore_cache:
           keys:
-            - v10-deps-{{ checksum "pnpm-lock.yaml" }}
-            - v10-deps-{{ .Branch }}
+            - v11-deps-{{ checksum "pnpm-lock.yaml" }}
+            - v11-deps-{{ .Branch }}
             - v9-deps
       - run:
           command: pnpm run ci:nuxt-app
@@ -130,8 +130,8 @@ jobs:
           at: ~/app
       - restore_cache:
           keys:
-            - v10-deps-{{ checksum "pnpm-lock.yaml" }}
-            - v10-deps-{{ .Branch }}
+            - v11-deps-{{ checksum "pnpm-lock.yaml" }}
+            - v11-deps-{{ .Branch }}
             - v9-deps
       - run:
           name: set git credentials
@@ -155,8 +155,8 @@ jobs:
           at: ~/app
       - restore_cache:
           keys:
-            - v10-deps-{{ checksum "pnpm-lock.yaml" }}
-            - v10-deps-{{ .Branch }}
+            - v11-deps-{{ checksum "pnpm-lock.yaml" }}
+            - v11-deps-{{ .Branch }}
             - v9-deps
       - run:
           name: set git credentials

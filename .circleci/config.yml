@@ -19,6 +19,10 @@ jobs:
     <<: *defaults
     steps:
       - checkout
+      - restore_cache:
+          name: Restore pnpm Package Cache
+          keys:
+            - pnpm-packages-{{ checksum "pnpm-lock.yaml" }}
       - run:
           name: Install pnpm package manager
           command: |
@@ -27,9 +31,10 @@ jobs:
           name: Install Dependencies
           command: pnpm install
       - save_cache:
-          key: v11-deps-{{ .Branch }}-{{ checksum "pnpm-lock.yaml" }}
+          name: Save pnpm Package Cache
+          key: pnpm-packages-{{ checksum "pnpm-lock.yaml" }}
           paths:
-            - ~/.cache
+            - node_modules
       - persist_to_workspace:
           root: ~/app
           paths: [.]
@@ -75,9 +80,7 @@ jobs:
           at: ~/app
       - restore_cache:
           keys:
-            - v11-deps-{{ checksum "pnpm-lock.yaml" }}
-            - v11-deps-{{ .Branch }}
-            - v9-deps
+            - pnpm-packages-{{ checksum "pnpm-lock.yaml" }}
       - run:
           command: pnpm run ci:nuxt-app
           name: Run integration tests with Cypress
@@ -130,9 +133,7 @@ jobs:
           at: ~/app
       - restore_cache:
           keys:
-            - v11-deps-{{ checksum "pnpm-lock.yaml" }}
-            - v11-deps-{{ .Branch }}
-            - v9-deps
+            - pnpm-packages-{{ checksum "pnpm-lock.yaml" }}
       - run:
           name: set git credentials
           command: |
@@ -155,9 +156,7 @@ jobs:
           at: ~/app
       - restore_cache:
           keys:
-            - v11-deps-{{ checksum "pnpm-lock.yaml" }}
-            - v11-deps-{{ .Branch }}
-            - v9-deps
+            - pnpm-packages-{{ checksum "pnpm-lock.yaml" }}
       - run:
           name: set git credentials
           command: |

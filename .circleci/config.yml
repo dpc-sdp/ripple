@@ -21,9 +21,9 @@ jobs:
       - checkout
       - run:
           name: Install Dependencies
-          command: yarn install --frozen-lockfile --cache-folder ~/.cache/yarn
+          command: pnpm install --frozen-lockfile --cache-folder ~/.cache/pnpm
       - save_cache:
-          key: v10-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
+          key: v10-deps-{{ .Branch }}-{{ checksum "pnpm-lock.yaml" }}
           paths:
             - ~/.cache
       - persist_to_workspace:
@@ -36,9 +36,9 @@ jobs:
           at: ~/app
       - run:
           name: Lint code.
-          command: yarn run lint
+          command: pnpm run lint
       - run:
-          command: yarn run test:unit
+          command: pnpm run test:unit
           name: Run unit tests
       - store_test_results:
           path: test-results
@@ -50,7 +50,7 @@ jobs:
           at: ~/app
       - run:
           name: build docs site
-          command: yarn run build:docs
+          command: pnpm run build:docs
 
   build-examples:
     <<: *defaults
@@ -59,7 +59,7 @@ jobs:
           at: ~/app
       - run:
           name: build example apps
-          command: yarn run build:examples
+          command: pnpm run build:examples
       - persist_to_workspace:
           root: ~/app
           paths: [.]
@@ -71,11 +71,11 @@ jobs:
           at: ~/app
       - restore_cache:
           keys:
-            - v10-deps-{{ checksum "yarn.lock" }}
+            - v10-deps-{{ checksum "pnpm-lock.yaml" }}
             - v10-deps-{{ .Branch }}
             - v9-deps
       - run:
-          command: yarn run ci:nuxt-app
+          command: pnpm run ci:nuxt-app
           name: Run integration tests with Cypress
       - store_artifacts:
           path: examples/nuxt-app/test/videos
@@ -90,7 +90,7 @@ jobs:
       - attach_workspace:
           at: ~/app
       - run:
-          command: yarn build:storybook
+          command: pnpm build:storybook
           name: Build static storybook
       - persist_to_workspace:
           root: ~/app
@@ -107,7 +107,7 @@ jobs:
       - attach_workspace:
           at: ~/app
       - run:
-          command: yarn test:storybook-ci
+          command: pnpm test:storybook-ci
           name: Run storybook Tests
 
   chromatic:
@@ -116,7 +116,7 @@ jobs:
       - attach_workspace:
           at: ~/app
         # Runs the Chromatic CLI for core and forms packages
-      - run: yarn chromatic --project-token=${CHROMATIC_PROJECT_TOKEN} --exit-zero-on-changes --exit-once-uploaded
+      - run: pnpm chromatic --project-token=${CHROMATIC_PROJECT_TOKEN} --exit-zero-on-changes --exit-once-uploaded
 
   publish-alpha:
     <<: *defaults
@@ -126,7 +126,7 @@ jobs:
           at: ~/app
       - restore_cache:
           keys:
-            - v10-deps-{{ checksum "yarn.lock" }}
+            - v10-deps-{{ checksum "pnpm-lock.yaml" }}
             - v10-deps-{{ .Branch }}
             - v9-deps
       - run:
@@ -136,13 +136,13 @@ jobs:
             git config --global user.name "SDP Deploy"
       - run:
           name: Bump version to latest prerelease
-          command: yarn release:pre
+          command: pnpm release:pre
       - run:
           name: Publish alpha prerelease to NPM
           command: |
             npm config set access public
             npm set //registry.npmjs.org/:_authToken=$NPM_TOKEN
-            yarn release:publish
+            pnpm release:publish
   publish:
     <<: *defaults
     steps:
@@ -151,7 +151,7 @@ jobs:
           at: ~/app
       - restore_cache:
           keys:
-            - v10-deps-{{ checksum "yarn.lock" }}
+            - v10-deps-{{ checksum "pnpm-lock.yaml" }}
             - v10-deps-{{ .Branch }}
             - v9-deps
       - run:
@@ -161,13 +161,13 @@ jobs:
             git config --global user.name "SDP Deploy"
       - run:
           name: Bump version to production release
-          command: yarn release:prod
+          command: pnpm release:prod
       - run:
           name: Publish prod release to NPM
           command: |
             npm config set access public
             npm set //registry.npmjs.org/:_authToken=$NPM_TOKEN
-            yarn release:publish
+            pnpm release:publish
 
   update-reference:
     <<: *defaults

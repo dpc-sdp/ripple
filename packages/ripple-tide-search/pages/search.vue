@@ -19,7 +19,7 @@ const { data: site } = useFetch('/api/tide/site', {
 const apiConnectorOptions = config.tide?.appSearch
 
 const searchDriverOptions = {
-  initialState: { resultsPerPage: 5 },
+  initialState: { resultsPerPage: 4 },
   search_fields: {
     title: {
       weight: 10
@@ -40,7 +40,7 @@ const searchDriverOptions = {
 const searchResultsMappingFn = (item): MappedSearchResult<any> => {
   return {
     id: item._meta.id,
-    component: 'RplResultListing',
+    component: 'RplSearchResult',
     props: {
       title: item.title?.raw?.[0],
       url: item.url?.raw?.[0].replace(/\/site-(\d+)/, ''),
@@ -158,38 +158,50 @@ const handleNextClick = () => {
       </RplHeroHeader>
     </template>
     <template #body>
-      <p class="rpl-type-label">
-        Displaying {{ searchState.pagingStart }}-{{ searchState.pagingEnd }} of
-        {{ searchState.totalResults }} results
-      </p>
-      <ul>
-        <li
-          v-for="(result, idx) in results"
-          :key="`result-${idx}-${result.id}`"
+      <RplLayoutPageComponent>
+        <p class="rpl-type-label rpl-u-padding-b-6">
+          Displaying {{ searchState.pagingStart }}-{{
+            searchState.pagingEnd
+          }}
+          of {{ searchState.totalResults }} results
+        </p>
+      </RplLayoutPageComponent>
+      <RplLayoutPageComponent>
+        <div class="rpl-grid">
+          <div class="rpl-col-12 rpl-col-8-m">
+            <RplResultListing>
+              <RplResultListingItem
+                v-for="(result, idx) in results"
+                :key="`result-${idx}-${result.id}`"
+              >
+                <component :is="result.component" v-bind="result.props" />
+              </RplResultListingItem>
+            </RplResultListing>
+          </div>
+        </div>
+      </RplLayoutPageComponent>
+      <RplLayoutPageComponent>
+        <RplPageLinks v-if="results && results.length">
+          <RplPageLinksItem
+            v-if="prevLink"
+            :url="prevLink.url"
+            label="Previous"
+            direction="prev"
+            @click.prevent="handlePrevClick"
+          >
+            {{ prevLink.description }}
+          </RplPageLinksItem>
+          <RplPageLinksItem
+            v-if="nextLink"
+            :url="nextLink.url"
+            label="Next"
+            direction="next"
+            @click.prevent="handleNextClick"
+          >
+            {{ nextLink.description }}
+          </RplPageLinksItem></RplPageLinks
         >
-          <component :is="result.component" v-bind="result.props" />
-        </li>
-      </ul>
-      <RplPageLinks v-if="results && results.length">
-        <RplPageLinksItem
-          v-if="prevLink"
-          :url="prevLink.url"
-          label="Previous"
-          direction="prev"
-          @click.prevent="handlePrevClick"
-        >
-          {{ prevLink.description }}
-        </RplPageLinksItem>
-        <RplPageLinksItem
-          v-if="nextLink"
-          :url="nextLink.url"
-          label="Next"
-          direction="next"
-          @click.prevent="handleNextClick"
-        >
-          {{ nextLink.description }}
-        </RplPageLinksItem></RplPageLinks
-      >
+      </RplLayoutPageComponent>
     </template>
   </TideBaseLayout>
 </template>

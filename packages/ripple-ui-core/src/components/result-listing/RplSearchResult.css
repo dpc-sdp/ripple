@@ -1,17 +1,13 @@
 @import '@dpc-sdp/ripple-ui-core/style/breakpoints';
 
 .rpl-result-listing {
+  cursor: pointer;
   padding-top: var(--rpl-sp-5);
   padding-bottom: var(--rpl-sp-5);
-  cursor: pointer;
 
   @media (--rpl-bp-l) {
     padding-top: var(--rpl-sp-7);
     padding-bottom: var(--rpl-sp-7);
-  }
-
-  + .rpl-result-listing {
-    border-top: 1px solid var(--rpl-clr-neutral-300);
   }
 }
 

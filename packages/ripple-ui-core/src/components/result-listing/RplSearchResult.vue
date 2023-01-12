@@ -1,5 +1,5 @@
 <script lang="ts">
-export default { name: 'RplResultListing' }
+export default { name: 'RplSearchResult' }
 </script>
 
 <script setup lang="ts">
@@ -51,4 +51,4 @@ const displayUrl = computed(() => props.url.replace('https://', ''))
   </div>
 </template>
 
-<style src="./result-listing.css" />
+<style src="./RplSearchResult.css" />

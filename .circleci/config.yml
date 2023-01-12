@@ -25,7 +25,7 @@ jobs:
             curl -L https://pnpm.js.org/pnpm.js | node - add --global pnpm@7
       - run:
           name: Install Dependencies
-          command: pnpm install --frozen-lockfile --cache-folder ~/.cache/pnpm
+          command: pnpm install
       - save_cache:
           key: v10-deps-{{ .Branch }}-{{ checksum "pnpm-lock.yaml" }}
           paths:

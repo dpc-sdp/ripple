@@ -114,10 +114,6 @@ const tideConfig = {
           'image': {
             field: ['field_block_image', 'field_media_image'],
             filters: ['cardImage']
-          },
-          video: {
-            field: 'field_block_embedded_video',
-            filters: ['embeddedVideo']
           }
         }
       },

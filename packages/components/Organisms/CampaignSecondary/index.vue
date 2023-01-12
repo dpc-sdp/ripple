@@ -1,10 +1,9 @@
 <template>
   <div class="rpl-campaign-secondary">
     <div class="rpl-campaign-secondary__row">
-      <div v-if="image || video" class="rpl-campaign-secondary__left">
+      <div v-if="image" class="rpl-campaign-secondary__left">
         <div class="rpl-campaign-secondary__content">
-          <rpl-responsive-img v-if="image" class="rpl-campaign-secondary__image" v-bind="image" alt="" />
-          <rpl-embedded-video v-if="!image && video" :variant="video.mediaLink ? 'link' : false" :src="video.src" :media-link="video.mediaLink" class="rpl-campaign-secondary__video" />
+          <rpl-responsive-img class="rpl-campaign-secondary__image" v-bind="image" alt="" />
         </div>
       </div>
       <div class="rpl-campaign-secondary__right">
@@ -21,7 +20,6 @@
 <script>
 import breakpoint from '@dpc-sdp/ripple-global/mixins/breakpoint'
 import RplButton from '@dpc-sdp/ripple-button'
-import RplEmbeddedVideo from '@dpc-sdp/ripple-embedded-video'
 import RplResponsiveImg from '@dpc-sdp/ripple-responsive-img'
 
 export default {
@@ -31,12 +29,10 @@ export default {
     title: String,
     summary: String,
     link: Object,
-    video: Object,
     image: Object
   },
   components: {
     RplButton,
-    RplEmbeddedVideo,
     RplResponsiveImg
   }
 }

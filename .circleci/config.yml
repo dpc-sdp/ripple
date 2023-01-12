@@ -20,6 +20,10 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Install pnpm package manager
+          command: |
+            curl -L https://pnpm.js.org/pnpm.js | node - add --global pnpm@7
+      - run:
           name: Install Dependencies
           command: pnpm install --frozen-lockfile --cache-folder ~/.cache/pnpm
       - save_cache:

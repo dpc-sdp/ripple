@@ -157,7 +157,7 @@ importers:
 
   docs:
     specifiers:
-      '@dpc-sdp/ripple-ui-core': workspace:*
+      '@dpc-sdp/ripple-ui-core': 2.1.0-alpha.56
       '@iconify/vue': ^4.0.2
       '@nuxt-themes/config': npm:@nuxt-themes/config-edge@latest
       '@nuxt/content': npm:@nuxt/content-edge@latest

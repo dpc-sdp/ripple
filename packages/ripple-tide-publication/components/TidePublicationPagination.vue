@@ -1,6 +1,23 @@
 <template>
   <div class="tide-publication-page__links rpl-u-margin-t-9">
-    <RplPageLinks v-bind="pagination"></RplPageLinks>
+    <RplPageLinks>
+      <RplPageLinksItem
+        v-if="pagination.prev"
+        direction="prev"
+        :label="pagination.prev.label"
+        :url="pagination.prev.url"
+      >
+        {{ pagination.prev.description }}
+      </RplPageLinksItem>
+      <RplPageLinksItem
+        v-if="pagination.next"
+        direction="next"
+        :label="pagination.next.label"
+        :url="pagination.next.url"
+      >
+        {{ pagination.next.description }}
+      </RplPageLinksItem>
+    </RplPageLinks>
   </div>
 </template>
 

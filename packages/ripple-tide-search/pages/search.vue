@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { RplSearchBar, RplHeroHeader } from '@dpc-sdp/ripple-ui-core'
-import { useRuntimeConfig, useFetch } from '#imports'
+import { useRuntimeConfig, useFetch, useRoute } from '#imports'
 import useTideSearch from './../composables/use-tide-search'
 import { MappedSearchResult } from 'ripple-tide-search/types'
 
+const route = useRoute()
 const { public: config } = useRuntimeConfig()
 const siteId = config.tide?.contentApi.site
 
@@ -54,8 +55,8 @@ const searchResultsMappingFn = (item): MappedSearchResult<any> => {
 const {
   updateSearchTerm,
   doSearch,
+  goToPage,
   searchState,
-  searchDriver,
   searchTermSuggestions,
   results
 } = await useTideSearch(
@@ -64,14 +65,49 @@ const {
   searchResultsMappingFn
 )
 
-searchDriver.URLManager.getStateFromURL
+const prevLink = computed(() => {
+  if (searchState.value.current <= 1) {
+    return null
+  }
 
-const paginationLinks = computed(() => {
+  const searchParams = new URLSearchParams({
+    ...route.query,
+    current: `n_${searchState.value.current - 1}_n`
+  })
+
   return {
-    prev: { text: 'Check out this page', url: '#page' },
-    next: { text: 'Another page to look at', url: '#another-page' }
+    url: `${route.path}?${searchParams.toString()}`,
+    description: `${searchState.value.current - 1} of ${
+      searchState.value.totalPages
+    }`
   }
 })
+
+const nextLink = computed(() => {
+  if (searchState.value.current === searchState.value.totalPages) {
+    return null
+  }
+
+  const searchParams = new URLSearchParams({
+    ...route.query,
+    current: `n_${searchState.value.current + 1}_n`
+  })
+
+  return {
+    url: `${route.path}?${searchParams.toString()}`,
+    description: `${searchState.value.current + 1} of ${
+      searchState.value.totalPages
+    }`
+  }
+})
+
+const handlePrevClick = () => {
+  goToPage(searchState.value.current - 1)
+}
+
+const handleNextClick = () => {
+  goToPage(searchState.value.current + 1)
+}
 </script>
 
 <template>
@@ -122,7 +158,10 @@ const paginationLinks = computed(() => {
       </RplHeroHeader>
     </template>
     <template #body>
-      <!-- <p class="rpl-type-label">{{ resultsCountText }}</p> -->
+      <p class="rpl-type-label">
+        Displaying {{ searchState.pagingStart }}-{{ searchState.pagingEnd }} of
+        {{ searchState.totalResults }} results
+      </p>
       <ul>
         <li
           v-for="(result, idx) in results"
@@ -131,7 +170,26 @@ const paginationLinks = computed(() => {
           <component :is="result.component" v-bind="result.props" />
         </li>
       </ul>
-      <RplPageLinks v-bind="paginationLinks" />
+      <RplPageLinks v-if="results && results.length">
+        <RplPageLinksItem
+          v-if="prevLink"
+          :url="prevLink.url"
+          label="Previous"
+          direction="prev"
+          @click.prevent="handlePrevClick"
+        >
+          {{ prevLink.description }}
+        </RplPageLinksItem>
+        <RplPageLinksItem
+          v-if="nextLink"
+          :url="nextLink.url"
+          label="Next"
+          direction="next"
+          @click.prevent="handleNextClick"
+        >
+          {{ nextLink.description }}
+        </RplPageLinksItem></RplPageLinks
+      >
     </template>
   </TideBaseLayout>
 </template>

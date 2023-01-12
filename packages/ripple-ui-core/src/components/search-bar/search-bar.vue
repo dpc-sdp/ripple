@@ -46,24 +46,45 @@ const handleInputChange = (e) => {
   emit('update:inputValue', e.target.value)
 }
 
-watch(() => props.inputValue, (newModelValue) => {
-  internalValue.value = newModelValue
-}, { immediate: true })
+watch(
+  () => props.inputValue,
+  (newModelValue) => {
+    internalValue.value = newModelValue
+  },
+  { immediate: true }
+)
 </script>
 
 <template>
-  <form :class="`rpl-search-bar rpl-search-bar--${variant}`" @submit.prevent="handleSubmit">
+  <form
+    :class="`rpl-search-bar rpl-search-bar--${variant}`"
+    @submit.prevent="handleSubmit"
+  >
     <label class="rpl-u-visually-hidden" :for="id">{{ inputLabel }}</label>
-    <input v-bind="$attrs" :id="id" v-model="internalValue" class="
+    <input
+      v-bind="$attrs"
+      :id="id"
+      v-model="internalValue"
+      class="
         rpl-search-bar__input
         rpl-u-focusable-outline rpl-u-focusable-outline--no-border
-      " type="search" @input="handleInputChange" />
+      "
+      type="search"
+      @input="handleInputChange"
+    />
     <div class="rpl-search-bar__right">
-      <button type="submit" aria-label="search" class="rpl-search-bar-submit rpl-u-focusable-inline">
-        <span class="
+      <button
+        type="submit"
+        aria-label="search"
+        class="rpl-search-bar-submit rpl-u-focusable-inline"
+      >
+        <span
+          class="
             rpl-search-bar-submit__label
             rpl-type-label rpl-type-weight-bold
-          ">Search</span>
+          "
+          >Search</span
+        >
         <span class="rpl-search-bar-submit__icon">
           <RplIcon name="icon-search" size="m" />
         </span>
@@ -71,31 +92,5 @@ watch(() => props.inputValue, (newModelValue) => {
     </div>
   </form>
 </template>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <style src="./search-bar.css" />

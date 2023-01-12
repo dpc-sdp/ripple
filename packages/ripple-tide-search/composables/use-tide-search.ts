@@ -51,9 +51,14 @@ export default async (
       refresh: false,
       autocompleteSuggestions: true,
       autocompleteMinimumCharacters: 3,
-      debounce: 300
+      debounce: 100
     }
     searchDriver.getActions().setSearchTerm(value, searchTermOptions)
+  }
+
+  const goToPage = (page: number) => {
+    searchDriver.getActions().setCurrent(page)
+    window.scrollTo(0, 0)
   }
 
   const doSearch = () => {
@@ -63,8 +68,8 @@ export default async (
   return {
     updateSearchTerm,
     doSearch,
+    goToPage,
     searchState,
-    searchDriver,
     searchTermSuggestions,
     results
   }

@@ -97,7 +97,9 @@ export const getAdvancedAddressMapping = (fieldKey, field) => {
         { id: 'NSW', value: 'NSW', label: 'New South Wales' },
         { id: 'WA', value: 'WA', label: 'Western Australia' },
         { id: 'QLD', value: 'QLD', label: 'Queensland' },
-        { id: 'ACT', value: 'ACT', label: 'Australian Capital Territory' }
+        { id: 'ACT', value: 'ACT', label: 'Australian Capital Territory' },
+        { id: 'NT', value: 'NT', label: 'Northern Territory' },
+        { id: 'SA', value: 'SA', label: 'South Australia' }
       ],
       validation: isFieldRequired('administrative_area') ? [['required']] : [],
       value: defaultValues.administrative_area || ''

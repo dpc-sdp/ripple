@@ -1,20 +1,25 @@
 import { FormKitTypeDefinition } from '@formkit/core'
 import { createRplFormGroup, inputLibrary, rplFeatures } from './input-utils'
 
-export const radioGroup: FormKitTypeDefinition = {
+/**
+ * Input definition for a checkbox.
+ * @public
+ */
+export const date: FormKitTypeDefinition = {
   /**
    * The actual schema of the input, or a function that returns the schema.
    */
   schema: createRplFormGroup({
-    $cmp: 'RplFormRadioGroup',
+    $cmp: 'RplFormDate',
     props: {
       id: `$id`,
       name: '$node.name',
-      disabled: '$node.context.disabled',
       value: '$_value',
       onChange: '$node.input',
-      options: '$node.props.options',
-      validationMeta: '$node.props.validationMeta'
+      dateFormat: '$node.props.dateFormat',
+      disabled: '$node.context.disabled',
+      invalid: '$fns.isFieldInvalid()',
+      required: '$fns.isFieldRequired()'
     }
   }),
   library: inputLibrary,
@@ -30,7 +35,11 @@ export const radioGroup: FormKitTypeDefinition = {
   /**
    * An array of extra props to accept for this input.
    */
-  props: ['options'],
+  props: ['dateFormat'],
+  /**
+   * Forces node.props.type to be this explicit value.
+   */
+  forceTypeProp: 'date',
   /**
    * Additional features that should be added to your input
    */

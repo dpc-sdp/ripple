@@ -1,8 +1,8 @@
 {
   "private": true,
   "name": "vue-app",
-  "version": "2.1.0-alpha.56",
   "packageManager": "pnpm@7.23.0",
+  "version": "2.1.0-alpha.57",
   "license": "Apache-2.0",
   "scripts": {
     "dev": "vite",
@@ -15,7 +15,7 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-ui-core": "2.1.0-alpha.56",
+    "@dpc-sdp/ripple-ui-core": "2.1.0-alpha.57",
     "vue": "^3.2.45",
     "vue-router": "^4.1.5"
   },

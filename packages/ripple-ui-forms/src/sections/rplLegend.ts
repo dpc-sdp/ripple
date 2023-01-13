@@ -1,12 +1,10 @@
 import { createSection } from '@formkit/inputs'
 
-export const rplLabel = createSection('label', () => ({
+export const rplLegend = createSection('legend', () => ({
   $cmp: 'RplFormLabel',
   if: '$label',
   props: {
-    for: '$id',
-    id: `$id + '__label'`,
     isRequired: `$fns.isFieldRequired()`,
-    tag: 'label'
+    tag: 'legend'
   }
 }))

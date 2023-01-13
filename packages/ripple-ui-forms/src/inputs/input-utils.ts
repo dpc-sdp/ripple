@@ -4,9 +4,12 @@ import RplFormTextarea from './../components/RplFormTextarea/RplFormTextarea.vue
 import RplFormOption from '../components/RplFormOptions/RplFormOption.vue'
 import RplFormCheckboxGroup from './../components/RplFormOptions/RplFormCheckboxGroup.vue'
 import RplFormRadioGroup from './../components/RplFormOptions/RplFormRadioGroup.vue'
+import RplFormOptionButtons from './../components/RplFormOptionButtons/RplFormOptionButtons.vue'
 import RplFormDropdown from './../components/RplFormDropdown/RplFormDropdown.vue'
+import RplFormDate from './../components/RplFormDate/RplFormDate.vue'
 import RplFormValidationError from './../components/RplFormValidationError/RplFormValidationError.vue'
 import RplFormHelpText from './../components/RplFormHelpText/RplFormHelpText.vue'
+import RplFormLabel from './../components/RplFormLabel/RplFormLabel.vue'
 import RplFormContent from '../components/RplFormContent/RplFormContent.vue'
 import RplFormDivider from '../components/RplFormDivider/RplFormDivider.vue'
 import RplFormActions from '../components/RplFormActions/RplFormActions.vue'
@@ -18,7 +21,6 @@ import {
   prefix,
   suffix,
   fieldset,
-  legend,
   createSection
 } from '@formkit/inputs'
 import {
@@ -26,6 +28,7 @@ import {
   FormKitExtendableSchemaRoot
 } from '@formkit/core'
 import { rplLabel } from '../sections/rplLabel'
+import { rplLegend } from '../sections/rplLegend'
 import { rplHelp } from '../sections/rplHelp'
 import {
   isFieldRequired,
@@ -39,9 +42,12 @@ export const inputLibrary = {
   RplFormOption: markRaw(RplFormOption),
   RplFormCheckboxGroup: markRaw(RplFormCheckboxGroup),
   RplFormRadioGroup: markRaw(RplFormRadioGroup),
+  RplFormOptionButtons: markRaw(RplFormOptionButtons),
   RplFormDropdown: markRaw(RplFormDropdown),
+  RplFormDate: markRaw(RplFormDate),
   RplFormValidationError: markRaw(RplFormValidationError),
   RplFormHelpText: markRaw(RplFormHelpText),
+  RplFormLabel: markRaw(RplFormLabel),
   RplFormContent: markRaw(RplFormContent),
   RplFormDivider: markRaw(RplFormDivider),
   RplFormActions: markRaw(RplFormActions)
@@ -88,7 +94,7 @@ export const createRplFormGroup = (
 ): FormKitExtendableSchemaRoot => {
   return outer(
     fieldset(
-      legend('$label'),
+      rplLegend('$label'),
       rplHelp('$help'),
       createSection('error', () => ({
         $cmp: 'RplFormValidationError',
@@ -104,7 +110,8 @@ export const createRplFormGroup = (
 }
 
 export const defaultRplFormInputProps = {
-  handlers: '$handlers',
+  onInput: '$handlers.DOMInput',
+  onBlur: '$handlers.blur',
   id: '$id',
   prefixIcon: '$node.props.prefixIcon',
   suffixIcon: '$node.props.suffixIcon',

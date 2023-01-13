@@ -3,11 +3,11 @@
   "license": "Apache-2.0",
   "name": "@dpc-sdp/nuxt-ripple",
   "main": "./nuxt.config.ts",
-  "version": "2.1.0-alpha.56",
+  "version": "2.1.0-alpha.61",
   "dependencies": {
-    "@dpc-sdp/ripple-tide-api": "2.1.0-alpha.56",
-    "@dpc-sdp/ripple-ui-core": "2.1.0-alpha.56",
-    "@dpc-sdp/ripple-ui-forms": "2.1.0-alpha.56",
+    "@dpc-sdp/ripple-tide-api": "2.1.0-alpha.59",
+    "@dpc-sdp/ripple-ui-core": "2.1.0-alpha.57",
+    "@dpc-sdp/ripple-ui-forms": "2.1.0-alpha.61",
     "@vueuse/core": "^9.10.0",
     "change-case": "^4.1.2",
     "vue": "^3.2.45"

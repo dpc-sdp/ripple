@@ -391,7 +391,6 @@ importers:
 
   packages/ripple-ui-core:
     specifiers:
-      '@dpc-sdp/ripple-ui-core': 2.1.0-alpha.57
       '@nuxt/kit': 3.0.0
       '@originjs/vite-plugin-content': ^1.0.2
       '@vitejs/plugin-vue': ^4.0.0
@@ -445,7 +444,6 @@ importers:
       vite-svg-loader: 4.0.0
       vue: 3.2.45
     devDependencies:
-      '@dpc-sdp/ripple-ui-core': 'link:'
       '@originjs/vite-plugin-content': 1.0.2
       '@vitejs/plugin-vue': 4.0.0_vite@4.0.4+vue@3.2.45
       '@vue/compiler-sfc': 3.2.45

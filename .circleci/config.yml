@@ -13,11 +13,6 @@ defaults: &defaults
         username: $DOCKERHUB_USERNAME
         password: $DOCKERHUB_PASSWORD
   working_directory: ~/app
-  steps:
-    - run:
-        name: Install pnpm package manager
-        command: |
-          curl -L https://pnpm.js.org/pnpm.js | node - add --global pnpm@7
 
 jobs:
   build:
@@ -28,6 +23,10 @@ jobs:
           name: Restore pnpm Package Cache
           keys:
             - pnpm-packages-{{ checksum "pnpm-lock.yaml" }}
+      - run:
+          name: Install pnpm package manager
+          command: |
+            curl -L https://pnpm.js.org/pnpm.js | node - add --global pnpm@7
       - run:
           name: Install Dependencies
           command: pnpm install
@@ -45,6 +44,10 @@ jobs:
       - attach_workspace:
           at: ~/app
       - run:
+          name: Install pnpm package manager
+          command: |
+            curl -L https://pnpm.js.org/pnpm.js | node - add --global pnpm@7
+      - run:
           name: Lint code.
           command: pnpm run lint
       - run:
@@ -59,6 +62,10 @@ jobs:
       - attach_workspace:
           at: ~/app
       - run:
+          name: Install pnpm package manager
+          command: |
+            curl -L https://pnpm.js.org/pnpm.js | node - add --global pnpm@7
+      - run:
           name: build docs site
           command: pnpm run build:docs
 
@@ -67,6 +74,10 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/app
+      - run:
+          name: Install pnpm package manager
+          command: |
+            curl -L https://pnpm.js.org/pnpm.js | node - add --global pnpm@7
       - run:
           name: build example apps
           command: pnpm run build:examples
@@ -83,6 +94,10 @@ jobs:
           keys:
             - pnpm-packages-{{ checksum "pnpm-lock.yaml" }}
       - run:
+          name: Install pnpm package manager
+          command: |
+            curl -L https://pnpm.js.org/pnpm.js | node - add --global pnpm@7
+      - run:
           command: pnpm run ci:nuxt-app
           name: Run integration tests with Cypress
       - store_artifacts:
@@ -97,6 +112,10 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/app
+      - run:
+          name: Install pnpm package manager
+          command: |
+            curl -L https://pnpm.js.org/pnpm.js | node - add --global pnpm@7
       - run:
           command: pnpm build:storybook
           name: Build static storybook
@@ -115,6 +134,10 @@ jobs:
       - attach_workspace:
           at: ~/app
       - run:
+          name: Install pnpm package manager
+          command: |
+            curl -L https://pnpm.js.org/pnpm.js | node - add --global pnpm@7
+      - run:
           command: pnpm test:storybook-ci
           name: Run storybook Tests
 
@@ -124,6 +147,10 @@ jobs:
       - attach_workspace:
           at: ~/app
         # Runs the Chromatic CLI for core and forms packages
+      - run:
+          name: Install pnpm package manager
+          command: |
+            curl -L https://pnpm.js.org/pnpm.js | node - add --global pnpm@7
       - run: pnpm chromatic --project-token=${CHROMATIC_PROJECT_TOKEN} --exit-zero-on-changes --exit-once-uploaded
 
   publish-alpha:
@@ -140,6 +167,10 @@ jobs:
           command: |
             git config --global user.email "sdp.devs@dpc.vic.gov.au"
             git config --global user.name "SDP Deploy"
+      - run:
+          name: Install pnpm package manager
+          command: |
+            curl -L https://pnpm.js.org/pnpm.js | node - add --global pnpm@7
       - run:
           name: Bump version to latest prerelease
           command: pnpm release:pre
@@ -163,6 +194,10 @@ jobs:
           command: |
             git config --global user.email "sdp.devs@dpc.vic.gov.au"
             git config --global user.name "SDP Deploy"
+      - run:
+          name: Install pnpm package manager
+          command: |
+            curl -L https://pnpm.js.org/pnpm.js | node - add --global pnpm@7
       - run:
           name: Bump version to production release
           command: pnpm release:prod

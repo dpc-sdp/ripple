@@ -28,10 +28,7 @@
     "@dpc-sdp/ripple-ui-core": "2.1.0-alpha.57",
     "@dpc-sdp/ripple-ui-forms": "2.1.0-alpha.61",
     "@formkit/core": "1.0.0-beta.12",
-    "@formkit/vue": "1.0.0-beta.12",
-    "ohmyfetch": "^0.4.21",
-    "vue": "^3.2.45",
-    "vue-router": "^4.1.6"
+    "@formkit/vue": "1.0.0-beta.12"
   },
   "devDependencies": {
     "@badeball/cypress-cucumber-preprocessor": "^15.1.0",
@@ -39,6 +36,10 @@
     "@testing-library/cypress": "^8.0.7",
     "mockttp": "^3.6.1",
     "nuxt": "3.0.0",
-    "start-server-and-test": "^1.15.2"
+    "ohmyfetch": "^0.4.21",
+    "start-server-and-test": "^1.15.2",
+    "ufo": "^1.0.1",
+    "vue": "^3.2.45",
+    "vue-router": "^4.1.6"
   }
 }

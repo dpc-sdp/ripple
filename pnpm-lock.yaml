@@ -46,7 +46,7 @@ importers:
       '@types/jest': ^29.2.5
       '@typescript-eslint/eslint-plugin': ^5.48.1
       '@typescript-eslint/parser': ^5.48.1
-      '@vitejs/plugin-vue': ^4.0.0
+      '@vitejs/plugin-vue': ^3.1.2
       '@vue/vue3-jest': ^29.2.2
       babel-core: 7.0.0-bridge.0
       babel-jest: ^29.3.1
@@ -78,7 +78,7 @@ importers:
       ts-jest: ^29.0.4
       typescript: ^4.9.4
       unist-builder: ^3.0.0
-      vite: 4.0.4
+      vite: 3.2.5
       vue: ^3.2.45
       vue-eslint-parser: ^9.1.0
       vue-jest: ^3.0.7
@@ -108,7 +108,7 @@ importers:
       '@storybook/addon-jest': 6.5.15
       '@storybook/addon-links': 6.5.15
       '@storybook/addon-postcss': 3.0.0-alpha.1
-      '@storybook/builder-vite': 0.2.7_rwrybcp6eh242aujtjszb3ixqy
+      '@storybook/builder-vite': 0.2.7_rjnr3xvobvura362taimx2tqpi
       '@storybook/builder-webpack4': 6.5.15_iukboom6ndih5an6iafl45j2fe
       '@storybook/jest': 0.0.10
       '@storybook/manager-webpack4': 6.5.15_iukboom6ndih5an6iafl45j2fe
@@ -119,7 +119,7 @@ importers:
       '@types/jest': 29.2.5
       '@typescript-eslint/eslint-plugin': 5.48.1_3jon24igvnqaqexgwtxk6nkpse
       '@typescript-eslint/parser': 5.48.1_iukboom6ndih5an6iafl45j2fe
-      '@vitejs/plugin-vue': 4.0.0_vite@4.0.4+vue@3.2.45
+      '@vitejs/plugin-vue': 3.2.0_vite@3.2.5+vue@3.2.45
       babel-core: 7.0.0-bridge.0_@babel+core@7.20.12
       babel-jest: 29.3.1_@babel+core@7.20.12
       babel-loader: 9.1.2_@babel+core@7.20.12
@@ -148,7 +148,7 @@ importers:
       ts-jest: 29.0.4_lpdtk6tcorkuyzgotacsdxtnxm
       typescript: 4.9.4
       unist-builder: 3.0.0
-      vite: 4.0.4
+      vite: 3.2.5
       vue: 3.2.45
       vue-eslint-parser: 9.1.0_eslint@8.31.0
       vue-loader: 17.0.1_vue@3.2.45
@@ -197,6 +197,7 @@ importers:
       nuxt: 3.0.0
       ohmyfetch: ^0.4.21
       start-server-and-test: ^1.15.2
+      ufo: ^1.0.1
       vue: ^3.2.45
       vue-router: ^4.1.6
     dependencies:
@@ -212,16 +213,17 @@ importers:
       '@dpc-sdp/ripple-ui-forms': link:../../packages/ripple-ui-forms
       '@formkit/core': 1.0.0-beta.12
       '@formkit/vue': 1.0.0-beta.12_vue@3.2.45
-      ohmyfetch: 0.4.21
-      vue: 3.2.45
-      vue-router: 4.1.6_vue@3.2.45
     devDependencies:
       '@badeball/cypress-cucumber-preprocessor': 15.1.0
       '@nuxt/vite-builder': 3.0.0_vue@3.2.45
       '@testing-library/cypress': 8.0.7
       mockttp: 3.6.2
       nuxt: 3.0.0
+      ohmyfetch: 0.4.21
       start-server-and-test: 1.15.2
+      ufo: 1.0.1
+      vue: 3.2.45
+      vue-router: 4.1.6_vue@3.2.45
 
   examples/vue-app:
     specifiers:
@@ -478,6 +480,7 @@ importers:
       '@vitejs/plugin-vue': ^4.0.0
       '@vueuse/core': ^9.10.0
       babel-loader: ^9.1.2
+      date-fns: ^2.29.3
       pathe: ^1.0.0
       postcss-nested: ^6.0.0
       postcss-normalize: ^10.0.1
@@ -495,6 +498,7 @@ importers:
       '@formkit/vue': 1.0.0-beta.12_vue@3.2.45
       '@nuxt/kit': 3.0.0
       '@vueuse/core': 9.10.0_vue@3.2.45
+      date-fns: 2.29.3
     devDependencies:
       '@babel/core': 7.20.12
       '@vitejs/plugin-vue': 4.0.0_vue@3.2.45
@@ -3676,7 +3680,7 @@ packages:
       '@types/yargs': 17.0.19
       chalk: 4.1.2
 
-  /@joshwooding/vite-plugin-react-docgen-typescript/0.0.5_gl4qsmwzp7wy5uclz4tx77gbli:
+  /@joshwooding/vite-plugin-react-docgen-typescript/0.0.5_7g3uriyb4kqeq2yf2bucr7z2ea:
     resolution: {integrity: sha512-HwAEj/vAP1+hzBfIv9DTCyg+1O0/LG48Up7j1RmJ+pFwjb/wRxzUBco4LqKFKe7SZ0M6IyASNh1oKP3yHnJElA==}
     peerDependencies:
       typescript: '>= 4.3.x'
@@ -3688,7 +3692,7 @@ packages:
       magic-string: 0.26.7
       react-docgen-typescript: 2.2.2_typescript@4.9.4
       typescript: 4.9.4
-      vite: 4.0.4
+      vite: 3.2.5
     dev: true
 
   /@jridgewell/gen-mapping/0.1.1:
@@ -4020,7 +4024,7 @@ packages:
     resolution: {integrity: sha512-AdLG4d+jbUvv0jQyygQUTNaTCNSMDxioJso6aAjQ/vkwyy3fBJ6FYzX74J4adSfOxC2MQZITFyuG+c9ggp7pyQ==}
     engines: {node: ^14.15.0 || >=16.0.0}
     dependencies:
-      node-fetch: 2.6.7
+      node-fetch: 2.6.8
       npmlog: 6.0.2
     transitivePeerDependencies:
       - encoding
@@ -4495,7 +4499,7 @@ packages:
       detect-libc: 2.0.1
       https-proxy-agent: 5.0.1
       make-dir: 3.1.0
-      node-fetch: 2.6.7
+      node-fetch: 2.6.8
       nopt: 5.0.0
       npmlog: 5.0.1
       rimraf: 3.0.2
@@ -5207,7 +5211,7 @@ packages:
       '@octokit/request-error': 3.0.2
       '@octokit/types': 8.1.0
       is-plain-object: 5.0.0
-      node-fetch: 2.6.7
+      node-fetch: 2.6.8
       universal-user-agent: 6.0.0
     transitivePeerDependencies:
       - encoding
@@ -6154,7 +6158,7 @@ packages:
       util-deprecate: 1.0.2
     dev: true
 
-  /@storybook/builder-vite/0.2.7_rwrybcp6eh242aujtjszb3ixqy:
+  /@storybook/builder-vite/0.2.7_rjnr3xvobvura362taimx2tqpi:
     resolution: {integrity: sha512-IvgInn1dsL4amHn8IDHWv2KaoWyRWxGQvHvctfHl7ayN8fke6Tzg8lBUxVoGBfqeoO3glo/zsVUUO+aNeUUlxQ==}
     peerDependencies:
       '@storybook/mdx2-csf': ^0.0.3
@@ -6172,14 +6176,14 @@ packages:
       vue-docgen-api:
         optional: true
     dependencies:
-      '@joshwooding/vite-plugin-react-docgen-typescript': 0.0.5_gl4qsmwzp7wy5uclz4tx77gbli
+      '@joshwooding/vite-plugin-react-docgen-typescript': 0.0.5_7g3uriyb4kqeq2yf2bucr7z2ea
       '@storybook/core-common': 6.5.15_iukboom6ndih5an6iafl45j2fe
       '@storybook/mdx1-csf': 0.0.4_@babel+core@7.20.12
       '@storybook/node-logger': 6.5.15
       '@storybook/semver': 7.3.2
       '@storybook/source-loader': 6.5.15
-      '@vitejs/plugin-react': 2.2.0_vite@4.0.4
-      '@vitejs/plugin-vue': 4.0.0_vite@4.0.4+vue@3.2.45
+      '@vitejs/plugin-react': 2.2.0_vite@3.2.5
+      '@vitejs/plugin-vue': 3.2.0_vite@3.2.5+vue@3.2.45
       ast-types: 0.14.2
       es-module-lexer: 0.9.3
       glob: 7.2.3
@@ -6188,7 +6192,7 @@ packages:
       react-docgen: 6.0.0-alpha.3
       slash: 3.0.0
       sveltedoc-parser: 4.2.1
-      vite: 4.0.4
+      vite: 3.2.5
     transitivePeerDependencies:
       - '@babel/core'
       - eslint
@@ -6823,7 +6827,7 @@ packages:
       globby: 11.1.0
       ip: 2.0.0
       lodash: 4.17.21
-      node-fetch: 2.6.7
+      node-fetch: 2.6.8
       open: 8.4.0
       pretty-hrtime: 1.0.3
       prompts: 2.4.2
@@ -7021,7 +7025,7 @@ packages:
       find-up: 5.0.0
       fs-extra: 9.1.0
       html-webpack-plugin: 4.5.2_webpack@4.46.0
-      node-fetch: 2.6.7
+      node-fetch: 2.6.8
       pnp-webpack-plugin: 1.6.4_typescript@4.9.4
       react: 16.14.0
       react-dom: 16.14.0_react@16.14.0
@@ -7079,7 +7083,7 @@ packages:
       find-up: 5.0.0
       fs-extra: 9.1.0
       html-webpack-plugin: 4.5.2_webpack@4.46.0
-      node-fetch: 2.6.7
+      node-fetch: 2.6.8
       pnp-webpack-plugin: 1.6.4_typescript@4.9.4
       read-pkg-up: 7.0.1
       regenerator-runtime: 0.13.11
@@ -7384,7 +7388,7 @@ packages:
       jest-runner: 28.1.3
       jest-serializer-html: 7.1.0
       jest-watch-typeahead: 2.2.1_jest@28.1.3
-      node-fetch: 2.6.7
+      node-fetch: 2.6.8
       playwright: 1.29.2
       read-pkg-up: 7.0.1
       regenerator-runtime: 0.13.11
@@ -8287,7 +8291,7 @@ packages:
       - supports-color
     dev: true
 
-  /@vitejs/plugin-react/2.2.0_vite@4.0.4:
+  /@vitejs/plugin-react/2.2.0_vite@3.2.5:
     resolution: {integrity: sha512-FFpefhvExd1toVRlokZgxgy2JtnBOdp4ZDsq7ldCWaqGSGn9UhWMAVm/1lxPL14JfNS5yGz+s9yFrQY6shoStA==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
@@ -8300,7 +8304,7 @@ packages:
       '@babel/plugin-transform-react-jsx-source': 7.19.6_@babel+core@7.20.12
       magic-string: 0.26.7
       react-refresh: 0.14.0
-      vite: 4.0.4
+      vite: 3.2.5
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -9599,7 +9603,7 @@ packages:
       postcss: ^8.1.0
     dependencies:
       browserslist: 4.21.4
-      caniuse-lite: 1.0.30001443
+      caniuse-lite: 1.0.30001444
       fraction.js: 4.2.0
       normalize-range: 0.1.2
       picocolors: 1.0.0
@@ -9613,7 +9617,7 @@ packages:
       postcss: ^8.1.0
     dependencies:
       browserslist: 4.21.4
-      caniuse-lite: 1.0.30001443
+      caniuse-lite: 1.0.30001444
       fraction.js: 4.2.0
       normalize-range: 0.1.2
       picocolors: 1.0.0
@@ -9626,7 +9630,7 @@ packages:
     hasBin: true
     dependencies:
       browserslist: 4.21.4
-      caniuse-lite: 1.0.30001443
+      caniuse-lite: 1.0.30001444
       normalize-range: 0.1.2
       num2fraction: 1.2.2
       picocolors: 0.2.1
@@ -10351,7 +10355,7 @@ packages:
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
-      caniuse-lite: 1.0.30001443
+      caniuse-lite: 1.0.30001444
       electron-to-chromium: 1.4.284
       node-releases: 2.0.8
       update-browserslist-db: 1.0.10_browserslist@4.21.4
@@ -10680,13 +10684,13 @@ packages:
     resolution: {integrity: sha512-bsTwuIg/BZZK/vreVTYYbSWoe2F+71P7K5QGEX+pT250DZbfU1MQ5prOKpPR+LL6uWKK3KMwMCAS74QB3Um1uw==}
     dependencies:
       browserslist: 4.21.4
-      caniuse-lite: 1.0.30001443
+      caniuse-lite: 1.0.30001444
       lodash.memoize: 4.1.2
       lodash.uniq: 4.5.0
     dev: true
 
-  /caniuse-lite/1.0.30001443:
-    resolution: {integrity: sha512-jUo8svymO8+Mkj3qbUbVjR8zv8LUGpGkUM/jKvc9SO2BvjCI980dp9fQbf/dyLs6RascPzgR4nhAKFA4OHeSaA==}
+  /caniuse-lite/1.0.30001444:
+    resolution: {integrity: sha512-ecER9xgJQVMqcrxThKptsW0pPxSae8R2RB87LNa+ivW9ppNWRHEplXcDzkCOP4LYWGj8hunXLqaiC41iBATNyg==}
 
   /capital-case/1.0.4:
     resolution: {integrity: sha512-ds37W8CytHgwnhGGTi88pcPyR15qoNkOpYwmMMfnWqqWgESapLqvDx6huFjQ5vqWSn2Z06173XNA7LtMOeUh1A==}
@@ -16875,7 +16879,7 @@ packages:
   /isomorphic-unfetch/3.1.0:
     resolution: {integrity: sha512-geDJjpoZ8N0kWexiwkX8F9NkTsXhetLPVbZFQ+JTW239QNOwvB0gniuR1Wc6f0AMTn7/mFGyXvHTifrCp/GH8Q==}
     dependencies:
-      node-fetch: 2.6.7
+      node-fetch: 2.6.8
       unfetch: 4.2.0
     transitivePeerDependencies:
       - encoding
@@ -20251,6 +20255,18 @@ packages:
 
   /node-fetch/2.6.7:
     resolution: {integrity: sha512-ZjMPFEfVx5j+y2yF35Kzx5sF7kDzxuDj6ziH4FFbOp87zKDZNx8yExJIb05OGF4Nlt9IHFIMBkRl41VdvcNdbQ==}
+    engines: {node: 4.x || >=6.0.0}
+    peerDependencies:
+      encoding: ^0.1.0
+    peerDependenciesMeta:
+      encoding:
+        optional: true
+    dependencies:
+      whatwg-url: 5.0.0
+    dev: true
+
+  /node-fetch/2.6.8:
+    resolution: {integrity: sha512-RZ6dBYuj8dRSfxpUSu+NsdF1dpPpluJxwOp+6IoDp/sH2QNDSvurYsAa+F1WxY2RjA1iP93xhcsUoYbF2XBqVg==}
     engines: {node: 4.x || >=6.0.0}
     peerDependencies:
       encoding: ^0.1.0

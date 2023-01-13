@@ -12,7 +12,7 @@
   "version": "2.1.0-alpha.61",
   "dependencies": {
     "@dpc-sdp/nuxt-ripple": "2.1.0-alpha.61",
-    "@dpc-sdp/ripple-ui-core": "2.1.0-alpha.56",
+    "@dpc-sdp/ripple-ui-core": "2.1.0-alpha.57",
     "vue": "^3.2.45"
   }
 }

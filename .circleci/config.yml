@@ -35,6 +35,7 @@ jobs:
           key: pnpm-packages-{{ checksum "pnpm-lock.yaml" }}
           paths:
             - node_modules
+            - ~/.cache
       - persist_to_workspace:
           root: ~/app
           paths: [.]
@@ -126,7 +127,7 @@ jobs:
 
   test-storybook:
     docker:
-      - image: mcr.microsoft.com/playwright:v1.27.1-focal
+      - image: mcr.microsoft.com/playwright:v1.29.2-focal
     environment:
       NODE_ENV: development
     working_directory: ~/app

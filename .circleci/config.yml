@@ -13,6 +13,11 @@ defaults: &defaults
         username: $DOCKERHUB_USERNAME
         password: $DOCKERHUB_PASSWORD
   working_directory: ~/app
+  steps:
+    - run:
+        name: Install pnpm package manager
+        command: |
+          curl -L https://pnpm.js.org/pnpm.js | node - add --global pnpm@7
 
 jobs:
   build:
@@ -23,10 +28,6 @@ jobs:
           name: Restore pnpm Package Cache
           keys:
             - pnpm-packages-{{ checksum "pnpm-lock.yaml" }}
-      - run:
-          name: Install pnpm package manager
-          command: |
-            curl -L https://pnpm.js.org/pnpm.js | node - add --global pnpm@7
       - run:
           name: Install Dependencies
           command: pnpm install

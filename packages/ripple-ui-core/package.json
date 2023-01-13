@@ -31,7 +31,7 @@
     "build:custom-svg-list": "ts-node ./src/scripts/generate-custom-icon-list.ts",
     "build:tokens": "node ./tokens/processor.js",
     "watch": "pnpm build:types && vite build --watch",
-    "clean": "rimraf dist* && rimraf tsconfig.tsbuildinfo",
+    "clean": "(rimraf dist* && rimraf tsconfig.tsbuildinfo) | true",
     "preview": "vite preview",
     "storybook": "start-storybook -p 6006",
     "storybook:build": "build-storybook",

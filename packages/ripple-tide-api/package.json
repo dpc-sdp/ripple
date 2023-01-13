@@ -19,7 +19,7 @@
   "license": "MIT",
   "keywords": [],
   "scripts": {
-    "clean": "rimraf dist* && rimraf tsconfig.tsbuildinfo",
+    "clean": "(rimraf dist* && rimraf tsconfig.tsbuildinfo) | true",
     "build": "pnpm clean && tsc -p tsconfig.json && cp ./src/schema/openapi.yml ./dist/schema",
     "watch": "tsc -p tsconfig.json -w"
   },

@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import { RplSearchBar, RplHeroHeader } from '@dpc-sdp/ripple-ui-core'
 import { useRuntimeConfig, useFetch, useRoute } from '#imports'
 import useTideSearch from './../composables/use-tide-search'
-import { MappedSearchResult } from 'ripple-tide-search/types'
+import { FilterConfigItem, MappedSearchResult } from 'ripple-tide-search/types'
+import { FormKit } from '@formkit/vue'
 
 const route = useRoute()
 const { public: config } = useRuntimeConfig()
@@ -20,12 +21,14 @@ const apiConnectorOptions = config.tide?.appSearch
 
 const searchDriverOptions = {
   initialState: { resultsPerPage: 4 },
-  search_fields: {
-    title: {
-      weight: 10
-    },
-    body: {},
-    field_paragraph_body: {}
+  searchQuery: {
+    search_fields: {
+      title: {
+        weight: 10
+      },
+      body: {},
+      field_paragraph_body: {}
+    }
   },
   autocompleteQuery: {
     suggestions: {
@@ -36,6 +39,14 @@ const searchDriverOptions = {
     }
   }
 }
+
+const filtersConfig: FilterConfigItem[] = [
+  {
+    label: 'Topic',
+    field: 'field_topic_name',
+    filterType: 'all'
+  }
+]
 
 const searchResultsMappingFn = (item): MappedSearchResult<any> => {
   return {
@@ -58,12 +69,17 @@ const {
   goToPage,
   searchState,
   searchTermSuggestions,
-  results
+  results,
+  staticFacetOptions,
+  filterFormValues
 } = await useTideSearch(
   apiConnectorOptions,
   searchDriverOptions,
+  filtersConfig,
   searchResultsMappingFn
 )
+
+const filtersExpanded = ref(false)
 
 const prevLink = computed(() => {
   if (searchState.value.current <= 1) {
@@ -108,6 +124,31 @@ const handlePrevClick = () => {
 const handleNextClick = () => {
   goToPage(searchState.value.current + 1)
 }
+
+const handleFilterSubmit = () => {
+  doSearch()
+}
+
+const handleFilterReset = () => {
+  filterFormValues.value = {}
+  doSearch()
+}
+
+const toggleFilters = () => {
+  filtersExpanded.value = !filtersExpanded.value
+}
+
+const getFilterOptions = (field) => {
+  if (!staticFacetOptions.value?.[field]) {
+    return []
+  }
+
+  return staticFacetOptions.value?.[field].map((item) => ({
+    id: item,
+    label: item,
+    value: item
+  }))
+}
 </script>
 
 <template>
@@ -132,11 +173,44 @@ const handleNextClick = () => {
           <RplButton
             class="rpl-search__refine-btn"
             variant="white"
-            icon-name="icon-chevron-down"
+            :icon-name="
+              filtersExpanded ? 'icon-chevron-up' : 'icon-chevron-down'
+            "
             icon-position="right"
+            @click="toggleFilters"
           >
             Refine search</RplButton
           >
+          <RplExpandable :expanded="filtersExpanded">
+            <RplForm
+              v-if="staticFacetOptions !== null"
+              id="tide-search-filter-form"
+              v-model:model-value="filterFormValues"
+              @submit="handleFilterSubmit"
+            >
+              <div class="rpl-grid rpl-grid--no-row-gap">
+                <div
+                  v-for="filter in filtersConfig"
+                  :key="filter.field"
+                  class="rpl-col-12 rpl-col-6-m"
+                >
+                  <FormKit
+                    :id="filter.field"
+                    :name="filter.field"
+                    type="RplFormDropdown"
+                    :multiple="true"
+                    :label="filter.label"
+                    :options="getFilterOptions(filter.field)"
+                  />
+                </div>
+              </div>
+              <RplFormActions
+                label="Apply search filters"
+                :displayResetButton="true"
+                @reset="handleFilterReset"
+              />
+            </RplForm>
+          </RplExpandable>
         </div>
         <!-- <ul v-if="showSuggestions" class="rpl-search__autocomplete-results">
           <li v-for="res in displayedSuggestions" :key="res">

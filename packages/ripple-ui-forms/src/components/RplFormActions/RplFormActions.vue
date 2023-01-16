@@ -13,6 +13,8 @@ interface Props {
   displayResetButton: boolean
 }
 
+const emit = defineEmits(['reset'])
+
 const props = withDefaults(defineProps<Props>(), {
   type: 'submit',
   variant: 'filled',
@@ -38,6 +40,7 @@ const formId: string = inject('formId')
 
 const handleReset = () => {
   reset(formId)
+  emit('reset')
 }
 </script>
 <template>

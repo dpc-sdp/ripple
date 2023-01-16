@@ -1,7 +1,5 @@
 .rpl-form {
-  --local-max-width: 60.6rem;
-
-  max-width: var(--local-max-width);
+  max-width: var(--local-max-width, initial);
   display: block;
 
   [data-invalid='true'][data-submitted='true'] {

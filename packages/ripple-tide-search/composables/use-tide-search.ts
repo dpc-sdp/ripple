@@ -3,7 +3,7 @@ import type { SearchDriverOptions } from '@elastic/search-ui'
 import AppSearchAPIConnector from '@elastic/search-ui-app-search-connector'
 
 import { ref, computed } from 'vue'
-import { MappedSearchResult } from 'ripple-tide-search/types'
+import { FilterConfigItem, MappedSearchResult } from 'ripple-tide-search/types'
 
 const getSearchDriver = (
   apiConnectorOptions,
@@ -18,10 +18,50 @@ const getSearchDriver = (
 export default async (
   apiConnectorOptions,
   config: Omit<SearchDriverOptions, 'apiConnector'>,
+  filterConfig: FilterConfigItem[],
   resultsMapFn: (result: SearchResult) => MappedSearchResult<any>
 ) => {
+  const staticSearchDriver = getSearchDriver(apiConnectorOptions, {
+    ...config,
+    trackUrlState: false,
+    searchQuery: {
+      ...config.searchQuery,
+      facets: filterConfig.reduce((result, filter) => {
+        return {
+          ...result,
+          [filter.field]: {
+            type: 'value',
+            size: 10
+          }
+        }
+      }, {})
+    }
+  })
   const searchDriver = getSearchDriver(apiConnectorOptions, config)
   const searchState = ref(searchDriver.getState())
+
+  const staticFacetOptions = ref(null)
+  staticSearchDriver.setSearchTerm('')
+  staticSearchDriver.subscribeToStateChanges((state: SearchState) => {
+    staticFacetOptions.value = Object.entries(state.facets).reduce(
+      (result, [fieldKey, facet]) => {
+        return {
+          ...(result || {}),
+          [fieldKey]: facet[0].data.map((item) => item.value)
+        }
+      },
+      null
+    )
+  })
+
+  const filterFormValues = ref(
+    searchState.value.filters.reduce((result, curr) => {
+      return {
+        ...result,
+        [curr.field]: curr.values
+      }
+    }, {})
+  )
 
   searchDriver.subscribeToStateChanges((state: SearchState) => {
     searchState.value = state
@@ -63,6 +103,17 @@ export default async (
 
   const doSearch = () => {
     searchDriver.getActions().setSearchTerm(searchDriver.getState().searchTerm)
+    applyFilters()
+  }
+
+  const applyFilters = () => {
+    searchDriver.clearFilters()
+
+    Object.entries(filterFormValues.value).forEach(([key, val]) => {
+      if (val) {
+        searchDriver.addFilter(key, val)
+      }
+    })
   }
 
   return {
@@ -71,6 +122,8 @@ export default async (
     goToPage,
     searchState,
     searchTermSuggestions,
-    results
+    results,
+    staticFacetOptions,
+    filterFormValues
   }
 }

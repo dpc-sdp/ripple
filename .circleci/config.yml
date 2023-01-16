@@ -64,11 +64,9 @@ jobs:
           at: ~/app
       - restore_cache:
           keys:
-            - v10-deps-{{ checksum "yarn.lock" }}
-            - v10-deps-{{ .Branch }}
-            - v9-deps
+            - v2-pnpm-packages-{{ checksum "pnpm-lock.yaml" }}
       - run:
-          command: yarn run test:components-core
+          command: pnpm run test:components-core
           name: Run cypress component tests - UI Core
 
   component-tests-forms:
@@ -78,11 +76,9 @@ jobs:
           at: ~/app
       - restore_cache:
           keys:
-            - v10-deps-{{ checksum "yarn.lock" }}
-            - v10-deps-{{ .Branch }}
-            - v9-deps
+            - v2-pnpm-packages-{{ checksum "pnpm-lock.yaml" }}
       - run:
-          command: yarn run test:components-forms
+          command: pnpm run test:components-forms
           name: Run cypress component tests - UI Forms
 
   build-docs:

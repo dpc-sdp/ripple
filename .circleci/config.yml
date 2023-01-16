@@ -66,6 +66,10 @@ jobs:
           keys:
             - v2-pnpm-packages-{{ checksum "pnpm-lock.yaml" }}
       - run:
+          name: Install pnpm package manager
+          command: |
+            curl -L https://pnpm.js.org/pnpm.js | node - add --global pnpm@7
+      - run:
           command: pnpm run test:components-core
           name: Run cypress component tests - UI Core
 
@@ -77,6 +81,10 @@ jobs:
       - restore_cache:
           keys:
             - v2-pnpm-packages-{{ checksum "pnpm-lock.yaml" }}
+      - run:
+          name: Install pnpm package manager
+          command: |
+            curl -L https://pnpm.js.org/pnpm.js | node - add --global pnpm@7
       - run:
           command: pnpm run test:components-forms
           name: Run cypress component tests - UI Forms

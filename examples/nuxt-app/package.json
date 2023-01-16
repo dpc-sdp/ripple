@@ -14,6 +14,7 @@
     "start:mock": "API_URL=http://localhost:3001 concurrently 'pnpm mockserver' 'pnpm start'",
     "cy:open": "cypress open --e2e --browser electron",
     "cy:run": "cypress run",
+    "test:ci": "NUXT_PUBLIC_API_URL=http://localhost:3001 start-test start 'http-get://localhost:3000/api/tide/site?id=8888' 'cy:run'",
     "test:integration": "start-test 'NUXT_PUBLIC_API_URL=http://localhost:3001 pnpm dev' 'http-get://localhost:3000/api/tide/site?id=8888' 'cy:open'"
   },
   "dependencies": {

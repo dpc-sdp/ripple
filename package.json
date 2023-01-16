@@ -26,7 +26,7 @@
     "test:storybook": "test-storybook --stories-json",
     "test:storybook-ci": "concurrently -k -s first -n \"SB,TEST\" -c \"magenta,blue\" \"npx http-server storybook-static --port 6006 --silent\" \"wait-on tcp:6006 && pnpm test:storybook\"",
     "test:nuxt-app": "pnpm -F nuxt-app test:integration",
-    "ci:nuxt-app": "NUXT_PUBLIC_API_URL=http://localhost:3001 start-test 'pnpm -F nuxt-app start' tcp:3000 'pnpm -F nuxt-app cy:run --reporter junit --reporter-options \"mochaFile=test/results/cypress-output.xml\"'",
+    "ci:nuxt-app": "pnpm -F nuxt-app test:ci",
     "start:nuxt": "pnpm -F nuxt-app start",
     "start:vue": "pnpm -F vue-app start",
     "start:wc": "pnpm -F webcomponents start",

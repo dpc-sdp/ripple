@@ -21,7 +21,7 @@ interface Props {
   message?: string
   linkText?: string
   linkUrl?: string
-  dismissed?: string
+  dismissed?: boolean
   alertId: string
 }
 
@@ -31,7 +31,7 @@ const props = withDefaults(defineProps<Props>(), {
   message: '',
   linkText: '',
   linkUrl: '',
-  dismissed: ''
+  dismissed: false
 })
 
 const onClose = () => {

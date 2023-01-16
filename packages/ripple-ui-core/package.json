@@ -35,6 +35,7 @@
     "preview": "vite preview",
     "storybook": "start-storybook -p 6006",
     "storybook:build": "build-storybook",
+    "test:components": "cypress run --component",
     "test:generate-output": "jest --json --outputFile=.jest-test-results.json",
     "test:storybook": "test-storybook --stories-json",
     "test:storybook-ci": "concurrently -k -s first -n \"SB,TEST\" -c \"magenta,blue\" \"npx http-server storybook-static --port 6006 --silent\" \"wait-on tcp:6006 && pnpm test:storybook\""

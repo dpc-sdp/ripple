@@ -21,6 +21,8 @@
     "release:publish": "lerna publish from-git --yes --pre-dist-tag=alpha",
     "lint": "eslint . --ext .ts,.vue && pnpm -F @dpc-sdp/ripple-ui-core stylelint \"**/*.css\"",
     "test:unit": "jest --colors  --runInBand",
+    "test:components-core": "yarn workspace @dpc-sdp/ripple-ui-core test:components",
+    "test:components-forms": "yarn workspace @dpc-sdp/ripple-ui-forms test:components",
     "test:storybook": "test-storybook --stories-json",
     "test:storybook-ci": "concurrently -k -s first -n \"SB,TEST\" -c \"magenta,blue\" \"npx http-server storybook-static --port 6006 --silent\" \"wait-on tcp:6006 && pnpm test:storybook\"",
     "test:nuxt-app": "pnpm -F nuxt-app test:integration",

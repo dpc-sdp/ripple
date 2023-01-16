@@ -39,6 +39,7 @@
   "scripts": {
     "build": "pnpm build:vite && pnpm build:types",
     "build:vite": "vite build",
-    "build:types": "tsc -p tsconfig.json"
+    "build:types": "tsc -p tsconfig.json",
+    "test:components": "cypress run --component"
   }
 }

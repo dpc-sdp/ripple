@@ -9,7 +9,8 @@ import vitePlugins from './src/vite.plugins'
 export default defineConfig({
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src')
+      '@': path.resolve(__dirname, './src'),
+      vue: 'vue/dist/vue.esm-bundler.js'
     }
   },
   plugins: [vue(), dts()].concat(vitePlugins),

@@ -6,6 +6,11 @@ import { viteStaticCopy } from 'vite-plugin-static-copy'
 // https://vitejs.dev/config/
 // https://vitejs.dev/guide/build.html#library-mode
 export default defineConfig({
+  resolve: {
+    alias: {
+      vue: 'vue/dist/vue.esm-bundler.js'
+    }
+  },
   plugins: [
     vue(),
     viteStaticCopy({
@@ -18,6 +23,11 @@ export default defineConfig({
       flatten: false
     })
   ],
+  server: {
+    fs: {
+      strict: false
+    }
+  },
   build: {
     emptyOutDir: false,
     lib: {

@@ -43,6 +43,34 @@ jobs:
       - store_test_results:
           path: test-results
 
+  component-tests-core:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/app
+      - restore_cache:
+          keys:
+            - v10-deps-{{ checksum "yarn.lock" }}
+            - v10-deps-{{ .Branch }}
+            - v9-deps
+      - run:
+          command: yarn run test:components-core
+          name: Run cypress component tests - UI Core
+
+  component-tests-forms:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/app
+      - restore_cache:
+          keys:
+            - v10-deps-{{ checksum "yarn.lock" }}
+            - v10-deps-{{ .Branch }}
+            - v9-deps
+      - run:
+          command: yarn run test:components-forms
+          name: Run cypress component tests - UI Forms
+
   build-docs:
     <<: *defaults
     steps:
@@ -185,6 +213,12 @@ workflows:
     jobs:
       - build
       - unit:
+          requires:
+            - build
+      - component-tests-core:
+          requires:
+            - build
+      - component-tests-forms:
           requires:
             - build
       - build-storybook:

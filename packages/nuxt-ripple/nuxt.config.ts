@@ -17,5 +17,19 @@ export default defineNuxtConfig({
       API_URL: ''
     }
   },
-  modules: ['@dpc-sdp/ripple-ui-core/nuxt', '@dpc-sdp/ripple-ui-forms/nuxt']
+  proxy: {
+    options: {
+      target: 'https://develop.content.reference.sdp.vic.gov.au',
+      changeOrigin: true,
+      pathRewrite: {
+        '^/api/tide/': '/api/v1/'
+      },
+      pathFilter: ['/api/tide/webform_submission/**']
+    }
+  },
+  modules: [
+    'nuxt-proxy',
+    '@dpc-sdp/ripple-ui-core/nuxt',
+    '@dpc-sdp/ripple-ui-forms/nuxt'
+  ]
 })

@@ -65,7 +65,8 @@ export const SlotTemplate = (args) => ({
           suffixIcon: 'icon-search',
           help: 'Do you need help?',
           validationLabel: 'enquiry',
-          validation: 'required|length:0,20'
+          validation: 'required|length:0,20',
+          columnClasses: 'rpl-col-6 rpl-col-3-m'
         },
         {
           $formkit: 'RplFormText',
@@ -74,7 +75,8 @@ export const SlotTemplate = (args) => ({
           id: 'textnoicons',
           value: 'test content',
           help: 'Do you need help?',
-          validation: 'required'
+          validation: 'required',
+          columnClasses: 'rpl-col-12 rpl-col-5-m'
         },
         {
           $formkit: 'RplFormEmail',
@@ -248,6 +250,7 @@ export const SlotTemplate = (args) => ({
           name: 'dropdown-multi',
           label: 'What is the answer?',
           help: 'There may be multiple answers',
+          columnClasses: 'rpl-col-12 rpl-col-5-m',
           validation: 'required|length:2,3',
           validationMessages: {
             required: 'Please provide an answer',

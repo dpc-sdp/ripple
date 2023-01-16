@@ -37,7 +37,7 @@ export const email: FormKitTypeDefinition = {
   /**
    * An array of extra props to accept for this input.
    */
-  props: [...minMaxProps, 'placeholder', 'validationMeta'],
+  props: [...minMaxProps, 'placeholder', 'validationMeta', 'columnClasses'],
   /**
    * Forces node.props.type to be this explicit value.
    */

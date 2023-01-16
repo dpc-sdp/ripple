@@ -37,7 +37,14 @@ export const number: FormKitTypeDefinition = {
   /**
    * An array of extra props to accept for this input.
    */
-  props: ['min', 'max', 'step', 'placeholder', 'validationMeta'],
+  props: [
+    'min',
+    'max',
+    'step',
+    'placeholder',
+    'validationMeta',
+    'columnClasses'
+  ],
   /**
    * Forces node.props.type to be this explicit value.
    */

@@ -1,6 +1,6 @@
 .rpl-grid {
   display: grid;
-  grid-template-columns: repeat(12, minmax(0, 12fr));
+  grid-template-columns: repeat(var(--local-grid-cols, 12), minmax(0, 1fr));
   grid-template-rows: auto;
   gap: var(--rpl-sp-4);
   margin: 0;
@@ -24,12 +24,16 @@
 @for $i from 12 to 1 {
   /* Mobile */
   .rpl-col-$(i) {
+    --local-grid-cols: $i;
+
     grid-column-end: span $i;
   }
 
   /* Small */
   .rpl-col-$(i)-s {
     @media (--rpl-bp-s) {
+      --local-grid-cols: $i;
+
       grid-column-end: span $i;
     }
   }
@@ -37,6 +41,8 @@
   /* Medium */
   .rpl-col-$(i)-m {
     @media (--rpl-bp-m) {
+      --local-grid-cols: $i;
+
       grid-column-end: span $i;
     }
   }
@@ -44,6 +50,8 @@
   /* Large */
   .rpl-col-$(i)-l {
     @media (--rpl-bp-l) {
+      --local-grid-cols: $i;
+
       grid-column-end: span $i;
     }
   }
@@ -51,6 +59,8 @@
   /* XL */
   .rpl-col-$(i)-xl {
     @media (--rpl-bp-xl) {
+      --local-grid-cols: $i;
+
       grid-column-end: span $i;
     }
   }

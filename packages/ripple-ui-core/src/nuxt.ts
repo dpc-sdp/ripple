@@ -2,7 +2,7 @@ import { join } from 'pathe'
 import { defineNuxtModule, addComponentsDir } from '@nuxt/kit'
 import vitePlugins from './vite.plugins'
 
-export default defineNuxtModule({
+export default <any>defineNuxtModule({
   meta: {
     name: 'ripple-ui-core',
     configKey: 'ripple'

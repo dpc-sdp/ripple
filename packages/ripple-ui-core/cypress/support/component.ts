@@ -33,7 +33,7 @@ const RplAppWrapper = {
   </div>`
 }
 
-Cypress.Commands.add('mount', (component, options = {}) => {
+Cypress.Commands.add('mount', (component: any, options = {}) => {
   return mount(() => {
     return h(RplAppWrapper, null, () => h(component, { ...options.props }))
   })

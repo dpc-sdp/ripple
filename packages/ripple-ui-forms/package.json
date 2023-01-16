@@ -1,5 +1,6 @@
 {
   "name": "@dpc-sdp/ripple-ui-forms",
+  "packageManager": "pnpm@7.23.0",
   "version": "2.1.0-alpha.61",
   "license": "Apache-2.0",
   "main": "./dist/rpl-forms.umd.js",
@@ -13,24 +14,30 @@
   },
   "dependencies": {
     "@dpc-sdp/ripple-ui-core": "2.1.0-alpha.57",
-    "@formkit/nuxt": "1.0.0-beta.11-c95e605",
+    "@formkit/inputs": "1.0.0-beta.12",
+    "@formkit/nuxt": "1.0.0-beta.12",
+    "@formkit/validation": "1.0.0-beta.12",
     "@formkit/vue": "1.0.0-beta.12",
-    "@nuxt/kit": "3.0.0"
+    "@nuxt/kit": "3.0.0",
+    "@vueuse/core": "^9.10.0",
+    "date-fns": "^2.29.3"
   },
   "devDependencies": {
-    "@babel/core": "^7.20.5",
-    "@vitejs/plugin-vue": "^3.1.2",
-    "babel-loader": "^9.1.0",
+    "@babel/core": "^7.20.12",
+    "@vitejs/plugin-vue": "^4.0.0",
+    "babel-loader": "^9.1.2",
+    "pathe": "^1.0.0",
     "postcss-nested": "^6.0.0",
     "postcss-normalize": "^10.0.1",
     "postcss-preset-env": "^7.8.3",
     "ts-node": "^10.7.0",
-    "vite-plugin-static-copy": "^0.12.0",
-    "vite-svg-loader": "^3.6.0",
+    "vite-plugin-static-copy": "^0.13.0",
+    "vite-svg-loader": "^4.0.0",
+    "vue": "^3.2.45",
     "vue-loader": "^17.0.0"
   },
   "scripts": {
-    "build": "yarn build:vite && yarn build:types",
+    "build": "pnpm build:vite && pnpm build:types",
     "build:vite": "vite build",
     "build:types": "tsc -p tsconfig.json",
     "test:components": "cypress run --component"

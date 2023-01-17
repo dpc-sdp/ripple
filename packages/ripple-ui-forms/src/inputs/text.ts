@@ -40,7 +40,13 @@ export const text: FormKitTypeDefinition = {
   /**
    * An array of extra props to accept for this input.
    */
-  props: [...minMaxProps, ...counterProps, 'placeholder', 'validationMeta'],
+  props: [
+    ...minMaxProps,
+    ...counterProps,
+    'placeholder',
+    'validationMeta',
+    'columnClasses'
+  ],
   /**
    * Forces node.props.type to be this explicit value.
    */

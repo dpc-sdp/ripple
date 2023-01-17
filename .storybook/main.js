@@ -63,6 +63,11 @@ module.exports = {
       ...config.resolve.alias,
       '~/storybook': path.resolve(__dirname, './')
     }
+
+    // `Uncaught Error: Singleton client API not yet initialized, cannot call addParameters`
+    // github.com/storybookjs/storybook/issues/10887#issuecomment-901109891
+    config.resolve.dedupe = ['@storybook/client-api']
+
     return config
   }
 }

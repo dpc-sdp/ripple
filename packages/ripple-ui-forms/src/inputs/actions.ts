@@ -10,19 +10,17 @@ export const actions: FormKitTypeDefinition = {
   /**
    * The actual schema of the input, or a function that returns the schema.
    */
-  schema: outer(
-    createSection('input', () => ({
-      $cmp: 'RplFormActions',
-      props: {
-        id: '$id',
-        label: '$label',
-        variant: '$variant',
-        prefixIcon: '$node.props.prefixIcon',
-        suffixIcon: '$node.props.suffixIcon',
-        displayResetButton: '$node.props.displayResetButton'
-      }
-    }))()
-  ),
+  schema: createSection('input', () => ({
+    $cmp: 'RplFormActions',
+    props: {
+      id: '$id',
+      label: '$label',
+      variant: '$variant',
+      prefixIcon: '$node.props.prefixIcon',
+      suffixIcon: '$node.props.suffixIcon',
+      displayResetButton: '$node.props.displayResetButton'
+    }
+  }))(),
   library: inputLibrary,
   /**
    * The type of node, can be a list, group, or input.

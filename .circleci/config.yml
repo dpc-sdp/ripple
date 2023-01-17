@@ -19,12 +19,22 @@ jobs:
     <<: *defaults
     steps:
       - checkout
+      - restore_cache:
+          name: Restore pnpm Package Cache
+          keys:
+            - v2-pnpm-packages-{{ checksum "pnpm-lock.yaml" }}
+      - run:
+          name: Install pnpm package manager
+          command: |
+            curl -L https://pnpm.js.org/pnpm.js | node - add --global pnpm@7
       - run:
           name: Install Dependencies
-          command: yarn install --frozen-lockfile --cache-folder ~/.cache/yarn
+          command: pnpm install
       - save_cache:
-          key: v10-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
+          name: Save pnpm Package Cache
+          key: v2-pnpm-packages-{{ checksum "pnpm-lock.yaml" }}
           paths:
+            - node_modules
             - ~/.cache
       - persist_to_workspace:
           root: ~/app
@@ -35,13 +45,49 @@ jobs:
       - attach_workspace:
           at: ~/app
       - run:
-          name: Lint code.
-          command: yarn run lint
+          name: Install pnpm package manager
+          command: |
+            curl -L https://pnpm.js.org/pnpm.js | node - add --global pnpm@7
       - run:
-          command: yarn run test:unit
+          name: Lint code.
+          command: pnpm run lint
+      - run:
+          command: pnpm run test:unit
           name: Run unit tests
       - store_test_results:
           path: test-results
+
+  component-tests-core:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/app
+      - restore_cache:
+          keys:
+            - v2-pnpm-packages-{{ checksum "pnpm-lock.yaml" }}
+      - run:
+          name: Install pnpm package manager
+          command: |
+            curl -L https://pnpm.js.org/pnpm.js | node - add --global pnpm@7
+      - run:
+          command: pnpm run test:components-core
+          name: Run cypress component tests - UI Core
+
+  component-tests-forms:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/app
+      - restore_cache:
+          keys:
+            - v2-pnpm-packages-{{ checksum "pnpm-lock.yaml" }}
+      - run:
+          name: Install pnpm package manager
+          command: |
+            curl -L https://pnpm.js.org/pnpm.js | node - add --global pnpm@7
+      - run:
+          command: pnpm run test:components-forms
+          name: Run cypress component tests - UI Forms
 
   build-docs:
     <<: *defaults
@@ -49,8 +95,12 @@ jobs:
       - attach_workspace:
           at: ~/app
       - run:
+          name: Install pnpm package manager
+          command: |
+            curl -L https://pnpm.js.org/pnpm.js | node - add --global pnpm@7
+      - run:
           name: build docs site
-          command: yarn run build:docs
+          command: pnpm run build:docs
 
   build-examples:
     <<: *defaults
@@ -58,8 +108,12 @@ jobs:
       - attach_workspace:
           at: ~/app
       - run:
+          name: Install pnpm package manager
+          command: |
+            curl -L https://pnpm.js.org/pnpm.js | node - add --global pnpm@7
+      - run:
           name: build example apps
-          command: yarn run build:examples
+          command: pnpm run build:examples
       - persist_to_workspace:
           root: ~/app
           paths: [.]
@@ -71,11 +125,13 @@ jobs:
           at: ~/app
       - restore_cache:
           keys:
-            - v10-deps-{{ checksum "yarn.lock" }}
-            - v10-deps-{{ .Branch }}
-            - v9-deps
+            - v2-pnpm-packages-{{ checksum "pnpm-lock.yaml" }}
       - run:
-          command: yarn run ci:nuxt-app
+          name: Install pnpm package manager
+          command: |
+            curl -L https://pnpm.js.org/pnpm.js | node - add --global pnpm@7
+      - run:
+          command: pnpm run ci:nuxt-app
           name: Run integration tests with Cypress
       - store_artifacts:
           path: examples/nuxt-app/test/videos
@@ -90,7 +146,11 @@ jobs:
       - attach_workspace:
           at: ~/app
       - run:
-          command: yarn build:storybook
+          name: Install pnpm package manager
+          command: |
+            curl -L https://pnpm.js.org/pnpm.js | node - add --global pnpm@7
+      - run:
+          command: pnpm build:storybook
           name: Build static storybook
       - persist_to_workspace:
           root: ~/app
@@ -99,7 +159,7 @@ jobs:
 
   test-storybook:
     docker:
-      - image: mcr.microsoft.com/playwright:v1.27.1-focal
+      - image: mcr.microsoft.com/playwright:v1.29.2-focal
     environment:
       NODE_ENV: development
     working_directory: ~/app
@@ -107,7 +167,11 @@ jobs:
       - attach_workspace:
           at: ~/app
       - run:
-          command: yarn test:storybook-ci
+          name: Install pnpm package manager
+          command: |
+            curl -L https://pnpm.js.org/pnpm.js | node - add --global pnpm@7
+      - run:
+          command: pnpm test:storybook-ci
           name: Run storybook Tests
 
   chromatic:
@@ -116,7 +180,11 @@ jobs:
       - attach_workspace:
           at: ~/app
         # Runs the Chromatic CLI for core and forms packages
-      - run: yarn chromatic --project-token=${CHROMATIC_PROJECT_TOKEN} --exit-zero-on-changes --exit-once-uploaded
+      - run:
+          name: Install pnpm package manager
+          command: |
+            curl -L https://pnpm.js.org/pnpm.js | node - add --global pnpm@7
+      - run: pnpm chromatic --project-token=${CHROMATIC_PROJECT_TOKEN} --exit-zero-on-changes --exit-once-uploaded
 
   publish-alpha:
     <<: *defaults
@@ -126,23 +194,25 @@ jobs:
           at: ~/app
       - restore_cache:
           keys:
-            - v10-deps-{{ checksum "yarn.lock" }}
-            - v10-deps-{{ .Branch }}
-            - v9-deps
+            - v2-pnpm-packages-{{ checksum "pnpm-lock.yaml" }}
       - run:
           name: set git credentials
           command: |
             git config --global user.email "sdp.devs@dpc.vic.gov.au"
             git config --global user.name "SDP Deploy"
       - run:
+          name: Install pnpm package manager
+          command: |
+            curl -L https://pnpm.js.org/pnpm.js | node - add --global pnpm@7
+      - run:
           name: Bump version to latest prerelease
-          command: yarn release:pre
+          command: pnpm release:pre
       - run:
           name: Publish alpha prerelease to NPM
           command: |
             npm config set access public
             npm set //registry.npmjs.org/:_authToken=$NPM_TOKEN
-            yarn release:publish
+            pnpm release:publish
   publish:
     <<: *defaults
     steps:
@@ -151,23 +221,25 @@ jobs:
           at: ~/app
       - restore_cache:
           keys:
-            - v10-deps-{{ checksum "yarn.lock" }}
-            - v10-deps-{{ .Branch }}
-            - v9-deps
+            - v2-pnpm-packages-{{ checksum "pnpm-lock.yaml" }}
       - run:
           name: set git credentials
           command: |
             git config --global user.email "sdp.devs@dpc.vic.gov.au"
             git config --global user.name "SDP Deploy"
       - run:
+          name: Install pnpm package manager
+          command: |
+            curl -L https://pnpm.js.org/pnpm.js | node - add --global pnpm@7
+      - run:
           name: Bump version to production release
-          command: yarn release:prod
+          command: pnpm release:prod
       - run:
           name: Publish prod release to NPM
           command: |
             npm config set access public
             npm set //registry.npmjs.org/:_authToken=$NPM_TOKEN
-            yarn release:publish
+            pnpm release:publish
 
   update-reference:
     <<: *defaults
@@ -185,6 +257,12 @@ workflows:
     jobs:
       - build
       - unit:
+          requires:
+            - build
+      - component-tests-core:
+          requires:
+            - build
+      - component-tests-forms:
           requires:
             - build
       - build-storybook:

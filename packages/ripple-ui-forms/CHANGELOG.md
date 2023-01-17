@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.61](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.60...v2.1.0-alpha.61) (2023-01-11)
+
+
+### Features
+
+* **@dpc-sdp/ripple-ui-forms:** added option button form component ([26a5190](https://github.com/dpc-sdp/ripple-framework/commit/26a5190140e09284b848f5392e054805dd52fc38))
+
+
+
+
+
 # [2.1.0-alpha.60](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.59...v2.1.0-alpha.60) (2023-01-10)
 
 

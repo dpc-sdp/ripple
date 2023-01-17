@@ -20,7 +20,7 @@ type RplAccordionItem = {
 interface Props {
   id: string
   items: RplAccordionItem[]
-  numbered: boolean
+  numbered?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {

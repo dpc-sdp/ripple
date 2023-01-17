@@ -1,7 +1,6 @@
 import { defineConfig } from 'vite'
 import path from 'path'
 import vue from '@vitejs/plugin-vue'
-// import dts from 'vite-dts'
 import dts from 'vite-plugin-dts'
 import vitePlugins from './src/vite.plugins'
 
@@ -10,7 +9,8 @@ import vitePlugins from './src/vite.plugins'
 export default defineConfig({
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src')
+      '@': path.resolve(__dirname, './src'),
+      vue: 'vue/dist/vue.esm-bundler.js'
     }
   },
   plugins: [vue(), dts()].concat(vitePlugins),
@@ -35,6 +35,11 @@ export default defineConfig({
           vue: 'Vue'
         }
       }
+    }
+  },
+  server: {
+    fs: {
+      allow: ['../../']
     }
   }
 })

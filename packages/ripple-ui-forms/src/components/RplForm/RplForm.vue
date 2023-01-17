@@ -16,7 +16,7 @@ interface Props {
   resetOnSubmit?: boolean
   schema?: FormKitSchemaCondition | FormKitSchemaNode[] | undefined
   config?: Record<string, any>
-  submissionState: {
+  submissionState?: {
     status: 'idle' | 'submitting' | 'success' | 'error'
     title: string
     message: string

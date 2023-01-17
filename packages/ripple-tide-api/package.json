@@ -14,11 +14,12 @@
     "./services": "./dist/services/index.js",
     "./mapping/site": "./dist/mapping/site.js"
   },
+  "packageManager": "pnpm@7.23.0",
   "license": "MIT",
   "keywords": [],
   "scripts": {
-    "clean": "rimraf dist* && rimraf tsconfig.tsbuildinfo",
-    "build": "yarn clean && tsc -p tsconfig.json && cp ./src/schema/openapi.yml ./dist/schema",
+    "clean": "(rimraf dist* && rimraf tsconfig.tsbuildinfo) | true",
+    "build": "pnpm clean && tsc -p tsconfig.json && cp ./src/schema/openapi.yml ./dist/schema",
     "watch": "tsc -p tsconfig.json -w"
   },
   "dependencies": {
@@ -26,13 +27,14 @@
     "axios": "^0.27.2",
     "change-case": "^4.1.2",
     "cheerio": "^1.0.0-rc.10",
+    "h3": "^1.0.2",
     "js-yaml": "^4.1.0",
     "jsonapi-parse": "^2.0.1",
     "lodash-es": "^4.17.21",
-    "nuxt-proxy": "^0.3.4",
+    "nuxt-proxy": "^0.3.12",
     "pathe": "^0.3.9",
     "qs": "^6.10.3",
-    "ts-json-schema-generator": "^1.1.2",
+    "ts-json-schema-generator": "^1.2.0",
     "typescript-json-schema": "^0.55.0",
     "winston": "^3.8.2"
   },

@@ -1,4 +1,4 @@
-import { expect } from '@jest/globals'
+import { expect, describe } from '@jest/globals'
 const reflect = (param: number) => param
 
 describe('Functional test', () => {

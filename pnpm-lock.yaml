@@ -187,6 +187,7 @@ importers:
       '@dpc-sdp/ripple-tide-media': 2.1.0-alpha.61
       '@dpc-sdp/ripple-tide-news': 2.1.0-alpha.61
       '@dpc-sdp/ripple-tide-publication': 2.1.0-alpha.59
+      '@dpc-sdp/ripple-tide-search': 2.1.0-alpha.4
       '@dpc-sdp/ripple-ui-core': 2.1.0-alpha.57
       '@dpc-sdp/ripple-ui-forms': 2.1.0-alpha.61
       '@formkit/core': 1.0.0-beta.12
@@ -209,6 +210,7 @@ importers:
       '@dpc-sdp/ripple-tide-media': link:../../packages/ripple-tide-media
       '@dpc-sdp/ripple-tide-news': link:../../packages/ripple-tide-news
       '@dpc-sdp/ripple-tide-publication': link:../../packages/ripple-tide-publication
+      '@dpc-sdp/ripple-tide-search': link:../../packages/ripple-tide-search
       '@dpc-sdp/ripple-ui-core': link:../../packages/ripple-ui-core
       '@dpc-sdp/ripple-ui-forms': link:../../packages/ripple-ui-forms
       '@formkit/core': 1.0.0-beta.12
@@ -393,9 +395,13 @@ importers:
 
   packages/ripple-tide-search:
     specifiers:
+      '@dpc-sdp/ripple-ui-core': 2.1.0-alpha.57
+      '@dpc-sdp/ripple-ui-forms': 2.1.0-alpha.61
       '@elastic/search-ui': latest
       '@elastic/search-ui-app-search-connector': latest
     dependencies:
+      '@dpc-sdp/ripple-ui-core': link:../ripple-ui-core
+      '@dpc-sdp/ripple-ui-forms': link:../ripple-ui-forms
       '@elastic/search-ui': 1.18.3
       '@elastic/search-ui-app-search-connector': 1.18.3
 

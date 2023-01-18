@@ -55,6 +55,11 @@
 
 .rpl-search-result__body {
   margin-top: var(--rpl-sp-2);
+
+  em {
+    font-weight: bold;
+    font-style: normal;
+  }
 }
 
 .rpl-search-result__date {

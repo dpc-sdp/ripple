@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { FilterConfigItem } from '../types'
+import { FilterConfigItem, MappedSearchResult } from '../types'
+import { formatDate } from '#imports'
 
 const filtersConfig: FilterConfigItem[] = [
   {
@@ -18,7 +19,39 @@ const searchDriverOptions = {
         weight: 10
       },
       body: {},
-      field_paragraph_body: {}
+      field_paragraph_body: {},
+      field_landing_page_summary: {},
+      summary_processed: {},
+      field_paragraph_summary: {},
+      field_event_details_event_locality: {}
+    },
+    result_fields: {
+      title: {
+        raw: {
+          size: 150
+        }
+      },
+      field_landing_page_summary: {
+        snippet: {
+          size: 150,
+          fallback: true
+        }
+      },
+      summary_processed: {
+        snippet: {
+          size: 150,
+          fallback: true
+        }
+      },
+      changed: {
+        raw: {}
+      },
+      url: {
+        raw: {}
+      },
+      type: {
+        raw: {}
+      }
     }
   },
   autocompleteQuery: {
@@ -30,6 +63,22 @@ const searchDriverOptions = {
     }
   }
 }
+
+const searchResultsMappingFn = (item): MappedSearchResult<any> => {
+  let summaryField =
+    item.summary_processed?.snippet || item.field_landing_page_summary?.snippet
+
+  return {
+    id: item._meta.id,
+    component: 'RplSearchResult',
+    props: {
+      title: item.title?.raw?.[0],
+      url: item.url?.raw?.[0].replace(/\/site-(\d+)/, ''),
+      content: summaryField,
+      updated: formatDate(item.changed?.raw?.[0])
+    }
+  }
+}
 </script>
 
 <template>
@@ -37,5 +86,6 @@ const searchDriverOptions = {
     pageTitle="Search"
     :searchDriverOptions="searchDriverOptions"
     :filtersConfig="filtersConfig"
+    :searchResultsMappingFn="searchResultsMappingFn"
   />
 </template>

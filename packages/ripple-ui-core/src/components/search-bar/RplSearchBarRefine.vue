@@ -25,7 +25,7 @@ withDefaults(defineProps<Props>(), {
     <span class="rpl-type-label rpl-type-weight-bold">
       <slot> Refine search </slot>
     </span>
-    <RplIcon name="icon-chevron-up"></RplIcon>
+    <RplIcon name="icon-chevron-down"></RplIcon>
   </button>
 </template>
 

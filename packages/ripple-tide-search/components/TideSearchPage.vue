@@ -44,9 +44,6 @@ const props = withDefaults(defineProps<Props>(), {
       props: {
         title: item.title?.raw?.[0],
         url: item.url?.raw?.[0].replace(/\/site-(\d+)/, ''),
-        summary:
-          item.field_paragraph_summary?.raw?.[0] ||
-          item.field_landing_page_intro_text?.raw?.[0],
         updated: item.changed?.raw?.[0]
       }
     }

@@ -110,8 +110,10 @@ export default async (
     searchDriver.clearFilters()
 
     Object.entries(filterFormValues.value).forEach(([key, val]) => {
-      if (val) {
-        searchDriver.addFilter(key, val)
+      if (val && val.length) {
+        const config = filterConfig.find((filter) => filter.field === key)
+
+        searchDriver.addFilter(key, val, config.filterType)
       }
     })
   }

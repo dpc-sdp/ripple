@@ -37,12 +37,12 @@ const vitePlugins = [
   })
 ]
 module.exports = {
-  stories: ['./../packages/**/*.stories.@(js|jsx|ts|tsx|mdx)'],
+  stories: ['./../../ripple-ui*/**/*.stories.@(js|jsx|ts|tsx|mdx)'],
   framework: '@storybook/vue3',
   staticDirs: ['./public'],
   features: {
-    interactionsDebugger: true,
-    buildStoriesJson: true
+    buildStoriesJson: true,
+    storyStoreV7: false
   },
   core: {
     builder: '@storybook/builder-vite'

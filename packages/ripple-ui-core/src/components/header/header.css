@@ -11,14 +11,6 @@
     position: relative;
   }
 
-  .rpl-icon {
-    color: var(--rpl-clr-link);
-
-    @media (--rpl-bp-m) {
-      padding-top: var(--rpl-sp-1);
-    }
-  }
-
   .rpl-header__upper {
     .rpl-icon {
       display: block;
@@ -276,6 +268,14 @@
   @media (--rpl-bp-l) {
     padding-top: var(--rpl-sp-10);
     padding-bottom: var(--rpl-sp-11);
+  }
+
+  .rpl-icon {
+    color: var(--rpl-clr-link);
+
+    @media (--rpl-bp-m) {
+      padding-top: var(--rpl-sp-1);
+    }
   }
 
   .rpl-header__main {

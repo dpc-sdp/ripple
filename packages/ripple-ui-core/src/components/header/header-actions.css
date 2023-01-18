@@ -9,6 +9,14 @@
     align-items: center;
     flex-direction: row;
   }
+
+  .rpl-icon {
+    color: var(--rpl-clr-link);
+
+    @media (--rpl-bp-m) {
+      padding-top: var(--rpl-sp-1);
+    }
+  }
 }
 
 .rpl-header-actions__primary {

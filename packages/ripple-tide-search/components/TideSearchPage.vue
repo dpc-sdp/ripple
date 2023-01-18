@@ -175,17 +175,11 @@ const getFilterOptions = (field) => {
             @on-submit="doSearch"
             @update:input-value="updateSearchTerm"
           />
-          <RplButton
-            class="rpl-search__refine-btn"
-            variant="white"
-            :icon-name="
-              filtersExpanded ? 'icon-chevron-up' : 'icon-chevron-down'
-            "
-            icon-position="right"
+          <RplSearchBarRefine
+            class="tide-search-refine-btn"
+            :expanded="filtersExpanded"
             @click="toggleFilters"
-          >
-            Refine search</RplButton
-          >
+          />
           <RplExpandable :expanded="filtersExpanded">
             <RplForm
               v-if="staticFacetOptions !== null"
@@ -273,9 +267,12 @@ const getFilterOptions = (field) => {
 .rpl-search__header {
   display: flex;
   flex-direction: column;
+  margin-top: var(--rpl-sp-6);
 }
 
-.rpl-search__refine-btn {
+.tide-search-refine-btn {
   align-self: flex-end;
+  padding: 0;
+  margin-top: var(--rpl-sp-5);
 }
 </style>

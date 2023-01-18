@@ -155,7 +155,7 @@ jobs:
       - persist_to_workspace:
           root: ~/app
           paths:
-            - storybook-static
+            - packages/ripple-storybook/storybook-static
 
   test-storybook:
     docker:

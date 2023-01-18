@@ -165,7 +165,7 @@ const getFilterOptions = (field) => {
         :corner-top="true"
         :corner-bottom="false"
       >
-        <div class="rpl-search__header">
+        <div class="tide-search-header">
           <RplSearchBar
             id="tide-search-bar"
             variant="default"
@@ -187,7 +187,7 @@ const getFilterOptions = (field) => {
               v-model:model-value="filterFormValues"
               @submit="handleFilterSubmit"
             >
-              <div class="rpl-grid rpl-grid--no-row-gap">
+              <div class="rpl-grid rpl-grid--no-row-gap tide-search-filters">
                 <div
                   v-for="filter in filtersConfig"
                   :key="filter.field"
@@ -206,6 +206,7 @@ const getFilterOptions = (field) => {
               </div>
               <RplFormActions
                 label="Apply search filters"
+                resetLabel="Clear search filters"
                 :displayResetButton="true"
                 @reset="handleFilterReset"
               />
@@ -264,10 +265,18 @@ const getFilterOptions = (field) => {
 </template>
 
 <style>
-.rpl-search__header {
+.tide-search-header {
   display: flex;
   flex-direction: column;
   margin-top: var(--rpl-sp-6);
+}
+
+.tide-search-filters.rpl-grid {
+  row-gap: var(--rpl-sp-6);
+}
+
+.tide-search-filters .rpl-form__outer {
+  margin: 0;
 }
 
 .tide-search-refine-btn {

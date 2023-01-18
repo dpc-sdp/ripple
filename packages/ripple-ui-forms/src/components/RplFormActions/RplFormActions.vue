@@ -7,6 +7,7 @@ interface Props {
   disabled?: boolean
   className?: string
   label?: string
+  resetLabel?: string
   variant?: 'filled' | 'outlined' | 'white' | 'elevated' | 'destructive'
   prefixIcon?: string
   suffixIcon?: string
@@ -20,6 +21,7 @@ const props = withDefaults(defineProps<Props>(), {
   variant: 'filled',
   className: 'rpl-form__input',
   label: 'Submit',
+  resetLabel: 'Clear form',
   displayResetButton: false,
   prefixIcon: undefined,
   suffixIcon: undefined,
@@ -65,7 +67,7 @@ const handleReset = () => {
       iconPosition="left"
       @click.prevent="handleReset"
     >
-      Clear form
+      {{ resetLabel }}
     </RplButton>
   </div>
 </template>

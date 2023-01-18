@@ -25,27 +25,27 @@ const displayUrl = computed(() => props.url.replace('https://', ''))
 </script>
 
 <template>
-  <div ref="container" class="rpl-result-listing">
-    <div v-if="$slots.meta" class="rpl-result-listing__meta rpl-type-p-small">
+  <div ref="container" class="rpl-search-result">
+    <div v-if="$slots.meta" class="rpl-search-result__meta rpl-type-p-small">
       <slot name="meta"></slot>
     </div>
-    <h2 class="rpl-result-listing__title rpl-type-h3">
+    <h2 class="rpl-search-result__title rpl-type-h3">
       <RplTextLink ref="trigger" :url="url">
         {{ title }}
       </RplTextLink>
     </h2>
-    <div v-if="url" class="rpl-result-listing__url rpl-type-p-small">
+    <div v-if="url" class="rpl-search-result__url rpl-type-p-small">
       {{ displayUrl }}
     </div>
-    <div v-if="$slots.details" class="rpl-result-listing__details rpl-type-p">
+    <div v-if="$slots.details" class="rpl-search-result__details rpl-type-p">
       <slot name="details"></slot>
     </div>
     <div
       v-if="content"
-      class="rpl-result-listing__body rpl-type-p"
+      class="rpl-search-result__body rpl-type-p"
       v-html="content"
     />
-    <p v-if="updated" class="rpl-result-listing__body rpl-type-p-small">
+    <p v-if="updated" class="rpl-search-result__body rpl-type-p-small">
       Updated: {{ updated }}
     </p>
   </div>

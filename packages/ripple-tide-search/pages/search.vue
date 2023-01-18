@@ -35,7 +35,7 @@ const searchDriverOptions = {
       types: {
         documents: { fields: ['title'] }
       },
-      size: 10
+      size: 8
     }
   }
 }
@@ -164,9 +164,11 @@ const getFilterOptions = (field) => {
       >
         <div class="rpl-search__header">
           <RplSearchBar
+            id="tide-search-bar"
             variant="default"
             input-label="Search"
             :inputValue="searchState.searchTerm"
+            :suggestions="searchTermSuggestions"
             @on-submit="doSearch"
             @update:input-value="updateSearchTerm"
           />
@@ -212,23 +214,6 @@ const getFilterOptions = (field) => {
             </RplForm>
           </RplExpandable>
         </div>
-        <!-- <ul v-if="showSuggestions" class="rpl-search__autocomplete-results">
-          <li v-for="res in displayedSuggestions" :key="res">
-            <button
-              class="rpl-text-link rpl-u-focusable-inline"
-              @click="updateQueryTerm(res)"
-            >
-              {{ res }}
-            </button>
-          </li>
-        </ul> -->
-        <ul class="rpl-search__autocomplete-results">
-          <li v-for="res in searchTermSuggestions" :key="res">
-            <button class="rpl-text-link rpl-u-focusable-inline">
-              {{ res }}
-            </button>
-          </li>
-        </ul>
       </RplHeroHeader>
     </template>
     <template #body>
@@ -288,11 +273,5 @@ const getFilterOptions = (field) => {
 
 .rpl-search__refine-btn {
   align-self: flex-end;
-}
-
-.rpl-search__autocomplete-results {
-  position: absolute;
-  background-color: white;
-  z-index: 999;
 }
 </style>

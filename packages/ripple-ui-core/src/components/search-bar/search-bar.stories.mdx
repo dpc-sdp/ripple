@@ -14,9 +14,30 @@ export const SingleTemplate = (args) => ({
   setup() {
     return { args }
   },
-  template: `<RplSearchBar v-bind="args" @onSubmit="submitAction" />`,
+  data: () => ({ inputValue: null }),
+  computed: {
+    suggestions() {
+      const mockSuggestions = [
+        'rip',
+        'ripe',
+        'ripen',
+        'riptide',
+        'ripple',
+        'ripple component',
+        'ripple components',
+      ]
+      if (!this.inputValue) {
+        return []
+      }
+      return mockSuggestions.filter((val) => val.startsWith(this.inputValue))
+    }
+  },
+  template: `<RplSearchBar v-bind="args" @onSubmit="submitAction" @update:input-value="onUpdate" :input-value="inputValue" :suggestions="suggestions" />`,
   methods: {
-    submitAction: action('onSubmit')
+    submitAction: action('onSubmit'),
+    onUpdate: function(val) {
+      this.inputValue = val
+    }
   }
 })
 

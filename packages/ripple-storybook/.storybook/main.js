@@ -48,15 +48,12 @@ module.exports = {
     builder: '@storybook/builder-vite'
   },
   addons: [
-    {
-      name: '@storybook/addon-essentials',
-      options: {
-        docs: false
-      }
-    },
+    '@storybook/addon-essentials',
     '@storybook/addon-interactions',
     '@storybook/addon-jest',
-    '@storybook/addon-a11y'
+    '@storybook/addon-a11y',
+    '@outlinestudio/designtokenscss',
+    'storybook-addon-designs'
   ],
 
   async viteFinal(config, { configType }) {

@@ -5,7 +5,7 @@
   "license": "Apache-2.0",
   "scripts": {
     "example": "wrap () { pnpm -F example-\"$*\" dev | cat; }; wrap",
-    "storybook": "pnpm -F ripple-storybook start -p 6006",
+    "storybook": "pnpm -F ripple-storybook start",
     "dev": "pnpm build && concurrently \"pnpm storybook\" \"pnpm -F nuxt-app dev\"",
     "clean": "git clean -dfx && git reset --hard && pnpm",
     "build": "lerna run build --ignore docs",

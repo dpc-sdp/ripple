@@ -19,6 +19,7 @@ const props = withDefaults(defineProps<Props>(), {
   filtersConfig: () => [],
   searchDriverOptions: () => ({
     initialState: { resultsPerPage: 10 },
+    alwaysSearchOnInitialLoad: true,
     searchQuery: {
       search_fields: {
         title: {

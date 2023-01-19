@@ -13,6 +13,7 @@ const filtersConfig: FilterConfigItem[] = [
 
 const searchDriverOptions = {
   initialState: { resultsPerPage: 10 },
+  alwaysSearchOnInitialLoad: true,
   searchQuery: {
     search_fields: {
       title: {
@@ -68,6 +69,8 @@ const searchResultsMappingFn = (item): MappedSearchResult<any> => {
   let summaryField =
     item.summary_processed?.snippet || item.field_landing_page_summary?.snippet
 
+  const rawUpdated = item.changed?.raw?.[0]
+
   return {
     id: item._meta.id,
     component: 'RplSearchResult',
@@ -75,7 +78,7 @@ const searchResultsMappingFn = (item): MappedSearchResult<any> => {
       title: item.title?.raw?.[0],
       url: item.url?.raw?.[0].replace(/\/site-(\d+)/, ''),
       content: summaryField,
-      updated: formatDate(item.changed?.raw?.[0])
+      updated: rawUpdated ? formatDate(rawUpdated) : ''
     }
   }
 }

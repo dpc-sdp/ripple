@@ -8,7 +8,7 @@
     "storybook": "pnpm -F ripple-storybook start",
     "dev": "pnpm build && concurrently \"pnpm storybook\" \"pnpm -F nuxt-app dev\"",
     "clean": "git clean -dfx && git reset --hard && pnpm",
-    "build": "lerna run build --ignore docs",
+    "build": "lerna run build --ignore '{docs,ripple-storybook}'",
     "build:ripple": "lerna run build --scope '{@dpc-sdp/ripple-ui-*,@dpc-sdp/ripple-tide-api}'",
     "build:examples": "lerna run build --scope '{nuxt-app,vue-app,webcomponents}'",
     "build:docs": "lerna run build --scope docs",

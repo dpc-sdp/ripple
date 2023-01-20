@@ -1,6 +1,7 @@
 // const moment = require('dayjs')
 const moment = require('moment')
 const { cardColsSetting } = require('@dpc-sdp/ripple-nuxt-tide/lib/config/layout.config.js')
+const { truncateText } = require('@dpc-sdp/ripple-global/utils/helpers')
 
 /**
  * ContentCollection
@@ -998,6 +999,7 @@ module.exports = class ContentCollection {
   // ---------------------------------------------------------------------------
   mapResult (item) {
     let mappedResult = null
+    const summaryLimit = 100
     const _source = item._source
     const link = this.getLocalisedLinkFromSource(_source)
     switch (this.getDisplayResultComponentType()) {
@@ -1023,7 +1025,7 @@ module.exports = class ContentCollection {
       case 'card-profile':
         mappedResult = {
           name: _source.title?.[0],
-          summary: _source.field_landing_page_summary?.[0],
+          summary: truncateText(_source.field_landing_page_summary?.[0], summaryLimit),
           image: _source.field_media_image_absolute_path?.[0],
           link: {
             text: 'Read'.concat(' ', _source.title?.[0], "'s profile"),

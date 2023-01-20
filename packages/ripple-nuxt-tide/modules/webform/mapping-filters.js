@@ -115,6 +115,11 @@ module.exports = {
         }
       }
 
+      if (element['#pattern']) {
+        field.pattern = element['#pattern']
+        field.patternMessage = element['#pattern_error']
+      }
+
       const defaultValue = element['#default_value']
 
       switch (element['#type']) {
@@ -134,6 +139,7 @@ module.exports = {
           } else {
             field.validator.push('string')
           }
+          if (field.pattern) field.validator.push('rplMatchPattern')
           if (defaultValue) data.model[eName] = defaultValue
           break
 
@@ -157,6 +163,7 @@ module.exports = {
           field.type = 'input'
           field.inputType = 'email'
           field.validator.push('email', 'string')
+          if (field.pattern) field.validator.push('rplMatchPattern')
           if (defaultValue) data.model[eName] = defaultValue
           break
 
@@ -164,6 +171,7 @@ module.exports = {
           field.type = 'input'
           field.inputType = 'tel'
           field.validator.push('string')
+          if (field.pattern) field.validator.push('rplMatchPattern')
           if (defaultValue) data.model[eName] = defaultValue
           break
 
@@ -201,6 +209,7 @@ module.exports = {
           } else {
             field.validator.push('string')
           }
+          if (field.pattern) field.validator.push('rplMatchPattern')
           if (defaultValue) data.model[eName] = defaultValue
           break
 
@@ -283,6 +292,7 @@ module.exports = {
           field.type = 'input'
           field.inputType = 'url'
           field.validator.push('string')
+          if (field.pattern) field.validator.push('rplMatchPattern')
           if (defaultValue) data.model[eName] = defaultValue
           break
 

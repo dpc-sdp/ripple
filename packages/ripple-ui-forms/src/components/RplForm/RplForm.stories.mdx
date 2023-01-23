@@ -13,7 +13,12 @@ export const SingleTemplate = (args) => ({
     return { args }
   },
   template: `
-    <RplForm v-bind="args">
+    <RplForm
+      v-bind="args"
+      :style="{
+        '--local-max-width': '595px'
+      }"
+    >
       <template #belowForm="{ value }">
         <div class="rpl-storybook-form-values">
           <h2 class="rpl-type-h4">Internal form values</h2>
@@ -34,6 +39,9 @@ export const SlotTemplate = (args) => ({
     <RplFormElement
       type="RplFormText"
       label="test"
+      :style="{
+        '--local-max-width': '595px'
+      }"
     />
     <template #belowForm="{ value }">
       <div class="rpl-storybook-form-values">

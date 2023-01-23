@@ -42,3 +42,11 @@
 .rpl-layout__container {
   position: relative;
 }
+
+.rpl-back-to-top {
+  button {
+    position: sticky;
+    right: 0;
+    bottom: 0;
+  }
+}

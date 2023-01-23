@@ -143,7 +143,12 @@
 .rpl-search-bar__menu-option {
   display: flex;
   align-items: center;
-  padding: var(--rpl-sp-3) var(--rpl-sp-5);
+  padding: var(--rpl-sp-3);
+
+  @media (--rpl-bp-m) {
+    padding-left: var(--rpl-sp-4);
+    padding-right: var(--rpl-sp-4);
+  }
 
   &:nth-child(2n) {
     background: var(--rpl-clr-neutral-100);

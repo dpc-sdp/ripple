@@ -7,32 +7,26 @@ import RplButton from '../button/button.vue'
 import { useWindowScroll } from '@vueuse/core'
 import { ref, computed } from 'vue'
 
+interface Props {
+  topElementId: string
+}
+
+withDefaults(defineProps<Props>(), {})
+
 const containerRef = ref(null)
 
 const { y: scrollY } = useWindowScroll()
 
 const isShown = computed(() => {
-  // console.log(scrollY.value)
   return scrollY.value > 1080
 })
 
 const isSticky = computed(() => {
-  const container = containerRef.value
-  if (!container) {
+  if (!containerRef.value) {
     return false
   }
 
-  // const bbox = container.getBoundingClientRect()
-  // console.log(bbox.bottom)
-  // const bottomOfScreen = scrollY.value + window.innerHeight
-  // console.log(bottomOfScreen)
-
-  console.log('scrollY', scrollY.value)
-  console.log('container.offsetTop', container.offsetTop)
-  console.log('container.offsetHeight', container.offsetHeight)
-  console.log('window.innerHeight', window.innerHeight)
-  console.log('thing', container.offsetTop - window.innerHeight)
-  const bottomPos = container.offsetTop - window.innerHeight
+  const bottomPos = containerRef.value.offsetTop - window.innerHeight
   return scrollY.value < bottomPos
 })
 </script>

@@ -45,10 +45,11 @@ const hasBreadcrumbs = computed(() => {
 
 const aboveBodyId = 'rpl-above-body'
 const mainId = 'rpl-main'
+const skipLinksId = 'rpl-skip-links'
 </script>
 
 <template>
-  <div id="rpl-skip-links">
+  <div :id="skipLinksId">
     <RplLayoutSkipLink :targetId="$slots.aboveBody ? aboveBodyId : mainId"
       >Skip to main content</RplLayoutSkipLink
     >
@@ -99,7 +100,7 @@ const mainId = 'rpl-main'
       <section v-if="$slots.belowBody">
         <slot name="belowBody"></slot>
       </section>
-      <RplLayoutBackToTop v-if="showBackToTop" />
+      <RplLayoutBackToTop v-if="showBackToTop" topElementId="skipLinksId" />
       <slot name="footer"></slot>
     </div>
   </div>

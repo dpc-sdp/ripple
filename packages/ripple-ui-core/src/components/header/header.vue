@@ -18,8 +18,7 @@ const props = withDefaults(defineProps<Props>(), {
 const mainClasses = computed(() => ({
   'rpl-header__main': true,
   'rpl-col-12': true,
-  'rpl-col-7-m': slots.aside,
-  'rpl-col-8-m': !!slots.aside && !!props.fullWidth
+  'rpl-col-7-m': !props.fullWidth
 }))
 </script>
 

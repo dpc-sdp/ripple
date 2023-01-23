@@ -1,0 +1,29 @@
+@import '@dpc-sdp/ripple-ui-core/style/breakpoints';
+
+.rpl-data-table {
+  --local-table-row-background: rgba(0 0 0 / 4%);
+
+  background-color: var(--rpl-data-table-bg-clr);
+  color: var(--rpl-data-table-clr);
+  padding: var(--rpl-sp-2);
+
+  tbody {
+    tr:nth-child(odd) {
+      background-color: transparent;
+    }
+
+    &.rpl-data-table__row:nth-child(odd) tr {
+      background-color: var(--local-table-row-background);
+    }
+
+    &.rpl-data-table__row--open .rpl-data-table__details {
+      --local-dividing-border: var(--rpl-border-1) solid transparent;
+    }
+  }
+
+  &__toggle {
+    white-space: nowrap;
+    padding: 0;
+    min-width: 12rem;
+  }
+}

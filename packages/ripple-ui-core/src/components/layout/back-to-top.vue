@@ -13,12 +13,16 @@ interface Props {
 
 withDefaults(defineProps<Props>(), {})
 
+// This is the number of pixels down the page you need to scroll before you see
+// the back to top button.
+const SCROLL_THRESHOLD = 1080
+
 const containerRef = ref(null)
 
 const { y: scrollY } = useWindowScroll()
 
 const isShown = computed(() => {
-  return scrollY.value > 1080
+  return scrollY.value > SCROLL_THRESHOLD
 })
 
 const isSticky = computed(() => {

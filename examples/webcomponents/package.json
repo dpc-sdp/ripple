@@ -3,13 +3,13 @@
   "private": true,
   "packageManager": "pnpm@7.23.0",
   "license": "Apache-2.0",
-  "version": "2.1.0-alpha.63",
+  "version": "2.1.0-alpha.64",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-ui-core": "2.1.0-alpha.63"
+    "@dpc-sdp/ripple-ui-core": "2.1.0-alpha.64"
   }
 }

@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.64](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.63...v2.1.0-alpha.64) (2023-01-24)
+
+
+### Features
+
+* **@dpc-sdp/ripple-ui-core:** added back to top and skip links ([f72fc19](https://github.com/dpc-sdp/ripple-framework/commit/f72fc19cae724039608664010a06dca11c818f48))
+* **@dpc-sdp/ripple-ui-core:** cleanup back to top and skip links ([24c26a9](https://github.com/dpc-sdp/ripple-framework/commit/24c26a9ec8a170e4a5a4505e2644c5d780bb1c16))
+
+
+
+
+
 # [2.1.0-alpha.63](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.62...v2.1.0-alpha.63) (2023-01-24)
 
 

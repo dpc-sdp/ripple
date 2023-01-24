@@ -9,9 +9,9 @@
     "./mapping": "./mapping/index.ts",
     "./types": "./types.ts"
   },
-  "version": "2.1.0-alpha.63",
+  "version": "2.1.0-alpha.64",
   "dependencies": {
-    "@dpc-sdp/nuxt-ripple": "2.1.0-alpha.63",
+    "@dpc-sdp/nuxt-ripple": "2.1.0-alpha.64",
     "vue": "^3.2.45"
   }
 }

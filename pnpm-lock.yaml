@@ -120,7 +120,7 @@ importers:
 
   docs:
     specifiers:
-      '@dpc-sdp/ripple-ui-core': 2.1.0-alpha.63
+      '@dpc-sdp/ripple-ui-core': 2.1.0-alpha.64
       '@iconify/vue': ^4.0.2
       '@nuxt-themes/config': npm:@nuxt-themes/config-edge@latest
       '@nuxt/content': npm:@nuxt/content-edge@latest
@@ -144,17 +144,17 @@ importers:
   examples/nuxt-app:
     specifiers:
       '@badeball/cypress-cucumber-preprocessor': ^15.1.0
-      '@dpc-sdp/nuxt-ripple': 2.1.0-alpha.63
+      '@dpc-sdp/nuxt-ripple': 2.1.0-alpha.64
       '@dpc-sdp/ripple-tide-api': 2.1.0-alpha.63
       '@dpc-sdp/ripple-tide-event': 2.1.0-alpha.63
-      '@dpc-sdp/ripple-tide-grant': 2.1.0-alpha.63
-      '@dpc-sdp/ripple-tide-landing-page': 2.1.0-alpha.63
-      '@dpc-sdp/ripple-tide-media': 2.1.0-alpha.63
-      '@dpc-sdp/ripple-tide-news': 2.1.0-alpha.63
-      '@dpc-sdp/ripple-tide-publication': 2.1.0-alpha.63
-      '@dpc-sdp/ripple-tide-search': 2.1.0-alpha.63
-      '@dpc-sdp/ripple-ui-core': 2.1.0-alpha.63
-      '@dpc-sdp/ripple-ui-forms': 2.1.0-alpha.63
+      '@dpc-sdp/ripple-tide-grant': 2.1.0-alpha.64
+      '@dpc-sdp/ripple-tide-landing-page': 2.1.0-alpha.64
+      '@dpc-sdp/ripple-tide-media': 2.1.0-alpha.64
+      '@dpc-sdp/ripple-tide-news': 2.1.0-alpha.64
+      '@dpc-sdp/ripple-tide-publication': 2.1.0-alpha.64
+      '@dpc-sdp/ripple-tide-search': 2.1.0-alpha.64
+      '@dpc-sdp/ripple-ui-core': 2.1.0-alpha.64
+      '@dpc-sdp/ripple-ui-forms': 2.1.0-alpha.64
       '@formkit/core': 1.0.0-beta.12
       '@formkit/vue': 1.0.0-beta.12
       '@nuxt/vite-builder': ^3.0.0
@@ -196,7 +196,7 @@ importers:
     specifiers:
       '@cypress/vite-dev-server': ^5.0.2
       '@cypress/vue': ^5.0.3
-      '@dpc-sdp/ripple-ui-core': 2.1.0-alpha.63
+      '@dpc-sdp/ripple-ui-core': 2.1.0-alpha.64
       '@rushstack/eslint-patch': ^1.2.0
       '@types/node': ^18.11.18
       '@vitejs/plugin-vue': ^4.0.0
@@ -235,15 +235,15 @@ importers:
 
   examples/webcomponents:
     specifiers:
-      '@dpc-sdp/ripple-ui-core': 2.1.0-alpha.63
+      '@dpc-sdp/ripple-ui-core': 2.1.0-alpha.64
     dependencies:
       '@dpc-sdp/ripple-ui-core': link:../../packages/ripple-ui-core
 
   packages/nuxt-ripple:
     specifiers:
       '@dpc-sdp/ripple-tide-api': 2.1.0-alpha.63
-      '@dpc-sdp/ripple-ui-core': 2.1.0-alpha.63
-      '@dpc-sdp/ripple-ui-forms': 2.1.0-alpha.63
+      '@dpc-sdp/ripple-ui-core': 2.1.0-alpha.64
+      '@dpc-sdp/ripple-ui-forms': 2.1.0-alpha.64
       '@vueuse/core': ^9.10.0
       change-case: ^4.1.2
       vue: ^3.2.45
@@ -368,7 +368,7 @@ importers:
   packages/ripple-tide-grant:
     specifiers:
       '@dpc-sdp/ripple-tide-api': 2.1.0-alpha.63
-      '@dpc-sdp/ripple-ui-core': 2.1.0-alpha.63
+      '@dpc-sdp/ripple-ui-core': 2.1.0-alpha.64
       vue: ^3.2.45
     dependencies:
       '@dpc-sdp/ripple-tide-api': link:../ripple-tide-api
@@ -378,8 +378,8 @@ importers:
   packages/ripple-tide-landing-page:
     specifiers:
       '@dpc-sdp/ripple-tide-api': 2.1.0-alpha.63
-      '@dpc-sdp/ripple-ui-core': 2.1.0-alpha.63
-      '@dpc-sdp/ripple-ui-forms': 2.1.0-alpha.63
+      '@dpc-sdp/ripple-ui-core': 2.1.0-alpha.64
+      '@dpc-sdp/ripple-ui-forms': 2.1.0-alpha.64
       ohmyfetch: ^0.4.21
       vue: ^3.2.45
     dependencies:
@@ -391,8 +391,8 @@ importers:
 
   packages/ripple-tide-media:
     specifiers:
-      '@dpc-sdp/nuxt-ripple': 2.1.0-alpha.63
-      '@dpc-sdp/ripple-ui-core': 2.1.0-alpha.63
+      '@dpc-sdp/nuxt-ripple': 2.1.0-alpha.64
+      '@dpc-sdp/ripple-ui-core': 2.1.0-alpha.64
       vue: ^3.2.45
     dependencies:
       '@dpc-sdp/nuxt-ripple': link:../nuxt-ripple
@@ -401,7 +401,7 @@ importers:
 
   packages/ripple-tide-news:
     specifiers:
-      '@dpc-sdp/nuxt-ripple': 2.1.0-alpha.63
+      '@dpc-sdp/nuxt-ripple': 2.1.0-alpha.64
       vue: ^3.2.45
     dependencies:
       '@dpc-sdp/nuxt-ripple': link:../nuxt-ripple
@@ -410,7 +410,7 @@ importers:
   packages/ripple-tide-publication:
     specifiers:
       '@dpc-sdp/ripple-tide-api': 2.1.0-alpha.63
-      '@dpc-sdp/ripple-ui-core': 2.1.0-alpha.63
+      '@dpc-sdp/ripple-ui-core': 2.1.0-alpha.64
       vue: ^3.2.45
     dependencies:
       '@dpc-sdp/ripple-tide-api': link:../ripple-tide-api
@@ -419,8 +419,8 @@ importers:
 
   packages/ripple-tide-search:
     specifiers:
-      '@dpc-sdp/ripple-ui-core': 2.1.0-alpha.63
-      '@dpc-sdp/ripple-ui-forms': 2.1.0-alpha.63
+      '@dpc-sdp/ripple-ui-core': 2.1.0-alpha.64
+      '@dpc-sdp/ripple-ui-forms': 2.1.0-alpha.64
       '@elastic/search-ui': latest
       '@elastic/search-ui-app-search-connector': latest
     dependencies:
@@ -509,7 +509,7 @@ importers:
   packages/ripple-ui-forms:
     specifiers:
       '@babel/core': ^7.20.12
-      '@dpc-sdp/ripple-ui-core': 2.1.0-alpha.63
+      '@dpc-sdp/ripple-ui-core': 2.1.0-alpha.64
       '@formkit/inputs': 1.0.0-beta.12
       '@formkit/nuxt': 1.0.0-beta.12
       '@formkit/validation': 1.0.0-beta.12

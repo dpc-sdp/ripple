@@ -1,15 +1,17 @@
 <script setup lang="ts">
 import { computed, reactive } from 'vue'
 import RplButton from '../button/button.vue'
+import RplContent from '../content/content.vue'
 
 interface Props {
-  content: string
+  content: any
+  columns: Array<string>
   items: Array<string>
   verticalHeader?: boolean
   offset: number
 }
 
-withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<Props>(), {
   content: '',
   items: () => [],
   verticalHeader: true,
@@ -24,6 +26,8 @@ const rowClasses = computed(() => [
   'rpl-data-table__row',
   state.enabled ? 'rpl-data-table__row--open' : null
 ])
+
+const structuredContent = computed(() => Array.isArray(props.content))
 </script>
 
 <template>
@@ -33,6 +37,7 @@ const rowClasses = computed(() => [
         :is="index === 0 && verticalHeader ? 'th' : 'td'"
         v-for="(item, index) of items"
         :key="index"
+        :data-label="columns[index]"
         >{{ item }}</component
       >
       <td class="rpl-data-table__actions">
@@ -47,7 +52,25 @@ const rowClasses = computed(() => [
     </tr>
     <tr v-if="state.enabled" ref="r1" class="rpl-data-table__details">
       <td v-if="offset > 0" :colspan="offset"></td>
-      <td :colspan="items.length + 1 - offset">{{ content }}</td>
+      <td :colspan="items.length + 1 - offset">
+        <template v-if="structuredContent">
+          <div
+            v-for="(item, index) of content[0].items"
+            :key="index"
+            class="rpl-data-table__details-content"
+          >
+            <p>
+              <strong>{{ item.heading }}</strong>
+            </p>
+            <p>{{ item.content }}</p>
+          </div>
+        </template>
+        <RplContent
+          v-else
+          :html="content"
+          class="rpl-data-table__details-content"
+        ></RplContent>
+      </td>
     </tr>
   </tbody>
 </template>

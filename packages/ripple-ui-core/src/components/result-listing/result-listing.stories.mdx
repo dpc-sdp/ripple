@@ -4,29 +4,36 @@ import {
   Story,
   ArgsTable
 } from '@storybook/addon-docs'
-import RplResultListing from './result-listing.vue'
+import RplResultListing from './RplResultListing.vue'
+import RplResultListingItem from './RplResultListingItem.vue'
+import RplSearchResult from './RplSearchResult.vue'
 import { a11yStoryCheck } from './../../../stories/interactions.js'
 import RplList from '../list/list.vue'
 import RplIcon from '../icon/icon.vue'
 
 export const SingleTemplate = (args) => ({
-  components: { RplResultListing, RplList, RplIcon },
+  components: { RplResultListing, RplResultListingItem, RplSearchResult, RplList, RplIcon },
   setup() {
     return { args }
   },
   template: `
     <div class="rpl-storybook__page-content">
-      <RplResultListing
-        v-for="(item, index) of args.number"
-        :key="index"
-        v-bind="args"
-      >
-        <template v-if="args.meta" #meta>
-          ${args.meta}
-        </template>
-        <template v-if="args.details" #details>
-          ${args.details}
-        </template>
+      <RplResultListing>
+        <RplResultListingItem
+          v-for="(item, index) of args.number"
+          :key="index"
+        >
+          <RplSearchResult
+            v-bind="args"
+          >
+            <template v-if="args.meta" #meta>
+              ${args.meta}
+            </template>
+            <template v-if="args.details" #details>
+              ${args.details}
+            </template>
+          </RplSearchResult>
+        </RplResultListingItem>
       </RplResultListing>
     </div>
   `

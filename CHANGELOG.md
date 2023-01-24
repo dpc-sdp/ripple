@@ -3,6 +3,57 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.63](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.62...v2.1.0-alpha.63) (2023-01-24)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-search:** fixed results not displaying if no changed date ([65203ce](https://github.com/dpc-sdp/ripple-framework/commit/65203ced6cd8e29b9f7a846a48f1268e7d6b6b4c))
+* **@dpc-sdp/ripple-tide-search:** fixed search bar typography after autocomplete change ([2516d51](https://github.com/dpc-sdp/ripple-framework/commit/2516d51c66983360457de9519592caab113c99b6))
+* **@dpc-sdp/ripple-tide-search:** fixed up broken visual tests ([4af9bf9](https://github.com/dpc-sdp/ripple-framework/commit/4af9bf914df213de13ae6daadde86b1d99de5436))
+* **@dpc-sdp/ripple-ui-core:** fixed sitemap styles interfering with other components ([f2753ba](https://github.com/dpc-sdp/ripple-framework/commit/f2753ba8b17086efebcd06559717de2fce6296d3))
+* **@dpc-sdp/ripple-ui-core:** removed unused code breaking storybook build ([0a91c46](https://github.com/dpc-sdp/ripple-framework/commit/0a91c4687c2da698e6742f0c9fc698350235b6d5))
+* **@dpc-sdp/ripple-ui-forms:** fixed file casing issue breaking build ([9c8560b](https://github.com/dpc-sdp/ripple-framework/commit/9c8560b24043516063feb16f428abb42b9eb372b))
+* **@dpc-sdp/ripple-ui-forms:** fixed not all states being listed in address field ([9467f1a](https://github.com/dpc-sdp/ripple-framework/commit/9467f1a625b2d9be5c5adb40c29850bcf1537c59))
+* **@dpc-sdp/ripple-ui-forms:** fixed storybook snapshots ([1839dbb](https://github.com/dpc-sdp/ripple-framework/commit/1839dbb8a1e86ed13545507693e3f2b7ba53fa03))
+* **@dpc-sdp/ripple-ui-forms:** full list of states and territories for address field ([2b7b277](https://github.com/dpc-sdp/ripple-framework/commit/2b7b277e9e280acac1d4bb8934ebef9f675f44c6))
+* reverted change to includes ([efd7193](https://github.com/dpc-sdp/ripple-framework/commit/efd71934c67217f8b4191528ca6ca76e389e5d8b))
+
+
+### Features
+
+* **@dpc-sdp/nuxt-ripple:** added sitemap page and ui component ([22ae027](https://github.com/dpc-sdp/ripple-framework/commit/22ae027520ce5e09476b202a2fba8b8fe4d42cef))
+* **@dpc-sdp/ripple-tide-search:** :construction: add poc for autocomplete results ([29c5893](https://github.com/dpc-sdp/ripple-framework/commit/29c5893d7b53ed29a28769c11746ff2ae76f2948))
+* **@dpc-sdp/ripple-tide-search:** :recycle: move search logic to composable ([8326923](https://github.com/dpc-sdp/ripple-framework/commit/8326923cc0dcd500dbec68aaad1ca951e208feaf))
+* **@dpc-sdp/ripple-tide-search:** :sparkles: add ripple-tide-search package ([9e44605](https://github.com/dpc-sdp/ripple-framework/commit/9e44605a7a6f3392deedd5bbca381e17bf91c71a))
+* **@dpc-sdp/ripple-tide-search:** added filter form to search page ([b4724a4](https://github.com/dpc-sdp/ripple-framework/commit/b4724a4c7c52bbcca287a96799a2c7e43bbf4df2))
+* **@dpc-sdp/ripple-tide-search:** added pagination to search template ([297a32b](https://github.com/dpc-sdp/ripple-framework/commit/297a32b03ab55c7e6cd331955caf594098fcda2d))
+* **@dpc-sdp/ripple-tide-search:** added styling for refine search button ([394da0d](https://github.com/dpc-sdp/ripple-framework/commit/394da0d0c820ecf42a553d30adfa52d123622228))
+* **@dpc-sdp/ripple-tide-search:** changed search page to use TideBaseLayout for shared elements ([cdc8a75](https://github.com/dpc-sdp/ripple-framework/commit/cdc8a75a4c2c040742f9c8968933b9cd1c977ef2))
+* **@dpc-sdp/ripple-tide-search:** cleaned up search page styling ([83522c3](https://github.com/dpc-sdp/ripple-framework/commit/83522c3c8f1f7a5ba6979ebf95dc2371db6d4347))
+* **@dpc-sdp/ripple-tide-search:** cleaned up search poc code ([3079c62](https://github.com/dpc-sdp/ripple-framework/commit/3079c62af6c9901ac632df94162a9c6ad6ddd5d1))
+* **@dpc-sdp/ripple-tide-search:** cleanup up search page and results styling ([47d3afb](https://github.com/dpc-sdp/ripple-framework/commit/47d3afb07b658373f61026f5d237fdcef06bf0db))
+* **@dpc-sdp/ripple-tide-search:** extracted search page into a component with props ([ed6c00b](https://github.com/dpc-sdp/ripple-framework/commit/ed6c00b6f056694e6ef3aa998aca30f2c96947c9))
+* **@dpc-sdp/ripple-tide-search:** fixed up mapping of search page results ([9838ca4](https://github.com/dpc-sdp/ripple-framework/commit/9838ca47c70941c073e2a0361443faa560c4d25f))
+* **@dpc-sdp/ripple-tide-search:** integrated autocomplete with search bar ([486a123](https://github.com/dpc-sdp/ripple-framework/commit/486a1231d63c1ce6dbd9f9316dd905aa5deacf93))
+* **@dpc-sdp/ripple-tide-search:** updated search autocomplete to match design ([fbd9ef4](https://github.com/dpc-sdp/ripple-framework/commit/fbd9ef429629d0fc2426a585f44b564913d451d2))
+* **@dpc-sdp/ripple-tide-search:** updated search poc to nuxt layers module ([e236d9d](https://github.com/dpc-sdp/ripple-framework/commit/e236d9d6355de03e19d2f63e2cc9e0c9ec7b3b2e))
+* **@dpc-sdp/ripple-ui-forms:** added 'label' input mapping ([3922b43](https://github.com/dpc-sdp/ripple-framework/commit/3922b43d155808aa536813c71ce18fe99c4f8fdd))
+* **@dpc-sdp/ripple-ui-forms:** added mapping for advanced address field ([13fc641](https://github.com/dpc-sdp/ripple-framework/commit/13fc6414d00c35e4c6bc3eb7ddcb4deef7391d92))
+* **@dpc-sdp/ripple-ui-forms:** added nested grids and grid options for inputs ([df23b0f](https://github.com/dpc-sdp/ripple-framework/commit/df23b0f9abba6b2a13c26619284de3c3de8f686a))
+* **@dpc-sdp/ripple-ui-forms:** fixed submission of forms and address field ([174b9a6](https://github.com/dpc-sdp/ripple-framework/commit/174b9a6a6fe94d3cf2c63cdc35eb7bc6bf536141))
+* added cypress component testing for forms ([c4da43f](https://github.com/dpc-sdp/ripple-framework/commit/c4da43f3d6d4e4d77827faf934f34efe1ba3ecc7))
+* adds cypress component testing in ui core ([2372a8f](https://github.com/dpc-sdp/ripple-framework/commit/2372a8fdc2a92e0ad2841fb937460bccf258bfec))
+
+
+### Reverts
+
+* :rewind: restore docs view, addons on storybook ([f2c0d5f](https://github.com/dpc-sdp/ripple-framework/commit/f2c0d5ffdbe2c49b4b827be6fac933757c50dfc3))
+
+
+
+
+
 # [2.1.0-alpha.62](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.61...v2.1.0-alpha.62) (2023-01-12)
 
 **Note:** Version bump only for package root

@@ -73,13 +73,13 @@ const tidePublicationPageModule: RplTideMapping = {
         })),
       pagination: {
         prev: {
-          text: 'publication_navigation_prev.meta.title',
+          label: 'publication_navigation_prev.meta.title',
           url: 'publication_navigation_prev.meta.url',
           description:
             'publication_navigation_prev.meta.field_landing_page_summary'
         },
         next: {
-          text: 'publication_navigation_next.meta.title',
+          label: 'publication_navigation_next.meta.title',
           url: 'publication_navigation_next.meta.url',
           description:
             'publication_navigation_next.meta.field_landing_page_summary'

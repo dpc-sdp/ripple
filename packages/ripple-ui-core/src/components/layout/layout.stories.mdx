@@ -188,6 +188,88 @@ export const SidebarTemplate = (args) => ({
   `
 })
 
+
+export const BackToTopAndSkipLinksTemplate = (args) => ({
+  components: { RplLayout, RplPageComponent, RplSidebarComponent, RplCardGrid, sbSpacer },
+  setup() {
+    return { args }
+  },
+  template: `
+    <RplLayout v-bind="args" >
+      <template #aboveHeader>
+        <sb-spacer color="pink">#aboveHeader - Alerts go here <a href="#">Link to demonstrate skip links</a></sb-spacer>
+      </template>
+      <template #primaryNav>
+        <sb-spacer color="lightblue">#header - Primary nav goes here</sb-spacer>
+      </template>
+      <template #breadcrumbs>
+        <sb-spacer color="lightgreen">#breadcrumbs - Breadcrumbs go here</sb-spacer>
+      </template>
+      <template #aboveBody>
+        <RplPageComponent fullWidth="true">
+          <sb-spacer color="lightsalmon">#aboveBody - Campaign banner goes here <a href="#">Link to demonstrate skip links</a></sb-spacer>
+        </RplPageComponent>
+        <RplPageComponent fullWidth="true">
+          <sb-spacer color="lightsalmon">#aboveBody - Other banner goes here</sb-spacer>
+        </RplPageComponent>
+      </template>
+      <template #body="{ hasSidebar }">
+        <RplPageComponent>
+          <sb-spacer color="mistyrose">
+            #body components go here, they are really long and take up lots of space
+          </sb-spacer>
+        </RplPageComponent>
+          <RplPageComponent>
+            <sb-spacer color="peachpuff">
+              #body card
+            </sb-spacer>
+          </RplPageComponent>
+          <RplPageComponent>
+            <sb-spacer color="peachpuff">
+              #body card
+            </sb-spacer>
+          </RplPageComponent>
+          <RplPageComponent>
+            <sb-spacer color="peachpuff">
+              #body card
+            </sb-spacer>
+          </RplPageComponent>
+          <RplPageComponent>
+            <sb-spacer color="peachpuff">
+              #body card
+            </sb-spacer>
+          </RplPageComponent>
+          <RplPageComponent>
+            <sb-spacer color="peachpuff">
+              #body card
+            </sb-spacer>
+          </RplPageComponent>
+          <RplPageComponent>
+            <sb-spacer color="peachpuff">
+              #body card
+            </sb-spacer>
+          </RplPageComponent>
+        <RplPageComponent>
+          <sb-spacer color="mistyrose" :height="4000">
+            #body components go here, they are really long and take up lots of space
+          </sb-spacer>
+        </RplPageComponent>
+        <RplPageComponent>
+          <sb-spacer color="mistyrose">
+            #body components go here, they are really long and take up lots of space
+          </sb-spacer>
+        </RplPageComponent>
+      </template>
+      <template #belowBody>
+        <sb-spacer color="lightyellow">#belowBody - Content rating form goes here</sb-spacer>
+      </template>
+      <template #footer>
+        <sb-spacer color="aqua" :height="200">#footer - Site footer goes here</sb-spacer>
+      </template>
+    </RplLayout>
+  `
+})
+
 <Meta
   title='Core/Layout'
   component={RplLayout}
@@ -215,5 +297,14 @@ export const SidebarTemplate = (args) => ({
     play={a11yStoryCheck}
   >
     {SidebarTemplate.bind()}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    name='Back to top and skip links'
+    play={a11yStoryCheck}
+  >
+    {BackToTopAndSkipLinksTemplate.bind()}
   </Story>
 </Canvas>

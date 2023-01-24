@@ -1,5 +1,5 @@
 <template>
-  <div class="sb-spacer">
+  <div class="sb-spacer" :style="{ height: height ? `${height}px` : '100%' }">
     <slot></slot>
   </div>
 </template>
@@ -9,9 +9,11 @@ defineProps({
   color: {
     type: String,
     required: true
+  },
+  height: {
+    type: Number
   }
 })
-
 </script>
 
 <style scoped>

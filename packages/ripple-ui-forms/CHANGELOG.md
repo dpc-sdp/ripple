@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.63](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.62...v2.1.0-alpha.63) (2023-01-24)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-forms:** fixed file casing issue breaking build ([9c8560b](https://github.com/dpc-sdp/ripple-framework/commit/9c8560b24043516063feb16f428abb42b9eb372b))
+* **@dpc-sdp/ripple-ui-forms:** fixed storybook snapshots ([1839dbb](https://github.com/dpc-sdp/ripple-framework/commit/1839dbb8a1e86ed13545507693e3f2b7ba53fa03))
+
+
+### Features
+
+* **@dpc-sdp/ripple-tide-search:** added filter form to search page ([b4724a4](https://github.com/dpc-sdp/ripple-framework/commit/b4724a4c7c52bbcca287a96799a2c7e43bbf4df2))
+* **@dpc-sdp/ripple-tide-search:** cleaned up search page styling ([83522c3](https://github.com/dpc-sdp/ripple-framework/commit/83522c3c8f1f7a5ba6979ebf95dc2371db6d4347))
+* **@dpc-sdp/ripple-ui-forms:** added 'label' input mapping ([3922b43](https://github.com/dpc-sdp/ripple-framework/commit/3922b43d155808aa536813c71ce18fe99c4f8fdd))
+* **@dpc-sdp/ripple-ui-forms:** added mapping for advanced address field ([13fc641](https://github.com/dpc-sdp/ripple-framework/commit/13fc6414d00c35e4c6bc3eb7ddcb4deef7391d92))
+* **@dpc-sdp/ripple-ui-forms:** added nested grids and grid options for inputs ([df23b0f](https://github.com/dpc-sdp/ripple-framework/commit/df23b0f9abba6b2a13c26619284de3c3de8f686a))
+* added cypress component testing for forms ([c4da43f](https://github.com/dpc-sdp/ripple-framework/commit/c4da43f3d6d4e4d77827faf934f34efe1ba3ecc7))
+* adds cypress component testing in ui core ([2372a8f](https://github.com/dpc-sdp/ripple-framework/commit/2372a8fdc2a92e0ad2841fb937460bccf258bfec))
+
+
+
+
+
 # [2.1.0-alpha.61](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.60...v2.1.0-alpha.61) (2023-01-11)
 
 

@@ -9,6 +9,11 @@ export default defineNuxtConfig({
           // See https://nuxt.com/docs/api/configuration/nuxt-config#runtimeconfig for more info
           baseUrl: 'https://develop.content.reference.sdp.vic.gov.au',
           site: '8888'
+        },
+        appSearch: {
+          searchKey: '',
+          endpointBase: '',
+          engineName: ''
         }
       }
     }
@@ -21,6 +26,7 @@ export default defineNuxtConfig({
     '@dpc-sdp/ripple-tide-landing-page',
     '@dpc-sdp/ripple-tide-publication',
     '@dpc-sdp/ripple-tide-media',
-    '@dpc-sdp/ripple-tide-news'
+    '@dpc-sdp/ripple-tide-news',
+    '@dpc-sdp/ripple-tide-search'
   ]
 })

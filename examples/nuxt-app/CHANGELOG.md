@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.63](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.62...v2.1.0-alpha.63) (2023-01-24)
+
+
+### Features
+
+* **@dpc-sdp/ripple-tide-search:** :construction: add poc for autocomplete results ([29c5893](https://github.com/dpc-sdp/ripple-framework/commit/29c5893d7b53ed29a28769c11746ff2ae76f2948))
+* **@dpc-sdp/ripple-tide-search:** :sparkles: add ripple-tide-search package ([9e44605](https://github.com/dpc-sdp/ripple-framework/commit/9e44605a7a6f3392deedd5bbca381e17bf91c71a))
+* **@dpc-sdp/ripple-tide-search:** updated search poc to nuxt layers module ([e236d9d](https://github.com/dpc-sdp/ripple-framework/commit/e236d9d6355de03e19d2f63e2cc9e0c9ec7b3b2e))
+
+
+
+
+
 # [2.1.0-alpha.62](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.61...v2.1.0-alpha.62) (2023-01-12)
 
 **Note:** Version bump only for package nuxt-app

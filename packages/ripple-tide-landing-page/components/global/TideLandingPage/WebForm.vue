@@ -116,11 +116,29 @@ watch(
 </script>
 
 <template>
-  <RplFormAlert v-if="hideFormOnSubmit && submissionState.status === 'success'" ref="serverSuccessRef"
-    :status="submissionState.status" :title="submissionState.title" data-component-type="form-server-message">
-    <template #default>
-      <RplContent :html="submissionState.message" />
-    </template>
-  </RplFormAlert>
-  <RplForm v-else :id="formId" :schema="schema" :submissionState="submissionState" @submit="submitHandler" />
+  <div
+    :style="{
+      '--local-max-width': '595px'
+    }"
+  >
+    <RplFormAlert
+      v-if="hideFormOnSubmit && submissionState.status === 'success'"
+      ref="serverSuccessRef"
+      :status="submissionState.status"
+      :title="submissionState.title"
+      data-component-type="form-server-message"
+      :restrictWidth="true"
+    >
+      <template #default>
+        <RplContent :html="submissionState.message" />
+      </template>
+    </RplFormAlert>
+    <RplForm
+      v-else
+      :id="formId"
+      :schema="schema"
+      :submissionState="submissionState"
+      @submit="submitHandler"
+    />
+  </div>
 </template>

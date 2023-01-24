@@ -42,6 +42,7 @@ const shouldRenderChildren = computed(() => {
     :is="type"
     v-if="items.length > 0"
     :class="['rpl-list__items', containerClass ? containerClass : null]"
+    :data-depth="depth"
   >
     <li
       v-for="(item, index) of items"

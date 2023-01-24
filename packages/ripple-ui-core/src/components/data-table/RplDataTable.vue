@@ -58,7 +58,9 @@ props.items.map((j) => {
             <th v-for="(item, index) in columns" :key="index">
               {{ item }}
             </th>
-            <th class="rpl-data-table__actions"></th>
+            <th class="rpl-data-table__actions">
+              <span class="rpl-u-visually-hidden">Actions</span>
+            </th>
           </tr>
         </thead>
         <RplDataTableRow

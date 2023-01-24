@@ -29,7 +29,7 @@ defineExpose({ link })
     ref="link"
     class="rpl-text-link rpl-u-focusable-inline"
     :href="url"
-    @click="onClick()"
+    @click="onClick"
   >
     <slot>{{ text }}</slot>
   </a>

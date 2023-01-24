@@ -10,7 +10,11 @@ interface Props {
   showQuickExit: boolean
 }
 
-const props = withDefaults(defineProps<Props>(), {})
+withDefaults(defineProps<Props>(), {})
+
+const handleSubmit = (value) => {
+  window.location.href = `/search?q=${value}`
+}
 </script>
 
 <template>
@@ -25,6 +29,7 @@ const props = withDefaults(defineProps<Props>(), {})
         id="primary-nav-search"
         variant="menu"
         placeholder="Placeholder text"
+        @on-submit="handleSubmit"
       />
     </div>
   </div>

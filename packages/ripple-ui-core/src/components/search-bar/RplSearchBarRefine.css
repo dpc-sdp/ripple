@@ -1,0 +1,23 @@
+.rpl-search-bar-refine {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--rpl-sp-2);
+  box-sizing: border-box;
+  text-decoration: none;
+  color: var(--rpl-clr-link);
+
+  .rpl-icon {
+    transition: transform var(--rpl-motion-speed-6) linear;
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.rpl-search-bar-refine--expanded {
+  .rpl-icon {
+    transform: rotate(-180deg);
+  }
+}

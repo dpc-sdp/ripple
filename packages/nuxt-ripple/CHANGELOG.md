@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.63](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.62...v2.1.0-alpha.63) (2023-01-24)
+
+
+### Features
+
+* **@dpc-sdp/nuxt-ripple:** added sitemap page and ui component ([22ae027](https://github.com/dpc-sdp/ripple-framework/commit/22ae027520ce5e09476b202a2fba8b8fe4d42cef))
+* **@dpc-sdp/ripple-ui-forms:** fixed submission of forms and address field ([174b9a6](https://github.com/dpc-sdp/ripple-framework/commit/174b9a6a6fe94d3cf2c63cdc35eb7bc6bf536141))
+
+
+
+
+
 # [2.1.0-alpha.61](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.60...v2.1.0-alpha.61) (2023-01-11)
 
 **Note:** Version bump only for package @dpc-sdp/nuxt-ripple

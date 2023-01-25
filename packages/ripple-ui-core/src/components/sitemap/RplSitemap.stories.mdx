@@ -16,7 +16,7 @@ export const SingleTemplate = (args) => ({
 })
 
 <Meta
-  title='WIP/Components/Sitemap'
+  title='Core/Navigation/Sitemap'
   component={RplSitemap}
   args={{
     items: [
@@ -44,7 +44,19 @@ export const SingleTemplate = (args) => ({
                 url: '#',
                 items: [
                   { text: 'Sub child X', url: '#' },
-                  { text: 'Sub child Y', url: '#' },
+                  { text: 'Sub child Y',
+                    url: '#',
+                    items: [
+                      {
+                        text: 'Sub child YY',
+                        url: '#',
+                        items: [
+                          { text: 'Sub child YY', url: '#' },
+                          { text: 'Sub child YZ', url: '#' }
+                        ]
+                      }
+                    ]
+                  },
                   { text: 'Sub child Z', url: '#' }
                 ]
               },

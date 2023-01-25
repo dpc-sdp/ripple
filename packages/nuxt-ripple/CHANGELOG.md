@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.65](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.64...v2.1.0-alpha.65) (2023-01-25)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/nuxt-ripple:** fixed mailto link text and url swapped ([a045f89](https://github.com/dpc-sdp/ripple-framework/commit/a045f8940a49e53d5897236f82d9c919d7eebb7a))
+
+
+
+
+
 # [2.1.0-alpha.64](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.63...v2.1.0-alpha.64) (2023-01-24)
 
 **Note:** Version bump only for package @dpc-sdp/nuxt-ripple

@@ -31,9 +31,9 @@ withDefaults(defineProps<Props>(), {
       />
     </template>
     <template #title>
-      <h1 class="rpl-campaign-banner__title rpl-type-h2" data-cy="title">
+      <h2 class="rpl-campaign-banner__title rpl-type-h2" data-cy="title">
         {{ title }}
-      </h1>
+      </h2>
     </template>
     <slot></slot>
     <div class="rpl-campaign-banner__action">

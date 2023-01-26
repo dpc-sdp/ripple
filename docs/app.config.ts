@@ -1,6 +1,5 @@
-import { defineTheme } from '@nuxt-themes/config'
 import pkg from './package.json'
-export default defineTheme({
+export default defineAppConfig({
   title: 'Ripple',
   subheader: `Design your service using Ripple styles, components and patterns`,
   version: pkg.version,

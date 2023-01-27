@@ -24,8 +24,8 @@ importers:
       '@bahmutov/cypress-esbuild-preprocessor': ^2.1.5
       '@commitlint/cli': ^17.4.1
       '@commitlint/config-conventional': ^17.4.0
-      '@dpc-sdp/ripple-ui-core': 2.1.0-alpha.64
-      '@dpc-sdp/ripple-ui-forms': 2.1.0-alpha.64
+      '@dpc-sdp/ripple-ui-core': 2.1.0-alpha.67
+      '@dpc-sdp/ripple-ui-forms': 2.1.0-alpha.67
       '@jest/globals': ^29.3.1
       '@testing-library/vue': ^6.6.1
       '@types/jest': ^29.2.5
@@ -78,8 +78,8 @@ importers:
       '@bahmutov/cypress-esbuild-preprocessor': 2.1.5
       '@commitlint/cli': 17.4.2
       '@commitlint/config-conventional': 17.4.2
-      '@dpc-sdp/ripple-ui-core': 2.1.0-alpha.64
-      '@dpc-sdp/ripple-ui-forms': 2.1.0-alpha.64_vue@3.2.45
+      '@dpc-sdp/ripple-ui-core': link:packages/ripple-ui-core
+      '@dpc-sdp/ripple-ui-forms': link:packages/ripple-ui-forms
       '@jest/globals': 29.3.1
       '@testing-library/vue': 6.6.1_vue@3.2.45
       '@types/jest': 29.2.5
@@ -2635,75 +2635,6 @@ packages:
     engines: {node: '>=10.0.0'}
     dev: true
 
-  /@dpc-sdp/ripple-ui-core/2.1.0-alpha.64:
-    resolution: {integrity: sha512-q16lyAxQ6xuRTnaQIhItflA2WtLipHvuszfW0YUbjVYKzmfsvTBaKW60i1yN9D1xcQgs/fIgnYIdFkA5HNs7IQ==}
-    dependencies:
-      '@nuxt/kit': 3.0.0
-      '@vueuse/core': 9.10.0_vue@3.2.45
-      '@vueuse/integrations': 9.10.0_nn2zg2o47bujavotzgw5cgkzcu
-      date-fns: 2.29.3
-      focus-trap: 7.2.0
-      mitt: 3.0.0
-      normalize.css: 8.0.1
-      postcss-each: 1.1.0
-      postcss-for: 2.1.1
-      postcss-nested: 6.0.0
-      postcss-normalize: 10.0.1
-      postcss-preset-env: 7.8.3
-      swiper: 8.4.5
-      vite-svg-loader: 4.0.0
-      vue: 3.2.45
-    transitivePeerDependencies:
-      - '@vue/composition-api'
-      - async-validator
-      - axios
-      - browserslist
-      - change-case
-      - drauu
-      - fuse.js
-      - idb-keyval
-      - jwt-decode
-      - nprogress
-      - postcss
-      - qrcode
-      - rollup
-      - supports-color
-      - universal-cookie
-    dev: true
-
-  /@dpc-sdp/ripple-ui-forms/2.1.0-alpha.64_vue@3.2.45:
-    resolution: {integrity: sha512-6G3K43s8+3Yvz8UZl60RQ9uhvlD92rQXxRn43HAcBrHChR1+KXChAE7qR10ZVy1AdQmF4evBzvZpKpzsQM/ZtQ==}
-    dependencies:
-      '@dpc-sdp/ripple-ui-core': 2.1.0-alpha.64
-      '@formkit/inputs': 1.0.0-beta.12
-      '@formkit/nuxt': 1.0.0-beta.12_vue@3.2.45
-      '@formkit/validation': 1.0.0-beta.12
-      '@formkit/vue': 1.0.0-beta.12_vue@3.2.45
-      '@nuxt/kit': 3.0.0
-      '@vueuse/core': 9.10.0_vue@3.2.45
-      date-fns: 2.29.3
-    transitivePeerDependencies:
-      - '@vue/composition-api'
-      - async-validator
-      - axios
-      - browserslist
-      - change-case
-      - drauu
-      - fuse.js
-      - idb-keyval
-      - jwt-decode
-      - nprogress
-      - postcss
-      - qrcode
-      - rollup
-      - supports-color
-      - tailwindcss
-      - universal-cookie
-      - unocss
-      - vue
-      - windicss
-    dev: true
-
   /@elastic/app-search-javascript/8.5.1:
     resolution: {integrity: sha512-eajUuoTTZQ01rSOKa6uJIS6l0dnq+k/i3OqWyooaQ0lBPrk5nEw730I7wRvEMg/PsAcyvsUvebkehaj0sg5GUA==}
     dependencies:
@@ -3085,12 +3016,14 @@ packages:
     resolution: {integrity: sha512-/Pod7k4N58eDOG+0LE0ccV7BOYD5sEA4RqaRNJn9m6Jg9nF/JATmSNL46kVCH3mV6sSoV045L3Zir8//rya0Lw==}
     dependencies:
       '@formkit/utils': 1.0.0-beta.12
+    dev: false
 
   /@formkit/dev/1.0.0-beta.12:
     resolution: {integrity: sha512-0d0RMZBp93zkUutH65u1ba8eD8A5zqboqdfK5/BGvMGsDLfN5IJCC/kdCY3hxyQhhHquwYS2rPv1o5XFJJ7Pkg==}
     dependencies:
       '@formkit/core': 1.0.0-beta.12
       '@formkit/utils': 1.0.0-beta.12
+    dev: false
 
   /@formkit/i18n/1.0.0-beta.12:
     resolution: {integrity: sha512-ul9nE/ORtpIxHgT3B6uCoxmKJnr6MhAdGnXPpX64q1Tx8ePh73Nm6Cm4KxE5GYkFVNpI/KfxUs5D/icHMO73tg==}
@@ -3098,11 +3031,13 @@ packages:
       '@formkit/core': 1.0.0-beta.12
       '@formkit/utils': 1.0.0-beta.12
       '@formkit/validation': 1.0.0-beta.12
+    dev: false
 
   /@formkit/inputs/1.0.0-beta.12:
     resolution: {integrity: sha512-aUejQw5amEG/Q3sORxlp4kHvAQdoxk4RyNKbU3etziAB9Ytz2E3WaU7TDcGVqjNlvcvrweL1Ou4V0WPmIDn+zQ==}
     dependencies:
       '@formkit/core': 1.0.0-beta.12
+    dev: false
 
   /@formkit/nuxt/1.0.0-beta.12_vue@3.2.45:
     resolution: {integrity: sha512-i3RBcqPmMAlQc4tNsjoiWf4PCaLYDqZS0ww6rEVfj/eDvVgh4X8CkKI/U0b+WCSlblX3jTNaDtEHlProxocLkQ==}
@@ -3113,12 +3048,14 @@ packages:
       - unocss
       - vue
       - windicss
+    dev: false
 
   /@formkit/observer/1.0.0-beta.12:
     resolution: {integrity: sha512-kXVWUkjbNsymwv50QuI5thjlCknGy8azPlzepTDj3fsuZANuHG8qaj3W5h9mY6cCgvil4d4WeBz5f54iJsaEXA==}
     dependencies:
       '@formkit/core': 1.0.0-beta.12
       '@formkit/utils': 1.0.0-beta.12
+    dev: false
 
   /@formkit/rules/1.0.0-beta.12:
     resolution: {integrity: sha512-i0puOJwnQVBEbYrrjvnKa3Y61AKa67BI5xkILoj7lxe7GLuodakK0J8Fd4svxa0wKMDj+GPzaDroFYT6L2TN1w==}
@@ -3126,6 +3063,7 @@ packages:
       '@formkit/core': 1.0.0-beta.12
       '@formkit/utils': 1.0.0-beta.12
       '@formkit/validation': 1.0.0-beta.12
+    dev: false
 
   /@formkit/themes/1.0.0-beta.12:
     resolution: {integrity: sha512-r/nJ/R9VKijOZ0awmb/IBiPNvgZl/Vb1iXifij+LaZJ78djK8ou2mfzQ8hNYDliMsE7fzIFVhIkDhcEXywwbRA==}
@@ -3142,15 +3080,18 @@ packages:
         optional: true
     dependencies:
       '@formkit/core': 1.0.0-beta.12
+    dev: false
 
   /@formkit/utils/1.0.0-beta.12:
     resolution: {integrity: sha512-L2P221teC+58Y1A4TZpJsLt/Y+WErLxbBt4hH6XhokssVX7mYR56YWienY9StN5jmiGVWtcK1+riXCb0n1aMOA==}
+    dev: false
 
   /@formkit/validation/1.0.0-beta.12:
     resolution: {integrity: sha512-ZSD5llsfSqXfIYMtSeeDwx7h421JCKobi00RxpGJkuHgpnAi3oxTJB7J6u+3pMrO9BqcidGtk5G/rk9F4fCNEw==}
     dependencies:
       '@formkit/core': 1.0.0-beta.12
       '@formkit/observer': 1.0.0-beta.12
+    dev: false
 
   /@formkit/vue/1.0.0-beta.12_vue@3.2.45:
     resolution: {integrity: sha512-v5x3me7W5HYVCzJuj730Wo4CaNdMytRrSd9huixTN6e9ujwboefWQzT7aMfVbI3tSg2M+5+MXmgke35wxzcYtA==}
@@ -3171,6 +3112,7 @@ packages:
       - tailwindcss
       - unocss
       - windicss
+    dev: false
 
   /@gar/promisify/1.1.3:
     resolution: {integrity: sha512-k2Ty1JcVojjJFwrg/ThKi2ujJ7XNLYaFGNB/bWT9wGR+oSMJHMa5w+CUq6p/pVrKeNNgA7pCqEcjSnHVoqJQFw==}
@@ -8112,6 +8054,7 @@ packages:
 
   /@types/web-bluetooth/0.0.16:
     resolution: {integrity: sha512-oh8q2Zc32S6gd/j50GowEjKLoOVOwHP/bWVjKJInBwQqdOYMdPrf1oVlelTlyfFK3CKxL1uahMDAr+vy8T7yMQ==}
+    dev: false
 
   /@types/webpack-env/1.18.0:
     resolution: {integrity: sha512-56/MAlX5WMsPVbOg7tAxnYvNYMMWr/QJiIp6BxVSW3JJXUVzzOn64qW8TzQyMSqSUFM2+PVI4aUHcHOzIz/1tg==}
@@ -8601,6 +8544,7 @@ packages:
     transitivePeerDependencies:
       - '@vue/composition-api'
       - vue
+    dev: false
 
   /@vueuse/head/1.0.22_vue@3.2.45:
     resolution: {integrity: sha512-YmUdbzNdCnhmrAFxGnJS+Rixj+swE+TQC9OEaYDHIro6gE7W11jugcdwVP00HrA4WRQhg+TOQ4YcY2oL/PP1hw==}
@@ -8659,9 +8603,11 @@ packages:
     transitivePeerDependencies:
       - '@vue/composition-api'
       - vue
+    dev: false
 
   /@vueuse/metadata/9.10.0:
     resolution: {integrity: sha512-G5VZhgTCapzU9rv0Iq2HBrVOSGzOKb+OE668NxhXNcTjUjwYxULkEhAw70FtRLMZc+hxcFAzDZlKYA0xcwNMuw==}
+    dev: false
 
   /@vueuse/shared/9.10.0_vue@3.2.45:
     resolution: {integrity: sha512-vakHJ2ZRklAzqmcVBL38RS7BxdBA4+5poG9NsSyqJxrt9kz0zX3P5CXMy0Hm6LFbZXUgvKdqAS3pUH1zX/5qTQ==}
@@ -8670,6 +8616,7 @@ packages:
     transitivePeerDependencies:
       - '@vue/composition-api'
       - vue
+    dev: false
 
   /@webassemblyjs/ast/1.11.1:
     resolution: {integrity: sha512-ukBh14qFLjxTQNTXocdyksN5QdM28S1CxHt2rdskFyL+xFV7VremuBLVbmCePj+URalXBENx/9Lm7lnhihtCSw==}
@@ -12241,6 +12188,7 @@ packages:
   /date-fns/2.29.3:
     resolution: {integrity: sha512-dDCnyH2WnnKusqvZZ6+jA1O51Ibt8ZMRNkDZdyAyK4YfbDwa/cEmuztzG5pk6hqlp9aSBPYcjOlktquahGwGeA==}
     engines: {node: '>=0.11'}
+    dev: false
 
   /dateformat/3.0.3:
     resolution: {integrity: sha512-jyCETtSl3VMZMWeRo7iY1FL19ges1t55hMo5yaam4Jrsm5EPL89UQkoQRyiI+Yf4k8r2ZpdngkV8hr1lIdjb3Q==}
@@ -12725,6 +12673,7 @@ packages:
     resolution: {integrity: sha512-DSSgBzQ4rJWQp1u6o+3FVwMNnT5bzQbMb+o31TjYYeRi05uAcpF8koxdfzeoe5ElzPmua7W7N28YJhF7iEKqIw==}
     dependencies:
       ssr-window: 4.0.2
+    dev: false
 
   /domain-browser/1.2.0:
     resolution: {integrity: sha512-jnjyiM6eRyZl2H+W8Q/zLMA481hzi0eszAaBUzIVnmYVDBbnLxVNnfu1HgEBvCbL+71FrxMl3E6lpKH7Ge3OXA==}
@@ -14589,6 +14538,7 @@ packages:
     resolution: {integrity: sha512-v4wY6HDDYvzkBy4735kW5BUEuw6Yz9ABqMYLuTNbzAFPcBOGiGHwwcNVMvUz4G0kgSYh13wa/7TG3XwTeT4O/A==}
     dependencies:
       tabbable: 6.0.1
+    dev: false
 
   /follow-redirects/1.15.2:
     resolution: {integrity: sha512-VQLG33o04KaQ8uYi2tVNbdrWp1QWxNNea+nmIB4EVM28v0hmP17z7aG1+wAkNzVq4KeXTq3221ye5qTJP91JwA==}
@@ -19969,6 +19919,7 @@ packages:
 
   /mitt/3.0.0:
     resolution: {integrity: sha512-7dX2/10ITVyqh4aOSVI9gdape+t9l2/8QxHrFmUXu4EEUpdlxl6RudZUPZoc+zuY2hk1j7XxVroIVIan/pD/SQ==}
+    dev: false
 
   /mixin-deep/1.3.2:
     resolution: {integrity: sha512-WRoDn//mXBiJ1H40rqa3vH0toePwSsGb45iInWlTySa+Uu4k3tYUSxa2v1KqAiLtvlrSzaExqS1gtk96A9zvEA==}
@@ -20494,6 +20445,7 @@ packages:
 
   /normalize.css/8.0.1:
     resolution: {integrity: sha512-qizSNPO93t1YUuUhP22btGOo3chcvDFqFaj2TRybP0DMxkHOCTYwp3n34fel4a31ORXy4m1Xq0Gyqpb5m33qIg==}
+    dev: false
 
   /npm-bundled/1.1.2:
     resolution: {integrity: sha512-x5DHup0SuyQcmL3s7Rx/YQ8sbw/Hzg0rj48eN0dV7hf5cmQq5PXIeioroH3raV1QC1yh3uTYuMThvEQF3iKgGQ==}
@@ -21944,6 +21896,7 @@ packages:
       postcss: ^8.0.0
     dependencies:
       postcss-simple-vars: 6.0.3
+    dev: false
 
   /postcss-env-function/4.0.6:
     resolution: {integrity: sha512-kpA6FsLra+NqcFnL81TnsU+Z7orGtDTxcOhl6pwXeEq1yFPpRMkCDpHhrz8CFQDr/Wfm0jLiNQ1OsGGPjlqPwA==}
@@ -22592,6 +22545,7 @@ packages:
     engines: {node: '>=10.0'}
     peerDependencies:
       postcss: ^8.2.1
+    dev: false
 
   /postcss-svgo/5.1.0_postcss@8.4.21:
     resolution: {integrity: sha512-D75KsH1zm5ZrHyxPakAxJWtkyXew5qwS70v56exwvw542d9CRtTo78K0WeFxZB4G7JXKKMbEZtZayTGdIky/eA==}
@@ -24845,6 +24799,7 @@ packages:
 
   /ssr-window/4.0.2:
     resolution: {integrity: sha512-ISv/Ch+ig7SOtw7G2+qkwfVASzazUnvlDTwypdLoPoySv+6MqlOV10VwPSE6EWkGjhW50lUmghPmpYZXMu/+AQ==}
+    dev: false
 
   /ssri/6.0.2:
     resolution: {integrity: sha512-cepbSq/neFK7xB6A50KHN0xHDotYzq58wWCa5LeWqnPrHG8GzfEjO/4O8kpmcGW+oaxkvhEJCWgbgNk4/ZV93Q==}
@@ -25458,6 +25413,7 @@ packages:
     dependencies:
       dom7: 4.0.4
       ssr-window: 4.0.2
+    dev: false
 
   /symbol-observable/1.2.0:
     resolution: {integrity: sha512-e900nM8RRtGhlV36KGEU9k65K3mPb1WV70OdjfxlG2EAuM1noi/E/BaW/uMhL7bPEssK8QV57vN3esixjUvcXQ==}
@@ -25484,6 +25440,7 @@ packages:
 
   /tabbable/6.0.1:
     resolution: {integrity: sha512-SYJSIgeyXW7EuX1ytdneO5e8jip42oHWg9xl/o3oTYhmXusZVgiA+VlPvjIN+kHii9v90AmzTZEBcsEvuAY+TA==}
+    dev: false
 
   /table/6.8.1:
     resolution: {integrity: sha512-Y4X9zqrCftUhMeH2EptSSERdVKt/nEdijTOacGD/97EKjhQ/Qs8RTlEGABSJNNN8lac9kheH+af7yAkEWlgneA==}
@@ -27379,6 +27336,7 @@ packages:
         optional: true
     dependencies:
       vue: 3.2.45
+    dev: false
 
   /vue-devtools-stub/0.1.0:
     resolution: {integrity: sha512-RutnB7X8c5hjq39NceArgXg28WZtZpGc3+J16ljMiYnFhKvd8hITxSWQSQ5bvldxMDU6gG5mkxl1MTQLXckVSQ==}

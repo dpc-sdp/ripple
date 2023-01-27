@@ -6,7 +6,8 @@ export default defineNuxtConfig({
     '@dpc-sdp/ripple-ui-core/nuxt',
     '@nuxt/content',
     '@nuxtjs/tailwindcss',
-    '@nuxtjs/color-mode'
+    '@nuxtjs/color-mode',
+    'nuxt-component-meta'
   ],
   colorMode: {
     classSuffix: ''

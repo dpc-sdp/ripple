@@ -1,8 +1,9 @@
 <script lang="ts" setup>
-const { data: navigation } = await useAsyncData('navigation', () =>
-  fetchContentNavigation(queryContent('pages').where({ pinned: true }))
-)
 const { title, version, socials } = useAppConfig()
+const { data: navigation } = await useAsyncData('equal', () => {
+  return queryContent('/').where({ pinned: true }).find()
+})
+
 </script>
 
 <template>
@@ -15,10 +16,11 @@ const { title, version, socials } = useAppConfig()
       </span>
       <span class="flex text-xs text-gray-700 dark:text-gray-400">v{{ version }}</span>
     </a>
-    <div class="flex justify-between max-w-4xl mx-auto">
+    <div class="flex justify-between max-w-4xl mx-auto items-center">
       <!-- Navigation -->
-      <div class="text-primary-700 dark:text-primary-200">
-        <NuxtLink v-for="link of navigation" :key="link._path" :to="link._path" active-class="font-bold" class="mr-6">
+      <div class="text-primary-700 dark:text-gray-200 rpl-type-label-small ">
+        <NuxtLink v-for="link of navigation" :key="link._path" :to="link._path" active-class="rpl-type-weight-bold"
+          class="mr-6">
           {{ link.title }}
         </NuxtLink>
       </div>

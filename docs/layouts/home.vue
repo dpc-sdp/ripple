@@ -57,9 +57,6 @@
         <a href="https://www.netlify.com">
           <img :src="netlifyImg" alt="Deploys by Netlify" />
         </a>
-        <a href="/getting-started/developers"> Developers </a>
-        <a href="/getting-started/designers"> Designers </a>
-        <a href="/components/content-containers/alert"> Alert component </a>
       </footer>
     </Container>
   </AppLayout>

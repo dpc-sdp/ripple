@@ -1,9 +1,6 @@
 <template>
-  <div class="my-8 docs-component-example flex content-center rounded-md">
-    <div
-      class="docs-component-example__inner m-auto p-4 space-x-4"
-      :class="innerClasses"
-    >
+  <div class="my-8 docs-component-example flex content-center rounded-md w-full">
+    <div class="docs-component-example__inner m-auto p-4 space-x-4" :class="innerClasses">
       <slot></slot>
     </div>
   </div>
@@ -23,8 +20,7 @@ const innerClasses = props.fullWidth
 
 <style>
 .docs-component-example {
-  background: repeating-conic-gradient(#eee 0% 25%, transparent 0% 50%) 50% /
-    20px 20px;
+  background: repeating-conic-gradient(#eee 0% 25%, transparent 0% 50%) 50% / 20px 20px;
   font-family: var(--rpl-type-font-family) !important;
 }
 </style>

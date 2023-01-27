@@ -1,12 +1,8 @@
 <template>
   <div>
     <div class="flex h-full items-center mt-4 content-end">
-      <label class="rpl-type-label rpl-type-weight-bold mr-2"
-        >Select variant</label
-      >
-      <select
-        style="background-position: right 1rem center"
-        class="
+      <label class="rpl-type-label rpl-type-weight-bold mr-2">Select variant</label>
+      <select style="background-position: right 1rem center" class="
           focus:ring-indigo-500
           focus:border-indigo-500
           py-1
@@ -17,9 +13,7 @@
           text-gray-800
           sm:text-sm
           rounded-md
-        "
-        v-model="selected"
-      >
+        " v-model="selected">
         <option v-for="(opt, idx) in variants" :key="`opt-{idx}`" :value="idx">
           {{ opt.variantName }}
         </option>
@@ -30,15 +24,64 @@
     </component-example>
     <div v-if="showProps" class="my-4">
       <h4>Props</h4>
-      <div class="prose prose-slate overflow-hidden my-8 max-w-full">
-        <table class="border-collapse table-auto w-full text-sm">
+      <div class="rpl-table my-8">
+        <div class="rpl-table__scroll-container">
+          <table class="w-full">
+            <thead>
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Required</th>
+                <th scope="col">Type</th>
+                <th scope="col">Options</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="prop in selectedVariantProps">
+                <td>
+                  {{ prop.name }}
+                </td>
+                <td>
+                  {{ prop.description }}
+                </td>
+                <td>
+                  {{ prop.required }}
+                </td>
+                <td>
+                  {{ prop.type }}
+                </td>
+                <td>
+                  {{ getOptionsFromSchema(prop) }}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <!-- TODO - refactor this into a component -->
+    <div v-if="showEvents" class="my-4">
+      <h4>Events</h4>
+
+      <div class="rpl-table my-8">
+        <table class="w-full">
+          <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Description</th>
+              <th scope="col">Type</th>
+            </tr>
+          </thead>
           <tbody>
-            <tr v-for="(propValue, propKey) in selectedVariantProps">
-              <td class="rpl-type-label-small rpl-type-weight-bold">
-                {{ propKey }}
+            <tr v-for="prop in selectedVariantEvents">
+              <td>
+                {{ prop.name }}
               </td>
               <td>
-                {{ propValue }}
+                {{ prop.description }}
+              </td>
+              <td>
+                {{ prop.type }}
               </td>
             </tr>
           </tbody>
@@ -50,24 +93,44 @@
 
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import AppSelect1 from '../app/AppSelect.vue'
-const props = defineProps({
-  component: String,
-  variants: Array,
-  showProps: Boolean
+import { NuxtComponentMetaNames } from '#nuxt-component-meta/types'
+
+
+interface Props {
+  component: string
+  variants: string[]
+  showProps?: boolean
+  showEvents?: boolean
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  showProps: true,
+  showEvents: true
 })
+
+
+const specificComponentName = ref<NuxtComponentMetaNames>(props.component)
+const specificComponentMeta = await useComponentMeta(specificComponentName)
+
+
+
 const selected = ref(0)
 const selectedVariant = computed(() => {
   return props.variants[selected.value]
 })
 const selectedVariantProps = computed(() => {
-  const removeKey = (obj, prop) => {
-    let { [prop]: omit, ...res } = obj
-    return res
+  return specificComponentMeta.value?.meta.props
+})
+const selectedVariantEvents = computed(() => {
+  return specificComponentMeta.value?.meta.events
+})
+
+const getOptionsFromSchema = (prop => {
+  if (prop.schema?.schema) {
+    if (prop.schema?.kind === 'enum') {
+      return prop.schema?.schema.filter(itm => itm !== 'undefined').join(', ')
+    }
   }
-  if (selectedVariant) {
-    return removeKey(selectedVariant.value, 'variantName')
-  }
-  return selectedVariant
+  return ''
 })
 </script>

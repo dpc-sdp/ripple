@@ -7,10 +7,6 @@ links:
   storybook: https://uat--624ac117357335003a84dac3.chromatic.com/?path=/docs/core-containers-alert--information
 ---
 
-## Overview
-
-Used to attract the attention of users with important messages or required actions and typically appear at the top of pages. Users are still able to interact with the page below Alerts.
-
 
 ### Anatomy
 
@@ -28,8 +24,7 @@ Used to attract the attention of users with important messages or required actio
 ## Variants
 ::component-explorer
 ---
-  component: rpl-alert
-  showProps: true
+  component: RplAlert
   variants:
     - 
       variantName: 'Information'
@@ -59,18 +54,9 @@ Used to attract the attention of users with important messages or required actio
 ::
 
 
-
-
-
-## Events
-
-| Key       | Type    |
-| --------- | ------- |
-| `dismiss` | Boolean |
-
-
-
 ## Usage
+
+
 
 ### Design usage
 

@@ -28,9 +28,16 @@
       </template>
       <template v-if="details.length > 0">
         <dt class="rpl-description-list__term">Details:</dt>
-        <dd class="rpl-description-list__description" data-component-type="tide-event__details">
+        <dd
+          class="rpl-description-list__description"
+          data-component-type="tide-event__details"
+        >
           <ul>
-            <li v-for="(feature, i) in details" :key="i" class="tide-event__feature">
+            <li
+              v-for="(feature, i) in details"
+              :key="i"
+              class="tide-event__feature"
+            >
               {{ expandDetail(feature) }}
             </li>
           </ul>
@@ -45,7 +52,8 @@
 
 <script setup lang="ts">
 import { TideEventLink, TideEventDate } from '../types'
-import { formatDateRange, expandDetail } from '#imports'
+import { formatDateRange } from '@dpc-sdp/ripple-ui-core'
+import { expandDetail } from '#imports'
 import { computed } from 'vue'
 
 interface Props {
@@ -59,7 +67,9 @@ interface Props {
 
 const props = defineProps<Props>()
 
-const displayDate = computed(() => formatDateRange(props.date, props.showTime))
+const displayDate = computed(() =>
+  formatDateRange(props.date, {}, props.showTime)
+)
 </script>
 
 <style>

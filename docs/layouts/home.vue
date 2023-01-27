@@ -50,7 +50,7 @@
           </template>
         </BlockHero>
 
-        <ContentRenderer tag="RplContent" v-if="page" :key="page._id" :value="page">
+        <ContentRenderer tag="RplContent" v-if="page && !page._empty" :key="page._id" :value="page">
         </ContentRenderer>
       </main>
       <footer>

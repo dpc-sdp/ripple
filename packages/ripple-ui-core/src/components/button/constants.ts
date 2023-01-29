@@ -3,6 +3,7 @@ export const RplButtonVariants = [
   'filled',
   'outlined',
   'white',
+  'transparent',
   'elevated',
   'destructive',
   'none'

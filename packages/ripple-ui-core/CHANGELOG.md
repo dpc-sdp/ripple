@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.69](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.68...v2.1.0-alpha.69) (2023-01-29)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** :bug: add accessible title ([de55d08](https://github.com/dpc-sdp/ripple-framework/commit/de55d08e9e1c3791aaa24f085dbd9a483e317213))
+
+
+### Features
+
+* **@dpc-sdp/ripple-ui-core:** :sparkles: add data table component build ([3a4d50c](https://github.com/dpc-sdp/ripple-framework/commit/3a4d50cfdfae22412cf8cc281418cc626c45a50b))
+* **@dpc-sdp/ripple-ui-core:** :sparkles: normalise props, add mobile, add structured data option ([7dcc3aa](https://github.com/dpc-sdp/ripple-framework/commit/7dcc3aaf2e76e5d292571353b4e603693c1a0c43))
+
+
+
+
+
 # [2.1.0-alpha.67](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.66...v2.1.0-alpha.67) (2023-01-27)
 
 **Note:** Version bump only for package @dpc-sdp/ripple-ui-core

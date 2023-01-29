@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.69](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.68...v2.1.0-alpha.69) (2023-01-29)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-grant:** :alien: update mapping for heading intro text ([0135e5f](https://github.com/dpc-sdp/ripple-framework/commit/0135e5fed76f200152b33909f85f4af0622abaea))
+
+
+
+
+
 # [2.1.0-alpha.67](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.66...v2.1.0-alpha.67) (2023-01-27)
 
 **Note:** Version bump only for package @dpc-sdp/ripple-tide-grant

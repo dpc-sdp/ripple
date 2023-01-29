@@ -21,7 +21,7 @@ const props = withDefaults(defineProps<Props>(), {
 const subtitle = (item: RplTimelineItem) => {
   if (item.dateStart && item.dateEnd) {
     // Format raw dates
-    return formatDateRange(item.dateStart, item.dateEnd)
+    return formatDateRange({ from: item.dateStart, to: item.dateEnd })
   } else if (item.subtitle) {
     return item.subtitle
   }

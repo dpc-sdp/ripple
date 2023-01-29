@@ -127,8 +127,8 @@ Feature: Home page
     Then a timeline with ID "992" should exist with the title "Test timeline title"
     Then a timeline with ID "992" should exist with the following items
       | title             | date                     | summary                   | url                 | image                                                                                                                  |
-      | Milestone 1 title | 02 June - 11 November    | Milestone 1 summary field | /test-destination-1 | https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/VicFleet-Police-car-on-road.jpg |
-      | Milestone 2 title | 04 October - 17 November | Milestone 2 summary field | /test-destination-2 |                                                                                                                        |
+      | Milestone 1 title | 2 June to 11 November    | Milestone 1 summary field | /test-destination-1 | https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/VicFleet-Police-car-on-road.jpg |
+      | Milestone 2 title | 4 October to 17 November | Milestone 2 summary field | /test-destination-2 |                                                                                                                        |
       | Milestone 3 title |                          | Milestone 3 text          |                     |                                                                                                                        |
 
   @mockserver
@@ -148,7 +148,7 @@ Feature: Home page
   Scenario: Page component - Card carousel
     Given a card carousel with ID "1155" should exist with the following promo cards
       | title           | date            | content                | url          | image                                                                                                                             |
-      | Sample title    | 01 Dec - 31 Dec | Sample Card Summary    | /sample-page | https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Aerial-shot-of-new-housing-development.jpg |
+      | Sample title    | 1 Dec to 31 Dec | Sample Card Summary    | /sample-page | https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Aerial-shot-of-new-housing-development.jpg |
       | Promotion title | 3 Nov 2022      | Promotion Card summary | /promo-page  | https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Engage-Vic-photo-hero.jpeg                 |
     And the card carousel with ID "1155" should contain a key dates card with the title "Key calendar dates" and the following entries
       | title        | subtitle       | content       |

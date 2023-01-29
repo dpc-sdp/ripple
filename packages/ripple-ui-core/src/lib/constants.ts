@@ -17,3 +17,8 @@ export interface RplLink {
 export interface RplLinkExtended extends RplLink {
   description: string
 }
+
+export type RplDateRange = {
+  from: string | number
+  to: string | number
+}

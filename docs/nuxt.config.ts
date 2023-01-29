@@ -12,6 +12,14 @@ export default defineNuxtConfig({
   colorMode: {
     classSuffix: ''
   },
+  nitro: {
+    prerender: {
+      routes: [
+        // All component meta routes need prerendering
+        '/api/component-meta/RplAlert'
+      ]
+    }
+  },
   // https://content.nuxtjs.org
   content: {
     navigation: {

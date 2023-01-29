@@ -10,7 +10,6 @@ export {
 } from './mapping/tide-page-base-mapping.js'
 export * from './mapping/index.js'
 export * from './utils/define-module.js'
-export * from './utils/formatDateRange.js'
 export * from './utils/formatPriceRange.js'
 export {
   addAnchorLinksToHTML,

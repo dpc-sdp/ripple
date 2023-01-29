@@ -18,7 +18,7 @@ Feature: Grant page
 
   @mockserver
   Scenario: Timeline
-    And the first timeline item should have a date of "01 January"
+    And the first timeline item should have a date of "1 January 2020"
 
   @mockserver
   Scenario: Guidelines

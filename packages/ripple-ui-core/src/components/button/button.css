@@ -55,7 +55,8 @@
     }
   }
 
-  &--white {
+  &--white,
+  &--transparent {
     --local-border-width: var(--rpl-border-1);
 
     color: var(--local-white-type-clr);
@@ -71,6 +72,11 @@
     &:hover {
       text-decoration: none;
     }
+  }
+
+  /* stylelint-disable-next-line no-descending-specificity */
+  &--transparent {
+    background-color: transparent;
   }
 
   &--elevated {

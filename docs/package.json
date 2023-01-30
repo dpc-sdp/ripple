@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "docs",
-  "version": "2.1.0-alpha.69",
+  "version": "2.1.0-alpha.70",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
@@ -19,6 +19,6 @@
     "nuxt-component-meta": "^0.4.3"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-ui-core": "2.1.0-alpha.69"
+    "@dpc-sdp/ripple-ui-core": "2.1.0-alpha.70"
   }
 }

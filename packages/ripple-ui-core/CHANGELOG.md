@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.70](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.69...v2.1.0-alpha.70) (2023-01-30)
+
+
+### Features
+
+* **@dpc-sdp/ripple-ui-core:** :sparkles: add tabs component ([a9ce66d](https://github.com/dpc-sdp/ripple-framework/commit/a9ce66d226cdbdde667dc548d3af648da30eae82))
+
+
+
+
+
 # [2.1.0-alpha.69](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.68...v2.1.0-alpha.69) (2023-01-29)
 
 

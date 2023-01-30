@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.70](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.69...v2.1.0-alpha.70) (2023-01-30)
+
+
+### Bug Fixes
+
+* **docs:** remove render on empty ([2560fcb](https://github.com/dpc-sdp/ripple-framework/commit/2560fcba74e0bee266790258d9e77ef08d79a470))
+
+
+### Features
+
+* **docs:** :bug: fix props table generation ([f542b48](https://github.com/dpc-sdp/ripple-framework/commit/f542b481c63d10f1048f1fe642d506fe238d13ea))
+
+
+
+
+
 # [2.1.0-alpha.69](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.68...v2.1.0-alpha.69) (2023-01-29)
 
 **Note:** Version bump only for package docs

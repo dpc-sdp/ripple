@@ -43,11 +43,11 @@
         <ContentRenderer tag="RplContent" v-if="page && !page._empty" :key="page._id" :value="page">
         </ContentRenderer>
         <!-- Design -->
-        <ContentRenderer v-if="designPage && !designPage._empty && activeTab === 'design'" :key="designPage._id"
+        <ContentRenderer v-show="designPage && !designPage._empty && activeTab === 'design'" :key="designPage._id"
           :value="designPage">
         </ContentRenderer>
         <!-- Code -->
-        <ContentRenderer v-if="codePage && !codePage._empty && activeTab === 'code'" :key="codePage._id"
+        <ContentRenderer v-show="codePage && !codePage._empty && activeTab === 'code'" :key="codePage._id"
           :value="codePage">
         </ContentRenderer>
         <a href="https://github.com/dpc-sdp/ripple-framework/discussions/categories/feature-proposals-rfc"

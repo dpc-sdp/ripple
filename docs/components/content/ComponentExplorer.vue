@@ -22,7 +22,7 @@
     <component-example>
       <component :is="component" v-bind="selectedVariant"></component>
     </component-example>
-    <div v-if="showProps && selectedVariantProps.length > 0" class="my-4">
+    <div v-if="showProps && selectedVariantProps?.length > 0" class="my-4">
       <h4 class="rpl-type-h4">Props</h4>
       <div class="rpl-table my-8">
         <div class="rpl-table__scroll-container">
@@ -55,7 +55,9 @@
                   {{ getOptionsFromSchema(prop) }}
                 </td>
                 <td>
-                  {{ selectedVariant[prop.name] }}
+                  <template v-if="prop && prop.name">
+                    {{ selectedVariant[prop.name] }}
+                  </template>
                 </td>
               </tr>
             </tbody>
@@ -64,7 +66,7 @@
       </div>
     </div>
     <!-- TODO - refactor this into a component -->
-    <div v-if="showEvents && selectedVariantEvents.length > 0" class="my-4">
+    <div v-if="showEvents && selectedVariantEvents?.length > 0" class="my-4">
       <h4 class="rpl-type-h4">Events</h4>
       <div class="rpl-table my-8">
         <table class="w-full">
@@ -96,6 +98,7 @@
 
 <script setup lang="ts">
 import { computed, ref } from 'vue'
+import { useAsyncData } from '#imports'
 import { NuxtComponentMetaNames } from '#nuxt-component-meta/types'
 
 
@@ -113,19 +116,17 @@ const props = withDefaults(defineProps<Props>(), {
 
 
 const specificComponentName = ref<NuxtComponentMetaNames>(props.component)
-const specificComponentMeta = await useComponentMeta(specificComponentName)
-
-
+const { data: specificComponentMeta } = await useAsyncData('componentMeta', async () => await useComponentMeta(specificComponentName))
 
 const selected = ref(0)
 const selectedVariant = computed(() => {
   return props.variants[selected.value]
 })
 const selectedVariantProps = computed(() => {
-  return specificComponentMeta.value?.meta.props
+  return specificComponentMeta.value?.meta?.props
 })
 const selectedVariantEvents = computed(() => {
-  return specificComponentMeta.value?.meta.events
+  return specificComponentMeta.value?.meta?.events
 })
 
 const getOptionsFromSchema = (prop => {

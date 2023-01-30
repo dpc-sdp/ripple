@@ -1,5 +1,5 @@
 ---
-to: "<%= mdx ? `packages/ripple-ui-core/src/components/${h.changeCase.paramCase(name)}/${h.changeCase.paramCase(name)}.stories.mdx` : null %>"
+to: "<%= mdx ? `packages/ripple-ui-core/src/components/${h.changeCase.paramCase(name)}/${h.rplcomponentname(name)}.stories.mdx` : null %>"
 ---
 
 import {
@@ -8,7 +8,7 @@ import {
   Story,
   ArgsTable
 } from '@storybook/addon-docs'
-import <%= h.rplcomponentname(name) %> from './<%= h.changeCase.paramCase(name) %>.vue'
+import <%= h.rplcomponentname(name) %> from './<%= h.rplcomponentname(name) %>.vue'
 import { <%= h.rplcomponentname(name) %>Variants } from './constants'
 import { a11yStoryCheck } from './../../../stories/interactions.js'
 

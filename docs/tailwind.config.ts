@@ -101,7 +101,8 @@ module.exports = {
         '4xl': '89.6rem',
         '5xl': '102.4rem',
         '6xl': '115.2rem',
-        '7xl': '128.0rem'
+        '7xl': '128.0rem',
+        '8xl': '200.0rem'
       })
     }
   }

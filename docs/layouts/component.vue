@@ -26,7 +26,7 @@
           text-gray-900
           dark:text-gray-200
         ">
-        <div class="border-b mb-12">
+        <div class="mb-12">
           <div class="pb-4 mb-4">
             <h1 class="rpl-type-h1 mb-4">
               {{ page.title }}
@@ -34,10 +34,9 @@
             <p class="rpl-type-p">{{ page.description }}</p>
           </div>
           <div class="flex mb-4">
-            <RplChip class="mr-2" :class="{ 'rpl-type-weight-bold': activeTab === 'design' }" label="Usage"
-              @click="switchTab('design')" />
-            <RplChip class="mr-2" :class="{ 'rpl-type-weight-bold': activeTab === 'code' }" label="Code"
-              @click="switchTab('code')" />
+
+            <RplTabs :activeTab="activeTab" @switchTab="switchTab" class="w-full"
+              :tabs="[{ title: 'Design', key: 'design' }, { title: 'Code', key: 'code' }]" />
           </div>
         </div>
         <ContentRenderer tag="RplContent" v-if="page && !page._empty" :key="page._id" :value="page">
@@ -111,6 +110,7 @@ const links = computed(() => {
 const activeTab = ref('design')
 
 function switchTab(newTab: string) {
+  console.log(newTab)
   activeTab.value = newTab
 }
 </script>

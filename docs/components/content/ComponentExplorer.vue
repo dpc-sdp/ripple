@@ -1,45 +1,50 @@
 <template>
   <div>
-    <div v-if="variants.length > 1" class="flex h-full items-center mt-4 content-end">
-      <label class="rpl-type-label rpl-type-weight-bold mr-2">Select variant</label>
-      <select style="background-position: right 1rem center" class="
-          focus:ring-indigo-500
-          focus:border-indigo-500
-          py-1
-          pl-2
-          pr-8
-          border-slate-400 border
-          bg-transparent
-          text-gray-800
-          sm:text-sm
-          rounded-md
-        " v-model="selected">
-        <option v-for="(opt, idx) in variants" :key="`opt-{idx}`" :value="idx">
-          {{ opt.variantName }}
-        </option>
-      </select>
-    </div>
-    <div v-if="themeable" class="flex h-full items-center mt-4 content-end">
-      <label class="rpl-type-label rpl-type-weight-bold mr-2">Select theme</label>
-      <select style="background-position: right 1rem center" class="
-          focus:ring-indigo-500
-          focus:border-indigo-500
-          py-1
-          pl-2
-          pr-8
-          border-slate-400 border
-          bg-transparent
-          text-gray-800
-          sm:text-sm
-          rounded-md
-        " v-model="selectedTheme">
-        <option value="light">
-          Light
-        </option>
-        <option value="dark">
-          Dark
-        </option>
-      </select>
+    <div class="flex flex-row">
+      <div v-if="variants.length > 1" class="flex h-full items-center mt-4 content-end">
+        <label class="rpl-type-label rpl-type-weight-bold mr-2">Select variant</label>
+        <select style="background-position: right 1rem center" class="
+            focus:ring-indigo-500
+            focus:border-indigo-500
+            py-1
+            pl-2
+            pr-8
+            border-slate-400 border
+            bg-transparent
+            text-gray-800
+            sm:text-sm
+            rounded-md
+          " v-model="selected">
+          <option v-for="(opt, idx) in variants" :key="`opt-{idx}`" :value="idx">
+            {{ opt.variantName }}
+          </option>
+        </select>
+      </div>
+      <div v-if="themeable" class="flex h-full items-center mt-4 content-end ml-auto">
+        <label class="rpl-type-label rpl-type-weight-bold mr-2">Select theme</label>
+        <select style="background-position: right 1rem center" class="
+            focus:ring-indigo-500
+            focus:border-indigo-500
+            py-1
+            pl-2
+            pr-8
+            border-slate-400 border
+            bg-transparent
+            text-gray-800
+            sm:text-sm
+            rounded-md
+          " v-model="selectedTheme">
+          <option value="">
+            Default
+          </option>
+          <option value="light">
+            Light
+          </option>
+          <option value="dark">
+            Dark
+          </option>
+        </select>
+      </div>
     </div>
     <component-example :theme="selectedTheme">
       <component :is="component" v-bind="selectedVariant"></component>

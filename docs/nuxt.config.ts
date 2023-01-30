@@ -16,7 +16,8 @@ export default defineNuxtConfig({
     prerender: {
       routes: [
         // All component meta routes need prerendering
-        '/api/component-meta/RplAlert'
+        '/api/component-meta/RplAlert',
+        '/api/component-meta/RplAccordion'
       ]
     }
   },

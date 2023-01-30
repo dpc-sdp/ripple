@@ -7,7 +7,7 @@ const { data: navigation } = await useAsyncData('equal', () => {
 </script>
 
 <template>
-  <header class="flex justify-between px-6 py-6 mx-auto">
+  <header class="flex justify-between px-6 py-6 mx-auto max-w-full lg:max-w-7xl">
     <!-- Logo -->
     <a aria-current="page" href="/" class="router-link-active router-link-exact-active flex items-center"
       aria-label="false"><img class="w-8" src="/img/ripple-logo.png" width="100" />

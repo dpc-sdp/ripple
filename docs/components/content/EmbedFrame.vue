@@ -27,7 +27,7 @@ const props = defineProps({
   },
   fullscreen: {
     type: Boolean,
-    default: true
+    default: false
   },
   hideTabs: {
     type: Boolean,
@@ -71,21 +71,9 @@ onMounted(() => {
 
 <template>
   <div :class="`sandbox my-4 min-h-${height} w-full`">
-    <div
-      v-if="fullscreen"
-      class="tabs-header relative text-white bg-gray-700 min-h-[35px]"
-    >
-      <TabsHeader
-        v-if="providersTabs.length > 0"
-        ref="tabs"
-        :active-tab-index="activeTabIndex"
-        :tabs="providersTabs"
-        @update:active-tab-index="updateTab"
-      >
-      </TabsHeader>
+    <div v-if="fullscreen" class="tabs-header relative text-white bg-gray-700 min-h-[35px]">
       <div class="absolute top-1/2 right-0 -translate-y-1/2 transform px-4">
-        <NuxtLink
-          class="
+        <NuxtLink class="
             flex
             text-secondary
             hover:text-secondary-hover
@@ -93,22 +81,14 @@ onMounted(() => {
             items-center
             text-gray-200
             dark:text-gray-400
-          "
-          :to="url"
-          target="_blank"
-        >
+          " :to="url" target="_blank">
           <Icon name="heroicons-outline:arrows-expand" class="h-6 w-6" />
         </NuxtLink>
       </div>
     </div>
 
-    <iframe
-      v-if="url"
-      :src="url"
-      title="Figma link"
+    <iframe v-if="url" :src="url" title="Figma link"
       sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
-      :class="`min-h-${height} w-full overflow-hidden`"
-      :height="height"
-    />
+      :class="`min-h-${height} w-full overflow-hidden`" :height="height" />
   </div>
 </template>

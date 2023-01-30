@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="flex h-full items-center mt-4 content-end">
+    <div v-if="variants.length > 1" class="flex h-full items-center mt-4 content-end">
       <label class="rpl-type-label rpl-type-weight-bold mr-2">Select variant</label>
       <select style="background-position: right 1rem center" class="
           focus:ring-indigo-500
@@ -22,8 +22,8 @@
     <component-example>
       <component :is="component" v-bind="selectedVariant"></component>
     </component-example>
-    <div v-if="showProps" class="my-4">
-      <h4>Props</h4>
+    <div v-if="showProps && selectedVariantProps.length > 0" class="my-4">
+      <h4 class="rpl-type-h4">Props</h4>
       <div class="rpl-table my-8">
         <div class="rpl-table__scroll-container">
           <table class="w-full">
@@ -34,6 +34,7 @@
                 <th scope="col">Required</th>
                 <th scope="col">Type</th>
                 <th scope="col">Options</th>
+                <th scope="col">Example</th>
               </tr>
             </thead>
             <tbody>
@@ -53,6 +54,9 @@
                 <td>
                   {{ getOptionsFromSchema(prop) }}
                 </td>
+                <td>
+                  {{ selectedVariant[prop.name] }}
+                </td>
               </tr>
             </tbody>
           </table>
@@ -60,9 +64,8 @@
       </div>
     </div>
     <!-- TODO - refactor this into a component -->
-    <div v-if="showEvents" class="my-4">
-      <h4>Events</h4>
-
+    <div v-if="showEvents && selectedVariantEvents.length > 0" class="my-4">
+      <h4 class="rpl-type-h4">Events</h4>
       <div class="rpl-table my-8">
         <table class="w-full">
           <thead>
@@ -128,7 +131,7 @@ const selectedVariantEvents = computed(() => {
 const getOptionsFromSchema = (prop => {
   if (prop.schema?.schema) {
     if (prop.schema?.kind === 'enum') {
-      return prop.schema?.schema.filter(itm => itm !== 'undefined').join(', ')
+      return JSON.stringify(prop.schema?.schema.filter(itm => itm !== 'undefined').join(', '))
     }
   }
   return ''

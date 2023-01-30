@@ -5,7 +5,7 @@
         sm:px-6
         mx-auto
         max-w-full
-        lg:max-w-8xl
+        lg:max-w-7xl
         relative
         flex flex-col-reverse
         pb-4
@@ -50,13 +50,15 @@
           </template>
         </BlockHero>
 
-        <ContentRenderer tag="RplContent" v-if="page && !page._empty" :key="page._id" :value="page">
+        <ContentRenderer tag="RplContent" class="content-full" v-if="page && !page._empty" :key="page._id"
+          :value="page">
         </ContentRenderer>
       </main>
       <footer>
         <a href="https://www.netlify.com">
-          <img :src="netlifyImg" alt="Deploys by Netlify" />
-        </a>
+          <img src="https://www.netlify.com/v3/img/components/netlify-light.svg" alt="Deploys by Netlify" width="114"
+            height="51" /> </a>
+
       </footer>
     </Container>
   </AppLayout>
@@ -77,5 +79,9 @@ useContentHead(page)
 <style>
 :root {
   --rpl-clr-gradient-vertical: linear-gradient(180deg, #545454 0%, #3e3e3e 80%);
+}
+
+.content-full.rpl-content {
+  max-width: 100%;
 }
 </style>

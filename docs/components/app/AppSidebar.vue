@@ -1,6 +1,5 @@
 <template>
-  <aside
-    class="
+  <aside class="
       hidden
       pb-8
       overflow-x-hidden overflow-y-auto
@@ -11,14 +10,17 @@
       lg:self-start
       lg:pb-0
       lg:pt-8
-    "
-  >
+    ">
     <slot name="above"></slot>
     <nav>
-      <ContentNavigation v-slot="{ navigation }">
+      <ContentNavigation v-slot="{ navigation }" :query="query">
         <SidebarNavigation :links="navigation" />
       </ContentNavigation>
     </nav>
     <slot name="below"></slot>
   </aside>
 </template>
+
+<script setup lang="ts">
+const query = queryContent().where({ pinned: { $ne: true } })
+</script>

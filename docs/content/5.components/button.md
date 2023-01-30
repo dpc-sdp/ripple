@@ -2,6 +2,7 @@
 title: Button
 description: 'About the Docus Starter.'
 layout: component
+label: Core
 ---
 
 

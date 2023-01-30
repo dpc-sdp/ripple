@@ -35,8 +35,8 @@
         <ul class="rpl-storybook__page rpl-grid">
           <RplCardNavCard v-for="(link, index) in modules" :key="index" class="rpl-col-6" :title="link.title"
             :url="link._path" el="li">
-            <template #meta>
-              <RplTag variant="neutral" label="Core" />
+            <template v-if="link.label" #meta>
+              <RplTag variant="neutral" :label="link.label" />
             </template>
             {{ link.description }}
           </RplCardNavCard>
@@ -51,7 +51,7 @@
 const { params } = useRoute()
 const { page } = useContent()
 
-const { data: modules } = await useAsyncData(params.slug[0], () => queryContent(params.slug[0]).where({ title: { $ne: page.title }, _partial: false }).find())
+const { data: modules } = await useAsyncData(params.slug[0], () => queryContent(params.slug[0]).where({ title: { $ne: page.title }, _partial: false, pinned: { $ne: true } }).find())
 
 </script>
 

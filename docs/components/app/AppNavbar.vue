@@ -21,7 +21,7 @@ const { data: navigation } = await useAsyncData('equal', () => {
       <div class="text-primary-700 dark:text-gray-200 rpl-type-label-small ">
         <NuxtLink v-for="link of navigation" :key="link._path" :to="link._path" active-class="rpl-type-weight-bold"
           class="mr-6">
-          {{ link.title }}
+          {{ link.navigation?.title || link.title }}
         </NuxtLink>
       </div>
     </div>

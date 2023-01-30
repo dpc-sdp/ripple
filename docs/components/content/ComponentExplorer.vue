@@ -19,7 +19,29 @@
         </option>
       </select>
     </div>
-    <component-example>
+    <div v-if="themeable" class="flex h-full items-center mt-4 content-end">
+      <label class="rpl-type-label rpl-type-weight-bold mr-2">Select theme</label>
+      <select style="background-position: right 1rem center" class="
+          focus:ring-indigo-500
+          focus:border-indigo-500
+          py-1
+          pl-2
+          pr-8
+          border-slate-400 border
+          bg-transparent
+          text-gray-800
+          sm:text-sm
+          rounded-md
+        " v-model="selectedTheme">
+        <option value="light">
+          Light
+        </option>
+        <option value="dark">
+          Dark
+        </option>
+      </select>
+    </div>
+    <component-example :theme="selectedTheme">
       <component :is="component" v-bind="selectedVariant"></component>
     </component-example>
     <div v-if="showProps && selectedVariantProps?.length > 0" class="my-4">
@@ -106,12 +128,14 @@ interface Props {
   component: string
   variants: string[]
   showProps?: boolean
-  showEvents?: boolean
+  showEvents?: boolean,
+  themeable?: boolean,
 }
 
 const props = withDefaults(defineProps<Props>(), {
   showProps: true,
-  showEvents: true
+  showEvents: true,
+  themeable: false
 })
 
 
@@ -119,6 +143,8 @@ const specificComponentName = ref<NuxtComponentMetaNames>(props.component)
 const { data: specificComponentMeta } = await useAsyncData('componentMeta', async () => await useComponentMeta(specificComponentName))
 
 const selected = ref(0)
+const selectedTheme = ref('')
+
 const selectedVariant = computed(() => {
   return props.variants[selected.value]
 })

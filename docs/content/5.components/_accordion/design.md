@@ -8,6 +8,12 @@ Accordions can make information processing and discovering more effective. Howev
 
 > copied from carbon design system - replace this!
 
+### Example
+
+<img src="/assets/img/components/accordion.png" />
+
+
+
 ## Usage
 
 ::docs-component-usage
@@ -23,25 +29,13 @@ Accordions can make information processing and discovering more effective. Howev
     - Do not hide important information all users need to read in accordions
 ::
 
-## Anatomy
-
-::embed-frame
----
-figma: https%3A%2F%2Fwww.figma.com%2Ffile%2FmgPlLh5IFKAkDoSID9Vpi1%2FRipple-2.0%3Fnode-id%3D2871%253A183367%26t%3DqPIwojmQiHcfGvA1-1"
----
-::
-
-| Key | Label          |
-| --- | ----------     |
-| A   | Alert Icon     |
-| B   | Message        |
-| C   | Call to action |
-| D   | Close icon     |
-| E   | Container      |
-
-
 
 ## Accessibility
 
 This component has been validated to meet the WCAG 2.1 AA accessibility guidelines. You can find additional information regarding accessibility of this component below.
 
+
+
+## Content guidelines
+
+For usage in adding this component in an SDP site see [https://www.vic.gov.au/accordions](https://www.vic.gov.au/accordions)

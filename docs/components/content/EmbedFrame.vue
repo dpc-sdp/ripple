@@ -70,7 +70,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div :class="`sandbox my-4 min-h-${height} w-full`">
+  <div :class="`sandbox my-8 min-h-${height} w-full`">
     <div v-if="fullscreen" class="tabs-header relative text-white bg-gray-700 min-h-[35px]">
       <div class="absolute top-1/2 right-0 -translate-y-1/2 transform px-4">
         <NuxtLink class="

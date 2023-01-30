@@ -7,10 +7,14 @@ export default defineNuxtConfig({
     '@nuxt/content',
     '@nuxtjs/tailwindcss',
     '@nuxtjs/color-mode',
-    'nuxt-component-meta'
+    'nuxt-component-meta',
+    '@nuxtlabs/github-module'
   ],
   colorMode: {
     classSuffix: ''
+  },
+  github: {
+    repo: 'dpc-sdp/ripple-framework'
   },
   nitro: {
     prerender: {

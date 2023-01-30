@@ -126,6 +126,7 @@ importers:
       '@nuxt/kit': ^3.0.0
       '@nuxtjs/color-mode': ^3.2.0
       '@nuxtjs/tailwindcss': ^6.1.3
+      '@nuxtlabs/github-module': ^1.6.1
       '@tailwindcss/typography': ^0.5.7
       nuxt-component-meta: ^0.4.3
     dependencies:
@@ -136,6 +137,7 @@ importers:
       '@nuxt/kit': 3.0.0
       '@nuxtjs/color-mode': 3.2.0
       '@nuxtjs/tailwindcss': 6.2.0
+      '@nuxtlabs/github-module': 1.6.1
       '@tailwindcss/typography': 0.5.9
       nuxt-component-meta: 0.4.3
 
@@ -5199,6 +5201,20 @@ packages:
       - supports-color
       - ts-node
       - webpack
+    dev: true
+
+  /@nuxtlabs/github-module/1.6.1:
+    resolution: {integrity: sha512-VXGVdJ0edKNaHzIhu5v/Go8ypN2tU9REfIQ4xTdvdgKE2AKKXu9zuuClBDr/zUf3WsgSuS/vMtLS14++jeHn+w==}
+    dependencies:
+      '@nuxt/kit': 3.1.1
+      '@octokit/graphql': 5.0.4
+      '@octokit/rest': 19.0.5
+      remark-gfm: 3.0.1
+      remark-github: 11.2.4
+    transitivePeerDependencies:
+      - encoding
+      - rollup
+      - supports-color
     dev: true
 
   /@octokit/auth-token/3.0.2:
@@ -23736,6 +23752,16 @@ packages:
       unified: 10.1.2
     transitivePeerDependencies:
       - supports-color
+    dev: true
+
+  /remark-github/11.2.4:
+    resolution: {integrity: sha512-GJjWFpwqdrHHhPWqMbb8+lqFLiHQ9pCzUmXmRrhMFXGpYov5n2ljsZzuWgXlfzArfQYkiKIZczA2I8IHYMHqCA==}
+    dependencies:
+      '@types/mdast': 3.0.10
+      mdast-util-find-and-replace: 2.2.1
+      mdast-util-to-string: 3.1.0
+      unified: 10.1.2
+      unist-util-visit: 4.1.2
     dev: true
 
   /remark-mdc/1.1.3:

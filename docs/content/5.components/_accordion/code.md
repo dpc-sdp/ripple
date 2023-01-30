@@ -3,6 +3,7 @@
 ::component-explorer
 ---
   component: RplAccordion
+  themeable: true
   variants:
     - 
       variantName: 'Default'
@@ -70,6 +71,3 @@
   />
 </template>
 ```
-
-## Theme variables
-

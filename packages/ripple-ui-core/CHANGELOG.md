@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.71](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.70...v2.1.0-alpha.71) (2023-01-31)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** :bug: fix imports for lib files referencing .js ([116ba99](https://github.com/dpc-sdp/ripple-framework/commit/116ba99f6cc377f4229e5fc05683a001c9d58479))
+
+
+
+
+
 # [2.1.0-alpha.70](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.69...v2.1.0-alpha.70) (2023-01-30)
 
 

@@ -32,4 +32,4 @@ export const formatDate = (
   return new Intl.DateTimeFormat('en-AU', options).format(date)
 }
 
-export { formatDateRange } from './formatDateRange.js'
+export { formatDateRange } from './formatDateRange'

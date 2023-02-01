@@ -1,4 +1,4 @@
-import { RplDateRange } from './constants.js'
+import { RplDateRange } from './constants'
 
 /**
  * @description Output a formatted date range, but only show range if days are different

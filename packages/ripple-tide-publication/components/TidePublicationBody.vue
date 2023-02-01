@@ -5,7 +5,7 @@
   <TideDynamicComponents
     v-if="components?.length > 0"
     :components="components"
-    :has-sidebar="false"
+    :has-sidebar="true"
     :full-width="false"
   ></TideDynamicComponents>
 </template>

@@ -1,8 +1,6 @@
 ---
-to: packages/ripple-ui-core/src/components/<%= h.changeCase.paramCase(name) %>/<%= h.changeCase.paramCase(name) %>.vue
+to: packages/ripple-ui-core/src/components/<%= h.changeCase.paramCase(name) %>/<%= h.rplcomponentname(name) %>.vue
 ---
-<script lang="ts"> export default { name: '<%= h.rplcomponentname(name) %>' }</script>
-
 <script setup lang="ts">
 import { <%= h.rplcomponentname(name) %>Variants } from './constants'
 

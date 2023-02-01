@@ -4,13 +4,26 @@ import { defineNuxtConfig } from 'nuxt/config'
 export default defineNuxtConfig({
   modules: [
     '@dpc-sdp/ripple-ui-core/nuxt',
-    '@nuxt-themes/config/module',
     '@nuxt/content',
     '@nuxtjs/tailwindcss',
-    '@nuxtjs/color-mode'
+    '@nuxtjs/color-mode',
+    'nuxt-component-meta',
+    '@nuxtlabs/github-module'
   ],
   colorMode: {
     classSuffix: ''
+  },
+  github: {
+    repo: 'dpc-sdp/ripple-framework'
+  },
+  nitro: {
+    prerender: {
+      routes: [
+        // All component meta routes need prerendering
+        '/api/component-meta/RplAlert',
+        '/api/component-meta/RplAccordion'
+      ]
+    }
   },
   // https://content.nuxtjs.org
   content: {
@@ -22,16 +35,6 @@ export default defineNuxtConfig({
     },
     highlight: {
       preload: ['vue', 'bash']
-    }
-  },
-  app: {
-    theme: {
-      meta: {
-        name: 'Ripple Docs',
-        author: 'Single Digital Presence Team',
-        description:
-          'A lightweight Nuxt theme to build a Markdown driven website, based on Nuxt Content, TailwindCSS and Iconify ✨'
-      }
     }
   }
 })

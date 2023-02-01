@@ -84,8 +84,8 @@ const mappedContacts = computed(() => {
       items.push({
         id: `contact-us-email-${contact.id}`,
         icon: 'icon-mail',
-        text: `mailto:${contact.email}`,
-        url: contact.email
+        text: contact.email,
+        url: `mailto:${contact.email}`
       })
     }
 

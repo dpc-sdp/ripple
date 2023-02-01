@@ -12,13 +12,12 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import { TideDynamicPageComponent } from '#imports'
+import { TideDynamicPageComponent, formatDate } from '#imports'
 
-const props =
-  defineProps<{
-    details: any
-    components: Array<TideDynamicPageComponent>
-  }>()
+const props = defineProps<{
+  details: any
+  components: Array<TideDynamicPageComponent>
+}>()
 
 interface RplDescriptionListItem {
   term: string
@@ -32,9 +31,7 @@ const processed = computed(() => {
     if (val) {
       if (key === 'date') {
         const published = new Date(props.details.date)
-        val = new Intl.DateTimeFormat('default', { dateStyle: 'long' }).format(
-          published
-        )
+        val = formatDate(published)
       }
       out.push({
         term: key[0].toUpperCase() + key.substring(1) + ':',

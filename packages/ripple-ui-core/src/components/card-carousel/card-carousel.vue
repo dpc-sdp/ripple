@@ -44,9 +44,13 @@ withDefaults(defineProps<Props>(), {
               data-cy="date"
             >
               {{
-                formatDateRange(card.meta.dateStart, card.meta.dateEnd, {
-                  month: 'short'
-                })
+                formatDateRange(
+                  {
+                    from: card.meta.dateStart,
+                    to: card.meta.dateEnd
+                  },
+                  { month: 'short' }
+                )
               }}
             </span>
             <span v-if="card?.meta?.date" data-cy="date">

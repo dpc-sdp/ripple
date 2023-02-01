@@ -1,5 +1,5 @@
 <template>
-  <h3 :id="id" class="rpl-type-h3">
+  <h3 :id="id" class="rpl-type-h3 mb-4">
     <a :href="`#${id}`">
       <slot />
     </a>

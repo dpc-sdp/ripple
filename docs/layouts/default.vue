@@ -1,7 +1,6 @@
 <template>
   <AppLayout>
-    <div
-      class="
+    <div v-if="page" class="
         px-4
         sm:px-6
         mx-auto
@@ -14,11 +13,9 @@
         lg:grid lg:grid-cols-12
         lg:gap-8
         min-h-page
-      "
-    >
+      ">
       <AppSidebar class="lg:col-span-2"></AppSidebar>
-      <main
-        class="
+      <main class="
           lg:col-span-8
           pt-8
           lg:pt-1
@@ -28,43 +25,24 @@
           lg:pt-8
           text-gray-900
           dark:text-gray-200
-        "
-      >
-        <h1
-          class="
-            rpl-type-h1
-            pb-16
-            mb-8
-            border-b
-            text-gray-900
-            dark:text-gray-200
-          "
-        >
-          {{ page.title }}
-        </h1>
-        <p v-if="page.description" class="rpl-type-p-large pb-8">
-          {{ page.description }}
-        </p>
-        <ContentRenderer
-          tag="RplContent"
-          v-if="page"
-          :key="page._id"
-          :value="page"
-        >
+        ">
+        <div class="pb-12 mb-4 border-b">
+          <h1 class="rpl-type-h1 mb-4">
+            {{ page.title }}
+          </h1>
+          <p class="rpl-type-p">{{ page.description }}</p>
+        </div>
+        <ContentRenderer :tag="page.tag || 'RplContent'" v-if="page" :key="page._id" :value="page">
         </ContentRenderer>
       </main>
       <aside class="lg:col-span-2 ml-8" v-if="toc && toc.links">
         <nav>
-          <RplInPageNavigation
-            title="On this page"
-            class="text-gray-900 dark:text-gray-200"
-            :items="
-              toc.links.map((itm) => ({
-                text: itm.text,
-                url: `#${itm.id}`
-              }))
-            "
-          />
+          <RplInPageNavigation title="On this page" class="text-gray-900 dark:text-gray-200" :items="
+  toc.links.map((itm) => ({
+    text: itm.text,
+    url: `#${itm.id}`
+  }))
+          " />
         </nav>
       </aside>
     </div>

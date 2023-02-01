@@ -32,30 +32,4 @@ export const formatDate = (
   return new Intl.DateTimeFormat('en-AU', options).format(date)
 }
 
-export const formatDateRange = (
-  dateStart: string,
-  dateEnd: string,
-  options: Intl.DateTimeFormatOptions = {}
-): string => {
-  const defaultOptions: Intl.DateTimeFormatOptions = {
-    day: '2-digit',
-    month: 'long'
-  }
-
-  options = { ...defaultOptions, ...options }
-
-  const start = new Intl.DateTimeFormat('en-AU', options).format(
-    new Date(dateStart)
-  )
-
-  const end = new Intl.DateTimeFormat('en-AU', options).format(
-    new Date(dateEnd)
-  )
-
-  // Only send a range if the days are different
-  if (start === end) {
-    return start
-  }
-
-  return `${start} - ${end}`
-}
+export { formatDateRange } from './formatDateRange'

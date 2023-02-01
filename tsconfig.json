@@ -22,7 +22,7 @@
     ],
     "paths": {
       "@dpc-sdp/ripple-tide-api": ["ripple-tide-api/src"],
-      "@dpc-sdp/ripple-core-ui": ["ripple-core-ui/src"],
+      "@dpc-sdp/ripple-ui-core": ["ripple-ui-core/src"],
       "@dpc-sdp/ripple-tide-event": ["ripple-tide-event/src"],
       "@dpc-sdp/ripple-tide-grant": ["ripple-tide-grant/src"],
       "@dpc-sdp/ripple-tide-landing-page": ["ripple-tide-landing-page/src"],

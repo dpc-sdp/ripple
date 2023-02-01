@@ -47,6 +47,10 @@ import {
   cardCarouselIncludes
 } from './card-carousel/card-carousel-mapping.js'
 import { webformIncludes, webformMapping } from './webforms/webforms-mapping.js'
+import {
+  complexImageMapping,
+  complexImageIncludes
+} from './complex-image/complex-image-mapping.js'
 
 export const landingPageComponentsMapping = {
   'paragraph--basic_text': basicTextMapping,
@@ -61,7 +65,8 @@ export const landingPageComponentsMapping = {
   'paragraph--call_to_action': callToActionMapping,
   'paragraph--media_gallery': mediaGalleryMapping,
   'paragraph--card_carousel': cardCarouselMapping,
-  'paragraph--embedded_webform': webformMapping
+  'paragraph--embedded_webform': webformMapping,
+  'paragraph--complex_image': complexImageMapping
 }
 
 export const landingPageComponentsIncludes = [
@@ -77,7 +82,8 @@ export const landingPageComponentsIncludes = [
   ...callToActionIncludes,
   ...mediaGalleryIncludes,
   ...cardCarouselIncludes,
-  ...webformIncludes
+  ...webformIncludes,
+  ...complexImageIncludes
 ]
 
 export {

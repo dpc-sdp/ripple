@@ -16,6 +16,10 @@ export interface ITideCardCarouselItemMeta {
   dateEnd?: string | null
 }
 
+interface TideCardCarouselImageField extends TideImageField {
+  drupal_internal__target_id?: number | null
+}
+
 export interface ITideCardCarouselKeyDates {
   title?: string
   subtitle?: string
@@ -29,7 +33,7 @@ export interface ITideCardCarouselItem {
   caption?: string
   alt?: string
   thumbnail?: string | null
-  image?: TideImageField | null
+  image?: TideCardCarouselImageField | null
   summary?: string | null
   meta?: ITideCardCarouselItemMeta
   keyDates?: ITideCardCarouselKeyDates[]
@@ -82,16 +86,5 @@ export const cardCarouselMapping = async (
 }
 
 export const cardCarouselIncludes = [
-  'field_landing_page_component.field_paragraph_media_gallery.field_gallery_media.field_media_image',
-  'field_landing_page_component.field_paragraph_items'
-  // 'field_landing_page_component.field_paragraph_cta_card_event',
-  // 'field_landing_page_component.field_paragraph_cta_card_event.field_paragraph_media',
-  // 'field_landing_page_component.field_paragraph_cta_card_event.field_paragraph_media.field_media_image',
-  // 'field_landing_page_contact',
-  // 'field_landing_page_contact.field_paragraph_phones',
-  // 'field_landing_page_contact.field_paragraph_social_media',
-  // 'field_event_category',
-  // 'field_event_details',
-  // 'field_event_details.field_event_requirements',
-  // 'field_audience'
+  'field_landing_page_component.field_paragraph_media_gallery.field_gallery_media.field_media_image'
 ]

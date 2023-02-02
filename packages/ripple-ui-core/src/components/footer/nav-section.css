@@ -54,7 +54,7 @@
 .rpl-footer-nav-section__expand-icon {
   margin-top: var(--local-icon-vertical-spacing);
   margin-left: var(--rpl-sp-3);
-  transition: transform var(--rpl-motion-speed-6) linear;
+  transition: transform var(--rpl-motion-speed-7) linear;
 
   .rpl-footer-nav-section--expanded & {
     transform: rotate(-180deg);

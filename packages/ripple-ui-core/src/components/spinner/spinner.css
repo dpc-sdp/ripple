@@ -1,7 +1,7 @@
 @import '@dpc-sdp/ripple-ui-core/style/breakpoints';
 
 .rpl-spinner {
-  --local-spinner-delay: var(--rpl-motion-speed-2);
+  --local-spinner-delay: var(--rpl-motion-speed-3);
 
   @keyframes pulse {
     0% {

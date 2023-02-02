@@ -11,16 +11,16 @@
   bottom: var(--rpl-sp-3);
   display: flex;
   justify-content: flex-end;
-  transition: opacity var(--rpl-motion-speed-9) ease-in,
-    transform var(--rpl-motion-speed-9) ease-in;
+  transition: opacity var(--rpl-motion-speed-10) ease-in,
+    transform var(--rpl-motion-speed-10) ease-in;
   opacity: 0;
   transform: translateY(10px);
 }
 
 .rpl-back-to-top--visible {
   .rpl-back-to-top__inner {
-    transition: opacity var(--rpl-motion-speed-7) ease-out,
-      transform var(--rpl-motion-speed-7) ease-out;
+    transition: opacity var(--rpl-motion-speed-8) ease-out,
+      transform var(--rpl-motion-speed-8) ease-out;
     opacity: 1;
     transform: translateY(0);
   }

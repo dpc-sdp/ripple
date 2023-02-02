@@ -54,7 +54,7 @@ watch(
 .expandable {
   height: 0;
   overflow: hidden;
-  transition: height var(--rpl-motion-speed-8) ease-out;
+  transition: height var(--rpl-motion-speed-9) ease-out;
 }
 
 .isExpanded {

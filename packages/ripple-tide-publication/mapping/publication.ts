@@ -60,11 +60,12 @@ const tidePublicationModule: RplTideMapping = {
       copyright: 'field_license_type.description'
     },
     chapters,
-    dynamicComponents: async (src: any) => {
+    dynamicComponents: async (src: any, tidePageApi: any) => {
       return await getDynamicPageComponents(
         src,
         'field_landing_page_component',
-        landingPageComponentsMapping
+        landingPageComponentsMapping,
+        tidePageApi
       )
     },
     publication: {

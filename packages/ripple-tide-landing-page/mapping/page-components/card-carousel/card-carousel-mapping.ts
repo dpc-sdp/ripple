@@ -4,8 +4,10 @@ import {
   mapping as eventMapping
 } from './event-mapping.js'
 import { mapping as customMapping } from './custom-mapping.js'
-import { TideDynamicPageComponent } from '@dpc-sdp/ripple-tide-api/types'
-import { TideImageField } from '@dpc-sdp/ripple-tide-api'
+import {
+  TideImageField,
+  TideDynamicPageComponent
+} from '@dpc-sdp/ripple-tide-api/types'
 
 export interface ITideCardCarouselItemMeta {
   topic?: string | null
@@ -80,5 +82,16 @@ export const cardCarouselMapping = async (
 }
 
 export const cardCarouselIncludes = [
-  'field_landing_page_component.field_paragraph_media_gallery.field_gallery_media.field_media_image'
+  'field_landing_page_component.field_paragraph_media_gallery.field_gallery_media.field_media_image',
+  'field_landing_page_component.field_paragraph_items'
+  // 'field_landing_page_component.field_paragraph_cta_card_event',
+  // 'field_landing_page_component.field_paragraph_cta_card_event.field_paragraph_media',
+  // 'field_landing_page_component.field_paragraph_cta_card_event.field_paragraph_media.field_media_image',
+  // 'field_landing_page_contact',
+  // 'field_landing_page_contact.field_paragraph_phones',
+  // 'field_landing_page_contact.field_paragraph_social_media',
+  // 'field_event_category',
+  // 'field_event_details',
+  // 'field_event_details.field_event_requirements',
+  // 'field_audience'
 ]

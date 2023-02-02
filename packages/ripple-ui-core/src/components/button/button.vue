@@ -14,6 +14,7 @@ import { RplIconNames } from '../icon/constants'
 import RplIcon from '../icon/icon.vue'
 import { rplEventBus } from '../../index'
 import type { IRplFeatureFlags } from '@dpc-sdp/ripple-tide-api/types'
+import RplSpinner from '../spinner/spinner.vue'
 
 rplEventBus.register('rpl-button/click')
 const emit = defineEmits(['click'])
@@ -22,14 +23,15 @@ const featureFlags: IRplFeatureFlags = inject('featureFlags', {
 })
 
 interface Props {
-  el?: typeof RplButtonElements[number]
+  el?: (typeof RplButtonElements)[number]
   url?: string
-  variant?: typeof RplButtonVariants[number]
-  theme?: typeof RplButtonThemes[number]
-  iconName?: typeof RplIconNames[number]
-  iconPosition?: typeof RplButtonIconPositions[number]
+  variant?: (typeof RplButtonVariants)[number]
+  theme?: (typeof RplButtonThemes)[number]
+  iconName?: (typeof RplIconNames)[number]
+  iconPosition?: (typeof RplButtonIconPositions)[number]
   label?: string
   disabled?: boolean
+  busy?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -40,7 +42,8 @@ const props = withDefaults(defineProps<Props>(), {
   iconName: undefined,
   iconPosition: 'right',
   label: undefined,
-  disabled: false
+  disabled: false,
+  busy: false
 })
 
 const buttonTheme = computed(() => {
@@ -53,16 +56,14 @@ const buttonTheme = computed(() => {
 })
 
 const classes = computed(() => {
-  const classTokens = [
-    'rpl-button',
-    `rpl-button--${props.variant}`,
-    `rpl-button--${buttonTheme.value}`,
-    'rpl-u-focusable-block'
-  ]
-  if (props.iconPosition === 'left') {
-    classTokens.push('rpl-button--reverse')
+  return {
+    'rpl-button': true,
+    [`rpl-button--${props.variant}`]: true,
+    [`rpl-button--${buttonTheme.value}`]: true,
+    'rpl-u-focusable-block': true,
+    'rpl-button--reverse': props.iconPosition === 'left',
+    'rpl-button--busy': props.busy
   }
-  return classTokens
 })
 
 const onClick = (payload?: any) => {
@@ -83,15 +84,21 @@ defineExpose({ link })
     type="button"
     :class="classes"
     :disabled="disabled"
+    aria-busy="busy"
     @click="onClick"
   >
+    <span v-if="busy" class="rpl-button__spinner"> <RplSpinner /></span>
     <span class="rpl-button__label rpl-type-label rpl-type-weight-bold">
       <template v-if="label">
         {{ label }}
       </template>
       <slot></slot>
     </span>
-    <RplIcon v-if="iconName" :name="iconName"></RplIcon>
+    <RplIcon
+      v-if="iconName"
+      :name="iconName"
+      class="rpl-button__icon"
+    ></RplIcon>
   </component>
 </template>
 

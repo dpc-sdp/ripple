@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.72](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.71...v2.1.0-alpha.72) (2023-02-01)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-publication:** :bug: sidebar is always true ([1f4988e](https://github.com/dpc-sdp/ripple-framework/commit/1f4988ed51a4e87ce7662a7f976ef4b1b3146d07))
+
+
+### Features
+
+* **@dpc-sdp/ripple-tide-landing-page:** :sparkles: add complex image dynamic component mapping ([ec2824a](https://github.com/dpc-sdp/ripple-framework/commit/ec2824a6d58778e3fde11c5c67786f7ba4dc419f))
+
+
+
+
+
 # [2.1.0-alpha.71](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.70...v2.1.0-alpha.71) (2023-01-31)
 
 

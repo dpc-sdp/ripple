@@ -38,7 +38,7 @@ Feature: Shared site elements
     And the endpoint "/api/tide/page" with query "?path=/some-random-page&site=8888" returns fixture "/landingpage/home" with status 200
     Given I visit the page "/some-random-page"
 
-    Then the last updated date text should read "Last updated: Wednesday, 2 November 2022"
+    Then the last updated date text should read "Updated 2 November 2022"
 
   @mockserver
   Scenario: Topics and tags

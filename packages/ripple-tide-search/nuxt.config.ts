@@ -1,7 +1,9 @@
 import { defineNuxtConfig } from 'nuxt/config'
 
 export default defineNuxtConfig({
-  build: {
-    transpile: ['@elastic/search-ui', '@elastic/search-ui-app-search-connector']
+  alias: {
+    '@elastic/search-ui': '@elastic/search-ui/lib/esm/index.js',
+    '@elastic/search-ui-app-search-connector':
+      '@elastic/search-ui-app-search-connector/lib/esm/index.js'
   }
 })

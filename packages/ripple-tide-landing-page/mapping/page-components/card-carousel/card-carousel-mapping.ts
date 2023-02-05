@@ -4,14 +4,20 @@ import {
   mapping as eventMapping
 } from './event-mapping.js'
 import { mapping as customMapping } from './custom-mapping.js'
-import { TideDynamicPageComponent } from '@dpc-sdp/ripple-tide-api/types'
-import { TideImageField } from '@dpc-sdp/ripple-tide-api'
+import {
+  TideImageField,
+  TideDynamicPageComponent
+} from '@dpc-sdp/ripple-tide-api/types'
 
 export interface ITideCardCarouselItemMeta {
   topic?: string | null
   date?: string | null
   dateStart?: string | null
   dateEnd?: string | null
+}
+
+interface TideCardCarouselImageField extends TideImageField {
+  drupal_internal__target_id?: number | null
 }
 
 export interface ITideCardCarouselKeyDates {
@@ -27,7 +33,7 @@ export interface ITideCardCarouselItem {
   caption?: string
   alt?: string
   thumbnail?: string | null
-  image?: TideImageField | null
+  image?: TideCardCarouselImageField | null
   summary?: string | null
   meta?: ITideCardCarouselItemMeta
   keyDates?: ITideCardCarouselKeyDates[]

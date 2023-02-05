@@ -1,6 +1,6 @@
 <template>
   <p class="rpl-type-p-small rpl-u-margin-t-6" data-cy="updated-date">
-    Last updated: <time :datetime="date">{{ formattedDate }}</time>
+    Updated <time :datetime="date">{{ formattedDate }}</time>
   </p>
 </template>
 
@@ -17,7 +17,10 @@ const formattedDate = computed(() => {
   const date = new Date(props.date)
 
   return Intl.DateTimeFormat('en-AU', {
-    dateStyle: 'full'
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+    timeZone: 'Australia/Melbourne'
   }).format(date)
 })
 </script>

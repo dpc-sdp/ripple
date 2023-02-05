@@ -22,6 +22,7 @@ import {
   map as sidebarSiteSectionNavMapping,
   includes as sidebarSiteSectionNavIncludes
 } from './sidebar-site-section-nav/sidebar-site-section-nav-mapping.js'
+import { TidePageApi } from '../services'
 
 export const tidePageBaseMapping = ({
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -61,6 +62,24 @@ export const tidePageBaseMapping = ({
     nid: 'id',
     sidebar: sidebar,
     topicTags: topicTagsMapping,
+    siteSection: async (src, tidePageApi: TidePageApi) => {
+      // The section/site id comes from the drupal 'route' api
+      const siteId = tidePageApi.sectionId
+
+      // With the correct site/section id, we can now choose the correct site data from 'field_node_site'
+      const siteData = src.field_node_site.find((site) => {
+        return `${site.drupal_internal__tid}` === siteId
+      })
+
+      if (!siteData) {
+        return null
+      }
+
+      return {
+        id: siteData.drupal_internal__tid,
+        name: siteData.name
+      }
+    },
     _src: (src) => (process.env.NODE_ENV === 'development' ? src : undefined)
   }
 }

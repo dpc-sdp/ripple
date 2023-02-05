@@ -91,6 +91,7 @@ export interface TidePageBase {
   background: string
   lang: string
   topicTags: TideTopicTag[]
+  siteSection: TideSiteSection | null
   sidebar: {
     contacts?: TideContact[]
     relatedLinks?: any[]
@@ -119,6 +120,11 @@ export type TideDynamicComponentGroup = {
 export type TidePropRange = {
   from: string | number
   to: string | number
+}
+
+export type TideSiteSection = {
+  id: string
+  name: string
 }
 
 export interface RplTideModuleMappingConfig {

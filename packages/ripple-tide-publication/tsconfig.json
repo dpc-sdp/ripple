@@ -7,7 +7,10 @@
     "declaration": false,
     "jsx": "preserve",
     "paths": {
-      "@dpc-sdp/ripple-tide-api": ["./../ripple-tide-api/dist/index.js"]
+      "@dpc-sdp/ripple-tide-api": ["./../ripple-tide-api/dist/index.js"],
+      "@dpc-sdp/ripple-tide-landing-page/mapping": [
+        "./../ripple-tide-landing-page/mapping/index.ts"
+      ]
     }
   },
   "include": ["./src", "./src/components/*.vue"]

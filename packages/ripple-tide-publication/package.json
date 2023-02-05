@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@dpc-sdp/ripple-tide-api": "2.1.0-alpha.69",
+    "@dpc-sdp/ripple-tide-landing-page": "2.1.0-alpha.72",
     "@dpc-sdp/ripple-ui-core": "2.1.0-alpha.71",
     "vue": "^3.2.45"
   }

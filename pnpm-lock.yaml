@@ -410,10 +410,12 @@ importers:
   packages/ripple-tide-publication:
     specifiers:
       '@dpc-sdp/ripple-tide-api': 2.1.0-alpha.69
+      '@dpc-sdp/ripple-tide-landing-page': 2.1.0-alpha.72
       '@dpc-sdp/ripple-ui-core': 2.1.0-alpha.71
       vue: ^3.2.45
     dependencies:
       '@dpc-sdp/ripple-tide-api': link:../ripple-tide-api
+      '@dpc-sdp/ripple-tide-landing-page': link:../ripple-tide-landing-page
       '@dpc-sdp/ripple-ui-core': link:../ripple-ui-core
       vue: 3.2.45
 

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { RplButton } from '@dpc-sdp/ripple-ui-core'
 import { reset } from '@formkit/vue'
-import { computed, inject, watch } from 'vue'
+import { computed, inject } from 'vue'
 interface Props {
   id: string
   disabled?: boolean

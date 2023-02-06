@@ -180,7 +180,7 @@ const data = reactive({
         </template>
       </RplFormAlert>
       <slot name="aboveForm"></slot>
-      <slot>
+      <slot :value="value">
         <FormKitSchema
           v-if="schema"
           :schema="schema"

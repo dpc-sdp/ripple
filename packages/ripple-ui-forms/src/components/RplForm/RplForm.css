@@ -30,6 +30,10 @@
   @media (--rpl-bp-m) {
     margin-bottom: var(--rpl-sp-8);
   }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
 .rpl-form__fieldset {

@@ -18,7 +18,7 @@ const props = withDefaults(defineProps<Props>(), {
   countWords: false
 })
 
-const pluralize = (count: number) => (count > 1 ? 's' : '')
+const pluralize = (count: number) => (!count || count > 1 ? 's' : '')
 
 const counterMessage = computed(() => {
   let value = props.value

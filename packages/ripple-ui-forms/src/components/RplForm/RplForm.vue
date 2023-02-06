@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { nextTick, provide, ref, watch, reactive } from 'vue'
+import { nextTick, provide, ref, watch, reactive, computed } from 'vue'
 import {
   FormKitSchemaCondition,
   FormKitSchemaNode,
@@ -48,6 +48,11 @@ const props = withDefaults(defineProps<Props>(), {
 const emit = defineEmits(['submit'])
 
 provide('formId', props.id)
+
+const isFormSubmitting = computed(() => {
+  return props.submissionState.status === 'submitting'
+})
+provide('isFormSubmitting', isFormSubmitting)
 
 const serverMessageRef = ref(null)
 

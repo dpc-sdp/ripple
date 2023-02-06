@@ -84,7 +84,7 @@ defineExpose({ link })
     type="button"
     :class="classes"
     :disabled="disabled"
-    aria-busy="busy"
+    :aria-busy="busy"
     @click="onClick"
   >
     <span v-if="busy" class="rpl-button__spinner"> <RplSpinner /></span>

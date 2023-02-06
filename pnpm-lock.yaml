@@ -24,8 +24,8 @@ importers:
       '@bahmutov/cypress-esbuild-preprocessor': ^2.1.5
       '@commitlint/cli': ^17.4.1
       '@commitlint/config-conventional': ^17.4.0
-      '@dpc-sdp/ripple-ui-core': 2.1.0-alpha.69
-      '@dpc-sdp/ripple-ui-forms': 2.1.0-alpha.69
+      '@dpc-sdp/ripple-ui-core': 2.1.0-alpha.71
+      '@dpc-sdp/ripple-ui-forms': 2.1.0-alpha.71
       '@jest/globals': ^29.3.1
       '@testing-library/vue': ^6.6.1
       '@types/jest': ^29.2.5
@@ -78,8 +78,8 @@ importers:
       '@bahmutov/cypress-esbuild-preprocessor': 2.1.5
       '@commitlint/cli': 17.4.2
       '@commitlint/config-conventional': 17.4.2
-      '@dpc-sdp/ripple-ui-core': 2.1.0-alpha.69
-      '@dpc-sdp/ripple-ui-forms': 2.1.0-alpha.69_vue@3.2.45
+      '@dpc-sdp/ripple-ui-core': link:packages/ripple-ui-core
+      '@dpc-sdp/ripple-ui-forms': 2.1.0-alpha.71_vue@3.2.45
       '@jest/globals': 29.3.1
       '@testing-library/vue': 6.6.1_vue@3.2.45
       '@types/jest': 29.2.5
@@ -2638,8 +2638,8 @@ packages:
     engines: {node: '>=10.0.0'}
     dev: true
 
-  /@dpc-sdp/ripple-ui-core/2.1.0-alpha.69:
-    resolution: {integrity: sha512-yI+mjcy/CfguSxX4VW47p/XMEGusdkuM/APOH0YXrQhVmJhMvtGH3DIBleTxG6KiQLP3eU7s+zlg7EVQx/DW4A==}
+  /@dpc-sdp/ripple-ui-core/2.1.0-alpha.71:
+    resolution: {integrity: sha512-GolFZ7MdycK6NQoQ5cahvJRBDjSnzJJFEijbG2DRGlWHKlmDUAVPWqUBWNkPuC/g3opTFKjGNSzJ5hjsfFjHKw==}
     dependencies:
       '@nuxt/kit': 3.0.0
       '@vueuse/core': 9.10.0_vue@3.2.45
@@ -2674,10 +2674,10 @@ packages:
       - universal-cookie
     dev: true
 
-  /@dpc-sdp/ripple-ui-forms/2.1.0-alpha.69_vue@3.2.45:
-    resolution: {integrity: sha512-xuRZr+8iNWIydELyAvqGp232LfspGREhTC4LgahJpoPKFKmRGoAwMonTvtPXoki3Or+Zot4e59eeOb/0fmdsAA==}
+  /@dpc-sdp/ripple-ui-forms/2.1.0-alpha.71_vue@3.2.45:
+    resolution: {integrity: sha512-+0fOAJrM8BsVluA+K9beI3nvKVpwcKY8Ph04xrh7w8PfYDCaoAUEVfcFgTao2qG6mfmG0u3EkCKzFloYjQM1sg==}
     dependencies:
-      '@dpc-sdp/ripple-ui-core': 2.1.0-alpha.69
+      '@dpc-sdp/ripple-ui-core': 2.1.0-alpha.71
       '@formkit/inputs': 1.0.0-beta.12
       '@formkit/nuxt': 1.0.0-beta.12_vue@3.2.45
       '@formkit/validation': 1.0.0-beta.12

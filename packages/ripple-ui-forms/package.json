@@ -14,10 +14,10 @@
   },
   "dependencies": {
     "@dpc-sdp/ripple-ui-core": "2.1.0-alpha.71",
-    "@formkit/inputs": "1.0.0-beta.12",
-    "@formkit/nuxt": "1.0.0-beta.12",
-    "@formkit/validation": "1.0.0-beta.12",
-    "@formkit/vue": "1.0.0-beta.12",
+    "@formkit/inputs": "1.0.0-beta.15",
+    "@formkit/nuxt": "1.0.0-beta.15",
+    "@formkit/validation": "1.0.0-beta.15",
+    "@formkit/vue": "1.0.0-beta.15",
     "@nuxt/kit": "3.0.0",
     "@vueuse/core": "^9.10.0",
     "date-fns": "^2.29.3"

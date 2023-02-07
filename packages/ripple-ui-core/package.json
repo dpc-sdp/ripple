@@ -60,7 +60,7 @@
   "devDependencies": {
     "@originjs/vite-plugin-content": "^1.0.2",
     "@vitejs/plugin-vue": "^3.1.2",
-    "@vue/compiler-sfc": "^3.2.45",
+    "@vue/compiler-sfc": "^3.2.47",
     "autoprefixer": "^10.4.12",
     "chromatic": "^6.14.0",
     "http-server": "^14.1.0",

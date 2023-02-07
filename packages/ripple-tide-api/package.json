@@ -42,7 +42,7 @@
     "@nuxt/schema": "3.0.0",
     "@types/cheerio": "^0.22.31",
     "axios-mock-adapter": "^1.21.1",
-    "defu": "^6.1.1",
+    "defu": "^6.1.2",
     "rimraf": "^3.0.2"
   },
   "files": [

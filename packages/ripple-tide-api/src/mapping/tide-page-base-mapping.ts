@@ -67,7 +67,7 @@ export const tidePageBaseMapping = ({
       const siteId = tidePageApi.sectionId
 
       // With the correct site/section id, we can now choose the correct site data from 'field_node_site'
-      const siteData = src.field_node_site.find((site) => {
+      const siteData = src.field_node_site?.find((site) => {
         return `${site.drupal_internal__tid}` === siteId
       })
 

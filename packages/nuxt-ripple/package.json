@@ -8,7 +8,7 @@
     "@dpc-sdp/ripple-tide-api": "2.1.0-alpha.74",
     "@dpc-sdp/ripple-ui-core": "2.1.0-alpha.71",
     "@dpc-sdp/ripple-ui-forms": "2.1.0-alpha.73",
-    "@vueuse/core": "^9.10.0",
+    "@vueuse/core": "^9.12.0",
     "change-case": "^4.1.2",
     "vue": "^3.2.45"
   }

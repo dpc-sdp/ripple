@@ -65,7 +65,7 @@
     "chromatic": "^6.15.0",
     "http-server": "^14.1.0",
     "jest-axe": "^7.0.0",
-    "pathe": "^1.0.0",
+    "pathe": "^1.1.0",
     "storybook-addon-designs": "^6.2.1",
     "style-dictionary": "^3.7.2",
     "stylelint": "^14.16.1",

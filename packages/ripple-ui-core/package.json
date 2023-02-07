@@ -52,14 +52,14 @@
     "postcss-for": "^2.1.1",
     "postcss-nested": "^6.0.0",
     "postcss-normalize": "^10.0.1",
-    "postcss-preset-env": "^7.8.3",
+    "postcss-preset-env": "^8.0.1",
     "swiper": "^8.4.5",
     "vite-svg-loader": "^4.0.0",
     "vue": "^3.2.45"
   },
   "devDependencies": {
     "@originjs/vite-plugin-content": "^1.0.2",
-    "@vitejs/plugin-vue": "^3.1.2",
+    "@vitejs/plugin-vue": "^4.0.0",
     "@vue/compiler-sfc": "^3.2.47",
     "autoprefixer": "^10.4.12",
     "chromatic": "^6.15.0",

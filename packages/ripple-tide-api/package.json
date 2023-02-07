@@ -43,7 +43,7 @@
     "@types/cheerio": "^0.22.31",
     "axios-mock-adapter": "^1.21.1",
     "defu": "^6.1.2",
-    "rimraf": "^3.0.2"
+    "rimraf": "^4.1.2"
   },
   "files": [
     "dist",

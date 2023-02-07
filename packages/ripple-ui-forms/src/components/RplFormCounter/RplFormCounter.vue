@@ -7,15 +7,13 @@ interface Props {
   invalid: boolean
   counterMin?: number
   counterMax?: number
-  countWords?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
   type: 'character',
   value: '',
   counterMin: undefined,
-  counterMax: undefined,
-  countWords: false
+  counterMax: undefined
 })
 
 const pluralize = (count: number) => (!count || count > 1 ? 's' : '')
@@ -24,7 +22,7 @@ const counterMessage = computed(() => {
   let value = props.value
   let length = value?.length || 0
 
-  if (value && props.countWords) {
+  if (value && props.type === 'word') {
     length = value.trim().split(/\s+/).length
   }
   if (props.counterMin && length < props.counterMin) {

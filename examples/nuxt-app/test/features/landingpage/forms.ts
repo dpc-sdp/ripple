@@ -293,15 +293,25 @@ Then(
 )
 
 Then(
-  '{int} characters in the field {string} on {string} should display a counter of {string}',
-  (length: number, field: string, id: string, counter: string) => {
+  '{int} {string} in the field {string} on {string} should display a counter of {string}',
+  (
+    length: number,
+    type: string,
+    field: string,
+    id: string,
+    counter: string
+  ) => {
     cy.get(`form#${id}`).as('component')
 
     cy.get('@component').within(() => {
       if (length) {
-        cy.get(`#${field}`).clear().type('x'.repeat(length))
+        const value = type === 'words' ? 'xx ' : 'x'
+        cy.get(`#${field}`).clear().type(value.repeat(length))
       }
-      cy.get('[data-cy="counter"]').should('have.text', counter)
+      cy.get(`#${field}`)
+        .parents('.rpl-form__inner')
+        .find('[data-cy="counter"]')
+        .should('have.text', counter)
     })
   }
 )

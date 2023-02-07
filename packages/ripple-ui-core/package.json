@@ -55,7 +55,7 @@
     "postcss-preset-env": "^8.0.1",
     "swiper": "^8.4.5",
     "vite-svg-loader": "^4.0.0",
-    "vue": "^3.2.45"
+    "vue": "3.2.45"
   },
   "devDependencies": {
     "@originjs/vite-plugin-content": "^1.0.2",

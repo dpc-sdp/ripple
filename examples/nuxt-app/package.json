@@ -37,11 +37,12 @@
     "@nuxt/vite-builder": "^3.1.2",
     "@testing-library/cypress": "^9.0.0",
     "mockttp": "^3.6.3",
+    "node-fetch-native": "^1.0.1",
     "nuxt": "3.1.2",
     "ohmyfetch": "^0.4.21",
     "start-server-and-test": "^1.15.3",
     "ufo": "^1.0.1",
-    "vue": "^3.2.45",
+    "vue": "3.2.45",
     "vue-router": "^4.1.6"
   }
 }

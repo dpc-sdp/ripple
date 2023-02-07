@@ -107,6 +107,20 @@ export const SlotTemplate = (args) => ({
           }
         },
         {
+          $formkit: "RplFormText",
+          name: "role",
+          label: "Role",
+          id: "role",
+          help: "Enter your role",
+          counter: "word",
+          counterMin: 0,
+          counterMax: 5,
+          validation: [[['matches', /^\\W*(\\w+(\\W+|$)){0,5}$/]]],
+          validationMessages: {
+            matches: "You can enter a maximum of 5 words"
+          }
+        },
+        {
           $formkit: 'RplFormTextarea',
           name: 'message',
           label: 'Message',

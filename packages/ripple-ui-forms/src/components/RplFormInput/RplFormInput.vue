@@ -115,7 +115,6 @@ TODO - Wire up event bus handling
       :invalid="invalid"
       :counter-min="counterMin"
       :counter-max="counterMax"
-      :count-words="isWordCounter"
     />
   </div>
 </template>

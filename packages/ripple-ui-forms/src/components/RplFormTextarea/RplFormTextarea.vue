@@ -44,8 +44,6 @@ const classes = computed(() => {
   }
 })
 
-const isWordCounter = computed(() => props.counter === 'word')
-
 /**
  * TODO - Wire up event bus handling
  */
@@ -79,7 +77,6 @@ const isWordCounter = computed(() => props.counter === 'word')
       :invalid="invalid"
       :counter-min="counterMin"
       :counter-max="counterMax"
-      :count-words="isWordCounter"
     />
   </div>
 </template>

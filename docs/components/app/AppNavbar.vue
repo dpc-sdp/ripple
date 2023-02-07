@@ -1,37 +1,51 @@
 <script lang="ts" setup>
-const { title, version, socials } = useAppConfig()
-const { data: navigation } = await useAsyncData('equal', () => {
-  return queryContent('/').where({ pinned: true }).find()
-})
+const route = useRoute()
+const { title, sections } = useAppConfig()
 
+const sectionSlug = route.params.slug[0]
+const sectionConfig = sections[sectionSlug as keyof typeof sections]
+
+const sectionTitle = sectionConfig?.title || title
+const sectionColor = sectionConfig?.color || undefined
 </script>
 
 <template>
-  <header class="flex justify-between px-6 py-6 mx-auto max-w-full lg:max-w-7xl">
-    <!-- Logo -->
-    <a aria-current="page" href="/" class="router-link-active router-link-exact-active flex items-center"
-      aria-label="false"><img class="w-8" src="/img/ripple-logo.png" width="100" />
-      <span class="flex text-sm font-bold mx-2 dark:text-white">
-        {{ title }}
-      </span>
-      <span class="flex text-xs text-gray-700 dark:text-gray-400">v{{ version }}</span>
-    </a>
-    <div class="flex justify-between max-w-4xl mx-auto items-center">
-      <!-- Navigation -->
-      <div class="text-primary-700 dark:text-gray-200 rpl-type-label-small ">
-        <NuxtLink v-for="link of navigation" :key="link._path" :to="link._path" active-class="rpl-type-weight-bold"
-          class="mr-6">
-          {{ link.navigation?.title || link.title }}
-        </NuxtLink>
+  <header class="docs-header" :style="{ '--docs-header-color': sectionColor }">
+    <div class="rpl-container">
+      <div class="docs-header-inner">
+        <!-- Logo -->
+        <a
+          aria-current="page"
+          href="/"
+          class="docs-header-logo rpl-u-focusable-outline"
+          aria-label="false"
+          ><img class="w-8" src="/img/vicgovau-logo.svg" width="100" />
+        </a>
+
+        <span class="flex text-sm font-bold mx-2 dark:text-white">
+          {{ sectionTitle }}
+        </span>
       </div>
-    </div>
-    <!-- Social icons & Color Mode -->
-    <div class="space-x-3 transition text-primary-500">
-      <a v-if="socials?.github" :href="`https://github.com/${socials?.github}`" title="Twitter"
-        class="text-gray-900 dark:text-gray-200">
-        <Icon name="fa-brands:github" />
-      </a>
-      <ColorModeSwitch class="text-gray-900 dark:text-gray-200" />
     </div>
   </header>
 </template>
+
+<style scoped>
+.docs-header {
+  --docs-header-color: var(--rpl-clr-primary);
+  background: var(--docs-header-color);
+  color: var(--rpl-clr-light);
+}
+
+.docs-header-inner {
+  display: flex;
+  align-items: center;
+  height: 60px;
+}
+
+.docs-header-logo img {
+  display: block;
+  height: 16px;
+  width: 106px;
+}
+</style>

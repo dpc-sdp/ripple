@@ -1,20 +1,9 @@
 <template>
-  <aside class="
-      hidden
-      pb-8
-      overflow-x-hidden overflow-y-auto
-      lg:top-header
-      lg:sticky
-      lg:-mt-8
-      lg:block
-      lg:self-start
-      lg:pb-0
-      lg:pt-8
-    ">
+  <aside>
     <slot name="above"></slot>
     <nav>
       <ContentNavigation v-slot="{ navigation }" :query="query">
-        <SidebarNavigation :links="navigation" />
+        <DocsSidebarNavigation :links="navigation[0].children" />
       </ContentNavigation>
     </nav>
     <slot name="below"></slot>
@@ -22,5 +11,10 @@
 </template>
 
 <script setup lang="ts">
-const query = queryContent().where({ pinned: { $ne: true } })
+const route = useRoute()
+
+// The site is split into sections with separate sidebar navigations
+// E.g. If we on the page `/cats/are/cute`, then we just want the content for 'cats' (i.e. `queryContent('cats')`)
+const sectionSlug = route.params.slug[0]
+const query = queryContent(sectionSlug)
 </script>

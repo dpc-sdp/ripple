@@ -1,50 +1,23 @@
 <template>
   <AppLayout>
-    <div v-if="page" class="
-        px-4
-        sm:px-6
-        mx-auto
-        max-w-full
-        lg:max-w-7xl
-        relative
-        flex flex-col-reverse
-        pb-4
-        sm:pb-6
-        lg:grid lg:grid-cols-12
-        lg:gap-8
-        min-h-page
-      ">
-      <AppSidebar class="lg:col-span-2"></AppSidebar>
-      <main class="
-          lg:col-span-8
-          pt-8
-          lg:pt-1
-          relative
-          flex flex-col flex-1
-          lg:mt-0
-          lg:pt-8
-          text-gray-900
-          dark:text-gray-200
-        ">
-        <div class="pb-12 mb-4 border-b">
-          <h1 class="rpl-type-h1 mb-4">
-            {{ page.title }}
-          </h1>
-          <p class="rpl-type-p">{{ page.description }}</p>
-        </div>
-        <ContentRenderer :tag="page.tag || 'RplContent'" v-if="page" :key="page._id" :value="page">
-        </ContentRenderer>
-      </main>
-      <aside class="lg:col-span-2 ml-8" v-if="toc && toc.links">
-        <nav>
-          <RplInPageNavigation title="On this page" class="text-gray-900 dark:text-gray-200" :items="
-  toc.links.map((itm) => ({
-    text: itm.text,
-    url: `#${itm.id}`
-  }))
-          " />
-        </nav>
-      </aside>
+    <div class="rpl-container rpl-u-padding-t-12 rpl-u-padding-b-12">
+      <div class="rpl-grid">
+        <AppSidebar class="rpl-col-12 rpl-col-3-m"></AppSidebar>
+        <main class="rpl-col-12 rpl-col-8-m rpl-col-start-5-m">
+          <DocsPageHeader
+            :title="page.title"
+            :description="page.description"
+            :links="page.links"
+          />
+          <ContentRenderer
+            :tag="page.tag || 'RplContent'"
+            v-if="page"
+            :key="page._id"
+            :value="page"
+          >
+          </ContentRenderer>
+        </main>
+      </div>
     </div>
   </AppLayout>
 </template>

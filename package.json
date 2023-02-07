@@ -50,7 +50,6 @@
     "@dpc-sdp/ripple-ui-core": "2.1.0-alpha.71",
     "@dpc-sdp/ripple-ui-forms": "2.1.0-alpha.71",
     "@jest/globals": "^29.4.1",
-    "@testing-library/vue": "^6.6.1",
     "@types/jest": "^29.4.0",
     "@typescript-eslint/eslint-plugin": "^5.51.0",
     "@typescript-eslint/parser": "^5.51.0",

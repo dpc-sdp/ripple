@@ -37,7 +37,7 @@
     "@nuxt/vite-builder": "^3.1.2",
     "@testing-library/cypress": "^8.0.7",
     "mockttp": "^3.6.3",
-    "nuxt": "3.0.0",
+    "nuxt": "3.1.2",
     "ohmyfetch": "^0.4.21",
     "start-server-and-test": "^1.15.3",
     "ufo": "^1.0.1",

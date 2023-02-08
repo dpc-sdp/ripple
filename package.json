@@ -6,7 +6,7 @@
   "scripts": {
     "example": "wrap () { pnpm -F example-\"$*\" dev | cat; }; wrap",
     "storybook": "pnpm -F ripple-storybook start",
-    "dev": "pnpm -F nuxt-app dev",
+    "dev": "pnpm -F nuxt-app dev:mock",
     "clean": "git clean -dfx && git reset --hard && pnpm",
     "build": "lerna run build --ignore '{docs,ripple-storybook}'",
     "build:ripple": "lerna run build --scope '{@dpc-sdp/ripple-ui-*,@dpc-sdp/ripple-tide-api}'",

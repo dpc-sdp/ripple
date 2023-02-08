@@ -196,7 +196,7 @@ jobs:
           name: Install pnpm package manager
           command: |
             curl -L https://pnpm.js.org/pnpm.js | node - add --global pnpm@7
-      - run: pn -F nuxt-app lighthouse:ci
+      - run: pnpm -F nuxt-app lighthouse:ci
       - store_artifacts:
           path: examples/nuxt-app/.unlighthouse
 

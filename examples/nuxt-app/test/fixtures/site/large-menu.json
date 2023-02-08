@@ -112,6 +112,51 @@
         "id": "0ebbb35c-faeb-4c82-bfb7-25ebf3826ca9",
         "parent": null,
         "weight": -49
+      },
+      {
+        "text": "Test pages",
+        "url": "/level-2-item-2",
+        "id": "e239b5d2-54f4-4d1e-8ce2-5b5cfc9a2c29",
+        "parent": "36b23e56-103b-4fcc-8005-d7f1403c6ded",
+        "weight": 16,
+        "items": [
+          {
+            "url": "/event",
+            "text": "event/sample-event"
+          },
+          {
+            "url": "/grant",
+            "text": "grant/tc-9a-grant-simple-test-date-range"
+          },
+          {
+            "url": "/media/36",
+            "text": "media/36"
+          },
+          {
+            "url": "/media/271",
+            "text": "media/271"
+          },
+          {
+            "url": "/news",
+            "text": "news/sample-news"
+          },
+          {
+            "url": "/publication",
+            "text": "publication/sample-publication"
+          },
+          {
+            "url": "/publication-page",
+            "text": "publication-page/sample-publication-page"
+          },
+          {
+            "url": "/",
+            "text": "landingpage/home"
+          },
+          {
+            "url": "/image-banner",
+            "text": "landingpage/image-banner"
+          }
+        ]
       }
     ],
     "menuFooter": [

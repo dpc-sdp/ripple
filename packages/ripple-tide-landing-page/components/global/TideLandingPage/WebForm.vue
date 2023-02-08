@@ -21,6 +21,15 @@ const props = withDefaults(defineProps<Props>(), {
   errorMessageTitle: 'Form not submitted'
 })
 
+const honeypotId = `${props.formId}-important-email`
+const isHoneypotTriggered = () => {
+  const honeypotElement: HTMLInputElement = document.querySelector(
+    `#${honeypotId}`
+  )
+
+  return honeypotElement && !!honeypotElement.value
+}
+
 /**
  * Post form data to Tide API
  * @param {string} formId - webform Id
@@ -82,6 +91,18 @@ const submitHandler = async (values) => {
     title: '',
     message: ''
   }
+
+  // If there's a value in the honeypot, just show a success message without actually submitting the form
+  if (isHoneypotTriggered()) {
+    submissionState.value = {
+      status: 'success',
+      title: props.successMessageTitle,
+      message: props.successMessageHTML
+    }
+
+    return
+  }
+
   try {
     await postForm(props.formId, values)
 
@@ -139,6 +160,23 @@ watch(
       :schema="schema"
       :submissionState="submissionState"
       @submit="submitHandler"
-    />
+    >
+      <template #belowForm>
+        <div class="tide-webform-important-email">
+          <label for="honeypotId">Important email</label>
+          <input :id="honeypotId" type="text" autocomplete="off" />
+        </div>
+      </template>
+      <template #default="{ value }">
+        <slot :value="value" />
+      </template>
+    </RplForm>
   </div>
 </template>
+
+<style>
+.tide-webform-important-email {
+  display: none !important;
+  visibility: hidden !important;
+}
+</style>

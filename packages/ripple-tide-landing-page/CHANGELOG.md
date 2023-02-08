@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.75](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.74...v2.1.0-alpha.75) (2023-02-07)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-landing-page
+
+
+
+
+
+# [2.1.0-alpha.74](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.73...v2.1.0-alpha.74) (2023-02-07)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-landing-page
+
+
+
+
+
+# [2.1.0-alpha.73](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.72...v2.1.0-alpha.73) (2023-02-05)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-publication:** :alien: update getDynamicPageComponents props ([cf8a8c7](https://github.com/dpc-sdp/ripple-framework/commit/cf8a8c70974c0d58d8f941a2dc8206ecccc1263e))
+
+
+
+
+
 # [2.1.0-alpha.72](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.71...v2.1.0-alpha.72) (2023-02-01)
 
 

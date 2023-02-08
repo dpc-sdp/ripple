@@ -27,7 +27,6 @@ importers:
       '@dpc-sdp/ripple-ui-core': 2.1.0-alpha.69
       '@dpc-sdp/ripple-ui-forms': 2.1.0-alpha.69
       '@jest/globals': ^29.3.1
-      '@testing-library/vue': ^6.6.1
       '@types/jest': ^29.2.5
       '@typescript-eslint/eslint-plugin': ^5.48.1
       '@typescript-eslint/parser': ^5.48.1
@@ -81,7 +80,6 @@ importers:
       '@dpc-sdp/ripple-ui-core': 2.1.0-alpha.69
       '@dpc-sdp/ripple-ui-forms': 2.1.0-alpha.69_vue@3.2.45
       '@jest/globals': 29.3.1
-      '@testing-library/vue': 6.6.1_vue@3.2.45
       '@types/jest': 29.2.5
       '@typescript-eslint/eslint-plugin': 5.48.1_3jon24igvnqaqexgwtxk6nkpse
       '@typescript-eslint/parser': 5.48.1_iukboom6ndih5an6iafl45j2fe
@@ -144,17 +142,17 @@ importers:
   examples/nuxt-app:
     specifiers:
       '@badeball/cypress-cucumber-preprocessor': ^15.1.0
-      '@dpc-sdp/nuxt-ripple': 2.1.0-alpha.71
-      '@dpc-sdp/ripple-tide-api': 2.1.0-alpha.69
-      '@dpc-sdp/ripple-tide-event': 2.1.0-alpha.69
-      '@dpc-sdp/ripple-tide-grant': 2.1.0-alpha.71
-      '@dpc-sdp/ripple-tide-landing-page': 2.1.0-alpha.72
-      '@dpc-sdp/ripple-tide-media': 2.1.0-alpha.71
-      '@dpc-sdp/ripple-tide-news': 2.1.0-alpha.71
-      '@dpc-sdp/ripple-tide-publication': 2.1.0-alpha.72
-      '@dpc-sdp/ripple-tide-search': 2.1.0-alpha.71
+      '@dpc-sdp/nuxt-ripple': 2.1.0-alpha.75
+      '@dpc-sdp/ripple-tide-api': 2.1.0-alpha.74
+      '@dpc-sdp/ripple-tide-event': 2.1.0-alpha.74
+      '@dpc-sdp/ripple-tide-grant': 2.1.0-alpha.74
+      '@dpc-sdp/ripple-tide-landing-page': 2.1.0-alpha.75
+      '@dpc-sdp/ripple-tide-media': 2.1.0-alpha.75
+      '@dpc-sdp/ripple-tide-news': 2.1.0-alpha.75
+      '@dpc-sdp/ripple-tide-publication': 2.1.0-alpha.75
+      '@dpc-sdp/ripple-tide-search': 2.1.0-alpha.75
       '@dpc-sdp/ripple-ui-core': 2.1.0-alpha.71
-      '@dpc-sdp/ripple-ui-forms': 2.1.0-alpha.71
+      '@dpc-sdp/ripple-ui-forms': 2.1.0-alpha.75
       '@formkit/core': 1.0.0-beta.12
       '@formkit/vue': 1.0.0-beta.12
       '@nuxt/vite-builder': ^3.0.0
@@ -241,9 +239,9 @@ importers:
 
   packages/nuxt-ripple:
     specifiers:
-      '@dpc-sdp/ripple-tide-api': 2.1.0-alpha.69
+      '@dpc-sdp/ripple-tide-api': 2.1.0-alpha.74
       '@dpc-sdp/ripple-ui-core': 2.1.0-alpha.71
-      '@dpc-sdp/ripple-ui-forms': 2.1.0-alpha.71
+      '@dpc-sdp/ripple-ui-forms': 2.1.0-alpha.75
       '@vueuse/core': ^9.10.0
       change-case: ^4.1.2
       vue: ^3.2.45
@@ -272,7 +270,6 @@ importers:
       '@storybook/test-runner': ^0.9.2
       '@storybook/testing-library': ^0.0.13
       '@storybook/vue3': ^6.5.15
-      '@testing-library/vue': ^6.6.1
       '@types/jest': ^29.2.5
       '@vitejs/plugin-vue': ^3.1.2
       babel-loader: ^8.3.0
@@ -303,7 +300,6 @@ importers:
       '@storybook/test-runner': 0.9.2_typescript@4.9.4
       '@storybook/testing-library': 0.0.13
       '@storybook/vue3': 6.5.15_ih33eugbqpiccskzyteuq7iupa
-      '@testing-library/vue': 6.6.1
       '@types/jest': 29.2.5
       '@vitejs/plugin-vue': 3.2.0_vite@3.2.5
       babel-loader: 8.3.0_@babel+core@7.20.12
@@ -359,7 +355,7 @@ importers:
 
   packages/ripple-tide-event:
     specifiers:
-      '@dpc-sdp/ripple-tide-api': 2.1.0-alpha.69
+      '@dpc-sdp/ripple-tide-api': 2.1.0-alpha.74
       vue: ^3.2.45
     dependencies:
       '@dpc-sdp/ripple-tide-api': link:../ripple-tide-api
@@ -367,7 +363,7 @@ importers:
 
   packages/ripple-tide-grant:
     specifiers:
-      '@dpc-sdp/ripple-tide-api': 2.1.0-alpha.69
+      '@dpc-sdp/ripple-tide-api': 2.1.0-alpha.74
       '@dpc-sdp/ripple-ui-core': 2.1.0-alpha.71
       vue: ^3.2.45
     dependencies:
@@ -377,9 +373,9 @@ importers:
 
   packages/ripple-tide-landing-page:
     specifiers:
-      '@dpc-sdp/ripple-tide-api': 2.1.0-alpha.69
+      '@dpc-sdp/ripple-tide-api': 2.1.0-alpha.74
       '@dpc-sdp/ripple-ui-core': 2.1.0-alpha.71
-      '@dpc-sdp/ripple-ui-forms': 2.1.0-alpha.71
+      '@dpc-sdp/ripple-ui-forms': 2.1.0-alpha.75
       ohmyfetch: ^0.4.21
       vue: ^3.2.45
     dependencies:
@@ -391,7 +387,7 @@ importers:
 
   packages/ripple-tide-media:
     specifiers:
-      '@dpc-sdp/nuxt-ripple': 2.1.0-alpha.71
+      '@dpc-sdp/nuxt-ripple': 2.1.0-alpha.75
       '@dpc-sdp/ripple-ui-core': 2.1.0-alpha.71
       vue: ^3.2.45
     dependencies:
@@ -401,7 +397,7 @@ importers:
 
   packages/ripple-tide-news:
     specifiers:
-      '@dpc-sdp/nuxt-ripple': 2.1.0-alpha.71
+      '@dpc-sdp/nuxt-ripple': 2.1.0-alpha.75
       vue: ^3.2.45
     dependencies:
       '@dpc-sdp/nuxt-ripple': link:../nuxt-ripple
@@ -409,18 +405,20 @@ importers:
 
   packages/ripple-tide-publication:
     specifiers:
-      '@dpc-sdp/ripple-tide-api': 2.1.0-alpha.69
+      '@dpc-sdp/ripple-tide-api': 2.1.0-alpha.74
+      '@dpc-sdp/ripple-tide-landing-page': 2.1.0-alpha.75
       '@dpc-sdp/ripple-ui-core': 2.1.0-alpha.71
       vue: ^3.2.45
     dependencies:
       '@dpc-sdp/ripple-tide-api': link:../ripple-tide-api
+      '@dpc-sdp/ripple-tide-landing-page': link:../ripple-tide-landing-page
       '@dpc-sdp/ripple-ui-core': link:../ripple-ui-core
       vue: 3.2.45
 
   packages/ripple-tide-search:
     specifiers:
       '@dpc-sdp/ripple-ui-core': 2.1.0-alpha.71
-      '@dpc-sdp/ripple-ui-forms': 2.1.0-alpha.71
+      '@dpc-sdp/ripple-ui-forms': 2.1.0-alpha.75
       '@elastic/search-ui': latest
       '@elastic/search-ui-app-search-connector': latest
     dependencies:
@@ -7689,31 +7687,6 @@ packages:
       '@testing-library/dom': 8.19.1
     dev: true
 
-  /@testing-library/vue/6.6.1:
-    resolution: {integrity: sha512-vpyBPrHzKTwEGS7ehUC8/IXgnqTBEMk6jd52Gouf51arG2jUorPhmkbsxUwJOyxz6L0gj2ZcmWnznG1OJcTCDQ==}
-    engines: {node: '>=12'}
-    peerDependencies:
-      '@vue/compiler-sfc': '>= 3'
-      vue: '>= 3'
-    dependencies:
-      '@babel/runtime': 7.20.7
-      '@testing-library/dom': 8.19.1
-      '@vue/test-utils': 2.2.7
-    dev: true
-
-  /@testing-library/vue/6.6.1_vue@3.2.45:
-    resolution: {integrity: sha512-vpyBPrHzKTwEGS7ehUC8/IXgnqTBEMk6jd52Gouf51arG2jUorPhmkbsxUwJOyxz6L0gj2ZcmWnznG1OJcTCDQ==}
-    engines: {node: '>=12'}
-    peerDependencies:
-      '@vue/compiler-sfc': '>= 3'
-      vue: '>= 3'
-    dependencies:
-      '@babel/runtime': 7.20.7
-      '@testing-library/dom': 8.19.1
-      '@vue/test-utils': 2.2.7_vue@3.2.45
-      vue: 3.2.45
-    dev: true
-
   /@tootallnate/once/1.1.2:
     resolution: {integrity: sha512-RbzJvlNzmRq5c3O09UipeuXno4tA1FE6ikOjxZK0tuxVv3412l64l5t1W5pj4+rJq9vpkm/kwiR07aZXnsKPxw==}
     engines: {node: '>= 6'}
@@ -8568,20 +8541,6 @@ packages:
 
   /@vue/shared/3.2.45:
     resolution: {integrity: sha512-Ewzq5Yhimg7pSztDV+RH1UDKBzmtqieXQlpTVm2AwraoRL/Rks96mvd8Vgi7Lj+h+TH8dv7mXD3FRZR3TUvbSg==}
-
-  /@vue/test-utils/2.2.7:
-    resolution: {integrity: sha512-BMuoruUFTEqhLoOgsMcgNVMiByYbfHCKGr2C4CPdGtz/affUtDVX5zr1RnPuq0tYSiaqq+Enw5voUpG6JY8Q7g==}
-    peerDependencies:
-      vue: ^3.0.1
-    dev: true
-
-  /@vue/test-utils/2.2.7_vue@3.2.45:
-    resolution: {integrity: sha512-BMuoruUFTEqhLoOgsMcgNVMiByYbfHCKGr2C4CPdGtz/affUtDVX5zr1RnPuq0tYSiaqq+Enw5voUpG6JY8Q7g==}
-    peerDependencies:
-      vue: ^3.0.1
-    dependencies:
-      vue: 3.2.45
-    dev: true
 
   /@vue/tsconfig/0.1.3_@types+node@18.11.18:
     resolution: {integrity: sha512-kQVsh8yyWPvHpb8gIc9l/HIDiiVUy1amynLNpCy8p+FoCiZXCo6fQos5/097MmnNZc9AtseDsCrfkhqCrJ8Olg==}

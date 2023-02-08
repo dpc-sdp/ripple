@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.74](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.73...v2.1.0-alpha.74) (2023-02-07)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-api:** checked that field_node_site exists before finding site section ([06343ef](https://github.com/dpc-sdp/ripple-framework/commit/06343ef02c6e991830d0f952981e16b62f3357c0))
+
+
+
+
+
+# [2.1.0-alpha.73](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.72...v2.1.0-alpha.73) (2023-02-05)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-api
+
+
+
+
+
 # [2.1.0-alpha.69](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.68...v2.1.0-alpha.69) (2023-01-29)
 
 **Note:** Version bump only for package @dpc-sdp/ripple-tide-api

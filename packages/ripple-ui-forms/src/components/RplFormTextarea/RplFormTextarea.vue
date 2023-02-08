@@ -44,8 +44,6 @@ const classes = computed(() => {
   }
 })
 
-const isWordCounter = computed(() => props.counter === 'word')
-
 /**
  * TODO - Wire up event bus handling
  */
@@ -65,8 +63,8 @@ const isWordCounter = computed(() => props.counter === 'word')
       :name="name"
       :value="value"
       :rows="rows"
-      :minlength="!isWordCounter ? minlength : null"
-      :maxlength="!isWordCounter ? maxlength : null"
+      :minlength="minlength"
+      :maxlength="maxlength"
       class="rpl-u-focusable-outline"
       v-bind="$attrs"
       @blur="handlers?.blur"
@@ -79,7 +77,6 @@ const isWordCounter = computed(() => props.counter === 'word')
       :invalid="invalid"
       :counter-min="counterMin"
       :counter-max="counterMax"
-      :count-words="isWordCounter"
     />
   </div>
 </template>

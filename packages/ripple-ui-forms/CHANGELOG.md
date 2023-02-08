@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.75](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.74...v2.1.0-alpha.75) (2023-02-07)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** fix pluralization ([42fb8ea](https://github.com/dpc-sdp/ripple-framework/commit/42fb8ea2f9123e81a1e4d39cda37f941986b8224))
+
+
+
+
+
+# [2.1.0-alpha.73](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.72...v2.1.0-alpha.73) (2023-02-05)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-ui-forms
+
+
+
+
+
 # [2.1.0-alpha.71](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.70...v2.1.0-alpha.71) (2023-01-31)
 
 **Note:** Version bump only for package @dpc-sdp/ripple-ui-forms

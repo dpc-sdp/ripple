@@ -1,7 +1,7 @@
 {
   "name": "@dpc-sdp/ripple-tide-search",
   "packageManager": "pnpm@7.23.0",
-  "version": "2.1.0-alpha.75",
+  "version": "2.1.0-alpha.76",
   "description": "Ripple search UI and services for connecting to Tide search",
   "main": "./nuxt.config.ts",
   "license": "Apache-2.0",
@@ -10,8 +10,8 @@
     ".": "./nuxt.config.ts"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-ui-core": "2.1.0-alpha.71",
-    "@dpc-sdp/ripple-ui-forms": "2.1.0-alpha.75",
+    "@dpc-sdp/ripple-ui-core": "2.1.0-alpha.76",
+    "@dpc-sdp/ripple-ui-forms": "2.1.0-alpha.76",
     "@elastic/search-ui": "latest",
     "@elastic/search-ui-app-search-connector": "latest"
   }

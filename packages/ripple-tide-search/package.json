@@ -13,6 +13,7 @@
     "@dpc-sdp/ripple-ui-core": "2.1.0-alpha.71",
     "@dpc-sdp/ripple-ui-forms": "2.1.0-alpha.75",
     "@elastic/search-ui": "latest",
-    "@elastic/search-ui-app-search-connector": "latest"
+    "@elastic/search-ui-app-search-connector": "latest",
+    "@elastic/search-ui-elasticsearch-connector": "^1.19.0"
   }
 }

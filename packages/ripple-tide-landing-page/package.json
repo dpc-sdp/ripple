@@ -13,7 +13,6 @@
     "@dpc-sdp/ripple-tide-api": "2.1.0-alpha.74",
     "@dpc-sdp/ripple-ui-core": "2.1.0-alpha.71",
     "@dpc-sdp/ripple-ui-forms": "2.1.0-alpha.75",
-    "ohmyfetch": "^0.4.21",
-    "vue": "^3.2.45"
+    "ohmyfetch": "^0.4.21"
   }
 }

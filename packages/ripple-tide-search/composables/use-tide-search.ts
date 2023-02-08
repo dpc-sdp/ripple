@@ -1,6 +1,7 @@
 import { SearchDriver, SearchResult, SearchState } from '@elastic/search-ui'
 import type { SearchDriverOptions } from '@elastic/search-ui'
 import AppSearchAPIConnector from '@elastic/search-ui-app-search-connector'
+import ElasticsearchAPIConnector from '@elastic/search-ui-elasticsearch-connector'
 
 import { ref, computed } from 'vue'
 import { FilterConfigItem, MappedSearchResult } from 'ripple-tide-search/types'
@@ -9,8 +10,12 @@ const getSearchDriver = (
   apiConnectorOptions,
   config: Omit<SearchDriverOptions, 'apiConnector'>
 ) => {
+  const ApiConnector = apiConnectorOptions?.host
+    ? ElasticsearchAPIConnector
+    : AppSearchAPIConnector
+
   return new SearchDriver({
-    apiConnector: new AppSearchAPIConnector(apiConnectorOptions),
+    apiConnector: new ApiConnector(apiConnectorOptions),
     ...config
   })
 }
@@ -101,15 +106,7 @@ export default async (
     window.scrollTo(0, 0)
   }
 
-  const doSearch = (options) => {
-    if (options?.sortBy) {
-      searchDriver
-        .getActions()
-        .setSort(options.sortBy.field, options.sortBy.direction)
-    }
-    if (options?.perPage) {
-      searchDriver.getActions().setResultsPerPage(options?.perPage)
-    }
+  const doSearch = () => {
     searchDriver.getActions().setSearchTerm(searchDriver.getState().searchTerm)
     applyFilters()
   }

@@ -40,39 +40,17 @@
 </template>
 
 <script setup lang="ts">
-import { useTideSearch, useRuntimeConfig } from '#imports'
+import { formatDate, useTideSearch, useRuntimeConfig } from '#imports'
 import { computed, onMounted } from 'vue'
-import { IContentCollectionDisplay } from '../../../mapping/page-components/content-collection/content-collection-mapping'
+import {
+  IContentCollectionDisplay,
+  IContentCollectionSort
+} from '../../../mapping/page-components/content-collection/content-collection-mapping'
 
 const { public: config } = useRuntimeConfig()
-const apiConnectorOptions = config.tide?.appSearch
+// const apiConnectorOptions = config.tide?.appSearch
 
-const component = computed(() => {
-  if (props.display.type === 'search-result') {
-    return 'RplSearchResult'
-  }
-
-  return 'RplCardPromoCard'
-})
-
-const searchResultsMappingFn = (item): any => {
-  return {
-    id: item._meta.id,
-    props: {
-      el: 'li',
-      title: item.title?.raw?.[0],
-      url: item.url?.raw?.[0].replace(/\/site-(\d+)/, ''),
-      image:
-        props.display.style === 'thumbnail' &&
-        item.field_media_image_absolute_path?.raw?.[0]
-          ? { src: item.field_media_image_absolute_path?.raw?.[0] }
-          : null
-    },
-    slots: {
-      default: item.field_landing_page_summary?.raw?.[0]
-    }
-  }
-}
+const apiConnectorOptions = config.tide?.elasticsearch
 
 interface IContentCollectionFilter {
   field: string
@@ -87,27 +65,91 @@ const props = defineProps<{
     url: string
   }
   filters: IContentCollectionFilter[]
-  sortBy: string
+  sortBy: IContentCollectionSort
   perPage: number
   display: IContentCollectionDisplay
 }>()
 
+const component = computed(() => {
+  if (props.display.type === 'search-result') {
+    return 'RplSearchResult'
+  }
+
+  return 'RplCardPromoCard'
+})
+
+const searchResultsMappingFn = (item): any => {
+  const rawUpdated = item.changed?.raw?.[0]
+  const rawImage = item.field_media_image_absolute_path?.raw?.[0]
+
+  return {
+    id: item._meta.id,
+    props: {
+      el: 'li',
+      title: item.title?.raw?.[0],
+      url: item.url?.raw?.[0].replace(/\/site-(\d+)/, ''),
+      image:
+        props.display.style === 'thumbnail' && rawImage
+          ? { src: rawImage }
+          : null,
+      updated: rawUpdated ? formatDate(rawUpdated) : ''
+    },
+    slots: {
+      default: item.field_landing_page_summary?.raw?.[0]
+    }
+  }
+}
+
+const searchDriverOptions = {
+  debug: true,
+  trackUrlState: false,
+  initialState: {
+    resultsPerPage: props.perPage,
+    sortField: props.sortBy.field,
+    sortDirection: props.sortBy.direction
+  },
+  searchQuery: {
+    filters: props.filters,
+    result_fields: {
+      title: {
+        raw: {
+          size: 150
+        }
+      },
+      field_landing_page_summary: {
+        snippet: {
+          size: 150,
+          fallback: true
+        }
+      },
+      summary_processed: {
+        snippet: {
+          size: 150,
+          fallback: true
+        }
+      },
+      field_media_image_absolute_path: {
+        raw: {}
+      },
+      changed: {
+        raw: {}
+      },
+      url: {
+        raw: {}
+      },
+      type: {
+        raw: {}
+      }
+    }
+  }
+}
+
 const { doSearch, results } = await useTideSearch(
   apiConnectorOptions,
-  {
-    debug: true,
-    searchQuery: {
-      filters: props.filters
-    }
-  },
+  searchDriverOptions,
   [],
   searchResultsMappingFn
 )
 
-onMounted(() =>
-  doSearch({
-    perPage: props.perPage,
-    sortBy: props.sortBy
-  })
-)
+onMounted(() => doSearch())
 </script>

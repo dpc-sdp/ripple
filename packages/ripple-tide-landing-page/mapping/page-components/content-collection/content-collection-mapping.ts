@@ -105,7 +105,7 @@ export const contentCollectionMapping = async (
       //   'field_content_collection_config.interface.display.resultComponent.number',
       //   6
       // )
-      perPage: 3,
+      perPage: 6,
       display: {
         type: getField(
           field,

@@ -4,7 +4,7 @@ orbs:
 
 defaults: &defaults
   docker:
-    - image: cypress/base:16.13.0
+    - image: cypress/browsers:node16.17.0-chrome106
       environment:
         TERM: xterm
         TZ: 'Australia/Melbourne'
@@ -196,8 +196,8 @@ jobs:
           name: Install pnpm package manager
           command: |
             curl -L https://pnpm.js.org/pnpm.js | node - add --global pnpm@7
-      - run: pnpm setup
-      - run: pnpm install -g puppeteer
+      - run: SHELL=$SHELL pnpm setup
+      - run: pnpm install puppeteer -W
       - run: pnpm -F nuxt-app lighthouse:ci
       - store_artifacts:
           path: examples/nuxt-app/.unlighthouse

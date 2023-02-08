@@ -159,7 +159,7 @@ jobs:
 
   test-storybook:
     docker:
-      - image: mcr.microsoft.com/playwright:v1.29.2-focal
+      - image: mcr.microsoft.com/playwright:v1.30.0-focal
     environment:
       NODE_ENV: development
     working_directory: ~/app

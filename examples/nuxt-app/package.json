@@ -11,11 +11,13 @@
     "compile": "tsc --build",
     "start": "node .output/server/index.mjs",
     "mockserver": "node ./mockserver.js",
-    "start:mock": "API_URL=http://localhost:3001 concurrently 'pnpm mockserver' 'pnpm start'",
+    "start:mock": "NUXT_PUBLIC_API_URL=http://localhost:3001 concurrently 'pnpm mockserver' 'pnpm start'",
     "cy:open": "cypress open --e2e --browser electron",
     "cy:run": "cypress run",
     "test:ci": "NUXT_PUBLIC_API_URL=http://localhost:3001 start-test start 'http-get://localhost:3000/api/tide/site?id=8888' 'cy:run'",
-    "test:integration": "start-test 'NUXT_PUBLIC_API_URL=http://localhost:3001 pnpm dev' 'http-get://localhost:3000/api/tide/site?id=8888' 'cy:open'"
+    "test:integration": "start-test 'NUXT_PUBLIC_API_URL=http://localhost:3001 pnpm dev' 'http-get://localhost:3000/api/tide/site?id=8888' 'cy:open'",
+    "lighthouse": "unlighthouse-ci --site http://localhost:3000",
+    "lighthouse:ci": "start-test start:mock 3000 lighthouse"
   },
   "dependencies": {
     "@dpc-sdp/nuxt-ripple": "2.1.0-alpha.75",
@@ -36,6 +38,7 @@
     "@badeball/cypress-cucumber-preprocessor": "^15.1.0",
     "@nuxt/vite-builder": "^3.0.0",
     "@testing-library/cypress": "^8.0.7",
+    "@unlighthouse/cli": "^0.4.9",
     "mockttp": "^3.6.1",
     "nuxt": "3.0.0",
     "ohmyfetch": "^0.4.21",

@@ -18,6 +18,7 @@ examples/**/test/results/*
 packages/**/cypress/videos/*
 packages/**/cypress/screenshots/*
 packages/**/cypress/results/*
+.unlighthouse
 
 # Typescript
 tsconfig.tsbuildinfo

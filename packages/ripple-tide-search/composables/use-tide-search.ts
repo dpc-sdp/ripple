@@ -101,7 +101,15 @@ export default async (
     window.scrollTo(0, 0)
   }
 
-  const doSearch = () => {
+  const doSearch = (options) => {
+    if (options?.sortBy) {
+      searchDriver
+        .getActions()
+        .setSort(options.sortBy.field, options.sortBy.direction)
+    }
+    if (options?.perPage) {
+      searchDriver.getActions().setResultsPerPage(options?.perPage)
+    }
     searchDriver.getActions().setSearchTerm(searchDriver.getState().searchTerm)
     applyFilters()
   }

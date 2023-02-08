@@ -15,6 +15,6 @@ export default {
     }
   },
   puppeteerOptions: {
-    args: ['no-sandbox']
+    args: ['--no-sandbox']
   }
 }

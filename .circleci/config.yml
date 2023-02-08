@@ -196,6 +196,7 @@ jobs:
           name: Install pnpm package manager
           command: |
             curl -L https://pnpm.js.org/pnpm.js | node - add --global pnpm@7
+      - run: pnpm setup
       - run: pnpm install -g puppeteer
       - run: pnpm -F nuxt-app lighthouse:ci
       - store_artifacts:

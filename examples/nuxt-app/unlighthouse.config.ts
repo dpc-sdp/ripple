@@ -13,5 +13,8 @@ export default {
       'best-practices': 90,
       seo: 80
     }
+  },
+  puppeteerOptions: {
+    args: ['no-sandbox']
   }
 }

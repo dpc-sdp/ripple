@@ -138,7 +138,7 @@ const getConfigPath = (group, item, moduleName = null) => {
       break
     case configGroups.nodeModule:
       if (moduleName) {
-        let nodeModulePath = require.resolve(`${moduleName}/README.md`)
+        let nodeModulePath = require.resolve(`${appDir}/node_modules/${moduleName}/README.md`)
         nodeModulePath = nodeModulePath.replace('/README.md', '').replace(/.*\/node_modules\//, '')
         configPath = `${appRoot}/node_modules/${nodeModulePath}/`
         configFilePath = `${appDir}/node_modules/${nodeModulePath}/`

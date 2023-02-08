@@ -84,7 +84,10 @@ const nuxtTide = function (moduleOptions) {
     this.addServerMiddleware(require('./server-middleware/basic-auth.js'))
   }
 
-  if (options.modules?.landingPage?.contentCollection !== false) {
+  if (
+    options.modules?.landingPage?.contentCollection !== false &&
+    options.modules?.landingPage?.dataListing !== false
+  ) {
     const searchApiOptions = options.searchApi || {}
     this.addServerMiddleware(tideSearchApiMiddleware({
       templates: options.searchTemplates,

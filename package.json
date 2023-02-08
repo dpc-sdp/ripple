@@ -16,7 +16,8 @@
       "src"
     ],
     "nohoist": [
-      "src"
+      "src",
+      "**/@dpc-sdp/myvic-*"
     ]
   },
   "scripts": {

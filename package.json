@@ -20,7 +20,7 @@
     "release:prod": "lerna version --conventional-commits --conventional-graduate --create-release github --yes",
     "release:publish": "lerna publish from-git --yes --pre-dist-tag=alpha",
     "lint": "eslint . --ext .ts,.vue && pnpm -F @dpc-sdp/ripple-ui-core stylelint \"**/*.css\"",
-    "test:unit": "jest --colors",
+    "test:unit": "jest --colors --runInBand",
     "test:components-core": "pnpm -F @dpc-sdp/ripple-ui-core test:components",
     "test:components-forms": "pnpm -F @dpc-sdp/ripple-ui-forms test:components",
     "test:storybook": "pnpm -F ripple-storybook test",

@@ -98,6 +98,11 @@ export default {
       config.plugins.push(new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /en-au/))
     },
 
+    transpile: [
+      // Transpile ES6 modules
+      /@dpc-sdp\/myvic/
+    ],
+
     // Currently lodash is mainly brought by Elastic search JS lib.
     // Below lodash optimization can be reviewed after we migrate to new ES JS client.
     babel: {

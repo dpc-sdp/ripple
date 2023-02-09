@@ -51,7 +51,7 @@
 
   .rpl-icon {
     margin-left: var(--rpl-sp-2);
-    transition: transform ease-out var(--rpl-motion-speed-2);
+    transition: transform ease-out var(--rpl-motion-speed-3);
   }
 
   &:hover .rpl-icon {

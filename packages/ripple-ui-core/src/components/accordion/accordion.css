@@ -63,7 +63,7 @@
     left: 0;
     background-color: var(--rpl-clr-accent);
     opacity: 0;
-    transition: opacity var(--rpl-motion-speed-8) ease-out;
+    transition: opacity var(--rpl-motion-speed-9) ease-out;
   }
 
   &.rpl-accordion__item--active {
@@ -139,7 +139,7 @@
   margin-top: var(--rpl-sp-1);
   margin-left: var(--rpl-sp-4);
   color: var(--rpl-clr-link);
-  transition: transform var(--rpl-motion-speed-6) linear;
+  transition: transform var(--rpl-motion-speed-7) linear;
 
   @media (--rpl-bp-l) {
     margin-top: var(--rpl-sp-2);

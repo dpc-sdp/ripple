@@ -4,7 +4,7 @@ orbs:
 
 defaults: &defaults
   docker:
-    - image: cypress/base:16.13.0
+    - image: cypress/browsers:node16.17.0-chrome106
       environment:
         TERM: xterm
         TZ: 'Australia/Melbourne'
@@ -186,6 +186,22 @@ jobs:
             curl -L https://pnpm.js.org/pnpm.js | node - add --global pnpm@7
       - run: pnpm chromatic --project-token=${CHROMATIC_PROJECT_TOKEN} --exit-zero-on-changes --exit-once-uploaded
 
+  performance:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/app
+        # Runs the Chromatic CLI for core and forms packages
+      - run:
+          name: Install pnpm package manager
+          command: |
+            curl -L https://pnpm.js.org/pnpm.js | node - add --global pnpm@7
+      - run: SHELL=$SHELL pnpm setup
+      - run: pnpm install puppeteer -w
+      - run: pnpm -F nuxt-app lighthouse:ci
+      - store_artifacts:
+          path: examples/nuxt-app/.unlighthouse
+
   publish-alpha:
     <<: *defaults
     steps:
@@ -271,6 +287,9 @@ workflows:
       - build-examples:
           requires:
             - build
+      - performance:
+          requires:
+            - build-examples
       - integration-nuxt:
           requires:
             - build-examples

@@ -76,34 +76,36 @@ export const getValidation = (
   // Min/max length can set in Drupal via the main min/maxlength fields or via the counter_min/max fields
   // setting the counter min/max values overrides the main min/maxlength fields
   if (
-    (field['#minlength'] && field['#maxlength']) ||
-    (field['#counter_type'] && field['#counter_type'] === 'character')
+    field['#minlength'] ||
+    field['#maxlength'] ||
+    (field['#counter_type'] && field['#counter_minimum']) ||
+    field['#counter_maximum']
   ) {
+    const type = field['#counter_type'] === 'word' ? 'words' : 'characters'
+    const validationType = type === 'words' ? 'matches' : 'length'
     let min = field['#minlength'] || 0
-    let max = field['#maxlength'] || null
+    let max = field['#maxlength'] || ''
+
     if (field['#counter_type']) {
       min = field['#counter_minimum'] || min
       max = field['#counter_maximum'] || max
     }
-    if (max) {
-      validation.push(['length', min, max])
-      validationMessages['length'] = min
-        ? `You must enter between ${min} and ${max} characters`
-        : `You can enter a maximum of ${min} characters`
-    } else if (min) {
-      validation.push(['length', min])
-      validationMessages['length'] = `You must enter at least ${min} characters`
-    }
-  }
 
-  if (field['#counter_type'] && field['#counter_type'] === 'word') {
-    validation.push([
-      `matches`,
-      `/^\\W*(\\w+(\\W+|$)){${field['#counter_minimum']},${field['#counter_maximum']}}$/`
-    ])
-    validationMessages[
-      'matches'
-    ] = `You must enter between ${field['#counter_minimum']} and ${field['#counter_maximum']} words`
+    if (max) {
+      validationMessages[validationType] = min
+        ? `You must enter between ${min} and ${max} ${type}`
+        : `You can enter a maximum of ${max} ${type}`
+    } else if (min) {
+      validationMessages[
+        validationType
+      ] = `You must enter at least ${min} ${type}`
+    }
+
+    if (validationType === 'matches') {
+      validation.push([validationType, `/^\\W*(\\w+(\\W+|$)){${min},${max}}$/`])
+    } else {
+      validation.push(max ? [validationType, min, max] : [validationType, min])
+    }
   }
 
   const conditionallyValidation = {

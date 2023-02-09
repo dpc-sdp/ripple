@@ -3,6 +3,44 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.77](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.76...v2.1.0-alpha.77) (2023-02-09)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-monorepo
+
+
+
+
+
+# [2.1.0-alpha.76](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.75...v2.1.0-alpha.76) (2023-02-08)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-monorepo
+
+
+
+
+
+# [2.1.0-alpha.75](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.74...v2.1.0-alpha.75) (2023-02-07)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** fix pluralization ([42fb8ea](https://github.com/dpc-sdp/ripple-framework/commit/42fb8ea2f9123e81a1e4d39cda37f941986b8224))
+
+
+
+
+
+# [2.1.0-alpha.74](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.73...v2.1.0-alpha.74) (2023-02-07)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-api:** checked that field_node_site exists before finding site section ([06343ef](https://github.com/dpc-sdp/ripple-framework/commit/06343ef02c6e991830d0f952981e16b62f3357c0))
+
+
+
+
+
 # [2.1.0-alpha.73](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.72...v2.1.0-alpha.73) (2023-02-05)
 
 

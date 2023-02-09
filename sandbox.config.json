@@ -1,0 +1,4 @@
+{
+  "startScript": "dev:nuxt",
+  "node": "16"
+}

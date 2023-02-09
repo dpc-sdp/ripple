@@ -146,14 +146,14 @@ importers:
   examples/nuxt-app:
     specifiers:
       '@badeball/cypress-cucumber-preprocessor': ^15.1.3
-      '@dpc-sdp/nuxt-ripple': 2.1.0-alpha.76
+      '@dpc-sdp/nuxt-ripple': 2.1.0-alpha.77
       '@dpc-sdp/ripple-tide-api': 2.1.0-alpha.76
       '@dpc-sdp/ripple-tide-event': 2.1.0-alpha.76
       '@dpc-sdp/ripple-tide-grant': 2.1.0-alpha.76
-      '@dpc-sdp/ripple-tide-landing-page': 2.1.0-alpha.76
-      '@dpc-sdp/ripple-tide-media': 2.1.0-alpha.76
-      '@dpc-sdp/ripple-tide-news': 2.1.0-alpha.76
-      '@dpc-sdp/ripple-tide-publication': 2.1.0-alpha.76
+      '@dpc-sdp/ripple-tide-landing-page': 2.1.0-alpha.77
+      '@dpc-sdp/ripple-tide-media': 2.1.0-alpha.77
+      '@dpc-sdp/ripple-tide-news': 2.1.0-alpha.77
+      '@dpc-sdp/ripple-tide-publication': 2.1.0-alpha.77
       '@dpc-sdp/ripple-tide-search': 2.1.0-alpha.76
       '@dpc-sdp/ripple-ui-core': 2.1.0-alpha.76
       '@dpc-sdp/ripple-ui-forms': 2.1.0-alpha.76
@@ -379,7 +379,7 @@ importers:
 
   packages/ripple-tide-media:
     specifiers:
-      '@dpc-sdp/nuxt-ripple': 2.1.0-alpha.76
+      '@dpc-sdp/nuxt-ripple': 2.1.0-alpha.77
       '@dpc-sdp/ripple-ui-core': 2.1.0-alpha.76
     dependencies:
       '@dpc-sdp/nuxt-ripple': link:../nuxt-ripple
@@ -387,14 +387,14 @@ importers:
 
   packages/ripple-tide-news:
     specifiers:
-      '@dpc-sdp/nuxt-ripple': 2.1.0-alpha.76
+      '@dpc-sdp/nuxt-ripple': 2.1.0-alpha.77
     dependencies:
       '@dpc-sdp/nuxt-ripple': link:../nuxt-ripple
 
   packages/ripple-tide-publication:
     specifiers:
       '@dpc-sdp/ripple-tide-api': 2.1.0-alpha.76
-      '@dpc-sdp/ripple-tide-landing-page': 2.1.0-alpha.76
+      '@dpc-sdp/ripple-tide-landing-page': 2.1.0-alpha.77
       '@dpc-sdp/ripple-ui-core': 2.1.0-alpha.76
     dependencies:
       '@dpc-sdp/ripple-tide-api': link:../ripple-tide-api

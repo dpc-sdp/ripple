@@ -6,7 +6,7 @@
   "version": "2.1.0-alpha.77",
   "scripts": {
     "dev": "nuxi dev",
-    "dev:debug": "node --inspect node_modules/.bin/nuxi dev",
+    "dev:debug": "node --inspect node_modules/nuxt/bin/nuxt.mjs dev",
     "dev:mock": "NUXT_PUBLIC_API_URL=http://localhost:3001 concurrently 'pnpm mockserver' 'pnpm dev'",
     "build": "nuxi build",
     "compile": "tsc --build",

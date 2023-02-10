@@ -6,6 +6,7 @@
     :formData="formData"
     :submitHandler="submitForm"
     :hideAfterSuccess="formData.settings.shouldHideFormAfterSuccess"
+    :spamProtect="formData.settings.spamProtect"
     :title="title"
     :fullWidth="false"
   >
@@ -72,23 +73,32 @@ export default {
     async submitForm () {
       const formData = this.formData.model
       const formId = this.formData.tideId
-
-      const res = await this.postForm(formId, formData)
-
-      if (res) {
+      if (this.isHoneypotSet(`#${this.formData.tideId}-important-email`)) {
         this.formData.formState = {
           response: {
             status: 'success',
             message: this.formData.messages.success || this.messages.success
           }
         }
-        // TODO: vicpol support, need to be reviewed when we add this feature into SDP.
-        this.vicPolRedirect()
       } else {
-        this.formData.formState = {
-          response: {
-            status: 'danger',
-            message: this.formData.messages.error || this.messages.error
+        const resData = await this.postForm(formId, formData)
+        if (resData) {
+          let status = 'success'
+          let message = this.formData.messages.success || this.messages.success
+          if (resData.attributes?.notes) {
+            [status, message] = this.getParsedStatus(resData.attributes.notes)
+          }
+          this.formData.formState = { response: { status, message } }
+          if (status === 'success') {
+            // TODO: vicpol support, need to be reviewed when we add this feature into SDP.
+            this.vicPolRedirect()
+          }
+        } else {
+          this.formData.formState = {
+            response: {
+              status: 'danger',
+              message: this.formData.messages.error || this.messages.error
+            }
           }
         }
       }
@@ -125,6 +135,13 @@ export default {
           openNewTab(redirectUrl)
         }
       }
+    },
+    getParsedStatus (notes) {
+      const [code, note] = notes.split('|')
+      if (code && Number.isInteger(+code) && (+code <= 199 || +code >= 300)) {
+        return ['danger', note || this.formData.messages.error || this.messages.error]
+      }
+      return ['success', note || this.formData.messages.success || this.messages.success]
     }
   },
   mounted () {

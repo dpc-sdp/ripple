@@ -1,5 +1,4 @@
 require('dotenv').config()
-const robots = require('./robots')
 
 process.env.DEBUG = 'nuxt:*' // display nuxt.js logs
 
@@ -44,7 +43,6 @@ export default {
   modules: [
     // https://www.npmjs.com/package/@dpc-sdp/ripple-nuxt-tide
     '@dpc-sdp/ripple-nuxt-tide',
-    ['@nuxtjs/robots', robots],
     '@nuxtjs/gtm'
   ],
   /*
@@ -105,7 +103,7 @@ export default {
       <%}%><% if (search === 'yes') { %>search: 1,
       <%}%><% if (authenticatedContent === 'yes') { %>authenticatedContent: 1,
       <%}%><% if (alert === 'yes') { %>alert: 1,
-      <%}%><% if (preview === 'yes') { %>preivew: 1,
+      <%}%><% if (preview === 'yes') { %>preview: 1,
       <%}%><% if (site === 'yes') { %>site: 1<%}%>
     },
     search: {

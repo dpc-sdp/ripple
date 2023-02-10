@@ -73,6 +73,7 @@ export default {
     submitFormOnClear: { type: Boolean, default: false },
     scrollToMessage: { type: Boolean, default: true },
     validateOnSubmit: { type: Boolean, default: true },
+    spamProtect: { type: Boolean, default: false },
     fullWidth: { type: Boolean, default: true },
     listenForClearForm: { type: Boolean, default: true }
   },
@@ -82,6 +83,27 @@ export default {
     }
   },
   created () {
+    // If spam protection is enabled, add a honeypot field to the beginning of the form.
+    if (this.spamProtect) {
+      const honeypot = {
+        inputType: 'text',
+        label: 'Important email',
+        model: 'honeypot',
+        type: 'input',
+        autocomplete: 'off',
+        styleClasses: ['rpl-hidden']
+      }
+
+      if (!this.formData.schema.fields) {
+        this.formData.schema.fields = []
+      }
+      if (this.formData.schema.fields.length === 0 || this.formData.schema.fields[0].model !== 'honeypot') {
+        this.formData.model['honeypot'] = null
+        this.formData.schema.fields.unshift(honeypot)
+      }
+    }
+  },
+  mounted () {
     if (this.listenForClearForm) {
       RplFormEventBus.$on('clearform', this.clearForm)
     }
@@ -122,6 +144,21 @@ export default {
         return []
       }
       return ['More than ' + field.max + ' selections are not allowed']
+    }
+    // Validate if the field matches the supplied regex pattern, this displays the 'Pattern message' if it doesn't match.
+    VueFormGenerator.validators.rplMatchPattern = function (value, field) {
+      if (value) {
+        try {
+          const regex = new RegExp(field.pattern)
+
+          if (!regex.test(value)) {
+            return field.patternMessage || 'Please ensure data is entered in the correct format'
+          }
+        } catch (error) {
+          return null
+        }
+      }
+      return null
     }
   },
   destroyed () {
@@ -170,10 +207,24 @@ export default {
         this.$refs.vfg.validate()
       }
 
-      // Run custom submit callback if no error in validation
       if (this.$refs.vfg.errors.length === 0) {
         RplFormEventBus.$emit('loading', true)
-        await this.submitHandler()
+
+        // Check whether honeypot field is set when spam protection is enabled.
+        if (this.spamProtect && this.formData.model.honeypot) {
+          setTimeout(() => {
+            this.formData.formState = {
+              response: {
+                status: 'success',
+                message: this.$parent.messages?.success || 'Form submitted, thank you.'
+              }
+            }
+          }, 2000)
+        } else {
+          // Run custom submit callback if no error in validation
+          await this.submitHandler()
+        }
+
         if (this.scrollToMessage) {
           VueScrollTo.scrollTo(this.$el, 500, { offset: -150 })
         }
@@ -338,6 +389,10 @@ $rpl-form-input-search-icon: url("data:image/svg+xml,%3Csvg width='16' height='1
       order: 2;
       margin-bottom: $rpl-space-2;
       color: rpl-color('danger');
+
+      span {
+        margin-right: $rpl-space-2;
+      }
     }
   }
 

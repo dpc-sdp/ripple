@@ -9,8 +9,8 @@ module.exports = {
     let data = {
       tideId: drupalFormEntity.drupal_internal__id,
       messages: {
-        success: drupalFormEntity.settings.confirmation_message ? drupalFormEntity.settings.confirmation_message : null,
-        failure: drupalFormEntity.settings.submission_exception_message ? drupalFormEntity.settings.submission_exception_message : null
+        success: drupalFormEntity.settings?.confirmation_message ? drupalFormEntity.settings.confirmation_message : null,
+        failure: drupalFormEntity.settings?.submission_exception_message ? drupalFormEntity.settings.submission_exception_message : null
       },
       model: {},
       schema: {
@@ -24,18 +24,19 @@ module.exports = {
       },
       formState: {},
       settings: {
-        shouldHideFormAfterSuccess: null
+        shouldHideFormAfterSuccess: null,
+        spamProtect: true
       },
       tag: 'rpl-fieldset',
       // TODO: Below category & redirect_url is used by VicPol only at this moment and the it's not in Tide.
       // The implementation need to be reviewed.
       category: drupalFormEntity.category,
-      redirect_url: drupalFormEntity.settings.confirmation_url
+      redirect_url: drupalFormEntity.settings?.confirmation_url
     }
 
     // If form confirmation type is inline, always hide the form after it has been successfully submitted.
     // This switch can be used to define whether or not the form is hidden after submission based on the submission confirmation type set in Drupal
-    switch (drupalFormEntity.settings.confirmation_type) {
+    switch (drupalFormEntity.settings?.confirmation_type) {
       case ('inline'):
         data.settings.shouldHideFormAfterSuccess = true
         break
@@ -114,12 +115,18 @@ module.exports = {
         }
       }
 
+      if (element['#pattern']) {
+        field.pattern = element['#pattern']
+        field.patternMessage = element['#pattern_error']
+      }
+
       const defaultValue = element['#default_value']
 
       switch (element['#type']) {
         case 'hidden':
           field.type = 'input'
           field.inputType = 'hidden'
+          field.visible = false
           if (defaultValue) data.model[eName] = defaultValue
           break
 
@@ -132,6 +139,7 @@ module.exports = {
           } else {
             field.validator.push('string')
           }
+          if (field.pattern) field.validator.push('rplMatchPattern')
           if (defaultValue) data.model[eName] = defaultValue
           break
 
@@ -155,6 +163,7 @@ module.exports = {
           field.type = 'input'
           field.inputType = 'email'
           field.validator.push('email', 'string')
+          if (field.pattern) field.validator.push('rplMatchPattern')
           if (defaultValue) data.model[eName] = defaultValue
           break
 
@@ -162,6 +171,7 @@ module.exports = {
           field.type = 'input'
           field.inputType = 'tel'
           field.validator.push('string')
+          if (field.pattern) field.validator.push('rplMatchPattern')
           if (defaultValue) data.model[eName] = defaultValue
           break
 
@@ -199,6 +209,7 @@ module.exports = {
           } else {
             field.validator.push('string')
           }
+          if (field.pattern) field.validator.push('rplMatchPattern')
           if (defaultValue) data.model[eName] = defaultValue
           break
 
@@ -281,6 +292,7 @@ module.exports = {
           field.type = 'input'
           field.inputType = 'url'
           field.validator.push('string')
+          if (field.pattern) field.validator.push('rplMatchPattern')
           if (defaultValue) data.model[eName] = defaultValue
           break
 
@@ -420,18 +432,19 @@ module.exports = {
         case 'webform_actions':
           group.fields = []
           group.styleClasses = ['rpl-fieldset--pad']
-          group.fields.push({
-            type: 'rplsubmitloader',
-            buttonText: element['#submit__label'] || element['#title'],
-            loading: false,
-            autoUpdate: true,
-            styleClasses: ['form-group--inline']
-          },
-          {
-            type: 'rplclearform',
-            buttonText: 'Clear form',
-            styleClasses: ['form-group--inline']
-          }
+          group.fields.push(
+            {
+              type: 'rplsubmitloader',
+              buttonText: element['#submit__label'] || element['#title'],
+              loading: false,
+              autoUpdate: true,
+              styleClasses: ['form-group--inline']
+            },
+            {
+              type: 'rplclearform',
+              buttonText: 'Clear form',
+              styleClasses: ['form-group--inline']
+            }
           )
           break
 

@@ -48,16 +48,24 @@ const getContentCollectionFiltersFromConfig = (
   const filters = []
   if (config.internal?.contentTypes) {
     filters.push({
+      type: 'any',
       field: 'type',
       values: config.internal?.contentTypes
     })
   }
   if (config.internal?.contentFields) {
     const contentFieldFilters = Object.keys(config.internal?.contentFields).map(
-      (key) => ({
-        field: key,
-        values: config.internal?.contentFields[key].values
-      })
+      (field) => {
+        const type =
+          config.internal?.contentFields[field].operator === 'OR'
+            ? 'any'
+            : 'all'
+        return {
+          type,
+          field,
+          values: config.internal?.contentFields[field].values
+        }
+      }
     )
     filters.push(...contentFieldFilters)
   }
@@ -75,7 +83,7 @@ export const contentCollectionMapping = async (
     title: field.field_cc_enhanced_title,
     props: {
       description: getBodyFromField(field, ['field_cc_enhanced_description']),
-      // The below isn't support yet, so I'm faking for now to test
+      // The below isn't support yet, so we're faking for now to test
       // link: getLinkFromField(field, [
       //   'field_content_collection_config',
       //   'callToAction'
@@ -91,21 +99,20 @@ export const contentCollectionMapping = async (
         field: getField(
           field,
           'field.field_content_collection_config.internal.sort.field',
-          'title'
+          'created'
         ),
         direction: getField(
           field,
           'field.field_content_collection_config.internal.sort.direction',
-          'asc'
+          'desc'
         )
       },
-      // The below isn't support yet, so I'm faking for now to test
-      // perPage: getField(
-      //   field,
-      //   'field_content_collection_config.interface.display.resultComponent.number',
-      //   6
-      // )
-      perPage: 6,
+      // The below perPage path isn't support yet
+      perPage: getField(
+        field,
+        'field_content_collection_config.interface.display.resultComponent.number',
+        6
+      ),
       display: {
         type: getField(
           field,

@@ -193,4 +193,8 @@ export interface IRplFeatureFlags {
    * @description Sets the theme variant of the site footer component
    */
   footerTheme?: 'neutral' | 'default'
+  /**
+   * @description Sets which search connector to use for content collection queries
+   */
+  contentCollectionSearchConnector?: 'appSearch' | 'elasticsearch'
 }

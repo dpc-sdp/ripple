@@ -1,6 +1,8 @@
 export default defineAppConfig({
   ripple: {
-    featureFlags: {},
+    featureFlags: {
+      contentCollectionSearchConnector: 'appSearch'
+    },
     theme: {
       'rpl-clr-primary': 'purple',
       'rpl-clr-primary-alt': '#a21e8f',

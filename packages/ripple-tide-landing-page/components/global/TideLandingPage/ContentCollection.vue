@@ -41,16 +41,21 @@
 
 <script setup lang="ts">
 import { formatDate, useTideSearch, useRuntimeConfig } from '#imports'
-import { computed, onMounted } from 'vue'
+import { computed, inject, onMounted } from 'vue'
 import {
   IContentCollectionDisplay,
   IContentCollectionSort
 } from '../../../mapping/page-components/content-collection/content-collection-mapping'
+import type { IRplFeatureFlags } from '@dpc-sdp/ripple-tide-api/types'
 
 const { public: config } = useRuntimeConfig()
-// const apiConnectorOptions = config.tide?.appSearch
 
-const apiConnectorOptions = config.tide?.elasticsearch
+const featureFlags: IRplFeatureFlags = inject('featureFlags', {
+  contentCollectionSearchConnector: 'appSearch'
+})
+
+const apiConnectorOptions =
+  config.tide?.[featureFlags.contentCollectionSearchConnector]
 
 interface IContentCollectionFilter {
   field: string
@@ -64,10 +69,10 @@ const props = defineProps<{
     text: string
     url: string
   }
+  display: IContentCollectionDisplay
   filters: IContentCollectionFilter[]
   sortBy: IContentCollectionSort
   perPage: number
-  display: IContentCollectionDisplay
 }>()
 
 const component = computed(() => {
@@ -92,10 +97,13 @@ const searchResultsMappingFn = (item): any => {
         props.display.style === 'thumbnail' && rawImage
           ? { src: rawImage }
           : null,
-      updated: rawUpdated ? formatDate(rawUpdated) : ''
+      updated: rawUpdated ? formatDate(rawUpdated) : '',
+      type: item.type?.raw?.[0]
     },
     slots: {
-      default: item.field_landing_page_summary?.raw?.[0]
+      default:
+        item.field_landing_page_summary?.snippet ||
+        item.field_landing_page_summary?.raw?.[0]
     }
   }
 }
@@ -105,8 +113,12 @@ const searchDriverOptions = {
   trackUrlState: false,
   initialState: {
     resultsPerPage: props.perPage,
-    sortField: props.sortBy.field,
-    sortDirection: props.sortBy.direction
+    sortList: [
+      {
+        field: props.sortBy.field,
+        direction: props.sortBy.direction
+      }
+    ]
   },
   searchQuery: {
     filters: props.filters,
@@ -117,12 +129,6 @@ const searchDriverOptions = {
         }
       },
       field_landing_page_summary: {
-        snippet: {
-          size: 150,
-          fallback: true
-        }
-      },
-      summary_processed: {
         snippet: {
           size: 150,
           fallback: true

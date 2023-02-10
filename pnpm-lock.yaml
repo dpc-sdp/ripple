@@ -407,11 +407,13 @@ importers:
       '@dpc-sdp/ripple-ui-forms': 2.1.0-alpha.76
       '@elastic/search-ui': latest
       '@elastic/search-ui-app-search-connector': latest
+      '@elastic/search-ui-elasticsearch-connector': ^1.19.0
     dependencies:
       '@dpc-sdp/ripple-ui-core': link:../ripple-ui-core
       '@dpc-sdp/ripple-ui-forms': link:../ripple-ui-forms
-      '@elastic/search-ui': 1.19.0
-      '@elastic/search-ui-app-search-connector': 1.19.0
+      '@elastic/search-ui': 1.19.1
+      '@elastic/search-ui-app-search-connector': 1.19.1
+      '@elastic/search-ui-elasticsearch-connector': 1.19.1
 
   packages/ripple-ui-core:
     specifiers:
@@ -2688,20 +2690,54 @@ packages:
       object-hash: 1.3.1
     dev: false
 
-  /@elastic/search-ui-app-search-connector/1.19.0:
-    resolution: {integrity: sha512-ihjGyYCYV9BRNbjsVpBZNCg3SMr73DNhHq2NekTCxMahMS5TbUs88EH0ggWEqfZDxtEyS2coKmKM4UEHZid7kw==}
+  /@elastic/elasticsearch/8.6.0:
+    resolution: {integrity: sha512-mN5EbbgSp1rfRmQ/5Hv7jqAK8xhGJxCg7G84xje8hSefE59P+HPPCv/+DgesCUSJdZpwXIo0DwOWHfHvktxxLw==}
+    engines: {node: '>=14'}
     dependencies:
-      '@elastic/app-search-javascript': 8.5.1
-      '@elastic/search-ui': 1.19.0
+      '@elastic/transport': 8.3.1
+      tslib: 2.5.0
+    transitivePeerDependencies:
+      - supports-color
     dev: false
 
-  /@elastic/search-ui/1.19.0:
-    resolution: {integrity: sha512-cShId22JPOkGiyPAmWYjttH/1q8D2Ac14d3lMXfgMNE+98jjWt0Nf/TvrfjLbTpdSVFUaDg/vAVciTRKk1qOVw==}
+  /@elastic/search-ui-app-search-connector/1.19.1:
+    resolution: {integrity: sha512-cHYtk2M6F1OdkJSXdb6EMvn6p4oE2duNZ/Il+W++6l5NXzyqPrVnh+6uGEPN64j+CxvTwxAEdV2uQbUpEKBrtw==}
+    dependencies:
+      '@elastic/app-search-javascript': 8.5.1
+      '@elastic/search-ui': 1.19.1
+    dev: false
+
+  /@elastic/search-ui-elasticsearch-connector/1.19.1:
+    resolution: {integrity: sha512-cYR1vXN7HLREHsGZridqXtgrqLHH81E2leV/ZkvBlFDIszOUQCBlGnWBi4g/tt6fcfKSb3fGM1GMIRQhMaNSMA==}
+    dependencies:
+      '@elastic/elasticsearch': 8.6.0
+      '@elastic/search-ui': 1.19.1
+      '@searchkit/sdk': 3.0.0_x63j4eh44ptvymjwbxe6pjelvi
+    transitivePeerDependencies:
+      - supports-color
+    dev: false
+
+  /@elastic/search-ui/1.19.1:
+    resolution: {integrity: sha512-2DcZ1b4fiL0vjRhVFU1OnqGKOy7aVJr563VO9FDpUUFCXlMySKWnuwh0kcUatqeNO4Sxw9GyJZbtzOgnTyQaag==}
     dependencies:
       date-fns: 1.30.1
       deep-equal: 1.1.1
       history: 4.10.1
       qs: 6.11.0
+    dev: false
+
+  /@elastic/transport/8.3.1:
+    resolution: {integrity: sha512-jv/Yp2VLvv5tSMEOF8iGrtL2YsYHbpf4s+nDsItxUTLFTzuJGpnsB/xBlfsoT2kAYEnWHiSJuqrbRcpXEI/SEQ==}
+    engines: {node: '>=14'}
+    dependencies:
+      debug: 4.3.4
+      hpagent: 1.2.0
+      ms: 2.1.3
+      secure-json-parse: 2.7.0
+      tslib: 2.5.0
+      undici: 5.18.0
+    transitivePeerDependencies:
+      - supports-color
     dev: false
 
   /@emotion/cache/10.0.29:
@@ -5333,6 +5369,19 @@ packages:
       colors: 1.2.5
       string-argv: 0.3.1
     dev: true
+
+  /@searchkit/sdk/3.0.0_x63j4eh44ptvymjwbxe6pjelvi:
+    resolution: {integrity: sha512-cWtP5T2+xonPhnwDmda6+RQWvGBg0bigCmZLm+fPPJOymEIug5LQF1s0abcWlwDuXhNnMqiCdk/x2ZUJpt2xTA==}
+    peerDependencies:
+      '@elastic/elasticsearch': '*'
+    dependencies:
+      '@elastic/elasticsearch': 8.6.0
+      '@elastic/elasticsearch-types': /@elastic/elasticsearch/8.6.0
+      agentkeepalive: 4.2.1
+      lodash: 4.17.21
+    transitivePeerDependencies:
+      - supports-color
+    dev: false
 
   /@sentry/core/6.19.7:
     resolution: {integrity: sha512-tOfZ/umqB2AcHPGbIrsFLcvApdTm9ggpi/kQZFkej7kMphjT+SGBiQfYtjyg9jcRW+ilAR4JXC9BGKsdEQ+8Vw==}
@@ -8876,7 +8925,6 @@ packages:
       humanize-ms: 1.2.1
     transitivePeerDependencies:
       - supports-color
-    dev: true
 
   /aggregate-error/3.1.0:
     resolution: {integrity: sha512-4I7Td01quW/RpocfNayFdFVk1qSuoh0E7JrbRJ16nH01HhKFQ88INq9Sd+nd72zqRySlr9BmDA8xlEJ6vJMrYA==}
@@ -12351,7 +12399,6 @@ packages:
   /depd/1.1.2:
     resolution: {integrity: sha512-7emPTl6Dpo6JRXOXjLRxck+FlLRX5847cLKEn00PLAgc3g2hTZZgr+e4c2v6QpSmLeFP3n5yUo7ft6avBK/5jQ==}
     engines: {node: '>= 0.6'}
-    dev: true
 
   /depd/2.0.0:
     resolution: {integrity: sha512-g7nH6P6dyDioJogAAGprGpCtVImJhpPk/roCzdb3fIh61/s/nPsfR6onyMwkCAR/OlC3yBC0lESvUoQEAssIrw==}
@@ -15636,6 +15683,11 @@ packages:
       lru-cache: 7.14.1
     dev: true
 
+  /hpagent/1.2.0:
+    resolution: {integrity: sha512-A91dYTeIB6NoXG+PxTQpCCDDnfHsW9kc06Lvpu1TEe9gnd6ZFeiBoRO9JvzEv6xK7EX97/dUE8g/vBMTqTS3CA==}
+    engines: {node: '>=14'}
+    dev: false
+
   /html-encoding-sniffer/3.0.0:
     resolution: {integrity: sha512-oWv4T4yJ52iKrufjnyZPkrN0CH3QnrUqdB6In1g5Fe1mia8GmF36gnfNySxoZtxD5+NmYw1EElVXiBk93UeskA==}
     engines: {node: '>=12'}
@@ -15946,7 +15998,6 @@ packages:
     resolution: {integrity: sha512-Fl70vYtsAFb/C06PTS9dZBo7ihau+Tu/DNCk/OyHhea07S+aeMWpFFkUaXRa8fI+ScZbEI8dfSxwY7gxZ9SAVQ==}
     dependencies:
       ms: 2.1.3
-    dev: true
 
   /husky/8.0.3:
     resolution: {integrity: sha512-+dQSyqPh4x1hlO1swXBiNb2HzTDN1I2IGLQx1GrBuiqFJfoMrnZWwVmatvSiO+Iz8fBUnf+lekwNo4c2LlXItg==}
@@ -24501,6 +24552,10 @@ packages:
   /secure-compare/3.0.1:
     resolution: {integrity: sha512-AckIIV90rPDcBcglUwXPF3kg0P0qmPsPXAj6BBEENQE1p5yA1xfmDJzfi1Tappj37Pv2mVbKpL3Z1T+Nn7k1Qw==}
     dev: true
+
+  /secure-json-parse/2.7.0:
+    resolution: {integrity: sha512-6aU+Rwsezw7VR8/nyvKTx8QpWH9FrcYiXXlqC4z5d5XQBDRqtbfsRjnwGyqbi3gddNtWHuEk9OANUotL26qKUw==}
+    dev: false
 
   /semver/5.7.1:
     resolution: {integrity: sha512-sauaDf/PZdVgrLTNYHRtpXa1iRiKcaebiKQ1BJdpQlWH2lCvexQdX55snPFyK7QzpudqbCI0qXFfOasHdyNDGQ==}

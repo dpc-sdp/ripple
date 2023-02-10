@@ -7,18 +7,27 @@
     </template>
     <template #primaryNav>
       <slot name="primaryNav">
-        <RplPrimaryNav :primaryLogo="{
-          src: '/img/primary-nav-logo-primary.svg',
-          altText: 'Victoria government logo',
-          href: '/'
-        }" :secondaryLogo="site?.siteLogo" :items="site?.menus.menuMain || []" :showQuickExit="site?.showQuickExit">
+        <RplPrimaryNav
+          :primaryLogo="{
+            src: '/img/primary-nav-logo-primary.svg',
+            altText: 'Victoria government logo',
+            href: '/'
+          }"
+          :secondaryLogo="site?.siteLogo"
+          :items="site?.menus.menuMain || []"
+          :showQuickExit="site?.showQuickExit"
+        >
         </RplPrimaryNav>
       </slot>
     </template>
     <template #breadcrumbs>
       <slot name="breadcrumbs">
-        <TideBreadcrumbs v-if="showBreadcrumbs" :siteMenu="site?.menus.menuMain" :currentPath="route.path"
-          :currentPageTitle="pageTitle" />
+        <TideBreadcrumbs
+          v-if="showBreadcrumbs"
+          :siteMenu="site?.menus.menuMain"
+          :currentPath="route.path"
+          :currentPageTitle="pageTitle"
+        />
       </slot>
     </template>
     <template #aboveBody="{ hasBreadcrumbs }">
@@ -26,15 +35,26 @@
     </template>
     <template #body="{ hasSidebar }">
       <slot name="body" :hasSidebar="hasSidebar"></slot>
-      <div v-if="topicTags.length" data-cy="topic-tags" class="rpl-u-margin-t-6">
-        <RplChip v-for="tag in topicTags" :key="tag.url" :label="tag.text" :url="tag.url" />
+      <div
+        v-if="topicTags.length"
+        data-cy="topic-tags"
+        class="rpl-u-margin-t-6"
+      >
+        <RplChip
+          v-for="tag in topicTags"
+          :key="tag.url"
+          :label="tag.text"
+          :url="tag.url"
+        />
       </div>
 
       <TideUpdatedDate v-if="updatedDate" :date="updatedDate" />
     </template>
     <template #belowBody>
       <slot name="belowBody"></slot>
-      <TideContentRating :siteSectionName="siteSection ? siteSection.name : ''" />
+      <TideContentRating
+        :siteSectionName="siteSection ? siteSection.name : ''"
+      />
     </template>
     <template #aboveSidebar>
       <slot name="aboveSidebar"></slot>
@@ -47,9 +67,15 @@
     </template>
     <template #footer>
       <slot name="footer">
-        <RplFooter :nav="site?.menus.menuMain" :links="site?.menus.menuFooter" :copyright="site?.copyright"
-          :acknowledgement="site?.acknowledgementFooter" :logos="site?.footerLogos" :credit="footerImageCaption"
-          :variant="featureFlags?.footerTheme || 'default'">
+        <RplFooter
+          :nav="site?.menus.menuMain"
+          :links="site?.menus.menuFooter"
+          :copyright="site?.copyright"
+          :acknowledgement="site?.acknowledgementFooter"
+          :logos="site?.footerLogos"
+          :credit="footerImageCaption"
+          :variant="featureFlags?.footerTheme || 'default'"
+        >
           <template v-if="site?.copyrightHtml" #copyright>
             <div data-cy="footer-copyright" v-html="site?.copyrightHtml"></div>
           </template>
@@ -90,7 +116,10 @@ const props = withDefaults(defineProps<Props>(), {
   siteSection: null
 })
 // Feature flags will be available on component instances with inject('featureFlags') - See https://vuejs.org/guide/components/provide-inject.html#inject
-const featureFlags = ref(props.site?.featureFlags || useAppConfig()?.ripple?.featureFlags)
+const featureFlags = ref(
+  (props.site?.featureFlags && Object.keys(props.site.featureFlags).length) ||
+    useAppConfig()?.ripple?.featureFlags
+)
 provide('featureFlags', featureFlags.value)
 
 onMounted(() => {

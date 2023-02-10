@@ -23,8 +23,8 @@
       "type": "node",
       "request": "launch",
       "cwd": "${workspaceFolder}/examples/nuxt-app",
-      "runtimeExecutable": "yarn",
-      "runtimeArgs": ["workspace", "nuxt-app", "dev"],
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": ["-F", "nuxt-app", "dev"],
       "console": "integratedTerminal"
     }
   ]

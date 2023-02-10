@@ -3,16 +3,16 @@
   "description": "Ripple mappings and components for Tide landing-page Content type",
   "main": "./nuxt.config.ts",
   "packageManager": "pnpm@7.23.0",
-  "version": "2.1.0-alpha.75",
+  "version": "2.1.0-alpha.77",
   "license": "Apache-2.0",
   "exports": {
     ".": "./nuxt.config.ts",
     "./mapping": "./mapping/index.ts"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-tide-api": "2.1.0-alpha.74",
-    "@dpc-sdp/ripple-ui-core": "2.1.0-alpha.71",
-    "@dpc-sdp/ripple-ui-forms": "2.1.0-alpha.75",
+    "@dpc-sdp/ripple-tide-api": "2.1.0-alpha.76",
+    "@dpc-sdp/ripple-ui-core": "2.1.0-alpha.76",
+    "@dpc-sdp/ripple-ui-forms": "2.1.0-alpha.76",
     "ohmyfetch": "^0.4.21"
   }
 }

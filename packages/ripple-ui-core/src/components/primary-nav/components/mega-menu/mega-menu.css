@@ -113,7 +113,7 @@
   /* width = 4 full width columns, a translateX transform will be applied to
   move the grid left / right to show the appropriate column */
   width: calc(400%);
-  transition: transform var(--rpl-motion-speed-8) ease;
+  transition: transform var(--rpl-motion-speed-9) ease;
 
   @media (--rpl-bp-l) {
     row-gap: var(--rpl-sp-4);
@@ -399,7 +399,7 @@
 }
 
 .rpl-primary-nav__mega-menu-action-text {
-  transition: transform var(--rpl-motion-speed-1) ease-out;
+  transition: transform var(--rpl-motion-speed-2) ease-out;
 
   .rpl-primary-nav__mega-menu-action:hover & {
     text-decoration: underline;

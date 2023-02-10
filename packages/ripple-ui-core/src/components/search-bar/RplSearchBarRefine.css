@@ -8,7 +8,7 @@
   color: var(--rpl-clr-link);
 
   .rpl-icon {
-    transition: transform var(--rpl-motion-speed-6) linear;
+    transition: transform var(--rpl-motion-speed-7) linear;
   }
 
   &:hover {

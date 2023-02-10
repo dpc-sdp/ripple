@@ -1,12 +1,12 @@
 {
-  "version": "2.1.0-alpha.75",
+  "version": "2.1.0-alpha.77",
   "npmClient": "pnpm",
   "exact": true,
-  "useWorkspaces": true,
   "command": {
     "publish": {
       "message": "chore(release): publish %s [skip ci]",
       "conventionalCommits": true
     }
-  }
+  },
+  "packages": ["packages/*"]
 }

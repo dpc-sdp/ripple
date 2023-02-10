@@ -39,6 +39,7 @@ const iconPosition = computed(() => {
 })
 
 const formId: string = inject('formId')
+const isFormSubmitting: any = inject('isFormSubmitting')
 
 const handleReset = () => {
   reset(formId)
@@ -54,6 +55,7 @@ const handleReset = () => {
       :disabled="disabled"
       :icon-name="prefixIcon || suffixIcon"
       :icon-position="iconPosition"
+      :busy="isFormSubmitting"
     >
       {{ label }}
     </RplButton>

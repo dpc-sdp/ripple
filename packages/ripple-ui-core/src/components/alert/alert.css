@@ -1,5 +1,5 @@
 .rpl-alert {
-  transition: all var(--rpl-motion-speed-2) ease-out;
+  transition: all var(--rpl-motion-speed-3) ease-out;
   height: var(--local-container-height); /* container height for transition */
 
   &__inner {
@@ -33,12 +33,12 @@
     display: inline-block;
     color: var(--rpl-clr-type-light);
     margin-top: var(--rpl-sp-3);
-    transition: gap var(--rpl-motion-speed-2) ease-out;
+    transition: gap var(--rpl-motion-speed-3) ease-out;
 
     .rpl-icon {
       margin-bottom: -0.2em;
       margin-left: var(--rpl-sp-2);
-      transition: transform var(--rpl-motion-speed-2) ease-out;
+      transition: transform var(--rpl-motion-speed-3) ease-out;
       transform: translateX(0);
     }
 

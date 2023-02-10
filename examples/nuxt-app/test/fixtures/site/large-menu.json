@@ -1,0 +1,179 @@
+{
+  "name": "vic.gov.au",
+  "siteAlerts": [
+    {
+      "alertId": "ALERT_1",
+      "variant": "information",
+      "iconName": "icon-information-circle-filled",
+      "message": "Demo alert title",
+      "linkText": "Test link",
+      "linkUrl": "/demo-link"
+    }
+  ],
+  "siteLogo": null,
+  "showQuickExit": false,
+  "acknowledgementHeader": "The Victorian Government acknowledges Aboriginal Traditional Owners of Country throughout Victoria and pays respect to their cultures and Elders past, present and emerging.",
+  "acknowledgementFooter": "Test footer acknowledgement",
+  "copyrightHtml": "<p>Test <strong>footer</strong> copyright html</p>",
+  "footerLogos": [
+    {
+      "alt": "Test logo 1",
+      "url": "/test-logo-1",
+      "src": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Aerial-shot-of-new-housing-development.jpg"
+    },
+    {
+      "alt": "Test logo 2",
+      "url": "/test-logo-2",
+      "src": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/2018-19-State-Budget.jpg"
+    }
+  ],
+  "socialImages": {
+    "twitter": {
+      "src": "https://develop.content.vic.gov.au/sites/default/files/2022-09/Vic_Gov_Default_Display_Image_Proper_Spacing.png",
+      "alt": "Vic Gov Feature Image",
+      "title": "",
+      "width": 818,
+      "height": 496,
+      "focalPoint": {
+        "x": 409,
+        "y": 248
+      }
+    },
+    "og": {
+      "src": "https://develop.content.vic.gov.au/sites/default/files/2022-09/Vic_Gov_Default_Display_Image_Proper_Spacing.png",
+      "alt": "Vic Gov Feature Image",
+      "title": "",
+      "width": 818,
+      "height": 496,
+      "focalPoint": {
+        "x": 409,
+        "y": 248
+      }
+    }
+  },
+  "menus": {
+    "menuMain": [
+      {
+        "text": "Level 1 - Item 1",
+        "url": "/level-1-item-1",
+        "id": "36b23e56-103b-4fcc-8005-d7f1403c6ded",
+        "parent": null,
+        "weight": -50,
+        "items": [
+          {
+            "text": "Level 2 - Item 1",
+            "url": "/level-2-item-1",
+            "id": "b384de04-8faa-4246-adc1-70c8a56b2c22",
+            "parent": "36b23e56-103b-4fcc-8005-d7f1403c6ded",
+            "weight": 15,
+            "items": [
+              {
+                "text": "Level 3 - Item 1",
+                "url": "/level-3-item-1",
+                "id": "b384de04-8faa-4246-adc1-70c8a56b2c22",
+                "parent": "36b23e56-103b-4fcc-8005-d7f1403c6ded",
+                "weight": 15
+              },
+              {
+                "text": "Level 3 - Item 2",
+                "url": "/level-3-item-2",
+                "id": "e239b5d2-54f4-4d1e-8ce2-5b5cfc9a2c29",
+                "parent": "36b23e56-103b-4fcc-8005-d7f1403c6ded",
+                "weight": 16
+              },
+              {
+                "text": "Level 3 - Item 3",
+                "url": "/level-3-item-3",
+                "id": "e239b5d2-54f4-4d1e-8ce2-5b5cfc9a2c29",
+                "parent": "36b23e56-103b-4fcc-8005-d7f1403c6ded",
+                "weight": 16
+              },
+              {
+                "text": "Level 4 - Item 4",
+                "url": "/level-3-item-4",
+                "id": "e239b5d2-54f4-4d1e-8ce2-5b5cfc9a2c29",
+                "parent": "36b23e56-103b-4fcc-8005-d7f1403c6ded",
+                "weight": 16
+              }
+            ]
+          },
+          {
+            "text": "Level 2 - Item 2",
+            "url": "/level-2-item-2",
+            "id": "e239b5d2-54f4-4d1e-8ce2-5b5cfc9a2c29",
+            "parent": "36b23e56-103b-4fcc-8005-d7f1403c6ded",
+            "weight": 16
+          }
+        ]
+      },
+      {
+        "text": "Level 1 - Item 2",
+        "url": "/level-1-item-2",
+        "id": "0ebbb35c-faeb-4c82-bfb7-25ebf3826ca9",
+        "parent": null,
+        "weight": -49
+      },
+      {
+        "text": "Test pages",
+        "url": "/level-2-item-2",
+        "id": "e239b5d2-54f4-4d1e-8ce2-5b5cfc9a2c29",
+        "parent": "36b23e56-103b-4fcc-8005-d7f1403c6ded",
+        "weight": 16,
+        "items": [
+          {
+            "url": "/event",
+            "text": "event/sample-event"
+          },
+          {
+            "url": "/grant",
+            "text": "grant/tc-9a-grant-simple-test-date-range"
+          },
+          {
+            "url": "/media/36",
+            "text": "media/36"
+          },
+          {
+            "url": "/media/271",
+            "text": "media/271"
+          },
+          {
+            "url": "/news",
+            "text": "news/sample-news"
+          },
+          {
+            "url": "/publication",
+            "text": "publication/sample-publication"
+          },
+          {
+            "url": "/publication-page",
+            "text": "publication-page/sample-publication-page"
+          },
+          {
+            "url": "/",
+            "text": "landingpage/home"
+          },
+          {
+            "url": "/image-banner",
+            "text": "landingpage/image-banner"
+          }
+        ]
+      }
+    ],
+    "menuFooter": [
+      {
+        "text": "Footer link 1",
+        "url": "/footer-link-1",
+        "id": "e19cd790-9bae-4cf2-8153-81b8e4bd46a7",
+        "parent": null,
+        "weight": -50
+      },
+      {
+        "text": "Footer link 2",
+        "url": "/footer-link-2",
+        "id": "11933bdd-0f20-446d-b6ed-fbc919b18eff",
+        "parent": null,
+        "weight": -49
+      }
+    ]
+  }
+}

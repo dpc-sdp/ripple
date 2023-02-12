@@ -11,14 +11,15 @@ import { RplIconSizes, RplCoreIconNames } from './constants'
 import { RplColorThemes } from './../../lib/constants'
 
 interface Props {
-  name: string
-  colour?: typeof RplColorThemes[number]
-  size?: typeof RplIconSizes[number]
+  name?: string
+  colour?: (typeof RplColorThemes)[number]
+  size?: (typeof RplIconSizes)[number]
   padded?: boolean
   title?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
+  name: undefined,
   colour: undefined,
   size: 's',
   padded: false,

@@ -4,6 +4,7 @@
   --local-border-width: var(--rpl-border-2);
   --rpl-focusable-border-width: var(--local-border-width);
 
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -143,4 +144,22 @@
     --local-white-type-clr: var(--rpl-clr-type-default);
     --local-white-type-clr-hover: var(--rpl-clr-type-default);
   }
+}
+
+.rpl-button--busy {
+  .rpl-button__icon,
+  .rpl-button__label {
+    opacity: 0;
+  }
+}
+
+.rpl-button__spinner {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

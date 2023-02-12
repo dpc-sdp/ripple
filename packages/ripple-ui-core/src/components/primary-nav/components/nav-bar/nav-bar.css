@@ -159,7 +159,7 @@
 .rpl-primary-nav__nav-bar-icon {
   display: inline-block;
   transform: translateY(1px);
-  transition: transform var(--rpl-motion-speed-6) linear;
+  transition: transform var(--rpl-motion-speed-7) linear;
 
   &.rpl-primary-nav__nav-bar-icon--large {
     margin-top: -4px;

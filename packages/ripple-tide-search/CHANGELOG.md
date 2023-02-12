@@ -3,85 +3,59 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [2.1.0-alpha.73](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.72...v2.1.0-alpha.73) (2023-02-05)
+# [2.1.0-alpha.78](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.77...v2.1.0-alpha.78) (2023-02-12)
 
 **Note:** Version bump only for package @dpc-sdp/ripple-tide-search
 
+# [2.1.0-alpha.76](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.75...v2.1.0-alpha.76) (2023-02-08)
 
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-search
 
+# [2.1.0-alpha.75](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.74...v2.1.0-alpha.75) (2023-02-07)
 
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-search
+
+# [2.1.0-alpha.73](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.72...v2.1.0-alpha.73) (2023-02-05)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-search
 
 # [2.1.0-alpha.71](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.70...v2.1.0-alpha.71) (2023-01-31)
 
 **Note:** Version bump only for package @dpc-sdp/ripple-tide-search
 
-
-
-
-
 # [2.1.0-alpha.70](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.69...v2.1.0-alpha.70) (2023-01-30)
 
 **Note:** Version bump only for package @dpc-sdp/ripple-tide-search
-
-
-
-
 
 # [2.1.0-alpha.69](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.68...v2.1.0-alpha.69) (2023-01-29)
 
 **Note:** Version bump only for package @dpc-sdp/ripple-tide-search
 
-
-
-
-
 # [2.1.0-alpha.68](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.67...v2.1.0-alpha.68) (2023-01-27)
 
 **Note:** Version bump only for package @dpc-sdp/ripple-tide-search
-
-
-
-
 
 # [2.1.0-alpha.67](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.66...v2.1.0-alpha.67) (2023-01-27)
 
 **Note:** Version bump only for package @dpc-sdp/ripple-tide-search
 
-
-
-
-
 # [2.1.0-alpha.66](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.65...v2.1.0-alpha.66) (2023-01-27)
 
 **Note:** Version bump only for package @dpc-sdp/ripple-tide-search
-
-
-
-
 
 # [2.1.0-alpha.65](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.64...v2.1.0-alpha.65) (2023-01-25)
 
 **Note:** Version bump only for package @dpc-sdp/ripple-tide-search
 
-
-
-
-
 # [2.1.0-alpha.64](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.63...v2.1.0-alpha.64) (2023-01-24)
 
 **Note:** Version bump only for package @dpc-sdp/ripple-tide-search
 
-
-
-
-
 # [2.1.0-alpha.63](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.62...v2.1.0-alpha.63) (2023-01-24)
-
 
 ### Bug Fixes
 
 * **@dpc-sdp/ripple-tide-search:** fixed results not displaying if no changed date ([65203ce](https://github.com/dpc-sdp/ripple-framework/commit/65203ced6cd8e29b9f7a846a48f1268e7d6b6b4c))
-
 
 ### Features
 

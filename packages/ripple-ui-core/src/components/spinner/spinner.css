@@ -1,0 +1,40 @@
+@import '@dpc-sdp/ripple-ui-core/style/breakpoints';
+
+.rpl-spinner {
+  --local-spinner-delay: var(--rpl-motion-speed-3);
+
+  @keyframes pulse {
+    0% {
+      opacity: 1;
+    }
+
+    5% {
+      opacity: 0;
+    }
+
+    20% {
+      opacity: 0;
+    }
+
+    25% {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+
+  path {
+    opacity: 1;
+    animation-name: pulse;
+    animation-duration: calc(8 * var(--local-spinner-delay));
+    animation-iteration-count: infinite;
+
+    @for $i from 1 to 8 {
+      &:nth-child($(i)) {
+        animation-delay: calc(($i - 1) * var(--local-spinner-delay));
+      }
+    }
+  }
+}

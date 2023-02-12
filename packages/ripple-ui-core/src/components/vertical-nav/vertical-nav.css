@@ -123,7 +123,7 @@
   color: var(--rpl-clr-neutral-600);
 
   .rpl-icon {
-    transition: transform var(--rpl-motion-speed-6) linear;
+    transition: transform var(--rpl-motion-speed-7) linear;
 
     .rpl-vertical-nav__list-item--expanded & {
       transform: rotate(-180deg);

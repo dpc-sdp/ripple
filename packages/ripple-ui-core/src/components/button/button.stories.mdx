@@ -59,10 +59,14 @@ export const Template = (args) => ({
       control: { type: 'select' },
       options: RplButtonIconPositions
     },
+    busy: {
+      type: 'boolean'
+    },
     onClick: { action: 'clicked' }
   }}
   args={{
-    label: 'Button text'
+    label: 'Button text',
+    busy: false
   }}
 />
 
@@ -217,6 +221,23 @@ Test for emitting events on click
       variant: 'filled',
       label: 'Focused',
       iconName: 'icon-exclamation-circle-filled'
+    }}
+  >
+    {Template.bind()}
+  </Story>
+</Canvas>
+
+
+## Busy state
+
+<Canvas>
+  <Story
+    name='Busy state'
+    args={{
+      variant: 'filled',
+      label: 'Button text',
+      iconName: 'icon-exclamation-circle-filled',
+      busy: true
     }}
   >
     {Template.bind()}

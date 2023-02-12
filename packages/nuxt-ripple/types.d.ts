@@ -1,4 +1,5 @@
 import type { AxiosInstance } from 'axios'
+import { IRplFeatureFlags } from 'ripple-tide-api/types'
 import { TideAlert } from './src/mapping/alerts/site-alerts-mapping'
 import { TideContact } from './src/mapping/sidebar-contacts/sidebar-contacts-mapping-types'
 import { TideTopicTag } from './src/mapping/topic-tags/topic-tags-mapping'
@@ -38,6 +39,7 @@ export interface TideSiteData {
   theme: {
     [key: string]: string
   }
+  featureFlags: IRplFeatureFlags
   socialImages: {
     twitter: any
     og: any

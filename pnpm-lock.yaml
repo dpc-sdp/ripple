@@ -15,6 +15,11 @@ overrides:
   trim-newlines@<3.0.1: ~3.0.1
   vite-plugin-svg-icons>postcss: ~8.4.21
 
+patchedDependencies:
+  '@elastic/search-ui-elasticsearch-connector@1.19.0':
+    hash: gu5hi3ef3apils4ueqmedvotwu
+    path: patches/@elastic__search-ui-elasticsearch-connector@1.19.0.patch
+
 importers:
 
   .:
@@ -407,13 +412,13 @@ importers:
       '@dpc-sdp/ripple-ui-forms': 2.1.0-alpha.76
       '@elastic/search-ui': latest
       '@elastic/search-ui-app-search-connector': latest
-      '@elastic/search-ui-elasticsearch-connector': ^1.19.0
+      '@elastic/search-ui-elasticsearch-connector': 1.19.0
     dependencies:
       '@dpc-sdp/ripple-ui-core': link:../ripple-ui-core
       '@dpc-sdp/ripple-ui-forms': link:../ripple-ui-forms
       '@elastic/search-ui': 1.19.1
       '@elastic/search-ui-app-search-connector': 1.19.1
-      '@elastic/search-ui-elasticsearch-connector': 1.19.1
+      '@elastic/search-ui-elasticsearch-connector': 1.19.0_gu5hi3ef3apils4ueqmedvotwu
 
   packages/ripple-ui-core:
     specifiers:
@@ -2102,6 +2107,7 @@ packages:
   /@colors/colors/1.5.0:
     resolution: {integrity: sha512-ooWCrlZP11i8GImSjTHYHLkvFDP48nS4+204nGb1RiX/WXYHmJA2III9/e2DWVabCESdW7hBAEzHRqUn9OUVvQ==}
     engines: {node: '>=0.1.90'}
+    requiresBuild: true
 
   /@commitlint/cli/17.4.2:
     resolution: {integrity: sha512-0rPGJ2O1owhpxMIXL9YJ2CgPkdrFLKZElIZHXDN8L8+qWK1DGH7Q7IelBT1pchXTYTuDlqkOTdh//aTvT3bSUA==}
@@ -2707,14 +2713,24 @@ packages:
       '@elastic/search-ui': 1.19.1
     dev: false
 
-  /@elastic/search-ui-elasticsearch-connector/1.19.1:
-    resolution: {integrity: sha512-cYR1vXN7HLREHsGZridqXtgrqLHH81E2leV/ZkvBlFDIszOUQCBlGnWBi4g/tt6fcfKSb3fGM1GMIRQhMaNSMA==}
+  /@elastic/search-ui-elasticsearch-connector/1.19.0_gu5hi3ef3apils4ueqmedvotwu:
+    resolution: {integrity: sha512-n4G3UvtryFDooj0H0DE0mUjGAa3Y/+s9ncXgj1tlfosHc6J1CRidcVNXHCgzXWQP2mlnca6XhBzKPwt9ZdHz1A==}
     dependencies:
       '@elastic/elasticsearch': 8.6.0
-      '@elastic/search-ui': 1.19.1
+      '@elastic/search-ui': 1.19.0
       '@searchkit/sdk': 3.0.0_x63j4eh44ptvymjwbxe6pjelvi
     transitivePeerDependencies:
       - supports-color
+    dev: false
+    patched: true
+
+  /@elastic/search-ui/1.19.0:
+    resolution: {integrity: sha512-cShId22JPOkGiyPAmWYjttH/1q8D2Ac14d3lMXfgMNE+98jjWt0Nf/TvrfjLbTpdSVFUaDg/vAVciTRKk1qOVw==}
+    dependencies:
+      date-fns: 1.30.1
+      deep-equal: 1.1.1
+      history: 4.10.1
+      qs: 6.11.0
     dev: false
 
   /@elastic/search-ui/1.19.1:

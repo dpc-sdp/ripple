@@ -1,7 +1,7 @@
 export default defineAppConfig({
   ripple: {
     featureFlags: {
-      contentCollectionSearchConnector: 'appSearch'
+      contentCollectionSearchConnector: 'elasticsearch'
     },
     theme: {
       'rpl-clr-primary': 'purple',

@@ -109,7 +109,6 @@ const searchResultsMappingFn = (item): any => {
 }
 
 const searchDriverOptions = {
-  debug: true,
   trackUrlState: false,
   initialState: {
     resultsPerPage: props.perPage,

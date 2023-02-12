@@ -3,7 +3,9 @@
     <slot name="above"></slot>
     <nav>
       <ContentNavigation v-slot="{ navigation }" :query="query">
-        <DocsSidebarNavigation :links="navigation[0].children" />
+        <DocsSidebarNavigation
+          :links="navigation ? navigation[0].children : []"
+        />
       </ContentNavigation>
     </nav>
     <slot name="below"></slot>

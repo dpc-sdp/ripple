@@ -32,6 +32,7 @@ useContentHead(page)
 
 <style>
 :root {
+  --rpl-content-max-width: none;
   --rpl-clr-gradient-vertical: linear-gradient(180deg, #545454 0%, #3e3e3e 80%);
 }
 </style>

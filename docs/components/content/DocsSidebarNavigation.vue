@@ -8,8 +8,6 @@ const props = defineProps({
   }
 })
 
-console.log(props.links)
-
 const route = useRoute()
 
 function isActive(link) {
@@ -19,7 +17,6 @@ function isActive(link) {
 }
 
 const transform = (old) => {
-  console.log(old)
   return {
     id: old._path,
     text: old.title,
@@ -32,8 +29,6 @@ const transform = (old) => {
 const transformed = computed(() => {
   return props.links.map(transform)
 })
-
-console.log(transformed.value)
 </script>
 
 <template>

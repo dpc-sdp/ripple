@@ -17,5 +17,6 @@ export default defineAppConfig({
     'Make your service consistent with vic.gov.au digital branding. Learn from the research and experience of other service teams and avoid repeating work that’s already been done.',
   socials: {
     github: 'dpc-sdp/ripple-framework'
-  }
+  },
+  storybookBaseUrl: 'http://127.0.0.1:8080'
 })

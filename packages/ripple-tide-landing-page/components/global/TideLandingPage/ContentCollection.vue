@@ -1,7 +1,7 @@
 <template>
   <div>
     <RplContent class="rpl-type-p rpl-u-margin-b-4" :html="description" />
-    <template v-if="component === 'RplSearchResult'">
+    <template v-if="display.component === 'RplSearchResult'">
       <div class="rpl-grid">
         <div class="rpl-col-12 rpl-col-8-m">
           <RplResultListing>
@@ -18,11 +18,11 @@
       </div>
     </template>
     <template v-else>
-      <ul class="rpl-grid">
+      <ul class="rpl-grid" style="--local-grid-cols: 12">
         <template v-for="item in results" :key="item.id">
           <component
-            :is="component"
-            class="rpl-col-12 rpl-col-6-m rpl-col-4-l"
+            :is="display.component"
+            :class="cardClasses"
             v-bind="item.props"
           >
             {{ item.slots.default }}
@@ -44,6 +44,7 @@ import { formatDate, useTideSearch, useRuntimeConfig } from '#imports'
 import { computed, inject, onMounted } from 'vue'
 import {
   IContentCollectionDisplay,
+  IContentCollectionFilter,
   IContentCollectionSort
 } from '../../../mapping/page-components/content-collection/content-collection-mapping'
 import type { IRplFeatureFlags } from '@dpc-sdp/ripple-tide-api/types'
@@ -54,12 +55,9 @@ const featureFlags: IRplFeatureFlags = inject('featureFlags', {
   contentCollectionSearchConnector: 'appSearch'
 })
 
-const apiConnectorOptions =
-  config.tide?.[featureFlags.contentCollectionSearchConnector]
-
-interface IContentCollectionFilter {
-  field: string
-  values: string[]
+const apiConnectorOptions = {
+  type: featureFlags.contentCollectionSearchConnector,
+  ...(config.tide?.[featureFlags.contentCollectionSearchConnector] || {})
 }
 
 const props = defineProps<{
@@ -70,18 +68,17 @@ const props = defineProps<{
     url: string
   }
   display: IContentCollectionDisplay
+  perPage: number
   filters: IContentCollectionFilter[]
   sortBy: IContentCollectionSort
-  perPage: number
+  hasSidebar: boolean
 }>()
 
-const component = computed(() => {
-  if (props.display.type === 'search-result') {
-    return 'RplSearchResult'
-  }
-
-  return 'RplCardPromoCard'
-})
+const cardClasses = computed(() =>
+  props.hasSidebar
+    ? 'rpl-col-12 rpl-col-6-s'
+    : 'rpl-col-12 rpl-col-6-s rpl-col-4-m'
+)
 
 const searchResultsMappingFn = (item): any => {
   const rawUpdated = item.changed?.raw?.[0]

@@ -1,14 +1,15 @@
 import { TideDynamicPageComponent } from '@dpc-sdp/ripple-tide-api/types'
-import {
-  getBodyFromField,
-  getField,
-  getLinkFromField
-} from '@dpc-sdp/ripple-tide-api'
+import { getBodyFromField, getField } from '@dpc-sdp/ripple-tide-api'
+
+export interface IContentCollectionDisplay {
+  component: 'RplSearchResult' | 'RplCardPromoCard'
+  style?: 'thumbnail' | 'noImage'
+}
 
 export interface IContentCollectionFilter {
+  type?: 'any' | 'all'
   field: string
   values: string[] | number[]
-  operator?: 'OR' | 'AND'
 }
 
 export interface IContentCollectionSort {
@@ -16,34 +17,35 @@ export interface IContentCollectionSort {
   direction: 'asc' | 'desc'
 }
 
-export interface IContentCollectionDisplay {
-  type: 'card' | 'search-result'
-  style?: 'thumbnail' | 'noImage'
-}
-
-export interface IContentCollectionConfig {
+export interface IContentCollection {
   description?: string
   link?: {
     text: string
     url: string
   }
+  display: IContentCollectionDisplay
+  perPage?: number
   filters?: IContentCollectionFilter[]
   sortBy?: IContentCollectionSort
-  perPage?: number
-  display: IContentCollectionDisplay
 }
 
-export interface ITideFieldContentCollectionConfig {
+export interface ITideContentCollectionFilterConfig {
+  field: string
+  values: string[] | number[]
+  operator?: 'AND' | 'OR'
+}
+
+export interface ITideContentCollectionConfig {
   title?: string
   internal: {
     contentTypes: string[]
-    contentFields: Record<string, IContentCollectionFilter>
-    sort: Record<string, IContentCollectionSort>[]
+    contentFields: ITideContentCollectionFilterConfig[]
+    sort: IContentCollectionSort
   }
 }
 
 const getContentCollectionFiltersFromConfig = (
-  config: ITideFieldContentCollectionConfig
+  config: ITideContentCollectionConfig
 ): IContentCollectionFilter[] => {
   const filters = []
   if (config.internal?.contentTypes) {
@@ -72,18 +74,17 @@ const getContentCollectionFiltersFromConfig = (
   return filters
 }
 
-export const contentCollectionMapping = async (
-  field,
-  page,
-  tidePageApi
-): Promise<TideDynamicPageComponent<IContentCollectionConfig>> => {
+export const contentCollectionMapping = (
+  field
+): TideDynamicPageComponent<IContentCollection> => {
   return {
     component: 'TideLandingPageContentCollection',
     id: field.drupal_internal__id.toString(),
     title: field.field_cc_enhanced_title,
     props: {
       description: getBodyFromField(field, ['field_cc_enhanced_description']),
-      // The below isn't support yet, so we're faking for now to test
+      // TODO: The below isn't support yet, so we're faking for now to test
+      // this needs to be updated when the backend support its
       // link: getLinkFromField(field, [
       //   'field_content_collection_config',
       //   'callToAction'
@@ -107,18 +108,22 @@ export const contentCollectionMapping = async (
           'desc'
         )
       },
-      // The below perPage path isn't support yet
+      // TODO: The below perPage path isn't support yet
+      // This path will need to be updated when backend support has been added
       perPage: getField(
         field,
         'field_content_collection_config.interface.display.resultComponent.number',
         6
       ),
       display: {
-        type: getField(
-          field,
-          'field_content_collection_config.interface.display.resultComponent.type',
-          'card'
-        ),
+        component:
+          getField(
+            field,
+            'field_content_collection_config.interface.display.resultComponent.type',
+            'card'
+          ) === 'search-result'
+            ? 'RplSearchResult'
+            : 'RplCardPromoCard',
         style: getField(
           field,
           'field_content_collection_config.interface.display.resultComponent.style',

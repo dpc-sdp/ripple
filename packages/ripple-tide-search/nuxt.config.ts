@@ -6,6 +6,15 @@ export default defineNuxtConfig({
     '@elastic/search-ui-app-search-connector':
       '@elastic/search-ui-app-search-connector/lib/esm/index.js',
     '@elastic/search-ui-elasticsearch-connector':
-      '@elastic/search-ui-elasticsearch-connector/lib/esm/index.js'
+      '@elastic/search-ui-elasticsearch-connector/lib/esm/index.js',
+    '@searchkit/sdk': '@searchkit/sdk/lib/esm/index.js'
+  },
+  build: {
+    transpile: [
+      '@elastic/search-ui',
+      '@elastic/search-ui-app-search-connector',
+      '@elastic/search-ui-elasticsearch-connector',
+      '@searchkit/sdk'
+    ]
   }
 })

@@ -2,11 +2,9 @@
   <aside>
     <slot name="above"></slot>
     <nav>
-      <ContentNavigation v-slot="{ navigation }" :query="query">
-        <DocsSidebarNavigation
-          :links="navigation ? navigation[0].children : []"
-        />
-      </ContentNavigation>
+      <DocsSidebarNavigation
+        :links="navigation ? navigation[0].children : []"
+      />
     </nav>
     <slot name="below"></slot>
   </aside>
@@ -18,5 +16,8 @@ const route = useRoute()
 // The site is split into sections with separate sidebar navigations
 // E.g. If we on the page `/cats/are/cute`, then we just want the content for 'cats' (i.e. `queryContent('cats')`)
 const sectionSlug = route.params.slug[0]
-const query = queryContent(sectionSlug)
+
+const { data: navigation } = await useAsyncData('navigation', () =>
+  fetchContentNavigation(queryContent(sectionSlug))
+)
 </script>

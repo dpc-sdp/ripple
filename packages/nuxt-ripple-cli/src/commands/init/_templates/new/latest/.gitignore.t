@@ -1,0 +1,9 @@
+---
+to: .gitignore
+---
+
+node_modules
+*.log
+.nuxt
+nuxt.d.ts
+.output

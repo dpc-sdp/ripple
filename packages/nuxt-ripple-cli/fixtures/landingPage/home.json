@@ -1,0 +1,678 @@
+{
+  "title": "Demo Landing Page",
+  "changed": "2022-11-02T12:47:29+11:00",
+  "created": "2022-11-02T12:47:29+11:00",
+  "type": "landing_page",
+  "nid": "11dede11-10c0-111e1-1100-000000000330",
+  "showTopicTags": true,
+  "topicTags": [
+    {
+      "text": "Demo Topic",
+      "url": "/topic/demo-topic"
+    },
+    {
+      "text": "Demo Tag",
+      "url": "/tags/demo-tag"
+    }
+  ],
+  "sidebar": {
+    "contacts": [
+      {
+        "id": "26146cba-f307-449e-885c-7446efb3f315",
+        "contactTitle": "Victorian Government",
+        "contactName": "Victorian Government",
+        "department": "Department of Premier and Cabinet",
+        "email": "no-reply@vic.gov.au",
+        "locationAddress": {
+          "countryCode": "AU",
+          "administrativeArea": "VIC",
+          "locality": "Melbourne",
+          "postalCode": "3001",
+          "addressLine1": "Department of Premier and Cabinet",
+          "addressLine2": "GPO Box 4509"
+        },
+        "postalAddress": {
+          "countryCode": "AU",
+          "administrativeArea": "VIC",
+          "locality": "Melbourne",
+          "postalCode": "3001",
+          "addressLine1": "Department of Premier and Cabinet",
+          "addressLine2": "GPO Box 4509"
+        },
+        "phones": [
+          {
+            "id": "8a6d0e28-3d34-40b7-a97b-ef980f0f6f49",
+            "title": "Calls in Australia",
+            "number": "1300 366 356"
+          },
+          {
+            "id": "798566cf-2e8c-48eb-bc89-38a6486cb06a",
+            "title": "Calls from overseas",
+            "number": "+61 3 9603 8804"
+          }
+        ],
+        "socialMedia": [
+          {
+            "id": "0b58c974-05bd-4379-8947-12c4959b992c",
+            "type": "twitter",
+            "text": "Twitter",
+            "url": "https://twitter.com/VicGovAu"
+          }
+        ]
+      }
+    ],
+    "relatedLinks": [
+      {
+        "id": "33133902-1f57-4283-9f6b-48dd76297c69",
+        "text": "State Government of Victoria",
+        "url": "https://www.vic.gov.au"
+      },
+      {
+        "id": "254c49f8-b14a-44a1-bad0-729bfb40e425",
+        "text": "Department of Premier and Cabinet",
+        "url": "https://www.vic.gov.au/department-premier-and-cabinet"
+      }
+    ],
+    "socialShareNetworks": [
+      "Facebook",
+      "Twitter",
+      "LinkedIn"
+    ],
+    "siteSectionNav": {
+      "title": "Site-section Navigation",
+      "items": [
+        {
+          "text": "Demo Landing Page",
+          "url": "route:entity.node.canonical;node=65",
+          "id": "683e718c-f024-41f5-aea3-3036155ef4c8",
+          "parent": null,
+          "weight": 0
+        }
+      ]
+    }
+  },
+  "summary": "Page summary",
+  "showHeroAcknowledgement": true,
+  "showInPageNav": true,
+  "inPageNavHeadingLevel": "h3",
+  "background": "default",
+  "heroHeader": {
+    "title": "Test landing page title",
+    "introText": "Test landing page title introduction text",
+    "links": {
+      "title": "Want to know more about...",
+      "items": [
+        {
+          "text": "Test link 1",
+          "url": "/embedded-video-test"
+        },
+        {
+          "text": "Test link 2",
+          "url": "/sdpta-statistics-grid-eight-landing-page-fixture"
+        },
+        {
+          "text": "Test link 3",
+          "url": "/sdpta-accordion-landing-page-fixture"
+        }
+      ],
+      "more": {
+        "text": "Test header CTA",
+        "url": "/demo-publication/demo-publication-chapter-2/demo-publication-chapter-2-page-1"
+      }
+    },
+    "theme": "default",
+    "logoImage": {
+      "src": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Bendigo-Hospital.jpg",
+      "alt": "Demo: Bendigo Hospital",
+      "title": "Demo: Bendigo Hospital.jpg",
+      "width": 1280,
+      "height": 959
+    },
+    "backgroundImage": null,
+    "cornerTopImage": {
+      "src": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Parliament-of-Victoria.jpg",
+      "alt": "Demo: Parliament of Victoria",
+      "title": "Demo: Parliament of Victoria",
+      "width": 1650,
+      "height": 915
+    },
+    "cornerBottomImage": {
+      "src": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/VicFleet-Police-car-on-road.jpg",
+      "alt": "Demo: VicFleet - Police car on road",
+      "title": "Demo: VicFleet - Police car on road",
+      "width": 1065,
+      "height": 617
+    },
+    "primaryAction": {
+      "text": "Testing call to action",
+      "url": "/clone-sdpta-113-clone-landing-page-fixture"
+    },
+    "secondaryAction": {
+      "text": "Testing some link text",
+      "url": "/sdpta-secondary-campaign-landing-page-fixture"
+    },
+    "secondaryActionLabel": "Just some free text"
+  },
+  "primaryCampaign": {
+    "title": "Demo primary campaign",
+    "summaryHtml": "<p>Test summary for <strong>primary campaign</strong></p>",
+    "cta": {
+      "text": "Testing CTA text",
+      "url": "/demo-destination"
+    },
+    "image": {
+      "src": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-skyline-at-dusk.jpg",
+      "alt": "Demo: Melbourne skyline at dusk",
+      "title": "Demo: Melbourne skyline at dusk",
+      "width": 2560,
+      "height": 650
+    },
+    "imageCaption": null
+  },
+  "secondaryCampaign": {
+    "title": "Demo secondary campaign",
+    "summaryHtml": "<p>Test summary for <strong>secondary campaign</strong></p>",
+    "cta": {
+      "text": "Testing secondary CTA text",
+      "url": "/demo-secondary-destination"
+    },
+    "image": {
+      "src": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg",
+      "alt": "Demo: Melbourne tram",
+      "title": "Demo: Melbourne tram",
+      "width": 1413,
+      "height": 785
+    },
+    "imageCaption": null
+  },
+  "headerComponents": [
+    {
+      "uuid": "3a29034c-b50c-4d83-a5f5-e6b6adaa6513",
+      "component": "TideLandingPageSearchBanner",
+      "id": "1911",
+      "props": {
+        "placeholder": "Test search placeholder",
+        "searchUrl": "/search/[SEARCH-KEYWORDS]",
+        "openInNewWindow": false
+      }
+    },
+    {
+      "uuid": "cc5ab146-a5eb-4502-afa7-ae8813b8ae18",
+      "component": "TideLandingPageIntroBanner",
+      "id": "1030",
+      "props": {
+        "title": "Test introduction banner",
+        "withIcon": true,
+        "links": {
+          "title": "Button heading",
+          "items": [
+            {
+              "text": "Test link 1",
+              "url": "/demo-link-1"
+            },
+            {
+              "text": "Test link 2",
+              "url": "/demo-link-2"
+            }
+          ],
+          "more": null
+        },
+        "html": "<p>And here's the <strong>summary</strong></p>"
+      }
+    }
+  ],
+  "bodyComponents": [
+    {
+      "uuid": "a99aa287-7fac-430b-864e-3a1b044460b1",
+      "component": "RplContent",
+      "id": "969",
+      "internalAnchors": [
+        {
+          "text": "Content Anchor 1",
+          "id": "content-anchor-1",
+          "type": "h2"
+        },
+        {
+          "text": "Content Anchor 2",
+          "id": "content-anchor-2",
+          "type": "h3"
+        }
+      ],
+      "props": {
+        "html": "<p>Here is <em>some</em> sample <strong>rich</strong> text content</p>"
+      }
+    },
+    {
+      "uuid": "9ac2e9a6-958f-47d4-beb1-d1576e424571",
+      "component": "RplAccordion",
+      "id": "972",
+      "title": "Test accordion title",
+      "props": {
+        "id": "972",
+        "numbered": false,
+        "items": [
+          {
+            "id": "970",
+            "title": "Accordion #1",
+            "content": "<p>Test <b>rich</b> text content #1</p>"
+          },
+          {
+            "id": "971",
+            "title": "Accordion #2",
+            "content": "<p>Test <b>rich</b> text content #2</p>"
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "a59f6283-df71-44b2-8bbc-43979749e8d0",
+      "component": "TideLandingPagePromoCard",
+      "id": "976",
+      "layout": "card",
+      "props": {
+        "displayStyle": "noImage",
+        "title": "Promo card (noImage)",
+        "summary": "Sample description",
+        "image": {
+          "src": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg",
+          "focalPoint": {
+            "x": 707,
+            "y": 393
+          },
+          "alt": "Demo: Melbourne tram",
+          "width": 1413,
+          "height": 785,
+          "title": "Demo: Melbourne tram"
+        },
+        "link": {
+          "text": "",
+          "url": "/demo-destination"
+        },
+        "showMetadata": true,
+        "metadata": {
+          "dateStart": "2019-07-02 09:00:00",
+          "dateEnd": "2019-07-07 10:00:00",
+          "topic": "Demo Topic",
+          "contentType": "Event",
+          "fvRecommendationStatus": "",
+          "inductionYear": "",
+          "isGrantOngoing": false
+        }
+      }
+    },
+    {
+      "uuid": "a8d41037-383f-4f0b-8b43-9a6162873cb8",
+      "component": "TideLandingPagePromoCard",
+      "id": "977",
+      "layout": "card",
+      "props": {
+        "displayStyle": "thumbnail",
+        "title": "Promo card (thumbnail)",
+        "summary": "Sample description",
+        "image": {
+          "src": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg",
+          "focalPoint": {
+            "x": 707,
+            "y": 393
+          },
+          "alt": "Demo: Melbourne tram",
+          "width": 1413,
+          "height": 785,
+          "title": "Demo: Melbourne tram"
+        },
+        "link": {
+          "text": "",
+          "url": "/demo-destination"
+        },
+        "showMetadata": true,
+        "metadata": {
+          "dateStart": "2019-07-02 09:00:00",
+          "dateEnd": "2019-07-07 10:00:00",
+          "topic": "Demo Topic",
+          "contentType": "Event",
+          "fvRecommendationStatus": "",
+          "inductionYear": "",
+          "isGrantOngoing": false
+        }
+      }
+    },
+    {
+      "uuid": "c509edfe-89a6-4b8d-b8e1-f72e6774da1f",
+      "component": "TideLandingPagePromoCard",
+      "id": "978",
+      "layout": "card",
+      "props": {
+        "displayStyle": "profile",
+        "title": "Promo card (profile)",
+        "summary": "Sample description",
+        "image": {
+          "src": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg",
+          "focalPoint": {
+            "x": 707,
+            "y": 393
+          },
+          "alt": "Demo: Melbourne tram",
+          "width": 1413,
+          "height": 785,
+          "title": "Demo: Melbourne tram"
+        },
+        "link": {
+          "text": "",
+          "url": "/demo-destination"
+        },
+        "showMetadata": true,
+        "metadata": {
+          "dateStart": "2019-07-02 09:00:00",
+          "dateEnd": "2019-07-07 10:00:00",
+          "topic": "Demo Topic",
+          "contentType": "Event",
+          "fvRecommendationStatus": "",
+          "inductionYear": "",
+          "isGrantOngoing": false
+        }
+      }
+    },
+    {
+      "uuid": "e92bbc8b-a2b6-4fdf-aa10-2329a0b0bc5a",
+      "component": "TideLandingPageNavCard",
+      "id": "981",
+      "props": {
+        "displayStyle": "noImage",
+        "title": "Nav card (noImage)",
+        "summary": "Sample description",
+        "image": {
+          "src": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg",
+          "focalPoint": {
+            "x": 707,
+            "y": 393
+          },
+          "alt": "Demo: Melbourne tram",
+          "width": 1413,
+          "height": 785,
+          "title": "Demo: Melbourne tram"
+        },
+        "link": {
+          "text": "",
+          "url": "/tc-9a-grant-simple-test-date-range"
+        },
+        "showMetadata": true,
+        "metadata": {
+          "dateStart": "2019-04-08T08:00:00",
+          "dateEnd": "2019-05-08T10:00:00",
+          "topic": "Demo Topic",
+          "contentType": "Grant",
+          "fvRecommendationStatus": "",
+          "inductionYear": "",
+          "isGrantOngoing": false
+        }
+      }
+    },
+    {
+      "uuid": "77e1ae48-8bf7-44ce-8561-79fe4b528611",
+      "component": "TideLandingPageNavCard",
+      "id": "982",
+      "props": {
+        "displayStyle": "thumbnail",
+        "title": "Nav card (thumbnail)",
+        "summary": "Sample description",
+        "image": {
+          "src": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg",
+          "focalPoint": {
+            "x": 707,
+            "y": 393
+          },
+          "alt": "Demo: Melbourne tram",
+          "width": 1413,
+          "height": 785,
+          "title": "Demo: Melbourne tram"
+        },
+        "link": {
+          "text": "",
+          "url": "/test-grant"
+        },
+        "showMetadata": true,
+        "metadata": {
+          "dateStart": "2022-11-01T05:41:38",
+          "dateEnd": "2022-11-06T06:12:00",
+          "topic": "Demo Topic",
+          "contentType": "Grant",
+          "fvRecommendationStatus": "",
+          "inductionYear": "",
+          "isGrantOngoing": false
+        }
+      }
+    },
+    {
+      "uuid": "6294cfdb-3059-48a4-8ece-d64d32e63558",
+      "component": "TideLandingPageNavCard",
+      "id": "983",
+      "props": {
+        "displayStyle": "featured",
+        "title": "Nav card (featured)",
+        "summary": "Sample description",
+        "image": {
+          "src": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg",
+          "focalPoint": {
+            "x": 707,
+            "y": 393
+          },
+          "alt": "Demo: Melbourne tram",
+          "width": 1413,
+          "height": 785,
+          "title": "Demo: Melbourne tram"
+        },
+        "link": {
+          "text": "",
+          "url": "/tc-9a-grant-simple-test-date-range"
+        },
+        "showMetadata": true,
+        "metadata": {
+          "dateStart": "2019-04-08T08:00:00",
+          "dateEnd": "2019-05-08T10:00:00",
+          "topic": "Demo Topic",
+          "contentType": "Grant",
+          "fvRecommendationStatus": "",
+          "inductionYear": "",
+          "isGrantOngoing": false
+        }
+      }
+    },
+    {
+      "uuid": "ec0ec723-df8d-4e6c-8a5f-3780381b04f3",
+      "component": "RplCardKeyDatesCard",
+      "id": "988",
+      "layout": "card",
+      "props": {
+        "title": "Key calendar dates",
+        "items": [
+          {
+            "title": "An event",
+            "subtitle": "12th October 2022",
+            "content": "Summary of an event"
+          },
+          {
+            "title": "Another event",
+            "subtitle": "13th October 2022",
+            "content": "Summary of another event"
+          }
+        ],
+        "ctaTitle": "Test CTA text",
+        "url": "/test-cta-link"
+      }
+    },
+    {
+      "uuid": "c83c8494-1cb9-429c-af8f-9a4fa3a1fc94",
+      "component": "RplTimeline",
+      "id": "992",
+      "title": "Test timeline title",
+      "props": {
+        "items": [
+          {
+            "id": "989",
+            "title": "Milestone 1 title",
+            "subtitle": "Milestone 1 text",
+            "url": "/test-destination-1",
+            "description": "<p>Milestone 1 <strong>summary</strong> <em>field</em></p>",
+            "image": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/VicFleet-Police-car-on-road.jpg",
+            "current": false,
+            "dateStart": "2022-06-02T04:53:53+10:00",
+            "dateEnd": "2022-11-11T21:58:55+11:00"
+          },
+          {
+            "id": "990",
+            "title": "Milestone 2 title",
+            "subtitle": "Milestone 1 text",
+            "url": "/test-destination-2",
+            "description": "<p>Milestone 2 <strong>summary</strong> <em>field</em></p>",
+            "image": "",
+            "current": true,
+            "dateStart": "2022-10-04T04:54:11+11:00",
+            "dateEnd": "2022-11-17T16:59:14+11:00"
+          },
+          {
+            "id": "991",
+            "title": "Milestone 3 title",
+            "subtitle": "Milestone 3 text",
+            "url": "",
+            "description": "",
+            "image": "",
+            "current": false,
+            "dateStart": null,
+            "dateEnd": null
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "5706a002-8b3b-4318-a553-455514495080",
+      "component": "TideLandingPageCallToAction",
+      "id": "1024",
+      "props": {
+        "title": "Test call to action title",
+        "image": {
+          "src": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Two-men-working-in-hi-vis-clothing.jpg",
+          "alt": "Two men working",
+          "title": "Two men working"
+        },
+        "url": "/test-cta-destination",
+        "ctaText": "Test CTA text",
+        "summary": "<p>This is <strong>the description</strong></p>"
+      }
+    },
+    {
+      "uuid": "96d21d9a-f5c2-4ae5-8b0f-54664945bcf9",
+      "component": "TideLandingPageStatsGrid",
+      "id": "1028",
+      "props": {
+        "variant": "onLight",
+        "items": [
+          {
+            "id": "1026",
+            "label": "Label 1",
+            "value": "Value 1"
+          },
+          {
+            "id": "1027",
+            "label": "Label 2",
+            "value": "Value 2"
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "pd9356djw-f5c2-4ae5-8b0f-54664945bcf9",
+      "component": "TideLandingPageCardCarousel",
+      "id": "1155",
+      "props": {
+        "items": [
+          {
+            "type":"promo",
+            "title":"Sample title",
+            "url":"/sample-page",
+            "image":{
+              "alt":"Demo: Aerial shot of new housing development",
+              "drupal_internal__target_id":42,
+              "focalPoint":null,
+              "height":571,
+              "src":"https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Aerial-shot-of-new-housing-development.jpg",
+              "title":"Demo: Aerial shot of new housing development",
+              "width":1024
+            },
+            "meta":{
+              "dateStart":"2022-12-01T09:30:00+11:00",
+              "dateEnd":"2022-12-31T17:00:00+11:00",
+              "topic":"Health"
+            },
+            "summary":"Sample Card Summary"
+          },
+          {
+            "type":"promo",
+            "title":"Promotion title",
+            "url":"/promo-page",
+            "image":{
+              "alt":"Demo: Engage Vic Hero",
+              "drupal_internal__target_id":52,
+              "focalPoint":null,
+              "height":500,
+              "src":"https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Engage-Vic-photo-hero.jpeg",
+              "title":"Engage Vic",
+              "width":737
+            },
+            "meta":{
+              "topic":"Environment",
+              "date":"2022-11-03T03:15:00+11:00"
+            },
+            "summary":"Promotion Card summary"
+          },
+          {
+            "type":"keydates",
+            "url":"/another-keydates-page",
+            "title":"Key dates heading",
+            "keyDates":[
+              {
+                "title":"April 16th",
+                "subtitle":"Key subtitle 1",
+                "content":"Key content 1"
+              },
+              {
+                "title":"December 1st",
+                "subtitle":"Key subtitle 2",
+                "content":"Key content 2"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "uuid":"5288de89-f5c2-4ae5-8b0f-54664945bcf9",
+      "component":"TideLandingPageMediaGallery",
+      "id":"1056",
+      "props":{
+        "items":[
+          {
+            "title":"Media title one",
+            "caption":"The first media caption",
+            "alt":"Demo: 2018-19 State Budget",
+            "thumbnail":"https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/2018-19-State-Budget.jpg",
+            "image":"https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/2018-19-State-Budget.jpg"
+          },
+          {
+            "title":"Media title two",
+            "caption":"The second media caption",
+            "alt":"Demo: Aerial shot of new housing development",
+            "thumbnail":"https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Aerial-shot-of-new-housing-development.jpg",
+            "image":"https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Aerial-shot-of-new-housing-development.jpg"
+          },
+          {
+            "title":"Media title three",
+            "caption":"The third media caption",
+            "alt":"Demo: Bendigo Hospital",
+            "thumbnail":"https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Bendigo-Hospital.jpg",
+            "image":"https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Bendigo-Hospital.jpg"
+          }
+        ]
+      }
+    }
+  ]
+}

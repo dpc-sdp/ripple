@@ -10,9 +10,10 @@ const getSearchDriver = (
   apiConnectorOptions,
   config: Omit<SearchDriverOptions, 'apiConnector'>
 ) => {
-  const ApiConnector = apiConnectorOptions?.host
-    ? ElasticsearchAPIConnector
-    : AppSearchAPIConnector
+  const ApiConnector =
+    apiConnectorOptions?.type === 'elasticsearch'
+      ? ElasticsearchAPIConnector
+      : AppSearchAPIConnector
 
   return new SearchDriver({
     apiConnector: new ApiConnector(apiConnectorOptions),

@@ -10,6 +10,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-ui-core": "2.1.0-alpha.76"
+    "@dpc-sdp/ripple-ui-core": "workspace:*"
   }
 }

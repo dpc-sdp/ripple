@@ -1,5 +1,5 @@
 <script lang="ts">
-export default { name: 'RplHeroHeader' }
+export default { name: 'RplIntroHeader' }
 </script>
 
 <script setup lang="ts">
@@ -13,7 +13,7 @@ interface Props {
   title: string
   content?: string
   links?: RplHeaderLinksList
-  iconName?: typeof RplIconNames[number]
+  iconName?: (typeof RplIconNames)[number]
 }
 
 withDefaults(defineProps<Props>(), {

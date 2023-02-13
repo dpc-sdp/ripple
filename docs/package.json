@@ -19,6 +19,6 @@
     "nuxt-component-meta": "^0.4.3"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-ui-core": "2.1.0-alpha.76"
+    "@dpc-sdp/ripple-ui-core": "workspace:*"
   }
 }

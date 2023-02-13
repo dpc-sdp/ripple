@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { RplAccordion } from '@dpc-sdp/ripple-ui-core'
+import { RplAccordion } from '#components'
 
 defineProps<{
   id: string

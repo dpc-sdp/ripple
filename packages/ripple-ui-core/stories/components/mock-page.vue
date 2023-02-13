@@ -60,7 +60,7 @@ import {
   RplBreadcrumbs,
   RplSocialShare,
   RplFooter
-} from '@dpc-sdp/ripple-ui-core'
+} from '@dpc-sdp/ripple-ui-core/vue'
 
 interface Props {
   page: any

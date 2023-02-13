@@ -64,6 +64,11 @@ module.exports = {
       '~/storybook': path.resolve(__dirname, './')
     }
 
+    // // Declare components externally
+    // config.rollupOptions = {
+    //   external: ['@dpc-sdp/ripple-ui-core/vue']
+    // }
+
     // `Uncaught Error: Singleton client API not yet initialized, cannot call addParameters`
     // github.com/storybookjs/storybook/issues/10887#issuecomment-901109891
     config.resolve.dedupe = ['@storybook/client-api']

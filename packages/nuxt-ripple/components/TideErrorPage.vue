@@ -1,13 +1,21 @@
 <template>
-  <TideBaseLayout :pageTitle="`${props.error?.statusCode} - ${props.error?.statusMessage}`"
-    :pageDescription="props.error?.statusMessage" :site="site" class="tide-error">
+  <TideBaseLayout
+    :pageTitle="`${props.error?.statusCode} - ${props.error?.statusMessage}`"
+    :pageDescription="props.error?.statusMessage"
+    :site="site"
+    class="tide-error"
+  >
     <template #breadcrumbs><span></span></template>
     <template #aboveBody>
       <RplHeaderGraphic :image="true" placement="top" />
     </template>
     <template #body>
-      <RplErrorMessage :title="title" :intro="props.error?.statusMessage" :link="{ url: '/', text: 'Go back home' }"
-        :data-cy="`error-${props.error.statusCode}`">
+      <RplErrorMessage
+        :title="title"
+        :intro="props.error?.statusMessage"
+        :link="{ url: '/', text: 'Go back home' }"
+        :data-cy="`error-${props.error.statusCode}`"
+      >
         <div v-if="props.error?.message">
           <RplContent :html="props.error.message" />
         </div>
@@ -17,7 +25,7 @@
 </template>
 
 <script setup lang="ts">
-import { RplHeaderGraphic, RplErrorMessage } from '@dpc-sdp/ripple-ui-core'
+import { RplHeaderGraphic, RplErrorMessage } from '@dpc-sdp/ripple-ui-core/vue'
 import { computed } from 'vue'
 
 interface Props {

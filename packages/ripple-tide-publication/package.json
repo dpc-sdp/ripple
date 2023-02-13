@@ -10,8 +10,8 @@
     "./mapping": "./mapping/index.ts"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-tide-api": "2.1.0-alpha.76",
-    "@dpc-sdp/ripple-tide-landing-page": "2.1.0-alpha.77",
-    "@dpc-sdp/ripple-ui-core": "2.1.0-alpha.76"
+    "@dpc-sdp/ripple-tide-api": "workspace:*",
+    "@dpc-sdp/ripple-tide-landing-page": "workspace:*",
+    "@dpc-sdp/ripple-ui-core": "workspace:*"
   }
 }

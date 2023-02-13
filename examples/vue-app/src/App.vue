@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
-import { RplLayout } from '@dpc-sdp/ripple-ui-core'
+import { RplLayout } from '@dpc-sdp/ripple-ui-core/vue'
 import '@dpc-sdp/ripple-ui-core/style'
 import '@dpc-sdp/ripple-ui-core/style/components'
 </script>

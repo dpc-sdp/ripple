@@ -10,7 +10,7 @@
 </template>
 
 <script setup lang="ts">
-import { RplStatsGrid, RplStatsGridItem } from '@dpc-sdp/ripple-ui-core'
+import { RplStatsGrid, RplStatsGridItem } from '#components'
 
 interface Props {
   variant: 'onLight' | 'onDark'

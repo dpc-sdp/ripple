@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { RplSecondaryCampaign } from '@dpc-sdp/ripple-ui-core'
+import { RplCampaignBannerSecondaryCampaign as RplSecondaryCampaign } from '#components'
 import { ITideSecondaryCampaign } from '../../../mapping/secondary-campaign/secondary-campaign-mapping'
 
 defineProps<{

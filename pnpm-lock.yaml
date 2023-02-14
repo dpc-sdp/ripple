@@ -9,7 +9,7 @@ overrides:
   json5@<2.2.2: ~2.2.2
   nth-check@<2.1.1: ~2.1.1
   parse-url@<8.1.0: ~8.1.0
-  postcss@<7.0.36: ~7.0.36
+  postcss@<8.4.21: ~8.4.21
   ripple-storybook>vue: 3.2.45
   trim@<1.0.1: ~1.0.1
   trim-newlines@<3.0.1: ~3.0.1
@@ -134,7 +134,7 @@ importers:
       '@tailwindcss/typography': ^0.5.7
       nuxt-component-meta: ^0.4.3
     dependencies:
-      '@dpc-sdp/ripple-ui-core': link:../packages/ripple-ui-core
+      '@dpc-sdp/ripple-ui-core': 2.1.0-alpha.76_jrpp4geoaqu5dz2gragkckznb4
     devDependencies:
       '@iconify/vue': 4.1.0_vue@3.2.47
       '@nuxt/content': 2.4.3
@@ -148,17 +148,17 @@ importers:
   examples/nuxt-app:
     specifiers:
       '@badeball/cypress-cucumber-preprocessor': ^15.1.3
-      '@dpc-sdp/nuxt-ripple': 2.1.0-alpha.77
-      '@dpc-sdp/ripple-tide-api': 2.1.0-alpha.76
-      '@dpc-sdp/ripple-tide-event': 2.1.0-alpha.76
-      '@dpc-sdp/ripple-tide-grant': 2.1.0-alpha.76
-      '@dpc-sdp/ripple-tide-landing-page': 2.1.0-alpha.77
-      '@dpc-sdp/ripple-tide-media': 2.1.0-alpha.77
-      '@dpc-sdp/ripple-tide-news': 2.1.0-alpha.77
-      '@dpc-sdp/ripple-tide-publication': 2.1.0-alpha.77
-      '@dpc-sdp/ripple-tide-search': 2.1.0-alpha.76
-      '@dpc-sdp/ripple-ui-core': 2.1.0-alpha.76
-      '@dpc-sdp/ripple-ui-forms': 2.1.0-alpha.76
+      '@dpc-sdp/nuxt-ripple': workspace:*
+      '@dpc-sdp/ripple-tide-api': workspace:*
+      '@dpc-sdp/ripple-tide-event': workspace:*
+      '@dpc-sdp/ripple-tide-grant': workspace:*
+      '@dpc-sdp/ripple-tide-landing-page': workspace:*
+      '@dpc-sdp/ripple-tide-media': workspace:*
+      '@dpc-sdp/ripple-tide-news': workspace:*
+      '@dpc-sdp/ripple-tide-publication': workspace:*
+      '@dpc-sdp/ripple-tide-search': workspace:*
+      '@dpc-sdp/ripple-ui-core': workspace:*
+      '@dpc-sdp/ripple-ui-forms': workspace:*
       '@formkit/core': 1.0.0-beta.15
       '@formkit/vue': 1.0.0-beta.15
       '@testing-library/cypress': ^9.0.0
@@ -213,7 +213,7 @@ importers:
       vue: ^3.2.47
       vue-router: ^4.1.5
     dependencies:
-      '@dpc-sdp/ripple-ui-core': link:../../packages/ripple-ui-core
+      '@dpc-sdp/ripple-ui-core': 2.1.0-alpha.76_jrpp4geoaqu5dz2gragkckznb4
       vue: 3.2.47
       vue-router: 4.1.6_vue@3.2.47
     devDependencies:
@@ -237,13 +237,13 @@ importers:
     specifiers:
       '@dpc-sdp/ripple-ui-core': 2.1.0-alpha.76
     dependencies:
-      '@dpc-sdp/ripple-ui-core': link:../../packages/ripple-ui-core
+      '@dpc-sdp/ripple-ui-core': 2.1.0-alpha.76_jrpp4geoaqu5dz2gragkckznb4
 
   packages/nuxt-ripple:
     specifiers:
       '@dpc-sdp/ripple-tide-api': 2.1.0-alpha.76
-      '@dpc-sdp/ripple-ui-core': 2.1.0-alpha.76
-      '@dpc-sdp/ripple-ui-forms': 2.1.0-alpha.76
+      '@dpc-sdp/ripple-ui-core': 2.1.0-alpha.78
+      '@dpc-sdp/ripple-ui-forms': 2.1.0-alpha.78
       '@vueuse/core': ^9.12.0
       change-case: ^4.1.2
     dependencies:
@@ -362,7 +362,7 @@ importers:
   packages/ripple-tide-grant:
     specifiers:
       '@dpc-sdp/ripple-tide-api': 2.1.0-alpha.76
-      '@dpc-sdp/ripple-ui-core': 2.1.0-alpha.76
+      '@dpc-sdp/ripple-ui-core': 2.1.0-alpha.78
     dependencies:
       '@dpc-sdp/ripple-tide-api': link:../ripple-tide-api
       '@dpc-sdp/ripple-ui-core': link:../ripple-ui-core
@@ -370,8 +370,8 @@ importers:
   packages/ripple-tide-landing-page:
     specifiers:
       '@dpc-sdp/ripple-tide-api': 2.1.0-alpha.76
-      '@dpc-sdp/ripple-ui-core': 2.1.0-alpha.76
-      '@dpc-sdp/ripple-ui-forms': 2.1.0-alpha.76
+      '@dpc-sdp/ripple-ui-core': 2.1.0-alpha.78
+      '@dpc-sdp/ripple-ui-forms': 2.1.0-alpha.78
       ohmyfetch: ^0.4.21
     dependencies:
       '@dpc-sdp/ripple-tide-api': link:../ripple-tide-api
@@ -381,23 +381,23 @@ importers:
 
   packages/ripple-tide-media:
     specifiers:
-      '@dpc-sdp/nuxt-ripple': 2.1.0-alpha.77
-      '@dpc-sdp/ripple-ui-core': 2.1.0-alpha.76
+      '@dpc-sdp/nuxt-ripple': 2.1.0-alpha.78
+      '@dpc-sdp/ripple-ui-core': 2.1.0-alpha.78
     dependencies:
       '@dpc-sdp/nuxt-ripple': link:../nuxt-ripple
       '@dpc-sdp/ripple-ui-core': link:../ripple-ui-core
 
   packages/ripple-tide-news:
     specifiers:
-      '@dpc-sdp/nuxt-ripple': 2.1.0-alpha.77
+      '@dpc-sdp/nuxt-ripple': 2.1.0-alpha.78
     dependencies:
       '@dpc-sdp/nuxt-ripple': link:../nuxt-ripple
 
   packages/ripple-tide-publication:
     specifiers:
       '@dpc-sdp/ripple-tide-api': 2.1.0-alpha.76
-      '@dpc-sdp/ripple-tide-landing-page': 2.1.0-alpha.77
-      '@dpc-sdp/ripple-ui-core': 2.1.0-alpha.76
+      '@dpc-sdp/ripple-tide-landing-page': 2.1.0-alpha.78
+      '@dpc-sdp/ripple-ui-core': 2.1.0-alpha.78
     dependencies:
       '@dpc-sdp/ripple-tide-api': link:../ripple-tide-api
       '@dpc-sdp/ripple-tide-landing-page': link:../ripple-tide-landing-page
@@ -405,8 +405,8 @@ importers:
 
   packages/ripple-tide-search:
     specifiers:
-      '@dpc-sdp/ripple-ui-core': 2.1.0-alpha.76
-      '@dpc-sdp/ripple-ui-forms': 2.1.0-alpha.76
+      '@dpc-sdp/ripple-ui-core': 2.1.0-alpha.78
+      '@dpc-sdp/ripple-ui-forms': 2.1.0-alpha.78
       '@elastic/search-ui': latest
       '@elastic/search-ui-app-search-connector': latest
     dependencies:
@@ -495,7 +495,7 @@ importers:
   packages/ripple-ui-forms:
     specifiers:
       '@babel/core': ^7.20.12
-      '@dpc-sdp/ripple-ui-core': 2.1.0-alpha.76
+      '@dpc-sdp/ripple-ui-core': 2.1.0-alpha.78
       '@formkit/inputs': 1.0.0-beta.15
       '@formkit/nuxt': 1.0.0-beta.15
       '@formkit/validation': 1.0.0-beta.15
@@ -2683,6 +2683,42 @@ packages:
     resolution: {integrity: sha512-dBVuXR082gk3jsFp7Rd/JI4kytwGHecnCoTtXFb7DB6CNHp4rg5k1bhg0nWdLGLnOV71lmDzGQaLMy8iPLY0pw==}
     engines: {node: '>=10.0.0'}
     dev: true
+
+  /@dpc-sdp/ripple-ui-core/2.1.0-alpha.76_jrpp4geoaqu5dz2gragkckznb4:
+    resolution: {integrity: sha512-XgtoD/39469/szWr4I4aSuM9lNVOXjdYTflQt29Oa1NGdAQ4/FfuC15pWZjNEEMHipFFu0C2r8wwT50TZCfksg==}
+    dependencies:
+      '@nuxt/kit': 3.1.2
+      '@vueuse/core': 9.12.0_vue@3.2.45
+      '@vueuse/integrations': 9.12.0_nn2zg2o47bujavotzgw5cgkzcu
+      date-fns: 2.29.3
+      focus-trap: 7.2.0
+      mitt: 3.0.0
+      normalize.css: 8.0.1
+      postcss-each: 1.1.0_postcss@8.4.21
+      postcss-for: 2.1.1
+      postcss-nested: 6.0.0_postcss@8.4.21
+      postcss-normalize: 10.0.1_jrpp4geoaqu5dz2gragkckznb4
+      postcss-preset-env: 8.0.1_postcss@8.4.21
+      swiper: 8.4.7
+      vite-svg-loader: 4.0.0
+      vue: 3.2.45
+    transitivePeerDependencies:
+      - '@vue/composition-api'
+      - async-validator
+      - axios
+      - browserslist
+      - change-case
+      - drauu
+      - fuse.js
+      - idb-keyval
+      - jwt-decode
+      - nprogress
+      - postcss
+      - qrcode
+      - rollup
+      - supports-color
+      - universal-cookie
+    dev: false
 
   /@elastic/app-search-javascript/8.5.1:
     resolution: {integrity: sha512-eajUuoTTZQ01rSOKa6uJIS6l0dnq+k/i3OqWyooaQ0lBPrk5nEw730I7wRvEMg/PsAcyvsUvebkehaj0sg5GUA==}
@@ -6111,9 +6147,9 @@ packages:
       global: 4.4.0
       html-webpack-plugin: 4.5.2_webpack@4.46.0
       pnp-webpack-plugin: 1.6.4_typescript@4.9.5
-      postcss: 7.0.39
+      postcss: 8.4.21
       postcss-flexbugs-fixes: 4.2.1
-      postcss-loader: 4.3.0_gzaxsinx64nntyd3vmdqwl7coe
+      postcss-loader: 4.3.0_4dftvqknpgmotzmzzqmnfvmmye
       raw-loader: 4.0.2_webpack@4.46.0
       react: 16.14.0
       react-dom: 16.14.0_react@16.14.0
@@ -9394,7 +9430,7 @@ packages:
       normalize-range: 0.1.2
       num2fraction: 1.2.2
       picocolors: 0.2.1
-      postcss: 7.0.39
+      postcss: 8.4.21
       postcss-value-parser: 4.2.0
     dev: true
 
@@ -11703,7 +11739,7 @@ packages:
       icss-utils: 4.1.1
       loader-utils: 1.4.2
       normalize-path: 3.0.0
-      postcss: 7.0.39
+      postcss: 8.4.21
       postcss-modules-extract-imports: 2.0.0
       postcss-modules-local-by-default: 3.0.3
       postcss-modules-scope: 2.2.0
@@ -15973,7 +16009,7 @@ packages:
     resolution: {integrity: sha512-4aFq7wvWyMHKgxsH8QQtGpvbASCf+eM3wPRLI6R+MgAnTCZ6STYsRvttLvRWK0Nfif5piF394St3HeJDaljGPA==}
     engines: {node: '>= 6'}
     dependencies:
-      postcss: 7.0.39
+      postcss: 8.4.21
     dev: true
 
   /icss-utils/5.1.0_postcss@8.4.21:
@@ -21697,6 +21733,7 @@ packages:
 
   /picocolors/0.2.1:
     resolution: {integrity: sha512-cMlDqaLEqfSaW8Z7N5Jw+lyIW869EzT73/F5lhtY9cLGoVxSXznfgfXMO0Z5K0o0Q2TkTXq+0KFsdnSe3jDViA==}
+    dev: true
 
   /picocolors/1.0.0:
     resolution: {integrity: sha512-1fygroTLlHu66zi26VoTDv8yRgm0Fccecssto+MhsZ0D/DGW2sm8E8AjW7NU5VVTRt5GxbeZ5qBuJr+HyLYkjQ==}
@@ -22033,7 +22070,7 @@ packages:
   /postcss-flexbugs-fixes/4.2.1:
     resolution: {integrity: sha512-9SiofaZ9CWpQWxOwRh1b/r85KD5y7GgvsNt1056k6OYLvWUun0czCvogfJgylC22uJTwW1KzY3Gz65NZRlvoiQ==}
     dependencies:
-      postcss: 7.0.39
+      postcss: 8.4.21
     dev: true
 
   /postcss-focus-visible/8.0.1_postcss@8.4.21:
@@ -22064,7 +22101,7 @@ packages:
   /postcss-for/2.1.1:
     resolution: {integrity: sha512-X0R84FCyr5cqzW4+/g4Dvz2OUe1iwC3G/atIrwEpiRstZlBBpknV+ETlIneSTnw/iXgUnEoTRaO2qXY62YWLhQ==}
     dependencies:
-      postcss: 7.0.39
+      postcss: 8.4.21
       postcss-simple-vars: 2.0.0
 
   /postcss-gap-properties/4.0.1_postcss@8.4.21:
@@ -22170,6 +22207,22 @@ packages:
       yaml: 1.10.2
     dev: true
 
+  /postcss-loader/4.3.0_4dftvqknpgmotzmzzqmnfvmmye:
+    resolution: {integrity: sha512-M/dSoIiNDOo8Rk0mUqoj4kpGq91gcxCfb9PoyZVdZ76/AuhxylHDYZblNE8o+EQ9AMSASeMFEKxZf5aU6wlx1Q==}
+    engines: {node: '>= 10.13.0'}
+    peerDependencies:
+      postcss: ^7.0.0 || ^8.0.1
+      webpack: ^4.0.0 || ^5.0.0
+    dependencies:
+      cosmiconfig: 7.1.0
+      klona: 2.0.6
+      loader-utils: 2.0.4
+      postcss: 8.4.21
+      schema-utils: 3.1.1
+      semver: 7.3.8
+      webpack: 4.46.0
+    dev: true
+
   /postcss-loader/4.3.0_6jdsrmfenkuhhw3gx4zvjlznce:
     resolution: {integrity: sha512-M/dSoIiNDOo8Rk0mUqoj4kpGq91gcxCfb9PoyZVdZ76/AuhxylHDYZblNE8o+EQ9AMSASeMFEKxZf5aU6wlx1Q==}
     engines: {node: '>= 10.13.0'}
@@ -22184,22 +22237,6 @@ packages:
       schema-utils: 3.1.1
       semver: 7.3.8
       webpack: 5.75.0
-    dev: true
-
-  /postcss-loader/4.3.0_gzaxsinx64nntyd3vmdqwl7coe:
-    resolution: {integrity: sha512-M/dSoIiNDOo8Rk0mUqoj4kpGq91gcxCfb9PoyZVdZ76/AuhxylHDYZblNE8o+EQ9AMSASeMFEKxZf5aU6wlx1Q==}
-    engines: {node: '>= 10.13.0'}
-    peerDependencies:
-      postcss: ^7.0.0 || ^8.0.1
-      webpack: ^4.0.0 || ^5.0.0
-    dependencies:
-      cosmiconfig: 7.1.0
-      klona: 2.0.6
-      loader-utils: 2.0.4
-      postcss: 7.0.39
-      schema-utils: 3.1.1
-      semver: 7.3.8
-      webpack: 4.46.0
     dev: true
 
   /postcss-logical/6.0.1_postcss@8.4.21:
@@ -22295,7 +22332,7 @@ packages:
     resolution: {integrity: sha512-LaYLDNS4SG8Q5WAWqIJgdHPJrDDr/Lv775rMBFUbgjTz6j34lUznACHcdRWroPvXANP2Vj7yNK57vp9eFqzLWQ==}
     engines: {node: '>= 6'}
     dependencies:
-      postcss: 7.0.39
+      postcss: 8.4.21
     dev: true
 
   /postcss-modules-extract-imports/3.0.0_postcss@8.4.21:
@@ -22312,7 +22349,7 @@ packages:
     engines: {node: '>= 6'}
     dependencies:
       icss-utils: 4.1.1
-      postcss: 7.0.39
+      postcss: 8.4.21
       postcss-selector-parser: 6.0.11
       postcss-value-parser: 4.2.0
     dev: true
@@ -22333,7 +22370,7 @@ packages:
     resolution: {integrity: sha512-YyEgsTMRpNd+HmyC7H/mh3y+MeFWevy7V1evVhJWewmMbjDHIbZbOXICC2y+m1xI1UVfIT1HMW/O04Hxyu9oXQ==}
     engines: {node: '>= 6'}
     dependencies:
-      postcss: 7.0.39
+      postcss: 8.4.21
       postcss-selector-parser: 6.0.11
     dev: true
 
@@ -22351,7 +22388,7 @@ packages:
     resolution: {integrity: sha512-1//E5jCBrZ9DmRX+zCtmQtRSV6PV42Ix7Bzj9GbwJceduuf7IqP8MgeTXuRDHOWj2m0VzZD5+roFWDuU8RQjcg==}
     dependencies:
       icss-utils: 4.1.1
-      postcss: 7.0.39
+      postcss: 8.4.21
     dev: true
 
   /postcss-modules-values/4.0.0_postcss@8.4.21:
@@ -22531,12 +22568,12 @@ packages:
       postcss: 8.4.21
       postcss-value-parser: 4.2.0
 
-  /postcss-prefix-selector/1.16.0_postcss@7.0.39:
+  /postcss-prefix-selector/1.16.0_postcss@8.4.21:
     resolution: {integrity: sha512-rdVMIi7Q4B0XbXqNUEI+Z4E+pueiu/CS5E6vRCQommzdQ/sgsS4dK42U7GX8oJR+TJOtT+Qv3GkNo6iijUMp3Q==}
     peerDependencies:
       postcss: '>4 <9'
     dependencies:
-      postcss: 7.0.39
+      postcss: 8.4.21
     dev: true
 
   /postcss-preset-env/8.0.1_postcss@8.4.21:
@@ -22677,7 +22714,7 @@ packages:
   /postcss-simple-vars/2.0.0:
     resolution: {integrity: sha512-HllLaKKCBOdKudyzqrw/ve5rWouM9cDL+WHaSF9q4CkBEPjdTdiKNw1xF2dAz5rUKrxVmnUmOYxamwy37dnq2Q==}
     dependencies:
-      postcss: 7.0.39
+      postcss: 8.4.21
 
   /postcss-simple-vars/6.0.3_postcss@8.4.21:
     resolution: {integrity: sha512-fkNn4Zio8vN4vIig9IFdb8lVlxWnYR769RgvxCM6YWlFKie/nQaOcaMMMFz/s4gsfHW4/5bJW+i57zD67mQU7g==}
@@ -22724,13 +22761,6 @@ packages:
 
   /postcss-value-parser/4.2.0:
     resolution: {integrity: sha512-1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ==}
-
-  /postcss/7.0.39:
-    resolution: {integrity: sha512-yioayjNbHn6z1/Bywyb2Y4s3yvDAeXGOyxqD+LnVOinq6Mdmd++SW2wUNVzavyyHxd6+DxzWGIuosg6P1Rj8uA==}
-    engines: {node: '>=6.0.0'}
-    dependencies:
-      picocolors: 0.2.1
-      source-map: 0.6.1
 
   /postcss/8.4.21:
     resolution: {integrity: sha512-tP7u/Sn/dVxK2NnruI4H9BG+x+Wxz6oeZ1cJ8P6G/PZY0IKk4k/63TDsQf2kQq3+qoJeLm2kIBUNlZe3zgb4Zg==}
@@ -25624,8 +25654,8 @@ packages:
       loader-utils: 1.4.2
       merge-options: 1.0.1
       micromatch: 3.1.0
-      postcss: 7.0.39
-      postcss-prefix-selector: 1.16.0_postcss@7.0.39
+      postcss: 8.4.21
+      postcss-prefix-selector: 1.16.0_postcss@8.4.21
       posthtml-rename-id: 1.0.12
       posthtml-svg-mode: 1.0.3
       query-string: 4.3.4

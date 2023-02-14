@@ -7,6 +7,7 @@ import '@dpc-sdp/ripple-ui-core/style'
 import themes from './themes.json'
 import withBackground from './utils/withBackground'
 import svgPlaceholder from './utils/svgPlaceholder'
+import { withSource } from './utils/withSource'
 // Storybook specific CSS
 import './storybook.css'
 
@@ -46,5 +47,6 @@ export const decorators = [
     template: '<div><RplIconSprite /><story /></div>'
   }),
   withBackground,
-  withDesign
+  withDesign,
+  withSource
 ]

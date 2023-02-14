@@ -26,7 +26,7 @@ export const Template = (args) => ({
   setup() {
     return { args }
   },
-  template: '<rpl-button @click="" v-bind="args" />'
+  template: '<RplButton v-bind="args" />'
 });
 
 <Meta
@@ -38,7 +38,7 @@ export const Template = (args) => ({
         'https://www.figma.com/file/jtsOPNk1k4cWnumzkZgclD/Ripple-2.0-PoC?node-id=2715%3A180538',
     },
   }}
-  component={{RplButton}}
+  component={RplButton}
   argTypes={{
     label: {
       type: 'string'
@@ -70,7 +70,10 @@ export const Template = (args) => ({
   }}
 />
 
+
 ## Default
+
+<ArgsTable of={RplButton} />
 
 <Canvas>
   <Story

@@ -1,5 +1,5 @@
 {
-  "version": "2.1.0-alpha.77",
+  "version": "2.1.0-alpha.79",
   "npmClient": "pnpm",
   "exact": true,
   "command": {
@@ -8,5 +8,7 @@
       "conventionalCommits": true
     }
   },
-  "packages": ["packages/*"]
+  "packages": [
+    "packages/*"
+  ]
 }

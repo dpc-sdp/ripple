@@ -96,6 +96,9 @@
     "rimraf": "^4.1.2",
     "vue-jest": "^3.0.7"
   },
+  "peerDependencies": {
+    "esbuild": "0.16.17"
+  },
   "pnpm": {
     "overrides": {
       "@types/react": "file:./stub/types__react",

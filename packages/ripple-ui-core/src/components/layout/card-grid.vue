@@ -1,5 +1,5 @@
 <script lang="ts">
-export default { name: 'RplSidebarComponent' }
+export default { name: 'RplCardGrid' }
 </script>
 
 <script setup lang="ts">

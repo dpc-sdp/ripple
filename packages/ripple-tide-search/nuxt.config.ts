@@ -11,10 +11,10 @@ export default defineNuxtConfig({
   },
   build: {
     transpile: [
-      '@elastic/search-ui',
-      '@elastic/search-ui-app-search-connector',
-      '@elastic/search-ui-elasticsearch-connector',
-      '@searchkit/sdk'
+      ({ isDev }) => !isDev && '@elastic/search-ui',
+      ({ isDev }) => !isDev && '@elastic/search-ui-app-search-connector',
+      ({ isDev }) => !isDev && '@elastic/search-ui-elasticsearch-connector',
+      ({ isDev }) => !isDev && '@searchkit/sdk'
     ]
   }
 })

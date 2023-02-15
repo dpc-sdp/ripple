@@ -25,7 +25,7 @@
 </template>
 
 <script setup lang="ts">
-import { RplHeaderGraphic, RplErrorMessage } from '@dpc-sdp/ripple-ui-core/vue'
+import { RplHeaderGraphic, RplErrorMessage } from '#components'
 import { computed } from 'vue'
 
 interface Props {

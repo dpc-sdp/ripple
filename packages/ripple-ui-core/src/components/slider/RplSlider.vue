@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { computed, ref, useSlots, watch } from 'vue'
 import RplPagination from '../pagination/RplPagination.vue'
-import { bpMin, RplBreakpoints } from '../../lib/breakpoints'
+import { bpMin } from '../../lib/breakpoints'
+import { RplSlidesPerView } from './constants'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { EffectFade } from 'swiper'
 import { useBreakpoints } from '@vueuse/core'
@@ -11,8 +12,6 @@ import { rplEventBus } from '../../index'
 
 rplEventBus.register('rpl-button/click')
 const emit = defineEmits(['change'])
-
-type RplSlidesPerView = RplBreakpoints | number | undefined
 
 interface Props {
   perView?: RplSlidesPerView

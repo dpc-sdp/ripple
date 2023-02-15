@@ -108,10 +108,30 @@ const pluginImages = function (this: any) {
   })
 }
 
+const pluginButtons = function (this: any) {
+  this.find('.button').map((i: any, el: any) => {
+    const $button = this.find(el)
+    const variant = $button.hasClass('button--secondary')
+      ? 'rpl-button--outlined'
+      : 'rpl-button--filled'
+
+    $button
+      .removeClass('button button--secondary')
+      .addClass(
+        `rpl-button rpl-button--default rpl-u-focusable-block ${variant}`
+      )
+
+    return $button.wrapInner(
+      '<span class="rpl-button__label rpl-type-label rpl-type-weight-bold"></span>'
+    )
+  })
+}
+
 export default [
   pluginTables,
   pluginCallout,
   pluginQuotation,
   pluginDocuments,
-  pluginImages
+  pluginImages,
+  pluginButtons
 ]

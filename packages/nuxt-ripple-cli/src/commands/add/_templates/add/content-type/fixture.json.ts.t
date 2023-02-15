@@ -1,5 +1,5 @@
 ---
-to: "<%= createTests ? `${cypressPath}/fixtures/${h.changeCase.kebabCase(name)}/${h.changeCase.kebabCase(name)}.json` : null %>"
+to: "<%= createTests ? `${cypressPath}/fixtures/${h.changeCase.kebabCase(name)}/sample-${h.changeCase.kebabCase(name)}.json` : null %>"
 ---
 
 {

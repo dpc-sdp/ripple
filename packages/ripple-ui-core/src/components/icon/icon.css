@@ -76,3 +76,7 @@
     color: var(--rpl-clr-neutral-4);
   }
 }
+
+.rpl-svg-sprite--hidden {
+  display: none;
+}

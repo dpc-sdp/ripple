@@ -1,15 +1,14 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { RplCardCarousel } from '@dpc-sdp/ripple-ui-core'
+import { RplCardCarousel } from '#components'
 import { ITideCardCarouselItem } from '../../../mapping/page-components/card-carousel/card-carousel-mapping'
 
-const props =
-  defineProps<{
-    id: string
-    title: string
-    items: ITideCardCarouselItem[]
-    hasSidebar: boolean
-  }>()
+const props = defineProps<{
+  id: string
+  title: string
+  items: ITideCardCarouselItem[]
+  hasSidebar: boolean
+}>()
 
 const perView = computed(() => {
   if (props.hasSidebar) {

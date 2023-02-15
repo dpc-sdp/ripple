@@ -11,6 +11,6 @@
   },
   "version": "2.1.0-alpha.78",
   "dependencies": {
-    "@dpc-sdp/nuxt-ripple": "2.1.0-alpha.78"
+    "@dpc-sdp/nuxt-ripple": "workspace:*"
   }
 }

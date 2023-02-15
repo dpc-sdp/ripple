@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { RplAcknowledgement } from '@dpc-sdp/ripple-ui-core'
+import { RplAcknowledgement } from '#components'
 defineProps<{
   message: string
 }>()

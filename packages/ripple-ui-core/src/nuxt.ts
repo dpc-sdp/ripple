@@ -9,6 +9,7 @@ export default <any>defineNuxtModule({
   },
   hooks: {
     'vite:extendConfig'(viteInlineConfig) {
+      // Add vite plugins
       if (Array.isArray(viteInlineConfig.plugins)) {
         viteInlineConfig.plugins?.push(vitePlugins)
       } else {

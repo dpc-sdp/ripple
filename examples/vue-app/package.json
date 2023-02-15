@@ -15,7 +15,7 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-ui-core": "2.1.0-alpha.76",
+    "@dpc-sdp/ripple-ui-core": "workspace:*",
     "vue": "^3.2.47",
     "vue-router": "^4.1.5"
   },

@@ -33,9 +33,3 @@ withDefaults(defineProps<Props>(), {
   >
   </component>
 </template>
-
-<style>
-.rpl-svg-sprite--hidden {
-  display: none;
-}
-</style>

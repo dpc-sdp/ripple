@@ -14,7 +14,7 @@ export default { name: 'TideMediaBody' }
 
 <script setup lang="ts">
 import type { TideMediaMedia } from '../../types'
-import { RplContent } from '@dpc-sdp/ripple-ui-core'
+import { RplContent } from '#components'
 
 defineProps<{
   media: TideMediaMedia

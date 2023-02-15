@@ -8,7 +8,7 @@ import {
 import { getValidationMessages } from '@formkit/validation'
 import rplFormInputs from '../../plugin'
 import RplFormAlert from '../RplFormAlert/RplFormAlert.vue'
-import { RplContent } from '@dpc-sdp/ripple-ui-core'
+import { RplContent } from '@dpc-sdp/ripple-ui-core/vue'
 import { reset } from '@formkit/vue'
 
 interface Props {

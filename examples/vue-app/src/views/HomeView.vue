@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { RplButton, RplPageComponent } from '@dpc-sdp/ripple-ui-core'
+import { RplButton, RplPageComponent } from '@dpc-sdp/ripple-ui-core/vue'
 </script>
 
 <template>

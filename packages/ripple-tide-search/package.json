@@ -10,9 +10,9 @@
     ".": "./nuxt.config.ts"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-ui-core": "2.1.0-alpha.78",
-    "@dpc-sdp/ripple-ui-forms": "2.1.0-alpha.78",
-    "@elastic/search-ui": "latest",
-    "@elastic/search-ui-app-search-connector": "latest"
+    "@dpc-sdp/ripple-ui-core": "workspace:*",
+    "@dpc-sdp/ripple-ui-forms": "workspace:*",
+    "@elastic/search-ui": "^1.19.1",
+    "@elastic/search-ui-app-search-connector": "^1.19.1"
   }
 }

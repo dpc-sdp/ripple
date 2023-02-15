@@ -15,6 +15,7 @@
   "exports": {
     ".": "./dist/rpl-lib.es.js",
     "./nuxt": "./dist/nuxt.js",
+    "./vue": "./dist/rpl-vue.es.js",
     "./webcomponents": "./dist/web-components/rpl-wc.es.js",
     "./style": "./dist/global.css",
     "./style/breakpoints": "./src/styles/_breakpoints.css",
@@ -22,9 +23,10 @@
   },
   "scripts": {
     "dev": "concurrently \"wait-on -i 2000 tcp:6006 && pnpm test:storybook --watch\" \"pnpm:watch\" \"pnpm:storybook\" --handle-input",
-    "build": "pnpm clean && pnpm build:tokens && pnpm build:styles && pnpm build:types && pnpm build:lib && pnpm build:wc",
+    "build": "pnpm clean && pnpm build:tokens && pnpm build:styles && pnpm build:types && pnpm build:lib && pnpm build:vue && pnpm build:wc",
     "build:types": "tsc -p tsconfig.json",
     "build:lib": "vite build",
+    "build:vue": "vite build --config vue.vite.config.ts",
     "build:wc": "vite build --config wc.vite.config.ts",
     "build:styles": "vite build --config global-css.vite.config.ts && rimraf ./dist/delete.es.js",
     "build:svg-sprite": "ts-node ./src/scripts/generate-icon-sprite.ts",

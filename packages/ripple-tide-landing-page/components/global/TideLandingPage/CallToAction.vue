@@ -1,12 +1,18 @@
 <template>
-  <RplCallToActionCard :title="title" :image="image" :url="url" :ctaText="ctaText" :theme="featureFlags.buttonTheme">
+  <RplCardCallToAction
+    :title="title"
+    :image="image"
+    :url="url"
+    :ctaText="ctaText"
+    :theme="featureFlags.buttonTheme"
+  >
     <div data-cy="summary" v-html="summary"></div>
-  </RplCallToActionCard>
+  </RplCardCallToAction>
 </template>
 
 <script setup lang="ts">
-import { inject } from 'vue';
-import { RplCallToActionCard } from '@dpc-sdp/ripple-ui-core'
+import { inject } from 'vue'
+import { RplCardCallToAction } from '#components'
 const featureFlags = inject('featureFlags', {
   buttonTheme: 'default'
 })

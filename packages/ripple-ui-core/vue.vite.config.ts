@@ -1,40 +1,26 @@
 import { defineConfig } from 'vite'
 import path from 'path'
 import vue from '@vitejs/plugin-vue'
-import { viteStaticCopy } from 'vite-plugin-static-copy'
+import dts from 'vite-plugin-dts'
+import vitePlugins from './src/vite.plugins'
 
 // https://vitejs.dev/config/
 // https://vitejs.dev/guide/build.html#library-mode
 export default defineConfig({
   resolve: {
     alias: {
+      '@': path.resolve(__dirname, './src'),
       vue: 'vue/dist/vue.esm-bundler.js'
     }
   },
-  plugins: [
-    vue(),
-    viteStaticCopy({
-      targets: [
-        {
-          src: 'src/components/**/*.vue',
-          dest: '.'
-        }
-      ],
-      flatten: false
-    })
-  ],
-  server: {
-    fs: {
-      strict: false
-    }
-  },
+  plugins: [vue(), dts()].concat(vitePlugins),
   build: {
     emptyOutDir: false,
     lib: {
-      entry: path.resolve(__dirname, 'src/index.ts'),
-      name: 'rpl-form',
+      entry: path.resolve(__dirname, 'src/components.ts'),
+      name: 'rpl',
       formats: ['es'],
-      fileName: (f) => `rpl-forms.${f}.js`
+      fileName: (f) => `rpl-vue.${f}.js`
     },
     sourcemap: false,
     // Reduce bloat from legacy polyfills.
@@ -42,13 +28,18 @@ export default defineConfig({
     // Leave minification for now whilst we are non prod
     minify: false,
     rollupOptions: {
-      external: ['vue', '@dpc-sdp/ripple-ui-core/vue'],
+      external: ['vue'],
       output: {
         inlineDynamicImports: true,
         globals: {
           vue: 'Vue'
         }
       }
+    }
+  },
+  server: {
+    fs: {
+      allow: ['../../']
     }
   }
 })

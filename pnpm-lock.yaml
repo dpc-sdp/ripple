@@ -124,7 +124,7 @@ importers:
 
   docs:
     specifiers:
-      '@dpc-sdp/ripple-ui-core': 2.1.0-alpha.76
+      '@dpc-sdp/ripple-ui-core': workspace:*
       '@iconify/vue': ^4.1.0
       '@nuxt/content': ^2.4.3
       '@nuxt/kit': ^3.1.2
@@ -134,7 +134,7 @@ importers:
       '@tailwindcss/typography': ^0.5.7
       nuxt-component-meta: ^0.4.3
     dependencies:
-      '@dpc-sdp/ripple-ui-core': 2.1.0-alpha.76_jrpp4geoaqu5dz2gragkckznb4
+      '@dpc-sdp/ripple-ui-core': link:../packages/ripple-ui-core
     devDependencies:
       '@iconify/vue': 4.1.0_vue@3.2.47
       '@nuxt/content': 2.4.3
@@ -196,7 +196,7 @@ importers:
     specifiers:
       '@cypress/vite-dev-server': ^5.0.2
       '@cypress/vue': ^5.0.4
-      '@dpc-sdp/ripple-ui-core': 2.1.0-alpha.76
+      '@dpc-sdp/ripple-ui-core': workspace:*
       '@rushstack/eslint-patch': ^1.2.0
       '@types/node': ^18.13.0
       '@vitejs/plugin-vue': ^4.0.0
@@ -213,7 +213,7 @@ importers:
       vue: ^3.2.47
       vue-router: ^4.1.5
     dependencies:
-      '@dpc-sdp/ripple-ui-core': 2.1.0-alpha.76_jrpp4geoaqu5dz2gragkckznb4
+      '@dpc-sdp/ripple-ui-core': link:../../packages/ripple-ui-core
       vue: 3.2.47
       vue-router: 4.1.6_vue@3.2.47
     devDependencies:
@@ -235,15 +235,15 @@ importers:
 
   examples/webcomponents:
     specifiers:
-      '@dpc-sdp/ripple-ui-core': 2.1.0-alpha.76
+      '@dpc-sdp/ripple-ui-core': workspace:*
     dependencies:
-      '@dpc-sdp/ripple-ui-core': 2.1.0-alpha.76_jrpp4geoaqu5dz2gragkckznb4
+      '@dpc-sdp/ripple-ui-core': link:../../packages/ripple-ui-core
 
   packages/nuxt-ripple:
     specifiers:
-      '@dpc-sdp/ripple-tide-api': 2.1.0-alpha.76
-      '@dpc-sdp/ripple-ui-core': 2.1.0-alpha.78
-      '@dpc-sdp/ripple-ui-forms': 2.1.0-alpha.78
+      '@dpc-sdp/ripple-tide-api': workspace:*
+      '@dpc-sdp/ripple-ui-core': workspace:*
+      '@dpc-sdp/ripple-ui-forms': workspace:*
       '@vueuse/core': ^9.12.0
       change-case: ^4.1.2
     dependencies:
@@ -355,23 +355,23 @@ importers:
 
   packages/ripple-tide-event:
     specifiers:
-      '@dpc-sdp/ripple-tide-api': 2.1.0-alpha.76
+      '@dpc-sdp/ripple-tide-api': workspace:*
     dependencies:
       '@dpc-sdp/ripple-tide-api': link:../ripple-tide-api
 
   packages/ripple-tide-grant:
     specifiers:
-      '@dpc-sdp/ripple-tide-api': 2.1.0-alpha.76
-      '@dpc-sdp/ripple-ui-core': 2.1.0-alpha.78
+      '@dpc-sdp/ripple-tide-api': workspace:*
+      '@dpc-sdp/ripple-ui-core': workspace:*
     dependencies:
       '@dpc-sdp/ripple-tide-api': link:../ripple-tide-api
       '@dpc-sdp/ripple-ui-core': link:../ripple-ui-core
 
   packages/ripple-tide-landing-page:
     specifiers:
-      '@dpc-sdp/ripple-tide-api': 2.1.0-alpha.76
-      '@dpc-sdp/ripple-ui-core': 2.1.0-alpha.78
-      '@dpc-sdp/ripple-ui-forms': 2.1.0-alpha.78
+      '@dpc-sdp/ripple-tide-api': workspace:*
+      '@dpc-sdp/ripple-ui-core': workspace:*
+      '@dpc-sdp/ripple-ui-forms': workspace:*
       ohmyfetch: ^0.4.21
     dependencies:
       '@dpc-sdp/ripple-tide-api': link:../ripple-tide-api
@@ -381,23 +381,23 @@ importers:
 
   packages/ripple-tide-media:
     specifiers:
-      '@dpc-sdp/nuxt-ripple': 2.1.0-alpha.78
-      '@dpc-sdp/ripple-ui-core': 2.1.0-alpha.78
+      '@dpc-sdp/nuxt-ripple': workspace:*
+      '@dpc-sdp/ripple-ui-core': workspace:*
     dependencies:
       '@dpc-sdp/nuxt-ripple': link:../nuxt-ripple
       '@dpc-sdp/ripple-ui-core': link:../ripple-ui-core
 
   packages/ripple-tide-news:
     specifiers:
-      '@dpc-sdp/nuxt-ripple': 2.1.0-alpha.78
+      '@dpc-sdp/nuxt-ripple': workspace:*
     dependencies:
       '@dpc-sdp/nuxt-ripple': link:../nuxt-ripple
 
   packages/ripple-tide-publication:
     specifiers:
-      '@dpc-sdp/ripple-tide-api': 2.1.0-alpha.76
-      '@dpc-sdp/ripple-tide-landing-page': 2.1.0-alpha.78
-      '@dpc-sdp/ripple-ui-core': 2.1.0-alpha.78
+      '@dpc-sdp/ripple-tide-api': workspace:*
+      '@dpc-sdp/ripple-tide-landing-page': workspace:*
+      '@dpc-sdp/ripple-ui-core': workspace:*
     dependencies:
       '@dpc-sdp/ripple-tide-api': link:../ripple-tide-api
       '@dpc-sdp/ripple-tide-landing-page': link:../ripple-tide-landing-page
@@ -405,10 +405,10 @@ importers:
 
   packages/ripple-tide-search:
     specifiers:
-      '@dpc-sdp/ripple-ui-core': 2.1.0-alpha.78
-      '@dpc-sdp/ripple-ui-forms': 2.1.0-alpha.78
-      '@elastic/search-ui': latest
-      '@elastic/search-ui-app-search-connector': latest
+      '@dpc-sdp/ripple-ui-core': workspace:*
+      '@dpc-sdp/ripple-ui-forms': workspace:*
+      '@elastic/search-ui': ^1.19.1
+      '@elastic/search-ui-app-search-connector': ^1.19.1
     dependencies:
       '@dpc-sdp/ripple-ui-core': link:../ripple-ui-core
       '@dpc-sdp/ripple-ui-forms': link:../ripple-ui-forms
@@ -495,7 +495,7 @@ importers:
   packages/ripple-ui-forms:
     specifiers:
       '@babel/core': ^7.20.12
-      '@dpc-sdp/ripple-ui-core': 2.1.0-alpha.78
+      '@dpc-sdp/ripple-ui-core': workspace:*
       '@formkit/inputs': 1.0.0-beta.15
       '@formkit/nuxt': 1.0.0-beta.15
       '@formkit/validation': 1.0.0-beta.15
@@ -2683,42 +2683,6 @@ packages:
     resolution: {integrity: sha512-dBVuXR082gk3jsFp7Rd/JI4kytwGHecnCoTtXFb7DB6CNHp4rg5k1bhg0nWdLGLnOV71lmDzGQaLMy8iPLY0pw==}
     engines: {node: '>=10.0.0'}
     dev: true
-
-  /@dpc-sdp/ripple-ui-core/2.1.0-alpha.76_jrpp4geoaqu5dz2gragkckznb4:
-    resolution: {integrity: sha512-XgtoD/39469/szWr4I4aSuM9lNVOXjdYTflQt29Oa1NGdAQ4/FfuC15pWZjNEEMHipFFu0C2r8wwT50TZCfksg==}
-    dependencies:
-      '@nuxt/kit': 3.1.2
-      '@vueuse/core': 9.12.0_vue@3.2.45
-      '@vueuse/integrations': 9.12.0_nn2zg2o47bujavotzgw5cgkzcu
-      date-fns: 2.29.3
-      focus-trap: 7.2.0
-      mitt: 3.0.0
-      normalize.css: 8.0.1
-      postcss-each: 1.1.0_postcss@8.4.21
-      postcss-for: 2.1.1
-      postcss-nested: 6.0.0_postcss@8.4.21
-      postcss-normalize: 10.0.1_jrpp4geoaqu5dz2gragkckznb4
-      postcss-preset-env: 8.0.1_postcss@8.4.21
-      swiper: 8.4.7
-      vite-svg-loader: 4.0.0
-      vue: 3.2.45
-    transitivePeerDependencies:
-      - '@vue/composition-api'
-      - async-validator
-      - axios
-      - browserslist
-      - change-case
-      - drauu
-      - fuse.js
-      - idb-keyval
-      - jwt-decode
-      - nprogress
-      - postcss
-      - qrcode
-      - rollup
-      - supports-color
-      - universal-cookie
-    dev: false
 
   /@elastic/app-search-javascript/8.5.1:
     resolution: {integrity: sha512-eajUuoTTZQ01rSOKa6uJIS6l0dnq+k/i3OqWyooaQ0lBPrk5nEw730I7wRvEMg/PsAcyvsUvebkehaj0sg5GUA==}

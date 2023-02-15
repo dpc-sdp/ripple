@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import { RplSearchBar, RplHeroHeader } from '@dpc-sdp/ripple-ui-core'
+import { RplSearchBar, RplHeaderHeroHeader as RplHeroHeader } from '#components'
 import { useRuntimeConfig, useFetch, useRoute } from '#imports'
 import useTideSearch from './../composables/use-tide-search'
 import { FilterConfigItem, MappedSearchResult } from 'ripple-tide-search/types'

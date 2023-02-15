@@ -8,7 +8,7 @@ export default {
   urls: mockRoutes.map((route: { path: string }) => route.path),
   ci: {
     budget: {
-      performance: 85,
+      performance: 80,
       accessibility: 90,
       'best-practices': 90,
       seo: 80

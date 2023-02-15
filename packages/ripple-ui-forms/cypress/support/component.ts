@@ -26,7 +26,7 @@ import { plugin, defaultConfig } from '@formkit/vue'
 
 import { mount } from 'cypress/vue'
 import { h } from 'vue'
-import { RplIconSprite } from '@dpc-sdp/ripple-ui-core'
+import { RplIconSprite } from '@dpc-sdp/ripple-ui-core/vue'
 
 const RplAppWrapper = {
   components: { RplIconSprite },

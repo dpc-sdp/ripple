@@ -1,15 +1,14 @@
 <script setup lang="ts">
-import { RplHeroHeader } from '@dpc-sdp/ripple-ui-core'
+import { RplHeaderHeroHeader as RplHeroHeader } from '#components'
 import { computed, inject } from 'vue'
 import { ITideHeroHeader } from '../../../mapping/hero-header/hero-header-mapping'
 import type { IRplFeatureFlags } from '@dpc-sdp/ripple-tide-api/types'
 
-const props =
-  defineProps<{
-    header: ITideHeroHeader
-    hideBottomCornerGraphic: boolean
-    hasBreadcrumbs: boolean
-  }>()
+const props = defineProps<{
+  header: ITideHeroHeader
+  hideBottomCornerGraphic: boolean
+  hasBreadcrumbs: boolean
+}>()
 
 const cornerTop = computed(() => {
   if (props.header.backgroundImage) {

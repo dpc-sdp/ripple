@@ -7,7 +7,7 @@ export default { name: 'Tide<%= h.changeCase.pascalCase(name) %>Header' }
 </script>
 
 <template>
-  <RplHeaderHeroHeader
+  <RplHeroHeader
     :corner-top="true"
     :corner-bottom="true"
     :behind-nav="true"
@@ -15,7 +15,7 @@ export default { name: 'Tide<%= h.changeCase.pascalCase(name) %>Header' }
     :title="header.title"
   >
     <p class="rpl-type-p-large">{{ header.summary }}</p>
-  </RplHeaderHeroHeader>
+  </RplHeroHeader>
 </template>
 
 <script setup lang="ts">

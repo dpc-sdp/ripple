@@ -3,7 +3,7 @@ export const vicGovHomeLabel = 'Victoria government home'
 
 export const RplFooterVariants = ['default', 'neutral'] as const
 
-export interface NavSectionItem {
+export interface INavSectionItem {
   text: string
   url?: string
   items?: {
@@ -13,12 +13,12 @@ export interface NavSectionItem {
   }[]
 }
 
-export interface CoreLink {
+export interface ICoreLink {
   text: string
   url: string
 }
 
-export interface LogoLink {
+export interface ILogoLink {
   alt: string
   url: string
   src: string

@@ -1,9 +1,5 @@
-<script lang="ts">
-export default { name: 'RplSearchResult' }
-</script>
-
 <script setup lang="ts">
-import RplTextLink from '../text-link/text-link.vue'
+import RplTextLink from '../text-link/RplTextLink.vue'
 import { useAccessibleContainer } from '../../composables/useAccessibleContainer'
 import { computed } from 'vue'
 

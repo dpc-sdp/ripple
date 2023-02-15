@@ -30,6 +30,12 @@ export default function rplAddCommand() {
     .description('Scaffold ripple content type')
     .argument('[directory]', 'project directory, default is CWD', process.cwd())
     .option('--name [name]', 'name of content type')
+    .option('-T --createTests', 'set to create Cypress test script examples')
+    .option(
+      '--cypressPath [cypressPath]',
+      'path to Cypress support folder. Default is Cypress',
+      'cypress'
+    )
     .action((directory, options) => {
       add('content-type', directory, options)
     })

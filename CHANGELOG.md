@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.80](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.79...v2.1.0-alpha.80) (2023-02-15)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** update path for dev:debug task ([089069c](https://github.com/dpc-sdp/ripple-framework/commit/089069c87cac6cb10b0f14a300915c347fa00773))
+* **@dpc-sdp/ripple-ui-core:** update postcss override version to fix package install error ([0054cf8](https://github.com/dpc-sdp/ripple-framework/commit/0054cf8016697e3ab6f953775ef50c127fd7130b))
+* **nuxt-app:** update launch.json to use pnpm, remove dev:debug task ([81ac71f](https://github.com/dpc-sdp/ripple-framework/commit/81ac71fa5d00e7048ece339b94b619a774e03ef4))
+
 # [2.1.0-alpha.79](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.78...v2.1.0-alpha.79) (2023-02-12)
 
 **Note:** Version bump only for package @dpc-sdp/ripple-monorepo

@@ -9,15 +9,16 @@ const rippleMockServer = async (
 
   const mockServer = getLocal()
   await mockServer.start(API_URL)
+  console.info('starting mock server...', mockServer.url)
 
   /*
    * Mock site taxonomy
    */
-  console.info('starting mock server...', mockServer.url)
   const mockSiteTaxonomy = await import(
     path.resolve(process.cwd(), `${siteFixturePath}`)
   )
 
+  console.info(`Mocking site data: ${mockServer.url}/api/tide/site?id=8888`)
   await mockServer
     .forGet('/api/tide/site')
     .always()
@@ -27,11 +28,10 @@ const rippleMockServer = async (
   /*
    * Mock routes
    */
-  console.info(`Mocking site data: ${mockServer.url}/api/tide/site?id=8888`)
   const mockedRoutesPath = routesPath || '/mock-routes.json'
   const mockedRoutes = await import(
     path.resolve(process.cwd(), `${mockedRoutesPath}`)
-  )
+  ).then((mdl) => mdl.default)
 
   for (let index = 0; index < mockedRoutes.length; index++) {
     const route = mockedRoutes[index]

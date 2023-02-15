@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.81](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.80...v2.1.0-alpha.81) (2023-02-15)
+
+### Features
+
+* **@dpc-sdp/ripple-ui-core:** update card breakpoint and component 'name' ([58b0ff9](https://github.com/dpc-sdp/ripple-framework/commit/58b0ff90599b93f97b89b1d99f9f111a810956f9))
+
 # [2.1.0-alpha.80](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.79...v2.1.0-alpha.80) (2023-02-15)
 
 **Note:** Version bump only for package @dpc-sdp/ripple-ui-core

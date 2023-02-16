@@ -1,20 +1,17 @@
 <template>
   <AppLayout>
-    <RplHeaderHeroHeader :title="title">
-      {{ subheader }}
-    </RplHeaderHeroHeader>
-    <RplHeaderIntroHeader
-      title="What's new"
-      iconName="icon-information-circle-filled"
-      :links="{
-        items: [
+    <template #aboveBody>
+      <DocsHeroHeader :title="title" :description="subheader" />
+      <DocsWhatsNew
+        title="What's new"
+        :links="[
           { text: 'This link goes somewhere', url: '#first' },
           { text: 'So does this one', url: '#second' }
-        ]
-      }"
-    >
-      <RplContent html="<p>Ripple release information text</p>" />
-    </RplHeaderIntroHeader>
+        ]"
+      >
+        <RplContent html="<p>Ripple release information text</p>" />
+      </DocsWhatsNew>
+    </template>
 
     <div class="rpl-container docs-home-container">
       <div class="docs-home-component rpl-grid">
@@ -138,11 +135,6 @@ useContentHead(page)
 </script>
 
 <style scoped>
-.docs-home-container {
-  padding-top: var(--rpl-sp-9);
-  padding-bottom: var(--rpl-sp-9);
-}
-
 .docs-home-component {
   border-bottom: var(--rpl-border-1) solid var(--rpl-clr-neutral-300);
   padding-bottom: var(--rpl-sp-9);

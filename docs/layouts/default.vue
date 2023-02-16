@@ -1,9 +1,9 @@
 <template>
   <AppLayout>
-    <div class="rpl-container rpl-u-padding-t-12 rpl-u-padding-b-12">
+    <div class="rpl-container">
       <div class="rpl-grid">
         <AppSidebar class="rpl-col-12 rpl-col-3-m"></AppSidebar>
-        <main class="rpl-col-12 rpl-col-8-m rpl-col-start-5-m">
+        <main class="rpl-col-12 rpl-col-9-m docs-main">
           <DocsPageHeader
             :title="page.title"
             :description="page.description"
@@ -34,5 +34,9 @@ useContentHead(page)
 :root {
   --rpl-content-max-width: none;
   --rpl-clr-gradient-vertical: linear-gradient(180deg, #545454 0%, #3e3e3e 80%);
+}
+
+.docs-main {
+  padding-left: var(--rpl-sp-9);
 }
 </style>

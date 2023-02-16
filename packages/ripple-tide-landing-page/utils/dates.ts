@@ -1,12 +1,14 @@
-export const formatDate = (dateStr: string): string => {
-  const date = new Date(dateStr)
+export const formatDatev = (
+  value: string,
+  options: Intl.DateTimeFormatOptions = {}
+): string => {
+  const date = new Date(value)
 
-  const options: Intl.DateTimeFormatOptions = {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric'
-  }
-  const formatted = new Intl.DateTimeFormat('en-AU', options).format(date)
+  const defaultOptions: Intl.DateTimeFormatOptions = { dateStyle: 'medium' }
 
-  return formatted
+  options = { ...defaultOptions, ...options }
+
+  return new Intl.DateTimeFormat('en-AU', options).format(date)
 }
+
+export { formatDate } from '@dpc-sdp/ripple-ui-core'

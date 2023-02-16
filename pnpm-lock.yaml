@@ -267,6 +267,7 @@ importers:
       minimist: ^1.2.8
       mockttp: ^3.6.3
       plop: ^3.1.2
+      rimraf: ^4.1.2
       start-server-and-test: ^1.15.3
       ts-node: ^10.7.0
     dependencies:
@@ -284,6 +285,7 @@ importers:
       inquirer: 8.2.5
       minimist: 1.2.8
       plop: 3.1.2
+      rimraf: 4.1.2
       ts-node: 10.9.1_4bewfcp2iebiwuold25d6rgcsy
 
   packages/ripple-storybook:
@@ -2112,6 +2114,18 @@ packages:
       esbuild: 0.16.17
     transitivePeerDependencies:
       - supports-color
+    dev: true
+
+  /@bahmutov/cypress-esbuild-preprocessor/2.1.5_esbuild@0.17.6:
+    resolution: {integrity: sha512-cJMlZOZ3kUb/s2KQ8p7DJNiOzwApSoYCiK1toJKBvz58MbqBIeBjD7F8NFJE1MrFzYBYAOQcSMVWHp4y1l/Fjg==}
+    peerDependencies:
+      esbuild: '*'
+    dependencies:
+      debug: 4.3.4
+      esbuild: 0.17.6
+    transitivePeerDependencies:
+      - supports-color
+    dev: false
 
   /@bcoe/v8-coverage/0.2.3:
     resolution: {integrity: sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==}
@@ -9559,7 +9573,7 @@ packages:
       '@babel/core': 7.20.12
       find-cache-dir: 3.3.2
       schema-utils: 4.0.0
-      webpack: 5.75.0
+      webpack: 5.75.0_esbuild@0.16.17
     dev: true
 
   /babel-messages/6.23.0:

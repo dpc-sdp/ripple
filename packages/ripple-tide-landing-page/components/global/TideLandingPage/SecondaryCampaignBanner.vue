@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { RplCampaignBannerSecondaryCampaign as RplSecondaryCampaign } from '#components'
+import { RplSecondaryCampaign } from '#components'
 import { ITideSecondaryCampaign } from '../../../mapping/secondary-campaign/secondary-campaign-mapping'
 
 defineProps<{

@@ -8,7 +8,7 @@ Then(
     cy.get(`@component`).should(
       'have.attr',
       'data-component-type',
-      'RplCardKeyDatesCard'
+      'RplKeyDatesCard'
     )
     cy.get('@component').within(() => {
       cy.get(`[data-cy="title"]`).should('have.text', title)
@@ -24,7 +24,7 @@ Then(
     cy.get(`@component`).should(
       'have.attr',
       'data-component-type',
-      'RplCardKeyDatesCard'
+      'RplKeyDatesCard'
     )
     cy.get('@component').within(() => {
       cy.get(`[data-cy="cta"]`).should('have.text', ctaText)
@@ -45,7 +45,7 @@ Then(
     cy.get(`@component`).should(
       'have.attr',
       'data-component-type',
-      'RplCardKeyDatesCard'
+      'RplKeyDatesCard'
     )
     cy.get('@component').within(() => {
       cy.get(`.rpl-card__keydate`).as('dateItems')

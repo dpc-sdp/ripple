@@ -82,4 +82,4 @@ props.items.map((j) => {
   </div>
 </template>
 
-<style src="./data-table.css" />
+<style src="./RplDataTable.css" />

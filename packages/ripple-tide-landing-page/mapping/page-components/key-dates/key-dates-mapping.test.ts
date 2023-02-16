@@ -94,7 +94,7 @@ describe('keyDatesMapping', () => {
   it('maps a raw json api response to the correct structure', () => {
     const result: TideDynamicPageComponent<ITideKeyDates> = {
       id: '4776',
-      component: 'RplCardKeyDatesCard',
+      component: 'RplKeyDatesCard',
       layout: 'card',
       props: {
         title: 'Key calendar dates',

@@ -1,5 +1,5 @@
 <template>
-  <RplLayoutPageComponent class="tide-grant__guidelines">
+  <RplPageComponent class="tide-grant__guidelines">
     <h2 v-if="title" class="tide-grant__title rpl-type-h2-fixed">
       {{ title }}
     </h2>
@@ -9,7 +9,7 @@
       :numbered="false"
       class="rpl-type-p"
     />
-  </RplLayoutPageComponent>
+  </RplPageComponent>
 </template>
 
 <script setup lang="ts">

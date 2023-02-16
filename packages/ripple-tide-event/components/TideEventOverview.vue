@@ -1,5 +1,5 @@
 <template>
-  <RplLayoutPageComponent>
+  <RplPageComponent>
     <h2 class="tide-event__title rpl-type-h2-fixed rpl-u-margin-b-6">
       <RplIcon colour="default" size="m" name="icon-calendar-lined"></RplIcon>
       <span>Event Details</span>
@@ -44,10 +44,10 @@
         </dd>
       </template>
     </dl>
-  </RplLayoutPageComponent>
-  <RplLayoutPageComponent>
+  </RplPageComponent>
+  <RplPageComponent>
     <RplContent :html="description"></RplContent>
-  </RplLayoutPageComponent>
+  </RplPageComponent>
 </template>
 
 <script setup lang="ts">

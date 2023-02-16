@@ -1,5 +1,5 @@
 <template>
-  <RplCardCallToAction
+  <RplCallToActionCard
     :title="title"
     :image="image"
     :url="url"
@@ -7,12 +7,12 @@
     :theme="featureFlags.buttonTheme"
   >
     <div data-cy="summary" v-html="summary"></div>
-  </RplCardCallToAction>
+  </RplCallToActionCard>
 </template>
 
 <script setup lang="ts">
 import { inject } from 'vue'
-import { RplCardCallToAction } from '#components'
+import { RplCallToActionCard } from '#components'
 const featureFlags = inject('featureFlags', {
   buttonTheme: 'default'
 })

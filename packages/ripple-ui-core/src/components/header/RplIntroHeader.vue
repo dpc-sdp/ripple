@@ -22,7 +22,7 @@ withDefaults(defineProps<Props>(), {
 <template>
   <RplHeader class="rpl-header--intro">
     <template v-if="iconName" #upper>
-      <RplIcon :name="iconName" size="l" />
+      <RplIcon class="rpl-header__icon" :name="iconName" size="l" />
     </template>
     <template #title>
       <h2 class="rpl-header__title rpl-type-h2" data-cy="title">{{ title }}</h2>

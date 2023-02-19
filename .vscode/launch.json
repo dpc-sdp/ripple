@@ -11,6 +11,15 @@
   ],
   "configurations": [
     {
+      "name": "CLI",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": ["-F", "@dpc-sdp/nuxt-ripple-cli", "nuxt-ripple", "init"],
+      "console": "integratedTerminal"
+    },
+    {
       "name": "client: Chrome",
       "request": "launch",
       "type": "chrome",
@@ -23,8 +32,8 @@
       "type": "node",
       "request": "launch",
       "cwd": "${workspaceFolder}/examples/nuxt-app",
-      "runtimeExecutable": "yarn",
-      "runtimeArgs": ["workspace", "nuxt-app", "dev"],
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": ["-F", "nuxt-app", "dev"],
       "console": "integratedTerminal"
     }
   ]

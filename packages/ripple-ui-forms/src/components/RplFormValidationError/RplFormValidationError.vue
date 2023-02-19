@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { RplIcon } from '@dpc-sdp/ripple-ui-core'
+import { RplIcon } from '@dpc-sdp/ripple-ui-core/vue'
 
 interface Props {
   messages: Record<string, any>

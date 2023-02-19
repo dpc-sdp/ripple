@@ -1,8 +1,8 @@
 <template>
-  <RplLayoutPageComponent class="tide-grant__timeline">
+  <RplPageComponent class="tide-grant__timeline">
     <h2 class="tide-grant__title rpl-type-h2-fixed">{{ timeline.title }}</h2>
     <RplTimeline :items="timeline.list"></RplTimeline>
-  </RplLayoutPageComponent>
+  </RplPageComponent>
 </template>
 
 <script setup lang="ts">

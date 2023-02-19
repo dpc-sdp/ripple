@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { computed, onMounted, reactive } from 'vue'
-import { RplTabsModes } from './constants'
-import RplButton from '../button/button.vue'
+import RplButton from '../button/RplButton.vue'
 
 const emit = defineEmits(['switchTab'])
+
+const RplTabsModes = ['horizontal', 'vertical']
 
 interface IRplTab {
   title: string
@@ -50,13 +51,19 @@ const updateActive = (key: string) => {
 
 <template>
   <div :class="componentClasses">
-    <div v-for="(item, index) in tabs" :key="index" :class="activeClasses(item.key)">
-      <RplButton :icon-name="item.icon ? `icon-${item.icon}` : null" variant="transparent"
-        @click="updateActive(item.key)">{{ item.title }}</RplButton>
+    <div
+      v-for="(item, index) in tabs"
+      :key="index"
+      :class="activeClasses(item.key)"
+    >
+      <RplButton
+        :icon-name="item.icon ? `icon-${item.icon}` : null"
+        variant="transparent"
+        @click="updateActive(item.key)"
+        >{{ item.title }}</RplButton
+      >
     </div>
   </div>
 </template>
 
-<style src="./tabs.css">
-
-</style>
+<style src="./RplTabs.css"></style>

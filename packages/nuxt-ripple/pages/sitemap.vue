@@ -5,7 +5,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { RplHeroHeader } from '@dpc-sdp/ripple-ui-core'
+import { RplHeroHeader } from '#components'
 import { useRuntimeConfig, useFetch, createError } from '#imports'
 
 const { public: config } = useRuntimeConfig()

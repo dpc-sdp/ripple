@@ -1,7 +1,7 @@
-export type RplVerticalNavItem = {
+export interface IRplVerticalNavItem {
   id: string
   text: string
   url: string
   active: boolean
-  items: RplVerticalNavItem[]
+  items: IRplVerticalNavItem[]
 }

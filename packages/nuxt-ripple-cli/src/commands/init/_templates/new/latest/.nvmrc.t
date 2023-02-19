@@ -1,0 +1,5 @@
+---
+to: .nvmrc
+---
+
+lts/gallium

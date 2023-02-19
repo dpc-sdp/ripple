@@ -1,7 +1,7 @@
 {
   "name": "@dpc-sdp/ripple-ui-forms",
   "packageManager": "pnpm@7.23.0",
-  "version": "2.1.0-alpha.78",
+  "version": "2.1.0-alpha.83",
   "license": "Apache-2.0",
   "main": "./dist/rpl-forms.umd.js",
   "module": "./dist/rpl-forms.es.js",
@@ -13,7 +13,7 @@
     "./style": "./dist/style.css"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-ui-core": "2.1.0-alpha.78",
+    "@dpc-sdp/ripple-ui-core": "workspace:*",
     "@formkit/inputs": "1.0.0-beta.15",
     "@formkit/nuxt": "1.0.0-beta.15",
     "@formkit/validation": "1.0.0-beta.15",
@@ -36,9 +36,10 @@
     "vue-loader": "^17.0.0"
   },
   "scripts": {
-    "build": "pnpm build:vite && pnpm build:types",
+    "build": "pnpm clean && pnpm build:vite && pnpm build:types",
     "build:vite": "vite build",
     "build:types": "tsc -p tsconfig.json",
+    "clean": "(rimraf dist* && rimraf tsconfig.tsbuildinfo) | true",
     "test:components": "cypress run --component"
   }
 }

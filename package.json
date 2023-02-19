@@ -36,8 +36,7 @@
     "dev:docs": "pnpm -F docs dev",
     "cypress": "cypress open --global",
     "chromatic": "npx chromatic --storybook-build-dir ./packages/ripple-storybook/storybook-static --storybook-base-dir ./packages/ripple-ui-core --storybook-config-dir ./packages/ripple-ui-core",
-    "generate:component": "hygen component new",
-    "generate:content-type": "hygen content-type new"
+    "generate:component": "nuxt-ripple add component ./packages/ripple-ui-core/src/components"
   },
   "devDependencies": {
     "@babel/core": "^7.20.12",
@@ -96,6 +95,9 @@
     "rimraf": "^4.1.2",
     "vue-jest": "^3.0.7"
   },
+  "peerDependencies": {
+    "esbuild": "0.16.17"
+  },
   "pnpm": {
     "overrides": {
       "@types/react": "file:./stub/types__react",
@@ -106,7 +108,7 @@
       "json5@<2.2.2": "~2.2.2",
       "nth-check@<2.1.1": "~2.1.1",
       "parse-url@<8.1.0": "~8.1.0",
-      "postcss@<7.0.36": "~7.0.36",
+      "postcss@<8.4.21": "~8.4.21",
       "ripple-storybook>vue": "3.2.45",
       "trim@<1.0.1": "~1.0.1",
       "trim-newlines@<3.0.1": "~3.0.1",

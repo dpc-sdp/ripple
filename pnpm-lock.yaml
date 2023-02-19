@@ -267,7 +267,6 @@ importers:
       minimist: ^1.2.8
       mockttp: ^3.6.3
       plop: ^3.1.2
-      rimraf: ^4.1.2
       start-server-and-test: ^1.15.3
       ts-node: ^10.7.0
     dependencies:
@@ -285,7 +284,6 @@ importers:
       inquirer: 8.2.5
       minimist: 1.2.8
       plop: 3.1.2
-      rimraf: 4.1.2
       ts-node: 10.9.1_4bewfcp2iebiwuold25d6rgcsy
 
   packages/ripple-storybook:
@@ -9573,7 +9571,7 @@ packages:
       '@babel/core': 7.20.12
       find-cache-dir: 3.3.2
       schema-utils: 4.0.0
-      webpack: 5.75.0_esbuild@0.16.17
+      webpack: 5.75.0
     dev: true
 
   /babel-messages/6.23.0:

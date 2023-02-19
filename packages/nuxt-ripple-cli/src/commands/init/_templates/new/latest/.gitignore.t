@@ -7,3 +7,4 @@ node_modules
 .nuxt
 nuxt.d.ts
 .output
+.env

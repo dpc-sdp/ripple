@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.83](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.82...v2.1.0-alpha.83) (2023-02-19)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** design feedback, updating spacing, breakpoints and colours ([75818f6](https://github.com/dpc-sdp/ripple-framework/commit/75818f68a642349290d41e2f1dafb4a78657c2d5))
+* **@dpc-sdp/ripple-ui-core:** make all image variants spacing the same ([22be9fb](https://github.com/dpc-sdp/ripple-framework/commit/22be9fbab41512b681b6c8ecf6dc245f9f7766f1))
+* **@dpc-sdp/ripple-ui-core:** remove error-alt token ([b4e92af](https://github.com/dpc-sdp/ripple-framework/commit/b4e92afe3f97bd6d9670c5215abaa9a8a7837fe0))
+* **@dpc-sdp/ripple-ui-core:** update semantic colour swatches ([184143a](https://github.com/dpc-sdp/ripple-framework/commit/184143ae375c83528bbaba90a8c8d8328224a10d))
+
 # [2.1.0-alpha.82](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.81...v2.1.0-alpha.82) (2023-02-16)
 
 **Note:** Version bump only for package @dpc-sdp/ripple-ui-core

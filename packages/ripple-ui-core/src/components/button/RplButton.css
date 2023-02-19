@@ -112,8 +112,8 @@
 
     &:active,
     &:hover {
-      background-color: var(--rpl-clr-error-alt);
-      border-color: var(--rpl-clr-error-alt);
+      background-color: var(--rpl-clr-error-dark);
+      border-color: var(--rpl-clr-error-dark);
     }
   }
 

@@ -6,8 +6,8 @@
   "version": "2.1.0-alpha.77",
   "scripts": {
     "nuxt-ripple": "node ./dist/commands/index.js",
-    "build": "rm -Rf ./dist && tsc && npm run cp-templates && chmod +x ./dist/commands/index.js",
-    "watch": "rm -Rf ./dist && tsc --watch",
+    "build": "rimraf ./dist && tsc && npm run cp-templates && chmod +x ./dist/commands/index.js",
+    "watch": "rimraf ./dist && tsc --watch",
     "local": "sudo npm i -g && nuxt-ripple",
     "cp-templates": "copyfiles -u 1 src/commands/**/*.t dist"
   },
@@ -30,7 +30,6 @@
     "inquirer": "8.2.5",
     "minimist": "^1.2.8",
     "plop": "^3.1.2",
-    "rimraf": "^4.1.2",
     "ts-node": "^10.7.0"
   },
   "peerDependencies": {

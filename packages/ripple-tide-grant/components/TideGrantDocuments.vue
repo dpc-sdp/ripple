@@ -1,5 +1,5 @@
 <template>
-  <RplLayoutPageComponent class="tide-grant__documents">
+  <RplPageComponent class="tide-grant__documents">
     <ul v-if="documents.length > 0" class="rpl-type-p">
       <li v-for="(doc, i) in documents" :key="i">
         <RplDocument :url="doc.url" data-cy="document">
@@ -14,7 +14,7 @@
         </RplDocument>
       </li>
     </ul>
-  </RplLayoutPageComponent>
+  </RplPageComponent>
 </template>
 
 <script setup lang="ts">

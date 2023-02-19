@@ -17,7 +17,7 @@ export const keyDatesMapping = (
 ): TideDynamicPageComponent<ITideKeyDates> => {
   const link = getLinkFromField(field, 'field_paragraph_cta')
   return {
-    component: 'RplCardKeyDatesCard',
+    component: 'RplKeyDatesCard',
     id: field.drupal_internal__id.toString(),
     layout: 'card',
     props: {

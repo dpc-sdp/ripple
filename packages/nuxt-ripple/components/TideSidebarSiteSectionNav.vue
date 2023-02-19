@@ -1,11 +1,11 @@
 <template>
-  <RplLayoutSidebarComponent v-if="nav && nav.items && nav.items.length">
+  <RplSidebarComponent v-if="nav && nav.items && nav.items.length">
     <RplVerticalNav
       data-sidebar-component-id="tide-sidebar-site-section-nav"
       :title="nav.title"
       :items="nav.items"
     />
-  </RplLayoutSidebarComponent>
+  </RplSidebarComponent>
 </template>
 
 <script setup lang="ts">

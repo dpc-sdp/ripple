@@ -1,11 +1,15 @@
 <template>
-  <RplLayoutPageComponent id="page-component-200" data-component-id="200" data-component-type="RplContent"
-    :fullWidth="true">
+  <RplPageComponent
+    id="page-component-200"
+    data-component-id="200"
+    data-component-type="RplContent"
+    :fullWidth="true"
+  >
     <RplContent :html="body"></RplContent>
-  </RplLayoutPageComponent>
-  <RplLayoutPageComponent>
+  </RplPageComponent>
+  <RplPageComponent>
     <RplButton el="a" :href="link.url">{{ link.text }}</RplButton>
-  </RplLayoutPageComponent>
+  </RplPageComponent>
 </template>
 
 <script setup lang="ts">

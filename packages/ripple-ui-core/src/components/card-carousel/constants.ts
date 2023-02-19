@@ -1,19 +1,19 @@
-import { RplCardItem } from '../card/constants'
+import type { IRplCardItem } from '../card/constants'
 import { RplImageType } from '../image/constants'
 
-export interface RplCardCarouselMeta {
+export interface IRplCardCarouselMeta {
   topic?: string
   date?: string
   dateStart?: string
   dateEnd?: string
 }
 
-export interface RplCardCarouselItem {
+export interface IRplCardCarouselItem {
   type?: 'promo' | 'keydates'
   title: string
   url: string
   image: RplImageType
   summary: string
-  meta?: RplCardCarouselMeta
-  keyDates?: RplCardItem[]
+  meta?: IRplCardCarouselMeta
+  keyDates?: IRplCardItem[]
 }

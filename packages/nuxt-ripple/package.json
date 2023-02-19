@@ -3,7 +3,7 @@
   "license": "Apache-2.0",
   "name": "@dpc-sdp/nuxt-ripple",
   "main": "./nuxt.config.ts",
-  "version": "2.1.0-alpha.80",
+  "version": "2.1.0-alpha.83",
   "dependencies": {
     "@dpc-sdp/ripple-tide-api": "workspace:*",
     "@dpc-sdp/ripple-ui-core": "workspace:*",

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, reactive } from 'vue'
-import RplButton from '../button/button.vue'
-import RplContent from '../content/content.vue'
+import RplButton from '../button/RplButton.vue'
+import RplContent from '../content/RplContent.vue'
 
 interface Props {
   content: any

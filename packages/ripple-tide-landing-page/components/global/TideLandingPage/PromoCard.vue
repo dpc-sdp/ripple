@@ -25,10 +25,7 @@
 </template>
 
 <script setup lang="ts">
-import {
-  RplCardAvatarCard as RplAvatarCard,
-  RplCardPromoCard as RplPromoCard
-} from '#components'
+import { RplAvatarCard, RplPromoCard } from '#components'
 
 interface Props {
   title: string

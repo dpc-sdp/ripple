@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import { RplSearchBar, RplHeaderHeroHeader as RplHeroHeader } from '#components'
+import { RplSearchBar, RplHeroHeader } from '#components'
 import { useRuntimeConfig, useFetch, useRoute } from '#imports'
 import useTideSearch from './../composables/use-tide-search'
 import { FilterConfigItem, MappedSearchResult } from 'ripple-tide-search/types'
@@ -214,15 +214,15 @@ const getFilterOptions = (field) => {
       </RplHeroHeader>
     </template>
     <template #body>
-      <RplLayoutPageComponent>
+      <RplPageComponent>
         <p class="rpl-type-label rpl-u-padding-b-6">
           Displaying {{ searchState.pagingStart }}-{{
             searchState.pagingEnd
           }}
           of {{ searchState.totalResults }} results
         </p>
-      </RplLayoutPageComponent>
-      <RplLayoutPageComponent>
+      </RplPageComponent>
+      <RplPageComponent>
         <div class="rpl-grid">
           <div class="rpl-col-12 rpl-col-8-m">
             <RplResultListing>
@@ -235,8 +235,8 @@ const getFilterOptions = (field) => {
             </RplResultListing>
           </div>
         </div>
-      </RplLayoutPageComponent>
-      <RplLayoutPageComponent>
+      </RplPageComponent>
+      <RplPageComponent>
         <RplPageLinks v-if="results && results.length">
           <RplPageLinksItem
             v-if="prevLink"
@@ -257,7 +257,7 @@ const getFilterOptions = (field) => {
             {{ nextLink.description }}
           </RplPageLinksItem></RplPageLinks
         >
-      </RplLayoutPageComponent>
+      </RplPageComponent>
     </template>
   </TideBaseLayout>
 </template>

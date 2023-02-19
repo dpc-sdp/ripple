@@ -1,0 +1,38 @@
+{
+  "packageManager": "pnpm@7.23.0",
+  "license": "Apache-2.0",
+  "name": "@dpc-sdp/nuxt-ripple-cli",
+  "main": "./dist/index.js",
+  "version": "2.1.0-alpha.77",
+  "scripts": {
+    "nuxt-ripple": "node ./dist/commands/index.js",
+    "build": "rimraf ./dist && tsc && npm run cp-templates && chmod +x ./dist/commands/index.js",
+    "watch": "rimraf ./dist && tsc --watch",
+    "local": "sudo npm i -g && nuxt-ripple",
+    "cp-templates": "copyfiles -u 1 src/commands/**/*.t dist"
+  },
+  "bin": {
+    "nuxt-ripple": "./dist/commands/index.js"
+  },
+  "dependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^15.1.3",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.1.5",
+    "@testing-library/cypress": "^9.0.0",
+    "mockttp": "^3.6.3",
+    "start-server-and-test": "^1.15.3"
+  },
+  "devDependencies": {
+    "commander": "^10.0.0",
+    "copyfiles": "^2.4.1",
+    "cypress": "^12.5.1",
+    "enquirer": "^2.3.6",
+    "hygen": "^6.2.11",
+    "inquirer": "8.2.5",
+    "minimist": "^1.2.8",
+    "plop": "^3.1.2",
+    "ts-node": "^10.7.0"
+  },
+  "peerDependencies": {
+    "cypress": "^12.5.1"
+  }
+}

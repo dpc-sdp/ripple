@@ -213,7 +213,7 @@
   }
 }
 
-.rpl-header--background.rpl-header--reverse {
+.rpl-header--background {
   @media (--rpl-bp-s) {
     --local-padding-bottom: var(--rpl-sp-11);
   }

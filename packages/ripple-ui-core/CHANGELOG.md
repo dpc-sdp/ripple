@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.85](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.84...v2.1.0-alpha.85) (2023-02-19)
+
+### Bug Fixes
+
+* fixed broken build ([89decce](https://github.com/dpc-sdp/ripple-framework/commit/89deccedc14fe1400bb3a0a271fe7fcb751772a0))
+* fixed broken build ([d414af6](https://github.com/dpc-sdp/ripple-framework/commit/d414af62b047cf30eed09540dc34880c5bb64c0e))
+
 # [2.1.0-alpha.83](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.82...v2.1.0-alpha.83) (2023-02-19)
 
 ### Bug Fixes

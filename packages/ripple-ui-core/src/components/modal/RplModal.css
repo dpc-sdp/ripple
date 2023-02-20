@@ -7,7 +7,7 @@
   width: 100vw;
   height: 100vh;
   background-color: var(--rpl-clr-neutral-alpha-700);
-  z-index: var(--rpl-z-index-above-content);
+  z-index: var(--rpl-layer-1);
 }
 
 .rpl-modal__inner {

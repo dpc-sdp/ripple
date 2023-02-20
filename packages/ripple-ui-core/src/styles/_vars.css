@@ -6,8 +6,11 @@
  */
 
 :root {
-  --rpl-z-index-above-content: 1;
-  --rpl-z-index-default: 0;
+  --rpl-layer-5: 5;
+  --rpl-layer-4: 4;
+  --rpl-layer-3: 3;
+  --rpl-layer-2: 2;
+  --rpl-layer-1: 1;
   --rpl-type-ls-7: 0.008em;
   --rpl-type-ls-6: 0.012em;
   --rpl-type-ls-5: 0.014em;

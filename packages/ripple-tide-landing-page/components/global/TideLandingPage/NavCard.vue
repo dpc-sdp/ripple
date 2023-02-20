@@ -14,7 +14,7 @@
 </template>
 
 <script setup lang="ts">
-import { RplNavCard } from '@dpc-sdp/ripple-ui-core'
+import { RplNavCard } from '#components'
 
 interface Props {
   title: string

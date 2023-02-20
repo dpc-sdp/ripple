@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { RplMediaGallery } from '@dpc-sdp/ripple-ui-core'
+import { RplMediaGallery } from '#components'
 
 defineProps<{
   id: string

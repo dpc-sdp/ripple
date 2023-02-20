@@ -1,15 +1,15 @@
-import { RplListItemArray } from '../list/constants'
+import { IRplListItemArray } from '../list/constants'
 import { RplLink } from '../../lib/constants'
 
 export const RplHeaderThemes = ['default', 'reverse', 'neutral'] as const
 
-export interface RplHeaderLinkExtended extends RplLink {
+export interface IRplHeaderLinkExtended extends RplLink {
   title?: string
 }
 
-export interface RplHeaderLinksList {
+export interface IRplHeaderLinksList {
   title?: string
-  items: RplListItemArray[]
+  items: IRplListItemArray[]
   more?: RplLink
 }
 

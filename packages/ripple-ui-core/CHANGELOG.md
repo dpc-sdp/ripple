@@ -3,6 +3,42 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.86](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.85...v2.1.0-alpha.86) (2023-02-20)
+
+### Features
+
+* **docs:** added basic component example and cleanup ([45ac56a](https://github.com/dpc-sdp/ripple-framework/commit/45ac56a086b31c4d8ec7a43a278d35e3c0ce8969))
+
+# [2.1.0-alpha.85](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.84...v2.1.0-alpha.85) (2023-02-19)
+
+### Bug Fixes
+
+* fixed broken build ([89decce](https://github.com/dpc-sdp/ripple-framework/commit/89deccedc14fe1400bb3a0a271fe7fcb751772a0))
+* fixed broken build ([d414af6](https://github.com/dpc-sdp/ripple-framework/commit/d414af62b047cf30eed09540dc34880c5bb64c0e))
+
+# [2.1.0-alpha.83](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.82...v2.1.0-alpha.83) (2023-02-19)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** design feedback, updating spacing, breakpoints and colours ([75818f6](https://github.com/dpc-sdp/ripple-framework/commit/75818f68a642349290d41e2f1dafb4a78657c2d5))
+* **@dpc-sdp/ripple-ui-core:** make all image variants spacing the same ([22be9fb](https://github.com/dpc-sdp/ripple-framework/commit/22be9fbab41512b681b6c8ecf6dc245f9f7766f1))
+* **@dpc-sdp/ripple-ui-core:** remove error-alt token ([b4e92af](https://github.com/dpc-sdp/ripple-framework/commit/b4e92afe3f97bd6d9670c5215abaa9a8a7837fe0))
+* **@dpc-sdp/ripple-ui-core:** update semantic colour swatches ([184143a](https://github.com/dpc-sdp/ripple-framework/commit/184143ae375c83528bbaba90a8c8d8328224a10d))
+
+# [2.1.0-alpha.82](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.81...v2.1.0-alpha.82) (2023-02-16)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-ui-core
+
+# [2.1.0-alpha.81](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.80...v2.1.0-alpha.81) (2023-02-15)
+
+### Features
+
+* **@dpc-sdp/ripple-ui-core:** update card breakpoint and component 'name' ([58b0ff9](https://github.com/dpc-sdp/ripple-framework/commit/58b0ff90599b93f97b89b1d99f9f111a810956f9))
+
+# [2.1.0-alpha.80](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.79...v2.1.0-alpha.80) (2023-02-15)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-ui-core
+
 # [2.1.0-alpha.78](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.77...v2.1.0-alpha.78) (2023-02-12)
 
 ### Bug Fixes

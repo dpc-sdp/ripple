@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.86](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.85...v2.1.0-alpha.86) (2023-02-20)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-ui-forms
+
+# [2.1.0-alpha.85](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.84...v2.1.0-alpha.85) (2023-02-19)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-ui-forms
+
+# [2.1.0-alpha.83](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.82...v2.1.0-alpha.83) (2023-02-19)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-ui-forms
+
+# [2.1.0-alpha.82](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.81...v2.1.0-alpha.82) (2023-02-16)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-ui-forms
+
+# [2.1.0-alpha.81](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.80...v2.1.0-alpha.81) (2023-02-15)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-ui-forms
+
+# [2.1.0-alpha.80](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.79...v2.1.0-alpha.80) (2023-02-15)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-ui-forms
+
 # [2.1.0-alpha.78](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.77...v2.1.0-alpha.78) (2023-02-12)
 
 ### Features

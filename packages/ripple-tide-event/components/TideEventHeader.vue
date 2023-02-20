@@ -1,8 +1,13 @@
 <template>
-  <RplHeaderHeroHeader :corner-top="true" :corner-bottom="true" :behind-nav="true" :breadcrumbs="hasBreadcrumbs"
-    :title="header.title">
+  <RplHeroHeader
+    :corner-top="true"
+    :corner-bottom="true"
+    :behind-nav="true"
+    :breadcrumbs="hasBreadcrumbs"
+    :title="header.title"
+  >
     <p class="rpl-type-p-large">{{ header.summary }}</p>
-  </RplHeaderHeroHeader>
+  </RplHeroHeader>
 </template>
 
 <script setup lang="ts">

@@ -2,11 +2,12 @@ import { withCssResources } from '@storybook/addon-cssresources'
 import { withDesign } from 'storybook-addon-designs'
 import { app } from '@storybook/vue3'
 import { registerRplFormPlugin } from '@dpc-sdp/ripple-ui-forms'
-import { RplIconSprite } from '@dpc-sdp/ripple-ui-core'
+import { RplIconSprite } from '@dpc-sdp/ripple-ui-core/vue'
 import '@dpc-sdp/ripple-ui-core/style'
 import themes from './themes.json'
 import withBackground from './utils/withBackground'
 import svgPlaceholder from './utils/svgPlaceholder'
+import { withSource } from './utils/withSource'
 // Storybook specific CSS
 import './storybook.css'
 
@@ -46,5 +47,6 @@ export const decorators = [
     template: '<div><RplIconSprite /><story /></div>'
   }),
   withBackground,
-  withDesign
+  withDesign,
+  withSource
 ]

@@ -26,12 +26,12 @@
 </template>
 
 <script setup lang="ts">
-import { formatDateRange, RplTag } from '@dpc-sdp/ripple-ui-core'
-import { getGrantStatus } from '@dpc-sdp/ripple-ui-core'
+import { RplTag } from '#components'
+import { formatDate } from '#imports'
+import { formatDateRange, getGrantStatus } from '@dpc-sdp/ripple-ui-core'
 import { computed } from 'vue'
 import { ITideCardMeta } from '../../../mapping/page-components/generic-card-mapping'
 import getContentTypeLabel from '../../../utils/getContentTypeLabel.js'
-import { formatDate } from '#imports'
 
 interface Props {
   meta: ITideCardMeta

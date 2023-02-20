@@ -2,18 +2,17 @@
 // @ts-ignore
 import { useRuntimeConfig, useRouter } from '#imports'
 
-import { RplSearchBar } from '@dpc-sdp/ripple-ui-core'
+import { RplSearchBar } from '#components'
 import { isExternalUrl } from '../../../utils/urls'
 
 const { public: config } = useRuntimeConfig()
 const router = useRouter()
 
-const props =
-  defineProps<{
-    placeholder: string
-    searchUrl: string
-    openInNewWindow: boolean
-  }>()
+const props = defineProps<{
+  placeholder: string
+  searchUrl: string
+  openInNewWindow: boolean
+}>()
 
 const handleSubmit = (value) => {
   const searchPath = encodeURI(

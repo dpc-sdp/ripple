@@ -42,7 +42,7 @@ export default defineConfig({
     // Leave minification for now whilst we are non prod
     minify: false,
     rollupOptions: {
-      external: ['vue'],
+      external: ['vue', '@dpc-sdp/ripple-ui-core/vue'],
       output: {
         inlineDynamicImports: true,
         globals: {

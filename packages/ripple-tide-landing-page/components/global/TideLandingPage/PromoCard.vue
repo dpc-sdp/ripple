@@ -25,7 +25,7 @@
 </template>
 
 <script setup lang="ts">
-import { RplAvatarCard, RplPromoCard } from '@dpc-sdp/ripple-ui-core'
+import { RplAvatarCard, RplPromoCard } from '#components'
 
 interface Props {
   title: string

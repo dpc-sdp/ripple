@@ -16,5 +16,10 @@ export default defineNuxtConfig({
       ({ isDev }) => !isDev && '@elastic/search-ui-elasticsearch-connector',
       ({ isDev }) => !isDev && '@searchkit/sdk'
     ]
+  },
+  vite: {
+    optimizeDeps: {
+      include: ['@elastic/search-ui > deep-equal', '@elastic/search-ui > qs']
+    }
   }
 })

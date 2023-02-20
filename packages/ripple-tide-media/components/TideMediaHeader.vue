@@ -14,7 +14,7 @@ export default { name: 'TideMediaHeader' }
 
 <script setup lang="ts">
 import type { TideMediaHeader } from '../../types'
-import { RplHeroHeader } from '@dpc-sdp/ripple-ui-core'
+import { RplHeroHeader } from '#components'
 
 defineProps<{
   header: TideMediaHeader

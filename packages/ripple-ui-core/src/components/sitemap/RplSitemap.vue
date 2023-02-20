@@ -1,13 +1,9 @@
-<script lang="ts">
-export default { name: 'RplSitemap' }
-</script>
-
 <script setup lang="ts">
-import { RplListItemArray } from '../list/constants'
-import RplList from '../list/list.vue'
+import { IRplListItemArray } from '../list/constants'
+import RplList from '../list/RplList.vue'
 
 interface Props {
-  items: RplListItemArray[]
+  items: IRplListItemArray[]
 }
 
 withDefaults(defineProps<Props>(), {

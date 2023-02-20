@@ -1,5 +1,5 @@
 <template>
-  <RplLayoutPageComponent>
+  <RplPageComponent>
     <h2 class="tide-grant__title rpl-type-h2-fixed rpl-u-margin-b-6">
       {{ overview.title }}
     </h2>
@@ -7,23 +7,20 @@
       :items="overviewList"
       item-class="tide-grant__overview-item rpl-type-h4-fixed"
     />
-  </RplLayoutPageComponent>
+  </RplPageComponent>
 
-  <RplLayoutPageComponent
+  <RplPageComponent
     v-if="overview.description"
     class="tide-grant__overview-item rpl-type-p"
   >
     <RplContent :html="overview.description"></RplContent>
-  </RplLayoutPageComponent>
+  </RplPageComponent>
 
-  <RplLayoutPageComponent
-    v-if="overview.link"
-    class="tide-grant__overview-item"
-  >
+  <RplPageComponent v-if="overview.link" class="tide-grant__overview-item">
     <RplButton el="a" :href="overview.link.uri">
       {{ overview.link.title }}
     </RplButton>
-  </RplLayoutPageComponent>
+  </RplPageComponent>
 </template>
 
 <script setup lang="ts">

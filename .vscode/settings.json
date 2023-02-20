@@ -23,7 +23,8 @@
     "@dpc-sdp/ripple-tide-media",
     "@dpc-sdp/ripple-tide-news",
     "nuxt-ripple",
-    "@dpc-sdp/nuxt-ripple-cli"
+    "@dpc-sdp/nuxt-ripple-cli",
+    "@dpc-sdp/ripple-test-utils"
   ],
   "cSpell.words": [
     "colour",

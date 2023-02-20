@@ -3,6 +3,47 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.86](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.85...v2.1.0-alpha.86) (2023-02-20)
+
+### Bug Fixes
+
+* **docs:** added missing image ([cbae31b](https://github.com/dpc-sdp/ripple-framework/commit/cbae31bb502ea6a4e0affd7ceb8f60acea5143b3))
+* **docs:** fixed broken homepage after rpl component renaming ([131284b](https://github.com/dpc-sdp/ripple-framework/commit/131284b9dc15f114c3bd246bc016f62972d02d01))
+* **docs:** fixed issue with sidebar nav crashing ([74abd77](https://github.com/dpc-sdp/ripple-framework/commit/74abd77e76baef9e1af3137c0aaf8e70cb6d9beb))
+* **docs:** fixed issue with static rendered menus ([9e2fddd](https://github.com/dpc-sdp/ripple-framework/commit/9e2fddd4c77e0230729c351d3426b5a481ba8bd3))
+
+### Features
+
+* **docs:** added basic component example and cleanup ([45ac56a](https://github.com/dpc-sdp/ripple-framework/commit/45ac56a086b31c4d8ec7a43a278d35e3c0ce8969))
+* **docs:** made the docs page layout and home page closer to designs ([8f624d1](https://github.com/dpc-sdp/ripple-framework/commit/8f624d1bf5bb6f4da609543684320bedbd6d5f90))
+
+# [2.1.0-alpha.85](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.84...v2.1.0-alpha.85) (2023-02-19)
+
+### Bug Fixes
+
+* fixed broken build ([89decce](https://github.com/dpc-sdp/ripple-framework/commit/89deccedc14fe1400bb3a0a271fe7fcb751772a0))
+* fixed broken build ([d414af6](https://github.com/dpc-sdp/ripple-framework/commit/d414af62b047cf30eed09540dc34880c5bb64c0e))
+
+# [2.1.0-alpha.84](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.83...v2.1.0-alpha.84) (2023-02-19)
+
+### Bug Fixes
+
+* **@dpc-sdp/nuxt-ripple-cli:** :bug: fix import in mock command ([7b99b12](https://github.com/dpc-sdp/ripple-framework/commit/7b99b12a8dc6e1709546fc7754efe35ff814a57d))
+
+### Features
+
+* **@dpc-sdp/nuxt-ripple-cli:** :technologist: adds ripple cli for adding helper tasks ([92a6ef7](https://github.com/dpc-sdp/ripple-framework/commit/92a6ef7d971e1d228c6df1788e3e76be64fb5210))
+* **@dpc-sdp/nuxt-ripple-cli:** adds cypress test option to new content type scaffold ([b7ccd29](https://github.com/dpc-sdp/ripple-framework/commit/b7ccd294c1c8a32eaec4f664b87b9fc84105993a))
+
+# [2.1.0-alpha.83](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.82...v2.1.0-alpha.83) (2023-02-19)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** design feedback, updating spacing, breakpoints and colours ([75818f6](https://github.com/dpc-sdp/ripple-framework/commit/75818f68a642349290d41e2f1dafb4a78657c2d5))
+* **@dpc-sdp/ripple-ui-core:** make all image variants spacing the same ([22be9fb](https://github.com/dpc-sdp/ripple-framework/commit/22be9fbab41512b681b6c8ecf6dc245f9f7766f1))
+* **@dpc-sdp/ripple-ui-core:** remove error-alt token ([b4e92af](https://github.com/dpc-sdp/ripple-framework/commit/b4e92afe3f97bd6d9670c5215abaa9a8a7837fe0))
+* **@dpc-sdp/ripple-ui-core:** update semantic colour swatches ([184143a](https://github.com/dpc-sdp/ripple-framework/commit/184143ae375c83528bbaba90a8c8d8328224a10d))
+
 # [2.1.0-alpha.82](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.81...v2.1.0-alpha.82) (2023-02-16)
 
 **Note:** Version bump only for package @dpc-sdp/ripple-monorepo

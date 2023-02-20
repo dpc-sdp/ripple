@@ -16,10 +16,6 @@
 
   .rpl-icon {
     color: var(--rpl-clr-link);
-
-    @media (--rpl-bp-m) {
-      padding-top: var(--rpl-sp-1);
-    }
   }
 }
 
@@ -56,6 +52,10 @@
 
   &:hover .rpl-icon {
     transform: translateX(var(--rpl-sp-1));
+  }
+
+  &:focus-visible .rpl-icon {
+    color: inherit;
   }
 
   &:active {

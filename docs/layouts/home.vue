@@ -16,35 +16,35 @@
     <div class="rpl-container docs-home-container">
       <div class="docs-home-component rpl-grid">
         <div class="rpl-col-12 rpl-col-4-m">
-          <RplCardPromoCard title="Who should use it">
+          <RplPromoCard title="Who should use it">
             <p>
               Paragraph Default. Cards contain actionable content about a single
               topic. These are usually grouped as similar style sets.
             </p>
-          </RplCardPromoCard>
+          </RplPromoCard>
         </div>
         <div class="rpl-col-12 rpl-col-4-m">
-          <RplCardPromoCard title="How it works">
+          <RplPromoCard title="How it works">
             <p>
               Paragraph Default. Cards contain actionable content about a single
               topic. These are usually grouped as similar style sets.
             </p>
-          </RplCardPromoCard>
+          </RplPromoCard>
         </div>
         <div class="rpl-col-12 rpl-col-4-m">
-          <RplCardPromoCard title="Getting help">
+          <RplPromoCard title="Getting help">
             <p>
               Paragraph Default. Cards contain actionable content about a single
               topic. These are usually grouped as similar style sets.
             </p>
-          </RplCardPromoCard>
+          </RplPromoCard>
         </div>
       </div>
 
       <h2 class="rpl-type-h2">Getting started</h2>
       <div class="docs-home-component rpl-grid">
         <div class="rpl-col-12 rpl-col-6-m">
-          <RplCardPromoCard
+          <RplPromoCard
             :title="page.primaryCTA.title"
             :url="page.primaryCTA.url"
             highlight
@@ -53,10 +53,10 @@
               Paragraph Default. Cards contain actionable content about a single
               topic. These are usually grouped as similar style sets.
             </p>
-          </RplCardPromoCard>
+          </RplPromoCard>
         </div>
         <div class="rpl-col-12 rpl-col-6-m">
-          <RplCardPromoCard
+          <RplPromoCard
             :title="page.secondaryCTA.title"
             :url="page.secondaryCTA.url"
             highlight
@@ -65,42 +65,42 @@
               Paragraph Default. Cards contain actionable content about a single
               topic. These are usually grouped as similar style sets.
             </p>
-          </RplCardPromoCard>
+          </RplPromoCard>
         </div>
       </div>
 
       <div class="docs-home-component rpl-grid">
         <div class="rpl-col-12 rpl-col-3-m">
-          <RplCardCategoryGridCard title="Styles" :image="{ src: '' }">
+          <RplCategoryGridCard title="Styles" :image="{ src: '' }">
             <p>
               Paragraph Default. Cards contain actionable content about a single
               topic. These are usually grouped as similar style sets.
             </p>
-          </RplCardCategoryGridCard>
+          </RplCategoryGridCard>
         </div>
         <div class="rpl-col-12 rpl-col-3-m">
-          <RplCardCategoryGridCard title="Components" :image="{ src: '' }">
+          <RplCategoryGridCard title="Components" :image="{ src: '' }">
             <p>
               Paragraph Default. Cards contain actionable content about a single
               topic. These are usually grouped as similar style sets.
             </p>
-          </RplCardCategoryGridCard>
+          </RplCategoryGridCard>
         </div>
         <div class="rpl-col-12 rpl-col-3-m">
-          <RplCardCategoryGridCard title="Patterns" :image="{ src: '' }">
+          <RplCategoryGridCard title="Patterns" :image="{ src: '' }">
             <p>
               Paragraph Default. Cards contain actionable content about a single
               topic. These are usually grouped as similar style sets.
             </p>
-          </RplCardCategoryGridCard>
+          </RplCategoryGridCard>
         </div>
         <div class="rpl-col-12 rpl-col-3-m">
-          <RplCardCategoryGridCard title="Modules" :image="{ src: '' }">
+          <RplCategoryGridCard title="Modules" :image="{ src: '' }">
             <p>
               Paragraph Default. Cards contain actionable content about a single
               topic. These are usually grouped as similar style sets.
             </p>
-          </RplCardCategoryGridCard>
+          </RplCategoryGridCard>
         </div>
       </div>
 

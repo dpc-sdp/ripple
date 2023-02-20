@@ -14,7 +14,7 @@ const props = withDefaults(defineProps<Props>(), {
 </script>
 
 <template>
-  <RplHeaderIntroHeader
+  <RplIntroHeader
     class="custom"
     :title="title"
     iconName="icon-information-circle-filled"
@@ -25,7 +25,7 @@ const props = withDefaults(defineProps<Props>(), {
     <template #default>
       <slot></slot>
     </template>
-  </RplHeaderIntroHeader>
+  </RplIntroHeader>
 </template>
 
 <style scoped>

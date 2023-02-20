@@ -4,8 +4,7 @@ import {
   tidePageBaseIncludes,
   getImageFromField,
   getBodyFromField,
-  getField,
-  formatDate
+  getField
 } from '@dpc-sdp/ripple-tide-api'
 
 const tideNewsModule: RplTideMapping = {
@@ -22,10 +21,7 @@ const tideNewsModule: RplTideMapping = {
       summary: 'field_news_intro_text'
     },
     details: {
-      published: (src) =>
-        formatDate(getField(src, 'field_news_date'), {
-          timeStyle: 'short'
-        }),
+      published: 'field_news_date',
       location: (src) =>
         getField(src, 'field_location')
           .map(({ name }) => name)

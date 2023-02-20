@@ -423,8 +423,10 @@ importers:
   packages/ripple-tide-news:
     specifiers:
       '@dpc-sdp/nuxt-ripple': workspace:*
+      '@dpc-sdp/ripple-tide-api': workspace:*
     dependencies:
       '@dpc-sdp/nuxt-ripple': link:../nuxt-ripple
+      '@dpc-sdp/ripple-tide-api': link:../ripple-tide-api
 
   packages/ripple-tide-publication:
     specifiers:

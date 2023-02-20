@@ -10,10 +10,16 @@ const props = defineProps({
 
 const route = useRoute()
 
+// The site is split into sections with separate sidebar navigations
+// E.g. If we on the page `/cats/are/cute`, then we just want the content for 'cats' (i.e. `queryContent('cats')`)
+const sectionSlug = route.params.slug[0]
+
 function isActive(link) {
-  return link.exact
-    ? route.path === link._path
-    : route.path.startsWith(link._path)
+  if (link.children && link.children.length) {
+    return route.path.startsWith(link._path)
+  }
+
+  return route.path === link._path
 }
 
 const transform = (old) => {
@@ -29,8 +35,24 @@ const transform = (old) => {
 const transformed = computed(() => {
   return props.links.map(transform)
 })
+
+const { data: navigation } = await useAsyncData('navigation', async () => {
+  const nav = await fetchContentNavigation(queryContent(sectionSlug))
+  return (nav ? nav[0].children : []).map(transform)
+})
 </script>
 
 <template>
-  <RplVerticalNav :items="transformed" />
+  <div>
+    <RplVerticalNav :items="navigation" />
+  </div>
 </template>
+
+<style scoped>
+.rpl-vertical-nav {
+  padding-top: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+}
+</style>

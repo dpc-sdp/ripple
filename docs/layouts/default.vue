@@ -2,8 +2,8 @@
   <AppLayout>
     <div class="rpl-container">
       <div class="rpl-grid">
-        <AppSidebar class="rpl-col-12 rpl-col-3-m"></AppSidebar>
-        <main class="rpl-col-12 rpl-col-9-m docs-main">
+        <AppSidebar class="docs-sidebar rpl-col-12 rpl-col-3-m"></AppSidebar>
+        <main class="rpl-col-12 rpl-col-9-l docs-main">
           <DocsPageHeader
             :title="page.title"
             :description="page.description"
@@ -31,12 +31,23 @@ useContentHead(page)
 </script>
 
 <style>
+@import '@dpc-sdp/ripple-ui-core/style/breakpoints';
+
 :root {
   --rpl-content-max-width: none;
-  --rpl-clr-gradient-vertical: linear-gradient(180deg, #545454 0%, #3e3e3e 80%);
 }
 
 .docs-main {
-  padding-left: var(--rpl-sp-9);
+  @media (--rpl-bp-l) {
+    padding-left: var(--rpl-sp-9);
+  }
+}
+
+.docs-sidebar {
+  display: none;
+
+  @media (--rpl-bp-l) {
+    display: block;
+  }
 }
 </style>

@@ -1,23 +1,16 @@
 <template>
   <aside>
     <slot name="above"></slot>
-    <nav>
-      <DocsSidebarNavigation
-        :links="navigation ? navigation[0].children : []"
-      />
+    <nav
+      :style="{
+        '--local-vertical-nav-background': 'transparent',
+        '--local-vertical-nav-item-gutter': 'var(--rpl-sp-2)',
+        '--local-vertical-nav-hover-bg': 'var(--rpl-clr-neutral-100)',
+        '--local-vertical-nav-active-highlight': 'green'
+      }"
+    >
+      <DocsSidebarNavigation />
     </nav>
     <slot name="below"></slot>
   </aside>
 </template>
-
-<script setup lang="ts">
-const route = useRoute()
-
-// The site is split into sections with separate sidebar navigations
-// E.g. If we on the page `/cats/are/cute`, then we just want the content for 'cats' (i.e. `queryContent('cats')`)
-const sectionSlug = route.params.slug[0]
-
-const { data: navigation } = await useAsyncData('navigation', () =>
-  fetchContentNavigation(queryContent(sectionSlug))
-)
-</script>

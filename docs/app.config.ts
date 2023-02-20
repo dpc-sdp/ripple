@@ -1,6 +1,6 @@
 import pkg from './package.json'
 export default defineAppConfig({
-  title: 'Ripple',
+  title: 'Ripple Design System',
   subheader: `Ripple is the design system for Victorian government digital products`,
   sections: {
     'design-system': {

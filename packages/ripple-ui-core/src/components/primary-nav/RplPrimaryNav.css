@@ -64,8 +64,3 @@
     }
   }
 }
-
-.rpl-viewport-locked {
-  height: 100vh;
-  overflow: hidden;
-}

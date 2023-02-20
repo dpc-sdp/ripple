@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { TideUrlField } from '@dpc-sdp/ripple-tide-api/types'
-import { RplContent, RplHeaderIntroHeader as RplIntroHeader } from '#components'
+import { RplContent, RplIntroHeader } from '#components'
 
 defineProps<{
   title: string

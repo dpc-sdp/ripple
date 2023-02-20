@@ -124,12 +124,19 @@ export const Template = (args) => ({
     args={{
       columns: ['Semantic'],
       items: getColorSwatches([
-        'clr.information',
-        'clr.success',
-        'clr.warning',
+        'clr.information._',
+        'clr.information.light',
+        'clr.information.dark',
+        'clr.success._',
+        'clr.success.light',
+        'clr.success.dark',
+        'clr.warning._',
+        'clr.warning.light',
+        'clr.warning.dark',
         'clr.error._',
-        'clr.error.dark',
-        'clr.error-alt'])
+        'clr.error.light',
+        'clr.error.dark'
+      ])
     }}
   >
     {Template.bind({})}

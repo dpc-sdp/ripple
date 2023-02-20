@@ -1,5 +1,5 @@
 <template>
-  <RplLayoutSidebarComponent
+  <RplSidebarComponent
     v-for="contact in mappedContacts"
     :key="contact.id"
     :data-sidebar-component-id="contact.id"
@@ -9,7 +9,7 @@
       :address="contact.address"
       :items="contact.items"
     />
-  </RplLayoutSidebarComponent>
+  </RplSidebarComponent>
 </template>
 
 <script setup lang="ts">

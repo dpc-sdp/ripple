@@ -73,11 +73,7 @@
         "url": "https://www.vic.gov.au/department-premier-and-cabinet"
       }
     ],
-    "socialShareNetworks": [
-      "Facebook",
-      "Twitter",
-      "LinkedIn"
-    ],
+    "socialShareNetworks": ["Facebook", "Twitter", "LinkedIn"],
     "siteSectionNav": {
       "title": "Site-section Navigation",
       "items": [
@@ -479,7 +475,7 @@
     },
     {
       "uuid": "ec0ec723-df8d-4e6c-8a5f-3780381b04f3",
-      "component": "RplCardKeyDatesCard",
+      "component": "RplKeyDatesCard",
       "id": "988",
       "layout": "card",
       "props": {
@@ -586,58 +582,58 @@
       "props": {
         "items": [
           {
-            "type":"promo",
-            "title":"Sample title",
-            "url":"/sample-page",
-            "image":{
-              "alt":"Demo: Aerial shot of new housing development",
-              "drupal_internal__target_id":42,
-              "focalPoint":null,
-              "height":571,
-              "src":"https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Aerial-shot-of-new-housing-development.jpg",
-              "title":"Demo: Aerial shot of new housing development",
-              "width":1024
+            "type": "promo",
+            "title": "Sample title",
+            "url": "/sample-page",
+            "image": {
+              "alt": "Demo: Aerial shot of new housing development",
+              "drupal_internal__target_id": 42,
+              "focalPoint": null,
+              "height": 571,
+              "src": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Aerial-shot-of-new-housing-development.jpg",
+              "title": "Demo: Aerial shot of new housing development",
+              "width": 1024
             },
-            "meta":{
-              "dateStart":"2022-12-01T09:30:00+11:00",
-              "dateEnd":"2022-12-31T17:00:00+11:00",
-              "topic":"Health"
+            "meta": {
+              "dateStart": "2022-12-01T09:30:00+11:00",
+              "dateEnd": "2022-12-31T17:00:00+11:00",
+              "topic": "Health"
             },
-            "summary":"Sample Card Summary"
+            "summary": "Sample Card Summary"
           },
           {
-            "type":"promo",
-            "title":"Promotion title",
-            "url":"/promo-page",
-            "image":{
-              "alt":"Demo: Engage Vic Hero",
-              "drupal_internal__target_id":52,
-              "focalPoint":null,
-              "height":500,
-              "src":"https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Engage-Vic-photo-hero.jpeg",
-              "title":"Engage Vic",
-              "width":737
+            "type": "promo",
+            "title": "Promotion title",
+            "url": "/promo-page",
+            "image": {
+              "alt": "Demo: Engage Vic Hero",
+              "drupal_internal__target_id": 52,
+              "focalPoint": null,
+              "height": 500,
+              "src": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Engage-Vic-photo-hero.jpeg",
+              "title": "Engage Vic",
+              "width": 737
             },
-            "meta":{
-              "topic":"Environment",
-              "date":"2022-11-03T03:15:00+11:00"
+            "meta": {
+              "topic": "Environment",
+              "date": "2022-11-03T03:15:00+11:00"
             },
-            "summary":"Promotion Card summary"
+            "summary": "Promotion Card summary"
           },
           {
-            "type":"keydates",
-            "url":"/another-keydates-page",
-            "title":"Key dates heading",
-            "keyDates":[
+            "type": "keydates",
+            "url": "/another-keydates-page",
+            "title": "Key dates heading",
+            "keyDates": [
               {
-                "title":"April 16th",
-                "subtitle":"Key subtitle 1",
-                "content":"Key content 1"
+                "title": "April 16th",
+                "subtitle": "Key subtitle 1",
+                "content": "Key content 1"
               },
               {
-                "title":"December 1st",
-                "subtitle":"Key subtitle 2",
-                "content":"Key content 2"
+                "title": "December 1st",
+                "subtitle": "Key subtitle 2",
+                "content": "Key content 2"
               }
             ]
           }
@@ -645,31 +641,31 @@
       }
     },
     {
-      "uuid":"5288de89-f5c2-4ae5-8b0f-54664945bcf9",
-      "component":"TideLandingPageMediaGallery",
-      "id":"1056",
-      "props":{
-        "items":[
+      "uuid": "5288de89-f5c2-4ae5-8b0f-54664945bcf9",
+      "component": "TideLandingPageMediaGallery",
+      "id": "1056",
+      "props": {
+        "items": [
           {
-            "title":"Media title one",
-            "caption":"The first media caption",
-            "alt":"Demo: 2018-19 State Budget",
-            "thumbnail":"https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/2018-19-State-Budget.jpg",
-            "image":"https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/2018-19-State-Budget.jpg"
+            "title": "Media title one",
+            "caption": "The first media caption",
+            "alt": "Demo: 2018-19 State Budget",
+            "thumbnail": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/2018-19-State-Budget.jpg",
+            "image": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/2018-19-State-Budget.jpg"
           },
           {
-            "title":"Media title two",
-            "caption":"The second media caption",
-            "alt":"Demo: Aerial shot of new housing development",
-            "thumbnail":"https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Aerial-shot-of-new-housing-development.jpg",
-            "image":"https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Aerial-shot-of-new-housing-development.jpg"
+            "title": "Media title two",
+            "caption": "The second media caption",
+            "alt": "Demo: Aerial shot of new housing development",
+            "thumbnail": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Aerial-shot-of-new-housing-development.jpg",
+            "image": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Aerial-shot-of-new-housing-development.jpg"
           },
           {
-            "title":"Media title three",
-            "caption":"The third media caption",
-            "alt":"Demo: Bendigo Hospital",
-            "thumbnail":"https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Bendigo-Hospital.jpg",
-            "image":"https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Bendigo-Hospital.jpg"
+            "title": "Media title three",
+            "caption": "The third media caption",
+            "alt": "Demo: Bendigo Hospital",
+            "thumbnail": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Bendigo-Hospital.jpg",
+            "image": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Bendigo-Hospital.jpg"
           }
         ]
       }

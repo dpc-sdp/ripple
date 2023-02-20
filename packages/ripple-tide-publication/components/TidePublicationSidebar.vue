@@ -4,14 +4,14 @@
       v-if="publication.documents"
       :documents="publication.documents"
     ></TidePublicationPageActions>
-    <RplLayoutSidebarComponent>
+    <RplSidebarComponent>
       <RplVerticalNav
         v-if="!error && sidebar.items.length > 0"
         :title="publication.text"
         :items="sidebar.items"
         class="rpl-u-margin-b-9"
       ></RplVerticalNav>
-    </RplLayoutSidebarComponent>
+    </RplSidebarComponent>
   </div>
 </template>
 

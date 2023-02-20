@@ -13,7 +13,7 @@ export const RplCardTypes = [
 
 export const RplCardTitleClasses = ['rpl-card__cta', 'rpl-type-h3-fixed']
 
-export interface RplCardItem {
+export interface IRplCardItem {
   title: string
   subtitle: string
   content: string

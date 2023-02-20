@@ -4,7 +4,7 @@ export const RplImagePriority = ['auto', 'low', 'high'] as const
 
 export const RplImageFit = ['none', 'contain', 'cover'] as const
 
-export interface RplImageFocalPoint {
+export interface IRplImageFocalPoint {
   x: number
   y: number
 }
@@ -24,7 +24,7 @@ type RplImageAspectBreakpoints = RplImageAspectBreakpointsMap<RplBreakpoints>
 
 export type RplImageAspect = RplImageAspectBreakpoints | RplImageAspectOptions
 
-export interface RplImageType {
+export interface IRplImageType {
   src: string
   alt?: string
   title?: string
@@ -33,8 +33,8 @@ export interface RplImageType {
   sizes?: string
   srcSet?: string
   circle?: boolean
-  focalPoint?: RplImageFocalPoint | undefined
+  focalPoint?: IRplImageFocalPoint | undefined
   aspect?: RplImageAspect
-  fit?: typeof RplImageFit[number]
-  priority?: typeof RplImagePriority[number]
+  fit?: (typeof RplImageFit)[number]
+  priority?: (typeof RplImagePriority)[number]
 }

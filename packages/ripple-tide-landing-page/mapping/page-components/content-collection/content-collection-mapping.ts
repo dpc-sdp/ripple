@@ -2,7 +2,7 @@ import { TideDynamicPageComponent } from '@dpc-sdp/ripple-tide-api/types'
 import { getBodyFromField, getField } from '@dpc-sdp/ripple-tide-api'
 
 export interface IContentCollectionDisplay {
-  component: 'RplSearchResult' | 'RplCardPromoCard'
+  component: 'RplSearchResult' | 'RplPromoCard'
   style?: 'thumbnail' | 'noImage'
 }
 
@@ -123,7 +123,7 @@ export const contentCollectionMapping = (
             'card'
           ) === 'search-result'
             ? 'RplSearchResult'
-            : 'RplCardPromoCard',
+            : 'RplPromoCard',
         style: getField(
           field,
           'field_content_collection_config.interface.display.resultComponent.style',

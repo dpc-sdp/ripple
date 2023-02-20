@@ -36,7 +36,7 @@ describe('contentCollectionMapping', () => {
         },
         perPage: 6,
         display: {
-          component: 'RplCardPromoCard',
+          component: 'RplPromoCard',
           style: 'thumbnail'
         }
       }

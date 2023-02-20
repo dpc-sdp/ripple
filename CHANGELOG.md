@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.86](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.85...v2.1.0-alpha.86) (2023-02-20)
+
+### Bug Fixes
+
+* **docs:** added missing image ([cbae31b](https://github.com/dpc-sdp/ripple-framework/commit/cbae31bb502ea6a4e0affd7ceb8f60acea5143b3))
+* **docs:** fixed broken homepage after rpl component renaming ([131284b](https://github.com/dpc-sdp/ripple-framework/commit/131284b9dc15f114c3bd246bc016f62972d02d01))
+* **docs:** fixed issue with sidebar nav crashing ([74abd77](https://github.com/dpc-sdp/ripple-framework/commit/74abd77e76baef9e1af3137c0aaf8e70cb6d9beb))
+* **docs:** fixed issue with static rendered menus ([9e2fddd](https://github.com/dpc-sdp/ripple-framework/commit/9e2fddd4c77e0230729c351d3426b5a481ba8bd3))
+
+### Features
+
+* **docs:** added basic component example and cleanup ([45ac56a](https://github.com/dpc-sdp/ripple-framework/commit/45ac56a086b31c4d8ec7a43a278d35e3c0ce8969))
+* **docs:** made the docs page layout and home page closer to designs ([8f624d1](https://github.com/dpc-sdp/ripple-framework/commit/8f624d1bf5bb6f4da609543684320bedbd6d5f90))
+
 # [2.1.0-alpha.85](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.84...v2.1.0-alpha.85) (2023-02-19)
 
 ### Bug Fixes

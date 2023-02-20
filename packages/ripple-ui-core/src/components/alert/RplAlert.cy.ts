@@ -22,7 +22,6 @@ describe('RplAlert', () => {
   xit('calls dismiss when clicked', () => {
     let fired = false
     const handler = () => {
-      console.log('test')
       fired = !fired
     }
     rplEventBus.on('rpl-alert/dismiss', handler)

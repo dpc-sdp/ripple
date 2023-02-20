@@ -113,6 +113,9 @@
       "trim@<1.0.1": "~1.0.1",
       "trim-newlines@<3.0.1": "~3.0.1",
       "vite-plugin-svg-icons>postcss": "~8.4.21"
+    },
+    "patchedDependencies": {
+      "@elastic/search-ui-elasticsearch-connector@1.19.0": "patches/@elastic__search-ui-elasticsearch-connector@1.19.0.patch"
     }
   },
   "version": "0.0.0"

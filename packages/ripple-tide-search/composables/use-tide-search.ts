@@ -1,6 +1,7 @@
 import { SearchDriver, SearchResult, SearchState } from '@elastic/search-ui'
 import type { SearchDriverOptions } from '@elastic/search-ui'
 import AppSearchAPIConnector from '@elastic/search-ui-app-search-connector'
+import ElasticsearchAPIConnector from '@elastic/search-ui-elasticsearch-connector'
 
 import { ref, computed } from 'vue'
 import { FilterConfigItem, MappedSearchResult } from 'ripple-tide-search/types'
@@ -9,8 +10,13 @@ const getSearchDriver = (
   apiConnectorOptions,
   config: Omit<SearchDriverOptions, 'apiConnector'>
 ) => {
+  const ApiConnector =
+    apiConnectorOptions?.type === 'elasticsearch'
+      ? ElasticsearchAPIConnector
+      : AppSearchAPIConnector
+
   return new SearchDriver({
-    apiConnector: new AppSearchAPIConnector(apiConnectorOptions),
+    apiConnector: new ApiConnector(apiConnectorOptions),
     ...config
   })
 }

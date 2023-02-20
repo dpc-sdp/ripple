@@ -117,7 +117,9 @@ const props = withDefaults(defineProps<Props>(), {
 })
 // Feature flags will be available on component instances with inject('featureFlags') - See https://vuejs.org/guide/components/provide-inject.html#inject
 const featureFlags = ref(
-  props.site?.featureFlags || useAppConfig()?.ripple?.featureFlags
+  props.site?.featureFlags && Object.keys(props.site.featureFlags).length
+    ? props.site.featureFlags
+    : useAppConfig()?.ripple?.featureFlags
 )
 provide('featureFlags', featureFlags.value)
 

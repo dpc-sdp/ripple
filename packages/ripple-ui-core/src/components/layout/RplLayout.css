@@ -35,7 +35,7 @@
 }
 
 .rpl-layout__header {
-  z-index: var(--rpl-z-index-above-content);
+  z-index: var(--rpl-layer-4);
   position: relative;
 }
 

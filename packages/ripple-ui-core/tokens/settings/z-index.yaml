@@ -1,7 +1,11 @@
-z-index:
-  default:
-    _:
-      value: 0
-  above-content:
-    _:
-      value: 1
+layer:
+  1:
+    value: 1
+  2:
+    value: 2
+  3:
+    value: 3
+  4:
+    value: 4
+  5:
+    value: 5

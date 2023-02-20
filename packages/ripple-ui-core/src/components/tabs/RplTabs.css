@@ -46,7 +46,7 @@
     .rpl-u-focusable-block::after {
       content: '';
       position: absolute;
-      z-index: var(--rpl-z-index-above-content);
+      z-index: var(--rpl-layer-1);
       height: var(--rpl-border-3);
       width: calc(100% + var(--rpl-focusable-border-width, 0%) * 2);
       background-color: var(--local-active-clr);

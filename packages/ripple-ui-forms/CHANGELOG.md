@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.87](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.86...v2.1.0-alpha.87) (2023-02-20)
+
+### Features
+
+* **@dpc-sdp/ripple-ui-core:** update z-index tokens ([eae9318](https://github.com/dpc-sdp/ripple-framework/commit/eae93180b8086d6d6d40672f0feb97a8e3943553))
+
 # [2.1.0-alpha.86](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.85...v2.1.0-alpha.86) (2023-02-20)
 
 **Note:** Version bump only for package @dpc-sdp/ripple-ui-forms

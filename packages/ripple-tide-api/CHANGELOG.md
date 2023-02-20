@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.87](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.86...v2.1.0-alpha.87) (2023-02-20)
+
+### Bug Fixes
+
+* :bug: unify dateFormat util, move news call to sfc ([97f8d65](https://github.com/dpc-sdp/ripple-framework/commit/97f8d6572e0eeb0e107f9bc887192f4028601bc9))
+* **@dpc-sdp/ripple-ui-core:** update sorting, add featureFlag for search connector ([4938b78](https://github.com/dpc-sdp/ripple-framework/commit/4938b7865544ee78db50526872b5d60de61c55d6))
+
 # [2.1.0-alpha.81](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.80...v2.1.0-alpha.81) (2023-02-15)
 
 ### Features

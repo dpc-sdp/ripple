@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.87](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.86...v2.1.0-alpha.87) (2023-02-20)
+
+### Bug Fixes
+
+* :bug: unify dateFormat util, move news call to sfc ([97f8d65](https://github.com/dpc-sdp/ripple-framework/commit/97f8d6572e0eeb0e107f9bc887192f4028601bc9))
+* **@dpc-sdp/ripple-tide-landing-page:** update mapping result data ([bfe7ca4](https://github.com/dpc-sdp/ripple-framework/commit/bfe7ca4813477f614ffa92f04fe980ed93c4c872))
+* **@dpc-sdp/ripple-tide-search:** remove 'x-elastic-client-meta' header ([9e0863d](https://github.com/dpc-sdp/ripple-framework/commit/9e0863d22eea6d8ae2affb47c5bed04643ef1eb2))
+* **@dpc-sdp/ripple-ui-core:** update sorting, add featureFlag for search connector ([4938b78](https://github.com/dpc-sdp/ripple-framework/commit/4938b7865544ee78db50526872b5d60de61c55d6))
+
+### Features
+
+* **@dpc-sdp/ripple-tide-landing-page:** :sparkles: poc for card collection ([42eb469](https://github.com/dpc-sdp/ripple-framework/commit/42eb469ca6ef18dc820de7127a29ab01786dec16))
+* **@dpc-sdp/ripple-tide-landing-page:** mapping updates, basic mapping tests, fix grid cols ([364ab1d](https://github.com/dpc-sdp/ripple-framework/commit/364ab1d265592086770d1085d8012915463d338b))
+* **@dpc-sdp/ripple-tide-landing-page:** rename component, add sort and perPage, style collection ([181d87f](https://github.com/dpc-sdp/ripple-framework/commit/181d87f8e61f40f1e5fd99e7cd488ffd11b3989a))
+
 # [2.1.0-alpha.86](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.85...v2.1.0-alpha.86) (2023-02-20)
 
 **Note:** Version bump only for package @dpc-sdp/ripple-tide-landing-page

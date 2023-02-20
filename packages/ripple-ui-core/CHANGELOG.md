@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.87](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.86...v2.1.0-alpha.87) (2023-02-20)
+
+### Bug Fixes
+
+* :bug: unify dateFormat util, move news call to sfc ([97f8d65](https://github.com/dpc-sdp/ripple-framework/commit/97f8d6572e0eeb0e107f9bc887192f4028601bc9))
+* **@dpc-sdp/ripple-ui-core:** design feedback ([3d3f8ff](https://github.com/dpc-sdp/ripple-framework/commit/3d3f8ff1a3b2612bb0f80cd25b161c5befa0b060))
+
+### Features
+
+* **@dpc-sdp/ripple-ui-core:** update z-index tokens ([eae9318](https://github.com/dpc-sdp/ripple-framework/commit/eae93180b8086d6d6d40672f0feb97a8e3943553))
+
 # [2.1.0-alpha.86](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.85...v2.1.0-alpha.86) (2023-02-20)
 
 ### Features

@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.87](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.86...v2.1.0-alpha.87) (2023-02-20)
+
+### Bug Fixes
+
+* **@dpc-sdp/nuxt-ripple:** update featureFlags to check for empty objects ([e9cf1c8](https://github.com/dpc-sdp/ripple-framework/commit/e9cf1c81b158607c2c8f6a73f4818a7fc30092ac))
+* **@dpc-sdp/ripple-ui-core:** update sorting, add featureFlag for search connector ([4938b78](https://github.com/dpc-sdp/ripple-framework/commit/4938b7865544ee78db50526872b5d60de61c55d6))
+
 # [2.1.0-alpha.86](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.85...v2.1.0-alpha.86) (2023-02-20)
 
 **Note:** Version bump only for package @dpc-sdp/nuxt-ripple

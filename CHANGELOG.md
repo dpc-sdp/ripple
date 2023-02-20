@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.87](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.86...v2.1.0-alpha.87) (2023-02-20)
+
+### Bug Fixes
+
+* :bug: unify dateFormat util, move news call to sfc ([97f8d65](https://github.com/dpc-sdp/ripple-framework/commit/97f8d6572e0eeb0e107f9bc887192f4028601bc9))
+* **@dpc-sdp/nuxt-ripple:** update featureFlags to check for empty objects ([e9cf1c8](https://github.com/dpc-sdp/ripple-framework/commit/e9cf1c81b158607c2c8f6a73f4818a7fc30092ac))
+* **@dpc-sdp/ripple-tide-landing-page:** update mapping result data ([bfe7ca4](https://github.com/dpc-sdp/ripple-framework/commit/bfe7ca4813477f614ffa92f04fe980ed93c4c872))
+* **@dpc-sdp/ripple-tide-search:** don't transpile [@elastic](https://github.com/elastic) packages in dev ([68ca627](https://github.com/dpc-sdp/ripple-framework/commit/68ca627cf9e0518d8982dbc43bedb09f364950c6))
+* **@dpc-sdp/ripple-tide-search:** regen lockfile ([d173156](https://github.com/dpc-sdp/ripple-framework/commit/d173156f39305b8b82c1b52a4f90654ef75e1886))
+* **@dpc-sdp/ripple-tide-search:** remove 'x-elastic-client-meta' header ([9e0863d](https://github.com/dpc-sdp/ripple-framework/commit/9e0863d22eea6d8ae2affb47c5bed04643ef1eb2))
+* **@dpc-sdp/ripple-tide-search:** update nuxt config to fix elastic related build issue ([c912c85](https://github.com/dpc-sdp/ripple-framework/commit/c912c85ed05ba3b5687244a8bdab09811c113658))
+* **@dpc-sdp/ripple-ui-core:** design feedback ([3d3f8ff](https://github.com/dpc-sdp/ripple-framework/commit/3d3f8ff1a3b2612bb0f80cd25b161c5befa0b060))
+* **@dpc-sdp/ripple-ui-core:** update sorting, add featureFlag for search connector ([4938b78](https://github.com/dpc-sdp/ripple-framework/commit/4938b7865544ee78db50526872b5d60de61c55d6))
+
+### Features
+
+* **@dpc-sdp/ripple-tide-landing-page:** :sparkles: poc for card collection ([42eb469](https://github.com/dpc-sdp/ripple-framework/commit/42eb469ca6ef18dc820de7127a29ab01786dec16))
+* **@dpc-sdp/ripple-tide-landing-page:** mapping updates, basic mapping tests, fix grid cols ([364ab1d](https://github.com/dpc-sdp/ripple-framework/commit/364ab1d265592086770d1085d8012915463d338b))
+* **@dpc-sdp/ripple-tide-landing-page:** rename component, add sort and perPage, style collection ([181d87f](https://github.com/dpc-sdp/ripple-framework/commit/181d87f8e61f40f1e5fd99e7cd488ffd11b3989a))
+* **@dpc-sdp/ripple-tide-search:** use new apiConnectorOptions.type for apiConnector check ([64de89b](https://github.com/dpc-sdp/ripple-framework/commit/64de89be5ca9751eef05d64b01453107a38f7d11))
+* **@dpc-sdp/ripple-ui-core:** update z-index tokens ([eae9318](https://github.com/dpc-sdp/ripple-framework/commit/eae93180b8086d6d6d40672f0feb97a8e3943553))
+
 # [2.1.0-alpha.86](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.85...v2.1.0-alpha.86) (2023-02-20)
 
 ### Bug Fixes

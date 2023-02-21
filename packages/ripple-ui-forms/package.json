@@ -41,5 +41,10 @@
     "build:types": "tsc -p tsconfig.json",
     "clean": "(rimraf dist* && rimraf tsconfig.tsbuildinfo) | true",
     "test:components": "cypress run --component"
+  },
+  "pnpm": {
+    "patchedDependencies": {
+      "vite-svg-loader@4.0.0": "patches/vite-svg-loader@4.0.0.patch"
+    }
   }
 }

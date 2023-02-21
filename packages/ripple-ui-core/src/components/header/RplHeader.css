@@ -58,6 +58,10 @@
     transform: translateX(var(--rpl-sp-1));
   }
 
+  &:focus-visible .rpl-icon {
+    color: inherit;
+  }
+
   &:active {
     text-decoration: underline;
   }

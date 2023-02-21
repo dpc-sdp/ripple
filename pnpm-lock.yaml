@@ -251,12 +251,14 @@ importers:
       '@dpc-sdp/ripple-ui-forms': workspace:*
       '@vueuse/core': ^9.12.0
       change-case: ^4.1.2
+      deepmerge: ^4.3.0
     dependencies:
       '@dpc-sdp/ripple-tide-api': link:../ripple-tide-api
       '@dpc-sdp/ripple-ui-core': link:../ripple-ui-core
       '@dpc-sdp/ripple-ui-forms': link:../ripple-ui-forms
       '@vueuse/core': 9.12.0_vue@3.2.47
       change-case: 4.1.2
+      deepmerge: 4.3.0
 
   packages/nuxt-ripple-cli:
     specifiers:
@@ -9636,7 +9638,7 @@ packages:
       '@babel/core': 7.20.12
       find-cache-dir: 3.3.2
       schema-utils: 4.0.0
-      webpack: 5.75.0
+      webpack: 5.75.0_esbuild@0.16.17
     dev: true
 
   /babel-messages/6.23.0:

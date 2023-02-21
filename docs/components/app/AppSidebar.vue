@@ -4,7 +4,7 @@
     <nav
       :style="{
         '--local-vertical-nav-background': 'transparent',
-        '--local-vertical-nav-item-gutter': 'var(--rpl-sp-2)',
+        '--local-vertical-nav-item-gutter': 'var(--rpl-sp-3)',
         '--local-vertical-nav-hover-bg': 'var(--rpl-clr-neutral-100)',
         '--local-vertical-nav-active-highlight': 'green'
       }"

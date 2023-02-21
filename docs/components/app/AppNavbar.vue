@@ -90,6 +90,7 @@ onUnmounted(() => {
           <button
             class="docs-header-link rpl-u-focusable-inline"
             @click="handleToggleMenu"
+            v-if="sectionSlug"
           >
             Menu
             <RplIcon
@@ -109,7 +110,9 @@ onUnmounted(() => {
       <div
         class="rpl-container"
         :style="{
-          '--local-vertical-nav-background': 'transparent'
+          '--local-vertical-nav-background': 'transparent',
+          '--local-vertical-nav-item-gutter': 'var(--rpl-sp-6)',
+          '--local-vertical-nav-hover-bg': 'var(--rpl-clr-neutral-300)'
         }"
       >
         <DocsSidebarNavigation />

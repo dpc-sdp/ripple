@@ -5,11 +5,13 @@ export default defineAppConfig({
   sections: {
     'design-system': {
       title: 'Ripple Design System',
-      color: 'var(--rpl-clr-primary)'
+      color: 'var(--rpl-clr-primary)',
+      neutralFooter: false
     },
     framework: {
       title: 'Ripple Module Ecosystem',
-      color: 'var(--rpl-clr-dark)'
+      color: 'var(--rpl-clr-dark)',
+      neutralFooter: true
     }
   },
   version: pkg.version,

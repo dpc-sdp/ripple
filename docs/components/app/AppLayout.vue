@@ -8,7 +8,7 @@
   <div class="docs-layout-content">
     <slot />
   </div>
-  <RplFooter />
+  <AppFooter />
 </template>
 
 <style>

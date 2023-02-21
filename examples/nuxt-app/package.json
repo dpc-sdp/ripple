@@ -10,7 +10,6 @@
     "build": "nuxi build",
     "compile": "tsc --build",
     "start": "node .output/server/index.mjs",
-    "mockserver": "node ./mockserver.js",
     "start:mock": "NUXT_PUBLIC_API_URL=http://localhost:3001 concurrently 'pnpm mockserver' 'pnpm start'",
     "cy:open": "cypress open --e2e --browser electron",
     "cy:run": "cypress run",
@@ -35,10 +34,8 @@
     "@formkit/vue": "1.0.0-beta.15"
   },
   "devDependencies": {
-    "@badeball/cypress-cucumber-preprocessor": "^15.1.3",
-    "@testing-library/cypress": "^9.0.0",
+    "@dpc-sdp/ripple-test-utils": "workspace:*",
     "@unlighthouse/cli": "^0.4.9",
-    "mockttp": "^3.6.3",
     "node-fetch-native": "^1.0.1",
     "nuxt": "3.1.2",
     "start-server-and-test": "^1.15.3",

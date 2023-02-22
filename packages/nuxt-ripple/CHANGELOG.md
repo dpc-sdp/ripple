@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.90](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.89...v2.1.0-alpha.90) (2023-02-22)
+
+### Features
+
+* **nuxt-ripple:** add feature flag for topics and tags and deepmerge for options ([b31549a](https://github.com/dpc-sdp/ripple-framework/commit/b31549ada18ae1a38c7b4cad68e9879e6c140c83))
+
 # [2.1.0-alpha.89](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.88...v2.1.0-alpha.89) (2023-02-21)
 
 **Note:** Version bump only for package @dpc-sdp/nuxt-ripple

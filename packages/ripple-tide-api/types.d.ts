@@ -197,4 +197,8 @@ export interface IRplFeatureFlags {
    * @description Sets which search connector to use for content collection queries
    */
   contentCollectionSearchConnector?: 'appSearch' | 'elasticsearch'
+  /**
+   * @description Option to disable the display of topics and tags on all content types
+   */
+  disableTopicTags?: boolean
 }

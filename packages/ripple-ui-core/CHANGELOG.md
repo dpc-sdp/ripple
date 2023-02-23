@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.91](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.90...v2.1.0-alpha.91) (2023-02-23)
+
+### Features
+
+* **docs:** added responsive nav to docs site ([35ca3fd](https://github.com/dpc-sdp/ripple-framework/commit/35ca3fd074f0320a50adc32081c51fc73b6c68b3))
+
 # [2.1.0-alpha.90](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.89...v2.1.0-alpha.90) (2023-02-22)
 
 **Note:** Version bump only for package @dpc-sdp/ripple-ui-core

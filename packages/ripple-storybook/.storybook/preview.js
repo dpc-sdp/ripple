@@ -4,12 +4,13 @@ import { app } from '@storybook/vue3'
 import { registerRplFormPlugin } from '@dpc-sdp/ripple-ui-forms'
 import { RplIconSprite } from '@dpc-sdp/ripple-ui-core/vue'
 import '@dpc-sdp/ripple-ui-core/style'
-import themes from './themes.json'
+import themes from './themes.js'
 import withBackground from './utils/withBackground'
 import svgPlaceholder from './utils/svgPlaceholder'
 import { withSource } from './utils/withSource'
 // Storybook specific CSS
 import './storybook.css'
+import withTheme from './utils/withTheme'
 
 // Add SVG based image placeholder for use in all stories
 window.svgPlaceholder = svgPlaceholder
@@ -48,5 +49,24 @@ export const decorators = [
   }),
   withBackground,
   withDesign,
+  withTheme,
   withSource
 ]
+
+export const globalTypes = {
+  theme: {
+    name: 'Theme',
+    description: 'Ripple theme',
+    defaultValue: 'default',
+    toolbar: {
+      icon: 'paintbrush',
+      items: Object.entries(themes).map(([themeId, config]) => {
+        return {
+          value: themeId, left: 'Theme:', title: config.label
+        }
+      }),
+      showName: true,
+      dynamicTitle: true,
+    },
+  },
+};

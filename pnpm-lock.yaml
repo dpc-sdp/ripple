@@ -295,7 +295,6 @@ importers:
     specifiers:
       '@babel/core': ^7.20.12
       '@originjs/vite-plugin-content': ^1.0.2
-      '@outlinestudio/designtokenscss': ^1.0.7
       '@storybook/addon-a11y': ^6.5.16
       '@storybook/addon-actions': ^6.5.16
       '@storybook/addon-cssresources': ^6.2.9
@@ -325,7 +324,6 @@ importers:
     devDependencies:
       '@babel/core': 7.20.12
       '@originjs/vite-plugin-content': 1.0.2
-      '@outlinestudio/designtokenscss': 1.0.7_yd46ff7gcssnxj6tmjxqrvhpxm
       '@storybook/addon-a11y': 6.5.16_wcqkhtmu7mswc6yz4uyexck3ty
       '@storybook/addon-actions': 6.5.16_wcqkhtmu7mswc6yz4uyexck3ty
       '@storybook/addon-cssresources': 6.2.9_kzb4vnpf2dtqwc3hwzw5rhloc4
@@ -5126,31 +5124,6 @@ packages:
       xml2js: 0.4.23
     dev: true
 
-  /@outlinestudio/designtokenscss/1.0.7_yd46ff7gcssnxj6tmjxqrvhpxm:
-    resolution: {integrity: sha512-OCQpRodZ0J6y9KAZAKMMXOA0RfAoKzL5gwkspCxXgxAptr5TywFpI8Z5M6Tyx5qwyMPTMynl3DUPDSB6zpJNpQ==}
-    peerDependencies:
-      '@storybook/addons': ^6.4.0
-      '@storybook/api': ^6.4.0
-      '@storybook/components': ^6.4.0
-      '@storybook/core-events': ^6.4.0
-      '@storybook/theming': ^6.4.0
-      react: ^16.8.0 || ^17.0.0
-      react-dom: ^16.8.0 || ^17.0.0
-    peerDependenciesMeta:
-      react:
-        optional: true
-      react-dom:
-        optional: true
-    dependencies:
-      '@storybook/addons': 6.5.16_wcqkhtmu7mswc6yz4uyexck3ty
-      '@storybook/api': 6.5.16_wcqkhtmu7mswc6yz4uyexck3ty
-      '@storybook/components': 6.5.16_wcqkhtmu7mswc6yz4uyexck3ty
-      '@storybook/core-events': 6.5.16
-      '@storybook/theming': 6.5.16_wcqkhtmu7mswc6yz4uyexck3ty
-      react: 16.14.0
-      react-dom: 16.14.0_react@16.14.0
-    dev: true
-
   /@planetscale/database/1.5.0:
     resolution: {integrity: sha512-Qwh7Or1W5dB5mZ9EQqDkgvkDKhBBmQe58KIVUy0SGocNtr5fP4JAWtvZ6EdLAV6C6hVpzNlCA2xIg9lKTswm1Q==}
     engines: {node: '>=16'}
@@ -9636,7 +9609,7 @@ packages:
       '@babel/core': 7.20.12
       find-cache-dir: 3.3.2
       schema-utils: 4.0.0
-      webpack: 5.75.0_esbuild@0.16.17
+      webpack: 5.75.0
     dev: true
 
   /babel-messages/6.23.0:

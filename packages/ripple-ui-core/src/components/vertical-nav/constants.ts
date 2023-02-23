@@ -3,5 +3,5 @@ export interface IRplVerticalNavItem {
   text: string
   url: string
   active: boolean
-  items: IRplVerticalNavItem[]
+  items?: IRplVerticalNavItem[]
 }

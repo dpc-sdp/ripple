@@ -1,12 +1,6 @@
 <script setup lang="ts">
-import { PropType } from 'vue'
-
-const props = defineProps({
-  links: {
-    type: Array as PropType<any>,
-    default: () => []
-  }
-})
+import { NavItem } from '@nuxt/content/dist/runtime/types'
+import { IRplVerticalNavItem } from '~~/../packages/ripple-ui-core/src/components/vertical-nav/constants'
 
 const route = useRoute()
 const { sections } = useAppConfig()
@@ -15,21 +9,23 @@ const { sections } = useAppConfig()
 // E.g. If we on the page `/cats/are/cute`, then we just want the content for 'cats' (i.e. `queryContent('cats')`)
 const sectionSlug = route.params.slug[0]
 
-function isActive(link) {
-  if (link.children && link.children.length) {
-    return route.path.startsWith(link._path)
+function isActive(nuxtNavItem: NavItem) {
+  if (nuxtNavItem.children && nuxtNavItem.children.length) {
+    return route.path.startsWith(nuxtNavItem._path)
   }
 
-  return route.path === link._path
+  return route.path === nuxtNavItem._path
 }
 
-const transform = (old) => {
+const transformToRplNavFormat = (nuxtNavItem: NavItem): IRplVerticalNavItem => {
   return {
-    id: old._path,
-    text: old.title,
-    url: old._path,
-    active: isActive(old),
-    items: old.children ? old.children.map(transform) : undefined
+    id: nuxtNavItem._path,
+    text: nuxtNavItem.title,
+    url: nuxtNavItem._path,
+    active: isActive(nuxtNavItem),
+    items: nuxtNavItem.children
+      ? nuxtNavItem.children.map(transformToRplNavFormat)
+      : undefined
   }
 }
 
@@ -37,7 +33,14 @@ const { data: navigation } = await useAsyncData('navigation', async () => {
   const nav = await fetchContentNavigation(
     queryContent(sectionSlug || 'design-system')
   )
-  return (nav ? nav[0].children : []).map(transform)
+
+  const sectionNav = nav ? nav[0]?.children : null
+
+  if (!sectionNav) {
+    return []
+  }
+
+  return sectionNav.map(transformToRplNavFormat)
 })
 </script>
 

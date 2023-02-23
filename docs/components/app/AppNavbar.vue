@@ -2,11 +2,8 @@
 import { useFocusTrap } from '@vueuse/integrations/useFocusTrap'
 
 const headerRef = ref()
-const {
-  hasFocus,
-  activate: activateFocusTrap,
-  deactivate: deactivateFocusTrap
-} = useFocusTrap(headerRef)
+const { activate: activateFocusTrap, deactivate: deactivateFocusTrap } =
+  useFocusTrap(headerRef)
 
 const route = useRoute()
 const { title, sections } = useAppConfig()
@@ -19,10 +16,6 @@ const sectionColor = sectionConfig?.color || undefined
 
 const isMenuOpen = ref(false)
 
-const handleOpenMenu = () => {
-  isMenuOpen.value = true
-}
-
 const handleCloseMenu = () => {
   isMenuOpen.value = false
 }
@@ -31,13 +24,13 @@ const handleToggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value
 }
 
-const escapeKeyHandler = (event) => {
+const escapeKeyHandler = (event: KeyboardEvent) => {
   if (event.key === 'Escape' && isMenuOpen.value) {
     handleCloseMenu()
   }
 }
 
-watch(isMenuOpen, (isOpen, wasOpen) => {
+watch(isMenuOpen, (isOpen) => {
   if (isOpen) {
     activateFocusTrap()
     document.body.classList.add('rpl-u-viewport-locked')
@@ -105,17 +98,14 @@ onUnmounted(() => {
     <div
       class="docs-header-menu"
       v-if="isMenuOpen"
-      :options="{ immediate: true }"
+      :style="{
+        '--local-vertical-nav-background': 'transparent',
+        '--local-vertical-nav-item-gutter': 'var(--rpl-sp-3)',
+        '--local-vertical-nav-hover-bg': 'var(--rpl-clr-neutral-300)'
+      }"
     >
-      <div
-        class="rpl-container"
-        :style="{
-          '--local-vertical-nav-background': 'transparent',
-          '--local-vertical-nav-item-gutter': 'var(--rpl-sp-6)',
-          '--local-vertical-nav-hover-bg': 'var(--rpl-clr-neutral-300)'
-        }"
-      >
-        <DocsSidebarNavigation />
+      <div class="docs-header-menu-inner">
+        <slot name="menuContents" />
       </div>
     </div>
   </header>
@@ -149,9 +139,12 @@ onUnmounted(() => {
   padding-left: var(--rpl-sp-4);
   border-left: var(--rpl-border-2) solid var(--rpl-clr-light);
   font-weight: 700;
+  height: var(--rpl-sp-6);
+  display: flex;
+  align-items: center;
 
-  font-size: 12px;
-  line-height: 12px;
+  font-size: 13px;
+  line-height: 13px;
 
   @media (--rpl-bp-l) {
     font-size: 16px;
@@ -194,12 +187,20 @@ onUnmounted(() => {
 
   overflow-y: auto;
   background: var(--rpl-clr-neutral-100);
-  padding: var(--rpl-sp-3) 0;
+  padding-top: var(--rpl-sp-4);
+  padding-bottom: var(--rpl-sp-5);
+  padding-left: var(--rpl-sp-3);
+  padding-right: var(--rpl-sp-3);
   position: fixed;
   top: 101px;
   bottom: 0;
   left: 0;
   right: 0;
   z-index: 10000;
+}
+
+.docs-header-menu-inner {
+  max-width: 400px;
+  margin: 0 auto;
 }
 </style>

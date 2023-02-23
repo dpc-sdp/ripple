@@ -1,109 +1,74 @@
 <template>
-  <AppLayout>
+  <AppLayout background="alt">
     <template #aboveBody>
       <DocsHeroHeader :title="title" :description="subheader" />
-      <DocsWhatsNew
-        title="What's new"
-        :links="[
-          { text: 'This link goes somewhere', url: '#first' },
-          { text: 'So does this one', url: '#second' }
-        ]"
-      >
-        <RplContent html="<p>Ripple release information text</p>" />
-      </DocsWhatsNew>
+
+      <div class="docs-home-getting-started">
+        <div class="rpl-container">
+          <DocsHomeSection title="Getting Started">
+            <div class="rpl-grid">
+              <div class="rpl-col-12 rpl-col-6-m">
+                <RplPromoCard v-bind="page.primaryCTA">
+                  <p>
+                    {{ page.primaryCTA.description }}
+                  </p>
+                </RplPromoCard>
+              </div>
+              <div class="rpl-col-12 rpl-col-6-m">
+                <RplPromoCard v-bind="page.secondaryCTA">
+                  <p>
+                    {{ page.secondaryCTA.description }}
+                  </p>
+                </RplPromoCard>
+              </div>
+            </div>
+          </DocsHomeSection>
+        </div>
+      </div>
     </template>
 
-    <div class="rpl-container docs-home-container">
-      <div class="docs-home-component rpl-grid">
-        <div class="rpl-col-12 rpl-col-4-m">
-          <RplPromoCard title="Who should use it">
+    <DocsHomeSection title="Ripple modules">
+      <div
+        class="rpl-grid"
+        :style="{ '--rpl-clr-gradient-horizontal': 'var(--rpl-clr-dark)' }"
+      >
+        <div class="rpl-col-12">
+          <RplPromoCard v-bind="page.modulesCTA" highlight>
             <p>
-              Paragraph Default. Cards contain actionable content about a single
-              topic. These are usually grouped as similar style sets.
-            </p>
-          </RplPromoCard>
-        </div>
-        <div class="rpl-col-12 rpl-col-4-m">
-          <RplPromoCard title="How it works">
-            <p>
-              Paragraph Default. Cards contain actionable content about a single
-              topic. These are usually grouped as similar style sets.
-            </p>
-          </RplPromoCard>
-        </div>
-        <div class="rpl-col-12 rpl-col-4-m">
-          <RplPromoCard title="Getting help">
-            <p>
-              Paragraph Default. Cards contain actionable content about a single
-              topic. These are usually grouped as similar style sets.
+              {{ page.modulesCTA.description }}
             </p>
           </RplPromoCard>
         </div>
       </div>
+    </DocsHomeSection>
 
-      <h2 class="rpl-type-h2">Getting started</h2>
-      <div class="docs-home-component rpl-grid">
-        <div class="rpl-col-12 rpl-col-6-m">
-          <RplPromoCard
-            :title="page.primaryCTA.title"
-            :url="page.primaryCTA.url"
-            highlight
-          >
+    <DocsHomeSection title="Quick links">
+      <div class="rpl-grid">
+        <div class="rpl-col-12 rpl-col-6-m rpl-col-4-l">
+          <RplPromoCard v-bind="page.quickLink1">
             <p>
-              Paragraph Default. Cards contain actionable content about a single
-              topic. These are usually grouped as similar style sets.
+              {{ page.quickLink1.description }}
             </p>
           </RplPromoCard>
         </div>
-        <div class="rpl-col-12 rpl-col-6-m">
-          <RplPromoCard
-            :title="page.secondaryCTA.title"
-            :url="page.secondaryCTA.url"
-            highlight
-          >
+        <div class="rpl-col-12 rpl-col-6-m rpl-col-4-l">
+          <RplPromoCard v-bind="page.quickLink2">
             <p>
-              Paragraph Default. Cards contain actionable content about a single
-              topic. These are usually grouped as similar style sets.
+              {{ page.quickLink2.description }}
+            </p>
+          </RplPromoCard>
+        </div>
+        <div class="rpl-col-12 rpl-col-12-m rpl-col-4-l">
+          <RplPromoCard v-bind="page.quickLink3">
+            <p>
+              {{ page.quickLink3.description }}
             </p>
           </RplPromoCard>
         </div>
       </div>
+    </DocsHomeSection>
 
-      <div class="docs-home-component rpl-grid">
-        <div class="rpl-col-12 rpl-col-3-m">
-          <RplCategoryGridCard title="Styles" :image="{ src: '' }">
-            <p>
-              Paragraph Default. Cards contain actionable content about a single
-              topic. These are usually grouped as similar style sets.
-            </p>
-          </RplCategoryGridCard>
-        </div>
-        <div class="rpl-col-12 rpl-col-3-m">
-          <RplCategoryGridCard title="Components" :image="{ src: '' }">
-            <p>
-              Paragraph Default. Cards contain actionable content about a single
-              topic. These are usually grouped as similar style sets.
-            </p>
-          </RplCategoryGridCard>
-        </div>
-        <div class="rpl-col-12 rpl-col-3-m">
-          <RplCategoryGridCard title="Patterns" :image="{ src: '' }">
-            <p>
-              Paragraph Default. Cards contain actionable content about a single
-              topic. These are usually grouped as similar style sets.
-            </p>
-          </RplCategoryGridCard>
-        </div>
-        <div class="rpl-col-12 rpl-col-3-m">
-          <RplCategoryGridCard title="Modules" :image="{ src: '' }">
-            <p>
-              Paragraph Default. Cards contain actionable content about a single
-              topic. These are usually grouped as similar style sets.
-            </p>
-          </RplCategoryGridCard>
-        </div>
-      </div>
-
+    <DocsHomeSection>
       <ContentRenderer
         tag="RplContent"
         class="content-full"
@@ -112,18 +77,15 @@
         :value="page"
       >
       </ContentRenderer>
+    </DocsHomeSection>
 
-      <footer>
-        <a href="https://www.netlify.com">
-          <img
-            src="https://www.netlify.com/v3/img/components/netlify-light.svg"
-            alt="Deploys by Netlify"
-            width="114"
-            height="51"
-          />
-        </a>
-      </footer>
-    </div>
+    <template #belowBody>
+      <DocsWhatsNew :title="page.whatsNew.title" :links="page.whatsNew.links">
+        <RplContent>
+          <p>{{ page.whatsNew.description }}</p>
+        </RplContent>
+      </DocsWhatsNew>
+    </template>
   </AppLayout>
 </template>
 
@@ -139,5 +101,16 @@ useContentHead(page)
   border-bottom: var(--rpl-border-1) solid var(--rpl-clr-neutral-300);
   padding-bottom: var(--rpl-sp-9);
   margin-bottom: var(--rpl-sp-9);
+}
+
+.docs-home-getting-started {
+  padding-top: var(--rpl-sp-8);
+  padding-bottom: var(--rpl-sp-9);
+  background: var(--rpl-clr-accent-alt);
+
+  @media (--rpl-bp-m) {
+    padding-top: var(--rpl-sp-9);
+    padding-bottom: var(--rpl-sp-10);
+  }
 }
 </style>

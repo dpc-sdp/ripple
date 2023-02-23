@@ -4,23 +4,20 @@ interface Props {
   description?: string
 }
 
-const props = withDefaults(defineProps<Props>(), {
+withDefaults(defineProps<Props>(), {
   description: ''
 })
 </script>
 
 <template>
   <div class="root">
-    <div class="rpl-container">
+    <div class="rpl-container inner">
       <div class="rpl-grid">
         <div class="rpl-col-12 rpl-col-7-m">
           <h1 class="rpl-type-h1 rpl-u-margin-b-4">
             {{ title }}
           </h1>
           <p class="rpl-type-p-large">{{ description }}</p>
-        </div>
-        <div class="rpl-col-4 rpl-col-start-9 image">
-          <img src="/img/ripple-logo.png" />
         </div>
       </div>
     </div>
@@ -31,24 +28,6 @@ const props = withDefaults(defineProps<Props>(), {
 @import '@dpc-sdp/ripple-ui-core/style/breakpoints';
 .root {
   border-bottom: var(--rpl-border-1) solid var(--rpl-clr-neutral-300);
-
-  padding-top: var(--rpl-sp-8);
-  padding-bottom: var(--rpl-sp-8);
-
-  @media (--rpl-bp-m) {
-    padding-top: var(--rpl-sp-10);
-    padding-bottom: var(--rpl-sp-10);
-  }
-
-  @media (--rpl-bp-l) {
-    padding-top: var(--rpl-sp-12);
-    padding-bottom: var(--rpl-sp-12);
-  }
-
-  @media (--rpl-bp-xl) {
-    padding-top: var(--rpl-sp-13);
-    padding-bottom: var(--rpl-sp-13);
-  }
 }
 .image {
   align-items: center;
@@ -58,6 +37,44 @@ const props = withDefaults(defineProps<Props>(), {
 
   @media (--rpl-bp-m) {
     display: flex;
+  }
+}
+
+.inner {
+  background-image: url(/assets/img/hero-graphic.png);
+  background-size: 417px;
+  background-repeat: no-repeat;
+  background-position: right -233px bottom -253px;
+
+  padding-top: var(--rpl-sp-9);
+  padding-bottom: var(--rpl-sp-11);
+
+  @media (--rpl-bp-s) {
+    background-position: right -220px bottom -253px;
+  }
+
+  @media (--rpl-bp-m) {
+    background-size: 310px;
+    background-position: right -2px bottom -39px;
+
+    padding-top: var(--rpl-sp-12);
+    padding-bottom: var(--rpl-sp-13);
+  }
+
+  @media (--rpl-bp-l) {
+    background-size: 416px;
+    background-position: right 0px bottom 2px;
+
+    padding-top: var(--rpl-sp-13);
+    padding-bottom: 96px;
+  }
+
+  @media (--rpl-bp-xl) {
+    background-size: 494px;
+    background-position: right 0px bottom -96px;
+
+    padding-top: var(--rpl-sp-13);
+    padding-bottom: var(--rpl-sp-14);
   }
 }
 </style>

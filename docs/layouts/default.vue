@@ -4,35 +4,33 @@
       <DocsContentNavigation />
     </template>
 
-    <div class="rpl-container">
-      <div class="rpl-grid">
-        <aside
-          class="docs-sidebar rpl-col-12 rpl-col-3-m"
-          :style="{
-            '--local-vertical-nav-background': 'transparent',
-            '--local-vertical-nav-item-gutter': 'var(--rpl-sp-3)',
-            '--local-vertical-nav-hover-bg': 'var(--rpl-clr-neutral-100)'
-          }"
-        >
-          <DocsContentNavigation />
-        </aside>
-        <main class="docs-main rpl-col-12 rpl-col-9-l">
-          <DocsPageHeader
-            :title="page.title"
-            :description="page.description"
-            :links="page.links"
-          />
-          <div class="docs-content">
-            <ContentRenderer
-              :tag="page.tag || 'RplContent'"
-              v-if="page"
-              :key="page._id"
-              :value="page"
-            >
-            </ContentRenderer>
-          </div>
-        </main>
-      </div>
+    <div class="rpl-grid">
+      <aside
+        class="docs-sidebar rpl-col-12 rpl-col-3-m"
+        :style="{
+          '--local-vertical-nav-background': 'transparent',
+          '--local-vertical-nav-item-gutter': 'var(--rpl-sp-3)',
+          '--local-vertical-nav-hover-bg': 'var(--rpl-clr-neutral-100)'
+        }"
+      >
+        <DocsContentNavigation />
+      </aside>
+      <main class="docs-main rpl-col-12 rpl-col-9-l">
+        <DocsPageHeader
+          :title="page.title"
+          :description="page.description"
+          :links="page.links"
+        />
+        <div class="docs-content">
+          <ContentRenderer
+            :tag="page.tag || 'RplContent'"
+            v-if="page"
+            :key="page._id"
+            :value="page"
+          >
+          </ContentRenderer>
+        </div>
+      </main>
     </div>
   </AppLayout>
 </template>

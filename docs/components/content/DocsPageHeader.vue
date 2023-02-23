@@ -15,7 +15,7 @@ const props = withDefaults(defineProps<Props>(), {
 </script>
 
 <template>
-  <header class="rpl-u-margin-b-12">
+  <header class="docs-page-header">
     <h1 class="rpl-type-h1 mb-4">
       {{ title }}
     </h1>
@@ -31,6 +31,14 @@ const props = withDefaults(defineProps<Props>(), {
 </template>
 
 <style scoped>
+.docs-page-header {
+  margin-bottom: var(--rpl-sp-7);
+
+  @media (--rpl-bp-m) {
+    margin-bottom: var(--rpl-sp-9);
+  }
+}
+
 .links {
   display: flex;
   gap: var(--rpl-sp-5);

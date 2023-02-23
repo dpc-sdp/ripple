@@ -139,10 +139,10 @@ watch(isExpanded, (newValue) => {
   // and focus trap
   if (typeof window !== 'undefined') {
     if (newValue) {
-      document.body.classList.add('rpl-viewport-locked')
+      document.body.classList.add('rpl-u-viewport-locked')
       activateFocusTrap()
     } else {
-      document.body.classList.remove('rpl-viewport-locked')
+      document.body.classList.remove('rpl-u-viewport-locked')
       deactivateFocusTrap()
     }
   }

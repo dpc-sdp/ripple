@@ -3,12 +3,16 @@
   <Meta property="og:image" content="/cover.jpg" />
   <Meta name="twitter:card" content="summary_large_image" />
   <RplIconSprite />
-  <AppNavbar />
+  <AppNavbar>
+    <template #menuContents>
+      <slot name="menuContents" />
+    </template>
+  </AppNavbar>
   <slot name="aboveBody" />
   <div class="docs-layout-content">
     <slot />
   </div>
-  <RplFooter />
+  <AppFooter />
 </template>
 
 <style>
@@ -32,11 +36,6 @@
   @media (--rpl-bp-l) {
     padding-top: var(--rpl-sp-12);
     padding-bottom: var(--rpl-sp-12);
-  }
-
-  @media (--rpl-bp-xl) {
-    padding-top: var(--rpl-sp-13);
-    padding-bottom: var(--rpl-sp-13);
   }
 }
 </style>

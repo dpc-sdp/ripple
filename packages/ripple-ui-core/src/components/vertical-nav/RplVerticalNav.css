@@ -2,7 +2,10 @@
 @import '@dpc-sdp/ripple-ui-core/style/breakpoints';
 
 .rpl-vertical-nav {
-  background-color: var(--rpl-clr-neutral-200);
+  background-color: var(
+    --local-vertical-nav-background,
+    var(--rpl-clr-neutral-200)
+  );
   border-radius: var(--rpl-border-radius-2);
   padding: var(--rpl-sp-6) 0 var(--rpl-sp-5) 0;
 }
@@ -27,23 +30,28 @@
 .rpl-vertical-nav__item {
   /* stylelint-disable-next-line length-zero-no-unit */
   --local-left-indentation: 0px;
+  --local-v-nav-gutter: var(--local-vertical-nav-item-gutter, var(--rpl-sp-6));
+  --local-v-nav-hover: var(
+    --local-vertical-nav-hover-bg,
+    var(--rpl-clr-neutral-300)
+  );
 
   position: relative;
   text-align: left;
   padding-top: var(--rpl-sp-3);
-  padding-right: var(--rpl-sp-6);
+  padding-right: var(--local-v-nav-gutter);
   padding-bottom: var(--rpl-sp-3);
-  padding-left: calc(var(--rpl-sp-6) + var(--local-left-indentation));
+  padding-left: calc(var(--local-v-nav-gutter) + var(--local-left-indentation));
   width: 100%;
   cursor: pointer;
 
   &:hover {
-    background-color: var(--rpl-clr-neutral-300);
+    background-color: var(--local-v-nav-hover);
     text-decoration: underline;
   }
 
   &:active {
-    background-color: var(--rpl-clr-neutral-300);
+    background-color: var(--local-v-nav-hover);
   }
 
   /* Indent padding for level 2 items */
@@ -63,7 +71,7 @@
 
   /* Active state */
   &.rpl-vertical-nav__item--active {
-    background-color: var(--rpl-clr-neutral-300);
+    background-color: var(--local-v-nav-hover);
     text-decoration: underline;
 
     &::before {
@@ -91,8 +99,8 @@
     content: '';
     position: absolute;
     top: -1px;
-    left: var(--rpl-sp-6);
-    width: calc(100% - (var(--rpl-sp-6) * 2));
+    left: var(--local-v-nav-gutter);
+    width: calc(100% - (var(--local-v-nav-gutter) * 2));
     height: 1px;
     background-color: var(--rpl-clr-neutral-300);
   }

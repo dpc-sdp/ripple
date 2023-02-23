@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.92](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.91...v2.1.0-alpha.92) (2023-02-23)
+
+### Features
+
+* **docs:** added finalised homepage to docs site ([aa0fa34](https://github.com/dpc-sdp/ripple-framework/commit/aa0fa34ef9b23bb214c4578fdf1d224347ae59bc))
+
 # [2.1.0-alpha.91](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.90...v2.1.0-alpha.91) (2023-02-23)
 
 ### Features

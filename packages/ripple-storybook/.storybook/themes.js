@@ -1,10 +1,10 @@
-[
-  {
-    "name": "Default",
+const themes = {
+  'default': {
+    "label": "vic.gov.au",
     "tokens": {}
   },
-  {
-    "name": "Light on dark",
+  "light": {
+    "label": "Light on dark",
     "tokens": {
       "rpl-clr-primary": "#fdda24",
       "rpl-clr-primary-alt": "#fef0a7",
@@ -23,8 +23,8 @@
       "rpl-clr-type-primary-alt-accessible": "var(--rpl-clr-type-default)"
     }
   },
-  {
-    "name": "Premier",
+  "dark": {
+    "label": "Premier",
     "tokens": {
       "rpl-clr-primary": "#af272e",
       "rpl-clr-primary-alt": "#BC2931",
@@ -42,4 +42,6 @@
       "rpl-clr-type-primary-alt-accessible": "var(--rpl-clr-type-default)"
     }
   }
-]
+}
+
+export default themes

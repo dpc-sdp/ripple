@@ -14,6 +14,10 @@ export default defineNuxtConfig({
           searchKey: '',
           endpointBase: '',
           engineName: ''
+        },
+        elasticsearch: {
+          host: '',
+          index: ''
         }
       }
     }

@@ -55,3 +55,5 @@ export const getTideFormFields = (field) => {
     return fields
   }
 }
+
+export { formatDate } from '@dpc-sdp/ripple-ui-core'

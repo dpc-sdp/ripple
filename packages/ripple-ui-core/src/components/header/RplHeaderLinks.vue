@@ -28,14 +28,15 @@ withDefaults(defineProps<Props>(), {
       item-class="rpl-header-links__item rpl-header__text-large-fixed rpl-type-p"
       icon-placement="after"
     />
-    <RplTextLink
-      v-if="moreLink"
-      :url="moreLink.url"
-      class="rpl-header__text-large-fixed rpl-header__icon-link rpl-header-links__more rpl-type-p rpl-type-weight-bold"
-    >
-      <span>{{ moreLink.text }}</span
-      ><RplIcon name="icon-arrow-right" size="xs" />
-    </RplTextLink>
+    <div v-if="moreLink" class="rpl-header-links__more">
+      <RplTextLink
+        :url="moreLink.url"
+        class="rpl-header__text-large-fixed rpl-header__icon-link rpl-type-p rpl-type-weight-bold"
+      >
+        <span>{{ moreLink.text }}</span
+        ><RplIcon name="icon-arrow-right" size="xs" />
+      </RplTextLink>
+    </div>
   </div>
 </template>
 

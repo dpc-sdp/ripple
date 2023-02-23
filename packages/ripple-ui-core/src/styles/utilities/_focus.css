@@ -45,7 +45,7 @@
       content: '';
       background-color: var(--rpl-clr-dark);
       position: absolute;
-      z-index: var(--rpl-z-index-above-content);
+      z-index: var(--rpl-layer-1);
       top: auto !important;
       right: auto !important;
       bottom: calc(

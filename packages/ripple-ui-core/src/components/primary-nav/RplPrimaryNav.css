@@ -50,6 +50,10 @@
     display: none;
   }
 
+  .rpl-primary-nav--fixed & {
+    position: fixed;
+  }
+
   .rpl-primary-nav--expanded & {
     transition: height var(--rpl-motion-speed-7) ease-in,
       background-color var(--rpl-motion-speed-4) ease-in;

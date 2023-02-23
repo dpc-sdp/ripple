@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.90](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.89...v2.1.0-alpha.90) (2023-02-22)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-news
+
+# [2.1.0-alpha.89](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.88...v2.1.0-alpha.89) (2023-02-21)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-news
+
+# [2.1.0-alpha.88](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.87...v2.1.0-alpha.88) (2023-02-21)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-news
+
+# [2.1.0-alpha.87](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.86...v2.1.0-alpha.87) (2023-02-20)
+
+### Bug Fixes
+
+* :bug: unify dateFormat util, move news call to sfc ([97f8d65](https://github.com/dpc-sdp/ripple-framework/commit/97f8d6572e0eeb0e107f9bc887192f4028601bc9))
+
 # [2.1.0-alpha.86](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.85...v2.1.0-alpha.86) (2023-02-20)
 
 **Note:** Version bump only for package @dpc-sdp/ripple-tide-news

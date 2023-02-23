@@ -36,18 +36,6 @@ interface RawCardImage {
   data: RawCardImageData[]
 }
 
-export const formatDate = (value, options = {}) => {
-  const date = new Date(value)
-  const defaultOptions = { dateStyle: 'full' }
-
-  options = {
-    ...defaultOptions,
-    ...options
-  }
-
-  return new Intl.DateTimeFormat('en-AU', options).format(date)
-}
-
 /**
  * @deprecated Need to make a decision on whether we proxy images or use direct url
  */
@@ -246,6 +234,5 @@ export default {
   getBodyFromField,
   humanizeFilesize,
   getField,
-  formatDate,
   getSiteKeyValues
 }

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, computed, watch, onMounted, onUnmounted, useSlots } from 'vue'
 import type { Ref } from 'vue'
+import { useElementBounding } from '@vueuse/core'
 import { useFocusTrap } from '@vueuse/integrations/useFocusTrap'
 import RplPrimaryNavBar from './components/nav-bar/RplPrimaryNavBar.vue'
 import RplPrimaryNavMegaMenu from './components/mega-menu/RplPrimaryNavMegaMenu.vue'
@@ -28,11 +29,14 @@ const props = withDefaults(defineProps<Props>(), {
 
 const slots = useSlots()
 
-const focusTrapTarget = ref()
+const navContainer = ref()
 const { activate: activateFocusTrap, deactivate: deactivateFocusTrap } =
-  useFocusTrap(focusTrapTarget)
+  useFocusTrap(navContainer)
+const { top: navOffest } = useElementBounding(navContainer)
 
 const isHidden: Ref<boolean> = ref(false)
+const isFixed: Ref<boolean> = ref(false)
+const scrollPosition: Ref<number> = ref(0)
 const isMegaNavActive: Ref<boolean> = ref(false)
 const isSearchActive: Ref<boolean> = ref(false)
 const activeNavItems: Ref<IRplPrimaryNavActiveItems> = ref({
@@ -42,8 +46,13 @@ const activeNavItems: Ref<IRplPrimaryNavActiveItems> = ref({
 })
 
 const handleScroll = () => {
-  // If the page is not scrolled to the top, set isHidden to true
-  isHidden.value = window.scrollY > 0 ? true : false
+  const newPosition = window.scrollY
+  const scrollingDown = newPosition > scrollPosition.value
+  const beyondNav = navOffest.value <= 0
+
+  scrollPosition.value = newPosition
+  isHidden.value = scrollingDown && beyondNav
+  isFixed.value = !scrollingDown && beyondNav
 }
 
 const handleEscapeKey = (event) => {
@@ -146,37 +155,28 @@ const classList = computed(() => {
     classes.push('rpl-primary-nav--hidden')
   }
 
+  if (isFixed.value) {
+    classes.push('rpl-primary-nav--fixed')
+  }
+
   if (isExpanded.value) {
     classes.push('rpl-primary-nav--expanded')
   }
 
-  let itemCount = props?.items?.length ? props.items.length : 0
-  if (props.showSearch) {
-    itemCount++
-  }
-  if (slots.userAction) {
-    itemCount++
-  }
+  let itemCount = props?.items?.length || 0
+
+  if (props.showSearch) itemCount++
+  if (slots.userAction) itemCount++
+  if (props.secondaryLogo) itemCount++
+
   // Add classes to control when the desktop version of the nav bar appears
-  // show mobile nav bar until 'xl' breakpoint if:
-  // - nav bar has 6 items without secondary logo
-  // - nav bar has 5 items with secondary logo
-  // show mobile nav bar for all breakpoints if:
-  // - nav bar has 7 or more items without secondary logo
-  // - nav bar has 6 or more items with secondary logo
-  // else show mobile nav bar until 'l' breakpoint
-  if (
-    (itemCount == 6 && !props.secondaryLogo) ||
-    (itemCount == 5 && props.secondaryLogo)
-  ) {
-    classes.push('rpl-primary-nav--collapse-until-xl')
-  } else if (
-    (itemCount >= 7 && !props.secondaryLogo) ||
-    (itemCount >= 6 && props.secondaryLogo)
-  ) {
-    classes.push('rpl-primary-nav--collapse-always')
-  } else {
+  // supplementary elements are counted too, i.e. search, userActions and secondaryLogo
+  if (itemCount <= 6) {
     classes.push('rpl-primary-nav--collapse-until-l')
+  } else if (itemCount === 7) {
+    classes.push('rpl-primary-nav--collapse-until-xl')
+  } else if (itemCount > 7) {
+    classes.push('rpl-primary-nav--collapse-always')
   }
 
   return classes.join(' ')
@@ -184,7 +184,7 @@ const classList = computed(() => {
 </script>
 
 <template>
-  <nav ref="focusTrapTarget" :class="classList">
+  <nav ref="navContainer" :class="classList">
     <div class="rpl-primary-nav__inner">
       <!-- Nav bar -->
       <RplPrimaryNavBar

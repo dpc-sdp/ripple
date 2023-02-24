@@ -46,7 +46,9 @@ provide('featureFlags', {
 
 .docs-theme--module {
   --rpl-clr-primary: #003174;
+  --rpl-clr-type-primary-accessible: #003174;
   --rpl-clr-primary-alt: #0052c2;
+  --rpl-clr-type-primary-alt-accessible: #0052c2;
   --rpl-clr-link: #0052c2;
 }
 

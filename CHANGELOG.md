@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.93](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.92...v2.1.0-alpha.93) (2023-02-24)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** make all nav stories fullscreen ([5f05db1](https://github.com/dpc-sdp/ripple-framework/commit/5f05db1ec579af6e526b3391fdc500f2a03534e7))
+
 # [2.1.0-alpha.92](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.91...v2.1.0-alpha.92) (2023-02-23)
 
 ### Features

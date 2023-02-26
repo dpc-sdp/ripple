@@ -1,5 +1,5 @@
 <template>
-  <AppLayout>
+  <AppLayout :theme="isModuleSection ? 'module' : 'default'">
     <template #menuContents>
       <DocsContentNavigation />
     </template>
@@ -41,6 +41,10 @@ import { useContent, useContentHead } from '#imports'
 const { page } = useContent()
 
 useContentHead(page)
+
+const route = useRoute()
+const sectionSlug = route.params.slug[0]
+const isModuleSection = sectionSlug === 'framework'
 </script>
 
 <style>

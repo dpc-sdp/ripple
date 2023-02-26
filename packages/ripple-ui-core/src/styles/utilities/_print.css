@@ -1,0 +1,13 @@
+.rpl-u-screen-only {
+  @media print {
+    display: none !important;
+  }
+}
+
+.rpl-u-print-only {
+  display: none;
+
+  @media print {
+    display: block;
+  }
+}

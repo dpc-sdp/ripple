@@ -16,7 +16,7 @@ withDefaults(defineProps<Props>(), {
 </script>
 
 <template>
-  <nav aria-label="breadcrumbs" class="rpl-breadcrumbs">
+  <nav aria-label="breadcrumbs" class="rpl-breadcrumbs rpl-u-screen-only">
     <ol v-if="items.length > 0" class="rpl-breadcrumbs__items rpl-type-p">
       <li
         v-for="(item, index) of items"

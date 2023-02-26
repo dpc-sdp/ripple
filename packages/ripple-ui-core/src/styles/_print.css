@@ -1,0 +1,5 @@
+@media print {
+  [data-print-url]::after {
+    content: ' <' attr(data-print-url) '> ';
+  }
+}

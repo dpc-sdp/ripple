@@ -1,11 +1,8 @@
-import { computed, ref } from 'vue'
-import type { Ref } from 'vue'
+import { computed } from 'vue'
 
 export default (url: string) => {
   const pathRegex = /^\/.*/i
   const urlRegex = /^(https?:\/\/)/i
-
-  const urlRef: Ref<string | null> = ref(url)
   const baseUrl = typeof window !== 'undefined' ? window.location.origin : ''
 
   const printUrl = computed(() => {

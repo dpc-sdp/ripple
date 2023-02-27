@@ -200,12 +200,15 @@ const isActionsListEmpty = computed(() => {
           :url="downloadUrl"
           download
         >
-          <RplIcon name="icon-download" />Download '{{ title }}'
+          <RplIcon name="icon-download" class="rpl-u-screen-only" />Download '{{
+            title
+          }}'
         </RplTextLink>
       </li>
     </ul>
 
     <RplModal
+      class="rpl-media-embed__modal"
       :is-open="isFullScreenOpen"
       @close="() => (isFullScreenOpen = false)"
     >

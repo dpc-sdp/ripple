@@ -7,6 +7,7 @@
   color: var(--rpl-clr-type-default);
   text-decoration: none;
   overflow: hidden;
+  break-inside: avoid-page;
 
   @media print {
     &::after {
@@ -103,6 +104,12 @@
     .rpl-text-link {
       color: var(--rpl-clr-type-default);
       text-decoration: none;
+
+      @media print {
+        &::after {
+          display: none;
+        }
+      }
     }
 
     &.rpl-type-h3-highlight {

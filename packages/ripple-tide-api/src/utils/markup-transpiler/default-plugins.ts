@@ -127,11 +127,26 @@ const pluginButtons = function (this: any) {
   })
 }
 
+const pluginLinks = function (this: any) {
+  this.find('a').map((i: any, el: any) => {
+    const $anchor = this.find(el)
+
+    if (!$anchor.attr('class')) {
+      $anchor.addClass('rpl-text-link rpl-u-focusable-inline')
+    }
+
+    $anchor.attr('data-print-url', $anchor.attr('href') || '')
+
+    return $anchor
+  })
+}
+
 export default [
   pluginTables,
   pluginCallout,
   pluginQuotation,
   pluginDocuments,
   pluginImages,
-  pluginButtons
+  pluginButtons,
+  pluginLinks
 ]

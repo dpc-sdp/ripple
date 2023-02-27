@@ -1,7 +1,5 @@
 <script setup lang="ts">
-import { computed, useSlots } from 'vue'
-
-const slots = useSlots()
+import { computed } from 'vue'
 
 interface Props {
   fullWidth?: boolean

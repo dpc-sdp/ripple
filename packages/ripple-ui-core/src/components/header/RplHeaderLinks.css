@@ -8,6 +8,12 @@
     color: var(--local-clr-link, var(--rpl-clr-link));
     white-space: nowrap;
     display: inline;
+
+    @media print {
+      --local-clr-link: var(--rpl-clr-link);
+
+      white-space: normal;
+    }
   }
 
   .rpl-list__label,

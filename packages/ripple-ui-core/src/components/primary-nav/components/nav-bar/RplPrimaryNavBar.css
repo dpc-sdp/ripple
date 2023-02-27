@@ -21,6 +21,11 @@
     padding-bottom: var(--rpl-sp-3);
     padding-left: var(--rpl-sp-5);
   }
+
+  @media print {
+    padding-left: 0;
+    padding-top: var(--rpl-sp-5);
+  }
 }
 
 .rpl-primary-nav__primary-logo-link {
@@ -37,6 +42,13 @@
   display: block;
   width: 106px;
   height: 16px;
+
+  @media print {
+    width: auto;
+    height: 30px;
+    padding-top: var(--rpl-sp-1);
+    padding-bottom: var(--rpl-sp-1);
+  }
 }
 
 .rpl-primary-nav__logo-divider {
@@ -47,6 +59,10 @@
 
   @media (--rpl-bp-s) {
     display: block;
+  }
+
+  @media print {
+    border-left-color: var(--rpl-clr-neutral-300);
   }
 }
 
@@ -67,6 +83,10 @@
 
   @media (--rpl-bp-s) {
     padding-right: calc(var(--rpl-sp-5) - 10px);
+  }
+
+  @media print {
+    visibility: hidden;
   }
 
   a,

@@ -20,7 +20,7 @@ const mainClasses = computed(() => ({
 
 <template>
   <div class="rpl-header">
-    <div v-if="$slots.behind" class="rpl-header__behind">
+    <div v-if="$slots.behind" class="rpl-header__behind rpl-u-screen-only">
       <slot name="behind"></slot>
     </div>
     <div class="rpl-container">

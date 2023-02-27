@@ -8,6 +8,15 @@
   text-decoration: none;
   overflow: hidden;
 
+  @media print {
+    &::after {
+      display: block;
+      margin: var(--rpl-sp-5);
+      color: var(--rpl-clr-link);
+      text-decoration: underline;
+    }
+  }
+
   &__media {
     display: block;
     width: 100%;
@@ -84,6 +93,11 @@
     .rpl-card__lower & {
       color: var(--rpl-clr-type-default);
       font-weight: var(--rpl-type-weight-bold);
+
+      @media print {
+        color: var(--rpl-clr-link);
+        font-weight: var(--rpl-type-weight-regular);
+      }
     }
 
     .rpl-text-link {
@@ -232,6 +246,12 @@
     background-color: transparent;
     border-radius: 0;
     border: none;
+
+    @media print {
+      &::after {
+        margin-left: 0;
+      }
+    }
 
     .rpl-card__cta .rpl-text-link {
       text-decoration: underline;

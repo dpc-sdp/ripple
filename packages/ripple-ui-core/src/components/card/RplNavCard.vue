@@ -7,6 +7,7 @@ import RplTextLink from '../text-link/RplTextLink.vue'
 import RplImage from '../image/RplImage.vue'
 import { RplCardElements } from './constants'
 import { RplImageType } from '../image/constants'
+import usePrintUrl from '../../composables/usePrintUrl'
 
 interface Props {
   el?: (typeof RplCardElements)[number]
@@ -39,11 +40,19 @@ const imgClasses = computed(() => [
   props.inset ? 'rpl-card__media--inset' : null
 ])
 
+const printUrl = usePrintUrl(props.url)
 const { container, trigger } = useAccessibleContainer()
 </script>
 
 <template>
-  <RplCard ref="container" type="nav" :el="el" :link="url" :class="cardClasses">
+  <RplCard
+    ref="container"
+    type="nav"
+    :el="el"
+    :link="url"
+    :class="cardClasses"
+    :data-print-url="printUrl"
+  >
     <template v-if="image" #upper>
       <RplImage
         v-bind="image"

@@ -1,7 +1,3 @@
-<script lang="ts">
-export default { name: 'RplHeaderActions' }
-</script>
-
 <script setup lang="ts">
 import RplTextLink from '../text-link/RplTextLink.vue'
 import RplIcon from '../icon/RplIcon.vue'

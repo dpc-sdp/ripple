@@ -1,6 +1,7 @@
 export interface IRplPrimaryNavLogo {
   href: string
   src: string
+  printSrc?: string
   altText: string
 }
 

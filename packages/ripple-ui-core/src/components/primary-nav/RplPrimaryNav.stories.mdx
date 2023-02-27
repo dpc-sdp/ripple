@@ -52,6 +52,15 @@ export const CustomLoginButtonTemplate = (args) => ({
 <Meta
   title='Core/Navigation/Primary nav'
   component={RplPrimaryNav}
+  args={{
+    primaryLogo: {
+      href: '#',
+      src: '/img/primary-nav-logo-primary.svg',
+      printSrc: '/img/primary-nav-logo-primary-print.svg',
+      altText: 'Primary logo alt text'
+    },
+    items: RplPrimaryNavItems
+  }}
 />
 
 # Primary nav
@@ -65,14 +74,6 @@ export const CustomLoginButtonTemplate = (args) => ({
     parameters={{
       layout: 'fullscreen'
     }}
-    args={{
-      primaryLogo: {
-        href: '#',
-        src: '/img/primary-nav-logo-primary.svg',
-        altText: 'Primary logo alt text'
-      },
-      items: RplPrimaryNavItems
-    }}
   >
     {SingleTemplate.bind()}
   </Story>
@@ -83,17 +84,12 @@ export const CustomLoginButtonTemplate = (args) => ({
     name='With secondary logo'
     play={a11yStoryCheck}
     args={{
-      primaryLogo: {
-        href: '#',
-        src: '/img/primary-nav-logo-primary.svg',
-        altText: 'Primary logo alt text'
-      },
       secondaryLogo: {
         href: '#',
         src: '/img/primary-nav-logo-secondary.svg',
-        altText: 'Secondary logo alt text'
-      },
-      items: RplPrimaryNavItems
+        altText: 'Secondary logo alt text',
+        printSrc: '/img/primary-nav-logo-secondary-print.svg'
+      }
     }}
   >
     {SingleTemplate.bind()}
@@ -105,17 +101,12 @@ export const CustomLoginButtonTemplate = (args) => ({
     name='With custom user action'
     play={a11yStoryCheck}
     args={{
-      primaryLogo: {
-        href: '#',
-        src: '/img/primary-nav-logo-primary.svg',
-        altText: 'Primary logo alt text'
-      },
       secondaryLogo: {
         href: '#',
         src: '/img/primary-nav-logo-secondary.svg',
-        altText: 'Secondary logo alt text'
-      },
-      items: RplPrimaryNavItems
+        altText: 'Secondary logo alt text',
+        printSrc: '/img/primary-nav-logo-secondary-print.svg'
+      }
     }}
   >
     {CustomLoginButtonTemplate.bind()}

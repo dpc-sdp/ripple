@@ -1,3 +1,14 @@
+.rpl-slider__swiper {
+  /* stylelint-disable selector-class-pattern */
+  .swiper-wrapper {
+    @media print {
+      gap: var(--rpl-sp-4);
+      flex-direction: column;
+      transform: none;
+    }
+  }
+}
+
 .rpl-slider__pagination + .rpl-slider__swiper,
 .rpl-slider__swiper + .rpl-slider__pagination {
   margin-top: var(--rpl-sp-4);
@@ -6,6 +17,13 @@
 .rpl-slider__slide {
   height: auto;
   display: flex;
+
+  @media print {
+    /* Needs to override the inline style */
+    opacity: 1 !important;
+    width: auto !important;
+    transform: none !important;
+  }
 
   > * {
     width: 100%;

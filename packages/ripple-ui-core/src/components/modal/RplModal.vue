@@ -30,9 +30,9 @@ watch(
     // If running in a browser and isOpen changes toggle viewport locked class
     if (typeof window !== 'undefined') {
       if (newValue) {
-        document.body.classList.add('rpl-viewport-locked')
+        document.body.classList.add('rpl-viewport-locked', 'rpl-modal-open')
       } else {
-        document.body.classList.remove('rpl-viewport-locked')
+        document.body.classList.remove('rpl-viewport-locked', 'rpl-modal-open')
       }
     }
   }
@@ -48,29 +48,31 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <UseFocusTrap v-if="props.isOpen" :options="{ immediate: true }">
-    <div class="rpl-modal" data-cy="modal">
-      <div class="rpl-modal__inner">
-        <slot name="above">
-          <div class="rpl-modal__actions">
-            <RplButton
-              label="Close"
-              icon-name="icon-cancel"
-              theme="neutral"
-              variant="elevated"
-              @click="closeModal"
-            />
+  <teleport to="body">
+    <UseFocusTrap v-if="props.isOpen" :options="{ immediate: true }">
+      <div class="rpl-modal" data-cy="modal" v-bind="$attrs">
+        <div class="rpl-modal__inner">
+          <slot name="above">
+            <div class="rpl-modal__actions">
+              <RplButton
+                label="Close"
+                icon-name="icon-cancel"
+                theme="neutral"
+                variant="elevated"
+                @click="closeModal"
+              />
+            </div>
+          </slot>
+          <div class="rpl-modal__main">
+            <slot />
           </div>
-        </slot>
-        <div class="rpl-modal__main">
-          <slot />
-        </div>
-        <div v-if="$slots.below" class="rpl-modal__below">
-          <slot name="below" />
+          <div v-if="$slots.below" class="rpl-modal__below">
+            <slot name="below" />
+          </div>
         </div>
       </div>
-    </div>
-  </UseFocusTrap>
+    </UseFocusTrap>
+  </teleport>
 </template>
 
 <style src="./RplModal.css" />

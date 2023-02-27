@@ -11,6 +11,7 @@ import RplIcon from '../icon/RplIcon.vue'
 import { rplEventBus } from '../../index'
 import type { IRplFeatureFlags } from '@dpc-sdp/ripple-tide-api/types'
 import RplSpinner from '../spinner/RplSpinner.vue'
+import usePrintUrl from '../../composables/usePrintUrl'
 
 rplEventBus.register('rpl-button/click')
 const emit = defineEmits(['click'])
@@ -70,17 +71,21 @@ const onClick = (payload?: any) => {
 const link: Ref = ref(null)
 
 defineExpose({ link })
+
+const printUrl = usePrintUrl(props.url)
+const isAnchor = computed(() => props.el === 'a')
 </script>
 
 <template>
   <component
     :is="el"
     ref="link"
-    :href="el === 'a' ? url : null"
+    :href="isAnchor ? url : null"
     type="button"
     :class="classes"
     :disabled="disabled"
     :aria-busy="busy"
+    :data-print-url="isAnchor ? printUrl : null"
     @click="onClick"
   >
     <span v-if="busy" class="rpl-button__spinner"> <RplSpinner /></span>

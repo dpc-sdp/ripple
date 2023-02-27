@@ -146,6 +146,24 @@
   }
 }
 
+a.rpl-button {
+  @media print {
+    padding: 0;
+    border: none;
+    color: var(--rpl-clr-link);
+    background-color: transparent;
+    text-decoration: underline;
+    flex-wrap: wrap;
+    justify-content: start;
+  }
+
+  .rpl-button__label {
+    @media print {
+      font-weight: var(--rpl-clr-type-light);
+    }
+  }
+}
+
 .rpl-button--busy {
   .rpl-button__icon,
   .rpl-button__label {

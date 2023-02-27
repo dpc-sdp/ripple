@@ -5,9 +5,9 @@
 }
 
 .rpl-u-print-only {
-  display: none;
+  display: none !important;
 
   @media print {
-    display: block;
+    display: block !important;
   }
 }

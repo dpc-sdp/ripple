@@ -11,6 +11,10 @@
     margin-top: var(--rpl-sp-6);
   }
 
+  @media print {
+    background-color: transparent;
+  }
+
   > {
     :first-child {
       margin-top: 0;

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.94](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.93...v2.1.0-alpha.94) (2023-02-27)
+
+### Features
+
+* **@dpc-sdp/nuxt-ripple:** drop-in more modern ts version of deepmerge ([89e05d1](https://github.com/dpc-sdp/ripple-framework/commit/89e05d1be71b128b60cc0152c463c1fe0316f2da))
+
 # [2.1.0-alpha.93](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.92...v2.1.0-alpha.93) (2023-02-24)
 
 **Note:** Version bump only for package @dpc-sdp/nuxt-ripple

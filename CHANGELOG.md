@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.94](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.93...v2.1.0-alpha.94) (2023-02-27)
+
+### Features
+
+* **@dpc-sdp/nuxt-ripple:** drop-in more modern ts version of deepmerge ([89e05d1](https://github.com/dpc-sdp/ripple-framework/commit/89e05d1be71b128b60cc0152c463c1fe0316f2da))
+* **@dpc-sdp/ripple-tide-search:** use searchOption instead of mounted for consistency ([d227432](https://github.com/dpc-sdp/ripple-framework/commit/d227432bc63c8adb88ad5b333f150e3e1a4b70e6))
+* **docs:** added theming for module section of docs site ([f807122](https://github.com/dpc-sdp/ripple-framework/commit/f807122c6da20acb78f0c45076e766a7271acf90))
+
 # [2.1.0-alpha.93](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.92...v2.1.0-alpha.93) (2023-02-24)
 
 ### Bug Fixes

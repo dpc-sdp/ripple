@@ -19,6 +19,9 @@
     "nuxt-component-meta": "^0.4.3"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-ui-core": "workspace:*"
+    "@dpc-sdp/ripple-ui-core": "workspace:*",
+    "@highlightjs/vue-plugin": "next",
+    "highlight.js": "^11.7.0",
+    "iframe-resizer": "^4.3.4"
   }
 }

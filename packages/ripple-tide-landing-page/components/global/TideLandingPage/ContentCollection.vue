@@ -41,7 +41,7 @@
 
 <script setup lang="ts">
 import { formatDate, useTideSearch, useRuntimeConfig } from '#imports'
-import { computed, inject, onMounted } from 'vue'
+import { computed, inject } from 'vue'
 import {
   IContentCollectionDisplay,
   IContentCollectionFilter,
@@ -107,6 +107,7 @@ const searchResultsMappingFn = (item): any => {
 
 const searchDriverOptions = {
   trackUrlState: false,
+  alwaysSearchOnInitialLoad: true,
   initialState: {
     resultsPerPage: props.perPage,
     sortList: [
@@ -146,12 +147,10 @@ const searchDriverOptions = {
   }
 }
 
-const { doSearch, results } = await useTideSearch(
+const { results } = await useTideSearch(
   apiConnectorOptions,
   searchDriverOptions,
   [],
   searchResultsMappingFn
 )
-
-onMounted(() => doSearch())
 </script>

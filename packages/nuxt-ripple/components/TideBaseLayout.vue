@@ -89,7 +89,7 @@
 import { useHead, useSiteTheme, useAppConfig, useRoute } from '#imports'
 import { RplChip } from '#components'
 import { computed, onMounted, provide, ref } from 'vue'
-import deepmerge from 'deepmerge'
+import { deepmerge } from 'deepmerge-ts'
 import { TideSiteData } from '../types'
 import { TideTopicTag } from '../mapping/topic-tags/topic-tags-mapping'
 import { TideSiteSection } from '@dpc-sdp/ripple-tide-api/types'

@@ -198,6 +198,7 @@ jobs:
             curl -L https://pnpm.js.org/pnpm.js | node - add --global pnpm@7
       - run: SHELL=$SHELL pnpm setup
       - run: pnpm install puppeteer -w
+      - run: pnpm -F nuxt-ripple-cli build
       - run: npm install ./packages/nuxt-ripple-cli --global
       - run: pnpm -F nuxt-app lighthouse:ci
       - store_artifacts:

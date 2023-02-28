@@ -136,6 +136,7 @@ importers:
       '@nuxtjs/tailwindcss': ^6.3.1
       '@nuxtlabs/github-module': ^1.6.1
       '@tailwindcss/typography': ^0.5.7
+      '@types/iframe-resizer': ^3.5.9
       highlight.js: ^11.7.0
       iframe-resizer: ^4.3.4
       nuxt-component-meta: ^0.4.3
@@ -152,6 +153,7 @@ importers:
       '@nuxtjs/tailwindcss': 6.3.1_webpack@5.75.0
       '@nuxtlabs/github-module': 1.6.1
       '@tailwindcss/typography': 0.5.9_tailwindcss@3.2.4
+      '@types/iframe-resizer': 3.5.9
       nuxt-component-meta: 0.4.3
 
   examples/nuxt-app:
@@ -7347,6 +7349,10 @@ packages:
       '@types/node': 18.13.0
     dev: false
 
+  /@types/iframe-resizer/3.5.9:
+    resolution: {integrity: sha512-RQUBI75F+uXruB95BFpC/8V8lPgJg4MQ6HxOCtAZYBB/h0FNCfrFfb4I+u2pZJIV7sKeszZbFqy1UnGeBMrvsA==}
+    dev: true
+
   /@types/inquirer/8.2.5:
     resolution: {integrity: sha512-QXlzybid60YtAwfgG3cpykptRYUx2KomzNutMlWsQC64J/WG/gQSl+P4w7A21sGN0VIxRVava4rgnT7FQmFCdg==}
     dependencies:
@@ -9615,7 +9621,7 @@ packages:
       '@babel/core': 7.20.12
       find-cache-dir: 3.3.2
       schema-utils: 4.0.0
-      webpack: 5.75.0
+      webpack: 5.75.0_esbuild@0.16.17
     dev: true
 
   /babel-messages/6.23.0:

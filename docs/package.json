@@ -17,6 +17,7 @@
     "@nuxtjs/tailwindcss": "^6.3.1",
     "@nuxtlabs/github-module": "^1.6.1",
     "@tailwindcss/typography": "^0.5.7",
+    "@types/iframe-resizer": "^3.5.9",
     "nuxt-component-meta": "^0.4.3"
   },
   "dependencies": {

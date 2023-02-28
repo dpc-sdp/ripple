@@ -3,7 +3,7 @@
     ref="target"
     :class="{ 'docs-example': true, 'with-padding': withPadding }"
   >
-    <div class="docs-example-header">
+    <div class="docs-example-header" v-if="!hideNewTab">
       <RplTextLink :url="storybookPreviewUrl" target="_blank"
         >Open this example in a new tab</RplTextLink
       >
@@ -17,10 +17,10 @@
       ></iframe>
       <div v-else class="frame"></div>
     </div>
-    <div class="docs-example-footer">
+    <div class="docs-example-footer" v-if="!hideCode">
       <button @click="handleToggleCode">Show code</button>
     </div>
-    <div v-if="showCode" class="docs-example-code">
+    <div v-if="isCodeOpen" class="docs-example-code">
       <code class="hljs xml" v-html="highlightedCode" />
     </div>
   </div>
@@ -37,6 +37,8 @@ hljs.registerLanguage('xml', xml)
 
 interface Props {
   id: string
+  hideNewTab: boolean
+  hideCode: boolean
   withPadding: boolean
 }
 
@@ -46,7 +48,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 const SNIPPET_RENDERED = `storybook/docs/snippet-rendered`
 
-const showCode = ref(false)
+const isCodeOpen = ref(false)
 const sourceCode = ref('')
 const hasAppeared = ref(false)
 
@@ -62,7 +64,7 @@ const vResize = {
 }
 
 const handleToggleCode = () => {
-  showCode.value = !showCode.value
+  isCodeOpen.value = !isCodeOpen.value
 }
 
 onMounted(() => {
@@ -98,11 +100,11 @@ const highlightedCode = computed((): string => {
 
 const { storybookBaseUrl } = useAppConfig()
 
-const theme = 'default'
+const theme = inject('exampleTheme', 'default')
 
 const storybookPreviewUrl = computed(
   () =>
-    `${storybookBaseUrl}/iframe.html?args=&id=${props.id}&viewMode=story&globals=theme:${theme}`
+    `${storybookBaseUrl}/iframe.html?args=&id=${props.id}&viewMode=story&globals=theme:${theme.value}`
 )
 
 watch(targetIsVisible, (visible, wasVisible) => {
@@ -113,9 +115,16 @@ watch(targetIsVisible, (visible, wasVisible) => {
 </script>
 
 <style scoped>
+@import '@dpc-sdp/ripple-ui-core/style/breakpoints';
 .docs-example {
   border: var(--rpl-border-1) solid var(--rpl-clr-neutral-300);
   background: white;
+
+  margin: var(--rpl-sp-3) 0;
+
+  @media (--rpl-bp-l) {
+    margin: var(--rpl-sp-4) 0;
+  }
 }
 
 .frame {

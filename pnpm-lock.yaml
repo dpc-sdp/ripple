@@ -128,7 +128,6 @@ importers:
   docs:
     specifiers:
       '@dpc-sdp/ripple-ui-core': workspace:*
-      '@highlightjs/vue-plugin': next
       '@iconify/vue': ^4.1.0
       '@nuxt/content': ^2.4.3
       '@nuxt/kit': ^3.1.2
@@ -141,7 +140,6 @@ importers:
       nuxt-component-meta: ^0.4.3
     dependencies:
       '@dpc-sdp/ripple-ui-core': link:../packages/ripple-ui-core
-      '@highlightjs/vue-plugin': 2.1.2_jsvakxz56e7tk77soxhxnrhzhm
       highlight.js: 11.7.0
       iframe-resizer: 4.3.4
     devDependencies:
@@ -3470,16 +3468,6 @@ packages:
     dependencies:
       vue: 3.2.47
     dev: true
-
-  /@highlightjs/vue-plugin/2.1.2_jsvakxz56e7tk77soxhxnrhzhm:
-    resolution: {integrity: sha512-P7s9DLBGpBsbltk3ZKuYUu9lwDCEfpttjJ5ErI6Wco6GQWIsjcSCJzCoMHgXhRUNkFDtZo7ZgeF8M10POPbDLw==}
-    peerDependencies:
-      highlight.js: ^11.0.1
-      vue: ^3
-    dependencies:
-      highlight.js: 11.7.0
-      vue: 3.2.47
-    dev: false
 
   /@httptoolkit/httpolyglot/2.1.0:
     resolution: {integrity: sha512-IkTpczmtH8XM/vAL5SL2/aLJYVD1m9KOMZEfl5AaI+xve7EBrj7NRPztk4YKC364tes3cnzCFg5JMjVpVqzWUw==}

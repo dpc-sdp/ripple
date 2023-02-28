@@ -21,7 +21,7 @@
       <button @click="handleToggleCode">Show code</button>
     </div>
     <div v-if="showCode" class="docs-example-code">
-      <highlightjs language="xml" :code="sourceCode" />
+      <code class="hljs xml" v-html="highlightedCode" />
     </div>
   </div>
 </template>
@@ -29,6 +29,11 @@
 <script lang="ts" setup>
 import iframeResize from 'iframe-resizer/js/iframeResizer'
 import { useElementVisibility } from '@vueuse/core'
+import 'highlight.js/styles/github.css'
+import hljs from 'highlight.js/lib/core'
+import xml from 'highlight.js/lib/languages/xml'
+
+hljs.registerLanguage('xml', xml)
 
 interface Props {
   id: string
@@ -73,7 +78,7 @@ onMounted(() => {
       } catch {
         return
       }
-      if (parsedData.event.type === SNIPPET_RENDERED) {
+      if (parsedData.event?.type === SNIPPET_RENDERED) {
         if (parsedData.event.args[0] === props.id) {
           sourceCode.value = parsedData.event.args[1]
         }
@@ -81,6 +86,14 @@ onMounted(() => {
     },
     false
   )
+})
+
+const highlightedCode = computed((): string => {
+  const result = hljs.highlight(sourceCode.value, {
+    language: 'xml'
+  })
+
+  return result.value
 })
 
 const { storybookBaseUrl } = useAppConfig()
@@ -135,5 +148,8 @@ watch(targetIsVisible, (visible, wasVisible) => {
 .docs-example-code .hljs {
   background: var(--rpl-clr-neutral-100);
   padding: var(--rpl-sp-5);
+  white-space: pre;
+  overflow-x: auto;
+  display: block;
 }
 </style>

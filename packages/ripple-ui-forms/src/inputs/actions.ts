@@ -1,5 +1,5 @@
 import { FormKitTypeDefinition } from '@formkit/core'
-import { localize, ignores, outer, createSection } from '@formkit/inputs'
+import { localize, ignores, createSection } from '@formkit/inputs'
 import { inputLibrary } from './input-utils'
 
 /**

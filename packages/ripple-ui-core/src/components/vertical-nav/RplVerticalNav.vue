@@ -32,7 +32,9 @@ const { isItemExpanded, toggleItem } = useExpandableState(
 
 <template>
   <nav class="rpl-vertical-nav rpl-u-screen-only">
-    <h3 class="rpl-vertical-nav__heading rpl-type-h3-fixed">{{ title }}</h3>
+    <h3 v-if="title" class="rpl-vertical-nav__heading rpl-type-h3-fixed">
+      {{ title }}
+    </h3>
 
     <ul
       class="rpl-vertical-nav__list rpl-vertical-nav__list--level-1 rpl-type-p-small"

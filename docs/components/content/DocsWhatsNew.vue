@@ -30,6 +30,6 @@ const props = withDefaults(defineProps<Props>(), {
 
 <style scoped>
 .custom {
-  background: var(--rpl-clr-neutral-100);
+  border-top: var(--rpl-border-1) solid var(--rpl-clr-neutral-300);
 }
 </style>

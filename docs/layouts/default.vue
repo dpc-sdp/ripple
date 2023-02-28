@@ -1,14 +1,27 @@
 <template>
-  <AppLayout>
-    <div class="rpl-container">
-      <div class="rpl-grid">
-        <AppSidebar class="rpl-col-12 rpl-col-3-m"></AppSidebar>
-        <main class="rpl-col-12 rpl-col-9-m docs-main">
-          <DocsPageHeader
-            :title="page.title"
-            :description="page.description"
-            :links="page.links"
-          />
+  <AppLayout :theme="isModuleSection ? 'module' : 'default'">
+    <template #menuContents>
+      <DocsContentNavigation />
+    </template>
+
+    <div class="rpl-grid">
+      <aside
+        class="docs-sidebar rpl-col-12 rpl-col-3-m"
+        :style="{
+          '--local-vertical-nav-background': 'transparent',
+          '--local-vertical-nav-item-gutter': 'var(--rpl-sp-3)',
+          '--local-vertical-nav-hover-bg': 'var(--rpl-clr-neutral-100)'
+        }"
+      >
+        <DocsContentNavigation />
+      </aside>
+      <main class="docs-main rpl-col-12 rpl-col-9-l">
+        <DocsPageHeader
+          :title="page.title"
+          :description="page.description"
+          :links="page.links"
+        />
+        <div class="docs-content">
           <ContentRenderer
             :tag="page.tag || 'RplContent'"
             v-if="page"
@@ -16,8 +29,8 @@
             :value="page"
           >
           </ContentRenderer>
-        </main>
-      </div>
+        </div>
+      </main>
     </div>
   </AppLayout>
 </template>
@@ -25,18 +38,42 @@
 <script setup lang="ts">
 import { useContent, useContentHead } from '#imports'
 
-const { page, toc } = useContent()
+const { page } = useContent()
 
 useContentHead(page)
+
+const route = useRoute()
+const sectionSlug = route.params.slug[0]
+const isModuleSection = sectionSlug === 'framework'
 </script>
 
 <style>
+@import '@dpc-sdp/ripple-ui-core/style/breakpoints';
+
 :root {
   --rpl-content-max-width: none;
-  --rpl-clr-gradient-vertical: linear-gradient(180deg, #545454 0%, #3e3e3e 80%);
 }
 
 .docs-main {
-  padding-left: var(--rpl-sp-9);
+  @media (--rpl-bp-l) {
+    padding-left: var(--rpl-sp-9);
+  }
+}
+
+.docs-sidebar {
+  display: none;
+
+  @media (--rpl-bp-l) {
+    display: block;
+  }
+}
+
+.docs-content {
+  padding-top: var(--rpl-sp-3);
+  padding-bottom: var(--rpl-sp-4);
+
+  @media (--rpl-bp-m) {
+    padding-top: var(--rpl-sp-4);
+  }
 }
 </style>

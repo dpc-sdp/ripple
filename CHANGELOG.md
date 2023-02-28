@@ -3,6 +3,49 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.94](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.93...v2.1.0-alpha.94) (2023-02-27)
+
+### Features
+
+* **@dpc-sdp/nuxt-ripple:** drop-in more modern ts version of deepmerge ([89e05d1](https://github.com/dpc-sdp/ripple-framework/commit/89e05d1be71b128b60cc0152c463c1fe0316f2da))
+* **@dpc-sdp/ripple-tide-search:** use searchOption instead of mounted for consistency ([d227432](https://github.com/dpc-sdp/ripple-framework/commit/d227432bc63c8adb88ad5b333f150e3e1a4b70e6))
+* **docs:** added theming for module section of docs site ([f807122](https://github.com/dpc-sdp/ripple-framework/commit/f807122c6da20acb78f0c45076e766a7271acf90))
+
+# [2.1.0-alpha.93](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.92...v2.1.0-alpha.93) (2023-02-24)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** make all nav stories fullscreen ([5f05db1](https://github.com/dpc-sdp/ripple-framework/commit/5f05db1ec579af6e526b3391fdc500f2a03534e7))
+
+# [2.1.0-alpha.92](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.91...v2.1.0-alpha.92) (2023-02-23)
+
+### Features
+
+* **docs:** added finalised homepage to docs site ([aa0fa34](https://github.com/dpc-sdp/ripple-framework/commit/aa0fa34ef9b23bb214c4578fdf1d224347ae59bc))
+
+# [2.1.0-alpha.91](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.90...v2.1.0-alpha.91) (2023-02-23)
+
+### Features
+
+* **docs:** added responsive nav to docs site ([35ca3fd](https://github.com/dpc-sdp/ripple-framework/commit/35ca3fd074f0320a50adc32081c51fc73b6c68b3))
+* **docs:** completed global site elements for docs site ([c2706b8](https://github.com/dpc-sdp/ripple-framework/commit/c2706b8b37e412d6d79e2d37e11e5e36b28ba3cc))
+
+# [2.1.0-alpha.90](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.89...v2.1.0-alpha.90) (2023-02-22)
+
+### Features
+
+* **nuxt-ripple:** add feature flag for topics and tags and deepmerge for options ([b31549a](https://github.com/dpc-sdp/ripple-framework/commit/b31549ada18ae1a38c7b4cad68e9879e6c140c83))
+
+# [2.1.0-alpha.89](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.88...v2.1.0-alpha.89) (2023-02-21)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-monorepo
+
+# [2.1.0-alpha.88](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.87...v2.1.0-alpha.88) (2023-02-21)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** fix aside cta link to display focus state inline ([da8d2ab](https://github.com/dpc-sdp/ripple-framework/commit/da8d2ab1f75c77b7d03479a3fb6522034c45f0d6))
+
 # [2.1.0-alpha.87](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.86...v2.1.0-alpha.87) (2023-02-20)
 
 ### Bug Fixes

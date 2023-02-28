@@ -30,9 +30,9 @@ watch(
     // If running in a browser and isOpen changes toggle viewport locked class
     if (typeof window !== 'undefined') {
       if (newValue) {
-        document.body.classList.add('rpl-viewport-locked')
+        document.body.classList.add('rpl-u-viewport-locked')
       } else {
-        document.body.classList.remove('rpl-viewport-locked')
+        document.body.classList.remove('rpl-u-viewport-locked')
       }
     }
   }

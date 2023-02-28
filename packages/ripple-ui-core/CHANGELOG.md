@@ -3,6 +3,32 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.93](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.92...v2.1.0-alpha.93) (2023-02-24)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** make all nav stories fullscreen ([5f05db1](https://github.com/dpc-sdp/ripple-framework/commit/5f05db1ec579af6e526b3391fdc500f2a03534e7))
+
+# [2.1.0-alpha.91](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.90...v2.1.0-alpha.91) (2023-02-23)
+
+### Features
+
+* **docs:** added responsive nav to docs site ([35ca3fd](https://github.com/dpc-sdp/ripple-framework/commit/35ca3fd074f0320a50adc32081c51fc73b6c68b3))
+
+# [2.1.0-alpha.90](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.89...v2.1.0-alpha.90) (2023-02-22)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-ui-core
+
+# [2.1.0-alpha.89](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.88...v2.1.0-alpha.89) (2023-02-21)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-ui-core
+
+# [2.1.0-alpha.88](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.87...v2.1.0-alpha.88) (2023-02-21)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** fix aside cta link to display focus state inline ([da8d2ab](https://github.com/dpc-sdp/ripple-framework/commit/da8d2ab1f75c77b7d03479a3fb6522034c45f0d6))
+
 # [2.1.0-alpha.87](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.86...v2.1.0-alpha.87) (2023-02-20)
 
 ### Bug Fixes

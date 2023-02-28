@@ -5,14 +5,13 @@
 </template>
 
 <script setup lang="ts">
-defineProps({
-  color: {
-    type: String,
-    required: true
-  },
-  height: {
-    type: Number
-  }
+interface Props {
+  color: string
+  height?: number
+}
+
+withDefaults(defineProps<Props>(), {
+  height: undefined
 })
 </script>
 

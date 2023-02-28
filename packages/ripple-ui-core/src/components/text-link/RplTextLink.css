@@ -6,6 +6,10 @@
 
   @media print {
     color: var(--rpl-clr-link);
+
+    &::after {
+      content: ' <' attr(href) '> ';
+    }
   }
 
   &:visited {

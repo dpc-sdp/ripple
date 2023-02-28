@@ -22,6 +22,12 @@
         text-decoration: underline;
       }
 
+      @media print {
+        &::after {
+          display: none;
+        }
+      }
+
       &:hover,
       &:focus-visible {
         .rpl-list__label {

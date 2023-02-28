@@ -23,7 +23,6 @@
 /* Global styles */
 @import '_fonts.css';
 @import '_reset.css';
-@import '_print.css';
 
 /* CSS only Components */
 @import 'components/_blockquote.css';

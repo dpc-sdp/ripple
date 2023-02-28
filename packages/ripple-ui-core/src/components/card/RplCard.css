@@ -107,7 +107,11 @@
 
       @media print {
         &::after {
-          display: none;
+          display: block;
+          color: var(--rpl-clr-link);
+          text-decoration: underline;
+          font-size: var(--rpl-type-size-2);
+          font-weight: var(--rpl-type-weight-regular);
         }
       }
     }

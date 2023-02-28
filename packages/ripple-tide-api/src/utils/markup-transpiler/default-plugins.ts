@@ -135,8 +135,6 @@ const pluginLinks = function (this: any) {
       $anchor.addClass('rpl-text-link rpl-u-focusable-inline')
     }
 
-    $anchor.attr('data-print-url', $anchor.attr('href') || '')
-
     return $anchor
   })
 }

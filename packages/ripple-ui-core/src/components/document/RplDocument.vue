@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { isExternalLink } from '../../lib/helpers'
-import usePrintUrl from '../../composables/usePrintUrl'
 
 interface Props {
   url: string
@@ -9,7 +8,6 @@ interface Props {
 
 const props = defineProps<Props>()
 
-const printUrl = usePrintUrl(props.url)
 const isExternal = computed(() => isExternalLink(props.url))
 </script>
 
@@ -23,7 +21,6 @@ const isExternal = computed(() => isExternalLink(props.url))
       :href="url"
       :download="isExternal ? null : ''"
       :target="isExternal ? '_blank' : null"
-      :data-print-url="printUrl"
     >
       <div v-if="$slots.icon" class="rpl-document__icon">
         <slot name="icon"></slot>

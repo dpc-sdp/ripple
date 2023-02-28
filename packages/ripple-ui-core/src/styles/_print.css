@@ -1,6 +1,0 @@
-@media print {
-  [data-print-url]::after {
-    content: ' <' attr(data-print-url) '> ';
-    font-size: var(--rpl-type-size-2);
-  }
-}

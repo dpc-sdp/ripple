@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { ref, Ref } from 'vue'
 import { rplEventBus } from '../../index'
-import usePrintUrl from '../../composables/usePrintUrl'
 
 rplEventBus.register('rpl-text-link/click')
 
@@ -19,8 +18,6 @@ const onClick = (payload?: any) => {
 const link: Ref = ref(null)
 
 defineExpose({ link })
-
-const printUrl = usePrintUrl(props.url)
 </script>
 
 <template>
@@ -28,7 +25,6 @@ const printUrl = usePrintUrl(props.url)
     ref="link"
     class="rpl-text-link rpl-u-focusable-inline"
     :href="url"
-    :data-print-url="printUrl"
     @click="onClick"
   >
     <slot>{{ text }}</slot>

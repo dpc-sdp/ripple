@@ -43,14 +43,15 @@
 
   @media print {
     flex-wrap: wrap;
-  }
 
-  &::after {
-    display: block;
-    width: 100%;
-    color: var(--rpl-clr-link);
-    text-decoration: underline;
-    margin-top: var(--rpl-sp-3);
+    &::after {
+      content: ' <' attr(href) '> ';
+      display: block;
+      width: 100%;
+      color: var(--rpl-clr-link);
+      text-decoration: underline;
+      margin-top: var(--rpl-sp-3);
+    }
   }
 
   &:hover .rpl-document__name {

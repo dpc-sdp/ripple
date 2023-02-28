@@ -85,7 +85,7 @@ export const withSource = makeDecorator({
               channel.emit(
                 SNIPPET_RENDERED,
                 (context || {}).id,
-                prettier.format(`<template>${code}</template>`, {
+                prettier.format(`${code}`, {
                   parser: "vue",
                   plugins: [prettierHtml],
                   htmlWhitespaceSensitivity: "ignore",

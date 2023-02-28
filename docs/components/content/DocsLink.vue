@@ -37,6 +37,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 <style scoped>
 .docs-link {
+  --local-clr-link: var(--rpl-clr-dark);
   display: flex;
   align-items: center;
   gap: var(--rpl-sp-2);

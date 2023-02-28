@@ -4,8 +4,9 @@
   "version": "2.1.0-alpha.76",
   "scripts": {
     "build": "nuxt build",
+    "build:docs-storybook": "STATIC_BASE_PATH=\"/storybook/\" pnpm -F ripple-storybook build --output-dir ../../docs/public/storybook",
     "dev": "nuxt dev",
-    "generate": "nuxt generate",
+    "generate": "pnpm build:docs-storybook && nuxt generate",
     "preview": "nuxt preview"
   },
   "devDependencies": {
@@ -20,6 +21,7 @@
   },
   "dependencies": {
     "@dpc-sdp/ripple-ui-core": "workspace:*",
+    "@dpc-sdp/ripple-ui-forms": "workspace:*",
     "highlight.js": "^11.7.0",
     "iframe-resizer": "^4.3.4"
   }

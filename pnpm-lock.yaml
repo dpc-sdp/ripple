@@ -128,6 +128,7 @@ importers:
   docs:
     specifiers:
       '@dpc-sdp/ripple-ui-core': workspace:*
+      '@dpc-sdp/ripple-ui-forms': workspace:*
       '@iconify/vue': ^4.1.0
       '@nuxt/content': ^2.4.3
       '@nuxt/kit': ^3.1.2
@@ -140,6 +141,7 @@ importers:
       nuxt-component-meta: ^0.4.3
     dependencies:
       '@dpc-sdp/ripple-ui-core': link:../packages/ripple-ui-core
+      '@dpc-sdp/ripple-ui-forms': link:../packages/ripple-ui-forms
       highlight.js: 11.7.0
       iframe-resizer: 4.3.4
     devDependencies:

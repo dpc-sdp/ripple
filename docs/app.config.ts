@@ -20,5 +20,5 @@ export default defineAppConfig({
   socials: {
     github: 'dpc-sdp/ripple-framework'
   },
-  storybookBaseUrl: 'https://develop--624ac117357335003a84dac3.chromatic.com'
+  storybookBaseUrl: '/storybook'
 })

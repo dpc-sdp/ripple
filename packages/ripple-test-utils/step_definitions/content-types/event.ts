@@ -1,9 +1,5 @@
 import { Then, DataTable } from '@badeball/cypress-cucumber-preprocessor'
 
-Then('the title should be {string}', (title: string) => {
-  cy.get('[data-cy="hero-title"]').should('have.text', title)
-})
-
 Then(
   'the overview should list the following details',
   (dataTable: DataTable) => {

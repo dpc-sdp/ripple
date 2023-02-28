@@ -4,8 +4,13 @@
     :class="{ 'docs-example': true, 'with-padding': withPadding }"
   >
     <div class="docs-example-header" v-if="!hideNewTab">
-      <RplTextLink :url="storybookPreviewUrl" target="_blank"
-        >Open this example in a new tab</RplTextLink
+      <DocsLink
+        :url="storybookPreviewUrl"
+        target="_blank"
+        isExternal
+        isSmall
+        iconPosition="end"
+        >Open this example in a new tab</DocsLink
       >
     </div>
     <div class="docs-example-body">
@@ -18,7 +23,17 @@
       <div v-else class="frame"></div>
     </div>
     <div class="docs-example-footer" v-if="!hideCode">
-      <button @click="handleToggleCode">Show code</button>
+      <button
+        @click="handleToggleCode"
+        class="docs-example-code-btn rpl-type-p-small"
+      >
+        Show code
+        <RplIcon
+          :name="isCodeOpen ? 'icon-chevron-up' : 'icon-chevron-down'"
+          size="xs"
+          class="docs-example-code-btn-icon"
+        />
+      </button>
     </div>
     <div v-if="isCodeOpen" class="docs-example-code">
       <code class="hljs xml" v-html="highlightedCode" />
@@ -37,9 +52,9 @@ hljs.registerLanguage('xml', xml)
 
 interface Props {
   id: string
-  hideNewTab: boolean
-  hideCode: boolean
-  withPadding: boolean
+  hideNewTab?: boolean
+  hideCode?: boolean
+  withPadding?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -150,6 +165,21 @@ watch(targetIsVisible, (visible, wasVisible) => {
 .docs-example-code {
   border-top: var(--rpl-border-1) solid var(--rpl-clr-neutral-300);
   background: var(--rpl-clr-neutral-100);
+}
+
+.docs-example-code-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--rpl-sp-2);
+  text-decoration: underline;
+}
+
+.docs-example-code-btn:hover {
+  text-decoration: none;
+}
+
+.docs-example-code-btn-icon {
+  color: var(--rpl-clr-neutral-600);
 }
 </style>
 

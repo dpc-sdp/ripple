@@ -22,9 +22,13 @@ const props = withDefaults(defineProps<Props>(), {
     <p class="rpl-type-p-large">{{ description }}</p>
     <ul class="links rpl-u-margin-t-4">
       <li v-for="(link, index) in links" :key="index">
-        <RplTextLink :url="link.url" class="rpl-type-p">{{
-          link.text
-        }}</RplTextLink>
+        <DocsLink
+          isExternal
+          iconPosition="start"
+          :url="link.url"
+          class="rpl-type-p"
+          >{{ link.text }}</DocsLink
+        >
       </li>
     </ul>
   </header>

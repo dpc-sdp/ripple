@@ -22,7 +22,7 @@ to: package.json
     "@dpc-sdp/ripple-tide-search": "^2.1.0-alpha.82"
   },
   "devDependencies": {
-    "nuxt": "3.0.0"
+    "nuxt": "3.1.2"
   },
   "engines": {
     "node": "^16.17.0 || ^18.12.1",

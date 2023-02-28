@@ -1,9 +1,5 @@
 import { Then } from '@badeball/cypress-cucumber-preprocessor'
 
-Then('the title should be {string}', (title: string) => {
-  cy.get('[data-cy="hero-title"]').should('have.text', title)
-})
-
 Then(
   'the overview should display a status of {string} with a {string} {string} icon',
   (status: string, colour: string, icon: string) => {

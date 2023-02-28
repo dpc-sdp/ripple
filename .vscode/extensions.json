@@ -9,6 +9,7 @@
     "csstools.postcss",
     "editorconfig.editorconfig",
     "stylelint.vscode-stylelint",
-    "alexkrechik.cucumberautocomplete"
+    "alexkrechik.cucumberautocomplete",
+    "circleci.circleci"
   ]
 }

@@ -384,3 +384,61 @@ You can wrap `DocsExample` components with a `DocsThemeChooser` component. This 
   ---
   ::
 ::
+
+### DocsCard && DocsCardGrid
+
+Cards can also be added. Ensure that you wrap them with DocsCardGrid so that they are layout out correctly. DocsCard use the 'promo' type card under the hood.
+
+```md
+::DocsCardGrid
+  ::DocsCard
+  ---
+  title: Button
+  url: /design-system/components/button
+  ---
+  Here's the summary text
+  ::
+
+  ::DocsCard
+  ---
+  title: Vic gov
+  url: https://www.vic.gov.au/
+  ---
+  Here's the summary text
+  ::
+
+  ::DocsCard
+  ---
+  title: Code standards
+  url: /framework/code-standards
+  ---
+  Here's the summary text
+  ::
+::
+```
+
+::DocsCardGrid
+  ::DocsCard
+  ---
+  title: Button
+  url: /design-system/components/button
+  ---
+  Here's the summary text
+  ::
+
+  ::DocsCard
+  ---
+  title: Vic gov
+  url: https://www.vic.gov.au/
+  ---
+  Here's the summary text
+  ::
+
+  ::DocsCard
+  ---
+  title: Code standards
+  url: /framework/code-standards
+  ---
+  Here's the summary text
+  ::
+::

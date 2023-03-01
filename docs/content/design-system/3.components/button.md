@@ -91,7 +91,23 @@ Research and work that informed the creation of this component, including usabil
 
 ## Theming
 
-::EXAMPLE::
+::DocsThemeChooser
+  ::DocsExample
+  ---
+  id: core-navigation-button--default-filled
+  ---
+  ::
+  ::DocsExample
+  ---
+  id: core-navigation-button--default-outlined
+  ---
+  ::
+  ::DocsExample
+  ---
+  id: core-navigation-button--default-elevated
+  ---
+  ::
+::
 
 
 ## Neutral Variants

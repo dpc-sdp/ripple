@@ -148,6 +148,30 @@ Here's a simple footnote,[^1] and here's a longer one.[^bignote]
 
 ### Custom containers
 
-::: warning
-*here be dragons*
-:::
+::DocsExample
+---
+id: core-navigation-button--default-filled
+---
+::
+
+::DocsExample
+---
+id: core-navigation-breadcrumbs--default-story
+hideNewTab: true
+---
+::
+
+::DocsExample
+---
+id: core-navigation-in-page-navigation--in-page-navigation
+hideCode: true
+---
+::
+
+::DocsExample
+---
+id: core-navigation-footer--default-story
+hideNewTab: true
+hideCode: true
+---
+::

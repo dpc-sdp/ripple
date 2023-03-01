@@ -124,6 +124,7 @@ importers:
   docs:
     specifiers:
       '@dpc-sdp/ripple-ui-core': workspace:*
+      '@dpc-sdp/ripple-ui-forms': workspace:*
       '@iconify/vue': ^4.1.0
       '@nuxt/content': ^2.4.3
       '@nuxt/kit': ^3.1.2
@@ -131,9 +132,15 @@ importers:
       '@nuxtjs/tailwindcss': ^6.3.1
       '@nuxtlabs/github-module': ^1.6.1
       '@tailwindcss/typography': ^0.5.7
+      '@types/iframe-resizer': ^3.5.9
+      highlight.js: ^11.7.0
+      iframe-resizer: ^4.3.4
       nuxt-component-meta: ^0.4.3
     dependencies:
       '@dpc-sdp/ripple-ui-core': link:../packages/ripple-ui-core
+      '@dpc-sdp/ripple-ui-forms': link:../packages/ripple-ui-forms
+      highlight.js: 11.7.0
+      iframe-resizer: 4.3.4
     devDependencies:
       '@iconify/vue': 4.1.0_vue@3.2.47
       '@nuxt/content': 2.4.3
@@ -142,6 +149,7 @@ importers:
       '@nuxtjs/tailwindcss': 6.3.1_webpack@5.75.0
       '@nuxtlabs/github-module': 1.6.1
       '@tailwindcss/typography': 0.5.9_tailwindcss@3.2.4
+      '@types/iframe-resizer': 3.5.9
       nuxt-component-meta: 0.4.3
 
   examples/nuxt-app:
@@ -7566,6 +7574,10 @@ packages:
     dependencies:
       '@types/node': 18.13.0
     dev: false
+
+  /@types/iframe-resizer/3.5.9:
+    resolution: {integrity: sha512-RQUBI75F+uXruB95BFpC/8V8lPgJg4MQ6HxOCtAZYBB/h0FNCfrFfb4I+u2pZJIV7sKeszZbFqy1UnGeBMrvsA==}
+    dev: true
 
   /@types/inquirer/8.2.5:
     resolution: {integrity: sha512-QXlzybid60YtAwfgG3cpykptRYUx2KomzNutMlWsQC64J/WG/gQSl+P4w7A21sGN0VIxRVava4rgnT7FQmFCdg==}
@@ -15873,6 +15885,11 @@ packages:
     resolution: {integrity: sha512-tzcUFauisWKNHaRkN4Wjl/ZA07gENAjFl3J/c480dprkGTg5EQstgaNFqBfUqCq54kZRIEcreTsAgF/m2quD7A==}
     dev: true
 
+  /highlight.js/11.7.0:
+    resolution: {integrity: sha512-1rRqesRFhMO/PRF+G86evnyJkCgaZFOI+Z6kdj15TA18funfoqJXvgPCLSf0SWq3SRfg1j3HlDs8o4s3EGq1oQ==}
+    engines: {node: '>=12.0.0'}
+    dev: false
+
   /history/4.10.1:
     resolution: {integrity: sha512-36nwAD620w12kuzPAsyINPWJqlNbij+hpK1k9XRloDtym8mxzGYl2c17LnV6IAGB2Dmg4tEa7G7DlawS0+qjew==}
     dependencies:
@@ -16302,6 +16319,11 @@ packages:
   /iferr/0.1.5:
     resolution: {integrity: sha512-DUNFN5j7Tln0D+TxzloUjKB+CtVu6myn0JEFak6dG18mNt9YkQ6lzGCdafwofISZ1lLF3xRHJ98VKy9ynkcFaA==}
     dev: true
+
+  /iframe-resizer/4.3.4:
+    resolution: {integrity: sha512-l4tLVWLrK87+i/0/63XpOJIOHHYC+f4P/QNsS1zZm5JHcldR7krohBZLV7tVyAAsZ8sa1bmiDUjK4YRhyu7NBg==}
+    engines: {node: '>=0.8.0'}
+    dev: false
 
   /ignore-walk/4.0.1:
     resolution: {integrity: sha512-rzDQLaW4jQbh2YrOFlJdCtX8qgJTehFRYiUB2r1osqTeDzV/3+Jh8fz1oAPzUThf3iku8Ds4IDqawI5d8mUiQw==}

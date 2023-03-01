@@ -54,8 +54,15 @@ module.exports = {
     '@storybook/addon-a11y',
     'storybook-addon-designs'
   ],
-
+  previewHead: (head) => (`
+    ${head}
+    <script src="${process.env.STATIC_BASE_PATH ? process.env.STATIC_BASE_PATH : '/'}js/iframeResizer.contentWindow.min.js"></script>
+  `),
   async viteFinal(config, { configType }) {
+    if (process.env.STATIC_BASE_PATH) {
+      config.base = process.env.STATIC_BASE_PATH;
+    }
+
     // customize the Vite config here
     config.plugins.push(...vitePlugins)
     config.resolve.alias = {

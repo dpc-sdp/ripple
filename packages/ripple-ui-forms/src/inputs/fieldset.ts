@@ -1,5 +1,5 @@
 import { FormKitTypeDefinition } from '@formkit/core'
-import { outer, createSection } from '@formkit/inputs'
+import { createSection } from '@formkit/inputs'
 import { inputLibrary } from './input-utils'
 
 /**

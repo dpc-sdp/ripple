@@ -4,8 +4,9 @@
   "version": "2.1.0-alpha.76",
   "scripts": {
     "build": "nuxt build",
+    "build:docs-storybook": "STATIC_BASE_PATH=\"/storybook/\" pnpm -F ripple-storybook build --output-dir ../../docs/public/storybook",
     "dev": "nuxt dev",
-    "generate": "nuxt generate",
+    "generate": "pnpm build:docs-storybook && nuxt generate",
     "preview": "nuxt preview"
   },
   "devDependencies": {
@@ -16,9 +17,13 @@
     "@nuxtjs/tailwindcss": "^6.3.1",
     "@nuxtlabs/github-module": "^1.6.1",
     "@tailwindcss/typography": "^0.5.7",
+    "@types/iframe-resizer": "^3.5.9",
     "nuxt-component-meta": "^0.4.3"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-ui-core": "workspace:*"
+    "@dpc-sdp/ripple-ui-core": "workspace:*",
+    "@dpc-sdp/ripple-ui-forms": "workspace:*",
+    "highlight.js": "^11.7.0",
+    "iframe-resizer": "^4.3.4"
   }
 }

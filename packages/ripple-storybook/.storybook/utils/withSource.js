@@ -81,15 +81,25 @@ export const withSource = makeDecorator({
               const prettier = await import("prettier/standalone");
               const prettierHtml = await import("prettier/parser-html");
 
+              const snippet = prettier.format(`<template>${code}</template>`, {
+                parser: "vue",
+                plugins: [prettierHtml],
+                htmlWhitespaceSensitivity: "ignore",
+              })
+
+              // We need to add wrapping template tags to render the actual code snippet otherwise
+              // certain examples will break, however we don't actually want to display the template
+              // tags in the code example, so we manually remove them here.
+              const snippetWithoutTemplateTags = snippet
+                .replace(/^<template>/, '')
+                .replace(/<\/template>\s*$/, '')
+                .trim()
+
               // emits an event  when the transformation is completed
               channel.emit(
                 SNIPPET_RENDERED,
                 (context || {}).id,
-                prettier.format(`<template>${code}</template>`, {
-                  parser: "vue",
-                  plugins: [prettierHtml],
-                  htmlWhitespaceSensitivity: "ignore",
-                })
+                snippetWithoutTemplateTags
               );
             };
 

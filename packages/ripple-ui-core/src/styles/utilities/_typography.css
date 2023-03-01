@@ -247,3 +247,17 @@ html {
 .rpl-type-weight-bold {
   font-weight: var(--rpl-type-weight-bold);
 }
+
+/* Revert all highlights for print */
+.rpl-type-h1-highlight,
+.rpl-type-h1-highlight-fixed,
+.rpl-type-h3-highlight,
+.rpl-type-h3-highlight-fixed,
+.rpl-type-p-highlight {
+  @media print {
+    padding-left: 0;
+    padding-right: 0;
+    background-color: transparent !important;
+    color: var(--rpl-clr-type-default) !important;
+  }
+}

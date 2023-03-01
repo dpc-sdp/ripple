@@ -1,5 +1,5 @@
 <template>
-  <div class="rpl-page-action">
+  <div class="rpl-page-action rpl-u-screen-only">
     <div v-if="$slots.upper" class="rpl-page-action__upper">
       <slot name="upper" />
     </div>

@@ -32,7 +32,7 @@ const handleSubmit = (value) => {
 </script>
 
 <template>
-  <div class="tide-search-banner">
+  <div class="tide-search-banner rpl-u-screen-only">
     <div class="rpl-container">
       <RplSearchBar
         variant="reverse"

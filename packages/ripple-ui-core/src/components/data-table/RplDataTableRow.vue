@@ -50,7 +50,7 @@ const structuredContent = computed(() => Array.isArray(props.content))
         >
       </td>
     </tr>
-    <tr v-if="state.enabled" ref="r1" class="rpl-data-table__details">
+    <tr ref="r1" class="rpl-data-table__details">
       <td v-if="offset > 0" :colspan="offset"></td>
       <td :colspan="items.length + 1 - offset">
         <template v-if="structuredContent">

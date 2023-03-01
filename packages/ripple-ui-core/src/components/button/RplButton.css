@@ -27,6 +27,13 @@
     width: auto;
   }
 
+  @media print {
+    &::after {
+      content: ' <' attr(href) '> ';
+      font-size: var(--rpl-type-size-2);
+    }
+  }
+
   &--reverse {
     flex-direction: row-reverse;
   }
@@ -143,6 +150,24 @@
     --local-outlined-type-clr-hover: var(--rpl-clr-type-default);
     --local-white-type-clr: var(--rpl-clr-type-default);
     --local-white-type-clr-hover: var(--rpl-clr-type-default);
+  }
+}
+
+a.rpl-button {
+  @media print {
+    padding: 0;
+    border: none;
+    color: var(--rpl-clr-link);
+    background-color: transparent;
+    text-decoration: underline;
+    flex-wrap: wrap;
+    justify-content: start;
+  }
+
+  .rpl-button__label {
+    @media print {
+      font-weight: var(--rpl-clr-type-light);
+    }
   }
 }
 

@@ -20,6 +20,12 @@
   }
 }
 
+.rpl-layout__body {
+  @media print {
+    display: block;
+  }
+}
+
 .rpl-layout__sidebar {
   padding-top: var(--rpl-sp-8);
 

@@ -7,6 +7,16 @@
   color: var(--rpl-clr-type-default);
   text-decoration: none;
   overflow: hidden;
+  break-inside: avoid-page;
+
+  @media print {
+    &::after {
+      display: block;
+      margin: var(--rpl-sp-5);
+      color: var(--rpl-clr-link);
+      text-decoration: underline;
+    }
+  }
 
   &__media {
     display: block;
@@ -84,11 +94,26 @@
     .rpl-card__lower & {
       color: var(--rpl-clr-type-default);
       font-weight: var(--rpl-type-weight-bold);
+
+      @media print {
+        color: var(--rpl-clr-link);
+        font-weight: var(--rpl-type-weight-regular);
+      }
     }
 
     .rpl-text-link {
       color: var(--rpl-clr-type-default);
       text-decoration: none;
+
+      @media print {
+        &::after {
+          display: block;
+          color: var(--rpl-clr-link);
+          text-decoration: underline;
+          font-size: var(--rpl-type-size-2);
+          font-weight: var(--rpl-type-weight-regular);
+        }
+      }
     }
 
     &.rpl-type-h3-highlight {
@@ -232,6 +257,12 @@
     background-color: transparent;
     border-radius: 0;
     border: none;
+
+    @media print {
+      &::after {
+        margin-left: 0;
+      }
+    }
 
     .rpl-card__cta .rpl-text-link {
       text-decoration: underline;

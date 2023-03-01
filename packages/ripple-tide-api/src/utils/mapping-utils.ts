@@ -219,6 +219,12 @@ export const humanizeFilesize = (fileSize) => {
 export const getSiteKeyValues = (key: string, src: any) => {
   if (src[key]) {
     return src[key].reduce((map, obj) => {
+      if (obj.value === 'true') {
+        obj.value = true
+      }
+      if (obj.value === 'false') {
+        obj.value = false
+      }
       map[obj.key] = obj.value
       return map
     }, {})

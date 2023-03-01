@@ -18,7 +18,7 @@ import {
   fieldset
 } from './inputs/index'
 
-const rplFormInputs = (node) => {
+const rplFormInputs = () => {
   // Adds plugins here
 }
 

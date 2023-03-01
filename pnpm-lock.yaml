@@ -58,7 +58,6 @@ importers:
       hygen: ^6.2.11
       jest: ^29.4.2
       jest-environment-jsdom: ^29.4.2
-      postcss-for: ^2.1.1
       postcss-nested: ^6.0.0
       postcss-normalize: ^10.0.1
       postcss-preset-env: ^8.0.1
@@ -109,7 +108,6 @@ importers:
       hygen: 6.2.11
       jest: 29.4.2_ucpl6toqp57nqodtp3vxxi6g5a
       jest-environment-jsdom: 29.4.2
-      postcss-for: 2.1.1
       postcss-nested: 6.0.0_postcss@8.4.21
       postcss-normalize: 10.0.1_jrpp4geoaqu5dz2gragkckznb4
       postcss-preset-env: 8.0.1_postcss@8.4.21
@@ -472,7 +470,6 @@ importers:
       normalize.css: ^8.0.1
       pathe: ^1.1.0
       postcss-each: ^1.1.0
-      postcss-for: ^2.1.1
       postcss-nested: ^6.0.0
       postcss-normalize: ^10.0.1
       postcss-preset-env: ^8.0.1
@@ -501,7 +498,6 @@ importers:
       mitt: 3.0.0
       normalize.css: 8.0.1
       postcss-each: 1.1.0_postcss@8.4.21
-      postcss-for: 2.1.1
       postcss-nested: 6.0.0_postcss@8.4.21
       postcss-normalize: 10.0.1_jrpp4geoaqu5dz2gragkckznb4
       postcss-preset-env: 8.0.1_postcss@8.4.21
@@ -9838,7 +9834,7 @@ packages:
       '@babel/core': 7.20.12
       find-cache-dir: 3.3.2
       schema-utils: 4.0.0
-      webpack: 5.75.0_esbuild@0.16.17
+      webpack: 5.75.0
     dev: true
 
   /babel-messages/6.23.0:
@@ -22412,12 +22408,6 @@ packages:
     dependencies:
       postcss: 8.4.21
 
-  /postcss-for/2.1.1:
-    resolution: {integrity: sha512-X0R84FCyr5cqzW4+/g4Dvz2OUe1iwC3G/atIrwEpiRstZlBBpknV+ETlIneSTnw/iXgUnEoTRaO2qXY62YWLhQ==}
-    dependencies:
-      postcss: 8.4.21
-      postcss-simple-vars: 2.0.0
-
   /postcss-gap-properties/4.0.1_postcss@8.4.21:
     resolution: {integrity: sha512-V5OuQGw4lBumPlwHWk/PRfMKjaq/LTGR4WDTemIMCaMevArVfCCA9wBJiL1VjDAd+rzuCIlkRoRvDsSiAaZ4Fg==}
     engines: {node: ^14 || ^16 || >=18}
@@ -23024,11 +23014,6 @@ packages:
     dependencies:
       cssesc: 3.0.0
       util-deprecate: 1.0.2
-
-  /postcss-simple-vars/2.0.0:
-    resolution: {integrity: sha512-HllLaKKCBOdKudyzqrw/ve5rWouM9cDL+WHaSF9q4CkBEPjdTdiKNw1xF2dAz5rUKrxVmnUmOYxamwy37dnq2Q==}
-    dependencies:
-      postcss: 8.4.21
 
   /postcss-simple-vars/6.0.3_postcss@8.4.21:
     resolution: {integrity: sha512-fkNn4Zio8vN4vIig9IFdb8lVlxWnYR769RgvxCM6YWlFKie/nQaOcaMMMFz/s4gsfHW4/5bJW+i57zD67mQU7g==}

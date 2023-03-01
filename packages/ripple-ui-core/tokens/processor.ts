@@ -1,47 +1,38 @@
-const StyleDictionary = require('style-dictionary')
-const baseConfig = require('./config.json')
-const yaml = require('yaml')
+import StyleDictionary from 'style-dictionary'
+import baseConfig from './config.json'
+import yaml from 'yaml'
 
 StyleDictionary.registerTransform({
   name: 'size/pixels',
   type: 'value',
-  matcher: (token) => {
-    return ['sp', 'bp'].includes(token.attributes.category)
-  },
-  transformer: (token) => {
-    return `${token.value}px`
-  }
+  matcher: (token) => ['sp', 'bp'].includes(token.attributes?.category || ''),
+  transformer: (token) => `${token.value}px`
 })
 
 StyleDictionary.registerTransform({
   name: 'gradient',
   type: 'value',
-  matcher: (token) => {
-    return ['gradient'].includes(token.attributes.category)
-  },
-  transformer: (token) => {
-    return `${token.value}px`
-  }
+  matcher: (token) => ['gradient'].includes(token.attributes?.category || ''),
+  transformer: (token) => `${token.value}px`
 })
 
 StyleDictionary.registerFilter({
   name: 'validToken',
-  matcher: function (token) {
-    return ['dimension', 'string', 'number', 'color'].includes(token.type)
-  }
+  matcher: (token) =>
+    ['dimension', 'string', 'number', 'color'].includes(token.type)
 })
 
 StyleDictionary.registerFilter({
   name: 'isColor',
-  matcher: function (token) {
+  matcher: (token) => {
     console.log(token.attributes)
-    return token.attributes.category === 'clr'
+    return token.attributes?.category === 'clr'
   }
 })
 
 StyleDictionary.registerFileHeader({
   name: 'rplHeader',
-  fileHeader: (_defaultMessage) => {
+  fileHeader: () => {
     return [
       `The values in this file are controlled by the SDP design team.`,
       `Please email design@dpc.vic.gov.au if you wish to modify them.`,
@@ -56,7 +47,7 @@ const StyleDictionaryExtended = StyleDictionary.extend({
   parsers: [
     {
       pattern: /\.yaml$/,
-      parse: ({ contents, filePath }) => yaml.parse(contents)
+      parse: ({ contents }) => yaml.parse(contents)
     }
   ]
 })

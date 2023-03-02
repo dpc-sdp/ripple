@@ -374,7 +374,7 @@ useNeutralButtons: true
 ::DocsExample
 ---
 id: core-navigation-button--default-filled
-theme: 'light'
+theme: 'docsTheme3'
 ---
 ::
 

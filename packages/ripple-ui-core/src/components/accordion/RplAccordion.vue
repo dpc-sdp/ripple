@@ -76,7 +76,7 @@ const toggleAllLabel = computed(() => {
 <template>
   <div :id="id" class="rpl-accordion">
     <!-- Toggle all -->
-    <div class="rpl-accordion__toggle-all-wrapper">
+    <div class="rpl-accordion__toggle-all-wrapper rpl-u-screen-only">
       <button
         v-if="items.length > 1"
         class="rpl-accordion__toggle-all rpl-u-focusable-inline"
@@ -121,7 +121,10 @@ const toggleAllLabel = computed(() => {
           </span>
 
           <!-- Icon -->
-          <span class="rpl-accordion__item-icon" aria-hidden="true">
+          <span
+            class="rpl-accordion__item-icon rpl-u-screen-only"
+            aria-hidden="true"
+          >
             <RplIcon name="icon-chevron-down"></RplIcon>
           </span>
         </button>

@@ -1,7 +1,7 @@
 {
   "name": "@dpc-sdp/ripple-ui-core",
   "packageManager": "pnpm@7.23.0",
-  "version": "2.1.0-alpha.93",
+  "version": "2.1.0-alpha.95",
   "license": "Apache-2.0",
   "files": [
     "dist",
@@ -31,7 +31,8 @@
     "build:styles": "vite build --config global-css.vite.config.ts && rimraf ./dist/delete.es.js",
     "build:svg-sprite": "ts-node ./src/scripts/generate-icon-sprite.ts",
     "build:custom-svg-list": "ts-node ./src/scripts/generate-custom-icon-list.ts",
-    "build:tokens": "node ./tokens/processor.js",
+    "build:tokens": "ts-node ./tokens/processor.ts",
+    "build:utils": "ts-node ./tokens/utils.ts",
     "watch": "pnpm build:types && vite build --watch",
     "clean": "(rimraf dist* && rimraf tsconfig.tsbuildinfo) | true",
     "preview": "vite preview",
@@ -51,7 +52,6 @@
     "mitt": "^3.0.0",
     "normalize.css": "^8.0.1",
     "postcss-each": "^1.1.0",
-    "postcss-for": "^2.1.1",
     "postcss-nested": "^6.0.0",
     "postcss-normalize": "^10.0.1",
     "postcss-preset-env": "^8.0.1",

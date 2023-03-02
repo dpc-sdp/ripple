@@ -186,6 +186,6 @@ Feature: Home page
   @mockserver
   Scenario: Page component - Media Gallery (Modal)
     When I click the button "View 'Media title one' fullscreen" on the component with ID "1056"
-    Then the modal for gallery "1056" should be "visible"
-    When I click the button "Close" on the component with ID "1056"
-    Then the modal for gallery "1056" should be "hidden"
+    Then the "media-gallery" modal should be "visible"
+    When I click the "media-gallery" modal button "Close"
+    Then the "media-gallery" modal should be "hidden"

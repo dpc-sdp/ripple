@@ -15,7 +15,7 @@ interface Props {
   url?: string
 }
 
-withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<Props>(), {
   el: 'div',
   highlight: false,
   image: undefined,

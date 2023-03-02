@@ -118,6 +118,11 @@
       background: var(--rpl-clr-light);
     }
 
+    @media print {
+      background-image: none;
+      overflow-x: initial;
+    }
+
     table {
       margin: 0 calc(-1 * var(--local-scroll-indicator-width));
     }

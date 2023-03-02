@@ -2,7 +2,7 @@
 @import 'normalize.css';
 
 /* Variables */
-@import '_vars.css';
+@import 'generated/_vars.css';
 
 /* Breakpoints */
 @import '_breakpoints.css';
@@ -11,13 +11,14 @@
 @import 'utilities/_accessibility.css';
 @import 'utilities/_container.css';
 @import 'utilities/_focus.css';
-@import 'utilities/_grid.css';
+@import 'generated/_grid.css';
 @import 'utilities/_lists.css';
-@import 'utilities/_margin.css';
-@import 'utilities/_padding.css';
-@import 'utilities/_size.css';
+@import 'generated/_margin.css';
+@import 'generated/_padding.css';
+@import 'generated/_size.css';
 @import 'utilities/_typography.css';
 @import 'utilities/_aspect.css';
+@import 'utilities/_print.css';
 
 /* Global styles */
 @import '_fonts.css';

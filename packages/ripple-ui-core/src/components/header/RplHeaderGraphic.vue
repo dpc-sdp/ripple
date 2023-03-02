@@ -2,7 +2,8 @@
 import { computed } from 'vue'
 import { RplHeaderGraphicPlacement } from './constants'
 import RplImage from '../image/RplImage.vue'
-import RplTriangles from '../../assets/patterns/triangles.svg?component'
+import RplTrianglesTop from '../../assets/patterns/triangles-top.svg?skipsvgo'
+import RplTrianglesBottom from '../../assets/patterns/triangles-bottom.svg?skipsvgo'
 
 interface Props {
   image?: string | boolean
@@ -27,7 +28,16 @@ const classes = computed(() => ({
 <template>
   <div :class="classes">
     <RplImage v-if="suppliedImage" :src="image" />
-    <RplTriangles v-else role="presentation" />
+    <RplTrianglesTop
+      v-else-if="placement === 'top'"
+      class="rpl-header-graphic__top"
+      role="presentation"
+    />
+    <RplTrianglesBottom
+      v-else
+      class="rpl-header-graphic__bottom"
+      role="presentation"
+    />
   </div>
 </template>
 

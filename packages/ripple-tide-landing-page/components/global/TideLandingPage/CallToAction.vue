@@ -4,18 +4,14 @@
     :image="image"
     :url="url"
     :ctaText="ctaText"
-    :theme="featureFlags.buttonTheme"
   >
     <div data-cy="summary" v-html="summary"></div>
   </RplCallToActionCard>
 </template>
 
 <script setup lang="ts">
-import { inject } from 'vue'
 import { RplCallToActionCard } from '#components'
-const featureFlags = inject('featureFlags', {
-  buttonTheme: 'default'
-})
+
 interface Props {
   title: string
   image: {

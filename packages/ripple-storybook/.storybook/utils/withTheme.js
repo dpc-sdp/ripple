@@ -1,4 +1,5 @@
 import themes from "../themes.js";
+import {provide} from 'vue'
 
 // Function to obtain the intended theme
 const getTheme = (themeName) => {
@@ -16,6 +17,12 @@ const withTheme=(story, context)=>{
     components: { story },
     setup() {
       const theme = getTheme(context.globals.theme);
+      const buttonTheme = context.globals.buttonTheme || 'default';
+
+      provide('featureFlags', {
+        buttonTheme
+      })
+
       return { theme }
     },
     template:

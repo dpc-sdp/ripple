@@ -40,10 +40,6 @@ export const SingleTemplate = (args) => ({
       control: { type: 'select' },
       options: [1, 2, 4, 8]
     },
-    theme: {
-      control: { type: 'radio' },
-      options: ['default', 'neutral']
-    },
     title: {
       control: 'text'
     },
@@ -68,7 +64,6 @@ export const SingleTemplate = (args) => ({
   }}
   args={{
     number: 1,
-    theme: 'default',
     url: 'https://www.vic.gov.au',
     title: 'Small Business Ventilation Program',
     default: '<p>Funding for public-facing small businesses to purchase equipment and upgrades to improve ventilation and reduce the spread of COVID-19 and boost customer confidence.</p>'

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.95](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.94...v2.1.0-alpha.95) (2023-03-02)
+
+### Features
+
+* **@dpc-sdp/nuxt-ripple-cli:** :technologist: adds ripple cli for adding helper tasks ([c7d6cb5](https://github.com/dpc-sdp/ripple-framework/commit/c7d6cb511547fb7ab93e264550a3bbf1b487243f))
+
 # [2.1.0-alpha.84](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.83...v2.1.0-alpha.84) (2023-02-19)
 
 ### Bug Fixes

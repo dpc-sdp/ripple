@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.95](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.94...v2.1.0-alpha.95) (2023-03-02)
+
+### Bug Fixes
+
+* **docs:** fixed some the code examples of some stories crashing ([d0be972](https://github.com/dpc-sdp/ripple-framework/commit/d0be972cf138bba019fdd01b9a4d0127411a411e))
+
+### Features
+
+* **@dpc-sdp/ripple-ui-core:** basic component print styles ([5d68686](https://github.com/dpc-sdp/ripple-framework/commit/5d686862dbfde33bf35f9866e4076c8402312271))
+* **docs:** added code snippets from storybook ([1c9a3ed](https://github.com/dpc-sdp/ripple-framework/commit/1c9a3ed69e925f0e8e101e715a9400c8e9196858))
+* **docs:** added static storybook build for docs site ([14b1b42](https://github.com/dpc-sdp/ripple-framework/commit/14b1b42a809aa535ccf75042359a3f739f2397c0))
+* **docs:** removed 'template' wrapper from storybook code snippets ([abbb42f](https://github.com/dpc-sdp/ripple-framework/commit/abbb42f21d2ef91fd53568a82c4ed375f3ae588c))
+
 # [2.1.0-alpha.92](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.91...v2.1.0-alpha.92) (2023-02-23)
 
 **Note:** Version bump only for package ripple-storybook

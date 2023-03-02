@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.95](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.94...v2.1.0-alpha.95) (2023-03-02)
+
+### Bug Fixes
+
+* cleanup linting warnings ([2645725](https://github.com/dpc-sdp/ripple-framework/commit/26457253264db9b8836273a2a7380d9b50be2b11))
+
 # [2.1.0-alpha.93](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.92...v2.1.0-alpha.93) (2023-02-24)
 
 **Note:** Version bump only for package @dpc-sdp/ripple-ui-forms

@@ -22,7 +22,8 @@ export default defineNuxtConfig({
       layoutFallbacks: ['page']
     },
     highlight: {
-      preload: ['vue', 'bash']
+      theme: 'github-light',
+      preload: ['vue', 'bash', 'markdown']
     }
   }
 })

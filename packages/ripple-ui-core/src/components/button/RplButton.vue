@@ -70,13 +70,15 @@ const onClick = (payload?: any) => {
 const link: Ref = ref(null)
 
 defineExpose({ link })
+
+const isAnchor = computed(() => props.el === 'a')
 </script>
 
 <template>
   <component
     :is="el"
     ref="link"
-    :href="el === 'a' ? url : null"
+    :href="isAnchor ? url : null"
     type="button"
     :class="classes"
     :disabled="disabled"

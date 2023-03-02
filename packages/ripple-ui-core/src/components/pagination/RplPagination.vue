@@ -53,7 +53,10 @@ const iconSize = computed(() => (isComplex.value ? 's' : 'xs'))
 </script>
 
 <template>
-  <nav :class="`rpl-pagination rpl-pagination--${variant}`" :aria-label="label">
+  <nav
+    :class="`rpl-pagination rpl-pagination--${variant}  rpl-u-screen-only`"
+    :aria-label="label"
+  >
     <p
       v-if="showTally && !isComplex"
       class="rpl-pagination__tally rpl-type-label"

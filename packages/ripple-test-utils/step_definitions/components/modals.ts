@@ -1,13 +1,18 @@
-import { Then } from '@badeball/cypress-cucumber-preprocessor'
+import { Then, When } from '@badeball/cypress-cucumber-preprocessor'
 
-Then(
-  'the modal for gallery {string} should be {string}',
-  (id: string, state: string) => {
-    cy.get(`[data-component-id="${id}"]`).as('component')
+Then('the {string} modal should be {string}', (type: string, state: string) => {
+  const check = state === 'visible' ? 'be.visible' : 'not.exist'
 
-    cy.get('@component').within(() => {
-      const check = state === 'visible' ? 'be.visible' : 'not.exist'
-      cy.get(`[data-cy="modal"]`).should(check)
+  cy.get(`.rpl-${type}__modal`).should(check)
+})
+
+When(
+  'I click the {string} modal button {string}',
+  (type: string, label: string) => {
+    cy.get(`.rpl-${type}__modal`).as('modal')
+
+    cy.get('@modal').within(() => {
+      cy.get(`button`).contains(label).click()
     })
   }
 )

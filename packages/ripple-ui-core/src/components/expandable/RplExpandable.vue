@@ -53,6 +53,11 @@ watch(
   height: 0;
   overflow: hidden;
   transition: height var(--rpl-motion-speed-9) ease-out;
+
+  @media print {
+    /* Needs to override inline styles */
+    height: auto !important;
+  }
 }
 
 .rpl-expandable--isExpanded {

@@ -37,7 +37,8 @@ const isSticky = computed(() => {
     :class="{
       'rpl-back-to-top': true,
       'rpl-back-to-top--visible': isShown,
-      'rpl-back-to-top--sticky': isSticky
+      'rpl-back-to-top--sticky': isSticky,
+      'rpl-u-screen-only': true
     }"
   >
     <div

@@ -37,7 +37,6 @@ export default <any>defineNuxtModule({
           'custom-properties': false
         }
       },
-      'postcss-for': {},
       'postcss-each': {}
     }
     // Adds Ripple UI Core global styles

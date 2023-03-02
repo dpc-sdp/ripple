@@ -10,6 +10,7 @@ import RplIcon from '../icon/RplIcon.vue'
 import RplModal from '../modal/RplModal.vue'
 import RplContent from '../content/RplContent.vue'
 import RplExpandable from '../expandable/RplExpandable.vue'
+import RplTextLink from '../text-link/RplTextLink.vue'
 
 interface Props {
   type: RplMediaEmbedTypes
@@ -148,19 +149,19 @@ const isActionsListEmpty = computed(() => {
     <ul v-if="!isActionsListEmpty" class="rpl-media-embed__actions-list">
       <!-- Transcript link -->
       <li v-if="transcriptUrl">
-        <a
+        <RplTextLink
           class="rpl-media-embed__transcript-link rpl-media-embed__action rpl-u-focusable-inline rpl-type-p"
           target="_blank"
-          :href="transcriptUrl"
+          :url="transcriptUrl"
         >
           <RplIcon name="icon-view" />View transcript
-        </a>
+        </RplTextLink>
       </li>
 
       <!-- Fullscreen button -->
       <li v-if="allowFullscreen">
         <button
-          class="rpl-media-embed__fullscreen-button rpl-media-embed__action rpl-u-focusable-inline rpl-type-p"
+          class="rpl-media-embed__fullscreen-button rpl-media-embed__action rpl-u-focusable-inline rpl-type-p rpl-u-screen-only"
           type="button"
           @click="isFullScreenOpen = !isFullScreenOpen"
         >
@@ -172,7 +173,7 @@ const isActionsListEmpty = computed(() => {
       <!-- View data toggle & content -->
       <li v-if="dataContent">
         <button
-          class="rpl-media-embed__view-data-toggle rpl-media-embed__action rpl-u-focusable-inline rpl-type-p"
+          class="rpl-media-embed__view-data-toggle rpl-media-embed__action rpl-u-focusable-inline rpl-type-p rpl-u-screen-only"
           @click="isDataContentOpen = !isDataContentOpen"
         >
           <span v-if="isDataContentOpen">
@@ -194,17 +195,20 @@ const isActionsListEmpty = computed(() => {
 
       <!-- Download link -->
       <li v-if="downloadUrl">
-        <a
+        <RplTextLink
           class="rpl-media-embed__download-link rpl-media-embed__action rpl-u-focusable-inline rpl-type-p"
-          :href="downloadUrl"
+          :url="downloadUrl"
           download
         >
-          <RplIcon name="icon-download" />Download '{{ title }}'
-        </a>
+          <RplIcon name="icon-download" class="rpl-u-screen-only" />Download '{{
+            title
+          }}'
+        </RplTextLink>
       </li>
     </ul>
 
     <RplModal
+      class="rpl-media-embed__modal"
       :is-open="isFullScreenOpen"
       @close="() => (isFullScreenOpen = false)"
     >

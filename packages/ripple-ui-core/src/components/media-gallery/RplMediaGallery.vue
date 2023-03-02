@@ -43,7 +43,7 @@ const toggleModal = () => {
     <RplSlider
       :current-slide="activeImageSlide"
       :show-pagination="false"
-      class="rpl-media-gallery__primary-images"
+      class="rpl-media-gallery__primary-images rpl-u-screen-only"
       data-cy="gallery-images"
       @change="imageSlideUpdate"
     >
@@ -70,12 +70,17 @@ const toggleModal = () => {
         :key="index"
         :title="item.title"
         :caption="item.caption"
+        :image="item.image"
         :show-full-screen="true"
         @fullscreen="toggleModal"
       />
     </RplSlider>
 
-    <RplModal :is-open="showModal" @close="toggleModal">
+    <RplModal
+      class="rpl-media-gallery__modal"
+      :is-open="showModal"
+      @close="toggleModal"
+    >
       <RplSlider
         :current-slide="activeImageSlide"
         :show-pagination="false"
@@ -102,6 +107,7 @@ const toggleModal = () => {
             :key="index"
             :title="item.title"
             :caption="item.caption"
+            :image="item.image"
             :show-full-screen="false"
           />
         </RplSlider>

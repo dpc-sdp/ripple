@@ -3,6 +3,7 @@ import RplButton from '../button/RplButton.vue'
 import { rplEventBus } from '../../index'
 import 'swiper/css'
 import 'swiper/css/effect-fade'
+import RplImage from '../image/RplImage.vue'
 
 rplEventBus.register('rpl-media-gallery/fullscreen')
 const emit = defineEmits(['fullscreen'])
@@ -10,11 +11,13 @@ const emit = defineEmits(['fullscreen'])
 interface Props {
   title: string
   caption?: string
+  image?: string
   showFullScreen: boolean
 }
 
 withDefaults(defineProps<Props>(), {
   caption: undefined,
+  image: undefined,
   showFullScreen: false
 })
 
@@ -26,6 +29,12 @@ const onFullScreen = (event) => {
 
 <template>
   <div class="rpl-media-gallery__content">
+    <RplImage
+      v-if="image"
+      :src="image"
+      aspect="wide"
+      class="rpl-media-gallery__image rpl-u-print-only"
+    />
     <h3 class="rpl-type-h3 rpl-u-margin-b-1" data-cy="title">{{ title }}</h3>
     <p
       v-if="caption"
@@ -37,7 +46,7 @@ const onFullScreen = (event) => {
     <RplButton
       v-if="showFullScreen"
       variant="none"
-      class="rpl-media-gallery__button"
+      class="rpl-media-gallery__button rpl-u-screen-only"
       icon-name="icon-enlarge-square-filled"
       icon-position="left"
       theme="default"

@@ -44,8 +44,14 @@ defineProps<Props>()
         :href="primaryLogo.href"
       >
         <img
-          class="rpl-primary-nav__primary-logo-image"
+          class="rpl-primary-nav__primary-logo-image rpl-u-screen-only"
           :src="primaryLogo.src"
+          :alt="primaryLogo.altText"
+        />
+        <img
+          v-if="primaryLogo.printSrc"
+          class="rpl-primary-nav__primary-logo-image rpl-primary-nav__logo-alt rpl-u-print-only"
+          :src="primaryLogo.printSrc"
           :alt="primaryLogo.altText"
         />
       </a>
@@ -60,8 +66,14 @@ defineProps<Props>()
         :href="secondaryLogo.href"
       >
         <img
-          class="rpl-primary-nav__secondary-logo-image"
+          class="rpl-primary-nav__secondary-logo-image rpl-u-screen-only"
           :src="secondaryLogo.src"
+          :alt="secondaryLogo.altText"
+        />
+        <img
+          v-if="secondaryLogo.printSrc"
+          class="rpl-primary-nav__secondary-logo-image rpl-primary-nav__logo-alt rpl-u-print-only"
+          :src="secondaryLogo.printSrc"
           :alt="secondaryLogo.altText"
         />
       </a>

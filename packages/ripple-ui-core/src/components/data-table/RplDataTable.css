@@ -29,6 +29,12 @@
       padding-bottom: var(--rpl-sp-4);
       width: 100%;
 
+      @media print {
+        margin-top: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+
       .rpl-button {
         width: auto;
       }
@@ -71,6 +77,20 @@
   color: var(--rpl-data-table-clr);
   padding: var(--rpl-sp-2);
 
+  .rpl-data-table__details {
+    display: none;
+
+    @media print {
+      --local-dividing-border: var(--rpl-border-1) solid transparent;
+
+      display: table-row;
+
+      @media (--rpl-bp-xs) {
+        display: block;
+      }
+    }
+  }
+
   table {
     width: 100%;
   }
@@ -86,6 +106,12 @@
 
     &.rpl-data-table__row--open .rpl-data-table__details {
       --local-dividing-border: var(--rpl-border-1) solid transparent;
+
+      display: table-row;
+
+      @media (--rpl-bp-xs) {
+        display: block;
+      }
     }
   }
 
@@ -97,6 +123,10 @@
   &__toggle {
     white-space: nowrap;
     padding: 0;
+
+    @media print {
+      display: none;
+    }
   }
 
   &__details td {

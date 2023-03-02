@@ -29,7 +29,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div v-if="pagetitle && state.url" class="rpl-social-share">
+  <div v-if="pagetitle && state.url" class="rpl-social-share rpl-u-screen-only">
     <h3 v-if="title" class="rpl-social-share__title rpl-type-label-large">
       {{ title }}
     </h3>

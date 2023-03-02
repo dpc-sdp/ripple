@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.95](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.94...v2.1.0-alpha.95) (2023-03-02)
+
+### Features
+
+* **@dpc-sdp/ripple-ui-core:** print utils, add print only component classes ([d81fd24](https://github.com/dpc-sdp/ripple-framework/commit/d81fd24d186ae9add12c5288fe1c50b489d74c67))
+
 # [2.1.0-alpha.94](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.93...v2.1.0-alpha.94) (2023-02-27)
 
 ### Features

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, Ref } from 'vue'
-
 import { rplEventBus } from '../../index'
+
 rplEventBus.register('rpl-text-link/click')
 
 interface Props {
@@ -9,7 +9,7 @@ interface Props {
   text?: string
 }
 
-defineProps<Props>()
+const props = defineProps<Props>()
 
 const onClick = (payload?: any) => {
   rplEventBus.emit('rpl-text-link/click', payload)

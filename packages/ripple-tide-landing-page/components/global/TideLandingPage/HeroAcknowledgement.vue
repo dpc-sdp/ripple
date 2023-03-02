@@ -8,7 +8,7 @@ defineProps<{
 <template>
   <div
     data-cy="hero-ack"
-    class="tide-hero-ack rpl-u-padding-t-4 rpl-u-padding-b-4"
+    class="tide-hero-ack rpl-u-padding-t-4 rpl-u-padding-b-4 rpl-u-screen-only"
   >
     <div class="rpl-container">
       <RplAcknowledgement :message="message" />

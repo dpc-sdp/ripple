@@ -22,7 +22,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="tide-content-rating">
+  <div class="tide-content-rating rpl-u-screen-only">
     <div class="rpl-container">
       <div class="rpl-grid">
         <div class="rpl-col-12 rpl-col-7-m">

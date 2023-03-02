@@ -7,7 +7,6 @@
         "custom-properties": false
       }
     },
-    "postcss-for": {},
     "postcss-each": {}
   }
 }

@@ -14,4 +14,9 @@
   @media (--rpl-bp-xl) {
     padding: 0 var(--rpl-sp-13);
   }
+
+  @media print {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }

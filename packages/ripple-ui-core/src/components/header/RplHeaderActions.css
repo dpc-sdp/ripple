@@ -16,10 +16,6 @@
   }
 }
 
-.rpl-header-actions__primary {
-  min-width: max-content;
-}
-
 .rpl-header-actions__secondary {
   padding-left: var(--rpl-sp-3);
   border-left: var(--rpl-border-3) solid var(--rpl-clr-neutral-300);
@@ -41,6 +37,10 @@
     font-size: var(--rpl-type-size-3);
     line-height: var(--rpl-type-lh-5);
     letter-spacing: var(--rpl-type-ls-2);
+  }
+
+  @media print {
+    flex-wrap: wrap;
   }
 
   .rpl-icon--size-xs {

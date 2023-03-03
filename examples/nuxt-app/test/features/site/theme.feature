@@ -7,7 +7,7 @@ Feature: Site theme
     Given the endpoint "/api/tide/site" with query "?id=8888" returns fixture "/site/reference" with status 200
     And the endpoint "/api/tide/page" with query "?path=/&site=8888" returns fixture "/landingpage/home" with status 200
     Given I visit the page "/"
-    Then the site header background color should be "rgb(128, 0, 128)"
+    Then the site header background color should be "#6B19A3"
     Then the site footer should have the "default" theme applied
     And ripple buttons should have the "default" theme applied
     And the hero banner should have the "default" theme applied

@@ -72,35 +72,18 @@
 }
 
 .rpl-header-graphic--pattern {
-  --local-pattern-fill-100: #cccccc;
-  --local-pattern-fill-200: #aaaaaa;
-  --local-pattern-fill-300: #888888;
-  --local-pattern-fill-400: #666666;
-  --local-pattern-fill-500: #444444;
-
   background-image: var(--rpl-clr-gradient-horizontal);
 
   svg {
+    min-height: 100%;
     mix-blend-mode: screen;
   }
+}
 
-  path {
-    fill: var(--local-pattern-fill-100);
-  }
+.rpl-header-graphic__top {
+  min-width: 475px;
+}
 
-  path:nth-child(odd) {
-    fill: var(--local-pattern-fill-200);
-  }
-
-  path:nth-child(3n + 1) {
-    fill: var(--local-pattern-fill-300);
-  }
-
-  path:nth-child(4n + 2) {
-    fill: var(--local-pattern-fill-400);
-  }
-
-  path:nth-child(5n + 1) {
-    fill: var(--local-pattern-fill-500);
-  }
+.rpl-header-graphic__bottom {
+  min-width: 350px;
 }

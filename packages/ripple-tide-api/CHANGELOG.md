@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.95](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.94...v2.1.0-alpha.95) (2023-03-02)
+
+### Features
+
+* **@dpc-sdp/ripple-tide-api:** cast strings to real booleans ([5ffa75d](https://github.com/dpc-sdp/ripple-framework/commit/5ffa75d3de7dff1db0b3586547d05799b643b379))
+* **@dpc-sdp/ripple-ui-core:** add document print styles, and link markup plugin, fix modal test ([055be12](https://github.com/dpc-sdp/ripple-framework/commit/055be12044121506573d94aa1c16b387e6a4b814))
+* **@dpc-sdp/ripple-ui-core:** forgoing design for simpler print links using href ([09da1af](https://github.com/dpc-sdp/ripple-framework/commit/09da1afaa7810e6c9aa36243dc8e13390b76d12c))
+
 # [2.1.0-alpha.90](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.89...v2.1.0-alpha.90) (2023-02-22)
 
 ### Features

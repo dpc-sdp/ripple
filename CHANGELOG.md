@@ -3,6 +3,35 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.95](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.94...v2.1.0-alpha.95) (2023-03-02)
+
+### Bug Fixes
+
+* cleanup linting warnings ([2645725](https://github.com/dpc-sdp/ripple-framework/commit/26457253264db9b8836273a2a7380d9b50be2b11))
+* **docs:** fixed docs link styling ([fb3d3c0](https://github.com/dpc-sdp/ripple-framework/commit/fb3d3c0049f41b8579a4fcb4dd166e78dbce6c0f))
+* **docs:** fixed some the code examples of some stories crashing ([d0be972](https://github.com/dpc-sdp/ripple-framework/commit/d0be972cf138bba019fdd01b9a4d0127411a411e))
+
+### Features
+
+* **@dpc-sdp/nuxt-ripple-cli:** :technologist: adds ripple cli for adding helper tasks ([c7d6cb5](https://github.com/dpc-sdp/ripple-framework/commit/c7d6cb511547fb7ab93e264550a3bbf1b487243f))
+* **@dpc-sdp/nuxt-ripple:** hide content rating for print, add print logo ([2a2b39b](https://github.com/dpc-sdp/ripple-framework/commit/2a2b39b5f93235aae2337c22b1fd77745d5da13f))
+* **@dpc-sdp/ripple-test-utils:** :technologist: add package for cypress step definitions and config ([5d5d624](https://github.com/dpc-sdp/ripple-framework/commit/5d5d624f80f4855b7f8c6de4af6ddc6c0bc13c5b))
+* **@dpc-sdp/ripple-tide-api:** cast strings to real booleans ([5ffa75d](https://github.com/dpc-sdp/ripple-framework/commit/5ffa75d3de7dff1db0b3586547d05799b643b379))
+* **@dpc-sdp/ripple-ui-core:** add document print styles, and link markup plugin, fix modal test ([055be12](https://github.com/dpc-sdp/ripple-framework/commit/055be12044121506573d94aa1c16b387e6a4b814))
+* **@dpc-sdp/ripple-ui-core:** base print styles ([7b67954](https://github.com/dpc-sdp/ripple-framework/commit/7b67954983be9b9054361a2585d3547a07c04d25))
+* **@dpc-sdp/ripple-ui-core:** basic component print styles ([5d68686](https://github.com/dpc-sdp/ripple-framework/commit/5d686862dbfde33bf35f9866e4076c8402312271))
+* **@dpc-sdp/ripple-ui-core:** forgoing design for simpler print links using href ([09da1af](https://github.com/dpc-sdp/ripple-framework/commit/09da1afaa7810e6c9aa36243dc8e13390b76d12c))
+* **@dpc-sdp/ripple-ui-core:** media component prints styles, use teleport for modals ([d2dfccf](https://github.com/dpc-sdp/ripple-framework/commit/d2dfccf0e279076471c1c1aec76e0fa4daf6baf3))
+* **@dpc-sdp/ripple-ui-core:** print utils, add print only component classes ([d81fd24](https://github.com/dpc-sdp/ripple-framework/commit/d81fd24d186ae9add12c5288fe1c50b489d74c67))
+* **@dpc-sdp/ripple-ui-core:** remove main body cols for print in safari ([16bfd3a](https://github.com/dpc-sdp/ripple-framework/commit/16bfd3a0e933aa7d229e66c4e6be2348cf0abcaa))
+* **@dpc-sdp/ripple-ui-core:** remove table scrolling for print ([3539d31](https://github.com/dpc-sdp/ripple-framework/commit/3539d31b1a89e274be0350a070c6ea18c80ba8d3))
+* **docs:** added code snippets from storybook ([1c9a3ed](https://github.com/dpc-sdp/ripple-framework/commit/1c9a3ed69e925f0e8e101e715a9400c8e9196858))
+* **docs:** added static storybook build for docs site ([14b1b42](https://github.com/dpc-sdp/ripple-framework/commit/14b1b42a809aa535ccf75042359a3f739f2397c0))
+* **docs:** added theme chooser component to docs site ([5bc81f2](https://github.com/dpc-sdp/ripple-framework/commit/5bc81f266dc25979e3f705af51653ecd8e278caa))
+* **docs:** cleaned up styling of docs site code examples ([271b0e3](https://github.com/dpc-sdp/ripple-framework/commit/271b0e34bbf227e6a3308843b3f76d2ddbb43cf1))
+* **docs:** removed 'template' wrapper from storybook code snippets ([abbb42f](https://github.com/dpc-sdp/ripple-framework/commit/abbb42f21d2ef91fd53568a82c4ed375f3ae588c))
+* **docs:** removed highlightjs vue plugin, used custom solution ([e84dc43](https://github.com/dpc-sdp/ripple-framework/commit/e84dc4347f12d0b0a4ea4624494a99ff2dacb8b3))
+
 # [2.1.0-alpha.94](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.93...v2.1.0-alpha.94) (2023-02-27)
 
 ### Features

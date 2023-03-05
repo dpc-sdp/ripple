@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import {
-  getColourGroup,
   getColourOptions,
   getColourValue,
   getColourName,
@@ -8,28 +7,19 @@ import {
 } from '#imports'
 
 interface Props {
-  colours: string | string[]
+  colours: string[]
 }
 
 const props = defineProps<Props>()
 
 const colours = computed(() => {
-  const grouped = !Array.isArray(props.colours)
-  const options = grouped
-    ? getColourGroup(props.colours)
-    : getColourOptions(props.colours)
+  const options = getColourOptions(props.colours)
 
-  return Object.keys(options).map((key) => {
-    const ref = grouped
-      ? `${props.colours}${key !== '_' ? '.' + key : ''}`
-      : key
-
-    return {
-      name: getColourName(ref),
-      value: getColourValue(options[key]),
-      token: getColourToken(ref)
-    }
-  })
+  return Object.keys(options).map((key) => ({
+    name: getColourName(key),
+    value: getColourValue(options[key]),
+    token: getColourToken(key)
+  }))
 })
 </script>
 
@@ -65,7 +55,6 @@ td {
 
   &:first-child {
     width: 16%;
-    padding-left: var(--rpl-sp-8);
   }
 
   &:nth-child(2) {

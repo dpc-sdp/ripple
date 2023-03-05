@@ -16,7 +16,8 @@ The design system contains a colour framework, which may be changed if your depa
 
 ::DocsColourTable
 ---
-colours: clr.primary
+colours: 
+  - clr.primary
 ---
 ::
 
@@ -24,7 +25,8 @@ colours: clr.primary
 
 ::DocsColourTable
 ---
-colours: clr.accent
+colours: 
+  - clr.accent
 ---
 ::
 
@@ -32,7 +34,8 @@ colours: clr.accent
 
 ::DocsColourTable
 ---
-colours: clr.neutral
+colours: 
+  - clr.neutral
 ---
 ::
 

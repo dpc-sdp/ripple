@@ -23,10 +23,6 @@ export function getColourByPath(path: string): RplColour | {} {
   return found || {}
 }
 
-export function getColourGroup(colour: string): RplColour | {} {
-  return getColourByPath(colour)
-}
-
 export function getColourOptions(colour: string[]): object {
   return colour.reduce((acc, colour) => {
     let option = getColourByPath(colour)
@@ -37,7 +33,7 @@ export function getColourOptions(colour: string[]): object {
       return { ...acc, [colour]: option }
     }
 
-    option = getColourGroup(colour)
+    option = getColourByPath(colour)
 
     return Object.assign(
       acc,

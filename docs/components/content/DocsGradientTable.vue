@@ -1,33 +1,24 @@
 <script setup lang="ts">
-import {
-  getColourGroup,
-  getColourValue,
-  getColourName,
-  getColourToken
-} from '#imports'
+import { getColourValue, getColourName, getColourToken } from '#imports'
 
 const gradients = computed(() => {
-  const options = getColourGroup('clr.gradient')
+  const options = getColourOptions(['clr.gradient'])
 
-  return Object.keys(options).map((key) => {
-    const ref = `clr.gradient${key !== '_' ? '.' + key : ''}`
-
-    return {
-      name: getColourName(ref),
-      value: getColourValue(options[key]),
-      token: getColourToken(ref)
-    }
-  })
+  return Object.keys(options).map((key) => ({
+    name: getColourName(key),
+    value: getColourValue(options[key]),
+    token: getColourToken(key)
+  }))
 })
 
 const colours = computed(() => {
   let colourStops = []
-  const options = getColourGroup('theme.clr.gradient')
+  const options = getColourOptions(['theme.clr.gradient'])
 
-  for (const [position, value] of Object.entries(options)) {
+  for (const [name, value] of Object.entries(options)) {
     colourStops.push({
       value,
-      position: `${position}%`
+      position: name.split('.').pop()
     })
   }
 
@@ -65,8 +56,8 @@ const colours = computed(() => {
         <tbody>
           <tr v-for="colour in colours" :key="colour.name">
             <td><Swatch :colour="colour.value" /></td>
-            <td class="docs-colour-name">{{ colour.value }}</td>
-            <td>{{ colour.position }}</td>
+            <td>{{ colour.value }}</td>
+            <td>{{ colour.position }}%</td>
           </tr>
         </tbody>
       </table>
@@ -80,7 +71,6 @@ td {
 
   &:first-child {
     width: 16%;
-    padding-left: var(--rpl-sp-8);
   }
 
   &:nth-child(2) {

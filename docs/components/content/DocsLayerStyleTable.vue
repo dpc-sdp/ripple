@@ -8,11 +8,11 @@ interface Props {
 const props = defineProps<Props>()
 
 const layerStyles = computed(() => {
-  let style: string = layers[props.type]
+  let style: string = layers?.[props.type] || {}
 
   if (props.type.includes('.')) {
     const [base, path] = props.type.split('.')
-    style = layers[base][path]
+    style = layers?.[base]?.[path] || style
   }
 
   return Object.keys(style)
@@ -78,7 +78,6 @@ td {
   display: block;
   aspect-ratio: 1;
   width: var(--rpl-sp-6);
-  margin-left: var(--rpl-sp-2);
   border: var(--rpl-border-1) solid var(--rpl-clr-primary);
 }
 </style>

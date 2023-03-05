@@ -26,12 +26,7 @@ const mappedSizes = computed(() =>
       <tbody>
         <tr v-for="size in mappedSizes" :key="size.size">
           <td>
-            <RplIcon
-              class="docs-icon-sizing-icon"
-              name="icon-search"
-              colour="default"
-              :size="size.size"
-            />
+            <RplIcon name="icon-search" colour="default" :size="size.size" />
           </td>
           <td>{{ size.value }}</td>
           <td>{{ size.size }}</td>
@@ -40,9 +35,3 @@ const mappedSizes = computed(() =>
     </table>
   </div>
 </template>
-
-<style scoped>
-.docs-icon-sizing-icon {
-  margin-left: var(--rpl-sp-5);
-}
-</style>

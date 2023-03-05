@@ -8,7 +8,7 @@ import {
   tidePageBaseMapping,
   tidePageBaseIncludes
 } from '@dpc-sdp/ripple-tide-api'
-import type { RplTideMapping } from '@dpc-sdp/ripple-tide-api/types'
+import type { IRplTideModuleMapping } from '@dpc-sdp/ripple-tide-api/types'
 
 const getAddress = (field: drupalField) => `
  ${field.address_line1}${field.address_line1 ? ', ' : ''}
@@ -17,9 +17,7 @@ const getAddress = (field: drupalField) => `
  ${field.administrative_area} ${field.postal_code}
 `
 
-const tideEventModule: RplTideMapping = {
-  component: '@dpc-sdp/ripple-tide-event/component',
-  schema: '@dpc-sdp/ripple-tide-event/types',
+const tideEventModule: IRplTideModuleMapping = {
   mapping: {
     ...tidePageBaseMapping({
       withSidebarContacts: true,

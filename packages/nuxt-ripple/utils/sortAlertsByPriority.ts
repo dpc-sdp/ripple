@@ -1,4 +1,4 @@
-import { TideAlert } from '@dpc-sdp/ripple-tide-api/src/mapping/alerts/site-alerts-mapping'
+import { TideAlert } from './../mapping/alerts/site-alerts-mapping'
 
 const sortAlertsByPriority = (alerts: TideAlert[]): TideAlert[] => {
   const priorityMap = {

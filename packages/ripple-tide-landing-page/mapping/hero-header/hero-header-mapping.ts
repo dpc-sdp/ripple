@@ -113,3 +113,9 @@ export const heroHeaderIncludes = [
   'field_graphical_image.field_media_image',
   'field_bottom_graphical_image.field_media_image'
 ]
+
+export default {
+  includes: heroHeaderIncludes,
+  mapping: heroHeaderMapping,
+  contentTypes: ['landing_page']
+}

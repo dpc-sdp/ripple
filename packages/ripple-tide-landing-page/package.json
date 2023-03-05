@@ -7,7 +7,7 @@
   "license": "Apache-2.0",
   "exports": {
     ".": "./nuxt.config.ts",
-    "./mapping": "./mapping/index.ts"
+    "./module": "./mapping/index.ts"
   },
   "dependencies": {
     "@dpc-sdp/ripple-tide-api": "workspace:*",

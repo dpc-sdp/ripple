@@ -1,4 +1,4 @@
-import type { RplTideMapping } from '@dpc-sdp/ripple-tide-api/types'
+import type { IRplTideModuleMapping } from '@dpc-sdp/ripple-tide-api/types'
 import {
   tidePageBaseMapping,
   tidePageBaseIncludes,
@@ -7,7 +7,7 @@ import {
   getField
 } from '@dpc-sdp/ripple-tide-api'
 
-const tideNewsModule: RplTideMapping = {
+const tideNewsModule: IRplTideModuleMapping = {
   mapping: {
     ...tidePageBaseMapping({
       withSidebarContacts: true,

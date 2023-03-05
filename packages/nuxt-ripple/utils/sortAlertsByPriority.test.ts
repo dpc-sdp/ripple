@@ -1,5 +1,5 @@
 import { expect, describe, it } from '@jest/globals'
-import { TideAlert } from '@dpc-sdp/ripple-tide-api/src/mapping/alerts/site-alerts-mapping'
+import { TideAlert } from './../mapping/alerts/site-alerts-mapping'
 import sortAlertsByPriority from './sortAlertsByPriority.js'
 
 describe('sortAlertsByPriority', () => {

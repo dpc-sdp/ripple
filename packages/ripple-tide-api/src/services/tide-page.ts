@@ -1,11 +1,21 @@
 import jsonapiParse from 'jsonapi-parse'
 import TideApiBase from './tide-api-base.js'
 import defaultMapping from './lib/default-mapping.js'
-import type { RplTideModuleConfig } from './../../types'
+import type {
+  RplTideModuleConfig,
+  IRplTideModuleMapping,
+  IRplTideDynamicComponentMapping
+} from './../../types'
 import { ApplicationError, NotFoundError } from '../errors/errors.js'
 import { ILogger } from '../logger/logger'
+
 export default class TidePageApi extends TideApiBase {
-  contentTypes: any
+  contentTypes: {
+    [key: string]: IRplTideModuleMapping
+  }
+  dynamicComponents: {
+    [key: string]: IRplTideDynamicComponentMapping
+  }
   site: string
   sectionId: string
   path: string
@@ -16,15 +26,83 @@ export default class TidePageApi extends TideApiBase {
     this.sectionId = ''
     this.path = ''
     this.contentTypes = {}
+    this.dynamicComponents = {}
     this.logLabel = 'TidePage'
   }
 
-  getContentTypes() {
-    return this.contentTypes
+  setContentType(key, value) {
+    if (!this.contentTypes[key]) {
+      this.contentTypes[key] = value
+    }
   }
 
-  setContentType(key, value) {
-    this.contentTypes[key] = value
+  setContentTypeIncludes(contentType, includes) {
+    if (contentType?.includes) {
+      if (Array.isArray(includes) && includes.length > 0) {
+        includes.forEach((key) => {
+          if (!contentType?.includes.find(key)) {
+            contentType?.includes.push(key)
+          }
+        })
+      }
+    }
+  }
+
+  setDynamicComponent(key, cmp: IRplTideDynamicComponentMapping) {
+    if (this.dynamicComponents.hasOwnProperty(key)) {
+      this.logger.debug(`Replacing ${key} component which has already been set`)
+    }
+    this.dynamicComponents[key] = cmp
+    // Set includes on content type
+    if (cmp.contentTypes?.length > 0 && cmp.includes?.length > 0) {
+      cmp.contentTypes.forEach((contentType) => {
+        if (this.contentTypes[contentType]) {
+          this.setContentTypeIncludes(
+            this.contentTypes[contentType],
+            cmp.includes
+          )
+        }
+      })
+    }
+  }
+
+  getDynamicComponent(k: string) {
+    return this.dynamicComponents[k]
+  }
+
+  async getDynamicPageComponents(pageData, componentFieldPath) {
+    const componentFields = pageData[componentFieldPath]
+    const mappedComponents: Record<string, any>[] = []
+    if (componentFields && Array.isArray(componentFields)) {
+      for (let i = 0; i < componentFields.length; i++) {
+        const cmpData = componentFields[i]
+
+        const componentConfig = this.getDynamicComponent(cmpData.type)
+        if (!componentConfig) {
+          this.logger.error(`Component ${cmpData.type} mapping not found`)
+          continue
+        }
+        const componentMapping = componentConfig.mapping
+        if (componentMapping.constructor.name === 'AsyncFunction') {
+          const data = await componentMapping.apply(this, [
+            cmpData,
+            pageData,
+            this
+          ])
+          mappedComponents.push({
+            uuid: cmpData.uuid || cmpData.id,
+            ...data
+          })
+        } else if (typeof componentMapping === 'function') {
+          const data = componentMapping.apply(this, [cmpData, pageData])
+          mappedComponents.push({
+            uuid: cmpData.uuid || cmpData.id,
+            ...data
+          })
+        }
+      }
+      return mappedComponents
+    }
   }
 
   async getRouteByPath(path: string, site: string = this.site) {

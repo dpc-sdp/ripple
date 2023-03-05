@@ -1,13 +1,8 @@
 import {
-  getDynamicPageComponents,
   tidePageBaseMapping,
   tidePageBaseIncludes
 } from '@dpc-sdp/ripple-tide-api'
-import {
-  landingPageComponentsMapping,
-  landingPageComponentsIncludes
-} from './page-components/page-components-mapping.js'
-import type { RplTideMapping } from '@dpc-sdp/ripple-tide-api/types'
+import type { IRplTideModuleMapping } from '@dpc-sdp/ripple-tide-api/types'
 import {
   heroHeaderMapping,
   heroHeaderIncludes
@@ -21,7 +16,7 @@ import {
   secondaryCampaignMapping
 } from './secondary-campaign/secondary-campaign-mapping.js'
 
-const tideLandingPageModule: RplTideMapping = {
+const tideLandingPageModule: IRplTideModuleMapping = {
   mapping: {
     ...tidePageBaseMapping({
       withTopicTags: true,
@@ -54,19 +49,15 @@ const tideLandingPageModule: RplTideMapping = {
     primaryCampaign: primaryCampaignMapping,
     secondaryCampaign: secondaryCampaignMapping,
     headerComponents: async (src, tidePageApi) => {
-      return await getDynamicPageComponents(
+      return await tidePageApi.getDynamicPageComponents(
         src,
-        'field_landing_page_header',
-        landingPageComponentsMapping,
-        tidePageApi
+        'field_landing_page_header'
       )
     },
     bodyComponents: async (src, tidePageApi) => {
-      return await getDynamicPageComponents(
+      return await tidePageApi.getDynamicPageComponents(
         src,
-        'field_landing_page_component',
-        landingPageComponentsMapping,
-        tidePageApi
+        'field_landing_page_component'
       )
     }
   },
@@ -79,14 +70,12 @@ const tideLandingPageModule: RplTideMapping = {
       withSidebarWhatsNext: true,
       withSidebarSocialShare: true
     }),
-    ...landingPageComponentsIncludes,
     ...heroHeaderIncludes,
     ...primaryCampaignIncludes,
     ...secondaryCampaignIncludes,
     'field_landing_page_header',
     'field_landing_page_component.field_paragraph_media.field_media_image',
     'field_landing_page_component.field_paragraph_topic',
-    'field_landing_page_component.field_paragraph_media_gallery.field_gallery_media.field_media_image',
     'field_landing_page_component.field_paragraph_items.field_paragraph_reference.field_event_details',
     'field_landing_page_component.field_paragraph_items.field_paragraph_reference.field_topic',
     'field_landing_page_component.field_paragraph_items.field_paragraph_reference.field_featured_image.field_media_image',
@@ -97,13 +86,13 @@ const tideLandingPageModule: RplTideMapping = {
 
 export default tideLandingPageModule
 
-export {
-  landingPageComponentsMapping,
-  landingPageComponentsIncludes,
-  basicTextIncludes,
-  accordionIncludes,
-  promoCardIncludes,
-  navigationCardIncludes,
-  keyDatesIncludes,
-  statisticsGridIncludes
-} from './page-components/page-components-mapping.js'
+// export {
+//   landingPageComponentsMapping,
+//   landingPageComponentsIncludes,
+//   basicTextIncludes,
+//   accordionIncludes,
+//   promoCardIncludes,
+//   navigationCardIncludes,
+//   keyDatesIncludes,
+//   statisticsGridIncludes
+// } from './page-components/page-components-mapping.js'

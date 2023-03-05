@@ -1,7 +1,7 @@
-import type { RplTideMapping } from '@dpc-sdp/ripple-tide-api/types'
+import type { IRplTideModuleMapping } from '@dpc-sdp/ripple-tide-api/types'
 import { tideMediaBaseMapping, tideMediaBaseIncludes } from './media-mapping'
 
-const tideMediaEmbeddedVideoMapping: RplTideMapping = {
+const tideMediaEmbeddedVideoMapping: IRplTideModuleMapping = {
   mapping: {
     ...tideMediaBaseMapping,
     media: {

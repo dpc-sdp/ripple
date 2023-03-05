@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.95](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.94...v2.1.0-alpha.95) (2023-03-02)
+
+### Bug Fixes
+
+* cleanup linting warnings ([2645725](https://github.com/dpc-sdp/ripple-framework/commit/26457253264db9b8836273a2a7380d9b50be2b11))
+
+### Features
+
+* **@dpc-sdp/ripple-ui-core:** add document print styles, and link markup plugin, fix modal test ([055be12](https://github.com/dpc-sdp/ripple-framework/commit/055be12044121506573d94aa1c16b387e6a4b814))
+* **@dpc-sdp/ripple-ui-core:** base print styles ([7b67954](https://github.com/dpc-sdp/ripple-framework/commit/7b67954983be9b9054361a2585d3547a07c04d25))
+* **@dpc-sdp/ripple-ui-core:** basic component print styles ([5d68686](https://github.com/dpc-sdp/ripple-framework/commit/5d686862dbfde33bf35f9866e4076c8402312271))
+* **@dpc-sdp/ripple-ui-core:** forgoing design for simpler print links using href ([09da1af](https://github.com/dpc-sdp/ripple-framework/commit/09da1afaa7810e6c9aa36243dc8e13390b76d12c))
+* **@dpc-sdp/ripple-ui-core:** media component prints styles, use teleport for modals ([d2dfccf](https://github.com/dpc-sdp/ripple-framework/commit/d2dfccf0e279076471c1c1aec76e0fa4daf6baf3))
+* **@dpc-sdp/ripple-ui-core:** print utils, add print only component classes ([d81fd24](https://github.com/dpc-sdp/ripple-framework/commit/d81fd24d186ae9add12c5288fe1c50b489d74c67))
+* **@dpc-sdp/ripple-ui-core:** remove main body cols for print in safari ([16bfd3a](https://github.com/dpc-sdp/ripple-framework/commit/16bfd3a0e933aa7d229e66c4e6be2348cf0abcaa))
+* **@dpc-sdp/ripple-ui-core:** remove table scrolling for print ([3539d31](https://github.com/dpc-sdp/ripple-framework/commit/3539d31b1a89e274be0350a070c6ea18c80ba8d3))
+
 # [2.1.0-alpha.93](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.92...v2.1.0-alpha.93) (2023-02-24)
 
 ### Bug Fixes

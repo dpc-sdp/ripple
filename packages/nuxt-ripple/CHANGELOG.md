@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.95](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.94...v2.1.0-alpha.95) (2023-03-02)
+
+### Features
+
+* **@dpc-sdp/nuxt-ripple:** hide content rating for print, add print logo ([2a2b39b](https://github.com/dpc-sdp/ripple-framework/commit/2a2b39b5f93235aae2337c22b1fd77745d5da13f))
+
 # [2.1.0-alpha.94](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.93...v2.1.0-alpha.94) (2023-02-27)
 
 ### Features

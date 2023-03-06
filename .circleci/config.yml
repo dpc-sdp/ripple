@@ -305,11 +305,16 @@ workflows:
           filters:
             branches:
               ignore:
+                - develop
                 - /gh-readonly-queue\/.*/
       - chromatic:
           requires:
             - confirm-chromatic
             - build-storybook
+          filters:
+            branches:
+              ignore:
+                - develop
       - publish-alpha:
           requires:
             - build

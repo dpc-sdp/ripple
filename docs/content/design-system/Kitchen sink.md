@@ -353,6 +353,38 @@ hideCode: true
 ---
 ::
 
+You can also the theme and whether or not neutral buttons should be used.
+
+```md
+::DocsExample
+---
+id: core-navigation-button--default-filled
+theme: 'light'
+---
+::
+
+::DocsExample
+---
+id: core-navigation-card--call-to-action
+useNeutralButtons: true
+---
+::
+```
+
+::DocsExample
+---
+id: core-navigation-button--default-filled
+theme: 'docsTheme3'
+---
+::
+
+::DocsExample
+---
+id: core-navigation-card--call-to-action
+useNeutralButtons: true
+---
+::
+
 ### DocsThemeChooser
 
 You can wrap `DocsExample` components with a `DocsThemeChooser` component. This will allow the user to choose which theme the examples inside the theme chooser will display with.

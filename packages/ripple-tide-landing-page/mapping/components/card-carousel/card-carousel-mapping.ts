@@ -1,0 +1,96 @@
+import { query as newsQuery, mapping as newsMapping } from './news-mapping.js'
+import {
+  query as eventQuery,
+  mapping as eventMapping
+} from './event-mapping.js'
+import { mapping as customMapping } from './custom-mapping.js'
+import {
+  TideImageField,
+  TideDynamicPageComponent
+} from '@dpc-sdp/ripple-tide-api/types'
+
+export interface ITideCardCarouselItemMeta {
+  topic?: string | null
+  date?: string | null
+  dateStart?: string | null
+  dateEnd?: string | null
+}
+
+interface TideCardCarouselImageField extends TideImageField {
+  drupal_internal__target_id?: number | null
+}
+
+export interface ITideCardCarouselKeyDates {
+  title?: string
+  subtitle?: string
+  content?: string
+}
+
+export interface ITideCardCarouselItem {
+  type?: string
+  title: string
+  url: string
+  caption?: string
+  alt?: string
+  thumbnail?: string | null
+  image?: TideCardCarouselImageField | null
+  summary?: string | null
+  meta?: ITideCardCarouselItemMeta
+  keyDates?: ITideCardCarouselKeyDates[]
+}
+
+export interface ITideCardCarousel {
+  items: ITideCardCarouselItem[] | Array<null>
+}
+
+const getCardsFromType = async (
+  field,
+  tidePageApi
+): Promise<Array<ITideCardCarouselItem> | Array<null>> => {
+  let items = []
+
+  switch (field.field_paragraph_latest_items) {
+    case 'news': {
+      const news = await tidePageApi.getContentList('news', newsQuery)
+
+      items = (news || []).map(newsMapping)
+      break
+    }
+    case 'event': {
+      const events = await tidePageApi.getContentList('event', eventQuery)
+
+      items = (events || []).map(eventMapping)
+      break
+    }
+    default:
+      items = field.field_paragraph_items.map(customMapping)
+      break
+  }
+
+  return items
+}
+
+export const cardCarouselMapping = async (
+  field,
+  page,
+  tidePageApi
+): Promise<TideDynamicPageComponent<ITideCardCarousel>> => {
+  return {
+    component: 'TideLandingPageCardCarousel',
+    id: field.drupal_internal__id.toString(),
+    title: field.field_paragraph_title,
+    props: {
+      items: await getCardsFromType(field, tidePageApi)
+    }
+  }
+}
+
+export const cardCarouselIncludes = [
+  'field_landing_page_component.field_paragraph_media_gallery.field_gallery_media.field_media_image'
+]
+
+export default {
+  includes: cardCarouselIncludes,
+  mapping: cardCarouselMapping,
+  contentTypes: ['landing_page']
+}

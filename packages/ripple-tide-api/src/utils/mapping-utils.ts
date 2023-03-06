@@ -1,7 +1,6 @@
 import { get } from 'lodash-es'
 import { TideImageField, TideUrlField } from '../../types'
 import markupTranspiler from './markup-transpiler/index.js'
-
 export type drupalField = Record<string, any>
 
 interface RawMediaImage {
@@ -94,34 +93,6 @@ export const getCardImage = (fieldMediaImage: RawCardImage): TideImageField => {
   }
 }
 
-// export const getLinkFromField = (
-//   field: drupalField,
-//   path: string | string[] | unknown
-// ) => {
-//   let url, text
-//   if (Array.isArray(path)) {
-//     text = get(field, [...path, 'title'], false)
-//     url = get(
-//       field,
-//       [...path, 'url'],
-//       get(field, [...path, 'origin_url'], get(field, [...path, 'uri'])),
-//       false
-//     )
-//   } else if (typeof path === 'string') {
-//     text = get(field, `${path}.title`, false)
-//     url = get(
-//       field,
-//       `${path}.url`,
-//       get(field, `${path}.origin_url`, get(field, `${path}.uri`)),
-//       false
-//     )
-//   } else {
-//     text = get(field, 'title', false)
-//     url = get(field, 'url', get(field, 'origin_url', get(field, 'uri')))
-//   }
-//   return { text: url && text === '' ? url : text, url }
-// }
-
 export const getLinkFromField = (
   field: drupalField,
   path?: string | string[]
@@ -148,46 +119,6 @@ export const getAddress = (field: drupalField) => {
   const address = line1 + line2 + suburb + stateAndPostcode
 
   return address.length > 3 ? address : ''
-}
-
-export const getDynamicPageComponents = async (
-  pageData,
-  componentFieldPath,
-  componentMapping,
-  tideApi
-) => {
-  const componentFields = pageData[componentFieldPath]
-  const mappedComponents: Record<string, any>[] = []
-
-  if (componentFields && Array.isArray(componentFields)) {
-    for (let i = 0; i < componentFields.length; i++) {
-      const cmpData = componentFields[i]
-      if (componentMapping.hasOwnProperty(cmpData.type)) {
-        const componentMappingFunction = componentMapping[cmpData.type]
-        if (componentMappingFunction.constructor.name === 'AsyncFunction') {
-          const data = await componentMappingFunction.apply(tideApi, [
-            cmpData,
-            pageData,
-            tideApi
-          ])
-          mappedComponents.push({
-            uuid: cmpData.uuid || cmpData.id,
-            ...data
-          })
-        } else if (typeof componentMappingFunction === 'function') {
-          const data = componentMappingFunction.apply(tideApi, [
-            cmpData,
-            pageData
-          ])
-          mappedComponents.push({
-            uuid: cmpData.uuid || cmpData.id,
-            ...data
-          })
-        }
-      }
-    }
-    return mappedComponents
-  }
 }
 
 export const getBody = (html, customPlugins = []) => {
@@ -235,7 +166,6 @@ export default {
   getImageFromField,
   getLinkFromField,
   getAddress,
-  getDynamicPageComponents,
   getBody,
   getBodyFromField,
   humanizeFilesize,

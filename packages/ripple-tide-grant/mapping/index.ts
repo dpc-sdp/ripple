@@ -1,12 +1,14 @@
 import mime from 'mime-types'
 import {
-  tidePageBaseMapping,
-  tidePageBaseIncludes,
   formatPriceRange,
   getField,
   humanizeFilesize
 } from '@dpc-sdp/ripple-tide-api'
-import type { RplTideMapping } from '@dpc-sdp/ripple-tide-api/types'
+import {
+  tidePageBaseMapping,
+  tidePageBaseIncludes
+} from '@dpc-sdp/nuxt-ripple/mapping'
+import type { IRplTideModuleMapping } from '@dpc-sdp/ripple-tide-api/types'
 
 const extractAudiences = (audiences = []) => {
   if (audiences.length === 0) return ''
@@ -29,9 +31,7 @@ const extractAudiences = (audiences = []) => {
   return `${audienceStr.charAt(0).toUpperCase() + audienceStr.slice(1)}`
 }
 
-const tideGrantModule: RplTideMapping = {
-  component: '@dpc-sdp/ripple-tide-grant/component',
-  schema: '@dpc-sdp/ripple-tide-grant/types',
+const tideGrantModule: IRplTideModuleMapping = {
   mapping: {
     ...tidePageBaseMapping({
       withSidebarSiteSectionNav: false,

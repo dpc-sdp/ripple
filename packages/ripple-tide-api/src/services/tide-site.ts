@@ -1,28 +1,32 @@
 import jsonapiParse from 'jsonapi-parse'
 import TideApiBase from './tide-api-base.js'
-import type { RplTideModuleConfig, RplTideMapping } from './../../types'
+import type { RplTideModuleConfig, IRplTideModuleMapping } from './../../types'
 import { ApplicationError } from '../errors/errors.js'
 import { ILogger } from '../logger/logger'
 
 export default class TideSite extends TideApiBase {
   site: string
-  siteMapping: RplTideMapping
+  siteMapping: IRplTideModuleMapping | null
 
   constructor(
     tide: RplTideModuleConfig,
-    siteMapping: RplTideMapping,
+
     logger: ILogger
   ) {
     super(tide, logger)
     this.site = tide.config.site
-    if (!siteMapping) {
-      throw new Error('Error loading site mapping')
-    }
-    this.siteMapping = siteMapping
+    this.siteMapping = null
     this.logLabel = 'TideSite'
   }
 
+  setSiteMapping(siteMapping) {
+    this.siteMapping = siteMapping
+  }
+
   async getSiteData(siteid) {
+    if (!this.siteMapping) {
+      throw new Error('Error loading site mapping')
+    }
     const include = this.siteMapping.includes
     const params = {
       include: include.toString(),

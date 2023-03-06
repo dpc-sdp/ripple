@@ -1,22 +1,10 @@
 import type { AxiosInstance } from 'axios'
-import { IRplFeatureFlags } from 'ripple-tide-api/types'
+import { IRplFeatureFlags, IRplTideModuleMapping } from 'ripple-tide-api/types'
 import { TideAlert } from './src/mapping/alerts/site-alerts-mapping'
 import { TideContact } from './src/mapping/sidebar-contacts/sidebar-contacts-mapping-types'
 import { TideTopicTag } from './src/mapping/topic-tags/topic-tags-mapping'
 
 export type TideApiResponse = any
-
-export interface RplTideModuleMappingFunction {
-  // eslint-disable-next-line @typescript-eslint/ban-types
-  [key: string]: Function | string | string[] | object
-}
-export interface RplTideMapping {
-  component?: string | string[]
-  schema?: string
-  key?: string
-  mapping: RplTideModuleMappingFunction
-  includes: string[]
-}
 
 export interface TideSiteData {
   name: string
@@ -147,7 +135,7 @@ export interface RplTideModuleConfig {
     /**
      * ContentType Mapping or path to file
      */
-    [key: string]: string | RplTideMapping
+    [key: string]: string | IRplTideModuleMapping
   }
   /**
    * Enable debug mode
@@ -160,3 +148,12 @@ export interface RplTideModuleConfig {
 }
 
 export type { ILogger } from './src/logger/logger.js'
+
+declare module 'nitropack' {
+  export interface NitroApp {
+    tide?: {
+      pageApi: TidePageApi
+      siteApi: TideSiteApi
+    }
+  }
+}

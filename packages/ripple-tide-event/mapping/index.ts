@@ -1,25 +1,17 @@
 import {
-  // getAddress,
-  drupalField,
+  getAddress,
   getField,
   getBodyFromField,
   getLinkFromField,
-  formatPriceRange,
+  formatPriceRange
+} from '@dpc-sdp/ripple-tide-api'
+import {
   tidePageBaseMapping,
   tidePageBaseIncludes
-} from '@dpc-sdp/ripple-tide-api'
-import type { RplTideMapping } from '@dpc-sdp/ripple-tide-api/types'
+} from '@dpc-sdp/nuxt-ripple/mapping'
+import type { IRplTideModuleMapping } from '@dpc-sdp/ripple-tide-api/types'
 
-const getAddress = (field: drupalField) => `
- ${field.address_line1}${field.address_line1 ? ', ' : ''}
- ${field.address_line2}${field.address_line2 ? ', ' : ''}
- ${field.locality}${field.address_line2 || field.locality ? ', ' : ''}
- ${field.administrative_area} ${field.postal_code}
-`
-
-const tideEventModule: RplTideMapping = {
-  component: '@dpc-sdp/ripple-tide-event/component',
-  schema: '@dpc-sdp/ripple-tide-event/types',
+const tideEventModule: IRplTideModuleMapping = {
   mapping: {
     ...tidePageBaseMapping({
       withSidebarContacts: true,

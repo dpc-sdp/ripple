@@ -31,7 +31,7 @@ const layerStyles = computed(() => {
       <table class="w-full">
         <thead>
           <tr>
-            <th>Style</th>
+            <th>Visual</th>
             <th>Value</th>
             <th>CSS Variable</th>
           </tr>
@@ -39,20 +39,21 @@ const layerStyles = computed(() => {
         <tbody>
           <tr v-for="style in layerStyles" :key="style.token">
             <td>
-              <div class="docs-layer-style-preview">
-                <span
-                  v-if="type === 'border'"
-                  :style="`border-width: var(--rpl-border-${style.key})`"
-                />
-                <span
-                  v-if="type === 'border.radius'"
-                  :style="`border-radius: var(--rpl-border-radius-${style.key})`"
-                />
-                <span
-                  v-if="type === 'elevation'"
-                  :style="`box-shadow: var(--rpl-elevation-${style.key})`"
-                />
-              </div>
+              <span
+                v-if="type === 'border'"
+                class="docs-layer-style-preview docs-layer-style-preview--border"
+                :style="`border-width: var(--rpl-border-${style.key})`"
+              />
+              <span
+                v-if="type === 'border.radius'"
+                class="docs-layer-style-preview docs-layer-style-preview--border-radius"
+                :style="`border-radius: var(--rpl-border-radius-${style.key})`"
+              />
+              <span
+                v-if="type === 'elevation'"
+                class="docs-layer-style-preview docs-layer-style-preview--elevation"
+                :style="`box-shadow: var(--rpl-elevation-${style.key})`"
+              />
             </td>
             <td>
               {{ style.value }}
@@ -68,16 +69,21 @@ const layerStyles = computed(() => {
 <style scoped>
 td {
   width: 40%;
+  vertical-align: middle;
 
   &:first-child {
     width: 20%;
   }
 }
 
-.docs-layer-style-preview span {
+.docs-layer-style-preview {
   display: block;
-  aspect-ratio: 1;
-  width: var(--rpl-sp-6);
-  border: var(--rpl-border-1) solid var(--rpl-clr-primary);
+  width: var(--rpl-sp-12);
+  border: var(--rpl-border-1) solid var(--rpl-clr-neutral-600);
+}
+
+.docs-layer-style-preview--border-radius,
+.docs-layer-style-preview--elevation {
+  height: var(--rpl-sp-6);
 }
 </style>

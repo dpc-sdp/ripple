@@ -23,7 +23,8 @@
     "@dpc-sdp/ripple-tide-media",
     "@dpc-sdp/ripple-tide-news",
     "nuxt-ripple",
-    "@dpc-sdp/nuxt-ripple-cli"
+    "@dpc-sdp/nuxt-ripple-cli",
+    "@dpc-sdp/ripple-test-utils"
   ],
   "cSpell.words": [
     "colour",
@@ -41,6 +42,7 @@
     "Webform"
   ],
   "cucumberautocomplete.steps": [
+    "./packages/ripple-test-utils/step_definitions/**/*.ts",
     "./examples/**/test/support/step_definitions/**/*.ts",
     "./examples/**/test/features/**/*.ts"
   ]

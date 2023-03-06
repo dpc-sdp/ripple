@@ -1,7 +1,3 @@
-<script lang="ts">
-export default { name: 'RplAlert' }
-</script>
-
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import type { Ref } from 'vue'
@@ -42,7 +38,8 @@ const classes = computed(() => {
   return {
     'rpl-alert': true,
     [`rpl-alert--${props.variant}`]: props.variant,
-    'rpl-alert--closed': props.dismissed
+    'rpl-alert--closed': props.dismissed,
+    'rpl-u-screen-only': true
   }
 })
 

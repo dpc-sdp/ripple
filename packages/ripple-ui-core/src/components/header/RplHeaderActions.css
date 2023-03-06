@@ -3,7 +3,7 @@
 .rpl-header-actions {
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: flex-start;
   gap: var(--rpl-sp-5);
 
   @media (--rpl-bp-l) {
@@ -14,10 +14,6 @@
   .rpl-icon {
     color: var(--rpl-clr-link);
   }
-}
-
-.rpl-header-actions__primary {
-  min-width: max-content;
 }
 
 .rpl-header-actions__secondary {
@@ -41,6 +37,10 @@
     font-size: var(--rpl-type-size-3);
     line-height: var(--rpl-type-lh-5);
     letter-spacing: var(--rpl-type-ls-2);
+  }
+
+  @media print {
+    flex-wrap: wrap;
   }
 
   .rpl-icon--size-xs {

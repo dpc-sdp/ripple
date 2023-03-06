@@ -64,6 +64,10 @@
     background-color: var(--rpl-clr-accent);
     opacity: 0;
     transition: opacity var(--rpl-motion-speed-9) ease-out;
+
+    @media print {
+      display: none;
+    }
   }
 
   &.rpl-accordion__item--active {
@@ -97,6 +101,10 @@
 
   &:hover {
     color: var(--rpl-clr-link);
+  }
+
+  @media print {
+    padding-left: 0;
   }
 }
 
@@ -162,5 +170,9 @@
     padding-right: var(--rpl-sp-7);
     padding-bottom: calc(var(--rpl-sp-8) - var(--rpl-border-1));
     padding-left: var(--rpl-sp-7);
+  }
+
+  @media print {
+    padding-left: 0;
   }
 }

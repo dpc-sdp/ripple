@@ -14,7 +14,7 @@ withDefaults(defineProps<Props>(), {
 </script>
 
 <template>
-  <div class="rpl-acknowledgement">
+  <div class="rpl-acknowledgement rpl-u-screen-only">
     <div class="rpl-acknowledgement__flags">
       <RplImage
         class="rpl-acknowledgement__flag"

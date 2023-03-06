@@ -2,6 +2,12 @@
   padding: var(--rpl-sp-7) var(--rpl-sp-6) var(--rpl-sp-8);
   background-color: var(--rpl-clr-neutral-200);
   border-radius: var(--rpl-border-radius-2);
+
+  @media print {
+    padding-left: 0;
+    padding-right: 0;
+    background-color: transparent;
+  }
 }
 
 .rpl-related-links__heading {

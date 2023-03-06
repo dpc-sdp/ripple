@@ -4,6 +4,14 @@
   cursor: pointer;
   text-decoration: underline;
 
+  @media print {
+    color: var(--rpl-clr-link);
+
+    &::after {
+      content: ' <' attr(href) '> ';
+    }
+  }
+
   &:visited {
     color: var(--local-clr-link-visited, var(--rpl-clr-link-visited));
   }

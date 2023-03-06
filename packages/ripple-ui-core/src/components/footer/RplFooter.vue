@@ -119,7 +119,7 @@ const columns = computed(() => {
 
 <template>
   <footer
-    :class="`rpl-footer rpl-footer--${variant}`"
+    :class="`rpl-footer rpl-footer--${variant} rpl-u-screen-only`"
     data-component-type="site-footer"
   >
     <div class="rpl-container">

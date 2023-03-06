@@ -5,6 +5,7 @@ export default defineNuxtConfig({
   ssr: true,
   modules: [
     '@dpc-sdp/ripple-ui-core/nuxt',
+    '@dpc-sdp/ripple-ui-forms/nuxt',
     '@nuxt/content',
     '@nuxtjs/tailwindcss',
     '@nuxtlabs/github-module'
@@ -21,7 +22,8 @@ export default defineNuxtConfig({
       layoutFallbacks: ['page']
     },
     highlight: {
-      preload: ['vue', 'bash']
+      theme: 'github-light',
+      preload: ['vue', 'bash', 'markdown']
     }
   }
 })

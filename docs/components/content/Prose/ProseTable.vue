@@ -1,7 +1,15 @@
 <template>
-  <div class="rpl-table my-4">
-    <table class="w-full">
-      <slot />
-    </table>
+  <div class="rpl-table">
+    <div class="rpl-table__scroll-container">
+      <table class="docs-table">
+        <slot />
+      </table>
+    </div>
   </div>
 </template>
+
+<style scoped>
+.docs-table {
+  min-width: 100%;
+}
+</style>

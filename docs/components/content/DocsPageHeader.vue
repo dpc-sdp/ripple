@@ -8,7 +8,7 @@ interface Props {
   }[]
 }
 
-const props = withDefaults(defineProps<Props>(), {
+withDefaults(defineProps<Props>(), {
   description: '',
   links: () => []
 })
@@ -16,21 +16,27 @@ const props = withDefaults(defineProps<Props>(), {
 
 <template>
   <header class="docs-page-header">
-    <h1 class="rpl-type-h1 mb-4">
+    <h1 class="rpl-type-h1 rpl-u-margin-b-2">
       {{ title }}
     </h1>
     <p class="rpl-type-p-large">{{ description }}</p>
-    <ul class="links rpl-u-margin-t-4">
+    <ul class="links rpl-u-margin-t-5">
       <li v-for="(link, index) in links" :key="index">
-        <RplTextLink :url="link.url" class="rpl-type-p">{{
-          link.text
-        }}</RplTextLink>
+        <DocsLink
+          isExternal
+          iconPosition="start"
+          :url="link.url"
+          class="rpl-type-p"
+          >{{ link.text }}</DocsLink
+        >
       </li>
     </ul>
   </header>
 </template>
 
 <style scoped>
+@import '@dpc-sdp/ripple-ui-core/style/breakpoints';
+
 .docs-page-header {
   margin-bottom: var(--rpl-sp-7);
 

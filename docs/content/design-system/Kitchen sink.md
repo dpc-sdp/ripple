@@ -2,78 +2,252 @@
 title: Kitchen sink
 description: Here's everything
 layout: default
+links:
+  - text: Vic gov
+    url: https://www.vic.gov.au/
+  - text: Single Digital Presence
+    url: https://www.vic.gov.au/single-digital-presence
+---
+
+> For a more detailed markdown editing guide, see here https://www.markdownguide.org/basic-syntax/
+
+## Front matter
+
+Front matter sits at the very top of a markdown file and contains metadata about a page. In our case, it contains things like the page title and description.
+
+Here is the frontmatter for the page you are currently reading.
+
+```md
+---
+title: Kitchen sink
+description: Here's everything
+layout: default
+links:
+  - text: Vic gov
+    url: https://www.vic.gov.au/
+  - text: Single Digital Presence
+    url: https://www.vic.gov.au/single-digital-presence
+---
+```
+
 ---
 
 ## Headings
 
+Headings are added using hash marks before text. The number of hash marks specifies the heading level (e.g. '##' = H2). Please don't use H1s in markdown, these are reserved for the page title, which is set in the front matter.
+
+### Example
+
+```md
 ## Heading level 2
+
 ### Heading level 3
+
 #### Heading level 4
+
 ##### Heading level 5
+
+###### Heading level 6
+```
+
+## Heading level 2
+
+### Heading level 3
+
+#### Heading level 4
+
+##### Heading level 5
+
 ###### Heading level 6
 
-
-## Horizontal Rules 
-
-### `___`
-___
-
-### `---`
 ---
 
-### `***`
-***
+## Paragraph text
+
+Paragraphs are simply text seperated by an empty line.
+
+```md
+This is a paragraph
+
+This is another paragraph
+```
+
+This is a paragraph
+
+This is another paragraph
+
+---
 
 ## Emphasis
 
-**This is bold text**
+### Italics
 
-__This is bold text__
+```md
+Here is *italic text*
 
-*This is italic text*
+Here is also _italic text_
+```
 
-_This is italic text_
+Here is *italic text*
 
-~~Strikethrough~~
+Here is also _italic text_
 
+### Bold
+
+```md
+Here is **bold text**
+
+Here is also __bold text__
+```
+
+Here is **bold text**
+
+Here is also __bold text__
+
+### Strikethrough
+
+```md
+Here is ~~strikethrough text~~
+```
+
+Here is ~~strikethrough text~~
+
+---
+
+## Horizontal Rules
+
+You can add a horizontal rule by using at least three of either `_`, `-` or `*`.
+
+```md
+These are all equivalent:
+---
+___
+***
+
+So are these:
+------
+______
+******
+
+But these won't work:
+--
+__
+**
+```
+
+---
 
 ## Blockquotes
 
+Blockquotes are added with a `>` before the text.
+
+```md
+> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+```
 
 > Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 
+---
 
 ## Lists
 
-Unordered
+### Unordered
 
-+ Create a list by starting a line with `+`, `-`, or `*`
-+ Sub-lists are made by indenting 2 spaces:
-  - Marker character change forces new list start:
-    * Ac tristique libero volutpat at
-    + Facilisis in pretium nisl aliquet
-    - Nulla volutpat aliquam velit
-+ Very easy!
+Unordered lists are created by starting a line with `+`, `-`, or `*`. Nested lists can be achieved through indentation, with **2 spaces** for each additional level.
 
-Ordered
+```md
+* Fruit
+  * Berries
+    - Strawberry
+    - Blueberry
+  * Classics
+    - Apple
+    - Banana
+* Vegetables
+  + Broccoli
+```
+
+* Fruit
+  * Berries
+    - Strawberry
+    - Blueberry
+  * Classics
+    - Apple
+    - Banana
+* Vegetables
+  + Broccoli
+
+### Ordered
+
+Ordered lists are created by starting a line with a number and period (e.g. `1.`). Nested lists can be achieved through indentation, with **4 spaces** (different to the unordered list) for each additional level.
+
+You can use any numbers, but it's more convenient to just use `1.` for each item, the numbering will work automatically.
+
+```md
+This works:
 
 1. Lorem ipsum dolor sit amet
+    1. Lorem at massa
+    2. Adipiscing
 2. Consectetur adipiscing elit
 3. Integer molestie lorem at massa
 
+But just do this, it's the same thing:
 
-1. You can use sequential numbers...
-1. ...or keep all the numbers as `1.`
+1. Lorem ipsum dolor sit amet
+    1. Lorem at massa
+    1. Adipiscing
+1. Consectetur adipiscing elit
+1. Integer molestie lorem at massa
+```
 
-Start numbering with offset:
+1. Lorem ipsum dolor sit amet
+    1. Lorem at massa
+    2. Adipiscing
+2. Consectetur adipiscing elit
+3. Integer molestie lorem at massa
 
-57. foo
+#### Starting point
+
+You can start the list at any number like this:
+
+```md
+64. foo
 1. bar
+1. blah
+```
 
+64. foo
+1. bar
+1. blah
+
+---
+
+## Links
+
+Hyperlinks can be added with the following syntax, the link text goes in the square brackets, followed by the url in round brackets.
+
+```md
+Visit the [Victorian government website](https://www.vic.gov.au/)
+```
+
+Visit the [Victorian government website](https://www.vic.gov.au/)
+
+Alternatively, if you don't need different link text you can just write the url directly
+
+```md
+Here is the link to vic gov https://www.vic.gov.au/.
+```
+
+Here is the link to vic gov https://www.vic.gov.au/.
+
+---
 
 ## Code
 
-Inline `code`
+Here's some `code inline` in context.
+
+Here's some `const codeInline: string = 'highlighted code inline'`{lang="ts"} in context.
 
 Indented code
 
@@ -99,55 +273,172 @@ var foo = function (bar) {
 console.log(foo(5));
 ```
 
+---
+
 ## Tables
 
-| Option | Description |
-| ------ | ----------- |
-| data   | path to data files to supply the data that will be passed into templates. |
-| engine <br> asd | engine to be used for processing templates. Handlebars is the default. |
-| ext    | extension to be used for dest files. |
+Tables can be added using a special format. More info here:
 
-Right aligned columns
+- [Github markdown tables guide](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/organizing-information-with-tables)
 
-| Option | Description |
-| ------:| -----------:|
-| data   | path to data files to supply the data that will be passed into templates. |
-| engine | engine to be used for processing templates. Handlebars is the default. |
-| ext    | extension to be used for dest files. |
+An example of a simple table
 
-| Option | Description |
-| ------:| -----------:|
-| ![Nils Olav](/assets/img/InlineLink-Focus.png) | path to data files to supply the data that will be passed into templates. |
-| engine | engine to be used for processing templates. Handlebars is the default. |
-| ext    | extension to be used for dest files. |
+```md
+| Name   | Description                  |
+| ------ | ---------------------------- |
+| Banana | Yellow, elongated, edible.   |
+| Apple  | 84% water, 15% carbohydrates |
+```
 
+| Name   | Description                  |
+| ------ | ---------------------------- |
+| Banana | Yellow, elongated, edible.   |
+| Apple  | 84% water, 15% carbohydrates |
 
-## Links
-
-[link text](http://dev.nodeca.com)
-
-[link with title](http://nodeca.github.io/pica/demo/ "title text!")
-
-Autoconverted link https://github.com/nodeca/pica (enable linkify to see)
-
+---
 
 ## Images
 
-![Nils Olav](/assets/img/Nils_Olav_wide.jpg "Nils")
+Images can be added like this:
+
+```md
+![Nils Olav  - This is the alt text](/assets/img/Nils_Olav_wide.jpg)
+```
+
+![Nils Olav  - This is the alt text](/assets/img/Nils_Olav_wide.jpg)
 
 By Lee Carson on Flickr - Nils Olav on Flickr, CC BY-SA 2.0, https://commons.wikimedia.org/w/index.php?curid=5080064
 
-### Footnotes
+---
 
-Here's a simple footnote,[^1] and here's a longer one.[^bignote]
-[^1]: This is the first footnote.
-[^bignote]: Here's one with multiple paragraphs and code.
-    Indent paragraphs to include them in the footnote.
-    `{ my code }`
-    Add as many paragraphs as you like.
+## Custom components
 
-### Custom containers
+### DocsExample
 
-::: warning
-*here be dragons*
-:::
+The `DocsExample` will display an component example from storybook, you will need to give it the id of the story you want to display.
+
+```md
+::DocsExample
+---
+id: core-navigation-button--default-filled
+---
+::
+```
+
+::DocsExample
+---
+id: core-navigation-button--default-filled
+---
+::
+
+There are additional options you can use for this component:
+
+```md
+::DocsExample
+---
+id: core-navigation-button--default-filled
+withPadding: false
+hideNewTab: false
+hideCode: true
+---
+::
+```
+
+::DocsExample
+---
+id: core-navigation-button--default-filled
+withPadding: true
+hideNewTab: false
+hideCode: true
+---
+::
+
+### DocsThemeChooser
+
+You can wrap `DocsExample` components with a `DocsThemeChooser` component. This will allow the user to choose which theme the examples inside the theme chooser will display with.
+
+```md
+::DocsThemeChooser
+  ::DocsExample
+  ---
+  id: core-navigation-button--default-filled
+  ---
+  ::
+  ::DocsExample
+  ---
+  id: core-navigation-button--default-outlined
+  ---
+  ::
+::
+```
+
+::DocsThemeChooser
+  ::DocsExample
+  ---
+  id: core-navigation-button--default-filled
+  ---
+  ::
+  ::DocsExample
+  ---
+  id: core-navigation-button--default-outlined
+  ---
+  ::
+::
+
+### DocsCard && DocsCardGrid
+
+Cards can also be added. Ensure that you wrap them with DocsCardGrid so that they are layout out correctly. DocsCard use the 'promo' type card under the hood.
+
+```md
+::DocsCardGrid
+  ::DocsCard
+  ---
+  title: Button
+  url: /design-system/components/button
+  ---
+  Here's the summary text
+  ::
+
+  ::DocsCard
+  ---
+  title: Vic gov
+  url: https://www.vic.gov.au/
+  ---
+  Here's the summary text
+  ::
+
+  ::DocsCard
+  ---
+  title: Code standards
+  url: /framework/code-standards
+  ---
+  Here's the summary text
+  ::
+::
+```
+
+::DocsCardGrid
+  ::DocsCard
+  ---
+  title: Button
+  url: /design-system/components/button
+  ---
+  Here's the summary text
+  ::
+
+  ::DocsCard
+  ---
+  title: Vic gov
+  url: https://www.vic.gov.au/
+  ---
+  Here's the summary text
+  ::
+
+  ::DocsCard
+  ---
+  title: Code standards
+  url: /framework/code-standards
+  ---
+  Here's the summary text
+  ::
+::

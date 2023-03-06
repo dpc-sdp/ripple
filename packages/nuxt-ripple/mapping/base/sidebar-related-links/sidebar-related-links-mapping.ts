@@ -1,12 +1,12 @@
 import { TideApiResponse, TideLink } from '../../../types'
-import { getLinkFromField } from '../../utils/mapping-utils.js'
+import { getLinkFromField } from '@dpc-sdp/ripple-tide-api'
 
 export const map = (src: TideApiResponse): TideLink[] => {
-  if (!src.field_show_whats_next) {
+  if (!src.field_show_related_content) {
     return []
   }
 
-  return (src.field_whats_next || []).map((rawLink): TideLink => {
+  return (src.field_related_links || []).map((rawLink): TideLink => {
     const link = getLinkFromField(rawLink, 'field_paragraph_link')
 
     return {
@@ -17,4 +17,4 @@ export const map = (src: TideApiResponse): TideLink[] => {
   })
 }
 
-export const includes = ['field_whats_next']
+export const includes = ['field_related_links']

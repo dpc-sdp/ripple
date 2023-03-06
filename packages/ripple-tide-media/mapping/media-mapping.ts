@@ -1,11 +1,7 @@
-import {
-  tidePageBaseMapping,
-  tidePageBaseIncludes
-} from '@dpc-sdp/ripple-tide-api'
-
+import { base } from '@dpc-sdp/nuxt-ripple/mapping'
 // Shared mapping between media types
 export const tideMediaBaseMapping = {
-  ...tidePageBaseMapping(),
+  ...base.mapping,
   type: (data) => data.type,
   title: 'name',
   header: {
@@ -17,4 +13,4 @@ export const tideMediaBaseMapping = {
   }
 }
 
-export const tideMediaBaseIncludes = tidePageBaseIncludes()
+export const tideMediaBaseIncludes = base.includes

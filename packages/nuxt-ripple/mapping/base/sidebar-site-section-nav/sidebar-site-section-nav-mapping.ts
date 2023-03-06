@@ -1,4 +1,4 @@
-import { TidePageApi } from '../..'
+import { TidePageApi } from '@dpc-sdp/ripple-tide-api'
 
 export const map = async (src, tidePageApi: TidePageApi) => {
   if (!src.field_show_site_section_nav) {

@@ -22,7 +22,7 @@ import {
   map as sidebarSiteSectionNavMapping,
   includes as sidebarSiteSectionNavIncludes
 } from './sidebar-site-section-nav/sidebar-site-section-nav-mapping.js'
-import { TidePageApi } from '../services'
+import { TidePageApi } from '@dpc-sdp/ripple-tide-api'
 
 export const tidePageBaseMapping = ({
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -100,4 +100,9 @@ export const tidePageBaseIncludes = ({
     ...(withSidebarSocialShare ? sidebarSocialShareIncludes : []),
     ...(withSidebarSiteSectionNav ? sidebarSiteSectionNavIncludes : [])
   ]
+}
+
+export default {
+  includes: tidePageBaseIncludes(),
+  mapping: tidePageBaseMapping()
 }

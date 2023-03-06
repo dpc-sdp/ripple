@@ -93,34 +93,6 @@ export const getCardImage = (fieldMediaImage: RawCardImage): TideImageField => {
   }
 }
 
-// export const getLinkFromField = (
-//   field: drupalField,
-//   path: string | string[] | unknown
-// ) => {
-//   let url, text
-//   if (Array.isArray(path)) {
-//     text = get(field, [...path, 'title'], false)
-//     url = get(
-//       field,
-//       [...path, 'url'],
-//       get(field, [...path, 'origin_url'], get(field, [...path, 'uri'])),
-//       false
-//     )
-//   } else if (typeof path === 'string') {
-//     text = get(field, `${path}.title`, false)
-//     url = get(
-//       field,
-//       `${path}.url`,
-//       get(field, `${path}.origin_url`, get(field, `${path}.uri`)),
-//       false
-//     )
-//   } else {
-//     text = get(field, 'title', false)
-//     url = get(field, 'url', get(field, 'origin_url', get(field, 'uri')))
-//   }
-//   return { text: url && text === '' ? url : text, url }
-// }
-
 export const getLinkFromField = (
   field: drupalField,
   path?: string | string[]

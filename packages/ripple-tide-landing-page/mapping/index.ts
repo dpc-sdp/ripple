@@ -1,7 +1,7 @@
 import {
   tidePageBaseMapping,
   tidePageBaseIncludes
-} from '@dpc-sdp/ripple-tide-api'
+} from '@dpc-sdp/nuxt-ripple/mapping'
 import type { IRplTideModuleMapping } from '@dpc-sdp/ripple-tide-api/types'
 import {
   heroHeaderMapping,
@@ -85,14 +85,3 @@ const tideLandingPageModule: IRplTideModuleMapping = {
 }
 
 export default tideLandingPageModule
-
-// export {
-//   landingPageComponentsMapping,
-//   landingPageComponentsIncludes,
-//   basicTextIncludes,
-//   accordionIncludes,
-//   promoCardIncludes,
-//   navigationCardIncludes,
-//   keyDatesIncludes,
-//   statisticsGridIncludes
-// } from './page-components/page-components-mapping.js'

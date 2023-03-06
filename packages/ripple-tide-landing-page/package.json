@@ -7,12 +7,13 @@
   "license": "Apache-2.0",
   "exports": {
     ".": "./nuxt.config.ts",
-    "./module": "./mapping/index.ts"
+    "./mapping": "./mapping/index.ts"
   },
   "dependencies": {
     "@dpc-sdp/ripple-tide-api": "workspace:*",
     "@dpc-sdp/ripple-ui-core": "workspace:*",
     "@dpc-sdp/ripple-ui-forms": "workspace:*",
+    "@dpc-sdp/nuxt-ripple": "workspace:*",
     "ohmyfetch": "^0.4.21"
   }
 }

@@ -391,25 +391,31 @@ importers:
 
   packages/ripple-tide-event:
     specifiers:
+      '@dpc-sdp/nuxt-ripple': workspace:*
       '@dpc-sdp/ripple-tide-api': workspace:*
     dependencies:
+      '@dpc-sdp/nuxt-ripple': link:../nuxt-ripple
       '@dpc-sdp/ripple-tide-api': link:../ripple-tide-api
 
   packages/ripple-tide-grant:
     specifiers:
+      '@dpc-sdp/nuxt-ripple': workspace:*
       '@dpc-sdp/ripple-tide-api': workspace:*
       '@dpc-sdp/ripple-ui-core': workspace:*
     dependencies:
+      '@dpc-sdp/nuxt-ripple': link:../nuxt-ripple
       '@dpc-sdp/ripple-tide-api': link:../ripple-tide-api
       '@dpc-sdp/ripple-ui-core': link:../ripple-ui-core
 
   packages/ripple-tide-landing-page:
     specifiers:
+      '@dpc-sdp/nuxt-ripple': workspace:*
       '@dpc-sdp/ripple-tide-api': workspace:*
       '@dpc-sdp/ripple-ui-core': workspace:*
       '@dpc-sdp/ripple-ui-forms': workspace:*
       ohmyfetch: ^0.4.21
     dependencies:
+      '@dpc-sdp/nuxt-ripple': link:../nuxt-ripple
       '@dpc-sdp/ripple-tide-api': link:../ripple-tide-api
       '@dpc-sdp/ripple-ui-core': link:../ripple-ui-core
       '@dpc-sdp/ripple-ui-forms': link:../ripple-ui-forms
@@ -433,10 +439,12 @@ importers:
 
   packages/ripple-tide-publication:
     specifiers:
+      '@dpc-sdp/nuxt-ripple': workspace:*
       '@dpc-sdp/ripple-tide-api': workspace:*
       '@dpc-sdp/ripple-tide-landing-page': workspace:*
       '@dpc-sdp/ripple-ui-core': workspace:*
     dependencies:
+      '@dpc-sdp/nuxt-ripple': link:../nuxt-ripple
       '@dpc-sdp/ripple-tide-api': link:../ripple-tide-api
       '@dpc-sdp/ripple-tide-landing-page': link:../ripple-tide-landing-page
       '@dpc-sdp/ripple-ui-core': link:../ripple-ui-core
@@ -9609,7 +9617,7 @@ packages:
       '@babel/core': 7.20.12
       find-cache-dir: 3.3.2
       schema-utils: 4.0.0
-      webpack: 5.75.0_esbuild@0.16.17
+      webpack: 5.75.0
     dev: true
 
   /babel-messages/6.23.0:

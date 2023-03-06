@@ -10,4 +10,3 @@ function defineNitroPlugin(def: NitroAppPlugin): NitroAppPlugin {
 export default defineNitroPlugin((NitroApp) => {
   NitroApp.tide.siteApi.setSiteMapping(siteMapping)
 })
-11

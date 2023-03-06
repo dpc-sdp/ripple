@@ -10,6 +10,7 @@
     "./mapping": "./mapping/index.ts"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-tide-api": "workspace:*"
+    "@dpc-sdp/ripple-tide-api": "workspace:*",
+    "@dpc-sdp/nuxt-ripple": "workspace:*"
   }
 }

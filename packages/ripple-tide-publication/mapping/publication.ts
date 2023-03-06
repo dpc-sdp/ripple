@@ -1,10 +1,9 @@
 import mime from 'mime-types'
+import { getField, humanizeFilesize } from '@dpc-sdp/ripple-tide-api'
 import {
-  getField,
-  humanizeFilesize,
   tidePageBaseMapping,
   tidePageBaseIncludes
-} from '@dpc-sdp/ripple-tide-api'
+} from '@dpc-sdp/nuxt-ripple/mapping'
 import type { IRplTideModuleMapping } from '@dpc-sdp/ripple-tide-api/types'
 
 const chapters = (src: string) =>

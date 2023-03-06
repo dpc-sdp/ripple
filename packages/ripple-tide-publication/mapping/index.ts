@@ -1,4 +1,4 @@
-import tidePublicationModule from './publication.js'
-import tidePublicationPageModule from './publication-page.js'
+import tidePublicationModule from './publication'
+import tidePublicationPageModule from './publication-page'
 
 export default [tidePublicationModule, tidePublicationPageModule]

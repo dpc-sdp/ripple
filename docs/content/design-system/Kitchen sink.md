@@ -474,3 +474,168 @@ Cards can also be added. Ensure that you wrap them with DocsCardGrid so that the
   Here's the summary text
   ::
 ::
+
+### DocsColourTable
+
+The `DocsColourTable` will display a table of themed colours, you just need to specify which colours to show. 
+This can be either direct colours like `clr.type.primary.contrast`, colour groups like `clr.type.primary` or a mix of both.
+
+```md
+
+::DocsColourTable
+---
+colours:
+  - clr.primary
+  - clr.link
+---
+::
+```
+
+::DocsColourTable
+---
+colours:
+  - clr.primary 
+  - clr.link
+---
+::
+
+### DocsGradientTable
+
+The `DocsGradientTable` will display the themed horizontal and vertical gradients.
+
+```md
+::DocsGradientTable
+:::
+```
+
+::DocsGradientTable
+::
+
+
+### DocsIconTable
+
+The `DocsIconsTable` will display a table of icons, you just need to specify which icon group to show, this will be either `alert`, `social` or `standard`.
+
+```md
+::DocsIconTable
+---
+group: alert
+---
+::
+```
+
+::DocsIconTable
+---
+group: alert
+---
+::
+
+### DocsIconSizingTable
+
+The `DocsIconSizingTable` will display a table of icons with a preview of the icon at the specified size.
+
+```md
+::DocsIconSizingTable
+---
+sizes:
+- s : 16px
+- m : 24px
+- l : 32px
+---
+::
+```
+
+::DocsIconSizingTable
+---
+sizes:
+- s : 16px
+- m : 24px
+- l : 32px
+---
+::
+
+### DocsLayerStyleTable
+
+The `DocsLayerStyleTable` will display a table of layer styles with a preview of that style in action, you just need to specify the type of style to show, this will be either `border`, `border.radius` or `elevation`.
+
+```md
+::DocsLayerStyleTable
+---
+type: border.radius
+---
+::
+```
+
+::DocsLayerStyleTable
+---
+type: border.radius
+---
+::
+
+### DocsTypeTable
+
+The `DocsTypeTable` will display a table of type styles, you just need to specify the type of type style to show. This will be either `weight`, `size`, `lh` or `ls`.
+
+```md
+::DocsTypeTable
+---
+type: size
+---
+::
+```
+
+::DocsTypeTable
+---
+type: size
+---
+::
+
+### DocsTypeClassTable
+
+The `DocsTypeClassTable` will display a table of type styles, with a preview of that style in action.
+
+```md
+::DocsTypeClassTable
+---
+type:
+- style :
+  - Heading 1
+  - values :
+    - Font size: 32px / 56px
+    - Line height: 36px / 60px
+    - Letter spacing: 1.4% / 0.8%
+    - Font weight: Bold (700)
+  - rpl-type-h1
+- style :
+  - Heading 1 Highlight
+  - values :
+    - Font size: 32px / 56px
+    - Line height: 36px / 60px
+    - Letter spacing: 1.4% / 0.8%
+    - Font weight: Bold (700)
+  - rpl-type-h1-highlight
+---
+::
+```
+
+::DocsTypeClassTable
+---
+type:
+- style :
+  - Heading 1
+  - values :
+    - Font size: 32px / 56px
+    - Line height: 36px / 60px
+    - Letter spacing: 1.4% / 0.8%
+    - Font weight: Bold (700)
+  - rpl-type-h1
+- style :
+  - Heading 1 Highlight
+  - values :
+    - Font size: 32px / 56px
+    - Line height: 36px / 60px
+    - Letter spacing: 1.4% / 0.8%
+    - Font weight: Bold (700)
+  - rpl-type-h1-highlight
+---
+::

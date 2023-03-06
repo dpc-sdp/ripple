@@ -10,10 +10,7 @@ export interface RplTideModuleMappingFunction {
   // eslint-disable-next-line @typescript-eslint/ban-types
   [key: string]: Function | string | string[] | object
 }
-export interface RplTideMapping {
-  component?: string | string[]
-  schema?: string
-  key?: string
+export interface IRplTideModuleMapping {
   mapping: RplTideModuleMappingFunction
   includes: string[]
 }
@@ -98,6 +95,12 @@ export interface TidePageBase {
   }
 }
 
+export interface IRplTideDynamicComponentMapping {
+  includes: string[]
+  mapping: TideDynamicPageComponent
+  contentTypes: string[]
+}
+
 export type TideDynamicPageComponent<T> = {
   id: string
   component: string
@@ -132,7 +135,7 @@ export interface RplTideModuleMappingConfig {
    * ContentType Mapping or path to file
    */
   content: {
-    [key: string]: string | RplTideMapping
+    [key: string]: string | IRplTideModuleMapping
   }
 }
 
@@ -162,7 +165,7 @@ export interface RplTideModuleConfig {
     /**
      * ContentType Mapping or path to file
      */
-    [key: string]: string | RplTideMapping
+    [key: string]: string | IRplTideMapping
   }
   /**
    * Enable debug mode
@@ -201,4 +204,12 @@ export interface IRplFeatureFlags {
    * @description Option to disable the display of topics and tags on all content types
    */
   disableTopicTags?: boolean
+}
+
+declare module 'nitropack' {
+  export interface Nitro {
+    tide?: {
+      pageApi: string
+    }
+  }
 }

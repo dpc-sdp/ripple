@@ -55,10 +55,14 @@ interface Props {
   hideNewTab?: boolean
   hideCode?: boolean
   withPadding?: boolean
+  theme?: string
+  useNeutralButtons?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  withPadding: false
+  withPadding: false,
+  theme: undefined,
+  useNeutralButtons: false
 })
 
 const SNIPPET_RENDERED = `storybook/docs/snippet-rendered`
@@ -115,11 +119,18 @@ const highlightedCode = computed((): string => {
 
 const { storybookBaseUrl } = useAppConfig()
 
-const theme = inject('exampleTheme', 'default')
+const injectedTheme = inject('exampleTheme', 'default')
+
+const computedTheme = computed(() => {
+  return props.theme ? props.theme : injectedTheme.value
+})
+const buttonTheme = computed(() => {
+  return props.useNeutralButtons ? 'neutral' : 'default'
+})
 
 const storybookPreviewUrl = computed(
   () =>
-    `${storybookBaseUrl}/iframe.html?args=&id=${props.id}&viewMode=story&globals=theme:${theme.value}`
+    `${storybookBaseUrl}/iframe.html?args=&id=${props.id}&viewMode=story&globals=theme:${computedTheme.value};buttonTheme:${buttonTheme.value}`
 )
 
 watch(targetIsVisible, (visible, wasVisible) => {

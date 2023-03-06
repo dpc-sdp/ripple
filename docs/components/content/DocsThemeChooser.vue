@@ -1,24 +1,24 @@
 <template>
   <div class="rpl-form__outer">
-    <RplFormLabel>Theme option</RplFormLabel>
+    <RplFormLabel>Theme options</RplFormLabel>
     <RplFormOptionButtons
       v-model="theme"
       :onChange="handleThemeChange"
       :value="theme"
       :options="[
         {
-          id: 'light',
-          label: 'Theme 1',
+          id: 'docsTheme1',
+          label: 'Alt 1',
           value: 'light'
         },
         {
-          id: 'dark',
-          label: 'Theme 2',
+          id: 'docsTheme2',
+          label: 'Alt 2',
           value: 'dark'
         },
         {
           id: 'default',
-          label: 'Default',
+          label: 'vic.gov.au',
           value: 'default'
         }
       ]"
@@ -36,7 +36,7 @@ interface Props {
 
 const props = defineProps<Props>()
 
-const theme = ref('light')
+const theme = ref('docsTheme1')
 
 const handleThemeChange = (val) => {
   theme.value = val

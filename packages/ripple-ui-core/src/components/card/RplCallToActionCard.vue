@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { RplCardElements, RplCardTitleClasses } from './constants'
-import { RplButtonThemes, RplButtonVariants } from '../button/constants'
+import { RplButtonVariants } from '../button/constants'
 import { useAccessibleContainer } from '../../composables/useAccessibleContainer'
 
 import RplCard from './RplCard.vue'
@@ -15,7 +15,6 @@ interface Props {
   title: string
   url?: string
   ctaText?: string
-  theme?: (typeof RplButtonThemes)[number]
   variant?: (typeof RplButtonVariants)[number]
 }
 
@@ -23,7 +22,6 @@ withDefaults(defineProps<Props>(), {
   el: 'div',
   image: undefined,
   url: undefined,
-  theme: 'default',
   variant: 'filled',
   ctaText: 'Call to action'
 })
@@ -64,7 +62,6 @@ const { container, trigger } = useAccessibleContainer()
       :url="url"
       role="button"
       :variant="variant"
-      :theme="theme"
       data-cy="cta"
     >
       {{ ctaText }}

@@ -127,4 +127,10 @@
       margin: 0 calc(-1 * var(--local-scroll-indicator-width));
     }
   }
+
+  &--no-stripes tbody {
+    tr:nth-child(odd) {
+      background-color: transparent;
+    }
+  }
 }

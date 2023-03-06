@@ -13,6 +13,7 @@
     "@dpc-sdp/ripple-tide-api": "workspace:*",
     "@dpc-sdp/ripple-ui-core": "workspace:*",
     "@dpc-sdp/ripple-ui-forms": "workspace:*",
+    "@dpc-sdp/nuxt-ripple": "workspace:*",
     "ohmyfetch": "^0.4.21"
   }
 }

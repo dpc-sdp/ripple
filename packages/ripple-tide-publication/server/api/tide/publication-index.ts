@@ -9,7 +9,7 @@ import {
 } from '@dpc-sdp/ripple-tide-api'
 import type {
   RplTideModuleConfig,
-  RplTideMapping,
+  IRplTideModuleMapping,
   ILogger
 } from '@dpc-sdp/ripple-tide-api/types'
 import type { indexNode, apiNode } from '../../../types'
@@ -39,7 +39,8 @@ const processChildren = (node: apiNode) => {
  */
 class TidePublicationIndexApi extends TideApiBase {
   siteId: string
-  publicationMapping: RplTideMapping
+  publicationMapping: IRplTideModuleMapping
+  logLabel: string
 
   constructor(tide: RplTideModuleConfig, logger: ILogger) {
     super(tide, logger)

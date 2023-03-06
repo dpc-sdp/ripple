@@ -42,3 +42,9 @@ export const primaryCampaignMapping = (src): ITidePrimaryCampaign | null => {
 export const primaryCampaignIncludes = [
   'field_landing_page_c_primary.field_block_image.field_media_image'
 ]
+
+export default {
+  includes: primaryCampaignIncludes,
+  mapping: primaryCampaignMapping,
+  contentTypes: ['landing_page']
+}

@@ -1,9 +1,13 @@
 {
   "packageManager": "pnpm@7.23.0",
   "license": "Apache-2.0",
+  "version": "2.1.0-alpha.95",
   "name": "@dpc-sdp/nuxt-ripple",
   "main": "./nuxt.config.ts",
-  "version": "2.1.0-alpha.95",
+  "exports": {
+    ".": "./nuxt.config.ts",
+    "./mapping": "./mapping/index.ts"
+  },
   "dependencies": {
     "@dpc-sdp/ripple-tide-api": "workspace:*",
     "@dpc-sdp/ripple-ui-core": "workspace:*",

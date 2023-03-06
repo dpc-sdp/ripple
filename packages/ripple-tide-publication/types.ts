@@ -53,7 +53,7 @@ export interface TidePublicationPage extends TidePageBase {
   /**
    * @description Landing page components
    */
-  dynamicComponents: TideDynamicPageComponent<any>[]
+  bodyComponents: TideDynamicPageComponent<any>[]
   /**
    * @description Page action documents
    */

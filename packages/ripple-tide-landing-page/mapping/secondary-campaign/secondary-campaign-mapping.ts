@@ -47,3 +47,9 @@ export const secondaryCampaignMapping = (
 export const secondaryCampaignIncludes = [
   'field_landing_page_c_secondary.field_block_image.field_media_image'
 ]
+
+export default {
+  includes: secondaryCampaignIncludes,
+  mapping: secondaryCampaignMapping,
+  contentTypes: ['landing_page']
+}

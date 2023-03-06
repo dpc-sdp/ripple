@@ -180,7 +180,7 @@ const isActionsListEmpty = computed(() => {
             <RplIcon name="icon-cancel" />Close '{{ title }}' data
           </span>
           <span v-else>
-            <RplIcon name="icon-table-lined" />View '{{ title }}'' data
+            <RplIcon name="icon-table-lined" />View '{{ title }}' data
           </span>
         </button>
 

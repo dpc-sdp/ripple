@@ -5,6 +5,7 @@ import logger from './logger'
 export default class TideSearchApi {
   constructor (config) {
     this.client = config.client || axios.bind(axios)
+    this.auth = config.auth
     this.baseUrl = config.baseUrl
   }
 
@@ -17,6 +18,7 @@ export default class TideSearchApi {
       const config = {
         method: 'get',
         baseURL: this.baseUrl,
+        auth: this.auth,
         url,
         responseType: 'json',
         responseEncoding: 'utf8',

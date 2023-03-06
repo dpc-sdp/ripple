@@ -53,17 +53,6 @@ export default class TidePageApi extends TideApiBase {
       this.logger.debug(`Replacing ${key} component which has already been set`)
     }
     this.dynamicComponents[key] = cmp
-    // Set includes on content type
-    if (cmp.contentTypes?.length > 0 && cmp.includes?.length > 0) {
-      cmp.contentTypes.forEach((contentType) => {
-        if (this.contentTypes[contentType]) {
-          this.setContentTypeIncludes(
-            this.contentTypes[contentType],
-            cmp.includes
-          )
-        }
-      })
-    }
   }
 
   getDynamicComponent(k: string) {
@@ -73,6 +62,7 @@ export default class TidePageApi extends TideApiBase {
   async getDynamicPageComponents(pageData, componentFieldPath) {
     const componentFields = pageData[componentFieldPath]
     const mappedComponents: Record<string, any>[] = []
+    const contentType = pageData.type
     if (componentFields && Array.isArray(componentFields)) {
       for (let i = 0; i < componentFields.length; i++) {
         const cmpData = componentFields[i]
@@ -100,7 +90,18 @@ export default class TidePageApi extends TideApiBase {
             ...data
           })
         }
+        // Set includes on content type
+        if (
+          componentMapping.contentTypes?.length > 0 &&
+          componentMapping.find((key) => key === contentType)
+        ) {
+          this.setContentTypeIncludes(
+            this.contentTypes[contentType],
+            componentMapping.includes
+          )
+        }
       }
+
       return mappedComponents
     }
   }

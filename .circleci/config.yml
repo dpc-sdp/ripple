@@ -302,10 +302,18 @@ workflows:
           type: approval
           requires:
             - build-storybook
+          filters:
+            branches:
+              ignore:
+                - /gh-readonly-queue\/.*/
       - chromatic:
           requires:
             - confirm-chromatic
             - build-storybook
+          filters:
+            branches:
+              ignore:
+                - /gh-readonly-queue\/.*/
       - publish-alpha:
           requires:
             - build

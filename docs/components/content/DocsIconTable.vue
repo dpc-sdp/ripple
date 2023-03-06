@@ -2,13 +2,15 @@
 import { RplIconGroups } from '@dpc-sdp/ripple-ui-core'
 
 interface Props {
-  id: string
+  group: 'alert' | 'social' | 'standard'
 }
 
 const props = defineProps<Props>()
 
-const icons = computed(() =>
-  RplIconGroups[props.id].map((value: string) => ({
+const icons = computed(() => {
+  const iconGroup = RplIconGroups?.[props.group] || []
+
+  return iconGroup.map((value: string) => ({
     value,
     name: value
       .replace('icon-', '')
@@ -16,7 +18,7 @@ const icons = computed(() =>
       .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
       .join(' ')
   }))
-)
+})
 </script>
 
 <template>

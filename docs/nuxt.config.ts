@@ -1,4 +1,5 @@
 import { defineNuxtConfig } from 'nuxt/config'
+import ViteYaml from '@modyfi/vite-plugin-yaml'
 
 // https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
 export default defineNuxtConfig({
@@ -25,5 +26,8 @@ export default defineNuxtConfig({
       theme: 'github-light',
       preload: ['vue', 'bash', 'markdown']
     }
+  },
+  vite: {
+    plugins: [ViteYaml()]
   }
 })

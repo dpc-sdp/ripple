@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.96](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.95...v2.1.0-alpha.96) (2023-03-06)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-landing-page:** :bug: fixed key dates mapping tests and styling ([a61bb3b](https://github.com/dpc-sdp/ripple-framework/commit/a61bb3be5530c15e75759453aebbe71ea587ead7))
+* **@dpc-sdp/ripple-tide-landing-page:** :bug: fixed mapping of key dates card and styling issue ([81d8c0b](https://github.com/dpc-sdp/ripple-framework/commit/81d8c0b76b2a60251a214d83e067450329458bf9))
+
+### Features
+
+* **docs:** added ability to set theme/neutral buttons for docs example ([9406a5c](https://github.com/dpc-sdp/ripple-framework/commit/9406a5c77022d7c8cf66a58f7facc1f62f2bc9c7))
+
 # [2.1.0-alpha.95](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.94...v2.1.0-alpha.95) (2023-03-02)
 
 ### Features

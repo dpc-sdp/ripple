@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.96](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.95...v2.1.0-alpha.96) (2023-03-06)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-event:** :bug: fixed crashed when no event link provided ([159c517](https://github.com/dpc-sdp/ripple-framework/commit/159c51773e65972315069a58b0c32ab21f81147f))
+* **@dpc-sdp/ripple-tide-landing-page:** :bug: fixed key dates mapping tests and styling ([a61bb3b](https://github.com/dpc-sdp/ripple-framework/commit/a61bb3be5530c15e75759453aebbe71ea587ead7))
+* **@dpc-sdp/ripple-tide-landing-page:** :bug: fixed mapping of key dates card and styling issue ([81d8c0b](https://github.com/dpc-sdp/ripple-framework/commit/81d8c0b76b2a60251a214d83e067450329458bf9))
+* **@dpc-sdp/ripple-tide-publication:** :bug: fixed pub card not showing pointer cursor on hover ([a4d2d13](https://github.com/dpc-sdp/ripple-framework/commit/a4d2d134ea14641a0cd398f3bdc3cfbae0aa8a98))
+* **@dpc-sdp/ripple-tide-publication:** :bug: fixed pub page crashing with no children ([c7f67d8](https://github.com/dpc-sdp/ripple-framework/commit/c7f67d888e996930faa43b60dd22042b0ce9077f))
+* **@dpc-sdp/ripple-ui-core:** :bug: fixed typo in media embed ([f140765](https://github.com/dpc-sdp/ripple-framework/commit/f1407653479e04edfac72ff5c18350be62232f58))
+
+### Features
+
+* **@dpc-sdp/ripple-ui-core:** adding new patterns svgs ([5611aeb](https://github.com/dpc-sdp/ripple-framework/commit/5611aebdf2768a9ecb2eb9182fbbf8a8b3f773fc))
+* **docs:** added ability to set theme/neutral buttons for docs example ([9406a5c](https://github.com/dpc-sdp/ripple-framework/commit/9406a5c77022d7c8cf66a58f7facc1f62f2bc9c7))
+* **docs:** added extra theme to storybook/docs ([4674006](https://github.com/dpc-sdp/ripple-framework/commit/46740061bcd44a5b08b5d14e143bce41434994ba))
+* **docs:** cleaned up docs cards and grid ([e70ee98](https://github.com/dpc-sdp/ripple-framework/commit/e70ee98e4bb7646d89ef4cd1819e2a8ff174d35c))
+* **docs:** tidied up docs page header styling ([3b02f58](https://github.com/dpc-sdp/ripple-framework/commit/3b02f587f3f2c4a28bacc13c5008d8cc5c9743f8))
+* **docs:** tidied up markdown styling and updated kitchen sink ([fa685e2](https://github.com/dpc-sdp/ripple-framework/commit/fa685e24ddd0789aeb2782ea840e4df4e945810a))
+
 # [2.1.0-alpha.95](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.94...v2.1.0-alpha.95) (2023-03-02)
 
 ### Bug Fixes

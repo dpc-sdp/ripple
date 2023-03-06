@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.96](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.95...v2.1.0-alpha.96) (2023-03-06)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-publication:** :bug: fixed pub card not showing pointer cursor on hover ([a4d2d13](https://github.com/dpc-sdp/ripple-framework/commit/a4d2d134ea14641a0cd398f3bdc3cfbae0aa8a98))
+* **@dpc-sdp/ripple-tide-publication:** :bug: fixed pub page crashing with no children ([c7f67d8](https://github.com/dpc-sdp/ripple-framework/commit/c7f67d888e996930faa43b60dd22042b0ce9077f))
+
 # [2.1.0-alpha.95](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.94...v2.1.0-alpha.95) (2023-03-02)
 
 **Note:** Version bump only for package @dpc-sdp/ripple-tide-publication

@@ -1,5 +1,10 @@
 <template>
-  <RplCard ref="container" class="rpl-col-12 tide-publication-chapter" el="li">
+  <RplCard
+    ref="container"
+    class="rpl-col-12 tide-publication-chapter"
+    el="li"
+    :link="chapter.link.url"
+  >
     <h3 class="rpl-type-h3">{{ chapter.title }}</h3>
     <p class="rpl-type-p rpl-u-margin-t-3 rpl-u-margin-b-3">
       {{ chapter.summary }}

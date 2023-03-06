@@ -288,3 +288,12 @@
   }
   /* stylelint-enable no-descending-specificity */
 }
+
+.rpl-card--key-dates {
+  display: flex;
+  flex-direction: column;
+
+  .rpl-card__body {
+    flex-grow: 1;
+  }
+}

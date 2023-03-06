@@ -102,13 +102,13 @@ describe('keyDatesMapping', () => {
         url: '/sample-link',
         items: [
           {
-            title: 'Oranges Day Eve',
-            subtitle: '4th October 2022',
+            title: '4th October 2022',
+            subtitle: 'Oranges Day Eve',
             content: 'Get ready for it'
           },
           {
-            title: 'Oranges Day',
-            subtitle: '5th October 2022',
+            title: '5th October 2022',
+            subtitle: 'Oranges Day',
             content: `It's oranges day`
           }
         ]

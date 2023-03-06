@@ -24,8 +24,8 @@ export const keyDatesMapping = (
       title: 'Key calendar dates',
       items: getField(field, 'field_paragraph_keydates', []).map((item) => {
         return {
-          title: item.field_paragraph_title,
-          subtitle: item.field_paragraph_keydate,
+          title: item.field_paragraph_keydate,
+          subtitle: item.field_paragraph_title,
           content: item.field_paragraph_summary
         }
       }),

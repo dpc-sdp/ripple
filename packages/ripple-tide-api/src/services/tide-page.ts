@@ -62,7 +62,7 @@ export default class TidePageApi extends TideApiBase {
   async getDynamicPageComponents(pageData, componentFieldPath) {
     const componentFields = pageData[componentFieldPath]
     const mappedComponents: Record<string, any>[] = []
-    const contentType = pageData.type
+
     if (componentFields && Array.isArray(componentFields)) {
       for (let i = 0; i < componentFields.length; i++) {
         const cmpData = componentFields[i]
@@ -89,16 +89,6 @@ export default class TidePageApi extends TideApiBase {
             uuid: cmpData.uuid || cmpData.id,
             ...data
           })
-        }
-        // Set includes on content type
-        if (
-          componentMapping.contentTypes?.length > 0 &&
-          componentMapping.find((key) => key === contentType)
-        ) {
-          this.setContentTypeIncludes(
-            this.contentTypes[contentType],
-            componentMapping.includes
-          )
         }
       }
 
@@ -219,6 +209,19 @@ export default class TidePageApi extends TideApiBase {
 
   getResourceIncludes(route) {
     const includes = this.getContentTypeField('includes', route)
+
+    // Get all the needed includes for this dynamic components that can appear in this content type
+    const dynamicComponentIncludes = Object.values(
+      this.dynamicComponents
+    ).reduce((result, component: IRplTideDynamicComponentMapping): string[] => {
+      if (component.contentTypes?.includes(route.bundle)) {
+        return [...result, ...component.includes]
+      }
+      return result
+    }, [] as string[])
+
+    includes.push(dynamicComponentIncludes)
+
     if (
       defaultMapping &&
       Array.isArray(includes) &&

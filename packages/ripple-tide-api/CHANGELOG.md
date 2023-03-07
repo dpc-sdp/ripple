@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.97](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.96...v2.1.0-alpha.97) (2023-03-07)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-api:** fixed dynamic component includes not being included ([7a3df18](https://github.com/dpc-sdp/ripple-framework/commit/7a3df18cd6efbfbd75b69cafc2e059aec880951a))
+
 # [2.1.0-alpha.96](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.95...v2.1.0-alpha.96) (2023-03-06)
 
 **Note:** Version bump only for package @dpc-sdp/ripple-tide-api

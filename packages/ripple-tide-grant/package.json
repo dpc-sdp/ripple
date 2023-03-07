@@ -3,15 +3,15 @@
   "description": "Ripple mappings and components for Tide Grant Content type",
   "main": "./nuxt.config.ts",
   "packageManager": "pnpm@7.23.0",
-  "version": "2.1.0-alpha.95",
+  "version": "2.1.0-alpha.99",
   "license": "Apache-2.0",
   "exports": {
     ".": "./nuxt.config.ts",
     "./mapping": "./mapping/index.ts"
   },
   "dependencies": {
+    "@dpc-sdp/nuxt-ripple": "workspace:*",
     "@dpc-sdp/ripple-tide-api": "workspace:*",
-    "@dpc-sdp/ripple-ui-core": "workspace:*",
-    "@dpc-sdp/nuxt-ripple": "workspace:*"
+    "@dpc-sdp/ripple-ui-core": "workspace:*"
   }
 }

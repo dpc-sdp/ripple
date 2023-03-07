@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.99](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.98...v2.1.0-alpha.99) (2023-03-07)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-api:** fixed dynamic includes getting added accumulatively ([6f90092](https://github.com/dpc-sdp/ripple-framework/commit/6f90092b3008755d45c7d181231a78bf05cdb285))
+
+# [2.1.0-alpha.98](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.97...v2.1.0-alpha.98) (2023-03-07)
+
+### Bug Fixes
+
+* **@dpc-sdp/nuxt-ripple:** :bug: fix folder naming ([09aefce](https://github.com/dpc-sdp/ripple-framework/commit/09aefce4afc8685f5fc5f1bf8d6947b8af8f4fe1))
+* **@dpc-sdp/ripple-tide-landing-page:** fix missing exports for CTA ([6a4d436](https://github.com/dpc-sdp/ripple-framework/commit/6a4d436944fbf1a7e2ce13aa86dba25e7bfeced8))
+
+# [2.1.0-alpha.97](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.96...v2.1.0-alpha.97) (2023-03-07)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-api:** fixed dynamic component includes not being included ([7a3df18](https://github.com/dpc-sdp/ripple-framework/commit/7a3df18cd6efbfbd75b69cafc2e059aec880951a))
+
 # [2.1.0-alpha.96](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.95...v2.1.0-alpha.96) (2023-03-06)
 
 ### Bug Fixes

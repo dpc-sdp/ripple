@@ -11,8 +11,7 @@
     "./types": "./types.d.ts",
     "./errors": "./dist/errors/errors.js",
     "./components": "./dist/nuxt/components",
-    "./services": "./dist/services/index.js",
-    "./nuxt": "./src/nuxt/index.ts"
+    "./services": "./dist/services/index.js"
   },
   "packageManager": "pnpm@7.23.0",
   "license": "MIT",

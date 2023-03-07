@@ -1,5 +1,9 @@
 import 'dotenv/config'
 import { defineNuxtConfig } from 'nuxt/config'
+import { createResolver } from '@nuxt/kit'
+
+const { resolve } = createResolver(import.meta.url)
+
 export default defineNuxtConfig({
   runtimeConfig: {
     public: {
@@ -31,6 +35,12 @@ export default defineNuxtConfig({
     'nuxt-proxy',
     '@dpc-sdp/ripple-tide-api/nuxt',
     '@dpc-sdp/ripple-ui-core/nuxt',
-    '@dpc-sdp/ripple-ui-forms/nuxt'
+    '@dpc-sdp/ripple-ui-forms/nuxt',
+    [
+      '@nuxtjs/robots',
+      {
+        configPath: resolve('./robots.config.ts')
+      }
+    ]
   ]
 })

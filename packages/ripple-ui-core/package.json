@@ -1,7 +1,7 @@
 {
   "name": "@dpc-sdp/ripple-ui-core",
   "packageManager": "pnpm@7.23.0",
-  "version": "2.1.0-alpha.97",
+  "version": "2.1.0-alpha.98",
   "license": "Apache-2.0",
   "files": [
     "dist",

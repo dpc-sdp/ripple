@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.98](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.97...v2.1.0-alpha.98) (2023-03-07)
+
+### Bug Fixes
+
+* **@dpc-sdp/nuxt-ripple:** :bug: fix folder naming ([09aefce](https://github.com/dpc-sdp/ripple-framework/commit/09aefce4afc8685f5fc5f1bf8d6947b8af8f4fe1))
+
 # [2.1.0-alpha.97](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.96...v2.1.0-alpha.97) (2023-03-07)
 
 **Note:** Version bump only for package @dpc-sdp/nuxt-ripple

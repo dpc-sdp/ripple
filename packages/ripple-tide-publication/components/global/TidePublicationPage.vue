@@ -13,7 +13,9 @@
       <slot name="primaryNav"></slot>
     </template>
     <template #breadcrumbs>
-      <slot name="breadcrumbs"></slot>
+      <slot name="breadcrumbs">
+        <TideBreadcrumbs :items="page.breadcrumbs" />
+      </slot>
     </template>
     <template #aboveBody="{ hasBreadcrumbs }">
       <TidePublicationHeader

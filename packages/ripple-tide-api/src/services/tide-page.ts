@@ -36,18 +36,6 @@ export default class TidePageApi extends TideApiBase {
     }
   }
 
-  setContentTypeIncludes(contentType, includes) {
-    if (contentType?.includes) {
-      if (Array.isArray(includes) && includes.length > 0) {
-        includes.forEach((key) => {
-          if (!contentType?.includes.find(key)) {
-            contentType?.includes.push(key)
-          }
-        })
-      }
-    }
-  }
-
   setDynamicComponent(key, cmp: IRplTideDynamicComponentMapping) {
     if (this.dynamicComponents.hasOwnProperty(key)) {
       this.logger.debug(`Replacing ${key} component which has already been set`)
@@ -208,7 +196,7 @@ export default class TidePageApi extends TideApiBase {
   // }
 
   getResourceIncludes(route) {
-    const includes = this.getContentTypeField('includes', route)
+    const includes = [...this.getContentTypeField('includes', route)]
 
     // Get all the needed includes for this dynamic components that can appear in this content type
     const dynamicComponentIncludes = Object.values(
@@ -220,7 +208,7 @@ export default class TidePageApi extends TideApiBase {
       return result
     }, [] as string[])
 
-    includes.push(dynamicComponentIncludes)
+    includes.push(...dynamicComponentIncludes)
 
     if (
       defaultMapping &&

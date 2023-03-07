@@ -29,7 +29,6 @@ export default defineNuxtConfig({
   },
   modules: [
     'nuxt-proxy',
-    '@dpc-sdp/ripple-tide-api/nuxt',
     '@dpc-sdp/ripple-ui-core/nuxt',
     '@dpc-sdp/ripple-ui-forms/nuxt'
   ]

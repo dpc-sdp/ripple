@@ -1,7 +1,6 @@
-// @ts-nocheck
-
 import type { NitroApp } from 'nitropack'
 import { TidePageApi, TideSiteApi, logger } from '@dpc-sdp/ripple-tide-api'
+import siteMapping from '../../mapping/site'
 import { useRuntimeConfig } from '#imports'
 
 // fix type stub - See https://github.com/nuxt/nuxt/issues/18556
@@ -23,4 +22,5 @@ export default defineNitroPlugin(async (NitroApp) => {
     pageApi,
     siteApi
   }
+  NitroApp.tide.siteApi.setSiteMapping(siteMapping)
 })

@@ -40,3 +40,9 @@ export const callToActionMapping = (
 }
 
 export const callToActionIncludes = []
+
+export default {
+  includes: callToActionIncludes,
+  mapping: callToActionMapping,
+  contentTypes: ['landing_page']
+}

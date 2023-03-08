@@ -13,7 +13,9 @@
       <slot name="primaryNav"></slot>
     </template>
     <template #breadcrumbs>
-      <slot name="breadcrumbs"></slot>
+      <slot name="breadcrumbs">
+        <TideBreadcrumbs :items="page.breadcrumbs" />
+      </slot>
     </template>
     <template #aboveBody="{ hasBreadcrumbs }">
       <TidePublicationHeader
@@ -25,10 +27,10 @@
       <TideLandingPageInPageNavigation
         v-if="page.showInPageNav"
         :headingLevel="page.inPageNavHeadingLevel"
-        :components="page.dynamicComponents"
+        :components="page.bodyComponents"
       />
       <TidePublicationBody
-        :components="page.dynamicComponents"
+        :components="page.bodyComponents"
       ></TidePublicationBody>
       <TidePublicationPagination
         :pagination="page.publication.pagination"

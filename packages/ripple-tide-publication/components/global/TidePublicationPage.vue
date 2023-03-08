@@ -27,10 +27,10 @@
       <TideLandingPageInPageNavigation
         v-if="page.showInPageNav"
         :headingLevel="page.inPageNavHeadingLevel"
-        :components="page.dynamicComponents"
+        :components="page.bodyComponents"
       />
       <TidePublicationBody
-        :components="page.dynamicComponents"
+        :components="page.bodyComponents"
       ></TidePublicationBody>
       <TidePublicationPagination
         :pagination="page.publication.pagination"

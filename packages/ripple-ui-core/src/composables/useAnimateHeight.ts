@@ -11,7 +11,7 @@ export function animateOpening(el: HTMLElement) {
     'transitionend',
     () => {
       el.style.height = ''
-      el.style.overflow = 'initial'
+      el.style.overflow = ''
     },
     { once: true }
   )

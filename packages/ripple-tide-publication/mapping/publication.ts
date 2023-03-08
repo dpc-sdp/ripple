@@ -13,10 +13,7 @@ const chapters = (src: string) =>
       id: item.meta.id,
       title: getField(item.meta, 'title', ''),
       summary: getField(item.meta, 'field_landing_page_summary', ''),
-      link: {
-        url: item.meta.url,
-        text: 'Read more'
-      }
+      url: item.meta.url
     }))
 
 const tidePublicationModule: IRplTideModuleMapping = {

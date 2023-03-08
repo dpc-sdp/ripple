@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.100](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.99...v2.1.0-alpha.100) (2023-03-08)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-publication:** :alien: enable breadcrumb override from mapping ([6631c48](https://github.com/dpc-sdp/ripple-framework/commit/6631c481b17cff96d48275fd4bf4bc80d182c362))
+
 # [2.1.0-alpha.99](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.98...v2.1.0-alpha.99) (2023-03-07)
 
 **Note:** Version bump only for package @dpc-sdp/nuxt-ripple

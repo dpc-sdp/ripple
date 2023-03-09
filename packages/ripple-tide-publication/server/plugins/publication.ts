@@ -28,4 +28,7 @@ export default defineNitroPlugin(async (nitroApp: NitroApp) => {
   nitroApp.tide?.pageApi.dynamicComponents[
     'paragraph--card_carousel'
   ]?.contentTypes.push('publication_page')
+  nitroApp.tide?.pageApi.dynamicComponents[
+    'paragraph--statistics_grid'
+  ]?.contentTypes.push('publication_page')
 })

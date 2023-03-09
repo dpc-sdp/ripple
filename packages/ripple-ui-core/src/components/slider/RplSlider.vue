@@ -127,7 +127,7 @@ const setInert = ({ activeIndex, slides }) =>
 <template>
   <div class="rpl-slider">
     <RplPagination
-      v-if="showPagination && slides.length > 1"
+      v-if="showPagination && slides.length > 1 && totalPages > 1"
       variant="simple"
       :current-page="activePage"
       :total-pages="totalPages"

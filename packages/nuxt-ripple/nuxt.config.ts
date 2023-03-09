@@ -31,15 +31,13 @@ export default defineNuxtConfig({
       pathFilter: ['/api/tide/webform_submission/**']
     }
   },
+  robots: {
+    configPath: resolve('./robots.config.ts')
+  },
   modules: [
     'nuxt-proxy',
     '@dpc-sdp/ripple-ui-core/nuxt',
     '@dpc-sdp/ripple-ui-forms/nuxt',
-    [
-      '@nuxtjs/robots',
-      {
-        configPath: resolve('./robots.config.ts')
-      }
-    ]
+    '@nuxtjs/robots'
   ]
 })

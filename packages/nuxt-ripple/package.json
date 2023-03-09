@@ -6,7 +6,8 @@
   "main": "./nuxt.config.ts",
   "exports": {
     ".": "./nuxt.config.ts",
-    "./mapping": "./mapping/index.ts"
+    "./mapping": "./mapping/index.ts",
+    "./robots": "./robots.config.ts"
   },
   "dependencies": {
     "@dpc-sdp/ripple-tide-api": "workspace:*",

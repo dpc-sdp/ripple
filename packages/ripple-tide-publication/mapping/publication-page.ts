@@ -26,18 +26,14 @@ const tidePublicationPageModule: IRplTideModuleMapping = {
       title: 'title',
       summary: 'field_landing_page_intro_text'
     },
-    breadcrumbs: (src: string) => {
-      return {
-        items: [
-          { label: 'Home', url: '/' },
-          {
-            label: getField(src, 'publication_navigation_root.meta.title'),
-            url: getField(src, 'publication_navigation_root.meta.url')
-          },
-          { label: getField(src, 'title') }
-        ]
-      }
-    },
+    breadcrumbs: (src: string) => [
+      { text: 'Home', url: '/' },
+      {
+        text: getField(src, 'publication_navigation_root.meta.title'),
+        url: getField(src, 'publication_navigation_root.meta.url')
+      },
+      { text: getField(src, 'title') }
+    ],
     bodyComponents: async (src, tidePageApi) => {
       return await tidePageApi.getDynamicPageComponents(
         src,

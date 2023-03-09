@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.101](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.100...v2.1.0-alpha.101) (2023-03-08)
+
+### Features
+
+* **@dpc-sdp/ripple-ui-core:** :lipstick: add gap between heading and slider when no pagination ([2a245a4](https://github.com/dpc-sdp/ripple-framework/commit/2a245a44510a666d725dbcf6c79eb380170b70df))
+
+# [2.1.0-alpha.100](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.99...v2.1.0-alpha.100) (2023-03-08)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** stop expandable content showing when toggled quickly ([ee7e14c](https://github.com/dpc-sdp/ripple-framework/commit/ee7e14cad7c44233986dcf1d9574ce02ac0dacb0))
+
 # [2.1.0-alpha.99](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.98...v2.1.0-alpha.99) (2023-03-07)
 
 **Note:** Version bump only for package @dpc-sdp/ripple-ui-core

@@ -3,20 +3,14 @@ export default [
   { UserAgent: 'SemrushBot', Disallow: '/' },
   {
     UserAgent: '*',
-    Disallow: () => {
-      const excludedPaths = [
-        '/js',
-        '/img',
-        '/_nuxt/*',
-        '/oauth/*',
-        '/preview/*',
-        '/share-link'
-      ]
-      if (process.env?.LAGOON_ENVIRONMENT_TYPE !== 'production') {
-        excludedPaths.push('/')
-      }
-      return excludedPaths
-    }
+    Disallow: [
+      '/js',
+      '/img',
+      '/_nuxt/*',
+      '/oauth/*',
+      '/preview/*',
+      '/share-link'
+    ]
   },
   {
     Sitemap: (req) => {

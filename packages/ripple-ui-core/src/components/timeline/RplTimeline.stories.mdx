@@ -420,4 +420,64 @@ export const SingleTemplate = (args) => ({
   >
     {SingleTemplate.bind()}
   </Story>
+  <Story
+    name='Progressive/Image/10'
+    play={a11yStoryCheck}
+    args={{
+      title: false,
+      items: [
+        {
+          title: 'First item',
+          description: '<p>Text</p><p>Another line, why not</p>',
+        },
+        {
+          title: '2nd item',
+          description: '<p>Text</p><p>Another line, why not</p>',
+        },
+        {
+          title: 'Third item',
+          description: '<p>Some text</p>',
+          current: true
+        },
+        {
+          image: { src: svgPlaceholder({ width: 80, height: 80 }) },
+          title: 'The last item',
+          description: '<p>Different <em>markup</em></p>',
+          url: 'https://g'
+        }
+      ]
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+  <Story
+    name='Progressive/Image/11'
+    play={a11yStoryCheck}
+    args={{
+      title: false,
+      items: [
+        {
+          title: 'First item',
+          description: '<p>Text</p><p>Another line, why not</p>',
+        },
+        {
+          title: '2nd item',
+          description: '<p>Some text</p>',
+        },
+        {
+          title: 'Third item',
+          image: { src: svgPlaceholder({ width: 80, height: 80, bgColor: 'rgb(0, 82, 194)', fgColor: '#fff' }) },
+          description: '<p>Text</p><p>Another line, why not</p>',
+          current: true
+        },
+        {
+          title: 'The last item',
+          description: '<p>Different <em>markup</em></p>',
+          url: 'https://g'
+        }
+      ]
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
 </Canvas>

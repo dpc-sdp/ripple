@@ -12,7 +12,7 @@ links:
 
 ## Usage
 
-Buttons are used in components and in body sections of a page. Buttons are used in components and in body sections of a page. Test change.
+Buttons are used in components and in body sections of a page. Buttons are used in components and in body sections of a page.
 
 ::DocsExample
 ---

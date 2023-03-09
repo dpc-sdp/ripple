@@ -11,7 +11,7 @@ module.exports = function () {
   })
 
   const getQuery = (req) => {
-    return req.query ? '&' + new URLSearchParams(req.query).toString() : ''
+    return req?.query && Object.keys(req.query).length ? '?' + new URLSearchParams(req.query).toString() : ''
   }
 
   // This won't override nuxt tide module's proxy option, as they have been added into array already.
@@ -21,19 +21,7 @@ module.exports = function () {
     '/sitemap.xml': {
       target: baseUrl,
       pathRewrite: (path, req) => {
-        return baseUrl + 'sitemap.xml?site=' + options.site + getQuery(req)
-      }
-    },
-    '/**/sitemap.xml': {
-      target: baseUrl,
-      pathRewrite: (path, req) => {
-        return baseUrl + path + '?site=' + options.site + getQuery(req)
-      }
-    },
-    '/sitemaps/**/sitemap.xml': {
-      target: baseUrl,
-      pathRewrite: (path, req) => {
-        return baseUrl + path + '?site=' + options.site + getQuery(req)
+        return baseUrl + `site-${options.site}/sitemap.xml` + getQuery(req)
       }
     }
   }

@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/ripple-tide-api",
-  "version": "2.1.0-alpha.95",
+  "version": "2.1.0-alpha.99",
   "description": "Ripple API endpoints for Tide Drupal backend",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
@@ -11,8 +11,7 @@
     "./types": "./types.d.ts",
     "./errors": "./dist/errors/errors.js",
     "./components": "./dist/nuxt/components",
-    "./services": "./dist/services/index.js",
-    "./mapping/site": "./dist/mapping/site.js"
+    "./services": "./dist/services/index.js"
   },
   "packageManager": "pnpm@7.23.0",
   "license": "MIT",

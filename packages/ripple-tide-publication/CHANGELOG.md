@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.101](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.100...v2.1.0-alpha.101) (2023-03-08)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-publication
+
+# [2.1.0-alpha.100](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.99...v2.1.0-alpha.100) (2023-03-08)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-publication:** :alien: enable breadcrumb override from mapping ([6631c48](https://github.com/dpc-sdp/ripple-framework/commit/6631c481b17cff96d48275fd4bf4bc80d182c362))
+* **@dpc-sdp/ripple-tide-publication:** fixed pub page includes and body components ([3e75d94](https://github.com/dpc-sdp/ripple-framework/commit/3e75d948c172d634d33dec2c3a2bcd8ef1f9d1c1))
+
+# [2.1.0-alpha.99](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.98...v2.1.0-alpha.99) (2023-03-07)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-publication
+
+# [2.1.0-alpha.98](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.97...v2.1.0-alpha.98) (2023-03-07)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-publication
+
+# [2.1.0-alpha.97](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.96...v2.1.0-alpha.97) (2023-03-07)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-publication
+
+# [2.1.0-alpha.96](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.95...v2.1.0-alpha.96) (2023-03-06)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-publication:** :bug: fixed pub card not showing pointer cursor on hover ([a4d2d13](https://github.com/dpc-sdp/ripple-framework/commit/a4d2d134ea14641a0cd398f3bdc3cfbae0aa8a98))
+* **@dpc-sdp/ripple-tide-publication:** :bug: fixed pub page crashing with no children ([c7f67d8](https://github.com/dpc-sdp/ripple-framework/commit/c7f67d888e996930faa43b60dd22042b0ce9077f))
+
 # [2.1.0-alpha.95](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.94...v2.1.0-alpha.95) (2023-03-02)
 
 **Note:** Version bump only for package @dpc-sdp/ripple-tide-publication

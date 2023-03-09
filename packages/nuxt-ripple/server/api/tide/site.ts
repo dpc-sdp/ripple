@@ -1,6 +1,7 @@
-//@ts-nocheck import typing needs fixing
+//@ts-nocheck runtime imports
 import { defineEventHandler, getQuery, H3Event } from 'h3'
 import { createHandler, TideSiteApi } from '@dpc-sdp/ripple-tide-api'
+import { useNitroApp } from '#imports'
 
 export const createSiteHandler = async (
   event: H3Event,
@@ -18,5 +19,6 @@ export const createSiteHandler = async (
 }
 
 export default defineEventHandler(async (event: H3Event) => {
-  return createSiteHandler(event, event.context.tide.siteApi)
+  const nitroApp = useNitroApp()
+  return createSiteHandler(event, nitroApp.tide.siteApi)
 })

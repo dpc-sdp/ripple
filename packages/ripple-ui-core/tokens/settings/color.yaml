@@ -49,7 +49,6 @@ clr:
     value: '{theme.clr.focus}'
   neutral:
     0:
-      figma: '123'
       value: '{theme.clr.neutral.0}'
     100:
       value: '{theme.clr.neutral.100}'

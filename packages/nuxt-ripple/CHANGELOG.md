@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.101](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.100...v2.1.0-alpha.101) (2023-03-08)
+
+**Note:** Version bump only for package @dpc-sdp/nuxt-ripple
+
+# [2.1.0-alpha.100](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.99...v2.1.0-alpha.100) (2023-03-08)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-publication:** :alien: enable breadcrumb override from mapping ([6631c48](https://github.com/dpc-sdp/ripple-framework/commit/6631c481b17cff96d48275fd4bf4bc80d182c362))
+
+# [2.1.0-alpha.99](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.98...v2.1.0-alpha.99) (2023-03-07)
+
+**Note:** Version bump only for package @dpc-sdp/nuxt-ripple
+
+# [2.1.0-alpha.98](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.97...v2.1.0-alpha.98) (2023-03-07)
+
+### Bug Fixes
+
+* **@dpc-sdp/nuxt-ripple:** :bug: fix folder naming ([09aefce](https://github.com/dpc-sdp/ripple-framework/commit/09aefce4afc8685f5fc5f1bf8d6947b8af8f4fe1))
+
+# [2.1.0-alpha.97](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.96...v2.1.0-alpha.97) (2023-03-07)
+
+**Note:** Version bump only for package @dpc-sdp/nuxt-ripple
+
+# [2.1.0-alpha.96](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.95...v2.1.0-alpha.96) (2023-03-06)
+
+**Note:** Version bump only for package @dpc-sdp/nuxt-ripple
+
 # [2.1.0-alpha.95](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.94...v2.1.0-alpha.95) (2023-03-02)
 
 ### Features

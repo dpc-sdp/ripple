@@ -1,17 +1,10 @@
 import mime from 'mime-types'
+import { getField, humanizeFilesize } from '@dpc-sdp/ripple-tide-api'
 import {
-  landingPageComponentsMapping,
-  basicTextIncludes,
-  accordionIncludes
-} from '@dpc-sdp/ripple-tide-landing-page/mapping'
-import {
-  getDynamicPageComponents,
-  getField,
-  humanizeFilesize,
   tidePageBaseMapping,
   tidePageBaseIncludes
-} from '@dpc-sdp/ripple-tide-api'
-import type { RplTideMapping } from '@dpc-sdp/ripple-tide-api/types'
+} from '@dpc-sdp/nuxt-ripple/mapping'
+import type { IRplTideModuleMapping } from '@dpc-sdp/ripple-tide-api/types'
 
 const chapters = (src: string) =>
   getField(src, 'publication_children')
@@ -26,9 +19,7 @@ const chapters = (src: string) =>
       }
     }))
 
-const tidePublicationModule: RplTideMapping = {
-  component: '@dpc-sdp/ripple-tide-publication/component',
-  schema: '@dpc-sdp/ripple-tide-publication/types',
+const tidePublicationModule: IRplTideModuleMapping = {
   mapping: {
     ...tidePageBaseMapping({
       withSidebarContacts: true,
@@ -48,11 +39,10 @@ const tidePublicationModule: RplTideMapping = {
       }
       return 'h2'
     },
-    breadcrumbs: (src: string) => {
-      return {
-        items: [{ label: 'Home', url: '/' }, { label: getField(src, 'title') }]
-      }
-    },
+    breadcrumbs: (src: string) => [
+      { text: 'Home', url: '/' },
+      { text: getField(src, 'title') }
+    ],
     details: {
       author: (src: any) =>
         src.field_publication_authors.map((x: any) => x.name).join(', '),
@@ -60,12 +50,10 @@ const tidePublicationModule: RplTideMapping = {
       copyright: 'field_license_type.description'
     },
     chapters,
-    dynamicComponents: async (src: any, tidePageApi: any) => {
-      return await getDynamicPageComponents(
+    bodyComponents: async (src, tidePageApi) => {
+      return await tidePageApi.getDynamicPageComponents(
         src,
-        'field_landing_page_component',
-        landingPageComponentsMapping,
-        tidePageApi
+        'field_landing_page_component'
       )
     },
     publication: {
@@ -89,8 +77,6 @@ const tidePublicationModule: RplTideMapping = {
       withSidebarRelatedLinks: true,
       withSidebarSocialShare: true
     }),
-    ...basicTextIncludes,
-    ...accordionIncludes,
     'field_node_documents.field_media_file',
     'field_landing_page_contact.field_paragraph_phones',
     'field_landing_page_contact.field_paragraph_social_media',

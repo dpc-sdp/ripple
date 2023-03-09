@@ -30,6 +30,7 @@ const { container, trigger } = useAccessibleContainer()
     :highlight="true"
     :link="url"
     :el="el"
+    class="rpl-card--key-dates"
   >
     <template #title>
       <h3 class="rpl-type-h3-fixed" data-cy="title">{{ title }}</h3>

@@ -7,7 +7,7 @@
   >
     <RplContent :html="body"></RplContent>
   </RplPageComponent>
-  <RplPageComponent>
+  <RplPageComponent v-if="link">
     <RplButton el="a" :href="link.url">{{ link.text }}</RplButton>
   </RplPageComponent>
 </template>

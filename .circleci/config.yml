@@ -184,7 +184,7 @@ jobs:
           name: Install pnpm package manager
           command: |
             curl -L https://pnpm.js.org/pnpm.js | node - add --global pnpm@7
-      - run: pnpm chromatic --project-token=${CHROMATIC_PROJECT_TOKEN} --exit-zero-on-changes --exit-once-uploaded
+      - run: pnpm chromatic --project-token=${CHROMATIC_PROJECT_TOKEN} --exit-zero-on-changes --exit-once-uploaded --skip 'gh-readonly-queue/**'
 
   performance:
     <<: *defaults
@@ -302,10 +302,19 @@ workflows:
           type: approval
           requires:
             - build-storybook
+          filters:
+            branches:
+              ignore:
+                - develop
+                - /gh-readonly-queue\/.*/
       - chromatic:
           requires:
             - confirm-chromatic
             - build-storybook
+          filters:
+            branches:
+              ignore:
+                - develop
       - publish-alpha:
           requires:
             - build

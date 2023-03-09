@@ -3,6 +3,43 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.101](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.100...v2.1.0-alpha.101) (2023-03-08)
+
+### Features
+
+* **@dpc-sdp/ripple-ui-core:** :lipstick: add gap between heading and slider when no pagination ([2a245a4](https://github.com/dpc-sdp/ripple-framework/commit/2a245a44510a666d725dbcf6c79eb380170b70df))
+
+# [2.1.0-alpha.100](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.99...v2.1.0-alpha.100) (2023-03-08)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** stop expandable content showing when toggled quickly ([ee7e14c](https://github.com/dpc-sdp/ripple-framework/commit/ee7e14cad7c44233986dcf1d9574ce02ac0dacb0))
+
+# [2.1.0-alpha.99](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.98...v2.1.0-alpha.99) (2023-03-07)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-ui-core
+
+# [2.1.0-alpha.98](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.97...v2.1.0-alpha.98) (2023-03-07)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-ui-core
+
+# [2.1.0-alpha.97](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.96...v2.1.0-alpha.97) (2023-03-07)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-ui-core
+
+# [2.1.0-alpha.96](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.95...v2.1.0-alpha.96) (2023-03-06)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-landing-page:** :bug: fixed key dates mapping tests and styling ([a61bb3b](https://github.com/dpc-sdp/ripple-framework/commit/a61bb3be5530c15e75759453aebbe71ea587ead7))
+* **@dpc-sdp/ripple-tide-landing-page:** :bug: fixed mapping of key dates card and styling issue ([81d8c0b](https://github.com/dpc-sdp/ripple-framework/commit/81d8c0b76b2a60251a214d83e067450329458bf9))
+* **@dpc-sdp/ripple-ui-core:** :bug: fixed typo in media embed ([f140765](https://github.com/dpc-sdp/ripple-framework/commit/f1407653479e04edfac72ff5c18350be62232f58))
+
+### Features
+
+* **@dpc-sdp/ripple-ui-core:** adding new patterns svgs ([5611aeb](https://github.com/dpc-sdp/ripple-framework/commit/5611aebdf2768a9ecb2eb9182fbbf8a8b3f773fc))
+* **docs:** added ability to set theme/neutral buttons for docs example ([9406a5c](https://github.com/dpc-sdp/ripple-framework/commit/9406a5c77022d7c8cf66a58f7facc1f62f2bc9c7))
+
 # [2.1.0-alpha.95](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.94...v2.1.0-alpha.95) (2023-03-02)
 
 ### Bug Fixes

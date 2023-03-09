@@ -1,13 +1,15 @@
-import type { RplTideMapping } from '@dpc-sdp/ripple-tide-api/types'
+import type { IRplTideModuleMapping } from '@dpc-sdp/ripple-tide-api/types'
 import {
-  tidePageBaseMapping,
-  tidePageBaseIncludes,
   getImageFromField,
   getBodyFromField,
   getField
 } from '@dpc-sdp/ripple-tide-api'
+import {
+  tidePageBaseMapping,
+  tidePageBaseIncludes
+} from '@dpc-sdp/nuxt-ripple/mapping'
 
-const tideNewsModule: RplTideMapping = {
+const tideNewsModule: IRplTideModuleMapping = {
   mapping: {
     ...tidePageBaseMapping({
       withSidebarContacts: true,

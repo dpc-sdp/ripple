@@ -24,7 +24,9 @@ const transformToRplNavFormat = (nuxtNavItem: NavItem): IRplVerticalNavItem => {
     url: nuxtNavItem._path,
     active: isActive(nuxtNavItem),
     items: nuxtNavItem.children
-      ? nuxtNavItem.children.map(transformToRplNavFormat)
+      ? nuxtNavItem.children
+          .filter((child) => child._path !== nuxtNavItem._path)
+          .map(transformToRplNavFormat)
       : undefined
   }
 }

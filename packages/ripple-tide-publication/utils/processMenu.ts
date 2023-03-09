@@ -37,7 +37,7 @@ const processMenu = (res: indexNode, route: RouteRecord): indexNode[] => [
     active: res.url === route.path,
     items: undefined
   },
-  ...(res.items?.map(
+  ...((res.items || []).map(
     (child: indexNode): indexNode => ({
       text: child.text,
       url: child.url,

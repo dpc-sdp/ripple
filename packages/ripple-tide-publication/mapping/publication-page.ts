@@ -1,21 +1,12 @@
 import mime from 'mime-types'
+import { getField, humanizeFilesize } from '@dpc-sdp/ripple-tide-api'
 import {
-  landingPageComponentsMapping,
-  basicTextIncludes,
-  accordionIncludes
-} from '@dpc-sdp/ripple-tide-landing-page/mapping'
-import {
-  getDynamicPageComponents,
-  getField,
-  humanizeFilesize,
   tidePageBaseMapping,
   tidePageBaseIncludes
-} from '@dpc-sdp/ripple-tide-api'
-import type { RplTideMapping } from '@dpc-sdp/ripple-tide-api/types'
+} from '@dpc-sdp/nuxt-ripple/mapping'
+import type { IRplTideModuleMapping } from '@dpc-sdp/ripple-tide-api/types'
 
-const tidePublicationPageModule: RplTideMapping = {
-  component: '@dpc-sdp/ripple-tide-publication-page/component',
-  schema: '@dpc-sdp/ripple-tide-publication-page/types',
+const tidePublicationPageModule: IRplTideModuleMapping = {
   mapping: {
     ...tidePageBaseMapping({
       withSidebarContacts: true,
@@ -35,24 +26,18 @@ const tidePublicationPageModule: RplTideMapping = {
       title: 'title',
       summary: 'field_landing_page_intro_text'
     },
-    breadcrumbs: (src: string) => {
-      return {
-        items: [
-          { label: 'Home', url: '/' },
-          {
-            label: getField(src, 'publication_navigation_root.meta.title'),
-            url: getField(src, 'publication_navigation_root.meta.url')
-          },
-          { label: getField(src, 'title') }
-        ]
-      }
-    },
-    dynamicComponents: async (src: any, tidePageApi: any) => {
-      return await getDynamicPageComponents(
+    breadcrumbs: (src: string) => [
+      { text: 'Home', url: '/' },
+      {
+        text: getField(src, 'publication_navigation_root.meta.title'),
+        url: getField(src, 'publication_navigation_root.meta.url')
+      },
+      { text: getField(src, 'title') }
+    ],
+    bodyComponents: async (src, tidePageApi) => {
+      return await tidePageApi.getDynamicPageComponents(
         src,
-        'field_landing_page_component',
-        landingPageComponentsMapping,
-        tidePageApi
+        'field_landing_page_component'
       )
     },
     publication: {
@@ -95,8 +80,6 @@ const tidePublicationPageModule: RplTideMapping = {
       withSidebarRelatedLinks: true,
       withSidebarSocialShare: true
     }),
-    ...basicTextIncludes,
-    ...accordionIncludes,
     'field_node_primary_site',
     'field_node_site.field_site_main_menu',
     'field_related_links',
@@ -107,17 +90,7 @@ const tidePublicationPageModule: RplTideMapping = {
     'field_landing_page_contact.field_paragraph_phones',
     'field_landing_page_contact.field_paragraph_social_media',
     'field_landing_page_component.field_paragraph_media.field_media_image',
-    'field_landing_page_component.field_paragraph_topic',
-    'field_landing_page_component.field_timeline.field_paragraph_media.field_media_image',
-    'field_landing_page_component.field_paragraph_keydates',
-    'field_landing_page_component.field_paragraph_media_gallery.field_gallery_media.field_media_image',
-    'field_landing_page_component.field_paragraph_items.field_paragraph_reference.field_event_details',
-    'field_landing_page_component.field_paragraph_items.field_paragraph_reference.field_topic',
-    'field_landing_page_component.field_paragraph_items.field_paragraph_reference.field_featured_image.field_media_image',
-    'field_landing_page_component.field_paragraph_items.field_paragraph_keydates',
-    'field_landing_page_component.field_paragraph_items.field_paragraph_media.field_media_image',
-    'field_landing_page_component.field_complex_image_media.field_media_image',
-    'field_landing_page_hero_image.field_media_image'
+    'field_landing_page_component.field_paragraph_topic'
   ]
 }
 

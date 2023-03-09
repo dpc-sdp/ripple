@@ -1,8 +1,8 @@
-//@ts-nocheck import typing needs fixing
+//@ts-nocheck runtime imports
 import { defineEventHandler, getQuery, H3Event } from 'h3'
 import { createHandler, TidePageApi } from '@dpc-sdp/ripple-tide-api'
 import { BadRequestError } from '@dpc-sdp/ripple-tide-api/errors'
-
+import { useNitroApp } from '#imports'
 export const createPageHandler = async (
   event: H3Event,
   tidePageApi: TidePageApi
@@ -23,5 +23,6 @@ export const createPageHandler = async (
 }
 
 export default defineEventHandler(async (event: H3Event) => {
-  return createPageHandler(event, event.context.tide.pageApi)
+  const nitroApp = useNitroApp()
+  return createPageHandler(event, nitroApp.tide.pageApi)
 })

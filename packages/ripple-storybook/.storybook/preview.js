@@ -69,4 +69,18 @@ export const globalTypes = {
       dynamicTitle: true,
     },
   },
+  buttonTheme: {
+    name: 'Button theme',
+    description: 'Turn on/off neutral themed buttons across all components',
+    defaultValue: false,
+    toolbar: {
+      icon: 'button',
+      items: [
+        {value: 'default', left: 'Button theme', title: 'Default buttons'},
+        {value: 'neutral', left: 'Button theme', title: 'Neutral buttons'}
+      ],
+      showName: true,
+      dynamicTitle: true,
+    },
+  },
 };

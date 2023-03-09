@@ -1,4 +1,7 @@
-import type { TidePageBase } from '@dpc-sdp/ripple-tide-api/types'
+import type {
+  TidePageBase,
+  TideImageField
+} from '@dpc-sdp/ripple-tide-api/types'
 
 export type TideGrantHeader = {
   title: string
@@ -19,7 +22,7 @@ export type TideGrantTimelineItem = {
   title: string
   subtitle: string
   url: string
-  image: string
+  image: TideImageField
   dateStart: string
   dateEnd: string
   description: string

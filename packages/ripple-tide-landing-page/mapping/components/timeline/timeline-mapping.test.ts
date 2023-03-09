@@ -371,8 +371,14 @@ describe('timelineMapping', () => {
             url: '/sdpta-content-collection-lp-news-grid-view-thumbnail-dc-adc-sites-landing-page-10-10-2022-1',
             description:
               '<p>Milestone 1 <strong>summary</strong> <em>text</em></p>',
-            image:
-              'https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Bendigo-Hospital.jpg',
+            image: {
+              alt: 'Demo: Bendigo Hospital',
+              focalPoint: undefined,
+              height: 959,
+              src: 'https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Bendigo-Hospital.jpg',
+              title: 'Demo: Bendigo Hospital.jpg',
+              width: 1280
+            },
             current: false,
             dateStart: '2022-06-02T09:00:00+10:00',
             dateEnd: '2022-11-12T14:00:00+11:00'
@@ -384,7 +390,7 @@ describe('timelineMapping', () => {
             url: '/sdpta-debug-wysiwyg-landing-page-12-10-2022-0',
             description:
               '<p>Milestone 2&nbsp;<strong>summary</strong> <em>text</em></p>',
-            image: '',
+            image: null,
             current: true,
             dateStart: '2022-10-05T10:00:00+11:00',
             dateEnd: '2022-11-26T18:00:00+11:00'
@@ -395,7 +401,7 @@ describe('timelineMapping', () => {
             subtitle: null,
             url: '',
             description: '',
-            image: '',
+            image: null,
             current: false,
             dateStart: null,
             dateEnd: null

@@ -66,6 +66,16 @@
       }
     }
 
+    &:only-child {
+      padding-left: 0;
+      border-left-width: 0;
+
+      &::before,
+      &::after {
+        display: none;
+      }
+    }
+
     &-image {
       display: block;
       height: var(--local-img-height);

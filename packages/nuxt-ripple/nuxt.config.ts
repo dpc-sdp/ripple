@@ -4,9 +4,9 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       tide: {
+        baseUrl: 'https://develop.content.reference.sdp.vic.gov.au',
+        site: '8888',
         config: {
-          baseUrl: 'https://develop.content.reference.sdp.vic.gov.au',
-          site: '8888',
           apiPrefix: '/api/v1',
           auth: {
             username: 'dpc',

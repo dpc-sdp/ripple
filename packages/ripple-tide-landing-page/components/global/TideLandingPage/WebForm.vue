@@ -59,7 +59,7 @@ const postForm = async (formId, formData = {}) => {
     baseURL: config.API_URL || '',
     body,
     params: {
-      site: config.tide.contentApi.site
+      site: config.tide.site
     },
     headers: {
       'Content-Type': 'application/vnd.api+json;charset=UTF-8'

@@ -82,14 +82,10 @@ export default class TideApiBase extends HttpClient {
     const menuName = menuData.drupal_internal__id
 
     try {
-      const menusResponse = await this.getAllPaginatedMenuLinks(
-        siteId,
-        menuName
-      )
+      const menusResponse = await this.get(`/menu_items/${menuName}`)
 
-      if (menusResponse) {
-        const menu = menusResponse
-        return getHierarchicalMenu(menu, activePath)
+      if (menusResponse?.data) {
+        return getHierarchicalMenu(menusResponse.data, activePath)
       }
     } catch (error) {
       throw new ApplicationError(
@@ -97,38 +93,5 @@ export default class TideApiBase extends HttpClient {
         { cause: error }
       )
     }
-  }
-
-  async getAllPaginatedMenuLinks(siteId, menuName) {
-    // Get the first page of links, this will also give us a link to the next page
-    let response = await this.get(
-      '/menu_link_content/menu_link_content?site=' + siteId,
-      {
-        params: {
-          filter: {
-            menu_link_content: {
-              path: 'menu_name',
-              value: menuName
-            }
-          }
-        }
-      }
-    )
-
-    let menuLinks = [...response.data]
-
-    // FIXME - For local dev, return only the first page of the results otherwise development
-    // is slowed down to a crawl
-    if (process.env.DISABLE_MENU_PAGINATION) {
-      return menuLinks
-    }
-
-    // Get the rest of the menu links by following their 'next' link until a response has no next link
-    while (response?.links?.next) {
-      response = await this.get(response.links.next.href)
-      menuLinks = [...menuLinks, ...response.data]
-    }
-
-    return menuLinks
   }
 }

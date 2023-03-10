@@ -3,11 +3,11 @@ import RplCampaignBanner from './RplCampaignBanner.vue'
 import RplImage from '../image/RplImage.vue'
 import RplButton from '../button/RplButton.vue'
 import { RplLink } from '../../lib/constants'
-import { RplImageType } from '../image/constants'
+import { IRplImageType } from '../image/constants'
 
 interface Props {
   title: string
-  image?: RplImageType
+  image?: IRplImageType
   link?: RplLink
 }
 

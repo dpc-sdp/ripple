@@ -42,7 +42,6 @@
         position: absolute;
         z-index: var(--rpl-layer-2);
         background-color: var(--local-clr-border);
-        height: 100%;
         width: var(--local-point-thickness);
         top: var(--local-title-height);
         bottom: 0;
@@ -167,6 +166,21 @@
         color: var(--rpl-clr-link);
       }
 
+      &::after {
+        content: '';
+        display: inline-block;
+        position: absolute;
+        z-index: var(--rpl-layer-2);
+        background-color: var(--rpl-clr-link);
+        height: calc(
+          (var(--local-img-height) + var(--local-point-thickness)) / 2
+        );
+        width: var(--local-point-thickness);
+        top: calc(var(--local-point-thickness) / 2);
+        bottom: 0;
+        left: calc(var(--local-point-thickness) * -1);
+      }
+
       &::before,
       &:last-child::after {
         background-color: var(--rpl-clr-link);
@@ -174,23 +188,15 @@
 
       &.rpl-timeline__item--with-image {
         &::after {
-          content: '';
-          display: inline-block;
-          position: absolute;
-          z-index: var(--rpl-layer-2);
-          background-color: var(--rpl-clr-link);
           height: calc(
-            (var(--local-img-height) + var(--local-point-thickness)) / 2
+            (var(--local-img-height) + var(--local-point-thickness)) / 2 + 2px
           );
-          width: var(--local-point-thickness);
-          top: calc(var(--local-point-thickness) / 2);
-          bottom: 0;
-          left: calc(var(--local-point-thickness) * -1);
+          top: 0;
         }
 
         &:first-child::after {
           top: calc(var(--local-img-height) / 2);
-          height: 100%;
+          height: auto;
           background-color: var(--local-clr-border);
         }
 
@@ -199,6 +205,23 @@
           height: calc(
             (var(--local-img-height) + (var(--local-point-thickness) * 2)) / 2
           );
+        }
+      }
+
+      &:not(.rpl-timeline__item--with-image, :first-child) {
+        &::after {
+          top: 0;
+          height: 1em;
+        }
+      }
+    }
+
+    /* stylelint-disable-next-line no-descending-specificity */
+    &--active,
+    &--current {
+      &:not(.rpl-timeline__item--with-image) {
+        &:first-child::after {
+          height: 100%;
         }
       }
     }

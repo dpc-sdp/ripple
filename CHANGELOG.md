@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.106](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.105...v2.1.0-alpha.106) (2023-03-10)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** allow a single timeline element to be displayed ([8e08693](https://github.com/dpc-sdp/ripple-framework/commit/8e0869331a87026dc44f91661511cfe5d305e9e8))
+
+# [2.1.0-alpha.105](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.104...v2.1.0-alpha.105) (2023-03-10)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-landing-page:** :bug: fixed missing call to action mapping ([ead531b](https://github.com/dpc-sdp/ripple-framework/commit/ead531bea2df5087eeee84e496d0a08e3623c564))
+
+# [2.1.0-alpha.104](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.103...v2.1.0-alpha.104) (2023-03-10)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-forms:** :bug: fixed multiple conditional form logic issues ([be247b4](https://github.com/dpc-sdp/ripple-framework/commit/be247b4c014b1af2ca2d1ad65878d84113feabb6))
+* **@dpc-sdp/ripple-ui-forms:** :bug: removed formkit error message from bottom of form ([63d79d1](https://github.com/dpc-sdp/ripple-framework/commit/63d79d17e964d9649381c097c246b757180f9183))
+* **@dpc-sdp/ripple-ui-forms:** added validation for URL inputs to match backend validation ([2aeb55e](https://github.com/dpc-sdp/ripple-framework/commit/2aeb55ed9b0621e6b31f5498b662c7bea9372e03))
+
+# [2.1.0-alpha.103](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.102...v2.1.0-alpha.103) (2023-03-09)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-publication:** fixed stats grid breaking pub parent ([2680eca](https://github.com/dpc-sdp/ripple-framework/commit/2680eca38a0357b26750adcc9b647c60701362ec))
+* **@dpc-sdp/ripple-tide-publication:** replaced custom card with nav card ([faa33be](https://github.com/dpc-sdp/ripple-framework/commit/faa33be57636c99b1694bb4600ae98807a0ffbd9))
+
 # [2.1.0-alpha.102](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.101...v2.1.0-alpha.102) (2023-03-08)
 
 **Note:** Version bump only for package @dpc-sdp/ripple-monorepo

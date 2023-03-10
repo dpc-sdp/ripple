@@ -11,7 +11,7 @@ export type TidePublicationHeader = {
 export type TidePublicationChapter = {
   title: string
   summary: string
-  link: any
+  url: string
 }
 
 export interface apiNode {

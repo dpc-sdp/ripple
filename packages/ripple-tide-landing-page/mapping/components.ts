@@ -7,7 +7,7 @@ import statisticsGridMapping from './components/statistics-grid/statistics-grid-
 import introBannerMapping from './components/intro-banner/intro-banner-mapping'
 import searchBannerMapping from './components/search-banner/search-banner-mapping'
 import timelineMapping from './components/timeline/timeline-mapping'
-import callToActionMapping from './components/timeline/timeline-mapping'
+import callToActionMapping from './components/call-to-action/call-to-action'
 import mediaGalleryMapping from './components/media-gallery/media-gallery-mapping'
 import cardCarouselMapping from './components/card-carousel/card-carousel-mapping'
 import contentCollectionMapping from './components/content-collection/content-collection-mapping'

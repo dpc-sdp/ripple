@@ -30,5 +30,5 @@ export default defineNitroPlugin(async (nitroApp: NitroApp) => {
   ]?.contentTypes.push('publication_page')
   nitroApp.tide?.pageApi.dynamicComponents[
     'paragraph--statistics_grid'
-  ]?.contentTypes.push('publication_page')
+  ]?.contentTypes.push(...['publication', 'publication_page'])
 })

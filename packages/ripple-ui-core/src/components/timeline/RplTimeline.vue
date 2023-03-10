@@ -56,7 +56,7 @@ const classes = (item: IRplTimelineItem, index: number) => {
     <h2 v-if="title" class="rpl-type-h2-fixed rpl-timeline__heading">
       {{ title }}
     </h2>
-    <ul v-if="items.length > 1" class="rpl-timeline__items rpl-type-p">
+    <ul v-if="items.length > 0" class="rpl-timeline__items rpl-type-p">
       <li
         v-for="(item, index) of items"
         :key="index"

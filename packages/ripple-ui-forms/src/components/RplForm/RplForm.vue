@@ -120,7 +120,9 @@ watch(
 
 const data = reactive({
   isFilled: (val) =>
-    typeof val === 'number' ? !isNaN(val) : !(val == null || val === ''),
+    typeof val === 'number'
+      ? !isNaN(val)
+      : !(val === undefined || val === null || val === ''),
   isChecked: (val) => !!val,
   negate: (val) => !val,
   isEqual: (targetValue, triggerValue) => {

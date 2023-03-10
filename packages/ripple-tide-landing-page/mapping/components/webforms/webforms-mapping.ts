@@ -38,6 +38,7 @@ const getFormSchemaFromMapping = async (
       case 'hidden':
         mappedField = {
           $formkit: 'hidden',
+          key: fieldKey,
           name: fieldKey,
           id: fieldKey,
           value: field['#default_value']
@@ -46,6 +47,7 @@ const getFormSchemaFromMapping = async (
       case 'textfield':
         mappedField = {
           $formkit: 'RplFormText',
+          key: fieldKey,
           name: fieldKey,
           label: field['#title'],
           disabled: field['#disabled'],
@@ -62,6 +64,7 @@ const getFormSchemaFromMapping = async (
       case 'email':
         mappedField = {
           $formkit: 'RplFormEmail',
+          key: fieldKey,
           name: fieldKey,
           label: field['#title'],
           disabled: field['#disabled'],
@@ -77,6 +80,7 @@ const getFormSchemaFromMapping = async (
       case 'number':
         mappedField = {
           $formkit: 'RplFormNumber',
+          key: fieldKey,
           name: fieldKey,
           label: field['#title'],
           disabled: field['#disabled'],
@@ -94,6 +98,7 @@ const getFormSchemaFromMapping = async (
       case 'tel':
         mappedField = {
           $formkit: 'RplFormTel',
+          key: fieldKey,
           name: fieldKey,
           label: field['#title'],
           disabled: field['#disabled'],
@@ -109,6 +114,7 @@ const getFormSchemaFromMapping = async (
       case 'url':
         mappedField = {
           $formkit: 'RplFormUrl',
+          key: fieldKey,
           name: fieldKey,
           label: field['#title'],
           disabled: field['#disabled'],
@@ -124,6 +130,7 @@ const getFormSchemaFromMapping = async (
       case 'textarea':
         mappedField = {
           $formkit: 'RplFormTextarea',
+          key: fieldKey,
           id: fieldKey,
           name: fieldKey,
           label: field['#title'],
@@ -140,6 +147,7 @@ const getFormSchemaFromMapping = async (
       case 'date':
         mappedField = {
           $formkit: 'RplFormDate',
+          key: fieldKey,
           id: fieldKey,
           name: fieldKey,
           label: field['#title'],
@@ -153,11 +161,12 @@ const getFormSchemaFromMapping = async (
       case 'checkbox':
         mappedField = {
           $formkit: 'RplFormCheckbox',
+          key: fieldKey,
           id: fieldKey,
           name: fieldKey,
           disabled: field['#disabled'],
           // TODO: It's not clear what field we should be using for the 'label' here because it's a new requirement, setting as 'help title' for now
-          label: field['#help_title'],
+          label: field['#help_title'] || field['#title'],
           help: field['#description'],
           checkboxLabel: field['#title'],
           value: field['#default_value'],
@@ -167,6 +176,7 @@ const getFormSchemaFromMapping = async (
       case 'webform_privacy_statement':
         mappedField = {
           $formkit: 'RplFormCheckbox',
+          key: fieldKey,
           id: fieldKey,
           name: fieldKey,
           disabled: field['#disabled'],
@@ -181,6 +191,7 @@ const getFormSchemaFromMapping = async (
       case 'select':
         mappedField = {
           $formkit: 'RplFormDropdown',
+          key: fieldKey,
           id: fieldKey,
           name: fieldKey,
           disabled: field['#disabled'],
@@ -203,6 +214,7 @@ const getFormSchemaFromMapping = async (
       case 'radios':
         mappedField = {
           $formkit: 'RplFormRadioGroup',
+          key: fieldKey,
           id: fieldKey,
           name: fieldKey,
           disabled: field['#disabled'],
@@ -211,7 +223,7 @@ const getFormSchemaFromMapping = async (
           options: Object.entries(field['#options'] || {}).map(
             ([value, label]) => {
               return {
-                id: value,
+                id: `${fieldKey}_${value}`,
                 value,
                 label
               }
@@ -226,6 +238,7 @@ const getFormSchemaFromMapping = async (
 
         mappedField = {
           $formkit: 'RplFormDropdown',
+          key: fieldKey,
           id: fieldKey,
           name: fieldKey,
           disabled: field['#disabled'],
@@ -251,6 +264,7 @@ const getFormSchemaFromMapping = async (
       case 'webform_markup':
         mappedField = {
           $formkit: 'RplFormContent',
+          key: fieldKey,
           html: getBody(field['#markup']),
           ...getValidationAndConditionals(field)
         }
@@ -258,6 +272,7 @@ const getFormSchemaFromMapping = async (
       case 'processed_text':
         mappedField = {
           $formkit: 'RplFormContent',
+          key: fieldKey,
           html: getBody(field['#text']),
           ...getValidationAndConditionals(field)
         }
@@ -265,12 +280,14 @@ const getFormSchemaFromMapping = async (
       case 'webform_horizontal_rule':
         mappedField = {
           $formkit: 'RplFormDivider',
+          key: fieldKey,
           ...getValidationAndConditionals(field)
         }
         break
       case 'label':
         mappedField = {
           $formkit: 'RplFormLabel',
+          key: fieldKey,
           label: field['#title'],
           required: field['#required']
         }
@@ -278,6 +295,7 @@ const getFormSchemaFromMapping = async (
       case 'webform_actions':
         mappedField = {
           $formkit: 'RplFormActions',
+          key: fieldKey,
           name: 'submit',
           variant: 'filled',
           label: field['#submit__label'],

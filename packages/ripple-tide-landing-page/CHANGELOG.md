@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.104](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.103...v2.1.0-alpha.104) (2023-03-10)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-forms:** :bug: fixed multiple conditional form logic issues ([be247b4](https://github.com/dpc-sdp/ripple-framework/commit/be247b4c014b1af2ca2d1ad65878d84113feabb6))
+* **@dpc-sdp/ripple-ui-forms:** added validation for URL inputs to match backend validation ([2aeb55e](https://github.com/dpc-sdp/ripple-framework/commit/2aeb55ed9b0621e6b31f5498b662c7bea9372e03))
+
 # [2.1.0-alpha.101](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.100...v2.1.0-alpha.101) (2023-03-08)
 
 **Note:** Version bump only for package @dpc-sdp/ripple-tide-landing-page

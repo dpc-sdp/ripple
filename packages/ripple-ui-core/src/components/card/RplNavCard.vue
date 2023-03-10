@@ -6,12 +6,12 @@ import RplCard from './RplCard.vue'
 import RplTextLink from '../text-link/RplTextLink.vue'
 import RplImage from '../image/RplImage.vue'
 import { RplCardElements } from './constants'
-import { RplImageType } from '../image/constants'
+import { IRplImageType } from '../image/constants'
 
 interface Props {
   el?: (typeof RplCardElements)[number]
   highlight?: boolean
-  image?: RplImageType
+  image?: IRplImageType
   inset?: boolean
   title: string
   url?: string

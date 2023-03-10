@@ -2,6 +2,7 @@ import mime from 'mime-types'
 import {
   formatPriceRange,
   getField,
+  getImageFromField,
   humanizeFilesize
 } from '@dpc-sdp/ripple-tide-api'
 import {
@@ -71,12 +72,10 @@ const tideGrantModule: IRplTideModuleMapping = {
             url:
               timeline.field_paragraph_link?.origin_url ||
               timeline.field_paragraph_link?.uri,
-            image:
-              timeline.field_paragraph_media &&
-              timeline.field_paragraph_media.field_media_image
-                ? timeline.field_paragraph_media.field_media_image.url ||
-                  timeline.field_paragraph_media.field_media_image.uri
-                : null,
+            image: getImageFromField(
+              timeline,
+              'field_paragraph_media.field_media_image'
+            ),
             dateStart: getField(
               timeline,
               'field_paragraph_date_range.value',

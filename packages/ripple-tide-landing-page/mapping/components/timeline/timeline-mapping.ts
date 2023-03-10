@@ -3,11 +3,14 @@ import {
   getLinkFromField,
   getImageFromField
 } from '@dpc-sdp/ripple-tide-api'
-import { TideDynamicPageComponent } from '@dpc-sdp/ripple-tide-api/types'
+import {
+  TideDynamicPageComponent,
+  TideImageField
+} from '@dpc-sdp/ripple-tide-api/types'
 
 interface ITideTimelineItem {
   id: string
-  image: string
+  image: TideImageField
   title: string
   subtitle: string | null
   dateStart: string | null
@@ -31,10 +34,6 @@ export const timelineMapping = (
     props: {
       items: (field.field_timeline || []).map((item): ITideTimelineItem => {
         const link = getLinkFromField(item.field_paragraph_link)
-        const image = getImageFromField(
-          item,
-          'field_paragraph_media.field_media_image'
-        )
 
         return {
           id: `${item.drupal_internal__id}`,
@@ -42,7 +41,10 @@ export const timelineMapping = (
           subtitle: item.field_paragraph_cta_text,
           url: link?.url || '',
           description: getBody(item.field_paragraph_body?.processed),
-          image: image?.src || '',
+          image: getImageFromField(
+            item,
+            'field_paragraph_media.field_media_image'
+          ),
           current: item.field_current_milestone,
           dateStart: item.field_paragraph_date_range?.value || null,
           dateEnd: item.field_paragraph_date_range?.end_value || null

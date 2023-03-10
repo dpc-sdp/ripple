@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.107](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.106...v2.1.0-alpha.107) (2023-03-10)
+
+### Features
+
+* **@dpc-sdp/ripple-tide-api:** add embedded video markup plugin ([1c69913](https://github.com/dpc-sdp/ripple-framework/commit/1c69913b821210b4008bea85bad93a73afb6801c))
+
 # [2.1.0-alpha.99](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.98...v2.1.0-alpha.99) (2023-03-07)
 
 ### Bug Fixes

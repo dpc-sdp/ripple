@@ -212,7 +212,7 @@ const isActionsListEmpty = computed(() => {
       :is-open="isFullScreenOpen"
       @close="() => (isFullScreenOpen = false)"
     >
-      <RplImage :src="props.src" :alt="props.caption" />
+      <RplImage :src="props.src" :alt="props.caption" fit="contain" />
       <template #below>
         <div class="rpl-media-embed__content">
           <h3 class="rpl-type-h3 rpl-u-margin-b-2">{{ props.title }}</h3>

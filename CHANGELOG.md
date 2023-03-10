@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.105](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.104...v2.1.0-alpha.105) (2023-03-10)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-landing-page:** :bug: fixed missing call to action mapping ([ead531b](https://github.com/dpc-sdp/ripple-framework/commit/ead531bea2df5087eeee84e496d0a08e3623c564))
+
 # [2.1.0-alpha.104](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.103...v2.1.0-alpha.104) (2023-03-10)
 
 ### Bug Fixes

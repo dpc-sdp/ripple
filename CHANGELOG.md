@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.108](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.107...v2.1.0-alpha.108) (2023-03-10)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-grant:** check for timeline title ([0a71ba6](https://github.com/dpc-sdp/ripple-framework/commit/0a71ba64187f2f4046758ba973a2fb5b2116e56a))
+* **@dpc-sdp/ripple-ui-core:** alt text support for timeline, update RplImageType instances ([945e21b](https://github.com/dpc-sdp/ripple-framework/commit/945e21bb2c53ad4fec37358900c49348712c40ae))
+* **@dpc-sdp/ripple-ui-core:** fix docs not opening via keyboard ([27195b6](https://github.com/dpc-sdp/ripple-framework/commit/27195b6dabb48c41d14ef205137718c91a0aa5be))
+* **@dpc-sdp/ripple-ui-core:** timeline notch fixes ([73cb8c3](https://github.com/dpc-sdp/ripple-framework/commit/73cb8c3f1a98dec1f0ddabef6bcc5a01181ea13a))
+
 # [2.1.0-alpha.107](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.106...v2.1.0-alpha.107) (2023-03-10)
 
 ### Features

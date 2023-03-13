@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.109](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.108...v2.1.0-alpha.109) (2023-03-13)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** fix modal height for mobile and gallery image sizing for safari ([032ef9e](https://github.com/dpc-sdp/ripple-framework/commit/032ef9ed8ccfa40293751566af167bdbc1f14be9))
+
 # [2.1.0-alpha.108](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.107...v2.1.0-alpha.108) (2023-03-10)
 
 ### Bug Fixes

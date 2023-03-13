@@ -9,7 +9,7 @@ import { RplHeroHeader } from '#components'
 import { useRuntimeConfig, useFetch, createError } from '#imports'
 
 const { public: config } = useRuntimeConfig()
-const siteId = config.tide?.contentApi.site
+const siteId = config.tide?.site
 
 const { data: site, error: siteError } = await useFetch('/api/tide/site', {
   baseURL: config.API_URL || '',

@@ -36,18 +36,10 @@
     </template>
     <template #body="{ hasSidebar }">
       <slot name="body" :hasSidebar="hasSidebar"></slot>
-      <div
+      <TideTopicTags
         v-if="!featureFlags?.disableTopicTags && topicTags.length"
-        data-cy="topic-tags"
-        class="rpl-u-margin-t-6"
-      >
-        <RplChip
-          v-for="tag in topicTags"
-          :key="tag.url"
-          :label="tag.text"
-          :url="tag.url"
-        />
-      </div>
+        :items="topicTags"
+      />
       <TideUpdatedDate v-if="updatedDate" :date="updatedDate" />
     </template>
     <template #belowBody>
@@ -88,11 +80,10 @@
 <script setup lang="ts">
 // @ts-ignore
 import { useHead, useSiteTheme, useAppConfig, useRoute } from '#imports'
-import { RplChip } from '#components'
 import { computed, onMounted, provide, ref } from 'vue'
 import { deepmerge } from 'deepmerge-ts'
 import { TideSiteData } from '../types'
-import { TideTopicTag } from '../mapping/topic-tags/topic-tags-mapping'
+import { TideTopicTag } from '../mapping/base/topic-tags/topic-tags-mapping'
 import { TideSiteSection } from '@dpc-sdp/ripple-tide-api/types'
 
 interface Props {

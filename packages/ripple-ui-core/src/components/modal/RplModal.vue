@@ -50,6 +50,7 @@ onMounted(() => {
 
 onUnmounted(() => {
   window.removeEventListener('keydown', escapeKeyHandler, false)
+  document.body.classList.remove('rpl-u-viewport-locked', 'rpl-modal-open')
 })
 </script>
 

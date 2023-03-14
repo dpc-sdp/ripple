@@ -26,15 +26,15 @@ withDefaults(defineProps<Props>(), {
   >
     <!-- 'Home' link - Only visible on mobile -->
     <li v-if="level == 1">
-      <a
+      <RplLink
         class="rpl-primary-nav__mega-menu-action rpl-primary-nav__mega-menu-action--home rpl-u-focusable-block rpl-type-p-small"
-        href="/"
+        url="/"
       >
         <span class="rpl-primary-nav__mega-menu-action-icon rpl-u-margin-r-2">
           <RplIcon name="icon-home" size="s" />
         </span>
         <span class="rpl-primary-nav__mega-menu-action-text">Home</span>
-      </a>
+      </RplLink>
     </li>
 
     <!-- Repeat of parent as a clickable link -->

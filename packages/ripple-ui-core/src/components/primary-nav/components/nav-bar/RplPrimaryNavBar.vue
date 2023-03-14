@@ -39,9 +39,9 @@ defineProps<Props>()
       }"
     >
       <!-- Primary logo -->
-      <a
+      <RplLink
         class="rpl-primary-nav__primary-logo-link rpl-u-focusable-outline rpl-u-focusable-outline--no-border"
-        :href="primaryLogo.href"
+        :url="primaryLogo.href"
       >
         <img
           class="rpl-primary-nav__primary-logo-image rpl-u-screen-only"
@@ -54,16 +54,16 @@ defineProps<Props>()
           :src="primaryLogo.printSrc"
           :alt="primaryLogo.altText"
         />
-      </a>
+      </RplLink>
 
       <!-- Logo divider -->
       <div v-if="secondaryLogo" class="rpl-primary-nav__logo-divider"></div>
 
       <!-- Secondary logo -->
-      <a
+      <RplLink
         v-if="secondaryLogo"
         class="rpl-primary-nav__secondary-logo-link rpl-u-focusable-outline rpl-u-focusable-outline--no-border"
-        :href="secondaryLogo.href"
+        :url="secondaryLogo.href"
       >
         <img
           class="rpl-primary-nav__secondary-logo-image rpl-u-screen-only"
@@ -76,7 +76,7 @@ defineProps<Props>()
           :src="secondaryLogo.printSrc"
           :alt="secondaryLogo.altText"
         />
-      </a>
+      </RplLink>
     </div>
 
     <ul class="rpl-primary-nav__nav-bar-actions-list">

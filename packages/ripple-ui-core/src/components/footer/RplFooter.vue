@@ -186,25 +186,25 @@ const columns = computed(() => {
           </div>
         </div>
         <div class="rpl-footer-bottom__branding">
-          <a
+          <RplLink
             v-for="(logoLink, index) in logos"
             :key="index"
             class="rpl-footer-logo-link rpl-u-focusable-outline rpl-u-focusable--alt-colour"
-            :href="logoLink.url"
+            :url="logoLink.url"
           >
             <RplImage
               class="rpl-footer-logo-link__img"
               :src="logoLink.src"
               :alt="logoLink.alt"
             />
-          </a>
-          <a
+          </RplLink>
+          <RplLink
             class="rpl-footer-logo-link rpl-u-focusable-outline rpl-u-focusable-outline--no-border rpl-u-focusable--alt-colour"
-            :href="vicGovHomeUrl"
+            :url="vicGovHomeUrl"
           >
             <span class="rpl-u-visually-hidden">{{ vicGovHomeLabel }}</span>
             <VicGovLogo class="rpl-footer-vic-gov-logo" />
-          </a>
+          </RplLink>
         </div>
       </div>
     </div>

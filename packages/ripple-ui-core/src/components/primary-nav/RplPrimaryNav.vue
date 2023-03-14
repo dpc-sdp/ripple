@@ -75,6 +75,9 @@ onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll)
 
   window.removeEventListener('keydown', handleEscapeKey, false)
+
+  document.body.classList.remove('rpl-u-viewport-locked')
+  deactivateFocusTrap()
 })
 
 const toggleNavItem = (level: 1 | 2 | 3, item: IRplPrimaryNavItem) => {

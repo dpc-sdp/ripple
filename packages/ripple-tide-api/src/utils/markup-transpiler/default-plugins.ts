@@ -23,7 +23,7 @@ const pluginTables = function (this: any) {
 
 const pluginCallout = function (this: any) {
   // replace drupal class with rpl class
-  this.find('.wysiwyg-callout').map((i: any, el: any) => {
+  this.find('.wysiwyg-callout, .callout-wrapper').map((i: any, el: any) => {
     const $callout = this.find(el)
     return $callout.removeClass().addClass('rpl-callout')
   })

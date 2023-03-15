@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.112](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.111...v2.1.0-alpha.112) (2023-03-15)
+
+### Bug Fixes
+
+* **@dpc-sdp/nuxt-ripple:** remove prod check as it fails lighthouse and it's behind BA ([2b9bf83](https://github.com/dpc-sdp/ripple-framework/commit/2b9bf838f0ba818709745c039d5af45b342ba4e6))
+* **@dpc-sdp/ripple-tide-api:** update doc plugin and testcontent ([165ee98](https://github.com/dpc-sdp/ripple-framework/commit/165ee98d206f063afd132cd81cc5e1b30e8360ca))
+* **@dpc-sdp/ripple-tide-landing-page:** :bug: add missing includes for card carousel ([64f5ae0](https://github.com/dpc-sdp/ripple-framework/commit/64f5ae013deeeba9941d799b87d151377a1291c8))
+* **@dpc-sdp/ripple-ui-core:** :bug: fixed expandle items still tabbable when closed ([4ad9116](https://github.com/dpc-sdp/ripple-framework/commit/4ad911679206b1c1cd889e3da2286f4e4cae36f7))
+* **@dpc-sdp/ripple-ui-core:** changed 'view transcript' to open in same window ([d208b2a](https://github.com/dpc-sdp/ripple-framework/commit/d208b2a345215f56d5a9c9fdaddc05e36bd040e2))
+* **@dpc-sdp/ripple-ui-core:** fixed expandable not animating if starting from open ([b519606](https://github.com/dpc-sdp/ripple-framework/commit/b51960672e18cd874a4a44c667d2227b516e94ff))
+* **@dpc-sdp/ripple-ui-forms:** fixed word count validator not handling puncuation correctly ([17d8dcd](https://github.com/dpc-sdp/ripple-framework/commit/17d8dcde3362c51647039d009a2ef7d2c99f5fc3))
+* **nuxt-ripple:** removed unused proptypes ([a167052](https://github.com/dpc-sdp/ripple-framework/commit/a167052ae8230bf285fdb69cbaccd3654ea7acb3))
+* stopped all links are forcing a full refresh instead of using client side navigation ([a10760e](https://github.com/dpc-sdp/ripple-framework/commit/a10760e70513829fbd49dfd2ccaa41526f2277cd))
+
+### Features
+
+* **@dpc-sdp/nuxt-ripple:** adding support for robots.txt ([5049ed6](https://github.com/dpc-sdp/ripple-framework/commit/5049ed633c67a35112e2b9f5335c1c686cfa8f9e))
+* **@dpc-sdp/nuxt-ripple:** export default robots ([c35b5d9](https://github.com/dpc-sdp/ripple-framework/commit/c35b5d9acf2061656072108fac3244c2988b7f5b))
+
 # [2.1.0-alpha.111](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.110...v2.1.0-alpha.111) (2023-03-15)
 
 ### Bug Fixes

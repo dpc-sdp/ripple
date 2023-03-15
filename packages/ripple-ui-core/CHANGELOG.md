@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.112](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.111...v2.1.0-alpha.112) (2023-03-15)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-api:** update doc plugin and testcontent ([165ee98](https://github.com/dpc-sdp/ripple-framework/commit/165ee98d206f063afd132cd81cc5e1b30e8360ca))
+* **@dpc-sdp/ripple-ui-core:** :bug: fixed expandle items still tabbable when closed ([4ad9116](https://github.com/dpc-sdp/ripple-framework/commit/4ad911679206b1c1cd889e3da2286f4e4cae36f7))
+* **@dpc-sdp/ripple-ui-core:** changed 'view transcript' to open in same window ([d208b2a](https://github.com/dpc-sdp/ripple-framework/commit/d208b2a345215f56d5a9c9fdaddc05e36bd040e2))
+* **@dpc-sdp/ripple-ui-core:** fixed expandable not animating if starting from open ([b519606](https://github.com/dpc-sdp/ripple-framework/commit/b51960672e18cd874a4a44c667d2227b516e94ff))
+* stopped all links are forcing a full refresh instead of using client side navigation ([a10760e](https://github.com/dpc-sdp/ripple-framework/commit/a10760e70513829fbd49dfd2ccaa41526f2277cd))
+
 # [2.1.0-alpha.111](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.110...v2.1.0-alpha.111) (2023-03-15)
 
 **Note:** Version bump only for package @dpc-sdp/ripple-ui-core

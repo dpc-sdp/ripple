@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.112](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.111...v2.1.0-alpha.112) (2023-03-15)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-landing-page:** :bug: add missing includes for card carousel ([64f5ae0](https://github.com/dpc-sdp/ripple-framework/commit/64f5ae013deeeba9941d799b87d151377a1291c8))
+
 # [2.1.0-alpha.111](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.110...v2.1.0-alpha.111) (2023-03-15)
 
 **Note:** Version bump only for package @dpc-sdp/ripple-ui-forms

@@ -112,7 +112,7 @@ const pluginEmbededVideo = function (this: any) {
 
       const transcriptMarkup = link
         ? `<div class="rpl-media-embed__actions-list">
-        <a class="rpl-text-link rpl-u-focusable-inline rpl-media-embed__transcript-link rpl-media-embed__action rpl-u-focusable-inline rpl-type-p" href="${link}" target="_blank">
+        <a class="rpl-text-link rpl-u-focusable-inline rpl-media-embed__transcript-link rpl-media-embed__action rpl-u-focusable-inline rpl-type-p" href="${link}">
           <span class="rpl-icon rpl-icon--size-s rpl-icon--icon-view">
             <svg role="presentation"><use xlink:href="#icon-view"></use></svg>
           </span>View transcript

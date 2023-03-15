@@ -79,7 +79,9 @@ if (pageError.value || !page.value) {
         <p>Have a look at the web address to make sure it was typed correctly. We may also have deleted this page.</p>
         <p>If none of our suggestions help you find the information you were looking for, please <a href="/connect-with-us" class="rpl-text-link rpl-u-focusable-inline">contact us</a>.</p>
       `,
-    data: JSON.stringify({ site: unref(site) })
+    data: JSON.stringify({ site: unref(site) }),
+    // Needs to be a fatal error in order to trigger a proper 404 page when this error occurs client side
+    fatal: true
   })
 }
 

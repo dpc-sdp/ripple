@@ -38,7 +38,7 @@ const isActive = computed(() => {
 
 <template>
   <component
-    :is="type === 'toggle' ? 'button' : 'a'"
+    :is="type === 'toggle' ? 'button' : 'RplLink'"
     :class="{
       'rpl-primary-nav__mega-menu-action': true,
       'rpl-primary-nav__mega-menu-action--toggle': type === 'toggle',
@@ -47,7 +47,7 @@ const isActive = computed(() => {
       'rpl-u-focusable-block': true,
       'rpl-type-p-small': true
     }"
-    :href="type == 'link' ? item.url : undefined"
+    :url="type == 'link' ? item.url : undefined"
     @click="clickHandler(item)"
   >
     <span class="rpl-primary-nav__mega-menu-action-text">{{ item.text }}</span>

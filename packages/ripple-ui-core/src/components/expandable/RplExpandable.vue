@@ -39,6 +39,10 @@ function onEnter(el, done) {
   setTimeout(done, duration.value)
 }
 
+function onBeforeLeave(el) {
+  el.style.height = `${el.getBoundingClientRect().height}px`
+}
+
 // called when the leave transition starts.
 // use this to start the leaving animation.
 function onLeave(el, done) {
@@ -50,7 +54,12 @@ function onLeave(el, done) {
 </script>
 
 <template>
-  <Transition @before-enter="onBeforeEnter" @enter="onEnter" @leave="onLeave">
+  <Transition
+    @before-enter="onBeforeEnter"
+    @enter="onEnter"
+    @before-leave="onBeforeLeave"
+    @leave="onLeave"
+  >
     <div
       v-show="expanded"
       ref="containerRef"
@@ -66,7 +75,6 @@ function onLeave(el, done) {
 
 <style>
 .rpl-expandable {
-  height: 0;
   overflow: hidden;
   transition: height var(--rpl-motion-speed-9) ease-out;
 
@@ -75,9 +83,5 @@ function onLeave(el, done) {
     display: block !important;
     height: auto !important;
   }
-}
-
-.rpl-expandable--isExpanded {
-  height: auto;
 }
 </style>

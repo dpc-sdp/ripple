@@ -1,6 +1,7 @@
 import mime from 'mime-types'
 import {
   formatPriceRange,
+  getBodyFromField,
   getField,
   getImageFromField,
   humanizeFilesize
@@ -59,7 +60,7 @@ const tideGrantModule: IRplTideModuleMapping = {
         to: 'field_node_dates.end_value'
       },
       ongoing: 'field_node_on_going',
-      description: 'field_description.processed',
+      description: (src: string) => getBodyFromField(src, 'field_description'),
       link: 'field_call_to_action'
     },
     timeline: {

@@ -107,7 +107,7 @@ export const getValidation = (
     }
 
     if (validationType === 'matches') {
-      validation.push([validationType, `/^\\W*(\\w+(\\W+|$)){${min},${max}}$/`])
+      validation.push([validationType, `/^\\s*(\\S+(\\s+|$)){${min},${max}}$/`])
     } else {
       validation.push(max ? [validationType, min, max] : [validationType, min])
     }

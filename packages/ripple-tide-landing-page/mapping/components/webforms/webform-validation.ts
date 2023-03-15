@@ -40,6 +40,11 @@ export const getValidation = (
     ] = `${field['#title']} must be a valid email address`
   }
 
+  if (field['#type'] === 'url') {
+    validation.push(['url'])
+    validationMessages['url'] = `${field['#title']} must be a valid URL`
+  }
+
   if (field['#type'] === 'number') {
     validation.push(['number'])
     validationMessages['number'] = `${field['#title']} must be a number`

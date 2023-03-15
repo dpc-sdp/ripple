@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.111](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.110...v2.1.0-alpha.111) (2023-03-15)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-search
+
+# [2.1.0-alpha.110](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.109...v2.1.0-alpha.110) (2023-03-14)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-search
+
+# [2.1.0-alpha.109](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.108...v2.1.0-alpha.109) (2023-03-13)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-search
+
+# [2.1.0-alpha.108](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.107...v2.1.0-alpha.108) (2023-03-10)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-search
+
+# [2.1.0-alpha.107](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.106...v2.1.0-alpha.107) (2023-03-10)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-search
+
+# [2.1.0-alpha.106](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.105...v2.1.0-alpha.106) (2023-03-10)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-search
+
+# [2.1.0-alpha.104](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.103...v2.1.0-alpha.104) (2023-03-10)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-search
+
 # [2.1.0-alpha.101](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.100...v2.1.0-alpha.101) (2023-03-08)
 
 **Note:** Version bump only for package @dpc-sdp/ripple-tide-search

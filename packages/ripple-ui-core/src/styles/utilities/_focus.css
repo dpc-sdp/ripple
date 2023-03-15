@@ -5,6 +5,11 @@
   Focus utility classes that can be used to show consistent focus styles across
   any focusable element.
 */
+
+.rpl-u-focusable-within:focus-visible {
+  outline: none;
+}
+
 .rpl-u-focusable-block,
 .rpl-u-focusable-inline {
   --local-background-colour: var(--rpl-clr-focus);
@@ -29,7 +34,8 @@
   &:focus-visible,
   &:focus-visible:visited,
   &:focus-visible:hover,
-  &.rpl-u-focusable--force-on {
+  &.rpl-u-focusable--force-on,
+  .rpl-u-focusable-within:focus-visible & {
     background-color: var(--local-background-colour) !important;
     border-color: var(--rpl-clr-focus);
     border-radius: 0;
@@ -64,7 +70,8 @@
   &:focus-visible,
   &:focus-visible:visited,
   &:focus-visible:hover,
-  &.rpl-u-focusable--force-on {
+  &.rpl-u-focusable--force-on,
+  .rpl-u-focusable-within:focus-visible & {
     background-color: var(--local-background-colour) !important;
     border-color: var(--rpl-clr-focus);
     border-radius: 0;

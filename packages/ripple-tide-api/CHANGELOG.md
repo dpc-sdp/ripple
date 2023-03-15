@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.111](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.110...v2.1.0-alpha.111) (2023-03-15)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-api:** add alternate class to callout plugin ([29a9467](https://github.com/dpc-sdp/ripple-framework/commit/29a94673b7eb6643b8bbadd81d150ad5fd2cf234))
+
 # [2.1.0-alpha.109](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.108...v2.1.0-alpha.109) (2023-03-13)
 
 **Note:** Version bump only for package @dpc-sdp/ripple-tide-api

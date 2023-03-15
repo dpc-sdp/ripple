@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.111](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.110...v2.1.0-alpha.111) (2023-03-15)
+
+### Bug Fixes
+
+* **@dpc-sdp/nuxt-ripple:** fix topics and tags touching ([82280bc](https://github.com/dpc-sdp/ripple-framework/commit/82280bc32638c1e058f44faade8d1d3f7ebf0bd6))
+* **@dpc-sdp/ripple-tide-api:** add alternate class to callout plugin ([29a9467](https://github.com/dpc-sdp/ripple-framework/commit/29a94673b7eb6643b8bbadd81d150ad5fd2cf234))
+* **@dpc-sdp/ripple-tide-event:** run event description wysiwyg through markup plugins ([f9771b2](https://github.com/dpc-sdp/ripple-framework/commit/f9771b212918b70a4b40dc3d085e453b4cb6e337))
+* **@dpc-sdp/ripple-tide-grant:** run grant description wysiwyg through markup plugins ([cdb1399](https://github.com/dpc-sdp/ripple-framework/commit/cdb1399d0b61cf14e4163d4583fb9ddb157a8cb7))
+
 # [2.1.0-alpha.110](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.109...v2.1.0-alpha.110) (2023-03-14)
 
 ### Bug Fixes

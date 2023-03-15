@@ -47,7 +47,6 @@ const alertRef: Ref<HTMLDivElement | null> = ref(null)
 
 onResizeHeight(alertRef, (height) => {
   if (alertRef.value) {
-    console.log(alertRef.value.style.display)
     if (alertRef.value.style.display !== 'none') {
       alertRef.value.style.setProperty(
         '--local-container-height',

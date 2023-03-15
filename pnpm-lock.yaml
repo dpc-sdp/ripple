@@ -555,6 +555,7 @@ importers:
       '@formkit/validation': 1.0.0-beta.15
       '@formkit/vue': 1.0.0-beta.15
       '@nuxt/kit': 3.1.2
+      '@types/node': ^18.13.0
       '@vitejs/plugin-vue': ^4.0.0
       '@vueuse/core': ^9.12.0
       babel-loader: ^9.1.2
@@ -578,6 +579,7 @@ importers:
       date-fns: 2.29.3
     devDependencies:
       '@babel/core': 7.20.12
+      '@types/node': 18.13.0
       '@vitejs/plugin-vue': 4.0.0_vite@4.1.1+vue@3.2.47
       babel-loader: 9.1.2_la66t7xldg4uecmyawueag5wkm
       pathe: 1.1.0
@@ -9869,7 +9871,7 @@ packages:
       '@babel/core': 7.20.12
       find-cache-dir: 3.3.2
       schema-utils: 4.0.0
-      webpack: 5.75.0_esbuild@0.16.17
+      webpack: 5.75.0
     dev: true
 
   /babel-messages/6.23.0:

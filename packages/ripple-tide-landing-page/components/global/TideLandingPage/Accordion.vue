@@ -1,15 +1,25 @@
 <script setup lang="ts">
 import { RplAccordion } from '#components'
-
-defineProps<{
+import { inject } from 'vue'
+const props = defineProps<{
   id: string
   title: string
   numbered: boolean
   items: Array<any>
 }>()
+
+const $rplEvent = inject('$rplEvent')
+
+function onEvent(e, payload) {
+  $rplEvent.emit(`rpl-accordion/${e}`, {
+    ...payload,
+    name: props.title
+  })
+}
+
 </script>
 
 <template>
-  <h2 v-if="title" class="rpl-type-h2">{{ title }}</h2>
-  <RplAccordion :id="id" :items="items" :numbered="numbered" />
+  <RplAccordion :id="id" :items="items" :numbered="numbered" @toggle-all="(payload) => onEvent('toggleAll', payload)"
+    @toggle-item="(payload) => onEvent('toggleItem', payload)" />
 </template>

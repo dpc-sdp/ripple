@@ -23,19 +23,23 @@ const DISMISSED_ALERTS_COOKIE = 'dismissedAlerts'
 const guidRegex = new RegExp('^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$', 'g')
 
 try {
-  const dismissedIds = JSON.parse(decodeURIComponent(getCookie(DISMISSED_ALERTS_COOKIE)))
+  const cookieValue = getCookie(DISMISSED_ALERTS_COOKIE)
 
-  const styles = dismissedIds.reduce((result, id) => {
-    if (guidRegex.test(id)) {
-      return \`\${result} [data-alert-id="\${id}"] {display: none;}\`
-    }
+  if (cookieValue) {
+    const dismissedIds = JSON.parse(decodeURIComponent(cookieValue))
 
-    return result
-  }, '')
+    const styles = dismissedIds.reduce((result, id) => {
+      if (guidRegex.test(id)) {
+        return \`\${result} [data-alert-id="\${id}"] {display: none;}\`
+      }
 
-  const styleSheet = document.createElement("style")
-  styleSheet.innerText = styles
-  document.head.appendChild(styleSheet)
+      return result
+    }, '')
+
+    const styleSheet = document.createElement("style")
+    styleSheet.innerText = styles
+    document.head.appendChild(styleSheet)
+  }
 } catch (e) {
   console.error(e)
 }`

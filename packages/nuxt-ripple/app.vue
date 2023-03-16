@@ -6,11 +6,12 @@
 
 <script setup lang="ts">
 import { useHead } from '#imports'
+import hideAlertsOnLoadScript from './utils/hideAlertsOnLoadScript.js'
 
 useHead({
   script: [
     {
-      src: '/scripts/alerts-script.js'
+      innerHTML: hideAlertsOnLoadScript
     }
   ]
 })

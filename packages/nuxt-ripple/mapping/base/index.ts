@@ -80,6 +80,7 @@ export const tidePageBaseMapping = ({
         name: siteData.name
       }
     },
+    showContentRating: 'field_show_content_rating',
     _src: (src) => (process.env.NODE_ENV === 'development' ? src : undefined)
   }
 }

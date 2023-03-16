@@ -1,8 +1,17 @@
 <template>
-  <TideBaseLayout :site="site" :background="page.background" :pageTitle="page.title" :pageDescription="page.description"
-    :pageLanguage="page.lang" :footerImageCaption="
+  <TideBaseLayout
+    :site="site"
+    :background="page.background"
+    :pageTitle="page.title"
+    :pageDescription="page.description"
+    :pageLanguage="page.lang"
+    :footerImageCaption="
       page.showHeroImageCaption ? page.heroHeader.backgroundImageCaption : ''
-    " :topicTags="page.showTopicTags ? page.topicTags : []" :updatedDate="page.changed || page.created">
+    "
+    :topicTags="page.showTopicTags ? page.topicTags : []"
+    :updatedDate="page.changed || page.created"
+    :showContentRating="page.showContentRating"
+  >
     <template #aboveHeader>
       <slot name="aboveHeader"></slot>
     </template>
@@ -13,21 +22,43 @@
       <slot name="breadcrumbs"></slot>
     </template>
     <template #aboveBody="{ hasBreadcrumbs }">
-      <TideLandingPageHeroHeader :header="page.heroHeader" :hasBreadcrumbs="hasBreadcrumbs"
-        :hideBottomCornerGraphic="!!page.primaryCampaign" />
-      <TideLandingPageHeroAcknowledgement v-if="page.showHeroAcknowledgement" :message="site?.acknowledgementHeader" />
-      <TideDynamicComponents v-if="page.headerComponents?.length > 0" :components="page.headerComponents"
-        class="rpl-col-12" :fullWidth="true" />
-      <TideLandingPagePrimaryCampaignBanner v-if="page.primaryCampaign" :campaign="page.primaryCampaign" />
+      <TideLandingPageHeroHeader
+        :header="page.heroHeader"
+        :hasBreadcrumbs="hasBreadcrumbs"
+        :hideBottomCornerGraphic="!!page.primaryCampaign"
+      />
+      <TideLandingPageHeroAcknowledgement
+        v-if="page.showHeroAcknowledgement"
+        :message="site?.acknowledgementHeader"
+      />
+      <TideDynamicComponents
+        v-if="page.headerComponents?.length > 0"
+        :components="page.headerComponents"
+        class="rpl-col-12"
+        :fullWidth="true"
+      />
+      <TideLandingPagePrimaryCampaignBanner
+        v-if="page.primaryCampaign"
+        :campaign="page.primaryCampaign"
+      />
     </template>
     <template #body="{ hasSidebar }">
-      <TideLandingPageInPageNavigation v-if="page.showInPageNav" :headingLevel="page.inPageNavHeadingLevel"
-        :components="page.bodyComponents" />
-      <TideDynamicComponents v-if="page.bodyComponents?.length > 0" :components="page.bodyComponents"
-        :hasSidebar="hasSidebar" />
+      <TideLandingPageInPageNavigation
+        v-if="page.showInPageNav"
+        :headingLevel="page.inPageNavHeadingLevel"
+        :components="page.bodyComponents"
+      />
+      <TideDynamicComponents
+        v-if="page.bodyComponents?.length > 0"
+        :components="page.bodyComponents"
+        :hasSidebar="hasSidebar"
+      />
     </template>
     <template #belowBody>
-      <TideLandingPageSecondaryCampaignBanner v-if="page.secondaryCampaign" :campaign="page.secondaryCampaign" />
+      <TideLandingPageSecondaryCampaignBanner
+        v-if="page.secondaryCampaign"
+        :campaign="page.secondaryCampaign"
+      />
     </template>
     <template #aboveSidebar>
       <slot name="aboveSidebar"></slot>

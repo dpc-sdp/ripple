@@ -81,9 +81,9 @@
 }
 
 .rpl-header-graphic__top {
-  min-width: 475px;
+  min-width: 170%;
 }
 
 .rpl-header-graphic__bottom {
-  min-width: 350px;
+  min-width: 150%;
 }

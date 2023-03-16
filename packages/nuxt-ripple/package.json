@@ -1,17 +1,19 @@
 {
   "packageManager": "pnpm@7.23.0",
   "license": "Apache-2.0",
-  "version": "2.1.0-alpha.110",
+  "version": "2.1.0-alpha.114",
   "name": "@dpc-sdp/nuxt-ripple",
   "main": "./nuxt.config.ts",
   "exports": {
     ".": "./nuxt.config.ts",
-    "./mapping": "./mapping/index.ts"
+    "./mapping": "./mapping/index.ts",
+    "./robots": "./robots.config.ts"
   },
   "dependencies": {
     "@dpc-sdp/ripple-tide-api": "workspace:*",
     "@dpc-sdp/ripple-ui-core": "workspace:*",
     "@dpc-sdp/ripple-ui-forms": "workspace:*",
+    "@nuxtjs/robots": "^3.0.0",
     "@vueuse/core": "^9.12.0",
     "change-case": "^4.1.2",
     "deepmerge-ts": "^4.3.0"

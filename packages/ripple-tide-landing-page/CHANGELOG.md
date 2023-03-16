@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.114](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.113...v2.1.0-alpha.114) (2023-03-16)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-forms:** fixed label form input not having conditional logic ([ab40e05](https://github.com/dpc-sdp/ripple-framework/commit/ab40e059ed3b881a50612531f202cd7d29f5b513))
+
+# [2.1.0-alpha.113](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.112...v2.1.0-alpha.113) (2023-03-16)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-landing-page
+
+# [2.1.0-alpha.112](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.111...v2.1.0-alpha.112) (2023-03-15)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-landing-page:** :bug: add missing includes for card carousel ([64f5ae0](https://github.com/dpc-sdp/ripple-framework/commit/64f5ae013deeeba9941d799b87d151377a1291c8))
+* **@dpc-sdp/ripple-ui-forms:** fixed word count validator not handling puncuation correctly ([17d8dcd](https://github.com/dpc-sdp/ripple-framework/commit/17d8dcde3362c51647039d009a2ef7d2c99f5fc3))
+
+# [2.1.0-alpha.111](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.110...v2.1.0-alpha.111) (2023-03-15)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-landing-page
+
 # [2.1.0-alpha.110](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.109...v2.1.0-alpha.110) (2023-03-14)
 
 **Note:** Version bump only for package @dpc-sdp/ripple-tide-landing-page

@@ -1,5 +1,9 @@
 import 'dotenv/config'
 import { defineNuxtConfig } from 'nuxt/config'
+import { createResolver } from '@nuxt/kit'
+
+const { resolve } = createResolver(import.meta.url)
+
 export default defineNuxtConfig({
   runtimeConfig: {
     public: {
@@ -27,9 +31,13 @@ export default defineNuxtConfig({
       pathFilter: ['/api/tide/webform_submission/**']
     }
   },
+  robots: {
+    configPath: resolve('./robots.config.ts')
+  },
   modules: [
     'nuxt-proxy',
     '@dpc-sdp/ripple-ui-core/nuxt',
-    '@dpc-sdp/ripple-ui-forms/nuxt'
+    '@dpc-sdp/ripple-ui-forms/nuxt',
+    '@nuxtjs/robots'
   ]
 })

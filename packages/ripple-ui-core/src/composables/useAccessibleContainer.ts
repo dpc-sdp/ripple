@@ -33,8 +33,7 @@ export function useAccessibleContainer() {
       // Add 200ms delay to allow text selection
       if (up - down < 200) {
         // Only fire a click if the target is not the trigger el
-        // Note, the link can also be nested, so we need to check so said 'nested' ref
-        const clickedElement = trigger.value?.link || trigger.value
+        const clickedElement = container.value.$el.querySelector('a')
 
         if (clickedElement !== e.target) {
           clickedElement.click()

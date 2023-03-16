@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.114](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.113...v2.1.0-alpha.114) (2023-03-16)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-grant
+
+# [2.1.0-alpha.113](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.112...v2.1.0-alpha.113) (2023-03-16)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-grant
+
+# [2.1.0-alpha.112](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.111...v2.1.0-alpha.112) (2023-03-15)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-grant
+
+# [2.1.0-alpha.111](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.110...v2.1.0-alpha.111) (2023-03-15)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-grant:** run grant description wysiwyg through markup plugins ([cdb1399](https://github.com/dpc-sdp/ripple-framework/commit/cdb1399d0b61cf14e4163d4583fb9ddb157a8cb7))
+
 # [2.1.0-alpha.110](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.109...v2.1.0-alpha.110) (2023-03-14)
 
 **Note:** Version bump only for package @dpc-sdp/ripple-tide-grant

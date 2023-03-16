@@ -25,6 +25,8 @@
 }
 
 .rpl-campaign-banner__media {
+  pointer-events: none;
+
   .rpl-image {
     width: 100%;
     height: auto;

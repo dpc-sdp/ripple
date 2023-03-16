@@ -48,6 +48,8 @@ export { default as RplCardGrid } from './components/layout/RplCardGrid.vue'
 
 export { default as RplList } from './components/list/RplList.vue'
 
+export { default as RplLink } from './components/link/RplLink.vue'
+
 export { default as RplPageAction } from './components/page-action/RplPageAction.vue'
 export { default as RplPageLinks } from './components/page-links/RplPageLinks.vue'
 export { default as RplPrimaryNav } from './components/primary-nav/RplPrimaryNav.vue'

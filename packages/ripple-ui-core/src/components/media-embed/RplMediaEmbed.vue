@@ -151,7 +151,6 @@ const isActionsListEmpty = computed(() => {
       <li v-if="transcriptUrl">
         <RplTextLink
           class="rpl-media-embed__transcript-link rpl-media-embed__action rpl-u-focusable-inline rpl-type-p"
-          target="_blank"
           :url="transcriptUrl"
         >
           <RplIcon name="icon-view" />View transcript

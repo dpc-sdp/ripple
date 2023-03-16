@@ -47,6 +47,8 @@ onMounted(() => {
 
 onUnmounted(() => {
   window.removeEventListener('keydown', escapeKeyHandler, false)
+  deactivateFocusTrap()
+  document.body.classList.remove('rpl-u-viewport-locked')
 })
 </script>
 

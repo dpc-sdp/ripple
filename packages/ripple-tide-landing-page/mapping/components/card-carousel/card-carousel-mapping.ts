@@ -86,7 +86,12 @@ export const cardCarouselMapping = async (
 }
 
 export const cardCarouselIncludes = [
-  'field_landing_page_component.field_paragraph_media_gallery.field_gallery_media.field_media_image'
+  'field_landing_page_component.field_paragraph_media_gallery.field_gallery_media.field_media_image',
+  'field_landing_page_component.field_paragraph_items.field_paragraph_reference.field_event_details',
+  'field_landing_page_component.field_paragraph_items.field_paragraph_reference.field_topic',
+  'field_landing_page_component.field_paragraph_items.field_paragraph_reference.field_featured_image.field_media_image',
+  'field_landing_page_component.field_paragraph_items.field_paragraph_keydates',
+  'field_landing_page_component.field_paragraph_items.field_paragraph_media.field_media_image'
 ]
 
 export default {

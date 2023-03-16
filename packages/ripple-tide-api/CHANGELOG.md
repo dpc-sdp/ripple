@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.112](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.111...v2.1.0-alpha.112) (2023-03-15)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-api:** update doc plugin and testcontent ([165ee98](https://github.com/dpc-sdp/ripple-framework/commit/165ee98d206f063afd132cd81cc5e1b30e8360ca))
+* **@dpc-sdp/ripple-ui-core:** changed 'view transcript' to open in same window ([d208b2a](https://github.com/dpc-sdp/ripple-framework/commit/d208b2a345215f56d5a9c9fdaddc05e36bd040e2))
+
+# [2.1.0-alpha.111](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.110...v2.1.0-alpha.111) (2023-03-15)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-api:** add alternate class to callout plugin ([29a9467](https://github.com/dpc-sdp/ripple-framework/commit/29a94673b7eb6643b8bbadd81d150ad5fd2cf234))
+
 # [2.1.0-alpha.109](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.108...v2.1.0-alpha.109) (2023-03-13)
 
 **Note:** Version bump only for package @dpc-sdp/ripple-tide-api

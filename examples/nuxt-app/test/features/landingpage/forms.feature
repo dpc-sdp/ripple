@@ -46,11 +46,11 @@ Feature: Forms
     Then the error summary should not display
     When I submit the form with ID "full_form"
     Then the error summary should display with the following errors
-      | text                           | url                 |
-      | You must enter your first name | #first_name         |
-      | The message field is required  | #message            |
-      | Must choose a favourite colour | #favourite_colour   |
-      | You must accept the terms      | #i_accept_the_terms |
+      | text                           | url                              |
+      | You must enter your first name | /kitchen-sink#first_name         |
+      | The message field is required  | /kitchen-sink#message            |
+      | Must choose a favourite colour | /kitchen-sink#favourite_colour   |
+      | You must accept the terms      | /kitchen-sink#i_accept_the_terms |
     Then clicking on an error summary link with text "Must choose a favourite colour" should focus on the input with ID "favourite_colour"
 
   @mockserver
@@ -126,9 +126,9 @@ Feature: Forms
     Then the landing page component "TideLandingPageWebForm" should exist
     And the form with ID "full_form" should exist
     Then 7 "words" in the field "role" on "full_form" should display a counter of "You have 2 words too many"
-    And 0 "characters" in the field "message" on "full_form" should display a counter of "You have 10 characters remaining"
-    And 5 "characters" in the field "message" on "full_form" should display a counter of "You have 5 characters remaining"
-    And 9 "characters" in the field "message" on "full_form" should display a counter of "You have 1 character remaining"
+    And 0 "characters" in the field "message" on "full_form" should display a counter of "You have 0 characters"
+    And 5 "characters" in the field "message" on "full_form" should display a counter of "You have 5 characters"
+    And 9 "characters" in the field "message" on "full_form" should display a counter of "You have 9 characters"
     And 10 "characters" in the field "message" on "full_form" should display a counter of "You have 10 characters"
     And 50 "characters" in the field "message" on "full_form" should display a counter of "You have 50 characters"
     And 51 "characters" in the field "message" on "full_form" should display a counter of "You have 1 character too many"

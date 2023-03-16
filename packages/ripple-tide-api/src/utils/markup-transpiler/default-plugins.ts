@@ -74,12 +74,12 @@ const pluginDocuments = function (this: any) {
 
     return $document.replaceWith(`
 <figure class="rpl-document">
-  <a tabindex="-1" class="rpl-document__link" aria-label="${label}" href="${link}" target="_blank">
+  <a class="rpl-document__link rpl-u-focusable-within" aria-label="${label}" href="${link}" target="_blank">
     <span class="rpl-document__icon rpl-icon rpl-icon--size-l rpl-icon--colour-default rpl-icon--icon-document-lined">
       <svg role="presentation"><use xlink:href="#icon-document-lined"></use></svg>
     </span>
     <div class="rpl-document__content">
-      <span class="rpl-document__name rpl-type-p rpl-type-weight-bold rpl-u-focusable-inline" tabindex="0">${title}</span>
+      <span class="rpl-document__name rpl-type-p rpl-type-weight-bold rpl-u-focusable-inline">${title}</span>
       <div class="rpl-document__info rpl-type-label-small">
         <span class="rpl-file__meta">${filetype}</span>
         <span class="rpl-file__meta">${filesize}</span>
@@ -112,7 +112,7 @@ const pluginEmbededVideo = function (this: any) {
 
       const transcriptMarkup = link
         ? `<div class="rpl-media-embed__actions-list">
-        <a class="rpl-text-link rpl-u-focusable-inline rpl-media-embed__transcript-link rpl-media-embed__action rpl-u-focusable-inline rpl-type-p" href="${link}" target="_blank">
+        <a class="rpl-text-link rpl-u-focusable-inline rpl-media-embed__transcript-link rpl-media-embed__action rpl-u-focusable-inline rpl-type-p" href="${link}">
           <span class="rpl-icon rpl-icon--size-s rpl-icon--icon-view">
             <svg role="presentation"><use xlink:href="#icon-view"></use></svg>
           </span>View transcript

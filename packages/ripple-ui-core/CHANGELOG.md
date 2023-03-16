@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.114](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.113...v2.1.0-alpha.114) (2023-03-16)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** allow click through on overflowing campaign images ([d44fe66](https://github.com/dpc-sdp/ripple-framework/commit/d44fe662006bcabd815e5d24453b300e56c1814e))
+* **@dpc-sdp/ripple-ui-core:** use percentages for new patterns ([7afa630](https://github.com/dpc-sdp/ripple-framework/commit/7afa630e6acad318d1b110d9e00811889ce0fb29))
+
 # [2.1.0-alpha.112](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.111...v2.1.0-alpha.112) (2023-03-15)
 
 ### Bug Fixes

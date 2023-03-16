@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.114](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.113...v2.1.0-alpha.114) (2023-03-16)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-forms:** fixed label form input not having conditional logic ([ab40e05](https://github.com/dpc-sdp/ripple-framework/commit/ab40e059ed3b881a50612531f202cd7d29f5b513))
+
 # [2.1.0-alpha.113](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.112...v2.1.0-alpha.113) (2023-03-16)
 
 **Note:** Version bump only for package @dpc-sdp/ripple-tide-landing-page

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.113](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.112...v2.1.0-alpha.113) (2023-03-16)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-forms:** tidied up word counter messaging ([b6c8c46](https://github.com/dpc-sdp/ripple-framework/commit/b6c8c4659d97bc32da1613d0d9515839f077d2ad))
+
 # [2.1.0-alpha.112](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.111...v2.1.0-alpha.112) (2023-03-15)
 
 ### Bug Fixes

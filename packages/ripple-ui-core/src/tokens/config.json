@@ -14,7 +14,7 @@
       "prefix": "rpl",
       "files": [
         {
-          "destination": "../src/styles/generated/_vars.css",
+          "destination": "src/styles/generated/_vars.css",
           "format": "css/variables",
           "options": {
             "fileHeader": "rplHeader",

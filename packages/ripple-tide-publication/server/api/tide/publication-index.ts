@@ -44,7 +44,7 @@ class TidePublicationIndexApi extends TideApiBase {
 
   constructor(tide: RplTideModuleConfig, logger: ILogger) {
     super(tide, logger)
-    this.siteId = tide.config.site
+    this.siteId = tide.site
     this.publicationMapping = {
       mapping: {
         _src: (src: any) =>

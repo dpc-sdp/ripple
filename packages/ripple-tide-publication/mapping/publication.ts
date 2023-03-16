@@ -13,10 +13,7 @@ const chapters = (src: string) =>
       id: item.meta.id,
       title: getField(item.meta, 'title', ''),
       summary: getField(item.meta, 'field_landing_page_summary', ''),
-      link: {
-        url: item.meta.url,
-        text: 'Read more'
-      }
+      url: item.meta.url
     }))
 
 const tidePublicationModule: IRplTideModuleMapping = {
@@ -39,11 +36,10 @@ const tidePublicationModule: IRplTideModuleMapping = {
       }
       return 'h2'
     },
-    breadcrumbs: (src: string) => {
-      return {
-        items: [{ label: 'Home', url: '/' }, { label: getField(src, 'title') }]
-      }
-    },
+    breadcrumbs: (src: string) => [
+      { text: 'Home', url: '/' },
+      { text: getField(src, 'title') }
+    ],
     details: {
       author: (src: any) =>
         src.field_publication_authors.map((x: any) => x.name).join(', '),

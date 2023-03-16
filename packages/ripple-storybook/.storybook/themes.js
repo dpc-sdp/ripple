@@ -44,7 +44,8 @@ const themes = {
       'rpl-clr-gradient-vertical':
         'linear-gradient(180deg, #382484 0%, #5A0099 20%, #7623B0 35%, #2E7478 50%, #2FA26F 70%, #2FCE6A 80%)',
       'rpl-clr-footer-alt': '#6B19A3',
-      'rpl-clr-footer': '#3F006B'
+      'rpl-clr-footer': '#3F006B',
+      'rpl-clr-type-accent-contrast': 'var(--rpl-clr-dark)',
     }
   },
   "docsTheme3": {

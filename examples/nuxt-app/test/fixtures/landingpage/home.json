@@ -509,7 +509,9 @@
             "subtitle": "Milestone 1 text",
             "url": "/test-destination-1",
             "description": "<p>Milestone 1 <strong>summary</strong> <em>field</em></p>",
-            "image": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/VicFleet-Police-car-on-road.jpg",
+            "image": {
+              "src": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/VicFleet-Police-car-on-road.jpg"
+            },
             "current": false,
             "dateStart": "2022-06-02T04:53:53+10:00",
             "dateEnd": "2022-11-11T21:58:55+11:00"
@@ -520,7 +522,7 @@
             "subtitle": "Milestone 1 text",
             "url": "/test-destination-2",
             "description": "<p>Milestone 2 <strong>summary</strong> <em>field</em></p>",
-            "image": "",
+            "image": null,
             "current": true,
             "dateStart": "2022-10-04T04:54:11+11:00",
             "dateEnd": "2022-11-17T16:59:14+11:00"
@@ -531,7 +533,7 @@
             "subtitle": "Milestone 3 text",
             "url": "",
             "description": "",
-            "image": "",
+            "image": null,
             "current": false,
             "dateStart": null,
             "dateEnd": null

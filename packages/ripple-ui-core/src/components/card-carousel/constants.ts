@@ -1,5 +1,5 @@
 import type { IRplCardItem } from '../card/constants'
-import { RplImageType } from '../image/constants'
+import { IRplImageType } from '../image/constants'
 
 export interface IRplCardCarouselMeta {
   topic?: string
@@ -12,7 +12,7 @@ export interface IRplCardCarouselItem {
   type?: 'promo' | 'keydates'
   title: string
   url: string
-  image: RplImageType
+  image: IRplImageType
   summary: string
   meta?: IRplCardCarouselMeta
   keyDates?: IRplCardItem[]

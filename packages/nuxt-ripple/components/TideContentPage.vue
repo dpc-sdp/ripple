@@ -1,17 +1,36 @@
 <template>
-  <slot v-if="page && site" :name="`${componentName}Page`" v-bind="{ page, site }">
+  <slot
+    v-if="page && site"
+    :name="`${componentName}Page`"
+    v-bind="{ page, site }"
+  >
     <component :is="`${componentName}`" :page="page" :site="site">
       <template #sidebar>
         <slot name="aboveSidebar"></slot>
         <slot v-if="page.sidebar" name="sidebar">
-          <TideSidebarSiteSectionNav v-if="page.sidebar.siteSectionNav" :nav="page.sidebar.siteSectionNav" />
-          <TideSidebarRelatedLinks v-if="page.sidebar.relatedLinks?.length" title="Related links"
-            :items="page.sidebar.relatedLinks" />
-          <TideSidebarRelatedLinks v-if="page.sidebar.whatsNext?.length" title="What's next"
-            :items="page.sidebar.whatsNext" />
-          <TideSidebarContactUs v-if="page.sidebar.contacts?.length" :contacts="page.sidebar.contacts" />
-          <TideSidebarSocialShare v-if="page.sidebar.socialShareNetworks?.length"
-            :networks="page.sidebar.socialShareNetworks" :page-title="page.title" />
+          <TideSidebarSiteSectionNav
+            v-if="page.sidebar.siteSectionNav"
+            :nav="page.sidebar.siteSectionNav"
+          />
+          <TideSidebarRelatedLinks
+            v-if="page.sidebar.relatedLinks?.length"
+            title="Related links"
+            :items="page.sidebar.relatedLinks"
+          />
+          <TideSidebarRelatedLinks
+            v-if="page.sidebar.whatsNext?.length"
+            title="What's next"
+            :items="page.sidebar.whatsNext"
+          />
+          <TideSidebarContactUs
+            v-if="page.sidebar.contacts?.length"
+            :contacts="page.sidebar.contacts"
+          />
+          <TideSidebarSocialShare
+            v-if="page.sidebar.socialShareNetworks?.length"
+            :networks="page.sidebar.socialShareNetworks"
+            :page-title="page.title"
+          />
         </slot>
         <slot name="belowSidebar"></slot>
       </template>
@@ -27,7 +46,7 @@ import { pascalCase } from 'change-case'
 
 const route = useRoute()
 const { public: config } = useRuntimeConfig()
-const siteId = config.tide?.contentApi.site
+const siteId = config.tide?.site
 
 const { data: site, error: siteError } = await useFetch('/api/tide/site', {
   baseURL: config.API_URL || '',
@@ -60,7 +79,9 @@ if (pageError.value || !page.value) {
         <p>Have a look at the web address to make sure it was typed correctly. We may also have deleted this page.</p>
         <p>If none of our suggestions help you find the information you were looking for, please <a href="/connect-with-us" class="rpl-text-link rpl-u-focusable-inline">contact us</a>.</p>
       `,
-    data: JSON.stringify({ site: unref(site) })
+    data: JSON.stringify({ site: unref(site) }),
+    // Needs to be a fatal error in order to trigger a proper 404 page when this error occurs client side
+    fatal: true
   })
 }
 

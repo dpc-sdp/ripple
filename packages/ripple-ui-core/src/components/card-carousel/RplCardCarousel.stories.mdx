@@ -107,6 +107,23 @@ export const SingleTemplate = (args) => ({
   </Story>
 </Canvas>
 
+# Scroll on mobile
+
+<ArgsTable of={RplCardCarousel} />
+
+<Canvas>
+  <Story
+    name='Scroll on mobile'
+    play={a11yStoryCheck}
+    args={{
+      perView: { xs: 1, m: 2 },
+      items: examplePromo.slice(0, 2)
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>
+
 # Card carousel with single card
 
 <ArgsTable of={RplCardCarousel} />

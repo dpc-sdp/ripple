@@ -1,6 +1,11 @@
 <template>
-  <TideBaseLayout :site="site" :pageTitle="page.title" :pageDescription="page.description" :pageLanguage="page.lang"
-    :updatedDate="page.changed || page.created">
+  <TideBaseLayout
+    :site="site"
+    :pageTitle="page.title"
+    :pageDescription="page.description"
+    :pageLanguage="page.lang"
+    :updatedDate="page.changed || page.created"
+  >
     <template #aboveHeader>
       <slot name="aboveHeader"></slot>
     </template>
@@ -8,19 +13,35 @@
       <slot name="primaryNav"></slot>
     </template>
     <template #breadcrumbs>
-      <slot name="breadcrumbs"></slot>
+      <slot name="breadcrumbs">
+        <TideBreadcrumbs :items="page.breadcrumbs" />
+      </slot>
     </template>
     <template #aboveBody="{ hasBreadcrumbs }">
-      <TidePublicationHeader :header="page.header" :hasBreadcrumbs="hasBreadcrumbs"></TidePublicationHeader>
+      <TidePublicationHeader
+        :header="page.header"
+        :hasBreadcrumbs="hasBreadcrumbs"
+      ></TidePublicationHeader>
     </template>
     <template #body>
-      <TideLandingPageInPageNavigation v-if="page.showInPageNav" :headingLevel="page.inPageNavHeadingLevel"
-        :components="page.bodyComponents" class="rpl-u-margin-b-9" />
-      <TidePublicationBody :details="page.details" :components="page.bodyComponents"></TidePublicationBody>
-      <TidePublicationChapters :chapters="page.chapters"></TidePublicationChapters>
+      <TideLandingPageInPageNavigation
+        v-if="page.showInPageNav"
+        :headingLevel="page.inPageNavHeadingLevel"
+        :components="page.bodyComponents"
+        class="rpl-u-margin-b-9"
+      />
+      <TidePublicationBody
+        :details="page.details"
+        :components="page.bodyComponents"
+      ></TidePublicationBody>
+      <TidePublicationChapters
+        :chapters="page.chapters"
+      ></TidePublicationChapters>
     </template>
     <template #sidebar>
-      <TidePublicationSidebar :publication="page.publication"></TidePublicationSidebar>
+      <TidePublicationSidebar
+        :publication="page.publication"
+      ></TidePublicationSidebar>
       <slot name="sidebar"></slot>
     </template>
     <template #footer>

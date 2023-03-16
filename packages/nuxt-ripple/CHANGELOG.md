@@ -3,6 +3,63 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.113](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.112...v2.1.0-alpha.113) (2023-03-16)
+
+**Note:** Version bump only for package @dpc-sdp/nuxt-ripple
+
+# [2.1.0-alpha.112](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.111...v2.1.0-alpha.112) (2023-03-15)
+
+### Bug Fixes
+
+* **@dpc-sdp/nuxt-ripple:** remove prod check as it fails lighthouse and it's behind BA ([2b9bf83](https://github.com/dpc-sdp/ripple-framework/commit/2b9bf838f0ba818709745c039d5af45b342ba4e6))
+* **nuxt-ripple:** removed unused proptypes ([a167052](https://github.com/dpc-sdp/ripple-framework/commit/a167052ae8230bf285fdb69cbaccd3654ea7acb3))
+* stopped all links are forcing a full refresh instead of using client side navigation ([a10760e](https://github.com/dpc-sdp/ripple-framework/commit/a10760e70513829fbd49dfd2ccaa41526f2277cd))
+
+### Features
+
+* **@dpc-sdp/nuxt-ripple:** adding support for robots.txt ([5049ed6](https://github.com/dpc-sdp/ripple-framework/commit/5049ed633c67a35112e2b9f5335c1c686cfa8f9e))
+* **@dpc-sdp/nuxt-ripple:** export default robots ([c35b5d9](https://github.com/dpc-sdp/ripple-framework/commit/c35b5d9acf2061656072108fac3244c2988b7f5b))
+
+# [2.1.0-alpha.111](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.110...v2.1.0-alpha.111) (2023-03-15)
+
+### Bug Fixes
+
+* **@dpc-sdp/nuxt-ripple:** fix topics and tags touching ([82280bc](https://github.com/dpc-sdp/ripple-framework/commit/82280bc32638c1e058f44faade8d1d3f7ebf0bd6))
+
+# [2.1.0-alpha.110](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.109...v2.1.0-alpha.110) (2023-03-14)
+
+**Note:** Version bump only for package @dpc-sdp/nuxt-ripple
+
+# [2.1.0-alpha.109](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.108...v2.1.0-alpha.109) (2023-03-13)
+
+**Note:** Version bump only for package @dpc-sdp/nuxt-ripple
+
+# [2.1.0-alpha.108](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.107...v2.1.0-alpha.108) (2023-03-10)
+
+**Note:** Version bump only for package @dpc-sdp/nuxt-ripple
+
+# [2.1.0-alpha.107](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.106...v2.1.0-alpha.107) (2023-03-10)
+
+**Note:** Version bump only for package @dpc-sdp/nuxt-ripple
+
+# [2.1.0-alpha.106](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.105...v2.1.0-alpha.106) (2023-03-10)
+
+**Note:** Version bump only for package @dpc-sdp/nuxt-ripple
+
+# [2.1.0-alpha.104](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.103...v2.1.0-alpha.104) (2023-03-10)
+
+**Note:** Version bump only for package @dpc-sdp/nuxt-ripple
+
+# [2.1.0-alpha.101](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.100...v2.1.0-alpha.101) (2023-03-08)
+
+**Note:** Version bump only for package @dpc-sdp/nuxt-ripple
+
+# [2.1.0-alpha.100](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.99...v2.1.0-alpha.100) (2023-03-08)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-publication:** :alien: enable breadcrumb override from mapping ([6631c48](https://github.com/dpc-sdp/ripple-framework/commit/6631c481b17cff96d48275fd4bf4bc80d182c362))
+
 # [2.1.0-alpha.99](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.98...v2.1.0-alpha.99) (2023-03-07)
 
 **Note:** Version bump only for package @dpc-sdp/nuxt-ripple

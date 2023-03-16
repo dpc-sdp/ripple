@@ -3,6 +3,7 @@
   color: var(--local-clr-link, var(--rpl-clr-link));
   cursor: pointer;
   text-decoration: underline;
+  overflow-wrap: anywhere;
 
   @media print {
     color: var(--rpl-clr-link);

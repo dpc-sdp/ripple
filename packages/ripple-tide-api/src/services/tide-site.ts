@@ -14,7 +14,7 @@ export default class TideSite extends TideApiBase {
     logger: ILogger
   ) {
     super(tide, logger)
-    this.site = tide.config.site
+    this.site = tide.site
     this.siteMapping = null
     this.logLabel = 'TideSite'
   }

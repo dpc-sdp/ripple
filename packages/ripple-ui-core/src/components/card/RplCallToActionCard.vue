@@ -7,11 +7,11 @@ import { useAccessibleContainer } from '../../composables/useAccessibleContainer
 import RplCard from './RplCard.vue'
 import RplButton from '../button/RplButton.vue'
 import RplImage from '../image/RplImage.vue'
-import { RplImageType } from '../image/constants'
+import { IRplImageType } from '../image/constants'
 
 interface Props {
   el?: (typeof RplCardElements)[number]
-  image?: RplImageType
+  image?: IRplImageType
   title: string
   url?: string
   ctaText?: string

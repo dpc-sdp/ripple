@@ -14,6 +14,10 @@
   margin-top: var(--rpl-sp-4);
 }
 
+.rpl-type-h2 + .rpl-card-carousel > .rpl-slider > :first-child:not(nav) {
+  margin-top: var(--rpl-sp-9);
+}
+
 .rpl-slider__slide {
   height: auto;
   display: flex;

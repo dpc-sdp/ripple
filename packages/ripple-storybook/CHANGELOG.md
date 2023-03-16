@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.112](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.111...v2.1.0-alpha.112) (2023-03-15)
+
+### Bug Fixes
+
+* stopped all links are forcing a full refresh instead of using client side navigation ([a10760e](https://github.com/dpc-sdp/ripple-framework/commit/a10760e70513829fbd49dfd2ccaa41526f2277cd))
+
+# [2.1.0-alpha.102](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.101...v2.1.0-alpha.102) (2023-03-08)
+
+**Note:** Version bump only for package ripple-storybook
+
 # [2.1.0-alpha.96](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.95...v2.1.0-alpha.96) (2023-03-06)
 
 ### Features

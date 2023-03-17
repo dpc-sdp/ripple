@@ -52,7 +52,7 @@ const overviewList = computed(() => {
       icon: 'icon-dollar-circle-filled'
     })
   }
-  if (props.overview?.funding) {
+  if (props.overview?.audience) {
     list.push({
       text: props.overview.audience,
       icon: 'icon-user-circle-filled'

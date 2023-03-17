@@ -37,7 +37,7 @@ export default {
     }
   },
   searchField: "search",
-  queryFields: ["suburb", "postcode", "street", "intersects_with"],
+  queryFields: ["suburb", "postcode", "street", "offence_location"],
   sortOptions: [
     {
       id: "",
@@ -54,22 +54,54 @@ export default {
       key: "suburb",
       name: "Suburb (Z-A)",
       order: "desc"
+    },
+    {
+      id: "date-asc",
+      key: "last_annual_test",
+      name: "Last annual test (newest)",
+      order: "asc"
+    },
+    {
+      id: "date-desc",
+      key: "last_annual_test",
+      name: "Last annual test (oldest)",
+      order: "desc"
     }
   ],
   columnHeadings: [
     "Suburb",
     "Location",
     {
-      label: "Map link",
+      label: "Certificate",
       component: () => import("@dpc-sdp/ripple-link/TextLink.vue")
-    }
+    },
+    "Last annual test"
   ],
   tableResultsMiddleware: [
     (ctx, next) => {
       if (ctx.results && Array.isArray(ctx.results)) {
-        ctx.results = ctx.results.map(r => {
-          const location = r.intersectsWith ? `${r.street} - ${r.intersectsWith}` : r.street
-          return [`${r.suburb} - ${r.postcode}`, location, r.link]
+        ctx.results = ctx.results.map(data => {
+          const field = name => data?.[name] || ''
+
+          const suburb = field('suburb')
+          const street = field('street')
+          let certificate = field('certificate')
+
+          if (certificate) {
+            const extension = certificate.split('.')?.pop()?.toUpperCase()
+
+            certificate = {
+              target: '_blank',
+              url: certificate,
+              text: field('offence_location') + ` (${extension})`
+            }
+          }
+
+          const lastAnnualTest = field('last_annual_test')
+
+          return [
+            suburb, street, certificate, lastAnnualTest
+          ]
         })
       }
       next()

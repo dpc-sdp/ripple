@@ -50,8 +50,8 @@ describe('Card collection search template', () => {
 
 describe('Data listing search template', () => {
   test('should have template', () => {
-    expect(searchTemplate).toHaveProperty('data-listing')
-    expect(searchTemplate['data-listing']).toHaveProperty('requestMapping')
-    expect(typeof searchTemplate['data-listing'].requestMapping).toEqual('function')
+    expect(searchTemplate).toHaveProperty('data-list')
+    expect(searchTemplate['data-list']).toHaveProperty('requestMapping')
+    expect(typeof searchTemplate['data-list'].requestMapping).toEqual('function')
   })
 })

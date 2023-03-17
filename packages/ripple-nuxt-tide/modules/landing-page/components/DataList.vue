@@ -1,19 +1,19 @@
 <template>
-  <div :class="{'rpl-data-listing': true, 'rpl-data-listing--filtered': filtering}">
+  <div :class="{'rpl-data-list': true, 'rpl-data-list--filtered': filtering}">
     <rpl-form
       v-if="searchForm"
       :formData="searchForm"
       :submitFormOnClear="true"
       :submitHandler="onSearchSubmit"
       :fieldChangeHandler="onFieldUpdate"
-      class="rpl-data-listing__form"
+      class="rpl-data-list__form"
     />
     <rpl-tabs
       v-if="$scopedSlots.map"
       :tabs="tabs"
       :activeTab="activeTab"
       @rpl-tab-switch="updateTab"
-      class="rpl-data-listing__tabs"
+      class="rpl-data-list__tabs"
     />
     <keep-alive>
       <slot name="map" :mapData="mapData" v-if="$scopedSlots.map && activeTab === 'map'" />
@@ -26,9 +26,9 @@
           :count="tableData.total"
           :pager="{ totalSteps: pageCount,  initialStep: currentPage, stepsAround: 2 }"
           @pager-change="onPageUpdate"
-          class="rpl-data-listing__results">
+          class="rpl-data-list__results">
           <template #noresults>
-            <div class="rpl-data-listing__no-results">
+            <div class="rpl-data-list__no-results">
               <slot name="noresults">
                 <h3>No results found that match your search criteria.</h3>
                 <p>Please clear your search filters and try again.</p>
@@ -41,11 +41,11 @@
             </slot>
           </template>
           <template #sort v-if="sortOptions.length && tableData.total > 0">
-            <label class="rpl-data-listing__sort">
+            <label class="rpl-data-list__sort">
               <span class="rpl-form-label">Sort by:</span>
               <rpl-select
                 ref="sort-select"
-                class="rpl-data-listing__sort-select"
+                class="rpl-data-list__sort-select"
                 :values="sortOptions"
                 :state="sort"
                 @rpl-select-update="onSortUpdate"
@@ -55,7 +55,7 @@
           <template #results>
             <rpl-complex-data-table
               ref="search-results-table"
-              class="rpl-data-listing__results-table"
+              class="rpl-data-list__results-table"
               :items="tableData.results"
               :columns="columnHeadings"
               :rowHeaders="true"
@@ -84,10 +84,10 @@ import RplTabs from '@dpc-sdp/ripple-tabs'
 import RplMarkup from '@dpc-sdp/ripple-markup'
 import RplDescriptionList from '@dpc-sdp/ripple-description-list'
 import { getResultsFromMiddleware } from '@dpc-sdp/ripple-data-vic-api/src/middleware'
-import { getQueryParams } from '../lib/data-listing'
+import { getQueryParams } from '../lib/data-list'
 
 export default {
-  name: 'RplDataListing',
+  name: 'RplDataList',
   components: {
     RplForm,
     RplSelect,
@@ -195,7 +195,7 @@ export default {
       this.filtering = params?.q || params?.filters
 
       try {
-        const data = await this.$tideSearchApi.search('/data-listing', params, this.dataSet)
+        const data = await this.$tideSearchApi.search('/data-list', params, this.dataSet)
 
         if (data && Array.isArray(data.results)) {
           this.total = data.total
@@ -356,14 +356,14 @@ export default {
 @import "~@dpc-sdp/ripple-global/scss/tools";
 @import "~@dpc-sdp/ripple-form/scss/form";
 
-$rpl-data-listing-form-background: rpl-color('light_neutral') !default;
-$rpl-data-listing-form-spacing: $rpl-space-4 !default;
-$rpl-data-listing-form-radius: $rpl-button-border-radius !default;
-$rpl-data-listing-form-field-background: rpl-color('white') !default;
-$rpl-data-listing-sort-width: rem(280px) !default;
+$rpl-data-list-form-background: rpl-color('light_neutral') !default;
+$rpl-data-list-form-spacing: $rpl-space-4 !default;
+$rpl-data-list-form-radius: $rpl-button-border-radius !default;
+$rpl-data-list-form-field-background: rpl-color('white') !default;
+$rpl-data-list-sort-width: rem(280px) !default;
 
-.rpl-data-listing {
-  &:not(.rpl-data-listing--filtered) .field-rplclearform {
+.rpl-data-list {
+  &:not(.rpl-data-list--filtered) .field-rplclearform {
     display: none;
   }
 
@@ -375,6 +375,10 @@ $rpl-data-listing-sort-width: rem(280px) !default;
   .rpl-search-results-layout__main {
     margin: 0;
     width: 100%;
+
+    .rpl-text-link {
+      text-decoration: underline;
+    }
   }
 
   .rpl-search-results-layout__info p {
@@ -382,14 +386,14 @@ $rpl-data-listing-sort-width: rem(280px) !default;
   }
 
   &__form {
-    padding: $rpl-data-listing-form-spacing;
-    background-color: $rpl-data-listing-form-background;
-    border-radius: $rpl-data-listing-form-radius;
+    padding: $rpl-data-list-form-spacing;
+    background-color: $rpl-data-list-form-background;
+    border-radius: $rpl-data-list-form-radius;
 
     fieldset {
       display: flex;
       flex-direction: column;
-      gap: $rpl-data-listing-form-spacing;
+      gap: $rpl-data-list-form-spacing;
 
       @include rpl_breakpoint('l') {
         flex-direction: row;
@@ -397,7 +401,7 @@ $rpl-data-listing-sort-width: rem(280px) !default;
       }
 
       + fieldset {
-        margin-top: $rpl-data-listing-form-spacing;
+        margin-top: $rpl-data-list-form-spacing;
       }
     }
 
@@ -412,7 +416,7 @@ $rpl-data-listing-sort-width: rem(280px) !default;
 
     .rpl-select__trigger,
     input.rpl-form-input__input:is([type=date], [type=number], [type=search], [type=text]) {
-      background-color: $rpl-data-listing-form-field-background;
+      background-color: $rpl-data-list-form-field-background;
     }
 
     .rpl-submit-loader {
@@ -443,7 +447,7 @@ $rpl-data-listing-sort-width: rem(280px) !default;
       width: 100%;
 
       @include rpl_breakpoint('m') {
-        width: $rpl-data-listing-sort-width;
+        width: $rpl-data-list-sort-width;
       }
     }
 

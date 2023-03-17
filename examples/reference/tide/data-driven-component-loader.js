@@ -5,8 +5,8 @@ const loadComponent = (configs) => {
     switch (configs.name) {
       case 'sdp_data_pipelines_csl':
         dataDrivenComp = {
-          name: () => import(/* webackChunkName: 'rpl-data-listing' */ '@dpc-sdp/ripple-nuxt-tide/modules/landing-page/components/DataListing'),
-          props: require('./data-listings/sdp_data_pipelines_csl').default
+          name: () => import(/* webackChunkName: 'rpl-data-list' */ '@dpc-sdp/ripple-nuxt-tide/modules/landing-page/components/DataList'),
+          props: require('./data-list/sdp_data_pipelines_csl').default
         }
         break
     }

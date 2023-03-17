@@ -29,7 +29,7 @@ export default ({ app, req, store , route }, inject) => {
   }
   if (
     options.modules?.landingPage?.contentCollection !== false &&
-    options.modules?.landingPage?.dataListing !== false
+    options.modules?.landingPage?.dataList !== false
   ) {
     inject('tideSearchApi', new TideSearchApi({
       client: app.$axios,

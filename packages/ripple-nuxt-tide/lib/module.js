@@ -86,7 +86,7 @@ const nuxtTide = function (moduleOptions) {
 
   if (
     options.modules?.landingPage?.contentCollection !== false &&
-    options.modules?.landingPage?.dataListing !== false
+    options.modules?.landingPage?.dataList !== false
   ) {
     const searchApiOptions = options.searchApi || {}
     this.addServerMiddleware(tideSearchApiMiddleware({

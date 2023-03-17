@@ -1,7 +1,6 @@
 import {
   getTermsFilter,
   getPagination,
-  getField,
   getAggregations
 } from '@dpc-sdp/ripple-tide-search-api/services/template-utils'
 
@@ -64,22 +63,7 @@ export const requestMapping = params => {
   }
 }
 
-export const responseMapping = (data, source) => {
-  const index = source._index.split('--')?.[1]
-
-  switch (index) {
-    case 'sdp_data_pipelines_scl':
-      return {
-        suburb: getField(data, ['suburb']),
-        postcode: getField(data, ['postcode']),
-        street: getField(data, ['street']),
-        intersectsWith: getField(data, ['intersects_with']),
-        link: { url: getField(data, ['google_maps_link']), text: 'View map ' }
-      }
-    default:
-      return data
-  }
-}
+export const responseMapping = data => data
 
 module.exports = {
   requestMapping,

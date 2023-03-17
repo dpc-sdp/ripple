@@ -1,4 +1,4 @@
-import { getQueryParams } from '../lib/data-listing'
+import { getQueryParams } from '../lib/data-list'
 
 const data = {
   perPage: 10,

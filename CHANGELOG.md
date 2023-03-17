@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.115](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.114...v2.1.0-alpha.115) (2023-03-17)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** removed console log ([a74bb9c](https://github.com/dpc-sdp/ripple-framework/commit/a74bb9cf29a82235cdcf3ce9097950bd3c0aafa7))
+* fixed alerts script failing when no cookie present ([223207e](https://github.com/dpc-sdp/ripple-framework/commit/223207e6d22593079fd7bd13c44c8137fbfebfe4))
+
+### Features
+
+* **nuxt-ripple:** added script to hide dismissed alerts to avoid content flash ([5868b61](https://github.com/dpc-sdp/ripple-framework/commit/5868b6139a217d25bc39151633ab60f8fb472eec))
+* **nuxt-ripple:** move alerts script to inline rather than external script ([92b5152](https://github.com/dpc-sdp/ripple-framework/commit/92b51521e1e79a94741b8f8286b3e4cf68975f70))
+
 # [2.1.0-alpha.114](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.113...v2.1.0-alpha.114) (2023-03-16)
 
 ### Bug Fixes

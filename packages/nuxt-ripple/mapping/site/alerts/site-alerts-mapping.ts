@@ -1,5 +1,6 @@
 import { getLinkFromField } from '@dpc-sdp/ripple-tide-api'
 import type { TideApiResponse } from '@dpc-sdp/ripple-tide-api/types'
+import sortAlertsByPriority from '../../../utils/sortAlertsByPriority.js'
 export interface TideAlert {
   alertId: string
   variant: 'information' | 'warning' | 'error'
@@ -46,7 +47,7 @@ const getAlertVariantForType = (
 }
 
 export const map = (src: TideApiResponse): TideAlert[] => {
-  return (src.site_alerts || []).map((rawAlert): TideAlert => {
+  const alerts = (src.site_alerts || []).map((rawAlert): TideAlert => {
     const alertType = rawAlert.field_alert_type.name
     const link = getLinkFromField(rawAlert, 'field_call_to_action')
 
@@ -59,6 +60,7 @@ export const map = (src: TideApiResponse): TideAlert[] => {
       linkUrl: link?.url || ''
     }
   })
+  return sortAlertsByPriority(alerts)
 }
 
 export const includes = ['site_alerts', 'site_alerts.field_alert_type']

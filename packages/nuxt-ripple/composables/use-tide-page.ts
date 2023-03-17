@@ -1,7 +1,7 @@
 import type { TidePageBase } from './../types'
 
 const isCacheTimeExpired = (date: number, expiryInMinutes = 5) => {
-  // 1 minute default
+  // 5 minute default expiry in step with varnish cache
   const expiry = expiryInMinutes * 1000 * 60
   const timePlusExpiry = Date.now() - expiry
   return date < timePlusExpiry
@@ -16,7 +16,7 @@ export const useTidePage = async (
   const { public: config } = useRuntimeConfig()
   const siteId = site || config.tide?.site
 
-  // check we dont add to many keys to cache
+  // check we dont add too many keys to cache
   const nuxt = useNuxtApp()
   const maxCacheItems = 50
   if (nuxt.payload.data) {

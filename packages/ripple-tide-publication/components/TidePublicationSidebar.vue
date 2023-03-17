@@ -1,10 +1,17 @@
 <template>
   <div class="tide-publication__sidebar">
-    <TidePublicationPageActions v-if="publication.documents" :documents="publication.documents">
+    <TidePublicationPageActions
+      v-if="publication.documents"
+      :documents="publication.documents"
+    >
     </TidePublicationPageActions>
     <RplSidebarComponent>
-      <RplVerticalNav v-if="sidebar.items.length > 0" :title="publication.text" :items="sidebar.items"
-        class="rpl-u-margin-b-9"></RplVerticalNav>
+      <RplVerticalNav
+        v-if="sidebar.items.length > 0"
+        :title="publication.text"
+        :items="sidebar.items"
+        class="rpl-u-margin-b-9"
+      ></RplVerticalNav>
     </RplSidebarComponent>
   </div>
 </template>
@@ -23,7 +30,6 @@ const props = defineProps<Props>()
 const sidebar = reactive({
   items: <indexNode[]>[]
 })
-
 
 const menu = await useTidePublicationMenu(props.publication.id)
 

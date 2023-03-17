@@ -45,6 +45,7 @@
     <template #belowBody>
       <slot name="belowBody"></slot>
       <TideContentRating
+        v-if="showContentRating"
         :siteSectionName="siteSection ? siteSection.name : ''"
       />
     </template>
@@ -96,6 +97,7 @@ interface Props {
   topicTags?: TideTopicTag[]
   updatedDate?: string | null
   siteSection: TideSiteSection | null
+  showContentRating: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -105,7 +107,8 @@ const props = withDefaults(defineProps<Props>(), {
   footerImageCaption: '',
   topicTags: () => [],
   updatedDate: null,
-  siteSection: null
+  siteSection: null,
+  showContentRating: false
 })
 
 // Feature flags will be available on component instances with inject('featureFlags') - See https://vuejs.org/guide/components/provide-inject.html#inject

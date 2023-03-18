@@ -10,16 +10,19 @@ const props = defineProps<{
 
 const $rplEvent = inject('$rplEvent')
 
-function onEvent(e, payload) {
+const onEvent = (e, payload) =>
   $rplEvent.emit(`rpl-accordion/${e}`, {
     ...payload,
     name: props.title
   })
-}
-
 </script>
 
 <template>
-  <RplAccordion :id="id" :items="items" :numbered="numbered" @toggle-all="(payload) => onEvent('toggleAll', payload)"
-    @toggle-item="(payload) => onEvent('toggleItem', payload)" />
+  <RplAccordion
+    :id="id"
+    :items="items"
+    :numbered="numbered"
+    @toggle-all="(payload) => onEvent('toggleAll', payload)"
+    @toggle-item="(payload) => onEvent('toggleItem', payload)"
+  />
 </template>

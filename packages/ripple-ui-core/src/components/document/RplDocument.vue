@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, useSlots } from 'vue'
 import { isExternalLink } from '../../lib/helpers'
 
 interface Props {
@@ -8,7 +8,26 @@ interface Props {
 
 const props = defineProps<Props>()
 
+const emit = defineEmits<{
+  (
+    e: 'download',
+    payload: { id: string; action: 'download'; label: string }
+  ): void
+}>()
+
+const slots = useSlots()
+
 const isExternal = computed(() => isExternalLink(props.url))
+
+const onClick = () => {
+  const name = slots.name()?.[0]?.children
+
+  emit('download', {
+    id: props.url,
+    action: 'download',
+    label: typeof name === 'string' ? name : ''
+  })
+}
 </script>
 
 <template>
@@ -20,6 +39,7 @@ const isExternal = computed(() => isExternalLink(props.url))
       :href="url"
       :download="isExternal ? null : ''"
       :target="isExternal ? '_blank' : null"
+      @click="onClick"
     >
       <div v-if="$slots.icon" class="rpl-document__icon">
         <slot name="icon"></slot>

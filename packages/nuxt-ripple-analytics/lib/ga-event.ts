@@ -1,11 +1,16 @@
 export interface IRplDataLayerEventPayload {
   event: string
-  element_id: string
+  element_id?: string
   element_text?: string
   label?: string
   name?: string
-  platform_event: string
+  file_name?: string
+  file_extension?: string
+  file_url?: string
+  form_id?: string
+  form_name?: string
   component?: string
+  platform_event: string
 }
 
 export const gaEvent = (gaEvent: IRplDataLayerEventPayload) => {

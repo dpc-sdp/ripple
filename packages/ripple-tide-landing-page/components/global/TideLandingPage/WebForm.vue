@@ -2,10 +2,11 @@
 import { useRuntimeConfig } from '#imports'
 import { FormKitSchemaNode } from '@formkit/core'
 import { $fetch } from 'ohmyfetch'
-import { nextTick, ref, watch } from 'vue'
+import { inject, nextTick, ref, watch } from 'vue'
 import { RplFormAlert } from '@dpc-sdp/ripple-ui-forms'
 
 interface Props {
+  title?: string
   formId: string
   hideFormOnSubmit: boolean
   successMessageTitle: string
@@ -16,10 +17,13 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
+  title: undefined,
   hideFormOnSubmit: false,
   successMessageTitle: 'Form submitted',
   errorMessageTitle: 'Form not submitted'
 })
+
+const $rplEvent = inject('$rplEvent')
 
 const honeypotId = `${props.formId}-important-email`
 const isHoneypotTriggered = () => {
@@ -85,7 +89,7 @@ const submissionState = ref({
 
 const serverSuccessRef = ref<RplFormAlert>(null)
 
-const submitHandler = async (values) => {
+const submitHandler = async ({ data, ...payload }) => {
   submissionState.value = {
     status: 'submitting',
     title: '',
@@ -104,13 +108,18 @@ const submitHandler = async (values) => {
   }
 
   try {
-    await postForm(props.formId, values)
+    await postForm(props.formId, data)
 
     submissionState.value = {
       status: 'success',
       title: props.successMessageTitle,
       message: props.successMessageHTML
     }
+
+    const label =
+      props.schema?.find((field) => field?.key === 'actions')?.label || 'Submit'
+
+    $rplEvent.emit('rpl-form/submit', { ...payload, name: props.title, label })
   } catch (error) {
     console.error(error)
 

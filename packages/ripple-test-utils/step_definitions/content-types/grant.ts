@@ -43,7 +43,7 @@ Then(
 Then(
   'the first document should have a title of {string}, and filesize of {string}',
   (title: string, size: string) => {
-    cy.get('[data-cy="document"]:first-of-type').as('document')
+    cy.get('.tide-grant__documents .rpl-document:first-of-type').as('document')
     cy.get('@document').find('.rpl-document__name').should('have.text', title)
     cy.get('@document').find('.rpl-file__meta').should('include.text', size)
   }

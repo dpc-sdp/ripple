@@ -45,7 +45,9 @@ const props = withDefaults(defineProps<Props>(), {
   })
 })
 
-const emit = defineEmits(['submit'])
+const emit = defineEmits<{
+  (e: 'submit', payload: { id: string; action: 'submit'; data: any }): void
+}>()
 
 provide('formId', props.id)
 
@@ -63,7 +65,11 @@ const submitHandler = (form) => {
   // Reset the error summary as it is not reactive
   errorSummaryMessages.value = []
 
-  emit('submit', form)
+  emit('submit', {
+    id: props.id,
+    action: 'submit',
+    data: form
+  })
 }
 
 const submitInvalidHandler = async (node) => {

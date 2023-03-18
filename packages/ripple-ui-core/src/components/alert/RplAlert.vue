@@ -6,10 +6,6 @@ import onResizeHeight from '../../composables/onResizeHeight'
 import { RplIconNames } from '../icon/constants'
 import RplIcon from '../icon/RplIcon.vue'
 import RplTextLink from '../text-link/RplTextLink.vue'
-import { rplEventBus } from '../../index'
-
-rplEventBus.register('rpl-alert/dismiss')
-const emit = defineEmits(['dismiss'])
 
 interface Props {
   variant?: RplAlertTypes
@@ -30,9 +26,22 @@ const props = withDefaults(defineProps<Props>(), {
   dismissed: false
 })
 
+const emit = defineEmits<{
+  (
+    e: 'dismiss',
+    payload: { id: string; action: 'close'; name: string; label: string }
+  ): void
+}>()
+
+const closeLabel = 'Dismiss alert'
+
 const onClose = () => {
-  rplEventBus.emit('rpl-alert/dismiss', props.alertId)
-  emit('dismiss', props.alertId)
+  emit('dismiss', {
+    id: props.alertId,
+    action: 'close',
+    name: props.message,
+    label: closeLabel
+  })
 }
 const classes = computed(() => {
   return {
@@ -78,7 +87,7 @@ onResizeHeight(alertRef, (height) => {
           class="rpl-alert__link rpl-type-p rpl-u-focusable--alt-colour"
           :url="linkUrl"
         >
-          {{ linkText }}<rpl-icon name="icon-arrow-right"></rpl-icon>
+          {{ linkText }}<RplIcon name="icon-arrow-right" />
         </RplTextLink>
       </div>
       <button
@@ -86,7 +95,7 @@ onResizeHeight(alertRef, (height) => {
         data-cy="dismiss"
         @click="onClose"
       >
-        <rpl-icon title="Dismiss alert" name="icon-cancel"></rpl-icon>
+        <RplIcon :title="closeLabel" name="icon-cancel" />
       </button>
     </div>
   </div>

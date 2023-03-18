@@ -20,8 +20,8 @@ export const accordionMapping = (
     id: field.drupal_internal__id.toString(),
     title: field.field_paragraph_title,
     props: {
-      title: field.field_paragraph_title,
       id: field.drupal_internal__id.toString(),
+      title: field.field_paragraph_title,
       numbered: field.field_paragraph_accordion_style === 'numbered',
       items: field.field_paragraph_accordion.map((acc) => {
         return {

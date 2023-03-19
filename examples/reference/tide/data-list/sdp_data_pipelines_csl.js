@@ -37,7 +37,7 @@ export default {
     }
   },
   searchField: "search",
-  queryFields: ["suburb", "postcode", "street", "offence_location"],
+  queryFields: ["suburb^5", "postcode^3", "street^2", "offence_location"],
   sortOptions: [
     {
       id: "",

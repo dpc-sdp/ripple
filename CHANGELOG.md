@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.117](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.116...v2.1.0-alpha.117) (2023-03-20)
+
+### Bug Fixes
+
+* **nuxt-ripple:** moved alert script to base layout and fixed regex issue ([ecf4d2d](https://github.com/dpc-sdp/ripple-framework/commit/ecf4d2da5601f118d8653c57f97cbc9af4ab3acd))
+
+# [2.1.0-alpha.116](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.115...v2.1.0-alpha.116) (2023-03-17)
+
+### Bug Fixes
+
+* **@dpc-sdp/nuxt-ripple:** fixed content rating still showing when turned off in cms ([8a5c595](https://github.com/dpc-sdp/ripple-framework/commit/8a5c595bf8700f2c8d8415207c75036a8c76e533))
+* **@dpc-sdp/ripple-tide-event:** fixed event page crashing when event has no location ([885742b](https://github.com/dpc-sdp/ripple-framework/commit/885742b870c5f8be0fdabbbdf0ec54449e3a94e1))
+* **@dpc-sdp/ripple-tide-grant:** fixed audience not appearing when funding was blank ([aa8e676](https://github.com/dpc-sdp/ripple-framework/commit/aa8e6765875ba9bac287a21f8eef273bf180d4b3))
+* **@dpc-sdp/ripple-tide-grant:** updated order of grant details to match designs ([9363281](https://github.com/dpc-sdp/ripple-framework/commit/9363281e3562e7a7a12b221f909df54bd7d4505a))
+
+# [2.1.0-alpha.115](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.114...v2.1.0-alpha.115) (2023-03-17)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** removed console log ([a74bb9c](https://github.com/dpc-sdp/ripple-framework/commit/a74bb9cf29a82235cdcf3ce9097950bd3c0aafa7))
+* fixed alerts script failing when no cookie present ([223207e](https://github.com/dpc-sdp/ripple-framework/commit/223207e6d22593079fd7bd13c44c8137fbfebfe4))
+
+### Features
+
+* **nuxt-ripple:** added script to hide dismissed alerts to avoid content flash ([5868b61](https://github.com/dpc-sdp/ripple-framework/commit/5868b6139a217d25bc39151633ab60f8fb472eec))
+* **nuxt-ripple:** move alerts script to inline rather than external script ([92b5152](https://github.com/dpc-sdp/ripple-framework/commit/92b51521e1e79a94741b8f8286b3e4cf68975f70))
+
+# [2.1.0-alpha.114](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.113...v2.1.0-alpha.114) (2023-03-16)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** allow click through on overflowing campaign images ([d44fe66](https://github.com/dpc-sdp/ripple-framework/commit/d44fe662006bcabd815e5d24453b300e56c1814e))
+* **@dpc-sdp/ripple-ui-core:** use percentages for new patterns ([7afa630](https://github.com/dpc-sdp/ripple-framework/commit/7afa630e6acad318d1b110d9e00811889ce0fb29))
+* **@dpc-sdp/ripple-ui-forms:** fixed label form input not having conditional logic ([ab40e05](https://github.com/dpc-sdp/ripple-framework/commit/ab40e059ed3b881a50612531f202cd7d29f5b513))
+
 # [2.1.0-alpha.113](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.112...v2.1.0-alpha.113) (2023-03-16)
 
 ### Bug Fixes

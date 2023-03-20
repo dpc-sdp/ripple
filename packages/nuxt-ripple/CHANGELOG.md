@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.117](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.116...v2.1.0-alpha.117) (2023-03-20)
+
+### Bug Fixes
+
+* **nuxt-ripple:** moved alert script to base layout and fixed regex issue ([ecf4d2d](https://github.com/dpc-sdp/ripple-framework/commit/ecf4d2da5601f118d8653c57f97cbc9af4ab3acd))
+
+# [2.1.0-alpha.116](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.115...v2.1.0-alpha.116) (2023-03-17)
+
+### Bug Fixes
+
+* **@dpc-sdp/nuxt-ripple:** fixed content rating still showing when turned off in cms ([8a5c595](https://github.com/dpc-sdp/ripple-framework/commit/8a5c595bf8700f2c8d8415207c75036a8c76e533))
+
+# [2.1.0-alpha.115](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.114...v2.1.0-alpha.115) (2023-03-17)
+
+### Bug Fixes
+
+* fixed alerts script failing when no cookie present ([223207e](https://github.com/dpc-sdp/ripple-framework/commit/223207e6d22593079fd7bd13c44c8137fbfebfe4))
+
+### Features
+
+* **nuxt-ripple:** added script to hide dismissed alerts to avoid content flash ([5868b61](https://github.com/dpc-sdp/ripple-framework/commit/5868b6139a217d25bc39151633ab60f8fb472eec))
+* **nuxt-ripple:** move alerts script to inline rather than external script ([92b5152](https://github.com/dpc-sdp/ripple-framework/commit/92b51521e1e79a94741b8f8286b3e4cf68975f70))
+
+# [2.1.0-alpha.114](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.113...v2.1.0-alpha.114) (2023-03-16)
+
+**Note:** Version bump only for package @dpc-sdp/nuxt-ripple
+
 # [2.1.0-alpha.113](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.112...v2.1.0-alpha.113) (2023-03-16)
 
 **Note:** Version bump only for package @dpc-sdp/nuxt-ripple

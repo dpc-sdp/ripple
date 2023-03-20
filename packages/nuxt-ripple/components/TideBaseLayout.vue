@@ -45,6 +45,7 @@
     <template #belowBody>
       <slot name="belowBody"></slot>
       <TideContentRating
+        v-if="showContentRating"
         :siteSectionName="siteSection ? siteSection.name : ''"
       />
     </template>
@@ -85,6 +86,7 @@ import { deepmerge } from 'deepmerge-ts'
 import { TideSiteData } from '../types'
 import { TideTopicTag } from '../mapping/base/topic-tags/topic-tags-mapping'
 import { TideSiteSection } from '@dpc-sdp/ripple-tide-api/types'
+import hideAlertsOnLoadScript from '../utils/hideAlertsOnLoadScript.js'
 
 interface Props {
   site: TideSiteData
@@ -96,6 +98,7 @@ interface Props {
   topicTags?: TideTopicTag[]
   updatedDate?: string | null
   siteSection: TideSiteSection | null
+  showContentRating: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -105,7 +108,8 @@ const props = withDefaults(defineProps<Props>(), {
   footerImageCaption: '',
   topicTags: () => [],
   updatedDate: null,
-  siteSection: null
+  siteSection: null,
+  showContentRating: false
 })
 
 // Feature flags will be available on component instances with inject('featureFlags') - See https://vuejs.org/guide/components/provide-inject.html#inject
@@ -147,6 +151,11 @@ useHead({
     {
       name: 'description',
       content: props.pageDescription
+    }
+  ],
+  script: [
+    {
+      innerHTML: hideAlertsOnLoadScript
     }
   ]
 })

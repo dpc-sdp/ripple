@@ -59,7 +59,9 @@ const tideEventModule: IRplTideModuleMapping = {
         },
         {
           term: 'Location:',
-          description: getAddress(node.field_paragraph_location)
+          description: node.field_paragraph_location
+            ? getAddress(node.field_paragraph_location)
+            : ''
         }
       ])[0],
     details: (src: string) =>

@@ -14,7 +14,7 @@
 <script setup lang="ts">
 // @ts-ignore
 import { useMounted } from '@vueuse/core'
-import { useCookie, sortAlertsByPriority } from '#imports'
+import { useCookie } from '#imports'
 import { computed, inject, toRaw } from 'vue'
 import { TideAlert } from '@dpc-sdp/ripple-tide-api/src/mapping/alerts/site-alerts-mapping'
 
@@ -51,11 +51,9 @@ const filteredAlerts = computed(() => {
   }
 
   try {
-    const sortedAlerts = sortAlertsByPriority(alerts)
-
     const dismissedIds = toRaw(cookieValue.value) || []
 
-    return sortedAlerts.filter((alert: TideAlert) => {
+    return alerts.filter((alert: TideAlert) => {
       return !dismissedIds.includes(alert.alertId)
     })
   } catch (e) {

@@ -5,34 +5,10 @@ import { map as siteAlertsMapping, TideAlert } from '../site-alerts-mapping'
 
 const result: TideAlert[] = [
   {
-    alertId: '253f5c6b-29b4-4e24-9312-4da69bf27e32',
-    variant: 'information',
-    iconName: 'icon-information-circle-filled',
-    message: 'Demo alert title',
-    linkText: 'Test link',
-    linkUrl: 'https://www.demo.vic.gov.au/demo-landing-page'
-  },
-  {
     alertId: 'fabc6c5c-ad02-4b2a-a129-86c6f1eefb05',
     variant: 'error',
     iconName: 'icon-exclamation-circle-filled',
     message: 'Emergency title',
-    linkText: 'Test link',
-    linkUrl: 'https://www.demo.vic.gov.au/demo-landing-page'
-  },
-  {
-    alertId: 'b9308945-a73e-4ab0-bfdf-61b8b9cd600e',
-    variant: 'information',
-    iconName: 'icon-traffic',
-    message: 'Traffic title',
-    linkText: 'Test link',
-    linkUrl: 'https://www.demo.vic.gov.au/demo-landing-page'
-  },
-  {
-    alertId: 'dbb21011-faa8-487c-938f-27658a18b9cf',
-    variant: 'information',
-    iconName: 'icon-information-circle-filled',
-    message: 'Notification title',
     linkText: 'Test link',
     linkUrl: 'https://www.demo.vic.gov.au/demo-landing-page'
   },
@@ -81,6 +57,30 @@ const result: TideAlert[] = [
     variant: 'warning',
     iconName: 'icon-temperature',
     message: 'Heat wave title',
+    linkText: 'Test link',
+    linkUrl: 'https://www.demo.vic.gov.au/demo-landing-page'
+  },
+  {
+    alertId: '253f5c6b-29b4-4e24-9312-4da69bf27e32',
+    variant: 'information',
+    iconName: 'icon-information-circle-filled',
+    message: 'Demo alert title',
+    linkText: 'Test link',
+    linkUrl: 'https://www.demo.vic.gov.au/demo-landing-page'
+  },
+  {
+    alertId: 'b9308945-a73e-4ab0-bfdf-61b8b9cd600e',
+    variant: 'information',
+    iconName: 'icon-traffic',
+    message: 'Traffic title',
+    linkText: 'Test link',
+    linkUrl: 'https://www.demo.vic.gov.au/demo-landing-page'
+  },
+  {
+    alertId: 'dbb21011-faa8-487c-938f-27658a18b9cf',
+    variant: 'information',
+    iconName: 'icon-information-circle-filled',
+    message: 'Notification title',
     linkText: 'Test link',
     linkUrl: 'https://www.demo.vic.gov.au/demo-landing-page'
   }

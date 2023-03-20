@@ -86,6 +86,7 @@ import { deepmerge } from 'deepmerge-ts'
 import { TideSiteData } from '../types'
 import { TideTopicTag } from '../mapping/base/topic-tags/topic-tags-mapping'
 import { TideSiteSection } from '@dpc-sdp/ripple-tide-api/types'
+import hideAlertsOnLoadScript from '../utils/hideAlertsOnLoadScript.js'
 
 interface Props {
   site: TideSiteData
@@ -150,6 +151,11 @@ useHead({
     {
       name: 'description',
       content: props.pageDescription
+    }
+  ],
+  script: [
+    {
+      innerHTML: hideAlertsOnLoadScript
     }
   ]
 })

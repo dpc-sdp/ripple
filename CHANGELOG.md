@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.117](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.116...v2.1.0-alpha.117) (2023-03-20)
+
+### Bug Fixes
+
+* **nuxt-ripple:** moved alert script to base layout and fixed regex issue ([ecf4d2d](https://github.com/dpc-sdp/ripple-framework/commit/ecf4d2da5601f118d8653c57f97cbc9af4ab3acd))
+
 # [2.1.0-alpha.116](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.115...v2.1.0-alpha.116) (2023-03-17)
 
 ### Bug Fixes

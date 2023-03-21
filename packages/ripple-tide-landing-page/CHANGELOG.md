@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.118](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.117...v2.1.0-alpha.118) (2023-03-20)
+
+### Features
+
+* **@dpc-sdp/nuxt-ripple:** :zap: adds client side cacheing of API requests ([ac12f88](https://github.com/dpc-sdp/ripple-framework/commit/ac12f882accbd2580c617c2f00ca4f33dac1647f))
+
 # [2.1.0-alpha.117](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.116...v2.1.0-alpha.117) (2023-03-20)
 
 **Note:** Version bump only for package @dpc-sdp/ripple-tide-landing-page

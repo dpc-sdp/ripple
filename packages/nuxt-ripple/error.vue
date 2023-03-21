@@ -3,6 +3,8 @@
     :pageTitle="`${props.error?.statusCode} - ${props.error?.statusMessage}`"
     :pageDescription="props.error?.statusMessage"
     :site="site"
+    :page="{}"
+    :siteSection="{}"
     class="tide-error"
   >
     <template #breadcrumbs><span></span></template>

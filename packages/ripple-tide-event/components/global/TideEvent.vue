@@ -1,6 +1,13 @@
 <template>
-  <TideBaseLayout :site="site" :background="page.background" :pageTitle="page.title" :pageDescription="page.description"
-    :pageLanguage="page.lang" :updatedDate="page.changed || page.created">
+  <TideBaseLayout
+    :site="site"
+    :page="page"
+    :siteSection="page.siteSection"
+    :background="page.background"
+    :pageTitle="page.title"
+    :pageLanguage="page.lang"
+    :updatedDate="page.changed || page.created"
+  >
     <template #aboveHeader>
       <slot name="aboveHeader"></slot>
     </template>
@@ -11,11 +18,20 @@
       <slot name="breadcrumbs"></slot>
     </template>
     <template #aboveBody="{ hasBreadcrumbs }">
-      <TideEventHeader :header="page.header" :hasBreadcrumbs="hasBreadcrumbs"></TideEventHeader>
+      <TideEventHeader
+        :header="page.header"
+        :hasBreadcrumbs="hasBreadcrumbs"
+      ></TideEventHeader>
     </template>
     <template #body>
-      <TideEventOverview :date="page.date" :showTime="page.showTime" :overview="page.overview" :details="page.details"
-        :link="page.link" :description="page.description"></TideEventOverview>
+      <TideEventOverview
+        :date="page.date"
+        :showTime="page.showTime"
+        :overview="page.overview"
+        :details="page.details"
+        :link="page.link"
+        :description="page.description"
+      ></TideEventOverview>
       <TideEventBody :body="page.body" :link="page.link"></TideEventBody>
     </template>
     <template #aboveSidebar>

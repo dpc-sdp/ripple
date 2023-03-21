@@ -87,30 +87,30 @@
 
 <script setup lang="ts">
 // @ts-ignore
-import { useHead, useSiteTheme, useAppConfig, useRoute } from '#imports'
+import { useSiteTheme, useAppConfig, useRoute } from '#imports'
 import { RplChip } from '#components'
 import { computed, onMounted, provide, ref } from 'vue'
 import { deepmerge } from 'deepmerge-ts'
 import { TideSiteData } from '../types'
 import { TideTopicTag } from '../mapping/topic-tags/topic-tags-mapping'
 import { TideSiteSection } from '@dpc-sdp/ripple-tide-api/types'
+import useTidePageMeta from '../composables/use-tide-page-meta'
 
 interface Props {
   site: TideSiteData
   background?: string
   pageTitle: string
   pageLanguage?: string
-  pageDescription?: string
   footerImageCaption?: string
   topicTags?: TideTopicTag[]
   updatedDate?: string | null
   siteSection: TideSiteSection | null
+  page: any
 }
 
 const props = withDefaults(defineProps<Props>(), {
   background: 'default',
   pageLanguage: 'en-AU',
-  pageDescription: '',
   footerImageCaption: '',
   topicTags: () => [],
   updatedDate: null,
@@ -142,21 +142,7 @@ const style = useSiteTheme(
   deepmerge(useAppConfig()?.ripple?.theme || {}, props.site?.theme || {})
 )
 
-useHead({
-  title: props.pageTitle,
-  htmlAttrs: {
-    lang: props.pageLanguage
-  },
-  style: style && [
-    {
-      children: `body { ${style} }`
-    }
-  ],
-  meta: [
-    {
-      name: 'description',
-      content: props.pageDescription
-    }
-  ]
-})
+if (props.page && props.page.meta) {
+  useTidePageMeta(props, style)
+}
 </script>

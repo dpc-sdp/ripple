@@ -11,6 +11,7 @@
     "
     :topicTags="page.showTopicTags ? page.topicTags : []"
     :updatedDate="page.changed || page.created"
+    :showContentRating="page.showContentRating"
   >
     <template #aboveHeader>
       <slot name="aboveHeader"></slot>

@@ -92,6 +92,7 @@ export interface TidePageBase {
     contacts?: TideContact[]
     relatedLinks?: any[]
   }
+  showContentRating: boolean
 }
 
 export interface IRplTideDynamicComponentMapping {

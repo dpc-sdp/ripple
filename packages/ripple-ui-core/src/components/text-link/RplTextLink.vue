@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { ref, Ref } from 'vue'
 import { rplEventBus } from '../../index'
 
 rplEventBus.register('rpl-text-link/click')
@@ -9,26 +8,22 @@ interface Props {
   text?: string
 }
 
-const props = defineProps<Props>()
+defineProps<Props>()
 
 const onClick = (payload?: any) => {
   rplEventBus.emit('rpl-text-link/click', payload)
 }
-
-const link: Ref = ref(null)
-
-defineExpose({ link })
 </script>
 
 <template>
-  <a
+  <RplLink
     ref="link"
     class="rpl-text-link rpl-u-focusable-inline"
-    :href="url"
+    :url="url"
     @click="onClick"
   >
     <slot>{{ text }}</slot>
-  </a>
+  </RplLink>
 </template>
 
 <style src="./RplTextLink.css" />

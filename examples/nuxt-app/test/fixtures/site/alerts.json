@@ -2,34 +2,10 @@
   "name": "vic.gov.au",
   "siteAlerts": [
     {
-      "alertId": "ALERT_1",
-      "variant": "information",
-      "iconName": "icon-information-circle-filled",
-      "message": "Demo alert title",
-      "linkText": "Test link",
-      "linkUrl": "/demo-link"
-    },
-    {
       "alertId": "ALERT_2",
       "variant": "error",
       "iconName": "icon-exclamation-circle-filled",
       "message": "Emergency title",
-      "linkText": "Test link",
-      "linkUrl": "/demo-link"
-    },
-    {
-      "alertId": "ALERT_3",
-      "variant": "information",
-      "iconName": "icon-traffic",
-      "message": "Traffic title",
-      "linkText": "Test link",
-      "linkUrl": "/demo-link"
-    },
-    {
-      "alertId": "ALERT_4",
-      "variant": "information",
-      "iconName": "icon-information-circle-filled",
-      "message": "Notification title",
       "linkText": "Test link",
       "linkUrl": "/demo-link"
     },
@@ -46,6 +22,14 @@
       "variant": "error",
       "iconName": "icon-medical",
       "message": "Medical title",
+      "linkText": "Test link",
+      "linkUrl": "/demo-link"
+    },
+    {
+      "alertId": "ALERT_10",
+      "variant": "error",
+      "iconName": "icon-flood",
+      "message": "Flood title",
       "linkText": "Test link",
       "linkUrl": "/demo-link"
     },
@@ -74,10 +58,26 @@
       "linkUrl": "/demo-link"
     },
     {
-      "alertId": "ALERT_10",
-      "variant": "error",
-      "iconName": "icon-flood",
-      "message": "Flood title",
+      "alertId": "ALERT_1",
+      "variant": "information",
+      "iconName": "icon-information-circle-filled",
+      "message": "Demo alert title",
+      "linkText": "Test link",
+      "linkUrl": "/demo-link"
+    },
+    {
+      "alertId": "ALERT_3",
+      "variant": "information",
+      "iconName": "icon-traffic",
+      "message": "Traffic title",
+      "linkText": "Test link",
+      "linkUrl": "/demo-link"
+    },
+    {
+      "alertId": "ALERT_4",
+      "variant": "information",
+      "iconName": "icon-information-circle-filled",
+      "message": "Notification title",
       "linkText": "Test link",
       "linkUrl": "/demo-link"
     }

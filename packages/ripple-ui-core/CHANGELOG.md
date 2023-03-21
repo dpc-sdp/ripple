@@ -3,6 +3,47 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.116](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.115...v2.1.0-alpha.116) (2023-03-17)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-ui-core
+
+# [2.1.0-alpha.115](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.114...v2.1.0-alpha.115) (2023-03-17)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** removed console log ([a74bb9c](https://github.com/dpc-sdp/ripple-framework/commit/a74bb9cf29a82235cdcf3ce9097950bd3c0aafa7))
+
+### Features
+
+* **nuxt-ripple:** added script to hide dismissed alerts to avoid content flash ([5868b61](https://github.com/dpc-sdp/ripple-framework/commit/5868b6139a217d25bc39151633ab60f8fb472eec))
+
+# [2.1.0-alpha.114](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.113...v2.1.0-alpha.114) (2023-03-16)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** allow click through on overflowing campaign images ([d44fe66](https://github.com/dpc-sdp/ripple-framework/commit/d44fe662006bcabd815e5d24453b300e56c1814e))
+* **@dpc-sdp/ripple-ui-core:** use percentages for new patterns ([7afa630](https://github.com/dpc-sdp/ripple-framework/commit/7afa630e6acad318d1b110d9e00811889ce0fb29))
+
+# [2.1.0-alpha.112](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.111...v2.1.0-alpha.112) (2023-03-15)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-api:** update doc plugin and testcontent ([165ee98](https://github.com/dpc-sdp/ripple-framework/commit/165ee98d206f063afd132cd81cc5e1b30e8360ca))
+* **@dpc-sdp/ripple-ui-core:** :bug: fixed expandle items still tabbable when closed ([4ad9116](https://github.com/dpc-sdp/ripple-framework/commit/4ad911679206b1c1cd889e3da2286f4e4cae36f7))
+* **@dpc-sdp/ripple-ui-core:** changed 'view transcript' to open in same window ([d208b2a](https://github.com/dpc-sdp/ripple-framework/commit/d208b2a345215f56d5a9c9fdaddc05e36bd040e2))
+* **@dpc-sdp/ripple-ui-core:** fixed expandable not animating if starting from open ([b519606](https://github.com/dpc-sdp/ripple-framework/commit/b51960672e18cd874a4a44c667d2227b516e94ff))
+* stopped all links are forcing a full refresh instead of using client side navigation ([a10760e](https://github.com/dpc-sdp/ripple-framework/commit/a10760e70513829fbd49dfd2ccaa41526f2277cd))
+
+# [2.1.0-alpha.111](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.110...v2.1.0-alpha.111) (2023-03-15)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-ui-core
+
+# [2.1.0-alpha.110](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.109...v2.1.0-alpha.110) (2023-03-14)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** make sure link text wraps ([c774acd](https://github.com/dpc-sdp/ripple-framework/commit/c774acdf47b5da9b4395f16a0ec101fe7992c1b1))
+
 # [2.1.0-alpha.109](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.108...v2.1.0-alpha.109) (2023-03-13)
 
 ### Bug Fixes

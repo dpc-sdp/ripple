@@ -74,7 +74,7 @@ onMounted(() => {
                   <RplContent>
                     <p>
                       If you need a response, please use our
-                      <a href="/contact-us">contact us form</a>.
+                      <RplLink href="/contact-us">contact us form</RplLink>.
                     </p>
                   </RplContent>
                   <FormKit type="RplFormActions" />

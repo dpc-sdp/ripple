@@ -82,6 +82,7 @@ export interface TidePageBase {
     contacts?: TideContact[]
     relatedLinks?: any[]
   }
+  [key: string]: unknown
 }
 
 export type TideDynamicPageComponent<T> = {

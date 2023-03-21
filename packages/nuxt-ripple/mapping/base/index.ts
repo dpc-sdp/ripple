@@ -82,6 +82,7 @@ export const tidePageBaseMapping = ({
       }
     },
     ...TidePageMeta,
+    showContentRating: 'field_show_content_rating',
     _src: (src: any) =>
       process.env.NODE_ENV === 'development' ? src : undefined
   }

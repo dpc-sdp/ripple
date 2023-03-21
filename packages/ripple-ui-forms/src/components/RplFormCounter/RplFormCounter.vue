@@ -25,12 +25,13 @@ const counterMessage = computed(() => {
   if (value && props.type === 'word') {
     length = value.trim().split(/\s+/).length
   }
-  if (props.counterMin && length < props.counterMin) {
-    const count = props.counterMin - length
-    return props.invalid
-      ? `You have ${count} ${props.type}${pluralize(count)} too little`
-      : `You have ${count} ${props.type}${pluralize(count)} remaining`
+
+  if (props.invalid && props.counterMin && length < props.counterMin) {
+    return `You have ${props.counterMin - length} ${props.type}${pluralize(
+      props.counterMin - length
+    )} too little`
   }
+
   if (props.counterMax && length > props.counterMax) {
     const count = length - props.counterMax
     return `You have ${count} ${props.type}${pluralize(count)} too many`

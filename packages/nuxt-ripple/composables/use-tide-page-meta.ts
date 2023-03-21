@@ -1,4 +1,5 @@
 import { useHead, useSeoMeta } from '#imports'
+import hideAlertsOnLoadScript from '../utils/hideAlertsOnLoadScript.js'
 
 const metaProperty = (str: string) => {
   const p = str.split(':')
@@ -29,7 +30,12 @@ export default async (props: any, style: any) => {
         children: `body { ${style} }`
       }
     ],
-    link: links
+    link: links,
+    script: [
+      {
+        innerHTML: hideAlertsOnLoadScript
+      }
+    ]
   })
 
   // Override API values with metatag

@@ -34,7 +34,7 @@
     <path d="M2262.91,473.59l-453.09,958.24H2716Z" style="fill:#c3c3c3;" />
     <path d="M1809.82,2390.07H903.63l453.09,958.24Z" style="mix-blend-mode:overlay;fill:#989898;" />
     <path d="M223.93-5.53H-229.16L-2.62,473.59Z" style="fill:#454545;" />
-    <path d="M450.53,473.59H-2.56L224,952.71Z" style="fill:#757575;mix-blend-mode:overlay;" />
+    <path d="M450.53,473.59H-2.56L224,952.71Z" style="fill:#c3c3c3;mix-blend-mode:overlay;" />
     <path d="M903.63,473.59H450.53L677.08,952.71Z" style="fill:#bababa;mix-blend-mode:screen;" />
     <path d="M677.08,953.5H224l226.54,479.12Z" style="fill:#bababa;mix-blend-mode:screen;" />
     <path d="M903.63,1431.83H450.53L677.08,1911Z" style="fill:silver;" />

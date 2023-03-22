@@ -2,6 +2,7 @@
 import RplTextLink from '../text-link/RplTextLink.vue'
 import RplImage from '../image/RplImage.vue'
 import { formatDateRange } from '../../lib/helpers'
+import { IRplImageType } from '../image/constants'
 
 interface Props {
   title?: string | null
@@ -9,7 +10,7 @@ interface Props {
 }
 
 interface IRplTimelineItem {
-  image: string
+  image?: IRplImageType
   title: string
   subtitle: string
   dateStart: string
@@ -56,7 +57,7 @@ const classes = (item: IRplTimelineItem, index: number) => {
     <h2 v-if="title" class="rpl-type-h2-fixed rpl-timeline__heading">
       {{ title }}
     </h2>
-    <ul v-if="items.length > 1" class="rpl-timeline__items rpl-type-p">
+    <ul v-if="items.length > 0" class="rpl-timeline__items rpl-type-p">
       <li
         v-for="(item, index) of items"
         :key="index"
@@ -64,9 +65,8 @@ const classes = (item: IRplTimelineItem, index: number) => {
       >
         <RplImage
           v-if="item.image"
+          v-bind="item.image"
           ref="image"
-          :src="item.image"
-          alt=""
           class="rpl-timeline__item-image"
           circle
         />

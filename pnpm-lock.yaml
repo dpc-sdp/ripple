@@ -247,6 +247,7 @@ importers:
       '@dpc-sdp/ripple-tide-api': workspace:*
       '@dpc-sdp/ripple-ui-core': workspace:*
       '@dpc-sdp/ripple-ui-forms': workspace:*
+      '@nuxtjs/robots': ^3.0.0
       '@vueuse/core': ^9.12.0
       change-case: ^4.1.2
       deepmerge-ts: ^4.3.0
@@ -254,6 +255,7 @@ importers:
       '@dpc-sdp/ripple-tide-api': link:../ripple-tide-api
       '@dpc-sdp/ripple-ui-core': link:../ripple-ui-core
       '@dpc-sdp/ripple-ui-forms': link:../ripple-ui-forms
+      '@nuxtjs/robots': 3.0.0
       '@vueuse/core': 9.12.0_vue@3.2.47
       change-case: 4.1.2
       deepmerge-ts: 4.3.0
@@ -555,6 +557,7 @@ importers:
       '@formkit/validation': 1.0.0-beta.15
       '@formkit/vue': 1.0.0-beta.15
       '@nuxt/kit': 3.1.2
+      '@types/node': ^18.13.0
       '@vitejs/plugin-vue': ^4.0.0
       '@vueuse/core': ^9.12.0
       babel-loader: ^9.1.2
@@ -578,6 +581,7 @@ importers:
       date-fns: 2.29.3
     devDependencies:
       '@babel/core': 7.20.12
+      '@types/node': 18.13.0
       '@vitejs/plugin-vue': 4.0.0_vite@4.1.1+vue@3.2.47
       babel-loader: 9.1.2_la66t7xldg4uecmyawueag5wkm
       pathe: 1.1.0
@@ -5199,6 +5203,16 @@ packages:
       - rollup
       - supports-color
     dev: true
+
+  /@nuxtjs/robots/3.0.0:
+    resolution: {integrity: sha512-qsHGW1KXBvV5Kq7u3huPnFCUTbHS4Fk8Za2mNPgmUXcwLgp3exvhPtdZfIdjrCF/aZk3A8OZONNmGghs6CecBA==}
+    dependencies:
+      '@nuxt/kit': 3.1.2
+      h3: 1.2.1
+    transitivePeerDependencies:
+      - rollup
+      - supports-color
+    dev: false
 
   /@nuxtjs/tailwindcss/6.3.1_webpack@5.75.0:
     resolution: {integrity: sha512-UH8GwAGPty+OFiaIQeNIWdSOOqS7pThqN11RmRjigi5xBOVg2LpO0HtrOhcKn7v9+IwuXPWK67m067lNB4HITQ==}
@@ -9869,7 +9883,7 @@ packages:
       '@babel/core': 7.20.12
       find-cache-dir: 3.3.2
       schema-utils: 4.0.0
-      webpack: 5.75.0_esbuild@0.16.17
+      webpack: 5.75.0
     dev: true
 
   /babel-messages/6.23.0:

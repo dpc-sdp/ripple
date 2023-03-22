@@ -59,14 +59,17 @@ const tideEventModule: IRplTideModuleMapping = {
         },
         {
           term: 'Location:',
-          description: getAddress(node.field_paragraph_location)
+          description: node.field_paragraph_location
+            ? getAddress(node.field_paragraph_location)
+            : ''
         }
       ])[0],
     details: (src: string) =>
       getField(src, 'field_event_details[0].field_event_requirements').map(
         (node: any) => node.name
       ),
-    description: 'field_event_description.processed',
+    description: (src: string) =>
+      getBodyFromField(src, 'field_event_description'),
     body: (src: string) => getBodyFromField(src, 'body'),
     link: (src: string) =>
       getLinkFromField(src, 'field_event_details[0].field_paragraph_link'),

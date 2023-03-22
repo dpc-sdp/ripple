@@ -1,7 +1,7 @@
 {
   "name": "@dpc-sdp/ripple-ui-forms",
   "packageManager": "pnpm@7.23.0",
-  "version": "2.1.0-alpha.101",
+  "version": "2.1.0-alpha.120",
   "license": "Apache-2.0",
   "main": "./dist/rpl-forms.umd.js",
   "module": "./dist/rpl-forms.es.js",
@@ -24,6 +24,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.20.12",
+    "@types/node": "^18.13.0",
     "@vitejs/plugin-vue": "^4.0.0",
     "babel-loader": "^9.1.2",
     "pathe": "^1.1.0",

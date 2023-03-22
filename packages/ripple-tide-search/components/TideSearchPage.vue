@@ -53,7 +53,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 const route = useRoute()
 const { public: config } = useRuntimeConfig()
-const siteId = config.tide?.contentApi.site
+const siteId = config.tide?.site
 
 const { data: site } = useFetch('/api/tide/site', {
   baseURL: config.API_URL || '',

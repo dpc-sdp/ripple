@@ -3,6 +3,153 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.120](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.119...v2.1.0-alpha.120) (2023-03-21)
+
+### Features
+
+* **@dpc-sdp/ripple-ui-core:** design tweaks for pattern gradient ([d1e38de](https://github.com/dpc-sdp/ripple-framework/commit/d1e38de4d52802e67e5c8e065e22d0459ef599b4))
+
+# [2.1.0-alpha.119](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.118...v2.1.0-alpha.119) (2023-03-21)
+
+### Bug Fixes
+
+* **@dpc-sdp/nuxt-ripple:** loosened alerts script guid regex requirements ([ee9dd50](https://github.com/dpc-sdp/ripple-framework/commit/ee9dd5057f1a3adb1a4110f743466d593d6265f5))
+
+# [2.1.0-alpha.118](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.117...v2.1.0-alpha.118) (2023-03-20)
+
+### Features
+
+* **@dpc-sdp/nuxt-ripple:** :zap: adds client side cacheing of API requests ([ac12f88](https://github.com/dpc-sdp/ripple-framework/commit/ac12f882accbd2580c617c2f00ca4f33dac1647f))
+
+### Reverts
+
+* **@dpc-sdp/nuxt-ripple:** :art: revert formatting change ([4f36ab8](https://github.com/dpc-sdp/ripple-framework/commit/4f36ab8a5fbd52bc0b4421b9fd3e4c3712006a39))
+* **@dpc-sdp/ripple-tide-publication:** :rewind: revert formatting change ([f2d1bbe](https://github.com/dpc-sdp/ripple-framework/commit/f2d1bbea9c29efe12ee11a97ef056fc70d6ae096))
+
+# [2.1.0-alpha.117](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.116...v2.1.0-alpha.117) (2023-03-20)
+
+### Bug Fixes
+
+* **nuxt-ripple:** moved alert script to base layout and fixed regex issue ([ecf4d2d](https://github.com/dpc-sdp/ripple-framework/commit/ecf4d2da5601f118d8653c57f97cbc9af4ab3acd))
+
+# [2.1.0-alpha.116](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.115...v2.1.0-alpha.116) (2023-03-17)
+
+### Bug Fixes
+
+* **@dpc-sdp/nuxt-ripple:** fixed content rating still showing when turned off in cms ([8a5c595](https://github.com/dpc-sdp/ripple-framework/commit/8a5c595bf8700f2c8d8415207c75036a8c76e533))
+* **@dpc-sdp/ripple-tide-event:** fixed event page crashing when event has no location ([885742b](https://github.com/dpc-sdp/ripple-framework/commit/885742b870c5f8be0fdabbbdf0ec54449e3a94e1))
+* **@dpc-sdp/ripple-tide-grant:** fixed audience not appearing when funding was blank ([aa8e676](https://github.com/dpc-sdp/ripple-framework/commit/aa8e6765875ba9bac287a21f8eef273bf180d4b3))
+* **@dpc-sdp/ripple-tide-grant:** updated order of grant details to match designs ([9363281](https://github.com/dpc-sdp/ripple-framework/commit/9363281e3562e7a7a12b221f909df54bd7d4505a))
+
+# [2.1.0-alpha.115](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.114...v2.1.0-alpha.115) (2023-03-17)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** removed console log ([a74bb9c](https://github.com/dpc-sdp/ripple-framework/commit/a74bb9cf29a82235cdcf3ce9097950bd3c0aafa7))
+* fixed alerts script failing when no cookie present ([223207e](https://github.com/dpc-sdp/ripple-framework/commit/223207e6d22593079fd7bd13c44c8137fbfebfe4))
+
+### Features
+
+* **nuxt-ripple:** added script to hide dismissed alerts to avoid content flash ([5868b61](https://github.com/dpc-sdp/ripple-framework/commit/5868b6139a217d25bc39151633ab60f8fb472eec))
+* **nuxt-ripple:** move alerts script to inline rather than external script ([92b5152](https://github.com/dpc-sdp/ripple-framework/commit/92b51521e1e79a94741b8f8286b3e4cf68975f70))
+
+# [2.1.0-alpha.114](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.113...v2.1.0-alpha.114) (2023-03-16)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** allow click through on overflowing campaign images ([d44fe66](https://github.com/dpc-sdp/ripple-framework/commit/d44fe662006bcabd815e5d24453b300e56c1814e))
+* **@dpc-sdp/ripple-ui-core:** use percentages for new patterns ([7afa630](https://github.com/dpc-sdp/ripple-framework/commit/7afa630e6acad318d1b110d9e00811889ce0fb29))
+* **@dpc-sdp/ripple-ui-forms:** fixed label form input not having conditional logic ([ab40e05](https://github.com/dpc-sdp/ripple-framework/commit/ab40e059ed3b881a50612531f202cd7d29f5b513))
+
+# [2.1.0-alpha.113](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.112...v2.1.0-alpha.113) (2023-03-16)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-forms:** tidied up word counter messaging ([b6c8c46](https://github.com/dpc-sdp/ripple-framework/commit/b6c8c4659d97bc32da1613d0d9515839f077d2ad))
+
+# [2.1.0-alpha.112](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.111...v2.1.0-alpha.112) (2023-03-15)
+
+### Bug Fixes
+
+* **@dpc-sdp/nuxt-ripple:** remove prod check as it fails lighthouse and it's behind BA ([2b9bf83](https://github.com/dpc-sdp/ripple-framework/commit/2b9bf838f0ba818709745c039d5af45b342ba4e6))
+* **@dpc-sdp/ripple-tide-api:** update doc plugin and testcontent ([165ee98](https://github.com/dpc-sdp/ripple-framework/commit/165ee98d206f063afd132cd81cc5e1b30e8360ca))
+* **@dpc-sdp/ripple-tide-landing-page:** :bug: add missing includes for card carousel ([64f5ae0](https://github.com/dpc-sdp/ripple-framework/commit/64f5ae013deeeba9941d799b87d151377a1291c8))
+* **@dpc-sdp/ripple-ui-core:** :bug: fixed expandle items still tabbable when closed ([4ad9116](https://github.com/dpc-sdp/ripple-framework/commit/4ad911679206b1c1cd889e3da2286f4e4cae36f7))
+* **@dpc-sdp/ripple-ui-core:** changed 'view transcript' to open in same window ([d208b2a](https://github.com/dpc-sdp/ripple-framework/commit/d208b2a345215f56d5a9c9fdaddc05e36bd040e2))
+* **@dpc-sdp/ripple-ui-core:** fixed expandable not animating if starting from open ([b519606](https://github.com/dpc-sdp/ripple-framework/commit/b51960672e18cd874a4a44c667d2227b516e94ff))
+* **@dpc-sdp/ripple-ui-forms:** fixed word count validator not handling puncuation correctly ([17d8dcd](https://github.com/dpc-sdp/ripple-framework/commit/17d8dcde3362c51647039d009a2ef7d2c99f5fc3))
+* **nuxt-ripple:** removed unused proptypes ([a167052](https://github.com/dpc-sdp/ripple-framework/commit/a167052ae8230bf285fdb69cbaccd3654ea7acb3))
+* stopped all links are forcing a full refresh instead of using client side navigation ([a10760e](https://github.com/dpc-sdp/ripple-framework/commit/a10760e70513829fbd49dfd2ccaa41526f2277cd))
+
+### Features
+
+* **@dpc-sdp/nuxt-ripple:** adding support for robots.txt ([5049ed6](https://github.com/dpc-sdp/ripple-framework/commit/5049ed633c67a35112e2b9f5335c1c686cfa8f9e))
+* **@dpc-sdp/nuxt-ripple:** export default robots ([c35b5d9](https://github.com/dpc-sdp/ripple-framework/commit/c35b5d9acf2061656072108fac3244c2988b7f5b))
+
+# [2.1.0-alpha.111](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.110...v2.1.0-alpha.111) (2023-03-15)
+
+### Bug Fixes
+
+* **@dpc-sdp/nuxt-ripple:** fix topics and tags touching ([82280bc](https://github.com/dpc-sdp/ripple-framework/commit/82280bc32638c1e058f44faade8d1d3f7ebf0bd6))
+* **@dpc-sdp/ripple-tide-api:** add alternate class to callout plugin ([29a9467](https://github.com/dpc-sdp/ripple-framework/commit/29a94673b7eb6643b8bbadd81d150ad5fd2cf234))
+* **@dpc-sdp/ripple-tide-event:** run event description wysiwyg through markup plugins ([f9771b2](https://github.com/dpc-sdp/ripple-framework/commit/f9771b212918b70a4b40dc3d085e453b4cb6e337))
+* **@dpc-sdp/ripple-tide-grant:** run grant description wysiwyg through markup plugins ([cdb1399](https://github.com/dpc-sdp/ripple-framework/commit/cdb1399d0b61cf14e4163d4583fb9ddb157a8cb7))
+
+# [2.1.0-alpha.110](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.109...v2.1.0-alpha.110) (2023-03-14)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** make sure link text wraps ([c774acd](https://github.com/dpc-sdp/ripple-framework/commit/c774acdf47b5da9b4395f16a0ec101fe7992c1b1))
+
+# [2.1.0-alpha.109](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.108...v2.1.0-alpha.109) (2023-03-13)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** fix modal height for mobile and gallery image sizing for safari ([032ef9e](https://github.com/dpc-sdp/ripple-framework/commit/032ef9ed8ccfa40293751566af167bdbc1f14be9))
+
+# [2.1.0-alpha.108](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.107...v2.1.0-alpha.108) (2023-03-10)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-grant:** check for timeline title ([0a71ba6](https://github.com/dpc-sdp/ripple-framework/commit/0a71ba64187f2f4046758ba973a2fb5b2116e56a))
+* **@dpc-sdp/ripple-ui-core:** alt text support for timeline, update RplImageType instances ([945e21b](https://github.com/dpc-sdp/ripple-framework/commit/945e21bb2c53ad4fec37358900c49348712c40ae))
+* **@dpc-sdp/ripple-ui-core:** fix docs not opening via keyboard ([27195b6](https://github.com/dpc-sdp/ripple-framework/commit/27195b6dabb48c41d14ef205137718c91a0aa5be))
+* **@dpc-sdp/ripple-ui-core:** timeline notch fixes ([73cb8c3](https://github.com/dpc-sdp/ripple-framework/commit/73cb8c3f1a98dec1f0ddabef6bcc5a01181ea13a))
+
+# [2.1.0-alpha.107](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.106...v2.1.0-alpha.107) (2023-03-10)
+
+### Features
+
+* **@dpc-sdp/ripple-tide-api:** add embedded video markup plugin ([1c69913](https://github.com/dpc-sdp/ripple-framework/commit/1c69913b821210b4008bea85bad93a73afb6801c))
+* **@dpc-sdp/ripple-ui-core:** move icon-view to core (i.e. sprite), add embed content spacing ([f1e00e6](https://github.com/dpc-sdp/ripple-framework/commit/f1e00e6c2e306eb5d3fb919eb4b6177d9315b5fa))
+
+# [2.1.0-alpha.106](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.105...v2.1.0-alpha.106) (2023-03-10)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** allow a single timeline element to be displayed ([8e08693](https://github.com/dpc-sdp/ripple-framework/commit/8e0869331a87026dc44f91661511cfe5d305e9e8))
+
+# [2.1.0-alpha.105](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.104...v2.1.0-alpha.105) (2023-03-10)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-landing-page:** :bug: fixed missing call to action mapping ([ead531b](https://github.com/dpc-sdp/ripple-framework/commit/ead531bea2df5087eeee84e496d0a08e3623c564))
+
+# [2.1.0-alpha.104](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.103...v2.1.0-alpha.104) (2023-03-10)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-forms:** :bug: fixed multiple conditional form logic issues ([be247b4](https://github.com/dpc-sdp/ripple-framework/commit/be247b4c014b1af2ca2d1ad65878d84113feabb6))
+* **@dpc-sdp/ripple-ui-forms:** :bug: removed formkit error message from bottom of form ([63d79d1](https://github.com/dpc-sdp/ripple-framework/commit/63d79d17e964d9649381c097c246b757180f9183))
+* **@dpc-sdp/ripple-ui-forms:** added validation for URL inputs to match backend validation ([2aeb55e](https://github.com/dpc-sdp/ripple-framework/commit/2aeb55ed9b0621e6b31f5498b662c7bea9372e03))
+
+# [2.1.0-alpha.103](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.102...v2.1.0-alpha.103) (2023-03-09)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-publication:** fixed stats grid breaking pub parent ([2680eca](https://github.com/dpc-sdp/ripple-framework/commit/2680eca38a0357b26750adcc9b647c60701362ec))
+* **@dpc-sdp/ripple-tide-publication:** replaced custom card with nav card ([faa33be](https://github.com/dpc-sdp/ripple-framework/commit/faa33be57636c99b1694bb4600ae98807a0ffbd9))
+
 # [2.1.0-alpha.102](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.101...v2.1.0-alpha.102) (2023-03-08)
 
 **Note:** Version bump only for package @dpc-sdp/ripple-monorepo

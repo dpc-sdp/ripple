@@ -93,6 +93,7 @@ export interface TidePageBase {
     contacts?: TideContact[]
     relatedLinks?: any[]
   }
+  showContentRating: boolean
 }
 
 export interface IRplTideDynamicComponentMapping {
@@ -140,18 +141,18 @@ export interface RplTideModuleMappingConfig {
 }
 
 export interface RplTideModuleConfig {
+  /**
+   * Site taxonomy id or name
+   */
+  site: string
+  /**
+   * URL of Tide Content Repository
+   */
+  baseUrl: string
+  /**
+   * Basic Auth credentials
+   */
   config: {
-    /**
-     * Site taxonomy id or name
-     */
-    site: string
-    /**
-     * URL of Tide Content Repository
-     */
-    baseUrl: string
-    /**
-     * Basic Auth credentials
-     */
     auth?: {
       username: string
       password: string

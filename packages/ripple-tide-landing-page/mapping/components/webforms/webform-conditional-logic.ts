@@ -95,7 +95,7 @@ const normaliseRule = (rulesObject): NormalisedRule => {
 const getFormkitLogicForOperand = (operand: Operand): string => {
   switch (operand.triggerType) {
     case 'empty':
-      return `$get(${operand.fieldName}).value === '' || $get(${operand.fieldName}).value === null`
+      return `$negate($isFilled($get(${operand.fieldName}).value))`
     case 'filled':
       return `$isFilled($get(${operand.fieldName}).value)`
     case 'checked':
@@ -104,7 +104,7 @@ const getFormkitLogicForOperand = (operand: Operand): string => {
       return `$negate($isChecked($get(${operand.fieldName}).value))`
     case 'value':
       if (typeof operand.triggerValue === 'string') {
-        return `$isEqual($get(${operand.fieldName}).value, ${operand.triggerValue})`
+        return `$isEqual($get(${operand.fieldName}).value, "${operand.triggerValue}")`
       } else if (operand.triggerValue['pattern']) {
         return `$isPatternMatch($get(${operand.fieldName}).value, "${operand.triggerValue['pattern']}")`
       } else if (operand.triggerValue['!pattern']) {

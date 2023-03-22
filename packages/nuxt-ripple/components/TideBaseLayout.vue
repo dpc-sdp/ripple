@@ -36,23 +36,16 @@
     </template>
     <template #body="{ hasSidebar }">
       <slot name="body" :hasSidebar="hasSidebar"></slot>
-      <div
+      <TideTopicTags
         v-if="!featureFlags?.disableTopicTags && topicTags.length"
-        data-cy="topic-tags"
-        class="rpl-u-margin-t-6"
-      >
-        <RplChip
-          v-for="tag in topicTags"
-          :key="tag.url"
-          :label="tag.text"
-          :url="tag.url"
-        />
-      </div>
+        :items="topicTags"
+      />
       <TideUpdatedDate v-if="updatedDate" :date="updatedDate" />
     </template>
     <template #belowBody>
       <slot name="belowBody"></slot>
       <TideContentRating
+        v-if="showContentRating"
         :siteSectionName="siteSection ? siteSection.name : ''"
       />
     </template>
@@ -88,12 +81,12 @@
 <script setup lang="ts">
 // @ts-ignore
 import { useHead, useSiteTheme, useAppConfig, useRoute } from '#imports'
-import { RplChip } from '#components'
 import { computed, onMounted, provide, ref } from 'vue'
 import { deepmerge } from 'deepmerge-ts'
 import { TideSiteData } from '../types'
-import { TideTopicTag } from '../mapping/topic-tags/topic-tags-mapping'
+import { TideTopicTag } from '../mapping/base/topic-tags/topic-tags-mapping'
 import { TideSiteSection } from '@dpc-sdp/ripple-tide-api/types'
+import hideAlertsOnLoadScript from '../utils/hideAlertsOnLoadScript.js'
 
 interface Props {
   site: TideSiteData
@@ -105,6 +98,7 @@ interface Props {
   topicTags?: TideTopicTag[]
   updatedDate?: string | null
   siteSection: TideSiteSection | null
+  showContentRating: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -114,7 +108,8 @@ const props = withDefaults(defineProps<Props>(), {
   footerImageCaption: '',
   topicTags: () => [],
   updatedDate: null,
-  siteSection: null
+  siteSection: null,
+  showContentRating: false
 })
 
 // Feature flags will be available on component instances with inject('featureFlags') - See https://vuejs.org/guide/components/provide-inject.html#inject
@@ -156,6 +151,11 @@ useHead({
     {
       name: 'description',
       content: props.pageDescription
+    }
+  ],
+  script: [
+    {
+      innerHTML: hideAlertsOnLoadScript
     }
   ]
 })

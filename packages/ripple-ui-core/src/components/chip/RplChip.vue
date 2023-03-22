@@ -22,12 +22,13 @@ const onClick = (payload?: any) => {
 </script>
 
 <template>
-  <a
+  <RplLink
     :class="`rpl-chip rpl-chip--${variant} rpl-type-label rpl-u-focusable-block rpl-u-screen-only`"
-    :href="url"
+    :url="url"
     @click="onClick()"
-    >{{ label }}</a
   >
+    {{ label }}
+  </RplLink>
 </template>
 
 <style src="./RplChip.css" />

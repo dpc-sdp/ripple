@@ -13,8 +13,8 @@ withDefaults(defineProps<Props>(), {
 </script>
 
 <template>
-  <a
-    :href="href"
+  <RplLink
+    :url="href"
     :class="{
       'rpl-vertical-nav__item': true,
       'rpl-vertical-nav__item--active': active,
@@ -24,5 +24,5 @@ withDefaults(defineProps<Props>(), {
   >
     <span v-if="showChildIcon" class="rpl-icon--child"></span>
     <span>{{ text }}</span>
-  </a>
+  </RplLink>
 </template>

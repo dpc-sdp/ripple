@@ -107,7 +107,7 @@ describe('getConditionals', () => {
       }
 
       const expected = {
-        required: "$get(input_a).value === '' || $get(input_a).value === null"
+        required: '$negate($isFilled($get(input_a).value))'
       }
 
       expect(getConditionals(input)).toEqual(expected)
@@ -179,7 +179,7 @@ describe('getConditionals', () => {
       }
 
       const expected = {
-        required: '$isEqual($get(input_a).value, abc)'
+        required: '$isEqual($get(input_a).value, "abc")'
       }
 
       expect(getConditionals(input)).toEqual(expected)
@@ -293,7 +293,7 @@ describe('getConditionals', () => {
 
       const expected = {
         required:
-          '$isChecked($get(input_a).value) && $isEqual($get(input_b).value, abc)'
+          '$isChecked($get(input_a).value) && $isEqual($get(input_b).value, "abc")'
       }
 
       expect(getConditionals(input)).toEqual(expected)
@@ -320,7 +320,7 @@ describe('getConditionals', () => {
 
       const expected = {
         required:
-          '$isChecked($get(input_a).value) || $isEqual($get(input_b).value, abc)'
+          '$isChecked($get(input_a).value) || $isEqual($get(input_b).value, "abc")'
       }
 
       expect(getConditionals(input)).toEqual(expected)
@@ -347,7 +347,7 @@ describe('getConditionals', () => {
 
       const expected = {
         required:
-          '$xor($isChecked($get(input_a).value), $isEqual($get(input_b).value, abc))'
+          '$xor($isChecked($get(input_a).value), $isEqual($get(input_b).value, "abc"))'
       }
 
       expect(getConditionals(input)).toEqual(expected)

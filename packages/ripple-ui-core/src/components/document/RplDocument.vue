@@ -16,8 +16,7 @@ const isExternal = computed(() => isExternalLink(props.url))
     :class="{ 'rpl-document': true, 'rpl-document--centered': !$slots.info }"
   >
     <a
-      tabindex="-1"
-      class="rpl-document__link"
+      class="rpl-document__link rpl-u-focusable-within"
       :href="url"
       :download="isExternal ? null : ''"
       :target="isExternal ? '_blank' : null"
@@ -29,7 +28,6 @@ const isExternal = computed(() => isExternalLink(props.url))
         <div
           v-if="$slots.name"
           class="rpl-document__name rpl-type-p rpl-type-weight-bold rpl-u-focusable-inline"
-          tabindex="0"
         >
           <slot name="name"></slot>
         </div>

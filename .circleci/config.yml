@@ -88,82 +88,6 @@ jobs:
       - store_artifacts:
           path: examples/reference/test/integration/screenshots
 
-
-
-  reference-integration:
-    # Integration tests confirm FE components are working correctly without testing BE
-    <<: *defaults
-    executor: cypress
-    parallelism: 2
-    steps:
-      - attach_workspace:
-          at: ~/app
-      - restore_cache:
-          keys:
-            - v10-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
-      - run:
-          name: run full integration test
-          command: yarn reference:integration
-      - store_artifacts:
-          path: test-results
-      - store_test_results:
-          path: test-results
-      - store_artifacts:
-          path: examples/reference/test/integration/videos
-      - store_artifacts:
-          path: examples/reference/test/integration/screenshots
-
-
-  integration-example:
-    # This runs the full suite of integration tests on example nuxt tide app
-    <<: *defaults
-    executor: cypress
-    steps:
-      - attach_workspace:
-          at: ~/app
-      - restore_cache:
-          keys:
-            - v10-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
-      - run:
-          name: build example nuxt app
-          command: cd examples/basic-examples && yarn build:default
-      - run:
-          name: run full integration test
-          command: yarn test:integration-example
-      - store_test_results:
-          path: test-results
-      - store_artifacts:
-          path: test-results
-      - store_artifacts:
-          path: examples/basic-examples/test/integration/videos
-      - store_artifacts:
-          path: examples/basic-examples/test/integration/screenshots
-
-  integration-vue-example-app:
-  # This runs the full suite of integration tests on example vue example app
-    <<: *defaults
-    executor: cypress
-    steps:
-      - attach_workspace:
-          at: ~/app
-      - restore_cache:
-          keys:
-            - v10-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
-      - run:
-          name: build example nuxt app
-          command: cd examples/vue-example-app && yarn build
-      - run:
-          name: run smoke test
-          command: cd examples/vue-example-app && yarn test:smoke
-      - store_test_results:
-          path: test-results
-      - store_artifacts:
-          path: test-results
-      - store_artifacts:
-          path: examples/vue-example-app/test/integration/videos
-      - store_artifacts:
-          path: examples/vue-example-app/test/integration/screenshots
-
   storybook:
     <<: *defaults
     executor: default
@@ -266,21 +190,6 @@ workflows:
           context: Ripple
           requires:
             - build
-      # Run regression tests on release branches
-      - reference-integration:
-          requires:
-            - build
-          filters:
-            branches:
-              only:
-                - /^release\/.*/
-      # - integration-vue-example-app:
-      #     requires:
-      #       - build
-      #     filters:
-      #       branches:
-      #         only:
-      #           - /^release\/.*/
 
   # Builds modules, verifies code with the linter, runs unit tests, and
   # publishes the built packages to NPM.

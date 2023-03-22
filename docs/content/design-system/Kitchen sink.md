@@ -417,6 +417,46 @@ You can wrap `DocsExample` components with a `DocsThemeChooser` component. This 
   ::
 ::
 
+### DocsImageExample
+
+The `DocsImageExample` will display an image in a way this is visually similar to the component examples, you will need to give it the url (src) of the image, the alt text (alt) and an optional caption.
+
+```md
+::DocsImageExample
+---
+src: /assets/img/InlineLink-Focus.png
+alt: An example of focus state colour contrast
+---
+Here's the **rich** text `caption`
+::
+```
+
+::DocsImageExample
+---
+src: /assets/img/InlineLink-Focus.png
+alt: An example of focus state colour contrast
+---
+Here's the **rich** text `caption`
+::
+
+Example without caption:
+
+```md
+::DocsImageExample
+---
+src: /assets/img/InlineLink-Focus.png
+alt: An example of focus state colour contrast
+---
+::
+```
+
+::DocsImageExample
+---
+src: /assets/img/InlineLink-Focus.png
+alt: An example of focus state colour contrast
+---
+::
+
 ### DocsCard && DocsCardGrid
 
 Cards can also be added. Ensure that you wrap them with DocsCardGrid so that they are layout out correctly. DocsCard use the 'promo' type card under the hood.

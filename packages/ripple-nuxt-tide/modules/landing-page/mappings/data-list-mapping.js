@@ -36,6 +36,10 @@ export const requestMapping = params => {
         fields: params.fields
       }
     }
+
+    if (params?.fuzziness) {
+      search.must.multi_match.fuzziness = params.fuzziness
+    }
   }
 
   if (params?.filters) {

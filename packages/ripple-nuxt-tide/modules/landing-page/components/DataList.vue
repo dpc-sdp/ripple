@@ -113,6 +113,7 @@ export default {
     },
     searchField: String,
     queryFields: Array,
+    fuzziness: String,
     aggregationFields: Array,
     sortOptions: {
       type: Array,
@@ -188,6 +189,7 @@ export default {
         model: this.searchForm.model,
         searchField: this.searchField,
         queryFields: this.queryFields,
+        fuzziness: this.fuzziness,
         aggregationFields: !this.aggs ? this.aggregationFields : null
       })
 

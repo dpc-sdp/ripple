@@ -13,12 +13,14 @@ export const getQueryParams = (data = {}) => {
     model = {},
     searchField = null,
     queryFields = [],
+    fuzziness = 'AUTO',
     aggregationFields = []
   } = data
 
   let params = {
     page: currentPage,
-    limit: perPage
+    limit: perPage,
+    fuzziness
   }
 
   if (searchField && model?.[searchField]) {

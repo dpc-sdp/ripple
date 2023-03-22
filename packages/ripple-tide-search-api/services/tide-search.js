@@ -65,6 +65,10 @@ export default class SearchApi {
     }
   }
 
+  getIndex (reqHeaders) {
+    return reqHeaders?.['tide-api-search-index'] || this.index
+  }
+
   async mapResults (res, templateName = null) {
     const totalhits = res.hits.total.hasOwnProperty('value') ? res.hits.total.value : res.hits.total
     const returnData = {
@@ -82,7 +86,7 @@ export default class SearchApi {
             if (template.responseMapping.constructor.name === 'AsyncFunction') {
               result = await template.responseMapping(hit)
             } else if (typeof template.responseMapping === 'function') {
-              result = template.responseMapping(hit)
+              result = template.responseMapping(hit, result)
             } else if (typeof template.responseMapping === 'object') {
               result = await responseMappingByType(template.responseMapping, hit)
             }
@@ -110,6 +114,8 @@ export default class SearchApi {
   }
 
   async searchByTemplate (template, params, reqHeaders = {}, isDev) {
+    const searchIndex = this.getIndex(reqHeaders)
+
     try {
       const headers = this.getHeaders(reqHeaders)
       const reqConfig = {
@@ -119,7 +125,7 @@ export default class SearchApi {
 
       if (this.templates.hasOwnProperty(template)) {
         const searchQuery = await this.getQuery(template, params)
-        const { body, statusCode } = await this.search(searchQuery, reqConfig)
+        const { body, statusCode } = await this.search(searchQuery, reqConfig, searchIndex)
 
         if (body && statusCode === 200) {
           const results = await this.mapResults(body, template)
@@ -133,7 +139,8 @@ export default class SearchApi {
         error: true,
         status: error.statusCode,
         message: `${error.message}`,
-        meta: error.meta
+        meta: error.meta,
+        req: { reqHeaders, searchIndex }
       }
     }
   }
@@ -146,8 +153,9 @@ export default class SearchApi {
         id: reqHeaders.tide_search_request_id
       }
       const searchQuery = reqBody
+      const searchIndex = this.getIndex(reqHeaders)
 
-      const { body, statusCode } = await this.search(searchQuery, reqConfig)
+      const { body, statusCode } = await this.search(searchQuery, reqConfig, searchIndex)
       if (body && statusCode === 200) {
         return body
       }

@@ -24,7 +24,7 @@ export const getField = (source, fields = [], defaultVal = '') => {
   for (let i = 0; i < fields.length; i++) {
     const field = get(source, fields[i])
     if (field) {
-      if (field.length > 0 && field[0].length > 0) {
+      if (field.length > 0 && field[0].length > 0 && Array.isArray(field)) {
         return field[0]
       }
       return field
@@ -100,4 +100,27 @@ export const getPagination = (params) => {
     }
   }
   return query
+}
+
+export const getAggregations = (params) => {
+  let aggs = {}
+
+  if (params.aggs) {
+    aggs = {
+      ...params.aggs.reduce((obj, agg) => {
+        const isObject = typeof agg === 'object' && Object.keys(agg).length
+        let key = isObject ? Object.keys(agg)[0] : agg
+        let options = { field: key, size: 100 }
+
+        // Optionally allow for aggs to be sorted by key
+        if (isObject) {
+          options.order = { '_key': Object.values(agg)[0] || 'asc' }
+        }
+
+        return { ...obj, [key]: { 'terms': { ...options } } }
+      }, {})
+    }
+  }
+
+  return aggs
 }

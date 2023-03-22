@@ -86,6 +86,7 @@ import { deepmerge } from 'deepmerge-ts'
 import { TideSiteData } from '../types'
 import { TideTopicTag } from '../mapping/base/topic-tags/topic-tags-mapping'
 import { TideSiteSection } from '@dpc-sdp/ripple-tide-api/types'
+import hideAlertsOnLoadScript from '../utils/hideAlertsOnLoadScript.js'
 import useTidePageMeta from '../composables/use-tide-page-meta'
 
 interface Props {
@@ -136,7 +137,24 @@ const style = useSiteTheme(
   deepmerge(useAppConfig()?.ripple?.theme || {}, props.site?.theme || {})
 )
 
+useHead({
+  htmlAttrs: {
+    lang: props.page.pageLanguage || 'en-AU'
+  },
+  title: props.pageTitle,
+  style: style && [
+    {
+      children: `body { ${style} }`
+    }
+  ],
+  script: [
+    {
+      innerHTML: hideAlertsOnLoadScript
+    }
+  ]
+})
+
 if (props.page && props.page.meta) {
-  useTidePageMeta(props, style)
+  useTidePageMeta(props)
 }
 </script>

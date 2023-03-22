@@ -1,5 +1,4 @@
-import { useHead, useSeoMeta } from '#imports'
-import hideAlertsOnLoadScript from '../utils/hideAlertsOnLoadScript.js'
+import { useHead, useSeoMeta, useNuxtApp } from '#imports'
 
 const metaProperty = (str: string) => {
   const p = str.split(':')
@@ -7,7 +6,7 @@ const metaProperty = (str: string) => {
   return p[0] + p[1].charAt(0).toUpperCase() + p[1].slice(1)
 }
 
-export default async (props: any, style: any) => {
+export default async (props: any) => {
   const page = props.page
   const site = props.site
 
@@ -25,17 +24,7 @@ export default async (props: any, style: any) => {
       lang: props.pageLanguage || 'en-AU'
     },
     title: props.pageTitle,
-    style: style && [
-      {
-        children: `body { ${style} }`
-      }
-    ],
-    link: links,
-    script: [
-      {
-        innerHTML: hideAlertsOnLoadScript
-      }
-    ]
+    link: links
   })
 
   // Override API values with metatag
@@ -97,7 +86,7 @@ export default async (props: any, style: any) => {
   }
 
   // TODO
-  const hostname = ''
+  const { $app_origin } = useNuxtApp()
 
   // Define SEO meta
   useSeoMeta({
@@ -105,11 +94,11 @@ export default async (props: any, style: any) => {
     ogTitle: props.pageTitle,
     ogDescription: description,
     ogType: 'website',
-    ogUrl: hostname + page.meta.url,
+    ogUrl: $app_origin + page.meta.url,
     ogImage: featuredImage,
     ogImageAlt: featuredImageAlt,
     twitterCard: 'summary',
-    twitterSite: hostname,
+    twitterSite: $app_origin,
     twitterTitle: props.pageTitle,
     twitterDescription: description,
     twitterImage: twitterImage,

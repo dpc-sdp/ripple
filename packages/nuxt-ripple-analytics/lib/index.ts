@@ -49,7 +49,7 @@ export default {
       })
     }
   },
-  'rpl-form/submit': () => {
+  'rpl-form/submission': () => {
     return (payload: any) => {
       gaEvent({
         event: `${payload.action}_form`,

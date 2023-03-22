@@ -1,6 +1,10 @@
 <script setup lang="ts">
-import { computed, useSlots } from 'vue'
+import { computed } from 'vue'
 import { isExternalLink } from '../../lib/helpers'
+import {
+  useRippleEvent,
+  rplEventPayload
+} from '../../composables/useRippleEvent'
 
 interface Props {
   url: string
@@ -9,23 +13,17 @@ interface Props {
 const props = defineProps<Props>()
 
 const emit = defineEmits<{
-  (
-    e: 'download',
-    payload: { id: string; action: 'download'; label: string }
-  ): void
+  (e: 'download', payload: rplEventPayload & { action: 'download' }): void
 }>()
 
-const slots = useSlots()
+const { emitRplEvent } = useRippleEvent('rpl-document', emit)
 
 const isExternal = computed(() => isExternalLink(props.url))
 
 const onClick = () => {
-  const name = slots.name()?.[0]?.children
-
-  emit('download', {
+  emitRplEvent('download', {
     id: props.url,
-    action: 'download',
-    label: typeof name === 'string' ? name : ''
+    action: 'download'
   })
 }
 </script>

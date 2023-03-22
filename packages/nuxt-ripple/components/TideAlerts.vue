@@ -15,7 +15,7 @@
 // @ts-ignore
 import { useMounted } from '@vueuse/core'
 import { useCookie } from '#imports'
-import { computed, inject, toRaw } from 'vue'
+import { computed, toRaw } from 'vue'
 import { TideAlert } from '@dpc-sdp/ripple-tide-api/src/mapping/alerts/site-alerts-mapping'
 
 interface Props {
@@ -25,8 +25,6 @@ interface Props {
 const props = withDefaults(defineProps<Props>(), {
   siteAlerts: () => []
 })
-
-const $rplEvent = inject('$rplEvent')
 
 const isMounted = useMounted()
 
@@ -73,7 +71,5 @@ const handleDismiss = (payload) => {
   const idSet = new Set(dismissedIds)
   idSet.add(payload.id)
   cookieValue.value = Array.from(idSet)
-
-  $rplEvent.emit(`rpl-alert/dismiss`, payload)
 }
 </script>

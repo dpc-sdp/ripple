@@ -5,6 +5,10 @@ import RplIcon from '../icon/RplIcon.vue'
 import RplContent from '../content/RplContent.vue'
 import RplExpandable from '../expandable/RplExpandable.vue'
 import { useExpandableState } from '../../composables/useExpandableState'
+import {
+  useRippleEvent,
+  rplEventPayload
+} from '../../composables/useRippleEvent'
 
 type RplAccordionItem = {
   id: string
@@ -17,20 +21,27 @@ interface Props {
   id: string
   items: RplAccordionItem[]
   numbered?: boolean
+  title?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
   items: () => [],
-  numbered: false
+  numbered: false,
+  title: undefined
 })
 
 const emit = defineEmits<{
   (
     e: 'toggleAll',
-    payload: { id: string; action: 'open' | 'close'; label: string }
+    payload: rplEventPayload & { action: 'open' | 'close' }
   ): void
-  (e: 'toggleItem', id: string, action: 'open' | 'close', label: string): void
+  (
+    e: 'toggleItem',
+    payload: rplEventPayload & { action: 'open' | 'close' }
+  ): void
 }>()
+
+const { emitRplEvent } = useRippleEvent('rpl-accordion', emit)
 
 const initialActiveIndexes: string[] = props.items.reduce(
   (result: string[], current: RplAccordionItem): string[] => {
@@ -51,11 +62,16 @@ const { isItemExpanded, isAllExpanded, toggleItem } = useExpandableState(
 const toggleID = (itemId) => `accordion-${props.id}-${itemId}-toggle`
 
 const toggleAll = () => {
-  emit('toggleAll', {
-    id: props.id,
-    action: isAllExpanded() ? 'close' : 'open',
-    label: toggleAllLabel.value
-  })
+  emitRplEvent(
+    'toggleAll',
+    {
+      id: props.id,
+      action: isAllExpanded() ? 'close' : 'open',
+      label: toggleAllLabel.value,
+      name: props.title
+    },
+    { global: true }
+  )
 
   // Make all items active
   if (!isAllExpanded()) {
@@ -79,11 +95,16 @@ const toggleAll = () => {
 }
 
 const toggleSingle = (item: RplAccordionItem) => {
-  emit('toggleItem', {
-    id: toggleID(item.id),
-    action: isItemExpanded(item.id) ? 'close' : 'open',
-    label: item.title
-  })
+  emitRplEvent(
+    'toggleItem',
+    {
+      id: toggleID(item.id),
+      action: isItemExpanded(item.id) ? 'close' : 'open',
+      label: item.title,
+      name: props.title
+    },
+    { global: true }
+  )
 
   toggleItem(item.id)
 }

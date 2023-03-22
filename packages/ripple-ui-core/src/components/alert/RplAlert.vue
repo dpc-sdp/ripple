@@ -6,6 +6,10 @@ import onResizeHeight from '../../composables/onResizeHeight'
 import { RplIconNames } from '../icon/constants'
 import RplIcon from '../icon/RplIcon.vue'
 import RplTextLink from '../text-link/RplTextLink.vue'
+import {
+  useRippleEvent,
+  rplEventPayload
+} from '../../composables/useRippleEvent'
 
 interface Props {
   variant?: RplAlertTypes
@@ -27,21 +31,24 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 const emit = defineEmits<{
-  (
-    e: 'dismiss',
-    payload: { id: string; action: 'close'; name: string; label: string }
-  ): void
+  (e: 'dismiss', payload: rplEventPayload & { action: 'close' }): void
 }>()
+
+const { emitRplEvent } = useRippleEvent('rpl-alert', emit)
 
 const closeLabel = 'Dismiss alert'
 
 const onClose = () => {
-  emit('dismiss', {
-    id: props.alertId,
-    action: 'close',
-    name: props.message,
-    label: closeLabel
-  })
+  emitRplEvent(
+    'dismiss',
+    {
+      id: props.alertId,
+      action: 'close',
+      name: props.message,
+      label: closeLabel
+    },
+    { global: true }
+  )
 }
 const classes = computed(() => {
   return {
@@ -74,12 +81,7 @@ onResizeHeight(alertRef, (height) => {
       role="region"
       :aria-labelledby="`alert-message-${props.alertId}`"
     >
-      <rpl-icon
-        class="rpl-alert__icon-info"
-        size="m"
-        nopad
-        :name="iconName"
-      ></rpl-icon>
+      <RplIcon class="rpl-alert__icon-info" size="m" nopad :name="iconName" />
       <div class="rpl-alert__message-wrap">
         <div
           :id="`alert-message-${props.alertId}`"

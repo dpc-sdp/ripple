@@ -28,7 +28,12 @@ if (siteError.value) {
 </script>
 
 <template>
-  <TideBaseLayout :site="site">
+  <TideBaseLayout
+    :site="site"
+    :page="{}"
+    :pageTitle="`Sitemap - ${site.name}`"
+    pageLanguage="en-AU"
+  >
     <template #aboveBody="{ hasBreadcrumbs }">
       <RplHeroHeader
         title="Sitemap"

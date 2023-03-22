@@ -12,18 +12,29 @@ export default class TideSearchApi {
     this.client = client
   }
 
-  async search (url, params) {
+  getConfig (index) {
+    let headers = {
+      'TIDE_API_HEADER': 'elastic',
+      'Content-Type': 'application/json'
+    }
+    if (index) {
+      headers['Tide-Api-Search-Index'] = index
+    }
+
+    return {
+      baseURL: this.baseUrl,
+      responseType: 'json',
+      responseEncoding: 'utf8',
+      headers
+    }
+  }
+
+  async search (url, params, index = '') {
     try {
       const config = {
-        method: 'get',
-        baseURL: this.baseUrl,
+        ...this.getConfig(index),
         url,
-        responseType: 'json',
-        responseEncoding: 'utf8',
-        headers: {
-          'TIDE_API_HEADER': 'elastic',
-          'Content-Type': 'application/json'
-        },
+        method: 'get',
         paramsSerializer: function (params) {
           return qs.stringify(params, { arrayFormat: 'brackets' })
         },
@@ -44,18 +55,12 @@ export default class TideSearchApi {
     }
   }
 
-  async searchByPost (data) {
+  async searchByPost (data, index = '') {
     try {
       const config = {
+        ...this.getConfig(index),
         method: 'post',
-        baseURL: this.baseUrl,
         url: '/dsl',
-        responseType: 'json',
-        responseEncoding: 'utf8',
-        headers: {
-          'TIDE_API_HEADER': 'elastic',
-          'Content-Type': 'application/json'
-        },
         data
       }
       const response = await this.client(config)

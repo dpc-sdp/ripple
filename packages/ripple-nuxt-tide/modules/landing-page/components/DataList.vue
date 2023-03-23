@@ -83,8 +83,7 @@ import RplSelect from '@dpc-sdp/ripple-form/Select'
 import RplTabs from '@dpc-sdp/ripple-tabs'
 import RplMarkup from '@dpc-sdp/ripple-markup'
 import RplDescriptionList from '@dpc-sdp/ripple-description-list'
-import { getResultsFromMiddleware } from '@dpc-sdp/ripple-data-vic-api/src/middleware'
-import { getQueryParams } from '../lib/data-list'
+import { getQueryParams, getResultsFromMiddleware } from '../lib/data-list'
 
 export default {
   name: 'RplDataList',

@@ -37,9 +37,8 @@
   "devDependencies": {
     "@dpc-sdp/ripple-test-utils": "workspace:*",
     "@unlighthouse/cli": "^0.4.9",
-    "node-fetch-native": "^1.0.1",
-    "nuxt": "3.1.2",
-    "start-server-and-test": "^1.15.3",
-    "ufo": "^1.0.1"
+    "node-fetch-native": "^1.0.2",
+    "nuxt": "3.3.1",
+    "start-server-and-test": "^2.0.0"
   }
 }

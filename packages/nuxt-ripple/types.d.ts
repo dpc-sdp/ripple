@@ -72,7 +72,6 @@ export interface TideImageField {
 
 export interface TidePageBase {
   title: string
-  description: string
   created: string
   changed: string
   nid: number

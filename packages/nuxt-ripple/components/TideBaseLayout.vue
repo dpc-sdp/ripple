@@ -87,24 +87,24 @@ import { TideSiteData } from '../types'
 import { TideTopicTag } from '../mapping/base/topic-tags/topic-tags-mapping'
 import { TideSiteSection } from '@dpc-sdp/ripple-tide-api/types'
 import hideAlertsOnLoadScript from '../utils/hideAlertsOnLoadScript.js'
+import useTidePageMeta from '../composables/use-tide-page-meta'
 
 interface Props {
   site: TideSiteData
   background?: string
   pageTitle: string
   pageLanguage?: string
-  pageDescription?: string
   footerImageCaption?: string
   topicTags?: TideTopicTag[]
   updatedDate?: string | null
   siteSection: TideSiteSection | null
+  page: any
   showContentRating: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
   background: 'default',
   pageLanguage: 'en-AU',
-  pageDescription: '',
   footerImageCaption: '',
   topicTags: () => [],
   updatedDate: null,
@@ -138,19 +138,13 @@ const style = useSiteTheme(
 )
 
 useHead({
-  title: props.pageTitle,
   htmlAttrs: {
-    lang: props.pageLanguage
+    lang: props.page.pageLanguage || 'en-AU'
   },
+  title: props.pageTitle,
   style: style && [
     {
       children: `body { ${style} }`
-    }
-  ],
-  meta: [
-    {
-      name: 'description',
-      content: props.pageDescription
     }
   ],
   script: [
@@ -159,4 +153,8 @@ useHead({
     }
   ]
 })
+
+if (props.page && props.page.meta) {
+  useTidePageMeta(props)
+}
 </script>

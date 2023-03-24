@@ -12,6 +12,7 @@
   "version": "2.1.0-alpha.121",
   "dependencies": {
     "@dpc-sdp/nuxt-ripple": "workspace:*",
+    "@dpc-sdp/ripple-tide-api": "workspace:*",
     "@dpc-sdp/ripple-ui-core": "workspace:*"
   }
 }

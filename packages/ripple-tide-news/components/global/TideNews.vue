@@ -1,8 +1,9 @@
 <template>
   <TideBaseLayout
     :site="site"
+    :page="page"
+    :siteSection="page.siteSection"
     :pageTitle="page.title"
-    :pageDescription="page.description"
     :pageLanguage="page.lang"
     :topicTags="page.showTopicTags ? page.topicTags : []"
     :updatedDate="page.changed || page.created"

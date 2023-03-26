@@ -40,6 +40,17 @@ const childPages = await useTidePublicationChildren(
     :pageTitle="`Sitemap - ${site.name}`"
     pageLanguage="en-AU"
   >
+    <template #breadcrumbs>
+      <slot name="breadcrumbs">
+        <TideBreadcrumbs
+          :items="[
+            { text: 'Home', url: '/' },
+            { text: parentPage.title, url: parentPage.url },
+            { text: 'Print' }
+          ]"
+        />
+      </slot>
+    </template>
     <template #aboveBody="{ hasBreadcrumbs }">
       <TidePublicationHeader
         :header="parentPage.header"

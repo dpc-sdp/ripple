@@ -139,7 +139,7 @@ const style = useSiteTheme(
 
 useHead({
   htmlAttrs: {
-    lang: props.page.pageLanguage || 'en-AU'
+    lang: props.pageLanguage || 'en-AU'
   },
   title: props.pageTitle,
   style: style && [

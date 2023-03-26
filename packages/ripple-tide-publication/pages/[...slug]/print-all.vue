@@ -1,0 +1,70 @@
+<script lang="ts">
+export default {
+  name: 'TidePublicationPrintAllPage'
+}
+</script>
+
+<script setup lang="ts">
+import {
+  useTideSite,
+  useTidePage,
+  useTidePublicationMenu,
+  useTidePublicationChildren,
+  useRoute
+} from '#imports'
+
+const flatten = (items) => {
+  return (items || []).reduce((acc, item) => {
+    return [...acc, item.id, ...flatten(item.items)]
+  }, [])
+}
+
+const route = useRoute()
+
+const parentSlug = route.params.slug
+const site = await useTideSite()
+
+const parentPage = await useTidePage(`/${parentSlug}`)
+const menu = await useTidePublicationMenu(parentPage.nid)
+const flattenedChildIds = flatten(menu.publication.items)
+const childPages = await useTidePublicationChildren(
+  parentPage.nid,
+  flattenedChildIds
+)
+</script>
+
+<template>
+  <TideBaseLayout
+    :site="site"
+    :page="{}"
+    :pageTitle="`Sitemap - ${site.name}`"
+    pageLanguage="en-AU"
+  >
+    <template #aboveBody="{ hasBreadcrumbs }">
+      <TidePublicationHeader
+        :header="parentPage.header"
+        :hasBreadcrumbs="hasBreadcrumbs"
+      ></TidePublicationHeader>
+    </template>
+    <template #body>
+      <RplInPageNavigation
+        title="On this page"
+        :items="menu.publication.items"
+      />
+      <TidePublicationBody
+        :details="parentPage.details"
+        :components="parentPage.bodyComponents"
+      />
+      <div v-for="child in childPages" :key="child.id">
+        <TidePublicationChapterPrintHeader
+          :title="child.header.title"
+          :summary="child.header.summary"
+        />
+        <TidePublicationBody :components="child.bodyComponents" />
+      </div>
+    </template>
+    <template #sidebar>
+      <span />
+    </template>
+  </TideBaseLayout>
+</template>

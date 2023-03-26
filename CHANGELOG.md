@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.122](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.121...v2.1.0-alpha.122) (2023-03-24)
+
+### Bug Fixes
+
+* **nuxt-ripple:** :bug: add required props for sitemap ([45ad087](https://github.com/dpc-sdp/ripple-framework/commit/45ad08725044e8e3e3eed80189f9dc73854de316))
+
+### Features
+
+* **nuxt-ripple:** :sparkles: add hostname plugin, move alert script back to baselayout ([eaca57b](https://github.com/dpc-sdp/ripple-framework/commit/eaca57b4bfca9d967dc18812c8e5baedcaf44782))
+* **nuxt-ripple:** :sparkles: implement page head and seo meta ([52afc09](https://github.com/dpc-sdp/ripple-framework/commit/52afc0915ec9a5e789d51c1e8325cd8c0a164ef4))
+
 # [2.1.0-alpha.121](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.120...v2.1.0-alpha.121) (2023-03-23)
 
 ### Bug Fixes

@@ -2,23 +2,25 @@
   <RplPageComponent class="tide-grant__documents">
     <ul v-if="documents.length > 0" class="rpl-type-p">
       <li v-for="(doc, i) in documents" :key="i">
-        <RplDocument :url="doc.url" data-cy="document">
-          <template #icon>
-            <RplIcon name="icon-document-lined" size="l" colour="default" />
-          </template>
-          <template #name>{{ doc.name }} </template>
-          <template #info>
-            <span class="rpl-file__meta">{{ doc.extension }}</span>
-            <span class="rpl-file__meta">{{ doc.filesize }}</span>
-          </template>
-        </RplDocument>
+        <RplFile
+          data-cy="document"
+          :url="doc.url"
+          :name="doc.name"
+          :extension="doc.extension"
+          :size="doc.filesize"
+          :openInNewWindow="isExternalUrl(doc.url, $app_hostname)"
+          :download="true"
+        />
       </li>
     </ul>
   </RplPageComponent>
 </template>
 
 <script setup lang="ts">
+import { isExternalUrl } from '@dpc-sdp/ripple-ui-core'
 import type { TideGrantDocument } from '../types'
+
+const { $app_hostname } = useNuxtApp()
 
 interface Props {
   documents: Array<TideGrantDocument>

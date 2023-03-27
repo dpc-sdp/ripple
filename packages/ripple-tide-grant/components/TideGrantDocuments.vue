@@ -17,6 +17,7 @@
 </template>
 
 <script setup lang="ts">
+import { useNuxtApp } from '#imports'
 import { isExternalUrl } from '@dpc-sdp/ripple-ui-core'
 import type { TideGrantDocument } from '../types'
 

@@ -218,5 +218,42 @@
       }
     ]
   },
+  "meta": {
+    "url": "/demo-landing-page",
+    "langcode": "en",
+    "description": "Nulla ultricies dignissim leo, posuere vestibulum erat cursus vitae",
+    "additional": [
+      {
+        "tag": "link",
+        "attributes": {
+          "rel": "canonical",
+          "href": "https://develop.content.reference.sdp.vic.gov.au/demo-landing-page"
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "title",
+          "content": "Demo Landing Page | Single Digital Presence Content Management System"
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "property": "og:image",
+          "content": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg"
+        }
+      }
+    ],
+    "keywords": "",
+    "image": {
+      "src": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg",
+      "alt": "Demo: Melbourne tram",
+      "title": "Demo: Melbourne tram",
+      "width": 1413,
+      "height": 785,
+      "drupal_internal__target_id": 46
+    }
+  },
   "showLastUpdated": true
 }

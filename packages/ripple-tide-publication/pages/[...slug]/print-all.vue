@@ -12,6 +12,7 @@ import {
   useTidePublicationChildren,
   useRoute
 } from '#imports'
+import { onMounted } from 'vue'
 
 const flatten = (items) => {
   return (items || []).reduce((acc, item) => {
@@ -31,6 +32,10 @@ const childPages = await useTidePublicationChildren(
   parentPage.nid,
   flattenedChildIds
 )
+
+onMounted(() => {
+  window.print()
+})
 </script>
 
 <template>

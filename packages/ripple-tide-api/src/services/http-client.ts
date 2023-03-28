@@ -13,11 +13,13 @@ export default class HttpClient {
       this.client = axios.create({
         baseURL: config.baseUrl,
         auth: config.auth,
-        paramsSerializer: function (params) {
-          return qs.stringify(params, {
-            arrayFormat: 'brackets',
-            indices: false
-          })
+        paramsSerializer: {
+          serialize: (params) => {
+            return qs.stringify(params, {
+              arrayFormat: 'brackets',
+              indices: false
+            })
+          }
         }
       })
     }
@@ -56,7 +58,7 @@ export default class HttpClient {
           this.logger.error(
             `${error.request.method?.toUpperCase()} request failed with status ${
               error.response?.status
-            } - ${error.response?.statusText}: ${error.config.baseURL}${
+            } - ${error.response?.statusText}: ${error.config?.baseURL}${
               error.request.path
             }`,
             {

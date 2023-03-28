@@ -13,9 +13,10 @@ import {
 export default {
   mapping: {
     name: 'name',
-    _src: (src) => (process.env.NODE_ENV === 'development' ? src : undefined),
+    _src: (src: any) =>
+      process.env.NODE_ENV === 'development' ? src : undefined,
     siteAlerts: siteAlertsMapping,
-    siteLogo: (src) => {
+    siteLogo: (src: any) => {
       if (src.field_site_logo) {
         return {
           href: '/',
@@ -27,7 +28,7 @@ export default {
       return null
     },
     showQuickExit: 'field_site_show_exit_site',
-    acknowledgementHeader: (src) => {
+    acknowledgementHeader: (src: any) => {
       if (src.field_prominence_ack_to_country) {
         return src.field_prominence_ack_to_country
       }
@@ -35,10 +36,10 @@ export default {
       return src.field_acknowledgement_to_country
     },
     acknowledgementFooter: 'field_acknowledgement_to_country',
-    copyrightHtml: (src) => {
+    copyrightHtml: (src: any) => {
       return getBody(src.field_site_footer_text?.processed)
     },
-    footerLogos: (src) => {
+    footerLogos: (src: any) => {
       return src.field_site_footer_logos.map((logo) => {
         const link = getLinkFromField(logo, 'field_paragraph_cta')
         const image = getImageFromField(
@@ -53,10 +54,10 @@ export default {
         }
       })
     },
-    theme: (src) => getSiteKeyValues('field_site_theme_values', src) || {},
-    featureFlags: (src) =>
+    theme: (src: any) => getSiteKeyValues('field_site_theme_values', src) || {},
+    featureFlags: (src: any) =>
       getSiteKeyValues('field_site_feature_flags', src) || {},
-    socialImages: (src) => {
+    socialImages: (src: any) => {
       const socialImages = {
         twitter: {},
         og: {}
@@ -103,6 +104,8 @@ export default {
     ...siteAlertsIncludes,
     'field_site_og_image',
     'field_site_og_image.field_media_image',
+    'field_site_twitter_image',
+    'field_site_twitter_image.field_media_image',
     'field_site_main_menu',
     'field_site_footer_menu',
     'field_site_logo',

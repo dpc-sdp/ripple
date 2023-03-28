@@ -3,6 +3,45 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.123](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.122...v2.1.0-alpha.123) (2023-03-26)
+
+### Bug Fixes
+
+* **@dpc-sdp/nuxt-ripple:** fixed search page crashing ([82d9f6d](https://github.com/dpc-sdp/ripple-framework/commit/82d9f6d28b49247ff635666c2b0f60acf58d0c98))
+
+# [2.1.0-alpha.122](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.121...v2.1.0-alpha.122) (2023-03-24)
+
+### Bug Fixes
+
+* **nuxt-ripple:** :bug: add required props for sitemap ([45ad087](https://github.com/dpc-sdp/ripple-framework/commit/45ad08725044e8e3e3eed80189f9dc73854de316))
+
+### Features
+
+* **nuxt-ripple:** :sparkles: add hostname plugin, move alert script back to baselayout ([eaca57b](https://github.com/dpc-sdp/ripple-framework/commit/eaca57b4bfca9d967dc18812c8e5baedcaf44782))
+* **nuxt-ripple:** :sparkles: implement page head and seo meta ([52afc09](https://github.com/dpc-sdp/ripple-framework/commit/52afc0915ec9a5e789d51c1e8325cd8c0a164ef4))
+
+# [2.1.0-alpha.121](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.120...v2.1.0-alpha.121) (2023-03-23)
+
+### Bug Fixes
+
+* **@dpc-sdp/nuxt-ripple:** fixed intermittent crash caused by nuxt cache reactivity set to null ([21b8226](https://github.com/dpc-sdp/ripple-framework/commit/21b8226add3e514e311352d556ab71869ac8d9ee))
+
+### Features
+
+* **docs:** added DocsImageExample to docs site ([bdd0c92](https://github.com/dpc-sdp/ripple-framework/commit/bdd0c920ea740a3fe09ef6c7c80228eaa98f1383))
+
+# [2.1.0-alpha.120](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.119...v2.1.0-alpha.120) (2023-03-21)
+
+### Features
+
+* **@dpc-sdp/ripple-ui-core:** design tweaks for pattern gradient ([d1e38de](https://github.com/dpc-sdp/ripple-framework/commit/d1e38de4d52802e67e5c8e065e22d0459ef599b4))
+
+# [2.1.0-alpha.119](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.118...v2.1.0-alpha.119) (2023-03-21)
+
+### Bug Fixes
+
+* **@dpc-sdp/nuxt-ripple:** loosened alerts script guid regex requirements ([ee9dd50](https://github.com/dpc-sdp/ripple-framework/commit/ee9dd5057f1a3adb1a4110f743466d593d6265f5))
+
 # [2.1.0-alpha.118](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.117...v2.1.0-alpha.118) (2023-03-20)
 
 ### Features

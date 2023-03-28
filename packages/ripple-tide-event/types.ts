@@ -22,6 +22,7 @@ export interface TideEventPage extends TidePageBase {
    */
   header: TideEventHeader
   overview: any
+  description: string
   details: string[]
   body: string
   link: TideEventLink

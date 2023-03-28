@@ -51,12 +51,12 @@ const props = withDefaults(defineProps<Props>(), {
 
 const emit = defineEmits<{
   (e: 'submit', data: any): void
-  (e: 'submission', payload: rplEventPayload & { action: 'submit' }): void
+  (e: 'submitted', payload: rplEventPayload & { action: 'submit' }): void
 }>()
 
 const { emitRplEvent } = useRippleEvent('rpl-form', emit)
 
-provide('formId', props.id)
+provide('form', { id: props.id, name: props.title })
 
 const isFormSubmitting = computed(() => {
   return props.submissionState.status === 'submitting'
@@ -128,7 +128,7 @@ watch(
         reset(props.id)
 
         emitRplEvent(
-          'submission',
+          'submitted',
           {
             id: props.id,
             action: 'submit',

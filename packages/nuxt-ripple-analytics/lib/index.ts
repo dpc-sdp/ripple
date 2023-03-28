@@ -49,7 +49,7 @@ export default {
       })
     }
   },
-  'rpl-form/submission': () => {
+  'rpl-form/submitted': () => {
     return (payload: any) => {
       gaEvent({
         event: `${payload.action}_form`,
@@ -58,6 +58,21 @@ export default {
         element_text: payload?.label,
         component: 'rpl-form',
         platform_event: 'submit'
+      })
+    }
+  },
+  'rpl-form-input/update': () => {
+    return (payload: any) => {
+      gaEvent({
+        event: `form_${payload.action}_field`,
+        label: payload?.label,
+        element_id: payload?.id,
+        form_id: payload?.contextId,
+        form_name: payload?.contextName,
+        type: payload?.type,
+        value: payload?.value,
+        component: `rpl-form-${payload.type}`,
+        platform_event: 'update'
       })
     }
   }

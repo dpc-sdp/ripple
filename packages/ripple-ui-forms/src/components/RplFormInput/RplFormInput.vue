@@ -5,9 +5,11 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, inject } from 'vue'
 import { RplIcon } from '@dpc-sdp/ripple-ui-core/vue'
 import RplFormCounter from '../RplFormCounter/RplFormCounter.vue'
+import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
+import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
 
 interface Props {
   id: string
@@ -51,6 +53,14 @@ const props = withDefaults(defineProps<Props>(), {
   onBlur: () => null
 })
 
+const emit = defineEmits<{
+  (e: 'update', payload: rplEventPayload & { action: 'exit' }): void
+}>()
+
+const { emitRplEvent } = useRippleEvent('rpl-form-input', emit)
+
+const form: object = inject('form')
+
 const classes = computed(() => {
   return {
     [`${props.className}`]: props.className,
@@ -66,12 +76,21 @@ const classes = computed(() => {
 
 const isWordCounter = computed(() => props.counter === 'word')
 
-/*
-TODO - Wire up event bus handling
-*/
-// function handleInput(e: Event) {
-//   props.handlers?.DOMInput(e)
-// }
+const handleChange = () => {
+  emitRplEvent(
+    'update',
+    {
+      action: 'exit',
+      id: props.id,
+      type: props.type,
+      label: props.name,
+      value: props.value,
+      contextId: form?.id,
+      contextName: form?.name
+    },
+    { global: true }
+  )
+}
 </script>
 
 <template>
@@ -99,6 +118,7 @@ TODO - Wire up event bus handling
         :maxlength="!isWordCounter ? maxlength : null"
         @blur="onBlur"
         @input="onInput"
+        @change="handleChange"
       />
       <RplIcon
         v-if="suffixIcon"

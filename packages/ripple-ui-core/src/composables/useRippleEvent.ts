@@ -4,8 +4,11 @@ import rplEventBus from './../lib/eventbus'
 export type rplEventPayload = {
   id: string
   action?: string
-  label?: string
   name?: string
+  label?: string
+  value?: string
+  contextId?: string
+  contextName?: string
   [key: string]: unknown
 }
 

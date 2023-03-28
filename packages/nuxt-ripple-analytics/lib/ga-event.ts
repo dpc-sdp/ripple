@@ -9,6 +9,8 @@ export interface IRplDataLayerEventPayload {
   file_url?: string
   form_id?: string
   form_name?: string
+  type?: string
+  value?: string
   component?: string
   platform_event: string
 }

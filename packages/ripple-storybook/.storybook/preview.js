@@ -2,7 +2,7 @@ import { withCssResources } from '@storybook/addon-cssresources'
 import { withDesign } from 'storybook-addon-designs'
 import { app } from '@storybook/vue3'
 import { registerRplFormPlugin } from '@dpc-sdp/ripple-ui-forms'
-import { RplIconSprite, RplLink } from '@dpc-sdp/ripple-ui-core/vue'
+import { RplIconSprite, RplLink, RplImg } from '@dpc-sdp/ripple-ui-core/vue'
 import '@dpc-sdp/ripple-ui-core/style'
 import themes from './themes.js'
 import withBackground from './utils/withBackground'
@@ -19,6 +19,7 @@ window.svgPlaceholder = svgPlaceholder
 registerRplFormPlugin(app)
 
 app.component('RplLink', RplLink)
+app.component('RplImg', RplImg)
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
@@ -64,12 +65,14 @@ export const globalTypes = {
       icon: 'paintbrush',
       items: Object.entries(themes).map(([themeId, config]) => {
         return {
-          value: themeId, left: 'Theme:', title: config.label
+          value: themeId,
+          left: 'Theme:',
+          title: config.label
         }
       }),
       showName: true,
-      dynamicTitle: true,
-    },
+      dynamicTitle: true
+    }
   },
   buttonTheme: {
     name: 'Button theme',
@@ -78,11 +81,11 @@ export const globalTypes = {
     toolbar: {
       icon: 'button',
       items: [
-        {value: 'default', left: 'Button theme', title: 'Default buttons'},
-        {value: 'neutral', left: 'Button theme', title: 'Neutral buttons'}
+        { value: 'default', left: 'Button theme', title: 'Default buttons' },
+        { value: 'neutral', left: 'Button theme', title: 'Neutral buttons' }
       ],
       showName: true,
-      dynamicTitle: true,
-    },
-  },
-};
+      dynamicTitle: true
+    }
+  }
+}

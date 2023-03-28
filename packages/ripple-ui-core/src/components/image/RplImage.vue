@@ -15,6 +15,10 @@ interface Props {
   width?: number
   height?: number
   sizes?: string
+  rendered?: {
+    width: number
+    height: number
+  }
   srcSet?: string
   circle?: boolean
   focalPoint?: IRplImageFocalPoint
@@ -29,6 +33,7 @@ const props = withDefaults(defineProps<Props>(), {
   height: undefined,
   width: undefined,
   sizes: undefined,
+  rendered: undefined,
   srcSet: undefined,
   circle: false,
   focalPoint: undefined,
@@ -86,10 +91,11 @@ const loading = computed(() => (props.priority === 'high' ? 'eager' : 'lazy'))
 </script>
 
 <template>
-  <img
+  <RplImg
     :class="classes"
     :src="src"
     :srcset="srcSet"
+    :rendered="rendered"
     :alt="alt"
     :title="title"
     :width="width"

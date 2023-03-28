@@ -44,6 +44,7 @@ const { container, trigger } = useAccessibleContainer()
           s: 'ultrawide',
           m: 'wide'
         }"
+        :rendered="{ width: 282, height: 158 }"
         data-cy="image"
       />
     </template>

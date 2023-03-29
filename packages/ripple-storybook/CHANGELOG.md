@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.124](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.123...v2.1.0-alpha.124) (2023-03-29)
+
+**Note:** Version bump only for package ripple-storybook
+
 # [2.1.0-alpha.112](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.111...v2.1.0-alpha.112) (2023-03-15)
 
 ### Bug Fixes

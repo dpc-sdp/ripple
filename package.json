@@ -86,7 +86,7 @@
   },
   "engines": {
     "node": "^14.16.0 || ^16.11.0",
-    "pnpm": ">=3"
+    "pnpm": ">=8"
   },
   "dependencies": {
     "@vue/vue3-jest": "^29.2.3",

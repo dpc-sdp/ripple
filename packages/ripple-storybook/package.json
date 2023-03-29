@@ -8,7 +8,7 @@
     "start": "start-storybook -p 6006",
     "build": "build-storybook",
     "test": "test-storybook --stories-json",
-    "ci": "concurrently -k -s first -n \"SB,TEST\" -c \"magenta,blue\" \"npx http-server storybook-static --port 6006 --silent\" \"wait-on tcp:6006 && pnpm test\""
+    "test:ci": "concurrently -k -s first -n \"SB,TEST\" -c \"magenta,blue\" \"npx http-server storybook-static --port 6006 --silent\" \"wait-on tcp:6006 && pnpm test\""
   },
   "devDependencies": {
     "@babel/core": "^7.21.3",

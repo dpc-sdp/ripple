@@ -1,7 +1,7 @@
 {
   "packageManager": "pnpm@7.23.0",
   "license": "Apache-2.0",
-  "version": "2.1.0-alpha.124",
+  "version": "2.1.0-alpha.126",
   "name": "@dpc-sdp/nuxt-ripple",
   "main": "./nuxt.config.ts",
   "exports": {

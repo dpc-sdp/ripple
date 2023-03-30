@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.126](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.125...v2.1.0-alpha.126) (2023-03-30)
+
+### Features
+
+* **@dpc-sdp/ripple-tide-publication:** automatically print publication on mount ([2fec56b](https://github.com/dpc-sdp/ripple-framework/commit/2fec56bcf5cda46221cff1ec57ef89eeb9596465))
+* **@dpc-sdp/ripple-tide-publication:** hooked up print all pages link ([a617cf3](https://github.com/dpc-sdp/ripple-framework/commit/a617cf36ada432711bbc14744a09f3825d0cb42b))
+* **@dpc-sdp/ripple-tide-publication:** hooked up publication print all breadcrumbs ([f4847df](https://github.com/dpc-sdp/ripple-framework/commit/f4847df52dcc6aaf0486e1ad257996c0700562b4))
+* **@dpc-sdp/ripple-tide-publication:** setup publication print all page view and apis ([3a46f98](https://github.com/dpc-sdp/ripple-framework/commit/3a46f98cda072c7141f3cf19092a0a545ac5249e))
+* **docs:** added module and module listing templates to docs ([cf6bd3d](https://github.com/dpc-sdp/ripple-framework/commit/cf6bd3d62d48b8a10bc35ea2c925f975da14bac4))
+
 # [2.1.0-alpha.125](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.124...v2.1.0-alpha.125) (2023-03-30)
 
 **Note:** Version bump only for package @dpc-sdp/ripple-monorepo

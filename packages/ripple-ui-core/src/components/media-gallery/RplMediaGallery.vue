@@ -53,6 +53,9 @@ const toggleModal = () => {
         :src="item.thumbnail"
         :alt="item.alt"
         aspect="wide"
+        :rendered="{
+          xs: { width: 600 }
+        }"
         data-cy="image"
         class="rpl-media-gallery__image"
       />

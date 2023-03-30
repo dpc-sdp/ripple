@@ -15,10 +15,7 @@ interface Props {
   width?: number
   height?: number
   sizes?: string
-  rendered?: {
-    width: number
-    height: number
-  }
+  rendered?: any
   srcSet?: string
   circle?: boolean
   focalPoint?: IRplImageFocalPoint
@@ -95,6 +92,7 @@ const loading = computed(() => (props.priority === 'high' ? 'eager' : 'lazy'))
     :class="classes"
     :src="src"
     :srcset="srcSet"
+    :sizes="aspect"
     :rendered="rendered"
     :alt="alt"
     :title="title"

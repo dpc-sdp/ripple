@@ -71,7 +71,15 @@ const contentClasses = computed(() => ({
 <template>
   <RplHeader :class="classes" :full-width="fullWidth">
     <template v-if="background || cornerTop || cornerBottom" #behind>
-      <RplImage v-if="background" v-bind="background" priority="high" />
+      <RplImage
+        v-if="background"
+        v-bind="background"
+        priority="high"
+        aspect="wide"
+        :rendered="{
+          xs: { height: 450 }
+        }"
+      />
       <RplHeaderGraphic v-if="cornerTop" :image="cornerTop" placement="top" />
       <RplHeaderGraphic
         v-if="cornerBottom"

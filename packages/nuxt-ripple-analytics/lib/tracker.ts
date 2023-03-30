@@ -1,4 +1,5 @@
-export interface IRplDataLayerEventPayload {
+export interface IRplAnalyticsEventPayload {
+  page_url?: string
   event: string
   element_id?: string
   element_text?: string
@@ -15,11 +16,11 @@ export interface IRplDataLayerEventPayload {
   platform_event: string
 }
 
-export const gaEvent = (gaEvent: IRplDataLayerEventPayload) => {
+export const trackEvent = (payload: IRplAnalyticsEventPayload) => {
   if (!window) {
     throw new Error('GA events are only callable in a browser context')
   } else if (!window.dataLayer) {
     throw new Error('dataLayer was not initialised correctly')
   }
-  window.dataLayer.push(gaEvent)
+  window.dataLayer.push(payload)
 }

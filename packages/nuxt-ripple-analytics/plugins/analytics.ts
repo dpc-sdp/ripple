@@ -1,6 +1,7 @@
 import { defineNuxtPlugin, useAppConfig, addRouteMiddleware } from '#app'
 import { loadScript } from '@gtm-support/core'
-import { gaEvent } from './../lib/ga-event'
+import { trackEvent } from '../lib/tracker'
+
 declare global {
   interface Window {
     dataLayer: any[]
@@ -60,13 +61,17 @@ export default defineNuxtPlugin((nuxtApp) => {
             }
           }
           if (config.ripple?.analytics?.routeChange) {
-            const routeChangeMiddleware = (to) => {
-              gaEvent({
+            let routeChangeMiddleware = (to) => {
+              trackEvent({
                 event: 'routeChange',
                 name: document.title,
-                pageUrl: to.fullPath,
+                page_url: to.fullPath,
                 platform_event: 'page/routeChange'
               })
+            }
+
+            if (typeof config.ripple?.analytics?.routeChange === 'function') {
+              routeChangeMiddleware = config.ripple?.analytics?.routeChange
             }
 
             addRouteMiddleware('routeChange', routeChangeMiddleware, {

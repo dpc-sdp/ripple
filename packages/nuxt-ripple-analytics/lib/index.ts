@@ -1,9 +1,9 @@
-import { gaEvent } from './ga-event'
+import { trackEvent } from './tracker'
 
 export default {
   'rpl-accordion/toggleAll': () => {
     return (payload: any) => {
-      gaEvent({
+      trackEvent({
         event: `${payload.action}_accordion`,
         element_id: payload?.id,
         element_text: payload?.label,
@@ -15,7 +15,7 @@ export default {
   },
   'rpl-accordion/toggleItem': () => {
     return (payload: any) => {
-      gaEvent({
+      trackEvent({
         event: `${payload.action}_accordion`,
         element_id: payload?.id,
         element_text: payload?.label,
@@ -27,7 +27,7 @@ export default {
   },
   'rpl-alert/dismiss': () => {
     return (payload: any) => {
-      gaEvent({
+      trackEvent({
         event: `${payload.action}_alert`,
         element_text: payload?.label,
         label: payload?.name,
@@ -38,7 +38,7 @@ export default {
   },
   'rpl-document/download': () => {
     return (payload: any) => {
-      gaEvent({
+      trackEvent({
         event: `${payload.action}_document`,
         element_text: payload?.label,
         file_name: payload?.label,
@@ -51,7 +51,7 @@ export default {
   },
   'rpl-form/submitted': () => {
     return (payload: any) => {
-      gaEvent({
+      trackEvent({
         event: `${payload.action}_form`,
         form_id: payload?.id,
         form_name: payload?.name,
@@ -63,7 +63,7 @@ export default {
   },
   'rpl-form-input/update': () => {
     return (payload: any) => {
-      gaEvent({
+      trackEvent({
         event: `form_${payload.action}_field`,
         label: payload?.label,
         element_id: payload?.id,
@@ -77,3 +77,5 @@ export default {
     }
   }
 }
+
+export { trackEvent }

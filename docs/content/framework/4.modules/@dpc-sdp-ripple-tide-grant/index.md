@@ -1,7 +1,7 @@
 ---
-title: Landing page
+title: Grant page
 description: 'Allows the creation of many different pages through dynamic components'
-layout: default
+layout: module
 ---
 
 ## Overview
@@ -15,4 +15,3 @@ This is what it is
 ```js
 Some code
 ```
-

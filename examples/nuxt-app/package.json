@@ -21,20 +21,16 @@
   },
   "dependencies": {
     "@dpc-sdp/nuxt-ripple": "workspace:*",
-    "@dpc-sdp/ripple-tide-api": "workspace:*",
     "@dpc-sdp/ripple-tide-event": "workspace:*",
     "@dpc-sdp/ripple-tide-grant": "workspace:*",
     "@dpc-sdp/ripple-tide-landing-page": "workspace:*",
     "@dpc-sdp/ripple-tide-media": "workspace:*",
     "@dpc-sdp/ripple-tide-news": "workspace:*",
     "@dpc-sdp/ripple-tide-publication": "workspace:*",
-    "@dpc-sdp/ripple-tide-search": "workspace:*",
-    "@dpc-sdp/ripple-ui-core": "workspace:*",
-    "@dpc-sdp/ripple-ui-forms": "workspace:*",
-    "@formkit/core": "1.0.0-beta.15",
-    "@formkit/vue": "1.0.0-beta.15"
+    "@dpc-sdp/ripple-tide-search": "workspace:*"
   },
   "devDependencies": {
+    "@dpc-sdp/ripple-tide-api": "workspace:*",
     "@dpc-sdp/ripple-test-utils": "workspace:*",
     "@unlighthouse/cli": "^0.4.9",
     "node-fetch-native": "^1.0.2",

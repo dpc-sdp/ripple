@@ -3,7 +3,7 @@
   "license": "Apache-2.0",
   "name": "@dpc-sdp/nuxt-ripple-cli",
   "main": "./dist/index.js",
-  "version": "2.1.0-alpha.109",
+  "version": "2.1.0-alpha.124",
   "scripts": {
     "nuxt-ripple": "node ./dist/commands/index.js",
     "build": "rimraf ./dist && tsc && npm run cp-templates && chmod +x ./dist/commands/index.js",
@@ -15,14 +15,15 @@
     "nuxt-ripple": "./dist/commands/index.js"
   },
   "dependencies": {
-    "mockttp": "^3.6.3"
+    "mockttp": "^3.7.0",
+    "rimraf": "^4.4.1"
   },
   "devDependencies": {
     "commander": "^10.0.0",
     "copyfiles": "^2.4.1",
     "enquirer": "^2.3.6",
     "hygen": "^6.2.11",
-    "inquirer": "8.2.5",
+    "inquirer": "9.1.5",
     "minimist": "^1.2.8",
     "plop": "^3.1.2",
     "ts-node": "^10.7.0"

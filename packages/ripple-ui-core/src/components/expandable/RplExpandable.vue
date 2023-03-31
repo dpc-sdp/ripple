@@ -14,7 +14,6 @@ const DEFAULT_DURATION = 420
 
 const containerRef = ref(null)
 const duration = ref(DEFAULT_DURATION)
-const transitionComplete = ref(false)
 
 onMounted(() => {
   duration.value =
@@ -40,12 +39,12 @@ function onEnter(el, done) {
 
 function onAfterEnter(el) {
   el.style.height = 'auto'
-  transitionComplete.value = true
+  el.style.overflow = 'initial'
 }
 
 function onBeforeLeave(el) {
   el.style.height = `${el.getBoundingClientRect().height}px`
-  transitionComplete.value = false
+  el.style.overflow = 'hidden'
 }
 
 // called when the leave transition starts.
@@ -60,7 +59,6 @@ function onLeave(el, done) {
 const classes = computed(() => ({
   'rpl-expandable': true,
   [`rpl-expandable--open`]: props.expanded,
-  [`rpl-expandable--expanded`]: transitionComplete.value
 }))
 </script>
 
@@ -85,11 +83,8 @@ const classes = computed(() => ({
 
 <style>
 .rpl-expandable {
+  overflow: hidden;
   transition: height var(--rpl-motion-speed-9) ease-out;
-
-  &:not(.rpl-expandable--expanded) {
-    overflow: hidden;
-  }
 
   @media print {
     /* Needs to override inline styles */

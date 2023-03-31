@@ -1,6 +1,14 @@
 <template>
-  <TideBaseLayout :site="site" :pageTitle="page.title" :pageDescription="page.description" :pageLanguage="page.lang"
-    :topicTags="page.showTopicTags ? page.topicTags : []" :updatedDate="page.changed || page.created">
+  <TideBaseLayout
+    :site="site"
+    :page="page"
+    :siteSection="page.siteSection"
+    :pageTitle="page.title"
+    :pageLanguage="page.lang"
+    :topicTags="page.showTopicTags ? page.topicTags : []"
+    :updatedDate="page.changed || page.created"
+    :showContentRating="page.showContentRating"
+  >
     <template #aboveHeader>
       <slot name="aboveHeader"></slot>
     </template>
@@ -14,9 +22,16 @@
       <TideNewsHeader :header="page.header" :hasBreadcrumbs="hasBreadcrumbs" />
     </template>
     <template #body="{ hasSidebar }">
-      <TideNewsBody :body="page.body" :details="page.details" :components="page.dynamicComponents" />
-      <TideDynamicComponents v-if="page.dynamicComponents?.length > 0" :components="page.dynamicComponents"
-        :hasSidebar="hasSidebar" />
+      <TideNewsBody
+        :body="page.body"
+        :details="page.details"
+        :components="page.dynamicComponents"
+      />
+      <TideDynamicComponents
+        v-if="page.dynamicComponents?.length > 0"
+        :components="page.dynamicComponents"
+        :hasSidebar="hasSidebar"
+      />
     </template>
     <template #sidebar>
       <slot name="sidebar"></slot>

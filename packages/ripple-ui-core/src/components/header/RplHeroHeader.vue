@@ -11,13 +11,13 @@ import RplHeaderLinks from './RplHeaderLinks.vue'
 import RplHeaderGraphic from './RplHeaderGraphic.vue'
 import RplHeaderActions from './RplHeaderActions.vue'
 import { RplLink } from '../../lib/constants'
-import { RplImageType } from '../image/constants'
+import { IRplImageType } from '../image/constants'
 
 interface Props {
   theme?: (typeof RplHeaderThemes)[number]
   title: string
-  logo?: RplImageType
-  background?: RplImageType
+  logo?: IRplImageType
+  background?: IRplImageType
   cornerTop?: string | boolean
   cornerBottom?: string | boolean
   primaryAction?: RplLink

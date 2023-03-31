@@ -18,9 +18,13 @@ const exampleMapping = {
     test: 'field'
   }
 }
-const exampleApiConfig = {
+
+const exampleApiConnection = {
   site: '123',
-  baseUrl: '',
+  baseUrl: ''
+}
+
+const exampleApiConfig = {
   apiPrefix: '/api/v1'
 }
 
@@ -28,6 +32,7 @@ describe('TideApiBase', () => {
   describe('getMappedData', () => {
     const tideApiBase = new TideApiBase(
       {
+        ...exampleApiConnection,
         debug: false,
         config: exampleApiConfig,
         mapping: {
@@ -73,6 +78,7 @@ describe('TideApiBase', () => {
   describe('get', () => {
     const tideApiBase = new TideApiBase(
       {
+        ...exampleApiConnection,
         config: exampleApiConfig,
         debug: false,
         mapping: {

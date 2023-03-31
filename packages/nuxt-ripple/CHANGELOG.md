@@ -3,6 +3,130 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.126](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.125...v2.1.0-alpha.126) (2023-03-30)
+
+### Features
+
+* **@dpc-sdp/ripple-tide-publication:** hooked up print all pages link ([a617cf3](https://github.com/dpc-sdp/ripple-framework/commit/a617cf36ada432711bbc14744a09f3825d0cb42b))
+* **@dpc-sdp/ripple-tide-publication:** setup publication print all page view and apis ([3a46f98](https://github.com/dpc-sdp/ripple-framework/commit/3a46f98cda072c7141f3cf19092a0a545ac5249e))
+
+# [2.1.0-alpha.124](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.123...v2.1.0-alpha.124) (2023-03-29)
+
+**Note:** Version bump only for package @dpc-sdp/nuxt-ripple
+
+# [2.1.0-alpha.123](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.122...v2.1.0-alpha.123) (2023-03-26)
+
+### Bug Fixes
+
+* **@dpc-sdp/nuxt-ripple:** fixed search page crashing ([82d9f6d](https://github.com/dpc-sdp/ripple-framework/commit/82d9f6d28b49247ff635666c2b0f60acf58d0c98))
+
+# [2.1.0-alpha.122](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.121...v2.1.0-alpha.122) (2023-03-24)
+
+### Bug Fixes
+
+* **nuxt-ripple:** :bug: add required props for sitemap ([45ad087](https://github.com/dpc-sdp/ripple-framework/commit/45ad08725044e8e3e3eed80189f9dc73854de316))
+
+### Features
+
+* **nuxt-ripple:** :sparkles: add hostname plugin, move alert script back to baselayout ([eaca57b](https://github.com/dpc-sdp/ripple-framework/commit/eaca57b4bfca9d967dc18812c8e5baedcaf44782))
+* **nuxt-ripple:** :sparkles: implement page head and seo meta ([52afc09](https://github.com/dpc-sdp/ripple-framework/commit/52afc0915ec9a5e789d51c1e8325cd8c0a164ef4))
+
+# [2.1.0-alpha.121](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.120...v2.1.0-alpha.121) (2023-03-23)
+
+### Bug Fixes
+
+* **@dpc-sdp/nuxt-ripple:** fixed intermittent crash caused by nuxt cache reactivity set to null ([21b8226](https://github.com/dpc-sdp/ripple-framework/commit/21b8226add3e514e311352d556ab71869ac8d9ee))
+
+# [2.1.0-alpha.120](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.119...v2.1.0-alpha.120) (2023-03-21)
+
+**Note:** Version bump only for package @dpc-sdp/nuxt-ripple
+
+# [2.1.0-alpha.119](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.118...v2.1.0-alpha.119) (2023-03-21)
+
+### Bug Fixes
+
+* **@dpc-sdp/nuxt-ripple:** loosened alerts script guid regex requirements ([ee9dd50](https://github.com/dpc-sdp/ripple-framework/commit/ee9dd5057f1a3adb1a4110f743466d593d6265f5))
+
+# [2.1.0-alpha.118](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.117...v2.1.0-alpha.118) (2023-03-20)
+
+### Features
+
+* **@dpc-sdp/nuxt-ripple:** :zap: adds client side cacheing of API requests ([ac12f88](https://github.com/dpc-sdp/ripple-framework/commit/ac12f882accbd2580c617c2f00ca4f33dac1647f))
+
+### Reverts
+
+* **@dpc-sdp/nuxt-ripple:** :art: revert formatting change ([4f36ab8](https://github.com/dpc-sdp/ripple-framework/commit/4f36ab8a5fbd52bc0b4421b9fd3e4c3712006a39))
+
+# [2.1.0-alpha.117](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.116...v2.1.0-alpha.117) (2023-03-20)
+
+### Bug Fixes
+
+* **nuxt-ripple:** moved alert script to base layout and fixed regex issue ([ecf4d2d](https://github.com/dpc-sdp/ripple-framework/commit/ecf4d2da5601f118d8653c57f97cbc9af4ab3acd))
+
+# [2.1.0-alpha.116](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.115...v2.1.0-alpha.116) (2023-03-17)
+
+### Bug Fixes
+
+* **@dpc-sdp/nuxt-ripple:** fixed content rating still showing when turned off in cms ([8a5c595](https://github.com/dpc-sdp/ripple-framework/commit/8a5c595bf8700f2c8d8415207c75036a8c76e533))
+
+# [2.1.0-alpha.115](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.114...v2.1.0-alpha.115) (2023-03-17)
+
+### Bug Fixes
+
+* fixed alerts script failing when no cookie present ([223207e](https://github.com/dpc-sdp/ripple-framework/commit/223207e6d22593079fd7bd13c44c8137fbfebfe4))
+
+### Features
+
+* **nuxt-ripple:** added script to hide dismissed alerts to avoid content flash ([5868b61](https://github.com/dpc-sdp/ripple-framework/commit/5868b6139a217d25bc39151633ab60f8fb472eec))
+* **nuxt-ripple:** move alerts script to inline rather than external script ([92b5152](https://github.com/dpc-sdp/ripple-framework/commit/92b51521e1e79a94741b8f8286b3e4cf68975f70))
+
+# [2.1.0-alpha.114](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.113...v2.1.0-alpha.114) (2023-03-16)
+
+**Note:** Version bump only for package @dpc-sdp/nuxt-ripple
+
+# [2.1.0-alpha.113](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.112...v2.1.0-alpha.113) (2023-03-16)
+
+**Note:** Version bump only for package @dpc-sdp/nuxt-ripple
+
+# [2.1.0-alpha.112](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.111...v2.1.0-alpha.112) (2023-03-15)
+
+### Bug Fixes
+
+* **@dpc-sdp/nuxt-ripple:** remove prod check as it fails lighthouse and it's behind BA ([2b9bf83](https://github.com/dpc-sdp/ripple-framework/commit/2b9bf838f0ba818709745c039d5af45b342ba4e6))
+* **nuxt-ripple:** removed unused proptypes ([a167052](https://github.com/dpc-sdp/ripple-framework/commit/a167052ae8230bf285fdb69cbaccd3654ea7acb3))
+* stopped all links are forcing a full refresh instead of using client side navigation ([a10760e](https://github.com/dpc-sdp/ripple-framework/commit/a10760e70513829fbd49dfd2ccaa41526f2277cd))
+
+### Features
+
+* **@dpc-sdp/nuxt-ripple:** adding support for robots.txt ([5049ed6](https://github.com/dpc-sdp/ripple-framework/commit/5049ed633c67a35112e2b9f5335c1c686cfa8f9e))
+* **@dpc-sdp/nuxt-ripple:** export default robots ([c35b5d9](https://github.com/dpc-sdp/ripple-framework/commit/c35b5d9acf2061656072108fac3244c2988b7f5b))
+
+# [2.1.0-alpha.111](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.110...v2.1.0-alpha.111) (2023-03-15)
+
+### Bug Fixes
+
+* **@dpc-sdp/nuxt-ripple:** fix topics and tags touching ([82280bc](https://github.com/dpc-sdp/ripple-framework/commit/82280bc32638c1e058f44faade8d1d3f7ebf0bd6))
+
+# [2.1.0-alpha.110](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.109...v2.1.0-alpha.110) (2023-03-14)
+
+**Note:** Version bump only for package @dpc-sdp/nuxt-ripple
+
+# [2.1.0-alpha.109](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.108...v2.1.0-alpha.109) (2023-03-13)
+
+**Note:** Version bump only for package @dpc-sdp/nuxt-ripple
+
+# [2.1.0-alpha.108](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.107...v2.1.0-alpha.108) (2023-03-10)
+
+**Note:** Version bump only for package @dpc-sdp/nuxt-ripple
+
+# [2.1.0-alpha.107](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.106...v2.1.0-alpha.107) (2023-03-10)
+
+**Note:** Version bump only for package @dpc-sdp/nuxt-ripple
+
+# [2.1.0-alpha.106](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.105...v2.1.0-alpha.106) (2023-03-10)
+
+**Note:** Version bump only for package @dpc-sdp/nuxt-ripple
+
 # [2.1.0-alpha.104](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.103...v2.1.0-alpha.104) (2023-03-10)
 
 **Note:** Version bump only for package @dpc-sdp/nuxt-ripple

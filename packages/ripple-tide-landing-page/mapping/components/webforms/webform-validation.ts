@@ -107,7 +107,9 @@ export const getValidation = (
     }
 
     if (validationType === 'matches') {
-      validation.push([validationType, `/^\\W*(\\w+(\\W+|$)){${min},${max}}$/`])
+      // This is a regex that counts words and matches if the word count is between `min` and `max`
+      // A word in this context is any group of non-whitespace characters (\S+)
+      validation.push([validationType, `/^\\s*(\\S+(\\s+|$)){${min},${max}}$/`])
     } else {
       validation.push(max ? [validationType, min, max] : [validationType, min])
     }

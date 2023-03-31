@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { watch, onMounted, onUnmounted } from 'vue'
 import RplButton from '../button/RplButton.vue'
+import { useWindowSize } from '@vueuse/core'
 import { UseFocusTrap } from '@vueuse/integrations/useFocusTrap/component'
 import { rplEventBus } from '../../index'
 
@@ -12,6 +13,8 @@ interface Props {
 }
 
 const props = defineProps<Props>()
+
+const { height } = useWindowSize()
 
 const closeModal = (event) => {
   emit('close')
@@ -32,7 +35,10 @@ watch(
       if (newValue) {
         document.body.classList.add('rpl-u-viewport-locked', 'rpl-modal-open')
       } else {
-        document.body.classList.remove('rpl-u-viewport-locked', 'rpl-modal-open')
+        document.body.classList.remove(
+          'rpl-u-viewport-locked',
+          'rpl-modal-open'
+        )
       }
     }
   }
@@ -44,13 +50,19 @@ onMounted(() => {
 
 onUnmounted(() => {
   window.removeEventListener('keydown', escapeKeyHandler, false)
+  document.body.classList.remove('rpl-u-viewport-locked', 'rpl-modal-open')
 })
 </script>
 
 <template>
   <teleport to="body">
     <UseFocusTrap v-if="props.isOpen" :options="{ immediate: true }">
-      <div class="rpl-modal" data-cy="modal" v-bind="$attrs">
+      <div
+        class="rpl-modal"
+        data-cy="modal"
+        v-bind="$attrs"
+        :style="`--local-view-height: ${height}px`"
+      >
         <div class="rpl-modal__inner">
           <slot name="above">
             <div class="rpl-modal__actions">

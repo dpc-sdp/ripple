@@ -20,7 +20,7 @@ withDefaults(defineProps<Props>(), {
       {{ title }}
     </h1>
     <p class="rpl-type-p-large">{{ description }}</p>
-    <ul class="links rpl-u-margin-t-5">
+    <ul class="links rpl-u-margin-t-5" v-if="links && links.length">
       <li v-for="(link, index) in links" :key="index">
         <DocsLink
           isExternal

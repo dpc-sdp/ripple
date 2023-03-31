@@ -1,8 +1,9 @@
 <template>
   <TideBaseLayout
     :pageTitle="`${props.error?.statusCode} - ${props.error?.statusMessage}`"
-    :pageDescription="props.error?.statusMessage"
     :site="site"
+    :page="{}"
+    :siteSection="{}"
     class="tide-error"
   >
     <template #breadcrumbs><span></span></template>
@@ -26,6 +27,7 @@
 
 <script setup lang="ts">
 import { RplHeaderGraphic, RplErrorMessage } from '#components'
+import { useTideSite } from '#imports'
 import { computed } from 'vue'
 
 interface Props {
@@ -36,9 +38,7 @@ const props = defineProps<Props>()
 
 const is404 = computed(() => props.error?.statusCode === '404')
 const title = computed(() => (is404.value ? 'Oops!' : 'Sorry!'))
-const site = computed(() =>
-  is404.value ? JSON.parse(props.error.data)?.site || null : null
-)
+const site = is404.value ? await useTideSite() : undefined
 </script>
 
 <style>

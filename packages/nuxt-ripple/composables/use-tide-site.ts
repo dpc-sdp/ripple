@@ -1,18 +1,24 @@
-export default async (site: string | undefined) => {
-  const baseURL = '/api/site'
-  // @ts-ignore
-  const { data } = await $fetch(`${baseURL}/site`, {
-    params: {
-      site
-    }
-  }).catch((error) => {
-    return {
-      data: {
-        ...error.data,
-        error: true
-      }
-    }
-  })
+import type { TideSiteData } from './../types'
 
-  return data
+export const useTideSite = async (id?: number): Promise<TideSiteData> => {
+  const { public: config } = useRuntimeConfig()
+  const siteId = id || config.tide?.site
+  const { data: siteData } = useNuxtData(`site-${siteId}`)
+  if (!siteData.value) {
+    const { data, error } = await useFetch('/api/tide/site', {
+      key: `site-${siteId}`,
+      baseURL: config.API_URL || '',
+      params: {
+        id: siteId
+      }
+    })
+    if (error && error.value?.statusCode) {
+      console.log('API error fetching site data')
+      useTideError(500)
+    }
+    return data.value
+  }
+  return siteData.value
 }
+
+export default useTideSite

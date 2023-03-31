@@ -1,14 +1,14 @@
 <script setup lang="ts">
-import { computed } from 'vue'
-import { isExternalLink } from '../../lib/helpers'
-
 interface Props {
   url: string
+  openInNewWindow?: boolean
+  download?: boolean
 }
 
-const props = defineProps<Props>()
-
-const isExternal = computed(() => isExternalLink(props.url))
+withDefaults(defineProps<Props>(), {
+  openInNewWindow: false,
+  download: undefined
+})
 </script>
 
 <template>
@@ -16,11 +16,10 @@ const isExternal = computed(() => isExternalLink(props.url))
     :class="{ 'rpl-document': true, 'rpl-document--centered': !$slots.info }"
   >
     <a
-      tabindex="-1"
-      class="rpl-document__link"
+      class="rpl-document__link rpl-u-focusable-within"
       :href="url"
-      :download="isExternal ? null : ''"
-      :target="isExternal ? '_blank' : null"
+      :download="download"
+      :target="openInNewWindow ? '_blank' : null"
     >
       <div v-if="$slots.icon" class="rpl-document__icon">
         <slot name="icon"></slot>
@@ -29,7 +28,6 @@ const isExternal = computed(() => isExternalLink(props.url))
         <div
           v-if="$slots.name"
           class="rpl-document__name rpl-type-p rpl-type-weight-bold rpl-u-focusable-inline"
-          tabindex="0"
         >
           <slot name="name"></slot>
         </div>

@@ -92,6 +92,7 @@ const toggleModal = () => {
           :key="i"
           :src="item.image"
           :alt="item.alt"
+          fit="contain"
           class="rpl-media-gallery__image"
         />
       </RplSlider>

@@ -72,7 +72,6 @@ export interface TideImageField {
 
 export interface TidePageBase {
   title: string
-  description: string
   created: string
   changed: string
   nid: number
@@ -83,6 +82,7 @@ export interface TidePageBase {
     contacts?: TideContact[]
     relatedLinks?: any[]
   }
+  [key: string]: unknown
 }
 
 export type TideDynamicPageComponent<T> = {

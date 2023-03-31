@@ -3,6 +3,101 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.126](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.125...v2.1.0-alpha.126) (2023-03-30)
+
+### Features
+
+* **@dpc-sdp/ripple-tide-publication:** hooked up print all pages link ([a617cf3](https://github.com/dpc-sdp/ripple-framework/commit/a617cf36ada432711bbc14744a09f3825d0cb42b))
+
+# [2.1.0-alpha.124](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.123...v2.1.0-alpha.124) (2023-03-29)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-grant
+
+# [2.1.0-alpha.123](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.122...v2.1.0-alpha.123) (2023-03-26)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-grant
+
+# [2.1.0-alpha.122](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.121...v2.1.0-alpha.122) (2023-03-24)
+
+### Features
+
+* **nuxt-ripple:** :sparkles: implement page head and seo meta ([52afc09](https://github.com/dpc-sdp/ripple-framework/commit/52afc0915ec9a5e789d51c1e8325cd8c0a164ef4))
+
+# [2.1.0-alpha.121](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.120...v2.1.0-alpha.121) (2023-03-23)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-grant
+
+# [2.1.0-alpha.120](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.119...v2.1.0-alpha.120) (2023-03-21)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-grant
+
+# [2.1.0-alpha.119](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.118...v2.1.0-alpha.119) (2023-03-21)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-grant
+
+# [2.1.0-alpha.118](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.117...v2.1.0-alpha.118) (2023-03-20)
+
+### Features
+
+* **@dpc-sdp/nuxt-ripple:** :zap: adds client side cacheing of API requests ([ac12f88](https://github.com/dpc-sdp/ripple-framework/commit/ac12f882accbd2580c617c2f00ca4f33dac1647f))
+
+# [2.1.0-alpha.117](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.116...v2.1.0-alpha.117) (2023-03-20)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-grant
+
+# [2.1.0-alpha.116](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.115...v2.1.0-alpha.116) (2023-03-17)
+
+### Bug Fixes
+
+* **@dpc-sdp/nuxt-ripple:** fixed content rating still showing when turned off in cms ([8a5c595](https://github.com/dpc-sdp/ripple-framework/commit/8a5c595bf8700f2c8d8415207c75036a8c76e533))
+* **@dpc-sdp/ripple-tide-grant:** fixed audience not appearing when funding was blank ([aa8e676](https://github.com/dpc-sdp/ripple-framework/commit/aa8e6765875ba9bac287a21f8eef273bf180d4b3))
+* **@dpc-sdp/ripple-tide-grant:** updated order of grant details to match designs ([9363281](https://github.com/dpc-sdp/ripple-framework/commit/9363281e3562e7a7a12b221f909df54bd7d4505a))
+
+# [2.1.0-alpha.115](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.114...v2.1.0-alpha.115) (2023-03-17)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-grant
+
+# [2.1.0-alpha.114](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.113...v2.1.0-alpha.114) (2023-03-16)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-grant
+
+# [2.1.0-alpha.113](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.112...v2.1.0-alpha.113) (2023-03-16)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-grant
+
+# [2.1.0-alpha.112](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.111...v2.1.0-alpha.112) (2023-03-15)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-grant
+
+# [2.1.0-alpha.111](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.110...v2.1.0-alpha.111) (2023-03-15)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-grant:** run grant description wysiwyg through markup plugins ([cdb1399](https://github.com/dpc-sdp/ripple-framework/commit/cdb1399d0b61cf14e4163d4583fb9ddb157a8cb7))
+
+# [2.1.0-alpha.110](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.109...v2.1.0-alpha.110) (2023-03-14)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-grant
+
+# [2.1.0-alpha.109](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.108...v2.1.0-alpha.109) (2023-03-13)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-grant
+
+# [2.1.0-alpha.108](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.107...v2.1.0-alpha.108) (2023-03-10)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-grant:** check for timeline title ([0a71ba6](https://github.com/dpc-sdp/ripple-framework/commit/0a71ba64187f2f4046758ba973a2fb5b2116e56a))
+* **@dpc-sdp/ripple-ui-core:** alt text support for timeline, update RplImageType instances ([945e21b](https://github.com/dpc-sdp/ripple-framework/commit/945e21bb2c53ad4fec37358900c49348712c40ae))
+
+# [2.1.0-alpha.107](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.106...v2.1.0-alpha.107) (2023-03-10)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-grant
+
+# [2.1.0-alpha.106](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.105...v2.1.0-alpha.106) (2023-03-10)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-grant
+
 # [2.1.0-alpha.104](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.103...v2.1.0-alpha.104) (2023-03-10)
 
 **Note:** Version bump only for package @dpc-sdp/ripple-tide-grant

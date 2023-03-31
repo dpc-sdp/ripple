@@ -36,23 +36,16 @@
     </template>
     <template #body="{ hasSidebar }">
       <slot name="body" :hasSidebar="hasSidebar"></slot>
-      <div
+      <TideTopicTags
         v-if="!featureFlags?.disableTopicTags && topicTags.length"
-        data-cy="topic-tags"
-        class="rpl-u-margin-t-6"
-      >
-        <RplChip
-          v-for="tag in topicTags"
-          :key="tag.url"
-          :label="tag.text"
-          :url="tag.url"
-        />
-      </div>
+        :items="topicTags"
+      />
       <TideUpdatedDate v-if="updatedDate" :date="updatedDate" />
     </template>
     <template #belowBody>
       <slot name="belowBody"></slot>
       <TideContentRating
+        v-if="showContentRating"
         :siteSectionName="siteSection ? siteSection.name : ''"
       />
     </template>
@@ -88,33 +81,35 @@
 <script setup lang="ts">
 // @ts-ignore
 import { useHead, useSiteTheme, useAppConfig, useRoute } from '#imports'
-import { RplChip } from '#components'
 import { computed, onMounted, provide, ref } from 'vue'
 import { deepmerge } from 'deepmerge-ts'
 import { TideSiteData } from '../types'
-import { TideTopicTag } from '../mapping/topic-tags/topic-tags-mapping'
+import { TideTopicTag } from '../mapping/base/topic-tags/topic-tags-mapping'
 import { TideSiteSection } from '@dpc-sdp/ripple-tide-api/types'
+import hideAlertsOnLoadScript from '../utils/hideAlertsOnLoadScript.js'
+import useTidePageMeta from '../composables/use-tide-page-meta'
 
 interface Props {
   site: TideSiteData
   background?: string
   pageTitle: string
   pageLanguage?: string
-  pageDescription?: string
   footerImageCaption?: string
   topicTags?: TideTopicTag[]
   updatedDate?: string | null
   siteSection: TideSiteSection | null
+  page: any
+  showContentRating: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
   background: 'default',
   pageLanguage: 'en-AU',
-  pageDescription: '',
   footerImageCaption: '',
   topicTags: () => [],
   updatedDate: null,
-  siteSection: null
+  siteSection: null,
+  showContentRating: false
 })
 
 // Feature flags will be available on component instances with inject('featureFlags') - See https://vuejs.org/guide/components/provide-inject.html#inject
@@ -143,20 +138,23 @@ const style = useSiteTheme(
 )
 
 useHead({
-  title: props.pageTitle,
   htmlAttrs: {
-    lang: props.pageLanguage
+    lang: props.pageLanguage || 'en-AU'
   },
+  title: props.pageTitle,
   style: style && [
     {
       children: `body { ${style} }`
     }
   ],
-  meta: [
+  script: [
     {
-      name: 'description',
-      content: props.pageDescription
+      innerHTML: hideAlertsOnLoadScript
     }
   ]
 })
+
+if (props.page && props.page.meta) {
+  useTidePageMeta(props)
+}
 </script>

@@ -289,7 +289,8 @@ const getFormSchemaFromMapping = async (
           $formkit: 'RplFormLabel',
           key: fieldKey,
           label: field['#title'],
-          required: field['#required']
+          required: field['#required'],
+          ...getValidationAndConditionals(field)
         }
         break
       case 'webform_actions':

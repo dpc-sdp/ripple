@@ -2,7 +2,7 @@ import { withCssResources } from '@storybook/addon-cssresources'
 import { withDesign } from 'storybook-addon-designs'
 import { app } from '@storybook/vue3'
 import { registerRplFormPlugin } from '@dpc-sdp/ripple-ui-forms'
-import { RplIconSprite } from '@dpc-sdp/ripple-ui-core/vue'
+import { RplIconSprite, RplLink } from '@dpc-sdp/ripple-ui-core/vue'
 import '@dpc-sdp/ripple-ui-core/style'
 import themes from './themes.js'
 import withBackground from './utils/withBackground'
@@ -17,6 +17,8 @@ window.svgPlaceholder = svgPlaceholder
 
 // Ripple vue plugins
 registerRplFormPlugin(app)
+
+app.component('RplLink', RplLink)
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },

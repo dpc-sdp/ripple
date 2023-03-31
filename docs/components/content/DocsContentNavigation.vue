@@ -9,62 +9,30 @@ const { sections } = useAppConfig()
 // E.g. If we on the page `/cats/are/cute`, then we just want the content for 'cats' (i.e. `queryContent('cats')`)
 const sectionSlug = route.params.slug[0]
 
-function isActive(nuxtNavItem: NavItem) {
-  if (nuxtNavItem.children && nuxtNavItem.children.length) {
-    return route.path.startsWith(nuxtNavItem._path)
-  }
-
-  return route.path === nuxtNavItem._path
-}
-
-const transformToRplNavFormat = (nuxtNavItem: NavItem): IRplVerticalNavItem => {
-  return {
-    id: nuxtNavItem._path,
-    text: nuxtNavItem.title,
-    url: nuxtNavItem._path,
-    active: isActive(nuxtNavItem),
-    items: nuxtNavItem.children
-      ? nuxtNavItem.children
-          .filter((child) => child._path !== nuxtNavItem._path)
-          .map(transformToRplNavFormat)
-      : undefined
-  }
-}
-
-const { data: navigation } = await useAsyncData('navigation', async () => {
-  const nav = await fetchContentNavigation(
-    queryContent(sectionSlug || 'design-system')
-  )
-
-  const sectionNav = nav ? nav[0]?.children : null
-
-  if (!sectionNav) {
-    return []
-  }
-
-  return sectionNav.map(transformToRplNavFormat)
+const navigation = await useDocsNavigation([sectionSlug || 'design-system'], {
+  layout: { $ne: 'module' }
 })
 </script>
 
 <template>
   <div>
     <RplVerticalNav :items="navigation" />
-
-    <NuxtLink
-      :to="sectionSlug === 'framework' ? '/design-system' : '/framework'"
-      class="docs-sidebar-link rpl-type-p-small rpl-u-focusable-block"
+    <DocsNavLink
+      :url="
+        sectionSlug === 'framework'
+          ? '/design-system/about/what-is-ripple'
+          : '/framework'
+      "
+      icon="icon-link-external-square-filled"
+      iconPosition="end"
+      class="docs-section-link"
     >
       {{
         sectionSlug === 'framework'
           ? sections['design-system'].title
           : sections['framework'].title
       }}
-      <RplIcon
-        name="icon-link-external-square-filled"
-        size="xs"
-        class="rpl-u-margin-l-1"
-      />
-    </NuxtLink>
+    </DocsNavLink>
   </div>
 </template>
 
@@ -76,19 +44,7 @@ const { data: navigation } = await useAsyncData('navigation', async () => {
   padding-left: 0;
 }
 
-.docs-sidebar-link {
-  display: block;
-  padding: var(--rpl-sp-3) var(--local-vertical-nav-item-gutter);
+.docs-section-link {
   margin-top: var(--rpl-sp-3);
-  font-weight: bold;
-}
-
-.docs-sidebar-link:hover {
-  background-color: var(--local-vertical-nav-hover-bg);
-  text-decoration: underline;
-}
-
-.docs-sidebar-link:active {
-  background-color: var(--local-vertical-nav-hover-bg);
 }
 </style>

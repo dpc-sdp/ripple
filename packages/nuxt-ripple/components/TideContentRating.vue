@@ -30,6 +30,7 @@ onMounted(() => {
             v-if="isMounted"
             :formId="contentRatingFormId"
             hideFormOnSubmit
+            successMessageTitle=""
             successMessageHTML="Thank you! Your response has been submitted."
             errorMessageHTML="We are experiencing a server error. Please try again, otherwise contact us."
           >
@@ -73,7 +74,7 @@ onMounted(() => {
                   <RplContent>
                     <p>
                       If you need a response, please use our
-                      <a href="/contact-us">contact us form</a>.
+                      <RplLink href="/contact-us">contact us form</RplLink>.
                     </p>
                   </RplContent>
                   <FormKit type="RplFormActions" />

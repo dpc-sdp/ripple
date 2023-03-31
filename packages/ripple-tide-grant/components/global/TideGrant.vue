@@ -1,11 +1,13 @@
 <template>
   <TideBaseLayout
     :site="site"
+    :page="page"
+    :siteSection="page.siteSection"
     :background="page.background"
     :pageTitle="page.title"
-    :pageDescription="page.description"
     :pageLanguage="page.lang"
     :updatedDate="page.changed || page.created"
+    :showContentRating="page.showContentRating"
   >
     <template #aboveHeader>
       <slot name="aboveHeader"></slot>

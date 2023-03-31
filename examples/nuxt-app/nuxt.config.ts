@@ -4,12 +4,10 @@ export default defineNuxtConfig({
     public: {
       API_URL: '',
       tide: {
-        contentApi: {
-          // These can be overridden via environment variables eg: NUXT_PUBLIC_TIDE_CONTENT_API_BASE_URL
-          // See https://nuxt.com/docs/api/configuration/nuxt-config#runtimeconfig for more info
-          baseUrl: 'https://develop.content.reference.sdp.vic.gov.au',
-          site: '8888'
-        },
+        // These can be overridden via environment variables eg: NUXT_PUBLIC_TIDE_BASE_URL
+        // See https://nuxt.com/docs/api/configuration/nuxt-config#runtimeconfig for more info
+        baseUrl: 'https://develop.content.reference.sdp.vic.gov.au',
+        site: '8888',
         appSearch: {
           searchKey: '',
           endpointBase: '',

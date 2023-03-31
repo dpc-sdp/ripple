@@ -78,12 +78,22 @@
     min-height: 100%;
     mix-blend-mode: screen;
   }
+
+  &.rpl-header-graphic--top {
+    background-size: 140% 100%;
+    background-position: 20% 0;
+  }
+
+  &.rpl-header-graphic--bottom {
+    background-size: 120% 100%;
+    background-position: 40% 0;
+  }
 }
 
 .rpl-header-graphic__top {
-  min-width: 475px;
+  min-width: 170%;
 }
 
 .rpl-header-graphic__bottom {
-  min-width: 350px;
+  min-width: 150%;
 }

@@ -1,6 +1,13 @@
 <template>
-  <TideBaseLayout :site="site" :pageTitle="page.title" :pageDescription="page.description" :pageLanguage="page.lang"
-    :updatedDate="page.changed || page.created">
+  <TideBaseLayout
+    :site="site"
+    :page="page"
+    :siteSection="page.siteSection"
+    :pageTitle="page.title"
+    :pageLanguage="page.lang"
+    :updatedDate="page.changed || page.created"
+    :showContentRating="page.showContentRating"
+  >
     <template #aboveHeader>
       <slot name="aboveHeader"></slot>
     </template>
@@ -15,7 +22,12 @@
     </template>
     <template #body>
       <TideMediaBody :media="page.media">
-        <audio class="tide-media__audio" :title="page.title" :src="page.media.url" controls />
+        <audio
+          class="tide-media__audio"
+          :title="page.title"
+          :src="page.media.url"
+          controls
+        />
       </TideMediaBody>
     </template>
     <template #sidebar>

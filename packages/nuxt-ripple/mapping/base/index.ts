@@ -22,6 +22,7 @@ import {
   map as sidebarSiteSectionNavMapping,
   includes as sidebarSiteSectionNavIncludes
 } from './sidebar-site-section-nav/sidebar-site-section-nav-mapping.js'
+import TidePageMeta from './page-meta.js'
 import { TidePageApi } from '@dpc-sdp/ripple-tide-api'
 
 export const tidePageBaseMapping = ({
@@ -80,7 +81,10 @@ export const tidePageBaseMapping = ({
         name: siteData.name
       }
     },
-    _src: (src) => (process.env.NODE_ENV === 'development' ? src : undefined)
+    ...TidePageMeta,
+    showContentRating: 'field_show_content_rating',
+    _src: (src: any) =>
+      process.env.NODE_ENV === 'development' ? src : undefined
   }
 }
 

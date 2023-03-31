@@ -15,7 +15,7 @@ export default class TideApiBase extends HttpClient {
     super(
       {
         client: tide.client,
-        baseUrl: `${tide.config.baseUrl}${tide.config.apiPrefix}`,
+        baseUrl: `${tide.baseUrl}${tide.config.apiPrefix}`,
         auth: tide.config.auth
       },
       logger

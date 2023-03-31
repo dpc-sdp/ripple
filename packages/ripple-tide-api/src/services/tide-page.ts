@@ -22,7 +22,7 @@ export default class TidePageApi extends TideApiBase {
 
   constructor(tide: RplTideModuleConfig, logger: ILogger) {
     super(tide, logger)
-    this.site = tide.config.site
+    this.site = tide.site
     this.sectionId = ''
     this.path = ''
     this.contentTypes = {}
@@ -290,6 +290,103 @@ export default class TidePageApi extends TideApiBase {
       throw new ApplicationError(`Error fetching content list for ${type}`, {
         cause: error
       })
+    }
+  }
+
+  async getEntityList(
+    entityType,
+    bundle,
+    filtering,
+    includes,
+    pagination,
+    sorting,
+    { allPages = true } = {}
+  ) {
+    const params: Record<string, any> = {
+      site: this.site
+    }
+    // docs: https://www.drupal.org/docs/8/modules/json-api/filtering
+    if (filtering) {
+      params.filter = filtering
+    }
+    // docs: https://www.drupal.org/docs/8/modules/json-api/includes
+    if (includes) {
+      params.include = includes.toString()
+    }
+    // docs: https://www.drupal.org/docs/8/modules/json-api/pagination
+    if (pagination) {
+      params.page = pagination
+    }
+    // docs: https://www.drupal.org/docs/8/modules/json-api/sorting
+    if (sorting) {
+      params.sort = sorting
+    }
+    try {
+      // Give more time for list response, normally it's slow
+      const response = await this.get(`${entityType}/${bundle}`, { params })
+
+      if (allPages) {
+        const allPagesData = await this.getAllPaginatedData(response)
+        if (allPagesData instanceof Error) {
+          throw allPagesData
+        }
+        return allPagesData
+      } else {
+        return jsonapiParse.parse(response).data
+      }
+    } catch (error) {
+      throw new ApplicationError(
+        `Failed to get a entity list from Tide API for "${entityType}:${bundle}"`,
+        { cause: error }
+      )
+    }
+  }
+
+  /**
+   * Used for get paginated response data
+   * @param {*} response
+   * @param {*} parse
+   * @param {*} headersConfig
+   * @returns {Object} a response data with all JSON:API pages or an instance of Error
+   */
+  async getAllPaginatedData(response, parse = true, headersConfig = {}) {
+    let data = parse ? jsonapiParse.parse(response).data : response.data
+
+    while (response.links && response.links.next) {
+      const resource = this.jsonApiLinkToResource(response.links.next)
+
+      this.logger.debug(`Tide get next page: ${resource}`)
+
+      // Use getByURL directly here because resource url contains all query params.
+      try {
+        response = await this.get(resource, {
+          headers: headersConfig,
+          site: this.site
+        })
+        const nextData = parse
+          ? jsonapiParse.parse(response).data
+          : response.data
+        data = data.concat(nextData)
+      } catch (error) {
+        throw new ApplicationError('Failed to get next page data', {
+          cause: error
+        })
+      }
+    }
+    return data
+  }
+
+  // Extract api resource url from a full url from API response
+  // e.g 'http://exmaple.com/api/v1/node/page?site=4...' => 'node/page?site=4...'
+  jsonApiLinkToResource(jsonApiLink, apiPrefix = '/api/v1') {
+    if (typeof jsonApiLink !== 'string') {
+      jsonApiLink = jsonApiLink.href
+    }
+    const url = jsonApiLink.match(`${apiPrefix}(.*)`)
+    if (Array.isArray(url) && url[1]) {
+      return url[1]
+    } else {
+      throw new Error(`Tide API give a unexpected next url: ${jsonApiLink}`)
     }
   }
 

@@ -2,7 +2,7 @@
   "name": "@dpc-sdp/ripple-tide-landing-page",
   "description": "Ripple mappings and components for Tide landing-page Content type",
   "main": "./nuxt.config.ts",
-  "packageManager": "pnpm@7.23.0",
+  "packageManager": "pnpm@8.0.0",
   "version": "2.1.0-alpha.126",
   "license": "Apache-2.0",
   "exports": {

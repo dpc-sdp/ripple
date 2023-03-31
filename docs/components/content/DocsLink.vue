@@ -4,6 +4,7 @@
     target="_blank"
     :class="{
       'docs-link': true,
+      'rpl-type-p': !isSmall,
       'rpl-type-p-small': isSmall
     }"
   >
@@ -29,7 +30,8 @@ interface Props {
   iconPosition?: 'start' | 'end'
 }
 
-const props = withDefaults(defineProps<Props>(), {
+withDefaults(defineProps<Props>(), {
+  isSmall: false,
   isExternal: false,
   iconPosition: 'start'
 })

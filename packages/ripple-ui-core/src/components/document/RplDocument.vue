@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { computed } from 'vue'
-import { isExternalLink } from '../../lib/helpers'
 import {
   useRippleEvent,
   rplEventPayload
@@ -8,17 +6,20 @@ import {
 
 interface Props {
   url: string
+  openInNewWindow?: boolean
+  download?: boolean
 }
 
-const props = defineProps<Props>()
+const props = withDefaults(defineProps<Props>(), {
+  openInNewWindow: false,
+  download: undefined
+})
 
 const emit = defineEmits<{
   (e: 'download', payload: rplEventPayload & { action: 'download' }): void
 }>()
 
 const { emitRplEvent } = useRippleEvent('rpl-document', emit)
-
-const isExternal = computed(() => isExternalLink(props.url))
 
 const onClick = () => {
   emitRplEvent('download', {
@@ -35,8 +36,8 @@ const onClick = () => {
     <a
       class="rpl-document__link rpl-u-focusable-within"
       :href="url"
-      :download="isExternal ? null : ''"
-      :target="isExternal ? '_blank' : null"
+      :download="download"
+      :target="openInNewWindow ? '_blank' : null"
       @click="onClick"
     >
       <div v-if="$slots.icon" class="rpl-document__icon">

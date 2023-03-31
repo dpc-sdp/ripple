@@ -1,21 +1,20 @@
 <script setup lang="ts">
-import { onMounted } from 'vue'
+import { computed, onMounted } from 'vue'
 import { ref } from 'vue'
 
 interface Props {
   expanded?: boolean
-  class?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  expanded: false,
-  class: ''
+  expanded: false
 })
 
 const DEFAULT_DURATION = 420
 
 const containerRef = ref(null)
 const duration = ref(DEFAULT_DURATION)
+const transitionComplete = ref(false)
 
 onMounted(() => {
   duration.value =
@@ -39,8 +38,14 @@ function onEnter(el, done) {
   setTimeout(done, duration.value)
 }
 
+function onAfterEnter(el) {
+  el.style.height = 'auto'
+  transitionComplete.value = true
+}
+
 function onBeforeLeave(el) {
   el.style.height = `${el.getBoundingClientRect().height}px`
+  transitionComplete.value = false
 }
 
 // called when the leave transition starts.
@@ -51,21 +56,26 @@ function onLeave(el, done) {
   // call the done callback to indicate transition end
   setTimeout(done, duration.value)
 }
+
+const classes = computed(() => ({
+  'rpl-expandable': true,
+  [`rpl-expandable--open`]: props.expanded,
+  [`rpl-expandable--expanded`]: transitionComplete.value
+}))
 </script>
 
 <template>
   <Transition
     @before-enter="onBeforeEnter"
     @enter="onEnter"
+    @after-enter="onAfterEnter"
     @before-leave="onBeforeLeave"
     @leave="onLeave"
   >
     <div
       v-show="expanded"
       ref="containerRef"
-      :class="`rpl-expandable ${expanded ? 'rpl-expandable--isExpanded' : ''} ${
-        props.class
-      }`"
+      :class="classes"
       role="region"
     >
       <slot />
@@ -75,8 +85,11 @@ function onLeave(el, done) {
 
 <style>
 .rpl-expandable {
-  overflow: hidden;
   transition: height var(--rpl-motion-speed-9) ease-out;
+
+  &:not(.rpl-expandable--expanded) {
+    overflow: hidden;
+  }
 
   @media print {
     /* Needs to override inline styles */

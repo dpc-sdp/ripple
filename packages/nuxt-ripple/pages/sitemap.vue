@@ -6,25 +6,9 @@ export default {
 
 <script setup lang="ts">
 import { RplHeroHeader } from '#components'
-import { useRuntimeConfig, useFetch, createError } from '#imports'
+import { useTideSite } from '#imports'
 
-const { public: config } = useRuntimeConfig()
-const siteId = config.tide?.site
-
-const { data: site, error: siteError } = await useFetch('/api/tide/site', {
-  baseURL: config.API_URL || '',
-  params: {
-    id: siteId
-  }
-})
-
-if (siteError.value) {
-  throw createError({
-    statusCode: 500,
-    statusMessage: 'We have a glitch in our system.',
-    message: `<p>We are aware of the issue. We appreciate your patience while we’re looking into it.</p>`
-  })
-}
+const site = await useTideSite()
 </script>
 
 <template>

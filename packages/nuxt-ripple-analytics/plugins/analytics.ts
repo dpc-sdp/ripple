@@ -22,22 +22,6 @@ const setupGTM = (GTM_ID) => {
   }
 }
 
-const startPageTracking = (ctx) => {
-  ctx.app.router.afterEach((to) => {
-    setTimeout(() => {
-      ctx.$gtm.push(
-        to.gtm || {
-          routeName: to.name,
-          pageType: 'PageView',
-          pageUrl: '<%= options.routerBase %>' + to.fullPath,
-          pageTitle: (typeof document !== 'undefined' && document.title) || '',
-          event: '<%= options.pageViewEventName %>'
-        }
-      )
-    }, 250)
-  })
-}
-
 export default defineNuxtPlugin((nuxtApp) => {
   const config = useAppConfig()
   const eventListeners: Record<string, any> =

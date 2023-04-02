@@ -3,6 +3,63 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.128](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.127...v2.1.0-alpha.128) (2023-03-31)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-publication:** check pagination url ([48c0c2d](https://github.com/dpc-sdp/ripple-framework/commit/48c0c2dfff16b0d977bbaa345d586d1b5a820a97))
+
+# [2.1.0-alpha.127](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.126...v2.1.0-alpha.127) (2023-03-31)
+
+### Bug Fixes
+
+* update packageManager to match engines requirement ([8f09a1e](https://github.com/dpc-sdp/ripple-framework/commit/8f09a1ed63d4e8ccabf589f2446c305a85ad6ce9))
+
+# [2.1.0-alpha.126](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.125...v2.1.0-alpha.126) (2023-03-30)
+
+### Features
+
+* **@dpc-sdp/ripple-tide-publication:** automatically print publication on mount ([2fec56b](https://github.com/dpc-sdp/ripple-framework/commit/2fec56bcf5cda46221cff1ec57ef89eeb9596465))
+* **@dpc-sdp/ripple-tide-publication:** hooked up print all pages link ([a617cf3](https://github.com/dpc-sdp/ripple-framework/commit/a617cf36ada432711bbc14744a09f3825d0cb42b))
+* **@dpc-sdp/ripple-tide-publication:** hooked up publication print all breadcrumbs ([f4847df](https://github.com/dpc-sdp/ripple-framework/commit/f4847df52dcc6aaf0486e1ad257996c0700562b4))
+* **@dpc-sdp/ripple-tide-publication:** setup publication print all page view and apis ([3a46f98](https://github.com/dpc-sdp/ripple-framework/commit/3a46f98cda072c7141f3cf19092a0a545ac5249e))
+* **docs:** added module and module listing templates to docs ([cf6bd3d](https://github.com/dpc-sdp/ripple-framework/commit/cf6bd3d62d48b8a10bc35ea2c925f975da14bac4))
+
+# [2.1.0-alpha.125](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.124...v2.1.0-alpha.125) (2023-03-30)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-monorepo
+
+# [2.1.0-alpha.124](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.123...v2.1.0-alpha.124) (2023-03-29)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-monorepo
+
+# [2.1.0-alpha.123](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.122...v2.1.0-alpha.123) (2023-03-26)
+
+### Bug Fixes
+
+* **@dpc-sdp/nuxt-ripple:** fixed search page crashing ([82d9f6d](https://github.com/dpc-sdp/ripple-framework/commit/82d9f6d28b49247ff635666c2b0f60acf58d0c98))
+
+# [2.1.0-alpha.122](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.121...v2.1.0-alpha.122) (2023-03-24)
+
+### Bug Fixes
+
+* **nuxt-ripple:** :bug: add required props for sitemap ([45ad087](https://github.com/dpc-sdp/ripple-framework/commit/45ad08725044e8e3e3eed80189f9dc73854de316))
+
+### Features
+
+* **nuxt-ripple:** :sparkles: add hostname plugin, move alert script back to baselayout ([eaca57b](https://github.com/dpc-sdp/ripple-framework/commit/eaca57b4bfca9d967dc18812c8e5baedcaf44782))
+* **nuxt-ripple:** :sparkles: implement page head and seo meta ([52afc09](https://github.com/dpc-sdp/ripple-framework/commit/52afc0915ec9a5e789d51c1e8325cd8c0a164ef4))
+
+# [2.1.0-alpha.121](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.120...v2.1.0-alpha.121) (2023-03-23)
+
+### Bug Fixes
+
+* **@dpc-sdp/nuxt-ripple:** fixed intermittent crash caused by nuxt cache reactivity set to null ([21b8226](https://github.com/dpc-sdp/ripple-framework/commit/21b8226add3e514e311352d556ab71869ac8d9ee))
+
+### Features
+
+* **docs:** added DocsImageExample to docs site ([bdd0c92](https://github.com/dpc-sdp/ripple-framework/commit/bdd0c920ea740a3fe09ef6c7c80228eaa98f1383))
+
 # [2.1.0-alpha.120](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.119...v2.1.0-alpha.120) (2023-03-21)
 
 ### Features

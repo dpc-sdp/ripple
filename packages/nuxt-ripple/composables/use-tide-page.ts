@@ -36,9 +36,7 @@ export const useTidePage = async (
       if (process.dev) {
         console.log('Cache reset for page', `page-${path}`)
       }
-      refreshNuxtData(`page-${path}`)
-      // unset this so we refetch
-      pageData.value = null
+      await clearNuxtData(`page-${path}`)
     }
   }
 

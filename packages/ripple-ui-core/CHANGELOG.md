@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.129](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.128...v2.1.0-alpha.129) (2023-04-03)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** fix accessible links non working in carousels and results ([6359b5f](https://github.com/dpc-sdp/ripple-framework/commit/6359b5fd10bb82bca90dec953a81fd50c192a306))
+* **@dpc-sdp/ripple-ui-core:** just set overflow directly ([b34ca9c](https://github.com/dpc-sdp/ripple-framework/commit/b34ca9ceb2bfee1d00b80654032d944e0cfaa0c0))
+* **@dpc-sdp/ripple-ui-core:** make sure expanded content is always visible ([1ed1229](https://github.com/dpc-sdp/ripple-framework/commit/1ed12299c984244a2eff3198873376898a6f234b))
+
+### Features
+
+* **@dpc-sdp/ripple-ui-core:** search qa ([c283f21](https://github.com/dpc-sdp/ripple-framework/commit/c283f218b0d2dbc12a012ed0d51beaa8d2276eba))
+
 # [2.1.0-alpha.127](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.126...v2.1.0-alpha.127) (2023-03-31)
 
 ### Bug Fixes

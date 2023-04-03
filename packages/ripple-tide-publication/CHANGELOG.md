@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.129](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.128...v2.1.0-alpha.129) (2023-04-03)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-publication
+
+# [2.1.0-alpha.128](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.127...v2.1.0-alpha.128) (2023-03-31)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-publication:** check pagination url ([48c0c2d](https://github.com/dpc-sdp/ripple-framework/commit/48c0c2dfff16b0d977bbaa345d586d1b5a820a97))
+
 # [2.1.0-alpha.127](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.126...v2.1.0-alpha.127) (2023-03-31)
 
 ### Bug Fixes

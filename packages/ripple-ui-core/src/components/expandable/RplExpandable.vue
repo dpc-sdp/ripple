@@ -1,15 +1,13 @@
 <script setup lang="ts">
-import { onMounted } from 'vue'
+import { computed, onMounted } from 'vue'
 import { ref } from 'vue'
 
 interface Props {
   expanded?: boolean
-  class?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  expanded: false,
-  class: ''
+  expanded: false
 })
 
 const DEFAULT_DURATION = 420
@@ -39,8 +37,14 @@ function onEnter(el, done) {
   setTimeout(done, duration.value)
 }
 
+function onAfterEnter(el) {
+  el.style.height = 'auto'
+  el.style.overflow = 'initial'
+}
+
 function onBeforeLeave(el) {
   el.style.height = `${el.getBoundingClientRect().height}px`
+  el.style.overflow = 'hidden'
 }
 
 // called when the leave transition starts.
@@ -51,21 +55,25 @@ function onLeave(el, done) {
   // call the done callback to indicate transition end
   setTimeout(done, duration.value)
 }
+
+const classes = computed(() => ({
+  'rpl-expandable': true,
+  [`rpl-expandable--open`]: props.expanded,
+}))
 </script>
 
 <template>
   <Transition
     @before-enter="onBeforeEnter"
     @enter="onEnter"
+    @after-enter="onAfterEnter"
     @before-leave="onBeforeLeave"
     @leave="onLeave"
   >
     <div
       v-show="expanded"
       ref="containerRef"
-      :class="`rpl-expandable ${expanded ? 'rpl-expandable--isExpanded' : ''} ${
-        props.class
-      }`"
+      :class="classes"
       role="region"
     >
       <slot />

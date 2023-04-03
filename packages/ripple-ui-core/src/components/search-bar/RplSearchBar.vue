@@ -4,7 +4,7 @@ export default { inheritAttrs: false }
 
 <script setup lang="ts">
 import { rplEventBus } from '../../index'
-import { ref, watch, nextTick, computed } from 'vue'
+import { ref, watch, nextTick, computed, onMounted, onUnmounted } from 'vue'
 import { onClickOutside } from '@vueuse/core'
 import RplIcon from '../icon/RplIcon.vue'
 
@@ -21,6 +21,7 @@ const RplSearchBarVariants = ['default', 'reverse', 'menu']
 interface Props {
   variant?: (typeof RplSearchBarVariants)[number]
   id: string
+  autoFocus?: boolean
   inputLabel?: string
   inputValue?: string
   suggestions?: string[]
@@ -29,6 +30,7 @@ interface Props {
 
 const props = withDefaults(defineProps<Props>(), {
   variant: 'default',
+  autoFocus: false,
   inputLabel: 'Search',
   submitLabel: 'Search',
   inputValue: '',
@@ -41,11 +43,22 @@ const containerRef = ref(null)
 const inputRef = ref(null)
 const menuRef = ref(null)
 const optionRefs = ref([])
+const focusTimeout = ref(null)
 
 const menuId = computed(() => `${props.id}__menu`)
 
 const isOpen = ref<boolean>(false)
 const activeOptionId = ref<string | null>(null)
+
+onMounted(() => {
+  if (props.autoFocus) {
+    focusTimeout.value = setTimeout(() => inputRef.value.focus(), 100)
+  }
+})
+
+onUnmounted(() => {
+  clearTimeout(focusTimeout.value)
+})
 
 onClickOutside(containerRef, () => {
   handleClose(false)

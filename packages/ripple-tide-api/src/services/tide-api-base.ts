@@ -81,8 +81,16 @@ export default class TideApiBase extends HttpClient {
 
     const menuName = menuData.drupal_internal__id
 
+    const params = {
+      site: siteId,
+      filter: {
+        max_depth: 4,
+        fields: 'title,url,parent,weight'
+      }
+    }
+
     try {
-      const menusResponse = await this.get(`/menu_items/${menuName}`)
+      const menusResponse = await this.get(`/menu_items/${menuName}`, { params })
 
       if (menusResponse?.data) {
         return getHierarchicalMenu(menusResponse.data, activePath)

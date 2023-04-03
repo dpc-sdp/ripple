@@ -87,17 +87,15 @@ const _setActivePath = function (branch, path) {
 const getHierarchicalMenu = function (menu, activeUrl) {
   const linkValues = [] as any
   for (const link of menu) {
-    if (link.attributes.enabled) {
-      linkValues.push({
-        text: link.attributes.title,
-        url: link.attributes.url,
-        id: link.id.replace(/^(menu_link_content:)/, ''),
-        parent: link.attributes.parent
-          ? link.attributes.parent.replace(/^(menu_link_content:)/, '')
-          : null,
-        weight: link.attributes.weight
-      })
-    }
+    linkValues.push({
+      text: link.attributes.title,
+      url: link.attributes.url,
+      id: link.id.replace(/^(menu_link_content:)/, ''),
+      parent: link.attributes.parent
+        ? link.attributes.parent.replace(/^(menu_link_content:)/, '')
+        : null,
+      weight: link.attributes.weight
+    })
   }
   const hierarchy = _buildHierarchy(linkValues)
 

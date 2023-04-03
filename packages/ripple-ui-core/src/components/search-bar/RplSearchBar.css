@@ -52,6 +52,8 @@
   border-bottom: var(--rpl-border-2) solid
     var(--local-search-bar-clr-bottom-bar);
   padding: var(--rpl-sp-3);
+  border-radius: 0;
+  -webkit-appearance: none;
 
   /* Magic number to represent the width of the search button */
   padding-right: calc(var(--rpl-sp-4) + 24px + var(--rpl-sp-3));

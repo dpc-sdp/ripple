@@ -34,8 +34,8 @@
   }
 }
 
-.rpl-layout--alt {
-  .rpl-layout__body-wrap {
+@media not (prefers-contrast: more) {
+  .rpl-layout--alt .rpl-layout__body-wrap {
     background-color: var(--rpl-clr-neutral-100);
   }
 }

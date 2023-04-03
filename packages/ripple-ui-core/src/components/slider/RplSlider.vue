@@ -145,6 +145,7 @@ const setInert = ({ activeIndex, slides }) =>
       :modules="[EffectFade]"
       :effect="effect"
       :speed="300"
+      :touchStartPreventDefault="false"
       class="rpl-slider__swiper"
       @after-init="setInert"
       @slide-change="slideUpdate"

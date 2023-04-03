@@ -1,5 +1,5 @@
 {
-  "packageManager": "pnpm@7.23.0",
+  "packageManager": "pnpm@8.0.0",
   "license": "Apache-2.0",
   "name": "@dpc-sdp/ripple-tide-news",
   "description": "Ripple mappings and components for Tide News content type",
@@ -9,7 +9,7 @@
     "./mapping": "./mapping/index.ts",
     "./types": "./types.ts"
   },
-  "version": "2.1.0-alpha.124",
+  "version": "2.1.0-alpha.129",
   "dependencies": {
     "@dpc-sdp/nuxt-ripple": "workspace:*",
     "@dpc-sdp/ripple-tide-api": "workspace:*"

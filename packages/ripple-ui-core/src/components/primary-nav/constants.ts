@@ -18,3 +18,9 @@ export interface IRplPrimaryNavActiveItems {
   level2?: IRplPrimaryNavItem
   level3?: IRplPrimaryNavItem
 }
+
+export type IRplPrimaryNavToggleItemOptions = [
+  level: 1 | 2 | 3,
+  item: IRplPrimaryNavItem,
+  open?: boolean
+]

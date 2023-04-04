@@ -80,7 +80,7 @@ onUnmounted(() => {
   deactivateFocusTrap()
 })
 
-const toggleNavItem = (level: 1 | 2 | 3, item: IRplPrimaryNavItem) => {
+const toggleNavItem = (level, item: IRplPrimaryNavItem, open: boolean) => {
   // Item needs to be made active
   if (activeNavItems.value['level' + level]?.id !== item?.id) {
     activeNavItems.value['level' + level] = item
@@ -96,7 +96,7 @@ const toggleNavItem = (level: 1 | 2 | 3, item: IRplPrimaryNavItem) => {
     isSearchActive.value = false
 
     // If the target item is now active, make sure the mega nav is also active
-    isMegaNavActive.value = activeNavItems.value.level1?.id == item.id
+    isMegaNavActive.value = open || activeNavItems.value.level1?.id == item.id
 
     // Clear any active sub menus
     activeNavItems.value.level2 = undefined

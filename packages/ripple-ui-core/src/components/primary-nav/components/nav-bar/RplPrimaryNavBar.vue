@@ -4,7 +4,8 @@ import RplPrimaryNavBarAction from './RplPrimaryNavBarAction.vue'
 import {
   IRplPrimaryNavLogo,
   IRplPrimaryNavItem,
-  IRplPrimaryNavActiveItems
+  IRplPrimaryNavActiveItems,
+  IRplPrimaryNavToggleItemOptions
 } from '../../constants'
 
 interface Props {
@@ -17,11 +18,14 @@ interface Props {
   isSearchActive: boolean
   activeNavItems: IRplPrimaryNavActiveItems
   toggleMobileMenu: () => void
-  toggleItem: (level: 1 | 2 | 3, item: IRplPrimaryNavItem) => void
+  toggleItem: (...args: IRplPrimaryNavToggleItemOptions) => void
   toggleSearch: () => void
 }
 
-defineProps<Props>()
+const props = defineProps<Props>()
+
+const isItemActive = (item: IRplPrimaryNavItem) =>
+  props.activeNavItems.level1?.id == item.id
 </script>
 
 <template>
@@ -113,7 +117,7 @@ defineProps<Props>()
           v-if="item.items"
           type="toggle"
           :href="item.url"
-          :active="activeNavItems.level1?.id == item.id"
+          :active="isItemActive(item)"
           @click="toggleItem(1, item)"
         >
           <span>{{ item.text }}</span

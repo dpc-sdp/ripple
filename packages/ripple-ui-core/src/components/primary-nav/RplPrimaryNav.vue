@@ -80,7 +80,11 @@ onUnmounted(() => {
   deactivateFocusTrap()
 })
 
-const toggleNavItem = (level, item: IRplPrimaryNavItem, open: boolean) => {
+const toggleNavItem = (
+  level: 1 | 2 | 3,
+  item: IRplPrimaryNavItem,
+  open: boolean
+) => {
   // Item needs to be made active
   if (activeNavItems.value['level' + level]?.id !== item?.id) {
     activeNavItems.value['level' + level] = item

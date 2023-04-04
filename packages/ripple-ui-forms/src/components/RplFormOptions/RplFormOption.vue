@@ -19,6 +19,7 @@ export interface RplFormOptionProps {
   onChange: (checked: boolean) => void
   onValue?: boolean | string | number
   offValue?: boolean | string | number
+  showRequiredInLabel?: boolean
 }
 
 const props = withDefaults(defineProps<RplFormOptionProps>(), {
@@ -27,7 +28,8 @@ const props = withDefaults(defineProps<RplFormOptionProps>(), {
   variant: 'default',
   onChange: () => undefined,
   onValue: true,
-  offValue: false
+  offValue: false,
+  showRequiredInLabel: false
 })
 
 const emit = defineEmits<{ (e: 'onChange', value: boolean): void }>()
@@ -73,7 +75,15 @@ const handleChange = (e: Event) => {
       >
         <span class="rpl-form-option__mark-tick rpl-form-option__radio-tick" />
       </span>
-      <span class="rpl-form-option__label-text rpl-type-p">{{ label }}</span>
+      <span class="rpl-form-option__label-text rpl-type-p">
+        {{ label }}
+        <span
+          v-if="showRequiredInLabel"
+          class="rpl-form-label__required rpl-type-label-small"
+        >
+          (Required)
+        </span>
+      </span>
     </label>
   </div>
 </template>

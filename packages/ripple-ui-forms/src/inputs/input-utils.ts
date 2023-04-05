@@ -35,7 +35,8 @@ import { rplHelp } from '../sections/rplHelp'
 import {
   isFieldRequired,
   isFieldInvalid,
-  getAriaDescribedBy
+  getAriaDescribedBy,
+  hasNoLabel
 } from '../formkit-features'
 import { rplInputGrid } from '../sections/rplInputGrid'
 
@@ -58,7 +59,7 @@ export const inputLibrary = {
   RplFormActions: markRaw(RplFormActions)
 }
 
-export const rplFeatures = [isFieldRequired, isFieldInvalid, getAriaDescribedBy]
+export const rplFeatures = [isFieldRequired, isFieldInvalid, getAriaDescribedBy, hasNoLabel]
 
 /*
  * Creates a Formkit schema based on Ripple opinionated defaults for label and help messages, use

@@ -18,22 +18,23 @@ export function useAccessibleContainer() {
   let down: number
   let isLeftBtn = false
 
-  useEventListener(container, 'mousedown', (e: MouseEvent) => {
+  useEventListener(container, 'pointerdown', (e: MouseEvent) => {
     if (checkLeftMouseButton(e)) {
       isLeftBtn = true
       down = +new Date()
     }
   })
 
-  useEventListener(container, 'mouseup', (e: MouseEvent) => {
+  useEventListener(container, 'pointerup', (e: MouseEvent) => {
     if (isLeftBtn) {
       e.preventDefault()
       up = +new Date()
 
       // Add 200ms delay to allow text selection
       if (up - down < 200) {
+        const element = container.value?.$el || container.value
         // Only fire a click if the target is not the trigger el
-        const clickedElement = container.value.$el.querySelector('a')
+        const clickedElement = element.querySelector('a')
 
         if (clickedElement !== e.target) {
           clickedElement.click()

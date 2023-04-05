@@ -144,7 +144,7 @@ useHead({
   title: props.pageTitle,
   style: style && [
     {
-      children: `body { ${style} }`
+      children: `:root, body { ${style} }`
     }
   ],
   link: [

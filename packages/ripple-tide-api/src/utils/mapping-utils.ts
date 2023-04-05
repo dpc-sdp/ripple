@@ -56,7 +56,7 @@ export const getCardImageFromField = (
   path: string | string[]
 ): TideImageField | null => {
   const image = get(field, path)
-  return image ? getCardImage(image) : null
+  return image && !Array.isArray(image) ? getCardImage(image) : null
 }
 
 export const getMediaImage = (

@@ -17,6 +17,7 @@
   padding: calc(var(--rpl-sp-4) - var(--local-border-width))
     calc(var(--rpl-sp-5) - var(--local-border-width));
   width: 100%;
+  appearance: none;
 
   &:hover {
     cursor: pointer;

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.134](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.133...v2.1.0-alpha.134) (2023-04-05)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** fixed button styling in IOS 15 and below ([e4428a5](https://github.com/dpc-sdp/ripple-framework/commit/e4428a539ce0de8d2463c5dd6df2b22437bf1137))
+
 # [2.1.0-alpha.133](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.132...v2.1.0-alpha.133) (2023-04-05)
 
 ### Bug Fixes

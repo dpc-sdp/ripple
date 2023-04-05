@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.134](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.133...v2.1.0-alpha.134) (2023-04-05)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-publication:** added all missing publication includes ([73ca387](https://github.com/dpc-sdp/ripple-framework/commit/73ca38778e3d890ce7b5aa49e82f56652692a35f))
+* **@dpc-sdp/ripple-tide-publication:** fixed complex image include missing from publication ([90db23b](https://github.com/dpc-sdp/ripple-framework/commit/90db23b71bf652c5093e0d4843840a59a157e3da))
+* **@dpc-sdp/ripple-ui-core:** fixed button styling in IOS 15 and below ([e4428a5](https://github.com/dpc-sdp/ripple-framework/commit/e4428a539ce0de8d2463c5dd6df2b22437bf1137))
+
 # [2.1.0-alpha.133](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.132...v2.1.0-alpha.133) (2023-04-05)
 
 ### Bug Fixes

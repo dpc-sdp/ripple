@@ -3,6 +3,66 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.136](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.135...v2.1.0-alpha.136) (2023-04-06)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-publication
+
+# [2.1.0-alpha.135](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.134...v2.1.0-alpha.135) (2023-04-05)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-publication
+
+# [2.1.0-alpha.134](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.133...v2.1.0-alpha.134) (2023-04-05)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-publication:** added all missing publication includes ([73ca387](https://github.com/dpc-sdp/ripple-framework/commit/73ca38778e3d890ce7b5aa49e82f56652692a35f))
+* **@dpc-sdp/ripple-tide-publication:** fixed complex image include missing from publication ([90db23b](https://github.com/dpc-sdp/ripple-framework/commit/90db23b71bf652c5093e0d4843840a59a157e3da))
+
+# [2.1.0-alpha.133](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.132...v2.1.0-alpha.133) (2023-04-05)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-publication
+
+# [2.1.0-alpha.132](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.131...v2.1.0-alpha.132) (2023-04-04)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-publication
+
+# [2.1.0-alpha.131](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.130...v2.1.0-alpha.131) (2023-04-04)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-publication
+
+# [2.1.0-alpha.130](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.129...v2.1.0-alpha.130) (2023-04-04)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-publication
+
+# [2.1.0-alpha.129](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.128...v2.1.0-alpha.129) (2023-04-03)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-publication
+
+# [2.1.0-alpha.128](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.127...v2.1.0-alpha.128) (2023-03-31)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-publication:** check pagination url ([48c0c2d](https://github.com/dpc-sdp/ripple-framework/commit/48c0c2dfff16b0d977bbaa345d586d1b5a820a97))
+
+# [2.1.0-alpha.127](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.126...v2.1.0-alpha.127) (2023-03-31)
+
+### Bug Fixes
+
+* update packageManager to match engines requirement ([8f09a1e](https://github.com/dpc-sdp/ripple-framework/commit/8f09a1ed63d4e8ccabf589f2446c305a85ad6ce9))
+
+# [2.1.0-alpha.126](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.125...v2.1.0-alpha.126) (2023-03-30)
+
+### Features
+
+* **@dpc-sdp/ripple-tide-publication:** automatically print publication on mount ([2fec56b](https://github.com/dpc-sdp/ripple-framework/commit/2fec56bcf5cda46221cff1ec57ef89eeb9596465))
+* **@dpc-sdp/ripple-tide-publication:** hooked up print all pages link ([a617cf3](https://github.com/dpc-sdp/ripple-framework/commit/a617cf36ada432711bbc14744a09f3825d0cb42b))
+* **@dpc-sdp/ripple-tide-publication:** hooked up publication print all breadcrumbs ([f4847df](https://github.com/dpc-sdp/ripple-framework/commit/f4847df52dcc6aaf0486e1ad257996c0700562b4))
+* **@dpc-sdp/ripple-tide-publication:** setup publication print all page view and apis ([3a46f98](https://github.com/dpc-sdp/ripple-framework/commit/3a46f98cda072c7141f3cf19092a0a545ac5249e))
+
+# [2.1.0-alpha.124](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.123...v2.1.0-alpha.124) (2023-03-29)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-publication
+
 # [2.1.0-alpha.123](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.122...v2.1.0-alpha.123) (2023-03-26)
 
 **Note:** Version bump only for package @dpc-sdp/ripple-tide-publication

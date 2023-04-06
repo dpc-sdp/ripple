@@ -4,7 +4,7 @@
       <template v-if="documents.length > 0" #upper>
         <RplFile v-for="file in documents" :key="file.id" v-bind="file" />
       </template>
-      <RplDocument url="https://vic.gov.au/#print">
+      <RplDocument :url="printUrl">
         <template #icon>
           <RplIcon name="icon-print-lined" size="l" colour="default" />
         </template>
@@ -16,8 +16,11 @@
 
 <script setup lang="ts">
 interface Props {
-  documents: any
+  documents?: any
+  printUrl: string
 }
 
-defineProps<Props>()
+withDefaults(defineProps<Props>(), {
+  documents: () => []
+})
 </script>

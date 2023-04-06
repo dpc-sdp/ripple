@@ -24,7 +24,8 @@ const handleSubmit = (value) => {
       <RplSearchBar
         id="primary-nav-search"
         variant="menu"
-        placeholder="Placeholder text"
+        placeholder="Start typing..."
+        :auto-focus="true"
         @on-submit="handleSubmit"
       />
     </div>

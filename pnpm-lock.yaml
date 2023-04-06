@@ -213,9 +213,6 @@ importers:
       '@dpc-sdp/nuxt-ripple':
         specifier: workspace:*
         version: link:../../packages/nuxt-ripple
-      '@dpc-sdp/ripple-tide-api':
-        specifier: workspace:*
-        version: link:../../packages/ripple-tide-api
       '@dpc-sdp/ripple-tide-event':
         specifier: workspace:*
         version: link:../../packages/ripple-tide-event
@@ -237,22 +234,13 @@ importers:
       '@dpc-sdp/ripple-tide-search':
         specifier: workspace:*
         version: link:../../packages/ripple-tide-search
-      '@dpc-sdp/ripple-ui-core':
-        specifier: workspace:*
-        version: link:../../packages/ripple-ui-core
-      '@dpc-sdp/ripple-ui-forms':
-        specifier: workspace:*
-        version: link:../../packages/ripple-ui-forms
-      '@formkit/core':
-        specifier: 1.0.0-beta.15
-        version: 1.0.0-beta.15
-      '@formkit/vue':
-        specifier: 1.0.0-beta.15
-        version: 1.0.0-beta.15(vue@3.2.47)
     devDependencies:
       '@dpc-sdp/ripple-test-utils':
         specifier: workspace:*
         version: link:../../packages/ripple-test-utils
+      '@dpc-sdp/ripple-tide-api':
+        specifier: workspace:*
+        version: link:../../packages/ripple-tide-api
       '@unlighthouse/cli':
         specifier: ^0.4.9
         version: 0.4.9(puppeteer@19.6.3)

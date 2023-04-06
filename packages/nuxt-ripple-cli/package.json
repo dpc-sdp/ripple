@@ -1,9 +1,9 @@
 {
-  "packageManager": "pnpm@7.23.0",
+  "packageManager": "pnpm@8.0.0",
   "license": "Apache-2.0",
   "name": "@dpc-sdp/nuxt-ripple-cli",
   "main": "./dist/index.js",
-  "version": "2.1.0-alpha.109",
+  "version": "2.1.0-alpha.127",
   "scripts": {
     "nuxt-ripple": "node ./dist/commands/index.js",
     "build": "rimraf ./dist && tsc && npm run cp-templates && chmod +x ./dist/commands/index.js",

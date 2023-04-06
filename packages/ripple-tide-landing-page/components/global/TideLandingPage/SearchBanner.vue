@@ -1,12 +1,12 @@
 <script setup lang="ts">
 // @ts-ignore
-import { useRuntimeConfig, useRouter } from '#imports'
+import { useRuntimeConfig, useRouter, useNuxtApp } from '#imports'
 
 import { RplSearchBar } from '#components'
-import { isExternalUrl } from '../../../utils/urls'
+import { isExternalUrl } from '@dpc-sdp/ripple-ui-core'
 
-const { public: config } = useRuntimeConfig()
 const router = useRouter()
+const { $app_hostname } = useNuxtApp()
 
 const props = defineProps<{
   placeholder: string
@@ -19,7 +19,7 @@ const handleSubmit = (value) => {
     props.searchUrl.replace('[SEARCH-KEYWORDS]', encodeURIComponent(value))
   )
 
-  const isInternalUrl = isExternalUrl(searchPath, config?.ripple?.hostname)
+  const isInternalUrl = !isExternalUrl(searchPath, $app_hostname)
 
   if (props.openInNewWindow) {
     window.open(searchPath, '_blank')

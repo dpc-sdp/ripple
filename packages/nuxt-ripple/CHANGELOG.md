@@ -3,6 +3,61 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.136](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.135...v2.1.0-alpha.136) (2023-04-06)
+
+### Bug Fixes
+
+* **nuxt-ripple:** :bug: use same namespace for theme vars ([dca9ca9](https://github.com/dpc-sdp/ripple-framework/commit/dca9ca93cc1a14319aabdfe243aca022094dcb72))
+
+# [2.1.0-alpha.135](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.134...v2.1.0-alpha.135) (2023-04-05)
+
+**Note:** Version bump only for package @dpc-sdp/nuxt-ripple
+
+# [2.1.0-alpha.134](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.133...v2.1.0-alpha.134) (2023-04-05)
+
+**Note:** Version bump only for package @dpc-sdp/nuxt-ripple
+
+# [2.1.0-alpha.133](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.132...v2.1.0-alpha.133) (2023-04-05)
+
+**Note:** Version bump only for package @dpc-sdp/nuxt-ripple
+
+# [2.1.0-alpha.132](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.131...v2.1.0-alpha.132) (2023-04-04)
+
+**Note:** Version bump only for package @dpc-sdp/nuxt-ripple
+
+# [2.1.0-alpha.131](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.130...v2.1.0-alpha.131) (2023-04-04)
+
+### Features
+
+* added sitemap and proxy, fixed webform proxy ([4e914c1](https://github.com/dpc-sdp/ripple-framework/commit/4e914c16c468abe27d85b6886a4f8357f3ca477b))
+
+# [2.1.0-alpha.130](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.129...v2.1.0-alpha.130) (2023-04-04)
+
+### Features
+
+* **nuxt-ripple:** :lipstick: add favicon ([8bc2d27](https://github.com/dpc-sdp/ripple-framework/commit/8bc2d27f89cfd1f462f825cfc2bdfb6cd44a52a4))
+
+# [2.1.0-alpha.129](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.128...v2.1.0-alpha.129) (2023-04-03)
+
+**Note:** Version bump only for package @dpc-sdp/nuxt-ripple
+
+# [2.1.0-alpha.127](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.126...v2.1.0-alpha.127) (2023-03-31)
+
+### Bug Fixes
+
+* update packageManager to match engines requirement ([8f09a1e](https://github.com/dpc-sdp/ripple-framework/commit/8f09a1ed63d4e8ccabf589f2446c305a85ad6ce9))
+
+# [2.1.0-alpha.126](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.125...v2.1.0-alpha.126) (2023-03-30)
+
+### Features
+
+* **@dpc-sdp/ripple-tide-publication:** hooked up print all pages link ([a617cf3](https://github.com/dpc-sdp/ripple-framework/commit/a617cf36ada432711bbc14744a09f3825d0cb42b))
+* **@dpc-sdp/ripple-tide-publication:** setup publication print all page view and apis ([3a46f98](https://github.com/dpc-sdp/ripple-framework/commit/3a46f98cda072c7141f3cf19092a0a545ac5249e))
+
+# [2.1.0-alpha.124](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.123...v2.1.0-alpha.124) (2023-03-29)
+
+**Note:** Version bump only for package @dpc-sdp/nuxt-ripple
+
 # [2.1.0-alpha.123](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.122...v2.1.0-alpha.123) (2023-03-26)
 
 ### Bug Fixes

@@ -1,14 +1,14 @@
 {
   "name": "ripple-storybook",
-  "version": "2.1.0-alpha.112",
+  "version": "2.1.0-alpha.127",
   "private": true,
-  "packageManager": "pnpm@7.23.0",
+  "packageManager": "pnpm@8.0.0",
   "license": "Apache-2.0",
   "scripts": {
     "start": "start-storybook -p 6006",
     "build": "build-storybook",
     "test": "test-storybook --stories-json",
-    "ci": "concurrently -k -s first -n \"SB,TEST\" -c \"magenta,blue\" \"npx http-server storybook-static --port 6006 --silent\" \"wait-on tcp:6006 && pnpm test\""
+    "test:ci": "concurrently -k -s first -n \"SB,TEST\" -c \"magenta,blue\" \"npx http-server storybook-static --port 6006 --silent\" \"wait-on tcp:6006 && pnpm test\""
   },
   "devDependencies": {
     "@babel/core": "^7.21.3",

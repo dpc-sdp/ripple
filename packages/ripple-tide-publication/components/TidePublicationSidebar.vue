@@ -1,8 +1,8 @@
 <template>
   <div class="tide-publication__sidebar">
     <TidePublicationPageActions
-      v-if="publication.documents"
       :documents="publication.documents"
+      :printUrl="`${publication.url}/print-all`"
     >
     </TidePublicationPageActions>
     <RplSidebarComponent>

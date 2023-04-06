@@ -3,6 +3,57 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.135](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.134...v2.1.0-alpha.135) (2023-04-05)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-ui-core
+
+# [2.1.0-alpha.134](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.133...v2.1.0-alpha.134) (2023-04-05)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** fixed button styling in IOS 15 and below ([e4428a5](https://github.com/dpc-sdp/ripple-framework/commit/e4428a539ce0de8d2463c5dd6df2b22437bf1137))
+
+# [2.1.0-alpha.133](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.132...v2.1.0-alpha.133) (2023-04-05)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** updated button busy state after design feedback ([81efdba](https://github.com/dpc-sdp/ripple-framework/commit/81efdba84553c7ec55375cdc93cb09a7c0a3c1d4))
+
+# [2.1.0-alpha.132](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.131...v2.1.0-alpha.132) (2023-04-04)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** don't set background when higher contrast is requested ([e75005b](https://github.com/dpc-sdp/ripple-framework/commit/e75005bc74b973f343097779a00f24864ae3f481))
+* **@dpc-sdp/ripple-ui-core:** set a white bg default ([17df2e6](https://github.com/dpc-sdp/ripple-framework/commit/17df2e62ef822d1dd05a65fc01fb1bc7c0c25b93))
+
+# [2.1.0-alpha.129](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.128...v2.1.0-alpha.129) (2023-04-03)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** fix accessible links non working in carousels and results ([6359b5f](https://github.com/dpc-sdp/ripple-framework/commit/6359b5fd10bb82bca90dec953a81fd50c192a306))
+* **@dpc-sdp/ripple-ui-core:** just set overflow directly ([b34ca9c](https://github.com/dpc-sdp/ripple-framework/commit/b34ca9ceb2bfee1d00b80654032d944e0cfaa0c0))
+* **@dpc-sdp/ripple-ui-core:** make sure expanded content is always visible ([1ed1229](https://github.com/dpc-sdp/ripple-framework/commit/1ed12299c984244a2eff3198873376898a6f234b))
+
+### Features
+
+* **@dpc-sdp/ripple-ui-core:** search qa ([c283f21](https://github.com/dpc-sdp/ripple-framework/commit/c283f218b0d2dbc12a012ed0d51beaa8d2276eba))
+
+# [2.1.0-alpha.127](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.126...v2.1.0-alpha.127) (2023-03-31)
+
+### Bug Fixes
+
+* update packageManager to match engines requirement ([8f09a1e](https://github.com/dpc-sdp/ripple-framework/commit/8f09a1ed63d4e8ccabf589f2446c305a85ad6ce9))
+
+# [2.1.0-alpha.126](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.125...v2.1.0-alpha.126) (2023-03-30)
+
+### Features
+
+* **@dpc-sdp/ripple-tide-publication:** hooked up print all pages link ([a617cf3](https://github.com/dpc-sdp/ripple-framework/commit/a617cf36ada432711bbc14744a09f3825d0cb42b))
+
+# [2.1.0-alpha.124](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.123...v2.1.0-alpha.124) (2023-03-29)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-ui-core
+
 # [2.1.0-alpha.122](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.121...v2.1.0-alpha.122) (2023-03-24)
 
 ### Features

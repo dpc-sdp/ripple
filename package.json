@@ -1,7 +1,7 @@
 {
   "name": "@dpc-sdp/ripple-monorepo",
   "private": true,
-  "packageManager": "pnpm@7.23.0",
+  "packageManager": "pnpm@8.0.0",
   "license": "Apache-2.0",
   "scripts": {
     "example": "wrap () { pnpm -F example-\"$*\" dev | cat; }; wrap",
@@ -24,7 +24,7 @@
     "test:components-core": "pnpm -F @dpc-sdp/ripple-ui-core test:components",
     "test:components-forms": "pnpm -F @dpc-sdp/ripple-ui-forms test:components",
     "test:storybook": "pnpm -F ripple-storybook test",
-    "test:storybook-ci": "pnpm -F ripple-storybook ci",
+    "test:storybook-ci": "pnpm -F ripple-storybook test:ci",
     "test:nuxt-app": "pnpm -F nuxt-app test:integration",
     "ci:nuxt-app": "pnpm -F nuxt-app test:ci",
     "start:nuxt": "pnpm -F nuxt-app start",
@@ -86,7 +86,7 @@
   },
   "engines": {
     "node": "^14.16.0 || ^16.11.0",
-    "pnpm": ">=3"
+    "pnpm": ">=8"
   },
   "dependencies": {
     "@vue/vue3-jest": "^29.2.3",

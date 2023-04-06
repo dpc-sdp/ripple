@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.135](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.134...v2.1.0-alpha.135) (2023-04-05)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-landing-page:** use highlight for promo cards when no image is supplied ([140210a](https://github.com/dpc-sdp/ripple-framework/commit/140210a9e60b177fe17d1aee24fb5c0254bff328))
+
+# [2.1.0-alpha.127](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.126...v2.1.0-alpha.127) (2023-03-31)
+
+### Bug Fixes
+
+* update packageManager to match engines requirement ([8f09a1e](https://github.com/dpc-sdp/ripple-framework/commit/8f09a1ed63d4e8ccabf589f2446c305a85ad6ce9))
+
+# [2.1.0-alpha.126](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.125...v2.1.0-alpha.126) (2023-03-30)
+
+### Features
+
+* **@dpc-sdp/ripple-tide-publication:** setup publication print all page view and apis ([3a46f98](https://github.com/dpc-sdp/ripple-framework/commit/3a46f98cda072c7141f3cf19092a0a545ac5249e))
+
+# [2.1.0-alpha.124](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.123...v2.1.0-alpha.124) (2023-03-29)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-api
+
 # [2.1.0-alpha.122](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.121...v2.1.0-alpha.122) (2023-03-24)
 
 ### Features

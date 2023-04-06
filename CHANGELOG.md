@@ -3,6 +3,95 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.136](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.135...v2.1.0-alpha.136) (2023-04-06)
+
+### Bug Fixes
+
+* **nuxt-ripple:** :bug: use same namespace for theme vars ([dca9ca9](https://github.com/dpc-sdp/ripple-framework/commit/dca9ca93cc1a14319aabdfe243aca022094dcb72))
+
+# [2.1.0-alpha.135](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.134...v2.1.0-alpha.135) (2023-04-05)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-landing-page:** use highlight for promo cards when no image is supplied ([140210a](https://github.com/dpc-sdp/ripple-framework/commit/140210a9e60b177fe17d1aee24fb5c0254bff328))
+
+# [2.1.0-alpha.134](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.133...v2.1.0-alpha.134) (2023-04-05)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-publication:** added all missing publication includes ([73ca387](https://github.com/dpc-sdp/ripple-framework/commit/73ca38778e3d890ce7b5aa49e82f56652692a35f))
+* **@dpc-sdp/ripple-tide-publication:** fixed complex image include missing from publication ([90db23b](https://github.com/dpc-sdp/ripple-framework/commit/90db23b71bf652c5093e0d4843840a59a157e3da))
+* **@dpc-sdp/ripple-ui-core:** fixed button styling in IOS 15 and below ([e4428a5](https://github.com/dpc-sdp/ripple-framework/commit/e4428a539ce0de8d2463c5dd6df2b22437bf1137))
+
+# [2.1.0-alpha.133](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.132...v2.1.0-alpha.133) (2023-04-05)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** updated button busy state after design feedback ([81efdba](https://github.com/dpc-sdp/ripple-framework/commit/81efdba84553c7ec55375cdc93cb09a7c0a3c1d4))
+
+# [2.1.0-alpha.132](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.131...v2.1.0-alpha.132) (2023-04-04)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** don't set background when higher contrast is requested ([e75005b](https://github.com/dpc-sdp/ripple-framework/commit/e75005bc74b973f343097779a00f24864ae3f481))
+* **@dpc-sdp/ripple-ui-core:** set a white bg default ([17df2e6](https://github.com/dpc-sdp/ripple-framework/commit/17df2e62ef822d1dd05a65fc01fb1bc7c0c25b93))
+
+# [2.1.0-alpha.131](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.130...v2.1.0-alpha.131) (2023-04-04)
+
+### Features
+
+* added sitemap and proxy, fixed webform proxy ([4e914c1](https://github.com/dpc-sdp/ripple-framework/commit/4e914c16c468abe27d85b6886a4f8357f3ca477b))
+
+# [2.1.0-alpha.130](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.129...v2.1.0-alpha.130) (2023-04-04)
+
+### Features
+
+* **@dpc-sdp/ripple-ui-forms:** show required message for checkboxes with no label ([3c5f77b](https://github.com/dpc-sdp/ripple-framework/commit/3c5f77b9472c6fa6a01dc481e910efa628a57db6))
+* **nuxt-ripple:** :lipstick: add favicon ([8bc2d27](https://github.com/dpc-sdp/ripple-framework/commit/8bc2d27f89cfd1f462f825cfc2bdfb6cd44a52a4))
+
+# [2.1.0-alpha.129](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.128...v2.1.0-alpha.129) (2023-04-03)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** fix accessible links non working in carousels and results ([6359b5f](https://github.com/dpc-sdp/ripple-framework/commit/6359b5fd10bb82bca90dec953a81fd50c192a306))
+* **@dpc-sdp/ripple-ui-core:** just set overflow directly ([b34ca9c](https://github.com/dpc-sdp/ripple-framework/commit/b34ca9ceb2bfee1d00b80654032d944e0cfaa0c0))
+* **@dpc-sdp/ripple-ui-core:** make sure expanded content is always visible ([1ed1229](https://github.com/dpc-sdp/ripple-framework/commit/1ed12299c984244a2eff3198873376898a6f234b))
+* **docs:** add packageManager to doc/package.json ([934a6ad](https://github.com/dpc-sdp/ripple-framework/commit/934a6adb2da2ceeddc44d835634106bd93e52bb2))
+
+### Features
+
+* **@dpc-sdp/ripple-ui-core:** search qa ([c283f21](https://github.com/dpc-sdp/ripple-framework/commit/c283f218b0d2dbc12a012ed0d51beaa8d2276eba))
+
+# [2.1.0-alpha.128](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.127...v2.1.0-alpha.128) (2023-03-31)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-publication:** check pagination url ([48c0c2d](https://github.com/dpc-sdp/ripple-framework/commit/48c0c2dfff16b0d977bbaa345d586d1b5a820a97))
+
+# [2.1.0-alpha.127](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.126...v2.1.0-alpha.127) (2023-03-31)
+
+### Bug Fixes
+
+* update packageManager to match engines requirement ([8f09a1e](https://github.com/dpc-sdp/ripple-framework/commit/8f09a1ed63d4e8ccabf589f2446c305a85ad6ce9))
+
+# [2.1.0-alpha.126](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.125...v2.1.0-alpha.126) (2023-03-30)
+
+### Features
+
+* **@dpc-sdp/ripple-tide-publication:** automatically print publication on mount ([2fec56b](https://github.com/dpc-sdp/ripple-framework/commit/2fec56bcf5cda46221cff1ec57ef89eeb9596465))
+* **@dpc-sdp/ripple-tide-publication:** hooked up print all pages link ([a617cf3](https://github.com/dpc-sdp/ripple-framework/commit/a617cf36ada432711bbc14744a09f3825d0cb42b))
+* **@dpc-sdp/ripple-tide-publication:** hooked up publication print all breadcrumbs ([f4847df](https://github.com/dpc-sdp/ripple-framework/commit/f4847df52dcc6aaf0486e1ad257996c0700562b4))
+* **@dpc-sdp/ripple-tide-publication:** setup publication print all page view and apis ([3a46f98](https://github.com/dpc-sdp/ripple-framework/commit/3a46f98cda072c7141f3cf19092a0a545ac5249e))
+* **docs:** added module and module listing templates to docs ([cf6bd3d](https://github.com/dpc-sdp/ripple-framework/commit/cf6bd3d62d48b8a10bc35ea2c925f975da14bac4))
+
+# [2.1.0-alpha.125](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.124...v2.1.0-alpha.125) (2023-03-30)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-monorepo
+
+# [2.1.0-alpha.124](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.123...v2.1.0-alpha.124) (2023-03-29)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-monorepo
+
 # [2.1.0-alpha.123](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.122...v2.1.0-alpha.123) (2023-03-26)
 
 ### Bug Fixes

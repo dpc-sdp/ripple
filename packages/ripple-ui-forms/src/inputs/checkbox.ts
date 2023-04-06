@@ -25,7 +25,8 @@ export const checkbox: FormKitTypeDefinition = {
       'aria-invalid': '$fns.isFieldInvalid()',
       'aria-required': '$fns.isFieldRequired()',
       'data-rpl-focus-input': '$id',
-      required: '$fns.isFieldRequired()'
+      required: '$fns.isFieldRequired()',
+      showRequiredInLabel: '$fns.hasNoLabel()'
     }
   }),
   library: inputLibrary,

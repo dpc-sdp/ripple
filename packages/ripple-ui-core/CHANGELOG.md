@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.137](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.136...v2.1.0-alpha.137) (2023-04-06)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** add toggleNavItem level type back ([439933a](https://github.com/dpc-sdp/ripple-framework/commit/439933a6aecc7d968b8e2033b9c054c7bb43a133))
+* **@dpc-sdp/ripple-ui-core:** primary nav design feedback ([4a0a086](https://github.com/dpc-sdp/ripple-framework/commit/4a0a086b0e04de2044e3d0dfcd1a0b19af662212))
+
 # [2.1.0-alpha.135](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.134...v2.1.0-alpha.135) (2023-04-05)
 
 **Note:** Version bump only for package @dpc-sdp/ripple-ui-core

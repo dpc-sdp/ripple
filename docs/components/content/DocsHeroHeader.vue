@@ -40,13 +40,11 @@ withDefaults(defineProps<Props>(), {
   }
 }
 
-.inner {
+.root {
   background-image: url(/assets/img/hero-graphic.png);
   background-size: 449px;
   background-repeat: no-repeat;
   background-position: right -232px bottom -177px;
-  padding-top: var(--rpl-sp-9);
-  padding-bottom: var(--rpl-sp-11);
 
   @media (--rpl-bp-s) {
     background-size: 449px;
@@ -56,23 +54,34 @@ withDefaults(defineProps<Props>(), {
   @media (--rpl-bp-m) {
     background-size: 629px;
     background-position: right -316px bottom -122px;
-
-    padding-top: var(--rpl-sp-12);
-    padding-bottom: var(--rpl-sp-13);
   }
 
   @media (--rpl-bp-l) {
     background-size: 837px;
     background-position: right -413px bottom -120px;
+  }
 
+  @media (--rpl-bp-xl) {
+    background-size: 840px;
+    background-position: right calc(50% - 502px) bottom -160px;
+  }
+}
+
+.inner {
+  padding-top: var(--rpl-sp-9);
+  padding-bottom: var(--rpl-sp-11);
+
+  @media (--rpl-bp-m) {
+    padding-top: var(--rpl-sp-12);
+    padding-bottom: var(--rpl-sp-13);
+  }
+
+  @media (--rpl-bp-l) {
     padding-top: var(--rpl-sp-13);
     padding-bottom: 96px;
   }
 
   @media (--rpl-bp-xl) {
-    background-size: 840px;
-    background-position: right -322px bottom -160px;
-
     padding-top: var(--rpl-sp-13);
     padding-bottom: var(--rpl-sp-14);
   }

@@ -9,6 +9,7 @@ import {
 } from './constants'
 
 interface Props {
+  alt: string
   width?: number
   height?: number
   sizes?: string
@@ -82,6 +83,7 @@ const loading = computed(() => (props.priority === 'high' ? 'eager' : 'lazy'))
 
 <template>
   <RplImg
+    :alt="alt || ''"
     :class="classes"
     :aspect="aspect"
     :rendered="rendered"

@@ -9,14 +9,10 @@ import {
 } from './constants'
 
 interface Props {
-  src: string
-  alt?: string
-  title?: string
   width?: number
   height?: number
   sizes?: string
   rendered?: any
-  srcSet?: string
   circle?: boolean
   focalPoint?: IRplImageFocalPoint
   aspect?: RplImageAspect
@@ -25,13 +21,10 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  alt: '',
-  title: '',
   height: undefined,
   width: undefined,
   sizes: undefined,
   rendered: undefined,
-  srcSet: undefined,
   circle: false,
   focalPoint: undefined,
   aspect: undefined,
@@ -90,12 +83,8 @@ const loading = computed(() => (props.priority === 'high' ? 'eager' : 'lazy'))
 <template>
   <RplImg
     :class="classes"
-    :src="src"
-    :srcset="srcSet"
-    :sizes="aspect"
+    :aspect="aspect"
     :rendered="rendered"
-    :alt="alt"
-    :title="title"
     :width="width"
     :height="height"
     :loading="loading"

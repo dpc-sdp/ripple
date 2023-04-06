@@ -13,7 +13,7 @@ withDefaults(defineProps<Props>(), {
   <div class="root">
     <div class="rpl-container inner">
       <div class="rpl-grid">
-        <div class="rpl-col-12 rpl-col-7-m">
+        <div class="rpl-col-10 rpl-col-7-m">
           <h1 class="rpl-type-h1 rpl-u-margin-b-4">
             {{ title }}
           </h1>
@@ -42,36 +42,36 @@ withDefaults(defineProps<Props>(), {
 
 .inner {
   background-image: url(/assets/img/hero-graphic.png);
-  background-size: 417px;
+  background-size: 449px;
   background-repeat: no-repeat;
-  background-position: right -233px bottom -253px;
-
+  background-position: right -232px bottom -177px;
   padding-top: var(--rpl-sp-9);
   padding-bottom: var(--rpl-sp-11);
 
   @media (--rpl-bp-s) {
-    background-position: right -220px bottom -253px;
+    background-size: 449px;
+    background-position: right -232px bottom -177px;
   }
 
   @media (--rpl-bp-m) {
-    background-size: 310px;
-    background-position: right -2px bottom -39px;
+    background-size: 629px;
+    background-position: right -316px bottom -122px;
 
     padding-top: var(--rpl-sp-12);
     padding-bottom: var(--rpl-sp-13);
   }
 
   @media (--rpl-bp-l) {
-    background-size: 416px;
-    background-position: right 0px bottom 2px;
+    background-size: 837px;
+    background-position: right -413px bottom -120px;
 
     padding-top: var(--rpl-sp-13);
     padding-bottom: 96px;
   }
 
   @media (--rpl-bp-xl) {
-    background-size: 494px;
-    background-position: right 0px bottom -96px;
+    background-size: 840px;
+    background-position: right -322px bottom -160px;
 
     padding-top: var(--rpl-sp-13);
     padding-bottom: var(--rpl-sp-14);

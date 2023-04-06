@@ -31,6 +31,12 @@ import { useContent, useContentHead } from '#imports'
 
 const { page } = useContent()
 
+if (!page.value) {
+  throw createError({
+    statusCode: 404
+  })
+}
+
 useContentHead(page)
 
 const route = useRoute()

@@ -311,10 +311,6 @@ workflows:
           requires:
             - confirm-chromatic
             - build-storybook
-          filters:
-            branches:
-              ignore:
-                - develop
       - publish-alpha:
           requires:
             - build

@@ -1,16 +1,27 @@
 <script setup lang="ts">
 import RplPrimaryNavQuickExit from '../quick-exit/RplPrimaryNavQuickExit.vue'
 import RplSearchBar from '../../../search-bar/RplSearchBar.vue'
+import { ref, onMounted } from 'vue'
 
 interface Props {
   showQuickExit: boolean
 }
+
+const searchBar = ref(null)
 
 withDefaults(defineProps<Props>(), {})
 
 const handleSubmit = (value) => {
   window.location.href = `/search?q=${value}`
 }
+
+onMounted(() => {
+  const input = searchBar.value.$el.querySelector('input')
+
+  if (input) {
+    input.focus()
+  }
+})
 </script>
 
 <template>
@@ -23,6 +34,7 @@ const handleSubmit = (value) => {
     <div class="rpl-primary-nav__search-bar-wrapper">
       <RplSearchBar
         id="primary-nav-search"
+        ref="searchBar"
         variant="menu"
         placeholder="Start typing..."
         :auto-focus="true"

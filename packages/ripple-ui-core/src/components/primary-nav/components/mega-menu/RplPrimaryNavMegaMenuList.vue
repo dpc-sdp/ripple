@@ -1,14 +1,18 @@
 <script setup lang="ts">
 import RplIcon from '../../../icon/RplIcon.vue'
 import RplPrimaryNavMegaMenuAction from './RplPrimaryNavMegaMenuAction.vue'
-import { IRplPrimaryNavItem, IRplPrimaryNavActiveItems } from '../../constants'
+import {
+  IRplPrimaryNavItem,
+  IRplPrimaryNavActiveItems,
+  IRplPrimaryNavToggleItemOptions
+} from '../../constants'
 
 interface Props {
   parent?: IRplPrimaryNavItem
   items: IRplPrimaryNavItem[]
   level: 1 | 2 | 3 | 4
   activeNavItems: IRplPrimaryNavActiveItems
-  toggleItem?: (level: 1 | 2 | 3, item: IRplPrimaryNavItem) => void
+  toggleItem?: (...args: IRplPrimaryNavToggleItemOptions) => void
 }
 
 withDefaults(defineProps<Props>(), {

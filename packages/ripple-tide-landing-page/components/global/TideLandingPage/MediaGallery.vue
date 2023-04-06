@@ -3,7 +3,7 @@ import { RplMediaGallery } from '#components'
 
 defineProps<{
   id: string
-  title: string
+  title?: string
   items: Array<any>
 }>()
 </script>

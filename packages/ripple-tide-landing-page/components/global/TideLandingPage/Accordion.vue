@@ -3,7 +3,7 @@ import { RplAccordion } from '#components'
 
 defineProps<{
   id: string
-  title: string
+  title?: string
   numbered: boolean
   items: Array<any>
 }>()

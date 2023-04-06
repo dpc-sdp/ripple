@@ -8,7 +8,7 @@ import { useExpandableState } from '../../composables/useExpandableState'
 
 type RplAccordionItem = {
   id: string
-  title: string
+  title?: string
   content: string
   active: boolean
 }

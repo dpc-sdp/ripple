@@ -1,5 +1,5 @@
 // Grid columns setting for cards.
-const { cardColsSetting } = require('../../lib/config/layout.config.js')
+const { cardColsSetting, compactCardColsSetting } = require('../../lib/config/layout.config.js')
 
 // TODO: This `edgeClasses` is kind of deprecated in design.
 // It can make a dynamic landing page component(e.g CTA) grow to edge, but none item is using it now.
@@ -513,7 +513,8 @@ module.exports = {
             field: 'field_compact_card',
             filters: ['compactCards']
           }
-        }
+        },
+        childCols: compactCardColsSetting
       }
 
     }

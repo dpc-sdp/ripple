@@ -21,16 +21,6 @@ export default defineNuxtConfig({
       API_URL: ''
     }
   },
-  proxy: {
-    options: {
-      target: 'https://develop.content.reference.sdp.vic.gov.au',
-      changeOrigin: true,
-      pathRewrite: {
-        '^/api/tide/': '/api/v1/'
-      },
-      pathFilter: ['/api/tide/webform_submission/**']
-    }
-  },
   robots: {
     configPath: resolve('./robots.config.ts')
   },

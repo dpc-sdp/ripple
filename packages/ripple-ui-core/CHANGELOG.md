@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.137](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.136...v2.1.0-alpha.137) (2023-04-06)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** add toggleNavItem level type back ([439933a](https://github.com/dpc-sdp/ripple-framework/commit/439933a6aecc7d968b8e2033b9c054c7bb43a133))
+* **@dpc-sdp/ripple-ui-core:** primary nav design feedback ([4a0a086](https://github.com/dpc-sdp/ripple-framework/commit/4a0a086b0e04de2044e3d0dfcd1a0b19af662212))
+
+# [2.1.0-alpha.135](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.134...v2.1.0-alpha.135) (2023-04-05)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-ui-core
+
+# [2.1.0-alpha.134](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.133...v2.1.0-alpha.134) (2023-04-05)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** fixed button styling in IOS 15 and below ([e4428a5](https://github.com/dpc-sdp/ripple-framework/commit/e4428a539ce0de8d2463c5dd6df2b22437bf1137))
+
+# [2.1.0-alpha.133](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.132...v2.1.0-alpha.133) (2023-04-05)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** updated button busy state after design feedback ([81efdba](https://github.com/dpc-sdp/ripple-framework/commit/81efdba84553c7ec55375cdc93cb09a7c0a3c1d4))
+
+# [2.1.0-alpha.132](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.131...v2.1.0-alpha.132) (2023-04-04)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** don't set background when higher contrast is requested ([e75005b](https://github.com/dpc-sdp/ripple-framework/commit/e75005bc74b973f343097779a00f24864ae3f481))
+* **@dpc-sdp/ripple-ui-core:** set a white bg default ([17df2e6](https://github.com/dpc-sdp/ripple-framework/commit/17df2e62ef822d1dd05a65fc01fb1bc7c0c25b93))
+
 # [2.1.0-alpha.129](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.128...v2.1.0-alpha.129) (2023-04-03)
 
 ### Bug Fixes

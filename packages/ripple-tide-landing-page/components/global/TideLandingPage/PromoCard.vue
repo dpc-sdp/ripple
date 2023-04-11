@@ -4,7 +4,7 @@
     :title="title"
     :image="displayStyle !== 'noImage' ? image : null"
     :url="url"
-    :highlight="displayStyle === 'noImage'"
+    :highlight="displayStyle === 'noImage' || !image"
   >
     <p>{{ summary }}</p>
     <template v-if="showMetadata" #meta>

@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { IRplPrimaryNavItem, IRplPrimaryNavActiveItems } from '../../constants'
+import {
+  IRplPrimaryNavItem,
+  IRplPrimaryNavActiveItems,
+  IRplPrimaryNavToggleItemOptions
+} from '../../constants'
 import RplIcon from '../../../icon/RplIcon.vue'
 
 interface Props {
@@ -8,7 +12,7 @@ interface Props {
   type: 'toggle' | 'link'
   level?: 1 | 2 | 3 | 4
   activeNavItems?: IRplPrimaryNavActiveItems
-  toggleItem?: (level: 1 | 2 | 3, item: IRplPrimaryNavItem) => void
+  toggleItem?: (...args: IRplPrimaryNavToggleItemOptions) => void
 }
 
 const props = withDefaults(defineProps<Props>(), {

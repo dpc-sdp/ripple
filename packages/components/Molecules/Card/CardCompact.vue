@@ -65,17 +65,17 @@ $rpl-card-compact-image-height: rem(52px) !default;
     &:hover {
       box-shadow: none;
     }
-  }
 
-  .rpl-card-content__details {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 0;
+    .rpl-card-content__details {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 0;
 
-    @include rpl_breakpoint('s') {
-      flex-direction: column;
-      align-items: stretch;
+      @include rpl_breakpoint('s') {
+        flex-direction: column;
+        align-items: stretch;
+      }
     }
   }
 

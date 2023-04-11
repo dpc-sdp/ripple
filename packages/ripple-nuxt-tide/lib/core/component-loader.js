@@ -38,8 +38,6 @@ const loadComponent = (name, dynamicComponentsConfig) => {
 
   // TODO: move all below to core or core module load-components config.
   switch (name) {
-    case 'rpl-card-compact-grid':
-      return () => import(/* webpackChunkName: 'rpl-card-compact-grid' */ '@dpc-sdp/ripple-card').then(m => m.RplCardCompactGrid)
     case 'rpl-card-box':
       return () => import(/* webpackChunkName: 'rpl-card-box' */ '@dpc-sdp/ripple-card').then(m => m.RplCardBox)
     case 'rpl-card-carousel':
@@ -64,6 +62,8 @@ const loadComponent = (name, dynamicComponentsConfig) => {
       return () => import(/* webpackChunkName: 'rpl-card-promo' */ '@dpc-sdp/ripple-card').then(m => m.RplCardPromo)
     case 'rpl-card-navigation-featured':
       return () => import(/* webpackChunkName: 'rpl-card-navigation-featured' */ '@dpc-sdp/ripple-card').then(m => m.RplCardNavigationFeatured)
+    case 'rpl-card-compact-grid':
+      return () => import(/* webpackChunkName: 'rpl-card-compact-grid' */ '@dpc-sdp/ripple-card').then(m => m.RplCardCompactGrid)
     case 'rpl-campaign-primary':
       return () => import(/* webpackChunkName: 'rpl-campaign-primary' */ '@dpc-sdp/ripple-campaign-primary')
     case 'rpl-campaign-secondary':

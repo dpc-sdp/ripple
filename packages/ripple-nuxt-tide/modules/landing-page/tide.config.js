@@ -36,7 +36,9 @@ module.exports = {
       'field_landing_page_component.field_paragraph_items.field_paragraph_keydates',
       'field_landing_page_component.field_paragraph_items.field_paragraph_media.field_media_image',
       'field_landing_page_component.field_complex_image_media.field_media_image',
-      'field_landing_page_component.field_statistic_block'
+      'field_landing_page_component.field_statistic_block',
+      'field_landing_page_component.field_compact_card',
+      'field_landing_page_component.field_compact_card.field_paragraph_media.field_media_image'
     ]
   },
 
@@ -499,6 +501,17 @@ module.exports = {
           blocks: {
             field: ['field_statistic_block'],
             filters: ['statisticsGrid']
+          }
+        }
+      },
+
+      'paragraph--compact_card_collection': {
+        component: 'rpl-card-compact-grid',
+        props: {
+          title: 'field_paragraph_title',
+          cards: {
+            field: 'field_compact_card',
+            filters: ['compactCards']
           }
         }
       }

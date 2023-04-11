@@ -98,6 +98,8 @@ const loadComponent = (name, dynamicComponentsConfig) => {
       return () => import(/* webpackChunkName: 'tide-login' */ '@dpc-sdp/ripple-nuxt-tide/modules/authenticated-content/components/TideLogin')
     case 'rpl-statistics-grid':
       return () => import(/* webpackChunkName: 'rpl-statistics-grid' */ '@dpc-sdp/ripple-statistics-grid')
+    case 'rpl-card-compact-grid':
+      return () => import(/* webpackChunkName: 'rpl-card-compact-grid' */ '@dpc-sdp/ripple-card').then(m => m.RplCardCompactGrid)
     default:
       if (coreComponents[name]) {
         return coreComponents[name]

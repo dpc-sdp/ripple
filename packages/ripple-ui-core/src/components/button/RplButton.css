@@ -17,6 +17,7 @@
   padding: calc(var(--rpl-sp-4) - var(--local-border-width))
     calc(var(--rpl-sp-5) - var(--local-border-width));
   width: 100%;
+  appearance: none;
 
   &:hover {
     cursor: pointer;
@@ -45,7 +46,8 @@
     border-color: var(--local-filled-bg-clr);
 
     &:active,
-    &:hover {
+    &:hover,
+    &.rpl-button--busy {
       background-color: var(--local-filled-bg-clr-hover);
       border-color: var(--local-filled-bg-clr-hover);
     }
@@ -57,7 +59,8 @@
     border-color: var(--local-outlined-border-clr);
 
     &:active,
-    &:hover {
+    &:hover,
+    &.rpl-button--busy {
       color: var(--local-outlined-type-clr-hover);
       border-color: var(--local-outlined-border-clr-hover);
     }
@@ -73,7 +76,8 @@
     text-decoration: underline;
 
     &:active,
-    &:hover {
+    &:hover,
+    &.rpl-button--busy {
       color: var(--local-white-type-clr-hover);
     }
 
@@ -97,7 +101,8 @@
     width: auto;
 
     &:active,
-    &:hover {
+    &:hover,
+    &.rpl-button--busy {
       color: var(--local-white-type-clr-hover);
     }
 
@@ -118,7 +123,8 @@
     border-color: var(--rpl-clr-error);
 
     &:active,
-    &:hover {
+    &:hover,
+    &.rpl-button--busy {
       background-color: var(--rpl-clr-error-dark);
       border-color: var(--rpl-clr-error-dark);
     }

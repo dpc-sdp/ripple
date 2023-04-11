@@ -62,7 +62,11 @@ const { data: site } = useFetch('/api/tide/site', {
   }
 })
 
-const apiConnectorOptions = config.tide?.appSearch
+const apiConnectorOptions = {
+  ...config.tide?.appSearch,
+  // The search request is proxied through the API to avoid CORS issues
+  endpointBase: '/api/tide/search'
+}
 
 const {
   updateSearchTerm,

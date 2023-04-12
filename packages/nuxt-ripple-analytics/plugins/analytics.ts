@@ -1,4 +1,9 @@
-import { defineNuxtPlugin, useAppConfig, addRouteMiddleware } from '#app'
+import {
+  defineNuxtPlugin,
+  useAppConfig,
+  useRuntimeConfig,
+  addRouteMiddleware
+} from '#app'
 import { loadScript } from '@gtm-support/core'
 import { trackEvent } from '../lib/tracker'
 
@@ -15,7 +20,7 @@ const setupDataLayer = () => {
   }
 }
 
-const setupGTM = (GTM_ID) => {
+const setupGTM = (GTM_ID: string) => {
   if (GTM_ID) {
     // Add tracking code to page with loadScript
     loadScript(GTM_ID, { defer: true, compatibility: false })
@@ -23,9 +28,9 @@ const setupGTM = (GTM_ID) => {
 }
 
 export default defineNuxtPlugin((nuxtApp) => {
-  const config = useAppConfig()
-  const eventListeners: Record<string, any> =
-    config.ripple.analytics.eventListeners
+  const appConfig = useAppConfig()?.ripple?.analytics
+  const runtimeConfig = useRuntimeConfig()?.tide?.analytics
+  const eventListeners: Record<string, any> = appConfig?.eventListeners
 
   /* @ts-ignore process is extended by webpack */
   if (process.client) {
@@ -33,7 +38,7 @@ export default defineNuxtPlugin((nuxtApp) => {
       install(app: any) {
         const rplEventBus = app._context?.provides?.$rplEvent
         setupDataLayer()
-        setupGTM(config.ripple?.analytics.GTM)
+        setupGTM(runtimeConfig?.GTM)
         if (rplEventBus) {
           if (eventListeners) {
             /* Here we iterate over all imported events and add listeners to Mitt event bus */
@@ -44,7 +49,7 @@ export default defineNuxtPlugin((nuxtApp) => {
               })
             }
           }
-          if (config.ripple?.analytics?.routeChange) {
+          if (appConfig?.routeChange) {
             let routeChangeMiddleware = (to) => {
               trackEvent({
                 event: 'routeChange',
@@ -54,8 +59,8 @@ export default defineNuxtPlugin((nuxtApp) => {
               })
             }
 
-            if (typeof config.ripple?.analytics?.routeChange === 'function') {
-              routeChangeMiddleware = config.ripple?.analytics?.routeChange
+            if (typeof appConfig?.routeChange === 'function') {
+              routeChangeMiddleware = appConfig?.routeChange
             }
 
             addRouteMiddleware('routeChange', routeChangeMiddleware, {

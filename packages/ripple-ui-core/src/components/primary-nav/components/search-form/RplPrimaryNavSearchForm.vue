@@ -37,7 +37,6 @@ onMounted(() => {
         ref="searchBar"
         variant="menu"
         placeholder="Start typing..."
-        :auto-focus="true"
         @on-submit="handleSubmit"
       />
     </div>

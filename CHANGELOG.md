@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.138](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.137...v2.1.0-alpha.138) (2023-04-12)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** add tab support for primary nav ([49eb5a1](https://github.com/dpc-sdp/ripple-framework/commit/49eb5a1390aada3b452b3231151c80b22d61a728))
+
 # [2.1.0-alpha.137](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.136...v2.1.0-alpha.137) (2023-04-06)
 
 ### Bug Fixes

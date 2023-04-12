@@ -17,27 +17,35 @@ export const RplPrimaryNavItems = [
           }
         ]
       },
+      { id: '4', text: 'Second level B', url: '#' },
+      { id: '5', text: 'Second level C', url: '#' },
+      { id: '6', text: 'Second level D', url: '#' },
       {
-        id: '55',
-        text: 'Second level C',
+        id: '7',
+        text: 'Second level E',
         url: '#',
         items: [
+          { id: '7.1', text: 'Third level B', url: '#' },
+          { id: '7.2', text: 'Third level C', url: '#' },
+          { id: '7.3', text: 'Third level D', url: '#' },
+          { id: '7.4', text: 'Third level E', url: '#' },
           {
-            id: '22',
-            text: 'Third level A',
+            id: '7.5',
+            text: 'Third level F',
             url: '#',
             items: [
-              {
-                id: '33',
-                text: 'Fourth level A link with some text that will need to wrap',
-                url: '#'
-              }
+              { id: '7.6', text: 'Fourth level A', url: '#' },
+              { id: '7.7', text: 'Fourth level B', url: '#' },
+              { id: '7.8', text: 'Fourth level C', url: '#' },
+              { id: '7.9', text: 'Fourth level D', url: '#' }
             ]
-          }
+          },
+          { id: '7.10', text: 'Third level G', url: '#' },
+          { id: '7.11', text: 'Third level H', url: '#' },
+          { id: '7.12', text: 'Third level I', url: '#' }
         ]
       },
-      { id: '6', text: 'Second level D', url: '#' },
-      { id: '7', text: 'Second level E', url: '#' },
+
       { id: '8', text: 'Second level F', url: '#' },
       { id: '9', text: 'Second level G', url: '#' },
       { id: '10', text: 'Second level H', url: '#' },
@@ -67,6 +75,11 @@ export const RplPrimaryNavItems = [
             text: 'Third level link with some text that will need to wrap',
             url: '#',
             items: [{ id: '23', text: 'Fourth level', url: '#' }]
+          },
+          {
+            id: '22.5',
+            text: 'Another third level link',
+            url: '#'
           }
         ]
       },

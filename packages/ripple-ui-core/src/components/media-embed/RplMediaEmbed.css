@@ -48,6 +48,10 @@
   position: relative;
   padding-top: 56.25%;
   margin-bottom: var(--rpl-sp-3);
+
+  @media print {
+    padding-top: 0;
+  }
 }
 
 .rpl-media-embed__video {

@@ -82,7 +82,7 @@
 // @ts-ignore
 import { useHead, useSiteTheme, useAppConfig, useRoute } from '#imports'
 import { computed, onMounted, provide, ref } from 'vue'
-import { deepmerge } from 'deepmerge-ts'
+import deepmerge from 'deepmerge'
 import { TideSiteData } from '../types'
 import { TideTopicTag } from '../mapping/base/topic-tags/topic-tags-mapping'
 import { TideSiteSection } from '@dpc-sdp/ripple-tide-api/types'

@@ -13,10 +13,12 @@
         </dd>
       </template>
       <template v-for="item in overview" :key="item.term">
-        <dt class="rpl-description-list__term">{{ item.term }}</dt>
-        <dd class="rpl-description-list__description">
-          {{ item.description }}
-        </dd>
+        <template v-if="item.description">
+          <dt class="rpl-description-list__term">{{ item.term }}</dt>
+          <dd class="rpl-description-list__description">
+            {{ item.description }}
+          </dd>
+        </template>
       </template>
       <template v-if="link">
         <dt class="rpl-description-list__term">Booking:</dt>

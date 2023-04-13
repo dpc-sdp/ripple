@@ -17,7 +17,15 @@ withDefaults(defineProps<Props>(), {
 <template>
   <div class="rpl-profile">
     <div class="rpl-profile__media">
-      <RplImage v-bind="image" circle />
+      <RplImage
+        v-bind="image"
+        :aspect="{ xs: 'square', m: 'square' }"
+        :rendered="{
+          xs: { width: 148 },
+          m: { width: 148 }
+        }"
+        circle
+      />
     </div>
     <div v-if="items.length > 0" class="rpl-profile__items">
       <RplDescriptionList :items="items" inline></RplDescriptionList>

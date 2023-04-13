@@ -43,10 +43,12 @@ export default (props: any, dpr = 1) => {
   const providerSrcSet = computed(() => {
     // Skip if no aspect/sizes
     if (!props.rendered && !props.aspect) {
-      return null
+      return undefined
     }
 
     const srcSet = Array<string>()
+    const srcWidths = Array<number>()
+
     for (const bp in props.rendered) {
       let w = 0
 
@@ -71,16 +73,23 @@ export default (props: any, dpr = 1) => {
       }
 
       // 1201px is used as a default label for unresized images (bigger than the biggest breakpoint)
-      srcSet.push(
-        props.rendered[bp].resize === false && props.width
-          ? `${props.src} 1201px`
-          : `${props.src}?width=${w} ${calculatedWidth(
-              props.rendered[bp],
-              aspect(props.aspect[bp] || 'wide')
-            )}w`
-      )
+      if (!srcWidths.includes(w)) {
+        srcSet.push(
+          props.rendered[bp].resize === false && props.width
+            ? `${props.src} 1201px`
+            : `${props.src}?width=${w} ${calculatedWidth(
+                props.rendered[bp],
+                aspect(props.aspect[bp] || 'wide')
+              )}w`
+        )
+
+        // Prevent duplicate widths
+        srcWidths.push(w)
+      }
     }
-    return srcSet.join(', ')
+    return srcSet.length > 1
+      ? srcSet.join(', ')
+      : `${props.src}?width=${srcWidths[0]}`
   })
 
   // Render sizes attribute
@@ -91,29 +100,34 @@ export default (props: any, dpr = 1) => {
     }
 
     const sizes = Array<string>()
+    const uniqueSizes = Array<string>()
     const lastBp = renderedIndex[renderedIndex.length - 1]
 
     for (const bp in props.rendered) {
       // 1201px is used as a default label for unresized images (bigger than the biggest breakpoint)
-      if (props.rendered[bp].resize === false && props.width) {
-        sizes.push(`1201px`)
-      } else {
+      let label = '1201px'
+      let line = label
+
+      if (props.rendered[bp].resize !== false) {
+        label = `${calculatedWidth(
+          props.rendered[bp],
+          aspect(props.aspect[bp])
+        )}px`
+        line = label
+
         // Last breakpoint has no condition in render list
-        if (bp === lastBp) {
-          sizes.push(
-            `${calculatedWidth(props.rendered[bp], aspect(props.aspect[bp]))}px`
-          )
-        } else {
-          sizes.push(
-            `(max-width: ${bpMax[bp]}px) ${calculatedWidth(
-              props.rendered[bp],
-              aspect(props.aspect[bp])
-            )}px`
-          )
+        if (bp !== lastBp) {
+          line = `(max-width: ${bpMax[bp]}px) ${label}`
         }
       }
+
+      // Prevent duplicate widths
+      if (!uniqueSizes.includes(label)) {
+        sizes.push(line)
+        uniqueSizes.push(label)
+      }
     }
-    return sizes.join(', ')
+    return sizes.length > 1 ? sizes.join(', ') : undefined
   })
 
   // Determine unresized width for img attribute from rendered prop

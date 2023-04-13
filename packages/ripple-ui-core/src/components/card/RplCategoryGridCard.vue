@@ -37,6 +37,10 @@ const { container, trigger } = useAccessibleContainer()
       <RplImage
         class="rpl-card__media rpl-card__media--category-grid"
         v-bind="image"
+        :aspect="{ xs: 'square' }"
+        :rendered="{
+          xs: { width: 52 }
+        }"
         data-cy="image"
       />
     </template>

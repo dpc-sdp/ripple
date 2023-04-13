@@ -46,8 +46,8 @@ const { container, trigger } = useAccessibleContainer()
         }"
         :rendered="{
           xs: { width: 768 },
-          s: { width: 526 },
-          m: { width: 282 }
+          s: { width: 768 },
+          m: { width: 768 }
         }"
         data-cy="image"
       />

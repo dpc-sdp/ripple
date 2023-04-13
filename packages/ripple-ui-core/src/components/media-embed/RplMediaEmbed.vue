@@ -107,7 +107,10 @@ const isActionsListEmpty = computed(() => {
         v-if="type === 'image'"
         :src="src"
         :alt="caption"
-        :aspect="imageAspect"
+        :aspect="{ xs: imageAspect }"
+        :rendered="{
+          xs: { width: 768 }
+        }"
         :circle="variant === 'avatar'"
         :class="imageClasses"
       />

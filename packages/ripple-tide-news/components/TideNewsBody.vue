@@ -10,7 +10,7 @@
       :width="body.image.width"
       :height="body.image.height"
       :aspect="{ xs: 'wide' }"
-      :rendered="{ xs: { width: 600 } }"
+      :rendered="{ xs: { width: 768 } }"
       data-cy="featured-image"
     />
     <figcaption v-if="body.caption" class="rpl-type-p rpl-u-margin-t-2">

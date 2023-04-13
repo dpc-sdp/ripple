@@ -24,9 +24,9 @@ withDefaults(defineProps<Props>(), {
         v-bind="image"
         :aspect="{ xs: 'wide', s: 'ultrawide', l: 'wide' }"
         :rendered="{
-          xs: { width: 768 },
+          xs: { width: 992 },
           s: { width: 992 },
-          m: { width: 320 }
+          m: { width: 992 }
         }"
         data-cy="image"
       />

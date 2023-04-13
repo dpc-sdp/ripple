@@ -33,6 +33,9 @@ const onFullScreen = (event) => {
       v-if="image"
       :src="image"
       :aspect="{ xs: 'wide' }"
+      :rendered="{
+        xs: { width: 768 }
+      }"
       class="rpl-media-gallery__image rpl-u-print-only"
     />
     <h3 class="rpl-type-h3 rpl-u-margin-b-1" data-cy="title">{{ title }}</h3>

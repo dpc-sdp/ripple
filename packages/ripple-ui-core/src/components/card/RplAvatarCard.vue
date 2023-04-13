@@ -32,6 +32,10 @@ const { container, trigger } = useAccessibleContainer()
         v-bind="image"
         class="rpl-card__media rpl-card__media--avatar"
         circle
+        :aspect="{ xs: 'square' }"
+        :rendered="{
+          xs: { width: 148 }
+        }"
         data-cy="image"
       />
     </template>

@@ -24,7 +24,7 @@ withDefaults(defineProps<Props>(), {
         v-bind="image"
         :aspect="{ xs: 'wide', s: 'panorama' }"
         :rendered="{
-          xs: { height: 260 },
+          xs: { height: 360 },
           s: { height: 360 }
         }"
         alt=""

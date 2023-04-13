@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.139](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.138...v2.1.0-alpha.139) (2023-04-12)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** fixed nav search auto focus in IOS ([675ec69](https://github.com/dpc-sdp/ripple-framework/commit/675ec69a8d151f014dfd091151a061a5b4d18510))
+* **@dpc-sdp/ripple-ui-core:** remove redundant auto-focus attribute ([ffe4223](https://github.com/dpc-sdp/ripple-framework/commit/ffe42236fca40c2b5301eab12e27cff7bbfc015c))
+
+# [2.1.0-alpha.138](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.137...v2.1.0-alpha.138) (2023-04-12)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** add tab support for primary nav ([49eb5a1](https://github.com/dpc-sdp/ripple-framework/commit/49eb5a1390aada3b452b3231151c80b22d61a728))
+
 # [2.1.0-alpha.137](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.136...v2.1.0-alpha.137) (2023-04-06)
 
 ### Bug Fixes

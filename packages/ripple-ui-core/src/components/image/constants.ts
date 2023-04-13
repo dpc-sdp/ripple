@@ -31,10 +31,10 @@ export interface IRplImageType {
   width?: number
   height?: number
   sizes?: string
-  rendered?: RplImageAspectBreakpoints
+  rendered?: any
   srcSet?: string
   circle?: boolean
-  focalPoint?: IRplImageFocalPoint | undefined
+  focalPoint?: IRplImageFocalPoint
   aspect?: RplImageAspect
   fit?: (typeof RplImageFit)[number]
   priority?: (typeof RplImagePriority)[number]

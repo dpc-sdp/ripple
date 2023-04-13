@@ -75,9 +75,10 @@ const contentClasses = computed(() => ({
         v-if="background"
         v-bind="background"
         priority="high"
-        aspect="wide"
+        :aspect="{ xs: 'wide', m: 'wide' }"
         :rendered="{
-          xs: { height: 450 }
+          xs: { height: 300 },
+          m: { resize: false }
         }"
       />
       <RplHeaderGraphic v-if="cornerTop" :image="cornerTop" placement="top" />

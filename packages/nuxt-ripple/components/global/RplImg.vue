@@ -3,6 +3,8 @@ import useProviderImage from '../../composables/use-provider-image'
 
 interface Props {
   src: string
+  width?: number | undefined
+  height?: number | undefined
   aspect?: any
   srcSet?: string
   sizes?: any
@@ -10,6 +12,8 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
+  width: undefined,
+  height: undefined,
   aspect: undefined,
   srcSet: undefined,
   sizes: undefined,
@@ -21,8 +25,10 @@ const { providerSrcSet, providerSizes } = useProviderImage(props)
 
 <template>
   <img
-    :src="src"
+    :src="providerSrcSet ? undefined : src"
     :srcSet="providerSrcSet || srcSet"
     :sizes="providerSizes || sizes"
+    :width="width"
+    :height="height"
   />
 </template>

@@ -32,7 +32,7 @@ const onFullScreen = (event) => {
     <RplImage
       v-if="image"
       :src="image"
-      aspect="wide"
+      :aspect="{ xs: 'wide' }"
       class="rpl-media-gallery__image rpl-u-print-only"
     />
     <h3 class="rpl-type-h3 rpl-u-margin-b-1" data-cy="title">{{ title }}</h3>

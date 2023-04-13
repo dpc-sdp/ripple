@@ -6,5 +6,5 @@ defineProps<Props>()
 </script>
 
 <template>
-  <img :src="src" />
+  <img :src="src" :aspect="null" :rendered="null" />
 </template>

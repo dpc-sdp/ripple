@@ -196,8 +196,8 @@ importers:
         specifier: ^6.6.4
         version: 6.6.4(ts-node@10.9.1)(webpack@5.76.3)
       '@nuxtlabs/github-module':
-        specifier: ^1.6.1
-        version: 1.6.1
+        specifier: ^1.6.2
+        version: 1.6.2
       '@tailwindcss/typography':
         specifier: ^0.5.7
         version: 0.5.9(tailwindcss@3.2.7)
@@ -5578,8 +5578,8 @@ packages:
       - webpack
     dev: true
 
-  /@nuxtlabs/github-module@1.6.1:
-    resolution: {integrity: sha512-VXGVdJ0edKNaHzIhu5v/Go8ypN2tU9REfIQ4xTdvdgKE2AKKXu9zuuClBDr/zUf3WsgSuS/vMtLS14++jeHn+w==}
+  /@nuxtlabs/github-module@1.6.2:
+    resolution: {integrity: sha512-piHpTQ2SjVJhcBEesHcvRkRmCfAQKsID4UtlH53tnfRBnmbmWCMYPTOWleJJqKeS9dY3ytObgP4MkcDiOznZhA==}
     dependencies:
       '@nuxt/kit': 3.3.2(rollup@3.20.2)
       '@octokit/graphql': 5.0.5
@@ -7257,7 +7257,7 @@ packages:
   /@storybook/expect@27.5.2-0:
     resolution: {integrity: sha512-cP99mhWN/JeCp7VSIiymvj5tmuMY050iFohvp8Zq+kewKsBSZ6/qpTJAGCCZk6pneTcp4S0Fm5BSqyxzbyJ3gw==}
     dependencies:
-      '@types/jest': 29.5.0
+      '@types/jest': 29.4.0
     dev: true
 
   /@storybook/instrumenter@6.5.16(react-dom@16.14.0)(react@16.14.0):
@@ -7992,6 +7992,13 @@ packages:
     resolution: {integrity: sha512-c3mAZEuK0lvBp8tmuL74XRKn1+y2dcwOUpH7x4WrF6gk1GIgiluDRgMYQtw2OFcBvAJWlt6ASU3tSqxp0Uu0Aw==}
     dependencies:
       '@types/istanbul-lib-report': 3.0.0
+
+  /@types/jest@29.4.0:
+    resolution: {integrity: sha512-VaywcGQ9tPorCX/Jkkni7RWGFfI11whqzs8dvxF41P17Z+z872thvEvlIbznjPJ02kl1HMX3LmLOonsj2n7HeQ==}
+    dependencies:
+      expect: 29.5.0
+      pretty-format: 29.5.0
+    dev: true
 
   /@types/jest@29.5.0:
     resolution: {integrity: sha512-3Emr5VOl/aoBwnWcH/EFQvlSAmjV+XtV9GGu5mwdYew5vhQh0IUZx/60x0TzHDu09Bi7HMx10t/namdJw5QIcg==}

@@ -6,14 +6,14 @@ import RplPrimaryNavQuickExit from '../quick-exit/RplPrimaryNavQuickExit.vue'
 import {
   IRplPrimaryNavItem,
   IRplPrimaryNavActiveItems,
-  IRplPrimaryNavToggleItemOptions
+  RplPrimaryNavToggleItemOptions
 } from '../../constants'
 
 interface Props {
   items: IRplPrimaryNavItem[]
   showQuickExit: boolean
   activeNavItems: IRplPrimaryNavActiveItems
-  toggleItem: (...args: IRplPrimaryNavToggleItemOptions) => void
+  toggleItem: (...args: RplPrimaryNavToggleItemOptions) => void
 }
 
 const props = withDefaults(defineProps<Props>(), {})
@@ -70,7 +70,9 @@ const backButtonHandler = () => {
       v-if="showQuickExit || hasUserActions"
       class="rpl-primary-nav__mega-menu-quick-links"
     >
-      <li v-if="showQuickExit"><RplPrimaryNavQuickExit /></li>
+      <li v-if="showQuickExit">
+        <RplPrimaryNavQuickExit :parent="activeNavItems.level1?.id" />
+      </li>
       <li v-if="hasUserActions" class="rpl-primary-nav__mega-menu-user-action">
         <slot name="userAction"></slot>
       </li>

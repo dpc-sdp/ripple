@@ -47,7 +47,7 @@ const handleReset = () => {
 }
 </script>
 <template>
-  <div class="rpl-form-actions">
+  <div class="rpl-form-actions rpl-u-screen-only">
     <RplButton
       :id="id"
       :variant="variant"

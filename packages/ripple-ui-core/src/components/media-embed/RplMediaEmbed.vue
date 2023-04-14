@@ -118,7 +118,7 @@ const isActionsListEmpty = computed(() => {
         class="rpl-media-embed__video-container"
       >
         <iframe
-          class="rpl-media-embed__video"
+          class="rpl-media-embed__video rpl-u-screen-only"
           :src="src"
           allow="autoplay; fullscreen; picture-in-picture"
           allowfullscreen
@@ -126,6 +126,9 @@ const isActionsListEmpty = computed(() => {
           :title="title"
         >
         </iframe>
+        <RplTextLink class="rpl-type-p rpl-u-print-only" :url="src">
+          {{ title }}
+        </RplTextLink>
       </div>
 
       <!-- Caption and source caption -->

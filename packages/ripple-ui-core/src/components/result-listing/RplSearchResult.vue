@@ -30,7 +30,10 @@ const displayUrl = computed(() => props.url.replace('https://', ''))
         {{ title }}
       </RplTextLink>
     </h2>
-    <div v-if="url" class="rpl-search-result__url rpl-type-p-small">
+    <div
+      v-if="url"
+      class="rpl-search-result__url rpl-type-p-small rpl-u-screen-only"
+    >
       {{ displayUrl }}
     </div>
     <div v-if="$slots.details" class="rpl-search-result__details rpl-type-p">

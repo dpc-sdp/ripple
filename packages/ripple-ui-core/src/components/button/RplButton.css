@@ -17,6 +17,7 @@
   padding: calc(var(--rpl-sp-4) - var(--local-border-width))
     calc(var(--rpl-sp-5) - var(--local-border-width));
   width: 100%;
+  appearance: none;
 
   &:hover {
     cursor: pointer;
@@ -25,13 +26,6 @@
 
   @media (--rpl-bp-s) {
     width: auto;
-  }
-
-  @media print {
-    &::after {
-      content: ' <' attr(href) '> ';
-      font-size: var(--rpl-type-size-2);
-    }
   }
 
   &--reverse {
@@ -167,6 +161,11 @@ a.rpl-button {
     text-decoration: underline;
     flex-wrap: wrap;
     justify-content: start;
+
+    &::after {
+      content: ' <' attr(href) '> ';
+      font-size: var(--rpl-type-size-2);
+    }
   }
 
   .rpl-button__label {

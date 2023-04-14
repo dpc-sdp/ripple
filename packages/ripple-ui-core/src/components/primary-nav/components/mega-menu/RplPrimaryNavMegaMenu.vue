@@ -1,18 +1,24 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, useSlots } from 'vue'
 import RplPrimaryNavBackButton from './RplPrimaryNavMegaMenuBackButton.vue'
 import RplPrimaryNavMegaMenuList from './RplPrimaryNavMegaMenuList.vue'
 import RplPrimaryNavQuickExit from '../quick-exit/RplPrimaryNavQuickExit.vue'
-import { IRplPrimaryNavItem, IRplPrimaryNavActiveItems } from '../../constants'
+import {
+  IRplPrimaryNavItem,
+  IRplPrimaryNavActiveItems,
+  RplPrimaryNavToggleItemOptions
+} from '../../constants'
 
 interface Props {
   items: IRplPrimaryNavItem[]
   showQuickExit: boolean
   activeNavItems: IRplPrimaryNavActiveItems
-  toggleItem: (level: 1 | 2 | 3, item: IRplPrimaryNavItem) => void
+  toggleItem: (...args: RplPrimaryNavToggleItemOptions) => void
 }
 
 const props = withDefaults(defineProps<Props>(), {})
+
+const slots = useSlots()
 
 const currentLevel = computed(() => {
   if (!props.activeNavItems.level1) {
@@ -30,6 +36,10 @@ const currentLevel = computed(() => {
   return 4
 })
 
+const hasUserActions = computed(() => {
+  return slots.userAction && slots?.userAction()[0].children?.length
+})
+
 const backButtonHandler = () => {
   // Go back to level 3
   if (currentLevel.value == 4 && props.activeNavItems.level3) {
@@ -43,7 +53,7 @@ const backButtonHandler = () => {
 
   // Go back to level 1
   else if (currentLevel.value == 2 && props.activeNavItems.level1) {
-    props.toggleItem(1, props.activeNavItems.level1)
+    props.toggleItem(1, props.activeNavItems.level1, true)
   }
 }
 </script>
@@ -56,12 +66,14 @@ const backButtonHandler = () => {
     `"
   >
     <!-- Quick links (Quick exit / User action slot) -->
-    <ul class="rpl-primary-nav__mega-menu-quick-links">
-      <li v-if="showQuickExit"><RplPrimaryNavQuickExit /></li>
-      <li
-        v-if="$slots.userAction && $slots?.userAction()[0].children?.length"
-        class="rpl-primary-nav__mega-menu-user-action"
-      >
+    <ul
+      v-if="showQuickExit || hasUserActions"
+      class="rpl-primary-nav__mega-menu-quick-links"
+    >
+      <li v-if="showQuickExit">
+        <RplPrimaryNavQuickExit :parent="activeNavItems.level1?.id" />
+      </li>
+      <li v-if="hasUserActions" class="rpl-primary-nav__mega-menu-user-action">
         <slot name="userAction"></slot>
       </li>
     </ul>

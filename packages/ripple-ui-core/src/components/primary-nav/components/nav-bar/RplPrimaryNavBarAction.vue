@@ -1,19 +1,53 @@
 <script setup lang="ts">
+import { ref } from 'vue'
+import { usePrimaryNavFocus } from '../../../../composables/usePrimaryNavFocus'
+
 interface Props {
   type: string
+  id?: string
   href?: string | undefined
   active?: boolean
+  focusKey?: string
 }
 
-withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<Props>(), {
+  id: undefined,
   active: false,
-  href: undefined
+  href: undefined,
+  focusKey: undefined
 })
+
+const action = ref(null)
+
+const { setFocus, forceFocus, hasQuickExit, hasUserActions } =
+  usePrimaryNavFocus(action, props.focusKey)
+
+const handleFocus = (event) => {
+  if (!props.active) return
+
+  event.preventDefault()
+
+  if (hasQuickExit) {
+    setFocus('links:exit')
+    return
+  } else if (hasUserActions) {
+    const foundAction = forceFocus(
+      '.rpl-primary-nav__mega-menu-user-action :is(a, button)'
+    )
+
+    if (foundAction) return
+  }
+
+  setFocus(
+    props.focusKey === 'menu:toggle' ? 'list:home' : `list:2:${props.id}`
+  )
+}
 </script>
 
 <template>
   <component
     :is="type === 'toggle' ? 'button' : 'a'"
+    ref="action"
     :class="{
       'rpl-primary-nav__nav-bar-action': true,
       'rpl-primary-nav__nav-bar-action--toggle': type === 'toggle',
@@ -24,6 +58,7 @@ withDefaults(defineProps<Props>(), {
       'rpl-u-focusable-block': true
     }"
     :href="href"
+    @keydown.tab.exact="handleFocus"
   >
     <div>
       <slot></slot>

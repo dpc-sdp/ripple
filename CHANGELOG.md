@@ -3,6 +3,46 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.139](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.138...v2.1.0-alpha.139) (2023-04-12)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** fixed nav search auto focus in IOS ([675ec69](https://github.com/dpc-sdp/ripple-framework/commit/675ec69a8d151f014dfd091151a061a5b4d18510))
+* **@dpc-sdp/ripple-ui-core:** remove redundant auto-focus attribute ([ffe4223](https://github.com/dpc-sdp/ripple-framework/commit/ffe42236fca40c2b5301eab12e27cff7bbfc015c))
+
+# [2.1.0-alpha.138](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.137...v2.1.0-alpha.138) (2023-04-12)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** add tab support for primary nav ([49eb5a1](https://github.com/dpc-sdp/ripple-framework/commit/49eb5a1390aada3b452b3231151c80b22d61a728))
+
+# [2.1.0-alpha.137](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.136...v2.1.0-alpha.137) (2023-04-06)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** add toggleNavItem level type back ([439933a](https://github.com/dpc-sdp/ripple-framework/commit/439933a6aecc7d968b8e2033b9c054c7bb43a133))
+* **@dpc-sdp/ripple-ui-core:** primary nav design feedback ([4a0a086](https://github.com/dpc-sdp/ripple-framework/commit/4a0a086b0e04de2044e3d0dfcd1a0b19af662212))
+
+# [2.1.0-alpha.136](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.135...v2.1.0-alpha.136) (2023-04-06)
+
+### Bug Fixes
+
+* **nuxt-ripple:** :bug: use same namespace for theme vars ([dca9ca9](https://github.com/dpc-sdp/ripple-framework/commit/dca9ca93cc1a14319aabdfe243aca022094dcb72))
+
+# [2.1.0-alpha.135](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.134...v2.1.0-alpha.135) (2023-04-05)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-landing-page:** use highlight for promo cards when no image is supplied ([140210a](https://github.com/dpc-sdp/ripple-framework/commit/140210a9e60b177fe17d1aee24fb5c0254bff328))
+
+# [2.1.0-alpha.134](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.133...v2.1.0-alpha.134) (2023-04-05)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-publication:** added all missing publication includes ([73ca387](https://github.com/dpc-sdp/ripple-framework/commit/73ca38778e3d890ce7b5aa49e82f56652692a35f))
+* **@dpc-sdp/ripple-tide-publication:** fixed complex image include missing from publication ([90db23b](https://github.com/dpc-sdp/ripple-framework/commit/90db23b71bf652c5093e0d4843840a59a157e3da))
+* **@dpc-sdp/ripple-ui-core:** fixed button styling in IOS 15 and below ([e4428a5](https://github.com/dpc-sdp/ripple-framework/commit/e4428a539ce0de8d2463c5dd6df2b22437bf1137))
+
 # [2.1.0-alpha.133](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.132...v2.1.0-alpha.133) (2023-04-05)
 
 ### Bug Fixes

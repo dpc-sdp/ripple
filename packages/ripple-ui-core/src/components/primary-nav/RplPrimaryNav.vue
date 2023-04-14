@@ -1,16 +1,25 @@
 <script setup lang="ts">
-import { ref, computed, watch, onMounted, onUnmounted, useSlots } from 'vue'
+import {
+  ref,
+  computed,
+  watch,
+  onMounted,
+  onUnmounted,
+  useSlots,
+  provide
+} from 'vue'
 import type { Ref } from 'vue'
-import { useElementBounding } from '@vueuse/core'
+import { useBreakpoints, useElementBounding } from '@vueuse/core'
 import { useFocusTrap } from '@vueuse/integrations/useFocusTrap'
 import RplPrimaryNavBar from './components/nav-bar/RplPrimaryNavBar.vue'
 import RplPrimaryNavMegaMenu from './components/mega-menu/RplPrimaryNavMegaMenu.vue'
 import RplPrimaryNavSearchForm from './components/search-form/RplPrimaryNavSearchForm.vue'
-
+import { bpMin } from '../../lib/breakpoints'
 import {
   IRplPrimaryNavLogo,
   IRplPrimaryNavItem,
-  IRplPrimaryNavActiveItems
+  IRplPrimaryNavActiveItems,
+  IRplPrimaryNavFocusOptions
 } from './constants'
 
 interface Props {
@@ -33,7 +42,12 @@ const navContainer = ref()
 const { activate: activateFocusTrap, deactivate: deactivateFocusTrap } =
   useFocusTrap(navContainer)
 const { top: navOffest } = useElementBounding(navContainer)
+const bp = useBreakpoints(bpMin)
 
+const isLargeScreen = bp.greaterOrEqual('l')
+const isXLargeScreen = bp.greaterOrEqual('xl')
+
+const focus: Ref<string> = ref('')
 const isHidden: Ref<boolean> = ref(false)
 const isFixed: Ref<boolean> = ref(false)
 const scrollPosition: Ref<number> = ref(0)
@@ -80,7 +94,11 @@ onUnmounted(() => {
   deactivateFocusTrap()
 })
 
-const toggleNavItem = (level: 1 | 2 | 3, item: IRplPrimaryNavItem) => {
+const toggleNavItem = (
+  level: 1 | 2 | 3,
+  item: IRplPrimaryNavItem,
+  open: boolean
+) => {
   // Item needs to be made active
   if (activeNavItems.value['level' + level]?.id !== item?.id) {
     activeNavItems.value['level' + level] = item
@@ -92,11 +110,14 @@ const toggleNavItem = (level: 1 | 2 | 3, item: IRplPrimaryNavItem) => {
   }
 
   if (level == 1) {
+    const keepNavOpen = open || (navCollapse.value.collapsed && level === 1)
+
     // Make search inactive
     isSearchActive.value = false
 
     // If the target item is now active, make sure the mega nav is also active
-    isMegaNavActive.value = activeNavItems.value.level1?.id == item.id
+    isMegaNavActive.value =
+      keepNavOpen || activeNavItems.value.level1?.id == item.id
 
     // Clear any active sub menus
     activeNavItems.value.level2 = undefined
@@ -151,6 +172,30 @@ watch(isExpanded, (newValue) => {
   }
 })
 
+// Determine when the collapsed version of the nav bar appears
+// supplementary elements are counted in nav bar total, i.e. search, userActions and secondaryLogo
+const navCollapse = computed(() => {
+  let collapsed = true
+  let breakpoint = 'default'
+  let count = props?.items?.length || 0
+
+  if (props.showSearch) count++
+  if (slots.userAction) count++
+  if (props.secondaryLogo) count++
+
+  if (count <= 6) {
+    breakpoint = 'l'
+    collapsed = !isLargeScreen.value
+  } else if (count === 7) {
+    breakpoint = 'xl'
+    collapsed = !isXLargeScreen.value
+  } else if (count > 7) {
+    breakpoint = 'always'
+  }
+
+  return { breakpoint, collapsed }
+})
+
 const classList = computed(() => {
   const classes = ['rpl-primary-nav']
 
@@ -166,24 +211,21 @@ const classList = computed(() => {
     classes.push('rpl-primary-nav--expanded')
   }
 
-  let itemCount = props?.items?.length || 0
-
-  if (props.showSearch) itemCount++
-  if (slots.userAction) itemCount++
-  if (props.secondaryLogo) itemCount++
-
-  // Add classes to control when the desktop version of the nav bar appears
-  // supplementary elements are counted too, i.e. search, userActions and secondaryLogo
-  if (itemCount <= 6) {
-    classes.push('rpl-primary-nav--collapse-until-l')
-  } else if (itemCount === 7) {
-    classes.push('rpl-primary-nav--collapse-until-xl')
-  } else if (itemCount > 7) {
-    classes.push('rpl-primary-nav--collapse-always')
-  }
+  classes.push(
+    `rpl-primary-nav--collapse-until-${navCollapse.value.breakpoint}`
+  )
 
   return classes.join(' ')
 })
+
+const navFocus: IRplPrimaryNavFocusOptions = {
+  focus,
+  setFocus: (target: string) => (focus.value = target),
+  navCollapsed: navCollapse.value.collapsed,
+  hasQuickExit: props.showQuickExit,
+  hasUserActions: Boolean(slots.userAction)
+}
+provide('navFocus', navFocus)
 </script>
 
 <template>

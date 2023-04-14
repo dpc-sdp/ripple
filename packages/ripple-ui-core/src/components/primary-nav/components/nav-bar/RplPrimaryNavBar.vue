@@ -4,7 +4,8 @@ import RplPrimaryNavBarAction from './RplPrimaryNavBarAction.vue'
 import {
   IRplPrimaryNavLogo,
   IRplPrimaryNavItem,
-  IRplPrimaryNavActiveItems
+  IRplPrimaryNavActiveItems,
+  RplPrimaryNavToggleItemOptions
 } from '../../constants'
 
 interface Props {
@@ -17,11 +18,14 @@ interface Props {
   isSearchActive: boolean
   activeNavItems: IRplPrimaryNavActiveItems
   toggleMobileMenu: () => void
-  toggleItem: (level: 1 | 2 | 3, item: IRplPrimaryNavItem) => void
+  toggleItem: (...args: RplPrimaryNavToggleItemOptions) => void
   toggleSearch: () => void
 }
 
-defineProps<Props>()
+const props = defineProps<Props>()
+
+const isItemActive = (item: IRplPrimaryNavItem) =>
+  props.activeNavItems.level1?.id == item.id
 </script>
 
 <template>
@@ -86,6 +90,7 @@ defineProps<Props>()
           type="toggle"
           href="/"
           :active="isMegaNavActive"
+          focusKey="menu:toggle"
           @click="toggleMobileMenu()"
         >
           <span>Menu</span>&NoBreak;<span
@@ -111,9 +116,11 @@ defineProps<Props>()
       >
         <RplPrimaryNavBarAction
           v-if="item.items"
+          :id="item.id"
           type="toggle"
           :href="item.url"
-          :active="activeNavItems.level1?.id == item.id"
+          :active="isItemActive(item)"
+          :focusKey="`list:1:${item.id}`"
           @click="toggleItem(1, item)"
         >
           <span>{{ item.text }}</span
@@ -121,12 +128,13 @@ defineProps<Props>()
             ><RplIcon name="icon-chevron-down" size="xs"></RplIcon
           ></span>
         </RplPrimaryNavBarAction>
-
         <RplPrimaryNavBarAction
           v-else
+          :id="item.id"
           type="link"
           :href="item.url"
           :active="item.active"
+          :focusKey="`list:1:${item.id}`"
         >
           <span>{{ item.text }}</span>
         </RplPrimaryNavBarAction>

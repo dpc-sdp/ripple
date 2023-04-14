@@ -9,3 +9,10 @@ links:
 - text: Storybook
   url: #component
 ---
+
+##Usage
+Cards allow users to scan content to find required information. A group of related content or tasks, they allow users to browse a collection of related content.
+
+Each card in a collection acts as a link to further information. They may combine a variety of content, including text, media and links.
+
+Ensure the headlines are brief and explicit about the content the cards link to.

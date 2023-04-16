@@ -13,8 +13,7 @@ export default <any>defineNuxtModule({
       dirs.push({
         extensions: ['vue'],
         path: join(__dirname, './../src/components'),
-        prefix: 'rpl',
-        global: true
+        prefix: 'rpl'
       })
     }
   }

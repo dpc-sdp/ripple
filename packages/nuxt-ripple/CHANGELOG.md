@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.141](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.140...v2.1.0-alpha.141) (2023-04-16)
+
+### Bug Fixes
+
+* **@dpc-sdp/nuxt-ripple:** fixed ios 14 crashing because of array.at() usage in deepmerge.ts ([66fcd08](https://github.com/dpc-sdp/ripple-framework/commit/66fcd08713cacf0276c4a96240ef3cb4b16ea86c))
+* **@dpc-sdp/nuxt-ripple:** use defu for merging instead of deepmerge ([bba2c78](https://github.com/dpc-sdp/ripple-framework/commit/bba2c786d7b4dd39f4ff9e0c16454efa3e29e594))
+
 # [2.1.0-alpha.140](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.139...v2.1.0-alpha.140) (2023-04-14)
 
 **Note:** Version bump only for package @dpc-sdp/nuxt-ripple

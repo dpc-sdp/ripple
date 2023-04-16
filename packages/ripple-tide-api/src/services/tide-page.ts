@@ -149,12 +149,18 @@ export default class TidePageApi extends TideApiBase {
       bundle: response.shared_node.type.replace('node--', '')
     }
 
+    const params: any = {
+      site,
+      include: this.getResourceIncludes(routeData)
+    }
+
+    if (response?.vid) {
+      params.resourceVersion = `id:${response.vid}`
+    }
+
     return await this.getPageByRouteData(routeData, {
       headers: { 'X-Share-Link-Token': response.id },
-      params: {
-        site,
-        include: this.getResourceIncludes(routeData)
-      }
+      params
     })
   }
 

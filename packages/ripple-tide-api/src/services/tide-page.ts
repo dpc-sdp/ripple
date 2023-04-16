@@ -100,30 +100,6 @@ export default class TidePageApi extends TideApiBase {
       })
   }
 
-  async getPageByShareLink(path: string, site: string) {
-    const response = await this.get(path).then((res) => {
-      return res?.data ? jsonapiParse.parse(res).data || res.data : null
-    })
-
-    if (!response) {
-      throw new ApplicationError('Error getting page preview')
-    }
-
-    const routeData = {
-      entity_type: 'node',
-      uuid: response.shared_node.id,
-      bundle: response.shared_node.type.replace('node--', '')
-    }
-
-    return await this.getPageByRouteData(routeData, {
-      headers: { 'X-Share-Link-Token': response.id },
-      params: {
-        site,
-        include: this.getResourceIncludes(routeData)
-      }
-    })
-  }
-
   async getPageByPath(
     path: string,
     siteQuery: string | undefined,
@@ -156,6 +132,30 @@ export default class TidePageApi extends TideApiBase {
       }
       return this.getPageByRouteData(route, { params })
     }
+  }
+
+  async getPageByShareLink(path: string, site: string) {
+    const response = await this.get(path).then((res) => {
+      return res?.data ? jsonapiParse.parse(res).data || res.data : null
+    })
+
+    if (!response) {
+      throw new ApplicationError('No data returned for share link')
+    }
+
+    const routeData = {
+      entity_type: 'node',
+      uuid: response.shared_node.id,
+      bundle: response.shared_node.type.replace('node--', '')
+    }
+
+    return await this.getPageByRouteData(routeData, {
+      headers: { 'X-Share-Link-Token': response.id },
+      params: {
+        site,
+        include: this.getResourceIncludes(routeData)
+      }
+    })
   }
 
   // async getPageFromPreviewLink(path, config = { params: {} }): Promise<any> {

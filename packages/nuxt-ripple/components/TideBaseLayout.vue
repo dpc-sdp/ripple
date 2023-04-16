@@ -82,7 +82,7 @@
 // @ts-ignore
 import { useHead, useSiteTheme, useAppConfig, useRoute } from '#imports'
 import { computed, onMounted, provide, ref } from 'vue'
-import { deepmerge } from 'deepmerge-ts'
+import { defu as defuMerge } from 'defu'
 import { TideSiteData } from '../types'
 import { TideTopicTag } from '../mapping/base/topic-tags/topic-tags-mapping'
 import { TideSiteSection } from '@dpc-sdp/ripple-tide-api/types'
@@ -115,9 +115,9 @@ const props = withDefaults(defineProps<Props>(), {
 // Feature flags will be available on component instances with inject('featureFlags') - See https://vuejs.org/guide/components/provide-inject.html#inject
 // Site flags provided by drupal will override the app config flags
 const featureFlags = ref(
-  deepmerge(
-    useAppConfig()?.ripple?.featureFlags || {},
-    props.site?.featureFlags || {}
+  defuMerge(
+    props.site?.featureFlags || {},
+    useAppConfig()?.ripple?.featureFlags || {}
   )
 )
 provide('featureFlags', featureFlags.value)
@@ -134,7 +134,7 @@ const showBreadcrumbs = computed(() => {
 })
 
 const style = useSiteTheme(
-  deepmerge(useAppConfig()?.ripple?.theme || {}, props.site?.theme || {})
+  defuMerge(props.site?.theme || {}, useAppConfig()?.ripple?.theme || {})
 )
 
 useHead({

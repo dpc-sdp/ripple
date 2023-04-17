@@ -105,13 +105,15 @@ export default class TidePageApi extends TideApiBase {
     siteQuery: string | undefined,
     config = {}
   ) {
-    // if (this.isShareLink(path)) {
-    //   return this.getPageFromShareLink(path, config)
-    // }
+    const site = siteQuery || this.site
+
+    if (this.isShareLink(path)) {
+      return this.getPageByShareLink(path, site)
+    }
     // if (this.isPreviewLink(path)) {
     //   return this.getPageFromPreviewLink(path, config)
     // }
-    const site = siteQuery || this.site
+
     const route = await this.getRouteByPath(path, site)
     if (route && !route.error) {
       if (route.hasOwnProperty('redirect_type')) {
@@ -132,32 +134,35 @@ export default class TidePageApi extends TideApiBase {
     }
   }
 
-  // async getPageFromShareLink(path, config = { params: {} }): Promise<any> {
-  //   const shareLinkData = await this.client.get(path).then(response => {
-  //     if (response.data) {
-  //       return jsonapiParse.parse(response).data || response.data
-  //     }
-  //     return response
-  //   })
-  //   if (shareLinkData) {
-  //     const sharedNode = shareLinkData.shared_node
-  //     const routeData = {
-  //       entity_type: 'node',
-  //       bundle: sharedNode.type.replace('node--', ''),
-  //       uuid: sharedNode.id
-  //     }
-  //     const pageData = await this.getPageByRouteData(routeData, {
-  //       headers: {
-  //         'X-Share-Link-Token': shareLinkData.id
-  //       },
-  //       params: {
-  //         ...config.params,
-  //         include: this.getResourceIncludes(routeData.bundle)
-  //       }
-  //     })
-  //     return Promise.resolve(pageData)
-  //   }
-  // }
+  async getPageByShareLink(path: string, site: string) {
+    const response = await this.get(path).then((res) => {
+      return res?.data ? jsonapiParse.parse(res).data || res.data : null
+    })
+
+    if (!response) {
+      throw new ApplicationError('No data returned for share link')
+    }
+
+    const routeData = {
+      entity_type: 'node',
+      uuid: response.shared_node.id,
+      bundle: response.shared_node.type.replace('node--', '')
+    }
+
+    const params: any = {
+      site,
+      include: this.getResourceIncludes(routeData)
+    }
+
+    if (response?.vid) {
+      params.resourceVersion = `id:${response.vid}`
+    }
+
+    return await this.getPageByRouteData(routeData, {
+      headers: { 'X-Share-Link-Token': response.id },
+      params
+    })
+  }
 
   // async getPageFromPreviewLink(path, config = { params: {} }): Promise<any> {
   //   const { 2: contentType, 3: uuid, 4: revisionId } = path.split('/')

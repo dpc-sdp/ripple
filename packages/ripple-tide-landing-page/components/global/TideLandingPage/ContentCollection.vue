@@ -7,7 +7,10 @@
           <RplResultListing>
             <template v-for="item in results" :key="item.id">
               <RplResultListingItem>
-                <RplSearchResult v-bind="item.props" :content="item.slots.default" />
+                <RplSearchResult
+                  v-bind="item.props"
+                  :content="item.slots.default"
+                />
               </RplResultListingItem>
             </template>
           </RplResultListing>
@@ -17,13 +20,20 @@
     <template v-else>
       <ul class="rpl-grid" style="--local-grid-cols: 12">
         <template v-for="item in results" :key="item.id">
-          <component :is="display.component" :class="cardClasses" v-bind="item.props">
+          <component
+            :is="display.component"
+            :class="cardClasses"
+            v-bind="item.props"
+          >
             {{ item.slots.default }}
           </component>
         </template>
       </ul>
     </template>
-    <div v-if="link.url" class="rpl-type-label rpl-type-weight-bold rpl-u-margin-t-6">
+    <div
+      v-if="link.url"
+      class="rpl-type-label rpl-type-weight-bold rpl-u-margin-t-6"
+    >
       <RplTextLink v-bind="link" />
     </div>
   </div>

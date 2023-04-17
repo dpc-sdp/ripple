@@ -10,8 +10,6 @@
 </template>
 
 <script setup lang="ts">
-import { RplStatsGrid, RplStatsGridItem } from '#components'
-
 interface Props {
   variant: 'onLight' | 'onDark'
   items: Array<{

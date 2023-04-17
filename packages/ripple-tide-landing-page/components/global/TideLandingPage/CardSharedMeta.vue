@@ -26,7 +26,6 @@
 </template>
 
 <script setup lang="ts">
-import { RplTag } from '#components'
 import { formatDate } from '#imports'
 import { formatDateRange, getGrantStatus } from '@dpc-sdp/ripple-ui-core'
 import { computed } from 'vue'

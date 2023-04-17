@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { RplKeyDatesCard } from '#components'
 import type {
   RplCardElements,
   IRplCardItem

@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { RplMediaEmbed } from '#components'
 import type {
   RplMediaEmbedTypes,
   RplMediaEmbedVariants,

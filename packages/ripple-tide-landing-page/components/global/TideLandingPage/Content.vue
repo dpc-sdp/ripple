@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { RplContent } from '#components'
-
 defineProps<{
   html: string
 }>()

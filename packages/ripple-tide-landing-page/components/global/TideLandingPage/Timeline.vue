@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { RplTimeline } from '#components'
 import type { IRplImageType } from '@dpc-sdp/ripple-ui-core/src/components/image/constants'
 
 interface IRplTimelineItem {

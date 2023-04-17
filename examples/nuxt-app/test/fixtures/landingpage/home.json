@@ -220,7 +220,7 @@
   "bodyComponents": [
     {
       "uuid": "a99aa287-7fac-430b-864e-3a1b044460b1",
-      "component": "RplContent",
+      "component": "TideLandingPageContent",
       "id": "969",
       "internalAnchors": [
         {
@@ -240,7 +240,7 @@
     },
     {
       "uuid": "9ac2e9a6-958f-47d4-beb1-d1576e424571",
-      "component": "RplAccordion",
+      "component": "TideLandingPageAccordion",
       "id": "972",
       "title": "Test accordion title",
       "props": {
@@ -475,7 +475,7 @@
     },
     {
       "uuid": "ec0ec723-df8d-4e6c-8a5f-3780381b04f3",
-      "component": "RplKeyDatesCard",
+      "component": "TideLandingPageKeyDatesCard",
       "id": "988",
       "layout": "card",
       "props": {
@@ -498,7 +498,7 @@
     },
     {
       "uuid": "c83c8494-1cb9-429c-af8f-9a4fa3a1fc94",
-      "component": "RplTimeline",
+      "component": "TideLandingPageTimeline",
       "id": "992",
       "title": "Test timeline title",
       "props": {

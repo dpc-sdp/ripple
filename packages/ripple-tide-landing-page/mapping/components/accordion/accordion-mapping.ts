@@ -15,7 +15,7 @@ export const accordionMapping = (
   field
 ): TideDynamicPageComponent<ITideAccordion> => {
   return {
-    component: 'RplAccordion',
+    component: 'TideLandingPageAccordion',
     id: field.drupal_internal__id.toString(),
     title: field.field_paragraph_title,
     props: {

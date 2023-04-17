@@ -17,7 +17,7 @@ export const complexImageMapping = (
   field: any
 ): TideDynamicPageComponent<ITideComplexImage> => {
   return {
-    component: 'RplMediaEmbed',
+    component: 'TideLandingPageMediaEmbed',
     id: `${field.drupal_internal__id}`,
     props: {
       title: field.field_complex_image_title,

@@ -8,7 +8,7 @@ Then(
     cy.get(`@component`).should(
       'have.attr',
       'data-component-type',
-      'RplContent'
+      'TideLandingPageContent'
     )
     cy.get('@component').should('contain', content)
   }

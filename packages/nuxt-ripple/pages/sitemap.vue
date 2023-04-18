@@ -5,7 +5,6 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { RplHeroHeader } from '#components'
 import { useTideSite } from '#imports'
 
 const site = await useTideSite()

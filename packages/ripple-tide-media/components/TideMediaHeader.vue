@@ -14,7 +14,6 @@ export default { name: 'TideMediaHeader' }
 
 <script setup lang="ts">
 import type { TideMediaHeader } from '../../types'
-import { RplHeroHeader } from '#components'
 
 defineProps<{
   header: TideMediaHeader

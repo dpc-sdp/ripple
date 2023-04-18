@@ -62,6 +62,7 @@ export const tidePageBaseMapping = ({
     changed: 'changed',
     nid: 'id',
     sidebar: sidebar,
+    status: 'moderation_state',
     topicTags: topicTagsMapping,
     siteSection: async (src, tidePageApi: TidePageApi) => {
       // The section/site id comes from the drupal 'route' api

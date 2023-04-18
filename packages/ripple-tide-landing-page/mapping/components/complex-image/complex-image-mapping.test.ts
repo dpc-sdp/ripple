@@ -4,7 +4,7 @@ import { complexImageMapping, ITideComplexImage } from './complex-image-mapping'
 import rawData from './complex-image'
 
 const result: TideDynamicPageComponent<ITideComplexImage> = {
-  component: 'RplMediaEmbed',
+  component: 'TideLandingPageMediaEmbed',
   id: '943',
   props: {
     title: 'Complex Image Title',

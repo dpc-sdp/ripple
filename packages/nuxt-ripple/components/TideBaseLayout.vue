@@ -3,7 +3,7 @@
     <template #aboveHeader>
       <RplIconSprite />
       <slot name="aboveHeader"></slot>
-      <TideAlerts :siteAlerts="site?.siteAlerts" />
+      <TideAlerts :draftAlert="showDraftAlert" :siteAlerts="site?.siteAlerts" />
     </template>
     <template #primaryNav>
       <slot name="primaryNav">
@@ -129,9 +129,8 @@ onMounted(() => {
 
 const route = useRoute()
 
-const showBreadcrumbs = computed(() => {
-  return route.path !== '/'
-})
+const showBreadcrumbs = computed(() => route.path !== '/')
+const showDraftAlert = computed(() => props.page?.status === 'draft')
 
 const style = useSiteTheme(
   defuMerge(props.site?.theme || {}, useAppConfig()?.ripple?.theme || {})

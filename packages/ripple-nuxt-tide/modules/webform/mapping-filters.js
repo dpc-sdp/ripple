@@ -221,6 +221,21 @@ module.exports = {
           if (defaultValue) data.model[eName] = defaultValue
           break
 
+        case 'checkboxes':
+          field.type = 'rplchecklist'
+          field.simple = true
+          field.listBox = true
+          field.values = Object.keys(element['#options']).map((key) => ({
+            value: key,
+            name: element['#options'][key]
+          }))
+
+          if (element['#multiple']) {
+            field.max = element['#multiple']
+            field.validator.push('rplSelectMaxLimit')
+          }
+          break
+
         case 'select':
           field.type = 'rplselect'
           // TODO: Add multiple select support.

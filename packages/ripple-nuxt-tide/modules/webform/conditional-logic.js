@@ -101,8 +101,25 @@ function prepareTest (rulesObject, data) {
  * @param {Object} data uses data.model property
  */
 function convertSelectorToRule (ruleObject, selector, data) {
-  const modelName = getNameFromRule(selector)
-  const modelValue = data.model[modelName]
+  let modelName = getNameFromRule(selector)
+  let modelValue = data.model[modelName]
+
+  const arrayRegex = /\[(.*?)\]/
+  // Check for nested options, for example ':input[name="checkboxes[option]"]'.
+  if (modelName.match(arrayRegex)) {
+    const modelOption = modelName.match(arrayRegex)?.[1]
+
+    modelName = modelName.replace(arrayRegex, '')
+
+    if (Array.isArray(data.model[modelName])) {
+      modelValue = data.model[modelName].includes(modelOption)
+    } else if (typeof data.model[modelName] === 'object') {
+      modelValue = data.model[modelName]?.[modelOption] || null
+    } else {
+      modelValue = data.model[modelName] || null
+    }
+  }
+
   const triggerName = getFirstObjectKey(ruleObject[selector])
   const triggerValue = ruleObject[selector][triggerName]
   return { modelName, modelValue, triggerName, triggerValue }
@@ -135,11 +152,9 @@ function performTriggerCheck (rule) {
       result = (typeof rule.modelValue === 'number') ? !isNaN(rule.modelValue) : !(rule.modelValue == null || rule.modelValue === '')
       break
     case 'checked':
-      // This will only work with Drupal Webform "checkbox", not "checkboxes". "checkboxes" is not supported form element at this stage.
       result = (rule.modelValue === true)
       break
     case 'unchecked':
-      // This will only work with Drupal Webform "checkbox", not "checkboxes". "checkboxes" is not supported form element at this stage.
       result = (rule.modelValue == null || rule.modelValue === false)
       break
     case 'value':

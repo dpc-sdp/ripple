@@ -125,7 +125,7 @@ export default {
           continue
         } else {
           const service = {
-            icon: s.field_paragraph_social_list,
+            icon: s.field_paragraph_social_list === 'website' ? 'browser' : s.field_paragraph_social_list,
             title: s.field_paragraph_link.title,
             url: s.field_paragraph_link.uri
           }

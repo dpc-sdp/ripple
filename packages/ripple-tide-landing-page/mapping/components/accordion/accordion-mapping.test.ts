@@ -85,7 +85,7 @@ const rawData = {
 describe('accordionMapping', () => {
   it('maps a raw json api response to the correct structure', () => {
     const result: TideDynamicPageComponent<ITideAccordion> = {
-      component: 'RplAccordion',
+      component: 'TideLandingPageAccordion',
       id: '4771',
       title: 'TEST_TITLE',
       props: {
@@ -111,7 +111,7 @@ describe('accordionMapping', () => {
 
   it('maps a raw json api response to the correct structure (numbered)', () => {
     const result: TideDynamicPageComponent<ITideAccordion> = {
-      component: 'RplAccordion',
+      component: 'TideLandingPageAccordion',
       id: '4771',
       title: 'TEST_TITLE',
       props: {

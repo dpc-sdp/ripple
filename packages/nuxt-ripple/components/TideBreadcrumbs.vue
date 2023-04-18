@@ -7,7 +7,6 @@
 </template>
 
 <script setup lang="ts">
-import { RplBreadcrumbs } from '#components'
 import { computed, toRaw, unref } from 'vue'
 import { getBreadcrumbs } from '#imports'
 

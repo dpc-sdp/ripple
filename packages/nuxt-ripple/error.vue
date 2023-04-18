@@ -26,7 +26,6 @@
 </template>
 
 <script setup lang="ts">
-import { RplHeaderGraphic, RplErrorMessage } from '#components'
 import { useTideSite } from '#imports'
 import { computed } from 'vue'
 

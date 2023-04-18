@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { RplAccordion } from '#components'
-
 defineProps<{
   id: string
   title: string

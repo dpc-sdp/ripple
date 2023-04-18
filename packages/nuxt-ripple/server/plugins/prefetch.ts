@@ -21,6 +21,9 @@ export default defineNitroPlugin((nitroApp) => {
       $('link[rel=prefetch]').each(function () {
         $(this).remove()
       })
+      $('link[rel=modulepreload]').each(function () {
+        $(this).remove()
+      })
       $('link[rel=preload]').each(function () {
         $(this).remove()
       })

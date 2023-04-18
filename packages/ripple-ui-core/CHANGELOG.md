@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.145](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.144...v2.1.0-alpha.145) (2023-04-18)
+
+### Bug Fixes
+
+* **docs:** fixed broken storybook images in docs site ([585317f](https://github.com/dpc-sdp/ripple-framework/commit/585317fda44f07ab792a32cfceb1c5dc13dcf5f1))
+
+### Performance Improvements
+
+* **@dpc-sdp/ripple-ui-core:** :zap: set image dimensions on flag ([403e23b](https://github.com/dpc-sdp/ripple-framework/commit/403e23b5fb4d1cd117cfff3293153ef78e65c12d))
+
 # [2.1.0-alpha.143](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.142...v2.1.0-alpha.143) (2023-04-18)
 
 ### Performance Improvements

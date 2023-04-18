@@ -9,7 +9,7 @@ Then(
     cy.get(`@component`).should(
       'have.attr',
       'data-component-type',
-      'RplAccordion'
+      'TideLandingPageAccordion'
     )
     cy.get('@component').within(() => {
       cy.get(`[data-cy="page-component-title"]`).should('have.text', title)

@@ -14,8 +14,6 @@
 </template>
 
 <script setup lang="ts">
-import { RplNavCard } from '#components'
-
 interface Props {
   title: string
   summary: string

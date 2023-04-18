@@ -22,8 +22,7 @@ export default <any>defineNuxtModule({
     addComponentsDir({
       extensions: ['vue'],
       path: join(__dirname, './../src/components'),
-      prefix: 'rpl',
-      global: true
+      prefix: 'rpl'
     })
 
     // Adds required PostCss plugins

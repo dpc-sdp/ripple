@@ -3,7 +3,6 @@ import type {
   TideDynamicPageComponent,
   TideDynamicComponentGroup
 } from '../types'
-import { RplPageComponent, RplCardGrid } from '#components'
 import { computed } from 'vue'
 import groupDynamicComponents from '../utils/groupDynamicComponents'
 interface Props {

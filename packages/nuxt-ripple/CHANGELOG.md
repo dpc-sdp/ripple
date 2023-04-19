@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.146](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.145...v2.1.0-alpha.146) (2023-04-19)
+
+### Performance Improvements
+
+* **@dpc-sdp/nuxt-ripple:** :zap: disable link prefetching ([bad47a6](https://github.com/dpc-sdp/ripple-framework/commit/bad47a68e77bf590113c8d44da26a554ff6918bf))
+* **@dpc-sdp/nuxt-ripple:** :zap: remove modulepreload links too ([bedc4a7](https://github.com/dpc-sdp/ripple-framework/commit/bedc4a717cbb6f88eaf8d1448db3846d12ee3556))
+
 # [2.1.0-alpha.145](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.144...v2.1.0-alpha.145) (2023-04-18)
 
 **Note:** Version bump only for package @dpc-sdp/nuxt-ripple

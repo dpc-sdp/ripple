@@ -1,25 +1,62 @@
 <script setup lang="ts">
-import { computed } from 'vue'
-import { IRplPrimaryNavItem, IRplPrimaryNavActiveItems } from '../../constants'
+import { computed, ref } from 'vue'
+import {
+  IRplPrimaryNavItem,
+  IRplPrimaryNavActiveItems,
+  RplPrimaryNavToggleItemOptions
+} from '../../constants'
 import RplIcon from '../../../icon/RplIcon.vue'
+import { usePrimaryNavFocus } from '../../../../composables/usePrimaryNavFocus'
 
 interface Props {
   item: IRplPrimaryNavItem
+  parent?: string
   type: 'toggle' | 'link'
-  level?: 1 | 2 | 3 | 4
+  level: 1 | 2 | 3 | 4
+  position?: 'first' | 'last'
   activeNavItems?: IRplPrimaryNavActiveItems
-  toggleItem?: (level: 1 | 2 | 3, item: IRplPrimaryNavItem) => void
+  toggleItem?: (...args: RplPrimaryNavToggleItemOptions) => void
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  level: undefined,
+  parent: undefined,
+  position: undefined,
   activeNavItems: undefined,
   toggleItem: undefined
 })
 
+const action = ref(null)
+
+const { setFocus, navCollapsed } = usePrimaryNavFocus(
+  action,
+  `list:${props.level}:${props.item.id}`
+)
+
 const clickHandler = (item: IRplPrimaryNavItem) => {
   if (props.type == 'toggle' && props.level != 4) {
     props.toggleItem(props.level, item)
+  }
+}
+
+const focusHandler = (event) => {
+  const next = props.level + 1
+  const previous = props.level - 1
+
+  if (event.shiftKey && props.position === 'first') {
+    event.preventDefault()
+    props.toggleItem(previous, props.item)
+    setFocus(`list:${previous}:${props.item.id}`)
+  } else if (!event.shiftKey && isActive.value && props.item?.items) {
+    event.preventDefault()
+    setFocus(`list:${next}:${props.item.id}`)
+  } else if (!event.shiftKey && props.position === 'last') {
+    event.preventDefault()
+    props.toggleItem(previous, props.activeNavItems?.['level' + previous])
+    setFocus(
+      navCollapsed && props.level === 1
+        ? 'menu:toggle'
+        : `list:${previous}:${props?.parent}`
+    )
   }
 }
 
@@ -39,6 +76,7 @@ const isActive = computed(() => {
 <template>
   <component
     :is="type === 'toggle' ? 'button' : 'RplLink'"
+    ref="action"
     :class="{
       'rpl-primary-nav__mega-menu-action': true,
       'rpl-primary-nav__mega-menu-action--toggle': type === 'toggle',
@@ -49,6 +87,7 @@ const isActive = computed(() => {
     }"
     :url="type == 'link' ? item.url : undefined"
     @click="clickHandler(item)"
+    @keydown.tab="focusHandler"
   >
     <span class="rpl-primary-nav__mega-menu-action-text">{{ item.text }}</span>
     <span class="rpl-primary-nav__mega-menu-action-icon rpl-u-margin-l-5">

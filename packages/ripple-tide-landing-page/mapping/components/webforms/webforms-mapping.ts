@@ -165,8 +165,7 @@ const getFormSchemaFromMapping = async (
           id: fieldKey,
           name: fieldKey,
           disabled: field['#disabled'],
-          // TODO: It's not clear what field we should be using for the 'label' here because it's a new requirement, setting as 'help title' for now
-          label: field['#help_title'] || field['#title'],
+          label: field['#help_title'],
           help: field['#description'],
           checkboxLabel: field['#title'],
           value: field['#default_value'],

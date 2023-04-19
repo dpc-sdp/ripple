@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.142](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.141...v2.1.0-alpha.142) (2023-04-17)
+
+### Features
+
+* **@dpc-sdp/ripple-tide-api:** add draft alert ([792990e](https://github.com/dpc-sdp/ripple-framework/commit/792990e3d11c2ddf71fc95efe45adddfc62877ff))
+* **@dpc-sdp/ripple-tide-api:** add vid from ripple 1 ([fe75040](https://github.com/dpc-sdp/ripple-framework/commit/fe75040433f2ef7524a68c4c30e2d18cabb3b1f4))
+* **@dpc-sdp/ripple-tide-api:** enable preview urls ([23e753b](https://github.com/dpc-sdp/ripple-framework/commit/23e753bc18ae091ef5c2916068d10f38639b9c96))
+
+# [2.1.0-alpha.140](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.139...v2.1.0-alpha.140) (2023-04-14)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** print style feedback and additions ([823cc42](https://github.com/dpc-sdp/ripple-framework/commit/823cc42050ed621a3bf1632e44671a778460918e))
+
+# [2.1.0-alpha.135](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.134...v2.1.0-alpha.135) (2023-04-05)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-landing-page:** use highlight for promo cards when no image is supplied ([140210a](https://github.com/dpc-sdp/ripple-framework/commit/140210a9e60b177fe17d1aee24fb5c0254bff328))
+
 # [2.1.0-alpha.127](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.126...v2.1.0-alpha.127) (2023-03-31)
 
 ### Bug Fixes

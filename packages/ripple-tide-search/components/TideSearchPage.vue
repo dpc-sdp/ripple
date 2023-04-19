@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import { RplSearchBar, RplHeroHeader } from '#components'
 import { useRuntimeConfig, useFetch, useRoute } from '#imports'
 import useTideSearch from './../composables/use-tide-search'
 import { FilterConfigItem, MappedSearchResult } from 'ripple-tide-search/types'
@@ -62,7 +61,11 @@ const { data: site } = useFetch('/api/tide/site', {
   }
 })
 
-const apiConnectorOptions = config.tide?.appSearch
+const apiConnectorOptions = {
+  ...config.tide?.appSearch,
+  // The search request is proxied through the API to avoid CORS issues
+  endpointBase: '/api/tide/search'
+}
 
 const {
   updateSearchTerm,

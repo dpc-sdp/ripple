@@ -3,6 +3,92 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.146](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.145...v2.1.0-alpha.146) (2023-04-19)
+
+### Performance Improvements
+
+* **@dpc-sdp/nuxt-ripple:** :zap: disable link prefetching ([bad47a6](https://github.com/dpc-sdp/ripple-framework/commit/bad47a68e77bf590113c8d44da26a554ff6918bf))
+* **@dpc-sdp/nuxt-ripple:** :zap: remove modulepreload links too ([bedc4a7](https://github.com/dpc-sdp/ripple-framework/commit/bedc4a717cbb6f88eaf8d1448db3846d12ee3556))
+
+# [2.1.0-alpha.145](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.144...v2.1.0-alpha.145) (2023-04-18)
+
+**Note:** Version bump only for package @dpc-sdp/nuxt-ripple
+
+# [2.1.0-alpha.144](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.143...v2.1.0-alpha.144) (2023-04-18)
+
+### Performance Improvements
+
+* **@dpc-sdp/nuxt-ripple:** :zap: set cache age on static assets to 1 year ([4441176](https://github.com/dpc-sdp/ripple-framework/commit/44411760fe5277f94156ae9b55be5871a777b579))
+
+# [2.1.0-alpha.143](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.142...v2.1.0-alpha.143) (2023-04-18)
+
+### Performance Improvements
+
+* **@dpc-sdp/ripple-tide-landing-page:** :zap: remove unnecessary #component imports ([8292a59](https://github.com/dpc-sdp/ripple-framework/commit/8292a59005323e57d485dc3d18fff87a4b150450))
+
+# [2.1.0-alpha.142](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.141...v2.1.0-alpha.142) (2023-04-17)
+
+### Features
+
+* **@dpc-sdp/ripple-tide-api:** add draft alert ([792990e](https://github.com/dpc-sdp/ripple-framework/commit/792990e3d11c2ddf71fc95efe45adddfc62877ff))
+
+# [2.1.0-alpha.141](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.140...v2.1.0-alpha.141) (2023-04-16)
+
+### Bug Fixes
+
+* **@dpc-sdp/nuxt-ripple:** fixed ios 14 crashing because of array.at() usage in deepmerge.ts ([66fcd08](https://github.com/dpc-sdp/ripple-framework/commit/66fcd08713cacf0276c4a96240ef3cb4b16ea86c))
+* **@dpc-sdp/nuxt-ripple:** use defu for merging instead of deepmerge ([bba2c78](https://github.com/dpc-sdp/ripple-framework/commit/bba2c786d7b4dd39f4ff9e0c16454efa3e29e594))
+
+# [2.1.0-alpha.140](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.139...v2.1.0-alpha.140) (2023-04-14)
+
+**Note:** Version bump only for package @dpc-sdp/nuxt-ripple
+
+# [2.1.0-alpha.139](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.138...v2.1.0-alpha.139) (2023-04-12)
+
+**Note:** Version bump only for package @dpc-sdp/nuxt-ripple
+
+# [2.1.0-alpha.138](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.137...v2.1.0-alpha.138) (2023-04-12)
+
+**Note:** Version bump only for package @dpc-sdp/nuxt-ripple
+
+# [2.1.0-alpha.137](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.136...v2.1.0-alpha.137) (2023-04-06)
+
+**Note:** Version bump only for package @dpc-sdp/nuxt-ripple
+
+# [2.1.0-alpha.136](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.135...v2.1.0-alpha.136) (2023-04-06)
+
+### Bug Fixes
+
+* **nuxt-ripple:** :bug: use same namespace for theme vars ([dca9ca9](https://github.com/dpc-sdp/ripple-framework/commit/dca9ca93cc1a14319aabdfe243aca022094dcb72))
+
+# [2.1.0-alpha.135](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.134...v2.1.0-alpha.135) (2023-04-05)
+
+**Note:** Version bump only for package @dpc-sdp/nuxt-ripple
+
+# [2.1.0-alpha.134](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.133...v2.1.0-alpha.134) (2023-04-05)
+
+**Note:** Version bump only for package @dpc-sdp/nuxt-ripple
+
+# [2.1.0-alpha.133](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.132...v2.1.0-alpha.133) (2023-04-05)
+
+**Note:** Version bump only for package @dpc-sdp/nuxt-ripple
+
+# [2.1.0-alpha.132](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.131...v2.1.0-alpha.132) (2023-04-04)
+
+**Note:** Version bump only for package @dpc-sdp/nuxt-ripple
+
+# [2.1.0-alpha.131](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.130...v2.1.0-alpha.131) (2023-04-04)
+
+### Features
+
+* added sitemap and proxy, fixed webform proxy ([4e914c1](https://github.com/dpc-sdp/ripple-framework/commit/4e914c16c468abe27d85b6886a4f8357f3ca477b))
+
+# [2.1.0-alpha.130](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.129...v2.1.0-alpha.130) (2023-04-04)
+
+### Features
+
+* **nuxt-ripple:** :lipstick: add favicon ([8bc2d27](https://github.com/dpc-sdp/ripple-framework/commit/8bc2d27f89cfd1f462f825cfc2bdfb6cd44a52a4))
+
 # [2.1.0-alpha.129](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.128...v2.1.0-alpha.129) (2023-04-03)
 
 **Note:** Version bump only for package @dpc-sdp/nuxt-ripple

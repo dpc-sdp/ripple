@@ -27,8 +27,7 @@ export default <any>defineNuxtModule({
     addComponentsDir({
       extensions: ['vue'],
       path: resolve('./../../src/components'),
-      prefix: 'rpl',
-      global: true
+      prefix: 'rpl'
     })
     // Plugin adds runtime setup tasks, eg: event bus
     addPlugin(resolve('./runtime/plugin'))

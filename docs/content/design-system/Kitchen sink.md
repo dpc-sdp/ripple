@@ -1,7 +1,7 @@
 ---
 title: Kitchen sink
 description: Here's everything
-layout: default
+layout: page
 links:
   - text: Vic gov
     url: https://www.vic.gov.au/
@@ -21,7 +21,7 @@ Here is the frontmatter for the page you are currently reading.
 ---
 title: Kitchen sink
 description: Here's everything
-layout: default
+layout: page
 links:
   - text: Vic gov
     url: https://www.vic.gov.au/

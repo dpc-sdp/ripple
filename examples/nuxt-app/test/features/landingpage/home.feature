@@ -62,6 +62,7 @@ Feature: Home page
 
   @mockserver
   Scenario: Header component - Search banner
+    Given the endpoint "/api/tide/page" with query "?path=/search/cats&site=8888" returns fixture "/landingpage/home" with status 200
     Then a search banner with ID "1911" should exist with the placeholder "Test search placeholder"
     Then in a search banner with ID "1911", searching for "cats" should take me to "/search/cats"
 

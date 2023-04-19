@@ -3,7 +3,7 @@
     <template #aboveHeader>
       <RplIconSprite />
       <slot name="aboveHeader"></slot>
-      <TideAlerts :siteAlerts="site?.siteAlerts" />
+      <TideAlerts :draftAlert="showDraftAlert" :siteAlerts="site?.siteAlerts" />
     </template>
     <template #primaryNav>
       <slot name="primaryNav">
@@ -82,7 +82,7 @@
 // @ts-ignore
 import { useHead, useSiteTheme, useAppConfig, useRoute } from '#imports'
 import { computed, onMounted, provide, ref } from 'vue'
-import { deepmerge } from 'deepmerge-ts'
+import { defu as defuMerge } from 'defu'
 import { TideSiteData } from '../types'
 import { TideTopicTag } from '../mapping/base/topic-tags/topic-tags-mapping'
 import { TideSiteSection } from '@dpc-sdp/ripple-tide-api/types'
@@ -115,9 +115,9 @@ const props = withDefaults(defineProps<Props>(), {
 // Feature flags will be available on component instances with inject('featureFlags') - See https://vuejs.org/guide/components/provide-inject.html#inject
 // Site flags provided by drupal will override the app config flags
 const featureFlags = ref(
-  deepmerge(
-    useAppConfig()?.ripple?.featureFlags || {},
-    props.site?.featureFlags || {}
+  defuMerge(
+    props.site?.featureFlags || {},
+    useAppConfig()?.ripple?.featureFlags || {}
   )
 )
 provide('featureFlags', featureFlags.value)
@@ -129,12 +129,11 @@ onMounted(() => {
 
 const route = useRoute()
 
-const showBreadcrumbs = computed(() => {
-  return route.path !== '/'
-})
+const showBreadcrumbs = computed(() => route.path !== '/')
+const showDraftAlert = computed(() => props.page?.status === 'draft')
 
 const style = useSiteTheme(
-  deepmerge(useAppConfig()?.ripple?.theme || {}, props.site?.theme || {})
+  defuMerge(props.site?.theme || {}, useAppConfig()?.ripple?.theme || {})
 )
 
 useHead({
@@ -144,8 +143,33 @@ useHead({
   title: props.pageTitle,
   style: style && [
     {
-      children: `body { ${style} }`
+      children: `:root, body { ${style} }`
     }
+  ],
+  link: [
+    {
+      rel: 'apple-touch-icon',
+      sizes: '180x180',
+      href: '/apple-touch-icon.png'
+    },
+    {
+      rel: 'icon',
+      type: 'image/png',
+      sizes: '32x32',
+      href: '/favicon-32x32.png'
+    },
+    {
+      rel: 'icon',
+      type: 'image/png',
+      sizes: '16x16',
+      href: '/favicon-16x16.png'
+    },
+    { rel: 'manifest', href: '/site.webmanifest' },
+    { rel: 'mask-icon', href: '/safari-pinned-tab.svg', color: '#0054c9' }
+  ],
+  meta: [
+    { name: 'msapplication-TileColor', content: '#0054c9' },
+    { name: 'theme-color', content: '#ffffff' }
   ],
   script: [
     {

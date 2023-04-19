@@ -36,6 +36,16 @@ export const isFieldInvalid = (node: FormKitNode): void => {
   })
 }
 
+export const hasNoLabel = (node: FormKitNode): void => {
+  node.on('created', () => {
+    if (node.context?.fns) {
+      node.context.fns.hasNoLabel = () => {
+        return !node.props.label
+      }
+    }
+  })
+}
+
 export const getAriaDescribedBy = (node: FormKitNode): void => {
   node.on('created', () => {
     if (node.context?.fns) {

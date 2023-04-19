@@ -3,6 +3,80 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.146](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.145...v2.1.0-alpha.146) (2023-04-19)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-landing-page
+
+# [2.1.0-alpha.145](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.144...v2.1.0-alpha.145) (2023-04-18)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-landing-page
+
+# [2.1.0-alpha.144](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.143...v2.1.0-alpha.144) (2023-04-18)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-landing-page
+
+# [2.1.0-alpha.143](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.142...v2.1.0-alpha.143) (2023-04-18)
+
+### Performance Improvements
+
+* **@dpc-sdp/ripple-tide-landing-page:** :zap: remove unnecessary #component imports ([8292a59](https://github.com/dpc-sdp/ripple-framework/commit/8292a59005323e57d485dc3d18fff87a4b150450))
+
+# [2.1.0-alpha.142](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.141...v2.1.0-alpha.142) (2023-04-17)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-landing-page
+
+# [2.1.0-alpha.141](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.140...v2.1.0-alpha.141) (2023-04-16)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-landing-page
+
+# [2.1.0-alpha.140](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.139...v2.1.0-alpha.140) (2023-04-14)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-landing-page
+
+# [2.1.0-alpha.139](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.138...v2.1.0-alpha.139) (2023-04-12)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-landing-page
+
+# [2.1.0-alpha.138](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.137...v2.1.0-alpha.138) (2023-04-12)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-landing-page
+
+# [2.1.0-alpha.137](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.136...v2.1.0-alpha.137) (2023-04-06)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-landing-page
+
+# [2.1.0-alpha.136](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.135...v2.1.0-alpha.136) (2023-04-06)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-landing-page
+
+# [2.1.0-alpha.135](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.134...v2.1.0-alpha.135) (2023-04-05)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-landing-page:** use highlight for promo cards when no image is supplied ([140210a](https://github.com/dpc-sdp/ripple-framework/commit/140210a9e60b177fe17d1aee24fb5c0254bff328))
+
+# [2.1.0-alpha.134](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.133...v2.1.0-alpha.134) (2023-04-05)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-landing-page
+
+# [2.1.0-alpha.133](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.132...v2.1.0-alpha.133) (2023-04-05)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-landing-page
+
+# [2.1.0-alpha.132](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.131...v2.1.0-alpha.132) (2023-04-04)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-landing-page
+
+# [2.1.0-alpha.131](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.130...v2.1.0-alpha.131) (2023-04-04)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-landing-page
+
+# [2.1.0-alpha.130](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.129...v2.1.0-alpha.130) (2023-04-04)
+
+### Features
+
+* **@dpc-sdp/ripple-ui-forms:** show required message for checkboxes with no label ([3c5f77b](https://github.com/dpc-sdp/ripple-framework/commit/3c5f77b9472c6fa6a01dc481e910efa628a57db6))
+
 # [2.1.0-alpha.129](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.128...v2.1.0-alpha.129) (2023-04-03)
 
 **Note:** Version bump only for package @dpc-sdp/ripple-tide-landing-page

@@ -30,7 +30,7 @@ const rawData = {
 }
 
 const result: TideDynamicPageComponent<ITideBasicText> = {
-  component: 'RplContent',
+  component: 'TideLandingPageContent',
   id: '4768',
   internalAnchors: [
     {

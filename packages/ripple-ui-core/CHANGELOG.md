@@ -3,6 +3,75 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.145](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.144...v2.1.0-alpha.145) (2023-04-18)
+
+### Bug Fixes
+
+* **docs:** fixed broken storybook images in docs site ([585317f](https://github.com/dpc-sdp/ripple-framework/commit/585317fda44f07ab792a32cfceb1c5dc13dcf5f1))
+
+### Performance Improvements
+
+* **@dpc-sdp/ripple-ui-core:** :zap: set image dimensions on flag ([403e23b](https://github.com/dpc-sdp/ripple-framework/commit/403e23b5fb4d1cd117cfff3293153ef78e65c12d))
+
+# [2.1.0-alpha.143](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.142...v2.1.0-alpha.143) (2023-04-18)
+
+### Performance Improvements
+
+* **@dpc-sdp/ripple-ui-core:** :zap: remove global component definitions ([1876256](https://github.com/dpc-sdp/ripple-framework/commit/187625669a992c788d29455455293020fbc9e088))
+
+# [2.1.0-alpha.142](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.141...v2.1.0-alpha.142) (2023-04-17)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-ui-core
+
+# [2.1.0-alpha.140](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.139...v2.1.0-alpha.140) (2023-04-14)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** print style feedback and additions ([823cc42](https://github.com/dpc-sdp/ripple-framework/commit/823cc42050ed621a3bf1632e44671a778460918e))
+
+# [2.1.0-alpha.139](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.138...v2.1.0-alpha.139) (2023-04-12)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** fixed nav search auto focus in IOS ([675ec69](https://github.com/dpc-sdp/ripple-framework/commit/675ec69a8d151f014dfd091151a061a5b4d18510))
+* **@dpc-sdp/ripple-ui-core:** remove redundant auto-focus attribute ([ffe4223](https://github.com/dpc-sdp/ripple-framework/commit/ffe42236fca40c2b5301eab12e27cff7bbfc015c))
+
+# [2.1.0-alpha.138](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.137...v2.1.0-alpha.138) (2023-04-12)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** add tab support for primary nav ([49eb5a1](https://github.com/dpc-sdp/ripple-framework/commit/49eb5a1390aada3b452b3231151c80b22d61a728))
+
+# [2.1.0-alpha.137](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.136...v2.1.0-alpha.137) (2023-04-06)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** add toggleNavItem level type back ([439933a](https://github.com/dpc-sdp/ripple-framework/commit/439933a6aecc7d968b8e2033b9c054c7bb43a133))
+* **@dpc-sdp/ripple-ui-core:** primary nav design feedback ([4a0a086](https://github.com/dpc-sdp/ripple-framework/commit/4a0a086b0e04de2044e3d0dfcd1a0b19af662212))
+
+# [2.1.0-alpha.135](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.134...v2.1.0-alpha.135) (2023-04-05)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-ui-core
+
+# [2.1.0-alpha.134](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.133...v2.1.0-alpha.134) (2023-04-05)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** fixed button styling in IOS 15 and below ([e4428a5](https://github.com/dpc-sdp/ripple-framework/commit/e4428a539ce0de8d2463c5dd6df2b22437bf1137))
+
+# [2.1.0-alpha.133](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.132...v2.1.0-alpha.133) (2023-04-05)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** updated button busy state after design feedback ([81efdba](https://github.com/dpc-sdp/ripple-framework/commit/81efdba84553c7ec55375cdc93cb09a7c0a3c1d4))
+
+# [2.1.0-alpha.132](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.131...v2.1.0-alpha.132) (2023-04-04)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** don't set background when higher contrast is requested ([e75005b](https://github.com/dpc-sdp/ripple-framework/commit/e75005bc74b973f343097779a00f24864ae3f481))
+* **@dpc-sdp/ripple-ui-core:** set a white bg default ([17df2e6](https://github.com/dpc-sdp/ripple-framework/commit/17df2e62ef822d1dd05a65fc01fb1bc7c0c25b93))
+
 # [2.1.0-alpha.129](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.128...v2.1.0-alpha.129) (2023-04-03)
 
 ### Bug Fixes

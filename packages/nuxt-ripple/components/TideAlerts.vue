@@ -1,6 +1,12 @@
 <template>
   <RplAlertsContainer data-cy="alerts-container">
     <RplAlert
+      v-if="showDraftAlert"
+      message="Draft only and not yet published"
+      alert-id="shared-preview-alert"
+      @dismiss="dismissDraftAlert"
+    />
+    <RplAlert
       v-for="alert in filteredAlerts"
       :key="alert.alertId"
       data-cy="alert"
@@ -15,14 +21,16 @@
 // @ts-ignore
 import { useMounted } from '@vueuse/core'
 import { useCookie } from '#imports'
-import { computed, toRaw } from 'vue'
+import { computed, ref, toRaw } from 'vue'
 import { TideAlert } from '@dpc-sdp/ripple-tide-api/src/mapping/alerts/site-alerts-mapping'
 
 interface Props {
+  draftAlert?: boolean
   siteAlerts: TideAlert[]
 }
 
 const props = withDefaults(defineProps<Props>(), {
+  draftAlert: false,
   siteAlerts: () => []
 })
 
@@ -33,6 +41,14 @@ const ONE_DAY_IN_SECONDS = 86400
 const cookieValue = useCookie(DISMISSED_ALERTS_COOKIE, {
   maxAge: ONE_DAY_IN_SECONDS
 })
+
+const dismissedDraftAlert = ref(false)
+
+const showDraftAlert = computed(
+  () => props.draftAlert && !dismissedDraftAlert.value
+)
+
+const dismissDraftAlert = () => (dismissedDraftAlert.value = true)
 
 const filteredAlerts = computed(() => {
   const alerts: TideAlert[] = props.siteAlerts

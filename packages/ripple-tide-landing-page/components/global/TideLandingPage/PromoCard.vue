@@ -4,7 +4,7 @@
     :title="title"
     :image="displayStyle !== 'noImage' ? image : null"
     :url="url"
-    :highlight="displayStyle === 'noImage'"
+    :highlight="displayStyle === 'noImage' || !image"
   >
     <p>{{ summary }}</p>
     <template v-if="showMetadata" #meta>
@@ -25,8 +25,6 @@
 </template>
 
 <script setup lang="ts">
-import { RplAvatarCard, RplPromoCard } from '#components'
-
 interface Props {
   title: string
   summary: string

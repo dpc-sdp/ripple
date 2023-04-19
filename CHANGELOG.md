@@ -3,6 +3,124 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.146](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.145...v2.1.0-alpha.146) (2023-04-19)
+
+### Performance Improvements
+
+* **@dpc-sdp/nuxt-ripple:** :zap: disable link prefetching ([bad47a6](https://github.com/dpc-sdp/ripple-framework/commit/bad47a68e77bf590113c8d44da26a554ff6918bf))
+* **@dpc-sdp/nuxt-ripple:** :zap: remove modulepreload links too ([bedc4a7](https://github.com/dpc-sdp/ripple-framework/commit/bedc4a717cbb6f88eaf8d1448db3846d12ee3556))
+
+# [2.1.0-alpha.145](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.144...v2.1.0-alpha.145) (2023-04-18)
+
+### Bug Fixes
+
+* **docs:** fixed broken storybook images in docs site ([585317f](https://github.com/dpc-sdp/ripple-framework/commit/585317fda44f07ab792a32cfceb1c5dc13dcf5f1))
+
+### Performance Improvements
+
+* **@dpc-sdp/ripple-ui-core:** :zap: set image dimensions on flag ([403e23b](https://github.com/dpc-sdp/ripple-framework/commit/403e23b5fb4d1cd117cfff3293153ef78e65c12d))
+
+# [2.1.0-alpha.144](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.143...v2.1.0-alpha.144) (2023-04-18)
+
+### Performance Improvements
+
+* **@dpc-sdp/nuxt-ripple:** :zap: set cache age on static assets to 1 year ([4441176](https://github.com/dpc-sdp/ripple-framework/commit/44411760fe5277f94156ae9b55be5871a777b579))
+
+# [2.1.0-alpha.143](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.142...v2.1.0-alpha.143) (2023-04-18)
+
+### Performance Improvements
+
+* **@dpc-sdp/ripple-tide-landing-page:** :zap: remove unnecessary #component imports ([8292a59](https://github.com/dpc-sdp/ripple-framework/commit/8292a59005323e57d485dc3d18fff87a4b150450))
+* **@dpc-sdp/ripple-ui-core:** :zap: remove global component definitions ([1876256](https://github.com/dpc-sdp/ripple-framework/commit/187625669a992c788d29455455293020fbc9e088))
+
+# [2.1.0-alpha.142](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.141...v2.1.0-alpha.142) (2023-04-17)
+
+### Features
+
+* **@dpc-sdp/ripple-tide-api:** add draft alert ([792990e](https://github.com/dpc-sdp/ripple-framework/commit/792990e3d11c2ddf71fc95efe45adddfc62877ff))
+* **@dpc-sdp/ripple-tide-api:** add vid from ripple 1 ([fe75040](https://github.com/dpc-sdp/ripple-framework/commit/fe75040433f2ef7524a68c4c30e2d18cabb3b1f4))
+* **@dpc-sdp/ripple-tide-api:** enable preview urls ([23e753b](https://github.com/dpc-sdp/ripple-framework/commit/23e753bc18ae091ef5c2916068d10f38639b9c96))
+
+# [2.1.0-alpha.141](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.140...v2.1.0-alpha.141) (2023-04-16)
+
+### Bug Fixes
+
+* **@dpc-sdp/nuxt-ripple:** fixed ios 14 crashing because of array.at() usage in deepmerge.ts ([66fcd08](https://github.com/dpc-sdp/ripple-framework/commit/66fcd08713cacf0276c4a96240ef3cb4b16ea86c))
+* **@dpc-sdp/nuxt-ripple:** use defu for merging instead of deepmerge ([bba2c78](https://github.com/dpc-sdp/ripple-framework/commit/bba2c786d7b4dd39f4ff9e0c16454efa3e29e594))
+
+# [2.1.0-alpha.140](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.139...v2.1.0-alpha.140) (2023-04-14)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** print style feedback and additions ([823cc42](https://github.com/dpc-sdp/ripple-framework/commit/823cc42050ed621a3bf1632e44671a778460918e))
+* use latest `@nuxtlabs/github` module ([98afa74](https://github.com/dpc-sdp/ripple-framework/commit/98afa74520c0292b4b8fe0fba9c1aeda4ba7f424))
+
+# [2.1.0-alpha.139](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.138...v2.1.0-alpha.139) (2023-04-12)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** fixed nav search auto focus in IOS ([675ec69](https://github.com/dpc-sdp/ripple-framework/commit/675ec69a8d151f014dfd091151a061a5b4d18510))
+* **@dpc-sdp/ripple-ui-core:** remove redundant auto-focus attribute ([ffe4223](https://github.com/dpc-sdp/ripple-framework/commit/ffe42236fca40c2b5301eab12e27cff7bbfc015c))
+
+# [2.1.0-alpha.138](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.137...v2.1.0-alpha.138) (2023-04-12)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** add tab support for primary nav ([49eb5a1](https://github.com/dpc-sdp/ripple-framework/commit/49eb5a1390aada3b452b3231151c80b22d61a728))
+
+# [2.1.0-alpha.137](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.136...v2.1.0-alpha.137) (2023-04-06)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** add toggleNavItem level type back ([439933a](https://github.com/dpc-sdp/ripple-framework/commit/439933a6aecc7d968b8e2033b9c054c7bb43a133))
+* **@dpc-sdp/ripple-ui-core:** primary nav design feedback ([4a0a086](https://github.com/dpc-sdp/ripple-framework/commit/4a0a086b0e04de2044e3d0dfcd1a0b19af662212))
+
+# [2.1.0-alpha.136](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.135...v2.1.0-alpha.136) (2023-04-06)
+
+### Bug Fixes
+
+* **nuxt-ripple:** :bug: use same namespace for theme vars ([dca9ca9](https://github.com/dpc-sdp/ripple-framework/commit/dca9ca93cc1a14319aabdfe243aca022094dcb72))
+
+# [2.1.0-alpha.135](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.134...v2.1.0-alpha.135) (2023-04-05)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-landing-page:** use highlight for promo cards when no image is supplied ([140210a](https://github.com/dpc-sdp/ripple-framework/commit/140210a9e60b177fe17d1aee24fb5c0254bff328))
+
+# [2.1.0-alpha.134](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.133...v2.1.0-alpha.134) (2023-04-05)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-publication:** added all missing publication includes ([73ca387](https://github.com/dpc-sdp/ripple-framework/commit/73ca38778e3d890ce7b5aa49e82f56652692a35f))
+* **@dpc-sdp/ripple-tide-publication:** fixed complex image include missing from publication ([90db23b](https://github.com/dpc-sdp/ripple-framework/commit/90db23b71bf652c5093e0d4843840a59a157e3da))
+* **@dpc-sdp/ripple-ui-core:** fixed button styling in IOS 15 and below ([e4428a5](https://github.com/dpc-sdp/ripple-framework/commit/e4428a539ce0de8d2463c5dd6df2b22437bf1137))
+
+# [2.1.0-alpha.133](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.132...v2.1.0-alpha.133) (2023-04-05)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** updated button busy state after design feedback ([81efdba](https://github.com/dpc-sdp/ripple-framework/commit/81efdba84553c7ec55375cdc93cb09a7c0a3c1d4))
+
+# [2.1.0-alpha.132](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.131...v2.1.0-alpha.132) (2023-04-04)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** don't set background when higher contrast is requested ([e75005b](https://github.com/dpc-sdp/ripple-framework/commit/e75005bc74b973f343097779a00f24864ae3f481))
+* **@dpc-sdp/ripple-ui-core:** set a white bg default ([17df2e6](https://github.com/dpc-sdp/ripple-framework/commit/17df2e62ef822d1dd05a65fc01fb1bc7c0c25b93))
+
+# [2.1.0-alpha.131](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.130...v2.1.0-alpha.131) (2023-04-04)
+
+### Features
+
+* added sitemap and proxy, fixed webform proxy ([4e914c1](https://github.com/dpc-sdp/ripple-framework/commit/4e914c16c468abe27d85b6886a4f8357f3ca477b))
+
+# [2.1.0-alpha.130](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.129...v2.1.0-alpha.130) (2023-04-04)
+
+### Features
+
+* **@dpc-sdp/ripple-ui-forms:** show required message for checkboxes with no label ([3c5f77b](https://github.com/dpc-sdp/ripple-framework/commit/3c5f77b9472c6fa6a01dc481e910efa628a57db6))
+* **nuxt-ripple:** :lipstick: add favicon ([8bc2d27](https://github.com/dpc-sdp/ripple-framework/commit/8bc2d27f89cfd1f462f825cfc2bdfb6cd44a52a4))
+
 # [2.1.0-alpha.129](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.128...v2.1.0-alpha.129) (2023-04-03)
 
 ### Bug Fixes

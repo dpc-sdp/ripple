@@ -1,7 +1,7 @@
 ---
 title: Button
 description: 'Buttons are used to indicate an action. Button labels express what action will occur when the user interacts with it.'
-layout: default
+layout: page
 label: Core
 links:
   - text: Figma

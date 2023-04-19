@@ -1,15 +1,13 @@
 import { Then, DataTable } from '@badeball/cypress-cucumber-preprocessor'
 
+const componentID = 'TideLandingPageKeyDatesCard'
+
 Then(
   'a key dates card with ID {string} should exist with the title {string}',
   (id: string, title: string) => {
     cy.get(`[data-component-id="${id}"]`).as('component')
     cy.get('@component').should('exist')
-    cy.get(`@component`).should(
-      'have.attr',
-      'data-component-type',
-      'RplKeyDatesCard'
-    )
+    cy.get(`@component`).should('have.attr', 'data-component-type', componentID)
     cy.get('@component').within(() => {
       cy.get(`[data-cy="title"]`).should('have.text', title)
     })
@@ -21,11 +19,7 @@ Then(
   (id: string, ctaText: string, ctaLink: string) => {
     cy.get(`[data-component-id="${id}"]`).as('component')
     cy.get('@component').should('exist')
-    cy.get(`@component`).should(
-      'have.attr',
-      'data-component-type',
-      'RplKeyDatesCard'
-    )
+    cy.get(`@component`).should('have.attr', 'data-component-type', componentID)
     cy.get('@component').within(() => {
       cy.get(`[data-cy="cta"]`).should('have.text', ctaText)
       cy.get(`[data-cy="cta"]`).should('have.attr', 'href', ctaLink)
@@ -42,11 +36,7 @@ Then(
     const table = dataTable.hashes()
     cy.get(`[data-component-id="${id}"]`).as('component')
     cy.get('@component').should('exist')
-    cy.get(`@component`).should(
-      'have.attr',
-      'data-component-type',
-      'RplKeyDatesCard'
-    )
+    cy.get(`@component`).should('have.attr', 'data-component-type', componentID)
     cy.get('@component').within(() => {
       cy.get(`.rpl-card__keydate`).as('dateItems')
     })

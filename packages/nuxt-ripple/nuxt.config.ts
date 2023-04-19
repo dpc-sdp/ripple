@@ -2,6 +2,7 @@ import { defineNuxtConfig } from 'nuxt/config'
 import { createResolver } from '@nuxt/kit'
 
 const { resolve } = createResolver(import.meta.url)
+const assetCacheTime = 31536000 // 1 year
 
 export default defineNuxtConfig({
   runtimeConfig: {
@@ -20,18 +21,17 @@ export default defineNuxtConfig({
       API_URL: ''
     }
   },
-  proxy: {
-    options: {
-      target: 'https://develop.content.reference.sdp.vic.gov.au',
-      changeOrigin: true,
-      pathRewrite: {
-        '^/api/tide/': '/api/v1/'
-      },
-      pathFilter: ['/api/tide/webform_submission/**']
-    }
-  },
   robots: {
     configPath: resolve('./robots.config.ts')
+  },
+  nitro: {
+    routeRules: {
+      '/_nuxt/**': {
+        headers: {
+          'cache-control': `public,max-age=${assetCacheTime},s-maxage=${assetCacheTime}`
+        }
+      }
+    }
   },
   modules: [
     'nuxt-proxy',

@@ -1,3 +1,5 @@
+import { formatDate } from '@dpc-sdp/ripple-ui-core'
+
 /// <reference types="cheerio" />
 
 // Note: for add obj type prop in template, please return data instead of set them in template otherwise it won't work properly.
@@ -70,7 +72,14 @@ const pluginDocuments = function (this: any) {
       link = $document.find('a').attr('href'),
       title = $document.find('.file--title').text(),
       filetype = $document.find('.file--type').text(),
-      filesize = $document.find('.file--size').text()
+      filesize = $document.find('.file--size').text(),
+      updated = $document.attr('data-last-updated')
+
+    const updatedMarkup = updated
+      ? `<div class="rpl-file__updated">Updated ${formatDate(
+          Number(updated) * 1000
+        )}</div>`
+      : ''
 
     return $document.replaceWith(`
 <figure class="rpl-document">
@@ -83,6 +92,7 @@ const pluginDocuments = function (this: any) {
       <div class="rpl-document__info rpl-type-label-small">
         <span class="rpl-file__meta">${filetype}</span>
         <span class="rpl-file__meta">${filesize}</span>
+        ${updatedMarkup}
       </div>
     </div>
   </span>

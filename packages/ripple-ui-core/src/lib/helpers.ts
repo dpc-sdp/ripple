@@ -10,7 +10,7 @@ export const distanceAsPercentage = (point: number, total: number): number => {
 }
 
 export const formatDate = (
-  value: string,
+  value: string | number,
   options: Intl.DateTimeFormatOptions = {}
 ): string => {
   const date = new Date(value)

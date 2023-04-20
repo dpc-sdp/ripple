@@ -1,3 +1,4 @@
+import { defineNuxtPlugin } from '#app'
 import { rplEventBus } from './../../lib/eventbus'
 
 /* @ts-ignore */

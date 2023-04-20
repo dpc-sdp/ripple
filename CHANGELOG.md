@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.148](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.147...v2.1.0-alpha.148) (2023-04-20)
+
+### Bug Fixes
+
+* **@dpc-sdp/nuxt-ripple:** added missing import for analytics module ([a66f8c3](https://github.com/dpc-sdp/ripple-framework/commit/a66f8c368bfb56c6a2df1a9590e5f59beb0de1d9))
+* **@dpc-sdp/ripple-ui-core:** :bug: fix analytics plugin imports ([2a847ec](https://github.com/dpc-sdp/ripple-framework/commit/2a847ec38f9399d7b20289d5412e3e7ed43582bc))
+
 # [2.1.0-alpha.147](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.146...v2.1.0-alpha.147) (2023-04-20)
 
 ### Bug Fixes

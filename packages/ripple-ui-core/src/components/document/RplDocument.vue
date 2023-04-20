@@ -1,14 +1,32 @@
 <script setup lang="ts">
+import {
+  useRippleEvent,
+  rplEventPayload
+} from '../../composables/useRippleEvent'
+
 interface Props {
   url: string
   openInNewWindow?: boolean
   download?: boolean
 }
 
-withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<Props>(), {
   openInNewWindow: false,
   download: undefined
 })
+
+const emit = defineEmits<{
+  (e: 'download', payload: rplEventPayload & { action: 'download' }): void
+}>()
+
+const { emitRplEvent } = useRippleEvent('rpl-document', emit)
+
+const onClick = () => {
+  emitRplEvent('download', {
+    id: props.url,
+    action: 'download'
+  })
+}
 </script>
 
 <template>
@@ -20,6 +38,7 @@ withDefaults(defineProps<Props>(), {
       :href="url"
       :download="download"
       :target="openInNewWindow ? '_blank' : null"
+      @click="onClick"
     >
       <div v-if="$slots.icon" class="rpl-document__icon">
         <slot name="icon"></slot>

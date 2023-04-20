@@ -80,12 +80,12 @@ const filteredAlerts = computed(() => {
   }
 })
 
-const handleDismiss = (dismissedId) => {
+const handleDismiss = (payload) => {
   const dismissedIds = toRaw(cookieValue.value) || []
 
   // Update the cookie with dismissedId removed
   const idSet = new Set(dismissedIds)
-  idSet.add(dismissedId)
+  idSet.add(payload.id)
   cookieValue.value = Array.from(idSet)
 }
 </script>

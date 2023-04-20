@@ -2,6 +2,10 @@
 import { computed } from 'vue'
 import RplIcon from '../icon/RplIcon.vue'
 import RplDocument from '../document/RplDocument.vue'
+import {
+  useRippleEvent,
+  rplEventPayload
+} from '../../composables/useRippleEvent'
 
 interface Props {
   name: string
@@ -19,11 +23,25 @@ const props = withDefaults(defineProps<Props>(), {
   caption: undefined
 })
 
+const emit = defineEmits<{
+  (e: 'download', payload: rplEventPayload & { action: 'download' }): void
+}>()
+
+const { emitRplEvent } = useRippleEvent('rpl-document', emit)
+
+const onDownload = ({ id, action }) => {
+  emitRplEvent(
+    'download',
+    { id, action, label: props.name, type: props.extension },
+    { global: true }
+  )
+}
+
 const hasInfo = computed(() => props.extension || props.size || props.updated)
 </script>
 
 <template>
-  <RplDocument :url="url">
+  <RplDocument :url="url" @download="onDownload">
     <template #icon>
       <RplIcon name="icon-document-lined" size="l" colour="default" />
     </template>

@@ -10,9 +10,12 @@ import rplFormInputs from '../../plugin'
 import RplFormAlert from '../RplFormAlert/RplFormAlert.vue'
 import { RplContent } from '@dpc-sdp/ripple-ui-core/vue'
 import { reset } from '@formkit/vue'
+import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
+import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
 
 interface Props {
   id: string
+  title?: string
   resetOnSubmit?: boolean
   schema?: FormKitSchemaCondition | FormKitSchemaNode[] | undefined
   config?: Record<string, any>
@@ -24,6 +27,7 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
+  title: undefined,
   resetOnSubmit: false,
   schema: undefined,
   config: (): Partial<Omit<FormKitConfig, 'rootClasses' | 'delimiter'>> => ({
@@ -45,9 +49,14 @@ const props = withDefaults(defineProps<Props>(), {
   })
 })
 
-const emit = defineEmits(['submit'])
+const emit = defineEmits<{
+  (e: 'submit', data: any): void
+  (e: 'submitted', payload: rplEventPayload & { action: 'submit' }): void
+}>()
 
-provide('formId', props.id)
+const { emitRplEvent } = useRippleEvent('rpl-form', emit)
+
+provide('form', { id: props.id, name: props.title })
 
 const isFormSubmitting = computed(() => {
   return props.submissionState.status === 'submitting'
@@ -63,7 +72,11 @@ const submitHandler = (form) => {
   // Reset the error summary as it is not reactive
   errorSummaryMessages.value = []
 
-  emit('submit', form)
+  emitRplEvent('submit', {
+    id: props.id,
+    name: props.title,
+    data: form
+  })
 }
 
 const submitInvalidHandler = async (node) => {
@@ -113,6 +126,19 @@ watch(
 
       if (newStatus === 'success') {
         reset(props.id)
+
+        emitRplEvent(
+          'submitted',
+          {
+            id: props.id,
+            action: 'submit',
+            name: props.title,
+            label:
+              props.schema?.find((field) => field?.key === 'actions')?.label ||
+              'Submit'
+          },
+          { global: true }
+        )
       }
     }
   }

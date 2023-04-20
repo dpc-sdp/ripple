@@ -1,4 +1,4 @@
-import { formatDate } from '@dpc-sdp/ripple-ui-core'
+import { epochToDate } from '@dpc-sdp/ripple-ui-core'
 
 /// <reference types="cheerio" />
 
@@ -75,11 +75,14 @@ const pluginDocuments = function (this: any) {
       filesize = $document.find('.file--size').text(),
       updated = $document.attr('data-last-updated')
 
-    const updatedMarkup = updated
-      ? `<div class="rpl-file__updated">Updated ${formatDate(
-          Number(updated) * 1000
-        )}</div>`
-      : ''
+    let updatedMarkup = ''
+
+    if (updated) {
+      const date = epochToDate(updated)
+      updatedMarkup = date
+        ? `<div class="rpl-file__updated">Updated ${date}</div>`
+        : ''
+    }
 
     return $document.replaceWith(`
 <figure class="rpl-document">

@@ -9,19 +9,6 @@ export const distanceAsPercentage = (point: number, total: number): number => {
   return Number(((point / total) * 100).toFixed(2))
 }
 
-export const epochToDate = (
-  epoch: string,
-  options: Intl.DateTimeFormatOptions = {}
-): string | null => {
-  const date = new Date(0)
-
-  date.setUTCSeconds(Number(epoch))
-
-  if (isNaN(date.getTime())) return null
-
-  return formatDate(date, options)
-}
-
 export const formatDate = (
   value: string | number | Date,
   options: Intl.DateTimeFormatOptions = {}

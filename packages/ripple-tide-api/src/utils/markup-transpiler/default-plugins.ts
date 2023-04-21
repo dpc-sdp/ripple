@@ -1,5 +1,3 @@
-import { epochToDate } from '@dpc-sdp/ripple-ui-core'
-
 /// <reference types="cheerio" />
 
 // Note: for add obj type prop in template, please return data instead of set them in template otherwise it won't work properly.
@@ -7,6 +5,8 @@ import { epochToDate } from '@dpc-sdp/ripple-ui-core'
 // You should make template: `<component-obj-prop :author="myPluginData1.author"></component-obj-prop>`
 // Then set myPluginData1.author = {name: 'Veronica', company: 'Veridian Dynamics'} and return {myPluginData1, myPluginData2 ... } in your plugin.
 // See a example in `pluginEmbeddedMediaVideo` plugin below.
+
+import { epochToDate } from '../epochToDate.js'
 
 export const isRelativeUrl = (str: string): boolean => {
   if (str) {

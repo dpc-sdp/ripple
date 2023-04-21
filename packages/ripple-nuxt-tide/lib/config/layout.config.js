@@ -13,13 +13,11 @@ module.exports = {
   compactCardColsSetting: {
     wide: {
       s: 6,
-      m: 4,
-      l: 3
+      l: 4,
+      xl: 3
     },
     narrow: {
-      s: 6,
-      m: 4,
-      l: 6
+      s: 6
     }
   }
 }

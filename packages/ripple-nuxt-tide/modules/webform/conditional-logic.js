@@ -97,24 +97,22 @@ function prepareTest (rulesObject, data) {
 /**
  * Returns an object with the core testing variables.
  * @param {Object} ruleObject the parent object that contains the selector
- * @param {String} selector a field selector e.g. ':input[name=\"check_a\"]'
+ * @param {String} selector a field selector e.g. ':input[name=\"check_a\"]' or ':input[name=\"check_a[option]\"]'
  * @param {Object} data uses data.model property
  */
 function convertSelectorToRule (ruleObject, selector, data) {
   let modelName = getNameFromRule(selector)
   let modelValue = data.model[modelName]
 
-  const arrayRegex = /\[(.*?)\]/
-  // Check for nested options, for example ':input[name="checkboxes[option]"]'.
-  if (modelName.match(arrayRegex)) {
-    const modelOption = modelName.match(arrayRegex)?.[1]
-
+  const arrayRegex = /\[(.*?)]/
+  const arrayRegexMatch = modelName.match(arrayRegex)
+  // Check for nested options, i.e. ':input[name="checkboxes[option]"]'
+  if (arrayRegexMatch) {
     modelName = modelName.replace(arrayRegex, '')
-
     if (Array.isArray(data.model[modelName])) {
-      modelValue = data.model[modelName].includes(modelOption)
+      modelValue = data.model[modelName].includes(arrayRegexMatch[1])
     } else if (typeof data.model[modelName] === 'object') {
-      modelValue = data.model[modelName]?.[modelOption] || null
+      modelValue = data.model[modelName]?.[arrayRegexMatch[1]] || null
     } else {
       modelValue = data.model[modelName] || null
     }

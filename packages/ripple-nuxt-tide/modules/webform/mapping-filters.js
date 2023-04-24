@@ -222,6 +222,7 @@ module.exports = {
           break
 
         case 'checkboxes':
+          data.model[eName] = []
           field.type = 'rplchecklist'
           field.simple = true
           field.listBox = true
@@ -233,6 +234,10 @@ module.exports = {
           if (element['#multiple']) {
             field.max = element['#multiple']
             field.validator.push('rplSelectMaxLimit')
+            if (field.required) {
+              field.min = 1
+              field.validator.push('rplSelectMultipleRequired')
+            }
           }
           break
 

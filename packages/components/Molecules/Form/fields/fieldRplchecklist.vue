@@ -1,5 +1,4 @@
 <template>
-  <!-- This component is deprecated, use ripple-select instead. -->
   <div class="rpl-checklist wrapper">
     <!-- List Box -->
     <div v-if="schema.listBox" :class="{

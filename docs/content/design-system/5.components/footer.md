@@ -67,24 +67,20 @@ You can theme the footer in three ways:
 
 ### Site colour palette
 
-::DocsThemeChooser
-  ::DocsExample
-  ---
-  id: core-navigation-footer--default-story
-  ---
-  ::
+::DocsExample
+---
+id: core-navigation-footer--default-story
+---
 ::
 
 ### Neutral colour palette
 
 Implemented at a site level, the footer has predefined neutral colour values. You are unable to edit or customise these colours.
 
-::DocsThemeChooser
-  ::DocsExample
-  ---
-  id: core-navigation-footer--neutral
-  ---
-  ::
+::DocsExample
+---
+id: core-navigation-footer--neutral
+---
 ::
 
 ### Custom colour palette
@@ -104,12 +100,10 @@ Accessibility testing is required on ‘rpl-clr-footer’ paired with both ‘rp
 
 See [component specific theming guidance for designers]().
 
-::DocsThemeChooser
-  ::DocsExample
-  ---
-  id: core-navigation-footer--neutral
-  ---
-  ::
+::DocsExample
+---
+id: core-navigation-footer--neutral
+---
 ::
 
 To create your own theme, see [theming guidance for designers]() or [theming guidance for developers]().

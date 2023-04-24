@@ -67,10 +67,12 @@ You can theme the footer in three ways:
 
 ### Site colour palette
 
-::DocsExample
----
-id: core-navigation-footer--default-story
----
+::DocsThemeChooser
+  ::DocsExample
+  ---
+  id: core-navigation-footer--default-story
+  ---
+  ::
 ::
 
 ### Neutral colour palette

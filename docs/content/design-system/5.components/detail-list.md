@@ -24,7 +24,7 @@ It's used to display:
 - metadata like ‘Published Date', which would display like ‘22 March 2023’
 - a status of a program or grant.
 
-Only use the Detail List for simple information. For data or complex information, consider using a [table](/5.components/table).
+Only use the Detail List for simple information. For data or complex information, consider using a [table](/components/table).
 
 ::DocsExample
 ---

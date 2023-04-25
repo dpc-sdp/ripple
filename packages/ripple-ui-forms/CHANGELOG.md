@@ -3,6 +3,38 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.148](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.147...v2.1.0-alpha.148) (2023-04-20)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-ui-forms
+
+# [2.1.0-alpha.147](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.146...v2.1.0-alpha.147) (2023-04-20)
+
+### Features
+
+* **@dpc-sdp/nuxt-ripple-analytics:** add example input event ([fea3385](https://github.com/dpc-sdp/ripple-framework/commit/fea3385279bf80a1baec82f4a10a84a12a1e2717))
+* **@dpc-sdp/nuxt-ripple-analytics:** add ga events ([05a15a5](https://github.com/dpc-sdp/ripple-framework/commit/05a15a5ebe1543dc6fc697b5c2d93777dac8a322))
+* **@dpc-sdp/nuxt-ripple-analytics:** switch to rpl events composable ([d18f4e8](https://github.com/dpc-sdp/ripple-framework/commit/d18f4e8f2c6f5c030c9a0781d9583fab60dc6903))
+
+# [2.1.0-alpha.145](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.144...v2.1.0-alpha.145) (2023-04-18)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-ui-forms
+
+# [2.1.0-alpha.143](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.142...v2.1.0-alpha.143) (2023-04-18)
+
+### Performance Improvements
+
+* **@dpc-sdp/ripple-ui-core:** :zap: remove global component definitions ([1876256](https://github.com/dpc-sdp/ripple-framework/commit/187625669a992c788d29455455293020fbc9e088))
+
+# [2.1.0-alpha.142](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.141...v2.1.0-alpha.142) (2023-04-17)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-ui-forms
+
+# [2.1.0-alpha.140](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.139...v2.1.0-alpha.140) (2023-04-14)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** print style feedback and additions ([823cc42](https://github.com/dpc-sdp/ripple-framework/commit/823cc42050ed621a3bf1632e44671a778460918e))
+
 # [2.1.0-alpha.139](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.138...v2.1.0-alpha.139) (2023-04-12)
 
 **Note:** Version bump only for package @dpc-sdp/ripple-ui-forms

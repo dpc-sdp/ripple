@@ -1,0 +1,30 @@
+{
+  "packageManager": "pnpm@7.23.0",
+  "license": "Apache-2.0",
+  "version": "2.1.0-alpha.148",
+  "name": "@dpc-sdp/nuxt-ripple-analytics",
+  "main": "./nuxt.config.ts",
+  "exports": {
+    ".": "./nuxt.config.ts",
+    "./events": "./lib/index.ts"
+  },
+  "dependencies": {
+    "@dpc-sdp/ripple-ui-core": "workspace:*",
+    "@gtm-support/core": "^2.0.0"
+  },
+  "devDependencies": {
+    "@dpc-sdp/nuxt-ripple": "workspace:*",
+    "@dpc-sdp/ripple-tide-api": "workspace:*",
+    "@dpc-sdp/ripple-tide-event": "workspace:*",
+    "@dpc-sdp/ripple-tide-grant": "workspace:*",
+    "@dpc-sdp/ripple-tide-landing-page": "workspace:*",
+    "@dpc-sdp/ripple-tide-media": "workspace:*",
+    "@dpc-sdp/ripple-tide-news": "workspace:*",
+    "@dpc-sdp/ripple-tide-publication": "workspace:*",
+    "@dpc-sdp/ripple-tide-search": "workspace:*",
+    "@dpc-sdp/ripple-ui-core": "workspace:*",
+    "@dpc-sdp/ripple-ui-forms": "workspace:*",
+    "@nuxt/eslint-config": "^0.1.1",
+    "add": "^2.0.6"
+  }
+}

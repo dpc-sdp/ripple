@@ -38,11 +38,11 @@ const iconPosition = computed(() => {
   return undefined
 })
 
-const formId: string = inject('formId')
+const { id }: object = inject('form')
 const isFormSubmitting: any = inject('isFormSubmitting')
 
 const handleReset = () => {
-  reset(formId)
+  reset(id)
   emit('reset')
 }
 </script>

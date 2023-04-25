@@ -1,15 +1,12 @@
 import { Then, DataTable } from '@badeball/cypress-cucumber-preprocessor'
+const componentID = 'TideLandingPageTimeline'
 
 Then(
   'a timeline with ID {string} should exist with the title {string}',
   (id: string, title: string) => {
     cy.get(`[data-component-id="${id}"]`).as('component')
     cy.get('@component').should('exist')
-    cy.get(`@component`).should(
-      'have.attr',
-      'data-component-type',
-      'RplTimeline'
-    )
+    cy.get(`@component`).should('have.attr', 'data-component-type', componentID)
     cy.get('@component').within(() => {
       cy.get(`[data-cy="page-component-title"]`).should('have.text', title)
     })
@@ -22,11 +19,7 @@ Then(
     const table = dataTable.hashes()
     cy.get(`[data-component-id="${id}"]`).as('component')
     cy.get('@component').should('exist')
-    cy.get(`@component`).should(
-      'have.attr',
-      'data-component-type',
-      'RplTimeline'
-    )
+    cy.get(`@component`).should('have.attr', 'data-component-type', componentID)
     cy.get('@component').within(() => {
       cy.get(`.rpl-timeline__item`).as('timelineItems')
     })

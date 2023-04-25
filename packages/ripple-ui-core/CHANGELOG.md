@@ -3,6 +3,55 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.148](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.147...v2.1.0-alpha.148) (2023-04-20)
+
+### Bug Fixes
+
+* **@dpc-sdp/nuxt-ripple:** added missing import for analytics module ([a66f8c3](https://github.com/dpc-sdp/ripple-framework/commit/a66f8c368bfb56c6a2df1a9590e5f59beb0de1d9))
+* **@dpc-sdp/ripple-ui-core:** :bug: fix analytics plugin imports ([2a847ec](https://github.com/dpc-sdp/ripple-framework/commit/2a847ec38f9399d7b20289d5412e3e7ed43582bc))
+
+# [2.1.0-alpha.147](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.146...v2.1.0-alpha.147) (2023-04-20)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** :bug: rollback to using ts export for nuxt module ([7067874](https://github.com/dpc-sdp/ripple-framework/commit/70678740cdb06294f0f496a4a3320095e402512f))
+
+### Features
+
+* **@dpc-sdp/nuxt-ripple-analytics:** :sparkles: adds analytics package and sample event ([45ae920](https://github.com/dpc-sdp/ripple-framework/commit/45ae920d194d4f43187df5b3933f68b0d097fe35))
+* **@dpc-sdp/nuxt-ripple-analytics:** add example input event ([fea3385](https://github.com/dpc-sdp/ripple-framework/commit/fea3385279bf80a1baec82f4a10a84a12a1e2717))
+* **@dpc-sdp/nuxt-ripple-analytics:** add ga events ([05a15a5](https://github.com/dpc-sdp/ripple-framework/commit/05a15a5ebe1543dc6fc697b5c2d93777dac8a322))
+* **@dpc-sdp/nuxt-ripple-analytics:** role back to node 16x for storybook ([902b1a1](https://github.com/dpc-sdp/ripple-framework/commit/902b1a1cd08d2aadcb2d7c873fce29ebe9fd7343))
+* **@dpc-sdp/nuxt-ripple-analytics:** switch to rpl events composable ([d18f4e8](https://github.com/dpc-sdp/ripple-framework/commit/d18f4e8f2c6f5c030c9a0781d9583fab60dc6903))
+* **@dpc-sdp/nuxt-ripple-analytics:** wip ([5b0c6e1](https://github.com/dpc-sdp/ripple-framework/commit/5b0c6e18966486d49e27757dcce7b9609722311c))
+* **@dpc-sdp/ripple-ui-core:** fix storybook alert test, add $rplEvent provider ([62af966](https://github.com/dpc-sdp/ripple-framework/commit/62af966abf0e04525457fc07b57eef0351c089b6))
+
+# [2.1.0-alpha.145](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.144...v2.1.0-alpha.145) (2023-04-18)
+
+### Bug Fixes
+
+* **docs:** fixed broken storybook images in docs site ([585317f](https://github.com/dpc-sdp/ripple-framework/commit/585317fda44f07ab792a32cfceb1c5dc13dcf5f1))
+
+### Performance Improvements
+
+* **@dpc-sdp/ripple-ui-core:** :zap: set image dimensions on flag ([403e23b](https://github.com/dpc-sdp/ripple-framework/commit/403e23b5fb4d1cd117cfff3293153ef78e65c12d))
+
+# [2.1.0-alpha.143](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.142...v2.1.0-alpha.143) (2023-04-18)
+
+### Performance Improvements
+
+* **@dpc-sdp/ripple-ui-core:** :zap: remove global component definitions ([1876256](https://github.com/dpc-sdp/ripple-framework/commit/187625669a992c788d29455455293020fbc9e088))
+
+# [2.1.0-alpha.142](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.141...v2.1.0-alpha.142) (2023-04-17)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-ui-core
+
+# [2.1.0-alpha.140](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.139...v2.1.0-alpha.140) (2023-04-14)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** print style feedback and additions ([823cc42](https://github.com/dpc-sdp/ripple-framework/commit/823cc42050ed621a3bf1632e44671a778460918e))
+
 # [2.1.0-alpha.139](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.138...v2.1.0-alpha.139) (2023-04-12)
 
 ### Bug Fixes

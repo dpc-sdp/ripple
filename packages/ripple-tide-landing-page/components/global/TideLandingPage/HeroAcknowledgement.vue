@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { RplAcknowledgement } from '#components'
 defineProps<{
   message: string
 }>()

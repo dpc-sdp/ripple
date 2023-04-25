@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { RplInPageNavigation } from '#components'
 import { computed } from 'vue'
 
 interface Props {

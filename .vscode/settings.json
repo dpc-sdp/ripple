@@ -24,7 +24,8 @@
     "@dpc-sdp/ripple-tide-news",
     "nuxt-ripple",
     "@dpc-sdp/nuxt-ripple-cli",
-    "@dpc-sdp/ripple-test-utils"
+    "@dpc-sdp/ripple-test-utils",
+    "@dpc-sdp/nuxt-ripple-analytics"
   ],
   "cSpell.words": [
     "colour",

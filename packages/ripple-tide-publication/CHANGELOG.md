@@ -3,6 +3,42 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.148](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.147...v2.1.0-alpha.148) (2023-04-20)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-publication
+
+# [2.1.0-alpha.147](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.146...v2.1.0-alpha.147) (2023-04-20)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-publication
+
+# [2.1.0-alpha.146](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.145...v2.1.0-alpha.146) (2023-04-19)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-publication
+
+# [2.1.0-alpha.145](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.144...v2.1.0-alpha.145) (2023-04-18)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-publication
+
+# [2.1.0-alpha.144](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.143...v2.1.0-alpha.144) (2023-04-18)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-publication
+
+# [2.1.0-alpha.143](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.142...v2.1.0-alpha.143) (2023-04-18)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-publication
+
+# [2.1.0-alpha.142](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.141...v2.1.0-alpha.142) (2023-04-17)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-publication
+
+# [2.1.0-alpha.141](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.140...v2.1.0-alpha.141) (2023-04-16)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-publication
+
+# [2.1.0-alpha.140](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.139...v2.1.0-alpha.140) (2023-04-14)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-publication
+
 # [2.1.0-alpha.139](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.138...v2.1.0-alpha.139) (2023-04-12)
 
 **Note:** Version bump only for package @dpc-sdp/ripple-tide-publication

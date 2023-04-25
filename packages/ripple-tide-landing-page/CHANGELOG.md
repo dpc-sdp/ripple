@@ -3,6 +3,48 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.148](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.147...v2.1.0-alpha.148) (2023-04-20)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-landing-page
+
+# [2.1.0-alpha.147](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.146...v2.1.0-alpha.147) (2023-04-20)
+
+### Features
+
+* **@dpc-sdp/nuxt-ripple-analytics:** :sparkles: adds analytics package and sample event ([45ae920](https://github.com/dpc-sdp/ripple-framework/commit/45ae920d194d4f43187df5b3933f68b0d097fe35))
+* **@dpc-sdp/nuxt-ripple-analytics:** add ga events ([05a15a5](https://github.com/dpc-sdp/ripple-framework/commit/05a15a5ebe1543dc6fc697b5c2d93777dac8a322))
+* **@dpc-sdp/nuxt-ripple-analytics:** switch to rpl events composable ([d18f4e8](https://github.com/dpc-sdp/ripple-framework/commit/d18f4e8f2c6f5c030c9a0781d9583fab60dc6903))
+
+# [2.1.0-alpha.146](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.145...v2.1.0-alpha.146) (2023-04-19)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-landing-page
+
+# [2.1.0-alpha.145](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.144...v2.1.0-alpha.145) (2023-04-18)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-landing-page
+
+# [2.1.0-alpha.144](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.143...v2.1.0-alpha.144) (2023-04-18)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-landing-page
+
+# [2.1.0-alpha.143](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.142...v2.1.0-alpha.143) (2023-04-18)
+
+### Performance Improvements
+
+* **@dpc-sdp/ripple-tide-landing-page:** :zap: remove unnecessary #component imports ([8292a59](https://github.com/dpc-sdp/ripple-framework/commit/8292a59005323e57d485dc3d18fff87a4b150450))
+
+# [2.1.0-alpha.142](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.141...v2.1.0-alpha.142) (2023-04-17)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-landing-page
+
+# [2.1.0-alpha.141](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.140...v2.1.0-alpha.141) (2023-04-16)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-landing-page
+
+# [2.1.0-alpha.140](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.139...v2.1.0-alpha.140) (2023-04-14)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-landing-page
+
 # [2.1.0-alpha.139](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.138...v2.1.0-alpha.139) (2023-04-12)
 
 **Note:** Version bump only for package @dpc-sdp/ripple-tide-landing-page

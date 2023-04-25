@@ -70,7 +70,7 @@
 
     <DocsHomeSection>
       <ContentRenderer
-        tag="RplContent"
+        tag="DocsContent"
         class="content-full"
         v-if="page && !page._empty"
         :key="page._id"

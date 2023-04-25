@@ -33,7 +33,7 @@ id: core-containers-content--blockquote
 
 ### When and how not to use
 
-Do not repeat metadata across different quotes.
+- Do not repeat metadata across different quotes.
 
 ---
 

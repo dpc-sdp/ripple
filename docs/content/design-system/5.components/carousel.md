@@ -34,7 +34,7 @@ id: core-containers-card-carousel--breakpoints
 ---
 
 ## Theming
-The carousel adopts its theming from the [card](https://deploy-preview-457--ripple-docs.netlify.app/design-system/components/card/) and [pagination]() components.
+The carousel adopts its theming from the [card](https://deploy-preview-457--ripple-docs.netlify.app/design-system/components/card/) and [pagination](/design-system/components/pagination/) components.
 
 ::DocsThemeChooser
   ::DocsExample

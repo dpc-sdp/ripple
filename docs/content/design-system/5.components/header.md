@@ -121,11 +121,10 @@ When using a featured campaign banner with an image, it can overlap the header d
 
 The bottom corner shape won't hide if an introduction banner is between the header and campaign banner.
 
-**This example needs to be provided**
-
-::DocsExample
+::DocsImageExample
 ---
-id: core-containers-header--default-story
+src: /assets/img/campaign-banner-behaviour.png
+alt: 'A demonstration of the interaction between the Header component and the campaign banner, the campaign banner image slightly overlaps the header.'
 ---
 ::
 

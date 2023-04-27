@@ -36,8 +36,8 @@ id: core-navigation-campaign-banner--primary-image
 
 ## Variants
 The Campaign Banner has two variants:
-- Featured, which appears at the top of the page, below the [header]().
-- Image Inset, which appears at the bottom of the page above the [footer]().
+- Featured, which appears at the top of the page, below the [header](/design-system/components/header/).
+- Image Inset, which appears at the bottom of the page above the [footer](/design-system/components/footer/).
 
 ### Featured
 A featured campaign banner goes at the top of the page underneath the header. When on larger screens, the image is cropped in a shape and can overlap the above component (header).
@@ -62,7 +62,7 @@ id: core-navigation-campaign-banner--secondary-image
 ---
 
 ## Theming
-The Campaign Banner adopts its theming from the [button]() component.
+The Campaign Banner adopts its theming from the [button](/design-system/components/button/) component.
 
 If you choose neutral button for your site, the Campaign Banner will display buttons in the neutral theme.
 

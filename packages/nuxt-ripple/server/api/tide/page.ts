@@ -1,5 +1,5 @@
 //@ts-nocheck runtime imports
-import { defineEventHandler, getQuery, H3Event } from 'h3'
+import { defineEventHandler, getQuery, H3Event, getCookie } from 'h3'
 import { createHandler, TidePageApi } from '@dpc-sdp/ripple-tide-api'
 import { BadRequestError } from '@dpc-sdp/ripple-tide-api/errors'
 import { useNitroApp } from '#imports'
@@ -17,8 +17,11 @@ export const createPageHandler = async (
     if (Array.isArray(query.site)) {
       throw new BadRequestError('Duplicate site values')
     }
+    const tokenCookie = getCookie(event, 'nuxt_access_token')
 
-    return await tidePageApi.getPageByPath(query.path, query.site)
+    return await tidePageApi.getPageByPath(query.path, query.site, {
+      headers: { 'X-OAuth2-Authorization': `Bearer ${tokenCookie}` }
+    })
   })
 }
 

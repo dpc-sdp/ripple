@@ -23,6 +23,7 @@ export default defineNuxtConfig({
   // See https://nuxt.com/docs/getting-started/layers - each content type is a added as a Nuxt layer
   extends: [
     '@dpc-sdp/nuxt-ripple',
+    '@dpc-sdp/nuxt-ripple-preview',
     '@dpc-sdp/ripple-tide-event',
     '@dpc-sdp/ripple-tide-landing-page',
     '@dpc-sdp/ripple-tide-grant',

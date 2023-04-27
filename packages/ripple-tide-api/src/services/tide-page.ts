@@ -110,9 +110,10 @@ export default class TidePageApi extends TideApiBase {
     if (this.isShareLink(path)) {
       return this.getPageByShareLink(path, site)
     }
-    // if (this.isPreviewLink(path)) {
-    //   return this.getPageFromPreviewLink(path, config)
-    // }
+
+    if (this.isPreviewLink(path)) {
+      return this.getPageFromPreviewLink(path, site, config)
+    }
 
     const route = await this.getRouteByPath(path, site)
     if (route && !route.error) {
@@ -164,41 +165,33 @@ export default class TidePageApi extends TideApiBase {
     })
   }
 
-  // async getPageFromPreviewLink(path, config = { params: {} }): Promise<any> {
-  //   const { 2: contentType, 3: uuid, 4: revisionId } = path.split('/')
-  //   const routeData = {
-  //     entity_type: 'node',
-  //     bundle: contentType,
-  //     uuid: uuid
-  //   }
-  //   const resourceVersion =
-  //     revisionId === 'latest' ? 'rel:working-copy' : `id:${revisionId}`
+  async getPageFromPreviewLink(
+    path,
+    site,
+    config: any = { params: {}, headers: {} }
+  ): Promise<any> {
+    const { 2: contentType, 3: uuid, 4: revisionId } = path.split('/')
+    const routeData = {
+      entity_type: 'node',
+      bundle: contentType,
+      uuid: uuid
+    }
 
-  //   if (config.headers['x-oauth2-authorization']) {
-  //     try {
-  //       const pageData = await this.getPageByRouteData(routeData, {
-  //         headers: {
-  //           'x-oauth2-authorization': config.headers['x-oauth2-authorization']
-  //         },
-  //         params: {
-  //           ...config.params,
-  //           site: 4,
-  //           resourceVersion,
-  //           include: this.getResourceIncludes(routeData.bundle)
-  //         }
-  //       })
-  //       return Promise.resolve(pageData)
-  //     } catch (error) {
-  //       return Promise.reject(
-  //         this.handleError(
-  //           { message: 'Unauthorized', error },
-  //           (error.response && error.response.status) || 401
-  //         )
-  //       )
-  //     }
-  //   }
-  //   return Promise.reject(this.handleError({ message: 'Unauthorized' }, 401))
-  // }
+    const resourceVersion =
+      revisionId === 'latest' ? 'rel:working-copy' : `id:${revisionId}`
+
+    const params: any = {
+      ...config.params,
+      site,
+      include: this.getResourceIncludes(routeData),
+      resourceVersion
+    }
+
+    return await this.getPageByRouteData(routeData, {
+      headers: config.headers,
+      params
+    })
+  }
 
   getResourceIncludes(route) {
     const includes = [...this.getContentTypeField('includes', route)]

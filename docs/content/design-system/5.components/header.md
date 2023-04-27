@@ -138,7 +138,7 @@ Headers can be themed in two ways:
 - Site colour palette.
 - Neutral colour palette.
 
-It will also adopt theming from the [button](/button) component when displaying the call to action.
+It will also adopt theming from the [button](/design-system/components/button) component when displaying the call to action.
 
 If you choose neutral button for your site, the header will display buttons in the neutral theme.
 

@@ -137,17 +137,12 @@ Pagination uses colour for:
 - icons
 - interactive states
 
-
-
 ::DocsThemeChooser
   ::DocsExample
   ---
   id: core-navigation-page-links--page-links
   ---
   ::
-::
-
-::DocsThemeChooser
   ::DocsExample
   ---
   id: core-navigation-pagination--complex

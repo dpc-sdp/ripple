@@ -89,6 +89,23 @@ export const stringToClass = (str) => {
   return str.toLowerCase().replace(/(&\w+?;)/gim, ' ').replace(/[^a-zA-Z0-9\s]/gim, '').replace(/(^\s+)|(\s+$)/gim, '').replace(/\s+/gm, '-')
 }
 
+export const extensionToMimeType = (etx) => {
+  const supportedExtensions = {
+    'doc': 'application/msword',
+    'docx': 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+    'pdf': 'application/pdf',
+    'csv': 'text/csv',
+    'zip': 'application/zip',
+    'xls': 'application/vnd.ms-excel',
+    'xlsx': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+    'jpg': 'image/jpeg',
+    'jpeg': 'image/jpeg',
+    'png': 'image/png'
+  }
+
+  return supportedExtensions?.[etx] || etx
+}
+
 /**
  * Get a page head config, can be used in store tide/setPageHead.
  * @param {Object} pageHead - Page head config.

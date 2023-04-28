@@ -32,6 +32,7 @@ import fieldRploptionbutton from './fields/fieldRploptionbutton.vue'
 import fieldRplclearform from './fields/fieldRplclearform.vue'
 import fieldRpldivider from './fields/fieldRpldivider.vue'
 import fieldRplmarkup from './fields/fieldRplmarkup.vue'
+import fieldRplfile from './fields/fieldRplfile.vue'
 import VueScrollTo from 'vue-scrollto'
 import { RplFormEventBus } from './index.js'
 
@@ -46,6 +47,7 @@ Vue.component('fieldRploptionbutton', fieldRploptionbutton)
 Vue.component('fieldRplclearform', fieldRplclearform)
 Vue.component('fieldRpldivider', fieldRpldivider)
 Vue.component('fieldRplmarkup', fieldRplmarkup)
+Vue.component('fieldRplfile', fieldRplfile)
 Vue.component('RplFieldset', RplFieldset)
 
 export default {
@@ -59,6 +61,7 @@ export default {
     fieldRpldatepicker,
     fieldRplsubmitloader,
     fieldRploptionbutton,
+    fieldRplfile,
     fieldRplclearform,
     RplFormAlert,
     RplFieldset
@@ -125,7 +128,7 @@ export default {
     // Custom 'required' validator which uses the drupal 'required message'
     // if the field is empty.
     VueFormGenerator.validators.rplRequired = function (value, field) {
-      if (!value || value === '') {
+      if ((Array.isArray(value) && !value.length) || (!value || value === '')) {
         return field.requiredMessage
       }
 
@@ -159,6 +162,36 @@ export default {
         }
       }
       return null
+    }
+    // Validate if file input is within the max files limit.
+    VueFormGenerator.validators.rplFileMaxLimit = function (value, field) {
+      if (field?.maxFiles && field.maxFiles > 1 && value.length > field.maxFiles) {
+        const excessFiles = value.length - field.maxFiles
+        return [`There is a limit of ${field.maxFiles} files, you need to remove ${excessFiles} file${excessFiles > 1 ? 's' : ''}`]
+      }
+
+      return []
+    }
+    // Validate if files are smaller than the max file size limit.
+    VueFormGenerator.validators.rplFileMaxSize = function (value, field) {
+      if (!field.maxSize) return []
+
+      const sizeInMB = (size) => Math.round((size * 0.000001) * 100) / 100
+      const overSizedFiles = Array.from(value).filter(file => sizeInMB(file.size) > field.maxSize)
+
+      if (overSizedFiles.length) {
+        return overSizedFiles.map(file => `${file.name} is too large (${sizeInMB(file.size)}mb), please select a file less than ${field.maxSize}mb`)
+      }
+    }
+    // Validate if files are of the allowed file types.
+    VueFormGenerator.validators.rplFileAllowedTypes = function (value, field) {
+      if (!field.allowedTypes) return []
+
+      const invalidTypes = Array.from(value).filter(file => !field.allowedTypes.includes(file.type))
+
+      if (invalidTypes.length) {
+        return invalidTypes.map(file => `${file.name} is not in a supported format (${file.type}), please select a file that is ${field.allowedTypes.join(', ')}`)
+      }
     }
   },
   destroyed () {

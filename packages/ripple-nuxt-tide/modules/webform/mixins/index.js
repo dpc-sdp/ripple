@@ -11,7 +11,7 @@ const webform = {
     async postForm (formId, formData = {}) {
       const formResource = 'webform_submission'
 
-      const data = {
+      let data = {
         data: {
           type: formResource,
           attributes: {
@@ -19,6 +19,10 @@ const webform = {
             data: JSON.stringify(formData)
           }
         }
+      }
+
+      if (this.isMultipartForm(formData)) {
+        data = this.getMultipartData(formData)
       }
 
       // TODO: Add better error handling/log for form API error.
@@ -46,6 +50,30 @@ const webform = {
         }
       }
       return false
+    },
+    isMultipartForm (data) {
+      return Object.keys(data).some(key => {
+        const value = Array.isArray(data[key]) ? data[key] : [data[key]]
+
+        return value.some(entry => entry instanceof File)
+      })
+    },
+    getMultipartData (data, form = null, namespace = null) {
+      let formData = form || new FormData()
+
+      for (const key in data) {
+        const property = namespace ? namespace + '[' + key + ']' : key
+
+        if (Array.isArray(data[key])) {
+          data[key].forEach(file => formData.append(property, file))
+        } else if (typeof data[key] === 'object') {
+          this.getMultipartData(data[key], formData, key)
+        } else {
+          formData.append(property, data[key])
+        }
+      }
+
+      return formData
     }
   }
 }

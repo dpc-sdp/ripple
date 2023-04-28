@@ -69,7 +69,9 @@ export const TemplateForm = (args, { argTypes }) => ({
       :submitHandler="submitHandler"
       :title="title"
       :fullWidth="fullWidth"
-      :spamProtect="spamProtect">
+      :spamProtect="spamProtect"
+      novalidate
+    >
     </rpl-form>
   `
 });
@@ -86,6 +88,7 @@ export const formData = {
     optionButtonDefault: null,
     optionButtonCustom: null,
     textArea: null,
+    file: [],
     dateRange: ['', ''],
     date: '',
     address: {
@@ -199,6 +202,18 @@ export const formData = {
         visible (model) {
           return model && model.was_this_page_helpful !== null
         }
+      },
+      {
+        type: 'rplfile',
+        label: 'File upload',
+        hint: 'Implemented using rplFile',
+        allowedTypes: ['image/jpeg', 'image/png'],
+        model: 'file',
+        maxFiles: 5,
+        required: true,
+        validator (value) {
+          return !value.length ? ['This field is required'] : []
+        },
       },
       {
         type: 'rpldatepicker',

@@ -2,6 +2,7 @@ module.exports = {
   // Convert Drupal webform data struture to Vue Form Generator structure
   webform: async (drupalFormEntity, { mapping }) => {
     const stringToClass = require('@dpc-sdp/ripple-nuxt-tide/lib/core/tide-helper').stringToClass
+    const extensionToMimeType = require('@dpc-sdp/ripple-nuxt-tide/lib/core/tide-helper').extensionToMimeType
     const elements = drupalFormEntity.elements
     // Below data structure is following VFG 2.2.3.
     // `tideId`, `formState` and `messages` are our own custom properties.
@@ -427,6 +428,30 @@ module.exports = {
 
         case 'date':
           field.type = 'rpldatepicker'
+          break
+
+        case 'managed_file':
+          field.type = 'rplfile'
+          if (element['#file_placeholder']) {
+            field.placeholder = element['#file_placeholder']
+          }
+          // use array validator instead of required
+          if (element['#required'] && !element['#required_error']) {
+            field.validator = field.validator.filter(validator => validator !== 'required')
+            field.validator.push('array')
+          }
+          if (element['#multiple']) {
+            field.maxFiles = Number(element['#multiple'])
+            field.validator.push('rplFileMaxLimit')
+          }
+          if (element['#max_filesize']) {
+            field.maxSize = Number(element['#max_filesize'])
+            field.validator.push('rplFileMaxSize')
+          }
+          if (element['#file_extensions']) {
+            field.allowedTypes = element['#file_extensions'].split(' ').map(extensionToMimeType)
+            field.validator.push('rplFileAllowedTypes')
+          }
           break
 
         case 'webform_actions':

@@ -147,18 +147,16 @@ If you choose neutral button for your site, the header will display buttons in t
   id: core-containers-header--default-call-to-action
   ---
   ::
-::
-
-::DocsExample
----
-id: core-containers-header--reverse-journey-links
----
-::
-
-::DocsExample
----
-id: core-containers-header--reverse
----
+  ::DocsExample
+  ---
+  id: core-containers-header--reverse-journey-links
+  ---
+  ::
+  ::DocsExample
+  ---
+  id: core-containers-header--reverse
+  ---
+  ::
 ::
 
 ### Neutral Theme

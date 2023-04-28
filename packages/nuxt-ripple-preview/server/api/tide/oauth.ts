@@ -11,7 +11,7 @@ export const createPageHandler = async (
 ) => {
   return createHandler(event, 'TideOAuthHandler', async () => {
     // Create a random state value to prevent CSRF attacks, this should be unique per request
-    const state = nanoId()
+    const state = nanoid()
 
     // TODO - Store the state value in a cookie or session
 

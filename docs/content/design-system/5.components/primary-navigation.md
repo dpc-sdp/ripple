@@ -11,7 +11,7 @@ links:
 ---
 
 ## Usage
-The primary navigation helps a user to find the right content for them. Use it to show the level of your site's information architecture (IA). It works with the [Header]() to orientate your users, and helps keep all pages consistent. Use it as the primary way for users to navigate your site.
+The primary navigation helps a user to find the right content for them. Use it to show the level of your site's information architecture (IA). It works with the [Header](https://deploy-preview-457--ripple-docs.netlify.app/design-system/components/header/) to orientate your users, and helps keep all pages consistent. Use it as the primary way for users to navigate your site.
 
 The primary navigation contains:
 - site logo
@@ -35,7 +35,7 @@ The logo helps users understand which site they are visiting. Clicking it should
 #### Co-Branding Logos
 Primary navigation allows for co-branding when required. The maximum size a co-branded logo can appear is 40h x 140w pixels.
 
-See [logo]() for guidance and requirements including co-branding.
+See [logo](https://deploy-preview-457--ripple-docs.netlify.app/design-system/styles/logo/) for guidance and requirements including co-branding.
 
 #### Navigation links 
 The primary navigation displays the top level of the site’s IA. When the link has child pages, a chevron displays next to the top page name. When clicked, this opens the mega menu and displays the child pages.

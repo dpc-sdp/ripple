@@ -4,6 +4,7 @@ import { createHandler } from '@dpc-sdp/ripple-tide-api'
 import { UnauthorisedError } from '@dpc-sdp/ripple-tide-api/errors'
 import { useNitroApp } from '#imports'
 import cookie from 'cookie-signature'
+import { AuthRoutes, AuthCookieNames } from '../../../utils/constants.js'
 
 /**
  * The OAuth flow will redirect to this handler after the user has logged in.
@@ -26,13 +27,13 @@ export const createPageHandler = async (event: H3Event, authClient) => {
     // Get the state value from the query string and the one stored in the cookie
     const query = await getQuery(event)
     const queryState = query.state
-    const storedState = getCookie(event, 'nuxt_auth_state')
+    const storedState = getCookie(event, AuthCookieNames.STATE)
 
     // The stored state cookie value is signed, so we need to unsign it to get the original value
     const unsignedState = cookie.unsign(storedState, cookieSignSecret)
 
     // Delete the state cookie, it shouldn't be used for multiple requests
-    deleteCookie(event, 'nuxt_auth_state')
+    deleteCookie(event, AuthCookieNames.STATE)
 
     if (unsignedState === false) {
       throw new UnauthorisedError(
@@ -51,20 +52,20 @@ export const createPageHandler = async (event: H3Event, authClient) => {
     const user = await authClient.code.getToken(event.node.req.originalUrl)
 
     // Set the access token and expiry in cookies
-    setCookie(event, 'nuxt_access_token', user.accessToken, {
+    setCookie(event, AuthCookieNames.ACCESS_TOKEN, user.accessToken, {
       httpOnly: true,
       secure: true,
       sameSite: 'Strict'
     })
 
     const expiry = new Date(user.expires)
-    setCookie(event, 'nuxt_access_token_expiry', expiry.getTime(), {
+    setCookie(event, AuthCookieNames.ACCESS_TOKEN_EXPIRY, expiry.getTime(), {
       httpOnly: true,
       secure: true,
       sameSite: 'Strict'
     })
 
-    return sendRedirect(event, '/oauth/success')
+    return sendRedirect(event, AuthRoutes.SUCCESS)
   })
 }
 

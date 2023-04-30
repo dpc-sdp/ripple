@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useTideSite, useRoute } from '#imports'
+import { AuthRoutes, LOGIN_DESTINATION_KEY } from '../../utils/constants'
 import { onMounted } from 'vue'
 
 const site = await useTideSite()
@@ -10,11 +11,11 @@ onMounted(() => {
   // Users will be redirected to this page after visiting a preview URL without an access token
 
   // Store the original destination in local storage so we can redirect to it after login
-  localStorage.setItem('login-destination', route.query.destination)
+  localStorage.setItem(LOGIN_DESTINATION_KEY, route.query.destination)
 
   // Start the OAuth flow, the user will get redirected to the Tide login page (which will
   // eventually redirect back to the callback URL)
-  window.location.href = '/api/tide/oauth'
+  window.location.href = AuthRoutes.LOGIN
 })
 </script>
 

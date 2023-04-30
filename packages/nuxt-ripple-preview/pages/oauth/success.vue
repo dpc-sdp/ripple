@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useTideSite } from '#imports'
+import { LOGIN_DESTINATION_KEY } from '../../utils/constants'
 import { onMounted } from 'vue'
 
 const site = await useTideSite()
@@ -8,7 +9,7 @@ onMounted(() => {
   // Users will be redirected to this page after successful login
 
   // Get the original destination from localStorage and redirect to it
-  window.location.href = localStorage.getItem('login-destination')
+  window.location.href = localStorage.getItem(LOGIN_DESTINATION_KEY)
 })
 </script>
 

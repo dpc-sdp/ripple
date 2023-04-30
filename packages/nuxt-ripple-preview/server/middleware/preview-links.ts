@@ -1,5 +1,6 @@
 import { defineEventHandler, getCookie, sendRedirect } from 'h3'
 import { isPreviewPath } from '../../utils'
+import { AuthRoutes, AuthCookieNames } from '../../utils/constants'
 
 /**
  * This middleware checks it the user is visiting a preview page:
@@ -12,9 +13,9 @@ import { isPreviewPath } from '../../utils'
  */
 export default defineEventHandler((event) => {
   if (isPreviewPath(event.path)) {
-    const accessToken = getCookie(event, 'nuxt_access_token')
+    const accessToken = getCookie(event, AuthCookieNames.ACCESS_TOKEN)
     const accessTokenExpiry = parseFloat(
-      getCookie(event, 'nuxt_access_token_expiry')
+      getCookie(event, AuthCookieNames.ACCESS_TOKEN_EXPIRY)
     )
     const isTokenExpired = accessTokenExpiry
       ? accessTokenExpiry < Date.now()
@@ -23,7 +24,7 @@ export default defineEventHandler((event) => {
     if (!accessToken || isTokenExpired) {
       return sendRedirect(
         event,
-        `/oauth/logging-in?destination=${event.path}`,
+        `${AuthRoutes.LOGGING_IN}?destination=${event.path}`,
         302
       )
     }

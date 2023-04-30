@@ -6,6 +6,7 @@ import { useNitroApp } from '#imports'
 import ClientOAuth2 from 'client-oauth2'
 import { nanoid } from 'nanoid'
 import cookie from 'cookie-signature'
+import { AuthCookieNames } from '../../../utils/constants'
 
 export const createPageHandler = async (
   event: H3Event,
@@ -26,7 +27,7 @@ export const createPageHandler = async (
     const signedState = cookie.sign(state, cookieSignSecret)
 
     // Set the state value in a cookie so we can validate it later
-    setCookie(event, 'nuxt_auth_state', signedState, {
+    setCookie(event, AuthCookieNames.STATE, signedState, {
       httpOnly: true,
       secure: true
     })

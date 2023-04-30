@@ -5,7 +5,8 @@ export default defineNuxtConfig({
     tide: {
       preview: {
         clientId: '',
-        clientSecret: ''
+        clientSecret: '',
+        cookieSignSecret: ''
       }
     }
   }

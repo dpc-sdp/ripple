@@ -68,14 +68,9 @@ $rpl-card-compact-image-height: rem(52px) !default;
 
     .rpl-card-content__details {
       display: flex;
-      flex-direction: row;
-      align-items: center;
+      flex-direction: column;
+      align-items: stretch;
       padding: 0;
-
-      @include rpl_breakpoint('s') {
-        flex-direction: column;
-        align-items: stretch;
-      }
     }
   }
 
@@ -83,11 +78,7 @@ $rpl-card-compact-image-height: rem(52px) !default;
     width: $rpl-card-compact-image-width;
     height: $rpl-card-compact-image-height;
     flex: 0 0 auto;
-    padding-right: rem(20px);
-
-    @include rpl_breakpoint('s') {
-      padding-bottom: rem(20px);
-    }
+    padding-bottom: rem(20px);
   }
 
   &__title {

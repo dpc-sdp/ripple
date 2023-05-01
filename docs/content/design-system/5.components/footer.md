@@ -95,7 +95,8 @@ See [component specific theming guidance for designers]().
 
 ::DocsExample
 ---
-id: core-navigation-footer--default-story&globals=theme:docsTheme3
+id: core-navigation-footer--default-story
+theme:docsTheme3
 ---
 ::
 

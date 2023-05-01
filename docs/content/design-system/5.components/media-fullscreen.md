@@ -20,11 +20,9 @@ Media Fullscreen takes over the viewport completely. A transparent background he
 
 See [media](/design-system/components/media/) for information relating to file type, ratios and focal point.
 
-**Need to add storybook sample, this is a placeholder**
-
 ::DocsExample
 ---
-id: core-containers-card-carousel--breakpoints
+id: core-containers-media-gallery--single-item
 ---
 ::
 
@@ -49,12 +47,10 @@ id: core-containers-card-carousel--breakpoints
 
 Media Fullscreen adopts its theming from the [pagination](/design-system/components/pagination/) component.
 
-**Need to add storybook sample, this is a placeholder**
-
 ::DocsThemeChooser
   ::DocsExample
   ---
-  id: core-containers-card-carousel--breakpoints
+  id: core-containers-media-gallery--single-item
   ---
   ::
 ::

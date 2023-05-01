@@ -1,3 +1,2 @@
-export const isPreviewPath = (path: string): boolean => {
-  return path.indexOf('/preview/') === 0
-}
+export { isPreviewPath } from './isPreviewPath.js'
+export { AuthCookieNames } from './constants.js'

@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.150](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.149...v2.1.0-alpha.150) (2023-05-01)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** fixed remaining broken storybook images ([1eac61a](https://github.com/dpc-sdp/ripple-framework/commit/1eac61a57b98066e851923bc19941e2980319a21))
+
+# [2.1.0-alpha.149](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.148...v2.1.0-alpha.149) (2023-04-26)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** ensure inset card image doesn't get too small ([221b320](https://github.com/dpc-sdp/ripple-framework/commit/221b3207e4aede58d32fc42d27273460eb4d53f3))
+* **@dpc-sdp/ripple-ui-core:** remove fixed type class from cta headings ([cf36d42](https://github.com/dpc-sdp/ripple-framework/commit/cf36d42f9ce9a12a2b9431c79cf67748c0782a60))
+
 # [2.1.0-alpha.148](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.147...v2.1.0-alpha.148) (2023-04-20)
 
 ### Bug Fixes

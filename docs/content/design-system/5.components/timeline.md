@@ -1,6 +1,6 @@
 ---
-title: Chip
-description: An interactive element to draw user attention to a category.
+title: Timeline
+description: Blocks of content displayed in a linear order.
 layout: page
 label: Core
 links:
@@ -11,72 +11,76 @@ links:
 ---
 
 ## Usage
-Chips represent options in a specific context. They are unlike buttons, which are persistent.
+A timeline displays a visual journey of short blocks of content in a linear order. Each block can be actionable for users to navigate through to related content.
 
-A chip labels or draws attention to categorised content. They can be interactive and help users navigate to content easily.
+A timeline can include a combination of:
+- heading
+- subheading
+- summary
+- image.
 
-When displaying multiple chips together, place them in a row.
+Timelines create a clear hierarchy. They help users to make a connection from one linear piece of information to another.
+
+For example, this could include:
+- stages or steps along a process
+- sequential outcomes or dates.
+
+A timeline displays in order from top to bottom. Only include 3 to 8 steps to prevent it from overwhelming the user.
 
 ::DocsExample
 ---
-id: core-navigation-chip--default-story
+id: core-containers-timeline--default-story
 ---
 ::
 
 ### When and how to use
-- Include keywords.
-- Use on any content page.
-- Link through to the topic page.
+- Always include a title for the entire timeline.
+- Add a heading, subheading, short summary and optional image for each block.
+- Only include 3 to 8 blocks per timeline.
+- Add a link if you're providing more details on another page.
 
 ### When and how not to use
-- Don’t include punctuation.
-- Don’t use them as a heading.
-- Don’t include more than 4 words.
-- Don’t use without an interaction or link.
-
----
-
-## Chips or Buttons? 
-While chips and buttons both prompt calls to action, they are different.
-
-Chips should sit together, and buttons separate.
-
-Chips have context and react, where buttons remain static.
-
-Chips represent forking paths in a user experience, while buttons represent a linear step.
+- Don't add less than 3 or more than 8 blocks.
+- Don't use without a heading for each block.
+- Never include unrelated content.
+- Don't use if content doesn't come together in sequential or linear order. Consider bullets points instead.
 
 ---
 
 ## Variants
-The chip has a default and reverse variant, allowing for flexibility of use on a range of backgrounds.
+Timeline has two variants:
+- Default.
+- Progressive.
 
 ### Default
+This is for steps or stages along a process. Use the default timeline when progress is not relevant to the user.
+
 ::DocsExample
 ---
-id: core-navigation-chip--default-story
+id: core-containers-timeline--default-story
 ---
 ::
 
-### Reverse
-Use the reverse variant when the chip appears on the primary colour.
+### Progressive
+Use the progressive variant to show the progress or status of the content to the user.
 
 ::DocsExample
 ---
-id: core-navigation-chip--reversed
+id: core-containers-timeline--progressive-active-2
 ---
 ::
 
 ---
 
 ## Theming
-The chip uses the primary and primary-accessible colour tokens. This is to meet colour contrast requirements when theming.
-
-If the site primary colour is ‘light’, the chip content will display in the type-default colour. The border will always take on the site primary colour. 
+Timeline uses colour to:
+- show progress
+- highlight interactive states.
 
 ::DocsThemeChooser
   ::DocsExample
   ---
-  id: core-navigation-chip--default-story
+  id: core-containers-timeline--progressive-active-2
   ---
   ::
 ::

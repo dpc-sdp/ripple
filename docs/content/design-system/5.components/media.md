@@ -12,8 +12,6 @@ links:
 
 ## Usage
 
-Imagery communicates and differentiates a product through visuals.
-
 Media is a container that houses media items to use in other components. These can include in a media gallery, on cards, etc.
 
 Use images if they help users complete a task. Images can make it easier for some people to understand information.

@@ -103,7 +103,8 @@ export default class TidePageApi extends TideApiBase {
   async getPageByPath(
     path: string,
     siteQuery: string | undefined,
-    config = {}
+    params = {},
+    headers = {}
   ) {
     const site = siteQuery || this.site
 
@@ -112,7 +113,7 @@ export default class TidePageApi extends TideApiBase {
     }
 
     if (this.isPreviewLink(path)) {
-      return this.getPageFromPreviewLink(path, site, config)
+      return this.getPageFromPreviewLink(path, site, params, headers)
     }
 
     const route = await this.getRouteByPath(path, site)
@@ -124,14 +125,14 @@ export default class TidePageApi extends TideApiBase {
         }
       }
       const includes = this.getResourceIncludes(route)
-      const params = {
+      const fullParams = {
         site,
-        ...config
+        ...params
       }
       if (includes !== '') {
-        params['include'] = includes
+        fullParams['include'] = includes
       }
-      return this.getPageByRouteData(route, { params })
+      return this.getPageByRouteData(route, { params: fullParams })
     }
   }
 
@@ -168,7 +169,8 @@ export default class TidePageApi extends TideApiBase {
   async getPageFromPreviewLink(
     path,
     site,
-    config: any = { params: {}, headers: {} }
+    params = {},
+    headers = {}
   ): Promise<any> {
     const { 2: contentType, 3: uuid, 4: revisionId } = path.split('/')
     const routeData = {
@@ -180,16 +182,16 @@ export default class TidePageApi extends TideApiBase {
     const resourceVersion =
       revisionId === 'latest' ? 'rel:working-copy' : `id:${revisionId}`
 
-    const params: any = {
-      ...config.params,
+    const fullParams: any = {
+      ...params,
       site,
       include: this.getResourceIncludes(routeData),
       resourceVersion
     }
 
     return await this.getPageByRouteData(routeData, {
-      headers: config.headers,
-      params
+      headers,
+      params: fullParams
     })
   }
 

@@ -5,7 +5,7 @@
   "main": "./nuxt.config.ts",
   "exports": {
     ".": "./nuxt.config.ts",
-    "./mapping": "./mapping/index.ts",
+    "./utils": "./utils/index.ts",
     "./types": "./types.ts"
   },
   "version": "2.1.0-alpha.146",

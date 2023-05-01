@@ -3,6 +3,7 @@ import { defineEventHandler, getQuery, H3Event, getCookie } from 'h3'
 import { createHandler, TidePageApi } from '@dpc-sdp/ripple-tide-api'
 import { BadRequestError } from '@dpc-sdp/ripple-tide-api/errors'
 import { useNitroApp } from '#imports'
+import { isPreviewPath } from '@dpc-sdp/nuxt-ripple-preview/utils'
 export const createPageHandler = async (
   event: H3Event,
   tidePageApi: TidePageApi
@@ -19,9 +20,14 @@ export const createPageHandler = async (
     }
     const tokenCookie = getCookie(event, 'nuxt_access_token')
 
-    return await tidePageApi.getPageByPath(query.path, query.site, {
-      headers: { 'X-OAuth2-Authorization': `Bearer ${tokenCookie}` }
-    })
+    const headers = {}
+
+    // Only add the access token to the headers if the path is a preview path
+    if (isPreviewPath(query.path)) {
+      headers['X-OAuth2-Authorization'] = `Bearer ${tokenCookie}`
+    }
+
+    return await tidePageApi.getPageByPath(query.path, query.site, {}, headers)
   })
 }
 

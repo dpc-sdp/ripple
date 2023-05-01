@@ -40,8 +40,8 @@ The footer is made up of:
 - core site links
   - This must always be used. It includes links such as the privacy statement, contact information and terms of use.
 - copyright statement
-  - This adds a copyright statement to the footer to clarify who owns the copyright, specific to your agency or department. For [vic.gov.au](https://www.vic.gov.au) services, add the Vic Gov State Logo to keep things consistent with the rest of [vic.gov.au](https://www.vic.gov.au).
-- acknowledgement of country (acknowledgment component).
+  - This adds a copyright statement to the footer to clarify who owns the copyright, specific to your agency or department. For vic.gov.au services, add the Vic Gov State Logo to keep things consistent with the rest of vic.gov.au.
+- acknowledgement of country ([acknowledgment](/design-system/components/acknowledgment/) component).
 
 ### When and how to use
 
@@ -91,20 +91,11 @@ The footer has its own colour tokens. Because of this, it's possible to apply a 
 
 This is only recommended as a last resort.
 
-Custom styling includes the following tokens:
-
-- rpl-clr-footer (Background fill)
-- rpl-clr-footer-alt (Dividing lines)
-- rpl-clr-type-footer-contrast (Content / type + icons)
-- rpl-clr-type-footer-accessible (Top border)
-
-Accessibility testing is required on ‘rpl-clr-footer’ paired with both ‘rpl-clr-type-footer-contrast' and 'rpl-clr-type-footer-accessible’.
-
 See [component specific theming guidance for designers]().
 
 ::DocsExample
 ---
-id: core-navigation-footer--neutral
+id: core-navigation-footer--default-story&globals=theme:docsTheme3
 ---
 ::
 

@@ -14,8 +14,6 @@ links:
 
 Use Key Dates to provide a card with brief summaries of up to two events or key dates with a call to action.
 
-Use the card with up to two dates or events.
-
 ::DocsExample
 ---
 id: core-navigation-card--key-dates
@@ -29,7 +27,6 @@ id: core-navigation-card--key-dates
 - Only use it once
 - Use clear and concise content
 - Only use as the last card in the grid
-- It only appears on the [vic.gov.au](https://www.vic.gov.au) home page
 - Include a summary
 
 ### When and how not to use

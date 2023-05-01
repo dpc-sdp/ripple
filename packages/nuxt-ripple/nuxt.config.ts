@@ -1,4 +1,3 @@
-import 'dotenv/config'
 import { defineNuxtConfig } from 'nuxt/config'
 import { createResolver } from '@nuxt/kit'
 

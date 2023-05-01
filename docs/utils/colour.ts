@@ -1,5 +1,5 @@
-import color from '../../packages/ripple-ui-core/tokens/settings/color.yaml'
-import theme from '../../packages/ripple-ui-core/tokens/settings/theme.yaml'
+import color from '../../packages/ripple-ui-core/src/tokens/settings/color.yaml'
+import theme from '../../packages/ripple-ui-core/src/tokens/settings/theme.yaml'
 
 interface RplColour {
   value: string

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.147](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.146...v2.1.0-alpha.147) (2023-04-20)
+
+### Features
+
+* **@dpc-sdp/ripple-ui-core:** fix storybook alert test, add $rplEvent provider ([62af966](https://github.com/dpc-sdp/ripple-framework/commit/62af966abf0e04525457fc07b57eef0351c089b6))
+
 # [2.1.0-alpha.127](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.126...v2.1.0-alpha.127) (2023-03-31)
 
 ### Bug Fixes

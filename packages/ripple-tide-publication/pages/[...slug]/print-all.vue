@@ -64,6 +64,7 @@ onMounted(() => {
     </template>
     <template #body>
       <RplInPageNavigation
+        v-if="childPages.length"
         title="On this page"
         :items="menu.publication.items"
       />

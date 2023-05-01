@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.150](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.149...v2.1.0-alpha.150) (2023-05-01)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-landing-page
+
+# [2.1.0-alpha.149](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.148...v2.1.0-alpha.149) (2023-04-26)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-landing-page
+
+# [2.1.0-alpha.148](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.147...v2.1.0-alpha.148) (2023-04-20)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-landing-page
+
+# [2.1.0-alpha.147](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.146...v2.1.0-alpha.147) (2023-04-20)
+
+### Features
+
+* **@dpc-sdp/nuxt-ripple-analytics:** :sparkles: adds analytics package and sample event ([45ae920](https://github.com/dpc-sdp/ripple-framework/commit/45ae920d194d4f43187df5b3933f68b0d097fe35))
+* **@dpc-sdp/nuxt-ripple-analytics:** add ga events ([05a15a5](https://github.com/dpc-sdp/ripple-framework/commit/05a15a5ebe1543dc6fc697b5c2d93777dac8a322))
+* **@dpc-sdp/nuxt-ripple-analytics:** switch to rpl events composable ([d18f4e8](https://github.com/dpc-sdp/ripple-framework/commit/d18f4e8f2c6f5c030c9a0781d9583fab60dc6903))
+
 # [2.1.0-alpha.146](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.145...v2.1.0-alpha.146) (2023-04-19)
 
 **Note:** Version bump only for package @dpc-sdp/ripple-tide-landing-page

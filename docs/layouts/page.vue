@@ -16,7 +16,7 @@
         />
       </template>
       <ContentRenderer
-        :tag="page.tag || 'RplContent'"
+        :tag="page.tag || 'DocsContent'"
         v-if="page"
         :key="page._id"
         :value="page"

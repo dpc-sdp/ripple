@@ -11,6 +11,7 @@ import { withSource } from './utils/withSource'
 // Storybook specific CSS
 import './storybook.css'
 import withTheme from './utils/withTheme'
+import withEventBus from './utils/withEventBus'
 
 // Add SVG based image placeholder for use in all stories
 window.svgPlaceholder = svgPlaceholder
@@ -52,7 +53,8 @@ export const decorators = [
   withBackground,
   withDesign,
   withTheme,
-  withSource
+  withSource,
+  withEventBus
 ]
 
 export const globalTypes = {
@@ -64,12 +66,14 @@ export const globalTypes = {
       icon: 'paintbrush',
       items: Object.entries(themes).map(([themeId, config]) => {
         return {
-          value: themeId, left: 'Theme:', title: config.label
+          value: themeId,
+          left: 'Theme:',
+          title: config.label
         }
       }),
       showName: true,
-      dynamicTitle: true,
-    },
+      dynamicTitle: true
+    }
   },
   buttonTheme: {
     name: 'Button theme',
@@ -78,11 +82,11 @@ export const globalTypes = {
     toolbar: {
       icon: 'button',
       items: [
-        {value: 'default', left: 'Button theme', title: 'Default buttons'},
-        {value: 'neutral', left: 'Button theme', title: 'Neutral buttons'}
+        { value: 'default', left: 'Button theme', title: 'Default buttons' },
+        { value: 'neutral', left: 'Button theme', title: 'Neutral buttons' }
       ],
       showName: true,
-      dynamicTitle: true,
-    },
-  },
-};
+      dynamicTitle: true
+    }
+  }
+}

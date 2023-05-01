@@ -3,12 +3,16 @@ import { useTideError, useFetch, useRuntimeConfig, useNuxtData } from '#imports'
 
 export const useTidePublicationChildren = async (
   publicationId: string,
-  childIds: string
+  childIds: string[]
 ): Promise<indexNode[]> => {
   const { public: config } = useRuntimeConfig()
   const { data: children } = useNuxtData(
     `publication-children-${publicationId}`
   )
+
+  if (!childIds?.length) {
+    return []
+  }
 
   if (!children.value) {
     const { data, error } = await useFetch('/api/tide/publication-children', {

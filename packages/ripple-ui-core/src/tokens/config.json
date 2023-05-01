@@ -1,5 +1,5 @@
 {
-  "source": ["tokens/settings/*.yaml"],
+  "source": ["src/tokens/settings/*.yaml"],
   "platforms": {
     "css": {
       "transformGroup": "css",

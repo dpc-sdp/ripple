@@ -118,7 +118,7 @@ export const SingleTemplate = (args) => ({
           return {
             args,
             dismissed,
-            onDismiss: (id) => dismissed[id] = !dismissed[id],
+            onDismiss: ({ id }) => dismissed[id] = !dismissed[id],
             messages: ['An informative message.', 'A warning message.', 'A critical message.']
           }
         },
@@ -157,9 +157,7 @@ export const SingleTemplate = (args) => ({
           return {
             args,
             dismissed,
-            onDismiss: (id) => {
-              dismissed.value = !dismissed.value
-            }
+            onDismiss: () =>  dismissed.value = !dismissed.value
           }
         },
         template: `<div style="position: relative;">

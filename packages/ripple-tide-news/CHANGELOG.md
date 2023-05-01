@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.150](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.149...v2.1.0-alpha.150) (2023-05-01)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-news
+
+# [2.1.0-alpha.149](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.148...v2.1.0-alpha.149) (2023-04-26)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-news
+
+# [2.1.0-alpha.148](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.147...v2.1.0-alpha.148) (2023-04-20)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-news
+
+# [2.1.0-alpha.147](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.146...v2.1.0-alpha.147) (2023-04-20)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-news
+
 # [2.1.0-alpha.146](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.145...v2.1.0-alpha.146) (2023-04-19)
 
 **Note:** Version bump only for package @dpc-sdp/ripple-tide-news

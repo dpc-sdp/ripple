@@ -21,7 +21,7 @@ A table can include a combination of:
 - table caption, which helps users find, navigate and understand tables. This should describe the table's contents
 - table footer, which can provide extra details.
 
-For complex data, consider using the [Table data]() component instead.
+For complex data, consider using the [Table data](https://deploy-preview-457--ripple-docs.netlify.app/design-system/components/table-data/) component instead.
 
 ::DocsExample
 ---

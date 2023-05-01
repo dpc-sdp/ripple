@@ -6,9 +6,9 @@ export enum AuthRoutes {
 }
 
 export enum AuthCookieNames {
-  ACCESS_TOKEN = 'nuxt_access_token',
-  ACCESS_TOKEN_EXPIRY = 'nuxt_access_token_expiry',
-  STATE = 'nuxt_auth_state'
+  ACCESS_TOKEN = 'preview.access_token',
+  ACCESS_TOKEN_EXPIRY = 'preview.access_token_expiry',
+  STATE = 'preview.state'
 }
 
 export const LOGIN_DESTINATION_KEY = 'login-destination'

@@ -8,5 +8,5 @@ defineProps<{
 </script>
 
 <template>
-  <RplAccordion :id="id" :items="items" :numbered="numbered" />
+  <RplAccordion :id="id" :items="items" :numbered="numbered" :title="title" />
 </template>

@@ -1,6 +1,6 @@
 ---
 title: In-page Navigation
-description: In-page navigation helps users scan a page and allows for quick navigation.
+description: Help users scan a page and allow for quick navigation.
 layout: page
 label: Core
 links:

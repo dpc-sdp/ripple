@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.150](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.149...v2.1.0-alpha.150) (2023-05-01)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** fixed remaining broken storybook images ([1eac61a](https://github.com/dpc-sdp/ripple-framework/commit/1eac61a57b98066e851923bc19941e2980319a21))
+
 # [2.1.0-alpha.149](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.148...v2.1.0-alpha.149) (2023-04-26)
 
 ### Bug Fixes

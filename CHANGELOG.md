@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.150](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.149...v2.1.0-alpha.150) (2023-05-01)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-publication:** fixed print all page crash when no publication childrem ([d043e67](https://github.com/dpc-sdp/ripple-framework/commit/d043e670fd08a0eecff64fe443697aceaf5e80ef))
+* **@dpc-sdp/ripple-tide-search:** fixed search results not displaying after performance updates ([3b72fae](https://github.com/dpc-sdp/ripple-framework/commit/3b72fae11c98595f4a1126703f11037be0ab5821))
+* **@dpc-sdp/ripple-ui-core:** fixed remaining broken storybook images ([1eac61a](https://github.com/dpc-sdp/ripple-framework/commit/1eac61a57b98066e851923bc19941e2980319a21))
+
 # [2.1.0-alpha.149](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.148...v2.1.0-alpha.149) (2023-04-26)
 
 ### Bug Fixes

@@ -2,7 +2,7 @@
   <div class="rpl-card-compact-grid">
     <h2 v-if="title" class="rpl-card-compact__title">{{ title }}</h2>
     <rpl-row v-if="cards && cards.length" row-gutter class="rpl-card-compact__cards">
-      <rpl-col catchChildError v-for="(card, index) in cards" :key="index" cols="full" :colsBp="cardColsSetting" class="rpl-card-compact__card-col">
+      <rpl-col catchChildError v-for="(card, index) in cards" :key="index" cols="full" :colsBp="childColsBp" class="rpl-card-compact__card-col">
         <rpl-card-compact
           class="rpl-card-compact__card"
           :image="card.image"
@@ -18,8 +18,11 @@
 <script>
 import { RplRow, RplCol } from '@dpc-sdp/ripple-grid'
 import RplCardCompact from './CardCompact'
+import provideChildCols from "@dpc-sdp/ripple-global/mixins/ProvideChildCols"
+
 export default {
   name: 'RplCardCompactGrid',
+  mixins: [provideChildCols],
   components: {
     RplRow,
     RplCol,
@@ -27,15 +30,14 @@ export default {
   },
   props: {
     title: String,
-    cards: Array
-  },
-  data () {
-    return {
-      cardColsSetting: {
+    cards: Array,
+    childColsBp: {
+      type: Object,
+      default: () => ({
         s: 6,
         m: 4,
         l: 3
-      }
+      })
     }
   }
 }

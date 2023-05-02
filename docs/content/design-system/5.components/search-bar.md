@@ -137,7 +137,7 @@ The search bar uses colour for:
 ::DocsThemeChooser
   ::DocsExample
   ---
-  id: ore-navigation-search-bar--default-story
+  id: core-navigation-search-bar--default-story
   ---
   ::
   ::DocsExample

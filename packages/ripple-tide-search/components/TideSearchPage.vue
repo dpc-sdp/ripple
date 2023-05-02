@@ -217,7 +217,7 @@ const getFilterOptions = (field) => {
       </RplHeroHeader>
     </template>
     <template #body>
-      <RplPageComponent>
+      <RplPageComponent v-if="searchState.totalResults">
         <p class="rpl-type-label rpl-u-padding-b-6">
           Displaying {{ searchState.pagingStart }}-{{
             searchState.pagingEnd
@@ -228,6 +228,16 @@ const getFilterOptions = (field) => {
       <RplPageComponent>
         <div class="rpl-grid">
           <div class="rpl-col-12 rpl-col-8-m">
+            <RplContent>
+              <p class="rpl-type-h3">
+                Sorry! We couldn't find any matches for '{{ route.query.q }}'.
+              </p>
+              <p>To improve your search results:</p>
+              <ul>
+                <li>use different or fewer keywords</li>
+                <li>check spelling.</li>
+              </ul>
+            </RplContent>
             <RplResultListing>
               <RplResultListingItem
                 v-for="(result, idx) in results"

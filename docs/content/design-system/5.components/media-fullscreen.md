@@ -22,7 +22,7 @@ See [media](/design-system/components/media/) for information relating to file t
 
 ::DocsExample
 ---
-id: core-containers-media-gallery--single-item
+id: core-containers-media-gallery--default-story
 ---
 ::
 
@@ -50,7 +50,7 @@ Media Fullscreen adopts its theming from the [pagination](/design-system/compone
 ::DocsThemeChooser
   ::DocsExample
   ---
-  id: core-containers-media-gallery--single-item
+  id: core-containers-media-gallery--default-story
   ---
   ::
 ::

@@ -82,7 +82,7 @@ The primary navigation has show and hide behaviour on user scroll.
 - Scroll up - the primary navigation shows at the top of the viewport. 
 
 #### Interaction with other components
-When a site has a [quick exit button](), it sits underneath the primary navigation. If the user opens the mega menu or search menu, the quick exit button moves inside the menu container. So, this action will always be available to users.
+When a site has a [quick exit button](https://deploy-preview-457--ripple-docs.netlify.app/design-system/components/button/#destructive), it sits underneath the primary navigation. If the user opens the mega menu or search menu, the quick exit button moves inside the menu container. So, this action will always be available to users.
 
 ---
 
@@ -119,7 +119,7 @@ Primary navigation also adopts its theming from the [Search bar]() component.
 ---
 
 ## Accessibility 
-To meet [WCAG2.2 Criterion 2.5.8](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum), the primary navigation bar uses the space either side of menu items. This allows for increased touch targets and the use of the [block focus state]().
+To meet [WCAG2.2 Criterion 2.5.8](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum), the primary navigation bar uses the space either side of menu items. This allows for increased touch targets and the use of the [block focus state](https://deploy-preview-457--ripple-docs.netlify.app/design-system/styles/focus-state/).
 
 > 2.5.8 Target Size (Minimum) The size of the [target](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum#dfn-target) for [pointer inputs](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum#dfn-pointer-input) is at least 24 by 24 [CSS pixels](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum#dfn-css-pixel),
 

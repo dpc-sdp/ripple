@@ -138,6 +138,12 @@ Complex media will always display the full image. The media item will display at
 
 When the media is fullscreen, it displays in the [media fullscreen](/design-system/components/media-fullscreen/) component.
 
+::DocsExample
+---
+id: core-containers-media-embed--complex-image
+---
+::
+
 ---
 
 ## Theming

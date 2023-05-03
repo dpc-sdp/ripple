@@ -15,7 +15,7 @@ Users can use checkboxes to:
 - select one or more list options
 - toggle one option on or off.
 
-Don't use a checkbox if only one option is available, or if you expect the user to only select one option. For this, use the [radio button]() component instead. 
+Don't use a checkbox if only one option is available, or if you expect the user to only select one option. For this, use the [radio button](https://deploy-preview-457--ripple-docs.netlify.app/design-system/components/radio-button/) component instead. 
 
 ::DocsExample
 ---
@@ -49,7 +49,7 @@ Not all users will know the visual difference between a checkbox and a radio but
 - Ensure you list options in a logical and unbiased manner. It could be helpful to users if you order them from most-to-least common.
 
 ### When and how not to use
-- Don't use checkboxes for a single selectable list option. Use [radio buttons]() for this.
+- Don't use checkboxes for a single selectable list option. Use [radio buttons](https://deploy-preview-457--ripple-docs.netlify.app/design-system/components/radio-button/) for this.
 - Don't pre-select checkboxes. Users are more likely to not realise they’ve submitted the wrong answer or missed a question.
 
 ---
@@ -81,10 +81,10 @@ All form inputs share error state styling.
 Make sure errors follow error message guidance. Always have specific error messages for specific errors.
 
 **If nothing is selected and the question has options in it**
-Structure this message to help the user to choose which options apply to them. Say ‘Select if [options]’. For example, ‘Select if you like summer, winter, autumn, and/or spring.'
+Structure this message to help the user to choose which options apply to them. Say ‘Select if \[options\]’. For example, ‘Select if you like summer, winter, autumn, and/or spring.'
 
 **If nothing is selected and the question does not have options in it**
-Structure this message to help the user to choose which options apply to them. Say ‘select [options]’. For example, 'Select your favourite season.'
+Structure this message to help the user to choose which options apply to them. Say ‘select \[options\]’. For example, 'Select your favourite season.'
 
 ::DocsExample
 ---

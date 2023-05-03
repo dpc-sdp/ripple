@@ -109,7 +109,7 @@ The introduction banner:
 
 ::DocsExample
 ---
-id: /core-containers-header--intro-with-links
+id: core-containers-header--intro-with-links
 ---
 ::
 

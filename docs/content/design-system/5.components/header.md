@@ -20,7 +20,7 @@ The header can also support a campaign logo if required. This will display above
 
 ::DocsExample
 ---
-id: core-containers-header--default-story
+id: core-containers-header--default-journey-links
 ---
 ::
 
@@ -77,7 +77,7 @@ Reverse uses reversed blocked type for the title and introduction text. This add
 
 ::DocsExample
 ---
-id: core-containers-header--reverse
+id: core-containers-header--reverse-journey-links
 ---
 ::
 
@@ -109,7 +109,7 @@ The introduction banner:
 
 ::DocsExample
 ---
-id: core-containers-header--intro
+id: /core-containers-header--intro-with-links
 ---
 ::
 
@@ -154,7 +154,7 @@ If you choose neutral button for your site, the header will display buttons in t
   ::
   ::DocsExample
   ---
-  id: core-containers-header--reverse
+  id: core-containers-header--intro-with-links
   ---
   ::
 ::

@@ -36,7 +36,7 @@ Avoid using placeholder text where possible. It disappears when a user starts ty
 
 If placeholder text can’t be avoided, don’t use it to replace a label or hint text. Don’t use it to show an example or to include any critical information.
 
-#### Hint text
+**Hint text**
 Hint text can be used to tell the user what, or how, to successfully complete a date input.
 
 For example, hint text can include specific formatting examples or requirements.
@@ -85,72 +85,72 @@ Always have specific error messages for specific errors. Users need to understan
 
 When creating an error message for a date input, use the wording below.
 
-#### Error: whole date field is empty
+**Error: whole date field is empty**
 - Highlight area: entire date input.
-- Error message: ‘Enter [the missing information]'.
+- Error message: ‘Enter \[the missing information\]'.
 - Example: ‘Enter your dog’s birthday'.
 
-#### Error: some of date field is empty or incomplete
+**Error: some of date field is empty or incomplete**
 - Highlight area: relevant day, month and/or year fields.
-- Error message: ‘[Information requested] must include a [name of empty or incomplete field]’.
+- Error message: ‘\[Information requested\] must include a \[name of empty or incomplete field\]’.
 - Example: ‘Your dog’s birthday must include a month'.
 
-#### Error: impossible date entered
+**Error: impossible date entered**
 - Highlight area: relevant day, month and/or year fields.
-- Error message: ‘[Information requested] must be a real date’.
+- Error message: ‘\[Information requested\] must be a real date’.
 - Example: ‘Your dog’s birthday must be a real date'.
 
-#### Error: future date given when past date needed
+**Error: future date given when past date needed**
 - Highlight area: entire date input.
-- Error message: ‘[Information requested] must be in the past’.
+- Error message: ‘\[Information requested\] must be in the past’.
 - Example: ‘Your dog’s first playdate must be in the past'.
 
-#### Error: future date given when today or past date needed
+**Error: future date given when today or past date needed**
 - Highlight area: entire date input.
-- Error message: ‘[Information requested] must be today or in the past’.
+- Error message: ‘\[Information requested\] must be today or in the past’.
 - Example: ‘Your dog’s first beach visit must be today or in the past'.
 
-#### Error: past date given when future date needed
+**Error: past date given when future date needed**
 - Highlight area: entire date input.
-- Error message: ‘[Information requested] must be in the future’.
+- Error message: ‘\[Information requested\] must be in the future’.
 - Example: ‘Your dog’s next raincoat purchase must be in the future'.
 
-#### Error: past date given when today or future date needed
+**Error: past date given when today or future date needed**
 - Highlight area: entire date input.
-- Error message: ‘[Information requested] must be today or in the future’.
+- Error message: ‘\[Information requested\] must be today or in the future’.
 - Example: ‘Your dog’s next zoomies must be today or in the future'.
 
-#### Error: date is not on or after another particular date
+**Error: date is not on or after another particular date**
 - Highlight area: entire date input.
-- Error message: ‘[Information requested] must be the same as or after [particular date and optional description]’.
+- Error message: ‘\[Information requested\] must be the same as or after \[particular date and optional description\]’.
 - Example: ‘Your dog’s next holiday must be on or after 2 April 2027 when you go on a roadtrip'.
 
-#### Error: date is not after another particular date
+**Error: date is not after another particular date**
 - Highlight area: entire date input.
-- Error message: ‘[Information requested] must be after [particular date and optional description]’.
+- Error message: ‘\[Information requested\] must be after \[particular date and optional description\]’.
 - Example: ‘Your dog’s next blow-dry must be after 2 April 2026 when the groomer returns'.
 
-#### Error: date is not the same as or before another particular date
+**Error: date is not the same as or before another particular date**
 - Highlight area: entire date input.
-- Error message: ‘[Information requested] must be on or before [particular date and optional description]’.
+- Error message: ‘\[Information requested\] must be on or before \[particular date and optional description\]’.
 - Example: ‘Your dog’s next hike must be on or before 2 January 2025'.
 
-#### Error: date is not before another particular date
+**Error: date is not before another particular date**
 - Highlight area: entire date input.
-- Error message: ‘[Information requested] must be before [particular date and optional description]’.
+- Error message: ‘\[Information requested\] must be before \[particular date and optional description\]’.
 - Example: ‘Your dog’s next movie and pizza night must before 2 August 2027'.
 
-#### Error: date is not between 2 other dates
+**Error: date is not between 2 other dates**
 - Highlight area: entire date input.
-- Error message: ‘[Information requested] must be between [earliest date] and [latest date and optional description]’.
+- Error message: ‘\[Information requested\] must be between \[earliest date\] and \[latest date and optional description\]’.
 - Example: ‘Your dog’s next cuddles must be between 2 September 2026 and 3 September 2026'.
 
-#### Error: date uses known characters that aren’t allowed
+**Error: date uses known characters that aren’t allowed**
 - Highlight area: relevant day, month and/or year fields.
-- Error message: ‘The date must not include [characters]'.
+- Error message: ‘The date must not include \[characters\]'.
 - Example: ‘The date must not include + & ~'.
 
-#### Error: date uses unknown characters that aren’t allowed
+**Error: date uses unknown characters that aren’t allowed**
 - Highlight area: relevant day, month and/or year fields.
 - Error message: ‘The date must only include numbers'.
 

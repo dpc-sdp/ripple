@@ -83,15 +83,15 @@ All form inputs share error state styling.
 
 Make sure errors follow error message guidance. Always have specific error messages for specific errors.
 
-#### If it’s a ‘yes’ or ‘no’ question
+**If it’s a ‘yes’ or ‘no’ question**
 
 Structure this message to help the user understand why they would say yes. For example, say ‘Select yes if [true value]’. Like, ‘Select yes if you drive a car’.
 
-#### If there are two options which are not ‘yes’ and ‘no’
+**If there are two options which are not ‘yes’ and ‘no’**
 
 Structure this message to help the user to choose one of two options. For example, say 'Select if [true value]’. Like, 'Select if you drive a car or a truck'.
 
-#### If there are more than two options
+**If there are more than two options**
 
 Structure this message to help the user to choose one from more than two options. For example, ‘Select the day of the week you drive the most.'
 

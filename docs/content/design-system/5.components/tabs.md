@@ -18,7 +18,7 @@ Tabs let users quickly switch between related information if:
 - the first section is more relevant (for most users) than the other sections
 - users won't need to view all the sections at once.
 
-Tabs allow users to navigation different sections without having to leave the page. They will always feature at least two options, and one tab is active at a time.
+Tabs allow users to navigate different sections without having to leave the page. They will always feature at least two options, and one tab is active at a time
 
 Use tabs to organise content so a user doesn't have to navigate away to complete their task. Tabs are useful for maps or dashboards.
 

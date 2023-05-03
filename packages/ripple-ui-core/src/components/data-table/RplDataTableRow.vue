@@ -40,7 +40,7 @@ const structuredContent = computed(() => Array.isArray(props.content))
         :data-label="columns[index]"
         >{{ item }}</component
       >
-      <td class="rpl-data-table__actions">
+      <td v-if="content" class="rpl-data-table__actions">
         <RplButton
           class="rpl-data-table__toggle"
           variant="transparent"
@@ -50,7 +50,7 @@ const structuredContent = computed(() => Array.isArray(props.content))
         >
       </td>
     </tr>
-    <tr ref="r1" class="rpl-data-table__details">
+    <tr v-if="content" ref="r1" class="rpl-data-table__details">
       <td v-if="offset > 0" :colspan="offset"></td>
       <td :colspan="items.length + 1 - offset">
         <template v-if="structuredContent">

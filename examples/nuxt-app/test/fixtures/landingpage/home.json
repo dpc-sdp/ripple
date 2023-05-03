@@ -671,6 +671,35 @@
           }
         ]
       }
+    },
+    {
+      "component": "TideLandingPageDataTable",
+      "id": "1936",
+      "props": {
+        "caption": "",
+        "headingType": {
+          "horizontal": true,
+          "vertical": false
+        },
+        "orientation": "row",
+        "columns": [
+          "Row One Column One",
+          "Row One Column Two",
+          "Row One Column Three"
+        ],
+        "items": [
+          [
+            "Row Two Column One",
+            "Row Two Column Two",
+            "Row Two Column Three"
+          ],
+          [
+            "Row Three Column One",
+            "Row Three Column Two",
+            "Row Three Column Three"
+          ]
+        ]
+      }
     }
   ],
   "meta": {

@@ -73,7 +73,7 @@ const searchResultsMappingFn = (item): MappedSearchResult<any> => {
 
   return {
     id: item._meta.id,
-    component: 'RplSearchResult',
+    component: 'TideSearchResult',
     props: {
       title: item.title?.raw?.[0],
       url: item.url?.raw?.[0].replace(/\/site-(\d+)/, ''),

@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.151](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.150...v2.1.0-alpha.151) (2023-05-01)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-landing-page:** passed the title to accordion for analytics ([9c9b39b](https://github.com/dpc-sdp/ripple-framework/commit/9c9b39b76b620d72f27d124c13311ff00b0fdac7))
+* **@dpc-sdp/ripple-tide-landing-page:** removed double accordion title ([588321d](https://github.com/dpc-sdp/ripple-framework/commit/588321dd8e3dd38b0e497e915e23cb291fbc34bf))
+* **@dpc-sdp/ripple-tide-landing-page:** restore accordion title prop ([8c6b25d](https://github.com/dpc-sdp/ripple-framework/commit/8c6b25d75313d34171692bdf98f52a44a6417a1b))
+
+# [2.1.0-alpha.150](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.149...v2.1.0-alpha.150) (2023-05-01)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-publication:** fixed print all page crash when no publication childrem ([d043e67](https://github.com/dpc-sdp/ripple-framework/commit/d043e670fd08a0eecff64fe443697aceaf5e80ef))
+* **@dpc-sdp/ripple-tide-search:** fixed search results not displaying after performance updates ([3b72fae](https://github.com/dpc-sdp/ripple-framework/commit/3b72fae11c98595f4a1126703f11037be0ab5821))
+* **@dpc-sdp/ripple-ui-core:** fixed remaining broken storybook images ([1eac61a](https://github.com/dpc-sdp/ripple-framework/commit/1eac61a57b98066e851923bc19941e2980319a21))
+
 # [2.1.0-alpha.149](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.148...v2.1.0-alpha.149) (2023-04-26)
 
 ### Bug Fixes

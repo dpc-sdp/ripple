@@ -137,7 +137,7 @@ const pluginEmbededVideo = function (this: any) {
 const pluginImages = function (this: any) {
   // Find all drupal image embeds
   this.find('.embedded-entity--media--image').map((i: any, el: any) => {
-    const $img = this.find('img')
+    const $img = this.find(el).find('img')
     const width = $img.attr('width')
     const src = $img.attr('src')
     const alt = $img.attr('alt')

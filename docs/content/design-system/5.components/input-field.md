@@ -114,27 +114,27 @@ Always have specific error messages for specific errors. Users need to understan
 When creating an error message for an input field, use the wording below.
 
 **Error: empty input**
-- Error message: ‘Enter /[the missing information/]'.
+- Error message: ‘Enter \[the missing information\]'.
 - Example: 'Enter your name'.
 
 **Error: input is too long**
-- Error message: ‘/[The input/] must be /[number/] characters or less'.
+- Error message: ‘\[The input\] must be \[number\] characters or less'.
 - Example: 'Delivery address must be 56 characters or less'.
 
 **Error: input is too short**
-- Error message: ‘/[The input/] must be /[number/] characters or more'.
+- Error message: ‘\[The input\] must be \[number\] characters or more'.
 - Example: 'Previous employer must be 3 characters or more'.
 
 **Error: input is too long or too short**
-- Error message: ‘/[The input/] must be between /[number/] and /[number/] characters'.
+- Error message: ‘\[The input\] must be between \[number\] and \[number\] characters'.
 - Example: 'Justification must be between 3 and 56 characters'.
 
 **Error: input uses known characters that aren’t allowed**
-- Error message: ‘/[The input/] must not include /[characters/]'.
+- Error message: ‘\[The input\] must not include \[characters\]'.
 - Example: ‘Reasons must not include + & ~'.
 
 **Error: input uses unknown characters that aren’t allowed**
-- Error message: ‘/[The input/] must only include /[list of allowed characters/]'.
+- Error message: ‘\[The input\] must only include \[list of allowed characters\]'.
 - Example: ‘Explanations must only include letters, numbers and commas'.
 
 ---

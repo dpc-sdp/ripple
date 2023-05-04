@@ -19,13 +19,13 @@ const props = defineProps<{
   components: Array<TideDynamicPageComponent>
 }>()
 
-interface RplDescriptionListItem {
+interface IRplDescriptionListItem {
   term: string
   description: any
 }
 
 const processed = computed(() => {
-  const out: Array<RplDescriptionListItem> = []
+  const out: Array<IRplDescriptionListItem> = []
   for (const [key, value] of Object.entries(props.details)) {
     let val = value
     if (val) {

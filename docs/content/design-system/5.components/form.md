@@ -63,7 +63,7 @@ For example, hint text can include:
 Only use hint text where it’s needed. Don’t repeat the label. Don’t use it just to keep the layout consistent with other fields in the form.
 
 #### Placeholder text
-See Accessibility (below).
+[See accessibility](https://deploy-preview-457--ripple-docs.netlify.app/design-system/components/form/#accessibility) (below).
 
 #### Error messages
 All form inputs share error state styling. When creating an error message, it must follow the guidance from the individual form component’s page.
@@ -73,7 +73,7 @@ Always have specific error messages for specific errors. Users need to understan
 #### Buttons
 Button labels should say what the button will do when a user interacts with it.
 
-Ensure the main action button tells the user when the form is being submitted (see button loading spinner).
+Ensure the main action button tells the user when the form is being submitted ([see button loading spinner](https://deploy-preview-457--ripple-docs.netlify.app/design-system/components/button/#loading-spinner)).
 
 To avoid confusing users about how to submit the form, use only one main action button. Do not use a reset button.
 

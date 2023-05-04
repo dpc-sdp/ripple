@@ -6,13 +6,17 @@ import { useNitroApp } from '#imports'
 import ClientOAuth2 from 'client-oauth2'
 import { nanoid } from 'nanoid'
 import cookie from 'cookie-signature'
-import { AuthCookieNames } from '../../../utils/constants'
+import { AuthCookieNames, AuthRoutes } from '../../../utils/constants'
 
-export const createPageHandler = async (
+export const createOauthHandler = async (
   event: H3Event,
   authClient: ClientOAuth2
 ) => {
   return createHandler(event, 'TideOAuthHandler', async () => {
+    // Get the referer from the request headers to construct the redirect URI
+    const referer = new URL(event.node.req.headers.referer)
+    const redirectUri = `${referer.protocol}//${referer.host}${AuthRoutes.CALLBACK}`
+
     const config = useRuntimeConfig()
     const cookieSignSecret = config.tide.preview.cookieSignSecret
 
@@ -33,11 +37,17 @@ export const createPageHandler = async (
     })
 
     // Redirect to the Tide OAuth login page, passing the state value
-    return sendRedirect(event, authClient.code.getUri({ state }))
+    return sendRedirect(
+      event,
+      authClient.code.getUri({
+        state,
+        redirectUri
+      })
+    )
   })
 }
 
 export default defineEventHandler(async (event: H3Event) => {
   const nitroApp = useNitroApp()
-  return createPageHandler(event, nitroApp.tidePreviewOAuthClient)
+  return createOauthHandler(event, nitroApp.tidePreviewOAuthClient)
 })

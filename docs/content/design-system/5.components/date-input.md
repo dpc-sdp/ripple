@@ -36,7 +36,7 @@ Avoid using placeholder text where possible. It disappears when a user starts ty
 
 If placeholder text can’t be avoided, don’t use it to replace a label or hint text. Don’t use it to show an example or to include any critical information.
 
-**Hint text**
+#### Hint text
 Hint text can be used to tell the user what, or how, to successfully complete a date input.
 
 For example, hint text can include specific formatting examples or requirements.

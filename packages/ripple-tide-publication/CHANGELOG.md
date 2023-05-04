@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.152](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.151...v2.1.0-alpha.152) (2023-05-04)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-publication:** fixed incorrectly titled print all page ([e7b8161](https://github.com/dpc-sdp/ripple-framework/commit/e7b816103eeefb3a6351dac5bceccf6e02fe73f5))
+
 # [2.1.0-alpha.151](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.150...v2.1.0-alpha.151) (2023-05-01)
 
 **Note:** Version bump only for package @dpc-sdp/ripple-tide-publication

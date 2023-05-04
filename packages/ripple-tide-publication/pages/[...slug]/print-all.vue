@@ -42,7 +42,7 @@ onMounted(() => {
   <TideBaseLayout
     :site="site"
     :page="{}"
-    :pageTitle="`Sitemap - ${site.name}`"
+    :pageTitle="`Print - ${parentPage.title}`"
     pageLanguage="en-AU"
   >
     <template #breadcrumbs>

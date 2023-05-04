@@ -78,7 +78,12 @@ const backButtonHandler = () => {
       </li>
     </ul>
 
-    <div class="rpl-primary-nav__mega-menu-grid-outer">
+    <div
+      :class="{
+        'rpl-primary-nav__mega-menu-grid-outer': true,
+        'rpl-primary-nav__mega-menu-grid-outer--reduced': hasUserActions
+      }"
+    >
       <div class="rpl-primary-nav__mega-menu-grid-container">
         <div class="rpl-primary-nav__mega-menu-grid rpl-grid">
           <!-- Level 1 -->

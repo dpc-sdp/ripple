@@ -3,6 +3,45 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.152](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.151...v2.1.0-alpha.152) (2023-05-04)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-api:** :bug: use selected image if there are multiple ([bfafb43](https://github.com/dpc-sdp/ripple-framework/commit/bfafb4371aa387d83bc6d768cdbf982c24328f1c))
+* **@dpc-sdp/ripple-tide-publication:** fixed incorrectly titled print all page ([e7b8161](https://github.com/dpc-sdp/ripple-framework/commit/e7b816103eeefb3a6351dac5bceccf6e02fe73f5))
+* **@dpc-sdp/ripple-ui-core:** reduced menu padding when actions are present ([a6b2553](https://github.com/dpc-sdp/ripple-framework/commit/a6b2553e39cbc20da17f098ccbd1e3708a5629e2))
+
+# [2.1.0-alpha.151](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.150...v2.1.0-alpha.151) (2023-05-01)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-landing-page:** passed the title to accordion for analytics ([9c9b39b](https://github.com/dpc-sdp/ripple-framework/commit/9c9b39b76b620d72f27d124c13311ff00b0fdac7))
+* **@dpc-sdp/ripple-tide-landing-page:** removed double accordion title ([588321d](https://github.com/dpc-sdp/ripple-framework/commit/588321dd8e3dd38b0e497e915e23cb291fbc34bf))
+* **@dpc-sdp/ripple-tide-landing-page:** restore accordion title prop ([8c6b25d](https://github.com/dpc-sdp/ripple-framework/commit/8c6b25d75313d34171692bdf98f52a44a6417a1b))
+
+# [2.1.0-alpha.150](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.149...v2.1.0-alpha.150) (2023-05-01)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-publication:** fixed print all page crash when no publication childrem ([d043e67](https://github.com/dpc-sdp/ripple-framework/commit/d043e670fd08a0eecff64fe443697aceaf5e80ef))
+* **@dpc-sdp/ripple-tide-search:** fixed search results not displaying after performance updates ([3b72fae](https://github.com/dpc-sdp/ripple-framework/commit/3b72fae11c98595f4a1126703f11037be0ab5821))
+* **@dpc-sdp/ripple-ui-core:** fixed remaining broken storybook images ([1eac61a](https://github.com/dpc-sdp/ripple-framework/commit/1eac61a57b98066e851923bc19941e2980319a21))
+
+# [2.1.0-alpha.149](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.148...v2.1.0-alpha.149) (2023-04-26)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** ensure inset card image doesn't get too small ([221b320](https://github.com/dpc-sdp/ripple-framework/commit/221b3207e4aede58d32fc42d27273460eb4d53f3))
+* **@dpc-sdp/ripple-ui-core:** remove fixed type class from cta headings ([cf36d42](https://github.com/dpc-sdp/ripple-framework/commit/cf36d42f9ce9a12a2b9431c79cf67748c0782a60))
+* **docs:** fixed docs content styling issues after performance fixes ([0445ca9](https://github.com/dpc-sdp/ripple-framework/commit/0445ca901ec161c146f20cf94a3dd9f99ebacacf))
+
+# [2.1.0-alpha.148](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.147...v2.1.0-alpha.148) (2023-04-20)
+
+### Bug Fixes
+
+* **@dpc-sdp/nuxt-ripple:** added missing import for analytics module ([a66f8c3](https://github.com/dpc-sdp/ripple-framework/commit/a66f8c368bfb56c6a2df1a9590e5f59beb0de1d9))
+* **@dpc-sdp/ripple-ui-core:** :bug: fix analytics plugin imports ([2a847ec](https://github.com/dpc-sdp/ripple-framework/commit/2a847ec38f9399d7b20289d5412e3e7ed43582bc))
+
 # [2.1.0-alpha.147](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.146...v2.1.0-alpha.147) (2023-04-20)
 
 ### Bug Fixes

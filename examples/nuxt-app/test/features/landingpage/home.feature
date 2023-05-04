@@ -190,3 +190,11 @@ Feature: Home page
     Then the "media-gallery" modal should be "visible"
     When I click the "media-gallery" modal button "Close"
     Then the "media-gallery" modal should be "hidden"
+
+  @mockserver
+  Scenario: Page component - Data Table
+    Then a data table with ID "1936" should exist with the following structure
+      | type | cell-one             | cell-two             | cell-three             |
+      | th   | Row One Column One   | Row One Column Two   | Row One Column Three   |
+      | td   | Row Two Column One   | Row Two Column Two   | Row Two Column Three   |
+      | td   | Row Three Column One | Row Three Column Two | Row Three Column Three |

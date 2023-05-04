@@ -22,7 +22,7 @@
         }}</RplTextLink>
       </RplDescriptionListItem>
       <RplDescriptionListItem v-if="details.length > 0" term="Details:">
-        <ul>
+        <ul data-component-type="tide-event__details">
           <li
             v-for="(feature, i) in details"
             :key="i"

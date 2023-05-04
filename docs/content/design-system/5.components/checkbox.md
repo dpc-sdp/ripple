@@ -33,9 +33,11 @@ Use checkboxes with:
 Checkboxes should always have a form and checkbox label.
 
 **Single checkbox**
+
 Single checkboxes confirm a user's selection or preference. For example, if a user is agreeing to terms and conditions or are registering for an option.
 
 **Checkbox group**
+
 Checkbox groups provide a list of available items for the user to choose from. Always tell the user how many options they can select. 
 
 Always give checkbox groups a clear and descriptive label. The label should say what the options represent and should help the user to choose one. Doing so ensures good accessibility, as screen readers read each option's label.

@@ -1,6 +1,6 @@
 ---
-title: Table data
-description: Display complex data in a table with optional expandable rows.
+title: Table
+description: Tables make it easier for users to scan and compare data and content.
 layout: page
 label: Core
 links:
@@ -11,18 +11,16 @@ links:
 ---
 
 ## Usage
-Table data is a systematic grid of data or content, displayed in rows and columns. It can help users scan, analyse and compare data and content. It is best used to display complex data sets.
+A table is a systematic grid of data or content. They display in rows and columns to let users scan, analyse and compare information.
 
-The table responds on smaller screens. It has the option of expandable extra information in nested rows.
+Users tend to read tables one row or column at a time. So, it's important that content is simple and logical.
 
 A table can include a combination of:
 - row and/or column headings that help users know what the rows and columns represent
 - body rows that display data or content
-- a table caption that helps users find, navigate and understand tables. This should describe the tables contents
+- a table caption that helps users find, navigate and understand tables, which should describe the tables contents
 - a table footer that provides additional details, if required
 - an expandable section with expandable rows. These can show extra related or supplementary information or data.
-
-For simple data or content, consider using the [Table content](https://deploy-preview-457--ripple-docs.netlify.app/design-system/components/table-content/) component instead.
 
 ::DocsExample
 ---
@@ -39,7 +37,9 @@ The data table use a zebra stripe styling which, alternates table row colours. T
 
 Don't allow for too many columns as it's easier for users to scan down a list than to scroll across a page. So, consider more rows before more columns.
 
-If you're using a mobile stacked variant, never use row sorting. Sorting won’t work because the column headers are hidden at narrow widths. Instead, they feature in each row's cell content.
+The table responds on smaller screens. If this does not suit the content or data, the table can scroll horizontally instead. 
+
+The complex variant has the option of expandable extra information in nested rows. This is shown by a dropdown toggle. 
 
 ### When and how to use
 - Add a caption or footer, if required.
@@ -54,6 +54,28 @@ If you're using a mobile stacked variant, never use row sorting. Sorting won’t
 - Don't centre align content.
 
 ---
+
+## Variants
+Table has two variants:
+- Simple, best used for simple data.
+- Complex, best used for complex data.
+
+### Simple
+
+::DocsExample
+---
+id: core-containers-content--table-scrollable
+---
+::
+
+### Complex
+It is best used to display complex data sets.
+
+::DocsExample
+---
+id: core-containers-data-table--structured-content
+---
+::
 
 ## Theming
 Table data uses colour to indicate an action to the user.

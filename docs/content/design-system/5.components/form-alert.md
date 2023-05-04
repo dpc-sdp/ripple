@@ -71,7 +71,7 @@ On submission of the form, you must:
 - link to all answers with validation errors
 - write error messages for the summary alert exactly the same way they are worded for inline error messages.
 
-As well as showing an error summary, follow the validation pattern. For example, add, ‘Error: ’ to the start of the page /<title/> so screen readers read it out as soon as possible.
+As well as showing an error summary, follow the validation pattern. For example, add, ‘Error: ’ to the start of the page \<title\> so screen readers read it out as soon as possible.
 
 #### Linking from the error summary to each answer
 Each error must be linked in the error summary to the form field (answer) causing it.

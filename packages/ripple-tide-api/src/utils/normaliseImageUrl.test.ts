@@ -30,6 +30,15 @@ describe('normaliseImageUrl(baseUrl, imageUrl)', () => {
     ).toEqual('https://example.com/sites/default/files/wow/cool.jpg?some=param')
   })
 
+  it(`handles a base url with trailing slash correctly`, () => {
+    expect(
+      normaliseImageUrl(
+        'https://example.com/',
+        'https://different.com/sites/default/files/wow/cool.jpg?some=param'
+      )
+    ).toEqual('https://example.com/sites/default/files/wow/cool.jpg?some=param')
+  })
+
   it(`ignores an absolute url if it does match /sites/default/files`, () => {
     expect(
       normaliseImageUrl(

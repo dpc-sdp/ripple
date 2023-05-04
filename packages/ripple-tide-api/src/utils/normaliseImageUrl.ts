@@ -4,9 +4,11 @@ const isRelativeUrl = (url) => {
 }
 
 const normaliseImageUrl = (baseUrl: string, imageUrl: string) => {
+  const baseWithNoTrailingSlash = baseUrl.replace(/\/$/, '')
+
   if (isRelativeUrl(imageUrl)) {
     if (imageUrl.startsWith('/sites/default/files')) {
-      return `${baseUrl}${imageUrl}`
+      return `${baseWithNoTrailingSlash}${imageUrl}`
     }
 
     return imageUrl
@@ -14,7 +16,7 @@ const normaliseImageUrl = (baseUrl: string, imageUrl: string) => {
     const parsedUrl = new URL(imageUrl)
 
     if (parsedUrl.pathname.startsWith('/sites/default/files')) {
-      return `${baseUrl}${parsedUrl.pathname}${parsedUrl.search}`
+      return `${baseWithNoTrailingSlash}${parsedUrl.pathname}${parsedUrl.search}`
     }
 
     return imageUrl

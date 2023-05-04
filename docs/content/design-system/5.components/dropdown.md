@@ -106,14 +106,14 @@ A single select dropdown is used when users can select only a single option.
 - The selection option replaces the placeholder text, but also remains in place if the menus is opened.
 - The selected option then has a tick to the left of the option in the open menu, to remind the user of the selected value.
 
-##### Default
+#### Default
 ::DocsExample
 ---
 id: forms-dropdown--single-select-many-items
 ---
 ::
 
-##### Reverse
+#### Reverse
 ::DocsExample
 ---
 id: forms-dropdown--reverse-variant
@@ -134,7 +134,7 @@ Add extra instructions in the hint text to guide them. For example, 'Select up t
 - The selected options replaces the placeholder text. When selected options extend beyond the width of the field, the values truncate. A ‘+#’ appears to the right of the field, to show how many unseen options (#) are selected.
 - As multiple selections are possible, the user needs to interact outside the dropdown, or on the field, to close the menu.
 
-##### Default
+#### Default
 
 ::DocsExample
 ---
@@ -142,7 +142,7 @@ id: forms-dropdown--multi-select-many-items
 ---
 ::
 
-##### Reverse
+#### Reverse
 
 ::DocsExample
 ---
@@ -157,10 +157,12 @@ Always have specific error messages for specific errors. Users need to understan
 
 When creating an error message for a dropdown, use the wording below.
 
-#### If nothing is selected and the question has options in it
+**If nothing is selected and the question has options in it**
+
 Structure this message to help the user to choose which options apply to them. Say ‘Select if \[options\]’. For example, ‘Select if you like summer, winter, autumn, and/or spring.'
 
-#### If nothing is selected and the question does not have options in it
+**If nothing is selected and the question does not have options in it**
+
 Structure this message to help the user to choose which options apply to them. Say ‘select \[options\]’. For example, 'Select your favourite season.'
 
 ::DocsExample

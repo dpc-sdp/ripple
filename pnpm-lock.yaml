@@ -527,9 +527,6 @@ importers:
 
   packages/ripple-tide-api:
     dependencies:
-      '@dpc-sdp/ripple-ui-core':
-        specifier: workspace:*
-        version: link:../ripple-ui-core
       '@nuxt/kit':
         specifier: 3.3.2
         version: 3.3.2(rollup@3.20.2)

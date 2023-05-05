@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.153](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.152...v2.1.0-alpha.153) (2023-05-05)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-event:** fixed cypress tests ([b6ef19b](https://github.com/dpc-sdp/ripple-framework/commit/b6ef19bc6e354a37782021663afaf6db56573347))
+* **@dpc-sdp/ripple-ui-core:** allowed description list to take items as slots ([c655f6e](https://github.com/dpc-sdp/ripple-framework/commit/c655f6ea10c714d5de0b975a7f481b25b6fcc8a6))
+
 # [2.1.0-alpha.152](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.151...v2.1.0-alpha.152) (2023-05-04)
 
 **Note:** Version bump only for package @dpc-sdp/ripple-tide-event

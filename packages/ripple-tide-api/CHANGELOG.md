@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.153](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.152...v2.1.0-alpha.153) (2023-05-05)
+
+### Features
+
+* **@dpc-sdp/ripple-tide-api:** add epochToDate function ([fa5be4d](https://github.com/dpc-sdp/ripple-framework/commit/fa5be4d2d0684b60ee3526b71d198efa6825e174))
+* **@dpc-sdp/ripple-tide-api:** add updated date to documents ([75cfefe](https://github.com/dpc-sdp/ripple-framework/commit/75cfefe139a04843d82edc6136a91f76330e3e72))
+* **@dpc-sdp/ripple-tide-api:** move epochToDate so build doesn't fail ([67bcbda](https://github.com/dpc-sdp/ripple-framework/commit/67bcbdaa3375ae9eac01c870a9f30a260910c904))
+
 # [2.1.0-alpha.152](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.151...v2.1.0-alpha.152) (2023-05-04)
 
 ### Bug Fixes

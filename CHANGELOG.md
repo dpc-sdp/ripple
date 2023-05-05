@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.153](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.152...v2.1.0-alpha.153) (2023-05-05)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-event:** fixed cypress tests ([b6ef19b](https://github.com/dpc-sdp/ripple-framework/commit/b6ef19bc6e354a37782021663afaf6db56573347))
+* **@dpc-sdp/ripple-tide-publication:** ensure order of print all pages ([a809ab4](https://github.com/dpc-sdp/ripple-framework/commit/a809ab492f1ce2b60c82b40a52103e02d766986c))
+* **@dpc-sdp/ripple-ui-core:** allowed description list to take items as slots ([c655f6e](https://github.com/dpc-sdp/ripple-framework/commit/c655f6ea10c714d5de0b975a7f481b25b6fcc8a6))
+* **@dpc-sdp/ripple-ui-core:** moved embed media styles to global to support wysiwyg editor ([1efcc16](https://github.com/dpc-sdp/ripple-framework/commit/1efcc16058c1884198ad3c39647fb57a54487826))
+
+### Features
+
+* **@dpc-sdp/ripple-tide-api:** add epochToDate function ([fa5be4d](https://github.com/dpc-sdp/ripple-framework/commit/fa5be4d2d0684b60ee3526b71d198efa6825e174))
+* **@dpc-sdp/ripple-tide-api:** add updated date to documents ([75cfefe](https://github.com/dpc-sdp/ripple-framework/commit/75cfefe139a04843d82edc6136a91f76330e3e72))
+* **@dpc-sdp/ripple-tide-api:** move epochToDate so build doesn't fail ([67bcbda](https://github.com/dpc-sdp/ripple-framework/commit/67bcbdaa3375ae9eac01c870a9f30a260910c904))
+* **@dpc-sdp/ripple-tide-search:** added search error handling and subtle loading state ([31a4f8e](https://github.com/dpc-sdp/ripple-framework/commit/31a4f8e5a39df9408ec06f80ed3fafe642659015))
+* **@dpc-sdp/ripple-tide-search:** added ui for empty search results ([0a4c2b3](https://github.com/dpc-sdp/ripple-framework/commit/0a4c2b34e7ce3186238736876000b3fe82aee79e))
+
 # [2.1.0-alpha.152](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.151...v2.1.0-alpha.152) (2023-05-04)
 
 ### Bug Fixes

@@ -6,6 +6,8 @@
 // Then set myPluginData1.author = {name: 'Veronica', company: 'Veridian Dynamics'} and return {myPluginData1, myPluginData2 ... } in your plugin.
 // See a example in `pluginEmbeddedMediaVideo` plugin below.
 
+import { epochToDate } from '../epochToDate.js'
+
 export const isRelativeUrl = (str: string): boolean => {
   if (str) {
     return true
@@ -70,7 +72,17 @@ const pluginDocuments = function (this: any) {
       link = $document.find('a').attr('href'),
       title = $document.find('.file--title').text(),
       filetype = $document.find('.file--type').text(),
-      filesize = $document.find('.file--size').text()
+      filesize = $document.find('.file--size').text(),
+      updated = $document.attr('data-last-updated')
+
+    let updatedMarkup = ''
+
+    if (updated) {
+      const date = epochToDate(updated)
+      updatedMarkup = date
+        ? `<div class="rpl-file__updated">Updated ${date}</div>`
+        : ''
+    }
 
     return $document.replaceWith(`
 <figure class="rpl-document">
@@ -83,6 +95,7 @@ const pluginDocuments = function (this: any) {
       <div class="rpl-document__info rpl-type-label-small">
         <span class="rpl-file__meta">${filetype}</span>
         <span class="rpl-file__meta">${filesize}</span>
+        ${updatedMarkup}
       </div>
     </div>
   </span>

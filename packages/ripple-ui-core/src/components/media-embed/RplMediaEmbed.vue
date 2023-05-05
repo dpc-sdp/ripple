@@ -224,5 +224,3 @@ const isActionsListEmpty = computed(() => {
     </RplModal>
   </div>
 </template>
-
-<style src="./RplMediaEmbed.css" />

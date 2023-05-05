@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.154](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.153...v2.1.0-alpha.154) (2023-05-05)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-api:** fixed circular deps breaking publish step ([8b4ef69](https://github.com/dpc-sdp/ripple-framework/commit/8b4ef69d2b63e88afc60f348743345c66467ccbf))
+
 # [2.1.0-alpha.153](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.152...v2.1.0-alpha.153) (2023-05-05)
 
 ### Features

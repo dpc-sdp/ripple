@@ -40,8 +40,14 @@ export const createPageHandler = async (
       includes
     )
 
+    const sortedChildren = query.ids
+      .map((id) => {
+        return children.find((page) => page.id === id)
+      })
+      .filter((s) => s)
+
     return await Promise.all(
-      children.map(async (child) => {
+      sortedChildren.map(async (child) => {
         return await tidePageApi.getTidePage(child, publicationPageRouteDetails)
       })
     )

@@ -28,7 +28,7 @@ id: core-containers-data-table--structured-content
 ---
 ::
 
-## How this component works
+### How this component works
 Table content should be left-aligned because we read left-to-right. However, tables with financial figures should have numeral columns set to right-aligned.
 
 Only left-align numbers that are arbitrary identifiers, known as 'nominal numbers'. These are numbers you cannot compare or combine arithmetically. These can include postal codes, IP addresses, or phone numbers. Column headers follow the alignment of the data.
@@ -76,6 +76,8 @@ It is best used to display complex data sets.
 id: core-containers-data-table--structured-content
 ---
 ::
+
+---
 
 ## Theming
 Table data uses colour to indicate an action to the user.

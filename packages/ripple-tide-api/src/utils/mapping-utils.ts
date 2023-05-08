@@ -1,7 +1,7 @@
 import { get } from 'lodash-es'
 import { TideImageField, TideUrlField } from '../../types'
 import markupTranspiler from './markup-transpiler/index.js'
-import normaliseImageUrl from './normaliseImageUrl'
+import normaliseImageUrl from './normaliseImageUrl.js'
 
 export type drupalField = Record<string, any>
 

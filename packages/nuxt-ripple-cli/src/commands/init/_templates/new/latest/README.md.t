@@ -1,3 +1,7 @@
+---
+to: README.md
+---
+
 # <%= name %>
 
 ## Important information

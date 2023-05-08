@@ -37,7 +37,7 @@ The data table use a zebra stripe styling which, alternates table row colours. T
 
 Don't allow for too many columns as it's easier for users to scan down a list than to scroll across a page. So, consider more rows before more columns.
 
-The table responds on smaller screens. If this does not suit the content or data, the table can scroll horizontally instead. 
+Tables can respond differently based on how your website is built. Where tables do not respond, they will display with a horizontal scroll bar to view all the content. Where tables do respond on smaller screens, tables will stack vertically. 
 
 The complex variant has the option of expandable extra information in nested rows. This is shown by a dropdown toggle. 
 

@@ -16,9 +16,7 @@
   },
   "dependencies": {
     "mockttp": "^3.7.0",
-    "rimraf": "^4.4.1"
-  },
-  "devDependencies": {
+    "rimraf": "^4.4.1",
     "commander": "^10.0.0",
     "copyfiles": "^2.4.1",
     "enquirer": "^2.3.6",

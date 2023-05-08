@@ -16,16 +16,11 @@
   },
   "dependencies": {
     "mockttp": "^3.7.0",
-    "rimraf": "^4.4.1"
-  },
-  "devDependencies": {
+    "rimraf": "^4.4.1",
     "commander": "^10.0.0",
     "copyfiles": "^2.4.1",
     "enquirer": "^2.3.6",
     "hygen": "^6.2.11",
-    "inquirer": "9.1.5",
-    "minimist": "^1.2.8",
-    "plop": "^3.1.2",
-    "ts-node": "^10.7.0"
+    "minimist": "^1.2.8"
   }
 }

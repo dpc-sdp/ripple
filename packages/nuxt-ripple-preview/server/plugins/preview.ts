@@ -33,7 +33,7 @@ export default defineNitroPlugin(async (NitroApp) => {
     accessTokenUri: `${tideBaseUrl}/oauth/token`,
     authorizationUri: `${tideBaseUrl}/oauth/authorize`,
     scopes: ['editor'],
-    redirectUri: `${siteUrl}/${AuthRoutes.CALLBACK}`
+    redirectUri: `${siteUrl}${AuthRoutes.CALLBACK}`
   })
 
   NitroApp.tidePreviewOAuthClient = authClient

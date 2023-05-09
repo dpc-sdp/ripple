@@ -13,10 +13,6 @@ export const createOauthHandler = async (
   authClient: ClientOAuth2
 ) => {
   return createHandler(event, 'TideOAuthHandler', async () => {
-    // Get the referer from the request headers to construct the redirect URI
-    const referer = new URL(event.node.req.headers.referer)
-    const redirectUri = `${referer.protocol}//${referer.host}${AuthRoutes.CALLBACK}`
-
     const config = useRuntimeConfig()
     const cookieSignSecret = config.tide.preview.cookieSignSecret
 
@@ -40,8 +36,7 @@ export const createOauthHandler = async (
     return sendRedirect(
       event,
       authClient.code.getUri({
-        state,
-        redirectUri
+        state
       })
     )
   })

@@ -6,6 +6,10 @@ const isRelativeUrl = (url) => {
 const normaliseImageUrl = (baseUrl: string, imageUrl: string) => {
   const baseWithNoTrailingSlash = baseUrl.replace(/\/$/, '')
 
+  if (!imageUrl) {
+    return ''
+  }
+
   if (isRelativeUrl(imageUrl)) {
     if (imageUrl.startsWith('/sites/default/files')) {
       return `${baseWithNoTrailingSlash}${imageUrl}`

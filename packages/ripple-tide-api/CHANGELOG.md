@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.158](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.157...v2.1.0-alpha.158) (2023-05-10)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-api:** handled case where image url doesn't exist ([20d675f](https://github.com/dpc-sdp/ripple-framework/commit/20d675f598d1905ea36052d8138e2641856a59cd))
+
 # [2.1.0-alpha.157](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.156...v2.1.0-alpha.157) (2023-05-08)
 
 **Note:** Version bump only for package @dpc-sdp/ripple-tide-api

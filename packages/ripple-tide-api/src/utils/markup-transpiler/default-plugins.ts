@@ -24,10 +24,27 @@ const pluginTables = function (this: any) {
 }
 
 const pluginCallout = function (this: any) {
-  // replace drupal class with rpl class
-  this.find('.wysiwyg-callout, .callout-wrapper').map((i: any, el: any) => {
+  // These callouts are added in drupal via the 'C' button in the wysiwyg editor.
+  // Wrap callouts with a div. If there are multiple callouts in a row, wrap them all in a div.
+  this.find('.callout-wrapper').each((i: any, el: any) => {
+    if (this.find(el).prev().hasClass('callout-wrapper')) {
+      return
+    }
+
+    this.find(el)
+      .nextUntil(':not(.callout-wrapper)')
+      .addBack()
+      .wrapAll('<div class="rpl-callout"></div>')
+  })
+
+  // These callouts are added in drupal via the styles dropdown in the wysiwyg editor.
+  // Remove drupal class, add ripple class
+  this.find('.wysiwyg-callout').map((i: any, el: any) => {
     const $callout = this.find(el)
-    return $callout.removeClass().addClass('rpl-callout')
+    return $callout
+      .removeClass()
+      .addClass('rpl-callout')
+      .addClass('rpl-callout--neutral')
   })
 }
 

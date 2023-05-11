@@ -3,6 +3,37 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.159](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.158...v2.1.0-alpha.159) (2023-05-11)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-search
+
+# [2.1.0-alpha.158](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.157...v2.1.0-alpha.158) (2023-05-10)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-search
+
+# [2.1.0-alpha.157](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.156...v2.1.0-alpha.157) (2023-05-08)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-search
+
+# [2.1.0-alpha.155](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.154...v2.1.0-alpha.155) (2023-05-08)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-search
+
+# [2.1.0-alpha.154](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.153...v2.1.0-alpha.154) (2023-05-05)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-search
+
+# [2.1.0-alpha.153](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.152...v2.1.0-alpha.153) (2023-05-05)
+
+### Features
+
+* **@dpc-sdp/ripple-tide-search:** added search error handling and subtle loading state ([31a4f8e](https://github.com/dpc-sdp/ripple-framework/commit/31a4f8e5a39df9408ec06f80ed3fafe642659015))
+* **@dpc-sdp/ripple-tide-search:** added ui for empty search results ([0a4c2b3](https://github.com/dpc-sdp/ripple-framework/commit/0a4c2b34e7ce3186238736876000b3fe82aee79e))
+
+# [2.1.0-alpha.152](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.151...v2.1.0-alpha.152) (2023-05-04)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-search
+
 # [2.1.0-alpha.150](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.149...v2.1.0-alpha.150) (2023-05-01)
 
 ### Bug Fixes

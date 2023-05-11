@@ -3,6 +3,43 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.159](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.158...v2.1.0-alpha.159) (2023-05-11)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-publication
+
+# [2.1.0-alpha.158](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.157...v2.1.0-alpha.158) (2023-05-10)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-publication
+
+# [2.1.0-alpha.157](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.156...v2.1.0-alpha.157) (2023-05-08)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-publication
+
+# [2.1.0-alpha.155](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.154...v2.1.0-alpha.155) (2023-05-08)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-publication
+
+# [2.1.0-alpha.154](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.153...v2.1.0-alpha.154) (2023-05-05)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-publication
+
+# [2.1.0-alpha.153](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.152...v2.1.0-alpha.153) (2023-05-05)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-publication:** ensure order of print all pages ([a809ab4](https://github.com/dpc-sdp/ripple-framework/commit/a809ab492f1ce2b60c82b40a52103e02d766986c))
+* **@dpc-sdp/ripple-ui-core:** allowed description list to take items as slots ([c655f6e](https://github.com/dpc-sdp/ripple-framework/commit/c655f6ea10c714d5de0b975a7f481b25b6fcc8a6))
+
+# [2.1.0-alpha.152](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.151...v2.1.0-alpha.152) (2023-05-04)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-publication:** fixed incorrectly titled print all page ([e7b8161](https://github.com/dpc-sdp/ripple-framework/commit/e7b816103eeefb3a6351dac5bceccf6e02fe73f5))
+
+# [2.1.0-alpha.151](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.150...v2.1.0-alpha.151) (2023-05-01)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-publication
+
 # [2.1.0-alpha.150](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.149...v2.1.0-alpha.150) (2023-05-01)
 
 ### Bug Fixes

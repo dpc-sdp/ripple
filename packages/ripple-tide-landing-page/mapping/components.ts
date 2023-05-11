@@ -13,6 +13,7 @@ import cardCarouselMapping from './components/card-carousel/card-carousel-mappin
 import contentCollectionMapping from './components/content-collection/content-collection-mapping'
 import webformMapping from './components/webforms/webforms-mapping'
 import complexImageMapping from './components/complex-image/complex-image-mapping'
+import dataTableMapping from './components/data-table/data-table-mapping'
 
 export default {
   'paragraph--basic_text': basicTextMapping,
@@ -29,5 +30,6 @@ export default {
   'paragraph--card_carousel': cardCarouselMapping,
   'paragraph--content_collection_enhanced': contentCollectionMapping,
   'paragraph--embedded_webform': webformMapping,
-  'paragraph--complex_image': complexImageMapping
+  'paragraph--complex_image': complexImageMapping,
+  'paragraph--data_table': dataTableMapping
 }

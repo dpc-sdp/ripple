@@ -302,10 +302,10 @@ An example of a simple table
 Images can be added like this:
 
 ```md
-![Nils Olav  - This is the alt text](/assets/img/Nils_Olav_wide.jpg)
+![Nils Olav  - This is the alt text](/assets/img/temp/Nils_Olav_wide.jpg)
 ```
 
-![Nils Olav  - This is the alt text](/assets/img/Nils_Olav_wide.jpg)
+![Nils Olav  - This is the alt text](/assets/img/temp/Nils_Olav_wide.jpg)
 
 By Lee Carson on Flickr - Nils Olav on Flickr, CC BY-SA 2.0, https://commons.wikimedia.org/w/index.php?curid=5080064
 
@@ -350,6 +350,28 @@ id: core-navigation-button--default-filled
 withPadding: true
 hideNewTab: false
 hideCode: true
+---
+::
+
+You can add toggle values in storybook and copy the the value of the args parameter in the URL to the `argsString` option in the `DocsExample`
+
+![Storybook controls](/assets/img/temp/storybook-toggles.png)
+
+![Browser url bar](/assets/img/temp/url-args.png)
+
+```md
+::DocsExample
+---
+id: core-navigation-pagination--complex
+argsString: 'totalPages:50;currentPage:30;showTally:true'
+---
+::
+```
+
+::DocsExample
+---
+id: core-navigation-pagination--complex
+argsString: 'totalPages:50;currentPage:30;showTally:true'
 ---
 ::
 

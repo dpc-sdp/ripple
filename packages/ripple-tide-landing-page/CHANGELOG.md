@@ -3,6 +3,42 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.159](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.158...v2.1.0-alpha.159) (2023-05-11)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-landing-page
+
+# [2.1.0-alpha.158](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.157...v2.1.0-alpha.158) (2023-05-10)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-landing-page
+
+# [2.1.0-alpha.157](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.156...v2.1.0-alpha.157) (2023-05-08)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-landing-page
+
+# [2.1.0-alpha.155](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.154...v2.1.0-alpha.155) (2023-05-08)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-landing-page
+
+# [2.1.0-alpha.154](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.153...v2.1.0-alpha.154) (2023-05-05)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-landing-page
+
+# [2.1.0-alpha.153](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.152...v2.1.0-alpha.153) (2023-05-05)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-landing-page
+
+# [2.1.0-alpha.152](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.151...v2.1.0-alpha.152) (2023-05-04)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-landing-page
+
+# [2.1.0-alpha.151](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.150...v2.1.0-alpha.151) (2023-05-01)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-landing-page:** passed the title to accordion for analytics ([9c9b39b](https://github.com/dpc-sdp/ripple-framework/commit/9c9b39b76b620d72f27d124c13311ff00b0fdac7))
+* **@dpc-sdp/ripple-tide-landing-page:** removed double accordion title ([588321d](https://github.com/dpc-sdp/ripple-framework/commit/588321dd8e3dd38b0e497e915e23cb291fbc34bf))
+* **@dpc-sdp/ripple-tide-landing-page:** restore accordion title prop ([8c6b25d](https://github.com/dpc-sdp/ripple-framework/commit/8c6b25d75313d34171692bdf98f52a44a6417a1b))
+
 # [2.1.0-alpha.150](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.149...v2.1.0-alpha.150) (2023-05-01)
 
 **Note:** Version bump only for package @dpc-sdp/ripple-tide-landing-page

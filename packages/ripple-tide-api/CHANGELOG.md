@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.159](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.158...v2.1.0-alpha.159) (2023-05-11)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-api:** fixed callout markup and added neutral callouts ([52c8016](https://github.com/dpc-sdp/ripple-framework/commit/52c8016b05929b6b73ac723198ca93fe54c0507b))
+
 # [2.1.0-alpha.158](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.157...v2.1.0-alpha.158) (2023-05-10)
 
 ### Bug Fixes

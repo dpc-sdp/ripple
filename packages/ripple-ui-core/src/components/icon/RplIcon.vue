@@ -24,7 +24,14 @@ const inSprite = ref(RplCoreIconNames.find((key) => key === props.name))
 
 const asyncIcon = computed(() => {
   if (!inSprite.value) {
-    return defineAsyncComponent(customIconImports[props.name])
+    try {
+      return defineAsyncComponent(customIconImports[props.name])
+    } catch (e) {
+      console.error(
+        `RplIcon error: Couldn't dynamically import icon with name "${props.name}"`
+      )
+      return false
+    }
   }
   return false
 })

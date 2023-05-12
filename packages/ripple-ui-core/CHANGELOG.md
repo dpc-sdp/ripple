@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.161](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.160...v2.1.0-alpha.161) (2023-05-12)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** fixed level 4 nav links with children not being clickable ([96b72ef](https://github.com/dpc-sdp/ripple-framework/commit/96b72ef9a7b1373c8497af8ad4d615ae3a624622))
+
 # [2.1.0-alpha.160](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.159...v2.1.0-alpha.160) (2023-05-12)
 
 ### Bug Fixes

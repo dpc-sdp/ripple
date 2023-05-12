@@ -48,7 +48,7 @@ withDefaults(defineProps<Props>(), {
     <li v-for="(child, i) in items" :key="child.id">
       <RplPrimaryNavMegaMenuAction
         :item="child"
-        :type="child.items?.length ? 'toggle' : 'link'"
+        :type="child.items?.length && level < 4 ? 'toggle' : 'link'"
         :level="level"
         :parent="parent?.id"
         :position="i === items.length - 1 ? 'last' : undefined"

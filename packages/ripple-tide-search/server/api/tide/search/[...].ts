@@ -1,7 +1,6 @@
 //@ts-nocheck runtime imports
-import { defineEventHandler, getQuery, H3Event } from 'h3'
-import { createHandler, logger, TideSiteApi } from '@dpc-sdp/ripple-tide-api'
-import { useNitroApp } from '#imports'
+import { defineEventHandler, H3Event } from 'h3'
+import { createHandler, logger } from '@dpc-sdp/ripple-tide-api'
 import { createProxyMiddleware } from 'http-proxy-middleware'
 
 export const createSearchHandler = async (event: H3Event) => {

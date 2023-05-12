@@ -1,6 +1,6 @@
 <script setup lang="ts">
 // @ts-ignore
-import { useRuntimeConfig, useRouter, useNuxtApp } from '#imports'
+import { useNuxtApp, useRouter } from '#imports'
 import { isExternalUrl } from '@dpc-sdp/ripple-ui-core'
 
 const router = useRouter()

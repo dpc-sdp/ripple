@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.160](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.159...v2.1.0-alpha.160) (2023-05-12)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** fixed page crash when trying to import missing icon ([7eaf5dc](https://github.com/dpc-sdp/ripple-framework/commit/7eaf5dcee2d94b6ac0f571678dd3c7e3bca9b6ca))
+
 # [2.1.0-alpha.159](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.158...v2.1.0-alpha.159) (2023-05-11)
 
 ### Bug Fixes

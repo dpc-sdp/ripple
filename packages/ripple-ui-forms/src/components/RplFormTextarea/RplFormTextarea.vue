@@ -65,7 +65,7 @@ const classes = computed(() => {
       :rows="rows"
       :minlength="minlength"
       :maxlength="maxlength"
-      class="rpl-u-focusable-outline"
+      class="rpl-type-p rpl-u-focusable-outline"
       v-bind="$attrs"
       @blur="handlers?.blur"
       @input="handlers?.DOMInput"

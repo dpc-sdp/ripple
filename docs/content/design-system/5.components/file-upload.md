@@ -21,7 +21,7 @@ The file upload form label tells users the purpose of the file upload section. �
 Only ask for one file per input wherever possible. This avoids confusing users who might not know how to select multiple files or who use Apple devices. The Apple iOS does not allow multiple file selection in its Files app.
 
 **Placeholder, need to add example**
-![Nils Olav  - This is the alt text](/assets/img/Nils_Olav_wide.jpg)
+![Nils Olav  - This is the alt text](/assets/img/temp/Nils_Olav_wide.jpg)
 
 ### How this component works
 
@@ -91,7 +91,7 @@ Click the 'X' (delete) icon to remove a file.
 ### Default
 
 **Placeholder, need to add example**
-![Nils Olav  - This is the alt text](/assets/img/Nils_Olav_wide.jpg)
+![Nils Olav  - This is the alt text](/assets/img/temp/Nils_Olav_wide.jpg)
 
 ### Error
 
@@ -142,7 +142,7 @@ When creating an error message for a file upload, use the wording below.
 - Error message: ‘The selected file must use the template’
 
 **Placeholder, need to add example**
-![Nils Olav  - This is the alt text](/assets/img/Nils_Olav_wide.jpg)
+![Nils Olav  - This is the alt text](/assets/img/temp/Nils_Olav_wide.jpg)
 
 ---
 
@@ -156,7 +156,7 @@ File upload uses colour for:
 A file upload in an active state will adopt the same colour as the overall site’s focus state colour. This means a user’s experience of a file upload remains consistent while it transitions from a focus to an active state.
 
 **Placeholder, need to add theming example**
-![Nils Olav  - This is the alt text](/assets/img/Nils_Olav_wide.jpg)
+![Nils Olav  - This is the alt text](/assets/img/temp/Nils_Olav_wide.jpg)
 
 To create your own theme, see [theming guidance for designers]() or [theming guidance for developers]().
 

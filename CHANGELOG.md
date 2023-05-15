@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.162](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.161...v2.1.0-alpha.162) (2023-05-15)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** textarea feedback ([f2bb2ff](https://github.com/dpc-sdp/ripple-framework/commit/f2bb2ff3e8b5227b20dc69b5a1463a6a30e3f080))
+
 # [2.1.0-alpha.161](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.160...v2.1.0-alpha.161) (2023-05-12)
 
 ### Bug Fixes

@@ -128,7 +128,7 @@ export default {
     // Custom 'required' validator which uses the drupal 'required message'
     // if the field is empty.
     VueFormGenerator.validators.rplRequired = function (value, field) {
-      if ((Array.isArray(value) && !value.length) || (!value || value === '')) {
+      if (!value || value === '') {
         return field.requiredMessage
       }
 
@@ -171,27 +171,6 @@ export default {
       }
 
       return []
-    }
-    // Validate if files are smaller than the max file size limit.
-    VueFormGenerator.validators.rplFileMaxSize = function (value, field) {
-      if (!field.maxSize) return []
-
-      const sizeInMB = (size) => Math.round((size * 0.000001) * 100) / 100
-      const overSizedFiles = Array.from(value).filter(file => sizeInMB(file.size) > field.maxSize)
-
-      if (overSizedFiles.length) {
-        return overSizedFiles.map(file => `${file.name} is too large (${sizeInMB(file.size)}mb), please select a file less than ${field.maxSize}mb`)
-      }
-    }
-    // Validate if files are of the allowed file types.
-    VueFormGenerator.validators.rplFileAllowedTypes = function (value, field) {
-      if (!field.allowedTypes) return []
-
-      const invalidTypes = Array.from(value).filter(file => !field.allowedTypes.includes(file.type))
-
-      if (invalidTypes.length) {
-        return invalidTypes.map(file => `${file.name} is not in a supported format (${file.type}), please select a file that is ${field.allowedTypes.join(', ')}`)
-      }
     }
   },
   destroyed () {

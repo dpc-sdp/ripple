@@ -2,7 +2,6 @@ module.exports = {
   // Convert Drupal webform data struture to Vue Form Generator structure
   webform: async (drupalFormEntity, { mapping }) => {
     const stringToClass = require('@dpc-sdp/ripple-nuxt-tide/lib/core/tide-helper').stringToClass
-    const extensionToMimeType = require('@dpc-sdp/ripple-nuxt-tide/lib/core/tide-helper').extensionToMimeType
     const elements = drupalFormEntity.elements
     // Below data structure is following VFG 2.2.3.
     // `tideId`, `formState` and `messages` are our own custom properties.
@@ -435,22 +434,24 @@ module.exports = {
           if (element['#file_placeholder']) {
             field.placeholder = element['#file_placeholder']
           }
-          // use array validator instead of required
+          // use array validator instead of the default required validator
           if (element['#required'] && !element['#required_error']) {
             field.validator = field.validator.filter(validator => validator !== 'required')
             field.validator.push('array')
           }
-          if (element['#multiple']) {
-            field.maxFiles = Number(element['#multiple'])
-            field.validator.push('rplFileMaxLimit')
-          }
           if (element['#max_filesize']) {
             field.maxSize = Number(element['#max_filesize'])
-            field.validator.push('rplFileMaxSize')
           }
           if (element['#file_extensions']) {
-            field.allowedTypes = element['#file_extensions'].split(' ').map(extensionToMimeType)
-            field.validator.push('rplFileAllowedTypes')
+            field.allowedTypes = element['#file_extensions'].split(' ')
+          }
+          // if #multiple is true it's unlimited, otherwise it's the number of files allowed
+          const unlimited = element['#multiple'] === true
+          field.multiple = unlimited || (Number.isInteger(element['#multiple']) && element['#multiple'] > 1)
+          field.maxFiles = !unlimited ? element['#multiple'] ?? 1 : undefined
+
+          if (field.maxFiles) {
+            field.validator.push('rplFileMaxLimit')
           }
           break
 

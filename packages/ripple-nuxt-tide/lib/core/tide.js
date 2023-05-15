@@ -95,6 +95,48 @@ export const tide = (axios, site, config) => ({
     return axios.$post(url, data, axiosConfig)
   },
 
+  delete: async function (url, headersConfig = {}) {
+    // Axios config
+    const axiosConfig = {
+      auth: config.auth,
+      timeout: headersConfig.axiosTimeout || config.tideTimeout,
+      headers: {
+        [RPL_HEADER.REQ_LOCATION]: 'tide',
+        'X-Request-Id': helper.generateId()
+      }
+    }
+
+    return axios.$delete(`${apiPrefix}${url}?site=${site}`, axiosConfig)
+  },
+
+  upload: async function (url, file = {}, headersConfig = {}, options = {}) {
+    // Axios config
+    const axiosConfig = {
+      auth: config.auth,
+      timeout: headersConfig.axiosTimeout || config.tideTimeout,
+      headers: {
+        [RPL_HEADER.REQ_LOCATION]: 'tide',
+        'X-Request-Id': helper.generateId(),
+        'Content-Type': 'application/octet-stream',
+        'Content-Disposition': `file; filename="${file.name}"`
+      },
+      ...options
+    }
+
+    const fileData = await this.getFileData(file)
+
+    return axios.$post(`${url}?site=${site}`, fileData, axiosConfig)
+  },
+
+  // REF: https://github.com/axios/axios/issues/1250 (binary data seems to be corrupted)
+  getFileData: function (file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader()
+      reader.onload = (e) => resolve(reader.result)
+      reader.readAsArrayBuffer(file)
+    })
+  },
+
   getMenuFields: function () {
     return {
       menuMain: 'field_site_main_menu',

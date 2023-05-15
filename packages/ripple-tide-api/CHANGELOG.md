@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.164](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.163...v2.1.0-alpha.164) (2023-05-15)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-api:** fixed old env var being used ([60fda1b](https://github.com/dpc-sdp/ripple-framework/commit/60fda1bfa3b4d8072186e2283156209918877d09))
+
 # [2.1.0-alpha.163](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.162...v2.1.0-alpha.163) (2023-05-15)
 
 ### Bug Fixes

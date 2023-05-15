@@ -101,43 +101,43 @@ Always have specific error messages for specific errors. Users need to understan
 
 When creating an error message for a file upload, use the wording below.
 
-Error: no file was selected
+**Error: no file was selected**
 
 - Error message: ‘Select a [the missing file]’
 - Example: ‘Select a report’
 
-Error: file is the wrong file type
+**Error: file is the wrong file type**
 
 - Error message: ‘The selected file must be a \[list of allowed file types\]’
 - Example: ‘The selected file must be a CSV or ODS’ or ‘The selected file must be a JPG, BMP, PNG, TIF or PDF’
 
-Error: file size is too large
+**Error: file size is too large**
 
 - Error message: ‘The selected file must be smaller than \[largest file size\]’
 - Example: ‘The selected file must be smaller than 2MB’
 
-Error: file is empty
+**Error: file is empty**
 
 - Error message: 'The selected file is empty’
 
-Error: file contains a virus
+**Error: file contains a virus**
 
 - Error message: ‘The selected file contains a virus’
 
-Error: file is password protected
+**Error: file is password protected**
 
 - Error message: ‘The selected file is password protected’
 
-Error: a problem occured and file didn’t upload
+**Error: a problem occured and file didn’t upload**
 
 - Error message: ‘The selected file could not be uploaded – try again’
 
-Error: limit on number of files selected was exceeded
+**Error: limit on number of files selected was exceeded**
 
 - Error message: ‘You can only select up to \[highest number\] files at the same time’
 - Example: ‘You can only select up to 10 files at the same time’
 
-Error: file not in a required template, or template has been changed
+**Error: file not in a required template, or template has been changed**
 
 - Error message: ‘The selected file must use the template’
 

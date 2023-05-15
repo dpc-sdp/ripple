@@ -6,6 +6,8 @@
 // Then set myPluginData1.author = {name: 'Veronica', company: 'Veridian Dynamics'} and return {myPluginData1, myPluginData2 ... } in your plugin.
 // See a example in `pluginEmbeddedMediaVideo` plugin below.
 
+import { epochToDate } from '../epochToDate.js'
+
 export const isRelativeUrl = (str: string): boolean => {
   if (str) {
     return true
@@ -22,10 +24,27 @@ const pluginTables = function (this: any) {
 }
 
 const pluginCallout = function (this: any) {
-  // replace drupal class with rpl class
-  this.find('.wysiwyg-callout, .callout-wrapper').map((i: any, el: any) => {
+  // These callouts are added in drupal via the 'C' button in the wysiwyg editor.
+  // Wrap callouts with a div. If there are multiple callouts in a row, wrap them all in a div.
+  this.find('.callout-wrapper').each((i: any, el: any) => {
+    if (this.find(el).prev().hasClass('callout-wrapper')) {
+      return
+    }
+
+    this.find(el)
+      .nextUntil(':not(.callout-wrapper)')
+      .addBack()
+      .wrapAll('<div class="rpl-callout"></div>')
+  })
+
+  // These callouts are added in drupal via the styles dropdown in the wysiwyg editor.
+  // Remove drupal class, add ripple class
+  this.find('.wysiwyg-callout').map((i: any, el: any) => {
     const $callout = this.find(el)
-    return $callout.removeClass().addClass('rpl-callout')
+    return $callout
+      .removeClass()
+      .addClass('rpl-callout')
+      .addClass('rpl-callout--neutral')
   })
 }
 
@@ -70,7 +89,17 @@ const pluginDocuments = function (this: any) {
       link = $document.find('a').attr('href'),
       title = $document.find('.file--title').text(),
       filetype = $document.find('.file--type').text(),
-      filesize = $document.find('.file--size').text()
+      filesize = $document.find('.file--size').text(),
+      updated = $document.attr('data-last-updated')
+
+    let updatedMarkup = ''
+
+    if (updated) {
+      const date = epochToDate(updated)
+      updatedMarkup = date
+        ? `<div class="rpl-file__updated">Updated ${date}</div>`
+        : ''
+    }
 
     return $document.replaceWith(`
 <figure class="rpl-document">
@@ -83,6 +112,7 @@ const pluginDocuments = function (this: any) {
       <div class="rpl-document__info rpl-type-label-small">
         <span class="rpl-file__meta">${filetype}</span>
         <span class="rpl-file__meta">${filesize}</span>
+        ${updatedMarkup}
       </div>
     </div>
   </span>
@@ -137,7 +167,7 @@ const pluginEmbededVideo = function (this: any) {
 const pluginImages = function (this: any) {
   // Find all drupal image embeds
   this.find('.embedded-entity--media--image').map((i: any, el: any) => {
-    const $img = this.find('img')
+    const $img = this.find(el).find('img')
     const width = $img.attr('width')
     const src = $img.attr('src')
     const alt = $img.attr('alt')

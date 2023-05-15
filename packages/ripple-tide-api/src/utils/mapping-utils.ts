@@ -1,6 +1,8 @@
 import { get } from 'lodash-es'
 import { TideImageField, TideUrlField } from '../../types'
 import markupTranspiler from './markup-transpiler/index.js'
+import normaliseImageUrl from './normaliseImageUrl.js'
+
 export type drupalField = Record<string, any>
 
 interface RawMediaImage {
@@ -67,7 +69,10 @@ export const getMediaImage = (
     delete fieldMediaImage.meta.focal_point
   }
   return {
-    src: fieldMediaImage.url,
+    src: normaliseImageUrl(
+      process.env.NUXT_PUBLIC_TIDE_CONTENT_API_BASE_URL as string,
+      fieldMediaImage.url
+    ),
     ...fieldMediaImage.meta,
     focalPoint
   }
@@ -84,7 +89,10 @@ export const getCardImage = (fieldMediaImage: RawCardImage): TideImageField => {
     : null
 
   return {
-    src: fieldMediaImage.url,
+    src: normaliseImageUrl(
+      process.env.NUXT_PUBLIC_TIDE_CONTENT_API_BASE_URL as string,
+      fieldMediaImage.url
+    ),
     focalPoint,
     alt: data?.alt,
     width: data?.width ? parseInt(data.width) : undefined,

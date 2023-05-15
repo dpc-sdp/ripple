@@ -77,6 +77,14 @@
   }
 }
 
+.rpl-primary-nav__mega-menu-grid-outer--reduced {
+  padding-top: var(--rpl-sp-6);
+
+  @media (--rpl-bp-l) {
+    padding-top: var(--rpl-sp-7);
+  }
+}
+
 .rpl-primary-nav__mega-menu-grid-container {
   width: 100%;
   max-width: 400px;

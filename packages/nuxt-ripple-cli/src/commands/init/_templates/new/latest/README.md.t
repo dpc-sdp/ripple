@@ -1,3 +1,7 @@
+---
+to: README.md
+---
+
 # <%= name %>
 
 ## Important information
@@ -33,7 +37,7 @@ nvm use
 Then use [Node Package Manager (NPM)](https://docs.npmjs.com/) to install project dependencies.
 
 > **Note**
-> Please do not use package managers other than NPM (such as yarn, PNPM). Our release management tooling assumes NPM as a package manager.
+> Please **do not use package managers other than NPM** (such as yarn, PNPM). Our release management tooling assumes NPM as a package manager.
 
 ```bash
 # npm

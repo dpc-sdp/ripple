@@ -40,6 +40,10 @@ const makeAddressLink = (address: TideAddress): string => {
 }
 
 const getSocialMediaIconByType = (type: string): string => {
+  if (type === 'youtube_channel') {
+    return 'icon-youtube'
+  }
+
   return `icon-${type}`
 }
 

@@ -3,6 +3,59 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.163](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.162...v2.1.0-alpha.163) (2023-05-15)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-preview:** only send auth header for preview links ([39604e3](https://github.com/dpc-sdp/ripple-framework/commit/39604e3456474b1da3521746618bdaa852157038))
+
+### Features
+
+* **@dpc-sdp/nuxt-ripple:** wip for tide preview links ([df593b4](https://github.com/dpc-sdp/ripple-framework/commit/df593b4957ccca2f329948286776900e27218408))
+* **@dpc-sdp/ripple-tide-preview:** store signed oauth state and validate it ([434ea12](https://github.com/dpc-sdp/ripple-framework/commit/434ea122bfcf6ca6101067e961c5d2dc86c42b66))
+
+# [2.1.0-alpha.159](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.158...v2.1.0-alpha.159) (2023-05-11)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-api:** fixed callout markup and added neutral callouts ([52c8016](https://github.com/dpc-sdp/ripple-framework/commit/52c8016b05929b6b73ac723198ca93fe54c0507b))
+
+# [2.1.0-alpha.158](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.157...v2.1.0-alpha.158) (2023-05-10)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-api:** handled case where image url doesn't exist ([20d675f](https://github.com/dpc-sdp/ripple-framework/commit/20d675f598d1905ea36052d8138e2641856a59cd))
+
+# [2.1.0-alpha.157](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.156...v2.1.0-alpha.157) (2023-05-08)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-api
+
+# [2.1.0-alpha.155](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.154...v2.1.0-alpha.155) (2023-05-08)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-api:** remap all image url to hit tide directly ([b5a1c32](https://github.com/dpc-sdp/ripple-framework/commit/b5a1c32feb4e29d14d91013d09fdd8e82d91ca8d))
+
+# [2.1.0-alpha.154](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.153...v2.1.0-alpha.154) (2023-05-05)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-api:** fixed circular deps breaking publish step ([8b4ef69](https://github.com/dpc-sdp/ripple-framework/commit/8b4ef69d2b63e88afc60f348743345c66467ccbf))
+
+# [2.1.0-alpha.153](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.152...v2.1.0-alpha.153) (2023-05-05)
+
+### Features
+
+* **@dpc-sdp/ripple-tide-api:** add epochToDate function ([fa5be4d](https://github.com/dpc-sdp/ripple-framework/commit/fa5be4d2d0684b60ee3526b71d198efa6825e174))
+* **@dpc-sdp/ripple-tide-api:** add updated date to documents ([75cfefe](https://github.com/dpc-sdp/ripple-framework/commit/75cfefe139a04843d82edc6136a91f76330e3e72))
+* **@dpc-sdp/ripple-tide-api:** move epochToDate so build doesn't fail ([67bcbda](https://github.com/dpc-sdp/ripple-framework/commit/67bcbdaa3375ae9eac01c870a9f30a260910c904))
+
+# [2.1.0-alpha.152](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.151...v2.1.0-alpha.152) (2023-05-04)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-api:** :bug: use selected image if there are multiple ([bfafb43](https://github.com/dpc-sdp/ripple-framework/commit/bfafb4371aa387d83bc6d768cdbf982c24328f1c))
+
 # [2.1.0-alpha.142](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.141...v2.1.0-alpha.142) (2023-04-17)
 
 ### Features

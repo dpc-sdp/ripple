@@ -3,6 +3,107 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.163](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.162...v2.1.0-alpha.163) (2023-05-15)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-preview:** fixed double slash in callback uri ([7fd7796](https://github.com/dpc-sdp/ripple-framework/commit/7fd77968f241146176c7db1e5a086080b63f9f2c))
+* **@dpc-sdp/ripple-tide-preview:** fixed incorrect cookie name in auth callback ([7098ec1](https://github.com/dpc-sdp/ripple-framework/commit/7098ec1aaa143637628704ac79548e6074a65a41))
+* **@dpc-sdp/ripple-tide-preview:** fixed typo ([83cbdee](https://github.com/dpc-sdp/ripple-framework/commit/83cbdee9b176b374708da74d0b26b655766b8b1a))
+* **@dpc-sdp/ripple-tide-preview:** get site base url from env var rather than request headers ([a04cb5d](https://github.com/dpc-sdp/ripple-framework/commit/a04cb5de3546cb569bc5fe5dbd93003c50f74b35))
+* **@dpc-sdp/ripple-tide-preview:** only send auth header for preview links ([39604e3](https://github.com/dpc-sdp/ripple-framework/commit/39604e3456474b1da3521746618bdaa852157038))
+
+### Features
+
+* **@dpc-sdp/nuxt-ripple:** wip for tide preview links ([df593b4](https://github.com/dpc-sdp/ripple-framework/commit/df593b4957ccca2f329948286776900e27218408))
+* **@dpc-sdp/ripple-tide-preview:** removed hardcoding of redirecturl ([a59e19d](https://github.com/dpc-sdp/ripple-framework/commit/a59e19d960755163615e8266753986d5ac77d5d8))
+* **@dpc-sdp/ripple-tide-preview:** store signed oauth state and validate it ([434ea12](https://github.com/dpc-sdp/ripple-framework/commit/434ea122bfcf6ca6101067e961c5d2dc86c42b66))
+
+# [2.1.0-alpha.162](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.161...v2.1.0-alpha.162) (2023-05-15)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** textarea feedback ([f2bb2ff](https://github.com/dpc-sdp/ripple-framework/commit/f2bb2ff3e8b5227b20dc69b5a1463a6a30e3f080))
+
+# [2.1.0-alpha.161](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.160...v2.1.0-alpha.161) (2023-05-12)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** fixed level 4 nav links with children not being clickable ([96b72ef](https://github.com/dpc-sdp/ripple-framework/commit/96b72ef9a7b1373c8497af8ad4d615ae3a624622))
+
+# [2.1.0-alpha.160](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.159...v2.1.0-alpha.160) (2023-05-12)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** fixed page crash when trying to import missing icon ([7eaf5dc](https://github.com/dpc-sdp/ripple-framework/commit/7eaf5dcee2d94b6ac0f571678dd3c7e3bca9b6ca))
+
+# [2.1.0-alpha.159](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.158...v2.1.0-alpha.159) (2023-05-11)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-api:** fixed callout markup and added neutral callouts ([52c8016](https://github.com/dpc-sdp/ripple-framework/commit/52c8016b05929b6b73ac723198ca93fe54c0507b))
+* **@dpc-sdp/ripple-ui-core:** :lipstick: style fixes from feedback ([8bea9eb](https://github.com/dpc-sdp/ripple-framework/commit/8bea9eb3d50b3683efebd08c8452a80b2f71db4e))
+
+# [2.1.0-alpha.158](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.157...v2.1.0-alpha.158) (2023-05-10)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-api:** handled case where image url doesn't exist ([20d675f](https://github.com/dpc-sdp/ripple-framework/commit/20d675f598d1905ea36052d8138e2641856a59cd))
+
+# [2.1.0-alpha.157](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.156...v2.1.0-alpha.157) (2023-05-08)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-monorepo
+
+# [2.1.0-alpha.156](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.155...v2.1.0-alpha.156) (2023-05-08)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-monorepo
+
+# [2.1.0-alpha.155](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.154...v2.1.0-alpha.155) (2023-05-08)
+
+### Bug Fixes
+
+* **@dpc-sdp/nuxt-ripple-cli:** :bug: fix dist files not being included in npm package ([940aa01](https://github.com/dpc-sdp/ripple-framework/commit/940aa0143ce794dfb24625d74a9a59c26291a4d2))
+* **@dpc-sdp/ripple-tide-api:** remap all image url to hit tide directly ([b5a1c32](https://github.com/dpc-sdp/ripple-framework/commit/b5a1c32feb4e29d14d91013d09fdd8e82d91ca8d))
+
+# [2.1.0-alpha.154](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.153...v2.1.0-alpha.154) (2023-05-05)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-api:** fixed circular deps breaking publish step ([8b4ef69](https://github.com/dpc-sdp/ripple-framework/commit/8b4ef69d2b63e88afc60f348743345c66467ccbf))
+
+# [2.1.0-alpha.153](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.152...v2.1.0-alpha.153) (2023-05-05)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-event:** fixed cypress tests ([b6ef19b](https://github.com/dpc-sdp/ripple-framework/commit/b6ef19bc6e354a37782021663afaf6db56573347))
+* **@dpc-sdp/ripple-tide-publication:** ensure order of print all pages ([a809ab4](https://github.com/dpc-sdp/ripple-framework/commit/a809ab492f1ce2b60c82b40a52103e02d766986c))
+* **@dpc-sdp/ripple-ui-core:** allowed description list to take items as slots ([c655f6e](https://github.com/dpc-sdp/ripple-framework/commit/c655f6ea10c714d5de0b975a7f481b25b6fcc8a6))
+* **@dpc-sdp/ripple-ui-core:** moved embed media styles to global to support wysiwyg editor ([1efcc16](https://github.com/dpc-sdp/ripple-framework/commit/1efcc16058c1884198ad3c39647fb57a54487826))
+
+### Features
+
+* **@dpc-sdp/ripple-tide-api:** add epochToDate function ([fa5be4d](https://github.com/dpc-sdp/ripple-framework/commit/fa5be4d2d0684b60ee3526b71d198efa6825e174))
+* **@dpc-sdp/ripple-tide-api:** add updated date to documents ([75cfefe](https://github.com/dpc-sdp/ripple-framework/commit/75cfefe139a04843d82edc6136a91f76330e3e72))
+* **@dpc-sdp/ripple-tide-api:** move epochToDate so build doesn't fail ([67bcbda](https://github.com/dpc-sdp/ripple-framework/commit/67bcbdaa3375ae9eac01c870a9f30a260910c904))
+* **@dpc-sdp/ripple-tide-search:** added search error handling and subtle loading state ([31a4f8e](https://github.com/dpc-sdp/ripple-framework/commit/31a4f8e5a39df9408ec06f80ed3fafe642659015))
+* **@dpc-sdp/ripple-tide-search:** added ui for empty search results ([0a4c2b3](https://github.com/dpc-sdp/ripple-framework/commit/0a4c2b34e7ce3186238736876000b3fe82aee79e))
+
+# [2.1.0-alpha.152](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.151...v2.1.0-alpha.152) (2023-05-04)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-api:** :bug: use selected image if there are multiple ([bfafb43](https://github.com/dpc-sdp/ripple-framework/commit/bfafb4371aa387d83bc6d768cdbf982c24328f1c))
+* **@dpc-sdp/ripple-tide-publication:** fixed incorrectly titled print all page ([e7b8161](https://github.com/dpc-sdp/ripple-framework/commit/e7b816103eeefb3a6351dac5bceccf6e02fe73f5))
+* **@dpc-sdp/ripple-ui-core:** reduced menu padding when actions are present ([a6b2553](https://github.com/dpc-sdp/ripple-framework/commit/a6b2553e39cbc20da17f098ccbd1e3708a5629e2))
+
+# [2.1.0-alpha.151](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.150...v2.1.0-alpha.151) (2023-05-01)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-landing-page:** passed the title to accordion for analytics ([9c9b39b](https://github.com/dpc-sdp/ripple-framework/commit/9c9b39b76b620d72f27d124c13311ff00b0fdac7))
+* **@dpc-sdp/ripple-tide-landing-page:** removed double accordion title ([588321d](https://github.com/dpc-sdp/ripple-framework/commit/588321dd8e3dd38b0e497e915e23cb291fbc34bf))
+* **@dpc-sdp/ripple-tide-landing-page:** restore accordion title prop ([8c6b25d](https://github.com/dpc-sdp/ripple-framework/commit/8c6b25d75313d34171692bdf98f52a44a6417a1b))
+
 # [2.1.0-alpha.150](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.149...v2.1.0-alpha.150) (2023-05-01)
 
 ### Bug Fixes

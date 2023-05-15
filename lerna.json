@@ -1,10 +1,11 @@
 {
-  "version": "1.37.0",
+  "version": "1.37.1",
   "exact": true,
   "npmClient": "yarn",
   "useWorkspaces": true,
   "allowBranch": [
     "master",
-    "release/*"
+    "release/*",
+    "hotfix/*"
   ]
 }

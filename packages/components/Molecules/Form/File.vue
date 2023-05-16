@@ -35,7 +35,7 @@
           <div class="rpl-form-file__info">
             <div v-if="item.error" class="rpl-form-file__error" aria-live="polite">{{ item.error }}</div>
             <span class="rpl-form-file__name">{{ item.file.name }}</span>
-            <span class="rpl-form-file__meta">{{ item.file.type.toUpperCase() }} | {{ getSizeInMB(item.file.size) }} mb</span>
+            <span class="rpl-form-file__meta">{{ getFileType(item.file.type) }} | {{ getSizeInMB(item.file.size) }} mb</span>
             <div v-if="item.status === 'invalid'" class="rpl-form-file__invalid-actions">
               <button @click.prevent="replaceFile(index)" class="rpl-form-file__link" :aria-label="`Replace ${item.file.name}`">Replace</button>
               <span>or</span>
@@ -182,6 +182,9 @@ export default {
     getSizeInMB (size) {
       return Math.ceil(size * 0.000001 * 100) / 100
     },
+    getFileType (type) {
+      return type.split('/').pop().toUpperCase()
+    },
     validateFile (file) {
       const fileExtension = file.type.split('/').pop()
 
@@ -304,12 +307,22 @@ $rpl-file-dropzone-bg-color: rpl-color("mid_neutral_2") !default;
     background-color: transparent;
     transition: background-color 0.25s;
 
+    @include rpl_breakpoint_down('s') {
+      padding: 0;
+      border-width: 0;
+    }
+
     &-inner {
       display: flex;
       align-items: center;
       flex-direction: column;
       gap: $rpl-space-4;
       padding: $rpl-space-2;
+
+      @include rpl_breakpoint_down('s') {
+        padding: 0;
+        align-items: start;
+      }
     }
 
     &--over {

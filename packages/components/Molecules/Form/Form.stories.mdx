@@ -207,9 +207,9 @@ export const formData = {
         type: 'rplfile',
         label: 'File upload',
         hint: 'Implemented using rplFile',
-        allowedTypes: ['image/jpeg', 'image/png'],
+        allowedTypes: ['jpeg', 'png'],
         model: 'file',
-        maxFiles: 5,
+        maxFiles: 3,
         required: true,
         validator (value) {
           return !value.length ? ['This field is required'] : []

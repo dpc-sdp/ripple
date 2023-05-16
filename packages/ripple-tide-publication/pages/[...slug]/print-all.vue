@@ -42,7 +42,7 @@ onMounted(() => {
   <TideBaseLayout
     :site="site"
     :page="{}"
-    :pageTitle="`Sitemap - ${site.name}`"
+    :pageTitle="`Print - ${parentPage.title}`"
     pageLanguage="en-AU"
   >
     <template #breadcrumbs>
@@ -64,6 +64,7 @@ onMounted(() => {
     </template>
     <template #body>
       <RplInPageNavigation
+        v-if="childPages.length"
         title="On this page"
         :items="menu.publication.items"
       />

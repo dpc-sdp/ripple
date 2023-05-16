@@ -10,8 +10,6 @@
 </template>
 
 <script setup lang="ts">
-import { RplCallToActionCard } from '#components'
-
 interface Props {
   title: string
   image: {

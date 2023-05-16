@@ -19,10 +19,14 @@ withDefaults(defineProps<Props>(), {
       <RplImage
         class="rpl-acknowledgement__flag"
         :src="aboriginalFlag"
+        :width="55"
+        :height="38"
         alt="Aboriginal flag"
       />
       <RplImage
         class="rpl-acknowledgement__flag"
+        :width="55"
+        :height="38"
         :src="torresStraitIslanderFlag"
         alt="Torres Strait Islander flag"
       />

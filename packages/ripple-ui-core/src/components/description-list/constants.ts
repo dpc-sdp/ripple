@@ -1,4 +1,4 @@
-export type RplDescriptionListItem = {
+export type IRplDescriptionListItem = {
   term: string
   description: string
 }

@@ -57,12 +57,14 @@ interface Props {
   withPadding?: boolean
   theme?: string
   useNeutralButtons?: boolean
+  argsString: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
   withPadding: false,
   theme: undefined,
-  useNeutralButtons: false
+  useNeutralButtons: false,
+  argsString: ''
 })
 
 const SNIPPET_RENDERED = `storybook/docs/snippet-rendered`
@@ -130,7 +132,7 @@ const buttonTheme = computed(() => {
 
 const storybookPreviewUrl = computed(
   () =>
-    `${storybookBaseUrl}/iframe.html?args=&id=${props.id}&viewMode=story&globals=theme:${computedTheme.value};buttonTheme:${buttonTheme.value}`
+    `${storybookBaseUrl}/iframe.html?args=${props.argsString}&id=${props.id}&viewMode=story&globals=theme:${computedTheme.value};buttonTheme:${buttonTheme.value}`
 )
 
 watch(targetIsVisible, (visible, wasVisible) => {

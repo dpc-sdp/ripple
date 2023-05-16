@@ -331,6 +331,7 @@ export const webformMapping = async (
     id: field.drupal_internal__id,
     title: field.field_paragraph_title,
     props: {
+      title: field.field_paragraph_title,
       formId: field?.field_paragraph_webform?.drupal_internal__id,
       hideFormOnSubmit:
         field?.field_paragraph_webform?.settings?.confirmation_type ===

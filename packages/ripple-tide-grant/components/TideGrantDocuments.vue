@@ -7,7 +7,7 @@
           :url="doc.url"
           :name="doc.name"
           :extension="doc.extension"
-          :size="doc.filesize"
+          :size="doc.size"
           :openInNewWindow="isExternalUrl(doc.url, $app_hostname)"
           :download="true"
         />

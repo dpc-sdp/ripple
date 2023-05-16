@@ -1,7 +1,7 @@
 ---
 title: Advanced address
 description: Page description
-layout: default
+layout: page
 links:
   - text: Link 1
     url: https://www.google.com/

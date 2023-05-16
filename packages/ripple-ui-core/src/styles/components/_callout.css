@@ -16,6 +16,10 @@
   }
 
   > {
+    :nth-child(n) {
+      margin-top: var(--rpl-sp-4);
+    }
+
     :first-child {
       margin-top: 0;
     }

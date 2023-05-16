@@ -1,6 +1,15 @@
+import path from 'path'
+import { readFileSync } from 'fs'
+import { fileURLToPath } from 'url'
 import StyleDictionary from 'style-dictionary'
-import baseConfig from './config.json'
 import yaml from 'yaml'
+
+const baseConfig = JSON.parse(
+  readFileSync(
+    path.join(path.dirname(fileURLToPath(import.meta.url)), './config.json'),
+    'utf-8'
+  )
+)
 
 StyleDictionary.registerTransform({
   name: 'size/pixels',

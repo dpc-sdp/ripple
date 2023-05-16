@@ -10,7 +10,7 @@
         {{ displayDate }}
       </RplDescriptionListItem>
       <RplDescriptionListItem
-        v-for="item in overview"
+        v-for="item in overviewList"
         :key="item.term"
         :term="item.term"
       >
@@ -58,6 +58,10 @@ const props = defineProps<Props>()
 
 const displayDate = computed(() =>
   formatDateRange(props.date, {}, props.showTime)
+)
+
+const overviewList = computed(() =>
+  props.overview.filter((item) => item.description)
 )
 </script>
 

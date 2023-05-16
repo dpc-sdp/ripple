@@ -96,7 +96,6 @@ export const tide = (axios, site, config) => ({
   },
 
   delete: async function (url, headersConfig = {}) {
-    // Axios config
     const axiosConfig = {
       auth: config.auth,
       timeout: headersConfig.axiosTimeout || config.tideTimeout,
@@ -110,7 +109,6 @@ export const tide = (axios, site, config) => ({
   },
 
   upload: async function (url, file = {}, headersConfig = {}, options = {}) {
-    // Axios config
     const axiosConfig = {
       auth: config.auth,
       timeout: headersConfig.axiosTimeout || config.tideTimeout,

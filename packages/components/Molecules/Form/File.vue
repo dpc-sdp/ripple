@@ -45,8 +45,8 @@
               v-if="item.status === 'error'"
               @click.prevent="retryFile(index)"
               class="rpl-form-file__retry rpl-form-file__link"
-              aria-live="polite"
               :aria-label="`Retry uploading ${item.file.name}`"
+              aria-live="polite"
             >
               File failed to upload, click here to retry
             </button>
@@ -56,8 +56,8 @@
           </button>
         </div>
         <div v-if="item.status === 'pending'" class="rpl-form-file__progress">
-          <progress :value="item.progress" max="100" />
-          <span>{{ item.progress }}%</span>
+          <progress :value="item.progress" max="100" :aria-label="`Uploaded ${item.progress}% of ${item.file.name}`" />
+          <span aria-hidden="true">{{ item.progress }}%</span>
         </div>
       </li>
     </ul>
@@ -79,7 +79,9 @@ export default {
     readonly: Boolean,
     placeholder: String,
     identifier: String,
-    reset: Number
+    reset: Number,
+    handlePost: Function,
+    handleDelete: Function
   },
   data () {
     return {
@@ -140,17 +142,27 @@ export default {
     },
     removeFile (index) {
       const item = this.value[index]
-      this.value = this.value.filter((file, i) => i !== index)
+
+      if (item.status === 'pending' && item?.source) {
+        item.source.cancel()
+      }
 
       if (item.status === 'success') {
-        this.deleteFile(item)
+        this.handleDelete(item)
         this.$emit('update', this.getUploadedIds())
       }
+
+      this.value = this.value.filter((file, i) => i !== index)
     },
-    updateProgress ({ id }, { loaded, total }) {
+    updateProgress (id, { loaded, total }, source = null) {
       const index = this.value.findIndex(file => file.id === id)
 
-      this.value[index].progress = Math.round((loaded * 100) / total)
+      if (this.value[index]) {
+        this.value[index].progress = Math.round((loaded * 100) / total)
+      }
+      if (source && !this.value[index]?.source) {
+        this.value[index].source = source
+      }
     },
     getUploadedIds () {
       const ids = this.value.filter(file => file.status === 'success').map(file => file.id)
@@ -194,27 +206,13 @@ export default {
       }
     },
     async uploadFile (item) {
-      const errorMessage = 'Error uploading file'
-      const [ id, field ] = this.identifier.split(/-(.*)/g)
+      const response = await this.handlePost(item, this.updateProgress)
 
-      try {
-        const res = await this.$tide.upload(`/webform_rest/${id}/upload/${field}`, item.file, {}, {
-          onUploadProgress: (progress) => this.updateProgress(item, progress)
-        })
-        if (res?.fid && res?.uuid) {
-          return { status: 'success', id: res.fid?.[0]?.value, uuid: res.uuid?.[0]?.value }
-        }
-        return { status: 'error', message: res?.message || errorMessage }
-      } catch (e) {
-        return { status: 'error', message: e?.response?.data?.message || errorMessage }
+      if (response.status === 'error' && !response?.message) {
+        response.message = 'Error uploading file'
       }
-    },
-    async deleteFile (file) {
-      try {
-        await this.$tide.delete(`file/file/${file.uuid}`)
-      } catch (e) {
-        console.error('Error deleting file')
-      }
+
+      return response
     }
   },
   computed: {
@@ -348,7 +346,7 @@ $rpl-file-dropzone-bg-color: rpl-color("mid_neutral_2") !default;
 
   &__list {
     padding: 0;
-    margin: $rpl-space-4 0 0;
+    margin: $rpl-space * 5 0 0;
     list-style: none;
     display: flex;
     flex-direction: column;
@@ -386,7 +384,7 @@ $rpl-file-dropzone-bg-color: rpl-color("mid_neutral_2") !default;
   &__meta {
     color: $rpl-file-additional-text;
     text-transform: uppercase;
-    margin-top: rem(4px);
+    margin-top: $rpl-space-2;
 
     @include rpl_typography_font($font-size: 'xs');
   }

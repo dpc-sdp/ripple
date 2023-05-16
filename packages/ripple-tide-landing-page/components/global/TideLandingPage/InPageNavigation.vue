@@ -63,6 +63,7 @@ const items = computed(() => {
 
 <template>
   <RplInPageNavigation
+    v-if="items?.length"
     title="On this page"
     :items="items"
     data-cy="in-page-nav"

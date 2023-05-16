@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.157](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.156...v2.1.0-alpha.157) (2023-05-08)
+
+**Note:** Version bump only for package @dpc-sdp/nuxt-ripple-cli
+
+# [2.1.0-alpha.156](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.155...v2.1.0-alpha.156) (2023-05-08)
+
+**Note:** Version bump only for package @dpc-sdp/nuxt-ripple-cli
+
+# [2.1.0-alpha.155](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.154...v2.1.0-alpha.155) (2023-05-08)
+
+### Bug Fixes
+
+* **@dpc-sdp/nuxt-ripple-cli:** :bug: fix dist files not being included in npm package ([940aa01](https://github.com/dpc-sdp/ripple-framework/commit/940aa0143ce794dfb24625d74a9a59c26291a4d2))
+
 # [2.1.0-alpha.127](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.126...v2.1.0-alpha.127) (2023-03-31)
 
 ### Bug Fixes

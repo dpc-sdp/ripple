@@ -50,7 +50,7 @@ export type TideGrantDocument = {
   name: string
   url: string
   extension: string
-  filesize: string
+  size: string
   id: string
 }
 

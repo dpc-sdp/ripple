@@ -171,12 +171,14 @@
   @media (--rpl-bp-l) {
     &--inset {
       display: flex;
+      align-items: flex-start;
 
       .rpl-card__upper {
         flex-shrink: 0;
-        flex-basis: calc(
-          32rem + (var(--rpl-sp-8) + var(--rpl-sp-6))
-        ); /* basis = 320px + l/r margin */
+        flex-basis: min(
+          calc(32rem + (var(--rpl-sp-8) + var(--rpl-sp-6))),
+          calc(50% + var(--rpl-sp-3))
+        ); /* basis = 320px|50% + margins */
       }
 
       .rpl-card__media--inset {

@@ -2,7 +2,7 @@
   "name": "@dpc-sdp/ripple-test-utils",
   "license": "Apache-2.0",
   "main": "./config/index.ts",
-  "version": "2.1.0-alpha.124",
+  "version": "2.1.0-alpha.152",
   "scripts": {},
   "exports": {
     ".": "./config/index.ts",

@@ -62,6 +62,7 @@ Feature: Home page
 
   @mockserver
   Scenario: Header component - Search banner
+    Given the endpoint "/api/tide/page" with query "?path=/search/cats&site=8888" returns fixture "/landingpage/home" with status 200
     Then a search banner with ID "1911" should exist with the placeholder "Test search placeholder"
     Then in a search banner with ID "1911", searching for "cats" should take me to "/search/cats"
 
@@ -189,3 +190,11 @@ Feature: Home page
     Then the "media-gallery" modal should be "visible"
     When I click the "media-gallery" modal button "Close"
     Then the "media-gallery" modal should be "hidden"
+
+  @mockserver
+  Scenario: Page component - Data Table
+    Then a data table with ID "1936" should exist with the following structure
+      | type | cell-one             | cell-two             | cell-three             |
+      | th   | Row One Column One   | Row One Column Two   | Row One Column Three   |
+      | td   | Row Two Column One   | Row Two Column Two   | Row Two Column Three   |
+      | td   | Row Three Column One | Row Three Column Two | Row Three Column Three |

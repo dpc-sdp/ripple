@@ -1,5 +1,5 @@
 import { within, userEvent } from '@storybook/testing-library'
-import { rplEventBus } from './../../index.js'
+import { rplEventBus } from '@dpc-sdp/ripple-ui-core'
 import { expect } from '@storybook/jest'
 
 export const playFunction = async ({ canvasElement }) => {

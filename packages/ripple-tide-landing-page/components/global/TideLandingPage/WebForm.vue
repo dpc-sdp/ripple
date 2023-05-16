@@ -6,6 +6,7 @@ import { nextTick, ref, watch } from 'vue'
 import { RplFormAlert } from '@dpc-sdp/ripple-ui-forms'
 
 interface Props {
+  title?: string
   formId: string
   hideFormOnSubmit: boolean
   successMessageTitle: string
@@ -16,6 +17,7 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
+  title: undefined,
   hideFormOnSubmit: false,
   successMessageTitle: 'Form submitted',
   errorMessageTitle: 'Form not submitted'
@@ -85,7 +87,7 @@ const submissionState = ref({
 
 const serverSuccessRef = ref<RplFormAlert>(null)
 
-const submitHandler = async (values) => {
+const submitHandler = async ({ data }) => {
   submissionState.value = {
     status: 'submitting',
     title: '',
@@ -104,7 +106,7 @@ const submitHandler = async (values) => {
   }
 
   try {
-    await postForm(props.formId, values)
+    await postForm(props.formId, data)
 
     submissionState.value = {
       status: 'success',
@@ -157,6 +159,7 @@ watch(
     <RplForm
       v-else
       :id="formId"
+      :title="title"
       :schema="schema"
       :submissionState="submissionState"
       @submit="submitHandler"

@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import { RplSearchBar, RplHeroHeader } from '#components'
 import { useRuntimeConfig, useFetch, useRoute } from '#imports'
 import useTideSearch from './../composables/use-tide-search'
 import { FilterConfigItem, MappedSearchResult } from 'ripple-tide-search/types'
@@ -41,7 +40,7 @@ const props = withDefaults(defineProps<Props>(), {
   searchResultsMappingFn: (item): MappedSearchResult<any> => {
     return {
       id: item._meta.id,
-      component: 'RplSearchResult',
+      component: 'TideSearchResult',
       props: {
         title: item.title?.raw?.[0],
         url: item.url?.raw?.[0].replace(/\/site-(\d+)/, ''),
@@ -218,7 +217,7 @@ const getFilterOptions = (field) => {
       </RplHeroHeader>
     </template>
     <template #body>
-      <RplPageComponent>
+      <RplPageComponent v-if="!searchState.error && searchState.totalResults">
         <p class="rpl-type-label rpl-u-padding-b-6">
           Displaying {{ searchState.pagingStart }}-{{
             searchState.pagingEnd
@@ -229,19 +228,50 @@ const getFilterOptions = (field) => {
       <RplPageComponent>
         <div class="rpl-grid">
           <div class="rpl-col-12 rpl-col-8-m">
-            <RplResultListing>
-              <RplResultListingItem
-                v-for="(result, idx) in results"
-                :key="`result-${idx}-${result.id}`"
+            <div
+              :class="{
+                'tide-search-results': true,
+                'tide-search-results--loading':
+                  searchState.isLoading && !searchState.error
+              }"
+            >
+              <div v-if="searchState.error">
+                <RplContent>
+                  <p class="rpl-type-h3">
+                    Sorry! Something went wrong. Please try again later.
+                  </p>
+                </RplContent>
+              </div>
+              <div
+                v-else-if="!searchState.isLoading && !searchState.totalResults"
               >
-                <component :is="result.component" v-bind="result.props" />
-              </RplResultListingItem>
-            </RplResultListing>
+                <RplContent>
+                  <p class="rpl-type-h3">
+                    Sorry! We couldn't find any matches for '{{
+                      searchState.resultSearchTerm
+                    }}'.
+                  </p>
+                  <p>To improve your search results:</p>
+                  <ul>
+                    <li>use different or fewer keywords</li>
+                    <li>check spelling.</li>
+                  </ul>
+                </RplContent>
+              </div>
+              <RplResultListing v-else>
+                <RplResultListingItem
+                  v-for="(result, idx) in results"
+                  :key="`result-${idx}-${result.id}`"
+                >
+                  <component :is="result.component" v-bind="result.props" />
+                </RplResultListingItem>
+              </RplResultListing>
+            </div>
           </div>
         </div>
       </RplPageComponent>
       <RplPageComponent>
-        <RplPageLinks v-if="results && results.length">
+        <RplPageLinks v-if="results && results.length && !searchState.error">
           <RplPageLinksItem
             v-if="prevLink"
             :url="prevLink.url"
@@ -285,5 +315,10 @@ const getFilterOptions = (field) => {
   align-self: flex-end;
   padding: 0;
   margin-top: var(--rpl-sp-5);
+}
+
+.tide-search-results--loading {
+  opacity: 0.5;
+  pointer-events: none;
 }
 </style>

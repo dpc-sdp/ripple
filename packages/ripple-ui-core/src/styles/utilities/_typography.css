@@ -191,6 +191,23 @@ html {
   box-decoration-break: clone;
 }
 
+.rpl-type-p-large-highlight {
+  display: inline;
+  padding: 0.05rem var(--rpl-sp-2); /* [1] */
+  font-size: var(--rpl-type-size-3);
+  line-height: var(--rpl-type-lh-5);
+  letter-spacing: var(--rpl-type-ls-2);
+  background-color: var(--rpl-clr-accent-alt);
+  box-decoration-break: clone;
+
+  @media (--rpl-bp-l) {
+    padding: 0 var(--rpl-sp-2);
+    font-size: var(--rpl-type-size-4);
+    line-height: var(--rpl-type-lh-6);
+    letter-spacing: var(--rpl-type-ls-4);
+  }
+}
+
 .rpl-type-p-large {
   font-size: var(--rpl-type-size-3);
   line-height: var(--rpl-type-lh-5);

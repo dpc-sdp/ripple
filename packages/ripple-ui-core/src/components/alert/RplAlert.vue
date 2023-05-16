@@ -6,10 +6,10 @@ import onResizeHeight from '../../composables/onResizeHeight'
 import { RplIconNames } from '../icon/constants'
 import RplIcon from '../icon/RplIcon.vue'
 import RplTextLink from '../text-link/RplTextLink.vue'
-import { rplEventBus } from '../../index'
-
-rplEventBus.register('rpl-alert/dismiss')
-const emit = defineEmits(['dismiss'])
+import {
+  useRippleEvent,
+  rplEventPayload
+} from '../../composables/useRippleEvent'
 
 interface Props {
   variant?: RplAlertTypes
@@ -30,9 +30,25 @@ const props = withDefaults(defineProps<Props>(), {
   dismissed: false
 })
 
+const emit = defineEmits<{
+  (e: 'dismiss', payload: rplEventPayload & { action: 'close' }): void
+}>()
+
+const { emitRplEvent } = useRippleEvent('rpl-alert', emit)
+
+const closeLabel = 'Dismiss alert'
+
 const onClose = () => {
-  rplEventBus.emit('rpl-alert/dismiss', props.alertId)
-  emit('dismiss', props.alertId)
+  emitRplEvent(
+    'dismiss',
+    {
+      id: props.alertId,
+      action: 'close',
+      name: props.message,
+      label: closeLabel
+    },
+    { global: true }
+  )
 }
 const classes = computed(() => {
   return {
@@ -65,12 +81,7 @@ onResizeHeight(alertRef, (height) => {
       role="region"
       :aria-labelledby="`alert-message-${props.alertId}`"
     >
-      <rpl-icon
-        class="rpl-alert__icon-info"
-        size="m"
-        nopad
-        :name="iconName"
-      ></rpl-icon>
+      <RplIcon class="rpl-alert__icon-info" size="m" nopad :name="iconName" />
       <div class="rpl-alert__message-wrap">
         <div
           :id="`alert-message-${props.alertId}`"
@@ -83,7 +94,7 @@ onResizeHeight(alertRef, (height) => {
           class="rpl-alert__link rpl-type-p rpl-u-focusable--alt-colour"
           :url="linkUrl"
         >
-          {{ linkText }}<rpl-icon name="icon-arrow-right"></rpl-icon>
+          {{ linkText }}<RplIcon name="icon-arrow-right" />
         </RplTextLink>
       </div>
       <button
@@ -91,7 +102,7 @@ onResizeHeight(alertRef, (height) => {
         data-cy="dismiss"
         @click="onClose"
       >
-        <rpl-icon title="Dismiss alert" name="icon-cancel"></rpl-icon>
+        <RplIcon :title="closeLabel" name="icon-cancel" />
       </button>
     </div>
   </div>

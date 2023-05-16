@@ -17,16 +17,20 @@
     }
 
     th,
+    td,
     th:first-child,
-    td {
+    td:first-child {
       font-weight: var(--rpl-font-weight-normal);
       padding: 0 var(--rpl-sp-3);
       margin-top: var(--rpl-sp-4);
       margin-bottom: 0;
     }
 
-    .rpl-data-table__actions {
+    td:last-child {
       padding-bottom: var(--rpl-sp-4);
+    }
+
+    .rpl-data-table__actions {
       width: 100%;
 
       @media print {
@@ -38,10 +42,6 @@
       .rpl-button {
         width: auto;
       }
-    }
-
-    .rpl-data-table__details {
-      padding-bottom: var(--rpl-sp-4);
     }
 
     .rpl-table__scroll-container {

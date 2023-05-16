@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import layers from '../../../packages/ripple-ui-core/tokens/settings/layers.yaml'
+import layers from '../../../packages/ripple-ui-core/src/tokens/settings/layers.yaml'
 
 interface Props {
   type: 'border' | 'border.radius' | 'elevation'

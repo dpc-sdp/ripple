@@ -42,7 +42,6 @@
 <script setup lang="ts">
 import { TideSiteData } from '@dpc-sdp/ripple-tide-api/types'
 import type { TideMediaPage } from '../../types'
-import { RplMediaEmbed } from '#components'
 
 interface Props {
   site: TideSiteData

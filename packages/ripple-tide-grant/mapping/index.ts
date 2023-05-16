@@ -110,7 +110,7 @@ const tideGrantModule: IRplTideModuleMapping = {
         name: doc.name,
         url: doc.field_media_file.url || doc.field_media_file.uri,
         extension: mime.extension(doc.field_media_file.filemime),
-        filesize: humanizeFilesize(doc.field_media_file.filesize),
+        size: humanizeFilesize(doc.field_media_file.filesize),
         id: doc.id
       })),
     sidebarComponents: ['RplSocialShare']

@@ -63,8 +63,8 @@ const titleClasses = computed(() => ({
 }))
 
 const contentClasses = computed(() => ({
-  'rpl-type-p-large': true,
-  'rpl-type-p-highlight': highlight.value
+  'rpl-type-p-large': !highlight.value,
+  'rpl-type-p-large-highlight': highlight.value
 }))
 </script>
 

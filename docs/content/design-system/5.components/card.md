@@ -89,7 +89,8 @@ Promotion cards have 4 variants:
 #### Standard
 ::DocsExample
 ---
-id: core-navigation-card--promo&args=graphicElement:None
+id: core-navigation-card--promo
+argsString: 'graphicElement:None'
 ---
 ::
 
@@ -98,7 +99,8 @@ The highlight variant gives the card more visual prominence. Use this to guide u
 
 ::DocsExample
 ---
-id: core-navigation-card--promo&args=graphicElement:Highlight
+id: core-navigation-card--promo
+argsString: 'graphicElement:Highlight'
 ---
 ::
 
@@ -133,7 +135,8 @@ There are 3 variants of navigation cards:
 #### Standard
 ::DocsExample
 ---
-id: core-navigation-card--nav&args=graphicElement:None
+id: core-navigation-card--nav
+argsString: 'graphicElement:None'
 ---
 ::
 
@@ -151,7 +154,8 @@ To draw attention to the heading and highlight the content, use a heading highli
 
 ::DocsExample
 ---
-id: core-navigation-card--nav&args=graphicElement:Heading+highlighted
+id: core-navigation-card--nav
+argsString: 'graphicElement:Heading+highlighted'
 ---
 ::
 

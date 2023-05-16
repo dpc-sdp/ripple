@@ -79,7 +79,7 @@ const contentClasses = computed(() => ({
         placement="bottom"
       />
     </template>
-    <template v-if="logo && !background" #upper>
+    <template v-if="logo" #upper>
       <RplImage class="rpl-header__logo" v-bind="logo" />
     </template>
     <template #title>

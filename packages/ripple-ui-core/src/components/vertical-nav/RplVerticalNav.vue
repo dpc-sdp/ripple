@@ -5,6 +5,7 @@ import RplVerticalNavChildList from './RplVerticalNavChildList.vue'
 import RplExpandable from '../expandable/RplExpandable.vue'
 import { useExpandableState } from '../../composables/useExpandableState'
 import { IRplVerticalNavItem } from './constants'
+import { computed } from 'vue'
 
 interface Props {
   title: string
@@ -13,7 +14,33 @@ interface Props {
 
 const props = defineProps<Props>()
 
-const initialActiveIndexes: string[] = props.items.reduce(
+// Because the top level items with children aren't actually links, we need to ensure that
+// the first child of each top level item is a link to that page. These links
+// have the same label as the parent item.
+const processedItems = computed<IRplVerticalNavItem[]>(
+  (): IRplVerticalNavItem[] => {
+    return (props.items || []).map((item) => {
+      if (item.url && item.items?.length) {
+        return {
+          ...item,
+          items: [
+            {
+              id: item.id,
+              text: item.text,
+              url: item.url,
+              active: item.active
+            },
+            ...(item.items || [])
+          ]
+        }
+      } else {
+        return item
+      }
+    })
+  }
+)
+
+const initialActiveIndexes: string[] = processedItems.value.reduce(
   (result: string[], current: IRplVerticalNavItem): string[] => {
     if (current.active) {
       return [...result, current.id]
@@ -26,7 +53,7 @@ const initialActiveIndexes: string[] = props.items.reduce(
 
 const { isItemExpanded, toggleItem } = useExpandableState(
   initialActiveIndexes,
-  props.items.length
+  processedItems.value.length
 )
 </script>
 
@@ -40,7 +67,7 @@ const { isItemExpanded, toggleItem } = useExpandableState(
       class="rpl-vertical-nav__list rpl-vertical-nav__list--level-1 rpl-type-p-small"
     >
       <li
-        v-for="(item, index) in items"
+        v-for="(item, index) in processedItems"
         :key="index"
         :class="{
           'rpl-vertical-nav__list-item': true,

@@ -169,12 +169,12 @@ Cards use colour for:
 ::DocsThemeChooser
   ::DocsExample
   ---
-  id: core-navigation-card--promo
+  id: core-navigation-card--promo&args=graphicElement:Highlight
   ---
   ::
   ::DocsExample
   ---
-  id: core-navigation-card--nav
+  id: core-navigation-card--nav&args=graphicElement:Heading+highlighted
   ---
   ::
 ::

@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { RplPrimaryCampaign } from '#components'
 import { ITidePrimaryCampaign } from '../../../mapping/primary-campaign/primary-campaign-mapping'
 
 defineProps<{

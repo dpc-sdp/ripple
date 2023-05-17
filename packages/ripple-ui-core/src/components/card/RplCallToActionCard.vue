@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue'
-import { RplCardElements, RplCardTitleClasses } from './constants'
+import { RplCardElements } from './constants'
 import { RplButtonVariants } from '../button/constants'
 import { useAccessibleContainer } from '../../composables/useAccessibleContainer'
 
@@ -25,8 +24,6 @@ withDefaults(defineProps<Props>(), {
   variant: 'filled',
   ctaText: 'Call to action'
 })
-
-const titleClasses = computed(() => RplCardTitleClasses)
 
 const { container, trigger } = useAccessibleContainer()
 </script>
@@ -59,7 +56,7 @@ const { container, trigger } = useAccessibleContainer()
       />
     </template>
     <template #title>
-      <h3 :class="titleClasses" data-cy="title">{{ title }}</h3>
+      <h3 class="rpl-card__cta rpl-type-h3" data-cy="title">{{ title }}</h3>
     </template>
     <slot></slot>
     <RplButton

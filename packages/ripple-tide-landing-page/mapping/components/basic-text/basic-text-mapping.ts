@@ -15,7 +15,7 @@ export const basicTextMapping = (
   const rawHTML = getBody(field?.field_paragraph_body?.processed)
 
   return {
-    component: 'RplContent',
+    component: 'TideLandingPageContent',
     id: `${field.drupal_internal__id}`,
     internalAnchors: getAnchorLinksFromHTML(rawHTML, true),
     props: {

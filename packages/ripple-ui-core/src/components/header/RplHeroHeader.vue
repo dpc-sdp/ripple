@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, useSlots } from 'vue'
 import RplHeader from './RplHeader.vue'
 import RplImage from '../image/RplImage.vue'
 import {
@@ -12,6 +12,7 @@ import RplHeaderGraphic from './RplHeaderGraphic.vue'
 import RplHeaderActions from './RplHeaderActions.vue'
 import { RplLink } from '../../lib/constants'
 import { IRplImageType } from '../image/constants'
+import useEmptySlotCheck from '../../composables/useEmptySlotCheck'
 
 interface Props {
   theme?: (typeof RplHeaderThemes)[number]
@@ -63,9 +64,12 @@ const titleClasses = computed(() => ({
 }))
 
 const contentClasses = computed(() => ({
-  'rpl-type-p-large': true,
-  'rpl-type-p-highlight': highlight.value
+  'rpl-type-p-large': !highlight.value,
+  'rpl-type-p-large-highlight': highlight.value
 }))
+
+const slots = useSlots()
+const defaultSlotIsEmpty = useEmptySlotCheck(slots.default)
 </script>
 
 <template>
@@ -88,13 +92,17 @@ const contentClasses = computed(() => ({
         placement="bottom"
       />
     </template>
-    <template v-if="logo && !background" #upper>
+    <template v-if="logo" #upper>
       <RplImage class="rpl-header__logo" v-bind="logo" />
     </template>
     <template #title>
       <h1 :class="titleClasses" data-cy="hero-title">{{ title }}</h1>
     </template>
-    <p v-if="$slots.default" :class="contentClasses" data-cy="hero-summary">
+    <p
+      v-if="!defaultSlotIsEmpty"
+      :class="contentClasses"
+      data-cy="hero-summary"
+    >
       <slot></slot>
     </p>
     <template v-if="(primaryAction || secondaryAction) && !background" #lower>

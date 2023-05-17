@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { RplDescriptionListItem } from '../description-list/constants'
+import { IRplDescriptionListItem } from '../description-list/constants'
 import type { ImgHTMLAttributes } from 'vue'
 import RplImage from '../image/RplImage.vue'
 import RplDescriptionList from '../description-list/RplDescriptionList.vue'
 
 interface Props {
   image: ImgHTMLAttributes
-  items?: Array<RplDescriptionListItem>
+  items?: Array<IRplDescriptionListItem>
 }
 
 withDefaults(defineProps<Props>(), {

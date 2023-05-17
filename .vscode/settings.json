@@ -19,12 +19,14 @@
     "vue-app",
     "@dpc-sdp/ripple-tide-search",
     "@dpc-sdp/ripple-tide-event",
+    "@dpc-sdp/nuxt-ripple-preview",
     "@dpc-sdp/nuxt-ripple",
     "@dpc-sdp/ripple-tide-media",
     "@dpc-sdp/ripple-tide-news",
     "nuxt-ripple",
     "@dpc-sdp/nuxt-ripple-cli",
-    "@dpc-sdp/ripple-test-utils"
+    "@dpc-sdp/ripple-test-utils",
+    "@dpc-sdp/nuxt-ripple-analytics"
   ],
   "cSpell.words": [
     "colour",

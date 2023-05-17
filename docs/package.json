@@ -16,7 +16,7 @@
     "@nuxt/kit": "^3.3.2",
     "@nuxtjs/color-mode": "^3.2.0",
     "@nuxtjs/tailwindcss": "^6.6.4",
-    "@nuxtlabs/github-module": "^1.6.1",
+    "@nuxtlabs/github-module": "^1.6.2",
     "@tailwindcss/typography": "^0.5.7",
     "@types/iframe-resizer": "^3.5.9",
     "nuxt-component-meta": "^0.5.1"

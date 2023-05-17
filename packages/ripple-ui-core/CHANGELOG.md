@@ -3,6 +3,145 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.165](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.164...v2.1.0-alpha.165) (2023-05-17)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** :bug: fixed header logo not showing with a background image ([e19dbfe](https://github.com/dpc-sdp/ripple-framework/commit/e19dbfedb6a5e0e1b37d3b66f5b66aaf5aedda81))
+* **@dpc-sdp/ripple-ui-core:** :bug: fixed hero header intro text showing when empty ([d922d6e](https://github.com/dpc-sdp/ripple-framework/commit/d922d6eea3015049b44ad1b54c03e8bf15178d7a))
+* **@dpc-sdp/ripple-ui-core:** added hidePromoCardStripe feature flag as many sites want no stripe ([41e206f](https://github.com/dpc-sdp/ripple-framework/commit/41e206fe2489dff1bb543f6545fef5e46b08cdc6))
+* **@dpc-sdp/ripple-ui-core:** update breadcrumb max-width ([34fab36](https://github.com/dpc-sdp/ripple-framework/commit/34fab36f7774b6db0017b47c405088a10adaaaa1))
+
+# [2.1.0-alpha.164](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.163...v2.1.0-alpha.164) (2023-05-15)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-ui-core
+
+# [2.1.0-alpha.163](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.162...v2.1.0-alpha.163) (2023-05-15)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-ui-core
+
+# [2.1.0-alpha.162](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.161...v2.1.0-alpha.162) (2023-05-15)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-ui-core
+
+# [2.1.0-alpha.161](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.160...v2.1.0-alpha.161) (2023-05-12)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** fixed level 4 nav links with children not being clickable ([96b72ef](https://github.com/dpc-sdp/ripple-framework/commit/96b72ef9a7b1373c8497af8ad4d615ae3a624622))
+
+# [2.1.0-alpha.160](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.159...v2.1.0-alpha.160) (2023-05-12)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** fixed page crash when trying to import missing icon ([7eaf5dc](https://github.com/dpc-sdp/ripple-framework/commit/7eaf5dcee2d94b6ac0f571678dd3c7e3bca9b6ca))
+
+# [2.1.0-alpha.159](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.158...v2.1.0-alpha.159) (2023-05-11)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-api:** fixed callout markup and added neutral callouts ([52c8016](https://github.com/dpc-sdp/ripple-framework/commit/52c8016b05929b6b73ac723198ca93fe54c0507b))
+* **@dpc-sdp/ripple-ui-core:** :lipstick: style fixes from feedback ([8bea9eb](https://github.com/dpc-sdp/ripple-framework/commit/8bea9eb3d50b3683efebd08c8452a80b2f71db4e))
+
+# [2.1.0-alpha.158](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.157...v2.1.0-alpha.158) (2023-05-10)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-ui-core
+
+# [2.1.0-alpha.157](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.156...v2.1.0-alpha.157) (2023-05-08)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-ui-core
+
+# [2.1.0-alpha.155](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.154...v2.1.0-alpha.155) (2023-05-08)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-api:** remap all image url to hit tide directly ([b5a1c32](https://github.com/dpc-sdp/ripple-framework/commit/b5a1c32feb4e29d14d91013d09fdd8e82d91ca8d))
+
+# [2.1.0-alpha.154](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.153...v2.1.0-alpha.154) (2023-05-05)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-ui-core
+
+# [2.1.0-alpha.153](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.152...v2.1.0-alpha.153) (2023-05-05)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** allowed description list to take items as slots ([c655f6e](https://github.com/dpc-sdp/ripple-framework/commit/c655f6ea10c714d5de0b975a7f481b25b6fcc8a6))
+* **@dpc-sdp/ripple-ui-core:** moved embed media styles to global to support wysiwyg editor ([1efcc16](https://github.com/dpc-sdp/ripple-framework/commit/1efcc16058c1884198ad3c39647fb57a54487826))
+
+### Features
+
+* **@dpc-sdp/ripple-tide-api:** add epochToDate function ([fa5be4d](https://github.com/dpc-sdp/ripple-framework/commit/fa5be4d2d0684b60ee3526b71d198efa6825e174))
+* **@dpc-sdp/ripple-tide-api:** add updated date to documents ([75cfefe](https://github.com/dpc-sdp/ripple-framework/commit/75cfefe139a04843d82edc6136a91f76330e3e72))
+* **@dpc-sdp/ripple-tide-api:** move epochToDate so build doesn't fail ([67bcbda](https://github.com/dpc-sdp/ripple-framework/commit/67bcbdaa3375ae9eac01c870a9f30a260910c904))
+
+# [2.1.0-alpha.152](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.151...v2.1.0-alpha.152) (2023-05-04)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** reduced menu padding when actions are present ([a6b2553](https://github.com/dpc-sdp/ripple-framework/commit/a6b2553e39cbc20da17f098ccbd1e3708a5629e2))
+
+# [2.1.0-alpha.150](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.149...v2.1.0-alpha.150) (2023-05-01)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** fixed remaining broken storybook images ([1eac61a](https://github.com/dpc-sdp/ripple-framework/commit/1eac61a57b98066e851923bc19941e2980319a21))
+
+# [2.1.0-alpha.149](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.148...v2.1.0-alpha.149) (2023-04-26)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** ensure inset card image doesn't get too small ([221b320](https://github.com/dpc-sdp/ripple-framework/commit/221b3207e4aede58d32fc42d27273460eb4d53f3))
+* **@dpc-sdp/ripple-ui-core:** remove fixed type class from cta headings ([cf36d42](https://github.com/dpc-sdp/ripple-framework/commit/cf36d42f9ce9a12a2b9431c79cf67748c0782a60))
+
+# [2.1.0-alpha.148](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.147...v2.1.0-alpha.148) (2023-04-20)
+
+### Bug Fixes
+
+* **@dpc-sdp/nuxt-ripple:** added missing import for analytics module ([a66f8c3](https://github.com/dpc-sdp/ripple-framework/commit/a66f8c368bfb56c6a2df1a9590e5f59beb0de1d9))
+* **@dpc-sdp/ripple-ui-core:** :bug: fix analytics plugin imports ([2a847ec](https://github.com/dpc-sdp/ripple-framework/commit/2a847ec38f9399d7b20289d5412e3e7ed43582bc))
+
+# [2.1.0-alpha.147](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.146...v2.1.0-alpha.147) (2023-04-20)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** :bug: rollback to using ts export for nuxt module ([7067874](https://github.com/dpc-sdp/ripple-framework/commit/70678740cdb06294f0f496a4a3320095e402512f))
+
+### Features
+
+* **@dpc-sdp/nuxt-ripple-analytics:** :sparkles: adds analytics package and sample event ([45ae920](https://github.com/dpc-sdp/ripple-framework/commit/45ae920d194d4f43187df5b3933f68b0d097fe35))
+* **@dpc-sdp/nuxt-ripple-analytics:** add example input event ([fea3385](https://github.com/dpc-sdp/ripple-framework/commit/fea3385279bf80a1baec82f4a10a84a12a1e2717))
+* **@dpc-sdp/nuxt-ripple-analytics:** add ga events ([05a15a5](https://github.com/dpc-sdp/ripple-framework/commit/05a15a5ebe1543dc6fc697b5c2d93777dac8a322))
+* **@dpc-sdp/nuxt-ripple-analytics:** role back to node 16x for storybook ([902b1a1](https://github.com/dpc-sdp/ripple-framework/commit/902b1a1cd08d2aadcb2d7c873fce29ebe9fd7343))
+* **@dpc-sdp/nuxt-ripple-analytics:** switch to rpl events composable ([d18f4e8](https://github.com/dpc-sdp/ripple-framework/commit/d18f4e8f2c6f5c030c9a0781d9583fab60dc6903))
+* **@dpc-sdp/nuxt-ripple-analytics:** wip ([5b0c6e1](https://github.com/dpc-sdp/ripple-framework/commit/5b0c6e18966486d49e27757dcce7b9609722311c))
+* **@dpc-sdp/ripple-ui-core:** fix storybook alert test, add $rplEvent provider ([62af966](https://github.com/dpc-sdp/ripple-framework/commit/62af966abf0e04525457fc07b57eef0351c089b6))
+
+# [2.1.0-alpha.145](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.144...v2.1.0-alpha.145) (2023-04-18)
+
+### Bug Fixes
+
+* **docs:** fixed broken storybook images in docs site ([585317f](https://github.com/dpc-sdp/ripple-framework/commit/585317fda44f07ab792a32cfceb1c5dc13dcf5f1))
+
+### Performance Improvements
+
+* **@dpc-sdp/ripple-ui-core:** :zap: set image dimensions on flag ([403e23b](https://github.com/dpc-sdp/ripple-framework/commit/403e23b5fb4d1cd117cfff3293153ef78e65c12d))
+
+# [2.1.0-alpha.143](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.142...v2.1.0-alpha.143) (2023-04-18)
+
+### Performance Improvements
+
+* **@dpc-sdp/ripple-ui-core:** :zap: remove global component definitions ([1876256](https://github.com/dpc-sdp/ripple-framework/commit/187625669a992c788d29455455293020fbc9e088))
+
+# [2.1.0-alpha.142](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.141...v2.1.0-alpha.142) (2023-04-17)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-ui-core
+
+# [2.1.0-alpha.140](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.139...v2.1.0-alpha.140) (2023-04-14)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** print style feedback and additions ([823cc42](https://github.com/dpc-sdp/ripple-framework/commit/823cc42050ed621a3bf1632e44671a778460918e))
+
 # [2.1.0-alpha.139](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.138...v2.1.0-alpha.139) (2023-04-12)
 
 ### Bug Fixes

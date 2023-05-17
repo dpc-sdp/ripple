@@ -359,7 +359,7 @@ const rawData = {
 describe('timelineMapping', () => {
   it('maps a raw json api response to the correct structure', () => {
     const result: TideDynamicPageComponent<ITideTimeline> = {
-      component: 'RplTimeline',
+      component: 'TideLandingPageTimeline',
       id: '6212',
       title: 'Testing timeline title',
       props: {

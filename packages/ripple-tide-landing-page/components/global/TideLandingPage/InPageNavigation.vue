@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { RplInPageNavigation } from '#components'
 import { computed } from 'vue'
 
 interface Props {
@@ -64,6 +63,7 @@ const items = computed(() => {
 
 <template>
   <RplInPageNavigation
+    v-if="items?.length"
     title="On this page"
     :items="items"
     data-cy="in-page-nav"

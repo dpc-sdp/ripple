@@ -1,11 +1,12 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, inject } from 'vue'
 import { RplCardElements, RplCardTitleClasses } from './constants'
 import { useAccessibleContainer } from '../../composables/useAccessibleContainer'
 import RplImage from '../image/RplImage.vue'
 import RplCard from './RplCard.vue'
 import RplTextLink from '../text-link/RplTextLink.vue'
 import { IRplImageType } from '../image/constants'
+import type { IRplFeatureFlags } from '@dpc-sdp/ripple-tide-api/types'
 
 interface Props {
   el?: (typeof RplCardElements)[number]
@@ -25,13 +26,19 @@ withDefaults(defineProps<Props>(), {
 const titleClasses = computed(() => RplCardTitleClasses)
 
 const { container, trigger } = useAccessibleContainer()
+
+// In SDP sites, the rainbow stripe can be toggled on/off globally via a feature flag.
+// This setting will override the highlight prop.
+const { hidePromoCardStripe }: IRplFeatureFlags = inject('featureFlags', {
+  hidePromoCardStripe: false
+})
 </script>
 
 <template>
   <RplCard
     ref="container"
     type="promo"
-    :highlight="highlight"
+    :highlight="hidePromoCardStripe ? false : highlight"
     :link="url"
     :el="el"
   >

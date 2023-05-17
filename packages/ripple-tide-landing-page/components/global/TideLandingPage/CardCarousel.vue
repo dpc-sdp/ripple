@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { RplCardCarousel } from '#components'
 import { ITideCardCarouselItem } from '../../../mapping/page-components/card-carousel/card-carousel-mapping'
 
 const props = defineProps<{

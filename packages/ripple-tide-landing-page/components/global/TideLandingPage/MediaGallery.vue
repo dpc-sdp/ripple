@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { RplMediaGallery } from '#components'
-
 defineProps<{
   id: string
   title?: string

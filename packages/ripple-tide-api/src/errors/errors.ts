@@ -18,6 +18,12 @@ export class NotFoundError extends UserFacingError {
   }
 }
 
+export class UnauthorisedError extends UserFacingError {
+  get statusCode() {
+    return 401
+  }
+}
+
 export class WrappedAxiosError extends ApplicationError {
   public axiosError
 

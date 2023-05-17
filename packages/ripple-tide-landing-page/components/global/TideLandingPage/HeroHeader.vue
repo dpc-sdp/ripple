@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { RplHeroHeader } from '#components'
 import { computed, inject } from 'vue'
 import { ITideHeroHeader } from '../../../mapping/hero-header/hero-header-mapping'
 import type { IRplFeatureFlags } from '@dpc-sdp/ripple-tide-api/types'

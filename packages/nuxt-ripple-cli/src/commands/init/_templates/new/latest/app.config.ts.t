@@ -10,7 +10,9 @@ export default defineAppConfig({
   },
   ripple: {
     version: pkg.dependencies['@dpc-sdp/nuxt-ripple'],
-    featureFlags: {},
+    featureFlags: {
+      contentCollectionSearchConnector: 'elasticsearch'
+    },
     theme: {}
   }
 })

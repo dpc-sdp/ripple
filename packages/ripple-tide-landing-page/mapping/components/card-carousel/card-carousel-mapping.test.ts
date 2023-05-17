@@ -89,7 +89,15 @@ describe('cardCarouselMapping', () => {
         type: 'promo',
         title: 'Demo News',
         url: '/demo-news',
-        image: null,
+        image: {
+          alt: 'Demo: Melbourne tram',
+          drupal_internal__target_id: 45,
+          focalPoint: undefined,
+          height: 785,
+          src: 'https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg',
+          title: 'Demo: Melbourne tram',
+          width: 1413
+        },
         meta: {
           topic: 'Demo Topic',
           date: '2022-12-01T09:17:45+11:00'

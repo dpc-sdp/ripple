@@ -1,8 +1,13 @@
 //@ts-nocheck runtime imports
-import { defineEventHandler, getQuery, H3Event } from 'h3'
+import { defineEventHandler, getQuery, H3Event, getCookie } from 'h3'
 import { createHandler, TidePageApi } from '@dpc-sdp/ripple-tide-api'
 import { BadRequestError } from '@dpc-sdp/ripple-tide-api/errors'
 import { useNitroApp } from '#imports'
+import {
+  isPreviewPath,
+  AuthCookieNames
+} from '@dpc-sdp/nuxt-ripple-preview/utils'
+
 export const createPageHandler = async (
   event: H3Event,
   tidePageApi: TidePageApi
@@ -18,7 +23,15 @@ export const createPageHandler = async (
       throw new BadRequestError('Duplicate site values')
     }
 
-    return await tidePageApi.getPageByPath(query.path, query.site)
+    const tokenCookie = getCookie(event, AuthCookieNames.ACCESS_TOKEN)
+    const headers = {}
+
+    // Only add the access token to the headers if the path is a preview path
+    if (isPreviewPath(query.path)) {
+      headers['X-OAuth2-Authorization'] = `Bearer ${tokenCookie}`
+    }
+
+    return await tidePageApi.getPageByPath(query.path, query.site, {}, headers)
   })
 }
 

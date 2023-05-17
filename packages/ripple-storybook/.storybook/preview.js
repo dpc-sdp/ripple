@@ -11,6 +11,7 @@ import { withSource } from './utils/withSource'
 // Storybook specific CSS
 import './storybook.css'
 import withTheme from './utils/withTheme'
+import withEventBus from './utils/withEventBus'
 
 // Add SVG based image placeholder for use in all stories
 window.svgPlaceholder = svgPlaceholder
@@ -53,7 +54,8 @@ export const decorators = [
   withBackground,
   withDesign,
   withTheme,
-  withSource
+  withSource,
+  withEventBus
 ]
 
 export const globalTypes = {

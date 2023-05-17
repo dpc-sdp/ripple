@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import layers from '../../../packages/ripple-ui-core/tokens/settings/type.yaml'
+import layers from '../../../packages/ripple-ui-core/src/tokens/settings/type.yaml'
 
 interface Props {
   type: 'weight' | 'size' | 'lh' | 'ls'

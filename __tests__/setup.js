@@ -6,3 +6,5 @@ global.console = {
   warn: jest.fn(),
   error: jest.fn()
 }
+
+process.env.NUXT_PUBLIC_TIDE_BASE_URL = 'https://develop.content.reference.sdp.vic.gov.au/';

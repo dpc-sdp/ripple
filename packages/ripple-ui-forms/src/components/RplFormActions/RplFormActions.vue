@@ -38,16 +38,16 @@ const iconPosition = computed(() => {
   return undefined
 })
 
-const formId: string = inject('formId')
+const { id }: object = inject('form')
 const isFormSubmitting: any = inject('isFormSubmitting')
 
 const handleReset = () => {
-  reset(formId)
+  reset(id)
   emit('reset')
 }
 </script>
 <template>
-  <div class="rpl-form-actions">
+  <div class="rpl-form-actions rpl-u-screen-only">
     <RplButton
       :id="id"
       :variant="variant"

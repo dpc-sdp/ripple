@@ -204,6 +204,10 @@ export interface IRplFeatureFlags {
    * @description Option to disable the display of topics and tags on all content types
    */
   disableTopicTags?: boolean
+  /**
+   * @description Option to disable the display of coloured/rainbow stripes on top of promo cards
+   */
+  hidePromoCardStripe?: boolean
 }
 
 declare module 'nitropack' {

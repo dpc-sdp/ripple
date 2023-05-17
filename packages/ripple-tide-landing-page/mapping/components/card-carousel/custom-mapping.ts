@@ -1,5 +1,13 @@
 import { getField, getImageFromField } from '@dpc-sdp/ripple-tide-api'
 
+const getCardImage = (card) => {
+  if (card?.field_featured_image) {
+    return getImageFromField(card, 'field_featured_image.field_media_image')
+  } else {
+    return getImageFromField(card, 'field_media_image')
+  }
+}
+
 export const mapping = (field) => {
   let item = {}
 
@@ -26,15 +34,7 @@ export const mapping = (field) => {
         type: 'promo',
         title: getField(field, 'field_paragraph_reference.title', ''),
         url: getField(field, 'field_paragraph_reference.path.url', ''),
-        image:
-          getImageFromField(
-            field,
-            'field_paragraph_reference.field_featured_image.field_media_image'
-          ) ||
-          getImageFromField(
-            field,
-            'field_paragraph_reference.field_media_image'
-          ),
+        image: getCardImage(field.field_paragraph_reference),
         meta: {
           topic: getField(field, 'field_topic.name', null),
           dateStart: getField(
@@ -88,10 +88,7 @@ export const mapping = (field) => {
         type: 'promo',
         title: getField(field, 'field_paragraph_reference.title', ''),
         url: getField(field, 'field_paragraph_reference.path.url', ''),
-        image: getImageFromField(
-          field,
-          'field_paragraph_reference.field_media_image'
-        ),
+        image: getCardImage(field.field_paragraph_reference),
         meta: {
           topic: getField(field, 'field_paragraph_display_topic', false)
             ? getField(

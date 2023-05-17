@@ -28,7 +28,7 @@ export const timelineMapping = (
   field
 ): TideDynamicPageComponent<ITideTimeline> => {
   return {
-    component: 'RplTimeline',
+    component: 'TideLandingPageTimeline',
     id: `${field.drupal_internal__id}`,
     title: field.field_paragraph_title,
     props: {

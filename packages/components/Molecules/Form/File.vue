@@ -79,6 +79,7 @@ export default {
     readonly: Boolean,
     placeholder: String,
     identifier: String,
+    name: String,
     reset: Number,
     handlePost: Function,
     handleDelete: Function
@@ -123,11 +124,12 @@ export default {
       }
 
       return files.map(file => {
+        const field = this.name
         const id = `${Date.now()}-${file.name}`
         const error = this.validateFile(file)
         const status = error ? 'invalid' : 'pending'
 
-        return { id, file, error, status, progress: 0 }
+        return { id, field, file, error, status, progress: 0 }
       })
     },
     retryFile (index) {
@@ -147,12 +149,12 @@ export default {
         item.source.cancel()
       }
 
+      this.value = this.value.filter((file, i) => i !== index)
+
       if (item.status === 'success') {
         this.handleDelete(item)
         this.$emit('update', this.getUploadedIds())
       }
-
-      this.value = this.value.filter((file, i) => i !== index)
     },
     updateProgress (id, { loaded, total }, source = null) {
       const index = this.value.findIndex(file => file.id === id)

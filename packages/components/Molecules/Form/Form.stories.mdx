@@ -61,12 +61,22 @@ export const TemplateForm = (args, { argTypes }) => ({
           resolve()
         }, 250)
       })
+    },
+    fileUploadHandler () {
+      return new Promise((resolve) => {
+        setTimeout(() => resolve({ status: 'success', id: Math.random(), uuid: Math.random() }), 250)
+      })
+    },
+    fileDeleteHandler () {
+      return new Promise((resolve) => resolve(true))
     }
   },
   template: `
     <rpl-form
       :formData="formData"
       :submitHandler="submitHandler"
+      :fileUploadHandler="fileUploadHandler"
+      :fileDeleteHandler="fileDeleteHandler"
       :title="title"
       :fullWidth="fullWidth"
       :spamProtect="spamProtect"
@@ -207,9 +217,16 @@ export const formData = {
         type: 'rplfile',
         label: 'File upload',
         hint: 'Implemented using rplFile',
-        allowedTypes: ['jpeg', 'png'],
+        allowedTypes: [{
+          extension: 'jpg',
+          mimeType: 'image/jpeg'
+        }, {
+          extension: 'png',
+          mimeType: 'image/png'
+        }],
         model: 'file',
         maxFiles: 3,
+        multiple: true,
         required: true,
         validator (value) {
           return !value.length ? ['This field is required'] : []

@@ -70,6 +70,8 @@ export default {
     title: String,
     formData: Object,
     submitHandler: Function,
+    fileUploadHandler: Function,
+    fileDeleteHandler: Function,
     fieldChangeHandler: Function,
     hideAfterSuccess: Boolean,
     clearFormOnSuccess: { type: Boolean, default: false },
@@ -79,6 +81,12 @@ export default {
     spamProtect: { type: Boolean, default: false },
     fullWidth: { type: Boolean, default: true },
     listenForClearForm: { type: Boolean, default: true }
+  },
+  provide () {
+    return {
+      postFile: this.fileUploadHandler,
+      deleteFile: this.fileDeleteHandler
+    }
   },
   data () {
     return {

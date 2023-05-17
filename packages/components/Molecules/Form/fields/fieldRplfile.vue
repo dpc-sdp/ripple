@@ -8,9 +8,10 @@
     :readonly="schema.readonly"
     :placeholder="schema.placeholder"
     :identifier="getFieldID(schema)"
+    :name="schema.model"
     :reset="reset"
-    :handle-post="handlePost"
-    :handle-delete="handleDelete"
+    :handle-post="postFile"
+    :handle-delete="deleteFile"
     @update="onUpdate"
   />
 </template>
@@ -25,6 +26,7 @@ export default {
     RplFile
   },
   mixins: [abstractField],
+  inject: ['postFile', 'deleteFile'],
   data () {
     return {
       reset: null
@@ -44,32 +46,6 @@ export default {
     }
   },
   methods: {
-    async handlePost (item, updateProgress) {
-      const source = this.$axios.CancelToken.source()
-      const [ id, field ] = this.getFieldID(this.schema).split(/-(.*)/g)
-
-      try {
-        const res = await this.$tide.upload(`/webform_rest/${id}/upload/${field}`, item.file, {}, {
-          onUploadProgress: (progress) => updateProgress(item.id, progress, source),
-          cancelToken: source.token
-        })
-        if (res?.fid && res?.uuid) {
-          return { status: 'success', id: res.fid?.[0]?.value, uuid: res.uuid?.[0]?.value }
-        }
-        return { status: 'error', message: res?.message }
-      } catch (e) {
-        return { status: 'error', message: e?.response?.data?.message }
-      }
-    },
-    async handleDelete (file) {
-      try {
-        await this.$tide.delete(`file/file/${file.uuid}`)
-
-        return true
-      } catch (e) {
-        return false
-      }
-    },
     onUpdate (val) {
       this.value = val
     }

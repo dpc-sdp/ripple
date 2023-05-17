@@ -1,7 +1,7 @@
 module.exports = {
   // Convert Drupal webform data struture to Vue Form Generator structure
   webform: async (drupalFormEntity, { mapping }) => {
-    const stringToClass = require('@dpc-sdp/ripple-nuxt-tide/lib/core/tide-helper').stringToClass
+    const { stringToClass, getMimeTypeFromExtension } = require('@dpc-sdp/ripple-nuxt-tide/lib/core/tide-helper')
     const elements = drupalFormEntity.elements
     // Below data structure is following VFG 2.2.3.
     // `tideId`, `formState` and `messages` are our own custom properties.
@@ -443,7 +443,10 @@ module.exports = {
             field.maxSize = Number(element['#max_filesize'])
           }
           if (element['#file_extensions']) {
-            field.allowedTypes = element['#file_extensions'].split(' ')
+            field.allowedTypes = element['#file_extensions'].split(' ').map(extension => ({
+              extension,
+              mimeType: getMimeTypeFromExtension(extension)
+            }))
           }
           // if #multiple is true it's unlimited, otherwise it's the number of files allowed
           const unlimited = element['#multiple'] === true

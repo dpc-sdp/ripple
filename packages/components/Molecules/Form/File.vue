@@ -10,7 +10,7 @@
         :placeholder="placeholder"
         :readonly="readonly"
         :multiple="multiple"
-        :accept="allowedExtensions"
+        :accept="mimeTypes"
         @change="onChange"
         @dragenter="onDragOver"
         @dragleave="onDragOff"
@@ -25,7 +25,7 @@
       </div>
     </div>
     <div v-if="allowedTypes" class="rpl-form-file__requirements">
-      <span class="rpl-form-file__requirements-types">Accepted file types: {{ displayTypes }}</span>
+      <span class="rpl-form-file__requirements-types">Accepted file types: {{ extensions }}</span>
       <span v-if="maxFiles && maxFiles > 1" class="rpl-form-file__requirements-limit">Maximum number of files: {{ maxFiles }}</span>
     </div>
     <ul v-if="value" class="rpl-form-file__list">
@@ -35,7 +35,7 @@
           <div class="rpl-form-file__info">
             <div v-if="item.error" class="rpl-form-file__error" aria-live="polite">{{ item.error }}</div>
             <span class="rpl-form-file__name">{{ item.file.name }}</span>
-            <span class="rpl-form-file__meta">{{ getFileType(item.file.type) }} | {{ getSizeInMB(item.file.size) }} mb</span>
+            <span class="rpl-form-file__meta">{{ getFileType(item.file.name) }} | {{ getSizeInMB(item.file.size) }} mb</span>
             <div v-if="item.status === 'invalid'" class="rpl-form-file__invalid-actions">
               <button @click.prevent="replaceFile(index)" class="rpl-form-file__link" :aria-label="`Replace ${item.file.name}`">Replace</button>
               <span>or</span>
@@ -182,14 +182,14 @@ export default {
     getSizeInMB (size) {
       return Math.ceil(size * 0.000001 * 100) / 100
     },
-    getFileType (type) {
-      return type.split('/').pop().toUpperCase()
+    getFileType (name) {
+      return name.split('.').pop().toUpperCase()
     },
     validateFile (file) {
-      const fileExtension = file.type.split('/').pop()
+      const extension = file.type.split('/').pop()
 
-      if (this.allowedTypes && !this.allowedTypes.includes(fileExtension)) {
-        return `File is not in a supported format (${fileExtension}), please remove this file and select a ${this.displayTypes}`
+      if (this.allowedTypes && !this.mimeTypes.includes(file.type)) {
+        return `File is not in a supported format (${extension}), please remove this file and select a ${this.extensions}`
       }
       if (this.maxSize && this.getSizeInMB(file.size) > this.maxSize) {
         return `File is too large (${this.getSizeInMB(file.size)}mb), please remove this file and select a file less than ${this.maxSize} MB`
@@ -227,12 +227,12 @@ export default {
     selectText () {
       return this.multiple ? 'Select files' : 'Select a file'
     },
-    allowedExtensions () {
-      return this.allowedTypes.map(type => `.${type}`)
+    mimeTypes () {
+      return this.allowedTypes.map(type => type.mimeType)
     },
-    displayTypes () {
+    extensions () {
       return (new Intl.ListFormat('en', { style: 'long', type: 'disjunction' }))
-        .format(this.allowedTypes.map(type => type.toUpperCase()))
+        .format(this.allowedTypes.map(type => type.extension.toUpperCase()))
     },
     isDisabled () {
       const uploadedFiles = this.getUploadedIds()

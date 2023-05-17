@@ -42,7 +42,6 @@ const processedItems = computed<IRplVerticalNavItem[]>(
 
 const initialActiveIndexes: string[] = processedItems.value.reduce(
   (result: string[], current: IRplVerticalNavItem): string[] => {
-    console.log(current)
     if (current.active) {
       return [...result, current.id]
     }

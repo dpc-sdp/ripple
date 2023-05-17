@@ -19,7 +19,7 @@
 <script setup lang="ts">
 import { onMounted, reactive } from 'vue'
 import { indexNode, processMenu } from '../utils/processMenu.js'
-import { useTidePublicationMenu } from '#imports'
+import { useTidePublicationMenu, useRoute } from '#imports'
 
 interface Props {
   publication: any
@@ -31,12 +31,16 @@ const sidebar = reactive({
   items: <indexNode[]>[]
 })
 
-const menu = await useTidePublicationMenu(props.publication.id)
+const menu = props.publication.id
+  ? await useTidePublicationMenu(props.publication.id)
+  : null
 
 onMounted(() => {
   /* eslint-disable no-undef */
   // @ts-ignore Nuxt auto import
-  sidebar.items = processMenu(menu.publication, useRoute())
+  if (menu) {
+    sidebar.items = processMenu(menu.publication, useRoute())
+  }
   /* eslint-enable no-undef */
 })
 </script>

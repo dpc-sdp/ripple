@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.165](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.164...v2.1.0-alpha.165) (2023-05-17)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-landing-page:** :bug: fixed 'On this page' nav displaying without content ([c01a99a](https://github.com/dpc-sdp/ripple-framework/commit/c01a99a6cc8b61843cbf06e50c318ce128c95884))
+* **@dpc-sdp/ripple-tide-landing-page:** :bug: fixed missing card carousel images ([ecbe5b0](https://github.com/dpc-sdp/ripple-framework/commit/ecbe5b0eb2470f5b8d08e4e68c054efe390450ee))
+
 # [2.1.0-alpha.164](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.163...v2.1.0-alpha.164) (2023-05-15)
 
 **Note:** Version bump only for package @dpc-sdp/ripple-tide-landing-page

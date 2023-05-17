@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.165](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.164...v2.1.0-alpha.165) (2023-05-17)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** added hidePromoCardStripe feature flag as many sites want no stripe ([41e206f](https://github.com/dpc-sdp/ripple-framework/commit/41e206fe2489dff1bb543f6545fef5e46b08cdc6))
+
 # [2.1.0-alpha.164](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.163...v2.1.0-alpha.164) (2023-05-15)
 
 ### Bug Fixes

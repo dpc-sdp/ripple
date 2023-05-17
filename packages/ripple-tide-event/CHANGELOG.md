@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.165](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.164...v2.1.0-alpha.165) (2023-05-17)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-event:** only show details with descriptions ([c7fed2f](https://github.com/dpc-sdp/ripple-framework/commit/c7fed2fab013a6358001572d328efda4c60faedf))
+
 # [2.1.0-alpha.164](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.163...v2.1.0-alpha.164) (2023-05-15)
 
 **Note:** Version bump only for package @dpc-sdp/ripple-tide-event

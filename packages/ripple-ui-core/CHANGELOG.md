@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.165](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.164...v2.1.0-alpha.165) (2023-05-17)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** :bug: fixed header logo not showing with a background image ([e19dbfe](https://github.com/dpc-sdp/ripple-framework/commit/e19dbfedb6a5e0e1b37d3b66f5b66aaf5aedda81))
+* **@dpc-sdp/ripple-ui-core:** :bug: fixed hero header intro text showing when empty ([d922d6e](https://github.com/dpc-sdp/ripple-framework/commit/d922d6eea3015049b44ad1b54c03e8bf15178d7a))
+* **@dpc-sdp/ripple-ui-core:** added hidePromoCardStripe feature flag as many sites want no stripe ([41e206f](https://github.com/dpc-sdp/ripple-framework/commit/41e206fe2489dff1bb543f6545fef5e46b08cdc6))
+* **@dpc-sdp/ripple-ui-core:** update breadcrumb max-width ([34fab36](https://github.com/dpc-sdp/ripple-framework/commit/34fab36f7774b6db0017b47c405088a10adaaaa1))
+
 # [2.1.0-alpha.164](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.163...v2.1.0-alpha.164) (2023-05-15)
 
 **Note:** Version bump only for package @dpc-sdp/ripple-ui-core

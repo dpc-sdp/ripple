@@ -89,7 +89,10 @@ const getHierarchicalMenu = function (menu, activeUrl) {
   for (const link of menu) {
     linkValues.push({
       text: link.attributes.title,
-      url: link.attributes.url,
+      url:
+        link.attributes?.url ||
+        link.attributes.link.url ||
+        link.attributes.link.uri,
       id: link.id.replace(/^(menu_link_content:)/, ''),
       parent: link.attributes.parent
         ? link.attributes.parent.replace(/^(menu_link_content:)/, '')

@@ -149,6 +149,10 @@ export interface RplTideModuleConfig {
    */
   baseUrl: string
   /**
+   * Menu endpoint variant - default single
+   */
+  menuEndpoint?: 'single' | 'paginated'
+  /**
    * Basic Auth credentials
    */
   config: {

@@ -1,12 +1,12 @@
 <template>
   <div class="rpl-form-file">
-    <div class="rpl-form-file__wrapper" :class="{ 'rpl-form-file__wrapper--disabled': isDisabled }">
+    <div class="rpl-form-file__wrapper" :class="{ 'rpl-form-file__wrapper--disabled': disabled }">
       <input
         ref="input"
         type="file"
         class="rpl-form-file__input"
         :id="identifier"
-        :disabled="isDisabled"
+        :disabled="disabled"
         :placeholder="placeholder"
         :readonly="readonly"
         :multiple="multiple"
@@ -20,13 +20,16 @@
         <div class="rpl-form-file__dropzone-inner">
           <span class="rpl-form-file__placeholder" v-html="placeholderText" />
           <span  v-if="!placeholder" class="rpl-form-file__or">OR</span>
-          <span class="rpl-form-file__button">{{ selectText }}</span>
+          <span class="rpl-form-file__button">Select {{ this.filePlural }}</span>
         </div>
       </div>
     </div>
     <div v-if="allowedTypes" class="rpl-form-file__requirements">
       <span class="rpl-form-file__requirements-types">Accepted file types: {{ extensions }}</span>
-      <span v-if="maxFiles && maxFiles > 1" class="rpl-form-file__requirements-limit">Maximum number of files: {{ maxFiles }}</span>
+      <span class="rpl-form-file__requirements-limit">Maximum files: {{ fileLimit }}</span>
+    </div>
+    <div v-if="errors" class="rpl-form-file__errors" aria-live="polite">
+      <rpl-icon role="presentation" class="rpl-form-file__icon" color="danger" symbol="alert_information" /> {{ errors }}
     </div>
     <ul v-if="value" class="rpl-form-file__list">
       <li v-for="(item, index) in value" :key="index" class="rpl-form-file__list-item">
@@ -87,6 +90,7 @@ export default {
   data () {
     return {
       value: [],
+      errors: null,
       dragOver: false
     }
   },
@@ -104,6 +108,12 @@ export default {
     },
     onChange (e) {
       this.removeInvalidFiles()
+
+      this.errors = this.value.length >= this.maxFiles
+        ? `There is a limit of ${this.maxFiles} ${this.filePlural}. Please remove a file before adding another.`
+        : null
+
+      if (this.errors) return
 
       const files = this.prepareFiles(e.target.files)
 
@@ -155,6 +165,8 @@ export default {
         this.handleDelete(item)
         this.$emit('update', this.getUploadedIds())
       }
+
+      this.errors = null
     },
     updateProgress (id, { loaded, total }, source = null) {
       const index = this.value.findIndex(file => file.id === id)
@@ -188,7 +200,7 @@ export default {
       return name.split('.').pop().toUpperCase()
     },
     validateFile (file) {
-      const extension = file.type.split('/').pop()
+      const extension = this.getFileType(file.name)
 
       if (this.allowedTypes && !this.mimeTypes.includes(file.type)) {
         return `File is not in a supported format (${extension}), please remove this file and select a ${this.extensions}`
@@ -224,10 +236,7 @@ export default {
     placeholderText () {
       if (this.placeholder) return this.placeholder
 
-      return `Drag and drop your ${this.multiple ? 'files' : 'file'} to upload`
-    },
-    selectText () {
-      return this.multiple ? 'Select files' : 'Select a file'
+      return `Drag and drop your ${this.filePlural} to upload`
     },
     mimeTypes () {
       return this.allowedTypes.map(type => type.mimeType)
@@ -236,12 +245,11 @@ export default {
       return (new Intl.ListFormat('en', { style: 'long', type: 'disjunction' }))
         .format(this.allowedTypes.map(type => type.extension.toUpperCase()))
     },
-    isDisabled () {
-      const uploadedFiles = this.getUploadedIds()
-      const hasSingleFile = !this.multiple && uploadedFiles
-      const reachedMaxFiles = this.maxFiles && uploadedFiles.length >= this.maxFiles
-
-      return this.disabled || hasSingleFile || reachedMaxFiles
+    filePlural () {
+      return this.multiple ? 'files' : 'file'
+    },
+    fileLimit () {
+      return this.multiple && this.maxFiles ? this.maxFiles : 1
     }
   }
 }
@@ -357,6 +365,15 @@ $rpl-file-dropzone-bg-color: rpl-color("mid_neutral_2") !default;
     flex-wrap: wrap;
     justify-content: space-between;
     gap: $rpl-space-2;
+  }
+
+  &__errors {
+    display: flex;
+    gap: $rpl-space-2;
+    color: rpl-color('danger');
+    margin-top: $rpl-space-3;
+
+    @include rpl_typography_font($font-family: "semibold");
   }
 
   &__list {

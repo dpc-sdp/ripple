@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.166](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.165...v2.1.0-alpha.166) (2023-05-18)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-publication:** fixed crash when no publication children ([040e81b](https://github.com/dpc-sdp/ripple-framework/commit/040e81b74b3a792580efb264c0155914fdf0e455))
+* **@dpc-sdp/ripple-ui-core:** ensured top level site section links are accessible ([7a0ddf6](https://github.com/dpc-sdp/ripple-framework/commit/7a0ddf609f5001f84e9cbea7f95ce1dcbe540b6b))
+
 # [2.1.0-alpha.165](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.164...v2.1.0-alpha.165) (2023-05-17)
 
 ### Bug Fixes

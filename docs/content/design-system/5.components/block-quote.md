@@ -1,5 +1,5 @@
 ---
-title: Block Quote
+title: Block quote
 description: Add emphasis to a quote.
 layout: page
 label: Core

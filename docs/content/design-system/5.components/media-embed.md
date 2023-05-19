@@ -1,5 +1,5 @@
 ---
-title: Media Embed
+title: Media embed
 description: Images or video with optional text to give context within content.
 layout: page
 label: Core

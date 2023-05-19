@@ -1,5 +1,5 @@
 ---
-title: Media Gallery
+title: Media gallery
 description: A series of images users can side-scroll through.
 layout: page
 label: Core

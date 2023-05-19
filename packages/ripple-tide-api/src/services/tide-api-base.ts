@@ -123,7 +123,7 @@ export default class TideApiBase extends HttpClient {
       )
 
       if (menusResponse) {
-        return getHierarchicalMenu(menusResponse, activePath)
+        return getHierarchicalMenu(menusResponse, activePath, true)
       }
     } catch (error) {
       throw new ApplicationError(

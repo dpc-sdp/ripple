@@ -19,7 +19,6 @@ export default (props: any) => {
         .reduce((a: any, b: any) => ({ ...a, ...b }))
     : {}
 
-  console.log(breakpoints)
   const labels = Object.keys(breakpoints)
 
   const providerSizes = computed(() =>

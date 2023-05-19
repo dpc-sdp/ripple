@@ -39,6 +39,7 @@ const { container, trigger } = useAccessibleContainer()
         v-bind="image"
         :aspect="{ xs: 'square' }"
         sizes="xs:52px"
+        alt=""
         data-cy="image"
       />
     </template>

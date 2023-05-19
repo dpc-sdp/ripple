@@ -71,6 +71,7 @@ const classes = (item: IRplTimelineItem, index: number) => {
           circle
           :aspect="{ xs: 'square' }"
           sizes="xs:80px"
+          alt=""
         />
         <h3
           v-if="item.title"

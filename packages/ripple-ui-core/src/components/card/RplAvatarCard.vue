@@ -34,6 +34,7 @@ const { container, trigger } = useAccessibleContainer()
         circle
         :aspect="{ xs: 'square' }"
         sizes="xs:148px"
+        alt=""
         data-cy="image"
       />
     </template>

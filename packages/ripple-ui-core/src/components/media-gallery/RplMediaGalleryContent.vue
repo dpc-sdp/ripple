@@ -34,6 +34,7 @@ const onFullScreen = (event) => {
       :src="image"
       :aspect="{ xs: 'wide' }"
       sizes="xs:768px"
+      alt=""
       class="rpl-media-gallery__image rpl-u-print-only"
     />
     <h3 class="rpl-type-h3 rpl-u-margin-b-1" data-cy="title">{{ title }}</h3>

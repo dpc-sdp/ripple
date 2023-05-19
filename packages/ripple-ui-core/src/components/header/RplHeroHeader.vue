@@ -81,6 +81,7 @@ const defaultSlotIsEmpty = useEmptySlotCheck(slots.default)
         priority="high"
         :aspect="{ xs: 'wide', m: 'wide' }"
         sizes="xs:100vw"
+        alt=""
       />
       <RplHeaderGraphic v-if="cornerTop" :image="cornerTop" placement="top" />
       <RplHeaderGraphic
@@ -90,7 +91,7 @@ const defaultSlotIsEmpty = useEmptySlotCheck(slots.default)
       />
     </template>
     <template v-if="logo" #upper>
-      <RplImage class="rpl-header__logo" v-bind="logo" />
+      <RplImage class="rpl-header__logo" v-bind="logo" alt="" />
     </template>
     <template #title>
       <h1 :class="titleClasses" data-cy="hero-title">{{ title }}</h1>

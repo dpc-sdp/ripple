@@ -1,5 +1,5 @@
 ---
-title: Key Dates
+title: Key dates
 description: A card promoting key dates or events.
 layout: page
 label: Core

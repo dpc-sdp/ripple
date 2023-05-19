@@ -62,7 +62,7 @@ const activeNavItems: Ref<IRplPrimaryNavActiveItems> = ref({
 const handleScroll = () => {
   const newPosition = window.scrollY
   const scrollingDown = newPosition > scrollPosition.value
-  const beyondNav = navOffest.value <= 0
+  const beyondNav = navOffest.value < 0
 
   scrollPosition.value = newPosition
   isHidden.value = scrollingDown && beyondNav

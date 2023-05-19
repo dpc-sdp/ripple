@@ -1,5 +1,5 @@
 ---
-title: Search Bar
+title: Search bar
 description: Allow users to enter keywords and search content on the website.
 layout: page
 label: Core

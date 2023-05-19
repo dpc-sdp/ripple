@@ -1,5 +1,5 @@
 ---
-title: File Upload
+title: File upload
 description: Let users upload files
 layout: page
 label: Core

@@ -1,5 +1,5 @@
 ---
-title: Detail List
+title: Detail list
 description: Display a list of key information to users.
 layout: page
 label: Core

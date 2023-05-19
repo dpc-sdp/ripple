@@ -40,12 +40,15 @@ function testField (field, data) {
         break
 
       case 'visible':
-        field.visible = isPass
+        const visible = isPass
+        field.visible = visible
+        if (!visible) data.model[field.model] = null
         break
 
       case 'invisible':
         const invisible = isPass
         field.visible = !invisible
+        if (invisible) data.model[field.model] = null
         break
 
       default:

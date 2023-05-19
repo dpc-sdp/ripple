@@ -63,7 +63,10 @@ export default {
     }
   },
   methods: {
-    checkFieldStates () {
+    checkFieldStates (modelData, newVal, oldVal, field) {
+      // If field exists, it means the field was changed by the user
+      if (field) field.isDirty = true
+
       this.fields.forEach(field => {
         if (field.states) {
           conditionalLogic(field, this.formData)

@@ -1,5 +1,5 @@
 ---
-title: Option Button
+title: Option button
 description: A set of buttons to help users filter content.
 layout: page
 label: Core

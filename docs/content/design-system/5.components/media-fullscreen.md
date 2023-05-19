@@ -1,5 +1,5 @@
 ---
-title: Media Fullscreen
+title: Media fullscreen
 description: View one or more related media items in fullscreen.
 layout: page
 label: Core

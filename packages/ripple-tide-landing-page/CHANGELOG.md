@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.168](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.167...v2.1.0-alpha.168) (2023-05-19)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-landing-page:** fixed profile cards with no images displaying incorrectly ([631a936](https://github.com/dpc-sdp/ripple-framework/commit/631a936785b9c06506e823e4fc7942b079cbcd1a))
+
 # [2.1.0-alpha.167](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.166...v2.1.0-alpha.167) (2023-05-19)
 
 ### Bug Fixes

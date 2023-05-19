@@ -1,5 +1,5 @@
 ---
-title: Related Links
+title: Related links
 description: A list of links to help users discover related content.
 layout: page
 label: Core

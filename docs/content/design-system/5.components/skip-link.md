@@ -1,5 +1,5 @@
 ---
-title: Skip Link
+title: Skip link
 description: The skip link helps keyboard users skip to the main content on a page.
 layout: page
 label: Core

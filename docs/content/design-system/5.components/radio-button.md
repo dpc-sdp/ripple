@@ -1,5 +1,5 @@
 ---
-title: Radio Button
+title: Radio button
 description: Let users select one option from a list.
 layout: page
 label: Core

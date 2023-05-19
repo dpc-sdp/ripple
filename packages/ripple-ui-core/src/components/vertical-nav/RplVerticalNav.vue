@@ -28,7 +28,7 @@ const processedItems = computed<IRplVerticalNavItem[]>(
               id: item.id,
               text: item.text,
               url: item.url,
-              active: item.active
+              active: item.active && !item.items.some((i) => i.active)
             },
             ...(item.items || [])
           ]
@@ -99,7 +99,7 @@ const { isItemExpanded, toggleItem } = useExpandableState(
           v-else
           :text="item.text"
           :href="item.url"
-          :active="item?.active && !item?.items?.length"
+          :active="item?.active && !item.items?.some((i) => i.active)"
         />
       </li>
     </ul>

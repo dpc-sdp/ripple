@@ -1,5 +1,5 @@
 ---
-title: In-page Navigation
+title: In-page navigation
 description: Help users scan a page and allow for quick navigation.
 layout: page
 label: Core

@@ -1,5 +1,5 @@
 ---
-title: Text Area
+title: Text area
 description: Let users select one option from a list.
 layout: page
 label: Core

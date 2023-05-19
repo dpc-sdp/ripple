@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.169](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.168...v2.1.0-alpha.169) (2023-05-19)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-api:** add 'flag' to support single and paginated endpoints ([88b2b2e](https://github.com/dpc-sdp/ripple-framework/commit/88b2b2e18ddc72f6eb0fd7f68cab5a34493e3e16))
+* **@dpc-sdp/ripple-tide-api:** add enabled check for paginated menus ([a8bfca9](https://github.com/dpc-sdp/ripple-framework/commit/a8bfca956aedef6a229bc108a4c6ecca2b8cbe8f))
+* **nuxt-app:** stop 'background' page load ([0c5f0c9](https://github.com/dpc-sdp/ripple-framework/commit/0c5f0c91144d050689f2119c894b5c5f3c7317f1))
+
+### Features
+
+* **@dpc-sdp/ripple-tide-api:** add new menu filters ([4a6f403](https://github.com/dpc-sdp/ripple-framework/commit/4a6f403638f573f73b50d484da2fef7c43ebdbd9))
+
 # [2.1.0-alpha.168](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.167...v2.1.0-alpha.168) (2023-05-19)
 
 ### Bug Fixes

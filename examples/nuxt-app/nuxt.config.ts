@@ -9,6 +9,7 @@ export default defineNuxtConfig({
         // See https://nuxt.com/docs/api/configuration/nuxt-config#runtimeconfig for more info
         baseUrl: 'https://develop.content.reference.sdp.vic.gov.au',
         site: '8888',
+        menuEndpoint: 'single',
         appSearch: {
           searchKey: '',
           endpointBase: '',

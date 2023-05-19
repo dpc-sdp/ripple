@@ -83,6 +83,8 @@ export default class TideApiBase extends HttpClient {
 
     const menuName = menuData.drupal_internal__id
 
+    // If a site opts into the old paginated menu style we make several requests to get all the links then build the menu
+    // this "paginated" method can be removed once all sites are using the new "single" menu endpoint added v3.0.10 of tide_api
     if (this.tide?.menuEndpoint === 'paginated') {
       return await this.getPaginatedMenu(siteId, menuName, activePath)
     }

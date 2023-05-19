@@ -1,5 +1,5 @@
 ---
-title: Social Share
+title: Social share
 description: A list of links to help users to share pages to social media.
 layout: page
 label: Core

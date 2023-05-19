@@ -33,9 +33,7 @@ const { container, trigger } = useAccessibleContainer()
         class="rpl-card__media rpl-card__media--avatar"
         circle
         :aspect="{ xs: 'square' }"
-        :rendered="{
-          xs: { width: 148 }
-        }"
+        sizes="xs:148px"
         data-cy="image"
       />
     </template>

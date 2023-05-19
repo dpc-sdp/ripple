@@ -23,10 +23,7 @@ withDefaults(defineProps<Props>(), {
       <RplImage
         v-bind="image"
         :aspect="{ xs: 'wide', s: 'panorama' }"
-        :rendered="{
-          xs: { height: 360 },
-          s: { height: 360 }
-        }"
+        sizes="xs:715px"
         alt=""
         data-cy="image"
       />

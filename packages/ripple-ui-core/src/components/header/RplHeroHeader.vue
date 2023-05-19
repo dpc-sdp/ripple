@@ -80,10 +80,7 @@ const defaultSlotIsEmpty = useEmptySlotCheck(slots.default)
         v-bind="background"
         priority="high"
         :aspect="{ xs: 'wide', m: 'wide' }"
-        :rendered="{
-          xs: { height: 300 },
-          m: { resize: false }
-        }"
+        sizes="xs:100vw"
       />
       <RplHeaderGraphic v-if="cornerTop" :image="cornerTop" placement="top" />
       <RplHeaderGraphic

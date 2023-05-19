@@ -14,7 +14,6 @@ interface Props {
   width?: number
   height?: number
   sizes?: string
-  rendered?: any
   circle?: boolean
   focalPoint?: IRplImageFocalPoint
   aspect?: RplImageAspect
@@ -26,7 +25,6 @@ const props = withDefaults(defineProps<Props>(), {
   height: undefined,
   width: undefined,
   sizes: undefined,
-  rendered: undefined,
   circle: false,
   focalPoint: undefined,
   aspect: undefined,
@@ -88,7 +86,7 @@ const loading = computed(() => (props.priority === 'high' ? 'eager' : 'lazy'))
     :alt="alt || ''"
     :class="classes"
     :aspect="aspect"
-    :rendered="rendered"
+    :sizes="sizes"
     :width="width"
     :height="height"
     :loading="loading"

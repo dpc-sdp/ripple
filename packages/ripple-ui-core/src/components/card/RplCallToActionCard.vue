@@ -46,12 +46,7 @@ const { container, trigger } = useAccessibleContainer()
           m: 'panorama',
           l: 'full'
         }"
-        :rendered="{
-          xs: { width: 768 },
-          s: { width: 768 },
-          m: { width: 768 },
-          l: { width: 768 }
-        }"
+        sizes="xs:768px"
         data-cy="image"
       />
     </template>

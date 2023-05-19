@@ -108,9 +108,7 @@ const isActionsListEmpty = computed(() => {
         :src="src"
         :alt="caption"
         :aspect="{ xs: imageAspect }"
-        :rendered="{
-          xs: { width: 768 }
-        }"
+        sizes="xs:768px"
         :circle="variant === 'avatar'"
         :class="imageClasses"
       />

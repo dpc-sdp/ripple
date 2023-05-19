@@ -31,7 +31,6 @@ export interface IRplImageType {
   width?: number
   height?: number
   sizes?: string
-  rendered?: any
   srcSet?: string
   circle?: boolean
   focalPoint?: IRplImageFocalPoint

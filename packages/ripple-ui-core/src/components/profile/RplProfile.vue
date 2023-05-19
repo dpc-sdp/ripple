@@ -20,10 +20,7 @@ withDefaults(defineProps<Props>(), {
       <RplImage
         v-bind="image"
         :aspect="{ xs: 'square', m: 'square' }"
-        :rendered="{
-          xs: { width: 148 },
-          m: { width: 148 }
-        }"
+        sizes="xs:148px"
         circle
       />
     </div>

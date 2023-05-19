@@ -1,14 +1,15 @@
 <script setup lang="ts">
 import useProviderImage from '../../composables/use-provider-image'
+import { computed } from 'vue'
 
 interface Props {
   src: string
+  alt: string
   width?: number | undefined
   height?: number | undefined
   aspect?: any
   srcSet?: string
   sizes?: any
-  rendered?: any
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -16,25 +17,24 @@ const props = withDefaults(defineProps<Props>(), {
   height: undefined,
   aspect: undefined,
   srcSet: undefined,
-  sizes: undefined,
-  rendered: undefined
+  sizes: undefined
 })
 
-// Default device pixel ratio of 1.6 will enhance images > 1.0 DPR while keeping filesize reasonable
-const dpr = 1.6
-
 // Composable handles all the logic for determining the correct image to use
-const { providerSrcSet, providerSizes, initialWidth, initialHeight } =
-  useProviderImage(props, dpr)
+const { providerSrcSet, providerSizes } = useProviderImage(props)
+
+const initialSrc = computed(
+  () => `${props.src}?w=${props.width * 2 < 1984 ? props.width * 2 : 1984}`
+)
 </script>
 
 <template>
   <img
-    :src="providerSrcSet ? undefined : src"
-    :srcSet="providerSrcSet || srcSet"
-    :sizes="providerSizes || sizes"
-    :width="initialWidth"
-    :height="initialHeight"
-    :drupal_internal__target_id="null"
+    :src="initialSrc"
+    :srcSet="providerSrcSet"
+    :sizes="providerSizes"
+    :width="width"
+    :height="height"
+    :alt="alt || ''"
   />
 </template>

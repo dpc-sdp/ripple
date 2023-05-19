@@ -70,9 +70,7 @@ const classes = (item: IRplTimelineItem, index: number) => {
           class="rpl-timeline__item-image"
           circle
           :aspect="{ xs: 'square' }"
-          :rendered="{
-            xs: { width: 80 }
-          }"
+          sizes="xs:80px"
         />
         <h3
           v-if="item.title"

@@ -1,5 +1,5 @@
 ---
-title: Category Grid
+title: Category grid
 description: A grid of cards allowing users to browse a collection of categories.
 layout: page
 label: Core

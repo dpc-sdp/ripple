@@ -1,6 +1,22 @@
 <template>
+  <!--
+    Avator or 'profile' card will be used when the content author chooses
+    the 'Profile' display type. However if there is no image a promo card will
+    display instead. In all other scenarios a promo card will be used.
+  -->
+  <RplAvatarCard
+    v-if="displayStyle === 'profile' && image"
+    :title="title"
+    :image="image"
+    :url="url"
+  >
+    <template v-if="showMetadata" #meta>
+      <TideLandingPageCardSharedMeta :meta="metadata" />
+    </template>
+    <p>{{ summary }}</p>
+  </RplAvatarCard>
   <RplPromoCard
-    v-if="displayStyle === 'noImage' || displayStyle === 'thumbnail'"
+    v-else
     :title="title"
     :image="displayStyle !== 'noImage' ? image : null"
     :url="url"
@@ -11,17 +27,6 @@
       <TideLandingPageCardSharedMeta :meta="metadata" />
     </template>
   </RplPromoCard>
-  <RplAvatarCard
-    v-if="displayStyle === 'profile'"
-    :title="title"
-    :image="image"
-    :url="url"
-  >
-    <template v-if="showMetadata" #meta>
-      <TideLandingPageCardSharedMeta :meta="metadata" />
-    </template>
-    <p>{{ summary }}</p>
-  </RplAvatarCard>
 </template>
 
 <script setup lang="ts">

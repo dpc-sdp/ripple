@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.169](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.168...v2.1.0-alpha.169) (2023-05-19)
+
+**Note:** Version bump only for package @dpc-sdp/nuxt-ripple
+
+# [2.1.0-alpha.166](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.165...v2.1.0-alpha.166) (2023-05-18)
+
+**Note:** Version bump only for package @dpc-sdp/nuxt-ripple
+
 # [2.1.0-alpha.165](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.164...v2.1.0-alpha.165) (2023-05-17)
 
 **Note:** Version bump only for package @dpc-sdp/nuxt-ripple

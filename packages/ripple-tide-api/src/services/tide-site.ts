@@ -8,11 +8,7 @@ export default class TideSite extends TideApiBase {
   site: string
   siteMapping: IRplTideModuleMapping | null
 
-  constructor(
-    tide: RplTideModuleConfig,
-
-    logger: ILogger
-  ) {
+  constructor(tide: RplTideModuleConfig, logger: ILogger) {
     super(tide, logger)
     this.site = tide.site
     this.siteMapping = null

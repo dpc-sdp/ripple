@@ -7,6 +7,7 @@ import axios from 'axios'
 import { ILogger } from '../logger/logger'
 
 export default class TideApiBase extends HttpClient {
+  tide: RplTideModuleConfig
   debug: boolean | undefined
   constructor(tide: RplTideModuleConfig, logger: ILogger) {
     if (!tide) {
@@ -20,6 +21,7 @@ export default class TideApiBase extends HttpClient {
       },
       logger
     )
+    this.tide = tide
     this.debug = tide.debug
   }
 
@@ -74,13 +76,48 @@ export default class TideApiBase extends HttpClient {
     }
   }
 
-  async getSiteMenu(siteId, menuData, activePath?) {
+  async getSiteMenu(siteId, menuData, activePath = null) {
     if (!menuData) {
       return null
     }
 
     const menuName = menuData.drupal_internal__id
 
+    // If a site opts into the old paginated menu style we make several requests to get all the links then build the menu
+    // this "paginated" method can be removed once all sites are using the new "single" menu endpoint added v3.0.10 of tide_api
+    if (this.tide?.menuEndpoint === 'paginated') {
+      return await this.getPaginatedMenu(siteId, menuName, activePath)
+    }
+
+    return await this.getCompleteMenu(siteId, menuName, activePath)
+  }
+
+  async getCompleteMenu(siteId, menuName, activePath) {
+    const params = {
+      site: siteId,
+      filter: {
+        max_depth: 4,
+        fields: 'title,url,parent,weight'
+      }
+    }
+
+    try {
+      const menusResponse = await this.get(`/menu_items/${menuName}`, {
+        params
+      })
+
+      if (menusResponse?.data) {
+        return getHierarchicalMenu(menusResponse.data, activePath)
+      }
+    } catch (error) {
+      throw new ApplicationError(
+        `Error fetching menu with name "${menuName}"`,
+        { cause: error }
+      )
+    }
+  }
+
+  async getPaginatedMenu(siteId, menuName, activePath) {
     try {
       const menusResponse = await this.getAllPaginatedMenuLinks(
         siteId,
@@ -88,8 +125,7 @@ export default class TideApiBase extends HttpClient {
       )
 
       if (menusResponse) {
-        const menu = menusResponse
-        return getHierarchicalMenu(menu, activePath)
+        return getHierarchicalMenu(menusResponse, activePath, true)
       }
     } catch (error) {
       throw new ApplicationError(

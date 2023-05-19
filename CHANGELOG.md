@@ -3,6 +3,37 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.169](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.168...v2.1.0-alpha.169) (2023-05-19)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-api:** add 'flag' to support single and paginated endpoints ([88b2b2e](https://github.com/dpc-sdp/ripple-framework/commit/88b2b2e18ddc72f6eb0fd7f68cab5a34493e3e16))
+* **@dpc-sdp/ripple-tide-api:** add enabled check for paginated menus ([a8bfca9](https://github.com/dpc-sdp/ripple-framework/commit/a8bfca956aedef6a229bc108a4c6ecca2b8cbe8f))
+* **nuxt-app:** stop 'background' page load ([0c5f0c9](https://github.com/dpc-sdp/ripple-framework/commit/0c5f0c91144d050689f2119c894b5c5f3c7317f1))
+
+### Features
+
+* **@dpc-sdp/ripple-tide-api:** add new menu filters ([4a6f403](https://github.com/dpc-sdp/ripple-framework/commit/4a6f403638f573f73b50d484da2fef7c43ebdbd9))
+
+# [2.1.0-alpha.168](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.167...v2.1.0-alpha.168) (2023-05-19)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-landing-page:** fixed profile cards with no images displaying incorrectly ([631a936](https://github.com/dpc-sdp/ripple-framework/commit/631a936785b9c06506e823e4fc7942b079cbcd1a))
+
+# [2.1.0-alpha.167](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.166...v2.1.0-alpha.167) (2023-05-19)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-landing-page:** removed titles from media gallery ([a4f9b8f](https://github.com/dpc-sdp/ripple-framework/commit/a4f9b8f042489e1cc697dc4ad4e1519bf0ca47a4))
+
+# [2.1.0-alpha.166](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.165...v2.1.0-alpha.166) (2023-05-18)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-publication:** fixed crash when no publication children ([040e81b](https://github.com/dpc-sdp/ripple-framework/commit/040e81b74b3a792580efb264c0155914fdf0e455))
+* **@dpc-sdp/ripple-ui-core:** ensured top level site section links are accessible ([7a0ddf6](https://github.com/dpc-sdp/ripple-framework/commit/7a0ddf609f5001f84e9cbea7f95ce1dcbe540b6b))
+
 # [2.1.0-alpha.165](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.164...v2.1.0-alpha.165) (2023-05-17)
 
 ### Bug Fixes

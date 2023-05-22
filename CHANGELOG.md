@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.171](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.170...v2.1.0-alpha.171) (2023-05-22)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** :bug: fixed skip link covered by nav if user is yet to scroll page ([7f5557d](https://github.com/dpc-sdp/ripple-framework/commit/7f5557de82e21c487e2724b49eae595f161e2910))
+
 # [2.1.0-alpha.170](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.169...v2.1.0-alpha.170) (2023-05-22)
 
 ### Bug Fixes

@@ -24,8 +24,8 @@
         </div>
       </div>
     </div>
-    <div v-if="allowedTypes" class="rpl-form-file__requirements">
-      <span class="rpl-form-file__requirements-types">Accepted file types: {{ extensions }}</span>
+    <div class="rpl-form-file__requirements">
+      <span v-if="allowedTypes.length" class="rpl-form-file__requirements-types">Accepted file types: {{ extensions }}</span>
       <span class="rpl-form-file__requirements-limit">Maximum files: {{ fileLimit }}</span>
     </div>
     <div v-if="errors" class="rpl-form-file__errors" aria-live="polite">
@@ -202,7 +202,7 @@ export default {
     validateFile (file) {
       const extension = this.getFileType(file.name)
 
-      if (this.allowedTypes && !this.mimeTypes.includes(file.type)) {
+      if (this.allowedTypes.length && !this.mimeTypes.includes(file.type)) {
         return `File is not in a supported format (${extension}), please remove this file and select a ${this.extensions}`
       }
       if (this.maxSize && this.getSizeInMB(file.size) > this.maxSize) {
@@ -239,7 +239,11 @@ export default {
       return `Drag and drop your ${this.filePlural} to upload`
     },
     mimeTypes () {
-      return this.allowedTypes.map(type => type.mimeType)
+      if (this.allowedTypes && this.allowedTypes.length) {
+        return this.allowedTypes.map(type => type.mimeType)
+      }
+
+      return []
     },
     extensions () {
       return (new Intl.ListFormat('en', { style: 'long', type: 'disjunction' }))
@@ -364,7 +368,7 @@ $rpl-file-dropzone-bg-color: rpl-color("mid_neutral_2") !default;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    gap: $rpl-space-2;
+    column-gap: $rpl-space-2;
   }
 
   &__errors {

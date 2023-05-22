@@ -134,9 +134,9 @@ export default {
       return []
     }
     // Custom 'required' validator which uses the drupal 'required message'
-    // if the field is empty.
+    // if the field is empty, or has no length (when dealing with arrays).
     VueFormGenerator.validators.rplRequired = function (value, field) {
-      if (!value || value === '') {
+      if (!value || value === '' || (Array.isArray(value) && !value.length)) {
         return field.requiredMessage
       }
 
@@ -173,7 +173,7 @@ export default {
     }
     // Validate if file input is within the max files limit.
     VueFormGenerator.validators.rplFileMaxLimit = function (value, field) {
-      if (field?.maxFiles && field.maxFiles > 1 && value.length > field.maxFiles) {
+      if (field.multiple && (value.length > field.maxFiles)) {
         const excessFiles = value.length - field.maxFiles
         return [`There is a limit of ${field.maxFiles} files, you need to remove ${excessFiles} file${excessFiles > 1 ? 's' : ''}`]
       }

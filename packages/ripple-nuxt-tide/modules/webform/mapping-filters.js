@@ -434,26 +434,22 @@ module.exports = {
           if (element['#file_placeholder']) {
             field.placeholder = element['#file_placeholder']
           }
-          // use array validator instead of the default required validator
-          if (element['#required'] && !element['#required_error']) {
+          field.allowedTypes = element['#file_extensions']
+            ? element['#file_extensions'].split(' ').map(extension => ({
+              extension, mimeType: getMimeTypeFromExtension(extension)
+            })) : []
+          field.maxSize = element['#max_filesize'] ? Number(element['#max_filesize']) : 10
+          // if #multiple is true it's unlimited, otherwise it's the number of files allowed
+          const unlimited = element['#multiple'] === true
+          field.multiple = unlimited || (element['#multiple'] && Number(element['#multiple']) > 1)
+          field.maxFiles = !unlimited ? element['#multiple'] ?? 1 : undefined
+          // use array validator instead of the default required validator for multiple files
+          // the default 'required' validation is only used when no custom required error is set
+          if (field.multiple && element['#required'] && !element['#required_error']) {
             field.validator = field.validator.filter(validator => validator !== 'required')
             field.validator.push('array')
           }
-          if (element['#max_filesize']) {
-            field.maxSize = Number(element['#max_filesize'])
-          }
-          if (element['#file_extensions']) {
-            field.allowedTypes = element['#file_extensions'].split(' ').map(extension => ({
-              extension,
-              mimeType: getMimeTypeFromExtension(extension)
-            }))
-          }
-          // if #multiple is true it's unlimited, otherwise it's the number of files allowed
-          const unlimited = element['#multiple'] === true
-          field.multiple = unlimited || (Number.isInteger(element['#multiple']) && element['#multiple'] > 1)
-          field.maxFiles = !unlimited ? element['#multiple'] ?? 1 : undefined
-
-          if (field.maxFiles) {
+          if (field.multiple) {
             field.validator.push('rplFileMaxLimit')
           }
           break

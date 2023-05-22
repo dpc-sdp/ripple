@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.170](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.169...v2.1.0-alpha.170) (2023-05-22)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** fixed card padding with no image ([a77c90b](https://github.com/dpc-sdp/ripple-framework/commit/a77c90b1554e5793a315a1c1cab170a8d8237385))
+* **@dpc-sdp/ripple-ui-core:** fixed table font size for paragraphs and lists ([8e94aa2](https://github.com/dpc-sdp/ripple-framework/commit/8e94aa2c2a1adf691fb59030a47e82a20a20e9d8))
+
 # [2.1.0-alpha.169](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.168...v2.1.0-alpha.169) (2023-05-19)
 
 ### Bug Fixes

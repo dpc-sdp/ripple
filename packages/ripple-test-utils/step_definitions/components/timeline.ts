@@ -37,7 +37,10 @@ Then(
           }
 
           if (row.image) {
-            cy.get('@item').find('img').should('have.attr', 'src', row.image)
+            cy.get('@item')
+              .find('img')
+              .should('have.attr', 'srcset')
+              .and('contain', row.image)
           }
         })
     })

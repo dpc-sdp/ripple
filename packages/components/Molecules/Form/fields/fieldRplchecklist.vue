@@ -1,8 +1,11 @@
 <template>
-  <!-- This component is deprecated, use ripple-select instead. -->
   <div class="rpl-checklist wrapper">
     <!-- List Box -->
-    <div v-if="schema.listBox" class="rpl-checklist__combobox form-control" :disabled="disabled">
+    <div v-if="schema.listBox" :class="{
+      'rpl-checklist__combobox': true,
+      'rpl-checklist__combobox--simple': schema.simple,
+      'form-control': !schema.simple
+    }" :disabled="disabled">
       <div class="rpl-checklist__list">
         <div class="rpl-checklist__list-row" v-for="(item, index) in items" :key="index" :class="{'is-checked': isItemChecked(item)}">
           <rpl-checkbox
@@ -83,8 +86,6 @@ export default {
       this.updateSize()
     }
     this.setCheckedValues()
-
-    this.deprecatedWarn('"rpl-checklist" is deprecated, please use "rpl-select" instead.')
   },
   watch: {
     value (newVal, oldVal) {
@@ -272,6 +273,19 @@ $rpl-checklist-dropdown-max-height: (rem(38px) * 10);
       #{$root}__info {
         .rpl-icon {
           transform: rotate(-180deg);
+        }
+      }
+    }
+
+    &--simple {
+      border-color: transparent;
+      background-color: transparent;
+
+      .rpl-checklist__list-row {
+        padding: 0;
+
+        &:nth-child(2n+1) {
+          background-color: transparent;
         }
       }
     }

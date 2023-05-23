@@ -80,6 +80,23 @@ describe('Webform: conditional logic', () => {
     testAllStates(trigger, valMatchTrigger, valNotMatchTrigger)
   })
 
+  test('Condition is applied if input in checkboxes list is checked', async () => {
+    const trigger = { ':input[name="field_a[value_a]"]': { checked: true } }
+
+    const valMatchTrigger = ['value_a']
+    const valNotMatchTrigger = ['value_b', 'value_c']
+
+    testAllStates(trigger, valMatchTrigger, valNotMatchTrigger)
+  })
+
+  test('Condition is applied if input in checkboxes list is unchecked', async () => {
+    const trigger = { ':input[name="field_a[value_b]"]': { unchecked: true } }
+    const valMatchTrigger = ['value_a']
+    const valNotMatchTrigger = ['value_b', 'value_c']
+
+    testAllStates(trigger, valMatchTrigger, valNotMatchTrigger)
+  })
+
   test('Condition is applied if input is value', async () => {
     const trigger = { ':input[name="field_a"]': { value: 'test' } }
     const valMatchTrigger = 'test'

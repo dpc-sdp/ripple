@@ -66,8 +66,14 @@ function testField (field, data) {
  * @param {Object} data
  */
 function clearField (field, data) {
-  if (field?.isDirty) {
-    data.model[field.model] = null
+  const fieldData = data.model[field.model]
+
+  if (field?.isDirty && field.clearHiddenValues) {
+    if (typeof fieldData === 'object' && !Array.isArray(fieldData) && fieldData !== null) {
+      data.model[field.model] = {}
+    } else {
+      data.model[field.model] = null
+    }
   }
 }
 

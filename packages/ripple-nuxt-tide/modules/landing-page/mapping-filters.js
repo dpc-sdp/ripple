@@ -216,6 +216,19 @@ module.exports = {
   statisticsGrid: (blocks) => blocks.map(b => ({
     'heading': b.field_statistic_heading,
     'body': b.field_statistic_body
-  }))
+  })),
 
+  compactCards: (cards) => {
+    if (!Array.isArray(cards)) return []
+
+    return cards.map(card => ({
+      title: card.field_paragraph_title,
+      summary: card.field_paragraph_summary,
+      image: card.field_paragraph_media?.field_media_image?.url,
+      link: {
+        text: '',
+        url: card.field_paragraph_link?.url || '#'
+      }
+    }))
+  }
 }

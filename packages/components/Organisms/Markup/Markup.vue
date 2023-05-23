@@ -182,6 +182,12 @@ $no-padding: 0;
         }
       }
     }
+
+    &--auto {
+      iframe {
+        max-height: none;
+      }
+    }
   }
 
   /* Callouts */

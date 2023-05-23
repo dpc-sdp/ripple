@@ -2,6 +2,7 @@
   <RplBreadcrumbs
     v-if="breadcrumbs"
     :items="breadcrumbs"
+    :besideQuickExit="besideQuickExit"
     data-cy="breadcrumbs"
   />
 </template>
@@ -20,10 +21,12 @@ interface Props {
   items?: IRplBreadcrumbsItem[]
   currentPath: string
   currentPageTitle: string
+  besideQuickExit: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  items: () => []
+  items: () => [],
+  besideQuickExit: false
 })
 
 const breadcrumbs = computed(() => {

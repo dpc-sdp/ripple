@@ -8,15 +8,24 @@ interface IRplBreadcrumbsItem {
 
 interface Props {
   items: IRplBreadcrumbsItem[]
+  besideQuickExit?: boolean
 }
 
-withDefaults(defineProps<Props>(), {
-  items: () => []
+const props = withDefaults(defineProps<Props>(), {
+  items: () => [],
+  besideQuickExit: false
 })
 </script>
 
 <template>
-  <nav aria-label="breadcrumbs" class="rpl-breadcrumbs rpl-u-screen-only">
+  <nav
+    aria-label="breadcrumbs"
+    :class="{
+      'rpl-breadcrumbs': true,
+      'rpl-u-screen-only': true,
+      'rpl-breadcrumbs--beside-exit': props.besideQuickExit
+    }"
+  >
     <ol v-if="items.length > 0" class="rpl-breadcrumbs__items rpl-type-p">
       <li
         v-for="(item, index) of items"

@@ -16,7 +16,10 @@
     </template>
     <template #breadcrumbs>
       <slot name="breadcrumbs">
-        <TideBreadcrumbs :items="page.breadcrumbs" />
+        <TideBreadcrumbs
+          :items="page.breadcrumbs"
+          :besideQuickExit="site?.showQuickExit"
+        />
       </slot>
     </template>
     <template #aboveBody="{ hasBreadcrumbs }">

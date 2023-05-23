@@ -28,6 +28,7 @@
           :siteMenu="site?.menus.menuMain"
           :currentPath="route.path"
           :currentPageTitle="pageTitle"
+          :besideQuickExit="site?.showQuickExit"
         />
       </slot>
     </template>

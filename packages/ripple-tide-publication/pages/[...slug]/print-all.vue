@@ -53,6 +53,7 @@ onMounted(() => {
             { text: parentPage.title, url: parentPage.url },
             { text: 'Print' }
           ]"
+          :besideQuickExit="site?.showQuickExit"
         />
       </slot>
     </template>

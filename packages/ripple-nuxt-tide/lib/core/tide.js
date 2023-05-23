@@ -95,19 +95,6 @@ export const tide = (axios, site, config) => ({
     return axios.$post(url, data, axiosConfig)
   },
 
-  delete: async function (url, headersConfig = {}) {
-    const axiosConfig = {
-      auth: config.auth,
-      timeout: headersConfig.axiosTimeout || config.tideTimeout,
-      headers: {
-        [RPL_HEADER.REQ_LOCATION]: 'tide',
-        'X-Request-Id': helper.generateId()
-      }
-    }
-
-    return axios.$delete(`${apiPrefix}${url}?site=${site}`, axiosConfig)
-  },
-
   upload: async function (url, file = {}, headersConfig = {}, options = {}) {
     const axiosConfig = {
       auth: config.auth,

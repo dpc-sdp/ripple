@@ -51,15 +51,6 @@ const webform = {
         return { status: 'error', message: e?.response?.data?.message }
       }
     },
-    async deleteFile (file) {
-      try {
-        await this.$tide.delete(`file/file/${file.uuid}`)
-
-        return true
-      } catch (e) {
-        return false
-      }
-    },
     isHoneypotSet (selector = `#${this.formData.tideId}-important-email`) {
       if (this.formData.settings?.spamProtect) {
         const honeypotElement = document.querySelector(selector)

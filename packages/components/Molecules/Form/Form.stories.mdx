@@ -66,9 +66,6 @@ export const TemplateForm = (args, { argTypes }) => ({
       return new Promise((resolve) => {
         setTimeout(() => resolve({ status: 'success', id: Math.random(), uuid: Math.random() }), 250)
       })
-    },
-    fileDeleteHandler () {
-      return new Promise((resolve) => resolve(true))
     }
   },
   template: `
@@ -76,7 +73,6 @@ export const TemplateForm = (args, { argTypes }) => ({
       :formData="formData"
       :submitHandler="submitHandler"
       :fileUploadHandler="fileUploadHandler"
-      :fileDeleteHandler="fileDeleteHandler"
       :title="title"
       :fullWidth="fullWidth"
       :spamProtect="spamProtect"

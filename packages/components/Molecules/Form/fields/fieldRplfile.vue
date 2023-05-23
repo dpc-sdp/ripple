@@ -11,7 +11,6 @@
     :name="schema.model"
     :reset="reset"
     :handle-post="postFile"
-    :handle-delete="deleteFile"
     @update="onUpdate"
   />
 </template>
@@ -26,7 +25,7 @@ export default {
     RplFile
   },
   mixins: [abstractField],
-  inject: ['postFile', 'deleteFile'],
+  inject: ['postFile'],
   data () {
     return {
       reset: null

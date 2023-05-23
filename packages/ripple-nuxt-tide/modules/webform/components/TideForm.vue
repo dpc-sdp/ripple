@@ -6,7 +6,6 @@
     :formData="formData"
     :submitHandler="submitForm"
     :fileUploadHandler="submitFile"
-    :fileDeleteHandler="deleteFile"
     :hideAfterSuccess="formData.settings.shouldHideFormAfterSuccess"
     :spamProtect="formData.settings.spamProtect"
     :title="title"

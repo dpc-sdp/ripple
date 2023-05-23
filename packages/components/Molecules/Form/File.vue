@@ -84,8 +84,7 @@ export default {
     identifier: String,
     name: String,
     reset: Number,
-    handlePost: Function,
-    handleDelete: Function
+    handlePost: Function
   },
   data () {
     return {
@@ -162,7 +161,6 @@ export default {
       this.value = this.value.filter((file, i) => i !== index)
 
       if (item.status === 'success') {
-        this.handleDelete(item)
         this.$emit('update', this.getUploadedIds())
       }
 

@@ -71,7 +71,6 @@ export default {
     formData: Object,
     submitHandler: Function,
     fileUploadHandler: Function,
-    fileDeleteHandler: Function,
     fieldChangeHandler: Function,
     hideAfterSuccess: Boolean,
     clearFormOnSuccess: { type: Boolean, default: false },
@@ -84,8 +83,7 @@ export default {
   },
   provide () {
     return {
-      postFile: this.fileUploadHandler,
-      deleteFile: this.fileDeleteHandler
+      postFile: this.fileUploadHandler
     }
   },
   data () {

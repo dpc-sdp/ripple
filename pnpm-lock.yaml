@@ -586,6 +586,9 @@ importers:
       typescript-json-schema:
         specifier: ^0.55.0
         version: 0.55.0
+      udp-transport-winston:
+        specifier: ^1.2.11
+        version: 1.2.11
       winston:
         specifier: ^3.8.2
         version: 3.8.2
@@ -27540,6 +27543,12 @@ packages:
     resolution: {integrity: sha512-wVORMBGO/FAs/++blGNeAVdbNKtIh1rbBL2EyQ1+J9lClJ93KiiKe8PmFIVdXhHcyv44SL9oglmfeSsndo0jRw==}
     engines: {node: '>=12.20'}
     hasBin: true
+
+  /udp-transport-winston@1.2.11:
+    resolution: {integrity: sha512-tkjDsXf2LRY41UDpYO2J/bNIQ0+RlL2uv7/5eUSYk8bZp4lZpNhLYeywTqO80lx00c+X7pgg0rihicCHcfQxBw==}
+    dependencies:
+      winston: 3.8.2
+    dev: false
 
   /ufo@0.8.6:
     resolution: {integrity: sha512-fk6CmUgwKCfX79EzcDQQpSCMxrHstvbLswFChHS0Vump+kFkw7nJBfTZoC1j0bOGoY9I7R3n2DGek5ajbcYnOw==}

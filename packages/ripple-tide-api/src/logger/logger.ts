@@ -1,3 +1,4 @@
+import { UDPTransport } from 'udp-transport-winston'
 import * as winston from 'winston'
 
 const setupWinston = () => {
@@ -35,6 +36,24 @@ const setupWinston = () => {
     return log
   })
 
+  // Add error stack into error meta value.
+  const errorPrint = winston.format((info) => {
+    if (info.error) {
+      info.error = info.error.stack || info.error.toString()
+    }
+    return info
+  })
+
+  const sumoFormat = winston.format((info) => {
+    const LAGOON_PROJECT = process.env.LAGOON_PROJECT || 'project_unset'
+    const LAGOON_GIT_SAFE_BRANCH =
+      process.env.LAGOON_GIT_SAFE_BRANCH || 'safe_branch_unset'
+    info.source_host = LAGOON_PROJECT + '-' + LAGOON_GIT_SAFE_BRANCH
+    info.source_category =
+      process.env.SUMOLOGIC_CATEGORY || 'sdp/dev/origin/app/ripple'
+    return info
+  })
+
   // If we're not in production then **ALSO** log to the `console`
   // with human readable formatting
   if (process.env.NODE_ENV !== 'production') {
@@ -60,6 +79,35 @@ const setupWinston = () => {
         )
       })
     )
+  }
+
+  // In production mode, log to sumo instead of console
+  if (process.env.NODE_ENV === 'production') {
+    if (!process.env.LAGOON_GIT_SAFE_BRANCH) {
+      throw new Error(
+        'Missing LAGOON_GIT_SAFE_BRANCH env var, unable to collect logs'
+      )
+    }
+
+    if (!process.env.SUMO_HOST) {
+      throw new Error('Missing SUMO_HOST env var, unable to collect logs')
+    }
+
+    if (!process.env.SUMO_PORT) {
+      throw new Error('Missing SUMO_PORT env var, unable to collect logs')
+    }
+
+    const udp = new UDPTransport({
+      host: process.env.SUMO_HOST,
+      port: parseInt(process.env.SUMO_PORT),
+      handleExceptions: true,
+      format: winston.format.combine(
+        sumoFormat(),
+        errorPrint(),
+        winston.format.json()
+      )
+    })
+    winstonLogger.add(udp)
   }
 
   return winstonLogger

@@ -82,13 +82,10 @@ const setupWinston = () => {
   }
 
   // In production mode, log to sumo instead of console
-  if (process.env.NODE_ENV === 'production') {
-    if (!process.env.LAGOON_GIT_SAFE_BRANCH) {
-      throw new Error(
-        'Missing LAGOON_GIT_SAFE_BRANCH env var, unable to collect logs'
-      )
-    }
-
+  if (
+    process.env.NODE_ENV === 'production' &&
+    process.env.LAGOON_GIT_SAFE_BRANCH
+  ) {
     if (!process.env.SUMO_HOST) {
       throw new Error('Missing SUMO_HOST env var, unable to collect logs')
     }

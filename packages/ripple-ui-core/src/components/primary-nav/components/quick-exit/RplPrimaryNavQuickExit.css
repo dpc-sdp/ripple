@@ -1,0 +1,27 @@
+.rpl-primary-nav__quick-exit--fixed {
+  --local-quick-exit-offset: calc(var(--local-nav-bar-height) + var(--local-nav-bar-padding) + var(--rpl-sp-1));
+
+  width: auto;
+  top: var(--local-quick-exit-offset);
+  right: var(--local-nav-bar-padding);
+
+  &,
+  &:focus-visible {
+    position: absolute;
+  }
+}
+
+.rpl-primary-nav--hidden .rpl-primary-nav__quick-exit--fixed {
+  --local-quick-exit-offset: calc(var(--local-nav-bar-padding));
+}
+
+.rpl-primary-nav--fixed,
+.rpl-primary-nav--hidden {
+  .rpl-primary-nav__quick-exit--fixed {
+    &,
+    &:focus-visible {
+      position: fixed;
+    }
+  }
+}
+

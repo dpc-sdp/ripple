@@ -21,6 +21,7 @@ import {
   IRplPrimaryNavActiveItems,
   IRplPrimaryNavFocusOptions
 } from './constants'
+import RplPrimaryNavQuickExit from './components/quick-exit/RplPrimaryNavQuickExit.vue'
 
 interface Props {
   primaryLogo: IRplPrimaryNavLogo
@@ -269,6 +270,7 @@ provide('navFocus', navFocus)
         :show-quick-exit="showQuickExit"
       />
     </div>
+    <RplPrimaryNavQuickExit v-if="showQuickExit" variant="fixed" />
   </nav>
 </template>
 

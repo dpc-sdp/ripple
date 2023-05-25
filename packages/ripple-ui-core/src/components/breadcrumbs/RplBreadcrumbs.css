@@ -80,4 +80,10 @@
       color: var(--rpl-clr-type-default);
     }
   }
+
+  &--beside-exit {
+    --local-width-spacer: 124px;
+
+    max-width: calc(100% - var(--local-horizontal-offset) * 3 - var(--local-width-spacer));
+  }
 }

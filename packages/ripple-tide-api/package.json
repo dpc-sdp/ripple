@@ -35,7 +35,8 @@
     "qs": "^6.11.1",
     "ts-json-schema-generator": "^1.2.0",
     "typescript-json-schema": "^0.55.0",
-    "winston": "^3.8.2"
+    "winston": "^3.8.2",
+    "udp-transport-winston": "^1.2.11"
   },
   "devDependencies": {
     "@nuxt/schema": "3.3.2",

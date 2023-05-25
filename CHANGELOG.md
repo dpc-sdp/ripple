@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.174](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.173...v2.1.0-alpha.174) (2023-05-25)
+
+### Features
+
+* **@dpc-sdp/ripple-ui-core:** persistant quick exit ([9967b96](https://github.com/dpc-sdp/ripple-framework/commit/9967b964de780be3bc585121b0a6188071c07df9))
+
 # [2.1.0-alpha.173](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.172...v2.1.0-alpha.173) (2023-05-25)
 
 ### Bug Fixes

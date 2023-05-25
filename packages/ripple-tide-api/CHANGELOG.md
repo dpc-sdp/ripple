@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.175](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.174...v2.1.0-alpha.175) (2023-05-25)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-api:** fixed integration tests failing because of logging ([4502f65](https://github.com/dpc-sdp/ripple-framework/commit/4502f656a2f143a27865f4afca31aa599cd818b8))
+
+### Features
+
+* **@dpc-sdp/ripple-tide-api:** connect logs to sumologic ([a3a8788](https://github.com/dpc-sdp/ripple-framework/commit/a3a878857ceb877b31dedaced2f0627eb63fd1a5))
+
 # [2.1.0-alpha.169](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.168...v2.1.0-alpha.169) (2023-05-19)
 
 ### Bug Fixes

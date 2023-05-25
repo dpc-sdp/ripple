@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.173](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.172...v2.1.0-alpha.173) (2023-05-25)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** fixed parents of active item being highlighted ([1842bbb](https://github.com/dpc-sdp/ripple-framework/commit/1842bbbfc6c9231531bff551215a906fe4ba07eb))
+
 # [2.1.0-alpha.172](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.171...v2.1.0-alpha.172) (2023-05-22)
 
 **Note:** Version bump only for package @dpc-sdp/ripple-monorepo

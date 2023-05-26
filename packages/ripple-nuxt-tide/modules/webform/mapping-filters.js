@@ -458,12 +458,14 @@ module.exports = {
               buttonText: element['#submit__label'] || element['#title'],
               loading: false,
               autoUpdate: true,
-              styleClasses: ['form-group--inline']
+              styleClasses: ['form-group--inline'],
+              states: element['#states'] || null
             },
             {
               type: 'rplclearform',
               buttonText: 'Clear form',
-              styleClasses: ['form-group--inline']
+              styleClasses: ['form-group--inline'],
+              states: element['#states'] || null
             }
           )
           break

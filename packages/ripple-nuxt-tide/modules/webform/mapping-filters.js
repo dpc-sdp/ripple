@@ -54,7 +54,8 @@ module.exports = {
         type: null,
         model: eName,
         validator: [],
-        styleClasses: ['tide-webform-field']
+        styleClasses: ['tide-webform-field'],
+        clearHiddenValues: element['#states_clear'] !== false // #states_clear only exists when false
       }
 
       const group = {}

@@ -40,17 +40,39 @@ function testField (field, data) {
         break
 
       case 'visible':
-        field.visible = isPass
+        const visible = isPass
+        field.visible = visible
+        if (!visible) clearField(field, data)
         break
 
       case 'invisible':
         const invisible = isPass
         field.visible = !invisible
+        if (invisible) clearField(field, data)
         break
 
       default:
         logger.warn('Form: State "%s" is not supported.', state, { label: 'Webform' })
         break
+    }
+  }
+}
+
+/**
+ * Clear the field only if it has been interacted with.
+ * This is to keep any default values that may have been set intact.
+ * For instance if a conditionally hidden field has a 'starting' value we don't to clear that.
+ * @param {Object} field
+ * @param {Object} data
+ */
+function clearField (field, data) {
+  const fieldData = data.model[field.model]
+
+  if (field?.isDirty && field.clearHiddenValues) {
+    if (typeof fieldData === 'object' && !Array.isArray(fieldData) && fieldData !== null) {
+      data.model[field.model] = {}
+    } else {
+      data.model[field.model] = null
     }
   }
 }

@@ -3,11 +3,7 @@ title: Detail list
 description: Display a list of key information to users.
 layout: page
 label: Core
-links:
-- text: Figma
-  url: #colour
-- text: Storybook
-  url: #component
+
 ---
 
 ## Usage

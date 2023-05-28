@@ -3,11 +3,7 @@ title: Carousel
 description: A set of related cards that users can side-scroll through.
 layout: page
 label: Core
-links:
-- text: Figma
-  url: #colour
-- text: Storybook
-  url: #component
+
 ---
 
 ## Usage

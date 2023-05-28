@@ -3,11 +3,7 @@ title: Card
 description: Cards contain content about another page, event or topic. They help users find relevant information.
 layout: page
 label: Core
-links:
-- text: Figma
-  url: #colour
-- text: Storybook
-  url: #component
+
 ---
 
 ## Usage

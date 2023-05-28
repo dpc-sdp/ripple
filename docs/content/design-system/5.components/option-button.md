@@ -3,11 +3,7 @@ title: Option button
 description: A set of buttons to help users filter content.
 layout: page
 label: Core
-links:
-- text: Figma
-  url: #colour
-- text: Storybook
-  url: #component
+
 ---
 
 ## Usage

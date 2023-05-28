@@ -3,11 +3,7 @@ title: Header
 description: The header introduces the purpose and content of a page.
 layout: page
 label: Core
-links:
-- text: Figma
-  url: #colour
-- text: Storybook
-  url: #component
+
 ---
 
 ## Usage

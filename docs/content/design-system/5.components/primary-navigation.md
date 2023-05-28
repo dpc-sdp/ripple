@@ -3,11 +3,7 @@ title: Primary navigation
 description: Help users identify where they are by providing links to key areas of the website. This help users get to where they need to go.
 layout: page
 label: Core
-links:
-- text: Figma
-  url: #colour
-- text: Storybook
-  url: #component
+
 ---
 
 ## Usage

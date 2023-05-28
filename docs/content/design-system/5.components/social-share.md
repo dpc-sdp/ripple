@@ -3,11 +3,7 @@ title: Social share
 description: A list of links to help users to share pages to social media.
 layout: page
 label: Core
-links:
-- text: Figma
-  url: #colour
-- text: Storybook
-  url: #component
+
 ---
 
 ## Usage

@@ -3,11 +3,7 @@ title: Form alert
 description: Show the user the outcome of a form submission or validation.
 layout: page
 label: Core
-links:
-- text: Figma
-  url: #colour
-- text: Storybook
-  url: #component
+
 ---
 
 ## Usage

@@ -3,11 +3,7 @@ title: Vertical navigation
 description: A vertical list of links to help users navigate a section of related pages.
 layout: page
 label: Core
-links:
-- text: Figma
-  url: #colour
-- text: Storybook
-  url: #component
+
 ---
 
 ## Usage

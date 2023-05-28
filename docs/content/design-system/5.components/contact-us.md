@@ -3,11 +3,7 @@ title: Contact us
 description: A list of contact details and links to help the user get in touch with you.
 layout: page
 label: Core
-links:
-- text: Figma
-  url: #colour
-- text: Storybook
-  url: #component
+
 ---
 
 ## Usage

@@ -3,11 +3,7 @@ title: Pagination
 description: Pagination helps users navigate forwards and backwards through content.
 layout: page
 label: Core
-links:
-- text: Figma
-  url: #colour
-- text: Storybook
-  url: #component
+
 ---
 
 ## Usage

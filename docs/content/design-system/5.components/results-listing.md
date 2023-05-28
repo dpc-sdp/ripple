@@ -3,11 +3,7 @@ title: Results listing
 description: Display a list of results to users displaying key information related to the search.
 layout: page
 label: Core
-links:
-- text: Figma
-  url: #colour
-- text: Storybook
-  url: #component
+
 ---
 
 ## Usage

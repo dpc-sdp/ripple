@@ -3,11 +3,7 @@ title: Media fullscreen
 description: View one or more related media items in fullscreen.
 layout: page
 label: Core
-links:
-- text: Figma
-  url: #colour
-- text: Storybook
-  url: #component
+
 ---
 
 ## Usage

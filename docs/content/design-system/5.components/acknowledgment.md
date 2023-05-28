@@ -3,11 +3,7 @@ title: Acknowledgment
 description: The Acknowledgement of Country pays respect to the First Peoples of Victoria.
 layout: page
 label: Core
-links:
-- text: Figma
-  url: #colour
-- text: Storybook
-  url: #component
+
 ---
 
 ## Usage

@@ -3,11 +3,7 @@ title: Chip
 description: An interactive element to draw user attention to a category.
 layout: page
 label: Core
-links:
-- text: Figma
-  url: #colour
-- text: Storybook
-  url: #component
+
 ---
 
 ## Usage

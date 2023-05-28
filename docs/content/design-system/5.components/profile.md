@@ -3,11 +3,7 @@ title: Profile
 description: An avatar with supporting text to display key information.
 layout: page
 label: Core
-links:
-- text: Figma
-  url: #colour
-- text: Storybook
-  url: #component
+
 ---
 
 ## Usage

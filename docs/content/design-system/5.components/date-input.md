@@ -3,11 +3,7 @@ title: Date input
 description: Help users enter a date.
 layout: page
 label: Core
-links:
-- text: Figma
-  url: #colour
-- text: Storybook
-  url: #component
+
 ---
 
 ## Usage

@@ -3,11 +3,7 @@ title: Input field
 description: Let users input a short amount of text.
 layout: page
 label: Core
-links:
-- text: Figma
-  url: #colour
-- text: Storybook
-  url: #component
+
 ---
 
 ## Usage

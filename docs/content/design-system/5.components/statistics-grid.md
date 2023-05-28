@@ -3,11 +3,7 @@ title: Statistics grid
 description: Show a summary of 2 to 8 key statistics in a grid layout.
 layout: page
 label: Core
-links:
-- text: Figma
-  url: #colour
-- text: Storybook
-  url: #component
+
 ---
 
 ## Usage

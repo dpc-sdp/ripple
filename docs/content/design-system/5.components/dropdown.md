@@ -3,11 +3,7 @@ title: Dropdown
 description: Let users select one or more options from a list of available options.
 layout: page
 label: Core
-links:
-- text: Figma
-  url: #colour
-- text: Storybook
-  url: #component
+
 ---
 
 ## Usage

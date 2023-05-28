@@ -3,11 +3,7 @@ title: Accordion
 description: An accordion is an expandable panel designed to save space by hiding and revealing content as required.
 layout: page
 label: Core
-links:
-- text: Figma
-  url: #colour
-- text: Storybook
-  url: #component
+
 ---
 
 ## Usage

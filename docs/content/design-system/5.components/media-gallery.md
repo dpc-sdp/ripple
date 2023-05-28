@@ -3,11 +3,7 @@ title: Media gallery
 description: A series of images users can side-scroll through.
 layout: page
 label: Core
-links:
-- text: Figma
-  url: #colour
-- text: Storybook
-  url: #component
+
 ---
 
 ## Usage

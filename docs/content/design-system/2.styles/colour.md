@@ -3,11 +3,7 @@ title: Colour
 description: 'Colour plays an important role in creating a consistent and strong visual digital products and services.'
 layout: page
 label: Core
-links:
-- text: Figma
-  url: #colour
-- text: Storybook
-  url: #component
+
 ---
 
 You want users to recognise your brand. A well-designed colour palette can help you create a consistent look and feel.

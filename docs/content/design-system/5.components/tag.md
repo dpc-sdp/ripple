@@ -3,11 +3,7 @@ title: Tag
 description: Label and draw attention to content such as a category.
 layout: page
 label: Core
-links:
-- text: Figma
-  url: #colour
-- text: Storybook
-  url: #component
+
 ---
 
 ## Usage

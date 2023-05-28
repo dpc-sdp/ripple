@@ -3,11 +3,7 @@ title: Radio button
 description: Let users select one option from a list.
 layout: page
 label: Core
-links:
-- text: Figma
-  url: #colour
-- text: Storybook
-  url: #component
+
 ---
 
 ## Usage

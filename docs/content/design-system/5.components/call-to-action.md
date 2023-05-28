@@ -3,11 +3,7 @@ title: Call to action
 description: A card promoting a specific piece of content featuring a button highlighting the call to action.
 layout: page
 label: Core
-links:
-- text: Figma
-  url: #colour
-- text: Storybook
-  url: #component
+
 ---
 
 ## Usage

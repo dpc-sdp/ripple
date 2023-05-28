@@ -3,11 +3,7 @@ title: Layer styles
 description: 
 layout: page
 label: Core
-links:
-- text: Figma
-  url: #colour
-- text: Storybook
-  url: #component
+
 ---
 
 ## Border

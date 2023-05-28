@@ -3,11 +3,7 @@ title: Form
 description: A form guides users to give information and consists of a group of related inputs or controls.
 layout: page
 label: Core
-links:
-- text: Figma
-  url: #colour
-- text: Storybook
-  url: #component
+
 ---
 
 ## Usage

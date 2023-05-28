@@ -3,11 +3,6 @@ title: Button
 description: 'Use buttons to indicate an action to a user.'
 layout: page
 label: Core
-links:
-  - text: Figma
-    url: https://www.google.com/
-  - text: Vue component
-    url: https://www.google.com/
 ---
 
 ## Usage

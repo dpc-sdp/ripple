@@ -3,11 +3,7 @@ title: Timeline
 description: Blocks of content displayed in a linear order.
 layout: page
 label: Core
-links:
-- text: Figma
-  url: #colour
-- text: Storybook
-  url: #component
+
 ---
 
 ## Usage

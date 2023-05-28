@@ -3,11 +3,7 @@ title: Footer
 description: Footers help users find information at the bottom of a page.
 layout: page
 label: Core
-links:
-- text: Figma
-  url: #colour
-- text: Storybook
-  url: #component
+
 ---
 
 ## Usage

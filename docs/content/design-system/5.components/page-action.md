@@ -3,11 +3,7 @@ title: Page action
 description: Links that allow users a choice of actions, such as printing or downloading a document.
 layout: page
 label: Core
-links:
-- text: Figma
-  url: #colour
-- text: Storybook
-  url: #component
+
 ---
 
 ## Usage

@@ -3,11 +3,7 @@ title: Category grid
 description: A grid of cards allowing users to browse a collection of categories.
 layout: page
 label: Core
-links:
-- text: Figma
-  url: #colour
-- text: Storybook
-  url: #component
+
 ---
 
 ## Usage

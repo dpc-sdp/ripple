@@ -3,11 +3,7 @@ title: Focus State
 description: 'Focus states show when a user has highlighted an element, using an input method such as a keyboard or voice.'
 layout: page
 label: Core
-links:
-- text: Figma
-  url: #colour
-- text: Storybook
-  url: #component
+
 ---
 
 Some users use keyboards or other devices to navigate through a page by jumping from one interactive element to the next. Focus states help users understand which element is currently selected and ready for interaction.

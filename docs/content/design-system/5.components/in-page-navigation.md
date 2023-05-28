@@ -3,11 +3,7 @@ title: In-page navigation
 description: Help users scan a page and allow for quick navigation.
 layout: page
 label: Core
-links:
-- text: Figma
-  url: #colour
-- text: Storybook
-  url: #component
+
 ---
 
 ## Usage

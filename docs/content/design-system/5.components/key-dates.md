@@ -3,11 +3,7 @@ title: Key dates
 description: A card promoting key dates or events.
 layout: page
 label: Core
-links:
-- text: Figma
-  url: #colour
-- text: Storybook
-  url: #component
+
 ---
 
 ## Usage

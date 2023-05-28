@@ -3,11 +3,7 @@ title: Media
 description: Media communicates and differentiates a product through visuals.
 layout: page
 label: Core
-links:
-- text: Figma
-  url: #colour
-- text: Storybook
-  url: #component
+
 ---
 
 ## Usage

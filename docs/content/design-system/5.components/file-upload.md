@@ -3,11 +3,7 @@ title: File upload
 description: Let users upload files
 layout: page
 label: Core
-links:
-- text: Figma
-  url: #colour
-- text: Storybook
-  url: #component
+
 ---
 
 ## Usage

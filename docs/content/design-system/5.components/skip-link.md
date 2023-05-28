@@ -3,11 +3,7 @@ title: Skip link
 description: The skip link helps keyboard users skip to the main content on a page.
 layout: page
 label: Core
-links:
-- text: Figma
-  url: #colour
-- text: Storybook
-  url: #component
+
 ---
 
 ## Usage

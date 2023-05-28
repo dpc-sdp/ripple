@@ -3,11 +3,7 @@ title: Table
 description: Tables make it easier for users to scan and compare data and content.
 layout: page
 label: Core
-links:
-- text: Figma
-  url: #colour
-- text: Storybook
-  url: #component
+
 ---
 
 ## Usage

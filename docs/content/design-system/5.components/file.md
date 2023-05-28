@@ -3,11 +3,7 @@ title: File
 description: A link to download a file with additional metadata.
 layout: page
 label: Core
-links:
-- text: Figma
-  url: #colour
-- text: Storybook
-  url: #component
+
 ---
 
 ## Usage

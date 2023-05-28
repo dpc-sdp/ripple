@@ -3,11 +3,7 @@ title: Breadcrumb
 description: A breadcrumb shows users their location on a website. This allows quick navigation between page levels.
 layout: page
 label: Core
-links:
-- text: Figma
-  url: #colour
-- text: Storybook
-  url: #component
+
 ---
 
 ## Usage

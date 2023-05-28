@@ -3,11 +3,7 @@ title: Tabs
 description: Tabs help users navigate between related sections of content. 
 layout: page
 label: Core
-links:
-- text: Figma
-  url: #colour
-- text: Storybook
-  url: #component
+
 ---
 
 ## Usage

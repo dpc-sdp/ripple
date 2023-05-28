@@ -3,11 +3,7 @@ title: Block quote
 description: Add emphasis to a quote.
 layout: page
 label: Core
-links:
-- text: Figma
-  url: #colour
-- text: Storybook
-  url: #component
+
 ---
 
 ## Usage

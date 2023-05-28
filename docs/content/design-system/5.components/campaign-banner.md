@@ -3,11 +3,7 @@ title: Campaign banner
 description: Campaign banners draw user's attention to promoted content.
 layout: page
 label: Core
-links:
-- text: Figma
-  url: #colour
-- text: Storybook
-  url: #component
+
 ---
 
 ## Usage

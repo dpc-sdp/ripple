@@ -3,11 +3,7 @@ title: Checkbox
 description: Let users select one or more options from a list.
 layout: page
 label: Core
-links:
-- text: Figma
-  url: #colour
-- text: Storybook
-  url: #component
+
 ---
 
 ## Usage

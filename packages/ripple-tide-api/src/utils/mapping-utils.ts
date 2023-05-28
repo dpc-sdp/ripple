@@ -70,7 +70,7 @@ export const getMediaImage = (
   }
   return {
     src: normaliseImageUrl(
-      process.env.NUXT_PUBLIC_TIDE_CONTENT_API_BASE_URL as string,
+      process.env.NUXT_PUBLIC_TIDE_BASE_URL as string,
       fieldMediaImage.url
     ),
     ...fieldMediaImage.meta,
@@ -90,7 +90,7 @@ export const getCardImage = (fieldMediaImage: RawCardImage): TideImageField => {
 
   return {
     src: normaliseImageUrl(
-      process.env.NUXT_PUBLIC_TIDE_CONTENT_API_BASE_URL as string,
+      process.env.NUXT_PUBLIC_TIDE_BASE_URL as string,
       fieldMediaImage.url
     ),
     focalPoint,

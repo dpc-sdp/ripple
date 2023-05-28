@@ -149,6 +149,10 @@ export interface RplTideModuleConfig {
    */
   baseUrl: string
   /**
+   * Menu endpoint variant - default single
+   */
+  menuEndpoint?: 'single' | 'paginated'
+  /**
    * Basic Auth credentials
    */
   config: {
@@ -204,6 +208,10 @@ export interface IRplFeatureFlags {
    * @description Option to disable the display of topics and tags on all content types
    */
   disableTopicTags?: boolean
+  /**
+   * @description Option to disable the display of coloured/rainbow stripes on top of promo cards
+   */
+  hidePromoCardStripe?: boolean
 }
 
 declare module 'nitropack' {

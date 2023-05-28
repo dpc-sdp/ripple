@@ -9,7 +9,6 @@ describe('mediaGalleryMapping', () => {
     const result: TideDynamicPageComponent<ITideMediaGallery> = {
       component: 'TideLandingPageMediaGallery',
       id: '975',
-      title: 'Image gallery-fixture',
       props: {
         items: [
           {

@@ -45,11 +45,13 @@ const tidePublicationPageModule: IRplTideModuleMapping = {
       url: 'publication_navigation_root.meta.url',
       id: 'publication_navigation_root.meta.id',
       documents: (src) =>
-        getField(
-          src,
-          src.field_publication.field_publication
-            ? 'field_publication.field_publication.field_node_documents'
-            : 'field_publication.field_node_documents'
+        (
+          getField(
+            src,
+            src.field_publication?.field_publication
+              ? 'field_publication.field_publication.field_node_documents'
+              : 'field_publication.field_node_documents'
+          ) || []
         ).map((doc: any) => ({
           name: doc.name,
           url: doc.field_media_file.url || doc.field_media_file.uri,

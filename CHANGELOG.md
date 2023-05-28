@@ -3,6 +3,94 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.175](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.174...v2.1.0-alpha.175) (2023-05-25)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-api:** fixed integration tests failing because of logging ([4502f65](https://github.com/dpc-sdp/ripple-framework/commit/4502f656a2f143a27865f4afca31aa599cd818b8))
+
+### Features
+
+* **@dpc-sdp/ripple-tide-api:** connect logs to sumologic ([a3a8788](https://github.com/dpc-sdp/ripple-framework/commit/a3a878857ceb877b31dedaced2f0627eb63fd1a5))
+
+# [2.1.0-alpha.174](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.173...v2.1.0-alpha.174) (2023-05-25)
+
+### Features
+
+* **@dpc-sdp/ripple-ui-core:** persistant quick exit ([9967b96](https://github.com/dpc-sdp/ripple-framework/commit/9967b964de780be3bc585121b0a6188071c07df9))
+
+# [2.1.0-alpha.173](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.172...v2.1.0-alpha.173) (2023-05-25)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** fixed parents of active item being highlighted ([1842bbb](https://github.com/dpc-sdp/ripple-framework/commit/1842bbbfc6c9231531bff551215a906fe4ba07eb))
+
+# [2.1.0-alpha.172](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.171...v2.1.0-alpha.172) (2023-05-22)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-monorepo
+
+# [2.1.0-alpha.171](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.170...v2.1.0-alpha.171) (2023-05-22)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** :bug: fixed skip link covered by nav if user is yet to scroll page ([7f5557d](https://github.com/dpc-sdp/ripple-framework/commit/7f5557de82e21c487e2724b49eae595f161e2910))
+
+# [2.1.0-alpha.170](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.169...v2.1.0-alpha.170) (2023-05-22)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** fixed card padding with no image ([a77c90b](https://github.com/dpc-sdp/ripple-framework/commit/a77c90b1554e5793a315a1c1cab170a8d8237385))
+* **@dpc-sdp/ripple-ui-core:** fixed table font size for paragraphs and lists ([8e94aa2](https://github.com/dpc-sdp/ripple-framework/commit/8e94aa2c2a1adf691fb59030a47e82a20a20e9d8))
+
+# [2.1.0-alpha.169](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.168...v2.1.0-alpha.169) (2023-05-19)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-api:** add 'flag' to support single and paginated endpoints ([88b2b2e](https://github.com/dpc-sdp/ripple-framework/commit/88b2b2e18ddc72f6eb0fd7f68cab5a34493e3e16))
+* **@dpc-sdp/ripple-tide-api:** add enabled check for paginated menus ([a8bfca9](https://github.com/dpc-sdp/ripple-framework/commit/a8bfca956aedef6a229bc108a4c6ecca2b8cbe8f))
+* **nuxt-app:** stop 'background' page load ([0c5f0c9](https://github.com/dpc-sdp/ripple-framework/commit/0c5f0c91144d050689f2119c894b5c5f3c7317f1))
+
+### Features
+
+* **@dpc-sdp/ripple-tide-api:** add new menu filters ([4a6f403](https://github.com/dpc-sdp/ripple-framework/commit/4a6f403638f573f73b50d484da2fef7c43ebdbd9))
+
+# [2.1.0-alpha.168](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.167...v2.1.0-alpha.168) (2023-05-19)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-landing-page:** fixed profile cards with no images displaying incorrectly ([631a936](https://github.com/dpc-sdp/ripple-framework/commit/631a936785b9c06506e823e4fc7942b079cbcd1a))
+
+# [2.1.0-alpha.167](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.166...v2.1.0-alpha.167) (2023-05-19)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-landing-page:** removed titles from media gallery ([a4f9b8f](https://github.com/dpc-sdp/ripple-framework/commit/a4f9b8f042489e1cc697dc4ad4e1519bf0ca47a4))
+
+# [2.1.0-alpha.166](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.165...v2.1.0-alpha.166) (2023-05-18)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-publication:** fixed crash when no publication children ([040e81b](https://github.com/dpc-sdp/ripple-framework/commit/040e81b74b3a792580efb264c0155914fdf0e455))
+* **@dpc-sdp/ripple-ui-core:** ensured top level site section links are accessible ([7a0ddf6](https://github.com/dpc-sdp/ripple-framework/commit/7a0ddf609f5001f84e9cbea7f95ce1dcbe540b6b))
+
+# [2.1.0-alpha.165](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.164...v2.1.0-alpha.165) (2023-05-17)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-event:** only show details with descriptions ([c7fed2f](https://github.com/dpc-sdp/ripple-framework/commit/c7fed2fab013a6358001572d328efda4c60faedf))
+* **@dpc-sdp/ripple-tide-landing-page:** :bug: fixed 'On this page' nav displaying without content ([c01a99a](https://github.com/dpc-sdp/ripple-framework/commit/c01a99a6cc8b61843cbf06e50c318ce128c95884))
+* **@dpc-sdp/ripple-tide-landing-page:** :bug: fixed missing card carousel images ([ecbe5b0](https://github.com/dpc-sdp/ripple-framework/commit/ecbe5b0eb2470f5b8d08e4e68c054efe390450ee))
+* **@dpc-sdp/ripple-ui-core:** :bug: fixed header logo not showing with a background image ([e19dbfe](https://github.com/dpc-sdp/ripple-framework/commit/e19dbfedb6a5e0e1b37d3b66f5b66aaf5aedda81))
+* **@dpc-sdp/ripple-ui-core:** :bug: fixed hero header intro text showing when empty ([d922d6e](https://github.com/dpc-sdp/ripple-framework/commit/d922d6eea3015049b44ad1b54c03e8bf15178d7a))
+* **@dpc-sdp/ripple-ui-core:** added hidePromoCardStripe feature flag as many sites want no stripe ([41e206f](https://github.com/dpc-sdp/ripple-framework/commit/41e206fe2489dff1bb543f6545fef5e46b08cdc6))
+* **@dpc-sdp/ripple-ui-core:** update breadcrumb max-width ([34fab36](https://github.com/dpc-sdp/ripple-framework/commit/34fab36f7774b6db0017b47c405088a10adaaaa1))
+
+# [2.1.0-alpha.164](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.163...v2.1.0-alpha.164) (2023-05-15)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-api:** fixed old env var being used ([60fda1b](https://github.com/dpc-sdp/ripple-framework/commit/60fda1bfa3b4d8072186e2283156209918877d09))
+
 # [2.1.0-alpha.163](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.162...v2.1.0-alpha.163) (2023-05-15)
 
 ### Bug Fixes

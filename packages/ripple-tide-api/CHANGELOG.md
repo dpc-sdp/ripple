@@ -3,6 +3,39 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.175](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.174...v2.1.0-alpha.175) (2023-05-25)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-api:** fixed integration tests failing because of logging ([4502f65](https://github.com/dpc-sdp/ripple-framework/commit/4502f656a2f143a27865f4afca31aa599cd818b8))
+
+### Features
+
+* **@dpc-sdp/ripple-tide-api:** connect logs to sumologic ([a3a8788](https://github.com/dpc-sdp/ripple-framework/commit/a3a878857ceb877b31dedaced2f0627eb63fd1a5))
+
+# [2.1.0-alpha.169](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.168...v2.1.0-alpha.169) (2023-05-19)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-api:** add 'flag' to support single and paginated endpoints ([88b2b2e](https://github.com/dpc-sdp/ripple-framework/commit/88b2b2e18ddc72f6eb0fd7f68cab5a34493e3e16))
+* **@dpc-sdp/ripple-tide-api:** add enabled check for paginated menus ([a8bfca9](https://github.com/dpc-sdp/ripple-framework/commit/a8bfca956aedef6a229bc108a4c6ecca2b8cbe8f))
+
+### Features
+
+* **@dpc-sdp/ripple-tide-api:** add new menu filters ([4a6f403](https://github.com/dpc-sdp/ripple-framework/commit/4a6f403638f573f73b50d484da2fef7c43ebdbd9))
+
+# [2.1.0-alpha.165](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.164...v2.1.0-alpha.165) (2023-05-17)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** added hidePromoCardStripe feature flag as many sites want no stripe ([41e206f](https://github.com/dpc-sdp/ripple-framework/commit/41e206fe2489dff1bb543f6545fef5e46b08cdc6))
+
+# [2.1.0-alpha.164](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.163...v2.1.0-alpha.164) (2023-05-15)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-api:** fixed old env var being used ([60fda1b](https://github.com/dpc-sdp/ripple-framework/commit/60fda1bfa3b4d8072186e2283156209918877d09))
+
 # [2.1.0-alpha.163](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.162...v2.1.0-alpha.163) (2023-05-15)
 
 ### Bug Fixes

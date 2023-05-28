@@ -10,13 +10,13 @@
         {{ displayDate }}
       </RplDescriptionListItem>
       <RplDescriptionListItem
-        v-for="item in overview"
+        v-for="item in overviewList"
         :key="item.term"
         :term="item.term"
       >
         {{ item.description }}
       </RplDescriptionListItem>
-      <RplDescriptionListItem v-if="link" term="Booking:">
+      <RplDescriptionListItem v-if="link" term="Website:">
         <RplTextLink class="rpl-type-label" :url="link.url">{{
           link.url
         }}</RplTextLink>
@@ -57,7 +57,14 @@ interface Props {
 const props = defineProps<Props>()
 
 const displayDate = computed(() =>
-  formatDateRange(props.date, {}, props.showTime)
+  formatDateRange(props.date, { weekday: 'long' }, props.showTime)
+)
+
+// Location, Price
+const overviewList = computed(() =>
+  props.overview
+    .filter((item) => item.description)
+    .sort((a, b) => (a.term.charAt(0) < b.term.charAt(0) ? -1 : 1))
 )
 </script>
 

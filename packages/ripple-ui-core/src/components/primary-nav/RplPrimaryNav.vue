@@ -21,6 +21,7 @@ import {
   IRplPrimaryNavActiveItems,
   IRplPrimaryNavFocusOptions
 } from './constants'
+import RplPrimaryNavQuickExit from './components/quick-exit/RplPrimaryNavQuickExit.vue'
 
 interface Props {
   primaryLogo: IRplPrimaryNavLogo
@@ -62,7 +63,7 @@ const activeNavItems: Ref<IRplPrimaryNavActiveItems> = ref({
 const handleScroll = () => {
   const newPosition = window.scrollY
   const scrollingDown = newPosition > scrollPosition.value
-  const beyondNav = navOffest.value <= 0
+  const beyondNav = navOffest.value < 0
 
   scrollPosition.value = newPosition
   isHidden.value = scrollingDown && beyondNav
@@ -269,6 +270,7 @@ provide('navFocus', navFocus)
         :show-quick-exit="showQuickExit"
       />
     </div>
+    <RplPrimaryNavQuickExit v-if="showQuickExit" variant="fixed" />
   </nav>
 </template>
 

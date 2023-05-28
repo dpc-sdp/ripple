@@ -3,11 +3,12 @@
 
 .rpl-primary-nav {
   --local-nav-bar-height: 48px;
+  --local-nav-bar-padding: var(--rpl-sp-3);
 
   position: relative;
   width: 100%;
-  height: calc(var(--local-nav-bar-height) + var(--rpl-sp-3));
-  padding: var(--rpl-sp-3);
+  height: calc(var(--local-nav-bar-height) + var(--local-nav-bar-padding));
+  padding: var(--local-nav-bar-padding);
 
   @media (--rpl-bp-s) {
     --local-nav-bar-height: 52px;
@@ -15,9 +16,7 @@
 
   @media (--rpl-bp-m) {
     --local-nav-bar-height: 60px;
-
-    height: calc(var(--local-nav-bar-height) + var(--rpl-sp-4));
-    padding: var(--rpl-sp-4);
+    --local-nav-bar-padding: var(--rpl-sp-4);
   }
 
   @media print {
@@ -41,6 +40,7 @@
   background-color: var(--rpl-clr-primary);
   border-radius: var(--rpl-border-radius-2);
   overflow: hidden;
+  z-index: var(--rpl-layer-2);
 
   @media (--rpl-bp-s) {
     --local-nav-bar-height: 52px;

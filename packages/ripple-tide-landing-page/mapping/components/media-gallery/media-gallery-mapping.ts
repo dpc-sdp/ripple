@@ -16,7 +16,6 @@ export const mediaGalleryMapping = (
   return {
     component: 'TideLandingPageMediaGallery',
     id: field.drupal_internal__id.toString(),
-    title: field.field_paragraph_media_gallery.info,
     props: {
       items: field.field_paragraph_media_gallery.field_gallery_media.map(
         (item) => {

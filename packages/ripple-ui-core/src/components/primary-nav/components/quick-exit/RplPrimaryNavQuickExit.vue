@@ -7,12 +7,14 @@ interface Props {
   url?: string
   label?: string
   parent?: string
+  variant?: 'inline' | 'fixed'
 }
 
 const props = withDefaults(defineProps<Props>(), {
   url: 'https://www.google.com',
   label: 'Quick Exit',
-  parent: undefined
+  parent: undefined,
+  variant: 'inline'
 })
 
 const exit = ref(null)
@@ -29,7 +31,7 @@ const clickHandler = () => {
 
 const handleBackFocus = (event) => {
   // Only hijack tabbing if the quick exit is within a menu
-  if (props.parent || navCollapsed) {
+  if ((props.parent || navCollapsed) && props.variant !== 'fixed') {
     event.preventDefault()
     setFocus(navCollapsed ? 'menu:toggle' : `list:1:${props?.parent}`)
   }
@@ -43,7 +45,10 @@ const handleBackFocus = (event) => {
     :url="url"
     :label="label"
     variant="destructive"
+    :class="`rpl-primary-nav__quick-exit rpl-primary-nav__quick-exit--${variant}`"
     @click="clickHandler()"
     @keydown.shift.tab.exact="handleBackFocus"
   />
 </template>
+
+<style src="./RplPrimaryNavQuickExit.css" />

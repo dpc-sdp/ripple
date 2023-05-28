@@ -27,7 +27,7 @@ const props = defineProps<Props>()
       <RplVerticalNavLink
         :text="item.text"
         :href="item.url"
-        :active="item?.active && !item?.items?.length"
+        :active="item?.active && !item.items?.some((i) => i.active)"
         :show-child-icon="props.level > 2"
         :tabindex="props.isExpanded ? '0' : '-1'"
       />

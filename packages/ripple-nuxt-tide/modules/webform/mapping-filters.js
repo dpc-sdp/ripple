@@ -54,7 +54,8 @@ module.exports = {
         type: null,
         model: eName,
         validator: [],
-        styleClasses: ['tide-webform-field']
+        styleClasses: ['tide-webform-field'],
+        clearHiddenValues: element['#states_clear'] !== false // #states_clear only exists when false
       }
 
       const group = {}
@@ -219,6 +220,26 @@ module.exports = {
           field.label = null
           field.inlineLabel = element['#title'] ? element['#title'] : null
           if (defaultValue) data.model[eName] = defaultValue
+          break
+
+        case 'checkboxes':
+          data.model[eName] = []
+          field.type = 'rplchecklist'
+          field.simple = true
+          field.listBox = true
+          field.values = Object.keys(element['#options']).map((key) => ({
+            value: key,
+            name: element['#options'][key]
+          }))
+
+          if (element['#multiple']) {
+            field.max = element['#multiple']
+            field.validator.push('rplSelectMaxLimit')
+            if (field.required) {
+              field.min = 1
+              field.validator.push('rplSelectMultipleRequired')
+            }
+          }
           break
 
         case 'select':
@@ -438,12 +459,14 @@ module.exports = {
               buttonText: element['#submit__label'] || element['#title'],
               loading: false,
               autoUpdate: true,
-              styleClasses: ['form-group--inline']
+              styleClasses: ['form-group--inline'],
+              states: element['#states'] || null
             },
             {
               type: 'rplclearform',
               buttonText: 'Clear form',
-              styleClasses: ['form-group--inline']
+              styleClasses: ['form-group--inline'],
+              states: element['#states'] || null
             }
           )
           break

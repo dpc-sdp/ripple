@@ -40,17 +40,39 @@ function testField (field, data) {
         break
 
       case 'visible':
-        field.visible = isPass
+        const visible = isPass
+        field.visible = visible
+        if (!visible) clearField(field, data)
         break
 
       case 'invisible':
         const invisible = isPass
         field.visible = !invisible
+        if (invisible) clearField(field, data)
         break
 
       default:
         logger.warn('Form: State "%s" is not supported.', state, { label: 'Webform' })
         break
+    }
+  }
+}
+
+/**
+ * Clear the field only if it has been interacted with.
+ * This is to keep any default values that may have been set intact.
+ * For instance if a conditionally hidden field has a 'starting' value we don't to clear that.
+ * @param {Object} field
+ * @param {Object} data
+ */
+function clearField (field, data) {
+  const fieldData = data.model[field.model]
+
+  if (field?.isDirty && field.clearHiddenValues) {
+    if (typeof fieldData === 'object' && !Array.isArray(fieldData) && fieldData !== null) {
+      data.model[field.model] = {}
+    } else {
+      data.model[field.model] = null
     }
   }
 }
@@ -97,12 +119,27 @@ function prepareTest (rulesObject, data) {
 /**
  * Returns an object with the core testing variables.
  * @param {Object} ruleObject the parent object that contains the selector
- * @param {String} selector a field selector e.g. ':input[name=\"check_a\"]'
+ * @param {String} selector a field selector e.g. ':input[name=\"check_a\"]' or ':input[name=\"check_a[option]\"]'
  * @param {Object} data uses data.model property
  */
 function convertSelectorToRule (ruleObject, selector, data) {
-  const modelName = getNameFromRule(selector)
-  const modelValue = data.model[modelName]
+  let modelName = getNameFromRule(selector)
+  let modelValue = data.model[modelName]
+
+  const arrayRegex = /\[(.*?)]/
+  const arrayRegexMatch = modelName.match(arrayRegex)
+  // Check for nested options, i.e. ':input[name="checkboxes[option]"]'
+  if (arrayRegexMatch) {
+    modelName = modelName.replace(arrayRegex, '')
+    if (Array.isArray(data.model[modelName])) {
+      modelValue = data.model[modelName].includes(arrayRegexMatch[1])
+    } else if (typeof data.model[modelName] === 'object') {
+      modelValue = data.model[modelName]?.[arrayRegexMatch[1]] || null
+    } else {
+      modelValue = data.model[modelName] || null
+    }
+  }
+
   const triggerName = getFirstObjectKey(ruleObject[selector])
   const triggerValue = ruleObject[selector][triggerName]
   return { modelName, modelValue, triggerName, triggerValue }
@@ -135,11 +172,9 @@ function performTriggerCheck (rule) {
       result = (typeof rule.modelValue === 'number') ? !isNaN(rule.modelValue) : !(rule.modelValue == null || rule.modelValue === '')
       break
     case 'checked':
-      // This will only work with Drupal Webform "checkbox", not "checkboxes". "checkboxes" is not supported form element at this stage.
       result = (rule.modelValue === true)
       break
     case 'unchecked':
-      // This will only work with Drupal Webform "checkbox", not "checkboxes". "checkboxes" is not supported form element at this stage.
       result = (rule.modelValue == null || rule.modelValue === false)
       break
     case 'value':

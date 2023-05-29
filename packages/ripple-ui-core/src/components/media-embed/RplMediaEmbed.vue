@@ -23,8 +23,11 @@ interface Props {
   caption?: string
   sourceCaption?: string
   allowFullscreen?: boolean
+  fullscreenLabel?: string
   dataContent?: string
+  dataLabel?: string
   downloadUrl?: string
+  downloadLabel?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -35,8 +38,11 @@ const props = withDefaults(defineProps<Props>(), {
   caption: undefined,
   sourceCaption: undefined,
   allowFullscreen: false,
+  fullscreenLabel: undefined,
   dataContent: undefined,
-  downloadUrl: undefined
+  dataLabel: undefined,
+  downloadUrl: undefined,
+  downloadLabel: undefined
 })
 
 const isFullScreenOpen = ref(false)
@@ -90,6 +96,14 @@ const isActionsListEmpty = computed(() => {
   }
 
   return true
+})
+
+const dataContentLabel = computed(() => {
+  if (props.dataLabel) {
+    return props.dataLabel
+  }
+
+  return `${!isDataContentOpen.value ? 'View' : 'Close'} '${props.title}' data`
 })
 </script>
 
@@ -167,8 +181,9 @@ const isActionsListEmpty = computed(() => {
           type="button"
           @click="isFullScreenOpen = !isFullScreenOpen"
         >
-          <RplIcon name="icon-enlarge-square-filled" />View '{{ title }}'
-          fullscreen
+          <RplIcon name="icon-enlarge-square-filled" />{{
+            fullscreenLabel || `View '${title}' fullscreen`
+          }}
         </button>
       </li>
 
@@ -178,12 +193,8 @@ const isActionsListEmpty = computed(() => {
           class="rpl-media-embed__view-data-toggle rpl-media-embed__action rpl-u-focusable-inline rpl-type-p rpl-u-screen-only"
           @click="isDataContentOpen = !isDataContentOpen"
         >
-          <span v-if="isDataContentOpen">
-            <RplIcon name="icon-cancel" />Close '{{ title }}' data
-          </span>
-          <span v-else>
-            <RplIcon name="icon-table-lined" />View '{{ title }}' data
-          </span>
+          <RplIcon v-if="isDataContentOpen" name="icon-cancel" />
+          <RplIcon v-else name="icon-table-lined" />{{ dataContentLabel }}
         </button>
 
         <RplExpandable
@@ -202,9 +213,9 @@ const isActionsListEmpty = computed(() => {
           :url="downloadUrl"
           download
         >
-          <RplIcon name="icon-download" class="rpl-u-screen-only" />Download '{{
-            title
-          }}'
+          <RplIcon name="icon-download" class="rpl-u-screen-only" />{{
+            downloadLabel || `Download' ${title}'`
+          }}
         </RplTextLink>
       </li>
     </ul>

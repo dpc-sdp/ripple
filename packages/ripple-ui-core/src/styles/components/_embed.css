@@ -86,9 +86,10 @@
 }
 
 .rpl-media-embed__action {
-  display: inline-block;
+  display: inline-flex;
   color: var(--rpl-clr-type-default);
   text-decoration: underline;
+  text-align: left;
   cursor: pointer;
 
   @media print {
@@ -97,6 +98,7 @@
 
   .rpl-icon {
     color: var(--rpl-clr-link);
+    padding-top: var(--rpl-sp-1);
     margin-right: var(--rpl-sp-2);
   }
 }

@@ -16,8 +16,11 @@ defineProps<{
   caption?: string
   sourceCaption?: string
   allowFullscreen?: boolean
+  fullscreenLabel?: string
   dataContent?: string
+  dataLabel?: string
   downloadUrl?: string
+  downloadLabel?: string
 }>()
 </script>
 

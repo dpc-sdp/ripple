@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.177](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.176...v2.1.0-alpha.177) (2023-05-30)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** fix complex image unit test ([bb55d56](https://github.com/dpc-sdp/ripple-framework/commit/bb55d56ea81a0d5bcfe8958074441a3cf60249fb))
+
+### Features
+
+* **@dpc-sdp/ripple-ui-core:** add labels to media embeds, minor style fixes ([83527bc](https://github.com/dpc-sdp/ripple-framework/commit/83527bca1a6568c2366b33aac31bbf386b216602))
+
+# [2.1.0-alpha.176](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.175...v2.1.0-alpha.176) (2023-05-29)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-landing-page
+
 # [2.1.0-alpha.175](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.174...v2.1.0-alpha.175) (2023-05-25)
 
 **Note:** Version bump only for package @dpc-sdp/ripple-tide-landing-page

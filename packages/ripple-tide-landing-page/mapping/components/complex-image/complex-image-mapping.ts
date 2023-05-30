@@ -5,11 +5,14 @@ export interface ITideComplexImage {
   title: string
   sourceCaption: string
   dataContent: string | null
+  dataLabel: string | null
   src: string
   downloadUrl: string
+  downloadLabel: string
   type: string
   variant: string
   allowFullscreen: boolean
+  fullscreenLabel: string
   showTitle: boolean
 }
 
@@ -22,9 +25,12 @@ export const complexImageMapping = (
     props: {
       title: field.field_complex_image_title,
       sourceCaption: field.field_complex_image_source,
-      dataContent: getBody(field.field_complex_image_data?.processed),
       src: field.field_complex_image_media.field_media_image.url,
+      dataLabel: field.field_complex_image_data_label,
+      dataContent: getBody(field.field_complex_image_data?.processed),
+      fullscreenLabel: field.field_complex_image_full_label,
       downloadUrl: field.field_complex_image_media.field_media_image.url,
+      downloadLabel: field.field_complex_image_dl_label,
       type: 'image',
       variant: 'complex',
       allowFullscreen: true,

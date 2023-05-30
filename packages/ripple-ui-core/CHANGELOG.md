@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.177](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.176...v2.1.0-alpha.177) (2023-05-30)
+
+### Features
+
+* **@dpc-sdp/ripple-ui-core:** add labels to media embeds, minor style fixes ([83527bc](https://github.com/dpc-sdp/ripple-framework/commit/83527bca1a6568c2366b33aac31bbf386b216602))
+
+# [2.1.0-alpha.176](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.175...v2.1.0-alpha.176) (2023-05-29)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** fixed broken icon imports when running in dev outside this repo ([d0ffe35](https://github.com/dpc-sdp/ripple-framework/commit/d0ffe35c9a3692e8b39ab54540353b6eed9f4102))
+
 # [2.1.0-alpha.175](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.174...v2.1.0-alpha.175) (2023-05-25)
 
 **Note:** Version bump only for package @dpc-sdp/ripple-ui-core

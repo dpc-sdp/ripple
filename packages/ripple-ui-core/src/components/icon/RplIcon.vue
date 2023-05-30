@@ -2,7 +2,7 @@
 import { ref, computed, defineAsyncComponent } from 'vue'
 import { RplIconSizes, RplCoreIconNames } from './constants'
 import { RplColorThemes } from '../../lib/constants'
-import customIconImports from '../../assets/icons/custom.js'
+import customIconImports from './custom.js'
 
 interface Props {
   name?: string

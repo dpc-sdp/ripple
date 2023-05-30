@@ -1,5 +1,5 @@
 import coreIconKeys from './../../assets/icons/sprite.js'
-import customIconImports from './../../assets/icons/custom.js'
+import customIconImports from './custom.js'
 
 export const RplCoreIconNames = coreIconKeys
 export const RplCustomIconNames = Object.keys(customIconImports)

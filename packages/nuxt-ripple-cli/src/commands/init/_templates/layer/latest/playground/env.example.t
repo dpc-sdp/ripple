@@ -1,8 +1,8 @@
 ---
-to: .env.example
+to: .playground/.env
 ---
-NUXT_PUBLIC_TIDE_CONTENT_API_BASE_URL=https://develop.content.reference.sdp.vic.gov.au/
-NUXT_PUBLIC_TIDE_CONTENT_API_SITE=8888
+NUXT_PUBLIC_TIDE_BASE_URL=https://develop.content.reference.sdp.vic.gov.au/
+NUXT_PUBLIC_TIDE_SITE=8888
 LOG_LEVEL=debug
 NUXT_PUBLIC_TIDE_APP_SEARCH_SEARCH_KEY=
 NUXT_PUBLIC_TIDE_APP_SEARCH_ENDPOINT_BASE=

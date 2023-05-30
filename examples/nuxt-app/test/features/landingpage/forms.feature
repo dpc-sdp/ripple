@@ -30,6 +30,11 @@ Feature: Forms
     Then a checkbox field with the label "Terms and conditions" should exist
       | checkboxLabel      | help                    | required |
       | I accept the terms | Please accept the terms | true     |
+    Then a checkbox group field with the label "Favourite Locations" should exist with the following options
+      | label     |
+      | Melbourne |
+      | London    |
+      | Tokyo     |
     Then a textarea field with the label "Message" should exist
       | help               | required |
       | Enter your message | true     |

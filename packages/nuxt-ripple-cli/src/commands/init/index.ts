@@ -1,14 +1,14 @@
 import commander from 'commander'
 import init from './init'
 
-export default function rplMockCommand() {
-  const rplMockCommand = new commander.Command('init')
+export default function rplInitCommand() {
+  const rplInitCommand = new commander.Command('init')
 
-  rplMockCommand
+  rplInitCommand
     .description('Initialize a new Ripple project')
     .argument(
       '[directory]',
-      'directory to init project into, default is CWD',
+      'The directory to init project into, defaults to the current working directory',
       process.cwd()
     )
     .argument(
@@ -16,16 +16,16 @@ export default function rplMockCommand() {
       'Template to use - site or layer currently',
       process.cwd()
     )
-    .option('--name [name]', 'Project name: eg: example-vic-gov-au')
+    .option('--name [name]', 'The project name: eg: example-vic-gov-au')
     .action((template, directory) => {
       init(template, directory)
       console.info(`
-        New Ripple ${template} created in ${directory}.
+        A new Ripple ${template} has been created in ${directory}.
         Run the following to get started:
           cd ${directory}
           npm install
           npm run dev
       `)
     })
-  return rplMockCommand
+  return rplInitCommand
 }

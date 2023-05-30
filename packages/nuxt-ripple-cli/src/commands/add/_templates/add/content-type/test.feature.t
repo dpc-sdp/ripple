@@ -1,5 +1,5 @@
 ---
-to: "<%= createTests ? `${cypressPath}/e2e/${h.changeCase.kebabCase(name)}/${h.changeCase.kebabCase(name)}.feature` : null %>"
+to: "<%= locals.createTests ? `${cypressPath}/e2e/${h.changeCase.kebabCase(name)}/${h.changeCase.kebabCase(name)}.feature` : null %>"
 ---
 
 Feature: <%= h.changeCase.pascalCase(name) %> page

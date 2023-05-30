@@ -7,21 +7,20 @@ export default function rplMockCommand() {
   rplMockCommand
     .description(
       `
-      Starts a mock server for testing Ripple sites without Tide backend.
+      Starts a mock server for testing Ripple sites without Tide backend
     `
     )
     .argument('[fixturePath]', 'fixturePath', './fixtures')
     .option(
       '-R --routes [routePath]',
       `
-        Relative path to routes definition file. Should be a JSON file that exports an array of routes. EG:
+        Relative path to routes definition file, this should be a JSON file that exports an array of routes. eg:
         [
           {
             "path": "/",
             "fixture": "landingPage/home.json"
           }
         ]
-
       `,
       'routes.json'
     )

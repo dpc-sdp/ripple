@@ -232,6 +232,29 @@ const getFormSchemaFromMapping = async (
           ...getValidationAndConditionals(field)
         }
         break
+      case 'checkboxes':
+        mappedField = {
+          $formkit: 'RplFormCheckboxGroup',
+          key: fieldKey,
+          id: fieldKey,
+          name: fieldKey,
+          disabled: field['#disabled'],
+          label: field['#title'],
+          help: field['#description'],
+          options: Object.entries(field['#options'] || {}).map(
+            ([value, label]) => {
+              return {
+                id: `${fieldKey}_${value}`,
+                value,
+                label
+              }
+            }
+          ),
+          value: field['#default_value'],
+          ...getValidationAndConditionals(field)
+        }
+        break
+
       case 'webform_term_select': {
         const options = await tidePageApi.getTaxonomy(field['#vocabulary'])
 

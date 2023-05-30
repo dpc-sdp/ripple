@@ -11,11 +11,16 @@ export default function rplMockCommand() {
       'directory to init project into, default is CWD',
       process.cwd()
     )
+    .argument(
+      '[template]',
+      'Template to use - site or layer currently',
+      process.cwd()
+    )
     .option('--name [name]', 'Project name: eg: example-vic-gov-au')
-    .action((directory) => {
-      init(directory)
+    .action((template, directory) => {
+      init(template, directory)
       console.info(`
-        New Ripple site created in ${directory}.
+        New Ripple ${template} created in ${directory}.
         Run the following to get started:
           cd ${directory}
           npm install

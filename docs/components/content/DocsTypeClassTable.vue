@@ -33,7 +33,7 @@ const mappedTypes = computed(() => {
           <tr>
             <th>Style</th>
             <th>Values</th>
-            <th>Selector Class</th>
+            <th>CSS Class</th>
           </tr>
         </thead>
         <tbody>

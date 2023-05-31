@@ -1,7 +1,4 @@
 <script setup lang="ts">
-import { NavItem } from '@nuxt/content/dist/runtime/types'
-import { IRplVerticalNavItem } from '~~/../packages/ripple-ui-core/src/components/vertical-nav/constants'
-
 const route = useRoute()
 const { sections } = useAppConfig()
 
@@ -12,11 +9,17 @@ const sectionSlug = route.params.slug[0]
 const navigation = await useDocsNavigation([sectionSlug || 'design-system'], {
   layout: { $ne: 'module' }
 })
+const processedNav = navigation?.map((level1Item) => {
+  return {
+    ...level1Item,
+    url: level1Item.items?.length ? null : level1Item.url
+  }
+})
 </script>
 
 <template>
   <div>
-    <RplVerticalNav :items="navigation" />
+    <RplVerticalNav :items="processedNav" />
     <DocsNavLink
       :url="
         sectionSlug === 'framework'

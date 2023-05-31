@@ -1,21 +1,20 @@
 ---
 to: mapping/index.ts
 ---
-
+import type { IRplTideModuleMapping } from '@dpc-sdp/ripple-tide-api/types'
 import {
   tidePageBaseMapping,
   tidePageBaseIncludes
-} from '@dpc-sdp/ripple-tide-api'
+} from '@dpc-sdp/nuxt-ripple/mapping'
 
-// Shared mapping between types
-export const tide<%= h.changeCase.pascalCase(name) %>Mapping = {
-  ...tidePageBaseMapping(),
-  title: 'name'
+const tide<%= h.changeCase.pascalCase(name) %>Module: IRplTideModuleMapping = {
+  mapping: {
+    ...tidePageBaseMapping(),
+    url: 'path.url'
+  },
+  includes: [
+    ...tidePageBaseIncludes()
+  ]
 }
 
-export const tide<%= h.changeCase.pascalCase(name) %>Includes = tidePageBaseIncludes()
-
-export default {
-  mapping: tide<%= h.changeCase.pascalCase(name) %>Mapping,
-  includes: tide<%= h.changeCase.pascalCase(name) %>Includes
-}
+export default tide<%= h.changeCase.pascalCase(name) %>Module

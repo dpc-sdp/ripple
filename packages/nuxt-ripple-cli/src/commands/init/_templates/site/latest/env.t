@@ -1,5 +1,5 @@
 ---
-to: .example.env
+to: .env
 ---
 # Tide Drupal CMS URL - change this to the project CMS as required
 NUXT_PUBLIC_TIDE_BASE_URL=https://develop.content.reference.sdp.vic.gov.au/

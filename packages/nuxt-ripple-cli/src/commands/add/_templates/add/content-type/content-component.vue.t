@@ -2,21 +2,34 @@
 to: components/global/Tide<%= h.changeCase.pascalCase(name) %>Page.vue
 ---
 <template>
-  <TideBaseLayout :site="site" :pageTitle="page.title" :pageDescription="page.description" :pageLanguage="page.lang"
-    :updatedDate="page.changed || page.created">
+  <TideBaseLayout
+    :site="site"
+    :page="page"
+    :siteSection="page.siteSection"
+    :pageTitle="page.title"
+    :pageLanguage="page.lang"
+    :updatedDate="page.changed || page.created"
+    :showContentRating="page.showContentRating">
     <template #aboveHeader>
+      <slot name="aboveHeader" />
     </template>
     <template #primaryNav>
+      <slot name="primaryNav" />
     </template>
     <template #breadcrumbs>
+      <slot name="breadcrumbs" />
     </template>
-    <template #aboveBody>
+    <template #aboveBody="{ hasBreadcrumbs }">
+      <slot name="aboveBody" />
     </template>
-    <template #body>
+    <template #body="{ hasSidebar }">
+      <slot name="body" />
     </template>
     <template #sidebar>
+      <slot name="sidebar" />
     </template>
     <template #footer>
+      <slot name="footer" />
     </template>
   </TideBaseLayout>
 </template>

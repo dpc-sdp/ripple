@@ -1,3 +1,3 @@
-# @dpc-sdp/ripple-tide-media
+# tide-<%= h.changeCase.kebabCase(name) %>
 
-Ripple mappings and view templates for Tide Media Content type
+Ripple mappings and view templates for Tide <%= name %> Content type

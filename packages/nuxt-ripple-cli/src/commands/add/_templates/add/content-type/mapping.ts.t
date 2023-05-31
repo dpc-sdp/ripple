@@ -3,6 +3,11 @@ to: mapping/index.ts
 ---
 import type { IRplTideModuleMapping } from '@dpc-sdp/ripple-tide-api/types'
 import {
+  getImageFromField,
+  getBodyFromField,
+  getField
+} from '@dpc-sdp/ripple-tide-api'
+import {
   tidePageBaseMapping,
   tidePageBaseIncludes
 } from '@dpc-sdp/nuxt-ripple/mapping'
@@ -10,10 +15,24 @@ import {
 const tide<%= h.changeCase.pascalCase(name) %>Module: IRplTideModuleMapping = {
   mapping: {
     ...tidePageBaseMapping(),
-    url: 'path.url'
+    // TODO: the below mapping is an example only, add your mapping here
+    header: {
+      title: 'title',
+      summary: 'field_landing_page_intro_text'
+    },
+    body: {
+      image: (src) =>
+        getImageFromField(src, 'field_featured_image.field_media_image'),
+      caption: (src) =>
+        getField(src, 'field_featured_image.field_media_caption'),
+      content: (src) => getBodyFromField(src, 'body')
+    }
   },
   includes: [
-    ...tidePageBaseIncludes()
+    ...tidePageBaseIncludes(),
+    // TODO: the below is an example only, add your includes here
+    'field_featured_image',
+    'field_featured_image.field_media_image'
   ]
 }
 

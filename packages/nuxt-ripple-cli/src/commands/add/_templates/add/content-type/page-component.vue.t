@@ -20,10 +20,13 @@ to: components/global/Tide<%= h.changeCase.pascalCase(name) %>Page.vue
       <slot name="breadcrumbs" />
     </template>
     <template #aboveBody="{ hasBreadcrumbs }">
-      <slot name="aboveBody" />
+      <Tide<%= h.changeCase.pascalCase(name) %>Header
+        :header="page.header"
+        :hasBreadcrumbs="hasBreadcrumbs"
+      />
     </template>
     <template #body="{ hasSidebar }">
-      <slot name="body" />
+      <Tide<%= h.changeCase.pascalCase(name) %>Body :body="page.body" />
     </template>
     <template #sidebar>
       <slot name="sidebar" />

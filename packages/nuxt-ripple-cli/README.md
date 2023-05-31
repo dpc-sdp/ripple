@@ -6,13 +6,12 @@ The Nuxt Ripple CLI is a command line utility for simplifying common setup and s
 
 ## Installation
 
-To use the CLI install it globally.
+Either install the CLI install it globally using `npm install -g @dpc-sdp/nuxt-ripple-cli` or run it directly using `npx @dpc-sdp/nuxt-ripple-cli`.
 
-```bash
-npm install -g @dpc-sdp/nuxt-ripple-cli
-```
+If you've installed the package globally you can now use the `nuxt-ripple` command in your terminal. 
 
-Then you can use the `nuxt-ripple` command in your terminal.
+> **Note:**
+> If you prefer to run the CLI using `npx` you won't be able to use the `nuxt-ripple` command and will instead need to use `npx @dpc-sdp/nuxt-ripple-cli` in place of `nuxt-ripple`. For instance `npx @dpc-sdp/nuxt-ripple-cli init site my-site --name "My Site"`.
 
 ## Commands
 

@@ -1,20 +1,21 @@
-import { join } from 'pathe'
-
-import { defineNuxtModule, installModule } from '@nuxt/kit'
+import {
+  defineNuxtModule,
+  installModule,
+  addComponentsDir,
+  createResolver
+} from '@nuxt/kit'
 
 export default <any>defineNuxtModule({
   async setup() {
     await installModule('@formkit/nuxt')
-  },
-  hooks: {
-    'components:dirs'(dirs) {
-      // Add ./components dir to the list
-      console.log('Added Ripple Form UI components')
-      dirs.push({
-        extensions: ['vue'],
-        path: join(__dirname, './../src/components'),
-        prefix: 'rpl'
-      })
-    }
+
+    const { resolve } = createResolver(import.meta.url)
+    addComponentsDir({
+      extensions: ['vue'],
+      path: resolve('./../src/components'),
+      prefix: 'rpl',
+      pathPrefix: false
+    })
+    console.log('Added Ripple Form UI components')
   }
 })

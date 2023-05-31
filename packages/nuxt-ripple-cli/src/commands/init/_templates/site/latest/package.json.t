@@ -25,7 +25,7 @@ to: package.json
     "@dpc-sdp/ripple-tide-search": "^2.1.0-alpha.175"
   },
   "devDependencies": {
-    "nuxt": "3.1.0"
+    "nuxt": "3.5.2"
   },
   "engines": {
     "node": "^16.17.0 || ^18.12.1",

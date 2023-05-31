@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.178](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.177...v2.1.0-alpha.178) (2023-05-31)
+
+### Features
+
+* **@dpc-sdp/ripple-tide-landing-page:** add mapping for checkboxes ([18bf00d](https://github.com/dpc-sdp/ripple-framework/commit/18bf00d499e9c7809109b183bdec388f9e3fee1d))
+
 # [2.1.0-alpha.177](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.176...v2.1.0-alpha.177) (2023-05-30)
 
 ### Bug Fixes

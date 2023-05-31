@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.178](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.177...v2.1.0-alpha.178) (2023-05-31)
+
+### Bug Fixes
+
+* **docs:** extended docs hero graphic to edge of page ([756a863](https://github.com/dpc-sdp/ripple-framework/commit/756a863729f0e7328cc60687e451160db5cf718f))
+
+### Features
+
+* **@dpc-sdp/ripple-tide-landing-page:** add basic tests for checkboxes rendering ([2e8c556](https://github.com/dpc-sdp/ripple-framework/commit/2e8c556391b789ced6d81743706db72ecf0d7d36))
+* **@dpc-sdp/ripple-tide-landing-page:** add mapping for checkboxes ([18bf00d](https://github.com/dpc-sdp/ripple-framework/commit/18bf00d499e9c7809109b183bdec388f9e3fee1d))
+* **docs:** updated docs hero images ([9c0d152](https://github.com/dpc-sdp/ripple-framework/commit/9c0d152f61b7a5c4a3172c04530875f861482d09))
+
 # [2.1.0-alpha.177](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.176...v2.1.0-alpha.177) (2023-05-30)
 
 ### Bug Fixes

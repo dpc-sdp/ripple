@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.178](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.177...v2.1.0-alpha.178) (2023-05-31)
+
+### Features
+
+* **@dpc-sdp/ripple-tide-landing-page:** add basic tests for checkboxes rendering ([2e8c556](https://github.com/dpc-sdp/ripple-framework/commit/2e8c556391b789ced6d81743706db72ecf0d7d36))
+
 # [2.1.0-alpha.152](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.151...v2.1.0-alpha.152) (2023-05-04)
 
 **Note:** Version bump only for package @dpc-sdp/ripple-test-utils

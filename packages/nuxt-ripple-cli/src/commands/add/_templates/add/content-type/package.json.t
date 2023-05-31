@@ -14,7 +14,7 @@ to: package.json
   "version": "2.1.0-alpha.178",
   "dependencies": {
     "@dpc-sdp/nuxt-ripple": "2.1.0-alpha.178",
-    "@dpc-sdp/ripple-tide-api": "2.1.0-alpha.178",
+    "@dpc-sdp/ripple-tide-api": "2.1.0-alpha.175",
     "@dpc-sdp/ripple-ui-core": "2.1.0-alpha.78"
   }
 }

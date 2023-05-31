@@ -10,6 +10,7 @@ interface Props {
   onChange: (value: string[]) => void
   options: {
     id: string
+    value: string
     label: string
     disabled?: boolean
   }[]
@@ -24,28 +25,28 @@ const props = withDefaults(defineProps<Props>(), {
 
 const emit = defineEmits<{ (e: 'onChange', value: string[]): void }>()
 
-const handleToggle = (selectedId: string) => {
+const handleToggle = (selectedValue: string) => {
   let newValue
 
   if (!Array.isArray(props.value)) {
     // Value is empty, just create a new array
-    newValue = [selectedId]
-  } else if (props.value.includes(selectedId)) {
+    newValue = [selectedValue]
+  } else if (props.value.includes(selectedValue)) {
     // Value is already selected, so remove it from the list
     newValue = props.value.filter((existingOption) => {
-      return existingOption !== selectedId
+      return existingOption !== selectedValue
     })
   } else {
     // Value is not selected, so add it to the list
-    newValue = [...props.value, selectedId]
+    newValue = [...props.value, selectedValue]
   }
 
   // TODO - Wire up event bus handling here
   useFormkitFriendlyEventEmitter(props, emit, 'onChange', newValue)
 }
 
-const isChecked = (optionId: string): boolean => {
-  return (props.value || []).includes(optionId)
+const isChecked = (optionValue: string): boolean => {
+  return (props.value || []).includes(optionValue)
 }
 </script>
 
@@ -61,8 +62,8 @@ const isChecked = (optionId: string): boolean => {
       :name="option.id"
       :label="option.label"
       :disabled="disabled || option.disabled"
-      :checked="isChecked(option.id)"
-      @on-change="handleToggle(option.id)"
+      :checked="isChecked(option.value)"
+      @on-change="handleToggle(option.value)"
     />
   </div>
 </template>

@@ -164,6 +164,29 @@ Then(
 )
 
 Then(
+  'a checkbox group field with the label {string} should exist with the following options',
+  (label: string, dataTable: DataTable) => {
+    const table = dataTable?.hashes()
+    cy.get('legend.rpl-form-label')
+      .contains(label)
+      .closest('.rpl-form__outer')
+      .as('field')
+
+    cy.get('@field').find('.rpl-form-option ').as('options')
+
+    table.forEach((row, i: number) => {
+      cy.get('@options')
+        .eq(i)
+        .then((item) => {
+          cy.wrap(item).as('item')
+          cy.get('@item').find('input').should('have.attr', 'type', 'checkbox')
+          cy.get('@item').find('label').should('contain', row.label)
+        })
+    })
+  }
+)
+
+Then(
   'a textarea field with the label {string} should exist',
   (label: string, dataTable: DataTable) => {
     const data = dataTable?.hashes()[0] || {}

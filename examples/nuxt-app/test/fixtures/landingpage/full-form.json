@@ -231,6 +231,30 @@
             ]
           },
           {
+            "$formkit": "RplFormCheckboxGroup",
+            "id": "favourite_locations",
+            "name": "favourite_locations",
+            "label": "Favourite Locations",
+            "help": "Choose your favourite locations",
+            "options": [
+              {
+                "id": "favourite_locations_melbourne",
+                "value": "melbourne",
+                "label": "Melbourne"
+              },
+              {
+                "id": "favourite_locations_london",
+                "value": "london",
+                "label": "London"
+              },
+              {
+                "id": "favourite_locations_tokyo",
+                "value": "tokyo",
+                "label": "Tokyo"
+              }
+            ]
+          },
+          {
             "$formkit": "RplFormCheckbox",
             "id": "i_accept_the_terms",
             "name": "i_accept_the_terms",

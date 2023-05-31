@@ -51,6 +51,8 @@ const { hidePromoCardStripe }: IRplFeatureFlags = inject('featureFlags', {
           s: 'ultrawide',
           m: 'wide'
         }"
+        sizes="sm:768px"
+        alt=""
         data-cy="image"
       />
     </template>

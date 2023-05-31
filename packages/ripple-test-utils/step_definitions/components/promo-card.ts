@@ -17,7 +17,9 @@ Then(
       cy.get(`[data-cy="content"]`).should('have.text', data.content)
 
       if (data.image) {
-        cy.get(`[data-cy="image"]`).should('have.attr', 'src', data.image)
+        cy.get(`[data-cy="image"]`)
+          .should('have.attr', 'srcset')
+          .and('contain', data.image)
       } else {
         cy.get(`[data-cy="image"]`).should('not.exist')
       }

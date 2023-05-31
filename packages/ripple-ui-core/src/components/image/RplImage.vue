@@ -10,12 +10,10 @@ import {
 
 interface Props {
   src: string
-  alt?: string
-  title?: string
+  alt: string
   width?: number
   height?: number
   sizes?: string
-  srcSet?: string
   circle?: boolean
   focalPoint?: IRplImageFocalPoint
   aspect?: RplImageAspect
@@ -24,12 +22,9 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  alt: '',
-  title: '',
   height: undefined,
   width: undefined,
   sizes: undefined,
-  srcSet: undefined,
   circle: false,
   focalPoint: undefined,
   aspect: undefined,
@@ -86,12 +81,12 @@ const loading = computed(() => (props.priority === 'high' ? 'eager' : 'lazy'))
 </script>
 
 <template>
-  <img
-    :class="classes"
+  <RplImg
     :src="src"
-    :srcset="srcSet"
-    :alt="alt"
-    :title="title"
+    :alt="alt || ''"
+    :class="classes"
+    :aspect="aspect"
+    :sizes="sizes"
     :width="width"
     :height="height"
     :loading="loading"

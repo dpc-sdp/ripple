@@ -73,7 +73,7 @@ Feature: Shared site elements
     Then the footer acknowledgement text should be "Test footer acknowledgement"
     Then the footer should have the following logos
       | alt         | url          | src                                                                                                                               |
-      | Test logo 1 | /test-logo-1 | https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Aerial-shot-of-new-housing-development.jpg |
-      | Test logo 2 | /test-logo-2 | https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/2018-19-State-Budget.jpg                   |
+      | Test logo 1 | /test-logo-1 | https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Aerial-shot-of-new-housing-development.jpg?w=1984 |
+      | Test logo 2 | /test-logo-2 | https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/2018-19-State-Budget.jpg?w=1984                   |
 
 

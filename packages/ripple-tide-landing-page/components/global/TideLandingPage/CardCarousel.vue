@@ -4,7 +4,7 @@ import { ITideCardCarouselItem } from '../../../mapping/page-components/card-car
 
 const props = defineProps<{
   id: string
-  title: string
+  title?: string
   items: ITideCardCarouselItem[]
   hasSidebar: boolean
 }>()

@@ -32,6 +32,9 @@ export const SingleTemplate = (args) => ({
     sizes: {
       control: { type: 'text' }
     },
+    aspect: {
+      control: { type: 'select', options: [ '', 'square', 'full', 'wide', 'ultrawide', 'panorama' ] }
+    },
     fit: {
       type: 'select',
       options: RplImageFit

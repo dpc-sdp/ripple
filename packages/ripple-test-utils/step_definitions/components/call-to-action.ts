@@ -16,7 +16,9 @@ Then(
       cy.get(`[data-cy="title"]`).should('have.text', data.title)
       cy.get(`[data-cy="summary"]`).should('have.text', data.summary)
       cy.get(`[data-cy="cta"]`).should('have.text', data.ctaText)
-      cy.get(`[data-cy="image"]`).should('have.attr', 'src', data.image)
+      cy.get(`[data-cy="image"]`)
+        .should('have.attr', 'srcset')
+        .and('contain', data.image)
     })
   }
 )

@@ -47,7 +47,9 @@ Then(
     cy.get(`[data-cy="${campaign}-campaign"]`).as('component')
 
     cy.get('@component').within(() => {
-      cy.get(`[data-cy="image"]`).should('have.attr', 'src', image)
+      cy.get(`[data-cy="image"]`)
+        .should('have.attr', 'srcset')
+        .and('contain', image)
     })
   }
 )

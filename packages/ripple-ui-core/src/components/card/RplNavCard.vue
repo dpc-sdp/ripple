@@ -54,6 +54,8 @@ const { container, trigger } = useAccessibleContainer()
           m: 'panorama',
           l: highlight ? 'panorama' : 'full'
         }"
+        sizes="xs:768px"
+        alt=""
         data-cy="image"
       />
     </template>

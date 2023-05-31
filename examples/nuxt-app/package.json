@@ -36,7 +36,7 @@
     "@dpc-sdp/ripple-test-utils": "workspace:*",
     "@unlighthouse/cli": "^0.4.9",
     "node-fetch-native": "^1.0.2",
-    "nuxt": "3.3.2",
+    "nuxt": "3.5.2",
     "start-server-and-test": "^2.0.0"
   }
 }

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.180](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.179...v2.1.0-alpha.180) (2023-06-01)
+
+### Features
+
+* :sparkles: introduce asset provider src ([38e746d](https://github.com/dpc-sdp/ripple-framework/commit/38e746df6d4bf5feda1e15ac3d4c089fc3074089))
+
 # [2.1.0-alpha.147](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.146...v2.1.0-alpha.147) (2023-04-20)
 
 ### Features

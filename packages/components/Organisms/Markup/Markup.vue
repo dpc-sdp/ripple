@@ -169,6 +169,7 @@ $no-padding: 0;
       border: 0;
       // Shouldn't be oversize in mobile
       max-height: 80vh;
+      max-width: map-get(map-get($rpl-layout, 'site_max_width'), 'xl');
     }
 
     &--default {

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const route = useRoute()
-const { sections } = useAppConfig()
+const { sections, hideModulesSection } = useAppConfig()
 
 // The site is split into sections with separate sidebar navigations
 // E.g. If we on the page `/cats/are/cute`, then we just want the content for 'cats' (i.e. `queryContent('cats')`)
@@ -21,6 +21,7 @@ const processedNav = navigation?.map((level1Item) => {
   <div>
     <RplVerticalNav :items="processedNav" />
     <DocsNavLink
+      v-if="!hideModulesSection"
       :url="
         sectionSlug === 'framework'
           ? '/design-system/about/what-is-ripple'

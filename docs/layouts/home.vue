@@ -27,7 +27,10 @@
       </div>
     </template>
 
-    <DocsHomeSection title="Ripple modules">
+    <DocsHomeSection
+      v-if="!hideModulesSection && page.modulesCTA"
+      title="Ripple modules"
+    >
       <div
         class="rpl-grid"
         :style="{ '--rpl-clr-gradient-horizontal': 'var(--rpl-clr-dark)' }"
@@ -80,7 +83,11 @@
     </DocsHomeSection>
 
     <template #belowBody>
-      <DocsWhatsNew :title="page.whatsNew.title" :links="page.whatsNew.links">
+      <DocsWhatsNew
+        v-if="page.whatsNew"
+        :title="page.whatsNew.title"
+        :links="page.whatsNew.links"
+      >
         <RplContent>
           <p>{{ page.whatsNew.description }}</p>
         </RplContent>
@@ -92,7 +99,7 @@
 <script setup lang="ts">
 import { useContent, useContentHead } from '#imports'
 const { page, toc } = useContent()
-const { title, subheader, description } = useAppConfig()
+const { title, subheader, description, hideModulesSection } = useAppConfig()
 useContentHead(page)
 </script>
 

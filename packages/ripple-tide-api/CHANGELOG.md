@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.181](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.180...v2.1.0-alpha.181) (2023-06-01)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-api:** fixed normaliseImageUrl crashing app if run without env vars ([5f8d316](https://github.com/dpc-sdp/ripple-framework/commit/5f8d316980c4413f87c947cabae4751edc1d3668))
+
 # [2.1.0-alpha.180](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.179...v2.1.0-alpha.180) (2023-06-01)
 
 ### Features

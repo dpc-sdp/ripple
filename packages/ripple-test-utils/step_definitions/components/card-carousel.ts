@@ -33,7 +33,8 @@ Given(
           cy.get('@item').find('[data-cy="date"]').should('contain', row.date)
           cy.get('@item')
             .find(`[data-cy="image"]`)
-            .should('have.attr', 'src', row.image)
+            .should('have.attr', 'srcset')
+            .and('contain', row.image)
         })
     })
   }

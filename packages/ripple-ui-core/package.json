@@ -59,7 +59,7 @@
     "rimraf": "^4.4.1",
     "swiper": "^8.4.5",
     "vite-svg-loader": "^4.0.0",
-    "vue": "3.2.47"
+    "vue": "3.3.4"
   },
   "devDependencies": {
     "@dpc-sdp/ripple-tide-api": "workspace:*",

@@ -197,6 +197,7 @@ const getFormSchemaFromMapping = async (
           placeholder: field['#empty_option'],
           label: field['#title'],
           help: field['#description'],
+          multiple: !!field['#multiple'],
           options: Object.entries(field['#options'] || {}).map(
             ([value, label]) => {
               return {

@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@dpc-sdp/ripple-ui-core": "workspace:*",
-    "vue": "^3.2.47",
+    "vue": "^3.3.4",
     "vue-router": "^4.1.5"
   },
   "devDependencies": {

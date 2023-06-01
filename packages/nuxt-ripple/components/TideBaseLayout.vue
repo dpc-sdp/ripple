@@ -100,7 +100,7 @@ interface Props {
   updatedDate?: string | null
   siteSection: TideSiteSection | null
   page: any
-  showContentRating: boolean
+  showContentRating?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {

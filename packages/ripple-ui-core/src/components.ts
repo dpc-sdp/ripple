@@ -38,6 +38,7 @@ export { default as RplIcon } from './components/icon/RplIcon.vue'
 export { default as RplIconSprite } from './components/icon/RplIconSprite.vue'
 
 export { default as RplImage } from './components/image/RplImage.vue'
+export { default as RplImg } from './components/image/RplImg.vue'
 
 export { default as RplInPageNavigation } from './components/in-page-navigation/RplInPageNavigation.vue'
 

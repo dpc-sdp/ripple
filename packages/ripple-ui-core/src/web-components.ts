@@ -36,6 +36,7 @@ import { default as RplIconCmp } from './components/icon/RplIcon.vue'
 import { default as RplIconSpriteCmp } from './components/icon/RplIconSprite.vue'
 
 import { default as RplImageCmp } from './components/image/RplImage.vue'
+import { default as RplImgCmp } from './components/image/RplImg.vue'
 
 import { default as RplInPageNavigationCmp } from './components/in-page-navigation/RplInPageNavigation.vue'
 
@@ -44,6 +45,8 @@ import { default as RplPageComponentCmp } from './components/layout/RplPageCompo
 import { default as RplSidebarComponentCmp } from './components/layout/RplSidebarComponent.vue'
 
 import { default as RplListCmp } from './components/list/RplList.vue'
+
+import { default as RplLinkCmp } from './components/link/RplLink.vue'
 
 import { default as RplPageActionCmp } from './components/page-action/RplPageAction.vue'
 import { default as RplPageLinksCmp } from './components/page-links/RplPageLinks.vue'
@@ -103,6 +106,7 @@ const RplIcon = defineCustomElement(RplIconCmp)
 const RplIconSprite = defineCustomElement(RplIconSpriteCmp)
 
 const RplImage = defineCustomElement(RplImageCmp)
+const RplImg = defineCustomElement(RplImgCmp)
 
 const RplInPageNavigation = defineCustomElement(RplInPageNavigationCmp)
 
@@ -111,6 +115,8 @@ const RplPageComponent = defineCustomElement(RplPageComponentCmp)
 const RplSidebarComponent = defineCustomElement(RplSidebarComponentCmp)
 
 const RplList = defineCustomElement(RplListCmp)
+
+const RplLink = defineCustomElement(RplLinkCmp)
 
 const RplPageAction = defineCustomElement(RplPageActionCmp)
 const RplPageLinks = defineCustomElement(RplPageLinksCmp)
@@ -170,6 +176,7 @@ export { RplIcon }
 export { RplIconSprite }
 
 export { RplImage }
+export { RplImg }
 
 export { RplInPageNavigation }
 
@@ -178,6 +185,8 @@ export { RplPageComponent }
 export { RplSidebarComponent }
 
 export { RplList }
+
+export { RplLink }
 
 export { RplPageAction }
 export { RplPageLinks }
@@ -238,6 +247,7 @@ export function registerRplWebComponents() {
   customElements.define('rpl-icon-sprite', RplIconSprite)
 
   customElements.define('rpl-image', RplImage)
+  customElements.define('rpl-img', RplImg)
 
   customElements.define('rpl-in-page-navigation', RplInPageNavigation)
 
@@ -246,6 +256,8 @@ export function registerRplWebComponents() {
   customElements.define('rpl-sidebar-component', RplSidebarComponent)
 
   customElements.define('rpl-list', RplList)
+
+  customElements.define('rpl-link', RplLink)
 
   customElements.define('rpl-page-action', RplPageAction)
   customElements.define('rpl-page-links', RplPageLinks)

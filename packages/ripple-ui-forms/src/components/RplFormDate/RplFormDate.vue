@@ -6,7 +6,7 @@ export default {
 
 <script setup lang="ts">
 import { watch, ref } from 'vue'
-import { format, isMatch, isValid } from 'date-fns'
+import { format, isMatch, isValid, parse } from 'date-fns'
 import RplFormInput from '../RplFormInput/RplFormInput.vue'
 import useFormkitFriendlyEventEmitter from '../../composables/useFormkitFriendlyEventEmitter.js'
 
@@ -39,7 +39,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 const emit = defineEmits<{ (e: 'onChange', value: string[]): void }>()
 
-const injestValue = (dateStr: string): InternalDate | null => {
+const ingestValue = (dateStr: string): InternalDate | null => {
   // An empty external value is valid, so we should clear all the inputs
   if (!dateStr) {
     return {
@@ -49,7 +49,7 @@ const injestValue = (dateStr: string): InternalDate | null => {
     }
   }
 
-  const date = new Date(dateStr)
+  const date = parse(dateStr, props.dateFormat, new Date())
   const matchesFormat = isMatch(dateStr, props.dateFormat)
 
   // If the external value is not a valid date, then we return null to
@@ -73,7 +73,7 @@ const injestValue = (dateStr: string): InternalDate | null => {
 // day, month and year values to be displayed in the each of the text fields.
 // It get's tricky though, you need to ensure that if the incoming value is invalid
 // that the users input does not get wiped away.
-const injestedValue = injestValue(props.value)
+const injestedValue = ingestValue(props.value)
 
 // Populate the initial state on first render
 const internalDay = ref<string>(injestedValue ? injestedValue.day : '')
@@ -85,7 +85,7 @@ const internalYear = ref<string>(injestedValue ? injestedValue.year : '')
 watch(
   () => props.value,
   (newValue) => {
-    const injestedValue = injestValue(newValue)
+    const injestedValue = ingestValue(newValue)
 
     if (injestedValue) {
       internalDay.value = `${injestedValue.day}`

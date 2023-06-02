@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.182](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.181...v2.1.0-alpha.182) (2023-06-02)
+
+**Note:** Version bump only for package @dpc-sdp/nuxt-ripple
+
+# [2.1.0-alpha.181](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.180...v2.1.0-alpha.181) (2023-06-01)
+
+**Note:** Version bump only for package @dpc-sdp/nuxt-ripple
+
+# [2.1.0-alpha.180](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.179...v2.1.0-alpha.180) (2023-06-01)
+
+### Bug Fixes
+
+* :bug: adjustments to image dimension calc ([fdc4c95](https://github.com/dpc-sdp/ripple-framework/commit/fdc4c9535d7c9fae7cad0920a50d1f0741fb94ff))
+
+### Features
+
+* :sparkles: introduce asset provider src ([38e746d](https://github.com/dpc-sdp/ripple-framework/commit/38e746df6d4bf5feda1e15ac3d4c089fc3074089))
+
 # [2.1.0-alpha.178](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.177...v2.1.0-alpha.178) (2023-05-31)
 
 **Note:** Version bump only for package @dpc-sdp/nuxt-ripple

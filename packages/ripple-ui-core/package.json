@@ -1,7 +1,7 @@
 {
   "name": "@dpc-sdp/ripple-ui-core",
   "packageManager": "pnpm@8.0.0",
-  "version": "2.1.0-alpha.177",
+  "version": "2.1.0-alpha.181",
   "license": "Apache-2.0",
   "files": [
     "dist",
@@ -59,7 +59,7 @@
     "rimraf": "^4.4.1",
     "swiper": "^8.4.5",
     "vite-svg-loader": "^4.0.0",
-    "vue": "3.2.47"
+    "vue": "3.3.4"
   },
   "devDependencies": {
     "@dpc-sdp/ripple-tide-api": "workspace:*",

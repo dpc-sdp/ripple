@@ -19,5 +19,6 @@ dist
 # Local History
 .history
 
-# VSCode
+# IDEs
 .vscode/
+.idea/

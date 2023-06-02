@@ -6,19 +6,19 @@ export default function rplAddCommand() {
 
   rplAddCommand
     .command('component')
+    .description('Scaffold a Ripple component')
     .argument(
       '[directory]',
       `project directory, default is ${process.cwd() + '/components'}`,
       process.cwd() + '/components'
     )
-    .description('Scaffold ripple component')
     .option(
       '--name [name]',
-      'component name eg: modal. Prefix will be added separately with --prefix option'
+      'The components name eg: modal. Note: a prefix will be added separately with the --prefix option'
     )
     .option(
       '--prefix [prefix]',
-      'lowercase component prefix: eg: rpl, tide, vic. Rpl should be reserved for components that are maintained by the SDP team.',
+      'A lowercase component prefix: eg: rpl, tide, vic. Rpl should be reserved for components that are maintained by the SDP team',
       'rpl'
     )
     .action((directory, options) => {
@@ -27,13 +27,13 @@ export default function rplAddCommand() {
 
   rplAddCommand
     .command('content-type')
-    .description('Scaffold ripple content type')
-    .argument('[directory]', 'project directory, default is CWD', process.cwd())
-    .option('--name [name]', 'name of content type')
-    .option('-T --createTests', 'set to create Cypress test script examples')
+    .description('Scaffold a Ripple tide content type')
+    .argument('[directory]', 'The project directory, this defaults to the current working directory (CWD)', process.cwd())
+    .option('--name [name]', 'The name of content type')
+    .option('-T --createTests', 'This will create Cypress test script examples')
     .option(
       '--cypressPath [cypressPath]',
-      'path to Cypress support folder. Default is Cypress',
+      'The path to the Cypress support folder, this default to a folder called cypress',
       'cypress'
     )
     .action((directory, options) => {

@@ -1,21 +1,20 @@
 ---
-to: <%= h.changeCase.kebabCase(name) %>/Rpl<%= h.changeCase.pascalCase(name) %>.vue
+to: <%= h.changeCase.kebabCase(name) %>/<%= h.prefixedPascalCase(prefix, name) %>.vue
 ---
 <script setup lang="ts">
-
-interface IRpl<%= h.changeCase.pascalCase(name) %>{
-  example: string
+interface Props {
+  example?: string
 }
 
-withDefaults(defineProps<IRpl<%= h.changeCase.pascalCase(name) %>>(), {
+withDefaults(defineProps<Props>(), {
   example: 'TODO: add <%= name %> functionality'
 })
 </script>
 
 <template>
-  <div :class="`rpl-<%= h.changeCase.paramCase(name) %>`">
+  <div class="<%= h.prefixedParamCase(prefix, name) %>">
     {{ example }}
   </div>
 </template>
 
-<style src="./Rpl<%= h.changeCase.pascalCase(name) %>.css" />
+<style src="./<%= h.prefixedPascalCase(prefix, name) %>.css" />

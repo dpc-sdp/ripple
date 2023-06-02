@@ -1,21 +1,39 @@
 ---
 to: mapping/index.ts
 ---
-
+import type { IRplTideModuleMapping } from '@dpc-sdp/ripple-tide-api/types'
+import {
+  getImageFromField,
+  getBodyFromField,
+  getField
+} from '@dpc-sdp/ripple-tide-api'
 import {
   tidePageBaseMapping,
   tidePageBaseIncludes
-} from '@dpc-sdp/ripple-tide-api'
+} from '@dpc-sdp/nuxt-ripple/mapping'
 
-// Shared mapping between types
-export const tide<%= h.changeCase.pascalCase(name) %>Mapping = {
-  ...tidePageBaseMapping(),
-  title: 'name'
+const tide<%= h.changeCase.pascalCase(name) %>Module: IRplTideModuleMapping = {
+  mapping: {
+    ...tidePageBaseMapping(),
+    // TODO: the below mapping is an example only, add your mapping here
+    header: {
+      title: 'title',
+      summary: 'field_landing_page_intro_text'
+    },
+    body: {
+      image: (src) =>
+        getImageFromField(src, 'field_featured_image.field_media_image'),
+      caption: (src) =>
+        getField(src, 'field_featured_image.field_media_caption'),
+      content: (src) => getBodyFromField(src, 'body')
+    }
+  },
+  includes: [
+    ...tidePageBaseIncludes(),
+    // TODO: the below is an example only, add your includes here
+    'field_featured_image',
+    'field_featured_image.field_media_image'
+  ]
 }
 
-export const tide<%= h.changeCase.pascalCase(name) %>Includes = tidePageBaseIncludes()
-
-export default {
-  mapping: tide<%= h.changeCase.pascalCase(name) %>Mapping,
-  includes: tide<%= h.changeCase.pascalCase(name) %>Includes
-}
+export default tide<%= h.changeCase.pascalCase(name) %>Module

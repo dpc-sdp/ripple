@@ -29,7 +29,8 @@ Given(
         cy.get('@imageSlider')
           .find(`[data-cy="image"]`)
           .eq(i)
-          .should('have.attr', 'src', row.image)
+          .should('have.attr', 'srcset')
+          .and('contain', row.image)
       })
     })
   }

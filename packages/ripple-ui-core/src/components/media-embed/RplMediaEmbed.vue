@@ -121,7 +121,8 @@ const dataContentLabel = computed(() => {
         v-if="type === 'image'"
         :src="src"
         :alt="caption"
-        :aspect="imageAspect"
+        :aspect="{ xs: imageAspect }"
+        sizes="xs:768px"
         :circle="variant === 'avatar'"
         :class="imageClasses"
       />

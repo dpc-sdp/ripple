@@ -10,7 +10,7 @@ export default function rplMockCommand() {
       Starts a mock server for testing Ripple sites without Tide backend
     `
     )
-    .argument('[fixturePath]', 'fixturePath', './fixtures')
+    .argument('[fixturePath]', 'The path to the fixtures i.e. mocked data', './fixtures')
     .option(
       '-R --routes [routePath]',
       `
@@ -26,7 +26,7 @@ export default function rplMockCommand() {
     )
     .option(
       '-S --site [sitePath]',
-      'relative path to site fixture',
+      'The relative path to the site fixture, i,e. mocked global site data',
       './fixtures/site.json'
     )
     .action((fixturePath, { routes, site }) => {

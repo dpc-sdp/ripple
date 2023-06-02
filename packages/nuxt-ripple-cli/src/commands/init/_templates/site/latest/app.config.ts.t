@@ -1,12 +1,12 @@
 ---
 to: app.config.ts
 ---
-import { defineNuxtConfig } from 'nuxt/config'
+import { defineAppConfig } from '#imports'
 import pkg from './package.json'
 
 export default defineAppConfig({
   project: {
-    name: '<%= name %>',
+    name: pkg.name,
     version: pkg.version,
   },
   ripple: {

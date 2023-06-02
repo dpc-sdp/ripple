@@ -2,7 +2,7 @@
 to: "<%= locals.createTests ? `${cypressPath}/e2e/${h.changeCase.kebabCase(name)}/${h.changeCase.kebabCase(name)}.feature` : null %>"
 ---
 
-Feature: <%= h.changeCase.pascalCase(name) %> page
+Feature: <%= name %> page
 
   Background:
     Given the endpoint "/api/tide/page" with query "?path=/sample-<%= h.changeCase.kebabCase(name) %>&site=8888" returns fixture "/<%= h.changeCase.kebabCase(name) %>/sample-<%= h.changeCase.kebabCase(name) %>" with status 200

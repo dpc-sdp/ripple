@@ -73,24 +73,24 @@ const ingestValue = (dateStr: string): InternalDate | null => {
 // day, month and year values to be displayed in the each of the text fields.
 // It get's tricky though, you need to ensure that if the incoming value is invalid
 // that the users input does not get wiped away.
-const injestedValue = ingestValue(props.value)
+const ingestedValue = ingestValue(props.value)
 
 // Populate the initial state on first render
-const internalDay = ref<string>(injestedValue ? injestedValue.day : '')
-const internalMonth = ref<string>(injestedValue ? injestedValue.month : '')
-const internalYear = ref<string>(injestedValue ? injestedValue.year : '')
+const internalDay = ref<string>(ingestedValue ? ingestedValue.day : '')
+const internalMonth = ref<string>(ingestedValue ? ingestedValue.month : '')
+const internalYear = ref<string>(ingestedValue ? ingestedValue.year : '')
 
 // Then make sure that any time the external value changes that we are properly
 // injesting the new value.
 watch(
   () => props.value,
   (newValue) => {
-    const injestedValue = ingestValue(newValue)
+    const ingestedValue = ingestValue(newValue)
 
-    if (injestedValue) {
-      internalDay.value = `${injestedValue.day}`
-      internalMonth.value = `${injestedValue.month}`
-      internalYear.value = `${injestedValue.year}`
+    if (ingestedValue) {
+      internalDay.value = `${ingestedValue.day}`
+      internalMonth.value = `${ingestedValue.month}`
+      internalYear.value = `${ingestedValue.year}`
     }
   }
 )

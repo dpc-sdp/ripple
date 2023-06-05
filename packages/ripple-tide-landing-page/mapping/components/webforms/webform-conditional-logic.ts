@@ -44,12 +44,21 @@ const getFirstObjectKey = (obj): string => {
 /**
  * Returns an object representing a piece of logic
  * @param {Object} ruleObject the parent object that contains the selector
- * @param {String} selector a field selector e.g. ':input[name=\"check_a\"]'
+ * @param {String} selector a field selector e.g. ':input[name=\"check_a\"]' or ':input[name=\"check_a[option]\"]'
  */
 function convertSelectorToOperand(ruleObject, selector): Operand {
-  const fieldName = getNameFromSelector(selector)
+  let fieldName = getNameFromSelector(selector)
   const triggerType = getFirstObjectKey(ruleObject[selector])
-  const triggerValue = triggerType ? ruleObject[selector][triggerType] : null
+  let triggerValue = triggerType ? ruleObject[selector][triggerType] : null
+
+  // Check for nested selectors, i.e. checkbox lists and multi selects
+  const arrayRegex = /\[(.*?)]/
+  const arrayRegexMatch = fieldName.match(arrayRegex)
+  if (arrayRegexMatch) {
+    fieldName = fieldName.replace(arrayRegex, '')
+    triggerValue = arrayRegexMatch?.[1] || triggerValue
+  }
+
   return { fieldName, triggerType, triggerValue }
 }
 
@@ -58,7 +67,6 @@ function convertSelectorToOperand(ruleObject, selector): Operand {
  * Rules may be an {object} or [array (with operator)].
  * This will output a test object.
  * @param {Object} rulesObject webform rules object
- * @param {Object} data form data
  */
 const normaliseRule = (rulesObject): NormalisedRule => {
   const rulesType = Array.isArray(rulesObject) ? 'array' : typeof rulesObject
@@ -99,9 +107,9 @@ const getFormkitLogicForOperand = (operand: Operand): string => {
     case 'filled':
       return `$isFilled($get(${operand.fieldName}).value)`
     case 'checked':
-      return `$isChecked($get(${operand.fieldName}).value)`
+      return `$isChecked($get(${operand.fieldName}).value, "${operand.triggerValue}")`
     case 'unchecked':
-      return `$negate($isChecked($get(${operand.fieldName}).value))`
+      return `$negate($isChecked($get(${operand.fieldName}).value, "${operand.triggerValue}"))`
     case 'value':
       if (typeof operand.triggerValue === 'string') {
         return `$isEqual($get(${operand.fieldName}).value, "${operand.triggerValue}")`

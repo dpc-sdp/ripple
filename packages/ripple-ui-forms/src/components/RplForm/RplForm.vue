@@ -149,9 +149,17 @@ const data = reactive({
     typeof val === 'number'
       ? !isNaN(val)
       : !(val === undefined || val === null || val === ''),
-  isChecked: (val) => !!val,
+  isChecked: (targetValue, triggerValue) => {
+    if (Array.isArray(targetValue)) {
+      return targetValue.includes(triggerValue)
+    }
+    return !!targetValue
+  },
   negate: (val) => !val,
   isEqual: (targetValue, triggerValue) => {
+    if (Array.isArray(targetValue)) {
+      return targetValue.includes(triggerValue)
+    }
     if (typeof targetValue === 'number') {
       return targetValue === parseFloat(triggerValue)
     }

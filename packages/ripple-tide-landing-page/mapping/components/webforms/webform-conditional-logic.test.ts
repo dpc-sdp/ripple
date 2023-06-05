@@ -15,7 +15,7 @@ describe('getConditionals', () => {
       }
 
       const expected = {
-        required: '$isChecked($get(input_a).value)'
+        required: '$isChecked($get(input_a).value, "true")'
       }
 
       expect(getConditionals(input)).toEqual(expected)
@@ -33,7 +33,7 @@ describe('getConditionals', () => {
       }
 
       const expected = {
-        disabled: '$isChecked($get(input_a).value)'
+        disabled: '$isChecked($get(input_a).value, "true")'
       }
 
       expect(getConditionals(input)).toEqual(expected)
@@ -51,7 +51,7 @@ describe('getConditionals', () => {
       }
 
       const expected = {
-        disabled: '$negate($isChecked($get(input_a).value))'
+        disabled: '$negate($isChecked($get(input_a).value, "true"))'
       }
 
       expect(getConditionals(input)).toEqual(expected)
@@ -69,7 +69,7 @@ describe('getConditionals', () => {
       }
 
       const expected = {
-        if: '$isChecked($get(input_a).value)'
+        if: '$isChecked($get(input_a).value, "true")'
       }
 
       expect(getConditionals(input)).toEqual(expected)
@@ -87,7 +87,7 @@ describe('getConditionals', () => {
       }
 
       const expected = {
-        if: '$negate($isChecked($get(input_a).value))'
+        if: '$negate($isChecked($get(input_a).value, "true"))'
       }
 
       expect(getConditionals(input)).toEqual(expected)
@@ -143,7 +143,7 @@ describe('getConditionals', () => {
       }
 
       const expected = {
-        required: '$isChecked($get(input_a).value)'
+        required: '$isChecked($get(input_a).value, "true")'
       }
 
       expect(getConditionals(input)).toEqual(expected)
@@ -161,7 +161,7 @@ describe('getConditionals', () => {
       }
 
       const expected = {
-        required: '$negate($isChecked($get(input_a).value))'
+        required: '$negate($isChecked($get(input_a).value, "true"))'
       }
 
       expect(getConditionals(input)).toEqual(expected)
@@ -293,7 +293,7 @@ describe('getConditionals', () => {
 
       const expected = {
         required:
-          '$isChecked($get(input_a).value) && $isEqual($get(input_b).value, "abc")'
+          '$isChecked($get(input_a).value, "true") && $isEqual($get(input_b).value, "abc")'
       }
 
       expect(getConditionals(input)).toEqual(expected)
@@ -320,7 +320,7 @@ describe('getConditionals', () => {
 
       const expected = {
         required:
-          '$isChecked($get(input_a).value) || $isEqual($get(input_b).value, "abc")'
+          '$isChecked($get(input_a).value, "true") || $isEqual($get(input_b).value, "abc")'
       }
 
       expect(getConditionals(input)).toEqual(expected)
@@ -347,7 +347,45 @@ describe('getConditionals', () => {
 
       const expected = {
         required:
-          '$xor($isChecked($get(input_a).value), $isEqual($get(input_b).value, "abc"))'
+          '$xor($isChecked($get(input_a).value, "true"), $isEqual($get(input_b).value, "abc"))'
+      }
+
+      expect(getConditionals(input)).toEqual(expected)
+    })
+  })
+
+  describe('array selectors', () => {
+    it('checked', () => {
+      const input = {
+        '#states': {
+          required: {
+            ':input[name="input_a[option_one]"]': {
+              checked: true
+            }
+          }
+        }
+      }
+
+      const expected = {
+        required: '$isChecked($get(input_a).value, "option_one")'
+      }
+
+      expect(getConditionals(input)).toEqual(expected)
+    })
+
+    it('value', () => {
+      const input = {
+        '#states': {
+          required: {
+            ':input[name="input_a[]"]': {
+              value: 'option_one'
+            }
+          }
+        }
+      }
+
+      const expected = {
+        required: '$isEqual($get(input_a).value, "option_one")'
       }
 
       expect(getConditionals(input)).toEqual(expected)

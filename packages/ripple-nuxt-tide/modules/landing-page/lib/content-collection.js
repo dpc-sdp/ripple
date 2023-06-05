@@ -825,7 +825,7 @@ module.exports = class ContentCollection {
 
   getExposedControlFields () {
     const controls = [
-      this.getExposedSortField(),
+      this.getExposedSortField()
     ]
     return controls.filter(item => item !== null)
   }

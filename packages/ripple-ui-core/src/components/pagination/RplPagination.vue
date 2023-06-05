@@ -59,7 +59,7 @@ const iconSize = computed(() => (isComplex.value ? 's' : 'xs'))
   >
     <p
       v-if="showTally && !isComplex"
-      class="rpl-pagination__tally rpl-type-label"
+      class="rpl-pagination__tally rpl-type-p"
     >
       {{ activeStep }} of {{ totalPages }}
     </p>

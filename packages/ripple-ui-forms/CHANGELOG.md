@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.183](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.182...v2.1.0-alpha.183) (2023-06-05)
+
+### Features
+
+* **@dpc-sdp/ripple-tide-landing-page:** conditional logic for checkbox lists and multi selects ([c5c80b3](https://github.com/dpc-sdp/ripple-framework/commit/c5c80b301acc04e9cf08168c523b7a30c048d1e2))
+
 # [2.1.0-alpha.182](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.181...v2.1.0-alpha.182) (2023-06-02)
 
 ### Bug Fixes

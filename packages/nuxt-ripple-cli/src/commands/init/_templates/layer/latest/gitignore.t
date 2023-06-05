@@ -11,10 +11,7 @@ package-lock.json
 framework
 dist
 .DS_Store
-
-# Yarn
-.yarn/cache
-.yarn/*state*
+coverage
 
 # Local History
 .history

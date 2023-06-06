@@ -5,18 +5,26 @@
   >
     <div class="docs-example-header" v-if="!hideNewTab">
       <DocsLink
-        :url="storybookPreviewUrl"
+        :url="storyPreviewUrl"
         target="_blank"
         isExternal
         isSmall
         iconPosition="end"
         >Open this example in a new tab</DocsLink
       >
+      <DocsLink
+        :url="storyUrl"
+        target="_blank"
+        isExternal
+        isSmall
+        iconPosition="end"
+        >View in storybook</DocsLink
+      >
     </div>
     <div class="docs-example-body">
       <iframe
         v-if="hasAppeared"
-        :src="storybookPreviewUrl"
+        :src="storyPreviewUrl"
         v-resize
         class="frame"
       ></iframe>
@@ -130,9 +138,17 @@ const buttonTheme = computed(() => {
   return props.useNeutralButtons ? 'neutral' : 'default'
 })
 
-const storybookPreviewUrl = computed(
+const sharedParams = computed(
   () =>
-    `${storybookBaseUrl}/iframe.html?args=${props.argsString}&id=${props.id}&viewMode=story&globals=theme:${computedTheme.value};buttonTheme:${buttonTheme.value}`
+    `args=${props.argsString}&viewMode=story&globals=theme:${computedTheme.value};buttonTheme:${buttonTheme.value}`
+)
+
+const storyUrl = computed(
+  () => `${storybookBaseUrl}/?path=/story/${props.id}&${sharedParams.value}`
+)
+
+const storyPreviewUrl = computed(
+  () => `${storybookBaseUrl}/iframe.html?id=${props.id}&${sharedParams.value}`
 )
 
 watch(targetIsVisible, (visible, wasVisible) => {
@@ -168,6 +184,16 @@ watch(targetIsVisible, (visible, wasVisible) => {
 .docs-example-header {
   border-bottom: var(--rpl-border-1) solid var(--rpl-clr-neutral-300);
   padding: var(--rpl-sp-3) var(--rpl-sp-5);
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--rpl-sp-3);
+
+  @media (--rpl-bp-s) {
+    align-items: center;
+    flex-direction: row;
+    gap: var(--rpl-sp-4);
+  }
 }
 
 .docs-example-footer {

@@ -1,6 +1,7 @@
 ---
-title: Kitchen sink
-description: Here's everything
+title: Markdown Kitchen Sink (DEV ONLY)
+description: This is an example page to demonstrate and document the markdown features available in the docs site
+draft: true
 layout: page
 links:
   - text: Vic gov

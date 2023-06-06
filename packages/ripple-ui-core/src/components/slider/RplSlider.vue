@@ -9,6 +9,7 @@ import { useBreakpoints } from '@vueuse/core'
 import 'swiper/css'
 import 'swiper/css/effect-fade'
 import { rplEventBus } from '../../index'
+import { useComputedSpeed } from '../../composables/useComputedSpeed'
 
 rplEventBus.register('rpl-button/click')
 const emit = defineEmits(['change'])
@@ -33,10 +34,12 @@ const props = withDefaults(defineProps<Props>(), {
   contentType: 'item'
 })
 
+const container = ref()
 const swiper = ref()
 const activePage = ref()
 const slots = useSlots()
 const bp = useBreakpoints(bpMin)
+const speed = useComputedSpeed(container, '--rpl-motion-speed-6', 240)
 
 const isXSmallScreen = bp.greaterOrEqual('xs')
 const isSmallScreen = bp.greaterOrEqual('s')
@@ -125,7 +128,7 @@ const setInert = ({ activeIndex, slides }) =>
 </script>
 
 <template>
-  <div class="rpl-slider">
+  <div ref="container" class="rpl-slider">
     <RplPagination
       v-if="showPagination && slides.length > 1 && totalPages > 1"
       variant="simple"
@@ -144,7 +147,7 @@ const setInert = ({ activeIndex, slides }) =>
       :breakpoints="breakpoints"
       :modules="[EffectFade]"
       :effect="effect"
-      :speed="300"
+      :speed="speed"
       :touchStartPreventDefault="false"
       class="rpl-slider__swiper"
       @after-init="setInert"

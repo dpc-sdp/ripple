@@ -3,7 +3,7 @@ import RplMediaGalleryContent from './RplMediaGalleryContent.vue'
 import RplImage from '../image/RplImage.vue'
 import RplSlider from '../slider/RplSlider.vue'
 import RplModal from '../modal/RplModal.vue'
-import { ref } from 'vue'
+import { onMounted, onUnmounted, ref } from 'vue'
 import 'swiper/css'
 import 'swiper/css/effect-fade'
 
@@ -19,7 +19,7 @@ interface Props {
   items: RplMediaGalleryItem[]
 }
 
-defineProps<Props>()
+const props = defineProps<Props>()
 
 const showModal = ref(false)
 const activeImageSlide = ref(0)
@@ -36,6 +36,27 @@ const imageSlideUpdate = (currentPage) => {
 const toggleModal = () => {
   showModal.value = !showModal.value
 }
+
+const keyboardNavigation = (event) => {
+  if (!showModal.value) return
+
+  if (event.key === 'ArrowLeft' && activeImageSlide.value > 0) {
+    activeImageSlide.value = activeImageSlide.value - 1
+  } else if (
+    event.key === 'ArrowRight' &&
+    activeImageSlide.value < props.items.length - 1
+  ) {
+    activeImageSlide.value = activeImageSlide.value + 1
+  }
+}
+
+onMounted(() => {
+  window.addEventListener('keydown', keyboardNavigation, false)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('keydown', keyboardNavigation, false)
+})
 </script>
 
 <template>

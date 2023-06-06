@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { computed, onMounted } from 'vue'
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
+import { useComputedSpeed } from '../../composables/useComputedSpeed'
 
 interface Props {
   expanded?: boolean
@@ -10,19 +10,8 @@ const props = withDefaults(defineProps<Props>(), {
   expanded: false
 })
 
-const DEFAULT_DURATION = 420
-
 const containerRef = ref(null)
-const duration = ref(DEFAULT_DURATION)
-
-onMounted(() => {
-  duration.value =
-    parseFloat(
-      getComputedStyle(containerRef.value).getPropertyValue(
-        '--rpl-motion-speed-9'
-      )
-    ) * 1000
-})
+const duration = useComputedSpeed(containerRef, '--rpl-motion-speed-9', 420)
 
 function onBeforeEnter(el) {
   el.style.height = `0px`
@@ -58,7 +47,7 @@ function onLeave(el, done) {
 
 const classes = computed(() => ({
   'rpl-expandable': true,
-  [`rpl-expandable--open`]: props.expanded,
+  [`rpl-expandable--open`]: props.expanded
 }))
 </script>
 

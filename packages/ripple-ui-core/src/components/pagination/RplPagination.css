@@ -15,7 +15,11 @@
 .rpl-pagination__link {
   display: flex;
   align-items: center;
-  gap: var(--rpl-sp-3);
+  gap: var(--rpl-sp-2);
+
+  &:focus-visible .rpl-pagination__link-icon {
+    color: var(--rpl-clr-type-focus-contrast);
+  }
 }
 
 .rpl-pagination__list {
@@ -72,6 +76,7 @@
   }
 
   &:active {
+    color: var(--rpl-clr-link);
     text-decoration: underline;
   }
 }

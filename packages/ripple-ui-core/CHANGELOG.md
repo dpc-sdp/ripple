@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.185](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.184...v2.1.0-alpha.185) (2023-06-06)
+
+### Features
+
+* **@dpc-sdp/ripple-ui-core:** design feedback ([0c74039](https://github.com/dpc-sdp/ripple-framework/commit/0c74039339653ca25b1ffb6c5d14f391e5854040))
+
 # [2.1.0-alpha.181](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.180...v2.1.0-alpha.181) (2023-06-01)
 
 **Note:** Version bump only for package @dpc-sdp/ripple-ui-core

@@ -1,7 +1,7 @@
 <template>
   <div>
     <RplContent class="rpl-type-p rpl-u-margin-b-4" :html="description" />
-    <template v-if="display.component === 'RplSearchResult'">
+    <template v-if="display.type === 'list'">
       <div class="rpl-grid">
         <div class="rpl-col-12 rpl-col-8-m">
           <RplResultListing>
@@ -19,15 +19,14 @@
     </template>
     <template v-else>
       <ul class="rpl-grid" style="--local-grid-cols: 12">
-        <template v-for="item in results" :key="item.id">
-          <component
-            :is="display.component"
-            :class="cardClasses"
-            v-bind="item.props"
-          >
-            {{ item.slots.default }}
-          </component>
-        </template>
+        <RplPromoCard
+          v-for="item in results"
+          :key="item.id"
+          :class="cardClasses"
+          v-bind="item.props"
+        >
+          {{ item.slots.default }}
+        </RplPromoCard>
       </ul>
     </template>
     <div

@@ -1,8 +1,12 @@
 import { TideDynamicPageComponent } from '@dpc-sdp/ripple-tide-api/types'
-import { getBodyFromField, getField } from '@dpc-sdp/ripple-tide-api'
+import {
+  getBodyFromField,
+  getField,
+  getLinkFromField
+} from '@dpc-sdp/ripple-tide-api'
 
 export interface IContentCollectionDisplay {
-  component: 'RplSearchResult' | 'RplPromoCard'
+  type: 'list' | 'card'
   style?: 'thumbnail' | 'noImage'
 }
 
@@ -83,16 +87,10 @@ export const contentCollectionMapping = (
     title: field.field_cc_enhanced_title,
     props: {
       description: getBodyFromField(field, ['field_cc_enhanced_description']),
-      // TODO: The below isn't support yet, so we're faking for now to test
-      // this needs to be updated when the backend support its
-      // link: getLinkFromField(field, [
-      //   'field_content_collection_config',
-      //   'callToAction'
-      // ]),
-      link: {
-        text: 'View all',
-        url: '#'
-      },
+      link: getLinkFromField(field, [
+        'field_content_collection_config',
+        'callToAction'
+      ]),
       filters: getContentCollectionFiltersFromConfig(
         field.field_content_collection_config
       ),
@@ -116,14 +114,14 @@ export const contentCollectionMapping = (
         6
       ),
       display: {
-        component:
+        type:
           getField(
             field,
             'field_content_collection_config.interface.display.resultComponent.type',
             'card'
           ) === 'search-result'
-            ? 'RplSearchResult'
-            : 'RplPromoCard',
+            ? 'list'
+            : 'card',
         style: getField(
           field,
           'field_content_collection_config.interface.display.resultComponent.style',

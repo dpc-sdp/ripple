@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.184](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.183...v2.1.0-alpha.184) (2023-06-06)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-monorepo
+
 # [2.1.0-alpha.183](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.182...v2.1.0-alpha.183) (2023-06-05)
 
 ### Features

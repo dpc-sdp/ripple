@@ -75,7 +75,6 @@ Accordions use colour to:
 - represent interactions such as hover and active states
 - give prominence to the active displayed content section.
 
-
 ::DocsThemeChooser
   ::DocsExample
   ---

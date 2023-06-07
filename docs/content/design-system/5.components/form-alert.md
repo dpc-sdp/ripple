@@ -83,10 +83,10 @@ id: forms-form-alert--error
 #### Error messages
 Error messages
 Specific error messages must be provided for specific error states. Style your error messages as directed by the ‘Error’ section on the pages for the following form components:
-- [input field](https://deploy-preview-457--ripple-docs.netlify.app/design-system/components/input-field/)
-- [text area](https://deploy-preview-457--ripple-docs.netlify.app/design-system/components/text-area/)
-- [date input](https://deploy-preview-457--ripple-docs.netlify.app/design-system/components/date-input/)
-- [checkbox](https://deploy-preview-457--ripple-docs.netlify.app/design-system/components/checkbox/)
-- [radio button](https://deploy-preview-457--ripple-docs.netlify.app/design-system/components/radio-button/)
-- [dropdown](https://deploy-preview-457--ripple-docs.netlify.app/design-system/components/dropdown/).
+- [input field](/design-system/components/input-field/)
+- [text area](/design-system/components/text-area/)
+- [date input](/design-system/components/date-input/)
+- [checkbox](/design-system/components/checkbox/)
+- [radio button](/design-system/components/radio-button/)
+- [dropdown](/design-system/components/dropdown/).
 

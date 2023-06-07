@@ -9,13 +9,13 @@ label: Core
 ## Usage
 Let users select one or more items from a dropdown list of available items.
 
-It can be helpful when users need to choose from 6 or more options. It can also be used when listing all options in [checkboxes](https://deploy-preview-457--ripple-docs.netlify.app/design-system/components/checkbox/) or [radio buttons](https://deploy-preview-457--ripple-docs.netlify.app/design-system/components/radio-button/) is not viable.
+It can be helpful when users need to choose from 6 or more options. It can also be used when listing all options in [checkboxes](/design-system/components/checkbox/) or [radio buttons](/design-system/components/radio-button/) is not viable.
 
 Dropdowns should only be used as a last resort. For example, to find a compromise between usability and keeping the layout compact and clear.
 
-Many users find dropdowns hard to use. Dropdowns hide content by default and create user confusion, cross-device issues and limited accessibility. Use [radio buttons](https://deploy-preview-457--ripple-docs.netlify.app/design-system/components/radio-button/), [checkboxes](https://deploy-preview-457--ripple-docs.netlify.app/design-system/components/checkbox/) or [input fields](https://deploy-preview-457--ripple-docs.netlify.app/design-system/components/input-field/) for most small lists instead.
+Many users find dropdowns hard to use. Dropdowns hide content by default and create user confusion, cross-device issues and limited accessibility. Use [radio buttons](/design-system/components/radio-button/), [checkboxes](/design-system/components/checkbox/) or [input fields](/design-system/components/input-field/) for most small lists instead.
 
-A compromise might be needed for a long list of options (for example, all dog breeds). Or, when option description lengths vary or wrap over multiple lines. These situations also confuse users by creating layout issues for [checkboxes](https://deploy-preview-457--ripple-docs.netlify.app/design-system/components/checkbox/), [input fields](https://deploy-preview-457--ripple-docs.netlify.app/design-system/components/input-field/) or [radio buttons](https://deploy-preview-457--ripple-docs.netlify.app/design-system/components/radio-button/).
+A compromise might be needed for a long list of options (for example, all dog breeds). Or, when option description lengths vary or wrap over multiple lines. These situations also confuse users by creating layout issues for [checkboxes](/design-system/components/checkbox/), [input fields](/design-system/components/input-field/) or [radio buttons](/design-system/components/radio-button/).
 
 A dropdown is often called a 'select'.
 
@@ -39,7 +39,7 @@ A single select dropdown is used when users can select only a single option.
 #### Multi select
 If using a multi select dropdown, always tell the user how many menu options they can select. Add extra instructions in the hint text to guide them. For example, 'Select up to 3 options'.
 
-Even though users can choose multiple items in a multi select dropdown, they often find this confusing. [Checkboxes](https://deploy-preview-457--ripple-docs.netlify.app/design-system/components/checkbox/) could be better.
+Even though users can choose multiple items in a multi select dropdown, they often find this confusing. [Checkboxes](/design-system/components/checkbox/) could be better.
 
 #### Hint text
 Hint text can be used to tell the user what, or how, to successfully complete an dropdown.
@@ -73,14 +73,14 @@ We recommend starting a scroll at the sixth option in the menu list. This may va
 - Use as a last resort component.
 - A label must be used with a dropdown.
 - Ensure dropdown item descriptions are short and concise.
-- Use when listing between 6 and (if possible) 15 items, if [checkboxes](https://deploy-preview-457--ripple-docs.netlify.app/design-system/components/checkbox/) or [radio buttons](https://deploy-preview-457--ripple-docs.netlify.app/design-system/components/radio-button/) can’t be used.
+- Use when listing between 6 and (if possible) 15 items, if [checkboxes](/design-system/components/checkbox/) or [radio buttons](/design-system/components/radio-button/) can’t be used.
 
 ### When and how not to use
 - Never set the form to submit when a dropdown item is selected.
 - Don’t write long menu option descriptions.
 - Descriptions should not wrap over a single line.
 - Icons or decorative images should never be used in dropdowns.
-- Do not use a dropdown for listings less than 6 options, consider using [radio buttons](https://deploy-preview-457--ripple-docs.netlify.app/design-system/components/radio-button/) or [checkboxes](https://deploy-preview-457--ripple-docs.netlify.app/design-system/components/checkbox/).
+- Do not use a dropdown for listings less than 6 options, consider using [radio buttons](/design-system/components/radio-button/) or [checkboxes](/design-system/components/checkbox/).
 - Do not use a dropdown without a label as it confuses users and is not accessible.
 
 ---

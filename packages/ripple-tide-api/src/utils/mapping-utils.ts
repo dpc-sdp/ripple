@@ -112,7 +112,7 @@ export const getLinkFromField = (
   }
 
   return {
-    text: linkField.title || '',
+    text: linkField.title || linkField.text || '',
     url: linkField.url || linkField.origin_url || linkField.uri || ''
   }
 }

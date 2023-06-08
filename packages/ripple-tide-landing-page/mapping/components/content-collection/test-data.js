@@ -28,7 +28,7 @@ export const rawData = {
   field_content_collection_config: {
     title: '',
     description: '',
-    callToAction: { text: '', url: '' },
+    callToAction: { text: 'View all', url: '#' },
     internal: {
       contentTypes: ['landing_page', 'news'],
       contentFields: {

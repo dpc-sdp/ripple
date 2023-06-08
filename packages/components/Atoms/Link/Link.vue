@@ -6,6 +6,7 @@
     <template v-else>
       <slot></slot>
     </template>
+    <span v-if="linkTarget === '_blank'" class="rpl-visually-hidden">, opens a new window</span>
   </a>
   <nuxt-link v-else @focus.native="onFocus" class="rpl-link rpl-link--nuxt" :to="href" @click.native="routeLinkClick" :data-print-url="printUrl">
     <span v-if="innerWrap" class="rpl-link__inner">

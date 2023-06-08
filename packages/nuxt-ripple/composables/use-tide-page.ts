@@ -43,6 +43,7 @@ export const useTidePage = async (
 
   const headers = {}
 
+  // Need to manually pass the cookies needed for auth as they aren't automatically added when server rendered
   if (isPreviewPath(path)) {
     const accessTokenCookie = useCookie(AuthCookieNames.ACCESS_TOKEN)
     headers.cookie = `${AuthCookieNames.ACCESS_TOKEN}=${accessTokenCookie.value};`

@@ -8,6 +8,14 @@
   .rpl-form-dropdown-input {
     background: var(--rpl-clr-light);
   }
+
+  .rpl-form-dropdown-menu {
+    background: var(--rpl-clr-neutral-100);
+  }
+
+  .rpl-form-dropdown-option:nth-child(2n) {
+    background: var(--rpl-clr-light);
+  }
 }
 
 .rpl-form-dropdown--invalid {
@@ -26,6 +34,7 @@
   outline: 0;
   width: 100%;
   height: 100%;
+  max-height: var(--local-item-height);
   padding-top: var(--rpl-sp-3);
   padding-bottom: var(--rpl-sp-3);
   padding-left: var(--rpl-sp-5);
@@ -37,9 +46,13 @@
   align-items: center;
   cursor: pointer;
 
+  &:hover,
+  &:focus {
+    border-color: var(--rpl-clr-dark);
+  }
+
   &:focus,
   &.rpl-u-focusable--force-on {
-    border: var(--rpl-border-1) solid var(--rpl-clr-dark);
     border-radius: 0;
   }
 
@@ -49,7 +62,7 @@
 
   &[aria-disabled='true'] {
     pointer-events: none;
-    border-color: var(--rpl-clr-neutral-100);
+    border-color: var(--rpl-clr-neutral-200);
     color: var(--rpl-clr-neutral-300);
 
     .rpl-form-dropdown-input__placeholder {
@@ -85,21 +98,23 @@
   z-index: var(--rpl-layer-1);
   border: var(--rpl-border-2) solid var(--rpl-clr-dark);
   background: var(--rpl-clr-light);
-  max-height: calc(
-    var(--local-max-items) * var(--local-item-height) + var(--rpl-border-2) +
-      var(--rpl-border-2)
-  );
+  max-height: calc(var(--local-max-items) * var(--local-item-height));
   overflow-y: auto;
   scroll-behavior: auto;
 
   position: absolute;
   width: 100%;
   margin-top: -2px;
+
+  &:hover,
+  &:focus-within {
+    border-color: var(--rpl-clr-dark);
+  }
 }
 
 .rpl-form-dropdown-option {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   padding: var(--rpl-sp-3) var(--rpl-sp-5);
 
   &:nth-child(2n) {
@@ -109,12 +124,17 @@
   &:hover {
     background: var(--rpl-clr-neutral-300);
   }
+
+  &:focus-visible .rpl-form-dropdown-option__check {
+    border-color: var(--rpl-clr-dark);
+  }
 }
 
 .rpl-form-dropdown-option__tick {
   display: block;
   width: var(--rpl-sp-4);
   margin-right: var(--rpl-sp-2);
+  transform: translateY(calc(var(--rpl-sp-1) / 2));
   flex-shrink: 0;
 }
 
@@ -130,4 +150,9 @@
   justify-content: center;
   flex-shrink: 0;
   margin-right: var(--rpl-sp-3);
+
+  &:hover,
+  &:focus {
+    border-color: var(--rpl-clr-dark);
+  }
 }

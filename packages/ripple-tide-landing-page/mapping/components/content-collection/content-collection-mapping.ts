@@ -106,11 +106,9 @@ export const contentCollectionMapping = (
           'desc'
         )
       },
-      // TODO: The below perPage path isn't support yet
-      // This path will need to be updated when backend support has been added
       perPage: getField(
         field,
-        'field_content_collection_config.interface.display.resultComponent.number',
+        'field_content_collection_config.internal.itemsToLoad',
         6
       ),
       display: {

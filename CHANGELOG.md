@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.186](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.185...v2.1.0-alpha.186) (2023-06-08)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-forms:** don't destructure form id ([d61da8f](https://github.com/dpc-sdp/ripple-framework/commit/d61da8f00514fe25b317811b8c7e4e432d54fcdc))
+* **@dpc-sdp/ripple-ui-forms:** don't destructure form id, design feedback, select options with enter ([efcb00e](https://github.com/dpc-sdp/ripple-framework/commit/efcb00e3c16e2b7480898e6bff468855a9dfef37))
+* **docs:** removed empty menu items from side nav ([423eb25](https://github.com/dpc-sdp/ripple-framework/commit/423eb25076b2fd1e23792a158d72a0c4f90aecc3))
+
+### Features
+
+* **docs:** added view in storybook links to docs examples ([3331247](https://github.com/dpc-sdp/ripple-framework/commit/33312477148a832a154224cfce85eabf4d3a4358))
+
 # [2.1.0-alpha.185](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.184...v2.1.0-alpha.185) (2023-06-06)
 
 ### Features

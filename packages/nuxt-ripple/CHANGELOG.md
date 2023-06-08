@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.187](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.186...v2.1.0-alpha.187) (2023-06-08)
+
+### Bug Fixes
+
+* **nuxt-ripple:** ensure access token is passed through to API on SSR ([32742fd](https://github.com/dpc-sdp/ripple-framework/commit/32742fd9d66967d90f28af3a55074b7374e0d11e))
+
 # [2.1.0-alpha.186](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.185...v2.1.0-alpha.186) (2023-06-08)
 
 **Note:** Version bump only for package @dpc-sdp/nuxt-ripple

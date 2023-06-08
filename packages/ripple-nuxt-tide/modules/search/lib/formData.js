@@ -16,11 +16,12 @@ export default {
         schema: {
           fields: [
             {
-              type: 'rplchecklist',
+              type: 'rplselect',
               label: 'Select a topic',
               model: 'field_topic_name',
               values: searchTopicValues,
               placeholder: 'Select a topic',
+              multiselect: true,
               filter: {
                 type: 'term',
                 operator: ''

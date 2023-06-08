@@ -49,12 +49,13 @@ export default {
                   }
                 },
                 {
-                  type: 'rplchecklist',
+                  type: 'rplselect',
                   label: 'Category',
                   model: 'field_profile_category_name',
                   styleClasses: ['form-group--col-two'],
                   values: fieldProfileCategoryValues,
                   placeholder: 'Select a category',
+                  multiselect: true,
                   filter: {
                     type: 'term',
                     operator: ''
@@ -65,24 +66,26 @@ export default {
             {
               fields: [
                 {
-                  type: 'rplchecklist',
+                  type: 'rplselect',
                   label: 'Induction year',
                   model: 'field_year',
                   styleClasses: ['form-group--col-two'],
                   values: fieldYearValues.filter(year => year.length === 4), // TODO: Temporary fix for invalid response in search index [SDPA-2000]
                   placeholder: 'Select a year',
+                  multiselect: true,
                   filter: {
                     type: 'term',
                     operator: ''
                   }
                 },
                 {
-                  type: 'rplchecklist',
+                  type: 'rplselect',
                   label: 'Field of expertise',
                   model: 'field_profile_expertise_name',
                   styleClasses: ['form-group--col-two'],
                   values: fieldProfileExpertiseNameValues,
                   placeholder: 'Select field of expertise',
+                  multiselect: true,
                   filter: {
                     type: 'term',
                     operator: ''
@@ -93,12 +96,13 @@ export default {
             {
               fields: [
                 {
-                  type: 'rplchecklist',
+                  type: 'rplselect',
                   label: 'Location',
                   model: 'field_location_name',
                   styleClasses: ['form-group--col-two'],
                   values: fieldLocationNameValues,
                   placeholder: 'Select a location',
+                  multiselect: true,
                   filter: {
                     type: 'term',
                     operator: ''

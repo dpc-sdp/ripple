@@ -165,16 +165,20 @@ export default (config, router, site) => ({
   },
   setFilterOptions: async function (fieldMap = {}, index = config.index) {
     const client = await service.getClient(config)
-    return service.api.getUniqueVals(client, fieldMap, index)
+    let options = await service.api.getUniqueVals(client, fieldMap, index)
+    options = options.map(option => {
+      return { 'id': option, 'name': option }
+    })
+    return options
   },
   updateFilterOptions: function (filterForm, aggregations) {
     for (let filter of this.getFormFields(filterForm)) {
-      if (aggregations[filter.model] && (filter.values.length > 0 && filter.type === 'rplchecklist') && (typeof filter.filter.computedFilter === 'undefined' || filter.filter.computedFilter === false)) {
+      if (aggregations[filter.model] && (filter.values.length > 0 && filter.type === 'rplselect') && (typeof filter.filter.computedFilter === 'undefined' || filter.filter.computedFilter === false)) {
         // Reset the array.
         filter.values = []
-        for (let terms of aggregations[filter.model].buckets) {
-          filter.values.push(terms.key)
-        }
+        filter.values = aggregations[filter.model].buckets.map((terms) => {
+          return { 'id': terms.key, 'name': terms.key }
+        })
       }
     }
   },

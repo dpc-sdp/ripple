@@ -1,8 +1,14 @@
 export default {
   getFormData: async (setFilterOptions) => {
-    const searchTopicValues = await setFilterOptions({
+    let searchTopicValues = await setFilterOptions({
       fieldName: 'field_topic_name'
     })
+
+    // Format options as per the rplselect.
+    searchTopicValues = searchTopicValues.map(topic => {
+      return { 'id': topic, 'name': topic }
+    })
+
     return {
       title: 'Search results',
       searchPlaceholder: 'Start typing...',
@@ -16,11 +22,12 @@ export default {
         schema: {
           fields: [
             {
-              type: 'rplchecklist',
+              type: 'rplselect',
               label: 'Select a topic',
               model: 'field_topic_name',
               values: searchTopicValues,
               placeholder: 'Select a topic',
+              multiselect: true,
               filter: {
                 type: 'term',
                 operator: ''

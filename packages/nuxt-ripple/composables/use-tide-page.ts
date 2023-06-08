@@ -1,4 +1,5 @@
 import type { TidePageBase } from './../types'
+import { useCookie, isPreviewPath, AuthCookieNames } from '#imports'
 
 const isCacheTimeExpired = (date: number, expiryInMinutes = 5) => {
   // 5 minute default expiry in step with varnish cache
@@ -40,6 +41,14 @@ export const useTidePage = async (
     }
   }
 
+  const headers = {}
+
+  // Need to manually pass the cookies needed for auth as they aren't automatically added when server rendered
+  if (isPreviewPath(path)) {
+    const accessTokenCookie = useCookie(AuthCookieNames.ACCESS_TOKEN)
+    headers.cookie = `${AuthCookieNames.ACCESS_TOKEN}=${accessTokenCookie.value};`
+  }
+
   if (!pageData.value) {
     const { data, error } = await useFetch('/api/tide/page', {
       key: `page-${path}`,
@@ -48,6 +57,7 @@ export const useTidePage = async (
         path,
         site: siteId
       },
+      headers,
       async onResponse({ response }) {
         if (response.ok && response._data) {
           response._data['_fetched'] = Date.now()

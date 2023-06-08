@@ -20,7 +20,8 @@ export default {
   mixins: [breakpoint],
   props: {
     src: {
-      type: String
+      type: String,
+      required: true
     },
     alt: {
       type: String

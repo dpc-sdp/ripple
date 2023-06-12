@@ -3,7 +3,6 @@ import { FormKitSchemaNode } from '@formkit/core'
 import {
   getCounterFields,
   getInputIcons,
-  getMinMaxFields,
   getValidationAndConditionals
 } from './webform-utils.js'
 import { getAdvancedAddressMapping } from './webforms-address'
@@ -57,7 +56,6 @@ const getFormSchemaFromMapping = async (
           value: field['#default_value'],
           ...getValidationAndConditionals(field),
           ...getInputIcons(field),
-          ...getMinMaxFields(field),
           ...getCounterFields(field)
         }
         break
@@ -73,8 +71,7 @@ const getFormSchemaFromMapping = async (
           help: field['#description'] || field['#help_title'],
           value: field['#default_value'],
           ...getValidationAndConditionals(field),
-          ...getInputIcons(field),
-          ...getMinMaxFields(field)
+          ...getInputIcons(field)
         }
         break
       case 'number':
@@ -107,8 +104,7 @@ const getFormSchemaFromMapping = async (
           help: field['#description'] || field['#help_title'],
           value: field['#default_value'],
           ...getValidationAndConditionals(field),
-          ...getInputIcons(field),
-          ...getMinMaxFields(field)
+          ...getInputIcons(field)
         }
         break
       case 'url':
@@ -123,8 +119,7 @@ const getFormSchemaFromMapping = async (
           help: field['#description'] || field['#help_title'],
           value: field['#default_value'],
           ...getValidationAndConditionals(field),
-          ...getInputIcons(field),
-          ...getMinMaxFields(field)
+          ...getInputIcons(field)
         }
         break
       case 'textarea':
@@ -140,7 +135,6 @@ const getFormSchemaFromMapping = async (
           help: field['#description'] || field['#help_title'],
           value: field['#default_value'],
           ...getValidationAndConditionals(field),
-          ...getMinMaxFields(field),
           ...getCounterFields(field)
         }
         break

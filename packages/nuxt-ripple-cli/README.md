@@ -40,7 +40,7 @@ nuxt-ripple add <command> [DIRECTORY]
 ```
 
 `<command>`:
-- `component` Scaffolds a new Ripple (vue) component.
+- `component` Scaffolds a new Ripple (vue) component, note that the component folder is created as well to follow Ripple naming conventions.
 - `content-type` Scaffolds a new Ripple Tide content type.
 
 #### Add Component

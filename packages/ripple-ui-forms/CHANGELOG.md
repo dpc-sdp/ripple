@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.188](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.187...v2.1.0-alpha.188) (2023-06-13)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-forms:** fix RplFormActions variants ([a06a21e](https://github.com/dpc-sdp/ripple-framework/commit/a06a21e9035279f28421d251d4f6d8752552c673))
+
 # [2.1.0-alpha.186](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.185...v2.1.0-alpha.186) (2023-06-08)
 
 ### Bug Fixes

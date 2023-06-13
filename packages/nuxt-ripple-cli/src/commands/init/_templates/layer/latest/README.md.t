@@ -60,12 +60,6 @@ Build the production application:
 npm run build
 ```
 
-Or statically generate it with:
-
-```bash
-npm run generate
-```
-
 Locally preview production build:
 
 ```bash

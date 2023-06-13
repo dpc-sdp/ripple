@@ -11,10 +11,10 @@ to: package.json
     "./mapping": "./mapping/index.ts",
     "./types": "./types.ts"
   },
-  "version": "2.1.0-alpha.178",
+  "version": "2.1.0-alpha.188",
   "dependencies": {
-    "@dpc-sdp/nuxt-ripple": "2.1.0-alpha.178",
-    "@dpc-sdp/ripple-tide-api": "2.1.0-alpha.175",
-    "@dpc-sdp/ripple-ui-core": "2.1.0-alpha.78"
+    "@dpc-sdp/nuxt-ripple": "2.1.0-alpha.188",
+    "@dpc-sdp/ripple-tide-api": "2.1.0-alpha.186",
+    "@dpc-sdp/ripple-ui-core": "2.1.0-alpha.186"
   }
 }

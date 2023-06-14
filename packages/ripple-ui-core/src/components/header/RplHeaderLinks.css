@@ -1,6 +1,6 @@
 @import '@dpc-sdp/ripple-ui-core/style/breakpoints';
 
-.rpl-header-links {
+.rpl-header-links--link {
   a {
     --local-clr-link: var(--rpl-clr-type-default);
     --local-clr-link-visited: var(--local-clr-link);
@@ -32,6 +32,12 @@
   @media (--rpl-bp-l) {
     margin-bottom: var(--rpl-sp-4);
   }
+}
+
+.rpl-header-links--button .rpl-header-links__list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .rpl-header-links__item,

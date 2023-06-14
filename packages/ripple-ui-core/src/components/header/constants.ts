@@ -10,6 +10,7 @@ export interface IRplHeaderLinkExtended extends RplLink {
 export interface IRplHeaderLinksList {
   title?: string
   items: IRplListItemArray[]
+  type?: 'link' | 'button'
   more?: RplLink
 }
 

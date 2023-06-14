@@ -203,7 +203,7 @@ const isPartInvalid = (part: DatePart) => {
 <template>
   <div class="rpl-form-date">
     <label class="rpl-form-date__part">
-      <span class="rpl-form-date__part-label rpl-type-label-small">Date</span>
+      <span class="rpl-form-date__part-label rpl-type-label-small">Day</span>
       <RplFormInput
         :id="`${id}__day`"
         :name="`${id}__day`"

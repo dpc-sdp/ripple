@@ -1,15 +1,15 @@
 ---
 title: Call to action
-description: A card promoting a specific piece of content featuring a button highlighting the call to action.
+description: The Call to action component is a card promoting a specific piece of content and featuring a button highlighting the call to action.
 layout: page
 label: Core
 
 ---
 
 ## Usage
-The Call to Action card is used to provide a brief summary of content or a task. It features a button highlighting the call to action.
+Use the call to action card to give a brief summary of content or a task. The call to action card features a button highlighting the call to action.
 
-Use it to give the call to action more visual prominence. This can be used to guide users to perform a preferred action.
+Use it to give your call to action more visual prominence. The call to action card can guide users to perform a preferred action.
 
 ::DocsExample
 ---
@@ -32,9 +32,9 @@ id: core-navigation-card--call-to-action
 ---
 
 ## Theming
-The Call to Action card adopts its theming from the button component.
+The call to action card adopts its theming from your button component’s settings.
 
-If you choose neutral button for your site, the Call to Action card will display buttons in the neutral theme.
+If you choose neutral button for your site, the call to action card will display buttons in the neutral theme.
 
 
 ::DocsThemeChooser

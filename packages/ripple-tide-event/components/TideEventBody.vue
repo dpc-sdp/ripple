@@ -17,7 +17,7 @@ import type { TideEventLink } from '../types'
 
 interface Props {
   body: string
-  link?: TideEventLink | undefined
+  link?: TideEventLink
 }
 
 withDefaults(defineProps<Props>(), {

@@ -49,7 +49,7 @@ interface Props {
   description: any
   overview: any
   details: string[]
-  link?: TideEventLink | undefined
+  link?: TideEventLink
   date: TideEventDate
   showTime: boolean
 }

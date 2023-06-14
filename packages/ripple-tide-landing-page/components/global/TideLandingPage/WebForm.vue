@@ -13,7 +13,7 @@ interface Props {
   successMessageHTML: string
   errorMessageTitle?: string
   errorMessageHTML: string
-  schema?: Array<FormKitSchemaNode> | undefined
+  schema?: Array<FormKitSchemaNode>
 }
 
 const props = withDefaults(defineProps<Props>(), {

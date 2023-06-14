@@ -15,7 +15,7 @@ import { computed } from 'vue'
 import { TideDynamicPageComponent, formatDate } from '#imports'
 
 interface Props {
-  details?: any | undefined
+  details?: any
   components: Array<TideDynamicPageComponent>
 }
 

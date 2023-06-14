@@ -16,7 +16,7 @@ The skip link component will not display until a keyboard press activates it. Wh
 
 ::DocsExample
 ---
-id: core-layout--back-to-top-and-skip-links
+id: core-layout-skip-links--stand-alone
 ---
 ::
 
@@ -40,7 +40,7 @@ The skip link adopts the site focus state colour for a consistent focus state ex
 ::DocsThemeChooser
   ::DocsExample
   ---
-  id: core-layout--back-to-top-and-skip-links
+  id: core-layout-skip-links--stand-alone
   ---
   ::
 ::

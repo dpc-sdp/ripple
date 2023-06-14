@@ -1,9 +1,10 @@
 {
-  "name": "ripple-storybook",
-  "version": "2.1.0-alpha.180",
-  "private": true,
   "packageManager": "pnpm@8.0.0",
+  "name": "ripple-storybook",
+  "description": "Ripple Storybook instance",
+  "version": "2.1.0-alpha.180",
   "license": "Apache-2.0",
+  "private": true,
   "scripts": {
     "start": "start-storybook -p 6006",
     "build": "build-storybook",

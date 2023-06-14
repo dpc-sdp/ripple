@@ -1,9 +1,10 @@
 {
-  "private": true,
   "packageManager": "pnpm@8.0.0",
-  "license": "Apache-2.0",
   "name": "nuxt-app",
+  "description": "Example Nuxt application for SDP",
   "version": "2.1.0-alpha.77",
+  "license": "Apache-2.0",
+  "private": true,
   "scripts": {
     "dev": "nuxt dev",
     "dev:mock": "NUXT_PUBLIC_API_URL=http://localhost:3001 concurrently 'pnpm mockserver' 'pnpm dev'",

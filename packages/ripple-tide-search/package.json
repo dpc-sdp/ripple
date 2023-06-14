@@ -1,11 +1,10 @@
 {
-  "name": "@dpc-sdp/ripple-tide-search",
   "packageManager": "pnpm@8.0.0",
-  "version": "2.1.0-alpha.188",
+  "name": "@dpc-sdp/ripple-tide-search",
   "description": "Ripple search UI and services for connecting to Tide search",
-  "main": "./nuxt.config.ts",
+  "version": "2.1.0-alpha.188",
   "license": "Apache-2.0",
-  "keywords": [],
+  "main": "./nuxt.config.ts",
   "exports": {
     ".": "./nuxt.config.ts"
   },

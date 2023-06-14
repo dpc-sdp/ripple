@@ -1,7 +1,9 @@
 {
+  "packageManager": "pnpm@8.0.0",
   "name": "@dpc-sdp/ripple-tide-api",
-  "version": "2.1.0-alpha.186",
   "description": "Ripple API endpoints for Tide Drupal backend",
+  "version": "2.1.0-alpha.186",
+  "license": "Apache-2.0",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./types.d.ts",
@@ -13,9 +15,6 @@
     "./components": "./dist/nuxt/components",
     "./services": "./dist/services/index.js"
   },
-  "packageManager": "pnpm@8.0.0",
-  "license": "MIT",
-  "keywords": [],
   "scripts": {
     "clean": "(rimraf dist* && rimraf tsconfig.tsbuildinfo) | true",
     "build": "pnpm clean && tsc -p tsconfig.json && cp ./src/schema/openapi.yml ./dist/schema",

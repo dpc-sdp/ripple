@@ -6,7 +6,7 @@ import { useNitroApp } from '#imports'
 import ClientOAuth2 from 'client-oauth2'
 import { nanoid } from 'nanoid'
 import cookie from 'cookie-signature'
-import { AuthCookieNames, AuthRoutes } from '../../../utils/constants'
+import { AuthCookieNames } from '../../../utilities/constants'
 
 export const createOauthHandler = async (
   event: H3Event,

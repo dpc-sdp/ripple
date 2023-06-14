@@ -18,9 +18,6 @@
       <slot name="breadcrumbs">
         <TideBreadcrumbs
           :items="page.breadcrumbs"
-          :siteMenu="site?.menus.menuMain"
-          :currentPath="route.path"
-          :currentPageTitle="page.title"
           :besideQuickExit="site?.showQuickExit"
         />
       </slot>
@@ -61,7 +58,6 @@
 <script setup lang="ts">
 import { TideSiteData } from '@dpc-sdp/ripple-tide-api/types'
 import type { TidePublicationPage } from '../../types'
-import { useRoute } from '#imports'
 
 interface Props {
   site: TideSiteData
@@ -69,6 +65,4 @@ interface Props {
 }
 
 defineProps<Props>()
-
-const route = useRoute()
 </script>

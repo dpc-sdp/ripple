@@ -311,6 +311,7 @@ const hasValue = computed((): boolean => {
         :aria-selected="isOptionSelected(option.value)"
         tabindex="-1"
         @keydown.space.prevent="handleSelectOption(option.value)"
+        @keydown.enter.prevent="handleSelectOption(option.value)"
         @click="handleSelectOption(option.value)"
       >
         <span

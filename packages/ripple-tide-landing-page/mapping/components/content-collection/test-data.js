@@ -28,13 +28,14 @@ export const rawData = {
   field_content_collection_config: {
     title: '',
     description: '',
-    callToAction: { text: '', url: '' },
+    callToAction: { text: 'View all', url: '#' },
     internal: {
       contentTypes: ['landing_page', 'news'],
       contentFields: {
         field_topic: { values: [8941, 8940], operator: 'AND' }
       },
-      sort: [{ field: 'title', direction: 'asc' }]
+      sort: [{ field: 'title', direction: 'asc' }],
+      itemsToLoad: 6
     },
     interface: {
       display: {

@@ -15,7 +15,7 @@ export const actions: FormKitTypeDefinition = {
     props: {
       id: '$id',
       label: '$label',
-      variant: '$variant',
+      variant: '$node.props.variant',
       prefixIcon: '$node.props.prefixIcon',
       suffixIcon: '$node.props.suffixIcon',
       displayResetButton: '$node.props.displayResetButton'
@@ -34,7 +34,7 @@ export const actions: FormKitTypeDefinition = {
   /**
    * An array of extra props to accept for this input.
    */
-  props: ['icon', 'iconPosition', 'displayResetButton'],
+  props: ['variant', 'icon', 'iconPosition', 'displayResetButton'],
   /**
    * Forces node.props.type to be this explicit value.
    */

@@ -1,5 +1,5 @@
 <template>
-  <div class="rpl-form__outer">
+  <div class="rpl-form__outer docs-theme-chooser-controls">
     <RplFormLabel>Theme options</RplFormLabel>
     <RplFormOptionButtons
       v-model="theme"
@@ -46,6 +46,7 @@ provide('exampleTheme', theme)
 </script>
 
 <style scoped>
+.docs-theme-chooser-controls,
 .docs-theme-chooser-examples {
   margin-top: var(--rpl-sp-4);
 }

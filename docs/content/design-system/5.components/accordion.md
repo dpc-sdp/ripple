@@ -47,7 +47,7 @@ The other option is to remove the accordions and display the content without the
 ---
 
 ## Variants
-The accordion component has two variants:
+The accordion has 2 variants:
 - default
 - numbered.
 

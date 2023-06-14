@@ -9,18 +9,19 @@ interface Props {
   title?: string
   formId: string
   hideFormOnSubmit: boolean
-  successMessageTitle: string
+  successMessageTitle?: string
   successMessageHTML: string
-  errorMessageTitle: string
+  errorMessageTitle?: string
   errorMessageHTML: string
-  schema: Array<FormKitSchemaNode>
+  schema?: Array<FormKitSchemaNode> | undefined
 }
 
 const props = withDefaults(defineProps<Props>(), {
   title: undefined,
   hideFormOnSubmit: false,
   successMessageTitle: 'Form submitted',
-  errorMessageTitle: 'Form not submitted'
+  errorMessageTitle: 'Form not submitted',
+  schema: undefined
 })
 
 const honeypotId = `${props.formId}-important-email`
@@ -166,7 +167,7 @@ watch(
     >
       <template #belowForm>
         <div class="tide-webform-important-email">
-          <label for="honeypotId">Important email</label>
+          <label :for="honeypotId">Important email</label>
           <input :id="honeypotId" type="text" autocomplete="off" />
         </div>
       </template>

@@ -56,7 +56,7 @@
       </div>
     </DocsHomeSection>
 
-    <DocsHomeSection title="Quick links">
+    <DocsHomeSection title="Find out more">
       <div class="rpl-grid">
         <div class="rpl-col-12 rpl-col-6-m rpl-col-4-l">
           <RplPromoCard v-bind="page.quickLink1">

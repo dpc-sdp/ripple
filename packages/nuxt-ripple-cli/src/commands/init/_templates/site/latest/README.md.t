@@ -81,7 +81,7 @@ Run the production build:
 npm run start
 ```
 
-Note if you're running the production build locally it won't pick up values from the `.env` file, these will need to be exported.
+Note: if you're running the production build locally it won't pick up values from the `.env` file, these will need to be exported.
 
 Locally preview production build:
 

@@ -1,8 +1,6 @@
 # Nuxt Ripple CLI
 
-## Description
-
-The Nuxt Ripple CLI is a command line utility for simplifying common setup and scaffolding tasks.
+> CLI for simplifying common setup and scaffolding tasks.
 
 ## Installation
 

@@ -99,8 +99,8 @@ onUnmounted(() => {
     </RplSlider>
 
     <RplModal
-      class="rpl-media-gallery__modal"
       :is-open="showModal"
+      class-name="rpl-media-gallery__modal"
       @close="toggleModal"
     >
       <RplSlider

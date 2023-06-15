@@ -1,11 +1,9 @@
 <script setup lang="ts">
-defineProps<{
-  id: string
-  title?: string
+const props = defineProps<{
   items: Array<any>
 }>()
 </script>
 
 <template>
-  <RplMediaGallery :id="id" :items="items" />
+  <RplMediaGallery :items="items" />
 </template>

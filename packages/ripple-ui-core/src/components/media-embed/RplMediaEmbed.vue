@@ -222,8 +222,8 @@ const dataContentLabel = computed(() => {
     </ul>
 
     <RplModal
-      class="rpl-media-embed__modal"
       :is-open="isFullScreenOpen"
+      class-name="rpl-media-embed__modal"
       @close="() => (isFullScreenOpen = false)"
     >
       <RplImage :src="props.src" :alt="props.caption" fit="contain" />

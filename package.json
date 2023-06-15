@@ -106,7 +106,8 @@
       "vite-plugin-svg-icons>postcss": "~8.4.21"
     },
     "patchedDependencies": {
-      "@elastic/search-ui-elasticsearch-connector@1.19.1": "patches/@elastic__search-ui-elasticsearch-connector@1.19.0.patch"
+      "@elastic/search-ui-elasticsearch-connector@1.19.1": "patches/@elastic__search-ui-elasticsearch-connector@1.19.0.patch",
+      "vite-svg-loader@4.0.0": "patches/vite-svg-loader@4.0.0.patch"
     }
   },
   "version": "0.0.0"

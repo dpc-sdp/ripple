@@ -38,10 +38,5 @@
   "dependencies": {
     "concurrently": "^7.6.0",
     "vite-svg-loader": "^4.0.0"
-  },
-  "pnpm": {
-    "patchedDependencies": {
-      "vite-svg-loader@4.0.0": "patches/vite-svg-loader@4.0.0.patch"
-    }
   }
 }

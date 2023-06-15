@@ -83,10 +83,5 @@
     "vite-plugin-vue-svg": "^0.1.0",
     "wait-on": "^7.0.1",
     "yaml": "^2.2.1"
-  },
-  "pnpm": {
-    "patchedDependencies": {
-      "vite-svg-loader@4.0.0": "patches/vite-svg-loader@4.0.0.patch"
-    }
   }
 }

@@ -172,27 +172,33 @@ export default class TidePageApi extends TideApiBase {
     params = {},
     headers = {}
   ): Promise<any> {
-    const { 2: contentType, 3: uuid, 4: revisionId } = path.split('/')
-    const routeData = {
-      entity_type: 'node',
-      bundle: contentType,
-      uuid: uuid
+    try {
+      const { 2: contentType, 3: uuid, 4: revisionId } = path.split('/')
+      const routeData = {
+        entity_type: 'node',
+        bundle: contentType,
+        uuid: uuid
+      }
+
+      const resourceVersion =
+        revisionId === 'latest' ? 'rel:working-copy' : `id:${revisionId}`
+
+      const fullParams: any = {
+        ...params,
+        site,
+        include: this.getResourceIncludes(routeData),
+        resourceVersion
+      }
+
+      return await this.getPageByRouteData(routeData, {
+        headers,
+        params: fullParams
+      })
+    } catch (error) {
+      throw new NotFoundError(`Couldn't get page preview`, {
+        cause: error
+      })
     }
-
-    const resourceVersion =
-      revisionId === 'latest' ? 'rel:working-copy' : `id:${revisionId}`
-
-    const fullParams: any = {
-      ...params,
-      site,
-      include: this.getResourceIncludes(routeData),
-      resourceVersion
-    }
-
-    return await this.getPageByRouteData(routeData, {
-      headers,
-      params: fullParams
-    })
   }
 
   getResourceIncludes(route) {

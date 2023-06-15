@@ -49,6 +49,7 @@ onMounted(() => {
                   label="Was this page helpful?"
                   layout="inline"
                   class="wow"
+                  value=""
                   :options="[
                     { id: 'Yes', label: 'Yes', value: 'Yes' },
                     { id: 'No', label: 'No', value: 'No' }
@@ -74,7 +75,7 @@ onMounted(() => {
                   <RplContent>
                     <p>
                       If you need a response, please use our
-                      <RplLink href="/contact-us">contact us form</RplLink>.
+                      <RplLink url="/contact-us">contact us form</RplLink>.
                     </p>
                   </RplContent>
                   <FormKit type="RplFormActions" />

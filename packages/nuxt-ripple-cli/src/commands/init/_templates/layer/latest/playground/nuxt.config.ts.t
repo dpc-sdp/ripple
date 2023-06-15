@@ -9,7 +9,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       siteUrl: '',
-      API_URL: '',
+      apiUrl: '',
       tide: {
         baseUrl: '',
         site: '',

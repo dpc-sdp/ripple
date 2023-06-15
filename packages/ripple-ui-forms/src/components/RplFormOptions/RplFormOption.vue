@@ -16,7 +16,7 @@ export interface RplFormOptionProps {
   checked?: boolean
   disabled?: boolean
   variant?: 'default' | 'reverse'
-  onChange: (checked: boolean) => void
+  onChange?: (checked: boolean) => void
   onValue?: boolean | string | number
   offValue?: boolean | string | number
   showRequiredInLabel?: boolean

@@ -17,7 +17,7 @@ If you've installed the package globally you can now use the `nuxt-ripple` comma
 
 The `init` command will initialise a new site or layer.
 
-```bash
+```
 nuxt-ripple init [TEMPLATE] [DIRECTORY] --name {NAME}
 ```
 

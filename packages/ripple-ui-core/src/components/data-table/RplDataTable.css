@@ -71,7 +71,7 @@
     }
   }
 
-  --local-table-row-background: rgba(0 0 0 / 4%);
+  --local-table-row-background: rgb(0 0 0 / 4%);
 
   background-color: var(--rpl-data-table-bg-clr);
   color: var(--rpl-data-table-clr);

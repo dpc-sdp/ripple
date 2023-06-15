@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.190](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.189...v2.1.0-alpha.190) (2023-06-15)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-forms:** un-wrap date label for better voice over support ([d20d117](https://github.com/dpc-sdp/ripple-framework/commit/d20d117b11779379933b27eda69fc43bf9d1b5e7))
+
+### Features
+
+* **@dpc-sdp/ripple-ui-forms:** update date text ([5d38743](https://github.com/dpc-sdp/ripple-framework/commit/5d38743a7c3daa3dfabba36848e7e4e4325653df))
+
 # [2.1.0-alpha.189](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.188...v2.1.0-alpha.189) (2023-06-15)
 
 ### Bug Fixes

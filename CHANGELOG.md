@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.190](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.189...v2.1.0-alpha.190) (2023-06-15)
+
+### Bug Fixes
+
+* **@dpc-sdp/nuxt-ripple-cli:** remove defineNuxtConfig imports ([73cca87](https://github.com/dpc-sdp/ripple-framework/commit/73cca87c0d748aad29b9507d3d83bd9098b94cb6))
+* **@dpc-sdp/nuxt-ripple-cli:** remove layer license ([9e21ed2](https://github.com/dpc-sdp/ripple-framework/commit/9e21ed21d1d9501104b1b1299c4d5d61898a2deb))
+* **@dpc-sdp/nuxt-ripple-cli:** remove license and story, add css comment ([e96b8f3](https://github.com/dpc-sdp/ripple-framework/commit/e96b8f3ede5b763ee166baef9dba75acb9f68635))
+* **@dpc-sdp/nuxt-ripple-preview:** fix duplicate import warning ([3d1819b](https://github.com/dpc-sdp/ripple-framework/commit/3d1819ba0a40ed6e59fe27f2013b96be0d3acc55))
+* **@dpc-sdp/ripple-ui-core:** update tag ([58dac08](https://github.com/dpc-sdp/ripple-framework/commit/58dac08401983116d0b68b343bd13db943100a91))
+* **@dpc-sdp/ripple-ui-forms:** un-wrap date label for better voice over support ([d20d117](https://github.com/dpc-sdp/ripple-framework/commit/d20d117b11779379933b27eda69fc43bf9d1b5e7))
+* **docs:** fixed internal links hardcoded to a PR branch ([a056fca](https://github.com/dpc-sdp/ripple-framework/commit/a056fca54e61af22afb095b1efed58e3a7df08e1))
+
+### Features
+
+* **@dpc-sdp/nuxt-ripple-cli:** add story to component scaffolding ([82a3a2e](https://github.com/dpc-sdp/ripple-framework/commit/82a3a2ed52e79abd9b2c60c0d2c11a2ec5499805))
+* **@dpc-sdp/nuxt-ripple-cli:** readme updates ([103683a](https://github.com/dpc-sdp/ripple-framework/commit/103683a740af88f00592cdf0faa6e527070ce673))
+* **@dpc-sdp/nuxt-ripple-cli:** remove double quotes to appease linting, update readme ([b3275bf](https://github.com/dpc-sdp/ripple-framework/commit/b3275bfc7d8556a21a779d72a12cfbb0481239f5))
+* **@dpc-sdp/nuxt-ripple-cli:** update versions, readme, remove generate ([f40cbf4](https://github.com/dpc-sdp/ripple-framework/commit/f40cbf4fa9ea3c70a3466dca28e752ba8ca3536c))
+* **@dpc-sdp/ripple-ui-core:** add fonts to 'external' assets ([557aac5](https://github.com/dpc-sdp/ripple-framework/commit/557aac5ab751ce5aa16be7544445f77be5fe1a48))
+* **@dpc-sdp/ripple-ui-forms:** update date text ([5d38743](https://github.com/dpc-sdp/ripple-framework/commit/5d38743a7c3daa3dfabba36848e7e4e4325653df))
+
 # [2.1.0-alpha.189](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.188...v2.1.0-alpha.189) (2023-06-15)
 
 ### Bug Fixes

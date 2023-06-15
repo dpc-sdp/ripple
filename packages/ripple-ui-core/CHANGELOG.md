@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.190](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.189...v2.1.0-alpha.190) (2023-06-15)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** update tag ([58dac08](https://github.com/dpc-sdp/ripple-framework/commit/58dac08401983116d0b68b343bd13db943100a91))
+
+### Features
+
+* **@dpc-sdp/ripple-ui-core:** add fonts to 'external' assets ([557aac5](https://github.com/dpc-sdp/ripple-framework/commit/557aac5ab751ce5aa16be7544445f77be5fe1a48))
+
 # [2.1.0-alpha.189](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.188...v2.1.0-alpha.189) (2023-06-15)
 
 ### Bug Fixes

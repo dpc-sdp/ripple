@@ -96,13 +96,13 @@ const defaultSlotIsEmpty = useEmptySlotCheck(slots.default)
     <template #title>
       <h1 :class="titleClasses" data-cy="hero-title">{{ title }}</h1>
     </template>
-    <div
+    <p
       v-if="!defaultSlotIsEmpty"
       :class="contentClasses"
       data-cy="hero-summary"
     >
       <slot></slot>
-    </div>
+    </p>
     <template v-if="(primaryAction || secondaryAction) && !background" #lower>
       <RplHeaderActions :primary="primaryAction" :secondary="secondaryAction" />
     </template>

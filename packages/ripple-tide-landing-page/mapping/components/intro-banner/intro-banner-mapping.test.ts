@@ -22,7 +22,7 @@ const rawData = {
   behavior_settings: [],
   default_langcode: true,
   revision_translation_affected: true,
-  field_banner_display_type: 'buttons',
+  field_banner_display_type: 'featured_links',
   field_banner_type: 'featured_links',
   field_call_to_action_title: 'With button',
   field_paragraph_body: {
@@ -108,6 +108,7 @@ describe('introBannerMapping', () => {
               url: '/sdpta-content-collection-lp-list-view-topic-12-landing-page-16-10-2022'
             }
           ],
+          type: 'link',
           more: null
         },
         html: '<p>The <strong>introduction</strong> banner <em>summary</em></p>'
@@ -140,6 +141,7 @@ describe('introBannerMapping', () => {
               url: '/sdpta-content-collection-lp-list-view-topic-12-landing-page-16-10-2022'
             }
           ],
+          type: 'link',
           more: null
         },
         html: '<p>The <strong>introduction</strong> banner <em>summary</em></p>'

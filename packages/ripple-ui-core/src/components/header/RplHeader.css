@@ -275,6 +275,10 @@
     padding-bottom: var(--rpl-sp-11);
   }
 
+  .rpl-header__title {
+    color: var(--rpl-clr-type-default);
+  }
+
   .rpl-icon {
     color: var(--rpl-clr-link);
   }

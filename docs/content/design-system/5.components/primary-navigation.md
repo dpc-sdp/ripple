@@ -7,7 +7,7 @@ label: Core
 ---
 
 ## Usage
-The primary navigation helps a user to find the right content for them. Use it to show the level of your site's information architecture (IA). It works with the [Header](https://deploy-preview-457--ripple-docs.netlify.app/design-system/components/header/) to orientate your users, and helps keep all pages consistent. Use it as the primary way for users to navigate your site.
+The primary navigation helps a user to find the right content for them. Use it to show the level of your site's information architecture (IA). It works with the [Header](/design-system/components/header/) to orientate your users, and helps keep all pages consistent. Use it as the primary way for users to navigate your site.
 
 The primary navigation contains:
 - site logo
@@ -31,7 +31,7 @@ The logo helps users understand which site they are visiting. Clicking it should
 #### Co-Branding Logos
 Primary navigation allows for co-branding when required. The maximum size a co-branded logo can appear is 40h x 140w pixels.
 
-See [logo](https://deploy-preview-457--ripple-docs.netlify.app/design-system/styles/logo/) for guidance and requirements including co-branding.
+See [logo](/design-system/styles/logo/) for guidance and requirements including co-branding.
 
 #### Navigation links 
 The primary navigation displays the top level of the site’s IA. When the link has child pages, a chevron displays next to the top page name. When clicked, this opens the mega menu and displays the child pages.
@@ -78,7 +78,7 @@ The primary navigation has show and hide behaviour on user scroll.
 - Scroll up - the primary navigation shows at the top of the viewport. 
 
 #### Interaction with other components
-When a site has a [quick exit button](https://deploy-preview-457--ripple-docs.netlify.app/design-system/components/button/#destructive), it sits underneath the primary navigation. If the user opens the mega menu or search menu, the quick exit button moves inside the menu container. So, this action will always be available to users.
+When a site has a [quick exit button](/design-system/components/button/#destructive), it sits underneath the primary navigation. If the user opens the mega menu or search menu, the quick exit button moves inside the menu container. So, this action will always be available to users.
 
 ---
 
@@ -115,7 +115,7 @@ Primary navigation also adopts its theming from the [Search bar]() component.
 ---
 
 ## Accessibility 
-To meet [WCAG2.2 Criterion 2.5.8](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum), the primary navigation bar uses the space either side of menu items. This allows for increased touch targets and the use of the [block focus state](https://deploy-preview-457--ripple-docs.netlify.app/design-system/styles/focus-state/).
+To meet [WCAG2.2 Criterion 2.5.8](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum), the primary navigation bar uses the space either side of menu items. This allows for increased touch targets and the use of the [block focus state](/design-system/styles/focus-state/).
 
 > 2.5.8 Target Size (Minimum) The size of the [target](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum#dfn-target) for [pointer inputs](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum#dfn-pointer-input) is at least 24 by 24 [CSS pixels](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum#dfn-css-pixel),
 

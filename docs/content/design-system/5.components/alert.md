@@ -1,6 +1,6 @@
 ---
 title: Alert
-description: Alerts display required actions or important messages to users.
+description: The Alert component displays required actions or important messages to users.
 layout: page
 label: Core
 
@@ -15,9 +15,9 @@ Alerts are:
 - intrusive by design
 - created on purpose
 - dismissible by a user
-- not triggered by user action or backend event.
+- not triggered by user action or back-end event.
 
-Alerts sit flush at the top of pages above the Header component. Users can still interact with the page below an alert.
+Alerts sit flush at the top of pages above the header. Users can still interact with the page below an alert.
 
 ::DocsExample
 ---
@@ -26,23 +26,23 @@ id: core-containers-alert--information
 ::
 
 ### When and how to use
-- Use an alert if a message or action applies to an entire product or site, and not a feature or page only
-- Write the alert in plain language that's clean and concise to minimise a user's cognitive load
-- If the user needs more information or to complete an action, use link text for the call to action
-- Place the alert at the top of the screen before the Header
-- Only use the critical alert setting for messages or actions that warrant it
-- Limit actions to one per alert banner
+- Only use an alert if its message or action applies to an entire product or site.
+- Write the alert in plain language that's clean and concise to minimise a user's cognitive load.
+- If the user needs more information or to complete an action, use link text for the call to action.
+- Place the alert at the top of the screen before the header.
+- Only use the critical alert setting for messages or actions that warrant it.
+- Limit actions to one per alert banner.
 
 ### When and how not to use
-- Avoid changing specified alert colours
-- Alerts shouldn't cover other components, only pushing down page content
-- Don't use alerts for actions initiated by the user or backend
+- Don’t use an alert if its message applies only to that feature or page.
+- Alerts shouldn't cover other components, only pushing down page content.
+- Don't use alerts for actions initiated by the user or backend.
 
 ---
 
 ## Variants
 
-Alert styling is according to their meaning and uses semantic colours.
+An alert’s styling is according to its meaning and uses semantic colours.
 
 Alert colours include:
 
@@ -82,11 +82,11 @@ id: core-containers-alert--danger
 
 ---
 
-## Alert Ordering
+## Alert ordering
 
 So that users view alerts in order of importance, they appear in priority order:
 
-1. Error.
+1. Critical.
 1. Warning.
 1. Information.
 

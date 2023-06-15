@@ -1,18 +1,18 @@
 ---
 title: Callout
-description: A callout is used to draw attention to specific or important content.
+description: The Callout component is a text excerpt that draws attention to specific or important content.
 layout: page
 label: Core
 
 ---
 
 ## Usage
-Callouts are text excerpts used to:
+Use callouts to:
 - draw a user's attention
 - add emphasis to the content
 - provide a user with more information.
 
-It repeats and highlights content already on the page. Use callouts sparingly. To maintain effectiveness, consider weaving this information into the page's main content.
+A callout repeats and highlights content already on the page. Use callouts sparingly. To maintain effectiveness, consider weaving this information into the page's main content.
 
 ::DocsExample
 ---
@@ -26,19 +26,19 @@ id: core-containers-content--callout
 - Use with text only.
 
 ### When and how not to use
-- Only feature 1 callout per page.
+- Only feature one callout per page.
 - Use no more than 2 paragraphs per callout.
 - Don't put the callout at the bottom of the page.
 
 ---
 
 ## Variants
-To allow for different levels of emphasis, the callout component has two styles: 
-- Accent. 
-- Neutral.
+To allow for different levels of emphasis, a callout has 2 styles:
+- accent
+- neutral.
 
 ### Accent
-Use the accent variant to add a high level of emphasis to the selected content. The callout accent can adopt any WYSIWYG type styles.
+Use the accent variant to add a high level of emphasis to the selected content. The callout accent can adopt any WYSIWYG type styles you choose.
 
 ::DocsExample
 ---
@@ -75,8 +75,8 @@ To create your own theme, see [theming guidance for designers]() or [theming gui
 ---
 
 ## Rationale
-To enhance visual weight and address [WCAG2.0 Criterion 1.4.1](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-without-color.html), we’ve used:
-- a thick lefthand border
+To enhance visual weight and meet [WCAG2.0 Criterion 1.4.1](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-without-color.html), Ripple callouts use:
+- a thick left-hand border
 - background colours
 - padding.
 

@@ -202,8 +202,13 @@ const isPartInvalid = (part: DatePart) => {
 
 <template>
   <div class="rpl-form-date">
-    <label class="rpl-form-date__part">
-      <span class="rpl-form-date__part-label rpl-type-label-small">Date</span>
+    <div class="rpl-form-date__part">
+      <label
+        :for="`${id}__day`"
+        class="rpl-form-date__part-label rpl-type-label-small"
+      >
+        Day
+      </label>
       <RplFormInput
         :id="`${id}__day`"
         :name="`${id}__day`"
@@ -217,9 +222,14 @@ const isPartInvalid = (part: DatePart) => {
         :invalid="isPartInvalid('day')"
         @input="handleChangeDay"
       />
-    </label>
-    <label class="rpl-form-date__part">
-      <span class="rpl-form-date__part-label rpl-type-label-small">Month</span>
+    </div>
+    <div class="rpl-form-date__part">
+      <label
+        :for="`${id}__month`"
+        class="rpl-form-date__part-label rpl-type-label-small"
+      >
+        Month
+      </label>
       <RplFormInput
         :id="`${id}__month`"
         :name="`${id}__month`"
@@ -232,9 +242,14 @@ const isPartInvalid = (part: DatePart) => {
         :invalid="isPartInvalid('month')"
         @input="handleChangeMonth"
       />
-    </label>
-    <label class="rpl-form-date__part">
-      <span class="rpl-form-date__part-label rpl-type-label-small">Year</span>
+    </div>
+    <div class="rpl-form-date__part">
+      <label
+        :for="`${id}__year`"
+        class="rpl-form-date__part-label rpl-type-label-small"
+      >
+        Year
+      </label>
       <RplFormInput
         :id="`${id}__year`"
         :name="`${id}__year`"
@@ -247,7 +262,7 @@ const isPartInvalid = (part: DatePart) => {
         :invalid="isPartInvalid('day')"
         @input="handleChangeYear"
       />
-    </label>
+    </div>
   </div>
 </template>
 

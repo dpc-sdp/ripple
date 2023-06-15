@@ -4,7 +4,7 @@ import RplDescriptionListItem from './RplDescriptionListItem.vue'
 
 interface Props {
   inline?: boolean
-  items: Array<IRplDescriptionListItem>
+  items?: Array<IRplDescriptionListItem>
 }
 
 withDefaults(defineProps<Props>(), {

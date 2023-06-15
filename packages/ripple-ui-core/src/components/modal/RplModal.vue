@@ -10,9 +10,12 @@ const emit = defineEmits(['close'])
 
 interface Props {
   isOpen: boolean
+  className?: string
 }
 
-const props = defineProps<Props>()
+const props = withDefaults(defineProps<Props>(), {
+  className: undefined
+})
 
 const { height } = useWindowSize()
 
@@ -56,9 +59,9 @@ onUnmounted(() => {
 
 <template>
   <teleport to="body">
-    <UseFocusTrap v-if="props.isOpen" :options="{ immediate: true }">
+    <UseFocusTrap v-if="isOpen" :options="{ immediate: true }">
       <div
-        class="rpl-modal"
+        :class="`rpl-modal ${className}`"
         data-cy="modal"
         v-bind="$attrs"
         :style="`--local-view-height: ${height}px`"

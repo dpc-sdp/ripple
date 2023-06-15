@@ -16,6 +16,6 @@ export default <any>defineNuxtModule({
       prefix: 'rpl',
       pathPrefix: false
     })
-    console.log('Added Ripple Form UI components')
+    console.info('Added Ripple UI Forms components')
   }
 })

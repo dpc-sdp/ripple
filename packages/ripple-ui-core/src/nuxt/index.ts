@@ -38,6 +38,7 @@ export default <any>defineNuxtModule({
       prefix: 'rpl',
       pathPrefix: false
     })
+    console.info('Added Ripple UI Core components')
     // Plugin adds runtime setup tasks, eg: event bus
     addPlugin(resolve('./runtime/plugin'))
     // Adds required PostCss plugins

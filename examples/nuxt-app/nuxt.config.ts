@@ -3,7 +3,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       siteUrl: '',
-      API_URL: '',
+      apiUrl: '',
       tide: {
         // These can be overridden via environment variables eg: NUXT_PUBLIC_TIDE_BASE_URL
         // See https://nuxt.com/docs/api/configuration/nuxt-config#runtimeconfig for more info

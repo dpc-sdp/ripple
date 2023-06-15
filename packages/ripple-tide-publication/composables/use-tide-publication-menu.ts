@@ -9,7 +9,7 @@ export const useTidePublicationMenu = async (
   if (!menuData.value) {
     const { data, error } = await useFetch('/api/tide/publication-index', {
       key: `publication-menu-${publicationId}`,
-      baseURL: config.API_URL || '',
+      baseURL: config.apiUrl || '',
       params: {
         id: publicationId
       }

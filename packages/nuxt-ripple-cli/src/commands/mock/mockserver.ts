@@ -5,10 +5,10 @@ const rippleMockServer = async (
   routesPath: string,
   siteFixturePath: string
 ): Promise<void> => {
-  const API_URL = process.env.API_URL ? parseInt(process.env.API_URL) : 3001
+  const API_PORT = process.env.API_PORT ? parseInt(process.env.API_PORT) : 3001
 
   const mockServer = getLocal()
-  await mockServer.start(API_URL)
+  await mockServer.start(API_PORT)
   console.info('starting mock server...', mockServer.url)
 
   /*

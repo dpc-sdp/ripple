@@ -49,12 +49,14 @@ interface Props {
   description: any
   overview: any
   details: string[]
-  link: TideEventLink
+  link?: TideEventLink
   date: TideEventDate
   showTime: boolean
 }
 
-const props = defineProps<Props>()
+const props = withDefaults(defineProps<Props>(), {
+  link: undefined
+})
 
 const displayDate = computed(() =>
   formatDateRange(props.date, { weekday: 'long' }, props.showTime)

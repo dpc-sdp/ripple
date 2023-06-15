@@ -1,6 +1,6 @@
 ---
 title: Date input
-description: Help users enter a date.
+description: The Date input component helps users enter a date.
 layout: page
 label: Core
 

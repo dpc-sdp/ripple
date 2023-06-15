@@ -1,7 +1,7 @@
 {
   "name": "@dpc-sdp/ripple-ui-core",
   "packageManager": "pnpm@8.6.2",
-  "version": "2.1.0-alpha.186",
+  "version": "2.1.0-alpha.189",
   "license": "Apache-2.0",
   "files": [
     "dist",
@@ -39,6 +39,7 @@
     "preview": "vite preview",
     "storybook": "start-storybook -p 6006",
     "storybook:build": "build-storybook",
+    "stylelint": "stylelint \"**/*.css\"",
     "test:components": "cypress run --component",
     "test:generate-output": "jest --json --outputFile=.jest-test-results.json",
     "test:storybook": "test-storybook --stories-json",
@@ -73,7 +74,7 @@
     "pathe": "^1.1.0",
     "storybook-addon-designs": "^6.2.1",
     "style-dictionary": "^3.7.2",
-    "stylelint": "^15.3.0",
+    "stylelint": "^15.7.0",
     "stylelint-config-prettier": "^9.0.5",
     "stylelint-config-standard": "^31.0.0",
     "vite": "4.1.4",

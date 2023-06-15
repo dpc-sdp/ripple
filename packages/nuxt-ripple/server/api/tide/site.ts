@@ -1,6 +1,7 @@
 //@ts-nocheck runtime imports
 import { defineEventHandler, getQuery, H3Event } from 'h3'
 import { createHandler, TideSiteApi } from '@dpc-sdp/ripple-tide-api'
+import { BadRequestError } from '@dpc-sdp/ripple-tide-api/errors'
 import { useNitroApp } from '#imports'
 
 export const createSiteHandler = async (

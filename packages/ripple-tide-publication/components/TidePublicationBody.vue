@@ -14,10 +14,14 @@
 import { computed } from 'vue'
 import { TideDynamicPageComponent, formatDate } from '#imports'
 
-const props = defineProps<{
-  details: any
+interface Props {
+  details?: any
   components: Array<TideDynamicPageComponent>
-}>()
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  details: undefined
+})
 
 interface IRplDescriptionListItem {
   term: string
@@ -25,6 +29,8 @@ interface IRplDescriptionListItem {
 }
 
 const processed = computed(() => {
+  if (!props.details) return []
+
   const out: Array<IRplDescriptionListItem> = []
   for (const [key, value] of Object.entries(props.details)) {
     let val = value

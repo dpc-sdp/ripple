@@ -9,18 +9,19 @@ interface Props {
   title?: string
   formId: string
   hideFormOnSubmit: boolean
-  successMessageTitle: string
+  successMessageTitle?: string
   successMessageHTML: string
-  errorMessageTitle: string
+  errorMessageTitle?: string
   errorMessageHTML: string
-  schema: Array<FormKitSchemaNode>
+  schema?: Array<FormKitSchemaNode>
 }
 
 const props = withDefaults(defineProps<Props>(), {
   title: undefined,
   hideFormOnSubmit: false,
   successMessageTitle: 'Form submitted',
-  errorMessageTitle: 'Form not submitted'
+  errorMessageTitle: 'Form not submitted',
+  schema: undefined
 })
 
 const honeypotId = `${props.formId}-important-email`
@@ -58,7 +59,7 @@ const postForm = async (formId, formData = {}) => {
   const url = `api/tide/${formResource}/${formId}`
   const { data, error } = await $fetch(url, {
     method: 'POST',
-    baseURL: config.API_URL || '',
+    baseURL: config.apiUrl || '',
     body,
     params: {
       site: config.tide.site
@@ -166,7 +167,7 @@ watch(
     >
       <template #belowForm>
         <div class="tide-webform-important-email">
-          <label for="honeypotId">Important email</label>
+          <label :for="honeypotId">Important email</label>
           <input :id="honeypotId" type="text" autocomplete="off" />
         </div>
       </template>

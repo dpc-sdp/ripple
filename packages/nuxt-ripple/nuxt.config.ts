@@ -7,6 +7,7 @@ const assetCacheTime = 31536000 // 1 year
 export default defineNuxtConfig({
   runtimeConfig: {
     public: {
+      apiUrl: '',
       tide: {
         baseUrl: 'https://develop.content.reference.sdp.vic.gov.au',
         site: '8888',
@@ -17,8 +18,7 @@ export default defineNuxtConfig({
             password: 'sdp'
           }
         }
-      },
-      API_URL: ''
+      }
     }
   },
   robots: {

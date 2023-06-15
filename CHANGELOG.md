@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.189](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.188...v2.1.0-alpha.189) (2023-06-15)
+
+### Bug Fixes
+
+* cleaning up browser console warnings ([06bcb20](https://github.com/dpc-sdp/ripple-framework/commit/06bcb20d0ef2b069973cb532bacd26efa5645e00))
+* **nuxt-ripple:** added missing import for BadRequestError ([07acb0e](https://github.com/dpc-sdp/ripple-framework/commit/07acb0e8083f229a4bfd3776d0a60d85be5ac11b))
+* remove unneeded 'undefined' ([eb06dc3](https://github.com/dpc-sdp/ripple-framework/commit/eb06dc32b0ea1df001f7d8269209d5e9b171b305))
+
+### Features
+
+* **@dpc-sdp/ripple-ui-core:** re-instate stylelint and fix errors, fix eslint warnings ([022d859](https://github.com/dpc-sdp/ripple-framework/commit/022d8598fa2f4f6c791dc6d4dc9a687d981f5a07))
+* **@dpc-sdp/ripple-ui-core:** switch to rgb only ([36d9491](https://github.com/dpc-sdp/ripple-framework/commit/36d9491da8b6650aca56d4b11bef8ded2def1500))
+
 # [2.1.0-alpha.188](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.187...v2.1.0-alpha.188) (2023-06-13)
 
 ### Bug Fixes

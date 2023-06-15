@@ -7,7 +7,7 @@ export const useTideSite = async (id?: number): Promise<TideSiteData> => {
   if (!siteData.value) {
     const { data, error } = await useFetch('/api/tide/site', {
       key: `site-${siteId}`,
-      baseURL: config.API_URL || '',
+      baseURL: config.apiUrl || '',
       params: {
         id: siteId
       }

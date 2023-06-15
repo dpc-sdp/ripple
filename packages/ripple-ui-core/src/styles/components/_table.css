@@ -3,8 +3,8 @@
 .rpl-table {
   --local-dividing-border: var(--rpl-border-1) solid var(--rpl-clr-neutral-300);
   --local-scroll-indicator-width: 1.6rem;
-  --local-scrolling-idicator-fade: rgba(25 25 25 / 8%);
-  --local-table-row-background: rgba(0 0 0 / 4%);
+  --local-scrolling-idicator-fade: rgb(25 25 25 / 8%);
+  --local-table-row-background: rgb(0 0 0 / 4%);
 
   margin-top: var(--rpl-sp-5);
   background-color: var(--rpl-clr-neutral-0);

@@ -57,6 +57,7 @@
       bottom: calc(
         var(--rpl-focusable-border-width, 0px) * -1
       ) !important; /* invert border width as bottom position */
+      /* stylelint-disable-next-line declaration-block-no-redundant-longhand-properties */
       left: calc(0px - var(--rpl-focusable-border-width, 0px)) !important;
       height: var(--rpl-border-3);
       width: calc(

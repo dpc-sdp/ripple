@@ -53,6 +53,7 @@
     var(--local-search-bar-clr-bottom-bar);
   padding: var(--rpl-sp-3);
   border-radius: 0;
+  /* stylelint-disable-next-line property-no-vendor-prefix */
   -webkit-appearance: none;
 
   /* Magic number to represent the width of the search button */

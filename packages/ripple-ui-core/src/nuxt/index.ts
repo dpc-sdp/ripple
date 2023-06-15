@@ -19,6 +19,14 @@ export default <any>defineNuxtModule({
       } else {
         viteInlineConfig.plugins = vitePlugins
       }
+      // Add external assets
+      if (viteInlineConfig.build?.rollupOptions) {
+        if (Array.isArray(viteInlineConfig.build.rollupOptions?.external)) {
+          viteInlineConfig.build.rollupOptions?.external?.push(/assets\/fonts/)
+        } else if (!viteInlineConfig.build.rollupOptions?.external) {
+          viteInlineConfig.build.rollupOptions.external = [/assets\/fonts/]
+        }
+      }
     }
   },
   async setup(_options, nuxt) {

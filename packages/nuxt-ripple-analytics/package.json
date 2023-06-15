@@ -2,7 +2,7 @@
   "packageManager": "pnpm@7.23.0",
   "name": "@dpc-sdp/nuxt-ripple-analytics",
   "description": "Nuxt module for handling event tracking.",
-  "version": "2.1.0-alpha.188",
+  "version": "2.1.0-alpha.189",
   "license": "Apache-2.0",
   "main": "./nuxt.config.ts",
   "exports": {

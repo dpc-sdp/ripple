@@ -2,7 +2,7 @@
   "packageManager": "pnpm@8.0.0",
   "name": "ripple-storybook",
   "description": "Ripple Storybook instance",
-  "version": "2.1.0-alpha.180",
+  "version": "2.1.0-alpha.189",
   "license": "Apache-2.0",
   "private": true,
   "scripts": {

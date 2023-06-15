@@ -5,13 +5,16 @@ import {
   ArgsTable
 } from '@storybook/addon-docs'
 import RplFormRadioGroup from './RplFormRadioGroup.vue'
+import StorybookInputFixture from './../StorybookInputFixture/StorybookInputFixture.vue'
 
 export const SingleTemplate = (args) => ({
-  components: { RplFormRadioGroup },
+  components: { RplFormRadioGroup, StorybookInputFixture },
   setup() {
     return { args }
   },
-  template: '<RplFormRadioGroup v-bind="args" />'
+  template: `<StorybookInputFixture :invalid="args.invalid" :useFieldset="true">
+    <RplFormRadioGroup v-bind="args" />
+  </StorybookInputFixture>`
 })
 
 <Meta title='Forms/Radio group' component={RplFormRadioGroup} args={{

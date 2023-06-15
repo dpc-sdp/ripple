@@ -46,7 +46,7 @@ Only use hint text where it’s needed. Don’t use it just to keep the layout c
 
 ### When and how not to use
 - If it’s not likely users will know the exact date, don’t use date input.
-- Don’t use the without a form label, or hint text specifying the expected date format.
+- Don’t use without a form label or hint text specifying the expected date format.
 - Avoid placeholder text because it can cause accessibility issues.
 - Don’t disable copy and paste.
 - Don’t use placeholder text to give instructions or important examples.
@@ -55,7 +55,7 @@ Only use hint text where it’s needed. Don’t use it just to keep the layout c
 ---
 
 ## Variants
-The date input has two variants:
+The date input has 2 variants:
 - default, used on white backgrounds
 - reverse, used on neutral backgrounds.
 

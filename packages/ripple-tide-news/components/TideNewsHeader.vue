@@ -10,7 +10,7 @@ export default { name: 'TideNewsHeader' }
     :breadcrumbs="hasBreadcrumbs"
     :title="header.title"
   >
-    <p>{{ header.summary }}</p>
+    {{ header.summary }}
   </RplHeroHeader>
 </template>
 

@@ -1,17 +1,17 @@
 ---
 title: Card
-description: Cards contain content about another page, event or topic. They help users find relevant information.
+description: The Card component shows content about another page, event or topic. They help users find relevant information.
 layout: page
 label: Core
 
 ---
 
 ## Usage
-Cards allow users to find the right information quickly.
+Use cards to help users find the right information quickly.
 
 They can combine a variety of content, including text, media and links.
 
-They are best used on a landing page to highlight any related pages, events, or ongoing campaigns.
+Cards are best used on a landing page to highlight any related pages, events or ongoing campaigns.
 
 Ensure headings are direct and summaries are concise.
 
@@ -23,21 +23,21 @@ id: core-navigation-card--promo&args=graphicElement:None
 
 ### How this component works
 Cards can be made up of: 
-- Metadata, to show supplementary data to give more information to the user. This could include a date, topic or status.
-- Headline, to provide a snapshot of the content.
-- Summary, to provide further details.
-- Visual elements, to provide visual prominence.
+- metadata, to show supplementary data to give the user more information (for example, date, topic, status, etc.) 
+- headline, to provide a snapshot of the content
+- summary, to provide further details
+- visual elements, to provide visual prominence.
 
 You only need a headline and a summary for a card. All other elements are optional and will depend on a user's needs.
 
 #### Metadata
 All cards have optional metadata. Use metadata to display a combination of:
-- topic / tag, which are the categories of a topic or theme when a user needs to further group content. Like departments, agencies, or services
-- date, which is how old the content is when this information is important to the user
-- status, which is where something is sitting in a process.
+- topic/tag - categories for when a user needs to group content (for example, departments, agencies, services, etc.)
+- date - how old the content is, for when this information is important to the user
+- status - where a component or action is sitting within a process.
 
 #### Visual elements
-Visual elements in cards allow for different content to stand out. They can also provide addition context.
+Visual elements in cards allow for different content to stand out. They can also provide additional context.
 
 Elements that can provide visual prominence include:
 - an image
@@ -47,13 +47,13 @@ Elements that can provide visual prominence include:
 Use visual elements carefully. Only use a visual element if it:
 - is meaningful to the user journey
 - supports what is already in the content
-- can help the user differentiate it from other content
+- can help the user differentiate content from other content
 - can be easily identified
-- is informative and not decorative.
+- is informative and not only decorative.
 
 ### When and how to use
 - Group together cards with similar content.
-- Use a single style of card in a set of cards.
+- Use only a single style of card within a set of cards.
 - Keep the content clear and concise.
 - Only use one piece of information per card.
 
@@ -62,25 +62,25 @@ Use visual elements carefully. Only use a visual element if it:
 - Never use a single card only.
 - Never repeat content in a group of cards.
 - Don't overload cards with content.
-- Don't include other interactive elements inside the card, like links. 
+- Don't include other interactive elements, like links, inside the card. 
 
 ---
 
 ## Variants
-Cards have two main variants, and are styled for their purpose:
+A card has 2 main variants and is styled for its purpose.
 - Promotion Cards, which is used to highlight important content.
 - Navigation Cards, which is used for larger groups of content.
 
 ### Promotion cards
 Promotion cards provide an eye-catching way to promote links to other pages on your site (or external sites).
 
-Promotion cards stack in a grid when in a collection.
+Promotion cards stack in a grid when used in a collection.
 
 Promotion cards have 4 variants:
-- Standard.
-- Highlight.
-- Image full bleed.
-- Avatar.
+- standard
+- highlight
+- image full bleed
+- avatar.
 
 #### Standard
 ::DocsExample
@@ -124,9 +124,9 @@ On landing pages, they are used to highlight all the different sections of that 
 Navigation cards fill the full width of the content area. They will always stack vertically.
 
 There are 3 variants of navigation cards:
-- Standard.
-- Image inset.
-- Heading highlight.
+- standard
+- image inset
+- heading highlight.
 
 #### Standard
 ::DocsExample
@@ -145,7 +145,7 @@ id: core-navigation-card--nav
 ---
 ::
 
-#### Heading highlighted
+#### Heading highlight
 To draw attention to the heading and highlight the content, use a heading highlight.
 
 ::DocsExample
@@ -160,7 +160,7 @@ argsString: 'graphicElement:Heading+highlighted'
 ## Theming
 Cards use colour for: 
 - interaction states
-- to add visual prominence to some elements.
+- adding visual prominence to some elements.
 
 ::DocsThemeChooser
   ::DocsExample

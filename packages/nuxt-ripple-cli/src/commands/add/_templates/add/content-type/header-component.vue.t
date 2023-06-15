@@ -7,7 +7,7 @@ to: components/Tide<%= h.changeCase.pascalCase(name) %>Header.vue
     :breadcrumbs="hasBreadcrumbs"
     :title="header.title"
   >
-    <p>{{ header.summary }}</p>
+    {{ header.summary }}
   </RplHeroHeader>
 </template>
 

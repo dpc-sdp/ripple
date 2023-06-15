@@ -1,17 +1,17 @@
 ---
 title: Campaign banner
-description: Campaign banners draw user's attention to promoted content.
+description: The Campaign banner component draws a user's attention to promoted content.
 layout: page
 label: Core
 
 ---
 
 ## Usage
-Campaign banners promote content. They use a feature image and have an optional call to action.
+Use campaign banners to promote content. They include a feature image and have an optional call to action.
 
-The banner has a headline and short summary text. These point users to promoted content and guide them to the call to action.
+The banner has a headline and short summary text. These point users to promoted content and guide them to a call to action contained in a button.
 
-They can be used at the top or bottom of pages, under the header, or above the footer.
+Campaign banners can be used at the top or bottom of a page, under the header or above the footer.
 
 ::DocsExample
 ---
@@ -31,12 +31,12 @@ id: core-navigation-campaign-banner--primary-image
 ---
 
 ## Variants
-The Campaign Banner has two variants:
-- Featured, which appears at the top of the page, below the [header](/design-system/components/header/).
-- Image Inset, which appears at the bottom of the page above the [footer](/design-system/components/footer/).
+The campaign banner has 2 variants:
+- featured, which appears at the top of the page, below the header
+- image inset, which appears at the bottom of the page above the footer.
 
 ### Featured
-A featured campaign banner goes at the top of the page underneath the header. When on larger screens, the image is cropped in a shape and can overlap the above component (header).
+A featured campaign banner goes at the top of the page underneath the header. When on larger screens, the image is cropped in a shape and can overlap the component above (the header).
 
 There is an option to include metadata for the image if required.
 
@@ -47,7 +47,7 @@ id: core-navigation-campaign-banner--primary-image
 ::
 
 ### Image inset
-Image inset variant sits above the footer at the bottom of the page. This should be used for less prominent campaigns. For featured campaigns, we recommend using the featured variant at the top of the page.
+The image inset variant sits above the footer at the bottom of the page. This should be used for less prominent campaigns. For featured campaigns, we recommend using the featured variant at the top of the page.
 
 ::DocsExample
 ---
@@ -58,9 +58,9 @@ id: core-navigation-campaign-banner--secondary-image
 ---
 
 ## Theming
-The Campaign Banner adopts its theming from the [button](/design-system/components/button/) component.
+The campaign banner adopts its theming from the button component.
 
-If you choose neutral button for your site, the Campaign Banner will display buttons in the neutral theme.
+If you choose the neutral button variant for your site, the campaign banner will display buttons in the neutral theme.
 
 ::DocsThemeChooser
   ::DocsExample

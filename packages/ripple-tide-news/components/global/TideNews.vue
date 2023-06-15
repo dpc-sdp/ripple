@@ -22,11 +22,7 @@
       <TideNewsHeader :header="page.header" :hasBreadcrumbs="hasBreadcrumbs" />
     </template>
     <template #body="{ hasSidebar }">
-      <TideNewsBody
-        :body="page.body"
-        :details="page.details"
-        :components="page.dynamicComponents"
-      />
+      <TideNewsBody :body="page.body" :details="page.details" />
       <TideDynamicComponents
         v-if="page.dynamicComponents?.length > 0"
         :components="page.dynamicComponents"

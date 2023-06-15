@@ -29,7 +29,7 @@ const setupGTM = (GTM_ID: string) => {
 
 export default defineNuxtPlugin((nuxtApp) => {
   const appConfig = useAppConfig()?.ripple?.analytics
-  const runtimeConfig = useRuntimeConfig()?.tide?.analytics
+  const runtimeConfig = useRuntimeConfig()?.public?.tide?.analytics
   const eventListeners: Record<string, any> = appConfig?.eventListeners
 
   /* @ts-ignore process is extended by webpack */

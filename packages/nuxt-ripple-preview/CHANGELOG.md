@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.189](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.188...v2.1.0-alpha.189) (2023-06-15)
+
+### Features
+
+* **@dpc-sdp/ripple-ui-core:** re-instate stylelint and fix errors, fix eslint warnings ([022d859](https://github.com/dpc-sdp/ripple-framework/commit/022d8598fa2f4f6c791dc6d4dc9a687d981f5a07))
+
 # [2.1.0-alpha.188](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.187...v2.1.0-alpha.188) (2023-06-13)
 
 **Note:** Version bump only for package @dpc-sdp/nuxt-ripple-preview

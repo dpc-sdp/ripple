@@ -73,6 +73,6 @@ const headerTheme = computed(() => {
     :primaryAction="header.primaryAction"
     :secondaryAction="secondaryAction"
   >
-    {{ header.introText }}
+    <p>{{ header.introText }}</p>
   </RplHeroHeader>
 </template>

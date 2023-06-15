@@ -1,5 +1,16 @@
 <template>
   <AppLayout background="alt">
+    <template #aboveHeader>
+      <RplAlertsContainer>
+        <RplAlert
+          message="These Docs are for Ripple version 2.0. If you are looking for the original Ripple Storybook please click below"
+          linkText="View Ripple 1 storybook"
+          linkUrl="https://master--5e736ff82649250022dd830c.chromatic.com/"
+          alert-id="storybook-alert"
+          :isDismissible="false"
+        />
+      </RplAlertsContainer>
+    </template>
     <template #aboveBody>
       <DocsHeroHeader :title="title" :description="subheader" />
 

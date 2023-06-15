@@ -4,6 +4,7 @@
   <Meta name="twitter:card" content="summary_large_image" />
   <RplIconSprite />
   <div :class="`docs-theme--${theme}`">
+    <slot name="aboveHeader" />
     <AppNavbar>
       <template #menuContents>
         <slot name="menuContents" />

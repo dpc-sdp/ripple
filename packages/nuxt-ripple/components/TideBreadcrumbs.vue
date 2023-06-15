@@ -17,15 +17,18 @@ interface IRplBreadcrumbsItem {
 }
 
 interface Props {
-  siteMenu: any
+  siteMenu?: any
   items?: IRplBreadcrumbsItem[]
-  currentPath: string
-  currentPageTitle: string
-  besideQuickExit: boolean
+  currentPath?: string
+  currentPageTitle?: string
+  besideQuickExit?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
+  siteMenu: undefined,
   items: () => [],
+  currentPath: undefined,
+  currentPageTitle: undefined,
   besideQuickExit: false
 })
 

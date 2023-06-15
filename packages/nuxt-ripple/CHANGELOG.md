@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.189](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.188...v2.1.0-alpha.189) (2023-06-15)
+
+### Bug Fixes
+
+* cleaning up browser console warnings ([06bcb20](https://github.com/dpc-sdp/ripple-framework/commit/06bcb20d0ef2b069973cb532bacd26efa5645e00))
+* **nuxt-ripple:** added missing import for BadRequestError ([07acb0e](https://github.com/dpc-sdp/ripple-framework/commit/07acb0e8083f229a4bfd3776d0a60d85be5ac11b))
+
 # [2.1.0-alpha.188](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.187...v2.1.0-alpha.188) (2023-06-13)
 
 **Note:** Version bump only for package @dpc-sdp/nuxt-ripple

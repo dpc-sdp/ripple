@@ -5,8 +5,8 @@ const mockedRoutes = require('./mock-routes.json')
 const mockSiteTaxonomy = require(`./test/fixtures/site/large-menu.json`)
 
 const setupMockServer = async () => {
-  const API_URL = parseInt(process.env.API_URL) || 3001
-  await mockServer.start(API_URL)
+  const API_PORT = parseInt(process.env.API_PORT) || 3001
+  await mockServer.start(API_PORT)
 
   console.log('starting mock server...', mockServer.url)
 

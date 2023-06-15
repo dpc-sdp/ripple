@@ -12,7 +12,9 @@ export default async (props: any) => {
 
   // Additional <link>s in head
   const links = []
-  page.meta.additional
+  const additionalMeta = page.meta?.additional || []
+
+  additionalMeta
     .filter((attr: any) => attr.tag === 'link')
     .map((attr: any) => {
       if (attr.attributes.rel) links.push(attr.attributes)
@@ -33,7 +35,7 @@ export default async (props: any) => {
       description: ''
     },
     metaOverrides = {}
-  page.meta.additional
+  additionalMeta
     .filter((attr: any) => attr.tag === 'meta')
     .map((attr: any) => {
       if (attr.attributes.name || attr.attributes.property)

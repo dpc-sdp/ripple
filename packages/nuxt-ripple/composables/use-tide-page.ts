@@ -52,7 +52,7 @@ export const useTidePage = async (
   if (!pageData.value) {
     const { data, error } = await useFetch('/api/tide/page', {
       key: `page-${path}`,
-      baseURL: config.API_URL || '',
+      baseURL: config.apiUrl || '',
       params: {
         path,
         site: siteId

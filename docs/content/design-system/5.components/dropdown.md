@@ -1,19 +1,19 @@
 ---
 title: Dropdown
-description: Let users select one or more options from a list of available options.
+description: The Dropdown component lets users see a list of available options and then select one or more options.
 layout: page
 label: Core
 
 ---
 
 ## Usage
-Let users select one or more items from a dropdown list of available items.
+Use this component to let users select one or more items from a dropdown list of available items.
 
-It can be helpful when users need to choose from 6 or more options. It can also be used when listing all options in [checkboxes](/design-system/components/checkbox/) or [radio buttons](/design-system/components/radio-button/) is not viable.
+It can be helpful when users need to choose from 6 or more options. It can also be used when listing all options in checkboxes or radio buttons is not viable.
 
 Dropdowns should only be used as a last resort. For example, to find a compromise between usability and keeping the layout compact and clear.
 
-Many users find dropdowns hard to use. Dropdowns hide content by default and create user confusion, cross-device issues and limited accessibility. Use [radio buttons](/design-system/components/radio-button/), [checkboxes](/design-system/components/checkbox/) or [input fields](/design-system/components/input-field/) for most small lists instead.
+Many users find dropdowns hard to use. Dropdowns hide content by default and create user confusion, cross-device issues and limited accessibility. Use radio buttons, checkboxes or input fields for most small lists instead.
 
 A compromise might be needed for a long list of options (for example, all dog breeds). Or, when option description lengths vary or wrap over multiple lines. These situations also confuse users by creating layout issues for [checkboxes](/design-system/components/checkbox/), [input fields](/design-system/components/input-field/) or [radio buttons](/design-system/components/radio-button/).
 
@@ -39,10 +39,10 @@ A single select dropdown is used when users can select only a single option.
 #### Multi select
 If using a multi select dropdown, always tell the user how many menu options they can select. Add extra instructions in the hint text to guide them. For example, 'Select up to 3 options'.
 
-Even though users can choose multiple items in a multi select dropdown, they often find this confusing. [Checkboxes](/design-system/components/checkbox/) could be better.
+Even though users can choose multiple items in a multi select dropdown, they often find this confusing. checkboxes could be better.
 
 #### Hint text
-Hint text can be used to tell the user what, or how, to successfully complete an dropdown.
+Hint text can be used to tell the user what, or how, to successfully complete a dropdown.
 
 For example, hint text can include:
 - an overall description of the dropdown
@@ -65,7 +65,7 @@ When the field label and menu text are too long for the available horizontal spa
 The field text itself truncates at the end, but the text can be shown in full in the menu.
 
 #### Menu height
-The dropdown menu has a maximum height of 288px or 6 single text line options.
+The dropdown menu has a maximum height of 288px or 6 single text-line options.
 
 We recommend starting a scroll at the sixth option in the menu list. This may vary based on your specific use case.
 
@@ -73,14 +73,14 @@ We recommend starting a scroll at the sixth option in the menu list. This may va
 - Use as a last resort component.
 - A label must be used with a dropdown.
 - Ensure dropdown item descriptions are short and concise.
-- Use when listing between 6 and (if possible) 15 items, if [checkboxes](/design-system/components/checkbox/) or [radio buttons](/design-system/components/radio-button/) can’t be used.
+- Use when listing between 6 and (if possible) 15 items, if checkboxes or radio buttons can’t be used.
 
 ### When and how not to use
 - Never set the form to submit when a dropdown item is selected.
 - Don’t write long menu option descriptions.
 - Descriptions should not wrap over a single line.
 - Icons or decorative images should never be used in dropdowns.
-- Do not use a dropdown for listings less than 6 options, consider using [radio buttons](/design-system/components/radio-button/) or [checkboxes](/design-system/components/checkbox/).
+- Do not use a dropdown for listings less than 6 options, consider using radio buttons or checkboxes.
 - Do not use a dropdown without a label as it confuses users and is not accessible.
 
 ---
@@ -155,11 +155,15 @@ When creating an error message for a dropdown, use the wording below.
 
 **If nothing is selected and the question has options in it**
 
-Structure this message to help the user to choose which options apply to them. Say ‘Select if \[options\]’. For example, ‘Select if you like summer, winter, autumn, and/or spring.'
+Structure this message to help the user to choose which options apply to them. 
+- Error message: ‘Select if \[options\]’.
+- Example: ‘Select if you like summer, winter, autumn, and/or spring.'
 
 **If nothing is selected and the question does not have options in it**
 
-Structure this message to help the user to choose which options apply to them. Say ‘select \[options\]’. For example, 'Select your favourite season.'
+Structure this message to help the user to choose which options apply to them. 
+- Error message: ‘Select [options]’. 
+- Example: 'Select your favourite season'.
 
 ::DocsExample
 ---

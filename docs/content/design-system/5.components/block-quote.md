@@ -1,6 +1,6 @@
 ---
 title: Block quote
-description: Add emphasis to a quote.
+description: The Block quote component adds emphasis to a quote.
 layout: page
 label: Core
 
@@ -8,7 +8,7 @@ label: Core
 
 ## Usage
 
-Block quotes emphasise:
+Use block quotes to emphasise:
 
 - important information
 - excerpts from a source.
@@ -21,11 +21,11 @@ id: core-containers-content--blockquote
 
 ### When and how to use
 
-- Only use text in block quotes
-- Always include Open-quote and Close-quote ("")
-- Can include optional author metadata
-- You can feature more than one quote by a single author
-- Only use in content sections
+- Only use text in block quotes.
+- Always put all the quoted text inside opening and closing quotation marks (' '). 
+- Include optional author metadata.
+- You can feature more than one quote by a single author.
+- Only use in content sections.
 
 ### When and how not to use
 
@@ -35,7 +35,7 @@ id: core-containers-content--blockquote
 
 ## Theming
 
-The Block Quote uses colour to add subtle visual prominence.
+The block quote uses colour to add subtle visual prominence.
 
 
 ::DocsThemeChooser

@@ -1,15 +1,15 @@
 ---
 title: Carousel
-description: A set of related cards that users can side-scroll through.
+description: The Carousel component is a set of related cards that users can side-scroll through.
 layout: page
 label: Core
 
 ---
 
 ## Usage
-A carousel allows users to browse through a set of up to 9 cards using pagination controls. 
+Use a carousel to let users browse through a set of up to 9 cards with pagination controls.
 
-The content in the carousel should be related in some way. This allow users to find related and relevant content.
+The content in the carousel should be related in some way. This helps users to find related and relevant content.
 
 ::DocsExample
 ---
@@ -24,13 +24,13 @@ id: core-containers-card-carousel--breakpoints
 - Include with an accompanying title to give context to users.
 
 ### When and how not to use
-- Don’t use more than 9 cards or less than 3.
-- Do not use with navigation or other card types.
+- Don’t use more than 9 cards or fewer than 3.
+- Don't use with navigation or other card types.
 
 ---
 
 ## Theming
-The carousel adopts its theming from the [card](https://deploy-preview-457--ripple-docs.netlify.app/design-system/components/card/) and [pagination](/design-system/components/pagination/) components.
+The carousel adopts its theming from the card and pagination components.
 
 ::DocsThemeChooser
   ::DocsExample

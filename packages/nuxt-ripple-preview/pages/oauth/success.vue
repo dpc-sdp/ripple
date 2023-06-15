@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useTideSite } from '#imports'
-import { LOGIN_DESTINATION_KEY } from '../../utils/constants'
+import { LOGIN_DESTINATION_KEY } from '../../utilities/constants'
 import { onMounted } from 'vue'
 
 const site = await useTideSite()

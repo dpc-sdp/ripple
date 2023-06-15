@@ -1,15 +1,15 @@
 ---
 title: Chip
-description: An interactive element to draw user attention to a category.
+description: The Chip component is an interactive element to draw a user’s user attention to a category.
 layout: page
 label: Core
 
 ---
 
 ## Usage
-Chips represent options in a specific context. They are unlike buttons, which are persistent.
+Use chips to represent options in a specific context. They are unlike buttons, which are persistent across contexts.
 
-A chip labels or draws attention to categorised content. They can be interactive and help users navigate to content easily.
+A chip labels or draws attention to categorised content. Chips can be interactive and help users navigate to relevant content easily.
 
 When displaying multiple chips together, place them in a row.
 
@@ -26,25 +26,25 @@ id: core-navigation-chip--default-story
 
 ### When and how not to use
 - Don’t include punctuation.
-- Don’t use them as a heading.
+- Don’t use as a heading.
 - Don’t include more than 4 words.
 - Don’t use without an interaction or link.
 
 ---
 
-## Chips or Buttons? 
+## Chips or buttons? 
 While chips and buttons both prompt calls to action, they are different.
 
-Chips should sit together, and buttons separate.
+Multiple chips should all sit together. Buttons should sit separately from each other. 
 
-Chips have context and react, where buttons remain static.
+Chips react to their context, but buttons are fixed and remain static.
 
-Chips represent forking paths in a user experience, while buttons represent a linear step.
+Chips convey forking paths in a user experience, while buttons show a linear step.
 
 ---
 
 ## Variants
-The chip has a default and reverse variant, allowing for flexibility of use on a range of backgrounds.
+The chip has a default and reverse variant, allowing flexible use across a range of backgrounds.
 
 ### Default
 ::DocsExample

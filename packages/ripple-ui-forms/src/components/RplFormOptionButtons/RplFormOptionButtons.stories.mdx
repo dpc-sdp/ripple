@@ -5,13 +5,16 @@ import {
   ArgsTable
 } from '@storybook/addon-docs'
 import RplFormOptionButtons from './RplFormOptionButtons.vue'
+import StorybookInputFixture from './../StorybookInputFixture/StorybookInputFixture.vue'
 
 export const SingleTemplate = (args) => ({
-  components: { RplFormOptionButtons },
+  components: { RplFormOptionButtons, StorybookInputFixture },
   setup() {
     return { args }
   },
-  template: '<RplFormOptionButtons v-bind="args" />'
+  template: `<StorybookInputFixture :invalid="args.invalid" :useFieldset="true">
+    <RplFormOptionButtons v-bind="args" />
+  </StorybookInputFixture>`
 })
 
 <Meta title='Forms/Option buttons' component={RplFormOptionButtons} args={{

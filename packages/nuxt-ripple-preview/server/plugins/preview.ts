@@ -2,7 +2,7 @@ import type { NitroApp } from 'nitropack'
 import { logger } from '@dpc-sdp/ripple-tide-api'
 import ClientOAuth2 from 'client-oauth2'
 import { useRuntimeConfig } from '#imports'
-import { AuthRoutes } from '../../utils/constants'
+import { AuthRoutes } from '../../utilities/constants'
 
 // fix type stub - See https://github.com/nuxt/nuxt/issues/18556
 export type NitroAppPlugin = (nitro: NitroApp) => void

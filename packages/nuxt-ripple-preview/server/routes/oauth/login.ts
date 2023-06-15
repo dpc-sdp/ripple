@@ -4,7 +4,7 @@ import { createHandler } from '@dpc-sdp/ripple-tide-api'
 import { UnauthorisedError } from '@dpc-sdp/ripple-tide-api/errors'
 import { useNitroApp } from '#imports'
 import cookie from 'cookie-signature'
-import { AuthRoutes, AuthCookieNames } from '../../../utils/constants.js'
+import { AuthRoutes, AuthCookieNames } from '../../../utilities/constants.js'
 
 /**
  * The OAuth flow will redirect to this handler after the user has logged in.

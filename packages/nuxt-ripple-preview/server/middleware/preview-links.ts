@@ -1,6 +1,6 @@
 import { defineEventHandler, getCookie, sendRedirect } from 'h3'
-import { isPreviewPath } from '../../utils'
-import { AuthRoutes, AuthCookieNames } from '../../utils/constants'
+import { isPreviewPath } from '../../utilities'
+import { AuthRoutes, AuthCookieNames } from '../../utilities/constants'
 
 /**
  * This middleware checks it the user is visiting a preview page:

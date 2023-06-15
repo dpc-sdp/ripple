@@ -11,7 +11,7 @@ Users can use checkboxes to:
 - select one or more list options
 - toggle one option on or off.
 
-Don't use a checkbox if only one option is available, or if you expect the user to only select one option. For this, use the [radio button](https://deploy-preview-457--ripple-docs.netlify.app/design-system/components/radio-button/) component instead. 
+Don't use a checkbox if only one option is available, or if you expect the user to only select one option. For this, use the [radio button](/design-system/components/radio-button/) component instead. 
 
 ::DocsExample
 ---
@@ -45,7 +45,7 @@ Not all users will know the visual difference between a checkbox and a radio but
 - Ensure you list options in a logical and unbiased manner. It could be helpful to users if you order them from most-to-least common.
 
 ### When and how not to use
-- Don't use checkboxes for a single selectable list option. Use [radio buttons](https://deploy-preview-457--ripple-docs.netlify.app/design-system/components/radio-button/) for this.
+- Don't use checkboxes for a single selectable list option. Use [radio buttons](/design-system/components/radio-button/) for this.
 - Don't pre-select checkboxes. Users are more likely to not realise they’ve submitted the wrong answer or missed a question.
 
 ---

@@ -2,7 +2,7 @@
   "name": "ripple-storybook",
   "version": "2.1.0-alpha.180",
   "private": true,
-  "packageManager": "pnpm@8.0.0",
+  "packageManager": "pnpm@8.6.2",
   "license": "Apache-2.0",
   "scripts": {
     "start": "start-storybook -p 6006",

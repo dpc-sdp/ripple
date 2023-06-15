@@ -17,7 +17,7 @@ export const useTidePublicationChildren = async (
   if (!children.value) {
     const { data, error } = await useFetch('/api/tide/publication-children', {
       key: `publication-children-${publicationId}`,
-      baseURL: config.API_URL || '',
+      baseURL: config.apiUrl || '',
       params: {
         ids: childIds
       }

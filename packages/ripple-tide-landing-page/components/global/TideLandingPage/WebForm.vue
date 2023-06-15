@@ -59,7 +59,7 @@ const postForm = async (formId, formData = {}) => {
   const url = `api/tide/${formResource}/${formId}`
   const { data, error } = await $fetch(url, {
     method: 'POST',
-    baseURL: config.API_URL || '',
+    baseURL: config.apiUrl || '',
     body,
     params: {
       site: config.tide.site

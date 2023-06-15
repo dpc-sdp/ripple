@@ -19,7 +19,7 @@ Input fields can be used for entering:
 - email - an email address.
 - passwords - a user's input is obscured with a dot ('•'), asterisk ('*') or other symbol as they type.
 
-Don’t use input field if the user’s text needs to be more than one line long: use [text area](https://deploy-preview-457--ripple-docs.netlify.app/design-system/components/text-area/) instead.
+Don’t use input field if the user’s text needs to be more than one line long: use [text area](/design-system/components/text-area/) instead.
 
 ::DocsExample
 ---

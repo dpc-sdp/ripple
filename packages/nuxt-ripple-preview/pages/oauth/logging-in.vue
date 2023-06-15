@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useTideSite, useRoute } from '#imports'
-import { AuthRoutes, LOGIN_DESTINATION_KEY } from '../../utils/constants'
+import { AuthRoutes, LOGIN_DESTINATION_KEY } from '../../utilities/constants'
 import { onMounted } from 'vue'
 
 const site = await useTideSite()

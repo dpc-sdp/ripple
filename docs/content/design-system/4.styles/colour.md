@@ -132,7 +132,7 @@ colours:
 
 ## Focus
 
-See [focus state](https://deploy-preview-457--ripple-docs.netlify.app/design-system/styles/focus-state/) for guidance. 
+See [focus state](/design-system/styles/focus-state/) for guidance. 
 
 ::DocsColourTable
 ---

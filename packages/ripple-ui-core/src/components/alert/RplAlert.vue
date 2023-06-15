@@ -19,6 +19,7 @@ interface Props {
   linkUrl?: string
   dismissed?: boolean
   alertId: string
+  isDismissible?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -27,7 +28,8 @@ const props = withDefaults(defineProps<Props>(), {
   message: '',
   linkText: '',
   linkUrl: '',
-  dismissed: false
+  dismissed: false,
+  isDismissible: true
 })
 
 const emit = defineEmits<{
@@ -98,6 +100,7 @@ onResizeHeight(alertRef, (height) => {
         </RplTextLink>
       </div>
       <button
+        v-if="isDismissible"
         class="rpl-alert__btn-close rpl-u-focusable-inline rpl-u-focusable--alt-colour"
         data-cy="dismiss"
         @click="onClose"

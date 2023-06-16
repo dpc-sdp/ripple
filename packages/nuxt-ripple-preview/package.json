@@ -1,14 +1,15 @@
 {
-  "license": "Apache-2.0",
+  "packageManager": "pnpm@8.6.2",
   "name": "@dpc-sdp/nuxt-ripple-preview",
   "description": "Adds support for drupal preview links in Ripple frontend sites",
+  "version": "2.1.0-alpha.192",
+  "license": "Apache-2.0",
   "main": "./nuxt.config.ts",
   "exports": {
     ".": "./nuxt.config.ts",
     "./utils": "./utilities/index.ts",
     "./types": "./types.ts"
   },
-  "version": "2.1.0-alpha.192",
   "dependencies": {
     "@dpc-sdp/nuxt-ripple": "workspace:*",
     "@dpc-sdp/ripple-tide-api": "workspace:*",

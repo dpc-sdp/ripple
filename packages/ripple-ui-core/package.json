@@ -1,6 +1,7 @@
 {
-  "name": "@dpc-sdp/ripple-ui-core",
   "packageManager": "pnpm@8.6.2",
+  "name": "@dpc-sdp/ripple-ui-core",
+  "description": "Ripple UI Core component library",
   "version": "2.1.0-alpha.192",
   "license": "Apache-2.0",
   "files": [
@@ -53,13 +54,7 @@
     "focus-trap": "^7.4.0",
     "mitt": "^3.0.0",
     "normalize.css": "^8.0.1",
-    "postcss-each": "^1.1.0",
-    "postcss-nested": "^6.0.1",
-    "postcss-normalize": "^10.0.1",
-    "postcss-preset-env": "^8.1.0",
-    "rimraf": "^4.4.1",
     "swiper": "^8.4.5",
-    "vite-svg-loader": "^4.0.0",
     "vue": "3.3.4"
   },
   "devDependencies": {
@@ -72,6 +67,11 @@
     "http-server": "^14.1.0",
     "jest-axe": "^7.0.1",
     "pathe": "^1.1.0",
+    "postcss-each": "^1.1.0",
+    "postcss-nested": "^6.0.1",
+    "postcss-normalize": "^10.0.1",
+    "postcss-preset-env": "^8.1.0",
+    "rimraf": "^4.4.1",
     "storybook-addon-designs": "^6.2.1",
     "style-dictionary": "^3.7.2",
     "stylelint": "^15.7.0",
@@ -82,6 +82,7 @@
     "vite-plugin-dts": "^2.1.0",
     "vite-plugin-svg-icons": "^2.0.1",
     "vite-plugin-vue-svg": "^0.1.0",
+    "vite-svg-loader": "^4.0.0",
     "wait-on": "^7.0.1",
     "yaml": "^2.2.1"
   }

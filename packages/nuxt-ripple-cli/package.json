@@ -1,9 +1,10 @@
 {
   "packageManager": "pnpm@8.6.2",
-  "license": "Apache-2.0",
   "name": "@dpc-sdp/nuxt-ripple-cli",
-  "main": "./dist/index.js",
+  "description": "A CLI for simplifying common setup and scaffolding tasks",
   "version": "2.1.0-alpha.192",
+  "license": "Apache-2.0",
+  "main": "./dist/index.js",
   "scripts": {
     "nuxt-ripple": "node ./dist/commands/index.js",
     "build": "rimraf ./dist && tsc && npm run cp-templates && chmod +x ./dist/commands/index.js",
@@ -19,9 +20,7 @@
     "copyfiles": "^2.4.1",
     "enquirer": "^2.3.6",
     "hygen": "^6.2.11",
-    "minimist": "^1.2.8",
     "mockttp": "^3.7.0",
-    "plop": "^3.1.2",
     "rimraf": "^4.4.1",
     "ts-node": "^10.7.0"
   }

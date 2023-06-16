@@ -8,7 +8,7 @@
     "./utils": "./utilities/index.ts",
     "./types": "./types.ts"
   },
-  "version": "2.1.0-alpha.191",
+  "version": "2.1.0-alpha.192",
   "dependencies": {
     "@dpc-sdp/nuxt-ripple": "workspace:*",
     "@dpc-sdp/ripple-tide-api": "workspace:*",

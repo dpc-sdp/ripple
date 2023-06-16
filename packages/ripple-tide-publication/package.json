@@ -3,7 +3,7 @@
   "description": "Ripple mappings and components for Tide Publication Content type",
   "main": "./nuxt.config.ts",
   "packageManager": "pnpm@8.6.2",
-  "version": "2.1.0-alpha.191",
+  "version": "2.1.0-alpha.192",
   "license": "Apache-2.0",
   "exports": {
     ".": "./nuxt.config.ts",

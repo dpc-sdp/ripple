@@ -1,6 +1,6 @@
 {
   "name": "ripple-storybook",
-  "version": "2.1.0-alpha.189",
+  "version": "2.1.0-alpha.192",
   "private": true,
   "packageManager": "pnpm@8.6.2",
   "license": "Apache-2.0",

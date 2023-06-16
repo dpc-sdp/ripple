@@ -1,6 +1,6 @@
 ---
 title: Search bar
-description: Allow users to enter keywords and search content on the website.
+description: The Search bar shows a text input field with a search button to let users enter keywords and search content on the website.
 layout: page
 label: Core
 
@@ -8,9 +8,11 @@ label: Core
 
 ## Usage
 
+Use the search bar to help users find what they are looking for.
+
 Users often rely on search to find the information they need. You can use it as an alternative to on-page navigation.
 
-Users will use keywords in the search bar, often using different words or phrases. Search is useful for sites with a lot of pages.
+Users will use keywords in the search bar, often using different words or phrases. Search is especially helpful for users when navigating site that have many pages. 
 
 The search bar includes:
 
@@ -28,7 +30,7 @@ id: core-navigation-search-bar--default-story
 
 ### How this component works 
 
-#### Input Text
+#### Input text
 Include short, descriptive placeholder text. This tells the user what they can search for.
 
 The text the user inputs replaces the placeholder text.
@@ -36,42 +38,41 @@ The text the user inputs replaces the placeholder text.
 #### Search button
 The search button contains a button label and search icon.
 
-To allow more space for text in the search bar, the responsive variation:
+Smaller devices show a responsive variant with:
+- only a search icon
+- no button label. 
 
-- hides the button label
-- displays a search icon on smaller devices only.
+This gives the user more space to write search text. Users know that a magnifying glass represents a search function. 
 
-Users know that magnifying glass indicates a search function. Because of this, on small screen we don't pair it with the word 'search' due to space limitations. However, it is kept in the code for screen readers.
+The word ‘Search’ must appear in the alt text for screen readers.
 
-The search button must submit an action, which reduces the time it takes to use the search bar. A user can enter their own search word or select a suggestion if that option is available. The search submits once a user selects 'enter' or 'return',
-
-The search keyword remains once the search results display.
+The button type should be a submit button. This lets a user conduct a search:
+- using the enter/return key
+- using fewer keystrokes
+- by choosing a suggestion (if applicable)
+- that afterwards, still displays the search keyword. 
 
 ####  Predictive keyword list
 
-Making suggestions can improve the user experience. This can lead to less spelling errors and less effort for the user to reach their result.
+Useful suggestions let users find what they need with less effort. They also reduce spelling errors and typing.
 
-Useful suggestions can help guide users to their destination.
+Use a short, ordered list of no more than 10 keyword suggestions.
 
-Keyword suggestions should be in a compact and organised list.
+They should appear after only a few keystrokes.
 
-Provide suggestions after the user enters the third character. This reduces user effort. But don’t overwhelm users with a lot of suggestions. Keep the amount of suggestions under 10.
+Let the user scroll through keyword suggestions using keyboard navigation, with the Esc key to exit. 
 
-Allow for keyboard navigation through the suggestions:
-
-- The user should be able to scroll through the items.
-- Once the user goes past the last item, they should return to the top. This should be the same going in reverse, but appear at the bottom.
-- The Esc key should allow users to exit the list.
+Scrolling ‘down’ past the last suggestion should loop the user back to the first one. Scrolling ‘up’ before the first suggestion should loop the user to the last (bottom) one.
 
 ### When and how to use
 
-- Use the search bar for site search.
-- Use default search field on white page background
-- Use reverse search field on grey background
-- Use menu variant in the mega menu only
-- Use only default and reverse variants with predictive list suggestions
-- Even if it's hidden, still use a label. This is for screen readers
-- Keep placeholder text concise and descriptive
+- Use the search bar to let users search your site (site search).
+- Use default search field on white page background.
+- Use reverse search field on grey background.
+- Use menu variant in the mega menu only.
+- Use only default and reverse variants with predictive list suggestions.
+- Even if it's hidden from view, always use a form label for screen readers.
+- Keep placeholder text concise and descriptive.
 
 ### When and how not to use
 

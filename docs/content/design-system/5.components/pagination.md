@@ -1,12 +1,14 @@
 ---
 title: Pagination
-description: Pagination helps users navigate forwards and backwards through content.
+description: The Pagination component divides your content across more than one page into smaller lists to help users navigate forward and backwards.
 layout: page
 label: Core
 
 ---
 
 ## Usage
+
+Use pagination to help users navigate forwards and backwards through your content.
 
 Pagination breaks down content, making it more concise and less overwhelming. It does this by dividing your content across more than one page and into smaller lists. This makes it easier for users to find what they need.
 
@@ -19,7 +21,7 @@ Pagination helps users to identify:
 
 - how many pages or items they can navigate through
 - where the page or item they are viewing sits in the order of other pages or items
-- how they can immediately navigate to other pages or items
+- how they can immediately navigate to other pages or items.
 
 Pagination sits at the bottom of each page. It's a quick and easy way for users to move between each page.
 
@@ -35,28 +37,28 @@ id: core-navigation-page-links--page-links
 
 ### When and how to use
 
-- Stack Standard pagination variant links vertically
-- Only use Standard and Complex variants at the bottom of the body content area
-- Use the Simple variant nested in components. For example, the [Media Gallery](/design-system/components/media-gallery/) or [Carousel](/design-system/components/carousel/)
-- Use an ellipses to replace any skipped pages
-- Use pagination to avoid an infinite scroll of results, which can be a problem for keyboard users
+- Stack standard pagination variant links vertically.
+- Only use standard and complex variants at the bottom of the body content area.
+- Use the simple variant nested in components, for example, the [media gallery](/design-system/components/media-gallery/) or [carousel](/design-system/components/carousel/)
+- Use ellipses to replace any skipped pages.
+- Use pagination to avoid an infinite scroll of results, which can be a problem for keyboard users.
 
 ### When and how not to use
 
-- Don't use pagination for one page only
-- Only choose one pagination variant, never mix or combine them
-- Always put the user first, so don't break up content if it reduces usability or performance
-- Don't user pagination if a user journey is linear, like when completing a form
+- Don't use pagination for one page only.
+- Only choose one pagination variant, never mix or combine them.
+- Always put the user first, so don't break up content if it reduces usability or performance.
+- Don’t use for linear user journeys such as form completion.
 
 ---
 
 ## Variants
 
-Pagination has three main variants:
+Pagination has 3 main variants:
 
-- Simple, for a small number of items or used in other components.
-- Standard, to navigate through a sall number of pages.
-- Complex, when there are a large number of pages to navigate through.
+- simple, for a small number of items or used in other components
+- standard, to navigate through a small number of pages
+- complex, when there is a large number of pages to navigate through.
 
 ### Simple
 
@@ -70,10 +72,10 @@ id: core-navigation-pagination--simple-tally
 
 ### Standard
 
-The standard variant is for navigating through a small number of pages. It has two options for label display:
+The standard variant is for navigating through a small number of pages. It has 2 options for label display:
 
-- Page titles.
-- Page numbers.
+- page titles.
+- page numbers.
 
 You can use page titles to give more context.
 
@@ -101,9 +103,9 @@ id: core-navigation-page-links--example-count
 
 The complex variant lets users navigate through a large number of pages. It's ideal for a long list of search results.
 
-The user can use the next and back controls to move forward and backward through the pages. The user can navigate straight to a page by selecting its specific page number.
+The user can interact with the next and back controls to move forward and backward through the pages. The user can navigate straight to a page by selecting its specific page number.
 
-Three pages should always remain highlighted:
+There are 3 pages that should always remain highlighted:
 
 - The first page.
 - The current page.
@@ -114,9 +116,9 @@ Never show the previous page link on the first page because it will confuse the 
 Display page numbers for the:
 
 - current page on all screen sizes
-- previous and next pages on smaller screens sizes
+- previous and next pages on smaller screen sizes
 - page immediately before and after the current page on larger screen sizes
-- first and last pages on all screen sizes.
+- first and final pages on all screen sizes.
 
 ::DocsExample
 ---

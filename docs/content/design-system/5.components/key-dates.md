@@ -8,7 +8,7 @@ label: Core
 
 ## Usage
 
-Use Key dates to provide a card with brief summaries of up to 2 events or key dates with a call to action.
+Use key dates to provide a card with brief summaries of up to 2 events or key dates with a call to action.
 
 ::DocsExample
 ---

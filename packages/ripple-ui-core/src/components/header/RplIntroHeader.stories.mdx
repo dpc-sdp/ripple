@@ -97,3 +97,25 @@ This is an example the intro header with optional links
     {SingleTemplate.bind()}
   </Story>
 </Canvas>
+
+## Intro / With Button
+
+This is an example the intro header with optional button
+
+<Canvas>
+  <Story
+    name='Intro/With button'
+    play={a11yStoryCheck}
+    args={{
+      iconName: 'icon-information-circle-filled',
+      links: {
+        items: [
+          {text: 'First button', url: '#first'}
+        ],
+        type: 'button'
+      }
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>

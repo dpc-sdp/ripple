@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.191](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.190...v2.1.0-alpha.191) (2023-06-16)
+
+### Features
+
+* :sparkles: add selector to help locate el ([670ff49](https://github.com/dpc-sdp/ripple-framework/commit/670ff49872e5651c561de5d8db91b76ebab0c5c2))
+* **@dpc-sdp/ripple-ui-core:** add support for intro buttons (to match ripple 1) ([743fbe4](https://github.com/dpc-sdp/ripple-framework/commit/743fbe4b3ffae98691bcfa0e95444cf294c6dbc9))
+
+# [2.1.0-alpha.190](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.189...v2.1.0-alpha.190) (2023-06-15)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** update tag ([58dac08](https://github.com/dpc-sdp/ripple-framework/commit/58dac08401983116d0b68b343bd13db943100a91))
+
+### Features
+
+* **@dpc-sdp/ripple-ui-core:** add fonts to 'external' assets ([557aac5](https://github.com/dpc-sdp/ripple-framework/commit/557aac5ab751ce5aa16be7544445f77be5fe1a48))
+
 # [2.1.0-alpha.189](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.188...v2.1.0-alpha.189) (2023-06-15)
 
 ### Bug Fixes

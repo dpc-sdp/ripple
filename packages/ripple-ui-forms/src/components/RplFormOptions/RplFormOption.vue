@@ -15,6 +15,7 @@ export interface RplFormOptionProps {
   label: string
   checked?: boolean
   disabled?: boolean
+  required?: boolean
   variant?: 'default' | 'reverse'
   onChange?: (checked: boolean) => void
   onValue?: boolean | string | number
@@ -25,6 +26,7 @@ export interface RplFormOptionProps {
 const props = withDefaults(defineProps<RplFormOptionProps>(), {
   type: 'checkbox',
   disabled: false,
+  required: false,
   variant: 'default',
   onChange: () => undefined,
   onValue: true,
@@ -78,7 +80,7 @@ const handleChange = (e: Event) => {
       <span class="rpl-form-option__label-text rpl-type-p">
         {{ label }}
         <span
-          v-if="showRequiredInLabel"
+          v-if="required && showRequiredInLabel"
           class="rpl-form-label__required rpl-type-label-small"
         >
           (Required)

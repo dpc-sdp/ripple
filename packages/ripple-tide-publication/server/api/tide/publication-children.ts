@@ -14,6 +14,9 @@ export const createPageHandler = async (
       throw new BadRequestError('Publication child ids are required')
     }
 
+    // ids can come in as an array or a single string, we normalise it here
+    const idList = typeof query.ids === 'string' ? [query.ids] : query.ids
+
     const publicationPageRouteDetails = {
       entity_type: 'node',
       bundle: 'publication_page'
@@ -24,7 +27,7 @@ export const createPageHandler = async (
         condition: {
           operator: 'IN',
           path: 'id',
-          value: query.ids
+          value: idList
         }
       }
     }
@@ -40,7 +43,7 @@ export const createPageHandler = async (
       includes
     )
 
-    const sortedChildren = query.ids
+    const sortedChildren = idList
       .map((id) => {
         return children.find((page) => page.id === id)
       })

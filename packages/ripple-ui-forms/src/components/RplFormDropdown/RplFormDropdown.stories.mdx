@@ -6,9 +6,10 @@ import {
 } from '@storybook/addon-docs'
 import RplFormDropdown from './RplFormDropdown.vue'
 import { RplButton } from '@dpc-sdp/ripple-ui-core/vue'
+import StorybookInputFixture from './../StorybookInputFixture/StorybookInputFixture.vue'
 
 export const SingleTemplate = (args) => ({
-  components: { RplFormDropdown, RplButton },
+  components: { RplFormDropdown, RplButton, StorybookInputFixture },
   setup() {
     return { args }
   },
@@ -20,7 +21,9 @@ export const SingleTemplate = (args) => ({
   },
   template: `
   <RplButton class="rpl-u-margin-b-6">Button above to test keyboard behaviour (not part of dropdown)</RplButton>
-  <RplFormDropdown v-bind="args" :value="currentValue" @onChange="onChange" />
+  <StorybookInputFixture :invalid="args.invalid">
+    <RplFormDropdown v-bind="args" :value="currentValue" @onChange="onChange" />
+  </StorybookInputFixture>
   <RplButton class="rpl-u-margin-t-6">Button below to test keyboard behaviour (not part of dropdown)</RplButton>
   `
 })

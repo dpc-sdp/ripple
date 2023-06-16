@@ -1,6 +1,6 @@
 ---
 title: In-page navigation
-description: Help users scan a page and allow for quick navigation.
+description: The In-page navigation component sits above a page’s main content and shows a set of links.
 layout: page
 label: Core
 
@@ -8,9 +8,9 @@ label: Core
 
 ## Usage
 
-A set of links that help users navigate page content. Placed above the main content at the top of a page, it anchor links headings to their page location.
+Use in-page navigation to make scanning and navigating within a single page quicker for users. This component shows links to headings that are on the current page. It sits at the top of the page. 
 
-Use In-page Navigation for longer content pages. It acts as a table of contents, providing users with a summary and quick navigation across the page.
+Use in-page navigation for longer content pages. It acts as a table of contents, providing users with a summary and quick navigation across the page.
 
 The left-hand highlight bar:
 
@@ -38,10 +38,9 @@ id: core-navigation-in-page-navigation
 
 ## Theming
 
-In-page Navigation uses colour to:
-
-- visually group the navigation
-- separate the component from the page content
+Ripple’s theming applies colour to in-page navigation so that the user understands:
+- its links and navigation heading relate to each other
+- they are deliberately separated from the main content. 
 
 ::DocsThemeChooser
   ::DocsExample

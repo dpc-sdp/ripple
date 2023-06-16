@@ -1,23 +1,29 @@
 ---
 title: Form
-description: A form guides users to give information and consists of a group of related inputs or controls.
+description: The Form component guides users to give information and consists of a group of related inputs or controls.
 layout: page
 label: Core
 
 ---
 
 ## Usage
-A form consists of a group of related inputs or controls. Add form input components to your form to capture data from users.
+Use a form and its form input components to capture data from users. A form consists of a group of related inputs or controls. 
 
-Common form components include the [input field](/design-system/components/input-field/), [text area](/design-system/components/text-area/), [date input](/design-system/components/date-input/), [radio button](/design-system/components/radio-button/), [checkbox](/design-system/components/checkbox/) and [dropdown](/design-system/components/dropdown/).
+Common form components include the:
+- [input field component](/design-system/components/input-field/)
+- [text area component](/design-system/components/text-area/)
+- [date input component](/design-system/components/date-input/)
+- [radio button component](/design-system/components/radio-button/)
+- [checkbox component](/design-system/components/checkbox/)
+- [dropdown component](/design-system/components/dropdown/).
 
-An [input field](/design-system/components/input-field/) is for short (single line) text entry. A [text area](/design-system/components/text-area/) is for longer text.
+An input field) is for short (single-line) text entry. A text area is for longer text.
 
-Other input types let a user select from predefined options. Use a [radio button](/design-system/components/radio-button/) when a user needs to make only one selection. Use a [checkbox](/design-system/components/checkbox/) for multiple selections.
+Other input types let a user select from predefined options. Use a radio button when a user needs to make only one selection. Use a checkbox for multiple selections.
 
-Group related form components in logical chunks (fieldsets). A single form can have multiple fieldsets. For example, a fieldset with several [input fields](/design-system/components/input-field/) for an address, plus a fieldset with a [date input](/design-system/components/date-input/) and [radio button](/design-system/components/radio-button/) for delivery preferences.
+Group related form components in logical chunks (fieldsets). A single form can have multiple fieldsets. For example, a fieldset with several input fields for an address, plus a fieldset with a date input and radio button for delivery preferences.
 
-The user can submit a form when all fields are valid (see [form alert](/design-system/components/form-alert/)).
+The user can submit a form when all fields are valid (see form alert).
 
 ::DocsExample
 ---
@@ -40,7 +46,7 @@ Put a label above its component (top-aligned). Labels will then be consistently 
 
 Placeholder text should not be used as a label.
 
-#### Requirement - Optional vs. mandatory
+#### Requirement - optional vs. mandatory
 
 Mark an input as ‘required’ if you do not want the form submission to work unless the user gives that information.
 
@@ -74,7 +80,7 @@ Ensure the main action button tells the user when the form is being submitted ([
 To avoid confusing users about how to submit the form, use only one main action button. Do not use a reset button.
 
 #### Validation
-[Form alert](/design-system/components/form-alert/) is used to tell the user the outcome of the form validation.
+Form alert is used to tell the user the outcome of the form validation.
 
 If the form has been submitted successfully, the success alert will replace the form.
 
@@ -85,7 +91,7 @@ All fields need a visible, accessible label. (Search fields are sometimes an exc
 
 On devices such as mobiles, display the keyboard required for the input. For example, a number keyboard for a date input. 
 
-Never disable a submit button. Allow the user to submit the form and then display the error message. Use [form alert](/design-system/components/form-alert/) to display the validation outcome.
+Never disable a submit button. Allow the user to submit the form and then display the error message. Use form alert to display the validation outcome.
 
 Avoid using placeholder text where possible. It disappears when a user starts typing. Not all screen readers will read out placeholder text. Its colour often lacks the contrast needed for accessible content when using some browser default styling.
 

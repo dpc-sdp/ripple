@@ -23,8 +23,8 @@ id: core-navigation-card--key-dates
 - Only use once per page.
 - Use clear and concise content.
 - Only use as the last card in the grid.
+- Include a summary.
 
-Include a summary.
 ### When and how not to use
 
 - Don’t use with navigation cards.

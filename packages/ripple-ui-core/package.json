@@ -1,8 +1,8 @@
 {
-  "packageManager": "pnpm@8.0.0",
+  "packageManager": "pnpm@8.6.2",
   "name": "@dpc-sdp/ripple-ui-core",
   "description": "Ripple UI Core component library",
-  "version": "2.1.0-alpha.189",
+  "version": "2.1.0-alpha.192",
   "license": "Apache-2.0",
   "files": [
     "dist",
@@ -85,10 +85,5 @@
     "vite-svg-loader": "^4.0.0",
     "wait-on": "^7.0.1",
     "yaml": "^2.2.1"
-  },
-  "pnpm": {
-    "patchedDependencies": {
-      "vite-svg-loader@4.0.0": "patches/vite-svg-loader@4.0.0.patch"
-    }
   }
 }

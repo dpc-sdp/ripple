@@ -5,9 +5,10 @@ import {
   ArgsTable
 } from '@storybook/addon-docs'
 import RplFormDate from './RplFormDate.vue'
+import StorybookInputFixture from './../StorybookInputFixture/StorybookInputFixture.vue'
 
 export const SingleTemplate = (args) => ({
-  components: { RplFormDate },
+  components: { RplFormDate, StorybookInputFixture },
   setup() {
     return { args }
   },
@@ -18,7 +19,9 @@ export const SingleTemplate = (args) => ({
     }
   },
   template: `
-    <RplFormDate v-bind="args" :value="currentValue" @onChange="onChange" />
+    <StorybookInputFixture :invalid="args.invalid" :useFieldset="true">
+      <RplFormDate v-bind="args" :value="currentValue" @onChange="onChange" />
+    </StorybookInputFixture>
     <p :style="{marginTop: '60px'}" class="rpl-type-p"><strong>Output value (not part of component): "{{currentValue}}"</strong></p>
   `
 })

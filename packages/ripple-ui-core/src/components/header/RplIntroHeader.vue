@@ -39,6 +39,7 @@ withDefaults(defineProps<Props>(), {
             icon: item.icon || 'icon-arrow-right'
           }))
         "
+        :type="links?.type"
         :more-link="links.more"
       />
     </template>

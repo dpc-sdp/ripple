@@ -1,8 +1,8 @@
 {
-  "packageManager": "pnpm@8.0.0",
+  "packageManager": "pnpm@8.6.2",
   "name": "@dpc-sdp/nuxt-ripple-cli",
   "description": "A CLI for simplifying common setup and scaffolding tasks",
-  "version": "2.1.0-alpha.189",
+  "version": "2.1.0-alpha.192",
   "license": "Apache-2.0",
   "main": "./dist/index.js",
   "scripts": {

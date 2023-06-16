@@ -7,6 +7,7 @@ defineProps<{
   links: {
     title: string
     items: TideUrlField[]
+    type: 'list' | 'button'
     more: TideUrlField
   }
   html: string | null
@@ -19,6 +20,6 @@ defineProps<{
     :links="links"
     :iconName="withIcon ? 'icon-exclamation-circle-filled' : null"
   >
-    <RplContent :html="html" />
+    <RplContent v-if="html" :html="html" />
   </RplIntroHeader>
 </template>

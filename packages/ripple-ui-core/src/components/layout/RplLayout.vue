@@ -40,6 +40,7 @@ const hasBreadcrumbs = computed(() => {
 })
 
 const aboveBodyId = 'rpl-above-body'
+const belowBodyId = 'rpl-below-body'
 const mainId = 'rpl-main'
 const skipLinksId = 'rpl-skip-links'
 </script>
@@ -94,7 +95,7 @@ const skipLinksId = 'rpl-skip-links'
             </div>
           </div>
         </div>
-        <section v-if="$slots.belowBody">
+        <section v-if="$slots.belowBody" :id="belowBodyId">
           <slot name="belowBody"></slot>
         </section>
         <RplLayoutBackToTop v-if="showBackToTop" topElementId="skipLinksId" />

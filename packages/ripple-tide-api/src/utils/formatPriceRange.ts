@@ -1,33 +1,38 @@
 import { TidePropRange } from '../../types'
 
+const maybeCastToNumber = (value) =>
+  isNaN(parseFloat(value)) ? value : parseFloat(value)
+
+const isPositiveNumber = (value) => typeof value === 'number' && value > 0
+
+const formatPriceValue = (value: number | string) =>
+  new Intl.NumberFormat('en-AU', {
+    minimumFractionDigits: 0,
+    style: 'currency',
+    currency: 'AUD'
+  }).format(<number>value)
+
 /**
  * @description Output a formatted price range
  */
 export const formatPriceRange = (price: TidePropRange) => {
-  if (
-    <string>price.from === 'Free entry' ||
-    (<number>price.from === 0 && <number>price.to === 0)
-  ) {
+  let from = maybeCastToNumber(price.from)
+  let to = maybeCastToNumber(price.to)
+
+  from =
+    isPositiveNumber(from) || (isPositiveNumber(to) && from === 0)
+      ? formatPriceValue(from)
+      : from
+  to = isPositiveNumber(to) ? formatPriceValue(to) : to
+
+  if (from === 0 && to === 0) {
     return 'Free entry'
   }
-  const formatOptions: Intl.NumberFormatOptions = {
-    style: 'currency',
-    minimumFractionDigits: 0,
-    currency: 'AUD'
+  if ((from && !to) || from === to) {
+    return from
   }
-  if (<number>price.from >= 0 && <number>price.to > 0) {
-    if (<number>price.from === <number>price.to) {
-      return new Intl.NumberFormat('en-AU', formatOptions).format(
-        <number>price.from
-      )
-    } else {
-      return [
-        new Intl.NumberFormat('en-AU', formatOptions).format(
-          <number>price.from
-        ),
-        new Intl.NumberFormat('en-AU', formatOptions).format(<number>price.to)
-      ].join(' - ')
-    }
+  if (from && to) {
+    return `${from} - ${to}`
   }
   return null
 }

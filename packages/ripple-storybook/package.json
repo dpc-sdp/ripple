@@ -2,7 +2,7 @@
   "name": "ripple-storybook",
   "version": "2.1.0-alpha.189",
   "private": true,
-  "packageManager": "pnpm@8.0.0",
+  "packageManager": "pnpm@8.6.2",
   "license": "Apache-2.0",
   "scripts": {
     "start": "start-storybook -p 6006",
@@ -38,10 +38,5 @@
   "dependencies": {
     "concurrently": "^7.6.0",
     "vite-svg-loader": "^4.0.0"
-  },
-  "pnpm": {
-    "patchedDependencies": {
-      "vite-svg-loader@4.0.0": "patches/vite-svg-loader@4.0.0.patch"
-    }
   }
 }

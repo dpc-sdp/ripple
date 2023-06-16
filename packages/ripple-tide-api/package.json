@@ -13,7 +13,7 @@
     "./components": "./dist/nuxt/components",
     "./services": "./dist/services/index.js"
   },
-  "packageManager": "pnpm@8.0.0",
+  "packageManager": "pnpm@8.6.2",
   "license": "MIT",
   "keywords": [],
   "scripts": {

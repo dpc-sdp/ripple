@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/ripple-ui-forms",
-  "packageManager": "pnpm@8.0.0",
+  "packageManager": "pnpm@8.6.2",
   "version": "2.1.0-alpha.191",
   "license": "Apache-2.0",
   "main": "./dist/rpl-forms.umd.js",
@@ -44,10 +44,5 @@
     "build:types": "tsc -p tsconfig.json",
     "clean": "(rimraf dist* && rimraf tsconfig.tsbuildinfo) | true",
     "test:components": "cypress run --component"
-  },
-  "pnpm": {
-    "patchedDependencies": {
-      "vite-svg-loader@4.0.0": "patches/vite-svg-loader@4.0.0.patch"
-    }
   }
 }

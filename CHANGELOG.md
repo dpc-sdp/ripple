@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.194](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.193...v2.1.0-alpha.194) (2023-06-16)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** move deps ([ecf7e30](https://github.com/dpc-sdp/ripple-framework/commit/ecf7e309ca57f464fddfa6f77e0cfa4d42da7831))
+* **@dpc-sdp/ripple-ui-core:** update lockfile ([ed5f26f](https://github.com/dpc-sdp/ripple-framework/commit/ed5f26f2df1c5911311e6062d41f79f053a68151))
+
 # [2.1.0-alpha.193](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.192...v2.1.0-alpha.193) (2023-06-16)
 
 **Note:** Version bump only for package @dpc-sdp/ripple-monorepo

@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.191](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.190...v2.1.0-alpha.191) (2023-06-16)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-tide-publication:** fixed crash when only one publication child ([e0b3908](https://github.com/dpc-sdp/ripple-framework/commit/e0b390824a42991294f7a4e03662a54fb7bd90b3))
+* **@dpc-sdp/ripple-ui-forms:** fixed 'required' label always showing for checkboxes ([126ec66](https://github.com/dpc-sdp/ripple-framework/commit/126ec6611e4279a984204f30fb32104e19db0df8))
+
+### Features
+
+* :sparkles: add selector to help locate el ([670ff49](https://github.com/dpc-sdp/ripple-framework/commit/670ff49872e5651c561de5d8db91b76ebab0c5c2))
+* **@dpc-sdp/ripple-tide-api:** always return a 404 for preview link errors ([45bf59f](https://github.com/dpc-sdp/ripple-framework/commit/45bf59fd56a94ec0854e52d1b4b56de263c65ebe))
+* **@dpc-sdp/ripple-ui-core:** add support for intro buttons (to match ripple 1) ([743fbe4](https://github.com/dpc-sdp/ripple-framework/commit/743fbe4b3ffae98691bcfa0e95444cf294c6dbc9))
+
 # [2.1.0-alpha.190](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.189...v2.1.0-alpha.190) (2023-06-15)
 
 ### Bug Fixes

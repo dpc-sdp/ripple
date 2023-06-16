@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.191](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.190...v2.1.0-alpha.191) (2023-06-16)
+
+### Features
+
+* :sparkles: add selector to help locate el ([670ff49](https://github.com/dpc-sdp/ripple-framework/commit/670ff49872e5651c561de5d8db91b76ebab0c5c2))
+
 # [2.1.0-alpha.190](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.189...v2.1.0-alpha.190) (2023-06-15)
 
 **Note:** Version bump only for package @dpc-sdp/nuxt-ripple

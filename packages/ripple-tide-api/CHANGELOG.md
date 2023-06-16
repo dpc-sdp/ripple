@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.191](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.190...v2.1.0-alpha.191) (2023-06-16)
+
+### Features
+
+* **@dpc-sdp/ripple-tide-api:** always return a 404 for preview link errors ([45bf59f](https://github.com/dpc-sdp/ripple-framework/commit/45bf59fd56a94ec0854e52d1b4b56de263c65ebe))
+
 # [2.1.0-alpha.189](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.188...v2.1.0-alpha.189) (2023-06-15)
 
 **Note:** Version bump only for package @dpc-sdp/ripple-tide-api

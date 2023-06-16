@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.191](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.190...v2.1.0-alpha.191) (2023-06-16)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-forms:** fixed 'required' label always showing for checkboxes ([126ec66](https://github.com/dpc-sdp/ripple-framework/commit/126ec6611e4279a984204f30fb32104e19db0df8))
+
 # [2.1.0-alpha.190](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.189...v2.1.0-alpha.190) (2023-06-15)
 
 ### Bug Fixes

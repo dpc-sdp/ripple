@@ -76,11 +76,11 @@ Scrolling ‘down’ past the last suggestion should loop the user back to the f
 
 ### When and how not to use
 
-- Don't use default or reverse variants in the mega menu
-- Don't use filters or refine search with the menu variant
-- Don't use multiline search inputs
-- Revised search shouldn't be by default
-- Don't use with the refine search link if no filters are available 
+- Don't use default or reverse variants in the mega menu.
+- Don't use filters or refine search with the menu variant.
+- Don't use multiline search inputs.
+- Revised search shouldn't be by default.
+- Don't use with the refine search link if no filters are available.
 
 ---
 

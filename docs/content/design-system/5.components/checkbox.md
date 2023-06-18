@@ -77,11 +77,13 @@ All form inputs share error state styling.
 Make sure errors follow error message guidance. Always have specific error messages for specific errors. Users need to understand why their input or selection was not valid.
 
 **Error: nothing is selected and the question has options in it**
+
 Structure this message to help the user to choose which options apply to them.
 - Error message: ‘Select if \[options\]’. 
 - Example: ‘Select if you like summer, winter, autumn, and/or spring'.
 
-**If nothing is selected and the question does not have options in it**
+**Error: nothing is selected and the question does not have options in it**
+
 Structure this message to help the user to choose which options apply to them.
 - Error message: ‘Select \[options\]’.
 - Example: 'Select your favourite season'.

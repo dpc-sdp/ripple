@@ -1,6 +1,6 @@
 ---
 title: Footer
-description: Footers help users find information at the bottom of a page.
+description: The Footer component helps help users find information at the bottom of a page.
 layout: page
 label: Core
 
@@ -8,7 +8,7 @@ label: Core
 
 ## Usage
 
-Footers help users find what they need after scrolling to the bottom of a page. They provide supplementary information such as:
+Use footers to help users find what they need after scrolling to the bottom of a page. Footers provide supplementary information such as:
 
 - copyright
 - contact information
@@ -26,40 +26,33 @@ id: core-navigation-footer--default-story
 ### How this component works
 
 The footer is made up of:
-
-- optional section links
-  - Optional Section Links helps you avoid dead-ends by giving a user a way to continue their journey. It provides a user with:
-    - additional links, both internal and external
-    - a way to bypass a page’s main navigation.
-- optional social links
-  - Links and social icons can be used to link to social media accounts.
-- core site links
-  - This must always be used. It includes links such as the privacy statement, contact information and terms of use.
-- copyright statement
-  - This adds a copyright statement to the footer to clarify who owns the copyright, specific to your agency or department. For vic.gov.au services, add the Vic Gov State Logo to keep things consistent with the rest of vic.gov.au.
-- acknowledgement of country ([acknowledgment](/design-system/components/acknowledgment/) component).
+- optional section links, which help avoid dead ends by giving users a way to continue their journey through:
+  - additional links (internal and external)
+  - bypassing main navigation
+- optional social links, which can be used to link to social media accounts
+- core site links, which must always be used and include the privacy statement, contact information and terms of use
+- a copyright statement, which clarifies who owns the copyright and is specific to your agency or department (add the State Government of Victoria logo to [vic.gov.au](https://www.vic.gov.au) services, for sitewide consistency)
+- an Acknowledgement of Traditional Owners message (an acknowledgement component).
 
 ### When and how to use
-
-- Use with an optional supporting logo relevant to the site contents
-- Use a consistent themed footer across all pages of your site
-- Use the optional neutral theme
-- Use with an optional image credit for the header image
+- Use with an optional supporting logo relevant to the site content.
+- Use a consistently-themed footer across all pages of your site.
+- Use the optional neutral theme.
+- Use with an optional image credit for the header image.
 
 ### When and how not to use
-- Don’t alter the required links in the core section of the footer
-- Don’t change the Acknowledgement Text
-- Don’t use with links that are not relevant to your agency
+- Don’t alter the required links in the core section of the footer.
+- Don’t change the text in the acknowledgement component.
+- Don’t use with links that are not relevant to your organisation.
 
 ---
 
 ## Theming
 
-You can theme the footer in three ways:
-
-- Site colour palette.
-- Neutral colour palette.
-- Custom colour palette - see [theming guidance for designers]().
+You can theme the footer in 3 ways:
+- site colour palette
+- neutral colour palette
+- custom colour palette (see [theming guidance for designers]()).
 
 ### Site colour palette
 

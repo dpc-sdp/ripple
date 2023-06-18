@@ -1,6 +1,6 @@
 ---
 title: Results listing
-description: Display a list of results to users displaying key information related to the search.
+description: The Results listing component shows a list of search result items, with each item displaying key information relevant to that search.
 layout: page
 label: Core
 
@@ -8,17 +8,16 @@ label: Core
 
 ## Usage
 
-Use a results listing to display content results, like search results or news items. It surfaces important information to the user.
+Use a results listing to display content results, like search results or news items. It surfaces (retrieves and shows) important information to the user.
 
-This component includes:
-
-- Title, to identify the page or result title
-- Summary, to sum up the content for the user
-- URL, which tells the user where the content is
-- Featured content, which gives key items visual prominence
-- Topic/Category, which is a way to give a user greater context over the item
-- Date, which can display a published or updated date. Only use if it will improve the user experience and is relevant to the content
-- Keyword term bold styling, which gives visual prominence to the search keyword term
+A results listing shows multiple results items, each with their own:
+- title, telling the user the name of the result
+- summary, summing up the result’s content for the user
+- URL, telling the user the website address for the result
+- featured content, visually highlighting key content from the result
+- topic/category, putting the result into its context within a broader page or site
+- date, showing a result’s published (simple variant) or updated (default variant) date
+- keyword term bold styling, showing the search term(s) in bold in the result displayed.
 
 When displaying the results listing, consider a user's needs. Only display what will help them to make an informed decision.
 
@@ -29,25 +28,22 @@ id: core-navigation-result-listing--result-listing
 ::
 
 ### When and how to use
-
-- Bold the search term
-- Test results. They must always be accurate and relevant
-- Keep descriptions short, no more than 150 words
-- Display up to 10 results
+- Put the search term in bold.
+- Test results so they are correct and relevant to the search term.
+- Keep descriptions under 150 words. 
+- Display up to 10 results.
 
 ### When and how not to use
-
-- Don't display the result title only
-- The title shouldn't be the only interactive element. Ensure the entire item is interactive
-- Don't use both updated date and published date. Choose one only
-- Don't display more than 10 results
+- Don't display the result title only.
+- Don’t make only the title interactive, ensure the entire result is interactive.
+- Don't use both updated date and published date, choose one only.
+- Don't display more than 10 results.
 
 ---
 
 ## Variants
 
-A result listing's two main variants are:
-
+A result listing's 2 main variants are:
 - default
 - simple.
 
@@ -59,9 +55,9 @@ Key information can include:
 
 - audience
 - status
-- grants metadata such as grant value
+- grants metadata such as grant value.
 
-The default variant users the 'updated date' by default.
+The default variant users the updated date by default.
 
 ::DocsExample
 ---
@@ -73,7 +69,7 @@ id: core-navigation-result-listing--with-details
 
 The simple variant displays the page title with accompanying metadata.
 
-It uses the published date by default, which pulls in from the metadata.
+It uses the published date by default, which is automatically pulled in from the metadata.
 
 We recommend using this variant when displaying simple results, like news items.
 
@@ -90,7 +86,7 @@ id: core-navigation-result-listing--with-meta
 Results listing uses colour for:
 
 - icons
-- indicating to the user there is an interaction
+- indicating to the user there is an interaction possible
 - interactive states.
 
 When displaying key information such as status, the icon should adopt the relevant semantic colour.

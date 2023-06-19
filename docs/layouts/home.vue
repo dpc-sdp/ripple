@@ -38,24 +38,6 @@
       </div>
     </template>
 
-    <DocsHomeSection
-      v-if="!hideModulesSection && page.modulesCTA"
-      title="Ripple modules"
-    >
-      <div
-        class="rpl-grid"
-        :style="{ '--rpl-clr-gradient-horizontal': 'var(--rpl-clr-dark)' }"
-      >
-        <div class="rpl-col-12">
-          <RplPromoCard v-bind="page.modulesCTA" highlight>
-            <p>
-              {{ page.modulesCTA.description }}
-            </p>
-          </RplPromoCard>
-        </div>
-      </div>
-    </DocsHomeSection>
-
     <DocsHomeSection title="Find out more">
       <div class="rpl-grid">
         <div class="rpl-col-12 rpl-col-6-m rpl-col-4-l">
@@ -76,6 +58,24 @@
           <RplPromoCard v-bind="page.quickLink3">
             <p>
               {{ page.quickLink3.description }}
+            </p>
+          </RplPromoCard>
+        </div>
+      </div>
+    </DocsHomeSection>
+
+    <DocsHomeSection
+      v-if="!hideModulesSection && page.modulesCTA"
+      title="Using Ripple in SDP sites"
+    >
+      <div
+        class="rpl-grid"
+        :style="{ '--rpl-clr-gradient-horizontal': 'var(--rpl-clr-dark)' }"
+      >
+        <div class="rpl-col-12">
+          <RplPromoCard v-bind="page.framework" highlight>
+            <p>
+              {{ page.framework.description }}
             </p>
           </RplPromoCard>
         </div>

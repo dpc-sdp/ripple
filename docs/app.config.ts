@@ -9,7 +9,7 @@ export default defineAppConfig({
       neutralFooter: false
     },
     framework: {
-      title: 'Ripple Layer Development Guide',
+      title: 'Ripple Framework',
       color: 'var(--rpl-clr-dark)',
       neutralFooter: true
     }
@@ -21,5 +21,5 @@ export default defineAppConfig({
     github: 'dpc-sdp/ripple-framework'
   },
   storybookBaseUrl: '/storybook',
-  hideModulesSection: true
+  hideModulesSection: false
 })

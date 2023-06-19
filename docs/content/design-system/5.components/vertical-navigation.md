@@ -7,17 +7,18 @@ label: Core
 ---
 
 ## Usage
-The vertical navigation component:
-- displays the user's current position in your site's content hierarchy
-- helps users to move between different sections and other related content
-- supports four levels of hierarchy nesting 
--   supports a heading. 
+Use the Vertical navigation component to help users navigate a section of related pages.
 
-Place the vertical navigation next to a page's body content. This helps users navigate a section of related pages.
+Use vertical navigation to:
+- let users find and navigate to relevant information
+- show the user where, within your site’s content hierarchy, the page they are viewing is located
+- show 4 nested content sections (parent sections) and a heading for the names of each section.
 
-We've hidden child page navigation by default, and the user can reveal them via a chevron. When they select a parent section, it expands and displays the children pages. 
+Vertical navigation is placed next to your page’s body content. 
 
-The chevron remains upturned until a user closes it. This tells the user which sections they are in, reducing visual complexity.
+A chevron (v-shaped icon) next to each parent section lets users expand that parent section. This reveals the names of content pages falling within the parent section (child pages). Child page links are hidden by default. 
+
+The chevron flips up and parent sections stay expanded until the user interacts with the chevron to hide the child pages. This helps the user find what they need and minimises visual clutter.
 
 ::DocsExample
 ---
@@ -34,15 +35,15 @@ id: core-navigation-vertical-navigation--vertical-navigation
 
 ### When and how not to use
 - Don't embed on a page that doesn't have a sidebar.
-- Don't add more than four child levels. The indentation will become indiscernible, which affects usability.
-- Don't use on a site with less than 5 pages.
+- Don't add more than 4 child levels. Users will not see the indents, so navigation will become confusing.
+- Don't use on a site with fewer than 5 pages.
 - Don’t use with icons.
 - Never use it to link to other sites.
 
 ---
 
 ## Theming
-Vertical navigation uses colour to highlight the current page the user is on. 
+Vertical navigation uses colour and active state focus to highlight the current page the user is on. 
 
 ::DocsThemeChooser
   ::DocsExample
@@ -57,7 +58,7 @@ To create your own theme see [theming guidance for designers]() or [theming guid
 ---
 
 ## Rationale
-The current page active state shows which page a user is currently on. It uses an underline (that is, something other than colour) to meet [Web Content Accessibility Guidelines 2.0 Success Criterion 1.4.1](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-without-color.html).
+To show the user which page in the vertical navigation they are currently on, the active state is used. This displays as an underline in addition to colour, to address [Web Content Accessibility Guidelines 2.0 Success Criterion 1.4.1](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-without-color.html).
 
 > **[1.4.1](https://www.w3.org/TR/2008/REC-WCAG20-20081211/#visual-audio-contrast-without-color) Use of Color:** Color is not used as the only visual means of conveying information, indicating an action, prompting a response, or distinguishing a visual element.
 

@@ -1,7 +1,7 @@
 //@ts-nocheck import typing needs fixing
 import { H3Event, sendError, createError } from 'h3'
-import { logger } from '@dpc-sdp/ripple-tide-api'
-import { UserFacingError } from '@dpc-sdp/ripple-tide-api/errors'
+import { logger } from '../index.js'
+import { UserFacingError } from '../errors/errors.js'
 
 const getPublicFacingStatusCode = (status: number) => {
   switch (status) {
@@ -32,7 +32,7 @@ const getPublicFacingStatusMessage = (status: number) => {
   }
 }
 
-const createHandler = async (
+export const createHandler = async (
   event: H3Event,
   logLabel: string,
   handlerFn: () => Promise<any>
@@ -74,5 +74,3 @@ const createHandler = async (
     }
   }
 }
-
-export default createHandler

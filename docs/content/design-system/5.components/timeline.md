@@ -15,13 +15,13 @@ A timeline can include a combination of:
 - summary
 - image.
 
-Timelines create a clear hierarchy. They help users to make a connection from one linear piece of information to another.
+Use a timeline when you want to show a user a series of events or actions in particular order. Timelines help users understand how individual events or steps on the timeline affect each other. 
 
-For example, this could include:
-- stages or steps along a process
-- sequential outcomes or dates.
+Use a timeline to visually summarise a process or chronology using, for example, dates, steps, stages, events, actions or outcomes.
 
-A timeline displays in order from top to bottom. Only include 3 to 8 steps to prevent it from overwhelming the user.
+The timeline component is ordered from top to bottom.
+
+Use between 3 to 8 discrete sections of content, so the user is not overwhelmed. 
 
 ::DocsExample
 ---
@@ -36,17 +36,17 @@ id: core-containers-timeline--default-story
 - Add a link if you're providing more details on another page.
 
 ### When and how not to use
-- Don't add less than 3 or more than 8 blocks.
+- Don't add fewer than 3 or more than 8 blocks.
 - Don't use without a heading for each block.
 - Never include unrelated content.
-- Don't use if content doesn't come together in sequential or linear order. Consider bullets points instead.
+- Don't use if content doesn't flow in a sequential or linear order. Consider bullets points instead.
 
 ---
 
 ## Variants
-Timeline has two variants:
-- Default.
-- Progressive.
+Timeline has 2 variants:
+- default
+- progressive.
 
 ### Default
 This is for steps or stages along a process. Use the default timeline when progress is not relevant to the user.

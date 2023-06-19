@@ -8,13 +8,13 @@ label: Core
 
 ## Usage
 
-Use text area so users can enter multiple lines of text.
+The Text area component allows users to enter multiple lines of text.
 
-Text area is used information longer than a single line of text is needed or expected. For example, comments fields.
+Text area is used when information longer than a single line of text is needed or expected. For example, comments fields.
 
 Text areas can be resized and can be used with a character counter. 
 
-Don’t use text area for succinct responses such as a email addresses or names. In this case, you should use the [input field](/design-system/components/input-field/) component.
+Don’t use text area for succinct responses such as email addresses or names. In this case, you should use the input field component.
 
 ::DocsExample
 ---
@@ -24,16 +24,16 @@ id: forms-textarea--default-story
 
 ### How this component works
 
-You must use a form label with a text area.
+You must use a form label with a text area component.
 
-You can use an text area with:
+You can use text area with:
 
 - requirement label
 - hint text
 - metadata
 - placeholder text.
 
-Guide users about the amount of text wanted. Set the text area to match the amount preferred. It has no maximum height, but a minimum height of 96px.
+Guide users about the amount of text wanted. Set the text area to match the amount preferred. It has no maximum height, but has a minimum height of 96px.
 
 #### Resize handle
 
@@ -61,7 +61,7 @@ Only use hint text where it’s needed. Don’t repeat the label. Don’t use it
 
 A character count can sit below the text area field. It tells users the maximum characters and their input’s current count.
 
-Users can enter more characters than the maximum. The character count says they’ve entered too many characters before they submit the text area. The user can then copy or reduce their full answer.
+Users can enter more characters than the maximum. The character count then says they’ve entered too many characters before they submit the text area. The user can copy or reduce their full answer.
 
 Even though there is a live character count, normal error responses (below) must appear if a user tries to submit a text area with too many characters.
 
@@ -69,25 +69,25 @@ Only use character count when there is a good reason. For example, legal reasons
 
 ### When and how to use
 
-- Always use a label for text areas
-- Use hint text to specify helpful information such as specific formatting or information requirements
-- Specify character counts when required
+- Always use a label for text areas.
+- Use hint text to specify helpful information such as specific formatting or information requirements.
+- Specify character counts when required.
 
 ### When and how not to use
 
 - Never use without a label
-- Avoid placeholder text because it can cause accessibility issues
-- Don’t disable copy and paste
-- Don’t set a minimum or maximum input limit without explicitly saying this in the character count
-- Do not use hint text if it isn’t relevant or meaningful to the user
-- Don’t use placeholder text to give instructions
-- Don’t write ambiguous error messages only stating what's wrong - explain how the user can fix it
+- Avoid placeholder text because it can cause accessibility issues.
+- Don’t disable copy and paste.
+- Don’t set a minimum or maximum input limit without explicitly saying this in the character count.
+- Do not use hint text if it isn’t relevant or meaningful to the user.
+- Don’t use placeholder text to give instructions.
+- Don’t write ambiguous error messages only stating what's wrong - explain how the user can fix it.
 
 ---
 
 ## Variants
 
-The text area has two variants:
+The text area has 2 variants:
 
 - default, used on white backgrounds
 - reverse, used on neutral backgrounds.
@@ -118,33 +118,33 @@ When creating an error message for an input field, use the wording below.
 
 **Error: empty input**
 
-- Error message: ‘Enter \[the missing information\]'
-- Example: 'Enter your name'
+- Error message: ‘Enter \[the missing information\]'.
+- Example: 'Enter your name'.
 
 **Error: input is too long**
 
-- Error message: ‘\[The input\] must be \[number\] characters or less'
-- Example: 'Delivery address must be 56 characters or less'
+- Error message: ‘\[The input\] must be \[number\] characters or less'.
+- Example: 'Delivery address must be 56 characters or less'.
 
 **Error: input is too short**
 
-- Error message: ‘\[The input\] must be \[number\] characters or more'
-- Example: 'Previous employer must be 3 characters or more'
+- Error message: ‘\[The input\] must be \[number\] characters or more'.
+- Example: 'Previous employer must be 3 characters or more'.
 
 **Error: input is too long or to short**
 
-- Error message: ‘\[The input\] must be between \[number\] and \[number\] characters'
-- Example: 'Justification must be between 3 and 56 characters'
+- Error message: ‘\[The input\] must be between \[number\] and \[number\] characters'.
+- Example: 'Justification must be between 3 and 56 characters'.
 
 **Error: input uses known characters that aren’t allowed**
 
-- Error message: ‘\[The input\] must not include \[characters\]'
-- Example: ‘Reasons must not include + & ~'
+- Error message: ‘\[The input\] must not include \[characters\]'.
+- Example: ‘Reasons must not include + & ~'.
 
 **Error: input uses unknown characters that aren’t allowed**
 
-- Error message: ‘\[The input\] must only include \[list of allowed characters\]'
-- Example: ‘Explanations must only include letters, numbers and commas'
+- Error message: ‘\[The input\] must only include \[list of allowed characters\]'.
+- Example: ‘Explanations must only include letters, numbers and commas'.
 
 ::DocsExample
 ---

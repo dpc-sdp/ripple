@@ -26,7 +26,7 @@ jobs:
       - run:
           name: Install pnpm package manager
           command: |
-            curl -L https://pnpm.js.org/pnpm.js | node - add --global pnpm@8
+            curl -fsSL https://get.pnpm.io/install.sh | env PNPM_VERSION=8.6.2 sh -
       - run:
           name: Install Dependencies
           command: pnpm install
@@ -47,7 +47,7 @@ jobs:
       - run:
           name: Install pnpm package manager
           command: |
-            curl -L https://pnpm.js.org/pnpm.js | node - add --global pnpm@8
+            curl -fsSL https://get.pnpm.io/install.sh | env PNPM_VERSION=8.6.2 sh -
       - run:
           name: Lint code.
           command: pnpm run lint
@@ -68,7 +68,7 @@ jobs:
       - run:
           name: Install pnpm package manager
           command: |
-            curl -L https://pnpm.js.org/pnpm.js | node - add --global pnpm@8
+            curl -fsSL https://get.pnpm.io/install.sh | env PNPM_VERSION=8.6.2 sh -
       - run:
           command: pnpm run test:components-core
           name: Run cypress component tests - UI Core
@@ -84,7 +84,7 @@ jobs:
       - run:
           name: Install pnpm package manager
           command: |
-            curl -L https://pnpm.js.org/pnpm.js | node - add --global pnpm@8
+            curl -fsSL https://get.pnpm.io/install.sh | env PNPM_VERSION=8.6.2 sh -
       - run:
           command: pnpm run test:components-forms
           name: Run cypress component tests - UI Forms
@@ -97,7 +97,7 @@ jobs:
       - run:
           name: Install pnpm package manager
           command: |
-            curl -L https://pnpm.js.org/pnpm.js | node - add --global pnpm@8
+            curl -fsSL https://get.pnpm.io/install.sh | env PNPM_VERSION=8.6.2 sh -
       - run:
           name: build docs site
           command: pnpm run build:docs
@@ -110,7 +110,7 @@ jobs:
       - run:
           name: Install pnpm package manager
           command: |
-            curl -L https://pnpm.js.org/pnpm.js | node - add --global pnpm@8
+            curl -fsSL https://get.pnpm.io/install.sh | env PNPM_VERSION=8.6.2 sh -
       - run:
           name: build example apps
           command: pnpm run build:examples
@@ -129,7 +129,7 @@ jobs:
       - run:
           name: Install pnpm package manager
           command: |
-            curl -L https://pnpm.js.org/pnpm.js | node - add --global pnpm@8
+            curl -fsSL https://get.pnpm.io/install.sh | env PNPM_VERSION=8.6.2 sh -
       - run:
           command: pnpm run ci:nuxt-app
           name: Run integration tests with Cypress
@@ -148,7 +148,7 @@ jobs:
       - run:
           name: Install pnpm package manager
           command: |
-            curl -L https://pnpm.js.org/pnpm.js | node - add --global pnpm@8
+            curl -fsSL https://get.pnpm.io/install.sh | env PNPM_VERSION=8.6.2 sh -
       - run:
           command: pnpm build:storybook
           name: Build static storybook
@@ -169,7 +169,7 @@ jobs:
       - run:
           name: Install pnpm package manager
           command: |
-            curl -L https://pnpm.js.org/pnpm.js | node - add --global pnpm@8
+            curl -fsSL https://get.pnpm.io/install.sh | env PNPM_VERSION=8.6.2 sh -
       - run:
           command: pnpm test:storybook-ci
           name: Run storybook Tests
@@ -183,7 +183,7 @@ jobs:
       - run:
           name: Install pnpm package manager
           command: |
-            curl -L https://pnpm.js.org/pnpm.js | node - add --global pnpm@8
+            curl -fsSL https://get.pnpm.io/install.sh | env PNPM_VERSION=8.6.2 sh -
       - run: pnpm chromatic --project-token=${CHROMATIC_PROJECT_TOKEN} --exit-zero-on-changes --exit-once-uploaded --skip 'gh-readonly-queue/**'
 
   performance:
@@ -195,7 +195,7 @@ jobs:
       - run:
           name: Install pnpm package manager
           command: |
-            curl -L https://pnpm.js.org/pnpm.js | node - add --global pnpm@8
+            curl -fsSL https://get.pnpm.io/install.sh | env PNPM_VERSION=8.6.2 sh -
       - run: SHELL=$SHELL pnpm setup
       - run: pnpm install puppeteer -w
       - run: pnpm -F nuxt-ripple-cli build
@@ -221,7 +221,7 @@ jobs:
       - run:
           name: Install pnpm package manager
           command: |
-            curl -L https://pnpm.js.org/pnpm.js | node - add --global pnpm@8
+            curl -fsSL https://get.pnpm.io/install.sh | env PNPM_VERSION=8.6.2 sh -
       - run:
           name: Bump version to latest prerelease
           command: pnpm release:pre
@@ -248,7 +248,7 @@ jobs:
       - run:
           name: Install pnpm package manager
           command: |
-            curl -L https://pnpm.js.org/pnpm.js | node - add --global pnpm@8
+            curl -fsSL https://get.pnpm.io/install.sh | env PNPM_VERSION=8.6.2 sh -
       - run:
           name: Bump version to production release
           command: pnpm release:prod

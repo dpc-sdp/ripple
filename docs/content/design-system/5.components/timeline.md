@@ -15,13 +15,20 @@ A timeline can include a combination of:
 - summary
 - image.
 
-Use a timeline when you want to show a user a series of events or actions in particular order. Timelines help users understand how individual events or steps on the timeline affect each other. 
+Use timelines to show a clear and sequential order of information. This assists users in linking pieces of information together.
 
-Use a timeline to visually summarise a process or chronology using, for example, dates, steps, stages, events, actions or outcomes.
+Some examples include:
+- dates
+- steps
+- stages
+- events
+- actions
+- outcomes.
 
 The timeline component is ordered from top to bottom.
 
-Use between 3 to 8 discrete sections of content, so the user is not overwhelmed. 
+Use between 3 to 8 discrete sections of content, so the user is not overwhelmed.
+
 
 ::DocsExample
 ---

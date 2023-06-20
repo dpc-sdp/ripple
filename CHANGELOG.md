@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.197](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.196...v2.1.0-alpha.197) (2023-06-20)
+
+### Bug Fixes
+
+* **docs:** updated nuxt content to fix site logo issue ([2016b04](https://github.com/dpc-sdp/ripple-framework/commit/2016b04ccb5cbd95068466bb6a4a8f4d3756b555))
+
 # [2.1.0-alpha.196](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.195...v2.1.0-alpha.196) (2023-06-20)
 
 ### Features

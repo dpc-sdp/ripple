@@ -93,4 +93,4 @@ Tabs use colour to represent interaction states.
   ::
 ::
 
-To create your own theme see [theming guidance for designers]() or [theming guidance for developers]().
+To create your own theme see [theming guidance for designers](/design-system/design/theming-guidance-for-designers) or [theming guidance for developers](/design-system/develop/theming).

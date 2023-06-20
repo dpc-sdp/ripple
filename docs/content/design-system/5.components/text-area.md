@@ -166,7 +166,7 @@ Text area uses colour to show interactive states. A text area field in an active
   ::
 ::
 
-To create your own theme see [theming guidance for designers]() or [theming guidance for developers]().
+To create your own theme see [theming guidance for designers](/design-system/design/theming-guidance-for-designers) or [theming guidance for developers](/design-system/develop/theming).
 
 ---
 

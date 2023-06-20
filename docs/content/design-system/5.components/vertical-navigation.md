@@ -24,7 +24,7 @@ The chevron flips up and parent sections stay expanded until the user interacts 
 ---
 id: core-navigation-vertical-navigation--vertical-navigation
 ---
-::
+:: 
 
 ### When and how to use
 - Use in a page's sidebar.
@@ -53,7 +53,7 @@ Vertical navigation uses colour and active state focus to highlight the current 
   ::
 ::
 
-To create your own theme see [theming guidance for designers]() or [theming guidance for developers]().
+To create your own theme see [theming guidance for designers](/design-system/design/theming-guidance-for-designers) or [theming guidance for developers](/design-system/develop/theming).
 
 ---
 

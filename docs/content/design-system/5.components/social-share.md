@@ -1,6 +1,6 @@
 ---
 title: Social share
-description: A list of links to help users to share pages to social media.
+description: The Social share component shows a list of links to help users to share pages to social media.
 layout: page
 label: Core
 
@@ -8,7 +8,7 @@ label: Core
 
 ## Usage
 
-The Social share component allows users to share a page to their own social media channels.
+Use social share to let users share pages to their own social media channels.
 
 It uses the social media icons to:
 

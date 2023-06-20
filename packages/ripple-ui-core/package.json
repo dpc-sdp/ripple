@@ -1,7 +1,8 @@
 {
-  "name": "@dpc-sdp/ripple-ui-core",
   "packageManager": "pnpm@8.6.2",
-  "version": "2.1.0-alpha.192",
+  "name": "@dpc-sdp/ripple-ui-core",
+  "description": "Ripple UI Core component library",
+  "version": "2.1.0-alpha.195",
   "license": "Apache-2.0",
   "files": [
     "dist",
@@ -57,7 +58,6 @@
     "postcss-nested": "^6.0.1",
     "postcss-normalize": "^10.0.1",
     "postcss-preset-env": "^8.1.0",
-    "rimraf": "^4.4.1",
     "swiper": "^8.4.5",
     "vite-svg-loader": "^4.0.0",
     "vue": "3.3.4"
@@ -72,6 +72,7 @@
     "http-server": "^14.1.0",
     "jest-axe": "^7.0.1",
     "pathe": "^1.1.0",
+    "rimraf": "^4.4.1",
     "storybook-addon-designs": "^6.2.1",
     "style-dictionary": "^3.7.2",
     "stylelint": "^15.7.0",

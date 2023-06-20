@@ -130,7 +130,7 @@ Optional supporting data displays in a dropdown list. Use the type of content th
 
 Complex media will always display the full image. The media item will display at a predefined max height or width.
 
-When the media is fullscreen, it displays in the [media fullscreen](https://develop--ripple-docs.netlify.app/design-system/components/media-fullscreen/) component.
+When the media is fullscreen, it displays in the media fullscreen component.
 
 ::DocsExample
 ---

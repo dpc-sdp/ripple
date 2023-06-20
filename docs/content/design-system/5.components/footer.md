@@ -31,7 +31,7 @@ The footer is made up of:
   - bypassing main navigation
 - optional social links, which can be used to link to social media accounts
 - core site links, which must always be used and include the privacy statement, contact information and terms of use
-- a copyright statement, which clarifies who owns the copyright and is specific to your agency or department (add the State Government of Victoria logo to [vic.gov.au](https://www.vic.gov.au) services, for sitewide consistency)
+- a copyright statement, which clarifies who owns the copyright and is specific to your agency or department (add the State Government of Victoria logo to vic.gov.au services, for sitewide consistency)
 - an Acknowledgement of Traditional Owners message (an acknowledgement component).
 
 ### When and how to use

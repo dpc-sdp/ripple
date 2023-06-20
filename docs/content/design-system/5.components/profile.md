@@ -21,7 +21,7 @@ It's used to display key information, including:
 - date
 - category.
 
-Only use the profile component for displaying simple information. For data or complex information, consider using a [table](/design-system/components/header/).
+Only use the profile component for displaying simple information. For data or complex information, consider using a table.
 
 ::DocsExample
 ---

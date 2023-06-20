@@ -8,7 +8,7 @@ label: Core
 
 ## Usage
 
-Use this component to let users print or download pages and content.
+Use the Page action component to let users print or download pages and content.
 
 Page action presents as a collection of links giving users a choice of actions at a page level. This includes printing or downloading a document.
 

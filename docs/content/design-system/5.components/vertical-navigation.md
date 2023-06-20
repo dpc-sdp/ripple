@@ -1,13 +1,13 @@
 ---
 title: Vertical navigation
-description: A vertical list of links to help users navigate a section of related pages.
+description: The Vertical navigation component displays a list of links to help users navigate a section of related pages.
 layout: page
 label: Core
 
 ---
 
 ## Usage
-Use the Vertical navigation component to help users navigate a section of related pages.
+Use the vertical navigation to help users navigate a section of related pages.
 
 Use vertical navigation to:
 - let users find and navigate to relevant information

@@ -41,7 +41,7 @@ id: core-containers-media-gallery--default-story
 
 ## Theming
 
-Media Fullscreen adopts its theming from the pagination component.
+Media fullscreen adopts its theming from the pagination component.
 
 ::DocsThemeChooser
   ::DocsExample

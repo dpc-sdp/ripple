@@ -23,7 +23,7 @@ Other input types let a user select from predefined options. Use a radio button 
 
 Group related form components in logical chunks (fieldsets). A single form can have multiple fieldsets. For example, a fieldset with several input fields for an address, plus a fieldset with a date input and radio button for delivery preferences.
 
-The user can submit a form when all fields are valid (see form alert).
+The user can submit a form when all fields are valid (see [form alert](/design-system/components/form-alert/)).
 
 ::DocsExample
 ---

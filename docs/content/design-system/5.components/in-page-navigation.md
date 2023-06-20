@@ -24,15 +24,15 @@ id: core-navigation-in-page-navigation
 ::
 
 ### When and how to use
-- In-page Navigation is ideal for pages with a lot of content. This will help users find their relevant content
-- Use headings throughout your content, such as headings level 2 (H2) and 3 (H3). You can use these as navigation links at the start of the page, like a table of contents
-- Use subheadings as indented navigation links from the page
+- In-page Navigation is ideal for pages with a lot of content. This will help users find their relevant content.
+- Use headings throughout your content, such as headings level 2 (H2) and 3 (H3). You can use these as navigation links at the start of the page, like a table of contents.
+- Use subheadings as indented navigation links from the page.
 
 ### When and how not to use
-- Don't link to other pages, including on external sites
-- Never use colons in the heading
-- Don't use it if you have less than 2 navigation links
-- Don't use it with component headings, such as accordion item headings
+- Don't link to other pages, including on external sites.
+- Never use colons in the heading.
+- Don't use it if you have less than 2 navigation links.
+- Don't use it with component headings, such as accordion item headings.
 
 ---
 

@@ -75,7 +75,7 @@ Always have specific error messages for specific errors. Users need to understan
 #### Buttons
 Button labels should say what the button will do when a user interacts with it.
 
-Ensure the main action button tells the user when the form is being submitted ([see button loading spinner](/design-system/components/button/#loading-spinner)).
+Ensure the main action button tells the user when the form is being submitted (see [button loading spinner](/design-system/components/button/#loading-spinner)).
 
 To avoid confusing users about how to submit the form, use only one main action button. Do not use a reset button.
 

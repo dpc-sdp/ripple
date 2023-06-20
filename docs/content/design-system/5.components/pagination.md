@@ -62,7 +62,7 @@ Pagination has 3 main variants:
 
 ### Simple
 
-The simple variant is for navigating through a small number of items. Use it to nest pagination in other components, like [Media Gallery](/design-system/components/media-gallery/), [Media Fullscreen](/design-system/components/media-fullscreen/) and [Carousel](/design-system/components/carousel/).
+The simple variant is for navigating through a small number of items. Use it to nest pagination in other components, like media gallery, media fullscreen and carousel.
 
 ::DocsExample
 ---

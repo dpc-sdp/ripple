@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.196](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.195...v2.1.0-alpha.196) (2023-06-20)
+
+### Features
+
+* **@dpc-sdp/ripple-tide-search:** move search runtime config options to search package ([7af6ab8](https://github.com/dpc-sdp/ripple-framework/commit/7af6ab828c1d1b986f679925ac10a6dd1596ba5a))
+
 # [2.1.0-alpha.195](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.194...v2.1.0-alpha.195) (2023-06-19)
 
 **Note:** Version bump only for package @dpc-sdp/ripple-tide-landing-page

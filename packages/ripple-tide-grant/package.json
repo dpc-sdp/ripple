@@ -1,10 +1,10 @@
 {
+  "packageManager": "pnpm@8.6.2",
   "name": "@dpc-sdp/ripple-tide-grant",
   "description": "Ripple mappings and components for Tide Grant Content type",
-  "main": "./nuxt.config.ts",
-  "packageManager": "pnpm@8.0.0",
-  "version": "2.1.0-alpha.189",
+  "version": "2.1.0-alpha.195",
   "license": "Apache-2.0",
+  "main": "./nuxt.config.ts",
   "exports": {
     ".": "./nuxt.config.ts",
     "./mapping": "./mapping/index.ts"

@@ -16,9 +16,9 @@ npm install
 
 ## Development
 
-The `.playground` directory should help you on trying your theme during development.
+The `.playground` directory should help you to develop your layer.
 
-Running `npm run dev` will prepare and boot `.playground` directory, which imports your theme itself.
+Running `npm run dev` will prepare and boot `.playground` directory, which imports your layer itself.
 
 ## Publishing
 
@@ -31,7 +31,7 @@ npm publish --access public
 Once done, you will only have to run:
 
 ```bash
-npm install --save your-theme
+npm install --save <%= h.changeCase.kebabCase(name) %>
 ```
 
 Then add the dependency to into the main Nuxt apps `extends` in `nuxt.config`:
@@ -58,12 +58,6 @@ Build the production application:
 
 ```bash
 npm run build
-```
-
-Or statically generate it with:
-
-```bash
-npm run generate
 ```
 
 Locally preview production build:

@@ -1,8 +1,9 @@
 {
-  "packageManager": "pnpm@7.23.0",
-  "license": "Apache-2.0",
-  "version": "2.1.0-alpha.189",
+  "packageManager": "pnpm@8.6.2",
   "name": "@dpc-sdp/nuxt-ripple-analytics",
+  "description": "Nuxt module for handling event tracking.",
+  "version": "2.1.0-alpha.195",
+  "license": "Apache-2.0",
   "main": "./nuxt.config.ts",
   "exports": {
     ".": "./nuxt.config.ts",
@@ -24,7 +25,6 @@
     "@dpc-sdp/ripple-tide-search": "workspace:*",
     "@dpc-sdp/ripple-ui-core": "workspace:*",
     "@dpc-sdp/ripple-ui-forms": "workspace:*",
-    "@nuxt/eslint-config": "^0.1.1",
-    "add": "^2.0.6"
+    "@nuxt/eslint-config": "^0.1.1"
   }
 }

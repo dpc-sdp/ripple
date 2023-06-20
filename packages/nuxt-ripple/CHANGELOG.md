@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.195](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.194...v2.1.0-alpha.195) (2023-06-19)
+
+### Features
+
+* **@dpc-sdp/ripple-tide-api:** update price range formatting, remove duplicate files ([81eaa29](https://github.com/dpc-sdp/ripple-framework/commit/81eaa29ea30708a24239bc995c9a5f46d2bfacb8))
+
+# [2.1.0-alpha.194](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.193...v2.1.0-alpha.194) (2023-06-16)
+
+**Note:** Version bump only for package @dpc-sdp/nuxt-ripple
+
+# [2.1.0-alpha.193](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.192...v2.1.0-alpha.193) (2023-06-16)
+
+**Note:** Version bump only for package @dpc-sdp/nuxt-ripple
+
+# [2.1.0-alpha.192](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.191...v2.1.0-alpha.192) (2023-06-16)
+
+**Note:** Version bump only for package @dpc-sdp/nuxt-ripple
+
+# [2.1.0-alpha.191](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.190...v2.1.0-alpha.191) (2023-06-16)
+
+### Features
+
+* :sparkles: add selector to help locate el ([670ff49](https://github.com/dpc-sdp/ripple-framework/commit/670ff49872e5651c561de5d8db91b76ebab0c5c2))
+
+# [2.1.0-alpha.190](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.189...v2.1.0-alpha.190) (2023-06-15)
+
+**Note:** Version bump only for package @dpc-sdp/nuxt-ripple
+
 # [2.1.0-alpha.189](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.188...v2.1.0-alpha.189) (2023-06-15)
 
 ### Bug Fixes

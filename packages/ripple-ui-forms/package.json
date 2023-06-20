@@ -1,7 +1,8 @@
 {
+  "packageManager": "pnpm@8.6.2",
   "name": "@dpc-sdp/ripple-ui-forms",
-  "packageManager": "pnpm@8.0.0",
-  "version": "2.1.0-alpha.189",
+  "description": "A form component library built with Formkit",
+  "version": "2.1.0-alpha.195",
   "license": "Apache-2.0",
   "main": "./dist/rpl-forms.umd.js",
   "module": "./dist/rpl-forms.es.js",
@@ -21,8 +22,7 @@
     "@formkit/vue": "1.0.0-beta.15",
     "@nuxt/kit": "3.5.2",
     "@vueuse/core": "^9.13.0",
-    "date-fns": "^2.29.3",
-    "rimraf": "^4.4.1"
+    "date-fns": "^2.29.3"
   },
   "devDependencies": {
     "@babel/core": "^7.21.3",
@@ -33,6 +33,7 @@
     "postcss-nested": "^6.0.1",
     "postcss-normalize": "^10.0.1",
     "postcss-preset-env": "^8.1.0",
+    "rimraf": "^4.4.1",
     "ts-node": "^10.7.0",
     "vite-plugin-static-copy": "^0.13.1",
     "vite-svg-loader": "^4.0.0",
@@ -44,10 +45,5 @@
     "build:types": "tsc -p tsconfig.json",
     "clean": "(rimraf dist* && rimraf tsconfig.tsbuildinfo) | true",
     "test:components": "cypress run --component"
-  },
-  "pnpm": {
-    "patchedDependencies": {
-      "vite-svg-loader@4.0.0": "patches/vite-svg-loader@4.0.0.patch"
-    }
   }
 }

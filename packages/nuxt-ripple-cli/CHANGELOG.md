@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.193](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.192...v2.1.0-alpha.193) (2023-06-16)
+
+**Note:** Version bump only for package @dpc-sdp/nuxt-ripple-cli
+
+# [2.1.0-alpha.192](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.191...v2.1.0-alpha.192) (2023-06-16)
+
+**Note:** Version bump only for package @dpc-sdp/nuxt-ripple-cli
+
+# [2.1.0-alpha.190](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.189...v2.1.0-alpha.190) (2023-06-15)
+
+### Bug Fixes
+
+* **@dpc-sdp/nuxt-ripple-cli:** remove defineNuxtConfig imports ([73cca87](https://github.com/dpc-sdp/ripple-framework/commit/73cca87c0d748aad29b9507d3d83bd9098b94cb6))
+* **@dpc-sdp/nuxt-ripple-cli:** remove layer license ([9e21ed2](https://github.com/dpc-sdp/ripple-framework/commit/9e21ed21d1d9501104b1b1299c4d5d61898a2deb))
+* **@dpc-sdp/nuxt-ripple-cli:** remove license and story, add css comment ([e96b8f3](https://github.com/dpc-sdp/ripple-framework/commit/e96b8f3ede5b763ee166baef9dba75acb9f68635))
+
+### Features
+
+* **@dpc-sdp/nuxt-ripple-cli:** add story to component scaffolding ([82a3a2e](https://github.com/dpc-sdp/ripple-framework/commit/82a3a2ed52e79abd9b2c60c0d2c11a2ec5499805))
+* **@dpc-sdp/nuxt-ripple-cli:** readme updates ([103683a](https://github.com/dpc-sdp/ripple-framework/commit/103683a740af88f00592cdf0faa6e527070ce673))
+* **@dpc-sdp/nuxt-ripple-cli:** remove double quotes to appease linting, update readme ([b3275bf](https://github.com/dpc-sdp/ripple-framework/commit/b3275bfc7d8556a21a779d72a12cfbb0481239f5))
+* **@dpc-sdp/nuxt-ripple-cli:** update versions, readme, remove generate ([f40cbf4](https://github.com/dpc-sdp/ripple-framework/commit/f40cbf4fa9ea3c70a3466dca28e752ba8ca3536c))
+
 # [2.1.0-alpha.189](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.188...v2.1.0-alpha.189) (2023-06-15)
 
 ### Bug Fixes

@@ -22,7 +22,7 @@ Only use the detail list for simple information. For data or complex information
 
 ::DocsExample
 ---
-id: core-containers-description-list
+id: core-containers-description-list--with-link
 ---
 ::
 
@@ -46,7 +46,7 @@ When a link is present, the detail list uses the link colour for interaction sta
 ::DocsThemeChooser
   ::DocsExample
   ---
-  id: core-containers-description-list
+  id: core-containers-description-list--with-link
   ---
   ::
 ::

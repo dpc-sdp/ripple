@@ -21,7 +21,7 @@ When visible, it's always the first item on a page and pushes down all page cont
 
 ::DocsExample
 ---
-id: core-layout--back-to-top-and-skip-links
+id: core-layout-skip-links--stand-alone
 ---
 ::
 
@@ -43,7 +43,7 @@ The skip link uses the site’s focus state colour. This creates a seamless user
 ::DocsThemeChooser
   ::DocsExample
   ---
-  id: core-layout--back-to-top-and-skip-links
+  id: core-layout-skip-links--stand-alone
   ---
   ::
 ::

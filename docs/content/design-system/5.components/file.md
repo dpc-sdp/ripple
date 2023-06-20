@@ -7,7 +7,7 @@ label: Core
 ---
 
 ## Usage
-Use the file component to let users download an attachment. It is accompanied by an optional description so you can give the user more information.
+Use the File component to let users download an attachment. It is accompanied by an optional description so you can give the user more information.
 
 File is made up of:
 

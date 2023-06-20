@@ -7,7 +7,7 @@ label: Core
 ---
 
 ## Usage
-Use the vertical navigation to help users navigate a section of related pages.
+Use vertical navigation to help users navigate a section of related pages.
 
 Use vertical navigation to:
 - let users find and navigate to relevant information

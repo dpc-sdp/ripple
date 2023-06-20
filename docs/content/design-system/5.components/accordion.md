@@ -1,13 +1,13 @@
 ---
 title: Accordion
-description: An expandable panel designed to save space by hiding and revealing content as required.
+description: The Accordion component is a panel designed to save space by hiding and revealing content as required.
 layout: page
 label: Core
 
 ---
 
 ## Usage
-Use the Accordion component only if it will benefit the user. You should have evidence of this.
+Use accordions only if it will benefit the user. You should have evidence of this.
 
 Using accordions will allow users to:
 - view related sections of content quickly

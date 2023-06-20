@@ -1,6 +1,6 @@
 ---
 title: Alert
-description: Alerts display required actions or important messages to users.
+description: The Alert component display required actions or important messages to users.
 layout: page
 label: Core
 
@@ -8,7 +8,7 @@ label: Core
 
 ## Usage
 
-The Alert component attracts a user's attention with important messages or required actions. They appear at the top of pages.
+Alerts attract a user's attention with important messages or required actions. They appear at the top of pages.
 
 Alerts are:
 

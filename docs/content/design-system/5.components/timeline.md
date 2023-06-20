@@ -1,6 +1,6 @@
 ---
 title: Timeline
-description: Blocks of content displayed in a linear order.
+description: The Timeline component contains blocks of content displayed in a linear order.
 layout: page
 label: Core
 

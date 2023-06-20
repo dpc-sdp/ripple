@@ -1,13 +1,13 @@
 ---
 title: Table
-description: Tables make it easier for users to scan and compare data and content.
+description: The Table component makes it easier for users to scan and compare data and content.
 layout: page
 label: Core
 
 ---
 
 ## Usage
-The Table component is a systematic grid of data or content. They display in rows and columns to let users scan, analyse and compare information.
+A table is a systematic grid of data or content. They display in rows and columns to let users scan, analyse and compare information.
 
 Users tend to read tables one row or column at a time. So, it's important that content is simple and logical.
 

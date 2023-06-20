@@ -5,6 +5,7 @@ import { defineNuxtConfig } from 'nuxt/config'
 
 export default defineNuxtConfig({
   // These can be overridden via environment variables eg: NUXT_PUBLIC_TIDE_BASE_URL
+  // Check the layer readme files for the available runtimeConfig options
   // See https://nuxt.com/docs/api/configuration/nuxt-config#runtimeconfig for more info
   runtimeConfig: {
     public: {
@@ -13,16 +14,7 @@ export default defineNuxtConfig({
       tide: {
         baseUrl: '',
         site: '',
-        menuEndpoint: '',
-        appSearch: {
-          searchKey: '',
-          endpointBase: '',
-          engineName: ''
-        },
-        elasticsearch: {
-          host: '',
-          index: ''
-        }
+        menuEndpoint: ''
       }
     }
   },

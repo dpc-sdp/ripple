@@ -1,6 +1,21 @@
 import { defineNuxtConfig } from 'nuxt/config'
 
 export default defineNuxtConfig({
+  runtimeConfig: {
+    public: {
+      tide: {
+        appSearch: {
+          searchKey: '',
+          endpointBase: '',
+          engineName: ''
+        },
+        elasticsearch: {
+          host: '',
+          index: ''
+        }
+      }
+    }
+  },
   alias: {
     '@elastic/search-ui': '@elastic/search-ui/lib/esm/index.js',
     '@elastic/search-ui-app-search-connector':

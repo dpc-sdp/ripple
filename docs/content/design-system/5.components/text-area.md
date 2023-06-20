@@ -1,6 +1,6 @@
 ---
 title: Text area
-description: Let users select one option from a list.
+description: The Text area component lets users select one option from a list.
 layout: page
 label: Core
 
@@ -8,7 +8,7 @@ label: Core
 
 ## Usage
 
-The Text area component allows users to enter multiple lines of text.
+Use text area so users can enter multiple lines of text.
 
 Text area is used when information longer than a single line of text is needed or expected. For example, comments fields.
 

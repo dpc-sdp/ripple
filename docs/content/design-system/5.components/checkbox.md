@@ -15,7 +15,7 @@ Don't use a checkbox if only one option is available or if you expect the user t
 
 ::DocsExample
 ---
-id: Form label
+id: forms-checkbox-group--default-variant
 ---
 ::
 
@@ -90,7 +90,7 @@ Structure this message to help the user to choose which options apply to them.
 
 ::DocsExample
 ---
-id: no story book link yet
+id: forms-checkbox-group--invalid
 ---
 ::
 
@@ -110,7 +110,7 @@ A checkbox in an active state will adopt the same colour as the overall site’s
   ::
 ::
 
-To create your own theme see [theming guidance for designers]() or [theming guidance for developers]().
+To create your own theme see [theming guidance for designers](/design-system/design/theming-guidance-for-designers) or [theming guidance for developers](/design-system/develop/theming).
 
 ---
 

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.199](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.198...v2.1.0-alpha.199) (2023-06-20)
+
+### Bug Fixes
+
+* **@dpc-sdp/nuxt-ripple-cli:** remove spaces to appease eslint ([2f9521b](https://github.com/dpc-sdp/ripple-framework/commit/2f9521b4bb194a674e3fe119ec2a25efd5df9571))
+
 # [2.1.0-alpha.196](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.195...v2.1.0-alpha.196) (2023-06-20)
 
 ### Features

@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-alpha.200](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.199...v2.1.0-alpha.200) (2023-06-21)
+
+### Features
+
+* **@dpc-sdp/ripple-tide-api:** cleanup warnings on server build ([9ad05f8](https://github.com/dpc-sdp/ripple-framework/commit/9ad05f8dbd8c6027bd5fcc8f9d133c355f4b038d))
+
+# [2.1.0-alpha.199](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.198...v2.1.0-alpha.199) (2023-06-20)
+
+### Bug Fixes
+
+* **@dpc-sdp/nuxt-ripple-cli:** remove spaces to appease eslint ([2f9521b](https://github.com/dpc-sdp/ripple-framework/commit/2f9521b4bb194a674e3fe119ec2a25efd5df9571))
+
+# [2.1.0-alpha.198](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.197...v2.1.0-alpha.198) (2023-06-20)
+
+### Bug Fixes
+
+* **@dpc-sdp/nuxt-ripple-preview:** remove file extensions to fix reference dev mode ([363ea25](https://github.com/dpc-sdp/ripple-framework/commit/363ea25f8fbc54fd6d19a296b788e7aa009871bf))
+
+# [2.1.0-alpha.197](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.196...v2.1.0-alpha.197) (2023-06-20)
+
+### Bug Fixes
+
+* **docs:** updated nuxt content to fix site logo issue ([2016b04](https://github.com/dpc-sdp/ripple-framework/commit/2016b04ccb5cbd95068466bb6a4a8f4d3756b555))
+
 # [2.1.0-alpha.196](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.195...v2.1.0-alpha.196) (2023-06-20)
 
 ### Features

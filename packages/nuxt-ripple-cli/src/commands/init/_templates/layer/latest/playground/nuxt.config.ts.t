@@ -20,7 +20,6 @@ export default defineNuxtConfig({
   },
   // See https://nuxt.com/docs/getting-started/layers - each content type is added as a Nuxt layer
   extends: [
-    '..',
     '@dpc-sdp/nuxt-ripple',
     '@dpc-sdp/nuxt-ripple-analytics',
     '@dpc-sdp/nuxt-ripple-preview',
@@ -30,6 +29,7 @@ export default defineNuxtConfig({
     '@dpc-sdp/ripple-tide-publication',
     '@dpc-sdp/ripple-tide-media',
     '@dpc-sdp/ripple-tide-news',
-    '@dpc-sdp/ripple-tide-search'
+    '@dpc-sdp/ripple-tide-search',
+    '..'
   ]
 })

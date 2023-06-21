@@ -1,5 +1,5 @@
 ---
-to: components/global/Tide<%= h.changeCase.pascalCase(name) %>Page.vue
+to: components/global/Tide<%= h.changeCase.pascalCase(name) %>.vue
 ---
 <template>
   <TideBaseLayout

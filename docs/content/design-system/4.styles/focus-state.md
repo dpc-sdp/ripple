@@ -1,5 +1,5 @@
 ---
-title: Focus State
+title: Focus state
 description: 'Focus states show when a user has highlighted an element, using an input method such as a keyboard or voice.'
 layout: page
 label: Core
@@ -8,7 +8,7 @@ label: Core
 
 Some users use keyboards or other devices to navigate through a page by jumping from one interactive element to the next. Focus states help users understand which element is currently selected and ready for interaction.
 
-Focus states are orange and neutral-800 to make sure they meet WCAG 2.1 Level AA [non-text contrast](https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html) on any background colour.
+Focus states are orange and neutral-800, aiming to conform to the WCAG 2.1 Level AA [non-text contrast](https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html) on any background colour.
 
 We have chosen this orange colour as it is a direct opposite of our primary colour. This allows all colourblind users to see a visual difference. Focus state styling also removes any border radius to create a bigger visual difference to surrounding elements.
 
@@ -72,4 +72,4 @@ colours:
 ::
 
 ### Theming
-For advice on focus state theming, see [theming guidance for designers](https://www.google.com) or [theming guidance for developers](https://www.google.com).
+For advice on focus state theming, see [theming guidance for designers](/design-system/design/theming-guidance-for-designers/) or [theming guidance for developers](/design-system/develop/theming/).

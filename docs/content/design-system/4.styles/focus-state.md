@@ -60,16 +60,11 @@ alt: Component Modified Focus State Sample
 ### CSS Variables 
 The focus state has three CSS Variables.
 
-==Below table to be edited by Dev to add Element column==
-
-::DocsColourTable
----
-colours:
-  - clr.focus
-  - clr.type.focus.contrast
-  - clr.dark
----
-::
+| Swatch                    | Element                | Value   | CSS Variable           |
+|---------------------------|------------------------|---------|------------------------|
+| :Swatch{colour="#FF9E1B"} | Background Fill        | #FF9E1B | rpl-clr-focus          |
+| :Swatch{colour="#1A1A1A"} | Content / Text / Icons | #1A1A1A | rpl-clr-focus-contrast |
+| :Swatch{colour="#1A1A1A"} | Bottom Border          | #1A1A1A | rpl-clr-dark           |
 
 ### Theming
 For advice on focus state theming, see [theming guidance for designers](/design-system/design/theming-guidance-for-designers/) or [theming guidance for developers](/design-system/develop/theming/).

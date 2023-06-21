@@ -1,5 +1,5 @@
 ---
-title: Acknowledgment
+title: Acknowledgement
 description: The Acknowledgement component pays respect to the First Peoples of Victoria.
 layout: page
 label: Core
@@ -11,7 +11,7 @@ label: Core
 The Acknowledgement of Traditional Owners message:
 
 - displays alongside the Aboriginal and Torres Strait Islander flags
-- is used in the Footer.
+- is used in the footer.
 
 ::DocsExample
 ---

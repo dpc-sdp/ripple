@@ -51,4 +51,4 @@ The category grid uses colour to indicate interaction states.
   ::
 ::
 
-To create your own theme, see theming guidance for designers or theming guidance for developers.
+To create your own theme, see [theming guidance for designers]() or [theming guidance for developers]().

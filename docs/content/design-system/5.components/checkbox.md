@@ -15,7 +15,7 @@ Don't use a checkbox if only one option is available, or if you expect the user 
 
 ::DocsExample
 ---
-id: Form label
+id: forms-checkbox-group--default-variant
 ---
 ::
 
@@ -86,7 +86,7 @@ Structure this message to help the user to choose which options apply to them. S
 
 ::DocsExample
 ---
-id: no story book link yet
+id: forms-checkbox-group--invalid
 ---
 ::
 

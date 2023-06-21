@@ -1,8 +1,10 @@
 <template>
   <div class="rpl-form__outer docs-theme-chooser-controls">
-    <RplFormLabel>Theme options</RplFormLabel>
+    <RplFormLabel tag="label">Theme options</RplFormLabel>
     <RplFormOptionButtons
       v-model="theme"
+      id="theme-chooser"
+      name="theme-chooser"
       :onChange="handleThemeChange"
       :value="theme"
       :options="[
@@ -30,9 +32,7 @@
 </template>
 
 <script lang="ts" setup>
-interface Props {
-  id: string
-}
+interface Props {}
 
 const props = defineProps<Props>()
 

@@ -6,20 +6,20 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { withDefaults } from 'vue'
+import { withDefaults, StyleValue } from 'vue'
 
 // Verbose declaration due to disabled inheritance
 interface Props {
   class: string
   src: string
   alt: string
-  width: number
-  height: number
+  width: number | undefined
+  height: number | undefined
   srcset?: string
   sizes?: any
   loading: string
   fetchpriority: string
-  style: string
+  style: StyleValue
 }
 
 const props = withDefaults(defineProps<Props>(), {

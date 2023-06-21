@@ -107,4 +107,16 @@ export const SingleTemplate = (args) => ({
   </Story>
 </Canvas>
 
+<Canvas>
+  <Story
+    name='Invalid'
+    args={{
+      id: 'checkbox-invalid',
+      label: 'Here is a checkbox',
+      invalid: true,
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>
 

@@ -8,7 +8,7 @@ import { IRplVerticalNavItem } from './constants'
 import { computed } from 'vue'
 
 interface Props {
-  title: string
+  title?: string
   items: IRplVerticalNavItem[]
 }
 

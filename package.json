@@ -85,7 +85,7 @@
     "vue-loader": "^17.0.1"
   },
   "engines": {
-    "node": "^14.16.0 || ^16.11.0",
+    "node": "^16.11.0 || ^18.15.0",
     "pnpm": "8.6.2"
   },
   "dependencies": {
@@ -96,6 +96,7 @@
   "pnpm": {
     "overrides": {
       "@types/react": "file:./stub/types__react",
+      "chalk": "4.1.2",
       "cypress": "12.8.1",
       "glob-parent@<5.1.2": "~6.0.2",
       "json5@<2.2.2": "~2.2.2",

@@ -25,7 +25,7 @@ export const eventCheck = async (element, eventName) => {
     fired = !fired
   }
   rplEventBus.on(eventName, handler)
-  await userEvent.click(element)
-  await expect(fired).toBeTruthy()
+  userEvent.click(element)
+  expect(fired).toBeTruthy()
   rplEventBus.off(eventName, handler)
 }

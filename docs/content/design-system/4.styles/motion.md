@@ -11,10 +11,10 @@ Use motion with a purpose in mind. This could be to draw attention to important 
 
 Each animation needs at least these four parts:
 
-- Trigger — what causes the animation to happen (gestures, time, etc.)
-- Duration — how long should the transition take
-- Easing — how an element transitions
-- Property — the characteristic of the element transitioning (position, opacity, scale, etc.)
+- Trigger — what causes the animation to happen (gestures, time, etc.).
+- Duration — how long should the transition take.
+- Easing — how an element transitions.
+- Property — the characteristic of the element transitioning (position, opacity, scale, etc.).
 
 ## Duration (speed)
 
@@ -49,10 +49,10 @@ Currently, Ripple uses default easing values. We use the default names for this 
 
 Definitions:
 
-- ease-in: slow at the beginning, fast/abrupt at the end
-- ease-out: fast/abrupt at the beginning, slow at the end
+- Ease-in: slow at the beginning, fast/abrupt at the end.
+- Ease-out: fast/abrupt at the beginning, slow at the end.
 
 When to use:
 
-- ease-in: when things are moving *out.*
-- ease-out: when things are moving *in.*
+- Ease-in: when things are moving *out.*
+- Ease-out: when things are moving *in.*

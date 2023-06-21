@@ -8,7 +8,7 @@ label: Core
 
 You want users to recognise your brand. A well-designed colour palette can help you create a consistent look and feel.
 
-The default colours, made up of two blues, reflect [vic.gov.au](https:www.vic.gov.au) branding. This strengthens the association with the Victorian Government.
+The default colours, made up of two blues, reflect vic.gov.au branding. This strengthens the association with the Victorian Government.
 
 The design system contains a colour framework. You can change it if your site requires department or entity branding.
 

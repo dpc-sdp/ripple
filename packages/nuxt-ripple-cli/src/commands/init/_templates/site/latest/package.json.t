@@ -15,16 +15,16 @@ to: package.json
     "start": "node .output/server/index.mjs"
   },
   "dependencies": {
-    "@dpc-sdp/nuxt-ripple": "2.1.0-alpha.188",
-    "@dpc-sdp/nuxt-ripple-analytics": "2.1.0-alpha.188",
-    "@dpc-sdp/nuxt-ripple-preview": "2.1.0-alpha.188",
-    "@dpc-sdp/ripple-tide-event": "2.1.0-alpha.188",
-    "@dpc-sdp/ripple-tide-grant": "2.1.0-alpha.188",
-    "@dpc-sdp/ripple-tide-landing-page": "2.1.0-alpha.188",
-    "@dpc-sdp/ripple-tide-media": "2.1.0-alpha.188",
-    "@dpc-sdp/ripple-tide-news": "2.1.0-alpha.188",
-    "@dpc-sdp/ripple-tide-publication": "2.1.0-alpha.188",
-    "@dpc-sdp/ripple-tide-search": "^2.1.0-alpha.188"
+    "@dpc-sdp/nuxt-ripple": "<%= rplVersion %>",
+    "@dpc-sdp/nuxt-ripple-analytics": "<%= rplVersion %>",
+    "@dpc-sdp/nuxt-ripple-preview": "<%= rplVersion %>",
+    "@dpc-sdp/ripple-tide-event": "<%= rplVersion %>",
+    "@dpc-sdp/ripple-tide-grant": "<%= rplVersion %>",
+    "@dpc-sdp/ripple-tide-landing-page": "<%= rplVersion %>",
+    "@dpc-sdp/ripple-tide-media": "<%= rplVersion %>",
+    "@dpc-sdp/ripple-tide-news": "<%= rplVersion %>",
+    "@dpc-sdp/ripple-tide-publication": "<%= rplVersion %>",
+    "@dpc-sdp/ripple-tide-search": "^<%= rplVersion %>"
   },
   "devDependencies": {
     "nuxt": "3.5.2"

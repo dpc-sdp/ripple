@@ -106,7 +106,7 @@ The following file types are recommended:
 
 ### Alternative text 
 
-All images, except purely decorative images, need a text alternative (alt text). Without this, your page will not address [WCAG 2.0 Criterion 1.1.1](https://www.w3.org/TR/UNDERSTANDING-WCAG20/text-equiv-all.html) or meet WCAG 2.0 AA standards. These are the minimum accessibility standards required for all Victorian Government communications (see: [Brand Victoria guidelines](https://www.vic.gov.au/brand-victoria-guidelines-logos) for more information). 
+All images, except purely decorative images, need a text alternative (alt text). Without this, your page will not address [WCAG 2.0 Criterion 1.1.1](https://www.w3.org/TR/UNDERSTANDING-WCAG20/text-equiv-all.html) or conform with WCAG 2.0 or 2.1 AA standards. WCAG 2.0 AA standards are the minimum accessibility standards for all Victorian Government communications under the [Brand Victoria guidelines](https://www.vic.gov.au/brand-victoria-guidelines-logos). 
 
 The [Web Accessibility initiative alt decision tree](https://www.w3.org/WAI/tutorials/images/decision-tree/) also guides you on whether your image needs alt text or not.
 

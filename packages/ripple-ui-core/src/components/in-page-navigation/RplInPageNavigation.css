@@ -1,0 +1,86 @@
+@import '@dpc-sdp/ripple-ui-core/style/breakpoints';
+
+.rpl-in-page-navigation {
+  --local-sub-indent: 2.4rem;
+
+  border-left-style: solid;
+  border-left-width: var(--rpl-border-3);
+  border-image: var(--rpl-clr-gradient-vertical) 1 100%;
+  margin: 0 0 var(--rpl-sp-4);
+  padding-left: var(--rpl-sp-3);
+
+  @media (--rpl-bp-m) {
+    padding-left: var(--rpl-sp-4);
+  }
+
+  .rpl-list {
+    &__link {
+      color: var(--rpl-clr-type-default);
+      display: inline;
+
+      .rpl-list__label {
+        text-decoration: underline;
+      }
+
+      @media print {
+        &::after {
+          display: none;
+        }
+      }
+
+      &:hover,
+      &:focus-visible {
+        .rpl-list__label {
+          text-decoration: none;
+        }
+      }
+    }
+
+    &__item {
+      margin-bottom: var(--rpl-sp-3);
+
+      @media (--rpl-bp-m) {
+        margin-bottom: var(--rpl-sp-4);
+      }
+    }
+
+    &__items {
+      margin-top: var(--rpl-sp-3);
+      padding-left: 0;
+
+      @media (--rpl-bp-m) {
+        margin-top: var(--rpl-sp-4);
+      }
+
+      &--sub {
+        .rpl-list__item {
+          margin-top: var(--rpl-sp-3);
+          margin-left: var(--local-sub-indent);
+
+          @media (--rpl-bp-m) {
+            margin-top: var(--rpl-sp-4);
+          }
+
+          .rpl-list__items--sub .rpl-list__item {
+            margin-left: var(--local-sub-indent);
+          }
+
+          .rpl-list__label {
+            width: calc(100% - var(--local-sub-indent));
+          }
+
+          /*
+            4px wide + 1px border-left + 10px margin-right + 9px margin-left = 24px (--local-sub-indent)
+            To remove icon from focus state, the li is offset and icon is floating with a negative margin-left
+          */
+          .rpl-icon--child {
+            float: left;
+            margin-right: 1rem;
+            margin-bottom: 0;
+            margin-left: calc(-1 * var(--local-sub-indent) + 0.9rem);
+          }
+        }
+      }
+    }
+  }
+}

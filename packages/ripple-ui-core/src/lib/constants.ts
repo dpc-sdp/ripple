@@ -9,12 +9,16 @@ export const RplColorThemes = [
   'inactive'
 ] as const
 
-export const RplPropLabel = {
-  type: String,
-  default: ''
-} as const
+export interface RplLink {
+  text: string
+  url: string
+}
 
-export const RplPropUrl = {
-  type: String,
-  default: '#'
-} as const
+export interface RplLinkExtended extends RplLink {
+  description: string
+}
+
+export type RplDateRange = {
+  from: string | number
+  to: string | number
+}

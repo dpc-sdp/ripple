@@ -1,8 +1,0 @@
-{
-  "plugins": {
-    "postcss-normalize": {},
-    "postcss-nested": {},
-    "postcss-preset-env": {},
-    "postcss-for": {}
-  }
-}

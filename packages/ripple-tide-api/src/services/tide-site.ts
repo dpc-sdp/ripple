@@ -1,22 +1,27 @@
 import jsonapiParse from 'jsonapi-parse'
 import TideApiBase from './tide-api-base.js'
-import getHierarchicalMenu from './lib/site-menu.js'
-import type { RplTideModuleConfig, RplTideMapping } from './../../types'
+import type { RplTideModuleConfig, IRplTideModuleMapping } from './../../types'
+import { ApplicationError } from '../errors/errors.js'
+import { ILogger } from '../logger/logger'
 
 export default class TideSite extends TideApiBase {
   site: string
-  siteMapping: RplTideMapping
-  constructor(config: RplTideModuleConfig) {
-    super(config)
-    this.site = config.contentApi.site
-    if (typeof config?.mapping?.site === 'string') {
-      throw new Error('Error loading site mapping')
-    }
-    this.siteMapping = config?.mapping?.site
+  siteMapping: IRplTideModuleMapping | null
+
+  constructor(tide: RplTideModuleConfig, logger: ILogger) {
+    super(tide, logger)
+    this.site = tide.site
+    this.siteMapping = null
+    this.logLabel = 'TideSite'
   }
+
+  setSiteMapping(siteMapping) {
+    this.siteMapping = siteMapping
+  }
+
   async getSiteData(siteid) {
-    if (!siteid) {
-      this.handleError('Error: No site id', 400)
+    if (!this.siteMapping) {
+      throw new Error('Error loading site mapping')
     }
     const include = this.siteMapping.includes
     const params = {
@@ -43,47 +48,7 @@ export default class TideSite extends TideApiBase {
         return siteData
       }
     } catch (error: any) {
-      this.handleError('Error fetching site data' + error.message, 500)
-    }
-  }
-
-  async getSiteMenus(siteData, fields) {
-    const menus = {}
-    const siteId = siteData.drupal_internal__tid || this.site
-    const menuFields = Object.keys(fields)
-    for (let k = 0; k < menuFields.length; k++) {
-      const key = menuFields[k]
-      const menuData = siteData[fields[key]]
-      if (menuData) {
-        const menuName = menuData.drupal_internal__id
-        const params = {
-          filter: {
-            menu_link_content: {
-              path: 'menu_name',
-              value: menuName
-            }
-          }
-        }
-        try {
-          const menusResponse = await this.get(
-            '/menu_link_content/menu_link_content?site=' + siteId,
-            { params }
-          )
-          // TODO : Get paginated links
-          if (menusResponse) {
-            const menuItemsData = menusResponse.data
-            menus[key] = menuItemsData
-          }
-        } catch (error) {
-          return Promise.reject(this.handleError('Error fetching site menus'))
-        }
-      }
-    }
-    try {
-      const hierarchicalMenus = getHierarchicalMenu(menus)
-      return hierarchicalMenus
-    } catch (error) {
-      return Promise.reject(this.handleError('Error fetching site menus'))
+      throw new ApplicationError('Error fetching site data', { cause: error })
     }
   }
 }

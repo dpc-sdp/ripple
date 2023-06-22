@@ -1,0 +1,11 @@
+.rpl-file__meta {
+  text-transform: uppercase;
+
+  + .rpl-file__meta::before {
+    content: ' | ';
+  }
+}
+
+.rpl-file__updated {
+  margin-top: var(--rpl-sp-1);
+}

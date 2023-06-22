@@ -6,17 +6,13 @@
 // Then set myPluginData1.author = {name: 'Veronica', company: 'Veridian Dynamics'} and return {myPluginData1, myPluginData2 ... } in your plugin.
 // See a example in `pluginEmbeddedMediaVideo` plugin below.
 
+import { epochToDate } from '../epochToDate.js'
+
 export const isRelativeUrl = (str: string): boolean => {
   if (str) {
     return true
   }
   return false
-}
-
-// Encode double quote before pass it into Vue template prop, otherwise it breaks the template.
-const _escapeQuotes = (text: string) => {
-  text = text || ''
-  return text.replace('"', '&quot;')
 }
 
 const pluginTables = function (this: any) {
@@ -28,156 +24,200 @@ const pluginTables = function (this: any) {
 }
 
 const pluginCallout = function (this: any) {
-  // replace drupal class with rpl class
+  // These callouts are added in drupal via the 'C' button in the wysiwyg editor.
+  // Wrap callouts with a div. If there are multiple callouts in a row, wrap them all in a div.
+  this.find('.callout-wrapper').each((i: any, el: any) => {
+    if (this.find(el).prev().hasClass('callout-wrapper')) {
+      return
+    }
+
+    this.find(el)
+      .nextUntil(':not(.callout-wrapper)')
+      .addBack()
+      .wrapAll('<div class="rpl-callout"></div>')
+  })
+
+  // These callouts are added in drupal via the styles dropdown in the wysiwyg editor.
+  // Remove drupal class, add ripple class
   this.find('.wysiwyg-callout').map((i: any, el: any) => {
     const $callout = this.find(el)
-    return $callout.removeClass().addClass('rpl-callout')
+    return $callout
+      .removeClass()
+      .addClass('rpl-callout')
+      .addClass('rpl-callout--neutral')
   })
 }
 
-const pluginEmbeddedDocument = function (this: any) {
-  this.find(
-    '.embedded-entity--media--file, .embedded-entity--media--document, .embedded-entity .media--type-document'
-  ).map((i: any, element: any) => {
-    const el = this.find(element)
-    const mediaType = el.hasClass('embedded-entity--media--file')
-      ? 'file'
-      : 'document'
-    const titleSelector =
-      mediaType === 'document' ? '.file--title' : '.field--name-name'
-    const fileSizeSelector = '.file--size'
+const pluginQuotation = function (this: any) {
+  this.find('.quotation').map((i: number, el: any) => {
+    // Remove drupal class, add type to paras
+    const $quotation = this.find(el)
+    $quotation.removeClass().addClass('rpl-blockquote__quote')
+    $quotation.find('p').map((j: number, item: any) => {
+      this.find(item).addClass('rpl-type-p-large-fixed')
+    })
 
-    let url = el.find('a').attr('href')
-    const fileName = el.find(titleSelector).text()
-    const fileSize = el.find(fileSizeSelector).text()
-    const caption = el.find('figcaption').text()
-    let fileType = ''
-    const fileTypeClasses = el.find('.file').attr('class')
+    // Parse citation block
+    const $citation = $quotation.find('footer')
+    const authors: string[] = []
+    $citation.find('span').map((j: number, item: any) => {
+      authors.push(
+        `<span class="rpl-blockquote__author-name">${this.find(
+          item
+        ).text()}</span>`
+      )
+    })
+    $citation.remove()
 
-    // TODO - Add other icons for file types. Only PDF correctly displays.
-    if (fileTypeClasses) {
-      fileTypeClasses
-        .split(' ')
-        .filter(
-          (cls: string | string[]) =>
-            cls.includes('file--mime') || cls.includes('file--x')
-        )
-        .forEach((mimeType: any) => {
-          if (fileType === '') {
-            switch (mimeType) {
-              case 'file--mime-application-zip':
-                fileType = 'zip'
-                break
-              case 'file--mime-application-msword':
-                fileType = 'doc'
-                break
-              case 'file--mime-application-postscript':
-                fileType = 'eps'
-                break
-              case 'file--x-office-document':
-              case 'file--mime-application-rtf':
-              case 'file--mime-application-vnd-openxmlformats-officedocument-wordprocessingml-document':
-                fileType = 'docx'
-                break
-              case 'file--x-office-spreadsheet':
-              case 'file--mime-application-vnd-ms-excel':
-                fileType = 'xlsx'
-                break
-              case 'file--mime-text-plain':
-                fileType = 'txt'
-                break
-              case 'file--mime-text-csv':
-                fileType = 'csv'
-                break
-              case 'file--mime-text-calendar':
-                fileType = 'ics'
-                break
-              case 'file--mime-application-pdf':
-                fileType = 'pdf'
-                break
-            }
-          }
-        })
+    // Rewrite blockquote
+    return $quotation.replaceWith(`
+<figure class="rpl-blockquote">
+  ${$quotation}
+  <figcaption class="rpl-blockquote__author rpl-type-label-small">
+    ${authors.join('')}
+  </figcaption>
+</figure>
+`)
+  })
+}
+
+const pluginDocuments = function (this: any) {
+  this.find('.embedded-entity--media--document').map((i: number, el: any) => {
+    const $document = this.find(el)
+
+    const label = $document.find('a[aria-label]').attr('aria-label'),
+      link = $document.find('a').attr('href'),
+      title = $document.find('.file--title').text(),
+      filetype = $document.find('.file--type').text(),
+      filesize = $document.find('.file--size').text(),
+      updated = $document.attr('data-last-updated')
+
+    let updatedMarkup = ''
+
+    if (updated) {
+      const date = epochToDate(updated)
+      updatedMarkup = date
+        ? `<div class="rpl-file__updated">Updated ${date}</div>`
+        : ''
     }
 
-    if (url) {
-      url = url.replace(/^.*\/\/[^/]+/, '')
-    }
+    return $document.replaceWith(`
+<figure class="rpl-document">
+  <a class="rpl-document__link rpl-u-focusable-within" aria-label="${label}" href="${link}" target="_blank">
+    <span class="rpl-document__icon rpl-icon rpl-icon--size-l rpl-icon--colour-default rpl-icon--icon-document-lined">
+      <svg role="presentation"><use xlink:href="#icon-document-lined"></use></svg>
+    </span>
+    <div class="rpl-document__content">
+      <span class="rpl-document__name rpl-type-p rpl-type-weight-bold rpl-u-focusable-inline">${title}</span>
+      <div class="rpl-document__info rpl-type-label-small">
+        <span class="rpl-file__meta">${filetype}</span>
+        <span class="rpl-file__meta">${filesize}</span>
+        ${updatedMarkup}
+      </div>
+    </div>
+  </span>
+  </a>
+</figure>
+`)
+  })
+}
 
-    if (fileType === '') {
-      fileType = el.find('.file--type').text().toLowerCase()
-    }
+const pluginEmbededVideo = function (this: any) {
+  this.find('.embedded-entity--media--embedded-video').map(
+    (i: number, el: any) => {
+      const $video = this.find(el)
+      const iframe = $video.find('iframe')
+      const height = iframe.attr('height')
+      const width = iframe.attr('width')
+      const source = iframe.attr('src')
+      const title = $video.attr('title') || ''
+      const caption = $video.find('figcaption')?.text()
+      const link = $video.find('.field--name-field-media-link a')?.attr('href')
 
-    if (url && fileName && fileSize && fileType) {
-      const name = _escapeQuotes(fileName)
-      const extension = fileType
-      const filesize = fileSize
-      const ariaLabel = `${name} File type: ${extension}. Size: ${filesize}`
-      const supportedIcons = [
-        'ai',
-        'csv',
-        'doc',
-        'docx',
-        'dot',
-        'dotm',
-        'dotx',
-        'eps',
-        'ics',
-        'indd',
-        'pdf',
-        'ppt',
-        'pptx',
-        'tif',
-        'txt',
-        'xls',
-        'xlsx',
-        'zip'
-      ]
-      const icon = supportedIcons.indexOf(fileType) >= 0 ? fileType : 'document'
-      const isExternalLink = !isRelativeUrl(url)
-      const documentlink = `
-      <figure class="rpl-markup__document-link">
-        <rpl-text-link class="rpl-markup__document-link-link" aria-label="${ariaLabel}" link="${url}" :icon="false" :underline="false" download="${
-        isExternalLink ? 'false' : ''
-      }" target="_blank">
-          ${
-            icon
-              ? `<svg-icon role="presentation" class="rpl-markup__document-link-icon" name="${icon}" width="30px" height="30px"></svg-icon>`
-              : ''
-          }
-          <div class="rpl-markup__document-link-info">
-            <span class="rpl-markup__document-link-title">${name}</span>
-            <div class="rpl-markup__document-link-meta">
-              ${
-                extension
-                  ? `<span class="rpl-markup__document-link-type">${extension}</span>`
-                  : ''
-              }
-              ${
-                filesize
-                  ? `<span class="rpl-markup__document-link-size${
-                      extension && filesize
-                        ? ' rpl-markup__document-link-size--seperator'
-                        : ''
-                    }">${filesize}</span>`
-                  : ''
-              }
-            </div>
+      const captionMarkup = caption
+        ? `<figcaption class="rpl-media-embed__figcaption">
+        <p class="rpl-media-embed__caption rpl-type-p">${caption}</p>
+      </figcaption>`
+        : ''
+
+      const transcriptMarkup = link
+        ? `<div class="rpl-media-embed__actions-list">
+        <a class="rpl-text-link rpl-u-focusable-inline rpl-media-embed__transcript-link rpl-media-embed__action rpl-u-focusable-inline rpl-type-p" href="${link}">
+          <span class="rpl-icon rpl-icon--size-s rpl-icon--icon-view">
+            <svg role="presentation"><use xlink:href="#icon-view"></use></svg>
+          </span>View transcript
+        </a>
+      </div>`
+        : ''
+
+      return $video.replaceWith(`<div class="rpl-media-embed">
+        <figure class="rpl-media-embed__figure">
+          <div class="rpl-media-embed__video-container">
+            <iframe class="rpl-media-embed__video rpl-u-screen-only" src="${source}" title="${title}" width="${width}" height="${height}" allow="autoplay; fullscreen; picture-in-picture;" allowfullscreen></iframe>
+            <a href="${source}" class="rpl-text-link rpl-type-p rpl-u-print-only">${title}</a>
           </div>
-        </rpl-text-link>
-        ${
-          caption
-            ? `<figcaption class="rpl-markup__document-link-caption">${_escapeQuotes(
-                caption
-              )}</figcaption>`
-            : ''
-        }
-      </figure>
-      `
-      return el.replaceWith(documentlink)
+          ${captionMarkup}
+        </figure>
+        ${transcriptMarkup}
+      </div>`)
     }
-    return el
+  )
+}
+
+const pluginImages = function (this: any) {
+  // Find all drupal image embeds
+  this.find('.embedded-entity--media--image').map((i: any, el: any) => {
+    const $img = this.find(el).find('img')
+    const width = $img.attr('width')
+    const src = $img.attr('src')
+    const alt = $img.attr('alt')
+    // this is the max width of the content area
+    const contentWidth = 720
+    return this.find(el).replaceWith(
+      `<img src="${src}" class="rpl-img" width="${width}" alt="${alt}" srcset="${src}?width=${contentWidth},
+      ${src}?width=${contentWidth * 2} 2x"></img>`
+    )
   })
 }
 
-export default [pluginCallout, pluginEmbeddedDocument, pluginTables]
+const pluginButtons = function (this: any) {
+  this.find('.button').map((i: any, el: any) => {
+    const $button = this.find(el)
+    const variant = $button.hasClass('button--secondary')
+      ? 'rpl-button--outlined'
+      : 'rpl-button--filled'
+
+    $button
+      .removeClass('button button--secondary')
+      .addClass(
+        `rpl-button rpl-button--default rpl-u-focusable-block ${variant}`
+      )
+
+    return $button.wrapInner(
+      '<span class="rpl-button__label rpl-type-label rpl-type-weight-bold"></span>'
+    )
+  })
+}
+
+const pluginLinks = function (this: any) {
+  this.find('a').map((i: any, el: any) => {
+    const $anchor = this.find(el)
+
+    if (!$anchor.attr('class')) {
+      $anchor.addClass('rpl-text-link rpl-u-focusable-inline')
+    }
+
+    return $anchor
+  })
+}
+
+export default [
+  pluginTables,
+  pluginCallout,
+  pluginQuotation,
+  pluginDocuments,
+  pluginEmbededVideo,
+  pluginImages,
+  pluginButtons,
+  pluginLinks
+]

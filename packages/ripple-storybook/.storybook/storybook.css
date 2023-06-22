@@ -1,0 +1,145 @@
+@import '@dpc-sdp/ripple-ui-core/style/breakpoints';
+
+body {
+  background: var(--storybook-bg-color, transparent);
+}
+
+.sb-main-padded {
+  padding: var(--rpl-sp-5) !important;
+}
+
+.rpl-storybook__page {
+  max-width: 1120px;
+}
+
+.rpl-storybook__page-content {
+  max-width: var(--rpl-content-max-width);
+}
+
+.rpl-storybook__icon-list {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+.rpl-storybook__icon-item {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+  text-align: center;
+  border: 1px solid #e8ebee;
+  border-radius: 4px;
+  padding: 0.5rem;
+  width: calc(12.5% - 1rem - 2px);
+  margin: 0.5rem;
+  margin-top: 0;
+}
+
+.rpl-storybook-form-values {
+  font-size: 16px;
+  background: #eee;
+  padding: 30px;
+}
+
+.sb-flex-container .innerZoomElementWrapper {
+  display: flex;
+}
+
+.sb-container {
+  font-size: 1.6rem;
+}
+
+.sb-demo-container {
+  padding: 2rem;
+}
+
+.sb-demo-container--dark {
+  background: var(--rpl-clr-primary-alt);
+  color: var(--rpl-clr-type-light);
+
+  .sb-demo-input {
+    border-color: var(--rpl-clr-type-primary-contrast);
+
+    &,
+    &::placeholder {
+      color: var(--rpl-clr-light);
+    }
+  }
+
+  a,
+  a:visited {
+    color: var(--rpl-clr-light);
+  }
+}
+
+.sb-demo-input {
+  border: var(--rpl-border-1) solid var(--rpl-clr-dark);
+  background: transparent;
+  padding: 1rem;
+  font-size: var(--rpl-type-size-2);
+}
+
+.sb-demo-input--rounded {
+  border-radius: 20px;
+}
+
+.rpl-storybook__grid {
+  position: relative;
+
+  /* https://css-tricks.com/building-css-grid-overlay/ */
+  --offset: 0;
+  --max_width: 10000000px;
+  --columns: 12;
+  --gutter: var(--rpl-sp-4);
+  --color: hsla(204, 80%, 72%, 0.1);
+  --color-text: hsla(204, 80%, 72%, 1);
+  --repeating-width: calc(100% / var(--columns));
+  --column-width: calc((100% / var(--columns)) - var(--gutter));
+  --background-width: calc(100% + var(--gutter));
+  --background-columns: repeating-linear-gradient(
+    to right,
+    var(--color),
+    var(--color) var(--column-width),
+    transparent var(--column-width),
+    transparent var(--repeating-width)
+  );
+
+  @media (--rpl-bp-m) {
+    --gutter: var(--rpl-sp-6);
+  }
+
+  @media (--rpl-bp-xl) {
+    --gutter: var(--rpl-sp-7);
+  }
+
+  &::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin-right: auto;
+    margin-left: auto;
+    width: calc(100% - (2 * var(--offset)));
+    max-width: var(--max_width);
+    content: '';
+    background-image: var(--background-columns);
+    background-size: var(--background-width) 100%;
+    background-position: 0;
+    z-index: 1000;
+    pointer-events: none;
+  }
+}
+
+/*
+  Add a background colour to the rpl-grid cells so that they are visible while
+  viewing in storybook.
+*/
+.rpl-storybook__grid .rpl-grid div {
+  background-color: rgba(0, 0, 0, 0.1);
+  text-align: center;
+  padding: 20px 0;
+  font-size: 1.6rem;
+}

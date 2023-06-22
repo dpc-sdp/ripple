@@ -1,7 +1,0 @@
-/* Size */
-@for $i from 1 to 14 {
-  .rpl-u-size-$i {
-    width: var(--rpl-sp-$(i));
-    height: var(--rpl-sp-$(i));
-  }
-}

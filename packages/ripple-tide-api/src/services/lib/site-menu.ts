@@ -27,14 +27,14 @@ const _filterStructure = function (menus, roots, children) {
  * @private
  */
 const _structureChildren = function (parent, children) {
-  if (children[parent.uuid]) {
-    parent.children = children[parent.uuid]
-    parent.children.sort(_sortByWeight)
-    for (let i = 0, len = parent.children.length; i < len; ++i) {
-      parent.children[i].text = children[parent.uuid][i].text
-      parent.children[i].url = children[parent.uuid][i].url
-      _structureChildren(parent.children[i], children)
-      parent.children.sort(_sortByWeight)
+  if (children[parent.id]) {
+    parent.items = children[parent.id]
+    parent.items.sort(_sortByWeight)
+    for (let i = 0, len = parent.items.length; i < len; ++i) {
+      parent.items[i].text = children[parent.id][i].text
+      parent.items[i].url = children[parent.id][i].url
+      _structureChildren(parent.items[i], children)
+      parent.items.sort(_sortByWeight)
     }
   }
 }
@@ -59,6 +59,22 @@ const _buildHierarchy = function (menus) {
   return roots
 }
 
+const _setActivePath = function (branch, path) {
+  let isActivePath = false
+  for (const item of branch) {
+    if (item.url === path) {
+      item['active'] = true
+      isActivePath = true
+    } else if (item.items) {
+      if (_setActivePath(item.items, path)) {
+        item['active'] = true
+        isActivePath = true
+      }
+    }
+  }
+  return isActivePath
+}
+
 /**
  * Returns menus organised into hierarchy based on the parent key of menu items.
  *
@@ -68,28 +84,30 @@ const _buildHierarchy = function (menus) {
  * @return {Object}
  * Hierarchical menu object
  */
-const getHierarchicalMenu = function (menus) {
-  const hierarchy = {}
-  if (Object.keys(menus).length === 0) {
-    throw Error('`Get hierarchical menu failed: site menus are empty.')
-  }
-  for (const menu in menus) {
-    const linkValues = [] as any
-    for (const link of menus[menu]) {
-      if (link.attributes.enabled) {
-        linkValues.push({
-          text: link.attributes.title,
-          url: link.attributes.link.url || link.attributes.link.uri,
-          uuid: link.id,
-          parent: !link.attributes.parent
-            ? null
-            : link.attributes.parent.replace(/^(menu_link_content:)/, ''),
-          weight: link.attributes.weight
-        })
-      }
+const getHierarchicalMenu = function (menu, activeUrl, enabledCheck = false) {
+  const linkValues = [] as any
+  for (const link of menu) {
+    if (!enabledCheck || (enabledCheck && link.attributes.enabled)) {
+      linkValues.push({
+        text: link.attributes.title,
+        url:
+          link.attributes?.url ||
+          link.attributes.link.url ||
+          link.attributes.link.uri,
+        id: link.id.replace(/^(menu_link_content:)/, ''),
+        parent: link.attributes.parent
+          ? link.attributes.parent.replace(/^(menu_link_content:)/, '')
+          : null,
+        weight: link.attributes.weight
+      })
     }
-    hierarchy[menu] = _buildHierarchy(linkValues)
   }
+  const hierarchy = _buildHierarchy(linkValues)
+
+  if (activeUrl) {
+    _setActivePath(hierarchy, activeUrl)
+  }
+
   return hierarchy
 }
 

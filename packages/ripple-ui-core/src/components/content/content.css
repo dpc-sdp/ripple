@@ -1,8 +1,0 @@
-.rpl-content {
-  max-width: 606px; /* Needs a global variable */
-  > {
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
-}

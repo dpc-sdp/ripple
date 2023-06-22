@@ -11,6 +11,15 @@ coverage
 .jest-test-results.json
 storybook-static
 
+# Test results
+examples/**/test/videos/*
+examples/**/test/screenshots/*
+examples/**/test/results/*
+packages/**/cypress/videos/*
+packages/**/cypress/screenshots/*
+packages/**/cypress/results/*
+.unlighthouse
+
 # Typescript
 tsconfig.tsbuildinfo
 

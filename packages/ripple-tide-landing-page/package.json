@@ -1,35 +1,19 @@
 {
+  "packageManager": "pnpm@8.6.2",
   "name": "@dpc-sdp/ripple-tide-landing-page",
-  "version": "0.0.0",
   "description": "Ripple mappings and components for Tide landing-page Content type",
-  "main": "dist/index.js",
-  "module": "dist/index.js",
-  "types": "./types.d.ts",
-  "type": "module",
+  "version": "2.0.0-rc.1",
+  "license": "Apache-2.0",
+  "main": "./nuxt.config.ts",
   "exports": {
-    ".": "./dist/index.js",
-    "./component": "./src/index.vue",
-    "./types": "./types.d.ts"
-  },
-  "license": "MIT",
-  "keywords": [],
-  "scripts": {
-    "clean": "rimraf dist* && rimraf tsconfig.tsbuildinfo",
-    "build": "yarn clean && tsc -p tsconfig.json",
-    "watch": "yarn clean && tsc -p tsconfig.json -w"
+    ".": "./nuxt.config.ts",
+    "./mapping": "./mapping/index.ts"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-tide-api": "0.0.0"
-  },
-  "devDependencies": {
-  },
-  "files": [
-    "dist",
-    "src/*.vue",
-    "!**/*.test.*",
-    "!**/*.json",
-    "CHANGELOG.md",
-    "LICENSE",
-    "README.md"
-  ]
+    "@dpc-sdp/nuxt-ripple": "workspace:*",
+    "@dpc-sdp/ripple-tide-api": "workspace:*",
+    "@dpc-sdp/ripple-ui-core": "workspace:*",
+    "@dpc-sdp/ripple-ui-forms": "workspace:*",
+    "ohmyfetch": "^0.4.21"
+  }
 }

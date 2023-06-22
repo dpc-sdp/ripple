@@ -1,6 +1,5 @@
-import { RplPropLabel, RplPropUrl } from '../../lib/constants'
-
-export const RplSocialSharePage = {
-  title: typeof RplPropLabel as string,
-  url: typeof RplPropUrl as string
-} as const
+export const RplSocialShareNetworks = {
+  Facebook: 'https://www.facebook.com/sharer/sharer.php?u=$u&title=$t',
+  LinkedIn: 'https://www.linkedin.com/shareArticle?url=$u',
+  Twitter: 'https://twitter.com/intent/tweet?text=$t&url=$u'
+}

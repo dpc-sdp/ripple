@@ -1,17 +1,19 @@
 module.exports = {
   verbose: true,
-  testURL: 'http://localhost',
+  testEnvironmentOptions: {
+    url: 'http://localhost'
+  },
   collectCoverage: true,
   testMatch: ['**/*.test.js', '**/*.test.ts'],
   moduleFileExtensions: ['js', 'ts', 'vue'],
-  modulePathIgnorePatterns: ['node_modules', '.jest-test-results.json'],
+  modulePathIgnorePatterns: ['node_modules', '.jest-test-results.json', 'dist'],
   testEnvironment: 'jsdom',
   transform: {
     '^.+\\.js$': '<rootDir>/node_modules/babel-jest',
     '^.+\\.ts$': '<rootDir>/node_modules/ts-jest',
     '.*\\.vue$': '<rootDir>/node_modules/@vue/vue3-jest'
   },
-  transformIgnorePatterns: ['node_modules/(?!(ripple-*|lodash-es)/)'],
+  transformIgnorePatterns: ['node_modules/(?!.pnpm)(?!(ripple-*|lodash-es)/)'],
   extensionsToTreatAsEsm: ['.ts'],
   moduleNameMapper: {
     '^(\\.{1,2}/.*)\\.js$': '$1',
@@ -20,5 +22,6 @@ module.exports = {
     '\\.(mdx|jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga|svg)$':
       '<rootDir>/__mocks__/fileMock.js',
     '\\.(css|scss)$': '<rootDir>/__mocks__/styleMock.js'
-  }
+  },
+  setupFilesAfterEnv: ['<rootDir>/__tests__/setup.js']
 }

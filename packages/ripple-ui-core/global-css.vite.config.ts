@@ -18,10 +18,8 @@ export default defineConfig({
     },
     rollupOptions: {
       output: {
-        assetFileNames: (assetInfo) => {
-          if (assetInfo.name === 'style.css') return 'global.css'
-          return assetInfo.name
-        }
+        assetFileNames: (assetInfo) =>
+          assetInfo.name === 'style.css' ? 'global.css' : assetInfo.name
       }
     }
   }

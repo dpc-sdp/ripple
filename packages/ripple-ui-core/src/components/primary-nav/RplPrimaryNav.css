@@ -1,0 +1,95 @@
+/* stylelint-disable comment-empty-line-before */
+@import '@dpc-sdp/ripple-ui-core/style/breakpoints';
+
+.rpl-primary-nav {
+  --local-nav-bar-height: 48px;
+  --local-nav-bar-padding: var(--rpl-sp-3);
+
+  position: relative;
+  width: 100%;
+  height: calc(var(--local-nav-bar-height) + var(--local-nav-bar-padding));
+  padding: var(--local-nav-bar-padding);
+
+  @media (--rpl-bp-s) {
+    --local-nav-bar-height: 52px;
+  }
+
+  @media (--rpl-bp-m) {
+    --local-nav-bar-height: 60px;
+    --local-nav-bar-padding: var(--rpl-sp-4);
+  }
+
+  @media print {
+    --local-nav-bar-height: 46px;
+
+    padding: 0;
+    border-bottom: var(--rpl-border-1) solid var(--rpl-clr-neutral-300);
+  }
+}
+
+.rpl-primary-nav__inner {
+  --local-nav-bar-height: 48px;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(100% - var(--rpl-sp-3) * 2);
+  height: var(--local-nav-bar-height);
+  margin: var(--rpl-sp-3);
+  color: var(--rpl-clr-type-primary-contrast);
+  background-color: var(--rpl-clr-primary);
+  border-radius: var(--rpl-border-radius-2);
+  overflow: hidden;
+  z-index: var(--rpl-layer-2);
+
+  @media (--rpl-bp-s) {
+    --local-nav-bar-height: 52px;
+  }
+
+  @media (--rpl-bp-m) {
+    --local-nav-bar-height: 60px;
+
+    width: calc(100% - var(--rpl-sp-4) * 2);
+    margin: var(--rpl-sp-4);
+  }
+
+  @media print {
+    --local-nav-bar-height: auto;
+
+    margin: 0;
+    background-color: transparent;
+    border-radius: 0;
+  }
+
+  .rpl-primary-nav--hidden & {
+    display: none;
+  }
+
+  .rpl-primary-nav--fixed & {
+    position: fixed;
+  }
+
+  .rpl-primary-nav--fixed &,
+  .rpl-primary-nav--hidden & {
+    @media print {
+      display: block;
+      position: absolute;
+    }
+  }
+
+  .rpl-primary-nav--expanded & {
+    transition: height var(--rpl-motion-speed-7) ease-in,
+      background-color var(--rpl-motion-speed-4) ease-in;
+    background-color: var(--rpl-clr-primary-alt);
+    /* 100vh - top and bottom margin */
+    height: calc(100vh - (var(--rpl-sp-3) * 2));
+    transition-timing-function: ease-out;
+    position: fixed;
+    top: 0;
+
+    @media (--rpl-bp-m) {
+      /* 100vh - top and bottom margin */
+      height: calc(100vh - (var(--rpl-sp-4) * 2));
+    }
+  }
+}

@@ -19,8 +19,7 @@ export default [
           }
         },
         {
-          name: 'removeStyleElement',
-          active: true
+          name: 'removeStyleElement'
         },
         {
           name: 'removeAttributesBySelector',

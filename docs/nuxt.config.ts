@@ -1,28 +1,33 @@
-import { defineNuxtConfig } from 'nuxt'
+import { defineNuxtConfig } from 'nuxt/config'
+import ViteYaml from '@modyfi/vite-plugin-yaml'
 
-// https://v3.nuxtjs.org/api/configuration/nuxt.config
+// https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
 export default defineNuxtConfig({
-  extends: ['./../node_modules/@docus/docs-theme'],
-  buildModules: ['@dpc-sdp/ripple-ui-core/nuxt'],
-  target: 'static',
+  ssr: true,
+  modules: [
+    '@dpc-sdp/ripple-ui-core/nuxt',
+    '@dpc-sdp/ripple-ui-forms/nuxt',
+    '@nuxt/content',
+    '@nuxtjs/tailwindcss',
+    '@nuxtlabs/github-module'
+  ],
   github: {
-    repo: 'nuxtlabs/docus-starter'
+    repo: 'dpc-sdp/ripple-framework'
   },
-  algolia: {
-    apiKey: 'b2950a4074034ae56a3647c7e0fc9aae',
-    applicationId: 'PZLGV82Q8R',
-    instantSearch: {
-      theme: 'reset'
+  // https://content.nuxtjs.org
+  content: {
+    navigation: {
+      fields: ['icon']
     },
-    crawler: {
-      apiKey: 'b2950a4074034ae56a3647c7e0fc9aae',
-      indexName: 'ripple_2_docs',
-      meta: ['title', 'description'],
-      include: () => true
+    documentDriven: {
+      layoutFallbacks: ['page']
     },
-    // DocSearch key is used to configure DocSearch extension.
-    docSearch: {
-      indexName: 'ripple_2_docs'
+    highlight: {
+      theme: 'github-light',
+      preload: ['vue', 'bash', 'markdown']
     }
+  },
+  vite: {
+    plugins: [ViteYaml()]
   }
 })

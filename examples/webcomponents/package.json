@@ -1,17 +1,15 @@
 {
   "name": "webcomponents",
   "private": true,
+  "packageManager": "pnpm@8.6.2",
   "license": "Apache-2.0",
-  "version": "0.0.0",
+  "version": "2.1.0-alpha.76",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
   },
-  "devDependencies": {
-    "vite": "^2.8.0"
-  },
   "dependencies": {
-    "@dpc-sdp/ripple-ui-core": "0.0.0"
+    "@dpc-sdp/ripple-ui-core": "workspace:*"
   }
 }

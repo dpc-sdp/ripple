@@ -1,0 +1,49 @@
+{
+  "packageManager": "pnpm@8.6.2",
+  "name": "@dpc-sdp/ripple-ui-forms",
+  "description": "A form component library built with Formkit",
+  "version": "2.0.0-rc.1",
+  "license": "Apache-2.0",
+  "main": "./dist/rpl-forms.umd.js",
+  "module": "./dist/rpl-forms.es.js",
+  "types": "./dist/index.d.ts",
+  "type": "module",
+  "exports": {
+    ".": "./dist/rpl-forms.es.js",
+    "./components": "./dist/components",
+    "./nuxt": "./dist/nuxt.js",
+    "./style": "./dist/style.css"
+  },
+  "dependencies": {
+    "@dpc-sdp/ripple-ui-core": "workspace:*",
+    "@formkit/inputs": "1.0.0-beta.15",
+    "@formkit/nuxt": "1.0.0-beta.15",
+    "@formkit/validation": "1.0.0-beta.15",
+    "@formkit/vue": "1.0.0-beta.15",
+    "@nuxt/kit": "3.5.2",
+    "@vueuse/core": "^9.13.0",
+    "date-fns": "^2.29.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.21.3",
+    "@types/node": "^18.15.10",
+    "@vitejs/plugin-vue": "^4.1.0",
+    "babel-loader": "^9.1.2",
+    "pathe": "^1.1.0",
+    "postcss-nested": "^6.0.1",
+    "postcss-normalize": "^10.0.1",
+    "postcss-preset-env": "^8.1.0",
+    "rimraf": "^4.4.1",
+    "ts-node": "^10.7.0",
+    "vite-plugin-static-copy": "^0.13.1",
+    "vite-svg-loader": "^4.0.0",
+    "vue-loader": "^17.0.0"
+  },
+  "scripts": {
+    "build": "pnpm clean && pnpm build:vite && pnpm build:types",
+    "build:vite": "vite build",
+    "build:types": "tsc -p tsconfig.json",
+    "clean": "(rimraf dist* && rimraf tsconfig.tsbuildinfo) | true",
+    "test:components": "cypress run --component"
+  }
+}

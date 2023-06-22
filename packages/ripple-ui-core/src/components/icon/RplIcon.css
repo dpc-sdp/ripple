@@ -1,0 +1,82 @@
+.rpl-icon {
+  display: inline-block;
+  width: var(--rpl-icon-size);
+  height: var(--rpl-icon-size);
+
+  svg {
+    display: block;
+    fill: currentcolor;
+    width: var(--rpl-icon-size);
+    height: var(--rpl-icon-size);
+  }
+
+  &--child {
+    --local-icon-w: 5px;
+    --local-icon-h: 8px;
+
+    flex-shrink: 0;
+    height: var(--local-icon-h);
+    width: var(--local-icon-w);
+    border-left: var(--rpl-border-1) solid var(--rpl-clr-type-default);
+    border-bottom: var(--rpl-border-1) solid var(--rpl-clr-type-default);
+    margin-top: var(--rpl-sp-1);
+    margin-right: var(--rpl-sp-2);
+  }
+
+  &--padded {
+    padding: calc(var(--rpl-icon-size) / 2);
+  }
+
+  &--size-xs {
+    --rpl-icon-size: var(--rpl-sp-3);
+  }
+
+  &--size-s {
+    --rpl-icon-size: var(--rpl-sp-4);
+  }
+
+  &--size-m {
+    --rpl-icon-size: var(--rpl-sp-6);
+  }
+
+  &--size-l {
+    --rpl-icon-size: var(--rpl-sp-8);
+  }
+
+  &--colour-default {
+    color: var(--rpl-clr-link);
+  }
+
+  &--colour-white {
+    color: var(--rpl-clr-type-light);
+  }
+
+  &--colour-text {
+    color: var(--rpl-clr-type-default);
+  }
+
+  &--colour-information {
+    color: var(--rpl-clr-information);
+  }
+
+  &--colour-success {
+    color: var(--rpl-clr-success);
+  }
+
+  &--colour-warning {
+    color: var(--rpl-clr-warning);
+  }
+
+  &--colour-error {
+    color: var(--rpl-clr-error);
+  }
+
+  /* TODO: Update this colour once designs for inactive state are finalised */
+  &--colour-inactive {
+    color: var(--rpl-clr-neutral-4);
+  }
+}
+
+.rpl-svg-sprite--hidden {
+  display: none;
+}

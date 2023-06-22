@@ -1,0 +1,112 @@
+clr:
+  primary:
+    _:
+      value: '{theme.clr.primary.500}'
+    alpha:
+        value: '{theme.clr.primary.alpha}'
+    alt:
+        value: '{theme.clr.primary.700}'
+  accent:
+    _:
+      value: '{theme.clr.accent.500}'
+    alt:
+      value: '{theme.clr.accent.50}'
+  light:
+    value: '{clr.neutral.0}'
+  dark:
+    value: '{clr.neutral.800}'
+  type:
+    primary:
+      contrast:
+        value: '{clr.light}'
+      contrast-alpha:
+        value: '{theme.clr.neutral.alpha-0}'
+      accessible:
+        value: '{theme.clr.primary.500}'
+      alt:
+        accessible:
+          value: '{theme.clr.primary.700}'
+    accent:
+      contrast:
+        value: '{clr.light}'
+    focus:
+      contrast:
+        value: '{clr.dark}'
+    default:
+      value: '{clr.dark}'
+    light:
+      value: '{clr.light}'
+    footer:
+      contrast:
+        value: '{clr.type.primary.contrast}'
+      accessible:
+        value: '{clr.type.primary.alt.accessible}'
+  link:
+    value: '{theme.clr.link}'
+  link-visited:
+    value: '{theme.clr.link-visited}'
+  focus:
+    value: '{theme.clr.focus}'
+  neutral:
+    0:
+      value: '{theme.clr.neutral.0}'
+    100:
+      value: '{theme.clr.neutral.100}'
+    200:
+      value: '{theme.clr.neutral.200}'
+    300:
+      value: '{theme.clr.neutral.300}'
+    400:
+      value: '{theme.clr.neutral.400}'
+    500:
+      value: '{theme.clr.neutral.500}'
+    600:
+      value: '{theme.clr.neutral.600}'
+    700:
+      value: '{theme.clr.neutral.700}'
+    800:
+      value: '{theme.clr.neutral.800}'
+    900:
+      value: '{theme.clr.neutral.900}'
+    alpha-0:
+      value: '{theme.clr.neutral.alpha-0}'
+    alpha-700:
+      value: '{theme.clr.neutral.alpha-700}'
+  information:
+    _:
+      value: '{theme.clr.information.500}'
+    light:
+      value: '{theme.clr.information.50}'
+    dark:
+      value: '{theme.clr.information.600}'
+  success:
+    _:
+      value: '{theme.clr.success.500}'
+    light:
+      value: '{theme.clr.success.50}'
+    dark:
+      value: '{theme.clr.success.600}'
+  warning:
+    _:
+      value: '{theme.clr.warning.500}'
+    light:
+      value: '{theme.clr.warning.50}'
+    dark:
+      value: '{theme.clr.warning.600}'
+  error:
+    _:
+      value: '{theme.clr.error.500}'
+    light:
+      value: '{theme.clr.error.50}'
+    dark:
+      value: '{theme.clr.error.600}'
+  gradient:
+    horizontal:
+      value: 'linear-gradient(90deg, {theme.clr.gradient.0} 0%, {theme.clr.gradient.12} 12%, {theme.clr.gradient.24} 24%, {theme.clr.gradient.36} 36%, {theme.clr.gradient.52} 52%, {theme.clr.gradient.80} 80%)'
+    vertical:
+      value: 'linear-gradient(180deg, {theme.clr.gradient.0} 0%, {theme.clr.gradient.12} 12%, {theme.clr.gradient.24} 24%, {theme.clr.gradient.36} 36%, {theme.clr.gradient.52} 52%, {theme.clr.gradient.80} 80%)'
+  footer:
+    _:
+      value: '{clr.primary.alt}'
+    alt:
+      value: '{clr.primary._}'

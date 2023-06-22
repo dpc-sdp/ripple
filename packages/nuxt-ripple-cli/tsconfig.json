@@ -1,0 +1,13 @@
+{
+  "extends": "../../tsconfig.build.json",
+  "compilerOptions": {
+    "module": "Node16",
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "noImplicitAny": false,
+    "declaration": false,
+    "jsx": "preserve",
+    "sourceMap": false
+  },
+  "exclude": ["./src/cypress", "./test"]
+}

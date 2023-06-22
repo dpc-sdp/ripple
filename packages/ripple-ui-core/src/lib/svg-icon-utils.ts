@@ -86,7 +86,7 @@ export const generateSprite = async (
         icons.push(def)
       }
     } catch (error) {
-      console.log(error)
+      console.log('Error loading icons', error)
     }
   }
 

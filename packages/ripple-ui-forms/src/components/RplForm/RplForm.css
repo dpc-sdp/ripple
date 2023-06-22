@@ -1,0 +1,47 @@
+.rpl-form {
+  max-width: var(--local-max-width, initial);
+  display: block;
+
+  [data-invalid='true'][data-submitted='true'] {
+    border-left: var(--rpl-border-3) solid var(--rpl-clr-error);
+    padding-left: var(--rpl-sp-3);
+  }
+}
+
+.rpl-form__submit-guard {
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.rpl-form__messages {
+  /* Formkit always adds an error message to the bottom of the form and there is currently no nice way to remove it */
+  display: none;
+}
+
+.rpl-form__outer {
+  margin-bottom: var(--rpl-sp-7);
+
+  @media (--rpl-bp-m) {
+    margin-bottom: var(--rpl-sp-8);
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.rpl-form__fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.rpl-form__input--unsupported {
+  border: 1px solid black;
+  padding: 20px;
+  text-align: center;
+  font-size: 14px;
+  background: #ffe6cb;
+  font-weight: bold;
+}

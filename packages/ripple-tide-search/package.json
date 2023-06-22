@@ -1,0 +1,18 @@
+{
+  "packageManager": "pnpm@8.6.2",
+  "name": "@dpc-sdp/ripple-tide-search",
+  "description": "Ripple search UI and services for connecting to Tide search",
+  "version": "2.0.0-rc.1",
+  "license": "Apache-2.0",
+  "main": "./nuxt.config.ts",
+  "exports": {
+    ".": "./nuxt.config.ts"
+  },
+  "dependencies": {
+    "@dpc-sdp/ripple-ui-core": "workspace:*",
+    "@dpc-sdp/ripple-ui-forms": "workspace:*",
+    "@elastic/search-ui": "^1.19.1",
+    "@elastic/search-ui-app-search-connector": "^1.19.1",
+    "@elastic/search-ui-elasticsearch-connector": "1.19.1"
+  }
+}

@@ -12,7 +12,43 @@
     "webcomponents",
     "nuxt-app",
     "docs",
-    "@dpc-sdp/ripple-tide-landing-page"
+    "@dpc-sdp/ripple-tide-landing-page",
+    "@dpc-sdp/ripple-ui-forms",
+    "@dpc-sdp/ripple-tide-grant",
+    "@dpc-sdp/ripple-tide-publication",
+    "vue-app",
+    "@dpc-sdp/ripple-tide-search",
+    "@dpc-sdp/ripple-tide-event",
+    "@dpc-sdp/nuxt-ripple-preview",
+    "@dpc-sdp/nuxt-ripple",
+    "@dpc-sdp/ripple-tide-media",
+    "@dpc-sdp/ripple-tide-news",
+    "nuxt-ripple",
+    "@dpc-sdp/nuxt-ripple-cli",
+    "@dpc-sdp/ripple-test-utils",
+    "@dpc-sdp/nuxt-ripple-analytics"
   ],
-  "cSpell.words": ["nuxt", "pathe", "scripthost", "stylelint", "vite", "vitejs"]
+  "cSpell.words": [
+    "colour",
+    "composables",
+    "customisation",
+    "customising",
+    "familiarise",
+    "formkit",
+    "jsonapi",
+    "maxlength",
+    "mockserver",
+    "nuxt",
+    "pathe",
+    "scripthost",
+    "stylelint",
+    "vite",
+    "vitejs",
+    "Webform"
+  ],
+  "cucumberautocomplete.steps": [
+    "./packages/ripple-test-utils/step_definitions/**/*.ts",
+    "./examples/**/test/support/step_definitions/**/*.ts",
+    "./examples/**/test/features/**/*.ts"
+  ]
 }

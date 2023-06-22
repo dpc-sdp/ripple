@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "noImplicitAny": false,
+    "outDir": "dist",
+    "baseUrl": "./src",
+    "target": "esnext",
+    "useDefineForClassFields": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "isolatedModules": true,
+    "strict": true,
+    "jsx": "preserve",
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "types": ["vite/client", "@types/jest"],
+    "paths": {
+      "@/*": ["src/*"]
+    },
+    "lib": ["esnext", "dom", "dom.iterable", "scripthost"],
+    "skipLibCheck": true,
+    "declaration": true
+  },
+  "include": ["env.d.ts", "src/nuxt.ts", "src/formkit.config.ts"]
+}

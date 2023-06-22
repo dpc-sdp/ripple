@@ -10,3 +10,9 @@
   border: 0;
   pointer-events: none;
 }
+
+/* Applied to body to prevent background scrolling when a modal or dialog is open */
+.rpl-u-viewport-locked {
+  height: 100vh;
+  overflow: hidden;
+}

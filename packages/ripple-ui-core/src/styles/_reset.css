@@ -4,6 +4,13 @@
 html {
   font-family: var(--rpl-type-font-family);
   font-size: 62.5%; /* [1] */
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
 }
 
 h1,
@@ -11,9 +18,18 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+p,
+ol {
   margin-block-start: 0;
   margin-block-end: 0;
+}
+
+ul,
+ol {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
 /* https://gist.github.com/MoOx/9137295 */
@@ -46,4 +62,8 @@ button {
   &:focus:not(:focus-visible) {
     outline: none;
   }
+}
+
+figure {
+  margin: 0;
 }

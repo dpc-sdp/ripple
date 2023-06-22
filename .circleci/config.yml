@@ -236,13 +236,13 @@ jobs:
             corepack prepare pnpm@8.6.2 --activate
       - run:
           name: Bump version to latest prerelease
-          command: pnpm release:pre
+          command: pnpm release:pre --yes
       - run:
           name: Publish alpha prerelease to NPM
           command: |
             npm config set access public
             npm set //registry.npmjs.org/:_authToken=$NPM_TOKEN
-            pnpm release:publish
+            pnpm release:publish --yes
   publish:
     <<: *defaults
     steps:
@@ -264,13 +264,13 @@ jobs:
             corepack prepare pnpm@8.6.2 --activate
       - run:
           name: Bump version to production release
-          command: pnpm release:prod
+          command: pnpm release:prod --yes
       - run:
           name: Publish prod release to NPM
           command: |
             npm config set access public
             npm set //registry.npmjs.org/:_authToken=$NPM_TOKEN
-            pnpm release:publish
+            pnpm release:publish --yes
 
   update-reference:
     <<: *defaults

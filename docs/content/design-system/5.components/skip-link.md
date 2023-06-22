@@ -1,6 +1,6 @@
 ---
 title: Skip link
-description: The skip link helps keyboard users skip to the main content on a page.
+description: The Skip link component makes your page more accessible and easier to navigate, by helping keyboard users skip to the main content on a page.
 layout: page
 label: Core
 
@@ -8,11 +8,16 @@ label: Core
 
 ## Usage
 
-Users can use their keyboard to navigate through links and form elements. Including this component allows them to bypass the top-level navigation links and send them directly to the main page content.
+Use skip links to let users:
+- navigate quickly through links and form elements 
+- navigate your page when interacting only through the keyboard
+- let users navigate directly to the main page content. 
 
-The skip link component will not display until a keyboard press activates it. When visible, it's always the first item on a page and pushes down all page content.
+Skip links bypass the primary navigation links (the top horizontal menu items appearing on every page).
 
-**I don't think this is the correct example**
+Until the user activates it through a keyboard press, a skip link won’t display.
+
+When visible, it's always the first item on a page and pushes down all page content.
 
 ::DocsExample
 ---
@@ -21,21 +26,19 @@ id: core-layout-skip-links--stand-alone
 ::
 
 ### When and how to use
-
-- It must be on every page
-- When visible, it must be the first element on the page
+- It must be on every page.
+- When visible, it must be the first element on the page.
 
 ### When and how not to use
-
-- Only use at the top of the page
-- Don't edit the styling
-- Don't overlay page content. It must push down the page content
+- Only use at the top of the page.
+- Don't edit the styling.
+- Don't overlay page content. It must push down the page content.
 
 ---
 
 ## Theming
 
-The skip link adopts the site focus state colour for a consistent focus state experience.
+The skip link uses the site’s focus state colour. This creates a seamless user experience. If we used a different colour, keyboard users would have colour changes between focusing on and interacting with a skip link. This could be jarring or confusing to users.
 
 ::DocsThemeChooser
   ::DocsExample

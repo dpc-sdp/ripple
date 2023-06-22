@@ -1,6 +1,6 @@
 ---
 title: Social share
-description: A list of links to help users to share pages to social media.
+description: The Social share component shows a list of links to help users to share pages to social media.
 layout: page
 label: Core
 
@@ -8,7 +8,7 @@ label: Core
 
 ## Usage
 
-Social Share allows uses to share a page to their own social media channels.
+Use social share to let users share pages to their own social media channels.
 
 It uses the social media icons to:
 
@@ -25,21 +25,21 @@ id: core-navigation-social-share--social-share
 
 ### When and how to use
 
-- Use it to enable users to share pages to social media
-- Place in sidebar section of pages
-- Link labels should be the social media platform
+- Use it to enable users to share pages to social media.
+- Place in sidebar section of pages.
+- Link labels should be the social media platform name.
 
 ### When and how not to use
 
-- Don't use for sites that aren't social media channels
-- Avoid placing in a page's body section
-- Don't use with labels that aren't social media platform names 
+- Don't use for links to sites that aren't social media channels.
+- Avoid placing in a page's body section.
+- Don't use with labels that aren't social media platform names.
 
 ---
 
 ## Theming
 
-Social Share uses colour for:
+Social share uses colour for:
 
 - indicating an action to users
 - icons.

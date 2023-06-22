@@ -1,6 +1,6 @@
 ---
 title: Media gallery
-description: A series of images users can side-scroll through.
+description: The Media gallery component is a series of images users can side-scroll through.
 layout: page
 label: Core
 
@@ -8,11 +8,11 @@ label: Core
 
 ## Usage
 
-Media Gallery collects a series of related images into a gallery. It allows users to scroll through related images. It's best used for displaying images.
+Use a media gallery to collate a series of related images into a gallery. Media gallery allows users to scroll through related images. It's best used for displaying images.
 
-It combines images and text to give users context within the content.
+Media gallery combines images and text to give users context within the content.
 
-Media will display either landscape or portrait at predefined ratios.
+Media items inside a media gallery will display as either landscape or portrait, at predefined ratios.
 
 See [media](/design-system/components/media/) for information relating to file type, ratios and focal point.
 
@@ -23,19 +23,17 @@ id: core-containers-media-gallery--default-story
 ::
 
 ### When and how to use
-
-- Use with related images only
-- Use at least 2 images
-- Always use a media title
-- Include an optional caption
-- Use on any page type
+- Include related images only.
+- Use at least 2 images.
+- Always use a media title.
+- Include an optional caption to help users understand images' context and relevance to the page content. 
+- Use on any page type.
 
 ### When and how not to use
-
-- Don't use for decorative purposes
-- Don't use sensory images
-- Don't use for a single image. Consider using the [media embed](/design-system/components/media-embed/) component
-- Don't use with media unrelated to page content
+- Don't use for decorative purposes.
+- Don't use sensory images.
+- Don't use for a single image, instead use the media embed component.
+- Don't use with media unrelated to page content.
 
 ---
 
@@ -47,7 +45,7 @@ Media embed uses colour for:
 - indicating an interaction to users
 - interactive states.
 
-It also adopts its theming from the [pagination](/design-system/components/pagination/) component.
+It also adopts its theming from the pagination component.
 
 ::DocsThemeChooser
   ::DocsExample

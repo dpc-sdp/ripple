@@ -72,4 +72,4 @@ colours:
 ::
 
 ### Theming
-For advice on focus state theming, see [theming guidance for designers](https://www.google.com) or [theming guidance for developers](https://www.google.com).
+For advice on focus state theming, see theming guidance [for designers](../2.design/4.theme-and-brand-application.md) or [for developers](../3.develop/2.theming.md).

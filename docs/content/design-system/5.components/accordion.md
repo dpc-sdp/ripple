@@ -1,6 +1,6 @@
 ---
 title: Accordion
-description: The Accordion component is an expandable panel designed to save space by hiding and revealing content as required.
+description: The Accordion component is a panel designed to save space by hiding and revealing content as required.
 layout: page
 label: Core
 

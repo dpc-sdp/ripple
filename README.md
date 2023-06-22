@@ -1,11 +1,16 @@
 # Ripple 2.0
 
+<img src="/docs/public/assets/img/ripple-header.png" alt="Ripple branding header made up of different decorative shapes" style="margin-top: -70px;" />
+
+
 <a href="https://vuejs.org/">
   <img src="https://img.shields.io/badge/vue.js-3-brightgreen" alt="">
 </a>
 <a href="https://v3.nuxtjs.org/">
   <img src="https://img.shields.io/badge/nuxt-3-lightgrey" alt="">
 </a>
+
+
 
 ## About the project
 

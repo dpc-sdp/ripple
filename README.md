@@ -14,6 +14,10 @@
   <img src="https://img.shields.io/npm/dw/%40dpc-sdp/ripple-ui-core?logo=npm&logoColor=white&color=%23ef4b5e" alt="ripple ui core npm">
 </a>
 
+<a href="https://app.circleci.com/pipelines/github/dpc-sdp/ripple-framework?branch=develop">
+  <img src="https://img.shields.io/circleci/build/github/dpc-sdp/ripple-framework/develop?logo=circle" alt="ripple develop branch build status">
+</a>
+
 # Ripple 2.0
 
 

@@ -262,9 +262,9 @@ jobs:
           command: |
             corepack enable
             corepack prepare pnpm@8.6.2 --activate
-      - run:
-          name: Bump version to production release
-          command: pnpm release:prod --yes
+      # - run:
+      #     name: Bump version to production release
+      #     command: pnpm release:prod --yes
       - run:
           name: Publish prod release to NPM
           command: |

@@ -11,22 +11,19 @@
 </a>
 
 <a href="https://www.npmjs.com/package/@dpc-sdp/ripple-ui-core">
-  <img src="https://img.shields.io/npm/dw/%40dpc-sdp/ripple-ui-core?logo=npm&logoColor=white&color=%23ef4b5e
-" alt="ripple ui core npm">
+  <img src="https://img.shields.io/npm/dw/%40dpc-sdp/ripple-ui-core?logo=npm&logoColor=white&color=%23ef4b5e" alt="ripple ui core npm">
 </a>
 
 # Ripple 2.0
 
 
 <!-- TABLE OF CONTENTS -->
-# Table of Contents
-- [Ripple 2.0](#ripple-20)
-- [Table of Contents](#table-of-contents)
-  - [About the project](#about-the-project)
-    - [Ripple Framework](#ripple-framework)
-  - [Documentation](#documentation)
-  - [Contributing](#contributing)
-  - [License](#license)
+**Table of Contents**
+- [About the project](#about-the-project)
+  - [Ripple Framework](#ripple-framework)
+- [Documentation](#documentation)
+- [Contributing](#contributing)
+- [License](#license)
 
 ## About the project
 

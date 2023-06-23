@@ -1,5 +1,5 @@
 ---
-to: components/global/Tide<%= h.changeCase.pascalCase(name) %>Page.vue
+to: components/global/Tide<%= h.changeCase.pascalCase(name) %>.vue
 ---
 <template>
   <TideBaseLayout
@@ -26,7 +26,7 @@ to: components/global/Tide<%= h.changeCase.pascalCase(name) %>Page.vue
       />
     </template>
     <template #body="{ hasSidebar }">
-      <Tide<%= h.changeCase.pascalCase(name) %>Body :body="page.body" />
+      <Tide<%= h.changeCase.pascalCase(name) %>Body :bodyContent="page.body.content" />
     </template>
     <template #sidebar>
       <slot name="sidebar" />

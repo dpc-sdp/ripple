@@ -16,7 +16,11 @@ export default function rplInitCommand() {
       'The directory to init project into, defaults to the current working directory',
       process.cwd()
     )
-    .option('--name [name]', 'The project name: eg: example-vic-gov-au')
+    .requiredOption('--name [name]', 'The project name: eg: example-vic-gov-au')
+    .requiredOption(
+      '--rplVersion [rplVersion]',
+      'The ripple version to use: eg: 2.1.0'
+    )
     .action((template, directory) => {
       init(template, directory)
       console.info(`

@@ -10,6 +10,7 @@
     "editorconfig.editorconfig",
     "stylelint.vscode-stylelint",
     "alexkrechik.cucumberautocomplete",
-    "circleci.circleci"
+    "circleci.circleci",
+    "nuxt.mdc"
   ]
 }

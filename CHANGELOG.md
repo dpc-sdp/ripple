@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-rc.1](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.201...v2.0.0-rc.1) (2023-06-22)
+
+### Bug Fixes
+
+* **@dpc-sdp/nuxt-ripple-cli:** remove spaces to appease eslint ([cbc3a2b](https://github.com/dpc-sdp/ripple-framework/commit/cbc3a2bc5f6ffd05e333c9d672634ceef84561d7))
+* **nuxt-ripple:** fixed console errors appearing for static assets ([b48695b](https://github.com/dpc-sdp/ripple-framework/commit/b48695b9222552ec6758bb5fd2169692531b302c))
+
+### Features
+
+* **@dpc-sdp/ripple-tide-api:** cleanup warnings on server build ([672e693](https://github.com/dpc-sdp/ripple-framework/commit/672e6932136503edb0cd68cd9990251aa878e3c1))
+
+# [2.1.0-alpha.201](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.200...v2.1.0-alpha.201) (2023-06-22)
+
+### Bug Fixes
+
+* **@dpc-sdp/nuxt-ripple-cli:** added user generated layers after core in layer playground ([abd9e4f](https://github.com/dpc-sdp/ripple-framework/commit/abd9e4f2dc569922c1033a39ab2c3d0c019e2001))
+* **@dpc-sdp/nuxt-ripple-cli:** cleaned up example component ([6d405c1](https://github.com/dpc-sdp/ripple-framework/commit/6d405c1b1d73a17aaf09146f753a06f6cd7b8679))
+* **@dpc-sdp/nuxt-ripple-cli:** remove 'page' suffix from content type component ([b89745f](https://github.com/dpc-sdp/ripple-framework/commit/b89745ffad65ea27fc6f94a15fff0f8184cc9f32))
+* **@dpc-sdp/nuxt-ripple-cli:** removed trailing slash from base url for layer scaffolding ([8128fd8](https://github.com/dpc-sdp/ripple-framework/commit/8128fd8aabb2e0c5f773f5b8b464d191087097ac))
+
 # [2.1.0-alpha.200](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.199...v2.1.0-alpha.200) (2023-06-21)
 
 ### Features

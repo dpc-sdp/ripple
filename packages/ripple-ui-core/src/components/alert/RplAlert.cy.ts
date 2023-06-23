@@ -1,5 +1,5 @@
 import RplAlert from './RplAlert.vue'
-import { rplEventBus } from './../../index.js'
+import { rplEventBus as rplEvent } from './../../index.js'
 
 const baseProps = {
   variant: 'information',
@@ -14,25 +14,29 @@ const baseProps = {
 describe('RplAlert', () => {
   it('mounts', () => {
     cy.mount(RplAlert, {
-      props: {
-        ...baseProps
-      }
+      props: baseProps
     })
   })
-  xit('calls dismiss when clicked', () => {
-    let fired = false
-    const handler = () => {
-      fired = !fired
-    }
-    rplEventBus.on('rpl-alert/dismiss', handler)
+
+  it('fires dismiss event when cleared', () => {
+    let dismissed = false
+    const onDismiss = () => (dismissed = true)
+
     cy.mount(RplAlert, {
       props: {
         ...baseProps,
-        dismissed: fired
+        onDismiss
       }
     })
-    cy.get('[data-cy="dismiss"]')
-    cy.wrap(fired).should('be.true')
-    rplEventBus.off('rpl-alert/dismiss', handler)
+
+    rplEvent.on('rpl-alert/dismiss', onDismiss)
+
+    cy.get('.rpl-alert__btn-close').click()
+
+    cy.wait(50).then(() => {
+      cy.wrap(dismissed).should('be.true')
+    })
+
+    rplEvent.off('rpl-alert/dismiss', onDismiss)
   })
 })

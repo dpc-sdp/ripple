@@ -20,16 +20,12 @@
 // require('./commands')
 
 import { mount } from 'cypress/vue'
-import { h, provide } from 'vue'
+import { h } from 'vue'
 import { RplIconSprite } from '@dpc-sdp/ripple-ui-core/vue'
 // Ensure global styles are loaded
 import '@dpc-sdp/ripple-ui-core/style'
-import { rplEventBus } from '@dpc-sdp/ripple-ui-core'
 
 const RplAppWrapper = {
-  setup() {
-    provide('$rplEvent', rplEventBus)
-  },
   components: { RplIconSprite },
   template: `<div style="margin: 1rem;">
     <RplIconSprite style="display: none;" />

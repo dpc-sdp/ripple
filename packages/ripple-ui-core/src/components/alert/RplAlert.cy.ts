@@ -1,5 +1,4 @@
 import RplAlert from './RplAlert.vue'
-import { rplEventBus as rplEvent } from './../../index.js'
 
 const baseProps = {
   variant: 'information',
@@ -29,14 +28,10 @@ describe('RplAlert', () => {
       }
     })
 
-    rplEvent.on('rpl-alert/dismiss', onDismiss)
-
     cy.get('.rpl-alert__btn-close').click()
 
     cy.wait(50).then(() => {
       cy.wrap(dismissed).should('be.true')
     })
-
-    rplEvent.off('rpl-alert/dismiss', onDismiss)
   })
 })

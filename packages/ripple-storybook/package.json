@@ -34,7 +34,7 @@
     "ts-jest": "^29.0.5",
     "typescript": "^5.0.2",
     "vite": "3.2.7",
-    "yaml": "^2.2.1"
+    "yaml": "^2.2.2"
   },
   "dependencies": {
     "concurrently": "^7.6.0",

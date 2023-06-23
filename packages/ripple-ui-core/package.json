@@ -84,6 +84,6 @@
     "vite-plugin-svg-icons": "^2.0.1",
     "vite-plugin-vue-svg": "^0.1.0",
     "wait-on": "^7.0.1",
-    "yaml": "^2.2.1"
+    "yaml": "^2.2.2"
   }
 }

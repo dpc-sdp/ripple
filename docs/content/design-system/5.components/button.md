@@ -199,7 +199,7 @@ id: core-navigation-button--neutral-elevated
 
 ## Rationale
 
-To enhance visual weight and meet [WCAG 2.0 Criterion 1.4.1](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-without-color.html), Ripple buttons use underlined text by default on white buttons. 
+To enhance visual weight and aim to confirm with [WCAG 2.0 Criterion 1.4.1](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-without-color.html), Ripple buttons use underlined text by default on white buttons. 
 
 This underline shows users there is an interaction that they can perform.
 

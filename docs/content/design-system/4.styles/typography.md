@@ -23,14 +23,14 @@ As VIC is a custom font, it's recommended to use Web Safe Font as a fallback whe
 
 ## Type Styles
 
-In the Ripple Design System there are two type sets, one for fixed use and one for fluid (responsive) use.
+In the Ripple Design System there are two type sets, one for fixed use and one for fluid (responsive) use:
 
 - The fixed type set uses fixed sizes. This means they use the <991 fluid styles, but do not respond.
 - The fluid type set has two fixed sizes. These both respond at certain breakpoints for larger or smaller styles.
 
 ### Headings
 
-Headings have both Fluid and Fixed sets. Headings are bold by default for emphasis and to create contrast.
+Headings have both fluid and fixed sets. Headings are bold by default for emphasis and to create contrast.
 
 #### Fluid
 
@@ -87,6 +87,7 @@ type:
     - rpl-type-h4
 ---
 ::
+
 
 #### Fixed
 
@@ -205,7 +206,7 @@ List styles are based on rpl-type-p with extra spacing.
 
 Introduce bulleted lists with a lead-in line ending in a colon. Start each item with a lowercase letter, and do not use a full stop at the end.
 
-Unordered lists allow for two nested levels which are styled as 
+Unordered lists allow for two nested levels which are styled as:
 
 - level 1 - bullet
 - level 2 - dash

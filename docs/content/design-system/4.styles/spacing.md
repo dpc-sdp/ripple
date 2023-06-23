@@ -7,7 +7,9 @@ label: Core
 
 We use a spacing system in a 4-pixel grid.
 
-It helps to create a visual hierarchy and organises page content. The 4px framework creates consistent spacing relationships and alignment across breakpoints. This is crucial for good UI design.
+It helps to create a visual hierarchy and organises page content. 
+
+The 4px framework creates consistent spacing relationships and alignment across breakpoints. This is crucial for good UI design.
 
 | Size  |  CSS Variable |
 |-------|--------------|
@@ -30,4 +32,4 @@ Spacing should be proportional to the size and importance of the elements on the
 
 Consider spacing in responsive design to ensure that the spacing remains consistent and proportionate on different screen sizes and devices.
 
-For page level, component and content spacing see Layout.
+For page level, component and content spacing see [layout](/design-system/styles/layout/).

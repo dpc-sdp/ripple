@@ -13,7 +13,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.21.3",
-    "@originjs/vite-plugin-content": "^1.0.3",
+    "@modyfi/vite-plugin-yaml": "^1.0.4",
     "@storybook/addon-a11y": "^6.5.16",
     "@storybook/addon-actions": "^6.5.16",
     "@storybook/addon-cssresources": "^6.2.9",
@@ -34,7 +34,7 @@
     "ts-jest": "^29.0.5",
     "typescript": "^5.0.2",
     "vite": "3.2.7",
-    "yaml": "^2.2.1"
+    "yaml": "^2.2.2"
   },
   "dependencies": {
     "concurrently": "^7.6.0",

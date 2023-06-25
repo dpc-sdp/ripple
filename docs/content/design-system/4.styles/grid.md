@@ -6,7 +6,9 @@ label: Core
 
 ---
 
-Grids are a crucial component of any design system. They provide a framework for arranging content in an appealing and structured manner. We've designed the grid for a high degree of flexibility and responsiveness.
+Grids are a crucial component of any design system. They provide a framework for arranging content in an appealing and structured manner. 
+
+We've designed the grid for a high degree of flexibility and responsiveness.
 
 ## Breakpoints
 Ripple has 5 breakpoints. These ensure content is at an optimal layout for readability and accessibility.

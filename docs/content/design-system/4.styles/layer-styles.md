@@ -25,7 +25,7 @@ type: border
 ::
 
 ### Usage
-Find examples of borders that add visual consistency on the In-page Navigation, Cards and Contact Us pages. 
+Find examples of borders that add visual consistency on the [in-page navigation](/design-system/components/in-page-navigation/), [cards](/design-system/components/card/) and [contact us](/design-system/components/contact-us/) pages. 
 
 Borders can also segment content (like on banners).
 
@@ -59,7 +59,9 @@ hideCode: true
 ---
 ::
 
-> When a container has a defined border radius, but is in focus, discard the border radius. A 0px value is applied for consistency and clarity.
+> When a container has a defined border radius, but is in focus, discard the border radius.
+>
+> A 0px value is applied for consistency and clarity.
 
 ---
 

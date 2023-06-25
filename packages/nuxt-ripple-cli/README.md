@@ -18,7 +18,7 @@ If you've installed the package globally you can now use the `nuxt-ripple` comma
 The `init` command will initialise a new site or layer.
 
 ```
-nuxt-ripple init [TEMPLATE] [DIRECTORY] --name {NAME}
+nuxt-ripple init [TEMPLATE] [DIRECTORY] --name {NAME} --rplVersion {RPL_VERSION}
 ```
 
 `[TEMPLATE]`:
@@ -28,6 +28,8 @@ nuxt-ripple init [TEMPLATE] [DIRECTORY] --name {NAME}
 `[DIRECTORY]`: The directory to output scaffolded files into.
 
 `--name {NAME}`: The name of the site or layer.
+
+`--rplVersion {RPL_VERSION}`: The version of the ripple core dependencies to use.
 
 ### Add
 

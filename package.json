@@ -80,7 +80,7 @@
     "ts-jest": "^29.0.5",
     "typescript": "^5.0.2",
     "unist-builder": "^3.0.1",
-    "vite": "4.1.4",
+    "vite": "4.1.5",
     "vue-eslint-parser": "^9.1.0",
     "vue-loader": "^17.0.1"
   },

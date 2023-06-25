@@ -88,4 +88,4 @@ We've designed these logos to ensure accessibility and clarity at all sizes.
 
 ## Co-branding logo
 
-See [Primary navigation] and [Footer] for size requirements.
+See [primary navigation](/design-system/components/primary-navigation/) and [footer](/design-system/components/footer/) for size requirements.

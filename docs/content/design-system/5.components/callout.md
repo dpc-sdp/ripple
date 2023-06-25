@@ -75,7 +75,7 @@ To create your own theme, see [theming guidance for designers]() or [theming gui
 ---
 
 ## Rationale
-To enhance visual weight and meet [WCAG2.0 Criterion 1.4.1](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-without-color.html), Ripple callouts use:
+To enhance visual weight and aim to conform with [WCAG2.0 Criterion 1.4.1](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-without-color.html), Ripple callouts use:
 - a thick left-hand border
 - background colours
 - padding.

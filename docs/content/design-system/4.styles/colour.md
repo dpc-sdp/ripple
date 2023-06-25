@@ -8,15 +8,15 @@ label: Core
 
 You want users to recognise your brand. A well-designed colour palette can help you create a consistent look and feel.
 
-The default colours, made up of two blues, reflect [vic.gov.au](https:www.vic.gov.au) branding. This strengthens the association with the Victorian Government.
+The default colours, made up of two blues, reflect vic.gov.au branding. This strengthens the association with the Victorian Government.
 
 The design system contains a colour framework. You can change it if your site requires department or entity branding.
 
-We've designed and tested colour pairings that already pass accessibility contrast ratios. This means you don't need to check that the colours pass WCAG requirements.
+We've designed and tested colour pairings that already pass accessibility contrast ratios. However, we recommend you perform your own checks to ensure you're meeting WCAG requirements.
 
 If you change your core brand colours, your styles and components will re-theme automatically using the design system's colour framework. 
 
-For more guidance on theming options, see [theming guidance for designers]() or [theming guidance for developers]().
+For more guidance on theming options, see [theming guidance for designers](/design-system/design/theming-guidance-for-designers/) or [theming guidance for developers](/design-system/develop/theming/).
 
 >**You don’t need to use hex colours in code.** 
 >
@@ -75,7 +75,7 @@ colours:
 
 ## Typography colours
 
-Type colours have a ratio of at least 4.5:1 (or 3:1 for text larger than 18 point). This is to meet Web Content Accessibility Guidelines (WCAG 2.1).
+Type colours have a ratio of at least 4.5:1 (or 3:1 for text larger than 18 point). This was selected to try and conform to the Web Content Accessibility Guidelines (WCAG 2.1).
 
 Interaction colours are in addition to the core colour palette. This guarantees accessible text.
 

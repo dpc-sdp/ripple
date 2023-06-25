@@ -78,7 +78,7 @@
     "stylelint": "^15.7.0",
     "stylelint-config-prettier": "^9.0.5",
     "stylelint-config-standard": "^31.0.0",
-    "vite": "4.1.4",
+    "vite": "4.1.5",
     "vite-plugin-copy": "^0.1.6",
     "vite-plugin-dts": "^2.1.0",
     "vite-plugin-svg-icons": "^2.0.1",

@@ -111,20 +111,22 @@ export const SingleTemplate = (args) => ({
         components: { RplAlert },
         setup() {
           const dismissed = reactive({
-            error: false,
+            information: false,
             warning: false,
-            information: false
+            error: false
           })
           return {
             args,
             dismissed,
             onDismiss: ({ id }) => dismissed[id] = !dismissed[id],
+            icons: ['icon-information-circle-filled', 'icon-fire', 'icon-exclamation-circle-filled'],
             messages: ['An informative message.', 'A warning message.', 'A critical message.']
           }
         },
         template: `<div style="position: relative;" v-for="(alert, i) in Object.keys(dismissed)">
             <RplAlert v-bind="args"
               :message="messages[i]"
+              :iconName="icons[i]"
               :key="'alert-' + i"
               :variant="alert"
               :alertId="alert"

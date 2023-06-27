@@ -35,7 +35,7 @@
   "devDependencies": {
     "@dpc-sdp/ripple-tide-api": "workspace:*",
     "@dpc-sdp/ripple-test-utils": "workspace:*",
-    "@unlighthouse/cli": "^0.4.9",
+    "@unlighthouse/cli": "^0.9.0",
     "cypress": "12.8.1",
     "node-fetch-native": "^1.0.2",
     "nuxt": "3.5.2",

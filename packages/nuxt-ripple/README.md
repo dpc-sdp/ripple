@@ -53,3 +53,30 @@ They can also be set as uppercase environment variables starting with `NUXT_` an
 NUXT_PUBLIC_TIDE_SITE=8888
 NUXT_PUBLIC_TIDE_BASE_URL=https://develop.content.reference.sdp.vic.gov.au
 ```
+
+### Robots.txt
+
+The robots.txt file is handled automatically by `@dpc-sdp/nuxt-ripple`, but can be overridden and extended via the `nuxt.config` if needed.
+
+```js
+import { createResolver } from '@nuxt/kit'
+const { resolve } = createResolver(import.meta.url)
+
+export default defineNuxtConfig({
+  robots: {
+    configPath: resolve('./robots.config.ts')
+  }
+})
+```
+
+```js
+import rules from '@dpc-sdp/nuxt-ripple/robots'
+
+export default [
+  // optionally include, filter or map the default rules
+  ...rules,
+  
+  // add addtional rules
+  { UserAgent: 'SomeCustomBot', Disallow: '/' }
+]
+```

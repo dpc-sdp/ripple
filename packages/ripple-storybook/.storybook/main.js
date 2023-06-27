@@ -1,9 +1,9 @@
 const svgLoader = require('vite-svg-loader')
-const contentLoader = require('@originjs/vite-plugin-content').default
+const viteYamlLoader = require('@modyfi/vite-plugin-yaml').default
 const path = require('path')
 
 const vitePlugins = [
-  contentLoader(),
+  viteYamlLoader(),
   svgLoader({
     defaultImport: 'raw',
     svgoConfig: {

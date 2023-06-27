@@ -20,7 +20,7 @@
     "copyfiles": "^2.4.1",
     "enquirer": "^2.3.6",
     "hygen": "^6.2.11",
-    "mockttp": "^3.7.0",
+    "mockttp": "^3.7.5",
     "rimraf": "^4.4.1",
     "ts-node": "^10.7.0"
   }

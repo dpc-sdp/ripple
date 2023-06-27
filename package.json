@@ -12,7 +12,7 @@
     "build:ripple": "pnpm -F \"@dpc-sdp/ripple-ui-*\" -F \"@dpc-sdp/ripple-tide-api\" build",
     "build:examples": "pnpm -F \"./examples/**\" build",
     "build:docs": "pnpm -F docs build",
-    "build:storybook": "pnpm -F ripple-storybook build",
+    "build:storybook": "pnpm -F ripple-storybook static:build",
     "postinstall": "husky install && pnpm build",
     "preinstall": "npx only-allow pnpm",
     "release:alpha": "lerna version prerelease --preid alpha --yes",

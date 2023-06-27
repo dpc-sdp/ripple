@@ -9,8 +9,8 @@
     "start": "storybook dev -p 6006",
     "static:build": "storybook build",
     "static:start": "http-server storybook-static --port 6006 --silent",
-    "static:test": "test-storybook --stories-json --maxWorkers=2",
-    "test:ci": "concurrently -k -s first -n \"SB,TEST\" -c \"magenta,blue\" \"pnpm static:start\" \"pnpm static:test\""
+    "test": "test-storybook --stories-json --maxWorkers=2",
+    "test:ci": "concurrently -k -s first -n \"SB,TEST\" -c \"magenta,blue\" \"pnpm static:start\" \"pnpm test\""
   },
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^15.1.0",

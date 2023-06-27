@@ -1,25 +1,25 @@
 ---
 title: Input field
-description: Let users input a short amount of text.
+description: The Input field component lets users input a short amount of text.
 layout: page
 label: Core
 
 ---
 
 ## Usage
-Input fields let users enter, select and search for text. They are normally found in a form but can also be part of a modal or search.
+Use input fields to let users enter, select and search for text. They are normally found in a form but can also be part of a modal or search.
 
 Use an input field for users to enter text shorter than a single line.
 
 Input fields can have multiple input types, depending on the need and use case. They have a text input type by default.
 
 Input fields can be used for entering:
-- text - basic text or search terms
-- phone - a telephone number.
-- email - an email address.
-- passwords - a user's input is obscured with a dot ('•'), asterisk ('*') or other symbol as they type.
+- text: basic text or search terms
+- phone: a telephone number
+- email: an email address
+- passwords: a user's input is obscured with a dot (' • '), asterisk (' * ') or other symbol as they type.
 
-Don’t use input field if the user’s text needs to be more than one line long: use [text area](/design-system/components/text-area/) instead.
+Don’t use an input field if the user’s text needs to be more than one line long: use a text area component instead.
 
 ::DocsExample
 ---
@@ -77,7 +77,7 @@ If you need a specific type of information, say so in the input label and hint t
 - Don’t disable copy and paste.
 - Don’t set a minimum or maximum input limit without explicitly saying this in the hint text.
 - Don’t use placeholder text to give instructions.
-- Don’t write ambiguous error messages only stating what's wrong - explain how the user can fix it.
+- Don’t write ambiguous error messages only stating what's wrong, explain how the user can fix it.
 
 ---
 
@@ -150,7 +150,7 @@ An input field in an active state will adopt the same colour as the overall site
   ::
 ::
 
-To create your own theme see [theming guidance for designers]() or [theming guidance for developers]().
+To create your own theme see [theming guidance for designers](/design-system/design/theming-guidance-for-designers) or [theming guidance for developers](/design-system/develop/theming).
 
 ---
 

@@ -15,7 +15,7 @@ Dropdowns should only be used as a last resort. For example, to find a compromis
 
 Many users find dropdowns hard to use. Dropdowns hide content by default and create user confusion, cross-device issues and limited accessibility. Use radio buttons, checkboxes or input fields for most small lists instead.
 
-A compromise might be needed for a long list of options (for example, all dog breeds). Or, when option description lengths vary or wrap over multiple lines. These situations also confuse users by creating layout issues for [checkboxes](/design-system/components/checkbox/), [input fields](/design-system/components/input-field/) or [radio buttons](/design-system/components/radio-button/).
+A compromise might be needed for a long list of options (for example, all dog breeds). Or, when option description lengths vary or wrap over multiple lines. These situations also confuse users by creating layout issues for checkboxes, input fields or radio buttons.
 
 A dropdown is often called a 'select'.
 
@@ -188,7 +188,7 @@ A dropdown in an active state will adopt the same colour as the overall site’s
   ::
 ::
 
-To create your own theme see [theming guidance for designers]() or [theming guidance for developers]().
+To create your own theme see [theming guidance for designers](/design-system/design/theming-guidance-for-designers) or [theming guidance for developers](/design-system/develop/theming).
 
 ---
 

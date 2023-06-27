@@ -1,6 +1,6 @@
 ---
 title: Option button
-description: A set of buttons to help users filter content.
+description: The Option button component is a set of buttons to help users filter content.
 layout: page
 label: Core
 
@@ -28,17 +28,17 @@ Never preselect an option button on default. Users might miss that a filter has 
 
 ### When and how to use
 
-- Help users filter content or results
-- Use short labels only
-- Order labels in alphabetical order to help users scan quickly
-- Add an ‘apply filter’ button if the option button will be used together with other form elements
+- Help users filter content or results.
+- Use short labels only.
+- Order labels in alphabetical order to help users scan quickly.
+- Add an ‘apply filter’ button if the option button will be used together with other form elements.
 
 ### When and how not to use
 
-- Don’t use for a call to action
-- Don’t use with long content
-- Never use without a form label
-- Never preselect an individual option button
+- Don’t use for a call to action.
+- Don’t use with long content.
+- Never use without a form label.
+- Never preselect an individual option button.
 
 ---
 
@@ -85,7 +85,7 @@ Option buttons use colour to show interactive states. An option button in an act
   ::
 ::
 
-To create your own theme see [theming guidance for designers]() or [theming guidance for developers]().
+To create your own theme see [theming guidance for designers](/design-system/design/theming-guidance-for-designers) or [theming guidance for developers](/design-system/develop/theming).
 
 ---
 

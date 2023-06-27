@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-rc.1](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.201...v2.0.0-rc.1) (2023-06-22)
+
+**Note:** Version bump only for package @dpc-sdp/nuxt-ripple-cli
+
+# [2.1.0-alpha.201](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.200...v2.1.0-alpha.201) (2023-06-22)
+
+### Bug Fixes
+
+* **@dpc-sdp/nuxt-ripple-cli:** added user generated layers after core in layer playground ([abd9e4f](https://github.com/dpc-sdp/ripple-framework/commit/abd9e4f2dc569922c1033a39ab2c3d0c019e2001))
+* **@dpc-sdp/nuxt-ripple-cli:** cleaned up example component ([6d405c1](https://github.com/dpc-sdp/ripple-framework/commit/6d405c1b1d73a17aaf09146f753a06f6cd7b8679))
+* **@dpc-sdp/nuxt-ripple-cli:** remove 'page' suffix from content type component ([b89745f](https://github.com/dpc-sdp/ripple-framework/commit/b89745ffad65ea27fc6f94a15fff0f8184cc9f32))
+* **@dpc-sdp/nuxt-ripple-cli:** removed trailing slash from base url for layer scaffolding ([8128fd8](https://github.com/dpc-sdp/ripple-framework/commit/8128fd8aabb2e0c5f773f5b8b464d191087097ac))
+
+# [2.1.0-alpha.199](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.198...v2.1.0-alpha.199) (2023-06-20)
+
+### Bug Fixes
+
+* **@dpc-sdp/nuxt-ripple-cli:** remove spaces to appease eslint ([2f9521b](https://github.com/dpc-sdp/ripple-framework/commit/2f9521b4bb194a674e3fe119ec2a25efd5df9571))
+
+# [2.1.0-alpha.196](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.195...v2.1.0-alpha.196) (2023-06-20)
+
+### Features
+
+* **@dpc-sdp/ripple-tide-search:** move search runtime config options to search package ([7af6ab8](https://github.com/dpc-sdp/ripple-framework/commit/7af6ab828c1d1b986f679925ac10a6dd1596ba5a))
+
 # [2.1.0-alpha.193](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.192...v2.1.0-alpha.193) (2023-06-16)
 
 **Note:** Version bump only for package @dpc-sdp/nuxt-ripple-cli

@@ -21,7 +21,6 @@
 
 <script setup lang="ts">
 interface Props {
-  text: string
   url: string
   icon?: string
   iconPosition?: 'start' | 'end'

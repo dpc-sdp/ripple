@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-rc.1](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.201...v2.0.0-rc.1) (2023-06-22)
+
+**Note:** Version bump only for package @dpc-sdp/ripple-tide-api
+
+# [2.1.0-alpha.200](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.199...v2.1.0-alpha.200) (2023-06-21)
+
+### Features
+
+* **@dpc-sdp/ripple-tide-api:** cleanup warnings on server build ([9ad05f8](https://github.com/dpc-sdp/ripple-framework/commit/9ad05f8dbd8c6027bd5fcc8f9d133c355f4b038d))
+
+# [2.1.0-alpha.195](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.194...v2.1.0-alpha.195) (2023-06-19)
+
+### Features
+
+* **@dpc-sdp/ripple-tide-api:** update price range formatting, remove duplicate files ([81eaa29](https://github.com/dpc-sdp/ripple-framework/commit/81eaa29ea30708a24239bc995c9a5f46d2bfacb8))
+
 # [2.1.0-alpha.193](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.192...v2.1.0-alpha.193) (2023-06-16)
 
 **Note:** Version bump only for package @dpc-sdp/ripple-tide-api

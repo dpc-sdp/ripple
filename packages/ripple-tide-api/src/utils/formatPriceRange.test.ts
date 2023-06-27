@@ -18,7 +18,12 @@ describe('Formatting a date range', () => {
     expect(formatPriceRange(apiMock)).toEqual('$12,000 - $18,000')
   })
 
-  it('formats a single price', () => {
+  it('formats a price range starting with 0', () => {
+    apiMock.from = 0
+    expect(formatPriceRange(apiMock)).toEqual('$0 - $18,000')
+  })
+
+  it('formats a single price when two values are the same', () => {
     apiMock.to = apiMock.from
     expect(formatPriceRange(apiMock)).toEqual('$12,000')
   })
@@ -28,9 +33,21 @@ describe('Formatting a date range', () => {
     expect(formatPriceRange(apiMock)).toEqual('$11,000 - $18,000')
   })
 
-  it('bypasses formatting when "Free entry" is the first prop', () => {
-    apiMock.from = 'Free entry'
-    expect(formatPriceRange(apiMock)).toEqual('Free entry')
+  it('displays the from text and formatted to price', () => {
+    apiMock.from = 'FREE'
+    expect(formatPriceRange(apiMock)).toEqual('FREE - $18,000')
+  })
+
+  it('displays the from and to text', () => {
+    apiMock.from = 'FREE'
+    apiMock.to = 'Donation'
+    expect(formatPriceRange(apiMock)).toEqual('FREE - Donation')
+  })
+
+  it('displays only the from text when to value is falsey', () => {
+    apiMock.from = 'FREE'
+    apiMock.to = '0'
+    expect(formatPriceRange(apiMock)).toEqual('FREE')
   })
 
   it('bypasses formatting when both props are 0', () => {
@@ -42,6 +59,12 @@ describe('Formatting a date range', () => {
   it('returns null unless both TidePropRange props are valid', () => {
     apiMock.from = 0
     apiMock.to = 'Free entry'
+    expect(formatPriceRange(apiMock)).toEqual(null)
+  })
+
+  it('returns null when from is 0 and to is not set', () => {
+    apiMock.from = 0
+    apiMock.to = ''
     expect(formatPriceRange(apiMock)).toEqual(null)
   })
 })

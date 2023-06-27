@@ -3,6 +3,69 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-rc.1](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.201...v2.0.0-rc.1) (2023-06-22)
+
+### Bug Fixes
+
+* **@dpc-sdp/nuxt-ripple-cli:** remove spaces to appease eslint ([cbc3a2b](https://github.com/dpc-sdp/ripple-framework/commit/cbc3a2bc5f6ffd05e333c9d672634ceef84561d7))
+* **nuxt-ripple:** fixed console errors appearing for static assets ([b48695b](https://github.com/dpc-sdp/ripple-framework/commit/b48695b9222552ec6758bb5fd2169692531b302c))
+
+### Features
+
+* **@dpc-sdp/ripple-tide-api:** cleanup warnings on server build ([672e693](https://github.com/dpc-sdp/ripple-framework/commit/672e6932136503edb0cd68cd9990251aa878e3c1))
+
+# [2.1.0-alpha.201](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.200...v2.1.0-alpha.201) (2023-06-22)
+
+### Bug Fixes
+
+* **@dpc-sdp/nuxt-ripple-cli:** added user generated layers after core in layer playground ([abd9e4f](https://github.com/dpc-sdp/ripple-framework/commit/abd9e4f2dc569922c1033a39ab2c3d0c019e2001))
+* **@dpc-sdp/nuxt-ripple-cli:** cleaned up example component ([6d405c1](https://github.com/dpc-sdp/ripple-framework/commit/6d405c1b1d73a17aaf09146f753a06f6cd7b8679))
+* **@dpc-sdp/nuxt-ripple-cli:** remove 'page' suffix from content type component ([b89745f](https://github.com/dpc-sdp/ripple-framework/commit/b89745ffad65ea27fc6f94a15fff0f8184cc9f32))
+* **@dpc-sdp/nuxt-ripple-cli:** removed trailing slash from base url for layer scaffolding ([8128fd8](https://github.com/dpc-sdp/ripple-framework/commit/8128fd8aabb2e0c5f773f5b8b464d191087097ac))
+
+# [2.1.0-alpha.200](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.199...v2.1.0-alpha.200) (2023-06-21)
+
+### Features
+
+* **@dpc-sdp/ripple-tide-api:** cleanup warnings on server build ([9ad05f8](https://github.com/dpc-sdp/ripple-framework/commit/9ad05f8dbd8c6027bd5fcc8f9d133c355f4b038d))
+
+# [2.1.0-alpha.199](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.198...v2.1.0-alpha.199) (2023-06-20)
+
+### Bug Fixes
+
+* **@dpc-sdp/nuxt-ripple-cli:** remove spaces to appease eslint ([2f9521b](https://github.com/dpc-sdp/ripple-framework/commit/2f9521b4bb194a674e3fe119ec2a25efd5df9571))
+
+# [2.1.0-alpha.198](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.197...v2.1.0-alpha.198) (2023-06-20)
+
+### Bug Fixes
+
+* **@dpc-sdp/nuxt-ripple-preview:** remove file extensions to fix reference dev mode ([363ea25](https://github.com/dpc-sdp/ripple-framework/commit/363ea25f8fbc54fd6d19a296b788e7aa009871bf))
+
+# [2.1.0-alpha.197](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.196...v2.1.0-alpha.197) (2023-06-20)
+
+### Bug Fixes
+
+* **docs:** updated nuxt content to fix site logo issue ([2016b04](https://github.com/dpc-sdp/ripple-framework/commit/2016b04ccb5cbd95068466bb6a4a8f4d3756b555))
+
+# [2.1.0-alpha.196](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.195...v2.1.0-alpha.196) (2023-06-20)
+
+### Features
+
+* **@dpc-sdp/ripple-tide-search:** move search runtime config options to search package ([7af6ab8](https://github.com/dpc-sdp/ripple-framework/commit/7af6ab828c1d1b986f679925ac10a6dd1596ba5a))
+
+# [2.1.0-alpha.195](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.194...v2.1.0-alpha.195) (2023-06-19)
+
+### Features
+
+* **@dpc-sdp/ripple-tide-api:** update price range formatting, remove duplicate files ([81eaa29](https://github.com/dpc-sdp/ripple-framework/commit/81eaa29ea30708a24239bc995c9a5f46d2bfacb8))
+
+# [2.1.0-alpha.194](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.193...v2.1.0-alpha.194) (2023-06-16)
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** move deps ([ecf7e30](https://github.com/dpc-sdp/ripple-framework/commit/ecf7e309ca57f464fddfa6f77e0cfa4d42da7831))
+* **@dpc-sdp/ripple-ui-core:** update lockfile ([ed5f26f](https://github.com/dpc-sdp/ripple-framework/commit/ed5f26f2df1c5911311e6062d41f79f053a68151))
+
 # [2.1.0-alpha.193](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0-alpha.192...v2.1.0-alpha.193) (2023-06-16)
 
 **Note:** Version bump only for package @dpc-sdp/ripple-monorepo

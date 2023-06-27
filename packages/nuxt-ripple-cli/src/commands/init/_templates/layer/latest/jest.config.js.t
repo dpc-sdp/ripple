@@ -11,5 +11,5 @@ export default {
     '^.+\\.ts$': ['<rootDir>/node_modules/ts-jest'],
     '^.+\\.js$': '<rootDir>/node_modules/babel-jest'
   },
-  transformIgnorePatterns: [ '<rootDir>/node_modules/(?!(lodash|@dpc-sdp/.*))' ]
+  transformIgnorePatterns: ['<rootDir>/node_modules/(?!(lodash|@dpc-sdp/.*))']
 }

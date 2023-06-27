@@ -65,7 +65,7 @@ interface Props {
   withPadding?: boolean
   theme?: string
   useNeutralButtons?: boolean
-  argsString: string
+  argsString?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {

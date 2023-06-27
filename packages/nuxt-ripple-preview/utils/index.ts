@@ -1,2 +1,2 @@
-export { isPreviewPath } from '../utilities/isPreviewPath.js'
-export { AuthCookieNames } from '../utilities/constants.js'
+export { isPreviewPath } from '../utilities/isPreviewPath'
+export { AuthCookieNames } from '../utilities/constants'

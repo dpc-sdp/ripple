@@ -9,7 +9,7 @@ export default defineAppConfig({
       neutralFooter: false
     },
     framework: {
-      title: 'Ripple Layer Development Guide',
+      title: 'Ripple Framework',
       color: 'var(--rpl-clr-dark)',
       neutralFooter: true
     }

@@ -17,9 +17,6 @@ overrides:
   xml2js@<0.5.0: ~0.5.0
 
 patchedDependencies:
-  '@elastic/search-ui-elasticsearch-connector@1.19.1':
-    hash: 7mrovnnomrmg7eukcxn4ezppcu
-    path: patches/@elastic__search-ui-elasticsearch-connector@1.19.0.patch
   vite-svg-loader@4.0.0:
     hash: b7iv6uosp7uohhdjf52hsfxagy
     path: patches/vite-svg-loader@4.0.0.patch
@@ -703,7 +700,7 @@ importers:
         version: 1.19.1
       '@elastic/search-ui-elasticsearch-connector':
         specifier: 1.19.1
-        version: 1.19.1(patch_hash=7mrovnnomrmg7eukcxn4ezppcu)
+        version: 1.19.1
 
   packages/ripple-ui-core:
     dependencies:
@@ -4215,7 +4212,7 @@ packages:
       '@elastic/search-ui': 1.19.1
     dev: false
 
-  /@elastic/search-ui-elasticsearch-connector@1.19.1(patch_hash=7mrovnnomrmg7eukcxn4ezppcu):
+  /@elastic/search-ui-elasticsearch-connector@1.19.1:
     resolution: {integrity: sha512-cYR1vXN7HLREHsGZridqXtgrqLHH81E2leV/ZkvBlFDIszOUQCBlGnWBi4g/tt6fcfKSb3fGM1GMIRQhMaNSMA==}
     dependencies:
       '@elastic/elasticsearch': 8.6.0
@@ -4224,7 +4221,6 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: false
-    patched: true
 
   /@elastic/search-ui@1.19.1:
     resolution: {integrity: sha512-2DcZ1b4fiL0vjRhVFU1OnqGKOy7aVJr563VO9FDpUUFCXlMySKWnuwh0kcUatqeNO4Sxw9GyJZbtzOgnTyQaag==}

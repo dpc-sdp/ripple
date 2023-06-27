@@ -42,7 +42,7 @@ const isChecked = (optionValue: string): boolean => {
   <div :class="['rpl-form-radio-group', `rpl-form-radio-group--${layout}`]">
     <RplFormOption
       v-for="(option, i) in options"
-      :id="option.id"
+      :id="`${id}-${option.id}`"
       :key="option.id"
       type="radio"
       :data-rpl-focus-input="i === 0 ? id : undefined"

@@ -61,6 +61,7 @@
     "babel-loader": "^9.1.2",
     "babel-plugin-dynamic-import-node": "^2.3.3",
     "babel-plugin-require-context-hook": "^1.0.0",
+    "babel-plugin-syntax-jsx": "^6.18.0",
     "babel-plugin-transform-vue-jsx": "^3.7.0",
     "cypress": "12.8.1",
     "detab": "^3.0.2",
@@ -95,8 +96,9 @@
   },
   "pnpm": {
     "overrides": {
+      "@storybook/test-runner>jest": "29.5.0",
       "@types/react": "file:./stub/types__react",
-      "chalk": "4.1.2",
+      "jest-matcher-utils@29.2.2>chalk": "5.2.0",
       "cypress": "12.8.1",
       "glob-parent@<5.1.2": "~6.0.2",
       "json5@<2.2.2": "~2.2.2",

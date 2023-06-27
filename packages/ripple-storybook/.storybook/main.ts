@@ -1,10 +1,12 @@
 import { StorybookConfig } from '@storybook/vue3-vite'
 import svgLoader from 'vite-svg-loader'
 import contentLoader from '@originjs/vite-plugin-content'
+import nodeResolve from '@rollup/plugin-node-resolve'
 import path from 'path'
 
 const vitePlugins = [
   contentLoader(),
+  nodeResolve(),
   svgLoader({
     defaultImport: 'raw',
     svgoConfig: {
@@ -37,10 +39,10 @@ const vitePlugins = [
 const config: StorybookConfig = {
   stories: ['./../../ripple-ui*/**/*.stories.@(js|jsx|ts|tsx|mdx)'],
   addons: [
-    // '@storybook/addon-links',
-    '@storybook/addon-essentials'
-    // '@storybook/addon-interactions'
-    // '@storybook/addon-a11y'
+    '@storybook/addon-links',
+    '@storybook/addon-essentials',
+    '@storybook/addon-interactions',
+    '@storybook/addon-a11y'
   ],
   framework: {
     name: '@storybook/vue3-vite',

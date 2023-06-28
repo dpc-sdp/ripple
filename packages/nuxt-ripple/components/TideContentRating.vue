@@ -30,6 +30,7 @@ onMounted(() => {
             v-if="isMounted"
             :formId="contentRatingFormId"
             hideFormOnSubmit
+            title="Was this page helpful?"
             successMessageTitle=""
             successMessageHTML="Thank you! Your response has been submitted."
             errorMessageHTML="We are experiencing a server error. Please try again, otherwise contact us."

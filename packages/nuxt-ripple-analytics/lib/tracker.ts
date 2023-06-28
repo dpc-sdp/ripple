@@ -7,9 +7,11 @@ export interface IRplAnalyticsEventPayload {
   name?: string
   file_name?: string
   file_extension?: string
-  file_url?: string
-  form_id?: string
+  file_size?: string
+  link_url?: string
   form_name?: string
+  form_id?: string
+  field_id?: string
   type?: string
   value?: string
   component?: string

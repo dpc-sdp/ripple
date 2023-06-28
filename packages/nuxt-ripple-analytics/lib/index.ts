@@ -4,7 +4,7 @@ export default {
   'rpl-accordion/toggleAll': () => {
     return (payload: any) => {
       trackEvent({
-        event: `${payload.action}_accordion`,
+        event: `${payload.action}_accordion_all`,
         element_id: payload?.id,
         element_text: payload?.label,
         name: payload?.name,
@@ -29,6 +29,7 @@ export default {
     return (payload: any) => {
       trackEvent({
         event: `${payload.action}_alert`,
+        element_id: payload?.id,
         element_text: payload?.label,
         label: payload?.name,
         component: 'rpl-alert',
@@ -39,11 +40,12 @@ export default {
   'rpl-document/download': () => {
     return (payload: any) => {
       trackEvent({
-        event: `${payload.action}_document`,
+        event: `file_${payload.action}`,
         element_text: payload?.label,
         file_name: payload?.label,
         file_extension: payload?.type,
-        file_url: payload?.id,
+        file_size: payload?.size,
+        link_url: payload?.id,
         component: 'rpl-document',
         platform_event: 'download'
       })
@@ -52,7 +54,7 @@ export default {
   'rpl-form/submitted': () => {
     return (payload: any) => {
       trackEvent({
-        event: `${payload.action}_form`,
+        event: `form_${payload.action}`,
         form_id: payload?.id,
         form_name: payload?.name,
         element_text: payload?.label,
@@ -66,12 +68,12 @@ export default {
       trackEvent({
         event: `form_${payload.action}_field`,
         label: payload?.label,
-        element_id: payload?.id,
-        form_id: payload?.contextId,
         form_name: payload?.contextName,
+        form_id: payload?.contextId,
+        field_id: payload?.id,
         type: payload?.type,
         value: payload?.value,
-        component: `rpl-form-${payload.type}`,
+        component: `rpl-form-${payload.field}`,
         platform_event: 'update'
       })
     }

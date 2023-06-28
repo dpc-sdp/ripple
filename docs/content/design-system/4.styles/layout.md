@@ -15,8 +15,8 @@ You should never assume what devices people are using. This is why you should de
 
 There are 2 standard page layouts:
 
-- Full width
-- Two column - Right side
+- Full width.
+- Two column - right side.
 
 ### Full width
 
@@ -32,7 +32,7 @@ Displays a right hand sidebar that stacks on <991px breakpoints. The main conten
 
 ## White Space
 
-Use adequate white space in the layout to separate elements and create a sense of hierarchy. This helps to make elements on the page easier to distinguish and understand. And it creates visual harmony.
+Use adequate white space in the layout to separate elements and create a sense of hierarchy. This helps to make elements on the page easier to distinguish and understand, and creates visual harmony.
 
 ### Page Section Spacing
 

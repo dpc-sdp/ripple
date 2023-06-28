@@ -2,7 +2,7 @@
   "packageManager": "pnpm@8.6.2",
   "name": "@dpc-sdp/ripple-tide-api",
   "description": "Ripple API endpoints for Tide Drupal backend",
-  "version": "2.0.0-rc.1",
+  "version": "2.0.0",
   "license": "Apache-2.0",
   "main": "./dist/index.js",
   "module": "./dist/index.js",

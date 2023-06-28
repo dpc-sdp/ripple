@@ -1,5 +1,5 @@
 ---
-title: Focus State
+title: Focus state
 description: 'Focus states show when a user has highlighted an element, using an input method such as a keyboard or voice.'
 layout: page
 label: Core
@@ -8,7 +8,7 @@ label: Core
 
 Some users use keyboards or other devices to navigate through a page by jumping from one interactive element to the next. Focus states help users understand which element is currently selected and ready for interaction.
 
-Focus states are orange and neutral-800 to make sure they meet WCAG 2.1 Level AA [non-text contrast](https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html) on any background colour.
+Focus states are orange and neutral-800, aiming to conform to the WCAG 2.1 Level AA [non-text contrast](https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html) on any background colour.
 
 We have chosen this orange colour as it is a direct opposite of our primary colour. This allows all colourblind users to see a visual difference. Focus state styling also removes any border radius to create a bigger visual difference to surrounding elements.
 
@@ -60,16 +60,11 @@ alt: Component Modified Focus State Sample
 ### CSS Variables 
 The focus state has three CSS Variables.
 
-==Below table to be edited by Dev to add Element column==
-
-::DocsColourTable
----
-colours:
-  - clr.focus
-  - clr.type.focus.contrast
-  - clr.dark
----
-::
+| Swatch                    | Element                | Value   | CSS Variable           |
+|---------------------------|------------------------|---------|------------------------|
+| :Swatch{colour="#FF9E1B"} | Background Fill        | #FF9E1B | rpl-clr-focus          |
+| :Swatch{colour="#1A1A1A"} | Content / Text / Icons | #1A1A1A | rpl-clr-focus-contrast |
+| :Swatch{colour="#1A1A1A"} | Bottom Border          | #1A1A1A | rpl-clr-dark           |
 
 ### Theming
-For advice on focus state theming, see theming guidance [for designers](../2.design/4.theme-and-brand-application.md) or [for developers](../3.develop/2.theming.md).
+For advice on focus state theming, see [theming guidance for designers](/design-system/design/theming-guidance-for-designers/) or [theming guidance for developers](/design-system/develop/theming/).

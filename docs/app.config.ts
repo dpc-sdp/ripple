@@ -21,5 +21,5 @@ export default defineAppConfig({
     github: 'dpc-sdp/ripple-framework'
   },
   storybookBaseUrl: '/storybook',
-  hideModulesSection: true
+  hideModulesSection: false
 })

@@ -1,6 +1,8 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, inject } from 'vue'
 import RplFormCounter from '../RplFormCounter/RplFormCounter.vue'
+import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
+import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
 
 interface Props {
   id: string
@@ -8,6 +10,7 @@ interface Props {
   className?: string
   value?: string
   name: string
+  label?: string
   rows?: number
   minlength?: number
   maxlength?: number
@@ -24,6 +27,7 @@ const props = withDefaults(defineProps<Props>(), {
   className: 'rpl-form__textarea',
   rows: 4,
   value: undefined,
+  label: undefined,
   minlength: undefined,
   maxlength: undefined,
   disabled: false,
@@ -35,6 +39,14 @@ const props = withDefaults(defineProps<Props>(), {
   variant: 'default'
 })
 
+const emit = defineEmits<{
+  (e: 'update', payload: rplEventPayload & { action: 'exit' }): void
+}>()
+
+const form: object = inject('form')
+
+const { emitRplEvent } = useRippleEvent('rpl-form-input', emit)
+
 const classes = computed(() => {
   return {
     [`${props.className}`]: props.className,
@@ -44,12 +56,21 @@ const classes = computed(() => {
   }
 })
 
-/**
- * TODO - Wire up event bus handling
- */
-// function handleInput(e: Event) {
-//   props.handlers?.DOMInput(e)
-// }
+const handleChange = () => {
+  emitRplEvent(
+    'update',
+    {
+      action: 'exit',
+      field: 'textarea',
+      id: props.id,
+      label: props?.label,
+      value: props.value,
+      contextId: form?.id,
+      contextName: form?.name
+    },
+    { global: true }
+  )
+}
 </script>
 
 <template>
@@ -69,6 +90,7 @@ const classes = computed(() => {
       v-bind="$attrs"
       @blur="handlers?.blur"
       @input="handlers?.DOMInput"
+      @change="handleChange"
     />
     <RplFormCounter
       v-if="counter"

@@ -6,7 +6,7 @@ import { useMediaQuery } from '@vueuse/core'
 interface Props {
   status: 'error' | 'success'
   title: string
-  fields: {
+  fields?: {
     fieldId: string
     text: string
   }[]

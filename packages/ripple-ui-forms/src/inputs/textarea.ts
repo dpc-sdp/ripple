@@ -24,6 +24,7 @@ export const textarea: FormKitTypeDefinition = {
       id: `$id`,
       value: '$_value',
       name: '$node.name',
+      label: '$label',
       disabled: '$node.context.disabled',
       placeholder: '$node.props.placeholder',
       rows: '$node.props.rows',

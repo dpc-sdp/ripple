@@ -59,7 +59,12 @@ export const inputLibrary = {
   RplFormActions: markRaw(RplFormActions)
 }
 
-export const rplFeatures = [isFieldRequired, isFieldInvalid, getAriaDescribedBy, hasNoLabel]
+export const rplFeatures = [
+  isFieldRequired,
+  isFieldInvalid,
+  getAriaDescribedBy,
+  hasNoLabel
+]
 
 /*
  * Creates a Formkit schema based on Ripple opinionated defaults for label and help messages, use
@@ -121,6 +126,7 @@ export const defaultRplFormInputProps = {
   onInput: '$handlers.DOMInput',
   onBlur: '$handlers.blur',
   id: '$id',
+  label: '$label',
   prefixIcon: '$node.props.prefixIcon',
   suffixIcon: '$node.props.suffixIcon',
   value: '$_value',

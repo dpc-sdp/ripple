@@ -1,10 +1,14 @@
 <script setup lang="ts">
 import useFormkitFriendlyEventEmitter from '../../composables/useFormkitFriendlyEventEmitter'
+import { inject } from 'vue'
+import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
+import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
 
 export interface Props {
   id: string
   name: string
   value: string
+  label?: string
   disabled?: boolean
   perfectSquares?: boolean
   onChange: (value: string) => void
@@ -16,6 +20,7 @@ export interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
+  label: undefined,
   disabled: false,
   variant: 'default',
   layout: 'block',
@@ -24,11 +29,30 @@ const props = withDefaults(defineProps<Props>(), {
   options: () => []
 })
 
-const emit = defineEmits<{ (e: 'onChange', value: string[]): void }>()
+const emit = defineEmits<{
+  (e: 'onChange', value: string[]): void
+  (e: 'update', payload: rplEventPayload & { action: 'select' }): void
+}>()
+
+const form: object = inject('form')
+const { emitRplEvent } = useRippleEvent('rpl-form-input', emit)
 
 const handleChange = (selectedId: string) => {
-  // TODO - Wire up event bus handling here
   useFormkitFriendlyEventEmitter(props, emit, 'onChange', selectedId)
+
+  emitRplEvent(
+    'update',
+    {
+      action: 'select',
+      field: 'option-buttons',
+      id: props.id,
+      label: props?.label,
+      value: selectedId,
+      contextId: form?.id,
+      contextName: form?.name
+    },
+    { global: true }
+  )
 }
 
 const isChecked = (optionId: string): boolean => {

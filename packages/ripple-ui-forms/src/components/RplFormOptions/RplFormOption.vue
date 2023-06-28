@@ -5,9 +5,11 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, inject } from 'vue'
 import { RplIcon } from '@dpc-sdp/ripple-ui-core/vue'
 import useFormkitFriendlyEventEmitter from '../../composables/useFormkitFriendlyEventEmitter'
+import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
+import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
 
 export interface RplFormOptionProps {
   type?: 'radio' | 'checkbox'
@@ -21,6 +23,7 @@ export interface RplFormOptionProps {
   onValue?: boolean | string | number
   offValue?: boolean | string | number
   showRequiredInLabel?: boolean
+  globalEvents?: boolean
 }
 
 const props = withDefaults(defineProps<RplFormOptionProps>(), {
@@ -31,10 +34,17 @@ const props = withDefaults(defineProps<RplFormOptionProps>(), {
   onChange: () => undefined,
   onValue: true,
   offValue: false,
-  showRequiredInLabel: false
+  showRequiredInLabel: false,
+  globalEvents: true
 })
 
-const emit = defineEmits<{ (e: 'onChange', value: boolean): void }>()
+const emit = defineEmits<{
+  (e: 'onChange', value: boolean): void
+  (e: 'update', payload: rplEventPayload & { action: 'select' }): void
+}>()
+
+const form: object = inject('form')
+const { emitRplEvent } = useRippleEvent('rpl-form-input', emit)
 
 const classes = computed(() => {
   return ['rpl-form-option', `rpl-form-option--${props.variant}`]
@@ -44,8 +54,22 @@ const handleChange = (e: Event) => {
   const el = e.target as HTMLInputElement
   const newValue = el.checked ? props.onValue : props.offValue
 
-  // TODO - Wire up event bus handling here
   useFormkitFriendlyEventEmitter(props, emit, 'onChange', newValue)
+
+  emitRplEvent(
+    'update',
+    {
+      action: 'select',
+      id: props.id,
+      field: 'option',
+      type: props.type,
+      label: props?.label,
+      value: newValue,
+      contextId: form?.id,
+      contextName: form?.name
+    },
+    { global: props.globalEvents }
+  )
 }
 </script>
 

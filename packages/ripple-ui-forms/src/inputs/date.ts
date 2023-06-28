@@ -14,6 +14,7 @@ export const date: FormKitTypeDefinition = {
     props: {
       id: `$id`,
       name: '$node.name',
+      label: '$label',
       value: '$_value',
       onChange: '$node.input',
       dateFormat: '$node.props.dateFormat',

@@ -6,13 +6,16 @@ export default {
 
 <script setup lang="ts">
 import { RplIcon } from '@dpc-sdp/ripple-ui-core/vue'
-import { computed, ref, watch, nextTick } from 'vue'
+import { computed, ref, watch, nextTick, inject } from 'vue'
 import { onClickOutside } from '@vueuse/core'
 import useFormkitFriendlyEventEmitter from '../../composables/useFormkitFriendlyEventEmitter'
 import MultiValueLabel from './MultiValueLabel.vue'
+import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
+import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
 
 export interface RplFormDropdownProps {
   id: string
+  label?: string
   labelId: string
   value?: string | string[]
   disabled?: boolean
@@ -32,6 +35,7 @@ export interface RplFormDropdownProps {
 
 const props = withDefaults(defineProps<RplFormDropdownProps>(), {
   value: undefined,
+  label: undefined,
   disabled: false,
   variant: 'default',
   placeholder: 'Select',
@@ -43,7 +47,13 @@ const props = withDefaults(defineProps<RplFormDropdownProps>(), {
   multiple: false
 })
 
-const emit = defineEmits<{ (e: 'onChange', value: string[]): void }>()
+const emit = defineEmits<{
+  (e: 'onChange', value: string[]): void
+  (e: 'update', payload: rplEventPayload & { action: 'select' }): void
+}>()
+
+const form: object = inject('form')
+const { emitRplEvent } = useRippleEvent('rpl-form-input', emit)
 
 const containerRef = ref(null)
 const inputRef = ref(null)
@@ -138,9 +148,9 @@ const handleArrowDown = () => {
 }
 
 const handleSelectOption = (optionValue) => {
-  if (props.multiple) {
-    let newValue
+  let newValue = optionValue
 
+  if (props.multiple) {
     if (!Array.isArray(props.value)) {
       // Value is empty, just create a new array
       newValue = [optionValue]
@@ -156,8 +166,22 @@ const handleSelectOption = (optionValue) => {
     useFormkitFriendlyEventEmitter(props, emit, 'onChange', newValue)
   } else {
     handleClose(true)
-    useFormkitFriendlyEventEmitter(props, emit, 'onChange', optionValue)
+    useFormkitFriendlyEventEmitter(props, emit, 'onChange', newValue)
   }
+
+  emitRplEvent(
+    'update',
+    {
+      action: 'select',
+      field: 'dropdown',
+      id: props.id,
+      label: props?.label,
+      value: newValue,
+      contextId: form?.id,
+      contextName: form?.name
+    },
+    { global: true }
+  )
 }
 
 const isOptionSelected = (optionValue) => {

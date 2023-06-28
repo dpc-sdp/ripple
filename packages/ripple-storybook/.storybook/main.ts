@@ -1,11 +1,11 @@
 import { StorybookConfig } from '@storybook/vue3-vite'
 import svgLoader from 'vite-svg-loader'
-import contentLoader from '@originjs/vite-plugin-content'
+import viteYamlLoader from '@modyfi/vite-plugin-yaml'
 import nodeResolve from '@rollup/plugin-node-resolve'
 import path from 'path'
 
 const vitePlugins = [
-  contentLoader(),
+  viteYamlLoader(),
   nodeResolve(),
   svgLoader({
     defaultImport: 'raw',

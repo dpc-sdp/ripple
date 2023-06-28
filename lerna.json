@@ -7,5 +7,7 @@
       "message": "chore(release): publish %s [skip ci]"
     }
   },
-  "packages": ["packages/*"]
+  "packages": [
+    "packages/*"
+  ]
 }

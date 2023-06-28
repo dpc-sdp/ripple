@@ -2,7 +2,7 @@
 import { useRuntimeConfig } from '#imports'
 import { FormKitSchemaNode } from '@formkit/core'
 import { $fetch } from 'ohmyfetch'
-import { nextTick, ref, watch } from 'vue'
+import { computed, nextTick, ref, watch } from 'vue'
 import { RplFormAlert } from '@dpc-sdp/ripple-ui-forms'
 
 interface Props {
@@ -137,6 +137,8 @@ watch(
     }
   }
 )
+
+const submitted = computed(() => submissionState.value.status === 'success')
 </script>
 
 <template>
@@ -146,7 +148,7 @@ watch(
     }"
   >
     <RplFormAlert
-      v-if="hideFormOnSubmit && submissionState.status === 'success'"
+      v-if="hideFormOnSubmit && submitted"
       ref="serverSuccessRef"
       :status="submissionState.status"
       :title="submissionState.title"
@@ -157,24 +159,25 @@ watch(
         <RplContent :html="submissionState.message" />
       </template>
     </RplFormAlert>
-    <RplForm
-      v-else
-      :id="formId"
-      :title="title"
-      :schema="schema"
-      :submissionState="submissionState"
-      @submit="submitHandler"
-    >
-      <template #belowForm>
-        <div class="tide-webform-important-email">
-          <label :for="honeypotId">Important email</label>
-          <input :id="honeypotId" type="text" autocomplete="off" />
-        </div>
-      </template>
-      <template #default="{ value }">
-        <slot :value="value" />
-      </template>
-    </RplForm>
+    <div v-show="!submitted || (submitted && !hideFormOnSubmit)">
+      <RplForm
+        :id="formId"
+        :title="title"
+        :schema="schema"
+        :submissionState="submissionState"
+        @submit="submitHandler"
+      >
+        <template #belowForm>
+          <div class="tide-webform-important-email">
+            <label :for="honeypotId">Important email</label>
+            <input :id="honeypotId" type="text" autocomplete="off" />
+          </div>
+        </template>
+        <template #default="{ value }">
+          <slot :value="value" />
+        </template>
+      </RplForm>
+    </div>
   </div>
 </template>
 

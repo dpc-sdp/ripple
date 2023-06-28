@@ -32,7 +32,7 @@ const { emitRplEvent } = useRippleEvent('rpl-document', emit)
 const onDownload = ({ id, action }) => {
   emitRplEvent(
     'download',
-    { id, action, label: props.name, type: props.extension },
+    { id, action, label: props.name, type: props.extension, size: props.size },
     { global: true }
   )
 }

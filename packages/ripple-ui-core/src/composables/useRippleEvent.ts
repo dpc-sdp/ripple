@@ -6,7 +6,7 @@ export type rplEventPayload = {
   action?: string
   name?: string
   label?: string
-  value?: string
+  value?: any
   contextId?: string
   contextName?: string
   [key: string]: unknown

@@ -4,6 +4,6 @@ export const rplOuter = createSection('outer', () => ({
   $cmp: 'FormkitOuter',
   props: {
     key: '$id',
-    fieldName: '$id'
+    fieldName: '$node.name'
   }
 }))

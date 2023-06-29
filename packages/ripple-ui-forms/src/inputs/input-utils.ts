@@ -16,7 +16,6 @@ import RplFormFieldset from '../components/RplFormFieldset/RplFormFieldset.vue'
 import RplFormDivider from '../components/RplFormDivider/RplFormDivider.vue'
 import RplFormActions from '../components/RplFormActions/RplFormActions.vue'
 import {
-  outer,
   inner,
   wrapper,
   icon,
@@ -85,7 +84,7 @@ export const createRplFormInput = (
       createSection('error', () => ({
         $cmp: 'FormkitInputError',
         props: {
-          fieldName: `$id`
+          fieldName: `$node.name`
         }
       }))(),
       rplInputGrid(
@@ -115,7 +114,7 @@ export const createRplFormGroup = (
       createSection('error', () => ({
         $cmp: 'FormkitInputError',
         props: {
-          fieldName: `$id`
+          fieldName: `$node.name`
         }
       }))(),
       rplInputGrid(createSection('input', () => cmp)())

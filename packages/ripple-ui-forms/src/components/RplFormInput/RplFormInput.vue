@@ -14,9 +14,9 @@ import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
 interface Props {
   id: string
   disabled?: boolean
-  className: string
+  className?: string
   value?: string
-  type: string
+  type?: string
   name: string
   prefixIcon?: string
   suffixIcon?: string
@@ -29,8 +29,8 @@ interface Props {
   invalid?: boolean
   required?: boolean
   centeredText?: boolean
-  onInput: (payload: Event) => void
-  onBlur: (payload: Event) => void
+  onInput?: (payload: Event) => void
+  onBlur?: (payload: Event) => void
 }
 
 const props = withDefaults(defineProps<Props>(), {

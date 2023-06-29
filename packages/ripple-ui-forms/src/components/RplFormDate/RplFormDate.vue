@@ -24,7 +24,7 @@ interface Props {
   required: boolean
   invalid?: boolean | DatePart[]
   variant?: 'default' | 'reverse'
-  value: string
+  value?: string
   onChange: (value: string | string[]) => void
   dateFormat: string
 }
@@ -33,6 +33,7 @@ const props = withDefaults(defineProps<Props>(), {
   disabled: false,
   required: false,
   invalid: false,
+  value: undefined,
   variant: 'default',
   dateFormat: 'yyyy-MM-dd'
 })

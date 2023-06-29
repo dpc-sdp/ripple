@@ -30,7 +30,7 @@ export interface IContentCollection {
   display: IContentCollectionDisplay
   perPage?: number
   filters?: IContentCollectionFilter[]
-  sortBy?: IContentCollectionSort
+  sortBy?: IContentCollectionSort[]
 }
 
 export interface ITideContentCollectionFilterConfig {
@@ -78,6 +78,24 @@ const getContentCollectionFiltersFromConfig = (
   return filters
 }
 
+const getContentCollectionSortBy = (config) => {
+  const sort = [
+    {
+      field: getField(config, 'internal.sort.field', 'created'),
+      direction: getField(config, 'internal.sort.direction', 'desc')
+    }
+  ]
+
+  if (getField(config, 'internal.contentTypes', []).includes('news')) {
+    sort.unshift({
+      field: 'field_news_date',
+      direction: getField(config, 'internal.sort.direction', 'desc')
+    })
+  }
+
+  return sort
+}
+
 export const contentCollectionMapping = (
   field
 ): TideDynamicPageComponent<IContentCollection> => {
@@ -94,18 +112,7 @@ export const contentCollectionMapping = (
       filters: getContentCollectionFiltersFromConfig(
         field.field_content_collection_config
       ),
-      sortBy: {
-        field: getField(
-          field,
-          'field.field_content_collection_config.internal.sort.field',
-          'created'
-        ),
-        direction: getField(
-          field,
-          'field.field_content_collection_config.internal.sort.direction',
-          'desc'
-        )
-      },
+      sortBy: getContentCollectionSortBy(field.field_content_collection_config),
       perPage: getField(
         field,
         'field_content_collection_config.internal.itemsToLoad',

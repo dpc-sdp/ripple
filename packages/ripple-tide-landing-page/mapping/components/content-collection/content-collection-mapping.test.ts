@@ -30,10 +30,16 @@ describe('contentCollectionMapping', () => {
             values: [8941, 8940]
           }
         ],
-        sortBy: {
-          field: 'created',
-          direction: 'desc'
-        },
+        sortBy: [
+          {
+            field: 'field_news_date',
+            direction: 'desc'
+          },
+          {
+            field: 'created',
+            direction: 'desc'
+          }
+        ],
         perPage: 6,
         display: {
           type: 'card',

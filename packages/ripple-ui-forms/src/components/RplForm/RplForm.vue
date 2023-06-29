@@ -109,7 +109,7 @@ const submitInvalidHandler = async (node) => {
 
 const errorSummaryMessages = computed(() => {
   return Object.entries(inputErrors.value).map(([key, value]) => ({
-    fieldId: key,
+    fieldId: `${props.id}_${key}`,
     text: value
   }))
 })

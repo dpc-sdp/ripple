@@ -27,6 +27,7 @@ interface Props {
   value?: string
   onChange: (value: string | string[]) => void
   dateFormat: string
+  ariaDescribedby?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -35,7 +36,8 @@ const props = withDefaults(defineProps<Props>(), {
   invalid: false,
   value: undefined,
   variant: 'default',
-  dateFormat: 'yyyy-MM-dd'
+  dateFormat: 'yyyy-MM-dd',
+  ariaDescribedby: ''
 })
 
 const emit = defineEmits<{ (e: 'onChange', value: string[]): void }>()
@@ -221,6 +223,7 @@ const isPartInvalid = (part: DatePart) => {
         :disabled="disabled"
         :required="required"
         :invalid="isPartInvalid('day')"
+        :aria-describedby="ariaDescribedby"
         @input="handleChangeDay"
       />
     </div>
@@ -241,6 +244,7 @@ const isPartInvalid = (part: DatePart) => {
         :disabled="disabled"
         :required="required"
         :invalid="isPartInvalid('month')"
+        :aria-describedby="ariaDescribedby"
         @input="handleChangeMonth"
       />
     </div>
@@ -261,6 +265,7 @@ const isPartInvalid = (part: DatePart) => {
         :disabled="disabled"
         :required="required"
         :invalid="isPartInvalid('day')"
+        :aria-describedby="ariaDescribedby"
         @input="handleChangeYear"
       />
     </div>

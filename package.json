@@ -111,7 +111,6 @@
       "xml2js@<0.5.0": "~0.5.0"
     },
     "patchedDependencies": {
-      "@elastic/search-ui-elasticsearch-connector@1.19.1": "patches/@elastic__search-ui-elasticsearch-connector@1.19.0.patch",
       "vite-svg-loader@4.0.0": "patches/vite-svg-loader@4.0.0.patch"
     }
   }

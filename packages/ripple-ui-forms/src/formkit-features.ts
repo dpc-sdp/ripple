@@ -55,7 +55,7 @@ export const getAriaDescribedBy = (node: FormKitNode): void => {
 
         const describedBy = []
 
-        if (node.context.state.validationVisible && !node.context.state.valid) {
+        if (node.parent.props.inputErrors[node.name]) {
           describedBy.push(errorId)
         }
 

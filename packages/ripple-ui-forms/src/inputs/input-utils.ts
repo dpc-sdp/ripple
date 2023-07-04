@@ -84,6 +84,7 @@ export const createRplFormInput = (
       createSection('error', () => ({
         $cmp: 'FormkitInputError',
         props: {
+          id: `$id + '__error'`,
           fieldName: `$node.name`
         }
       }))(),
@@ -114,6 +115,7 @@ export const createRplFormGroup = (
       createSection('error', () => ({
         $cmp: 'FormkitInputError',
         props: {
+          id: `$id + '__error'`,
           fieldName: `$node.name`
         }
       }))(),

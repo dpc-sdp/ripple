@@ -26,6 +26,11 @@ interface Props {
   }
 }
 
+interface CachedError {
+  fieldId: string
+  text: string
+}
+
 const props = withDefaults(defineProps<Props>(), {
   title: undefined,
   resetOnSubmit: false,
@@ -63,19 +68,17 @@ const isFormSubmitting = computed(() => {
 const serverMessageRef = ref(null)
 
 const errorSummaryRef = ref(null)
-const inputErrors = ref({})
+const cachedErrors = ref<Record<string, CachedError>>({})
 const submitCounter = ref(0)
 
 provide('form', { id: props.id, name: props.title })
 provide('isFormSubmitting', isFormSubmitting)
 // submitCounter is watched by some components to efficiently know when to update
 provide('submitCounter', submitCounter)
-// inputErrors only updates on submit
-provide('inputErrors', inputErrors)
 
 const submitHandler = (form) => {
   // Reset the error summary as it is not reactive
-  inputErrors.value = []
+  cachedErrors.value = {}
   submitCounter.value = 0
 
   emitRplEvent('submit', {
@@ -90,16 +93,19 @@ const submitInvalidHandler = async (node) => {
 
   const validations = getValidationMessages(node)
 
-  const inputErrorMap = {}
+  const cachedErrorsMap = {}
 
   // Note: validations is a JS Map https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map
   validations.forEach((inputMessages, fieldNode) => {
-    inputErrorMap[fieldNode.name] = inputMessages.map(
-      (message) => message.value
-    )[0]
+    const fieldId = fieldNode.context.id
+
+    cachedErrorsMap[fieldNode.name] = inputMessages.map((message) => ({
+      fieldId,
+      text: message.value
+    }))[0]
   })
 
-  inputErrors.value = inputErrorMap
+  cachedErrors.value = cachedErrorsMap
 
   await nextTick()
   if (errorSummaryRef.value) {
@@ -107,11 +113,20 @@ const submitInvalidHandler = async (node) => {
   }
 }
 
+const inputErrors = computed(() => {
+  return Object.entries(cachedErrors.value).reduce((result, [key, value]) => {
+    return {
+      ...result,
+      [key]: value.text
+    }
+  }, {})
+})
+
+// inputErrors only updates on submit
+provide('inputErrors', inputErrors)
+
 const errorSummaryMessages = computed(() => {
-  return Object.entries(inputErrors.value).map(([key, value]) => ({
-    fieldId: `${props.id}_${key}`,
-    text: value
-  }))
+  return Object.values(cachedErrors.value)
 })
 
 const rplFormConfig = ref({

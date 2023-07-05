@@ -46,7 +46,7 @@ const emit = defineEmits<{
   (e: 'update', payload: rplEventPayload & { action: 'exit' }): void
 }>()
 
-const { emitRplEvent } = useRippleEvent('rpl-form-input', emit)
+const { emitRplEvent } = useRippleEvent('rpl-form-date', emit)
 
 const ingestValue = (dateStr: string): InternalDate | null => {
   // An empty external value is valid, so we should clear all the inputs

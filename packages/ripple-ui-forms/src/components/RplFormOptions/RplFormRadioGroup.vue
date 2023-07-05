@@ -37,7 +37,7 @@ const emit = defineEmits<{
 }>()
 
 const form: object = inject('form')
-const { emitRplEvent } = useRippleEvent('rpl-form-input', emit)
+const { emitRplEvent } = useRippleEvent('rpl-form-radio-group', emit)
 
 const handleChange = (selectedValue: string) => {
   useFormkitFriendlyEventEmitter(props, emit, 'onChange', selectedValue)
@@ -47,7 +47,6 @@ const handleChange = (selectedValue: string) => {
     {
       action: 'select',
       id: props.id,
-      field: 'radio-group',
       label: props?.label,
       value: selectedValue,
       contextId: form?.id,

@@ -45,7 +45,7 @@ const emit = defineEmits<{
 
 const form: object = inject('form')
 
-const { emitRplEvent } = useRippleEvent('rpl-form-input', emit)
+const { emitRplEvent } = useRippleEvent('rpl-form-textarea', emit)
 
 const classes = computed(() => {
   return {
@@ -61,10 +61,8 @@ const handleChange = () => {
     'update',
     {
       action: 'exit',
-      field: 'textarea',
       id: props.id,
       label: props?.label,
-      value: props.value,
       contextId: form?.id,
       contextName: form?.name
     },

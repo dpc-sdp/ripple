@@ -35,7 +35,7 @@ const emit = defineEmits<{
 }>()
 
 const form: object = inject('form')
-const { emitRplEvent } = useRippleEvent('rpl-form-input', emit)
+const { emitRplEvent } = useRippleEvent('rpl-form-option-buttons', emit)
 
 const handleChange = (selectedId: string) => {
   useFormkitFriendlyEventEmitter(props, emit, 'onChange', selectedId)
@@ -44,7 +44,6 @@ const handleChange = (selectedId: string) => {
     'update',
     {
       action: 'select',
-      field: 'option-buttons',
       id: props.id,
       label: props?.label,
       value: selectedId,

@@ -34,7 +34,7 @@ const emit = defineEmits<{
 }>()
 
 const form: object = inject('form')
-const { emitRplEvent } = useRippleEvent('rpl-form-input', emit)
+const { emitRplEvent } = useRippleEvent('rpl-form-checkbox-group', emit)
 
 const handleToggle = (selectedValue: string) => {
   let newValue
@@ -59,7 +59,6 @@ const handleToggle = (selectedValue: string) => {
     {
       action: 'select',
       id: props.id,
-      field: 'checkbox-group',
       label: props?.label,
       value: newValue,
       contextId: form?.id,

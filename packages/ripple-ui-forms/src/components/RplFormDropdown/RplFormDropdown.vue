@@ -53,7 +53,7 @@ const emit = defineEmits<{
 }>()
 
 const form: object = inject('form')
-const { emitRplEvent } = useRippleEvent('rpl-form-input', emit)
+const { emitRplEvent } = useRippleEvent('rpl-form-dropdown', emit)
 
 const containerRef = ref(null)
 const inputRef = ref(null)
@@ -173,7 +173,6 @@ const handleSelectOption = (optionValue) => {
     'update',
     {
       action: 'select',
-      field: 'dropdown',
       id: props.id,
       label: props?.label,
       value: newValue,

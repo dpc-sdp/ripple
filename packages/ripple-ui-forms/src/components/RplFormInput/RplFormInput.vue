@@ -88,7 +88,6 @@ const handleChange = () => {
       id: props.id,
       type: props.type,
       label: props?.label,
-      value: props.value,
       contextId: form?.id,
       contextName: form?.name
     },

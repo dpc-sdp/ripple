@@ -44,7 +44,7 @@ const emit = defineEmits<{
 }>()
 
 const form: object = inject('form')
-const { emitRplEvent } = useRippleEvent('rpl-form-input', emit)
+const { emitRplEvent } = useRippleEvent('rpl-form-option', emit)
 
 const classes = computed(() => {
   return ['rpl-form-option', `rpl-form-option--${props.variant}`]
@@ -61,7 +61,6 @@ const handleChange = (e: Event) => {
     {
       action: 'select',
       id: props.id,
-      field: 'option',
       type: props.type,
       label: props?.label,
       value: newValue,

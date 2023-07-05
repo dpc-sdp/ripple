@@ -90,7 +90,6 @@ describe('accordionMapping', () => {
       title: 'TEST_TITLE',
       props: {
         id: '4771',
-        title: 'TEST_TITLE',
         numbered: false,
         items: [
           {
@@ -117,7 +116,6 @@ describe('accordionMapping', () => {
       title: 'TEST_TITLE',
       props: {
         id: '4771',
-        title: 'TEST_TITLE',
         numbered: true,
         items: [
           {

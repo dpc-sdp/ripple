@@ -4,7 +4,6 @@ import { TideDynamicPageComponent } from '@dpc-sdp/ripple-tide-api/types'
 export interface ITideAccordion {
   id: string
   numbered: boolean
-  title: string
   items: Array<{
     id: string
     title: string
@@ -21,7 +20,6 @@ export const accordionMapping = (
     title: field.field_paragraph_title,
     props: {
       id: field.drupal_internal__id.toString(),
-      title: field.field_paragraph_title,
       numbered: field.field_paragraph_accordion_style === 'numbered',
       items: field.field_paragraph_accordion.map((acc) => {
         return {

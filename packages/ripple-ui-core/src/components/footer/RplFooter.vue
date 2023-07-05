@@ -15,6 +15,10 @@ import {
 } from './constants'
 import RplNavSection from './RplNavSection.vue'
 import RplImage from '../image/RplImage.vue'
+import {
+  useRippleEvent,
+  rplEventPayload
+} from '../../composables/useRippleEvent'
 
 interface Props {
   variant?: (typeof RplFooterVariants)[number]
@@ -33,6 +37,12 @@ const props = withDefaults(defineProps<Props>(), {
   credit: undefined,
   acknowledgement: undefined
 })
+
+const emit = defineEmits<{
+  (e: 'navigate', payload: rplEventPayload & { action: 'click' }): void
+}>()
+
+const { emitRplEvent } = useRippleEvent('rpl-footer', emit)
 
 const isMounted = ref(false)
 
@@ -115,6 +125,18 @@ const columns = computed(() => {
     }
   }, [])
 })
+
+const handleClick = (link) => {
+  emitRplEvent(
+    'navigate',
+    {
+      action: 'click',
+      value: link.url,
+      text: link.text
+    },
+    { global: true }
+  )
+}
 </script>
 
 <template>
@@ -139,6 +161,7 @@ const columns = computed(() => {
             v-for="(navSection, i) in nav"
             :id="`rpl-footer-nav-${i}`"
             :key="i"
+            :index="i"
             :section="navSection"
             :is-expandable="isExpandable"
           />
@@ -174,9 +197,13 @@ const columns = computed(() => {
         <div class="rpl-footer-bottom__links">
           <ul class="rpl-footer-core-links">
             <li v-for="link in links" :key="link.url">
-              <RplTextLink class="rpl-type-p-small" :url="link.url">{{
-                link.text
-              }}</RplTextLink>
+              <RplTextLink
+                class="rpl-type-p-small"
+                :url="link.url"
+                @click="() => handleClick(link)"
+              >
+                {{ link.text }}
+              </RplTextLink>
             </li>
           </ul>
           <div class="rpl-type-label-small">
@@ -191,6 +218,9 @@ const columns = computed(() => {
             :key="index"
             class="rpl-footer-logo-link rpl-u-focusable-outline rpl-u-focusable--alt-colour"
             :url="logoLink.url"
+            @click="
+              () => handleClick({ url: logoLink.url, text: logoLink.alt })
+            "
           >
             <RplImage
               class="rpl-footer-logo-link__img"
@@ -201,6 +231,9 @@ const columns = computed(() => {
           <RplLink
             class="rpl-footer-logo-link rpl-u-focusable-outline rpl-u-focusable-outline--no-border rpl-u-focusable--alt-colour"
             :url="vicGovHomeUrl"
+            @click="
+              () => handleClick({ url: vicGovHomeUrl, text: vicGovHomeLabel })
+            "
           >
             <span class="rpl-u-visually-hidden">{{ vicGovHomeLabel }}</span>
             <VicGovLogo class="rpl-footer-vic-gov-logo" />

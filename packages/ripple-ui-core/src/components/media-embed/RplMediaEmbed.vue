@@ -11,6 +11,10 @@ import RplModal from '../modal/RplModal.vue'
 import RplContent from '../content/RplContent.vue'
 import RplExpandable from '../expandable/RplExpandable.vue'
 import RplTextLink from '../text-link/RplTextLink.vue'
+import {
+  useRippleEvent,
+  rplEventPayload
+} from '../../composables/useRippleEvent'
 
 interface Props {
   type: RplMediaEmbedTypes
@@ -44,6 +48,18 @@ const props = withDefaults(defineProps<Props>(), {
   downloadUrl: undefined,
   downloadLabel: undefined
 })
+
+const emit = defineEmits<{
+  (e: 'viewTranscript', payload: rplEventPayload & { action: 'click' }): void
+  (
+    e: 'viewFullscreen',
+    payload: rplEventPayload & { action: 'enter' | 'exit' }
+  ): void
+  (e: 'viewData', payload: rplEventPayload & { action: 'open' | 'close' }): void
+  (e: 'downloadImage', payload: rplEventPayload & { action: 'download' }): void
+}>()
+
+const { emitRplEvent } = useRippleEvent('rpl-media-embed', emit)
 
 const isFullScreenOpen = ref(false)
 const isDataContentOpen = ref(false)
@@ -98,6 +114,9 @@ const isActionsListEmpty = computed(() => {
   return true
 })
 
+const transcriptContentLabel = computed(() => {
+  return 'View transcript'
+})
 const dataContentLabel = computed(() => {
   if (props.dataLabel) {
     return props.dataLabel
@@ -105,6 +124,65 @@ const dataContentLabel = computed(() => {
 
   return `${!isDataContentOpen.value ? 'View' : 'Close'} '${props.title}' data`
 })
+const fullscreenContentLabel = computed(() => {
+  return props.fullscreenLabel || `View '${props.title}' fullscreen`
+})
+const downloadContentLabel = computed(() => {
+  return props.downloadLabel || `Download' ${props.title}'`
+})
+
+const toggleFullscreen = (event) => {
+  isFullScreenOpen.value = !isFullScreenOpen.value
+
+  emitRplEvent(
+    'viewFullscreen',
+    {
+      action: isFullScreenOpen.value ? 'enter' : 'exit',
+      text: event?.label || fullscreenContentLabel.value,
+      label: props.title
+    },
+    { global: true }
+  )
+}
+
+const toggleData = () => {
+  isDataContentOpen.value = !isDataContentOpen.value
+
+  emitRplEvent(
+    'viewData',
+    {
+      action: isDataContentOpen.value ? 'open' : 'close',
+      text: dataContentLabel.value,
+      label: props.title
+    },
+    { global: true }
+  )
+}
+
+const handleTranscript = () => {
+  emitRplEvent(
+    'viewTranscript',
+    {
+      action: 'click',
+      text: transcriptContentLabel.value,
+      label: props.title
+    },
+    { global: true }
+  )
+}
+
+const handleDownload = () => {
+  emitRplEvent(
+    'downloadImage',
+    {
+      action: 'download',
+      text: downloadContentLabel.value,
+      label: props.title,
+      value: props?.downloadUrl
+    },
+    { global: true }
+  )
+}
 </script>
 
 <template>
@@ -170,8 +248,9 @@ const dataContentLabel = computed(() => {
         <RplTextLink
           class="rpl-media-embed__transcript-link rpl-media-embed__action rpl-u-focusable-inline rpl-type-p"
           :url="transcriptUrl"
+          @click="handleTranscript"
         >
-          <RplIcon name="icon-view" />View transcript
+          <RplIcon name="icon-view" />{{ transcriptContentLabel }}
         </RplTextLink>
       </li>
 
@@ -180,10 +259,10 @@ const dataContentLabel = computed(() => {
         <button
           class="rpl-media-embed__fullscreen-button rpl-media-embed__action rpl-u-focusable-inline rpl-type-p rpl-u-screen-only"
           type="button"
-          @click="isFullScreenOpen = !isFullScreenOpen"
+          @click="toggleFullscreen"
         >
           <RplIcon name="icon-enlarge-square-filled" />{{
-            fullscreenLabel || `View '${title}' fullscreen`
+            fullscreenContentLabel
           }}
         </button>
       </li>
@@ -192,7 +271,7 @@ const dataContentLabel = computed(() => {
       <li v-if="dataContent">
         <button
           class="rpl-media-embed__view-data-toggle rpl-media-embed__action rpl-u-focusable-inline rpl-type-p rpl-u-screen-only"
-          @click="isDataContentOpen = !isDataContentOpen"
+          @click="toggleData"
         >
           <RplIcon v-if="isDataContentOpen" name="icon-cancel" />
           <RplIcon v-else name="icon-table-lined" />{{ dataContentLabel }}
@@ -213,9 +292,10 @@ const dataContentLabel = computed(() => {
           class="rpl-media-embed__download-link rpl-media-embed__action rpl-u-focusable-inline rpl-type-p"
           :url="downloadUrl"
           download
+          @click="handleDownload"
         >
           <RplIcon name="icon-download" class="rpl-u-screen-only" />{{
-            downloadLabel || `Download' ${title}'`
+            downloadContentLabel
           }}
         </RplTextLink>
       </li>
@@ -224,7 +304,7 @@ const dataContentLabel = computed(() => {
     <RplModal
       :is-open="isFullScreenOpen"
       class-name="rpl-media-embed__modal"
-      @close="() => (isFullScreenOpen = false)"
+      @close="toggleFullscreen"
     >
       <RplImage :src="props.src" :alt="props.caption" fit="contain" />
       <template #below>

@@ -4,6 +4,10 @@ import RplImage from '../image/RplImage.vue'
 import RplButton from '../button/RplButton.vue'
 import { RplLink } from '../../lib/constants'
 import { IRplImageType } from '../image/constants'
+import {
+  useRippleEvent,
+  rplEventPayload
+} from '../../composables/useRippleEvent'
 
 interface Props {
   title: string
@@ -11,10 +15,30 @@ interface Props {
   link?: RplLink
 }
 
-withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<Props>(), {
   image: undefined,
   link: undefined
 })
+
+const emit = defineEmits<{
+  (e: 'navigate', payload: rplEventPayload & { action: 'click' }): void
+}>()
+
+const { emitRplEvent } = useRippleEvent('rpl-campaign-banner', emit)
+
+const handleClick = () => {
+  emitRplEvent(
+    'navigate',
+    {
+      action: 'click',
+      label: props.title,
+      text: props.link?.text,
+      value: props.link?.url,
+      type: 'secondary'
+    },
+    { global: true }
+  )
+}
 </script>
 
 <template>
@@ -35,9 +59,15 @@ withDefaults(defineProps<Props>(), {
     </template>
     <slot></slot>
     <div class="rpl-campaign-banner__action">
-      <RplButton v-if="link" el="a" :url="link.url" data-cy="cta">{{
-        link.text
-      }}</RplButton>
+      <RplButton
+        v-if="link"
+        el="a"
+        :url="link.url"
+        data-cy="cta"
+        @click="handleClick"
+      >
+        {{ link.text }}
+      </RplButton>
     </div>
   </RplCampaignBanner>
 </template>

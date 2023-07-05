@@ -1,8 +1,16 @@
 <script setup lang="ts">
 import { computed, onMounted, reactive } from 'vue'
 import RplButton from '../button/RplButton.vue'
+import {
+  useRippleEvent,
+  rplEventPayload
+} from '../../composables/useRippleEvent'
 
-const emit = defineEmits(['switchTab'])
+const emit = defineEmits<{
+  (e: 'switchTab', payload: rplEventPayload & { action: 'select' }): void
+}>()
+
+const { emitRplEvent } = useRippleEvent('rpl-tabs', emit)
 
 const RplTabsModes = ['horizontal', 'vertical']
 
@@ -44,8 +52,15 @@ const activeClasses = (key: string) => [
 
 const updateActive = (key: string) => {
   state.active = key
-  emit('switchTab', key)
-  // eventbus?
+
+  emitRplEvent(
+    'switchTab',
+    {
+      action: 'select',
+      text: props.tabs.find((tab) => tab.key === key)?.title
+    },
+    { global: true }
+  )
 }
 </script>
 

@@ -3,30 +3,39 @@ import { watch, onMounted, onUnmounted } from 'vue'
 import RplButton from '../button/RplButton.vue'
 import { useWindowSize } from '@vueuse/core'
 import { UseFocusTrap } from '@vueuse/integrations/useFocusTrap/component'
-import { rplEventBus } from '../../index'
-
-rplEventBus.register('rpl-modal/close')
-const emit = defineEmits(['close'])
+import {
+  useRippleEvent,
+  rplEventPayload
+} from '../../composables/useRippleEvent'
 
 interface Props {
   isOpen: boolean
   className?: string
+  closeLabel?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  className: undefined
+  className: undefined,
+  closeLabel: 'Close'
 })
 
-const { height } = useWindowSize()
+const emit = defineEmits<{
+  (e: 'close', payload: rplEventPayload & { action: 'click' }): void
+}>()
 
-const closeModal = (event) => {
-  emit('close')
-  rplEventBus.emit('rpl-modal/close', event)
+const { height } = useWindowSize()
+const { emitRplEvent } = useRippleEvent('rpl-modal', emit)
+
+const closeModal = () => {
+  emitRplEvent('close', {
+    action: 'click',
+    text: props.closeLabel
+  })
 }
 
 const escapeKeyHandler = (event) => {
   if (event.key === 'Escape' && props.isOpen) {
-    closeModal(event)
+    closeModal()
   }
 }
 
@@ -70,12 +79,13 @@ onUnmounted(() => {
           <slot name="above">
             <div class="rpl-modal__actions">
               <RplButton
-                label="Close"
                 icon-name="icon-cancel"
                 theme="neutral"
                 variant="elevated"
                 @click="closeModal"
-              />
+              >
+                {{ closeLabel }}
+              </RplButton>
             </div>
           </slot>
           <div class="rpl-modal__main">

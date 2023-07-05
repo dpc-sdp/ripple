@@ -4,6 +4,10 @@ import RplListContent from './RplListContent.vue'
 import RplTextLink from '../text-link/RplTextLink.vue'
 import { RplIconPlacement } from '../icon/constants'
 import { computed } from 'vue'
+import {
+  useRippleEvent,
+  rplEventPayload
+} from '../../composables/useRippleEvent'
 
 export interface Props {
   items?: IRplListItemArray[]
@@ -25,12 +29,26 @@ const props = withDefaults(defineProps<Props>(), {
   iconPlacement: 'before'
 })
 
+const emit = defineEmits<{
+  (e: 'itemClick', payload: rplEventPayload & { action: 'click' }): void
+}>()
+
+const { emitRplEvent } = useRippleEvent('rpl-list', emit)
+
 const shouldRenderChildren = computed(() => {
   if (props.maxDepth !== null) {
     return props.depth < props.maxDepth
   }
   return true
 })
+
+const handleClick = (item) => {
+  emitRplEvent('itemClick', {
+    action: 'click',
+    value: item.url,
+    text: item.text
+  })
+}
 </script>
 
 <template>
@@ -45,7 +63,12 @@ const shouldRenderChildren = computed(() => {
       :key="index"
       :class="['rpl-list__item', itemClass ? itemClass : null]"
     >
-      <RplTextLink v-if="item.url" :url="item.url" class="rpl-list__link">
+      <RplTextLink
+        v-if="item.url"
+        :url="item.url"
+        class="rpl-list__link"
+        @click="() => handleClick(item)"
+      >
         <RplListContent
           :icon-name="item?.icon"
           :icon-colour="item?.iconColour"

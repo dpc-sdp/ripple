@@ -1,17 +1,27 @@
 <script setup lang="ts">
+import { provide } from 'vue'
+
 export interface Props {
+  id?: string
   title?: string
   fullWidth?: boolean
 }
 
-withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<Props>(), {
+  id: '',
   title: '',
   fullWidth: false
+})
+
+provide('eventContext', {
+  id: props?.id,
+  name: props?.title
 })
 </script>
 
 <template>
   <div
+    :id="id"
     :class="{
       'rpl-page-component': true,
       'rpl-page-component--full-width': fullWidth

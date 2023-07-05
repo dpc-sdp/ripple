@@ -5,16 +5,32 @@ import RplIcon from '../icon/RplIcon.vue'
 import RplExpandable from '../expandable/RplExpandable.vue'
 import { computed, ref } from 'vue'
 import { useExpandable } from '../../composables/useExpandable'
+import {
+  useRippleEvent,
+  rplEventPayload
+} from '../../composables/useRippleEvent'
 
 interface Props {
   id: string
   section: INavSectionItem
   isExpandable?: boolean
+  index?: number
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  isExpandable: false
+  isExpandable: false,
+  index: undefined
 })
+
+const emit = defineEmits<{
+  (
+    e: 'toggleNav',
+    payload: rplEventPayload & { action: 'open' | 'close' }
+  ): void
+  (e: 'navigate', payload: rplEventPayload & { action: 'click' }): void
+}>()
+
+const { emitRplEvent } = useRippleEvent('rpl-footer', emit)
 
 const isExpanded = ref(false)
 
@@ -36,6 +52,33 @@ const items = computed(() => {
     return props.section.items || []
   }
 })
+
+const handleToggle = () => {
+  isExpanded.value = !isExpanded.value
+
+  emitRplEvent(
+    'toggleNav',
+    {
+      id: toggleProps.value.id,
+      action: isExpanded.value ? 'open' : 'close',
+      text: props.section.text,
+      index: props.index
+    },
+    { global: true }
+  )
+}
+
+const handleClick = (event) => {
+  emitRplEvent(
+    'navigate',
+    {
+      ...event,
+      label: props.section.text,
+      index: props.index
+    },
+    { global: true }
+  )
+}
 </script>
 
 <template>
@@ -58,7 +101,7 @@ const items = computed(() => {
           'rpl-u-focusable-block': isExpandable
         }"
         v-bind="isExpandable ? toggleProps : {}"
-        @click="isExpanded = !isExpanded"
+        @click="handleToggle"
       >
         <h3
           class="rpl-footer-nav-section__title rpl-type-label rpl-type-weight-bold"
@@ -85,6 +128,7 @@ const items = computed(() => {
         :items="items"
         item-class="rpl-type-p-small rpl-u-margin-b-3"
         :max-depth="0"
+        @item-click="handleClick"
       />
     </component>
   </div>

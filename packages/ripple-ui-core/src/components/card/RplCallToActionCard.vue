@@ -2,11 +2,14 @@
 import { RplCardElements } from './constants'
 import { RplButtonVariants } from '../button/constants'
 import { useAccessibleContainer } from '../../composables/useAccessibleContainer'
-
 import RplCard from './RplCard.vue'
 import RplButton from '../button/RplButton.vue'
 import RplImage from '../image/RplImage.vue'
 import { IRplImageType } from '../image/constants'
+import {
+  useRippleEvent,
+  rplEventPayload
+} from '../../composables/useRippleEvent'
 
 interface Props {
   el?: (typeof RplCardElements)[number]
@@ -17,7 +20,7 @@ interface Props {
   variant?: (typeof RplButtonVariants)[number]
 }
 
-withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<Props>(), {
   el: 'div',
   image: undefined,
   url: undefined,
@@ -25,7 +28,27 @@ withDefaults(defineProps<Props>(), {
   ctaText: 'Call to action'
 })
 
+const emit = defineEmits<{
+  (e: 'navigate', payload: rplEventPayload & { action: 'click' }): void
+}>()
+
+const { emitRplEvent } = useRippleEvent('rpl-card', emit)
+
 const { container, trigger } = useAccessibleContainer()
+
+const handleClick = () => {
+  emitRplEvent(
+    'navigate',
+    {
+      action: 'click',
+      value: props?.url,
+      label: props.title,
+      text: props.ctaText,
+      type: 'call-to-action'
+    },
+    { global: true }
+  )
+}
 </script>
 
 <template>
@@ -62,6 +85,7 @@ const { container, trigger } = useAccessibleContainer()
       role="button"
       :variant="variant"
       data-cy="cta"
+      @click="handleClick"
     >
       {{ ctaText }}
     </RplButton>

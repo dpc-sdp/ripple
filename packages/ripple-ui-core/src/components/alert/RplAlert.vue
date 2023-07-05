@@ -46,8 +46,8 @@ const onClose = () => {
     {
       id: props.alertId,
       action: 'close',
-      name: props.message,
-      label: closeLabel
+      label: props.message,
+      text: closeLabel
     },
     { global: true }
   )

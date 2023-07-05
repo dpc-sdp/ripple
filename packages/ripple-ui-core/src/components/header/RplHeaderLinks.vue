@@ -5,6 +5,10 @@ import RplTextLink from '../text-link/RplTextLink.vue'
 import RplIcon from '../icon/RplIcon.vue'
 import { IRplListItemArray } from '../list/constants'
 import { RplLink } from '../../lib/constants'
+import {
+  useRippleEvent,
+  rplEventPayload
+} from '../../composables/useRippleEvent'
 
 interface Props {
   title?: string
@@ -13,11 +17,33 @@ interface Props {
   moreLink?: RplLink
 }
 
-withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<Props>(), {
   title: undefined,
   type: 'link',
   moreLink: undefined
 })
+
+const emit = defineEmits<{
+  (e: 'itemClick', payload: rplEventPayload & { action: 'click' }): void
+}>()
+
+const { emitRplEvent } = useRippleEvent('rpl-header', emit)
+
+const handleClick = (item) => {
+  emitRplEvent('itemClick', {
+    action: 'click',
+    value: item.url,
+    text: item.text,
+    label: props?.title
+  })
+}
+
+const handleListClick = (event) => {
+  emitRplEvent('itemClick', {
+    ...event,
+    label: props?.title
+  })
+}
 </script>
 
 <template>
@@ -31,6 +57,7 @@ withDefaults(defineProps<Props>(), {
       container-class="rpl-header-links__list"
       item-class="rpl-header-links__item rpl-header__text-large-fixed rpl-type-p"
       icon-placement="after"
+      @item-click="handleListClick"
     />
     <div v-else class="rpl-header-links__list">
       <RplButton
@@ -39,6 +66,7 @@ withDefaults(defineProps<Props>(), {
         :url="item.url"
         el="a"
         class="rpl-header-links__item"
+        @click="() => handleClick(item)"
       >
         {{ item.text }}
       </RplButton>
@@ -47,6 +75,7 @@ withDefaults(defineProps<Props>(), {
       <RplTextLink
         :url="moreLink.url"
         class="rpl-header__text-large-fixed rpl-header__icon-link rpl-type-p rpl-type-weight-bold"
+        @click="() => handleClick(moreLink)"
       >
         <span>{{ moreLink.text }}</span
         ><RplIcon name="icon-arrow-right" size="xs" />

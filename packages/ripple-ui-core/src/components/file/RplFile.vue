@@ -27,12 +27,18 @@ const emit = defineEmits<{
   (e: 'download', payload: rplEventPayload & { action: 'download' }): void
 }>()
 
-const { emitRplEvent } = useRippleEvent('rpl-document', emit)
+const { emitRplEvent } = useRippleEvent('rpl-file', emit)
 
-const onDownload = ({ id, action }) => {
+const onDownload = ({ action, value }) => {
   emitRplEvent(
     'download',
-    { id, action, label: props.name, type: props.extension, size: props.size },
+    {
+      action,
+      value,
+      text: props.name,
+      type: props.extension,
+      size: props.size
+    },
     { global: true }
   )
 }
@@ -41,7 +47,7 @@ const hasInfo = computed(() => props.extension || props.size || props.updated)
 </script>
 
 <template>
-  <RplDocument :url="url" @download="onDownload">
+  <RplDocument :url="url" :global-events="false" @download="onDownload">
     <template #icon>
       <RplIcon name="icon-document-lined" size="l" colour="default" />
     </template>

@@ -8,11 +8,11 @@ import { EffectFade } from 'swiper'
 import { useBreakpoints } from '@vueuse/core'
 import 'swiper/css'
 import 'swiper/css/effect-fade'
-import { rplEventBus } from '../../index'
 import { useComputedSpeed } from '../../composables/useComputedSpeed'
-
-rplEventBus.register('rpl-button/click')
-const emit = defineEmits(['change'])
+import {
+  useRippleEvent,
+  rplEventPayload
+} from '../../composables/useRippleEvent'
 
 interface Props {
   perView?: RplSlidesPerView
@@ -34,12 +34,17 @@ const props = withDefaults(defineProps<Props>(), {
   contentType: 'item'
 })
 
+const emit = defineEmits<{
+  (e: 'change', payload: rplEventPayload & { action: 'prev' | 'next' }): void
+}>()
+
 const container = ref()
 const swiper = ref()
 const activePage = ref()
 const slots = useSlots()
 const bp = useBreakpoints(bpMin)
 const speed = useComputedSpeed(container, '--rpl-motion-speed-6', 240)
+const { emitRplEvent } = useRippleEvent('rpl-slider', emit)
 
 const isXSmallScreen = bp.greaterOrEqual('xs')
 const isSmallScreen = bp.greaterOrEqual('s')
@@ -106,16 +111,19 @@ watch(
   (slide) => swiper.value.$el.swiper.slideTo(slide)
 )
 
-const paginationClick = (currentPage) => {
-  swiper.value.$el.swiper.slideTo(currentPage - 1)
+const paginationClick = ({ value }) => {
+  swiper.value.$el.swiper.slideTo(value - 1)
 }
 
 const slideUpdate = ({ activeIndex, slides }) => {
+  const previousPage = activePage.value || 1
   activePage.value = activeIndex + 1
-  emit('change', activeIndex)
-  rplEventBus.emit('rpl-slider/slide', activeIndex)
-
   setInert({ activeIndex, slides })
+
+  emitRplEvent('change', {
+    action: activePage.value > previousPage ? 'next' : 'prev',
+    value: activeIndex
+  })
 }
 
 const setInert = ({ activeIndex, slides }) =>

@@ -2,6 +2,10 @@
 import { ref } from 'vue'
 import RplButton from '../../../button/RplButton.vue'
 import { usePrimaryNavFocus } from '../../../../composables/usePrimaryNavFocus'
+import {
+  useRippleEvent,
+  rplEventPayload
+} from '../../../../composables/useRippleEvent'
 
 interface Props {
   url?: string
@@ -17,11 +21,26 @@ const props = withDefaults(defineProps<Props>(), {
   variant: 'inline'
 })
 
+const emit = defineEmits<{
+  (e: 'quickExit', payload: rplEventPayload & { action: 'click' }): void
+}>()
+
 const exit = ref(null)
 
+const { emitRplEvent } = useRippleEvent('rpl-primary-nav', emit)
 const { setFocus, navCollapsed } = usePrimaryNavFocus(exit, 'links:exit')
 
 const clickHandler = () => {
+  emitRplEvent(
+    'quickExit',
+    {
+      action: 'click',
+      text: props.label,
+      value: props.url
+    },
+    { global: true }
+  )
+
   const newTab = window.open(props.url, '_blank')
 
   if (newTab) {

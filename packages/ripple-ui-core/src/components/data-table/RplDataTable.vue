@@ -71,6 +71,7 @@ props.items.map((j) => {
           :content="hiddenItems?.[index]?.[0]"
           :vertical-header="headingType.vertical"
           :offset="offset"
+          :index="index"
         ></RplDataTableRow>
         <tfoot v-if="footer">
           <tr>

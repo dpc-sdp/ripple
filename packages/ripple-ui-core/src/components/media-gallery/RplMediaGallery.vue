@@ -4,6 +4,10 @@ import RplImage from '../image/RplImage.vue'
 import RplSlider from '../slider/RplSlider.vue'
 import RplModal from '../modal/RplModal.vue'
 import { onMounted, onUnmounted, ref } from 'vue'
+import {
+  useRippleEvent,
+  rplEventPayload
+} from '../../composables/useRippleEvent'
 import 'swiper/css'
 import 'swiper/css/effect-fade'
 
@@ -21,20 +25,51 @@ interface Props {
 
 const props = defineProps<Props>()
 
+const emit = defineEmits<{
+  (e: 'paginate', payload: rplEventPayload & { action: 'prev' | 'next' }): void
+  (
+    e: 'viewFullscreen',
+    payload: rplEventPayload & { action: 'enter' | 'exit' }
+  ): void
+}>()
+
+const { emitRplEvent } = useRippleEvent('rpl-media-gallery', emit)
+
 const showModal = ref(false)
 const activeImageSlide = ref(0)
 const activeContentSlide = ref(0)
 
-const contentSlideUpdate = (currentPage) => {
-  activeImageSlide.value = currentPage
+const contentSlideUpdate = ({ value }) => {
+  activeImageSlide.value = value
 }
 
-const imageSlideUpdate = (currentPage) => {
-  activeContentSlide.value = currentPage
+const imageSlideUpdate = ({ action, value }) => {
+  activeContentSlide.value = value
+
+  emitRplEvent(
+    'paginate',
+    {
+      action,
+      label: props.items[value].title,
+      index: value + 1
+    },
+    { global: true }
+  )
 }
 
-const toggleModal = () => {
+const toggleModal = (event) => {
   showModal.value = !showModal.value
+
+  emitRplEvent(
+    'viewFullscreen',
+    {
+      action: showModal.value ? 'enter' : 'exit',
+      text: event?.text,
+      label: event?.name || props.items[activeImageSlide.value].title,
+      index: activeImageSlide.value + 1
+    },
+    { global: true }
+  )
 }
 
 const keyboardNavigation = (event) => {

@@ -8,12 +8,9 @@ import {
 } from './constants'
 import { RplIconNames } from '../icon/constants'
 import RplIcon from '../icon/RplIcon.vue'
-import { rplEventBus } from '../../index'
 import type { IRplFeatureFlags } from '@dpc-sdp/ripple-tide-api/types'
 import RplSpinner from '../spinner/RplSpinner.vue'
 
-rplEventBus.register('rpl-button/click')
-const emit = defineEmits(['click'])
 const featureFlags: IRplFeatureFlags = inject('featureFlags', {
   buttonTheme: 'default'
 })
@@ -62,11 +59,6 @@ const classes = computed(() => {
   }
 })
 
-const onClick = (payload?: any) => {
-  rplEventBus.emit('rpl-button/click', payload)
-  emit('click', payload)
-}
-
 const link: Ref = ref(null)
 
 defineExpose({ link })
@@ -83,7 +75,6 @@ const isAnchor = computed(() => props.el === 'a')
     :class="classes"
     :disabled="disabled"
     :aria-busy="busy"
-    @click="onClick"
   >
     <span v-if="busy" class="rpl-button__spinner"> <RplSpinner /></span>
     <span class="rpl-button__label rpl-type-label rpl-type-weight-bold">

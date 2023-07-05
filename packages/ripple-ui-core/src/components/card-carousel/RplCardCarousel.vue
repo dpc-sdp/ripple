@@ -5,6 +5,10 @@ import RplSlider from '../slider/RplSlider.vue'
 import { IRplCardCarouselItem } from './constants'
 import { RplSlidesPerView } from '../slider/constants'
 import { formatDate, formatDateRange } from '../../lib/helpers'
+import {
+  useRippleEvent,
+  rplEventPayload
+} from '../../composables/useRippleEvent'
 
 interface Props {
   perView?: RplSlidesPerView
@@ -14,11 +18,28 @@ interface Props {
 withDefaults(defineProps<Props>(), {
   perView: 1
 })
+
+const emit = defineEmits<{
+  (e: 'paginate', payload: rplEventPayload): void
+}>()
+
+const { emitRplEvent } = useRippleEvent('rpl-card-carousel', emit)
+
+const handleChange = ({ action, value }) => {
+  emitRplEvent(
+    'paginate',
+    {
+      action,
+      index: value + 1
+    },
+    { global: true }
+  )
+}
 </script>
 
 <template>
   <div class="rpl-card-carousel">
-    <RplSlider :per-view="perView">
+    <RplSlider :per-view="perView" @change="handleChange">
       <template v-for="(card, i) in items" :key="i">
         <RplPromoCard
           v-if="card.type === 'promo'"

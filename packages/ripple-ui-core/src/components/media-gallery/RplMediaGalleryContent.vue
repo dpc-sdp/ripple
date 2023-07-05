@@ -1,12 +1,13 @@
 <script setup lang="ts">
 import RplButton from '../button/RplButton.vue'
-import { rplEventBus } from '../../index'
 import 'swiper/css'
 import 'swiper/css/effect-fade'
 import RplImage from '../image/RplImage.vue'
-
-rplEventBus.register('rpl-media-gallery/fullscreen')
-const emit = defineEmits(['fullscreen'])
+import { computed } from 'vue'
+import {
+  useRippleEvent,
+  rplEventPayload
+} from '../../composables/useRippleEvent'
 
 interface Props {
   title: string
@@ -15,15 +16,30 @@ interface Props {
   showFullScreen: boolean
 }
 
-withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<Props>(), {
   caption: undefined,
   image: undefined,
   showFullScreen: false
 })
 
-const onFullScreen = (event) => {
-  rplEventBus.emit('rpl-gallery/fullscreen', event)
-  emit('fullscreen', event)
+const emit = defineEmits<{
+  (e: 'fullscreen', payload: rplEventPayload & { action: 'click' }): void
+}>()
+
+const { emitRplEvent } = useRippleEvent('rpl-media-gallery', emit)
+
+const fullScreenLabel = computed(() => `View '${props.title}' fullscreen`)
+
+const onFullScreen = () => {
+  emitRplEvent(
+    'fullscreen',
+    {
+      action: 'click',
+      text: fullScreenLabel.value,
+      name: props.title
+    },
+    { global: true }
+  )
 }
 </script>
 
@@ -53,8 +69,7 @@ const onFullScreen = (event) => {
       icon-position="left"
       theme="default"
       @click="onFullScreen"
+      >{{ fullScreenLabel }}</RplButton
     >
-      View '{{ title }}' fullscreen
-    </RplButton>
   </div>
 </template>

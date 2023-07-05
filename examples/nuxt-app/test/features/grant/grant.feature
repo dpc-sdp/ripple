@@ -22,8 +22,8 @@ Feature: Grant page
 
   @mockserver
   Scenario: Guidelines
-    When I click the open all button on accordion with ID "c6314c43-30f3-4454-84de-523db0e52d48"
-    Then all accordion items in accordion ID "c6314c43-30f3-4454-84de-523db0e52d48" should be visible
+    When I click the open all button on accordion with ID "accordion-c6314c43-30f3-4454-84de-523db0e52d48"
+    Then all accordion items in accordion ID "accordion-c6314c43-30f3-4454-84de-523db0e52d48" should be visible
 
   @mockserver
   Scenario: Documents

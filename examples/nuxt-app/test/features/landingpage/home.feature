@@ -79,11 +79,11 @@ Feature: Home page
 
   @mockserver
   Scenario: Page component - Accordion (Open/close all)
-    When I click the open all button on accordion with ID "972"
-    Then all accordion items in accordion ID "972" should be visible
+    When I click the open all button on accordion with ID "accordion-972"
+    Then all accordion items in accordion ID "accordion-972" should be visible
 
-    When I click the close all button on accordion with ID "972"
-    Then all accordion items in accordion ID "972" should be hidden
+    When I click the close all button on accordion with ID "accordion-972"
+    Then all accordion items in accordion ID "accordion-972" should be hidden
 
   @mockserver
   Scenario: Page component - Promo card

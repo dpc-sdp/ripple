@@ -88,50 +88,6 @@ const {
 
 const filtersExpanded = ref(false)
 
-const prevLink = computed(() => {
-  if (searchState.value.current <= 1) {
-    return null
-  }
-
-  const searchParams = new URLSearchParams({
-    ...route.query,
-    current: `n_${searchState.value.current - 1}_n`
-  })
-
-  return {
-    url: `${route.path}?${searchParams.toString()}`,
-    description: `${searchState.value.current - 1} of ${
-      searchState.value.totalPages
-    }`
-  }
-})
-
-const nextLink = computed(() => {
-  if (searchState.value.current === searchState.value.totalPages) {
-    return null
-  }
-
-  const searchParams = new URLSearchParams({
-    ...route.query,
-    current: `n_${searchState.value.current + 1}_n`
-  })
-
-  return {
-    url: `${route.path}?${searchParams.toString()}`,
-    description: `${searchState.value.current + 1} of ${
-      searchState.value.totalPages
-    }`
-  }
-})
-
-const handlePrevClick = () => {
-  goToPage(searchState.value.current - 1)
-}
-
-const handleNextClick = () => {
-  goToPage(searchState.value.current + 1)
-}
-
 const handleFilterSubmit = () => {
   doSearch()
 }
@@ -156,6 +112,14 @@ const getFilterOptions = (field) => {
     value: item
   }))
 }
+
+const totalPages = computed(() => {
+  return searchState.value.resultsPerPage
+    ? Math.ceil(
+        searchState.value.totalResults / searchState.value.resultsPerPage
+      )
+    : 0
+})
 </script>
 
 <template>
@@ -274,26 +238,12 @@ const getFilterOptions = (field) => {
         </div>
       </RplPageComponent>
       <RplPageComponent>
-        <RplPageLinks v-if="results && results.length && !searchState.error">
-          <RplPageLinksItem
-            v-if="prevLink"
-            :url="prevLink.url"
-            label="Previous"
-            direction="prev"
-            @click.prevent="handlePrevClick"
-          >
-            {{ prevLink.description }}
-          </RplPageLinksItem>
-          <RplPageLinksItem
-            v-if="nextLink"
-            :url="nextLink.url"
-            label="Next"
-            direction="next"
-            @click.prevent="handleNextClick"
-          >
-            {{ nextLink.description }}
-          </RplPageLinksItem></RplPageLinks
-        >
+        <RplPagination
+          v-if="totalPages > 1 && !searchState.error"
+          :currentPage="searchState.current"
+          :totalPages="totalPages"
+          @change="goToPage"
+        />
       </RplPageComponent>
     </template>
   </TideBaseLayout>

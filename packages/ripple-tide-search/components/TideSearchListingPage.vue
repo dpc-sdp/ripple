@@ -4,39 +4,55 @@ import { useRuntimeConfig, useFetch, useRoute } from '#imports'
 import useTideSearch from './../composables/useTideSearch'
 import type {
   TideSearchListingPage,
+  MappedSearchResult,
   TideSearchListingResultLayout
 } from './../types'
 
 interface Props {
   title: string
-  summary: string
-  searchListingConfig: TideSearchListingPage['searchListingConfig']
-  index: TideSearchListingPage['index']
-  queryConfig: TideSearchListingPage['queryConfig']
-  globalFilters: TideSearchListingPage['globalFilters']
-  userFilters: TideSearchListingPage['userFilters']
-  resultsLayout?: TideSearchListingResultLayout
-  searchResultsMappingFn: (item: any) => any
+  summary?: string
+  pageConfig?: TideSearchListingPage['pageConfig']
+  searchConfig?: null | {
+    index: string
+  }
+  autocompleteQuery?: boolean
+  queryConfig: Record<string, any>
+  globalFilters?: any[]
+  userFilters?: any[]
+  resultsLayout: TideSearchListingResultLayout
+  searchResultsMappingFn?: (item: any) => MappedSearchResult<any>
 }
 
 const props = withDefaults(defineProps<Props>(), {
   title: 'Search',
-  searchListingConfig: () => ({
-    searchPlaceholder: 'Enter a search term',
-    resultsPerPage: 9
+  summary: '',
+  autocompleteQuery: true,
+  globalFilters: () => [],
+  userFilters: () => [],
+  searchConfig: null,
+  pageConfig: () => ({
+    searchLabel: 'Submit',
+    searchPlaceholder: 'Enter a search term'
   }),
-  resultsLayout: {
-    component: 'TideSearchResultsList',
-    props: {}
+  resultsLayout: () => ({
+    component: 'TideSearchResultsList'
+  }),
+  searchResultsMappingFn: (item): MappedSearchResult<any> => {
+    return {
+      id: item._id,
+      component: 'TideSearchResult',
+      props: {
+        result: item._source
+      }
+    }
   }
 })
 
-const route = useRoute()
 const { public: config } = useRuntimeConfig()
 const siteId = config.tide?.site
 
 const { data: site } = useFetch('/api/tide/site', {
-  baseURL: config.apiUrl || '',
+  baseURL: config.API_URL || '',
   params: {
     id: siteId
   }
@@ -45,80 +61,36 @@ const { data: site } = useFetch('/api/tide/site', {
 const {
   getSearchResults,
   getSuggestions,
-  filterForm,
-  suggestions,
+  searchTerm,
   results,
-  searchTerm
-} = await useTideSearch(
+  suggestions,
+  filterForm
+} = useTideSearch(
   props.queryConfig,
   props.userFilters,
   props.globalFilters,
-  props.searchResultsMappingFn,
-  props.index
+  props.searchResultsMappingFn
 )
 
-const filtersExpanded = ref(false)
-
-// const prevLink = computed(() => {
-//   if (searchState.value.current <= 1) {
-//     return null
-//   }
-
-//   const searchParams = new URLSearchParams({
-//     ...route.query,
-//     current: `n_${searchState.value.current - 1}_n`
-//   })
-
-//   return {
-//     url: `${route.path}?${searchParams.toString()}`,
-//     description: `${searchState.value.current - 1} of ${
-//       searchState.value.totalPages
-//     }`
-//   }
-// })
-
-// const nextLink = computed(() => {
-//   if (searchState.value.current === searchState.value.totalPages) {
-//     return null
-//   }
-
-//   const searchParams = new URLSearchParams({
-//     ...route.query,
-//     current: `n_${searchState.value?.current + 1}_n`
-//   })
-
-//   return {
-//     url: `${route.path}?${searchParams.toString()}`,
-//     description: `${searchState.value.current + 1} of ${
-//       searchState.value.totalPages
-//     }`
-//   }
-// })
-
-// const handlePrevClick = () => {
-//   goToPage(searchState.value.current - 1)
-// }
-
-// const handleNextClick = () => {
-//   goToPage(searchState.value.current + 1)
-// }
-
-const updateSearchTerm = () => {
-  getSuggestions()
+const handleSearchSubmit = () => {
+  getSearchResults()
 }
 
-const handleFilterSubmit = () => {
+const handleFilterSubmit = (form) => {
+  filterForm.value = form.data
   getSearchResults()
 }
 
 const handleFilterReset = () => {
-  console.log('test filter reset')
-  filterForm.value = {}
+  filterForm.value = []
   getSearchResults()
 }
 
-const toggleFilters = () => {
-  filtersExpanded.value = !filtersExpanded.value
+const updateSearchTerm = (term) => {
+  searchTerm.value = term
+  if (props.autocompleteQuery) {
+    getSuggestions()
+  }
 }
 </script>
 
@@ -133,37 +105,22 @@ const toggleFilters = () => {
         :corner-top="true"
         :corner-bottom="false"
       >
-        <p class="rpl-type-p-large" v-if="summary">{{ summary }}</p>
+        <p v-if="summary" class="rpl-type-p-large">{{ summary }}</p>
         <div class="tide-search-header">
           <RplSearchBar
             id="tide-search-bar"
             variant="default"
-            :input-label="searchListingConfig.searchLabel"
+            :input-label="pageConfig.searchLabel"
             :inputValue="searchTerm"
-            :placeholder="searchListingConfig.searchPlaceholder"
+            :placeholder="pageConfig.searchPlaceholder"
             :suggestions="suggestions"
-            @on-submit="getSearchResults"
+            @on-submit="handleSearchSubmit"
             @update:input-value="updateSearchTerm"
           />
-          <RplSearchBarRefine
-            v-if="searchListingConfig.hideFilters"
-            class="tide-search-refine-btn"
-            :expanded="filtersExpanded"
-            @click="toggleFilters"
-          />
-
-          <RplExpandable v-if="searchListingConfig.hideFilters">
-            <TideSearchFilters
-              :filter-form-values="filterForm"
-              :filterInputs="userFilters"
-              :submitLabel="searchListingConfig.labels.submit"
-              :resetLabel="searchListingConfig.labels.reset"
-              @reset="handleFilterReset"
-              @submit="handleFilterSubmit"
-            >
-            </TideSearchFilters>
-          </RplExpandable>
-          <div v-else class="rpl-u-margin-t-4">
+          <div
+            v-if="userFilters && userFilters.length > 0"
+            class="rpl-u-margin-t-4"
+          >
             <TideSearchFilters
               :filter-form-values="filterForm"
               :filterInputs="userFilters"
@@ -176,84 +133,18 @@ const toggleFilters = () => {
       </RplHeroHeader>
     </template>
     <template #body>
-      <!-- <RplPageComponent v-if="!searchState.error && searchState.totalResults">
-        <p class="rpl-type-label rpl-u-padding-b-6">
-          Displaying {{ searchState.pagingStart }}-{{
-            searchState.pagingEnd
-          }}
-          of {{ searchState.totalResults }} results
-        </p>
-      </RplPageComponent> -->
       <RplPageComponent>
-        <!-- <div
-          :class="{
-            'tide-search-results': true,
-            'tide-search-results--loading':
-              searchState.isLoading && !searchState.error
-          }"
-        >
-          <div v-if="searchState.error">
-            <slot name="error">
-              <RplContent>
-                <p class="rpl-type-h3">
-                  Sorry! Something went wrong. Please try again later.
-                </p>
-              </RplContent>
-            </slot>
-          </div>
-          <div v-else-if="!searchState.isLoading && !searchState.totalResults">
-            <slot
-              name="noresults"
-              :resultSearchTerm="searchState.resultSearchTerm"
-            >
-              <RplContent>
-                <p class="rpl-type-h3">
-                  Sorry! We couldn't find any matches for '{{
-                    searchState.resultSearchTerm
-                  }}'.
-                </p>
-                <p>To improve your search results:</p>
-                <ul>
-                  <li>use different or fewer keywords</li>
-                  <li>check spelling.</li>
-                </ul>
-              </RplContent>
-            </slot>
-          </div> -->
         <slot name="results" :results="results">
-          <component :is="resultsLayout.component" :results="results" />
+          <component
+            :is="resultsLayout.component"
+            v-bind="resultsLayout.props"
+            :results="results"
+          />
         </slot>
-        <!-- </div> -->
       </RplPageComponent>
-      <!--
-        <RplPageComponent>
-         <slot
-          name="pagination"
-          :results="results"
-          :hasError="searchState.error"
-        >
-          <RplPageLinks v-if="results && results.length && !searchState.error">
-            <RplPageLinksItem
-              v-if="prevLink"
-              :url="prevLink.url"
-              label="Previous"
-              direction="prev"
-              @click.prevent="handlePrevClick"
-            >
-              {{ prevLink.description }}
-            </RplPageLinksItem>
-            <RplPageLinksItem
-              v-if="nextLink"
-              :url="nextLink.url"
-              label="Next"
-              direction="next"
-              @click.prevent="handleNextClick"
-            >
-              {{ nextLink.description }}
-            </RplPageLinksItem></RplPageLinks
-          >
-        </slot>
-      </RplPageComponent> -->
+      <RplPageComponent>
+        <slot name="pagination" :results="results"> </slot>
+      </RplPageComponent>
     </template>
   </TideBaseLayout>
 </template>

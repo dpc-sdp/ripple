@@ -11,15 +11,20 @@
     "resultsPerPage": 9
   },
   "queryConfig": {
-    "title": {
-      "weight": 10
-    },
-    "field_landing_page_summary": {},
-    "summary_processed": {}
+    "multi_match": {
+      "query": "{{query}}",
+      "fields": [
+        "title^3",
+        "field_landing_page_summary^2",
+        "body",
+        "field_paragraph_body",
+        "summary_processed"
+      ]
+    }
   },
   "results": {
     "layout": {
-      "component": "TideSearchList"
+      "component": "TideSearchResultsList"
     },
     "item": {
       "grant": {
@@ -37,17 +42,25 @@
       "component": "TideSearchFilterDropdown",
       "filter": {
         "type": "terms",
-        "value": "field_audience_name"
+        "value": "field_audience_name.keyword"
       },
       "aggregations": {
-        "field": "audience"
+        "field": "audience",
+        "source": "taxonomy"
       },
       "props": {
+        "id": "audience",
         "label": "View those relevant to me",
         "placeholder": "Individuals and organisation types",
-        "field": "field_audience_name",
         "type": "RplFormDropdown",
-        "multiple": true
+        "multiple": true,
+        "options": [
+          {
+            "id": "1",
+            "label": "Individuals",
+            "value": "Individual"
+          }
+        ]
       }
     },
     {
@@ -57,12 +70,28 @@
         "type": "terms",
         "value": "field_topic_name"
       },
+      "aggregations": {
+        "field": "topic",
+        "source": "taxonomy"
+      },
       "props": {
+        "id": "topic",
         "label": "Grant or program topic",
-        "field": "field_topic_name",
-        "placeholder": "Please select",
+        "placeholder": "Grant topic",
         "type": "RplFormDropdown",
-        "multiple": true
+        "multiple": true,
+        "options": [
+          {
+            "id": "1",
+            "label": "Arts",
+            "value": "Arts"
+          },
+          {
+            "id": "2",
+            "label": "Business",
+            "value": "Business"
+          }
+        ]
       }
     }
   ]

@@ -43,6 +43,7 @@ const searchResultsMappingFn = (item): TideSearchListingResultItem => {
   <TideSearchListingPage
     :title="page.title"
     :summary="page.summary"
+    :meta="page.meta"
     :searchListingConfig="page.searchListingConfig"
     :index="page.index"
     :queryConfig="page.queryConfig"

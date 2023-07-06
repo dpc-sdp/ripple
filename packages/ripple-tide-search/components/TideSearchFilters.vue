@@ -1,6 +1,5 @@
 <template>
   <RplForm
-    v-if="staticFacetOptions !== null"
     id="tide-search-filter-form"
     v-model:model-value="filterFormModel"
     class="rpl-u-margin-t-6"
@@ -46,7 +45,6 @@ type CollectionFilter = {
 }
 
 interface Props {
-  staticFacetOptions: null | Record<string, FacetOptionType[]>
   filterInputs: CollectionFilter[]
   filterFormValues: FilterFormModel[]
   submitLabel?: string | boolean

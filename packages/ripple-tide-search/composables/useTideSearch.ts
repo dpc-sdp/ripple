@@ -69,9 +69,7 @@ export default (
   const userFilters = computed(() => {
     let ESFilterClause = [] as any[]
     Object.keys(filterForm.value).map((key: string) => {
-      console.log('userFilterConfig', key, userFilterConfig)
       const itm = userFilterConfig.find((itm) => itm.id === key)
-      console.log('filterForm', itm)
       const filterVal =
         filterForm.value[key] && Array.from(filterForm.value[key])
       // Need to work out if form has value - will be different for different controls
@@ -93,14 +91,16 @@ export default (
           ESFilterClause = [
             {
               [`${itm.filter.type}`]: {
-                [`${itm.filter.value}`]: filterVal
+                // ES8 appears to require keyword suffix due to change in indexing
+                [`${itm.filter.value}.keyword`]: filterVal
               }
             }
           ]
         }
         // Call a function passed from app.config to add filters
         if (itm.filter.type === 'function') {
-          // TODO
+          // TODO: this should allow calling a custom function that returns a valid query clause
+          // function should be passed through from app.config to allow extending and overriding
         }
       }
     })
@@ -138,16 +138,25 @@ export default (
 
   const getSearchResults = async () => {
     const body = getQueryDSL()
-    console.log(JSON.stringify(body, null, 2))
-    results.value = await $fetch(
+    if (process.env.NODE_ENV === 'development') {
+      console.info(JSON.stringify(body, null, 2))
+    }
+    const response = await $fetch(
       `/api/tide/search/${index}/elasticsearch/_search`,
       {
         method: 'POST',
         body
       }
-    ).then((res) => {
-      return res.hits && res.hits?.hits.map(searchResultsMappingFn)
-    })
+    )
+
+    if (
+      response &&
+      response.hasOwnProperty('hits') &&
+      Array.isArray(response.hits?.hits) &&
+      typeof searchResultsMappingFn === 'function'
+    ) {
+      results.value = response.hits?.hits.map(searchResultsMappingFn)
+    }
   }
 
   const getSuggestions = async () => {

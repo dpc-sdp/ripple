@@ -1,5 +1,5 @@
-import { FilterType } from '@elastic/search-ui'
-
+import { FilterType, FacetConfiguration, Filter } from '@elastic/search-ui'
+import type { TidePageBase } from '@dpc-sdp/ripple-tide-api/types'
 export interface MappedSearchResult<T> {
   id: string
   component: string
@@ -15,7 +15,14 @@ export interface AppSearchFilterConfigItem {
 export interface FilterConfigItem {
   id: string
   component: string
-  facets: Record<string, FacetConfiguration>
+  facets?: Record<string, FacetConfiguration>
+  aggregations?: {
+    /**
+     * @description source of options data for dropdowns, taxonomy for deriving from Drupal and Elastic to get from aggregation query in Elasticsearch
+     */
+    source: 'elastic' | 'taxonomy'
+    field: string
+  }
   props?: {
     label?: string
     field?: string
@@ -94,13 +101,13 @@ export interface TideSearchListingPage extends TidePageBase {
     }
   }
   /**
-   * @description Configuration for search query fields - See https://docs.elastic.co/search-ui/api/core/configuration#search_fields
+   * @description Elastic Query DSL for query clause
    */
-  queryConfig: Record<string, SearchFieldConfiguration>
+  queryConfig: Record<string, any>
   /**
-   * @description Global filters to scope all results to (applied separately to user defined filters). See https://docs.elastic.co/search-ui/api/core/configuration#filters-global-filters
+   * @description Global filters to apply to ES Query DSL Filter clause
    */
-  globalFilters: Filter[]
+  globalFilters: Record<string, any>[]
   /**
    * @description Filter config for the user facing filter controls
    */

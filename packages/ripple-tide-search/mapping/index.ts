@@ -19,6 +19,7 @@ const tideCollectionModule: IRplTideModuleMapping = {
       withSidebarRelatedLinks: false,
       withSidebarSocialShare: false
     }),
+    summary: 'field_landing_page_summary',
     searchListingConfig: (src) =>
       getSearchListingConfig(src).searchListingConfig,
     index: (src) =>
@@ -32,7 +33,7 @@ const tideCollectionModule: IRplTideModuleMapping = {
       if (config.userFilters) {
         for (let i = 0; i < config.userFilters.length; i++) {
           const uiFilter = config.userFilters[i]
-          if (uiFilter.aggregations?.field) {
+          if (uiFilter.aggregations?.source === 'taxonomy') {
             const taxonomyResults = await tidePageApi.getTaxonomy(
               uiFilter.aggregations?.field
             )

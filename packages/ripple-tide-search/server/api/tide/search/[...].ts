@@ -13,7 +13,6 @@ export const createSearchHandler = async (event: H3Event) => {
     },
     on: {
       proxyReq(proxyReq, req, res) {
-        console.log(config.tide.appSearch)
         proxyReq.setHeader(
           'Authorization',
           `Bearer ${config.tide.appSearch.privateSearchKey}`

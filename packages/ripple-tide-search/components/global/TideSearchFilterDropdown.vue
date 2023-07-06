@@ -1,8 +1,8 @@
 <script setup lang="ts">
 interface Props {
   id: string
-  field: string
   placeholder: string
+  multiple: boolean
   label: string
   options?: any[]
 }
@@ -14,7 +14,7 @@ defineProps<Props>()
     :id="id"
     :name="id"
     type="RplFormDropdown"
-    :multiple="true"
+    :multiple="multiple"
     :label="label"
     :placeholder="placeholder"
     :options="options"

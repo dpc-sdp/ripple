@@ -141,8 +141,9 @@ export default (
     if (process.env.NODE_ENV === 'development') {
       console.info(JSON.stringify(body, null, 2))
     }
+
     const response = await $fetch(
-      `/api/tide/search/${index}/elasticsearch/_search`,
+      `${config.apiUrl}/api/tide/search/${index}/elasticsearch/_search`,
       {
         method: 'POST',
         body

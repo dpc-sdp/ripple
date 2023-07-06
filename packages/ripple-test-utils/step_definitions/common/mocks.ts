@@ -40,10 +40,28 @@ Given(
 )
 
 Given(
+  `the endpoint {string} returns fixture {string} with status {int}`,
+  (route: string, fixture: string, status: number) => {
+    cy.fixture(fixture).then((response) => {
+      cy.task('setMockRoute', { route, status, response })
+    })
+  }
+)
+
+Given(
   `posting to endpoint {string} with query {string} returns fixture {string} with status {int}`,
   (route: string, query: string, fixture: string, status: number) => {
     cy.fixture(fixture).then((response) => {
       cy.task('setMockPostRouteWithQuery', { route, status, response, query })
+    })
+  }
+)
+
+Given(
+  `posting to endpoint {string} returns fixture {string} with status {int}`,
+  (route: string, fixture: string, status: number) => {
+    cy.fixture(fixture).then((response) => {
+      cy.task('setMockPostRoute', { route, status, response })
     })
   }
 )

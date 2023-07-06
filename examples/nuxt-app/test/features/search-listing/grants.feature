@@ -8,5 +8,7 @@ Feature: Collection pages
 
   @mockserver
   Example: Grants
+    Given posting to endpoint "/api/tide/search/a83890f7a31dea14e1ae83c6f0afacca-appsearch-index-default-node/elasticsearch/_search" returns fixture "/search-listing/elastic/grants" with status 200
     Given the endpoint "/api/tide/page" with query "?path=/grants&site=8888" returns fixture "/search-listing/grants" with status 200
     When I visit the page "/grants"
+    Then the search listing page should have 2 results

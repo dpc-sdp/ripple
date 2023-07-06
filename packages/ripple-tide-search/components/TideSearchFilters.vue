@@ -15,7 +15,7 @@
         <component
           :is="filter.component"
           :id="filter.id"
-          :name="filter.field"
+          :name="filter.id"
           v-bind="filter.props"
         ></component>
       </div>

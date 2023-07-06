@@ -112,14 +112,6 @@ const getFilterOptions = (field) => {
     value: item
   }))
 }
-
-const totalPages = computed(() => {
-  return searchState.value.resultsPerPage
-    ? Math.ceil(
-        searchState.value.totalResults / searchState.value.resultsPerPage
-      )
-    : 0
-})
 </script>
 
 <template>
@@ -239,9 +231,9 @@ const totalPages = computed(() => {
       </RplPageComponent>
       <RplPageComponent>
         <RplPagination
-          v-if="totalPages > 1 && !searchState.error"
+          v-if="searchState.totalPages > 1 && !searchState.error"
           :currentPage="searchState.current"
-          :totalPages="totalPages"
+          :totalPages="searchState.totalPages"
           @change="goToPage"
         />
       </RplPageComponent>

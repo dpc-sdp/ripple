@@ -1,14 +1,17 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import { useRuntimeConfig, useFetch, useRoute } from '#imports'
-import useTideSearch from './../composables/use-tide-search'
-import { FilterConfigItem, MappedSearchResult } from 'ripple-tide-search/types'
+import useSearchUI from './../composables/useSearchUI'
+import {
+  AppSearchFilterConfigItem,
+  MappedSearchResult
+} from 'ripple-tide-search/types'
 import { FormKit } from '@formkit/vue'
 import { SearchDriverOptions } from '@elastic/search-ui'
 
 interface Props {
   pageTitle: string
-  filtersConfig: FilterConfigItem[]
+  filtersConfig: AppSearchFilterConfigItem[]
   searchDriverOptions: Omit<SearchDriverOptions, 'apiConnector'>
   searchResultsMappingFn: (item: any) => MappedSearchResult<any>
 }
@@ -40,7 +43,7 @@ const props = withDefaults(defineProps<Props>(), {
   searchResultsMappingFn: (item): MappedSearchResult<any> => {
     return {
       id: item._meta.id,
-      component: 'TideSearchResult',
+      component: 'TideAppSearchResult',
       props: {
         title: item.title?.raw?.[0],
         url: item.url?.raw?.[0].replace(/\/site-(\d+)/, ''),
@@ -64,7 +67,7 @@ const { data: site } = useFetch('/api/tide/site', {
 const apiConnectorOptions = {
   ...config.tide?.appSearch,
   // The search request is proxied through the API to avoid CORS issues
-  endpointBase: '/api/tide/search'
+  endpointBase: '/api/tide/app-search'
 }
 
 const {
@@ -76,7 +79,7 @@ const {
   results,
   staticFacetOptions,
   filterFormValues
-} = await useTideSearch(
+} = await useSearchUI(
   apiConnectorOptions,
   props.searchDriverOptions,
   props.filtersConfig,

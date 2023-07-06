@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { FilterConfigItem, MappedSearchResult } from '../types'
+import { AppSearchFilterConfigItem, MappedSearchResult } from '../types'
 import { formatDate } from '#imports'
 
-const filtersConfig: FilterConfigItem[] = [
+const filtersConfig: AppSearchFilterConfigItem[] = [
   {
     label: 'Select a topic',
     placeholder: 'Select',
@@ -73,7 +73,7 @@ const searchResultsMappingFn = (item): MappedSearchResult<any> => {
 
   return {
     id: item._meta.id,
-    component: 'TideSearchResult',
+    component: 'TideAppSearchResult',
     props: {
       title: item.title?.raw?.[0],
       url: item.url?.raw?.[0].replace(/\/site-(\d+)/, ''),

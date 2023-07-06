@@ -47,9 +47,3 @@ Given(
     })
   }
 )
-
-When('I visit the page {string}', (route: string) => {
-  cy.visit(route, { failOnStatusCode: false })
-  cy.get('body').should('have.attr', 'data-nuxt-hydrated', 'true')
-  cy.wait(200)
-})

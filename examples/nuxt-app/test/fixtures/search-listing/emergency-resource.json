@@ -1,0 +1,180 @@
+{
+  "title": "Emergency Recovery Resource Portal - Search for a resource",
+  "changed": "2022-11-02T12:47:29+11:00",
+  "created": "2022-11-02T12:47:29+11:00",
+  "type": "tide_search_listing",
+  "nid": "11dede11-10c0-111e1-1100-000000000330",
+  "showTopicTags": true,
+  "summary": "Browse our collection of key recovery resources and guidance for the disaster recovery workforce.",
+  "searchConfig": {
+    "globalFilters": [
+      { "field": "type", "values": ["landing_page", "publication"] },
+      {
+        "field": "field_emv_section_name",
+        "values": [
+          "I need to act",
+          "Lessons learned and wellbeing",
+          "Long term Recovery"
+        ]
+      },
+      { "field": "field_node_site", "values": [4] }
+    ],
+    "searchFields": {
+      "title": {
+        "weight": 10
+      },
+      "field_landing_page_summary": {},
+      "summary_processed": {}
+    },
+    "filterInputs": [
+      {
+        "id": "section_name",
+        "component": "TideSearchFilterDropdown",
+        "facets": {
+          "field_emv_section_name": {
+            "type": "value",
+            "size": 30
+          }
+        },
+        "filterUpdateHook": [
+          "singleFieldSelect",
+          "field_emv_section_name",
+          "any"
+        ],
+        "props": {
+          "label": "Section",
+          "placeholder": "Select a section",
+          "field": "field_emv_section_name",
+          "name": "field_emv_section_name",
+          "type": "RplFormDropdown",
+          "multiple": true
+        }
+      },
+      {
+        "id": "resource_type_name",
+        "component": "TideSearchFilterDropdown",
+        "facets": {
+          "field_topic_name": {
+            "type": "value",
+            "size": 30
+          }
+        },
+        "filterType": "any",
+        "filterUpdateHook": [
+          "singleFieldSelect",
+          "field_emv_resource_type_name",
+          "any"
+        ],
+        "props": {
+          "label": "Resource type",
+          "field": "field_emv_resource_type_name",
+          "placeholder": "Select resource type",
+          "type": "RplFormDropdown",
+          "multiple": true
+        }
+      },
+      {
+        "id": "recovery_env_name",
+        "component": "TideSearchFilterDropdown",
+        "facets": {
+          "field_topic_name": {
+            "type": "value",
+            "size": 30
+          }
+        },
+        "filterType": "any",
+        "filterUpdateHook": [
+          "singleFieldSelect",
+          "field_emv_recovery_env_name",
+          "any"
+        ],
+        "props": {
+          "label": "Recovery environment",
+          "field": "field_emv_resource_type_name",
+          "placeholder": "Please select",
+          "type": "RplFormDropdown",
+          "multiple": true
+        }
+      },
+      {
+        "id": "recovery_subject_name",
+        "component": "TideSearchFilterDropdown",
+        "facets": {
+          "field_topic_name": {
+            "type": "value",
+            "size": 30
+          }
+        },
+        "filterType": "any",
+        "filterUpdateHook": [
+          "singleFieldSelect",
+          "field_emv_recovery_env_name",
+          "any"
+        ],
+        "props": {
+          "label": "Subject",
+          "field": "field_emv_resource_type_name",
+          "placeholder": "Please select",
+          "type": "RplFormDropdown",
+          "multiple": true
+        }
+      },
+      {
+        "id": "recovery_owner_name",
+        "component": "TideSearchFilterDropdown",
+        "facets": {
+          "field_topic_name": {
+            "type": "value",
+            "size": 30
+          }
+        },
+        "filterType": "any",
+        "filterUpdateHook": [
+          "singleFieldSelect",
+          "field_emv_recovery_env_name",
+          "any"
+        ],
+        "props": {
+          "label": "Owner",
+          "field": "field_emv_resource_type_name",
+          "placeholder": "Please select",
+          "type": "RplFormDropdown",
+          "multiple": true
+        }
+      },
+      {
+        "id": "recovery_audience_name",
+        "component": "TideSearchFilterDropdown",
+        "facets": {
+          "field_topic_name": {
+            "type": "value",
+            "size": 30
+          }
+        },
+        "filterType": "any",
+        "filterUpdateHook": [
+          "singleFieldSelect",
+          "field_emv_recovery_env_name",
+          "any"
+        ],
+        "props": {
+          "label": "Audience",
+          "field": "field_emv_resource_type_name",
+          "placeholder": "Please select",
+          "type": "RplFormDropdown",
+          "multiple": true
+        }
+      }
+    ],
+    "pageConfig": {
+      "searchPlaceholder": "Search all resources",
+      "resultsLayout": "TideSearchGrid",
+      "resultsPerPage": 9
+    },
+    "resultsConfig": {
+      "*": {
+        "component": "TideSearchResultCard"
+      }
+    }
+  }
+}

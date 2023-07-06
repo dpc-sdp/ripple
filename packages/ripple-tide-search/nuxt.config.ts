@@ -14,6 +14,11 @@ export default defineNuxtConfig({
           index: ''
         }
       }
+    },
+    tide: {
+      appSearch: {
+        privateSearchKey: ''
+      }
     }
   },
   alias: {

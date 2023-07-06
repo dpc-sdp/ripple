@@ -1,0 +1,69 @@
+{
+  "title": "Grants and programs",
+  "changed": "2022-11-02T12:47:29+11:00",
+  "created": "2022-11-02T12:47:29+11:00",
+  "type": "tide_search_listing",
+  "nid": "11dede11-10c0-111e1-1100-000000000330",
+  "showTopicTags": true,
+  "summary": "",
+  "searchListingConfig": {
+    "searchPlaceholder": "Search all grants and programs",
+    "resultsPerPage": 9
+  },
+  "queryConfig": {
+    "title": {
+      "weight": 10
+    },
+    "field_landing_page_summary": {},
+    "summary_processed": {}
+  },
+  "results": {
+    "layout": {
+      "component": "TideSearchList"
+    },
+    "item": {
+      "grant": {
+        "component": "TideGrantSearchResult"
+      }
+    }
+  },
+  "globalFilters": [
+    { "terms": { "type": ["grant"] } },
+    { "terms": { "field_node_site": [8888] } }
+  ],
+  "userFilters": [
+    {
+      "id": "audience",
+      "component": "TideSearchFilterDropdown",
+      "filter": {
+        "type": "terms",
+        "value": "field_audience_name"
+      },
+      "aggregations": {
+        "field": "audience"
+      },
+      "props": {
+        "label": "View those relevant to me",
+        "placeholder": "Individuals and organisation types",
+        "field": "field_audience_name",
+        "type": "RplFormDropdown",
+        "multiple": true
+      }
+    },
+    {
+      "id": "topic",
+      "component": "TideSearchFilterDropdown",
+      "filter": {
+        "type": "terms",
+        "value": "field_topic_name"
+      },
+      "props": {
+        "label": "Grant or program topic",
+        "field": "field_topic_name",
+        "placeholder": "Please select",
+        "type": "RplFormDropdown",
+        "multiple": true
+      }
+    }
+  ]
+}

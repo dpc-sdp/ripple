@@ -19,3 +19,16 @@ Feature: Grants collection
       | title                                | url                                           | updated                            | content                                                                                                                                            | audience                          | amount            | status                    |
       | THIS IS A TEST                       | /site-8888/tc-9b-grant-page-closed            | Updated: 2023-05-09T15:00:46+10:00 | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet ligula sit amet lacinia. In a leo nec tortor aliquet faucibus. | Business                          | $11,326 - $26,494 | Closed                    |
       | TC-9a Grant Simple Test - Date Range | /site-8888/tc-9a-grant-simple-test-date-range | Updated: 2023-05-09T15:00:46+10:00 | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet ligula sit amet lacinia. In a leo nec tortor aliquet faucibus. | Not-for-profit groups, government | $11,326 - $26,494 | Open, closing in 163 days |
+    When I click the search listing dropdown field labelled "View those relevant to me"
+    # First item is hardcoded, the rest come from ES aggregation
+    Then the selected dropdown field should have the items:
+      | Hard coded            |
+      | Business              |
+      | Government            |
+      | Individual            |
+      | Not-for-profit groups |
+    When I click the search listing dropdown field labelled "Grant or program topic"
+    # These come from Tide page API response
+    Then the selected dropdown field should have the items:
+      | Arts     |
+      | Business |

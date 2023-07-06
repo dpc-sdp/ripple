@@ -55,6 +55,7 @@ export default (
   const totalPages = computed(() => {
     return pageSize.value ? Math.ceil(totalResults.value / pageSize.value) : 0
   })
+  const onAggregationUpdateHook = ref()
 
   const getQueryClause = () => {
     if (searchTerm.value) {
@@ -72,6 +73,26 @@ export default (
       _filters.push(...userFilters.value)
     }
     return _filters
+  }
+
+  const getAggregations = () => {
+    if (Array.isArray(userFilterConfig) && userFilterConfig.length > 0) {
+      const aggregations = userFilterConfig.reduce((aggs, currentFilter) => {
+        if (currentFilter.aggregations?.source === 'elastic') {
+          aggs = {
+            ...aggs,
+            [`${currentFilter.id}`]: {
+              terms: {
+                field: currentFilter.aggregations.field,
+                order: { _key: 'asc' }
+              }
+            }
+          }
+        }
+        return aggs
+      }, {})
+      return aggregations
+    }
   }
 
   const getSortClause = () => {
@@ -145,7 +166,8 @@ export default (
         },
         size: pageSize.value,
         from: pagingStart.value,
-        sort: getSortClause()
+        sort: getSortClause(),
+        aggs: getAggregations()
       }
     } else {
       return {
@@ -154,7 +176,8 @@ export default (
         },
         size: pageSize.value,
         from: pagingStart.value,
-        sort: getEmptySortClause()
+        sort: getEmptySortClause(),
+        aggs: getAggregations()
       }
     }
   }
@@ -179,14 +202,20 @@ export default (
       )
 
       totalResults.value = response?.hits?.total?.value || 0
-
-      if (
-        response &&
-        response.hasOwnProperty('hits') &&
-        Array.isArray(response.hits?.hits) &&
-        typeof searchResultsMappingFn === 'function'
-      ) {
-        results.value = response.hits?.hits.map(searchResultsMappingFn)
+      results.value = response.hits?.hits.map(searchResultsMappingFn)
+      if (response.aggregations) {
+        const mappedAgs = Object.keys(response.aggregations).reduce(
+          (aggs, key) => {
+            return {
+              ...aggs,
+              [`${key}`]: response.aggregations[key].buckets.map(
+                (bkt) => bkt.key
+              )
+            }
+          },
+          {}
+        )
+        onAggregationUpdateHook.value(mappedAgs)
       }
 
       isBusy.value = false
@@ -285,6 +314,7 @@ export default (
     searchError,
     getSearchResults,
     getSuggestions,
+    onAggregationUpdateHook,
     searchTerm,
     results,
     suggestions,

@@ -142,5 +142,29 @@
         "sort": [1.0, 3522]
       }
     ]
+  },
+  "aggregations": {
+    "audience": {
+      "doc_count_error_upper_bound": 0,
+      "sum_other_doc_count": 0,
+      "buckets": [
+        {
+          "key": "Business",
+          "doc_count": 66
+        },
+        {
+          "key": "Government",
+          "doc_count": 73
+        },
+        {
+          "key": "Individual",
+          "doc_count": 28
+        },
+        {
+          "key": "Not-for-profit groups",
+          "doc_count": 121
+        }
+      ]
+    }
   }
 }

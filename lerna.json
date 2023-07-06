@@ -1,11 +1,10 @@
 {
-  "version": "2.0.0-rc.1",
+  "version": "2.0.0",
   "npmClient": "pnpm",
   "exact": true,
   "command": {
     "publish": {
-      "message": "chore(release): publish %s [skip ci]",
-      "conventionalCommits": true
+      "message": "chore(release): publish %s [skip ci]"
     }
   },
   "packages": [

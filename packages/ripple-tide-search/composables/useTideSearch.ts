@@ -143,7 +143,7 @@ export default (
     }
 
     const response = await $fetch(
-      `${config.apiUrl}/api/tide/search/${index}/elasticsearch/_search`,
+      `/api/tide/search/${index}/elasticsearch/_search`,
       {
         method: 'POST',
         body

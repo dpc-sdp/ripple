@@ -1,4 +1,4 @@
-Feature: Collection pages
+Feature: Grid collection
 
   As a site I can see a collection of links to other pages and interact with it find the one I want.
 

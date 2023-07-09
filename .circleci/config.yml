@@ -138,6 +138,8 @@ jobs:
             corepack enable
             corepack prepare pnpm@8.6.2 --activate
       - run:
+          environment:
+            NUXT_PUBLIC_TIDE_APP_SEARCH_ENGINE_NAME: a83890f7a31dea14e1ae83c6f0afacca-appsearch-index-default-node
           command: pnpm run ci:nuxt-app
           name: Run integration tests with Cypress
       - store_artifacts:

@@ -49,7 +49,7 @@ export default (
   const pagingEnd = computed(() => {
     const maximumPageEnd = pagingStart.value + (pageSize.value - 1)
 
-    return Math.min(totalResults.value, maximumPageEnd)
+    return Math.min(totalResults.value - 1, maximumPageEnd)
   })
 
   const totalPages = computed(() => {

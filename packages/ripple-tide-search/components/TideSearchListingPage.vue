@@ -165,7 +165,10 @@ const handleUpdateSearchTerm = (term) => {
         :totalPages="totalPages"
         :totalResults="totalResults"
       >
-        <RplPageComponent v-if="results?.length">
+        <RplPageComponent
+          v-if="results?.length"
+          data-component-type="search-listing-result-count"
+        >
           <p class="rpl-type-label rpl-u-padding-b-6">
             Displaying {{ pagingStart + 1 }}-{{ pagingEnd + 1 }} of
             {{ totalResults }} results

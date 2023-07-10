@@ -1,4 +1,4 @@
-import { Then, Given, DataTable } from '@badeball/cypress-cucumber-preprocessor'
+import { Then, When, DataTable } from '@badeball/cypress-cucumber-preprocessor'
 
 Then(
   'the search listing page should have {int} results',
@@ -14,6 +14,26 @@ Then('the search listing layout should be {string}', (layout: string) => {
 })
 
 Then(
+  'the results counter should show {int} to {int} of {int} results',
+  (start: number, end: number, total: number) => {
+    cy.get('[data-component-type="search-listing-result-count"]').should(
+      'contain',
+      `Displaying ${start}-${end} of ${total} results`
+    )
+  }
+)
+
+Then(
+  'the URL should reflect that the current page number is {int}',
+  (page: number) => {
+    cy.location().should((loc) => {
+      const params = new URLSearchParams(loc.search)
+      expect(params.get('page')).to.eq(`${page}`)
+    })
+  }
+)
+
+Then(
   'the search listing results should have following items:',
   (dataTable: DataTable) => {
     const table = dataTable.hashes()
@@ -26,9 +46,35 @@ Then(
         .then((item) => {
           cy.wrap(item).as('item')
           cy.get('@item').should('contain', row.title)
-          cy.get('@item').find('a').should('have.attr', 'href', row.url)
-          cy.get('@item').should('contain', row.content)
+
+          if (row.url) {
+            cy.get('@item').find('a').should('have.attr', 'href', row.url)
+          }
+
+          if (row.content) {
+            cy.get('@item').should('contain', row.content)
+          }
         })
     })
   }
 )
+
+When(`I type {string} into the search input`, (inputStr: string) => {
+  cy.get(`[id="tide-search-bar"]`).type(`${inputStr}`)
+})
+
+When(`I click the search button`, () => {
+  cy.get(`.rpl-search-bar button[type="submit"]`).click()
+})
+
+When(`I click on page {int} in the pagination controls`, (page: string) => {
+  cy.get(`.rpl-pagination__page`).contains(`${page}`).click()
+})
+
+When(`I click 'next' in the pagination controls`, () => {
+  cy.get(`.rpl-pagination__link`).contains(`Next`).click()
+})
+
+When(`I click 'previous' in the pagination controls`, () => {
+  cy.get(`.rpl-pagination__link`).contains(`Previous`).click()
+})

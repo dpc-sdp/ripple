@@ -1,11 +1,6 @@
-import {
-  defineNuxtPlugin,
-  useAppConfig,
-  useRuntimeConfig,
-  addRouteMiddleware
-} from '#app'
+import { defineNuxtPlugin, useAppConfig, useRuntimeConfig } from '#app'
 import { loadScript } from '@gtm-support/core'
-import { trackEvent } from '../lib/tracker'
+import routeChange from '../lib/routeChange'
 
 declare global {
   interface Window {
@@ -28,43 +23,40 @@ const setupGTM = (GTM_ID: string) => {
 }
 
 export default defineNuxtPlugin((nuxtApp) => {
-  const appConfig = useAppConfig()?.ripple?.analytics
-  const runtimeConfig = useRuntimeConfig()?.public?.tide?.analytics
-  const eventListeners: Record<string, any> = appConfig?.eventListeners
+  const appConfig = useAppConfig()?.ripple
+  const runtimeConfig = useRuntimeConfig()?.public?.tide
+  const eventListeners: Record<string, any> =
+    appConfig?.analytics?.eventListeners
 
   /* @ts-ignore process is extended by webpack */
   if (process.client) {
+    nuxtApp.hook('page:finish', () => {
+      const route = useRoute()
+      const site = nuxtApp.payload.data?.[`site-${runtimeConfig.site}`]
+      const page = nuxtApp.payload.data?.[`page-${route.fullPath}`]
+      let routeChangeCallback = routeChange
+
+      if (appConfig?.analytics?.routeChange === false) {
+        return
+      }
+      if (typeof appConfig?.analytics?.routeChange === 'function') {
+        routeChangeCallback = appConfig?.analytics?.routeChange
+      }
+
+      routeChangeCallback({ route, site, page })
+    })
+
     nuxtApp.vueApp.use({
       install(app: any) {
         const rplEventBus = app._context?.provides?.$rplEvent
         setupDataLayer()
-        setupGTM(runtimeConfig?.GTM)
-        if (rplEventBus) {
-          if (eventListeners) {
-            /* Here we iterate over all imported events and add listeners to Mitt event bus */
-            const evtKeys = Object.keys(eventListeners)
-            if (evtKeys.length > 0) {
-              evtKeys.forEach((key) => {
-                rplEventBus.on(key, eventListeners[key]())
-              })
-            }
-          }
-          if (appConfig?.routeChange) {
-            let routeChangeMiddleware = (to) => {
-              trackEvent({
-                event: 'routeChange',
-                name: document.title,
-                page_url: to.fullPath,
-                platform_event: 'page/routeChange'
-              })
-            }
-
-            if (typeof appConfig?.routeChange === 'function') {
-              routeChangeMiddleware = appConfig?.routeChange
-            }
-
-            addRouteMiddleware('routeChange', routeChangeMiddleware, {
-              global: true
+        setupGTM(runtimeConfig?.analytics?.GTM)
+        if (rplEventBus && eventListeners) {
+          /* Here we iterate over all imported events and add listeners to Mitt event bus */
+          const evtKeys = Object.keys(eventListeners)
+          if (evtKeys.length > 0) {
+            evtKeys.forEach((key) => {
+              rplEventBus.on(key, eventListeners[key]())
             })
           }
         } else {

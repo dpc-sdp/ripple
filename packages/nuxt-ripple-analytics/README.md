@@ -47,7 +47,7 @@ It can also be set as an environment variable.
 NUXT_PUBLIC_TIDE_ANALYTICS_GTM=GTM-XXXXXXX
 ```
 
-The [App config](https://nuxt.com/docs/getting-started/configuration#app-configuration) file can be used to add additional event listeners, as well as disable or override the default route change event. 
+The [App config](https://nuxt.com/docs/getting-started/configuration#app-configuration) file can be used to add additional event listeners, as well as disable or override the default route change event.
 
 ```js
 import { trackEvent } from '@dpc-sdp/nuxt-ripple-analytics/events'
@@ -56,9 +56,17 @@ export default defineAppConfig({
   ripple: {
     analytics: {
       // routeChange events are enabled by default
-      // optional pass a function to overload the default behavior
-      routeChange: false,
-      
+      // this parameter can be set to false to disable routeChange events
+      // or optional, a function can be returned to run in place of the default
+      routeChange: () => {
+        return ({ page, site }) => {
+          trackEvent({
+            // custom event data
+            event: 'page_view'
+          })
+        }
+      },
+
       // custom events listeners can be added here
       eventListeners: {
         'my-custom-event': () => {

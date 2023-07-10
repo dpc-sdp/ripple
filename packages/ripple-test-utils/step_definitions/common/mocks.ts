@@ -67,14 +67,16 @@ Given(
 )
 
 /* SEARCH */
-
 Given(
-  'the search network request is stubbed with fixture {string}',
+  'the search network request is stubbed with fixture {string} and status {int}',
   (fixture: string, status: number) => {
     cy.intercept(
       'POST',
       `/api/tide/search/${Cypress.env('searchIndex')}/elasticsearch/_search`,
-      { fixture }
+      {
+        statusCode: status,
+        fixture
+      }
     ).as('searchReq') // assign an alias
   }
 )

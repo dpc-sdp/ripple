@@ -178,13 +178,16 @@ const handleUpdateSearchTerm = (term) => {
       <RplPageComponent>
         <div :class="{ 'tide-search-results--loading': isBusy }">
           <div v-if="searchError">
-            <RplContent>
+            <RplContent data-component-type="search-listing-error">
               <p class="rpl-type-h3">
                 Sorry! Something went wrong. Please try again later.
               </p>
             </RplContent>
           </div>
-          <RplContent v-else-if="!isBusy && !results?.length">
+          <RplContent
+            v-else-if="!isBusy && !results?.length"
+            data-component-type="search-listing-no-results"
+          >
             <p class="rpl-type-h3">
               Sorry! We couldn't find any matches for '{{ route.query.q }}'.
             </p>

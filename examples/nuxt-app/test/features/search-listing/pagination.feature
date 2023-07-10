@@ -9,7 +9,7 @@ Feature: Searching listing - Pagination
   @mockserver
   Example: Pagination controls
     Given the endpoint "/api/tide/page" with query "?path=/pagination&site=8888" returns fixture "/search-listing/pagination/page" with status 200
-    And the search network request is stubbed with fixture "/search-listing/pagination/response-page-1"
+    And the search network request is stubbed with fixture "/search-listing/pagination/response-page-1" and status 200
     And the current date is "Fri, 02 Feb 2050 03:04:05 GMT"
     When I visit the page "/pagination"
 
@@ -60,7 +60,7 @@ Feature: Searching listing - Pagination
   @mockserver
   Example: Searching resets to page 1
     Given the endpoint "/api/tide/page" with query "?path=/pagination&site=8888" returns fixture "/search-listing/pagination/page" with status 200
-    And the search network request is stubbed with fixture "/search-listing/pagination/response-page-1"
+    And the search network request is stubbed with fixture "/search-listing/pagination/response-page-1" and status 200
     And the current date is "Fri, 02 Feb 2050 03:04:05 GMT"
     When I visit the page "/pagination"
 
@@ -89,7 +89,7 @@ Feature: Searching listing - Pagination
   @mockserver
   Example: Reads initial page from URL
     Given the endpoint "/api/tide/page" with query "?path=/pagination&site=8888" returns fixture "/search-listing/pagination/page" with status 200
-    And the search network request is stubbed with fixture "/search-listing/pagination/response-page-3"
+    And the search network request is stubbed with fixture "/search-listing/pagination/response-page-3" and status 200
     And the current date is "Fri, 02 Feb 2050 03:04:05 GMT"
     When I visit the page "/pagination?page=3"
 

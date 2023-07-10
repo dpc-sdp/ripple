@@ -63,6 +63,10 @@ When(`I type {string} into the search input`, (inputStr: string) => {
   cy.get(`[id="tide-search-bar"]`).type(`${inputStr}`)
 })
 
+When(`I clear the search input`, () => {
+  cy.get(`[id="tide-search-bar"]`).clear()
+})
+
 When(`I click the search button`, () => {
   cy.get(`.rpl-search-bar button[type="submit"]`).click()
 })
@@ -77,4 +81,23 @@ When(`I click 'next' in the pagination controls`, () => {
 
 When(`I click 'previous' in the pagination controls`, () => {
   cy.get(`.rpl-pagination__link`).contains(`Previous`).click()
+})
+
+Then(
+  'the no results message should show with the search term {string}',
+  (searchTerm: string) => {
+    cy.get(`[data-component-type="search-listing-no-results"]`).should('exist')
+    cy.get(`[data-component-type="search-listing-no-results"]`).should(
+      'contain',
+      searchTerm
+    )
+  }
+)
+
+Then('the search error message should be displayed', () => {
+  cy.get(`[data-component-type="search-listing-error"]`).should('exist')
+  cy.get(`[data-component-type="search-listing-error"]`).should(
+    'contain',
+    'Sorry! Something went wrong. Please try again later.'
+  )
 })

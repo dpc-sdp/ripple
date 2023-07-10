@@ -7,6 +7,12 @@ Then(
   }
 )
 
+Then('the search listing layout should be {string}', (layout: string) => {
+  cy.get(`[data-component-type="search-listing-layout-${layout}"]`).should(
+    'exist'
+  )
+})
+
 Then(
   'the search listing results should have following items:',
   (dataTable: DataTable) => {

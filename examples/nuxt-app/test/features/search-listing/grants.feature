@@ -13,6 +13,7 @@ Feature: Grants collection
     And the current date is "Fri, 02 Feb 2050 03:04:05 GMT"
     When I visit the page "/grants"
     Then the search listing page should have 2 results
+    And the search listing layout should be "list"
     And the search network request should be called with the "/search-listing/grants/request" fixture
     And the grant search listing results should have following items:
       | title                                | url                                           | updated                            | content                                                                                                                                            | audience                          | amount            | status                    |

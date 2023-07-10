@@ -1,5 +1,5 @@
 import {
-  When,
+  Then,
   Given,
   Before,
   After
@@ -65,3 +65,34 @@ Given(
     })
   }
 )
+
+/* SEARCH */
+
+Given(
+  'the search network request is stubbed with fixture {string}',
+  (fixture: string, status: number) => {
+    cy.intercept(
+      'POST',
+      `/api/tide/search/${Cypress.env('searchIndex')}/elasticsearch/_search`,
+      { fixture }
+    ).as('searchReq') // assign an alias
+  }
+)
+
+Then(
+  'the search network request should be called with the {string} fixture',
+  (requestFixture: string) => {
+    cy.fixture(requestFixture).then((fixture) => {
+      cy.get(`@searchReq`).its('request.body').should('deep.equal', fixture)
+    })
+  }
+)
+
+Given('the current date is {string}', (dateString: string) => {
+  const timeTravel = new Date(dateString).getTime()
+  cy.clock(timeTravel)
+})
+
+Given('the current date is restored', () => {
+  cy.clock().invoke('restore')
+})

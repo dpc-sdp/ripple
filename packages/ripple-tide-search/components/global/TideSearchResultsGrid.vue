@@ -1,5 +1,8 @@
 <template>
-  <RplResultListing class="rpl-grid">
+  <RplResultListing
+    data-component-type="search-listing-layout-grid"
+    class="rpl-grid"
+  >
     <RplResultListingItem
       v-for="(result, idx) in results"
       :key="`result-${idx}-${result.id}`"

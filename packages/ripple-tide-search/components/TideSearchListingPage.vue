@@ -11,10 +11,8 @@ import type {
 interface Props {
   title: string
   summary?: string
-  pageConfig?: TideSearchListingPage['pageConfig']
-  searchConfig?: null | {
-    index: string
-  }
+  searchListingConfig?: TideSearchListingPage['searchListingConfig']
+  index: string
   autocompleteQuery?: boolean
   queryConfig: Record<string, any>
   globalFilters?: any[]
@@ -29,10 +27,25 @@ const props = withDefaults(defineProps<Props>(), {
   autocompleteQuery: true,
   globalFilters: () => [],
   userFilters: () => [],
-  searchConfig: null,
-  pageConfig: () => ({
-    searchLabel: 'Submit',
-    searchPlaceholder: 'Enter a search term'
+  queryConfig: () => ({
+    multi_match: {
+      query: '{{query}}',
+      fields: [
+        'title^3',
+        'field_landing_page_summary^2',
+        'body',
+        'field_paragraph_body',
+        'summary_processed'
+      ]
+    }
+  }),
+  searchListingConfig: () => ({
+    resultsPerPage: 9,
+    labels: {
+      submit: 'Submit',
+      reset: 'Reset',
+      placeholder: 'Enter a search term'
+    }
   }),
   resultsLayout: () => ({
     component: 'TideSearchResultsList'
@@ -69,7 +82,8 @@ const {
   props.queryConfig,
   props.userFilters,
   props.globalFilters,
-  props.searchResultsMappingFn
+  props.searchResultsMappingFn,
+  props.searchListingConfig
 )
 
 const handleSearchSubmit = () => {
@@ -110,9 +124,9 @@ const updateSearchTerm = (term) => {
           <RplSearchBar
             id="tide-search-bar"
             variant="default"
-            :input-label="pageConfig.searchLabel"
+            :input-label="searchListingConfig.labels?.submit"
             :inputValue="searchTerm"
-            :placeholder="pageConfig.searchPlaceholder"
+            :placeholder="searchListingConfig.labels?.placeholder"
             :suggestions="suggestions"
             @on-submit="handleSearchSubmit"
             @update:input-value="updateSearchTerm"

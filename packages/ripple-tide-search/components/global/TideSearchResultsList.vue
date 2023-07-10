@@ -1,5 +1,8 @@
 <template>
-  <RplResultListing class="tide-search-result">
+  <RplResultListing
+    data-component-type="search-listing-layout-list"
+    class="tide-search-result"
+  >
     <RplResultListingItem
       v-for="(result, idx) in results"
       :key="`result-${idx}-${result.id}`"

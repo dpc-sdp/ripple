@@ -87,7 +87,6 @@ const handleSearchSubmit = () => {
 }
 
 const handleFilterSubmit = (form) => {
-  console.log(form)
   filterForm.value = form
   submitSearch()
 }

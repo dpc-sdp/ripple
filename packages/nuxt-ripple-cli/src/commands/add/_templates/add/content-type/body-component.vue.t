@@ -1,5 +1,5 @@
 ---
-to: components/Tide<%= h.changeCase.pascalCase(name) %>Body.vue
+to: components/Tide<%= h.pascalCaseMerge(name) %>Body.vue
 ---
 <template>
   <RplPageComponent class="tide-<%= h.changeCase.paramCase(name) %>">

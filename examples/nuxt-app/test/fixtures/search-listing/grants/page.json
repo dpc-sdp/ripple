@@ -8,7 +8,7 @@
   "summary": "",
   "searchListingConfig": {
     "searchPlaceholder": "Search all grants and programs",
-    "resultsPerPage": 9
+    "resultsPerPage": 10
   },
   "queryConfig": {
     "multi_match": {

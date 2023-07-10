@@ -98,6 +98,7 @@ export interface TideSearchListingPage extends TidePageBase {
     labels: {
       submit: string
       reset: string
+      placeholder: string
     }
   }
   /**

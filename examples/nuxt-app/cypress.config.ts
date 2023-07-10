@@ -1,5 +1,5 @@
+import 'dotenv/config'
 import { defineConfig } from 'cypress'
-
 import { addCucumberPreprocessorPlugin } from '@badeball/cypress-cucumber-preprocessor'
 import createEsbuildPlugin from '@badeball/cypress-cucumber-preprocessor/esbuild'
 // eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -11,6 +11,10 @@ const testFolder = resolve(__dirname, './test')
 
 export default defineConfig({
   projectId: 'mie4kg',
+  env: {
+    searchIndex: process.env.NUXT_PUBLIC_TIDE_APP_SEARCH_ENGINE_NAME,
+    products_url: '/products'
+  },
   e2e: {
     baseUrl: 'http://localhost:3000',
     specPattern: '**/*.{feature,feature.ts}',

@@ -13,7 +13,8 @@ export default (
   userFilterConfig: TideSearchListingPage['userFilters'],
   globalFilters: any[],
   searchResultsMappingFn: (item: any) => any,
-  customIndex?: string
+  searchListingConfig: TideSearchListingPage['searchListingConfig'],
+  customIndex?: TideSearchListingPage['index']
 ) => {
   const { public: config } = useRuntimeConfig()
   const route: RouteLocation = useRoute()
@@ -35,7 +36,7 @@ export default (
   const searchTerm = ref('')
   const filterForm = ref({})
   const page = ref(1)
-  const pageSize = ref(10)
+  const pageSize = ref(searchListingConfig.resultsPerPage || 10)
 
   const results = ref()
   const totalResults = ref(0)

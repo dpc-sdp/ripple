@@ -1,8 +1,12 @@
-import { ref, computed, onMounted } from 'vue'
-import type {
-  TideSearchListingPage,
-  TideSearchListingResultLayout
-} from './../types'
+import { ref, computed, onMounted, watch } from 'vue'
+import { RouteLocation } from 'vue-router'
+import {
+  useRuntimeConfig,
+  useRoute,
+  navigateTo,
+  getSingleQueryStringValue
+} from '#imports'
+import type { TideSearchListingPage } from './../types'
 
 export default (
   queryConfig: TideSearchListingPage['queryConfig'],
@@ -11,9 +15,8 @@ export default (
   searchResultsMappingFn: (item: any) => any,
   customIndex?: string
 ) => {
-  const appConfig = useAppConfig()
   const { public: config } = useRuntimeConfig()
-  const route = useRoute()
+  const route: RouteLocation = useRoute()
 
   const index = customIndex || config.tide.appSearch.engineName
 
@@ -26,12 +29,31 @@ export default (
     return JSON.parse(JSON.stringify(obj).replace(re, value))
   }
 
+  const isBusy = ref(true)
+  const searchError = ref(null)
+
   const searchTerm = ref('')
-  const results = ref()
-  const suggestions = ref([])
-  const size = ref(10)
-  const from = ref(0)
   const filterForm = ref({})
+  const page = ref(1)
+  const pageSize = ref(10)
+
+  const results = ref()
+  const totalResults = ref(0)
+  const suggestions = ref([])
+
+  const pagingStart = computed(() => {
+    return (page.value - 1) * pageSize.value
+  })
+
+  const pagingEnd = computed(() => {
+    const maximumPageEnd = pagingStart.value + (pageSize.value - 1)
+
+    return Math.min(totalResults.value, maximumPageEnd)
+  })
+
+  const totalPages = computed(() => {
+    return pageSize.value ? Math.ceil(totalResults.value / pageSize.value) : 0
+  })
 
   const getQueryClause = () => {
     if (searchTerm.value) {
@@ -120,8 +142,8 @@ export default (
             filter: getFilterClause()
           }
         },
-        size: size.value,
-        from: from.value,
+        size: pageSize.value,
+        from: pagingStart.value,
         sort: getSortClause()
       }
     } else {
@@ -129,34 +151,48 @@ export default (
         query: {
           match_all: {}
         },
-        size: size.value,
-        from: from.value,
+        size: pageSize.value,
+        from: pagingStart.value,
         sort: getEmptySortClause()
       }
     }
   }
 
   const getSearchResults = async () => {
-    const body = getQueryDSL()
-    if (process.env.NODE_ENV === 'development') {
-      console.info(JSON.stringify(body, null, 2))
-    }
+    isBusy.value = true
+    searchError.value = null
 
-    const response = await $fetch(
-      `${config.apiUrl}/api/tide/search/${index}/elasticsearch/_search`,
-      {
-        method: 'POST',
-        body
+    try {
+      const body = getQueryDSL()
+
+      if (process.env.NODE_ENV === 'development') {
+        console.info(JSON.stringify(body, null, 2))
       }
-    )
 
-    if (
-      response &&
-      response.hasOwnProperty('hits') &&
-      Array.isArray(response.hits?.hits) &&
-      typeof searchResultsMappingFn === 'function'
-    ) {
-      results.value = response.hits?.hits.map(searchResultsMappingFn)
+      const response: any = await $fetch(
+        `${config.apiUrl}/api/tide/search/${index}/elasticsearch/_search`,
+        {
+          method: 'POST',
+          body
+        }
+      )
+
+      totalResults.value = response?.hits?.total?.value || 0
+
+      if (
+        response &&
+        response.hasOwnProperty('hits') &&
+        Array.isArray(response.hits?.hits) &&
+        typeof searchResultsMappingFn === 'function'
+      ) {
+        results.value = response.hits?.hits.map(searchResultsMappingFn)
+      }
+
+      isBusy.value = false
+    } catch (error) {
+      console.error(error)
+      searchError.value = error
+      isBusy.value = false
     }
   }
 
@@ -182,16 +218,83 @@ export default (
     })
   }
 
-  onMounted(() => {
+  /**
+   * Updates the URL to trigger a new search, always returns to page 1 to avoid empty pages
+   */
+  const submitSearch = async () => {
+    await navigateTo({
+      path: route.path,
+      query: {
+        page: 1,
+        q: searchTerm.value || undefined,
+        ...filterForm.value
+      }
+    })
+  }
+
+  /**
+   * Navigates to a specific page using the search term and filters in the current URL
+   */
+  const goToPage = async (newPage: number) => {
+    await navigateTo({
+      ...route,
+      query: {
+        ...route.query,
+        page: newPage
+      }
+    })
+  }
+
+  /**
+   * The URL is the source of truth for what is shown in the search results.
+   *
+   * When the URL changes, the URL is parsed and the query is transformed into an elastic DSL query.
+   */
+  const searchFromRoute = (newRoute: RouteLocation) => {
+    searchTerm.value = getSingleQueryStringValue(newRoute.query, 'q') || ''
+    page.value =
+      parseInt(getSingleQueryStringValue(newRoute.query, 'page'), 10) || 1
+
+    // Re-construct the filter form values from the URL, we find every query param that matches
+    // a user filter, then construct the filter values based on that. This leave
+    const formValues = Object.keys(newRoute.query)
+      .filter((key) => userFilterConfig.some((filter) => filter.id === key))
+      .reduce((obj, key) => {
+        return {
+          ...obj,
+          [key]: newRoute.query[key]
+        }
+      }, {})
+
+    filterForm.value = formValues
+
     getSearchResults()
+  }
+
+  onMounted(() => {
+    // Read the url on first mount to kick of the initial search
+    searchFromRoute(route)
   })
 
+  // Subsequently watch for any route changes and trigger a new search
+  watch(route, searchFromRoute)
+
   return {
+    isBusy,
+    searchError,
     getSearchResults,
     getSuggestions,
     searchTerm,
     results,
     suggestions,
-    filterForm
+    filterForm,
+    submitSearch,
+    goToPage,
+    page,
+    pageSize,
+    totalResults,
+    totalPages,
+    pagingStart,
+    pagingEnd
   }
 }

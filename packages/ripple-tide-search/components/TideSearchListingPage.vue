@@ -50,6 +50,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 const { public: config } = useRuntimeConfig()
 const siteId = config.tide?.site
+const route = useRoute()
 
 const { data: site } = useFetch('/api/tide/site', {
   baseURL: config.API_URL || '',
@@ -59,12 +60,21 @@ const { data: site } = useFetch('/api/tide/site', {
 })
 
 const {
-  getSearchResults,
+  isBusy,
+  searchError,
   getSuggestions,
   searchTerm,
   results,
   suggestions,
-  filterForm
+  filterForm,
+  submitSearch,
+  goToPage,
+  page,
+  pageSize,
+  totalResults,
+  totalPages,
+  pagingStart,
+  pagingEnd
 } = useTideSearch(
   props.queryConfig,
   props.userFilters,
@@ -73,20 +83,21 @@ const {
 )
 
 const handleSearchSubmit = () => {
-  getSearchResults()
+  submitSearch()
 }
 
 const handleFilterSubmit = (form) => {
-  filterForm.value = form.data
-  getSearchResults()
+  console.log(form)
+  filterForm.value = form
+  submitSearch()
 }
 
 const handleFilterReset = () => {
   filterForm.value = []
-  getSearchResults()
+  submitSearch()
 }
 
-const updateSearchTerm = (term) => {
+const handleUpdateSearchTerm = (term) => {
   searchTerm.value = term
   if (props.autocompleteQuery) {
     getSuggestions()
@@ -115,7 +126,7 @@ const updateSearchTerm = (term) => {
             :placeholder="pageConfig.searchPlaceholder"
             :suggestions="suggestions"
             @on-submit="handleSearchSubmit"
-            @update:input-value="updateSearchTerm"
+            @update:input-value="handleUpdateSearchTerm"
           />
           <div
             v-if="userFilters && userFilters.length > 0"
@@ -133,17 +144,66 @@ const updateSearchTerm = (term) => {
       </RplHeroHeader>
     </template>
     <template #body>
+      <slot
+        name="resultsCount"
+        :results="results"
+        :currentPage="page"
+        :pageSize="pageSize"
+        :totalPages="totalPages"
+        :totalResults="totalResults"
+      >
+        <RplPageComponent v-if="results?.length">
+          <p class="rpl-type-label rpl-u-padding-b-6">
+            Displaying {{ pagingStart + 1 }}-{{ pagingEnd + 1 }} of
+            {{ totalResults }} results
+          </p>
+        </RplPageComponent>
+      </slot>
       <RplPageComponent>
-        <slot name="results" :results="results">
-          <component
-            :is="resultsLayout.component"
-            v-bind="resultsLayout.props"
-            :results="results"
-          />
-        </slot>
+        <div :class="{ 'tide-search-results--loading': isBusy }">
+          <div v-if="searchError">
+            <RplContent>
+              <p class="rpl-type-h3">
+                Sorry! Something went wrong. Please try again later.
+              </p>
+            </RplContent>
+          </div>
+          <RplContent v-else-if="!isBusy && !results?.length">
+            <p class="rpl-type-h3">
+              Sorry! We couldn't find any matches for '{{ route.query.q }}'.
+            </p>
+            <p>To improve your search results:</p>
+            <ul>
+              <li>use different or fewer keywords</li>
+              <li>check spelling.</li>
+            </ul>
+          </RplContent>
+
+          <slot name="results" :results="results">
+            <component
+              :is="resultsLayout.component"
+              v-bind="resultsLayout.props"
+              :results="results"
+            />
+          </slot>
+        </div>
       </RplPageComponent>
       <RplPageComponent>
-        <slot name="pagination" :results="results"> </slot>
+        <slot
+          name="pagination"
+          :results="results"
+          :currentPage="page"
+          :pageSize="pageSize"
+          :totalPages="totalPages"
+          :totalResults="totalResults"
+        >
+          <RplPagination
+            v-if="totalPages > 1"
+            :currentPage="page"
+            :totalPages="totalPages"
+            @change="goToPage"
+          />
+        </slot>
       </RplPageComponent>
     </template>
   </TideBaseLayout>

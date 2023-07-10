@@ -1,8 +1,9 @@
 <template>
   <RplForm
     id="tide-search-filter-form"
-    v-model:model-value="filterFormModel"
+    :modelValue="filterFormModel"
     class="rpl-u-margin-t-6"
+    @input="handleUpdateFilters"
     @submit="handleFilterSubmit"
   >
     <div class="rpl-grid rpl-grid--no-row-gap tide-search-filters">
@@ -31,13 +32,7 @@
 
 <script setup lang="ts">
 import { FilterFormModel } from 'ripple-tide-search/types'
-import { ref } from 'vue'
-
-type FacetOptionType = {
-  id: string
-  label: string
-  value: string
-}
+import { ref, toRaw, watch } from 'vue'
 
 type CollectionFilter = {
   component: string
@@ -46,7 +41,7 @@ type CollectionFilter = {
 
 interface Props {
   filterInputs: CollectionFilter[]
-  filterFormValues: FilterFormModel[]
+  filterFormValues: FilterFormModel
   submitLabel?: string | boolean
   resetLabel?: string | boolean
 }
@@ -61,7 +56,18 @@ const props = withDefaults(defineProps<Props>(), {
   resetLabel: 'Clear search filters'
 })
 
-const filterFormModel = ref(props.filterFormValues)
+const filterFormModel = ref(toRaw(props.filterFormValues.value))
+
+const handleUpdateFilters = (values) => {
+  filterFormModel.value = values
+}
+
+watch(
+  () => props.filterFormValues,
+  (newValues) => {
+    filterFormModel.value = newValues
+  }
+)
 
 function handleFilterReset() {
   emit('reset')

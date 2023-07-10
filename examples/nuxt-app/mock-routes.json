@@ -37,6 +37,6 @@
   },
   {
     "path": "/grants",
-    "fixture": "search-listing/grants.json"
+    "fixture": "search-listing/grants/page.json"
   }
 ]

@@ -91,8 +91,11 @@ export default (
         }
         return aggs
       }, {})
-      return aggregations
+
+      return Object.keys(aggregations).length ? aggregations : undefined
     }
+
+    return undefined
   }
 
   const getSortClause = () => {

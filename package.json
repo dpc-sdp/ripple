@@ -1,8 +1,10 @@
 {
-  "name": "@dpc-sdp/ripple-monorepo",
+  "name": "ripple",
   "private": true,
+  "version": "2.0.0",
   "packageManager": "pnpm@8.6.2",
   "license": "Apache-2.0",
+  "repository": "https://github.com/dpc-sdp/ripple-framework",
   "scripts": {
     "example": "wrap () { pnpm -F example-\"$*\" dev | cat; }; wrap",
     "storybook": "pnpm -F ripple-storybook start",
@@ -15,7 +17,9 @@
     "build:storybook": "pnpm -F ripple-storybook static:build",
     "postinstall": "husky install && pnpm build",
     "preinstall": "npx only-allow pnpm",
-    "release:prod": "lerna version --force-publish",
+    "release": "pnpm release:version && pnpm release:changelog",
+    "release:version": "lerna version --force-publish --no-changelog --no-git-tag-version --no-push",
+    "release:changelog": "changelogen --bump && changelogen gh release",
     "release:publish-pre": "lerna publish --canary minor --preid next --dist-tag next --force-publish",
     "release:publish": "lerna publish from-git",
     "lint": "eslint . --ext .ts,.vue && pnpm -F @dpc-sdp/ripple-ui-core stylelint",
@@ -62,6 +66,7 @@
     "babel-plugin-require-context-hook": "^1.0.0",
     "babel-plugin-syntax-jsx": "^6.18.0",
     "babel-plugin-transform-vue-jsx": "^3.7.0",
+    "changelogen": "^0.5.3",
     "cypress": "12.8.1",
     "detab": "^3.0.2",
     "eslint": "^8.36.0",
@@ -109,9 +114,7 @@
       "xml2js@<0.5.0": "~0.5.0"
     },
     "patchedDependencies": {
-      "@elastic/search-ui-elasticsearch-connector@1.19.1": "patches/@elastic__search-ui-elasticsearch-connector@1.19.0.patch",
       "vite-svg-loader@4.0.0": "patches/vite-svg-loader@4.0.0.patch"
     }
-  },
-  "version": "0.0.0"
+  }
 }

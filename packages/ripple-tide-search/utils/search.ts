@@ -13,3 +13,19 @@ export const getSearchResultValue = (
   if (!value) return null
   return multiple ? value : value[0]
 }
+
+/**
+ * @description Helper to get a single string value from a query string in the case that there are multiple of the same key
+ */
+export const getSingleQueryStringValue = (
+  query: string | string[],
+  property: string
+): string | undefined => {
+  const value = query[property]
+
+  if (Array.isArray(value)) {
+    return value.length ? value[0] : undefined
+  }
+
+  return value || undefined
+}

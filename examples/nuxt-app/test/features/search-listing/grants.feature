@@ -9,7 +9,7 @@ Feature: Grants collection
   @mockserver
   Example: Grants
     Given the endpoint "/api/tide/page" with query "?path=/grants&site=8888" returns fixture "/search-listing/grants/page" with status 200
-    And the search network request is stubbed with fixture "/search-listing/grants/response"
+    And the search network request is stubbed with fixture "/search-listing/grants/response" and status 200
     And the current date is "Fri, 02 Feb 2050 03:04:05 GMT"
     When I visit the page "/grants"
     Then the search listing page should have 2 results

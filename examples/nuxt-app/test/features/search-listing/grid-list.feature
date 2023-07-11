@@ -9,7 +9,7 @@ Feature: Grid collection
   @mockserver
   Example: Emergency resource portal
     Given the endpoint "/api/tide/page" with query "?path=/search-list-grid&site=8888" returns fixture "/search-listing/grid/page" with status 200
-    And the search network request is stubbed with fixture "/search-listing/grid/response"
+    And the search network request is stubbed with fixture "/search-listing/grid/response" and status 200
     When I visit the page "/search-list-grid"
     Then the search listing page should have 9 results
     Then the search listing layout should be "grid"

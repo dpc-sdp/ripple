@@ -22,7 +22,7 @@ Feature: Searching listing - Pagination
       | Pear    |
       | Tomato  |
 
-    Given the search network request is stubbed with fixture "/search-listing/pagination/response-page-2"
+    Given the search network request is stubbed with fixture "/search-listing/pagination/response-page-2" and status 200
     When I click on page 2 in the pagination controls
     Then the search network request should be called with the "/search-listing/pagination/request-page-2" fixture
     And the URL should reflect that the current page number is 2
@@ -35,7 +35,7 @@ Feature: Searching listing - Pagination
       | Bread        |
 
 
-    Given the search network request is stubbed with fixture "/search-listing/pagination/response-page-3"
+    Given the search network request is stubbed with fixture "/search-listing/pagination/response-page-3" and status 200
     When I click 'next' in the pagination controls
     Then the search network request should be called with the "/search-listing/pagination/request-page-3" fixture
     And the URL should reflect that the current page number is 3
@@ -45,7 +45,7 @@ Feature: Searching listing - Pagination
       | Soup    |
       | Biscuit |
 
-    Given the search network request is stubbed with fixture "/search-listing/pagination/response-page-2"
+    Given the search network request is stubbed with fixture "/search-listing/pagination/response-page-2" and status 200
     When I click 'previous' in the pagination controls
     Then the search network request should be called with the "/search-listing/pagination/request-page-2" fixture
     And the URL should reflect that the current page number is 2
@@ -64,7 +64,7 @@ Feature: Searching listing - Pagination
     And the current date is "Fri, 02 Feb 2050 03:04:05 GMT"
     When I visit the page "/pagination"
 
-    Given the search network request is stubbed with fixture "/search-listing/pagination/response-page-3"
+    Given the search network request is stubbed with fixture "/search-listing/pagination/response-page-3" and status 200
     When I click on page 3 in the pagination controls
     And the URL should reflect that the current page number is 3
     And the results counter should show 9 to 10 of 10 results
@@ -73,7 +73,7 @@ Feature: Searching listing - Pagination
       | Soup    |
       | Biscuit |
 
-    Given the search network request is stubbed with fixture "/search-listing/pagination/response-page-1"
+    Given the search network request is stubbed with fixture "/search-listing/pagination/response-page-1" and status 200
     When I type "test" into the search input
     When I click the search button
     Then the search network request should be called with the "/search-listing/pagination/request-page-1-with-term" fixture

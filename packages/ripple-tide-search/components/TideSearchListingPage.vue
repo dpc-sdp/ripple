@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
 import { useRuntimeConfig, useFetch, useRoute } from '#imports'
 import useTideSearch from './../composables/useTideSearch'
 import type {
@@ -116,6 +115,27 @@ const handleUpdateSearchTerm = (term) => {
     getSuggestions()
   }
 }
+
+function scrollToElementTopWithOffset(element, offset) {
+  const elementTop = element.getBoundingClientRect().top + window.scrollY
+  const scrollToPosition = elementTop - offset
+
+  window.scrollTo({
+    top: scrollToPosition,
+    behavior: 'smooth'
+  })
+}
+
+const handlePageChange = (newPage: number) => {
+  const navHeight = 92
+  const layoutBody = document.querySelector('.rpl-layout__body-wrap')
+
+  if (layoutBody) {
+    scrollToElementTopWithOffset(layoutBody, navHeight)
+  }
+
+  goToPage(newPage)
+}
 </script>
 
 <template>
@@ -220,7 +240,7 @@ const handleUpdateSearchTerm = (term) => {
             v-if="totalPages > 1"
             :currentPage="page"
             :totalPages="totalPages"
-            @change="goToPage"
+            @change="handlePageChange"
           />
         </slot>
       </RplPageComponent>

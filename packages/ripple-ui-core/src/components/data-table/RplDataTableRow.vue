@@ -3,9 +3,14 @@ import { computed, reactive } from 'vue'
 import RplButton from '../button/RplButton.vue'
 import RplContent from '../content/RplContent.vue'
 
+type tableColumnConfig = {
+  component?: string
+  props?: any
+}
+
 interface Props {
   content: any
-  columns: Array<string>
+  columns: tableColumnConfig[]
   items: Array<string>
   verticalHeader?: boolean
   offset: number
@@ -38,8 +43,20 @@ const structuredContent = computed(() => Array.isArray(props.content))
         v-for="(item, index) of items"
         :key="index"
         :data-label="columns[index]"
-        >{{ item }}</component
       >
+        <template
+          v-if="
+            typeof columns[index] === 'object' &&
+            columns[index].hasOwnProperty('component')
+          "
+        >
+          <component :is="columns[index].component" :item="item" />
+        </template>
+        <template v-else>
+          {{ item }}
+        </template>
+      </component>
+
       <td v-if="content" class="rpl-data-table__actions">
         <RplButton
           class="rpl-data-table__toggle"

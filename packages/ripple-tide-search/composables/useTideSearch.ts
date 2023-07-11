@@ -84,7 +84,8 @@ export default (
             [`${currentFilter.id}`]: {
               terms: {
                 field: currentFilter.aggregations.field,
-                order: { _key: 'asc' }
+                order: { _key: 'asc' },
+                size: currentFilter.aggregations.size || 30
               }
             }
           }
@@ -99,6 +100,9 @@ export default (
   }
 
   const getSortClause = () => {
+    if (searchListingConfig.customSort) {
+      return searchListingConfig.customSort
+    }
     return [
       {
         _score: 'desc'

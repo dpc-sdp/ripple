@@ -36,6 +36,7 @@ const searchResultsMappingFn = (item): TideSearchListingResultItem => {
       }
     }
   }
+  return item
 }
 </script>
 

@@ -4,7 +4,7 @@ Feature: Search listing - Aggregations
 
   Background:
     Given the endpoint "/api/tide/site" with query "?id=8888" returns fixture "/site/reference" with status 200
-    And the search autocomplete request is stubbed
+    And the search autocomplete request is stubbed with "/search-listing/suggestions/none" fixture
     And I am using a "macbook-16" device
 
   @mockserver

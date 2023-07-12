@@ -15,7 +15,8 @@
     "audience": {
       "terms": {
         "field": "field_audience_name.keyword",
-        "order": { "_key": "asc" }
+        "order": { "_key": "asc" },
+        "size": 30
       }
     }
   }

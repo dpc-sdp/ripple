@@ -38,21 +38,19 @@ Then(
   (dataTable: DataTable) => {
     const table = dataTable.hashes()
 
-    cy.get(`.rpl-result-listing-item`).as('result')
-
     table.forEach((row, i: number) => {
-      cy.get('@result')
+      cy.get(`.rpl-result-listing-item`)
         .eq(i)
         .then((item) => {
-          cy.wrap(item).as('item')
-          cy.get('@item').should('contain', row.title)
+          cy.log(item)
+          cy.wrap(item).should('contain', row.title)
 
           if (row.url) {
-            cy.get('@item').find('a').should('have.attr', 'href', row.url)
+            cy.wrap(item).find('a').should('have.attr', 'href', row.url)
           }
 
           if (row.content) {
-            cy.get('@item').should('contain', row.content)
+            cy.wrap(item).should('contain', row.content)
           }
         })
     })

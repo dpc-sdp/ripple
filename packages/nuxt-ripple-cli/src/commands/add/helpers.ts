@@ -1,5 +1,8 @@
-import { paramCase, pascalCase } from 'change-case'
+import { paramCase, pascalCase, pascalCaseTransformMerge } from 'change-case'
 export default {
+  pascalCaseMerge: function (name) {
+    return pascalCase(name, { transform: pascalCaseTransformMerge })
+  },
   prefixedPascalCase: function (prefix, name) {
     return `${pascalCase(prefix)}${pascalCase(name)}`
   },

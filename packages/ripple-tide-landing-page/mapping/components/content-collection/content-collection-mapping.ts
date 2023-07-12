@@ -61,17 +61,11 @@ const getContentCollectionFiltersFromConfig = (
   }
   if (config.internal?.contentFields) {
     const contentFieldFilters = Object.keys(config.internal?.contentFields).map(
-      (field) => {
-        const type =
-          config.internal?.contentFields[field].operator === 'OR'
-            ? 'any'
-            : 'all'
-        return {
-          type,
-          field,
-          values: config.internal?.contentFields[field].values
-        }
-      }
+      (field) => ({
+        field,
+        type: 'any',
+        values: config.internal?.contentFields[field].values
+      })
     )
     filters.push(...contentFieldFilters)
   }

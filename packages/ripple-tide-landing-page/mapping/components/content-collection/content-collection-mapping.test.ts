@@ -25,7 +25,7 @@ describe('contentCollectionMapping', () => {
             values: ['landing_page', 'news']
           },
           {
-            type: 'all',
+            type: 'any',
             field: 'field_topic',
             values: [8941, 8940]
           }

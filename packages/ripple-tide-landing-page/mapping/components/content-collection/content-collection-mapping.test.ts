@@ -28,6 +28,11 @@ describe('contentCollectionMapping', () => {
             type: 'any',
             field: 'field_topic',
             values: [8941, 8940]
+          },
+          {
+            type: 'any',
+            field: 'field_node_site',
+            values: ['8888']
           }
         ],
         sortBy: [
@@ -48,6 +53,8 @@ describe('contentCollectionMapping', () => {
       }
     }
 
-    expect(contentCollectionMapping(rawData)).toEqual(result)
+    expect(contentCollectionMapping(rawData, {}, { site: '8888' })).toEqual(
+      result
+    )
   })
 })

@@ -1,9 +1,7 @@
 <template>
   <RplForm
     id="tide-search-filter-form"
-    :modelValue="filterFormModel"
     class="rpl-u-margin-t-6"
-    @input="handleUpdateFilters"
     @submit="handleFilterSubmit"
   >
     <div class="rpl-grid rpl-grid--no-row-gap tide-search-filters">
@@ -16,7 +14,13 @@
           :is="filter.component"
           :id="filter.id"
           :name="filter.id"
+          :modelValue="filterFormValues[filter.id]"
           v-bind="filter.props"
+          :options="
+            filter.props.dynamicOptions?.length
+              ? filter.props.dynamicOptions
+              : filter.props.options
+          "
         ></component>
       </div>
     </div>
@@ -32,7 +36,6 @@
 
 <script setup lang="ts">
 import { FilterFormModel } from 'ripple-tide-search/types'
-import { ref, toRaw, watch } from 'vue'
 
 type CollectionFilter = {
   component: string
@@ -51,29 +54,16 @@ const emit = defineEmits<{
   (e: 'reset'): void
 }>()
 
-const props = withDefaults(defineProps<Props>(), {
+withDefaults(defineProps<Props>(), {
   submitLabel: 'Apply search filters',
   resetLabel: 'Clear search filters'
 })
 
-const filterFormModel = ref(toRaw(props.filterFormValues.value))
-
-const handleUpdateFilters = (values) => {
-  filterFormModel.value = values
-}
-
-watch(
-  () => props.filterFormValues,
-  (newValues) => {
-    filterFormModel.value = newValues
-  }
-)
-
-function handleFilterReset() {
+const handleFilterReset = () => {
   emit('reset')
 }
 
-function handleFilterSubmit() {
-  emit('submit', filterFormModel.value)
+const handleFilterSubmit = (formValues) => {
+  emit('submit', formValues.data)
 }
 </script>

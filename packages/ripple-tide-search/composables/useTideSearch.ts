@@ -139,7 +139,7 @@ export default (
             {
               [`${itm.filter.type}`]: {
                 // ES8 appears to require keyword suffix due to change in indexing
-                [`${itm.filter.value}.keyword`]: filterVal
+                [`${itm.filter.value}`]: filterVal
               }
             }
           ]
@@ -293,9 +293,18 @@ export default (
     const formValues = Object.keys(newRoute.query)
       .filter((key) => userFilterConfig.some((filter) => filter.id === key))
       .reduce((obj, key) => {
+        let parsedValue = newRoute.query[key]
+        const filterConfig = userFilterConfig.find(
+          (filter) => filter.id === key
+        )
+
+        if (filterConfig.component === 'TideSearchFilterDropdown') {
+          parsedValue = Array.isArray(parsedValue) ? parsedValue : [parsedValue]
+        }
+
         return {
           ...obj,
-          [key]: newRoute.query[key]
+          [key]: parsedValue
         }
       }, {})
 

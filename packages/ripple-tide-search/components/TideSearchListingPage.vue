@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useRuntimeConfig, useFetch, useRoute, ref } from '#imports'
+import { useRuntimeConfig, useFetch, useRoute, ref, toRaw } from '#imports'
 import useTideSearch from './../composables/useTideSearch'
 import type {
   TideSearchListingPage,
@@ -105,7 +105,7 @@ onAggregationUpdateHook.value = (aggs) => {
   Object.keys(aggs).forEach((key) => {
     uiFilters.value.forEach((uiFilter, idx) => {
       if (uiFilter.id === key) {
-        const getOptions = () => {
+        const getDynamicOptions = () => {
           const mappedOptions = aggs[key].map((item) => ({
             id: item,
             label: item,
@@ -113,11 +113,13 @@ onAggregationUpdateHook.value = (aggs) => {
           }))
 
           if (uiFilters.value[idx].props.hasOwnProperty('options')) {
-            return [...uiFilters.value[idx].props.options, ...mappedOptions]
-          } else if (mappedOptions.length > 0) {
-            return mappedOptions
+            return [
+              ...toRaw(uiFilters.value[idx].props.options),
+              ...mappedOptions
+            ]
           }
-          return []
+
+          return mappedOptions
         }
 
         uiFilters.value[idx] = {
@@ -125,7 +127,7 @@ onAggregationUpdateHook.value = (aggs) => {
           props: {
             ...uiFilters.value[idx].props,
             timestamp: updateTimestamp,
-            options: getOptions()
+            dynamicOptions: getDynamicOptions()
           }
         }
       }
@@ -143,7 +145,7 @@ const handleFilterSubmit = (form) => {
 }
 
 const handleFilterReset = () => {
-  filterForm.value = []
+  filterForm.value = {}
   submitSearch()
 }
 

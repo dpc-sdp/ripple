@@ -114,8 +114,7 @@ export default (
   }
 
   const userFilters = computed(() => {
-    let ESFilterClause = [] as any[]
-    Object.keys(filterForm.value).map((key: string) => {
+    return Object.keys(filterForm.value).map((key: string) => {
       const itm = userFilterConfig.find((itm) => itm.id === key)
       const filterVal =
         filterForm.value[key] && Array.from(filterForm.value[key])
@@ -131,18 +130,16 @@ export default (
         if (itm.filter.type === 'raw') {
           const re = new RegExp('{{value}}', 'g')
           const result = itm.filter.value.replace(re, JSON.stringify(filterVal))
-          ESFilterClause = JSON.parse(result)
+          return JSON.parse(result)
         }
         // Add a simple taxonomy term/s filter
         if (itm.filter.type === 'terms' || itm.filter.type === 'term') {
-          ESFilterClause = [
-            {
-              [`${itm.filter.type}`]: {
-                // ES8 appears to require keyword suffix due to change in indexing
-                [`${itm.filter.value}`]: filterVal
-              }
+          return {
+            [`${itm.filter.type}`]: {
+              // ES8 appears to require keyword suffix due to change in indexing
+              [`${itm.filter.value}`]: filterVal
             }
-          ]
+          }
         }
         // Call a function passed from app.config to add filters
         if (itm.filter.type === 'function') {
@@ -151,7 +148,6 @@ export default (
         }
       }
     })
-    return ESFilterClause
   })
 
   const getQueryDSL = () => {

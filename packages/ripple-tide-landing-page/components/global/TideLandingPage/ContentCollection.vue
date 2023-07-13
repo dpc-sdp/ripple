@@ -112,15 +112,6 @@ const searchResultsMappingFn = (item): any => {
   }
 }
 
-const searchFilters = computed(() => {
-  if (!config.tide?.site) return props.filters
-
-  return [
-    ...props.filters,
-    { type: 'any', field: 'field_node_site', values: [config.tide.site] }
-  ]
-})
-
 const searchDriverOptions = {
   trackUrlState: false,
   alwaysSearchOnInitialLoad: true,
@@ -129,7 +120,7 @@ const searchDriverOptions = {
     sortList: props.sortBy
   },
   searchQuery: {
-    filters: searchFilters.value,
+    filters: props.filters,
     result_fields: {
       title: {
         raw: {

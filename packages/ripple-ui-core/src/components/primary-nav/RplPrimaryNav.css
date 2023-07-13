@@ -82,14 +82,14 @@
       background-color var(--rpl-motion-speed-4) ease-in;
     background-color: var(--rpl-clr-primary-alt);
     /* 100vh - top and bottom margin */
-    height: calc(100vh - (var(--rpl-sp-3) * 2));
+    height: calc(var(--local-expanded-height) - (var(--rpl-sp-3) * 2));
     transition-timing-function: ease-out;
     position: fixed;
     top: 0;
 
     @media (--rpl-bp-m) {
       /* 100vh - top and bottom margin */
-      height: calc(100vh - (var(--rpl-sp-4) * 2));
+      height: calc(var(--local-expanded-height) - (var(--rpl-sp-4) * 2));
     }
   }
 }

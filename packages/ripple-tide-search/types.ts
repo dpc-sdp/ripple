@@ -22,6 +22,10 @@ export interface FilterConfigItem {
      */
     source: 'elastic' | 'taxonomy'
     field: string
+    /**
+     * @description number of items to fetch
+     */
+    size?: number
   }
   props?: {
     label?: string
@@ -100,6 +104,10 @@ export interface TideSearchListingPage extends TidePageBase {
       reset: string
       placeholder: string
     }
+    /**
+     * @description custom sort clause
+     */
+    customSort?: Record<string, 'asc' | 'desc'>[]
   }
   /**
    * @description Elastic Query DSL for query clause

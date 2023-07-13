@@ -260,6 +260,8 @@ const handlePageChange = (newPage: number) => {
 
           <slot name="results" :results="results">
             <component
+              v-if="results && results.length > 0"
+              :key="`TideSearchListingResultsLayout${resultsLayout.component}`"
               :is="resultsLayout.component"
               v-bind="resultsLayout.props"
               :results="results"

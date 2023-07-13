@@ -1,34 +1,49 @@
 <template>
-  <RplDataTable caption="" :columns="columns" :items="items" />
+  <RplDataTable
+    data-component-type="search-listing-layout-table"
+    caption=""
+    class="tide-search-listing-results-table"
+    :columns="columns"
+    :items="items"
+  />
 </template>
 
 <script setup lang="ts">
 import { computed, getSearchResultValue } from '#imports'
 
-import type { TideSearchListingResult } from './../../types'
-
 type tableColumnConfig = {
   key: string
   label: string
   component?: string
+  props?: any
 }
 
 interface Props {
-  results: TideSearchListingResult[]
-  config: {
-    columns: tableColumnConfig[]
-  }
+  results: Record<string, unknown>[]
+  columns: tableColumnConfig[]
 }
 
 const props = defineProps<Props>()
 
 const items = computed(() => {
-  return props.results.map((itm) =>
-    props.config.columns.map((col) => getSearchResultValue(itm, col.key))
-  )
-})
-
-const columns = computed(() => {
-  return props.config.columns.map((col) => col.label)
+  if (Array.isArray(props.columns) && Array.isArray(props.results)) {
+    return props.results?.map((itm) =>
+      props.columns?.map((col) => {
+        if (col.component) {
+          if (itm.hasOwnProperty('_source')) {
+            return itm._source
+          }
+        }
+        return getSearchResultValue(itm && itm._source, col.key)
+      })
+    )
+  }
 })
 </script>
+
+<style>
+.tide-search-listing-results-table {
+  padding: 0;
+  margin: 0;
+}
+</style>

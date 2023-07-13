@@ -100,6 +100,8 @@ const uiFilters = ref(props.userFilters)
 
 // Updates filter options with aggregation value
 onAggregationUpdateHook.value = (aggs) => {
+  const updateTimestamp = Date.now()
+
   Object.keys(aggs).forEach((key) => {
     uiFilters.value.forEach((uiFilter, idx) => {
       if (uiFilter.id === key) {
@@ -122,6 +124,7 @@ onAggregationUpdateHook.value = (aggs) => {
           ...uiFilters.value[idx],
           props: {
             ...uiFilters.value[idx].props,
+            timestamp: updateTimestamp,
             options: getOptions()
           }
         }

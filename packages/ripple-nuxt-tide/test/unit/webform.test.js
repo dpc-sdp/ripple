@@ -1,17 +1,17 @@
 import testField from '../../modules/webform/conditional-logic'
 
-function performTriggerTest (state, trigger, modelValue = '') {
+function performTriggerTest (state, trigger, modelValue = '', input = {}) {
   let model = modelValue
   if (typeof modelValue.model === 'undefined') {
     model = {
       model: { 'field_a': modelValue }
     }
   }
-  return performTest(state, trigger, model)
+  return performTest(state, trigger, model, input)
 }
 
-function performTest (state, conditions, model) {
-  const field = {
+function performTest (state, conditions, model, input = {}) {
+  const baseFormField = {
     validator: [],
     required: false,
     disabled: false,
@@ -29,22 +29,23 @@ function performTest (state, conditions, model) {
   }
 
   const data = { ...baseFormData, ...model }
+  const field = { ...baseFormField, ...input }
   field.states[state] = conditions
   testField(field, data)
-  return field
+  return { field, data }
 }
 
 function testAllStates (trigger, valMatchTrigger, valNotMatchTrigger) {
-  expect(performTriggerTest('required', trigger, valMatchTrigger)).toHaveProperty('required', true)
-  expect(performTriggerTest('required', trigger, valNotMatchTrigger)).toHaveProperty('required', false)
-  expect(performTriggerTest('disabled', trigger, valMatchTrigger)).toHaveProperty('disabled', true)
-  expect(performTriggerTest('disabled', trigger, valNotMatchTrigger)).toHaveProperty('disabled', false)
-  expect(performTriggerTest('enabled', trigger, valMatchTrigger)).toHaveProperty('disabled', false)
-  expect(performTriggerTest('enabled', trigger, valNotMatchTrigger)).toHaveProperty('disabled', true)
-  expect(performTriggerTest('visible', trigger, valMatchTrigger)).toHaveProperty('visible', true)
-  expect(performTriggerTest('visible', trigger, valNotMatchTrigger)).toHaveProperty('visible', false)
-  expect(performTriggerTest('invisible', trigger, valMatchTrigger)).toHaveProperty('visible', false)
-  expect(performTriggerTest('invisible', trigger, valNotMatchTrigger)).toHaveProperty('visible', true)
+  expect(performTriggerTest('required', trigger, valMatchTrigger).field).toHaveProperty('required', true)
+  expect(performTriggerTest('required', trigger, valNotMatchTrigger).field).toHaveProperty('required', false)
+  expect(performTriggerTest('disabled', trigger, valMatchTrigger).field).toHaveProperty('disabled', true)
+  expect(performTriggerTest('disabled', trigger, valNotMatchTrigger).field).toHaveProperty('disabled', false)
+  expect(performTriggerTest('enabled', trigger, valMatchTrigger).field).toHaveProperty('disabled', false)
+  expect(performTriggerTest('enabled', trigger, valNotMatchTrigger).field).toHaveProperty('disabled', true)
+  expect(performTriggerTest('visible', trigger, valMatchTrigger).field).toHaveProperty('visible', true)
+  expect(performTriggerTest('visible', trigger, valNotMatchTrigger).field).toHaveProperty('visible', false)
+  expect(performTriggerTest('invisible', trigger, valMatchTrigger).field).toHaveProperty('visible', false)
+  expect(performTriggerTest('invisible', trigger, valNotMatchTrigger).field).toHaveProperty('visible', true)
 }
 
 describe('Webform: conditional logic', () => {
@@ -76,6 +77,23 @@ describe('Webform: conditional logic', () => {
     const trigger = { ':input[name="field_a"]': { unchecked: true } }
     const valMatchTrigger = false
     const valNotMatchTrigger = true
+
+    testAllStates(trigger, valMatchTrigger, valNotMatchTrigger)
+  })
+
+  test('Condition is applied if input in checkboxes list is checked', async () => {
+    const trigger = { ':input[name="field_a[value_a]"]': { checked: true } }
+
+    const valMatchTrigger = ['value_a']
+    const valNotMatchTrigger = ['value_b', 'value_c']
+
+    testAllStates(trigger, valMatchTrigger, valNotMatchTrigger)
+  })
+
+  test('Condition is applied if input in checkboxes list is unchecked', async () => {
+    const trigger = { ':input[name="field_a[value_b]"]': { unchecked: true } }
+    const valMatchTrigger = ['value_a']
+    const valNotMatchTrigger = ['value_b', 'value_c']
 
     testAllStates(trigger, valMatchTrigger, valNotMatchTrigger)
   })
@@ -202,5 +220,27 @@ describe('Webform: conditional logic', () => {
     }
 
     testAllStates(trigger, valMatchTrigger, valNotMatchTrigger)
+  })
+
+  test('Field value is cleared when input is hidden and clearHiddenValues is true', async () => {
+    const trigger = { ':input[name="field_a"]': { filled: true } }
+
+    const { data, field } = performTriggerTest(
+      'invisible', trigger, 'text', { clearHiddenValues: true, isDirty: true, model: 'field_a' }
+    )
+
+    expect(field.visible).toBe(false)
+    expect(data.model.field_a).toBe(null)
+  })
+
+  test('Field value is not cleared when input is hidden and clearHiddenValues is false', async () => {
+    const trigger = { ':input[name="field_a"]': { filled: true } }
+
+    const { data, field } = performTriggerTest(
+      'invisible', trigger, 'text', { clearHiddenValues: false, model: 'field_a' }
+    )
+
+    expect(field.visible).toBe(false)
+    expect(data.model.field_a).toBe('text')
   })
 })

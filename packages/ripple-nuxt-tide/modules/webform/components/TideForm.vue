@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import RplForm from '@dpc-sdp/ripple-form'
+import RplForm, { RplFormEventBus } from '@dpc-sdp/ripple-form'
 import webform from '@dpc-sdp/ripple-nuxt-tide/modules/webform/mixins'
 import conditionalLogic from '@dpc-sdp/ripple-nuxt-tide/modules/webform/conditional-logic'
 
@@ -63,7 +63,10 @@ export default {
     }
   },
   methods: {
-    checkFieldStates () {
+    checkFieldStates (modelData, newVal, oldVal, field) {
+      // If field exists, it means the field was changed by the user
+      if (field) field.isDirty = true
+
       this.fields.forEach(field => {
         if (field.states) {
           conditionalLogic(field, this.formData)
@@ -151,6 +154,11 @@ export default {
         field.onChanged = this.checkFieldStates
       })
     }
+
+    RplFormEventBus.$on('clearform', this.checkFieldStates)
+  },
+  destroyed () {
+    RplFormEventBus.$off('clearform', this.checkFieldStates)
   }
 }
 </script>

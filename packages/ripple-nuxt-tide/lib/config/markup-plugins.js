@@ -121,12 +121,16 @@ const parseForLinks = function () {
 
 const pluginIframe = function () {
   // wrap iFrames
-  const wrapperClasses = ['rpl-markup__iframe-container']
   this.find('iframe').map((i, el) => {
     const iframe = this.find(el)
+    const wrapperClasses = ['rpl-markup__iframe-container']
     // If no height setting from CMS, we give it a default height.
     if (!iframe.attr('height')) {
       wrapperClasses.push('rpl-markup__iframe-container--default')
+    }
+    // If it's a PowerBI embed we remove the max-height setting.
+    if (iframe.attr('src')?.includes('powerbi.com')) {
+      wrapperClasses.push(`rpl-markup__iframe-container--auto`)
     }
     const markup = `<div class="${wrapperClasses.join(' ')}"></div>`
     return iframe.wrap(markup)

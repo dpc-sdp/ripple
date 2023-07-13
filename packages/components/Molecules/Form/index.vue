@@ -198,6 +198,7 @@ export default {
       }
       this.$nextTick(() => {
         this.isClearingForm = false
+        this.$refs.vfg.$forceUpdate()
       })
     },
     async onSubmit (event) {

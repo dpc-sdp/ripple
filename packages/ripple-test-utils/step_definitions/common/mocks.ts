@@ -81,6 +81,20 @@ Given(
   }
 )
 
+Given(
+  'the search autocomplete request is stubbed with {string} fixture',
+  (fixture: string) => {
+    cy.intercept(
+      'POST',
+      `/api/tide/search/${Cypress.env('searchIndex')}/query_suggestion`,
+      {
+        statusCode: 200,
+        fixture
+      }
+    ).as('autocompleteRequest') // assign an alias
+  }
+)
+
 Then(
   'the search network request should be called with the {string} fixture',
   (requestFixture: string) => {

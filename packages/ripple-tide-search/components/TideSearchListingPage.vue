@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useRuntimeConfig, useFetch, useRoute } from '#imports'
+import { useRuntimeConfig, useFetch, useRoute, ref } from '#imports'
 import useTideSearch from './../composables/useTideSearch'
 import type {
   TideSearchListingPage,
@@ -86,7 +86,8 @@ const {
   totalResults,
   totalPages,
   pagingStart,
-  pagingEnd
+  pagingEnd,
+  onAggregationUpdateHook
 } = useTideSearch(
   props.queryConfig,
   props.userFilters,
@@ -94,6 +95,43 @@ const {
   props.searchResultsMappingFn,
   props.searchListingConfig
 )
+
+const uiFilters = ref(props.userFilters)
+
+// Updates filter options with aggregation value
+onAggregationUpdateHook.value = (aggs) => {
+  const updateTimestamp = Date.now()
+
+  Object.keys(aggs).forEach((key) => {
+    uiFilters.value.forEach((uiFilter, idx) => {
+      if (uiFilter.id === key) {
+        const getOptions = () => {
+          const mappedOptions = aggs[key].map((item) => ({
+            id: item,
+            label: item,
+            value: item
+          }))
+
+          if (uiFilters.value[idx].props.hasOwnProperty('options')) {
+            return [...uiFilters.value[idx].props.options, ...mappedOptions]
+          } else if (mappedOptions.length > 0) {
+            return mappedOptions
+          }
+          return []
+        }
+
+        uiFilters.value[idx] = {
+          ...uiFilters.value[idx],
+          props: {
+            ...uiFilters.value[idx].props,
+            timestamp: updateTimestamp,
+            options: getOptions()
+          }
+        }
+      }
+    })
+  })
+}
 
 const handleSearchSubmit = () => {
   submitSearch()
@@ -220,6 +258,8 @@ const handlePageChange = (newPage: number) => {
 
           <slot name="results" :results="results">
             <component
+              v-if="results && results.length > 0"
+              :key="`TideSearchListingResultsLayout${resultsLayout.component}`"
               :is="resultsLayout.component"
               v-bind="resultsLayout.props"
               :results="results"

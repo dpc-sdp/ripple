@@ -50,7 +50,7 @@
       },
       "props": {
         "id": "audience",
-        "label": "View those relevant to me",
+        "label": "Elastic aggregation test",
         "placeholder": "Individuals and organisation types",
         "type": "RplFormDropdown",
         "multiple": true,
@@ -76,7 +76,7 @@
       },
       "props": {
         "id": "topic",
-        "label": "Grant or program topic",
+        "label": "Taxonomy test",
         "placeholder": "Grant topic",
         "type": "RplFormDropdown",
         "multiple": true,

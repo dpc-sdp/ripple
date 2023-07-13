@@ -4,6 +4,7 @@ Feature: Searching listing - Pagination
 
   Background:
     Given the endpoint "/api/tide/site" with query "?id=8888" returns fixture "/site/reference" with status 200
+    And the search autocomplete request is stubbed with "/search-listing/suggestions/none" fixture
     And I am using a "macbook-16" device
 
   @mockserver
@@ -24,6 +25,7 @@ Feature: Searching listing - Pagination
 
     Given the search network request is stubbed with fixture "/search-listing/pagination/response-page-2" and status 200
     When I click on page 2 in the pagination controls
+    Given I wait 1 seconds
     Then the search network request should be called with the "/search-listing/pagination/request-page-2" fixture
     And the URL should reflect that the current page number is 2
     And the results counter should show 5 to 8 of 10 results
@@ -37,6 +39,7 @@ Feature: Searching listing - Pagination
 
     Given the search network request is stubbed with fixture "/search-listing/pagination/response-page-3" and status 200
     When I click 'next' in the pagination controls
+    Given I wait 1 seconds
     Then the search network request should be called with the "/search-listing/pagination/request-page-3" fixture
     And the URL should reflect that the current page number is 3
     And the results counter should show 9 to 10 of 10 results
@@ -47,6 +50,7 @@ Feature: Searching listing - Pagination
 
     Given the search network request is stubbed with fixture "/search-listing/pagination/response-page-2" and status 200
     When I click 'previous' in the pagination controls
+    Given I wait 1 seconds
     Then the search network request should be called with the "/search-listing/pagination/request-page-2" fixture
     And the URL should reflect that the current page number is 2
     And the results counter should show 5 to 8 of 10 results
@@ -66,7 +70,8 @@ Feature: Searching listing - Pagination
 
     Given the search network request is stubbed with fixture "/search-listing/pagination/response-page-3" and status 200
     When I click on page 3 in the pagination controls
-    And the URL should reflect that the current page number is 3
+    Given I wait 1 seconds
+    Then the URL should reflect that the current page number is 3
     And the results counter should show 9 to 10 of 10 results
     And the search listing results should have following items:
       | title   |
@@ -76,6 +81,7 @@ Feature: Searching listing - Pagination
     Given the search network request is stubbed with fixture "/search-listing/pagination/response-page-1" and status 200
     When I type "test" into the search input
     When I click the search button
+    Given I wait 1 seconds
     Then the search network request should be called with the "/search-listing/pagination/request-page-1-with-term" fixture
     And the URL should reflect that the current page number is 1
     And the results counter should show 1 to 4 of 10 results

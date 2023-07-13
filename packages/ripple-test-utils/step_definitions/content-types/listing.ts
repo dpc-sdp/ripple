@@ -38,21 +38,19 @@ Then(
   (dataTable: DataTable) => {
     const table = dataTable.hashes()
 
-    cy.get(`.rpl-result-listing-item`).as('result')
-
     table.forEach((row, i: number) => {
-      cy.get('@result')
+      cy.get(`.rpl-result-listing-item`)
         .eq(i)
         .then((item) => {
-          cy.wrap(item).as('item')
-          cy.get('@item').should('contain', row.title)
+          cy.log(item)
+          cy.wrap(item).should('contain', row.title)
 
           if (row.url) {
-            cy.get('@item').find('a').should('have.attr', 'href', row.url)
+            cy.wrap(item).find('a').should('have.attr', 'href', row.url)
           }
 
           if (row.content) {
-            cy.get('@item').should('contain', row.content)
+            cy.wrap(item).should('contain', row.content)
           }
         })
     })
@@ -101,3 +99,35 @@ Then('the search error message should be displayed', () => {
     'Sorry! Something went wrong. Please try again later.'
   )
 })
+
+When(
+  `I click the search listing dropdown field labelled {string}`,
+  (label: string) => {
+    cy.get(`label`)
+      .contains(label)
+      .invoke('attr', 'for')
+      .then((dropdownId) => {
+        cy.get(`#${dropdownId}`).as('selectedDropdown').click()
+      })
+  }
+)
+
+Then(
+  `the selected dropdown field should have the items:`,
+  (dataTable: DataTable) => {
+    const table = dataTable.raw()
+    cy.get(`@selectedDropdown`)
+      .siblings('[role="listbox"]')
+      .find('[role="option"]')
+      .as('selectedDropdownOptions')
+
+    table.forEach((row, i: number) => {
+      cy.get('@selectedDropdownOptions')
+        .eq(i)
+        .then((item) => {
+          cy.wrap(item).as('item')
+          cy.get('@item').should('contain', row[0])
+        })
+    })
+  }
+)

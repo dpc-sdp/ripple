@@ -11,7 +11,7 @@ interface Props {
   footer?: string
   columns: Array<string>
   headingType?: HeadingType
-  items: Array<Array<string>>
+  items: Array<Record<string, unknown>[] | string[]>
   offset: number
 }
 
@@ -56,7 +56,18 @@ props.items.map((j) => {
         <thead>
           <tr>
             <th v-for="(item, index) in columns" :key="index">
-              {{ item }}
+              <template
+                v-if="
+                  item &&
+                  typeof item === 'object' &&
+                  item.hasOwnProperty('label')
+                "
+              >
+                {{ item.label }}
+              </template>
+              <template v-else>
+                {{ item }}
+              </template>
             </th>
             <th v-if="hiddenItems.length" class="rpl-data-table__actions">
               <span class="rpl-u-visually-hidden">Actions</span>

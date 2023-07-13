@@ -46,7 +46,7 @@
       },
       "aggregations": {
         "field": "field_topic_name",
-        "source": "elastic"
+        "source": "taxonomy"
       },
       "props": {
         "id": "topic",

@@ -9,3 +9,7 @@ When('I visit the page {string}', (route: string) => {
   cy.get('body').should('have.attr', 'data-nuxt-hydrated', 'true')
   cy.wait(200)
 })
+
+Given('I wait {int} seconds', (seconds: number) => {
+  cy.wait(seconds * 1000)
+})

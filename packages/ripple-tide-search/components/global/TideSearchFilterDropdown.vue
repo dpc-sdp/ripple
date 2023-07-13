@@ -5,6 +5,7 @@ interface Props {
   multiple: boolean
   label: string
   options?: any[]
+  timestamp: string
 }
 defineProps<Props>()
 </script>
@@ -12,6 +13,7 @@ defineProps<Props>()
 <template>
   <FormKit
     :id="id"
+    :key="`${id}-${timestamp}`"
     :name="id"
     type="RplFormDropdown"
     :multiple="multiple"

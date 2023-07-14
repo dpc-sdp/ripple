@@ -31,18 +31,6 @@ const tideEventModule: IRplTideModuleMapping = {
       title: 'title',
       summary: 'field_news_intro_text'
     },
-    breadcrumbs: (src: string) => {
-      return {
-        items: [
-          { label: 'Home', url: '/' },
-          {
-            label: getField(src, 'publication_navigation_root.meta.title'),
-            url: getField(src, 'publication_navigation_root.meta.url')
-          },
-          { label: getField(src, 'title') }
-        ]
-      }
-    },
     date: {
       from: 'field_event_details[0].field_paragraph_date_range.value',
       to: 'field_event_details[0].field_paragraph_date_range.end_value'

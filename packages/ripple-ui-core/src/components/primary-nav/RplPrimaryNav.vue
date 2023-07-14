@@ -26,6 +26,7 @@ import {
   useRippleEvent,
   rplEventPayload
 } from '../../composables/useRippleEvent'
+import { useViewportHeight } from '../../composables/useViewportHeight'
 
 interface Props {
   primaryLogo: IRplPrimaryNavLogo
@@ -55,6 +56,7 @@ const { activate: activateFocusTrap, deactivate: deactivateFocusTrap } =
   useFocusTrap(navContainer)
 const { top: navOffest } = useElementBounding(navContainer)
 const bp = useBreakpoints(bpMin)
+const height = useViewportHeight()
 
 const isLargeScreen = bp.greaterOrEqual('l')
 const isXLargeScreen = bp.greaterOrEqual('xl')
@@ -268,7 +270,10 @@ provide('navFocus', navFocus)
 
 <template>
   <nav ref="navContainer" :class="classList">
-    <div class="rpl-primary-nav__inner">
+    <div
+      class="rpl-primary-nav__inner"
+      :style="`--local-expanded-height: ${height}px`"
+    >
       <!-- Nav bar -->
       <RplPrimaryNavBar
         :primary-logo="primaryLogo"

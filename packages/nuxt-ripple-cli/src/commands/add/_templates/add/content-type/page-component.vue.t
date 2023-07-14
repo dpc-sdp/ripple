@@ -1,5 +1,5 @@
 ---
-to: components/global/Tide<%= h.changeCase.pascalCase(name) %>.vue
+to: components/global/Tide<%= h.pascalCaseMerge(name) %>.vue
 ---
 <template>
   <TideBaseLayout
@@ -20,13 +20,13 @@ to: components/global/Tide<%= h.changeCase.pascalCase(name) %>.vue
       <slot name="breadcrumbs" />
     </template>
     <template #aboveBody="{ hasBreadcrumbs }">
-      <Tide<%= h.changeCase.pascalCase(name) %>Header
+      <Tide<%= h.pascalCaseMerge(name) %>Header
         :header="page.header"
         :hasBreadcrumbs="hasBreadcrumbs"
       />
     </template>
     <template #body="{ hasSidebar }">
-      <Tide<%= h.changeCase.pascalCase(name) %>Body :bodyContent="page.body.content" />
+      <Tide<%= h.pascalCaseMerge(name) %>Body :bodyContent="page.body.content" />
     </template>
     <template #sidebar>
       <slot name="sidebar" />
@@ -39,11 +39,11 @@ to: components/global/Tide<%= h.changeCase.pascalCase(name) %>.vue
 
 <script setup lang="ts">
 import { TideSiteData } from '@dpc-sdp/ripple-tide-api/types'
-import type { Tide<%= h.changeCase.pascalCase(name) %>Page } from '../../types'
+import type { Tide<%= h.pascalCaseMerge(name) %>Page } from '../../types'
 
 interface Props {
   site: TideSiteData
-  page: Tide<%= h.changeCase.pascalCase(name) %>Page
+  page: Tide<%= h.pascalCaseMerge(name) %>Page
 }
 
 defineProps<Props>()

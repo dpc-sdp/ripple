@@ -27,9 +27,10 @@ interface Props {
   required: boolean
   invalid?: boolean | DatePart[]
   variant?: 'default' | 'reverse'
-  value: string
+  value?: string
   onChange: (value: string | string[]) => void
   dateFormat: string
+  ariaDescribedby?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -37,8 +38,10 @@ const props = withDefaults(defineProps<Props>(), {
   required: false,
   invalid: false,
   label: undefined,
+  value: undefined,
   variant: 'default',
-  dateFormat: 'yyyy-MM-dd'
+  dateFormat: 'yyyy-MM-dd',
+  ariaDescribedby: ''
 })
 
 const emit = defineEmits<{
@@ -214,7 +217,6 @@ const handleUpdate = (event) => {
     {
       ...event,
       id: props.id,
-      field: 'date',
       label: props?.label
     },
     { global: true }
@@ -242,6 +244,7 @@ const handleUpdate = (event) => {
         :disabled="disabled"
         :required="required"
         :invalid="isPartInvalid('day')"
+        :aria-describedby="ariaDescribedby"
         :global-events="false"
         @update="handleUpdate"
         @input="handleChangeDay"
@@ -264,6 +267,7 @@ const handleUpdate = (event) => {
         :disabled="disabled"
         :required="required"
         :invalid="isPartInvalid('month')"
+        :aria-describedby="ariaDescribedby"
         :global-events="false"
         @update="handleUpdate"
         @input="handleChangeMonth"
@@ -286,6 +290,7 @@ const handleUpdate = (event) => {
         :disabled="disabled"
         :required="required"
         :invalid="isPartInvalid('day')"
+        :aria-describedby="ariaDescribedby"
         :global-events="false"
         @update="handleUpdate"
         @input="handleChangeYear"

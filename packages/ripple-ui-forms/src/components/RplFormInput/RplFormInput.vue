@@ -31,8 +31,8 @@ interface Props {
   required?: boolean
   centeredText?: boolean
   globalEvents?: boolean
-  onInput: (payload: Event) => void
-  onBlur: (payload: Event) => void
+  onInput?: (payload: Event) => void
+  onBlur?: (payload: Event) => void
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -61,8 +61,9 @@ const emit = defineEmits<{
   (e: 'update', payload: rplEventPayload & { action: 'exit' }): void
 }>()
 
-const form: object = inject('form')
 const { emitRplEvent } = useRippleEvent('rpl-form-input', emit)
+
+const form: object = inject('form')
 
 const classes = computed(() => {
   return {
@@ -84,7 +85,6 @@ const handleChange = () => {
     'update',
     {
       action: 'exit',
-      field: 'input',
       id: props.id,
       type: props.type,
       label: props?.label,

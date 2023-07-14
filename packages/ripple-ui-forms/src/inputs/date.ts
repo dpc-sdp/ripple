@@ -20,7 +20,8 @@ export const date: FormKitTypeDefinition = {
       dateFormat: '$node.props.dateFormat',
       disabled: '$node.context.disabled',
       invalid: '$fns.isFieldInvalid()',
-      required: '$fns.isFieldRequired()'
+      required: '$fns.isFieldRequired()',
+      'aria-describedby': '$fns.getAriaDescribedBy()'
     }
   }),
   library: inputLibrary,

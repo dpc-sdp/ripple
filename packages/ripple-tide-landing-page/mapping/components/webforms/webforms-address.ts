@@ -1,6 +1,6 @@
 import { camelCase } from 'lodash-es'
 
-export const getAdvancedAddressMapping = (fieldKey, field) => {
+export const getAdvancedAddressMapping = (fieldKey, field, formId) => {
   const overrides = field['#field_overrides'] || {}
 
   const isAddressRequired = field['#required']
@@ -16,7 +16,7 @@ export const getAdvancedAddressMapping = (fieldKey, field) => {
 
   const defaultValues = field['#default_value'] || {}
 
-  const getFieldId = (name) => `${fieldKey}.${name}`
+  const getFieldId = (name) => `${formId}_${fieldKey}_${name}`
   const isFieldVisible = (name) => overrides[camelCase(name)] !== 'hidden'
   const hasRequiredOverride = (name) =>
     overrides[camelCase(name)] === 'required'

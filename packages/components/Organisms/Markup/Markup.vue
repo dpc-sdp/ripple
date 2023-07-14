@@ -231,7 +231,7 @@ $no-padding: 0;
     padding: $quotation-padding-xs;
     max-width: $rpl-content-max-width;
 
-    p {
+    > p {
       @include rpl_typography_ruleset($quotation-text-ruleset);
       color: $quotation-text-color;
       margin: $quotation-text-margin;

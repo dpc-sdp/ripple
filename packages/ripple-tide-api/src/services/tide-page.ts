@@ -72,7 +72,7 @@ export default class TidePageApi extends TideApiBase {
             ...data
           })
         } else if (typeof componentMapping === 'function') {
-          const data = componentMapping.apply(this, [cmpData, pageData])
+          const data = componentMapping.apply(this, [cmpData, pageData, this])
           mappedComponents.push({
             uuid: cmpData.uuid || cmpData.id,
             ...data

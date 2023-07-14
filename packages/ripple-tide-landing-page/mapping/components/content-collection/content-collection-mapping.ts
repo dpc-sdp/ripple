@@ -49,7 +49,8 @@ export interface ITideContentCollectionConfig {
 }
 
 const getContentCollectionFiltersFromConfig = (
-  config: ITideContentCollectionConfig
+  config: ITideContentCollectionConfig,
+  siteId?: string
 ): IContentCollectionFilter[] => {
   const filters = []
   if (config.internal?.contentTypes) {
@@ -61,20 +62,23 @@ const getContentCollectionFiltersFromConfig = (
   }
   if (config.internal?.contentFields) {
     const contentFieldFilters = Object.keys(config.internal?.contentFields).map(
-      (field) => {
-        const type =
-          config.internal?.contentFields[field].operator === 'OR'
-            ? 'any'
-            : 'all'
-        return {
-          type,
-          field,
-          values: config.internal?.contentFields[field].values
-        }
-      }
+      (field) => ({
+        field,
+        type: 'any',
+        values: config.internal?.contentFields[field].values
+      })
     )
     filters.push(...contentFieldFilters)
   }
+
+  if (siteId) {
+    filters.push({
+      type: 'any',
+      field: 'field_node_site',
+      values: [siteId]
+    })
+  }
+
   return filters
 }
 
@@ -97,7 +101,9 @@ const getContentCollectionSortBy = (config) => {
 }
 
 export const contentCollectionMapping = (
-  field
+  field,
+  pageData,
+  TidePageApi
 ): TideDynamicPageComponent<IContentCollection> => {
   return {
     component: 'TideLandingPageContentCollection',
@@ -110,7 +116,8 @@ export const contentCollectionMapping = (
         'callToAction'
       ]),
       filters: getContentCollectionFiltersFromConfig(
-        field.field_content_collection_config
+        field.field_content_collection_config,
+        TidePageApi?.site
       ),
       sortBy: getContentCollectionSortBy(field.field_content_collection_config),
       perPage: getField(

@@ -136,15 +136,20 @@ export default (
           const result = itm.filter.value.replace(re, JSON.stringify(filterVal))
           return JSON.parse(result)
         }
-        // Add a simple taxonomy term/s filter
-        if (itm.filter.type === 'terms' || itm.filter.type === 'term') {
+
+        // Term and Terms querys - To simplify things we transform all term queries into terms queries with a single value array
+        //  - Term query: https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-term-query.html
+        //  - Terms query: https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-terms-query.html
+        if (itm.filter.type === 'term' || itm.filter.type === 'terms') {
           return {
-            [`${itm.filter.type}`]: {
-              // ES8 appears to require keyword suffix due to change in indexing
-              [`${itm.filter.value}`]: filterVal
+            terms: {
+              [`${itm.filter.value}`]: Array.isArray(filterVal)
+                ? filterVal
+                : [filterVal]
             }
           }
         }
+
         // Call a function passed from app.config to add filters
         if (itm.filter.type === 'function') {
           // TODO: this should allow calling a custom function that returns a valid query clause

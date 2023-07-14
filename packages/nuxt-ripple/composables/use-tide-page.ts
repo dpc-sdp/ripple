@@ -67,6 +67,12 @@ export const useTidePage = async (
     if (error && error.value?.statusCode) {
       useTideError(error.value?.statusCode)
     }
+
+    // 301 redirect
+    if (data.value.type === 'redirect' && data.value.status_code === '301') {
+      useRouter().replace(data.value.redirect_url)
+    }
+
     return data.value
   }
 

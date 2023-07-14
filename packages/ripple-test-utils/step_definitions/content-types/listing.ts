@@ -100,6 +100,19 @@ Then('the search error message should be displayed', () => {
   )
 })
 
+Then(
+  `the search listing dropdown field labelled {string} should have the value {string}`,
+  (label: string, value: string) => {
+    cy.get(`label`)
+      .contains(label)
+      .invoke('attr', 'for')
+      .then((dropdownId) => {
+        cy.get(`#${dropdownId}`).as('selectedDropdown')
+        cy.get('@selectedDropdown').should('have.text', value)
+      })
+  }
+)
+
 When(
   `I click the search listing dropdown field labelled {string}`,
   (label: string) => {

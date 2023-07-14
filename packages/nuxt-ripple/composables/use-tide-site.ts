@@ -13,6 +13,7 @@ export const useTideSite = async (id?: number): Promise<TideSiteData> => {
       }
     })
     if (error && error.value?.statusCode) {
+      console.log(error)
       console.log('API error fetching site data')
       useTideError(500)
     }

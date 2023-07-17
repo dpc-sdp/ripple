@@ -68,9 +68,21 @@ export const useTidePage = async (
       useTideError(error.value?.statusCode)
     }
 
-    // 301 redirect
-    if (data.value.type === 'redirect' && data.value.status_code === '301') {
-      useRouter().replace(data.value.redirect_url)
+    // Redirect on the 6 codes that Drupal supplies
+    if (data.value.type === 'redirect') {
+      switch (data.value.status_code) {
+        case '301':
+        case '302':
+        case '303':
+        case '304':
+        case '305':
+        case '307':
+          await navigateTo(data.value.redirect_url, {
+            redirectCode: data.value.status_code
+          })
+          break
+        default:
+      }
     }
 
     return data.value

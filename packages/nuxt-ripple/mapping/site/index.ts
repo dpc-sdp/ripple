@@ -35,6 +35,11 @@ export default {
 
       return src.field_acknowledgement_to_country
     },
+    cornerGraphic: {
+      top: (src: any) => getImageFromField(src, 'field_top_corner_graphic'),
+      bottom: (src: any) =>
+        getImageFromField(src, 'field_bottom_corner_graphic')
+    },
     acknowledgementFooter: 'field_acknowledgement_to_country',
     copyrightHtml: (src: any) => {
       return getBody(src.field_site_footer_text?.processed)
@@ -109,6 +114,8 @@ export default {
     'field_site_main_menu',
     'field_site_footer_menu',
     'field_site_logo',
+    'field_top_corner_graphic',
+    'field_bottom_corner_graphic',
     'field_site_footer_logos',
     'field_site_footer_logos.field_paragraph_media.field_media_image'
   ]

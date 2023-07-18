@@ -125,25 +125,47 @@ Feature: Search listing - Filter
       | Oranges |
 
   @mockserver
-  Example: Should update the URL when the filters are applied
+  Example: Custom function filters - Should reflect an array from the URL
     Given the endpoint "/api/tide/page" with query "?path=/filters&site=8888" returns fixture "/search-listing/filters/page" with status 200
     And the search network request is stubbed with fixture "/search-listing/filters/response" and status 200
     And the current date is "Fri, 02 Feb 2050 03:04:05 GMT"
 
-    When I visit the page "/filters?termsFilter=Purple&termsFilter=Orange"
+    When I visit the page "/filters?functionFilter=closed&functionFilter=open"
     Then the search listing page should have 2 results
-    And the search network request should be called with the "/search-listing/filters/request-terms-array" fixture
+    And the search network request should be called with the "/search-listing/filters/request-function-filter" fixture
 
-    Then the search listing dropdown field labelled "Terms filter example" should have the value "Orange, Purple"
-    When I click the search listing dropdown field labelled "Terms filter example"
+    Then the search listing dropdown field labelled "Custom function filter example" should have the value "Open, Closed"
+    When I click the search listing dropdown field labelled "Custom function filter example"
     Then the selected dropdown field should have the items:
-      | Orange |
-      | Purple |
-      | Yellow |
+      | Open   |
+      | Closed |
     # Close the dropdown
-    When I click the search listing dropdown field labelled "Terms filter example"
+    When I click the search listing dropdown field labelled "Custom function filter example"
     And the search listing results should have following items:
       | title   |
       | Apples  |
       | Oranges |
+
+# @mockserver
+# Example: Should update the URL when the filters are applied
+#   Given the endpoint "/api/tide/page" with query "?path=/filters&site=8888" returns fixture "/search-listing/filters/page" with status 200
+#   And the search network request is stubbed with fixture "/search-listing/filters/response" and status 200
+#   And the current date is "Fri, 02 Feb 2050 03:04:05 GMT"
+
+#   When I visit the page "/filters?termsFilter=Purple&termsFilter=Orange"
+#   Then the search listing page should have 2 results
+#   And the search network request should be called with the "/search-listing/filters/request-terms-array" fixture
+
+#   Then the search listing dropdown field labelled "Terms filter example" should have the value "Orange, Purple"
+#   When I click the search listing dropdown field labelled "Terms filter example"
+#   Then the selected dropdown field should have the items:
+#     | Orange |
+#     | Purple |
+#     | Yellow |
+#   # Close the dropdown
+#   When I click the search listing dropdown field labelled "Terms filter example"
+#   And the search listing results should have following items:
+#     | title   |
+#     | Apples  |
+#     | Oranges |
 

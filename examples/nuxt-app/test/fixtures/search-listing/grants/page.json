@@ -93,6 +93,43 @@
           }
         ]
       }
+    },
+    {
+      "id": "status",
+      "component": "TideSearchFilterDropdown",
+      "filter": {
+        "type": "function",
+        "value": "grantStatus"
+      },
+      "props": {
+        "id": "status",
+        "label": "Status",
+        "placeholder": "Select for opened, closed or upcoming grants",
+        "type": "RplFormDropdown",
+        "multiple": true,
+        "options": [
+          {
+            "id": "open",
+            "label": "Open",
+            "value": "open"
+          },
+          {
+            "id": "closed",
+            "label": "Closed",
+            "value": "closed"
+          },
+          {
+            "id": "ongoing",
+            "label": "Ongoing",
+            "value": "ongoing"
+          },
+          {
+            "id": "opening_soon",
+            "label": "Opening soon",
+            "value": "opening_soon"
+          }
+        ]
+      }
     }
   ]
 }

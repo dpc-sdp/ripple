@@ -18,6 +18,7 @@ export default (
 ) => {
   const { public: config } = useRuntimeConfig()
   const route: RouteLocation = useRoute()
+  const appConfig = useAppConfig()
 
   const index = customIndex || config.tide.appSearch.engineName
 
@@ -120,8 +121,10 @@ export default (
   const userFilters = computed(() => {
     return Object.keys(filterForm.value).map((key: string) => {
       const itm = userFilterConfig.find((itm) => itm.id === key)
+
       const filterVal =
         filterForm.value[key] && Array.from(filterForm.value[key])
+
       // Need to work out if form has value - will be different for different controls
       const hasValue = (v: unknown) => {
         if (itm.component === 'TideSearchFilterDropdown') {
@@ -129,17 +132,22 @@ export default (
         }
         return v
       }
+
       if (itm.filter && hasValue(filterVal)) {
-        // Raw ES Filter clause from Tide config, replaces {{value}} with user value
+        /**
+         * Raw ES Filter clause from Tide config, replaces {{value}} with user value
+         */
         if (itm.filter.type === 'raw') {
           const re = new RegExp('{{value}}', 'g')
           const result = itm.filter.value.replace(re, JSON.stringify(filterVal))
           return JSON.parse(result)
         }
 
-        // Term and Terms querys - To simplify things we transform all term queries into terms queries with a single value array
-        //  - Term query: https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-term-query.html
-        //  - Terms query: https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-terms-query.html
+        /**
+         * Term and Terms querys - To simplify things we transform all term queries into terms queries with a single value array
+         *   - Term query: https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-term-query.html
+         *   - Terms query: https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-terms-query.html
+         */
         if (itm.filter.type === 'term' || itm.filter.type === 'terms') {
           return {
             terms: {
@@ -150,10 +158,35 @@ export default (
           }
         }
 
-        // Call a function passed from app.config to add filters
+        /**
+         * Call a function passed from app.config to to allow extending and overriding. The function should
+         * return a valid DSL query.
+         * When called the function is passed the filter config and the value of the filter from the user
+         *
+         * In the nuxt app.config, the function is provided like this:
+         * {
+         *   ripple: {
+         *     search: {
+                  exampleFunction: (filterConfig, values) => {
+                    return {
+                      ... some DSL query
+                    }
+                  }
+         *      }
+         *    }
+         * }
+         */
         if (itm.filter.type === 'function') {
-          // TODO: this should allow calling a custom function that returns a valid query clause
-          // function should be passed through from app.config to allow extending and overriding
+          const filterFuncs = appConfig?.ripple?.search?.filterFunctions || {}
+          const fn = filterFuncs[itm.filter.value]
+
+          if (typeof fn !== 'function') {
+            throw new Error(
+              `Search listing: No matching filter function called "${itm.filter.value}"`
+            )
+          }
+
+          return fn(itm, filterVal)
         }
       }
     })

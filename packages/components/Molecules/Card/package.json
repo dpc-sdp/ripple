@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/ripple-card",
-  "version": "1.38.0",
+  "version": "1.38.1",
   "description": "Card-themed containers for content such as events and dates, navigation, featured, promotional. Recommended implementation using the grid component.",
   "license": "Apache-2.0",
   "main": "index.js",
@@ -10,9 +10,9 @@
     "access": "public"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-global": "1.38.0",
-    "@dpc-sdp/ripple-icon": "1.38.0",
-    "@dpc-sdp/ripple-link": "1.38.0",
+    "@dpc-sdp/ripple-global": "1.38.1",
+    "@dpc-sdp/ripple-icon": "1.38.1",
+    "@dpc-sdp/ripple-link": "1.38.1",
     "fontfaceobserver": "^2.0.13",
     "vue-carousel": "^0.18.0"
   }

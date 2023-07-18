@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/ripple-markup",
-  "version": "1.38.0",
+  "version": "1.38.1",
   "description": "A component to wrap wysiwyg fields and process markup.",
   "license": "Apache-2.0",
   "main": "index.js",
@@ -10,11 +10,11 @@
     "access": "public"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-button": "1.38.0",
-    "@dpc-sdp/ripple-document-link": "1.38.0",
-    "@dpc-sdp/ripple-embedded-video": "1.38.0",
-    "@dpc-sdp/ripple-global": "1.38.0",
-    "@dpc-sdp/ripple-link": "1.38.0",
+    "@dpc-sdp/ripple-button": "1.38.1",
+    "@dpc-sdp/ripple-document-link": "1.38.1",
+    "@dpc-sdp/ripple-embedded-video": "1.38.1",
+    "@dpc-sdp/ripple-global": "1.38.1",
+    "@dpc-sdp/ripple-link": "1.38.1",
     "cheerio": "1.0.0-rc.2"
   }
 }

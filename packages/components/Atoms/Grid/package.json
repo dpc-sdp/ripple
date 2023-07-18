@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/ripple-grid",
-  "version": "1.38.0",
+  "version": "1.38.1",
   "description": "A grid system for page layout.",
   "license": "Apache-2.0",
   "main": "index.js",

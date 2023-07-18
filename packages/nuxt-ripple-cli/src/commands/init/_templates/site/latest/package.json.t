@@ -3,10 +3,9 @@ to: package.json
 ---
 {
   "private": true,
-  "license": "Apache-2.0",
   "name": "<%= h.changeCase.kebabCase(name) %>",
   "description": "<%= name %>",
-  "version": "2.0.0",
+  "version": "0.0.0",
   "scripts": {
     "dev": "nuxi dev",
     "dev:debug": "node --inspect node_modules/.bin/nuxi dev",
@@ -31,6 +30,6 @@ to: package.json
   },
   "engines": {
     "node": "^16.17.0 || ^18.12.1",
-    "npm": "^8.1.0"
+    "npm": "^9.5.1"
   }
 }

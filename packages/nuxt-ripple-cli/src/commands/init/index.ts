@@ -23,6 +23,12 @@ export default function rplInitCommand() {
       `The ripple version to use: eg: 2.1.0, default is most up to date version`,
       LIB_VERSION
     )
+    .option('--tideSite [tideSite]', `Tide Site ID, defaults to 4`, '4')
+    .option(
+      '--tideBaseUrl [tideBaseUrl]',
+      `Tide base URL for .env. Defaults to reference site backend`,
+      'https://develop.content.reference.sdp.vic.gov.au/'
+    )
     .action((template, directory, options) => {
       init(template, directory, options)
       console.info(`

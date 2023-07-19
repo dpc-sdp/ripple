@@ -1,13 +1,13 @@
 ---
 to: app.config.ts
 ---
-import { defineAppConfig } from '#imports'
 import pkg from './package.json'
+import { defineAppConfig } from '#imports'
 
 export default defineAppConfig({
   project: {
     name: pkg.name,
-    version: pkg.version,
+    version: pkg.version
   },
   ripple: {
     version: pkg.dependencies['@dpc-sdp/nuxt-ripple'],

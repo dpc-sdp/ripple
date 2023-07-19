@@ -23,7 +23,11 @@ export default function rplInitCommand() {
       `The ripple version to use: eg: 2.1.0, default is most up to date version`,
       LIB_VERSION
     )
-    .option('--tideSite [tideSite]', `Tide Site ID, defaults to 4`, '4')
+    .option(
+      '--tideSite [tideSite]',
+      `Tide Site ID, defaults to reference site default 8888`,
+      '8888'
+    )
     .option(
       '--tideBaseUrl [tideBaseUrl]',
       `Tide base URL for .env. Defaults to reference site backend`,

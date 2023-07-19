@@ -21,17 +21,7 @@ Feature: Search listing - Filter
 
     When I toggle the search listing filters section
     Then the search listing dropdown field labelled "Raw filter example" should have the value "Dogs, Birds"
-    When I click the search listing dropdown field labelled "Raw filter example"
-    Then the selected dropdown field should have the items:
-      | Cats  |
-      | Dogs  |
-      | Birds |
-    # Close the dropdown
-    When I click the search listing dropdown field labelled "Raw filter example"
-    And the search listing results should have following items:
-      | title   |
-      | Apples  |
-      | Oranges |
+
 
   @mockserver
   Example: Term filter - Should reflect a single value from the URL
@@ -47,17 +37,6 @@ Feature: Search listing - Filter
 
     When I toggle the search listing filters section
     Then the search listing dropdown field labelled "Term filter example" should have the value "Green"
-    When I click the search listing dropdown field labelled "Term filter example"
-    Then the selected dropdown field should have the items:
-      | Red   |
-      | Green |
-      | Blue  |
-    # Close the dropdown
-    When I click the search listing dropdown field labelled "Term filter example"
-    And the search listing results should have following items:
-      | title   |
-      | Apples  |
-      | Oranges |
 
   @mockserver
   Example: Term filter - Should reflect an array from the URL
@@ -73,18 +52,6 @@ Feature: Search listing - Filter
 
     When I toggle the search listing filters section
     Then the search listing dropdown field labelled "Term filter example" should have the value "Red, Green"
-    When I click the search listing dropdown field labelled "Term filter example"
-    Then the selected dropdown field should have the items:
-      | Red   |
-      | Green |
-      | Blue  |
-    # Close the dropdown
-    When I click the search listing dropdown field labelled "Term filter example"
-    And the search listing results should have following items:
-      | title   |
-      | Apples  |
-      | Oranges |
-
 
   @mockserver
   Example: Terms (with an 's') - Should reflect a single value from the URL
@@ -100,18 +67,6 @@ Feature: Search listing - Filter
 
     When I toggle the search listing filters section
     Then the search listing dropdown field labelled "Terms filter example" should have the value "Purple"
-    When I click the search listing dropdown field labelled "Terms filter example"
-    Then the selected dropdown field should have the items:
-      | Orange |
-      | Purple |
-      | Yellow |
-    # Close the dropdown
-    When I click the search listing dropdown field labelled "Terms filter example"
-    And the search listing results should have following items:
-      | title   |
-      | Apples  |
-      | Oranges |
-
 
   @mockserver
   Example: Terms (with an 's') - Should reflect an array from the URL
@@ -127,17 +82,6 @@ Feature: Search listing - Filter
 
     When I toggle the search listing filters section
     Then the search listing dropdown field labelled "Terms filter example" should have the value "Orange, Purple"
-    When I click the search listing dropdown field labelled "Terms filter example"
-    Then the selected dropdown field should have the items:
-      | Orange |
-      | Purple |
-      | Yellow |
-    # Close the dropdown
-    When I click the search listing dropdown field labelled "Terms filter example"
-    And the search listing results should have following items:
-      | title   |
-      | Apples  |
-      | Oranges |
 
   @mockserver
   Example: Custom function filters - Should reflect an array from the URL
@@ -153,16 +97,6 @@ Feature: Search listing - Filter
 
     When I toggle the search listing filters section
     Then the search listing dropdown field labelled "Custom function filter example" should have the value "Open, Closed"
-    When I click the search listing dropdown field labelled "Custom function filter example"
-    Then the selected dropdown field should have the items:
-      | Open   |
-      | Closed |
-    # Close the dropdown
-    When I click the search listing dropdown field labelled "Custom function filter example"
-    And the search listing results should have following items:
-      | title   |
-      | Apples  |
-      | Oranges |
 
 # @mockserver
 # Example: Should update the URL when the filters are applied

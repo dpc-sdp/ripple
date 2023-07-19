@@ -1,6 +1,7 @@
 ---
-to: .env
+to: .example.env
 ---
+# Note: Place a copy of this file named .env - See https://nuxt.com/docs/guide/directory-structure/env
 # The values in this file are FOR DEVELOPMENT ONLY - none of these values are read in the production build!
 # If your site needs a new environment variable please log an issue with SDP support so it can be added via the config management database
 

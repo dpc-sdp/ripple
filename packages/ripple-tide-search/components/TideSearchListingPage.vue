@@ -71,6 +71,13 @@ const { data: site } = useFetch('/api/tide/site', {
   }
 })
 
+const { data: contentPage } = useFetch('/api/tide/page', {
+  baseURL: config.API_URL || '',
+  params: {
+    path: route.path
+  }
+})
+
 const {
   isBusy,
   searchError,
@@ -177,12 +184,24 @@ const handlePageChange = (newPage: number) => {
 </script>
 
 <template>
-  <TideBaseLayout :site="site">
-    <template #aboveBody>
+  <TideBaseLayout
+    :site="site"
+    :page="contentPage"
+    :siteSection="contentPage.siteSection"
+    :background="contentPage.background"
+    :pageTitle="contentPage.title"
+    :pageLanguage="contentPage.lang"
+    :updatedDate="contentPage.changed || contentPage.created"
+    :showContentRating="contentPage.showContentRating"
+  >
+    <template #breadcrumbs>
+      <slot name="breadcrumbs"></slot>
+    </template>
+    <template #aboveBody="{ hasBreadcrumbs }">
       <RplHeroHeader
         :title="title"
         :behind-nav="true"
-        :breadcrumbs="true"
+        :breadcrumbs="hasBreadcrumbs"
         :full-width="true"
         :corner-top="true"
         :corner-bottom="false"
@@ -258,9 +277,9 @@ const handlePageChange = (newPage: number) => {
 
           <slot name="results" :results="results">
             <component
+              :is="resultsLayout.component"
               v-if="results && results.length > 0"
               :key="`TideSearchListingResultsLayout${resultsLayout.component}`"
-              :is="resultsLayout.component"
               v-bind="resultsLayout.props"
               :results="results"
             />

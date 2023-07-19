@@ -316,19 +316,10 @@ export default (
     })
   }
 
-  /**
-   * The URL is the source of truth for what is shown in the search results.
-   *
-   * When the URL changes, the URL is parsed and the query is transformed into an elastic DSL query.
-   */
-  const searchFromRoute = (newRoute: RouteLocation) => {
-    searchTerm.value = getSingleQueryStringValue(newRoute.query, 'q') || ''
-    page.value =
-      parseInt(getSingleQueryStringValue(newRoute.query, 'page'), 10) || 1
-
+  const getFiltersFromRoute = (newRoute: RouteLocation) => {
     // Re-construct the filter form values from the URL, we find every query param that matches
-    // a user filter, then construct the filter values based on that. This leave
-    const formValues = Object.keys(newRoute.query)
+    // a user filter, then construct the filter values based on that.
+    return Object.keys(newRoute.query)
       .filter((key) => userFilterConfig.some((filter) => filter.id === key))
       .reduce((obj, key) => {
         let parsedValue = newRoute.query[key]
@@ -345,11 +336,26 @@ export default (
           [key]: parsedValue
         }
       }, {})
+  }
 
-    filterForm.value = formValues
+  /**
+   * The URL is the source of truth for what is shown in the search results.
+   *
+   * When the URL changes, the URL is parsed and the query is transformed into an elastic DSL query.
+   */
+  const searchFromRoute = (newRoute: RouteLocation) => {
+    searchTerm.value = getSingleQueryStringValue(newRoute.query, 'q') || ''
+    page.value =
+      parseInt(getSingleQueryStringValue(newRoute.query, 'page'), 10) || 1
+
+    filterForm.value = getFiltersFromRoute(newRoute)
 
     getSearchResults()
   }
+
+  const appliedFilters = computed(() => {
+    return getFiltersFromRoute(route)
+  })
 
   onMounted(() => {
     // Read the url on first mount to kick of the initial search
@@ -369,6 +375,7 @@ export default (
     results,
     suggestions,
     filterForm,
+    appliedFilters,
     submitSearch,
     goToPage,
     page,

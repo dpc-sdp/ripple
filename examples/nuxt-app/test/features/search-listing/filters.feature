@@ -17,6 +17,9 @@ Feature: Search listing - Filter
     Then the search listing page should have 2 results
     And the search network request should be called with the "/search-listing/filters/request-raw" fixture
 
+    Then the filters toggle should show 1 applied filters
+
+    When I toggle the search listing filters section
     Then the search listing dropdown field labelled "Raw filter example" should have the value "Dogs, Birds"
     When I click the search listing dropdown field labelled "Raw filter example"
     Then the selected dropdown field should have the items:
@@ -40,6 +43,9 @@ Feature: Search listing - Filter
     Then the search listing page should have 2 results
     And the search network request should be called with the "/search-listing/filters/request-term-single" fixture
 
+    Then the filters toggle should show 1 applied filters
+
+    When I toggle the search listing filters section
     Then the search listing dropdown field labelled "Term filter example" should have the value "Green"
     When I click the search listing dropdown field labelled "Term filter example"
     Then the selected dropdown field should have the items:
@@ -63,6 +69,9 @@ Feature: Search listing - Filter
     Then the search listing page should have 2 results
     And the search network request should be called with the "/search-listing/filters/request-term-array" fixture
 
+    Then the filters toggle should show 1 applied filters
+
+    When I toggle the search listing filters section
     Then the search listing dropdown field labelled "Term filter example" should have the value "Red, Green"
     When I click the search listing dropdown field labelled "Term filter example"
     Then the selected dropdown field should have the items:
@@ -87,6 +96,9 @@ Feature: Search listing - Filter
     Then the search listing page should have 2 results
     And the search network request should be called with the "/search-listing/filters/request-terms-single" fixture
 
+    Then the filters toggle should show 1 applied filters
+
+    When I toggle the search listing filters section
     Then the search listing dropdown field labelled "Terms filter example" should have the value "Purple"
     When I click the search listing dropdown field labelled "Terms filter example"
     Then the selected dropdown field should have the items:
@@ -111,6 +123,9 @@ Feature: Search listing - Filter
     Then the search listing page should have 2 results
     And the search network request should be called with the "/search-listing/filters/request-terms-array" fixture
 
+    Then the filters toggle should show 1 applied filters
+
+    When I toggle the search listing filters section
     Then the search listing dropdown field labelled "Terms filter example" should have the value "Orange, Purple"
     When I click the search listing dropdown field labelled "Terms filter example"
     Then the selected dropdown field should have the items:
@@ -134,6 +149,9 @@ Feature: Search listing - Filter
     Then the search listing page should have 2 results
     And the search network request should be called with the "/search-listing/filters/request-function-filter" fixture
 
+    Then the filters toggle should show 1 applied filters
+
+    When I toggle the search listing filters section
     Then the search listing dropdown field labelled "Custom function filter example" should have the value "Open, Closed"
     When I click the search listing dropdown field labelled "Custom function filter example"
     Then the selected dropdown field should have the items:

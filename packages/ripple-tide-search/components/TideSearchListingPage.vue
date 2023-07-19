@@ -1,5 +1,12 @@
 <script setup lang="ts">
-import { useRuntimeConfig, useFetch, useRoute, ref, toRaw } from '#imports'
+import {
+  useRuntimeConfig,
+  useFetch,
+  useRoute,
+  ref,
+  toRaw,
+  computed
+} from '#imports'
 import useTideSearch from './../composables/useTideSearch'
 import type {
   TideSearchListingPage,
@@ -63,6 +70,7 @@ const props = withDefaults(defineProps<Props>(), {
 const { public: config } = useRuntimeConfig()
 const siteId = config.tide?.site
 const route = useRoute()
+const filtersExpanded = ref(false)
 
 const { data: site } = useFetch('/api/tide/site', {
   baseURL: config.API_URL || '',
@@ -79,6 +87,7 @@ const {
   results,
   suggestions,
   filterForm,
+  appliedFilters,
   submitSearch,
   goToPage,
   page,
@@ -176,6 +185,24 @@ const handlePageChange = (newPage: number) => {
 
   goToPage(newPage)
 }
+
+const handleToggleFilters = () => {
+  filtersExpanded.value = !filtersExpanded.value
+}
+
+const numAppliedFilters = computed(() => {
+  return Object.values(appliedFilters.value).filter((value) => {
+    if (!value) {
+      return false
+    }
+
+    if (Array.isArray(value) && !value.length) {
+      return false
+    }
+
+    return true
+  }).length
+})
 </script>
 
 <template>
@@ -201,8 +228,17 @@ const handlePageChange = (newPage: number) => {
             @on-submit="handleSearchSubmit"
             @update:input-value="handleUpdateSearchTerm"
           />
-          <div
+          <RplSearchBarRefine
+            class="tide-search-refine-btn"
+            :expanded="filtersExpanded"
+            @click="handleToggleFilters"
+            >Refine search{{
+              numAppliedFilters ? ` (${numAppliedFilters})` : ''
+            }}</RplSearchBarRefine
+          >
+          <RplExpandable
             v-if="userFilters && userFilters.length > 0"
+            :expanded="filtersExpanded"
             class="rpl-u-margin-t-4"
           >
             <TideSearchFilters
@@ -212,7 +248,7 @@ const handlePageChange = (newPage: number) => {
               @submit="handleFilterSubmit"
             >
             </TideSearchFilters>
-          </div>
+          </RplExpandable>
         </div>
       </RplHeroHeader>
     </template>

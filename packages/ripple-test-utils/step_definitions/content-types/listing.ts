@@ -125,6 +125,29 @@ When(
   }
 )
 
+When(`I toggle the search listing filters section`, () => {
+  cy.get(`button`).contains('Refine search').click()
+})
+
+Then(
+  'the filters toggle should show {int} applied filters',
+  (filterCount: number) => {
+    if (filterCount === 0) {
+      cy.get(`button`)
+        .contains('Refine search')
+        .should(($div) => {
+          expect($div.text().trim()).equal(`Refine search`)
+        })
+    } else {
+      cy.get(`button`)
+        .contains('Refine search')
+        .should(($div) => {
+          expect($div.text().trim()).equal(`Refine search (${filterCount})`)
+        })
+    }
+  }
+)
+
 Then(
   `the selected dropdown field should have the items:`,
   (dataTable: DataTable) => {

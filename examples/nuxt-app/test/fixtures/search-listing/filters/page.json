@@ -152,7 +152,7 @@
       "props": {
         "id": "functionFilter",
         "label": "Custom function filter example",
-        "placeholder": "Select a grant status",
+        "placeholder": "Select a status",
         "multiple": true,
         "options": [
           {

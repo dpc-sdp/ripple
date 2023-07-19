@@ -98,6 +98,52 @@ Feature: Search listing - Filter
     When I toggle the search listing filters section
     Then the search listing dropdown field labelled "Custom function filter example" should have the value "Open, Closed"
 
+  @mockserver
+  Example: Clear filters
+    Given the endpoint "/api/tide/page" with query "?path=/filters&site=8888" returns fixture "/search-listing/filters/page" with status 200
+    And the search network request is stubbed with fixture "/search-listing/filters/response" and status 200
+    And the current date is "Fri, 02 Feb 2050 03:04:05 GMT"
+
+    When I visit the page "/filters?q=test123&page=2&functionFilter=open&termsFilter=Purple&termFilter=Green&rawFilter=Birds"
+    Then the search listing page should have 2 results
+    And the search network request should be called with the "/search-listing/filters/request-clear-filled" fixture
+
+    Then the filters toggle should show 4 applied filters
+    Then the URL should reflect that the current page number is 2
+    Then the URL should reflect that the current search term is "test123"
+
+    When I toggle the search listing filters section
+    Then the search input should have the value "test123"
+    Then the URL should reflect that the current active filters are as follows:
+      | id             | value  |
+      | rawFilter      | Birds  |
+      | termFilter     | Green  |
+      | termsFilter    | Purple |
+      | functionFilter | open   |
+
+    Then the search listing dropdown field labelled "Raw filter example" should have the value "Birds"
+    Then the search listing dropdown field labelled "Term filter example" should have the value "Green"
+    Then the search listing dropdown field labelled "Terms filter example" should have the value "Purple"
+    Then the search listing dropdown field labelled "Custom function filter example" should have the value "Open"
+
+    When I clear the search filters
+
+    And the search network request should be called with the "/search-listing/filters/request-clear-empty" fixture
+    Then the URL should reflect that the current page number is 1
+    Then the URL should reflect that the current search term is ""
+    Then the URL should reflect that the current active filters are as follows:
+      | id             |
+      | rawFilter      |
+      | termFilter     |
+      | termsFilter    |
+      | functionFilter |
+
+    Then the search input should have the value ""
+    Then the search listing dropdown field labelled "Raw filter example" should have the value "Select a pet"
+    Then the search listing dropdown field labelled "Term filter example" should have the value "Select a colour"
+    Then the search listing dropdown field labelled "Terms filter example" should have the value "Select a colour"
+    Then the search listing dropdown field labelled "Custom function filter example" should have the value "Select a status"
+
 # @mockserver
 # Example: Should update the URL when the filters are applied
 #   Given the endpoint "/api/tide/page" with query "?path=/filters&site=8888" returns fixture "/search-listing/filters/page" with status 200

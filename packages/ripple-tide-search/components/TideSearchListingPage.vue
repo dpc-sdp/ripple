@@ -154,6 +154,7 @@ const handleFilterSubmit = (form) => {
 }
 
 const handleFilterReset = () => {
+  searchTerm.value = ''
   filterForm.value = {}
   submitSearch()
 }

@@ -1,11 +1,18 @@
 {
   "query": {
     "bool": {
-      "must": [
-        {
-          "match_all": {}
+      "must": {
+        "multi_match": {
+          "query": "test123",
+          "fields": [
+            "title^3",
+            "field_landing_page_summary^2",
+            "body",
+            "field_paragraph_body",
+            "summary_processed"
+          ]
         }
-      ],
+      },
       "filter": [
         {
           "terms": {
@@ -44,13 +51,28 @@
               ]
             }
           },
-          "providedValues": ["closed", "open"]
+          "providedValues": ["open"]
+        },
+        {
+          "terms": {
+            "termsFilter.keyword": ["Purple"]
+          }
+        },
+        {
+          "terms": {
+            "termFilter.keyword": ["Green"]
+          }
+        },
+        {
+          "ids": {
+            "values": ["Birds"]
+          }
         }
       ]
     }
   },
   "size": 10,
-  "from": 0,
+  "from": 10,
   "sort": [
     {
       "_score": "desc"

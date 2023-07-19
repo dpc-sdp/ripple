@@ -1,5 +1,5 @@
 import { FilterType, FacetConfiguration, Filter } from '@elastic/search-ui'
-import type { TidePageBase } from '@dpc-sdp/ripple-tide-api/types'
+import type { TidePageBase, TideSiteData } from '@dpc-sdp/ripple-tide-api/types'
 export interface MappedSearchResult<T> {
   id: string
   component: string
@@ -136,4 +136,6 @@ export interface TideSearchListingPage extends TidePageBase {
       [key: string]: TideSearchListingResultItem
     }
   }
+  contentPage: TidePageBase
+  site: TideSiteData
 }

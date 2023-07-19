@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useRuntimeConfig, useFetch, useRoute, ref } from '#imports'
 import useTideSearch from './../composables/useTideSearch'
+import type { TidePageBase, TideSiteData } from '@dpc-sdp/ripple-tide-api/types'
 import type {
   TideSearchListingPage,
   MappedSearchResult,
@@ -18,6 +19,8 @@ interface Props {
   userFilters?: any[]
   resultsLayout: TideSearchListingResultLayout
   searchResultsMappingFn?: (item: any) => MappedSearchResult<any>
+  contentPage: TidePageBase
+  site: TideSiteData
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -57,24 +60,6 @@ const props = withDefaults(defineProps<Props>(), {
         result: item._source
       }
     }
-  }
-})
-
-const { public: config } = useRuntimeConfig()
-const siteId = config.tide?.site
-const route = useRoute()
-
-const { data: site } = useFetch('/api/tide/site', {
-  baseURL: config.API_URL || '',
-  params: {
-    id: siteId
-  }
-})
-
-const { data: contentPage } = useFetch('/api/tide/page', {
-  baseURL: config.API_URL || '',
-  params: {
-    path: route.path
   }
 })
 

@@ -46,7 +46,8 @@ const handleClick = (item) => {
   emitRplEvent('itemClick', {
     action: 'click',
     value: item.url,
-    text: item.text
+    text: item.text,
+    type: item?.type
   })
 }
 </script>

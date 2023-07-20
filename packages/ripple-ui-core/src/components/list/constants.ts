@@ -8,5 +8,6 @@ export interface IRplListItemArray {
   iconColour?: (typeof RplColorThemes)[number]
   url?: string
   active?: boolean
+  type?: string
   items?: IRplListItemArray[]
 }

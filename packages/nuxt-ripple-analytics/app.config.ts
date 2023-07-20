@@ -14,9 +14,6 @@ declare module '@nuxt/schema' {
 export default defineAppConfig({
   ripple: {
     analytics: {
-      // this can be a boolean to load the default behavior
-      // or optional a function to overload the default behavior
-      routeChange: true,
       eventListeners
     }
   }

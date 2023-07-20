@@ -1,24 +1,20 @@
-import { IRplAnalyticsEventPayload, trackEvent } from './tracker'
+import { IRplAnalyticsEventPayload } from './tracker'
 import { getBreadcrumbs } from '#imports'
 
 const trimValue = (value: any) =>
   typeof value === 'string' ? value.trim() : value
 
-const padTime = (value: number) => value.toString().padStart(2, '0')
-
-export default function ({ route, site, page }) {
+export default function ({ route, site, page }): IRplAnalyticsEventPayload {
   const payload: IRplAnalyticsEventPayload = {
-    event: 'page_view',
+    event: 'routeChange',
     name: page?.title,
     page_url: route.fullPath,
     content_type: page?.type,
+    publication_name: page?.publication?.text,
     search_term: trimValue(route.query?.q),
     site_section: page?.siteSection?.name,
-    image_count: document.querySelectorAll('#rpl-main img').length,
-    content_section_count: document.querySelectorAll(
-      '#rpl-main .rpl-page-component'
-    ).length,
-    platform_event: 'routeView'
+    production: process.env.NODE_ENV === 'production',
+    platform_event: 'page/routeChange'
   }
 
   const pageBreadcrumbs = page?.breadcrumbs
@@ -31,14 +27,5 @@ export default function ({ route, site, page }) {
       .map((crumb) => crumb.text)
   }
 
-  payload.word_count =
-    document.querySelector('#rpl-main')?.textContent?.match(/\w+/g).length || 0
-
-  // Reading time is based on 300 words per minute
-  const readTime = new Date((payload.word_count / 300) * 60 * 1000)
-  payload.avg_read_time = `${padTime(readTime.getUTCHours())}:${padTime(
-    readTime.getUTCMinutes()
-  )}:${padTime(readTime.getUTCSeconds())}`
-
-  trackEvent(payload)
+  return payload
 }

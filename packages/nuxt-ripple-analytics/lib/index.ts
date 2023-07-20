@@ -108,7 +108,7 @@ export default {
   'rpl-contact-us/itemClick': () => {
     return (payload: any) => {
       trackEvent({
-        event: `${payload.action}_link`,
+        event: `${payload.action}_${payload?.type || 'link'}`,
         element_id: payload?.id,
         element_text: payload?.text,
         label: payload?.label,
@@ -144,14 +144,17 @@ export default {
   },
   'rpl-file/download': () => {
     return (payload: any) => {
+      const url = new URL(payload?.value)
+
       trackEvent({
         event: `file_${payload.action}`,
         element_id: payload?.id,
         element_text: payload?.text,
-        file_name: payload?.label,
+        file_name: url.pathname.split('/').pop(),
         file_extension: payload?.type,
         file_size: payload?.size,
         link_url: payload?.value,
+        link_domain: url?.host,
         component: 'rpl-file',
         platform_event: 'download'
       })
@@ -438,7 +441,7 @@ export default {
   'rpl-form-date/update': () => {
     return (payload: any) => {
       trackEvent({
-        event: `form_${payload.action}_field`,
+        event: `${payload.action}_form_field`,
         label: payload?.label,
         form_name: payload?.contextName,
         form_id: payload?.contextId,
@@ -450,10 +453,24 @@ export default {
       })
     }
   },
+  'rpl-form-dropdown/toggleOpen': () => {
+    return (payload: any) => {
+      trackEvent({
+        event: `${payload.action}_form_field`,
+        label: payload?.label,
+        form_name: payload?.contextName,
+        form_id: payload?.contextId,
+        field_id: payload?.id,
+        type: 'select',
+        component: 'rpl-form-dropdown',
+        platform_event: 'toggleOpen'
+      })
+    }
+  },
   'rpl-form-dropdown/update': () => {
     return (payload: any) => {
       trackEvent({
-        event: `form_${payload.action}_field`,
+        event: `${payload.action}_form_field`,
         label: payload?.label,
         form_name: payload?.contextName,
         form_id: payload?.contextId,
@@ -468,7 +485,7 @@ export default {
   'rpl-form-input/update': () => {
     return (payload: any) => {
       trackEvent({
-        event: `form_${payload.action}_field`,
+        event: `${payload.action}_form_field`,
         label: payload?.label,
         form_name: payload?.contextName,
         form_id: payload?.contextId,
@@ -483,7 +500,7 @@ export default {
   'rpl-form-option/update': () => {
     return (payload: any) => {
       trackEvent({
-        event: `form_${payload.action}_field`,
+        event: `${payload.action}_form_field`,
         label: payload?.label,
         form_name: payload?.contextName,
         form_id: payload?.contextId,
@@ -498,7 +515,7 @@ export default {
   'rpl-form-option-buttons/update': () => {
     return (payload: any) => {
       trackEvent({
-        event: `form_${payload.action}_field`,
+        event: `${payload.action}_form_field`,
         label: payload?.label,
         form_name: payload?.contextName,
         form_id: payload?.contextId,
@@ -513,7 +530,7 @@ export default {
   'rpl-form-checkbox-group/update': () => {
     return (payload: any) => {
       trackEvent({
-        event: `form_${payload.action}_field`,
+        event: `${payload.action}_form_field`,
         label: payload?.label,
         form_name: payload?.contextName,
         form_id: payload?.contextId,
@@ -528,7 +545,7 @@ export default {
   'rpl-form-radio-group/update': () => {
     return (payload: any) => {
       trackEvent({
-        event: `form_${payload.action}_field`,
+        event: `${payload.action}_form_field`,
         label: payload?.label,
         form_name: payload?.contextName,
         form_id: payload?.contextId,
@@ -543,7 +560,7 @@ export default {
   'rpl-form-textarea/update': () => {
     return (payload: any) => {
       trackEvent({
-        event: `form_${payload.action}_field`,
+        event: `${payload.action}_form_field`,
         label: payload?.label,
         form_name: payload?.contextName,
         form_id: payload?.contextId,

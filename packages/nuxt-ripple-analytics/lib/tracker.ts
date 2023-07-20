@@ -9,6 +9,7 @@ export interface IRplAnalyticsEventPayload {
   element_id?: string
   element_text?: string
   link_url?: string
+  link_domain?: string
   file_name?: string
   file_extension?: string
   file_size?: string
@@ -17,16 +18,15 @@ export interface IRplAnalyticsEventPayload {
   field_id?: string
   type?: string
   value?: string
+  index?: number
   component?: string
   // Route properties
   content_type?: string
   search_term?: string
   site_section?: string
+  publication_name?: string
   breadcrumbs?: string[]
-  word_count?: number
-  avg_read_time?: string
-  image_count?: number
-  content_section_count?: number
+  production?: boolean
 }
 
 export const trackEvent = (payload: IRplAnalyticsEventPayload) => {

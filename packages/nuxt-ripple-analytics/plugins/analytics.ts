@@ -1,5 +1,6 @@
 import { defineNuxtPlugin, useAppConfig, useRuntimeConfig } from '#app'
 import { loadScript } from '@gtm-support/core'
+import { trackEvent } from '../lib'
 import routeChange from '../lib/routeChange'
 
 declare global {
@@ -34,16 +35,16 @@ export default defineNuxtPlugin((nuxtApp) => {
       const route = useRoute()
       const site = nuxtApp.payload.data?.[`site-${runtimeConfig.site}`]
       const page = nuxtApp.payload.data?.[`page-${route.fullPath}`]
-      let routeChangeCallback = routeChange
 
-      if (appConfig?.analytics?.routeChange === false) {
-        return
-      }
+      if (appConfig?.analytics?.routeChange === false) return
+
+      const payload = routeChange({ route, site, page })
+
       if (typeof appConfig?.analytics?.routeChange === 'function') {
-        routeChangeCallback = appConfig?.analytics?.routeChange
+        appConfig?.analytics?.routeChange({ payload, route, site, page })
+      } else {
+        trackEvent(payload)
       }
-
-      routeChangeCallback({ route, site, page })
     })
 
     nuxtApp.vueApp.use({

@@ -1,13 +1,7 @@
 <script setup lang="ts">
-import {
-  useRuntimeConfig,
-  useFetch,
-  useRoute,
-  ref,
-  toRaw,
-  computed
-} from '#imports'
+import { useRoute, ref, toRaw, computed } from '#imports'
 import useTideSearch from './../composables/useTideSearch'
+import type { TidePageBase, TideSiteData } from '@dpc-sdp/ripple-tide-api/types'
 import type {
   TideSearchListingPage,
   MappedSearchResult,
@@ -25,6 +19,8 @@ interface Props {
   userFilters?: any[]
   resultsLayout: TideSearchListingResultLayout
   searchResultsMappingFn?: (item: any) => MappedSearchResult<any>
+  contentPage: TidePageBase
+  site: TideSiteData
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -67,17 +63,8 @@ const props = withDefaults(defineProps<Props>(), {
   }
 })
 
-const { public: config } = useRuntimeConfig()
-const siteId = config.tide?.site
 const route = useRoute()
 const filtersExpanded = ref(false)
-
-const { data: site } = useFetch('/api/tide/site', {
-  baseURL: config.API_URL || '',
-  params: {
-    id: siteId
-  }
-})
 
 const {
   isBusy,
@@ -207,12 +194,24 @@ const numAppliedFilters = computed(() => {
 </script>
 
 <template>
-  <TideBaseLayout :site="site">
-    <template #aboveBody>
+  <TideBaseLayout
+    :site="site"
+    :page="contentPage"
+    :siteSection="contentPage.siteSection"
+    :background="contentPage.background"
+    :pageTitle="contentPage.title"
+    :pageLanguage="contentPage.lang"
+    :updatedDate="contentPage.changed || contentPage.created"
+    :showContentRating="contentPage.showContentRating"
+  >
+    <template #breadcrumbs>
+      <slot name="breadcrumbs"></slot>
+    </template>
+    <template #aboveBody="{ hasBreadcrumbs }">
       <RplHeroHeader
         :title="title"
         :behind-nav="true"
-        :breadcrumbs="true"
+        :breadcrumbs="hasBreadcrumbs"
         :full-width="true"
         :corner-top="true"
         :corner-bottom="false"
@@ -297,9 +296,9 @@ const numAppliedFilters = computed(() => {
 
           <slot name="results" :results="results">
             <component
+              :is="resultsLayout.component"
               v-if="results && results.length > 0"
               :key="`TideSearchListingResultsLayout${resultsLayout.component}`"
-              :is="resultsLayout.component"
               v-bind="resultsLayout.props"
               :results="results"
             />

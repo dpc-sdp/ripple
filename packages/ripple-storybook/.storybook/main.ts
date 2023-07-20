@@ -58,7 +58,7 @@ const config: StorybookConfig = {
       process.env.STATIC_BASE_PATH ? process.env.STATIC_BASE_PATH : '/'
     }js/iframeResizer.contentWindow.min.js"></script>
   `,
-  async viteFinal(config, { configType }) {
+  async viteFinal(config) {
     if (process.env.STATIC_BASE_PATH) {
       config.base = process.env.STATIC_BASE_PATH
     }

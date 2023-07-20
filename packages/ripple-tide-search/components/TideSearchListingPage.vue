@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from '#imports'
+import { useRoute, ref } from '#imports'
 import useTideSearch from './../composables/useTideSearch'
 import type { TidePageBase, TideSiteData } from '@dpc-sdp/ripple-tide-api/types'
 import type {
@@ -62,6 +62,8 @@ const props = withDefaults(defineProps<Props>(), {
     }
   }
 })
+
+const route = useRoute()
 
 const {
   isBusy,

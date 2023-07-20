@@ -56,6 +56,7 @@ const mappedContacts = computed(() => {
     }
 
     let items: Array<{
+      type?: string
       id: string
       icon: string
       text: string
@@ -64,6 +65,7 @@ const mappedContacts = computed(() => {
 
     if (contact.locationAddress) {
       items.push({
+        type: 'location',
         id: `contact-us-location-${contact.id}`,
         icon: 'icon-pin',
         text: formatAddress(contact.locationAddress),
@@ -76,6 +78,7 @@ const mappedContacts = computed(() => {
         .filter((phone) => !!phone.number)
         .forEach((phone) => {
           items.push({
+            type: 'phone',
             id: phone.id,
             icon: 'icon-phone',
             text: `${phone.title ? phone.title + ' ' : ''}${phone.number}`,
@@ -86,6 +89,7 @@ const mappedContacts = computed(() => {
 
     if (contact.email) {
       items.push({
+        type: 'email',
         id: `contact-us-email-${contact.id}`,
         icon: 'icon-mail',
         text: contact.email,
@@ -96,6 +100,7 @@ const mappedContacts = computed(() => {
     if (contact.socialMedia) {
       ;(contact.socialMedia || []).forEach((social) => {
         items.push({
+          type: 'social',
           id: social.id,
           icon: getSocialMediaIconByType(social.type),
           text: social.text,

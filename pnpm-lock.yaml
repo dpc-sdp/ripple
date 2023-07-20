@@ -692,6 +692,9 @@ importers:
 
   packages/ripple-tide-search:
     dependencies:
+      '@dpc-sdp/ripple-tide-api':
+        specifier: workspace:*
+        version: link:../ripple-tide-api
       '@dpc-sdp/ripple-ui-core':
         specifier: workspace:*
         version: link:../ripple-ui-core

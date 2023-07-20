@@ -49,7 +49,11 @@ const props = withDefaults(defineProps<RplFormDropdownProps>(), {
 
 const emit = defineEmits<{
   (e: 'onChange', value: string[]): void
-  (e: 'update', payload: rplEventPayload & { action: 'select' }): void
+  (e: 'update', payload: rplEventPayload & { action: 'update' }): void
+  (
+    e: 'toggleOpen',
+    payload: rplEventPayload & { action: 'open' | 'close' }
+  ): void
 }>()
 
 const form: object = inject('form')
@@ -96,6 +100,18 @@ const handleToggle = (fromKeyboard = false): void => {
   } else {
     handleOpen(fromKeyboard)
   }
+
+  emitRplEvent(
+    'toggleOpen',
+    {
+      action: isOpen.value ? 'open' : 'close',
+      id: props.id,
+      label: props?.label,
+      contextId: form?.id,
+      contextName: form?.name
+    },
+    { global: true }
+  )
 }
 
 const handleOpen = (fromKeyboard = false): void => {

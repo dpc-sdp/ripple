@@ -33,7 +33,7 @@ const props = withDefaults(defineProps<RplFormRadioProps>(), {
 
 const emit = defineEmits<{
   (e: 'onChange', value: string[]): void
-  (e: 'update', payload: rplEventPayload & { action: 'select' }): void
+  (e: 'update', payload: rplEventPayload & { action: 'update' }): void
 }>()
 
 const form: object = inject('form')

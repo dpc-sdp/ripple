@@ -40,7 +40,7 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 const emit = defineEmits<{
-  (e: 'update', payload: rplEventPayload & { action: 'exit' }): void
+  (e: 'update', payload: rplEventPayload & { action: 'update' }): void
 }>()
 
 const form: object = inject('form')

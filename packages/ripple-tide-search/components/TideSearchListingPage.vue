@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useRoute, ref, toRaw, computed } from '#imports'
+import { submitForm } from '@formkit/vue'
 import useTideSearch from './../composables/useTideSearch'
 import type { TidePageBase, TideSiteData } from '@dpc-sdp/ripple-tide-api/types'
 import type {
@@ -132,7 +133,10 @@ onAggregationUpdateHook.value = (aggs) => {
 }
 
 const handleSearchSubmit = () => {
-  submitSearch()
+  // Submitting the search term should also 'apply' the filters, but the filters live in a seperate form.
+  // To solve this, when the search term form is submitted, we trigger a submission of the filters form,
+  // it is there where the actual search request will be triggered.
+  submitForm('tide-search-filter-form')
 }
 
 const handleFilterSubmit = (form) => {

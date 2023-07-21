@@ -18,6 +18,7 @@ export default (
 ) => {
   const { public: config } = useRuntimeConfig()
   const route: RouteLocation = useRoute()
+  const appConfig = useAppConfig()
 
   const index = customIndex || config.tide.appSearch.engineName
 
@@ -118,11 +119,12 @@ export default (
   }
 
   const userFilters = computed(() => {
-    let ESFilterClause = [] as any[]
-    Object.keys(filterForm.value).map((key: string) => {
+    return Object.keys(filterForm.value).map((key: string) => {
       const itm = userFilterConfig.find((itm) => itm.id === key)
+
       const filterVal =
         filterForm.value[key] && Array.from(filterForm.value[key])
+
       // Need to work out if form has value - will be different for different controls
       const hasValue = (v: unknown) => {
         if (itm.component === 'TideSearchFilterDropdown') {
@@ -130,32 +132,64 @@ export default (
         }
         return v
       }
+
       if (itm.filter && hasValue(filterVal)) {
-        // Raw ES Filter clause from Tide config, replaces {{value}} with user value
+        /**
+         * Raw ES Filter clause from Tide config, replaces {{value}} with user value
+         */
         if (itm.filter.type === 'raw') {
           const re = new RegExp('{{value}}', 'g')
           const result = itm.filter.value.replace(re, JSON.stringify(filterVal))
-          ESFilterClause = JSON.parse(result)
+          return JSON.parse(result)
         }
-        // Add a simple taxonomy term/s filter
-        if (itm.filter.type === 'terms' || itm.filter.type === 'term') {
-          ESFilterClause = [
-            {
-              [`${itm.filter.type}`]: {
-                // ES8 appears to require keyword suffix due to change in indexing
-                [`${itm.filter.value}.keyword`]: filterVal
-              }
+
+        /**
+         * Term and Terms querys - To simplify things we transform all term queries into terms queries with a single value array
+         *   - Term query: https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-term-query.html
+         *   - Terms query: https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-terms-query.html
+         */
+        if (itm.filter.type === 'term' || itm.filter.type === 'terms') {
+          return {
+            terms: {
+              [`${itm.filter.value}`]: Array.isArray(filterVal)
+                ? filterVal
+                : [filterVal]
             }
-          ]
+          }
         }
-        // Call a function passed from app.config to add filters
+
+        /**
+         * Call a function passed from app.config to to allow extending and overriding. The function should
+         * return a valid DSL query.
+         * When called the function is passed the filter config and the value of the filter from the user
+         *
+         * In the nuxt app.config, the function is provided like this:
+         * {
+         *   ripple: {
+         *     search: {
+                  exampleFunction: (filterConfig, values) => {
+                    return {
+                      ... some DSL query
+                    }
+                  }
+         *      }
+         *    }
+         * }
+         */
         if (itm.filter.type === 'function') {
-          // TODO: this should allow calling a custom function that returns a valid query clause
-          // function should be passed through from app.config to allow extending and overriding
+          const filterFuncs = appConfig?.ripple?.search?.filterFunctions || {}
+          const fn = filterFuncs[itm.filter.value]
+
+          if (typeof fn !== 'function') {
+            throw new Error(
+              `Search listing: No matching filter function called "${itm.filter.value}"`
+            )
+          }
+
+          return fn(itm, filterVal)
         }
       }
     })
-    return ESFilterClause
   })
 
   const getQueryDSL = () => {
@@ -282,6 +316,28 @@ export default (
     })
   }
 
+  const getFiltersFromRoute = (newRoute: RouteLocation) => {
+    // Re-construct the filter form values from the URL, we find every query param that matches
+    // a user filter, then construct the filter values based on that.
+    return Object.keys(newRoute.query)
+      .filter((key) => userFilterConfig.some((filter) => filter.id === key))
+      .reduce((obj, key) => {
+        let parsedValue = newRoute.query[key]
+        const filterConfig = userFilterConfig.find(
+          (filter) => filter.id === key
+        )
+
+        if (filterConfig.component === 'TideSearchFilterDropdown') {
+          parsedValue = Array.isArray(parsedValue) ? parsedValue : [parsedValue]
+        }
+
+        return {
+          ...obj,
+          [key]: parsedValue
+        }
+      }, {})
+  }
+
   /**
    * The URL is the source of truth for what is shown in the search results.
    *
@@ -292,21 +348,14 @@ export default (
     page.value =
       parseInt(getSingleQueryStringValue(newRoute.query, 'page'), 10) || 1
 
-    // Re-construct the filter form values from the URL, we find every query param that matches
-    // a user filter, then construct the filter values based on that. This leave
-    const formValues = Object.keys(newRoute.query)
-      .filter((key) => userFilterConfig.some((filter) => filter.id === key))
-      .reduce((obj, key) => {
-        return {
-          ...obj,
-          [key]: newRoute.query[key]
-        }
-      }, {})
-
-    filterForm.value = formValues
+    filterForm.value = getFiltersFromRoute(newRoute)
 
     getSearchResults()
   }
+
+  const appliedFilters = computed(() => {
+    return getFiltersFromRoute(route)
+  })
 
   onMounted(() => {
     // Read the url on first mount to kick of the initial search
@@ -326,6 +375,7 @@ export default (
     results,
     suggestions,
     filterForm,
+    appliedFilters,
     submitSearch,
     goToPage,
     page,

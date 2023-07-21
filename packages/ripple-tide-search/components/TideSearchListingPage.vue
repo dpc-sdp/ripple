@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { useRoute, ref } from '#imports'
+import { useRoute, ref, toRaw, computed } from '#imports'
+import { submitForm } from '@formkit/vue'
 import useTideSearch from './../composables/useTideSearch'
 import type { TidePageBase, TideSiteData } from '@dpc-sdp/ripple-tide-api/types'
 import type {
@@ -64,6 +65,7 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 const route = useRoute()
+const filtersExpanded = ref(false)
 
 const {
   isBusy,
@@ -73,6 +75,7 @@ const {
   results,
   suggestions,
   filterForm,
+  appliedFilters,
   submitSearch,
   goToPage,
   page,
@@ -99,7 +102,7 @@ onAggregationUpdateHook.value = (aggs) => {
   Object.keys(aggs).forEach((key) => {
     uiFilters.value.forEach((uiFilter, idx) => {
       if (uiFilter.id === key) {
-        const getOptions = () => {
+        const getDynamicOptions = () => {
           const mappedOptions = aggs[key].map((item) => ({
             id: item,
             label: item,
@@ -107,11 +110,13 @@ onAggregationUpdateHook.value = (aggs) => {
           }))
 
           if (uiFilters.value[idx].props.hasOwnProperty('options')) {
-            return [...uiFilters.value[idx].props.options, ...mappedOptions]
-          } else if (mappedOptions.length > 0) {
-            return mappedOptions
+            return [
+              ...toRaw(uiFilters.value[idx].props.options),
+              ...mappedOptions
+            ]
           }
-          return []
+
+          return mappedOptions
         }
 
         uiFilters.value[idx] = {
@@ -119,7 +124,7 @@ onAggregationUpdateHook.value = (aggs) => {
           props: {
             ...uiFilters.value[idx].props,
             timestamp: updateTimestamp,
-            options: getOptions()
+            dynamicOptions: getDynamicOptions()
           }
         }
       }
@@ -128,7 +133,10 @@ onAggregationUpdateHook.value = (aggs) => {
 }
 
 const handleSearchSubmit = () => {
-  submitSearch()
+  // Submitting the search term should also 'apply' the filters, but the filters live in a seperate form.
+  // To solve this, when the search term form is submitted, we trigger a submission of the filters form,
+  // it is there where the actual search request will be triggered.
+  submitForm('tide-search-filter-form')
 }
 
 const handleFilterSubmit = (form) => {
@@ -137,7 +145,8 @@ const handleFilterSubmit = (form) => {
 }
 
 const handleFilterReset = () => {
-  filterForm.value = []
+  searchTerm.value = ''
+  filterForm.value = {}
   submitSearch()
 }
 
@@ -168,6 +177,24 @@ const handlePageChange = (newPage: number) => {
 
   goToPage(newPage)
 }
+
+const handleToggleFilters = () => {
+  filtersExpanded.value = !filtersExpanded.value
+}
+
+const numAppliedFilters = computed(() => {
+  return Object.values(appliedFilters.value).filter((value) => {
+    if (!value) {
+      return false
+    }
+
+    if (Array.isArray(value) && !value.length) {
+      return false
+    }
+
+    return true
+  }).length
+})
 </script>
 
 <template>
@@ -205,8 +232,17 @@ const handlePageChange = (newPage: number) => {
             @on-submit="handleSearchSubmit"
             @update:input-value="handleUpdateSearchTerm"
           />
-          <div
+          <RplSearchBarRefine
+            class="tide-search-refine-btn"
+            :expanded="filtersExpanded"
+            @click="handleToggleFilters"
+            >Refine search{{
+              numAppliedFilters ? ` (${numAppliedFilters})` : ''
+            }}</RplSearchBarRefine
+          >
+          <RplExpandable
             v-if="userFilters && userFilters.length > 0"
+            :expanded="filtersExpanded"
             class="rpl-u-margin-t-4"
           >
             <TideSearchFilters
@@ -216,7 +252,7 @@ const handlePageChange = (newPage: number) => {
               @submit="handleFilterSubmit"
             >
             </TideSearchFilters>
-          </div>
+          </RplExpandable>
         </div>
       </RplHeroHeader>
     </template>

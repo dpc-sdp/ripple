@@ -34,6 +34,42 @@ Then(
 )
 
 Then(
+  'the URL should reflect that the current search term is {string}',
+  (searchTerm: string) => {
+    cy.location().should((loc) => {
+      const params = new URLSearchParams(loc.search)
+
+      if (searchTerm === '') {
+        expect(params.get('q')).to.not.be.ok // should be falsey
+      } else {
+        expect(params.get('q')).to.eq(`${searchTerm}`)
+      }
+    })
+  }
+)
+
+Then(
+  'the URL should reflect that the current active filters are as follows:',
+  (dataTable: DataTable) => {
+    const table = dataTable.hashes()
+
+    cy.location().should((loc) => {
+      const params = new URLSearchParams(loc.search)
+
+      table.forEach((row) => {
+        const actualValue = params.get(row.id)
+
+        if (!row.value) {
+          expect(actualValue).to.not.be.ok // should be falsey
+        } else {
+          expect(actualValue).to.eq(row.value)
+        }
+      })
+    })
+  }
+)
+
+Then(
   'the search listing results should have following items:',
   (dataTable: DataTable) => {
     const table = dataTable.hashes()
@@ -59,6 +95,10 @@ Then(
 
 When(`I type {string} into the search input`, (inputStr: string) => {
   cy.get(`[id="tide-search-bar"]`).type(`${inputStr}`)
+})
+
+Then(`the search input should have the value {string}`, (inputStr: string) => {
+  cy.get(`[id="tide-search-bar"]`).should(`have.value`, inputStr)
 })
 
 When(`I clear the search input`, () => {
@@ -100,6 +140,19 @@ Then('the search error message should be displayed', () => {
   )
 })
 
+Then(
+  `the search listing dropdown field labelled {string} should have the value {string}`,
+  (label: string, value: string) => {
+    cy.get(`label`)
+      .contains(label)
+      .invoke('attr', 'for')
+      .then((dropdownId) => {
+        cy.get(`#${dropdownId}`).as('selectedDropdown')
+        cy.get('@selectedDropdown').should('have.text', value)
+      })
+  }
+)
+
 When(
   `I click the search listing dropdown field labelled {string}`,
   (label: string) => {
@@ -109,6 +162,33 @@ When(
       .then((dropdownId) => {
         cy.get(`#${dropdownId}`).as('selectedDropdown').click()
       })
+  }
+)
+
+When(`I toggle the search listing filters section`, () => {
+  cy.get(`button`).contains('Refine search').click()
+})
+
+When(`I clear the search filters`, () => {
+  cy.get(`button`).contains('Clear search filters').click()
+})
+
+Then(
+  'the filters toggle should show {int} applied filters',
+  (filterCount: number) => {
+    if (filterCount === 0) {
+      cy.get(`button`)
+        .contains('Refine search')
+        .should(($div) => {
+          expect($div.text().trim()).equal(`Refine search`)
+        })
+    } else {
+      cy.get(`button`)
+        .contains('Refine search')
+        .should(($div) => {
+          expect($div.text().trim()).equal(`Refine search (${filterCount})`)
+        })
+    }
   }
 )
 

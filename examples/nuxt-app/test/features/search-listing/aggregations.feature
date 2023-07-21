@@ -17,6 +17,7 @@ Feature: Search listing - Aggregations
     Then the search listing page should have 2 results
     And the search network request should be called with the "/search-listing/aggregations/request" fixture
 
+    When I toggle the search listing filters section
     When I click the search listing dropdown field labelled "Elastic aggregation test"
     # First item is hardcoded, the rest come from ES aggregation
     Then the selected dropdown field should have the items:

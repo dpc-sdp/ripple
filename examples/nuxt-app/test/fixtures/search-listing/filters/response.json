@@ -1,0 +1,170 @@
+{
+  "took": 1,
+  "timed_out": false,
+  "_shards": {
+    "total": 5,
+    "successful": 5,
+    "skipped": 0,
+    "failed": 0
+  },
+  "hits": {
+    "total": {
+      "value": 2,
+      "relation": "eq"
+    },
+    "max_score": null,
+    "hits": [
+      {
+        "_index": "a83890f7a31dea14e1ae83c6f0afacca--elasticsearch_index_default_node",
+        "_id": "entity:node/32830:en",
+        "_score": 1.0,
+        "_source": {
+          "_language": "en",
+          "node_grants": ["node_access_all:0"],
+          "url": [
+            "/site-8888/tc-9b-grant-page-closed",
+            "/site-57/tc-9b-grant-page-closed",
+            "/site-56/tc-9b-grant-page-closed",
+            "/site-129/tc-9b-grant-page-closed",
+            "/site-157/tc-9b-grant-page-closed",
+            "/site-283/tc-9b-grant-page-closed",
+            "/site-125/tc-9b-grant-page-closed",
+            "/site-281/tc-9b-grant-page-closed",
+            "/site-290/tc-9b-grant-page-closed",
+            "/site-287/tc-9b-grant-page-closed",
+            "/site-4/tc-9b-grant-page-closed",
+            "/site-224/tc-9b-grant-page-closed",
+            "/site-408/tc-9b-grant-page-closed",
+            "/site-507/tc-9b-grant-page-closed",
+            "/site-509/tc-9b-grant-page-closed",
+            "/site-515/tc-9b-grant-page-closed",
+            "/site-581/tc-9b-grant-page-closed",
+            "/site-582/tc-9b-grant-page-closed",
+            "/site-622/tc-9b-grant-page-closed",
+            "/site-679/tc-9b-grant-page-closed",
+            "/site-1285/tc-9b-grant-page-closed",
+            "/site-1287/tc-9b-grant-page-closed",
+            "/site-8891/tc-9b-grant-page-closed",
+            "/site-8896/tc-9b-grant-page-closed"
+          ],
+          "changed": ["2023-05-09T15:00:46+10:00"],
+          "created": ["2023-05-09T15:00:46+10:00"],
+          "field_audience": [83],
+          "field_audience_name": ["Business"],
+          "field_audience_uuid": ["eb8e493b-d633-4ec9-99f6-1a825e7242c8"],
+          "field_content_category": [1340],
+          "field_content_category_name": ["Grants"],
+          "field_event_intro_text": ["news intro test"],
+          "field_landing_page_intro_text": ["Blah blah"],
+          "field_landing_page_summary": [
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet ligula sit amet lacinia. In a leo nec tortor aliquet faucibus."
+          ],
+          "field_media_image_absolute_path": [
+            "https://nginx-php.pr-1500.content-vic.sdp4.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg"
+          ],
+          "field_node_dates_end_value": ["2019-04-09T20:00:00+10:00"],
+          "field_node_dates_start_value": ["2019-03-09T19:00:00+11:00"],
+          "field_node_on_going": [false],
+          "field_node_primary_csite": [8888],
+          "field_node_site": [
+            8888, 57, 56, 129, 157, 283, 125, 281, 290, 287, 4, 224, 408, 507,
+            509, 515, 581, 582, 622, 679, 1285, 1287, 8891, 8896
+          ],
+          "field_tags": [1466],
+          "field_tags_name": ["Demo Tag"],
+          "field_tags_path": ["/tags/demo-tag"],
+          "field_tags_uuid": ["11dede11-10c0-111e1-1101-000000000010"],
+          "field_topic": [1478],
+          "field_topic_name": ["Demo Topic"],
+          "field_topic_path": ["/topic/demo-topic"],
+          "field_topic_uuid": ["11dede11-10c0-111e1-1102-000000000020"],
+          "funding_level_from": [11326],
+          "funding_level_to": [26494],
+          "langcode": ["en"],
+          "nid": [32830],
+          "status": [true],
+          "title": ["Apples"],
+          "type": ["grant"],
+          "uid": [1],
+          "uuid": ["0327b98e-d85e-4386-8bd0-02be571cafcc"]
+        },
+        "sort": [1.0, 3523]
+      },
+      {
+        "_index": "a83890f7a31dea14e1ae83c6f0afacca--elasticsearch_index_default_node",
+        "_id": "entity:node/32829:en",
+        "_score": 1.0,
+        "_source": {
+          "_language": "en",
+          "node_grants": ["node_access_all:0"],
+          "url": ["/site-8888/tc-9a-grant-simple-test-date-range"],
+          "changed": ["2023-05-09T15:00:46+10:00"],
+          "created": ["2023-05-09T15:00:46+10:00"],
+          "field_audience": [83],
+          "field_audience_name": ["Not-for-profit groups", "Government"],
+          "field_audience_uuid": ["eb8e493b-d633-4ec9-99f6-1a825e7242c8"],
+          "field_content_category": [1340],
+          "field_content_category_name": ["Grants"],
+          "field_event_intro_text": ["news intro test"],
+          "field_landing_page_intro_text": ["Blah blah"],
+          "field_landing_page_summary": [
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet ligula sit amet lacinia. In a leo nec tortor aliquet faucibus."
+          ],
+          "field_media_image_absolute_path": [
+            "https://nginx-php.pr-1500.content-vic.sdp4.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg"
+          ],
+          "field_node_dates_end_value": ["2050-07-16T00:00:00+10:00"],
+          "field_node_dates_start_value": ["2019-04-08T18:00:00+10:00"],
+          "field_node_on_going": [false],
+          "field_node_primary_csite": [8888],
+          "field_node_site": [8888],
+          "field_tags": [1466, 1467],
+          "field_tags_name": ["Demo Tag", "Another Demo Tag"],
+          "field_tags_path": ["/tags/demo-tag", "/tags/another-demo-tag"],
+          "field_tags_uuid": [
+            "11dede11-10c0-111e1-1101-000000000010",
+            "11dede11-10c0-111e1-1101-000000000011"
+          ],
+          "field_topic": [1478],
+          "field_topic_name": ["Demo Topic"],
+          "field_topic_path": ["/topic/demo-topic"],
+          "field_topic_uuid": ["11dede11-10c0-111e1-1102-000000000020"],
+          "funding_level_from": [11326],
+          "funding_level_to": [26494],
+          "langcode": ["en"],
+          "nid": [32829],
+          "status": [true],
+          "title": ["Oranges"],
+          "type": ["grant"],
+          "uid": [1],
+          "uuid": ["244b27ce-634c-4721-b70a-fea107b2ba9f"]
+        },
+        "sort": [1.0, 3522]
+      }
+    ]
+  },
+  "aggregations": {
+    "audience": {
+      "doc_count_error_upper_bound": 0,
+      "sum_other_doc_count": 0,
+      "buckets": [
+        {
+          "key": "Business",
+          "doc_count": 66
+        },
+        {
+          "key": "Government",
+          "doc_count": 73
+        },
+        {
+          "key": "Individual",
+          "doc_count": 28
+        },
+        {
+          "key": "Not-for-profit groups",
+          "doc_count": 121
+        }
+      ]
+    }
+  }
+}

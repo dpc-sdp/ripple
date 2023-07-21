@@ -35,8 +35,6 @@
 </template>
 
 <script setup lang="ts">
-import { FilterFormModel } from 'ripple-tide-search/types'
-
 type CollectionFilter = {
   component: string
   props: Record<string, any>
@@ -44,13 +42,13 @@ type CollectionFilter = {
 
 interface Props {
   filterInputs: CollectionFilter[]
-  filterFormValues: FilterFormModel
+  filterFormValues: Record<string, any>
   submitLabel?: string | boolean
   resetLabel?: string | boolean
 }
 
 const emit = defineEmits<{
-  (e: 'submit', payload: FilterFormModel[]): void
+  (e: 'submit', payload: Record<string, any>): void
   (e: 'reset'): void
 }>()
 

@@ -40,7 +40,6 @@
       }
     ],
     "pageConfig": {
-      "searchPlaceholder": "Start typing...",
       "resultsLayout": "TideSearchList",
       "resultsPerPage": 9,
       "hideFilters": false

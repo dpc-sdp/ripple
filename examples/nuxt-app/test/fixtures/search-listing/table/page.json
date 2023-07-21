@@ -7,7 +7,6 @@
   "showTopicTags": true,
   "summary": "On 28 January 2023 the Victorian Government announced the implementation of the final recommendations of the Royal Commission into Family Violence. This marks our public commitment to implementing all 227 recommendations.",
   "searchListingConfig": {
-    "searchPlaceholder": "Search all recommendations",
     "resultsPerPage": 40,
     "customSort": [
       { "_score": "desc" },

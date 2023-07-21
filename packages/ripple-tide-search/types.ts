@@ -1,4 +1,4 @@
-import { FilterType, FacetConfiguration, Filter } from '@elastic/search-ui'
+import { FilterType, FacetConfiguration } from '@elastic/search-ui'
 import type { TidePageBase, TideSiteData } from '@dpc-sdp/ripple-tide-api/types'
 export interface MappedSearchResult<T> {
   id: string
@@ -13,9 +13,14 @@ export interface AppSearchFilterConfigItem {
 }
 
 export interface FilterConfigItem {
+  /**
+   * @description this id will be what shows up in the URL, it should be human readable and must unique among the other filters
+   */
   id: string
-  component: string
-  facets?: Record<string, FacetConfiguration>
+  /**
+   * @description name of the Vue component used to render the filter
+   */
+  component: 'TideSearchFilterDropdown' | string
   aggregations?: {
     /**
      * @description source of options data for dropdowns, taxonomy for deriving from Drupal and Elastic to get from aggregation query in Elasticsearch
@@ -27,16 +32,13 @@ export interface FilterConfigItem {
      */
     size?: number
   }
+  /**
+   * @description the relevant props that will be passed into the Vue component (see `component` key)
+   */
   props?: {
-    label?: string
-    field?: string
-    filterType?: FilterType
-    placeholder?: string
-    type?: string
+    [key: string]: unknown
   }
 }
-
-export type FilterFormModel = Record<string, Filter>
 
 export type TideSearchListingResultItem = {
   /**
@@ -83,10 +85,6 @@ export interface TideSearchListingPage extends TidePageBase {
    * @description optional page level config
    */
   searchListingConfig: {
-    /**
-     * @description String for search input placeholder
-     */
-    searchPlaceholder?: string
     /**
      * @description Label for search query submit button
      */

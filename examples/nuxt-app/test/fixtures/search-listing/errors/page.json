@@ -37,7 +37,6 @@
   "showContentRating": true,
   "summary": "Example listing page",
   "searchListingConfig": {
-    "searchPlaceholder": "Search - Pagination example",
     "resultsPerPage": 4
   },
   "index": "b56de58036ae7d6456d5b246f85ffe88-appsearch-index-develop-node",

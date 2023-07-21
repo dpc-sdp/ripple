@@ -7,7 +7,6 @@
   "showTopicTags": true,
   "summary": "Browse our collection of key recovery resources and guidance for the disaster recovery workforce.",
   "searchListingConfig": {
-    "searchPlaceholder": "Search all grants and programs",
     "resultsPerPage": 9
   },
   "queryConfig": {

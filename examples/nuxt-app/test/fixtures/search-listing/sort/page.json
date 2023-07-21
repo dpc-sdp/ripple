@@ -7,7 +7,6 @@
   "showTopicTags": true,
   "summary": "",
   "searchListingConfig": {
-    "searchPlaceholder": "Search all grants and programs",
     "resultsPerPage": 10,
     "customSort": [
       {

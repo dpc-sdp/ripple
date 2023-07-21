@@ -18,6 +18,10 @@ export interface TideSiteData {
   showQuickExit: boolean
   acknowledgementHeader?: string
   acknowledgementFooter: string
+  cornerGraphic?: {
+    top?: TideImageField
+    bottom?: TideImageField
+  }
   copyrightHtml: string
   footerLogos: {
     alt: string

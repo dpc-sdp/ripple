@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import RplDataTableRow from './RplDataTableRow.vue'
 
 interface HeadingType {
@@ -26,21 +27,28 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 // Split hidden content out for presentation component
-let hiddenItems: Array<any> = [],
-  rowItems: Array<Array<string>> = []
+const mappedItems = computed(() => {
+  let hidden: Array<any> = []
+  let visible: Array<Array<string>> = []
 
-props.items.map((j) => {
-  let row: Array<string> = []
+  props.items.map((j) => {
+    let row: Array<string> = []
 
-  j.map((k) => {
-    if (Array.isArray(k)) {
-      hiddenItems.push(k)
-    } else {
-      row.push(k)
-    }
+    j.map((k) => {
+      if (Array.isArray(k)) {
+        hidden.push(k)
+      } else {
+        row.push(k)
+      }
+    })
+
+    visible.push(row)
   })
 
-  rowItems.push(row)
+  return {
+    hidden,
+    visible
+  }
 })
 </script>
 
@@ -69,17 +77,20 @@ props.items.map((j) => {
                 {{ item }}
               </template>
             </th>
-            <th v-if="hiddenItems.length" class="rpl-data-table__actions">
+            <th
+              v-if="mappedItems.hidden.length"
+              class="rpl-data-table__actions"
+            >
               <span class="rpl-u-visually-hidden">Actions</span>
             </th>
           </tr>
         </thead>
         <RplDataTableRow
-          v-for="(row, index) in rowItems"
+          v-for="(row, index) in mappedItems.visible"
           :key="index"
           :columns="columns"
           :items="row"
-          :content="hiddenItems?.[index]?.[0]"
+          :content="mappedItems.hidden?.[index]?.[0]"
           :vertical-header="headingType.vertical"
           :offset="offset"
         ></RplDataTableRow>

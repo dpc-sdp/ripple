@@ -12,7 +12,7 @@ import {
   tidePageBaseIncludes
 } from '@dpc-sdp/nuxt-ripple/mapping'
 
-const tide<%= h.changeCase.pascalCase(name) %>Module: IRplTideModuleMapping = {
+const tide<%= h.pascalCaseMerge(name) %>Module: IRplTideModuleMapping = {
   mapping: {
     ...tidePageBaseMapping(),
     // TODO: the below mapping is an example only, add your mapping here
@@ -36,4 +36,4 @@ const tide<%= h.changeCase.pascalCase(name) %>Module: IRplTideModuleMapping = {
   ]
 }
 
-export default tide<%= h.changeCase.pascalCase(name) %>Module
+export default tide<%= h.pascalCaseMerge(name) %>Module

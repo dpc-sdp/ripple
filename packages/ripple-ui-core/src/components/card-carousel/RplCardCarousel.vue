@@ -20,16 +20,18 @@ withDefaults(defineProps<Props>(), {
 })
 
 const emit = defineEmits<{
-  (e: 'paginate', payload: rplEventPayload): void
+  (e: 'paginate', payload: rplEventPayload & { action: 'prev' | 'next' }): void
+  (e: 'swipe', payload: rplEventPayload & { action: 'prev' | 'next' }): void
 }>()
 
 const { emitRplEvent } = useRippleEvent('rpl-card-carousel', emit)
 
-const handleChange = ({ action, value }) => {
+const handleChange = ({ type, action, text, value }) => {
   emitRplEvent(
-    'paginate',
+    type,
     {
       action,
+      text,
       index: value + 1
     },
     { global: true }

@@ -27,6 +27,7 @@ const props = defineProps<Props>()
 
 const emit = defineEmits<{
   (e: 'paginate', payload: rplEventPayload & { action: 'prev' | 'next' }): void
+  (e: 'swipe', payload: rplEventPayload & { action: 'prev' | 'next' }): void
   (
     e: 'viewFullscreen',
     payload: rplEventPayload & { action: 'enter' | 'exit' }
@@ -37,19 +38,36 @@ const { emitRplEvent } = useRippleEvent('rpl-media-gallery', emit)
 
 const showModal = ref(false)
 const activeImageSlide = ref(0)
+const activeModalImageSlide = ref(0)
 const activeContentSlide = ref(0)
+const activeModalContentSlide = ref(0)
 
-const contentSlideUpdate = ({ value }) => {
-  activeImageSlide.value = value
+const contentSlideUpdate = (event) => {
+  activeImageSlide.value = event.value
+
+  handleChange(event)
 }
 
-const imageSlideUpdate = ({ action, value }) => {
-  activeContentSlide.value = value
+const modalContentSlideUpdate = (event) => {
+  activeModalImageSlide.value = event.value
 
+  handleChange(event)
+}
+
+const imageSlideUpdate = ({ value }) => {
+  activeContentSlide.value = value
+}
+
+const modalImageSlideUpdate = ({ value }) => {
+  activeModalContentSlide.value = value
+}
+
+const handleChange = ({ type, action, text, value }) => {
   emitRplEvent(
-    'paginate',
+    type,
     {
       action,
+      text,
       label: props.items[value].title,
       index: value + 1
     },
@@ -59,6 +77,11 @@ const imageSlideUpdate = ({ action, value }) => {
 
 const toggleModal = (event) => {
   showModal.value = !showModal.value
+
+  if (showModal.value) {
+    activeModalImageSlide.value = activeImageSlide.value
+    activeModalContentSlide.value = activeContentSlide.value
+  }
 
   emitRplEvent(
     'viewFullscreen',
@@ -75,13 +98,13 @@ const toggleModal = (event) => {
 const keyboardNavigation = (event) => {
   if (!showModal.value) return
 
-  if (event.key === 'ArrowLeft' && activeImageSlide.value > 0) {
-    activeImageSlide.value = activeImageSlide.value - 1
+  if (event.key === 'ArrowLeft' && activeModalImageSlide.value > 0) {
+    activeModalImageSlide.value = activeModalImageSlide.value - 1
   } else if (
     event.key === 'ArrowRight' &&
-    activeImageSlide.value < props.items.length - 1
+    activeModalImageSlide.value < props.items.length - 1
   ) {
-    activeImageSlide.value = activeImageSlide.value + 1
+    activeModalImageSlide.value = activeModalImageSlide.value + 1
   }
 }
 
@@ -139,10 +162,10 @@ onUnmounted(() => {
       @close="toggleModal"
     >
       <RplSlider
-        :current-slide="activeImageSlide"
+        :current-slide="activeModalImageSlide"
         :show-pagination="false"
         class="rpl-media-gallery__modal-images"
-        @change="imageSlideUpdate"
+        @change="modalImageSlideUpdate"
       >
         <RplImage
           v-for="(item, i) in items"
@@ -157,8 +180,8 @@ onUnmounted(() => {
         <RplSlider
           effect="fade"
           :show-tally="true"
-          :current-slide="activeContentSlide"
-          @change="contentSlideUpdate"
+          :current-slide="activeModalContentSlide"
+          @change="modalContentSlideUpdate"
         >
           <RplMediaGalleryContent
             v-for="(item, index) in items"

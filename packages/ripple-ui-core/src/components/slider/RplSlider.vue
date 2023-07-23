@@ -41,6 +41,7 @@ const emit = defineEmits<{
 const container = ref()
 const swiper = ref()
 const activePage = ref()
+const paginate = ref(false)
 const slots = useSlots()
 const bp = useBreakpoints(bpMin)
 const speed = useComputedSpeed(container, '--rpl-motion-speed-6', 240)
@@ -111,8 +112,16 @@ watch(
   (slide) => swiper.value.$el.swiper.slideTo(slide)
 )
 
-const paginationClick = ({ value }) => {
+const paginationClick = ({ action, text, value }) => {
+  paginate.value = true
   swiper.value.$el.swiper.slideTo(value - 1)
+
+  emitRplEvent('change', {
+    type: 'paginate',
+    action,
+    text,
+    value: value - 1
+  })
 }
 
 const slideUpdate = ({ activeIndex, slides }) => {
@@ -120,10 +129,15 @@ const slideUpdate = ({ activeIndex, slides }) => {
   activePage.value = activeIndex + 1
   setInert({ activeIndex, slides })
 
-  emitRplEvent('change', {
-    action: activePage.value > previousPage ? 'next' : 'prev',
-    value: activeIndex
-  })
+  if (paginate.value) {
+    paginate.value = false
+  } else {
+    emitRplEvent('change', {
+      type: 'swipe',
+      action: activePage.value > previousPage ? 'next' : 'prev',
+      value: activeIndex
+    })
+  }
 }
 
 const setInert = ({ activeIndex, slides }) =>
@@ -159,7 +173,7 @@ const setInert = ({ activeIndex, slides }) =>
       :touchStartPreventDefault="false"
       class="rpl-slider__swiper"
       @after-init="setInert"
-      @slide-change="slideUpdate"
+      @active-index-change="slideUpdate"
     >
       <SwiperSlide
         v-for="(slide, i) in slides"

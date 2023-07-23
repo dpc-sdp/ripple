@@ -17,6 +17,8 @@ interface Props {
   contentType?: string
   showTally?: boolean
   variant?: (typeof RplPaginationVariants)[number]
+  prevLabel?: string
+  nextLabel?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -25,7 +27,9 @@ const props = withDefaults(defineProps<Props>(), {
   surroundingPages: 2,
   contentType: undefined,
   showTally: false,
-  variant: 'complex'
+  variant: 'complex',
+  prevLabel: 'Previous',
+  nextLabel: 'Next'
 })
 
 const emit = defineEmits<{
@@ -51,10 +55,11 @@ watch(
   (step) => updateStep(step)
 )
 
-const onClick = (value: number, action: string) => {
+const onClick = (value: number, action: string, label: string) => {
   updateStep(value)
 
   emitRplEvent('change', {
+    text: label,
     action,
     value
   })
@@ -78,9 +83,9 @@ const iconSize = computed(() => (isComplex.value ? 's' : 'xs'))
       :icon-size="iconSize"
       :aria-label="`Go to previous ${contentType}`"
       :disabled="!isComplex && isFirstStep"
-      @click="() => onClick(activeStep - 1, 'prev')"
+      @click="() => onClick(activeStep - 1, 'prev', prevLabel)"
     >
-      Previous
+      {{ prevLabel }}
     </RplPaginationLink>
     <ol v-if="isComplex" class="rpl-pagination__list">
       <li
@@ -93,7 +98,7 @@ const iconSize = computed(() => (isComplex.value ? 's' : 'xs'))
           class="rpl-pagination__page rpl-u-focusable-block"
           :aria-label="`Go to ${contentType} ${step}`"
           :aria-current="step === activeStep ? true : null"
-          @click="() => onClick(step, 'page')"
+          @click="() => onClick(step, 'page', step)"
         >
           <span>{{ step }}</span>
         </button>
@@ -109,9 +114,9 @@ const iconSize = computed(() => (isComplex.value ? 's' : 'xs'))
       :icon-size="iconSize"
       :aria-label="`Go to next ${contentType}`"
       :disabled="!isComplex && isLastStep"
-      @click="() => onClick(activeStep + 1, 'next')"
+      @click="() => onClick(activeStep + 1, 'next', nextLabel)"
     >
-      Next
+      {{ nextLabel }}
     </RplPaginationLink>
   </nav>
 </template>

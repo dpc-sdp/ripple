@@ -59,7 +59,7 @@ const handleChange = (e: Event) => {
   emitRplEvent(
     'update',
     {
-      action: 'select',
+      action: 'update',
       id: props.id,
       type: props.type,
       label: props?.label,

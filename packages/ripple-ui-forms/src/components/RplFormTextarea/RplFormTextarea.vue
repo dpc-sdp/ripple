@@ -60,7 +60,7 @@ const handleChange = () => {
   emitRplEvent(
     'update',
     {
-      action: 'exit',
+      action: 'update',
       id: props.id,
       label: props?.label,
       contextId: form?.id,

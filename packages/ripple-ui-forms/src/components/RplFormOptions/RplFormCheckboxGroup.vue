@@ -57,7 +57,7 @@ const handleToggle = (selectedValue: string) => {
   emitRplEvent(
     'update',
     {
-      action: 'select',
+      action: 'update',
       id: props.id,
       label: props?.label,
       value: newValue,

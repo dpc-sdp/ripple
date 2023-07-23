@@ -188,7 +188,7 @@ const handleSelectOption = (optionValue) => {
   emitRplEvent(
     'update',
     {
-      action: 'select',
+      action: 'update',
       id: props.id,
       label: props?.label,
       value: newValue,

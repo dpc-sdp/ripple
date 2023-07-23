@@ -7,6 +7,10 @@ import {
   IRplPrimaryNavActiveItems,
   RplPrimaryNavToggleItemOptions
 } from '../../constants'
+import {
+  useRippleEvent,
+  rplEventPayload
+} from '../../../../composables/useRippleEvent'
 
 interface Props {
   primaryLogo: IRplPrimaryNavLogo
@@ -24,8 +28,32 @@ interface Props {
 
 const props = defineProps<Props>()
 
+const emit = defineEmits<{
+  (
+    e: 'toggleMenuItem',
+    payload: rplEventPayload & { action: 'open' | 'close' }
+  ): void
+}>()
+
+const { emitRplEvent } = useRippleEvent('rpl-primary-nav', emit)
+
 const isItemActive = (item: IRplPrimaryNavItem) =>
   props.activeNavItems.level1?.id == item.id
+
+const handleToggleItem = (level: number, item) => {
+  emitRplEvent(
+    'toggleMenuItem',
+    {
+      action: !isItemActive(item) ? 'open' : 'close',
+      value: item.url,
+      text: item.text,
+      index: level
+    },
+    { global: true }
+  )
+
+  props.toggleItem(level, item)
+}
 </script>
 
 <template>
@@ -121,7 +149,7 @@ const isItemActive = (item: IRplPrimaryNavItem) =>
           :href="item.url"
           :active="isItemActive(item)"
           :focusKey="`list:1:${item.id}`"
-          @click="toggleItem(1, item)"
+          @click="handleToggleItem(1, item)"
         >
           <span>{{ item.text }}</span
           >&NoBreak;<span class="rpl-primary-nav__nav-bar-icon rpl-u-margin-l-2"

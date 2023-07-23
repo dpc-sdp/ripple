@@ -13,12 +13,15 @@ interface Props {
   network: string
   title: string
   url: string
+  label?: string
 }
 
-const props = defineProps<Props>()
+const props = withDefaults(defineProps<Props>(), {
+  label: undefined
+})
 
 const emit = defineEmits<{
-  (e: 'openShareWindow', payload: rplEventPayload & { action: 'click' }): void
+  (e: 'openShareWindow', payload: rplEventPayload & { action: 'share' }): void
 }>()
 
 const { emitRplEvent } = useRippleEvent('rpl-social-share', emit)
@@ -39,8 +42,9 @@ const handleClick = () => {
   emitRplEvent(
     'openShareWindow',
     {
-      action: 'click',
+      action: 'share',
       text: props.network,
+      label: props?.label,
       value: props.url
     },
     { global: true }

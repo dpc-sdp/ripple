@@ -13,6 +13,7 @@ interface Props {
   items: Array<string>
   verticalHeader?: boolean
   offset: number
+  caption?: string
   index: number
 }
 
@@ -20,12 +21,13 @@ const props = withDefaults(defineProps<Props>(), {
   content: '',
   items: () => [],
   verticalHeader: true,
+  caption: undefined,
   offset: 1
 })
 
 const emit = defineEmits<{
   (
-    e: 'toggleRow',
+    e: 'expandRow',
     payload: rplEventPayload & { action: 'open' | 'close' }
   ): void
 }>()
@@ -46,11 +48,12 @@ const toggleLabel = computed(() => (state.enabled ? 'Less info' : 'More info'))
 
 const handleClick = () => {
   emitRplEvent(
-    'toggleRow',
+    'expandRow',
     {
       action: !state.enabled ? 'open' : 'close',
       text: toggleLabel.value,
       label: props.items[0],
+      name: props.caption,
       index: props.index + 1
     },
     { global: true }

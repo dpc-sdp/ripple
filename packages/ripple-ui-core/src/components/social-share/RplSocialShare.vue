@@ -39,6 +39,7 @@ onMounted(() => {
         :key="network.toLowerCase()"
         :network="network"
         :title="pagetitle"
+        :label="title"
         :url="state.url"
       ></RplSocialShareLink>
     </div>

@@ -44,7 +44,6 @@ const props = withDefaults(defineProps<Props>(), {
 
 const emit = defineEmits<{
   (e: 'toggleMenu', payload: rplEventPayload & { action: 'open' | 'close' })
-  (e: 'toggleNavItem', payload: rplEventPayload & { action: 'open' | 'close' })
   (e: 'toggleSearch', payload: rplEventPayload & { action: 'open' | 'close' })
 }>()
 
@@ -139,16 +138,6 @@ const toggleNavItem = (
   } else if (level == 2) {
     activeNavItems.value.level3 = undefined
   }
-
-  emitRplEvent(
-    'toggleNavItem',
-    {
-      text: item.text,
-      value: `level-${level}`,
-      action: activeNavItems.value['level' + level] ? 'open' : 'close'
-    },
-    { global: true }
-  )
 }
 
 const toggleMobileMenu = () => {

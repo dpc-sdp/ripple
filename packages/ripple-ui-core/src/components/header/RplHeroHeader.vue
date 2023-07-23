@@ -85,6 +85,7 @@ const handleClick = (event) => {
     'navigate',
     {
       ...event,
+      label: props?.title,
       type: 'hero'
     },
     { global: true }
@@ -124,7 +125,11 @@ const handleClick = (event) => {
       <slot></slot>
     </p>
     <template v-if="(primaryAction || secondaryAction) && !background" #lower>
-      <RplHeaderActions :primary="primaryAction" :secondary="secondaryAction" />
+      <RplHeaderActions
+        :primary="primaryAction"
+        :secondary="secondaryAction"
+        @item-click="handleClick"
+      />
     </template>
     <template v-if="links && !background" #aside>
       <RplHeaderLinks

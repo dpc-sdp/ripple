@@ -7,7 +7,7 @@ import {
 } from '../../composables/useRippleEvent'
 
 const emit = defineEmits<{
-  (e: 'switchTab', payload: rplEventPayload & { action: 'select' }): void
+  (e: 'toggleTab', payload: rplEventPayload & { action: 'select' }): void
 }>()
 
 const { emitRplEvent } = useRippleEvent('rpl-tabs', emit)
@@ -54,7 +54,7 @@ const updateActive = (key: string) => {
   state.active = key
 
   emitRplEvent(
-    'switchTab',
+    'toggleTab',
     {
       action: 'select',
       text: props.tabs.find((tab) => tab.key === key)?.title

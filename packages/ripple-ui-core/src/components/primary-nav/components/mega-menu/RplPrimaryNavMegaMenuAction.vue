@@ -31,7 +31,13 @@ const props = withDefaults(defineProps<Props>(), {
 
 const emit = defineEmits<{
   (e: 'navigate', payload: rplEventPayload & { action: 'click' }): void
+  (
+    e: 'toggleMenuItem',
+    payload: rplEventPayload & { action: 'open' | 'close' }
+  ): void
 }>()
+
+const { emitRplEvent } = useRippleEvent('rpl-primary-nav', emit)
 
 const action = ref(null)
 
@@ -39,8 +45,6 @@ const { setFocus, navCollapsed } = usePrimaryNavFocus(
   action,
   `list:${props.level}:${props.item.id}`
 )
-
-const { emitRplEvent } = useRippleEvent('rpl-primary-nav', emit)
 
 const clickHandler = (item: IRplPrimaryNavItem) => {
   if (props.type == 'toggle' && props.level != 4) {
@@ -54,7 +58,18 @@ const clickHandler = (item: IRplPrimaryNavItem) => {
         action: 'click',
         value: props.item.url,
         text: props.item.text,
-        type: 'nav'
+        index: props.level
+      },
+      { global: true }
+    )
+  } else {
+    emitRplEvent(
+      'toggleMenuItem',
+      {
+        action: isActive.value ? 'open' : 'close',
+        value: props.item.url,
+        text: props.item.text,
+        index: props.level
       },
       { global: true }
     )

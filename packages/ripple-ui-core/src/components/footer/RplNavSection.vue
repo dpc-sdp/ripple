@@ -23,10 +23,7 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 const emit = defineEmits<{
-  (
-    e: 'toggleNav',
-    payload: rplEventPayload & { action: 'open' | 'close' }
-  ): void
+  (e: 'expand', payload: rplEventPayload & { action: 'open' | 'close' }): void
   (e: 'navigate', payload: rplEventPayload & { action: 'click' }): void
 }>()
 
@@ -57,12 +54,12 @@ const handleToggle = () => {
   isExpanded.value = !isExpanded.value
 
   emitRplEvent(
-    'toggleNav',
+    'expand',
     {
       id: toggleProps.value.id,
       action: isExpanded.value ? 'open' : 'close',
       text: props.section.text,
-      index: props.index
+      index: props?.index + 1
     },
     { global: true }
   )
@@ -74,7 +71,7 @@ const handleClick = (event) => {
     {
       ...event,
       label: props.section.text,
-      index: props.index
+      index: props?.index + 1
     },
     { global: true }
   )

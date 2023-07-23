@@ -20,22 +20,18 @@ withDefaults(defineProps<Props>(), {
 })
 
 const emit = defineEmits<{
-  (e: 'navigate', payload: rplEventPayload & { action: 'click' }): void
+  (e: 'itemClick', payload: rplEventPayload & { action: 'click' }): void
 }>()
 
 const { emitRplEvent } = useRippleEvent('rpl-header', emit)
 
-const handleClick = (item) => {
-  emitRplEvent(
-    'navigate',
-    {
-      action: 'click',
-      text: item.text,
-      value: item.url,
-      type: 'hero'
-    },
-    { global: true }
-  )
+const handleClick = (item, type: string) => {
+  emitRplEvent('itemClick', {
+    action: 'click',
+    text: item.text,
+    value: item.url,
+    elementType: type
+  })
 }
 </script>
 
@@ -46,7 +42,7 @@ const handleClick = (item) => {
       :url="primary.url"
       class="rpl-header-actions__primary"
       el="a"
-      @click="() => handleClick(primary)"
+      @click="() => handleClick(primary, 'button')"
     >
       {{ primary.text }}
     </RplButton>
@@ -61,7 +57,7 @@ const handleClick = (item) => {
         v-if="secondary"
         :url="secondary.url"
         class="rpl-header-actions__secondary-link rpl-header__icon-link"
-        @click="() => handleClick(secondary)"
+        @click="() => handleClick(secondary, 'link')"
       >
         <span>{{ secondary.text }}</span
         ><RplIcon name="icon-arrow-right" size="xs" />

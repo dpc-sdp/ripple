@@ -152,6 +152,7 @@ const handleClick = (link) => {
             v-for="(navSection, i) in nav"
             :id="`rpl-footer-nav-${i}`"
             :key="i"
+            :index="i"
             :section="navSection"
           />
         </template>
@@ -173,6 +174,7 @@ const handleClick = (link) => {
               v-for="(navSection, i) in col"
               :id="`rpl-footer-nav-${colIndex}${i}`"
               :key="i"
+              :index="colIndex"
               :section="navSection"
               :is-expandable="isExpandable"
             />

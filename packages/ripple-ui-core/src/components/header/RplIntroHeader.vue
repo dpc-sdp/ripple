@@ -16,7 +16,7 @@ interface Props {
   iconName?: (typeof RplIconNames)[number]
 }
 
-withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<Props>(), {
   content: undefined,
   links: undefined,
   iconName: undefined
@@ -33,6 +33,7 @@ const handleClick = (event) => {
     'navigate',
     {
       ...event,
+      label: props?.title,
       type: 'intro'
     },
     { global: true }

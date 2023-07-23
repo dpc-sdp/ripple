@@ -34,14 +34,14 @@ const handleClick = (item) => {
     action: 'click',
     value: item.url,
     text: item.text,
-    label: props?.title
+    elementType: props.type
   })
 }
 
 const handleListClick = (event) => {
   emitRplEvent('itemClick', {
     ...event,
-    label: props?.title
+    elementType: props.type
   })
 }
 </script>

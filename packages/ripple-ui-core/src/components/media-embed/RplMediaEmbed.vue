@@ -139,7 +139,8 @@ const toggleFullscreen = (event) => {
     {
       action: isFullScreenOpen.value ? 'enter' : 'exit',
       text: event?.label || fullscreenContentLabel.value,
-      label: props.title
+      label: props.title,
+      type: props.type
     },
     { global: true }
   )
@@ -153,7 +154,8 @@ const toggleData = () => {
     {
       action: isDataContentOpen.value ? 'open' : 'close',
       text: dataContentLabel.value,
-      label: props.title
+      label: props.title,
+      type: props.type
     },
     { global: true }
   )
@@ -165,7 +167,8 @@ const handleTranscript = () => {
     {
       action: 'click',
       text: transcriptContentLabel.value,
-      label: props.title
+      label: props.title,
+      type: props.type
     },
     { global: true }
   )
@@ -178,7 +181,8 @@ const handleDownload = () => {
       action: 'download',
       text: downloadContentLabel.value,
       label: props.title,
-      value: props?.downloadUrl
+      value: props?.downloadUrl,
+      type: props.type
     },
     { global: true }
   )

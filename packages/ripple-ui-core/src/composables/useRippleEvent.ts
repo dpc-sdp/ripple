@@ -8,6 +8,8 @@ export type rplEventPayload = {
   label?: string
   value?: any
   index?: number
+  type?: string
+  elementType?: string
   contextId?: string
   contextName?: string
   [key: string]: unknown

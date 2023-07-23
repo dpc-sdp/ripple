@@ -74,6 +74,7 @@ const handleSubmit = () => {
     'search',
     {
       action: 'submit',
+      id: props.id,
       text: props.inputLabel,
       value: internalValue.value
     },

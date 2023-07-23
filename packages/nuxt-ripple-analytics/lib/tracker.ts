@@ -29,11 +29,19 @@ export interface IRplAnalyticsEventPayload {
   production?: boolean
 }
 
+const filterPayload = (payload: IRplAnalyticsEventPayload) =>
+  Object.fromEntries(
+    Object.entries(payload).filter(
+      ([key, value]) => value !== null && value !== undefined && value !== ''
+    )
+  )
+
 export const trackEvent = (payload: IRplAnalyticsEventPayload) => {
   if (!window) {
     throw new Error('dataLayer events are only callable in a browser context')
   } else if (!window.dataLayer) {
     throw new Error('dataLayer was not initialised correctly')
   }
-  window.dataLayer.push(payload)
+
+  window.dataLayer.push(filterPayload(payload))
 }

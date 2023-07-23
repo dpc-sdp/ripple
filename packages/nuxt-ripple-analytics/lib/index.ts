@@ -33,6 +33,7 @@ export default {
         element_id: payload?.id,
         element_text: payload?.text,
         label: payload?.label,
+        name: payload?.name,
         component: 'rpl-alert',
         platform_event: 'dismiss'
       })
@@ -46,6 +47,7 @@ export default {
         element_text: payload?.text,
         link_url: payload?.value,
         index: payload?.index,
+        name: payload?.name,
         component: 'rpl-breadcrumbs',
         platform_event: 'navigate'
       })
@@ -60,6 +62,7 @@ export default {
         label: payload?.label,
         link_url: payload?.value,
         type: payload?.type,
+        name: payload?.name,
         component: 'rpl-campaign-banner',
         platform_event: 'navigate'
       })
@@ -107,27 +110,32 @@ export default {
   },
   'rpl-contact-us/itemClick': () => {
     return (payload: any) => {
+      const { host } = new URL(payload?.value)
+
       trackEvent({
         event: `${payload.action}_${payload?.type || 'link'}`,
         element_id: payload?.id,
         element_text: payload?.text,
         label: payload?.label,
+        name: payload?.name,
         link_url: payload?.value,
+        link_domain: host,
         component: 'rpl-contact-us',
         platform_event: 'itemClick'
       })
     }
   },
-  'rpl-data-table/toggleRow': () => {
+  'rpl-data-table/expandRow': () => {
     return (payload: any) => {
       trackEvent({
         event: `${payload.action}_table_row`,
         element_id: payload?.id,
         element_text: payload?.text,
         label: payload?.label,
+        name: payload?.name,
         index: payload?.index,
         component: 'rpl-data-table',
-        platform_event: 'toggleRow'
+        platform_event: 'expandRow'
       })
     }
   },
@@ -135,8 +143,10 @@ export default {
     return (payload: any) => {
       trackEvent({
         event: `document_${payload.action}`,
+        element_id: payload?.id,
         element_text: payload?.text,
         link_url: payload?.value,
+        name: payload?.name,
         component: 'rpl-document',
         platform_event: 'download'
       })
@@ -144,30 +154,33 @@ export default {
   },
   'rpl-file/download': () => {
     return (payload: any) => {
-      const url = new URL(payload?.value)
+      const { host, pathname } = new URL(payload?.value)
 
       trackEvent({
         event: `file_${payload.action}`,
         element_id: payload?.id,
         element_text: payload?.text,
-        file_name: url.pathname.split('/').pop(),
+        file_name: pathname.split('/').pop(),
         file_extension: payload?.type,
         file_size: payload?.size,
         link_url: payload?.value,
-        link_domain: url?.host,
+        link_domain: host,
+        name: payload?.name,
         component: 'rpl-file',
         platform_event: 'download'
       })
     }
   },
-  'rpl-footer/toggleNav': () => {
+  'rpl-footer/expand': () => {
     return (payload: any) => {
       trackEvent({
         event: `${payload.action}_footer_nav`,
         element_id: payload?.id,
         element_text: payload?.text,
+        index: payload?.index,
+        name: payload?.name,
         component: 'rpl-footer',
-        platform_event: 'toggleNav'
+        platform_event: 'expand'
       })
     }
   },
@@ -178,7 +191,9 @@ export default {
         element_id: payload?.id,
         element_text: payload?.text,
         label: payload?.label,
+        index: payload?.index,
         link_url: payload?.value,
+        name: payload?.name,
         component: 'rpl-footer',
         platform_event: 'navigate'
       })
@@ -187,12 +202,13 @@ export default {
   'rpl-header/navigate': () => {
     return (payload: any) => {
       trackEvent({
-        event: `${payload.action}_header`,
+        event: `${payload.action}_header_${payload?.elementType || 'link'}`,
         element_id: payload?.id,
         element_text: payload?.text,
         label: payload?.label,
         link_url: payload?.value,
         type: payload?.type,
+        name: payload?.name,
         component: 'rpl-header',
         platform_event: 'navigate'
       })
@@ -206,6 +222,7 @@ export default {
         element_text: payload?.text,
         label: payload?.label,
         link_url: payload?.value,
+        name: payload?.name,
         component: 'rpl-in-page-navigation',
         platform_event: 'navigate'
       })
@@ -218,6 +235,8 @@ export default {
         element_id: payload?.id,
         element_text: payload?.text,
         label: payload?.label,
+        type: payload?.type,
+        name: payload?.name,
         component: 'rpl-media-embed',
         platform_event: 'viewTranscript'
       })
@@ -230,6 +249,8 @@ export default {
         element_id: payload?.id,
         element_text: payload?.text,
         label: payload?.label,
+        type: payload?.type,
+        name: payload?.name,
         component: 'rpl-media-embed',
         platform_event: 'viewFullscreen'
       })
@@ -242,6 +263,8 @@ export default {
         element_id: payload?.id,
         element_text: payload?.text,
         label: payload?.label,
+        type: payload?.type,
+        name: payload?.name,
         component: 'rpl-media-embed',
         platform_event: 'viewData'
       })
@@ -249,12 +272,20 @@ export default {
   },
   'rpl-media-embed/downloadImage': () => {
     return (payload: any) => {
+      const { pathname, host } = new URL(payload?.value)
+      const fileName = pathname.split('/').pop()
+
       trackEvent({
         event: `file_${payload.action}`,
         element_id: payload?.id,
         element_text: payload?.text,
         label: payload?.label,
         link_url: payload?.value,
+        link_domain: host,
+        file_name: fileName,
+        file_extension: fileName.split('.').pop(),
+        type: payload?.type,
+        name: payload?.name,
         component: 'rpl-media-embed',
         platform_event: 'downloadImage'
       })
@@ -263,9 +294,10 @@ export default {
   'rpl-media-gallery/paginate': () => {
     return (payload: any) => {
       trackEvent({
-        event: `${payload.action}_item`,
+        event: `paginate_${payload.action}`,
         element_id: payload?.id,
         index: payload?.index,
+        label: payload?.label,
         name: payload?.name,
         component: 'rpl-media-gallery',
         platform_event: 'paginate'
@@ -289,10 +321,11 @@ export default {
   'rpl-page-links/paginate': () => {
     return (payload: any) => {
       trackEvent({
-        event: `${payload.action}_page_link`,
+        event: `paginate_${payload.action}`,
         element_id: payload?.id,
         element_text: payload?.text,
         link_url: payload?.value,
+        name: payload?.name,
         component: 'rpl-page-links',
         platform_event: 'paginate'
       })
@@ -305,6 +338,7 @@ export default {
         element_id: payload?.id,
         element_text: payload?.text,
         link_url: payload?.value,
+        name: payload?.name,
         component: 'rpl-primary-nav',
         platform_event: 'quickExit'
       })
@@ -313,21 +347,51 @@ export default {
   'rpl-primary-nav/toggleMenu': () => {
     return (payload: any) => {
       trackEvent({
-        event: `${payload.action}_primary_menu`,
+        event: `${payload.action}_menu`,
         element_id: payload?.id,
+        name: payload?.name,
         component: 'rpl-primary-nav',
         platform_event: 'toggleMenu'
       })
     }
   },
-  'rpl-primary-nav/toggleNavItem': () => {
+  'rpl-primary-nav/toggleMenuItem': () => {
     return (payload: any) => {
       trackEvent({
-        event: `${payload.action}_nav_item`,
+        event: `${payload.action}_menu_item`,
+        element_id: payload?.id,
         element_text: payload?.text,
-        value: payload?.value,
+        index: payload?.index,
+        name: payload?.name,
         component: 'rpl-primary-nav',
-        platform_event: 'toggleNavItem'
+        platform_event: 'toggleMenuItem'
+      })
+    }
+  },
+  'rpl-primary-nav/clickBackButton': () => {
+    return (payload: any) => {
+      trackEvent({
+        event: `${payload.action}_menu_back`,
+        element_id: payload?.id,
+        element_text: payload?.text,
+        index: payload?.index,
+        name: payload?.name,
+        component: 'rpl-primary-nav',
+        platform_event: 'clickBackButton'
+      })
+    }
+  },
+  'rpl-primary-nav/navigate': () => {
+    return (payload: any) => {
+      trackEvent({
+        event: `${payload.action}_menu_item`,
+        element_id: payload?.id,
+        element_text: payload?.text,
+        index: payload?.index,
+        link_url: payload?.value,
+        name: payload?.name,
+        component: 'rpl-primary-nav',
+        platform_event: 'navigate'
       })
     }
   },
@@ -336,6 +400,7 @@ export default {
       trackEvent({
         event: `${payload.action}_search`,
         element_id: payload?.id,
+        name: payload?.name,
         component: 'rpl-primary-nav',
         platform_event: 'toggleSearch'
       })
@@ -344,12 +409,26 @@ export default {
   'rpl-related-links/navigate': () => {
     return (payload: any) => {
       trackEvent({
-        event: `${payload.action}_link`,
+        event: `${payload.action}_related_link`,
         element_id: payload?.id,
         element_text: payload?.text,
         name: payload?.name,
         link_url: payload?.value,
         component: 'rpl-related-links',
+        platform_event: 'navigate'
+      })
+    }
+  },
+  'rpl-search-result/navigate': () => {
+    return (payload: any) => {
+      trackEvent({
+        event: `${payload.action}_link`,
+        element_id: payload?.id,
+        element_text: payload?.text,
+        label: payload?.label,
+        name: payload?.name,
+        link_url: payload?.value,
+        component: 'rpl-search-result',
         platform_event: 'navigate'
       })
     }
@@ -361,6 +440,7 @@ export default {
         element_id: payload?.id,
         element_text: payload?.text,
         value: payload?.value,
+        name: payload?.name,
         component: 'rpl-search-bar',
         platform_event: 'search'
       })
@@ -369,30 +449,33 @@ export default {
   'rpl-social-share/openShareWindow': () => {
     return (payload: any) => {
       trackEvent({
-        event: `${payload.action}_link`,
+        event: `${payload.action}_social`,
         element_id: payload?.id,
         element_text: payload?.text,
+        label: payload?.label,
         link_url: payload?.value,
+        name: payload?.text?.toLowerCase(),
         component: 'rpl-social-share',
         platform_event: 'openShareWindow'
       })
     }
   },
-  'rpl-tabs/switchTab': () => {
+  'rpl-tabs/toggleTab': () => {
     return (payload: any) => {
       trackEvent({
         event: `${payload.action}_tab`,
         element_id: payload?.id,
         element_text: payload?.text,
+        name: payload?.name,
         component: 'rpl-tabs',
-        platform_event: 'switchTab'
+        platform_event: 'toggleTab'
       })
     }
   },
   'rpl-timeline/navigate': () => {
     return (payload: any) => {
       trackEvent({
-        event: `${payload.action}_entry`,
+        event: `${payload.action}_timeline_item`,
         element_id: payload?.id,
         element_text: payload?.text,
         name: payload?.name,
@@ -420,6 +503,7 @@ export default {
         event: `${payload.action}_menu_item`,
         element_id: payload?.id,
         element_text: payload?.text,
+        name: payload?.name,
         component: 'rpl-vertical-nav',
         platform_event: 'navigate'
       })
@@ -435,6 +519,18 @@ export default {
         element_text: payload?.text,
         component: 'rpl-form',
         platform_event: 'submit'
+      })
+    }
+  },
+  'rpl-form-actions/reset': () => {
+    return (payload: any) => {
+      trackEvent({
+        event: `${payload.action}_reset_form`,
+        form_id: payload?.contextId,
+        form_name: payload?.contextName,
+        element_text: payload?.text,
+        component: 'rpl-form-actions',
+        platform_event: 'resetForm'
       })
     }
   },

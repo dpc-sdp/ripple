@@ -88,10 +88,23 @@ export default {
       trackEvent({
         event: `paginate_${payload.action}`,
         element_id: payload?.id,
+        element_text: payload?.text,
         name: payload?.name,
         index: payload?.index,
         component: 'rpl-card-carousel',
         platform_event: 'paginate'
+      })
+    }
+  },
+  'rpl-card-carousel/swipe': () => {
+    return (payload: any) => {
+      trackEvent({
+        event: `swipe_${payload.action}`,
+        element_id: payload?.id,
+        name: payload?.name,
+        index: payload?.index,
+        component: 'rpl-card-carousel',
+        platform_event: 'swipe'
       })
     }
   },
@@ -296,11 +309,25 @@ export default {
       trackEvent({
         event: `paginate_${payload.action}`,
         element_id: payload?.id,
+        element_text: payload?.text,
         index: payload?.index,
         label: payload?.label,
         name: payload?.name,
         component: 'rpl-media-gallery',
         platform_event: 'paginate'
+      })
+    }
+  },
+  'rpl-media-gallery/swipe': () => {
+    return (payload: any) => {
+      trackEvent({
+        event: `swipe_${payload.action}`,
+        element_id: payload?.id,
+        index: payload?.index,
+        label: payload?.label,
+        name: payload?.name,
+        component: 'rpl-media-gallery',
+        platform_event: 'swipe'
       })
     }
   },

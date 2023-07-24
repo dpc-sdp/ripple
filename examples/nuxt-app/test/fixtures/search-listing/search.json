@@ -1,0 +1,53 @@
+{
+  "title": "Search",
+  "changed": "2022-11-02T12:47:29+11:00",
+  "created": "2022-11-02T12:47:29+11:00",
+  "type": "tide_search_listing",
+  "nid": "11dede11-10c0-111e1-1100-000000000330",
+  "showTopicTags": true,
+  "summary": "",
+  "searchConfig": {
+    "globalFilters": [
+      { "field": "type", "values": ["landing_page", "grant", "event", "news"] },
+      { "field": "field_node_site", "values": [4] }
+    ],
+    "searchFields": {
+      "title": {
+        "weight": 10
+      },
+      "field_landing_page_summary": {},
+      "summary_processed": {}
+    },
+    "filterInputs": [
+      {
+        "id": "topic",
+        "component": "TideSearchFilterDropdown",
+        "facets": {
+          "field_topic_name": {
+            "type": "value",
+            "size": 30
+          }
+        },
+        "filterType": "any",
+        "filterUpdateHook": ["singleFieldSelect", "field_topic_name", "any"],
+        "props": {
+          "label": "Select a topic",
+          "field": "field_topic_name",
+          "placeholder": "Select",
+          "type": "RplFormDropdown",
+          "multiple": true
+        }
+      }
+    ],
+    "pageConfig": {
+      "resultsLayout": "TideSearchList",
+      "resultsPerPage": 9,
+      "hideFilters": false
+    },
+    "resultsConfig": {
+      "*": {
+        "component": "TideSearchResult"
+      }
+    }
+  }
+}

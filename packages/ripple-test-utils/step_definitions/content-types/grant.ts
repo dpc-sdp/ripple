@@ -1,4 +1,4 @@
-import { Then } from '@badeball/cypress-cucumber-preprocessor'
+import { Then, DataTable } from '@badeball/cypress-cucumber-preprocessor'
 
 Then(
   'the overview should display a status of {string} with a {string} {string} icon',
@@ -46,5 +46,27 @@ Then(
     cy.get('.tide-grant__documents .rpl-document:first-of-type').as('document')
     cy.get('@document').find('.rpl-document__name').should('have.text', title)
     cy.get('@document').find('.rpl-file__meta').should('include.text', size)
+  }
+)
+
+Then(
+  'the grant search listing results should have following items:',
+  (dataTable: DataTable) => {
+    const table = dataTable.hashes()
+
+    table.forEach((row, i: number) => {
+      cy.get('.rpl-result-listing-item')
+        .eq(i)
+        .then((item) => {
+          cy.wrap(item).as('item')
+          cy.get('@item').should('contain', row.title)
+          cy.get('@item').find('a').should('have.attr', 'href', row.url)
+          cy.get('@item').find('.rpl-search-result__details').as('meta')
+          cy.get('@meta').should('contain', row.audience)
+          cy.get('@meta').should('contain', row.amount)
+          cy.get('@meta').should('contain', row.status)
+          cy.get('@item').should('contain', row.content)
+        })
+    })
   }
 )

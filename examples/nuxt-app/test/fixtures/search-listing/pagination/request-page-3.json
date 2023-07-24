@@ -1,0 +1,11 @@
+{
+  "query": {
+    "bool": {
+      "must": [{ "match_all": {} }],
+      "filter": [{ "terms": { "field_node_site": [8888] } }]
+    }
+  },
+  "size": 4,
+  "from": 8,
+  "sort": [{ "_score": "desc" }, { "_doc": "desc" }]
+}

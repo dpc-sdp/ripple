@@ -12,7 +12,7 @@ interface Props {
   footer?: string
   columns: Array<string>
   headingType?: HeadingType
-  items: Array<Array<string>>
+  items: Array<Record<string, unknown>[] | string[]>
   offset: number
 }
 
@@ -64,7 +64,18 @@ const mappedItems = computed(() => {
         <thead>
           <tr>
             <th v-for="(item, index) in columns" :key="index">
-              {{ item }}
+              <template
+                v-if="
+                  item &&
+                  typeof item === 'object' &&
+                  item.hasOwnProperty('label')
+                "
+              >
+                {{ item.label }}
+              </template>
+              <template v-else>
+                {{ item }}
+              </template>
             </th>
             <th
               v-if="mappedItems.hidden.length"

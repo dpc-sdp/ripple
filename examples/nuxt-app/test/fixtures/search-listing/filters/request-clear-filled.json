@@ -1,0 +1,84 @@
+{
+  "query": {
+    "bool": {
+      "must": {
+        "multi_match": {
+          "query": "test123",
+          "fields": [
+            "title^3",
+            "field_landing_page_summary^2",
+            "body",
+            "field_paragraph_body",
+            "summary_processed"
+          ]
+        }
+      },
+      "filter": [
+        {
+          "terms": {
+            "type": ["grant"]
+          }
+        },
+        {
+          "terms": {
+            "field_node_site": [8888]
+          }
+        },
+        {
+          "providedFilterConfig": {
+            "id": "functionFilter",
+            "component": "TideSearchFilterDropdown",
+            "filter": {
+              "type": "function",
+              "value": "dummyFunctionFilter"
+            },
+            "props": {
+              "id": "functionFilter",
+              "label": "Custom function filter example",
+              "placeholder": "Select a status",
+              "multiple": true,
+              "options": [
+                {
+                  "id": "open",
+                  "label": "Open",
+                  "value": "open"
+                },
+                {
+                  "id": "closed",
+                  "label": "Closed",
+                  "value": "closed"
+                }
+              ]
+            }
+          },
+          "providedValues": ["open"]
+        },
+        {
+          "terms": {
+            "termsFilter.keyword": ["Purple"]
+          }
+        },
+        {
+          "terms": {
+            "termFilter.keyword": ["Green"]
+          }
+        },
+        {
+          "ids": {
+            "values": ["Birds"]
+          }
+        }
+      ]
+    }
+  },
+  "size": 10,
+  "from": 10,
+  "sort": [
+    {
+      "_score": "desc"
+    },
+    {
+      "_doc": "desc"
+    }
+  ]
+}

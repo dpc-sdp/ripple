@@ -1,0 +1,23 @@
+{
+  "query": {
+    "bool": {
+      "must": [{ "match_all": {} }],
+      "filter": [
+        { "terms": { "type": ["grant"] } },
+        { "terms": { "field_node_site": [8888] } }
+      ]
+    }
+  },
+  "size": 10,
+  "from": 0,
+  "sort": [{ "_score": "desc" }, { "_doc": "desc" }],
+  "aggs": {
+    "audience": {
+      "terms": {
+        "field": "field_audience_name.keyword",
+        "order": { "_key": "asc" },
+        "size": 30
+      }
+    }
+  }
+}

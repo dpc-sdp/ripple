@@ -47,7 +47,7 @@
 </template>
 
 <script setup lang="ts">
-import { formatDate, useTideSearch, useRuntimeConfig } from '#imports'
+import { formatDate, useSearchUI, useRuntimeConfig } from '#imports'
 import { computed, inject } from 'vue'
 import {
   IContentCollectionDisplay,
@@ -149,7 +149,7 @@ const searchDriverOptions = {
   }
 }
 
-const { results, searchState } = await useTideSearch(
+const { results, searchState } = await useSearchUI(
   apiConnectorOptions,
   searchDriverOptions,
   [],

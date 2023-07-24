@@ -221,3 +221,19 @@ declare module 'nitropack' {
     }
   }
 }
+
+// Mapping util interfaces
+export function getAddress(address: any): string
+export function formatPriceRange(price: TidePropRange): string
+export function getBodyFromField(field: string, path: string | string[]): string
+export function getField(
+  field: string,
+  path: string | string[],
+  fallback?: any
+): any
+export function getImageFromField(
+  field: string,
+  path: string | string[]
+): string
+export function getLinkFromField(field: any, path: string | string[]): any
+export function humanizeFilesize(fileSize: number): string

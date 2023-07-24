@@ -1,34 +1,33 @@
-import themes from "../themes.js";
-import {provide} from 'vue'
+import themes from '../themes.js'
+import { shallowReactive, h, provide } from 'vue'
 
 // Function to obtain the intended theme
 const getTheme = (themeName) => {
-  return Object.entries(themes[themeName]?.tokens || {}).reduce((result, [key, value]) => {
-    return {
-      ...result,
-      [`--${key}`]: value
-    }
-  }, {})
+  return Object.entries(themes[themeName]?.tokens || {}).reduce(
+    (result, [key, value]) => {
+      return {
+        ...result,
+        [`--${key}`]: value
+      }
+    },
+    {}
+  )
 }
 
-const withTheme=(story, context)=>{
+const settings = shallowReactive({ style: '' })
+const buttonSettings = shallowReactive({ buttonTheme: 'default' })
+
+const withTheme = (storyFn, context) => {
+  settings.style = getTheme(context.globals.theme)
+  buttonSettings.buttonTheme = context.globals.buttonTheme || 'default'
+  const story = storyFn()
 
   return {
     components: { story },
     setup() {
-      const theme = getTheme(context.globals.theme);
-      const buttonTheme = context.globals.buttonTheme || 'default';
-
-      provide('featureFlags', {
-        buttonTheme
-      })
-
-      return { theme }
+      provide('featureFlags', buttonSettings)
     },
-    template:
-      `<div :style="theme">
-        <story/>
-      </div>`
+    render: () => h('div', settings, h(story))
   }
 }
 

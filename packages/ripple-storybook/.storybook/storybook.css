@@ -4,6 +4,10 @@ body {
   background: var(--storybook-bg-color, transparent);
 }
 
+#rpl-icon-sprite {
+  display: none;
+}
+
 .sb-main-padded {
   padding: var(--rpl-sp-5) !important;
 }

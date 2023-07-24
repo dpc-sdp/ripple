@@ -2,11 +2,14 @@
 import { computed, inject } from 'vue'
 import { ITideHeroHeader } from '../../../mapping/hero-header/hero-header-mapping'
 import type { IRplFeatureFlags } from '@dpc-sdp/ripple-tide-api/types'
+import { TideImageField } from '@dpc-sdp/nuxt-ripple/types'
 
 const props = defineProps<{
   header: ITideHeroHeader
   hideBottomCornerGraphic: boolean
   hasBreadcrumbs: boolean
+  cornerTop?: TideImageField
+  cornerBottom?: TideImageField
 }>()
 
 const cornerTop = computed(() => {
@@ -14,7 +17,7 @@ const cornerTop = computed(() => {
     return false
   }
 
-  return props.header.cornerTopImage?.src || true
+  return props.header.cornerTopImage?.src || props.cornerTop?.src || true
 })
 
 const cornerBottom = computed(() => {
@@ -22,7 +25,7 @@ const cornerBottom = computed(() => {
     return false
   }
 
-  return props.header.cornerBottomImage?.src || true
+  return props.header.cornerBottomImage?.src || props.cornerBottom?.src || true
 })
 
 const secondaryAction = computed(() => {

@@ -27,6 +27,8 @@
         :header="page.heroHeader"
         :hasBreadcrumbs="hasBreadcrumbs"
         :hideBottomCornerGraphic="!!page.primaryCampaign"
+        :cornerTop="site?.cornerGraphic?.top"
+        :cornerBottom="site?.cornerGraphic?.bottom"
       />
       <TideLandingPageHeroAcknowledgement
         v-if="page.showHeroAcknowledgement"

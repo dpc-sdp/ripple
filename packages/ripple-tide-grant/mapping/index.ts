@@ -65,36 +65,38 @@ const tideGrantModule: IRplTideModuleMapping = {
     },
     timeline: {
       title: 'field_node_timeline.field_paragraph_title',
-      list: (src: string) =>
-        getField(src, 'field_node_timeline.field_timeline').map(
-          (timeline: any) => ({
-            title: getField(timeline, 'field_paragraph_title'),
-            subtitle: getField(timeline, 'field_paragraph_cta_text'),
-            url:
-              timeline.field_paragraph_link?.origin_url ||
-              timeline.field_paragraph_link?.uri,
-            image: getImageFromField(
-              timeline,
-              'field_paragraph_media.field_media_image'
-            ),
-            dateStart: getField(
-              timeline,
-              'field_paragraph_date_range.value',
-              null
-            ),
-            dateEnd: getField(
-              timeline,
-              'field_paragraph_date_range.end_value',
-              null
-            ),
-            description: getField(timeline, 'field_paragraph_summary')
-          })
-        )
+      list: (src: any) =>
+        src.field_node_timeline?.field_timeline
+          ? getField(src, 'field_node_timeline.field_timeline').map(
+              (timeline: any) => ({
+                title: getField(timeline, 'field_paragraph_title'),
+                subtitle: getField(timeline, 'field_paragraph_cta_text'),
+                url:
+                  timeline.field_paragraph_link?.origin_url ||
+                  timeline.field_paragraph_link?.uri,
+                image: getImageFromField(
+                  timeline,
+                  'field_paragraph_media.field_media_image'
+                ),
+                dateStart: getField(
+                  timeline,
+                  'field_paragraph_date_range.value',
+                  null
+                ),
+                dateEnd: getField(
+                  timeline,
+                  'field_paragraph_date_range.end_value',
+                  null
+                ),
+                description: getField(timeline, 'field_paragraph_summary')
+              })
+            )
+          : []
     },
     guidelines: {
       title: 'field_node_guidelines.field_paragraph_title',
       id: 'field_node_guidelines.id',
-      accordions: (src: string) =>
+      accordions: (src: any) =>
         getField(
           src,
           'field_node_guidelines.field_paragraph_accordion',

@@ -4,14 +4,14 @@ to: package.json
 {
   "name": "<%= h.changeCase.kebabCase(name) %>",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "main": "./nuxt.config.ts",
   "scripts": {
     "dev": "nuxi prepare & nuxi dev .playground",
     "build": "nuxi build .playground",
     "preview": "nuxi preview .playground",
     "lint": "eslint .",
-    "test": "jest --colors --runInBand"
+    "test": "jest --colors --runInBand --passWithNoTests"
   },
   "devDependencies": {
     "@babel/plugin-transform-runtime": "^7.22.4",
@@ -36,5 +36,9 @@ to: package.json
     "nuxt": "3.5.2",
     "ts-jest": "^29.1.0",
     "typescript": "^4.9.3"
+  },
+  "engines": {
+    "node": "^16.17.0 || ^18.12.1",
+    "npm": "^9.5.1"
   }
 }

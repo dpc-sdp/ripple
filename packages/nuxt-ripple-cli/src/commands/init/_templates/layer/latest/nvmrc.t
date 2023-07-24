@@ -1,4 +1,4 @@
 ---
 to: .nvmrc
 ---
-lts/gallium
+lts/hydrogen

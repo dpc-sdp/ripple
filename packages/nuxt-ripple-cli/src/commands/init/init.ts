@@ -1,9 +1,11 @@
 import path from 'node:path'
 import { runner, Logger } from 'hygen'
 import enquirer from 'enquirer'
-export default function init(template = 'site', projectFolder) {
+import objectToArgv from 'object-to-argv'
+
+export default function init(template = 'site', projectFolder, options = {}) {
   const defaultTemplates = path.join(__dirname, '_templates')
-  runner([template, 'latest', ...process.argv.slice(5)], {
+  runner([template, 'latest', ...objectToArgv(options)], {
     templates: defaultTemplates,
     /* @ts-ignore */
     createPrompter: () => enquirer,

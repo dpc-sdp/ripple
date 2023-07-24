@@ -235,11 +235,11 @@ jobs:
             corepack enable
             corepack prepare pnpm@8.6.2 --activate
       - run:
-          name: Publish alpha prerelease to NPM
+          name: Publish canary prerelease to @next tag on NPM
           command: |
             npm config set access public
             npm set //registry.npmjs.org/:_authToken=$NPM_TOKEN
-            pnpm release:publish-pre --yes
+            pnpm release:publish-next --yes
   publish:
     <<: *defaults
     steps:

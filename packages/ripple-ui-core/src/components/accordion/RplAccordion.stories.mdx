@@ -4,21 +4,16 @@ import {
   Story,
   ArgsTable
 } from '@storybook/addon-docs'
-import { within } from '@storybook/testing-library';
-import { eventCheck, a11yCheck, a11yStoryCheck } from './../../../stories/interactions.js'
+import { a11yStoryCheck } from './../../../stories/interactions.js'
 import RplAccordion from './RplAccordion.vue'
-import { default as RplAccordionItems } from './fixtures/default.js'
-const playFunction = async ({ canvasElement }) => {
-  const canvas = await within(canvasElement)
-  a11yCheck(canvasElement)
-}
+import SAMPLE from './fixtures/default.js'
 
 export const Template = (args) => ({
   components: { RplAccordion },
   setup() {
     return {
       args,
-      RplAccordionItems
+      SAMPLE
     }
   },
   template: `
@@ -40,10 +35,10 @@ export const Template = (args) => ({
 <Canvas>
   <Story
     name='Accordion'
-    play={playFunction}
+    play={a11yStoryCheck}
     args={{
       id: 'example',
-      items: RplAccordionItems,
+      items: SAMPLE,
       numbered: false
     }}
   >

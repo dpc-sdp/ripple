@@ -14,10 +14,10 @@
 </template>
 
 <script setup lang="ts">
-import type { TideSearchListingResult } from './../../types'
+import type { TideSearchListingResultItem } from './../../types'
 
 interface Props {
-  results: TideSearchListingResult[]
+  results: TideSearchListingResultItem[]
 }
 
 defineProps<Props>()

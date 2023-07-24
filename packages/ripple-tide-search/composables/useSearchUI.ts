@@ -4,10 +4,7 @@ import AppSearchAPIConnector from '@elastic/search-ui-app-search-connector'
 import ElasticsearchAPIConnector from '@elastic/search-ui-elasticsearch-connector'
 
 import { ref, computed } from 'vue'
-import {
-  AppSearchFilterConfigItem,
-  MappedSearchResult
-} from 'ripple-tide-search/types'
+import { AppSearchFilterConfigItem, MappedSearchResult } from '../types'
 
 const getSearchDriver = (
   apiConnectorOptions,

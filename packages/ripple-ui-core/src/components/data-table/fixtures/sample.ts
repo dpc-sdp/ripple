@@ -1,5 +1,3 @@
-import { ref, defineAsyncComponent } from 'vue'
-
 export const RplDataTableColumns = [
   'Column 1',
   'Column 2',

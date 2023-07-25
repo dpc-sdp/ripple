@@ -1,6 +1,6 @@
 import { expect, describe, it, beforeEach } from '@jest/globals'
 
-import { formatPriceRange } from './formatPriceRange.js'
+import formatPriceRange from './formatPriceRange.js'
 
 interface Args {
   from: number | string

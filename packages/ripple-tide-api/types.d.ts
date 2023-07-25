@@ -25,6 +25,10 @@ export interface TideSiteData {
     altText: string
   }
   showQuickExit: boolean
+  cornerGraphic?: {
+    top?: TideImageField
+    bottom?: TideImageField
+  }
   acknowledgementHeader?: string
   acknowledgementFooter: string
   copyrightHtml: string

@@ -2,13 +2,13 @@ import {
   getAddress,
   getField,
   getBodyFromField,
-  getLinkFromField,
-  formatPriceRange
+  getLinkFromField
 } from '@dpc-sdp/ripple-tide-api'
 import {
   tidePageBaseMapping,
   tidePageBaseIncludes
 } from '@dpc-sdp/nuxt-ripple/mapping'
+import { formatPriceRange } from '@dpc-sdp/nuxt-ripple/utils'
 import type { IRplTideModuleMapping } from '@dpc-sdp/ripple-tide-api/types'
 
 const tideEventModule: IRplTideModuleMapping = {
@@ -40,10 +40,10 @@ const tideEventModule: IRplTideModuleMapping = {
       getField(src, 'field_event_details').map((node: any) => [
         {
           term: 'Price:',
-          description: formatPriceRange({
-            from: node.field_paragraph_event_price_from,
-            to: node.field_paragraph_event_price_to
-          })
+          description: formatPriceRange(
+            node.field_paragraph_event_price_from,
+            node.field_paragraph_event_price_to
+          )
         },
         {
           term: 'Location:',

@@ -3,7 +3,6 @@ import {
   computed,
   getSearchResultValue,
   formatGrantAudiences,
-  getGrantStatus,
   formatPriceRange
 } from '#imports'
 
@@ -14,7 +13,9 @@ interface Props {
 const props = defineProps<Props>()
 
 const title = computed(() => getSearchResultValue(props.result, 'title'))
-const url = computed(() => getSearchResultValue(props.result, 'url'))
+const url = computed(() =>
+  getSearchResultValue(props.result, 'url').replace(/\/site-(\d+)/, '')
+)
 const updated = computed(() => getSearchResultValue(props.result, 'changed'))
 const content = computed(() =>
   getSearchResultValue(props.result, 'field_landing_page_summary')
@@ -36,38 +37,14 @@ const amount = computed(() => {
 const isOnGoing = computed(() =>
   getSearchResultValue(props.result, 'field_node_on_going')
 )
-const status = computed(() =>
-  getGrantStatus(
-    new Date(),
-    isOnGoing.value,
-    getSearchResultValue(props.result, 'field_node_dates_start_value'),
-    getSearchResultValue(props.result, 'field_node_dates_end_value')
-  )
+
+const dateFrom = computed(() =>
+  getSearchResultValue(props.result, 'field_node_dates_start_value')
 )
 
-const items = computed(() => {
-  const list = []
-  if (audience) {
-    list.push({
-      text: audience.value,
-      icon: 'icon-user-circle-filled'
-    })
-  }
-  if (amount.value) {
-    list.push({
-      text: amount.value,
-      icon: 'icon-dollar-circle-filled'
-    })
-  }
-  if (status) {
-    list.push({
-      text: status.value.displayLabel,
-      icon: 'icon-cancel-circle-filled',
-      iconColour: 'error'
-    })
-  }
-  return list
-})
+const dateTo = computed(() =>
+  getSearchResultValue(props.result, 'field_node_dates_end_value')
+)
 </script>
 
 <template>
@@ -79,7 +56,14 @@ const items = computed(() => {
     :updated="updated"
   >
     <template #details>
-      <RplList :items="items" />
+      <TideGrantMeta
+        variant="inline"
+        :audience="audience"
+        :funding="amount"
+        :dateFrom="dateFrom"
+        :dateTo="dateTo"
+        :ongoing="isOnGoing"
+      />
     </template>
   </RplSearchResult>
 </template>

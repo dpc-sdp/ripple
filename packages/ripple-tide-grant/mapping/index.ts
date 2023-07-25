@@ -1,6 +1,5 @@
 import mime from 'mime-types'
 import {
-  formatPriceRange,
   getBodyFromField,
   getField,
   getImageFromField,
@@ -10,28 +9,9 @@ import {
   tidePageBaseMapping,
   tidePageBaseIncludes
 } from '@dpc-sdp/nuxt-ripple/mapping'
+import { formatPriceRange } from '@dpc-sdp/nuxt-ripple/utils'
+import formatGrantAudiences from '../utilities/formatGrantAudiences'
 import type { IRplTideModuleMapping } from '@dpc-sdp/ripple-tide-api/types'
-
-const extractAudiences = (audiences = []) => {
-  if (audiences.length === 0) return ''
-
-  const audienceStr = [...new Set(audiences)]
-    .map((input: any) => {
-      const term = input.name ? input.name : input
-      if (term) {
-        switch (term) {
-          case 'Individual':
-            return 'individuals'
-          case 'Business':
-            return 'businesses'
-          default:
-            return term.toLowerCase()
-        }
-      }
-    })
-    .join(', ')
-  return `${audienceStr.charAt(0).toUpperCase() + audienceStr.slice(1)}`
-}
 
 const tideGrantModule: IRplTideModuleMapping = {
   mapping: {
@@ -49,12 +29,12 @@ const tideGrantModule: IRplTideModuleMapping = {
     overview: {
       title: 'field_overview_title',
       funding: (src: string) =>
-        formatPriceRange({
-          from: getField(src, 'field_node_funding_level.from'),
-          to: getField(src, 'field_node_funding_level.to')
-        }),
+        formatPriceRange(
+          getField(src, 'field_node_funding_level.from'),
+          getField(src, 'field_node_funding_level.to')
+        ),
       audience: (src: string) =>
-        extractAudiences(getField(src, 'field_audience')),
+        formatGrantAudiences(getField(src, 'field_audience')),
       date: {
         from: 'field_node_dates.value',
         to: 'field_node_dates.end_value'

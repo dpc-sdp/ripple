@@ -23,10 +23,7 @@
       </slot>
     </template>
     <template #aboveBody="{ hasBreadcrumbs }">
-      <TidePublicationHeader
-        :header="page.header"
-        :hasBreadcrumbs="hasBreadcrumbs"
-      ></TidePublicationHeader>
+      <slot name="aboveBody" :hasBreadcrumbs="hasBreadcrumbs"></slot>
     </template>
     <template #body>
       <TideLandingPageInPageNavigation

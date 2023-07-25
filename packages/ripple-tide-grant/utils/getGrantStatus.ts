@@ -69,7 +69,7 @@ const getGrantStatus = (
   }
 
   if (start && end) {
-    if (isWithinInterval(now, { start, end })) {
+    if (isBefore(start, end) && isWithinInterval(now, { start, end })) {
       return getBeforeCloseStatus(now, end)
     } else if (isBefore(now, start)) {
       return getBeforeOpenStatus(now, start)

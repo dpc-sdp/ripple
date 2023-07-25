@@ -127,6 +127,14 @@ $no-padding: 0;
 
     ol {
       list-style-type: lower-roman;
+
+      ol {
+        list-style-type: upper-latin;
+
+        ol {
+          list-style-type: upper-roman;
+        }
+      }
     }
   }
 

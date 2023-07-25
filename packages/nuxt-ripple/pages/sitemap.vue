@@ -22,6 +22,8 @@ const site = await useTideSite()
         title="Sitemap"
         :behind-nav="true"
         :breadcrumbs="hasBreadcrumbs"
+        :cornerTop="site?.cornerGraphic?.top?.src || true"
+        :cornerBottom="site?.cornerGraphic?.bottom?.src || true"
       />
     </template>
     <template #body>

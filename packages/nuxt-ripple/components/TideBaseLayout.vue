@@ -33,7 +33,16 @@
       </slot>
     </template>
     <template #aboveBody="{ hasBreadcrumbs }">
-      <slot name="aboveBody" :hasBreadcrumbs="hasBreadcrumbs"></slot>
+      <slot name="aboveBody" :hasBreadcrumbs="hasBreadcrumbs">
+        <TideHeroHeader
+          v-if="page.header"
+          :header="page.header"
+          :hasBreadcrumbs="hasBreadcrumbs"
+          :hideBottomCornerGraphic="!!page?.primaryCampaign"
+          :cornerTop="site?.cornerGraphic?.top"
+          :cornerBottom="site?.cornerGraphic?.bottom"
+        />
+      </slot>
     </template>
     <template #body="{ hasSidebar }">
       <slot name="body" :hasSidebar="hasSidebar"></slot>
@@ -89,6 +98,7 @@ import { TideTopicTag } from '../mapping/base/topic-tags/topic-tags-mapping'
 import { TideSiteSection } from '@dpc-sdp/ripple-tide-api/types'
 import hideAlertsOnLoadScript from '../utils/hideAlertsOnLoadScript.js'
 import useTidePageMeta from '../composables/use-tide-page-meta'
+import TideHeroHeader from './TideHeroHeader.vue'
 
 interface Props {
   site: TideSiteData

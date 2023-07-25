@@ -74,6 +74,25 @@ export interface TideImageField {
   }
 }
 
+export interface TideHeroHeader {
+  title: string
+  summary?: string
+  links?: {
+    title: string
+    items: TideUrlField[]
+    more: TideUrlField
+  }
+  theme?: 'default' | 'reverse' | 'neutral'
+  logoImage?: TideImageField
+  backgroundImage?: TideImageField
+  backgroundImageCaption?: string
+  cornerTop?: TideImageField
+  cornerBottom?: TideImageField
+  primaryAction?: TideUrlField
+  secondaryAction?: TideUrlField
+  secondaryActionLabel?: string
+}
+
 export interface TidePageBase {
   title: string
   created: string

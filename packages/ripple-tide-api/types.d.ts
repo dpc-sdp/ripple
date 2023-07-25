@@ -56,7 +56,6 @@ export interface TideLink {
   text: string
   url: string
 }
-3
 
 export interface TideMenuItem {
   text: string

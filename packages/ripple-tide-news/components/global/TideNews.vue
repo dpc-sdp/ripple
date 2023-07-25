@@ -19,7 +19,7 @@
       <slot name="breadcrumbs"></slot>
     </template>
     <template #aboveBody="{ hasBreadcrumbs }">
-      <TideNewsHeader :header="page.header" :hasBreadcrumbs="hasBreadcrumbs" />
+      <slot name="aboveBody" :hasBreadcrumbs="hasBreadcrumbs"></slot>
     </template>
     <template #body="{ hasSidebar }">
       <TideNewsBody :body="page.body" :details="page.details" />

@@ -3,7 +3,8 @@ import {
   computed,
   getSearchResultValue,
   formatGrantAudiences,
-  formatPriceRange
+  formatPriceRange,
+  useSearchResult
 } from '#imports'
 
 interface Props {
@@ -12,25 +13,8 @@ interface Props {
 
 const props = defineProps<Props>()
 
-const title = computed(() => getSearchResultValue(props.result, 'title'))
-const url = computed(() =>
-  getSearchResultValue(props.result, 'url').replace(/\/site-(\d+)/, '')
-)
-const updated = computed(() => {
-  const rawDate = getSearchResultValue(props.result, 'changed')
+const { title, url, updated } = useSearchResult(props.result)
 
-  if (!rawDate) {
-    return ''
-  }
-
-  const date = new Date(rawDate)
-  return Intl.DateTimeFormat('en-AU', {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric',
-    timeZone: 'Australia/Melbourne'
-  }).format(date)
-})
 const content = computed(() =>
   getSearchResultValue(props.result, 'field_landing_page_summary')
 )

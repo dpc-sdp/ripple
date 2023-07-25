@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, getSearchResultValue } from '#imports'
+import { computed, getSearchResultValue, useSearchResult } from '#imports'
 
 interface Props {
   result: any
@@ -7,25 +7,7 @@ interface Props {
 
 const props = defineProps<Props>()
 
-const title = computed(() => getSearchResultValue(props.result, 'title'))
-const url = computed(() =>
-  getSearchResultValue(props.result, 'url').replace(/\/site-(\d+)/, '')
-)
-const updated = computed(() => {
-  const rawDate = getSearchResultValue(props.result, 'changed')
-
-  if (!rawDate) {
-    return ''
-  }
-
-  const date = new Date(rawDate)
-  return Intl.DateTimeFormat('en-AU', {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric',
-    timeZone: 'Australia/Melbourne'
-  }).format(date)
-})
+const { title, url, updated } = useSearchResult(props.result)
 const content = computed(() =>
   getSearchResultValue(props.result, 'field_landing_page_summary')
 )

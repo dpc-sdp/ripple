@@ -72,9 +72,9 @@ const headerTheme = computed(() => {
     if (featureFlags?.headerTheme) {
       return featureFlags.headerTheme
     }
-    return props.header.theme
+    return props.header?.theme || 'default'
   }
-  return props.header.theme
+  return props.header?.theme || 'default'
 })
 </script>
 

@@ -98,7 +98,6 @@ import { TideTopicTag } from '../mapping/base/topic-tags/topic-tags-mapping'
 import { TideSiteSection } from '@dpc-sdp/ripple-tide-api/types'
 import hideAlertsOnLoadScript from '../utils/hideAlertsOnLoadScript.js'
 import useTidePageMeta from '../composables/use-tide-page-meta'
-import TideHeroHeader from './TideHeroHeader.vue'
 
 interface Props {
   site: TideSiteData

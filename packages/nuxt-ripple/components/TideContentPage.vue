@@ -41,11 +41,15 @@
 <script setup lang="ts">
 // @ts-ignore
 import { useTideSite, useTidePage } from '#imports'
-import { computed } from 'vue'
+import { computed, onMounted } from 'vue'
 import { pascalCase, pascalCaseTransformMerge } from 'change-case'
 
 const site = await useTideSite()
 const page = await useTidePage()
+
+onMounted(() => {
+  console.log(page)
+})
 
 const componentName = computed(
   () =>

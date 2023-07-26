@@ -13,6 +13,12 @@ declare module '@nuxt/schema' {
         ['rpl-clr-focus']?: string
         ['rpl-clr-type-focus-contrast']?: string
       }
+      search?: {
+        filterFunctions?: Record<
+          string,
+          (filterConfig: any, values: string[]) => void
+        >
+      }
     }
   }
 }

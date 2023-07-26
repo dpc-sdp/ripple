@@ -4,7 +4,7 @@ orbs:
 
 defaults: &defaults
   docker:
-    - image: cypress/browsers:node16.17.0-chrome106
+    - image: cypress/browsers:node-18.16.0-chrome-114.0.5735.133-1-ff-114.0.2-edge-114.0.1823.51-1
       environment:
         TERM: xterm
         TZ: 'Australia/Melbourne'
@@ -138,6 +138,8 @@ jobs:
             corepack enable
             corepack prepare pnpm@8.6.2 --activate
       - run:
+          environment:
+            NUXT_PUBLIC_TIDE_APP_SEARCH_ENGINE_NAME: a83890f7a31dea14e1ae83c6f0afacca-appsearch-index-default-node
           command: pnpm run ci:nuxt-app
           name: Run integration tests with Cypress
       - store_artifacts:
@@ -235,11 +237,11 @@ jobs:
             corepack enable
             corepack prepare pnpm@8.6.2 --activate
       - run:
-          name: Publish alpha prerelease to NPM
+          name: Publish canary prerelease to @next tag on NPM
           command: |
             npm config set access public
             npm set //registry.npmjs.org/:_authToken=$NPM_TOKEN
-            pnpm release:publish-pre --yes
+            pnpm release:publish-next --yes
   publish:
     <<: *defaults
     steps:

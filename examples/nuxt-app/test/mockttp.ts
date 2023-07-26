@@ -51,5 +51,16 @@ export default {
         'access-control-allow-methods': '*'
       })
     return endpointMock
+  },
+
+  async setMockPostRoute({ route, status, response }) {
+    const endpointMock = await mockServer
+      .forPost(route)
+      .thenJson(status, response, {
+        'access-control-allow-origin': '*',
+        'access-control-allow-headers': '*',
+        'access-control-allow-methods': '*'
+      })
+    return endpointMock
   }
 }

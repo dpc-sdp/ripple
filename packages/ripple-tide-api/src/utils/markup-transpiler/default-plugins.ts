@@ -211,6 +211,26 @@ const pluginLinks = function (this: any) {
   })
 }
 
+const pluginIFrames = function (this: any) {
+  this.find('iframe').map((i: any, el: any) => {
+    const $iframe = this.find(el)
+    const wrapperClasses = ['rpl-iframe']
+
+    // If no height setting from CMS, we give it a default height
+    if (!$iframe.attr('height')) {
+      wrapperClasses.push('rpl-iframe--default')
+    }
+
+    // If it's a PowerBI embed we remove the max-height setting
+    if ($iframe.attr('src')?.includes('powerbi.com')) {
+      wrapperClasses.push(`rpl-iframe--auto`)
+    }
+
+    const markup = `<div class="${wrapperClasses.join(' ')}"></div>`
+    return $iframe.wrap(markup)
+  })
+}
+
 export default [
   pluginTables,
   pluginCallout,
@@ -219,5 +239,6 @@ export default [
   pluginEmbededVideo,
   pluginImages,
   pluginButtons,
-  pluginLinks
+  pluginLinks,
+  pluginIFrames
 ]

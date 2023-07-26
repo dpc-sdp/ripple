@@ -20,6 +20,17 @@ export default defineAppConfig({
         'linear-gradient(90deg, #382484 0%, #5A0099 20%, #7623B0 35%, #2E7478 50%, #2FA26F 70%, #2FCE6A 80%)',
       'rpl-clr-gradient-vertical':
         'linear-gradient(180deg, #382484 0%, #5A0099 20%, #7623B0 35%, #2E7478 50%, #2FA26F 70%, #2FCE6A 80%)'
+    },
+    search: {
+      filterFunctions: {
+        // `dummyFunctionFilter` is used in a cypress test to check that the correct parameters are passed to custom filter functions
+        dummyFunctionFilter: (filterConfig, values) => {
+          return {
+            providedFilterConfig: filterConfig,
+            providedValues: values
+          }
+        }
+      }
     }
   }
 })

@@ -6,6 +6,8 @@ import {
 } from '@storybook/addon-docs'
 import RplFormOptionButtons from './RplFormOptionButtons.vue'
 import StorybookInputFixture from './../StorybookInputFixture/StorybookInputFixture.vue'
+import '@dpc-sdp/ripple-ui-core/style/components'
+import '../RplForm/RplForm.css'
 
 export const SingleTemplate = (args) => ({
   components: { RplFormOptionButtons, StorybookInputFixture },
@@ -24,7 +26,7 @@ export const SingleTemplate = (args) => ({
 
 # Forms
 
-<ArgsTable of={RplFormradio} />
+<ArgsTable of={RplFormOptionButtons} />
 
 <Canvas>
   <Story

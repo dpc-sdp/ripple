@@ -6,6 +6,7 @@ import {
 } from '@storybook/addon-docs'
 import RplForm from './RplForm.vue'
 import RplFormElement from './../RplFormElement/RplFormElement.vue'
+import '@dpc-sdp/ripple-ui-core/style/components'
 
 export const SingleTemplate = (args) => ({
   components: { RplForm },
@@ -154,6 +155,7 @@ export const SlotTemplate = (args) => ({
           name: 'checkbox-group',
           label: 'What is the answer?',
           help: 'There may be multiple answers',
+          value: [],
           validation: 'required|length:2,3',
           validationMessages: {
             required: 'Please provide an answer',
@@ -182,7 +184,8 @@ export const SlotTemplate = (args) => ({
           id: 'radio-group',
           name: 'radio-group',
           label: 'Favourite colour?',
-          help: 'There may be multiple answers',
+          help: 'There is only one answer',
+          value: 'undefined',
           validation: 'required',
           validationMessages: {
             required: 'Please choose a colour'
@@ -211,6 +214,7 @@ export const SlotTemplate = (args) => ({
           name: 'option-buttons',
           label: 'Favourite fruit?',
           help: 'What is it?',
+          value: '',
           validation: 'required',
           validationMessages: {
             required: 'Please choose a fruit'

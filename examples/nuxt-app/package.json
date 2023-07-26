@@ -14,7 +14,7 @@
     "start:mock": "NUXT_PUBLIC_API_URL=http://localhost:3001 API_PORT=3001 concurrently 'pnpm mockserver' 'pnpm start'",
     "mockserver": "nuxt-ripple mock ./test/fixtures -S ./test/fixtures/site/reference.json -R mock-routes.json",
     "cy:open": "cypress open --e2e --browser electron",
-    "cy:run": "cypress run",
+    "cy:run": "cypress run --record",
     "test:ci": "NUXT_PUBLIC_API_URL=http://localhost:3001 API_PORT=3001 start-test start tcp:3000 'cy:run'",
     "test:integration": "start-test 'NUXT_PUBLIC_API_URL=http://localhost:3001 API_PORT=3001 pnpm dev' 'http-get://localhost:3000/api/tide/site?id=8888' 'cy:open'",
     "lighthouse": "unlighthouse-ci --site http://localhost:3000",
@@ -33,8 +33,9 @@
     "@dpc-sdp/ripple-tide-search": "workspace:*"
   },
   "devDependencies": {
-    "@dpc-sdp/ripple-tide-api": "workspace:*",
     "@dpc-sdp/ripple-test-utils": "workspace:*",
+    "@dpc-sdp/ripple-tide-api": "workspace:*",
+    "@nuxt/devtools": "^0.6.7",
     "@unlighthouse/cli": "^0.9.0",
     "cypress": "12.8.1",
     "node-fetch-native": "^1.0.2",

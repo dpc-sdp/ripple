@@ -1,22 +1,11 @@
 module.exports = {
-  root: true,
   parser: 'vue-eslint-parser',
-  parserOptions: {
-    parser: '@typescript-eslint/parser'
-  },
   env: {
     browser: true,
     node: true,
     'vue/setup-compiler-macros': true
   },
-  extends: [
-    'eslint:recommended',
-    'plugin:vue/vue3-recommended',
-    'plugin:@typescript-eslint/recommended',
-    'prettier',
-    'plugin:storybook/recommended'
-  ],
-  plugins: ['@typescript-eslint'],
+  extends: ['prettier', 'plugin:storybook/recommended', '@nuxt/eslint-config'],
   rules: {
     // override/add rules settings here
     'vue/multi-word-component-names': 'off',

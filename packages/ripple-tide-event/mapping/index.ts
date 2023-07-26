@@ -8,7 +8,7 @@ import {
   tidePageBaseMapping,
   tidePageBaseIncludes
 } from '@dpc-sdp/nuxt-ripple/mapping'
-import { formatPriceRange } from '@dpc-sdp/nuxt-ripple/utils'
+import { formatPriceRange } from '@dpc-sdp/nuxt-ripple/mapping/utils'
 import type { IRplTideModuleMapping } from '@dpc-sdp/ripple-tide-api/types'
 
 const tideEventModule: IRplTideModuleMapping = {

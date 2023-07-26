@@ -1,1 +1,1 @@
-export { default as formatPriceRange } from '../utilities/formatPriceRange'
+export { default as formatPriceRange } from '../mapping/utils/formatPriceRange'

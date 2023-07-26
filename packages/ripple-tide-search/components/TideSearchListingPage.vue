@@ -13,7 +13,6 @@ interface Props {
   title: string
   summary?: string
   searchListingConfig?: TideSearchListingPage['searchListingConfig']
-  index: string
   autocompleteQuery?: boolean
   queryConfig: Record<string, any>
   globalFilters?: any[]

@@ -22,9 +22,6 @@ const tideCollectionModule: IRplTideModuleMapping = {
     summary: 'field_landing_page_summary',
     searchListingConfig: (src) =>
       getSearchListingConfig(src).searchListingConfig,
-    index: (src) =>
-      getSearchListingConfig(src).index ||
-      process.env.NUXT_PUBLIC_TIDE_APP_SEARCH_ENGINE_NAME,
     queryConfig: (src) => getSearchListingConfig(src).queryConfig,
     globalFilters: (src) => getSearchListingConfig(src).globalFilters,
     results: (src) => getSearchListingConfig(src).results,

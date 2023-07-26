@@ -57,16 +57,14 @@ export default defineAppConfig({
     analytics: {
       // routeChange events are enabled by default
       // this parameter can be set to false to disable routeChange events
-      // or optionally, a function can be returned to run in place of the default
-      routeChange: () => {
-        return ({ payload }) => {
-          trackEvent({
-            // optionally include default event data
-            ...payload,
-            // add any custom event data
-            event: 'page_view'
-          })
-        }
+      // or optionally, an object can be used to extend or override the default routeChange event
+      routeChange: {
+        app: ({ payload, page }) => ({
+          // optionally include default event data
+          ...payload,
+          // add custom event data
+          promoted: true
+        })
       },
 
       // custom events listeners can be added here

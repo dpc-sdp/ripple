@@ -32,6 +32,7 @@ export interface IRplAnalyticsEventPayload {
 const filterPayload = (payload: IRplAnalyticsEventPayload) =>
   Object.fromEntries(
     Object.entries(payload).filter(
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       ([key, value]) => value !== null && value !== undefined && value !== ''
     )
   )

@@ -4,7 +4,7 @@ declare module '@nuxt/schema' {
   interface AppConfigInput {
     ripple?: {
       analytics?: {
-        routeChange: boolean | Function
+        routeChange: boolean | Record<string, Function>
         eventListeners: Record<string, any>
       }
     }
@@ -14,6 +14,7 @@ declare module '@nuxt/schema' {
 export default defineAppConfig({
   ripple: {
     analytics: {
+      routeChange: true,
       eventListeners
     }
   }

@@ -38,13 +38,18 @@ export default defineNuxtPlugin((nuxtApp) => {
 
       if (appConfig?.analytics?.routeChange === false) return
 
-      const payload = routeChange({ route, site, page })
+      let payload = routeChange({ route, site, page })
 
-      if (typeof appConfig?.analytics?.routeChange === 'function') {
-        appConfig?.analytics?.routeChange({ payload, route, site, page })
-      } else {
-        trackEvent(payload)
+      // let the main nuxt app and layers extend or override the payload
+      if (typeof appConfig?.analytics?.routeChange === 'object') {
+        Object.values(appConfig?.analytics?.routeChange).forEach((callback) => {
+          if (typeof callback === 'function') {
+            payload = callback({ payload, route, site, page })
+          }
+        })
       }
+
+      trackEvent(payload)
     })
 
     nuxtApp.vueApp.use({

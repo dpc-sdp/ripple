@@ -18,7 +18,7 @@
       <slot name="breadcrumbs"></slot>
     </template>
     <template #aboveBody>
-      <TideMediaHeader :header="page.header" />
+      <slot name="aboveBody" :hasBreadcrumbs="hasBreadcrumbs"></slot>
     </template>
     <template #body>
       <TideMediaBody :media="page.media">

@@ -1,5 +1,3 @@
-import { TidePropRange } from '../../types'
-
 const maybeCastToNumber = (value) =>
   isNaN(parseFloat(value)) ? value : parseFloat(value)
 
@@ -15,9 +13,9 @@ const formatPriceValue = (value: number | string) =>
 /**
  * @description Output a formatted price range
  */
-export const formatPriceRange = (price: TidePropRange) => {
-  let from = maybeCastToNumber(price.from)
-  let to = maybeCastToNumber(price.to)
+const formatPriceRange = (_from: string | number, _to: string | number) => {
+  let from = maybeCastToNumber(_from)
+  let to = maybeCastToNumber(_to)
 
   from =
     isPositiveNumber(from) || (isPositiveNumber(to) && from === 0)
@@ -36,3 +34,5 @@ export const formatPriceRange = (price: TidePropRange) => {
   }
   return null
 }
+
+export default formatPriceRange

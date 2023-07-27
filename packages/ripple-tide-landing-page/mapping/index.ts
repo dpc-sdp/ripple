@@ -45,7 +45,7 @@ const tideLandingPageModule: IRplTideModuleMapping = {
 
       return 'default'
     },
-    heroHeader: heroHeaderMapping,
+    header: heroHeaderMapping,
     primaryCampaign: primaryCampaignMapping,
     secondaryCampaign: secondaryCampaignMapping,
     headerComponents: async (src, tidePageApi) => {

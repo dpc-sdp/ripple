@@ -3,9 +3,9 @@ import { Then, DataTable } from '@badeball/cypress-cucumber-preprocessor'
 Then(
   'the overview should display a status of {string} with a {string} {string} icon',
   (status: string, colour: string, icon: string) => {
-    cy.get('.tide-grant__overview-item .rpl-list__label')
+    cy.get('.tide-grant-meta--block .rpl-list__label')
       .contains(status)
-      .closest('.tide-grant__overview-item')
+      .closest('.tide-grant-meta--block')
       .as('item')
 
     // icon type
@@ -28,7 +28,7 @@ Then(
 )
 
 Then('the overview should display funding of {string}', (funding: string) => {
-  cy.get('.tide-grant__overview-item .rpl-list__label').contains(funding)
+  cy.get('.tide-grant-meta--block .rpl-list__label').contains(funding)
 })
 
 Then(
@@ -66,6 +66,7 @@ Then(
           cy.get('@meta').should('contain', row.amount)
           cy.get('@meta').should('contain', row.status)
           cy.get('@item').should('contain', row.content)
+          cy.get('@item').should('contain', row.updated)
         })
     })
   }

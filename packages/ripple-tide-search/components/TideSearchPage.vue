@@ -122,7 +122,7 @@ const getFilterOptions = (field) => {
         :behind-nav="true"
         :breadcrumbs="true"
         :full-width="true"
-        :corner-top="true"
+        :corner-top="site?.cornerGraphic?.top?.src || true"
         :corner-bottom="false"
       >
         <div class="tide-search-header">

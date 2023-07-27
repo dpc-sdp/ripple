@@ -1,5 +1,5 @@
 import { expect, describe, it } from '@jest/globals'
-import { getGrantStatus } from './grants'
+import getGrantStatus from './getGrantStatus.js'
 
 describe('getGrantStatus', () => {
   it('displays status as "Closed" when current date is after start date and after end date', () => {

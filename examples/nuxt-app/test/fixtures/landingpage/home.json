@@ -92,9 +92,9 @@
   "showInPageNav": true,
   "inPageNavHeadingLevel": "h3",
   "background": "default",
-  "heroHeader": {
+  "header": {
     "title": "Test landing page title",
-    "introText": "Test landing page title introduction text",
+    "summary": "Test landing page title introduction text",
     "links": {
       "title": "Want to know more about...",
       "items": [
@@ -125,14 +125,14 @@
       "height": 959
     },
     "backgroundImage": null,
-    "cornerTopImage": {
+    "cornerTop": {
       "src": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Parliament-of-Victoria.jpg",
       "alt": "Demo: Parliament of Victoria",
       "title": "Demo: Parliament of Victoria",
       "width": 1650,
       "height": 915
     },
-    "cornerBottomImage": {
+    "cornerBottom": {
       "src": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/VicFleet-Police-car-on-road.jpg",
       "alt": "Demo: VicFleet - Police car on road",
       "title": "Demo: VicFleet - Police car on road",

@@ -7,7 +7,7 @@ defaults: &defaults
     - image: cypress/browsers:node-18.16.0-chrome-114.0.5735.133-1-ff-114.0.2-edge-114.0.1823.51-1
       environment:
         TERM: xterm
-        TZ: 'Australia/Melbourne'
+        TZ: "Australia/Melbourne"
         NUXT_PUBLIC_API_URL: http://localhost:3001
       auth:
         username: $DOCKERHUB_USERNAME
@@ -269,7 +269,8 @@ jobs:
             pnpm release:publish --yes
 
   update-reference:
-    <<: *defaults
+    docker:
+      - image: cimg/node:18.17.0
     steps:
       - run:
           name: Kick off new pipeline

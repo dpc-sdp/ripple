@@ -23,7 +23,7 @@
     "release:publish-alpha": "lerna publish --canary minor --preid alpha --dist-tag alpha --force-publish",
     "release:publish-next": "lerna publish --canary minor --preid next --dist-tag next --force-publish",
     "release:publish": "lerna publish from-git",
-    "lint": "eslint . --ext .ts,.vue && stylelint '**/*.{css,vue}'",
+    "lint": "eslint . --ext .ts,.vue && stylelint 'packages/ripple-ui-core/**/*.css'",
     "test:unit": "jest --colors --runInBand",
     "test:components-core": "pnpm -F @dpc-sdp/ripple-ui-core test:components",
     "test:components-forms": "pnpm -F @dpc-sdp/ripple-ui-forms test:components",

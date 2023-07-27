@@ -3,29 +3,8 @@ import {
   getLinkFromField,
   getImageFromField
 } from '@dpc-sdp/ripple-tide-api'
-import type {
-  TideImageField,
-  TideUrlField
-} from '@dpc-sdp/ripple-tide-api/types'
-
-export interface ITideHeroHeader {
-  title: string
-  introText: string
-  links: {
-    title: string
-    items: TideUrlField[]
-    more: TideUrlField
-  }
-  theme: 'default' | 'reverse' | 'neutral'
-  logoImage: TideImageField | null
-  backgroundImage: TideImageField | null
-  backgroundImageCaption: string
-  cornerTopImage: TideImageField | null
-  cornerBottomImage: TideImageField | null
-  primaryAction: TideUrlField | null
-  secondaryAction: TideUrlField | null
-  secondaryActionLabel: string
-}
+import type { TideUrlField } from '@dpc-sdp/ripple-tide-api/types'
+import { TideHeroHeader } from '@dpc-sdp/nuxt-ripple/types'
 
 // Intro text goes by many names depending on the content type
 const getIntroText = (src) => {
@@ -47,10 +26,10 @@ const getHeaderTheme = (src) => {
   return 'default'
 }
 
-export const heroHeaderMapping = (src): ITideHeroHeader => {
+export const heroHeaderMapping = (src): TideHeroHeader => {
   return {
     title: src.title,
-    introText: getIntroText(src),
+    summary: getIntroText(src),
     links: {
       title: getField(
         src,
@@ -81,11 +60,11 @@ export const heroHeaderMapping = (src): ITideHeroHeader => {
       src,
       'field_landing_page_hero_image.field_media_image'
     ),
-    cornerTopImage: getImageFromField(
+    cornerTop: getImageFromField(
       src,
       'field_graphical_image.field_media_image'
     ),
-    cornerBottomImage: getImageFromField(
+    cornerBottom: getImageFromField(
       src,
       'field_bottom_graphical_image.field_media_image'
     ),

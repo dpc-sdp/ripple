@@ -217,7 +217,7 @@ const numAppliedFilters = computed(() => {
         :behind-nav="true"
         :breadcrumbs="hasBreadcrumbs"
         :full-width="true"
-        :corner-top="true"
+        :corner-top="site?.cornerGraphic?.top?.src || true"
         :corner-bottom="false"
       >
         <p v-if="summary" class="rpl-type-p-large">{{ summary }}</p>

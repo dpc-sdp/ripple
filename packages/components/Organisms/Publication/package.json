@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/ripple-publication",
-  "version": "1.38.0",
+  "version": "1.38.1",
   "description": "A package for publication components.",
   "license": "Apache-2.0",
   "main": "index.js",
@@ -10,14 +10,14 @@
     "access": "public"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-description-list": "1.38.0",
-    "@dpc-sdp/ripple-document-link": "1.38.0",
-    "@dpc-sdp/ripple-figure": "1.38.0",
-    "@dpc-sdp/ripple-global": "1.38.0",
-    "@dpc-sdp/ripple-icon": "1.38.0",
-    "@dpc-sdp/ripple-image-gallery": "1.38.0",
-    "@dpc-sdp/ripple-link": "1.38.0",
-    "@dpc-sdp/ripple-markup": "1.38.0",
+    "@dpc-sdp/ripple-description-list": "1.38.1",
+    "@dpc-sdp/ripple-document-link": "1.38.1",
+    "@dpc-sdp/ripple-figure": "1.38.1",
+    "@dpc-sdp/ripple-global": "1.38.1",
+    "@dpc-sdp/ripple-icon": "1.38.1",
+    "@dpc-sdp/ripple-image-gallery": "1.38.1",
+    "@dpc-sdp/ripple-link": "1.38.1",
+    "@dpc-sdp/ripple-markup": "1.38.1",
     "pluralize": "^7.0.0"
   }
 }

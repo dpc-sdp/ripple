@@ -44,8 +44,8 @@ export const metatagConverter = (metatagNormalized) => {
   metatagNormalized.forEach(element => {
     switch (element.tag) {
       case 'meta':
-        if (element.attributes['http-equiv']) {
-          if (element.attributes['http-equiv'] === 'content-language') {
+        if (element.attributes['property']) {
+          if (element.attributes['property'] === 'og:locale') {
             metatags.lang = element.attributes.content
           }
           // TODO: to respect all Drupal metatags, we need other task.

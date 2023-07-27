@@ -1,5 +1,10 @@
 <script setup lang="ts">
-import { computed, getSearchResultValue, capitalizeFirstLetter } from '#imports'
+import {
+  computed,
+  getSearchResultValue,
+  capitalizeFirstLetter,
+  useSearchResult
+} from '#imports'
 
 interface Props {
   result: any
@@ -14,7 +19,9 @@ const formatContentTypeString = (str) => {
   }
 }
 
-const title = computed(() => getSearchResultValue(props.result, 'title'))
+const { title, url } = useSearchResult(props.result)
+
+const id = computed(() => getSearchResultValue(props.result, 'uid'))
 const meta = computed(() => {
   return {
     contentType: formatContentTypeString(
@@ -32,9 +39,6 @@ const meta = computed(() => {
     // inductionYear
   }
 })
-const url = computed(() =>
-  getSearchResultValue(props.result, 'url').replace(/\/site-(\d+)/, '')
-)
 const content = computed(() =>
   getSearchResultValue(props.result, 'field_landing_page_summary')
 )
@@ -54,14 +58,14 @@ const img = computed(() => {
 
 <template>
   <RplPromoCard
+    :key="id"
     class="tide-search-result-card rpl-col-12 rpl-col-4-m"
-    :key="title"
     :image="img"
     :title="title"
     :url="url"
     :highlight="!img"
   >
-    <template #meta v-if="result.type">
+    <template v-if="result.type" #meta>
       <TideLandingPageCardSharedMeta :meta="meta" />
     </template>
     <p>

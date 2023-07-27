@@ -224,7 +224,6 @@ declare module 'nitropack' {
 
 // Mapping util interfaces
 export function getAddress(address: any): string
-export function formatPriceRange(price: TidePropRange): string
 export function getBodyFromField(field: string, path: string | string[]): string
 export function getField(
   field: string,

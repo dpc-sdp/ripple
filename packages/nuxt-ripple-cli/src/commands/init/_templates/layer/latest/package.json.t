@@ -22,6 +22,7 @@ to: package.json
     "@dpc-sdp/nuxt-ripple-preview": "<%= rplVersion %>",
     "@dpc-sdp/ripple-tide-api": "<%= rplVersion %>",
     "@dpc-sdp/ripple-tide-event": "<%= rplVersion %>",
+    "@dpc-sdp/ripple-tide-topic": "<%= rplVersion %>",
     "@dpc-sdp/ripple-tide-grant": "<%= rplVersion %>",
     "@dpc-sdp/ripple-tide-landing-page": "<%= rplVersion %>",
     "@dpc-sdp/ripple-tide-media": "<%= rplVersion %>",

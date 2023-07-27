@@ -17,6 +17,7 @@
     "@dpc-sdp/nuxt-ripple": "workspace:*",
     "@dpc-sdp/ripple-tide-api": "workspace:*",
     "@dpc-sdp/ripple-tide-event": "workspace:*",
+    "@dpc-sdp/ripple-tide-topic": "workspace:*",
     "@dpc-sdp/ripple-tide-grant": "workspace:*",
     "@dpc-sdp/ripple-tide-landing-page": "workspace:*",
     "@dpc-sdp/ripple-tide-media": "workspace:*",

@@ -274,6 +274,7 @@ const numAppliedFilters = computed(() => {
           </p>
         </RplPageComponent>
       </slot>
+
       <RplPageComponent>
         <div :class="{ 'tide-search-results--loading': isBusy }">
           <div v-if="searchError">

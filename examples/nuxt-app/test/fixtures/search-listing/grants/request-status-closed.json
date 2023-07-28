@@ -1,0 +1,31 @@
+{
+  "query": {
+    "bool": {
+      "must": [{ "match_all": {} }],
+      "filter": [
+        { "terms": { "type": ["grant"] } },
+        { "terms": { "field_node_site": [4] } },
+        {
+          "bool": {
+            "should": [
+              {
+                "range": {
+                  "field_node_dates_end_value": {
+                    "lte": "now"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "size": 10,
+  "from": 0,
+  "sort": [
+    {
+      "title.keyword": "asc"
+    }
+  ]
+}

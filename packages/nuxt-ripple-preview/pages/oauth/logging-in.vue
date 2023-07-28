@@ -31,6 +31,8 @@ onMounted(() => {
         title="Logging in..."
         :behind-nav="true"
         :breadcrumbs="hasBreadcrumbs"
+        :cornerTop="site?.cornerGraphic?.top?.src || true"
+        :cornerBottom="site?.cornerGraphic?.bottom?.src || true"
       />
     </template>
     <template #body>You will be redirected shortly</template>

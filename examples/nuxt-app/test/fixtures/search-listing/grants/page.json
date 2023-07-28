@@ -1,14 +1,54 @@
 {
   "title": "Grants and programs",
-  "changed": "2022-11-02T12:47:29+11:00",
-  "created": "2022-11-02T12:47:29+11:00",
+  "changed": "2023-07-25T01:21:48+00:00",
+  "created": "2023-07-25T01:21:23+00:00",
   "type": "tide_search_listing",
-  "nid": "11dede11-10c0-111e1-1100-000000000330",
-  "showTopicTags": true,
-  "summary": "",
-  "searchListingConfig": {
-    "resultsPerPage": 10
+  "nid": "a8438744-43b0-4777-b558-0c69f3ff1d21",
+  "sidebar": {},
+  "status": "published",
+  "topicTags": [
+    {
+      "url": ""
+    }
+  ],
+  "siteSection": null,
+  "meta": {
+    "langcode": "en",
+    "description": "",
+    "additional": [
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "title",
+          "content": "Grants and programs | Victorian Government"
+        }
+      },
+      {
+        "tag": "link",
+        "attributes": {
+          "rel": "canonical",
+          "href": "https://nginx-php.pr-1554.content-vic.sdp4.sdp.vic.gov.au/grants"
+        }
+      }
+    ],
+    "keywords": "",
+    "image": null
   },
+  "showContentRating": true,
+  "summary": null,
+  "searchListingConfig": {
+    "resultsPerPage": 10,
+    "labels": {
+      "submit": "Search all grants and programs",
+      "placeholder": "Search all grants and programs"
+    },
+    "customSort": [
+      {
+        "title.keyword": "asc"
+      }
+    ]
+  },
+  "index": "a83890f7a31dea14e1ae83c6f0afacca-appsearch-index-default-node",
   "queryConfig": {
     "multi_match": {
       "query": "{{query}}",
@@ -21,6 +61,18 @@
       ]
     }
   },
+  "globalFilters": [
+    {
+      "terms": {
+        "type": ["grant"]
+      }
+    },
+    {
+      "terms": {
+        "field_node_site": [4]
+      }
+    }
+  ],
   "results": {
     "layout": {
       "component": "TideSearchResultsList"
@@ -31,33 +83,44 @@
       }
     }
   },
-  "globalFilters": [
-    { "terms": { "type": ["grant"] } },
-    { "terms": { "field_node_site": [8888] } }
-  ],
   "userFilters": [
     {
       "id": "audience",
       "component": "TideSearchFilterDropdown",
       "filter": {
         "type": "terms",
-        "value": "field_audience_name.keyword"
+        "value": "field_audience_name"
       },
       "aggregations": {
-        "field": "field_audience_name.keyword",
-        "source": "elastic"
+        "field": "audience",
+        "source": "taxonomy"
       },
       "props": {
         "id": "audience",
-        "label": "View those relevant to me",
+        "label": "View those relevant to",
         "placeholder": "Individuals and organisation types",
         "type": "RplFormDropdown",
         "multiple": true,
         "options": [
           {
-            "id": "1",
-            "label": "Hard coded",
-            "value": "Hard coded"
+            "id": 8918,
+            "label": "Individual",
+            "value": "Individual"
+          },
+          {
+            "id": 8920,
+            "label": "Government",
+            "value": "Government"
+          },
+          {
+            "id": 8921,
+            "label": "Not-for-profit groups",
+            "value": "Not-for-profit groups"
+          },
+          {
+            "id": 8919,
+            "label": "Business",
+            "value": "Business"
           }
         ]
       }
@@ -76,19 +139,24 @@
       "props": {
         "id": "topic",
         "label": "Grant or program topic",
-        "placeholder": "Grant topic",
+        "placeholder": "Please select",
         "type": "RplFormDropdown",
         "multiple": true,
         "options": [
           {
-            "id": "1",
-            "label": "Arts",
-            "value": "Arts"
+            "id": 1,
+            "label": "Arts, culture & heritage",
+            "value": "Arts, culture & heritage"
           },
           {
-            "id": "2",
-            "label": "Business",
-            "value": "Business"
+            "id": 2,
+            "label": "Business & the workplace",
+            "value": "Business & the workplace"
+          },
+          {
+            "id": 3,
+            "label": "Communities",
+            "value": "Communities"
           }
         ]
       }
@@ -102,7 +170,7 @@
       },
       "props": {
         "id": "status",
-        "label": "Status",
+        "label": "Grant or program topic",
         "placeholder": "Select for opened, closed or upcoming grants",
         "type": "RplFormDropdown",
         "multiple": true,
@@ -130,5 +198,6 @@
         ]
       }
     }
-  ]
+  ],
+  "_fetched": 1690260404545
 }

@@ -5,12 +5,15 @@ import {
   subMonths
 } from 'date-fns'
 
-interface TideGrantStatus {
+export interface TideGrantStatus {
   status: 'opening_soon' | 'open' | 'closed'
   displayLabel: string
 }
 
-const getBeforeOpenStatus = (now, start): TideGrantStatus => {
+const getBeforeOpenStatus = (
+  now: Date | number,
+  start: Date | number
+): TideGrantStatus => {
   if (isBefore(now, subMonths(start, 1))) {
     return {
       status: 'closed',
@@ -26,7 +29,10 @@ const getBeforeOpenStatus = (now, start): TideGrantStatus => {
   }
 }
 
-const getBeforeCloseStatus = (now, end): TideGrantStatus => {
+const getBeforeCloseStatus = (
+  now: Date | number,
+  end: Date | number
+): TideGrantStatus => {
   const daysRemaining = differenceInDays(end, now)
   let displayLabel
 
@@ -43,7 +49,9 @@ const getBeforeCloseStatus = (now, end): TideGrantStatus => {
     displayLabel
   }
 }
-
+/**
+ * @description Calculate Grant status in relation to current date
+ */
 const getGrantStatus = (
   now: Date,
   isOngoing: boolean,
@@ -61,7 +69,7 @@ const getGrantStatus = (
   }
 
   if (start && end) {
-    if (isWithinInterval(now, { start, end })) {
+    if (isBefore(start, end) && isWithinInterval(now, { start, end })) {
       return getBeforeCloseStatus(now, end)
     } else if (isBefore(now, start)) {
       return getBeforeOpenStatus(now, start)

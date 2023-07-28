@@ -133,10 +133,16 @@ onAggregationUpdateHook.value = (aggs) => {
 }
 
 const handleSearchSubmit = () => {
-  // Submitting the search term should also 'apply' the filters, but the filters live in a seperate form.
-  // To solve this, when the search term form is submitted, we trigger a submission of the filters form,
-  // it is there where the actual search request will be triggered.
-  submitForm('tide-search-filter-form')
+  if (props.userFilters && props.userFilters.length) {
+    // Submitting the search term should also 'apply' the filters, but the filters live in a seperate form.
+    // To solve this, when the search term form is submitted, we trigger a submission of the filters form,
+    // it is there where the actual search request will be triggered.
+    // This will only work if there is an actual filter form to submit.
+    submitForm('tide-search-filter-form')
+  } else {
+    // If there's no filters in the form, we need to just do the search without submitting the filter form
+    submitSearch()
+  }
 }
 
 const handleFilterSubmit = (form) => {
@@ -217,7 +223,7 @@ const numAppliedFilters = computed(() => {
         :behind-nav="true"
         :breadcrumbs="hasBreadcrumbs"
         :full-width="true"
-        :corner-top="true"
+        :corner-top="site?.cornerGraphic?.top?.src || true"
         :corner-bottom="false"
       >
         <p v-if="summary" class="rpl-type-p-large">{{ summary }}</p>
@@ -233,6 +239,7 @@ const numAppliedFilters = computed(() => {
             @update:input-value="handleUpdateSearchTerm"
           />
           <RplSearchBarRefine
+            v-if="userFilters && userFilters.length > 0"
             class="tide-search-refine-btn"
             :expanded="filtersExpanded"
             @click="handleToggleFilters"

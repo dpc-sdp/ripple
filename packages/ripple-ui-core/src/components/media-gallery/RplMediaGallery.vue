@@ -181,6 +181,7 @@ onUnmounted(() => {
           effect="fade"
           :show-tally="true"
           :current-slide="activeModalContentSlide"
+          class="rpl-media-gallery__modal-content"
           @change="modalContentSlideUpdate"
         >
           <RplMediaGalleryContent

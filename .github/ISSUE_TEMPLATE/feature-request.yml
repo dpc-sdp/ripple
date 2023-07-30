@@ -1,0 +1,74 @@
+name: '🚀 Feature request'
+description: Suggest a new feature for Ripple
+labels: ['pending triage', 'Proposal - Draft']
+assignees: dylankelly
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for taking the time to fill out this feature request!
+
+        Please carefully read the contribution docs before suggesting a new feature
+        👉 https://ripple.sdp.vic.gov.au/design-system/about/contributing
+  - type: textarea
+    id: feature-description
+    attributes:
+      label: Describe the feature
+      description: A clear and concise description of what you think would be a helpful addition to Ripple, including the possible use cases and alternatives you have considered. If you have a working prototype or module that implements it, please include a link.
+      placeholder: Feature description
+    validations:
+      required: true
+  - type: textarea
+    id: feature-motivation
+    attributes:
+      label: Motivation
+      description: Why are you considering this? What issues are you trying to address? What other context does the reviewers need to be able to assess this?
+      placeholder: Eg Improve end user performance, improve accessibility, etc
+    validations:
+      required: true
+  - type: textarea
+    id: feature-proposal
+    attributes:
+      label: Proposal
+      description: Please give a detailed outline of what the proposal is. This doesn’t need to be comprehensive, but should give enough detail to be implementable
+    validations:
+      required: true
+  - type: textarea
+    id: feature-proposal
+    attributes:
+      label: Benefits
+      description: List of the perceived benefits to the project for doing this
+    validations:
+      required: true
+  - type: textarea
+    id: feature-drawbacks
+    attributes:
+      label: Drawbacks
+      description: List out any potential drawbacks of doing this. Being realistic here creates a better picture of the what the challenges are
+    validations:
+      required: true
+  - type: textarea
+    id: feature-adoption
+    attributes:
+      label: Adoption strategy
+      description: Once this has been implemented, how do we drive adoption? If it’s a breaking change then how do you plan to address that? Does anything need deprecation?
+    validations:
+      required: true
+  - type: checkboxes
+    id: additional-info
+    attributes:
+      label: Additional information
+      description: Additional information that helps us decide how to proceed.
+      options:
+        - label: Would you be willing to help implement this feature?
+        - label: Could this feature be outside of Ripple-framework as a layer or module?
+  - type: checkboxes
+    id: required-info
+    attributes:
+      label: Final checks
+      description: Before submitting, please make sure you do the following
+      options:
+        - label: Read the [contribution guide](https://ripple.sdp.vic.gov.au/design-system/about/contributing).
+          required: true
+        - label: Check existing [discussions](https://github.com/dpc-sdp/ripple-framework/discussions) and [issues](https://github.com/dpc-sdp/ripple-framework/issues).
+          required: true

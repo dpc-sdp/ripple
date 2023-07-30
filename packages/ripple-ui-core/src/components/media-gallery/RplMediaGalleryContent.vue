@@ -31,15 +31,11 @@ const { emitRplEvent } = useRippleEvent('rpl-media-gallery', emit)
 const fullScreenLabel = computed(() => `View '${props.title}' fullscreen`)
 
 const onFullScreen = () => {
-  emitRplEvent(
-    'fullscreen',
-    {
-      action: 'click',
-      text: fullScreenLabel.value,
-      name: props.title
-    },
-    { global: true }
-  )
+  emitRplEvent('fullscreen', {
+    action: 'click',
+    text: fullScreenLabel.value,
+    name: props.title
+  })
 }
 </script>
 

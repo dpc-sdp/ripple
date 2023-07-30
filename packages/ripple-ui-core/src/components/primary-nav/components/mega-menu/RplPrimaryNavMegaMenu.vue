@@ -27,6 +27,8 @@ const { emitRplEvent } = useRippleEvent('rpl-primary-nav', emit)
 
 const slots = useSlots()
 
+const mainMenuBackLabel = 'Main menu'
+
 const currentLevel = computed(() => {
   if (!props.activeNavItems.level1) {
     return 1
@@ -47,12 +49,13 @@ const hasUserActions = computed(() => {
   return slots.userAction && slots?.userAction()[0].children?.length
 })
 
-const backButtonHandler = () => {
+const backButtonHandler = (label: string) => {
   emitRplEvent(
     'clickBackButton',
     {
       action: 'click',
-      text: props.activeNavItems['level' + (currentLevel.value - 2)]?.text,
+      text:
+        label || props.activeNavItems['level' + (currentLevel.value - 2)]?.text,
       index: currentLevel.value - 1
     },
     { global: true }
@@ -127,8 +130,8 @@ const backButtonHandler = () => {
           <div class="rpl-primary-nav__mega-menu-column">
             <!-- Back button - Only visible on mobile -->
             <RplPrimaryNavBackButton
-              label="Main menu"
-              @click="backButtonHandler()"
+              :label="mainMenuBackLabel"
+              @click="backButtonHandler(mainMenuBackLabel)"
             />
 
             <!-- Section title - Mobile - Level 2 -->

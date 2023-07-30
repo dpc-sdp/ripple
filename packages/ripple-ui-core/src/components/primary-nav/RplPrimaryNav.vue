@@ -140,7 +140,7 @@ const toggleNavItem = (
   }
 }
 
-const toggleMobileMenu = () => {
+const toggleMobileMenu = (text) => {
   // Make search inactive
   isSearchActive.value = false
 
@@ -150,6 +150,7 @@ const toggleMobileMenu = () => {
   emitRplEvent(
     'toggleMenu',
     {
+      text,
       action: isMegaNavActive.value ? 'open' : 'close'
     },
     { global: true }

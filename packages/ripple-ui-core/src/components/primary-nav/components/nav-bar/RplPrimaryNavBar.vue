@@ -37,6 +37,8 @@ const emit = defineEmits<{
 
 const { emitRplEvent } = useRippleEvent('rpl-primary-nav', emit)
 
+const mobileToggleLabel = 'Menu'
+
 const isItemActive = (item: IRplPrimaryNavItem) =>
   props.activeNavItems.level1?.id == item.id
 
@@ -119,9 +121,10 @@ const handleToggleItem = (level: number, item) => {
           href="/"
           :active="isMegaNavActive"
           focusKey="menu:toggle"
-          @click="toggleMobileMenu()"
+          @click="toggleMobileMenu(mobileToggleLabel)"
         >
-          <span>Menu</span>&NoBreak;<span
+          <span>{{ mobileToggleLabel }}</span
+          >&NoBreak;<span
             class="rpl-primary-nav__nav-bar-icon rpl-primary-nav__nav-bar-icon--large rpl-u-margin-l-2"
             ><RplIcon name="icon-chevron-down" size="xs"></RplIcon>
           </span>

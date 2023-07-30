@@ -42,11 +42,12 @@ const shouldRenderChildren = computed(() => {
   return true
 })
 
-const handleClick = (item) => {
+const handleClick = (item: IRplListItemArray, index: number) => {
   emitRplEvent('itemClick', {
     action: 'click',
     value: item.url,
     text: item.text,
+    index: index + 1,
     type: item?.type
   })
 }
@@ -68,7 +69,7 @@ const handleClick = (item) => {
         v-if="item.url"
         :url="item.url"
         class="rpl-list__link"
-        @click="() => handleClick(item)"
+        @click="() => handleClick(item, index)"
       >
         <RplListContent
           :icon-name="item?.icon"

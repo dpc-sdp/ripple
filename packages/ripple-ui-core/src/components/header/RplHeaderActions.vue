@@ -30,6 +30,7 @@ const handleClick = (item, type: string) => {
     action: 'click',
     text: item.text,
     value: item.url,
+    section: 'actions',
     elementType: type
   })
 }

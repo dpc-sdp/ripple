@@ -44,8 +44,7 @@ const handleClick = () => {
     {
       action: 'share',
       text: props.network,
-      label: props?.label,
-      value: props.url
+      label: props?.label
     },
     { global: true }
   )

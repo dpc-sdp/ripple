@@ -9,6 +9,9 @@ export type rplEventPayload = {
   value?: any
   index?: number
   type?: string
+  section?: string
+  theme?: string[]
+  options?: string[]
   elementType?: string
   contextId?: string
   contextName?: string
@@ -39,5 +42,9 @@ export function useRippleEvent(namespace: string, emit?: any) {
     }
   }
 
-  return { emitRplEvent }
+  const withOptions = (props: any, using: string[]) => {
+    return Object.keys(props).filter((key) => using.includes(key) && props[key])
+  }
+
+  return { emitRplEvent, withOptions }
 }

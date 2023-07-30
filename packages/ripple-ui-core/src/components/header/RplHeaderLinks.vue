@@ -34,6 +34,7 @@ const handleClick = (item) => {
     action: 'click',
     value: item.url,
     text: item.text,
+    section: 'links',
     elementType: props.type
   })
 }
@@ -41,6 +42,7 @@ const handleClick = (item) => {
 const handleListClick = (event) => {
   emitRplEvent('itemClick', {
     ...event,
+    section: 'links',
     elementType: props.type
   })
 }

@@ -17,21 +17,17 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 const emit = defineEmits<{
-  (e: 'navigate', payload: rplEventPayload & { action: 'click' }): void
+  (e: 'itemClick', payload: rplEventPayload & { action: 'click' }): void
 }>()
 
 const { emitRplEvent } = useRippleEvent('rpl-vertical-nav', emit)
 
 const handleClick = () => {
-  emitRplEvent(
-    'navigate',
-    {
-      action: 'click',
-      text: props.text,
-      value: props.href
-    },
-    { global: true }
-  )
+  emitRplEvent('itemClick', {
+    action: 'click',
+    text: props.text,
+    value: props.href
+  })
 }
 </script>
 

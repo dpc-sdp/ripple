@@ -78,7 +78,7 @@ const contentClasses = computed(() => ({
 
 const slots = useSlots()
 const defaultSlotIsEmpty = useEmptySlotCheck(slots.default)
-const { emitRplEvent } = useRippleEvent('rpl-header', emit)
+const { emitRplEvent, withOptions } = useRippleEvent('rpl-header', emit)
 
 const handleClick = (event) => {
   emitRplEvent(
@@ -86,6 +86,13 @@ const handleClick = (event) => {
     {
       ...event,
       label: props?.title,
+      theme: props?.theme,
+      options: withOptions(props, [
+        'background',
+        'primaryAction',
+        'secondaryAction',
+        'links'
+      ]),
       type: 'hero'
     },
     { global: true }

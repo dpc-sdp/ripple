@@ -75,7 +75,7 @@ const handleChange = ({ type, action, text, value }) => {
   )
 }
 
-const toggleModal = (event) => {
+const toggleModal = ({ text }) => {
   showModal.value = !showModal.value
 
   if (showModal.value) {
@@ -87,8 +87,8 @@ const toggleModal = (event) => {
     'viewFullscreen',
     {
       action: showModal.value ? 'enter' : 'exit',
-      text: event?.text,
-      label: event?.name || props.items[activeImageSlide.value].title,
+      text,
+      label: props.items[activeModalImageSlide.value]?.title,
       index: activeImageSlide.value + 1
     },
     { global: true }

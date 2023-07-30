@@ -24,7 +24,10 @@ const emit = defineEmits<{
   (e: 'navigate', payload: rplEventPayload & { action: 'click' }): void
 }>()
 
-const { emitRplEvent } = useRippleEvent('rpl-campaign-banner', emit)
+const { emitRplEvent, withOptions } = useRippleEvent(
+  'rpl-campaign-banner',
+  emit
+)
 
 const handleClick = () => {
   emitRplEvent(
@@ -34,6 +37,7 @@ const handleClick = () => {
       label: props.title,
       text: props.link?.text,
       value: props.link?.url,
+      options: withOptions(props, ['image', 'link']),
       type: 'secondary'
     },
     { global: true }

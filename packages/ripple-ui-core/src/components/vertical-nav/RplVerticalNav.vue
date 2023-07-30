@@ -23,6 +23,7 @@ const emit = defineEmits<{
     e: 'toggleMenuItem',
     payload: rplEventPayload & { action: 'open' | 'close' }
   ): void
+  (e: 'navigate', payload: rplEventPayload & { action: 'click' }): void
 }>()
 
 const { emitRplEvent } = useRippleEvent('rpl-vertical-nav', emit)
@@ -80,7 +81,18 @@ const handleToggle = (item: IRplVerticalNavItem) => {
       id: toggleID(item.id),
       action: isItemExpanded(item.id) ? 'open' : 'close',
       text: item.text,
-      label: props?.title
+      name: props?.title
+    },
+    { global: true }
+  )
+}
+
+const handleClick = (event) => {
+  emitRplEvent(
+    'navigate',
+    {
+      ...event,
+      name: props?.title
     },
     { global: true }
   )
@@ -122,6 +134,7 @@ const handleToggle = (item: IRplVerticalNavItem) => {
             :items="item.items"
             :level="2"
             :is-expanded="isItemExpanded(item.id)"
+            @item-click="handleClick"
           />
         </RplExpandable>
 
@@ -130,6 +143,7 @@ const handleToggle = (item: IRplVerticalNavItem) => {
           :text="item.text"
           :href="item.url"
           :active="item?.active && !item.items?.some((i) => i.active)"
+          @item-click="handleClick"
         />
       </li>
     </ul>

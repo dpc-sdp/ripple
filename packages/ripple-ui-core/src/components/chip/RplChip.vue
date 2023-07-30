@@ -10,12 +10,14 @@ interface Props {
   variant?: (typeof RplChipVariants)[number]
   label?: string
   url?: string
+  index?: number
 }
 
 const props = withDefaults(defineProps<Props>(), {
   variant: 'default',
   label: '',
-  url: '#'
+  url: '#',
+  index: 0
 })
 
 const emit = defineEmits<{
@@ -30,7 +32,8 @@ const onClick = () => {
     {
       action: 'click',
       value: props.url,
-      text: props.label
+      text: props.label,
+      index: props?.index + 1
     },
     { global: true }
   )

@@ -27,5 +27,14 @@ export default function ({ route, site, page }): IRplAnalyticsEventPayload {
       .map((crumb) => crumb.text)
   }
 
+  const measurementIds = {
+    uat_measurement_id: site?.featureFlags?.uatMeasurementID,
+    prod_measurement_id: site?.featureFlags?.prodMeasurementID
+  }
+
+  if (Object.values(measurementIds).filter(Boolean).length) {
+    payload.google_analytics = measurementIds
+  }
+
   return payload
 }

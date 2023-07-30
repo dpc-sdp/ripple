@@ -64,6 +64,7 @@ export default {
         type: payload?.type,
         name: payload?.name,
         component: 'rpl-campaign-banner',
+        component_options: payload?.options,
         platform_event: 'navigate'
       })
     }
@@ -115,6 +116,7 @@ export default {
         element_id: payload?.id,
         element_text: payload?.text,
         name: payload?.name,
+        index: payload?.index,
         link_url: payload?.value,
         component: 'rpl-chip',
         platform_event: 'navigate'
@@ -220,9 +222,12 @@ export default {
         element_text: payload?.text,
         label: payload?.label,
         link_url: payload?.value,
+        section: payload?.section,
+        theme: payload?.theme,
         type: payload?.type,
         name: payload?.name,
         component: 'rpl-header',
+        component_options: payload?.options,
         platform_event: 'navigate'
       })
     }
@@ -337,6 +342,7 @@ export default {
         event: `${payload.action}_fullscreen`,
         element_id: payload?.id,
         element_text: payload?.text,
+        label: payload?.label,
         name: payload?.name,
         value: payload?.value,
         index: payload?.index,
@@ -376,6 +382,7 @@ export default {
       trackEvent({
         event: `${payload.action}_menu`,
         element_id: payload?.id,
+        element_text: payload?.text,
         name: payload?.name,
         component: 'rpl-primary-nav',
         platform_event: 'toggleMenu'
@@ -439,6 +446,7 @@ export default {
         event: `${payload.action}_related_link`,
         element_id: payload?.id,
         element_text: payload?.text,
+        index: payload?.index,
         name: payload?.name,
         link_url: payload?.value,
         component: 'rpl-related-links',
@@ -480,7 +488,6 @@ export default {
         element_id: payload?.id,
         element_text: payload?.text,
         label: payload?.label,
-        link_url: payload?.value,
         name: payload?.text?.toLowerCase(),
         component: 'rpl-social-share',
         platform_event: 'openShareWindow'
@@ -531,6 +538,7 @@ export default {
         element_id: payload?.id,
         element_text: payload?.text,
         name: payload?.name,
+        index: payload?.index,
         component: 'rpl-vertical-nav',
         platform_event: 'navigate'
       })

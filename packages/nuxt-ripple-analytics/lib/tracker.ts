@@ -19,7 +19,10 @@ export interface IRplAnalyticsEventPayload {
   type?: string
   value?: string
   index?: number
+  theme?: string
+  section?: string
   component?: string
+  component_options?: string
   // Route properties
   content_type?: string
   search_term?: string
@@ -27,6 +30,10 @@ export interface IRplAnalyticsEventPayload {
   publication_name?: string
   breadcrumbs?: string[]
   production?: boolean
+  google_analytics?: {
+    prod_measurement_id?: string
+    uat_measurement_id?: string
+  }
 }
 
 const filterPayload = (payload: IRplAnalyticsEventPayload) =>

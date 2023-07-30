@@ -8,6 +8,7 @@ import {
   IRplPrimaryNavActiveItems,
   RplPrimaryNavToggleItemOptions
 } from '../../constants'
+import { rplEventPayload, useRippleEvent } from '@dpc-sdp/ripple-ui-core'
 
 interface Props {
   items: IRplPrimaryNavItem[]
@@ -18,7 +19,15 @@ interface Props {
 
 const props = withDefaults(defineProps<Props>(), {})
 
+const emit = defineEmits<{
+  (e: 'clickBackButton', payload: rplEventPayload & { action: 'click' }): void
+}>()
+
+const { emitRplEvent } = useRippleEvent('rpl-primary-nav', emit)
+
 const slots = useSlots()
+
+const mainMenuBackLabel = 'Main menu'
 
 const currentLevel = computed(() => {
   if (!props.activeNavItems.level1) {
@@ -40,7 +49,18 @@ const hasUserActions = computed(() => {
   return slots.userAction && slots?.userAction()[0].children?.length
 })
 
-const backButtonHandler = () => {
+const backButtonHandler = (label: string) => {
+  emitRplEvent(
+    'clickBackButton',
+    {
+      action: 'click',
+      text:
+        label || props.activeNavItems['level' + (currentLevel.value - 2)]?.text,
+      index: currentLevel.value - 1
+    },
+    { global: true }
+  )
+
   // Go back to level 3
   if (currentLevel.value == 4 && props.activeNavItems.level3) {
     props.toggleItem(3, props.activeNavItems.level3)
@@ -110,8 +130,8 @@ const backButtonHandler = () => {
           <div class="rpl-primary-nav__mega-menu-column">
             <!-- Back button - Only visible on mobile -->
             <RplPrimaryNavBackButton
-              label="Main menu"
-              @click="backButtonHandler()"
+              :label="mainMenuBackLabel"
+              @click="backButtonHandler(mainMenuBackLabel)"
             />
 
             <!-- Section title - Mobile - Level 2 -->

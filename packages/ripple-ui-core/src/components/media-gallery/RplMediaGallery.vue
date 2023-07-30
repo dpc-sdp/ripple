@@ -4,6 +4,10 @@ import RplImage from '../image/RplImage.vue'
 import RplSlider from '../slider/RplSlider.vue'
 import RplModal from '../modal/RplModal.vue'
 import { onMounted, onUnmounted, ref } from 'vue'
+import {
+  useRippleEvent,
+  rplEventPayload
+} from '../../composables/useRippleEvent'
 import 'swiper/css'
 import 'swiper/css/effect-fade'
 
@@ -21,32 +25,86 @@ interface Props {
 
 const props = defineProps<Props>()
 
+const emit = defineEmits<{
+  (e: 'paginate', payload: rplEventPayload & { action: 'prev' | 'next' }): void
+  (e: 'swipe', payload: rplEventPayload & { action: 'prev' | 'next' }): void
+  (
+    e: 'viewFullscreen',
+    payload: rplEventPayload & { action: 'enter' | 'exit' }
+  ): void
+}>()
+
+const { emitRplEvent } = useRippleEvent('rpl-media-gallery', emit)
+
 const showModal = ref(false)
 const activeImageSlide = ref(0)
+const activeModalImageSlide = ref(0)
 const activeContentSlide = ref(0)
+const activeModalContentSlide = ref(0)
 
-const contentSlideUpdate = (currentPage) => {
-  activeImageSlide.value = currentPage
+const contentSlideUpdate = (event) => {
+  activeImageSlide.value = event.value
+
+  handleChange(event)
 }
 
-const imageSlideUpdate = (currentPage) => {
-  activeContentSlide.value = currentPage
+const modalContentSlideUpdate = (event) => {
+  activeModalImageSlide.value = event.value
+
+  handleChange(event)
 }
 
-const toggleModal = () => {
+const imageSlideUpdate = ({ value }) => {
+  activeContentSlide.value = value
+}
+
+const modalImageSlideUpdate = ({ value }) => {
+  activeModalContentSlide.value = value
+}
+
+const handleChange = ({ type, action, text, value }) => {
+  emitRplEvent(
+    type,
+    {
+      action,
+      text,
+      label: props.items[value].title,
+      index: value + 1
+    },
+    { global: true }
+  )
+}
+
+const toggleModal = ({ text }) => {
   showModal.value = !showModal.value
+
+  if (showModal.value) {
+    activeModalImageSlide.value = activeImageSlide.value
+    activeModalContentSlide.value = activeContentSlide.value
+  }
+
+  emitRplEvent(
+    'viewFullscreen',
+    {
+      action: showModal.value ? 'enter' : 'exit',
+      text,
+      label: props.items[activeModalImageSlide.value]?.title,
+      index: activeImageSlide.value + 1
+    },
+    { global: true }
+  )
 }
 
 const keyboardNavigation = (event) => {
   if (!showModal.value) return
 
-  if (event.key === 'ArrowLeft' && activeImageSlide.value > 0) {
-    activeImageSlide.value = activeImageSlide.value - 1
+  if (event.key === 'ArrowLeft' && activeModalImageSlide.value > 0) {
+    activeModalImageSlide.value = activeModalImageSlide.value - 1
   } else if (
     event.key === 'ArrowRight' &&
-    activeImageSlide.value < props.items.length - 1
+    activeModalImageSlide.value < props.items.length - 1
   ) {
-    activeImageSlide.value = activeImageSlide.value + 1
+    activeModalImageSlide.value = activeModalImageSlide.value + 1
   }
 }
 
@@ -104,10 +162,10 @@ onUnmounted(() => {
       @close="toggleModal"
     >
       <RplSlider
-        :current-slide="activeImageSlide"
+        :current-slide="activeModalImageSlide"
         :show-pagination="false"
         class="rpl-media-gallery__modal-images"
-        @change="imageSlideUpdate"
+        @change="modalImageSlideUpdate"
       >
         <RplImage
           v-for="(item, i) in items"
@@ -122,9 +180,9 @@ onUnmounted(() => {
         <RplSlider
           effect="fade"
           :show-tally="true"
-          :current-slide="activeContentSlide"
+          :current-slide="activeModalContentSlide"
           class="rpl-media-gallery__modal-content"
-          @change="contentSlideUpdate"
+          @change="modalContentSlideUpdate"
         >
           <RplMediaGalleryContent
             v-for="(item, index) in items"

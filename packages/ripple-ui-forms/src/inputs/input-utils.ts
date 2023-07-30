@@ -128,6 +128,7 @@ export const defaultRplFormInputProps = {
   onInput: '$handlers.DOMInput',
   onBlur: '$handlers.blur',
   id: '$id',
+  label: '$label',
   prefixIcon: '$node.props.prefixIcon',
   suffixIcon: '$node.props.suffixIcon',
   value: '$_value',

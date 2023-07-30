@@ -22,6 +22,10 @@ import {
   IRplPrimaryNavFocusOptions
 } from './constants'
 import RplPrimaryNavQuickExit from './components/quick-exit/RplPrimaryNavQuickExit.vue'
+import {
+  useRippleEvent,
+  rplEventPayload
+} from '../../composables/useRippleEvent'
 import { useViewportHeight } from '../../composables/useViewportHeight'
 
 interface Props {
@@ -38,7 +42,13 @@ const props = withDefaults(defineProps<Props>(), {
   showQuickExit: true
 })
 
+const emit = defineEmits<{
+  (e: 'toggleMenu', payload: rplEventPayload & { action: 'open' | 'close' })
+  (e: 'toggleSearch', payload: rplEventPayload & { action: 'open' | 'close' })
+}>()
+
 const slots = useSlots()
+const { emitRplEvent } = useRippleEvent('rpl-primary-nav', emit)
 
 const navContainer = ref()
 const { activate: activateFocusTrap, deactivate: deactivateFocusTrap } =
@@ -130,12 +140,21 @@ const toggleNavItem = (
   }
 }
 
-const toggleMobileMenu = () => {
+const toggleMobileMenu = (text) => {
   // Make search inactive
   isSearchActive.value = false
 
   // Toggle mega nav
   isMegaNavActive.value = !isMegaNavActive.value
+
+  emitRplEvent(
+    'toggleMenu',
+    {
+      text,
+      action: isMegaNavActive.value ? 'open' : 'close'
+    },
+    { global: true }
+  )
 }
 
 const toggleSearch = () => {
@@ -144,6 +163,14 @@ const toggleSearch = () => {
 
   // Toggle search
   isSearchActive.value = !isSearchActive.value
+
+  emitRplEvent(
+    'toggleSearch',
+    {
+      action: isSearchActive.value ? 'open' : 'close'
+    },
+    { global: true }
+  )
 }
 
 const isExpanded = computed(() => {

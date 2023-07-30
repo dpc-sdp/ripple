@@ -13,7 +13,7 @@ interface Props {
   columns: Array<string>
   headingType?: HeadingType
   items: Array<Record<string, unknown>[] | string[]>
-  offset: number
+  offset?: number
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -93,6 +93,8 @@ const mappedItems = computed(() => {
           :content="mappedItems.hidden?.[index]?.[0]"
           :vertical-header="headingType.vertical"
           :offset="offset"
+          :caption="caption"
+          :index="index"
         ></RplDataTableRow>
         <tfoot v-if="footer">
           <tr>

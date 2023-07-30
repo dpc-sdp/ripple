@@ -4,6 +4,10 @@ import { IRplHeaderLinksList } from './constants'
 import RplIcon from '../icon/RplIcon.vue'
 import RplHeaderLinks from './RplHeaderLinks.vue'
 import { RplIconNames } from '../icon/constants'
+import {
+  useRippleEvent,
+  rplEventPayload
+} from '../../composables/useRippleEvent'
 
 interface Props {
   title: string
@@ -12,11 +16,29 @@ interface Props {
   iconName?: (typeof RplIconNames)[number]
 }
 
-withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<Props>(), {
   content: undefined,
   links: undefined,
   iconName: undefined
 })
+
+const emit = defineEmits<{
+  (e: 'navigate', payload: rplEventPayload & { action: 'click' }): void
+}>()
+
+const { emitRplEvent } = useRippleEvent('rpl-header', emit)
+
+const handleClick = (event) => {
+  emitRplEvent(
+    'navigate',
+    {
+      ...event,
+      label: props?.title,
+      type: 'intro'
+    },
+    { global: true }
+  )
+}
 </script>
 
 <template>
@@ -41,6 +63,7 @@ withDefaults(defineProps<Props>(), {
         "
         :type="links?.type"
         :more-link="links.more"
+        @item-click="handleClick"
       />
     </template>
   </RplHeader>

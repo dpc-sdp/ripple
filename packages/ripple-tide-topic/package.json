@@ -1,0 +1,18 @@
+{
+  "license": "Apache-2.0",
+  "name": "@dpc-sdp/ripple-tide-topic",
+  "description": "Ripple mappings and components for Tide topics and tags",
+  "main": "./nuxt.config.ts",
+  "exports": {
+    ".": "./nuxt.config.ts",
+    "./mapping": "./mapping/index.ts",
+    "./types": "./types.ts"
+  },
+  "version": "2.1.0-alpha.188",
+  "dependencies": {
+    "@dpc-sdp/nuxt-ripple": "workspace:*",
+    "@dpc-sdp/ripple-tide-api": "workspace:*",
+    "@dpc-sdp/ripple-ui-core": "workspace:*",
+    "@dpc-sdp/ripple-tide-search": "workspace:*"
+  }
+}

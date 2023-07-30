@@ -19,10 +19,7 @@
       <slot name="breadcrumbs"></slot>
     </template>
     <template #aboveBody="{ hasBreadcrumbs }">
-      <TideGrantHeader
-        :header="page.header"
-        :hasBreadcrumbs="hasBreadcrumbs"
-      ></TideGrantHeader>
+      <slot name="aboveBody" :hasBreadcrumbs="hasBreadcrumbs"></slot>
     </template>
     <template #body>
       <TideGrantOverview :overview="page.overview"></TideGrantOverview>

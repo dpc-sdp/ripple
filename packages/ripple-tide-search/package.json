@@ -9,6 +9,7 @@
     ".": "./nuxt.config.ts"
   },
   "dependencies": {
+    "@dpc-sdp/ripple-tide-api": "workspace:*",
     "@dpc-sdp/ripple-ui-core": "workspace:*",
     "@dpc-sdp/ripple-ui-forms": "workspace:*",
     "@elastic/search-ui": "^1.19.1",

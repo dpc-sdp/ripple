@@ -7,7 +7,7 @@
     :pageTitle="page.title"
     :pageLanguage="page.lang"
     :footerImageCaption="
-      page.showHeroImageCaption ? page.heroHeader.backgroundImageCaption : ''
+      page.showHeroImageCaption ? page.header?.backgroundImageCaption : ''
     "
     :topicTags="page.showTopicTags ? page.topicTags : []"
     :updatedDate="page.changed || page.created"
@@ -23,8 +23,8 @@
       <slot name="breadcrumbs"></slot>
     </template>
     <template #aboveBody="{ hasBreadcrumbs }">
-      <TideLandingPageHeroHeader
-        :header="page.heroHeader"
+      <TideHeroHeader
+        :header="page.header"
         :hasBreadcrumbs="hasBreadcrumbs"
         :hideBottomCornerGraphic="!!page.primaryCampaign"
         :cornerTop="site?.cornerGraphic?.top"

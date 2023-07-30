@@ -1,0 +1,34 @@
+{
+  "query": {
+    "bool": {
+      "must": [{ "match_all": {} }],
+      "filter": [
+        { "terms": { "type": ["fv_recommendation"] } },
+        { "terms": { "field_node_site": ["4"] } }
+      ]
+    }
+  },
+  "size": 40,
+  "from": 0,
+  "sort": [
+    { "_score": "desc" },
+    { "field_fv_recommendation_number": "asc" },
+    { "_doc": "desc" }
+  ],
+  "aggs": {
+    "category": {
+      "terms": {
+        "field": "field_fv_recommendation_category_name.keyword",
+        "order": { "_key": "asc" },
+        "size": 30
+      }
+    },
+    "department": {
+      "terms": {
+        "field": "field_fv_recommendation_dpt_name.keyword",
+        "order": { "_key": "asc" },
+        "size": 30
+      }
+    }
+  }
+}

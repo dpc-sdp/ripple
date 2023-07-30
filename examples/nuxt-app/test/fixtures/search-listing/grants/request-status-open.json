@@ -1,0 +1,44 @@
+{
+  "query": {
+    "bool": {
+      "must": [{ "match_all": {} }],
+      "filter": [
+        { "terms": { "type": ["grant"] } },
+        { "terms": { "field_node_site": [4] } },
+        {
+          "bool": {
+            "should": [
+              {
+                "bool": {
+                  "must": [
+                    {
+                      "range": {
+                        "field_node_dates_start_value": {
+                          "lte": "now"
+                        }
+                      }
+                    },
+                    {
+                      "range": {
+                        "field_node_dates_end_value": {
+                          "gte": "now"
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "size": 10,
+  "from": 0,
+  "sort": [
+    {
+      "title.keyword": "asc"
+    }
+  ]
+}

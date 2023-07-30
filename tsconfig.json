@@ -27,7 +27,8 @@
       "@dpc-sdp/ripple-tide-grant": ["ripple-tide-grant/src"],
       "@dpc-sdp/ripple-tide-landing-page": ["ripple-tide-landing-page/src"],
       "@dpc-sdp/ripple-tide-media": ["ripple-tide-media/src"],
-      "@dpc-sdp/ripple-tide-publication": ["ripple-tide-publication/src"]
+      "@dpc-sdp/ripple-tide-publication": ["ripple-tide-publication/src"],
+      "@dpc-sdp/ripple-tide-topic": ["ripple-tide-topic/src"]
     }
   },
   "exclude": ["**/*.stories.ts", "**/*.stories.mdx"]

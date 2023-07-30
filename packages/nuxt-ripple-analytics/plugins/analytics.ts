@@ -1,6 +1,6 @@
 import { defineNuxtPlugin, useAppConfig, useRuntimeConfig } from '#app'
 import { loadScript } from '@gtm-support/core'
-import { trackEvent } from '../lib'
+import { trackEvent } from '../lib/tracker'
 import routeChange from '../lib/routeChange'
 
 declare global {

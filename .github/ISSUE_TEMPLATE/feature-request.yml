@@ -4,6 +4,7 @@ labels: ['pending triage', 'Proposal - Draft']
 assignees: dylankelly
 body:
   - type: markdown
+    id: feature-intro
     attributes:
       value: |
         Thank you for taking the time to fill out this feature request!
@@ -55,20 +56,20 @@ body:
     validations:
       required: true
   - type: checkboxes
-    id: additional-info
+    id: feature-additional-info
     attributes:
       label: Additional information
       description: Additional information that helps us decide how to proceed.
       options:
-        - label: Would you be willing to help implement this feature?
-        - label: Could this feature be outside of Ripple-framework as a layer or module?
+        - label: Would you be willing to help implement this?
+        - label: Could this feature be outside of Ripple-framework as a layer?
   - type: checkboxes
-    id: required-info
+    id: feature-required-info
     attributes:
       label: Final checks
-      description: Before submitting, please make sure you do the following
+      description: Before submitting, please make sure you have done the following:
       options:
-        - label: Read the [contribution guide](https://ripple.sdp.vic.gov.au/design-system/about/contributing).
+        - label: I have read the [contribution guide](https://ripple.sdp.vic.gov.au/design-system/about/contributing) for information on submitting a feature request.
           required: true
-        - label: Check existing [discussions](https://github.com/dpc-sdp/ripple-framework/discussions) and [issues](https://github.com/dpc-sdp/ripple-framework/issues).
+        - label: I have checked the [discussions](https://github.com/dpc-sdp/ripple-framework/discussions) and [issues](https://github.com/dpc-sdp/ripple-framework/issues) for duplicate feature requests.
           required: true

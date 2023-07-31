@@ -1,0 +1,17 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 🖌️ Ripple Design System Documentation website
+    url: https://ripple.sdp.vic.gov.au/
+    about: Ripple design system documentation
+  - name: 📚 Ripple Framework docs
+    url: https://ripple.sdp.vic.gov.au/framework
+    about: Ripple documentation section for using Ripple with SDP
+  - name: 🌐 Ripple design system on vic.gov.au
+    url: https://www.vic.gov.au/ripple-design-system
+    about: About Ripple and it's usage on Victorian Government sites
+  - name: 💬 SDP Community of practice on Innovation Network
+    url: https://innovationnetwork.vic.gov.au/my-network/groups/single-digital-presence-community-practice
+    about: The SDP community offers training and peer support for content editors on the Single Digital Presence (SDP) platform.
+  - name: 💬 GitHub Discussions
+    url: https://github.com/dpc-sdp/ripple-framework/discussions
+    about: Developers can use GitHub discussions for suggesting an idea, asking for help or providing feedback to the SDP development team.

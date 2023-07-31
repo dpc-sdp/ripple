@@ -173,7 +173,7 @@ function scrollToElementTopWithOffset(element, offset) {
   })
 }
 
-const handlePageChange = (newPage: number) => {
+const handlePageChange = ({ value }) => {
   const navHeight = 92
   const layoutBody = document.querySelector('.rpl-layout__body-wrap')
 
@@ -181,7 +181,7 @@ const handlePageChange = (newPage: number) => {
     scrollToElementTopWithOffset(layoutBody, navHeight)
   }
 
-  goToPage(newPage)
+  goToPage(value)
 }
 
 const handleToggleFilters = () => {

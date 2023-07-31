@@ -14,6 +14,7 @@ export const dropdown: FormKitTypeDefinition = {
     props: {
       multiple: '$node.props.multiple',
       id: `$id`,
+      label: '$label',
       labelId: `$id + '__label'`,
       'aria-describedby': '$fns.getAriaDescribedBy()',
       name: '$node.name',

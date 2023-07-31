@@ -215,6 +215,14 @@ export interface IRplFeatureFlags {
    * @description Option to disable the display of coloured/rainbow stripes on top of promo cards
    */
   hidePromoCardStripe?: boolean
+  /**
+   * @description Sets the UAT Google Analytics measurement ID
+   */
+  uatMeasurementID?: string
+  /**
+   * @description Sets the PROD Google Analytics measurement ID
+   */
+  prodMeasurementID?: string
 }
 
 declare module 'nitropack' {

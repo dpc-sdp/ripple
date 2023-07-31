@@ -160,7 +160,7 @@ watch(
             id: props.id,
             action: 'submit',
             name: props.title,
-            label:
+            text:
               props.schema?.find((field) => field?.key === 'actions')?.label ||
               'Submit'
           },

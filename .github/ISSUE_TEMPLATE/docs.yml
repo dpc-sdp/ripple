@@ -1,0 +1,45 @@
+name: "\U+1F4D6 Documentation improvements"
+description: Suggest an improvement to out documentation site - https://ripple.sdp.vic.gov.au/
+labels: ["pending triage", "docs"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        If you have a suggestion or improvement specifically to do with our documentation site please help us improve it.
+
+        Please carefully read the contribution docs before creating a bug report
+        👉 https://ripple.sdp.vic.gov.au/design-system/about/contributing
+
+  - type: input
+    id: url
+    attributes:
+      label: URL
+      description: Please enter the URL of the page you wish to change, or leave if its a site level change
+      placeholder: https://ripple.sdp.vic.gov.au/
+    validations:
+      required: true
+  - type: textarea
+    id: describe
+    attributes:
+      label: Describe the improvement
+      description: Please describe the change or improvement you would like to see.
+      placeholder: Reproduction
+    validations:
+      required: true
+  - type: textarea
+    id: audience
+    attributes:
+      label: Audience
+      description: Who would benefit from this change? What is the audience?
+    validations:
+      required: false
+  - type: checkboxes
+    id: required-info
+    attributes:
+      label: Final checks
+      description: Before submitting, please make sure you do the following
+      options:
+        - label: Read the [contribution guide](https://ripple.sdp.vic.gov.au/design-system/about/contributing).
+          required: true
+        - label: Check existing [discussions](https://github.com/dpc-sdp/ripple-framework/discussions) and [issues](https://github.com/dpc-sdp/ripple-framework/issues).
+          required: true

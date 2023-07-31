@@ -19,6 +19,7 @@
 @import 'utilities/_typography.css';
 @import 'utilities/_aspect.css';
 @import 'utilities/_print.css';
+@import 'utilities/_languages.css';
 
 /* Global styles */
 @import '_fonts.css';

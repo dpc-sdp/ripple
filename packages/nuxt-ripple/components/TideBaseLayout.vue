@@ -1,5 +1,9 @@
 <template>
-  <RplLayout :background="background">
+  <RplLayout
+    :background="background"
+    :language="language"
+    :direction="direction"
+  >
     <template #aboveHeader>
       <RplIconSprite />
       <slot name="aboveHeader"></slot>
@@ -98,6 +102,7 @@ import { TideTopicTag } from '../mapping/base/topic-tags/topic-tags-mapping'
 import { TideSiteSection } from '@dpc-sdp/ripple-tide-api/types'
 import hideAlertsOnLoadScript from '../utils/hideAlertsOnLoadScript.js'
 import useTidePageMeta from '../composables/use-tide-page-meta'
+import useTideLanguage from '../composables/use-tide-language'
 
 interface Props {
   site: TideSiteData
@@ -138,7 +143,7 @@ onMounted(() => {
 })
 
 const route = useRoute()
-
+const { language, direction } = useTideLanguage(props?.page)
 const showBreadcrumbs = computed(() => route.path !== '/')
 const showDraftAlert = computed(() => props.page?.status === 'draft')
 

@@ -67,7 +67,7 @@ body:
     id: feature-required-info
     attributes:
       label: Final checks
-      description: Before submitting, please make sure you have done the following:
+      description: Before submitting, please make sure you have done the following
       options:
         - label: I have read the [contribution guide](https://ripple.sdp.vic.gov.au/design-system/about/contributing) for information on submitting a feature request.
           required: true

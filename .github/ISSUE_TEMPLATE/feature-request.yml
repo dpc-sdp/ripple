@@ -1,4 +1,4 @@
-tsname: '🚀 Feature request'
+name: '🚀 Feature request'
 description: Suggest a new feature for Ripple
 labels: ['pending triage', 'Proposal - Draft']
 assignees: dylankelly

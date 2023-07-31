@@ -1,4 +1,4 @@
-name: '🚀 Feature request'
+tsname: '🚀 Feature request'
 description: Suggest a new feature for Ripple
 labels: ['pending triage', 'Proposal - Draft']
 assignees: dylankelly
@@ -35,7 +35,7 @@ body:
     validations:
       required: true
   - type: textarea
-    id: feature-proposal
+    id: feature-benefits
     attributes:
       label: Benefits
       description: List of the perceived benefits to the project for doing this
@@ -61,8 +61,8 @@ body:
       label: Additional information
       description: Additional information that helps us decide how to proceed.
       options:
-        - label: Would you be willing to help implement this?
-        - label: Could this feature be outside of Ripple-framework as a layer?
+        - label: Would you be willing to help implement this feature?
+        - label: Could this feature be created outside of Ripple-framework as a layer?
   - type: checkboxes
     id: feature-required-info
     attributes:

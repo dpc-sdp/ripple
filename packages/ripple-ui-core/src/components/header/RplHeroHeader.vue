@@ -13,6 +13,10 @@ import RplHeaderActions from './RplHeaderActions.vue'
 import { RplLink } from '../../lib/constants'
 import { IRplImageType } from '../image/constants'
 import useEmptySlotCheck from '../../composables/useEmptySlotCheck'
+import {
+  useRippleEvent,
+  rplEventPayload
+} from '../../composables/useRippleEvent'
 
 interface Props {
   theme?: (typeof RplHeaderThemes)[number]
@@ -43,6 +47,10 @@ const props = withDefaults(defineProps<Props>(), {
   fullWidth: false
 })
 
+const emit = defineEmits<{
+  (e: 'navigate', payload: rplEventPayload & { action: 'click' }): void
+}>()
+
 const highlight = computed(
   () => props.theme === 'reverse' || props.theme === 'neutral'
 )
@@ -70,6 +78,26 @@ const contentClasses = computed(() => ({
 
 const slots = useSlots()
 const defaultSlotIsEmpty = useEmptySlotCheck(slots.default)
+const { emitRplEvent, withOptions } = useRippleEvent('rpl-header', emit)
+
+const handleClick = (event) => {
+  emitRplEvent(
+    'navigate',
+    {
+      ...event,
+      label: props?.title,
+      theme: props?.theme,
+      options: withOptions(props, [
+        'background',
+        'primaryAction',
+        'secondaryAction',
+        'links'
+      ]),
+      type: 'hero'
+    },
+    { global: true }
+  )
+}
 </script>
 
 <template>
@@ -104,7 +132,11 @@ const defaultSlotIsEmpty = useEmptySlotCheck(slots.default)
       <slot></slot>
     </p>
     <template v-if="(primaryAction || secondaryAction) && !background" #lower>
-      <RplHeaderActions :primary="primaryAction" :secondary="secondaryAction" />
+      <RplHeaderActions
+        :primary="primaryAction"
+        :secondary="secondaryAction"
+        @item-click="handleClick"
+      />
     </template>
     <template v-if="links && !background" #aside>
       <RplHeaderLinks
@@ -116,6 +148,7 @@ const defaultSlotIsEmpty = useEmptySlotCheck(slots.default)
           }))
         "
         :more-link="links.more"
+        @item-click="handleClick"
       />
     </template>
   </RplHeader>

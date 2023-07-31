@@ -2,6 +2,9 @@
 import { RplButton } from '@dpc-sdp/ripple-ui-core/vue'
 import { reset } from '@formkit/vue'
 import { computed, inject } from 'vue'
+import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
+import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
+
 interface Props {
   id: string
   disabled?: boolean
@@ -14,8 +17,6 @@ interface Props {
   displayResetButton: boolean
 }
 
-const emit = defineEmits(['reset'])
-
 const props = withDefaults(defineProps<Props>(), {
   type: 'submit',
   variant: 'filled',
@@ -27,6 +28,12 @@ const props = withDefaults(defineProps<Props>(), {
   suffixIcon: undefined,
   disabled: false
 })
+
+const emit = defineEmits<{
+  (e: 'reset', payload: rplEventPayload & { action: 'click' }): void
+}>()
+
+const { emitRplEvent } = useRippleEvent('rpl-form-actions', emit)
 
 const iconPosition = computed(() => {
   if (props.prefixIcon) {
@@ -43,7 +50,17 @@ const isFormSubmitting: any = inject('isFormSubmitting')
 
 const handleReset = () => {
   reset(form.id)
-  emit('reset')
+
+  emitRplEvent(
+    'reset',
+    {
+      action: 'click',
+      text: props?.resetLabel,
+      contextId: form?.id,
+      contextName: form?.name
+    },
+    { global: true }
+  )
 }
 </script>
 <template>

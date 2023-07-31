@@ -6,6 +6,10 @@ import RplExpandable from '../expandable/RplExpandable.vue'
 import { useExpandableState } from '../../composables/useExpandableState'
 import { IRplVerticalNavItem } from './constants'
 import { computed } from 'vue'
+import {
+  useRippleEvent,
+  rplEventPayload
+} from '../../composables/useRippleEvent'
 
 interface Props {
   title?: string
@@ -13,6 +17,16 @@ interface Props {
 }
 
 const props = defineProps<Props>()
+
+const emit = defineEmits<{
+  (
+    e: 'toggleMenuItem',
+    payload: rplEventPayload & { action: 'open' | 'close' }
+  ): void
+  (e: 'navigate', payload: rplEventPayload & { action: 'click' }): void
+}>()
+
+const { emitRplEvent } = useRippleEvent('rpl-vertical-nav', emit)
 
 // Because the top level items with children aren't actually links, we need to ensure that
 // the first child of each top level item is a link to that page. These links
@@ -55,6 +69,34 @@ const { isItemExpanded, toggleItem } = useExpandableState(
   initialActiveIndexes,
   processedItems.value.length
 )
+
+const toggleID = (itemId) => `rpl-vertical-nav-${itemId}-toggle`
+
+const handleToggle = (item: IRplVerticalNavItem) => {
+  toggleItem(item.id)
+
+  emitRplEvent(
+    'toggleMenuItem',
+    {
+      id: toggleID(item.id),
+      action: isItemExpanded(item.id) ? 'open' : 'close',
+      text: item.text,
+      name: props?.title
+    },
+    { global: true }
+  )
+}
+
+const handleClick = (event) => {
+  emitRplEvent(
+    'navigate',
+    {
+      ...event,
+      name: props?.title
+    },
+    { global: true }
+  )
+}
 </script>
 
 <template>
@@ -76,9 +118,9 @@ const { isItemExpanded, toggleItem } = useExpandableState(
       >
         <RplVerticalNavToggle
           v-if="item.items"
-          :id="`rpl-vertical-nav-${item.id}-toggle`"
+          :id="toggleID(item.id)"
           :text="item.text"
-          @click="toggleItem(item.id)"
+          @click="() => handleToggle(item)"
         />
 
         <RplExpandable
@@ -92,6 +134,7 @@ const { isItemExpanded, toggleItem } = useExpandableState(
             :items="item.items"
             :level="2"
             :is-expanded="isItemExpanded(item.id)"
+            @item-click="handleClick"
           />
         </RplExpandable>
 
@@ -100,6 +143,7 @@ const { isItemExpanded, toggleItem } = useExpandableState(
           :text="item.text"
           :href="item.url"
           :active="item?.active && !item.items?.some((i) => i.active)"
+          @item-click="handleClick"
         />
       </li>
     </ul>

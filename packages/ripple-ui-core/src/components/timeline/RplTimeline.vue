@@ -3,6 +3,10 @@ import RplTextLink from '../text-link/RplTextLink.vue'
 import RplImage from '../image/RplImage.vue'
 import { formatDateRange } from '../../lib/helpers'
 import { IRplImageType } from '../image/constants'
+import {
+  useRippleEvent,
+  rplEventPayload
+} from '../../composables/useRippleEvent'
 
 interface Props {
   title?: string | null
@@ -24,6 +28,12 @@ const props = withDefaults(defineProps<Props>(), {
   title: null,
   items: () => []
 })
+
+const emit = defineEmits<{
+  (e: 'navigate', payload: rplEventPayload & { action: 'click' }): void
+}>()
+
+const { emitRplEvent } = useRippleEvent('rpl-timeline', emit)
 
 const subtitle = (item: IRplTimelineItem) => {
   if (item.dateStart && item.dateEnd) {
@@ -49,6 +59,18 @@ const classes = (item: IRplTimelineItem, index: number) => {
     classList.push('rpl-timeline__item--active')
   }
   return classList.join(' ')
+}
+
+const handleClick = (item) => {
+  emitRplEvent(
+    'navigate',
+    {
+      action: 'click',
+      text: item?.title,
+      value: item.url
+    },
+    { global: true }
+  )
 }
 </script>
 
@@ -81,6 +103,7 @@ const classes = (item: IRplTimelineItem, index: number) => {
             v-if="item.url"
             class="rpl-timeline__item-link"
             :url="item.url"
+            @click="() => handleClick(item)"
             >{{ item.title }}</RplTextLink
           >
           <template v-else>{{ item.title }}</template>

@@ -10,6 +10,7 @@ export const radioGroup: FormKitTypeDefinition = {
     props: {
       id: `$id`,
       name: '$node.name',
+      label: '$label',
       disabled: '$node.context.disabled',
       value: '$_value',
       onChange: '$node.input',

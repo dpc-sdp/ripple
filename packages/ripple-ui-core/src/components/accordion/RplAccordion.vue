@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-
 import RplIcon from '../icon/RplIcon.vue'
 import RplContent from '../content/RplContent.vue'
 import RplExpandable from '../expandable/RplExpandable.vue'
@@ -21,13 +20,11 @@ interface Props {
   id: string
   items: RplAccordionItem[]
   numbered?: boolean
-  title?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
   items: () => [],
-  numbered: false,
-  title: undefined
+  numbered: false
 })
 
 const emit = defineEmits<{
@@ -59,16 +56,15 @@ const { isItemExpanded, isAllExpanded, toggleItem } = useExpandableState(
   props.items.length
 )
 
-const toggleID = (itemId) => `accordion-${props.id}-${itemId}-toggle`
+const itemID = (itemId) => `accordion-${props.id}-${itemId}`
 
 const toggleAll = () => {
   emitRplEvent(
     'toggleAll',
     {
-      id: props.id,
+      id: `accordion-${props.id}`,
       action: isAllExpanded() ? 'close' : 'open',
-      label: toggleAllLabel.value,
-      name: props.title
+      text: toggleAllLabel.value
     },
     { global: true }
   )
@@ -98,10 +94,9 @@ const toggleSingle = (item: RplAccordionItem) => {
   emitRplEvent(
     'toggleItem',
     {
-      id: toggleID(item.id),
+      id: itemID(item.id),
       action: isItemExpanded(item.id) ? 'close' : 'open',
-      label: item.title,
-      name: props.title
+      text: item.title
     },
     { global: true }
   )
@@ -121,7 +116,7 @@ const toggleAllLabel = computed(() => {
 </script>
 
 <template>
-  <div :id="id" class="rpl-accordion">
+  <div :id="`accordion-${id}`" class="rpl-accordion">
     <!-- Toggle all -->
     <div class="rpl-accordion__toggle-all-wrapper rpl-u-screen-only">
       <button
@@ -137,6 +132,7 @@ const toggleAllLabel = computed(() => {
     <component :is="numbered ? 'ol' : 'ul'" class="rpl-accordion__items">
       <li
         v-for="(item, index) in items"
+        :id="itemID(item.id)"
         :key="item.id"
         :class="{
           'rpl-accordion__item': true,
@@ -145,10 +141,10 @@ const toggleAllLabel = computed(() => {
       >
         <!-- Item toggle -->
         <button
-          :id="toggleID(item.id)"
+          :id="`${itemID(item.id)}-toggle`"
           class="rpl-accordion__item-toggle rpl-u-focusable-block"
           type="button"
-          :aria-controls="`accordion-${id}-${item.id}-content`"
+          :aria-controls="`${itemID(item.id)}-content`"
           :aria-expanded="isItemExpanded(item.id)"
           @click="toggleSingle(item)"
         >
@@ -178,8 +174,8 @@ const toggleAllLabel = computed(() => {
 
         <!-- Item content -->
         <RplExpandable
-          :id="`accordion-${id}-${item.id}-content`"
-          :aria-labelledby="`accordion-${id}-${item.id}-toggle`"
+          :id="`${itemID(item.id)}-content`"
+          :aria-labelledby="`${itemID(item.id)}-toggle`"
           :aria-hidden="isItemExpanded(item.id) === false ? 'true' : null"
           :expanded="isItemExpanded(item.id)"
           class="rpl-accordion__item-content"

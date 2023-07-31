@@ -1,6 +1,8 @@
 <script setup lang="ts">
-import { rplEventBus } from '../../index'
-rplEventBus.register('rpl-text-link/click')
+import {
+  useRippleEvent,
+  rplEventPayload
+} from '../../composables/useRippleEvent'
 
 const RplChipVariants = ['default', 'reverse']
 
@@ -8,16 +10,33 @@ interface Props {
   variant?: (typeof RplChipVariants)[number]
   label?: string
   url?: string
+  index?: number
 }
 
-withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<Props>(), {
   variant: 'default',
   label: '',
-  url: '#'
+  url: '#',
+  index: 0
 })
 
-const onClick = (payload?: any) => {
-  rplEventBus.emit('rpl-chip/click', payload)
+const emit = defineEmits<{
+  (e: 'navigate', payload: rplEventPayload & { action: 'click' }): void
+}>()
+
+const { emitRplEvent } = useRippleEvent('rpl-chip', emit)
+
+const onClick = () => {
+  emitRplEvent(
+    'navigate',
+    {
+      action: 'click',
+      value: props.url,
+      text: props.label,
+      index: props?.index + 1
+    },
+    { global: true }
+  )
 }
 </script>
 
@@ -25,7 +44,7 @@ const onClick = (payload?: any) => {
   <RplLink
     :class="`rpl-chip rpl-chip--${variant} rpl-type-label rpl-u-focusable-block rpl-u-screen-only`"
     :url="url"
-    @click="onClick()"
+    @click="onClick"
   >
     {{ label }}
   </RplLink>

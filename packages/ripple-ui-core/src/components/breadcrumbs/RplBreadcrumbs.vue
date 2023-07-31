@@ -1,5 +1,9 @@
 <script setup lang="ts">
 import RplTextLink from '../text-link/RplTextLink.vue'
+import {
+  useRippleEvent,
+  rplEventPayload
+} from '../../composables/useRippleEvent'
 
 interface IRplBreadcrumbsItem {
   text: string
@@ -15,6 +19,25 @@ const props = withDefaults(defineProps<Props>(), {
   items: () => [],
   besideQuickExit: false
 })
+
+const emit = defineEmits<{
+  (e: 'navigate', payload: rplEventPayload & { action: 'click' }): void
+}>()
+
+const { emitRplEvent } = useRippleEvent('rpl-breadcrumbs', emit)
+
+const handleClick = (item, index) => {
+  emitRplEvent(
+    'navigate',
+    {
+      action: 'click',
+      text: item.text,
+      value: item.url,
+      index: index + 1
+    },
+    { global: true }
+  )
+}
 </script>
 
 <template>
@@ -40,6 +63,7 @@ const props = withDefaults(defineProps<Props>(), {
           :url="item.url"
           :theme="false"
           class="rpl-breadcrumbs__item-link"
+          @click="() => handleClick(item, index)"
           >{{ item.text }}</RplTextLink
         >
         <span v-else class="rpl-breadcrumbs__item--current">{{

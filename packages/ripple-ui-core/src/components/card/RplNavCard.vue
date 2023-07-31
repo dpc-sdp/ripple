@@ -1,12 +1,15 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useAccessibleContainer } from '../../composables/useAccessibleContainer'
-
 import RplCard from './RplCard.vue'
 import RplTextLink from '../text-link/RplTextLink.vue'
 import RplImage from '../image/RplImage.vue'
 import { RplCardElements } from './constants'
 import { IRplImageType } from '../image/constants'
+import {
+  useRippleEvent,
+  rplEventPayload
+} from '../../composables/useRippleEvent'
 
 interface Props {
   el?: (typeof RplCardElements)[number]
@@ -25,6 +28,12 @@ const props = withDefaults(defineProps<Props>(), {
   url: undefined
 })
 
+const emit = defineEmits<{
+  (e: 'navigate', payload: rplEventPayload & { action: 'click' }): void
+}>()
+
+const { emitRplEvent } = useRippleEvent('rpl-card', emit)
+
 const cardClasses = computed(() => ({
   'rpl-card--inset': props.inset
 }))
@@ -40,6 +49,19 @@ const imgClasses = computed(() => [
 ])
 
 const { container, trigger } = useAccessibleContainer()
+
+const handleClick = () => {
+  emitRplEvent(
+    'navigate',
+    {
+      action: 'click',
+      value: props?.url,
+      text: props.title,
+      type: 'nav'
+    },
+    { global: true }
+  )
+}
 </script>
 
 <template>
@@ -66,7 +88,9 @@ const { container, trigger } = useAccessibleContainer()
     </template>
     <template #title>
       <h3 :class="titleClasses" data-cy="title">
-        <RplTextLink ref="trigger" :url="url">{{ title }}</RplTextLink>
+        <RplTextLink ref="trigger" :url="url" @click="handleClick">
+          {{ title }}
+        </RplTextLink>
       </h3>
     </template>
     <slot></slot>

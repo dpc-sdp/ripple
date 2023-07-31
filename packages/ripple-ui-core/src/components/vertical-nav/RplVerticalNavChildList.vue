@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import { IRplVerticalNavItem } from './constants'
 import RplVerticalNavLink from './RplVerticalNavLink.vue'
+import {
+  useRippleEvent,
+  rplEventPayload
+} from '../../composables/useRippleEvent'
 
 interface Props {
   items: IRplVerticalNavItem[]
@@ -9,6 +13,19 @@ interface Props {
 }
 
 const props = defineProps<Props>()
+
+const emit = defineEmits<{
+  (e: 'itemClick', payload: rplEventPayload & { action: 'click' }): void
+}>()
+
+const { emitRplEvent } = useRippleEvent('rpl-vertical-nav', emit)
+
+const handleClick = (event) => {
+  emitRplEvent('itemClick', {
+    index: props.level,
+    ...event
+  })
+}
 </script>
 
 <template>
@@ -30,6 +47,7 @@ const props = defineProps<Props>()
         :active="item?.active && !item.items?.some((i) => i.active)"
         :show-child-icon="props.level > 2"
         :tabindex="props.isExpanded ? '0' : '-1'"
+        @item-click="(event) => handleClick(event)"
       />
 
       <RplVerticalNavChildList
@@ -37,6 +55,7 @@ const props = defineProps<Props>()
         :items="item.items"
         :level="props.level + 1"
         :is-expanded="props.isExpanded"
+        @item-click="handleClick"
       />
     </li>
   </ul>

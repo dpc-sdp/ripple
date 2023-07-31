@@ -7,6 +7,10 @@ import RplCard from './RplCard.vue'
 import RplTextLink from '../text-link/RplTextLink.vue'
 import { IRplImageType } from '../image/constants'
 import type { IRplFeatureFlags } from '@dpc-sdp/ripple-tide-api/types'
+import {
+  useRippleEvent,
+  rplEventPayload
+} from '../../composables/useRippleEvent'
 
 interface Props {
   el?: (typeof RplCardElements)[number]
@@ -16,12 +20,18 @@ interface Props {
   url?: string
 }
 
-withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<Props>(), {
   el: 'div',
   highlight: false,
   image: undefined,
   url: undefined
 })
+
+const emit = defineEmits<{
+  (e: 'navigate', payload: rplEventPayload & { action: 'click' }): void
+}>()
+
+const { emitRplEvent } = useRippleEvent('rpl-card', emit)
 
 const titleClasses = computed(() => RplCardTitleClasses)
 
@@ -32,6 +42,19 @@ const { container, trigger } = useAccessibleContainer()
 const { hidePromoCardStripe }: IRplFeatureFlags = inject('featureFlags', {
   hidePromoCardStripe: false
 })
+
+const handleClick = () => {
+  emitRplEvent(
+    'navigate',
+    {
+      action: 'click',
+      value: props?.url,
+      text: props.title,
+      type: 'promo'
+    },
+    { global: true }
+  )
+}
 </script>
 
 <template>
@@ -63,7 +86,9 @@ const { hidePromoCardStripe }: IRplFeatureFlags = inject('featureFlags', {
     </template>
     <template #title>
       <h3 :class="titleClasses" data-cy="title">
-        <RplTextLink ref="trigger" :url="url">{{ title }}</RplTextLink>
+        <RplTextLink ref="trigger" :url="url" @click="handleClick">
+          {{ title }}
+        </RplTextLink>
       </h3>
     </template>
     <slot></slot>

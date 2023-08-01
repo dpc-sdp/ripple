@@ -97,3 +97,13 @@
 .rpl-header-graphic__bottom {
   min-width: 150%;
 }
+
+.rpl-header--graphic-bottom[dir='rtl'] {
+  @media (--rpl-bp-m) {
+    --local-padding-bottom: var(--rpl-sp-12);
+  }
+
+  @media (--rpl-bp-l) {
+    --local-padding-bottom: var(--rpl-sp-14);
+  }
+}

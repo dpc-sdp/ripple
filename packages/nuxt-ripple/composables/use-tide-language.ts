@@ -46,7 +46,7 @@ export default (page: any) => {
         meta.tag === 'meta' && meta.attributes?.property === 'og:locale'
     )
 
-    return lang?.attributes?.content?.toLowerCase() || 'en'
+    return lang?.attributes?.content?.toLowerCase() || page.meta?.langcode
   })
 
   const direction = computed(() =>

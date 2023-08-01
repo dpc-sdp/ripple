@@ -15,6 +15,7 @@
     "watch": "tsc -p tsconfig.json -w"
   },
   "files": [
+    "dist",
     "step_definitions/**/*",
     "CHANGELOG.md",
     "README.md",

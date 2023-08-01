@@ -19,7 +19,7 @@ to: package.json
     "dev:mock": "NUXT_PUBLIC_API_URL=http://localhost:3001 API_PORT=3001 npm run dev",
     "lint": "eslint .",
     "preview": "nuxi preview .playground",
-    "test": "jest --colors --runInBand --passWithNoTests",
+    "test:unit": "jest --colors --runInBand --passWithNoTests",
     "test:integration": "start-test dev:mock 'http-get://localhost:3000/api/tide/site?id=8888' 'cy:open'"
   },
   "devDependencies": {
@@ -29,6 +29,7 @@ to: package.json
     "@dpc-sdp/nuxt-ripple": "<%= rplVersion %>",
     "@dpc-sdp/nuxt-ripple-analytics": "<%= rplVersion %>",
     "@dpc-sdp/nuxt-ripple-preview": "<%= rplVersion %>",
+    "@dpc-sdp/ripple-test-utils": "<%= rplVersion %>",
     "@dpc-sdp/ripple-tide-api": "<%= rplVersion %>",
     "@dpc-sdp/ripple-tide-event": "<%= rplVersion %>",
     "@dpc-sdp/ripple-tide-topic": "<%= rplVersion %>",

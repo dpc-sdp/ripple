@@ -108,7 +108,8 @@ const handleToggle = (fromKeyboard = false): void => {
       id: props.id,
       label: props?.label,
       contextId: form?.id,
-      contextName: form?.name
+      contextName: form?.name,
+      value: Array.isArray(props.value) ? [...props.value] : props.value
     },
     { global: true }
   )

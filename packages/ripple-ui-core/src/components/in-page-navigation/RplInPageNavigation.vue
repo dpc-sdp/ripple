@@ -27,7 +27,7 @@ const handleClick = (event) => {
     'navigate',
     {
       ...event,
-      label: props.title
+      name: props.title
     },
     { global: true }
   )

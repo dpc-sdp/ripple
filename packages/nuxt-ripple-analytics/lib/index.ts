@@ -592,6 +592,7 @@ export default {
         form_name: payload?.contextName,
         form_id: payload?.contextId,
         field_id: payload?.id,
+        value: payload?.value,
         type: 'select',
         component: 'rpl-form-dropdown',
         platform_event: 'toggleOpen'

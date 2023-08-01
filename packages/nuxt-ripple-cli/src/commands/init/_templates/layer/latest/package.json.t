@@ -6,12 +6,20 @@ to: package.json
   "type": "module",
   "version": "0.0.0",
   "main": "./nuxt.config.ts",
+  "exports": {
+    ".": "./nuxt.config.ts",
+    "./mapping": "./mapping/index.ts",
+    "./types": "./types.ts"
+  },
   "scripts": {
-    "dev": "nuxi prepare & nuxi dev .playground",
     "build": "nuxi build .playground",
-    "preview": "nuxi preview .playground",
+    "cy:open": "cypress open",
+    "dev": "nuxi prepare & nuxi dev .playground",
+    "dev:mock": "NUXT_PUBLIC_API_URL=http://localhost:3001 API_PORT=3001 npm run dev",
     "lint": "eslint .",
-    "test": "jest --colors --runInBand --passWithNoTests"
+    "preview": "nuxi preview .playground",
+    "test": "jest --colors --runInBand --passWithNoTests",
+    "test:integration": "start-test dev:mock 'http-get://localhost:3000/api/tide/site?id=8888' 'cy:open'"
   },
   "devDependencies": {
     "@babel/plugin-transform-runtime": "^7.22.4",
@@ -32,14 +40,16 @@ to: package.json
     "@dpc-sdp/ripple-ui-core": "<%= rplVersion %>",
     "@dpc-sdp/ripple-ui-forms": "<%= rplVersion %>",
     "@nuxtjs/eslint-config-typescript": "^12.0.0",
+    "cypress": "^12.5.1",
     "eslint": "^8.28.0",
     "jest-environment-jsdom": "^29.5.0",
     "nuxt": "3.5.2",
+    "start-server-and-test": "^2.0.0",
     "ts-jest": "^29.1.0",
     "typescript": "^4.9.3"
   },
   "engines": {
-    "node": "^16.17.0 || ^18.12.1",
+    "node": "^18.12.1",
     "npm": "^9.5.1"
   }
 }

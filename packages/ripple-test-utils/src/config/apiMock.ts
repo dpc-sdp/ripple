@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { getLocal } from 'mockttp'
 const mockServer = getLocal({ cors: true })
 

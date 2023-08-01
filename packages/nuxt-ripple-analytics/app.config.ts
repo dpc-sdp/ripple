@@ -14,7 +14,6 @@ declare module '@nuxt/schema' {
 export default defineAppConfig({
   ripple: {
     analytics: {
-      routeChange: true,
       eventListeners
     }
   }

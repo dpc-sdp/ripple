@@ -24,14 +24,9 @@ export default function rplInitCommand() {
       LIB_VERSION
     )
     .option(
-      '--tideSite [tideSite]',
-      `Tide Site ID, defaults to reference site default 8888`,
-      '8888'
-    )
-    .option(
-      '--tideBaseUrl [tideBaseUrl]',
-      `Tide base URL for .env. Defaults to reference site backend`,
-      'https://develop.content.reference.sdp.vic.gov.au/'
+      '--gitHubActions [gitHubActions]',
+      `Add gitHub actions for CI workflow`,
+      true
     )
     .action((template, directory, options) => {
       init(template, directory, options)

@@ -4,11 +4,22 @@
   "description": "Test utils for Ripple sites",
   "version": "2.0.0",
   "license": "Apache-2.0",
-  "main": "./config/index.ts",
+  "main": "./dist/config/index.js",
   "exports": {
-    ".": "./config/index.ts",
+    ".": "./dist/config/index.js",
     "./step_definitions": "./step_definitions/index.ts"
   },
+  "scripts": {
+    "clean": "(rimraf dist* && rimraf tsconfig.tsbuildinfo) | true",
+    "build": "pnpm clean && tsc -p tsconfig.json",
+    "watch": "tsc -p tsconfig.json -w"
+  },
+  "files": [
+    "step_definitions/**/*",
+    "CHANGELOG.md",
+    "README.md",
+    "LICENSE"
+  ],
   "dependencies": {
     "@badeball/cypress-cucumber-preprocessor": "^15.1.5",
     "@bahmutov/cypress-esbuild-preprocessor": "^2.2.0",

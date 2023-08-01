@@ -13,6 +13,7 @@ to: package.json
   },
   "scripts": {
     "build": "nuxi build .playground",
+    "start": "nuxi start .playground",
     "cy:open": "cypress open",
     "dev": "nuxi prepare & nuxi dev .playground",
     "dev:mock": "NUXT_PUBLIC_API_URL=http://localhost:3001 API_PORT=3001 npm run dev",

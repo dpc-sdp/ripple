@@ -7,7 +7,7 @@
   "main": "./dist/config/index.js",
   "exports": {
     ".": "./dist/config/index.js",
-    "./step_definitions": "./src/step_definitions/index.ts"
+    "./step_definitions": "./step_definitions/index.ts"
   },
   "scripts": {
     "clean": "(rimraf dist* && rimraf tsconfig.tsbuildinfo) | true",

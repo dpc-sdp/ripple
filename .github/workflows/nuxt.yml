@@ -1,0 +1,76 @@
+name: Nuxt
+on:
+  push:
+    paths:
+      - 'examples/nuxt-app/**'
+      - 'packages/**'
+      - 'pnpm-lock.yaml'
+      - '!packages/ripple-storybook/**'
+jobs:
+  TestNuxt:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8.6.2
+          run_install: false
+      - name: Install Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'pnpm'
+      - name: Install Dependencies
+        env:
+          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
+        run: pnpm install --frozen-lockfile
+
+      - name: Build Example Nuxt app
+        run: pnpm -F nuxt-app build
+
+      # CLI tool is needed for mocks in perf test
+      - name: Build CLI tool
+        run: pnpm -F nuxt-ripple-cli build
+
+      - run: npm install ./packages/nuxt-ripple-cli --global
+      # Run lighthouse test against nuxt-app example
+      - name: Run lighthouse baseline test on nuxt-app
+        run: pnpm -F nuxt-app lighthouse:ci
+
+  # run Cypress tests in example nuxt-app, record to Cypress cloud
+  Integration:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8.6.2
+
+      - name: Install Dependencies
+        env:
+          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
+        run: pnpm install --frozen-lockfile
+
+      - name: Cypress Integration (e2e) tests
+        uses: cypress-io/github-action@v5
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          TZ: 'Australia/Melbourne'
+          NUXT_PUBLIC_TIDE_BASE_URL: 'https://develop.content.reference.sdp.vic.gov.au/'
+          NUXT_PUBLIC_TIDE_SITE: '8888'
+          NUXT_PUBLIC_API_URL: 'http://localhost:3001'
+          NUXT_PUBLIC_TIDE_APP_SEARCH_ENGINE_NAME: a83890f7a31dea14e1ae83c6f0afacca-appsearch-index-default-node
+          API_PORT: '3001'
+          LOG_LEVEL: 'debug'
+          # DEBUG: '@cypress/github-action'
+        with:
+          record: true
+          working-directory: examples/nuxt-app
+          install: false
+          build: pnpm build
+          start: pnpm start
+          wait-on: 'http://localhost:3000/api/tide/site?id=8888'

@@ -1,16 +1,13 @@
 <template>
-  <RplResultListing
-    data-component-type="search-listing-layout-grid"
-    class="rpl-grid"
-  >
-    <RplResultListingItem
+  <ul data-component-type="search-listing-layout-grid" class="rpl-grid">
+    <li
       v-for="(result, idx) in results"
       :key="`result-${idx}-${result.id}`"
-      class="rpl-col-12 rpl-col-4-m"
+      class="tide-search-results-grid-item rpl-col-12 rpl-col-4-m"
     >
       <component :is="result.component" v-bind="result.props" />
-    </RplResultListingItem>
-  </RplResultListing>
+    </li>
+  </ul>
 </template>
 
 <script setup lang="ts">
@@ -22,3 +19,9 @@ interface Props {
 
 defineProps<Props>()
 </script>
+
+<style>
+.tide-search-results-grid-item {
+  display: flex;
+}
+</style>

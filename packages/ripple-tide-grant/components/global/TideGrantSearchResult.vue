@@ -13,11 +13,8 @@ interface Props {
 
 const props = defineProps<Props>()
 
-const { title, url, updated } = useSearchResult(props.result)
+const { title, url, updated, summary } = useSearchResult(props.result)
 
-const content = computed(() =>
-  getSearchResultValue(props.result, 'field_landing_page_summary')
-)
 const audience = computed(() =>
   formatGrantAudiences(
     getSearchResultValue(props.result, 'field_audience_name', true)
@@ -50,7 +47,7 @@ const dateTo = computed(() =>
     class="tide-grant-search-result"
     :title="title"
     :url="url"
-    :content="content"
+    :content="summary"
     :updated="updated"
   >
     <template #details>

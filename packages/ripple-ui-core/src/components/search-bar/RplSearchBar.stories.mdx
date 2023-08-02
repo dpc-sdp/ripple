@@ -7,24 +7,19 @@ import {
 import RplSearchBar from './RplSearchBar.vue'
 import { a11yStoryCheck } from './../../../stories/interactions.js'
 import { action } from '@storybook/addon-actions';
+import { mockSuggestions } from './fixtures'
 
 export const SingleTemplate = (args) => ({
   components: { RplSearchBar },
   setup() {
-    return { args }
+    return {
+      args,
+      callAction: action
+    }
   },
   data: () => ({ inputValue: null }),
   computed: {
     suggestions() {
-      const mockSuggestions = [
-        'rip',
-        'ripe',
-        'ripen',
-        'riptide',
-        'ripple',
-        'ripple component',
-        'ripple components',
-      ]
       if (!this.inputValue) {
         return []
       }
@@ -36,6 +31,7 @@ export const SingleTemplate = (args) => ({
     submitAction: action('onSubmit'),
     onUpdate: function(val) {
       this.inputValue = val
+      action('onUpdate')(val)
     }
   }
 })
@@ -91,6 +87,15 @@ export const SingleTemplate = (args) => ({
     }}
     parameters={{
       background: 'reverse',
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+  <Story
+    name='Debounced update'
+    play={a11yStoryCheck}
+    args={{
+      id: 'default'
     }}
   >
     {SingleTemplate.bind()}

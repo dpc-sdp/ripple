@@ -9,6 +9,10 @@ import type {
   TideSearchListingResultLayout
 } from './../types'
 
+interface TideContentPage extends TidePageBase {
+  afterResults: string
+}
+
 interface Props {
   title: string
   summary?: string
@@ -20,7 +24,7 @@ interface Props {
   userFilters?: any[]
   resultsLayout: TideSearchListingResultLayout
   searchResultsMappingFn?: (item: any) => MappedSearchResult<any>
-  contentPage: TidePageBase
+  contentPage: TideContentPage
   site: TideSiteData
 }
 
@@ -332,6 +336,12 @@ const numAppliedFilters = computed(() => {
             @change="handlePageChange"
           />
         </slot>
+      </RplPageComponent>
+      <RplPageComponent v-if="contentPage.afterResults">
+        <RplContent
+          class="tide-content-after-results"
+          :html="contentPage.afterResults"
+        ></RplContent>
       </RplPageComponent>
     </template>
   </TideBaseLayout>

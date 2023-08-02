@@ -76,6 +76,7 @@ export type TideSearchListingResultLayout = {
 
 export interface TideSearchListingPage extends TidePageBase {
   title: string
+  introText: string
   summary: string
   /**
    * @description ES Search index to connect to, defaults to environment

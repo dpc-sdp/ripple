@@ -1,6 +1,7 @@
 import { ref, computed, onMounted, watch } from 'vue'
 import { RouteLocation } from 'vue-router'
 import {
+  useAppConfig,
   useRuntimeConfig,
   useRoute,
   navigateTo,
@@ -114,10 +115,6 @@ export default (
     ]
   }
 
-  const getEmptySortClause = () => {
-    return ['title.keyword']
-  }
-
   const userFilters = computed(() => {
     return Object.keys(filterForm.value).map((key: string) => {
       const itm = userFilterConfig.find((itm) => itm.id === key)
@@ -193,37 +190,32 @@ export default (
   })
 
   const getQueryDSL = () => {
-    if (
-      searchTerm.value.length > 0 ||
-      userFilters.value.length > 0 ||
-      globalFilters.length > 0
-    ) {
-      return {
-        query: {
-          bool: {
-            must: getQueryClause(),
-            filter: getFilterClause()
-          }
-        },
-        size: pageSize.value,
-        from: pagingStart.value,
-        sort: getSortClause(),
-        aggs: getAggregations()
-      }
-    } else {
-      return {
-        query: {
-          match_all: {}
-        },
-        size: pageSize.value,
-        from: pagingStart.value,
-        sort: getEmptySortClause(),
-        aggs: getAggregations()
-      }
+    return {
+      query: {
+        bool: {
+          must: getQueryClause(),
+          filter: getFilterClause()
+        }
+      },
+      size: pageSize.value,
+      from: pagingStart.value,
+      sort: getSortClause()
     }
   }
 
-  const getSearchResults = async () => {
+  const getQueryDSLForAggregations = () => {
+    return {
+      query: {
+        match_all: {}
+      },
+      size: 1,
+      from: 0,
+      sort: getSortClause(),
+      aggs: getAggregations()
+    }
+  }
+
+  const getSearchResults = async (isFirstRun) => {
     isBusy.value = true
     searchError.value = null
 
@@ -234,7 +226,7 @@ export default (
         console.info(JSON.stringify(body, null, 2))
       }
 
-      const response: any = await $fetch(
+      const searchRequest: any = $fetch(
         `${config.apiUrl}/api/tide/search/${index}/elasticsearch/_search`,
         {
           method: 'POST',
@@ -242,21 +234,42 @@ export default (
         }
       )
 
-      totalResults.value = response?.hits?.total?.value || 0
-      results.value = response.hits?.hits.map(searchResultsMappingFn)
-      if (response.aggregations) {
-        const mappedAgs = Object.keys(response.aggregations).reduce(
+      // Set the aggregations request to a resolved promise, this helps keep the Promise.all logic clean
+      let aggsRequest: Promise<any> = Promise.resolve()
+
+      if (isFirstRun) {
+        // Kick off an 'empty' search in order to get the aggregations (options) for the dropdowns, this
+        // is only run once so that the aggregations don't change when filters/search is applied.
+        aggsRequest = $fetch(
+          `${config.apiUrl}/api/tide/search/${index}/elasticsearch/_search`,
+          {
+            method: 'POST',
+            body: getQueryDSLForAggregations()
+          }
+        )
+      }
+
+      const [searchResponse, aggsResponse] = await Promise.all([
+        searchRequest,
+        aggsRequest
+      ])
+
+      totalResults.value = searchResponse?.hits?.total?.value || 0
+      results.value = searchResponse.hits?.hits.map(searchResultsMappingFn)
+
+      if (isFirstRun && aggsResponse.aggregations) {
+        const mappedAggs = Object.keys(aggsResponse.aggregations).reduce(
           (aggs, key) => {
             return {
               ...aggs,
-              [`${key}`]: response.aggregations[key].buckets.map(
+              [`${key}`]: aggsResponse.aggregations[key].buckets.map(
                 (bkt) => bkt.key
               )
             }
           },
           {}
         )
-        onAggregationUpdateHook.value(mappedAgs)
+        onAggregationUpdateHook.value(mappedAggs)
       }
 
       isBusy.value = false
@@ -343,14 +356,14 @@ export default (
    *
    * When the URL changes, the URL is parsed and the query is transformed into an elastic DSL query.
    */
-  const searchFromRoute = (newRoute: RouteLocation) => {
+  const searchFromRoute = (newRoute: RouteLocation, isFirstRun = false) => {
     searchTerm.value = getSingleQueryStringValue(newRoute.query, 'q') || ''
     page.value =
       parseInt(getSingleQueryStringValue(newRoute.query, 'page'), 10) || 1
 
     filterForm.value = getFiltersFromRoute(newRoute)
 
-    getSearchResults()
+    getSearchResults(isFirstRun)
   }
 
   const appliedFilters = computed(() => {
@@ -359,11 +372,13 @@ export default (
 
   onMounted(() => {
     // Read the url on first mount to kick of the initial search
-    searchFromRoute(route)
+    searchFromRoute(route, true)
   })
 
   // Subsequently watch for any route changes and trigger a new search
-  watch(route, searchFromRoute)
+  watch(route, (newRoute) => {
+    searchFromRoute(newRoute, false)
+  })
 
   return {
     isBusy,

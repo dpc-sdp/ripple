@@ -16,7 +16,10 @@ const searchResultsMappingFn = (item): TideSearchListingResultItem => {
   if (props.page.results.item) {
     for (const key in props.page.results.item) {
       const mapping = props.page.results.item[key]
-      if (item._source?.type[0] === key || key === '*') {
+      if (
+        (item._source?.type && item._source?.type[0] === key) ||
+        key === '*'
+      ) {
         return {
           id: item._id,
           component: mapping.component,

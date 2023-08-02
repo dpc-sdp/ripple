@@ -1,8 +1,9 @@
 ---
-to: cypress.config.ts
+to: cypress.config.mjs
 ---
+import 'dotenv/config'
 import { defineConfig } from 'cypress'
-import { rplCypressConfigPlugin } from '@dpc-sdp/ripple-test-utils'
+import * as rplCypressConfigPkg from '@dpc-sdp/ripple-test-utils'
 
 export default defineConfig({
   env: {
@@ -10,12 +11,10 @@ export default defineConfig({
   },
   e2e: {
     baseUrl: 'http://localhost:3000',
+    supportFile: false,
     specPattern: '**/*.{feature,feature.ts}',
-    async setupNodeEvents (
-      on: Cypress.PluginEvents,
-      config: Cypress.PluginConfigOptions
-    ): Promise<Cypress.PluginConfigOptions> {
-      await rplCypressConfigPlugin(on, config)
+    async setupNodeEvents(on, config) {
+      await rplCypressConfigPkg.rplCypressConfigPlugin(on, config)
       return config
     }
   },

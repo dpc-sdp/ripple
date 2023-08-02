@@ -3,6 +3,7 @@
     <li
       v-for="(result, idx) in results"
       :key="`result-${idx}-${result.id}`"
+      data-component-type="search-result"
       class="tide-search-results-grid-item rpl-col-12 rpl-col-4-m"
     >
       <component :is="result.component" v-bind="result.props" />

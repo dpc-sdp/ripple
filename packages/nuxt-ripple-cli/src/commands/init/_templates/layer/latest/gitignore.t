@@ -7,7 +7,8 @@ node_modules
 nuxt.d.ts
 .output
 .env
-package-lock.json
+yarn.lock
+pnpm-workspace.yaml
 framework
 dist
 .DS_Store

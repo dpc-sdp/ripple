@@ -44,32 +44,4 @@ describe('RplSearchBar', () => {
     cy.get('input#1234').type('rip', { delay: 100 })
     cy.get('@onChangeSpy').should('have.been.calledWith', 'rip')
   })
-  it('debounces input', () => {
-    const onChangeSpy = cy.spy().as('onChangeSpy1')
-    cy.mount(RplSearchBar, {
-      props: {
-        ...baseProps,
-        debounce: 1000,
-        [`onUpdate:inputValue`]: onChangeSpy
-      }
-    })
-    cy.get('input#1234').type('rip', { delay: 100 })
-    cy.wait(1500)
-    cy.get('input#1234').type('ple', { delay: 100 })
-    cy.get('@onChangeSpy1').should('have.callCount', 2)
-  })
-  it('doesnt debounce when turned off', () => {
-    const onChangeSpy = cy.spy().as('onChangeSpy1')
-    cy.mount(RplSearchBar, {
-      props: {
-        ...baseProps,
-        debounce: 0,
-        [`onUpdate:inputValue`]: onChangeSpy
-      }
-    })
-    cy.get('input#1234').type('rip', { delay: 100 })
-    cy.wait(1500)
-    cy.get('input#1234').type('ple', { delay: 100 })
-    cy.get('@onChangeSpy1').should('have.callCount', 6)
-  })
 })

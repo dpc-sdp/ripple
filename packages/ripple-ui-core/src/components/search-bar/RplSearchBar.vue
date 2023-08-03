@@ -4,7 +4,7 @@ export default { inheritAttrs: false }
 
 <script setup lang="ts">
 import { ref, watch, nextTick, computed, onMounted, onUnmounted } from 'vue'
-import { onClickOutside, useDebounceFn } from '@vueuse/core'
+import { onClickOutside } from '@vueuse/core'
 import RplIcon from '../icon/RplIcon.vue'
 import {
   useRippleEvent,
@@ -22,7 +22,6 @@ interface Props {
   suggestions?: string[]
   maxSuggestionsDisplayed?: number
   placeholder?: string
-  debounce?: number
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -33,8 +32,7 @@ const props = withDefaults(defineProps<Props>(), {
   inputValue: '',
   suggestions: () => [],
   maxSuggestionsDisplayed: 10,
-  placeholder: undefined,
-  debounce: 300
+  placeholder: undefined
 })
 
 const emit = defineEmits<{
@@ -86,11 +84,11 @@ const handleSubmit = () => {
   )
 }
 
-const handleInputChange = useDebounceFn((e) => {
+const handleInputChange = (e) => {
   internalValue.value = e.target.value
   emit('update:inputValue', e.target.value)
   isOpen.value = true
-}, props.debounce)
+}
 
 const handleSelectOption = (optionValue, focusBackOnInput) => {
   if (focusBackOnInput) {

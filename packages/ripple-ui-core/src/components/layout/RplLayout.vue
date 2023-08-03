@@ -1,16 +1,20 @@
 <script setup lang="ts">
-import { Comment, Fragment, computed, useSlots, isVNode, inject } from 'vue'
+import { Comment, Fragment, computed, useSlots, isVNode } from 'vue'
 import RplLayoutBackToTop from './RplLayoutBackToTop.vue'
 import RplLayoutSkipLink from './RplLayoutSkipLink.vue'
 
 interface Props {
   background?: 'default' | 'alt'
   showBackToTop?: boolean
+  direction?: string
+  language?: string
 }
 
 withDefaults(defineProps<Props>(), {
   background: 'default',
-  showBackToTop: true
+  showBackToTop: true,
+  direction: undefined,
+  language: undefined
 })
 
 // Currently in Vue 3 there is no standard way to check if a slot has anything in it because
@@ -30,8 +34,6 @@ const getSlotContent = (vNodes) => {
 }
 
 const $slots = useSlots()
-
-const { direction, font } = inject('language')
 
 const hasSidebar = computed(() => {
   return $slots.sidebar && !!getSlotContent($slots.sidebar())
@@ -82,7 +84,7 @@ const skipLinksId = 'rpl-skip-links'
                 :class="{
                   'rpl-col-12': true,
                   'rpl-col-7-m': hasSidebar,
-                  [`${font}`]: font
+                  [`${language}`]: language
                 }"
                 class="rpl-layout__main"
                 :dir="direction"

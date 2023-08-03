@@ -13,28 +13,28 @@ export default (page: any) => {
     return lang?.attributes?.content?.toLowerCase() || page.meta?.langcode
   })
 
-  const language = computed(() => languages?.[locale.value] || null)
+  const found = computed(() => languages?.[locale.value] || null)
 
-  const font = computed(() =>
-    language.value ? `rpl-u-font-lang--${locale.value}` : null
+  const language = computed(() =>
+    found.value ? `rpl-u-font-lang--${locale.value}` : null
   )
 
-  const direction = computed(() => (language.value?.rtl ? 'rtl' : 'ltr'))
+  const direction = computed(() => (found.value?.rtl ? 'rtl' : 'ltr'))
 
-  if (language.value) {
+  if (found.value) {
     useHead({
-      link: [{ rel: 'stylesheet', href: language.value?.url }],
+      link: [{ rel: 'stylesheet', href: found.value?.url }],
       style: [
         {
           children: `
-           .${font.value} { font-family: '${language.value?.name}', var(--rpl-type-font-family) }
+           .${language.value} { font-family: '${found.value?.name}', var(--rpl-type-font-family) }
           `
         }
       ]
     })
   }
 
-  provide('language', { locale, direction, font })
+  provide('language', { locale, direction, language })
 
-  return { locale, direction, font }
+  return { locale, direction, language }
 }

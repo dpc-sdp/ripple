@@ -1,5 +1,9 @@
 <template>
-  <RplLayout :background="background">
+  <RplLayout
+    :background="background"
+    :direction="direction"
+    :language="language"
+  >
     <template #aboveHeader>
       <RplIconSprite />
       <slot name="aboveHeader"></slot>
@@ -146,7 +150,7 @@ const style = useSiteTheme(
   defuMerge(props.site?.theme || {}, useAppConfig()?.ripple?.theme || {})
 )
 
-useTideLanguage(props?.page)
+const { direction, language } = useTideLanguage(props?.page)
 
 useHead({
   htmlAttrs: {

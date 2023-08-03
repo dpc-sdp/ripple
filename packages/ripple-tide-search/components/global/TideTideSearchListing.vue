@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { toRaw } from 'vue'
 import { TideSiteData } from '@dpc-sdp/ripple-tide-api/types'
 import type {
   TideSearchListingPage,
@@ -42,8 +41,6 @@ const searchResultsMappingFn = (item): TideSearchListingResultItem => {
   }
   return item
 }
-
-console.log('search config', toRaw(props.page.config))
 </script>
 
 <template>

@@ -21,8 +21,6 @@ const getHeaderTheme = (src) => {
     return 'reverse'
   }
 
-  // TODO How will 'neutral' theme work?
-
   return 'default'
 }
 

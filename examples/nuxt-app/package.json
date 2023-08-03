@@ -4,6 +4,7 @@
   "description": "Example Nuxt application for SDP",
   "version": "2.1.0-alpha.77",
   "license": "Apache-2.0",
+  "type": "module",
   "private": true,
   "scripts": {
     "dev": "nuxt dev",

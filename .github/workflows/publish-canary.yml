@@ -1,0 +1,44 @@
+name: Publish Canary
+on:
+  push:
+    branches:
+      - develop
+      - release/alpha-**
+jobs:
+  Canary:
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: read
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8.6.2
+          run_install: false
+      - name: Install Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'pnpm'
+      - name: Install Dependencies
+        env:
+          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
+        run: pnpm install --frozen-lockfile
+      - name: Publish canary build to @next tag
+        run: |
+          npm config set access public
+          npm set //npm.pkg.github.com/:_authToken=${{ secrets.NPM_TOKEN }}
+          pnpm release:publish-next --yes
+
+  Update_Reference:
+    runs-on: ubuntu-latest
+    needs: Canary
+    steps:
+      - name: Kick off new pipeline to update reference site
+        run: |
+          curl --location --request POST 'https://circleci.com/api/v2/project/github/dpc-sdp/reference-sdp-vic-gov-au/pipeline' \
+          --header 'Content-Type: application/json' \
+          --header "Circle-Token: ${{ secrets.CIRCLECI_API_TOKEN }}" \
+          --data '{"branch": "v2","parameters": {"update": true}}'

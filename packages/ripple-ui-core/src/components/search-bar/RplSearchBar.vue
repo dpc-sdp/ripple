@@ -87,7 +87,6 @@ const handleSubmit = () => {
 const handleInputChange = (e) => {
   internalValue.value = e.target.value
   emit('update:inputValue', e.target.value)
-
   isOpen.value = true
 }
 
@@ -274,7 +273,9 @@ watch(activeOptionId, async (newId) => {
           @click="handleSelectOption(option, false)"
           @keydown="handleKeydown"
         >
-          {{ option }}
+          <slot name="suggestion" :option="{ option }">
+            {{ option }}
+          </slot>
         </div>
       </div>
     </div>

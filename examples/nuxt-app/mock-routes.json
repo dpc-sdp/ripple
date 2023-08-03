@@ -36,6 +36,14 @@
     "fixture": "landingpage/image-banner.json"
   },
   {
+    "path": "/arabic-page",
+    "fixture": "landingpage/languages-ar.json"
+  },
+  {
+    "path": "/korean-page",
+    "fixture": "landingpage/languages-ko.json"
+  },
+  {
     "path": "/grants",
     "fixture": "search-listing/grants/page.json"
   }

@@ -6,11 +6,15 @@ import RplLayoutSkipLink from './RplLayoutSkipLink.vue'
 interface Props {
   background?: 'default' | 'alt'
   showBackToTop?: boolean
+  direction?: string
+  language?: string
 }
 
 withDefaults(defineProps<Props>(), {
   background: 'default',
-  showBackToTop: true
+  showBackToTop: true,
+  direction: undefined,
+  language: undefined
 })
 
 // Currently in Vue 3 there is no standard way to check if a slot has anything in it because
@@ -79,9 +83,11 @@ const skipLinksId = 'rpl-skip-links'
                 :id="mainId"
                 :class="{
                   'rpl-col-12': true,
-                  'rpl-col-7-m': hasSidebar
+                  'rpl-col-7-m': hasSidebar,
+                  [`${language}`]: language
                 }"
                 class="rpl-layout__main"
+                :dir="direction"
               >
                 <slot name="body" :hasSidebar="hasSidebar"></slot>
               </main>

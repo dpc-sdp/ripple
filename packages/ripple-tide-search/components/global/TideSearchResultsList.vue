@@ -6,6 +6,7 @@
     <RplResultListingItem
       v-for="(result, idx) in results"
       :key="`result-${idx}-${result.id}`"
+      data-component-type="search-result"
     >
       <component :is="result.component" v-bind="result.props" />
     </RplResultListingItem>

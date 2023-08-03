@@ -11,7 +11,7 @@ import type {
 
 interface Props {
   title: string
-  summary?: string
+  introText?: string
   searchListingConfig?: TideSearchListingPage['searchListingConfig']
   index: string
   autocompleteQuery?: boolean
@@ -26,7 +26,7 @@ interface Props {
 
 const props = withDefaults(defineProps<Props>(), {
   title: 'Search',
-  summary: '',
+  introText: '',
   autocompleteQuery: true,
   globalFilters: () => [],
   userFilters: () => [],
@@ -226,7 +226,7 @@ const numAppliedFilters = computed(() => {
         :corner-top="site?.cornerGraphic?.top?.src || true"
         :corner-bottom="false"
       >
-        <p v-if="summary" class="rpl-type-p-large">{{ summary }}</p>
+        <p v-if="introText" class="rpl-type-p-large">{{ introText }}</p>
         <div class="tide-search-header">
           <RplSearchBar
             id="tide-search-bar"

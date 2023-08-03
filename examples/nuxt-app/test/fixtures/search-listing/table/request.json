@@ -14,21 +14,5 @@
     { "_score": "desc" },
     { "field_fv_recommendation_number": "asc" },
     { "_doc": "desc" }
-  ],
-  "aggs": {
-    "category": {
-      "terms": {
-        "field": "field_fv_recommendation_category_name.keyword",
-        "order": { "_key": "asc" },
-        "size": 30
-      }
-    },
-    "department": {
-      "terms": {
-        "field": "field_fv_recommendation_dpt_name.keyword",
-        "order": { "_key": "asc" },
-        "size": 30
-      }
-    }
-  }
+  ]
 }

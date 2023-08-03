@@ -41,6 +41,7 @@
     "storybook:build": "build-storybook",
     "stylelint": "stylelint \"**/*.css\"",
     "test:components": "cypress run --component",
+    "cy:components": "cypress open --component",
     "test:generate-output": "jest --json --outputFile=.jest-test-results.json"
   },
   "dependencies": {

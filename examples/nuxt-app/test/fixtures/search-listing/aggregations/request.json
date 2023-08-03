@@ -10,14 +10,5 @@
   },
   "size": 10,
   "from": 0,
-  "sort": [{ "_score": "desc" }, { "_doc": "desc" }],
-  "aggs": {
-    "audience": {
-      "terms": {
-        "field": "field_audience_name.keyword",
-        "order": { "_key": "asc" },
-        "size": 30
-      }
-    }
-  }
+  "sort": [{ "_score": "desc" }, { "_doc": "desc" }]
 }

@@ -47,7 +47,6 @@ export interface TideLink {
   text: string
   url: string
 }
-3
 
 export interface TideMenuItem {
   text: string
@@ -72,6 +71,25 @@ export interface TideImageField {
     x: string
     y: string
   }
+}
+
+export interface TideHeroHeader {
+  title: string
+  summary?: string
+  links?: {
+    title: string
+    items: TideUrlField[]
+    more: TideUrlField
+  }
+  theme?: 'default' | 'reverse' | 'neutral'
+  logoImage?: TideImageField
+  backgroundImage?: TideImageField
+  backgroundImageCaption?: string
+  cornerTop?: TideImageField
+  cornerBottom?: TideImageField
+  primaryAction?: TideUrlField
+  secondaryAction?: TideUrlField
+  secondaryActionLabel?: string
 }
 
 export interface TidePageBase {

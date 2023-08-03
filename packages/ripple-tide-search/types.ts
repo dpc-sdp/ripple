@@ -21,6 +21,10 @@ export interface FilterConfigItem {
    * @description name of the Vue component used to render the filter
    */
   component: 'TideSearchFilterDropdown' | string
+  filter?: {
+    type: 'raw' | 'term' | 'terms' | 'function'
+    value: string
+  }
   aggregations?: {
     /**
      * @description source of options data for dropdowns, taxonomy for deriving from Drupal and Elastic to get from aggregation query in Elasticsearch
@@ -124,6 +128,7 @@ export type TideSearchListingConfig = {
 
 export interface TideSearchListingPage extends TidePageBase {
   title: string
+  introText: string
   summary: string
   config: TideSearchListingConfig
   contentPage: TidePageBase

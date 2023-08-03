@@ -3,29 +3,38 @@ import {
   useRippleEvent,
   rplEventPayload
 } from '../../composables/useRippleEvent'
+import { useSlotContent } from '../../composables/useSlotContent'
 
 interface Props {
   url: string
   openInNewWindow?: boolean
   download?: boolean
+  globalEvents?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
   openInNewWindow: false,
-  download: undefined
+  download: undefined,
+  globalEvents: true
 })
 
 const emit = defineEmits<{
   (e: 'download', payload: rplEventPayload & { action: 'download' }): void
 }>()
 
+const slotContent = useSlotContent('name')
 const { emitRplEvent } = useRippleEvent('rpl-document', emit)
 
 const onClick = () => {
-  emitRplEvent('download', {
-    id: props.url,
-    action: 'download'
-  })
+  emitRplEvent(
+    'download',
+    {
+      action: 'download',
+      text: slotContent,
+      value: props.url
+    },
+    { global: props.globalEvents }
+  )
 }
 </script>
 

@@ -206,6 +206,7 @@ const tideCollectionModule: IRplTideModuleMapping = {
       withSidebarSocialShare: false
     }),
     summary: 'field_landing_page_summary',
+    introText: 'field_landing_page_intro_text',
     config: getProcessedSearchListingConfig
   },
   includes: [

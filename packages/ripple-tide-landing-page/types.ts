@@ -2,7 +2,7 @@ import type {
   TidePageBase,
   TideDynamicPageComponent
 } from '@dpc-sdp/ripple-tide-api/types'
-import { ITideHeroHeader } from './mapping/hero-header/hero-header-mapping'
+import { TideHeroHeader } from '@dpc-sdp/nuxt-ripple/types'
 import { ITidePrimaryCampaign } from './mapping/primary-campaign/primary-campaign-mapping'
 import { ITideSecondaryCampaign } from './mapping/secondary-campaign/secondary-campaign-mapping'
 
@@ -13,7 +13,7 @@ export interface TideLandingPagePage extends TidePageBase {
   showTopicTags: boolean
   inPageNavHeadingLevel: 'h2' | 'h3'
   background: string
-  heroHeader: ITideHeroHeader
+  header: TideHeroHeader
   primaryCampaign: ITidePrimaryCampaign
   secondaryCampaign: ITideSecondaryCampaign
   /**

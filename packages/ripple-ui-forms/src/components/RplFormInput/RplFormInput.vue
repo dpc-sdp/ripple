@@ -18,6 +18,7 @@ interface Props {
   value?: string
   type?: string
   name: string
+  label?: string
   prefixIcon?: string
   suffixIcon?: string
   minlength?: number
@@ -29,6 +30,7 @@ interface Props {
   invalid?: boolean
   required?: boolean
   centeredText?: boolean
+  globalEvents?: boolean
   onInput?: (payload: Event) => void
   onBlur?: (payload: Event) => void
 }
@@ -37,6 +39,7 @@ const props = withDefaults(defineProps<Props>(), {
   type: 'text',
   className: 'rpl-form__input',
   value: undefined,
+  label: undefined,
   prefixIcon: undefined,
   suffixIcon: undefined,
   minlength: undefined,
@@ -49,12 +52,13 @@ const props = withDefaults(defineProps<Props>(), {
   invalid: false,
   variant: 'default',
   centeredText: false,
+  globalEvents: true,
   onInput: () => null,
   onBlur: () => null
 })
 
 const emit = defineEmits<{
-  (e: 'update', payload: rplEventPayload & { action: 'exit' }): void
+  (e: 'update', payload: rplEventPayload & { action: 'update' }): void
 }>()
 
 const { emitRplEvent } = useRippleEvent('rpl-form-input', emit)
@@ -80,15 +84,14 @@ const handleChange = () => {
   emitRplEvent(
     'update',
     {
-      action: 'exit',
+      action: 'update',
       id: props.id,
       type: props.type,
-      label: props.name,
-      value: props.value,
+      label: props?.label,
       contextId: form?.id,
       contextName: form?.name
     },
-    { global: true }
+    { global: props.globalEvents }
   )
 }
 </script>

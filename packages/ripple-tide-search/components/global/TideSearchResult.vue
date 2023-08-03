@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, getSearchResultValue } from '#imports'
+import { useSearchResult } from '#imports'
 
 interface Props {
   result: any
@@ -7,14 +7,7 @@ interface Props {
 
 const props = defineProps<Props>()
 
-const title = computed(() => getSearchResultValue(props.result, 'title'))
-const url = computed(() =>
-  getSearchResultValue(props.result, 'url').replace(/\/site-(\d+)/, '')
-)
-const updated = computed(() => getSearchResultValue(props.result, 'changed'))
-const content = computed(() =>
-  getSearchResultValue(props.result, 'field_landing_page_summary')
-)
+const { title, url, updated, summary } = useSearchResult(props.result)
 </script>
 
 <template>
@@ -22,7 +15,7 @@ const content = computed(() =>
     class="tide-search-result"
     :title="title"
     :url="url"
-    :content="content"
+    :content="summary"
     :updated="updated"
   >
   </RplSearchResult>

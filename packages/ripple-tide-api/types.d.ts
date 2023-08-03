@@ -25,6 +25,10 @@ export interface TideSiteData {
     altText: string
   }
   showQuickExit: boolean
+  cornerGraphic?: {
+    top?: TideImageField
+    bottom?: TideImageField
+  }
   acknowledgementHeader?: string
   acknowledgementFooter: string
   copyrightHtml: string
@@ -52,7 +56,6 @@ export interface TideLink {
   text: string
   url: string
 }
-3
 
 export interface TideMenuItem {
   text: string
@@ -212,6 +215,14 @@ export interface IRplFeatureFlags {
    * @description Option to disable the display of coloured/rainbow stripes on top of promo cards
    */
   hidePromoCardStripe?: boolean
+  /**
+   * @description Sets the UAT Google Analytics measurement ID
+   */
+  uatMeasurementID?: string
+  /**
+   * @description Sets the PROD Google Analytics measurement ID
+   */
+  prodMeasurementID?: string
 }
 
 declare module 'nitropack' {
@@ -224,7 +235,6 @@ declare module 'nitropack' {
 
 // Mapping util interfaces
 export function getAddress(address: any): string
-export function formatPriceRange(price: TidePropRange): string
 export function getBodyFromField(field: string, path: string | string[]): string
 export function getField(
   field: string,

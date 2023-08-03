@@ -1,0 +1,57 @@
+name: "\U0001F41E Bug report"
+description: Create a report to help us improve Nuxt
+title: '[BUG]'
+labels: ['pending triage', 'bug']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please carefully read the contribution docs before creating a bug report
+        👉 https://ripple.sdp.vic.gov.au/design-system/about/contributing
+
+  - type: textarea
+    id: bug-env
+    attributes:
+      label: Environment
+      description: You can use `npx nuxi info` to fill this section
+      placeholder: Environment
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction
+      description: Steps to reproduce the behavior, please add detailed steps to reproduce the issue. If a report is vague (e.g. just a generic error message) and has no reproduction, it will receive a "need reproduction" label. If no reproduction is provided we might close it.
+      placeholder: Reproduction
+    validations:
+      required: true
+  - type: textarea
+    id: bug-description
+    attributes:
+      label: Describe the bug
+      description: A clear and concise description of what the bug is. If you intend to submit a PR for this issue, tell us in the description. Thanks!
+      placeholder: Bug description
+    validations:
+      required: true
+  - type: textarea
+    id: additonal
+    attributes:
+      label: Additional context
+      description: If applicable, add any other context about the problem here
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs
+      description: |
+        Optional if provided reproduction. Please try not to insert an image but copy paste the log text.
+      render: shell-script
+  - type: checkboxes
+    id: required-info
+    attributes:
+      label: Final checks
+      description: Before submitting, please make sure you do the following
+      options:
+        - label: Read the [contribution guide](https://ripple.sdp.vic.gov.au/design-system/about/contributing).
+          required: true
+        - label: Check existing [discussions](https://github.com/dpc-sdp/ripple-framework/discussions) and [issues](https://github.com/dpc-sdp/ripple-framework/issues).
+          required: true

@@ -3,8 +3,8 @@ import {
   computed,
   getSearchResultValue,
   formatGrantAudiences,
-  getGrantStatus,
-  formatPriceRange
+  formatPriceRange,
+  useSearchResult
 } from '#imports'
 
 interface Props {
@@ -13,12 +13,8 @@ interface Props {
 
 const props = defineProps<Props>()
 
-const title = computed(() => getSearchResultValue(props.result, 'title'))
-const url = computed(() => getSearchResultValue(props.result, 'url'))
-const updated = computed(() => getSearchResultValue(props.result, 'changed'))
-const content = computed(() =>
-  getSearchResultValue(props.result, 'field_landing_page_summary')
-)
+const { title, url, updated, summary } = useSearchResult(props.result)
+
 const audience = computed(() =>
   formatGrantAudiences(
     getSearchResultValue(props.result, 'field_audience_name', true)
@@ -36,38 +32,14 @@ const amount = computed(() => {
 const isOnGoing = computed(() =>
   getSearchResultValue(props.result, 'field_node_on_going')
 )
-const status = computed(() =>
-  getGrantStatus(
-    new Date(),
-    isOnGoing.value,
-    getSearchResultValue(props.result, 'field_node_dates_start_value'),
-    getSearchResultValue(props.result, 'field_node_dates_end_value')
-  )
+
+const dateFrom = computed(() =>
+  getSearchResultValue(props.result, 'field_node_dates_start_value')
 )
 
-const items = computed(() => {
-  const list = []
-  if (audience) {
-    list.push({
-      text: audience.value,
-      icon: 'icon-user-circle-filled'
-    })
-  }
-  if (amount.value) {
-    list.push({
-      text: amount.value,
-      icon: 'icon-dollar-circle-filled'
-    })
-  }
-  if (status) {
-    list.push({
-      text: status.value.displayLabel,
-      icon: 'icon-cancel-circle-filled',
-      iconColour: 'error'
-    })
-  }
-  return list
-})
+const dateTo = computed(() =>
+  getSearchResultValue(props.result, 'field_node_dates_end_value')
+)
 </script>
 
 <template>
@@ -75,11 +47,18 @@ const items = computed(() => {
     class="tide-grant-search-result"
     :title="title"
     :url="url"
-    :content="content"
+    :content="summary"
     :updated="updated"
   >
     <template #details>
-      <RplList :items="items" />
+      <TideGrantMeta
+        variant="inline"
+        :audience="audience"
+        :funding="amount"
+        :dateFrom="dateFrom"
+        :dateTo="dateTo"
+        :ongoing="isOnGoing"
+      />
     </template>
   </RplSearchResult>
 </template>

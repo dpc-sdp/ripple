@@ -4,6 +4,10 @@ import RplIcon from '../icon/RplIcon.vue'
 import RplButton from '../button/RplButton.vue'
 import { IRplHeaderLinkExtended } from './constants'
 import { RplLink } from '../../lib/constants'
+import {
+  useRippleEvent,
+  rplEventPayload
+} from '../../composables/useRippleEvent'
 
 interface Props {
   primary?: RplLink
@@ -14,6 +18,22 @@ withDefaults(defineProps<Props>(), {
   primary: undefined,
   secondary: undefined
 })
+
+const emit = defineEmits<{
+  (e: 'itemClick', payload: rplEventPayload & { action: 'click' }): void
+}>()
+
+const { emitRplEvent } = useRippleEvent('rpl-header', emit)
+
+const handleClick = (item, type: string) => {
+  emitRplEvent('itemClick', {
+    action: 'click',
+    text: item.text,
+    value: item.url,
+    section: 'actions',
+    elementType: type
+  })
+}
 </script>
 
 <template>
@@ -23,6 +43,7 @@ withDefaults(defineProps<Props>(), {
       :url="primary.url"
       class="rpl-header-actions__primary"
       el="a"
+      @click="() => handleClick(primary, 'button')"
     >
       {{ primary.text }}
     </RplButton>
@@ -37,6 +58,7 @@ withDefaults(defineProps<Props>(), {
         v-if="secondary"
         :url="secondary.url"
         class="rpl-header-actions__secondary-link rpl-header__icon-link"
+        @click="() => handleClick(secondary, 'link')"
       >
         <span>{{ secondary.text }}</span
         ><RplIcon name="icon-arrow-right" size="xs" />

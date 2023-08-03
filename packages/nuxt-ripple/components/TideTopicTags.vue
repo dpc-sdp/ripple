@@ -11,10 +11,11 @@ defineProps<Props>()
 <template>
   <div data-cy="topic-tags" class="tide-topic-tags">
     <RplChip
-      v-for="tag in items"
+      v-for="(tag, index) in items"
       :key="tag.url"
       :label="tag.text"
       :url="tag.url"
+      :index="index"
     />
   </div>
 </template>

@@ -1,11 +1,12 @@
 import * as jsonapiParse from 'jsonapi-parse'
 import { expect, describe, it } from '@jest/globals'
-import { heroHeaderMapping, ITideHeroHeader } from '../hero-header-mapping'
+import { heroHeaderMapping } from '../hero-header-mapping'
+import { TideHeroHeader } from '@dpc-sdp/nuxt-ripple/types'
 import { testData } from './test-data'
 
-const result: ITideHeroHeader = {
+const result: TideHeroHeader = {
   title: 'Ripple 2 landing page title',
-  introText: "Here's the introduction text",
+  summary: "Here's the introduction text",
   links: {
     title: 'And here are some header links!',
     items: [
@@ -33,14 +34,14 @@ const result: ITideHeroHeader = {
   },
   backgroundImage: null,
   backgroundImageCaption: '',
-  cornerTopImage: {
+  cornerTop: {
     src: 'https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Aerial-shot-of-new-housing-development.jpg',
     alt: 'Demo: Aerial shot of new housing development',
     title: 'Demo: Aerial shot of new housing development',
     width: 1024,
     height: 571
   },
-  cornerBottomImage: {
+  cornerBottom: {
     src: 'https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/VicFleet-Police-car-on-road.jpg',
     alt: 'Demo: VicFleet - Police car on road',
     title: 'Demo: VicFleet - Police car on road',

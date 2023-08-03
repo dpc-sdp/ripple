@@ -19,6 +19,7 @@
     "vue-app",
     "@dpc-sdp/ripple-tide-search",
     "@dpc-sdp/ripple-tide-event",
+    "@dpc-sdp/ripple-tide-topic",
     "@dpc-sdp/nuxt-ripple-preview",
     "@dpc-sdp/nuxt-ripple",
     "@dpc-sdp/ripple-tide-media",

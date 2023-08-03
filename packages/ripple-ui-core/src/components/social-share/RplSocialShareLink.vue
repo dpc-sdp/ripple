@@ -4,14 +4,27 @@ import RplIcon from '../icon/RplIcon.vue'
 import RplTextLink from '../text-link/RplTextLink.vue'
 import { RplSocialShareNetworks } from './constants'
 import { usePopupWindow } from '../../composables/usePopupWindow'
+import {
+  useRippleEvent,
+  rplEventPayload
+} from '../../composables/useRippleEvent'
 
 interface Props {
   network: string
   title: string
   url: string
+  label?: string
 }
 
-const props = defineProps<Props>()
+const props = withDefaults(defineProps<Props>(), {
+  label: undefined
+})
+
+const emit = defineEmits<{
+  (e: 'openShareWindow', payload: rplEventPayload & { action: 'share' }): void
+}>()
+
+const { emitRplEvent } = useRippleEvent('rpl-social-share', emit)
 
 const key = computed(() => props.network.toLowerCase())
 
@@ -21,7 +34,21 @@ const shareTemplate = computed(() =>
     .replace('$u', encodeURIComponent(props.url))
 )
 
-const share = usePopupWindow(shareTemplate.value, key.value)
+const openPopup = usePopupWindow(shareTemplate.value, key.value)
+
+const handleClick = () => {
+  openPopup()
+
+  emitRplEvent(
+    'openShareWindow',
+    {
+      action: 'share',
+      text: props.network,
+      label: props?.label
+    },
+    { global: true }
+  )
+}
 </script>
 
 <template>
@@ -29,7 +56,7 @@ const share = usePopupWindow(shareTemplate.value, key.value)
     :url="shareTemplate"
     :aria-label="`Share this page on ${network}`"
     class="rpl-social-share-link rpl-type-p-small"
-    @click.prevent="share"
+    @click.prevent="handleClick"
   >
     <RplIcon class="rpl-social-share__icon" :name="`icon-${key}`"></RplIcon>
     <span>{{ network }}</span>

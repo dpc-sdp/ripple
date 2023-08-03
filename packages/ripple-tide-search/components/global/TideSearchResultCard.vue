@@ -1,5 +1,10 @@
 <script setup lang="ts">
-import { computed, getSearchResultValue, capitalizeFirstLetter } from '#imports'
+import {
+  computed,
+  getSearchResultValue,
+  capitalizeFirstLetter,
+  useSearchResult
+} from '#imports'
 
 interface Props {
   result: any
@@ -14,7 +19,9 @@ const formatContentTypeString = (str) => {
   }
 }
 
-const title = computed(() => getSearchResultValue(props.result, 'title'))
+const { title, url, summary, image } = useSearchResult(props.result)
+
+const id = computed(() => getSearchResultValue(props.result, 'uid'))
 const meta = computed(() => {
   return {
     contentType: formatContentTypeString(
@@ -32,46 +39,22 @@ const meta = computed(() => {
     // inductionYear
   }
 })
-const url = computed(() =>
-  getSearchResultValue(props.result, 'url').replace(/\/site-(\d+)/, '')
-)
-const content = computed(() =>
-  getSearchResultValue(props.result, 'field_landing_page_summary')
-)
-const img = computed(() => {
-  const src = getSearchResultValue(
-    props.result,
-    'field_media_image_absolute_path'
-  )
-  if (src) {
-    return {
-      src,
-      alt: ''
-    }
-  }
-})
 </script>
 
 <template>
   <RplPromoCard
-    class="tide-search-result-card rpl-col-12 rpl-col-4-m"
-    :key="title"
-    :image="img"
+    :key="id"
+    class="rpl-col-12 rpl-col-4-m"
+    :image="image"
     :title="title"
     :url="url"
-    :highlight="!img"
+    :highlight="!image"
   >
-    <template #meta v-if="result.type">
+    <template v-if="result.type" #meta>
       <TideLandingPageCardSharedMeta :meta="meta" />
     </template>
     <p>
-      {{ content }}
+      {{ summary }}
     </p>
   </RplPromoCard>
 </template>
-
-<style>
-.tide-search-result-card {
-  height: 100%;
-}
-</style>

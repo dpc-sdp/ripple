@@ -5,9 +5,9 @@ import {
 import type { IRplTideModuleMapping } from '@dpc-sdp/ripple-tide-api/types'
 import { ApplicationError } from '@dpc-sdp/ripple-tide-api/errors'
 
-const getSearchListingConfig = (src) =>
-  src.hasOwnProperty('field_search_configuration') &&
-  JSON.parse(src.field_search_configuration)
+function getUniqueListBy(arr, key) {
+  return [...new Map(arr.map((item) => [item[key], item])).values()]
+}
 
 const parseJSONField = (rawValue) => {
   return JSON.parse(rawValue)
@@ -16,7 +16,7 @@ const parseJSONField = (rawValue) => {
 const getProcessedSearchListingConfig = async (src, tidePageApi) => {
   let rawConfig = null
 
-  // rawConfig = getMaybeRawConfig(src)
+  rawConfig = getMaybeRawConfig(src)
 
   if (!rawConfig) {
     rawConfig = buildConfigFromDrupalFields(src)
@@ -25,15 +25,10 @@ const getProcessedSearchListingConfig = async (src, tidePageApi) => {
   return await processConfig(rawConfig, tidePageApi)
 }
 
-function getUniqueListBy(arr, key) {
-  return [...new Map(arr.map((item) => [item[key], item])).values()]
-}
-
 const parseGlobalFiltersFromDrupal = (rawFilters) => {
   return rawFilters.map((rawFilter) => {
     switch (rawFilter.type) {
       case 'paragraph--listing_content_type':
-        // TODO once fixed in backend
         return {
           terms: {
             type: rawFilter.field_listing_global_contenttype.map(
@@ -59,18 +54,10 @@ const parseGlobalFiltersFromDrupal = (rawFilters) => {
 
 const parseUserFiltersFromDrupal = (rawFilters) => {
   const test = rawFilters.map((rawFilter) => {
-    console.log(rawFilter)
     switch (rawFilter.type) {
-      case 'paragraph--listing_select_from_taxonomy': {
-        // TODO update this to expect a string instead of array when BE is corrected
-        if (!rawFilter.field_listing_selected_taxonomy?.length) {
-          return null
-        }
+      case 'paragraph--searchable_fields': {
+        const taxonomyName = rawFilter.field_field.field_taxonomy_machine_name
 
-        // TODO once fixed in backend
-        const taxonomyName =
-          rawFilter.field_listing_selected_taxonomy[0].meta
-            .drupal_internal__target_id
         return {
           id: taxonomyName,
           component: 'TideSearchFilterDropdown',
@@ -80,20 +67,18 @@ const parseUserFiltersFromDrupal = (rawFilters) => {
           },
           filter: {
             type: 'terms',
-            // TODO get override from BE
-            value: `field_${taxonomyName}_name`
+            value: rawFilter.field_field.field_elasticsearch_field
           },
           props: {
             id: taxonomyName,
-            label: rawFilter.field_user_filter_input_label,
-            placeholder: rawFilter.field_user_filter_placeholder,
+            label: rawFilter.field_input_label,
+            placeholder: rawFilter.field_placeholder,
             type: 'RplFormDropdown',
             multiple: true
           }
         }
       }
       case 'paragraph--listing_user_custom_filter':
-        console.log(parseJSONField(rawFilter.field_user_filter_configuration))
         return parseJSONField(rawFilter.field_user_filter_configuration)
       default:
         return null
@@ -110,13 +95,11 @@ const parseResultsConfigFromDrupal = (src) => {
 
   return {
     layout: {
-      component:
-        src.field_listing_layout_component.meta.drupal_internal__target_id
+      component: src.field_layout_component.name
     },
     item: {
       '*': {
-        component:
-          src.field_listing_results_component.meta.drupal_internal__target_id
+        component: src.field_results_component.name
       }
     }
   }
@@ -125,21 +108,20 @@ const parseResultsConfigFromDrupal = (src) => {
 const buildConfigFromDrupalFields = (src) => {
   return {
     searchListingConfig: {
-      // TODO parse number better
-      resultsPerPage: parseInt(src.field_listing_results_per_page) || 10,
+      resultsPerPage: src.field_listing_results_per_page || 10,
       labels: {
         submit: src.field_search_submit_label,
         placeholder: src.field_search_input_placeholder
-      }
-      // TODO should custom sort be in the UI?
-      // customSort: ???
+      },
+      customSort: src.field_custom_sort_configuration
+        ? parseJSONField(src.field_custom_sort_configuration)
+        : undefined
     },
     queryConfig: parseJSONField(src.field_listing_query_config),
     globalFilters: parseGlobalFiltersFromDrupal(
       src.field_listing_global_filters
     ),
     userFilters: parseUserFiltersFromDrupal(src.field_listing_user_filters),
-    //TODO MAP RESULTS
     results: parseResultsConfigFromDrupal(src)
   }
 }
@@ -216,7 +198,10 @@ const tideCollectionModule: IRplTideModuleMapping = {
       withSidebarSocialShare: false
     }),
     'field_listing_global_filters',
-    'field_listing_user_filters'
+    'field_listing_user_filters',
+    'field_listing_user_filters.field_field',
+    'field_layout_component',
+    'field_results_component'
   ]
 }
 

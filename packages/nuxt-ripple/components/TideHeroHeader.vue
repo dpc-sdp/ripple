@@ -20,7 +20,7 @@ const props = withDefaults(defineProps<Props>(), {
   cornerBottom: null
 })
 
-const { language, direction } = inject('language')
+const { direction, font } = inject('language')
 
 const cornerTop = computed(() => {
   if (props.header?.backgroundImage) {
@@ -93,7 +93,7 @@ const headerTheme = computed(() => {
     :background="header?.backgroundImage"
     :primaryAction="header?.primaryAction"
     :secondaryAction="secondaryAction"
-    :class="{ [`rpl-u-font-lang--${language}`]: language }"
+    :class="{ [`${font}`]: font }"
     :dir="direction"
   >
     {{ header.summary }}

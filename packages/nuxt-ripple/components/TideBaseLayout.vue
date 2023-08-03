@@ -1,9 +1,5 @@
 <template>
-  <RplLayout
-    :background="background"
-    :language="language"
-    :direction="direction"
-  >
+  <RplLayout :background="background">
     <template #aboveHeader>
       <RplIconSprite />
       <slot name="aboveHeader"></slot>
@@ -143,13 +139,14 @@ onMounted(() => {
 })
 
 const route = useRoute()
-const { language, direction } = useTideLanguage(props?.page)
 const showBreadcrumbs = computed(() => route.path !== '/')
 const showDraftAlert = computed(() => props.page?.status === 'draft')
 
 const style = useSiteTheme(
   defuMerge(props.site?.theme || {}, useAppConfig()?.ripple?.theme || {})
 )
+
+useTideLanguage(props?.page)
 
 useHead({
   htmlAttrs: {

@@ -1,4 +1,4 @@
-import { FilterType, FacetConfiguration } from '@elastic/search-ui'
+import { FilterType } from '@elastic/search-ui'
 import type { TidePageBase, TideSiteData } from '@dpc-sdp/ripple-tide-api/types'
 export interface MappedSearchResult<T> {
   id: string

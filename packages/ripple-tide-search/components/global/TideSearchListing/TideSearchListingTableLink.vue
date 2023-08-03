@@ -5,5 +5,12 @@
 </template>
 
 <script setup lang="ts">
-defineProps(['item'])
+interface Props {
+  item: {
+    url: string
+    title: string
+  }
+}
+
+defineProps<Props>()
 </script>

@@ -7,7 +7,14 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-const props = defineProps(['item'])
+
+interface Props {
+  item: {
+    fv_recommendation_status: string
+  }
+}
+
+const props = defineProps<Props>()
 
 const status = computed(() => {
   switch (props.item?.fv_recommendation_status[0]) {

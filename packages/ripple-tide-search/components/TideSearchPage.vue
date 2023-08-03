@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
-import { useRuntimeConfig, useFetch, useRoute } from '#imports'
+import { ref } from 'vue'
+import { useRuntimeConfig, useFetch } from '#imports'
 import useSearchUI from './../composables/useSearchUI'
 import {
   AppSearchFilterConfigItem,
@@ -53,7 +53,6 @@ const props = withDefaults(defineProps<Props>(), {
   }
 })
 
-const route = useRoute()
 const { public: config } = useRuntimeConfig()
 const siteId = config.tide?.site
 

@@ -58,6 +58,7 @@ const { public: config } = useRuntimeConfig()
 const siteId = config.tide?.site
 
 const { data: site } = useFetch('/api/tide/site', {
+  key: `site-${siteId}`,
   baseURL: config.apiUrl || '',
   params: {
     id: siteId

@@ -21,7 +21,7 @@ const searchDriverOptions = {
     filters: [
       {
         field: 'field_node_site',
-        values: runtimeConfig.public.tide?.site
+        values: [runtimeConfig.public.tide?.site]
       },
       {
         field: 'type',

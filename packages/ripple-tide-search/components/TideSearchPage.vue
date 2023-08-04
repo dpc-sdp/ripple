@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
-import { useRuntimeConfig, useFetch, useRoute } from '#imports'
+import { ref, watch } from 'vue'
+import { getEventDataFromState, useRuntimeConfig, useFetch } from '#imports'
 import useSearchUI from './../composables/useSearchUI'
 import {
   AppSearchFilterConfigItem,
@@ -8,6 +8,8 @@ import {
 } from 'ripple-tide-search/types'
 import { FormKit } from '@formkit/vue'
 import { SearchDriverOptions } from '@elastic/search-ui'
+import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
+import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
 
 interface Props {
   pageTitle: string
@@ -53,7 +55,21 @@ const props = withDefaults(defineProps<Props>(), {
   }
 })
 
-const route = useRoute()
+const emit = defineEmits<{
+  (e: 'submit', payload: rplEventPayload & { action: 'search' }): void
+  (e: 'results', payload: rplEventPayload & { action: 'view' }): void
+  (
+    e: 'paginate',
+    payload: rplEventPayload & { action: 'prev' | 'next' | 'page' }
+  ): void
+  (
+    e: 'toggleFilters',
+    payload: rplEventPayload & { action: 'open' | 'close' }
+  ): void
+}>()
+
+const { emitRplEvent } = useRippleEvent('tide-search', emit)
+
 const { public: config } = useRuntimeConfig()
 const siteId = config.tide?.site
 
@@ -87,9 +103,31 @@ const {
 )
 
 const filtersExpanded = ref(false)
+const toggleFiltersLabel = 'Refine search'
+const submitFiltersLabel = 'Apply search filters'
 
-const handleFilterSubmit = () => {
+const emitSearchEvent = (event) => {
+  emitRplEvent(
+    'submit',
+    {
+      ...event,
+      ...getEventDataFromState({ props, searchState, filterFormValues }),
+      action: 'search'
+    },
+    { global: true }
+  )
+}
+
+const handleSubmit = (event) => {
   doSearch()
+
+  emitSearchEvent(event)
+}
+
+const handleFilterSubmit = (event) => {
+  doSearch()
+
+  emitSearchEvent({ ...event, text: submitFiltersLabel })
 }
 
 const handleFilterReset = () => {
@@ -99,6 +137,16 @@ const handleFilterReset = () => {
 
 const toggleFilters = () => {
   filtersExpanded.value = !filtersExpanded.value
+
+  emitRplEvent(
+    'toggleFilters',
+    {
+      ...getEventDataFromState({ props, searchState, filterFormValues }),
+      action: filtersExpanded.value ? 'open' : 'close',
+      text: toggleFiltersLabel
+    },
+    { global: true }
+  )
 }
 
 const getFilterOptions = (field) => {
@@ -112,6 +160,35 @@ const getFilterOptions = (field) => {
     value: item
   }))
 }
+
+const handlePagination = (event) => {
+  goToPage(event)
+
+  emitRplEvent(
+    'paginate',
+    {
+      ...event,
+      ...getEventDataFromState({ props, searchState, filterFormValues })
+    },
+    { global: true }
+  )
+}
+
+watch(
+  () => searchState.value.isLoading,
+  (loading, prevLoading) => {
+    if (!loading && prevLoading) {
+      emitRplEvent(
+        'results',
+        {
+          ...getEventDataFromState({ props, searchState, filterFormValues }),
+          action: 'view'
+        },
+        { global: true }
+      )
+    }
+  }
+)
 </script>
 
 <template>
@@ -132,18 +209,21 @@ const getFilterOptions = (field) => {
             input-label="Search"
             :inputValue="searchState.searchTerm"
             :suggestions="searchTermSuggestions"
-            @on-submit="doSearch"
+            :global-events="false"
+            @search="handleSubmit"
             @update:input-value="updateSearchTerm"
           />
           <RplSearchBarRefine
             class="tide-search-refine-btn"
             :expanded="filtersExpanded"
             @click="toggleFilters"
-          />
+            >{{ toggleFiltersLabel }}</RplSearchBarRefine
+          >
           <RplExpandable :expanded="filtersExpanded">
             <RplForm
               v-if="staticFacetOptions !== null"
               id="tide-search-filter-form"
+              :title="pageTitle"
               v-model:model-value="filterFormValues"
               @submit="handleFilterSubmit"
             >
@@ -165,9 +245,10 @@ const getFilterOptions = (field) => {
                 </div>
               </div>
               <RplFormActions
-                label="Apply search filters"
+                :label="submitFiltersLabel"
                 resetLabel="Clear search filters"
                 :displayResetButton="true"
+                :globalEvents="false"
                 @reset="handleFilterReset"
               />
             </RplForm>
@@ -229,12 +310,12 @@ const getFilterOptions = (field) => {
           </div>
         </div>
       </RplPageComponent>
-      <RplPageComponent>
+      <RplPageComponent id="tide-search-pagination">
         <RplPagination
           v-if="searchState.totalPages > 1 && !searchState.error"
           :currentPage="searchState.current"
           :totalPages="searchState.totalPages"
-          @change="goToPage"
+          @change="handlePagination"
         />
       </RplPageComponent>
     </template>

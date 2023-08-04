@@ -703,6 +703,66 @@ export default {
         platform_event: 'update'
       })
     }
+  },
+  // Tide search
+  'tide-search/submit': () => {
+    return (payload: any) => {
+      trackEvent({
+        event: `${payload.action}`,
+        element_id: payload?.id,
+        element_text: payload?.text,
+        filters: payload?.options,
+        label: payload?.label,
+        name: payload?.name,
+        component: 'tide-search',
+        platform_event: 'search'
+      })
+    }
+  },
+  'tide-search/results': () => {
+    return (payload: any) => {
+      trackEvent({
+        event: `${payload.action}_search_results`,
+        element_id: payload?.id,
+        label: payload?.label,
+        name: payload?.name,
+        index: payload?.index,
+        filters: payload?.options,
+        count: payload?.value,
+        component: 'tide-search',
+        platform_event: 'search'
+      })
+    }
+  },
+  'tide-search/paginate': () => {
+    return (payload: any) => {
+      trackEvent({
+        event: `paginate_${payload.action}`,
+        element_id: payload?.id,
+        element_text: payload?.text,
+        label: payload?.label,
+        name: payload?.name,
+        index: payload?.index,
+        count: payload?.value,
+        filters: payload?.options,
+        component: 'tide-search',
+        platform_event: 'paginate'
+      })
+    }
+  },
+  'tide-search/toggleFilters': () => {
+    return (payload: any) => {
+      trackEvent({
+        event: `${payload.action}_filters`,
+        element_id: payload?.id,
+        element_text: payload?.text,
+        label: payload?.label,
+        name: payload?.name,
+        filters: payload?.options,
+        component: 'tide-search',
+        platform_event: 'toggleFilters'
+      })
+    }
   }
 }
 

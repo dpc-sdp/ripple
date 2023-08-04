@@ -22,6 +22,7 @@ interface Props {
   suggestions?: string[]
   maxSuggestionsDisplayed?: number
   placeholder?: string
+  globalEvents?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -32,7 +33,8 @@ const props = withDefaults(defineProps<Props>(), {
   inputValue: '',
   suggestions: () => [],
   maxSuggestionsDisplayed: 10,
-  placeholder: undefined
+  placeholder: undefined,
+  globalEvents: true
 })
 
 const emit = defineEmits<{
@@ -80,7 +82,7 @@ const handleSubmit = () => {
       text: props.inputLabel,
       value: internalValue.value
     },
-    { global: true }
+    { global: props.globalEvents }
   )
 }
 

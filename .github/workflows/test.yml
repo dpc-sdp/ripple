@@ -1,0 +1,34 @@
+name: dpc-sdp/ripple/test
+on:
+  workflow_call:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3.5.0
+    - uses: actions/setup-node@v3.6.0
+      with:
+        node-version: '14'
+    - name: Restore cache
+      uses: actions/cache@v3.3.1
+      with:
+        key: v10-deps-${{ hashFiles('yarn.lock') }}
+        path: | 
+          ./.cache
+          **/node_modules
+    - name: Lint code.
+      run: yarn lint --format ./node_modules/eslint-junit/index.js
+      env:
+        ESLINT_JUNIT_OUTPUT: "./test-results/lint/eslint.xml"
+    - name: Unit tests
+      run: yarn test:unit --ci --runInBand --reporters=default --reporters=jest-junit
+      env:
+        JEST_JUNIT_OUTPUT_DIR: test-results/unit/
+    - name: Upload test results
+      uses: actions/upload-artifact@v3.1.1
+      with:
+        name: Test results
+        path: |
+          test-results
+          examples/reference/test/integration/videos
+          examples/reference/test/integration/screenshots    

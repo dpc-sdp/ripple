@@ -44,3 +44,21 @@ else
         }
     }'
 fi
+
+if [ -z $E2E_GITHUB_TOKEN ]; then
+  echo "Error: No E2E GitHub token found, end to end is not triggered. Please make sure E2E_GITHUB_TOKEN is set up."
+else
+  # Trigger GitHub Action to run the workflow
+  curl --location --request POST "https://api.github.com/repos/dpc-sdp/ripple/actions/workflows/nightwatch.yml/dispatches" \
+    --header "Authorization: Bearer $GITHUE2E_GITHUB_TOKENB_ACCESS_TOKEN" \
+    --header 'Accept: application/vnd.github+json' \
+    --data-raw '{
+        "ref": "'"$BRANCH"'",
+        "inputs": {
+            "e2e": true,
+            "e2e_be_url": "'"$BE_URL"'",
+            "e2e_fe_url": "'"$FE_URL"'",
+            "e2e_project": "reference"
+        }
+    }'
+fi

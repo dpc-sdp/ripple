@@ -1,0 +1,29 @@
+name: dpc-sdp/ripple/create-release
+on:
+  workflow_call:
+    inputs:
+      canary-prerelease:
+        type: boolean
+        default: false
+jobs:
+  create-release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3.5.0
+      - name: Restore cache
+        uses: actions/cache@v3.3.1
+        with:
+          key: v10-deps-${{ hashFiles('yarn.lock') }}
+          path: | 
+            ./.cache
+            **/node_modules
+      - name: Authenticate with registry
+        run: |-
+          echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
+          git update-index --assume-unchanged .npmrc
+      - name: Publish pre-release packages to NPM
+        if: inputs.canary-prerelease == true
+        run: npx lerna publish from-package --canary --force-publish --no-push --dist-tag dev --yes --no-verify-access
+      - name: Publish packages to NPM
+        if: inputs.canary-prerelease == false
+        run: npx lerna publish from-package --force-publish --yes --no-verify-access

@@ -1,0 +1,24 @@
+name: dpc-sdp/ripple/canary-npm-release
+on:
+  push:
+    branches:
+      - uat
+jobs:
+  build:
+    uses: ./.github/workflows/build.yml
+  test:
+    needs:
+      - build
+    uses: ./.github/workflows/test.yml
+  create-prerelease:
+    needs:
+      - test
+    uses: ./.github/workflows/create-release.yml
+    with:
+      canary-prerelease: true
+  tag-release:
+    needs:
+    - create-prerelease
+    permissions:
+      contents: write
+    uses: ./.github/workflows/tag-release.yml

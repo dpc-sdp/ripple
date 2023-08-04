@@ -13,7 +13,7 @@ export default function ({ route, site, page }): IRplAnalyticsEventPayload {
     publication_name: page?.publication?.text,
     search_term: trimValue(route.query?.q),
     site_section: page?.siteSection?.name,
-    production: process.env.NODE_ENV === 'production',
+    production: process.env?.LAGOON_ENVIRONMENT_TYPE === 'production',
     platform_event: 'page/routeChange'
   }
 

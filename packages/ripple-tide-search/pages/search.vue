@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import { AppSearchFilterConfigItem, MappedSearchResult } from '../types'
-import { formatDate } from '#imports'
+import { formatDate, useRuntimeConfig, useAppConfig } from '#imports'
+
+const appConfig = useAppConfig()
+const runtimeConfig = useRuntimeConfig()
 
 const filtersConfig: AppSearchFilterConfigItem[] = [
   {
@@ -15,6 +18,16 @@ const searchDriverOptions = {
   initialState: { resultsPerPage: 10 },
   alwaysSearchOnInitialLoad: true,
   searchQuery: {
+    filters: [
+      {
+        field: 'field_node_site',
+        values: runtimeConfig.public.tide?.site
+      },
+      {
+        field: 'type',
+        values: appConfig.ripple?.search?.contentTypes
+      }
+    ],
     search_fields: {
       title: {
         weight: 10

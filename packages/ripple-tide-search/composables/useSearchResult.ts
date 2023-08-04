@@ -1,7 +1,11 @@
 import { computed } from 'vue'
-import { getSearchResultValue } from '#imports'
+import { getSearchResultValue, truncateText } from '#imports'
 
-export default (result) => {
+interface ResultOptions {
+  summaryMaxLength: number | null
+}
+
+export default (result, options: ResultOptions = { summaryMaxLength: 150 }) => {
   const title = computed(() => getSearchResultValue(result, 'title'))
   const url = computed(() => {
     const externalURL = getSearchResultValue(result, 'field_node_link')
@@ -28,9 +32,38 @@ export default (result) => {
     }).format(date)
   })
 
+  const summary = computed(() => {
+    const summary = getSearchResultValue(result, 'field_landing_page_summary')
+    const body = getSearchResultValue(result, 'body')
+    const fullSummaryText = summary || body
+
+    if (!fullSummaryText) {
+      return ''
+    }
+
+    return options?.summaryMaxLength
+      ? truncateText(fullSummaryText, options.summaryMaxLength)
+      : fullSummaryText
+  })
+
+  const image = computed(() => {
+    const src = getSearchResultValue(result, 'field_media_image_absolute_path')
+
+    if (src) {
+      return {
+        src,
+        alt: ''
+      }
+    }
+
+    return null
+  })
+
   return {
     title,
     url,
-    updated
+    updated,
+    summary,
+    image
   }
 }

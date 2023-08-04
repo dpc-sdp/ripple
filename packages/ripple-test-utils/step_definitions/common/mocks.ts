@@ -73,11 +73,24 @@ Given(
     cy.intercept(
       'POST',
       `/api/tide/search/${Cypress.env('searchIndex')}/elasticsearch/_search`,
-      {
-        statusCode: status,
-        fixture
+      (req) => {
+        // Filter out the aggregation requests (they have size=1)
+        if (req.body.size === 1) {
+          req.reply({
+            statusCode: status,
+            fixture: fixture
+          })
+          return
+        }
+
+        // Only apply the alias to the actual search request
+        req.alias = 'searchReq' // assign an alias
+        req.reply({
+          statusCode: status,
+          fixture: fixture
+        })
       }
-    ).as('searchReq') // assign an alias
+    )
   }
 )
 

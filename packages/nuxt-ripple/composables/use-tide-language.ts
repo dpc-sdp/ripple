@@ -10,7 +10,9 @@ export default (page: any) => {
         meta.tag === 'meta' && meta.attributes?.property === 'og:locale'
     )
 
-    return lang?.attributes?.content?.toLowerCase() || page.meta?.langcode
+    return (
+      lang?.attributes?.content?.toLowerCase() || page?.meta?.langcode || 'en'
+    )
   })
 
   const found = computed(() => languages?.[locale.value] || null)

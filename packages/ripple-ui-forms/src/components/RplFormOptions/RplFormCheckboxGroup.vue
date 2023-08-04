@@ -60,7 +60,7 @@ const handleToggle = (selectedValue: string) => {
       action: 'update',
       id: props.id,
       label: props?.label,
-      value: newValue,
+      value: Array.isArray(newValue) ? newValue.join(',') : newValue,
       contextId: form?.id,
       contextName: form?.name
     },

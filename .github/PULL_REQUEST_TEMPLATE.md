@@ -1,61 +1,22 @@
-<!--
-MAKE SURE TO READ THE CONTRIBUTING.md BEFORE CREATING A PR
+<!-- Add link to JIRA eg: https://digital-vic.atlassian.net/browse/SDPAP- or GitHub Issue Number eg: #123  -->
 
-Please follow these rules:
-1. SUBJECT: use format [SDPA-123] Verb in past tense with dot at the end.
-   - This subject will be used as a commit message after PR is merged.
-   - Verbs are usually one of these: Updated, Refactored, Removed, Changed, Added.
-   - If there is no ticket - do not put [NOTICKET].
+**Issue**:
 
-2. BODY: fill-in the template below
+### What I did
+<!-- Summary of changes made in the Pull Request  -->
+- 
+- 
 
-3. LABEL: Assign 'Needs review' label as soon as you ready to have this reviewed.
+### How to test
+<!-- Summary of how to test  -->
+- 
+- 
 
-4. ASSIGNEE: Assign at least 2 reviewers.     
-
-No need to remove these lines - they are comments.
--->
-
-## Motivation and Context
-
-<!-- Why is this change required? What problem does it solve? -->
-<!-- If it fixes an open issue, please link to the issue here. -->
-**JIRA issue:** https://digital-engagement.atlassian.net/browse/SDPA-
-
-## Changed
-
-<!-- Describe your changes in detail -->
-
-1.
-
-### Screenshots
-
-<!--
-Provide as many screenshots as required to make reviewers understand what was changed.
--->
-
-## How Has This Been Tested?
-
-<!-- All PR's should implement unit tests if possible -->
-<!-- Please describe how you tested your changes. -->
-<!-- Have you created new tests or updated existing ones? -->
-<!-- e.g. unit | storybook | integration | none -->
-
-## Types of changes
-
-<!-- What types of changes does your code introduce? Put an `x` in all the boxes that apply: -->
-
-- [ ] Bug fix (non-breaking change which fixes an issue)
-- [ ] New feature (non-breaking change which adds functionality)
-- [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected)
-- [ ] Improvement/refactoring (non-breaking change that doesn't add any features but makes things better)
-
-## Checklist
-
+### Checklist
 <!-- Go over all the following points, and put an `x` in all the boxes that apply. -->
-<!-- If you're unsure about any of these, don't hesitate to ask. We're here to help! -->
 
-- [ ] I've added relevant changes to the documentation.
-- [ ] I have added tests to cover my changes (if not applicable, please state why)
-- [ ] My change requires a template update for create-ripple-app.
-- [ ] I have added template update script for next release.
+- [ ] I have read the [Ripple documentation](https://www.ripple.sdp.vic.gov.au/framework/) documentation around adding custom functionality.
+- [ ] This PR adds new functionality directly to this repository instead of in a seperate layer as recommended in the Ripple documentation site.
+- [ ] This PR requires changes to environment variables which need to be added in https://github.com/dpc-sdp/sdp-cmdb
+
+

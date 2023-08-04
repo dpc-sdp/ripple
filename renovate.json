@@ -1,8 +1,0 @@
-{
-  "extends": [
-    "config:base",
-    ":preserveSemverRanges",
-    "group:allNonMajor"
-  ],
-  "prConcurrentLimit": 3
-}

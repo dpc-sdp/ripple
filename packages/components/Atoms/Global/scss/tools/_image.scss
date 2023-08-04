@@ -1,9 +1,0 @@
-//
-// This mixin added IE support for object-fit.
-// Below JS lib is required.
-// https://github.com/bfred-it/object-fit-images
-//
-@mixin object_fit_image($type: fill) {
-  object-fit: $type;
-  font-family: 'object-fit:#{$type}'; // IE Polyfill for object-fit.
-}

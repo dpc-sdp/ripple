@@ -1,5 +1,4 @@
 version: 2.1
-
 parameters:
   e2e:
     type: boolean
@@ -15,300 +14,138 @@ parameters:
     default: ''
 
 defaults: &defaults
+  docker:
+    - image: cypress/browsers:node-18.16.0-chrome-114.0.5735.133-1-ff-114.0.2-edge-114.0.1823.51-1
+      environment:
+        CIRCLE_TEST_REPORTS: test-results
+        TZ: "Australia/Melbourne"
+      auth:
+        username: $DOCKERHUB_USERNAME
+        password: $DOCKERHUB_PASSWORD
   working_directory: ~/app
 
-executors:
-  default:
-    docker:
-      - image: circleci/node:14-browsers
-  cypress:
-    docker:
-      - image: cypress/browsers:node14.7.0-chrome84
-        environment:
-          CIRCLE_TEST_REPORTS: test-results
-          TZ: "Australia/Melbourne"
-        auth:
-          username: $DOCKERHUB_USERNAME
-          password: $DOCKERHUB_PASSWORD
-
 orbs:
-  sdp-test: dpc-sdp/sdp-test@1
+  sdp-test: dpc-sdp/sdp-test@2
 
 jobs:
   build:
     <<: *defaults
-    executor: default
     steps:
       - checkout
       - restore_cache:
           keys:
-            - v10-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
+            - v8-deps-{{ '{{ checksum "package-lock.json" }}' }}
+            - v8-deps-{{ '{{ .Branch }}' }}
+            - v8-deps
       - run:
           name: Install Dependencies
-          command: yarn install --frozen-lockfile --cache-folder ~/.cache/yarn
+          command: npm ci
       - save_cache:
-          key: v10-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
+          key: v8-deps-{{ '{{ checksum "package-lock.json" }}' }}
           paths:
+            - node_modules
+            - ~/.npm
             - ~/.cache
       - run:
-          name: build reference nuxt app
-          command: yarn reference:build
+          name: build nuxt app
+          command: npm run build
+      - run:
+          name: lint
+          command: npm run lint
       - persist_to_workspace:
           root: ~/app
           paths: .
-
-  test:
-    <<: *defaults
-    executor: default
-    steps:
-      - attach_workspace:
-          at: ~/app
-      - restore_cache:
-          keys:
-            - v10-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
-      - run:
-          name: Lint code.
-          command: yarn lint --format ./node_modules/eslint-junit/index.js
-          environment:
-             ESLINT_JUNIT_OUTPUT: ./test-results/lint/eslint.xml
-      - run:
-          name: Unit tests
-          command: yarn test:unit --ci --runInBand --reporters=default --reporters=jest-junit
-          environment:
-            JEST_JUNIT_OUTPUT_DIR: test-results/unit/
-      - persist_to_workspace:
-          root: ~/app
-          paths: .
-      - store_test_results:
-          path: test-results
-      - store_artifacts:
-          path: test-results
-      - store_artifacts:
-          path: examples/reference/test/integration/videos
-      - store_artifacts:
-          path: examples/reference/test/integration/screenshots
-
-  storybook:
-    <<: *defaults
-    executor: default
-    steps:
-      - attach_workspace:
-          at: ~/app
-      - run:
-          name: run UI test
-          command: cd src && yarn chromatic --project-token $CHROMATIC_APP_CODE --exit-zero-on-changes
-
-  # Publish the packages to NPM. This should depend on the `build` job.
-  create-release:
-    <<: *defaults
-    executor: default
-    steps:
-      - checkout
-      - attach_workspace:
-          at: ~/app
-      - run:
-          name: Authenticate with registry
-          command: |
-            echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
-            git update-index --assume-unchanged .npmrc
-      - run:
-          name: Publish packages to NPM
-          command: npx lerna publish from-package --force-publish --yes --no-verify-access
-
-  # Publish the packages as a pre-release versions to NPM. This should depend on
-  # the `build` job.
-  create-prerelease:
-    executor: default
-    <<: *defaults
-    steps:
-      - checkout
-      - attach_workspace:
-          at: ~/app
-      - run:
-          name: Authenticate with registry
-          command: |
-            echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
-            git update-index --assume-unchanged .npmrc
-      - run:
-          name: Publish pre-release packages to NPM
-          command: npx lerna publish from-package --canary --force-publish --no-push --dist-tag dev --yes --no-verify-access
-
-  # Create a git tag for this release and push to the remote repository.
-  tag-release:
-    executor: default
-    <<: *defaults
-    steps:
-      - checkout
-      - attach_workspace:
-          at: ~/app
-      - run:
-          name: Git tag the release with the `lerna.json` version number
-          command: |
-            PACKAGE_VERSION=$(node -pe "require('./lerna.json')['version']")
-            git tag v$PACKAGE_VERSION
-      - run:
-          name: Push git tag to the remote repository
-          command: |
-            PACKAGE_VERSION=$(node -pe "require('./lerna.json')['version']")
-            git push -q https://$GITHUB_REPO_TOKEN@github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git v$PACKAGE_VERSION
-
-  # Create release notes on GitHub using the `github-release-notes` package.
-  create-release-notes:
-    executor: default
-    <<: *defaults
-    steps:
-      - checkout
-      - attach_workspace:
-          at: ~/app
-      - run:
-          name: Install github-release-notes package
-          command: yarn add -D -W github-release-notes
-      - run:
-          name: Generate release notes and publish to GitHub
-          command: |
-            PACKAGE_VERSION=$(node -pe "require('./lerna.json')['version']")
-            npx gren release --data-source=commits --tags=v$PACKAGE_VERSION --override --token $GITHUB_REPO_TOKEN
 
 workflows:
-  version: 2
   commit:
     when:
-      and:
-        - not: << pipeline.parameters.e2e >>
-        - not:
-            matches:
-              pattern: "^master$"
-              value: << pipeline.git.branch >>
+      not: << pipeline.parameters.e2e >>
     jobs:
       - build:
-          context: Ripple
-      - storybook:
-          context: Ripple
-          requires:
-            - build
-      - test:
-          context: Ripple
-          requires:
-            - build
+          context:
+            - dockerhub-readonly
+            - Ripple
 
-  # Builds modules, verifies code with the linter, runs unit tests, and
-  # publishes the built packages to NPM.
-  publish-to-npm:
-    when:
-      and:
-        - not: << pipeline.parameters.e2e >>
-        - equal: [ master, << pipeline.git.branch >> ]
-    jobs:
-      - build:
-          filters:
-            branches:
-              only:
-                - master
-
-      - test:
-          requires:
-            - build
-
-        # Manual approval step as a final gatekeeper to prevent
-        # possible mistakes!
-      - confirm-release:
-          type: approval
-          requires:
-            - build
-            - test
-
-      - create-release:
-          requires:
-            - confirm-release
-
-      - tag-release:
-          requires:
-            - confirm-release
-            - create-release
-
-      - create-release-notes:
-          requires:
-            - confirm-release
-            - tag-release
-
-  # Publish canary prerelease to NPM for testing on client sites
-  canary-npm-release:
-    when:
-      and:
-        - not: << pipeline.parameters.e2e >>
-        - equal: [ uat, << pipeline.git.branch >> ]
-    jobs:
-      - build:
-          filters:
-            branches:
-              only:
-                - uat
-
-      - test:
-          requires:
-            - build
-
-      - create-prerelease
-      - tag-release:
-          requires:
-            - create-prerelease
-
+# This workflow is managed by test automation team
   nightwatch:
     when: << pipeline.parameters.e2e >>
     jobs:
-      - sdp-test/smoke:
+      - sdp-test/smoke-fe:
           filters:
             branches:
               only:
-                - /^release\/.*/
+                - v2
           context:
             - e2e-test
-            - e2e-test-open
           be_url: << pipeline.parameters.e2e_be_url >>
           fe_url: << pipeline.parameters.e2e_fe_url >>
           project: << pipeline.parameters.e2e_project >>
-          browser: 'chrome'
-      # Make sure the Backend has passed test first.
-      - sdp-test/e2e-be:
+          executor:
+            name: sdp-test/e2e
+            tag: 2.x
+      - sdp-test/e2e-fe-core:
           filters:
             branches:
               only:
-                - /^release\/.*/
-          context:
-            - e2e-test
-            - e2e-test-open
-          be_url: << pipeline.parameters.e2e_be_url >>
-          project: << pipeline.parameters.e2e_project >>
-          browser: 'chrome'
-      - sdp-test/e2e:
-          name: sdp-test/e2eChrome
-          filters:
-            branches:
-              only:
-                - /^release\/.*/
+                - v2
           requires:
-            - sdp-test/smoke
-            - sdp-test/e2e-be
+            - sdp-test/smoke-fe
           context:
             - e2e-test
-            - e2e-test-open
           be_url: << pipeline.parameters.e2e_be_url >>
           fe_url: << pipeline.parameters.e2e_fe_url >>
           project: << pipeline.parameters.e2e_project >>
-          browser: 'chrome'
-      - sdp-test/e2e:
-          name: sdp-test/e2eAndroid
+          executor:
+            name: sdp-test/e2e
+            tag: 2.x
+      - sdp-test/e2e-fe-custom:
           filters:
             branches:
               only:
-                - /^release\/.*/
+                - v2
           requires:
-            - sdp-test/smoke
-            - sdp-test/e2e-be
+            - sdp-test/smoke-fe
           context:
             - e2e-test
-            - e2e-test-open
           be_url: << pipeline.parameters.e2e_be_url >>
           fe_url: << pipeline.parameters.e2e_fe_url >>
           project: << pipeline.parameters.e2e_project >>
-          browser: 'androidChrome'
+          executor:
+            name: sdp-test/e2e
+            tag: 2.x
+      - hold-visualtest:
+          type: approval
+          requires:
+            - sdp-test/smoke-fe
+      - sdp-test/e2e-fe-core-visual:
+          filters:
+            branches:
+              only:
+                - v2
+          requires:
+            - sdp-test/smoke-fe
+            - hold-visualtest
+          context:
+            - e2e-test
+          be_url: << pipeline.parameters.e2e_be_url >>
+          fe_url: << pipeline.parameters.e2e_fe_url >>
+          project: << pipeline.parameters.e2e_project >>
+          executor:
+            name: sdp-test/e2e
+            tag: 2.x
+      - sdp-test/e2e-fe-custom-visual:
+          filters:
+            branches:
+              only:
+                - v2
+          requires:
+            - hold-visualtest
+            - sdp-test/smoke-fe
+          context:
+            - e2e-test
+          be_url: << pipeline.parameters.e2e_be_url >>
+          fe_url: << pipeline.parameters.e2e_fe_url >>
+          project: << pipeline.parameters.e2e_project >>
+          executor:
+            name: sdp-test/e2e
+            tag: 2.x

@@ -1,27 +1,6 @@
-# Editor directories and files
-.idea
-.vscode
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-
-# Temporary files.
 node_modules
+*.log
 .nuxt
-dist
-storybook-static
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-lerna-debug.log*
-/src/public
-
-# tests
-coverage
-examples/**/test/integration/videos
-examples/**/test/integration/screenshots
-test-results
-
-# temp test fixtures
-/examples/test*
+nuxt.d.ts
+.output
+.env

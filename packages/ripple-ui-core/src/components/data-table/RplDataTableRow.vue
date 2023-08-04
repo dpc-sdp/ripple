@@ -7,14 +7,15 @@ import {
   rplEventPayload
 } from '../../composables/useRippleEvent'
 
-type tableColumnConfig = {
+export type tableColumnConfig = {
+  label: string
   component?: string
   props?: any
 }
 
 interface Props {
   content: any
-  columns: tableColumnConfig[]
+  columns: tableColumnConfig[] | string[]
   items: Array<string>
   verticalHeader?: boolean
   offset: number
@@ -75,7 +76,9 @@ const handleClick = () => {
         :is="i === 0 && verticalHeader ? 'th' : 'td'"
         v-for="(item, i) of items"
         :key="i"
-        :data-label="columns[i]"
+        :data-label="
+          typeof columns[i] === 'string' ? columns[i] : (columns[i] as tableColumnConfig).label
+        "
       >
         <template
           v-if="
@@ -83,7 +86,10 @@ const handleClick = () => {
             columns[i].hasOwnProperty('component')
           "
         >
-          <component :is="columns[i].component" :item="item" />
+          <component
+            :is="(columns[i] as tableColumnConfig).component"
+            :item="item"
+          />
         </template>
         <template v-else>
           {{ item }}

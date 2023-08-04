@@ -122,6 +122,22 @@ $no-padding: 0;
     }
   }
 
+  ol ol {
+    list-style-type: lower-alpha;
+
+    ol {
+      list-style-type: lower-roman;
+
+      ol {
+        list-style-type: upper-latin;
+
+        ol {
+          list-style-type: upper-roman;
+        }
+      }
+    }
+  }
+
   ul li,
   ol li {
     line-height: $unordered-list-line-height;

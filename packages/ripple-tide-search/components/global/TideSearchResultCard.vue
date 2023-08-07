@@ -19,7 +19,7 @@ const formatContentTypeString = (str) => {
   }
 }
 
-const { title, url } = useSearchResult(props.result)
+const { title, url, summary, image } = useSearchResult(props.result)
 
 const id = computed(() => getSearchResultValue(props.result, 'uid'))
 const meta = computed(() => {
@@ -39,43 +39,22 @@ const meta = computed(() => {
     // inductionYear
   }
 })
-const content = computed(() =>
-  getSearchResultValue(props.result, 'field_landing_page_summary')
-)
-const img = computed(() => {
-  const src = getSearchResultValue(
-    props.result,
-    'field_media_image_absolute_path'
-  )
-  if (src) {
-    return {
-      src,
-      alt: ''
-    }
-  }
-})
 </script>
 
 <template>
   <RplPromoCard
     :key="id"
-    class="tide-search-result-card rpl-col-12 rpl-col-4-m"
-    :image="img"
+    class="rpl-col-12 rpl-col-4-m"
+    :image="image"
     :title="title"
     :url="url"
-    :highlight="!img"
+    :highlight="!image"
   >
     <template v-if="result.type" #meta>
       <TideLandingPageCardSharedMeta :meta="meta" />
     </template>
     <p>
-      {{ content }}
+      {{ summary }}
     </p>
   </RplPromoCard>
 </template>
-
-<style>
-.tide-search-result-card {
-  height: 100%;
-}
-</style>

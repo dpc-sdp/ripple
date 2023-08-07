@@ -40,6 +40,7 @@
     "storybook": "start-storybook -p 6006",
     "storybook:build": "build-storybook",
     "test:components": "cypress run --component",
+    "cy:components": "cypress open --component",
     "test:generate-output": "jest --json --outputFile=.jest-test-results.json"
   },
   "dependencies": {

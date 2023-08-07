@@ -4,6 +4,7 @@
   "description": "Test utils for Ripple sites",
   "version": "2.0.0",
   "license": "Apache-2.0",
+  "type": "module",
   "main": "./dist/config/index.js",
   "exports": {
     ".": "./dist/config/index.js",
@@ -22,7 +23,7 @@
     "LICENSE"
   ],
   "dependencies": {
-    "@badeball/cypress-cucumber-preprocessor": "^15.1.5",
+    "@badeball/cypress-cucumber-preprocessor": "^18.0.2",
     "@bahmutov/cypress-esbuild-preprocessor": "^2.2.0",
     "@testing-library/cypress": "^9.0.0",
     "cypress": "^12.8.1",

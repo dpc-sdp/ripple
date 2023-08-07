@@ -2,6 +2,7 @@ import {
   tidePageBaseMapping,
   tidePageBaseIncludes
 } from '@dpc-sdp/nuxt-ripple/mapping'
+import { getBodyFromField } from '@dpc-sdp/ripple-tide-api'
 import type { IRplTideModuleMapping } from '@dpc-sdp/ripple-tide-api/types'
 
 const getSearchListingConfig = (src) =>
@@ -20,6 +21,8 @@ const tideCollectionModule: IRplTideModuleMapping = {
       withSidebarSocialShare: false
     }),
     summary: 'field_landing_page_summary',
+    afterResults: (src: string) =>
+      getBodyFromField(src, 'field_below_results_content'),
     introText: 'field_landing_page_intro_text',
     searchListingConfig: (src) =>
       getSearchListingConfig(src).searchListingConfig,

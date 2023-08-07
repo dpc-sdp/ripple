@@ -1,9 +1,20 @@
 <template>
-  <RplTextLink :url="item.url[0]">
-    {{ item.title[0] }}
+  <RplTextLink :url="url">
+    {{ title }}
   </RplTextLink>
 </template>
 
 <script setup lang="ts">
-defineProps(['item'])
+import { useSearchResult } from '#imports'
+
+interface Props {
+  item: {
+    url: string
+    title: string
+  }
+}
+
+const props = defineProps<Props>()
+
+const { title, url } = useSearchResult(props.item)
 </script>

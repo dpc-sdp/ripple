@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import { useRuntimeConfig, useFetch, useRoute } from '#imports'
+import { useRuntimeConfig, useTideSite, useRoute } from '#imports'
 import useSearchUI from './../composables/useSearchUI'
 import {
   AppSearchFilterConfigItem,
@@ -53,17 +53,8 @@ const props = withDefaults(defineProps<Props>(), {
   }
 })
 
-const route = useRoute()
 const { public: config } = useRuntimeConfig()
-const siteId = config.tide?.site
-
-const { data: site } = useFetch('/api/tide/site', {
-  key: `site-${siteId}`,
-  baseURL: config.apiUrl || '',
-  params: {
-    id: siteId
-  }
-})
+const site = await useTideSite()
 
 const apiConnectorOptions = {
   ...config.tide?.appSearch,
@@ -116,7 +107,7 @@ const getFilterOptions = (field) => {
 </script>
 
 <template>
-  <TideBaseLayout :site="site">
+  <TideBaseLayout>
     <template #aboveBody>
       <RplHeroHeader
         :title="pageTitle"

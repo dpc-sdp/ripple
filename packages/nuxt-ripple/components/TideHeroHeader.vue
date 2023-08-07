@@ -20,6 +20,8 @@ const props = withDefaults(defineProps<Props>(), {
   cornerBottom: null
 })
 
+const { direction, language } = inject('language')
+
 const cornerTop = computed(() => {
   if (props.header?.backgroundImage) {
     return false
@@ -91,6 +93,8 @@ const headerTheme = computed(() => {
     :background="header?.backgroundImage"
     :primaryAction="header?.primaryAction"
     :secondaryAction="secondaryAction"
+    :class="{ [`${language}`]: language }"
+    :dir="direction"
   >
     {{ header.summary }}
   </RplHeroHeader>

@@ -1,0 +1,8 @@
+**/node_modules
+**/dist
+**/public
+**/src/assets
+**/src/styles/_vars.css
+**/.storybook/storybook.css
+**/storybook-static
+**/stories/components/**/*.vue

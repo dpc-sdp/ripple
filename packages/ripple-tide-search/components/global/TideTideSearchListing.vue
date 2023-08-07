@@ -13,13 +13,11 @@ interface Props {
 const props = defineProps<Props>()
 
 const searchResultsMappingFn = (item): TideSearchListingResultItem => {
-  if (props.page.config.results?.item) {
+  if (props.page.config.results.item) {
     for (const key in props.page.config.results.item) {
       const mapping = props.page.config.results.item[key]
-      if (
-        (item._source?.type && item._source?.type[0] === key) ||
-        key === '*'
-      ) {
+      if (!item._source?.type || item._source?.type[0] === key || key === '*') {
+        /* If there is no type, a component will be required */
         return {
           id: item._id,
           component: mapping.component,

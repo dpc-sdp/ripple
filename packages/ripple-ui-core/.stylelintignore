@@ -1,6 +1,0 @@
-dist/**/*.css
-public/**/*.css
-src/assets/**/*.css
-src/styles/_vars.css
-.storybook/storybook.css
-storybook-static/**/*.css

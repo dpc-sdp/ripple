@@ -19,6 +19,7 @@ declare module '@nuxt/schema' {
         rtl?: boolean
       }
       search?: {
+        contentTypes: string[]
         filterFunctions?: Record<
           string,
           (filterConfig: any, values: string[]) => void

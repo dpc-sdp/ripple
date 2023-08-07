@@ -15,7 +15,7 @@ import { getGrantStatus } from '#imports'
 interface Props {
   variant: 'inline' | 'block'
   audience: string
-  funding: string
+  funding: string | null
   dateFrom: string
   dateTo: string
   ongoing: boolean

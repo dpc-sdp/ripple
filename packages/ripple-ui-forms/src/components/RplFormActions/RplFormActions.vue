@@ -14,7 +14,7 @@ interface Props {
   variant?: 'filled' | 'outlined' | 'white' | 'elevated' | 'destructive'
   prefixIcon?: string
   suffixIcon?: string
-  displayResetButton: boolean
+  displayResetButton?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {

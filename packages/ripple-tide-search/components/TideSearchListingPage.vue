@@ -17,7 +17,6 @@ interface Props {
   title: string
   introText?: string
   searchListingConfig?: TideSearchListingPage['searchListingConfig']
-  index: string
   autocompleteQuery?: boolean
   queryConfig: Record<string, any>
   globalFilters?: any[]
@@ -286,6 +285,7 @@ const numAppliedFilters = computed(() => {
           </p>
         </RplPageComponent>
       </slot>
+
       <RplPageComponent>
         <div :class="{ 'tide-search-results--loading': isBusy }">
           <div v-if="searchError">

@@ -1,4 +1,4 @@
-import { FilterType, FacetConfiguration } from '@elastic/search-ui'
+import { FilterType } from '@elastic/search-ui'
 import type { TidePageBase, TideSiteData } from '@dpc-sdp/ripple-tide-api/types'
 export interface MappedSearchResult<T> {
   id: string
@@ -78,30 +78,15 @@ export type TideSearchListingResultLayout = {
   }
 }
 
-export interface TideSearchListingPage extends TidePageBase {
-  title: string
-  introText: string
-  summary: string
-  /**
-   * @description ES Search index to connect to, defaults to environment
-   */
-  index: string
+export type TideSearchListingConfig = {
   /**
    * @description optional page level config
    */
   searchListingConfig: {
     /**
-     * @description Label for search query submit button
-     */
-    searchLabel?: string
-    /**
      * @description Toggle grid and list view of results, cards need to be a grid view
      */
     resultsPerPage?: number
-    /**
-     * @description hide user filter form on load, default is false
-     */
-    hideFilters?: boolean
     labels: {
       submit: string
       reset: string
@@ -139,6 +124,13 @@ export interface TideSearchListingPage extends TidePageBase {
       [key: string]: TideSearchListingResultItem
     }
   }
+}
+
+export interface TideSearchListingPage extends TidePageBase {
+  title: string
+  introText: string
+  summary: string
+  config: TideSearchListingConfig
   contentPage: TidePageBase
   site: TideSiteData
 }

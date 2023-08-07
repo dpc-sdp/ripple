@@ -6,75 +6,77 @@
   "nid": "11dede11-10c0-111e1-1100-000000000330",
   "showTopicTags": true,
   "summary": "",
-  "searchListingConfig": {
-    "resultsPerPage": 10,
-    "customSort": [
-      {
-        "some.test.field": "asc"
-      }
-    ]
-  },
-  "queryConfig": {
-    "multi_match": {
-      "query": "{{query}}",
-      "fields": [
-        "title^3",
-        "field_landing_page_summary^2",
-        "body",
-        "field_paragraph_body",
-        "summary_processed"
+  "config": {
+    "searchListingConfig": {
+      "resultsPerPage": 10,
+      "customSort": [
+        {
+          "some.test.field": "asc"
+        }
       ]
-    }
-  },
-  "results": {
-    "layout": {
-      "component": "TideSearchResultsList"
     },
-    "item": {
-      "grant": {
-        "component": "TideGrantSearchResult"
-      }
-    }
-  },
-  "globalFilters": [
-    { "terms": { "type": ["grant"] } },
-    { "terms": { "field_node_site": [8888] } }
-  ],
-  "userFilters": [
-    {
-      "id": "termFilter",
-      "component": "TideSearchFilterDropdown",
-      "filter": {
-        "type": "term",
-        "value": "termFilter.keyword"
-      },
-      "aggregations": {
-        "field": "termFilter",
-        "source": "taxonomy"
-      },
-      "props": {
-        "id": "termFilter",
-        "label": "Term filter example",
-        "placeholder": "Select a colour",
-        "multiple": true,
-        "options": [
-          {
-            "id": "1",
-            "label": "Red",
-            "value": "Red"
-          },
-          {
-            "id": "2",
-            "label": "Green",
-            "value": "Green"
-          },
-          {
-            "id": "3",
-            "label": "Blue",
-            "value": "Blue"
-          }
+    "queryConfig": {
+      "multi_match": {
+        "query": "{{query}}",
+        "fields": [
+          "title^3",
+          "field_landing_page_summary^2",
+          "body",
+          "field_paragraph_body",
+          "summary_processed"
         ]
       }
-    }
-  ]
+    },
+    "results": {
+      "layout": {
+        "component": "TideSearchResultsList"
+      },
+      "item": {
+        "grant": {
+          "component": "TideGrantSearchResult"
+        }
+      }
+    },
+    "globalFilters": [
+      { "terms": { "type": ["grant"] } },
+      { "terms": { "field_node_site": [8888] } }
+    ],
+    "userFilters": [
+      {
+        "id": "termFilter",
+        "component": "TideSearchFilterDropdown",
+        "filter": {
+          "type": "term",
+          "value": "termFilter.keyword"
+        },
+        "aggregations": {
+          "field": "termFilter",
+          "source": "taxonomy"
+        },
+        "props": {
+          "id": "termFilter",
+          "label": "Term filter example",
+          "placeholder": "Select a colour",
+          "multiple": true,
+          "options": [
+            {
+              "id": "1",
+              "label": "Red",
+              "value": "Red"
+            },
+            {
+              "id": "2",
+              "label": "Green",
+              "value": "Green"
+            },
+            {
+              "id": "3",
+              "label": "Blue",
+              "value": "Blue"
+            }
+          ]
+        }
+      }
+    ]
+  }
 }

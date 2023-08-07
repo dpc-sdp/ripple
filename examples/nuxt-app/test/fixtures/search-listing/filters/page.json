@@ -6,166 +6,168 @@
   "nid": "11dede11-10c0-111e1-1100-000000000330",
   "showTopicTags": true,
   "summary": "",
-  "searchListingConfig": {
-    "resultsPerPage": 10
-  },
-  "queryConfig": {
-    "multi_match": {
-      "query": "{{query}}",
-      "fields": [
-        "title^3",
-        "field_landing_page_summary^2",
-        "body",
-        "field_paragraph_body",
-        "summary_processed"
-      ]
-    }
-  },
-  "results": {
-    "layout": {
-      "component": "TideSearchResultsList"
+  "config": {
+    "searchListingConfig": {
+      "resultsPerPage": 10
     },
-    "item": {
-      "grant": {
-        "component": "TideGrantSearchResult"
+    "queryConfig": {
+      "multi_match": {
+        "query": "{{query}}",
+        "fields": [
+          "title^3",
+          "field_landing_page_summary^2",
+          "body",
+          "field_paragraph_body",
+          "summary_processed"
+        ]
       }
-    }
-  },
-  "globalFilters": [
-    { "terms": { "type": ["grant"] } },
-    { "terms": { "field_node_site": [8888] } }
-  ],
-  "userFilters": [
-    {
-      "id": "termFilter",
-      "component": "TideSearchFilterDropdown",
-      "filter": {
-        "type": "term",
-        "value": "termFilter.keyword"
+    },
+    "results": {
+      "layout": {
+        "component": "TideSearchResultsList"
       },
-      "aggregations": {
-        "field": "termFilter",
-        "source": "taxonomy"
-      },
-      "props": {
+      "item": {
+        "grant": {
+          "component": "TideGrantSearchResult"
+        }
+      }
+    },
+    "globalFilters": [
+      { "terms": { "type": ["grant"] } },
+      { "terms": { "field_node_site": [8888] } }
+    ],
+    "userFilters": [
+      {
         "id": "termFilter",
-        "label": "Term filter example",
-        "placeholder": "Select a colour",
-        "multiple": true,
-        "options": [
-          {
-            "id": "1",
-            "label": "Red",
-            "value": "Red"
-          },
-          {
-            "id": "2",
-            "label": "Green",
-            "value": "Green"
-          },
-          {
-            "id": "3",
-            "label": "Blue",
-            "value": "Blue"
-          }
-        ]
-      }
-    },
-    {
-      "id": "termsFilter",
-      "component": "TideSearchFilterDropdown",
-      "filter": {
-        "type": "terms",
-        "value": "termsFilter.keyword"
+        "component": "TideSearchFilterDropdown",
+        "filter": {
+          "type": "term",
+          "value": "termFilter.keyword"
+        },
+        "aggregations": {
+          "field": "termFilter",
+          "source": "taxonomy"
+        },
+        "props": {
+          "id": "termFilter",
+          "label": "Term filter example",
+          "placeholder": "Select a colour",
+          "multiple": true,
+          "options": [
+            {
+              "id": "1",
+              "label": "Red",
+              "value": "Red"
+            },
+            {
+              "id": "2",
+              "label": "Green",
+              "value": "Green"
+            },
+            {
+              "id": "3",
+              "label": "Blue",
+              "value": "Blue"
+            }
+          ]
+        }
       },
-      "aggregations": {
-        "field": "termsFilter",
-        "source": "taxonomy"
-      },
-      "props": {
+      {
         "id": "termsFilter",
-        "label": "Terms filter example",
-        "placeholder": "Select a colour",
-        "multiple": true,
-        "options": [
-          {
-            "id": "1",
-            "label": "Orange",
-            "value": "Orange"
-          },
-          {
-            "id": "2",
-            "label": "Purple",
-            "value": "Purple"
-          },
-          {
-            "id": "3",
-            "label": "Yellow",
-            "value": "Yellow"
-          }
-        ]
-      }
-    },
-    {
-      "id": "rawFilter",
-      "component": "TideSearchFilterDropdown",
-      "filter": {
-        "type": "raw",
-        "value": "{\"ids\":{\"values\":{{value}}}}"
+        "component": "TideSearchFilterDropdown",
+        "filter": {
+          "type": "terms",
+          "value": "termsFilter.keyword"
+        },
+        "aggregations": {
+          "field": "termsFilter",
+          "source": "taxonomy"
+        },
+        "props": {
+          "id": "termsFilter",
+          "label": "Terms filter example",
+          "placeholder": "Select a colour",
+          "multiple": true,
+          "options": [
+            {
+              "id": "1",
+              "label": "Orange",
+              "value": "Orange"
+            },
+            {
+              "id": "2",
+              "label": "Purple",
+              "value": "Purple"
+            },
+            {
+              "id": "3",
+              "label": "Yellow",
+              "value": "Yellow"
+            }
+          ]
+        }
       },
-      "aggregations": {
-        "field": "rawFilter",
-        "source": "taxonomy"
-      },
-      "props": {
+      {
         "id": "rawFilter",
-        "label": "Raw filter example",
-        "placeholder": "Select a pet",
-        "multiple": true,
-        "options": [
-          {
-            "id": "1",
-            "label": "Cats",
-            "value": "Cats"
-          },
-          {
-            "id": "2",
-            "label": "Dogs",
-            "value": "Dogs"
-          },
-          {
-            "id": "3",
-            "label": "Birds",
-            "value": "Birds"
-          }
-        ]
-      }
-    },
-    {
-      "id": "functionFilter",
-      "component": "TideSearchFilterDropdown",
-      "filter": {
-        "type": "function",
-        "value": "dummyFunctionFilter"
+        "component": "TideSearchFilterDropdown",
+        "filter": {
+          "type": "raw",
+          "value": "{\"ids\":{\"values\":{{value}}}}"
+        },
+        "aggregations": {
+          "field": "rawFilter",
+          "source": "taxonomy"
+        },
+        "props": {
+          "id": "rawFilter",
+          "label": "Raw filter example",
+          "placeholder": "Select a pet",
+          "multiple": true,
+          "options": [
+            {
+              "id": "1",
+              "label": "Cats",
+              "value": "Cats"
+            },
+            {
+              "id": "2",
+              "label": "Dogs",
+              "value": "Dogs"
+            },
+            {
+              "id": "3",
+              "label": "Birds",
+              "value": "Birds"
+            }
+          ]
+        }
       },
-      "props": {
+      {
         "id": "functionFilter",
-        "label": "Custom function filter example",
-        "placeholder": "Select a status",
-        "multiple": true,
-        "options": [
-          {
-            "id": "open",
-            "label": "Open",
-            "value": "open"
-          },
-          {
-            "id": "closed",
-            "label": "Closed",
-            "value": "closed"
-          }
-        ]
+        "component": "TideSearchFilterDropdown",
+        "filter": {
+          "type": "function",
+          "value": "dummyFunctionFilter"
+        },
+        "props": {
+          "id": "functionFilter",
+          "label": "Custom function filter example",
+          "placeholder": "Select a status",
+          "multiple": true,
+          "options": [
+            {
+              "id": "open",
+              "label": "Open",
+              "value": "open"
+            },
+            {
+              "id": "closed",
+              "label": "Closed",
+              "value": "closed"
+            }
+          ]
+        }
       }
-    }
-  ]
+    ]
+  }
 }

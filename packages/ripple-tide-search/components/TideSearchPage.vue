@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue'
-import { getEventDataFromState, useRuntimeConfig, useFetch } from '#imports'
+import { getEventDataFromState, useRuntimeConfig, useTideSite } from '#imports'
 import useSearchUI from './../composables/useSearchUI'
 import {
   AppSearchFilterConfigItem,
@@ -71,14 +71,7 @@ const emit = defineEmits<{
 const { emitRplEvent } = useRippleEvent('tide-search', emit)
 
 const { public: config } = useRuntimeConfig()
-const siteId = config.tide?.site
-
-const { data: site } = useFetch('/api/tide/site', {
-  baseURL: config.apiUrl || '',
-  params: {
-    id: siteId
-  }
-})
+const site = await useTideSite()
 
 const apiConnectorOptions = {
   ...config.tide?.appSearch,
@@ -192,7 +185,7 @@ watch(
 </script>
 
 <template>
-  <TideBaseLayout :site="site">
+  <TideBaseLayout>
     <template #aboveBody>
       <RplHeroHeader
         :title="pageTitle"

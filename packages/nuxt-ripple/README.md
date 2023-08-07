@@ -54,6 +54,25 @@ NUXT_PUBLIC_TIDE_SITE=8888
 NUXT_PUBLIC_TIDE_BASE_URL=https://develop.content.reference.sdp.vic.gov.au
 ```
 
+### Languages
+
+Additional languages can be added using the `app.config` file, below is an example of adding support for a new language.
+
+```js
+export default defineAppConfig({
+  ripple: {
+    languages: {
+      kn: {
+        name: 'Noto Serif Kannada',
+        url: 'https://fonts.googleapis.com/css2?family=Noto+Serif+Kannada',
+        rtl: false
+      }
+    }
+  }
+})
+
+```
+
 ### Robots.txt
 
 The robots.txt file is handled automatically by `@dpc-sdp/nuxt-ripple`, but can be overridden and extended via the `nuxt.config` if needed.

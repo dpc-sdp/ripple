@@ -3,7 +3,10 @@ import { Then, When, DataTable } from '@badeball/cypress-cucumber-preprocessor'
 Then(
   'the search listing page should have {int} results',
   (resultCount: number) => {
-    cy.get(`.rpl-result-listing-item`).should('have.length', resultCount)
+    cy.get(`[data-component-type="search-result"]`).should(
+      'have.length',
+      resultCount
+    )
   }
 )
 
@@ -75,7 +78,7 @@ Then(
     const table = dataTable.hashes()
 
     table.forEach((row, i: number) => {
-      cy.get(`.rpl-result-listing-item`)
+      cy.get(`[data-component-type="search-result"]`)
         .eq(i)
         .then((item) => {
           cy.log(item)

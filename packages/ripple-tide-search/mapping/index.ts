@@ -23,6 +23,7 @@ const tideCollectionModule: IRplTideModuleMapping = {
     summary: 'field_landing_page_summary',
     afterResults: (src: string) =>
       getBodyFromField(src, 'field_below_results_content'),
+    introText: 'field_landing_page_intro_text',
     searchListingConfig: (src) =>
       getSearchListingConfig(src).searchListingConfig,
     index: (src) =>

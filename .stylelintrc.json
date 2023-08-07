@@ -1,0 +1,3 @@
+{
+  "extends": ["@dpc-sdp/stylelint-config-ripple"]
+}

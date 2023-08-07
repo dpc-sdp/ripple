@@ -1,0 +1,7 @@
+{
+  "extends": ["@dpc-sdp/stylelint-config-ripple"],
+  "rules": {
+    "selector-class-pattern": ".+",
+    "custom-property-pattern": ".+"
+  }
+}

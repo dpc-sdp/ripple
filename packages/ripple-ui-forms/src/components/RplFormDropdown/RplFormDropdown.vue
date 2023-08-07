@@ -108,7 +108,8 @@ const handleToggle = (fromKeyboard = false): void => {
       id: props.id,
       label: props?.label,
       contextId: form?.id,
-      contextName: form?.name
+      contextName: form?.name,
+      value: Array.isArray(props.value) ? props.value.join(',') : props.value
     },
     { global: true }
   )
@@ -191,7 +192,7 @@ const handleSelectOption = (optionValue) => {
       action: 'update',
       id: props.id,
       label: props?.label,
-      value: newValue,
+      value: Array.isArray(newValue) ? newValue.join(',') : newValue,
       contextId: form?.id,
       contextName: form?.name
     },

@@ -20,6 +20,7 @@ const fontConfigs = {
   'haz': 'https://fonts.googleapis.com/earlyaccess/notonaskharabic.css',
   'ja': 'https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap',
   'kar': 'https://fonts.googleapis.com/css2?family=Padauk:wght@400;700&display=swap',
+  'kyu': 'https://fonts.googleapis.com/css2?family=Noto+Sans+Kayah+Li:wght@400;700&display=swap',
   'km': 'https://fonts.googleapis.com/earlyaccess/notosanskhmer.css',
   'ko': 'https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap',
   'mk': 'https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap',

@@ -12,8 +12,8 @@ import {
 export interface Props {
   items?: IRplListItemArray[]
   type?: RplListTypes
-  itemClass?: string
-  containerClass?: string
+  itemClass?: string | object
+  containerClass?: string | object
   depth?: number
   maxDepth?: number | null
   iconPlacement?: RplIconPlacement

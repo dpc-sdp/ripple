@@ -5,7 +5,12 @@ const trimValue = (value: any) =>
   typeof value === 'string' ? value.trim() : value
 
 export default function ({ route, site, page }): IRplAnalyticsEventPayload {
+  const production =
+    typeof process !== 'undefined' &&
+    process?.env?.LAGOON_ENVIRONMENT_TYPE === 'production'
+
   const payload: IRplAnalyticsEventPayload = {
+    production,
     event: 'routeChange',
     name: page?.title,
     page_url: route.fullPath,
@@ -13,7 +18,6 @@ export default function ({ route, site, page }): IRplAnalyticsEventPayload {
     publication_name: page?.publication?.text,
     search_term: trimValue(route.query?.q),
     site_section: page?.siteSection?.name,
-    production: process.env.NODE_ENV === 'production',
     platform_event: 'page/routeChange'
   }
 

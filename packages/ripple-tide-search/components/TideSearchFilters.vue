@@ -27,9 +27,10 @@
     </div>
     <RplFormActions
       v-if="submitLabel"
+      id="tide-search-filter-form-actions"
       :label="submitLabel"
       :resetLabel="resetLabel"
-      :displayResetButton="resetLabel"
+      :displayResetButton="!!resetLabel"
       @reset="handleFilterReset"
     />
   </RplForm>

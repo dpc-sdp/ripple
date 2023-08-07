@@ -36,168 +36,170 @@
   },
   "showContentRating": true,
   "summary": null,
-  "searchListingConfig": {
-    "resultsPerPage": 10,
-    "labels": {
-      "submit": "Search all grants and programs",
-      "placeholder": "Search all grants and programs"
+  "config": {
+    "searchListingConfig": {
+      "resultsPerPage": 10,
+      "labels": {
+        "submit": "Search all grants and programs",
+        "placeholder": "Search all grants and programs"
+      },
+      "customSort": [
+        {
+          "title.keyword": "asc"
+        }
+      ]
     },
-    "customSort": [
+    "index": "a83890f7a31dea14e1ae83c6f0afacca-appsearch-index-default-node",
+    "queryConfig": {
+      "multi_match": {
+        "query": "{{query}}",
+        "fields": [
+          "title^3",
+          "field_landing_page_summary^2",
+          "body",
+          "field_paragraph_body",
+          "summary_processed"
+        ]
+      }
+    },
+    "globalFilters": [
       {
-        "title.keyword": "asc"
+        "terms": {
+          "type": ["grant"]
+        }
+      },
+      {
+        "terms": {
+          "field_node_site": [4]
+        }
+      }
+    ],
+    "results": {
+      "layout": {
+        "component": "TideSearchResultsList"
+      },
+      "item": {
+        "grant": {
+          "component": "TideGrantSearchResult"
+        }
+      }
+    },
+    "userFilters": [
+      {
+        "id": "audience",
+        "component": "TideSearchFilterDropdown",
+        "filter": {
+          "type": "terms",
+          "value": "field_audience_name"
+        },
+        "aggregations": {
+          "field": "audience",
+          "source": "taxonomy"
+        },
+        "props": {
+          "id": "audience",
+          "label": "View those relevant to",
+          "placeholder": "Individuals and organisation types",
+          "type": "RplFormDropdown",
+          "multiple": true,
+          "options": [
+            {
+              "id": 8918,
+              "label": "Individual",
+              "value": "Individual"
+            },
+            {
+              "id": 8920,
+              "label": "Government",
+              "value": "Government"
+            },
+            {
+              "id": 8921,
+              "label": "Not-for-profit groups",
+              "value": "Not-for-profit groups"
+            },
+            {
+              "id": 8919,
+              "label": "Business",
+              "value": "Business"
+            }
+          ]
+        }
+      },
+      {
+        "id": "topic",
+        "component": "TideSearchFilterDropdown",
+        "filter": {
+          "type": "terms",
+          "value": "field_topic_name"
+        },
+        "aggregations": {
+          "field": "topic",
+          "source": "taxonomy"
+        },
+        "props": {
+          "id": "topic",
+          "label": "Grant or program topic",
+          "placeholder": "Please select",
+          "type": "RplFormDropdown",
+          "multiple": true,
+          "options": [
+            {
+              "id": 1,
+              "label": "Arts, culture & heritage",
+              "value": "Arts, culture & heritage"
+            },
+            {
+              "id": 2,
+              "label": "Business & the workplace",
+              "value": "Business & the workplace"
+            },
+            {
+              "id": 3,
+              "label": "Communities",
+              "value": "Communities"
+            }
+          ]
+        }
+      },
+      {
+        "id": "status",
+        "component": "TideSearchFilterDropdown",
+        "filter": {
+          "type": "function",
+          "value": "grantStatus"
+        },
+        "props": {
+          "id": "status",
+          "label": "Grant or program topic",
+          "placeholder": "Select for opened, closed or upcoming grants",
+          "type": "RplFormDropdown",
+          "multiple": true,
+          "options": [
+            {
+              "id": "open",
+              "label": "Open",
+              "value": "open"
+            },
+            {
+              "id": "closed",
+              "label": "Closed",
+              "value": "closed"
+            },
+            {
+              "id": "ongoing",
+              "label": "Ongoing",
+              "value": "ongoing"
+            },
+            {
+              "id": "opening_soon",
+              "label": "Opening soon",
+              "value": "opening_soon"
+            }
+          ]
+        }
       }
     ]
   },
-  "index": "a83890f7a31dea14e1ae83c6f0afacca-appsearch-index-default-node",
-  "queryConfig": {
-    "multi_match": {
-      "query": "{{query}}",
-      "fields": [
-        "title^3",
-        "field_landing_page_summary^2",
-        "body",
-        "field_paragraph_body",
-        "summary_processed"
-      ]
-    }
-  },
-  "globalFilters": [
-    {
-      "terms": {
-        "type": ["grant"]
-      }
-    },
-    {
-      "terms": {
-        "field_node_site": [4]
-      }
-    }
-  ],
-  "results": {
-    "layout": {
-      "component": "TideSearchResultsList"
-    },
-    "item": {
-      "grant": {
-        "component": "TideGrantSearchResult"
-      }
-    }
-  },
-  "userFilters": [
-    {
-      "id": "audience",
-      "component": "TideSearchFilterDropdown",
-      "filter": {
-        "type": "terms",
-        "value": "field_audience_name"
-      },
-      "aggregations": {
-        "field": "audience",
-        "source": "taxonomy"
-      },
-      "props": {
-        "id": "audience",
-        "label": "View those relevant to",
-        "placeholder": "Individuals and organisation types",
-        "type": "RplFormDropdown",
-        "multiple": true,
-        "options": [
-          {
-            "id": 8918,
-            "label": "Individual",
-            "value": "Individual"
-          },
-          {
-            "id": 8920,
-            "label": "Government",
-            "value": "Government"
-          },
-          {
-            "id": 8921,
-            "label": "Not-for-profit groups",
-            "value": "Not-for-profit groups"
-          },
-          {
-            "id": 8919,
-            "label": "Business",
-            "value": "Business"
-          }
-        ]
-      }
-    },
-    {
-      "id": "topic",
-      "component": "TideSearchFilterDropdown",
-      "filter": {
-        "type": "terms",
-        "value": "field_topic_name"
-      },
-      "aggregations": {
-        "field": "topic",
-        "source": "taxonomy"
-      },
-      "props": {
-        "id": "topic",
-        "label": "Grant or program topic",
-        "placeholder": "Please select",
-        "type": "RplFormDropdown",
-        "multiple": true,
-        "options": [
-          {
-            "id": 1,
-            "label": "Arts, culture & heritage",
-            "value": "Arts, culture & heritage"
-          },
-          {
-            "id": 2,
-            "label": "Business & the workplace",
-            "value": "Business & the workplace"
-          },
-          {
-            "id": 3,
-            "label": "Communities",
-            "value": "Communities"
-          }
-        ]
-      }
-    },
-    {
-      "id": "status",
-      "component": "TideSearchFilterDropdown",
-      "filter": {
-        "type": "function",
-        "value": "grantStatus"
-      },
-      "props": {
-        "id": "status",
-        "label": "Grant or program topic",
-        "placeholder": "Select for opened, closed or upcoming grants",
-        "type": "RplFormDropdown",
-        "multiple": true,
-        "options": [
-          {
-            "id": "open",
-            "label": "Open",
-            "value": "open"
-          },
-          {
-            "id": "closed",
-            "label": "Closed",
-            "value": "closed"
-          },
-          {
-            "id": "ongoing",
-            "label": "Ongoing",
-            "value": "ongoing"
-          },
-          {
-            "id": "opening_soon",
-            "label": "Opening soon",
-            "value": "opening_soon"
-          }
-        ]
-      }
-    }
-  ],
   "_fetched": 1690260404545
 }

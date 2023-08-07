@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import RplDataTableRow from './RplDataTableRow.vue'
+import RplDataTableRow, { tableColumnConfig } from './RplDataTableRow.vue'
 
 interface HeadingType {
   horizontal: boolean
@@ -10,7 +10,7 @@ interface HeadingType {
 interface Props {
   caption?: string
   footer?: string
-  columns: Array<string>
+  columns: tableColumnConfig[] | string[]
   headingType?: HeadingType
   items: Array<Record<string, unknown>[] | string[]>
   offset?: number

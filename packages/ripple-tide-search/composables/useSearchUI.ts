@@ -45,6 +45,7 @@ export default async (
   })
   const searchDriver = getSearchDriver(apiConnectorOptions, config)
   const searchState = ref(searchDriver.getState())
+  const urlManager = ref(searchDriver.URLManager)
 
   const staticFacetOptions = ref(null)
   staticSearchDriver.setSearchTerm('')
@@ -125,6 +126,7 @@ export default async (
   }
 
   return {
+    urlManager,
     updateSearchTerm,
     doSearch,
     goToPage,

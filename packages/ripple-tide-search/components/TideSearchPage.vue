@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue'
-import { getEventDataFromState, useRuntimeConfig, useTideSite } from '#imports'
+import { useRuntimeConfig, useTideSite } from '#imports'
 import useSearchUI from './../composables/useSearchUI'
 import {
   AppSearchFilterConfigItem,
@@ -80,6 +80,7 @@ const apiConnectorOptions = {
 }
 
 const {
+  urlManager,
   updateSearchTerm,
   doSearch,
   goToPage,
@@ -99,12 +100,20 @@ const filtersExpanded = ref(false)
 const toggleFiltersLabel = 'Refine search'
 const submitFiltersLabel = 'Apply search filters'
 
+const baseEvent = () => ({
+  name: props.pageTitle,
+  index: searchState.value.current,
+  label: searchState.value.searchTerm,
+  value: searchState.value.totalResults,
+  options: urlManager.value?.stateToUrl(searchState.value)
+})
+
 const emitSearchEvent = (event) => {
   emitRplEvent(
     'submit',
     {
       ...event,
-      ...getEventDataFromState({ props, searchState, filterFormValues }),
+      ...baseEvent(),
       action: 'search'
     },
     { global: true }
@@ -134,7 +143,7 @@ const toggleFilters = () => {
   emitRplEvent(
     'toggleFilters',
     {
-      ...getEventDataFromState({ props, searchState, filterFormValues }),
+      ...baseEvent(),
       action: filtersExpanded.value ? 'open' : 'close',
       text: toggleFiltersLabel
     },
@@ -161,7 +170,7 @@ const handlePagination = (event) => {
     'paginate',
     {
       ...event,
-      ...getEventDataFromState({ props, searchState, filterFormValues })
+      ...baseEvent()
     },
     { global: true }
   )
@@ -174,7 +183,7 @@ watch(
       emitRplEvent(
         'results',
         {
-          ...getEventDataFromState({ props, searchState, filterFormValues }),
+          ...baseEvent(),
           action: 'view'
         },
         { global: true }

@@ -41,26 +41,3 @@ export const truncateText = (text, stop = 150, clamp) => {
   }
   return ''
 }
-
-/**
- * @description Helper to get relevant event data from state, specifically to send off to the analytics package
- */
-export const getEventDataFromState = ({
-  props,
-  searchState,
-  filterFormValues
-}): rplEventPayload => {
-  const filters = filterFormValues.value
-    ? Object.entries(filterFormValues.value).filter((o) =>
-        Array.isArray(o[1]) ? o[1].length : o[1]
-      )
-    : {}
-
-  return {
-    name: props.pageTitle,
-    index: searchState.value.current,
-    label: searchState.value.searchTerm,
-    value: searchState.value.totalResults,
-    options: new URLSearchParams(filters).toString()
-  }
-}

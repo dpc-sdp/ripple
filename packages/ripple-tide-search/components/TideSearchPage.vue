@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue'
-import { useRuntimeConfig, useTideSite } from '#imports'
+import { getActiveFilterURL, useRuntimeConfig, useTideSite } from '#imports'
 import useSearchUI from './../composables/useSearchUI'
 import {
   AppSearchFilterConfigItem,
@@ -12,6 +12,7 @@ import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
 import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
 
 interface Props {
+  id: string
   pageTitle: string
   filtersConfig: AppSearchFilterConfigItem[]
   searchDriverOptions: Omit<SearchDriverOptions, 'apiConnector'>
@@ -19,6 +20,7 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
+  id: 'tide-search-page',
   pageTitle: 'Search',
   filtersConfig: () => [],
   searchDriverOptions: () => ({
@@ -80,7 +82,6 @@ const apiConnectorOptions = {
 }
 
 const {
-  urlManager,
   updateSearchTerm,
   doSearch,
   goToPage,
@@ -101,11 +102,12 @@ const toggleFiltersLabel = 'Refine search'
 const submitFiltersLabel = 'Apply search filters'
 
 const baseEvent = () => ({
+  contextId: props.id,
   name: props.pageTitle,
   index: searchState.value.current,
   label: searchState.value.searchTerm,
   value: searchState.value.totalResults,
-  options: urlManager.value?.stateToUrl(searchState.value)
+  options: getActiveFilterURL(filterFormValues.value)
 })
 
 const emitSearchEvent = (event) => {
@@ -164,7 +166,7 @@ const getFilterOptions = (field) => {
 }
 
 const handlePagination = (event) => {
-  goToPage(event)
+  goToPage(event.value)
 
   emitRplEvent(
     'paginate',
@@ -194,7 +196,7 @@ watch(
 </script>
 
 <template>
-  <TideBaseLayout>
+  <TideBaseLayout :id="id">
     <template #aboveBody>
       <RplHeroHeader
         :title="pageTitle"

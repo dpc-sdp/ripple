@@ -1,5 +1,3 @@
-import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
-
 /**
  * @description Helper to get value from elastic search response
  * @param result Elasticsearch result
@@ -40,4 +38,17 @@ export const truncateText = (text, stop = 150, clamp) => {
     return text
   }
   return ''
+}
+
+/**
+ * @description Helper to get active filter data as URL params
+ */
+export const getActiveFilterURL = (filters) => {
+  const activeFilters = filters
+    ? Object.entries(filters).filter((o) =>
+        Array.isArray(o[1]) ? o[1].length : o[1]
+      )
+    : {}
+
+  return new URLSearchParams(activeFilters).toString()
 }

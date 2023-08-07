@@ -714,6 +714,7 @@ export default {
         filters: payload?.options,
         label: payload?.label,
         name: payload?.name,
+        form_id: payload?.contextId,
         component: 'tide-search',
         platform_event: 'search'
       })
@@ -726,6 +727,7 @@ export default {
         element_id: payload?.id,
         label: payload?.label,
         name: payload?.name,
+        form_id: payload?.contextId,
         index: payload?.index,
         filters: payload?.options,
         count: payload?.value,
@@ -742,6 +744,7 @@ export default {
         element_text: payload?.text,
         label: payload?.label,
         name: payload?.name,
+        form_id: payload?.contextId,
         index: payload?.index,
         count: payload?.value,
         filters: payload?.options,
@@ -758,6 +761,7 @@ export default {
         element_text: payload?.text,
         label: payload?.label,
         name: payload?.name,
+        form_id: payload?.contextId,
         filters: payload?.options,
         component: 'tide-search',
         platform_event: 'toggleFilters'

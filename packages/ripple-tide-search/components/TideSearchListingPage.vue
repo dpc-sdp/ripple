@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useRoute, ref, toRaw, computed } from '#imports'
+import { getActiveFilterURL, useRoute, ref, toRaw, computed } from '#imports'
 import { submitForm } from '@formkit/vue'
 import useTideSearch from './../composables/useTideSearch'
 import type { TidePageBase, TideSiteData } from '@dpc-sdp/ripple-tide-api/types'
@@ -8,12 +8,16 @@ import type {
   MappedSearchResult,
   TideSearchListingResultLayout
 } from './../types'
+import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
+import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
+import { watch } from 'vue'
 
 interface TideContentPage extends TidePageBase {
   afterResults: string
 }
 
 interface Props {
+  id: string
   title: string
   introText?: string
   searchListingConfig?: TideSearchListingPage['searchListingConfig']
@@ -29,6 +33,7 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
+  id: 'tide-search-listing',
   title: 'Search',
   introText: '',
   autocompleteQuery: true,
@@ -68,6 +73,21 @@ const props = withDefaults(defineProps<Props>(), {
   }
 })
 
+const emit = defineEmits<{
+  (e: 'submit', payload: rplEventPayload & { action: 'search' }): void
+  (e: 'results', payload: rplEventPayload & { action: 'view' }): void
+  (
+    e: 'paginate',
+    payload: rplEventPayload & { action: 'prev' | 'next' | 'page' }
+  ): void
+  (
+    e: 'toggleFilters',
+    payload: rplEventPayload & { action: 'open' | 'close' }
+  ): void
+}>()
+
+const { emitRplEvent } = useRippleEvent('tide-search', emit)
+
 const route = useRoute()
 const filtersExpanded = ref(false)
 
@@ -98,6 +118,16 @@ const {
 )
 
 const uiFilters = ref(props.userFilters)
+const cachedSubmitEvent = ref({})
+
+const baseEvent = () => ({
+  contextId: props.id,
+  name: props.title,
+  index: page.value,
+  label: searchTerm.value,
+  value: totalResults.value,
+  options: getActiveFilterURL(filterForm.value)
+})
 
 // Updates filter options with aggregation value
 onAggregationUpdateHook.value = (aggs) => {
@@ -136,8 +166,21 @@ onAggregationUpdateHook.value = (aggs) => {
   })
 }
 
-const handleSearchSubmit = () => {
+const emitSearchEvent = (event) => {
+  emitRplEvent(
+    'submit',
+    {
+      ...event,
+      ...baseEvent(),
+      action: 'search'
+    },
+    { global: true }
+  )
+}
+
+const handleSearchSubmit = (event) => {
   if (props.userFilters && props.userFilters.length) {
+    cachedSubmitEvent.value = event
     // Submitting the search term should also 'apply' the filters, but the filters live in a seperate form.
     // To solve this, when the search term form is submitted, we trigger a submission of the filters form,
     // it is there where the actual search request will be triggered.
@@ -146,12 +189,17 @@ const handleSearchSubmit = () => {
   } else {
     // If there's no filters in the form, we need to just do the search without submitting the filter form
     submitSearch()
+    emitSearchEvent({ ...event, ...baseEvent() })
   }
 }
 
-const handleFilterSubmit = (form) => {
-  filterForm.value = form
+const handleFilterSubmit = ({ value, text }) => {
+  filterForm.value = value
   submitSearch()
+
+  emitSearchEvent({ text, ...cachedSubmitEvent.value, ...baseEvent() })
+
+  cachedSubmitEvent.value = {}
 }
 
 const handleFilterReset = () => {
@@ -177,7 +225,7 @@ function scrollToElementTopWithOffset(element, offset) {
   })
 }
 
-const handlePageChange = ({ value }) => {
+const handlePageChange = (event) => {
   const navHeight = 92
   const layoutBody = document.querySelector('.rpl-layout__body-wrap')
 
@@ -185,11 +233,30 @@ const handlePageChange = ({ value }) => {
     scrollToElementTopWithOffset(layoutBody, navHeight)
   }
 
-  goToPage(value)
+  goToPage(event.value)
+
+  emitRplEvent(
+    'paginate',
+    {
+      ...event,
+      ...baseEvent()
+    },
+    { global: true }
+  )
 }
 
 const handleToggleFilters = () => {
   filtersExpanded.value = !filtersExpanded.value
+
+  emitRplEvent(
+    'toggleFilters',
+    {
+      ...baseEvent(),
+      action: filtersExpanded.value ? 'open' : 'close',
+      text: toggleFiltersLabel.value
+    },
+    { global: true }
+  )
 }
 
 const numAppliedFilters = computed(() => {
@@ -205,10 +272,35 @@ const numAppliedFilters = computed(() => {
     return true
   }).length
 })
+
+const toggleFiltersLabel = computed(() => {
+  let label = 'Refine search'
+
+  return numAppliedFilters.value
+    ? `${label} (${numAppliedFilters.value})`
+    : label
+})
+
+watch(
+  () => isBusy.value,
+  (loading, prevLoading) => {
+    if (!loading && prevLoading) {
+      emitRplEvent(
+        'results',
+        {
+          ...baseEvent(),
+          action: 'view'
+        },
+        { global: true }
+      )
+    }
+  }
+)
 </script>
 
 <template>
   <TideBaseLayout
+    :id="id"
     :site="site"
     :page="contentPage"
     :siteSection="contentPage.siteSection"
@@ -239,7 +331,8 @@ const numAppliedFilters = computed(() => {
             :inputValue="searchTerm"
             :placeholder="searchListingConfig.labels?.placeholder"
             :suggestions="suggestions"
-            @on-submit="handleSearchSubmit"
+            :global-events="false"
+            @search="handleSearchSubmit"
             @update:input-value="handleUpdateSearchTerm"
           />
           <RplSearchBarRefine
@@ -247,9 +340,7 @@ const numAppliedFilters = computed(() => {
             class="tide-search-refine-btn"
             :expanded="filtersExpanded"
             @click="handleToggleFilters"
-            >Refine search{{
-              numAppliedFilters ? ` (${numAppliedFilters})` : ''
-            }}</RplSearchBarRefine
+            >{{ toggleFiltersLabel }}</RplSearchBarRefine
           >
           <RplExpandable
             v-if="userFilters && userFilters.length > 0"
@@ -257,6 +348,7 @@ const numAppliedFilters = computed(() => {
             class="rpl-u-margin-t-4"
           >
             <TideSearchFilters
+              :title="title"
               :filter-form-values="filterForm"
               :filterInputs="userFilters"
               @reset="handleFilterReset"

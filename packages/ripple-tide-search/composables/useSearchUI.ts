@@ -103,8 +103,8 @@ export default async (
     searchDriver.getActions().setSearchTerm(value, searchTermOptions)
   }
 
-  const goToPage = ({ value }) => {
-    searchDriver.getActions().setCurrent(value)
+  const goToPage = (newPage: number) => {
+    searchDriver.getActions().setCurrent(newPage)
     window.scrollTo(0, 0)
   }
 

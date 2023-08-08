@@ -1,6 +1,17 @@
 # Changelog
 
 
+## v2.0.1
+
+
+### 🤖 CI
+
+  - Changelog permissions ([139d3d0](https://github.com/dpc-sdp/ripple-framework/commit/139d3d0))
+
+### ❤️  Contributors
+
+- Dylan Kelly <dylan.kelly@dpc.vic.gov.au>
+
 ## v2.0.0
 
 [compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.0.0-rc.1...v2.0.0)

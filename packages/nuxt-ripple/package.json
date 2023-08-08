@@ -5,6 +5,7 @@
   "version": "2.0.0",
   "license": "Apache-2.0",
   "main": "./nuxt.config.ts",
+  "repository": "https://github.com/dpc-sdp/ripple-framework",
   "exports": {
     ".": "./nuxt.config.ts",
     "./mapping": "./mapping/index.ts",

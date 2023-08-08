@@ -6,6 +6,7 @@
   "license": "Apache-2.0",
   "type": "module",
   "main": "./dist/config/index.js",
+  "repository": "https://github.com/dpc-sdp/ripple-framework",
   "exports": {
     ".": "./dist/config/index.js",
     "./step_definitions": "./step_definitions/index.ts"

@@ -33,7 +33,10 @@ jobs:
       - name: Create changelog and GitHub release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: pnpm run release:changelog
+        run: |
+          git config --global user.email "sdp.devs@dpc.vic.gov.au"
+          git config --global user.name "SDP Deploy"
+          pnpm run release:changelog
       - name: Publish semantic release
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

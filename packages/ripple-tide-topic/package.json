@@ -3,6 +3,7 @@
   "name": "@dpc-sdp/ripple-tide-topic",
   "description": "Ripple mappings and components for Tide topics and tags",
   "main": "./nuxt.config.ts",
+  "repository": "https://github.com/dpc-sdp/ripple-framework",
   "exports": {
     ".": "./nuxt.config.ts",
     "./mapping": "./mapping/index.ts",

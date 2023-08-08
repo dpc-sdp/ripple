@@ -32,12 +32,13 @@ jobs:
       - name: Install Node
         uses: actions/setup-node@v3
         with:
-          registry-url: 'https://npm.pkg.github.com'
+          registry-url: 'https://npm.pkg.github.com/'
           node-version: 18
           cache: 'pnpm'
           scope: '@dpc-sdp'
       - name: Install Dependencies
         env:
+          CYPRESS_INSTALL_BINARY: 0
           PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
         run: pnpm install --frozen-lockfile
       - name: Create changelog and GitHub release

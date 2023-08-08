@@ -26,9 +26,9 @@ export const SingleTemplate = (args) => ({
       return mockSuggestions.filter((val) => val.startsWith(this.inputValue))
     }
   },
-  template: `<RplSearchBar v-bind="args" @onSubmit="submitAction" @update:input-value="onUpdate" :input-value="inputValue" :suggestions="suggestions" />`,
+  template: `<RplSearchBar v-bind="args" @submit="submitAction" @update:input-value="onUpdate" :input-value="inputValue" :suggestions="suggestions" />`,
   methods: {
-    submitAction: action('onSubmit'),
+    submitAction: action('submit'),
     onUpdate: function(val) {
       this.inputValue = val
       action('onUpdate')(val)

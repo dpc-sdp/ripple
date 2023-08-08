@@ -38,9 +38,8 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 const emit = defineEmits<{
-  (e: 'onSubmit', value: string): void
   (e: 'update:inputValue', value: string): void
-  (e: 'search', payload: rplEventPayload & { action: 'submit' }): void
+  (e: 'submit', payload: rplEventPayload & { action: 'search' }): void
 }>()
 
 const { emitRplEvent } = useRippleEvent('rpl-search-bar', emit)
@@ -72,12 +71,10 @@ onClickOutside(containerRef, () => {
 })
 
 const handleSubmit = () => {
-  emit('onSubmit', internalValue.value)
-
   emitRplEvent(
-    'search',
+    'submit',
     {
-      action: 'submit',
+      action: 'search',
       id: props.id,
       text: props.inputLabel,
       value: internalValue.value
@@ -99,8 +96,18 @@ const handleSelectOption = (optionValue, focusBackOnInput) => {
 
   internalValue.value = optionValue
   emit('update:inputValue', optionValue)
-  emit('onSubmit', optionValue)
   isOpen.value = false
+
+  emitRplEvent(
+    'submit',
+    {
+      action: 'search',
+      id: props.id,
+      text: optionValue,
+      value: optionValue
+    },
+    { global: props.globalEvents }
+  )
 }
 
 const getDefaultActiveId = (): string => {

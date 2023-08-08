@@ -136,7 +136,9 @@ export default (
          */
         if (itm.filter.type === 'raw') {
           const re = new RegExp('{{value}}', 'g')
-          const result = itm.filter.value.replace(re, JSON.stringify(filterVal))
+          // ES expects a single value
+          const flattened = Array.isArray(filterVal) ? filterVal[0] : filterVal
+          const result = itm.filter.value.replace(re, JSON.stringify(flattened))
           return JSON.parse(result)
         }
 

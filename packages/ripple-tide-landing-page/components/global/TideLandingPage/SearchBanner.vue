@@ -12,9 +12,12 @@ const props = defineProps<{
   openInNewWindow: boolean
 }>()
 
-const handleSubmit = (value) => {
+const handleSubmit = (event) => {
   const searchPath = encodeURI(
-    props.searchUrl.replace('[SEARCH-KEYWORDS]', encodeURIComponent(value))
+    props.searchUrl.replace(
+      '[SEARCH-KEYWORDS]',
+      encodeURIComponent(event.value)
+    )
   )
 
   const isInternalUrl = !isExternalUrl(searchPath, $app_hostname)
@@ -33,9 +36,10 @@ const handleSubmit = (value) => {
   <div class="tide-search-banner rpl-u-screen-only">
     <div class="rpl-container">
       <RplSearchBar
+        id="search-banner"
         variant="reverse"
         :placeholder="placeholder"
-        @on-submit="handleSubmit"
+        @submit="handleSubmit"
       />
     </div>
   </div>

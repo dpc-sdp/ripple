@@ -214,7 +214,7 @@ watch(
             :inputValue="searchState.searchTerm"
             :suggestions="searchTermSuggestions"
             :global-events="false"
-            @search="handleSubmit"
+            @submit="handleSubmit"
             @update:input-value="updateSearchTerm"
           />
           <RplSearchBarRefine
@@ -227,8 +227,8 @@ watch(
             <RplForm
               v-if="staticFacetOptions !== null"
               id="tide-search-filter-form"
-              :title="pageTitle"
               v-model:model-value="filterFormValues"
+              :title="pageTitle"
               @submit="handleFilterSubmit"
             >
               <div class="rpl-grid rpl-grid--no-row-gap tide-search-filters">

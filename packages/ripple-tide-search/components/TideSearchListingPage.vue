@@ -238,7 +238,8 @@ const handlePageChange = (event) => {
     'paginate',
     {
       ...event,
-      ...baseEvent()
+      ...baseEvent(),
+      index: event.value
     },
     { global: true }
   )
@@ -331,7 +332,7 @@ watch(
             :placeholder="searchListingConfig.labels?.placeholder"
             :suggestions="suggestions"
             :global-events="false"
-            @search="handleSearchSubmit"
+            @submit="handleSearchSubmit"
             @update:input-value="handleUpdateSearchTerm"
           />
           <RplSearchBarRefine

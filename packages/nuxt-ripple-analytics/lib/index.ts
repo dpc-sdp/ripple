@@ -468,10 +468,10 @@ export default {
       })
     }
   },
-  'rpl-search-bar/search': () => {
+  'rpl-search-bar/submit': () => {
     return (payload: any) => {
       trackEvent({
-        event: `${payload.action}_search`,
+        event: `${payload.action}`,
         element_id: payload?.id,
         element_text: payload?.text,
         value: payload?.value,

@@ -20,7 +20,7 @@ jobs:
       - name: Install Node
         uses: actions/setup-node@v3
         with:
-          registry-url: 'https://npm.pkg.github.com'
+          registry-url: 'https://npm.pkg.github.com/'
           node-version: 18
           cache: 'pnpm'
           scope: '@dpc-sdp'

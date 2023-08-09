@@ -3,18 +3,13 @@ export default { inheritAttrs: false }
 </script>
 
 <script setup lang="ts">
-import { rplEventBus } from '../../index'
 import { ref, watch, nextTick, computed, onMounted, onUnmounted } from 'vue'
 import { onClickOutside } from '@vueuse/core'
 import RplIcon from '../icon/RplIcon.vue'
-
-const RPL_SUBMIT_EVENT = 'rpl-search-bar/onSubmit'
-rplEventBus.register(RPL_SUBMIT_EVENT)
-
-const emit = defineEmits<{
-  (e: 'onSubmit', value: string): void
-  (e: 'update:inputValue', value: string): void
-}>()
+import {
+  useRippleEvent,
+  rplEventPayload
+} from '../../composables/useRippleEvent'
 
 const RplSearchBarVariants = ['default', 'reverse', 'menu']
 
@@ -26,6 +21,7 @@ interface Props {
   inputValue?: string
   suggestions?: string[]
   maxSuggestionsDisplayed?: number
+  placeholder?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -35,8 +31,17 @@ const props = withDefaults(defineProps<Props>(), {
   submitLabel: 'Search',
   inputValue: '',
   suggestions: () => [],
-  maxSuggestionsDisplayed: 10
+  maxSuggestionsDisplayed: 10,
+  placeholder: undefined
 })
+
+const emit = defineEmits<{
+  (e: 'onSubmit', value: string): void
+  (e: 'update:inputValue', value: string): void
+  (e: 'search', payload: rplEventPayload & { action: 'submit' }): void
+}>()
+
+const { emitRplEvent } = useRippleEvent('rpl-search-bar', emit)
 
 const internalValue = ref('')
 const containerRef = ref(null)
@@ -65,14 +70,23 @@ onClickOutside(containerRef, () => {
 })
 
 const handleSubmit = () => {
-  rplEventBus.emit(RPL_SUBMIT_EVENT, internalValue.value)
   emit('onSubmit', internalValue.value)
+
+  emitRplEvent(
+    'search',
+    {
+      action: 'submit',
+      id: props.id,
+      text: props.inputLabel,
+      value: internalValue.value
+    },
+    { global: true }
+  )
 }
 
 const handleInputChange = (e) => {
   internalValue.value = e.target.value
   emit('update:inputValue', e.target.value)
-
   isOpen.value = true
 }
 
@@ -220,6 +234,7 @@ watch(activeOptionId, async (newId) => {
         autocomplete="off"
         aria-autocomplete="list"
         :aria-expanded="isOpen"
+        :placeholder="placeholder"
         role="combobox"
         :class="{
           'rpl-search-bar__input': true,
@@ -258,7 +273,9 @@ watch(activeOptionId, async (newId) => {
           @click="handleSelectOption(option, false)"
           @keydown="handleKeydown"
         >
-          {{ option }}
+          <slot name="suggestion" :option="{ option }">
+            {{ option }}
+          </slot>
         </div>
       </div>
     </div>

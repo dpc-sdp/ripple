@@ -100,9 +100,9 @@
   "showTopicTags": true,
   "inPageNavHeadingLevel": "h2",
   "background": "default",
-  "heroHeader": {
+  "header": {
     "title": "Demo Landing Page",
-    "introText": "Nulla ultricies dignissim leo, posuere vestibulum erat cursus vitae",
+    "summary": "Nulla ultricies dignissim leo, posuere vestibulum erat cursus vitae",
     "links": {
       "title": "Want to know more about...",
       "items": [
@@ -122,7 +122,7 @@
       "height": 650,
       "drupal_internal__target_id": 44
     },
-    "cornerTopImage": {
+    "cornerTop": {
       "src": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Parliament-of-Victoria.jpg",
       "alt": "Demo: Parliament of Victoria",
       "title": "Demo: Parliament of Victoria",
@@ -130,7 +130,7 @@
       "height": 915,
       "drupal_internal__target_id": 46
     },
-    "cornerBottomImage": null,
+    "cornerBottom": null,
     "primaryAction": {
       "text": "Phasellus congue",
       "url": "https://www.vic.gov.au"

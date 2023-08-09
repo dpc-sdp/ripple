@@ -2,13 +2,13 @@ import {
   getAddress,
   getField,
   getBodyFromField,
-  getLinkFromField,
-  formatPriceRange
+  getLinkFromField
 } from '@dpc-sdp/ripple-tide-api'
 import {
   tidePageBaseMapping,
   tidePageBaseIncludes
 } from '@dpc-sdp/nuxt-ripple/mapping'
+import { formatPriceRange } from '@dpc-sdp/nuxt-ripple/mapping/utils'
 import type { IRplTideModuleMapping } from '@dpc-sdp/ripple-tide-api/types'
 
 const tideEventModule: IRplTideModuleMapping = {
@@ -31,18 +31,6 @@ const tideEventModule: IRplTideModuleMapping = {
       title: 'title',
       summary: 'field_news_intro_text'
     },
-    breadcrumbs: (src: string) => {
-      return {
-        items: [
-          { label: 'Home', url: '/' },
-          {
-            label: getField(src, 'publication_navigation_root.meta.title'),
-            url: getField(src, 'publication_navigation_root.meta.url')
-          },
-          { label: getField(src, 'title') }
-        ]
-      }
-    },
     date: {
       from: 'field_event_details[0].field_paragraph_date_range.value',
       to: 'field_event_details[0].field_paragraph_date_range.end_value'
@@ -52,10 +40,10 @@ const tideEventModule: IRplTideModuleMapping = {
       getField(src, 'field_event_details').map((node: any) => [
         {
           term: 'Price:',
-          description: formatPriceRange({
-            from: node.field_paragraph_event_price_from,
-            to: node.field_paragraph_event_price_to
-          })
+          description: formatPriceRange(
+            node.field_paragraph_event_price_from,
+            node.field_paragraph_event_price_to
+          )
         },
         {
           term: 'Location:',

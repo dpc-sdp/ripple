@@ -5,7 +5,7 @@
   "version": "2.1.0-alpha.76",
   "scripts": {
     "build": "nuxt build",
-    "build:docs-storybook": "STATIC_BASE_PATH=\"/storybook/\" pnpm -F ripple-storybook build --output-dir ../../docs/public/storybook",
+    "build:docs-storybook": "STATIC_BASE_PATH=\"/storybook/\" pnpm -F ripple-storybook static:build --output-dir ../../docs/public/storybook",
     "dev": "nuxt dev",
     "generate": "pnpm build:docs-storybook && nuxt generate",
     "preview": "nuxt preview"
@@ -24,6 +24,7 @@
   "dependencies": {
     "@dpc-sdp/ripple-ui-core": "workspace:*",
     "@dpc-sdp/ripple-ui-forms": "workspace:*",
+    "@dpc-sdp/stylelint-config-ripple": "workspace:*",
     "@modyfi/vite-plugin-yaml": "^1.0.4",
     "highlight.js": "^11.7.0",
     "iframe-resizer": "^4.3.6"

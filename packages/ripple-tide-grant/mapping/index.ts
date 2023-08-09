@@ -1,6 +1,5 @@
 import mime from 'mime-types'
 import {
-  formatPriceRange,
   getBodyFromField,
   getField,
   getImageFromField,
@@ -10,28 +9,9 @@ import {
   tidePageBaseMapping,
   tidePageBaseIncludes
 } from '@dpc-sdp/nuxt-ripple/mapping'
+import { formatPriceRange } from '@dpc-sdp/nuxt-ripple/mapping/utils'
+import formatGrantAudiences from './utils/formatGrantAudiences'
 import type { IRplTideModuleMapping } from '@dpc-sdp/ripple-tide-api/types'
-
-const extractAudiences = (audiences = []) => {
-  if (audiences.length === 0) return ''
-
-  const audienceStr = [...new Set(audiences)]
-    .map((input: any) => {
-      const term = input.name ? input.name : input
-      if (term) {
-        switch (term) {
-          case 'Individual':
-            return 'individuals'
-          case 'Business':
-            return 'businesses'
-          default:
-            return term.toLowerCase()
-        }
-      }
-    })
-    .join(', ')
-  return `${audienceStr.charAt(0).toUpperCase() + audienceStr.slice(1)}`
-}
 
 const tideGrantModule: IRplTideModuleMapping = {
   mapping: {
@@ -49,12 +29,12 @@ const tideGrantModule: IRplTideModuleMapping = {
     overview: {
       title: 'field_overview_title',
       funding: (src: string) =>
-        formatPriceRange({
-          from: getField(src, 'field_node_funding_level.from'),
-          to: getField(src, 'field_node_funding_level.to')
-        }),
+        formatPriceRange(
+          getField(src, 'field_node_funding_level.from'),
+          getField(src, 'field_node_funding_level.to')
+        ),
       audience: (src: string) =>
-        extractAudiences(getField(src, 'field_audience')),
+        formatGrantAudiences(getField(src, 'field_audience')),
       date: {
         from: 'field_node_dates.value',
         to: 'field_node_dates.end_value'
@@ -65,36 +45,38 @@ const tideGrantModule: IRplTideModuleMapping = {
     },
     timeline: {
       title: 'field_node_timeline.field_paragraph_title',
-      list: (src: string) =>
-        getField(src, 'field_node_timeline.field_timeline').map(
-          (timeline: any) => ({
-            title: getField(timeline, 'field_paragraph_title'),
-            subtitle: getField(timeline, 'field_paragraph_cta_text'),
-            url:
-              timeline.field_paragraph_link?.origin_url ||
-              timeline.field_paragraph_link?.uri,
-            image: getImageFromField(
-              timeline,
-              'field_paragraph_media.field_media_image'
-            ),
-            dateStart: getField(
-              timeline,
-              'field_paragraph_date_range.value',
-              null
-            ),
-            dateEnd: getField(
-              timeline,
-              'field_paragraph_date_range.end_value',
-              null
-            ),
-            description: getField(timeline, 'field_paragraph_summary')
-          })
-        )
+      list: (src: any) =>
+        src.field_node_timeline?.field_timeline
+          ? getField(src, 'field_node_timeline.field_timeline').map(
+              (timeline: any) => ({
+                title: getField(timeline, 'field_paragraph_title'),
+                subtitle: getField(timeline, 'field_paragraph_cta_text'),
+                url:
+                  timeline.field_paragraph_link?.origin_url ||
+                  timeline.field_paragraph_link?.uri,
+                image: getImageFromField(
+                  timeline,
+                  'field_paragraph_media.field_media_image'
+                ),
+                dateStart: getField(
+                  timeline,
+                  'field_paragraph_date_range.value',
+                  null
+                ),
+                dateEnd: getField(
+                  timeline,
+                  'field_paragraph_date_range.end_value',
+                  null
+                ),
+                description: getField(timeline, 'field_paragraph_summary')
+              })
+            )
+          : []
     },
     guidelines: {
       title: 'field_node_guidelines.field_paragraph_title',
       id: 'field_node_guidelines.id',
-      accordions: (src: string) =>
+      accordions: (src: any) =>
         getField(
           src,
           'field_node_guidelines.field_paragraph_accordion',

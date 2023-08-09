@@ -6,6 +6,8 @@ import {
 } from '@storybook/addon-docs'
 import RplFormCheckboxGroup from './RplFormCheckboxGroup.vue'
 import StorybookInputFixture from './../StorybookInputFixture/StorybookInputFixture.vue'
+import '@dpc-sdp/ripple-ui-core/style/components'
+import '../RplForm/RplForm.css'
 
 export const SingleTemplate = (args) => ({
   components: { RplFormCheckboxGroup, StorybookInputFixture },
@@ -41,7 +43,7 @@ export const SingleTemplate = (args) => ({
 
 # Forms
 
-<ArgsTable of={RplFormCheckbox} />
+<ArgsTable of={RplFormCheckboxGroup} />
 
 <Canvas>
   <Story

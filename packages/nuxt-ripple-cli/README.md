@@ -58,12 +58,14 @@ nuxt-ripple add component [DIRECTORY] --name {NAME} --prefix {PREFIX}
 #### Add Content Type
 
 ```bash
-nuxt-ripple add content-type [DIRECTORY] --name {NAME} --createTests --cypressPath {CYPRESSPATH}
+nuxt-ripple add content-type [DIRECTORY] --name {NAME} --rplVersion {RPL_VERSION} --createTests --cypressPath {CYPRESSPATH}
 ```
 
 `[DIRECTORY]`: The directory to output the content type scaffolding.
 
 `--name {NAME}`: The name of the project or layer.
+
+`--rplVersion {RPL_VERSION}`: The version of the ripple core dependencies to use.
 
 `--createTests` or `-T`: A flag to opt into example tests.
 

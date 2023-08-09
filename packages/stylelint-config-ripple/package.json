@@ -1,0 +1,24 @@
+{
+  "packageManager": "pnpm@8.6.2",
+  "name": "@dpc-sdp/stylelint-config-ripple",
+  "description": "ESLint config for Ripple projects",
+  "version": "2.1.0",
+  "license": "Apache-2.0",
+  "repository": "https://github.com/dpc-sdp/ripple-framework",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js"
+  },
+  "files": [
+    "index.js"
+  ],
+  "devDependencies": {
+    "stylelint": "^15.10.2",
+    "stylelint-config-html": "^1.1.0",
+    "stylelint-config-prettier": "^9.0.5",
+    "stylelint-config-standard": "^34.0.0"
+  },
+  "peerDependencies": {
+    "stylelint": "^15.10.2"
+  }
+}

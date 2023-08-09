@@ -1,45 +1,53 @@
 <template>
   <div>
     <RplContent class="rpl-type-p rpl-u-margin-b-4" :html="description" />
-    <template v-if="display.type === 'list'">
-      <div class="rpl-grid">
-        <div class="rpl-col-12 rpl-col-8-m">
-          <RplResultListing>
-            <template v-for="item in results" :key="item.id">
-              <RplResultListingItem>
-                <RplSearchResult
-                  v-bind="item.props"
-                  :content="item.slots.default"
-                />
-              </RplResultListingItem>
-            </template>
-          </RplResultListing>
+    <RplContent v-if="searchState.error">
+      <p>Sorry! Something went wrong. Please try again later.</p>
+    </RplContent>
+    <RplContent v-else-if="!searchState.isLoading && !searchState.totalResults">
+      <p>Sorry! We couldn't find any matches.</p>
+    </RplContent>
+    <div v-else>
+      <template v-if="display.type === 'list'">
+        <div class="rpl-grid">
+          <div class="rpl-col-12 rpl-col-8-m">
+            <RplResultListing>
+              <template v-for="item in results" :key="item.id">
+                <RplResultListingItem>
+                  <RplSearchResult
+                    v-bind="item.props"
+                    :content="item.slots.default"
+                  />
+                </RplResultListingItem>
+              </template>
+            </RplResultListing>
+          </div>
         </div>
+      </template>
+      <template v-else>
+        <ul class="rpl-grid" style="--local-grid-cols: 12">
+          <RplPromoCard
+            v-for="item in results"
+            :key="item.id"
+            :class="cardClasses"
+            v-bind="item.props"
+          >
+            {{ item.slots.default }}
+          </RplPromoCard>
+        </ul>
+      </template>
+      <div
+        v-if="link.url"
+        class="rpl-type-label rpl-type-weight-bold rpl-u-margin-t-6"
+      >
+        <RplTextLink v-bind="link" />
       </div>
-    </template>
-    <template v-else>
-      <ul class="rpl-grid" style="--local-grid-cols: 12">
-        <RplPromoCard
-          v-for="item in results"
-          :key="item.id"
-          :class="cardClasses"
-          v-bind="item.props"
-        >
-          {{ item.slots.default }}
-        </RplPromoCard>
-      </ul>
-    </template>
-    <div
-      v-if="link.url"
-      class="rpl-type-label rpl-type-weight-bold rpl-u-margin-t-6"
-    >
-      <RplTextLink v-bind="link" />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { formatDate, useTideSearch, useRuntimeConfig } from '#imports'
+import { formatDate, useSearchUI, useRuntimeConfig } from '#imports'
 import { computed, inject } from 'vue'
 import {
   IContentCollectionDisplay,
@@ -69,7 +77,7 @@ const props = defineProps<{
   display: IContentCollectionDisplay
   perPage: number
   filters: IContentCollectionFilter[]
-  sortBy: IContentCollectionSort
+  sortBy: IContentCollectionSort[]
   hasSidebar: boolean
 }>()
 
@@ -109,12 +117,7 @@ const searchDriverOptions = {
   alwaysSearchOnInitialLoad: true,
   initialState: {
     resultsPerPage: props.perPage,
-    sortList: [
-      {
-        field: props.sortBy.field,
-        direction: props.sortBy.direction
-      }
-    ]
+    sortList: props.sortBy
   },
   searchQuery: {
     filters: props.filters,
@@ -146,7 +149,7 @@ const searchDriverOptions = {
   }
 }
 
-const { results } = await useTideSearch(
+const { results, searchState } = await useSearchUI(
   apiConnectorOptions,
   searchDriverOptions,
   [],

@@ -29,9 +29,12 @@ const getFormSchemaFromMapping = async (
 ): Promise<FormKitSchemaNode[]> => {
   const elements: ITideFormElement[] = webform?.elements || []
   const fields: any[] = []
+  const formId = webform?.drupal_internal__id
 
-  for (const [fieldKey, field] of Object.entries(elements)) {
+  for (const [fieldKey, fieldData] of Object.entries(elements)) {
     let mappedField
+    const field = { ...fieldData, formId }
+    const fieldID = `${formId}_${fieldKey}`
 
     switch (field['#type']) {
       case 'hidden':
@@ -39,7 +42,7 @@ const getFormSchemaFromMapping = async (
           $formkit: 'hidden',
           key: fieldKey,
           name: fieldKey,
-          id: fieldKey,
+          id: fieldID,
           value: field['#default_value']
         }
         break
@@ -51,7 +54,7 @@ const getFormSchemaFromMapping = async (
           label: field['#title'],
           disabled: field['#disabled'],
           placeholder: field['#placeholder'],
-          id: fieldKey,
+          id: fieldID,
           help: field['#description'] || field['#help_title'],
           value: field['#default_value'],
           ...getValidationAndConditionals(field),
@@ -67,7 +70,7 @@ const getFormSchemaFromMapping = async (
           label: field['#title'],
           disabled: field['#disabled'],
           placeholder: field['#placeholder'],
-          id: fieldKey,
+          id: fieldID,
           help: field['#description'] || field['#help_title'],
           value: field['#default_value'],
           ...getValidationAndConditionals(field),
@@ -82,7 +85,7 @@ const getFormSchemaFromMapping = async (
           label: field['#title'],
           disabled: field['#disabled'],
           placeholder: field['#placeholder'],
-          id: fieldKey,
+          id: fieldID,
           help: field['#description'] || field['#help_title'],
           value: field['#default_value'],
           min: field['#min'],
@@ -100,7 +103,7 @@ const getFormSchemaFromMapping = async (
           label: field['#title'],
           disabled: field['#disabled'],
           placeholder: field['#placeholder'],
-          id: fieldKey,
+          id: fieldID,
           help: field['#description'] || field['#help_title'],
           value: field['#default_value'],
           ...getValidationAndConditionals(field),
@@ -115,7 +118,7 @@ const getFormSchemaFromMapping = async (
           label: field['#title'],
           disabled: field['#disabled'],
           placeholder: field['#placeholder'],
-          id: fieldKey,
+          id: fieldID,
           help: field['#description'] || field['#help_title'],
           value: field['#default_value'],
           ...getValidationAndConditionals(field),
@@ -126,7 +129,7 @@ const getFormSchemaFromMapping = async (
         mappedField = {
           $formkit: 'RplFormTextarea',
           key: fieldKey,
-          id: fieldKey,
+          id: fieldID,
           name: fieldKey,
           label: field['#title'],
           disabled: field['#disabled'],
@@ -142,7 +145,7 @@ const getFormSchemaFromMapping = async (
         mappedField = {
           $formkit: 'RplFormDate',
           key: fieldKey,
-          id: fieldKey,
+          id: fieldID,
           name: fieldKey,
           label: field['#title'],
           disabled: field['#disabled'],
@@ -156,7 +159,7 @@ const getFormSchemaFromMapping = async (
         mappedField = {
           $formkit: 'RplFormCheckbox',
           key: fieldKey,
-          id: fieldKey,
+          id: fieldID,
           name: fieldKey,
           disabled: field['#disabled'],
           label: field['#help_title'],
@@ -170,7 +173,7 @@ const getFormSchemaFromMapping = async (
         mappedField = {
           $formkit: 'RplFormCheckbox',
           key: fieldKey,
-          id: fieldKey,
+          id: fieldID,
           name: fieldKey,
           disabled: field['#disabled'],
           // TODO: It's not clear what field we should be using for the 'label' here because it's a new requirement, setting as 'help title' for now
@@ -185,7 +188,7 @@ const getFormSchemaFromMapping = async (
         mappedField = {
           $formkit: 'RplFormDropdown',
           key: fieldKey,
-          id: fieldKey,
+          id: fieldID,
           name: fieldKey,
           disabled: field['#disabled'],
           placeholder: field['#empty_option'],
@@ -209,7 +212,7 @@ const getFormSchemaFromMapping = async (
         mappedField = {
           $formkit: 'RplFormRadioGroup',
           key: fieldKey,
-          id: fieldKey,
+          id: fieldID,
           name: fieldKey,
           disabled: field['#disabled'],
           label: field['#title'],
@@ -217,7 +220,7 @@ const getFormSchemaFromMapping = async (
           options: Object.entries(field['#options'] || {}).map(
             ([value, label]) => {
               return {
-                id: `${fieldKey}_${value}`,
+                id: value,
                 value,
                 label
               }
@@ -231,7 +234,7 @@ const getFormSchemaFromMapping = async (
         mappedField = {
           $formkit: 'RplFormCheckboxGroup',
           key: fieldKey,
-          id: fieldKey,
+          id: fieldID,
           name: fieldKey,
           disabled: field['#disabled'],
           label: field['#title'],
@@ -239,7 +242,7 @@ const getFormSchemaFromMapping = async (
           options: Object.entries(field['#options'] || {}).map(
             ([value, label]) => {
               return {
-                id: `${fieldKey}_${value}`,
+                id: value,
                 value,
                 label
               }
@@ -256,7 +259,7 @@ const getFormSchemaFromMapping = async (
         mappedField = {
           $formkit: 'RplFormDropdown',
           key: fieldKey,
-          id: fieldKey,
+          id: fieldID,
           name: fieldKey,
           disabled: field['#disabled'],
           placeholder: field['#placeholder'],
@@ -276,7 +279,7 @@ const getFormSchemaFromMapping = async (
         break
       }
       case 'address':
-        mappedField = getAdvancedAddressMapping(fieldKey, field)
+        mappedField = getAdvancedAddressMapping(fieldKey, field, formId)
         break
       case 'webform_markup':
         mappedField = {
@@ -317,7 +320,7 @@ const getFormSchemaFromMapping = async (
           name: 'submit',
           variant: 'filled',
           label: field['#submit__label'],
-          id: fieldKey,
+          id: fieldID,
           displayResetButton: !!webform?.settings?.form_reset,
           ...getValidationAndConditionals(field),
           ...getInputIcons(field)

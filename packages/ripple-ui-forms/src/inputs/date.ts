@@ -14,12 +14,14 @@ export const date: FormKitTypeDefinition = {
     props: {
       id: `$id`,
       name: '$node.name',
+      label: '$label',
       value: '$_value',
       onChange: '$node.input',
       dateFormat: '$node.props.dateFormat',
       disabled: '$node.context.disabled',
       invalid: '$fns.isFieldInvalid()',
-      required: '$fns.isFieldRequired()'
+      required: '$fns.isFieldRequired()',
+      'aria-describedby': '$fns.getAriaDescribedBy()'
     }
   }),
   library: inputLibrary,

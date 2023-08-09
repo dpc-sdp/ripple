@@ -391,4 +391,23 @@ describe('getConditionals', () => {
       expect(getConditionals(input)).toEqual(expected)
     })
   })
+
+  it('prefixes inputs', () => {
+    const input = {
+      formId: 'test_id',
+      '#states': {
+        required: {
+          ':input[name="input_a"]': {
+            checked: true
+          }
+        }
+      }
+    }
+
+    const expected = {
+      required: '$isChecked($get(test_id_input_a).value, "true")'
+    }
+
+    expect(getConditionals(input)).toEqual(expected)
+  })
 })

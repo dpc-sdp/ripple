@@ -19,6 +19,7 @@
 <script setup lang="ts">
 import { onMounted, reactive } from 'vue'
 import { indexNode, processMenu } from '../utils/processMenu.js'
+// @ts-ignore TS2307 nuxt auto import
 import { useTidePublicationMenu, useRoute } from '#imports'
 
 interface Props {
@@ -28,7 +29,7 @@ interface Props {
 const props = defineProps<Props>()
 
 const sidebar = reactive({
-  items: <indexNode[]>[]
+  items: new Array<indexNode>()
 })
 
 const menu = props.publication.id
@@ -36,11 +37,8 @@ const menu = props.publication.id
   : null
 
 onMounted(() => {
-  /* eslint-disable no-undef */
-  // @ts-ignore Nuxt auto import
   if (menu) {
     sidebar.items = processMenu(menu.publication, useRoute())
   }
-  /* eslint-enable no-undef */
 })
 </script>

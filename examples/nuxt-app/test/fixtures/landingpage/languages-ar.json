@@ -1,0 +1,57 @@
+{
+  "title": "Demo Landing Page",
+  "changed": "2022-11-02T12:47:29+11:00",
+  "created": "2022-11-02T12:47:29+11:00",
+  "type": "landing_page",
+  "department": "Department of Premier and Cabinet",
+  "nid": "91dede11-10c0-111e1-1100-000000000339",
+  "summary": "مزايا رياض الأطفال",
+  "background": "default",
+  "header": {
+    "title": "مزايا رياض الأطفال",
+    "summary": "كيف تساعد خدمة رياض الأطفال المجانية كل طفل في ولاية فيكتوريا على الحصول على أفضل بداية في الحياة"
+  },
+  "bodyComponents": [
+    {
+      "uuid": "a99aa287-7fac-430b-864e-3a1b044460b1",
+      "component": "TideLandingPageContent",
+      "id": "969",
+      "internalAnchors": [
+        {
+          "text": "مزايا رياض الأطفال",
+          "id": "content-anchor-1",
+          "type": "h2"
+        },
+        {
+          "text": "في الحياة",
+          "id": "content-anchor-2",
+          "type": "h3"
+        }
+      ],
+      "props": {
+        "html": "<p>المجانية كل طفل في ولاية فيكتوريا على الحصول على أفضل بداية في الحياة</p>"
+      }
+    }
+  ],
+  "meta": {
+    "url": "/department-landing-page",
+    "langcode": "ar",
+    "description": "مزايا رياض الأطفال",
+    "additional": [
+      {
+        "tag": "link",
+        "attributes": {
+          "rel": "canonical",
+          "href": "https://develop.content.vic.gov.au/department-landing-page"
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "title",
+          "content": "مزايا رياض الأطفال | Single Digital Presence Content Management System"
+        }
+      }
+    ]
+  }
+}

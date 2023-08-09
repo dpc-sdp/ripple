@@ -2,13 +2,15 @@
   "packageManager": "pnpm@8.6.2",
   "name": "@dpc-sdp/nuxt-ripple",
   "description": "Nuxt module for integrating Ripple and Tide",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "license": "Apache-2.0",
   "main": "./nuxt.config.ts",
+  "repository": "https://github.com/dpc-sdp/ripple-framework",
   "exports": {
     ".": "./nuxt.config.ts",
     "./mapping": "./mapping/index.ts",
-    "./robots": "./robots.config.ts"
+    "./robots": "./robots.config.ts",
+    "./mapping/utils": "./mapping/utils/index.ts"
   },
   "dependencies": {
     "@dpc-sdp/ripple-tide-api": "workspace:*",

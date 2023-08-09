@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import RplPaginationLink from './RplPaginationLink.vue'
-import { rplEventBus } from '../../index'
 import { useStepNavigation } from '../../composables/useStepNavigation'
 import { computed, watch } from 'vue'
-
-rplEventBus.register('rpl-pagination/click')
-const emit = defineEmits<{ (e: 'change', value: number): void }>()
+import {
+  useRippleEvent,
+  rplEventPayload
+} from '../../composables/useRippleEvent'
 
 const RplPaginationVariants = ['complex', 'simple'] as const
 
@@ -17,6 +17,8 @@ interface Props {
   contentType?: string
   showTally?: boolean
   variant?: (typeof RplPaginationVariants)[number]
+  prevLabel?: string
+  nextLabel?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -25,8 +27,19 @@ const props = withDefaults(defineProps<Props>(), {
   surroundingPages: 2,
   contentType: undefined,
   showTally: false,
-  variant: 'complex'
+  variant: 'complex',
+  prevLabel: 'Previous',
+  nextLabel: 'Next'
 })
+
+const emit = defineEmits<{
+  (
+    e: 'change',
+    payload: rplEventPayload & { action: 'prev' | 'next' | 'page' }
+  ): void
+}>()
+
+const { emitRplEvent } = useRippleEvent('rpl-pagination', emit)
 
 const totalSteps = computed(() => props.totalPages)
 
@@ -42,10 +55,14 @@ watch(
   (step) => updateStep(step)
 )
 
-const onClick = (payload: any, index: number) => {
-  updateStep(index)
-  emit('change', index)
-  rplEventBus.emit('rpl-pagination/click', payload)
+const onClick = (value: number, action: string, label: string) => {
+  updateStep(value)
+
+  emitRplEvent('change', {
+    text: label,
+    action,
+    value
+  })
 }
 
 const isComplex = computed(() => props.variant === 'complex')
@@ -57,10 +74,7 @@ const iconSize = computed(() => (isComplex.value ? 's' : 'xs'))
     :class="`rpl-pagination rpl-pagination--${variant}  rpl-u-screen-only`"
     :aria-label="label"
   >
-    <p
-      v-if="showTally && !isComplex"
-      class="rpl-pagination__tally rpl-type-p"
-    >
+    <p v-if="showTally && !isComplex" class="rpl-pagination__tally rpl-type-p">
       {{ activeStep }} of {{ totalPages }}
     </p>
     <RplPaginationLink
@@ -69,9 +83,9 @@ const iconSize = computed(() => (isComplex.value ? 's' : 'xs'))
       :icon-size="iconSize"
       :aria-label="`Go to previous ${contentType}`"
       :disabled="!isComplex && isFirstStep"
-      @click="(e) => onClick(e, activeStep - 1)"
+      @click="() => onClick(activeStep - 1, 'prev', prevLabel)"
     >
-      Previous
+      {{ prevLabel }}
     </RplPaginationLink>
     <ol v-if="isComplex" class="rpl-pagination__list">
       <li
@@ -84,7 +98,7 @@ const iconSize = computed(() => (isComplex.value ? 's' : 'xs'))
           class="rpl-pagination__page rpl-u-focusable-block"
           :aria-label="`Go to ${contentType} ${step}`"
           :aria-current="step === activeStep ? true : null"
-          @click="(e) => onClick(e, step)"
+          @click="() => onClick(step, 'page', step)"
         >
           <span>{{ step }}</span>
         </button>
@@ -100,9 +114,9 @@ const iconSize = computed(() => (isComplex.value ? 's' : 'xs'))
       :icon-size="iconSize"
       :aria-label="`Go to next ${contentType}`"
       :disabled="!isComplex && isLastStep"
-      @click="(e) => onClick(e, activeStep + 1)"
+      @click="() => onClick(activeStep + 1, 'next', nextLabel)"
     >
-      Next
+      {{ nextLabel }}
     </RplPaginationLink>
   </nav>
 </template>

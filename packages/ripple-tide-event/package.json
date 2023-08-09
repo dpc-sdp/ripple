@@ -2,9 +2,10 @@
   "packageManager": "pnpm@8.6.2",
   "name": "@dpc-sdp/ripple-tide-event",
   "description": "Ripple mappings and components for Tide Event Content type",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "license": "Apache-2.0",
   "main": "./nuxt.config.ts",
+  "repository": "https://github.com/dpc-sdp/ripple-framework",
   "exports": {
     ".": "./nuxt.config.ts",
     "./mapping": "./mapping/index.ts"

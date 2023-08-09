@@ -1,5 +1,5 @@
 ---
-to: components/Tide<%= h.changeCase.pascalCase(name) %>Header.vue
+to: components/Tide<%= h.pascalCaseMerge(name) %>Header.vue
 ---
 <template>
   <RplHeroHeader
@@ -12,10 +12,10 @@ to: components/Tide<%= h.changeCase.pascalCase(name) %>Header.vue
 </template>
 
 <script setup lang="ts">
-import type { Tide<%= h.changeCase.pascalCase(name) %>Header } from '../types'
+import type { Tide<%= h.pascalCaseMerge(name) %>Header } from '../types'
 
 interface Props {
-  header: Tide<%= h.changeCase.pascalCase(name) %>Header
+  header: Tide<%= h.pascalCaseMerge(name) %>Header
   hasBreadcrumbs: boolean
 }
 

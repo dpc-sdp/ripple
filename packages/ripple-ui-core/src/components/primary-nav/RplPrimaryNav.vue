@@ -22,6 +22,11 @@ import {
   IRplPrimaryNavFocusOptions
 } from './constants'
 import RplPrimaryNavQuickExit from './components/quick-exit/RplPrimaryNavQuickExit.vue'
+import {
+  useRippleEvent,
+  rplEventPayload
+} from '../../composables/useRippleEvent'
+import { useViewportHeight } from '../../composables/useViewportHeight'
 
 interface Props {
   primaryLogo: IRplPrimaryNavLogo
@@ -37,13 +42,20 @@ const props = withDefaults(defineProps<Props>(), {
   showQuickExit: true
 })
 
+const emit = defineEmits<{
+  (e: 'toggleMenu', payload: rplEventPayload & { action: 'open' | 'close' })
+  (e: 'toggleSearch', payload: rplEventPayload & { action: 'open' | 'close' })
+}>()
+
 const slots = useSlots()
+const { emitRplEvent } = useRippleEvent('rpl-primary-nav', emit)
 
 const navContainer = ref()
 const { activate: activateFocusTrap, deactivate: deactivateFocusTrap } =
   useFocusTrap(navContainer)
 const { top: navOffest } = useElementBounding(navContainer)
 const bp = useBreakpoints(bpMin)
+const height = useViewportHeight()
 
 const isLargeScreen = bp.greaterOrEqual('l')
 const isXLargeScreen = bp.greaterOrEqual('xl')
@@ -128,12 +140,21 @@ const toggleNavItem = (
   }
 }
 
-const toggleMobileMenu = () => {
+const toggleMobileMenu = (text) => {
   // Make search inactive
   isSearchActive.value = false
 
   // Toggle mega nav
   isMegaNavActive.value = !isMegaNavActive.value
+
+  emitRplEvent(
+    'toggleMenu',
+    {
+      text,
+      action: isMegaNavActive.value ? 'open' : 'close'
+    },
+    { global: true }
+  )
 }
 
 const toggleSearch = () => {
@@ -142,6 +163,14 @@ const toggleSearch = () => {
 
   // Toggle search
   isSearchActive.value = !isSearchActive.value
+
+  emitRplEvent(
+    'toggleSearch',
+    {
+      action: isSearchActive.value ? 'open' : 'close'
+    },
+    { global: true }
+  )
 }
 
 const isExpanded = computed(() => {
@@ -231,7 +260,10 @@ provide('navFocus', navFocus)
 
 <template>
   <nav ref="navContainer" :class="classList">
-    <div class="rpl-primary-nav__inner">
+    <div
+      class="rpl-primary-nav__inner"
+      :style="`--local-expanded-height: ${height}px`"
+    >
       <!-- Nav bar -->
       <RplPrimaryNavBar
         :primary-logo="primaryLogo"

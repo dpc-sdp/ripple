@@ -30,7 +30,7 @@ export interface IContentCollection {
   display: IContentCollectionDisplay
   perPage?: number
   filters?: IContentCollectionFilter[]
-  sortBy?: IContentCollectionSort
+  sortBy?: IContentCollectionSort[]
 }
 
 export interface ITideContentCollectionFilterConfig {
@@ -49,7 +49,8 @@ export interface ITideContentCollectionConfig {
 }
 
 const getContentCollectionFiltersFromConfig = (
-  config: ITideContentCollectionConfig
+  config: ITideContentCollectionConfig,
+  siteId?: string
 ): IContentCollectionFilter[] => {
   const filters = []
   if (config.internal?.contentTypes) {
@@ -61,25 +62,48 @@ const getContentCollectionFiltersFromConfig = (
   }
   if (config.internal?.contentFields) {
     const contentFieldFilters = Object.keys(config.internal?.contentFields).map(
-      (field) => {
-        const type =
-          config.internal?.contentFields[field].operator === 'OR'
-            ? 'any'
-            : 'all'
-        return {
-          type,
-          field,
-          values: config.internal?.contentFields[field].values
-        }
-      }
+      (field) => ({
+        field,
+        type: 'any',
+        values: config.internal?.contentFields[field].values
+      })
     )
     filters.push(...contentFieldFilters)
   }
+
+  if (siteId) {
+    filters.push({
+      type: 'any',
+      field: 'field_node_site',
+      values: [siteId]
+    })
+  }
+
   return filters
 }
 
+const getContentCollectionSortBy = (config) => {
+  const sort = [
+    {
+      field: getField(config, 'internal.sort.field', 'created'),
+      direction: getField(config, 'internal.sort.direction', 'desc')
+    }
+  ]
+
+  if (getField(config, 'internal.contentTypes', []).includes('news')) {
+    sort.unshift({
+      field: 'field_news_date',
+      direction: getField(config, 'internal.sort.direction', 'desc')
+    })
+  }
+
+  return sort
+}
+
 export const contentCollectionMapping = (
-  field
+  field,
+  pageData,
+  TidePageApi
 ): TideDynamicPageComponent<IContentCollection> => {
   return {
     component: 'TideLandingPageContentCollection',
@@ -92,20 +116,10 @@ export const contentCollectionMapping = (
         'callToAction'
       ]),
       filters: getContentCollectionFiltersFromConfig(
-        field.field_content_collection_config
+        field.field_content_collection_config,
+        TidePageApi?.site
       ),
-      sortBy: {
-        field: getField(
-          field,
-          'field.field_content_collection_config.internal.sort.field',
-          'created'
-        ),
-        direction: getField(
-          field,
-          'field.field_content_collection_config.internal.sort.direction',
-          'desc'
-        )
-      },
+      sortBy: getContentCollectionSortBy(field.field_content_collection_config),
       perPage: getField(
         field,
         'field_content_collection_config.internal.itemsToLoad',

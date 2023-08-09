@@ -8,7 +8,10 @@
   >
     <template #breadcrumbs><span></span></template>
     <template #aboveBody>
-      <RplHeaderGraphic :image="true" placement="top" />
+      <RplHeaderGraphic
+        :image="site?.cornerGraphic?.top?.src || true"
+        placement="top"
+      />
     </template>
     <template #body>
       <RplErrorMessage
@@ -35,7 +38,7 @@ interface Props {
 
 const props = defineProps<Props>()
 
-const is404 = computed(() => props.error?.statusCode === '404')
+const is404 = computed(() => props.error?.statusCode === 404)
 const title = computed(() => (is404.value ? 'Oops!' : 'Sorry!'))
 const site = is404.value ? await useTideSite() : undefined
 </script>

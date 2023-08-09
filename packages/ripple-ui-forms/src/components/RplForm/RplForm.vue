@@ -26,12 +26,17 @@ interface Props {
   }
 }
 
+interface CachedError {
+  fieldId: string
+  text: string
+}
+
 const props = withDefaults(defineProps<Props>(), {
   title: undefined,
   resetOnSubmit: false,
   schema: undefined,
   config: (): Partial<Omit<FormKitConfig, 'rootClasses' | 'delimiter'>> => ({
-    validationVisibility: 'submit',
+    validationVisibility: null, // We add our own custom behavior for this, so set to null
     messages: {
       en: {
         validation: {
@@ -56,21 +61,25 @@ const emit = defineEmits<{
 
 const { emitRplEvent } = useRippleEvent('rpl-form', emit)
 
-provide('form', { id: props.id, name: props.title })
-
 const isFormSubmitting = computed(() => {
   return props.submissionState.status === 'submitting'
 })
-provide('isFormSubmitting', isFormSubmitting)
 
 const serverMessageRef = ref(null)
 
 const errorSummaryRef = ref(null)
-const errorSummaryMessages = ref([])
+const cachedErrors = ref<Record<string, CachedError>>({})
+const submitCounter = ref(0)
+
+provide('form', { id: props.id, name: props.title })
+provide('isFormSubmitting', isFormSubmitting)
+// submitCounter is watched by some components to efficiently know when to update
+provide('submitCounter', submitCounter)
 
 const submitHandler = (form) => {
   // Reset the error summary as it is not reactive
-  errorSummaryMessages.value = []
+  cachedErrors.value = {}
+  submitCounter.value = 0
 
   emitRplEvent('submit', {
     id: props.id,
@@ -80,27 +89,45 @@ const submitHandler = (form) => {
 }
 
 const submitInvalidHandler = async (node) => {
+  submitCounter.value = submitCounter.value + 1
+
   const validations = getValidationMessages(node)
 
-  const fieldMessages = []
+  const cachedErrorsMap = {}
 
   // Note: validations is a JS Map https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map
   validations.forEach((inputMessages, fieldNode) => {
     const fieldId = fieldNode.context.id
 
-    fieldMessages.push({
-      fieldId: fieldId,
-      text: inputMessages.map((message) => message.value)[0]
-    })
+    cachedErrorsMap[fieldNode.name] = inputMessages.map((message) => ({
+      fieldId,
+      text: message.value
+    }))[0]
   })
 
-  errorSummaryMessages.value = fieldMessages
+  cachedErrors.value = cachedErrorsMap
 
   await nextTick()
   if (errorSummaryRef.value) {
     errorSummaryRef.value.focus()
   }
 }
+
+const inputErrors = computed(() => {
+  return Object.entries(cachedErrors.value).reduce((result, [key, value]) => {
+    return {
+      ...result,
+      [key]: value.text
+    }
+  }, {})
+})
+
+// inputErrors only updates on submit
+provide('inputErrors', inputErrors)
+
+const errorSummaryMessages = computed(() => {
+  return Object.values(cachedErrors.value)
+})
 
 const rplFormConfig = ref({
   rootClasses: function (sectionKey) {
@@ -133,7 +160,7 @@ watch(
             id: props.id,
             action: 'submit',
             name: props.title,
-            label:
+            text:
               props.schema?.find((field) => field?.key === 'actions')?.label ||
               'Submit'
           },
@@ -190,6 +217,7 @@ const data = reactive({
     form-class="rpl-form"
     :config="rplFormConfig"
     :actions="false"
+    :inputErrors="inputErrors"
     novalidate
     @submit-invalid="submitInvalidHandler"
     @submit="submitHandler"

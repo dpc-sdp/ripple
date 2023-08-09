@@ -24,9 +24,9 @@
   "showTopicTags": true,
   "inPageNavHeadingLevel": "h2",
   "background": "default",
-  "heroHeader": {
+  "header": {
     "title": "Testing forms",
-    "introText": "",
+    "summary": "",
     "links": {
       "title": "",
       "items": [],

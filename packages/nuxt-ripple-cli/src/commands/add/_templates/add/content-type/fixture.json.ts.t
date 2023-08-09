@@ -6,7 +6,7 @@ to: "<%= locals.createTests ? `${cypressPath}/fixtures/${h.changeCase.kebabCase(
   "title": "Sample <%= name %>",
   "changed": "2022-11-16T16:39:04+11:00",
   "created": "2022-10-10T12:44:43+11:00",
-  "type": "<%= h.changeCase.pascalCase(name) %>",
+  "type": "<%= h.changeCase.snakeCase(name) %>",
   "nid": "00000000-0000-0000-0000-000000000000",
   "header": {
     "title": "Sample <%= name %>",

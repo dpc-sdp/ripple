@@ -1,0 +1,73 @@
+{
+  "title": "Emergency Recovery Resource Portal - Search for a resource",
+  "changed": "2022-11-02T12:47:29+11:00",
+  "created": "2022-11-02T12:47:29+11:00",
+  "type": "tide_search_listing",
+  "nid": "11dede11-10c0-111e1-1100-000000000330",
+  "showTopicTags": true,
+  "summary": "Browse our collection of key recovery resources and guidance for the disaster recovery workforce.",
+  "config": {
+    "searchListingConfig": {
+      "resultsPerPage": 9
+    },
+    "queryConfig": {
+      "multi_match": {
+        "query": "{{query}}",
+        "fields": [
+          "title^3",
+          "field_landing_page_summary^2",
+          "body",
+          "field_paragraph_body",
+          "summary_processed"
+        ]
+      }
+    },
+    "results": {
+      "layout": {
+        "component": "TideSearchResultsGrid"
+      },
+      "item": {
+        "*": {
+          "component": "TideSearchResultCard"
+        }
+      }
+    },
+    "globalFilters": [
+      { "terms": { "type": ["landing_page", "publication"] } },
+      { "terms": { "field_node_site": [8888] } }
+    ],
+    "userFilters": [
+      {
+        "id": "topic",
+        "component": "TideSearchFilterDropdown",
+        "filter": {
+          "type": "terms",
+          "value": "field_topic_name.keyword"
+        },
+        "aggregations": {
+          "field": "field_topic_name",
+          "source": "taxonomy"
+        },
+        "props": {
+          "id": "topic",
+          "label": "Topic",
+          "placeholder": "Select a topic",
+          "type": "RplFormDropdown",
+          "multiple": true,
+          "options": [
+            {
+              "id": "1",
+              "label": "Content Collection Topic 2",
+              "value": "Content Collection Topic 2"
+            },
+            {
+              "id": "2",
+              "label": "Bourke topic demo",
+              "value": "Bourke topic demo"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

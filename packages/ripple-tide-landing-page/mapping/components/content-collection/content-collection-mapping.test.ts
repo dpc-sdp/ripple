@@ -25,15 +25,26 @@ describe('contentCollectionMapping', () => {
             values: ['landing_page', 'news']
           },
           {
-            type: 'all',
+            type: 'any',
             field: 'field_topic',
             values: [8941, 8940]
+          },
+          {
+            type: 'any',
+            field: 'field_node_site',
+            values: ['8888']
           }
         ],
-        sortBy: {
-          field: 'created',
-          direction: 'desc'
-        },
+        sortBy: [
+          {
+            field: 'field_news_date',
+            direction: 'desc'
+          },
+          {
+            field: 'created',
+            direction: 'desc'
+          }
+        ],
         perPage: 6,
         display: {
           type: 'card',
@@ -42,6 +53,8 @@ describe('contentCollectionMapping', () => {
       }
     }
 
-    expect(contentCollectionMapping(rawData)).toEqual(result)
+    expect(contentCollectionMapping(rawData, {}, { site: '8888' })).toEqual(
+      result
+    )
   })
 })

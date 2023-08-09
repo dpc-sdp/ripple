@@ -21,11 +21,14 @@ interface NormalisedRule {
 /**
  * Extract model name "check_a" from a rule ":input[name=\"check_a\"]"
  * @param {String} rule :input[name=\"check_a\"]
+ * @param {String} prefix string to prepend to the name
  */
-const getNameFromSelector = (rule: string): string => {
+const getNameFromSelector = (rule: string, prefix: string): string => {
   const start = rule.indexOf('"') + 1
   const end = rule.indexOf('"', start + 1)
-  return rule.substr(start, end - start)
+  const name = rule.substr(start, end - start)
+
+  return prefix ? `${prefix}_${name}` : name
 }
 
 /**
@@ -45,9 +48,10 @@ const getFirstObjectKey = (obj): string => {
  * Returns an object representing a piece of logic
  * @param {Object} ruleObject the parent object that contains the selector
  * @param {String} selector a field selector e.g. ':input[name=\"check_a\"]' or ':input[name=\"check_a[option]\"]'
+ * @param {String} prefix used to prepend the fieldName
  */
-function convertSelectorToOperand(ruleObject, selector): Operand {
-  let fieldName = getNameFromSelector(selector)
+function convertSelectorToOperand(ruleObject, selector, prefix): Operand {
+  let fieldName = getNameFromSelector(selector, prefix)
   const triggerType = getFirstObjectKey(ruleObject[selector])
   let triggerValue = triggerType ? ruleObject[selector][triggerType] : null
 
@@ -67,8 +71,9 @@ function convertSelectorToOperand(ruleObject, selector): Operand {
  * Rules may be an {object} or [array (with operator)].
  * This will output a test object.
  * @param {Object} rulesObject webform rules object
+ * @param {String} prefix optional prefix to scope rules to a form
  */
-const normaliseRule = (rulesObject): NormalisedRule => {
+const normaliseRule = (rulesObject, prefix = null): NormalisedRule => {
   const rulesType = Array.isArray(rulesObject) ? 'array' : typeof rulesObject
   let operator: LogicOperator = 'and'
   const operands: Operand[] = []
@@ -79,7 +84,7 @@ const normaliseRule = (rulesObject): NormalisedRule => {
       rulesObject.forEach((item) => {
         if (typeof item === 'object') {
           const selector = getFirstObjectKey(item)
-          operands.push(convertSelectorToOperand(item, selector))
+          operands.push(convertSelectorToOperand(item, selector, prefix))
         } else {
           operator = item
         }
@@ -88,7 +93,7 @@ const normaliseRule = (rulesObject): NormalisedRule => {
     case 'object':
       // Used for 'and' operator.
       Object.getOwnPropertyNames(rulesObject).forEach((selector) => {
-        operands.push(convertSelectorToOperand(rulesObject, selector))
+        operands.push(convertSelectorToOperand(rulesObject, selector, prefix))
       })
       break
     default:
@@ -165,7 +170,7 @@ export const getConditionals = (
 
   return (Object.keys(states || {}) as SupportedStates[]).reduce(
     (result, state: SupportedStates) => {
-      const rule = normaliseRule(states[state])
+      const rule = normaliseRule(states[state], field?.formId)
       const expression = toFormkitExpression(rule)
 
       switch (state) {

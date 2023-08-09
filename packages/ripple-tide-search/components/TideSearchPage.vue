@@ -1,14 +1,17 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
-import { useRuntimeConfig, useFetch, useRoute } from '#imports'
-import useTideSearch from './../composables/use-tide-search'
-import { FilterConfigItem, MappedSearchResult } from 'ripple-tide-search/types'
+import { ref } from 'vue'
+import { useRuntimeConfig, useTideSite } from '#imports'
+import useSearchUI from './../composables/useSearchUI'
+import {
+  AppSearchFilterConfigItem,
+  MappedSearchResult
+} from 'ripple-tide-search/types'
 import { FormKit } from '@formkit/vue'
 import { SearchDriverOptions } from '@elastic/search-ui'
 
 interface Props {
   pageTitle: string
-  filtersConfig: FilterConfigItem[]
+  filtersConfig: AppSearchFilterConfigItem[]
   searchDriverOptions: Omit<SearchDriverOptions, 'apiConnector'>
   searchResultsMappingFn: (item: any) => MappedSearchResult<any>
 }
@@ -40,7 +43,7 @@ const props = withDefaults(defineProps<Props>(), {
   searchResultsMappingFn: (item): MappedSearchResult<any> => {
     return {
       id: item._meta.id,
-      component: 'TideSearchResult',
+      component: 'TideAppSearchResult',
       props: {
         title: item.title?.raw?.[0],
         url: item.url?.raw?.[0].replace(/\/site-(\d+)/, ''),
@@ -50,21 +53,13 @@ const props = withDefaults(defineProps<Props>(), {
   }
 })
 
-const route = useRoute()
 const { public: config } = useRuntimeConfig()
-const siteId = config.tide?.site
-
-const { data: site } = useFetch('/api/tide/site', {
-  baseURL: config.apiUrl || '',
-  params: {
-    id: siteId
-  }
-})
+const site = await useTideSite()
 
 const apiConnectorOptions = {
   ...config.tide?.appSearch,
   // The search request is proxied through the API to avoid CORS issues
-  endpointBase: '/api/tide/search'
+  endpointBase: '/api/tide/app-search'
 }
 
 const {
@@ -76,7 +71,7 @@ const {
   results,
   staticFacetOptions,
   filterFormValues
-} = await useTideSearch(
+} = await useSearchUI(
   apiConnectorOptions,
   props.searchDriverOptions,
   props.filtersConfig,
@@ -84,50 +79,6 @@ const {
 )
 
 const filtersExpanded = ref(false)
-
-const prevLink = computed(() => {
-  if (searchState.value.current <= 1) {
-    return null
-  }
-
-  const searchParams = new URLSearchParams({
-    ...route.query,
-    current: `n_${searchState.value.current - 1}_n`
-  })
-
-  return {
-    url: `${route.path}?${searchParams.toString()}`,
-    description: `${searchState.value.current - 1} of ${
-      searchState.value.totalPages
-    }`
-  }
-})
-
-const nextLink = computed(() => {
-  if (searchState.value.current === searchState.value.totalPages) {
-    return null
-  }
-
-  const searchParams = new URLSearchParams({
-    ...route.query,
-    current: `n_${searchState.value.current + 1}_n`
-  })
-
-  return {
-    url: `${route.path}?${searchParams.toString()}`,
-    description: `${searchState.value.current + 1} of ${
-      searchState.value.totalPages
-    }`
-  }
-})
-
-const handlePrevClick = () => {
-  goToPage(searchState.value.current - 1)
-}
-
-const handleNextClick = () => {
-  goToPage(searchState.value.current + 1)
-}
 
 const handleFilterSubmit = () => {
   doSearch()
@@ -156,14 +107,14 @@ const getFilterOptions = (field) => {
 </script>
 
 <template>
-  <TideBaseLayout :site="site">
+  <TideBaseLayout>
     <template #aboveBody>
       <RplHeroHeader
         :title="pageTitle"
         :behind-nav="true"
         :breadcrumbs="true"
         :full-width="true"
-        :corner-top="true"
+        :corner-top="site?.cornerGraphic?.top?.src || true"
         :corner-bottom="false"
       >
         <div class="tide-search-header">
@@ -271,26 +222,12 @@ const getFilterOptions = (field) => {
         </div>
       </RplPageComponent>
       <RplPageComponent>
-        <RplPageLinks v-if="results && results.length && !searchState.error">
-          <RplPageLinksItem
-            v-if="prevLink"
-            :url="prevLink.url"
-            label="Previous"
-            direction="prev"
-            @click.prevent="handlePrevClick"
-          >
-            {{ prevLink.description }}
-          </RplPageLinksItem>
-          <RplPageLinksItem
-            v-if="nextLink"
-            :url="nextLink.url"
-            label="Next"
-            direction="next"
-            @click.prevent="handleNextClick"
-          >
-            {{ nextLink.description }}
-          </RplPageLinksItem></RplPageLinks
-        >
+        <RplPagination
+          v-if="searchState.totalPages > 1 && !searchState.error"
+          :currentPage="searchState.current"
+          :totalPages="searchState.totalPages"
+          @change="goToPage"
+        />
       </RplPageComponent>
     </template>
   </TideBaseLayout>

@@ -12,7 +12,7 @@ export default function rplAddCommand() {
       `project directory, default is ${process.cwd() + '/components'}`,
       process.cwd() + '/components'
     )
-    .option(
+    .requiredOption(
       '--name [name]',
       'The components name eg: modal. Note: a prefix will be added separately with the --prefix option'
     )
@@ -28,8 +28,16 @@ export default function rplAddCommand() {
   rplAddCommand
     .command('content-type')
     .description('Scaffold a Ripple tide content type')
-    .argument('[directory]', 'The project directory, this defaults to the current working directory (CWD)', process.cwd())
-    .option('--name [name]', 'The name of content type')
+    .argument(
+      '[directory]',
+      'The project directory, this defaults to the current working directory (CWD)',
+      process.cwd()
+    )
+    .requiredOption('--name [name]', 'The name of content type')
+    .requiredOption(
+      '--rplVersion [rplVersion]',
+      'The ripple version to use: eg: 2.0.0'
+    )
     .option('-T --createTests', 'This will create Cypress test script examples')
     .option(
       '--cypressPath [cypressPath]',

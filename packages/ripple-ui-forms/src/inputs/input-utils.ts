@@ -16,7 +16,6 @@ import RplFormFieldset from '../components/RplFormFieldset/RplFormFieldset.vue'
 import RplFormDivider from '../components/RplFormDivider/RplFormDivider.vue'
 import RplFormActions from '../components/RplFormActions/RplFormActions.vue'
 import {
-  outer,
   inner,
   wrapper,
   icon,
@@ -29,6 +28,7 @@ import {
   FormKitSchemaComponent,
   FormKitExtendableSchemaRoot
 } from '@formkit/core'
+import { rplOuter } from '../sections/rplOuter'
 import { rplLabel } from '../sections/rplLabel'
 import { rplLegend } from '../sections/rplLegend'
 import { rplHelp } from '../sections/rplHelp'
@@ -39,6 +39,8 @@ import {
   hasNoLabel
 } from '../formkit-features'
 import { rplInputGrid } from '../sections/rplInputGrid'
+import FormkitInputError from '../components/RplForm/FormkitInputError.vue'
+import FormkitOuter from '../components/RplForm/FormkitOuter.vue'
 
 export const inputLibrary = {
   RplFormInput: markRaw(RplFormInput),
@@ -56,10 +58,17 @@ export const inputLibrary = {
   RplFormFieldset: markRaw(RplFormFieldset),
   RplFormContent: markRaw(RplFormContent),
   RplFormDivider: markRaw(RplFormDivider),
-  RplFormActions: markRaw(RplFormActions)
+  RplFormActions: markRaw(RplFormActions),
+  FormkitInputError: markRaw(FormkitInputError),
+  FormkitOuter: markRaw(FormkitOuter)
 }
 
-export const rplFeatures = [isFieldRequired, isFieldInvalid, getAriaDescribedBy, hasNoLabel]
+export const rplFeatures = [
+  isFieldRequired,
+  isFieldInvalid,
+  getAriaDescribedBy,
+  hasNoLabel
+]
 
 /*
  * Creates a Formkit schema based on Ripple opinionated defaults for label and help messages, use
@@ -68,16 +77,15 @@ export const rplFeatures = [isFieldRequired, isFieldInvalid, getAriaDescribedBy,
 export const createRplFormInput = (
   cmp: FormKitSchemaComponent
 ): FormKitExtendableSchemaRoot => {
-  return outer(
+  return rplOuter(
     wrapper(
       rplLabel('$label'),
       rplHelp('$help'),
       createSection('error', () => ({
-        $cmp: 'RplFormValidationError',
-        if: '$fns.length($messages)',
+        $cmp: 'FormkitInputError',
         props: {
-          id: `$id + '_error'`,
-          messages: '$messages'
+          id: `$id + '__error'`,
+          fieldName: `$node.name`
         }
       }))(),
       rplInputGrid(
@@ -100,16 +108,15 @@ export const createRplFormInput = (
 export const createRplFormGroup = (
   cmp: FormKitSchemaComponent
 ): FormKitExtendableSchemaRoot => {
-  return outer(
+  return rplOuter(
     fieldset(
       rplLegend('$label'),
       rplHelp('$help'),
       createSection('error', () => ({
-        $cmp: 'RplFormValidationError',
-        if: '$fns.length($messages)',
+        $cmp: 'FormkitInputError',
         props: {
-          id: `$id + '_error'`,
-          messages: '$messages'
+          id: `$id + '__error'`,
+          fieldName: `$node.name`
         }
       }))(),
       rplInputGrid(createSection('input', () => cmp)())
@@ -121,6 +128,7 @@ export const defaultRplFormInputProps = {
   onInput: '$handlers.DOMInput',
   onBlur: '$handlers.blur',
   id: '$id',
+  label: '$label',
   prefixIcon: '$node.props.prefixIcon',
   suffixIcon: '$node.props.suffixIcon',
   value: '$_value',

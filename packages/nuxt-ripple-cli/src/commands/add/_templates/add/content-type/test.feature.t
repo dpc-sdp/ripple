@@ -11,4 +11,4 @@ Feature: <%= name %> page
 
   @mockserver
   Scenario: On load
-    Then the title should be "Sample <%= h.changeCase.pascalCase(name) %>"
+    Then the title should be "Sample <%= name %>"

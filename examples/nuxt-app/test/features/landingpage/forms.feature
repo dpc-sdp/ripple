@@ -71,6 +71,9 @@ Feature: Forms
     When I submit the form with ID "full_form"
     Then the input with the label "First name" should be invalid with message "You must enter your first name"
     When I type "Cat" into the input with the label "First name"
+    Then the input with the label "First name" should be invalid with message "You must enter your first name"
+
+    When I submit the form with ID "full_form"
     Then the input with the label "First name" should be valid
 
   @mockserver

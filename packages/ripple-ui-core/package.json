@@ -2,8 +2,9 @@
   "packageManager": "pnpm@8.6.2",
   "name": "@dpc-sdp/ripple-ui-core",
   "description": "Ripple UI Core component library",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "license": "Apache-2.0",
+  "repository": "https://github.com/dpc-sdp/ripple-framework",
   "files": [
     "dist",
     "src",
@@ -24,7 +25,6 @@
     "./style/components": "./dist/style.css"
   },
   "scripts": {
-    "dev": "concurrently \"wait-on -i 2000 tcp:6006 && pnpm test:storybook --watch\" \"pnpm:watch\" \"pnpm:storybook\" --handle-input",
     "build": "pnpm clean && pnpm build:types && pnpm build:tokens && pnpm build:styles && pnpm build:lib && pnpm build:vue && pnpm build:wc",
     "build:types": "tsc -p tsconfig.json",
     "build:lib": "vite build",
@@ -40,11 +40,9 @@
     "preview": "vite preview",
     "storybook": "start-storybook -p 6006",
     "storybook:build": "build-storybook",
-    "stylelint": "stylelint \"**/*.css\"",
     "test:components": "cypress run --component",
-    "test:generate-output": "jest --json --outputFile=.jest-test-results.json",
-    "test:storybook": "test-storybook --stories-json",
-    "test:storybook-ci": "concurrently -k -s first -n \"SB,TEST\" -c \"magenta,blue\" \"npx http-server storybook-static --port 6006 --silent\" \"wait-on tcp:6006 && pnpm test:storybook\""
+    "cy:components": "cypress open --component",
+    "test:generate-output": "jest --json --outputFile=.jest-test-results.json"
   },
   "dependencies": {
     "@nuxt/kit": "3.3.2",
@@ -64,25 +62,24 @@
   },
   "devDependencies": {
     "@dpc-sdp/ripple-tide-api": "workspace:*",
+    "@storybook/jest": "^0.1.1-future.2",
+    "@storybook/testing-library": "^0.1.1-future.2",
     "@vitejs/plugin-vue": "^4.1.0",
     "@vue/compiler-sfc": "^3.2.47",
     "autoprefixer": "^10.4.14",
     "chromatic": "^6.17.2",
-    "http-server": "^14.1.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-storybook": "^0.6.13",
     "jest-axe": "^7.0.1",
     "pathe": "^1.1.0",
     "rimraf": "^4.4.1",
-    "storybook-addon-designs": "^6.2.1",
     "style-dictionary": "^3.7.2",
-    "stylelint": "^15.7.0",
-    "stylelint-config-prettier": "^9.0.5",
-    "stylelint-config-standard": "^31.0.0",
     "vite": "4.1.5",
     "vite-plugin-copy": "^0.1.6",
     "vite-plugin-dts": "^2.1.0",
     "vite-plugin-svg-icons": "^2.0.1",
     "vite-plugin-vue-svg": "^0.1.0",
-    "wait-on": "^7.0.1",
+    "vite-svg-loader": "^4.0.0",
     "yaml": "^2.2.2"
   }
 }

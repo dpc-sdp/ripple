@@ -1,6 +1,10 @@
 ---
-to: .env
+to: .example.env
 ---
+# Note: Place a copy of this file named .env - See https://nuxt.com/docs/guide/directory-structure/env
+# The values in this file are FOR DEVELOPMENT ONLY - none of these values are read in the production build!
+# If your site needs a new environment variable please log an issue with SDP support so it can be added via the config management database
+
 # Tide Drupal CMS URL - change this to the project CMS as required
 NUXT_PUBLIC_TIDE_BASE_URL=https://develop.content.reference.sdp.vic.gov.au/
 # Tide site taxonomy id - change this to the project site ID as required

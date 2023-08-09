@@ -1,0 +1,62 @@
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "match_all": {}
+        }
+      ],
+      "filter": [
+        {
+          "terms": {
+            "type": ["grant"]
+          }
+        },
+        {
+          "terms": {
+            "field_node_site": [8888]
+          }
+        },
+        {
+          "providedFilterConfig": {
+            "id": "functionFilter",
+            "component": "TideSearchFilterDropdown",
+            "filter": {
+              "type": "function",
+              "value": "dummyFunctionFilter"
+            },
+            "props": {
+              "id": "functionFilter",
+              "label": "Custom function filter example",
+              "placeholder": "Select a status",
+              "multiple": true,
+              "options": [
+                {
+                  "id": "open",
+                  "label": "Open",
+                  "value": "open"
+                },
+                {
+                  "id": "closed",
+                  "label": "Closed",
+                  "value": "closed"
+                }
+              ]
+            }
+          },
+          "providedValues": ["closed", "open"]
+        }
+      ]
+    }
+  },
+  "size": 10,
+  "from": 0,
+  "sort": [
+    {
+      "_score": "desc"
+    },
+    {
+      "_doc": "desc"
+    }
+  ]
+}

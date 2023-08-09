@@ -1,8 +1,11 @@
 <script setup lang="ts">
-import { FilterConfigItem, MappedSearchResult } from '../types'
-import { formatDate } from '#imports'
+import { AppSearchFilterConfigItem, MappedSearchResult } from '../types'
+import { formatDate, useRuntimeConfig, useAppConfig } from '#imports'
 
-const filtersConfig: FilterConfigItem[] = [
+const appConfig = useAppConfig()
+const runtimeConfig = useRuntimeConfig()
+
+const filtersConfig: AppSearchFilterConfigItem[] = [
   {
     label: 'Select a topic',
     placeholder: 'Select',
@@ -15,6 +18,16 @@ const searchDriverOptions = {
   initialState: { resultsPerPage: 10 },
   alwaysSearchOnInitialLoad: true,
   searchQuery: {
+    filters: [
+      {
+        field: 'field_node_site',
+        values: [runtimeConfig.public.tide?.site]
+      },
+      {
+        field: 'type',
+        values: appConfig.ripple?.search?.contentTypes
+      }
+    ],
     search_fields: {
       title: {
         weight: 10
@@ -73,7 +86,7 @@ const searchResultsMappingFn = (item): MappedSearchResult<any> => {
 
   return {
     id: item._meta.id,
-    component: 'TideSearchResult',
+    component: 'TideAppSearchResult',
     props: {
       title: item.title?.raw?.[0],
       url: item.url?.raw?.[0].replace(/\/site-(\d+)/, ''),

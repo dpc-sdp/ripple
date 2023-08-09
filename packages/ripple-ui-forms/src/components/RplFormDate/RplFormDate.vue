@@ -9,6 +9,8 @@ import { watch, ref } from 'vue'
 import { format, isMatch, isValid, parse } from 'date-fns'
 import RplFormInput from '../RplFormInput/RplFormInput.vue'
 import useFormkitFriendlyEventEmitter from '../../composables/useFormkitFriendlyEventEmitter.js'
+import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
+import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
 
 type DatePart = 'day' | 'month' | 'year'
 interface InternalDate {
@@ -20,24 +22,34 @@ interface InternalDate {
 interface Props {
   id: string
   name: string
+  label?: string
   disabled?: boolean
   required: boolean
   invalid?: boolean | DatePart[]
   variant?: 'default' | 'reverse'
-  value: string
+  value?: string
   onChange: (value: string | string[]) => void
   dateFormat: string
+  ariaDescribedby?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
   disabled: false,
   required: false,
   invalid: false,
+  label: undefined,
+  value: undefined,
   variant: 'default',
-  dateFormat: 'yyyy-MM-dd'
+  dateFormat: 'yyyy-MM-dd',
+  ariaDescribedby: ''
 })
 
-const emit = defineEmits<{ (e: 'onChange', value: string[]): void }>()
+const emit = defineEmits<{
+  (e: 'onChange', value: string[]): void
+  (e: 'update', payload: rplEventPayload & { action: 'update' }): void
+}>()
+
+const { emitRplEvent } = useRippleEvent('rpl-form-date', emit)
 
 const ingestValue = (dateStr: string): InternalDate | null => {
   // An empty external value is valid, so we should clear all the inputs
@@ -198,6 +210,18 @@ const isPartInvalid = (part: DatePart) => {
 
   return false
 }
+
+const handleUpdate = (event) => {
+  emitRplEvent(
+    'update',
+    {
+      ...event,
+      id: props.id,
+      label: props?.label
+    },
+    { global: true }
+  )
+}
 </script>
 
 <template>
@@ -220,6 +244,9 @@ const isPartInvalid = (part: DatePart) => {
         :disabled="disabled"
         :required="required"
         :invalid="isPartInvalid('day')"
+        :aria-describedby="ariaDescribedby"
+        :global-events="false"
+        @update="handleUpdate"
         @input="handleChangeDay"
       />
     </div>
@@ -240,6 +267,9 @@ const isPartInvalid = (part: DatePart) => {
         :disabled="disabled"
         :required="required"
         :invalid="isPartInvalid('month')"
+        :aria-describedby="ariaDescribedby"
+        :global-events="false"
+        @update="handleUpdate"
         @input="handleChangeMonth"
       />
     </div>
@@ -260,6 +290,9 @@ const isPartInvalid = (part: DatePart) => {
         :disabled="disabled"
         :required="required"
         :invalid="isPartInvalid('day')"
+        :aria-describedby="ariaDescribedby"
+        :global-events="false"
+        @update="handleUpdate"
         @input="handleChangeYear"
       />
     </div>

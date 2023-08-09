@@ -6,22 +6,11 @@ on:
       - main
       - test-release
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 18
-      - run: npm ci
-      - run: npm run build
-      - run: npm test
   publish:
-    needs: build
     runs-on: ubuntu-latest
     permissions:
       packages: write
-      contents: read
+      contents: write
     steps:
       - uses: actions/checkout@v3
       - name: Install pnpm
@@ -41,13 +30,12 @@ jobs:
           CYPRESS_INSTALL_BINARY: 0
           PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
         run: pnpm install --frozen-lockfile
-      - name: Create changelog and GitHub release
+      - name: Publish release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: pnpm run release:changelog
-      - name: Publish semantic release
-        env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          git config --global user.email "sdp.devs@dpc.vic.gov.au"
+          git config --global user.name "SDP Deploy"
           pnpm config set access public
           pnpm run release:publish --yes

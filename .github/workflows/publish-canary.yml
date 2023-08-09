@@ -20,16 +20,19 @@ jobs:
       - name: Install Node
         uses: actions/setup-node@v3
         with:
+          registry-url: 'https://npm.pkg.github.com/'
           node-version: 18
           cache: 'pnpm'
+          scope: '@dpc-sdp'
       - name: Install Dependencies
         env:
           PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
         run: pnpm install --frozen-lockfile
       - name: Publish canary build to @next tag
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          npm config set access public
-          npm set //npm.pkg.github.com/:_authToken=${{ secrets.NPM_TOKEN }}
+          pnpm config set access public
           pnpm release:publish-next --yes
 
   Update_Reference:

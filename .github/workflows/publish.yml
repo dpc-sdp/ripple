@@ -4,30 +4,38 @@ on:
   push:
     branches:
       - main
+      - test-release
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 18
-      - run: npm ci
-      - run: npm run build
-      - run: npm test
   publish:
-    needs: build
     runs-on: ubuntu-latest
     permissions:
       packages: write
-      contents: read
+      contents: write
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
         with:
+          version: 8.6.2
+          run_install: false
+      - name: Install Node
+        uses: actions/setup-node@v3
+        with:
+          registry-url: 'https://npm.pkg.github.com/'
           node-version: 18
-      - name: Publish semantic release
+          cache: 'pnpm'
+          scope: '@dpc-sdp'
+      - name: Install Dependencies
+        env:
+          CYPRESS_INSTALL_BINARY: 0
+          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
+        run: pnpm install --frozen-lockfile
+      - name: Publish release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          npm config set access public
-          npm set //npm.pkg.github.com/:_authToken=${{ secrets.NPM_TOKEN }}
-          pnpm release:publish --yes
+          git config --global user.email "sdp.devs@dpc.vic.gov.au"
+          git config --global user.name "SDP Deploy"
+          pnpm config set access public
+          pnpm run release:publish --yes

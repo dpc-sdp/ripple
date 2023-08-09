@@ -146,7 +146,9 @@ export default (
         if (itm.filter.type === 'prefix') {
           return {
             prefix: {
-              value: Array.isArray(filterVal) ? filterVal[0] : filterVal
+              [`${itm.filter.value}`]: {
+                value: Array.isArray(filterVal) ? filterVal[0] : filterVal
+              }
             }
           }
         }

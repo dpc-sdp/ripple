@@ -9,11 +9,11 @@
     "./mapping": "./mapping/index.ts",
     "./types": "./types.ts"
   },
-  "version": "2.1.0-alpha.188",
+  "version": "2.1.0",
   "dependencies": {
     "@dpc-sdp/nuxt-ripple": "workspace:*",
     "@dpc-sdp/ripple-tide-api": "workspace:*",
-    "@dpc-sdp/ripple-ui-core": "workspace:*",
-    "@dpc-sdp/ripple-tide-search": "workspace:*"
+    "@dpc-sdp/ripple-tide-search": "workspace:*",
+    "@dpc-sdp/ripple-ui-core": "workspace:*"
   }
 }

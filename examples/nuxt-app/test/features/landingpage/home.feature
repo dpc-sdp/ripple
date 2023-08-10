@@ -198,3 +198,10 @@ Feature: Home page
       | th   | Row One Column One   | Row One Column Two   | Row One Column Three   |
       | td   | Row Two Column One   | Row Two Column Two   | Row Two Column Three   |
       | td   | Row Three Column One | Row Three Column Two | Row Three Column Three |
+
+  @mockserver
+  Scenario: Page component - Category Grid i.e. compact cards
+    Then a category grid with ID "7052" should exist with the following cards
+      | title    | content          | image                                                                                                                             |
+      | Card one | Card one summary | https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Aerial-shot-of-new-housing-development.jpg |
+      | Card two | Card two summary | https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/2018-19-State-Budget.jpg                   |

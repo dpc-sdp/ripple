@@ -117,7 +117,7 @@ export default (
 
   const userFilters = computed(() => {
     return Object.keys(filterForm.value).map((key: string) => {
-      const itm = userFilterConfig.find((itm) => itm.id === key)
+      const itm = userFilterConfig.find((itm: any) => itm.id === key)
 
       const filterVal =
         filterForm.value[key] && Array.from(filterForm.value[key])
@@ -138,6 +138,19 @@ export default (
           const re = new RegExp('{{value}}', 'g')
           const result = itm.filter.value.replace(re, JSON.stringify(filterVal))
           return JSON.parse(result)
+        }
+
+        /**
+         * The ES prefix query expects a single value
+         */
+        if (itm.filter.type === 'prefix') {
+          return {
+            prefix: {
+              [`${itm.filter.value}`]: {
+                value: Array.isArray(filterVal) ? filterVal[0] : filterVal
+              }
+            }
+          }
         }
 
         /**

@@ -34,12 +34,12 @@ describe('TideApiBase', () => {
       {
         ...exampleApiConnection,
         debug: false,
-        config: exampleApiConfig,
         mapping: {
           site: exampleMapping,
           event: exampleMapping
         }
       },
+      exampleApiConfig,
       mockLogger
     )
     it('should return mapped data', async () => {
@@ -79,13 +79,13 @@ describe('TideApiBase', () => {
     const tideApiBase = new TideApiBase(
       {
         ...exampleApiConnection,
-        config: exampleApiConfig,
         debug: false,
         mapping: {
           site: exampleMapping,
           event: exampleMapping
         }
       },
+      exampleApiConfig,
       mockLogger
     )
     it('should call http client get method', async () => {

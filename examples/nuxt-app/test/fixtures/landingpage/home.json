@@ -700,6 +700,41 @@
           ]
         ]
       }
+    },
+    {
+      "component":"TideLandingPageCategoryGrid",
+      "id":"7052",
+      "title":"Category Grid",
+      "props":{
+        "items":[
+          {
+            "title":"Card one",
+            "summary":"Card one summary",
+            "image":{
+              "src":"https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Aerial-shot-of-new-housing-development.jpg",
+              "alt":"",
+              "focalPoint":null,
+              "height":667,
+              "title":"",
+              "width":1000
+            },
+            "url":"/landing-page-cc-2"
+          },
+          {
+            "title":"Card two",
+            "summary":"Card two summary",
+            "image":{
+              "src":"https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/2018-19-State-Budget.jpg",
+              "alt":"",
+              "focalPoint":null,
+              "height":667,
+              "title":"",
+              "width":1000
+            },
+            "url":"/tav2-social-sharing-exists-landing-page-fe827f16"
+          }
+        ]
+      }
     }
   ],
   "meta": {

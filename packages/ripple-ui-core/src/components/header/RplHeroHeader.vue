@@ -138,7 +138,7 @@ const handleClick = (event) => {
         @item-click="handleClick"
       />
     </template>
-    <template v-if="links && !background" #aside>
+    <template v-if="links?.items?.length && !background" #aside>
       <RplHeaderLinks
         :title="links?.title"
         :items="

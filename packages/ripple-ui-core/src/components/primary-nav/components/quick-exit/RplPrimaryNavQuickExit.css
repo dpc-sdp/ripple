@@ -1,4 +1,5 @@
-.rpl-primary-nav__quick-exit--fixed {
+/* stylelint-disable no-descending-specificity */
+.rpl-primary-nav .rpl-primary-nav__quick-exit--fixed {
   --local-quick-exit-offset: calc(var(--local-nav-bar-height) + var(--local-nav-bar-padding) + var(--rpl-sp-1));
 
   width: auto;
@@ -24,4 +25,3 @@
     }
   }
 }
-

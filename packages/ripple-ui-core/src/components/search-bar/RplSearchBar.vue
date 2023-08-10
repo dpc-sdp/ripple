@@ -19,6 +19,7 @@ interface Props {
   autoFocus?: boolean
   inputLabel?: string
   inputValue?: string
+  submitLabel?: string
   suggestions?: string[]
   maxSuggestionsDisplayed?: number
   placeholder?: string
@@ -70,14 +71,15 @@ onClickOutside(containerRef, () => {
   handleClose(false)
 })
 
-const handleSubmit = () => {
+const handleSubmit = (type: 'button' | 'enter') => {
   emitRplEvent(
     'submit',
     {
       action: 'search',
       id: props.id,
-      text: props.inputLabel,
-      value: internalValue.value
+      value: internalValue.value,
+      text: type === 'button' ? props.submitLabel : null,
+      type
     },
     { global: props.globalEvents }
   )
@@ -104,7 +106,8 @@ const handleSelectOption = (optionValue, focusBackOnInput) => {
       action: 'search',
       id: props.id,
       text: optionValue,
-      value: optionValue
+      value: optionValue,
+      type: 'suggestion'
     },
     { global: props.globalEvents }
   )
@@ -222,7 +225,7 @@ watch(activeOptionId, async (newId) => {
     :style="{
       '--local-max-items': maxSuggestionsDisplayed
     }"
-    @submit.prevent="handleSubmit"
+    @submit.prevent="handleSubmit('button')"
   >
     <div
       ref="containerRef"
@@ -254,6 +257,7 @@ watch(activeOptionId, async (newId) => {
         type="search"
         @input="handleInputChange"
         @focus="handleOpen(false)"
+        @keydown.enter.prevent="handleSubmit('enter')"
       />
 
       <div
@@ -296,7 +300,7 @@ watch(activeOptionId, async (newId) => {
       >
         <span
           class="rpl-search-bar-submit__label rpl-type-label rpl-type-weight-bold"
-          >Search</span
+          >{{ submitLabel }}</span
         >
         <span class="rpl-search-bar-submit__icon">
           <RplIcon name="icon-search" size="m" />

@@ -131,7 +131,7 @@ const handleSubmit = (event) => {
 const handleFilterSubmit = (event) => {
   doSearch()
 
-  emitSearchEvent({ ...event, text: submitFiltersLabel })
+  emitSearchEvent({ ...event, text: submitFiltersLabel, type: 'button' })
 }
 
 const handleFilterReset = () => {

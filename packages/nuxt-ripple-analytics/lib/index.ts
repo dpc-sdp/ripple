@@ -474,7 +474,8 @@ export default {
         event: `${payload.action}`,
         element_id: payload?.id,
         element_text: payload?.text,
-        value: payload?.value,
+        label: payload?.value,
+        type: payload?.type,
         name: payload?.name,
         component: 'rpl-search-bar',
         platform_event: 'search'
@@ -714,6 +715,7 @@ export default {
         filters: payload?.options,
         label: payload?.label,
         name: payload?.name,
+        type: payload?.type,
         form_id: payload?.contextId,
         component: 'tide-search',
         platform_event: 'search'

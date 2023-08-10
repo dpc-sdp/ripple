@@ -67,7 +67,8 @@ const handleFilterReset = () => {
 const handleFilterSubmit = (formValues) => {
   emit('submit', {
     text: props.submitLabel,
-    value: formValues.data
+    value: formValues.data,
+    type: 'button'
   })
 }
 </script>

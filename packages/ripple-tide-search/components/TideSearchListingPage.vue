@@ -192,11 +192,11 @@ const handleSearchSubmit = (event) => {
   }
 }
 
-const handleFilterSubmit = ({ value, text }) => {
-  filterForm.value = value
+const handleFilterSubmit = (event) => {
+  filterForm.value = event.value
   submitSearch()
 
-  emitSearchEvent({ text, ...cachedSubmitEvent.value, ...baseEvent() })
+  emitSearchEvent({ ...event, ...cachedSubmitEvent.value, ...baseEvent() })
 
   cachedSubmitEvent.value = {}
 }

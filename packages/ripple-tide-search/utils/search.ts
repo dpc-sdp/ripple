@@ -39,3 +39,16 @@ export const truncateText = (text, stop = 150, clamp) => {
   }
   return ''
 }
+
+/**
+ * @description Helper to get active filter data as URL params
+ */
+export const getActiveFilterURL = (filters) => {
+  const activeFilters = filters
+    ? Object.entries(filters).filter((o) =>
+        Array.isArray(o[1]) ? o[1].length : o[1]
+      )
+    : {}
+
+  return new URLSearchParams(activeFilters).toString()
+}

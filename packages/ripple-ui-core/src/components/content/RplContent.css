@@ -6,7 +6,9 @@
   letter-spacing: var(--rpl-type-ls-1);
 
   @media (--rpl-bp-m) {
-    max-width: var(--rpl-content-max-width);
+    > :not(.rpl-media-embed, .rpl-iframe, .rpl-img, .rpl-table) {
+      max-width: var(--rpl-content-max-width);
+    }
   }
 
   & > :first-child {

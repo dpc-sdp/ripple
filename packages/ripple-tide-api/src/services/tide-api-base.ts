@@ -1,9 +1,6 @@
 import HttpClient from './http-client.js'
 import { get } from 'lodash-es'
-import type {
-  RplTideModuleConfig,
-  RplTideModuleInternalConfig
-} from './../../types'
+import type { RplTideModuleConfig } from './../../types'
 import getHierarchicalMenu from './lib/site-menu.js'
 import { ApplicationError, WrappedAxiosError } from '../errors/errors.js'
 import axios from 'axios'
@@ -11,26 +8,20 @@ import { ILogger } from '../logger/logger'
 
 export default class TideApiBase extends HttpClient {
   tide: RplTideModuleConfig
-  internal: RplTideModuleInternalConfig
   debug: boolean | undefined
-  constructor(
-    tide: RplTideModuleConfig,
-    internal: RplTideModuleInternalConfig,
-    logger: ILogger
-  ) {
-    if (!tide || !internal) {
+  constructor(tide: RplTideModuleConfig, logger: ILogger) {
+    if (!tide) {
       throw new Error('Error - No configuration specified')
     }
     super(
       {
         client: tide.client,
-        baseUrl: `${tide.baseUrl}${internal.apiPrefix}`,
-        auth: internal.auth
+        baseUrl: `${tide.baseUrl}${tide.config?.apiPrefix}`,
+        auth: tide.config?.auth
       },
       logger
     )
     this.tide = tide
-    this.internal = internal
     this.debug = tide.debug
   }
 

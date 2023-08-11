@@ -37,9 +37,9 @@ describe('TideApiBase', () => {
         mapping: {
           site: exampleMapping,
           event: exampleMapping
-        }
+        },
+        ...exampleApiConfig
       },
-      exampleApiConfig,
       mockLogger
     )
     it('should return mapped data', async () => {
@@ -83,9 +83,9 @@ describe('TideApiBase', () => {
         mapping: {
           site: exampleMapping,
           event: exampleMapping
-        }
+        },
+        ...exampleApiConfig
       },
-      exampleApiConfig,
       mockLogger
     )
     it('should call http client get method', async () => {

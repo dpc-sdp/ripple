@@ -173,9 +173,13 @@ export interface RplTideModuleConfig {
    * nuxt-proxy options
    */
   proxy?: ModuleOptions
+  /**
+   * Private config merged at runtime
+   */
+  config?: RplTideModuleInternalConfig
 }
 
-export interface RplTideModuleInternalConfig {
+interface RplTideModuleInternalConfig {
   /**
    * Basic Auth credentials
    */

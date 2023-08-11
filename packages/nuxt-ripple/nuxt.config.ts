@@ -7,11 +7,13 @@ const assetCacheTime = 31536000 // 1 year
 export default defineNuxtConfig({
   runtimeConfig: {
     basicAuth: 0,
-    config: {
-      apiPrefix: '/api/v1',
-      auth: {
-        username: 'dpc',
-        password: 'sdp'
+    tide: {
+      config: {
+        apiPrefix: '/api/v1',
+        auth: {
+          username: 'dpc',
+          password: 'sdp'
+        }
       }
     },
     public: {

@@ -1,10 +1,6 @@
 import jsonapiParse from 'jsonapi-parse'
 import TideApiBase from './tide-api-base.js'
-import type {
-  RplTideModuleConfig,
-  RplTideModuleInternalConfig,
-  IRplTideModuleMapping
-} from './../../types'
+import type { RplTideModuleConfig, IRplTideModuleMapping } from './../../types'
 import { ApplicationError } from '../errors/errors.js'
 import { ILogger } from '../logger/logger'
 
@@ -12,12 +8,8 @@ export default class TideSite extends TideApiBase {
   site: string
   siteMapping: IRplTideModuleMapping | null
 
-  constructor(
-    tide: RplTideModuleConfig,
-    internal: RplTideModuleInternalConfig,
-    logger: ILogger
-  ) {
-    super(tide, internal, logger)
+  constructor(tide: RplTideModuleConfig, logger: ILogger) {
+    super(tide, logger)
     this.site = tide.site
     this.siteMapping = null
     this.logLabel = 'TideSite'

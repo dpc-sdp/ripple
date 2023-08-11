@@ -3,7 +3,6 @@ import TideApiBase from './tide-api-base.js'
 import defaultMapping from './lib/default-mapping.js'
 import type {
   RplTideModuleConfig,
-  RplTideModuleInternalConfig,
   IRplTideModuleMapping,
   IRplTideDynamicComponentMapping
 } from './../../types'
@@ -21,12 +20,8 @@ export default class TidePageApi extends TideApiBase {
   sectionId: string
   path: string
 
-  constructor(
-    tide: RplTideModuleConfig,
-    internal: RplTideModuleInternalConfig,
-    logger: ILogger
-  ) {
-    super(tide, internal, logger)
+  constructor(tide: RplTideModuleConfig, logger: ILogger) {
+    super(tide, logger)
     this.site = tide.site
     this.sectionId = ''
     this.path = ''

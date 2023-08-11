@@ -5,17 +5,17 @@ import { defineEventHandler, useRuntimeConfig } from '#imports'
 //
 
 export default defineEventHandler((event: any) => {
-  const { basicAuth, config } = useRuntimeConfig()
+  const { basicAuth, tide } = useRuntimeConfig()
 
   // If `basicAuth` is empty, do not prompt for authentication
-  if (!basicAuth || basicAuth === 0 || !config?.auth) {
+  if (!basicAuth || basicAuth === 0 || !tide.config.auth) {
     return
   }
 
   // Format our credentials to their corresponding header:
   // `user:pass` becomes `Basic dXNlcjpwYXNz`
   const credentials = Buffer.from(
-    `${config.auth.username}:${config.auth.password}`
+    `${tide.config.auth.username}:${tide.config.auth.password}`
   ).toString('base64')
   const validAuthHeaders = `Basic ${credentials}`
   const authHeader = getHeader(event, 'authorization')

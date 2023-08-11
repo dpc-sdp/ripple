@@ -12,6 +12,8 @@ jobs:
       contents: read
     steps:
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
       - name: Install pnpm
         uses: pnpm/action-setup@v2
         with:
@@ -26,12 +28,15 @@ jobs:
           scope: '@dpc-sdp'
       - name: Install Dependencies
         env:
+          CYPRESS_INSTALL_BINARY: 0
           PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
         run: pnpm install --frozen-lockfile
       - name: Publish canary build to @next tag
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          git config --global user.email "sdp.devs@dpc.vic.gov.au"
+          git config --global user.name "SDP Deploy"
           pnpm config set access public
           pnpm release:publish-next --yes
 

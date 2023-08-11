@@ -45,6 +45,7 @@ export default async (
   })
   const searchDriver = getSearchDriver(apiConnectorOptions, config)
   const searchState = ref(searchDriver.getState())
+  const urlManager = ref(searchDriver.URLManager)
 
   const staticFacetOptions = ref(null)
   staticSearchDriver.setSearchTerm('')
@@ -102,8 +103,8 @@ export default async (
     searchDriver.getActions().setSearchTerm(value, searchTermOptions)
   }
 
-  const goToPage = ({ value }) => {
-    searchDriver.getActions().setCurrent(value)
+  const goToPage = (newPage: number) => {
+    searchDriver.getActions().setCurrent(newPage)
     window.scrollTo(0, 0)
   }
 
@@ -125,6 +126,7 @@ export default async (
   }
 
   return {
+    urlManager,
     updateSearchTerm,
     doSearch,
     goToPage,

@@ -11,7 +11,7 @@ export type rplEventPayload = {
   type?: string
   section?: string
   theme?: string[]
-  options?: string[]
+  options?: string | string[]
   elementType?: string
   contextId?: string
   contextName?: string

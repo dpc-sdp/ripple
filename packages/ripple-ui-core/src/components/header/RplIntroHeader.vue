@@ -52,7 +52,7 @@ const handleClick = (event) => {
     <div v-if="$slots.default" data-cy="summary">
       <slot></slot>
     </div>
-    <template v-if="links" #aside>
+    <template v-if="links?.items?.length" #aside>
       <RplHeaderLinks
         :title="links?.title"
         :items="

@@ -13,13 +13,14 @@ import {
 
 interface Props {
   el?: (typeof RplCardElements)[number]
-  image: IRplImageType
+  image?: IRplImageType
   title: string
   url?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
   el: 'div',
+  image: undefined,
   url: undefined
 })
 
@@ -57,11 +58,12 @@ const handleClick = () => {
   >
     <template #upper>
       <RplImage
+        v-if="image"
+        alt=""
         class="rpl-card__media rpl-card__media--category-grid"
         v-bind="image"
         :aspect="{ xs: 'square' }"
         sizes="xs:52px"
-        alt=""
         data-cy="image"
       />
     </template>

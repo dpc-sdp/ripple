@@ -6,6 +6,10 @@
     border-left: var(--rpl-border-3) solid var(--rpl-clr-error);
     padding-left: var(--rpl-sp-3);
   }
+
+  fieldset {
+    min-width: auto;
+  }
 }
 
 .rpl-form__submit-guard {

@@ -21,7 +21,7 @@
     "@formkit/nuxt": "1.0.0-beta.15",
     "@formkit/validation": "1.0.0-beta.15",
     "@formkit/vue": "1.0.0-beta.15",
-    "@nuxt/kit": "3.5.2",
+    "@nuxt/kit": "3.6.5",
     "@vueuse/core": "^9.13.0",
     "date-fns": "^2.29.3"
   },

@@ -16,11 +16,13 @@ export interface IRplAnalyticsEventPayload {
   form_id?: string
   form_name?: string
   field_id?: string
+  filters?: string
   type?: string
   value?: string
   index?: number
   theme?: string
   section?: string
+  count?: number
   component?: string
   component_options?: string
   // Route properties

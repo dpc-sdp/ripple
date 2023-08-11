@@ -468,13 +468,14 @@ export default {
       })
     }
   },
-  'rpl-search-bar/search': () => {
+  'rpl-search-bar/submit': () => {
     return (payload: any) => {
       trackEvent({
-        event: `${payload.action}_search`,
+        event: `${payload.action}`,
         element_id: payload?.id,
         element_text: payload?.text,
-        value: payload?.value,
+        label: payload?.value,
+        type: payload?.type,
         name: payload?.name,
         component: 'rpl-search-bar',
         platform_event: 'search'
@@ -701,6 +702,71 @@ export default {
         type: 'textarea',
         component: 'rpl-form-textarea',
         platform_event: 'update'
+      })
+    }
+  },
+  // Tide search
+  'tide-search/submit': () => {
+    return (payload: any) => {
+      trackEvent({
+        event: `${payload.action}`,
+        element_id: payload?.id,
+        element_text: payload?.text,
+        filters: payload?.options,
+        label: payload?.label,
+        name: payload?.name,
+        type: payload?.type,
+        form_id: payload?.contextId,
+        component: 'tide-search',
+        platform_event: 'search'
+      })
+    }
+  },
+  'tide-search/results': () => {
+    return (payload: any) => {
+      trackEvent({
+        event: `${payload.action}_search_results`,
+        element_id: payload?.id,
+        label: payload?.label,
+        name: payload?.name,
+        form_id: payload?.contextId,
+        index: payload?.index,
+        filters: payload?.options,
+        count: payload?.value,
+        component: 'tide-search',
+        platform_event: 'search'
+      })
+    }
+  },
+  'tide-search/paginate': () => {
+    return (payload: any) => {
+      trackEvent({
+        event: `paginate_${payload.action}`,
+        element_id: payload?.id,
+        element_text: payload?.text,
+        label: payload?.label,
+        name: payload?.name,
+        form_id: payload?.contextId,
+        index: payload?.index,
+        count: payload?.value,
+        filters: payload?.options,
+        component: 'tide-search',
+        platform_event: 'paginate'
+      })
+    }
+  },
+  'tide-search/toggleFilters': () => {
+    return (payload: any) => {
+      trackEvent({
+        event: `${payload.action}_filters`,
+        element_id: payload?.id,
+        element_text: payload?.text,
+        label: payload?.label,
+        name: payload?.name,
+        form_id: payload?.contextId,
+        filters: payload?.options,
+        component: 'tide-search',
+        platform_event: 'toggleFilters'
       })
     }
   }

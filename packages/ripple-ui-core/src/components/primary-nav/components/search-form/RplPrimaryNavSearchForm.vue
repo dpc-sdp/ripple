@@ -11,8 +11,8 @@ const searchBar = ref(null)
 
 withDefaults(defineProps<Props>(), {})
 
-const handleSubmit = (value) => {
-  window.location.href = `/search?q=${value}`
+const handleSubmit = (event) => {
+  window.location.href = `/search?q=${event.value}`
 }
 
 onMounted(() => {
@@ -37,7 +37,7 @@ onMounted(() => {
         ref="searchBar"
         variant="menu"
         placeholder="Start typing..."
-        @on-submit="handleSubmit"
+        @submit="handleSubmit"
       />
     </div>
   </div>

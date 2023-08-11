@@ -19,9 +19,11 @@ interface Props {
   autoFocus?: boolean
   inputLabel?: string
   inputValue?: string
+  submitLabel?: string
   suggestions?: string[]
   maxSuggestionsDisplayed?: number
   placeholder?: string
+  globalEvents?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -32,13 +34,13 @@ const props = withDefaults(defineProps<Props>(), {
   inputValue: '',
   suggestions: () => [],
   maxSuggestionsDisplayed: 10,
-  placeholder: undefined
+  placeholder: undefined,
+  globalEvents: true
 })
 
 const emit = defineEmits<{
-  (e: 'onSubmit', value: string): void
   (e: 'update:inputValue', value: string): void
-  (e: 'search', payload: rplEventPayload & { action: 'submit' }): void
+  (e: 'submit', payload: rplEventPayload & { action: 'search' }): void
 }>()
 
 const { emitRplEvent } = useRippleEvent('rpl-search-bar', emit)
@@ -69,18 +71,17 @@ onClickOutside(containerRef, () => {
   handleClose(false)
 })
 
-const handleSubmit = () => {
-  emit('onSubmit', internalValue.value)
-
+const handleSubmit = (type: 'button' | 'enter') => {
   emitRplEvent(
-    'search',
+    'submit',
     {
-      action: 'submit',
+      action: 'search',
       id: props.id,
-      text: props.inputLabel,
-      value: internalValue.value
+      value: internalValue.value,
+      text: type === 'button' ? props.submitLabel : null,
+      type
     },
-    { global: true }
+    { global: props.globalEvents }
   )
 }
 
@@ -97,8 +98,19 @@ const handleSelectOption = (optionValue, focusBackOnInput) => {
 
   internalValue.value = optionValue
   emit('update:inputValue', optionValue)
-  emit('onSubmit', optionValue)
   isOpen.value = false
+
+  emitRplEvent(
+    'submit',
+    {
+      action: 'search',
+      id: props.id,
+      text: optionValue,
+      value: optionValue,
+      type: 'suggestion'
+    },
+    { global: props.globalEvents }
+  )
 }
 
 const getDefaultActiveId = (): string => {
@@ -213,7 +225,7 @@ watch(activeOptionId, async (newId) => {
     :style="{
       '--local-max-items': maxSuggestionsDisplayed
     }"
-    @submit.prevent="handleSubmit"
+    @submit.prevent="handleSubmit('button')"
   >
     <div
       ref="containerRef"
@@ -245,6 +257,7 @@ watch(activeOptionId, async (newId) => {
         type="search"
         @input="handleInputChange"
         @focus="handleOpen(false)"
+        @keydown.enter.prevent="handleSubmit('enter')"
       />
 
       <div
@@ -287,7 +300,7 @@ watch(activeOptionId, async (newId) => {
       >
         <span
           class="rpl-search-bar-submit__label rpl-type-label rpl-type-weight-bold"
-          >Search</span
+          >{{ submitLabel }}</span
         >
         <span class="rpl-search-bar-submit__icon">
           <RplIcon name="icon-search" size="m" />

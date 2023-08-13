@@ -1,5 +1,45 @@
 # Changelog
 
+## v2.1.0...release/2.1.1
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.0...release/2.1.1)
+
+
+### 🚀 Enhancements
+
+  - **@dpc-sdp/ripple-tide-search:** Add tide search page events ([5db04e13](https://github.com/dpc-sdp/ripple-framework/commit/5db04e13))
+  - **@dpc-sdp/ripple-tide-search:** Get URL from urlManager ([9f534cc5](https://github.com/dpc-sdp/ripple-framework/commit/9f534cc5))
+  - **@dpc-sdp/ripple-tide-search:** Add search listing events ([581fa166](https://github.com/dpc-sdp/ripple-framework/commit/581fa166))
+  - **@dpc-sdp/ripple-tide-landing-page:** Add compact card collection i.e. category grid support ([9f9b2ff4](https://github.com/dpc-sdp/ripple-framework/commit/9f9b2ff4))
+  - **@dpc-sdp/ripple-ui-core:** Move default alt above image attrs so it can be overridden ([f572cdf7](https://github.com/dpc-sdp/ripple-framework/commit/f572cdf7))
+  - **@dpc-sdp/ripple-tide-search:** Add type to search events ([037f1c65](https://github.com/dpc-sdp/ripple-framework/commit/037f1c65))
+  - **@dpc-sdp/ripple-ui-core:** Make header content 10 cols when there's no 'sidebar' ([09a49182](https://github.com/dpc-sdp/ripple-framework/commit/09a49182))
+
+### 🩹 Fixes
+
+  - **@dpc-sdp/ripple-tide-search:** 🐛  flatten filterval if an array is found ([e8f2830f](https://github.com/dpc-sdp/ripple-framework/commit/e8f2830f))
+  - **@dpc-sdp/ripple-ui-core:** Add min-width to fieldsets, this fixes overflowing dropdowns ([4cd64d7d](https://github.com/dpc-sdp/ripple-framework/commit/4cd64d7d))
+  - **@dpc-sdp/ripple-ui-core:** Ensure wysiwyg images aren't all full width ([2eabe11f](https://github.com/dpc-sdp/ripple-framework/commit/2eabe11f))
+  - **@dpc-sdp/ripple-ui-core:** Allow tables and media elements to span full width ([b54b6cce](https://github.com/dpc-sdp/ripple-framework/commit/b54b6cce))
+  - **@dpc-sdp/ripple-ui-core:** Fix quick exit positioning in build mode ([b779e9b9](https://github.com/dpc-sdp/ripple-framework/commit/b779e9b9))
+
+### 💅 Refactors
+
+  - **@dpc-sdp/ripple-tide-search:** ♻️  add separate case for prefix filter ([ebad0ac6](https://github.com/dpc-sdp/ripple-framework/commit/ebad0ac6))
+  - **@dpc-sdp/ripple-tide-search:** ♻️  add separate case for prefix filter ([1df527c4](https://github.com/dpc-sdp/ripple-framework/commit/1df527c4))
+
+### 🏡 Chore
+
+  - **@dpc-sdp/ripple-ui-core:** Swap search bar event names ([db260750](https://github.com/dpc-sdp/ripple-framework/commit/db260750))
+  - **@dpc-sdp/ripple-tide-search:** Update search bar related events following name change ([8425b87d](https://github.com/dpc-sdp/ripple-framework/commit/8425b87d))
+  - Fix publish step ([da7a3dbf](https://github.com/dpc-sdp/ripple-framework/commit/da7a3dbf))
+
+### ❤️  Contributors
+
+- David Featherston <david.featherstone@dpc.vic.gov.au>
+- Dylan Kelly <dylan.kelly@dpc.vic.gov.au>
+- Jason Smith <jason.smith@dpc.vic.gov.au>
+
 ## v2.1.0
 
 [compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.0.0-rc.1...v2.1.0)

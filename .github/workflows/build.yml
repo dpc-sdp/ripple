@@ -2,7 +2,7 @@ name: dpc-sdp/ripple/build
 on:
   workflow_call:
 env:
-  CONTENT_API_SERVER: ${{ secrets.CONTENT_API_SERVER }}
+  CONTENT_API_SERVER: ${{ vars.CONTENT_API_SERVER }}
 jobs:
   build:
     runs-on: ubuntu-latest

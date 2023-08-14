@@ -155,19 +155,6 @@ export interface RplTideModuleConfig {
    * Menu endpoint variant - default single
    */
   menuEndpoint?: 'single' | 'paginated'
-  /**
-   * Basic Auth credentials
-   */
-  config: {
-    auth?: {
-      username: string
-      password: string
-    }
-    /**
-     * api prefix path - default /api/v1
-     */
-    apiPrefix: string
-  }
   mapping: {
     /**
      * ContentType Mapping or path to file
@@ -186,6 +173,24 @@ export interface RplTideModuleConfig {
    * nuxt-proxy options
    */
   proxy?: ModuleOptions
+  /**
+   * Private config merged at runtime
+   */
+  config?: RplTideModuleInternalConfig
+}
+
+interface RplTideModuleInternalConfig {
+  /**
+   * Basic Auth credentials
+   */
+  auth?: {
+    username: string
+    password: string
+  }
+  /**
+   * api prefix path - default /api/v1
+   */
+  apiPrefix: string
 }
 
 export type { ILogger } from './src/logger/logger.js'

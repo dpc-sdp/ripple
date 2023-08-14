@@ -16,8 +16,19 @@ export default defineNitroPlugin(async (NitroApp) => {
       `error loading tide runtimeConfig, check nuxt.config.ts runtimeConfig key is set`
     )
   }
-  const pageApi = new TidePageApi(config.public.tide, logger)
-  const siteApi = new TideSiteApi(config.public.tide, logger)
+  if (!config.tide.config) {
+    logger.error(
+      `error loading tide internal runtimeConfig, check nuxt.config.ts runtimeConfig key is set`
+    )
+  }
+  const pageApi = new TidePageApi(
+    { ...config.public.tide, ...config.tide },
+    logger
+  )
+  const siteApi = new TideSiteApi(
+    { ...config.public.tide, ...config.tide },
+    logger
+  )
   NitroApp.tide = {
     pageApi,
     siteApi

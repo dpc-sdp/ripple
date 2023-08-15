@@ -228,6 +228,10 @@ export interface IRplFeatureFlags {
    * @description Sets the PROD Google Analytics measurement ID
    */
   prodMeasurementID?: string
+  /**
+   * @description Sets a secondary GTM container ID
+   */
+  gtmContainerID?: string
 }
 
 declare module 'nitropack' {

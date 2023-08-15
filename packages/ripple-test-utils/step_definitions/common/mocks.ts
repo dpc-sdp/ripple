@@ -70,23 +70,27 @@ Given(
 Given(
   'the search network request is stubbed with fixture {string} and status {int}',
   (fixture: string, status: number) => {
-    cy.intercept('POST', `/api/tide/search/**/elasticsearch/_search`, (req) => {
-      // Filter out the aggregation requests (they have size=1)
-      if (req.body.size === 1) {
+    cy.intercept(
+      'POST',
+      `/api/tide/app-search/**/elasticsearch/_search`,
+      (req) => {
+        // Filter out the aggregation requests (they have size=1)
+        if (req.body.size === 1) {
+          req.reply({
+            statusCode: status,
+            fixture: fixture
+          })
+          return
+        }
+
+        // Only apply the alias to the actual search request
+        req.alias = 'searchReq' // assign an alias
         req.reply({
           statusCode: status,
           fixture: fixture
         })
-        return
       }
-
-      // Only apply the alias to the actual search request
-      req.alias = 'searchReq' // assign an alias
-      req.reply({
-        statusCode: status,
-        fixture: fixture
-      })
-    })
+    )
   }
 )
 

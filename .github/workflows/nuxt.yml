@@ -35,8 +35,9 @@ jobs:
 
       - run: npm install ./packages/nuxt-ripple-cli --global
       # Run lighthouse test against nuxt-app example
-      - name: Run lighthouse baseline test on nuxt-app
-        run: pnpm -F nuxt-app lighthouse:ci
+      # TODO Turn lighthouse back on after unlighthouse is patched
+      # - name: Run lighthouse baseline test on nuxt-app
+      #   run: pnpm -F nuxt-app lighthouse:ci
 
   # run Cypress tests in example nuxt-app, record to Cypress cloud
   Integration:

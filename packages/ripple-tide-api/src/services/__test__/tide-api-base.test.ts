@@ -34,11 +34,11 @@ describe('TideApiBase', () => {
       {
         ...exampleApiConnection,
         debug: false,
-        config: exampleApiConfig,
         mapping: {
           site: exampleMapping,
           event: exampleMapping
-        }
+        },
+        ...exampleApiConfig
       },
       mockLogger
     )
@@ -79,12 +79,12 @@ describe('TideApiBase', () => {
     const tideApiBase = new TideApiBase(
       {
         ...exampleApiConnection,
-        config: exampleApiConfig,
         debug: false,
         mapping: {
           site: exampleMapping,
           event: exampleMapping
-        }
+        },
+        ...exampleApiConfig
       },
       mockLogger
     )

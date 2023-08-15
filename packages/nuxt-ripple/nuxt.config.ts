@@ -6,21 +6,25 @@ const assetCacheTime = 31536000 // 1 year
 
 export default defineNuxtConfig({
   runtimeConfig: {
+    basicAuth: 0,
+    tide: {
+      config: {
+        apiPrefix: '/api/v1',
+        auth: {
+          username: 'dpc',
+          password: 'sdp'
+        }
+      }
+    },
     public: {
       apiUrl: '',
       tide: {
         baseUrl: 'https://develop.content.reference.sdp.vic.gov.au',
-        site: '8888',
-        config: {
-          apiPrefix: '/api/v1',
-          auth: {
-            username: 'dpc',
-            password: 'sdp'
-          }
-        }
+        site: '8888'
       }
     }
   },
+  // @ts-ignore TS2345 adding to runtimeConfig
   robots: {
     configPath: resolve('./robots.config.ts')
   },

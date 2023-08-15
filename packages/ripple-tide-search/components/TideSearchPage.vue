@@ -129,12 +129,14 @@ const handleSubmit = (event) => {
 }
 
 const handleFilterSubmit = (event) => {
+  filterFormValues.value = event.data
   doSearch()
 
   emitSearchEvent({ ...event, text: submitFiltersLabel, type: 'button' })
 }
 
 const handleFilterReset = () => {
+  updateSearchTerm('')
   filterFormValues.value = {}
   doSearch()
 }

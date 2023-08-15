@@ -28,7 +28,7 @@ to: package.json
   },
   "devDependencies": {
     "@nuxtjs/eslint-config-typescript": "^12.0.0",
-    "nuxt": "3.5.2",
+    "nuxt": "3.6.5",
     "eslint": "^8.28.0"
   },
   "engines": {

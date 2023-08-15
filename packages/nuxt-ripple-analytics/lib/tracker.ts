@@ -38,12 +38,21 @@ export interface IRplAnalyticsEventPayload {
   }
 }
 
-const filterPayload = (payload: IRplAnalyticsEventPayload) =>
+const mapPayload = (payload: IRplAnalyticsEventPayload) =>
   Object.fromEntries(
-    Object.entries(payload).filter(
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      ([key, value]) => value !== null && value !== undefined && value !== ''
-    )
+    Object.entries(payload).map(([key, value]) => {
+      let newValue = value
+
+      if (
+        value === null ||
+        value === '' ||
+        (Array.isArray(value) && !value.length)
+      ) {
+        newValue = undefined
+      }
+
+      return [key, newValue]
+    })
   )
 
 export const trackEvent = (payload: IRplAnalyticsEventPayload) => {
@@ -53,5 +62,5 @@ export const trackEvent = (payload: IRplAnalyticsEventPayload) => {
     throw new Error('dataLayer was not initialised correctly')
   }
 
-  window.dataLayer.push(filterPayload(payload))
+  window.dataLayer.push(mapPayload(payload))
 }

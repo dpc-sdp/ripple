@@ -5,6 +5,7 @@ import { ITideCompactCard } from '../../../mapping/components/compact-cards/comp
 const props = defineProps<{
   items: ITideCompactCard[]
   hasSidebar: boolean
+  hasTitle: boolean
 }>()
 
 const columns = computed(() => {
@@ -19,7 +20,12 @@ const columns = computed(() => {
 </script>
 
 <template>
-  <ul class="rpl-grid">
+  <ul
+    :class="{
+      'rpl-grid': true,
+      'tide-category-grid--has-title': hasTitle
+    }"
+  >
     <RplCategoryGridCard
       v-for="(item, index) of items"
       :key="index"
@@ -33,3 +39,15 @@ const columns = computed(() => {
     </RplCategoryGridCard>
   </ul>
 </template>
+
+<style>
+@import '@dpc-sdp/ripple-ui-core/style/breakpoints';
+
+.tide-category-grid--has-title {
+  margin-top: var(--rpl-sp-6);
+
+  @media (--rpl-bp-l) {
+    margin-top: var(--rpl-sp-7);
+  }
+}
+</style>

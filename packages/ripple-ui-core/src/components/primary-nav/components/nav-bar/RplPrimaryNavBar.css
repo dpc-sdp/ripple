@@ -42,6 +42,7 @@
   display: block;
   width: 106px;
   height: 16px;
+  fill: var(--rpl-clr-primary-logo, var(--rpl-clr-type-primary-contrast));
 
   @media print {
     width: auto;

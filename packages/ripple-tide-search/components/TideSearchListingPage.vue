@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { getActiveFilterURL, useRoute, ref, toRaw, computed } from '#imports'
+import { getActiveFilterURL, ref, toRaw, computed } from '#imports'
 import { submitForm } from '@formkit/vue'
 import useTideSearch from './../composables/useTideSearch'
 import type { TidePageBase, TideSiteData } from '@dpc-sdp/ripple-tide-api/types'
@@ -87,7 +87,6 @@ const emit = defineEmits<{
 
 const { emitRplEvent } = useRippleEvent('tide-search', emit)
 
-const route = useRoute()
 const filtersExpanded = ref(false)
 
 const {
@@ -214,26 +213,8 @@ const handleUpdateSearchTerm = (term) => {
   }
 }
 
-function scrollToElementTopWithOffset(element, offset) {
-  const elementTop = element.getBoundingClientRect().top + window.scrollY
-  const scrollToPosition = elementTop - offset
-
-  window.scrollTo({
-    top: scrollToPosition,
-    behavior: 'smooth'
-  })
-}
-
 const handlePageChange = (event) => {
-  const navHeight = 92
-  const layoutBody = document.querySelector('.rpl-layout__body-wrap')
-
-  if (layoutBody) {
-    scrollToElementTopWithOffset(layoutBody, navHeight)
-  }
-
   goToPage(event.value)
-
   emitRplEvent(
     'paginate',
     {
@@ -372,35 +353,18 @@ watch(
           v-if="results?.length"
           data-component-type="search-listing-result-count"
         >
-          <p class="rpl-type-label rpl-u-padding-b-6">
-            Displaying {{ pagingStart + 1 }}-{{ pagingEnd + 1 }} of
-            {{ totalResults }} results
-          </p>
+          <TideSearchResultsCount
+            :pagingStart="pagingStart"
+            :pagingEnd="pagingEnd"
+            :totalResults="totalResults"
+          />
         </RplPageComponent>
       </slot>
 
       <RplPageComponent>
         <div :class="{ 'tide-search-results--loading': isBusy }">
-          <div v-if="searchError">
-            <RplContent data-component-type="search-listing-error">
-              <p class="rpl-type-h3">
-                Sorry! Something went wrong. Please try again later.
-              </p>
-            </RplContent>
-          </div>
-          <RplContent
-            v-else-if="!isBusy && !results?.length"
-            data-component-type="search-listing-no-results"
-          >
-            <p class="rpl-type-h3">
-              Sorry! We couldn't find any matches for '{{ route.query.q }}'.
-            </p>
-            <p>To improve your search results:</p>
-            <ul>
-              <li>use different or fewer keywords</li>
-              <li>check spelling.</li>
-            </ul>
-          </RplContent>
+          <TideSearchError v-if="searchError" />
+          <TideSearchNoResults v-else-if="!isBusy && !results?.length" />
 
           <slot name="results" :results="results">
             <component
@@ -422,11 +386,10 @@ watch(
           :totalPages="totalPages"
           :totalResults="totalResults"
         >
-          <RplPagination
-            v-if="totalPages > 1"
+          <TideSearchPagination
             :currentPage="page"
             :totalPages="totalPages"
-            @change="handlePageChange"
+            @paginate="handlePageChange"
           />
         </slot>
       </RplPageComponent>

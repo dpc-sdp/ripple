@@ -72,7 +72,7 @@ Given(
   (fixture: string, status: number) => {
     cy.intercept(
       'POST',
-      `/api/tide/search/${Cypress.env('searchIndex')}/elasticsearch/_search`,
+      `/api/tide/app-search/**/elasticsearch/_search`,
       (req) => {
         // Filter out the aggregation requests (they have size=1)
         if (req.body.size === 1) {
@@ -91,6 +91,29 @@ Given(
         })
       }
     )
+  }
+)
+
+/* SEARCH */
+Given(
+  'the {string} network request is stubbed with fixture {string} and status {int} as alias {string}',
+  (url: string, fixture: string, status: number, alias: string) => {
+    cy.intercept('POST', url, (req) => {
+      // Filter out the aggregation requests (they have size=1)
+      if (req.body.size === 1) {
+        req.reply({
+          statusCode: status,
+          fixture: fixture
+        })
+        return
+      }
+      // Only apply the alias to the actual search request
+      req.alias = alias // assign an alias
+      req.reply({
+        statusCode: status,
+        fixture: fixture
+      })
+    })
   }
 )
 

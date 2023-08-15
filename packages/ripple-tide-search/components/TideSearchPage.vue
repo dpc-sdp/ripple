@@ -224,50 +224,26 @@ watch(
             >{{ toggleFiltersLabel }}</RplSearchBarRefine
           >
           <RplExpandable :expanded="filtersExpanded">
-            <RplForm
-              v-if="staticFacetOptions !== null"
-              id="tide-search-filter-form"
-              v-model:model-value="filterFormValues"
+            <TideSearchFilters
+              v-if="filtersConfig && filtersConfig.length > 0"
               :title="pageTitle"
+              :filter-form-values="filterFormValues"
+              :filterInputs="filtersConfig"
+              @reset="handleFilterReset"
               @submit="handleFilterSubmit"
-            >
-              <div class="rpl-grid rpl-grid--no-row-gap tide-search-filters">
-                <div
-                  v-for="filter in filtersConfig"
-                  :key="filter.field"
-                  class="rpl-col-12 rpl-col-6-m"
-                >
-                  <FormKit
-                    :id="filter.field"
-                    :name="filter.field"
-                    type="RplFormDropdown"
-                    :multiple="true"
-                    :label="filter.label"
-                    :placeholder="filter.placeholder"
-                    :options="getFilterOptions(filter.field)"
-                  />
-                </div>
-              </div>
-              <RplFormActions
-                :label="submitFiltersLabel"
-                resetLabel="Clear search filters"
-                :displayResetButton="true"
-                :globalEvents="false"
-                @reset="handleFilterReset"
-              />
-            </RplForm>
+            />
           </RplExpandable>
         </div>
       </RplHeroHeader>
     </template>
     <template #body>
       <RplPageComponent v-if="!searchState.error && searchState.totalResults">
-        <p class="rpl-type-label rpl-u-padding-b-6">
-          Displaying {{ searchState.pagingStart }}-{{
-            searchState.pagingEnd
-          }}
-          of {{ searchState.totalResults }} results
-        </p>
+        <TideSearchResultsCount
+          v-if="!searchState.error && searchState.totalResults"
+          :pagingStart="searchState.pagingStart"
+          :pagingEnd="searchState.pagingEnd"
+          :totalResults="searchState.totalResults"
+        />
       </RplPageComponent>
       <RplPageComponent>
         <div class="rpl-grid">
@@ -279,29 +255,10 @@ watch(
                   searchState.isLoading && !searchState.error
               }"
             >
-              <div v-if="searchState.error">
-                <RplContent>
-                  <p class="rpl-type-h3">
-                    Sorry! Something went wrong. Please try again later.
-                  </p>
-                </RplContent>
-              </div>
-              <div
+              <TideSearchError v-if="searchState.error" />
+              <TideSearchNoResults
                 v-else-if="!searchState.isLoading && !searchState.totalResults"
-              >
-                <RplContent>
-                  <p class="rpl-type-h3">
-                    Sorry! We couldn't find any matches for '{{
-                      searchState.resultSearchTerm
-                    }}'.
-                  </p>
-                  <p>To improve your search results:</p>
-                  <ul>
-                    <li>use different or fewer keywords</li>
-                    <li>check spelling.</li>
-                  </ul>
-                </RplContent>
-              </div>
+              />
               <RplResultListing v-else>
                 <RplResultListingItem
                   v-for="(result, idx) in results"

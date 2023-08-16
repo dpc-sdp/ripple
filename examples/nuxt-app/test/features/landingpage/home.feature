@@ -202,6 +202,6 @@ Feature: Home page
   @mockserver
   Scenario: Page component - Category Grid i.e. compact cards
     Then a category grid with ID "7052" should exist with the following cards
-      | title    | content          | image                                                                                                                             |
-      | Card one | Card one summary | https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Aerial-shot-of-new-housing-development.jpg |
-      | Card two | Card two summary | https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/2018-19-State-Budget.jpg                   |
+      | title    | content          | image                                                                                                                             | url                 |
+      | Card one | Card one summary | https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Aerial-shot-of-new-housing-development.jpg | /landing-page-cc-2  |
+      | Card two | Card two summary | https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/2018-19-State-Budget.jpg                   | https://google.com/ |

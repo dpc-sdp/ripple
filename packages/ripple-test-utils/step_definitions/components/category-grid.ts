@@ -19,6 +19,7 @@ Then(
         .eq(i)
         .then((item) => {
           cy.wrap(item).as('item')
+          cy.get('@item').find('a').should('have.attr', 'href', row.url)
           cy.get('@item').find('.rpl-card__cta').should('contain', row.title)
           cy.get('@item')
             .find('.rpl-card__content')

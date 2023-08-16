@@ -87,7 +87,6 @@ export default async (props: any) => {
     twitterImageAlt = site.socialImages.og.alt
   }
 
-  // TODO
   const { $app_origin } = useNuxtApp()
 
   // Define SEO meta

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { reactive, onMounted, computed } from 'vue'
+import { computed } from 'vue'
 import { RplSocialShareNetworks } from './constants'
 import RplSocialShareLink from './RplSocialShareLink.vue'
 
@@ -7,6 +7,7 @@ interface Props {
   title?: string
   networks?: string[]
   pagetitle: string
+  url: string // url to be determined by caller
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -18,18 +19,10 @@ const props = withDefaults(defineProps<Props>(), {
 const validNetworks = computed(() =>
   props.networks.filter((k) => Object.keys(RplSocialShareNetworks).includes(k))
 )
-
-const state = reactive({
-  url: ''
-})
-
-onMounted(() => {
-  state.url = location.href
-})
 </script>
 
 <template>
-  <div v-if="pagetitle && state.url" class="rpl-social-share rpl-u-screen-only">
+  <div v-if="pagetitle && url" class="rpl-social-share rpl-u-screen-only">
     <h3 v-if="title" class="rpl-social-share__title rpl-type-label-large">
       {{ title }}
     </h3>
@@ -40,7 +33,7 @@ onMounted(() => {
         :network="network"
         :title="pagetitle"
         :label="title"
-        :url="state.url"
+        :url="url"
       ></RplSocialShareLink>
     </div>
   </div>

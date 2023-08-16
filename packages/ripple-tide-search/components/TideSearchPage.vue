@@ -234,7 +234,7 @@ watch(
               :title="pageTitle"
               @submit="handleFilterSubmit"
             >
-              <div class="rpl-grid rpl-grid--no-row-gap tide-search-filters">
+              <div class="rpl-grid tide-search-filters">
                 <div
                   v-for="filter in filtersConfig"
                   :key="filter.field"

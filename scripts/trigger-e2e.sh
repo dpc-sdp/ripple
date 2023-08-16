@@ -50,7 +50,7 @@ if [ -z $E2E_GITHUB_TOKEN ]; then
 else
   # Trigger GitHub Action to run the workflow
   curl --location --request POST "https://api.github.com/repos/dpc-sdp/ripple/actions/workflows/nightwatch.yml/dispatches" \
-    --header "Authorization: Bearer $GITHUE2E_GITHUB_TOKENB_ACCESS_TOKEN" \
+    --header "Authorization: Bearer $E2E_GITHUB_TOKEN" \
     --header 'Accept: application/vnd.github+json' \
     --data-raw '{
         "ref": "'"$BRANCH"'",

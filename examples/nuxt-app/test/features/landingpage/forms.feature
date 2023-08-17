@@ -5,8 +5,8 @@ Feature: Forms
   @mockserver
   Scenario: Kitchen sink
     Given the mock server has started
-    And the endpoint "/api/tide/page" with query "?path=/kitchen-sink&site=8888" returns fixture "/landingpage/full-form" with status 200
-    And the endpoint "/api/tide/site" with query "?id=8888" returns fixture "/site/reference" with status 200
+    And the page endpoint for path "/kitchen-sink" returns fixture "/landingpage/full-form" with status 200
+    And the site endpoint returns fixture "/site/reference" with status 200
     Given I visit the page "/kitchen-sink"
     Then the landing page component "TideLandingPageWebForm" should exist
     And the form with ID "full_form" should exist
@@ -42,8 +42,8 @@ Feature: Forms
   @mockserver
   Scenario: Error summary
     Given the mock server has started
-    And the endpoint "/api/tide/page" with query "?path=/kitchen-sink&site=8888" returns fixture "/landingpage/full-form" with status 200
-    And the endpoint "/api/tide/site" with query "?id=8888" returns fixture "/site/reference" with status 200
+    And page api returns fixture "/landingpage/full-form" with status 200
+    And site api returns fixture "/site/reference" with status 200
     Given I visit the page "/kitchen-sink"
     Then the landing page component "TideLandingPageWebForm" should exist
     And the form with ID "full_form" should exist
@@ -61,8 +61,8 @@ Feature: Forms
   @mockserver
   Scenario: Simple validation
     Given the mock server has started
-    And the endpoint "/api/tide/page" with query "?path=/kitchen-sink&site=8888" returns fixture "/landingpage/full-form" with status 200
-    And the endpoint "/api/tide/site" with query "?id=8888" returns fixture "/site/reference" with status 200
+    And the page endpoint for path "/kitchen-sink" returns fixture "/landingpage/full-form" with status 200
+    And the site endpoint returns fixture "/site/reference" with status 200
     Given I visit the page "/kitchen-sink"
     Then the landing page component "TideLandingPageWebForm" should exist
     And the form with ID "full_form" should exist
@@ -79,8 +79,8 @@ Feature: Forms
   @mockserver
   Scenario: Form submission - Error
     Given the mock server has started
-    And the endpoint "/api/tide/page" with query "?path=/kitchen-sink&site=8888" returns fixture "/landingpage/full-form" with status 200
-    And the endpoint "/api/tide/site" with query "?id=8888" returns fixture "/site/reference" with status 200
+    And the page endpoint for path "/kitchen-sink" returns fixture "/landingpage/full-form" with status 200
+    And the site endpoint returns fixture "/site/reference" with status 200
     And posting to endpoint "/api/tide/webform_submission/full_form" with query "?id=8888" returns fixture "/landingpage/full-form-error-response" with status 500
     Given I visit the page "/kitchen-sink"
     Then the landing page component "TideLandingPageWebForm" should exist
@@ -100,8 +100,8 @@ Feature: Forms
   @mockserver
   Scenario: Form submission - Success
     Given the mock server has started
-    And the endpoint "/api/tide/page" with query "?path=/kitchen-sink&site=8888" returns fixture "/landingpage/full-form" with status 200
-    And the endpoint "/api/tide/site" with query "?id=8888" returns fixture "/site/reference" with status 200
+    And the page endpoint for path "/kitchen-sink" returns fixture "/landingpage/full-form" with status 200
+    And the site endpoint returns fixture "/site/reference" with status 200
     And posting to endpoint "/api/tide/webform_submission/full_form" with query "?site=8888" returns fixture "/landingpage/full-form-success-response" with status 201
     Given I visit the page "/kitchen-sink"
     Then the landing page component "TideLandingPageWebForm" should exist
@@ -128,8 +128,8 @@ Feature: Forms
   @mockserver
   Scenario: Field counter
     Given the mock server has started
-    And the endpoint "/api/tide/page" with query "?path=/kitchen-sink&site=8888" returns fixture "/landingpage/full-form" with status 200
-    And the endpoint "/api/tide/site" with query "?id=8888" returns fixture "/site/reference" with status 200
+    And the page endpoint for path "/kitchen-sink" returns fixture "/landingpage/full-form" with status 200
+    And the site endpoint returns fixture "/site/reference" with status 200
     Given I visit the page "/kitchen-sink"
     Then the landing page component "TideLandingPageWebForm" should exist
     And the form with ID "full_form" should exist

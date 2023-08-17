@@ -4,8 +4,8 @@ Feature: Shared site elements
 
   @mockserver
   Scenario: Breadcrumbs (page exists in menu)
-    Given the endpoint "/api/tide/site" with query "?id=8888" returns fixture "/site/shared-elements" with status 200
-    And the endpoint "/api/tide/page" with query "?path=/level-3-item-2&site=8888" returns fixture "/landingpage/home" with status 200
+    Given the site endpoint returns fixture "/site/shared-elements" with status 200
+    And the page endpoint for path "/level-3-item-2" returns fixture "/landingpage/home" with status 200
     Given I visit the page "/level-3-item-2"
     Then the breadcrumbs should have the following items
       | text             | url             |
@@ -16,8 +16,8 @@ Feature: Shared site elements
 
   @mockserver
   Scenario: Breadcrumbs (page does not exists in menu)
-    Given the endpoint "/api/tide/site" with query "?id=8888" returns fixture "/site/shared-elements" with status 200
-    And the endpoint "/api/tide/page" with query "?path=/some-random-page&site=8888" returns fixture "/landingpage/home" with status 200
+    Given the site endpoint returns fixture "/site/shared-elements" with status 200
+    And the page endpoint for path "/some-random-page" returns fixture "/landingpage/home" with status 200
     Given I visit the page "/some-random-page"
     Then the breadcrumbs should have the following items
       | text              | url |
@@ -27,23 +27,23 @@ Feature: Shared site elements
 
   @mockserver
   Scenario: Breadcrumbs (root page)
-    Given the endpoint "/api/tide/site" with query "?id=8888" returns fixture "/site/shared-elements" with status 200
-    And the endpoint "/api/tide/page" with query "?path=/&site=8888" returns fixture "/landingpage/home" with status 200
+    Given the site endpoint returns fixture "/site/shared-elements" with status 200
+    And the page endpoint for path "/" returns fixture "/landingpage/home" with status 200
     Given I visit the page "/"
     Then the breadcrumbs should not exist
 
   @mockserver
   Scenario: Last updated date
-    Given the endpoint "/api/tide/site" with query "?id=8888" returns fixture "/site/shared-elements" with status 200
-    And the endpoint "/api/tide/page" with query "?path=/some-random-page&site=8888" returns fixture "/landingpage/home" with status 200
+    Given the site endpoint returns fixture "/site/shared-elements" with status 200
+    And the page endpoint for path "/some-random-page" returns fixture "/landingpage/home" with status 200
     Given I visit the page "/some-random-page"
 
     Then the last updated date text should read "Updated 2 November 2022"
 
   @mockserver
   Scenario: Topics and tags
-    Given the endpoint "/api/tide/site" with query "?id=8888" returns fixture "/site/shared-elements" with status 200
-    And the endpoint "/api/tide/page" with query "?path=/some-random-page&site=8888" returns fixture "/landingpage/home" with status 200
+    Given the site endpoint returns fixture "/site/shared-elements" with status 200
+    And the page endpoint for path "/some-random-page" returns fixture "/landingpage/home" with status 200
     Given I visit the page "/some-random-page"
 
     Then the page should have the following topic tags
@@ -53,8 +53,8 @@ Feature: Shared site elements
 
   @mockserver
   Scenario: Footer
-    Given the endpoint "/api/tide/site" with query "?id=8888" returns fixture "/site/shared-elements" with status 200
-    And the endpoint "/api/tide/page" with query "?path=/some-random-page&site=8888" returns fixture "/landingpage/home" with status 200
+    Given the site endpoint returns fixture "/site/shared-elements" with status 200
+    And the page endpoint for path "/some-random-page" returns fixture "/landingpage/home" with status 200
     Given I visit the page "/some-random-page"
 
     Then the footer nav section with title "Level 1 - Item 1" should have the following links
@@ -72,7 +72,7 @@ Feature: Shared site elements
     Then the footer copyright text should be "Test footer copyright html"
     Then the footer acknowledgement text should be "Test footer acknowledgement"
     Then the footer should have the following logos
-      | alt         | url          | src                                                                                                                               |
+      | alt         | url          | src                                                                                                                                      |
       | Test logo 1 | /test-logo-1 | https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Aerial-shot-of-new-housing-development.jpg?w=1984 |
       | Test logo 2 | /test-logo-2 | https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/2018-19-State-Budget.jpg?w=1984                   |
 

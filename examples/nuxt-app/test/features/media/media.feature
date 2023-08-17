@@ -4,8 +4,8 @@ Feature: Media page
 
   @mockserver
   Example: Video
-    Given the endpoint "/api/tide/page" with query "?path=/media/36&site=8888" returns fixture "/media/36" with status 200
-    And the endpoint "/api/tide/site" with query "?id=8888" returns fixture "/site/reference" with status 200
+    Given the page endpoint for path "/media/36" returns fixture "/media/36" with status 200
+    And the site endpoint returns fixture "/site/reference" with status 200
     When I visit the page "/media/36"
     Then the title should be "Demo: Embedded Video"
     And the media page should display content which includes "Video transcript content"
@@ -14,8 +14,8 @@ Feature: Media page
 
   @mockserver
   Example: Audio
-    Given the endpoint "/api/tide/page" with query "?path=/media/271&site=8888" returns fixture "/media/271" with status 200
-    And the endpoint "/api/tide/site" with query "?id=8888" returns fixture "/site/reference" with status 200
+    Given the page endpoint for path "/media/271" returns fixture "/media/271" with status 200
+    And the site endpoint returns fixture "/site/reference" with status 200
     When I visit the page "/media/271"
     Then the title should be "Demo: Audio"
     And the media page should display content which includes "Audio transcript content"

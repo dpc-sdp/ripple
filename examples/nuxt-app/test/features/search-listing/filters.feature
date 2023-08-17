@@ -3,13 +3,13 @@ Feature: Search listing - Filter
   As a user I can apply filters to my search
 
   Background:
-    Given the endpoint "/api/tide/site" with query "?id=8888" returns fixture "/site/reference" with status 200
+    Given the site endpoint returns fixture "/site/reference" with status 200
     And the search autocomplete request is stubbed with "/search-listing/suggestions/none" fixture
     And I am using a "macbook-16" device
 
   @mockserver
   Example: Raw filter - Should reflect the value from the URL
-    Given the endpoint "/api/tide/page" with query "?path=/filters&site=8888" returns fixture "/search-listing/filters/page" with status 200
+    Given the page endpoint for path "/filters" returns fixture "/search-listing/filters/page" with status 200
     And the search network request is stubbed with fixture "/search-listing/filters/response" and status 200
     And the current date is "Fri, 02 Feb 2050 03:04:05 GMT"
 
@@ -25,7 +25,7 @@ Feature: Search listing - Filter
 
   @mockserver
   Example: Term filter - Should reflect a single value from the URL
-    Given the endpoint "/api/tide/page" with query "?path=/filters&site=8888" returns fixture "/search-listing/filters/page" with status 200
+    Given the page endpoint for path "/filters" returns fixture "/search-listing/filters/page" with status 200
     And the search network request is stubbed with fixture "/search-listing/filters/response" and status 200
     And the current date is "Fri, 02 Feb 2050 03:04:05 GMT"
 
@@ -40,7 +40,7 @@ Feature: Search listing - Filter
 
   @mockserver
   Example: Term filter - Should reflect an array from the URL
-    Given the endpoint "/api/tide/page" with query "?path=/filters&site=8888" returns fixture "/search-listing/filters/page" with status 200
+    Given the page endpoint for path "/filters" returns fixture "/search-listing/filters/page" with status 200
     And the search network request is stubbed with fixture "/search-listing/filters/response" and status 200
     And the current date is "Fri, 02 Feb 2050 03:04:05 GMT"
 
@@ -55,7 +55,7 @@ Feature: Search listing - Filter
 
   @mockserver
   Example: Terms (with an 's') - Should reflect a single value from the URL
-    Given the endpoint "/api/tide/page" with query "?path=/filters&site=8888" returns fixture "/search-listing/filters/page" with status 200
+    Given the page endpoint for path "/filters" returns fixture "/search-listing/filters/page" with status 200
     And the search network request is stubbed with fixture "/search-listing/filters/response" and status 200
     And the current date is "Fri, 02 Feb 2050 03:04:05 GMT"
 
@@ -70,7 +70,7 @@ Feature: Search listing - Filter
 
   @mockserver
   Example: Terms (with an 's') - Should reflect an array from the URL
-    Given the endpoint "/api/tide/page" with query "?path=/filters&site=8888" returns fixture "/search-listing/filters/page" with status 200
+    Given the page endpoint for path "/filters" returns fixture "/search-listing/filters/page" with status 200
     And the search network request is stubbed with fixture "/search-listing/filters/response" and status 200
     And the current date is "Fri, 02 Feb 2050 03:04:05 GMT"
 
@@ -85,7 +85,7 @@ Feature: Search listing - Filter
 
   @mockserver
   Example: Custom function filters - Should reflect an array from the URL
-    Given the endpoint "/api/tide/page" with query "?path=/filters&site=8888" returns fixture "/search-listing/filters/page" with status 200
+    Given the page endpoint for path "/filters" returns fixture "/search-listing/filters/page" with status 200
     And the search network request is stubbed with fixture "/search-listing/filters/response" and status 200
     And the current date is "Fri, 02 Feb 2050 03:04:05 GMT"
 
@@ -100,7 +100,7 @@ Feature: Search listing - Filter
 
   @mockserver
   Example: Clear filters
-    Given the endpoint "/api/tide/page" with query "?path=/filters&site=8888" returns fixture "/search-listing/filters/page" with status 200
+    Given the page endpoint for path "/filters" returns fixture "/search-listing/filters/page" with status 200
     And the search network request is stubbed with fixture "/search-listing/filters/response" and status 200
     And the current date is "Fri, 02 Feb 2050 03:04:05 GMT"
 
@@ -146,7 +146,7 @@ Feature: Search listing - Filter
 
   @mockserver
   Example: Should update the URL when the filters are applied
-    Given the endpoint "/api/tide/page" with query "?path=/filters&site=8888" returns fixture "/search-listing/filters/page" with status 200
+    Given the page endpoint for path "/filters" returns fixture "/search-listing/filters/page" with status 200
     And the search network request is stubbed with fixture "/search-listing/filters/response" and status 200
     And the current date is "Fri, 02 Feb 2050 03:04:05 GMT"
 

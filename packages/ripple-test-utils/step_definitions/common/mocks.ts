@@ -31,10 +31,29 @@ Given(`the mock server has been stopped`, () => {
 })
 
 Given(
-  `the endpoint {string} with query {string} returns fixture {string} with status {int}`,
-  (route: string, query: string, fixture: string, status: number) => {
+  `the site endpoint returns fixture {string} with status {int}`,
+  (fixture: string, status: number) => {
     cy.fixture(fixture).then((response) => {
-      cy.task('setMockRouteWithQuery', { route, status, response, query })
+      cy.task('setMockRouteWithQuery', {
+        route: '/api/tide/site',
+        status,
+        response,
+        query: `?id=${Cypress.env('NUXT_PUBLIC_TIDE_SITE')}`
+      })
+    })
+  }
+)
+
+Given(
+  `the page endpoint for path {string} returns fixture {string} with status {int}`,
+  (path: string, fixture: string, status: number) => {
+    cy.fixture(fixture).then((response) => {
+      cy.task('setMockRouteWithQuery', {
+        route: '/api/tide/page',
+        status,
+        response,
+        query: `?path=${path}&site=${Cypress.env('NUXT_PUBLIC_TIDE_SITE')}`
+      })
     })
   }
 )

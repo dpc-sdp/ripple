@@ -81,7 +81,7 @@ Feature: Forms
     Given the mock server has started
     And the page endpoint for path "/kitchen-sink" returns fixture "/landingpage/full-form" with status 200
     And the site endpoint returns fixture "/site/reference" with status 200
-    And posting to endpoint "/api/tide/webform_submission/full_form" with query "?id=8888" returns fixture "/landingpage/full-form-error-response" with status 500
+    And posting form to endpoint "/api/tide/webform_submission/full_form" returns fixture "/landingpage/full-form-error-response" with status 500
     Given I visit the page "/kitchen-sink"
     Then the landing page component "TideLandingPageWebForm" should exist
     And the form with ID "full_form" should exist
@@ -102,7 +102,7 @@ Feature: Forms
     Given the mock server has started
     And the page endpoint for path "/kitchen-sink" returns fixture "/landingpage/full-form" with status 200
     And the site endpoint returns fixture "/site/reference" with status 200
-    And posting to endpoint "/api/tide/webform_submission/full_form" with query "?site=8888" returns fixture "/landingpage/full-form-success-response" with status 201
+    And posting form to endpoint "/api/tide/webform_submission/full_form" returns fixture "/landingpage/full-form-success-response" with status 201
     Given I visit the page "/kitchen-sink"
     Then the landing page component "TideLandingPageWebForm" should exist
     And the form with ID "full_form" should exist

@@ -31,6 +31,15 @@ Given(`the mock server has been stopped`, () => {
 })
 
 Given(
+  `the endpoint {string} with query {string} returns fixture {string} with status {int}`,
+  (route: string, query: string, fixture: string, status: number) => {
+    cy.fixture(fixture).then((response) => {
+      cy.task('setMockRouteWithQuery', { route, status, response, query })
+    })
+  }
+)
+
+Given(
   `the site endpoint returns fixture {string} with status {int}`,
   (fixture: string, status: number) => {
     cy.fixture(fixture).then((response) => {

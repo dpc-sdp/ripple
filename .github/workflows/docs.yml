@@ -2,7 +2,7 @@ name: Docs
 on:
   push:
     paths:
-      - '.github/**'
+      - '.github/docs.yml'
       - 'docs'
       - 'packages/ripple-ui-core/**'
       - 'packages/ripple-ui-forms/**'

@@ -49,6 +49,7 @@
     height: 30px;
     padding-top: var(--rpl-sp-1);
     padding-bottom: var(--rpl-sp-1);
+    fill: var(--rpl-clr-type-default);
   }
 }
 

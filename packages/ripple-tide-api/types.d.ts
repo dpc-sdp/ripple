@@ -23,6 +23,7 @@ export interface TideSiteData {
     href: string
     src: string
     altText: string
+    printSrc: string
   }
   showQuickExit: boolean
   cornerGraphic?: {

@@ -2,6 +2,7 @@ name: Nuxt
 on:
   push:
     paths:
+      - '.github/**'
       - 'examples/nuxt-app/**'
       - 'packages/**'
       - 'pnpm-lock.yaml'

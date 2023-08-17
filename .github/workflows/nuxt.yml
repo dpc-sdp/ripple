@@ -75,4 +75,4 @@ jobs:
           install: false
           build: pnpm build
           start: pnpm start
-          wait-on: 'http://localhost:3000/api/tide/site?id=8888'
+          wait-on: 'http://localhost:3000/api/tide/site?id=TEST_SITE'

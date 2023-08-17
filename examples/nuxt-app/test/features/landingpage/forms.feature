@@ -42,8 +42,8 @@ Feature: Forms
   @mockserver
   Scenario: Error summary
     Given the mock server has started
-    And page endpoint for path "/kitchen-sink" returns fixture "/landingpage/full-form" with status 200
-    And site endpoint returns fixture "/site/reference" with status 200
+    And the page endpoint for path "/kitchen-sink" returns fixture "/landingpage/full-form" with status 200
+    And the site endpoint returns fixture "/site/reference" with status 200
     Given I visit the page "/kitchen-sink"
     Then the landing page component "TideLandingPageWebForm" should exist
     And the form with ID "full_form" should exist

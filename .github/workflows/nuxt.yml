@@ -65,7 +65,6 @@ jobs:
           NUXT_PUBLIC_TIDE_BASE_URL: 'https://test.base.url/'
           NUXT_PUBLIC_TIDE_SITE: 'TEST_SITE'
           NUXT_PUBLIC_API_URL: 'http://localhost:3001'
-          NUXT_PUBLIC_TIDE_APP_SEARCH_ENGINE_NAME: a83890f7a31dea14e1ae83c6f0afacca-appsearch-index-default-node
           API_PORT: '3001'
           LOG_LEVEL: 'debug'
           # DEBUG: '@cypress/github-action'

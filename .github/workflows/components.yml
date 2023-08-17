@@ -2,7 +2,7 @@ name: UI Libraries
 on:
   push:
     paths:
-      - '.github/components.yml'
+      - '.github/workflows/components.yml'
       - 'packages/ripple-storybook/**'
       - 'packages/ripple-ui-core/**'
       - 'packages/ripple-ui-forms/**'

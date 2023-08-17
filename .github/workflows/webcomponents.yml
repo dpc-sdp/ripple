@@ -2,7 +2,7 @@ name: Webcomponents
 on:
   push:
     paths:
-      - '.github/webcomponents.yml'
+      - '.github/workflows/webcomponents.yml'
       - 'examples/webcomponents/**'
       - 'packages/ripple-ui-core/**'
       - 'packages/ripple-ui-forms/**'

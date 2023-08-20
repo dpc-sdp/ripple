@@ -13,7 +13,6 @@
       <slot name="primaryNav">
         <RplPrimaryNav
           :primaryLogo="{
-            printSrc: '/img/primary-nav-logo-primary-print.svg',
             altText: 'Victoria government logo',
             href: '/'
           }"

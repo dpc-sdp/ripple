@@ -3,13 +3,13 @@ Feature: Search listing - Aggregations
   As a user I can see lists of values filter values, sourced from either drupal Taxonomies or Elastic Aggregations
 
   Background:
-    Given the endpoint "/api/tide/site" with query "?id=8888" returns fixture "/site/reference" with status 200
+    Given the site endpoint returns fixture "/site/reference" with status 200
     And the search autocomplete request is stubbed with "/search-listing/suggestions/none" fixture
     And I am using a "macbook-16" device
 
   @mockserver
   Example: Aggregations and Taxonomies
-    Given the endpoint "/api/tide/page" with query "?path=/aggregations&site=8888" returns fixture "/search-listing/aggregations/page" with status 200
+    Given the page endpoint for path "/aggregations" returns fixture "/search-listing/aggregations/page" with status 200
     And the search network request is stubbed with fixture "/search-listing/aggregations/response" and status 200
     And the current date is "Fri, 02 Feb 2050 03:04:05 GMT"
 

@@ -6,6 +6,7 @@ interface ResultOptions {
 }
 
 export default (result, options: ResultOptions = { summaryMaxLength: 150 }) => {
+  const { $app_origin } = useNuxtApp()
   const title = computed(() => getSearchResultValue(result, 'title'))
   const url = computed(() => {
     const externalURL = getSearchResultValue(result, 'field_node_link')
@@ -14,7 +15,10 @@ export default (result, options: ResultOptions = { summaryMaxLength: 150 }) => {
       return externalURL
     }
 
-    return getSearchResultValue(result, 'url').replace(/\/site-(\d+)/, '')
+    return getSearchResultValue(result, 'url').replace(
+      /\/site-(\d+)/,
+      $app_origin || ''
+    )
   })
   const updated = computed(() => {
     const rawDate = getSearchResultValue(result, 'changed')

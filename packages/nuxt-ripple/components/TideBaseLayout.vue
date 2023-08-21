@@ -20,6 +20,7 @@
           :secondaryLogo="site?.siteLogo"
           :items="site?.menus.menuMain || []"
           :showQuickExit="site?.showQuickExit"
+          :showSearch="!featureFlags?.disablePrimaryNavSearch"
         >
         </RplPrimaryNav>
       </slot>

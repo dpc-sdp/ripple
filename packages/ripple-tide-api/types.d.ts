@@ -217,6 +217,10 @@ export interface IRplFeatureFlags {
    */
   disableTopicTags?: boolean
   /**
+   * @description Option to disable the display of the search form within the primary navigation
+   */
+  disablePrimaryNavSearch?: boolean
+  /**
    * @description Option to disable the display of coloured/rainbow stripes on top of promo cards
    */
   hidePromoCardStripe?: boolean

@@ -21,7 +21,8 @@ export default {
         return {
           href: '/',
           src: src.field_site_logo.url,
-          altText: src.field_site_logo.meta?.alt
+          altText: src.field_site_logo.meta?.alt,
+          printSrc: getImageFromField(src, 'field_print_friendly_logo')?.src
         }
       }
 
@@ -114,6 +115,7 @@ export default {
     'field_site_main_menu',
     'field_site_footer_menu',
     'field_site_logo',
+    'field_print_friendly_logo',
     'field_top_corner_graphic',
     'field_bottom_corner_graphic',
     'field_site_footer_logos',

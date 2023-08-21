@@ -4,7 +4,7 @@ Feature: Sitemap
 
   @mockserver
   Scenario: Visit sitemap
-    Given the endpoint "/api/tide/site" with query "?id=8888" returns fixture "/site/shared-elements" with status 200
+    Given the site endpoint returns fixture "/site/shared-elements" with status 200
     Given I visit the page "/sitemap"
     Then the sitemap should be rendered with these items
       | text             |

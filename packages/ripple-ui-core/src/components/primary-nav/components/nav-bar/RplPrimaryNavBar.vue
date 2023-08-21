@@ -81,7 +81,7 @@ const handleToggleItem = (level: number, item) => {
         <VicGovLogo
           v-if="!primaryLogo?.src"
           :aria-label="primaryLogo.altText"
-          class="rpl-primary-nav__primary-logo-image rpl-u-screen-only"
+          class="rpl-primary-nav__primary-logo-image"
         />
         <img
           v-else
@@ -90,7 +90,7 @@ const handleToggleItem = (level: number, item) => {
           :alt="primaryLogo.altText"
         />
         <img
-          v-if="primaryLogo.printSrc"
+          v-if="primaryLogo?.src && primaryLogo?.printSrc"
           class="rpl-primary-nav__primary-logo-image rpl-primary-nav__logo-alt rpl-u-print-only"
           :src="primaryLogo.printSrc"
           :alt="primaryLogo.altText"

@@ -76,7 +76,8 @@ const { public: config } = useRuntimeConfig()
 const site = await useTideSite()
 
 const apiConnectorOptions = {
-  ...config.tide?.appSearch,
+  // Omit the search key, we'll add it on the server
+  engineName: config.tide?.appSearch.engineName,
   // The search request is proxied through the API to avoid CORS issues
   endpointBase: '/api/tide/app-search'
 }
@@ -198,7 +199,7 @@ watch(
 </script>
 
 <template>
-  <TideBaseLayout :id="id">
+  <TideBaseLayout :id="id" :site="site">
     <template #aboveBody>
       <RplHeroHeader
         :title="pageTitle"

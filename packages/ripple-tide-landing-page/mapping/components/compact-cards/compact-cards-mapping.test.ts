@@ -26,7 +26,7 @@ const result: TideDynamicPageComponent<ITideCompactCards> = {
         title: 'Card two',
         summary: 'Card two summary',
         image: null,
-        url: '/tav2-social-sharing-exists-landing-page-fe827f16'
+        url: 'https://google.com/'
       }
     ]
   }

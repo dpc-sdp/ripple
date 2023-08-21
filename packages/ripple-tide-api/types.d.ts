@@ -23,6 +23,7 @@ export interface TideSiteData {
     href: string
     src: string
     altText: string
+    printSrc: string
   }
   showQuickExit: boolean
   cornerGraphic?: {
@@ -217,6 +218,10 @@ export interface IRplFeatureFlags {
    */
   disableTopicTags?: boolean
   /**
+   * @description Option to disable the display of the search form within the primary navigation
+   */
+  disablePrimaryNavSearch?: boolean
+  /**
    * @description Option to disable the display of coloured/rainbow stripes on top of promo cards
    */
   hidePromoCardStripe?: boolean
@@ -228,6 +233,10 @@ export interface IRplFeatureFlags {
    * @description Sets the PROD Google Analytics measurement ID
    */
   prodMeasurementID?: string
+  /**
+   * @description Sets a secondary GTM container ID
+   */
+  gtmContainerID?: string
 }
 
 declare module 'nitropack' {

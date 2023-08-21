@@ -56,7 +56,7 @@ export const CustomLoginButtonTemplate = (args) => ({
     primaryLogo: {
       href: '#',
       src: 'img/primary-nav-logo-primary.svg',
-      printsrc: 'img/primary-nav-logo-primary-print.svg',
+      printSrc: 'img/primary-nav-logo-primary-print.svg',
       altText: 'Primary logo alt text'
     },
     items: RplPrimaryNavItems
@@ -67,9 +67,35 @@ export const CustomLoginButtonTemplate = (args) => ({
 
 <ArgsTable of={RplPrimaryNav} />
 
+## Default
+
+This uses the default primary SVG logo inline.
+
 <Canvas>
   <Story
     name='Default'
+    play={a11yStoryCheck}
+    parameters={{
+      layout: 'fullscreen'
+    }}
+    args={{
+      primaryLogo: {
+        href: '#',
+        altText: 'Primary logo alt text'
+      }
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>
+
+## With primary logo
+
+This example uses a supplied primary logo.
+
+<Canvas>
+  <Story
+    name='With primary logo'
     play={a11yStoryCheck}
     parameters={{
       layout: 'fullscreen'
@@ -78,6 +104,10 @@ export const CustomLoginButtonTemplate = (args) => ({
     {SingleTemplate.bind()}
   </Story>
 </Canvas>
+
+## With secondary logo
+
+This example uses a supplied secondary logo.
 
 <Canvas>
   <Story
@@ -91,13 +121,17 @@ export const CustomLoginButtonTemplate = (args) => ({
         href: '#',
         src: 'img/primary-nav-logo-secondary.svg',
         altText: 'Secondary logo alt text',
-        printsrc: 'img/primary-nav-logo-secondary-print.svg'
+        printSrc: 'img/primary-nav-logo-secondary-print.svg'
       }
     }}
   >
     {SingleTemplate.bind()}
   </Story>
 </Canvas>
+
+## Default / With secondary logo
+
+This example shows the userAction slot in use.
 
 <Canvas>
   <Story

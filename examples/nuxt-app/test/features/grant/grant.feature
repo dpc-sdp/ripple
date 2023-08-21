@@ -3,8 +3,8 @@ Feature: Grant page
   Example of mocked page
 
   Background:
-    Given the endpoint "/api/tide/page" with query "?path=/tc-9a-grant-simple-test-date-range&site=8888" returns fixture "/grant/tc-9a-grant-simple-test-date-range" with status 200
-    And the endpoint "/api/tide/site" with query "?id=8888" returns fixture "/site/reference" with status 200
+    Given the page endpoint for path "/tc-9a-grant-simple-test-date-range" returns fixture "/grant/tc-9a-grant-simple-test-date-range" with status 200
+    And the site endpoint returns fixture "/site/reference" with status 200
     When I visit the page "/tc-9a-grant-simple-test-date-range"
 
   @mockserver

@@ -11,6 +11,7 @@ import {
   useRippleEvent,
   rplEventPayload
 } from '../../../../composables/useRippleEvent'
+import VicGovLogo from './../../../../assets/logos/logo-vic-gov.svg?component'
 
 interface Props {
   primaryLogo: IRplPrimaryNavLogo
@@ -77,13 +78,19 @@ const handleToggleItem = (level: number, item) => {
         class="rpl-primary-nav__primary-logo-link rpl-u-focusable-outline rpl-u-focusable-outline--no-border"
         :url="primaryLogo.href"
       >
+        <VicGovLogo
+          v-if="!primaryLogo?.src"
+          :aria-label="primaryLogo.altText"
+          class="rpl-primary-nav__primary-logo-image"
+        />
         <img
+          v-else
           class="rpl-primary-nav__primary-logo-image rpl-u-screen-only"
           :src="primaryLogo.src"
           :alt="primaryLogo.altText"
         />
         <img
-          v-if="primaryLogo.printSrc"
+          v-if="primaryLogo?.src && primaryLogo?.printSrc"
           class="rpl-primary-nav__primary-logo-image rpl-primary-nav__logo-alt rpl-u-print-only"
           :src="primaryLogo.printSrc"
           :alt="primaryLogo.altText"

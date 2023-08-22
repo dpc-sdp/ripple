@@ -6,6 +6,7 @@ export default {
 
 <script setup lang="ts">
 import { computed, inject } from 'vue'
+import { useDebounceFn } from '@vueuse/core'
 import { RplIcon } from '@dpc-sdp/ripple-ui-core/vue'
 import RplFormCounter from '../RplFormCounter/RplFormCounter.vue'
 import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
@@ -31,6 +32,7 @@ interface Props {
   required?: boolean
   centeredText?: boolean
   globalEvents?: boolean
+  throttle?: number
   onInput?: (payload: Event) => void
   onBlur?: (payload: Event) => void
 }
@@ -53,6 +55,7 @@ const props = withDefaults(defineProps<Props>(), {
   variant: 'default',
   centeredText: false,
   globalEvents: true,
+  throttle: 500,
   onInput: () => null,
   onBlur: () => null
 })
@@ -80,7 +83,7 @@ const classes = computed(() => {
 
 const isWordCounter = computed(() => props.counter === 'word')
 
-const handleChange = () => {
+const handleChange = useDebounceFn(() => {
   emitRplEvent(
     'update',
     {
@@ -93,7 +96,7 @@ const handleChange = () => {
     },
     { global: props.globalEvents }
   )
-}
+}, props.throttle)
 </script>
 
 <template>

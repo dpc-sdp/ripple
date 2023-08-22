@@ -457,7 +457,7 @@ export default {
   'rpl-search-result/navigate': () => {
     return (payload: any) => {
       trackEvent({
-        event: `${payload.action}_link`,
+        event: `${payload.action}_search_result`,
         element_id: payload?.id,
         element_text: payload?.text,
         label: payload?.label,
@@ -538,6 +538,7 @@ export default {
         event: `${payload.action}_menu_item`,
         element_id: payload?.id,
         element_text: payload?.text,
+        link_url: payload?.value,
         name: payload?.name,
         index: payload?.index,
         component: 'rpl-vertical-nav',

@@ -20,7 +20,7 @@ to: package.json
     "lint": "eslint .",
     "preview": "nuxi preview .playground",
     "test:unit": "jest --colors --runInBand --passWithNoTests",
-    "test:integration": "start-test dev:mock 'http-get://localhost:3000/api/tide/site?id=8888' 'cy:open'"
+    "test:integration": "NUXT_PUBLIC_TIDE_SITE=TEST_SITE NUXT_PUBLIC_TIDE_BASE_URL=https://test.base.url/ start-test dev:mock 'http-get://localhost:3000/assets/fonts/VIC-Regular.woff2' 'cy:open'"
   },
   "devDependencies": {
     "@babel/plugin-transform-runtime": "^7.22.4",

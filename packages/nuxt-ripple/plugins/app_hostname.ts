@@ -2,6 +2,7 @@ import { defineNuxtPlugin } from '#app'
 
 export default defineNuxtPlugin((nuxtApp) => {
   let host = ''
+  let protocol = 'https'
 
   // Get host in case of server side request
   if (import.meta.env.SSR) {
@@ -10,7 +11,11 @@ export default defineNuxtPlugin((nuxtApp) => {
     host = window.location.host
   }
 
-  const origin = new URL(`https://${host}`)
+  if (process.env.NODE_ENV === 'development' && host.startsWith('localhost')) {
+    protocol = 'http'
+  }
+
+  const origin = new URL(`${protocol}://${host}`)
 
   // Extract origin and set data in app context
   return {

@@ -23,9 +23,9 @@ to: package.json
     "cy:open": "cypress open",
     "cy:run": "cypress run",
     "test:unit": "jest --colors --runInBand --passWithNoTests",
-    "test:integration": "start-test dev:mock tcp:3000 'cy:open'",
-    "test:integration-ci": "start-test start:mock tcp:3000 'cy:run'"
-  }
+    "test:integration": "NUXT_PUBLIC_TIDE_SITE=TEST_SITE NUXT_PUBLIC_TIDE_BASE_URL=https://test.base.url/ start-test dev:mock tcp:3000 'cy:open'",
+    "test:integration-ci": "NUXT_PUBLIC_TIDE_SITE=TEST_SITE NUXT_PUBLIC_TIDE_BASE_URL=https://test.base.url/ start-test start:mock tcp:3000 'cy:run'"
+  },
   "devDependencies": {
     "@babel/plugin-transform-runtime": "^7.22.4",
     "@babel/preset-env": "^7.22.4",

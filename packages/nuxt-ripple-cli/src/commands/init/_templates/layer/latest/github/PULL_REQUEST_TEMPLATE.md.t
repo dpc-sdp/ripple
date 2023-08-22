@@ -1,5 +1,5 @@
 ---
-to: .github/PULL_REQUEST_TEMPLATE.yml
+to: .github/PULL_REQUEST_TEMPLATE.md
 ---
 <!-- Add link to JIRA eg: https://digital-vic.atlassian.net/browse/SDPAP- or GitHub Issue Number eg: #123  -->
 

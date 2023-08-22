@@ -7,7 +7,8 @@ import * as rplCypressConfigPkg from '@dpc-sdp/ripple-test-utils'
 
 export default defineConfig({
   env: {
-    searchIndex: process.env.NUXT_PUBLIC_TIDE_APP_SEARCH_ENGINE_NAME
+    searchIndex: process.env.NUXT_PUBLIC_TIDE_APP_SEARCH_ENGINE_NAME,
+    NUXT_PUBLIC_TIDE_SITE: process.env.NUXT_PUBLIC_TIDE_SITE
   },
   e2e: {
     baseUrl: 'http://localhost:3000',

@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/ripple-list-group",
-  "version": "1.38.1",
+  "version": "1.38.2",
   "description": "A container for displaying lists of components.",
   "license": "Apache-2.0",
   "main": "index.js",
@@ -10,6 +10,6 @@
     "access": "public"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-global": "1.38.1"
+    "@dpc-sdp/ripple-global": "1.38.2"
   }
 }

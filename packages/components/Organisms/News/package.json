@@ -1,14 +1,14 @@
 {
   "name": "@dpc-sdp/ripple-news",
-  "version": "1.38.1",
+  "version": "1.38.2",
   "description": "Components for displaying news articles.",
   "license": "Apache-2.0",
   "main": "index.js",
   "homepage": "https://ripple.sdp.vic.gov.au",
   "repository": "https://github.com/dpc-sdp/ripple/tree/master/packages/components/Organisms/News",
   "dependencies": {
-    "@dpc-sdp/ripple-card": "1.38.1",
-    "@dpc-sdp/ripple-global": "1.38.1",
-    "@dpc-sdp/ripple-link": "1.38.1"
+    "@dpc-sdp/ripple-card": "1.38.2",
+    "@dpc-sdp/ripple-global": "1.38.2",
+    "@dpc-sdp/ripple-link": "1.38.2"
   }
 }

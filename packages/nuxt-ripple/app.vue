@@ -1,6 +1,6 @@
 <template>
   <NuxtLayout>
-    <NuxtLoadingIndicator color="var(--rpl-clr-primary)" />
+    <TideLoadingIndicator />
     <NuxtPage />
   </NuxtLayout>
 </template>

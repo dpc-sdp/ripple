@@ -32,6 +32,7 @@ interface Props {
   required?: boolean
   centeredText?: boolean
   globalEvents?: boolean
+  throttle?: number
   onInput?: (payload: Event) => void
   onBlur?: (payload: Event) => void
 }
@@ -54,6 +55,7 @@ const props = withDefaults(defineProps<Props>(), {
   variant: 'default',
   centeredText: false,
   globalEvents: true,
+  throttle: 500,
   onInput: () => null,
   onBlur: () => null
 })
@@ -94,7 +96,7 @@ const handleChange = useDebounceFn(() => {
     },
     { global: props.globalEvents }
   )
-}, 500)
+}, props.throttle)
 </script>
 
 <template>

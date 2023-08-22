@@ -2,13 +2,13 @@ Feature: Home page
 
   Example of mocked page
   Background:
-    Given the endpoint "/api/tide/page" with query "?path=/&site=8888" returns fixture "/landingpage/home" with status 200
-    And the endpoint "/api/tide/site" with query "?id=8888" returns fixture "/site/reference" with status 200
+    Given the page endpoint for path "/" returns fixture "/landingpage/home" with status 200
+    And the site endpoint returns fixture "/site/reference" with status 200
     Given I visit the page "/"
 
   @mockserver
   Scenario: On 404
-    Given the endpoint "/api/tide/page" with query "?path=/404&site=8888" returns fixture "/errors/404" with status 404
+    Given the page endpoint for path "/404" returns fixture "/errors/404" with status 404
     Given I visit the page "/404"
 
   @mockserver
@@ -62,7 +62,7 @@ Feature: Home page
 
   @mockserver
   Scenario: Header component - Search banner
-    Given the endpoint "/api/tide/page" with query "?path=/search/cats&site=8888" returns fixture "/landingpage/home" with status 200
+    Given the page endpoint for path "/search/cats" returns fixture "/landingpage/home" with status 200
     Then a search banner with ID "1911" should exist with the placeholder "Test search placeholder"
     Then in a search banner with ID "1911", searching for "cats" should take me to "/search/cats"
 
@@ -202,6 +202,6 @@ Feature: Home page
   @mockserver
   Scenario: Page component - Category Grid i.e. compact cards
     Then a category grid with ID "7052" should exist with the following cards
-      | title    | content          | image                                                                                                                             |
-      | Card one | Card one summary | https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Aerial-shot-of-new-housing-development.jpg |
-      | Card two | Card two summary | https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/2018-19-State-Budget.jpg                   |
+      | title    | content          | image                                                                                                                             | url                 |
+      | Card one | Card one summary | https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Aerial-shot-of-new-housing-development.jpg | /landing-page-cc-2  |
+      | Card two | Card two summary | https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/2018-19-State-Budget.jpg                   | https://google.com/ |

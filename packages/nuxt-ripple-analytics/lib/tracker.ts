@@ -38,13 +38,34 @@ export interface IRplAnalyticsEventPayload {
   }
 }
 
-const filterPayload = (payload: IRplAnalyticsEventPayload) =>
-  Object.fromEntries(
-    Object.entries(payload).filter(
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      ([key, value]) => value !== null && value !== undefined && value !== ''
-    )
+/**
+ * Maps the payload object to meet analytics requirements.
+ */
+const mapPayload = (payload: IRplAnalyticsEventPayload) => {
+  const { $app_origin } = useNuxtApp()
+
+  return Object.fromEntries(
+    Object.entries(payload).map(([key, value]) => {
+      let newValue = value
+
+      // Set 'empty' values to undefined
+      if (
+        value === null ||
+        value === '' ||
+        (Array.isArray(value) && !value.length)
+      ) {
+        newValue = undefined
+      }
+
+      // Prepend origin to relative link_urls
+      if (key === 'link_url' && value?.match(/^\//)) {
+        newValue = `${$app_origin}${value}`
+      }
+
+      return [key, newValue]
+    })
   )
+}
 
 export const trackEvent = (payload: IRplAnalyticsEventPayload) => {
   if (!window) {
@@ -53,5 +74,5 @@ export const trackEvent = (payload: IRplAnalyticsEventPayload) => {
     throw new Error('dataLayer was not initialised correctly')
   }
 
-  window.dataLayer.push(filterPayload(payload))
+  window.dataLayer.push(mapPayload(payload))
 }

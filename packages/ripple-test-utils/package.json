@@ -2,7 +2,7 @@
   "packageManager": "pnpm@8.0.0",
   "name": "@dpc-sdp/ripple-test-utils",
   "description": "Test utils for Ripple sites",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "license": "Apache-2.0",
   "type": "module",
   "main": "./dist/config/index.js",
@@ -24,11 +24,11 @@
     "LICENSE"
   ],
   "dependencies": {
-    "@badeball/cypress-cucumber-preprocessor": "^18.0.2",
+    "@badeball/cypress-cucumber-preprocessor": "^18.0.4",
     "@bahmutov/cypress-esbuild-preprocessor": "^2.2.0",
     "@testing-library/cypress": "^9.0.0",
     "cypress": "^12.8.1",
-    "mockttp": "^3.7.5",
+    "mockttp": "^3.9.1",
     "start-server-and-test": "^2.0.0"
   }
 }

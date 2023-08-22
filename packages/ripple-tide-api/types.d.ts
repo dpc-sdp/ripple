@@ -23,6 +23,7 @@ export interface TideSiteData {
     href: string
     src: string
     altText: string
+    printSrc: string
   }
   showQuickExit: boolean
   cornerGraphic?: {
@@ -155,19 +156,6 @@ export interface RplTideModuleConfig {
    * Menu endpoint variant - default single
    */
   menuEndpoint?: 'single' | 'paginated'
-  /**
-   * Basic Auth credentials
-   */
-  config: {
-    auth?: {
-      username: string
-      password: string
-    }
-    /**
-     * api prefix path - default /api/v1
-     */
-    apiPrefix: string
-  }
   mapping: {
     /**
      * ContentType Mapping or path to file
@@ -186,6 +174,24 @@ export interface RplTideModuleConfig {
    * nuxt-proxy options
    */
   proxy?: ModuleOptions
+  /**
+   * Private config merged at runtime
+   */
+  config?: RplTideModuleInternalConfig
+}
+
+interface RplTideModuleInternalConfig {
+  /**
+   * Basic Auth credentials
+   */
+  auth?: {
+    username: string
+    password: string
+  }
+  /**
+   * api prefix path - default /api/v1
+   */
+  apiPrefix: string
 }
 
 export type { ILogger } from './src/logger/logger.js'
@@ -212,6 +218,10 @@ export interface IRplFeatureFlags {
    */
   disableTopicTags?: boolean
   /**
+   * @description Option to disable the display of the search form within the primary navigation
+   */
+  disablePrimaryNavSearch?: boolean
+  /**
    * @description Option to disable the display of coloured/rainbow stripes on top of promo cards
    */
   hidePromoCardStripe?: boolean
@@ -223,6 +233,10 @@ export interface IRplFeatureFlags {
    * @description Sets the PROD Google Analytics measurement ID
    */
   prodMeasurementID?: string
+  /**
+   * @description Sets a secondary GTM container ID
+   */
+  gtmContainerID?: string
 }
 
 declare module 'nitropack' {

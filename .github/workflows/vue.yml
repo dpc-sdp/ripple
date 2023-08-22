@@ -2,6 +2,7 @@ name: Vue
 on:
   push:
     paths:
+      - '.github/workflows/vue.yml'
       - 'examples/vue-app/**'
       - 'packages/ripple-ui-core/**'
       - 'packages/ripple-ui-forms/**'

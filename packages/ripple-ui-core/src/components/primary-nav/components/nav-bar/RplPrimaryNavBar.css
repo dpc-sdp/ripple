@@ -42,12 +42,14 @@
   display: block;
   width: 106px;
   height: 16px;
+  fill: var(--rpl-clr-primary-logo, var(--rpl-clr-type-primary-contrast));
 
   @media print {
     width: auto;
     height: 30px;
     padding-top: var(--rpl-sp-1);
     padding-bottom: var(--rpl-sp-1);
+    fill: var(--rpl-clr-type-default);
   }
 }
 

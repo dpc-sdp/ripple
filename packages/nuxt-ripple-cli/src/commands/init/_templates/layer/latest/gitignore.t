@@ -14,6 +14,11 @@ dist
 .DS_Store
 coverage
 
+# Cypress
+cypress/downloads
+cypress/screenshots
+cypress/videos
+
 # Local History
 .history
 

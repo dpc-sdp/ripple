@@ -11,6 +11,14 @@ export const createAppSearchHandler = async (event: H3Event) => {
     pathRewrite: {
       '^/api/tide/app-search': ''
     },
+    on: {
+      proxyReq(proxyReq) {
+        proxyReq.setHeader(
+          'Authorization',
+          `Bearer ${config.tide.appSearch.searchKey}`
+        )
+      }
+    },
     logger: logger,
     changeOrigin: true
   })

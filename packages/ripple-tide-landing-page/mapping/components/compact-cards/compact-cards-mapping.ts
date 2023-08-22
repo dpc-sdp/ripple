@@ -1,4 +1,4 @@
-import { getImageFromField } from '@dpc-sdp/ripple-tide-api'
+import { getImageFromField, getLinkFromField } from '@dpc-sdp/ripple-tide-api'
 import {
   TideDynamicPageComponent,
   TideImageField
@@ -31,7 +31,7 @@ export const compactCardsMapping = (
             item,
             'field_paragraph_media.field_media_image'
           ),
-          url: item.field_paragraph_link?.url
+          url: getLinkFromField(item, 'field_paragraph_link')?.url
         }
       })
     }

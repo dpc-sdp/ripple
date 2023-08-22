@@ -4,8 +4,8 @@ Feature: Site alerts
 
   @mockserver
   Scenario: Alert display
-    Given the endpoint "/api/tide/site" with query "?id=8888" returns fixture "/site/alerts" with status 200
-    And the endpoint "/api/tide/page" with query "?path=/&site=8888" returns fixture "/landingpage/home" with status 200
+    Given the site endpoint returns fixture "/site/alerts" with status 200
+    And the page endpoint for path "/" returns fixture "/landingpage/home" with status 200
     Given I visit the page "/"
     Then the following alerts should be displayed in this order
       | title              | icon                           | variant     | linkText  | linkUrl    |
@@ -29,8 +29,8 @@ Feature: Site alerts
       | ALERT_8 |
       | ALERT_9 |
 
-    Given the endpoint "/api/tide/site" with query "?id=8888" returns fixture "/site/alerts" with status 200
-    And the endpoint "/api/tide/page" with query "?path=/&site=8888" returns fixture "/landingpage/home" with status 200
+    Given the site endpoint returns fixture "/site/alerts" with status 200
+    And the page endpoint for path "/" returns fixture "/landingpage/home" with status 200
     Given I visit the page "/"
 
     Then the following alerts should be displayed in this order
@@ -44,8 +44,8 @@ Feature: Site alerts
 
   @mockserver
   Scenario: User dismisses alert
-    Given the endpoint "/api/tide/site" with query "?id=8888" returns fixture "/site/alerts" with status 200
-    And the endpoint "/api/tide/page" with query "?path=/&site=8888" returns fixture "/landingpage/home" with status 200
+    Given the site endpoint returns fixture "/site/alerts" with status 200
+    And the page endpoint for path "/" returns fixture "/landingpage/home" with status 200
     Given I visit the page "/"
 
     When the user dismisses the alert with ID "ALERT_2"
@@ -79,8 +79,8 @@ Feature: Site alerts
       | ALERT_8 |
       | ALERT_9 |
 
-    Given the endpoint "/api/tide/site" with query "?id=8888" returns fixture "/site/alerts" with status 200
-    And the endpoint "/api/tide/page" with query "?path=/&site=8888" returns fixture "/landingpage/home" with status 200
+    Given the site endpoint returns fixture "/site/alerts" with status 200
+    And the page endpoint for path "/" returns fixture "/landingpage/home" with status 200
     Given I visit the page "/"
 
     When the user dismisses the alert with ID "ALERT_6"
@@ -104,8 +104,8 @@ Feature: Site alerts
 
   @mockserver
   Scenario: More details link
-    Given the endpoint "/api/tide/site" with query "?id=8888" returns fixture "/site/alerts" with status 200
-    And the endpoint "/api/tide/page" with query "?path=/&site=8888" returns fixture "/landingpage/home" with status 200
+    Given the site endpoint returns fixture "/site/alerts" with status 200
+    And the page endpoint for path "/" returns fixture "/landingpage/home" with status 200
     Given I visit the page "/"
 
     Then clicking the more details link for the alert with ID "ALERT_2" should take me to "/demo-link"

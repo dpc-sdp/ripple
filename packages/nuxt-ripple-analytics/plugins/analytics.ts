@@ -57,6 +57,11 @@ export default defineNuxtPlugin((nuxtApp) => {
         const rplEventBus = app._context?.provides?.$rplEvent
         setupDataLayer()
         setupGTM(runtimeConfig?.analytics?.GTM)
+        // Check for site-specific GTM container
+        const site = nuxtApp?.payload.data?.[`site-${runtimeConfig.site}`]
+        if (site?.featureFlags?.gtmContainerID) {
+          setupGTM(site?.featureFlags?.gtmContainerID)
+        }
         if (rplEventBus && eventListeners) {
           /* Here we iterate over all imported events and add listeners to Mitt event bus */
           const evtKeys = Object.keys(eventListeners)

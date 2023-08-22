@@ -76,7 +76,8 @@ const { public: config } = useRuntimeConfig()
 const site = await useTideSite()
 
 const apiConnectorOptions = {
-  ...config.tide?.appSearch,
+  // Omit the search key, we'll add it on the server
+  engineName: config.tide?.appSearch.engineName,
   // The search request is proxied through the API to avoid CORS issues
   endpointBase: '/api/tide/app-search'
 }
@@ -129,12 +130,14 @@ const handleSubmit = (event) => {
 }
 
 const handleFilterSubmit = (event) => {
+  filterFormValues.value = event.data
   doSearch()
 
   emitSearchEvent({ ...event, text: submitFiltersLabel, type: 'button' })
 }
 
 const handleFilterReset = () => {
+  updateSearchTerm('')
   filterFormValues.value = {}
   doSearch()
 }
@@ -196,7 +199,7 @@ watch(
 </script>
 
 <template>
-  <TideBaseLayout :id="id">
+  <TideBaseLayout :id="id" :site="site">
     <template #aboveBody>
       <RplHeroHeader
         :title="pageTitle"
@@ -231,7 +234,7 @@ watch(
               :title="pageTitle"
               @submit="handleFilterSubmit"
             >
-              <div class="rpl-grid rpl-grid--no-row-gap tide-search-filters">
+              <div class="rpl-grid tide-search-filters">
                 <div
                   v-for="filter in filtersConfig"
                   :key="filter.field"

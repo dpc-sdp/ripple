@@ -122,6 +122,22 @@ $no-padding: 0;
     }
   }
 
+  ol ol {
+    list-style-type: lower-alpha;
+
+    ol {
+      list-style-type: lower-roman;
+
+      ol {
+        list-style-type: upper-latin;
+
+        ol {
+          list-style-type: upper-roman;
+        }
+      }
+    }
+  }
+
   ul li,
   ol li {
     line-height: $unordered-list-line-height;
@@ -231,7 +247,7 @@ $no-padding: 0;
     padding: $quotation-padding-xs;
     max-width: $rpl-content-max-width;
 
-    p {
+    > p {
       @include rpl_typography_ruleset($quotation-text-ruleset);
       color: $quotation-text-color;
       margin: $quotation-text-margin;

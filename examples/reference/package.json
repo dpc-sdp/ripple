@@ -1,6 +1,6 @@
 {
   "name": "reference",
-  "version": "1.38.1",
+  "version": "1.38.2",
   "description": "Reference nuxt site using Ripple front end and connecting to Tide backend",
   "private": true,
   "scripts": {
@@ -20,8 +20,8 @@
     "start:build": "nuxt build --modern=client && nuxt start --modern=client"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-data-vic-api": "1.38.1",
-    "@dpc-sdp/ripple-nuxt-tide": "1.38.1",
+    "@dpc-sdp/ripple-data-vic-api": "1.38.2",
+    "@dpc-sdp/ripple-nuxt-tide": "1.38.2",
     "@nuxtjs/gtm": "^2.4.0",
     "@nuxtjs/robots": "^2.0.0",
     "dotenv": "^5.0.1",
@@ -31,7 +31,7 @@
   "devDependencies": {
     "@babel/eslint-parser": "^7.12.13",
     "@babel/eslint-plugin": "^7.12.13",
-    "@dpc-sdp/ripple-test-tools": "1.38.1",
+    "@dpc-sdp/ripple-test-tools": "1.38.2",
     "babel-plugin-lodash": "^3.3.2",
     "cross-env": "^7.0.3",
     "eslint": "^7.19.0",

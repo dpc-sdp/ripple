@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/ripple-meta-tag",
-  "version": "1.38.1",
+  "version": "1.38.2",
   "description": "A link component to represent tags.",
   "license": "Apache-2.0",
   "main": "index.vue",
@@ -10,7 +10,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-global": "1.38.1",
-    "@dpc-sdp/ripple-link": "1.38.1"
+    "@dpc-sdp/ripple-global": "1.38.2",
+    "@dpc-sdp/ripple-link": "1.38.2"
   }
 }

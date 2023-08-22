@@ -129,7 +129,9 @@ export default {
       this.announcerTitle = `Page loading`
     },
     anchorScrollFix (hashbang) {
-      const elmnt = document.querySelector(hashbang)
+      // Hashes can start with a number "#2-item" making them invalid, so we need to use an attribute selector
+      const idSelector = `[id="${hashbang.replace('#', '')}"]`
+      const elmnt = document.querySelector(idSelector)
       if (elmnt) {
         elmnt.scrollIntoView()
       }

@@ -1,6 +1,6 @@
 {
     "name": "@dpc-sdp/ripple-tabs",
-    "version": "1.38.1",
+    "version": "1.38.2",
     "description": "Component for switching between multiple panes on content",
     "main": "index.js",
     "homepage": "https://ripple.sdp.vic.gov.au",
@@ -10,7 +10,7 @@
         "access": "public"
     },
     "dependencies": {
-        "@dpc-sdp/ripple-global": "1.38.1",
-        "@dpc-sdp/ripple-icon": "1.38.1"
+        "@dpc-sdp/ripple-global": "1.38.2",
+        "@dpc-sdp/ripple-icon": "1.38.2"
     }
 }

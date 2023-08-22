@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/ripple-responsive-img",
-  "version": "1.38.1",
+  "version": "1.38.2",
   "description": "A component which renders an image with optimised sources for each breakpoint using kraken.io querystrings",
   "license": "Apache-2.0",
   "main": "index.js",
@@ -10,6 +10,6 @@
     "access": "public"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-global": "1.38.1"
+    "@dpc-sdp/ripple-global": "1.38.2"
   }
 }

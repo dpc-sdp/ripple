@@ -16,7 +16,7 @@ soon.
 
 ### Option 2. Adding to existing Nuxt project
 
-Without using `create-nuxt-app`, you can setup it in your existing Nuxt site with
+Without using `create-nuxt-app`, you can setup it in your existing Nuxt (v3) site with
 following steps.
 
 #### Add `@dpc-sdp/ripple-nuxt-ui` dependency using yarn or npm to your project

@@ -162,7 +162,7 @@ Check out our example Vue.js app: [Vue app example](https://github.com/dpc-sdp/r
 
 #### Use Ripple in Nuxt.js(SSR) app
 
-For users are using Nuxt.js. You can use our Nuxt module [@dpc-sdp/ripple-nuxt-ui](https://www.npmjs.com/package/@dpc-sdp/ripple-nuxt-ui) to add Ripple components library to your project. This configures `@dpc-sdp/ripple-global` and adds required webpack config.
+For users are using Nuxt.js v3. You can use our Nuxt module [@dpc-sdp/ripple-nuxt-ui](https://www.npmjs.com/package/@dpc-sdp/ripple-nuxt-ui) to add Ripple components library to your project. This configures `@dpc-sdp/ripple-global` and adds required webpack config.
 
 Please see [@dpc-sdp/ripple-nuxt-ui](https://github.com/dpc-sdp/ripple/blob/master/packages/ripple-nuxt-ui/README.md) for details.
 

@@ -27,5 +27,13 @@ Feature: Site theme
     Then the site footer should have the "neutral" theme applied
     And ripple buttons should have the "neutral" theme applied
     And the hero banner should have the "neutral" theme applied
+    And the vic.gov.au logo should be displayed
+
+  @mockserver
+  Scenario: Feature flags can disable vic logo
+    Given the site endpoint returns fixture "/site/disable-vic-logo" with status 200
+    And the page endpoint for path "/" returns fixture "/landingpage/image-banner" with status 200
+    Given I visit the page "/"
+    Then the vic.gov.au logo should not be displayed
 
 

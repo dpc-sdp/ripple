@@ -1,5 +1,31 @@
 <template>
+  <template v-if="is500">
+    <div v-html="styleBlockFor500"></div>
+    <div class="rpl-error-message" :data-cy="`error-${props.error.statusCode}`">
+      <h1 class="rpl-error-message__title rpl-type-weight-bold">
+        {{ title }}
+      </h1>
+      <h2 class="rpl-error-message__intro rpl-type-p-large">
+        {{ props.error?.statusMessage }}
+      </h2>
+      <div class="rpl-error-message__body rpl-type-p">
+        <div class="rpl-content">
+          <RplContent :html="props.error.message" />
+        </div>
+      </div>
+      <a
+        href="/"
+        type="button"
+        class="rpl-button rpl-button--filled rpl-button--default rpl-u-focusable-block rpl-error-message__button"
+        aria-busy="false"
+        ><span class="rpl-button__label rpl-type-label rpl-type-weight-bold"
+          >Go back home</span
+        ></a
+      >
+    </div>
+  </template>
   <TideBaseLayout
+    v-else
     :pageTitle="`${props.error?.statusCode} - ${props.error?.statusMessage}`"
     :site="site"
     :page="{}"
@@ -30,7 +56,8 @@
 
 <script setup lang="ts">
 import { useTideSite } from '#imports'
-import { computed } from 'vue'
+import { computed, onMounted } from 'vue'
+import errorCSS from './error.css?inline'
 
 interface Props {
   error: any
@@ -38,9 +65,17 @@ interface Props {
 
 const props = defineProps<Props>()
 
-const is404 = computed(() => props.error?.statusCode === 404)
-const title = computed(() => (is404.value ? 'Oops!' : 'Sorry!'))
-const site = is404.value ? await useTideSite() : undefined
+const is500 = computed(() => props.error?.statusCode === 500)
+const title = computed(() => (is500.value ? 'Sorry!' : 'Oops!'))
+const site = is500.value ? undefined : await useTideSite()
+const styleBlockFor500 = ref(`<style>${errorCSS}</style>`)
+
+onMounted(() => {
+  // Since the template is skipped on 500, need to tell cypress that the page is ready
+  if (is500.value) {
+    document.body.setAttribute('data-nuxt-hydrated', 'true')
+  }
+})
 </script>
 
 <style>

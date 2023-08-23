@@ -12,6 +12,11 @@ import {
   rplEventPayload
 } from '../../../../composables/useRippleEvent'
 import VicGovLogo from './../../../../assets/logos/logo-vic-gov.svg?component'
+import type { IRplFeatureFlags } from '@dpc-sdp/ripple-tide-api/types'
+
+const { disablePrimaryLogo }: IRplFeatureFlags = inject('featureFlags', {
+  disablePrimaryLogo: false
+})
 
 interface Props {
   primaryLogo: IRplPrimaryNavLogo
@@ -77,6 +82,7 @@ const handleToggleItem = (level: number, item) => {
       <RplLink
         class="rpl-primary-nav__primary-logo-link rpl-u-focusable-outline rpl-u-focusable-outline--no-border"
         :url="primaryLogo.href"
+        v-if="!disablePrimaryLogo"
       >
         <VicGovLogo
           v-if="!primaryLogo?.src"

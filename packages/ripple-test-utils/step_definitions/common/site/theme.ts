@@ -32,3 +32,10 @@ Then(
     cy.get(`.rpl-header`).should('have.class', `rpl-header--${theme}`)
   }
 )
+
+Then('the vic.gov.au logo should be displayed', (theme: string) => {
+  cy.get(`[aria-label="Victoria government logo"]`).should('exist')
+})
+Then('the vic.gov.au logo should not be displayed', (theme: string) => {
+  cy.get(`[aria-label="Victoria government logo"]`).should('not.exist')
+})

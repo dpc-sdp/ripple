@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { inject } from 'vue'
 import RplIcon from '../../../icon/RplIcon.vue'
 import RplPrimaryNavBarAction from './RplPrimaryNavBarAction.vue'
 import {

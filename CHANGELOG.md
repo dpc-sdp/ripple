@@ -1,5 +1,22 @@
 # Changelog
 
+## v2.1.4
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.3...v2.1.4)
+
+
+### 🩹 Fixes
+
+  - **@dpc-sdp/ripple-ui-core:** Fix divider displaying when no cobrand ([f23bc0b5](https://github.com/dpc-sdp/ripple-framework/commit/f23bc0b5))
+
+### ✅ Tests
+
+  - **@dpc-sdp/ripple-ui-core:** ✅  add test for cobrand logo ([dc6806ca](https://github.com/dpc-sdp/ripple-framework/commit/dc6806ca))
+
+### ❤️  Contributors
+
+- Dylan Kelly <dylan.kelly@dpc.vic.gov.au>
+
 ## v2.1.3
 
 [compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.2...v2.1.3)

@@ -6,6 +6,11 @@
     "twitter": {},
     "og": {}
   },
+  "siteLogo": {
+    "href": "/",
+    "src": "https://placehold.co/140x40",
+    "altText": ""
+  },
   "featureFlags": {
     "disablePrimaryLogo": true
   },

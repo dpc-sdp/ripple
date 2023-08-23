@@ -105,7 +105,10 @@ const handleToggleItem = (level: number, item) => {
       </RplLink>
 
       <!-- Logo divider -->
-      <div v-if="secondaryLogo" class="rpl-primary-nav__logo-divider"></div>
+      <div
+        v-if="secondaryLogo && !disablePrimaryLogo"
+        class="rpl-primary-nav__logo-divider"
+      ></div>
 
       <!-- Secondary logo -->
       <RplLink

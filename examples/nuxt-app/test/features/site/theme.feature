@@ -35,5 +35,6 @@ Feature: Site theme
     And the page endpoint for path "/" returns fixture "/landingpage/image-banner" with status 200
     Given I visit the page "/"
     Then the vic.gov.au logo should not be displayed
+    And the cobrand logo should be displayed
 
 

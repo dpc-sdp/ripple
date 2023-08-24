@@ -1,28 +1,14 @@
 <template>
   <template v-if="is500">
-    <div v-html="styleBlockFor500"></div>
-    <div class="rpl-error-message" :data-cy="`error-${props.error.statusCode}`">
-      <h1 class="rpl-error-message__title rpl-type-weight-bold">
-        {{ title }}
-      </h1>
-      <h2 class="rpl-error-message__intro rpl-type-p-large">
-        {{ props.error?.statusMessage }}
-      </h2>
-      <div class="rpl-error-message__body rpl-type-p">
-        <div class="rpl-content">
-          <RplContent :html="props.error.message" />
-        </div>
-      </div>
-      <a
-        href="/"
-        type="button"
-        class="rpl-button rpl-button--filled rpl-button--default rpl-u-focusable-block rpl-error-message__button"
-        aria-busy="false"
-        ><span class="rpl-button__label rpl-type-label rpl-type-weight-bold"
-          >Go back home</span
-        ></a
-      >
-    </div>
+    <RplErrorMessage
+      :title="title"
+      :intro="props.error?.statusMessage"
+      :link="{ url: '/', text: 'Go back home' }"
+      :data-cy="`error-${props.error.statusCode}`"
+      class="tide-error-500"
+    >
+      <RplContent :html="props.error.message" />
+    </RplErrorMessage>
   </template>
   <TideBaseLayout
     v-else
@@ -57,7 +43,6 @@
 <script setup lang="ts">
 import { useTideSite } from '#imports'
 import { computed, onMounted } from 'vue'
-import errorCSS from './error.css?inline'
 
 interface Props {
   error: any
@@ -68,7 +53,8 @@ const props = defineProps<Props>()
 const is500 = computed(() => props.error?.statusCode === 500)
 const title = computed(() => (is500.value ? 'Sorry!' : 'Oops!'))
 const site = is500.value ? undefined : await useTideSite()
-const styleBlockFor500 = ref(`<style>${errorCSS}</style>`)
+
+console.log(props.error.stack)
 
 onMounted(() => {
   // Since the template is skipped on 500, need to tell cypress that the page is ready
@@ -86,5 +72,11 @@ onMounted(() => {
     margin-top: var(--rpl-sp-12);
     margin-bottom: var(--rpl-sp-1);
   }
+}
+
+.tide-error-500 {
+  margin: 0 30px;
+  min-height: 100vh;
+  justify-content: center;
 }
 </style>

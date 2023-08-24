@@ -23,6 +23,7 @@ export interface TideSiteData {
     href: string
     src: string
     altText: string
+    printSrc: string
   }
   showQuickExit: boolean
   cornerGraphic?: {
@@ -209,6 +210,10 @@ export interface IRplFeatureFlags {
    */
   footerTheme?: 'neutral' | 'default'
   /**
+   * @description Disable the primary vic.gov.au logo for sites that are not co-branded
+   */
+  disablePrimaryLogo?: boolean
+  /**
    * @description Sets which search connector to use for content collection queries
    */
   contentCollectionSearchConnector?: 'appSearch' | 'elasticsearch'
@@ -216,6 +221,10 @@ export interface IRplFeatureFlags {
    * @description Option to disable the display of topics and tags on all content types
    */
   disableTopicTags?: boolean
+  /**
+   * @description Option to disable the display of the search form within the primary navigation
+   */
+  disablePrimaryNavSearch?: boolean
   /**
    * @description Option to disable the display of coloured/rainbow stripes on top of promo cards
    */
@@ -228,6 +237,10 @@ export interface IRplFeatureFlags {
    * @description Sets the PROD Google Analytics measurement ID
    */
   prodMeasurementID?: string
+  /**
+   * @description Sets a secondary GTM container ID
+   */
+  gtmContainerID?: string
 }
 
 declare module 'nitropack' {

@@ -48,6 +48,7 @@ const grouped: TideDynamicPageComponent<any> | TideDynamicComponentGroup =
       <component
         :is="item.component"
         :hasSidebar="hasSidebar"
+        :hasTitle="!!item.title"
         v-bind="item.props"
       ></component>
     </RplPageComponent>

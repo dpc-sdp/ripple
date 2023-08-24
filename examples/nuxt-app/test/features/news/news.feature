@@ -1,8 +1,8 @@
 Feature: News page
 
   Background:
-    Given the endpoint "/api/tide/page" with query "?path=/sample-news&site=8888" returns fixture "/news/sample-news" with status 200
-    And the endpoint "/api/tide/site" with query "?id=8888" returns fixture "/site/reference" with status 200
+    Given the page endpoint for path "/sample-news" returns fixture "/news/sample-news" with status 200
+    And the site endpoint returns fixture "/site/reference" with status 200
     When I visit the page "/sample-news"
 
   @mockserver

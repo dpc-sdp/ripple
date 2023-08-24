@@ -17,8 +17,6 @@
   padding-left: var(--rpl-sp-4);
 
   @media (--rpl-bp-s) {
-    padding-top: var(--rpl-sp-3);
-    padding-bottom: var(--rpl-sp-3);
     padding-left: var(--rpl-sp-5);
   }
 
@@ -42,12 +40,14 @@
   display: block;
   width: 106px;
   height: 16px;
+  fill: var(--rpl-clr-primary-logo, var(--rpl-clr-type-primary-contrast));
 
   @media print {
     width: auto;
     height: 30px;
     padding-top: var(--rpl-sp-1);
     padding-bottom: var(--rpl-sp-1);
+    fill: var(--rpl-clr-type-default);
   }
 }
 

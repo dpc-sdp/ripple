@@ -79,6 +79,7 @@ const searchDriverOptions = {
 }
 
 const searchResultsMappingFn = (item): MappedSearchResult<any> => {
+  const { $app_origin } = useNuxtApp()
   let summaryField =
     item.summary_processed?.snippet || item.field_landing_page_summary?.snippet
 
@@ -89,7 +90,7 @@ const searchResultsMappingFn = (item): MappedSearchResult<any> => {
     component: 'TideAppSearchResult',
     props: {
       title: item.title?.raw?.[0],
-      url: item.url?.raw?.[0].replace(/\/site-(\d+)/, ''),
+      url: item.url?.raw?.[0].replace(/\/site-(\d+)/, $app_origin || ''),
       content: summaryField,
       updated: rawUpdated ? formatDate(rawUpdated) : ''
     }

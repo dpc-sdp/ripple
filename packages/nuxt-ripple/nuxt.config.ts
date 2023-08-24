@@ -17,12 +17,16 @@ export default defineNuxtConfig({
       }
     },
     public: {
+      siteUrl: '',
       apiUrl: '',
       tide: {
         baseUrl: 'https://develop.content.reference.sdp.vic.gov.au',
         site: '8888'
       }
     }
+  },
+  experimental: {
+    inlineSSRStyles: (id) => !id?.includes('entry')
   },
   // @ts-ignore TS2345 adding to runtimeConfig
   robots: {

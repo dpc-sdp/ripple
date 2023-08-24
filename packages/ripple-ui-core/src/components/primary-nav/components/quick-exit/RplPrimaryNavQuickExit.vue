@@ -16,7 +16,7 @@ interface Props {
 
 const props = withDefaults(defineProps<Props>(), {
   url: 'https://www.google.com',
-  label: 'Quick Exit',
+  label: 'Quick exit',
   parent: undefined,
   variant: 'inline'
 })

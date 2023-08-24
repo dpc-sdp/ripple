@@ -40,6 +40,34 @@ Given(
 )
 
 Given(
+  `the site endpoint returns fixture {string} with status {int}`,
+  (fixture: string, status: number) => {
+    cy.fixture(fixture).then((response) => {
+      cy.task('setMockRouteWithQuery', {
+        route: '/api/tide/site',
+        status,
+        response,
+        query: `?id=${Cypress.env('NUXT_PUBLIC_TIDE_SITE')}`
+      })
+    })
+  }
+)
+
+Given(
+  `the page endpoint for path {string} returns fixture {string} with status {int}`,
+  (path: string, fixture: string, status: number) => {
+    cy.fixture(fixture).then((response) => {
+      cy.task('setMockRouteWithQuery', {
+        route: '/api/tide/page',
+        status,
+        response,
+        query: `?path=${path}&site=${Cypress.env('NUXT_PUBLIC_TIDE_SITE')}`
+      })
+    })
+  }
+)
+
+Given(
   `the endpoint {string} returns fixture {string} with status {int}`,
   (route: string, fixture: string, status: number) => {
     cy.fixture(fixture).then((response) => {
@@ -49,10 +77,15 @@ Given(
 )
 
 Given(
-  `posting to endpoint {string} with query {string} returns fixture {string} with status {int}`,
-  (route: string, query: string, fixture: string, status: number) => {
+  `posting form to endpoint {string} returns fixture {string} with status {int}`,
+  (route: string, fixture: string, status: number) => {
     cy.fixture(fixture).then((response) => {
-      cy.task('setMockPostRouteWithQuery', { route, status, response, query })
+      cy.task('setMockPostRouteWithQuery', {
+        route,
+        status,
+        response,
+        query: `?site=${Cypress.env('NUXT_PUBLIC_TIDE_SITE')}`
+      })
     })
   }
 )

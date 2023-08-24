@@ -175,18 +175,9 @@ export default {
       default_langcode: true,
       revision_translation_affected: true,
       field_paragraph_link: {
-        uri: 'entity:node/landing_page/0b7d5bf2-bc08-4625-9e77-96cc252c0524',
+        uri: 'https://google.com/',
         title: '',
-        options: [],
-        entity: {
-          uri: 'entity:node/3359',
-          entity_type: 'node',
-          entity_id: '3359',
-          bundle: 'landing_page',
-          uuid: '0b7d5bf2-bc08-4625-9e77-96cc252c0524'
-        },
-        url: '/tav2-social-sharing-exists-landing-page-fe827f16',
-        origin_url: '/tav2-social-sharing-exists-landing-page-fe827f16'
+        options: []
       },
       field_paragraph_summary: 'Card two summary',
       field_paragraph_title: 'Card two',

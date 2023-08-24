@@ -1,0 +1,259 @@
+{
+  "took": 2,
+  "timed_out": false,
+  "_shards": {
+    "total": 5,
+    "successful": 5,
+    "skipped": 0,
+    "failed": 0
+  },
+  "hits": {
+    "total": {
+      "value": 204,
+      "relation": "eq"
+    },
+    "max_score": null,
+    "hits": [
+      {
+        "_index": "a83890f7a31dea14e1ae83c6f0afacca--elasticsearch_index_develop_node",
+        "_id": "entity:node/30004:en",
+        "_score": null,
+        "_ignored": [
+          "body.keyword"
+        ],
+        "_source": {
+          "_language": "en",
+          "node_grants": [
+            "node_access_all:0"
+          ],
+          "url": [
+            "/site-290/autumn-garden-tour"
+          ],
+          "body": [
+            "As the leaves start to turn, explore the Shrine Reserve on this special guided tour. Learn how the architectural vision for the Shrine is reflected in the gardens and symbology of plantings. Discover the role of trees in remembrance and how the sprawling gardens provide respite to remember those who have served our nation in peacekeeping and war. There are two tour times available: 10.30am and 1pm. Tour duration is 90 minutes.  Between the tours, a Devonshire tea is available to both groups and included in the ticket price. This will run from 12pm to 1pm. The starting point of the tour is the Shrine Visitor Centre. ﻿Important information to read before you book: A moderate level of fitness is required for this tour. It involves walking on both paved and grassed surfaces with some small inclines. Covered and comfortable walking shoes are recommended.  Come prepared with a hat, sunscreen and water in hot weather. In the event of extreme weather, you will be contacted by the Shrine with alternative arrangements. "
+          ],
+          "changed": [
+            "2023-01-24T13:05:21+11:00"
+          ],
+          "created": [
+            "2023-01-23T14:36:11+11:00"
+          ],
+          "field_event_category_name": [
+            "Talks and workshops"
+          ],
+          "field_event_category_tid": [
+            97
+          ],
+          "field_event_category_uuid": [
+            "24886bff-c722-4180-ad83-38c2449004da"
+          ],
+          "field_event_date_end_value": [
+            "2023-03-04T14:30:00+11:00"
+          ],
+          "field_event_date_start_value": [
+            "2023-03-04T10:30:00+11:00"
+          ],
+          "field_event_details_event_address_1": [
+            "Shrine of Remembrance"
+          ],
+          "field_event_details_event_address_line2": [
+            ""
+          ],
+          "field_event_details_event_administrative_area": [
+            ""
+          ],
+          "field_event_details_event_locality": [
+            "Melbourne"
+          ],
+          "field_event_details_event_postal_code": [
+            "3004"
+          ],
+          "field_event_details_event_price_from": [
+            "20"
+          ],
+          "field_landing_page_summary": [
+            "A special guided tour of the Shrine Reserve including Devonshire Tea."
+          ],
+          "field_media_image_absolute_path": [
+            "https://develop.content.vic.gov.au/sites/default/files/2023-01/Untitled-design-%282%29.png"
+          ],
+          "field_node_primary_csite": [
+            290
+          ],
+          "field_node_site": [
+            290,
+            4
+          ],
+          "field_paragraph_link": [
+            "https://shrine.rezdy.com/543825/autumn-garden-tour?_gl\u003d1%2A8zm3br%2A_ga%2ANTg0MjIzNDEyLjE2NDY2MDQ5NjQ.%2A_ga_J7SXS0R0D6%2AMTY3NDQ0MjEzMy4zMDguMS4xNjc0NDQ0OTUzLjU3LjAuMA.."
+          ],
+          "field_paragraph_link_text": [
+            "Book now"
+          ],
+          "field_topic": [
+            1
+          ],
+          "field_topic_name": [
+            "Arts, culture \u0026 heritage"
+          ],
+          "field_topic_path": [
+            "/topic/arts-culture-heritage"
+          ],
+          "field_topic_uuid": [
+            "46178ef3-78f4-4a5a-ab84-492e3a5a61b6"
+          ],
+          "langcode": [
+            "en"
+          ],
+          "nid": [
+            30004
+          ],
+          "status": [
+            true
+          ],
+          "summary_processed": [
+            ""
+          ],
+          "title": [
+            "Autumn Garden Tour"
+          ],
+          "type": [
+            "event"
+          ],
+          "uid": [
+            9804
+          ],
+          "uuid": [
+            "93f454fd-7ccc-48c8-9e2f-23c0d0f42d2e"
+          ]
+        },
+        "sort": [
+          1677900600000
+        ]
+      },
+      {
+        "_index": "a83890f7a31dea14e1ae83c6f0afacca--elasticsearch_index_develop_node",
+        "_id": "entity:node/30892:en",
+        "_score": null,
+        "_ignored": [
+          "body.keyword"
+        ],
+        "_source": {
+          "_language": "en",
+          "node_grants": [
+            "node_access_all:0"
+          ],
+          "url": [
+            "/site-290/march-art"
+          ],
+          "body": [
+            "Join us for a relaxing afternoon of folk, indie, jazz and contemporary music and performances by veteran musicians and artists. Stay for the Last Post Service at 4.45pm to close out the afternoon in reflection, camaraderie and commemoration.   Bring a picnic \u0026 rug! Coffee, tea and snacks are available at the Shrine Shop. This is a no-alcohol, family event.   Presented by the  Australian National Veterans Art Museum (ANVAM) as part of their annual Arts Festival, March to Art: Create ."
+          ],
+          "changed": [
+            "2023-02-28T14:10:41+11:00"
+          ],
+          "created": [
+            "2023-02-28T14:03:56+11:00"
+          ],
+          "field_event_category_name": [
+            "Talks and workshops"
+          ],
+          "field_event_category_tid": [
+            97
+          ],
+          "field_event_category_uuid": [
+            "24886bff-c722-4180-ad83-38c2449004da"
+          ],
+          "field_event_date_end_value": [
+            "2023-03-21T16:30:00+11:00"
+          ],
+          "field_event_date_start_value": [
+            "2023-03-19T13:30:00+11:00"
+          ],
+          "field_event_details_event_address_1": [
+            "Education Courtyard, Shrine of Remembrance"
+          ],
+          "field_event_details_event_address_line2": [
+            ""
+          ],
+          "field_event_details_event_administrative_area": [
+            "VIC"
+          ],
+          "field_event_details_event_locality": [
+            "Bendigo"
+          ],
+          "field_event_details_event_postal_code": [
+            "3001"
+          ],
+          "field_event_details_event_requirements_name": [
+            "Free admission",
+            "Child friendly"
+          ],
+          "field_event_details_event_requirements_tid": [
+            86,
+            85
+          ],
+          "field_event_details_event_requirements_uuid": [
+            "88709d94-4be0-4a38-803d-f1d178edcdcf",
+            "a603acbb-b184-4ce6-bc17-5f676663df98"
+          ],
+          "field_event_intro_text": [
+            "Live music at the Shrine"
+          ],
+          "field_landing_page_summary": [
+            "Join us for a relaxing afternoon of folk, indie, jazz \u0026 contemporary music and performances by veteran musicians and artists."
+          ],
+          "field_media_image_absolute_path": [
+            "https://develop.content.vic.gov.au/sites/default/files/2023-02/818-x-496.jpg"
+          ],
+          "field_node_primary_csite": [
+            290
+          ],
+          "field_node_site": [
+            290,
+            4
+          ],
+          "field_topic": [
+            3
+          ],
+          "field_topic_name": [
+            "Communities"
+          ],
+          "field_topic_path": [
+            "/topic/communities"
+          ],
+          "field_topic_uuid": [
+            "99d1629f-0227-4e91-bd83-e5998636074a"
+          ],
+          "langcode": [
+            "en"
+          ],
+          "nid": [
+            30892
+          ],
+          "status": [
+            true
+          ],
+          "summary_processed": [
+            ""
+          ],
+          "title": [
+            "March to Art"
+          ],
+          "type": [
+            "event"
+          ],
+          "uid": [
+            7443
+          ],
+          "uuid": [
+            "73aa803c-009c-4174-be97-5a00b4cf9458"
+          ]
+        },
+        "sort": [
+          1679203800000
+        ]
+      }
+    ]
+  }
+}

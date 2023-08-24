@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { inject } from 'vue'
 import RplIcon from '../../../icon/RplIcon.vue'
 import RplPrimaryNavBarAction from './RplPrimaryNavBarAction.vue'
 import {
@@ -11,6 +12,12 @@ import {
   useRippleEvent,
   rplEventPayload
 } from '../../../../composables/useRippleEvent'
+import VicGovLogo from './../../../../assets/logos/logo-vic-gov.svg?component'
+import type { IRplFeatureFlags } from '@dpc-sdp/ripple-tide-api/types'
+
+const { disablePrimaryLogo }: IRplFeatureFlags = inject('featureFlags', {
+  disablePrimaryLogo: false
+})
 
 interface Props {
   primaryLogo: IRplPrimaryNavLogo
@@ -76,14 +83,21 @@ const handleToggleItem = (level: number, item) => {
       <RplLink
         class="rpl-primary-nav__primary-logo-link rpl-u-focusable-outline rpl-u-focusable-outline--no-border"
         :url="primaryLogo.href"
+        v-if="!disablePrimaryLogo"
       >
+        <VicGovLogo
+          v-if="!primaryLogo?.src"
+          :aria-label="primaryLogo.altText"
+          class="rpl-primary-nav__primary-logo-image"
+        />
         <img
+          v-else
           class="rpl-primary-nav__primary-logo-image rpl-u-screen-only"
           :src="primaryLogo.src"
           :alt="primaryLogo.altText"
         />
         <img
-          v-if="primaryLogo.printSrc"
+          v-if="primaryLogo?.src && primaryLogo?.printSrc"
           class="rpl-primary-nav__primary-logo-image rpl-primary-nav__logo-alt rpl-u-print-only"
           :src="primaryLogo.printSrc"
           :alt="primaryLogo.altText"
@@ -91,7 +105,10 @@ const handleToggleItem = (level: number, item) => {
       </RplLink>
 
       <!-- Logo divider -->
-      <div v-if="secondaryLogo" class="rpl-primary-nav__logo-divider"></div>
+      <div
+        v-if="secondaryLogo && !disablePrimaryLogo"
+        class="rpl-primary-nav__logo-divider"
+      ></div>
 
       <!-- Secondary logo -->
       <RplLink

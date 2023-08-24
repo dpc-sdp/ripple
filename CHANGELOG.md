@@ -1,5 +1,28 @@
 # Changelog
 
+## v2.1.6
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.4...v2.1.6)
+
+
+### 🚀 Enhancements
+
+  - **@dpc-sdp/ripple-tide-event:** Add event search result card ([67f6c95f](https://github.com/dpc-sdp/ripple-framework/commit/67f6c95f))
+
+### 🩹 Fixes
+
+  - **@dpc-sdp/ripple-ui-core:** 💄  remove overflowing padding ([bbdef3be](https://github.com/dpc-sdp/ripple-framework/commit/bbdef3be))
+
+### 🏡 Chore
+
+  - 🔖  release 2.1.5 ([3f77f7fb](https://github.com/dpc-sdp/ripple-framework/commit/3f77f7fb))
+
+### ❤️  Contributors
+
+- Dylan Kelly <dylan.kelly@dpc.vic.gov.au>
+- Jason Smith <jason.smith@dpc.vic.gov.au>
+- David Featherston <david.featherstone@dpc.vic.gov.au>
+
 ## v2.1.5
 
 [compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.4...v2.1.5)

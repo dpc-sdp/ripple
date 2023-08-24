@@ -17,8 +17,6 @@
   padding-left: var(--rpl-sp-4);
 
   @media (--rpl-bp-s) {
-    padding-top: var(--rpl-sp-3);
-    padding-bottom: var(--rpl-sp-3);
     padding-left: var(--rpl-sp-5);
   }
 

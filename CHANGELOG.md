@@ -1,5 +1,53 @@
 # Changelog
 
+## v2.1.7
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.4...v2.1.7)
+
+
+### 🚀 Enhancements
+
+  - **@dpc-sdp/ripple-tide-event:** Add event search result card ([67f6c95f](https://github.com/dpc-sdp/ripple-framework/commit/67f6c95f))
+
+### 🩹 Fixes
+
+  - **@dpc-sdp/ripple-ui-core:** 💄  remove overflowing padding ([bbdef3be](https://github.com/dpc-sdp/ripple-framework/commit/bbdef3be))
+  - **nuxt-ripple:** 🐛  fix css load order on build ([9bd2f8b4](https://github.com/dpc-sdp/ripple-framework/commit/9bd2f8b4))
+
+### 🏡 Chore
+
+  - 🔖  release 2.1.5 ([3f77f7fb](https://github.com/dpc-sdp/ripple-framework/commit/3f77f7fb))
+  - 🔖  release 2.1.6 ([57d44abb](https://github.com/dpc-sdp/ripple-framework/commit/57d44abb))
+
+### ❤️  Contributors
+
+- Dylan Kelly <dylan.kelly@dpc.vic.gov.au>
+- Jason Smith <jason.smith@dpc.vic.gov.au>
+- David Featherston <david.featherstone@dpc.vic.gov.au>
+
+## v2.1.6
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.4...v2.1.6)
+
+
+### 🚀 Enhancements
+
+  - **@dpc-sdp/ripple-tide-event:** Add event search result card ([67f6c95f](https://github.com/dpc-sdp/ripple-framework/commit/67f6c95f))
+
+### 🩹 Fixes
+
+  - **@dpc-sdp/ripple-ui-core:** 💄  remove overflowing padding ([bbdef3be](https://github.com/dpc-sdp/ripple-framework/commit/bbdef3be))
+
+### 🏡 Chore
+
+  - 🔖  release 2.1.5 ([3f77f7fb](https://github.com/dpc-sdp/ripple-framework/commit/3f77f7fb))
+
+### ❤️  Contributors
+
+- Dylan Kelly <dylan.kelly@dpc.vic.gov.au>
+- Jason Smith <jason.smith@dpc.vic.gov.au>
+- David Featherston <david.featherstone@dpc.vic.gov.au>
+
 ## v2.1.5
 
 [compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.4...v2.1.5)

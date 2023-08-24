@@ -21,3 +21,28 @@ Then(
     })
   }
 )
+
+Then(
+  'the event search listing results should have following items:',
+  (dataTable: DataTable) => {
+    const table = dataTable.hashes()
+
+    table.forEach((row, i: number) => {
+      cy.get('.tide-event-search-result')
+        .eq(i)
+        .then((item) => {
+          cy.wrap(item).as('item')
+          cy.get('@item').should('contain', row.title)
+          cy.get('@item').should('contain', row.content)
+          cy.get('@item')
+            .find('a')
+            .should('have.attr', 'href')
+            .should('contain', row.url)
+          cy.get('@item').find('.rpl-card__meta').should('contain', row.date)
+          cy.get('@item')
+            .find('.tide-event-search-result__location')
+            .should('contain', row.location)
+        })
+    })
+  }
+)

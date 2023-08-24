@@ -1,5 +1,10 @@
 <template>
-  <RplNavCard :title="chapter.title" :url="chapter.url" class="rpl-col-12">
+  <RplNavCard
+    :title="chapter.title"
+    :url="chapter.url"
+    el="li"
+    class="rpl-col-12"
+  >
     <p>{{ chapter.summary }}</p>
   </RplNavCard>
 </template>

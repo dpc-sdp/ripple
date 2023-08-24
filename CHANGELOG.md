@@ -1,5 +1,49 @@
 # Changelog
 
+## v2.1.4
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.3...v2.1.4)
+
+
+### 🩹 Fixes
+
+  - **@dpc-sdp/ripple-ui-core:** Fix divider displaying when no cobrand ([f23bc0b5](https://github.com/dpc-sdp/ripple-framework/commit/f23bc0b5))
+
+### ✅ Tests
+
+  - **@dpc-sdp/ripple-ui-core:** ✅  add test for cobrand logo ([dc6806ca](https://github.com/dpc-sdp/ripple-framework/commit/dc6806ca))
+
+### ❤️  Contributors
+
+- Dylan Kelly <dylan.kelly@dpc.vic.gov.au>
+
+## v2.1.3
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.2...v2.1.3)
+
+
+### 🚀 Enhancements
+
+  - **@dpc-sdp/ripple-ui-core:** ✨  add ability to disable primary vic logo via flag ([c4a1b981](https://github.com/dpc-sdp/ripple-framework/commit/c4a1b981))
+
+### 🩹 Fixes
+
+  - **nuxt-ripple:** 🐛  use RplTextLink ([c95a3ac9](https://github.com/dpc-sdp/ripple-framework/commit/c95a3ac9))
+  - **@dpc-sdp/ripple-tide-publication:** 🐛  use li for card element ([5be7e137](https://github.com/dpc-sdp/ripple-framework/commit/5be7e137))
+
+### ✅ Tests
+
+  - **@dpc-sdp/ripple-ui-core:** ✅  add missing import ([b40e2fdc](https://github.com/dpc-sdp/ripple-framework/commit/b40e2fdc))
+
+### 🎨 Styles
+
+  - **@dpc-sdp/ripple-ui-core:** ✏️  use sentence case ([b4c18149](https://github.com/dpc-sdp/ripple-framework/commit/b4c18149))
+
+### ❤️  Contributors
+
+- Jason Smith <jason.smith@dpc.vic.gov.au>
+- Dylan Kelly <dylan.kelly@dpc.vic.gov.au>
+
 ## v2.1.2
 
 [compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.1...v2.1.2)

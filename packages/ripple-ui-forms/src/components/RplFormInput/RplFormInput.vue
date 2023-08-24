@@ -22,6 +22,8 @@ interface Props {
   label?: string
   prefixIcon?: string
   suffixIcon?: string
+  min?: number
+  max?: number
   minlength?: number
   maxlength?: number
   counter?: 'word' | 'character'
@@ -44,6 +46,8 @@ const props = withDefaults(defineProps<Props>(), {
   label: undefined,
   prefixIcon: undefined,
   suffixIcon: undefined,
+  min: undefined,
+  max: undefined,
   minlength: undefined,
   maxlength: undefined,
   counter: undefined,
@@ -120,6 +124,8 @@ const handleChange = useDebounceFn(() => {
         v-bind="$attrs"
         :name="name"
         :value="value"
+        :min="min"
+        :max="max"
         :minlength="!isWordCounter ? minlength : null"
         :maxlength="!isWordCounter ? maxlength : null"
         @blur="onBlur"

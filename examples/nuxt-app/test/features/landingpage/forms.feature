@@ -18,6 +18,7 @@ Feature: Forms
     Then a "number" input with the label "Quantity" should exist
     Then a "url" input with the label "Website" should exist
     Then a "tel" input with the label "Mobile phone" should exist
+    Then a "date" input with the label "Date of birth" should exist
     Then a select field with the label "Favourite colour" should exist
       | required |
       | true     |

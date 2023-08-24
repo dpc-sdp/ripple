@@ -25,6 +25,9 @@ export default defineNuxtConfig({
       }
     }
   },
+  experimental: {
+    inlineSSRStyles: (id) => !id?.includes('entry')
+  },
   // @ts-ignore TS2345 adding to runtimeConfig
   robots: {
     configPath: resolve('./robots.config.ts')

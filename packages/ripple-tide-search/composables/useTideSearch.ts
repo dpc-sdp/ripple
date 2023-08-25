@@ -122,7 +122,7 @@ export default (
       const itm = userFilterConfig.find((itm: any) => itm.id === key)
       let filterVal = filterForm.value[key]
 
-      if (itm.component === 'TideSearchFilterDropdown') {
+      if (itm.filter?.multiple !== false) {
         filterVal = filterForm.value[key] && Array.from(filterForm.value[key])
       }
 

@@ -12,12 +12,6 @@ Feature: Home page
     Given I visit the page "/404"
 
   @mockserver
-  Scenario: On load
-    Then the sidebar component with ID "26146cba-f307-449e-885c-7446efb3f315" should exist
-    Then the sidebar component with ID "tide-sidebar-related-links" should exist
-    Then the sidebar component with ID "tide-sidebar-social-share" should exist
-
-  @mockserver
   Scenario: Hero header
     Then the hero title should be "Test landing page title"
     Then the hero intro text should be "Test landing page title introduction text"

@@ -10,7 +10,7 @@ Feature: Media page
     Then the title should be "Demo: Embedded Video"
     And the media page should display content which includes "Video transcript content"
     And the media page should have the timestamp of "2022-10-26T01:06:33+00:00"
-    And the media page should include a video embed with source "https://www.youtube.com/embed/YYrvm5zaAjk?autoplay=0&start=0&rel=0"
+    And the media page should include a video embed with source "https://www.youtube.com/embed/YYrvm5zaAjk"
 
   @mockserver
   Example: Audio

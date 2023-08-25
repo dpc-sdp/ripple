@@ -26,6 +26,7 @@ const setupGTM = (GTM_ID: string) => {
 export default defineNuxtPlugin((nuxtApp) => {
   const appConfig = useAppConfig()?.ripple
   const runtimeConfig = useRuntimeConfig()?.public?.tide
+  const production = useRuntimeConfig()?.public?.isProduction
   const eventListeners: Record<string, any> =
     appConfig?.analytics?.eventListeners
 
@@ -38,7 +39,7 @@ export default defineNuxtPlugin((nuxtApp) => {
 
       if (appConfig?.analytics?.routeChange === false) return
 
-      let payload = routeChange({ route, site, page })
+      let payload = routeChange({ production, route, site, page })
 
       // let the main nuxt app and layers extend or override the payload
       if (typeof appConfig?.analytics?.routeChange === 'object') {

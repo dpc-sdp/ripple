@@ -4,11 +4,12 @@ import { getBreadcrumbs } from '#imports'
 const trimValue = (value: any) =>
   typeof value === 'string' ? value.trim() : value
 
-export default function ({ route, site, page }): IRplAnalyticsEventPayload {
-  const production =
-    typeof process !== 'undefined' &&
-    process?.env?.LAGOON_ENVIRONMENT_TYPE === 'production'
-
+export default function ({
+  production,
+  route,
+  site,
+  page
+}): IRplAnalyticsEventPayload {
   const payload: IRplAnalyticsEventPayload = {
     production,
     event: 'routeChange',

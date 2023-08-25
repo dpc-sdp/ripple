@@ -19,3 +19,9 @@ Feature: Error pages
     Then the error page "/404" has a status of 404
     And the error content contains the status 404
 
+  @mockserver
+  Example: 401
+    Given the page endpoint for path "/401" returns fixture "/errors/401" with status 401
+    When I visit the page "/401"
+    Then the error page "/401" has a status of 401
+    And the error content contains the status 401

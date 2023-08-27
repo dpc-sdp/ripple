@@ -1,13 +1,12 @@
 import { IRplAnalyticsEventPayload } from './tracker'
 import { getBreadcrumbs } from '#imports'
+import { useRuntimeConfig } from '#app'
 
 const trimValue = (value: any) =>
   typeof value === 'string' ? value.trim() : value
 
 export default function ({ route, site, page }): IRplAnalyticsEventPayload {
-  const production =
-    typeof process !== 'undefined' &&
-    process?.env?.LAGOON_ENVIRONMENT_TYPE === 'production'
+  const production = useRuntimeConfig()?.public?.isProduction
 
   const payload: IRplAnalyticsEventPayload = {
     production,

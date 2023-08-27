@@ -19,6 +19,7 @@ export default defineNuxtConfig({
     public: {
       siteUrl: '',
       apiUrl: '',
+      isProduction: process.env?.LAGOON_ENVIRONMENT_TYPE === 'production',
       tide: {
         baseUrl: 'https://develop.content.reference.sdp.vic.gov.au',
         site: '8888'

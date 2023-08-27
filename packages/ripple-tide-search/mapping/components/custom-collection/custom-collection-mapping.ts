@@ -8,7 +8,7 @@ export const customCollectionMapping = (
     component: 'TideCustomCollection',
     id: field.drupal_internal__id.toString(),
     props: {
-      ...parseJSONField(field.field_custom_collection_config)
+      ...field.field_content_collection_config
     }
   }
 }

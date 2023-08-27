@@ -14,7 +14,7 @@ on:
         type: string
 jobs:
   e2e_be:
-    if: startsWith(github.ref_name , 'release/') && inputs.e2e
+    if: inputs.e2e
     uses: dpc-sdp/github-actions/.github/workflows/run_e2e_be.yml@build
     secrets: inherit
     with:
@@ -25,7 +25,7 @@ jobs:
       test_id: 'fixture'
       test_type: ':nightwatch:'
   e2e_fe_smoke:
-    if: startsWith(github.ref_name , 'release/') && inputs.e2e
+    if: inputs.e2e
     uses: dpc-sdp/github-actions/.github/workflows/run_e2e_fe.yml@build
     secrets: inherit
     with:
@@ -40,7 +40,7 @@ jobs:
     needs:
       - e2e_be
       - e2e_fe_smoke
-    if: startsWith(github.ref_name , 'release/') && inputs.e2e
+    if: inputs.e2e
     uses: dpc-sdp/github-actions/.github/workflows/run_e2e_fe.yml@build
     secrets: inherit
     with:
@@ -55,7 +55,7 @@ jobs:
     needs:
       - e2e_be
       - e2e_fe_smoke
-    if: startsWith(github.ref_name , 'release/') && inputs.e2e
+    if: inputs.e2e
     uses: dpc-sdp/github-actions/.github/workflows/run_e2e_fe.yml@build
     secrets: inherit
     with:

@@ -11,6 +11,18 @@ import {
 } from '#imports'
 import type { TideSearchListingPage } from './../types'
 
+const escapeJSONString = (raw: string): string => {
+  return `${raw}`
+    .replace(/[\\]/g, '\\\\')
+    .replace(/["]/g, '\\"')
+    .replace(/[/]/g, '\\/')
+    .replace(/[\b]/g, '\\b')
+    .replace(/[\f]/g, '\\f')
+    .replace(/[\n]/g, '\\n')
+    .replace(/[\r]/g, '\\r')
+    .replace(/[\t]/g, '\\t')
+}
+
 export default (
   queryConfig: TideSearchListingPage['queryConfig'],
   userFilterConfig: TideSearchListingPage['userFilters'],
@@ -30,8 +42,10 @@ export default (
     key: string,
     value: string
   ) => {
+    const escapedValue = escapeJSONString(value)
+
     const re = new RegExp(key, 'g')
-    return JSON.parse(JSON.stringify(obj).replace(re, value))
+    return JSON.parse(JSON.stringify(obj).replace(re, escapedValue))
   }
 
   const isBusy = ref(true)

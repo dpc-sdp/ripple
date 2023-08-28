@@ -81,9 +81,9 @@ const handleToggleItem = (level: number, item) => {
     >
       <!-- Primary logo -->
       <RplLink
+        v-if="!disablePrimaryLogo"
         class="rpl-primary-nav__primary-logo-link rpl-u-focusable-outline rpl-u-focusable-outline--no-border"
         :url="primaryLogo.href"
-        v-if="!disablePrimaryLogo"
       >
         <VicGovLogo
           v-if="!primaryLogo?.src"

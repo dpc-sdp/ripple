@@ -2,7 +2,7 @@ Feature: Shared site elements
 
   As a user I can view and interact with shared elements such as the primary nav and footer.
 
-  @mockserver @only
+  @mockserver
   Scenario: Page title
     Given the site endpoint returns fixture "/site/shared-elements" with status 200
     And the page endpoint for path "/" returns fixture "/landingpage/home" with status 200

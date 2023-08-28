@@ -160,6 +160,7 @@ useHead({
   htmlAttrs: {
     lang: props.pageLanguage || 'en-AU'
   },
+  title: `${props.pageTitle} | ${site.name}`,
   style: style && [
     {
       children: `:root, body { ${style} }`

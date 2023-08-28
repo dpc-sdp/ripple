@@ -25,7 +25,6 @@ export default async (props: any) => {
     htmlAttrs: {
       lang: props.pageLanguage || 'en-AU'
     },
-    title: `${props.pageTitle} | ${site.name}`,
     link: links
   })
 

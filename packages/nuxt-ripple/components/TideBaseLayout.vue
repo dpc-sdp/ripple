@@ -93,15 +93,20 @@
 
 <script setup lang="ts">
 // @ts-ignore
-import { useHead, useSiteTheme, useAppConfig, useRoute } from '#imports'
+import {
+  useHead,
+  useSiteTheme,
+  useAppConfig,
+  useRoute,
+  useTidePageMeta,
+  useTideLanguage
+} from '#imports'
 import { computed, onMounted, provide, ref } from 'vue'
 import { defu as defuMerge } from 'defu'
 import { TideSiteData } from '../types'
 import { TideTopicTag } from '../mapping/base/topic-tags/topic-tags-mapping'
 import { TideSiteSection } from '@dpc-sdp/ripple-tide-api/types'
 import hideAlertsOnLoadScript from '../utils/hideAlertsOnLoadScript.js'
-import useTidePageMeta from '../composables/use-tide-page-meta'
-import useTideLanguage from '../composables/use-tide-language'
 
 interface Props {
   site: TideSiteData
@@ -155,7 +160,6 @@ useHead({
   htmlAttrs: {
     lang: props.pageLanguage || 'en-AU'
   },
-  title: props.pageTitle,
   style: style && [
     {
       children: `:root, body { ${style} }`

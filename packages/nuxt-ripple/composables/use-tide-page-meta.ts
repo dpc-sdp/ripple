@@ -25,7 +25,7 @@ export default async (props: any) => {
     htmlAttrs: {
       lang: props.pageLanguage || 'en-AU'
     },
-    title: props.pageTitle,
+    title: `${props.pageTitle} | ${site.name}`,
     link: links
   })
 
@@ -36,7 +36,9 @@ export default async (props: any) => {
     },
     metaOverrides = {}
   additionalMeta
-    .filter((attr: any) => attr.tag === 'meta')
+    .filter(
+      (attr: any) => attr.tag === 'meta' && attr.attributes.name !== 'title'
+    )
     .map((attr: any) => {
       if (attr.attributes.name || attr.attributes.property)
         if (

@@ -11,7 +11,7 @@ Feature: Home page
     Given the page endpoint for path "/404" returns fixture "/errors/404" with status 404
     Given I visit the page "/404"
 
-  @mockserver @only
+  @mockserver
   Scenario: Hero header
     Then the hero title should be "Test landing page title"
     Then the hero intro text should be "Test landing page title introduction text"

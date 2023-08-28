@@ -64,7 +64,8 @@ export default defineNuxtPlugin((nuxtApp) => {
       })
 
     // Determine unified description
-    let description = page.meta.description
+    let description = page.meta?.description
+
     if (metaDescriptions.ogDescription !== '') {
       description = metaDescriptions.ogDescription
     } else if (metaDescriptions.description !== '') {
@@ -74,7 +75,7 @@ export default defineNuxtPlugin((nuxtApp) => {
     // Determine images
     let featuredImage = '',
       featuredImageAlt = ''
-    if (page.meta.image) {
+    if (page.meta?.image) {
       featuredImage = page.meta.image.src
       featuredImageAlt = page.meta.image.alt
     } else if (site.socialImages.og) {
@@ -84,7 +85,7 @@ export default defineNuxtPlugin((nuxtApp) => {
 
     let twitterImage = '',
       twitterImageAlt = ''
-    if (page.meta.image) {
+    if (page.meta?.image) {
       twitterImage = page.meta.image.src
       twitterImageAlt = page.meta.image.alt
     } else if (site.socialImages.twitter) {
@@ -104,7 +105,7 @@ export default defineNuxtPlugin((nuxtApp) => {
       ogTitle: props.pageTitle,
       ogDescription: description,
       ogType: 'website',
-      ogUrl: $app_origin + page.meta.url,
+      ogUrl: $app_origin + page.meta?.url,
       ogImage: featuredImage,
       ogImageAlt: featuredImageAlt,
       twitterCard: 'summary',
@@ -113,7 +114,7 @@ export default defineNuxtPlugin((nuxtApp) => {
       twitterDescription: description,
       twitterImage: twitterImage,
       twitterImageAlt: twitterImageAlt,
-      keywords: page.meta.keywords,
+      keywords: page.meta?.keywords,
 
       // Custom props
       sitesection: props.siteSection ? props.siteSection.name : null,

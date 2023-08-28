@@ -67,6 +67,12 @@ const handleClick = () => {
 
   state.enabled = !state.enabled
 }
+
+const hasComponent = (r: any) =>
+  typeof r === 'object' && r.hasOwnProperty('component')
+
+const parseLabel = (r: any) =>
+  typeof r === 'object' && r.hasOwnProperty('label') ? r.label : r
 </script>
 
 <template>
@@ -76,16 +82,9 @@ const handleClick = () => {
         :is="i === 0 && verticalHeader ? 'th' : 'td'"
         v-for="(item, i) of items"
         :key="i"
-        :data-label="
-          typeof columns[i] === 'string' ? columns[i] : (columns[i] as tableColumnConfig).label
-        "
+        :data-label="parseLabel(columns[i])"
       >
-        <template
-          v-if="
-            typeof columns[i] === 'object' &&
-            columns[i].hasOwnProperty('component')
-          "
-        >
+        <template v-if="hasComponent(columns[i])">
           <component
             :is="(columns[i] as tableColumnConfig).component"
             :item="item"

@@ -6,7 +6,7 @@ Feature: Home page
     And the site endpoint returns fixture "/site/reference" with status 200
     Given I visit the page "/"
 
-  @mockserver
+  @only @mockserver
   Scenario: Page component - Basic text
     Then a wysiwyg content area with ID "969" should exist with the content "Here is some sample rich text content"
 

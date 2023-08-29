@@ -214,3 +214,22 @@ Then(
     })
   }
 )
+
+Then(
+  'the {string} pagination link should have an aria-label {string}',
+  (label: string, text: string) => {
+    cy.get('.rpl-pagination__link')
+      .contains(label)
+      .should('have.attr', 'aria-label', text)
+  }
+)
+
+Then(
+  'the {string} complex pagination link should have an aria-label {string}',
+  (label: string, text: string) => {
+    cy.get('.rpl-pagination__page')
+      .contains(label)
+      .parent()
+      .should('have.attr', 'aria-label', text)
+  }
+)

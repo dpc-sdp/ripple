@@ -61,7 +61,7 @@ const mappedItems = computed(() => {
             caption
           }}
         </caption>
-        <thead>
+        <thead v-if="columns.length > 0">
           <tr>
             <th v-for="(item, index) in columns" :key="index">
               <template

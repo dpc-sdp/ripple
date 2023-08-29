@@ -8,6 +8,13 @@ export const map = async (src, tidePageApi: TidePageApi) => {
   // The section/site id comes from the drupal 'route' api
   const siteId = tidePageApi.sectionId
 
+  // For share links and preview we dont have the sectionId so cant fetch the menu
+  if (!siteId) {
+    // TODO : The route endpoint loops through all sites and chooses the last one, we should do this here only
+    // this will be a performance hit but we probably dont care for unpublished items
+    return null
+  }
+
   // With the correct site/section id, we can now choose the correct site data from 'field_node_site'
   const siteData = src.field_node_site.find((site) => {
     return `${site.drupal_internal__tid}` === siteId

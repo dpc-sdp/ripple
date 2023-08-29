@@ -12,11 +12,13 @@ interface Props {
   url: string
   content?: string
   updated?: string
+  dateLabel?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
   content: undefined,
-  updated: undefined
+  updated: undefined,
+  dateLabel: 'Updated'
 })
 
 const emit = defineEmits<{
@@ -67,7 +69,7 @@ const handleClick = () => {
       v-html="content"
     />
     <p v-if="updated" class="rpl-search-result__body rpl-type-p-small">
-      Updated: {{ updated }}
+      {{ dateLabel }}: {{ updated }}
     </p>
   </div>
 </template>

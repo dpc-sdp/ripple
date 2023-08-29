@@ -11,6 +11,18 @@ import {
 } from '#imports'
 import type { TideSearchListingPage } from './../types'
 
+const escapeJSONString = (raw: string): string => {
+  return `${raw}`
+    .replace(/[\\]/g, '\\\\')
+    .replace(/["]/g, '\\"')
+    .replace(/[/]/g, '\\/')
+    .replace(/[\b]/g, '\\b')
+    .replace(/[\f]/g, '\\f')
+    .replace(/[\n]/g, '\\n')
+    .replace(/[\r]/g, '\\r')
+    .replace(/[\t]/g, '\\t')
+}
+
 export default (
   queryConfig: TideSearchListingPage['queryConfig'],
   userFilterConfig: TideSearchListingPage['userFilters'],
@@ -30,8 +42,10 @@ export default (
     key: string,
     value: string
   ) => {
+    const escapedValue = escapeJSONString(value)
+
     const re = new RegExp(key, 'g')
-    return JSON.parse(JSON.stringify(obj).replace(re, value))
+    return JSON.parse(JSON.stringify(obj).replace(re, escapedValue))
   }
 
   const isBusy = ref(true)
@@ -120,9 +134,11 @@ export default (
   const userFilters = computed(() => {
     return Object.keys(filterForm.value).map((key: string) => {
       const itm = userFilterConfig.find((itm: any) => itm.id === key)
+      let filterVal = filterForm.value[key]
 
-      const filterVal =
-        filterForm.value[key] && Array.from(filterForm.value[key])
+      if (itm.filter?.multiple !== false) {
+        filterVal = filterForm.value[key] && Array.from(filterForm.value[key])
+      }
 
       // Need to work out if form has value - will be different for different controls
       const hasValue = (v: unknown) => {
@@ -321,12 +337,17 @@ export default (
    * Updates the URL to trigger a new search, always returns to page 1 to avoid empty pages
    */
   const submitSearch = async () => {
+    const filterFormValues = Object.fromEntries(
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      Object.entries(filterForm.value).filter(([key, value]) => value)
+    )
+
     await navigateTo({
       path: route.path,
       query: {
         page: 1,
         q: searchTerm.value || undefined,
-        ...filterForm.value
+        ...filterFormValues
       }
     })
   }

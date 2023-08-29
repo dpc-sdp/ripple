@@ -48,5 +48,21 @@ export default function rplAddCommand() {
       add('content-type', directory, options)
     })
 
+  rplAddCommand
+    .command('ui-lib')
+    .description('Scaffold a Ripple UI component library')
+    .argument(
+      '[directory]',
+      'The project directory, this defaults to the current working directory (CWD)',
+      process.cwd()
+    )
+    .requiredOption(
+      '--name [name]',
+      'The name of the UI library eg: ripple-ui-demo'
+    )
+    .action((directory, options) => {
+      add('ui-lib', directory, options)
+    })
+
   return rplAddCommand
 }

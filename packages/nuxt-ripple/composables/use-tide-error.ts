@@ -13,6 +13,19 @@ export const useTideError = (statusCode: number): void => {
           // Needs to be a fatal error in order to trigger a proper 404 page when this error occurs client side
           fatal: true
         })
+        break
+
+      case 401:
+        throw createError({
+          statusCode: 401,
+          statusMessage: 'Please provide valid credentials.',
+          message: `
+              <p>Authorization is required to read this page.</p>
+            `,
+          // Needs to be a fatal error in order to trigger a proper 401 page when this error occurs client side
+          fatal: true
+        })
+        break
 
       default:
         throw createError({

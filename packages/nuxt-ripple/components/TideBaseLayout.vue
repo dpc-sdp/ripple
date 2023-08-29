@@ -93,17 +93,14 @@
 
 <script setup lang="ts">
 // @ts-ignore
-import { useHead, useSiteTheme, useAppConfig, useRoute } from '#imports'
+import { useAppConfig, useRoute, useNuxtApp, useTideLanguage } from '#imports'
 import { computed, onMounted, provide, ref } from 'vue'
 import { defu as defuMerge } from 'defu'
 import { TideSiteData } from '../types'
 import { TideTopicTag } from '../mapping/base/topic-tags/topic-tags-mapping'
 import { TideSiteSection } from '@dpc-sdp/ripple-tide-api/types'
-import hideAlertsOnLoadScript from '../utils/hideAlertsOnLoadScript.js'
-import useTidePageMeta from '../composables/use-tide-page-meta'
-import useTideLanguage from '../composables/use-tide-language'
 
-interface Props {
+export interface Props {
   site: TideSiteData
   background?: string
   pageTitle: string
@@ -136,6 +133,10 @@ const featureFlags = ref(
 )
 provide('featureFlags', featureFlags.value)
 
+// Sets language global values
+const { locale, direction, language } = useTideLanguage(props.page)
+provide('language', { locale, direction, language })
+
 onMounted(() => {
   // Used for knowing when page is ready for cypress testing
   document.body.setAttribute('data-nuxt-hydrated', 'true')
@@ -145,55 +146,9 @@ const route = useRoute()
 const showBreadcrumbs = computed(() => route.path !== '/')
 const showDraftAlert = computed(() => props.page?.status === 'draft')
 
-const style = useSiteTheme(
-  defuMerge(props.site?.theme || {}, useAppConfig()?.ripple?.theme || {})
-)
-
-const { direction, language } = useTideLanguage(props?.page)
-
-useHead({
-  htmlAttrs: {
-    lang: props.pageLanguage || 'en-AU'
-  },
-  title: props.pageTitle,
-  style: style && [
-    {
-      children: `:root, body { ${style} }`
-    }
-  ],
-  link: [
-    {
-      rel: 'apple-touch-icon',
-      sizes: '180x180',
-      href: '/apple-touch-icon.png'
-    },
-    {
-      rel: 'icon',
-      type: 'image/png',
-      sizes: '32x32',
-      href: '/favicon-32x32.png'
-    },
-    {
-      rel: 'icon',
-      type: 'image/png',
-      sizes: '16x16',
-      href: '/favicon-16x16.png'
-    },
-    { rel: 'manifest', href: '/site.webmanifest' },
-    { rel: 'mask-icon', href: '/safari-pinned-tab.svg', color: '#0054c9' }
-  ],
-  meta: [
-    { name: 'msapplication-TileColor', content: '#0054c9' },
-    { name: 'theme-color', content: '#ffffff' }
-  ],
-  script: [
-    {
-      innerHTML: hideAlertsOnLoadScript
-    }
-  ]
-})
-
-if (props.page && props.page.meta) {
-  useTidePageMeta(props)
-}
+const nuxtApp = useNuxtApp()
+/*
+ * This hook can be called from plugins to extend Tide managed pages behaviour - see /plugins folder for examples
+ */
+nuxtApp.callHook('tide:page', props)
 </script>

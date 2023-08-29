@@ -698,6 +698,27 @@
       }
     },
     {
+      "component": "TideLandingPageDataTable",
+      "id": "1937",
+      "props": {
+        "caption": "",
+        "headingType": {
+          "horizontal": false,
+          "vertical": false
+        },
+        "orientation": "row",
+        "columns": [],
+        "items": [
+          ["Row Two Column One", "Row Two Column Two", "Row Two Column Three"],
+          [
+            "Row Three Column One",
+            "Row Three Column Two",
+            "Row Three Column Three"
+          ]
+        ]
+      }
+    },
+    {
       "component": "TideLandingPageCategoryGrid",
       "id": "7052",
       "title": "Category Grid",

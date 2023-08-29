@@ -763,14 +763,14 @@
         "tag": "link",
         "attributes": {
           "rel": "canonical",
-          "href": "https://develop.content.reference.sdp.vic.gov.au/demo-landing-page"
+          "href": "https://www.vic.gov.au/demo-landing-page"
         }
       },
       {
         "tag": "meta",
         "attributes": {
           "name": "title",
-          "content": "Demo Landing Page | Single Digital Presence Content Management System"
+          "content": "Ignore this titel | Single Digital Presence Content Management System"
         }
       },
       {

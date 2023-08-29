@@ -3,6 +3,7 @@ import { IRplFeatureFlags, IRplTideModuleMapping } from 'ripple-tide-api/types'
 import { TideAlert } from './src/mapping/alerts/site-alerts-mapping'
 import { TideContact } from './src/mapping/sidebar-contacts/sidebar-contacts-mapping-types'
 import { TideTopicTag } from './src/mapping/topic-tags/topic-tags-mapping'
+import { HookResult } from '@nuxt/schema'
 
 export type TideApiResponse = any
 
@@ -177,5 +178,14 @@ declare module 'nitropack' {
       pageApi: TidePageApi
       siteApi: TideSiteApi
     }
+  }
+}
+
+declare module '#app' {
+  interface RuntimeNuxtHooks {
+    'tide:page': (props: {
+      page: Partial<TidePageBase>
+      site: Partial<TideSiteData>
+    }) => HookResult
   }
 }

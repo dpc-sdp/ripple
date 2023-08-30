@@ -22,3 +22,13 @@ Then(
       .should('contain', '/api/tide/elasticsearch')
   }
 )
+
+Then(
+  `the custom collection component should display the error {string}`,
+  (msg: string) => {
+    cy.get(`[data-component-type="TideCustomCollection"]`).should(
+      'contain',
+      msg
+    )
+  }
+)

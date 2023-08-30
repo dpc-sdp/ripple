@@ -233,7 +233,7 @@ const handlePageChange = (event) => {
       :totalResults="totalResults"
     />
 
-    <TideSearchError v-if="searchError" />
+    <TideSearchError class="tide-custom-collection__error" v-if="searchError" />
 
     <TideSearchNoResults v-else-if="!isBusy && !results?.length" />
 
@@ -256,7 +256,10 @@ const handlePageChange = (event) => {
 </template>
 
 <style>
-.tide-content-collection {
+.tide-custom-collection {
+  margin-top: var(--rpl-sp-8);
+}
+.tide-custom-collection__error {
   margin-top: var(--rpl-sp-8);
 }
 </style>

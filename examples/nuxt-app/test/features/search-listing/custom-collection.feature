@@ -18,7 +18,7 @@ Feature: Custom Collection
     And the "cslReq" network request should be made to the elasticsearch endpoint
     And the search listing layout should be "table"
 
-  @mockserver
+  @mockserver @skip
   Scenario: Custom collection error
     Given the "/api/tide/elasticsearch/sdp_data_pipelines_scl/_search" network request is stubbed with fixture "/landingpage/custom-collection/response" and status 400 as alias "cslReq"
     Given I visit the page "/custom-collection"

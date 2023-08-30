@@ -12,6 +12,7 @@ on:
         type: string
       e2e_fe_url:
         type: string
+  push:
 jobs:
   e2e_be:
     if: inputs.e2e

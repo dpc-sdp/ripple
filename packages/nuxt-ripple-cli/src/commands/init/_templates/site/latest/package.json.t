@@ -28,7 +28,7 @@ to: package.json
     "@dpc-sdp/ripple-tide-topic": "^<%= rplVersion %>"
   },
   "devDependencies": {
-    "@nuxtjs/eslint-config-typescript": "^12.0.0",
+    "@dpc-sdp/eslint-config-ripple": "<%= rplVersion %>",
     "nuxt": "3.6.5",
     "eslint": "^8.28.0"
   },

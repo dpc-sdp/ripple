@@ -16,7 +16,7 @@ on:
 jobs:
   e2e_be:
     if: inputs.e2e
-    uses: dpc-sdp/github-actions/.github/workflows/run_e2e_be.yml@build
+    uses: dpc-sdp/github-actions/.github/workflows/run_e2e_be.yml@main
     secrets: inherit
     with:
       tags: "(@core or @${{ inputs.e2e_project }}) and @regression"
@@ -27,7 +27,7 @@ jobs:
       test_type: ':nightwatch:'
   e2e_fe_smoke:
     if: inputs.e2e
-    uses: dpc-sdp/github-actions/.github/workflows/run_e2e_fe.yml@build
+    uses: dpc-sdp/github-actions/.github/workflows/run_e2e_fe.yml@main
     secrets: inherit
     with:
       tags: "(@smoke and @core) or (@smoke and @${{ inputs.e2e_project }}"
@@ -42,7 +42,7 @@ jobs:
       - e2e_be
       - e2e_fe_smoke
     if: inputs.e2e
-    uses: dpc-sdp/github-actions/.github/workflows/run_e2e_fe.yml@build
+    uses: dpc-sdp/github-actions/.github/workflows/run_e2e_fe.yml@main
     secrets: inherit
     with:
       tags: "(@core or @${{ inputs.e2e_project }}) and @regression and not @mobile"
@@ -57,7 +57,7 @@ jobs:
       - e2e_be
       - e2e_fe_smoke
     if: inputs.e2e
-    uses: dpc-sdp/github-actions/.github/workflows/run_e2e_fe.yml@build
+    uses: dpc-sdp/github-actions/.github/workflows/run_e2e_fe.yml@main
     secrets: inherit
     with:
       tags: "(@core or @${{ inputs.e2e_project }}) and @regression and not @desktop"

@@ -346,7 +346,7 @@ Then('there is an openforms embed with the url {string}', (url: string) => {
 })
 
 Then('the openforms iframe height is at least {int}', (height: number) => {
-  cy.get(`.tide-open-form iframe`)
-    .invoke('height')
-    .should('be.at.least', height)
+  cy.get(`.tide-open-form iframe`).invoke('height').as('iframeHeight')
+  cy.wait(4000)
+  cy.get('@iframeHeight').should('be.at.least', height)
 })

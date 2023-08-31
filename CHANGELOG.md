@@ -1,5 +1,22 @@
 # Changelog
 
+## v2.1.9
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.8...v2.1.9)
+
+
+### 🚀 Enhancements
+
+  - **@dpc-sdp/ripple-tide-landing-page:** ✨  add support for open forms ([ff41cbc7](https://github.com/dpc-sdp/ripple-framework/commit/ff41cbc7))
+
+### ✅ Tests
+
+  - **@dpc-sdp/ripple-tide-landing-page:** ✅  add weight in openforms height test ([365e5e32](https://github.com/dpc-sdp/ripple-framework/commit/365e5e32))
+
+### ❤️  Contributors
+
+- Dylan Kelly <dylan.kelly@dpc.vic.gov.au>
+
 ## v2.1.8
 
 [compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.7...v2.1.8)

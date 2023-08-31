@@ -90,20 +90,18 @@ const handleToggleItem = (level: number, item) => {
           :aria-label="primaryLogo.altText"
           class="rpl-primary-nav__primary-logo-image"
         />
-        <template v-else>
-          <img
-            class="rpl-primary-nav__primary-logo-image rpl-u-screen-only"
-            :src="primaryLogo.src"
-            :alt="primaryLogo.altText"
-          />
-          <img
-            class="rpl-primary-nav__primary-logo-image rpl-primary-nav__logo-alt rpl-u-print-only"
-            :src="
-              primaryLogo?.printSrc ? primaryLogo?.printSrc : primaryLogo.src
-            "
-            :alt="primaryLogo.altText"
-          />
-        </template>
+        <img
+          v-else
+          class="rpl-primary-nav__primary-logo-image rpl-u-screen-only"
+          :src="primaryLogo.src"
+          :alt="primaryLogo.altText"
+        />
+        <img
+          v-if="primaryLogo?.src"
+          class="rpl-primary-nav__primary-logo-image rpl-primary-nav__logo-alt rpl-u-print-only"
+          :src="primaryLogo?.printSrc ? primaryLogo?.printSrc : primaryLogo.src"
+          :alt="primaryLogo.altText"
+        />
       </RplLink>
 
       <!-- Logo divider -->

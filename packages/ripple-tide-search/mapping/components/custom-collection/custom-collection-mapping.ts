@@ -1,5 +1,4 @@
 import { TideDynamicPageComponent } from '@dpc-sdp/ripple-tide-api/types'
-import { parseJSONField } from './../../utils'
 
 export const customCollectionMapping = (
   field

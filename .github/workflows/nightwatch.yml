@@ -31,7 +31,7 @@ jobs:
     uses: dpc-sdp/github-actions/.github/workflows/run_e2e_fe.yml@main
     secrets: inherit
     with:
-      tags: "(@smoke and @core) or (@smoke and @${{ inputs.e2e_project }}"
+      tags: "(@smoke and @core) or (@smoke and @${{ inputs.e2e_project }})"
       be_url: ${{ inputs.e2e_be_url }}
       fe_url: ${{ inputs.e2e_fe_url }}
       project: ${{ inputs.e2e_project }}

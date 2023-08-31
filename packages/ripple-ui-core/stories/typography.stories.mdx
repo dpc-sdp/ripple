@@ -114,3 +114,22 @@ export const ListsTemplate = (args) => ({
     {TypeTemplate.bind({})}
   </Story>
 </Canvas>
+
+# Hyphenation
+
+<Canvas>
+  <Story name="Hyphenation">
+    {({
+  template: `
+    <section style="display:flex;justify-content:space-between">
+      <div class="rpl-u-padding-3" style="width:240px;background:var(--rpl-clr-accent-alt)">
+        <h1 class="rpl-type-h1" style="hyphens:none">An inappropriately long title to demonstrate hyphenation on a small screen.</h1>
+      </div>
+      <div class="rpl-u-padding-3" style="width:240px">
+        <h1 class="rpl-type-h1">An inappropriately long title to demonstrate hyphenation on a small screen.</h1>
+      </div>
+    </section>
+  `
+})}
+  </Story>
+</Canvas>

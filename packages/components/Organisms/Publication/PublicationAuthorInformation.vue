@@ -5,7 +5,6 @@
 <script>
 import formatdate from '@dpc-sdp/ripple-global/mixins/formatdate'
 import RplDescriptionList from '@dpc-sdp/ripple-description-list'
-import pluralize from 'pluralize'
 
 export default {
   name: 'RplAuthorInformation',

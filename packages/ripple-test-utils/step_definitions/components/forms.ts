@@ -338,3 +338,15 @@ Then(
     })
   }
 )
+
+// Open forms
+
+Then('there is an openforms embed with the url {string}', (url: string) => {
+  cy.get(`iframe[src^="${url}"]`).should('exist')
+})
+
+Then('the openforms iframe height is at least {int}', (height: number) => {
+  cy.get(`.tide-open-form iframe`)
+    .invoke('height')
+    .should('be.at.least', height)
+})

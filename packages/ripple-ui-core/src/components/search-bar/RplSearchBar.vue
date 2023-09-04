@@ -19,16 +19,18 @@ interface Props {
   autoFocus?: boolean
   inputLabel?: string
   inputValue?: string
-  submitLabel?: string
+  submitLabel?: string | boolean
   suggestions?: string[]
   maxSuggestionsDisplayed?: number
   placeholder?: string
   globalEvents?: boolean
+  showNoResults?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
   variant: 'default',
   autoFocus: false,
+  showNoResults: false,
   inputLabel: 'Search',
   submitLabel: 'Search',
   inputValue: '',
@@ -260,6 +262,21 @@ watch(activeOptionId, async (newId) => {
         @keydown.enter.prevent="handleSubmit('enter')"
       />
 
+      <template
+        v-if="
+          showNoResults &&
+          suggestions.length === 0 &&
+          internalValue.length > 0 &&
+          isOpen
+        "
+      >
+        <slot name="noresults">
+          <div class="rpl-search-bar__menu">
+            <span class="rpl-search-bar__menu-noresults"> No results </span>
+          </div>
+        </slot>
+      </template>
+
       <div
         v-if="suggestions.length && isOpen"
         :id="menuId"
@@ -299,6 +316,7 @@ watch(activeOptionId, async (newId) => {
         class="rpl-search-bar-submit rpl-u-focusable-inline"
       >
         <span
+          v-if="submitLabel"
           class="rpl-search-bar-submit__label rpl-type-label rpl-type-weight-bold"
           >{{ submitLabel }}</span
         >
@@ -309,5 +327,3 @@ watch(activeOptionId, async (newId) => {
     </div>
   </form>
 </template>
-
-<style src="./RplSearchBar.css" />

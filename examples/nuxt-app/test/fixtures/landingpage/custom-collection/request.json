@@ -2,5 +2,5 @@
   "query": { "match_all": {} },
   "size": 1,
   "from": 0,
-  "sort": [{ "camera_id": "asc" }]
+  "sort": [{ "suburb": "asc" }]
 }

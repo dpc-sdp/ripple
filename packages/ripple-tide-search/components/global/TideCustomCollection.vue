@@ -30,7 +30,7 @@ const props = withDefaults(defineProps<Props>(), {
   id: 'tide-search-listing',
   title: 'Search',
   introText: '',
-  autocompleteQuery: true,
+  autocompleteQuery: false,
   globalFilters: () => [],
   userFilters: () => [],
   queryConfig: () => ({
@@ -205,9 +205,9 @@ const handlePageChange = (event) => {
 </script>
 
 <template>
-  <div class="tide-custom-collection">
+  <div class="rpl-u-margin-t-8">
     <RplSearchBar
-      id="tide-search-bar"
+      id="custom-collection-search-bar"
       variant="default"
       :input-label="searchListingConfig.labels?.submit"
       :inputValue="searchTerm"
@@ -228,14 +228,15 @@ const handlePageChange = (event) => {
 
     <TideSearchResultsCount
       v-if="results?.length"
-      :pagingStart="pagingStart"
-      :pagingEnd="pagingEnd"
+      :pagingStart="pagingStart + 1"
+      :pagingEnd="pagingEnd + 1"
       :totalResults="totalResults"
     />
 
-    <TideSearchError class="tide-custom-collection__error" v-if="searchError" />
-
-    <TideSearchNoResults v-else-if="!isBusy && !results?.length" />
+    <div class="rpl-u-margin-t-8">
+      <TideSearchError v-if="searchError" />
+      <TideSearchNoResults v-else-if="!isBusy && !results?.length" />
+    </div>
 
     <component
       :is="resultsConfig.layout?.component"
@@ -254,12 +255,3 @@ const handlePageChange = (event) => {
     </RplPageComponent>
   </div>
 </template>
-
-<style>
-.tide-custom-collection {
-  margin-top: var(--rpl-sp-8);
-}
-.tide-custom-collection__error {
-  margin-top: var(--rpl-sp-8);
-}
-</style>

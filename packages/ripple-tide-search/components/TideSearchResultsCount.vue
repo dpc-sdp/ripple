@@ -9,7 +9,7 @@
       :totalResults="totalResults"
     >
       <p class="rpl-type-label rpl-u-padding-b-6">
-        Displaying {{ pagingStart + 1 }}-{{ pagingEnd + 1 }} of
+        Displaying {{ pagingStart }}-{{ pagingEnd }} of
         {{ totalResults }} results
       </p>
     </slot>

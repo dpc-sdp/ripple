@@ -354,8 +354,8 @@ watch(
           data-component-type="search-listing-result-count"
         >
           <TideSearchResultsCount
-            :pagingStart="pagingStart"
-            :pagingEnd="pagingEnd"
+            :pagingStart="pagingStart + 1"
+            :pagingEnd="pagingEnd + 1"
             :totalResults="totalResults"
           />
         </RplPageComponent>

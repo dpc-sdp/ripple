@@ -235,7 +235,7 @@
         }
       ],
       "props": {
-        "html": "<p>Here is <em>some</em> sample <strong>rich</strong> text content</p>"
+        "html": "<p>Here is <em>some</em> sample <strong>rich</strong> text content, with a <a href=\"https://google.com\" target=\"_blank\" class=\"rpl-text-link rpl-u-focusable-inline\">random link<span class=\"rpl-u-visually-hidden\">(opens in a new window)</span></a> thrown in.</p>"
       }
     },
     {

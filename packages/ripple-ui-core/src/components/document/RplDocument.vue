@@ -63,6 +63,9 @@ const onClick = () => {
           <slot name="info"></slot>
         </div>
       </div>
+      <span v-if="openInNewWindow" class="rpl-u-visually-hidden">
+        (opens in a new window)
+      </span>
     </a>
     <figcaption
       v-if="$slots.caption"

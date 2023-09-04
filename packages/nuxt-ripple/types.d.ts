@@ -108,6 +108,11 @@ export interface TidePageBase {
   [key: string]: unknown
 }
 
+export interface TideDynamicPageComponentBase {
+  hasSidebar: boolean
+  hasTitle: boolean
+}
+
 export type TideDynamicPageComponent<T> = {
   id: string
   component: string

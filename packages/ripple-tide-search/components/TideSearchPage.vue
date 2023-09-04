@@ -199,7 +199,7 @@ watch(
 </script>
 
 <template>
-  <TideBaseLayout :id="id" :site="site">
+  <TideBaseLayout :id="id" :site="site" :pageTitle="pageTitle">
     <template #aboveBody>
       <RplHeroHeader
         :title="pageTitle"

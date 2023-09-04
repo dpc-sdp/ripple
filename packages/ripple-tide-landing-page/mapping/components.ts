@@ -15,6 +15,7 @@ import webformMapping from './components/webforms/webforms-mapping'
 import complexImageMapping from './components/complex-image/complex-image-mapping'
 import dataTableMapping from './components/data-table/data-table-mapping'
 import compactCardsMapping from './components/compact-cards/compact-cards-mapping'
+import openFormsMapping from './components/openforms/openforms-mapping'
 
 export default {
   'paragraph--basic_text': basicTextMapping,
@@ -33,5 +34,6 @@ export default {
   'paragraph--embedded_webform': webformMapping,
   'paragraph--complex_image': complexImageMapping,
   'paragraph--data_table': dataTableMapping,
-  'paragraph--compact_card_collection': compactCardsMapping
+  'paragraph--compact_card_collection': compactCardsMapping,
+  'paragraph--form_embed_openforms': openFormsMapping
 }

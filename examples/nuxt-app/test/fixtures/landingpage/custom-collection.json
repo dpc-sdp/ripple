@@ -102,10 +102,6 @@
       "id": "123",
       "title": "Cameras save lives",
       "props": {
-        "link": {
-          "url": "https://www.vic.gov.au",
-          "text": "View more"
-        },
         "searchListingConfig": {
           "searchProvider": "elasticsearch",
           "index": "sdp_data_pipelines_scl",
@@ -116,7 +112,7 @@
           },
           "customSort": [
             {
-              "camera_id": "asc"
+              "suburb": "asc"
             }
           ]
         },

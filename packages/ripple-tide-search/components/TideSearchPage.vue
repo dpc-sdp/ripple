@@ -79,7 +79,7 @@ const apiConnectorOptions = {
   // Omit the search key, we'll add it on the server
   engineName: config.tide?.appSearch.engineName,
   // The search request is proxied through the API to avoid CORS issues
-  endpointBase: '/api/tide/app-search'
+  endpointBase: '/api/tide/search'
 }
 
 const {

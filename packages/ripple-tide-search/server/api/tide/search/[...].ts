@@ -3,13 +3,13 @@ import { defineEventHandler, H3Event } from 'h3'
 import { createHandler, logger } from '@dpc-sdp/ripple-tide-api'
 import { createProxyMiddleware } from 'http-proxy-middleware'
 
-export const createAppSearchHandler = async (event: H3Event) => {
+export const createSearchHandler = async (event: H3Event) => {
   const config = useRuntimeConfig()
 
   const proxyMiddleware = createProxyMiddleware({
     target: config.public.tide.appSearch.endpointBase,
     pathRewrite: {
-      '^/api/tide/search': '/api/as/v1/engines/'
+      '^/api/tide/search': ''
     },
     on: {
       proxyReq(proxyReq) {
@@ -37,5 +37,5 @@ export const createAppSearchHandler = async (event: H3Event) => {
 }
 
 export default defineEventHandler(async (event: H3Event) => {
-  return createAppSearchHandler(event)
+  return createSearchHandler(event)
 })

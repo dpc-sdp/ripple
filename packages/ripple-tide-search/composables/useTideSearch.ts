@@ -311,7 +311,7 @@ export default (
 
   const getSuggestions = async () => {
     suggestions.value = await $fetch(
-      `/api/tide/search/${index}/query_suggestion`,
+      `/api/tide/app-search/${index}/query_suggestion`,
       {
         method: 'POST',
         body: {

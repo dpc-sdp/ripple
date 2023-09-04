@@ -36,6 +36,9 @@ export interface IRplAnalyticsEventPayload {
     prod_measurement_id?: string
     uat_measurement_id?: string
   }
+  // Error properties
+  status_code?: number
+  status_message?: string
 }
 
 /**

@@ -31,6 +31,16 @@ export default defineNuxtPlugin((nuxtApp) => {
 
   /* @ts-ignore process is extended by webpack */
   if (process.client) {
+    nuxtApp.hook('tide:error', (error) => {
+      trackEvent({
+        event: 'error',
+        status_code: error.statusCode,
+        status_message: error?.statusMessage,
+        page_url: useRoute().fullPath,
+        platform_event: 'page/error'
+      })
+    })
+
     nuxtApp.hook('page:finish', () => {
       const route = useRoute()
       const site = nuxtApp.payload.data?.[`site-${runtimeConfig.site}`]

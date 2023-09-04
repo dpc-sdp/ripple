@@ -41,7 +41,7 @@
 </template>
 
 <script setup lang="ts">
-import { useTideSite } from '#imports'
+import { useNuxtApp, useTideSite } from '#imports'
 import { computed, onMounted } from 'vue'
 
 interface Props {
@@ -60,6 +60,10 @@ onMounted(() => {
     document.body.setAttribute('data-nuxt-hydrated', 'true')
   }
 })
+
+const nuxtApp = useNuxtApp()
+
+nuxtApp.callHook('tide:error', props.error)
 </script>
 
 <style>

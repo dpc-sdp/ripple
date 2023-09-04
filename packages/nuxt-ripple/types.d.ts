@@ -4,6 +4,7 @@ import { TideAlert } from './src/mapping/alerts/site-alerts-mapping'
 import { TideContact } from './src/mapping/sidebar-contacts/sidebar-contacts-mapping-types'
 import { TideTopicTag } from './src/mapping/topic-tags/topic-tags-mapping'
 import { HookResult } from '@nuxt/schema'
+import type { H3Error } from 'h3'
 
 export type TideApiResponse = any
 
@@ -192,5 +193,6 @@ declare module '#app' {
       page: Partial<TidePageBase>
       site: Partial<TideSiteData>
     }) => HookResult
+    'tide:error': (error: H3Error) => HookResult
   }
 }

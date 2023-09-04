@@ -9,10 +9,25 @@ declare global {
   }
 }
 
-const setupDataLayer = () => {
+const setupDataLayer = ({
+  uatMeasurementID = null,
+  prodMeasurementID = null
+}) => {
+  const production = useRuntimeConfig()?.public?.isProduction
+
   /*eslint-disable no-prototype-builtins */
-  if (typeof window !== undefined && !window.hasOwnProperty('dataLayer')) {
-    window.dataLayer = []
+  if (typeof window !== undefined) {
+    if (!window.hasOwnProperty('dataLayer')) {
+      window.dataLayer = []
+    }
+
+    window.dataLayer.push({
+      production,
+      google_analytics: {
+        prod_measurement_id: prodMeasurementID,
+        uat_measurement_id: uatMeasurementID
+      }
+    })
   }
 }
 
@@ -55,10 +70,10 @@ export default defineNuxtPlugin((nuxtApp) => {
     nuxtApp.vueApp.use({
       install(app: any) {
         const rplEventBus = app._context?.provides?.$rplEvent
-        setupDataLayer()
+        const site = nuxtApp?.payload.data?.[`site-${runtimeConfig.site}`]
+        setupDataLayer(site?.featureFlags)
         setupGTM(runtimeConfig?.analytics?.GTM)
         // Check for site-specific GTM container
-        const site = nuxtApp?.payload.data?.[`site-${runtimeConfig.site}`]
         if (site?.featureFlags?.gtmContainerID) {
           setupGTM(site?.featureFlags?.gtmContainerID)
         }

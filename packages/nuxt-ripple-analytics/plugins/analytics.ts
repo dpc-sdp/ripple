@@ -2,6 +2,7 @@ import { defineNuxtPlugin, useAppConfig, useRuntimeConfig } from '#app'
 import { loadScript } from '@gtm-support/core'
 import { trackEvent } from '../lib/tracker'
 import routeChange from '../lib/routeChange'
+import type { IRplFeatureFlags } from '@dpc-sdp/ripple-tide-api/types'
 
 declare global {
   interface Window {
@@ -9,10 +10,7 @@ declare global {
   }
 }
 
-const setupDataLayer = ({
-  uatMeasurementID = null,
-  prodMeasurementID = null
-}) => {
+const setupDataLayer = (featureFlags: IRplFeatureFlags) => {
   const production = useRuntimeConfig()?.public?.isProduction
 
   /*eslint-disable no-prototype-builtins */
@@ -24,8 +22,8 @@ const setupDataLayer = ({
     window.dataLayer.push({
       production,
       google_analytics: {
-        prod_measurement_id: prodMeasurementID,
-        uat_measurement_id: uatMeasurementID
+        prod_measurement_id: featureFlags?.prodMeasurementID,
+        uat_measurement_id: featureFlags?.uatMeasurementID
       }
     })
   }

@@ -17,6 +17,7 @@ export default function ({ route, site, page }): IRplAnalyticsEventPayload {
     publication_name: page?.publication?.text,
     search_term: trimValue(route.query?.q),
     site_section: page?.siteSection?.name,
+    status_code: page?.statusCode || 200,
     platform_event: 'page/routeChange'
   }
 

@@ -12,9 +12,9 @@
   </template>
   <TideBaseLayout
     v-else
-    :pageTitle="`${props.error?.statusCode} - ${props.error?.statusMessage}`"
+    :pageTitle="page.title"
     :site="site"
-    :page="{}"
+    :page="page"
     :siteSection="{}"
     class="tide-error"
   >
@@ -41,7 +41,7 @@
 </template>
 
 <script setup lang="ts">
-import { useNuxtApp, useTideSite } from '#imports'
+import { useTideSite } from '#imports'
 import { computed, onMounted } from 'vue'
 
 interface Props {
@@ -53,6 +53,10 @@ const props = defineProps<Props>()
 const is500 = computed(() => props.error?.statusCode === 500)
 const title = computed(() => (is500.value ? 'Sorry!' : 'Oops!'))
 const site = is500.value ? undefined : await useTideSite()
+const page = computed(() => ({
+  title: `${props.error?.statusCode} - ${props.error?.statusMessage}`,
+  statusCode: props.error?.statusCode
+}))
 
 onMounted(() => {
   // Since the template is skipped on 500, need to tell cypress that the page is ready
@@ -60,10 +64,6 @@ onMounted(() => {
     document.body.setAttribute('data-nuxt-hydrated', 'true')
   }
 })
-
-const nuxtApp = useNuxtApp()
-
-nuxtApp.callHook('tide:error', props.error)
 </script>
 
 <style>

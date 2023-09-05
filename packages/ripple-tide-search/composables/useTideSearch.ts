@@ -136,10 +136,10 @@ export default (
 
     return Object.keys(filterValues).map((key: string) => {
       const itm = userFilterConfig.find((itm: any) => itm.id === key)
-      let filterVal = filterForm.value[key]
+      let filterVal = filterValues[key]
 
       if (itm.filter?.multiple !== false) {
-        filterVal = filterForm.value[key] && Array.from(filterForm.value[key])
+        filterVal = filterValues[key] && Array.from(filterValues[key])
       }
 
       // Need to work out if form has value - will be different for different controls

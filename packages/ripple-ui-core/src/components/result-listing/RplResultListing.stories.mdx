@@ -105,3 +105,36 @@ This is an example showing the result listing with extra details
     {SingleTemplate.bind()}
   </Story>
 </Canvas>
+
+## With custom date label
+
+This is an example showing that the date label can be customised
+
+<Canvas>
+  <Story
+    name='With custom date label'
+    play={a11yStoryCheck}
+    args={{
+      dateLabel: 'Custom label'
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>
+
+## With no date label
+
+This is an example showing that the date label can be removed
+
+<Canvas>
+  <Story
+    name='With no date label'
+    play={a11yStoryCheck}
+    args={{
+      dateLabel: null,
+      updated: 'Some custom text'
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>

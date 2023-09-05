@@ -69,7 +69,7 @@ const handleClick = () => {
       v-html="content"
     />
     <p v-if="updated" class="rpl-search-result__body rpl-type-p-small">
-      {{ dateLabel }}: {{ updated }}
+      {{ dateLabel ? `${dateLabel}: ` : '' }}{{ updated }}
     </p>
   </div>
 </template>

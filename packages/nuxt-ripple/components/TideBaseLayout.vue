@@ -147,15 +147,20 @@ const showBreadcrumbs = computed(() => route.path !== '/')
 const showDraftAlert = computed(() => props.page?.status === 'draft')
 
 const footerNav = computed(() => {
-  const footerNav = props.site?.menus.menuFooter || []
-  return [
-    ...footerNav,
-    {
-      text: 'Connect with us',
-      id: '__footer_connect_with_us',
-      items: props.site?.socialLinks
-    }
-  ]
+  const menuMain = props.site?.menus.menuMain || []
+
+  if (props.site?.socialLinks?.length) {
+    return [
+      ...menuMain,
+      {
+        text: 'Connect with us',
+        id: '__footer_connect_with_us',
+        items: props.site?.socialLinks
+      }
+    ]
+  }
+
+  return menuMain
 })
 
 const nuxtApp = useNuxtApp()

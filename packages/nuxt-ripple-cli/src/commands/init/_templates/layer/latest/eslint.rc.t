@@ -3,5 +3,5 @@ to: .eslintrc
 ---
 {
   "root": true,
-  "extends": ["@nuxtjs/eslint-config-typescript"]
+  "extends": ["@dpc-sdp/eslint-config-ripple"]
 }

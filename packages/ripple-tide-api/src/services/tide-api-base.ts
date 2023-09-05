@@ -52,16 +52,7 @@ export default class TideApiBase extends HttpClient {
       )
     }
 
-    try {
-      return await this.getMappedDataAux(mapping, resource)
-    } catch (error) {
-      throw new ApplicationError(
-        `An error occurred while mapping tide API data`,
-        {
-          cause: error
-        }
-      )
-    }
+    return await this.getMappedDataAux(mapping, resource)
   }
 
   async get(url: string, config = {}): Promise<any> {

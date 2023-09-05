@@ -51,11 +51,13 @@ export interface TideLink {
 
 export interface TideMenuItem {
   text: string
-  url: string
+  url?: string
   id: string
-  parent: string | null
-  weight: number
-  items: TideMenuItem[]
+  parent?: string | null
+  weight?: number
+  icon?: string
+  iconColour?: string
+  items?: TideMenuItem[]
 }
 
 export interface TideUrlField {

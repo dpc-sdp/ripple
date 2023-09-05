@@ -9,6 +9,7 @@ import {
   map as siteAlertsMapping,
   includes as siteAlertsIncludes
 } from './alerts/site-alerts-mapping.js'
+import processSiteSocialLinks from '../utils/processSiteSocialLinks.js'
 
 export default {
   mapping: {
@@ -90,20 +91,22 @@ export default {
       }
       return socialImages
     },
-    menus: async function (src, tideSiteApi: TideSiteApi) {
-      const menuMain = await tideSiteApi.getSiteMenu(
-        tideSiteApi.site,
-        src.field_site_main_menu
-      )
-      const menuFooter = await tideSiteApi.getSiteMenu(
-        tideSiteApi.site,
-        src.field_site_footer_menu
-      )
-
-      return {
-        menuMain,
-        menuFooter
+    menus: {
+      menuMain: async (src: any, tideSiteApi: TideSiteApi) => {
+        return await tideSiteApi.getSiteMenu(
+          tideSiteApi.site,
+          src.field_site_main_menu
+        )
+      },
+      menuFooter: async (src: any, tideSiteApi: TideSiteApi) => {
+        return await tideSiteApi.getSiteMenu(
+          tideSiteApi.site,
+          src.field_site_footer_menu
+        )
       }
+    },
+    socialLinks: (src: any) => {
+      return processSiteSocialLinks(src.field_site_social_links || [])
     }
   },
   includes: [

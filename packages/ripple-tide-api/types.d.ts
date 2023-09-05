@@ -46,6 +46,7 @@ export interface TideSiteData {
     twitter: any
     og: any
   }
+  socialLinks: TideMenuItem[]
   menus: {
     menuMain: TideMenuItem[]
     menuFooter: TideMenuItem[]

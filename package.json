@@ -97,7 +97,6 @@
   },
   "pnpm": {
     "overrides": {
-      "@storybook/test-runner>jest": "29.5.0",
       "@types/react": "file:./stub/types__react",
       "jest-matcher-utils@29.2.2>chalk": "5.2.0",
       "cypress": "12.8.1",

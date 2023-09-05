@@ -33,12 +33,12 @@ Then(
   }
 )
 
-Then('the vic.gov.au logo should be displayed', (theme: string) => {
+Then('the vic.gov.au logo should be displayed', () => {
   cy.get(`[aria-label="Victoria government logo"]`).should('exist')
 })
-Then('the vic.gov.au logo should not be displayed', (theme: string) => {
+Then('the vic.gov.au logo should not be displayed', () => {
   cy.get(`[aria-label="Victoria government logo"]`).should('not.exist')
 })
-Then('the cobrand logo should be displayed', (theme: string) => {
+Then('the cobrand logo should be displayed', () => {
   cy.get('.rpl-primary-nav__secondary-logo-image').should('exist')
 })

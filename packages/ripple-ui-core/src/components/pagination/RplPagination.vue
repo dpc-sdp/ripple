@@ -25,7 +25,7 @@ const props = withDefaults(defineProps<Props>(), {
   label: undefined,
   currentPage: 1,
   surroundingPages: 2,
-  contentType: undefined,
+  contentType: 'page',
   showTally: false,
   variant: 'complex',
   prevLabel: 'Previous',

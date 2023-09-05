@@ -6,7 +6,7 @@ import type {
 import { computed } from 'vue'
 import groupDynamicComponents from '../utils/groupDynamicComponents'
 interface Props {
-  components: TideDynamicPageComponent[]
+  components: TideDynamicPageComponent<any>[]
   fullWidth?: boolean
   hasSidebar?: boolean
 }

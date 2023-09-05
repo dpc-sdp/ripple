@@ -9,7 +9,9 @@
       <div
         v-for="filter in filterInputs"
         :key="filter.id"
-        class="rpl-col-12 rpl-col-6-m"
+        :class="`rpl-col-12 ${
+          filter?.columns ? filter.columns : 'rpl-col-6-m'
+        }`"
       >
         <component
           :is="filter.component"

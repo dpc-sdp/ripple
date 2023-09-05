@@ -235,7 +235,7 @@
         }
       ],
       "props": {
-        "html": "<p>Here is <em>some</em> sample <strong>rich</strong> text content</p>"
+        "html": "<p>Here is <em>some</em> sample <strong>rich</strong> text content, with a <a href=\"https://google.com\" target=\"_blank\" class=\"rpl-text-link rpl-u-focusable-inline\">random link<span class=\"rpl-u-visually-hidden\">(opens in a new window)</span></a> thrown in.</p>"
       }
     },
     {
@@ -688,11 +688,7 @@
           "Row One Column Three"
         ],
         "items": [
-          [
-            "Row Two Column One",
-            "Row Two Column Two",
-            "Row Two Column Three"
-          ],
+          ["Row Two Column One", "Row Two Column Two", "Row Two Column Three"],
           [
             "Row Three Column One",
             "Row Three Column Two",
@@ -702,36 +698,57 @@
       }
     },
     {
-      "component":"TideLandingPageCategoryGrid",
-      "id":"7052",
-      "title":"Category Grid",
-      "props":{
-        "items":[
+      "component": "TideLandingPageDataTable",
+      "id": "1937",
+      "props": {
+        "caption": "",
+        "headingType": {
+          "horizontal": false,
+          "vertical": false
+        },
+        "orientation": "row",
+        "columns": [],
+        "items": [
+          ["Row Two Column One", "Row Two Column Two", "Row Two Column Three"],
+          [
+            "Row Three Column One",
+            "Row Three Column Two",
+            "Row Three Column Three"
+          ]
+        ]
+      }
+    },
+    {
+      "component": "TideLandingPageCategoryGrid",
+      "id": "7052",
+      "title": "Category Grid",
+      "props": {
+        "items": [
           {
-            "title":"Card one",
-            "summary":"Card one summary",
-            "image":{
-              "src":"https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Aerial-shot-of-new-housing-development.jpg",
-              "alt":"",
-              "focalPoint":null,
-              "height":667,
-              "title":"",
-              "width":1000
+            "title": "Card one",
+            "summary": "Card one summary",
+            "image": {
+              "src": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Aerial-shot-of-new-housing-development.jpg",
+              "alt": "",
+              "focalPoint": null,
+              "height": 667,
+              "title": "",
+              "width": 1000
             },
-            "url":"/landing-page-cc-2"
+            "url": "/landing-page-cc-2"
           },
           {
-            "title":"Card two",
-            "summary":"Card two summary",
-            "image":{
-              "src":"https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/2018-19-State-Budget.jpg",
-              "alt":"",
-              "focalPoint":null,
-              "height":667,
-              "title":"",
-              "width":1000
+            "title": "Card two",
+            "summary": "Card two summary",
+            "image": {
+              "src": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/2018-19-State-Budget.jpg",
+              "alt": "",
+              "focalPoint": null,
+              "height": 667,
+              "title": "",
+              "width": 1000
             },
-            "url":"https://google.com/"
+            "url": "https://google.com/"
           }
         ]
       }
@@ -746,14 +763,14 @@
         "tag": "link",
         "attributes": {
           "rel": "canonical",
-          "href": "https://develop.content.reference.sdp.vic.gov.au/demo-landing-page"
+          "href": "https://www.vic.gov.au/demo-landing-page"
         }
       },
       {
         "tag": "meta",
         "attributes": {
           "name": "title",
-          "content": "Demo Landing Page | Single Digital Presence Content Management System"
+          "content": "Ignore this titel | Single Digital Presence Content Management System"
         }
       },
       {

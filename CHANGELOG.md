@@ -1,5 +1,74 @@
 # Changelog
 
+## v2.1.9
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.8...v2.1.9)
+
+
+### 🚀 Enhancements
+
+  - **@dpc-sdp/ripple-tide-landing-page:** ✨  add support for open forms ([ff41cbc7](https://github.com/dpc-sdp/ripple-framework/commit/ff41cbc7))
+
+### ✅ Tests
+
+  - **@dpc-sdp/ripple-tide-landing-page:** ✅  add weight in openforms height test ([365e5e32](https://github.com/dpc-sdp/ripple-framework/commit/365e5e32))
+
+### ❤️  Contributors
+
+- Dylan Kelly <dylan.kelly@dpc.vic.gov.au>
+
+## v2.1.8
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.7...v2.1.8)
+
+
+### 🚀 Enhancements
+
+  - **@dpc-sdp/ripple-tide-search:** Column classes, array-ify-ing, filter empty params ([be2a9af7](https://github.com/dpc-sdp/ripple-framework/commit/be2a9af7))
+  - **@dpc-sdp/ripple-ui-forms:** Use filter.multiple to disable array-ifying values ([5e5dd8e5](https://github.com/dpc-sdp/ripple-framework/commit/5e5dd8e5))
+  - **@dpc-sdp/nuxt-ripple-analytics:** Fix faulty isProduction check ([712c5514](https://github.com/dpc-sdp/ripple-framework/commit/712c5514))
+  - **@dpc-sdp/nuxt-ripple-analytics:** Move useRuntimeConfig to route file ([0a0de979](https://github.com/dpc-sdp/ripple-framework/commit/0a0de979))
+
+### 🩹 Fixes
+
+  - **@dpc-sdp/ripple-tide-search:** Espace query text before adding to DSL query ([f8c152b2](https://github.com/dpc-sdp/ripple-framework/commit/f8c152b2))
+  - **nuxt-ripple:** 🐛  whitelist contact icons ([dc2b2428](https://github.com/dpc-sdp/ripple-framework/commit/dc2b2428))
+  - **nuxt-app:** Fix media test ([ee0a1671](https://github.com/dpc-sdp/ripple-framework/commit/ee0a1671))
+  - **@dpc-sdp/ripple-ui-core:** 🐛  check for label ([44041ad8](https://github.com/dpc-sdp/ripple-framework/commit/44041ad8))
+  - Use derived page title instead of metatag value ([da87d6fe](https://github.com/dpc-sdp/ripple-framework/commit/da87d6fe))
+  - **@dpc-sdp/nuxt-ripple:** 🐛  ensure page title is always set ([6cb599c3](https://github.com/dpc-sdp/ripple-framework/commit/6cb599c3))
+  - **@dpc-sdp/nuxt-ripple:** 🐛  fix title definition ([6ee4b159](https://github.com/dpc-sdp/ripple-framework/commit/6ee4b159))
+  - 🐛  handle undefined page.meta ([20b675a5](https://github.com/dpc-sdp/ripple-framework/commit/20b675a5))
+  - **nuxt-ripple:** 🐛  fix issue where menus in share links cause a 500 error ([fbcabfff](https://github.com/dpc-sdp/ripple-framework/commit/fbcabfff))
+  - **@dpc-sdp/ripple-tide-api:** 🐛  fetch menu for unpublished pages ([4d6a3469](https://github.com/dpc-sdp/ripple-framework/commit/4d6a3469))
+
+### 💅 Refactors
+
+  - **nuxt-ripple:** ♻️  update 500 template to match platform ([76e2cac9](https://github.com/dpc-sdp/ripple-framework/commit/76e2cac9))
+  - ♻️  add 401 support, use error comp ([0912a4d7](https://github.com/dpc-sdp/ripple-framework/commit/0912a4d7))
+  - **@dpc-sdp/nuxt-ripple:** ♻️  refactor to call head functions from plugins ([8939c97a](https://github.com/dpc-sdp/ripple-framework/commit/8939c97a))
+
+### 🏡 Chore
+
+  - **@dpc-sdp/nuxt-ripple-cli:** ✨  add template for new UI library ([47353eb7](https://github.com/dpc-sdp/ripple-framework/commit/47353eb7))
+
+### ✅ Tests
+
+  - **nuxt-app:** ✅  update data table test ([f7649190](https://github.com/dpc-sdp/ripple-framework/commit/f7649190))
+  - ✅  add default contentType prop, tests ([7eb8c3e9](https://github.com/dpc-sdp/ripple-framework/commit/7eb8c3e9))
+
+### 🎨 Styles
+
+  - **nuxt-ripple:** 🔥  remove debug ([974c0b67](https://github.com/dpc-sdp/ripple-framework/commit/974c0b67))
+  - 🚨  fix linter warnings ([3624b6dd](https://github.com/dpc-sdp/ripple-framework/commit/3624b6dd))
+
+### ❤️  Contributors
+
+- Dylan Kelly <dylan.kelly@dpc.vic.gov.au>
+- Jason Smith <jason.smith@dpc.vic.gov.au>
+- David Featherston <david.featherstone@dpc.vic.gov.au>
+- Jeffrey Dowdle <jeffrey.dowdle@dpc.vic.gov.au>
+
 ## v2.1.7
 
 [compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.4...v2.1.7)

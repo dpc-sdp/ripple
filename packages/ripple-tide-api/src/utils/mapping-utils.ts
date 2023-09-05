@@ -37,6 +37,14 @@ interface RawCardImage {
   data: RawCardImageData[]
 }
 
+type tidePageSitePartial = {
+  field_node_site: [
+    {
+      drupal_internal__tid: number
+    }
+  ]
+}
+
 /**
  * @deprecated Need to make a decision on whether we proxy images or use direct url
  */
@@ -168,6 +176,38 @@ export const getSiteKeyValues = (key: string, src: any) => {
       return map
     }, {})
   }
+}
+
+/**
+ * @description returns the site section id from either the passed section ID or the page src sites. Selects the last site as per existing logic.
+ */
+export const getSiteSectionId = (
+  sectionId: string,
+  src: tidePageSitePartial
+) => {
+  if (sectionId) {
+    return `${sectionId}`
+  }
+  if (src.field_node_site && src.field_node_site.length > 0) {
+    return `${src.field_node_site.slice(-1)[0].drupal_internal__tid}`
+  }
+  return null
+}
+
+/**
+ * @description returns the correct site section from the page sites data
+ */
+export const getSiteSection = (sectionId, src) => {
+  const siteId = getSiteSectionId(sectionId, src)
+
+  if (!siteId) {
+    return null
+  }
+
+  // With the correct site/section id, we can now choose the correct site data from 'field_node_site'
+  return src.field_node_site?.find((site) => {
+    return `${site.drupal_internal__tid}` === siteId
+  })
 }
 
 export default {

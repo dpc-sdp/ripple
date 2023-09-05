@@ -37,6 +37,7 @@ export default defineAppConfig({
   ripple: {
     featureFlags: {},
     theme: {},
+    pageMiddleware: [],
     languages: {
       aii: {
         name: 'Noto Sans Syriac Eastern',

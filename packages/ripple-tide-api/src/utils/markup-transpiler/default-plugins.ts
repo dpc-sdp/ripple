@@ -116,6 +116,7 @@ const pluginDocuments = function (this: any) {
       </div>
     </div>
   </span>
+  <span class="rpl-u-visually-hidden">(opens in a new window)</span>
   </a>
 </figure>
 `)
@@ -205,6 +206,15 @@ const pluginLinks = function (this: any) {
 
     if (!$anchor.attr('class')) {
       $anchor.addClass('rpl-text-link rpl-u-focusable-inline')
+    }
+
+    if (
+      $anchor.attr('target') === '_blank' &&
+      $anchor.find('span.rpl-u-visually-hidden').length === 0
+    ) {
+      $anchor.append(
+        '<span class="rpl-u-visually-hidden">(opens in a new window)</span>'
+      )
     }
 
     return $anchor

@@ -9,7 +9,7 @@ import {
   navigateTo,
   getSingleQueryStringValue
 } from '#imports'
-import type { TideSearchListingPage } from './../types'
+import type { TideSearchListingConfig } from './../types'
 
 const escapeJSONString = (raw: string): string => {
   return `${raw}`
@@ -24,18 +24,21 @@ const escapeJSONString = (raw: string): string => {
 }
 
 export default (
-  queryConfig: TideSearchListingPage['queryConfig'],
-  userFilterConfig: TideSearchListingPage['userFilters'],
+  queryConfig: TideSearchListingConfig['queryConfig'],
+  userFilterConfig: TideSearchListingConfig['userFilters'],
   globalFilters: any[],
   searchResultsMappingFn: (item: any) => any,
-  searchListingConfig: TideSearchListingPage['searchListingConfig'],
-  customIndex?: TideSearchListingPage['index']
+  searchListingConfig: TideSearchListingConfig['searchListingConfig']
 ) => {
   const { public: config } = useRuntimeConfig()
   const route: RouteLocation = useRoute()
   const appConfig = useAppConfig()
+  const index = searchListingConfig.index || config.tide.appSearch.engineName
 
-  const index = customIndex || config.tide.appSearch.engineName
+  const searchprovider = searchListingConfig.searchProvider || 'app-search'
+  const searchEndpoint =
+    searchprovider === 'elasticsearch' ? `_search` : `elasticsearch/_search`
+  const searchUrl = `${config.apiUrl}/api/tide/${searchprovider}/${index}/${searchEndpoint}`
 
   const processTemplate = (
     obj: Record<string, any>,
@@ -259,13 +262,10 @@ export default (
         console.info(JSON.stringify(body, null, 2))
       }
 
-      const searchRequest: any = $fetch(
-        `${config.apiUrl}/api/tide/search/${index}/elasticsearch/_search`,
-        {
-          method: 'POST',
-          body
-        }
-      )
+      const searchRequest: any = $fetch(searchUrl, {
+        method: 'POST',
+        body
+      })
 
       // Set the aggregations request to a resolved promise, this helps keep the Promise.all logic clean
       let aggsRequest: Promise<any> = Promise.resolve()
@@ -273,13 +273,11 @@ export default (
       if (isFirstRun) {
         // Kick off an 'empty' search in order to get the aggregations (options) for the dropdowns, this
         // is only run once so that the aggregations don't change when filters/search is applied.
-        aggsRequest = $fetch(
-          `${config.apiUrl}/api/tide/search/${index}/elasticsearch/_search`,
-          {
-            method: 'POST',
-            body: getQueryDSLForAggregations()
-          }
-        )
+
+        aggsRequest = $fetch(searchUrl, {
+          method: 'POST',
+          body: getQueryDSLForAggregations()
+        })
       }
 
       const [searchResponse, aggsResponse] = await Promise.all([
@@ -315,7 +313,7 @@ export default (
 
   const getSuggestions = async () => {
     suggestions.value = await $fetch(
-      `/api/tide/search/${index}/query_suggestion`,
+      `/api/tide/app-search/${index}/query_suggestion`,
       {
         method: 'POST',
         body: {

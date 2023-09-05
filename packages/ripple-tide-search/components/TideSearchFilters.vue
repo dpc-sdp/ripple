@@ -20,9 +20,9 @@
           :modelValue="filterFormValues[filter.id]"
           v-bind="filter.props"
           :options="
-            filter.props.dynamicOptions?.length
+            filter.props?.dynamicOptions?.length
               ? filter.props.dynamicOptions
-              : filter.props.options
+              : filter.props?.options
           "
         ></component>
       </div>

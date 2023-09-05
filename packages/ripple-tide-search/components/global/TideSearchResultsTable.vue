@@ -34,7 +34,11 @@ const items = computed(() => {
             return itm._source
           }
         }
-        return getSearchResultValue(itm && itm._source, col.key)
+        return getSearchResultValue(
+          itm && itm._source,
+          col.key,
+          col.isArray === false
+        )
       })
     )
   }

@@ -31,10 +31,8 @@ export default defineNuxtPlugin((nuxtApp) => {
 
   /* @ts-ignore process is extended by webpack */
   if (process.client) {
-    nuxtApp.hook('page:finish', () => {
+    nuxtApp.hook('tide:page', ({ page, site }) => {
       const route = useRoute()
-      const site = nuxtApp.payload.data?.[`site-${runtimeConfig.site}`]
-      const page = nuxtApp.payload.data?.[`page-${route.fullPath}`]
 
       if (appConfig?.analytics?.routeChange === false) return
 

@@ -624,7 +624,7 @@
           },
           {
             "type": "keydates",
-            "url": "/another-keydates-page",
+            "url": "/dates",
             "title": "Key dates heading",
             "keyDates": [
               {

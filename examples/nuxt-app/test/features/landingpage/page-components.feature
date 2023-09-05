@@ -91,7 +91,7 @@ Feature: Home page
       | title           | date            | content                | url          | image                                                                                                                             |
       | Sample title    | 1 Dec to 31 Dec | Sample Card Summary    | /sample-page | https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Aerial-shot-of-new-housing-development.jpg |
       | Promotion title | 3 Nov 2022      | Promotion Card summary | /promo-page  | https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Engage-Vic-photo-hero.jpeg                 |
-    And the card carousel with ID "1155" should contain a key dates card with the title "Key calendar dates" and the following entries
+    And the card carousel with ID "1155" should contain a key dates card with the title "Key calendar dates", link "/dates" and the following entries
       | title        | subtitle       | content       |
       | April 16th   | Key subtitle 1 | Key content 1 |
       | December 1st | Key subtitle 2 | Key content 2 |

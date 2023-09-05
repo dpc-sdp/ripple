@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { computed, ref } from 'vue'
 import RplPromoCard from '../card/RplPromoCard.vue'
 import RplKeyDatesCard from '../card/RplKeyDatesCard.vue'
 import RplSlider from '../slider/RplSlider.vue'
@@ -13,10 +14,12 @@ import {
 interface Props {
   perView?: RplSlidesPerView
   items: IRplCardCarouselItem[]
+  keyDatesTitle?: string
 }
 
-withDefaults(defineProps<Props>(), {
-  perView: 1
+const props = withDefaults(defineProps<Props>(), {
+  perView: 1,
+  keyDatesTitle: 'Key calendar dates'
 })
 
 const emit = defineEmits<{
@@ -26,7 +29,11 @@ const emit = defineEmits<{
 
 const { emitRplEvent } = useRippleEvent('rpl-card-carousel', emit)
 
+const activeSlide = ref(0)
+
 const handleChange = ({ type, action, text, value }) => {
+  activeSlide.value = value
+
   emitRplEvent(
     type,
     {
@@ -37,11 +44,21 @@ const handleChange = ({ type, action, text, value }) => {
     { global: true }
   )
 }
+
+const changeNotice = computed(() =>
+  props.items[activeSlide.value].type === 'keydates'
+    ? props.keyDatesTitle
+    : props.items[activeSlide.value].title
+)
 </script>
 
 <template>
   <div class="rpl-card-carousel">
-    <RplSlider :per-view="perView" @change="handleChange">
+    <RplSlider
+      :per-view="perView"
+      :change-notice="changeNotice"
+      @change="handleChange"
+    >
       <template v-for="(card, i) in items" :key="i">
         <RplPromoCard
           v-if="card.type === 'promo'"
@@ -80,7 +97,9 @@ const handleChange = ({ type, action, text, value }) => {
         </RplPromoCard>
         <RplKeyDatesCard
           v-if="card.type === 'keydates'"
+          :title="keyDatesTitle"
           :ctaTitle="card.title"
+          :url="card.url"
           :items="card.keyDates"
         />
       </template>

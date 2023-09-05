@@ -58,8 +58,7 @@ const getFormSchemaFromMapping = async (
           help: field['#description'] || field['#help_title'],
           value: field['#default_value'],
           ...getValidationAndConditionals(field),
-          ...getInputIcons(field),
-          ...getCounterFields(field)
+          ...getInputIcons(field)
         }
         break
       case 'email':

@@ -41,8 +41,15 @@ const tidePublicationModule: IRplTideModuleMapping = {
       { text: getField(src, 'title') }
     ],
     details: {
-      author: (src: any) =>
-        src.field_publication_authors.map((x: any) => x.name).join(', '),
+      author: (src: any) => {
+        if (Array.isArray(src.field_publication_authors)) {
+          return src.field_publication_authors
+            .map((x: any) => x.name)
+            .join(', ')
+        } else {
+          return src.field_publication_authors.name
+        }
+      },
       date: 'field_publication_date',
       copyright: 'field_license_type.description'
     },

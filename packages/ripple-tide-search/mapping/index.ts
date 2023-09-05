@@ -5,14 +5,7 @@ import {
 import { getBodyFromField } from '@dpc-sdp/ripple-tide-api'
 import type { IRplTideModuleMapping } from '@dpc-sdp/ripple-tide-api/types'
 import { ApplicationError } from '@dpc-sdp/ripple-tide-api/errors'
-
-function getUniqueListBy(arr, key) {
-  return [...new Map(arr.map((item) => [item[key], item])).values()]
-}
-
-const parseJSONField = (rawValue) => {
-  return JSON.parse(rawValue)
-}
+import { getUniqueListBy, parseJSONField } from './../mapping/utils'
 
 const getProcessedSearchListingConfig = async (src, tidePageApi) => {
   let rawConfig = null

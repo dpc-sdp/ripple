@@ -26,6 +26,7 @@ export interface IRplAnalyticsEventPayload {
   component?: string
   component_options?: string
   // Route properties
+  status_code?: number
   content_type?: string
   search_term?: string
   site_section?: string

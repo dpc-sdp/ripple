@@ -14,7 +14,7 @@ import {
 } from './constants';
 import { RplIconNames } from './../icon/constants.ts';
 import { buttonFocusInteraction } from './RplButton.interactions.ts'
-const playFunction = async ({ canvasElement }) => {
+export const playFunction = async ({ canvasElement }) => {
   const canvas = await within(canvasElement)
   const button = await canvas.getByRole('button')
   a11yCheck(canvasElement)

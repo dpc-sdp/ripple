@@ -3,7 +3,7 @@ import { defineEventHandler, H3Event } from 'h3'
 import { createHandler, logger } from '@dpc-sdp/ripple-tide-api'
 import { createProxyMiddleware } from 'http-proxy-middleware'
 
-export const createSearchHandler = async (event: H3Event) => {
+export const createWebformProxyHandler = async (event: H3Event) => {
   const { public: config } = useRuntimeConfig()
 
   const proxyMiddleware = createProxyMiddleware({
@@ -29,5 +29,5 @@ export const createSearchHandler = async (event: H3Event) => {
 }
 
 export default defineEventHandler(async (event: H3Event) => {
-  return createSearchHandler(event)
+  return createWebformProxyHandler(event)
 })

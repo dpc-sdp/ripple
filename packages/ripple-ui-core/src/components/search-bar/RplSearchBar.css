@@ -161,3 +161,14 @@
     background: var(--rpl-clr-neutral-300);
   }
 }
+
+.rpl-search-bar__menu-noresults {
+  display: flex;
+  align-items: center;
+  padding: var(--rpl-sp-3);
+
+  @media (--rpl-bp-m) {
+    padding-left: var(--rpl-sp-4);
+    padding-right: var(--rpl-sp-4);
+  }
+}

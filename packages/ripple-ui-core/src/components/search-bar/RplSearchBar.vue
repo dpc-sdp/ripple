@@ -327,3 +327,5 @@ watch(activeOptionId, async (newId) => {
     </div>
   </form>
 </template>
+
+<style src="./RplSearchBar.css" />

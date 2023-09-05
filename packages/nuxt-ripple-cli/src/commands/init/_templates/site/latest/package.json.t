@@ -24,8 +24,8 @@ to: package.json
     "@dpc-sdp/ripple-tide-media": "<%= rplVersion %>",
     "@dpc-sdp/ripple-tide-news": "<%= rplVersion %>",
     "@dpc-sdp/ripple-tide-publication": "<%= rplVersion %>",
-    "@dpc-sdp/ripple-tide-search": "^<%= rplVersion %>",
-    "@dpc-sdp/ripple-tide-topic": "^<%= rplVersion %>"
+    "@dpc-sdp/ripple-tide-search": "<%= rplVersion %>",
+    "@dpc-sdp/ripple-tide-topic": "<%= rplVersion %>"
   },
   "devDependencies": {
     "@dpc-sdp/eslint-config-ripple": "<%= rplVersion %>",

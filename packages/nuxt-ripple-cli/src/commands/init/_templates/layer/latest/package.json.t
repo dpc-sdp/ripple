@@ -2,9 +2,10 @@
 to: package.json
 ---
 {
-  "name": "<%= h.changeCase.kebabCase(name) %>",
+  "name": "@dpc-sdp/<%= h.changeCase.kebabCase(name) %>",
   "type": "module",
   "version": "0.0.0",
+  "repository": "https://github.com/dpc-sdp/<%= h.changeCase.kebabCase(name) %>",
   "main": "./nuxt.config.ts",
   "exports": {
     ".": "./nuxt.config.ts",
@@ -55,5 +56,8 @@ to: package.json
   "engines": {
     "node": "^18.12.1",
     "npm": "^9.5.1"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
   }
 }

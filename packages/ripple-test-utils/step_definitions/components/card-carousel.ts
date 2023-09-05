@@ -41,8 +41,8 @@ Given(
 )
 
 Then(
-  'the card carousel with ID {string} should contain a key dates card with the title {string} and the following entries',
-  (id: string, title: string, dataTable: DataTable) => {
+  'the card carousel with ID {string} should contain a key dates card with the title {string}, link {string} and the following entries',
+  (id: string, title: string, link: string, dataTable: DataTable) => {
     const table = dataTable.hashes()
     cy.get(`[data-component-id="${id}"]`).as('component')
 
@@ -51,6 +51,10 @@ Then(
       cy.get('@keyDatesCard')
         .find('[data-cy="title"]')
         .should('have.text', title)
+      cy.get('@keyDatesCard')
+        .find('a')
+        .should('have.attr', 'href')
+        .and('contain', link)
       cy.get('@keyDatesCard').find('.rpl-card__keydate').as('keyDatesEntries')
     })
 

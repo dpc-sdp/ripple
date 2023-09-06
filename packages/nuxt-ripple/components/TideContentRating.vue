@@ -51,6 +51,7 @@ onMounted(() => {
                   layout="inline"
                   class="wow"
                   value=""
+                  validation="required"
                   :options="[
                     { id: 'Yes', label: 'Yes', value: 'Yes' },
                     { id: 'No', label: 'No', value: 'No' }

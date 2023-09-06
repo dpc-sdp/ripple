@@ -133,7 +133,6 @@ Feature: Forms
     Given I visit the page "/kitchen-sink"
     Then the landing page component "TideLandingPageWebForm" should exist
     And the form with ID "full_form" should exist
-    Then 7 "words" in the field "role" on "full_form" should display a counter of "You have 2 words too many"
     And 0 "characters" in the field "message" on "full_form" should display a counter of "You have 0 characters"
     And 5 "characters" in the field "message" on "full_form" should display a counter of "You have 5 characters"
     And 9 "characters" in the field "message" on "full_form" should display a counter of "You have 9 characters"

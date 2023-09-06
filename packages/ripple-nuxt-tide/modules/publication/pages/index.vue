@@ -57,7 +57,14 @@ export default {
     publishingInfo () {
       if (this.page.type === 'node--publication') {
         const authorsName = this.page.field_publication_authors ? this.page.field_publication_authors : ''
-        const author = authorsName ? authorsName.name : ''
+        let author
+        if (Array.isArray(authorsName)) {
+          author = authorsName
+            .map((x: any) => x.name)
+            .join(', ')
+        } else {
+          author = authorsName.name
+        }
         const date = this.page.field_publication_date
         const copyright = this.page.field_license_type ? this.page.field_license_type.description : ''
         return (author || date || copyright) ? { author, date, copyright } : null

@@ -90,13 +90,9 @@ export const createPublicationIndexHandler = async (
 }
 
 export default defineEventHandler(async (event: H3Event) => {
-  const {
-    public: { tide: tideConfig }
-  } = useRuntimeConfig()
+  const config = useRuntimeConfig()
   const publicationIndexApi = new TidePublicationIndexApi(
-    {
-      ...tideConfig
-    },
+    { ...config.public.tide, ...config.tide },
     logger
   )
 

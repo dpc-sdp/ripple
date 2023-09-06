@@ -107,6 +107,10 @@ export default {
     },
     socialLinks: (src: any) => {
       return processSiteSocialLinks(src.field_site_social_links || [])
+    },
+    sitemap: {
+      showTableOfContents: 'field_show_table_of_contents',
+      tableOfContentsTitle: 'field_title_of_table_of_contents'
     }
   },
   includes: [

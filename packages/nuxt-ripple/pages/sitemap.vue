@@ -38,7 +38,7 @@ const toc = computed(() => {
     <template #body>
       <RplPageComponent v-if="site.sitemap?.showTableOfContents">
         <RplInPageNavigation
-          :title="site.sitemap?.tableOfContentsTitle || 'asd to'"
+          :title="site.sitemap?.tableOfContentsTitle || 'Jump to'"
           :items="toc"
         />
       </RplPageComponent>

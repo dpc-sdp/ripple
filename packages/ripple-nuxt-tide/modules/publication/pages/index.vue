@@ -59,9 +59,7 @@ export default {
         const authorsName = this.page.field_publication_authors ? this.page.field_publication_authors : ''
         let author
         if (Array.isArray(authorsName)) {
-          author = authorsName
-            .map((x: any) => x.name)
-            .join(', ')
+          author = authorsName.length > 0 ? authorsName.map((authors) => authors.name).join(', ') : ''
         } else {
           author = authorsName.name
         }

@@ -5,6 +5,7 @@
 <script>
 import formatdate from '@dpc-sdp/ripple-global/mixins/formatdate'
 import RplDescriptionList from '@dpc-sdp/ripple-description-list'
+import pluralize from 'pluralize'
 
 export default {
   name: 'RplAuthorInformation',
@@ -22,7 +23,8 @@ export default {
     informationListing () {
       const terms = []
       if (this.author) {
-        terms.push({ term: 'Author', description: this.author })
+        const numberOfAuthors = (this.author.match(/,/g) || []).length + 1
+        terms.push({ term: pluralize('Author', numberOfAuthors), description: this.author })
       }
       if (this.date) {
         terms.push({ term: 'Date', description: this.formatDate(this.date, 'MMMM YYYY') })

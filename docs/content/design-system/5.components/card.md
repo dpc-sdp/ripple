@@ -96,7 +96,7 @@ The highlight variant gives the card more visual prominence. Use this to guide u
 ::DocsExample
 ---
 id: core-navigation-card--promo
-argsString: 'graphicElement:Highlight'
+argsString: 'graphicElement:Heading+highlighted&globals=theme:docsTheme2'
 ---
 ::
 

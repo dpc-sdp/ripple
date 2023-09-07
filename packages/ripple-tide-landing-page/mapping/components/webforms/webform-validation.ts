@@ -83,7 +83,7 @@ export const getValidation = (
   if (
     field['#minlength'] ||
     field['#maxlength'] ||
-    (field['#counter_type'] && field['#counter_minimum']) ||
+    field['#counter_minimum'] ||
     field['#counter_maximum']
   ) {
     const type = field['#counter_type'] === 'word' ? 'words' : 'characters'
@@ -91,7 +91,7 @@ export const getValidation = (
     let min = field['#minlength'] || 0
     let max = field['#maxlength'] || ''
 
-    if (field['#counter_type']) {
+    if (field['#counter_minimum'] || field['#counter_maximum']) {
       min = field['#counter_minimum'] || min
       max = field['#counter_maximum'] || max
     }

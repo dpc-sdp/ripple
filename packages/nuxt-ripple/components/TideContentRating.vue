@@ -66,8 +66,6 @@ onMounted(() => {
                     label="Enter your comments"
                     :maxlength="5000"
                     :rows="4"
-                    counter="word"
-                    :counterMax="500"
                     :validation="[['matches', '/^\\W*(\\w+(\\W+|$)){1,500}$/']]"
                     :validationMessages="{
                       matches: 'You must enter between 1 and 500 words'

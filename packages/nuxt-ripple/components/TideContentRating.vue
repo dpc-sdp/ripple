@@ -51,7 +51,6 @@ onMounted(() => {
                   layout="inline"
                   class="wow"
                   value=""
-                  validation="required"
                   :options="[
                     { id: 'Yes', label: 'Yes', value: 'Yes' },
                     { id: 'No', label: 'No', value: 'No' }
@@ -82,7 +81,10 @@ onMounted(() => {
                       >.
                     </p>
                   </RplContent>
-                  <FormKit type="RplFormActions" />
+                  <FormKit
+                    v-if="value.was_this_page_helpful"
+                    type="RplFormActions"
+                  />
                 </div>
               </RplExpandable>
             </template>

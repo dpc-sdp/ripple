@@ -7,7 +7,7 @@ const trimValue = (value: any) =>
 export default function ({ route, site, page }): IRplAnalyticsEventPayload {
   const payload: IRplAnalyticsEventPayload = {
     event: 'routeChange',
-    name: page?.title,
+    page_title: page?.title,
     page_url: route.fullPath,
     content_type: page?.type,
     publication_name: page?.publication?.text,

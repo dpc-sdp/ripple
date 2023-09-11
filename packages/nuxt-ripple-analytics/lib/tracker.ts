@@ -3,6 +3,7 @@ export interface IRplAnalyticsEventPayload {
   event: string
   name?: string
   page_url?: string
+  page_title?: string
   platform_event: string
   // Component properties
   label?: string

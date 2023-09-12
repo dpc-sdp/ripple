@@ -14,7 +14,7 @@ export default {
     RplDescriptionList
   },
   props: {
-    author: String,
+    author: Array,
     date: String,
     copyright: String,
     locale: { default: 'en-au', type: String }
@@ -22,9 +22,8 @@ export default {
   computed: {
     informationListing () {
       const terms = []
-      if (this.author) {
-        const numberOfAuthors = (this.author.match(/,/g) || []).length + 1
-        terms.push({ term: pluralize('Author', numberOfAuthors), description: this.author })
+      if (this.author && this.author.length > 0) {
+        terms.push({ term: pluralize('Author', this.author.length), description: this.author.join(', ') })
       }
       if (this.date) {
         terms.push({ term: 'Date', description: this.formatDate(this.date, 'MMMM YYYY') })

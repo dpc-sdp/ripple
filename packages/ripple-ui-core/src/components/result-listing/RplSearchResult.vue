@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import RplTextLink from '../text-link/RplTextLink.vue'
-import { useAccessibleContainer } from '../../composables/useAccessibleContainer'
 import {
   useRippleEvent,
   rplEventPayload
@@ -27,8 +26,6 @@ const emit = defineEmits<{
 
 const { emitRplEvent } = useRippleEvent('rpl-search-result', emit)
 
-const { container, trigger } = useAccessibleContainer()
-
 const displayUrl = computed(() => props.url.replace('https://', ''))
 
 const handleClick = () => {
@@ -45,21 +42,23 @@ const handleClick = () => {
 </script>
 
 <template>
-  <div ref="container" class="rpl-search-result">
+  <div class="rpl-search-result">
     <div v-if="$slots.meta" class="rpl-search-result__meta rpl-type-p-small">
       <slot name="meta"></slot>
     </div>
     <h2 class="rpl-search-result__title rpl-type-h3">
-      <RplTextLink ref="trigger" :url="url" @click="handleClick">
+      <RplTextLink :url="url" @click="handleClick">
         {{ title }}
       </RplTextLink>
     </h2>
-    <div
-      v-if="url"
+    <RplTextLink
+      :url="url"
+      tabindex="-1"
       class="rpl-search-result__url rpl-type-p-small rpl-u-screen-only"
+      @click="handleClick"
     >
       {{ displayUrl }}
-    </div>
+    </RplTextLink>
     <div v-if="$slots.details" class="rpl-search-result__details rpl-type-p">
       <slot name="details"></slot>
     </div>

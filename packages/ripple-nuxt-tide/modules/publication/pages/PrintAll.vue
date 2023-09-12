@@ -104,7 +104,7 @@ export default {
     },
     publishingInfo () {
       if (this.publication.type === 'node--publication') {
-        const authorsName = this.publication.field_publication_authors ? this.publication.field_publication_authors : ''
+        const authorsName = this.publication.field_publication_authors ?? []
         const author = Array.isArray(authorsName) ? authorsName.map((author) => author.name) : [authorsName.name]
         const date = this.publication.field_publication_date
         const copyright = this.publication.field_license_type ? this.publication.field_license_type.description : ''

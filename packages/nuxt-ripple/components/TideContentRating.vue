@@ -49,7 +49,6 @@ onMounted(() => {
                   type="RplFormRadioGroup"
                   label="Was this page helpful?"
                   layout="inline"
-                  class="wow"
                   value=""
                   :options="[
                     { id: 'Yes', label: 'Yes', value: 'Yes' },

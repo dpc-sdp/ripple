@@ -6,7 +6,8 @@ import type { TidePageBase, TideSiteData } from '@dpc-sdp/ripple-tide-api/types'
 import type {
   TideSearchListingPage,
   MappedSearchResult,
-  TideSearchListingResultLayout
+  TideSearchListingResultLayout,
+  TideSearchListingSortOption
 } from './../types'
 import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
 import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
@@ -21,6 +22,7 @@ interface Props {
   title: string
   introText?: string
   searchListingConfig?: TideSearchListingPage['searchListingConfig']
+  sortOptions?: TideSearchListingSortOption[]
   autocompleteQuery?: boolean
   queryConfig: Record<string, any>
   globalFilters?: any[]
@@ -69,7 +71,8 @@ const props = withDefaults(defineProps<Props>(), {
         result: item._source
       }
     }
-  }
+  },
+  sortOptions: () => []
 })
 
 const emit = defineEmits<{
@@ -102,6 +105,8 @@ const {
   goToPage,
   page,
   pageSize,
+  userSelectedSort,
+  changeSortOrder,
   totalResults,
   totalPages,
   pagingStart,
@@ -112,7 +117,8 @@ const {
   props.userFilters,
   props.globalFilters,
   props.searchResultsMappingFn,
-  props.searchListingConfig
+  props.searchListingConfig,
+  props.sortOptions
 )
 
 const uiFilters = ref(props.userFilters)
@@ -224,6 +230,10 @@ const handlePageChange = (event) => {
     },
     { global: true }
   )
+}
+
+const handleSortChange = (sortId) => {
+  changeSortOrder(sortId)
 }
 
 const handleToggleFilters = () => {
@@ -341,25 +351,32 @@ watch(
       </RplHeroHeader>
     </template>
     <template #body>
-      <slot
-        name="resultsCount"
-        :results="results"
-        :currentPage="page"
-        :pageSize="pageSize"
-        :totalPages="totalPages"
-        :totalResults="totalResults"
-      >
-        <RplPageComponent
-          v-if="results?.length"
-          data-component-type="search-listing-result-count"
-        >
-          <TideSearchResultsCount
-            :pagingStart="pagingStart + 1"
-            :pagingEnd="pagingEnd + 1"
+      <RplPageComponent v-if="results?.length">
+        <div class="tide-search-listing-above-result">
+          <slot
+            name="resultsCount"
+            :results="results"
+            :currentPage="page"
+            :pageSize="pageSize"
+            :totalPages="totalPages"
             :totalResults="totalResults"
+          >
+            <div data-component-type="search-listing-result-count">
+              <TideSearchResultsCount
+                :pagingStart="pagingStart + 1"
+                :pagingEnd="pagingEnd + 1"
+                :totalResults="totalResults"
+              />
+            </div>
+          </slot>
+
+          <TideSearchSortOptions
+            :currentValue="userSelectedSort"
+            :sortOptions="sortOptions"
+            @change="handleSortChange"
           />
-        </RplPageComponent>
-      </slot>
+        </div>
+      </RplPageComponent>
 
       <RplPageComponent>
         <div :class="{ 'tide-search-results--loading': isBusy }">
@@ -404,6 +421,8 @@ watch(
 </template>
 
 <style>
+@import '@dpc-sdp/ripple-ui-core/style/breakpoints';
+
 .tide-search-header {
   display: flex;
   flex-direction: column;
@@ -427,5 +446,13 @@ watch(
 .tide-search-results--loading {
   opacity: 0.5;
   pointer-events: none;
+}
+
+.tide-search-listing-above-result {
+  @media (--rpl-bp-m) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 </style>

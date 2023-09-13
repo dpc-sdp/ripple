@@ -3,17 +3,19 @@
     data-component-type="search-listing-layout-table"
     caption=""
     class="tide-search-listing-results-table"
-    :columns="columns"
+    :columns="processedColumns"
     :items="items"
   />
 </template>
 
 <script setup lang="ts">
-import { computed, getSearchResultValue } from '#imports'
+import { computed } from '#imports'
 
 type tableColumnConfig = {
-  key: string
   label: string
+  objectKey: string
+  format?: 'date' | null
+  cols?: number
   component?: string
   props?: any
 }
@@ -26,28 +28,89 @@ interface Props {
 const props = defineProps<Props>()
 
 const items = computed(() => {
-  if (Array.isArray(props.columns) && Array.isArray(props.results)) {
-    return props.results?.map((itm) =>
-      props.columns?.map((col) => {
-        if (col.component) {
-          if (itm.hasOwnProperty('_source')) {
-            return itm._source
-          }
-        }
-        return getSearchResultValue(
-          itm && itm._source,
-          col.key,
-          col.isArray === false
-        )
-      })
-    )
-  }
+  return (props.results || []).map((result) => {
+    return {
+      id: result._id,
+      ...(result._source as Record<string, unknown>)
+    }
+  })
+})
+
+const processedColumns = computed(() => {
+  return props.columns.map((column) => {
+    const classes = [`tide-search-listing-table-cols__${column.cols}`]
+
+    if (column.component) {
+      return {
+        ...column,
+        classes
+      }
+    } else {
+      return {
+        ...column,
+        classes,
+        component: 'TideSearchListingTableValue'
+      }
+    }
+  })
 })
 </script>
 
 <style>
+@import '@dpc-sdp/ripple-ui-core/style/breakpoints';
+
 .tide-search-listing-results-table {
   padding: 0;
   margin: 0;
+}
+
+@media (--rpl-bp-s) {
+  .tide-search-listing-table-cols__1 {
+    width: 8.3333333333%;
+  }
+
+  .tide-search-listing-table-cols__2 {
+    width: 16.6666666667%;
+  }
+
+  .tide-search-listing-table-cols__3 {
+    width: 25%;
+  }
+
+  .tide-search-listing-table-cols__4 {
+    width: 33.3333333333%;
+  }
+
+  .tide-search-listing-table-cols__5 {
+    width: 41.6666666667%;
+  }
+
+  .tide-search-listing-table-cols__6 {
+    width: 50%;
+  }
+
+  .tide-search-listing-table-cols__7 {
+    width: 58.3333333333%;
+  }
+
+  .tide-search-listing-table-cols__8 {
+    width: 66.6666666667%;
+  }
+
+  .tide-search-listing-table-cols__9 {
+    width: 75%;
+  }
+
+  .tide-search-listing-table-cols__10 {
+    width: 83.3333333333%;
+  }
+
+  .tide-search-listing-table-cols__11 {
+    width: 91.6666666667%;
+  }
+
+  .tide-search-listing-table-cols__12 {
+    width: 100%;
+  }
 }
 </style>

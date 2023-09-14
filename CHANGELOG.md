@@ -1,5 +1,18 @@
 # Changelog
 
+## v2.2.1
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.2.0...v2.2.1)
+
+
+### 🩹 Fixes
+
+  - **@dpc-sdp/ripple-tide-search:** Fixed site search filters not appearing ([720d9b0b](https://github.com/dpc-sdp/ripple-framework/commit/720d9b0b))
+
+### ❤️  Contributors
+
+- Jeffrey Dowdle <jeffrey.dowdle@dpc.vic.gov.au>
+
 ## v2.2.0
 
 [compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.9...v2.2.0)

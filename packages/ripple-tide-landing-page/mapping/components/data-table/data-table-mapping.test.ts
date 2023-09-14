@@ -51,21 +51,63 @@ describe('introBannerMapping', () => {
         headingType: { horizontal: true, vertical: false },
         orientation: 'row',
         columns: [
-          'Row One Column One',
-          'Row One Column Two',
-          'Row One Column Three'
+          { label: 'Row One Column One', objectKey: 'col0' },
+          { label: 'Row One Column Two', objectKey: 'col1' },
+          { label: 'Row One Column Three', objectKey: 'col2' }
         ],
         items: [
-          ['Row Two Column One', 'Row Two Column Two', 'Row Two Column Three'],
-          [
-            'Row Three Column One',
-            'Row Three Column Two',
-            'Row Three Column Three'
-          ]
+          {
+            col0: 'Row Two Column One',
+            col1: 'Row Two Column Two',
+            col2: 'Row Two Column Three'
+          },
+          {
+            col0: 'Row Three Column One',
+            col1: 'Row Three Column Two',
+            col2: 'Row Three Column Three'
+          }
         ]
       }
     }
 
     expect(dataTableMapping(rawData)).toEqual(result)
+  })
+
+  it('maps a table without a header row', () => {
+    const result: TideDynamicPageComponent<ITideDataTable> = {
+      component: 'TideLandingPageDataTable',
+      id: '1936',
+      props: {
+        caption: '',
+        headingType: { horizontal: false, vertical: false },
+        orientation: 'row',
+        columns: [
+          { objectKey: 'col0' },
+          { objectKey: 'col1' },
+          { objectKey: 'col2' }
+        ],
+        items: [
+          {
+            col0: 'Row One Column One',
+            col1: 'Row One Column Two',
+            col2: 'Row One Column Three'
+          },
+          {
+            col0: 'Row Two Column One',
+            col1: 'Row Two Column Two',
+            col2: 'Row Two Column Three'
+          },
+          {
+            col0: 'Row Three Column One',
+            col1: 'Row Three Column Two',
+            col2: 'Row Three Column Three'
+          }
+        ]
+      }
+    }
+
+    expect(
+      dataTableMapping({ ...rawData, field_first_row_table_header: false })
+    ).toEqual(result)
   })
 })

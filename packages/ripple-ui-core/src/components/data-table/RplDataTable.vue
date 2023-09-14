@@ -42,7 +42,7 @@ withDefaults(defineProps<Props>(), {
             caption
           }}
         </caption>
-        <thead v-if="columns.length > 0">
+        <thead v-if="headingType.horizontal && columns.length > 0">
           <tr>
             <th
               v-for="(column, index) in columns"

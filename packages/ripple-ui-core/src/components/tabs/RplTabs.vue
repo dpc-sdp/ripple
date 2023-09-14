@@ -62,14 +62,21 @@ const updateActive = (key: string) => {
     { global: true }
   )
 }
+
+// This component only renders the tablist, panels are the responsibility of the
+// consuming component - naming is opinionated to match the ARIA spec
 </script>
 
 <template>
-  <div :class="componentClasses">
+  <div :class="componentClasses" role="tablist">
     <div
       v-for="(item, index) in tabs"
+      :id="`tab-${item.key}`"
       :key="index"
       :class="activeClasses(item.key)"
+      :aria-selected="state.active === item.key ? 'true' : 'false'"
+      :aria-controls="`panel-${item.key}`"
+      role="tab"
     >
       <RplButton
         :icon-name="item.icon ? `icon-${item.icon}` : null"

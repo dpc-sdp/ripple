@@ -21,6 +21,10 @@
   color: var(--rpl-clr-neutral-600);
 }
 
+.rpl-search-result__heading {
+  cursor: pointer;
+}
+
 .rpl-search-result__title {
   color: var(--rpl-clr-link);
 
@@ -33,12 +37,8 @@
 }
 
 .rpl-search-result__url {
-  --local-url-colour: var(--rpl-clr-neutral-600);
-  --local-clr-link-visited: var(--local-url-colour);
-
-  display: block;
   margin-top: var(--rpl-sp-1);
-  color: var(--local-url-colour);
+  color: var(--rpl-clr-neutral-600);
   text-decoration: none;
 }
 

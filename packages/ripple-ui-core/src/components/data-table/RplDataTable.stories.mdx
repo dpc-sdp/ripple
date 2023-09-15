@@ -71,10 +71,11 @@ export const SingleTemplate = (args) => ({
     args={{
       caption: "Fastest animals",
       footer: "Optional table footer",
-      items: RplDataTableObjectKeyColumnConfig,
-      rows: RplDataTableObjects,
+      columns: RplDataTableObjectKeyColumnConfig,
+      items: RplDataTableObjects,
       headingType: {
-        vertical: true
+        horizontal: true,
+        vertical: false
       },
       alignHidden: 1
     }}

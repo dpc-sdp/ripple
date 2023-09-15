@@ -371,6 +371,7 @@ watch(
           </slot>
 
           <TideSearchSortOptions
+            v-if="sortOptions && sortOptions.length"
             :currentValue="userSelectedSort"
             :sortOptions="sortOptions"
             @change="handleSortChange"

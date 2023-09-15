@@ -1,9 +1,13 @@
 <template>
   <div class="rpl-form__outer tide-search-sort-options" data-invalid="false">
     <div class="rpl-form__wrapper">
-      <RplFormLabel for="sortOptions">Sort by</RplFormLabel>
+      <RplFormLabel for="search-listing-sort-options">Sort by</RplFormLabel>
       <div class="rpl-form__inner">
         <RplFormDropdown
+          id="search-listing-sort-options"
+          name="search-listing-sort-options"
+          label="Sort by"
+          labelId="search-listing-sort-options-label"
           :options="dropdownOptions"
           :value="currentValue"
           @onChange="handleChange"
@@ -29,6 +33,7 @@ const emit = defineEmits(['change'])
 const dropdownOptions = computed(() => {
   return (props.sortOptions || []).map((option) => {
     return {
+      id: option.id,
       label: option.label,
       value: option.id
     }

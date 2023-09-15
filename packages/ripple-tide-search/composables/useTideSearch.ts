@@ -63,7 +63,7 @@ export default (
   const results = ref()
   const totalResults = ref(0)
   const suggestions = ref([])
-  const userSelectedSort = ref(sortOptions[0].id)
+  const userSelectedSort = ref(null)
 
   const pagingStart = computed(() => {
     return (page.value - 1) * pageSize.value

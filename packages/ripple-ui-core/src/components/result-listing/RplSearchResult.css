@@ -1,7 +1,6 @@
 @import '@dpc-sdp/ripple-ui-core/style/breakpoints';
 
 .rpl-search-result {
-  cursor: pointer;
   padding-top: var(--rpl-sp-5);
   padding-bottom: var(--rpl-sp-5);
 
@@ -20,6 +19,10 @@
 .rpl-search-result__topic {
   text-transform: uppercase;
   color: var(--rpl-clr-neutral-600);
+}
+
+.rpl-search-result__heading {
+  cursor: pointer;
 }
 
 .rpl-search-result__title {

@@ -242,7 +242,10 @@ export default (
   const getQueryDSLForAggregations = () => {
     return {
       query: {
-        match_all: {}
+        bool: {
+          must: [{ match_all: {} }],
+          filter: globalFilters
+        }
       },
       size: 1,
       from: 0,

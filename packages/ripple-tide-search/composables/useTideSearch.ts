@@ -148,12 +148,14 @@ export default (
   }
 
   const userFilters = computed(() => {
-    return Object.keys(filterForm.value).map((key: string) => {
+    const filterValues = { ...filterForm.value, ...getFallbackValues() }
+
+    return Object.keys(filterValues).map((key: string) => {
       const itm = userFilterConfig.find((itm: any) => itm.id === key)
-      let filterVal = filterForm.value[key]
+      let filterVal = filterValues[key]
 
       if (itm.filter?.multiple !== false) {
-        filterVal = filterForm.value[key] && Array.from(filterForm.value[key])
+        filterVal = filterValues[key] && Array.from(filterValues[key])
       }
 
       // Need to work out if form has value - will be different for different controls
@@ -342,6 +344,33 @@ export default (
         (doc: { suggestion: string }) => doc.suggestion
       )
     })
+  }
+
+  /**
+   * Get any fallback values to be included in the search query
+   *
+   * This could be a plain string or a reference to function in app.config
+   * { ripple: { search: fallbackValues: { currentDate: () => { return new Date() } } }}
+   */
+  const getFallbackValues = () => {
+    if (!Array.isArray(userFilterConfig)) return {}
+
+    const fallbackValues = appConfig?.ripple?.search?.fallbackValues || {}
+
+    return userFilterConfig.reduce((acc, curr) => {
+      if (curr?.filter?.fallbackValue && !filterForm.value?.[curr.id]) {
+        const fallback = curr.filter.fallbackValue
+
+        const value =
+          typeof fallbackValues[fallback] === 'function'
+            ? fallbackValues[fallback]()
+            : fallback
+
+        acc = { ...acc, [curr.id]: value }
+      }
+
+      return acc
+    }, {})
   }
 
   /**

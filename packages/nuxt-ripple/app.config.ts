@@ -20,6 +20,10 @@ declare module '@nuxt/schema' {
       }
       search?: {
         contentTypes: string[]
+        fallbackValues?: Record<
+          string,
+          (filterConfig: any, values: string[]) => void
+        >
         filterFunctions?: Record<
           string,
           (filterConfig: any, values: string[]) => void

@@ -1,0 +1,120 @@
+{
+  "title": "Grants and programs",
+  "changed": "2022-11-02T12:47:29+11:00",
+  "created": "2022-11-02T12:47:29+11:00",
+  "type": "tide_search_listing",
+  "nid": "11dede11-10c0-111e1-1100-000000000332",
+  "showTopicTags": true,
+  "summary": "",
+  "config": {
+    "searchListingConfig": {
+      "resultsPerPage": 10
+    },
+    "queryConfig": {
+      "multi_match": {
+        "query": "{{query}}",
+        "fields": [
+          "title^3",
+          "field_landing_page_summary^2",
+          "body",
+          "field_paragraph_body",
+          "summary_processed"
+        ]
+      }
+    },
+    "results": {
+      "layout": {
+        "component": "TideSearchResultsList"
+      },
+      "item": {
+        "grant": {
+          "component": "TideGrantSearchResult"
+        }
+      }
+    },
+    "globalFilters": [
+      { "terms": { "type": ["grant"] } },
+      { "terms": { "field_node_site": [8888] } }
+    ],
+    "userFilters": [
+      {
+        "id": "fallbackValuesFunction",
+        "component": "TideSearchFilterDropdown",
+        "filter": {
+          "type": "terms",
+          "fallbackValue": "dynamicValue",
+          "value": "fallbackValuesFunction"
+        },
+        "props": {
+          "id": "fallbackValuesFunction",
+          "label": "Filter fallback value function",
+          "multiple": true,
+          "options": [
+            {
+              "id": "1",
+              "label": "Blue",
+              "value": "blue"
+            },
+            {
+              "id": "2",
+              "label": "Green",
+              "value": "green"
+            }
+          ]
+        }
+      },
+      {
+        "id": "fallbackValuesText",
+        "component": "TideSearchFilterDropdown",
+        "filter": {
+          "type": "terms",
+          "fallbackValue": ["red"],
+          "value": "fallbackValuesText"
+        },
+        "props": {
+          "id": "fallbackValuesText",
+          "label": "Filter fallback value function",
+          "multiple": true,
+          "options": [
+            {
+              "id": "1",
+              "label": "Blue",
+              "value": "blue"
+            },
+            {
+              "id": "2",
+              "label": "Red",
+              "value": "red"
+            }
+          ]
+        }
+      },
+      {
+        "id": "valueSet",
+        "component": "TideSearchFilterDropdown",
+        "filter": {
+          "type": "terms",
+          "fallbackValue": ["gold"],
+          "value": "valueSet"
+        },
+        "props": {
+          "id": "valueSet",
+          "label": "Filter fallback value function",
+          "multiple": true,
+          "options": [
+            {
+              "id": "1",
+              "label": "Gold",
+              "value": "gold"
+            },
+            {
+              "id": "2",
+              "label": "Orange",
+              "value": "orange"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

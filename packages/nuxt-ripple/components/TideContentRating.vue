@@ -78,7 +78,10 @@ onMounted(() => {
                       >.
                     </p>
                   </RplContent>
-                  <FormKit type="RplFormActions" />
+                  <FormKit
+                    v-if="value.was_this_page_helpful"
+                    type="RplFormActions"
+                  />
                 </div>
               </RplExpandable>
             </template>

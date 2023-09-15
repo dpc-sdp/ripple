@@ -29,5 +29,10 @@ export default defineNuxtConfig({
   },
   vite: {
     plugins: [ViteYaml()]
+  },
+  nitro: {
+    prerender: {
+      ignore: ['/storybook']
+    }
   }
 })

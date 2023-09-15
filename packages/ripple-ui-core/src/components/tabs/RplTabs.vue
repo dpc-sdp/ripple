@@ -71,15 +71,15 @@ const updateActive = (key: string) => {
   <div :class="componentClasses" role="tablist">
     <div
       v-for="(item, index) in tabs"
-      :id="`tab-${item.key}`"
       :key="index"
       :class="activeClasses(item.key)"
-      :aria-selected="state.active === item.key ? 'true' : 'false'"
-      :aria-controls="`panel-${item.key}`"
-      role="tab"
     >
       <RplButton
+        :id="`tab-${item.key}`"
         :icon-name="item.icon ? `icon-${item.icon}` : null"
+        :aria-selected="state.active === item.key ? 'true' : null"
+        :aria-controls="`panel-${item.key}`"
+        role="tab"
         variant="transparent"
         @click="updateActive(item.key)"
         >{{ item.title }}</RplButton

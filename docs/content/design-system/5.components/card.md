@@ -17,7 +17,8 @@ Ensure headings are direct and summaries are concise.
 
 ::DocsExample
 ---
-id: core-navigation-card--promo&args=graphicElement:None
+id: core-navigation-card--promo
+argsString: 'graphicElement:None'
 ---
 ::
 
@@ -96,7 +97,8 @@ The highlight variant gives the card more visual prominence. Use this to guide u
 ::DocsExample
 ---
 id: core-navigation-card--promo
-argsString: 'graphicElement:Heading+highlighted&globals=theme:docsTheme2'
+theme: 'docsTheme2'
+argsString: 'graphicElement:Highlight'
 ---
 ::
 

@@ -11,13 +11,21 @@ interface Props {
 const props = defineProps<Props>()
 
 const formattedText = computed(() => {
-  const rawValues = getSearchResultValue(
+  const rawValue = getSearchResultValue(
     props.item,
     props.column.objectKey,
     true
   )
 
-  const formattedValues = (rawValues || []).map((rawValue: any[]) => {
+  if (!rawValue) {
+    return ''
+  }
+
+  // Sometimes result fields are returned as an array, sometimes as a string.
+  // We normalise to an array to make it easier to work with.
+  const normalised = rawValue && Array.isArray(rawValue) ? rawValue : [rawValue]
+
+  const formattedValues = normalised.map((rawValue: any[]) => {
     if (
       props.column.format === 'date' &&
       rawValue &&

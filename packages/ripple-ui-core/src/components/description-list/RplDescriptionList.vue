@@ -1,15 +1,20 @@
 <script setup lang="ts">
-import type { IRplDescriptionListItem } from './constants'
+import type {
+  IRplDescriptionListItem,
+  IRplDescriptionListVariant
+} from './constants'
 import RplDescriptionListItem from './RplDescriptionListItem.vue'
 
 interface Props {
   inline?: boolean
   items?: Array<IRplDescriptionListItem>
+  variant?: IRplDescriptionListVariant
 }
 
 withDefaults(defineProps<Props>(), {
   inline: false,
-  items: () => []
+  items: () => [],
+  variant: 'default'
 })
 </script>
 
@@ -22,9 +27,15 @@ withDefaults(defineProps<Props>(), {
     }"
   >
     <template v-for="row in items" :key="row.term">
-      <RplDescriptionListItem :inline="inline" :term="row.term">{{
-        row.description
-      }}</RplDescriptionListItem>
+      <RplDescriptionListItem
+        :inline="inline"
+        :term="row.term"
+        :variant="variant"
+        :icon-name="row?.iconName"
+        :icon-colour="row?.iconColour"
+      >
+        {{ row.description }}
+      </RplDescriptionListItem>
     </template>
     <slot />
   </dl>

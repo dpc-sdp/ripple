@@ -21,33 +21,30 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 const iconOnly = computed(() => props.variant === 'icon')
+const iconClasses = computed(() => ({
+  'rpl-description-list--with-icon': props.iconName,
+  'rpl-description-list--only-icon': iconOnly.value
+}))
 const termClass = computed(() => ({ 'rpl-u-visually-hidden': iconOnly.value }))
 </script>
 
 <template>
-  <div v-if="inline" class="rpl-description-list__inline-wrap">
-    <RplIcon
-      v-if="iconName && !iconOnly"
-      :name="iconName"
-      :colour="iconColour"
-      aria-hidden="true"
-    />
-    <div :class="`rpl-description-list__inline-${variant}`">
-      <dt class="rpl-description-list__term">
-        <RplIcon
-          v-if="iconName && iconOnly"
-          :name="iconName"
-          :colour="iconColour"
-          aria-hidden="true"
-        /><span :class="termClass">{{ term }}</span>
-      </dt>
-      <dd class="rpl-description-list__description"><slot /></dd>
-    </div>
+  <div
+    v-if="inline"
+    :class="{ 'rpl-description-list__inline-wrap': true, ...iconClasses }"
+  >
+    <dt class="rpl-description-list__term">
+      <RplIcon
+        v-if="iconName"
+        :name="iconName"
+        :colour="iconColour"
+        aria-hidden="true"
+      /><span :class="termClass">{{ term }}</span>
+    </dt>
+    <dd class="rpl-description-list__description"><slot /></dd>
   </div>
   <template v-else>
-    <dt
-      :class="`rpl-description-list__term rpl-description-list__term-${variant}`"
-    >
+    <dt :class="{ 'rpl-description-list__term': true, ...iconClasses }">
       <RplIcon
         v-if="iconName"
         :name="iconName"

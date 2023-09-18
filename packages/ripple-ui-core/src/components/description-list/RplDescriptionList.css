@@ -8,12 +8,15 @@
   margin: 0;
 
   .rpl-icon {
-    transform: translateY(3px);
+    position: absolute;
+    top: 3px;
+    left: 0;
   }
 }
 
 .rpl-description-list__term {
   font-weight: var(--rpl-type-weight-bold);
+  position: relative;
   display: flex;
   gap: var(--rpl-sp-2);
 }
@@ -36,15 +39,27 @@
 }
 
 .rpl-description-list__inline-wrap {
-  display: flex;
-  gap: var(--rpl-sp-2);
+  position: relative;
 }
 
-.rpl-description-list__inline-wrap .rpl-description-list__term,
+.rpl-description-list__inline-wrap .rpl-description-list__term {
+  position: initial;
+  display: inline-flex;
+}
+
 .rpl-description-list__inline-wrap .rpl-description-list__description {
   display: inline;
 }
 
-.rpl-description-list__inline-icon {
-  display: flex;
+.rpl-description-list--with-icon {
+  padding-left: var(--rpl-sp-5);
+}
+
+.rpl-description-list--only-icon {
+  padding-left: var(--rpl-sp-6);
+}
+
+.rpl-description-list--only-icon .rpl-description-list__description,
+.rpl-description-list--only-icon + .rpl-description-list__description {
+  margin-left: 0;
 }

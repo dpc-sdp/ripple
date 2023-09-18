@@ -5,7 +5,7 @@ import {
   ArgsTable
 } from '@storybook/addon-docs'
 import RplDataTable from './RplDataTable.vue'
-import { RplDataTableColumns, RplDataTableItems, RplDataTableColumnConfig, RplDataTableComplexItems } from './fixtures/sample'
+import { RplDataTableColumns, RplDataTableItems, RplDataTableColumnConfig, RplDataTableComplexItems, RplDataTableObjectKeyColumnConfig, RplDataTableObjects, RplDataTableStructuredColumns, RplDataTableStructuredItems } from './fixtures/sample'
 import { a11yStoryCheck } from './../../../stories/interactions.js'
 
 export const SingleTemplate = (args) => ({
@@ -34,7 +34,9 @@ export const SingleTemplate = (args) => ({
       footer: "Optional table footer",
       columns: RplDataTableColumns,
       items: RplDataTableItems,
+      showExtraContent: true,
       headingType: {
+        horizontal: true,
         vertical: true
       },
       alignHidden: 1
@@ -54,7 +56,28 @@ export const SingleTemplate = (args) => ({
       columns: RplDataTableColumnConfig,
       items: RplDataTableComplexItems,
       headingType: {
+        horizontal: true,
         vertical: true
+      },
+      alignHidden: 1
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    name="Object key cell renderers"
+    play={a11yStoryCheck}
+    args={{
+      caption: "Fastest animals",
+      footer: "Optional table footer",
+      columns: RplDataTableObjectKeyColumnConfig,
+      items: RplDataTableObjects,
+      headingType: {
+        horizontal: true,
+        vertical: false
       },
       alignHidden: 1
     }}
@@ -70,81 +93,10 @@ export const SingleTemplate = (args) => ({
     args={{
       caption: "Optional table caption",
       footer: "Optional table footer",
-      columns: [
-        "Column 1",
-        "Column 2",
-        "Column 3",
-        "Column 4"
-      ],
-      items: [
-        [
-          "R1 - C1",
-          "R1 - C2",
-          "R1 - C3",
-          "R1 - C4",
-          [
-            [
-              {
-                items: [
-                  {
-                    heading: "R1 test heading",
-                    content: "R1 test content"
-                  },
-                  {
-                    heading: "R1 test heading 2",
-                    content: "R1 test content 2"
-                  }
-                ]
-              }
-            ]
-          ]
-        ],
-        [
-          "R2 - C1",
-          "R2 - C2",
-          "R2 - C3",
-          "R2 - C4",
-          [
-            [
-              {
-                items: [
-                  {
-                    heading: "R2 test heading",
-                    content: "R2 test content"
-                  },
-                  {
-                    heading: "R2 test heading 2",
-                    content: "R2 test content 2"
-                  },
-                  {
-                    heading: "R2 test heading 3",
-                    content: "R2 test content 3"
-                  }
-                ]
-              }
-            ]
-          ]
-        ],
-        [
-          "R3 - C1",
-          "R3 - C2",
-          "R3 - C3",
-          "R3 - C4",
-          [
-            [
-              {
-                items: [
-                  {
-                    heading: "R3 test heading",
-                    content: "R3 test content"
-                  }
-                ]
-              }
-            ]
-          ]
-        ]
-      ],
+      columns: RplDataTableStructuredColumns,
+      items: RplDataTableStructuredItems,
       headingType: {
+        horizontal: true,
         vertical: true
       },
       alignHidden: 1

@@ -78,6 +78,12 @@ export type TideSearchListingResultLayout = {
   }
 }
 
+export type TideSearchListingSortOption = {
+  id: string
+  label: string
+  clause: any
+}
+
 export type TideSearchListingConfig = {
   /**
    * @description general configuration for search listing
@@ -133,6 +139,7 @@ export type TideSearchListingConfig = {
       [key: string]: TideSearchListingResultItem
     }
   }
+  sortOptions?: TideSearchListingSortOption[]
 }
 
 export interface TideSearchListingPage extends TidePageBase {

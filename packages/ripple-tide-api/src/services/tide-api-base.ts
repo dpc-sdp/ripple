@@ -87,7 +87,7 @@ export default class TideApiBase extends HttpClient {
     const params = {
       site: siteId,
       filter: {
-        max_depth: 4,
+        max_depth: 7,
         fields: 'title,url,parent,weight'
       }
     }

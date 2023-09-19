@@ -330,11 +330,13 @@ watch(
             v-if="userFilters && userFilters.length > 0"
             class="tide-search-refine-btn"
             :expanded="filtersExpanded"
+            aria-controls="tide-search-listing-filters"
             @click="handleToggleFilters"
             >{{ toggleFiltersLabel }}</RplSearchBarRefine
           >
           <RplExpandable
             v-if="userFilters && userFilters.length > 0"
+            id="tide-search-listing-filters"
             :expanded="filtersExpanded"
             class="rpl-u-margin-t-4"
           >

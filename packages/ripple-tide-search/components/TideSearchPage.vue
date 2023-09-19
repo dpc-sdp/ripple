@@ -223,10 +223,14 @@ watch(
           <RplSearchBarRefine
             class="tide-search-refine-btn"
             :expanded="filtersExpanded"
+            aria-controls="tide-search-page-filters"
             @click="toggleFilters"
             >{{ toggleFiltersLabel }}</RplSearchBarRefine
           >
-          <RplExpandable :expanded="filtersExpanded">
+          <RplExpandable
+            id="tide-search-page-filters"
+            :expanded="filtersExpanded"
+          >
             <RplForm
               v-if="staticFacetOptions !== null"
               id="tide-search-filter-form"

@@ -20,9 +20,12 @@ interface Props {
   currentPage: number
   totalPages: number
   emitSearchEvent: Function
+  scrollToSelector: string
 }
 
-const props = defineProps<Props>()
+const props = withDefaults(defineProps<Props>(), {
+  scrollToSelector: '.rpl-layout__body-wrap'
+})
 
 function scrollToElementTopWithOffset(element, offset) {
   const elementTop = element.getBoundingClientRect().top + window.scrollY
@@ -36,10 +39,10 @@ function scrollToElementTopWithOffset(element, offset) {
 
 const handlePageChange = (event) => {
   const navHeight = 92
-  const layoutBody = document.querySelector('.rpl-layout__body-wrap')
+  const scrollToElement = document.querySelector(props.scrollToSelector)
 
-  if (layoutBody) {
-    scrollToElementTopWithOffset(layoutBody, navHeight)
+  if (scrollToElement) {
+    scrollToElementTopWithOffset(scrollToElement, navHeight)
   }
   emit('paginate', event)
 }

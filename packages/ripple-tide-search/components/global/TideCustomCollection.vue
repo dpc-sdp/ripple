@@ -279,6 +279,7 @@ const handleSortChange = (sortId) => {
         v-if="!searchError"
         :currentPage="page"
         :totalPages="totalPages"
+        :scrollToSelector="`[data-component-id='${id}']`"
         @paginate="handlePageChange"
       />
     </RplPageComponent>

@@ -2,7 +2,7 @@
   <RplDescriptionList
     :inline="true"
     :items="overviewList"
-    :variant="props.variant === 'inline' ? 'icon' : 'default'"
+    :variant="variant === 'inline' ? 'icon' : 'default'"
     :class="`tide-grant-meta tide-grant-meta--${variant}`"
   />
 </template>
@@ -63,11 +63,17 @@ const overviewList = computed(() => {
 </script>
 
 <style>
+@import '@dpc-sdp/ripple-ui-core/style/breakpoints';
+
 .tide-grant-meta--inline {
   flex-wrap: wrap;
-  flex-direction: row;
+  flex-direction: column;
   column-gap: var(--rpl-sp-4);
   margin-bottom: var(--rpl-sp-4);
+
+  @media (--rpl-bp-m) {
+    flex-direction: row;
+  }
 }
 
 .tide-grant-meta--block {

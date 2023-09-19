@@ -56,6 +56,14 @@
     }
   }
 
+  .rpl-description-list {
+    flex-direction: column;
+
+    @media (--rpl-bp-m) {
+      flex-direction: row;
+    }
+  }
+
   .rpl-list__item {
     display: flex;
     gap: var(--rpl-sp-2);

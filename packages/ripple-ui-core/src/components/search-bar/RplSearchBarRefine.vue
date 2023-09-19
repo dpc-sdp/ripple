@@ -16,6 +16,7 @@ withDefaults(defineProps<Props>(), {
 
 <template>
   <button
+    :aria-expanded="expanded"
     :class="{
       'rpl-search-bar-refine': true,
       'rpl-search-bar-refine--expanded': expanded,

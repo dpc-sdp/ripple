@@ -30,7 +30,10 @@ export default defineNuxtPlugin((nuxtApp) => {
       const additionalMeta = page?.meta?.additional || []
 
       additionalMeta
-        .filter((attr: any) => attr.tag === 'link')
+        .filter(
+          (attr: any) =>
+            attr.tag === 'link' && attr.attributes.rel !== 'canonical'
+        )
         .map((attr: any) => {
           if (attr.attributes.rel) links.push(attr.attributes)
         })

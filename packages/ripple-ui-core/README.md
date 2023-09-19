@@ -40,6 +40,10 @@ There is no need to import the components as they will be registered globally by
 </template>
 ```
 
+#### Custom icons
+
+Within a Nuxt application or layer just place custom icons (svgs) within an `assets/icons` directory, they can then be used with the `RplIcon` component. For example `assets/icons/icon-moon.svg` can be used as `<RplIcon name="icon-moon" />`
+
 ## Usage (Vue)
 
 To use a component, import it from `@dpc-sdp/ripple-ui-core/vue`, note the addition of `/vue`.

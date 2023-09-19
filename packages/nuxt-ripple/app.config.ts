@@ -104,6 +104,10 @@ export default defineAppConfig({
         name: 'Noto Sans KR',
         url: 'https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap'
       },
+      kyu: {
+        name: 'Noto Sans Kayah Li',
+        url: 'https://fonts.googleapis.com/css2?family=Noto+Sans+Kayah+Li:wght@400;700&display=swap'
+      },
       mk: {
         name: 'Noto Sans',
         url: 'https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap'

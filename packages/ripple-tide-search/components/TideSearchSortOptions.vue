@@ -61,10 +61,5 @@ const handleChange = (value) => {
 
 .tide-search-sort-options .rpl-form__inner {
   flex-grow: 1;
-
-  @media (--rpl-bp-m) {
-    flex-grow: 0;
-    width: 300px;
-  }
 }
 </style>

@@ -353,8 +353,10 @@ watch(
       </RplHeroHeader>
     </template>
     <template #body>
-      <RplPageComponent v-if="results?.length">
-        <div class="tide-search-listing-above-result">
+      <TideSearchAboveResults
+        v-if="results?.length || (sortOptions && sortOptions.length)"
+      >
+        <template #left>
           <slot
             name="resultsCount"
             :results="results"
@@ -365,37 +367,40 @@ watch(
           >
             <div data-component-type="search-listing-result-count">
               <TideSearchResultsCount
+                v-if="!searchError && results?.length"
                 :pagingStart="pagingStart + 1"
                 :pagingEnd="pagingEnd + 1"
                 :totalResults="totalResults"
               />
             </div>
           </slot>
+        </template>
 
+        <template #right>
           <TideSearchSortOptions
             v-if="sortOptions && sortOptions.length"
             :currentValue="userSelectedSort"
             :sortOptions="sortOptions"
             @change="handleSortChange"
           />
-        </div>
-      </RplPageComponent>
+        </template>
+      </TideSearchAboveResults>
 
       <RplPageComponent>
-        <div :class="{ 'tide-search-results--loading': isBusy }">
+        <TideSearchResultsLoadingState :isActive="isBusy">
           <TideSearchError v-if="searchError" />
           <TideSearchNoResults v-else-if="!isBusy && !results?.length" />
 
           <slot name="results" :results="results">
             <component
               :is="resultsLayout.component"
-              v-if="results && results.length > 0"
+              v-if="!searchError && results && results.length > 0"
               :key="`TideSearchListingResultsLayout${resultsLayout.component}`"
               v-bind="resultsLayout.props"
               :results="results"
             />
           </slot>
-        </div>
+        </TideSearchResultsLoadingState>
       </RplPageComponent>
       <RplPageComponent>
         <slot
@@ -407,6 +412,7 @@ watch(
           :totalResults="totalResults"
         >
           <TideSearchPagination
+            v-if="!searchError"
             :currentPage="page"
             :totalPages="totalPages"
             @paginate="handlePageChange"
@@ -449,13 +455,5 @@ watch(
 .tide-search-results--loading {
   opacity: 0.5;
   pointer-events: none;
-}
-
-.tide-search-listing-above-result {
-  @media (--rpl-bp-m) {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
 }
 </style>

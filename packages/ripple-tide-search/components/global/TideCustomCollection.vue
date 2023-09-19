@@ -5,7 +5,8 @@ import useTideSearch from './../../composables/useTideSearch'
 import type {
   TideSearchListingPage,
   TideSearchListingResultLayout,
-  TideSearchListingResultItem
+  TideSearchListingResultItem,
+  TideSearchListingSortOption
 } from './../../types'
 import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
 import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
@@ -24,6 +25,7 @@ interface Props {
     item?: Record<string, { component: string }>
   }
   index: string
+  sortOptions?: TideSearchListingSortOption[]
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -58,7 +60,8 @@ const props = withDefaults(defineProps<Props>(), {
     layout: {
       component: 'TideSearchResultsList'
     }
-  })
+  }),
+  sortOptions: () => []
 })
 
 const emit = defineEmits<{
@@ -114,6 +117,8 @@ const {
   submitSearch,
   goToPage,
   page,
+  userSelectedSort,
+  changeSortOrder,
   totalResults,
   totalPages,
   pagingStart,
@@ -124,7 +129,8 @@ const {
   props.userFilters,
   props.globalFilters,
   searchResultsMappingFn,
-  props.searchListingConfig
+  props.searchListingConfig,
+  props.sortOptions
 )
 
 const cachedSubmitEvent = ref({})
@@ -202,6 +208,10 @@ const handlePageChange = (event) => {
     { global: true }
   )
 }
+
+const handleSortChange = (sortId) => {
+  changeSortOrder(sortId)
+}
 </script>
 
 <template>
@@ -226,32 +236,52 @@ const handlePageChange = (event) => {
       @submit="handleFilterSubmit"
     />
 
-    <TideSearchResultsCount
-      v-if="results?.length"
-      :pagingStart="pagingStart + 1"
-      :pagingEnd="pagingEnd + 1"
-      :totalResults="totalResults"
-    />
+    <TideSearchAboveResults
+      v-if="results?.length || (sortOptions && sortOptions.length)"
+      :hasSidebar="true"
+    >
+      <template #left>
+        <TideSearchResultsCount
+          v-if="!searchError && results?.length"
+          :pagingStart="pagingStart + 1"
+          :pagingEnd="pagingEnd + 1"
+          :totalResults="totalResults"
+        />
+      </template>
 
-    <div class="rpl-u-margin-t-8">
-      <TideSearchError v-if="searchError" />
-      <TideSearchNoResults v-else-if="!isBusy && !results?.length" />
-    </div>
+      <template #right>
+        <TideSearchSortOptions
+          v-if="sortOptions && sortOptions.length"
+          :currentValue="userSelectedSort"
+          :sortOptions="sortOptions"
+          @change="handleSortChange"
+        />
+      </template>
+    </TideSearchAboveResults>
 
-    <component
-      :is="resultsConfig.layout?.component"
-      v-if="results && results.length > 0"
-      :key="`TideSearchListingResultsLayout${resultsConfig.layout?.component}`"
-      v-bind="resultsConfig.layout?.props"
-      :results="results"
-    />
+    <TideSearchResultsLoadingState :isActive="isBusy">
+      <div class="rpl-u-margin-t-8">
+        <TideSearchError v-if="searchError" />
+        <TideSearchNoResults v-else-if="!isBusy && !results?.length" />
+      </div>
+
+      <component
+        :is="resultsConfig.layout?.component"
+        v-if="!searchError && results && results.length > 0"
+        :key="`TideSearchListingResultsLayout${resultsConfig.layout?.component}`"
+        v-bind="resultsConfig.layout?.props"
+        :results="results"
+      />
+    </TideSearchResultsLoadingState>
 
     <RplPageComponent>
       <TideSearchPagination
+        v-if="!searchError"
         :currentPage="page"
         :totalPages="totalPages"
+        :scrollToSelector="`[data-component-id='${id}']`"
         @paginate="handlePageChange"
-      ></TideSearchPagination>
+      />
     </RplPageComponent>
   </div>
 </template>

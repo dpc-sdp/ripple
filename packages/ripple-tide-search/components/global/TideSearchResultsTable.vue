@@ -38,7 +38,10 @@ const items = computed(() => {
 
 const processedColumns = computed(() => {
   return props.columns.map((column) => {
-    const classes = [`tide-search-listing-table-cols__${column.cols}`]
+    const classes =
+      typeof column.cols === 'number'
+        ? [`tide-search-listing-table-cols__${column.cols}`]
+        : []
 
     if (column.component) {
       return {

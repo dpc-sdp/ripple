@@ -130,18 +130,15 @@
               "columns": [
                 {
                   "label": "Suburb",
-                  "key": "suburb",
-                  "isArray": false
+                  "objectKey": "suburb"
                 },
                 {
                   "label": "Location",
-                  "key": "street",
-                  "isArray": false
+                  "objectKey": "street"
                 },
                 {
                   "label": "Last annual test",
-                  "key": "last_annual_test",
-                  "isArray": false
+                  "objectKey": "last_annual_test"
                 }
               ]
             }

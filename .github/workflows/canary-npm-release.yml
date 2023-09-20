@@ -2,7 +2,9 @@ name: dpc-sdp/ripple/canary-npm-release
 on:
   push:
     branches:
-      - uat
+      # Uncomment below once testing has been completed and we are ready to publish using this workflow
+      #- uat
+      - 'github-action/disable-workflow'
 jobs:
   build:
     uses: ./.github/workflows/build.yml

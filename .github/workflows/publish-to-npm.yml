@@ -2,7 +2,9 @@ name: dpc-sdp/ripple/publish-to-npm
 on:
   push:
     branches:
-      - master
+      # Uncomment below once testing has been completed and we are ready to publish using this workflow
+      #- master
+      - 'github-action/disable-workflow'
 jobs:
   build:
     uses: ./.github/workflows/build.yml

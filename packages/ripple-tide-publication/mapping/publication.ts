@@ -47,7 +47,7 @@ const tidePublicationModule: IRplTideModuleMapping = {
             .map((x: any) => x.name)
             .join(', ')
         } else {
-          return src.field_publication_authors.name
+          return src.field_publication_authors?.name
         }
       },
       date: 'field_publication_date',

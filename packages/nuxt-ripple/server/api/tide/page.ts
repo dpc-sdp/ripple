@@ -1,5 +1,11 @@
 //@ts-nocheck runtime imports
-import { defineEventHandler, getQuery, H3Event, getCookie } from 'h3'
+import {
+  defineEventHandler,
+  getQuery,
+  H3Event,
+  getCookie,
+  setResponseHeader
+} from 'h3'
 import { createHandler, TidePageApi } from '@dpc-sdp/ripple-tide-api'
 import { BadRequestError } from '@dpc-sdp/ripple-tide-api/errors'
 import { useNitroApp } from '#imports'
@@ -31,7 +37,21 @@ export const createPageHandler = async (
       headers['X-OAuth2-Authorization'] = `Bearer ${tokenCookie}`
     }
 
-    return await tidePageApi.getPageByPath(query.path, query.site, {}, headers)
+    const pageResponse = await tidePageApi.getPageByPath(
+      query.path,
+      query.site,
+      {},
+      headers
+    )
+
+    // Need to pass on the section cache tags to the nuxt app
+    setResponseHeader(
+      event,
+      'section-cache-tags',
+      pageResponse.headers['section-cache-tags']
+    )
+
+    return pageResponse.data
   })
 }
 

@@ -55,7 +55,7 @@ export default class TideApiBase extends HttpClient {
     return await this.getMappedDataAux(mapping, resource)
   }
 
-  async get(url: string, config = {}): Promise<any> {
+  async get(url: string, config = {}): Promise<{ data: any; headers: any }> {
     try {
       return await this.client.get(url, { ...config })
     } catch (error) {
@@ -93,9 +93,12 @@ export default class TideApiBase extends HttpClient {
     }
 
     try {
-      const menusResponse = await this.get(`/menu_items/${menuName}`, {
-        params
-      })
+      const { data: menusResponse } = await this.get(
+        `/menu_items/${menuName}`,
+        {
+          params
+        }
+      )
 
       if (menusResponse?.data) {
         return getHierarchicalMenu(menusResponse.data, activePath)
@@ -128,7 +131,7 @@ export default class TideApiBase extends HttpClient {
 
   async getAllPaginatedMenuLinks(siteId, menuName) {
     // Get the first page of links, this will also give us a link to the next page
-    let response = await this.get(
+    let { data: response } = await this.get(
       '/menu_link_content/menu_link_content?site=' + siteId,
       {
         params: {
@@ -152,7 +155,8 @@ export default class TideApiBase extends HttpClient {
 
     // Get the rest of the menu links by following their 'next' link until a response has no next link
     while (response?.links?.next) {
-      response = await this.get(response.links.next.href)
+      const { data: nextResponse } = await this.get(response.links.next.href)
+      response = nextResponse
       menuLinks = [...menuLinks, ...response.data]
     }
 

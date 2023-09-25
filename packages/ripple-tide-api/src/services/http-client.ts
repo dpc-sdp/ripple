@@ -50,8 +50,8 @@ export default class HttpClient {
 
   _initializeResponseInterceptor() {
     this.client.interceptors.response.use(
-      ({ data }) => {
-        return data
+      (response) => {
+        return response
       },
       (error) => {
         if (axios.isAxiosError(error)) {

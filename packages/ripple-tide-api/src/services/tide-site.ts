@@ -38,7 +38,9 @@ export default class TideSite extends TideApiBase {
       }
     }
     try {
-      const response = await this.get(`/taxonomy_term/sites`, { params })
+      const { data: response } = await this.get(`/taxonomy_term/sites`, {
+        params
+      })
       if (response && response.data.length > 0) {
         const resource = jsonapiParse.parse(response).data[0]
         const siteData = await this.getMappedData(

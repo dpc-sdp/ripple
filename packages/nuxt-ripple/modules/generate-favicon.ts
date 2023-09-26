@@ -3,6 +3,10 @@
 import { createResolver, defineNuxtModule } from 'nuxt/kit'
 import { generate } from './../lib/generate'
 import * as jsonapiParse from 'jsonapi-parse'
+import fs from 'fs'
+import path from 'path'
+import { Readable } from 'stream'
+import { finished } from 'stream/promises'
 
 export default defineNuxtModule({
   meta: {
@@ -11,39 +15,55 @@ export default defineNuxtModule({
   hooks: {
     ready: async (nuxtApp) => {
       console.info(`app ready`)
-      const faviconApiKey = ''
+      const faviconApiKey = 'key'
 
-      // the tide baseurl
-      const tideBaseUrl = nuxtApp.options.runtimeConfig.public.tide.baseUrl
-
-      // the public folder
       const publicFolderPath = nuxtApp.options.alias.public
 
-      // 1. check the public folder does not already have a favicon.ico
+      // 1. Exit early if asset exists
+      if (fs.existsSync(`${publicFolderPath}/favicon.ico`)) {
+        console.log('Favicon: Assets already exist, skipping')
+        return
+      }
 
-      // 2. fetch the site taxonomy
+      // 2. Fetch theme and master asset url from site taxonomy
       const siteTaxonomyRes = await fetch(
-        `${tideBaseUrl}/api/v1/taxonomy_term/sites?filter%5Bdrupal_internal__tid%5D=8888&site=8888&include=field_site_favicon`
-      )
-      const siteTaxonomyData = await siteTaxonomyRes.json()
-      const parsedData = jsonapiParse.parse(siteTaxonomyData).data
+          `${nuxtApp.options.runtimeConfig.public.tide.baseUrl}/api/v1/taxonomy_term/sites?filter%5Bdrupal_internal__tid%5D=7&site=7&include=field_site_favicon`
+        ),
+        siteTaxonomyData = await siteTaxonomyRes.json(),
+        parsedData = jsonapiParse.parse(siteTaxonomyData).data[0]
 
-      // This is the favicon URL from the site taxonomy
-      console.log('siteTaxonomy', parsedData[0]?.field_site_favicon?.url)
+      // 3. Extract theme colour (use Vic primary if theme is not set)
+      const themeColour =
+        parsedData.field_site_theme_values?.filter(
+          (t: any) => t.key.trim() === 'rpl-clr-primary'
+        )[0]?.value || '#0052C2'
 
-      // 3. fetch and save the favicon in the public folder nuxtApp.options.alias.public
-      // save a reference to the saved favicon path savedFaviconPath
+      // 4. Fetch master asset
+      const masterAssetUrl = parsedData.field_site_favicon?.url
+      if (!masterAssetUrl) {
+        console.log('Favicon: Master asset not set in site taxonomy, skipping')
+        return
+      }
 
-      // 4. generate the icons
+      const savedFaviconPath = `${publicFolderPath}/${path.basename(
+          masterAssetUrl
+        )}`,
+        masterAssetRes = await fetch(masterAssetUrl)
 
-      // https://develop.content.reference.sdp.vic.gov.au/api/v1/taxonomy_term/sites?filter%5Bdrupal_internal__tid%5D=8888&site=8888&include=field_site_favicon
+      // Create public folder if it doesn't exist at the app level
+      if (!fs.existsSync(publicFolderPath)) {
+        await fs.promises.mkdir(publicFolderPath)
+      }
+      const fileStream = fs.createWriteStream(savedFaviconPath, { flags: 'wx' })
+      await finished(Readable.fromWeb(masterAssetRes.body).pipe(fileStream))
 
-      // await generate({
-      //   masterPath: `${publicFolderPath}/${savedFaviconPath}`,
-      //   outputPath: publicFolderPath,
-      //   API_KEY: faviconApiKey,
-      //   themeColour: 'red'
-      // })
+      // 5. Generate assets
+      await generate({
+        masterPath: savedFaviconPath,
+        outputPath: publicFolderPath,
+        API_KEY: faviconApiKey,
+        themeColour: themeColour
+      })
     }
   },
   setup() {

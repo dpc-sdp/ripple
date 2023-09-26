@@ -12,8 +12,7 @@
     "build": "rimraf ./dist && tsc && npm run cp-templates && chmod +x ./dist/commands/index.js",
     "watch": "rimraf ./dist && tsc --watch",
     "local": "sudo npm i -g && nuxt-ripple",
-    "cp-templates": "copyfiles -u 1 src/commands/**/*.t dist",
-    "generate:favicon": "node ./dist/generate-favicon/index.js"
+    "cp-templates": "copyfiles -u 1 src/commands/**/*.t dist"
   },
   "bin": {
     "nuxt-ripple": "./dist/commands/index.js"
@@ -26,7 +25,6 @@
     "mockttp": "^3.9.1",
     "npm-check-updates": "^16.10.16",
     "object-to-argv": "^2.0.0",
-    "rfg-api": "^0.5.3",
     "rimraf": "^4.4.1",
     "ts-node": "^10.7.0"
   }

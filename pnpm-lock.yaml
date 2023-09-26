@@ -455,9 +455,6 @@ importers:
       object-to-argv:
         specifier: ^2.0.0
         version: 2.0.0
-      rfg-api:
-        specifier: ^0.5.3
-        version: 0.5.3
       rimraf:
         specifier: ^4.4.1
         version: 4.4.1

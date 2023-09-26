@@ -38,16 +38,22 @@ export default class TideSite extends TideApiBase {
       }
     }
     try {
-      const { data: response } = await this.get(`/taxonomy_term/sites`, {
-        params
-      })
+      const { data: response, headers } = await this.get(
+        `/taxonomy_term/sites`,
+        {
+          params
+        }
+      )
       if (response && response.data.length > 0) {
         const resource = jsonapiParse.parse(response).data[0]
         const siteData = await this.getMappedData(
           this.siteMapping.mapping,
           resource
         )
-        return siteData
+        return {
+          data: siteData,
+          headers
+        }
       }
     } catch (error: any) {
       throw new ApplicationError('Error fetching site data', { cause: error })

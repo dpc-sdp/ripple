@@ -24,7 +24,6 @@
     "enquirer": "^2.3.6",
     "hygen": "^6.2.11",
     "mockttp": "^3.9.1",
-    "node-wget": "^0.4.6",
     "npm-check-updates": "^16.10.16",
     "object-to-argv": "^2.0.0",
     "rfg-api": "^0.5.3",

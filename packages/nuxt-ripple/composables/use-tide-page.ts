@@ -1,5 +1,4 @@
 import type { TidePageBase } from './../types'
-import { appendResponseHeader } from 'h3'
 import { useCookie, isPreviewPath, AuthCookieNames } from '#imports'
 
 const isCacheTimeExpired = (date: number, expiryInMinutes = 5) => {
@@ -15,7 +14,6 @@ export const useTidePage = async (
 ): Promise<TidePageBase> => {
   const route = useRoute()
   const path = slug || route.path
-  const event = useRequestEvent()
   const { public: config } = useRuntimeConfig()
   const siteId = site || config.tide?.site
 
@@ -73,7 +71,7 @@ export const useTidePage = async (
 
     // Section.io cache tags must be set on the response header to invalidate the cache after a change in drupal
     if (sectionCacheTags) {
-      appendResponseHeader(event, 'section-cache-tags', sectionCacheTags)
+      useMergeSectionTags(sectionCacheTags)
     }
 
     if (error && error.value?.statusCode) {

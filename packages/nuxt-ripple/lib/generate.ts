@@ -1,4 +1,5 @@
 import { init as initRfgApi } from 'rfg-api'
+import fs from 'fs'
 import path from 'path'
 
 const { generateFavicon, createRequest } = initRfgApi()
@@ -8,10 +9,11 @@ export interface generateOpts {
   outputPath: string
   API_KEY: string
   themeColour: string
+  siteName: string
 }
 
 export async function generate(opt: generateOpts): Promise<object | null> {
-  console.log('Favicon: generating assets')
+  console.info('Favicon: generating assets')
 
   const iosConfig = {
     pictureAspect: 'noChange'
@@ -26,7 +28,7 @@ export async function generate(opt: generateOpts): Promise<object | null> {
   const androidConfig = {
     pictureAspect: 'noChange',
     manifest: {
-      name: 'Ripple',
+      name: opt.siteName,
       display: 'standalone',
       orientation: 'portrait',
       start_url: '/'
@@ -70,12 +72,20 @@ export async function generate(opt: generateOpts): Promise<object | null> {
       // versioning?
     }),
     path.resolve(process.cwd(), opt.outputPath || '.'),
-    (err: any) => {
+    async (err: any) => {
       if (err) {
         throw err
       }
 
-      console.log('Favicon: generate complete!')
+      // Remove outputPath from manifest files
+      for (const manifest of ['browserconfig.xml', 'site.webmanifest']) {
+        const path = `${opt.outputPath}/${manifest}`,
+          original = await fs.promises.readFile(path, 'utf8'),
+          updated = original.replace(new RegExp(opt.outputPath, 'g'), '')
+        await fs.promises.writeFile(path, updated, 'utf8')
+      }
+
+      console.info('Favicon: generate complete!')
     }
   )
 }

@@ -382,6 +382,9 @@ importers:
       defu:
         specifier: ^6.1.2
         version: 6.1.2
+      jsonapi-parse:
+        specifier: ^2.0.1
+        version: 2.0.1
       rfg-api:
         specifier: ^0.5.3
         version: 0.5.3
@@ -9141,7 +9144,7 @@ packages:
       ts-dedent: 2.2.0
       type-fest: 2.19.0
       vue: 3.3.4
-      vue-component-type-helpers: 1.8.14
+      vue-component-type-helpers: 1.8.15
     transitivePeerDependencies:
       - encoding
       - supports-color
@@ -28485,8 +28488,8 @@ packages:
       typescript: 5.0.2
     dev: true
 
-  /vue-component-type-helpers@1.8.14:
-    resolution: {integrity: sha512-veuaNIJas+dkRflRumpnY0e0HWqrUrqg5CdWxK/CbQvJ96V4uVOM5eJbj6cJX3rFNmc7+LO3ySHwvKVS8DjG5w==}
+  /vue-component-type-helpers@1.8.15:
+    resolution: {integrity: sha512-RKiPRKW4BdwgmQ9vaNkHYKAThdTbgU4TOphVyyzqxRwsOJOoRIrb+vB49XLvs5CKPNrvxMXZMwPe5FyJCqFWyg==}
     dev: true
 
   /vue-demi@0.13.11(vue@3.3.4):

@@ -56,9 +56,12 @@ class TidePublicationIndexApi extends TideApiBase {
 
   async getPublicationMenu(id: string) {
     try {
-      const response = await this.get(`/node/publication/${id}/hierarchy`, {
-        params: { site: this.siteId }
-      })
+      const { data: response } = await this.get(
+        `/node/publication/${id}/hierarchy`,
+        {
+          params: { site: this.siteId }
+        }
+      )
       const resource = jsonapiParse.parse(response).data.meta.hierarchy
       const siteData = await this.getMappedData(
         this.publicationMapping.mapping,

@@ -88,8 +88,9 @@ export default class TidePageApi extends TideApiBase {
     this.path = path
 
     const routeUrl = `/route?site=${site}&path=${path}`
+
     return this.get(routeUrl)
-      .then((response) => response?.data?.attributes)
+      .then((response) => response?.data?.data?.attributes)
       .catch((error) => {
         throw new NotFoundError(
           `Route for site "${site}" and path "${path}" not found`,
@@ -137,7 +138,7 @@ export default class TidePageApi extends TideApiBase {
   }
 
   async getPageByShareLink(path: string, site: string) {
-    const response = await this.get(path).then((res) => {
+    const response = await this.get(path).then(({ data: res }) => {
       return res?.data ? jsonapiParse.parse(res).data || res.data : null
     })
 
@@ -249,12 +250,20 @@ export default class TidePageApi extends TideApiBase {
       this.sectionId = route.section
 
       const nodeUrl = `/${route.entity_type}/${route.bundle}/${route.uuid}`
-      return await this.get(nodeUrl, config).then((response) => {
-        if (response.data) {
-          const data = jsonapiParse.parse(response).data || response.data
-          return this.getTidePage(data, route)
+
+      return await this.get(nodeUrl, config).then(({ data, headers }) => {
+        if (data.data) {
+          const parsedData = jsonapiParse.parse(data).data || data.data
+          return {
+            data: this.getTidePage(parsedData, route),
+            headers
+          }
         }
-        return response
+
+        return {
+          data,
+          headers
+        }
       })
     }
     throw new Error('Invalid route')
@@ -286,7 +295,7 @@ export default class TidePageApi extends TideApiBase {
     }
 
     try {
-      const response = await this.get(`/node/${type}`, {
+      const { data: response } = await this.get(`/node/${type}`, {
         params
       })
       if (response) {
@@ -329,7 +338,9 @@ export default class TidePageApi extends TideApiBase {
     }
     try {
       // Give more time for list response, normally it's slow
-      const response = await this.get(`${entityType}/${bundle}`, { params })
+      const { data: response } = await this.get(`${entityType}/${bundle}`, {
+        params
+      })
 
       if (allPages) {
         const allPagesData = await this.getAllPaginatedData(response)
@@ -365,10 +376,11 @@ export default class TidePageApi extends TideApiBase {
 
       // Use getByURL directly here because resource url contains all query params.
       try {
-        response = await this.get(resource, {
+        const { data: nextResponse } = await this.get(resource, {
           headers: headersConfig,
           site: this.site
         })
+        response = nextResponse
         const nextData = parse
           ? jsonapiParse.parse(response).data
           : response.data
@@ -418,9 +430,12 @@ export default class TidePageApi extends TideApiBase {
       site: this.site
     }
     try {
-      const response = await this.get(`/taxonomy_term/${taxonomyName}`, {
-        params
-      })
+      const { data: response } = await this.get(
+        `/taxonomy_term/${taxonomyName}`,
+        {
+          params
+        }
+      )
       if (response) {
         const resource = jsonapiParse.parse(response).data
         return resource

@@ -49,6 +49,8 @@ export const useTidePage = async (
     headers.cookie = `${AuthCookieNames.ACCESS_TOKEN}=${accessTokenCookie.value};`
   }
 
+  let sectionCacheTags
+
   if (!pageData.value) {
     const { data, error } = await useFetch('/api/tide/page', {
       key: `page-${path}`,
@@ -59,11 +61,19 @@ export const useTidePage = async (
       },
       headers,
       async onResponse({ response }) {
+        sectionCacheTags = response.headers.get('section-cache-tags')
+
         if (response.ok && response._data) {
           response._data['_fetched'] = Date.now()
         }
       }
     })
+
+    // Section.io cache tags must be set on the response header to invalidate the cache after a change in drupal
+    if (sectionCacheTags) {
+      useMergeSectionTags(sectionCacheTags)
+    }
+
     if (error && error.value?.statusCode) {
       useTideError(error.value?.statusCode)
     }

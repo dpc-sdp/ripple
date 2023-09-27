@@ -1,5 +1,34 @@
 # Changelog
 
+## v2.3.1
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.3.0...v2.3.1)
+
+
+### 🚀 Enhancements
+
+  - **nuxt-ripple:** Pass through section-cache-tags response header ([cf3d6477](https://github.com/dpc-sdp/ripple-framework/commit/cf3d6477))
+  - **@dpc-sdp/ripple-tide-api:** Merged site+alert cache tags with page cache tags ([98c2c956](https://github.com/dpc-sdp/ripple-framework/commit/98c2c956))
+
+### 🩹 Fixes
+
+  - **@dpc-sdp/ripple-tide-api:** Increase menu depth for breadcrumbs ([43ea5efa](https://github.com/dpc-sdp/ripple-framework/commit/43ea5efa))
+  - **@dpc-sdp/ripple-tide-publication:** Add missed optional chaining ([23e6807f](https://github.com/dpc-sdp/ripple-framework/commit/23e6807f))
+  - **@dpc-sdp/ripple-tide-api:** Add optional chaining ([0f84540a](https://github.com/dpc-sdp/ripple-framework/commit/0f84540a))
+
+### 💅 Refactors
+
+  - **@dpc-sdp/ripple-tide-api:** Refactored http client to not swallow up headers ([da09ec47](https://github.com/dpc-sdp/ripple-framework/commit/da09ec47))
+
+### ✅ Tests
+
+  - **@dpc-sdp/ripple-tide-api:** Fixed unit tests ([57c92cd4](https://github.com/dpc-sdp/ripple-framework/commit/57c92cd4))
+
+### ❤️  Contributors
+
+- Jeffrey Dowdle <jeffrey.dowdle@dpc.vic.gov.au>
+- David Featherston <david.featherstone@dpc.vic.gov.au>
+
 ## v2.3.0
 
 [compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.2.1...v2.3.0)

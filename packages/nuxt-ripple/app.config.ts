@@ -6,20 +6,30 @@ declare module '@nuxt/schema' {
       featureFlags?: IRplFeatureFlags
       theme?: {
         ['rpl-clr-primary']?: string
+        ['rpl-clr-primary-alpha']?: string
+        ['rpl-clr-footer']?: string
+        ['rpl-clr-footer-alt']?: string
         ['rpl-clr-primary-alt']?: string
+        ['rpl-clr-type-primary-accessible']?: string
+        ['rpl-clr-type-primary-alt-accessible']?: string
+        ['rpl-clr-type-footer-accessible']?: string
         ['rpl-clr-accent']?: string
         ['rpl-clr-accent-alt']?: string
         ['rpl-clr-link']?: string
         ['rpl-clr-focus']?: string
         ['rpl-clr-type-focus-contrast']?: string
+        ['rpl-clr-gradient-horizontal']?: string
+        ['rpl-clr-gradient-vertical']?: string
       }
       languages?: {
-        name?: string
-        url?: string
-        rtl?: boolean
+        [key: string]: {
+          name: string
+          url: string
+          rtl?: boolean
+        }
       }
       search?: {
-        contentTypes: string[]
+        contentTypes?: string[]
         fallbackValues?: Record<
           string,
           (filterConfig: any, values: string[]) => void

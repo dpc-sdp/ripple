@@ -39,7 +39,7 @@ export const dataTableMapping = (
 
   const items = Object.keys(entries)
     .filter((entryKey) => entryKey !== 'caption')
-    .filter((entryKey, i) => {
+    .filter((entryKey) => {
       if (field?.field_first_row_table_header) {
         // Exclude first row if it is a header
         return entryKey !== '0'

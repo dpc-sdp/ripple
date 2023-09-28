@@ -718,6 +718,9 @@ importers:
       '@dpc-sdp/ripple-tide-api':
         specifier: workspace:*
         version: link:../ripple-tide-api
+      '@dpc-sdp/ripple-tide-landing-page':
+        specifier: workspace:*
+        version: link:../ripple-tide-landing-page
       '@dpc-sdp/ripple-ui-core':
         specifier: workspace:*
         version: link:../ripple-ui-core
@@ -9138,7 +9141,7 @@ packages:
       ts-dedent: 2.2.0
       type-fest: 2.19.0
       vue: 3.3.4
-      vue-component-type-helpers: 1.8.8
+      vue-component-type-helpers: 1.8.15
     transitivePeerDependencies:
       - encoding
       - supports-color
@@ -28385,8 +28388,8 @@ packages:
       typescript: 5.0.2
     dev: true
 
-  /vue-component-type-helpers@1.8.8:
-    resolution: {integrity: sha512-Ohv9HQY92nSbpReC6WhY0X4YkOszHzwUHaaN/lev5tHQLM1AEw+LrLeB2bIGIyKGDU7ZVrncXcv/oBny4rjbYg==}
+  /vue-component-type-helpers@1.8.15:
+    resolution: {integrity: sha512-RKiPRKW4BdwgmQ9vaNkHYKAThdTbgU4TOphVyyzqxRwsOJOoRIrb+vB49XLvs5CKPNrvxMXZMwPe5FyJCqFWyg==}
     dev: true
 
   /vue-demi@0.13.11(vue@3.3.4):

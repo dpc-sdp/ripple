@@ -9,12 +9,14 @@ import type {
   TideSearchListingResultLayout,
   TideSearchListingSortOption
 } from './../types'
+import type { ITideSecondaryCampaign } from '@dpc-sdp/ripple-tide-landing-page/mapping/secondary-campaign/secondary-campaign-mapping'
 import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
 import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
 import { watch } from 'vue'
 
 interface TideContentPage extends TidePageBase {
   afterResults: string
+  secondaryCampaign: ITideSecondaryCampaign
 }
 
 interface Props {
@@ -424,6 +426,9 @@ watch(
           class="tide-content-after-results"
           :html="contentPage.afterResults"
         ></RplContent>
+      </RplPageComponent>
+      <RplPageComponent v-if="contentPage.secondaryCampaign">
+        <RplSecondaryCampaign v-bind="contentPage.secondaryCampaign" />
       </RplPageComponent>
     </template>
   </TideBaseLayout>

@@ -427,6 +427,8 @@ watch(
           :html="contentPage.afterResults"
         ></RplContent>
       </RplPageComponent>
+    </template>
+    <template #belowBody>
       <RplPageComponent v-if="contentPage.secondaryCampaign">
         <RplSecondaryCampaign v-bind="contentPage.secondaryCampaign" />
       </RplPageComponent>

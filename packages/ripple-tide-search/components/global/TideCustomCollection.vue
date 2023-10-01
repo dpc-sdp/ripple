@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { getActiveFilterURL, useRoute, ref, toRaw } from '#imports'
+import { getActiveFilterURL, ref } from '#imports'
 import { submitForm } from '@formkit/vue'
 import useTideSearch from './../../composables/useTideSearch'
 import type {
@@ -145,6 +145,7 @@ const baseEvent = () => ({
 })
 
 // Updates filter options with aggregation value
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 onAggregationUpdateHook.value = (aggs) => {}
 
 const emitSearchEvent = (event) => {

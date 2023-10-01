@@ -85,3 +85,5 @@ const tideLandingPageModule: IRplTideModuleMapping = {
 }
 
 export default tideLandingPageModule
+
+export { secondaryCampaignIncludes, secondaryCampaignMapping }

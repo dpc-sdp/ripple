@@ -10,13 +10,10 @@
   <img src="https://img.shields.io/badge/ripple_framework-storybook-ef4b5e" alt="ripple storybook">
 </a>
 
-<a href="https://www.npmjs.com/package/@dpc-sdp/ripple-ui-core">
-  <img src="https://img.shields.io/npm/dw/%40dpc-sdp/ripple-ui-core?logo=npm&logoColor=white&color=%23ef4b5e" alt="ripple ui core npm">
+<a href="https://github.com/dpc-sdp/ripple-framework/actions/workflows/components.yml">
+  <img src="https://github.com/dpc-sdp/ripple-framework/actions/workflows/components.yml/badge.svg" alt="UI Libraries build status">
 </a>
 
-<a href="https://app.circleci.com/pipelines/github/dpc-sdp/ripple-framework?branch=develop">
-  <img src="https://img.shields.io/circleci/build/github/dpc-sdp/ripple-framework/develop?logo=circle" alt="ripple develop branch build status">
-</a>
 
 # Ripple 2.0
 
@@ -42,18 +39,21 @@ Ripple is a system of reusable styles, components, patterns and tools for buildi
 
 Over 50 government websites use Ripple to date, including our main vic.gov.au platform. These sites attract the visitation of millions of views per month.
 
-
 ### Ripple Framework
 
-The Ripple design system consists of the design elements and components used to build websites using the Victorian government brand and Ripple _framework_, a collection of [Nuxt 3](https://www.ripple.sdp.vic.gov.au/framework/key-concepts/nuxt/) modules and [layers](https://www.ripple.sdp.vic.gov.au/framework/key-concepts/nuxt-layers) primarily used to create headless SDP websites using the [Tide Drupal CMS](https://github.com/dpc-sdp/tide).
+The Ripple design system consists of the design elements and components used to build websites using the Victorian government brand and Ripple _framework_, a collection of [Nuxt](https://www.ripple.sdp.vic.gov.au/framework/key-concepts/nuxt/) modules and [layers](https://www.ripple.sdp.vic.gov.au/framework/key-concepts/nuxt-layers) primarily used to create headless SDP websites using the [Tide Drupal CMS](https://github.com/dpc-sdp/tide).
 
+Ripple components are built using Vue 3 and TypeScript.
+
+The monorepo is managed with pnpm, using Node LTS/Hydrogen (v18).
+
+Tests use Jest, Axe-core and Cypress.
 
 ## Documentation
 
 See https://www.ripple.sdp.vic.gov.au/ for more information about the Ripple design system.
 
 For information about using Ripple in SDP websites see the [Ripple Framework](https://www.ripple.sdp.vic.gov.au/framework) section.
-
 
 ## Contributing
 

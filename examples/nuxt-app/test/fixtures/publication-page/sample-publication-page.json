@@ -190,14 +190,14 @@
     ],
     "pagination": {
       "prev": {
-        "text": "Demo Publication",
+        "text": "Previous",
         "url": "/demo-publication",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet ligula sit amet lacinia. In a leo nec tortor aliquet faucibus."
+        "description": "Demo Publication"
       },
       "next": {
-        "text": "Demo Publication - Chapter 1 - Page 1",
+        "text": "Next",
         "url": "/demo-publication/demo-publication-chapter-1/demo-publication-chapter-1-page-1",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet ligula sit amet lacinia. In a leo nec tortor aliquet faucibus."
+        "description": "Demo Publication - Chapter 1 - Page 1"
       }
     }
   },

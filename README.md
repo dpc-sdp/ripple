@@ -22,6 +22,8 @@
 **Table of Contents**
 - [About the project](#about-the-project)
   - [Ripple Framework](#ripple-framework)
+  - [Usage](#usage)
+  - [Availability](#availability)
 - [Documentation](#documentation)
 - [Contributing](#contributing)
 - [License](#license)
@@ -43,11 +45,23 @@ Over 50 government websites use Ripple to date, including our main vic.gov.au pl
 
 The Ripple design system consists of the design elements and components used to build websites using the Victorian government brand and Ripple _framework_, a collection of [Nuxt](https://www.ripple.sdp.vic.gov.au/framework/key-concepts/nuxt/) modules and [layers](https://www.ripple.sdp.vic.gov.au/framework/key-concepts/nuxt-layers) primarily used to create headless SDP websites using the [Tide Drupal CMS](https://github.com/dpc-sdp/tide).
 
-Ripple components are built using Vue 3 and TypeScript.
+Ripple components are built using Vue 3 and [TypeScript](https://github.com/dpc-sdp/ripple-framework/blob/develop/tsconfig.json).
 
-The monorepo is managed with pnpm, using Node LTS/Hydrogen (v18).
+The monorepo is managed with pnpm [workspaces](https://github.com/dpc-sdp/ripple-framework/blob/develop/pnpm-workspace.yaml), using [Node.js](.nvmrc).
 
-Tests use Jest, Axe-core and Cypress.
+Tests use [Jest](https://github.com/dpc-sdp/ripple-framework/blob/develop/jest.config.js), [Axe-core](https://github.com/dpc-sdp/ripple-framework/blob/develop/packages/ripple-ui-core/stories/interactions.js) and [Cypress](packages/ripple-test-utils).
+
+We use custom rules for [ESLint](https://github.com/dpc-sdp/ripple-framework/blob/develop/packages/eslint-config-ripple/index.js) and [Stylelint](https://github.com/dpc-sdp/ripple-framework/blob/develop/packages/stylelint-config-ripple/index.js).
+
+### Usage
+
+Ripple was built as a whole to implement front end sites for SDP using a framework of Vue 3 and Nuxt 3, but parts of the modular architecture can be used independently: `ripple-ui-core` and `ripple-ui-forms` can be used as UI component libraries for any Vue 3 project.
+
+There is also an experimental web components implementation, and a standalone export of all Ripple design system CSS. See the [relevant section](https://ripple.sdp.vic.gov.au/design-system/develop/usage/) on the Ripple documentation site for more details.
+
+### Availability
+
+Note: Ripple 2 will only be hosted on Github Packages, any packages still published to npm are either pre-release or deprecated, and should not be used.
 
 ## Documentation
 

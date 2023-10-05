@@ -61,7 +61,7 @@ There is also an experimental web components implementation, and a standalone ex
 
 ### Availability
 
-Note: Ripple 2 will only be hosted on Github Packages, any packages still published to npm are either pre-release or deprecated, and should not be used.
+Note: Ripple 2 will only be hosted on Github Packages, any packages still published to npm are either pre-release or deprecated, and should not be used. Please see the section [Access to Github Packages repos](https://www.ripple.vic.gov.au/design-system/develop/usage#access-to-github-packages-repos) for instructions on how to set up a personal access token, and where to use it.
 
 ## Documentation
 

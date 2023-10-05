@@ -1,5 +1,18 @@
 # Changelog
 
+## v2.3.2
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.3.1...v2.3.2)
+
+
+### 🩹 Fixes
+
+  - **@dpc-sdp/ripple-tide-api:** Fixed broken redirects after cache tags refactor ([26f67b7d](https://github.com/dpc-sdp/ripple-framework/commit/26f67b7d))
+
+### ❤️  Contributors
+
+- Jeffrey Dowdle <jeffrey.dowdle@dpc.vic.gov.au>
+
 ## v2.3.1
 
 [compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.3.0...v2.3.1)

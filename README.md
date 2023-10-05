@@ -11,7 +11,7 @@
 </a>
 
 <a href="https://github.com/dpc-sdp/ripple-framework/actions/workflows/components.yml">
-  <img src="https://github.com/dpc-sdp/ripple-framework/actions/workflows/components.yml/badge.svg" alt="UI Libraries build status">
+  <img src="https://img.shields.io/github/actions/workflow/status/dpc-sdp/ripple-framework/main.yml" alt="build status">
 </a>
 
 

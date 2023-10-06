@@ -1,10 +1,7 @@
 import jsonapiParse from 'jsonapi-parse'
 import { defineEventHandler, getQuery, H3Event } from 'h3'
 import { createHandler, TideApiBase, logger } from '@dpc-sdp/ripple-tide-api'
-import {
-  ApplicationError,
-  BadRequestError
-} from '@dpc-sdp/ripple-tide-api/errors'
+import { BadRequestError } from '@dpc-sdp/ripple-tide-api/errors'
 import type {
   RplTideModuleConfig,
   IRplTideModuleMapping,

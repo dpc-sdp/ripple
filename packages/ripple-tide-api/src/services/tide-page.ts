@@ -121,8 +121,10 @@ export default class TidePageApi extends TideApiBase {
     if (route && !route.error) {
       if (route.hasOwnProperty('redirect_type')) {
         return {
-          type: 'redirect',
-          ...route
+          data: {
+            type: 'redirect',
+            ...route
+          }
         }
       }
       const includes = this.getResourceIncludes(route)

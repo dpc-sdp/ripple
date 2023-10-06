@@ -45,11 +45,13 @@ export const createPageHandler = async (
     )
 
     // Need to pass on the section cache tags to the nuxt app
-    setResponseHeader(
-      event,
-      'section-cache-tags',
-      pageResponse.headers['section-cache-tags']
-    )
+    if (pageResponse.headers) {
+      setResponseHeader(
+        event,
+        'section-cache-tags',
+        pageResponse.headers['section-cache-tags']
+      )
+    }
 
     return pageResponse.data
   })

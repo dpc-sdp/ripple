@@ -1,10 +1,7 @@
 import jsonapiParse from 'jsonapi-parse'
 import { defineEventHandler, getQuery, H3Event } from 'h3'
 import { createHandler, TideApiBase, logger } from '@dpc-sdp/ripple-tide-api'
-import {
-  ApplicationError,
-  BadRequestError
-} from '@dpc-sdp/ripple-tide-api/errors'
+import { BadRequestError } from '@dpc-sdp/ripple-tide-api/errors'
 import type {
   RplTideModuleConfig,
   IRplTideModuleMapping,
@@ -69,10 +66,8 @@ class TidePublicationIndexApi extends TideApiBase {
       )
       return siteData
     } catch (error: any) {
-      // Could be 404?
-      throw new ApplicationError('Error fetching publication index', {
-        cause: error
-      })
+      // Could be 404? publication could be in share or preview so need to ignore this error and render page anyway
+      logger.error(`Error fetching publication index`, error)
     }
   }
 }

@@ -12,9 +12,11 @@ const mergeTags = (existingTags: string, newTags: string): string => {
 export const useMergeSectionTags = async (
   sectionCacheTags: any
 ): Promise<void> => {
+  // event will be undefined if the request is on the client side
   const event = useRequestEvent()
+
   // Section.io cache tags must be set on the response header to invalidate the cache after a change in drupal
-  if (sectionCacheTags) {
+  if (event && sectionCacheTags) {
     const currentResponseHeaders = getResponseHeaders(event)
 
     const currentSectionTags: string =

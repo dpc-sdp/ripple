@@ -1,5 +1,31 @@
 # Changelog
 
+## v2.3.4
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.3.3...v2.3.4)
+
+
+### 🚀 Enhancements
+
+  - **@dpc-sdp/ripple-tide-publication:** Added proper publication header mapping ([aa657deb](https://github.com/dpc-sdp/ripple-framework/commit/aa657deb))
+
+### 🩹 Fixes
+
+  - **nuxt-ripple:** 🐛  enable external redirects ([6c0e4894](https://github.com/dpc-sdp/ripple-framework/commit/6c0e4894))
+  - **@dpc-sdp/nuxt-ripple:** Fixed console error when request event was being fetched client side ([b8f94314](https://github.com/dpc-sdp/ripple-framework/commit/b8f94314))
+  - **@dpc-sdp/ripple-tide-publication:** Fixed duplication side nav links ([a08742e4](https://github.com/dpc-sdp/ripple-framework/commit/a08742e4))
+
+### 🏡 Chore
+
+  - **@dpc-sdp/ripple-tide-publication:** 🐛  [R20-1574] fix publication preview menu issue ([b737e32b](https://github.com/dpc-sdp/ripple-framework/commit/b737e32b))
+  - **@dpc-sdp/ripple-tide-publication:** 🚨  fix unused var ([acd09f34](https://github.com/dpc-sdp/ripple-framework/commit/acd09f34))
+
+### ❤️  Contributors
+
+- Dylan Kelly <dylan.kelly@dpc.vic.gov.au>
+- Jeffrey Dowdle <jeffrey.dowdle@dpc.vic.gov.au>
+- Jason Smith <jason.smith@dpc.vic.gov.au>
+
 ## v2.3.3
 
 [compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.3.2...v2.3.3)

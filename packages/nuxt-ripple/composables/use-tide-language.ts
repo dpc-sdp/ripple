@@ -29,7 +29,7 @@ export default (page: any) => {
       style: [
         {
           children: `
-           .${language.value} { font-family: '${found.value?.name}', var(--rpl-type-font-family) }
+          .${language.value} * { font-family: '${found.value?.name}', var(--rpl-type-font-family) !important }
           `
         }
       ]

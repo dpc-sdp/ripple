@@ -30,6 +30,9 @@ export default defineNuxtConfig({
   vite: {
     plugins: [ViteYaml()]
   },
+  experimental: {
+    inlineSSRStyles: (id) => !id?.includes('entry')
+  },
   nitro: {
     prerender: {
       ignore: ['/storybook']

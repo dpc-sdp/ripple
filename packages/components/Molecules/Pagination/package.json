@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/ripple-pagination",
-  "version": "1.38.2",
+  "version": "1.38.3",
   "description": "A component for displaying a pagination bar with controls to change current step.",
   "license": "Apache-2.0",
   "main": "index.js",
@@ -10,7 +10,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-global": "1.38.2",
-    "@dpc-sdp/ripple-icon": "1.38.2"
+    "@dpc-sdp/ripple-global": "1.38.3",
+    "@dpc-sdp/ripple-icon": "1.38.3"
   }
 }

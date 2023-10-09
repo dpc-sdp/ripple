@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/ripple-site-footer",
-  "version": "1.38.2",
+  "version": "1.38.3",
   "description": "Site footer for displaying common and useful links on all pages.",
   "license": "Apache-2.0",
   "main": "index.js",
@@ -10,8 +10,8 @@
     "access": "public"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-global": "1.38.2",
-    "@dpc-sdp/ripple-icon": "1.38.2",
-    "@dpc-sdp/ripple-link": "1.38.2"
+    "@dpc-sdp/ripple-global": "1.38.3",
+    "@dpc-sdp/ripple-icon": "1.38.3",
+    "@dpc-sdp/ripple-link": "1.38.3"
   }
 }

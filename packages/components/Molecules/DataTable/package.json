@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/ripple-data-table",
-  "version": "1.38.2",
+  "version": "1.38.3",
   "description": "Designed for use-cases that are focused around handling large amount of tabular data.",
   "main": "index.js",
   "homepage": "https://ripple.sdp.vic.gov.au",
@@ -10,6 +10,6 @@
     "access": "public"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-global": "1.38.2"
+    "@dpc-sdp/ripple-global": "1.38.3"
   }
 }

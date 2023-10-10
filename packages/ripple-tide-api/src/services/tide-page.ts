@@ -84,12 +84,12 @@ export default class TidePageApi extends TideApiBase {
     }
   }
 
-  async getRouteByPath(path: string, site: string = this.site) {
+  async getRouteByPath(path: string, site: string = this.site, headers = {}) {
     this.path = path
 
     const routeUrl = `/route?site=${site}&path=${path}`
 
-    return this.get(routeUrl)
+    return this.get(routeUrl, { headers })
       .then((response) => response?.data?.data?.attributes)
       .catch((error) => {
         throw new NotFoundError(
@@ -117,7 +117,7 @@ export default class TidePageApi extends TideApiBase {
       return this.getPageFromPreviewLink(path, site, params, headers)
     }
 
-    const route = await this.getRouteByPath(path, site)
+    const route = await this.getRouteByPath(path, site, headers)
     if (route && !route.error) {
       if (route.hasOwnProperty('redirect_type')) {
         return {
@@ -135,7 +135,7 @@ export default class TidePageApi extends TideApiBase {
       if (includes !== '') {
         fullParams['include'] = includes
       }
-      return this.getPageByRouteData(route, { params: fullParams })
+      return this.getPageByRouteData(route, { params: fullParams, headers })
     }
   }
 

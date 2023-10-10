@@ -9,6 +9,7 @@ import type {
 } from '@dpc-sdp/ripple-tide-api/types'
 import type { indexNode, apiNode } from '../../../types'
 import { useRuntimeConfig } from '#imports'
+import { AuthCookieNames } from '@dpc-sdp/nuxt-ripple-preview/utils'
 
 /**
  * @description Recursively transform API response to match component props
@@ -51,12 +52,13 @@ class TidePublicationIndexApi extends TideApiBase {
     this.logLabel = 'TidePublicationIndex'
   }
 
-  async getPublicationMenu(id: string) {
+  async getPublicationMenu(id: string, headers = {}) {
     try {
       const { data: response } = await this.get(
         `/node/publication/${id}/hierarchy`,
         {
-          params: { site: this.siteId }
+          params: { site: this.siteId },
+          headers
         }
       )
       const resource = jsonapiParse.parse(response).data.meta.hierarchy
@@ -83,7 +85,14 @@ export const createPublicationIndexHandler = async (
       throw new BadRequestError('Publication ID is required')
     }
 
-    return await publicationIndexApi.getPublicationMenu(query.id)
+    const tokenCookie = getCookie(event, AuthCookieNames.ACCESS_TOKEN)
+    const headers = {}
+
+    if (tokenCookie) {
+      headers['X-OAuth2-Authorization'] = `Bearer ${tokenCookie}`
+    }
+
+    return await publicationIndexApi.getPublicationMenu(query.id, headers)
   })
 }
 

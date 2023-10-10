@@ -56,8 +56,8 @@ export default {
   computed: {
     publishingInfo () {
       if (this.page.type === 'node--publication') {
-        const authorsName = this.page.field_publication_authors ? this.page.field_publication_authors : ''
-        const author = authorsName && authorsName.length > 0 ? authorsName.map((authors) => authors.name) : []
+        const authorsName = this.page.field_publication_authors ?? []
+        const author = Array.isArray(authorsName) ? authorsName.map((author) => author.name) : [authorsName.name]
         const date = this.page.field_publication_date
         const copyright = this.page.field_license_type ? this.page.field_license_type.description : ''
         return (author || date || copyright) ? { author, date, copyright } : null

@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/ripple-button",
-  "version": "1.38.2",
+  "version": "1.38.3",
   "description": "A button themed element. Will be a `<button>` by default, or a an `<a>` if a `href` is provided.",
   "license": "Apache-2.0",
   "main": "index.vue",
@@ -10,7 +10,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-global": "1.38.2",
-    "@dpc-sdp/ripple-link": "1.38.2"
+    "@dpc-sdp/ripple-global": "1.38.3",
+    "@dpc-sdp/ripple-link": "1.38.3"
   }
 }

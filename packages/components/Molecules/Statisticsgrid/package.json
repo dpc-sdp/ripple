@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/ripple-statistics-grid",
-  "version": "1.38.2",
+  "version": "1.38.3",
   "description": "Display snapshot of statistical information in a simple panel",
   "license": "Apache-2.0",
   "main": "index.vue",
@@ -10,7 +10,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-global": "1.38.2",
-    "@dpc-sdp/ripple-markup": "1.38.2"
+    "@dpc-sdp/ripple-global": "1.38.3",
+    "@dpc-sdp/ripple-markup": "1.38.3"
   }
 }

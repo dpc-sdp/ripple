@@ -1,7 +1,7 @@
 # This is for reference site.
 ARG BAY_IMAGE_VERSION
 
-FROM singledigital/ripple-node:${BAY_IMAGE_VERSION}
+FROM ghcr.io/dpc-sdp/bay/ripple-node:${BAY_IMAGE_VERSION}
 
 # Custom build time env vars
 # ARG MY_CUSTOM_VAR

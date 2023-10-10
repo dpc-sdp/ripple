@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/ripple-campaign-primary",
-  "version": "1.38.2",
+  "version": "1.38.3",
   "description": "A component to showcase a main content preview with an image. Should be used along with Campaign Secondary.",
   "license": "Apache-2.0",
   "main": "index.vue",
@@ -10,7 +10,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-button": "1.38.2",
-    "@dpc-sdp/ripple-global": "1.38.2"
+    "@dpc-sdp/ripple-button": "1.38.3",
+    "@dpc-sdp/ripple-global": "1.38.3"
   }
 }

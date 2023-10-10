@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/ripple-updated-date",
-  "version": "1.38.2",
+  "version": "1.38.3",
   "description": "A component for displaying the date an article was last changed.",
   "license": "Apache-2.0",
   "main": "index.vue",
@@ -10,6 +10,6 @@
     "access": "public"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-global": "1.38.2"
+    "@dpc-sdp/ripple-global": "1.38.3"
   }
 }

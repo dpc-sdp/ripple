@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/ripple-data-vic-api",
-  "version": "1.38.2",
+  "version": "1.38.3",
   "description": "Nuxt server middleware and vue components for rendering data driven components using data sets from data.vic.gov.au",
   "license": "Apache-2.0",
   "maintainers": [
@@ -10,14 +10,14 @@
   ],
   "main": "src/index.js",
   "dependencies": {
-    "@dpc-sdp/ripple-data-table": "1.38.2",
-    "@dpc-sdp/ripple-description-list": "1.38.2",
-    "@dpc-sdp/ripple-form": "1.38.2",
-    "@dpc-sdp/ripple-grid": "1.38.2",
-    "@dpc-sdp/ripple-icon": "1.38.2",
-    "@dpc-sdp/ripple-pagination": "1.38.2",
-    "@dpc-sdp/ripple-search": "1.38.2",
-    "@dpc-sdp/ripple-tabs": "1.38.2",
+    "@dpc-sdp/ripple-data-table": "1.38.3",
+    "@dpc-sdp/ripple-description-list": "1.38.3",
+    "@dpc-sdp/ripple-form": "1.38.3",
+    "@dpc-sdp/ripple-grid": "1.38.3",
+    "@dpc-sdp/ripple-icon": "1.38.3",
+    "@dpc-sdp/ripple-pagination": "1.38.3",
+    "@dpc-sdp/ripple-search": "1.38.3",
+    "@dpc-sdp/ripple-tabs": "1.38.3",
     "axios": "^0.23.0",
     "express": "^4.17.1",
     "qs": "^6.9.4"

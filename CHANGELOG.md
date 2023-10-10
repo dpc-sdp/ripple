@@ -1,5 +1,18 @@
 # Changelog
 
+## v2.3.5
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.3.4...v2.3.5)
+
+
+### 🩹 Fixes
+
+  - **@dpc-sdp/ripple-tide-api:** Passed headers to route, page and publication menu endpoints ([e760940d](https://github.com/dpc-sdp/ripple-framework/commit/e760940d))
+
+### ❤️  Contributors
+
+- Jeffrey Dowdle <jeffrey.dowdle@dpc.vic.gov.au>
+
 ## v2.3.4
 
 [compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.3.3...v2.3.4)

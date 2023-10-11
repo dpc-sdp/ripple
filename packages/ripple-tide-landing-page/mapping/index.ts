@@ -86,4 +86,8 @@ const tideLandingPageModule: IRplTideModuleMapping = {
 
 export default tideLandingPageModule
 
-export { secondaryCampaignIncludes, secondaryCampaignMapping }
+export {
+  secondaryCampaignIncludes,
+  secondaryCampaignMapping,
+  heroHeaderMapping
+}

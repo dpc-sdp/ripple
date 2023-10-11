@@ -1,10 +1,7 @@
 import jsonapiParse from 'jsonapi-parse'
 import { defineEventHandler, getQuery, H3Event } from 'h3'
 import { createHandler, TideApiBase, logger } from '@dpc-sdp/ripple-tide-api'
-import {
-  ApplicationError,
-  BadRequestError
-} from '@dpc-sdp/ripple-tide-api/errors'
+import { BadRequestError } from '@dpc-sdp/ripple-tide-api/errors'
 import type {
   RplTideModuleConfig,
   IRplTideModuleMapping,
@@ -12,6 +9,7 @@ import type {
 } from '@dpc-sdp/ripple-tide-api/types'
 import type { indexNode, apiNode } from '../../../types'
 import { useRuntimeConfig } from '#imports'
+import { AuthCookieNames } from '@dpc-sdp/nuxt-ripple-preview/utils'
 
 /**
  * @description Recursively transform API response to match component props
@@ -54,12 +52,13 @@ class TidePublicationIndexApi extends TideApiBase {
     this.logLabel = 'TidePublicationIndex'
   }
 
-  async getPublicationMenu(id: string) {
+  async getPublicationMenu(id: string, headers = {}) {
     try {
       const { data: response } = await this.get(
         `/node/publication/${id}/hierarchy`,
         {
-          params: { site: this.siteId }
+          params: { site: this.siteId },
+          headers
         }
       )
       const resource = jsonapiParse.parse(response).data.meta.hierarchy
@@ -69,10 +68,8 @@ class TidePublicationIndexApi extends TideApiBase {
       )
       return siteData
     } catch (error: any) {
-      // Could be 404?
-      throw new ApplicationError('Error fetching publication index', {
-        cause: error
-      })
+      // Could be 404? publication could be in share or preview so need to ignore this error and render page anyway
+      logger.error(`Error fetching publication index`, error)
     }
   }
 }
@@ -88,7 +85,14 @@ export const createPublicationIndexHandler = async (
       throw new BadRequestError('Publication ID is required')
     }
 
-    return await publicationIndexApi.getPublicationMenu(query.id)
+    const tokenCookie = getCookie(event, AuthCookieNames.ACCESS_TOKEN)
+    const headers = {}
+
+    if (tokenCookie) {
+      headers['X-OAuth2-Authorization'] = `Bearer ${tokenCookie}`
+    }
+
+    return await publicationIndexApi.getPublicationMenu(query.id, headers)
   })
 }
 

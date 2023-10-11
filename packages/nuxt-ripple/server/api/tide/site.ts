@@ -18,11 +18,13 @@ export const createSiteHandler = async (
     const siteResponse = await tideSiteApi.getSiteData(query.id)
 
     // Need to pass on the section cache tags to the nuxt app
-    setResponseHeader(
-      event,
-      'section-cache-tags',
-      siteResponse.headers['section-cache-tags']
-    )
+    if (siteResponse.headers && siteResponse.headers['section-cache-tags']) {
+      setResponseHeader(
+        event,
+        'section-cache-tags',
+        siteResponse.headers['section-cache-tags']
+      )
+    }
 
     return siteResponse.data
   })

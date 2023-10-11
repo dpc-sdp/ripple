@@ -5,6 +5,7 @@ import {
   tidePageBaseIncludes
 } from '@dpc-sdp/nuxt-ripple/mapping'
 import type { IRplTideModuleMapping } from '@dpc-sdp/ripple-tide-api/types'
+import { heroHeaderMapping } from '@dpc-sdp/ripple-tide-landing-page/mapping'
 
 const tidePublicationPageModule: IRplTideModuleMapping = {
   mapping: {
@@ -22,10 +23,7 @@ const tidePublicationPageModule: IRplTideModuleMapping = {
       }
       return 'h2'
     },
-    header: {
-      title: 'title',
-      summary: 'field_landing_page_intro_text'
-    },
+    header: heroHeaderMapping,
     breadcrumbs: (src: string) => [
       { text: 'Home', url: '/' },
       {
@@ -90,7 +88,9 @@ const tidePublicationPageModule: IRplTideModuleMapping = {
     'field_landing_page_contact.field_paragraph_phones',
     'field_landing_page_contact.field_paragraph_social_media',
     'field_landing_page_component.field_paragraph_media.field_media_image',
-    'field_landing_page_component.field_paragraph_topic'
+    'field_landing_page_component.field_paragraph_topic',
+    'field_landing_page_hero_image',
+    'field_landing_page_hero_image.field_media_image'
   ]
 }
 

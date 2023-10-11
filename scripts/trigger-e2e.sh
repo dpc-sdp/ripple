@@ -56,9 +56,9 @@ else
       "owner": "dpc-sdp",
       "repo": "ripple",
       "workflow": "nightwatch.yml",
-      "ref": "$BRANCH",
-      "be_url": "$BE_URL",
-      "fe_url": "$FE_URL",
+      "ref": "'"$BRANCH"'",
+      "be_url": "'"$BE_URL"'",
+      "fe_url": "'"$FE_URL"'",
       "project": "reference"
     }'
 fi

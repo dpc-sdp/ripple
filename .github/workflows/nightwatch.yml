@@ -2,9 +2,6 @@ name: dpc-sdp/ripple/nightwatch
 on:
   workflow_dispatch:
     inputs:
-      e2e:
-        type: boolean
-        required: true
       project:
         type: string
         required: true
@@ -14,7 +11,6 @@ on:
         type: string
 jobs:
   e2e_be:
-    if: inputs.e2e
     uses: dpc-sdp/github-actions/.github/workflows/run_e2e_be.yml@main
     secrets: inherit
     with:
@@ -26,7 +22,6 @@ jobs:
       test_type: ':nightwatch:'
       runner: 'ubuntu-latest'
   e2e_fe_smoke:
-    if: inputs.e2e
     uses: dpc-sdp/github-actions/.github/workflows/run_e2e_fe.yml@main
     secrets: inherit
     with:
@@ -42,7 +37,6 @@ jobs:
     needs:
       - e2e_be
       - e2e_fe_smoke
-    if: inputs.e2e
     uses: dpc-sdp/github-actions/.github/workflows/run_e2e_fe.yml@main
     secrets: inherit
     with:
@@ -58,7 +52,6 @@ jobs:
     needs:
       - e2e_be
       - e2e_fe_smoke
-    if: inputs.e2e
     uses: dpc-sdp/github-actions/.github/workflows/run_e2e_fe.yml@main
     secrets: inherit
     with:

@@ -1,4 +1,4 @@
-import { Then, When, DataTable } from '@badeball/cypress-cucumber-preprocessor'
+import { Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Then(`the custom collection component should have a search input bar`, () => {
   cy.get(`[data-component-type="TideCustomCollection"]`).find('.rpl-search-bar')

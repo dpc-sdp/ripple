@@ -59,16 +59,14 @@ const tidePublicationPageModule: IRplTideModuleMapping = {
         })),
       pagination: {
         prev: {
-          label: 'publication_navigation_prev.meta.title',
+          label: () => 'Previous',
           url: 'publication_navigation_prev.meta.url',
-          description:
-            'publication_navigation_prev.meta.field_landing_page_summary'
+          description: 'publication_navigation_prev.meta.title'
         },
         next: {
-          label: 'publication_navigation_next.meta.title',
+          label: () => 'Next',
           url: 'publication_navigation_next.meta.url',
-          description:
-            'publication_navigation_next.meta.field_landing_page_summary'
+          description: 'publication_navigation_next.meta.title'
         }
       }
     },

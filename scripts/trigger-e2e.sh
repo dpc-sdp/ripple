@@ -45,20 +45,20 @@ else
     }'
 fi
 
-if [ -z $E2E_ESTUARY_URL ]; then
-  echo "Error: No E2E Estuary URL found, end to end is not triggered. Please make sure E2E_ESTUARY_URL is set up."
+if [ -z $E2E_ESTUARY_URL ] || [ -z $E2E_ESTUARY_TOKEN_PATH ]; then
+  echo "Error: No Estuary URL or token path found, end to end is not triggered. Please make sure E2E_ESTUARY_URL and E2E_ESTUARY_TOKEN_PATH are set up."
 else
   # Trigger GitHub Action to run the nightwatch workflow via estuary
-  curl --location --request POST "$E2E_ESTUARY_URL" \
-    --header "Authorization: Bearer $(cat /run/secrets/kubernetes.io/serviceaccount/token)" \
-    --header "Content-Type: application/json" \
-    --data-raw '{
-      "owner": "dpc-sdp",
-      "repo": "ripple",
-      "workflow": "nightwatch.yml",
-      "ref": "'"$BRANCH"'",
-      "be_url": "'"$BE_URL"'",
-      "fe_url": "'"$FE_URL"'",
-      "project": "reference"
-    }'
+curl --location --request POST "$E2E_ESTUARY_URL" \
+  --header "Authorization: Bearer $(cat $E2E_ESTUARY_TOKEN_PATH)" \
+  --header "Content-Type: application/json" \
+  --data-raw '{
+    "owner": "dpc-sdp",
+    "repo": "ripple",
+    "workflow": "nightwatch.yml",
+    "ref": "'"$BRANCH"'",
+    "be_url": "'"$BE_URL"'",
+    "fe_url": "'"$FE_URL"'",
+    "project": "reference"
+  }'
 fi

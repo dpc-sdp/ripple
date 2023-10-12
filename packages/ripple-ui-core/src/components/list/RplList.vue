@@ -64,7 +64,7 @@ const handleClick = (item: IRplListItemArray, index: number) => {
   >
     <template v-for="(item, index) of items" :key="index">
       <li
-        v-if="item.url && item.text"
+        v-if="item.url || item.text"
         :class="['rpl-list__item', itemClass ? itemClass : null]"
       >
         <RplTextLink

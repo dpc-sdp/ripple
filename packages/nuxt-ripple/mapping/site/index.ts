@@ -49,10 +49,9 @@ export default {
     footerLogos: (src: any) => {
       return src.field_site_footer_logos.map((logo) => {
         const link = getLinkFromField(logo, 'field_paragraph_cta')
-        const image = getImageFromField(
-          logo,
-          'field_paragraph_media.field_media_image'
-        )
+        const image =
+          getImageFromField(logo, 'field_paragraph_media.field_media_image') ||
+          getImageFromField(logo, 'field_feature_image')
 
         return {
           alt: link?.text,
@@ -126,6 +125,7 @@ export default {
     'field_top_corner_graphic',
     'field_bottom_corner_graphic',
     'field_site_footer_logos',
-    'field_site_footer_logos.field_paragraph_media.field_media_image'
+    'field_site_footer_logos.field_paragraph_media.field_media_image',
+    'field_site_footer_logos.field_feature_image'
   ]
 }

@@ -2,38 +2,33 @@ name: dpc-sdp/ripple/nightwatch
 on:
   workflow_dispatch:
     inputs:
-      e2e:
-        type: boolean
-        required: true
-      e2e_project:
+      project:
         type: string
         required: true
-      e2e_be_url:
+      be_url:
         type: string
-      e2e_fe_url:
+      fe_url:
         type: string
 jobs:
   e2e_be:
-    if: inputs.e2e
     uses: dpc-sdp/github-actions/.github/workflows/run_e2e_be.yml@main
     secrets: inherit
     with:
-      tags: "(@core or @${{ inputs.e2e_project }}) and @regression"
-      be_url: ${{ inputs.e2e_be_url }}
-      project: ${{ inputs.e2e_project }}
+      tags: "(@core or @${{ inputs.project }}) and @regression"
+      be_url: ${{ inputs.be_url }}
+      project: ${{ inputs.project }}
       browser: 'chrome'
       test_id: 'fixture'
       test_type: ':nightwatch:'
       runner: 'ubuntu-latest'
   e2e_fe_smoke:
-    if: inputs.e2e
     uses: dpc-sdp/github-actions/.github/workflows/run_e2e_fe.yml@main
     secrets: inherit
     with:
-      tags: "(@smoke and @core) or (@smoke and @${{ inputs.e2e_project }})"
-      be_url: ${{ inputs.e2e_be_url }}
-      fe_url: ${{ inputs.e2e_fe_url }}
-      project: ${{ inputs.e2e_project }}
+      tags: "(@smoke and @core) or (@smoke and @${{ inputs.project }})"
+      be_url: ${{ inputs.be_url }}
+      fe_url: ${{ inputs.fe_url }}
+      project: ${{ inputs.project }}
       browser: 'chrome'
       test_id: 'fixture'
       test_type: ':nightwatch:'
@@ -42,14 +37,13 @@ jobs:
     needs:
       - e2e_be
       - e2e_fe_smoke
-    if: inputs.e2e
     uses: dpc-sdp/github-actions/.github/workflows/run_e2e_fe.yml@main
     secrets: inherit
     with:
-      tags: "(@core or @${{ inputs.e2e_project }}) and @regression and not @mobile"
-      be_url: ${{ inputs.e2e_be_url }}
-      fe_url: ${{ inputs.e2e_fe_url }}
-      project: ${{ inputs.e2e_project }}
+      tags: "(@core or @${{ inputs.project }}) and @regression and not @mobile"
+      be_url: ${{ inputs.be_url }}
+      fe_url: ${{ inputs.fe_url }}
+      project: ${{ inputs.project }}
       browser: 'chrome'
       test_id: 'fixture'
       test_type: ':nightwatch:'
@@ -58,14 +52,13 @@ jobs:
     needs:
       - e2e_be
       - e2e_fe_smoke
-    if: inputs.e2e
     uses: dpc-sdp/github-actions/.github/workflows/run_e2e_fe.yml@main
     secrets: inherit
     with:
-      tags: "(@core or @${{ inputs.e2e_project }}) and @regression and not @desktop"
-      be_url: ${{ inputs.e2e_be_url }}
-      fe_url: ${{ inputs.e2e_fe_url }}
-      project: ${{ inputs.e2e_project }}
+      tags: "(@core or @${{ inputs.project }}) and @regression and not @desktop"
+      be_url: ${{ inputs.be_url }}
+      fe_url: ${{ inputs.fe_url }}
+      project: ${{ inputs.project }}
       browser: 'androidChrome'
       test_id: 'fixture'
       test_type: ':nightwatch:'

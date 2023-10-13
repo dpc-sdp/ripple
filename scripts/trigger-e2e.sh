@@ -45,20 +45,18 @@ else
     }'
 fi
 
-if [ -z $E2E_GITHUB_TOKEN ]; then
-  echo "Error: No E2E GitHub token found, end to end is not triggered. Please make sure E2E_GITHUB_TOKEN is set up."
-else
-  # Trigger GitHub Action to run the workflow
-  curl --location --request POST "https://api.github.com/repos/dpc-sdp/ripple/actions/workflows/nightwatch.yml/dispatches" \
-    --header "Authorization: Bearer $E2E_GITHUB_TOKEN" \
-    --header 'Accept: application/vnd.github+json' \
-    --data-raw '{
-        "ref": "'"$BRANCH"'",
-        "inputs": {
-            "e2e": true,
-            "e2e_be_url": "'"$BE_URL"'",
-            "e2e_fe_url": "'"$FE_URL"'",
-            "e2e_project": "reference"
-        }
-    }'
-fi
+E2E_ESTUARY_URL="${E2E_ESTUARY_URL:-http://estuary.sdp-services:8080/v1/actions/trigger-e2e}"
+E2E_ESTUARY_TOKEN_PATH="${E2E_ESTUARY_TOKEN_PATH:-/run/secrets/kubernetes.io/serviceaccount/token}"
+# Trigger GitHub Action to run the nightwatch workflow via estuary
+curl --location --request POST "$E2E_ESTUARY_URL" \
+  --header "Authorization: Bearer $(cat $E2E_ESTUARY_TOKEN_PATH)" \
+  --header "Content-Type: application/json" \
+  --data-raw '{
+    "owner": "dpc-sdp",
+    "repo": "ripple",
+    "workflow": "nightwatch.yml",
+    "ref": "'"$BRANCH"'",
+    "be_url": "'"$BE_URL"'",
+    "fe_url": "'"$FE_URL"'",
+    "project": "reference"
+  }'

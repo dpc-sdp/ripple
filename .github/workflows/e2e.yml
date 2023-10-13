@@ -1,4 +1,4 @@
-name: dpc-sdp/ripple/nightwatch
+name: dpc-sdp/ripple/e2e
 on:
   workflow_dispatch:
     inputs:

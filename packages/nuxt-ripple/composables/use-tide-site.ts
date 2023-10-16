@@ -32,17 +32,7 @@ export const useTideSite = async (id?: number): Promise<TideSiteData> => {
     return data.value
   }
 
-  // Intercept social links, replace icon-twitter with icon-x
-  return Object.fromEntries(
-    Object.entries(siteData.value).map(([k, v]) => [
-      k,
-      k !== 'socialLinks'
-        ? v
-        : siteData.value[k].map((link: any) =>
-            link.icon === 'icon-twitter' ? { ...link, icon: 'icon-x' } : link
-          )
-    ])
-  ) as any
+  return siteData.value
 }
 
 export default useTideSite

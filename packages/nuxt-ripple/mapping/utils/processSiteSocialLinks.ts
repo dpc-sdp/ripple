@@ -23,7 +23,8 @@ export const getIconForUrl = (urlString: string) => {
     case 'linkedin.com':
       return 'icon-linkedin'
     case 'twitter.com':
-      return 'icon-twitter'
+    case 'x.com':
+      return 'icon-x'
     case 'youtube.com':
       return 'icon-youtube'
     default:

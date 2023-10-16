@@ -42,7 +42,7 @@ const handleClick = (event) => {
   )
 }
 
-// Intercept social links to replace icon-twitter with icon-x
+// Replace icon-twitter with icon-x
 const socialLinks = computed(() =>
   props.items.map((i) =>
     i.icon === 'icon-twitter' ? { ...i, icon: 'icon-x' } : i

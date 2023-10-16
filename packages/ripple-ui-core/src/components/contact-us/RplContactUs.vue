@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { IRplListItemArray } from '../list/constants'
+import { computed } from 'vue'
 import RplList from '../list/RplList.vue'
 import {
   useRippleEvent,
@@ -40,6 +41,13 @@ const handleClick = (event) => {
     { global: true }
   )
 }
+
+// Intercept social links to replace icon-twitter with icon-x
+const socialLinks = computed(() =>
+  props.items.map((i) =>
+    i.icon === 'icon-twitter' ? { ...i, icon: 'icon-x' } : i
+  )
+)
 </script>
 
 <template>
@@ -59,7 +67,7 @@ const handleClick = (event) => {
       </p>
     </div>
     <RplList
-      :items="items"
+      :items="socialLinks"
       class="rpl-type-p"
       @item-click="handleClick"
     ></RplList>

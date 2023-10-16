@@ -5,7 +5,7 @@ export const map = (src: TideApiResponse): string[] => {
     return []
   }
 
-  return ['Facebook', 'Twitter', 'LinkedIn']
+  return ['Facebook', 'X', 'LinkedIn']
 }
 
 export const includes = []

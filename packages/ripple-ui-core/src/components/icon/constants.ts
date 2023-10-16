@@ -21,9 +21,9 @@ export const RplIconGroups = {
     'icon-instagram',
     'icon-linkedin',
     'icon-spotify',
-    'icon-twitter',
     'icon-wechat',
-    'icon-youtube'
+    'icon-youtube',
+    'icon-x'
   ],
   standard: [
     'icon-accessible',

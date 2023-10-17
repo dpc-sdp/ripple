@@ -52,10 +52,14 @@
 }
 
 .rpl-header-links__item .rpl-list__link {
+  margin-right: calc(-1 * var(--rpl-sp-6));
+  padding-right: var(--rpl-sp-6);
+
   .rpl-icon {
     --rpl-icon-size: var(--rpl-sp-3);
 
-    margin-left: var(--rpl-sp-2);
+    margin-right: calc(-1 * var(--rpl-sp-4));
+    padding-left: var(--rpl-sp-2);
     transition: transform ease-out var(--rpl-motion-speed-3);
 
     @media (--rpl-bp-l) {

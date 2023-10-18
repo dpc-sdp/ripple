@@ -75,7 +75,7 @@ export const mapping = (field) => {
       item = {
         type: 'promo',
         title: getField(field, 'field_paragraph_title', ''),
-        url: getField(field, 'field_paragraph_link.url', ''),
+        url: getLinkFromField(field, 'field_paragraph_link')?.url,
         image: getImageFromField(
           field,
           'field_paragraph_media.field_media_image'
@@ -91,7 +91,7 @@ export const mapping = (field) => {
       item = {
         type: 'promo',
         title: getField(field, 'field_paragraph_reference.title', ''),
-        url: getField(field, 'field_paragraph_reference.path.url', ''),
+        url: getLinkFromField(field, 'field_paragraph_reference.path')?.url,
         image: getCardImage(field.field_paragraph_reference),
         meta: {
           topic: getField(field, 'field_paragraph_display_topic', false)

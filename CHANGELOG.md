@@ -1,5 +1,67 @@
 # Changelog
 
+## v2.4.0
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.3.5...v2.4.0)
+
+
+### 🚀 Enhancements
+
+  - **@dpc-sdp/nuxt-ripple-cli:** ✨  generate favicon ([1f1c21e7](https://github.com/dpc-sdp/ripple-framework/commit/1f1c21e7))
+  - **@dpc-sdp/nuxt-ripple:** 🚧  wip on adding favicon generation as module ([34279a16](https://github.com/dpc-sdp/ripple-framework/commit/34279a16))
+  - **nuxt-ripple:** ✨  implement site fetch, favicon generate ([37a29489](https://github.com/dpc-sdp/ripple-framework/commit/37a29489))
+  - **@dpc-sdp/ripple-ui-core:** Added css var for heading font ([5dbd7044](https://github.com/dpc-sdp/ripple-framework/commit/5dbd7044))
+  - **@dpc-sdp/ripple-tide-search:** ✨  add secondary campaign to mapping, template ([ac537928](https://github.com/dpc-sdp/ripple-framework/commit/ac537928))
+  - **nuxt-ripple:** ✨  add mapping for new footer logo field ([9b8217ba](https://github.com/dpc-sdp/ripple-framework/commit/9b8217ba))
+  - ✨  replace twitter with x ([76d32333](https://github.com/dpc-sdp/ripple-framework/commit/76d32333))
+
+### 🩹 Fixes
+
+  - **@dpc-sdp/nuxt-ripple:** Ensured that language specific fonts override all other fonts ([80c2d1aa](https://github.com/dpc-sdp/ripple-framework/commit/80c2d1aa))
+  - **@dpc-sdp/ripple-ui-core:** 💄  prevent hanging icon ([f31659fe](https://github.com/dpc-sdp/ripple-framework/commit/f31659fe))
+  - **@dpc-sdp/nuxt-ripple:** 🐛  fix redirects adding to history state ([60dbea98](https://github.com/dpc-sdp/ripple-framework/commit/60dbea98))
+  - **@dpc-sdp/ripple-ui-core:** 🐛  only render icon if item has text or url ([af34dce5](https://github.com/dpc-sdp/ripple-framework/commit/af34dce5))
+  - **@dpc-sdp/ripple-ui-core:** 🐛  add check for secondary link in header ([efe022b5](https://github.com/dpc-sdp/ripple-framework/commit/efe022b5))
+  - **nuxt-ripple:** 🐛  filter out alerts with missing type relation ([682328bd](https://github.com/dpc-sdp/ripple-framework/commit/682328bd))
+  - **@dpc-sdp/ripple-ui-core:** 🐛  fix carousel links ([5b4e5b5b](https://github.com/dpc-sdp/ripple-framework/commit/5b4e5b5b))
+
+### 💅 Refactors
+
+  - **nuxt-ripple:** ♻️  use site data in favicon generator ([46552d07](https://github.com/dpc-sdp/ripple-framework/commit/46552d07))
+  - **nuxt-ripple:** 🏷️  update appconfig interface ([2b178f33](https://github.com/dpc-sdp/ripple-framework/commit/2b178f33))
+  - **@dpc-sdp/ripple-tide-search:** ♻️  move secondary campaign to right slot ([cae72da6](https://github.com/dpc-sdp/ripple-framework/commit/cae72da6))
+  - **@dpc-sdp/ripple-tide-publication:** ♻️  change page link props at mapping, add test ([5d7bbc30](https://github.com/dpc-sdp/ripple-framework/commit/5d7bbc30))
+  - **@dpc-sdp/ripple-ui-core:** ♻️  check for url or text ([e0e89fd5](https://github.com/dpc-sdp/ripple-framework/commit/e0e89fd5))
+  - ♻️  replace icon at mapping level ([b2eb2fd3](https://github.com/dpc-sdp/ripple-framework/commit/b2eb2fd3))
+  - **@dpc-sdp/ripple-ui-core:** ⏪️  revert hyphenation, add separate util class ([8614c759](https://github.com/dpc-sdp/ripple-framework/commit/8614c759))
+
+### 📖 Documentation
+
+  - 📝  update badges, add tools and frameworks ([ee110382](https://github.com/dpc-sdp/ripple-framework/commit/ee110382))
+  - 📝  add more detail to readme ([690c239b](https://github.com/dpc-sdp/ripple-framework/commit/690c239b))
+  - **docs:** 📝  add personal access token instructions ([db3997f1](https://github.com/dpc-sdp/ripple-framework/commit/db3997f1))
+  - 📝  simplify badge labels ([779d9d8a](https://github.com/dpc-sdp/ripple-framework/commit/779d9d8a))
+  - **docs:** 📝  split usage into separate docs, add nuxt load order fix ([2e41717e](https://github.com/dpc-sdp/ripple-framework/commit/2e41717e))
+
+### 🏡 Chore
+
+  - **deployment:** Add workflow file ([f5a1740b](https://github.com/dpc-sdp/ripple-framework/commit/f5a1740b))
+  - 👷  update pnpm ([872ff090](https://github.com/dpc-sdp/ripple-framework/commit/872ff090))
+  - Fix studio pnpm ver and allow greater ([5ebc4ae8](https://github.com/dpc-sdp/ripple-framework/commit/5ebc4ae8))
+  - **docs:** ➕  add nuxt studio ([7b1cd87d](https://github.com/dpc-sdp/ripple-framework/commit/7b1cd87d))
+
+### ✅ Tests
+
+  - ✅  fix linter issues ([30420455](https://github.com/dpc-sdp/ripple-framework/commit/30420455))
+  - **nuxt-ripple:** ✅  fix tests ([4dc9358a](https://github.com/dpc-sdp/ripple-framework/commit/4dc9358a))
+
+### ❤️  Contributors
+
+- Dylan Kelly <dylan.kelly@dpc.vic.gov.au>
+- Jason Smith <jason.smith@dpc.vic.gov.au>
+- Dylankelly <dylan.kelly@dpc.vic.gov.au>
+- Jeffrey Dowdle <jeffrey.dowdle@dpc.vic.gov.au>
+
 ## v2.3.5
 
 [compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.3.4...v2.3.5)

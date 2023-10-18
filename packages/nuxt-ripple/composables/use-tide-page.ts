@@ -88,6 +88,7 @@ export const useTidePage = async (
         case '305':
         case '307':
           await navigateTo(data.value.redirect_url, {
+            replace: true,
             redirectCode: data.value.status_code,
             external: data.value.redirect_type === 'external'
           })

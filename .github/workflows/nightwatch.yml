@@ -63,3 +63,28 @@ jobs:
       test_id: 'fixture'
       test_type: ':nightwatch:'
       runner: 'ubuntu-latest'
+  set_status:
+    runs-on: ubuntu-latest
+    needs: [e2e_be, e2e_fe_smoke, e2e_fe_chrome, e2e_fe_android]
+    if: ${{ always() }}
+    steps:
+      - name: Set e2e job status
+        uses: dpc-sdp/github-actions/.github/workflows/set_status.yml@feature/DEVOPS-252-tide
+        with:
+          context: 'e2e_be: ${{ needs.e2e_be.outputs.status }}'
+          description: 'Backend E2E testing'
+      - name: Set e2e_fe_smoke job status
+        uses: dpc-sdp/github-actions/.github/workflows/set_status.yml@feature/DEVOPS-252-tide
+        with:
+          context: 'e2e_fe_smoke: ${{ needs.e2e_be.e2e_fe_smoke.status }}'
+          description: 'Frontend E2E smoke testing'
+      - name: Set e2e_fe_chrome job status
+        uses: dpc-sdp/github-actions/.github/workflows/set_status.yml@feature/DEVOPS-252-tide
+        with:
+          context: 'e2e_fe_chrome: ${{ needs.e2e_be.e2e_fe_chrome.status }}'
+          description: 'Frontend E2E chrome testing'
+      - name: Set e2e_fe_android job status
+        uses: dpc-sdp/github-actions/.github/workflows/set_status.yml@feature/DEVOPS-252-tide
+        with:
+          context: 'e2e_fe_android: ${{ needs.e2e_be.e2e_fe_android.status }}'
+          description: 'Frontend E2E android testing'

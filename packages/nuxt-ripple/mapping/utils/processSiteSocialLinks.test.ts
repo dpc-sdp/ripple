@@ -27,9 +27,14 @@ describe('getIconForUrl', () => {
     expect(getIconForUrl('https://linkedin.com/')).toBe('icon-linkedin')
   })
 
-  it('returns icon-twitter when passed twitter.com link', () => {
-    expect(getIconForUrl('https://www.twitter.com/')).toBe('icon-twitter')
-    expect(getIconForUrl('https://twitter.com/')).toBe('icon-twitter')
+  it('returns icon-x when passed twitter.com link', () => {
+    expect(getIconForUrl('https://www.twitter.com/')).toBe('icon-x')
+    expect(getIconForUrl('https://twitter.com/')).toBe('icon-x')
+  })
+
+  it('returns icon-x when passed x.com link', () => {
+    expect(getIconForUrl('https://www.x.com/')).toBe('icon-x')
+    expect(getIconForUrl('https://x.com/')).toBe('icon-x')
   })
 
   it('returns icon-youtube when passed youtube.com link', () => {
@@ -122,7 +127,7 @@ describe('processSiteSocialLinks', () => {
         id: 'social_link-5',
         text: 'Twitter',
         url: 'https://www.twitter.com/',
-        icon: 'icon-twitter',
+        icon: 'icon-x',
         iconColour: 'currentColor'
       },
       {

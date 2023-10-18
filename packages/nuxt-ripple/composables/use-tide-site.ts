@@ -31,6 +31,7 @@ export const useTideSite = async (id?: number): Promise<TideSiteData> => {
 
     return data.value
   }
+
   return siteData.value
 }
 

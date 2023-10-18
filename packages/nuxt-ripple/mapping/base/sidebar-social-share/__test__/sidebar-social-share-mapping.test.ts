@@ -22,7 +22,7 @@ describe('sidebarSocialShareMapping', () => {
   it('should return the default list of networks when social share display is switched on', () => {
     expect(sidebarSocialShareMapping(parsedData)).toEqual([
       'Facebook',
-      'Twitter',
+      'X',
       'LinkedIn'
     ])
   })

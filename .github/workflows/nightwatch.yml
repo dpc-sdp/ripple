@@ -71,3 +71,4 @@ jobs:
     with:
       context: 'e2e'
       description: 'Ripple E2E testing'
+      target_url: ${{ github.event.repository.html_url }}/actions/runs/${{ github.run_id }}

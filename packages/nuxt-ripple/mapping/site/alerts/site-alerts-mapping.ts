@@ -47,19 +47,21 @@ const getAlertVariantForType = (
 }
 
 export const map = (src: TideApiResponse): TideAlert[] => {
-  const alerts = (src.site_alerts || []).map((rawAlert): TideAlert => {
-    const alertType = rawAlert.field_alert_type.name
-    const link = getLinkFromField(rawAlert, 'field_call_to_action')
+  const alerts = (src.site_alerts || [])
+    .filter((rawAlert: any) => rawAlert.field_alert_type)
+    .map((rawAlert: any) => {
+      const alertType = rawAlert.field_alert_type.name
+      const link = getLinkFromField(rawAlert, 'field_call_to_action')
 
-    return {
-      alertId: rawAlert.id,
-      variant: getAlertVariantForType(alertType),
-      iconName: getIconForType(alertType),
-      message: rawAlert.title || '',
-      linkText: link?.text || '',
-      linkUrl: link?.url || ''
-    }
-  })
+      return {
+        alertId: rawAlert.id,
+        variant: getAlertVariantForType(alertType),
+        iconName: getIconForType(alertType),
+        message: rawAlert.title || '',
+        linkText: link?.text || '',
+        linkUrl: link?.url || ''
+      }
+    })
   return sortAlertsByPriority(alerts)
 }
 

@@ -43,9 +43,9 @@
     "generate:component": "nuxt-ripple add component ./packages/ripple-ui-core/src/components"
   },
   "devDependencies": {
-    "@babel/core": "^7.21.3",
-    "@babel/plugin-transform-runtime": "^7.21.0",
-    "@babel/preset-env": "^7.20.2",
+    "@babel/core": "^7.23.2",
+    "@babel/plugin-transform-runtime": "^7.23.2",
+    "@babel/preset-env": "^7.23.2",
     "@bahmutov/cypress-esbuild-preprocessor": "^2.2.0",
     "@commitlint/cli": "^17.4.4",
     "@commitlint/config-conventional": "^17.4.4",

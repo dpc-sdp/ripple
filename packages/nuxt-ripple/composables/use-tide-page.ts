@@ -10,7 +10,7 @@ const isCacheTimeExpired = (date: number, expiryInMinutes = 5) => {
 
 const checkForRedirect = async (page: TidePageBase) => {
   // Redirect on the 6 codes that Drupal supplies
-  if (page.type === 'redirect') {
+  if (page?.type === 'redirect') {
     switch (page.status_code) {
       case '301':
       case '302':

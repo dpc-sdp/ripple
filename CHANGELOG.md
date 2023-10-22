@@ -1,5 +1,18 @@
 # Changelog
 
+## v2.4.1
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.4.0...v2.4.1)
+
+
+### 🏡 Chore
+
+  - Updated babel / @babel/traverse ([f8796a39](https://github.com/dpc-sdp/ripple-framework/commit/f8796a39))
+
+### ❤️  Contributors
+
+- Jeffrey Dowdle <jeffrey.dowdle@dpc.vic.gov.au>
+
 ## v2.4.0
 
 [compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.3.5...v2.4.0)

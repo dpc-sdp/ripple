@@ -1,5 +1,25 @@
 # Changelog
 
+## v2.4.1
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.4.0...v2.4.1)
+
+
+### 🩹 Fixes
+
+  - **@dpc-sdp/nuxt-ripple:** Ensure that redirect code runs even on (nuxt) cached pages ([6f095499](https://github.com/dpc-sdp/ripple-framework/commit/6f095499))
+  - **@dpc-sdp/nuxt-ripple:** Added null check for redirect code ([4410cef5](https://github.com/dpc-sdp/ripple-framework/commit/4410cef5))
+
+### 🏡 Chore
+
+  - Updated babel / @babel/traverse ([f8796a39](https://github.com/dpc-sdp/ripple-framework/commit/f8796a39))
+  - 🔖 release ripple 2.4.1 ([a015f463](https://github.com/dpc-sdp/ripple-framework/commit/a015f463))
+
+### ❤️  Contributors
+
+- Jeffrey Dowdle <jeffrey.dowdle@dpc.vic.gov.au>
+
+
 ## v2.4.0
 
 [compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.3.5...v2.4.0)

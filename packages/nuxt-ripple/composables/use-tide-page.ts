@@ -8,6 +8,27 @@ const isCacheTimeExpired = (date: number, expiryInMinutes = 5) => {
   return date < timePlusExpiry
 }
 
+const checkForRedirect = async (page: TidePageBase) => {
+  // Redirect on the 6 codes that Drupal supplies
+  if (page?.type === 'redirect') {
+    switch (page.status_code) {
+      case '301':
+      case '302':
+      case '303':
+      case '304':
+      case '305':
+      case '307':
+        await navigateTo(page.redirect_url, {
+          replace: true,
+          redirectCode: page.status_code,
+          external: page.redirect_type === 'external'
+        })
+        break
+      default:
+    }
+  }
+}
+
 export const useTidePage = async (
   slug?: string,
   site?: number
@@ -78,27 +99,12 @@ export const useTidePage = async (
       useTideError(error.value?.statusCode)
     }
 
-    // Redirect on the 6 codes that Drupal supplies
-    if (data.value.type === 'redirect') {
-      switch (data.value.status_code) {
-        case '301':
-        case '302':
-        case '303':
-        case '304':
-        case '305':
-        case '307':
-          await navigateTo(data.value.redirect_url, {
-            replace: true,
-            redirectCode: data.value.status_code,
-            external: data.value.redirect_type === 'external'
-          })
-          break
-        default:
-      }
-    }
+    await checkForRedirect(data.value)
 
     return data.value
   }
+
+  await checkForRedirect(pageData.value)
 
   return pageData.value
 }

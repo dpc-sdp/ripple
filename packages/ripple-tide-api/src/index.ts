@@ -4,8 +4,20 @@ export { default as TidePageApi } from './services/tide-page.js'
 export { default as TideSiteApi } from './services/tide-site.js'
 export { default as logger } from './logger/logger.js'
 export * from './utils/createHandler.js'
-export * from './utils/define-module.js'
+
 export {
   addAnchorLinksToHTML,
   getAnchorLinksFromHTML
 } from './utils/anchorLinks.js'
+
+export const getDpcPkgs = (
+  inputObject: Record<string, any>,
+  prefix: string = '@dpc-sdp/'
+) => {
+  return Object.keys(inputObject).reduce((acc: Record<string, any>, key) => {
+    if (key.startsWith(prefix)) {
+      acc[key.replace(prefix, '')] = inputObject[key]
+    }
+    return acc
+  }, {})
+}

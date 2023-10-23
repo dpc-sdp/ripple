@@ -66,7 +66,7 @@ jobs:
   set_status:
     needs: [e2e_be, e2e_fe_smoke, e2e_fe_chrome, e2e_fe_android]
     if: ${{ always() }}
-    uses: dpc-sdp/github-actions/.github/workflows/set_status.yml@feature/DEVOPS-252-tide
+    uses: dpc-sdp/github-actions/.github/workflows/set_status.yml@main
     secrets: inherit
     with:
       context: 'e2e'

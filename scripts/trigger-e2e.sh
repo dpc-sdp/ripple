@@ -47,14 +47,14 @@ fi
 
 E2E_ESTUARY_URL="${E2E_ESTUARY_URL:-http://estuary.sdp-services:8080/v1/actions/trigger-e2e}"
 E2E_ESTUARY_TOKEN_PATH="${E2E_ESTUARY_TOKEN_PATH:-/run/secrets/kubernetes.io/serviceaccount/token}"
-# Trigger GitHub Action to run the nightwatch workflow via estuary
+# Trigger GitHub Action to run the e2e workflow via estuary
 curl --location --request POST "$E2E_ESTUARY_URL" \
   --header "Authorization: Bearer $(cat $E2E_ESTUARY_TOKEN_PATH)" \
   --header "Content-Type: application/json" \
   --data-raw '{
     "owner": "dpc-sdp",
     "repo": "ripple",
-    "workflow": "nightwatch.yml",
+    "workflow": "e2e.yml",
     "ref": "'"$BRANCH"'",
     "be_url": "'"$BE_URL"'",
     "fe_url": "'"$FE_URL"'",

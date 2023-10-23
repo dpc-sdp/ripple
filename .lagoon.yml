@@ -10,7 +10,7 @@ tasks:
           fi
         service: app
     - run:
-        name: Trigger Nightwatch E2E Tests CI
+        name: Trigger E2E Tests CI
         command: |-
           . /app/scripts/trigger-e2e.sh
         service: app

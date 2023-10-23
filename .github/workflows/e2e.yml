@@ -19,7 +19,7 @@ jobs:
       project: ${{ inputs.project }}
       browser: 'chrome'
       test_id: 'fixture'
-      test_type: ':nightwatch:'
+      test_type: ':e2e:'
       runner: 'ubuntu-latest'
   e2e_fe_smoke:
     uses: dpc-sdp/github-actions/.github/workflows/run_e2e_fe.yml@main
@@ -31,7 +31,7 @@ jobs:
       project: ${{ inputs.project }}
       browser: 'chrome'
       test_id: 'fixture'
-      test_type: ':nightwatch:'
+      test_type: ':e2e:'
       runner: 'ubuntu-latest'
   e2e_fe_chrome:
     needs:
@@ -46,7 +46,7 @@ jobs:
       project: ${{ inputs.project }}
       browser: 'chrome'
       test_id: 'fixture'
-      test_type: ':nightwatch:'
+      test_type: ':e2e:'
       runner: 'ubuntu-latest'
   e2e_fe_android:
     needs:
@@ -61,5 +61,5 @@ jobs:
       project: ${{ inputs.project }}
       browser: 'androidChrome'
       test_id: 'fixture'
-      test_type: ':nightwatch:'
+      test_type: ':e2e:'
       runner: 'ubuntu-latest'

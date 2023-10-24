@@ -1,0 +1,35 @@
+@import '@dpc-sdp/ripple-ui-core/style/breakpoints';
+
+.rpl-map {
+  position: relative;
+}
+
+.rpl-map__control {
+  position: absolute;
+  right: var(--rpl-sp-8);
+
+  button {
+    padding: var(--rpl-sp-2);
+    border: var(--rpl-border-1) solid var(--rpl-clr-neutral-200);
+    border-radius: var(--rpl-border-radius-2);
+    box-shadow: var(--rpl-elevation-1);
+    background-color: var(--rpl-clr-light);
+    height: var(--rpl-sp-8);
+    width: var(--rpl-sp-8);
+    display: flex;
+    justify-content: center;
+    font-size: 1.75rem;
+    line-height: 1.25rem;
+  }
+}
+
+.rpl-map__control-zoom {
+  top: var(--rpl-sp-4);
+  button {
+    margin-top: var(--rpl-sp-1);
+  }
+}
+
+.rpl-map__control-fullscreen {
+  top: calc(var(--rpl-sp-12) + var(--rpl-sp-8) + var(--rpl-sp-4));
+}

@@ -1,0 +1,25 @@
+.rpl-map-popup {
+  position: absolute;
+  width: 300px;
+  height: calc(600px - var(--rpl-sp-4) * 2);
+  background-color: #fff;
+  z-index: 99;
+  margin: var(--rpl-sp-4);
+  box-shadow: var(--rpl-elevation-1);
+}
+
+.rpl-map-popup__header {
+  display: flex;
+  flex-direction: row;
+  background-color: var(--rpl-clr-neutral-100);
+  padding: var(--rpl-sp-4);
+}
+
+
+.rpl-map-popup__body {
+  padding: var(--rpl-sp-4);
+}
+
+.rpl-map-popup__close {
+  margin-left: auto;
+}

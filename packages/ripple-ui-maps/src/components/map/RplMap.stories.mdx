@@ -1,0 +1,102 @@
+import {
+  Canvas,
+  Meta,
+  Story,
+  ArgsTable
+} from '@storybook/addon-docs'
+import { RplAccordion } from '@dpc-sdp/ripple-ui-core/vue'
+import RplMap from './RplMap.vue'
+import RplMapProviderEsri from './providers/RplMapProviderEsri.vue'
+import RplMapProviderVicMap from './providers/RplMapProviderVicMap.vue'
+import RplMapProviderMapbox from './providers/RplMapProviderMapbox.vue'
+import featureData from './__fixture__/features.json'
+import '@dpc-sdp/ripple-ui-core/style/components'
+
+export const Template = (args) => ({
+  components: { RplMap, RplMapProviderEsri, RplMapProviderVicMap, RplMapProviderMapbox, RplAccordion },
+  setup() {
+    const getClusteredFeatures = (itms) => {
+      return itms.map(itm => {
+        return {
+          id: itm.id,
+          title: itm.title,
+          content: itm.description
+        }
+      })
+    }
+    return {
+      getClusteredFeatures,
+      args
+    }
+  },
+  template: `
+    <RplMap
+      v-bind="args"
+    >
+      <template #map-provider>
+        <rpl-map-provider-esri v-if="args.mapProvider === 'esri'" />
+        <rpl-map-provider-vic-map v-if="args.mapProvider === 'vicmap'" />
+        <rpl-map-provider-mapbox v-if="args.mapProvider === 'mapbox'" />
+      </template>
+      <template #popupTitle="{ selectedFeatures }">
+        <span v-if="selectedFeatures.length === 1">
+          {{ selectedFeatures[0].title}}
+        </span>
+        <span v-else>
+          {{ selectedFeatures.length }} items found in this area
+        </span>
+      </template>
+      <template #popupContent="{ selectedFeatures }">
+        <p v-if="selectedFeatures.length === 1">
+          {{ selectedFeatures[0].description}}
+        </p>
+        <RplAccordion v-else :items="getClusteredFeatures(selectedFeatures)">
+        </RplAccordion>
+      </template>
+    </RplMap>
+  `
+})
+
+<Meta
+  title='Maps/core'
+  component={RplMap}
+/>
+
+# Demo
+
+<ArgsTable of={RplMap} />
+
+<Canvas>
+  <Story
+    name='Esri maps'
+    args={{
+      id: 'example',
+      features: featureData,
+      mapProvider: 'esri'
+    }}
+  >
+    {Template.bind()}
+  </Story>
+  <Story
+    name='VicMap maps'
+    args={{
+      id: 'example',
+      mapProvider: 'vicmap',
+      features: featureData,
+      projection: 'EPSG:3857'
+    }}
+  >
+    {Template.bind()}
+  </Story>
+  <Story
+    name='Mapbox maps'
+    args={{
+      id: 'example',
+      mapProvider: 'mapbox',
+      features: featureData,
+      projection: 'EPSG:3857'
+    }}
+  >
+    {Template.bind()}
+  </Story>
+</Canvas>

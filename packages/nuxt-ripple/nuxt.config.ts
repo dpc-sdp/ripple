@@ -46,6 +46,7 @@ export default defineNuxtConfig({
     'nuxt-proxy',
     '@dpc-sdp/ripple-ui-core/nuxt',
     '@dpc-sdp/ripple-ui-forms/nuxt',
+    '@dpc-sdp/ripple-ui-maps/nuxt',
     '@nuxtjs/robots'
   ]
 })

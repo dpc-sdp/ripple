@@ -15,6 +15,7 @@
   "dependencies": {
     "@dpc-sdp/ripple-tide-api": "workspace:*",
     "@dpc-sdp/ripple-ui-core": "workspace:*",
+    "@dpc-sdp/ripple-ui-maps": "workspace:*",
     "@dpc-sdp/ripple-ui-forms": "workspace:*",
     "@nuxtjs/robots": "^3.0.0",
     "@vueuse/core": "^9.13.0",

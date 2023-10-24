@@ -1,0 +1,82 @@
+[
+  {
+    "title": "Melbourne",
+    "description": "Melbourne is the capital of Victoria, known for its vibrant culture and diverse neighborhoods.",
+    "lat": -37.813611,
+    "lng": 144.963056,
+    "id": 1,
+    "data": {
+      "rating": 6
+    }
+  },
+  {
+    "title": "Geelong",
+    "description": "Geelong is a coastal city with beautiful beaches and a strong maritime history.",
+    "lat": -38.149917,
+    "lng": 144.361667,
+    "id": 2
+  },
+  {
+    "title": "Ballarat",
+    "description": "Ballarat is famous for its gold rush history and stunning Sovereign Hill attraction.",
+    "lat": -37.562222,
+    "lng": 143.856667,
+    "id": 3
+  },
+  {
+    "title": "Bendigo",
+    "description": "Bendigo is known for its grand Victorian architecture and rich gold mining heritage.",
+    "lat": -36.757019,
+    "lng": 144.278795,
+    "id": 4
+  },
+  {
+    "title": "Shepparton",
+    "description": "Shepparton is an agricultural hub with a thriving food and wine culture.",
+    "lat": -36.375833,
+    "lng": 145.399028,
+    "id": 5
+  },
+  {
+    "title": "Warrnambool",
+    "description": "Warrnambool offers stunning coastal views and is a popular whale-watching destination.",
+    "lat": -38.381,
+    "lng": 142.484778,
+    "id": 6
+  },
+  {
+    "title": "Mildura",
+    "description": "Mildura is located along the Murray River and is known for its citrus orchards and vineyards.",
+    "lat": -34.208416,
+    "lng": 142.135611,
+    "id": 7
+  },
+  {
+    "title": "Castlemaine",
+    "description": "Castlemaine is a charming town with a thriving arts scene and historic architecture.",
+    "lat": -37.067389,
+    "lng": 144.214917,
+    "id": 8
+  },
+  {
+    "title": "Mornington",
+    "description": "Mornington Peninsula offers beautiful beaches, wineries, and natural hot springs.",
+    "lat": -38.225,
+    "lng": 145.044,
+    "id": 9
+  },
+  {
+    "title": "Lorne",
+    "description": "Lorne is a coastal town on the Great Ocean Road, known for its scenic beauty and waterfalls.",
+    "lat": -38.540444,
+    "lng": 143.975556,
+    "id": 10
+  },
+  {
+    "title": "Harcourt",
+    "description": "Harcourt is a small Central Highlands town located approximately 9 km northeast of Castlemaine, known for its apple orchards.",
+    "lat": -36.995648,
+    "lng": 144.264662,
+    "id": 8
+  }
+]

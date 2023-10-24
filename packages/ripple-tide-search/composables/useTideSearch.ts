@@ -23,14 +23,23 @@ const escapeJSONString = (raw: string): string => {
     .replace(/[\t]/g, '\\t')
 }
 
-export default (
-  queryConfig: TideSearchListingConfig['queryConfig'],
-  userFilterConfig: TideSearchListingConfig['userFilters'],
-  globalFilters: any[],
-  searchResultsMappingFn: (item: any) => any,
-  searchListingConfig: TideSearchListingConfig['searchListingConfig'],
+interface Config {
+  queryConfig: TideSearchListingConfig['queryConfig']
+  userFilterConfig: TideSearchListingConfig['userFilters']
+  globalFilters: any[]
+  searchResultsMappingFn: (item: any) => any
+  searchListingConfig: TideSearchListingConfig['searchListingConfig']
   sortOptions: TideSearchListingConfig['sortOptions']
-) => {
+}
+
+export default ({
+  queryConfig,
+  userFilterConfig,
+  globalFilters,
+  searchResultsMappingFn,
+  searchListingConfig,
+  sortOptions
+}: Config) => {
   const { public: config } = useRuntimeConfig()
   const route: RouteLocation = useRoute()
   const appConfig = useAppConfig()

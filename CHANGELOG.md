@@ -1,5 +1,18 @@
 # Changelog
 
+## v2.4.2
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.4.1...v2.4.2)
+
+
+### 🩹 Fixes
+
+  - **@dpc-sdp/ripple-tide-landing-page:** 🐛  handle case when no items in carousel ([e9a1af40](https://github.com/dpc-sdp/ripple-framework/commit/e9a1af40))
+
+### ❤️  Contributors
+
+- Dylan Kelly <dylan.kelly@dpc.vic.gov.au>
+
 ## v2.4.1
 
 [compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.4.0...v2.4.1)

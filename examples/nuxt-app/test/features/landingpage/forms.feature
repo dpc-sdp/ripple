@@ -124,20 +124,3 @@ Feature: Forms
     Then a server message should be displayed above the form
       | status  | title          | description          |
       | success | Server success | Test success message |
-
-  @mockserver
-  Scenario: Field counter
-    Given the mock server has started
-    And the page endpoint for path "/kitchen-sink" returns fixture "/landingpage/full-form" with status 200
-    And the site endpoint returns fixture "/site/reference" with status 200
-    Given I visit the page "/kitchen-sink"
-    Then the landing page component "TideLandingPageWebForm" should exist
-    And the form with ID "full_form" should exist
-    Then 7 "words" in the field "role" on "full_form" should display a counter of "You have 2 words too many"
-    And 0 "characters" in the field "message" on "full_form" should display a counter of "You have 0 characters"
-    And 5 "characters" in the field "message" on "full_form" should display a counter of "You have 5 characters"
-    And 9 "characters" in the field "message" on "full_form" should display a counter of "You have 9 characters"
-    And 10 "characters" in the field "message" on "full_form" should display a counter of "You have 10 characters"
-    And 50 "characters" in the field "message" on "full_form" should display a counter of "You have 50 characters"
-    And 51 "characters" in the field "message" on "full_form" should display a counter of "You have 1 character too many"
-    And 55 "characters" in the field "message" on "full_form" should display a counter of "You have 5 characters too many"

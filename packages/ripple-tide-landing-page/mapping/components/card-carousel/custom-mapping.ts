@@ -1,4 +1,8 @@
-import { getField, getImageFromField } from '@dpc-sdp/ripple-tide-api'
+import {
+  getField,
+  getImageFromField,
+  getLinkFromField
+} from '@dpc-sdp/ripple-tide-api'
 
 const getCardImage = (card) => {
   if (card?.field_featured_image) {
@@ -58,7 +62,7 @@ export const mapping = (field) => {
     case 'paragraph--card_keydates':
       item = {
         type: 'keydates',
-        url: getField(field, 'field_paragraph_cta.url', ''),
+        url: getLinkFromField(field, 'field_paragraph_cta')?.url,
         title: getField(field, 'field_paragraph_cta.title', ''),
         keyDates: field.field_paragraph_keydates.map((date) => ({
           title: getField(date, 'field_paragraph_keydate', ''),
@@ -71,7 +75,7 @@ export const mapping = (field) => {
       item = {
         type: 'promo',
         title: getField(field, 'field_paragraph_title', ''),
-        url: getField(field, 'field_paragraph_link.url', ''),
+        url: getLinkFromField(field, 'field_paragraph_link')?.url,
         image: getImageFromField(
           field,
           'field_paragraph_media.field_media_image'
@@ -87,7 +91,7 @@ export const mapping = (field) => {
       item = {
         type: 'promo',
         title: getField(field, 'field_paragraph_reference.title', ''),
-        url: getField(field, 'field_paragraph_reference.path.url', ''),
+        url: getLinkFromField(field, 'field_paragraph_reference.path')?.url,
         image: getCardImage(field.field_paragraph_reference),
         meta: {
           topic: getField(field, 'field_paragraph_display_topic', false)

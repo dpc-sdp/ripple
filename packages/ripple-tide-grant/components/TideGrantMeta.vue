@@ -1,10 +1,9 @@
 <template>
-  <RplList
+  <RplDescriptionList
+    :inline="true"
     :items="overviewList"
-    :item-class="{
-      'tide-grant-meta--block': variant === 'block',
-      'rpl-type-h4-fixed': variant === 'block'
-    }"
+    :variant="variant === 'inline' ? 'icon' : 'default'"
+    :class="`tide-grant-meta tide-grant-meta--${variant}`"
   />
 </template>
 
@@ -34,8 +33,9 @@ const overviewList = computed(() => {
 
   if (props.audience) {
     list.push({
-      text: props.audience,
-      icon: 'icon-user-circle-filled'
+      term: 'Who can apply:',
+      description: props.audience,
+      iconName: 'icon-user-circle-filled'
     })
   }
 
@@ -44,15 +44,17 @@ const overviewList = computed(() => {
     grantStatus.value.status === 'opening_soon'
 
   list.push({
-    text: grantStatus.value.displayLabel,
-    icon: open ? 'icon-check-circle-filled' : 'icon-cancel-circle-filled',
+    term: 'Status:',
+    description: grantStatus.value.displayLabel,
+    iconName: open ? 'icon-check-circle-filled' : 'icon-cancel-circle-filled',
     iconColour: open ? 'success' : 'error'
   })
 
   if (props.funding) {
     list.push({
-      text: props.funding,
-      icon: 'icon-dollar-circle-filled'
+      term: 'Funding:',
+      description: props.funding,
+      iconName: 'icon-dollar-circle-filled'
     })
   }
 
@@ -61,10 +63,20 @@ const overviewList = computed(() => {
 </script>
 
 <style>
-.tide-grant-meta--block {
-  display: flex;
-  gap: var(--rpl-sp-3);
-  align-items: center;
+@import '@dpc-sdp/ripple-ui-core/style/breakpoints';
+
+.tide-grant-meta--inline {
+  flex-wrap: wrap;
+  flex-direction: column;
+  column-gap: var(--rpl-sp-4);
   margin-bottom: var(--rpl-sp-4);
+
+  @media (--rpl-bp-m) {
+    flex-direction: row;
+  }
+}
+
+.tide-grant-meta--block {
+  --local-list-spacing: var(--rpl-sp-4);
 }
 </style>

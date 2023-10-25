@@ -40,6 +40,12 @@ export const SlotTemplate = (args) => ({
 <Meta
   title='Core/Containers/Description list'
   component={RplDescriptionList}
+  argTypes={{
+    variant: {
+      control: { type: 'select' },
+      options: ['default', 'icon']
+    }
+  }}
 />
 
 # Description list
@@ -79,6 +85,21 @@ export const SlotTemplate = (args) => ({
   </Story>
 </Canvas>
 
+<Canvas>
+  <Story
+    name='Default / With icons'
+    play={a11yStoryCheck}
+    args={{
+      items: [
+        { term: "Date:", description: "17th of November 2021", iconName: "icon-exclamation-circle-filled" },
+        { term: "Author:", description: "Department of Premier and Cabinet", iconName: "icon-user-circle-filled" },
+        { term: "Content:", description: "And here is some interesting content.", iconName: "icon-document" }
+      ]
+    }}
+  >
+    {InlineTemplate.bind()}
+  </Story>
+</Canvas>
 
 ## Inline
 
@@ -129,14 +150,44 @@ export const SlotTemplate = (args) => ({
   </Story>
 </Canvas>
 
+<Canvas>
+  <Story
+    name='Inline / With icons'
+    play={a11yStoryCheck}
+    args={{
+      inline: true,
+      items: [
+        { term: "Closes:", description: "2nd of June 2023", iconName: "icon-exclamation-circle-filled", iconColour: "warning" },
+        { term: "Admission:", description: "Entry is free", iconName: "icon-check-circle-filled", iconColour: "success" },
+        { term: "Content:", description: "This is a line of text to use for testing extreme long-title edge cases: it is so long that it will not only fill, but also overflow, the entire width of an ordinary device.", iconName: "icon-document" }
+      ]
+    }}
+  >
+    {InlineTemplate.bind()}
+  </Story>
+</Canvas>
 
 <Canvas>
   <Story
     name='With link'
     play={a11yStoryCheck}
-    args={{
-    }}
   >
     {SlotTemplate.bind()}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    name='Icons only'
+    play={a11yStoryCheck}
+    args={{
+      variant: "icon",
+      items: [
+        { term: "Closes:", description: "2nd of June 2023", iconName: "icon-exclamation-circle-filled", iconColour: "warning" },
+        { term: "Admission:", description: "Entry is free before 9am", iconName: "icon-check-circle-filled", iconColour: "success" },
+      ]
+    }}
+  >
+    {InlineTemplate.bind()}
   </Story>
 </Canvas>

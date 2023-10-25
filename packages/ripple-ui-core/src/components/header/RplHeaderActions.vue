@@ -47,7 +47,7 @@ const handleClick = (item, type: string) => {
     >
       {{ primary.text }}
     </RplButton>
-    <div class="rpl-header-actions__secondary">
+    <div v-if="secondary" class="rpl-header-actions__secondary">
       <p
         v-if="secondary.title"
         class="rpl-header-actions__secondary-title rpl-header__text-large-fixed rpl-type-p"

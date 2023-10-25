@@ -2,6 +2,7 @@ import { defineNuxtPlugin, useAppConfig, useRuntimeConfig } from '#app'
 import { loadScript } from '@gtm-support/core'
 import { trackEvent } from '../lib/tracker'
 import routeChange from '../lib/routeChange'
+import type { IRplFeatureFlags } from '@dpc-sdp/ripple-tide-api/types'
 
 declare global {
   interface Window {
@@ -9,10 +10,22 @@ declare global {
   }
 }
 
-const setupDataLayer = () => {
+const setupDataLayer = (featureFlags: IRplFeatureFlags) => {
+  const production = useRuntimeConfig()?.public?.isProduction
+
   /*eslint-disable no-prototype-builtins */
-  if (typeof window !== undefined && !window.hasOwnProperty('dataLayer')) {
-    window.dataLayer = []
+  if (typeof window !== undefined) {
+    if (!window.hasOwnProperty('dataLayer')) {
+      window.dataLayer = []
+    }
+
+    window.dataLayer.push({
+      production,
+      google_analytics: {
+        prod_measurement_id: featureFlags?.prodMeasurementID,
+        uat_measurement_id: featureFlags?.uatMeasurementID
+      }
+    })
   }
 }
 
@@ -31,10 +44,8 @@ export default defineNuxtPlugin((nuxtApp) => {
 
   /* @ts-ignore process is extended by webpack */
   if (process.client) {
-    nuxtApp.hook('page:finish', () => {
+    nuxtApp.hook('tide:page', ({ page, site }) => {
       const route = useRoute()
-      const site = nuxtApp.payload.data?.[`site-${runtimeConfig.site}`]
-      const page = nuxtApp.payload.data?.[`page-${route.fullPath}`]
 
       if (appConfig?.analytics?.routeChange === false) return
 
@@ -55,10 +66,10 @@ export default defineNuxtPlugin((nuxtApp) => {
     nuxtApp.vueApp.use({
       install(app: any) {
         const rplEventBus = app._context?.provides?.$rplEvent
-        setupDataLayer()
+        const site = nuxtApp?.payload.data?.[`site-${runtimeConfig.site}`]
+        setupDataLayer(site?.featureFlags)
         setupGTM(runtimeConfig?.analytics?.GTM)
         // Check for site-specific GTM container
-        const site = nuxtApp?.payload.data?.[`site-${runtimeConfig.site}`]
         if (site?.featureFlags?.gtmContainerID) {
           setupGTM(site?.featureFlags?.gtmContainerID)
         }

@@ -1,10 +1,6 @@
 import { TideDynamicPageComponent, getBody } from '@dpc-sdp/ripple-tide-api'
 import { FormKitSchemaNode } from '@formkit/core'
-import {
-  getCounterFields,
-  getInputIcons,
-  getValidationAndConditionals
-} from './webform-utils.js'
+import { getInputIcons, getValidationAndConditionals } from './webform-utils.js'
 import { getAdvancedAddressMapping } from './webforms-address'
 
 export interface ITideWebform {
@@ -58,8 +54,7 @@ const getFormSchemaFromMapping = async (
           help: field['#description'] || field['#help_title'],
           value: field['#default_value'],
           ...getValidationAndConditionals(field),
-          ...getInputIcons(field),
-          ...getCounterFields(field)
+          ...getInputIcons(field)
         }
         break
       case 'email':
@@ -137,8 +132,7 @@ const getFormSchemaFromMapping = async (
           rows: field['#rows'],
           help: field['#description'] || field['#help_title'],
           value: field['#default_value'],
-          ...getValidationAndConditionals(field),
-          ...getCounterFields(field)
+          ...getValidationAndConditionals(field)
         }
         break
       case 'date':

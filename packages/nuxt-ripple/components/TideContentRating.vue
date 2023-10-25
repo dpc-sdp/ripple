@@ -49,7 +49,6 @@ onMounted(() => {
                   type="RplFormRadioGroup"
                   label="Was this page helpful?"
                   layout="inline"
-                  class="wow"
                   value=""
                   :options="[
                     { id: 'Yes', label: 'Yes', value: 'Yes' },
@@ -66,8 +65,6 @@ onMounted(() => {
                     label="Enter your comments"
                     :maxlength="5000"
                     :rows="4"
-                    counter="word"
-                    :counterMax="500"
                     :validation="[['matches', '/^\\W*(\\w+(\\W+|$)){1,500}$/']]"
                     :validationMessages="{
                       matches: 'You must enter between 1 and 500 words'
@@ -81,7 +78,10 @@ onMounted(() => {
                       >.
                     </p>
                   </RplContent>
-                  <FormKit type="RplFormActions" />
+                  <FormKit
+                    v-if="value.was_this_page_helpful"
+                    type="RplFormActions"
+                  />
                 </div>
               </RplExpandable>
             </template>

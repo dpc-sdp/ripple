@@ -2,14 +2,19 @@ import {
   defineNuxtModule,
   createResolver,
   addComponentsDir,
-  addPlugin
+  addPlugin,
+  addTemplate
 } from '@nuxt/kit'
 import vitePlugins from '../vite.plugins'
+import { getIcons } from './lib/icons'
 
 export default <any>defineNuxtModule({
   meta: {
     name: 'ripple-ui-core',
     configKey: 'ripple'
+  },
+  defaults: {
+    iconPath: 'assets/icons'
   },
   hooks: {
     'vite:extendConfig'(viteInlineConfig) {
@@ -31,6 +36,17 @@ export default <any>defineNuxtModule({
   },
   async setup(_options, nuxt) {
     const { resolve } = createResolver(import.meta.url)
+    // Add any custom icons
+    const icons = await getIcons(_options.iconPath, nuxt.options._layers)
+    const iconMap = (icons || []).map(
+      ({ file, name }) => `'${name}': () => import('${file}?component')`
+    )
+    nuxt.options.alias['#icons'] =
+      addTemplate({
+        write: true,
+        filename: 'icons.mjs',
+        getContents: () => `export default { ${iconMap.join(',')} }`
+      }).dst || ''
     // Adds all ripple Vue components to autoimports in Nuxt
     addComponentsDir({
       extensions: ['vue'],

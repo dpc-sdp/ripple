@@ -24,7 +24,7 @@ export interface RplFormDropdownProps {
   placeholder?: string
   required?: boolean
   invalid?: boolean
-  onChange: (value: string | string[]) => void
+  onChange?: (value: string | string[]) => void
   options: {
     id: string
     label: string

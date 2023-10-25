@@ -8,7 +8,7 @@ import RplTextLink from './RplTextLink.vue'
 import RplIcon from '../icon/RplIcon.vue'
 import { within, userEvent } from '@storybook/testing-library'
 import { a11yCheck, a11yStoryCheck } from './../../../stories/interactions.js'
-const eventTestFunction = async ({ canvasElement }) => {
+export const eventTestFunction = async ({ canvasElement }) => {
   const canvas = await within(canvasElement)
   const link = await canvas.getByText(/event-tracked link/i)
   await a11yCheck(canvasElement)

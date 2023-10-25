@@ -79,7 +79,7 @@ const apiConnectorOptions = {
   // Omit the search key, we'll add it on the server
   engineName: config.tide?.appSearch.engineName,
   // The search request is proxied through the API to avoid CORS issues
-  endpointBase: '/api/tide/app-search'
+  endpointBase: '/api/tide/search'
 }
 
 const {
@@ -199,7 +199,7 @@ watch(
 </script>
 
 <template>
-  <TideBaseLayout :id="id" :site="site">
+  <TideBaseLayout :id="id" :site="site" :pageTitle="pageTitle">
     <template #aboveBody>
       <RplHeroHeader
         :title="pageTitle"
@@ -223,10 +223,14 @@ watch(
           <RplSearchBarRefine
             class="tide-search-refine-btn"
             :expanded="filtersExpanded"
+            aria-controls="tide-search-page-filters"
             @click="toggleFilters"
             >{{ toggleFiltersLabel }}</RplSearchBarRefine
           >
-          <RplExpandable :expanded="filtersExpanded">
+          <RplExpandable
+            id="tide-search-page-filters"
+            :expanded="filtersExpanded"
+          >
             <RplForm
               v-if="staticFacetOptions !== null"
               id="tide-search-filter-form"
@@ -234,7 +238,7 @@ watch(
               :title="pageTitle"
               @submit="handleFilterSubmit"
             >
-              <div class="rpl-grid tide-search-filters">
+              <div class="rpl-grid rpl-grid--no-row-gap tide-search-filters">
                 <div
                   v-for="filter in filtersConfig"
                   :key="filter.field"
@@ -265,12 +269,12 @@ watch(
     </template>
     <template #body>
       <RplPageComponent v-if="!searchState.error && searchState.totalResults">
-        <p class="rpl-type-label rpl-u-padding-b-6">
-          Displaying {{ searchState.pagingStart }}-{{
-            searchState.pagingEnd
-          }}
-          of {{ searchState.totalResults }} results
-        </p>
+        <TideSearchResultsCount
+          v-if="!searchState.error && searchState.totalResults"
+          :pagingStart="searchState.pagingStart"
+          :pagingEnd="searchState.pagingEnd"
+          :totalResults="searchState.totalResults"
+        />
       </RplPageComponent>
       <RplPageComponent>
         <div class="rpl-grid">
@@ -282,29 +286,10 @@ watch(
                   searchState.isLoading && !searchState.error
               }"
             >
-              <div v-if="searchState.error">
-                <RplContent>
-                  <p class="rpl-type-h3">
-                    Sorry! Something went wrong. Please try again later.
-                  </p>
-                </RplContent>
-              </div>
-              <div
+              <TideSearchError v-if="searchState.error" />
+              <TideSearchNoResults
                 v-else-if="!searchState.isLoading && !searchState.totalResults"
-              >
-                <RplContent>
-                  <p class="rpl-type-h3">
-                    Sorry! We couldn't find any matches for '{{
-                      searchState.resultSearchTerm
-                    }}'.
-                  </p>
-                  <p>To improve your search results:</p>
-                  <ul>
-                    <li>use different or fewer keywords</li>
-                    <li>check spelling.</li>
-                  </ul>
-                </RplContent>
-              </div>
+              />
               <RplResultListing v-else>
                 <RplResultListingItem
                   v-for="(result, idx) in results"

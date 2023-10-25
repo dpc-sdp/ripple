@@ -74,7 +74,7 @@
     <template #footer>
       <slot name="footer">
         <RplFooter
-          :nav="site?.menus.menuMain"
+          :nav="footerNav"
           :links="site?.menus.menuFooter"
           :copyright="site?.copyright"
           :acknowledgement="site?.acknowledgementFooter"
@@ -145,6 +145,23 @@ onMounted(() => {
 const route = useRoute()
 const showBreadcrumbs = computed(() => route.path !== '/')
 const showDraftAlert = computed(() => props.page?.status === 'draft')
+
+const footerNav = computed(() => {
+  const menuMain = props.site?.menus.menuMain || []
+
+  if (props.site?.socialLinks?.length) {
+    return [
+      ...menuMain,
+      {
+        text: 'Connect with us',
+        id: '__footer_connect_with_us',
+        items: props.site?.socialLinks
+      }
+    ]
+  }
+
+  return menuMain
+})
 
 const nuxtApp = useNuxtApp()
 /*

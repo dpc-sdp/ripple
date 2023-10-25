@@ -14,6 +14,7 @@ withDefaults(defineProps<Props>(), {
 <template>
   <div class="rpl-sitemap">
     <RplList
+      :withLinkIds="true"
       :items="items"
       containerClass="rpl-sitemap-list"
       itemClass="rpl-sitemap-item"

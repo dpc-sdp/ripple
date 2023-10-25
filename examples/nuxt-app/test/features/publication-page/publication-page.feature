@@ -11,3 +11,5 @@ Feature: Publication page page
   Example: On load
     When I visit the page "/demo-publication/demo-publication-chapter-1"
     Then the title should be "Demo Publication - Chapter 1"
+    And there should be a page link with a title of "Previous" and description text of "Demo Publication"
+    And there should be a page link with a title of "Next" and description text of "Demo Publication - Chapter 1 - Page 1"

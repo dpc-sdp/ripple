@@ -37,6 +37,16 @@ Then(
 )
 
 Then(
+  'the URL should reflect that the current sort option is {string}',
+  (sortId: string) => {
+    cy.location().should((loc) => {
+      const params = new URLSearchParams(loc.search)
+      expect(params.get('sort')).to.eq(`${sortId}`)
+    })
+  }
+)
+
+Then(
   'the URL should reflect that the current search term is {string}',
   (searchTerm: string) => {
     cy.location().should((loc) => {
@@ -231,5 +241,20 @@ Then(
       .contains(label)
       .parent()
       .should('have.attr', 'aria-label', text)
+  }
+)
+
+Then('the sort dropdown should be visible', () => {
+  cy.get(`#search-listing-sort-options`).should('exist')
+})
+
+Then('the sort dropdown should not be visible', () => {
+  cy.get(`#search-listing-sort-options`).should('not.exist')
+})
+
+Then(
+  'the sort dropdown should have the {string} option selected',
+  (option: string) => {
+    cy.get(`#search-listing-sort-options`).should('contain', option)
   }
 )

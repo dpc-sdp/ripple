@@ -17,6 +17,7 @@ module.exports = {
         'vue/max-attributes-per-line': 'off',
         'vue/multi-word-component-names': 'off',
         'vue/no-v-html': 'off',
+        'vue/v-on-event-hyphenation': 'off',
         '@typescript-eslint/ban-ts-comment': 'off',
         '@typescript-eslint/no-explicit-any': 'off', // allow explicit any types for now
         '@typescript-eslint/no-unused-vars': [

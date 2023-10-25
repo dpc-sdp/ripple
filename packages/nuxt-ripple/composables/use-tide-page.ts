@@ -8,6 +8,27 @@ const isCacheTimeExpired = (date: number, expiryInMinutes = 5) => {
   return date < timePlusExpiry
 }
 
+const checkForRedirect = async (page: TidePageBase) => {
+  // Redirect on the 6 codes that Drupal supplies
+  if (page?.type === 'redirect') {
+    switch (page.status_code) {
+      case '301':
+      case '302':
+      case '303':
+      case '304':
+      case '305':
+      case '307':
+        await navigateTo(page.redirect_url, {
+          replace: true,
+          redirectCode: page.status_code,
+          external: page.redirect_type === 'external'
+        })
+        break
+      default:
+    }
+  }
+}
+
 export const useTidePage = async (
   slug?: string,
   site?: number
@@ -49,6 +70,8 @@ export const useTidePage = async (
     headers.cookie = `${AuthCookieNames.ACCESS_TOKEN}=${accessTokenCookie.value};`
   }
 
+  let sectionCacheTags
+
   if (!pageData.value) {
     const { data, error } = await useFetch('/api/tide/page', {
       key: `page-${path}`,
@@ -59,34 +82,29 @@ export const useTidePage = async (
       },
       headers,
       async onResponse({ response }) {
+        sectionCacheTags = response.headers.get('section-cache-tags')
+
         if (response.ok && response._data) {
           response._data['_fetched'] = Date.now()
         }
       }
     })
+
+    // Section.io cache tags must be set on the response header to invalidate the cache after a change in drupal
+    if (sectionCacheTags) {
+      useMergeSectionTags(sectionCacheTags)
+    }
+
     if (error && error.value?.statusCode) {
       useTideError(error.value?.statusCode)
     }
 
-    // Redirect on the 6 codes that Drupal supplies
-    if (data.value.type === 'redirect') {
-      switch (data.value.status_code) {
-        case '301':
-        case '302':
-        case '303':
-        case '304':
-        case '305':
-        case '307':
-          await navigateTo(data.value.redirect_url, {
-            redirectCode: data.value.status_code
-          })
-          break
-        default:
-      }
-    }
+    await checkForRedirect(data.value)
 
     return data.value
   }
+
+  await checkForRedirect(pageData.value)
 
   return pageData.value
 }

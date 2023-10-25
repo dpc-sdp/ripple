@@ -2,9 +2,10 @@
 to: package.json
 ---
 {
-  "name": "<%= h.changeCase.kebabCase(name) %>",
+  "name": "@dpc-sdp/<%= h.changeCase.kebabCase(name) %>",
   "type": "module",
   "version": "0.0.0",
+  "repository": "https://github.com/dpc-sdp/<%= h.changeCase.kebabCase(name) %>",
   "main": "./nuxt.config.ts",
   "exports": {
     ".": "./nuxt.config.ts",
@@ -30,6 +31,7 @@ to: package.json
     "@babel/plugin-transform-runtime": "^7.22.4",
     "@babel/preset-env": "^7.22.4",
     "@babel/preset-typescript": "^7.21.5",
+    "@dpc-sdp/eslint-config-ripple": "<%= rplVersion %>",
     "@dpc-sdp/nuxt-ripple": "<%= rplVersion %>",
     "@dpc-sdp/nuxt-ripple-analytics": "<%= rplVersion %>",
     "@dpc-sdp/nuxt-ripple-preview": "<%= rplVersion %>",
@@ -43,7 +45,6 @@ to: package.json
     "@dpc-sdp/ripple-tide-news": "<%= rplVersion %>",
     "@dpc-sdp/ripple-tide-publication": "<%= rplVersion %>",
     "@dpc-sdp/ripple-tide-search": "<%= rplVersion %>",
-    "@nuxtjs/eslint-config-typescript": "^12.0.0",
     "cypress": "^12.5.1",
     "eslint": "^8.28.0",
     "jest-environment-jsdom": "^29.5.0",
@@ -55,5 +56,8 @@ to: package.json
   "engines": {
     "node": "^18.12.1",
     "npm": "^9.5.1"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
   }
 }

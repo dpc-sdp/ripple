@@ -22,6 +22,9 @@ interface Props {
   currentSlide?: number
   label?: string
   contentType?: string
+  itemElement?: string
+  wrapperElement?: string
+  changeNotice?: boolean | string
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -31,7 +34,10 @@ const props = withDefaults(defineProps<Props>(), {
   effect: undefined,
   currentSlide: 0,
   label: undefined,
-  contentType: 'item'
+  contentType: 'item',
+  itemElement: 'li',
+  wrapperElement: 'ul',
+  changeNotice: true
 })
 
 const emit = defineEmits<{
@@ -40,7 +46,7 @@ const emit = defineEmits<{
 
 const container = ref()
 const swiper = ref()
-const activePage = ref()
+const activePage = ref(1)
 const paginate = ref(false)
 const slots = useSlots()
 const bp = useBreakpoints(bpMin)
@@ -147,6 +153,19 @@ const setInert = ({ activeIndex, slides }) =>
       index < activeIndex || index >= activeIndex + slidesInView.value
     )
   )
+
+const slideChangeNotice = computed(() => {
+  const items =
+    slidesInView.value > 1
+      ? `${activePage.value} to ${activePage.value + (slidesInView.value - 1)}`
+      : `${activePage.value}`
+
+  let notice = `Showing ${props.contentType} ${items} of ${slides.value.length}`
+
+  return typeof props.changeNotice === 'string'
+    ? `${notice}, ${props.changeNotice}`
+    : notice
+})
 </script>
 
 <template>
@@ -171,6 +190,7 @@ const setInert = ({ activeIndex, slides }) =>
       :effect="effect"
       :speed="speed"
       :touchStartPreventDefault="false"
+      :wrapper-tag="wrapperElement"
       class="rpl-slider__swiper"
       @after-init="setInert"
       @active-index-change="slideUpdate"
@@ -178,12 +198,21 @@ const setInert = ({ activeIndex, slides }) =>
       <SwiperSlide
         v-for="(slide, i) in slides"
         :key="i"
+        :tag="itemElement"
         class="rpl-slider__slide"
         data-cy="slide"
       >
         <component :is="slide" />
       </SwiperSlide>
     </Swiper>
+    <div
+      v-if="changeNotice"
+      aria-live="polite"
+      aria-atomic="true"
+      class="rpl-u-visually-hidden"
+    >
+      {{ slideChangeNotice }}
+    </div>
   </div>
 </template>
 

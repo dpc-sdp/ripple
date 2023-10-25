@@ -5,6 +5,7 @@ import {
   tidePageBaseIncludes
 } from '@dpc-sdp/nuxt-ripple/mapping'
 import type { IRplTideModuleMapping } from '@dpc-sdp/ripple-tide-api/types'
+import { heroHeaderMapping } from '@dpc-sdp/ripple-tide-landing-page/mapping'
 
 const chapters = (src: string) =>
   getField(src, 'publication_children')
@@ -24,10 +25,7 @@ const tidePublicationModule: IRplTideModuleMapping = {
       withSidebarSocialShare: true
     }),
     url: 'path.url',
-    header: {
-      title: 'title',
-      summary: 'field_landing_page_intro_text'
-    },
+    header: heroHeaderMapping,
     summary: 'field_landing_page_summary',
     showInPageNav: 'field_show_table_of_content',
     inPageNavHeadingLevel: (src) => {
@@ -41,8 +39,15 @@ const tidePublicationModule: IRplTideModuleMapping = {
       { text: getField(src, 'title') }
     ],
     details: {
-      author: (src: any) =>
-        src.field_publication_authors.map((x: any) => x.name).join(', '),
+      author: (src: any) => {
+        if (Array.isArray(src.field_publication_authors)) {
+          return src.field_publication_authors
+            .map((x: any) => x.name)
+            .join(', ')
+        } else {
+          return src.field_publication_authors?.name
+        }
+      },
       date: 'field_publication_date',
       copyright: 'field_license_type.description'
     },
@@ -77,6 +82,7 @@ const tidePublicationModule: IRplTideModuleMapping = {
     'field_node_documents.field_media_file',
     'field_landing_page_contact.field_paragraph_phones',
     'field_landing_page_contact.field_paragraph_social_media',
+    'field_landing_page_hero_image',
     'field_landing_page_hero_image.field_media_image',
     'field_license_type',
     'field_landing_page_component.field_complex_image_media.field_media_image',

@@ -10,6 +10,7 @@ import {
 } from '../../composables/useRippleEvent'
 
 interface Props {
+  id: string
   title: string
   caption?: string
   image?: string
@@ -49,9 +50,16 @@ const onFullScreen = () => {
       alt=""
       class="rpl-media-gallery__image rpl-u-print-only"
     />
-    <h3 class="rpl-type-h3 rpl-u-margin-b-2" data-cy="title">{{ title }}</h3>
+    <h3
+      :id="`${id}-title`"
+      class="rpl-type-h3 rpl-u-margin-b-2"
+      data-cy="title"
+    >
+      {{ title }}
+    </h3>
     <p
       v-if="caption"
+      :id="`${id}-caption`"
       class="rpl-media-gallery__caption rpl-type-p"
       data-cy="caption"
     >

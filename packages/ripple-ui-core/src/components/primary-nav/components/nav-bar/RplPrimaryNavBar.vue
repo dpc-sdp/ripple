@@ -97,9 +97,9 @@ const handleToggleItem = (level: number, item) => {
           :alt="primaryLogo.altText"
         />
         <img
-          v-if="primaryLogo?.src && primaryLogo?.printSrc"
+          v-if="primaryLogo?.src"
           class="rpl-primary-nav__primary-logo-image rpl-primary-nav__logo-alt rpl-u-print-only"
-          :src="primaryLogo.printSrc"
+          :src="primaryLogo?.printSrc ? primaryLogo?.printSrc : primaryLogo.src"
           :alt="primaryLogo.altText"
         />
       </RplLink>

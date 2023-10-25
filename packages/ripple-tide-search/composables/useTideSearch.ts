@@ -9,7 +9,7 @@ import {
   navigateTo,
   getSingleQueryStringValue
 } from '#imports'
-import type { TideSearchListingPage } from './../types'
+import type { TideSearchListingConfig } from './../types'
 
 const escapeJSONString = (raw: string): string => {
   return `${raw}`
@@ -24,18 +24,22 @@ const escapeJSONString = (raw: string): string => {
 }
 
 export default (
-  queryConfig: TideSearchListingPage['queryConfig'],
-  userFilterConfig: TideSearchListingPage['userFilters'],
+  queryConfig: TideSearchListingConfig['queryConfig'],
+  userFilterConfig: TideSearchListingConfig['userFilters'],
   globalFilters: any[],
   searchResultsMappingFn: (item: any) => any,
-  searchListingConfig: TideSearchListingPage['searchListingConfig'],
-  customIndex?: TideSearchListingPage['index']
+  searchListingConfig: TideSearchListingConfig['searchListingConfig'],
+  sortOptions: TideSearchListingConfig['sortOptions']
 ) => {
   const { public: config } = useRuntimeConfig()
   const route: RouteLocation = useRoute()
   const appConfig = useAppConfig()
+  const index = searchListingConfig.index || config.tide.appSearch.engineName
 
-  const index = customIndex || config.tide.appSearch.engineName
+  const searchprovider = searchListingConfig.searchProvider || 'app-search'
+  const searchEndpoint =
+    searchprovider === 'elasticsearch' ? `_search` : `elasticsearch/_search`
+  const searchUrl = `${config.apiUrl}/api/tide/${searchprovider}/${index}/${searchEndpoint}`
 
   const processTemplate = (
     obj: Record<string, any>,
@@ -59,6 +63,7 @@ export default (
   const results = ref()
   const totalResults = ref(0)
   const suggestions = ref([])
+  const userSelectedSort = ref(null)
 
   const pagingStart = computed(() => {
     return (page.value - 1) * pageSize.value
@@ -118,9 +123,20 @@ export default (
   }
 
   const getSortClause = () => {
+    if (userSelectedSort.value) {
+      const selected = sortOptions?.find(
+        (itm) => itm.id === userSelectedSort.value
+      )
+
+      if (selected) {
+        return selected.clause
+      }
+    }
+
     if (searchListingConfig.customSort) {
       return searchListingConfig.customSort
     }
+
     return [
       {
         _score: 'desc'
@@ -132,12 +148,14 @@ export default (
   }
 
   const userFilters = computed(() => {
-    return Object.keys(filterForm.value).map((key: string) => {
+    const filterValues = { ...filterForm.value, ...getFallbackValues() }
+
+    return Object.keys(filterValues).map((key: string) => {
       const itm = userFilterConfig.find((itm: any) => itm.id === key)
-      let filterVal = filterForm.value[key]
+      let filterVal = filterValues[key]
 
       if (itm.filter?.multiple !== false) {
-        filterVal = filterForm.value[key] && Array.from(filterForm.value[key])
+        filterVal = filterValues[key] && Array.from(filterValues[key])
       }
 
       // Need to work out if form has value - will be different for different controls
@@ -237,7 +255,10 @@ export default (
   const getQueryDSLForAggregations = () => {
     return {
       query: {
-        match_all: {}
+        bool: {
+          must: [{ match_all: {} }],
+          filter: globalFilters
+        }
       },
       size: 1,
       from: 0,
@@ -257,13 +278,10 @@ export default (
         console.info(JSON.stringify(body, null, 2))
       }
 
-      const searchRequest: any = $fetch(
-        `${config.apiUrl}/api/tide/search/${index}/elasticsearch/_search`,
-        {
-          method: 'POST',
-          body
-        }
-      )
+      const searchRequest: any = $fetch(searchUrl, {
+        method: 'POST',
+        body
+      })
 
       // Set the aggregations request to a resolved promise, this helps keep the Promise.all logic clean
       let aggsRequest: Promise<any> = Promise.resolve()
@@ -271,13 +289,11 @@ export default (
       if (isFirstRun) {
         // Kick off an 'empty' search in order to get the aggregations (options) for the dropdowns, this
         // is only run once so that the aggregations don't change when filters/search is applied.
-        aggsRequest = $fetch(
-          `${config.apiUrl}/api/tide/search/${index}/elasticsearch/_search`,
-          {
-            method: 'POST',
-            body: getQueryDSLForAggregations()
-          }
-        )
+
+        aggsRequest = $fetch(searchUrl, {
+          method: 'POST',
+          body: getQueryDSLForAggregations()
+        })
       }
 
       const [searchResponse, aggsResponse] = await Promise.all([
@@ -313,7 +329,7 @@ export default (
 
   const getSuggestions = async () => {
     suggestions.value = await $fetch(
-      `/api/tide/search/${index}/query_suggestion`,
+      `/api/tide/app-search/${index}/query_suggestion`,
       {
         method: 'POST',
         body: {
@@ -331,6 +347,33 @@ export default (
         (doc: { suggestion: string }) => doc.suggestion
       )
     })
+  }
+
+  /**
+   * Get any fallback values to be included in the search query
+   *
+   * This could be a plain string or a reference to function in app.config
+   * { ripple: { search: fallbackValues: { currentDate: () => { return new Date() } } }}
+   */
+  const getFallbackValues = () => {
+    if (!Array.isArray(userFilterConfig)) return {}
+
+    const fallbackValues = appConfig?.ripple?.search?.fallbackValues || {}
+
+    return userFilterConfig.reduce((acc, curr) => {
+      if (curr?.filter?.fallbackValue && !filterForm.value?.[curr.id]) {
+        const fallback = curr.filter.fallbackValue
+
+        const value =
+          typeof fallbackValues[fallback] === 'function'
+            ? fallbackValues[fallback]()
+            : fallback
+
+        acc = { ...acc, [curr.id]: value }
+      }
+
+      return acc
+    }, {})
   }
 
   /**
@@ -361,6 +404,20 @@ export default (
       query: {
         ...route.query,
         page: newPage
+      }
+    })
+  }
+
+  /**
+   * Navigates to a specific page using the search term and filters in the current URL
+   */
+  const changeSortOrder = async (newSortId: string) => {
+    await navigateTo({
+      ...route,
+      query: {
+        ...route.query,
+        page: 1,
+        sort: newSortId
       }
     })
   }
@@ -396,6 +453,10 @@ export default (
     searchTerm.value = getSingleQueryStringValue(newRoute.query, 'q') || ''
     page.value =
       parseInt(getSingleQueryStringValue(newRoute.query, 'page'), 10) || 1
+    userSelectedSort.value =
+      getSingleQueryStringValue(newRoute.query, 'sort') ||
+      sortOptions?.[0]?.id ||
+      null
 
     filterForm.value = getFiltersFromRoute(newRoute)
 
@@ -434,6 +495,8 @@ export default (
     totalResults,
     totalPages,
     pagingStart,
-    pagingEnd
+    pagingEnd,
+    userSelectedSort,
+    changeSortOrder
   }
 }

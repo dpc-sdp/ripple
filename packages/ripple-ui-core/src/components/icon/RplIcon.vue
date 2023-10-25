@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed, defineAsyncComponent } from 'vue'
+import { ref, computed, inject, defineAsyncComponent } from 'vue'
 import { RplIconSizes, RplCoreIconNames } from './constants'
 import { RplColorThemes } from '../../lib/constants'
 import customIconImports from './custom.js'
@@ -21,11 +21,14 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 const inSprite = ref(RplCoreIconNames.find((key) => key === props.name))
+const providedIcons = inject('rplIcons', {})
 
 const asyncIcon = computed(() => {
   if (!inSprite.value) {
     try {
-      return defineAsyncComponent(customIconImports[props.name])
+      return defineAsyncComponent(
+        { ...customIconImports, ...providedIcons }[props.name]
+      )
     } catch (e) {
       console.error(
         `RplIcon error: Couldn't dynamically import icon with name "${props.name}"`

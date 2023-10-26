@@ -18,11 +18,11 @@ jobs:
     secrets: inherit
     with:
       name: 'FE smoke'
+      test_type: ":smoke-test:"
       tags: "@core and @smoke"
       fe_url: ${{ inputs.fe_url }}
       be_url: ${{ inputs.be_url }}
       project: ${{ inputs.project }}
-      test_type: ":smoke-test:"
       test_id: "fixture"
       parallel: 10
       tag: 'sdp-dev-r1-chrome'
@@ -32,13 +32,13 @@ jobs:
     secrets: inherit
     with:
       name: 'FE core'
+      test_type: ':e2e:'
       tags: "@core and @regression and not @mobile"
       fe_url: ${{ inputs.fe_url }}
       be_url: ${{ inputs.be_url }}
       project: ${{ inputs.project }}
       test_id: "fixture"
       parallel: 10
-      test_type: ':e2e:'
       tag: 'sdp-dev-r1-chrome'
   fe_core_safari:
     needs: fe_smoke
@@ -46,20 +46,22 @@ jobs:
     secrets: inherit
     with:
       name: 'FE Core Safari'
+      test_type: ':e2e:'
       tags: '@core and @regression and not @mobile'
       fe_url: ${{ inputs.fe_url }}
       be_url: ${{ inputs.be_url }}
       project: ${{ inputs.project }}
       test_id: "fixture"
       parallel: 1
-      tag: 'sdp-dev-chrome'
+      tag: 'sdp-dev-r1-chrome'
       browser: 'browserstack.safari'
   fe_core_android_chrome:
     needs: fe_smoke
     uses: dpc-sdp/github-actions/.github/workflows/run_e2e_fe.yml@main
     secrets: inherit
     with:
-      name: 'FE Core Safari'
+      name: 'FE Core Android Chrome'
+      test_type: ':e2e:'
       tags: '@core and @regression and not @desktop'
       fe_url: ${{ inputs.fe_url }}
       be_url: ${{ inputs.be_url }}
@@ -73,7 +75,8 @@ jobs:
     uses: dpc-sdp/github-actions/.github/workflows/run_e2e_fe.yml@main
     secrets: inherit
     with:
-      name: 'FE Core Safari'
+      name: 'FE Core iPhone Safari'
+      test_type: ':e2e:'
       tags: '@core and @regression and not @desktop'
       fe_url: ${{ inputs.fe_url }}
       be_url: ${{ inputs.be_url }}
@@ -89,16 +92,15 @@ jobs:
     with:
       name: 'FE core visual'
       app: frontend-visual
+      test_type: ":applitools:"
+      eyes_appname: 'sdp-core-v1'
       tags: "@core and @visual-regression-minimal"
       fe_url: ${{ inputs.fe_url }}
       be_url: ${{ inputs.be_url }}
       project: ${{ inputs.project }}
-      test_type: ":applitools:"
       test_id: "fixture"
       parallel: 1
       tag: 'sdp-dev-r1-chrome'
-      browser: 'chrome'
-      eyes_appname: 'sdp-core-v1'
   set_status:
     needs: [fe_core, fe_core_safari, fe_core_iphone_safari, fe_core_android_chrome, fe_core_visual]
     if: ${{ always() }}

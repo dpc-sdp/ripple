@@ -108,7 +108,7 @@ jobs:
       tag: 'sdp-dev-r1-chrome'
       runner: 'ubuntu-latest'
   set_status:
-    needs: [fe_core, fe_core_safari, fe_core_iphone_safari, fe_core_android_chrome, fe_core_visual]
+    needs: [fe_smoke, fe_core, fe_core_safari, fe_core_iphone_safari, fe_core_android_chrome, fe_core_visual]
     if: ${{ always() }}
     uses: dpc-sdp/github-actions/.github/workflows/set_status.yml@main
     secrets: inherit

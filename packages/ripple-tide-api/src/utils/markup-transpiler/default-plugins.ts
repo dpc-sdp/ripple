@@ -8,12 +8,12 @@
 
 import { epochToDate } from '../epochToDate.js'
 
-export const isRelativeUrl = (str: string): boolean => {
-  if (str) {
-    return true
-  }
-  return false
-}
+// export const isRelativeUrl = (str: string): boolean => {
+//   if (str) {
+//     return true
+//   }
+//   return false
+// }
 
 const pluginTables = function (this: any) {
   // Wrap tables with a div.

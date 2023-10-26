@@ -5,6 +5,9 @@ import defaultPlugins from './default-plugins.js'
 // https://github.com/cheeriojs/cheerio/issues/866#issuecomment-275699121
 // We don't want cheerio to encode our vue template, as it will add encoded entities into Vue props.
 // NOTE: Any HTML encoded entities in original HTML will be kept as it is.
+
+// deprecated
+/*
 const cheerioHtml = cheerio.prototype.html
 cheerio.prototype.html = function wrappedHtml(args) {
   let result = cheerioHtml.apply(this, ...args)
@@ -23,8 +26,9 @@ cheerio.prototype.html = function wrappedHtml(args) {
 
   return result
 }
+*/
 
-// A markup transplier for converting HTML into Vue template by giving plugins.
+// A markup transpiler for converting HTML into Vue template by giving plugins.
 const markupTranspiler = (html, plugins = defaultPlugins, options = {}) => {
   if (!html) {
     return ''

@@ -26,6 +26,7 @@ jobs:
       test_id: "fixture"
       parallel: 10
       tag: 'sdp-dev-r1-chrome'
+      runner: 'ubuntu-latest'
   fe_core:
     needs: fe_smoke
     uses: dpc-sdp/github-actions/.github/workflows/run_e2e_fe.yml@main
@@ -40,6 +41,7 @@ jobs:
       test_id: "fixture"
       parallel: 10
       tag: 'sdp-dev-r1-chrome'
+      runner: 'ubuntu-latest'
   fe_core_safari:
     needs: fe_smoke
     uses: dpc-sdp/github-actions/.github/workflows/run_e2e_fe.yml@main
@@ -55,6 +57,7 @@ jobs:
       parallel: 1
       tag: 'sdp-dev-r1-chrome'
       browser: 'browserstack.safari'
+      runner: 'ubuntu-latest'
   fe_core_android_chrome:
     needs: fe_smoke
     uses: dpc-sdp/github-actions/.github/workflows/run_e2e_fe.yml@main
@@ -70,6 +73,7 @@ jobs:
       parallel: 1
       tag: 'sdp-dev-r1-chrome'
       browser: 'browserstack.androidChrome'
+      runner: 'ubuntu-latest'
   fe_core_iphone_safari:
     needs: fe_smoke
     uses: dpc-sdp/github-actions/.github/workflows/run_e2e_fe.yml@main
@@ -85,6 +89,7 @@ jobs:
       parallel: 1
       tag: 'sdp-dev-r1-chrome'
       browser: 'browserstack.iphoneSafari'
+      runner: 'ubuntu-latest'
   fe_core_visual:
     needs: fe_smoke
     uses: dpc-sdp/github-actions/.github/workflows/run_e2e_fe.yml@main
@@ -101,6 +106,7 @@ jobs:
       test_id: "fixture"
       parallel: 1
       tag: 'sdp-dev-r1-chrome'
+      runner: 'ubuntu-latest'
   set_status:
     needs: [fe_core, fe_core_safari, fe_core_iphone_safari, fe_core_android_chrome, fe_core_visual]
     if: ${{ always() }}

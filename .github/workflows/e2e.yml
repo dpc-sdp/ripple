@@ -7,64 +7,100 @@ on:
         required: true
       be_url:
         type: string
+        required: true
       fe_url:
         type: string
+        required: true
+
 jobs:
-  e2e_be:
-    uses: dpc-sdp/github-actions/.github/workflows/run_e2e_be.yml@main
-    secrets: inherit
-    with:
-      tags: "(@core or @${{ inputs.project }}) and @regression"
-      be_url: ${{ inputs.be_url }}
-      project: ${{ inputs.project }}
-      browser: 'chrome'
-      test_id: 'fixture'
-      test_type: ':e2e:'
-      runner: 'ubuntu-latest'
-  e2e_fe_smoke:
+  fe_smoke:
     uses: dpc-sdp/github-actions/.github/workflows/run_e2e_fe.yml@main
     secrets: inherit
     with:
-      tags: "(@smoke and @core) or (@smoke and @${{ inputs.project }})"
-      be_url: ${{ inputs.be_url }}
+      name: 'FE smoke'
+      tags: "@core and @smoke"
       fe_url: ${{ inputs.fe_url }}
+      be_url: ${{ inputs.be_url }}
       project: ${{ inputs.project }}
-      browser: 'chrome'
-      test_id: 'fixture'
-      test_type: ':e2e:'
-      runner: 'ubuntu-latest'
-  e2e_fe_chrome:
-    needs:
-      - e2e_be
-      - e2e_fe_smoke
+      test_type: ":smoke-test:"
+      test_id: "fixture"
+      parallel: 10
+      tag: 'sdp-dev-r1-chrome'
+  fe_core:
+    needs: fe_smoke
     uses: dpc-sdp/github-actions/.github/workflows/run_e2e_fe.yml@main
     secrets: inherit
     with:
-      tags: "(@core or @${{ inputs.project }}) and @regression and not @mobile"
-      be_url: ${{ inputs.be_url }}
+      name: 'FE core'
+      tags: "@core and @regression and not @mobile"
       fe_url: ${{ inputs.fe_url }}
+      be_url: ${{ inputs.be_url }}
       project: ${{ inputs.project }}
-      browser: 'chrome'
-      test_id: 'fixture'
+      test_id: "fixture"
+      parallel: 10
       test_type: ':e2e:'
-      runner: 'ubuntu-latest'
-  e2e_fe_android:
-    needs:
-      - e2e_be
-      - e2e_fe_smoke
+      tag: 'sdp-dev-r1-chrome'
+  fe_core_safari:
+    needs: fe_smoke
     uses: dpc-sdp/github-actions/.github/workflows/run_e2e_fe.yml@main
     secrets: inherit
     with:
-      tags: "(@core or @${{ inputs.project }}) and @regression and not @desktop"
-      be_url: ${{ inputs.be_url }}
+      name: 'FE Core Safari'
+      tags: '@core and @regression and not @mobile'
       fe_url: ${{ inputs.fe_url }}
+      be_url: ${{ inputs.be_url }}
       project: ${{ inputs.project }}
-      browser: 'androidChrome'
-      test_id: 'fixture'
-      test_type: ':e2e:'
-      runner: 'ubuntu-latest'
+      test_id: "fixture"
+      parallel: 1
+      tag: 'sdp-dev-chrome'
+      browser: 'browserstack.safari'
+  fe_core_android_chrome:
+    needs: fe_smoke
+    uses: dpc-sdp/github-actions/.github/workflows/run_e2e_fe.yml@main
+    secrets: inherit
+    with:
+      name: 'FE Core Safari'
+      tags: '@core and @regression and not @desktop'
+      fe_url: ${{ inputs.fe_url }}
+      be_url: ${{ inputs.be_url }}
+      project: ${{ inputs.project }}
+      test_id: "fixture"
+      parallel: 1
+      tag: 'sdp-dev-r1-chrome'
+      browser: 'browserstack.androidChrome'
+  fe_core_iphone_safari:
+    needs: fe_smoke
+    uses: dpc-sdp/github-actions/.github/workflows/run_e2e_fe.yml@main
+    secrets: inherit
+    with:
+      name: 'FE Core Safari'
+      tags: '@core and @regression and not @desktop'
+      fe_url: ${{ inputs.fe_url }}
+      be_url: ${{ inputs.be_url }}
+      project: ${{ inputs.project }}
+      test_id: "fixture"
+      parallel: 1
+      tag: 'sdp-dev-r1-chrome'
+      browser: 'browserstack.iphoneSafari'
+  fe_core_visual:
+    needs: fe_smoke
+    uses: dpc-sdp/github-actions/.github/workflows/run_e2e_fe.yml@main
+    secrets: inherit
+    with:
+      name: 'FE core visual'
+      app: frontend-visual
+      tags: "@core and @visual-regression-minimal"
+      fe_url: ${{ inputs.fe_url }}
+      be_url: ${{ inputs.be_url }}
+      project: ${{ inputs.project }}
+      test_type: ":applitools:"
+      test_id: "fixture"
+      parallel: 1
+      tag: 'sdp-dev-r1-chrome'
+      browser: 'chrome'
+      eyes_appname: 'sdp-core-v1'
   set_status:
-    needs: [e2e_be, e2e_fe_smoke, e2e_fe_chrome, e2e_fe_android]
+    needs: [fe_core, fe_core_safari, fe_core_iphone_safari, fe_core_android_chrome, fe_core_visual]
     if: ${{ always() }}
     uses: dpc-sdp/github-actions/.github/workflows/set_status.yml@main
     secrets: inherit

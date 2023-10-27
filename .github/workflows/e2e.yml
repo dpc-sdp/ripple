@@ -20,7 +20,7 @@ jobs:
       browser: 'chrome'
       test_id: 'fixture'
       test_type: ':e2e:'
-      runner: 'ubuntu-latest'
+      runner: 'biggy-ripple'
   e2e_fe_smoke:
     uses: dpc-sdp/github-actions/.github/workflows/run_e2e_fe.yml@main
     secrets: inherit
@@ -32,7 +32,7 @@ jobs:
       browser: 'chrome'
       test_id: 'fixture'
       test_type: ':e2e:'
-      runner: 'ubuntu-latest'
+      runner: 'biggy-ripple'
   e2e_fe_chrome:
     needs:
       - e2e_be
@@ -47,7 +47,7 @@ jobs:
       browser: 'chrome'
       test_id: 'fixture'
       test_type: ':e2e:'
-      runner: 'ubuntu-latest'
+      runner: 'biggy-ripple'
   e2e_fe_android:
     needs:
       - e2e_be
@@ -62,4 +62,4 @@ jobs:
       browser: 'androidChrome'
       test_id: 'fixture'
       test_type: ':e2e:'
-      runner: 'ubuntu-latest'
+      runner: 'biggy-ripple'

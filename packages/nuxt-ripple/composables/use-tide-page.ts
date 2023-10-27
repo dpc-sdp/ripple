@@ -84,7 +84,7 @@ export const useTidePage = async (
       async onResponse({ response }) {
         sectionCacheTags = response.headers.get('section-cache-tags')
 
-        if (response.ok && response._data) {
+        if (!process.server && response.ok && response._data) {
           response._data['_fetched'] = Date.now()
         }
       }

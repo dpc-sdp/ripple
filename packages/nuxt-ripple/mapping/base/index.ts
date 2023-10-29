@@ -64,9 +64,9 @@ export const tidePageBaseMapping = ({
     sidebar: sidebar,
     status: 'moderation_state',
     topicTags: topicTagsMapping,
-    siteSection: async (src, tidePageApi: TidePageApi) => {
+    siteSection: async (src) => {
       // With the correct site/section id, we can now choose the correct site data from 'field_node_site'
-      const siteData = getSiteSection(tidePageApi.sectionId, src)
+      const siteData = getSiteSection(src._sectionId, src)
 
       if (!siteData) {
         return null

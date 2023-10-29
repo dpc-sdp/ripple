@@ -17,13 +17,11 @@ export default class TidePageApi extends TideApiBase {
     [key: string]: IRplTideDynamicComponentMapping
   }
   site: string
-  sectionId: string
   path: string
 
   constructor(tide: RplTideModuleConfig, logger: ILogger) {
     super(tide, logger)
     this.site = tide.site
-    this.sectionId = ''
     this.path = ''
     this.contentTypes = {}
     this.dynamicComponents = {}
@@ -246,16 +244,12 @@ export default class TidePageApi extends TideApiBase {
 
   async getPageByRouteData(route, config) {
     if (route && route.entity_type && route.bundle && route.uuid) {
-      // The route response has a 'section' attribute, which is the site id used to
-      // determine which menu appears in the 'site section navigation'
-      // We capture it here so that it can be used in the mapping functions
-      this.sectionId = route.section
-
       const nodeUrl = `/${route.entity_type}/${route.bundle}/${route.uuid}`
 
       return await this.get(nodeUrl, config).then(({ data, headers }) => {
         if (data.data) {
           const parsedData = jsonapiParse.parse(data).data || data.data
+
           return {
             data: this.getTidePage(parsedData, route),
             headers
@@ -281,9 +275,13 @@ export default class TidePageApi extends TideApiBase {
         `Unable to resolve content type - ${route.bundle}`
       )
     }
+
+    // The route response has a 'section' attribute, which is the site id used to
+    // determine which menu appears in the 'site section navigation'
+    // We capture it here so that it can be used in the mapping functions
     return this.getMappedData(
       { ...defaultMapping.mapping, ...contentTypeMapping },
-      resource
+      { ...resource, _sectionId: route.section }
     )
   }
 

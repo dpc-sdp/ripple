@@ -45,11 +45,14 @@ const handleChange = ({ type, action, text, value }) => {
   )
 }
 
-const changeNotice = computed(() =>
-  props.items[activeSlide.value].type === 'keydates'
-    ? props.keyDatesTitle
-    : props.items[activeSlide.value].title
-)
+const changeNotice = computed(() => {
+  if (props.items.length > 0) {
+    return props.items[activeSlide.value].type === 'keydates'
+      ? props.keyDatesTitle
+      : props.items[activeSlide.value].title
+  }
+  return false
+})
 </script>
 
 <template>

@@ -4,7 +4,7 @@ import { computed, onMounted, ref } from 'vue'
 import { bpMin } from '../../lib/breakpoints'
 import RplAcknowledgement from '../acknowledgement/RplAcknowledgement.vue'
 import RplTextLink from '../text-link/RplTextLink.vue'
-import VicGovLogo from './../../assets/logos/logo-victoria.svg?component'
+import VicGovLogo from './../../assets/logos/logo-victoria-state-government.svg?component'
 import {
   ICoreLink,
   ILogoLink,

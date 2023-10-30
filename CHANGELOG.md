@@ -1,5 +1,18 @@
 # Changelog
 
+## v2.4.5
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.4.4...v2.4.5)
+
+
+### 🩹 Fixes
+
+  - **@dpc-sdp/nuxt-ripple-preview:** Only send token if it's not expired ([90528b89](https://github.com/dpc-sdp/ripple-framework/commit/90528b89))
+
+### ❤️  Contributors
+
+- Jeffrey Dowdle <jeffrey.dowdle@dpc.vic.gov.au>
+
 ## v2.4.4
 
 [compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.4.3...v2.4.4)

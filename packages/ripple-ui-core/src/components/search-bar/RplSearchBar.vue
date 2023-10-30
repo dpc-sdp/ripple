@@ -20,7 +20,7 @@ interface Props {
   inputLabel?: string
   inputValue?: string
   submitLabel?: string | boolean
-  suggestions?: string[]
+  suggestions?: any[]
   maxSuggestionsDisplayed?: number
   placeholder?: string
   globalEvents?: boolean
@@ -219,6 +219,8 @@ watch(activeOptionId, async (newId) => {
     focusOption(newId)
   }
 })
+
+const slug = (label: string) => label.toLowerCase().replace(/[^\w-]+/g, '-')
 </script>
 
 <template>
@@ -287,24 +289,38 @@ watch(activeOptionId, async (newId) => {
       >
         <div
           v-for="option in suggestions"
-          :id="option"
-          :key="option"
+          :id="slug(option.label || option)"
+          :key="`opt-${slug(option.label || option)}`"
           ref="optionRefs"
-          :data-option-id="option"
-          role="option"
+          :data-option-id="option.label || option"
+          :role="option?.type && option.type !== 'category' ? 'option' : null"
           :class="{
             'rpl-search-bar__menu-option': true,
             'rpl-u-focusable-block': true,
-            'rpl-u-focusable--force-on': isMenuItemKeyboardFocused(option)
+            'rpl-u-focusable--force-on': isMenuItemKeyboardFocused(
+              slug(option.label || option)
+            )
           }"
           tabindex="-1"
-          @keydown.space.prevent="handleSelectOption(option, true)"
-          @keydown.enter.prevent="handleSelectOption(option, true)"
-          @click="handleSelectOption(option, false)"
-          @keydown="handleKeydown"
+          @keydown.space.prevent="
+            option?.type &&
+              option.type !== 'category' &&
+              handleSelectOption(option.label || option, true)
+          "
+          @keydown.enter.prevent="
+            option?.type &&
+              option.type !== 'category' &&
+              handleSelectOption(option.label || option, true)
+          "
+          @click="
+            option?.type &&
+              option.type !== 'category' &&
+              handleSelectOption(option.label || option, false)
+          "
+          @keydown="option?.type && option.type !== 'category' && handleKeydown"
         >
           <slot name="suggestion" :option="{ option }">
-            {{ option }}
+            {{ option.label || option }}
           </slot>
         </div>
       </div>

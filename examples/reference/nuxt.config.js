@@ -132,7 +132,7 @@ export default {
   */
   ripple: {
     viclogo: true,
-    viclogoFooter: false
+    viclogoFooter: true
   },
   /*
   * Configuration for ripple-nuxt-tide

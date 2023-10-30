@@ -1,5 +1,18 @@
 # Changelog
 
+## v2.4.4
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.4.3...v2.4.4)
+
+
+### 🩹 Fixes
+
+  - **@dpc-sdp/ripple-tide-api:** Changed the way sectionId is passed to mapping functions ([e113b1c2](https://github.com/dpc-sdp/ripple-framework/commit/e113b1c2))
+
+### ❤️  Contributors
+
+- Dylan Kelly <dylan.kelly@dpc.vic.gov.au>
+
 ## v2.4.3
 
 [compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.4.2...v2.4.3)

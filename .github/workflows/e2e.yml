@@ -13,6 +13,14 @@ on:
         required: true
 
 jobs:
+  set_status_initial:
+    uses: dpc-sdp/github-actions/.github/workflows/set_status.yml@main
+    secrets: inherit
+    with:
+      context: 'e2e'
+      description: 'Waiting for tests to pass'
+      state: 'pending'
+      target_url: ${{ github.event.repository.html_url }}/actions/runs/${{ github.run_id }}
   fe_smoke:
     uses: dpc-sdp/github-actions/.github/workflows/run_e2e_fe.yml@main
     secrets: inherit

@@ -1,5 +1,18 @@
 # Changelog
 
+## v2.4.6
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.4.5...v2.4.6)
+
+
+### 🩹 Fixes
+
+  - **@dpc-sdp/ripple-tide-publication:** Fixed publication menu not showing after preview expires ([bd41710b](https://github.com/dpc-sdp/ripple-framework/commit/bd41710b))
+
+### ❤️  Contributors
+
+- Jeffrey Dowdle <jeffrey.dowdle@dpc.vic.gov.au>
+
 ## v2.4.5
 
 [compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.4.4...v2.4.5)

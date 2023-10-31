@@ -25,6 +25,8 @@ interface Props {
   placeholder?: string
   globalEvents?: boolean
   showNoResults?: boolean
+  getOptionLabel?: Function
+  isOptionSelectable?: Function
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -37,7 +39,9 @@ const props = withDefaults(defineProps<Props>(), {
   suggestions: () => [],
   maxSuggestionsDisplayed: 10,
   placeholder: undefined,
-  globalEvents: true
+  globalEvents: true,
+  getOptionLabel: (opt) => opt.toString(),
+  isOptionSelectable: (opt) => true
 })
 
 const emit = defineEmits<{
@@ -289,38 +293,35 @@ const slug = (label: string) => label.toLowerCase().replace(/[^\w-]+/g, '-')
       >
         <div
           v-for="option in suggestions"
-          :id="slug(option.label || option)"
-          :key="`opt-${slug(option.label || option)}`"
+          :id="slug(getOptionLabel(option))"
+          :key="`opt-${slug(getOptionLabel(option))}`"
           ref="optionRefs"
-          :data-option-id="option.label || option"
-          :role="option?.type && option.type !== 'category' ? 'option' : null"
+          :data-option-id="getOptionLabel(option)"
+          :role="isOptionSelectable(option) ? 'option' : null"
           :class="{
             'rpl-search-bar__menu-option': true,
             'rpl-u-focusable-block': true,
             'rpl-u-focusable--force-on': isMenuItemKeyboardFocused(
-              slug(option.label || option)
+              slug(getOptionLabel(option))
             )
           }"
-          tabindex="-1"
+          :tabindex="isOptionSelectable(option) ? '0' : '-1'"
           @keydown.space.prevent="
-            option?.type &&
-              option.type !== 'category' &&
-              handleSelectOption(option.label || option, true)
+            isOptionSelectable(option) &&
+              handleSelectOption(getOptionLabel(option), true)
           "
           @keydown.enter.prevent="
-            option?.type &&
-              option.type !== 'category' &&
-              handleSelectOption(option.label || option, true)
+            isOptionSelectable(option) &&
+              handleSelectOption(getOptionLabel(option), true)
           "
           @click="
-            option?.type &&
-              option.type !== 'category' &&
-              handleSelectOption(option.label || option, false)
+            isOptionSelectable(option) &&
+              handleSelectOption(getOptionLabel(option), false)
           "
-          @keydown="option?.type && option.type !== 'category' && handleKeydown"
+          @keydown="isOptionSelectable(option) && handleKeydown"
         >
           <slot name="suggestion" :option="{ option }">
-            {{ option.label || option }}
+            {{ getOptionLabel(option) }}
           </slot>
         </div>
       </div>

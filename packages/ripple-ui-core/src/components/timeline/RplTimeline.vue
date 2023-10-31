@@ -116,7 +116,7 @@ const handleClick = (item) => {
         </p>
         <div
           v-if="item.description"
-          class="rpl-timeline__item-description"
+          class="rpl-timeline__item-description rpl-content"
           v-html="item.description"
         ></div>
       </li>

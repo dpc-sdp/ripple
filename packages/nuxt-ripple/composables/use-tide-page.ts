@@ -67,7 +67,10 @@ export const useTidePage = async (
   // Need to manually pass the cookies needed for auth as they aren't automatically added when server rendered
   if (isPreviewPath(path)) {
     const accessTokenCookie = useCookie(AuthCookieNames.ACCESS_TOKEN)
-    headers.cookie = `${AuthCookieNames.ACCESS_TOKEN}=${accessTokenCookie.value};`
+    const accessTokenExpiryCookie = useCookie(
+      AuthCookieNames.ACCESS_TOKEN_EXPIRY
+    )
+    headers.cookie = `${AuthCookieNames.ACCESS_TOKEN}=${accessTokenCookie.value};${AuthCookieNames.ACCESS_TOKEN_EXPIRY}=${accessTokenExpiryCookie.value}`
   }
 
   let sectionCacheTags

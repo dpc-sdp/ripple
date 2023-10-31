@@ -99,12 +99,12 @@ export default defineNuxtPlugin((nuxtApp) => {
       if (metaOverrides.ogImage) {
         twitterImage = metaOverrides.ogImage
         twitterImageAlt = metaOverrides.ogImageAlt
-      } else if (site.socialImages.twitter) {
-        twitterImage = site.socialImages.twitter.src
-        twitterImageAlt = site.socialImages.twitter.alt
       } else if (page.meta?.image) {
         twitterImage = page.meta.image.src
         twitterImageAlt = page.meta.image.alt
+      } else if (site.socialImages.twitter) {
+        twitterImage = site.socialImages.twitter.src
+        twitterImageAlt = site.socialImages.twitter.alt
       } else if (site.socialImages.og) {
         twitterImage = site.socialImages.og.src
         twitterImageAlt = site.socialImages.og.alt

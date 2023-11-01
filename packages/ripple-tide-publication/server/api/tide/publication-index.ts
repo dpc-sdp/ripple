@@ -86,9 +86,16 @@ export const createPublicationIndexHandler = async (
     }
 
     const tokenCookie = getCookie(event, AuthCookieNames.ACCESS_TOKEN)
+    const accessTokenExpiry = parseFloat(
+      getCookie(event, AuthCookieNames.ACCESS_TOKEN_EXPIRY)
+    )
+    const isTokenExpired = accessTokenExpiry
+      ? accessTokenExpiry < Date.now()
+      : true
+
     const headers = {}
 
-    if (tokenCookie) {
+    if (tokenCookie && !isTokenExpired) {
       headers['X-OAuth2-Authorization'] = `Bearer ${tokenCookie}`
     }
 

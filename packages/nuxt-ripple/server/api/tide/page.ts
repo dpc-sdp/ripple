@@ -27,9 +27,17 @@ export const createPageHandler = async (
     }
 
     const tokenCookie = getCookie(event, AuthCookieNames.ACCESS_TOKEN)
+    const accessTokenExpiry = parseFloat(
+      getCookie(event, AuthCookieNames.ACCESS_TOKEN_EXPIRY)
+    )
+    const isTokenExpired = accessTokenExpiry
+      ? accessTokenExpiry < Date.now()
+      : true
+
     const headers = {}
 
-    if (tokenCookie) {
+    // Only pass the access token if it is not expired, otherwise it will be rejected by the API
+    if (tokenCookie && !isTokenExpired) {
       headers['X-OAuth2-Authorization'] = `Bearer ${tokenCookie}`
     }
 

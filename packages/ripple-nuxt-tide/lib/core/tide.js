@@ -180,7 +180,8 @@ export const tide = (axios, site, config) => ({
     siteId = siteId || site
     const include = [
       'field_site_logo',
-      'field_site_footer_logos.field_paragraph_media.field_media_image'
+      'field_site_footer_logos.field_paragraph_media.field_media_image',
+      'field_site_footer_logos.field_feature_image'
     ]
 
     if (this.isModuleEnabled('alert')) {

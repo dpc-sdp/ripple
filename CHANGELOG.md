@@ -1,5 +1,57 @@
 # Changelog
 
+## v2.4.6
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.4.5...v2.4.6)
+
+
+### 🩹 Fixes
+
+  - **@dpc-sdp/ripple-tide-publication:** Fixed publication menu not showing after preview expires ([bd41710b](https://github.com/dpc-sdp/ripple-framework/commit/bd41710b))
+
+### ❤️  Contributors
+
+- Jeffrey Dowdle <jeffrey.dowdle@dpc.vic.gov.au>
+
+## v2.4.5
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.4.4...v2.4.5)
+
+
+### 🩹 Fixes
+
+  - **@dpc-sdp/nuxt-ripple-preview:** Only send token if it's not expired ([90528b89](https://github.com/dpc-sdp/ripple-framework/commit/90528b89))
+
+### ❤️  Contributors
+
+- Jeffrey Dowdle <jeffrey.dowdle@dpc.vic.gov.au>
+
+## v2.4.4
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.4.3...v2.4.4)
+
+
+### 🩹 Fixes
+
+  - **@dpc-sdp/ripple-tide-api:** Changed the way sectionId is passed to mapping functions ([e113b1c2](https://github.com/dpc-sdp/ripple-framework/commit/e113b1c2))
+
+### ❤️  Contributors
+
+- Dylan Kelly <dylan.kelly@dpc.vic.gov.au>
+
+## v2.4.3
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.4.2...v2.4.3)
+
+
+### 🩹 Fixes
+
+  - **@dpc-sdp/nuxt-ripple:** 🐛  ensure route caching works in cdn environment ([f9651c89](https://github.com/dpc-sdp/ripple-framework/commit/f9651c89))
+
+### ❤️  Contributors
+
+- Dylan Kelly <dylan.kelly@dpc.vic.gov.au>
+
 ## v2.4.2
 
 [compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.4.1...v2.4.2)

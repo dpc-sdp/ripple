@@ -83,7 +83,10 @@ export default defineNuxtPlugin((nuxtApp) => {
       // Determine images
       let featuredImage = '',
         featuredImageAlt = ''
-      if (page.meta?.image) {
+      if (metaOverrides.ogImage) {
+        featuredImage = metaOverrides.ogImage
+        featuredImageAlt = metaOverrides.ogImageAlt
+      } else if (page.meta?.image) {
         featuredImage = page.meta.image.src
         featuredImageAlt = page.meta.image.alt
       } else if (site.socialImages.og) {
@@ -93,7 +96,10 @@ export default defineNuxtPlugin((nuxtApp) => {
 
       let twitterImage = '',
         twitterImageAlt = ''
-      if (page.meta?.image) {
+      if (metaOverrides.ogImage) {
+        twitterImage = metaOverrides.ogImage
+        twitterImageAlt = metaOverrides.ogImageAlt
+      } else if (page.meta?.image) {
         twitterImage = page.meta.image.src
         twitterImageAlt = page.meta.image.alt
       } else if (site.socialImages.twitter) {

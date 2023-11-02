@@ -67,7 +67,10 @@ export const useTidePage = async (
   // Need to manually pass the cookies needed for auth as they aren't automatically added when server rendered
   if (isPreviewPath(path)) {
     const accessTokenCookie = useCookie(AuthCookieNames.ACCESS_TOKEN)
-    headers.cookie = `${AuthCookieNames.ACCESS_TOKEN}=${accessTokenCookie.value};`
+    const accessTokenExpiryCookie = useCookie(
+      AuthCookieNames.ACCESS_TOKEN_EXPIRY
+    )
+    headers.cookie = `${AuthCookieNames.ACCESS_TOKEN}=${accessTokenCookie.value};${AuthCookieNames.ACCESS_TOKEN_EXPIRY}=${accessTokenExpiryCookie.value}`
   }
 
   let sectionCacheTags
@@ -84,7 +87,7 @@ export const useTidePage = async (
       async onResponse({ response }) {
         sectionCacheTags = response.headers.get('section-cache-tags')
 
-        if (response.ok && response._data) {
+        if (!process.server && response.ok && response._data) {
           response._data['_fetched'] = Date.now()
         }
       }

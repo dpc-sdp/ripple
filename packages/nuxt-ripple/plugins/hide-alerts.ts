@@ -21,9 +21,10 @@ const hideAlertsOnLoadScript = `function getCookie(name) {
   if (parts.length === 2) return parts.pop().split(';').shift();
 }
 
+const DISMISSED_ALERTS_COOKIE = 'dismissedAlerts'
+const guidRegex = new RegExp('^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4,5}-[0-9a-f]{4}-[0-9a-f]{12}$')
+
 try {
-  const DISMISSED_ALERTS_COOKIE = 'dismissedAlerts'
-  const guidRegex = new RegExp('^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4,5}-[0-9a-f]{4}-[0-9a-f]{12}$')
   const cookieValue = getCookie(DISMISSED_ALERTS_COOKIE)
 
   if (cookieValue) {
@@ -47,12 +48,14 @@ try {
 
 export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.hook('tide:page', () => {
-    useHead({
-      script: [
-        {
-          innerHTML: hideAlertsOnLoadScript
-        }
-      ]
-    })
+    if (process.server) {
+      useHead({
+        script: [
+          {
+            innerHTML: hideAlertsOnLoadScript
+          }
+        ]
+      })
+    }
   })
 })

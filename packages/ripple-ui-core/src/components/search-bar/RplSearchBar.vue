@@ -97,13 +97,15 @@ const handleInputChange = (e) => {
   isOpen.value = true
 }
 
-const handleSelectOption = (optionValue, focusBackOnInput) => {
+const handleSelectOption = (optionValue: any, focusBackOnInput) => {
+  const optionLabel = props.getOptionLabel(optionValue)
+
   if (focusBackOnInput) {
     inputRef.value.focus()
   }
 
   internalValue.value = optionValue
-  emit('update:inputValue', optionValue)
+  emit('update:inputValue', optionLabel)
   isOpen.value = false
 
   emitRplEvent(
@@ -111,8 +113,9 @@ const handleSelectOption = (optionValue, focusBackOnInput) => {
     {
       action: 'search',
       id: props.id,
-      text: optionValue,
-      value: optionValue,
+      text: optionLabel,
+      value: optionLabel,
+      payload: optionValue,
       type: 'suggestion'
     },
     { global: props.globalEvents }
@@ -305,18 +308,15 @@ const slug = (label: string) => label.toLowerCase().replace(/[^\w-]+/g, '-')
               slug(getOptionLabel(option))
             )
           }"
-          :tabindex="isOptionSelectable(option) ? '0' : '-1'"
+          tabindex="-1"
           @keydown.space.prevent="
-            isOptionSelectable(option) &&
-              handleSelectOption(getOptionLabel(option), true)
+            isOptionSelectable(option) && handleSelectOption(option, true)
           "
           @keydown.enter.prevent="
-            isOptionSelectable(option) &&
-              handleSelectOption(getOptionLabel(option), true)
+            isOptionSelectable(option) && handleSelectOption(option, true)
           "
           @click="
-            isOptionSelectable(option) &&
-              handleSelectOption(getOptionLabel(option), false)
+            isOptionSelectable(option) && handleSelectOption(option, false)
           "
           @keydown="isOptionSelectable(option) && handleKeydown"
         >

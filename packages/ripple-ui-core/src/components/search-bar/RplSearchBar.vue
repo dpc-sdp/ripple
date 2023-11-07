@@ -25,6 +25,7 @@ interface Props {
   placeholder?: string
   globalEvents?: boolean
   showNoResults?: boolean
+  getSuggestionVal?: (item: any) => string
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -37,7 +38,8 @@ const props = withDefaults(defineProps<Props>(), {
   suggestions: () => [],
   maxSuggestionsDisplayed: 10,
   placeholder: undefined,
-  globalEvents: true
+  globalEvents: true,
+  getSuggestionVal: (item) => item
 })
 
 const emit = defineEmits<{
@@ -98,7 +100,7 @@ const handleSelectOption = (optionValue, focusBackOnInput) => {
     inputRef.value.focus()
   }
 
-  internalValue.value = optionValue
+  internalValue.value = props.getSuggestionVal(optionValue)
   emit('update:inputValue', optionValue)
   isOpen.value = false
 
@@ -107,7 +109,7 @@ const handleSelectOption = (optionValue, focusBackOnInput) => {
     {
       action: 'search',
       id: props.id,
-      text: optionValue,
+      text: props.getSuggestionVal(optionValue),
       value: optionValue,
       type: 'suggestion'
     },
@@ -207,7 +209,7 @@ const focusOption = (optionId) => {
 watch(
   () => props.inputValue,
   (newModelValue) => {
-    internalValue.value = newModelValue
+    internalValue.value = props.getSuggestionVal(newModelValue)
   },
   { immediate: true }
 )
@@ -264,10 +266,7 @@ watch(activeOptionId, async (newId) => {
 
       <template
         v-if="
-          showNoResults &&
-          suggestions.length === 0 &&
-          internalValue.length > 0 &&
-          isOpen
+          showNoResults && suggestions.length === 0 && !!internalValue && isOpen
         "
       >
         <slot name="noresults">

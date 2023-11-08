@@ -12,7 +12,7 @@ export interface generateOpts {
   siteName: string
 }
 
-export async function generate(opt: generateOpts): Promise<object | null> {
+export async function generate(opt: generateOpts): Promise<string | null> {
   console.info('Favicon: generating assets')
 
   const iosConfig = {
@@ -62,30 +62,38 @@ export async function generate(opt: generateOpts): Promise<object | null> {
     windows: windowsConfig
   }
 
-  return generateFavicon(
-    createRequest({
-      apiKey: opt.API_KEY,
-      masterPicture: opt.masterPath,
-      iconsPath: opt.outputPath,
-      design: faviconDesign,
-      settings: { usePathAsIs: false }
-      // versioning?
-    }),
-    path.resolve(process.cwd(), opt.outputPath || '.'),
-    async (err: any) => {
-      if (err) {
-        throw err
-      }
+  return new Promise(function (resolve, reject) {
+    generateFavicon(
+      createRequest({
+        apiKey: opt.API_KEY,
+        masterPicture: opt.masterPath,
+        iconsPath: opt.outputPath,
+        design: faviconDesign,
+        settings: { usePathAsIs: false }
+        // versioning?
+      }),
+      path.resolve(process.cwd(), opt.outputPath || '.'),
+      async (err: any) => {
+        if (err) {
+          // dont reject as we want to continue building regardless
+          resolve(`Favicon: error generating - ${err.message}`)
+        }
+        // Remove outputPath from manifest files
+        for (const manifest of ['browserconfig.xml', 'site.webmanifest']) {
+          const path = `${opt.outputPath}/${manifest}`
+          const pathExists = fs.existsSync(path)
+          if (pathExists) {
+            const original = await fs.promises.readFile(path, 'utf8')
+            const updated = original.replace(
+              new RegExp(opt.outputPath, 'g'),
+              ''
+            )
+            await fs.promises.writeFile(path, updated, 'utf8')
+          }
+        }
 
-      // Remove outputPath from manifest files
-      for (const manifest of ['browserconfig.xml', 'site.webmanifest']) {
-        const path = `${opt.outputPath}/${manifest}`,
-          original = await fs.promises.readFile(path, 'utf8'),
-          updated = original.replace(new RegExp(opt.outputPath, 'g'), '')
-        await fs.promises.writeFile(path, updated, 'utf8')
+        resolve('Favicon: generate complete!')
       }
-
-      console.info('Favicon: generate complete!')
-    }
-  )
+    )
+  })
 }

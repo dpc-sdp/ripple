@@ -37,7 +37,7 @@ export default defineNuxtModule({
 
       // 3. Extract site name
       const siteName =
-        parsedData.field_site_slogan.processed.replace(/<p>|<\/p>/g, '') ||
+        parsedData.field_site_slogan?.processed.replace(/<p>|<\/p>/g, '') ||
         parsedData.name ||
         'SDP'
 
@@ -70,7 +70,6 @@ export default defineNuxtModule({
         // @ts-ignore TS2345
         await finished(Readable.fromWeb(masterAssetRes.body).pipe(fileStream))
       }
-
       // 8. Generate assets
       await generate({
         masterPath: savedFaviconPath,

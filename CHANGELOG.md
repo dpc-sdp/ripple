@@ -1,5 +1,18 @@
 # Changelog
 
+## v2.4.9
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.4.8...v2.4.9)
+
+
+### 🩹 Fixes
+
+  - **@dpc-sdp/nuxt-ripple:** 🐛  ensure favicon generator uses correct site ([c627b5a3](https://github.com/dpc-sdp/ripple-framework/commit/c627b5a3))
+
+### ❤️  Contributors
+
+- Dylan Kelly <dylan.kelly@dpc.vic.gov.au>
+
 ## v2.4.8
 
 [compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.4.7...v2.4.8)

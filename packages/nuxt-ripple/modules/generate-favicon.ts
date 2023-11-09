@@ -21,6 +21,18 @@ export default defineNuxtModule({
       }
       const nuxtConfig = await loadNuxtConfig({})
       const publicFolderPath = nuxtConfig.alias.public
+      const tideApiBaseUrl = process.env.NUXT_PUBLIC_TIDE_BASE_URL
+      const tideApiSiteId = process.env.NUXT_PUBLIC_TIDE_SITE
+      let headers = new Headers()
+
+      if (process.env.NUXT_TIDE_CONFIG_AUTH_PASSWORD) {
+        const username = process.env.NUXT_TIDE_CONFIG_AUTH_USERNAME
+        const password = process.env.NUXT_TIDE_CONFIG_AUTH_PASSWORD
+        headers.set(
+          'Authorization',
+          'Basic ' + Buffer.from(username + ':' + password).toString('base64')
+        )
+      }
 
       // 1. Check if asset already exists
       if (fs.existsSync(`${publicFolderPath}/favicon.ico`)) {
@@ -30,10 +42,14 @@ export default defineNuxtModule({
 
       // 2. Fetch theme and master asset url from site taxonomy
       const siteTaxonomyRes = await fetch(
-          `${nuxtConfig.runtimeConfig.public.tide.baseUrl}/api/v1/taxonomy_term/sites?filter%5Bdrupal_internal__tid%5D=${nuxtConfig.runtimeConfig.public.tide.site}&site=${nuxtConfig.runtimeConfig.public.tide.site}&include=field_site_favicon`
-        ),
-        siteTaxonomyData = await siteTaxonomyRes.json(),
-        parsedData = jsonapiParse.parse(siteTaxonomyData).data[0]
+        `${tideApiBaseUrl}/api/v1/taxonomy_term/sites?filter%5Bdrupal_internal__tid%5D=${tideApiSiteId}&site=${tideApiSiteId}&include=field_site_favicon`,
+        {
+          headers
+        }
+      )
+
+      const siteTaxonomyData = await siteTaxonomyRes.json()
+      const parsedData = jsonapiParse.parse(siteTaxonomyData).data[0]
 
       // 3. Extract site name
       const siteName =

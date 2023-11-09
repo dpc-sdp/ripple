@@ -23,7 +23,7 @@ window.svgPlaceholder = svgPlaceholder
 setup((app) => {
   // Ripple vue plugins
   registerRplFormPlugin(app)
-  registerRplMapsPlugin(app)
+  registerRplMapsPlugin(app, {})
 
   app.component('RplLink', RplLink)
   app.component('RplImg', RplImg)

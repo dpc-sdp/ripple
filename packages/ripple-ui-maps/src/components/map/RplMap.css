@@ -2,6 +2,16 @@
 
 .rpl-map {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  @media (--rpl-bp-m) {
+    flex-direction: row;
+  }
+}
+
+.rpl-map__map {
+  width: 100%;
+  height: 300px;
 }
 
 .rpl-map__control {
@@ -32,4 +42,11 @@
 
 .rpl-map__control-fullscreen {
   top: calc(var(--rpl-sp-12) + var(--rpl-sp-8) + var(--rpl-sp-4));
+}
+
+.rpl-map__legend {
+  position: absolute;
+  z-index: 999;
+  right: var(--rpl-sp-4);
+  bottom: var(--rpl-sp-4);
 }

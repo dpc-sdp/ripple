@@ -1,11 +1,15 @@
+@import '@dpc-sdp/ripple-ui-core/style/breakpoints';
+
 .rpl-map-popup {
   position: absolute;
-  width: 300px;
   height: calc(600px - var(--rpl-sp-4) * 2);
   background-color: #fff;
   z-index: 99;
   margin: var(--rpl-sp-4);
   box-shadow: var(--rpl-elevation-1);
+  @media (--rpl-bp-s) {
+    width: 300px;
+  }
 }
 
 .rpl-map-popup__header {
@@ -15,11 +19,24 @@
   padding: var(--rpl-sp-4);
 }
 
-
 .rpl-map-popup__body {
   padding: var(--rpl-sp-4);
 }
 
 .rpl-map-popup__close {
   margin-left: auto;
+  padding: var(--rpl-sp-1);
+  border-radius: var(--rpl-border-radius-3);
+
+  &:hover {
+    color: var(--rpl-clr-primary);
+  }
 }
+
+.rpl-map-popup--feature {
+  position: relative;
+  width: 250px;
+  height: initial;
+  display: block;
+}
+

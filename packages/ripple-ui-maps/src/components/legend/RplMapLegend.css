@@ -1,0 +1,11 @@
+.rpl-map-legend {
+  width: 180px;
+  height: 150px;
+  border-radius: var(--rpl-border-radius-3);
+  background-color: #fff;
+  box-shadow: var(--rpl-elevation-1);
+}
+
+.rpl-map-legend__title {
+  padding: var(--rpl-sp-1);
+}

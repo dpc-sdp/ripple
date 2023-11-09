@@ -7,18 +7,18 @@ import {
 import { ref, provide } from 'vue'
 import { RplAccordion } from '@dpc-sdp/ripple-ui-core/vue'
 import { registerRplMapsPlugin } from '@dpc-sdp/ripple-ui-maps'
-import RplMap from './RplMap.vue'
-import RplMapProviderEsri from './providers/RplMapProviderEsri.vue'
-import RplMapProviderVicMap from './providers/RplMapProviderVicMap.vue'
-import RplMapProviderMapbox from './providers/RplMapProviderMapbox.vue'
+import '@dpc-sdp/ripple-ui-core/style/components'
 import { transform } from 'ol/proj'
 import Icon from 'ol/style/Icon'
-import featureData from './__fixture__/features.json'
-import '@dpc-sdp/ripple-ui-core/style/components'
-import { getIconForPopulation } from './__fixture__/utils.ts'
+import RplMap from './../map/RplMap.vue'
+import RplMapSidePanel from './RplMapSidePanel.vue'
+import RplMapSidePanelCard from './RplMapSidePanelCard.vue'
+import RplMapProviderMapbox from './../map/providers/RplMapProviderMapbox.vue'
+import featureData from './../map/__fixture__/features.json'
+import { truncateText } from './../map/__fixture__/utils.ts'
 
 export const Template = (args) => ({
-  components: { RplMap, RplMapProviderEsri, RplMapProviderVicMap,RplMapProviderMapbox, RplAccordion },
+  components: { RplMap, RplMapProviderMapbox, RplMapSidePanel, RplMapSidePanelCard, RplAccordion },
   setup() {
     const rplMapRef = ref(null)
     const rplMapSelectedFeatures = ref(null)
@@ -44,6 +44,7 @@ export const Template = (args) => ({
       })
     }
     return {
+      truncateText,
       getClusteredFeatures,
       args
     }
@@ -53,9 +54,15 @@ export const Template = (args) => ({
       v-bind="args"
     >
       <template #map-provider>
-        <rpl-map-provider-esri v-if="args.provider === 'esri'" />
-        <rpl-map-provider-vic-map v-if="args.provider === 'vicmap'" />
-        <rpl-map-provider-mapbox v-if="args.provider === 'mapbox'" />
+        <rpl-map-provider-mapbox />
+      </template>
+      <template #sidebar="{ mapHeight }">
+        <RplMapSidePanel :style="'height:' + mapHeight +'px'">
+          <p class="rpl-type-p-small rpl-u-margin-b-2 rpl-u-margin-l-1">{{args.cards.length}} items in {{args.searchTerm}}</p>
+          <RplMapSidePanelCard v-for="card in args.cards" :key="card.title" :feature="card" :title="card.city">
+            <p>{{truncateText(card.description, 50)}}</p>
+          </RplMapSidePanelCard>
+        </RplMapSidePanel>
       </template>
       <template #popupTitle="{ selectedFeatures }">
         <span v-if="selectedFeatures.length === 1">
@@ -77,7 +84,7 @@ export const Template = (args) => ({
 })
 
 <Meta
-  title='Maps/core'
+  title='Maps/side-panel'
   component={RplMap}
 />
 
@@ -87,60 +94,14 @@ export const Template = (args) => ({
 
 <Canvas>
   <Story
-    name='Mapbox'
-    args={{
-      id: '123',
-      features:featureData,
-      provider: 'mapbox'
-    }}
-  >
-    {Template.bind()}
-  </Story>
-  <Story
-    name='Esri'
-    args={{
-      id: '123',
-      features: featureData,
-      provider: 'esri'
-    }}
-  >
-    {Template.bind()}
-  </Story>
-  <Story
-    name='Vicmap'
-    args={{
-      id: '123',
-      provider: 'vicmap',
-      projection: 'EPSG:3857',
-      features:featureData
-    }}
-  >
-    {Template.bind()}
-  </Story>
-  <Story
-    name='Custom pins'
-    args={{
-      id: '123',
-      provider: 'mapbox',
-      features:featureData,
-      pinStyle: (feature) => {
-        const population = feature.get('population')
-        const icon = getIconForPopulation(population)
-        const ic = new Icon(icon)
-        ic.load()
-        return ic
-      }
-    }}
-  >
-    {Template.bind()}
-  </Story>
-  <Story
     name='Popup on click'
     args={{
       id: '123',
       features:featureData,
       provider: 'mapbox',
-      popupType: 'feature'
+      popupType: 'feature',
+      searchTerm: 'Melbourne',
+      cards: featureData.slice(0,10)
     }}
   >
     {Template.bind()}

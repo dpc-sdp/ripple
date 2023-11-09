@@ -1,31 +1,37 @@
 import { onMounted, ref } from 'vue'
-import { buffer, boundingExtent } from 'ol/extent'
+import { boundingExtent } from 'ol/extent'
+import { transform, transformExtent } from 'ol/proj'
 import { getDistance } from 'ol/sphere'
+import { easeOut } from 'ol/easing'
 import type { Map } from 'ol'
 import type { Ref } from 'vue'
-
-// Threshold distance in meters to determine if features are clickable
-const thresholdDistance = 100 // 100 meters
 
 export const haversineDistance = (coord1, coord2) => getDistance(coord1, coord2)
 
 export const areCoordinatesWithinThreshold = (coords, threshold) => {
   return coords.every((coord1, index1) => {
     return coords.slice(index1 + 1).every((coord2) => {
-      return haversineDistance(coord1, coord2) <= threshold
+      const distance = haversineDistance(coord1, coord2)
+      return distance <= threshold
     })
   })
 }
 
-export default (mapRef: Ref<{ map: Map } | null>, closeOnMapClick) => {
+export default (
+  mapRef: Ref<{ map: Map } | null>,
+  closeOnMapClick,
+  projection = 'EPSG:4326',
+  thresholdDistance = 1000
+) => {
   const popupIsOpen = ref(false)
   const selectedFeatures = ref(null)
+  const overlayPosition = ref(null)
 
   onMounted(() => {
     const map = mapRef.value?.map
     if (map) {
       map.on('singleclick', function (evt) {
-        // IF evt.cordinates match a pin then show
+        // finds all features at cursor
         const feature = map.forEachFeatureAtPixel(
           evt.pixel,
           (feature) => {
@@ -38,7 +44,12 @@ export default (mapRef: Ref<{ map: Map } | null>, closeOnMapClick) => {
             const clusterExtentCoordinates = feature.features.map((f) => {
               const geo = f.getGeometry()
               if (geo) {
-                return geo.getCoordinates()
+                const coordinates = geo.getCoordinates()
+                if (projection === 'EPSG:3857') {
+                  // we transform all coordinates to match projection
+                  return transform(coordinates, 'EPSG:3857', 'EPSG:4326')
+                }
+                return coordinates
               }
             })
 
@@ -48,33 +59,48 @@ export default (mapRef: Ref<{ map: Map } | null>, closeOnMapClick) => {
               thresholdDistance
             )
 
-            // zoom to region
-            console.log(
-              'isFeaturesCloseTogether',
-              clusterExtentCoordinates,
-              isFeaturesCloseTogether
-            )
             if (isFeaturesCloseTogether) {
+              // show multiple items together if they are close
               selectedFeatures.value = feature.features.map((f) =>
                 f.getProperties()
               )
+
+              overlayPosition.value =
+                feature.features[0].getGeometry().flatCoordinates
               popupIsOpen.value = true
             } else {
-              const zoomRegion = buffer(
-                boundingExtent(clusterExtentCoordinates),
-                1
-              )
+              // zoom to fit all features in cluster in view
+              const zoomRegion =
+                projection === 'EPSG:3857'
+                  ? transformExtent(
+                      boundingExtent(clusterExtentCoordinates),
+                      'EPSG:4326',
+                      'EPSG:3857'
+                    )
+                  : boundingExtent(clusterExtentCoordinates)
+
               const mapSize = map.getSize()
               if (mapSize) {
-                map.getView().fit(zoomRegion, { size: mapSize })
+                map.getView().fit(zoomRegion, {
+                  size: mapSize,
+                  easing: easeOut,
+                  duration: 400,
+                  padding: [100, 100, 100, 100]
+                })
               }
             }
           } else {
+            // click on feature
             selectedFeatures.value = [feature.features[0].getProperties()]
             popupIsOpen.value = true
+            overlayPosition.value =
+              feature.features[0].getGeometry().flatCoordinates
+            map.getView().animate({
+              center: overlayPosition.value,
+              zoom: 9
+            })
           }
-        } else if (closeOnMapClick && feature) {
-          selectedFeatures.value = [feature.getProperties()]
+        } else if (closeOnMapClick) {
           popupIsOpen.value = false
         }
       })
@@ -82,6 +108,7 @@ export default (mapRef: Ref<{ map: Map } | null>, closeOnMapClick) => {
   })
   return {
     popupIsOpen,
-    selectedFeatures
+    selectedFeatures,
+    overlayPosition
   }
 }

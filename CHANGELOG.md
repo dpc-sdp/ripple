@@ -1,5 +1,18 @@
 # Changelog
 
+## v2.4.8
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.4.7...v2.4.8)
+
+
+### 🩹 Fixes
+
+  - **@dpc-sdp/nuxt-ripple:** 🐛  move favicon generate to before build ([869482b0](https://github.com/dpc-sdp/ripple-framework/commit/869482b0))
+
+### ❤️  Contributors
+
+- Dylan Kelly <dylan.kelly@dpc.vic.gov.au>
+
 ## v2.4.7
 
 [compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.4.6...v2.4.7)

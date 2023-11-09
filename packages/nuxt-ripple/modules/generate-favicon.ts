@@ -1,4 +1,4 @@
-import { createResolver, defineNuxtModule } from 'nuxt/kit'
+import { createResolver, defineNuxtModule, loadNuxtConfig } from 'nuxt/kit'
 import { generate } from './../lib/generate'
 import * as jsonapiParse from 'jsonapi-parse'
 import fs from 'fs'
@@ -11,7 +11,7 @@ export default defineNuxtModule({
     name: 'generateFavicon'
   },
   hooks: {
-    ready: async (nuxtApp) => {
+    'modules:done': async () => {
       const faviconApiKey = process.env.RFG_API_KEY
 
       // Exit early if API key is not set
@@ -19,8 +19,8 @@ export default defineNuxtModule({
         console.info('Favicon: missing RFG_API_KEY, skipping')
         return
       }
-
-      const publicFolderPath = nuxtApp.options.alias.public
+      const nuxtConfig = await loadNuxtConfig({})
+      const publicFolderPath = nuxtConfig.alias.public
 
       // 1. Check if asset already exists
       if (fs.existsSync(`${publicFolderPath}/favicon.ico`)) {
@@ -30,7 +30,7 @@ export default defineNuxtModule({
 
       // 2. Fetch theme and master asset url from site taxonomy
       const siteTaxonomyRes = await fetch(
-          `${nuxtApp.options.runtimeConfig.public.tide.baseUrl}/api/v1/taxonomy_term/sites?filter%5Bdrupal_internal__tid%5D=${nuxtApp.options.runtimeConfig.public.tide.site}&site=${nuxtApp.options.runtimeConfig.public.tide.site}&include=field_site_favicon`
+          `${nuxtConfig.runtimeConfig.public.tide.baseUrl}/api/v1/taxonomy_term/sites?filter%5Bdrupal_internal__tid%5D=${nuxtConfig.runtimeConfig.public.tide.site}&site=${nuxtConfig.runtimeConfig.public.tide.site}&include=field_site_favicon`
         ),
         siteTaxonomyData = await siteTaxonomyRes.json(),
         parsedData = jsonapiParse.parse(siteTaxonomyData).data[0]

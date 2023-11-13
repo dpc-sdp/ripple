@@ -56,7 +56,7 @@ const postForm = async (formId, formData = {}) => {
   // TODO: Add better error handling/log for form API error.
   // It's blocked by Tide webform response issue SDPA-477.
   // Currently the Tide webform has no right response.
-  const url = `api/tide/${formResource}/${formId}`
+  const url = `/api/tide/${formResource}/${formId}`
   const { data, error } = await $fetch(url, {
     method: 'POST',
     baseURL: config.apiUrl || '',

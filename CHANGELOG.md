@@ -1,5 +1,90 @@
 # Changelog
 
+## v2.4.6
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.4.5...v2.4.6)
+
+
+### 🩹 Fixes
+
+  - **@dpc-sdp/ripple-tide-publication:** Fixed publication menu not showing after preview expires ([bd41710b](https://github.com/dpc-sdp/ripple-framework/commit/bd41710b))
+
+### ❤️  Contributors
+
+- Jeffrey Dowdle <jeffrey.dowdle@dpc.vic.gov.au>
+
+## v2.4.5
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.4.4...v2.4.5)
+
+
+### 🩹 Fixes
+
+  - **@dpc-sdp/nuxt-ripple-preview:** Only send token if it's not expired ([90528b89](https://github.com/dpc-sdp/ripple-framework/commit/90528b89))
+
+### ❤️  Contributors
+
+- Jeffrey Dowdle <jeffrey.dowdle@dpc.vic.gov.au>
+
+## v2.4.4
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.4.3...v2.4.4)
+
+
+### 🩹 Fixes
+
+  - **@dpc-sdp/ripple-tide-api:** Changed the way sectionId is passed to mapping functions ([e113b1c2](https://github.com/dpc-sdp/ripple-framework/commit/e113b1c2))
+
+### ❤️  Contributors
+
+- Dylan Kelly <dylan.kelly@dpc.vic.gov.au>
+
+## v2.4.3
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.4.2...v2.4.3)
+
+
+### 🩹 Fixes
+
+  - **@dpc-sdp/nuxt-ripple:** 🐛  ensure route caching works in cdn environment ([f9651c89](https://github.com/dpc-sdp/ripple-framework/commit/f9651c89))
+
+### ❤️  Contributors
+
+- Dylan Kelly <dylan.kelly@dpc.vic.gov.au>
+
+## v2.4.2
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.4.1...v2.4.2)
+
+
+### 🩹 Fixes
+
+  - **@dpc-sdp/ripple-tide-landing-page:** 🐛  handle case when no items in carousel ([e9a1af40](https://github.com/dpc-sdp/ripple-framework/commit/e9a1af40))
+
+### ❤️  Contributors
+
+- Dylan Kelly <dylan.kelly@dpc.vic.gov.au>
+
+## v2.4.1
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.4.0...v2.4.1)
+
+
+### 🩹 Fixes
+
+  - **@dpc-sdp/nuxt-ripple:** Ensure that redirect code runs even on (nuxt) cached pages ([6f095499](https://github.com/dpc-sdp/ripple-framework/commit/6f095499))
+  - **@dpc-sdp/nuxt-ripple:** Added null check for redirect code ([4410cef5](https://github.com/dpc-sdp/ripple-framework/commit/4410cef5))
+
+### 🏡 Chore
+
+  - Updated babel / @babel/traverse ([f8796a39](https://github.com/dpc-sdp/ripple-framework/commit/f8796a39))
+  - 🔖 release ripple 2.4.1 ([a015f463](https://github.com/dpc-sdp/ripple-framework/commit/a015f463))
+
+### ❤️  Contributors
+
+- Jeffrey Dowdle <jeffrey.dowdle@dpc.vic.gov.au>
+
+
 ## v2.4.0
 
 [compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.3.5...v2.4.0)

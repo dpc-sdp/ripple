@@ -48,12 +48,14 @@ try {
 
 export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.hook('tide:page', () => {
-    useHead({
-      script: [
-        {
-          innerHTML: hideAlertsOnLoadScript
-        }
-      ]
-    })
+    if (process.server) {
+      useHead({
+        script: [
+          {
+            innerHTML: hideAlertsOnLoadScript
+          }
+        ]
+      })
+    }
   })
 })

@@ -6,7 +6,7 @@ export const map = async (src, tidePageApi: TidePageApi) => {
   }
 
   // With the correct site/section id, we can now choose the correct site data from 'field_node_site'
-  const siteData = getSiteSection(tidePageApi.sectionId, src)
+  const siteData = getSiteSection(src._sectionId, src)
 
   if (!siteData) {
     return null

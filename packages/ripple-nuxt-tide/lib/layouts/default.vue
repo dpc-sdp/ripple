@@ -170,7 +170,7 @@ export default {
           logos.push({
             alt: logoLink.text,
             url: logoLink.url,
-            src: logo.field_paragraph_media.field_media_image.url
+            src: logo.field_paragraph_media?.field_media_image.url || logo.field_feature_image?.url
           })
         })
       }

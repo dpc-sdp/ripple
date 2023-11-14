@@ -1,4 +1,4 @@
-import { createResolver, defineNuxtModule } from 'nuxt/kit'
+import { createResolver, defineNuxtModule, loadNuxtConfig } from 'nuxt/kit'
 import { generate } from './../lib/generate'
 import * as jsonapiParse from 'jsonapi-parse'
 import fs from 'fs'
@@ -11,7 +11,7 @@ export default defineNuxtModule({
     name: 'generateFavicon'
   },
   hooks: {
-    ready: async (nuxtApp) => {
+    'modules:done': async () => {
       const faviconApiKey = process.env.RFG_API_KEY
 
       // Exit early if API key is not set
@@ -19,8 +19,20 @@ export default defineNuxtModule({
         console.info('Favicon: missing RFG_API_KEY, skipping')
         return
       }
+      const nuxtConfig = await loadNuxtConfig({})
+      const publicFolderPath = nuxtConfig.alias.public
+      const tideApiBaseUrl = process.env.NUXT_PUBLIC_TIDE_BASE_URL
+      const tideApiSiteId = process.env.NUXT_PUBLIC_TIDE_SITE
+      let headers = new Headers()
 
-      const publicFolderPath = nuxtApp.options.alias.public
+      if (process.env.NUXT_TIDE_CONFIG_AUTH_PASSWORD) {
+        const username = process.env.NUXT_TIDE_CONFIG_AUTH_USERNAME
+        const password = process.env.NUXT_TIDE_CONFIG_AUTH_PASSWORD
+        headers.set(
+          'Authorization',
+          'Basic ' + Buffer.from(username + ':' + password).toString('base64')
+        )
+      }
 
       // 1. Check if asset already exists
       if (fs.existsSync(`${publicFolderPath}/favicon.ico`)) {
@@ -30,14 +42,18 @@ export default defineNuxtModule({
 
       // 2. Fetch theme and master asset url from site taxonomy
       const siteTaxonomyRes = await fetch(
-          `${nuxtApp.options.runtimeConfig.public.tide.baseUrl}/api/v1/taxonomy_term/sites?filter%5Bdrupal_internal__tid%5D=${nuxtApp.options.runtimeConfig.public.tide.site}&site=${nuxtApp.options.runtimeConfig.public.tide.site}&include=field_site_favicon`
-        ),
-        siteTaxonomyData = await siteTaxonomyRes.json(),
-        parsedData = jsonapiParse.parse(siteTaxonomyData).data[0]
+        `${tideApiBaseUrl}/api/v1/taxonomy_term/sites?filter%5Bdrupal_internal__tid%5D=${tideApiSiteId}&site=${tideApiSiteId}&include=field_site_favicon`,
+        {
+          headers
+        }
+      )
+
+      const siteTaxonomyData = await siteTaxonomyRes.json()
+      const parsedData = jsonapiParse.parse(siteTaxonomyData).data[0]
 
       // 3. Extract site name
       const siteName =
-        parsedData.field_site_slogan.processed.replace(/<p>|<\/p>/g, '') ||
+        parsedData.field_site_slogan?.processed.replace(/<p>|<\/p>/g, '') ||
         parsedData.name ||
         'SDP'
 
@@ -70,7 +86,6 @@ export default defineNuxtModule({
         // @ts-ignore TS2345
         await finished(Readable.fromWeb(masterAssetRes.body).pipe(fileStream))
       }
-
       // 8. Generate assets
       await generate({
         masterPath: savedFaviconPath,

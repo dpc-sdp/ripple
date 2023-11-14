@@ -82,15 +82,21 @@ const pluginQuotation = function (this: any) {
 }
 
 const pluginDocuments = function (this: any) {
-  this.find('.embedded-entity--media--document').map((i: number, el: any) => {
-    const $document = this.find(el)
+  this.find(
+    '.embedded-entity--media--file, .embedded-entity--media--document'
+  ).map((i: number, el: any) => {
+    const $element = this.find(el)
+    const mediaType = $element.hasClass('embedded-entity--media--file')
+      ? 'file'
+      : 'document'
+    const titleSelector =
+      mediaType === 'document' ? '.file--title' : '.field--name-name'
 
-    const label = $document.find('a[aria-label]').attr('aria-label'),
-      link = $document.find('a').attr('href'),
-      title = $document.find('.file--title').text(),
-      filetype = $document.find('.file--type').text(),
-      filesize = $document.find('.file--size').text(),
-      updated = $document.attr('data-last-updated')
+    const label = $element.find('a[aria-label]').attr('aria-label'),
+      link = $element.find('a').attr('href'),
+      title = $element.find(titleSelector).text(),
+      fileSize = $element.find('.file--size').text(),
+      updated = $element.attr('data-last-updated')
 
     let updatedMarkup = ''
 
@@ -101,7 +107,24 @@ const pluginDocuments = function (this: any) {
         : ''
     }
 
-    return $document.replaceWith(`
+    let fileType = $element.find('.file--type').text()
+    const fileTypeClasses = $element.find('.file').attr('class')
+
+    // Some file types come back as simply 'other' from drupal (e.g. zip files), so we here we try to get the file type from the classes
+    if (fileTypeClasses) {
+      fileTypeClasses
+        .split(' ')
+        .filter((cls) => cls.includes('file--mime') || cls.includes('file--x'))
+        .forEach((mimeType) => {
+          switch (mimeType) {
+            case 'file--mime-application-zip':
+              fileType = 'zip'
+              break
+          }
+        })
+    }
+
+    return $element.replaceWith(`
 <figure class="rpl-document">
   <a class="rpl-document__link rpl-u-focusable-within" aria-label="${label}" href="${link}" target="_blank">
     <span class="rpl-document__icon rpl-icon rpl-icon--size-l rpl-icon--colour-default rpl-icon--icon-document-lined">
@@ -110,8 +133,8 @@ const pluginDocuments = function (this: any) {
     <div class="rpl-document__content">
       <span class="rpl-document__name rpl-type-p rpl-type-weight-bold rpl-u-focusable-inline">${title}</span>
       <div class="rpl-document__info rpl-type-label-small">
-        <span class="rpl-file__meta">${filetype}</span>
-        <span class="rpl-file__meta">${filesize}</span>
+        <span class="rpl-file__meta">${fileType}</span>
+        <span class="rpl-file__meta">${fileSize}</span>
         ${updatedMarkup}
       </div>
     </div>

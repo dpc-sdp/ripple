@@ -107,10 +107,10 @@ const submitHandler = async ({ data }) => {
   try {
     const resData = await postForm(props.formId, data)
 
-    const [code, note] = resData.attributes?.notes.split('|') || []
+    const [code, note] = resData.attributes?.notes?.split('|') || []
 
     // Upstream error
-    if ((code && code <= 199) || code >= 300) {
+    if (code && Number.isInteger(+code) && (+code <= 199 || +code >= 300)) {
       submissionState.value = {
         status: 'error',
         title: props.errorMessageTitle,

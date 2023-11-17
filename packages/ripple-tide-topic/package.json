@@ -9,7 +9,7 @@
     "./mapping": "./mapping/index.ts",
     "./types": "./types.ts"
   },
-  "version": "2.4.6",
+  "version": "2.4.9",
   "dependencies": {
     "@dpc-sdp/nuxt-ripple": "workspace:*",
     "@dpc-sdp/ripple-tide-api": "workspace:*",

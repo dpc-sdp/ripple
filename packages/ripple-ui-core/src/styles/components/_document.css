@@ -68,3 +68,8 @@
 .rpl-document--centered .rpl-document__link {
   align-items: center;
 }
+
+[dir='rtl'] .rpl-document__icon {
+  margin-left: var(--rpl-sp-4);
+  margin-right: 0;
+}

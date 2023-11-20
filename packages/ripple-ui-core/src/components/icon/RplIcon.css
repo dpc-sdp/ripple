@@ -80,3 +80,10 @@
 .rpl-svg-sprite--hidden {
   display: none;
 }
+
+[dir='rtl'] .rpl-icon--child {
+  border-left: 0;
+  border-right: var(--rpl-border-1) solid var(--rpl-clr-type-default);
+  margin-left: 0;
+  margin-right: var(--rpl-sp-2);
+}

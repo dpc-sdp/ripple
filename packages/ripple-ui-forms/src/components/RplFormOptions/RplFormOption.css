@@ -23,6 +23,11 @@
   margin-top: 1px;
 }
 
+[dir='rtl'] .rpl-form-option__label-text {
+  margin-left: 0;
+  margin-right: var(--rpl-sp-3);
+}
+
 .rpl-form-option__mark {
   width: var(--rpl-sp-6);
   height: var(--rpl-sp-6);

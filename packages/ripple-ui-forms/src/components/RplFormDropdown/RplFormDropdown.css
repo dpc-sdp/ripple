@@ -156,3 +156,13 @@
     border-color: var(--rpl-clr-dark);
   }
 }
+
+[dir='rtl'] .rpl-form-dropdown-input {
+  padding-left: calc(var(--rpl-sp-2) + var(--rpl-sp-4) + var(--rpl-sp-5));
+  padding-right: var(--rpl-sp-5);
+}
+
+[dir='rtl'] .rpl-form-dropdown__chevron {
+  right: auto;
+  left: var(--rpl-sp-5);
+}

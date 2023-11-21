@@ -98,15 +98,12 @@ interface faviconArgs {
   apiKey: string
   baseUrl: string
   siteId: string
-  extraPath: string | undefined
+  publicPath: string
 }
 
 // Main
-// extraPath can be used to execute the command into a subfolder (i.e. examples/nuxt-app)
 export default async function favicon(args: faviconArgs) {
-  const publicFolderPath = `${process.env.INIT_CWD}${
-    args.extraPath ? '/' + args.extraPath : ''
-  }/public`
+  const publicFolderPath = args.publicPath
 
   if (!args.apiKey) {
     console.info('Favicon: missing apiKey')

@@ -13,9 +13,9 @@ export default function rplFaviconCommand() {
     .option('-b, --baseUrl <baseUrl>', 'Tide API base url')
     .option('-i, --siteId <siteId>', 'Tide site ID')
     .option(
-      '-x, --extraPath <extraPath>',
-      'Extra path directory, this defaults to blank for production sites',
-      ''
+      '-p, --publicPath <publicPath>',
+      'Absolute path to public directory',
+      `${process.cwd()}/public`
     )
     .parse(process.argv)
     .action(() => favicon(rplFaviconCommand.opts()))

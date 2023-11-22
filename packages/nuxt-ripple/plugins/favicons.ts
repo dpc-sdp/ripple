@@ -1,3 +1,5 @@
+import { useAppConfig, useHead } from '#imports'
+
 export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.hook('tide:page', () => {
     useHead({
@@ -20,10 +22,18 @@ export default defineNuxtPlugin((nuxtApp) => {
           href: '/favicon-16x16.png'
         },
         { rel: 'manifest', href: '/site.webmanifest' },
-        { rel: 'mask-icon', href: '/safari-pinned-tab.svg', color: '#0054c9' }
+        {
+          rel: 'mask-icon',
+          href: '/safari-pinned-tab.svg',
+          color: useAppConfig()?.ripple?.theme?.['rpl-clr-primary'] || '#0054c9'
+        }
       ],
       meta: [
-        { name: 'msapplication-TileColor', content: '#0054c9' },
+        {
+          name: 'msapplication-TileColor',
+          content:
+            useAppConfig()?.ripple?.theme?.['rpl-clr-primary'] || '#0054c9'
+        },
         { name: 'theme-color', content: '#ffffff' }
       ]
     })

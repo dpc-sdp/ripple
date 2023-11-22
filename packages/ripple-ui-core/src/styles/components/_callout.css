@@ -41,3 +41,8 @@
     }
   }
 }
+
+[dir='rtl'] .rpl-callout {
+  border-left: 0;
+  border-right: var(--rpl-border-3) solid var(--rpl-clr-accent);
+}

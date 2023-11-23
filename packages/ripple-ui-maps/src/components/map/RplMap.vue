@@ -8,10 +8,15 @@ import { fromLonLat } from 'ol/proj'
 import RplMapPopUp from './../popup/RplMapPopUp.vue'
 import RplMapCluster from './../cluster/RplMapCluster.vue'
 import markerIconDefaultSrc from './../feature-pin/icon-pin.svg?url'
-import zoomInIcon from './../../assets/icons/icon-zoom-in.svg?raw'
-import zoomOutIcon from './../../assets/icons/icon-zoom-out.svg?raw'
+import zoomInIcon from './../../assets/icons/icon-map-zoom-in.svg?raw'
+import zoomOutIcon from './../../assets/icons/icon-map-zoom-out.svg?raw'
 import enlargeIcon from './../../assets/icons/icon-enlarge.svg?raw'
-import onMapClick from './../../composables/onMapClick'
+import useMapControlLabel from './../../composables/useMapControlLabel'
+import {
+  getfeaturesAtMapPixel,
+  zoomToClusterExtent,
+  centerOnPopup
+} from './utils.ts'
 
 interface Props {
   features?: IRplMapFeature[]
@@ -20,7 +25,7 @@ interface Props {
   initialCenter?: [number, number]
   pinStyle?: Function
   mapHeight?: number
-  popupType?: 'sidebar' | 'feature'
+  popupType?: 'sidebar' | 'popover'
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -32,9 +37,22 @@ const props = withDefaults(defineProps<Props>(), {
   popupType: 'sidebar',
   initialCenter: () => [144.9631, -36.8136], // melbourne CBD
   pinStyle: (feature) => {
+    // const projectType = feature ? feature.get('field_mappintype_name')[0] : ''
+    let color = 'red'
+    // switch (projectType) {
+    //   case 'Early childhood':
+    //     color = '#7c1792'
+    //     break
+    //   case 'School upgrade':
+    //     color = '#df4809'
+    //     break
+    //   case 'Planning':
+    //     color = '#ff941a'
+    //     break
+    // }
     const ic = new Icon({
       src: markerIconDefaultSrc,
-      color: feature.get('color') || 'red'
+      color
     })
     ic.load()
     return ic
@@ -45,19 +63,13 @@ const zoom = ref(props.initialZoom)
 const rotation = ref(0)
 const view = ref(null)
 
-const { setRplMapRef, setRplMapSelectedFeatures } = inject('rplMapInstance')
+const { setRplMapRef, popup } = inject('rplMapInstance')
 
 // Reference to ol/map instance
 const mapRef = ref<{ map: Map } | null>(null)
-const { popupIsOpen, selectedFeatures, overlayPosition } = onMapClick(
-  mapRef,
-  props.closeOnMapClick,
-  props.projection
-)
 
 onMounted(() => {
   setRplMapRef(mapRef.value.map)
-  setRplMapSelectedFeatures(selectedFeatures)
 })
 
 const center = computed(() => {
@@ -88,18 +100,33 @@ const mapFeatures = computed(() => {
 })
 
 function onPopUpClose() {
-  popupIsOpen.value = false
+  popup.value.isOpen = false
 }
 
-const createHTMLElementFromString = (text: string): HTMLDivElement => {
-  const div = document.createElement('div')
-  div.innerHTML = text.trim()
-  return div.firstElementChild
-}
-
+const { createHTMLElementFromString } = useMapControlLabel()
 const zoomInLabel = createHTMLElementFromString(zoomInIcon)
 const zoomOutLabel = createHTMLElementFromString(zoomOutIcon)
 const fullScreenLabel = createHTMLElementFromString(enlargeIcon)
+
+function onMapSingleClick(evt) {
+  const map = mapRef.value.map
+  const point = getfeaturesAtMapPixel(map, evt.pixel)
+  if (point && point.features) {
+    if (point.features.length > 1) {
+      // if we click on a cluster we zoom to fit all the items in view
+      zoomToClusterExtent(point.features, popup, map, props.projection)
+    } else if (point.features.length === 1) {
+      // if we click on a pin we open the popup
+      const clickedFeature = point.features[0]
+      const coordinates = clickedFeature.getGeometry().flatCoordinates
+      popup.value.feature = [clickedFeature.getProperties()]
+      popup.value.isOpen = true
+      popup.value.isArea = false
+      popup.value.position = coordinates
+      centerOnPopup(map, coordinates)
+    }
+  }
+}
 </script>
 
 <template>
@@ -107,7 +134,7 @@ const fullScreenLabel = createHTMLElementFromString(enlargeIcon)
     <slot name="sidebar" :popupIsOpen="popupIsOpen" :mapHeight="mapHeight">
       <RplMapPopUp
         v-if="popupType === 'sidebar'"
-        :is-open="popupIsOpen"
+        :is-open="popup.isOpen"
         @close="onPopUpClose"
       >
         <template
@@ -129,25 +156,32 @@ const fullScreenLabel = createHTMLElementFromString(enlargeIcon)
     </slot>
     <ol-map
       ref="mapRef"
-      :loadTilesWhileAnimating="true"
-      :loadTilesWhileInteracting="true"
+      :loadTilesWhileAnimating="false"
+      :loadTilesWhileInteracting="false"
       class="rpl-map__map"
       :style="`height: ${mapHeight}px`"
       :controls="[]"
+      @singleclick="onMapSingleClick"
     >
       <ol-view
         ref="view"
         :center="center"
         :rotation="rotation"
         :projection="projection"
+        :minZoom="7"
         :zoom="zoom"
       />
       <slot name="map-provider"> </slot>
-      <slot name="shapes"></slot>
+      <slot name="shapes" :mapFeatures="mapFeatures"></slot>
 
       <ol-vector-layer v-if="mapFeatures && mapFeatures.length > 0">
         <slot name="features" :features="mapFeatures">
-          <ol-animated-clusterlayer :animationDuration="500" :distance="40">
+          <ol-animated-clusterlayer
+            title="clusterLayer"
+            :animationDuration="500"
+            :distance="50"
+            :zIndex="4"
+          >
             <ol-source-vector>
               <ol-feature
                 v-for="feature in mapFeatures"
@@ -157,7 +191,6 @@ const fullScreenLabel = createHTMLElementFromString(enlargeIcon)
                 <ol-geom-point
                   :coordinates="[feature.lng, feature.lat]"
                 ></ol-geom-point>
-                <ol-style> </ol-style>
               </ol-feature>
             </ol-source-vector>
             <slot name="pin">
@@ -169,27 +202,30 @@ const fullScreenLabel = createHTMLElementFromString(enlargeIcon)
 
       <slot
         name="popup"
-        :overlayPosition="overlayPosition"
-        :popupIsOpen="popupIsOpen"
+        :overlayPosition="popup.position"
+        :popupIsOpen="popup.isOpen"
       >
         <ol-overlay
-          v-if="popupIsOpen && popupType === 'feature'"
-          :position="overlayPosition"
+          v-if="popup.isOpen && popupType === 'popover'"
+          :position="popup.position"
           positioning="top-center"
         >
           <RplMapPopUp
-            :is-open="popupIsOpen"
+            v-if="popup.isOpen && popupType === 'popover'"
+            :is-open="popup.isOpen"
+            :is-area="popup.isArea"
             :type="popupType"
             @close="onPopUpClose"
           >
             <template #header>
-              <slot name="popupTitle" :selectedFeatures="selectedFeatures">
-                {{ selectedFeatures[0].title }}
+              <slot name="popupTitle" :selectedFeatures="popup.feature">
+                {{ popup.feature[0].title }}
               </slot>
             </template>
-            <slot name="popupContent" :selectedFeatures="selectedFeatures">
+            <slot name="popupContent" :selectedFeatures="popup.feature">
+              {{ popup.feature }}
               <p class="rpl-type-p-small">
-                {{ selectedFeatures[0].description }}
+                {{ popup.feature[0].description }}
               </p>
             </slot>
           </RplMapPopUp>

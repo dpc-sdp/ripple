@@ -1,13 +1,20 @@
 <template>
-  <div v-show="isOpen" class="rpl-map-popup" :class="`rpl-map-popup--${type}`">
+  <div
+    v-show="isOpen"
+    class="rpl-map-popup"
+    :class="{
+      [`rpl-map-popup--${type}`]: type,
+      [`rpl-map-popup--area`]: isArea
+    }"
+  >
+    <LargePinIcon class="rpl-map-popup__large-pin" v-if="!isArea" />
     <div class="rpl-map-popup__header">
-      <h3 :class="`rpl-type-h4 rpl-type-${type === 'feature'}`">
+      <h3 :class="`rpl-type-h4`">
         <slot name="header"> </slot>
       </h3>
       <button
         @click="onClose"
         class="rpl-map-popup__close rpl-u-focusable-inline"
-        :class="hoverClass"
       >
         <RplIcon name="icon-cancel"></RplIcon>
       </button>
@@ -23,14 +30,17 @@ import { ref } from 'vue'
 import { RplIcon } from '@dpc-sdp/ripple-ui-core/vue'
 import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
 import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
+import LargePinIcon from './../../assets/icons/icon-pin-large.svg?component'
 
 interface Props {
   isOpen: boolean
-  type?: 'feature' | 'sidebar'
+  isArea: boolean
+  type?: 'popover' | 'sidebar'
 }
 
 withDefaults(defineProps<Props>(), {
   isOpen: false,
+  isArea: false,
   type: 'sidebar'
 })
 
@@ -40,7 +50,7 @@ const emit = defineEmits<{
 
 const { emitRplEvent } = useRippleEvent('rpl-map-popup', emit)
 
-const hoverClass = ref('')
+// const hoverClass = ref('')
 
 function onClose() {
   emitRplEvent('close')

@@ -34,6 +34,50 @@ export default defineAppConfig({
             providedValues: values
           }
         }
+      },
+      mapPinStyleFn: {
+        vsbaPinIcons: (feature, Icon, markerIconDefaultSrc) => {
+          const projectType = feature
+            ? feature.get('field_mappintype_name')[0]
+            : ''
+          let color = '#a13434'
+          console.log(projectType)
+          switch (projectType) {
+            case 'Early childhood':
+              color = '#7c1792'
+              break
+            case 'School upgrade':
+              color = '#df4809'
+              break
+            case 'New school':
+              color = '#ff941a'
+              break
+          }
+          const ic = new Icon({
+            src: markerIconDefaultSrc,
+            color
+          })
+          return ic
+        }
+      },
+      mapResultsMappingFn: {
+        vsba: (result) => {
+          const hasLocation = get(result, props.mapConfig.props.latObjPath)
+          if (hasLocation && props.mapConfig && result._source) {
+            return {
+              ...result._source,
+              lat: parseFloat(get(result, props.mapConfig.props.latObjPath)),
+              lng: parseFloat(get(result, props.mapConfig.props.lngObjPath)),
+              id: result._id
+            }
+          } else {
+            return {
+              ...result._source,
+              isArea: true,
+              id: result._id
+            }
+          }
+        }
       }
     }
   }

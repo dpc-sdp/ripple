@@ -115,12 +115,17 @@ const searchResultsMappingFn = (item): TideSearchListingResultItem => {
 }
 
 const mapResultsMappingFn = (result) => {
-  if (props.mapConfig) {
+  const hasLocation = get(result, props.mapConfig.props.latObjPath)
+  if (hasLocation && props.mapConfig && result._source) {
     return {
       ...result._source,
-      title: get(result, props.mapConfig.props.titleObjPath),
       lat: parseFloat(get(result, props.mapConfig.props.latObjPath)),
       lng: parseFloat(get(result, props.mapConfig.props.lngObjPath)),
+      id: result._id
+    }
+  } else {
+    return {
+      ...result._source,
       id: result._id
     }
   }
@@ -211,6 +216,7 @@ onAggregationUpdateHook.value = (aggs) => {
     })
   })
 }
+
 const emitSearchEvent = (event) => {
   emitRplEvent(
     'submit',
@@ -330,17 +336,36 @@ function handleLocationSearch(payload: any) {
 }
 
 const rplMapRef = ref(null)
+const popup = ref({
+  isOpen: false,
+  position: [0, 0],
+  feature: null
+})
 provide('rplMapInstance', {
   rplMapRef,
-  setRplMapRef
+  setRplMapRef,
+  popup
 })
 function setRplMapRef(mapInstance: any) {
   rplMapRef.value = mapInstance
 }
+
+const mapFeatures = computed(() => {
+  if (Array.isArray(mapResults.value)) {
+    return mapResults.value.filter((itm) => !itm.isArea)
+  }
+  return []
+})
+const mapAreas = computed(() => {
+  if (Array.isArray(mapResults.value)) {
+    return mapResults.value.filter((itm) => itm.isArea)
+  }
+  return []
+})
 </script>
 
 <template>
-  <div class="rpl-u-margin-t-8">
+  <div>
     <div class="tide-search-header">
       <RplSearchBar
         v-if="!locationQueryConfig?.component"
@@ -402,7 +427,6 @@ function setRplMapRef(mapInstance: any) {
       :activeTab="activeTab"
       @toggleTab="handleTabChange"
     />
-
     <template
       v-if="!searchListingConfig?.displayMapTab || activeTab === 'listing'"
     >
@@ -430,10 +454,11 @@ function setRplMapRef(mapInstance: any) {
       </TideSearchAboveResults>
 
       <TideSearchResultsLoadingState :isActive="isBusy">
-        <div class="rpl-u-margin-t-8">
-          <TideSearchError v-if="searchError" />
-          <TideSearchNoResults v-else-if="!isBusy && !results?.length" />
-        </div>
+        <TideSearchError v-if="searchError" />
+        <TideSearchNoResults
+          :query="searchTerm"
+          v-else-if="!isBusy && !results?.length"
+        />
 
         <component
           :is="resultsConfig.layout?.component"
@@ -456,12 +481,10 @@ function setRplMapRef(mapInstance: any) {
     </template>
 
     <template v-if="activeTab === 'map'">
-      <!-- <div v-for="r in mapResults" :key="r.id">
-        {{ r.title }}
-      </div> -->
       <TideSearchListingResultsMap
-        v-if="mapResults && mapResults.length > 0"
-        :results="mapResults"
+        v-if="mapFeatures && mapFeatures.length > 0"
+        :results="mapFeatures"
+        :areas="mapAreas"
         v-bind="mapConfig?.props"
       >
       </TideSearchListingResultsMap>
@@ -476,6 +499,10 @@ function setRplMapRef(mapInstance: any) {
   display: flex;
   flex-direction: column;
   margin-top: var(--rpl-sp-6);
+}
+.tide-search-header--neutral {
+  background-color: var(--rpl-clr-neutral-200);
+  padding: var(--rpl-sp-5);
 }
 
 .tide-search-filters.rpl-grid {

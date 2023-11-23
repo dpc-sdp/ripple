@@ -1,0 +1,94 @@
+{
+  "searchListingConfig": {
+    "searchProvider": "elasticsearch",
+    "index": "elasticsearch_index_develop_node",
+    "resultsPerPage": 5,
+    "displayMapTab": true,
+    "labels": {
+      "submit": "Search",
+      "placeholder": "Search by postcode or suburb"
+    }
+  },
+  "queryConfig": {
+    "multi_match": {
+      "query": "{{query}}",
+      "fields": ["field_postcode", "field_suburb"]
+    }
+  },
+  "mapConfig": {
+    "props": {
+      "popup": {
+        "title": {
+          "objKey": "_source.title[0]"
+        },
+        "content": {
+          "component": "VSBAMapPopupContent"
+        }
+      },
+      "pinIconFn": "vsbaPinIcons",
+      "latObjPath": "_source.field_latitude[0]",
+      "lngObjPath": "_source.field_longitude[0]",
+      "titleObjPath": "title[0]",
+      "vectorLayerComponent": "VSBAProjectAreaLayer"
+    }
+  },
+  "userFilters": [
+    {
+      "id": "category",
+      "component": "TideSearchFilterDropdown",
+      "filter": {
+        "type": "terms",
+        "value": "field_mappintype_value"
+      },
+      "aggregations": {
+        "field": "field_mappintype_value",
+        "source": "elastic"
+      },
+      "props": {
+        "id": "category",
+        "label": "Filter by",
+        "type": "RplFormDropdown",
+        "multiple": true,
+        "options": []
+      }
+    }
+  ],
+  "globalFilters": [
+    {
+      "terms": {
+        "type": ["project_infrastructure"]
+      }
+    },
+    {
+      "terms": {
+        "field_node_site": [622]
+      }
+    }
+  ],
+  "locationQueryConfig": {
+    "component": "TideSearchAddressLookup",
+    "dslTransformFunction": "schoolBuildings",
+    "mapResultsMappingFn": "schoolBuildings"
+  },
+  "resultsConfig": {
+    "layout": {
+      "component": "TideSearchResultsTable",
+      "props": {
+        "columns": [
+          {
+            "label": "Title",
+            "objectKey": "title"
+          },
+          {
+            "label": "Postcode",
+            "objectKey": "field_postcode"
+          },
+          {
+            "label": "Type",
+            "objectKey": "field_mappintype_value"
+          }
+        ]
+      }
+    }
+  }
+}

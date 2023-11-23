@@ -13,12 +13,6 @@ export default [
           }
         },
         {
-          name: 'removeAttrs',
-          params: {
-            attrs: '(fill|stroke)'
-          }
-        },
-        {
           name: 'removeStyleElement'
         },
         {

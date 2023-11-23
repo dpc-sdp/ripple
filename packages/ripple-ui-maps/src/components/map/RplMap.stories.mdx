@@ -13,32 +13,33 @@ import RplMapProviderVicMap from './providers/RplMapProviderVicMap.vue'
 import RplMapProviderMapbox from './providers/RplMapProviderMapbox.vue'
 import { transform } from 'ol/proj'
 import Icon from 'ol/style/Icon'
-import featureData from './__fixture__/features.json'
+import featureData from './__fixture__/largeset.json'
+import ExampleVectorLayer from './__fixture__/ExampleVectorLayer.vue'
 import '@dpc-sdp/ripple-ui-core/style/components'
 import { getIconForPopulation } from './__fixture__/utils.ts'
 
 export const Template = (args) => ({
-  components: { RplMap, RplMapProviderEsri, RplMapProviderVicMap,RplMapProviderMapbox, RplAccordion },
+  components: { RplMap, RplMapProviderEsri, RplMapProviderVicMap,RplMapProviderMapbox, RplAccordion, ExampleVectorLayer },
   setup() {
     const rplMapRef = ref(null)
-    const rplMapSelectedFeatures = ref(null)
+    const popup = ref({
+      isOpen: false,
+      position: [0,0],
+      feature: null
+    })
     function setRplMapRef(mapInstance) {
       rplMapRef.value = mapInstance
-    }
-    function setRplMapSelectedFeatures(features) {
-      rplMapSelectedFeatures.value = features
     }
     provide('rplMapInstance', {
       rplMapRef,
       setRplMapRef,
-      rplMapSelectedFeatures,
-      setRplMapSelectedFeatures
+      popup
     })
     const getClusteredFeatures = (itms) => {
       return itms.map((itm, idx) => {
         return {
-          id: `${idx}-${itm.city}`,
-          title: itm.city,
+          id: `${idx}-${itm.title}`,
+          title: itm.title,
           content: itm.description
         }
       })
@@ -57,9 +58,12 @@ export const Template = (args) => ({
         <rpl-map-provider-vic-map v-if="args.provider === 'vicmap'" />
         <rpl-map-provider-mapbox v-if="args.provider === 'mapbox'" />
       </template>
+      <template v-if="args.vectorLayers" #shapes="{ mapFeatures }">
+        <ExampleVectorLayer :results="mapFeatures" />
+      </template>
       <template #popupTitle="{ selectedFeatures }">
         <span v-if="selectedFeatures.length === 1">
-          {{ selectedFeatures[0].city}}
+          {{ selectedFeatures[0].title}}
         </span>
         <span v-else>
           {{ selectedFeatures.length }} items found in this area
@@ -140,7 +144,20 @@ export const Template = (args) => ({
       id: '123',
       features:featureData,
       provider: 'mapbox',
-      popupType: 'feature'
+      popupType: 'popover'
+    }}
+  >
+    {Template.bind()}
+  </Story>
+  <Story
+    name='Vector Layers'
+    args={{
+      id: '123',
+      projection: 'EPSG:3857',
+      features:featureData,
+      provider: 'mapbox',
+      popupType: 'popover',
+      vectorLayers: true
     }}
   >
     {Template.bind()}

@@ -1,0 +1,452 @@
+{
+  "title": "Victorian School Building Authority",
+  "changed": "2023-11-08T12:12:07+11:00",
+  "created": "2021-04-29T13:42:44+10:00",
+  "type": "landing_page",
+  "nid": "b6cf3563-ee60-4c2c-92eb-0212109e6b4d",
+  "_sectionId": "622",
+  "sidebar": {
+    "contacts": [],
+    "relatedLinks": [],
+    "whatsNext": [],
+    "socialShareNetworks": [],
+    "siteSectionNav": null
+  },
+  "status": "published",
+  "topicTags": [
+    {
+      "text": "Education",
+      "url": "/topic/education"
+    }
+  ],
+  "siteSection": {
+    "id": 622,
+    "name": "schoolbuildings.vic.gov.au"
+  },
+  "meta": {
+    "url": "/victorian-school-building-authority",
+    "langcode": "en",
+    "description": "The school infrastructure boom is part of our commitment to making Victoria the Education State.",
+    "additional": [
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "title",
+          "content": "Victorian School Building Authority | Victorian School Building Authority"
+        }
+      },
+      {
+        "tag": "link",
+        "attributes": {
+          "rel": "canonical",
+          "href": "https://develop.content.vic.gov.au/victorian-school-building-authority"
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "property": "og:locale",
+          "content": "en-AU"
+        }
+      }
+    ],
+    "keywords": "",
+    "image": null
+  },
+  "showContentRating": true,
+  "summary": "The school infrastructure boom is part of our commitment to making Victoria the Education State.",
+  "showHeroAcknowledgement": false,
+  "showInPageNav": false,
+  "showHeroImageCaption": false,
+  "showTopicTags": false,
+  "inPageNavHeadingLevel": "h2",
+  "background": "default",
+  "header": {
+    "title": "Victorian School Building Authority",
+    "summary": "",
+    "links": {
+      "title": "",
+      "items": [],
+      "more": null
+    },
+    "backgroundImageCaption": "VSDA Entrant",
+    "theme": "reverse",
+    "logoImage": null,
+    "backgroundImage": {
+      "src": "https://develop.content.vic.gov.au/sites/default/files/2023-05/2023-24StateBudget_230523_HomeB.png",
+      "alt": "Home page banner - White Hills PS, VSDA Entrant",
+      "title": "Home page banner - White Hills PS, VSDA Entrant",
+      "width": 1600,
+      "height": 600,
+      "drupal_internal__target_id": 189857,
+      "focalPoint": {
+        "x": 480,
+        "y": 402
+      }
+    },
+    "cornerTop": null,
+    "cornerBottom": null,
+    "primaryAction": null,
+    "secondaryAction": null,
+    "secondaryActionLabel": ""
+  },
+  "primaryCampaign": {
+    "title": "New names for new schools opening in 2024",
+    "summaryHtml": "<p><span>14 new schools opening in 2024 have their official names and are on track to welcome their first students for Term 1 next year.</span></p>",
+    "cta": {
+      "text": "Find out more",
+      "url": "/new-names-for-new-schools"
+    },
+    "image": {
+      "src": "https://develop.content.vic.gov.au/sites/default/files/2023-07/230714_MerrifieldSouthPS_Construction_FI.png",
+      "alt": "2024 new school naming - feature image, Merrifield South Primary School (interim name) - construction",
+      "title": "2024 new school naming - feature image, Merrifield South Primary School (interim name) - construction",
+      "width": 818,
+      "height": 496,
+      "drupal_internal__target_id": 223818,
+      "focalPoint": {
+        "x": 409,
+        "y": 248
+      }
+    },
+    "imageCaption": null
+  },
+  "secondaryCampaign": {
+    "title": "New schools",
+    "summaryHtml": "<p>We’re building new schools where they are needed across Victoria.</p>",
+    "cta": {
+      "text": "Where are these schools?",
+      "url": "/new-schools"
+    },
+    "image": {
+      "src": "https://develop.content.vic.gov.au/sites/default/files/2021-12/100NewSchools_211201_CampaignImage.png",
+      "alt": "Inside of a new school learning space",
+      "title": "",
+      "width": 699,
+      "height": 411,
+      "drupal_internal__target_id": 38835,
+      "focalPoint": {
+        "x": 350,
+        "y": 206
+      }
+    },
+    "imageCaption": "Inside of a new school learning space"
+  },
+  "headerComponents": [
+    {
+      "uuid": "1fccc336-d32f-4cfc-8d07-ea0ecfde9595",
+      "component": "TideLandingPageIntroBanner",
+      "id": "595740",
+      "props": {
+        "title": "Our commitment",
+        "withIcon": false,
+        "links": {
+          "title": null,
+          "items": [
+            {
+              "text": "About us",
+              "url": "/about-us"
+            },
+            {
+              "text": "School funding programs",
+              "url": "/school-funding-programs"
+            },
+            {
+              "text": "Early childhood grants",
+              "url": "/early-childhood-grants"
+            },
+            {
+              "text": "Contact us",
+              "url": "/contact-victorian-school-building-authority"
+            }
+          ],
+          "type": "link",
+          "more": null
+        },
+        "html": "<p>The school infrastructure boom is part of our commitment to making Victoria the Education State.</p>"
+      }
+    }
+  ],
+  "bodyComponents": [
+    {
+      "uuid": "55555555-5555-5555-5555-555555555555",
+      "component": "TideDataDrivenMap",
+      "id": "123",
+      "title": "What's happening in your area?",
+      "props": {
+        "searchListingConfig": {
+          "searchProvider": "elasticsearch",
+          "index": "elasticsearch_index_develop_node",
+          "resultsPerPage": 10,
+          "displayMapTab": true,
+          "labels": {
+            "submit": "Search",
+            "placeholder": "Enter school name"
+          }
+        },
+        "queryConfig": {
+          "multi_match": {
+            "query": "{{query}}",
+            "fields": ["title"]
+          }
+        },
+        "mapConfig": {
+          "props": {
+            "popup": {
+              "title": {
+                "objKey": "title[0]"
+              },
+              "content": {
+                "objKey": "field_landing_page_summary[0]"
+              }
+            },
+            "latObjPath": "_source.field_latitude[0]",
+            "lngObjPath": "_source.field_longitude[0]",
+            "titleObjPath": "title[0]"
+          }
+        },
+        "userFilters": [
+          {
+            "id": "category",
+            "component": "TideSearchFilterDropdown",
+            "filter": {
+              "type": "terms",
+              "value": "field_mappintype_value"
+            },
+            "aggregations": {
+              "field": "field_mappintype_value",
+              "source": "elastic"
+            },
+            "props": {
+              "id": "category",
+              "label": "Filter by",
+              "type": "RplFormDropdown",
+              "multiple": false,
+              "options": []
+            }
+          }
+        ],
+        "globalFilters": [],
+        "resultsConfig": {
+          "layout": {
+            "component": "TideSearchResultsTable",
+            "props": {
+              "columns": [
+                {
+                  "label": "Title",
+                  "objectKey": "title"
+                },
+                {
+                  "label": "Postcode",
+                  "objectKey": "field_postcode"
+                },
+                {
+                  "label": "Type",
+                  "objectKey": "field_mappintype_value"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "uuid": "3e17008a-9492-4e97-9dd2-16b1b2f9ffae",
+      "component": "TideLandingPageContent",
+      "id": "583918",
+      "internalAnchors": [
+        {
+          "text": "Explore further",
+          "id": "explore-further",
+          "type": "h2"
+        }
+      ],
+      "props": {
+        "html": "<h2 id=\"explore-further\">Explore further</h2>"
+      }
+    },
+    {
+      "uuid": "c495a9e4-1226-41bd-ab17-c8ab6b83bc9c",
+      "component": "TideLandingPagePromoCard",
+      "id": "563870",
+      "layout": "card",
+      "props": {
+        "displayStyle": "thumbnail",
+        "title": "Australian Government Schools Upgrade Fund Information",
+        "summary": "The Australian Government's Schools Upgrade Fund (SUF) invests in large building projects. All Victorian government schools must seek endorsement from the VSBA. ",
+        "image": {
+          "src": "https://develop.content.vic.gov.au/sites/default/files/2023-11/SchoolUpgrade_231101_ParkwoodGreenPS_Feature.jpg",
+          "focalPoint": {
+            "x": 409,
+            "y": 248
+          },
+          "alt": "",
+          "width": 818,
+          "height": 496,
+          "title": ""
+        },
+        "url": "/schools-upgrade-fund",
+        "showMetadata": true,
+        "metadata": {
+          "dateStart": "",
+          "dateEnd": "",
+          "topic": "Education",
+          "contentType": "Landing Page",
+          "fvRecommendationStatus": "",
+          "inductionYear": "",
+          "isGrantOngoing": false
+        }
+      }
+    },
+    {
+      "uuid": "9a5a3b93-0909-4e8a-9029-23426bae9eab",
+      "component": "TideLandingPagePromoCard",
+      "id": "2473849",
+      "layout": "card",
+      "props": {
+        "displayStyle": "thumbnail",
+        "title": "Kinders at schools",
+        "summary": "New Victorian primary schools will have a kinder on-site or next door. We're also planning and building a pipeline of kindergartens at existing schools. ",
+        "image": {
+          "src": "https://develop.content.vic.gov.au/sites/default/files/2023-10/KAS_SothernCrossKindergarten_220801_Featuretile.jpg",
+          "focalPoint": {
+            "x": 409,
+            "y": 248
+          },
+          "alt": "",
+          "width": 818,
+          "height": 496,
+          "title": ""
+        },
+        "url": "/kinders-at-schools",
+        "showMetadata": true,
+        "metadata": {
+          "dateStart": "",
+          "dateEnd": "",
+          "topic": "Education",
+          "contentType": "Landing Page",
+          "fvRecommendationStatus": "",
+          "inductionYear": "",
+          "isGrantOngoing": false
+        }
+      }
+    },
+    {
+      "uuid": "79a50c73-2039-4d70-abc2-d07a95541454",
+      "component": "TideLandingPagePromoCard",
+      "id": "613957",
+      "layout": "card",
+      "props": {
+        "displayStyle": "thumbnail",
+        "title": "50 early learning centres for Victoria",
+        "summary": "We're building 50 new early learning centres across Victoria ",
+        "image": {
+          "src": "https://develop.content.vic.gov.au/sites/default/files/2023-02/220307_FroebelCarltonELC-Feature.png",
+          "focalPoint": {
+            "x": 640,
+            "y": 388
+          },
+          "alt": "Froebel Carlton ELC - feature image, Play area",
+          "width": 1280,
+          "height": 776,
+          "title": "Froebel Carlton ELC - feature image, Play area"
+        },
+        "url": "/50-early-learning-centres-victoria",
+        "showMetadata": true,
+        "metadata": {
+          "dateStart": "",
+          "dateEnd": "",
+          "topic": "Education",
+          "contentType": "Landing Page",
+          "fvRecommendationStatus": "",
+          "inductionYear": "",
+          "isGrantOngoing": false
+        }
+      }
+    },
+    {
+      "uuid": "617bc20a-c7ec-462f-a114-eea137f2274e",
+      "component": "TideLandingPageContent",
+      "id": "583919",
+      "internalAnchors": [
+        {
+          "text": "Some of our current projects",
+          "id": "some-of-our-current-projects",
+          "type": "h2"
+        }
+      ],
+      "props": {
+        "html": "<h2 id=\"some-of-our-current-projects\">Some of our current projects</h2>"
+      }
+    },
+    {
+      "uuid": "92b680a3-3a5d-4096-88a8-280d83b47af8",
+      "component": "TideLandingPagePromoCard",
+      "id": "583923",
+      "layout": "card",
+      "props": {
+        "displayStyle": "noImage",
+        "title": "Hampden Specialist School",
+        "summary": "Learn more about the improvements at Hampden Specialist School",
+        "image": null,
+        "url": "/hampden-specialist-school",
+        "showMetadata": true,
+        "metadata": {
+          "dateStart": "",
+          "dateEnd": "",
+          "topic": "Education",
+          "contentType": "Project: Infrastructure",
+          "fvRecommendationStatus": "",
+          "inductionYear": "",
+          "isGrantOngoing": false
+        }
+      }
+    },
+    {
+      "uuid": "5a56537c-fc57-4041-9eba-a7b9cfc61c69",
+      "component": "TideLandingPagePromoCard",
+      "id": "583925",
+      "layout": "card",
+      "props": {
+        "displayStyle": "noImage",
+        "title": "Heritage College Early Learning Centre",
+        "summary": "Learn more about the improvements at Heritage College Early Learning Centre.",
+        "image": null,
+        "url": "/heritage-college-early-learning-centre",
+        "showMetadata": true,
+        "metadata": {
+          "dateStart": "",
+          "dateEnd": "",
+          "topic": "Education",
+          "contentType": "Project: Infrastructure",
+          "fvRecommendationStatus": "",
+          "inductionYear": "",
+          "isGrantOngoing": false
+        }
+      }
+    },
+    {
+      "uuid": "a8b22878-2dae-480a-91c0-f1adf896a61e",
+      "component": "TideLandingPagePromoCard",
+      "id": "583924",
+      "layout": "card",
+      "props": {
+        "displayStyle": "noImage",
+        "title": "Auburn High School",
+        "summary": "Learn more about the improvements at Auburn High School.",
+        "image": null,
+        "url": "/auburn-high-school",
+        "showMetadata": true,
+        "metadata": {
+          "dateStart": "",
+          "dateEnd": "",
+          "topic": "Education",
+          "contentType": "Project: Infrastructure",
+          "fvRecommendationStatus": "",
+          "inductionYear": "",
+          "isGrantOngoing": false
+        }
+      }
+    }
+  ]
+}

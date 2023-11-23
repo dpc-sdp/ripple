@@ -17,10 +17,10 @@ export default defineAppConfig({
               sort: null
             },
             listing: {
-              filter: location.name
+              filter: location.postcode
                 ? {
                     terms: {
-                      field_postcode: [location.name]
+                      field_postcode: [location.postcode]
                     }
                   }
                 : null,

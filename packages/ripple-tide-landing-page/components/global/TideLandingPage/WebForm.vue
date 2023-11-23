@@ -107,7 +107,7 @@ const submitHandler = async ({ data }) => {
   }
 
   try {
-    await postForm(props.formId, data)
+    const formResponse = await postForm(props.formId, data)
 
     submissionState.value = {
       status: 'success',

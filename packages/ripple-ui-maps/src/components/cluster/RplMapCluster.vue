@@ -1,5 +1,5 @@
 <template>
-  <ol-style :overrideStyleFunction="overrideStyleFunction">
+  <ol-style :zIndex="4" :overrideStyleFunction="overrideStyleFunction">
     <ol-style-text>
       <ol-style-fill color="white"></ol-style-fill>
     </ol-style-text>
@@ -30,12 +30,12 @@ const overrideStyleFunction = (feature, style) => {
     return new CircleStyle({
       ...innerProperties,
       fill: new Fill({
-        color: [0, 136, 206, 1],
-        width: 10
+        color: [102, 102, 102, 1],
+        width: 48
       }),
       stroke: new Stroke({
-        color: [0, 136, 206, 0.28],
-        width: 15
+        color: [102, 102, 102, 0.2],
+        width: 8
       })
     })
   }
@@ -47,7 +47,11 @@ const overrideStyleFunction = (feature, style) => {
     style.getText().setStroke(undefined)
     style.getText().setFont('12px VIC-Bold, Arial, Helvetica, sans-serif')
   } else if (Array.isArray(clusteredFeatures)) {
-    const icon = props.pinStyle(clusteredFeatures[0])
+    const icon = props.pinStyle(
+      clusteredFeatures[0],
+      Icon,
+      markerIconDefaultSrc
+    )
     style.getText().setText('')
     style.setImage(icon)
   }

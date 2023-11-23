@@ -16,32 +16,46 @@
 
 .rpl-map__control {
   position: absolute;
-  right: var(--rpl-sp-8);
+  right: var(--rpl-sp-3);
+  background-color: transparent;
 
   button {
-    padding: var(--rpl-sp-2);
     border: var(--rpl-border-1) solid var(--rpl-clr-neutral-200);
     border-radius: var(--rpl-border-radius-2);
     box-shadow: var(--rpl-elevation-1);
     background-color: var(--rpl-clr-light);
-    height: var(--rpl-sp-8);
-    width: var(--rpl-sp-8);
     display: flex;
     justify-content: center;
+    align-items: center;
     font-size: 1.75rem;
     line-height: 1.25rem;
+    height: 44px;
+    width: 44px;
+    color: var(--rpl-clr-neutral-600);
+
+    &:hover {
+      outline: none;
+      color: var(--rpl-clr-primary);
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 var(--rpl-border-1) var(--rpl-clr-dark) inset,
+      0 0 0 var(--rpl-border-3) var(--rpl-clr-focus);
+      border: var(--rpl-border-1) solid var(--rpl-clr-neutral-200);
+    }
   }
 }
 
 .rpl-map__control-zoom {
-  top: var(--rpl-sp-4);
+  bottom: var(--rpl-sp-4);
   button {
-    margin-top: var(--rpl-sp-1);
+    margin-top: var(--rpl-sp-2);
   }
 }
 
 .rpl-map__control-fullscreen {
-  top: calc(var(--rpl-sp-12) + var(--rpl-sp-8) + var(--rpl-sp-4));
+  top: var(--rpl-sp-3);
 }
 
 .rpl-map__legend {

@@ -1,4 +1,4 @@
-import { getField } from '@dpc-sdp/ripple-tide-api'
+import { getField, getBody } from '@dpc-sdp/ripple-tide-api'
 import { TideDynamicPageComponent } from '@dpc-sdp/ripple-tide-api/types'
 
 export interface ITideDataTable {
@@ -11,6 +11,7 @@ export interface ITideDataTable {
   columns: Array<{
     label?: string
     objectKey: string
+    isHTML?: boolean
   }>
   items: Array<Record<string, any>>
 }
@@ -27,7 +28,8 @@ const getColumnsFromEntries = (rows: any, firstRowIsHeader: boolean) => {
   return firstRow.map((val: any, index: number) => {
     return {
       label: firstRowIsHeader ? val : undefined,
-      objectKey: columnKey(index)
+      objectKey: columnKey(index),
+      isHTML: true
     }
   })
 }
@@ -53,7 +55,7 @@ export const dataTableMapping = (
       return entry.reduce((itemObj, val, index) => {
         return {
           ...itemObj,
-          [columnKey(index)]: val
+          [columnKey(index)]: getBody(val)
         }
       }, {})
     })

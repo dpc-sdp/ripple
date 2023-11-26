@@ -27,10 +27,10 @@
         :showTime="page.showTime"
         :overview="page.overview"
         :details="page.details"
-        :link="page.link"
+        :link="page.websiteURL"
         :description="page.description"
       ></TideEventOverview>
-      <TideEventBody :body="page.body" :link="page.link"></TideEventBody>
+      <TideEventBody :body="page.body" :link="page.bookingURL"></TideEventBody>
     </template>
     <template #aboveSidebar>
       <slot name="aboveSidebar"></slot>

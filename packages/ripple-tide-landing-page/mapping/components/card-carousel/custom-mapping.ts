@@ -87,7 +87,12 @@ export const mapping = (field) => {
         summary: getField(field, 'field_paragraph_summary', '')
       }
       break
-    case 'paragraph--card_promotion_auto':
+    case 'paragraph--card_promotion_auto': {
+      // Landing pages shouldn't display the date
+      const isLandingPage =
+        getField(field, 'field_paragraph_reference.type', null) ===
+        'node--landing_page'
+
       item = {
         type: 'promo',
         title: getField(field, 'field_paragraph_reference.title', ''),
@@ -101,7 +106,9 @@ export const mapping = (field) => {
                 null
               )
             : null,
-          date: getField(field, 'field_paragraph_reference.created', null)
+          date: !isLandingPage
+            ? getField(field, 'field_paragraph_reference.created', null)
+            : null
         },
         summary: getField(
           field,
@@ -110,6 +117,7 @@ export const mapping = (field) => {
         )
       }
       break
+    }
   }
 
   return item

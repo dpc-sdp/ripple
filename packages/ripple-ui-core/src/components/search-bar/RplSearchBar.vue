@@ -20,12 +20,14 @@ interface Props {
   inputLabel?: string
   inputValue?: string
   submitLabel?: string | boolean
-  suggestions?: string[]
+  suggestions?: any[]
   maxSuggestionsDisplayed?: number
   placeholder?: string
   globalEvents?: boolean
   showNoResults?: boolean
   getSuggestionVal?: (item: any) => string
+  getOptionLabel?: Function
+  isOptionSelectable?: Function
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -39,7 +41,9 @@ const props = withDefaults(defineProps<Props>(), {
   maxSuggestionsDisplayed: 10,
   placeholder: undefined,
   globalEvents: true,
-  getSuggestionVal: (item) => item
+  getSuggestionVal: (item) => item,
+  getOptionLabel: (opt) => opt.toString(),
+  isOptionSelectable: (opt) => true
 })
 
 const emit = defineEmits<{
@@ -95,7 +99,9 @@ const handleInputChange = (e) => {
   isOpen.value = true
 }
 
-const handleSelectOption = (optionValue, focusBackOnInput) => {
+const handleSelectOption = (optionValue: any, focusBackOnInput) => {
+  const optionLabel = props.getOptionLabel(optionValue)
+
   if (focusBackOnInput) {
     inputRef.value.focus()
   }
@@ -221,6 +227,8 @@ watch(activeOptionId, async (newId) => {
     focusOption(newId)
   }
 })
+
+const slug = (label: string) => label.toLowerCase().replace(/[^\w-]+/g, '-')
 </script>
 
 <template>
@@ -286,24 +294,32 @@ watch(activeOptionId, async (newId) => {
       >
         <div
           v-for="option in suggestions"
-          :id="option"
-          :key="option"
+          :id="slug(getOptionLabel(option))"
+          :key="`opt-${slug(getOptionLabel(option))}`"
           ref="optionRefs"
-          :data-option-id="option"
-          role="option"
+          :data-option-id="getOptionLabel(option)"
+          :role="isOptionSelectable(option) ? 'option' : null"
           :class="{
             'rpl-search-bar__menu-option': true,
             'rpl-u-focusable-block': true,
-            'rpl-u-focusable--force-on': isMenuItemKeyboardFocused(option)
+            'rpl-u-focusable--force-on': isMenuItemKeyboardFocused(
+              slug(getOptionLabel(option))
+            )
           }"
           tabindex="-1"
-          @keydown.space.prevent="handleSelectOption(option, true)"
-          @keydown.enter.prevent="handleSelectOption(option, true)"
-          @click="handleSelectOption(option, false)"
-          @keydown="handleKeydown"
+          @keydown.space.prevent="
+            isOptionSelectable(option) && handleSelectOption(option, true)
+          "
+          @keydown.enter.prevent="
+            isOptionSelectable(option) && handleSelectOption(option, true)
+          "
+          @click="
+            isOptionSelectable(option) && handleSelectOption(option, false)
+          "
+          @keydown="isOptionSelectable(option) && handleKeydown"
         >
           <slot name="suggestion" :option="{ option }">
-            {{ option }}
+            {{ getOptionLabel(option) }}
           </slot>
         </div>
       </div>

@@ -6,6 +6,7 @@
   "license": "Apache-2.0",
   "type": "module",
   "private": true,
+  "sdp_version": "6.6.6",
   "scripts": {
     "dev": "nuxt dev",
     "dev:mock": "NUXT_PUBLIC_API_URL=http://localhost:3001 API_PORT=3001 concurrently 'pnpm mockserver' 'pnpm dev'",
@@ -17,7 +18,7 @@
     "cy:open": "cypress open --e2e --browser electron",
     "cy:run": "cypress run --record",
     "test:ci": "NUXT_PUBLIC_API_URL=http://localhost:3001 API_PORT=3001 start-test start tcp:3000 'cy:run'",
-    "test:integration": "start-test 'NUXT_PUBLIC_API_URL=http://localhost:3001 API_PORT=3001 pnpm dev' 'http-get://localhost:3000/api/tide/site?id=8888' 'cy:open'"
+    "test:integration": "NUXT_PUBLIC_TIDE_SITE=TEST_SITE NUXT_PUBLIC_TIDE_BASE_URL=https://test.base.url/ start-test dev:mock tcp:3000 'cy:open'"
   },
   "dependencies": {
     "@dpc-sdp/nuxt-ripple": "workspace:*",

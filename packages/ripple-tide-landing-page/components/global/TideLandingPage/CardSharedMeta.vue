@@ -1,6 +1,8 @@
 <template>
   <RplTag v-if="contentTypeLabel" :label="contentTypeLabel" variant="neutral" />
-  <span v-if="!contentTypeLabel" class="rpl-card__topic">{{ meta.topic }}</span>
+  <span v-if="!contentTypeLabel && meta.topic" class="rpl-card__topic">{{
+    meta.topic
+  }}</span>
   <span v-if="isGrant && grantStatus" class="rpl-card__status">
     <RplIcon
       v-if="

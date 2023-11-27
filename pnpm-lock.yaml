@@ -391,12 +391,6 @@ importers:
       defu:
         specifier: ^6.1.2
         version: 6.1.2
-      jsonapi-parse:
-        specifier: ^2.0.1
-        version: 2.0.1
-      rfg-api:
-        specifier: ^0.5.3
-        version: 0.5.3
 
   packages/nuxt-ripple-analytics:
     dependencies:
@@ -458,6 +452,9 @@ importers:
       hygen:
         specifier: ^6.2.11
         version: 6.2.11
+      jsonapi-parse:
+        specifier: ^2.0.1
+        version: 2.0.1
       mockttp:
         specifier: ^3.9.1
         version: 3.9.1
@@ -467,6 +464,9 @@ importers:
       object-to-argv:
         specifier: ^2.0.0
         version: 2.0.0
+      rfg-api:
+        specifier: ^0.5.3
+        version: 0.5.3
       rimraf:
         specifier: ^4.4.1
         version: 4.4.1

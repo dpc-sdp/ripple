@@ -126,3 +126,39 @@
     }
   }
 }
+
+[dir='rtl'] .rpl-type-list-ol,
+[dir='rtl'] .rpl-content ol,
+[dir='rtl'] .rpl-type-list-ul,
+[dir='rtl'] .rpl-content ul {
+  margin-left: 0;
+  margin-right: var(--rpl-sp-4);
+  padding-left: 0;
+  padding-right: var(--rpl-sp-4);
+
+  @media (--rpl-bp-l) {
+    margin-left: 0;
+    margin-right: var(--rpl-sp-5);
+  }
+
+  > li {
+    padding: 0 var(--rpl-sp-2) var(--rpl-sp-2) 0;
+  }
+}
+
+[dir='rtl'] .rpl-type-list-ul,
+[dir='rtl'] .rpl-content ul {
+  > li {
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 1.1rem;
+      right: -0.9rem;
+      background-color: currentcolor;
+      width: 0.5rem;
+      height: 0.5rem;
+      border-radius: 50%;
+    }
+  }
+}

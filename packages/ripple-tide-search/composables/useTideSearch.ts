@@ -328,7 +328,7 @@ export default ({
         }
       },
       // size: 10000, TODO change back to this, but it's tanking performance when switching tabs
-      size: 100,
+      size: 10000,
       from: 0,
       sort: getSortClause()
     }

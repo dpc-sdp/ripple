@@ -3,7 +3,9 @@ import { useRippleEvent, rplEventPayload } from '@dpc-sdp/ripple-ui-core'
 import type { IRplMapFeature } from './../../types'
 import { onMounted, ref, inject, computed } from 'vue'
 import { Map } from 'ol'
+import { Point } from 'ol/geom'
 import Icon from 'ol/style/Icon'
+import Feature from 'ol/Feature'
 import { fromLonLat } from 'ol/proj'
 import RplMapPopUp from './../popup/RplMapPopUp.vue'
 import RplMapCluster from './../cluster/RplMapCluster.vue'
@@ -11,11 +13,12 @@ import markerIconDefaultSrc from './../feature-pin/icon-pin.svg?url'
 import zoomInIcon from './../../assets/icons/icon-map-zoom-in.svg?raw'
 import zoomOutIcon from './../../assets/icons/icon-map-zoom-out.svg?raw'
 import enlargeIcon from './../../assets/icons/icon-enlarge.svg?raw'
+import homeIcon from './../../assets/icons/icon-home.svg?component'
 import useMapControlLabel from './../../composables/useMapControlLabel'
 import {
   getfeaturesAtMapPixel,
   zoomToClusterExtent,
-  centerOnPopup
+  centerMap
 } from './utils.ts'
 
 interface Props {
@@ -82,19 +85,16 @@ const center = computed(() => {
 
 const mapFeatures = computed(() => {
   if (Array.isArray(props.features)) {
-    if (props.projection === 'EPSG:4326') {
-      return props.features
-    } else if (props.projection === 'EPSG:3857') {
-      // we convert all features to match projection
-      return props.features.map((itm) => {
-        const geoPoint = fromLonLat([itm.lng, itm.lat])
-        return {
-          ...itm,
-          lng: geoPoint[0],
-          lat: geoPoint[1]
-        }
+    return props.features.map((itm, idx) => {
+      const geoPoint = fromLonLat([itm.lng, itm.lat])
+      return new Feature({
+        geometry: new Point(geoPoint),
+        index: idx,
+        ...itm,
+        lng: geoPoint[0],
+        lat: geoPoint[1]
       })
-    }
+    })
   }
   return []
 })
@@ -123,9 +123,13 @@ function onMapSingleClick(evt) {
       popup.value.isOpen = true
       popup.value.isArea = false
       popup.value.position = coordinates
-      centerOnPopup(map, coordinates)
+      centerMap(map, coordinates)
     }
   }
+}
+
+function onHomeClick() {
+  centerMap(mapRef.value.map, center.value, { y: 0, x: 0 }, props.initialZoom)
 }
 </script>
 
@@ -178,21 +182,11 @@ function onMapSingleClick(evt) {
         <slot name="features" :features="mapFeatures">
           <ol-animated-clusterlayer
             title="clusterLayer"
-            :animationDuration="500"
-            :distance="50"
+            :animationDuration="800"
+            :distance="80"
             :zIndex="4"
           >
-            <ol-source-vector>
-              <ol-feature
-                v-for="feature in mapFeatures"
-                :key="feature.id"
-                :properties="feature"
-              >
-                <ol-geom-point
-                  :coordinates="[feature.lng, feature.lat]"
-                ></ol-geom-point>
-              </ol-feature>
-            </ol-source-vector>
+            <ol-source-vector :features="mapFeatures"> </ol-source-vector>
             <slot name="pin">
               <RplMapCluster :pinStyle="pinStyle"></RplMapCluster>
             </slot>
@@ -237,12 +231,15 @@ function onMapSingleClick(evt) {
         :zoomInLabel="zoomInLabel"
         :zoomOutLabel="zoomOutLabel"
       />
+      <div className="rpl-map__control rpl-map__control-home">
+        <button @click="onHomeClick"><homeIcon></homeIcon></button>
+      </div>
       <ol-fullscreen-control
         :label="fullScreenLabel"
         className="rpl-map__control rpl-map__control-fullscreen"
       />
     </ol-map>
-    <div class="rpl-map__legend">
+    <div v-if="$slots.legend" class="rpl-map__legend">
       <slot name="legend"></slot>
     </div>
   </div>

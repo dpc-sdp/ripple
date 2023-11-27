@@ -1,6 +1,5 @@
 <template>
   <div
-    v-show="isOpen"
     class="rpl-map-popup"
     :class="{
       [`rpl-map-popup--${type}`]: type,

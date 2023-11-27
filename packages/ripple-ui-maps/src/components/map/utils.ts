@@ -1,7 +1,7 @@
 import { boundingExtent } from 'ol/extent'
 import { transform, transformExtent } from 'ol/proj'
 import { getDistance } from 'ol/sphere'
-import { easeOut } from 'ol/easing'
+import { inAndOut } from 'ol/easing'
 
 export const haversineDistance = (coord1, coord2) => getDistance(coord1, coord2)
 
@@ -76,18 +76,19 @@ export const zoomToClusterExtent = (
     if (mapSize) {
       map.getView().fit(zoomRegion, {
         size: mapSize,
-        easing: easeOut,
-        duration: 400,
+        easing: inAndOut,
+        duration: 800,
         padding: [100, 100, 100, 100]
       })
     }
   }
 }
 
-export const centerOnPopup = (
+export const centerMap = (
   map,
   position = [0, 0],
-  offset = { y: -100, x: 0 }
+  offset = { y: -100, x: 0 },
+  zoom
 ) => {
   const view = map.getView()
   const resolution = view.getResolution()
@@ -98,7 +99,8 @@ export const centerOnPopup = (
 
   view.animate({
     center: offsetCoord,
-    duration: 600,
-    easing: easeOut
+    duration: 1200,
+    easing: inAndOut,
+    zoom: zoom || view.getZoom()
   })
 }

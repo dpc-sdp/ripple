@@ -15,12 +15,28 @@
 .rpl-map-popup__large-pin {
   position: absolute;
   left: 50%;
-  top: -80px;
-  margin-left: -35px;
+  top: -30px;
+  margin-left: -38px;
+  height: 33px;
+  width: 75px;
   path {
     fill: var(--rpl-clr-primary);
     stroke: rgba(0, 57, 136, 1);
   }
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 1.5s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
 }
 
 .rpl-map-popup__header {

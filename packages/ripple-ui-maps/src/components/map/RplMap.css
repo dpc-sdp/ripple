@@ -58,6 +58,14 @@
   top: var(--rpl-sp-3);
 }
 
+.rpl-map__control-home {
+  bottom: var(--rpl-sp-14);
+  z-index: var(--rpl-layer-4);
+  svg {
+    fill: var(--rpl-clr-neutral-600);
+  }
+}
+
 .rpl-map__legend {
   position: absolute;
   z-index: 999;

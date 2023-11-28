@@ -976,6 +976,9 @@ importers:
       '@dpc-sdp/ripple-tide-api':
         specifier: workspace:*
         version: link:../ripple-tide-api
+      '@dpc-sdp/ripple-ui-core':
+        specifier: workspace:*
+        version: link:../ripple-ui-core
       '@vitejs/plugin-vue':
         specifier: ^4.1.0
         version: 4.1.0(vite@4.1.5)(vue@3.3.4)
@@ -2842,7 +2845,6 @@ packages:
     dependencies:
       '@csstools/css-parser-algorithms': 2.0.1(@csstools/css-tokenizer@2.0.1)
       '@csstools/css-tokenizer': 2.0.1
-    dev: true
 
   /@csstools/cascade-layer-name-parser@1.0.1(@csstools/css-parser-algorithms@2.3.1)(@csstools/css-tokenizer@2.1.1):
     resolution: {integrity: sha512-SAAi5DpgJJWkfTvWSaqkgyIsTawa83hMwKrktkj6ra2h+q6ZN57vOGZ6ySHq6RSo+CbP64fA3aPChPBRDDUgtw==}
@@ -2891,7 +2893,6 @@ packages:
       '@csstools/css-tokenizer': ^2.0.0
     dependencies:
       '@csstools/css-tokenizer': 2.0.1
-    dev: true
 
   /@csstools/css-parser-algorithms@2.3.1(@csstools/css-tokenizer@2.1.1):
     resolution: {integrity: sha512-xrvsmVUtefWMWQsGgFffqWSK03pZ1vfDki4IVIIUxxDKnGBzqNgv0A7SB1oXtVNEkcVO8xi1ZrTL29HhSu5kGA==}
@@ -2904,7 +2905,6 @@ packages:
   /@csstools/css-tokenizer@2.0.1:
     resolution: {integrity: sha512-sYD3H7ReR88S/4+V5VbKiBEUJF4FqvG+8aNJkxqoPAnbhFziDG22IDZc4+h+xA63SfgM+h15lq5OnLeCxQ9nPA==}
     engines: {node: ^14 || ^16 || >=18}
-    dev: true
 
   /@csstools/css-tokenizer@2.1.1:
     resolution: {integrity: sha512-GbrTj2Z8MCTUv+52GE0RbFGM527xuXZ0Xa5g0Z+YN573uveS4G0qi6WNOMyz3yrFM/jaILTTwJ0+umx81EzqfA==}
@@ -3131,6 +3131,16 @@ packages:
       postcss: 8.4.21
       postcss-selector-parser: 6.0.11
     dev: true
+
+  /@csstools/selector-specificity@2.1.1(postcss-selector-parser@6.0.11)(postcss@8.4.27):
+    resolution: {integrity: sha512-jwx+WCqszn53YHOfvFMJJRd/B2GqkCBt+1MJSG6o5/s8+ytHMvDZXsJgUEWLk12UnLd7HYKac4BYU5i/Ron1Cw==}
+    engines: {node: ^14 || ^16 || >=18}
+    peerDependencies:
+      postcss: ^8.4
+      postcss-selector-parser: ^6.0.10
+    dependencies:
+      postcss: 8.4.27
+      postcss-selector-parser: 6.0.11
 
   /@csstools/selector-specificity@2.1.1(postcss-selector-parser@6.0.13)(postcss@8.4.27):
     resolution: {integrity: sha512-jwx+WCqszn53YHOfvFMJJRd/B2GqkCBt+1MJSG6o5/s8+ytHMvDZXsJgUEWLk12UnLd7HYKac4BYU5i/Ron1Cw==}
@@ -22281,9 +22291,9 @@ packages:
     peerDependencies:
       postcss: ^8.4
     dependencies:
-      '@csstools/cascade-layer-name-parser': 1.0.1(@csstools/css-parser-algorithms@2.3.1)(@csstools/css-tokenizer@2.1.1)
-      '@csstools/css-parser-algorithms': 2.3.1(@csstools/css-tokenizer@2.1.1)
-      '@csstools/css-tokenizer': 2.1.1
+      '@csstools/cascade-layer-name-parser': 1.0.1(@csstools/css-parser-algorithms@2.0.1)(@csstools/css-tokenizer@2.0.1)
+      '@csstools/css-parser-algorithms': 2.0.1(@csstools/css-tokenizer@2.0.1)
+      '@csstools/css-tokenizer': 2.0.1
       postcss: 8.4.27
       postcss-value-parser: 4.2.0
 
@@ -22681,9 +22691,9 @@ packages:
     peerDependencies:
       postcss: ^8.4
     dependencies:
-      '@csstools/selector-specificity': 2.1.1(postcss-selector-parser@6.0.13)(postcss@8.4.27)
+      '@csstools/selector-specificity': 2.1.1(postcss-selector-parser@6.0.11)(postcss@8.4.27)
       postcss: 8.4.27
-      postcss-selector-parser: 6.0.13
+      postcss-selector-parser: 6.0.11
 
   /postcss-normalize-charset@6.0.0(postcss@8.4.27):
     resolution: {integrity: sha512-cqundwChbu8yO/gSWkuFDmKrCZ2vJzDAocheT2JTd0sFNA4HMGoKMfbk2B+J0OmO0t5GUkiAkSM5yF2rSLUjgQ==}

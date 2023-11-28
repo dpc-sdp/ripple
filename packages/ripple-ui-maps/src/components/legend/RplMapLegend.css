@@ -1,11 +1,30 @@
+@import '@dpc-sdp/ripple-ui-core/style/breakpoints';
+
 .rpl-map-legend {
-  width: 180px;
-  height: 150px;
-  border-radius: var(--rpl-border-radius-3);
-  background-color: #fff;
-  box-shadow: var(--rpl-elevation-1);
 }
 
-.rpl-map-legend__title {
-  padding: var(--rpl-sp-1);
+.rpl-map-legend__toggle {
+  display: flex;
+  column-gap: var(--rpl-sp-2);
+  color: var(--rpl-clr-link);
+  cursor: pointer;
+}
+
+.rpl-map-legend__list {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  column-gap: var(--rpl-sp-6);
+  row-gap: var(--rpl-sp-2);
+  margin-top: var(--rpl-sp-4);
+
+  @media (--rpl-bp-m) {
+    flex-direction: row;
+  }
+}
+
+.rpl-map-legend-item {
+  display: flex;
+  align-items: center;
+  gap: var(--rpl-sp-2);
 }

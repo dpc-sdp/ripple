@@ -51,9 +51,9 @@ describe('introBannerMapping', () => {
         headingType: { horizontal: true, vertical: false },
         orientation: 'row',
         columns: [
-          { label: 'Row One Column One', objectKey: 'col0' },
-          { label: 'Row One Column Two', objectKey: 'col1' },
-          { label: 'Row One Column Three', objectKey: 'col2' }
+          { label: 'Row One Column One', objectKey: 'col0', isHTML: true },
+          { label: 'Row One Column Two', objectKey: 'col1', isHTML: true },
+          { label: 'Row One Column Three', objectKey: 'col2', isHTML: true }
         ],
         items: [
           {
@@ -82,9 +82,9 @@ describe('introBannerMapping', () => {
         headingType: { horizontal: false, vertical: false },
         orientation: 'row',
         columns: [
-          { objectKey: 'col0' },
-          { objectKey: 'col1' },
-          { objectKey: 'col2' }
+          { objectKey: 'col0', isHTML: true },
+          { objectKey: 'col1', isHTML: true },
+          { objectKey: 'col2', isHTML: true }
         ],
         items: [
           {

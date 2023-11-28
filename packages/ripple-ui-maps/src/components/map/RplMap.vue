@@ -6,6 +6,7 @@ import { Map } from 'ol'
 import { Point } from 'ol/geom'
 import Icon from 'ol/style/Icon'
 import Feature from 'ol/Feature'
+import { asString } from 'ol/color'
 import { fromLonLat } from 'ol/proj'
 import RplMapPopUp from './../popup/RplMapPopUp.vue'
 import RplMapCluster from './../cluster/RplMapCluster.vue'
@@ -40,19 +41,7 @@ const props = withDefaults(defineProps<Props>(), {
   popupType: 'sidebar',
   initialCenter: () => [144.9631, -36.8136], // melbourne CBD
   pinStyle: (feature) => {
-    // const projectType = feature ? feature.get('field_mappintype_name')[0] : ''
-    let color = 'red'
-    // switch (projectType) {
-    //   case 'Early childhood':
-    //     color = '#7c1792'
-    //     break
-    //   case 'School upgrade':
-    //     color = '#df4809'
-    //     break
-    //   case 'Planning':
-    //     color = '#ff941a'
-    //     break
-    // }
+    let color = feature.color || 'red'
     const ic = new Icon({
       src: markerIconDefaultSrc,
       color
@@ -119,12 +108,27 @@ function onMapSingleClick(evt) {
       // if we click on a pin we open the popup
       const clickedFeature = point.features[0]
       const coordinates = clickedFeature.getGeometry().flatCoordinates
-      popup.value.feature = [clickedFeature.getProperties()]
+      const featureProperties = clickedFeature.getProperties()
+      const pinStyle = props.pinStyle(featureProperties)
+      const pinColor =
+        typeof pinStyle === 'string' ? pinStyle : pinStyle?.getColor()
+      popup.value.feature = [featureProperties]
+      popup.value.color = asString(pinColor)
       popup.value.isOpen = true
       popup.value.isArea = false
       popup.value.position = coordinates
       centerMap(map, coordinates)
     }
+  }
+}
+
+function onMapMove(evt) {
+  const map = mapRef.value.map
+  const point = getfeaturesAtMapPixel(map, evt.pixel)
+  if (point && point.features) {
+    document.querySelector('canvas').style.cursor = 'pointer'
+  } else {
+    document.querySelector('canvas').style.cursor = 'default'
   }
 }
 
@@ -166,6 +170,7 @@ function onHomeClick() {
       :style="`height: ${mapHeight}px`"
       :controls="[]"
       @singleclick="onMapSingleClick"
+      @pointermove="onMapMove"
     >
       <ol-view
         ref="view"
@@ -182,8 +187,8 @@ function onHomeClick() {
         <slot name="features" :features="mapFeatures">
           <ol-animated-clusterlayer
             title="clusterLayer"
-            :animationDuration="800"
-            :distance="80"
+            :animationDuration="300"
+            :distance="100"
             :zIndex="4"
           >
             <ol-source-vector :features="mapFeatures"> </ol-source-vector>
@@ -194,21 +199,13 @@ function onHomeClick() {
         </slot>
       </ol-vector-layer>
 
-      <slot
-        name="popup"
-        :overlayPosition="popup.position"
-        :popupIsOpen="popup.isOpen"
-      >
-        <ol-overlay
-          v-if="popup.isOpen && popupType === 'popover'"
-          :position="popup.position"
-          positioning="top-center"
-        >
+      <slot v-if="popupType === 'popover'" name="popup" :popup="popup">
+        <ol-overlay :position="popup.position" positioning="top-center">
           <RplMapPopUp
-            v-if="popup.isOpen && popupType === 'popover'"
             :is-open="popup.isOpen"
             :is-area="popup.isArea"
             :type="popupType"
+            :pinColor="popup.color"
             @close="onPopUpClose"
           >
             <template #header>

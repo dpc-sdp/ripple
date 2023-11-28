@@ -13,29 +13,30 @@
   }
 }
 .rpl-map-popup__large-pin {
+  transition: transform 0.15s ease-in;
   position: absolute;
   left: 50%;
   top: -30px;
   margin-left: -38px;
   height: 33px;
   width: 75px;
-  path {
-    fill: var(--rpl-clr-primary);
-    stroke: rgba(0, 57, 136, 1);
-  }
   svg {
     width: 100%;
     height: 100%;
   }
 }
 
-.v-enter-active,
-.v-leave-active {
-  transition: opacity 1.5s ease;
+.rpl-map-popup__large-pin--open {
+  transform: scale(2) translateY(-8px);
 }
 
-.v-enter-from,
-.v-leave-to {
+.rpl-map-popup-enter-active,
+.rpl-map-popup-leave-active {
+  transition: opacity 0.2s ease;
+}
+
+.rpl-map-popup-enter-from,
+.rpl-map-popup-leave-to {
   opacity: 0;
 }
 
@@ -45,6 +46,7 @@
   color: var(--rpl-clr-dark);
   background-color: var(--rpl-clr-neutral-200);
   padding: var(--rpl-sp-4);
+  padding-bottom: var(--rpl-sp-3);
   border-radius: var(--rpl-border-radius-2) var(--rpl-border-radius-2) 0 0;
 }
 
@@ -54,11 +56,16 @@
 
 .rpl-map-popup__close {
   margin-left: auto;
-  padding: var(--rpl-sp-1);
   border-radius: var(--rpl-border-radius-3);
-
+  height: var(--rpl-sp-6);
+  width: var(--rpl-sp-6);
+  .rpl-icon {
+    color: var(--rpl-clr-primary);
+  }
   &:hover {
-    color: var(--rpl-clr-type-primary-contrast);
+    .rpl-icon {
+      color: var(--rpl-clr-primary-contrast);
+    }
   }
 }
 

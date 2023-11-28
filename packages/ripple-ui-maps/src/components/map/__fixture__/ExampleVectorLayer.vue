@@ -10,6 +10,8 @@
 
 <script setup lang="ts">
 import { GeoJSON } from 'ol/format'
+import { Polygon } from 'ol/geom'
+import { Vector } from 'ol/layer'
 import { Style, Fill, Stroke } from 'ol/style'
 import { computed, inject, onMounted, nextTick } from 'vue'
 interface Props {
@@ -87,10 +89,18 @@ onMounted(async () => {
       const matchingResult = props.results.find(
         (itm) => itm.postcode === feature.get('postcode')
       )
-      popup.value.isArea = true
-      popup.value.feature = [matchingResult]
+      popup.value.isArea = popup.value.feature = [matchingResult]
       popup.value.isOpen = true
       popup.value.position = feature.getGeometry().flatCoordinates
+
+      // if (feature.postcode) {
+      //   const matchingResult = props.results.find(
+      //     (result) => parseInt(result.postcode) === parseInt(feature.postcode)
+      //   )
+      //   rplPopUpIsOpenRef.value = true
+      //   rplPopupRef.value = matchingResult
+      //   console.log('shape click', feature, rplPopupRef, rplPopUpIsOpenRef)
+      // }
     })
     // Add a pointermove event listener to the map to detect shape hover
     map.on('pointermove', function (evt) {

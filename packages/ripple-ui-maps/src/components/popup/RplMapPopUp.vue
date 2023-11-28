@@ -1,27 +1,40 @@
 <template>
-  <div
-    class="rpl-map-popup"
-    :class="{
-      [`rpl-map-popup--${type}`]: type,
-      [`rpl-map-popup--area`]: isArea
-    }"
-  >
-    <LargePinIcon class="rpl-map-popup__large-pin" v-if="!isArea" />
-    <div class="rpl-map-popup__header">
-      <h3 :class="`rpl-type-h4`">
-        <slot name="header"> </slot>
-      </h3>
-      <button
-        @click="onClose"
-        class="rpl-map-popup__close rpl-u-focusable-inline"
-      >
-        <RplIcon name="icon-cancel"></RplIcon>
-      </button>
+  <Transition name="rpl-map-popup">
+    <div
+      class="rpl-map-popup"
+      ref="popupEL"
+      :class="{
+        [`rpl-map-popup--${type}`]: type,
+        [`rpl-map-popup--area`]: isArea
+      }"
+    >
+      <slot name="above">
+        <LargePinIcon
+          class="rpl-map-popup__large-pin"
+          :class="{ [`rpl-map-popup__large-pin--open`]: isOpen }"
+          :style="{ fill: `${pinColor}` }"
+          v-if="!isArea && isOpen"
+        />
+      </slot>
+
+      <div v-if="isOpen" class="rpl-map-popup__container">
+        <div class="rpl-map-popup__header">
+          <h3 :class="`rpl-type-h4`">
+            <slot name="header"> </slot>
+          </h3>
+          <button
+            @click="onClose"
+            class="rpl-map-popup__close rpl-u-focusable-inline"
+          >
+            <RplIcon name="icon-cancel" size="s"></RplIcon>
+          </button>
+        </div>
+        <div ref="content" class="rpl-map-popup__body">
+          <slot> </slot>
+        </div>
+      </div>
     </div>
-    <div ref="content" class="rpl-map-popup__body">
-      <slot> </slot>
-    </div>
-  </div>
+  </Transition>
 </template>
 
 <script setup lang="ts">
@@ -34,12 +47,14 @@ import LargePinIcon from './../../assets/icons/icon-pin-large.svg?component'
 interface Props {
   isOpen: boolean
   isArea: boolean
+  pinColor?: string
   type?: 'popover' | 'sidebar'
 }
 
 withDefaults(defineProps<Props>(), {
   isOpen: false,
   isArea: false,
+  pinColor: 'green',
   type: 'sidebar'
 })
 
@@ -48,7 +63,7 @@ const emit = defineEmits<{
 }>()
 
 const { emitRplEvent } = useRippleEvent('rpl-map-popup', emit)
-
+const popupEL = ref()
 // const hoverClass = ref('')
 
 function onClose() {

@@ -38,6 +38,12 @@
         ></component>
       </template>
     </RplMap>
+    <RplMapLegend
+      v-if="legendItems?.length > 0"
+      class="rpl-u-margin-t-5"
+      :title="legendTitle"
+      :items="legendItems"
+    />
   </ClientOnly>
 </template>
 
@@ -65,8 +71,15 @@ interface Props {
   lngObjPath: string
   titleObjPath: string
   results: TideSearchListingMapFeature[]
-  vectorLayerComponent?: string | undefined
-  pinIconFn?: string | undefined
+  vectorLayerComponent?: string
+  pinIconFn?: string
+  legendTitle?: string
+  legendExpanded?: boolean
+  legendItems: {
+    text: string
+    icon?: string
+    iconColour?: string
+  }[]
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -74,7 +87,10 @@ const props = withDefaults(defineProps<Props>(), {
   lngObjPath: '_source.lng[0]',
   titleObjPath: '_source.title[0]',
   vectorLayerComponent: undefined,
-  pinIconFn: 'defaultPinStyleFn'
+  pinIconFn: 'defaultPinStyleFn',
+  legendTitle: 'Key',
+  legendExpanded: false,
+  legend: () => []
 })
 
 const appConfig = useAppConfig()

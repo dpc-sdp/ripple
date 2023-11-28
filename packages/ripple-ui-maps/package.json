@@ -55,6 +55,7 @@
   },
   "devDependencies": {
     "@dpc-sdp/ripple-tide-api": "workspace:*",
+    "@dpc-sdp/ripple-ui-core": "workspace:*",
     "@vitejs/plugin-vue": "^4.1.0",
     "@vue/compiler-sfc": "^3.2.47",
     "autoprefixer": "^10.4.14",

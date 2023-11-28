@@ -1,5 +1,5 @@
 <template>
-  <ol-style :zIndex="4" :overrideStyleFunction="overrideStyleFunction">
+  <ol-style :overrideStyleFunction="overrideStyleFunction">
     <ol-style-text>
       <ol-style-fill color="white"></ol-style-fill>
     </ol-style-text>
@@ -20,38 +20,34 @@ interface Props {
 
 const props = withDefaults(defineProps<Props>(), {})
 
+const createCircleStyle = (
+  innerProperties: Omit<Options, 'fill' | 'stroke'>
+) => {
+  return new CircleStyle({
+    ...innerProperties,
+    fill: new Fill({
+      color: [102, 102, 102, 1],
+      width: 48
+    }),
+    stroke: new Stroke({
+      color: [102, 102, 102, 0.2],
+      width: 8
+    })
+  })
+}
+
 const overrideStyleFunction = (feature, style) => {
   const clusteredFeatures = feature.get('features')
   const size = clusteredFeatures.length
 
-  const createCircleStyle = (
-    innerProperties: Omit<Options, 'fill' | 'stroke'>
-  ) => {
-    return new CircleStyle({
-      ...innerProperties,
-      fill: new Fill({
-        color: [102, 102, 102, 1],
-        width: 48
-      }),
-      stroke: new Stroke({
-        color: [102, 102, 102, 0.2],
-        width: 8
-      })
-    })
-  }
-
-  const circle = computed(() => createCircleStyle({ radius: 15 }))
+  const circle = createCircleStyle({ radius: 15 })
   if (clusteredFeatures.length > 1) {
-    style.setImage(circle.value)
+    style.setImage(circle)
     style.getText().setText(size.toString())
     style.getText().setStroke(undefined)
     style.getText().setFont('12px VIC-Bold, Arial, Helvetica, sans-serif')
   } else if (Array.isArray(clusteredFeatures)) {
-    const icon = props.pinStyle(
-      clusteredFeatures[0],
-      Icon,
-      markerIconDefaultSrc
-    )
+    const icon = props.pinStyle(clusteredFeatures[0])
     style.getText().setText('')
     style.setImage(icon)
   }

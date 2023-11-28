@@ -14,6 +14,7 @@
     "@dpc-sdp/ripple-tide-landing-page": "workspace:*",
     "@dpc-sdp/ripple-ui-core": "workspace:*",
     "@dpc-sdp/ripple-ui-forms": "workspace:*",
+    "@dpc-sdp/ripple-ui-maps": "workspace:*",
     "@elastic/search-ui": "^1.19.1",
     "@elastic/search-ui-app-search-connector": "^1.19.1",
     "@elastic/search-ui-elasticsearch-connector": "1.19.1"

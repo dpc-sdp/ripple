@@ -21,6 +21,7 @@ export default defineNuxtConfig({
       }
     }
   },
+  modules: ['@dpc-sdp/ripple-ui-maps/nuxt'],
   alias: {
     '@elastic/search-ui': '@elastic/search-ui/lib/esm/index.js',
     '@elastic/search-ui-app-search-connector':

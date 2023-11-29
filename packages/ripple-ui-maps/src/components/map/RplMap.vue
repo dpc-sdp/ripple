@@ -124,11 +124,13 @@ function onMapSingleClick(evt) {
 
 function onMapMove(evt) {
   const map = mapRef.value.map
-  const point = getfeaturesAtMapPixel(map, evt.pixel)
-  if (point && point.features) {
-    document.querySelector('canvas').style.cursor = 'pointer'
-  } else {
-    document.querySelector('canvas').style.cursor = 'default'
+  if (map) {
+    const point = getfeaturesAtMapPixel(map, evt.pixel)
+    if (point && point.features) {
+      document.querySelector('canvas').style.cursor = 'pointer'
+    } else {
+      document.querySelector('canvas').style.cursor = 'default'
+    }
   }
 }
 

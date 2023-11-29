@@ -32,7 +32,6 @@ import { Fill, Stroke, Style } from 'ol/style'
 import { Vector as VectorLayer } from 'ol/layer'
 import { Vector as VectorSource } from 'ol/source'
 import { getCenter } from 'ol/extent'
-import EsriJSON from 'ol/format/EsriJSON'
 
 interface Props {
   addresses: boolean

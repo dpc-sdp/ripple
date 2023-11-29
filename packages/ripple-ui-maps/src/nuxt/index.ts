@@ -16,6 +16,7 @@ export default <any>defineNuxtModule({
     // Adds all ripple Vue components to autoimports in Nuxt
     addComponentsDir({
       extensions: ['vue'],
+      ignore: ['**/*.example.vue'],
       path: resolve('./../../src/components'),
       prefix: 'rpl',
       pathPrefix: false

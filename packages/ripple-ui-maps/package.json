@@ -41,8 +41,6 @@
     "@nuxt/kit": "3.3.2",
     "@vueuse/core": "^9.13.0",
     "@vueuse/integrations": "^9.13.0",
-    "ol": "^8.2.0",
-    "ol-ext": "^4.0.12",
     "postcss-each": "^1.1.0",
     "postcss-nested": "^6.0.1",
     "postcss-normalize": "^10.0.1",
@@ -50,7 +48,9 @@
     "vue3-openlayers": "^3.1.0"
   },
   "peerDependencies": {
-    "vue": "^3.3.4"
+    "vue": "^3.3.4",
+    "ol": "^8.2.0",
+    "ol-ext": "^4.0.12"
   },
   "devDependencies": {
     "@dpc-sdp/ripple-tide-api": "workspace:*",
@@ -58,12 +58,10 @@
     "@vitejs/plugin-vue": "^4.1.0",
     "@vue/compiler-sfc": "^3.2.47",
     "autoprefixer": "^10.4.14",
-    "chromatic": "^6.17.2",
-    "eslint-config-prettier": "^8.8.0",
-    "eslint-plugin-storybook": "^0.6.13",
     "jest-axe": "^7.0.1",
+    "ol": "^8.2.0",
+    "ol-ext": "^4.0.12",
     "rimraf": "^4.4.1",
-    "style-dictionary": "^3.7.2",
     "vite": "4.1.5",
     "vite-plugin-copy": "^0.1.6",
     "vite-plugin-dts": "^2.1.0",

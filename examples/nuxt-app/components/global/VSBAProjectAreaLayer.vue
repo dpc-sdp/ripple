@@ -10,7 +10,6 @@
 </template>
 
 <script setup lang="ts">
-import { GeoJSON } from 'ol/format'
 import { Polygon } from 'ol/geom'
 import { Vector } from 'ol/layer'
 import { Style, Fill, Stroke } from 'ol/style'

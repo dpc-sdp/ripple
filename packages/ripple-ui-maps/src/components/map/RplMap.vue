@@ -231,16 +231,16 @@ function onHomeClick() {
         :zoomOutLabel="zoomOutLabel"
       />
       <div className="rpl-map__control rpl-map__control-home">
-        <button @click="onHomeClick"><homeIcon></homeIcon></button>
+        <button title="Centre map" @click="onHomeClick">
+          <homeIcon></homeIcon>
+        </button>
       </div>
       <ol-fullscreen-control
         :label="fullScreenLabel"
+        :labelActive="fullScreenLabel"
         className="rpl-map__control rpl-map__control-fullscreen"
       />
     </ol-map>
-    <div v-if="$slots.legend" class="rpl-map__legend">
-      <slot name="legend"></slot>
-    </div>
   </div>
 </template>
 

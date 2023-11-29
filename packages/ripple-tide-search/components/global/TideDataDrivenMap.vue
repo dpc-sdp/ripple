@@ -399,14 +399,16 @@ const mapAreas = computed(() => {
         :expanded="filtersExpanded"
         class="rpl-u-margin-t-4"
       >
-        <TideSearchFilters
-          :title="title"
-          :filter-form-values="filterForm"
-          :filterInputs="userFilters"
-          @reset="handleFilterReset"
-          @submit="handleFilterSubmit"
-        >
-        </TideSearchFilters>
+        <ClientOnly>
+          <TideSearchFilters
+            :title="title"
+            :filter-form-values="filterForm"
+            :filterInputs="userFilters"
+            @reset="handleFilterReset"
+            @submit="handleFilterSubmit"
+          >
+          </TideSearchFilters>
+        </ClientOnly>
       </RplExpandable>
     </div>
 

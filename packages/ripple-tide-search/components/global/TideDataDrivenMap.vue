@@ -11,7 +11,7 @@ import type {
 } from './../../types'
 import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
 import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
-import { get } from 'lodash'
+import { get } from 'lodash-es'
 
 interface Props {
   id: string

@@ -18,7 +18,7 @@ interface Props {
   id: string
   autoFocus?: boolean
   inputLabel?: string
-  inputValue?: string
+  inputValue?: string | Record<string, any>
   submitLabel?: string | boolean
   suggestions?: any[]
   maxSuggestionsDisplayed?: number
@@ -39,7 +39,7 @@ const props = withDefaults(defineProps<Props>(), {
   inputValue: '',
   suggestions: () => [],
   maxSuggestionsDisplayed: 10,
-  placeholder: undefined,
+  placeholder: '',
   globalEvents: true,
   getSuggestionVal: (item) => item,
   getOptionLabel: (opt) => opt.toString(),

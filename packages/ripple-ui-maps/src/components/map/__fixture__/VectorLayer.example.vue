@@ -1,6 +1,7 @@
 <template>
-  <ol-vector-layer :title="layerIdentifier">
-    <ol-source-vector :url="areaUrl" :format="shapeFormat"> </ol-source-vector>
+  <ol-vector-layer :title="layerIdentifier" :zIndex="1">
+    <ol-source-vector :zIndex="0" :url="areaUrl" :format="shapeFormat">
+    </ol-source-vector>
     <ol-style>
       <ol-style-stroke :color="lineColor" width="2"></ol-style-stroke>
       <ol-style-fill :color="fillColor"></ol-style-fill>
@@ -9,33 +10,37 @@
 </template>
 
 <script setup lang="ts">
-import { Polygon } from 'ol/geom'
-import { Vector } from 'ol/layer'
+import { GeoJSON } from 'ol/format'
+import { get } from 'ol/proj'
 import { Style, Fill, Stroke } from 'ol/style'
 import { computed, inject, onMounted, nextTick } from 'vue'
 interface Props {
   results: any[]
-  lineColor: string | Number[]
-  fillColor: string | Number[]
+  lineColor?: string | Number[]
+  fillColor?: string | Number[]
+  areaDataKey?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
   results: () => [],
   lineColor: () => [102, 102, 102, 1],
-  fillColor: () => [26, 26, 26, 0.1]
+  fillColor: () => [26, 26, 26, 0.1],
+  areaDataKey: 'postcode'
 })
 
 const mappedAreas = computed(() => {
-  return props.results
-    .filter((itm) => !itm.lat && itm.postcode)
-    .map((area) => `'${area.postcode}'`)
+  const matches = props.results
+    .filter((itm) => !itm.lat && itm.get(props.areaDataKey) !== undefined)
+    .map((area) => `'${area.get(props.areaDataKey)}'`)
+  return matches
 })
 const shapeFormat = new GeoJSON()
 
 const areaUrl = computed(() => {
+  console.log('mappedAreas', mappedAreas)
   const baseArcGISURL =
     'https://services6.arcgis.com/GB33F62SbDxJjwEL/ArcGIS/rest/services/Vicmap_Admin/FeatureServer/14/query'
-  const query = `postcode IN (${mappedAreas.value.join(',')})`
+  const query = `postcode IN (${mappedAreas.value.slice(0, 10).join(',')})`
   const inSR = '4326'
   return `${baseArcGISURL}?where=${query}&geometryType=esriGeometryEnvelope&inSR=${inSR}&spatialRel=esriSpatialRelIntersects&units=esriSRUnit_Meter&returnGeodetic=false&outFields=postcode&returnGeometry=true&returnCentroid=false&f=pgeojson&token=`
 })
@@ -62,6 +67,20 @@ const mouseOverStyleFn = new Style({
 
 const layerIdentifier = 'shapeLayer'
 
+const centerOnPopup = (map, popup, offset = { y: -100, x: 0 }) => {
+  const view = map.getView()
+  const resolution = view.getResolution()
+  const offsetCoord = [
+    popup.value.position[0] + offset.x * resolution,
+    popup.value.position[1] + offset.y * resolution
+  ]
+
+  view.animate({
+    center: offsetCoord,
+    duration: 600
+  })
+}
+
 onMounted(async () => {
   await nextTick()
   if (rplMapRef.value) {
@@ -84,22 +103,17 @@ onMounted(async () => {
       const feature = map.forEachFeatureAtPixel(evt.pixel, layerFilter, {
         hitTolerance: 5
       })
+      if (feature) {
+        const matchingResult = props.results.find((itm) => {
+          return itm.postcode === feature?.get('postcode')
+        })
 
-      const matchingResult = props.results.find(
-        (itm) => itm.postcode === feature.get('postcode')
-      )
-      popup.value.isArea = popup.value.feature = [matchingResult]
-      popup.value.isOpen = true
-      popup.value.position = feature.getGeometry().flatCoordinates
-
-      // if (feature.postcode) {
-      //   const matchingResult = props.results.find(
-      //     (result) => parseInt(result.postcode) === parseInt(feature.postcode)
-      //   )
-      //   rplPopUpIsOpenRef.value = true
-      //   rplPopupRef.value = matchingResult
-      //   console.log('shape click', feature, rplPopupRef, rplPopUpIsOpenRef)
-      // }
+        popup.value.isArea = true
+        popup.value.feature = [matchingResult]
+        popup.value.isOpen = true
+        popup.value.position = feature.getGeometry().flatCoordinates
+        centerOnPopup(map, popup)
+      }
     })
     // Add a pointermove event listener to the map to detect shape hover
     map.on('pointermove', function (evt) {

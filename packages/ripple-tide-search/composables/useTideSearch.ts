@@ -395,7 +395,7 @@ export default ({
         onAggregationUpdateHook.value(mappedAggs)
       }
 
-      if (mapsResponse) {
+      if (mapsResponse && mapsResponse.hits) {
         mapResults.value = mapsResponse.hits?.hits.map(mapResultsMappingFn)
       }
 

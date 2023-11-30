@@ -98,7 +98,7 @@ export type TideSearchListingMapConfig = {
   }
 }
 
-export type TideSearchListingTabKey = 'map' | 'listing'
+export type TideSearchListingTabKey = { id: 'map' | 'listing' }
 
 export type TideSearchListingConfig = {
   /**

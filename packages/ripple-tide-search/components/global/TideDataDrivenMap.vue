@@ -15,7 +15,7 @@ import { get } from 'lodash'
 
 interface Props {
   id: string
-  title: string
+  title?: string
   introText?: string
   searchListingConfig?: TideSearchListingPage['searchListingConfig']
   autocompleteQuery?: boolean
@@ -28,7 +28,7 @@ interface Props {
   }
   locationQueryConfig?: TideSearchListingPage['locationQueryConfig']
   mapConfig?: TideSearchListingPage['mapConfig']
-  index: string
+  index?: string
   sortOptions?: TideSearchListingSortOption[]
 }
 
@@ -36,6 +36,7 @@ const props = withDefaults(defineProps<Props>(), {
   id: 'tide-search-listing',
   title: 'Search',
   introText: '',
+  index: undefined,
   autocompleteQuery: false,
   globalFilters: () => [],
   userFilters: () => [],
@@ -320,14 +321,8 @@ const toggleFiltersLabel = computed(() => {
     : label
 })
 
-// const activeTab = ref(props.searchListingConfig?.displayMapTab ? 'map' : null)
-
 const handleTabChange = (tab: TideSearchListingTabKey) => {
   changeActiveTab(tab.id)
-  // activeTab.value = tab.id
-  // if (activeTab.value === 'map') {
-  //   getMapSearchResults()
-  // }
 }
 
 function handleLocationSearch(payload: any) {

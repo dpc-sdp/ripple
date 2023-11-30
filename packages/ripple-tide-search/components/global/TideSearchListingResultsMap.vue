@@ -75,7 +75,7 @@ interface Props {
   pinIconFn?: string
   legendTitle?: string
   legendExpanded?: boolean
-  legendItems: {
+  legendItems?: {
     text: string
     icon?: string
     iconColour?: string
@@ -90,7 +90,7 @@ const props = withDefaults(defineProps<Props>(), {
   pinIconFn: 'defaultPinStyleFn',
   legendTitle: 'Key',
   legendExpanded: false,
-  legend: () => []
+  legendItems: () => []
 })
 
 const appConfig = useAppConfig()

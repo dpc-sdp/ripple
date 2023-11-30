@@ -10,15 +10,14 @@
 </template>
 
 <script setup lang="ts">
-import { Polygon } from 'ol/geom'
-import { Vector } from 'ol/layer'
+import { GeoJSON } from 'ol/format'
 import { Style, Fill, Stroke } from 'ol/style'
 import { computed, inject, onMounted, nextTick } from 'vue'
 interface Props {
   results: any[]
-  lineColor: string | Number[]
-  fillColor: string | Number[]
-  areaDataKey: string
+  lineColor?: string | Number[]
+  fillColor?: string | Number[]
+  areaDataKey?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -89,8 +88,6 @@ onMounted(async () => {
     const shapeLayer = Array.from(allLayers).find(
       (layer) => layer.get('title') === layerIdentifier
     )
-    shapeLayer.setZIndex(2)
-    console.log(shapeLayer)
     // shapeLayer.dispatchChangeEvent()
     // define filter for getting only shapeLayer
     const layerFilter = (feature, layer) => {

@@ -1,6 +1,7 @@
 <template>
   <div class="tide-search-address-lookup">
     <RplSearchBar
+      id="tide-address-lookup"
       inputLabel="Search by postcode or suburb"
       :submitLabel="false"
       :inputValue="inputValue"
@@ -31,16 +32,10 @@ import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
 import { fromLonLat } from 'ol/proj'
 
 interface Props {
-  addresses: boolean
-  lgas: boolean
-  suburbs: boolean
-  inputValue: any
+  inputValue?: any
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  addresses: false,
-  lgas: false,
-  suburbs: true,
   inputValue: null
 })
 

@@ -5,7 +5,7 @@ interface Props {
   multiple: boolean
   label: string
   options?: any[]
-  timestamp?: string
+  timestamp?: string | number
 }
 defineProps<Props>()
 </script>

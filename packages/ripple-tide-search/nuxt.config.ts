@@ -40,7 +40,20 @@ export default defineNuxtConfig({
   },
   vite: {
     optimizeDeps: {
-      include: ['@elastic/search-ui > deep-equal', '@elastic/search-ui > qs']
+      include: [
+        '@elastic/search-ui > deep-equal',
+        '@elastic/search-ui > qs',
+        'ol > color-name',
+        'ol/style',
+        'ol/format',
+        'ol/layer',
+        'ol/color',
+        'ol/style/Icon',
+        'ol/Feature',
+        'ol > geotiff',
+        'ol > earcut',
+        'lodash'
+      ]
     }
   }
 })

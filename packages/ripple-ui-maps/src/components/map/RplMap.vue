@@ -11,9 +11,9 @@ import { fromLonLat } from 'ol/proj'
 import RplMapPopUp from './../popup/RplMapPopUp.vue'
 import RplMapCluster from './../cluster/RplMapCluster.vue'
 import markerIconDefaultSrc from './../feature-pin/icon-pin.svg?url'
-import zoomInIcon from './../../assets/icons/icon-map-zoom-in.svg?raw'
-import zoomOutIcon from './../../assets/icons/icon-map-zoom-out.svg?raw'
-import enlargeIcon from './../../assets/icons/icon-enlarge.svg?raw'
+// import zoomInIcon from './../../assets/icons/icon-map-zoom-in.svg?raw'
+// import zoomOutIcon from './../../assets/icons/icon-map-zoom-out.svg?raw'
+// import enlargeIcon from './../../assets/icons/icon-enlarge.svg?raw'
 import homeIcon from './../../assets/icons/icon-home.svg?component'
 import useMapControlLabel from './../../composables/useMapControlLabel'
 import {
@@ -93,9 +93,9 @@ function onPopUpClose() {
 }
 
 const { createHTMLElementFromString } = useMapControlLabel()
-const zoomInLabel = createHTMLElementFromString(zoomInIcon)
-const zoomOutLabel = createHTMLElementFromString(zoomOutIcon)
-const fullScreenLabel = createHTMLElementFromString(enlargeIcon)
+// const zoomInLabel = createHTMLElementFromString(zoomInIcon)
+// const zoomOutLabel = createHTMLElementFromString(zoomOutIcon)
+// const fullScreenLabel = createHTMLElementFromString(enlargeIcon)
 
 function onMapSingleClick(evt) {
   const map = mapRef.value.map
@@ -127,9 +127,9 @@ function onMapMove(evt) {
   if (map) {
     const point = getfeaturesAtMapPixel(map, evt.pixel)
     if (point && point.features) {
-      document.querySelector('canvas').style.cursor = 'pointer'
+      document.querySelector('.rpl-map canvas').style.cursor = 'pointer'
     } else {
-      document.querySelector('canvas').style.cursor = 'default'
+      document.querySelector('.rpl-map canvas').style.cursor = 'default'
     }
   }
 }
@@ -226,7 +226,7 @@ function onHomeClick() {
         </ol-overlay>
       </slot>
 
-      <ol-zoom-control
+      <!-- <ol-zoom-control
         className="rpl-map__control rpl-map__control-zoom"
         :zoomInLabel="zoomInLabel"
         :zoomOutLabel="zoomOutLabel"
@@ -240,7 +240,7 @@ function onHomeClick() {
         :label="fullScreenLabel"
         :labelActive="fullScreenLabel"
         className="rpl-map__control rpl-map__control-fullscreen"
-      />
+      /> -->
     </ol-map>
   </div>
 </template>

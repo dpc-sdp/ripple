@@ -56,5 +56,9 @@ export default {
   'icon-wechat': () => import('./custom/icon-wechat.svg?component'),
   'icon-youtube': () => import('./custom/icon-youtube.svg?component'),
   'icon-zoom-in': () => import('./custom/icon-zoom-in.svg?component'),
-  'icon-zoom-out': () => import('./custom/icon-zoom-out.svg?component')
+  'icon-zoom-out': () => import('./custom/icon-zoom-out.svg?component'),
+  'icon-map-zoom-in': () => import('./custom/icon-map-zoom-in.svg?component'),
+  'icon-map-zoom-out': () => import('./custom/icon-map-zoom-out.svg?component'),
+  'icon-enlarge': () => import('./custom/icon-enlarge.svg?component'),
+  'icon-home': () => import('./custom/icon-home.svg?component')
 }

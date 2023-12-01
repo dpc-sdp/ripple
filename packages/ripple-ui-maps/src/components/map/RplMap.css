@@ -17,7 +17,7 @@
 .rpl-map__control {
   position: absolute;
   right: var(--rpl-sp-2);
-
+  z-index: var(--rpl-layer-1);
   @media (--rpl-bp-l) {
     right: var(--rpl-sp-3);
   }
@@ -86,12 +86,12 @@
     bottom: var(--rpl-sp-3);
   }
 
-  .ol-zoom-in {
+  .rpl-map__control-zoom-in {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
   }
 
-  .ol-zoom-out {
+  .rpl-map__control-zoom-out {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
     border-top: none;

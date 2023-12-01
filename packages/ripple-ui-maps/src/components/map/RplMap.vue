@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useRippleEvent, rplEventPayload } from '@dpc-sdp/ripple-ui-core'
+import { RplIcon } from '@dpc-sdp/ripple-ui-core/vue'
 import type { IRplMapFeature } from './../../types'
 import { onMounted, ref, inject, computed } from 'vue'
 import { Map } from 'ol'
@@ -11,11 +12,8 @@ import { fromLonLat } from 'ol/proj'
 import RplMapPopUp from './../popup/RplMapPopUp.vue'
 import RplMapCluster from './../cluster/RplMapCluster.vue'
 import markerIconDefaultSrc from './../feature-pin/icon-pin.svg?url'
-// import zoomInIcon from './../../assets/icons/icon-map-zoom-in.svg?raw'
-// import zoomOutIcon from './../../assets/icons/icon-map-zoom-out.svg?raw'
-// import enlargeIcon from './../../assets/icons/icon-enlarge.svg?raw'
-import homeIcon from './../../assets/icons/icon-home.svg?component'
-import useMapControlLabel from './../../composables/useMapControlLabel'
+import useMapControls from './../../composables/useMapControls.ts'
+
 import {
   getfeaturesAtMapPixel,
   zoomToClusterExtent,
@@ -72,6 +70,14 @@ const center = computed(() => {
   }
 })
 
+const {
+  onHomeClick,
+  onZoomInClick,
+  onZoomOutClick,
+  onFullScreenClick,
+  isFullScreenRef
+} = useMapControls(mapRef, center, props.initialZoom)
+
 const mapFeatures = computed(() => {
   if (Array.isArray(props.features)) {
     return props.features.map((itm, idx) => {
@@ -91,11 +97,6 @@ const mapFeatures = computed(() => {
 function onPopUpClose() {
   popup.value.isOpen = false
 }
-
-const { createHTMLElementFromString } = useMapControlLabel()
-// const zoomInLabel = createHTMLElementFromString(zoomInIcon)
-// const zoomOutLabel = createHTMLElementFromString(zoomOutIcon)
-// const fullScreenLabel = createHTMLElementFromString(enlargeIcon)
 
 function onMapSingleClick(evt) {
   const map = mapRef.value.map
@@ -132,10 +133,6 @@ function onMapMove(evt) {
       document.querySelector('.rpl-map canvas').style.cursor = 'default'
     }
   }
-}
-
-function onHomeClick() {
-  centerMap(mapRef.value.map, center.value, { y: 0, x: 0 }, props.initialZoom)
 }
 </script>
 
@@ -225,22 +222,34 @@ function onHomeClick() {
           </RplMapPopUp>
         </ol-overlay>
       </slot>
-
-      <!-- <ol-zoom-control
-        className="rpl-map__control rpl-map__control-zoom"
-        :zoomInLabel="zoomInLabel"
-        :zoomOutLabel="zoomOutLabel"
-      />
-      <div className="rpl-map__control rpl-map__control-home">
-        <button title="Centre map" @click="onHomeClick">
-          <homeIcon></homeIcon>
+      <div class="rpl-map__control rpl-map__control-fullscreen">
+        <button title="View map fullscreen" @click="onFullScreenClick">
+          <RplIcon v-if="isFullScreenRef" name="icon-cancel"></RplIcon>
+          <RplIcon v-else name="icon-enlarge" size="m"></RplIcon>
         </button>
       </div>
-      <ol-fullscreen-control
-        :label="fullScreenLabel"
-        :labelActive="fullScreenLabel"
-        className="rpl-map__control rpl-map__control-fullscreen"
-      /> -->
+      <div class="rpl-map__control rpl-map__control-home">
+        <button title="Centre map" @click="onHomeClick">
+          <RplIcon name="icon-home"></RplIcon>
+        </button>
+      </div>
+      <div class="rpl-map__control rpl-map__control-zoom">
+        <button
+          title="Zoom map in"
+          class="rpl-map__control-zoom-in"
+          @click="onZoomInClick"
+        >
+          <RplIcon name="icon-map-zoom-in"></RplIcon>
+        </button>
+
+        <button
+          title="Zoom map out"
+          class="rpl-map__control-zoom-out"
+          @click="onZoomOutClick"
+        >
+          <RplIcon name="icon-map-zoom-out"></RplIcon>
+        </button>
+      </div>
     </ol-map>
   </div>
 </template>

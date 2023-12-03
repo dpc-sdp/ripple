@@ -39,6 +39,23 @@ const nuxtTide = function (moduleOptions) {
         logger.error('Proxy server error', { error: err, label: 'NuxtTide' })
       }
     },
+    '/webform_rest/': {
+      target: options.baseUrl,
+      proxyTimeout: options.proxyTimeout,
+      onProxyRes (proxyRes, req, res) {
+        // Set headers as devOps required
+        proxyRes.headers[RPL_HEADER.APP_TYPE] = 'tide'
+      },
+      onProxyReq (proxyReq, req, res) {
+        // remove 'section-io-id'' header from proxied req
+        if (req.headers && req.headers['section-io-id']) {
+          proxyReq.removeHeader('section-io-id')
+        }
+      },
+      onError (err, req, res) {
+        logger.error('Proxy server error', { error: err, label: 'NuxtTide' })
+      }
+    },
     '/sites/default/files/': {
       target: options.baseUrl,
       onProxyReq (proxyReq, req, res) {

@@ -61,15 +61,23 @@ export const TemplateForm = (args, { argTypes }) => ({
           resolve()
         }, 250)
       })
+    },
+    fileUploadHandler () {
+      return new Promise((resolve) => {
+        setTimeout(() => resolve({ status: 'success', id: Math.random(), uuid: Math.random() }), 250)
+      })
     }
   },
   template: `
     <rpl-form
       :formData="formData"
       :submitHandler="submitHandler"
+      :fileUploadHandler="fileUploadHandler"
       :title="title"
       :fullWidth="fullWidth"
-      :spamProtect="spamProtect">
+      :spamProtect="spamProtect"
+      novalidate
+    >
     </rpl-form>
   `
 });
@@ -86,6 +94,7 @@ export const formData = {
     optionButtonDefault: null,
     optionButtonCustom: null,
     textArea: null,
+    file: [],
     dateRange: ['', ''],
     date: '',
     address: {
@@ -199,6 +208,25 @@ export const formData = {
         visible (model) {
           return model && model.was_this_page_helpful !== null
         }
+      },
+      {
+        type: 'rplfile',
+        label: 'File upload',
+        hint: 'Implemented using rplFile',
+        allowedTypes: [{
+          extension: 'jpg',
+          mimeType: 'image/jpeg'
+        }, {
+          extension: 'png',
+          mimeType: 'image/png'
+        }],
+        model: 'file',
+        maxFiles: 3,
+        multiple: true,
+        required: true,
+        validator (value) {
+          return !value.length ? ['This field is required'] : []
+        },
       },
       {
         type: 'rpldatepicker',

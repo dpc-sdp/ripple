@@ -32,6 +32,7 @@ import fieldRploptionbutton from './fields/fieldRploptionbutton.vue'
 import fieldRplclearform from './fields/fieldRplclearform.vue'
 import fieldRpldivider from './fields/fieldRpldivider.vue'
 import fieldRplmarkup from './fields/fieldRplmarkup.vue'
+import fieldRplfile from './fields/fieldRplfile.vue'
 import VueScrollTo from 'vue-scrollto'
 import { RplFormEventBus } from './index.js'
 
@@ -46,6 +47,7 @@ Vue.component('fieldRploptionbutton', fieldRploptionbutton)
 Vue.component('fieldRplclearform', fieldRplclearform)
 Vue.component('fieldRpldivider', fieldRpldivider)
 Vue.component('fieldRplmarkup', fieldRplmarkup)
+Vue.component('fieldRplfile', fieldRplfile)
 Vue.component('RplFieldset', RplFieldset)
 
 export default {
@@ -59,6 +61,7 @@ export default {
     fieldRpldatepicker,
     fieldRplsubmitloader,
     fieldRploptionbutton,
+    fieldRplfile,
     fieldRplclearform,
     RplFormAlert,
     RplFieldset
@@ -67,6 +70,7 @@ export default {
     title: String,
     formData: Object,
     submitHandler: Function,
+    fileUploadHandler: Function,
     fieldChangeHandler: Function,
     hideAfterSuccess: Boolean,
     clearFormOnSuccess: { type: Boolean, default: false },
@@ -76,6 +80,11 @@ export default {
     spamProtect: { type: Boolean, default: false },
     fullWidth: { type: Boolean, default: true },
     listenForClearForm: { type: Boolean, default: true }
+  },
+  provide () {
+    return {
+      postFile: this.fileUploadHandler
+    }
   },
   data () {
     return {
@@ -123,9 +132,9 @@ export default {
       return []
     }
     // Custom 'required' validator which uses the drupal 'required message'
-    // if the field is empty.
+    // if the field is empty, or has no length (when dealing with arrays).
     VueFormGenerator.validators.rplRequired = function (value, field) {
-      if (!value || value === '') {
+      if (!value || value === '' || (Array.isArray(value) && !value.length)) {
         return field.requiredMessage
       }
 
@@ -159,6 +168,15 @@ export default {
         }
       }
       return null
+    }
+    // Validate if file input is within the max files limit.
+    VueFormGenerator.validators.rplFileMaxLimit = function (value, field) {
+      if (field.multiple && (value.length > field.maxFiles)) {
+        const excessFiles = value.length - field.maxFiles
+        return [`There is a limit of ${field.maxFiles} files, you need to remove ${excessFiles} file${excessFiles > 1 ? 's' : ''}`]
+      }
+
+      return []
     }
   },
   destroyed () {

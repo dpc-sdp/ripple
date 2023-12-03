@@ -1,7 +1,7 @@
 module.exports = {
   // Convert Drupal webform data struture to Vue Form Generator structure
   webform: async (drupalFormEntity, { mapping }) => {
-    const stringToClass = require('@dpc-sdp/ripple-nuxt-tide/lib/core/tide-helper').stringToClass
+    const { stringToClass, getMimeTypeFromExtension } = require('@dpc-sdp/ripple-nuxt-tide/lib/core/tide-helper')
     const elements = drupalFormEntity.elements
     // Below data structure is following VFG 2.2.3.
     // `tideId`, `formState` and `messages` are our own custom properties.
@@ -448,6 +448,31 @@ module.exports = {
 
         case 'date':
           field.type = 'rpldatepicker'
+          break
+
+        case 'managed_file':
+          field.type = 'rplfile'
+          if (element['#file_placeholder']) {
+            field.placeholder = element['#file_placeholder']
+          }
+          field.allowedTypes = element['#file_extensions']
+            ? element['#file_extensions'].split(' ').map(extension => ({
+              extension, mimeType: getMimeTypeFromExtension(extension)
+            })) : []
+          field.maxSize = element['#max_filesize'] ? Number(element['#max_filesize']) : 10
+          // if #multiple is true it's unlimited, otherwise it's the number of files allowed
+          const unlimited = element['#multiple'] === true
+          field.multiple = unlimited || (element['#multiple'] && Number(element['#multiple']) > 1)
+          field.maxFiles = !unlimited ? element['#multiple'] ?? 1 : undefined
+          // use array validator instead of the default required validator for multiple files
+          // the default 'required' validation is only used when no custom required error is set
+          if (field.multiple && element['#required'] && !element['#required_error']) {
+            field.validator = field.validator.filter(validator => validator !== 'required')
+            field.validator.push('array')
+          }
+          if (field.multiple) {
+            field.validator.push('rplFileMaxLimit')
+          }
           break
 
         case 'webform_actions':

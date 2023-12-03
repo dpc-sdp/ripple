@@ -5,6 +5,7 @@
     :name="`form-${formData.tideId}`"
     :formData="formData"
     :submitHandler="submitForm"
+    :fileUploadHandler="submitFile"
     :hideAfterSuccess="formData.settings.shouldHideFormAfterSuccess"
     :spamProtect="formData.settings.spamProtect"
     :title="title"
@@ -72,6 +73,11 @@ export default {
           conditionalLogic(field, this.formData)
         }
       })
+    },
+    async submitFile (item, callback) {
+      const formId = this.formData.tideId
+
+      return await this.postFile(formId, item, callback)
     },
     async submitForm () {
       const formData = this.formData.model

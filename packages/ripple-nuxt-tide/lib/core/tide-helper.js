@@ -75,6 +75,10 @@ export const getMimeType = (mimeType) => {
   return mime.extension(mimeType)
 }
 
+export const getMimeTypeFromExtension = (extension) => {
+  return mime.lookup(extension)
+}
+
 export const getFormattedSize = (fileSize) => {
   // https://stackoverflow.com/a/18650828
   if (typeof fileSize === 'string') return fileSize

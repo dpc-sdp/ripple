@@ -35,6 +35,22 @@ const webform = {
         return false
       }
     },
+    async postFile (formId, item, callback) {
+      const source = this.$axios.CancelToken.source()
+
+      try {
+        const res = await this.$tide.upload(`/webform_rest/${formId}/upload/${item.field}`, item.file, {}, {
+          onUploadProgress: (progress) => callback(item.id, progress, source),
+          cancelToken: source.token
+        })
+        if (res?.fid && res?.uuid) {
+          return { status: 'success', id: res.fid?.[0]?.value, uuid: res.uuid?.[0]?.value }
+        }
+        return { status: 'error', message: res?.message }
+      } catch (e) {
+        return { status: 'error', message: e?.response?.data?.message }
+      }
+    },
     isHoneypotSet (selector = `#${this.formData.tideId}-important-email`) {
       if (this.formData.settings?.spamProtect) {
         const honeypotElement = document.querySelector(selector)

@@ -12,7 +12,7 @@ Feature: Custom Collection
   Scenario: Custom collection
     Given the "/api/tide/elasticsearch/sdp_data_pipelines_scl/_search" network request is stubbed with fixture "/landingpage/custom-collection/response" and status 200 as alias "cslReq"
     Given I visit the page "/custom-collection"
-    Then the landing page component "TideCustomCollection" should exist
+    Then the landing page component "TideDataDrivenMap" should exist
     And the custom collection component should have a search input bar
     And the custom collection component results count should read "Displaying 1-10 of 282 results"
     And the "cslReq" network request should be made to the elasticsearch endpoint
@@ -22,15 +22,15 @@ Feature: Custom Collection
   Scenario: Error
     Given the "/api/tide/elasticsearch/sdp_data_pipelines_scl/_search" network request is stubbed with fixture "/landingpage/custom-collection/response" and status 400 as alias "cslReq"
     Given I visit the page "/custom-collection"
-    Then the landing page component "TideCustomCollection" should exist
+    Then the landing page component "TideDataDrivenMap" should exist
     And the custom collection component should display the error "Sorry! Something went wrong. Please try again later."
 
   @mockserver
   Scenario: No results
     Given the "/api/tide/elasticsearch/sdp_data_pipelines_scl/_search" network request is stubbed with fixture "/landingpage/custom-collection/response-no-items" and status 200 as alias "cslReq"
     Given I visit the page "/custom-collection"
-    Then the landing page component "TideCustomCollection" should exist
-    And the custom collection component should display the error "Sorry! We couldn't find any matches for ''."
+    Then the landing page component "TideDataDrivenMap" should exist
+    And the custom collection component should display the error "Sorry! We couldn't find any matches."
 
 
 

@@ -1,0 +1,95 @@
+{
+  "took": 0,
+  "timed_out": false,
+  "_shards": {
+    "total": 2,
+    "successful": 2,
+    "skipped": 0,
+    "failed": 0
+  },
+  "hits": {
+    "total": {
+      "value": 6,
+      "relation": "eq"
+    },
+    "max_score": 1.0,
+    "hits": [
+      {
+        "_index": ".ent-search-engine-documents-vic-postcode-localities",
+        "_id": "doc-655d9b42cfe7a9206e647ebd",
+        "_score": 1.0,
+        "_ignored": [
+          "location.float",
+          "locality.location",
+          "locality.float",
+          "location.date",
+          "locality.date",
+          "postcode.date"
+        ],
+        "_source": {
+          "postcode": "3012",
+          "locality": "Brooklyn",
+          "location": "-37.807135,144.861162",
+          "id": "doc-655d9b42cfe7a9206e647ebd"
+        }
+      },
+      {
+        "_index": ".ent-search-engine-documents-vic-postcode-localities",
+        "_id": "doc-655d9b42cfe7a9206e647ec0",
+        "_score": 1.0,
+        "_ignored": [
+          "location.float",
+          "locality.location",
+          "locality.float",
+          "location.date",
+          "locality.date",
+          "postcode.date"
+        ],
+        "_source": {
+          "postcode": "3012",
+          "locality": "Maidstone",
+          "location": "-37.807135,144.861162",
+          "id": "doc-655d9b42cfe7a9206e647ec0"
+        }
+      },
+      {
+        "_index": ".ent-search-engine-documents-vic-postcode-localities",
+        "_id": "doc-655d9b42cfe7a9206e647ec1",
+        "_score": 1.0,
+        "_ignored": [
+          "location.float",
+          "locality.location",
+          "locality.float",
+          "location.date",
+          "locality.date",
+          "postcode.date"
+        ],
+        "_source": {
+          "postcode": "3012",
+          "locality": "Tottenham",
+          "location": "-37.807135,144.861162",
+          "id": "doc-655d9b42cfe7a9206e647ec1"
+        }
+      },
+      {
+        "_index": ".ent-search-engine-documents-vic-postcode-localities",
+        "_id": "doc-655d9b42cfe7a9206e647ec2",
+        "_score": 1.0,
+        "_ignored": [
+          "location.float",
+          "locality.location",
+          "locality.float",
+          "location.date",
+          "locality.date",
+          "postcode.date"
+        ],
+        "_source": {
+          "postcode": "3012",
+          "locality": "West Footscray",
+          "location": "-37.807135,144.861162",
+          "id": "doc-655d9b42cfe7a9206e647ec2"
+        }
+      }
+    ]
+  }
+}

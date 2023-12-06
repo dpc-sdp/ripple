@@ -26,13 +26,13 @@
     },
     {
       "uuid": "55555555-5555-5555-5555-555555555555",
-      "component": "TideCustomCollection",
+      "component": "TideDataDrivenMap",
       "id": "123",
       "title": "ISE",
       "props": {
         "searchListingConfig": {
           "searchProvider": "elasticsearch",
-          "index": "sdp_data_pipelines_ise2",
+          "index": "sdp_data_pipelines_ise",
           "resultsPerPage": 10,
           "labels": {
             "submit": "Search",

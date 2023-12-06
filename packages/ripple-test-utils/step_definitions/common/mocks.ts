@@ -108,7 +108,7 @@ Given(
       `/api/tide/app-search/**/elasticsearch/_search`,
       (req) => {
         // Filter out the aggregation requests (they have size=1)
-        if (req.body.size === 1) {
+        if (req.body.size === 0) {
           req.reply({
             statusCode: status,
             fixture: fixture
@@ -132,8 +132,10 @@ Given(
   'the {string} network request is stubbed with fixture {string} and status {int} as alias {string}',
   (url: string, fixture: string, status: number, alias: string) => {
     cy.intercept('POST', url, (req) => {
-      // Filter out the aggregation requests (they have size=0)
-      if (req.body.size !== 0) {
+      // Stub out aggregation requests
+      if (req.body.size === 0) {
+        req.reply({})
+      } else {
         // Only apply the alias to the actual search request
         req.alias = alias // assign an alias
         req.reply({

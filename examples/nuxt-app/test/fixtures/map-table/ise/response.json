@@ -15,163 +15,105 @@
     "max_score": 1,
     "hits": [
       {
-        "_index": "a83890f7a31dea14e1ae83c6f0afacca--sdp_data_pipelines_ise_list_registry",
-        "_id": "ise_list_registry:0",
-        "_score": 1,
+        "_index": "a83890f7a31dea14e1ae83c6f0afacca--sdp_data_pipelines_ise",
+        "_id": "ise:188",
+        "_score": 7.898239,
         "_source": {
-          "OrganisationName": "123KIDS",
-          "OrganisationLegalName": "123KIDS",
-          "FundedFor": "Long Day Care Services",
+          "Organisation": "Bug-A-Lugs OSHC",
+          "Funded For": "Before and/or After School Hours Care Services",
+          "Funding Department": "Department of Education",
           "FVISS/CISS": "Both",
           "RAE": "no",
-          "StatewideService": "no",
-          "Email": "pk90@hotmail.com",
-          "Telephone": "03 9799 9799",
-          "location": ""
+          "Statewide Service": "no",
+          "Email": "info@bug-a-lugs.com.au",
+          "Telephone": "03 5422 2767",
+          "Website/Links": "",
+          "More Information": ""
         }
       },
       {
-        "_index": "a83890f7a31dea14e1ae83c6f0afacca--sdp_data_pipelines_ise_list_registry",
-        "_id": "ise_list_registry:1",
-        "_score": 1,
+        "_index": "a83890f7a31dea14e1ae83c6f0afacca--sdp_data_pipelines_ise",
+        "_id": "ise:3755",
+        "_score": 7.898239,
         "_source": {
-          "OrganisationName": "3 Apples Childcare Centre & Kindergarten",
-          "OrganisationLegalName": "3 Apples Childcare Centre & Kindergarten",
-          "FundedFor": "Long Day Care Services",
+          "Organisation": "A G Leech Kindergarten",
+          "Funded For": "Kindergarten Services",
+          "Funding Department": "Department of Education",
           "FVISS/CISS": "Both",
           "RAE": "no",
-          "StatewideService": "no",
-          "Email": "03apples@gmail.com",
-          "Telephone": "03 9836 5928",
-          "location": ""
+          "Statewide Service": "no",
+          "Email": "AGLeech@ykinders.org.au",
+          "Telephone": "03 4311 1560",
+          "Website/Links": "",
+          "More Information": ""
         }
       },
       {
-        "_index": "a83890f7a31dea14e1ae83c6f0afacca--sdp_data_pipelines_ise_list_registry",
-        "_id": "ise_list_registry:4",
-        "_score": 1,
+        "_index": "a83890f7a31dea14e1ae83c6f0afacca--sdp_data_pipelines_ise",
+        "_id": "ise:187",
+        "_score": 6.58457,
         "_source": {
-          "OrganisationName": "3C Kidz Care - Chairo Drouin",
-          "OrganisationLegalName": "3C Kidz Care - Chairo Drouin",
-          "FundedFor": "Before and/or After School Hours Care Services",
+          "Organisation": "Bug-A-Lugs Indoor Play Centre",
+          "Funded For": "Before and/or After School Hours Care Services",
+          "Funding Department": "Department of Education",
           "FVISS/CISS": "Both",
           "RAE": "no",
-          "StatewideService": "no",
-          "Email": "3ckidzcare@caseycc.org.au",
-          "Telephone": "03 8790 3921",
-          "location": ""
+          "Statewide Service": "no",
+          "Email": "info@bug-a-lugs.com.au",
+          "Telephone": "03 5422 2767",
+          "Website/Links": "",
+          "More Information": ""
         }
       },
       {
-        "_index": "a83890f7a31dea14e1ae83c6f0afacca--sdp_data_pipelines_ise_list_registry",
-        "_id": "ise_list_registry:14",
-        "_score": 1,
+        "_index": "a83890f7a31dea14e1ae83c6f0afacca--sdp_data_pipelines_ise",
+        "_id": "ise:7849",
+        "_score": 2.8912935,
         "_source": {
-          "OrganisationName": "Abeles Liberman Preschool",
-          "OrganisationLegalName": "Abeles Liberman Preschool",
-          "FundedFor": "Long Day Care Services",
+          "Organisation": "Maternal and Child Health Line",
+          "Funded For": "Maternal Child Health",
+          "Funding Department": "Department of Health",
           "FVISS/CISS": "Both",
           "RAE": "no",
-          "StatewideService": "no",
-          "Email": "c.orwin@yavneh.vic.edu.au",
-          "Telephone": "03 8317 2510",
-          "location": ""
-        }
-      },
-      {
-        "_index": "a83890f7a31dea14e1ae83c6f0afacca--sdp_data_pipelines_ise_list_registry",
-        "_id": "ise_list_registry:22",
-        "_score": 1,
-        "_source": {
-          "OrganisationName": "Academy For Kids Glen Waverley",
-          "OrganisationLegalName": "Academy For Kids Glen Waverley",
-          "FundedFor": "Before and/or After School Hours Care Services",
-          "FVISS/CISS": "Both",
-          "RAE": "no",
-          "StatewideService": "no",
-          "Email": "vivien@academyforkids.co",
-          "Telephone": "0405 323 357",
-          "location": ""
-        }
-      },
-      {
-        "_index": "a83890f7a31dea14e1ae83c6f0afacca--sdp_data_pipelines_ise_list_registry",
-        "_id": "ise_list_registry:28",
-        "_score": 1,
-        "_source": {
-          "OrganisationName": "Adass Israel Preschool",
-          "OrganisationLegalName": "Adass Israel Preschool",
-          "FundedFor": "Long Day Care Services",
-          "FVISS/CISS": "Both",
-          "RAE": "no",
-          "StatewideService": "no",
-          "Email": "astrasser@adass.vic.edu.au",
-          "Telephone": "03 9523 6422",
-          "location": ""
-        }
-      },
-      {
-        "_index": "a83890f7a31dea14e1ae83c6f0afacca--sdp_data_pipelines_ise_list_registry",
-        "_id": "ise_list_registry:29",
-        "_score": 1,
-        "_source": {
-          "OrganisationName": "Adass Israel School",
-          "OrganisationLegalName": "Adass Israel School",
-          "FundedFor": "Independent Schools and System Bodies",
-          "FVISS/CISS": "Both",
-          "RAE": "no",
-          "StatewideService": "no",
+          "Statewide Service": "yes",
           "Email": "",
-          "Telephone": "03 9523 6422",
-          "location": ""
+          "Telephone": "13 22 29 - For the provision Maternal and Child Health advice through a state-wide telephone service",
+          "Website/Links": "",
+          "More Information": ""
         }
       },
       {
-        "_index": "a83890f7a31dea14e1ae83c6f0afacca--sdp_data_pipelines_ise_list_registry",
-        "_id": "ise_list_registry:37",
-        "_score": 1,
+        "_index": "a83890f7a31dea14e1ae83c6f0afacca--sdp_data_pipelines_ise",
+        "_id": "ise:7434",
+        "_score": 2.6819744,
         "_source": {
-          "OrganisationName": "After The Bell Aus- St Peters PS",
-          "OrganisationLegalName": "After The Bell Aus- St Peters PS",
-          "FundedFor": "Before and/or After School Hours Care Services",
+          "Organisation": "Frankston and Mornington Drug and Alcohol Services (FamDAS)",
+          "Funded For": "Alcohol and Other Drugs",
+          "Funding Department": "Department of Health",
           "FVISS/CISS": "Both",
           "RAE": "no",
-          "StatewideService": "no",
-          "Email": "admin@afterthebell.com.au",
-          "Telephone": "03 9758 6744",
-          "location": ""
-        }
-      },
-      {
-        "_index": "a83890f7a31dea14e1ae83c6f0afacca--sdp_data_pipelines_ise_list_registry",
-        "_id": "ise_list_registry:51",
-        "_score": 1,
-        "_source": {
-          "OrganisationName": "Al Siraat College",
-          "OrganisationLegalName": "Al Siraat College",
-          "FundedFor": "Independent Schools and System Bodies",
-          "FVISS/CISS": "Both",
-          "RAE": "no",
-          "StatewideService": "no",
+          "Statewide Service": "",
           "Email": "",
-          "Telephone": "03 9407 7000",
-          "location": ""
+          "Telephone": "",
+          "Website/Links": "https://www.peninsulahealth.org.au/services/services-a-e/alcohol-drug-services/famdas/",
+          "More Information": ""
         }
       },
       {
-        "_index": "a83890f7a31dea14e1ae83c6f0afacca--sdp_data_pipelines_ise_list_registry",
-        "_id": "ise_list_registry:52",
-        "_score": 1,
+        "_index": "a83890f7a31dea14e1ae83c6f0afacca--sdp_data_pipelines_ise",
+        "_id": "ise:6985",
+        "_score": 1.4041514,
         "_source": {
-          "OrganisationName": "Al-Taqwa College",
-          "OrganisationLegalName": "Al-Taqwa College",
-          "FundedFor": "Independent Schools and System Bodies",
+          "Organisation": "Child Protection - Department of Families Fairness and Housing",
+          "Funded For": "Child Protection",
+          "Funding Department": "Department of Families, Fairness and Housing",
           "FVISS/CISS": "Both",
-          "RAE": "no",
-          "StatewideService": "no",
-          "Email": "",
-          "Telephone": "03 9269 5000",
-          "location": ""
+          "RAE": "yes",
+          "Statewide Service": "yes",
+          "Email": "info.exchange@dffh.vic.gov.au",
+          "Telephone": " ",
+          "Website/Links": "Requests should be made via the online webform at https://informationsharingteam.powerappsportals.com/FVISSCISS/. Where the Child Protection worker is known you should contact them directly.",
+          "More Information": "Please note that the info.exchange team is a central unit and not part of the Child Protection workforce. If you need to make a report to Child Protection please contact Intake https://services.dffh.vic.gov.au/child-protection-contacts"
         }
       }
     ]

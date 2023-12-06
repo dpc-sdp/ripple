@@ -9,6 +9,7 @@ Feature: School buildings map
     Given I am using a "macbook-16" device
     Given the "/api/tide/elasticsearch/elasticsearch_index_develop_node/_search" network request is stubbed with fixture "/landingpage/maps/vsba/response" and status 200 as alias "searchReq"
     Given the "/api/tide/elasticsearch/elasticsearch_index_develop_node/_search" aggregation request is stubbed with fixture "/landingpage/maps/vsba/aggregations" and status 200 as alias "aggReq"
+    Given the "/api/tide/app-search/vic-postcode-localities/_search" network request is stubbed with fixture "/landingpage/maps/vsba/localities" and status 200 as alias "localitiesReq"
     Given I visit the page "/map"
 
   @mockserver
@@ -21,8 +22,9 @@ Feature: School buildings map
       | Map  |
       | List |
 
-  @mockserver
+  @mockserver @focus
   Scenario: Search for postcode
+    Then the ripple map component should be visible
     When I enter the term "3012" into the location search input
     Then the location search results should contain "West Footscray"
     When I click the location search term "West Footscray"

@@ -31,11 +31,25 @@
         </template>
       </template>
       <template #popupContent="{ selectedFeatures }">
-        <component
-          :is="popup.content.component"
-          v-if="selectedFeatures && popup.content.component"
-          :selectedFeature="selectedFeatures"
-        ></component>
+        <template v-if="selectedFeatures.length === 1">
+          <component
+            :is="popup.content.component"
+            v-if="popup.content.component"
+            :feature="selectedFeatures[0]"
+          ></component>
+        </template>
+
+        <template v-if="selectedFeatures.length > 1">
+          <RplMapPopUpAccordion :features="selectedFeatures">
+            <template #feature="{ feature }">
+              <component
+                :is="popup.content.component"
+                v-if="popup.content.component"
+                :feature="feature"
+              ></component>
+            </template>
+          </RplMapPopUpAccordion>
+        </template>
       </template>
     </RplMap>
     <RplMapLegend

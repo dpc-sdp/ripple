@@ -42,7 +42,10 @@ const props = withDefaults(defineProps<Props>(), {
     let color = feature.color || 'red'
     const ic = new Icon({
       src: markerIconDefaultSrc,
-      color
+      color,
+      anchor: [0.5, 1],
+      anchorXUnits: 'fraction',
+      anchorYUnits: 'fraction'
     })
     ic.load()
     return ic
@@ -105,6 +108,7 @@ function onMapSingleClick(evt) {
     if (point.features.length > 1) {
       // if we click on a cluster we zoom to fit all the items in view
       zoomToClusterExtent(point.features, popup, map, props.projection)
+      popup.value.isOpen = false
     } else if (point.features.length === 1) {
       // if we click on a pin we open the popup
       const clickedFeature = point.features[0]
@@ -120,6 +124,10 @@ function onMapSingleClick(evt) {
       popup.value.position = coordinates
       centerMap(map, coordinates)
     }
+  }
+
+  if (!point || !point.features || point.features.length === 0) {
+    popup.value.isOpen = false
   }
 }
 
@@ -200,7 +208,11 @@ function onMapMove(evt) {
       </ol-vector-layer>
 
       <slot v-if="popupType === 'popover'" name="popup" :popup="popup">
-        <ol-overlay :position="popup.position" positioning="top-center">
+        <ol-overlay
+          :position="popup.position"
+          positioning="top-center"
+          :stopEvent="true"
+        >
           <RplMapPopUp
             :is-open="popup.isOpen"
             :is-area="popup.isArea"

@@ -1,42 +1,52 @@
 <template>
-  <div class="vsba-map-popup-content" v-if="!hasMultiple">
-    <p class="rpl-type-p-small">
-      {{ selectedFeature[0].field_about_project_processed[0] }}
-    </p>
-    <RplTextLink
-      class="rpl-type-p-small rpl-u-margin-t-4"
-      :url="formatUrl(selectedFeature[0].url[0])"
+  <div class="vsba-map-popup-content">
+    <h4 class="rpl-type-p-small">What's happening?</h4>
+
+    <p
+      v-if="feature.field_project_title?.length === 1"
+      class="rpl-type-p-small"
     >
-      View page
-    </RplTextLink>
+      {{ feature.title[0] }}
+    </p>
+    <RplContent v-else class="vsba-map-popup-list">
+      <ul>
+        <li v-for="project in feature.field_project_title" :key="project">
+          {{ project }}
+        </li>
+      </ul>
+    </RplContent>
+
+    <p class="rpl-type-p-small rpl-u-margin-t-3">
+      <RplTextLink :url="formatUrl(feature.url[0])">
+        View {{ feature.title[0] }}
+      </RplTextLink>
+    </p>
   </div>
 </template>
 
 <script setup lang="ts">
 interface Props {
-  selectedFeature: any
+  feature: any
 }
 const props = withDefaults(defineProps<Props>(), {})
 
-const hasMultiple = computed(() => {
-  return (
-    Array.isArray(props.selectedFeature) && props.selectedFeature.length > 1
-  )
-})
-
 const formatUrl = (str) => str.replace(/\/site-(\d+)/, '')
-
-const url = computed(() => {
-  if (!hasMultiple && props.selectedFeature[0].url) {
-    return props.selectedFeature[0].url[0].replace(/\/site-(\d+)/, '')
-  }
-  return false
-})
 </script>
 
 <style>
 .vsba-map-popup-content {
   display: flex;
   flex-direction: column;
+  padding: var(--rpl-sp-4);
+}
+
+.vsba-map-popup-list ul {
+  font-size: var(--rpl-type-size-1);
+  line-height: var(--rpl-type-lh-3);
+  letter-spacing: var(--rpl-type-ls-1);
+}
+
+.vsba-map-popup-list ul li:before {
+  top: 0.6rem;
 }
 </style>

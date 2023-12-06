@@ -54,7 +54,10 @@ const overrideStyleFunction = (feature, style) => {
       style.setImage(
         new Icon({
           src: markerIconDefaultSrc,
-          color: icon
+          color: icon,
+          anchor: [0.5, 1],
+          anchorXUnits: 'fraction',
+          anchorYUnits: 'fraction'
         })
       )
     } else {

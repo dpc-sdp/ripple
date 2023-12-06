@@ -46,16 +46,25 @@ export default defineAppConfig({
       },
       mapPinStyleFn: {
         vsbaPinIcons: (feature) => {
-          const projectType = feature ? feature['field_mappintype_name'][0] : ''
+          const projectType =
+            feature && feature['field_mappintype_name']
+              ? feature['field_mappintype_name'][0]
+              : ''
           switch (projectType) {
-            case 'Early childhood':
-              return '#7c1792'
+            case 'New school':
+              return '#8A2A2B'
             case 'School upgrade':
               return '#df4809'
-            case 'New school':
-              return '#ff941a'
+            case 'Planning project':
+              return '#FF9E1B'
+            case 'Early childhood':
+              return '#87189D'
+            case 'Tech school':
+              return '#00B2A9'
+            case 'Non-government grant':
+              return '#71C5E8'
             default:
-              return '#a13434'
+              return '#333333'
           }
         }
       },

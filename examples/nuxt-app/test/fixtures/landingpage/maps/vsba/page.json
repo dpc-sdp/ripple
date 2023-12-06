@@ -177,32 +177,66 @@
         "searchListingConfig": {
           "searchProvider": "elasticsearch",
           "index": "elasticsearch_index_develop_node",
-          "resultsPerPage": 10,
+          "resultsPerPage": 5,
           "displayMapTab": true,
           "labels": {
             "submit": "Search",
-            "placeholder": "Enter school name"
+            "placeholder": "Search by postcode or suburb"
           }
         },
         "queryConfig": {
           "multi_match": {
             "query": "{{query}}",
-            "fields": ["title"]
+            "fields": ["field_postcode", "field_suburb"]
           }
         },
         "mapConfig": {
           "props": {
             "popup": {
               "title": {
-                "objKey": "title[0]"
+                "objKey": "_source.title[0]"
               },
               "content": {
-                "objKey": "field_landing_page_summary[0]"
+                "component": "VSBAMapPopupContent"
               }
             },
+            "pinIconFn": "vsbaPinIcons",
             "latObjPath": "_source.field_latitude[0]",
             "lngObjPath": "_source.field_longitude[0]",
-            "titleObjPath": "title[0]"
+            "titleObjPath": "title[0]",
+            "vectorLayerComponent": "VSBAProjectAreaLayer",
+            "legendItems": [
+              {
+                "text": "New schools",
+                "icon": "icon-pin",
+                "iconColour": "#8A2A2B"
+              },
+              {
+                "text": "School upgrades",
+                "icon": "icon-pin",
+                "iconColour": "#E35205"
+              },
+              {
+                "text": "Planning projects",
+                "icon": "icon-pin",
+                "iconColour": "#FF9E1B"
+              },
+              {
+                "text": "Early childhood projects",
+                "icon": "icon-pin",
+                "iconColour": "#87189D"
+              },
+              {
+                "text": "Tech schools",
+                "icon": "icon-pin",
+                "iconColour": "#00B2A9"
+              },
+              {
+                "text": "Non-government grants",
+                "icon": "icon-pin",
+                "iconColour": "#71C5E8"
+              }
+            ]
           }
         },
         "userFilters": [
@@ -220,29 +254,42 @@
             "props": {
               "id": "category",
               "label": "Filter by",
+              "placeholder": "Select school type",
               "type": "RplFormDropdown",
-              "multiple": false,
+              "multiple": true,
               "options": []
             }
           }
         ],
-        "globalFilters": [],
+        "globalFilters": [
+          {
+            "terms": {
+              "type": ["project_infrastructure"]
+            }
+          },
+          {
+            "terms": {
+              "field_node_site": [622]
+            }
+          }
+        ],
+        "locationQueryConfig": {
+          "component": "TideSearchAddressLookup",
+          "dslTransformFunction": "schoolBuildings",
+          "mapResultsMappingFn": "schoolBuildings"
+        },
         "resultsConfig": {
           "layout": {
             "component": "TideSearchResultsTable",
             "props": {
               "columns": [
                 {
-                  "label": "Title",
-                  "objectKey": "title"
+                  "label": "School name",
+                  "component": "TideSearchListingTableLink"
                 },
                 {
-                  "label": "Postcode",
-                  "objectKey": "field_postcode"
-                },
-                {
-                  "label": "Type",
-                  "objectKey": "field_mappintype_value"
+                  "label": "Suburb",
+                  "objectKey": "field_suburb"
                 }
               ]
             }

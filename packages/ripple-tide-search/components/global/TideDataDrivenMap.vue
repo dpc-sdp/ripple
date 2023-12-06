@@ -392,7 +392,6 @@ const mapAreas = computed(() => {
       <RplExpandable
         v-if="userFilters && userFilters.length > 0"
         :expanded="filtersExpanded"
-        class="rpl-u-margin-t-4"
       >
         <ClientOnly>
           <TideSearchFilters

@@ -8,7 +8,7 @@ Feature: Custom Collection
     And the search autocomplete request is stubbed with "/search-listing/suggestions/none" fixture
     Given I am using a "macbook-16" device
 
-  @mockserver
+  @mockserver @focus
   Scenario: Custom collection
     Given the "/api/tide/elasticsearch/sdp_data_pipelines_scl/_search" network request is stubbed with fixture "/landingpage/custom-collection/response" and status 200 as alias "cslReq"
     Given I visit the page "/custom-collection"

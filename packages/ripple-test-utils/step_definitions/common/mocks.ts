@@ -132,20 +132,31 @@ Given(
   'the {string} network request is stubbed with fixture {string} and status {int} as alias {string}',
   (url: string, fixture: string, status: number, alias: string) => {
     cy.intercept('POST', url, (req) => {
+      // Filter out the aggregation requests (they have size=0)
+      if (req.body.size !== 0) {
+        // Only apply the alias to the actual search request
+        req.alias = alias // assign an alias
+        req.reply({
+          statusCode: status,
+          fixture: fixture
+        })
+      }
+    })
+  }
+)
+Given(
+  'the {string} aggregation request is stubbed with fixture {string} and status {int} as alias {string}',
+  (url: string, fixture: string, status: number, alias: string) => {
+    cy.intercept('POST', url, (req) => {
       // Filter out the aggregation requests (they have size=1)
-      if (req.body.size === 1) {
+      if (req.body.size === 0) {
+        req.alias = 'aggReq' // assign an alias to aggregations
         req.reply({
           statusCode: status,
           fixture: fixture
         })
         return
       }
-      // Only apply the alias to the actual search request
-      req.alias = alias // assign an alias
-      req.reply({
-        statusCode: status,
-        fixture: fixture
-      })
     })
   }
 )
@@ -165,6 +176,15 @@ Then(
   (requestFixture: string) => {
     cy.fixture(requestFixture).then((fixture) => {
       cy.get(`@searchReq`).its('request.body').should('deep.equal', fixture)
+    })
+  }
+)
+
+Then(
+  'the search aggregation request should be called with the {string} fixture',
+  (requestFixture: string) => {
+    cy.fixture(requestFixture).then((fixture) => {
+      cy.get(`@aggReq`).its('request.body').should('deep.equal', fixture)
     })
   }
 )

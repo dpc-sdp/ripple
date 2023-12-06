@@ -6,7 +6,11 @@ Given(`I am using a {string} device`, (deviceString: any) => {
 
 When('I visit the page {string}', (route: string) => {
   cy.visit(route, { failOnStatusCode: false })
-  cy.get('body').should('have.attr', 'data-nuxt-hydrated', 'true')
+  cy.get('body', { timeout: 10000 }).should(
+    'have.attr',
+    'data-nuxt-hydrated',
+    'true'
+  )
   cy.wait(200)
 })
 

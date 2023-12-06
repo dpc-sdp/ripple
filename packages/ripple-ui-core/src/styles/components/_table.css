@@ -103,23 +103,19 @@
     background-repeat: no-repeat;
     background-position: 0 0, 100% 0;
     background-image: linear-gradient(
-        to right,
+        to bottom,
         var(--local-scrolling-idicator-fade),
         transparent
       ),
-      linear-gradient(
-        to left,
-        var(--local-scrolling-idicator-fade),
-        transparent
-      );
-    background-size: calc(var(--local-scroll-indicator-width) / 2) 100%;
+      linear-gradient(to top, var(--local-scrolling-idicator-fade), transparent);
+    background-size: 100% calc (var(--local-scroll-indicator-width) / 2);
 
     &::before,
     &::after {
       content: '';
       z-index: -1;
       position: relative;
-      min-width: var(--local-scroll-indicator-width);
+      min-height: var(--local-scroll-indicator-width);
       background: var(--rpl-clr-light);
     }
 
@@ -128,8 +124,8 @@
       overflow-x: initial;
     }
 
-    table {
-      margin: 0 calc(-1 * var(--local-scroll-indicator-width));
+    .rpl-map-popup__body {
+      margin: calc(-1 * var(--local-scroll-indicator-width)) 0;
     }
   }
 

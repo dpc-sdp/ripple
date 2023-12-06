@@ -26,7 +26,8 @@ interface Props {
   globalEvents?: boolean
   showNoResults?: boolean
   getSuggestionVal?: (item: any) => string
-  getOptionLabel?: Function
+  getOptionLabel?: (item: any) => string
+  getOptionId?: (item: any) => string
   isOptionSelectable?: Function
   showLabel?: boolean
 }
@@ -43,7 +44,8 @@ const props = withDefaults(defineProps<Props>(), {
   placeholder: '',
   globalEvents: true,
   getSuggestionVal: (item) => item,
-  getOptionLabel: (opt) => opt.toString(),
+  getOptionLabel: (opt) => opt,
+  getOptionId: (opt) => opt,
   isOptionSelectable: (opt) => true,
   showLabel: false
 })
@@ -126,7 +128,7 @@ const handleSelectOption = (optionValue: any, focusBackOnInput) => {
 }
 
 const getDefaultActiveId = (): string => {
-  return props.suggestions[0]
+  return props.getOptionId(props.suggestions[0])
 }
 
 const handleOpen = (fromKeyboard = false): void => {
@@ -146,27 +148,31 @@ const handleClose = (focusBackOnInput = false): void => {
   }
 }
 
-const handleArrowUp = () => {
+const handleArrowDown = () => {
   const currentActiveIndex = props.suggestions.findIndex(
-    (opt) => opt === activeOptionId.value
+    (opt) => props.getOptionId(opt) === activeOptionId.value
   )
 
   if (currentActiveIndex < 0) {
     activeOptionId.value = getDefaultActiveId()
   } else if (currentActiveIndex < props.suggestions.length - 1) {
-    activeOptionId.value = props.suggestions[currentActiveIndex + 1]
+    activeOptionId.value = props.getOptionId(
+      props.suggestions[currentActiveIndex + 1]
+    )
   }
 }
 
-const handleArrowDown = () => {
+const handleArrowUp = () => {
   const currentActiveIndex = props.suggestions.findIndex(
-    (opt) => opt === activeOptionId.value
+    (opt) => props.getOptionId(opt) === activeOptionId.value
   )
 
   if (currentActiveIndex < 0) {
     activeOptionId.value = getDefaultActiveId()
   } else if (currentActiveIndex > 0) {
-    activeOptionId.value = props.suggestions[currentActiveIndex - 1]
+    activeOptionId.value = props.getOptionId(
+      props.suggestions[currentActiveIndex - 1]
+    )
   }
 }
 
@@ -230,7 +236,9 @@ watch(activeOptionId, async (newId) => {
   }
 })
 
-const slug = (label: string) => label.toLowerCase().replace(/[^\w-]+/g, '-')
+const slug = (label: string) => {
+  label.toLowerCase().replace(/[^\w-]+/g, '-')
+}
 </script>
 
 <template>
@@ -254,8 +262,8 @@ const slug = (label: string) => label.toLowerCase().replace(/[^\w-]+/g, '-')
       <div
         ref="containerRef"
         class="rpl-search-bar__input-wrap"
-        @keydown.down.prevent="handleArrowUp"
-        @keydown.up.prevent="handleArrowDown"
+        @keydown.up.prevent="handleArrowUp"
+        @keydown.down.prevent="handleArrowDown"
         @keydown.esc.prevent="handleClose(true)"
         @keydown.exact.tab="handleClose(false)"
         @keydown.shift.tab="handleClose(false)"
@@ -308,16 +316,16 @@ const slug = (label: string) => label.toLowerCase().replace(/[^\w-]+/g, '-')
         >
           <div
             v-for="option in suggestions"
-            :id="slug(getOptionLabel(option))"
-            :key="`opt-${slug(getOptionLabel(option))}`"
+            :id="slug(getOptionId(option))"
+            :key="`opt-${slug(getOptionId(option))}`"
             ref="optionRefs"
-            :data-option-id="getOptionLabel(option)"
+            :data-option-id="getOptionId(option)"
             :role="isOptionSelectable(option) ? 'option' : null"
             :class="{
               'rpl-search-bar__menu-option': true,
               'rpl-u-focusable-block': true,
               'rpl-u-focusable--force-on': isMenuItemKeyboardFocused(
-                slug(getOptionLabel(option))
+                getOptionId(option)
               )
             }"
             tabindex="-1"

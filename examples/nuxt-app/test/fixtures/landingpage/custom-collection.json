@@ -98,7 +98,7 @@
     },
     {
       "uuid": "55555555-5555-5555-5555-555555555555",
-      "component": "TideCustomCollection",
+      "component": "TideDataDrivenMap",
       "id": "123",
       "title": "Cameras save lives",
       "props": {

@@ -19,6 +19,7 @@
             :name="filter.id"
             :modelValue="filterFormValues[filter.id]"
             v-bind="filter.props"
+            :variant="reverseStyling ? 'reverse' : 'default'"
             :options="
               filter.props?.dynamicOptions?.length
                 ? filter.props.dynamicOptions
@@ -51,6 +52,7 @@ interface Props {
   filterFormValues: Record<string, any>
   submitLabel?: string | boolean
   resetLabel?: string | boolean
+  reverseStyling?: boolean
 }
 
 const emit = defineEmits<{
@@ -60,7 +62,8 @@ const emit = defineEmits<{
 
 const props = withDefaults(defineProps<Props>(), {
   submitLabel: 'Apply search filters',
-  resetLabel: 'Clear search filters'
+  resetLabel: 'Clear search filters',
+  reverseStyling: false
 })
 
 const handleFilterReset = () => {

@@ -12,7 +12,9 @@
   @media (--rpl-bp-m) {
     --local-search-bar-suggestion-height: 52px;
   }
+}
 
+.rpl-search-bar__inner {
   position: relative;
 }
 
@@ -29,6 +31,11 @@
   --local-search-bar-clr-placeholder: var(
     --rpl-clr-type-primary-contrast-alpha
   );
+}
+
+.rpl-search-bar__label {
+  display: block;
+  margin-bottom: var(--rpl-sp-4);
 }
 
 .rpl-search-bar__input,

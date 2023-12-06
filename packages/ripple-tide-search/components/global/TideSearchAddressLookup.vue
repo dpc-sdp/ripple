@@ -3,23 +3,27 @@
     <RplSearchBar
       id="tide-address-lookup"
       inputLabel="Search by postcode or suburb"
+      :showLabel="true"
+      variant="reverse"
       :submitLabel="false"
       :inputValue="inputValue"
       :suggestions="results"
       :showNoResults="true"
       :debounce="5000"
       placeholder="Search by postcode or suburb"
-      :getSuggestionVal="(itm:any) => itm?.postcode || ''"
+      :getOptionId="(itm:any) => itm.id"
+      :getSuggestionVal="(itm:any) => itm?.locality || ''"
       @submit="submitAction"
       @update:input-value="onUpdate"
     >
       <template #suggestion="{ option: { option } }">
         <span>{{ option?.locality }}</span>
-        <RplChip
+        <RplTag
           v-if="option?.postcode"
-          class="rpl-u-margin-l-4"
           :label="option?.postcode"
-        ></RplChip>
+          variant="dark"
+          class="rpl-u-margin-l-3"
+        />
       </template>
     </RplSearchBar>
   </div>

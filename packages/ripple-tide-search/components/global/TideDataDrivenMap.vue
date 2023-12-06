@@ -360,8 +360,13 @@ const mapAreas = computed(() => {
 </script>
 
 <template>
-  <div>
-    <div class="tide-search-header">
+  <div class="rpl-u-margin-t-8">
+    <div
+      :class="{
+        'tide-search-header': true,
+        'tide-search-header--neutral': searchListingConfig.displayMapTab
+      }"
+    >
       <RplSearchBar
         v-if="!locationQueryConfig?.component"
         id="custom-collection-search-bar"
@@ -398,6 +403,7 @@ const mapAreas = computed(() => {
             :title="title"
             :filter-form-values="filterForm"
             :filterInputs="userFilters"
+            :reverseStyling="true"
             @reset="handleFilterReset"
             @submit="handleFilterSubmit"
           >
@@ -494,11 +500,16 @@ const mapAreas = computed(() => {
 .tide-search-header {
   display: flex;
   flex-direction: column;
-  margin-top: var(--rpl-sp-6);
 }
+
 .tide-search-header--neutral {
-  background-color: var(--rpl-clr-neutral-200);
-  padding: var(--rpl-sp-5);
+  background-color: var(--rpl-clr-neutral-100);
+  padding: var(--rpl-sp-4);
+  margin-bottom: var(--rpl-sp-4);
+
+  @media (--rpl-bp-s) {
+    padding: var(--rpl-sp-5);
+  }
 }
 
 .tide-search-filters.rpl-grid {

@@ -12,6 +12,10 @@
     --rpl-tag-bg-clr: var(--rpl-clr-neutral-100);
   }
 
+  &--dark {
+    --rpl-tag-bg-clr: var(--rpl-clr-neutral-200);
+  }
+
   & + & {
     margin-left: var(--rpl-sp-3);
   }

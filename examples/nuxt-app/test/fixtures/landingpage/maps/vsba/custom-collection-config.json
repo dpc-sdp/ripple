@@ -79,6 +79,7 @@
       "props": {
         "id": "category",
         "label": "Filter by",
+        "placeholder": "Select school type",
         "type": "RplFormDropdown",
         "multiple": true,
         "options": []
@@ -108,16 +109,12 @@
       "props": {
         "columns": [
           {
-            "label": "Title",
-            "objectKey": "title"
+            "label": "School name",
+            "component": "TideSearchListingTableLink"
           },
           {
-            "label": "Postcode",
-            "objectKey": "field_postcode"
-          },
-          {
-            "label": "Type",
-            "objectKey": "field_mappintype_value"
+            "label": "Suburb",
+            "objectKey": "field_suburb"
           }
         ]
       }

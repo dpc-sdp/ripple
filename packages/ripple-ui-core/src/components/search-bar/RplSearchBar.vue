@@ -28,6 +28,7 @@ interface Props {
   getSuggestionVal?: (item: any) => string
   getOptionLabel?: Function
   isOptionSelectable?: Function
+  showLabel?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -43,7 +44,8 @@ const props = withDefaults(defineProps<Props>(), {
   globalEvents: true,
   getSuggestionVal: (item) => item,
   getOptionLabel: (opt) => opt.toString(),
-  isOptionSelectable: (opt) => true
+  isOptionSelectable: (opt) => true,
+  showLabel: false
 })
 
 const emit = defineEmits<{
@@ -239,106 +241,119 @@ const slug = (label: string) => label.toLowerCase().replace(/[^\w-]+/g, '-')
     }"
     @submit.prevent="handleSubmit('button')"
   >
-    <div
-      ref="containerRef"
-      class="rpl-search-bar__input-wrap"
-      @keydown.down.prevent="handleArrowUp"
-      @keydown.up.prevent="handleArrowDown"
-      @keydown.esc.prevent="handleClose(true)"
-      @keydown.exact.tab="handleClose(false)"
-      @keydown.shift.tab="handleClose(false)"
+    <label
+      :class="{
+        'rpl-search-bar__label': true,
+        'rpl-u-visually-hidden': !showLabel,
+        'rpl-type-h4-fixed': true
+      }"
+      :for="id"
+      >{{ inputLabel }}</label
     >
-      <label class="rpl-u-visually-hidden" :for="id">{{ inputLabel }}</label>
-      <input
-        v-bind="$attrs"
-        :id="id"
-        ref="inputRef"
-        v-model="internalValue"
-        :aria-owns="menuId"
-        autocomplete="off"
-        aria-autocomplete="list"
-        :aria-expanded="isOpen"
-        :placeholder="placeholder"
-        role="combobox"
-        :class="{
-          'rpl-search-bar__input': true,
-          'rpl-u-focusable-outline': true,
-          'rpl-u-focusable-outline--no-border': true,
-          'rpl-u-focusable--force-on': isOpen
-        }"
-        type="search"
-        @input="handleInputChange"
-        @focus="handleOpen(false)"
-        @keydown.enter.prevent="handleSubmit('enter')"
-      />
-
-      <template
-        v-if="
-          showNoResults && suggestions.length === 0 && !!internalValue && isOpen
-        "
-      >
-        <slot name="noresults">
-          <div class="rpl-search-bar__menu">
-            <span class="rpl-search-bar__menu-noresults"> No results </span>
-          </div>
-        </slot>
-      </template>
-
+    <div class="rpl-search-bar__inner">
       <div
-        v-if="suggestions.length && isOpen"
-        :id="menuId"
-        ref="menuRef"
-        class="rpl-search-bar__menu"
-        role="listbox"
-        tabindex="-1"
+        ref="containerRef"
+        class="rpl-search-bar__input-wrap"
+        @keydown.down.prevent="handleArrowUp"
+        @keydown.up.prevent="handleArrowDown"
+        @keydown.esc.prevent="handleClose(true)"
+        @keydown.exact.tab="handleClose(false)"
+        @keydown.shift.tab="handleClose(false)"
       >
-        <div
-          v-for="option in suggestions"
-          :id="slug(getOptionLabel(option))"
-          :key="`opt-${slug(getOptionLabel(option))}`"
-          ref="optionRefs"
-          :data-option-id="getOptionLabel(option)"
-          :role="isOptionSelectable(option) ? 'option' : null"
+        <input
+          v-bind="$attrs"
+          :id="id"
+          ref="inputRef"
+          v-model="internalValue"
+          :aria-owns="menuId"
+          autocomplete="off"
+          aria-autocomplete="list"
+          :aria-expanded="isOpen"
+          :placeholder="placeholder"
+          role="combobox"
           :class="{
-            'rpl-search-bar__menu-option': true,
-            'rpl-u-focusable-block': true,
-            'rpl-u-focusable--force-on': isMenuItemKeyboardFocused(
-              slug(getOptionLabel(option))
-            )
+            'rpl-search-bar__input': true,
+            'rpl-u-focusable-outline': true,
+            'rpl-u-focusable-outline--no-border': true,
+            'rpl-u-focusable--force-on': isOpen
           }"
-          tabindex="-1"
-          @keydown.space.prevent="
-            isOptionSelectable(option) && handleSelectOption(option, true)
+          type="search"
+          @input="handleInputChange"
+          @focus="handleOpen(false)"
+          @keydown.enter.prevent="handleSubmit('enter')"
+        />
+
+        <template
+          v-if="
+            showNoResults &&
+            suggestions.length === 0 &&
+            !!internalValue &&
+            isOpen
           "
-          @keydown.enter.prevent="
-            isOptionSelectable(option) && handleSelectOption(option, true)
-          "
-          @click="
-            isOptionSelectable(option) && handleSelectOption(option, false)
-          "
-          @keydown="isOptionSelectable(option) && handleKeydown"
         >
-          <slot name="suggestion" :option="{ option }">
-            {{ getOptionLabel(option) }}
+          <slot name="noresults">
+            <div class="rpl-search-bar__menu">
+              <span class="rpl-search-bar__menu-noresults"> No results </span>
+            </div>
           </slot>
+        </template>
+
+        <div
+          v-if="suggestions.length && isOpen"
+          :id="menuId"
+          ref="menuRef"
+          class="rpl-search-bar__menu"
+          role="listbox"
+          tabindex="-1"
+        >
+          <div
+            v-for="option in suggestions"
+            :id="slug(getOptionLabel(option))"
+            :key="`opt-${slug(getOptionLabel(option))}`"
+            ref="optionRefs"
+            :data-option-id="getOptionLabel(option)"
+            :role="isOptionSelectable(option) ? 'option' : null"
+            :class="{
+              'rpl-search-bar__menu-option': true,
+              'rpl-u-focusable-block': true,
+              'rpl-u-focusable--force-on': isMenuItemKeyboardFocused(
+                slug(getOptionLabel(option))
+              )
+            }"
+            tabindex="-1"
+            @keydown.space.prevent="
+              isOptionSelectable(option) && handleSelectOption(option, true)
+            "
+            @keydown.enter.prevent="
+              isOptionSelectable(option) && handleSelectOption(option, true)
+            "
+            @click="
+              isOptionSelectable(option) && handleSelectOption(option, false)
+            "
+            @keydown="isOptionSelectable(option) && handleKeydown"
+          >
+            <slot name="suggestion" :option="{ option }">
+              {{ getOptionLabel(option) }}
+            </slot>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="rpl-search-bar__right">
-      <button
-        type="submit"
-        aria-label="search"
-        class="rpl-search-bar-submit rpl-u-focusable-inline"
-      >
-        <span
-          v-if="submitLabel"
-          class="rpl-search-bar-submit__label rpl-type-label rpl-type-weight-bold"
-          >{{ submitLabel }}</span
+      <div class="rpl-search-bar__right">
+        <button
+          type="submit"
+          aria-label="search"
+          class="rpl-search-bar-submit rpl-u-focusable-inline"
         >
-        <span class="rpl-search-bar-submit__icon">
-          <RplIcon name="icon-search" size="m" />
-        </span>
-      </button>
+          <span
+            v-if="submitLabel"
+            class="rpl-search-bar-submit__label rpl-type-label rpl-type-weight-bold"
+            >{{ submitLabel }}</span
+          >
+          <span class="rpl-search-bar-submit__icon">
+            <RplIcon name="icon-search" size="m" />
+          </span>
+        </button>
+      </div>
     </div>
   </form>
 </template>

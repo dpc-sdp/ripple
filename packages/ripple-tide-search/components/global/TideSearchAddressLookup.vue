@@ -3,6 +3,8 @@
     <RplSearchBar
       id="tide-address-lookup"
       inputLabel="Search by postcode or suburb"
+      :showLabel="true"
+      variant="reverse"
       :submitLabel="false"
       :inputValue="inputValue"
       :suggestions="results"

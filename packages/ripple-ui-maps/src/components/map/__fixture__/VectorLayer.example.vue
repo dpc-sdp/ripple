@@ -28,11 +28,18 @@ const props = withDefaults(defineProps<Props>(), {
   areaDataKey: 'postcode'
 })
 
-const mappedAreas = computed(() => {
-  const matches = props.results
-    .filter((itm) => !itm.lat && itm.get(props.areaDataKey) !== undefined)
-    .map((area) => `'${area.get(props.areaDataKey)}'`)
+const areas = computed(() => {
+  const matches = props.results.filter((itm) => {
+    const itemProperties = itm.getProperties()
+    return (
+      !itemProperties.lat && itemProperties[props.areaDataKey] !== undefined
+    )
+  })
   return matches
+})
+
+const mappedAreas = computed(() => {
+  return areas.value.map((area) => `'${area.get(props.areaDataKey)}'`)
 })
 const shapeFormat = new GeoJSON()
 
@@ -99,21 +106,41 @@ onMounted(async () => {
     }
 
     map.on('singleclick', function (evt) {
-      // Get the features at the click position
-      const feature = map.forEachFeatureAtPixel(evt.pixel, layerFilter, {
-        hitTolerance: 5
-      })
-      if (feature) {
-        const matchingResult = props.results.find((itm) => {
-          return itm.postcode === feature?.get('postcode')
-        })
+      const clickedFeatures = []
+      // We need to keep track of features that are clicked outside of the shape layer, so that pins can take priority over the shape
+      const outOfLayerClickedFeatures = []
 
-        popup.value.isArea = true
-        popup.value.feature = [matchingResult]
-        popup.value.isOpen = true
-        popup.value.position = feature.getGeometry().flatCoordinates
-        centerOnPopup(map, popup)
+      // Get the features at the click position
+      map.forEachFeatureAtPixel(
+        evt.pixel,
+        (f, layer) => {
+          if (layer.get('title') === layerIdentifier) {
+            clickedFeatures.push(f)
+          } else {
+            outOfLayerClickedFeatures.push(f)
+          }
+        },
+        {
+          hitTolerance: 5
+        }
+      )
+
+      if (outOfLayerClickedFeatures.length || !clickedFeatures.length) {
+        return
       }
+      const feature = clickedFeatures[0]
+
+      const matchingResult = areas.value.find((itm) => {
+        return (
+          itm.getProperties().postcode === feature?.getProperties().postcode
+        )
+      })
+
+      popup.value.isArea = true
+      popup.value.feature = [matchingResult.getProperties()]
+      popup.value.isOpen = true
+      popup.value.position = feature.getGeometry().flatCoordinates
+      centerOnPopup(map, popup)
     })
     // Add a pointermove event listener to the map to detect shape hover
     map.on('pointermove', function (evt) {

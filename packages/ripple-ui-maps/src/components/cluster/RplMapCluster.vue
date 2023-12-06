@@ -30,8 +30,7 @@ const overrideStyleFunction = (feature, style) => {
     return new CircleStyle({
       ...innerProperties,
       fill: new Fill({
-        color: [102, 102, 102, 1],
-        width: 48
+        color: [102, 102, 102, 1]
       }),
       stroke: new Stroke({
         color: [102, 102, 102, 0.2],
@@ -40,9 +39,8 @@ const overrideStyleFunction = (feature, style) => {
     })
   }
 
-  const circle = computed(() => createCircleStyle({ radius: 15 }))
   if (clusteredFeatures.length > 1) {
-    style.setImage(circle.value)
+    style.setImage(createCircleStyle({ radius: 20 }))
     style.getText().setText(size.toString())
     style.getText().setStroke(undefined)
     style.getText().setFont('12px VIC-Bold, Arial, Helvetica, sans-serif')
@@ -56,7 +54,10 @@ const overrideStyleFunction = (feature, style) => {
       style.setImage(
         new Icon({
           src: markerIconDefaultSrc,
-          color: icon
+          color: icon,
+          anchor: [0.5, 1],
+          anchorXUnits: 'fraction',
+          anchorYUnits: 'fraction'
         })
       )
     } else {

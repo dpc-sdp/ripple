@@ -312,7 +312,7 @@ export default ({
           filter: globalFilters
         }
       },
-      size: 1,
+      size: 0,
       from: 0,
       sort: getSortClause(),
       aggs: getAggregations()

@@ -1,7 +1,7 @@
 import { Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Then(`the custom collection component should have a search input bar`, () => {
-  cy.get(`[data-component-type="TideCustomCollection"]`).find('.rpl-search-bar')
+  cy.get(`[data-component-type="TideDataDrivenMap"]`).find('.rpl-search-bar')
 })
 
 Then(
@@ -26,9 +26,6 @@ Then(
 Then(
   `the custom collection component should display the error {string}`,
   (msg: string) => {
-    cy.get(`[data-component-type="TideCustomCollection"]`).should(
-      'contain',
-      msg
-    )
+    cy.get(`[data-component-type="TideDataDrivenMap"]`).should('contain', msg)
   }
 )

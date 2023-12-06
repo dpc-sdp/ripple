@@ -1,8 +1,9 @@
 <template>
   <Transition name="rpl-map-popup">
     <div
-      class="rpl-map-popup"
+      v-if="isOpen"
       ref="popupEL"
+      class="rpl-map-popup"
       :class="{
         [`rpl-map-popup--${type}`]: type,
         [`rpl-map-popup--area`]: isArea
@@ -10,10 +11,10 @@
     >
       <slot name="above">
         <LargePinIcon
+          v-if="!isArea && isOpen"
           class="rpl-map-popup__large-pin"
           :class="{ [`rpl-map-popup__large-pin--open`]: isOpen }"
           :style="{ fill: `${pinColor}` }"
-          v-if="!isArea && isOpen"
         />
       </slot>
 
@@ -23,14 +24,16 @@
             <slot name="header"> </slot>
           </h3>
           <button
+            class="rpl-map-popup__close rpl-u-focusable-block"
             @click="onClose"
-            class="rpl-map-popup__close rpl-u-focusable-inline"
           >
-            <RplIcon name="icon-cancel" size="s"></RplIcon>
+            <RplIcon name="icon-cancel" size="s" colour="primary"></RplIcon>
           </button>
         </div>
-        <div ref="content" class="rpl-map-popup__body">
-          <slot> </slot>
+        <div class="rpl-map-pop-up-scroll-container">
+          <div ref="content" class="rpl-map-popup__body">
+            <slot></slot>
+          </div>
         </div>
       </div>
     </div>
@@ -64,7 +67,6 @@ const emit = defineEmits<{
 
 const { emitRplEvent } = useRippleEvent('rpl-map-popup', emit)
 const popupEL = ref()
-// const hoverClass = ref('')
 
 function onClose() {
   emitRplEvent('close')

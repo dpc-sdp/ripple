@@ -108,7 +108,6 @@ function onMapSingleClick(evt) {
     if (point.features.length > 1) {
       // if we click on a cluster we zoom to fit all the items in view
       zoomToClusterExtent(point.features, popup, map, props.projection)
-      popup.value.isOpen = false
     } else if (point.features.length === 1) {
       // if we click on a pin we open the popup
       const clickedFeature = point.features[0]

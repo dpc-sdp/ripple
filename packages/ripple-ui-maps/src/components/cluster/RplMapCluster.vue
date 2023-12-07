@@ -34,12 +34,14 @@ const overrideStyleFunction = (feature, style) => {
       }),
       stroke: new Stroke({
         color: [102, 102, 102, 0.2],
-        width: 8
+        // 2x pixel size
+        width: 16
       })
     })
   }
 
   if (clusteredFeatures.length > 1) {
+    // 0.5 scale pixel size
     style.setImage(createCircleStyle({ radius: 20 }))
     style.getText().setText(size.toString())
     style.getText().setStroke(undefined)

@@ -116,7 +116,7 @@ function onAddressSearch(payload: any) {
 function centerMap(center: [number, number]) {
   const map = rplMapRef.value
   if (map) {
-    const zoom = 10
+    const zoom = 13
     map.getView().animate({ center, zoom })
   }
 }

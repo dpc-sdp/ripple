@@ -1,5 +1,18 @@
 # Changelog
 
+## v2.5.0...release/v2.5.1
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.5.0...release/v2.5.1)
+
+
+### 🚀 Enhancements
+
+  - **@dpc-sdp/ripple-tide-api:** 👽️  support D10 api in mapping ([892ac7d0](https://github.com/dpc-sdp/ripple-framework/commit/892ac7d0))
+
+### ❤️  Contributors
+
+- Jason Smith <jason.smith@dpc.vic.gov.au>
+
 ## v2.5.0
 
 [compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.4.9...v2.5.0)

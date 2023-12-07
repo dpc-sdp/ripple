@@ -61,6 +61,7 @@ export const zoomToClusterExtent = (
     popup.value.feature = features.map((f) => f.getProperties())
     popup.value.position = features[0].getGeometry().flatCoordinates
     popup.value.isOpen = true
+    popup.value.isArea = true
   } else {
     // zoom to fit all features in cluster in view
     const zoomRegion =

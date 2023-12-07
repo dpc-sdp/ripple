@@ -7,8 +7,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
-import Icon, { type Options } from 'ol/style/Icon'
+import Icon from 'ol/style/Icon'
 import CircleStyle from 'ol/style/Circle'
 import Fill from 'ol/style/Fill'
 import Stroke from 'ol/style/Stroke'

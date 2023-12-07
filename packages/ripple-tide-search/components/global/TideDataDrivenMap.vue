@@ -459,6 +459,7 @@ const mapAreas = computed(() => {
         <TideSearchError v-if="searchError" />
         <TideSearchNoResults
           :query="searchTerm"
+          class="rpl-u-margin-t-8"
           v-else-if="!isBusy && !results?.length"
         />
 

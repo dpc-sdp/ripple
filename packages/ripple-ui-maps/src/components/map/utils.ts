@@ -36,7 +36,7 @@ export const zoomToClusterExtent = (
   popup,
   map,
   projection = 'EPSG:3857',
-  thresholdDistance = 100
+  thresholdDistance = 20
 ) => {
   const clusterExtentCoordinates = features.map((f) => {
     const geo = f.getGeometry()

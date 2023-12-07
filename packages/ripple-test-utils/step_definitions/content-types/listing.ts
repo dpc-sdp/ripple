@@ -179,7 +179,9 @@ When(
 )
 
 When(`I toggle the search listing filters section`, () => {
-  cy.get(`button`).contains('Refine search').click()
+  cy.get(`button`).contains('Refine search').as('refineBtn')
+  cy.wait(300)
+  cy.get('@refineBtn').click()
 })
 
 When(`I clear the search filters`, () => {

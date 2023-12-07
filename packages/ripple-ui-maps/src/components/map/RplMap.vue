@@ -104,10 +104,27 @@ function onPopUpClose() {
 function onMapSingleClick(evt) {
   const map = mapRef.value.map
   const point = getfeaturesAtMapPixel(map, evt.pixel)
+  const largeClusterZoomAmount = 4 // Zoom levels to zoom in
+  const largeClusterZoomLimit = 100 // Feature count at which to apply cluster zoom behaviour
+  const clusterZoomOutLimit = 9 // Level at which to apply cluster zoom behaviour
   if (point && point.features) {
     if (point.features.length > 1) {
-      // if we click on a cluster we zoom to fit all the items in view
-      zoomToClusterExtent(point.features, popup, map, props.projection)
+      const view = map.getView()
+      const currentZoom = view.getZoom()
+      // click on the cluster
+      if (
+        point.features.length > largeClusterZoomLimit ||
+        currentZoom < clusterZoomOutLimit
+      ) {
+        // if there are lots of features and we are zoomed out, we just zoom in a bit
+        view.animate({
+          zoom: view.getZoom() + largeClusterZoomAmount,
+          center: evt.coordinate
+        })
+      } else {
+        // if there are fewer items we zoom into view all items in the cluster
+        zoomToClusterExtent(point.features, popup, map, props.projection)
+      }
     } else if (point.features.length === 1) {
       // if we click on a pin we open the popup
       const clickedFeature = point.features[0]

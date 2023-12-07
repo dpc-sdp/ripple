@@ -4,7 +4,7 @@ export const customCollectionMapping = (
   field
 ): TideDynamicPageComponent<any> => {
   return {
-    component: 'TideDataDrivenMap',
+    component: 'TideCustomCollection',
     id: field.drupal_internal__id.toString(),
     props: {
       id: field.drupal_internal__id.toString(),

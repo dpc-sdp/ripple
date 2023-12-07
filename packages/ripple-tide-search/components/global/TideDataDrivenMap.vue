@@ -456,7 +456,7 @@ const mapAreas = computed(() => {
       </TideSearchAboveResults>
 
       <TideSearchResultsLoadingState :isActive="isBusy">
-        <TideSearchError v-if="searchError" />
+        <TideSearchError v-if="searchError" class="rpl-u-margin-t-8" />
         <TideSearchNoResults
           :query="searchTerm"
           class="rpl-u-margin-t-8"

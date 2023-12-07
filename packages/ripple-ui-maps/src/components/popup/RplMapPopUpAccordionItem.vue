@@ -30,6 +30,7 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue'
 import { RplExpandable, RplIcon } from '@dpc-sdp/ripple-ui-core/vue'
 
 interface Props {

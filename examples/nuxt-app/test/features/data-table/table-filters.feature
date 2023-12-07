@@ -13,7 +13,7 @@ Feature: Custom Collection
     Given the "/api/tide/elasticsearch/sdp_data_pipelines_ise/_search" network request is stubbed with fixture "/map-table/ise/response" and status 200 as alias "cslReq"
     Given the "/api/tide/elasticsearch/sdp_data_pipelines_ise/_search" aggregation request is stubbed with fixture "/map-table/ise/aggregations" and status 200 as alias "aggReq"
     Given I visit the page "/"
-    Then the landing page component "TideDataDrivenMap" should exist
+    Then the landing page component "TideCustomCollection" should exist
     And the custom collection component should have a search input bar
     And the custom collection component results count should read "Displaying 1-10 of 8269 results"
     And the "cslReq" network request should be made to the elasticsearch endpoint

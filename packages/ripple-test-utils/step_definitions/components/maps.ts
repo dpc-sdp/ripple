@@ -41,3 +41,35 @@ When(`I click the location search term {string}`, (term) => {
     .contains(term)
     .click()
 })
+
+Then(`the map matches the image snapshot {string}`, (title) => {
+  cy.get('.rpl-map').matchImage({
+    title,
+    screenshotConfig: {
+      onBeforeScreenshot($el) {
+        const $primaryNav = $el.find('.rpl-primary-nav')
+
+        if ($primaryNav) {
+          $primaryNav.hide()
+        }
+      }
+    },
+    // pixelmatch options, see: https://www.npmjs.com/package/pixelmatch#pixelmatchimg1-img2-output-width-height-options
+    diffConfig: {
+      threshold: 0.1
+    },
+    // maximum threshold above which the test should fail
+    // default: 0.01
+    maxDiffThreshold: 0.5
+  })
+})
+
+When(
+  `I click the map component at coordinates {int} {int}`,
+  (x: number, y: number) => {
+    // Move mouse to some random position
+    cy.get('.rpl-map canvas').trigger('mousemove', 100, 100)
+    // Click
+    cy.get('.rpl-map canvas').click(x, y, { force: true })
+  }
+)

@@ -16,7 +16,7 @@
     "start:mock": "NUXT_PUBLIC_API_URL=http://localhost:3001 API_PORT=3001 concurrently 'pnpm mockserver' 'pnpm start'",
     "mockserver": "nuxt-ripple mock ./test/fixtures -S ./test/fixtures/site/reference.json -R mock-routes.json",
     "cy:open": "cypress open --e2e --browser electron",
-    "cy:run": "cypress run --record",
+    "cy:run": "cypress run",
     "test:ci": "NUXT_PUBLIC_API_URL=http://localhost:3001 API_PORT=3001 start-test start tcp:3000 'cy:run'",
     "test:integration": "NUXT_PUBLIC_TIDE_SITE=TEST_SITE NUXT_PUBLIC_TIDE_BASE_URL=https://test.base.url/ start-test dev:mock tcp:3000 'cy:open'"
   },

@@ -68,11 +68,13 @@ export const Template = (args) => ({
         </span>
       </template>
       <template #popupContent="{ selectedFeatures }">
+        <div class="rpl-u-margin-4">
         <p class="rpl-type-p-small" v-if="selectedFeatures.length === 1">
           {{ selectedFeatures[0].description}}
         </p>
         <RplAccordion v-else :items="getClusteredFeatures(selectedFeatures)" :displayToggleAll="false">
         </RplAccordion>
+        </div>
       </template>
     </RplMap>
   `

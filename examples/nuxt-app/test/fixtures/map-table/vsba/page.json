@@ -170,7 +170,7 @@
   "bodyComponents": [
     {
       "uuid": "55555555-5555-5555-5555-555555555555",
-      "component": "TideDataDrivenMap",
+      "component": "TideCustomCollection",
       "id": "123",
       "title": "What's happening in your area?",
       "props": {

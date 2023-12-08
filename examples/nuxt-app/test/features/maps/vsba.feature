@@ -14,7 +14,7 @@ Feature: School buildings map
 
   @mockserver
   Scenario: On load
-    Then the landing page component "TideDataDrivenMap" should exist
+    Then the landing page component "TideCustomCollection" should exist
     Then the custom collection component should have a search input bar
     And the ripple map component should be visible
     And the data map component tabs should exist

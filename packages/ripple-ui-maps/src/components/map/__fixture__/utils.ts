@@ -1,5 +1,4 @@
 import markerPinSrc from './../../../assets/icons/icon-pin.svg?url'
-import carPinSrc from './../../../assets/icons/icon-car.svg?url'
 
 export const getIconForPopulation = (population) => {
   switch (true) {
@@ -16,12 +15,12 @@ export const getIconForPopulation = (population) => {
     case population < 40491:
       return {
         color: [242, 59, 72],
-        src: carPinSrc
+        src: markerPinSrc
       }
     case population < 80491:
       return {
         color: [253, 218, 36],
-        src: carPinSrc
+        src: markerPinSrc
       }
   }
   return {

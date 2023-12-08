@@ -44,7 +44,6 @@ const mappedAreas = computed(() => {
 const shapeFormat = new GeoJSON()
 
 const areaUrl = computed(() => {
-  console.log('mappedAreas', mappedAreas)
   const baseArcGISURL =
     'https://services6.arcgis.com/GB33F62SbDxJjwEL/ArcGIS/rest/services/Vicmap_Admin/FeatureServer/14/query'
   const query = `postcode IN (${mappedAreas.value.slice(0, 10).join(',')})`

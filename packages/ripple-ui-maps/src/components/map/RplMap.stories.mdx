@@ -17,7 +17,7 @@ import '@dpc-sdp/ripple-ui-core/style/components'
 import { getIconForPopulation } from './__fixture__/utils.ts'
 
 export const Template = (args) => ({
-  components: { RplMap, RplMapProviderEsri, RplMapProviderVicMap,RplMapProviderMapbox, RplAccordion, ExampleVectorLayer },
+  components: { RplMap, RplMapProviderEsri, RplMapProviderVicMap, RplMapProviderMapbox, RplAccordion, ExampleVectorLayer },
   setup() {
     const rplMapRef = ref(null)
     const popup = ref({
@@ -48,9 +48,7 @@ export const Template = (args) => ({
     }
   },
   template: `
-    <RplMap
-      v-bind="args"
-    >
+    <RplMap v-bind="args">
       <template #map-provider>
         <rpl-map-provider-esri v-if="args.provider === 'esri'" />
         <rpl-map-provider-vic-map v-if="args.provider === 'vicmap'" />
@@ -68,11 +66,13 @@ export const Template = (args) => ({
         </span>
       </template>
       <template #popupContent="{ selectedFeatures }">
-        <p class="rpl-type-p-small" v-if="selectedFeatures.length === 1">
-          {{ selectedFeatures[0].description}}
-        </p>
-        <RplAccordion v-else :items="getClusteredFeatures(selectedFeatures)" :displayToggleAll="false">
-        </RplAccordion>
+        <div class="rpl-u-margin-4">
+          <p class="rpl-type-p-small" v-if="selectedFeatures.length === 1">
+            {{ selectedFeatures[0].description}}
+          </p>
+          <RplAccordion v-else :items="getClusteredFeatures(selectedFeatures)" :displayToggleAll="false">
+          </RplAccordion>
+        </div>
       </template>
     </RplMap>
   `
@@ -115,34 +115,6 @@ export const Template = (args) => ({
       provider: 'vicmap',
       projection: 'EPSG:3857',
       features:featureData
-    }}
-  >
-    {Template.bind()}
-  </Story>
-  <Story
-    name='Custom pins'
-    args={{
-      id: '123',
-      provider: 'mapbox',
-      features:featureData,
-      pinStyle: (feature) => {
-        const population = feature.get('population')
-        const icon = getIconForPopulation(population)
-        const ic = new Icon(icon)
-        ic.load()
-        return ic
-      }
-    }}
-  >
-    {Template.bind()}
-  </Story>
-  <Story
-    name='Popup on click'
-    args={{
-      id: '123',
-      features:featureData,
-      provider: 'mapbox',
-      popupType: 'popover'
     }}
   >
     {Template.bind()}

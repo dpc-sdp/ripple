@@ -267,7 +267,7 @@ function onMapMove(evt) {
           class="rpl-map__control-zoom-in"
           @click="onZoomInClick"
         >
-          <RplIcon name="icon-map-zoom-in" size="m"></RplIcon>
+          <RplIcon name="icon-map-zoom-in" size="s"></RplIcon>
         </button>
 
         <button
@@ -275,7 +275,7 @@ function onMapMove(evt) {
           class="rpl-map__control-zoom-out"
           @click="onZoomOutClick"
         >
-          <RplIcon name="icon-map-zoom-out" size="m"></RplIcon>
+          <RplIcon name="icon-map-zoom-out" size="s"></RplIcon>
         </button>
       </div>
     </ol-map>

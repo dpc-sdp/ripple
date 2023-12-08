@@ -128,9 +128,3 @@
     );
   }
 }
-.rpl-map__control-zoom-in, .rpl-map__control-zoom-out {
-  .rpl-icon {
-    margin-left: var(--rpl-sp-2);
-    margin-top: var(--rpl-sp-2);
-  }
-}

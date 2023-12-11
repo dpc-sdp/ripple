@@ -2,7 +2,7 @@
 import { useRippleEvent, rplEventPayload } from '@dpc-sdp/ripple-ui-core'
 import { RplIcon } from '@dpc-sdp/ripple-ui-core/vue'
 import type { IRplMapFeature } from './../../types'
-import { onMounted, ref, inject, computed } from 'vue'
+import { onMounted, onUnmounted, ref, inject, computed } from 'vue'
 import { Map } from 'ol'
 import { Point } from 'ol/geom'
 import Icon from 'ol/style/Icon'
@@ -63,6 +63,10 @@ const mapRef = ref<{ map: Map } | null>(null)
 
 onMounted(() => {
   setRplMapRef(mapRef.value.map)
+})
+
+onUnmounted(() => {
+  setRplMapRef(null)
 })
 
 const center = computed(() => {

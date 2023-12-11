@@ -54,39 +54,49 @@ type addressResultType = {
 const emit = defineEmits<{
   (e: 'update', payload: addressResultType): void
 }>()
-const { emitRplEvent } = useRippleEvent('tide-address-lookup', emit)
 
 const { rplMapRef } = inject('rplMapInstance')
 
+const pendingZoomAnimation = ref(false)
+
 async function submitAction(e: any) {
   const item = e.value
-  emitRplEvent('update', item)
-  onAddressSearch(item)
+
+  // The search bar component sometimes returns a string, sometimes an object, we just ignore the non-empty strings
+  if (item && typeof item === 'string') {
+    return
+  }
+
+  emit('update', item || null)
+
+  // Because this was a user initiated action, we want to animate the zoom
+  pendingZoomAnimation.value = true
 }
 
-const fetchVicPostcodes = async (q: string) => {
-  const isDev = true
-  const searchUrl = `/api/tide/app-search/vic-postcode-localities/elasticsearch/_search`
+const fetchVicPostcodes = async (query: string) => {
+  const searchUrl = `/api/tide/app-search/vic-postcode-localities/search`
   const queryDSL = {
-    query: {
-      bool: {
-        should: [{ prefix: { postcode: q } }, { prefix: { locality: q } }]
-      }
+    query,
+    search_fields: {
+      locality: {},
+      postcode: {}
     }
   }
-  if (isDev) {
-    console.log(JSON.stringify(queryDSL))
-  }
+
   try {
     const response = await $fetch(searchUrl, {
       method: 'POST',
       body: {
-        ...queryDSL,
-        size: 4
+        ...queryDSL
       }
     })
-    if (response && response.hits?.total?.value > 0) {
-      return response.hits.hits.map((itm) => itm._source)
+    if (response && response.meta.page.total_results > 0) {
+      return response.results.map((itm) => ({
+        id: itm.id.raw,
+        locality: itm.locality.raw,
+        postcode: itm.postcode.raw,
+        location: itm.location.raw
+      }))
     }
   } catch (e) {
     console.error(e)
@@ -94,30 +104,53 @@ const fetchVicPostcodes = async (q: string) => {
 }
 
 const onUpdate = useDebounceFn(async (q: string): Promise<void> => {
-  const res = await fetchVicPostcodes(q)
-  if (res && res.length > 0) {
-    results.value = res
-  } else if (q === '') {
+  if (!q || typeof q !== 'string') {
     results.value = []
+    return
+  }
+
+  const res = await fetchVicPostcodes(q)
+
+  if (!res || res.length === 0) {
+    results.value = []
+  } else {
+    results.value = res
   }
 }, 300)
 
-function onAddressSearch(payload: any) {
-  if (payload.location) {
-    // Extract latitude and longitude values
-    const locationArr = payload.location.split(',')
+// Center the map on the location when the map is ready
+// It can take a while for the map to be ready, so we need to watch for it
+// We don't animate the zoom here, because it's the initial load or a tab change
+watch(
+  () => rplMapRef.value,
+  (newMap, oldMap) => {
+    if (!oldMap && newMap) {
+      centerMapOnLocation(newMap, props.inputValue.location, false)
+    }
+  }
+)
+
+// Center the map on the location when the location changes
+// We look for the value of pendingZoomAnimation to determine if we should animate the zoom
+watch(
+  () => props.inputValue?.location,
+  (newLoc) => {
+    centerMapOnLocation(rplMapRef.value, newLoc, pendingZoomAnimation.value)
+    pendingZoomAnimation.value = false
+  }
+)
+
+function centerMapOnLocation(map, location, animate: false) {
+  if (map && location) {
+    const targetZoom = 13
+    const duration = animate ? 800 : 0
+
+    const locationArr = location.split(',')
     const lat = parseFloat(locationArr[0])
     const lng = parseFloat(locationArr[1])
-    const location = fromLonLat([lng, lat], 'EPSG:3857')
-    centerMap(location)
-  }
-}
+    const center = fromLonLat([lng, lat], 'EPSG:3857')
 
-function centerMap(center: [number, number]) {
-  const map = rplMapRef.value
-  if (map) {
-    const zoom = 13
-    map.getView().animate({ center, zoom })
+    map.getView().animate({ center, zoom: targetZoom, duration })
   }
 }
 </script>

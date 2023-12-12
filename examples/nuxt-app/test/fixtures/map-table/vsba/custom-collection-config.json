@@ -2,7 +2,7 @@
   "searchListingConfig": {
     "searchProvider": "elasticsearch",
     "index": "elasticsearch_index_develop_node",
-    "resultsPerPage": 5,
+    "resultsPerPage": 10,
     "displayMapTab": true,
     "labels": {
       "submit": "Search",
@@ -30,6 +30,7 @@
       "lngObjPath": "_source.field_longitude[0]",
       "titleObjPath": "title[0]",
       "vectorLayerComponent": "VSBAProjectAreaLayer",
+      "legendExpanded": true,
       "legendItems": [
         {
           "text": "New schools",

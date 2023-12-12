@@ -1,52 +1,159 @@
 {
   "publication": {
-    "text": "Demo Publication",
-    "url": "/demo-publication",
-    "id": "11dede11-10c0-111e1-1100-000000000500",
+    "text": "Victorian Skills Plan Implementation Update",
+    "url": "/victorian-skills-plan-2023-implementation-update",
+    "id": "ecb799a1-a1a3-4989-89f6-1657f786e12e",
     "items": [
       {
-        "text": "Demo Publication - Chapter 1",
-        "url": "/demo-publication/demo-publication-chapter-1",
-        "id": "11dede11-10c0-111e1-1100-000000000510",
+        "text": "The Victorian Skills Plan 2022 into 2023 actions and initiatives",
+        "url": "/victorian-skills-plan-2023-implementation-update/2022-victorian-skills-plan-actions-and-initiatives",
+        "id": "4a6d9877-326a-4090-8f7d-51c79191c63b"
+      },
+      {
+        "text": "Promoting post-secondary education skills and career pathways",
+        "url": "/victorian-skills-plan-2023-implementation-update/promoting-post-secondary-education-skills-and-career",
+        "id": "7f608818-51e5-4c42-831a-a51d46a41ff6"
+      },
+      {
+        "text": "Lifting participation in education and training",
+        "url": "/victorian-skills-plan-2023-implementation-update/lifting-participation-education-and-training",
+        "id": "3479556d-7daa-4bc4-985a-d0ec1d954713"
+      },
+      {
+        "text": "Delivering the right skills for the jobs of today and tomorrow",
+        "url": "/victorian-skills-plan-2023-implementation-update/delivering-right-skills-jobs-today-and-tomorrow",
+        "id": "a805aea1-6b50-4327-b176-ff4468775ad6"
+      },
+      {
+        "text": "The Victorian Skills Plan supports action on skills",
+        "url": "/victorian-skills-plan-2023-implementation-update/action-on-skills",
+        "id": "c17daa15-9ad8-412d-a049-aa1ef6c668c2",
         "items": [
           {
-            "text": "Demo Publication - Chapter 1 - Page 1",
-            "url": "/demo-publication/demo-publication-chapter-1/demo-publication-chapter-1-page-1",
-            "id": "11dede11-10c0-111e1-1100-000000000511"
-          },
-          {
-            "text": "Demo Publication - Chapter 1 - Page 2",
-            "url": "/demo-publication/demo-publication-chapter-1/demo-publication-chapter-1-page-2",
-            "id": "11dede11-10c0-111e1-1100-000000000512"
+            "text": "Victorian Training Awards 2023 School-based Apprentice of the Year winner",
+            "url": "/victorian-skills-plan-2023-implementation-update/victorian-training-awards-2023-school-based-apprentice",
+            "id": "f85fab41-8217-44c4-bb0d-29ab5bc2832c"
           }
         ]
       },
       {
-        "text": "Demo Publication - Chapter 2",
-        "url": "/demo-publication/demo-publication-chapter-2",
-        "id": "11dede11-10c0-111e1-1100-000000000520",
+        "text": "Start the VET journey at school",
+        "url": "/victorian-skills-plan-2023-implementation-update/start-vet-journey-school",
+        "id": "c83e001c-2429-4c87-a53c-62a96ee426c6",
         "items": [
           {
-            "text": "Demo Publication - Chapter 2 - Page 1",
-            "url": "/demo-publication/demo-publication-chapter-2/demo-publication-chapter-2-page-1",
-            "id": "11dede11-10c0-111e1-1100-000000000521"
+            "text": "Victorian Training Awards 2023 Koorie Student of the Year winner",
+            "url": "/victorian-skills-plan-2023-implementation-update/victorian-training-awards-2023-koorie-student-year-winner",
+            "id": "d51a4112-fd63-42cb-91a6-c17057c25242"
           },
           {
-            "text": "Demo Publication - Chapter 2 - Page 2",
-            "url": "/demo-publication/demo-publication-chapter-2/demo-publication-chapter-2-page-2",
-            "id": "11dede11-10c0-111e1-1100-000000000522"
-          },
-          {
-            "text": "Demo Publication - Chapter 2 - Page 3",
-            "url": "/demo-publication/demo-publication-chapter-2/demo-publication-chapter-2-page-3",
-            "id": "11dede11-10c0-111e1-1100-000000000523"
+            "text": "Victorian Training Awards 2023 Koorie Student of the Year finalists",
+            "url": "/victorian-skills-plan-2023-implementation-update/victorian-training-awards-2023-koorie-student-year-finalists",
+            "id": "095e703d-e8cc-4153-9cf4-13e8a4f095c9"
           }
         ]
       },
       {
-        "text": "Demo Publication - Chapter 3",
-        "url": "/demo-publication/demo-publication-chapter-3",
-        "id": "11dede11-10c0-111e1-1100-000000000530"
+        "text": "Enable learners and workers to make informed skills and career choices",
+        "url": "/victorian-skills-plan-2023-implementation-update/-learners-workers-career-choices",
+        "id": "ad3fd4c8-60dc-4c0d-a55c-5137766a2056"
+      },
+      {
+        "text": "Expand opportunities and approaches for students to put theory into practice during their course",
+        "url": "/victorian-skills-plan-2023-implementation-update/expand-opportunities-approaches-students-theory-course",
+        "id": "64d7c641-640d-46e9-9967-7ad49104d744",
+        "items": [
+          {
+            "text": "Initiatives in focus – GOTAFE",
+            "url": "/victorian-skills-plan-2023-implementation-update/initiatives-focus-GOTAFE",
+            "id": "463ebde6-f906-427e-adaa-e2c7dba9f875"
+          }
+        ]
+      },
+      {
+        "text": "Build foundation skills to enhance workforce participation",
+        "url": "/victorian-skills-plan-2023-implementation-update/build-foundation-skills-enhance-workforce-participation",
+        "id": "3218f7fa-e189-44a2-8fdb-fc750409c421",
+        "items": [
+          {
+            "text": "Victorian Training Awards 2023 Community Training Provider of the Year finalist",
+            "url": "/victorian-skills-plan-2023-implementation-update/victorian-training-awards-2023-community-training",
+            "id": "c0bf3b7f-1819-4cdb-99e8-4fd50071adac"
+          },
+          {
+            "text": "Victorian Learn Local Awards 2022 Pre-accredited Learner (skills for work) winner",
+            "url": "/victorian-skills-plan-2023-implementation-update/victorian-learn-local-awards-2022-pre-accredited",
+            "id": "bf8208e7-bbc7-40cf-b3c0-111e6caabd91"
+          }
+        ]
+      },
+      {
+        "text": "Bridge the gender gap",
+        "url": "/victorian-skills-plan-2023-implementation-update/bridge-gender-gap",
+        "id": "e0ce9cb4-df4f-4ae9-84e6-b1589486cdc8",
+        "items": [
+          {
+            "text": "Victorian Training Awards 2023 Industry Collaboration winner",
+            "url": "/victorian-skills-plan-2023-implementation-update/victorian-training-awards-2023-industry-collaboration",
+            "id": "03b2d101-d6d8-4e55-a3e4-cad2d08f625b"
+          },
+          {
+            "text": "Victorian Training Awards 2023 Vocational Student of the Year winner",
+            "url": "/victorian-skills-plan-2023-implementation-update/victorian-training-awards-2023-vocational-student-year",
+            "id": "181e7b7e-ad44-4451-843a-044d760aa18e"
+          }
+        ]
+      },
+      {
+        "text": "Build skills to support Victoria's clean economy intentions",
+        "url": "/victorian-skills-plan-2023-implementation-update/build-skills-support-victorias-clean-economy-intentions",
+        "id": "9c4656a6-3294-4515-8a7e-e15cd32841b6",
+        "items": [
+          {
+            "text": "Kangan Institute electric vehicle lab",
+            "url": "/victorian-skills-plan-2023-implementation-update/kangan-institute-electric-vehicle-lab",
+            "id": "fadb534c-9598-40d0-a211-ca4b8a7c140a"
+          }
+        ]
+      },
+      {
+        "text": "Create innovative solutions to support future skills development",
+        "url": "/victorian-skills-plan-2023-implementation-update/create-innovative-solutions-support-future-skills",
+        "id": "556bcf1a-46d6-4565-87e5-79e1b4b31cc5",
+        "items": [
+          {
+            "text": "Initiatives in focus –  Murrindindi",
+            "url": "/victorian-skills-plan-2023-implementation-update/initiatives-focus-murrindindi",
+            "id": "133ddcfa-b7f7-431c-bc85-f59ba8f44eac"
+          }
+        ]
+      },
+      {
+        "text": "Align qualifications to new needs",
+        "url": "/victorian-skills-plan-2023-implementation-update/align-qualifications-new-needs",
+        "id": "ff6440cc-7605-4ff1-b8a1-f25a5797549f"
+      },
+      {
+        "text": "Drive for higher skills and progression through education and training",
+        "url": "/victorian-skills-plan-2023-implementation-update/drive-higher-skills-and-progression-through-education",
+        "id": "f197320e-e9e3-46c8-b402-43ddd409599a",
+        "items": [
+          {
+            "text": "Victorian Training Awards 2023 Teacher or Trainer of the Year winner",
+            "url": "/victorian-skills-plan-2023-implementation-update/victorian-training-awards-2023-teacher-or-trainer-year",
+            "id": "e6cdf8c8-c19a-419b-9bb1-22a0938bba58"
+          }
+        ]
+      },
+      {
+        "text": "Build the VET workforce",
+        "url": "/victorian-skills-plan-2023-implementation-update/build-vet-workforce",
+        "id": "cf1bfe5d-929e-44e2-a542-18d8b9fcd234"
+      },
+      {
+        "text": "Expand re-skilling and up-skilling opportunities through skill sets",
+        "url": "/victorian-skills-plan-2023-implementation-update/expand-re-skilling-and-skilling-opportunities",
+        "id": "16ef10ae-d3e4-4217-9508-eb4981336a3e"
       }
     ]
   }

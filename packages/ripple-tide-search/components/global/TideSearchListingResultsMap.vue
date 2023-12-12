@@ -57,6 +57,7 @@
       class="rpl-u-margin-t-5"
       :title="legendTitle"
       :items="legendItems"
+      :defaultExpanded="legendExpanded"
     />
   </ClientOnly>
 </template>

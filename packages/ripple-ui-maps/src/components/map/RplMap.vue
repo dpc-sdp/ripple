@@ -117,7 +117,7 @@ function onMapSingleClick(evt) {
       const currentZoom = view.getZoom()
       // click on the cluster
       if (
-        point.features.length > largeClusterZoomLimit ||
+        point.features.length > largeClusterZoomLimit &&
         currentZoom < clusterZoomOutLimit
       ) {
         // if there are lots of features and we are zoomed out, we just zoom in a bit

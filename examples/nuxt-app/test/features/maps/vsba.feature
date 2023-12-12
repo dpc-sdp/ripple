@@ -28,6 +28,7 @@ Feature: School buildings map
   Scenario: Search for postcode
     Then the ripple map component should be visible
     When I enter the term "3012" into the location search input
+    And I wait 3 seconds
     Then the location search results should contain "West Footscray"
     When I click the location search term "West Footscray"
     And I wait 2 seconds

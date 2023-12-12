@@ -1,95 +1,122 @@
 {
-  "took": 0,
-  "timed_out": false,
-  "_shards": {
-    "total": 2,
-    "successful": 2,
-    "skipped": 0,
-    "failed": 0
+  "meta": {
+    "alerts": [],
+    "warnings": [],
+    "precision": 2,
+    "engine": { "name": "vic-postcode-localities", "type": "default" },
+    "page": { "current": 1, "total_pages": 5, "total_results": 45, "size": 10 },
+    "request_id": "aa24e3b37869679ee5a0f12ff5ce4c7f"
   },
-  "hits": {
-    "total": {
-      "value": 6,
-      "relation": "eq"
-    },
-    "max_score": 1.0,
-    "hits": [
-      {
-        "_index": ".ent-search-engine-documents-vic-postcode-localities",
-        "_id": "doc-655d9b42cfe7a9206e647ebd",
-        "_score": 1.0,
-        "_ignored": [
-          "location.float",
-          "locality.location",
-          "locality.float",
-          "location.date",
-          "locality.date",
-          "postcode.date"
-        ],
-        "_source": {
-          "postcode": "3012",
-          "locality": "Brooklyn",
-          "location": "-37.807135,144.861162",
-          "id": "doc-655d9b42cfe7a9206e647ebd"
-        }
-      },
-      {
-        "_index": ".ent-search-engine-documents-vic-postcode-localities",
-        "_id": "doc-655d9b42cfe7a9206e647ec0",
-        "_score": 1.0,
-        "_ignored": [
-          "location.float",
-          "locality.location",
-          "locality.float",
-          "location.date",
-          "locality.date",
-          "postcode.date"
-        ],
-        "_source": {
-          "postcode": "3012",
-          "locality": "Maidstone",
-          "location": "-37.807135,144.861162",
-          "id": "doc-655d9b42cfe7a9206e647ec0"
-        }
-      },
-      {
-        "_index": ".ent-search-engine-documents-vic-postcode-localities",
-        "_id": "doc-655d9b42cfe7a9206e647ec1",
-        "_score": 1.0,
-        "_ignored": [
-          "location.float",
-          "locality.location",
-          "locality.float",
-          "location.date",
-          "locality.date",
-          "postcode.date"
-        ],
-        "_source": {
-          "postcode": "3012",
-          "locality": "Tottenham",
-          "location": "-37.807135,144.861162",
-          "id": "doc-655d9b42cfe7a9206e647ec1"
-        }
-      },
-      {
-        "_index": ".ent-search-engine-documents-vic-postcode-localities",
-        "_id": "doc-655d9b42cfe7a9206e647ec2",
-        "_score": 1.0,
-        "_ignored": [
-          "location.float",
-          "locality.location",
-          "locality.float",
-          "location.date",
-          "locality.date",
-          "postcode.date"
-        ],
-        "_source": {
-          "postcode": "3012",
-          "locality": "West Footscray",
-          "location": "-37.807135,144.861162",
-          "id": "doc-655d9b42cfe7a9206e647ec2"
-        }
+  "results": [
+    {
+      "postcode": { "raw": "3012" },
+      "locality": { "raw": "Kingsville West" },
+      "location": { "raw": "-37.807135,144.861162" },
+      "id": { "raw": "doc-655d9b42cfe7a9206e647ebf" },
+      "_meta": {
+        "id": "doc-655d9b42cfe7a9206e647ebf",
+        "engine": "vic-postcode-localities",
+        "score": 7.140129
       }
-    ]
-  }
+    },
+    {
+      "postcode": { "raw": "3012" },
+      "locality": { "raw": "Kingsville" },
+      "location": { "raw": "-37.807135,144.861162" },
+      "id": { "raw": "doc-655d9b42cfe7a9206e647ebe" },
+      "_meta": {
+        "id": "doc-655d9b42cfe7a9206e647ebe",
+        "engine": "vic-postcode-localities",
+        "score": 7.140129
+      }
+    },
+    {
+      "postcode": { "raw": "3012" },
+      "locality": { "raw": "West Footscray" },
+      "location": { "raw": "-37.807135,144.861162" },
+      "id": { "raw": "doc-655d9b42cfe7a9206e647ec2" },
+      "_meta": {
+        "id": "doc-655d9b42cfe7a9206e647ec2",
+        "engine": "vic-postcode-localities",
+        "score": 6.4882116
+      }
+    },
+    {
+      "postcode": { "raw": "3012" },
+      "locality": { "raw": "Tottenham" },
+      "location": { "raw": "-37.807135,144.861162" },
+      "id": { "raw": "doc-655d9b42cfe7a9206e647ec1" },
+      "_meta": {
+        "id": "doc-655d9b42cfe7a9206e647ec1",
+        "engine": "vic-postcode-localities",
+        "score": 6.4882116
+      }
+    },
+    {
+      "postcode": { "raw": "3012" },
+      "locality": { "raw": "Maidstone" },
+      "location": { "raw": "-37.807135,144.861162" },
+      "id": { "raw": "doc-655d9b42cfe7a9206e647ec0" },
+      "_meta": {
+        "id": "doc-655d9b42cfe7a9206e647ec0",
+        "engine": "vic-postcode-localities",
+        "score": 6.4882116
+      }
+    },
+    {
+      "postcode": { "raw": "3012" },
+      "locality": { "raw": "Brooklyn" },
+      "location": { "raw": "-37.807135,144.861162" },
+      "id": { "raw": "doc-655d9b42cfe7a9206e647ebd" },
+      "_meta": {
+        "id": "doc-655d9b42cfe7a9206e647ebd",
+        "engine": "vic-postcode-localities",
+        "score": 6.4882116
+      }
+    },
+    {
+      "postcode": { "raw": "3082" },
+      "locality": { "raw": "Mill Park" },
+      "location": { "raw": "-37.664858,145.065658" },
+      "id": { "raw": "doc-655d9b44cfe7a91b92647f9b" },
+      "_meta": {
+        "id": "doc-655d9b44cfe7a91b92647f9b",
+        "engine": "vic-postcode-localities",
+        "score": 0.48682702
+      }
+    },
+    {
+      "postcode": { "raw": "3072" },
+      "locality": { "raw": "Preston West" },
+      "location": { "raw": "-37.74247,145.005702" },
+      "id": { "raw": "doc-655d9b44cfe7a91b92647f83" },
+      "_meta": {
+        "id": "doc-655d9b44cfe7a91b92647f83",
+        "engine": "vic-postcode-localities",
+        "score": 0.48682702
+      }
+    },
+    {
+      "postcode": { "raw": "3072" },
+      "locality": { "raw": "Preston Lower" },
+      "location": { "raw": "-37.74247,145.005702" },
+      "id": { "raw": "doc-655d9b44cfe7a91b92647f81" },
+      "_meta": {
+        "id": "doc-655d9b44cfe7a91b92647f81",
+        "engine": "vic-postcode-localities",
+        "score": 0.48682702
+      }
+    },
+    {
+      "postcode": { "raw": "3042" },
+      "locality": { "raw": "Keilor Park" },
+      "location": { "raw": "-37.727529,144.866305" },
+      "id": { "raw": "doc-655d9b43cfe7a9206e647f2c" },
+      "_meta": {
+        "id": "doc-655d9b43cfe7a9206e647f2c",
+        "engine": "vic-postcode-localities",
+        "score": 0.48682702
+      }
+    }
+  ]
 }

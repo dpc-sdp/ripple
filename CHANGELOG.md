@@ -1,5 +1,18 @@
 # Changelog
 
+## v2.5.2...release/v2.5.3
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.5.2...release/v2.5.3)
+
+
+### 🩹 Fixes
+
+  - **@dpc-sdp/nuxt-ripple:** Added await to tide:page hook call ([ede2ce3b](https://github.com/dpc-sdp/ripple-framework/commit/ede2ce3b))
+
+### ❤️  Contributors
+
+- Jeffrey Dowdle <jeffrey.dowdle@dpc.vic.gov.au>
+
 ## v2.5.1...release/v2.5.2
 
 [compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.5.1...release/v2.5.2)

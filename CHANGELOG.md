@@ -1,5 +1,18 @@
 # Changelog
 
+## v2.5.1...release/v2.5.2
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.5.1...release/v2.5.2)
+
+
+### 🩹 Fixes
+
+  - **@dpc-sdp/ripple-tide-landing-page:** 🐛  hide weight header ([031c1557](https://github.com/dpc-sdp/ripple-framework/commit/031c1557))
+
+### ❤️  Contributors
+
+- Jason Smith <jason.smith@dpc.vic.gov.au>
+
 ## v2.5.0...release/v2.5.1
 
 [compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.5.0...release/v2.5.1)

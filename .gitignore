@@ -1,6 +1,6 @@
 # Temporary files
 node_modules
-*.log*
+*.log
 .nuxt
 .nitro
 .cache

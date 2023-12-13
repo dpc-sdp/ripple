@@ -93,7 +93,13 @@
 
 <script setup lang="ts">
 // @ts-ignore
-import { useAppConfig, useRoute, useNuxtApp, useTideLanguage } from '#imports'
+import {
+  useAppConfig,
+  useRoute,
+  useNuxtApp,
+  useTideLanguage,
+  useLogger
+} from '#imports'
 import { computed, onMounted, provide, ref } from 'vue'
 import { defu as defuMerge } from 'defu'
 import { TideSiteData } from '../types'
@@ -164,6 +170,12 @@ const footerNav = computed(() => {
 })
 
 const nuxtApp = useNuxtApp()
+const logger = useLogger()
+
+logger.info('Calling tide:page hook...', {
+  label: 'TideBaseLayout'
+})
+
 /*
  * This hook can be called from plugins to extend Tide managed pages behaviour - see /plugins folder for examples
  */

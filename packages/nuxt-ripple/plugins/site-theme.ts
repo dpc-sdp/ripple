@@ -1,4 +1,4 @@
-import { useAppConfig, useHead } from '#imports'
+import { useAppConfig, useHead, useLogger } from '#imports'
 import { defu as defuMerge } from 'defu'
 
 const formatThemeStyle = (themeObj) => {
@@ -13,6 +13,12 @@ const formatThemeStyle = (themeObj) => {
 
 export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.hook('tide:page', ({ site }) => {
+    const logger = useLogger()
+
+    logger.info('tide:page hook was triggered', {
+      label: 'site-theme.ts'
+    })
+
     const siteTheme = defuMerge(
       site?.theme,
       useAppConfig()?.ripple?.theme || {}

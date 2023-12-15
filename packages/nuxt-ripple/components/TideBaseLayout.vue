@@ -179,5 +179,5 @@ logger.info('Calling tide:page hook...', {
 /*
  * This hook can be called from plugins to extend Tide managed pages behaviour - see /plugins folder for examples
  */
-nuxtApp.callHook('tide:page', props)
+await nuxtApp.callHook('tide:page', props)
 </script>

@@ -25,6 +25,11 @@ const getColumnsFromEntries = (rows: any, firstRowIsHeader: boolean) => {
     return []
   }
 
+  // Drop weight key pair from firstRow
+  if (firstRow.hasOwnProperty('weight')) {
+    delete firstRow.weight
+  }
+
   // D10 API returns an object, legacy returns an array
   return (Array.isArray(firstRow) ? firstRow : Object.values(firstRow)).map(
     (val: any, index: number) => {

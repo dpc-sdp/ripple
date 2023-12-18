@@ -33,6 +33,7 @@ const meta = computed(() => {
       'field_node_dates_start_value'
     ),
     dateEnd: getSearchResultValue(props.result, 'field_node_dates_end_value'),
+    publishDate: getSearchResultValue(props.result, 'field_news_date'),
     isGrantOngoing: getSearchResultValue(props.result, 'field_node_on_going')
     // @todo add profile and recommendation meta or a way to hook into this from other layers
     // fvRecommendationStatus

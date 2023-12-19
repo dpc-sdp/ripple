@@ -116,12 +116,13 @@ const searchResultsMappingFn = (item): TideSearchListingResultItem => {
 }
 
 const mapResultsMappingFn = (result) => {
-  const hasLocation = get(result, props.mapConfig.props.latObjPath)
-  if (hasLocation && props.mapConfig && result._source) {
+  const location = get(result, props.mapConfig.props.locationObjPath)
+  if (location && props.mapConfig && result._source) {
+    const locationLatLng = location.split(',')
     return {
       ...result._source,
-      lat: parseFloat(get(result, props.mapConfig.props.latObjPath)),
-      lng: parseFloat(get(result, props.mapConfig.props.lngObjPath)),
+      lat: parseFloat(locationLatLng[0]),
+      lng: parseFloat(locationLatLng[1]),
       id: result._id
     }
   } else {

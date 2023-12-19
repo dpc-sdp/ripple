@@ -26,8 +26,7 @@
         }
       },
       "pinIconFn": "vsbaPinIcons",
-      "latObjPath": "_source.field_latitude[0]",
-      "lngObjPath": "_source.field_longitude[0]",
+      "locationObjPath": "_source.field_latitude_longitude_value[0]",
       "titleObjPath": "title[0]",
       "vectorLayerComponent": "VSBAProjectAreaLayer",
       "legendExpanded": true,

@@ -547,6 +547,32 @@ export default {
     }
   },
   // UI Forms components
+  'rpl-form/submit': () => {
+    return (payload: any) => {
+      trackEvent({
+        event: `form_${payload.action}`,
+        form_id: payload?.id,
+        form_name: payload?.name,
+        form_valid: true,
+        element_text: payload?.text,
+        component: 'rpl-form',
+        platform_event: 'submit'
+      })
+    }
+  },
+  'rpl-form/invalid': () => {
+    return (payload: any) => {
+      trackEvent({
+        event: `form_${payload.action}`,
+        form_id: payload?.id,
+        form_name: payload?.name,
+        form_valid: false,
+        element_text: payload?.text,
+        component: 'rpl-form',
+        platform_event: 'submit'
+      })
+    }
+  },
   'rpl-form/submitted': () => {
     return (payload: any) => {
       trackEvent({

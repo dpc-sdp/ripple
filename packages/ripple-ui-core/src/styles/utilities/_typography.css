@@ -280,6 +280,14 @@ html {
   font-weight: var(--rpl-type-weight-bold);
 }
 
+.rpl-type-weight-regular {
+  font-weight: var(--rpl-type-weight-regular);
+}
+
+.rpl-type-uppercase {
+  text-transform: uppercase;
+}
+
 /* Revert all highlights for print */
 .rpl-type-h1-highlight,
 .rpl-type-h1-highlight-fixed,

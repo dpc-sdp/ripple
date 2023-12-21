@@ -1,0 +1,68 @@
+{
+  "title": "News listing",
+  "changed": "2023-08-22T05:31:10+00:00",
+  "created": "2023-08-22T02:19:10+00:00",
+  "type": "tide_search_listing",
+  "nid": "0af58113-6c1d-4b29-bbed-a166d8410c9c",
+  "sidebar": {},
+  "status": "published",
+  "topicTags": [],
+  "siteSection": null,
+  "meta": {
+    "langcode": "en",
+    "description": "",
+    "additional": [
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "title",
+          "content": "News listing | Vic.gov.au"
+        }
+      },
+      {
+        "tag": "link",
+        "attributes": {
+          "rel": "canonical",
+          "href": "https://nginx-php.pr-1554.content-vic.sdp4.sdp.vic.gov.au/whatson"
+        }
+      }
+    ],
+    "keywords": "",
+    "image": null
+  },
+  "showContentRating": true,
+  "summary": null,
+  "afterResults": "",
+  "introText": null,
+  "config": {
+    "searchListingConfig": {
+      "resultsPerPage": 9,
+      "customSort": [{ "field_news_date": "desc" }]
+    },
+    "queryConfig": {
+      "multi_match": {
+        "query": "{{query}}",
+        "fields": [
+          "title^3",
+          "field_landing_page_summary^2",
+          "body",
+          "field_news_intro_text",
+          "summary_processed"
+        ]
+      }
+    },
+    "results": {
+      "layout": {
+        "component": "TideSearchResultsGrid"
+      },
+      "item": {
+        "news": {
+          "component": "TideSearchResultCard"
+        }
+      }
+    },
+    "globalFilters": [{ "terms": { "type": ["news"] } }],
+    "userFilters": []
+  },
+  "_fetched": 1692682318351
+}

@@ -1,6 +1,7 @@
 import { useAppConfig, useHead } from '#imports'
 
 export default defineNuxtPlugin((nuxtApp) => {
+  const theme = useAppConfig().ripple?.theme
   nuxtApp.hook('tide:page', () => {
     useHead({
       link: [
@@ -25,14 +26,19 @@ export default defineNuxtPlugin((nuxtApp) => {
         {
           rel: 'mask-icon',
           href: '/safari-pinned-tab.svg',
-          color: useAppConfig()?.ripple?.theme?.['rpl-clr-primary'] || '#0054c9'
+          color:
+            theme && theme.hasOwnProperty('rpl-clr-primary')
+              ? theme['rpl-clr-primary']
+              : '#0054c9'
         }
       ],
       meta: [
         {
           name: 'msapplication-TileColor',
           content:
-            useAppConfig()?.ripple?.theme?.['rpl-clr-primary'] || '#0054c9'
+            theme && theme.hasOwnProperty('rpl-clr-primary')
+              ? theme['rpl-clr-primary']
+              : '#0054c9'
         },
         { name: 'theme-color', content: '#ffffff' }
       ]

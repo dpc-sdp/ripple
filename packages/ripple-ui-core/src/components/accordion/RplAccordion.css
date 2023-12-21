@@ -176,3 +176,32 @@
     padding-left: 0;
   }
 }
+
+[dir='rtl'] .rpl-accordion__toggle-all-wrapper {
+  justify-content: flex-start;
+}
+
+[dir='rtl'] .rpl-accordion__item::after {
+  right: 0;
+}
+
+[dir='rtl'] .rpl-accordion__item-icon {
+  margin-left: 0;
+  margin-right: var(--rpl-sp-4);
+
+  @media (--rpl-bp-l) {
+    margin-left: 0;
+    margin-right: var(--rpl-sp-6);
+  }
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+[dir='rtl'] .rpl-accordion__item-number {
+  margin-left: var(--rpl-sp-2);
+  margin-right: 0;
+
+  @media (--rpl-bp-l) {
+    margin-left: var(--rpl-sp-3);
+    margin-right: 0;
+  }
+}

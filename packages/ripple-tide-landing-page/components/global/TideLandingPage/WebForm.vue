@@ -35,10 +35,8 @@ const isHoneypotTriggered = () => {
 
 /**
  * Post form data to Tide API
- * @param {string} formId - webform Id
- * @param {Object} formData - form data
  */
-const postForm = async (formId, formData = {}) => {
+const postForm = async (formId: string, formData = {}) => {
   const { public: config } = useRuntimeConfig()
 
   const formResource = 'webform_submission'
@@ -47,7 +45,7 @@ const postForm = async (formId, formData = {}) => {
     data: {
       type: formResource,
       attributes: {
-        remote_addr: '0.0.0.0', // A IP placeholder for Tide validation, incase the IP is required.
+        remote_addr: '0.0.0.0', // IP placeholder for Tide validation, incase the IP is required.
         data: JSON.stringify(formData)
       }
     }
@@ -56,7 +54,7 @@ const postForm = async (formId, formData = {}) => {
   // TODO: Add better error handling/log for form API error.
   // It's blocked by Tide webform response issue SDPA-477.
   // Currently the Tide webform has no right response.
-  const url = `api/tide/${formResource}/${formId}`
+  const url = `/api/tide/${formResource}/${formId}`
   const { data, error } = await $fetch(url, {
     method: 'POST',
     baseURL: config.apiUrl || '',
@@ -77,7 +75,7 @@ const postForm = async (formId, formData = {}) => {
     throw new Error('Form submission failed')
   }
 
-  return true
+  return data
 }
 
 const submissionState = ref({
@@ -107,12 +105,23 @@ const submitHandler = async ({ data }) => {
   }
 
   try {
-    await postForm(props.formId, data)
+    const resData = await postForm(props.formId, data)
 
-    submissionState.value = {
-      status: 'success',
-      title: props.successMessageTitle,
-      message: props.successMessageHTML
+    const [code, note] = resData.attributes?.notes?.split('|') || []
+
+    // Upstream error
+    if (code && Number.isInteger(+code) && (+code <= 199 || +code >= 300)) {
+      submissionState.value = {
+        status: 'error',
+        title: props.errorMessageTitle,
+        message: note || props.errorMessageHTML
+      }
+    } else {
+      submissionState.value = {
+        status: 'success',
+        title: props.successMessageTitle,
+        message: note || props.successMessageHTML
+      }
     }
   } catch (error) {
     console.error(error)

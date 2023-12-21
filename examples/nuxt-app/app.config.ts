@@ -1,5 +1,14 @@
+import pkg from './package.json'
+import { getDpcPkgs } from '@dpc-sdp/ripple-tide-api/utils'
+
 export default defineAppConfig({
+  project: {
+    name: pkg.name,
+    version: pkg.version,
+    sdpVersion: pkg.sdp_version
+  },
   ripple: {
+    packages: getDpcPkgs({ ...pkg.dependencies, ...pkg.devDependencies }),
     featureFlags: {
       contentCollectionSearchConnector: 'elasticsearch'
     },

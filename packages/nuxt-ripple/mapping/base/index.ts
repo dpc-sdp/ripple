@@ -23,7 +23,11 @@ import {
   includes as sidebarSiteSectionNavIncludes
 } from './sidebar-site-section-nav/sidebar-site-section-nav-mapping.js'
 import TidePageMeta from './page-meta.js'
-import { TidePageApi, getSiteSection } from '@dpc-sdp/ripple-tide-api'
+import { getSiteSection } from '@dpc-sdp/ripple-tide-api'
+
+declare module '@dpc-sdp/ripple-tide-api' {
+  export const getSiteSection: (sectionId: string, src: any) => any
+}
 
 export const tidePageBaseMapping = ({
   // eslint-disable-next-line @typescript-eslint/no-unused-vars

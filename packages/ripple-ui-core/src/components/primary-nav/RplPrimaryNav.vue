@@ -259,7 +259,7 @@ provide('navFocus', navFocus)
 </script>
 
 <template>
-  <nav ref="navContainer" :class="classList">
+  <nav ref="navContainer" :class="classList" aria-label="Primary navigation">
     <div
       class="rpl-primary-nav__inner"
       :style="`--local-expanded-height: ${height}px`"

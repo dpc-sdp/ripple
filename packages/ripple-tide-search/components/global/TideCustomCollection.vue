@@ -75,6 +75,7 @@ const emit = defineEmits<{
     e: 'toggleFilters',
     payload: rplEventPayload & { action: 'open' | 'close' }
   ): void
+  (e: 'reset', payload: rplEventPayload & { action: 'clear_search' }): void
 }>()
 
 const { emitRplEvent } = useRippleEvent('tide-search', emit)
@@ -184,7 +185,17 @@ const handleFilterSubmit = (event) => {
   cachedSubmitEvent.value = {}
 }
 
-const handleFilterReset = () => {
+const handleFilterReset = (event: rplEventPayload) => {
+  emitRplEvent(
+    'reset',
+    {
+      ...event,
+      ...baseEvent(),
+      action: 'clear_search'
+    },
+    { global: true }
+  )
+
   searchTerm.value = ''
   filterForm.value = {}
   submitSearch()

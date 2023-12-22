@@ -770,6 +770,21 @@ export default {
         platform_event: 'toggleFilters'
       })
     }
+  },
+  'tide-search/reset': () => {
+    return (payload: any) => {
+      trackEvent({
+        event: `${payload.action}_filters`,
+        element_text: payload?.text,
+        label: payload?.label,
+        name: payload?.name,
+        count: payload?.value,
+        form_id: payload?.contextId,
+        filters: payload?.options,
+        component: 'tide-search',
+        platform_event: 'clearQuery'
+      })
+    }
   }
 }
 

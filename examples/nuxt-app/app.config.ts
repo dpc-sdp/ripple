@@ -67,25 +67,6 @@ export default defineAppConfig({
               return '#333333'
           }
         }
-      },
-      mapResultsMappingFn: {
-        vsba: (result) => {
-          const hasLocation = get(result, props.mapConfig.props.latObjPath)
-          if (hasLocation && props.mapConfig && result._source) {
-            return {
-              ...result._source,
-              lat: parseFloat(get(result, props.mapConfig.props.latObjPath)),
-              lng: parseFloat(get(result, props.mapConfig.props.lngObjPath)),
-              id: result._id
-            }
-          } else {
-            return {
-              ...result._source,
-              isArea: true,
-              id: result._id
-            }
-          }
-        }
       }
     }
   }

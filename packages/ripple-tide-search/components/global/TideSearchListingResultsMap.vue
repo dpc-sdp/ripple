@@ -82,8 +82,6 @@ interface Props {
       component?: string
     }
   }
-  latObjPath: string
-  lngObjPath: string
   titleObjPath: string
   results: TideSearchListingMapFeature[]
   vectorLayerComponent?: string
@@ -98,8 +96,6 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  latObjPath: '_source.lat[0]',
-  lngObjPath: '_source.lng[0]',
   titleObjPath: '_source.title[0]',
   vectorLayerComponent: undefined,
   pinIconFn: 'defaultPinStyleFn',

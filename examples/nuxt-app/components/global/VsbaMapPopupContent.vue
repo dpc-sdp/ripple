@@ -37,10 +37,10 @@ const formatUrl = (str) => str.replace(/\/site-(\d+)/, '')
 .vsba-map-popup-content {
   display: flex;
   flex-direction: column;
-  padding: var(--rpl-sp-4);
 }
 
 .vsba-map-popup-list ul {
+  margin: 0;
   font-size: var(--rpl-type-size-1);
   line-height: var(--rpl-type-lh-3);
   letter-spacing: var(--rpl-type-ls-1);

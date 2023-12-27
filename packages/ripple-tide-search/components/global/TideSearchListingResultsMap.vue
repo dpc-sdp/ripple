@@ -32,11 +32,13 @@
       </template>
       <template #popupContent="{ selectedFeatures }">
         <template v-if="selectedFeatures.length === 1">
-          <component
-            :is="popup.content.component"
-            v-if="popup.content.component"
-            :feature="selectedFeatures[0]"
-          ></component>
+          <div class="rpl-u-margin-t-4">
+            <component
+              :is="popup.content.component"
+              v-if="popup.content.component"
+              :feature="selectedFeatures[0]"
+            ></component>
+          </div>
         </template>
 
         <template v-if="selectedFeatures.length > 1">
@@ -129,20 +131,6 @@ function getTitle(feature) {
 const features = computed(() => {
   return props.results.filter((itm) => itm.lat && itm.lng)
 })
-// const mappedAreas = computed(() => {
-//   return props.areas
-//     .map((area) => area.field_postcode && `'${area.field_postcode[0]}'`)
-//     .filter((itm) => itm)
-// })
-// const shapeFormat = new GeoJSON()
-
-// const areaUrl = computed(() => {
-//   const baseArcGISURL =
-//     'https://services6.arcgis.com/GB33F62SbDxJjwEL/ArcGIS/rest/services/Vicmap_Admin/FeatureServer/14/query'
-//   const query = `postcode IN (${mappedAreas.value.join(',')})`
-//   const inSR = '4326'
-//   return `${baseArcGISURL}?where=${query}&objectIds=&time=&geometry=&geometryType=esriGeometryEnvelope&inSR=3857&spatialRel=esriSpatialRelIntersects&resultType=none&distance=0.0&units=esriSRUnit_Meter&relationParam=&returnGeodetic=false&outFields=postcode&returnGeometry=true&returnCentroid=false&f=pgeojson&token=`
-// })
 </script>
 
 <style>

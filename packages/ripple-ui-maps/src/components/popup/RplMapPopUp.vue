@@ -20,7 +20,7 @@
 
       <div v-if="isOpen" class="rpl-map-popup__container">
         <div class="rpl-map-popup__header">
-          <h3 :class="`rpl-type-h4`">
+          <h3 class="rpl-type-h4-fixed">
             <slot name="header"> </slot>
           </h3>
           <button

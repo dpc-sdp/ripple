@@ -20,11 +20,13 @@
         class="rpl-map-pop-up-accordion-item__chevron rpl-u-screen-only"
         aria-hidden="true"
       >
-        <RplIcon name="icon-chevron-down"></RplIcon>
+        <RplIcon name="icon-chevron-down" size="xs"></RplIcon>
       </span>
     </button>
     <RplExpandable :expanded="isExpanded">
-      <slot></slot>
+      <div class="rpl-u-margin-b-3">
+        <slot></slot>
+      </div>
     </RplExpandable>
   </div>
 </template>

@@ -3,27 +3,36 @@
   <span v-if="!contentTypeLabel && meta.topic" class="rpl-card__topic">{{
     meta.topic
   }}</span>
-  <span v-if="isGrant && grantStatus" class="rpl-card__status">
-    <RplIcon
-      v-if="
-        grantStatus.status === 'open' || grantStatus.status === 'opening_soon'
-      "
-      class="rpl-icon--colour-success"
-      name="icon-check-circle-filled"
-    />
-    <RplIcon
-      v-else
-      class="rpl-icon--colour-error"
-      name="icon-cancel-circle-filled"
-    />
-    <span>{{ grantStatus.displayLabel }}</span>
-  </span>
+  <template v-if="isGrant && grantStatus">
+    <span class="rpl-card__status">
+      <RplIcon
+        v-if="
+          grantStatus.status === 'open' || grantStatus.status === 'opening_soon'
+        "
+        class="rpl-icon--colour-success"
+        name="icon-check-circle-filled"
+      />
+      <RplIcon
+        v-else
+        class="rpl-icon--colour-error"
+        name="icon-cancel-circle-filled"
+      />
+      <span>{{ grantStatus.displayLabel }}</span>
+    </span>
+  </template>
   <template v-else>
-    <span v-if="meta.fvRecommendationStatus">{{
-      meta.fvRecommendationStatus
-    }}</span>
-    <span v-if="formattedDate">{{ formattedDate }}</span>
-    <span v-if="meta.inductionYear">{{ meta.inductionYear }}</span>
+    <template v-if="meta.fvRecommendationStatus">
+      <span>{{ meta.fvRecommendationStatus }}</span>
+    </template>
+    <template v-if="meta.dateStart">
+      <span>{{ formattedDate }}</span>
+    </template>
+    <template v-if="meta.publishDate">
+      <span>{{ formattedPublishDate }}</span>
+    </template>
+    <template v-if="meta.inductionYear">
+      <span>{{ meta.inductionYear }}</span>
+    </template>
   </template>
 </template>
 
@@ -60,6 +69,12 @@ const formattedDate = computed(() => {
     return ''
   }
 })
+
+const formattedPublishDate = computed(() =>
+  new Intl.DateTimeFormat('en-AU', { month: 'long', day: 'numeric' }).format(
+    new Date(props.meta.publishDate)
+  )
+)
 
 const now = new Date()
 

@@ -1,259 +1,210 @@
 {
-  "title": "Demo Publication",
-  "changed": "2022-11-10T11:59:26+11:00",
-  "created": "2022-11-10T11:59:26+11:00",
+  "title": "Victorian Skills Plan Implementation Update",
+  "changed": "2023-10-31T17:05:33+11:00",
+  "created": "2023-10-04T12:40:06+11:00",
   "type": "publication",
-  "nid": "11dede11-10c0-111e1-1100-000000000500",
+  "nid": "ecb799a1-a1a3-4989-89f6-1657f786e12e",
+  "_sectionId": "670",
   "sidebar": {
-    "contacts": [
-      {
-        "id": "11c2122d-7a26-4861-b445-9719cc9664ec",
-        "contactTitle": "Victorian Government",
-        "contactName": "Victorian Government",
-        "department": "Department of Premier and Cabinet",
-        "email": "no-reply@vic.gov.au",
-        "locationAddress": {
-          "countryCode": "AU",
-          "administrativeArea": "VIC",
-          "locality": "Melbourne",
-          "postalCode": "3001",
-          "addressLine1": "Department of Premier and Cabinet",
-          "addressLine2": "GPO Box 4509"
-        },
-        "postalAddress": {
-          "countryCode": "AU",
-          "administrativeArea": "VIC",
-          "locality": "Melbourne",
-          "postalCode": "3001",
-          "addressLine1": "Department of Premier and Cabinet",
-          "addressLine2": "GPO Box 4509"
-        },
-        "phones": [
-          {
-            "id": "a26dc1ce-b281-4d3a-8bee-697ca2588c90",
-            "title": "Calls in Australia",
-            "number": "1300 366 356"
-          },
-          {
-            "id": "ce44c10f-437e-43b2-b87e-bc94bb7d4ffd",
-            "title": "Calls from overseas",
-            "number": "+61 3 9603 8804"
-          }
-        ],
-        "socialMedia": [
-          {
-            "id": "17b55358-a746-4671-8b7e-d38bd7f78126",
-            "type": "twitter",
-            "text": "Twitter",
-            "url": "https://twitter.com/VicGovAu"
-          }
-        ]
-      }
-    ],
+    "contacts": [],
     "relatedLinks": [
       {
-        "id": "bcad79f3-c40d-4be6-b637-09fe4d5446cf",
-        "text": "State Government of Victoria",
-        "url": "https://www.vic.gov.au"
+        "id": "2573c3e7-d846-4e25-b710-0d8cc663ea70",
+        "text": "Victorian Skills Plan for 2023 into 2024",
+        "url": "/victorian-skills-plan"
       },
       {
-        "id": "3c34c546-8538-4ae5-a3da-168ee555660d",
-        "text": "Department of Premier and Cabinet",
-        "url": "https://www.vic.gov.au/department-premier-and-cabinet"
+        "id": "88411590-ab8a-45c6-ac06-58770afa304c",
+        "text": "State of the Victorian Labour Market Report",
+        "url": "/state-victorian-labour-market-2023"
       }
     ],
-    "socialShareNetworks": ["Facebook", "Twitter", "LinkedIn"]
+    "socialShareNetworks": ["Facebook", "X", "LinkedIn"]
   },
-  "url": "/demo-publication",
-  "header": {
-    "title": "Demo Publication",
-    "summary": "Nulla ultricies dignissim leo, posuere vestibulum erat cursus vitae"
-  },
-  "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet ligula sit amet lacinia. In a leo nec tortor aliquet faucibus.",
-  "showInPageNav": true,
-  "inPageNavHeadingLevel": "h2",
-  "breadcrumbs": {
-    "items": [
-      {
-        "label": "Home",
-        "url": "/"
-      },
-      {
-        "label": "Demo Publication"
-      }
-    ]
-  },
-  "details": {
-    "author": "Demo Department",
-    "date": "2019-07-01T10:00:00+10:00"
-  },
-  "chapters": [
+  "status": "published",
+  "topicTags": [
     {
-      "id": "11dede11-10c0-111e1-1100-000000000510",
-      "title": "Demo Publication - Chapter 1",
-      "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet ligula sit amet lacinia. In a leo nec tortor aliquet faucibus.",
-      "link": {
-        "url": "/demo-publication/demo-publication-chapter-1",
-        "text": "Read more"
-      }
-    },
-    {
-      "id": "11dede11-10c0-111e1-1100-000000000520",
-      "title": "Demo Publication - Chapter 2",
-      "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet ligula sit amet lacinia. In a leo nec tortor aliquet faucibus.",
-      "link": {
-        "url": "/demo-publication/demo-publication-chapter-2",
-        "text": "Read more"
-      }
-    },
-    {
-      "id": "11dede11-10c0-111e1-1100-000000000530",
-      "title": "Demo Publication - Chapter 3",
-      "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet ligula sit amet lacinia. In a leo nec tortor aliquet faucibus.",
-      "link": {
-        "url": "/demo-publication/demo-publication-chapter-3",
-        "text": "Read more"
-      }
+      "url": ""
     }
   ],
-  "dynamicComponents": [
-    {
-      "uuid": "7411203a-9a11-42a7-9917-5b7ab6319fec",
-      "component": "RplContent",
-      "id": "427",
-      "internalAnchors": [
-        {
-          "text": "Nulla ultricies dignissim leo, posuere vestibulum erat cursus vitae",
-          "id": "nulla-ultricies-dignissim-leo-posuere-vestibulum-erat-cursus-vitae",
-          "type": "h2"
-        },
-        {
-          "text": "Phasellus congue aliquam vehicula",
-          "id": "phasellus-congue-aliquam-vehicula",
-          "type": "h3"
-        },
-        {
-          "text": "Donec scelerisque cursus ex varius efficitur",
-          "id": "donec-scelerisque-cursus-ex-varius-efficitur",
-          "type": "h3"
-        }
-      ],
-      "props": {
-        "html": "<h2 id=\"nulla-ultricies-dignissim-leo-posuere-vestibulum-erat-cursus-vitae\">Nulla ultricies dignissim leo, posuere vestibulum erat cursus vitae</h2>\n<h3 id=\"phasellus-congue-aliquam-vehicula\">Phasellus congue aliquam vehicula</h3>\n<p class=\"rpl-callout\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet ligula sit amet lacinia. In a leo nec tortor aliquet faucibus. Quisque nec congue ligula, vitae condimentum tellus. Nulla nec urna augue. Curabitur commodo nisi est, eu pulvinar tortor cursus vel. Morbi dictum ex est, et semper diam finibus eu. Cras rutrum, nunc a fringilla convallis, massa est vulputate velit, in blandit augue dui vitae elit. Donec hendrerit commodo augue, in maximus orci tempor congue. Mauris ultricies euismod orci, nec vehicula quam vehicula ac. Nunc dictum tortor dolor, nec eleifend orci luctus sed.</p>\n<h3 id=\"donec-scelerisque-cursus-ex-varius-efficitur\">Donec scelerisque cursus ex varius efficitur</h3>\n<h4>Morbi cursus placerat mi</h4>\n<h5>Nullam laoreet ante placerat</h5>\n<p>Integer interdum nisl ut neque dictum, et sagittis metus feugiat. Sed in mattis neque. Duis at risus non ipsum semper dapibus. Sed enim sapien, molestie sed commodo vel, lacinia vitae risus. Proin sagittis diam nisi, sed rhoncus diam varius id. Sed malesuada felis tortor, scelerisque pretium elit tempor non. Pellentesque ultrices volutpat tincidunt. Fusce quis viverra urna, quis finibus nulla.</p>\n<blockquote class=\"quotation\">\n  <p>Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus. Phasellus lacus lectus, sollicitudin sed posuere non, ultricies ut quam.</p>\n  <footer>\n    <cite>\n      <span class=\"quotation__author\">Duis ligula lacus</span><br>\n      <span class=\"quotation__author-title\">Phasellus est turpis, efficitur nec odio imperdiet</span><br>\n    </cite>\n  </footer>\n</blockquote>\nMauris tincidunt tincidunt felis vel tempus\n<img src=\"https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg\" class=\"rpl-img\" width=\"1413\" alt=\"Demo: Melbourne tram\" srcset=\"https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg?width=606,\n      https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg?width=1212 2x\">\n\n<p>Phasellus in varius leo. Suspendisse potenti. Donec scelerisque cursus ex varius efficitur. Vivamus pretium nisi sed libero accumsan mattis. Duis convallis, velit eget varius tempus, orci erat aliquam sem, eget porta mauris nisl at mauris.</p>\n<div data-embed-button=\"tide_media\" data-entity-embed-display=\"view_mode:media.embedded\" data-entity-type=\"media\" data-entity-uuid=\"11dede11-10c0-111e1-1100-000000000007\" data-langcode=\"en\" class=\"embedded-entity embedded-entity--media embedded-entity--media--document\"><article class=\"media media--type-document media--view-mode-embedded\">\n  \n      \n            <div class=\"field field--name-field-media-file field--type-file field--label-hidden field__item\">\n<span class=\"file file--mime-application-vnd-openxmlformats-officedocument-wordprocessingml-document file--x-office-document\"> <a href=\"https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/sample.docx\" class=\"x-office-document\" aria-label=\"Demo Sample Document File type: Word. Size: 7.53 KB.\"><span class=\"file--title\">Demo Sample Document</span><span class=\"file--type\">Word</span><span class=\"file--size\">7.53 KB</span></a></span>\n</div>\n      \n  </article>\n</div>\n"
-      }
-    },
-    {
-      "uuid": "901fa135-fbbc-45d4-9801-b7c7ead83456",
-      "component": "RplAccordion",
-      "id": "431",
-      "title": "Accordion header (basic)",
-      "props": {
-        "id": "431",
-        "numbered": true,
-        "items": [
-          {
-            "id": "428",
-            "title": "Accordion #1",
-            "content": "&lt;p&gt;Phasellus in varius leo. Suspendisse potenti. Donec scelerisque cursus ex varius efficitur. Vivamus pretium nisi sed libero accumsan mattis. Duis convallis, velit eget varius tempus, orci erat aliquam sem, eget porta mauris nisl at mauris.&lt;/p&gt;"
-          },
-          {
-            "id": "429",
-            "title": "Accordion #2",
-            "content": "&lt;p&gt;Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus. Phasellus lacus lectus, sollicitudin sed posuere non, ultricies ut quam.&lt;/p&gt;"
-          },
-          {
-            "id": "430",
-            "title": "Accordion #3",
-            "content": "&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet ligula sit amet lacinia. In a leo nec tortor aliquet faucibus. Quisque nec congue ligula, vitae condimentum tellus.&lt;/p&gt;"
-          }
-        ]
-      }
-    },
-    {
-      "uuid": "9bd378c8-32b1-4be4-bda4-9b6665652815",
-      "component": "RplAccordion",
-      "id": "435",
-      "title": "Accordion header (numbered)",
-      "props": {
-        "id": "435",
-        "numbered": true,
-        "items": [
-          {
-            "id": "432",
-            "title": "Accordion #1",
-            "content": "&lt;p&gt;Phasellus in varius leo. Suspendisse potenti. Donec scelerisque cursus ex varius efficitur. Vivamus pretium nisi sed libero accumsan mattis. Duis convallis, velit eget varius tempus, orci erat aliquam sem, eget porta mauris nisl at mauris.&lt;/p&gt;"
-          },
-          {
-            "id": "433",
-            "title": "Accordion #2",
-            "content": "&lt;p&gt;Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus. Phasellus lacus lectus, sollicitudin sed posuere non, ultricies ut quam.&lt;/p&gt;"
-          },
-          {
-            "id": "434",
-            "title": "Accordion #3",
-            "content": "&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet ligula sit amet lacinia. In a leo nec tortor aliquet faucibus. Quisque nec congue ligula, vitae condimentum tellus.&lt;/p&gt;"
-          }
-        ]
-      }
-    }
-  ],
-  "publication": {
-    "text": "Demo Publication",
-    "url": "/demo-publication",
-    "id": "11dede11-10c0-111e1-1100-000000000500",
-    "documents": [
-      {
-        "name": "Demo Sample Document",
-        "url": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/sample.docx",
-        "size": "7.53 KB",
-        "extension": "docx",
-        "id": "11dede11-10c0-111e1-1100-000000000007"
-      },
-      {
-        "name": "Demo Sample PDF",
-        "url": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/sample.pdf",
-        "size": "14.53 KB",
-        "extension": "pdf",
-        "id": "11dede11-10c0-111e1-1100-000000000100"
-      }
-    ]
-  },
+  "siteSection": null,
   "meta": {
-    "url": "/demo-landing-page",
+    "url": "/victorian-skills-plan-2023-implementation-update",
     "langcode": "en",
-    "description": "Nulla ultricies dignissim leo, posuere vestibulum erat cursus vitae",
+    "description": "The Victorian Skills Plan outlines how we are tracking against the 25 initiatives identified in last year's skills plan.",
     "additional": [
-      {
-        "tag": "link",
-        "attributes": {
-          "rel": "canonical",
-          "href": "https://develop.content.reference.sdp.vic.gov.au/demo-landing-page"
-        }
-      },
       {
         "tag": "meta",
         "attributes": {
           "name": "title",
-          "content": "Demo Landing Page | Single Digital Presence Content Management System"
+          "content": "Victorian Skills Plan Implementation Update | Victorian Government"
+        }
+      },
+      {
+        "tag": "link",
+        "attributes": {
+          "rel": "canonical",
+          "href": "https://master.content.vic.gov.au/victorian-skills-plan-2023-implementation-update"
         }
       },
       {
         "tag": "meta",
         "attributes": {
           "property": "og:image",
-          "content": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg"
+          "content": "https://master.content.vic.gov.au/sites/default/files/2023-10/Leela-Subramaniam-ApprenticeoftheYear-hero_1.jpg"
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "property": "og:locale",
+          "content": "en-AU"
         }
       }
     ],
     "keywords": "",
-    "image": {
-      "src": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg",
-      "alt": "Demo: Melbourne tram",
-      "title": "Demo: Melbourne tram",
-      "width": 1413,
-      "height": 785,
-      "drupal_internal__target_id": 46
+    "image": null
+  },
+  "showContentRating": true,
+  "url": "/victorian-skills-plan-2023-implementation-update",
+  "header": {
+    "title": "Victorian Skills Plan Implementation Update",
+    "summary": "",
+    "links": {
+      "title": "",
+      "items": [],
+      "more": null
+    },
+    "backgroundImageCaption": "",
+    "theme": "default",
+    "logoImage": null,
+    "backgroundImage": null,
+    "cornerTop": null,
+    "cornerBottom": null,
+    "primaryAction": null,
+    "secondaryAction": null,
+    "secondaryActionLabel": ""
+  },
+  "summary": "The Victorian Skills Plan outlines how we are tracking against the 25 initiatives identified in last year's skills plan.",
+  "showInPageNav": false,
+  "inPageNavHeadingLevel": "h2",
+  "details": {
+    "author": "",
+    "date": "2023-10-24T11:00:00+11:00",
+    "copyright": null
+  },
+  "chapters": [
+    {
+      "id": "4a6d9877-326a-4090-8f7d-51c79191c63b",
+      "title": "The Victorian Skills Plan 2022 into 2023 actions and initiatives",
+      "summary": "The 25 initiatives scheduled to start in year one are well underway.",
+      "url": "/victorian-skills-plan-2023-implementation-update/2022-victorian-skills-plan-actions-and-initiatives"
+    },
+    {
+      "id": "7f608818-51e5-4c42-831a-a51d46a41ff6",
+      "title": "Promoting post-secondary education skills and career pathways",
+      "summary": "The first priority area's actions and initiatives from the Victorian Skills Plan 2022.\r\n",
+      "url": "/victorian-skills-plan-2023-implementation-update/promoting-post-secondary-education-skills-and-career"
+    },
+    {
+      "id": "3479556d-7daa-4bc4-985a-d0ec1d954713",
+      "title": "Lifting participation in education and training",
+      "summary": "The second priority area's actions and initiatives from the Victorian Skills Plan 2022.",
+      "url": "/victorian-skills-plan-2023-implementation-update/lifting-participation-education-and-training"
+    },
+    {
+      "id": "a805aea1-6b50-4327-b176-ff4468775ad6",
+      "title": "Delivering the right skills for the jobs of today and tomorrow",
+      "summary": "The third priority area's actions and initiatives from the Victorian Skills Plan 2022.",
+      "url": "/victorian-skills-plan-2023-implementation-update/delivering-right-skills-jobs-today-and-tomorrow"
+    },
+    {
+      "id": "c17daa15-9ad8-412d-a049-aa1ef6c668c2",
+      "title": "The Victorian Skills Plan supports action on skills",
+      "summary": "Learn what's been achieved since the Victorian Skills Plan for 2022 into 2023 was implemented.",
+      "url": "/victorian-skills-plan-2023-implementation-update/action-on-skills"
+    },
+    {
+      "id": "c83e001c-2429-4c87-a53c-62a96ee426c6",
+      "title": "Start the VET journey at school",
+      "summary": "Improvements including a strengthened VET Delivered To School Students system have increased access to VET options for schools.",
+      "url": "/victorian-skills-plan-2023-implementation-update/start-vet-journey-school"
+    },
+    {
+      "id": "ad3fd4c8-60dc-4c0d-a55c-5137766a2056",
+      "title": "Enable learners and workers to make informed skills and career choices",
+      "summary": "Using intelligence gathered through various resources, the Victorian Skills Authority has helped learners understand their options and advised employers on upskilling.",
+      "url": "/victorian-skills-plan-2023-implementation-update/-learners-workers-career-choices"
+    },
+    {
+      "id": "64d7c641-640d-46e9-9967-7ad49104d744",
+      "title": "Expand opportunities and approaches for students to put theory into practice during their course",
+      "summary": "Practical placement officers have been funded for all Victorian TAFE Network providers to assist students seeking placements.",
+      "url": "/victorian-skills-plan-2023-implementation-update/expand-opportunities-approaches-students-theory-course"
+    },
+    {
+      "id": "3218f7fa-e189-44a2-8fdb-fc750409c421",
+      "title": "Build foundation skills to enhance workforce participation",
+      "summary": "Accredited and pre-accredited foundation skills support skill development across a range of areas to enable individuals to participate in education and training, work and life.",
+      "url": "/victorian-skills-plan-2023-implementation-update/build-foundation-skills-enhance-workforce-participation"
+    },
+    {
+      "id": "e0ce9cb4-df4f-4ae9-84e6-b1589486cdc8",
+      "title": "Bridge the gender gap",
+      "summary": "Attracting more women into the labour force and increasing the number of female workers, is critical.",
+      "url": "/victorian-skills-plan-2023-implementation-update/bridge-gender-gap"
+    },
+    {
+      "id": "9c4656a6-3294-4515-8a7e-e15cd32841b6",
+      "title": "Build skills to support Victoria's clean economy intentions",
+      "summary": "There are many initiatives in place to support the Clean Economy Workforce Development Strategy. ",
+      "url": "/victorian-skills-plan-2023-implementation-update/build-skills-support-victorias-clean-economy-intentions"
+    },
+    {
+      "id": "556bcf1a-46d6-4565-87e5-79e1b4b31cc5",
+      "title": "Create innovative solutions to support future skills development",
+      "summary": "How the skills system is keeping up with changing occupations and shifts in industries and jobs.",
+      "url": "/victorian-skills-plan-2023-implementation-update/create-innovative-solutions-support-future-skills"
+    },
+    {
+      "id": "ff6440cc-7605-4ff1-b8a1-f25a5797549f",
+      "title": "Align qualifications to new needs",
+      "summary": "Using existing skills classification tools, the Victorian Skills Authority is exploring approaches to better describe changing skills demand in the Victorian economy.",
+      "url": "/victorian-skills-plan-2023-implementation-update/align-qualifications-new-needs"
+    },
+    {
+      "id": "f197320e-e9e3-46c8-b402-43ddd409599a",
+      "title": "Drive for higher skills and progression through education and training",
+      "summary": "The Victorian Skills Authority is progressing reforms in the skills and training system.",
+      "url": "/victorian-skills-plan-2023-implementation-update/drive-higher-skills-and-progression-through-education"
+    },
+    {
+      "id": "cf1bfe5d-929e-44e2-a542-18d8b9fcd234",
+      "title": "Build the VET workforce",
+      "summary": "The Victorian Skills Authority has commenced work on the VET Workforce Development Strategy through a range of initiatives.",
+      "url": "/victorian-skills-plan-2023-implementation-update/build-vet-workforce"
+    },
+    {
+      "id": "16ef10ae-d3e4-4217-9508-eb4981336a3e",
+      "title": "Expand re-skilling and up-skilling opportunities through skill sets",
+      "summary": "The Victorian Skills Authority's Industry Advisory Groups and Skills and Jobs Centres have played an important part in supporting learners up-skill through skills sets.",
+      "url": "/victorian-skills-plan-2023-implementation-update/expand-re-skilling-and-skilling-opportunities"
     }
+  ],
+  "bodyComponents": [],
+  "publication": {
+    "text": "Victorian Skills Plan Implementation Update",
+    "url": "/victorian-skills-plan-2023-implementation-update",
+    "id": "ecb799a1-a1a3-4989-89f6-1657f786e12e",
+    "documents": [
+      {
+        "name": "Victorian Skills Plan Implementation Update October 2023",
+        "url": "https://master.content.vic.gov.au/sites/default/files/2023-10/16686-VSA-Implementation-Plan-Section_FA_Digital.pdf",
+        "size": "4.61 MB",
+        "extension": "pdf",
+        "id": "64b1b6fc-083d-4570-8b0e-5f54a756a80c"
+      }
+    ]
   },
   "showLastUpdated": true
 }

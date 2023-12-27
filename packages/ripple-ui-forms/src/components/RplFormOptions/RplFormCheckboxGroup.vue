@@ -11,6 +11,7 @@ interface Props {
   label?: string
   disabled?: boolean
   variant?: 'default' | 'reverse'
+  pii?: boolean
   onChange: (value: string[]) => void
   options: {
     id: string
@@ -24,6 +25,7 @@ const props = withDefaults(defineProps<Props>(), {
   label: undefined,
   disabled: false,
   variant: 'default',
+  pii: true,
   onChange: () => undefined,
   options: () => []
 })

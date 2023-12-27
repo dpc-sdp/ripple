@@ -29,6 +29,7 @@ interface Props {
   centeredText?: boolean
   globalEvents?: boolean
   throttle?: number
+  pii?: boolean
   onInput?: (payload: Event) => void
   onBlur?: (payload: Event) => void
 }
@@ -49,6 +50,7 @@ const props = withDefaults(defineProps<Props>(), {
   centeredText: false,
   globalEvents: true,
   throttle: 500,
+  pii: true,
   onInput: () => null,
   onBlur: () => null
 })

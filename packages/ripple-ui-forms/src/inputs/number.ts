@@ -43,7 +43,8 @@ export const number: FormKitTypeDefinition = {
     'step',
     'placeholder',
     'validationMeta',
-    'columnClasses'
+    'columnClasses',
+    'pii'
   ],
   /**
    * Forces node.props.type to be this explicit value.

@@ -17,6 +17,7 @@ export interface Props {
     label: string
     disabled?: boolean
   }[]
+  pii?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -25,6 +26,7 @@ const props = withDefaults(defineProps<Props>(), {
   variant: 'default',
   layout: 'block',
   perfectSquares: false,
+  pii: true,
   onChange: () => undefined,
   options: () => []
 })

@@ -16,6 +16,7 @@ interface Props {
   invalid?: boolean
   required?: boolean
   variant?: 'default' | 'reverse'
+  pii?: boolean
   handlers: Record<string, any>
 }
 
@@ -29,7 +30,8 @@ const props = withDefaults(defineProps<Props>(), {
   disabled: false,
   required: false,
   invalid: false,
-  variant: 'default'
+  variant: 'default',
+  pii: true
 })
 
 const emit = defineEmits<{

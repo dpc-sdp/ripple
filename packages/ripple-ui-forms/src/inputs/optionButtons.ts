@@ -16,7 +16,8 @@ export const optionButtons: FormKitTypeDefinition = {
       onChange: '$node.input',
       options: '$node.props.options',
       validationMeta: '$node.props.validationMeta',
-      perfectSquares: '$node.props.perfectSquares'
+      perfectSquares: '$node.props.perfectSquares',
+      pii: '$node.props.pii'
     }
   }),
   library: inputLibrary,
@@ -32,7 +33,7 @@ export const optionButtons: FormKitTypeDefinition = {
   /**
    * An array of extra props to accept for this input.
    */
-  props: ['options', 'perfectSquares'],
+  props: ['options', 'perfectSquares', 'pii'],
   /**
    * Additional features that should be added to your input
    */

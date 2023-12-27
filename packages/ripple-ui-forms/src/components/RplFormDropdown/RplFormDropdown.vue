@@ -31,6 +31,7 @@ export interface RplFormDropdownProps {
     value: string
   }[]
   maxItemsDisplayed?: number
+  pii?: boolean
 }
 
 const props = withDefaults(defineProps<RplFormDropdownProps>(), {
@@ -44,7 +45,8 @@ const props = withDefaults(defineProps<RplFormDropdownProps>(), {
   maxItemsDisplayed: 6,
   required: false,
   invalid: false,
-  multiple: false
+  multiple: false,
+  pii: true
 })
 
 const emit = defineEmits<{

@@ -31,6 +31,7 @@ interface Props {
   onChange: (value: string | string[]) => void
   dateFormat: string
   ariaDescribedby?: string
+  pii?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -41,7 +42,8 @@ const props = withDefaults(defineProps<Props>(), {
   value: undefined,
   variant: 'default',
   dateFormat: 'yyyy-MM-dd',
-  ariaDescribedby: ''
+  ariaDescribedby: '',
+  pii: true
 })
 
 const emit = defineEmits<{

@@ -13,6 +13,7 @@ export interface RplFormRadioProps {
   disabled?: boolean
   variant?: 'default' | 'reverse'
   layout?: 'block' | 'inline'
+  pii?: boolean
   onChange: (value: string) => void
   options: {
     id: string
@@ -27,6 +28,7 @@ const props = withDefaults(defineProps<RplFormRadioProps>(), {
   disabled: false,
   variant: 'default',
   layout: 'block',
+  pii: true,
   onChange: () => undefined,
   options: () => []
 })

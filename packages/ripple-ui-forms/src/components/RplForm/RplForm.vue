@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import { nextTick, provide, ref, watch, reactive, computed } from 'vue'
 import {
+  getNode,
   FormKitSchemaCondition,
   FormKitSchemaNode,
-  FormKitConfig
+  FormKitConfig,
+  FormKitNode
 } from '@formkit/core'
 import { getValidationMessages } from '@formkit/validation'
 import rplFormInputs from '../../plugin'
@@ -12,6 +14,7 @@ import { RplContent } from '@dpc-sdp/ripple-ui-core/vue'
 import { reset } from '@formkit/vue'
 import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
 import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
+import sanitisePIIFields from '../../lib/sanitisePIIFields'
 
 interface Props {
   id: string
@@ -80,7 +83,7 @@ provide('submitCounter', submitCounter)
 const submitLabel =
   props.schema?.find((field) => field?.key === 'actions')?.label || 'Submit'
 
-const submitHandler = (form) => {
+const submitHandler = (form, node: FormKitNode) => {
   // Reset the error summary as it is not reactive
   cachedErrors.value = {}
   submitCounter.value = 0
@@ -92,13 +95,14 @@ const submitHandler = (form) => {
       id: props.id,
       name: props.title,
       action: 'submit',
-      text: submitLabel
+      text: submitLabel,
+      value: sanitisePIIFields(node)
     },
     { global: true }
   )
 }
 
-const submitInvalidHandler = async (node) => {
+const submitInvalidHandler = async (node: FormKitNode) => {
   submitCounter.value = submitCounter.value + 1
 
   const validations = getValidationMessages(node)
@@ -123,7 +127,8 @@ const submitInvalidHandler = async (node) => {
       id: props.id,
       action: 'submit',
       name: props.title,
-      text: submitLabel
+      text: submitLabel,
+      value: sanitisePIIFields(node)
     },
     { global: true }
   )
@@ -173,18 +178,19 @@ watch(
       }
 
       if (newStatus === 'success') {
-        reset(props.id)
-
         emitRplEvent(
           'submitted',
           {
             id: props.id,
             action: 'complete',
             name: props.title,
-            text: submitLabel
+            text: submitLabel,
+            value: sanitisePIIFields(getNode(props.id))
           },
           { global: true }
         )
+
+        reset(props.id)
       }
     }
   }

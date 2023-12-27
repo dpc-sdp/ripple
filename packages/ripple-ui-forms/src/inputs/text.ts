@@ -45,7 +45,8 @@ export const text: FormKitTypeDefinition = {
     ...counterProps,
     'placeholder',
     'validationMeta',
-    'columnClasses'
+    'columnClasses',
+    'pii'
   ],
   /**
    * Forces node.props.type to be this explicit value.

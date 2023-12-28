@@ -106,6 +106,7 @@ const parseResultsConfigFromDrupal = (src) => {
 const buildConfigFromDrupalFields = (src) => {
   return {
     searchListingConfig: {
+      hideSearchForm: src?.field_listing_hide_search_form ?? false,
       resultsPerPage: src.field_listing_results_per_page || 10,
       labels: {
         submit: src.field_search_submit_label,

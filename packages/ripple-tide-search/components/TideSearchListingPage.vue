@@ -55,6 +55,7 @@ const props = withDefaults(defineProps<Props>(), {
     }
   }),
   searchListingConfig: () => ({
+    hideSearchForm: false,
     resultsPerPage: 9,
     labels: {
       submit: 'Submit',
@@ -316,7 +317,10 @@ watch(
         :corner-bottom="false"
       >
         <p v-if="introText" class="rpl-type-p-large">{{ introText }}</p>
-        <div class="tide-search-header">
+        <div
+          v-if="!searchListingConfig.hideSearchForm"
+          class="tide-search-header"
+        >
           <RplSearchBar
             id="tide-search-bar"
             variant="default"

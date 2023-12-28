@@ -1,6 +1,6 @@
 # Ripple UI Forms
 
-> A form component library built with [Formkit](https://formkit.com/). [View the Ripple storybook](https://www.ripple.sdp.vic.gov.au/storybook/?path=/story/forms-form--default-story) to start exploring available components.
+> A Vue 3 form component library built with [Formkit](https://formkit.com/). [View the Ripple storybook](https://www.ripple.sdp.vic.gov.au/storybook/?path=/story/forms-form--default-story) to start exploring available components.
 
 Form fields can be used individually `<RplFormInput>` to handcraft form experiences. However, using the `<RplForm>` component and providing a form schema provides a simpler way to define and generate forms.
 
@@ -48,7 +48,7 @@ npm install @dpc-sdp/ripple-ui-forms
 
 ## Usage (Nuxt)
 
-Ripple UI Forms exports a nuxt module that you can add to your nuxt config, note the addition of `/nuxt`.
+Ripple UI Forms exports a Nuxt 3 module that you can add to your nuxt config, note the addition of `/nuxt`.
 
 ```js
 export default defineNuxtConfig({
@@ -57,6 +57,8 @@ export default defineNuxtConfig({
   ]
 })
 ```
+
+Note: Nuxt 2 is not supported.
 
 There is no need to import the components as they will be registered globally by the nuxt module.
 

@@ -114,12 +114,12 @@ export const RplFooterLinks = [
       {
         text: 'DFFH Twitter',
         url: '#',
-        icon: 'icon-twitter'
+        icon: 'icon-x'
       },
       {
         text: 'DH Twitter',
         url: '#',
-        icon: 'icon-twitter'
+        icon: 'icon-x'
       },
       {
         text: 'DFFH LinkedIn',

@@ -1,0 +1,187 @@
+{
+  "title": "Custom collection",
+  "changed": "2022-11-02T12:47:29+11:00",
+  "created": "2022-11-02T12:47:29+11:00",
+  "type": "landing_page",
+  "nid": "11dede11-10c0-111e1-1100-000000000330",
+  "summary": "Page summary",
+  "showInPageNav": true,
+  "inPageNavHeadingLevel": "h3",
+  "background": "default",
+  "header": {
+    "title": "Custom collection test",
+    "summary": "Test landing page title introduction text",
+    "theme": "default",
+    "backgroundImage": null
+  },
+  "sidebar": {
+    "contacts": [
+      {
+        "id": "26146cba-f307-449e-885c-7446efb3f315",
+        "contactTitle": "Victorian Government",
+        "contactName": "Victorian Government",
+        "department": "Department of Premier and Cabinet",
+        "email": "no-reply@vic.gov.au",
+        "locationAddress": {
+          "countryCode": "AU",
+          "administrativeArea": "VIC",
+          "locality": "Melbourne",
+          "postalCode": "3001",
+          "addressLine1": "Department of Premier and Cabinet",
+          "addressLine2": "GPO Box 4509"
+        },
+        "postalAddress": {
+          "countryCode": "AU",
+          "administrativeArea": "VIC",
+          "locality": "Melbourne",
+          "postalCode": "3001",
+          "addressLine1": "Department of Premier and Cabinet",
+          "addressLine2": "GPO Box 4509"
+        },
+        "phones": [
+          {
+            "id": "8a6d0e28-3d34-40b7-a97b-ef980f0f6f49",
+            "title": "Calls in Australia",
+            "number": "1300 366 356"
+          },
+          {
+            "id": "798566cf-2e8c-48eb-bc89-38a6486cb06a",
+            "title": "Calls from overseas",
+            "number": "+61 3 9603 8804"
+          }
+        ],
+        "socialMedia": [
+          {
+            "id": "0b58c974-05bd-4379-8947-12c4959b992c",
+            "type": "twitter",
+            "text": "Twitter",
+            "url": "https://twitter.com/VicGovAu"
+          }
+        ]
+      }
+    ],
+    "relatedLinks": [
+      {
+        "id": "33133902-1f57-4283-9f6b-48dd76297c69",
+        "text": "State Government of Victoria",
+        "url": "https://www.vic.gov.au"
+      },
+      {
+        "id": "254c49f8-b14a-44a1-bad0-729bfb40e425",
+        "text": "Department of Premier and Cabinet",
+        "url": "https://www.vic.gov.au/department-premier-and-cabinet"
+      }
+    ],
+    "socialShareNetworks": ["Facebook", "Twitter", "LinkedIn"],
+    "siteSectionNav": {
+      "title": "Site-section Navigation",
+      "items": [
+        {
+          "text": "Demo Landing Page",
+          "url": "route:entity.node.canonical;node=65",
+          "id": "683e718c-f024-41f5-aea3-3036155ef4c8",
+          "parent": null,
+          "weight": 0
+        }
+      ]
+    }
+  },
+  "headerComponents": [],
+  "bodyComponents": [
+    {
+      "uuid": "a99aa287-7fac-430b-864e-3a1b044460b1",
+      "component": "TideLandingPageContent",
+      "id": "969",
+      "props": {
+        "html": "<p>This is a collection of grants which have some content above them</p>"
+      }
+    },
+    {
+      "uuid": "55555555-5555-5555-5555-555555555555",
+      "component": "TideCustomCollection",
+      "id": "123",
+      "title": "Cameras save lives",
+      "props": {
+        "searchListingConfig": {
+          "searchProvider": "elasticsearch",
+          "index": "sdp_data_pipelines_scl",
+          "resultsPerPage": 10,
+          "labels": {
+            "submit": "Search",
+            "placeholder": "Enter suburb, postcode, streetname or offence location"
+          },
+          "customSort": [
+            {
+              "suburb": "asc"
+            }
+          ]
+        },
+        "queryConfig": {
+          "multi_match": {
+            "query": "{{query}}",
+            "fields": ["suburb^3", "street^2", "offence_location"]
+          }
+        },
+        "globalFilters": [],
+        "resultsConfig": {
+          "layout": {
+            "component": "TideSearchResultsTable",
+            "props": {
+              "columns": [
+                {
+                  "label": "Suburb",
+                  "objectKey": "suburb"
+                },
+                {
+                  "label": "Location",
+                  "objectKey": "street"
+                },
+                {
+                  "label": "Last annual test",
+                  "objectKey": "last_annual_test"
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  ],
+  "meta": {
+    "url": "/demo-landing-page",
+    "langcode": "en",
+    "description": "Nulla ultricies dignissim leo, posuere vestibulum erat cursus vitae",
+    "additional": [
+      {
+        "tag": "link",
+        "attributes": {
+          "rel": "canonical",
+          "href": "https://develop.content.reference.sdp.vic.gov.au/demo-landing-page"
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "title",
+          "content": "Demo Landing Page | Single Digital Presence Content Management System"
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "property": "og:image",
+          "content": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg"
+        }
+      }
+    ],
+    "keywords": "",
+    "image": {
+      "src": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg",
+      "alt": "Demo: Melbourne tram",
+      "title": "Demo: Melbourne tram",
+      "width": 1413,
+      "height": 785,
+      "drupal_internal__target_id": 46
+    }
+  }
+}

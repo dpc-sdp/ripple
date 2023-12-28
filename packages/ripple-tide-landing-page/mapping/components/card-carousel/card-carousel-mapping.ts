@@ -75,12 +75,13 @@ export const cardCarouselMapping = async (
   page,
   tidePageApi
 ): Promise<TideDynamicPageComponent<ITideCardCarousel>> => {
+  const items = await getCardsFromType(field, tidePageApi)
   return {
     component: 'TideLandingPageCardCarousel',
     id: field.drupal_internal__id.toString(),
-    title: field.field_paragraph_title,
+    title: items.length > 0 ? field.field_paragraph_title : '',
     props: {
-      items: await getCardsFromType(field, tidePageApi)
+      items
     }
   }
 }

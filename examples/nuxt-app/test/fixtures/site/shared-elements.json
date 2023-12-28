@@ -41,6 +41,22 @@
       }
     }
   },
+  "socialLinks": [
+    {
+      "id": "social_link-0",
+      "text": "Facebook",
+      "url": "https://www.facebook.com/",
+      "icon": "icon-facebook",
+      "iconColour": "currentColor"
+    },
+    {
+      "id": "social_link-1",
+      "text": "LinkedIn",
+      "url": "https://www.linkedin.com/",
+      "icon": "icon-linkedin",
+      "iconColour": "currentColor"
+    }
+  ],
   "menus": {
     "menuMain": [
       {

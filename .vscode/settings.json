@@ -27,7 +27,8 @@
     "nuxt-ripple",
     "@dpc-sdp/nuxt-ripple-cli",
     "@dpc-sdp/ripple-test-utils",
-    "@dpc-sdp/nuxt-ripple-analytics"
+    "@dpc-sdp/nuxt-ripple-analytics",
+    "eslint-config-ripple"
   ],
   "cSpell.words": [
     "colour",

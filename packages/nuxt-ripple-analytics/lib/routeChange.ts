@@ -5,19 +5,15 @@ const trimValue = (value: any) =>
   typeof value === 'string' ? value.trim() : value
 
 export default function ({ route, site, page }): IRplAnalyticsEventPayload {
-  const production =
-    typeof process !== 'undefined' &&
-    process?.env?.LAGOON_ENVIRONMENT_TYPE === 'production'
-
   const payload: IRplAnalyticsEventPayload = {
-    production,
     event: 'routeChange',
-    name: page?.title,
+    page_title: page?.title,
     page_url: route.fullPath,
     content_type: page?.type,
     publication_name: page?.publication?.text,
     search_term: trimValue(route.query?.q),
     site_section: page?.siteSection?.name,
+    status_code: page?.statusCode || 200,
     platform_event: 'page/routeChange'
   }
 
@@ -29,15 +25,6 @@ export default function ({ route, site, page }): IRplAnalyticsEventPayload {
     payload.breadcrumbs = pageBreadcrumbs
       .filter((crumb) => crumb?.url !== '/')
       .map((crumb) => crumb.text)
-  }
-
-  const measurementIds = {
-    uat_measurement_id: site?.featureFlags?.uatMeasurementID,
-    prod_measurement_id: site?.featureFlags?.prodMeasurementID
-  }
-
-  if (Object.values(measurementIds).filter(Boolean).length) {
-    payload.google_analytics = measurementIds
   }
 
   return payload

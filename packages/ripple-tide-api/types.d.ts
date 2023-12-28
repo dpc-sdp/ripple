@@ -46,6 +46,7 @@ export interface TideSiteData {
     twitter: any
     og: any
   }
+  socialLinks: TideMenuItem[]
   menus: {
     menuMain: TideMenuItem[]
     menuFooter: TideMenuItem[]
@@ -253,6 +254,7 @@ declare module 'nitropack' {
 
 // Mapping util interfaces
 export function getAddress(address: any): string
+export function getBody(body: any): string
 export function getBodyFromField(field: string, path: string | string[]): string
 export function getField(
   field: string,

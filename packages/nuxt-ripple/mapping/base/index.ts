@@ -23,7 +23,11 @@ import {
   includes as sidebarSiteSectionNavIncludes
 } from './sidebar-site-section-nav/sidebar-site-section-nav-mapping.js'
 import TidePageMeta from './page-meta.js'
-import { TidePageApi } from '@dpc-sdp/ripple-tide-api'
+import { getSiteSection } from '@dpc-sdp/ripple-tide-api'
+
+declare module '@dpc-sdp/ripple-tide-api' {
+  export const getSiteSection: (sectionId: string, src: any) => any
+}
 
 export const tidePageBaseMapping = ({
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -64,14 +68,9 @@ export const tidePageBaseMapping = ({
     sidebar: sidebar,
     status: 'moderation_state',
     topicTags: topicTagsMapping,
-    siteSection: async (src, tidePageApi: TidePageApi) => {
-      // The section/site id comes from the drupal 'route' api
-      const siteId = tidePageApi.sectionId
-
+    siteSection: async (src) => {
       // With the correct site/section id, we can now choose the correct site data from 'field_node_site'
-      const siteData = src.field_node_site?.find((site) => {
-        return `${site.drupal_internal__tid}` === siteId
-      })
+      const siteData = getSiteSection(src._sectionId, src)
 
       if (!siteData) {
         return null

@@ -78,11 +78,26 @@ export type TideSearchListingResultLayout = {
   }
 }
 
+export type TideSearchListingSortOption = {
+  id: string
+  label: string
+  clause: any
+}
+
 export type TideSearchListingConfig = {
   /**
-   * @description optional page level config
+   * @description general configuration for search listing
    */
   searchListingConfig: {
+    /**
+     * @description Search provider used for queries - either elasticsearch or elastic app search
+     * @default 'app-search' defaults to app-search
+     */
+    searchProvider: 'elasticsearch' | 'app-search'
+    /**
+     * @description Custom search index to use - EG for data pipelines
+     */
+    index: string
     /**
      * @description Toggle grid and list view of results, cards need to be a grid view
      */
@@ -124,6 +139,7 @@ export type TideSearchListingConfig = {
       [key: string]: TideSearchListingResultItem
     }
   }
+  sortOptions?: TideSearchListingSortOption[]
 }
 
 export interface TideSearchListingPage extends TidePageBase {

@@ -17,6 +17,7 @@ export interface Props {
   depth?: number
   maxDepth?: number | null
   iconPlacement?: RplIconPlacement
+  withLinkIds?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -26,7 +27,8 @@ const props = withDefaults(defineProps<Props>(), {
   containerClass: '',
   depth: 0,
   maxDepth: null,
-  iconPlacement: 'before'
+  iconPlacement: 'before',
+  withLinkIds: false
 })
 
 const emit = defineEmits<{
@@ -60,18 +62,29 @@ const handleClick = (item: IRplListItemArray, index: number) => {
     :class="['rpl-list__items', containerClass ? containerClass : null]"
     :data-depth="depth"
   >
-    <li
-      v-for="(item, index) of items"
-      :key="index"
-      :class="['rpl-list__item', itemClass ? itemClass : null]"
-    >
-      <RplTextLink
-        v-if="item.url"
-        :url="item.url"
-        class="rpl-list__link"
-        @click="() => handleClick(item, index)"
+    <template v-for="(item, index) of items" :key="index">
+      <li
+        v-if="item.url || item.text"
+        :class="['rpl-list__item', itemClass ? itemClass : null]"
       >
+        <RplTextLink
+          v-if="item.url"
+          :id="withLinkIds ? item.id : undefined"
+          :url="item.url"
+          class="rpl-list__link"
+          @click="() => handleClick(item, index)"
+        >
+          <RplListContent
+            :icon-name="item?.icon"
+            :icon-colour="item?.iconColour"
+            :icon-placement="iconPlacement"
+            :depth="depth"
+          >
+            {{ item.text }}
+          </RplListContent>
+        </RplTextLink>
         <RplListContent
+          v-else
           :icon-name="item?.icon"
           :icon-colour="item?.iconColour"
           :icon-placement="iconPlacement"
@@ -79,24 +92,14 @@ const handleClick = (item: IRplListItemArray, index: number) => {
         >
           {{ item.text }}
         </RplListContent>
-      </RplTextLink>
-      <RplListContent
-        v-else
-        :icon-name="item?.icon"
-        :icon-colour="item?.iconColour"
-        :icon-placement="iconPlacement"
-        :depth="depth"
-      >
-        {{ item.text }}
-      </RplListContent>
-      <RplList
-        v-if="shouldRenderChildren && item.items"
-        :key="`${depth}-${index}`"
-        :items="item.items"
-        :item-class="itemClass"
-        container-class="rpl-list__items--sub"
-        :depth="depth + 1"
-      ></RplList>
-    </li>
+        <RplList
+          v-if="shouldRenderChildren && item.items"
+          :key="`${depth}-${index}`"
+          :items="item.items"
+          :item-class="itemClass"
+          container-class="rpl-list__items--sub"
+          :depth="depth + 1"
+        ></RplList></li
+    ></template>
   </component>
 </template>

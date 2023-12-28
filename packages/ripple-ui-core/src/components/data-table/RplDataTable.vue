@@ -1,6 +1,9 @@
 <script setup lang="ts">
-import { computed } from 'vue'
-import RplDataTableRow, { tableColumnConfig } from './RplDataTableRow.vue'
+import RplDataTableRow, {
+  extraRowContent,
+  tableColumnConfig,
+  tableRow
+} from './RplDataTableRow.vue'
 
 interface HeadingType {
   horizontal: boolean
@@ -10,45 +13,23 @@ interface HeadingType {
 interface Props {
   caption?: string
   footer?: string
-  columns: tableColumnConfig[] | string[]
+  columns: tableColumnConfig[]
+  items: tableRow[]
+  showExtraContent?: boolean
   headingType?: HeadingType
-  items: Array<Record<string, unknown>[] | string[]>
   offset?: number
 }
 
-const props = withDefaults(defineProps<Props>(), {
+withDefaults(defineProps<Props>(), {
   caption: '',
   footer: '',
   headingType: () => ({
     horizontal: true,
     vertical: false
   }),
-  offset: 1
-})
-
-// Split hidden content out for presentation component
-const mappedItems = computed(() => {
-  let hidden: Array<any> = []
-  let visible: Array<Array<string>> = []
-
-  props.items.map((j) => {
-    let row: Array<string> = []
-
-    j.map((k) => {
-      if (Array.isArray(k)) {
-        hidden.push(k)
-      } else {
-        row.push(k)
-      }
-    })
-
-    visible.push(row)
-  })
-
-  return {
-    hidden,
-    visible
-  }
+  offset: 1,
+  showExtraContent: false,
+  items: () => []
 })
 </script>
 
@@ -61,36 +42,26 @@ const mappedItems = computed(() => {
             caption
           }}
         </caption>
-        <thead>
+        <thead v-if="headingType.horizontal && columns.length > 0">
           <tr>
-            <th v-for="(item, index) in columns" :key="index">
-              <template
-                v-if="
-                  item &&
-                  typeof item === 'object' &&
-                  item.hasOwnProperty('label')
-                "
-              >
-                {{ item.label }}
-              </template>
-              <template v-else>
-                {{ item }}
-              </template>
-            </th>
             <th
-              v-if="mappedItems.hidden.length"
-              class="rpl-data-table__actions"
+              v-for="(column, index) in columns"
+              :key="index"
+              :class="column.classes"
             >
+              {{ column.label }}
+            </th>
+            <th v-if="showExtraContent" class="rpl-data-table__actions">
               <span class="rpl-u-visually-hidden">Actions</span>
             </th>
           </tr>
         </thead>
         <RplDataTableRow
-          v-for="(row, index) in mappedItems.visible"
-          :key="index"
+          v-for="(row, index) in items"
+          :key="row.id || index"
           :columns="columns"
-          :items="row"
-          :content="mappedItems.hidden?.[index]?.[0]"
+          :row="row"
+          :extraContent="(row.__extraContent as extraRowContent) || null"
           :vertical-header="headingType.vertical"
           :offset="offset"
           :caption="caption"

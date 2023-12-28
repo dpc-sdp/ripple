@@ -20,6 +20,7 @@ interface RplMediaGalleryItem {
 }
 
 interface Props {
+  id: string
   items: RplMediaGalleryItem[]
 }
 
@@ -95,6 +96,18 @@ const toggleModal = ({ text }) => {
   )
 }
 
+const getDescribeByIds = (
+  type: string,
+  item: RplMediaGalleryItem,
+  i: number
+) => {
+  let ids = `${type}-${props.id}-${i}-title`
+  if (item?.caption) {
+    ids += ` ${type}-${props.id}-${i}-caption`
+  }
+  return ids
+}
+
 const keyboardNavigation = (event) => {
   if (!showModal.value) return
 
@@ -122,6 +135,7 @@ onUnmounted(() => {
     <RplSlider
       :current-slide="activeImageSlide"
       :show-pagination="false"
+      :change-notice="false"
       class="rpl-media-gallery__primary-images rpl-u-screen-only"
       data-cy="gallery-images"
       @change="imageSlideUpdate"
@@ -135,18 +149,21 @@ onUnmounted(() => {
         sizes="xs:768px"
         data-cy="image"
         class="rpl-media-gallery__image"
+        :aria-describedby="getDescribeByIds('primary', item, i)"
       />
     </RplSlider>
     <RplSlider
       effect="fade"
       :show-tally="true"
       :current-slide="activeContentSlide"
+      :change-notice="items[activeContentSlide].title"
       class="rpl-media-gallery__primary-content"
       data-cy="gallery-content"
       @change="contentSlideUpdate"
     >
       <RplMediaGalleryContent
         v-for="(item, index) in items"
+        :id="`primary-${id}-${index}`"
         :key="index"
         :title="item.title"
         :caption="item.caption"
@@ -164,6 +181,7 @@ onUnmounted(() => {
       <RplSlider
         :current-slide="activeModalImageSlide"
         :show-pagination="false"
+        :change-notice="false"
         class="rpl-media-gallery__modal-images"
         @change="modalImageSlideUpdate"
       >
@@ -174,6 +192,7 @@ onUnmounted(() => {
           :alt="item.alt"
           fit="contain"
           class="rpl-media-gallery__image"
+          :aria-describedby="getDescribeByIds('gallery', item, i)"
         />
       </RplSlider>
       <template #below>
@@ -181,11 +200,13 @@ onUnmounted(() => {
           effect="fade"
           :show-tally="true"
           :current-slide="activeModalContentSlide"
+          :change-notice="items[activeModalContentSlide].title"
           class="rpl-media-gallery__modal-content"
           @change="modalContentSlideUpdate"
         >
           <RplMediaGalleryContent
             v-for="(item, index) in items"
+            :id="`gallery-${id}-${index}`"
             :key="index"
             :title="item.title"
             :caption="item.caption"

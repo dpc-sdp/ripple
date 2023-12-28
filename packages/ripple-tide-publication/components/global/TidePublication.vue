@@ -15,12 +15,7 @@
       <slot name="primaryNav"></slot>
     </template>
     <template #breadcrumbs>
-      <slot name="breadcrumbs">
-        <TideBreadcrumbs
-          :items="page.breadcrumbs"
-          :besideQuickExit="site?.showQuickExit"
-        />
-      </slot>
+      <slot name="breadcrumbs"></slot>
     </template>
     <template #aboveBody="{ hasBreadcrumbs }">
       <slot name="aboveBody" :hasBreadcrumbs="hasBreadcrumbs"></slot>

@@ -4,18 +4,17 @@ import { createHandler, logger } from '@dpc-sdp/ripple-tide-api'
 import { createProxyMiddleware } from 'http-proxy-middleware'
 
 export const createAppSearchHandler = async (event: H3Event) => {
-  const { public: config } = useRuntimeConfig()
-
+  const runtimeConfig = useRuntimeConfig()
   const proxyMiddleware = createProxyMiddleware({
-    target: config.tide.appSearch.endpointBase,
+    target: runtimeConfig.public.tide.appSearch.endpointBase,
     pathRewrite: {
-      '^/api/tide/app-search': ''
+      '^/api/tide/app-search': '/api/as/v1/engines/'
     },
     on: {
       proxyReq(proxyReq) {
         proxyReq.setHeader(
           'Authorization',
-          `Bearer ${config.tide.appSearch.searchKey}`
+          `Bearer ${runtimeConfig.tide.appSearch.privateSearchKey}`
         )
       }
     },

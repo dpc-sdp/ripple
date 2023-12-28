@@ -1,5 +1,5 @@
 import { useAppConfig, useHead } from '#imports'
-import { computed, provide } from 'vue'
+import { computed } from 'vue'
 
 export default (page: any) => {
   const languages = useAppConfig()?.ripple?.languages
@@ -29,14 +29,18 @@ export default (page: any) => {
       style: [
         {
           children: `
-           .${language.value} { font-family: '${found.value?.name}', var(--rpl-type-font-family) }
+          .${language.value} * { font-family: '${found.value?.name}', var(--rpl-type-font-family) !important }
           `
         }
       ]
     })
   }
 
-  provide('language', { locale, direction, language })
+  useHead({
+    htmlAttrs: {
+      lang: language.value || 'en-AU'
+    }
+  })
 
   return { locale, direction, language }
 }

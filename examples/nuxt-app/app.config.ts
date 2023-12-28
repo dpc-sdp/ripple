@@ -1,5 +1,14 @@
+import pkg from './package.json'
+import { getDpcPkgs } from '@dpc-sdp/ripple-tide-api/utils'
+
 export default defineAppConfig({
+  project: {
+    name: pkg.name,
+    version: pkg.version,
+    sdpVersion: pkg.sdp_version
+  },
   ripple: {
+    packages: getDpcPkgs({ ...pkg.dependencies, ...pkg.devDependencies }),
     featureFlags: {
       contentCollectionSearchConnector: 'elasticsearch'
     },
@@ -22,6 +31,10 @@ export default defineAppConfig({
         'linear-gradient(180deg, #382484 0%, #5A0099 20%, #7623B0 35%, #2E7478 50%, #2FA26F 70%, #2FCE6A 80%)'
     },
     search: {
+      fallbackValues: {
+        // `dynamicValue` is used in a cypress test to ensure fallbackValues function are called
+        dynamicValue: () => ['blue']
+      },
       filterFunctions: {
         // `dummyFunctionFilter` is used in a cypress test to check that the correct parameters are passed to custom filter functions
         dummyFunctionFilter: (filterConfig, values) => {

@@ -1,5 +1,664 @@
 # Changelog
 
+## v2.5.2...release/v2.5.3
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.5.2...release/v2.5.3)
+
+
+### 🩹 Fixes
+
+  - **@dpc-sdp/nuxt-ripple:** Added await to tide:page hook call ([ede2ce3b](https://github.com/dpc-sdp/ripple-framework/commit/ede2ce3b))
+
+### ❤️  Contributors
+
+- Jeffrey Dowdle <jeffrey.dowdle@dpc.vic.gov.au>
+
+## v2.5.1...release/v2.5.2
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.5.1...release/v2.5.2)
+
+
+### 🩹 Fixes
+
+  - **@dpc-sdp/ripple-tide-landing-page:** 🐛  hide weight header ([031c1557](https://github.com/dpc-sdp/ripple-framework/commit/031c1557))
+
+### ❤️  Contributors
+
+- Jason Smith <jason.smith@dpc.vic.gov.au>
+
+## v2.5.0...release/v2.5.1
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.5.0...release/v2.5.1)
+
+
+### 🚀 Enhancements
+
+  - **@dpc-sdp/ripple-tide-api:** 👽️  support D10 api in mapping ([892ac7d0](https://github.com/dpc-sdp/ripple-framework/commit/892ac7d0))
+
+### ❤️  Contributors
+
+- Jason Smith <jason.smith@dpc.vic.gov.au>
+
+## v2.5.0
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.4.9...v2.5.0)
+
+
+### 🚀 Enhancements
+
+  - **@dpc-sdp/nuxt-ripple:** ✨  add app information api endpoint ([f620ebc0](https://github.com/dpc-sdp/ripple-framework/commit/f620ebc0))
+  - **@dpc-sdp/ripple-ui-core:** ✨  pass entire complex option through as payload ([20e0a5ea](https://github.com/dpc-sdp/ripple-framework/commit/20e0a5ea))
+  - **@dpc-sdp/ripple-tide-landing-page:** ✨  parse form response for upstream errors ([6f71d6e4](https://github.com/dpc-sdp/ripple-framework/commit/6f71d6e4))
+
+### 🩹 Fixes
+
+  - **@dpc-sdp/ripple-ui-core:** 🐛  replace logo, fix icon colour ([958f2230](https://github.com/dpc-sdp/ripple-framework/commit/958f2230))
+  - **@dpc-sdp/ripple-ui-core:** 🐛  add rpl-content on container ([af1a4c4e](https://github.com/dpc-sdp/ripple-framework/commit/af1a4c4e))
+  - **@dpc-sdp/ripple-tide-publication:** Fixed publication menu not showing after preview expires ([f5c2e8dc](https://github.com/dpc-sdp/ripple-framework/commit/f5c2e8dc))
+  - **nuxt-ripple:** 🐛  duplicate metatag og:image to twitter:image ([73911e77](https://github.com/dpc-sdp/ripple-framework/commit/73911e77))
+  - **nuxt-ripple:** 🐛  move const declaration inside try ([c021fbc5](https://github.com/dpc-sdp/ripple-framework/commit/c021fbc5))
+  - **@dpc-sdp/ripple-tide-api:** Fixed embedded media sometimes not displaying correctly ([830a1459](https://github.com/dpc-sdp/ripple-framework/commit/830a1459))
+  - **@dpc-sdp/nuxt-ripple:** Fixed content rating submissions on nested routes ([5106cc3a](https://github.com/dpc-sdp/ripple-framework/commit/5106cc3a))
+  - **@dpc-sdp/ripple-ui-core:** Ensured landmarks are unique ([1eb436ac](https://github.com/dpc-sdp/ripple-framework/commit/1eb436ac))
+  - 🐛  add rtl styles for more components ([8740a738](https://github.com/dpc-sdp/ripple-framework/commit/8740a738))
+  - **@dpc-sdp/ripple-tide-landing-page:** 🐛  only display meta if values exist ([02576b83](https://github.com/dpc-sdp/ripple-framework/commit/02576b83))
+  - **@dpc-sdp/ripple-tide-landing-page:** Stopped created date displaying for landing page cards ([87ef652d](https://github.com/dpc-sdp/ripple-framework/commit/87ef652d))
+  - **@dpc-sdp/ripple-tide-event:** Fixed website url using booking url ([ba93e8d7](https://github.com/dpc-sdp/ripple-framework/commit/ba93e8d7))
+  - **@dpc-sdp/ripple-tide-landing-page:** Allow html in data tables ([616446d6](https://github.com/dpc-sdp/ripple-framework/commit/616446d6))
+
+### 💅 Refactors
+
+  - **@dpc-sdp/ripple-ui-core:** ♻️  support object for suggestion options ([47b2d819](https://github.com/dpc-sdp/ripple-framework/commit/47b2d819))
+  - **@dpc-sdp/ripple-ui-core:** ♻️  rework as function props ([c7542209](https://github.com/dpc-sdp/ripple-framework/commit/c7542209))
+  - **nuxt-ripple:** ♻️  reorder twitter:image priority ([e42393bb](https://github.com/dpc-sdp/ripple-framework/commit/e42393bb))
+  - **nuxt-ripple:** ♻️  only add hide-alerts on server render ([aabd2e6d](https://github.com/dpc-sdp/ripple-framework/commit/aabd2e6d))
+  - ♻️  isolate pkg transform to pass cypress ([9821cae3](https://github.com/dpc-sdp/ripple-framework/commit/9821cae3))
+  - **@dpc-sdp/nuxt-ripple-cli:** ♻️  refactor favicon generator into cli tool ([8075edf6](https://github.com/dpc-sdp/ripple-framework/commit/8075edf6))
+  - **@dpc-sdp/nuxt-ripple-cli:** ♻️  make path completely user changeable ([7a20552d](https://github.com/dpc-sdp/ripple-framework/commit/7a20552d))
+
+### 📦 Build
+
+  - **nuxt-app:** 👷  prevent live request leakage in cypress ([282cecac](https://github.com/dpc-sdp/ripple-framework/commit/282cecac))
+
+### ✅ Tests
+
+  - **@dpc-sdp/ripple-tide-landing-page:** ✅  check for null attr ([46e1ac3f](https://github.com/dpc-sdp/ripple-framework/commit/46e1ac3f))
+  - **@dpc-sdp/ripple-tide-landing-page:** Fixed data table tests ([32716d41](https://github.com/dpc-sdp/ripple-framework/commit/32716d41))
+
+### ❤️  Contributors
+
+- Jeffrey Dowdle <jeffrey.dowdle@dpc.vic.gov.au>
+- Jason Smith <jason.smith@dpc.vic.gov.au>
+- Dylan Kelly <dylan.kelly@dpc.vic.gov.au>
+
+## v2.4.9
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.4.8...v2.4.9)
+
+
+### 🩹 Fixes
+
+  - **@dpc-sdp/nuxt-ripple:** 🐛  ensure favicon generator uses correct site ([c627b5a3](https://github.com/dpc-sdp/ripple-framework/commit/c627b5a3))
+
+### ❤️  Contributors
+
+- Dylan Kelly <dylan.kelly@dpc.vic.gov.au>
+
+## v2.4.8
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.4.7...v2.4.8)
+
+
+### 🩹 Fixes
+
+  - **@dpc-sdp/nuxt-ripple:** 🐛  move favicon generate to before build ([869482b0](https://github.com/dpc-sdp/ripple-framework/commit/869482b0))
+
+### ❤️  Contributors
+
+- Dylan Kelly <dylan.kelly@dpc.vic.gov.au>
+
+## v2.4.7
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.4.6...v2.4.7)
+
+
+### 🩹 Fixes
+
+  - **@dpc-sdp/nuxt-ripple:** 🐛  fix for favicon generator not waiting ([0c2b37d8](https://github.com/dpc-sdp/ripple-framework/commit/0c2b37d8))
+
+### ❤️  Contributors
+
+- Dylan Kelly <dylan.kelly@dpc.vic.gov.au>
+
+## v2.4.6
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.4.5...v2.4.6)
+
+
+### 🩹 Fixes
+
+  - **@dpc-sdp/ripple-tide-publication:** Fixed publication menu not showing after preview expires ([bd41710b](https://github.com/dpc-sdp/ripple-framework/commit/bd41710b))
+
+### ❤️  Contributors
+
+- Jeffrey Dowdle <jeffrey.dowdle@dpc.vic.gov.au>
+
+## v2.4.5
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.4.4...v2.4.5)
+
+
+### 🩹 Fixes
+
+  - **@dpc-sdp/nuxt-ripple-preview:** Only send token if it's not expired ([90528b89](https://github.com/dpc-sdp/ripple-framework/commit/90528b89))
+
+### ❤️  Contributors
+
+- Jeffrey Dowdle <jeffrey.dowdle@dpc.vic.gov.au>
+
+## v2.4.4
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.4.3...v2.4.4)
+
+
+### 🩹 Fixes
+
+  - **@dpc-sdp/ripple-tide-api:** Changed the way sectionId is passed to mapping functions ([e113b1c2](https://github.com/dpc-sdp/ripple-framework/commit/e113b1c2))
+
+### ❤️  Contributors
+
+- Dylan Kelly <dylan.kelly@dpc.vic.gov.au>
+
+## v2.4.3
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.4.2...v2.4.3)
+
+
+### 🩹 Fixes
+
+  - **@dpc-sdp/nuxt-ripple:** 🐛  ensure route caching works in cdn environment ([f9651c89](https://github.com/dpc-sdp/ripple-framework/commit/f9651c89))
+
+### ❤️  Contributors
+
+- Dylan Kelly <dylan.kelly@dpc.vic.gov.au>
+
+## v2.4.2
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.4.1...v2.4.2)
+
+
+### 🩹 Fixes
+
+  - **@dpc-sdp/ripple-tide-landing-page:** 🐛  handle case when no items in carousel ([e9a1af40](https://github.com/dpc-sdp/ripple-framework/commit/e9a1af40))
+
+### ❤️  Contributors
+
+- Dylan Kelly <dylan.kelly@dpc.vic.gov.au>
+
+## v2.4.1
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.4.0...v2.4.1)
+
+
+### 🩹 Fixes
+
+  - **@dpc-sdp/nuxt-ripple:** Ensure that redirect code runs even on (nuxt) cached pages ([6f095499](https://github.com/dpc-sdp/ripple-framework/commit/6f095499))
+  - **@dpc-sdp/nuxt-ripple:** Added null check for redirect code ([4410cef5](https://github.com/dpc-sdp/ripple-framework/commit/4410cef5))
+
+### 🏡 Chore
+
+  - Updated babel / @babel/traverse ([f8796a39](https://github.com/dpc-sdp/ripple-framework/commit/f8796a39))
+  - 🔖 release ripple 2.4.1 ([a015f463](https://github.com/dpc-sdp/ripple-framework/commit/a015f463))
+
+### ❤️  Contributors
+
+- Jeffrey Dowdle <jeffrey.dowdle@dpc.vic.gov.au>
+
+
+## v2.4.0
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.3.5...v2.4.0)
+
+
+### 🚀 Enhancements
+
+  - **@dpc-sdp/nuxt-ripple-cli:** ✨  generate favicon ([1f1c21e7](https://github.com/dpc-sdp/ripple-framework/commit/1f1c21e7))
+  - **@dpc-sdp/nuxt-ripple:** 🚧  wip on adding favicon generation as module ([34279a16](https://github.com/dpc-sdp/ripple-framework/commit/34279a16))
+  - **nuxt-ripple:** ✨  implement site fetch, favicon generate ([37a29489](https://github.com/dpc-sdp/ripple-framework/commit/37a29489))
+  - **@dpc-sdp/ripple-ui-core:** Added css var for heading font ([5dbd7044](https://github.com/dpc-sdp/ripple-framework/commit/5dbd7044))
+  - **@dpc-sdp/ripple-tide-search:** ✨  add secondary campaign to mapping, template ([ac537928](https://github.com/dpc-sdp/ripple-framework/commit/ac537928))
+  - **nuxt-ripple:** ✨  add mapping for new footer logo field ([9b8217ba](https://github.com/dpc-sdp/ripple-framework/commit/9b8217ba))
+  - ✨  replace twitter with x ([76d32333](https://github.com/dpc-sdp/ripple-framework/commit/76d32333))
+
+### 🩹 Fixes
+
+  - **@dpc-sdp/nuxt-ripple:** Ensured that language specific fonts override all other fonts ([80c2d1aa](https://github.com/dpc-sdp/ripple-framework/commit/80c2d1aa))
+  - **@dpc-sdp/ripple-ui-core:** 💄  prevent hanging icon ([f31659fe](https://github.com/dpc-sdp/ripple-framework/commit/f31659fe))
+  - **@dpc-sdp/nuxt-ripple:** 🐛  fix redirects adding to history state ([60dbea98](https://github.com/dpc-sdp/ripple-framework/commit/60dbea98))
+  - **@dpc-sdp/ripple-ui-core:** 🐛  only render icon if item has text or url ([af34dce5](https://github.com/dpc-sdp/ripple-framework/commit/af34dce5))
+  - **@dpc-sdp/ripple-ui-core:** 🐛  add check for secondary link in header ([efe022b5](https://github.com/dpc-sdp/ripple-framework/commit/efe022b5))
+  - **nuxt-ripple:** 🐛  filter out alerts with missing type relation ([682328bd](https://github.com/dpc-sdp/ripple-framework/commit/682328bd))
+  - **@dpc-sdp/ripple-ui-core:** 🐛  fix carousel links ([5b4e5b5b](https://github.com/dpc-sdp/ripple-framework/commit/5b4e5b5b))
+
+### 💅 Refactors
+
+  - **nuxt-ripple:** ♻️  use site data in favicon generator ([46552d07](https://github.com/dpc-sdp/ripple-framework/commit/46552d07))
+  - **nuxt-ripple:** 🏷️  update appconfig interface ([2b178f33](https://github.com/dpc-sdp/ripple-framework/commit/2b178f33))
+  - **@dpc-sdp/ripple-tide-search:** ♻️  move secondary campaign to right slot ([cae72da6](https://github.com/dpc-sdp/ripple-framework/commit/cae72da6))
+  - **@dpc-sdp/ripple-tide-publication:** ♻️  change page link props at mapping, add test ([5d7bbc30](https://github.com/dpc-sdp/ripple-framework/commit/5d7bbc30))
+  - **@dpc-sdp/ripple-ui-core:** ♻️  check for url or text ([e0e89fd5](https://github.com/dpc-sdp/ripple-framework/commit/e0e89fd5))
+  - ♻️  replace icon at mapping level ([b2eb2fd3](https://github.com/dpc-sdp/ripple-framework/commit/b2eb2fd3))
+  - **@dpc-sdp/ripple-ui-core:** ⏪️  revert hyphenation, add separate util class ([8614c759](https://github.com/dpc-sdp/ripple-framework/commit/8614c759))
+
+### 📖 Documentation
+
+  - 📝  update badges, add tools and frameworks ([ee110382](https://github.com/dpc-sdp/ripple-framework/commit/ee110382))
+  - 📝  add more detail to readme ([690c239b](https://github.com/dpc-sdp/ripple-framework/commit/690c239b))
+  - **docs:** 📝  add personal access token instructions ([db3997f1](https://github.com/dpc-sdp/ripple-framework/commit/db3997f1))
+  - 📝  simplify badge labels ([779d9d8a](https://github.com/dpc-sdp/ripple-framework/commit/779d9d8a))
+  - **docs:** 📝  split usage into separate docs, add nuxt load order fix ([2e41717e](https://github.com/dpc-sdp/ripple-framework/commit/2e41717e))
+
+### 🏡 Chore
+
+  - **deployment:** Add workflow file ([f5a1740b](https://github.com/dpc-sdp/ripple-framework/commit/f5a1740b))
+  - 👷  update pnpm ([872ff090](https://github.com/dpc-sdp/ripple-framework/commit/872ff090))
+  - Fix studio pnpm ver and allow greater ([5ebc4ae8](https://github.com/dpc-sdp/ripple-framework/commit/5ebc4ae8))
+  - **docs:** ➕  add nuxt studio ([7b1cd87d](https://github.com/dpc-sdp/ripple-framework/commit/7b1cd87d))
+
+### ✅ Tests
+
+  - ✅  fix linter issues ([30420455](https://github.com/dpc-sdp/ripple-framework/commit/30420455))
+  - **nuxt-ripple:** ✅  fix tests ([4dc9358a](https://github.com/dpc-sdp/ripple-framework/commit/4dc9358a))
+
+### ❤️  Contributors
+
+- Dylan Kelly <dylan.kelly@dpc.vic.gov.au>
+- Jason Smith <jason.smith@dpc.vic.gov.au>
+- Dylankelly <dylan.kelly@dpc.vic.gov.au>
+- Jeffrey Dowdle <jeffrey.dowdle@dpc.vic.gov.au>
+
+## v2.3.5
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.3.4...v2.3.5)
+
+
+### 🩹 Fixes
+
+  - **@dpc-sdp/ripple-tide-api:** Passed headers to route, page and publication menu endpoints ([e760940d](https://github.com/dpc-sdp/ripple-framework/commit/e760940d))
+
+### ❤️  Contributors
+
+- Jeffrey Dowdle <jeffrey.dowdle@dpc.vic.gov.au>
+
+## v2.3.4
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.3.3...v2.3.4)
+
+
+### 🚀 Enhancements
+
+  - **@dpc-sdp/ripple-tide-publication:** Added proper publication header mapping ([aa657deb](https://github.com/dpc-sdp/ripple-framework/commit/aa657deb))
+
+### 🩹 Fixes
+
+  - **nuxt-ripple:** 🐛  enable external redirects ([6c0e4894](https://github.com/dpc-sdp/ripple-framework/commit/6c0e4894))
+  - **@dpc-sdp/nuxt-ripple:** Fixed console error when request event was being fetched client side ([b8f94314](https://github.com/dpc-sdp/ripple-framework/commit/b8f94314))
+  - **@dpc-sdp/ripple-tide-publication:** Fixed duplication side nav links ([a08742e4](https://github.com/dpc-sdp/ripple-framework/commit/a08742e4))
+
+### 🏡 Chore
+
+  - **@dpc-sdp/ripple-tide-publication:** 🐛  [R20-1574] fix publication preview menu issue ([b737e32b](https://github.com/dpc-sdp/ripple-framework/commit/b737e32b))
+  - **@dpc-sdp/ripple-tide-publication:** 🚨  fix unused var ([acd09f34](https://github.com/dpc-sdp/ripple-framework/commit/acd09f34))
+
+### ❤️  Contributors
+
+- Dylan Kelly <dylan.kelly@dpc.vic.gov.au>
+- Jeffrey Dowdle <jeffrey.dowdle@dpc.vic.gov.au>
+- Jason Smith <jason.smith@dpc.vic.gov.au>
+
+## v2.3.3
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.3.2...v2.3.3)
+
+
+### 🏡 Chore
+
+  - **@dpc-sdp/nuxt-ripple:** 🐛  fix redirect headers issue ([a5556f1c](https://github.com/dpc-sdp/ripple-framework/commit/a5556f1c))
+
+### ❤️  Contributors
+
+- Dylan Kelly <dylan.kelly@dpc.vic.gov.au>
+
+## v2.3.2
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.3.1...v2.3.2)
+
+
+### 🩹 Fixes
+
+  - **@dpc-sdp/ripple-tide-api:** Fixed broken redirects after cache tags refactor ([26f67b7d](https://github.com/dpc-sdp/ripple-framework/commit/26f67b7d))
+
+### ❤️  Contributors
+
+- Jeffrey Dowdle <jeffrey.dowdle@dpc.vic.gov.au>
+
+## v2.3.1
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.3.0...v2.3.1)
+
+
+### 🚀 Enhancements
+
+  - **nuxt-ripple:** Pass through section-cache-tags response header ([cf3d6477](https://github.com/dpc-sdp/ripple-framework/commit/cf3d6477))
+  - **@dpc-sdp/ripple-tide-api:** Merged site+alert cache tags with page cache tags ([98c2c956](https://github.com/dpc-sdp/ripple-framework/commit/98c2c956))
+
+### 🩹 Fixes
+
+  - **@dpc-sdp/ripple-tide-api:** Increase menu depth for breadcrumbs ([43ea5efa](https://github.com/dpc-sdp/ripple-framework/commit/43ea5efa))
+  - **@dpc-sdp/ripple-tide-publication:** Add missed optional chaining ([23e6807f](https://github.com/dpc-sdp/ripple-framework/commit/23e6807f))
+  - **@dpc-sdp/ripple-tide-api:** Add optional chaining ([0f84540a](https://github.com/dpc-sdp/ripple-framework/commit/0f84540a))
+
+### 💅 Refactors
+
+  - **@dpc-sdp/ripple-tide-api:** Refactored http client to not swallow up headers ([da09ec47](https://github.com/dpc-sdp/ripple-framework/commit/da09ec47))
+
+### ✅ Tests
+
+  - **@dpc-sdp/ripple-tide-api:** Fixed unit tests ([57c92cd4](https://github.com/dpc-sdp/ripple-framework/commit/57c92cd4))
+
+### ❤️  Contributors
+
+- Jeffrey Dowdle <jeffrey.dowdle@dpc.vic.gov.au>
+- David Featherston <david.featherstone@dpc.vic.gov.au>
+
+## v2.3.0
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.2.1...v2.3.0)
+
+
+### 🚀 Enhancements
+
+  - **@dpc-sdp/ripple-tide-search:** Add support for fallback values on filters ([8d518305](https://github.com/dpc-sdp/ripple-framework/commit/8d518305))
+  - **@dpc-sdp/nuxt-ripple:** Make content rating choice required ([b5542f18](https://github.com/dpc-sdp/ripple-framework/commit/b5542f18))
+  - **@dpc-sdp/nuxt-ripple:** Conditionally render rating submit action ([8f253fec](https://github.com/dpc-sdp/ripple-framework/commit/8f253fec))
+  - **@dpc-sdp/ripple-tide-search:** Added sort dropdown to search listing page ([0d6b36ba](https://github.com/dpc-sdp/ripple-framework/commit/0d6b36ba))
+  - **@dpc-sdp/ripple-tide-landing-page:** Updated data table component mapping and tests ([cbbf716a](https://github.com/dpc-sdp/ripple-framework/commit/cbbf716a))
+  - **@dpc-sdp/ripple-ui-core:** ✨  add aria annotations on tabs ([daad51f5](https://github.com/dpc-sdp/ripple-framework/commit/daad51f5))
+  - **@dpc-sdp/ripple-ui-core:** Allow supplying custom rpl icons ([2bdc083c](https://github.com/dpc-sdp/ripple-framework/commit/2bdc083c))
+  - **@dpc-sdp/ripple-ui-core:** Add support for icons in description list component ([847c0e7f](https://github.com/dpc-sdp/ripple-framework/commit/847c0e7f))
+  - **@dpc-sdp/ripple-ui-core:** Re-jig to remove nested div ([8855723e](https://github.com/dpc-sdp/ripple-framework/commit/8855723e))
+  - **@dpc-sdp/ripple-tide-search:** Added sort dropdown to custom collection ([5ed78686](https://github.com/dpc-sdp/ripple-framework/commit/5ed78686))
+  - **@dpc-sdp/ripple-tide-grant:** Use description list for grant overview ([736bcd43](https://github.com/dpc-sdp/ripple-framework/commit/736bcd43))
+  - **@dpc-sdp/nuxt-ripple:** Add karenni font ([8fbb6a00](https://github.com/dpc-sdp/ripple-framework/commit/8fbb6a00))
+  - **@dpc-sdp/ripple-tide-grant:** Remove un-needed props. in template ([2861b16b](https://github.com/dpc-sdp/ripple-framework/commit/2861b16b))
+
+### 🩹 Fixes
+
+  - **@dpc-sdp/ripple-tide-search:** Merge conflicts ([0665db19](https://github.com/dpc-sdp/ripple-framework/commit/0665db19))
+  - **@dpc-sdp/ripple-ui-core:** Make only title and url 'links' in search results ([de12cb9c](https://github.com/dpc-sdp/ripple-framework/commit/de12cb9c))
+  - **@dpc-sdp/ripple-ui-core:** Add aria-hidden to url ([7ad8873b](https://github.com/dpc-sdp/ripple-framework/commit/7ad8873b))
+  - **@dpc-sdp/ripple-ui-core:** Fix ts error, update readme ([51d6c216](https://github.com/dpc-sdp/ripple-framework/commit/51d6c216))
+  - **@dpc-sdp/ripple-tide-search:** Fixed global filters not being applied to aggregations query ([8f7a2801](https://github.com/dpc-sdp/ripple-framework/commit/8f7a2801))
+  - **docs:** Fixed prerender 404s from broken links ([f6171c4c](https://github.com/dpc-sdp/ripple-framework/commit/f6171c4c))
+  - **docs:** Don't try to prerender storybook routes ([20df1cb1](https://github.com/dpc-sdp/ripple-framework/commit/20df1cb1))
+  - **nuxt-ripple:** 🐛  exclude metatag canonical ([3b7733c5](https://github.com/dpc-sdp/ripple-framework/commit/3b7733c5))
+  - **@dpc-sdp/ripple-tide-search:** Handled search result fields coming back as either string or array ([7398b3fb](https://github.com/dpc-sdp/ripple-framework/commit/7398b3fb))
+  - **@dpc-sdp/ripple-tide-search:** Fix custom collection scroll issue ([53011c9a](https://github.com/dpc-sdp/ripple-framework/commit/53011c9a))
+  - **@dpc-sdp/ripple-tide-search:** Fixed 'undefined' class name for results table ([6bd90b2c](https://github.com/dpc-sdp/ripple-framework/commit/6bd90b2c))
+  - **@dpc-sdp/ripple-tide-search:** Added missing aria-expanded to search filter toggle ([d6601e81](https://github.com/dpc-sdp/ripple-framework/commit/d6601e81))
+
+### 📖 Documentation
+
+  - **docs:** 📝  use different theme for card highlight as vic gov is wrong ([d46a742a](https://github.com/dpc-sdp/ripple-framework/commit/d46a742a))
+  - **docs:** Fixed card examples display ([58df9085](https://github.com/dpc-sdp/ripple-framework/commit/58df9085))
+
+### 🏡 Chore
+
+  - **@dpc-sdp/nuxt-ripple-analytics:** Change route name to page_title ([16a0eba9](https://github.com/dpc-sdp/ripple-framework/commit/16a0eba9))
+
+### ✅ Tests
+
+  - **@dpc-sdp/ripple-tide-search:** Added tests for sort dropdown feature of search listing ([4bdf8e4e](https://github.com/dpc-sdp/ripple-framework/commit/4bdf8e4e))
+  - **@dpc-sdp/ripple-ui-core:** Fixed data table storybook tests ([68767ebc](https://github.com/dpc-sdp/ripple-framework/commit/68767ebc))
+  - **@dpc-sdp/ripple-ui-core:** Updated data table stories to match chromatic snapshots ([eaffc069](https://github.com/dpc-sdp/ripple-framework/commit/eaffc069))
+  - **@dpc-sdp/ripple-ui-core:** ✅  fix aria issues ([785de3f3](https://github.com/dpc-sdp/ripple-framework/commit/785de3f3))
+  - **@dpc-sdp/ripple-tide-search:** Fixed up custom collection test table results ([bc8dc3b5](https://github.com/dpc-sdp/ripple-framework/commit/bc8dc3b5))
+
+### ❤️  Contributors
+
+- David Featherston <david.featherstone@dpc.vic.gov.au>
+- Jeffrey Dowdle <jeffrey.dowdle@dpc.vic.gov.au>
+- Jason Smith <jason.smith@dpc.vic.gov.au>
+- Dylan Kelly <dylan.kelly@dpc.vic.gov.au>
+
+## v2.2.1
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.2.0...v2.2.1)
+
+
+### 🩹 Fixes
+
+  - **@dpc-sdp/ripple-tide-search:** Fixed site search filters not appearing ([720d9b0b](https://github.com/dpc-sdp/ripple-framework/commit/720d9b0b))
+
+### ❤️  Contributors
+
+- Jeffrey Dowdle <jeffrey.dowdle@dpc.vic.gov.au>
+
+## v2.2.0
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.9...v2.2.0)
+
+
+### 🚀 Enhancements
+
+  - **@dpc-sdp/ripple-tide-search:** ✨  add custom collection component ([8ecb6017](https://github.com/dpc-sdp/ripple-framework/commit/8ecb6017))
+  - ✨  add accessible label for links opening in a new window ([7866c3ee](https://github.com/dpc-sdp/ripple-framework/commit/7866c3ee))
+  - **@dpc-sdp/ripple-ui-core:** Made search result date label customisable ([9fba5885](https://github.com/dpc-sdp/ripple-framework/commit/9fba5885))
+  - **@dpc-sdp/ripple-ui-core:** ✨  hyphenate headings ([ab440a1b](https://github.com/dpc-sdp/ripple-framework/commit/ab440a1b))
+  - **@dpc-sdp/nuxt-ripple-analytics:** Move measurement ids and production flag ([e3ece92f](https://github.com/dpc-sdp/ripple-framework/commit/e3ece92f))
+  - **@dpc-sdp/nuxt-ripple-analytics:** Add dataLayer event for error pages i.e. 400, 500, etc ([205a2da1](https://github.com/dpc-sdp/ripple-framework/commit/205a2da1))
+  - **@dpc-sdp/ripple-ui-core:** ✨  add optiional noresults message to search bar ([d5905243](https://github.com/dpc-sdp/ripple-framework/commit/d5905243))
+  - **nuxt-ripple:** Added social links to footer ([a656d684](https://github.com/dpc-sdp/ripple-framework/commit/a656d684))
+  - **@dpc-sdp/ripple-ui-core:** A11y slider feedback, fix key-dates link ([cb259a17](https://github.com/dpc-sdp/ripple-framework/commit/cb259a17))
+  - **@dpc-sdp/ripple-tide-publication:** Support singular authors ([8161837d](https://github.com/dpc-sdp/ripple-framework/commit/8161837d))
+  - **@dpc-sdp/ripple-ui-core:** Improved custom date label in RplSearchResult ([9282b3dd](https://github.com/dpc-sdp/ripple-framework/commit/9282b3dd))
+  - **@dpc-sdp/nuxt-ripple:** Added table of contents to sitemap page ([ef969b51](https://github.com/dpc-sdp/ripple-framework/commit/ef969b51))
+  - **@dpc-sdp/nuxt-ripple:** Made sitemap toc configurable via cms ([c3d36b12](https://github.com/dpc-sdp/ripple-framework/commit/c3d36b12))
+
+### 🩹 Fixes
+
+  - **@dpc-sdp/ripple-tide-search:** Fix cc mapping ([7de48e11](https://github.com/dpc-sdp/ripple-framework/commit/7de48e11))
+  - **@dpc-sdp/ripple-tide-search:** 💄  add margin between error message ([9844062f](https://github.com/dpc-sdp/ripple-framework/commit/9844062f))
+  - **eslint-config-ripple:** ➕  add required eslint dependencies ([e0c44b95](https://github.com/dpc-sdp/ripple-framework/commit/e0c44b95))
+  - **nuxt-ripple:** 🐛  fix title undefined in search page ([60988fe5](https://github.com/dpc-sdp/ripple-framework/commit/60988fe5))
+  - **@dpc-sdp/ripple-tide-search:** Fix search request proxy config ([2c0da907](https://github.com/dpc-sdp/ripple-framework/commit/2c0da907))
+  - **@dpc-sdp/ripple-tide-search:** 🐛  disable autocomplete on custom collection ([7eb80638](https://github.com/dpc-sdp/ripple-framework/commit/7eb80638))
+  - **@dpc-sdp/nuxt-ripple-analytics:** Fix undefined error ([f75f3d9d](https://github.com/dpc-sdp/ripple-framework/commit/f75f3d9d))
+  - **@dpc-sdp/ripple-tide-search:** 🐛  fix autocomplete end point ([2304ad5d](https://github.com/dpc-sdp/ripple-framework/commit/2304ad5d))
+  - **@dpc-sdp/ripple-ui-core:** Add max width to scrollable table story ([9083049e](https://github.com/dpc-sdp/ripple-framework/commit/9083049e))
+  - **@dpc-sdp/nuxt-ripple-analytics:** Use new tide hook for dataLayer events ([e447970e](https://github.com/dpc-sdp/ripple-framework/commit/e447970e))
+  - **@dpc-sdp/ripple-tide-publication:** Matched page api by merging configs ([cb4bbca6](https://github.com/dpc-sdp/ripple-framework/commit/cb4bbca6))
+  - **@dpc-sdp/nuxt-ripple:** Fixed typo ([05825921](https://github.com/dpc-sdp/ripple-framework/commit/05825921))
+
+### 💅 Refactors
+
+  - **@dpc-sdp/ripple-tide-search:** ✨  use backend json field ([52970c23](https://github.com/dpc-sdp/ripple-framework/commit/52970c23))
+  - **@dpc-sdp/ripple-tide-search:** ♻️  rename proxy handlers to match purpose ([cc3fc595](https://github.com/dpc-sdp/ripple-framework/commit/cc3fc595))
+  - **@dpc-sdp/ripple-ui-core:** ♻️  use src if printSrc is not supplied ([6df87bd9](https://github.com/dpc-sdp/ripple-framework/commit/6df87bd9))
+  - **@dpc-sdp/ripple-ui-core:** ♻️  restore print logo to default ([e1150cec](https://github.com/dpc-sdp/ripple-framework/commit/e1150cec))
+
+### 📦 Build
+
+  - Update lockfile ([dc8c026c](https://github.com/dpc-sdp/ripple-framework/commit/dc8c026c))
+  - 💚  fix storybook, jest, axe incompat ([d6ce5b48](https://github.com/dpc-sdp/ripple-framework/commit/d6ce5b48))
+
+### 🏡 Chore
+
+  - **eslint-config-ripple:** Add ripple eslint to cli templates ([b54dd78f](https://github.com/dpc-sdp/ripple-framework/commit/b54dd78f))
+  - **@dpc-sdp/nuxt-ripple-cli:** Updated new layer cli with correct publish action ([2e3fcc81](https://github.com/dpc-sdp/ripple-framework/commit/2e3fcc81))
+  - **@dpc-sdp/nuxt-ripple-cli:** Added missing npmrc to site generator ([3201dad9](https://github.com/dpc-sdp/ripple-framework/commit/3201dad9))
+  - **@dpc-sdp/nuxt-ripple-cli:** Removed caret from layer package.json template ([15d1b5d2](https://github.com/dpc-sdp/ripple-framework/commit/15d1b5d2))
+  - **@dpc-sdp/ripple-ui-forms:** Remove counter from form inputs ([d834ba31](https://github.com/dpc-sdp/ripple-framework/commit/d834ba31))
+  - **@dpc-sdp/ripple-tide-landing-page:** Remove counter from textareas ([991bd454](https://github.com/dpc-sdp/ripple-framework/commit/991bd454))
+  - **@dpc-sdp/ripple-tide-landing-page:** Infer counter type as api doesn't always return it ([1ef7549e](https://github.com/dpc-sdp/ripple-framework/commit/1ef7549e))
+  - 🚀  change publish process to be on release ([ab027fe2](https://github.com/dpc-sdp/ripple-framework/commit/ab027fe2))
+
+### ✅ Tests
+
+  - **@dpc-sdp/ripple-tide-search:** ✅  ignore resize observer exception in expander ([d3a1ea85](https://github.com/dpc-sdp/ripple-framework/commit/d3a1ea85))
+  - **@dpc-sdp/ripple-tide-search:** 🧪  remove unimplemented test ([8f96db79](https://github.com/dpc-sdp/ripple-framework/commit/8f96db79))
+  - **@dpc-sdp/ripple-tide-search:** Skip custom collection tests ([06fff8c1](https://github.com/dpc-sdp/ripple-framework/commit/06fff8c1))
+  - **@dpc-sdp/ripple-tide-search:** 💚  fix custom collection tests ([c1a9acbc](https://github.com/dpc-sdp/ripple-framework/commit/c1a9acbc))
+  - **nuxt-ripple:** Fixed footer tests and social links ([e047c198](https://github.com/dpc-sdp/ripple-framework/commit/e047c198))
+  - **nuxt-app:** Remove old counter test ([f7d95822](https://github.com/dpc-sdp/ripple-framework/commit/f7d95822))
+
+### 🎨 Styles
+
+  - 🚚  rename flowchart ([4a25952e](https://github.com/dpc-sdp/ripple-framework/commit/4a25952e))
+  - **@dpc-sdp/ripple-ui-core:** 💄  add bg on hyphenated example ([cea33a86](https://github.com/dpc-sdp/ripple-framework/commit/cea33a86))
+
+### ❤️  Contributors
+
+- Dylan Kelly <dylan.kelly@dpc.vic.gov.au>
+- David Featherston <david.featherstone@dpc.vic.gov.au>
+- Jeffrey Dowdle <jeffrey.dowdle@dpc.vic.gov.au>
+- Jason Smith <jason.smith@dpc.vic.gov.au>
+
+## v2.1.9
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.8...v2.1.9)
+
+
+### 🚀 Enhancements
+
+  - **@dpc-sdp/ripple-tide-landing-page:** ✨  add support for open forms ([ff41cbc7](https://github.com/dpc-sdp/ripple-framework/commit/ff41cbc7))
+
+### ✅ Tests
+
+  - **@dpc-sdp/ripple-tide-landing-page:** ✅  add weight in openforms height test ([365e5e32](https://github.com/dpc-sdp/ripple-framework/commit/365e5e32))
+
+### ❤️  Contributors
+
+- Dylan Kelly <dylan.kelly@dpc.vic.gov.au>
+
+## v2.1.8
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.7...v2.1.8)
+
+
+### 🚀 Enhancements
+
+  - **@dpc-sdp/ripple-tide-search:** Column classes, array-ify-ing, filter empty params ([be2a9af7](https://github.com/dpc-sdp/ripple-framework/commit/be2a9af7))
+  - **@dpc-sdp/ripple-ui-forms:** Use filter.multiple to disable array-ifying values ([5e5dd8e5](https://github.com/dpc-sdp/ripple-framework/commit/5e5dd8e5))
+  - **@dpc-sdp/nuxt-ripple-analytics:** Fix faulty isProduction check ([712c5514](https://github.com/dpc-sdp/ripple-framework/commit/712c5514))
+  - **@dpc-sdp/nuxt-ripple-analytics:** Move useRuntimeConfig to route file ([0a0de979](https://github.com/dpc-sdp/ripple-framework/commit/0a0de979))
+
+### 🩹 Fixes
+
+  - **@dpc-sdp/ripple-tide-search:** Espace query text before adding to DSL query ([f8c152b2](https://github.com/dpc-sdp/ripple-framework/commit/f8c152b2))
+  - **nuxt-ripple:** 🐛  whitelist contact icons ([dc2b2428](https://github.com/dpc-sdp/ripple-framework/commit/dc2b2428))
+  - **nuxt-app:** Fix media test ([ee0a1671](https://github.com/dpc-sdp/ripple-framework/commit/ee0a1671))
+  - **@dpc-sdp/ripple-ui-core:** 🐛  check for label ([44041ad8](https://github.com/dpc-sdp/ripple-framework/commit/44041ad8))
+  - Use derived page title instead of metatag value ([da87d6fe](https://github.com/dpc-sdp/ripple-framework/commit/da87d6fe))
+  - **@dpc-sdp/nuxt-ripple:** 🐛  ensure page title is always set ([6cb599c3](https://github.com/dpc-sdp/ripple-framework/commit/6cb599c3))
+  - **@dpc-sdp/nuxt-ripple:** 🐛  fix title definition ([6ee4b159](https://github.com/dpc-sdp/ripple-framework/commit/6ee4b159))
+  - 🐛  handle undefined page.meta ([20b675a5](https://github.com/dpc-sdp/ripple-framework/commit/20b675a5))
+  - **nuxt-ripple:** 🐛  fix issue where menus in share links cause a 500 error ([fbcabfff](https://github.com/dpc-sdp/ripple-framework/commit/fbcabfff))
+  - **@dpc-sdp/ripple-tide-api:** 🐛  fetch menu for unpublished pages ([4d6a3469](https://github.com/dpc-sdp/ripple-framework/commit/4d6a3469))
+
+### 💅 Refactors
+
+  - **nuxt-ripple:** ♻️  update 500 template to match platform ([76e2cac9](https://github.com/dpc-sdp/ripple-framework/commit/76e2cac9))
+  - ♻️  add 401 support, use error comp ([0912a4d7](https://github.com/dpc-sdp/ripple-framework/commit/0912a4d7))
+  - **@dpc-sdp/nuxt-ripple:** ♻️  refactor to call head functions from plugins ([8939c97a](https://github.com/dpc-sdp/ripple-framework/commit/8939c97a))
+
+### 🏡 Chore
+
+  - **@dpc-sdp/nuxt-ripple-cli:** ✨  add template for new UI library ([47353eb7](https://github.com/dpc-sdp/ripple-framework/commit/47353eb7))
+
+### ✅ Tests
+
+  - **nuxt-app:** ✅  update data table test ([f7649190](https://github.com/dpc-sdp/ripple-framework/commit/f7649190))
+  - ✅  add default contentType prop, tests ([7eb8c3e9](https://github.com/dpc-sdp/ripple-framework/commit/7eb8c3e9))
+
+### 🎨 Styles
+
+  - **nuxt-ripple:** 🔥  remove debug ([974c0b67](https://github.com/dpc-sdp/ripple-framework/commit/974c0b67))
+  - 🚨  fix linter warnings ([3624b6dd](https://github.com/dpc-sdp/ripple-framework/commit/3624b6dd))
+
+### ❤️  Contributors
+
+- Dylan Kelly <dylan.kelly@dpc.vic.gov.au>
+- Jason Smith <jason.smith@dpc.vic.gov.au>
+- David Featherston <david.featherstone@dpc.vic.gov.au>
+- Jeffrey Dowdle <jeffrey.dowdle@dpc.vic.gov.au>
+
+## v2.1.7
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.4...v2.1.7)
+
+
+### 🚀 Enhancements
+
+  - **@dpc-sdp/ripple-tide-event:** Add event search result card ([67f6c95f](https://github.com/dpc-sdp/ripple-framework/commit/67f6c95f))
+
+### 🩹 Fixes
+
+  - **@dpc-sdp/ripple-ui-core:** 💄  remove overflowing padding ([bbdef3be](https://github.com/dpc-sdp/ripple-framework/commit/bbdef3be))
+  - **nuxt-ripple:** 🐛  fix css load order on build ([9bd2f8b4](https://github.com/dpc-sdp/ripple-framework/commit/9bd2f8b4))
+
+### 🏡 Chore
+
+  - 🔖  release 2.1.5 ([3f77f7fb](https://github.com/dpc-sdp/ripple-framework/commit/3f77f7fb))
+  - 🔖  release 2.1.6 ([57d44abb](https://github.com/dpc-sdp/ripple-framework/commit/57d44abb))
+
+### ❤️  Contributors
+
+- Dylan Kelly <dylan.kelly@dpc.vic.gov.au>
+- Jason Smith <jason.smith@dpc.vic.gov.au>
+- David Featherston <david.featherstone@dpc.vic.gov.au>
+
+## v2.1.6
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.4...v2.1.6)
+
+
+### 🚀 Enhancements
+
+  - **@dpc-sdp/ripple-tide-event:** Add event search result card ([67f6c95f](https://github.com/dpc-sdp/ripple-framework/commit/67f6c95f))
+
+### 🩹 Fixes
+
+  - **@dpc-sdp/ripple-ui-core:** 💄  remove overflowing padding ([bbdef3be](https://github.com/dpc-sdp/ripple-framework/commit/bbdef3be))
+
+### 🏡 Chore
+
+  - 🔖  release 2.1.5 ([3f77f7fb](https://github.com/dpc-sdp/ripple-framework/commit/3f77f7fb))
+
+### ❤️  Contributors
+
+- Dylan Kelly <dylan.kelly@dpc.vic.gov.au>
+- Jason Smith <jason.smith@dpc.vic.gov.au>
+- David Featherston <david.featherstone@dpc.vic.gov.au>
+
+## v2.1.5
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.4...v2.1.5)
+
+
+### 🚀 Enhancements
+
+  - **@dpc-sdp/ripple-tide-event:** Add event search result card ([67f6c95f](https://github.com/dpc-sdp/ripple-framework/commit/67f6c95f))
+
+### 🩹 Fixes
+
+  - **@dpc-sdp/ripple-ui-core:** 💄  remove overflowing padding ([bbdef3be](https://github.com/dpc-sdp/ripple-framework/commit/bbdef3be))
+
+### ❤️  Contributors
+
+- Jason Smith <jason.smith@dpc.vic.gov.au>
+- David Featherston <david.featherstone@dpc.vic.gov.au>
+
 ## v2.1.4
 
 [compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.1.3...v2.1.4)

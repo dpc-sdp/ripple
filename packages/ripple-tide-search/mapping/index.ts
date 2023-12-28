@@ -5,14 +5,11 @@ import {
 import { getBodyFromField } from '@dpc-sdp/ripple-tide-api'
 import type { IRplTideModuleMapping } from '@dpc-sdp/ripple-tide-api/types'
 import { ApplicationError } from '@dpc-sdp/ripple-tide-api/errors'
-
-function getUniqueListBy(arr, key) {
-  return [...new Map(arr.map((item) => [item[key], item])).values()]
-}
-
-const parseJSONField = (rawValue) => {
-  return JSON.parse(rawValue)
-}
+import { getUniqueListBy, parseJSONField } from './../mapping/utils'
+import {
+  secondaryCampaignIncludes,
+  secondaryCampaignMapping
+} from '@dpc-sdp/ripple-tide-landing-page/mapping'
 
 const getProcessedSearchListingConfig = async (src, tidePageApi) => {
   let rawConfig = null
@@ -192,7 +189,8 @@ const tideCollectionModule: IRplTideModuleMapping = {
     afterResults: (src: string) =>
       getBodyFromField(src, 'field_below_results_content'),
     introText: 'field_landing_page_intro_text',
-    config: getProcessedSearchListingConfig
+    config: getProcessedSearchListingConfig,
+    secondaryCampaign: secondaryCampaignMapping
   },
   includes: [
     ...tidePageBaseIncludes({
@@ -200,6 +198,7 @@ const tideCollectionModule: IRplTideModuleMapping = {
       withSidebarRelatedLinks: false,
       withSidebarSocialShare: false
     }),
+    ...secondaryCampaignIncludes,
     'field_listing_global_filters',
     'field_listing_user_filters',
     'field_listing_user_filters.field_field',

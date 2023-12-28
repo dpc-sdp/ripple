@@ -84,3 +84,30 @@
     }
   }
 }
+
+[dir='rtl'] .rpl-in-page-navigation {
+  border-left-style: none;
+  border-left-width: 0;
+  border-right-style: solid;
+  border-right-width: var(--rpl-border-3);
+  border-image: var(--rpl-clr-gradient-vertical) 1 100%;
+  padding-left: 0;
+  padding-right: var(--rpl-sp-3);
+
+  @media (--rpl-bp-m) {
+    padding-left: 0;
+    padding-right: var(--rpl-sp-4);
+  }
+
+  /* stylelint-disable-next-line no-descending-specificity */
+  .rpl-list__items--sub .rpl-list__item {
+    margin-left: 0;
+    margin-right: var(--local-sub-indent);
+
+    .rpl-icon--child {
+      float: right;
+      margin-left: 1rem;
+      margin-right: calc(-1 * var(--local-sub-indent) + 0.9rem);
+    }
+  }
+}

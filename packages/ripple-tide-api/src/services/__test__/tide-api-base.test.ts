@@ -89,11 +89,18 @@ describe('TideApiBase', () => {
       mockLogger
     )
     it('should call http client get method', async () => {
-      mockClient.onGet(`${exampleApiConfig.apiPrefix}/site`).reply(200, {
-        field: 'test'
-      })
+      mockClient.onGet(`${exampleApiConfig.apiPrefix}/site`).reply(
+        200,
+        {
+          field: 'test'
+        },
+        {
+          testHeader: 'test123'
+        }
+      )
       const result = await tideApiBase.get('/site')
-      expect(result).toEqual({ field: 'test' })
+      expect(result.data).toEqual({ field: 'test' })
+      expect(result.headers.testHeader).toEqual('test123')
       mockClient.reset()
     })
   })

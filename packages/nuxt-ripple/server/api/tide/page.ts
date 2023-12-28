@@ -1,12 +1,15 @@
 //@ts-nocheck runtime imports
-import { defineEventHandler, getQuery, H3Event, getCookie } from 'h3'
+import {
+  defineEventHandler,
+  getQuery,
+  H3Event,
+  getCookie,
+  setResponseHeader
+} from 'h3'
 import { createHandler, TidePageApi } from '@dpc-sdp/ripple-tide-api'
 import { BadRequestError } from '@dpc-sdp/ripple-tide-api/errors'
 import { useNitroApp } from '#imports'
-import {
-  isPreviewPath,
-  AuthCookieNames
-} from '@dpc-sdp/nuxt-ripple-preview/utils'
+import { AuthCookieNames } from '@dpc-sdp/nuxt-ripple-preview/utils'
 
 export const createPageHandler = async (
   event: H3Event,
@@ -24,14 +27,37 @@ export const createPageHandler = async (
     }
 
     const tokenCookie = getCookie(event, AuthCookieNames.ACCESS_TOKEN)
+    const accessTokenExpiry = parseFloat(
+      getCookie(event, AuthCookieNames.ACCESS_TOKEN_EXPIRY)
+    )
+    const isTokenExpired = accessTokenExpiry
+      ? accessTokenExpiry < Date.now()
+      : true
+
     const headers = {}
 
-    // Only add the access token to the headers if the path is a preview path
-    if (isPreviewPath(query.path)) {
+    // Only pass the access token if it is not expired, otherwise it will be rejected by the API
+    if (tokenCookie && !isTokenExpired) {
       headers['X-OAuth2-Authorization'] = `Bearer ${tokenCookie}`
     }
 
-    return await tidePageApi.getPageByPath(query.path, query.site, {}, headers)
+    const pageResponse = await tidePageApi.getPageByPath(
+      query.path,
+      query.site,
+      {},
+      headers
+    )
+
+    // Need to pass on the section cache tags to the nuxt app
+    if (pageResponse.headers && pageResponse.headers['section-cache-tags']) {
+      setResponseHeader(
+        event,
+        'section-cache-tags',
+        pageResponse.headers['section-cache-tags']
+      )
+    }
+
+    return pageResponse.data
   })
 }
 

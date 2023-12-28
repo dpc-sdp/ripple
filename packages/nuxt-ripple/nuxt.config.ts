@@ -19,11 +19,15 @@ export default defineNuxtConfig({
     public: {
       siteUrl: '',
       apiUrl: '',
+      isProduction: process.env?.LAGOON_ENVIRONMENT_TYPE === 'production',
       tide: {
         baseUrl: 'https://develop.content.reference.sdp.vic.gov.au',
         site: '8888'
       }
     }
+  },
+  experimental: {
+    inlineSSRStyles: (id) => !id?.includes('entry')
   },
   // @ts-ignore TS2345 adding to runtimeConfig
   robots: {

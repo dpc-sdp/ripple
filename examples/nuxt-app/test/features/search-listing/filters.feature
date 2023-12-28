@@ -99,6 +99,15 @@ Feature: Search listing - Filter
     Then the search listing dropdown field labelled "Custom function filter example" should have the value "Open, Closed"
 
   @mockserver
+  Example: Custom fallback values - Should be included in the search query when not set
+    Given the page endpoint for path "/filters" returns fixture "/search-listing/filters/page-fallback-values" with status 200
+    And the search network request is stubbed with fixture "/search-listing/filters/response" and status 200
+
+    When I visit the page "/filters?valueSet=orange"
+    Then the search listing page should have 2 results
+    And the search network request should be called with the "/search-listing/filters/request-fallback-values" fixture
+
+  @mockserver
   Example: Clear filters
     Given the page endpoint for path "/filters" returns fixture "/search-listing/filters/page" with status 200
     And the search network request is stubbed with fixture "/search-listing/filters/response" and status 200

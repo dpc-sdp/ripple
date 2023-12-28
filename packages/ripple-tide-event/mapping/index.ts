@@ -59,7 +59,8 @@ const tideEventModule: IRplTideModuleMapping = {
     description: (src: string) =>
       getBodyFromField(src, 'field_event_description'),
     body: (src: string) => getBodyFromField(src, 'body'),
-    link: (src: string) =>
+    websiteURL: (src: string) => getLinkFromField(src, 'field_node_link'),
+    bookingURL: (src: string) =>
       getLinkFromField(src, 'field_event_details[0].field_paragraph_link'),
     showLastUpdated: () => true
   },

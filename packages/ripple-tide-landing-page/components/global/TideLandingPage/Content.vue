@@ -1,7 +1,11 @@
 <script setup lang="ts">
-defineProps<{
+import { TideDynamicPageComponentBase } from '@dpc-sdp/nuxt-ripple/types'
+
+interface Props extends TideDynamicPageComponentBase {
   html: string
-}>()
+}
+
+defineProps<Props>()
 </script>
 
 <template>

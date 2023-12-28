@@ -235,7 +235,7 @@
         }
       ],
       "props": {
-        "html": "<p>Here is <em>some</em> sample <strong>rich</strong> text content</p>"
+        "html": "<p>Here is <em>some</em> sample <strong>rich</strong> text content, with a <a href=\"https://google.com\" target=\"_blank\" class=\"rpl-text-link rpl-u-focusable-inline\">random link<span class=\"rpl-u-visually-hidden\">(opens in a new window)</span></a> thrown in.</p>"
       }
     },
     {
@@ -624,7 +624,7 @@
           },
           {
             "type": "keydates",
-            "url": "/another-keydates-page",
+            "url": "/dates",
             "title": "Key dates heading",
             "keyDates": [
               {
@@ -683,55 +683,84 @@
         },
         "orientation": "row",
         "columns": [
-          "Row One Column One",
-          "Row One Column Two",
-          "Row One Column Three"
+          { "label": "Row One Column One", "objectKey": "col0" },
+          { "label": "Row One Column Two", "objectKey": "col1" },
+          { "label": "Row One Column Three", "objectKey": "col2" }
         ],
         "items": [
-          [
-            "Row Two Column One",
-            "Row Two Column Two",
-            "Row Two Column Three"
-          ],
-          [
-            "Row Three Column One",
-            "Row Three Column Two",
-            "Row Three Column Three"
-          ]
+          {
+            "col0": "Row Two Column One",
+            "col1": "Row Two Column Two",
+            "col2": "Row Two Column Three"
+          },
+          {
+            "col0": "Row Three Column One",
+            "col1": "Row Three Column Two",
+            "col2": "Row Three Column Three"
+          }
         ]
       }
     },
     {
-      "component":"TideLandingPageCategoryGrid",
-      "id":"7052",
-      "title":"Category Grid",
-      "props":{
-        "items":[
+      "component": "TideLandingPageDataTable",
+      "id": "1937",
+      "props": {
+        "caption": "",
+        "headingType": {
+          "horizontal": false,
+          "vertical": false
+        },
+        "orientation": "row",
+        "columns": [
+          { "objectKey": "col0" },
+          { "objectKey": "col1" },
+          { "objectKey": "col2" }
+        ],
+        "items": [
           {
-            "title":"Card one",
-            "summary":"Card one summary",
-            "image":{
-              "src":"https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Aerial-shot-of-new-housing-development.jpg",
-              "alt":"",
-              "focalPoint":null,
-              "height":667,
-              "title":"",
-              "width":1000
-            },
-            "url":"/landing-page-cc-2"
+            "col0": "Row Two Column One",
+            "col1": "Row Two Column Two",
+            "col2": "Row Two Column Three"
           },
           {
-            "title":"Card two",
-            "summary":"Card two summary",
-            "image":{
-              "src":"https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/2018-19-State-Budget.jpg",
-              "alt":"",
-              "focalPoint":null,
-              "height":667,
-              "title":"",
-              "width":1000
+            "col0": "Row Three Column One",
+            "col1": "Row Three Column Two",
+            "col2": "Row Three Column Three"
+          }
+        ]
+      }
+    },
+    {
+      "component": "TideLandingPageCategoryGrid",
+      "id": "7052",
+      "title": "Category Grid",
+      "props": {
+        "items": [
+          {
+            "title": "Card one",
+            "summary": "Card one summary",
+            "image": {
+              "src": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Aerial-shot-of-new-housing-development.jpg",
+              "alt": "",
+              "focalPoint": null,
+              "height": 667,
+              "title": "",
+              "width": 1000
             },
-            "url":"https://google.com/"
+            "url": "/landing-page-cc-2"
+          },
+          {
+            "title": "Card two",
+            "summary": "Card two summary",
+            "image": {
+              "src": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/2018-19-State-Budget.jpg",
+              "alt": "",
+              "focalPoint": null,
+              "height": 667,
+              "title": "",
+              "width": 1000
+            },
+            "url": "https://google.com/"
           }
         ]
       }
@@ -746,14 +775,14 @@
         "tag": "link",
         "attributes": {
           "rel": "canonical",
-          "href": "https://develop.content.reference.sdp.vic.gov.au/demo-landing-page"
+          "href": "https://www.vic.gov.au/demo-landing-page"
         }
       },
       {
         "tag": "meta",
         "attributes": {
           "name": "title",
-          "content": "Demo Landing Page | Single Digital Presence Content Management System"
+          "content": "Ignore this titel | Single Digital Presence Content Management System"
         }
       },
       {

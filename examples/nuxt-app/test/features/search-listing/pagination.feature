@@ -106,3 +106,14 @@ Feature: Searching listing - Pagination
       | title   |
       | Soup    |
       | Biscuit |
+
+  @mockserver
+  Example: Aria labels are set on pagination controls
+    Given the page endpoint for path "/pagination" returns fixture "/search-listing/pagination/page" with status 200
+    And the search network request is stubbed with fixture "/search-listing/pagination/response-page-3" and status 200
+    And the current date is "Fri, 02 Feb 2050 03:04:05 GMT"
+    When I visit the page "/pagination?page=2"
+
+    Then the "Previous" pagination link should have an aria-label "Go to previous page"
+    And the "Next" pagination link should have an aria-label "Go to next page"
+    And the "3" complex pagination link should have an aria-label "Go to page 3"

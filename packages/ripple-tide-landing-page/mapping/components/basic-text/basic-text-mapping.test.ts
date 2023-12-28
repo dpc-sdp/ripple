@@ -23,7 +23,8 @@ const rawData = {
   field_paragraph_body: {
     value: '<h2>Test value</h2>',
     format: 'rich_text',
-    processed: '<h2>Test processed</h2><p>Test para</p><h3>Test subheading</h3>'
+    processed:
+      '<h2>Test processed</h2><p>Test para and <a href="https://www.vic.gov.au" target="_blank">link to homepage</a>.</p><h3>Test subheading</h3>'
   },
   id: 'ae1ffcca-fd04-4733-ae35-85a65d6d6452',
   type: 'paragraph--basic_text'
@@ -45,7 +46,7 @@ const result: TideDynamicPageComponent<ITideBasicText> = {
     }
   ],
   props: {
-    html: '<h2 id="test-processed">Test processed</h2><p>Test para</p><h3 id="test-subheading">Test subheading</h3>'
+    html: '<h2 id="test-processed">Test processed</h2><p>Test para and <a href="https://www.vic.gov.au" target="_blank" class="rpl-text-link rpl-u-focusable-inline">link to homepage<span class="rpl-u-visually-hidden">(opens in a new window)</span></a>.</p><h3 id="test-subheading">Test subheading</h3>'
   }
 }
 

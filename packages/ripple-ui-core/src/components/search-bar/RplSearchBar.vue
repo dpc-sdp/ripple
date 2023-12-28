@@ -19,23 +19,29 @@ interface Props {
   autoFocus?: boolean
   inputLabel?: string
   inputValue?: string
-  submitLabel?: string
-  suggestions?: string[]
+  submitLabel?: string | boolean
+  suggestions?: any[]
   maxSuggestionsDisplayed?: number
   placeholder?: string
   globalEvents?: boolean
+  showNoResults?: boolean
+  getOptionLabel?: Function
+  isOptionSelectable?: Function
 }
 
 const props = withDefaults(defineProps<Props>(), {
   variant: 'default',
   autoFocus: false,
+  showNoResults: false,
   inputLabel: 'Search',
   submitLabel: 'Search',
   inputValue: '',
   suggestions: () => [],
   maxSuggestionsDisplayed: 10,
   placeholder: undefined,
-  globalEvents: true
+  globalEvents: true,
+  getOptionLabel: (opt) => opt.toString(),
+  isOptionSelectable: (opt) => true
 })
 
 const emit = defineEmits<{
@@ -91,13 +97,15 @@ const handleInputChange = (e) => {
   isOpen.value = true
 }
 
-const handleSelectOption = (optionValue, focusBackOnInput) => {
+const handleSelectOption = (optionValue: any, focusBackOnInput) => {
+  const optionLabel = props.getOptionLabel(optionValue)
+
   if (focusBackOnInput) {
     inputRef.value.focus()
   }
 
   internalValue.value = optionValue
-  emit('update:inputValue', optionValue)
+  emit('update:inputValue', optionLabel)
   isOpen.value = false
 
   emitRplEvent(
@@ -105,8 +113,9 @@ const handleSelectOption = (optionValue, focusBackOnInput) => {
     {
       action: 'search',
       id: props.id,
-      text: optionValue,
-      value: optionValue,
+      text: optionLabel,
+      value: optionLabel,
+      payload: optionValue,
       type: 'suggestion'
     },
     { global: props.globalEvents }
@@ -217,6 +226,8 @@ watch(activeOptionId, async (newId) => {
     focusOption(newId)
   }
 })
+
+const slug = (label: string) => label.toLowerCase().replace(/[^\w-]+/g, '-')
 </script>
 
 <template>
@@ -260,6 +271,21 @@ watch(activeOptionId, async (newId) => {
         @keydown.enter.prevent="handleSubmit('enter')"
       />
 
+      <template
+        v-if="
+          showNoResults &&
+          suggestions.length === 0 &&
+          internalValue.length > 0 &&
+          isOpen
+        "
+      >
+        <slot name="noresults">
+          <div class="rpl-search-bar__menu">
+            <span class="rpl-search-bar__menu-noresults"> No results </span>
+          </div>
+        </slot>
+      </template>
+
       <div
         v-if="suggestions.length && isOpen"
         :id="menuId"
@@ -270,24 +296,32 @@ watch(activeOptionId, async (newId) => {
       >
         <div
           v-for="option in suggestions"
-          :id="option"
-          :key="option"
+          :id="slug(getOptionLabel(option))"
+          :key="`opt-${slug(getOptionLabel(option))}`"
           ref="optionRefs"
-          :data-option-id="option"
-          role="option"
+          :data-option-id="getOptionLabel(option)"
+          :role="isOptionSelectable(option) ? 'option' : null"
           :class="{
             'rpl-search-bar__menu-option': true,
             'rpl-u-focusable-block': true,
-            'rpl-u-focusable--force-on': isMenuItemKeyboardFocused(option)
+            'rpl-u-focusable--force-on': isMenuItemKeyboardFocused(
+              slug(getOptionLabel(option))
+            )
           }"
           tabindex="-1"
-          @keydown.space.prevent="handleSelectOption(option, true)"
-          @keydown.enter.prevent="handleSelectOption(option, true)"
-          @click="handleSelectOption(option, false)"
-          @keydown="handleKeydown"
+          @keydown.space.prevent="
+            isOptionSelectable(option) && handleSelectOption(option, true)
+          "
+          @keydown.enter.prevent="
+            isOptionSelectable(option) && handleSelectOption(option, true)
+          "
+          @click="
+            isOptionSelectable(option) && handleSelectOption(option, false)
+          "
+          @keydown="isOptionSelectable(option) && handleKeydown"
         >
           <slot name="suggestion" :option="{ option }">
-            {{ option }}
+            {{ getOptionLabel(option) }}
           </slot>
         </div>
       </div>
@@ -299,6 +333,7 @@ watch(activeOptionId, async (newId) => {
         class="rpl-search-bar-submit rpl-u-focusable-inline"
       >
         <span
+          v-if="submitLabel"
           class="rpl-search-bar-submit__label rpl-type-label rpl-type-weight-bold"
           >{{ submitLabel }}</span
         >

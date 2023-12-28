@@ -96,3 +96,15 @@
 .rpl-form__input-icon__suffix {
   right: var(--local-icon-spacing);
 }
+
+[dir='rtl'] .rpl-form__input-icon__suffix {
+  left: var(--local-icon-spacing);
+  right: auto;
+}
+
+[dir='rtl'] .rpl-form__input--with-suffix-icon input {
+  padding-left: calc(
+    var(--rpl-sp-4) + var(--local-icon-spacing) + var(--rpl-sp-2)
+  );
+  padding-right: 0;
+}

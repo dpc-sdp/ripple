@@ -1,6 +1,6 @@
-# Ripple UI Core 
+# Ripple UI Core
 
-> A UI component library built with Vue.js. [View the Ripple storybook](https://www.ripple.sdp.vic.gov.au/storybook) to start exploring available components.
+> A Vue 3 UI component library. [View the Ripple storybook](https://www.ripple.sdp.vic.gov.au/storybook) to start exploring available components.
 
 ## SDP Platform (Tide)
 
@@ -22,7 +22,7 @@ npm install @dpc-sdp/ripple-ui-core
 
 ## Usage (Nuxt)
 
-Ripple UI Core exports a nuxt module that you can add to your nuxt config, note the addition of `/nuxt`.
+Ripple UI Core exports a Nuxt 3 module that you can add to your nuxt config, note the addition of `/nuxt`.
 
 ```js
 export default defineNuxtConfig({
@@ -32,6 +32,8 @@ export default defineNuxtConfig({
 })
 ```
 
+Note: Nuxt 2 is not supported.
+
 There is no need to import the components as they will be registered globally by the nuxt module.
 
 ```vue
@@ -39,6 +41,10 @@ There is no need to import the components as they will be registered globally by
   <RplButton>My Button</RplButton>
 </template>
 ```
+
+#### Custom icons
+
+Within a Nuxt application or layer just place custom icons (svgs) within an `assets/icons` directory, they can then be used with the `RplIcon` component. For example `assets/icons/icon-moon.svg` can be used as `<RplIcon name="icon-moon" />`
 
 ## Usage (Vue)
 

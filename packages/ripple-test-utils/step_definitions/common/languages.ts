@@ -1,7 +1,7 @@
 import { Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Then(
-  `The section {string} should be display {string} in {string} with the font {string}`,
+  `the section {string} should be display {string} in {string} with the font {string}`,
   (selector: string, direction: string, language: string, font: string) => {
     cy.get(selector).as('section')
 

@@ -3,6 +3,14 @@ Feature: Shared site elements
   As a user I can view and interact with shared elements such as the primary nav and footer.
 
   @mockserver
+  Scenario: Page title
+    Given the site endpoint returns fixture "/site/shared-elements" with status 200
+    And the page endpoint for path "/" returns fixture "/landingpage/home" with status 200
+    Given I visit the page "/"
+    Then the page title should be "Demo Landing Page | vic.gov.au"
+
+
+  @mockserver
   Scenario: Breadcrumbs (page exists in menu)
     Given the site endpoint returns fixture "/site/shared-elements" with status 200
     And the page endpoint for path "/level-3-item-2" returns fixture "/landingpage/home" with status 200
@@ -65,6 +73,10 @@ Feature: Shared site elements
     Then the footer nav section with title "Level 1 - Item 2" should have the following links
       | text             | url             |
       | Level 1 - Item 2 | /level-1-item-2 |
+    Then the footer nav section with title "Connect with us" should have the following links
+      | text     | url                       |
+      | Facebook | https://www.facebook.com/ |
+      | LinkedIn | https://www.linkedin.com/ |
     Then the footer should have the following links
       | text          | url            |
       | Footer link 1 | /footer-link-1 |

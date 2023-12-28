@@ -4,7 +4,7 @@ import { computed, onMounted, ref } from 'vue'
 import { bpMin } from '../../lib/breakpoints'
 import RplAcknowledgement from '../acknowledgement/RplAcknowledgement.vue'
 import RplTextLink from '../text-link/RplTextLink.vue'
-import VicGovLogo from './../../assets/logos/logo-victoria.svg?component'
+import VicGovLogo from './../../assets/logos/logo-victoria-state-government.svg?component'
 import {
   ICoreLink,
   ILogoLink,
@@ -145,7 +145,7 @@ const handleClick = (link) => {
     data-component-type="site-footer"
   >
     <div class="rpl-container">
-      <nav class="rpl-footer__nav">
+      <nav class="rpl-footer__nav" aria-label="Footer navigation">
         <!-- Fallback rendering for SSR, this ensures that the server and client render the same thing initially -->
         <template v-if="!isMounted">
           <RplNavSection

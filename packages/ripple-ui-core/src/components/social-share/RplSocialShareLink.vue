@@ -59,6 +59,6 @@ const handleClick = () => {
     @click.prevent="handleClick"
   >
     <RplIcon class="rpl-social-share__icon" :name="`icon-${key}`"></RplIcon>
-    <span>{{ network }}</span>
+    <span>{{ network === 'X' ? 'X (formerly Twitter)' : network }}</span>
   </RplTextLink>
 </template>

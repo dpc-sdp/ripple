@@ -43,8 +43,14 @@ const getSocialMediaIconByType = (type: string): string => {
   if (type === 'youtube_channel') {
     return 'icon-youtube'
   }
-
-  return `icon-${type}`
+  if (type === 'twitter') {
+    return 'icon-x'
+  }
+  if (['x', 'facebook', 'linkedin', 'instagram'].includes(type)) {
+    return `icon-${type}`
+  } else {
+    return 'icon-browser'
+  }
 }
 
 const mappedContacts = computed(() => {

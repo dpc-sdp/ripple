@@ -8,7 +8,6 @@ export default {
 import { computed, inject } from 'vue'
 import { useDebounceFn } from '@vueuse/core'
 import { RplIcon } from '@dpc-sdp/ripple-ui-core/vue'
-import RplFormCounter from '../RplFormCounter/RplFormCounter.vue'
 import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
 import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
 
@@ -26,9 +25,6 @@ interface Props {
   max?: number
   minlength?: number
   maxlength?: number
-  counter?: 'word' | 'character'
-  counterMin?: number
-  counterMax?: number
   variant?: 'default' | 'reverse'
   invalid?: boolean
   required?: boolean
@@ -50,9 +46,6 @@ const props = withDefaults(defineProps<Props>(), {
   max: undefined,
   minlength: undefined,
   maxlength: undefined,
-  counter: undefined,
-  counterMin: undefined,
-  counterMax: undefined,
   disabled: false,
   required: false,
   invalid: false,
@@ -84,8 +77,6 @@ const classes = computed(() => {
     [`${props.className}--invalid`]: props.invalid
   }
 })
-
-const isWordCounter = computed(() => props.counter === 'word')
 
 const handleChange = useDebounceFn(() => {
   emitRplEvent(
@@ -126,8 +117,8 @@ const handleChange = useDebounceFn(() => {
         :value="value"
         :min="min"
         :max="max"
-        :minlength="!isWordCounter ? minlength : null"
-        :maxlength="!isWordCounter ? maxlength : null"
+        :minlength="minlength"
+        :maxlength="maxlength"
         @blur="onBlur"
         @input="onInput"
         @change="handleChange"
@@ -140,14 +131,6 @@ const handleChange = useDebounceFn(() => {
       >
       </RplIcon>
     </div>
-    <RplFormCounter
-      v-if="counter"
-      :value="value"
-      :type="counter"
-      :invalid="invalid"
-      :counter-min="counterMin"
-      :counter-max="counterMax"
-    />
   </div>
 </template>
 

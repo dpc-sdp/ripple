@@ -22,7 +22,7 @@
     "release:changelog": "changelogen --output --no-commit -r $(cat lerna.json | jq -r '.version')",
     "release:publish-alpha": "lerna publish --canary minor --preid alpha --dist-tag alpha --force-publish",
     "release:publish-next": "lerna publish --canary --preid next.$(git rev-parse --short HEAD) --dist-tag next --force-publish",
-    "release:publish": "changelogen gh release && lerna publish from-package",
+    "release:publish": "lerna publish from-package",
     "lint": "eslint . --ext .ts,.vue && stylelint 'packages/ripple-ui-core/**/*.css'",
     "test:unit": "jest --colors --runInBand",
     "test:components-core": "pnpm -F @dpc-sdp/ripple-ui-core test:components",
@@ -43,9 +43,9 @@
     "generate:component": "nuxt-ripple add component ./packages/ripple-ui-core/src/components"
   },
   "devDependencies": {
-    "@babel/core": "^7.21.3",
-    "@babel/plugin-transform-runtime": "^7.21.0",
-    "@babel/preset-env": "^7.20.2",
+    "@babel/core": "^7.23.2",
+    "@babel/plugin-transform-runtime": "^7.23.2",
+    "@babel/preset-env": "^7.23.2",
     "@bahmutov/cypress-esbuild-preprocessor": "^2.2.0",
     "@commitlint/cli": "^17.4.4",
     "@commitlint/config-conventional": "^17.4.4",
@@ -88,7 +88,7 @@
   },
   "engines": {
     "node": "^16.11.0 || ^18.15.0",
-    "pnpm": "8.6.2"
+    "pnpm": "^8.6.2"
   },
   "dependencies": {
     "@vue/vue3-jest": "^29.2.3",
@@ -97,7 +97,6 @@
   },
   "pnpm": {
     "overrides": {
-      "@storybook/test-runner>jest": "29.5.0",
       "@types/react": "file:./stub/types__react",
       "jest-matcher-utils@29.2.2>chalk": "5.2.0",
       "cypress": "12.8.1",

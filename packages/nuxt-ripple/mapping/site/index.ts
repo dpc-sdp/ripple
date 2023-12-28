@@ -9,6 +9,7 @@ import {
   map as siteAlertsMapping,
   includes as siteAlertsIncludes
 } from './alerts/site-alerts-mapping.js'
+import processSiteSocialLinks from '../utils/processSiteSocialLinks.js'
 
 export default {
   mapping: {
@@ -48,10 +49,9 @@ export default {
     footerLogos: (src: any) => {
       return src.field_site_footer_logos.map((logo) => {
         const link = getLinkFromField(logo, 'field_paragraph_cta')
-        const image = getImageFromField(
-          logo,
-          'field_paragraph_media.field_media_image'
-        )
+        const image =
+          getImageFromField(logo, 'field_paragraph_media.field_media_image') ||
+          getImageFromField(logo, 'field_feature_image')
 
         return {
           alt: link?.text,
@@ -90,20 +90,26 @@ export default {
       }
       return socialImages
     },
-    menus: async function (src, tideSiteApi: TideSiteApi) {
-      const menuMain = await tideSiteApi.getSiteMenu(
-        tideSiteApi.site,
-        src.field_site_main_menu
-      )
-      const menuFooter = await tideSiteApi.getSiteMenu(
-        tideSiteApi.site,
-        src.field_site_footer_menu
-      )
-
-      return {
-        menuMain,
-        menuFooter
+    menus: {
+      menuMain: async (src: any, tideSiteApi: TideSiteApi) => {
+        return await tideSiteApi.getSiteMenu(
+          tideSiteApi.site,
+          src.field_site_main_menu
+        )
+      },
+      menuFooter: async (src: any, tideSiteApi: TideSiteApi) => {
+        return await tideSiteApi.getSiteMenu(
+          tideSiteApi.site,
+          src.field_site_footer_menu
+        )
       }
+    },
+    socialLinks: (src: any) => {
+      return processSiteSocialLinks(src.field_site_social_links || [])
+    },
+    sitemap: {
+      showTableOfContents: 'field_show_table_of_contents',
+      tableOfContentsTitle: 'field_title_of_table_of_contents'
     }
   },
   includes: [
@@ -119,6 +125,7 @@ export default {
     'field_top_corner_graphic',
     'field_bottom_corner_graphic',
     'field_site_footer_logos',
-    'field_site_footer_logos.field_paragraph_media.field_media_image'
+    'field_site_footer_logos.field_paragraph_media.field_media_image',
+    'field_site_footer_logos.field_feature_image'
   ]
 }

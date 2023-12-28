@@ -3,6 +3,7 @@ export interface IRplAnalyticsEventPayload {
   event: string
   name?: string
   page_url?: string
+  page_title?: string
   platform_event: string
   // Component properties
   label?: string
@@ -26,6 +27,7 @@ export interface IRplAnalyticsEventPayload {
   component?: string
   component_options?: string
   // Route properties
+  status_code?: number
   content_type?: string
   search_term?: string
   site_section?: string

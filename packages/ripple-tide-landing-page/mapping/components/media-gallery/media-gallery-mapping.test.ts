@@ -10,6 +10,7 @@ describe('mediaGalleryMapping', () => {
       component: 'TideLandingPageMediaGallery',
       id: '975',
       props: {
+        id: '975',
         items: [
           {
             title: 'Demo: 2018-19 State Budget',

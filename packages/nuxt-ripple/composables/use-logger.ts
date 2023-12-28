@@ -1,4 +1,4 @@
-export const useLogger = (id?: number) => {
+export const useLogger = () => {
   const { $logger } = useNuxtApp()
   const noop = () => {}
 

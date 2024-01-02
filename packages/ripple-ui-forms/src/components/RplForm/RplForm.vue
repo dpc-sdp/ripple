@@ -14,7 +14,7 @@ import { RplContent } from '@dpc-sdp/ripple-ui-core/vue'
 import { reset } from '@formkit/vue'
 import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
 import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
-import sanitisePIIFields from '../../lib/sanitisePIIFields'
+import { sanitisePIIFields } from '../../lib/sanitisePII'
 
 interface Props {
   id: string

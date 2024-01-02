@@ -2,6 +2,7 @@
 import { computed, inject } from 'vue'
 import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
 import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
+import { sanitisePIIField } from '../../lib/sanitisePII'
 
 interface Props {
   id: string
@@ -58,6 +59,7 @@ const handleChange = () => {
       action: 'update',
       id: props.id,
       label: props?.label,
+      value: sanitisePIIField(props.pii, props?.value),
       contextId: form?.id,
       contextName: form?.name
     },

@@ -10,6 +10,7 @@ import { useDebounceFn } from '@vueuse/core'
 import { RplIcon } from '@dpc-sdp/ripple-ui-core/vue'
 import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
 import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
+import { sanitisePIIField } from '../../lib/sanitisePII'
 
 interface Props {
   id: string
@@ -85,7 +86,8 @@ const handleChange = useDebounceFn(() => {
       type: props.type,
       label: props?.label,
       contextId: form?.id,
-      contextName: form?.name
+      contextName: form?.name,
+      value: sanitisePIIField(props.pii, props?.value)
     },
     { global: props.globalEvents }
   )

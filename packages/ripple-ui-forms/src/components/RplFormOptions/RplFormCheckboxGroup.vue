@@ -4,6 +4,7 @@ import useFormkitFriendlyEventEmitter from '../../composables/useFormkitFriendly
 import { inject } from 'vue'
 import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
 import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
+import { sanitisePIIField } from '../../lib/sanitisePII'
 
 interface Props {
   id: string
@@ -62,7 +63,7 @@ const handleToggle = (selectedValue: string) => {
       action: 'update',
       id: props.id,
       label: props?.label,
-      value: Array.isArray(newValue) ? newValue.join(',') : newValue,
+      value: sanitisePIIField(props.pii, newValue),
       contextId: form?.id,
       contextName: form?.name
     },

@@ -4,6 +4,7 @@ import RplFormOption from './RplFormOption.vue'
 import { inject } from 'vue'
 import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
 import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
+import { sanitisePIIField } from '../../lib/sanitisePII'
 
 export interface RplFormRadioProps {
   id: string
@@ -50,7 +51,7 @@ const handleChange = (selectedValue: string) => {
       action: 'update',
       id: props.id,
       label: props?.label,
-      value: selectedValue,
+      value: sanitisePIIField(props.pii, selectedValue),
       contextId: form?.id,
       contextName: form?.name
     },

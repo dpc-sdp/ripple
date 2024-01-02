@@ -1,7 +1,14 @@
 import { FormKitNode } from '@formkit/core'
 
-// Sanitize personally identifiable information and return just the 'public' i.e. non-pii data
-const sanitisePIIFields = (node: FormKitNode) => {
+// Sanitize personally identifiable information for a single field
+export const sanitisePIIField = (pii: boolean | unknown, value: any) => {
+  const val = Array.isArray(value) ? value.join(',') : value
+
+  return pii !== false ? '[redacted]' : val
+}
+
+// Sanitize personally identifiable for a complete form
+export const sanitisePIIFields = (node: FormKitNode) => {
   const displayFields = ['RplFormDivider', 'RplFormContent']
 
   const getChildValues = (children: FormKitNode[]) => {
@@ -11,8 +18,7 @@ const sanitisePIIFields = (node: FormKitNode) => {
       if (curr?.children?.length) {
         acc[curr.name] = getChildValues(curr.children)
       } else {
-        acc[curr.name] =
-          curr?.context?.pii !== false ? '[redacted]' : curr?.value
+        acc[curr.name] = sanitisePIIField(curr?.context?.pii, curr?.value)
       }
 
       return acc
@@ -21,5 +27,3 @@ const sanitisePIIFields = (node: FormKitNode) => {
 
   return getChildValues(node?.children || [])
 }
-
-export default sanitisePIIFields

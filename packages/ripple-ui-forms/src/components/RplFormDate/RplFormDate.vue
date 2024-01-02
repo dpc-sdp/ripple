@@ -11,6 +11,7 @@ import RplFormInput from '../RplFormInput/RplFormInput.vue'
 import useFormkitFriendlyEventEmitter from '../../composables/useFormkitFriendlyEventEmitter.js'
 import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
 import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
+import { sanitisePIIField } from '../../lib/sanitisePII'
 
 type DatePart = 'day' | 'month' | 'year'
 interface InternalDate {
@@ -219,7 +220,8 @@ const handleUpdate = (event) => {
     {
       ...event,
       id: props.id,
-      label: props?.label
+      label: props?.label,
+      value: sanitisePIIField(props.pii, props?.value)
     },
     { global: true }
   )

@@ -151,6 +151,7 @@ const processConfig = async (config, tidePageApi) => {
         const activeTaxonomies = taxonomyResults
           .filter((tax) => tax.status === true)
           .map((item) => ({
+            parent: item.parent[0]?.meta.drupal_internal__target_id || null,
             id: item.drupal_internal__tid,
             label: item.name,
             value: item.name

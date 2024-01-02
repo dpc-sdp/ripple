@@ -1,17 +1,22 @@
 import { defineNuxtPlugin, useAppConfig, useRuntimeConfig } from '#app'
-import { loadScript } from '@gtm-support/core'
+import { DataLayerObject, loadScript } from '@gtm-support/core'
 import { trackEvent } from '../lib/tracker'
 import routeChange from '../lib/routeChange'
 import type { IRplFeatureFlags } from '@dpc-sdp/ripple-tide-api/types'
 
 declare global {
   interface Window {
-    dataLayer: any[]
+    dataLayer?: DataLayerObject[]
   }
+}
+
+interface IPackages {
+  [key: string]: string
 }
 
 const setupDataLayer = (featureFlags: IRplFeatureFlags) => {
   const production = useRuntimeConfig()?.public?.isProduction
+  const packages: IPackages = useAppConfig()?.ripple?.packages
 
   /*eslint-disable no-prototype-builtins */
   if (typeof window !== undefined) {
@@ -19,11 +24,17 @@ const setupDataLayer = (featureFlags: IRplFeatureFlags) => {
       window.dataLayer = []
     }
 
-    window.dataLayer.push({
+    window.dataLayer?.push({
       production,
       google_analytics: {
         prod_measurement_id: featureFlags?.prodMeasurementID,
-        uat_measurement_id: featureFlags?.uatMeasurementID
+        uat_measurement_id: featureFlags?.uatMeasurementID,
+        ripple_version:
+          packages &&
+          packages.hasOwnProperty('nuxt-ripple') &&
+          packages['nuxt-ripple'] !== 'workspace:*'
+            ? packages['nuxt-ripple']
+            : '2.x'
       }
     })
   }

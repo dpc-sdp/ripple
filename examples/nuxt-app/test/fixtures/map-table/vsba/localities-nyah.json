@@ -1,0 +1,58 @@
+{
+  "meta": {
+    "alerts": [],
+    "warnings": [],
+    "precision": 2,
+    "engine": {
+      "name": "vic-postcode-localities",
+      "type": "default"
+    },
+    "page": {
+      "current": 1,
+      "total_pages": 1,
+      "total_results": 2,
+      "size": 10
+    },
+    "request_id": "31622166a60345156cf9562028db8c2f"
+  },
+  "results": [
+    {
+      "postcode": {
+        "raw": "3594"
+      },
+      "locality": {
+        "raw": "Nyah"
+      },
+      "location": {
+        "raw": "-35.138155,143.346028"
+      },
+      "id": {
+        "raw": "doc-655d9b5bcfe7a9b50d64890b"
+      },
+      "_meta": {
+        "id": "doc-655d9b5bcfe7a9b50d64890b",
+        "engine": "vic-postcode-localities",
+        "score": 8.694401
+      }
+    },
+    {
+      "postcode": {
+        "raw": "3595"
+      },
+      "locality": {
+        "raw": "Nyah West"
+      },
+      "location": {
+        "raw": "-35.202752,143.351682"
+      },
+      "id": {
+        "raw": "doc-655d9b5bcfe7a9b50d64890c"
+      },
+      "_meta": {
+        "id": "doc-655d9b5bcfe7a9b50d64890c",
+        "engine": "vic-postcode-localities",
+        "score": 6.619137
+      }
+    }
+  ]
+}

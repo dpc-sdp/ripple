@@ -73,3 +73,10 @@ When(
     cy.get('.rpl-map canvas').click(x, y, { force: true })
   }
 )
+
+Then(`the map no results message should contain {string}`, (term) => {
+  cy.get('.rpl-map__noresults').should('be.visible')
+})
+Then(`the map no results message should be visible`, (term) => {
+  cy.get('.rpl-map__noresults').should('contain', term)
+})

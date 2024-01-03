@@ -486,7 +486,7 @@ const mapAreas = computed(() => {
 
     <template v-if="activeTab === 'map'">
       <TideSearchListingResultsMap
-        v-if="mapFeatures && mapFeatures.length > 0"
+        v-if="mapFeatures"
         :results="mapFeatures"
         :areas="mapAreas"
         v-bind="mapConfig?.props"

@@ -11,13 +11,13 @@
       :showNoResults="true"
       :debounce="5000"
       placeholder="Search by postcode or suburb"
-      :getOptionId="(itm:any) => itm.id"
-      :getSuggestionVal="(itm:any) => itm?.locality || ''"
+      :getOptionId="(itm:any) => itm.name"
+      :getSuggestionVal="(itm:any) => itm?.name || ''"
       @submit="submitAction"
       @update:input-value="onUpdate"
     >
       <template #suggestion="{ option: { option } }">
-        <span>{{ option?.locality }}</span>
+        <span>{{ option?.name }}</span>
         <RplTag
           v-if="option?.postcode"
           :label="option?.postcode"
@@ -32,8 +32,12 @@
 <script setup lang="ts">
 import { ref } from '#imports'
 import { useDebounceFn } from '@vueuse/core'
-import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
-import { fromLonLat } from 'ol/proj'
+import { transformExtent } from 'ol/proj'
+import { inAndOut } from 'ol/easing'
+import { boundingExtent } from 'ol/extent'
+import { GeoJSON, MultiPolygon } from 'ol/format'
+// TODO must add analytics events
+// import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
 
 interface Props {
   inputValue?: any
@@ -47,8 +51,8 @@ const results = ref([])
 
 type addressResultType = {
   name: string
-  latitude: number
-  longitude: number
+  postcode: string
+  type: 'postcode' | 'locality'
 }
 
 const emit = defineEmits<{
@@ -73,13 +77,42 @@ async function submitAction(e: any) {
   pendingZoomAnimation.value = true
 }
 
-const fetchVicPostcodes = async (query: string) => {
+const baseArcGISURL =
+  'https://services6.arcgis.com/GB33F62SbDxJjwEL/ArcGIS/rest/services/Vicmap_Admin/FeatureServer/'
+
+async function fetchPostcodeRegion(query: string) {
+  const where = `postcode='${query}'`
+  const inSR = '4326'
+  const featureServer = '14' // https://www.arcgis.com/apps/mapviewer/index.html?url=https://services6.arcgis.com/GB33F62SbDxJjwEL/ArcGIS/rest/services/Vicmap_Admin/FeatureServer/14&source=sd
+  const queryUrl = `${baseArcGISURL}/${featureServer}/query`
+  try {
+    const response: any = await $fetch(queryUrl, {
+      params: {
+        where,
+        geometryType: 'esriGeometryEnvelope',
+        inSR,
+        returnExtentOnly: true,
+        f: 'pgeojson'
+      }
+    })
+    if (response.bbox) {
+      return response.bbox
+    }
+  } catch (e) {
+    console.error(e)
+  }
+}
+
+const fetchSuggestions = async (query: string) => {
   const searchUrl = `/api/tide/app-search/vic-postcode-localities/search`
   const queryDSL = {
     query,
     search_fields: {
       locality: {},
       postcode: {}
+    },
+    page: {
+      size: 8
     }
   }
 
@@ -91,12 +124,12 @@ const fetchVicPostcodes = async (query: string) => {
       }
     })
     if (response && response.meta.page.total_results > 0) {
-      return response.results.map((itm) => ({
-        id: itm.id.raw,
-        locality: itm.locality.raw,
-        postcode: itm.postcode.raw,
-        location: itm.location.raw
-      }))
+      return response.results.map((itm: any) => {
+        return {
+          name: itm.locality.raw,
+          postcode: itm.postcode.raw
+        }
+      })
     }
   } catch (e) {
     console.error(e)
@@ -108,9 +141,7 @@ const onUpdate = useDebounceFn(async (q: string): Promise<void> => {
     results.value = []
     return
   }
-
-  const res = await fetchVicPostcodes(q)
-
+  const res = await fetchSuggestions(q)
   if (!res || res.length === 0) {
     results.value = []
   } else {
@@ -125,7 +156,7 @@ watch(
   () => rplMapRef.value,
   (newMap, oldMap) => {
     if (!oldMap && newMap) {
-      centerMapOnLocation(newMap, props.inputValue.location, false)
+      centerMapOnLocation(newMap, props.inputValue, false)
     }
   }
 )
@@ -133,24 +164,38 @@ watch(
 // Center the map on the location when the location changes
 // We look for the value of pendingZoomAnimation to determine if we should animate the zoom
 watch(
-  () => props.inputValue?.location,
-  (newLoc) => {
-    centerMapOnLocation(rplMapRef.value, newLoc, pendingZoomAnimation.value)
+  () => props.inputValue,
+  (newLocation) => {
+    centerMapOnLocation(
+      rplMapRef.value,
+      newLocation,
+      pendingZoomAnimation.value
+    )
     pendingZoomAnimation.value = false
   }
 )
 
-function centerMapOnLocation(map, location, animate: false) {
-  if (map && location) {
-    const targetZoom = 13
-    const duration = animate ? 800 : 0
-
-    const locationArr = location.split(',')
-    const lat = parseFloat(locationArr[0])
-    const lng = parseFloat(locationArr[1])
-    const center = fromLonLat([lng, lat], 'EPSG:3857')
-
-    map.getView().animate({ center, zoom: targetZoom, duration })
+async function centerMapOnLocation(
+  map: any,
+  location: addressResultType,
+  animate: boolean
+) {
+  if (map && location?.postcode) {
+    // fetch the geometry of the postcode so we can zoom to its extent
+    const bbox = await fetchPostcodeRegion(location.postcode)
+    console.log('bbox', bbox)
+    if (bbox) {
+      const zoomRegion = transformExtent(bbox, 'EPSG:4326', 'EPSG:3857')
+      const mapSize = map.getSize()
+      if (mapSize) {
+        map.getView().fit(zoomRegion, {
+          size: mapSize,
+          easing: inAndOut,
+          duration: animate ? 800 : 0,
+          padding: [100, 100, 100, 100]
+        })
+      }
+    }
   }
 }
 </script>

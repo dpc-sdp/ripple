@@ -327,7 +327,7 @@ export default ({
           filter: getUserFilterClause()
         }
       },
-      // size: 10000, TODO change back to this, but it's tanking performance when switching tabs
+      // ES queries have a 10k result limit, maps struggle drawing more than this anyway. If you need more you will need to implement a loading strategy see : https://openlayers.org/en/latest/apidoc/module-ol_loadingstrategy.html
       size: 10000,
       from: 0,
       sort: getSortClause()

@@ -490,6 +490,7 @@ const mapAreas = computed(() => {
         :results="mapFeatures"
         :areas="mapAreas"
         v-bind="mapConfig?.props"
+        :noresults="!isBusy && !results?.length"
       >
       </TideSearchListingResultsMap>
     </template>

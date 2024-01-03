@@ -34,8 +34,7 @@ import { ref } from '#imports'
 import { useDebounceFn } from '@vueuse/core'
 import { transformExtent } from 'ol/proj'
 import { inAndOut } from 'ol/easing'
-import { boundingExtent } from 'ol/extent'
-import { GeoJSON, MultiPolygon } from 'ol/format'
+import { fromLonLat } from 'ol/proj'
 // TODO must add analytics events
 // import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
 
@@ -183,7 +182,6 @@ async function centerMapOnLocation(
   if (map && location?.postcode) {
     // fetch the geometry of the postcode so we can zoom to its extent
     const bbox = await fetchPostcodeRegion(location.postcode)
-    console.log('bbox', bbox)
     if (bbox) {
       const zoomRegion = transformExtent(bbox, 'EPSG:4326', 'EPSG:3857')
       const mapSize = map.getSize()
@@ -196,6 +194,15 @@ async function centerMapOnLocation(
         })
       }
     }
+  } else if (!location?.postcode) {
+    // reset back to initial view on empty query
+    const center = [144.9631, -36.8136]
+    const initialZoom = 7.3
+    map.getView().animate({
+      center: fromLonLat(center),
+      duration: 1200,
+      zoom: initialZoom
+    })
   }
 }
 </script>

@@ -7,6 +7,9 @@
   @media (--rpl-bp-m) {
     flex-direction: row;
   }
+
+    /* Magic number to account for the height of the zoom controls, which are positioned absolutely */
+    --local-zoom-controls-height: 88px;
 }
 
 .rpl-map__map {
@@ -113,8 +116,7 @@
     fill: currentcolor;
   }
 
-  /* Magic number to account for the height of the zoom controls, which are positioned absolutely */
-  --local-zoom-controls-height: 88px;
+
 
   /* Margin + zoom controls height + button spacing */
   bottom: calc(
@@ -127,4 +129,28 @@
       var(--rpl-sp-3) + var(--local-zoom-controls-height) + var(--rpl-sp-2)
     );
   }
+}
+
+.rpl-map__noresults {
+  --local-noresults-box-width: calc(480px - var(--rpl-sp-5));
+
+  position: absolute;
+  left: calc(50% - var(--local-noresults-box-width) / 2);
+  right: calc(50% - var(--local-noresults-box-width) / 2);
+  top: calc(var(--local-zoom-controls-height) - var(--rpl-sp-4));
+  padding: var(--rpl-sp-5);
+  z-index: var(--rpl-layer-1);
+  border: var(--rpl-border-1) solid var(--rpl-clr-neutral-200);
+  border-radius: var(--rpl-border-radius-2);
+  box-shadow: var(--rpl-elevation-1);
+  background-color: var(--rpl-clr-light);
+  text-align: center;
+  @media (--rpl-bp-s) {
+    top: var(--rpl-sp-5);
+  }
+}
+.rpl-map__noresults-cancel {
+  position: absolute;
+  right: var(--rpl-sp-4);
+  top: var(--rpl-sp-4);
 }

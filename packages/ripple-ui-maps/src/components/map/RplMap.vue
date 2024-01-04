@@ -108,6 +108,8 @@ function onPopUpClose() {
 }
 
 function onMapSingleClick(evt) {
+  onNoResultsDismiss()
+
   const map = mapRef.value.map
   const point = getfeaturesAtMapPixel(map, evt.pixel)
   const largeClusterZoomAmount = 4 // Zoom levels to zoom in
@@ -167,8 +169,8 @@ function onMapMove(evt) {
 
 const hideNoResults = ref(false)
 
-function onNoresultsDismiss() {
-  hideNoResults.value = !hideNoResults.value
+function onNoResultsDismiss() {
+  hideNoResults.value = true
 }
 // reset dismiss state when another query happens
 watch(
@@ -179,6 +181,8 @@ watch(
     }
   }
 )
+
+const noResultsRef = ref(null)
 </script>
 
 <template>
@@ -207,11 +211,15 @@ watch(
         </template>
       </RplMapPopUp>
     </slot>
-    <div v-if="noresults && !hideNoResults" class="rpl-map__noresults">
+    <div
+      v-if="noresults && !hideNoResults"
+      class="rpl-map__noresults"
+      ref="noResultsRef"
+    >
       <button
         title="dismiss no results message"
         class="rpl-map__noresults-cancel"
-        @click="onNoresultsDismiss"
+        @click="onNoResultsDismiss"
       >
         <RplIcon name="icon-cancel" size="xs"></RplIcon>
       </button>

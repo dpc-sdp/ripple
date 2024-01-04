@@ -35,6 +35,7 @@ import { useDebounceFn } from '@vueuse/core'
 import { transformExtent } from 'ol/proj'
 import { inAndOut } from 'ol/easing'
 import { fromLonLat } from 'ol/proj'
+import { Extent } from 'ol/extent'
 // TODO must add analytics events
 // import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
 
@@ -53,6 +54,7 @@ const results = ref([])
 type addressResultType = {
   name: string
   postcode: string
+  bbox: string[]
   type: 'postcode' | 'locality'
 }
 
@@ -76,32 +78,6 @@ async function submitAction(e: any) {
 
   // Because this was a user initiated action, we want to animate the zoom
   pendingZoomAnimation.value = true
-}
-
-const baseArcGISURL =
-  'https://services6.arcgis.com/GB33F62SbDxJjwEL/ArcGIS/rest/services/Vicmap_Admin/FeatureServer'
-
-async function fetchPostcodeRegion(query: string) {
-  const where = `postcode='${query}'`
-  const inSR = '4326'
-  const featureServer = '14' // https://www.arcgis.com/apps/mapviewer/index.html?url=https://services6.arcgis.com/GB33F62SbDxJjwEL/ArcGIS/rest/services/Vicmap_Admin/FeatureServer/14&source=sd
-  const queryUrl = `${baseArcGISURL}/${featureServer}/query`
-  try {
-    const response: any = await $fetch(queryUrl, {
-      params: {
-        where,
-        geometryType: 'esriGeometryEnvelope',
-        inSR,
-        returnExtentOnly: true,
-        f: 'pgeojson'
-      }
-    })
-    if (response.bbox) {
-      return response.bbox
-    }
-  } catch (e) {
-    console.error(e)
-  }
 }
 
 const fetchSuggestions = async (query: string) => {
@@ -128,7 +104,8 @@ const fetchSuggestions = async (query: string) => {
       return response.results.map((itm: any) => {
         return {
           name: itm.locality.raw,
-          postcode: itm.postcode.raw
+          postcode: itm.postcode.raw,
+          bbox: itm.bbox.raw
         }
       })
     }
@@ -191,15 +168,13 @@ async function centerMapOnLocation(
   location: addressResultType,
   animate: boolean
 ) {
-  if (map && location?.postcode && location.postcode !== '') {
-    console.log(location?.postcode)
+  if (map && location?.bbox) {
     // fetch the geometry of the postcode so we can zoom to its extent
-    const bbox = await fetchPostcodeRegion(location.postcode)
-    if (bbox) {
-      const zoomRegion = transformExtent(bbox, 'EPSG:4326', 'EPSG:3857')
+    if (location?.bbox) {
+      const bbox: Extent = location.bbox.map((val) => parseFloat(val))
       const mapSize = map.getSize()
       if (mapSize) {
-        map.getView().fit(zoomRegion, {
+        map.getView().fit(bbox, {
           size: mapSize,
           easing: inAndOut,
           duration: animate ? 800 : 0,

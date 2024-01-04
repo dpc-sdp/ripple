@@ -10,6 +10,9 @@
       :pinStyle="pinStyle"
       :noresults="noresults"
     >
+      <template #noresults>
+        <slot name="noresults"></slot>
+      </template>
       <template #map-provider>
         <rpl-map-provider-vic-map />
       </template>

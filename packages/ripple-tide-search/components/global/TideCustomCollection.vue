@@ -385,6 +385,7 @@ const mapAreas = computed(() => {
         v-if="locationQueryConfig?.component"
         v-bind="locationQueryConfig?.props"
         :inputValue="locationQuery"
+        :resultsloaded="mapFeatures.length > 0"
         @update="handleLocationSearch"
       />
 
@@ -458,9 +459,8 @@ const mapAreas = computed(() => {
 
       <TideSearchResultsLoadingState :isActive="isBusy">
         <TideSearchError v-if="searchError" class="rpl-u-margin-t-8" />
-        <TideSearchNoResults
-          :query="searchTerm"
-          class="rpl-u-margin-t-8"
+        <TideCustomCollectionNoResults
+          class="rpl-u-margin-t-8 rpl-u-margin-b-8"
           v-else-if="!isBusy && !results?.length"
         />
 
@@ -492,6 +492,9 @@ const mapAreas = computed(() => {
         v-bind="mapConfig?.props"
         :noresults="!isBusy && !results?.length"
       >
+        <template #noresults>
+          <TideCustomCollectionNoResults v-if="!isBusy && !results?.length" />
+        </template>
       </TideSearchListingResultsMap>
     </template>
   </div>

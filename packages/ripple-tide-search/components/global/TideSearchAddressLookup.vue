@@ -40,10 +40,12 @@ import { fromLonLat } from 'ol/proj'
 
 interface Props {
   inputValue?: any
+  resultsloaded?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  inputValue: null
+  inputValue: null,
+  resultsloaded: false
 })
 
 const results = ref([])
@@ -148,14 +150,24 @@ const onUpdate = useDebounceFn(async (q: string): Promise<void> => {
   }
 }, 300)
 
-// Center the map on the location when the map is ready
-// It can take a while for the map to be ready, so we need to watch for it
-// We don't animate the zoom here, because it's the initial load or a tab change
+// Center the map on the location when the map instance is ready
+// this is for tab switching only
 watch(
   () => rplMapRef.value,
-  (newMap, oldMap) => {
-    if (!oldMap && newMap) {
-      centerMapOnLocation(newMap, props.inputValue, false)
+  (newVal, oldVal) => {
+    if (!oldVal && newVal && props.resultsloaded) {
+      // We don't animate the zoom here, because it's the initial load or a tab change
+      centerMapOnLocation(newVal, props.inputValue, false)
+    }
+  }
+)
+// we also watch for the map search results to be loaded before centering
+// this is for first load
+watch(
+  () => props.resultsloaded,
+  (newVal, oldVal) => {
+    if (!oldVal && newVal && rplMapRef.value) {
+      centerMapOnLocation(rplMapRef.value, props.inputValue, false)
     }
   }
 )

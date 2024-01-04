@@ -247,16 +247,47 @@
               "value": "field_mappintype_value"
             },
             "aggregations": {
-              "field": "field_mappintype_value",
-              "source": "elastic"
+              "field": "map_pin_type",
+              "source": "taxonomy"
             },
             "props": {
               "id": "category",
-              "label": "Filter by",
-              "placeholder": "Select school type",
+              "label": "Project Type",
+              "placeholder": "Select",
               "type": "RplFormDropdown",
               "multiple": true,
-              "options": []
+              "options": [
+                {
+                  "id": "1",
+                  "label": "New school",
+                  "value": "New school"
+                },
+                {
+                  "id": "2",
+                  "label": "School upgrade",
+                  "value": "School upgrade"
+                },
+                {
+                  "id": "3",
+                  "label": "Planning",
+                  "value": "Planning"
+                },
+                {
+                  "id": "4",
+                  "label": "Early childhood",
+                  "value": "Early childhood"
+                },
+                {
+                  "id": "5",
+                  "label": "Tech school",
+                  "value": "Tech school"
+                },
+                {
+                  "id": "6",
+                  "label": "Non-government grant",
+                  "value": "Non-government grant"
+                }
+              ]
             }
           }
         ],

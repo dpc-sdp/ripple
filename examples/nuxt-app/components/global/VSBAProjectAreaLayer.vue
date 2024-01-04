@@ -1,5 +1,9 @@
 <template>
-  <ol-vector-layer :title="layerIdentifier" :zIndex="1">
+  <ol-vector-layer
+    v-if="results.length > 0"
+    :title="layerIdentifier"
+    :zIndex="1"
+  >
     <ol-source-vector :zIndex="0" :url="areaUrl" :format="shapeFormat">
     </ol-source-vector>
     <ol-style>

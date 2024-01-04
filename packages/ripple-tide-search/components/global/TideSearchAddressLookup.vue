@@ -79,7 +79,7 @@ async function submitAction(e: any) {
 }
 
 const baseArcGISURL =
-  'https://services6.arcgis.com/GB33F62SbDxJjwEL/ArcGIS/rest/services/Vicmap_Admin/FeatureServer/'
+  'https://services6.arcgis.com/GB33F62SbDxJjwEL/ArcGIS/rest/services/Vicmap_Admin/FeatureServer'
 
 async function fetchPostcodeRegion(query: string) {
   const where = `postcode='${query}'`
@@ -191,7 +191,8 @@ async function centerMapOnLocation(
   location: addressResultType,
   animate: boolean
 ) {
-  if (map && location?.postcode) {
+  if (map && location?.postcode && location.postcode !== '') {
+    console.log(location?.postcode)
     // fetch the geometry of the postcode so we can zoom to its extent
     const bbox = await fetchPostcodeRegion(location.postcode)
     if (bbox) {

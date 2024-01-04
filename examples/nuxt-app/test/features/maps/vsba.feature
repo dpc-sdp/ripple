@@ -36,47 +36,52 @@ Feature: School buildings map
     And I wait 4 seconds
     Then the map matches the image snapshot "map-location-search"
 
-  @mockserver @focus
+  @mockserver
   Scenario: No results message
     Given the "/api/tide/elasticsearch/elasticsearch_index_develop_node/_search" network request is stubbed with fixture "/map-table/vsba/response-all" and status 200 as alias "searchReq"
     Given the "/api/tide/app-search/vic-postcode-localities/search" network request is stubbed with fixture "/map-table/vsba/localities-nyah" and status 200 as alias "localitiesReq"
     And I visit the page "/map"
     Then the ripple map component should be visible
     Given the "/api/tide/elasticsearch/elasticsearch_index_develop_node/_search" network request is stubbed with fixture "/map-table/vsba/response-none" and status 200 as alias "searchReq"
+    Given the arcgis FeatureServer "14" returns "/map-table/vsba/arcgis-nyah" fixture
     When I enter the term "nyah" into the location search input
     Then the location search results should contain "Nyah"
     When I click the location search term "Nyah"
-    And I pause the test
     Then the map no results message should be visible
     Then the map no results message should contain "Sorry, no results match your search. Try again with different search options or check back later. "
-
     Then the map matches the image snapshot "map-no-results"
 
 
   @mockserver
   Scenario: Filters should display when expanded
+    Given the "/api/tide/elasticsearch/elasticsearch_index_develop_node/_search" network request is stubbed with fixture "/map-table/vsba/response-all" and status 200 as alias "searchReq"
     Given I visit the page "/map"
     When I toggle the search listing filters section
-    And I wait 1 seconds
-    Then the search listing dropdown field labelled "Filter by" should have the value "Select school type"
-    When I click the search listing dropdown field labelled "Filter by"
+    And I wait 2 seconds
+    Then the search listing dropdown field labelled "Project Type" should have the value "Select"
+    When I click the search listing dropdown field labelled "Project Type"
     Then the selected dropdown field should have the items:
-      | Early childhood      |
       | New school           |
+      | School upgrade       |
+      | Planning             |
+      | Early childhood      |
+      | Tech school          |
       | Non-government grant |
 
   @mockserver
   Scenario: Click on cluster should zoom in
-    Given I visit the page "/map"
+    Given the "/api/tide/elasticsearch/elasticsearch_index_develop_node/_search" network request is stubbed with fixture "/map-table/vsba/response-all" and status 200 as alias "searchReq"
+    And I visit the page "/map"
     When I click the map component at coordinates 535 395
     When I wait 3 seconds
     Then the map matches the image snapshot "map-cluster-zoom"
 
   @mockserver
   Scenario: Switch to list view
-    Given I visit the page "/map"
+    Given the "/api/tide/elasticsearch/elasticsearch_index_develop_node/_search" network request is stubbed with fixture "/map-table/vsba/response-all" and status 200 as alias "searchReq"
+    And I visit the page "/map"
     When I wait 2 seconds
     And I click the tab labelled "List"
     Then the search listing layout should be "table"
-    And the custom collection component results count should read "Displaying 1-5 of 2106 results"
+    And the custom collection component results count should read "Displaying 1-5 of 2159 results"
 

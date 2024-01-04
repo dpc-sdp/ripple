@@ -1,4 +1,4 @@
-import { Then, When } from '@badeball/cypress-cucumber-preprocessor'
+import { Then, When, Given } from '@badeball/cypress-cucumber-preprocessor'
 
 Then(`the ripple map component should be visible`, () => {
   cy.get(`.rpl-map canvas`).should('be.visible')
@@ -74,9 +74,23 @@ When(
   }
 )
 
-Then(`the map no results message should contain {string}`, (term) => {
-  cy.get('.rpl-map__noresults').should('be.visible')
-})
 Then(`the map no results message should be visible`, (term) => {
-  cy.get('.rpl-map__noresults').should('contain', term)
+  cy.get('.tide-custom-collection-no-results').should('be.visible')
 })
+Then(`the map no results message should contain {string}`, (term) => {
+  cy.get('.tide-custom-collection-no-results').should('contain', term)
+})
+
+Given(
+  'the arcgis FeatureServer {string} returns {string} fixture',
+  (featureId: string, requestFixture: string) => {
+    cy.intercept(
+      'GET',
+      `https://services6.arcgis.com/GB33F62SbDxJjwEL/ArcGIS/rest/services/Vicmap_Admin/FeatureServer/${featureId}/*`,
+      {
+        statusCode: 200,
+        requestFixture
+      }
+    ).as('arcGisRequest') // assign an alias
+  }
+)

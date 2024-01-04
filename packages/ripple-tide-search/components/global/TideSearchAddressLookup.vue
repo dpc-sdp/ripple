@@ -10,6 +10,7 @@
       :suggestions="results"
       :showNoResults="true"
       :debounce="5000"
+      :maxSuggestionsDisplayed="8"
       placeholder="Search by postcode or suburb"
       :getOptionId="(itm:any) => itm.name"
       :getSuggestionVal="(itm:any) => itm?.name || ''"
@@ -81,15 +82,37 @@ async function submitAction(e: any) {
 }
 
 const fetchSuggestions = async (query: string) => {
-  const searchUrl = `/api/tide/app-search/vic-postcode-localities/search`
+  const searchUrl = `/api/tide/app-search/vic-postcode-localities/elasticsearch/_search`
   const queryDSL = {
-    query,
-    search_fields: {
-      locality: {},
-      postcode: {}
-    },
-    page: {
-      size: 8
+    query: {
+      bool: {
+        should: [
+          {
+            match: {
+              locality: {
+                query,
+                operator: 'or',
+                fuzziness: 'auto'
+              }
+            }
+          },
+          {
+            match_phrase: {
+              'locality.keyword': {
+                query,
+                boost: 2
+              }
+            }
+          },
+          {
+            term: {
+              postcode: {
+                value: query
+              }
+            }
+          }
+        ]
+      }
     }
   }
 
@@ -97,15 +120,16 @@ const fetchSuggestions = async (query: string) => {
     const response = await $fetch(searchUrl, {
       method: 'POST',
       body: {
-        ...queryDSL
+        ...queryDSL,
+        size: 20
       }
     })
-    if (response && response.meta.page.total_results > 0) {
-      return response.results.map((itm: any) => {
+    if (response && response.hits.total.value > 0) {
+      return response.hits.hits.map((itm: any) => {
         return {
-          name: itm.locality.raw,
-          postcode: itm.postcode.raw,
-          bbox: itm.bbox.raw
+          name: itm._source.locality,
+          postcode: itm._source.postcode,
+          bbox: itm._source.bbox
         }
       })
     }

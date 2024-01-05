@@ -149,13 +149,15 @@ onMounted(async () => {
         hitTolerance: 5
       })
       // reset all shapes not hovered
-      const shapeSource = shapeLayer.getSource()
-      if (shapeSource) {
-        const shapeFeatures = shapeSource.getFeatures()
-        if (shapeFeatures) {
-          shapeFeatures.forEach(function (feature) {
-            feature.setStyle(defaultStyleFn)
-          })
+      if (shapeLayer) {
+        const shapeSource = shapeLayer.getSource()
+        if (shapeSource) {
+          const shapeFeatures = shapeSource.getFeatures()
+          if (shapeFeatures) {
+            shapeFeatures.forEach(function (feature) {
+              feature.setStyle(defaultStyleFn)
+            })
+          }
         }
       }
       // Change the style for the hovered shape on mouseover

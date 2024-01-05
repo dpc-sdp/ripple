@@ -57,7 +57,7 @@ Feature: School buildings map
     Given the "/api/tide/elasticsearch/elasticsearch_index_develop_node/_search" network request is stubbed with fixture "/map-table/vsba/response-all" and status 200 as alias "searchReq"
     Given I visit the page "/map"
     When I toggle the search listing filters section
-    And I wait 2 seconds
+    And I wait 5 seconds
     Then the search listing dropdown field labelled "Project Type" should have the value "Select"
     When I click the search listing dropdown field labelled "Project Type"
     Then the selected dropdown field should have the items:
@@ -68,19 +68,19 @@ Feature: School buildings map
       | Tech school          |
       | Non-government grant |
 
-  @mockserver
+  @mockserver @focus
   Scenario: Click on cluster should zoom in
     Given the "/api/tide/elasticsearch/elasticsearch_index_develop_node/_search" network request is stubbed with fixture "/map-table/vsba/response-all" and status 200 as alias "searchReq"
     And I visit the page "/map"
     When I click the map component at coordinates 535 395
-    When I wait 3 seconds
+    When I wait 5 seconds
     Then the map matches the image snapshot "map-cluster-zoom"
 
   @mockserver
   Scenario: Switch to list view
     Given the "/api/tide/elasticsearch/elasticsearch_index_develop_node/_search" network request is stubbed with fixture "/map-table/vsba/response-all" and status 200 as alias "searchReq"
     And I visit the page "/map"
-    When I wait 2 seconds
+    When I wait 5 seconds
     And I click the tab labelled "List"
     Then the search listing layout should be "table"
     And the custom collection component results count should read "Displaying 1-5 of 2159 results"

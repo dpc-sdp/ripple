@@ -30,7 +30,7 @@ Feature: Custom Collection
     Given the "/api/tide/elasticsearch/sdp_data_pipelines_scl/_search" network request is stubbed with fixture "/landingpage/custom-collection/response-no-items" and status 200 as alias "cslReq"
     Given I visit the page "/custom-collection"
     Then the landing page component "TideCustomCollection" should exist
-    And the custom collection component should display the error "Sorry! We couldn't find any matches."
+    And the custom collection component should display the error "Sorry, no results match your search. Try again with different search options or check back later."
 
 
 

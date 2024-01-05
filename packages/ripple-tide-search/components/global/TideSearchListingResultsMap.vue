@@ -2,8 +2,8 @@
   <ClientOnly>
     <RplMap
       :id="123"
-      :features="features"
       ref="rplmap"
+      :features="features"
       projection="EPSG:3857"
       popupType="popover"
       :map-height="550"

@@ -33,7 +33,6 @@
 <script setup lang="ts">
 import { ref } from '#imports'
 import { useDebounceFn } from '@vueuse/core'
-import { transformExtent } from 'ol/proj'
 import { inAndOut } from 'ol/easing'
 import { fromLonLat } from 'ol/proj'
 import { Extent } from 'ol/extent'

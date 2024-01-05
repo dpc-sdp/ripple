@@ -11,6 +11,7 @@
     "dev": "nuxt dev",
     "dev:mock": "NUXT_PUBLIC_API_URL=http://localhost:3001 API_PORT=3001 concurrently 'pnpm mockserver' 'pnpm dev'",
     "build": "nuxi build",
+    "preview": "nuxi preview",
     "compile": "tsc --build",
     "start": "node .output/server/index.mjs",
     "start:mock": "NUXT_PUBLIC_API_URL=http://localhost:3001 API_PORT=3001 concurrently 'pnpm mockserver' 'pnpm start'",

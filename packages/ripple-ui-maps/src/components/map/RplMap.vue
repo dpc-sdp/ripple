@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { useRippleEvent, rplEventPayload } from '@dpc-sdp/ripple-ui-core'
 import { RplIcon } from '@dpc-sdp/ripple-ui-core/vue'
 import type { IRplMapFeature } from './../../types'
 import { onMounted, onUnmounted, ref, inject, computed, watch } from 'vue'

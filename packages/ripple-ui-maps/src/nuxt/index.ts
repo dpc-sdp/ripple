@@ -4,7 +4,6 @@ import {
   addComponentsDir,
   addPlugin
 } from '@nuxt/kit'
-import vitePlugins from '../vite.plugins'
 
 export default <any>defineNuxtModule({
   meta: {
@@ -26,8 +25,9 @@ export default <any>defineNuxtModule({
       src: resolve('./runtime/plugin.js'),
       mode: 'client'
     })
-    console.info('Added ripple-ui-maps components')
-    // Adds Ripple UI Core global styles
+    // Adds Ripple UI Maps global styles
     nuxt.options.css.push('@dpc-sdp/ripple-ui-maps/style')
+
+    console.info('Added ripple-ui-maps components')
   }
 })

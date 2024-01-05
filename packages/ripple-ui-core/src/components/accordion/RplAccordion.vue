@@ -20,11 +20,13 @@ interface Props {
   id: string
   items: RplAccordionItem[]
   numbered?: boolean
+  displayToggleAll?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
   items: () => [],
-  numbered: false
+  numbered: false,
+  displayToggleAll: true
 })
 
 const emit = defineEmits<{
@@ -118,7 +120,10 @@ const toggleAllLabel = computed(() => {
 <template>
   <div :id="`accordion-${id}`" class="rpl-accordion">
     <!-- Toggle all -->
-    <div class="rpl-accordion__toggle-all-wrapper rpl-u-screen-only">
+    <div
+      v-if="displayToggleAll"
+      class="rpl-accordion__toggle-all-wrapper rpl-u-screen-only"
+    >
       <button
         v-if="items.length > 1"
         class="rpl-accordion__toggle-all rpl-u-focusable-inline"

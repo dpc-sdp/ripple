@@ -18,15 +18,18 @@ interface Props {
   id: string
   autoFocus?: boolean
   inputLabel?: string
-  inputValue?: string
+  inputValue?: string | Record<string, any>
   submitLabel?: string | boolean
   suggestions?: any[]
   maxSuggestionsDisplayed?: number
   placeholder?: string
   globalEvents?: boolean
   showNoResults?: boolean
-  getOptionLabel?: Function
+  getSuggestionVal?: (item: any) => string
+  getOptionLabel?: (item: any) => string
+  getOptionId?: (item: any) => string
   isOptionSelectable?: Function
+  showLabel?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -38,10 +41,13 @@ const props = withDefaults(defineProps<Props>(), {
   inputValue: '',
   suggestions: () => [],
   maxSuggestionsDisplayed: 10,
-  placeholder: undefined,
+  placeholder: '',
   globalEvents: true,
-  getOptionLabel: (opt) => opt.toString(),
-  isOptionSelectable: (opt) => true
+  getSuggestionVal: (item) => item,
+  getOptionLabel: (opt) => opt,
+  getOptionId: (opt) => opt,
+  isOptionSelectable: (opt) => true,
+  showLabel: false
 })
 
 const emit = defineEmits<{
@@ -105,8 +111,8 @@ const handleSelectOption = (optionValue: any, focusBackOnInput) => {
     inputRef.value.focus()
   }
 
-  internalValue.value = optionValue
-  emit('update:inputValue', optionLabel)
+  internalValue.value = props.getSuggestionVal(optionValue)
+  emit('update:inputValue', optionValue)
   isOpen.value = false
 
   emitRplEvent(
@@ -114,7 +120,7 @@ const handleSelectOption = (optionValue: any, focusBackOnInput) => {
     {
       action: 'search',
       id: props.id,
-      text: optionLabel,
+      text: props.getSuggestionVal(optionValue),
       name: props.inputLabel,
       value: optionLabel,
       payload: optionValue,
@@ -125,7 +131,7 @@ const handleSelectOption = (optionValue: any, focusBackOnInput) => {
 }
 
 const getDefaultActiveId = (): string => {
-  return props.suggestions[0]
+  return props.getOptionId(props.suggestions[0])
 }
 
 const handleOpen = (fromKeyboard = false): void => {
@@ -145,27 +151,31 @@ const handleClose = (focusBackOnInput = false): void => {
   }
 }
 
-const handleArrowUp = () => {
+const handleArrowDown = () => {
   const currentActiveIndex = props.suggestions.findIndex(
-    (opt) => opt === activeOptionId.value
+    (opt) => props.getOptionId(opt) === activeOptionId.value
   )
 
   if (currentActiveIndex < 0) {
     activeOptionId.value = getDefaultActiveId()
   } else if (currentActiveIndex < props.suggestions.length - 1) {
-    activeOptionId.value = props.suggestions[currentActiveIndex + 1]
+    activeOptionId.value = props.getOptionId(
+      props.suggestions[currentActiveIndex + 1]
+    )
   }
 }
 
-const handleArrowDown = () => {
+const handleArrowUp = () => {
   const currentActiveIndex = props.suggestions.findIndex(
-    (opt) => opt === activeOptionId.value
+    (opt) => props.getOptionId(opt) === activeOptionId.value
   )
 
   if (currentActiveIndex < 0) {
     activeOptionId.value = getDefaultActiveId()
   } else if (currentActiveIndex > 0) {
-    activeOptionId.value = props.suggestions[currentActiveIndex - 1]
+    activeOptionId.value = props.getOptionId(
+      props.suggestions[currentActiveIndex - 1]
+    )
   }
 }
 
@@ -216,7 +226,7 @@ const focusOption = (optionId) => {
 watch(
   () => props.inputValue,
   (newModelValue) => {
-    internalValue.value = newModelValue
+    internalValue.value = props.getSuggestionVal(newModelValue)
   },
   { immediate: true }
 )
@@ -229,7 +239,9 @@ watch(activeOptionId, async (newId) => {
   }
 })
 
-const slug = (label: string) => label.toLowerCase().replace(/[^\w-]+/g, '-')
+const slug = (label: string) => {
+  label.toLowerCase().replace(/[^\w-]+/g, '-')
+}
 </script>
 
 <template>
@@ -240,109 +252,119 @@ const slug = (label: string) => label.toLowerCase().replace(/[^\w-]+/g, '-')
     }"
     @submit.prevent="handleSubmit('button')"
   >
-    <div
-      ref="containerRef"
-      class="rpl-search-bar__input-wrap"
-      @keydown.down.prevent="handleArrowUp"
-      @keydown.up.prevent="handleArrowDown"
-      @keydown.esc.prevent="handleClose(true)"
-      @keydown.exact.tab="handleClose(false)"
-      @keydown.shift.tab="handleClose(false)"
+    <label
+      :class="{
+        'rpl-search-bar__label': true,
+        'rpl-u-visually-hidden': !showLabel,
+        'rpl-type-h4-fixed': true
+      }"
+      :for="id"
+      >{{ inputLabel }}</label
     >
-      <label class="rpl-u-visually-hidden" :for="id">{{ inputLabel }}</label>
-      <input
-        v-bind="$attrs"
-        :id="id"
-        ref="inputRef"
-        v-model="internalValue"
-        :aria-owns="menuId"
-        autocomplete="off"
-        aria-autocomplete="list"
-        :aria-expanded="isOpen"
-        :placeholder="placeholder"
-        role="combobox"
-        :class="{
-          'rpl-search-bar__input': true,
-          'rpl-u-focusable-outline': true,
-          'rpl-u-focusable-outline--no-border': true,
-          'rpl-u-focusable--force-on': isOpen
-        }"
-        type="search"
-        @input="handleInputChange"
-        @focus="handleOpen(false)"
-        @keydown.enter.prevent="handleSubmit('enter')"
-      />
-
-      <template
-        v-if="
-          showNoResults &&
-          suggestions.length === 0 &&
-          internalValue.length > 0 &&
-          isOpen
-        "
-      >
-        <slot name="noresults">
-          <div class="rpl-search-bar__menu">
-            <span class="rpl-search-bar__menu-noresults"> No results </span>
-          </div>
-        </slot>
-      </template>
-
+    <div class="rpl-search-bar__inner">
       <div
-        v-if="suggestions.length && isOpen"
-        :id="menuId"
-        ref="menuRef"
-        class="rpl-search-bar__menu"
-        role="listbox"
-        tabindex="-1"
+        ref="containerRef"
+        class="rpl-search-bar__input-wrap"
+        @keydown.up.prevent="handleArrowUp"
+        @keydown.down.prevent="handleArrowDown"
+        @keydown.esc.prevent="handleClose(true)"
+        @keydown.exact.tab="handleClose(false)"
+        @keydown.shift.tab="handleClose(false)"
       >
-        <div
-          v-for="option in suggestions"
-          :id="slug(getOptionLabel(option))"
-          :key="`opt-${slug(getOptionLabel(option))}`"
-          ref="optionRefs"
-          :data-option-id="getOptionLabel(option)"
-          :role="isOptionSelectable(option) ? 'option' : null"
+        <input
+          v-bind="$attrs"
+          :id="id"
+          ref="inputRef"
+          v-model="internalValue"
+          :aria-owns="menuId"
+          autocomplete="off"
+          aria-autocomplete="list"
+          :aria-expanded="isOpen"
+          :placeholder="placeholder"
+          role="combobox"
           :class="{
-            'rpl-search-bar__menu-option': true,
-            'rpl-u-focusable-block': true,
-            'rpl-u-focusable--force-on': isMenuItemKeyboardFocused(
-              slug(getOptionLabel(option))
-            )
+            'rpl-search-bar__input': true,
+            'rpl-u-focusable-outline': true,
+            'rpl-u-focusable-outline--no-border': true,
+            'rpl-u-focusable--force-on': isOpen
           }"
-          tabindex="-1"
-          @keydown.space.prevent="
-            isOptionSelectable(option) && handleSelectOption(option, true)
+          type="search"
+          @input="handleInputChange"
+          @focus="handleOpen(false)"
+          @keydown.enter.prevent="handleSubmit('enter')"
+        />
+
+        <template
+          v-if="
+            showNoResults &&
+            suggestions.length === 0 &&
+            !!internalValue &&
+            isOpen
           "
-          @keydown.enter.prevent="
-            isOptionSelectable(option) && handleSelectOption(option, true)
-          "
-          @click="
-            isOptionSelectable(option) && handleSelectOption(option, false)
-          "
-          @keydown="isOptionSelectable(option) && handleKeydown"
         >
-          <slot name="suggestion" :option="{ option }">
-            {{ getOptionLabel(option) }}
+          <slot name="noresults">
+            <div class="rpl-search-bar__menu">
+              <span class="rpl-search-bar__menu-noresults"> No results </span>
+            </div>
           </slot>
+        </template>
+
+        <div
+          v-if="suggestions.length && isOpen"
+          :id="menuId"
+          ref="menuRef"
+          class="rpl-search-bar__menu"
+          role="listbox"
+          tabindex="-1"
+        >
+          <div
+            v-for="option in suggestions"
+            :id="slug(getOptionId(option))"
+            :key="`opt-${slug(getOptionId(option))}`"
+            ref="optionRefs"
+            :data-option-id="getOptionId(option)"
+            :role="isOptionSelectable(option) ? 'option' : null"
+            :class="{
+              'rpl-search-bar__menu-option': true,
+              'rpl-u-focusable-block': true,
+              'rpl-u-focusable--force-on': isMenuItemKeyboardFocused(
+                getOptionId(option)
+              )
+            }"
+            tabindex="-1"
+            @keydown.space.prevent="
+              isOptionSelectable(option) && handleSelectOption(option, true)
+            "
+            @keydown.enter.prevent="
+              isOptionSelectable(option) && handleSelectOption(option, true)
+            "
+            @click="
+              isOptionSelectable(option) && handleSelectOption(option, false)
+            "
+            @keydown="isOptionSelectable(option) && handleKeydown"
+          >
+            <slot name="suggestion" :option="{ option }">
+              {{ getOptionLabel(option) }}
+            </slot>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="rpl-search-bar__right">
-      <button
-        type="submit"
-        aria-label="search"
-        class="rpl-search-bar-submit rpl-u-focusable-inline"
-      >
-        <span
-          v-if="submitLabel"
-          class="rpl-search-bar-submit__label rpl-type-label rpl-type-weight-bold"
-          >{{ submitLabel }}</span
+      <div class="rpl-search-bar__right">
+        <button
+          type="submit"
+          aria-label="search"
+          class="rpl-search-bar-submit rpl-u-focusable-inline"
         >
-        <span class="rpl-search-bar-submit__icon">
-          <RplIcon name="icon-search" size="m" />
-        </span>
-      </button>
+          <span
+            v-if="submitLabel"
+            class="rpl-search-bar-submit__label rpl-type-label rpl-type-weight-bold"
+            >{{ submitLabel }}</span
+          >
+          <span class="rpl-search-bar-submit__icon">
+            <RplIcon name="icon-search" size="m" />
+          </span>
+        </button>
+      </div>
     </div>
   </form>
 </template>

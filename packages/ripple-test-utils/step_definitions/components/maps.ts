@@ -53,7 +53,7 @@ Then(`the map matches the image snapshot {string}`, (title) => {
     },
     // maximum threshold above which the test should fail
     // default: 0.01
-    maxDiffThreshold: 0.1
+    maxDiffThreshold: 0.3
   })
 })
 

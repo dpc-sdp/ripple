@@ -27,7 +27,7 @@ Feature: School buildings map
   @mockserver
   Scenario: Search for postcode
     Given the "/api/tide/elasticsearch/elasticsearch_index_develop_node/_search" network request is stubbed with fixture "/map-table/vsba/response-all" and status 200 as alias "searchReq"
-    Given the "/api/tide/app-search/vic-postcode-localities/search" network request is stubbed with fixture "/map-table/vsba/localities-all" and status 200 as alias "localitiesReq"
+    Given the "/api/tide/app-search/vic-postcode-localities/elasticsearch/_search" network request is stubbed with fixture "/map-table/vsba/localities-all" and status 200 as alias "localitiesReq"
     And I visit the page "/map"
     Then the ripple map component should be visible
     When I enter the term "3012" into the location search input
@@ -39,7 +39,7 @@ Feature: School buildings map
   @mockserver
   Scenario: No results message
     Given the "/api/tide/elasticsearch/elasticsearch_index_develop_node/elasticsearch/_search" network request is stubbed with fixture "/map-table/vsba/response-all" and status 200 as alias "searchReq"
-    Given the "/api/tide/app-search/vic-postcode-localities/search" network request is stubbed with fixture "/map-table/vsba/localities-nyah" and status 200 as alias "localitiesReq"
+    Given the "/api/tide/app-search/vic-postcode-localities/elasticsearch/_search" network request is stubbed with fixture "/map-table/vsba/localities-nyah" and status 200 as alias "localitiesReq"
     And I visit the page "/map"
     Then the ripple map component should be visible
     Given the "/api/tide/elasticsearch/elasticsearch_index_develop_node/elasticsearch/_search" network request is stubbed with fixture "/map-table/vsba/response-none" and status 200 as alias "searchReq"

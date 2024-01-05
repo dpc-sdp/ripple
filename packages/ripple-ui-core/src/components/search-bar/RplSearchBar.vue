@@ -89,6 +89,7 @@ const handleSubmit = (type: 'button' | 'enter') => {
     {
       action: 'search',
       id: props.id,
+      name: props.inputLabel,
       value: internalValue.value,
       text: type === 'button' ? props.submitLabel : null,
       type
@@ -120,7 +121,9 @@ const handleSelectOption = (optionValue: any, focusBackOnInput) => {
       action: 'search',
       id: props.id,
       text: props.getSuggestionVal(optionValue),
-      value: optionValue,
+      name: props.inputLabel,
+      value: optionLabel,
+      payload: optionValue,
       type: 'suggestion'
     },
     { global: props.globalEvents }

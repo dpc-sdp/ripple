@@ -13,6 +13,7 @@ export type tableColumnConfig = {
   classes?: string
   component?: string
   props?: any
+  isHTML?: boolean
 }
 
 export type tableRow = {
@@ -116,7 +117,10 @@ const getCellText = (colIndex: number) => {
           />
         </template>
         <template v-else>
-          {{ getCellText(i) }}
+          <div v-if="column.isHTML" v-html="getCellText(i)" />
+          <template v-else>
+            {{ getCellText(i) }}
+          </template>
         </template>
       </component>
 

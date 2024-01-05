@@ -34,10 +34,6 @@ const tidePublicationModule: IRplTideModuleMapping = {
       }
       return 'h2'
     },
-    breadcrumbs: (src: string) => [
-      { text: 'Home', url: '/' },
-      { text: getField(src, 'title') }
-    ],
     details: {
       author: (src: any) => {
         if (Array.isArray(src.field_publication_authors)) {

@@ -19,7 +19,9 @@ const pluginTables = function (this: any) {
   // Wrap tables with a div.
   this.find('table').map((i: any, el: any) => {
     const $table = this.find(el)
-    return $table.wrap(`<div class="rpl-table"></div>`)
+    return $table
+      .wrap(`<div class="rpl-table"></div>`)
+      .wrap('<div class="rpl-table__scroll-container" tabindex="0"></div>')
   })
 }
 

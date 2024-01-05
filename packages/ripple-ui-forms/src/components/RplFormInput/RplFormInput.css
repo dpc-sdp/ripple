@@ -1,5 +1,6 @@
 .rpl-form__input {
   --local-icon-spacing: var(--rpl-sp-4);
+  --local-input-height: 48px;
 
   font-size: var(--rpl-type-size-2);
   line-height: var(--rpl-type-lh-4);
@@ -56,6 +57,16 @@
     cursor: not-allowed;
     color: var(--rpl-clr-neutral-300);
     border-color: var(--rpl-clr-neutral-200);
+  }
+
+  &[type='date'] {
+    color: inherit;
+    min-height: var(--local-input-height);
+    -webkit-appearance: none;
+
+    &::-webkit-date-and-time-value {
+      text-align: left;
+    }
   }
 }
 

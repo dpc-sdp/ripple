@@ -17,11 +17,7 @@
             "field_node_site": [8888]
           }
         },
-        {
-          "ids": {
-            "values": ["Birds", "Dogs"]
-          }
-        }
+        null
       ]
     }
   },

@@ -1,84 +1,95 @@
 <script setup lang="ts">
-import { getNode } from '@formkit/core'
+import { getNode, FormKitNode } from '@formkit/core'
+
 interface Props {
   id: string
-  placeholder: string
-  multiple: boolean
   label: string
+  placeholder: string
+  dependantLabel: string
+  dependantPlaceholder: string
+  multiple: boolean
   options?: any[]
-  timestamp?: string
 }
-const props = defineProps<Props>()
+
+const props = withDefaults(defineProps<Props>(), {
+  options: () => []
+})
+
+const groupValues = ref({})
+const selectedParent = ref('')
+const initialChild = ref(null)
+let formNode: FormKitNode | undefined
+let formChildNode: FormKitNode | undefined
 
 const parentOptions = computed(() => {
-  return props.options?.filter((opt) => !opt.hasOwnProperty('parent'))
+  return props.options.filter((option) => !option.parent)
 })
+
 const childOptions = computed(() => {
-  if (selectedParentCat.value) {
-    const selectOption = props.options?.find(
-      (opt) => opt.value === selectedParentCat.value
-    )
+  if (!selectedParent.value) return []
 
-    return props.options?.filter((opt) => opt.parent === selectOption.id)
-  }
-  return []
+  const selectedOption = props.options?.find(
+    (option) => option.value === selectedParent.value
+  )
+
+  return props.options.filter((opt) => opt.parent === selectedOption?.id)
 })
 
-const selectedParentCat = ref(null)
-let listener = ''
+const handleSelect = (value: string) => {
+  if (selectedParent.value !== value) {
+    selectedParent.value = value
+
+    // When the parent select is updated, the child select value is cleared, this is the desired case
+    // except for the initial load when we what the supplied child value to persist
+    if (formNode && initialChild.value) {
+      nextTick(() => {
+        formNode.input({
+          'topic-parent': value,
+          'topic-child': initialChild.value
+        })
+        initialChild.value = null
+      })
+    }
+  }
+}
 
 onMounted(() => {
-  const formNode = getNode(`${props.id}-parent`)
-  // Listen for any prop being set or changed.
-  if (formNode) {
-    listener = formNode.on('commit', ({ payload }) => {
-      selectedParentCat.value = payload
-    })
-  }
-})
-onUnmounted(() => {
-  const formNode = getNode(`${props.id}-parent`)
-  // Listen for any prop being set or changed.
-  if (formNode) {
-    formNode.off(listener)
+  formNode = getNode(`${props.id}`)
+  formChildNode = getNode(`${props.id}-child`)
+
+  if (formChildNode?.value) {
+    initialChild.value = formChildNode?.value
   }
 })
 </script>
 
 <template>
-  <div class="rpl-col-6-m">
-    {{ selectedParentCat }}
-    <FormKit
-      :id="`${id}-parent`"
-      :key="`${id}-${timestamp}-parent`"
-      :name="`${id}-parent`"
-      type="RplFormDropdown"
-      :multiple="false"
-      label="Category"
-      :placeholder="placeholder"
-      :options="parentOptions"
-    />
-  </div>
-  <div class="rpl-col-6-m">
-    <FormKit
-      v-if="childOptions.length === 0"
-      :disabled="true"
-      :key="`${id}-${timestamp}-disabled`"
-      type="RplFormDropdown"
-      label="subcategory"
-      placeholder="Select a category"
-      :options="[]"
-    />
-    <FormKit
-      v-else-if="selectedParentCat"
-      :id="`${id}-child`"
-      :key="`${id}-${timestamp}`"
-      :name="`${id}-child`"
-      type="RplFormDropdown"
-      :multiple="multiple"
-      label="subcategory"
-      :placeholder="placeholder"
-      :options="childOptions"
-    />
-  </div>
+  <FormKit :id="`${id}`" :key="`${id}`" v-model="groupValues" type="group">
+    <div class="rpl-col-6-m">
+      <FormKit
+        :id="`${id}-parent`"
+        :key="`${id}-parent`"
+        :name="`${id}-parent`"
+        type="RplFormDropdown"
+        :multiple="false"
+        :label="label"
+        :placeholder="placeholder"
+        :options="parentOptions"
+        @input="handleSelect"
+      />
+    </div>
+    <div class="rpl-col-6-m">
+      <FormKit
+        :id="`${id}-child`"
+        :key="`${id}-child-${selectedParent}`"
+        :name="`${id}-child`"
+        :disabled="!selectedParent || !childOptions.length"
+        type="RplFormDropdown"
+        :multiple="multiple"
+        :label="dependantLabel"
+        :placeholder="dependantPlaceholder"
+        :options="childOptions"
+      />
+    </div>
+  </FormKit>
 </template>

@@ -1,0 +1,38 @@
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "match_all": {}
+        }
+      ],
+      "filter": [
+        {
+          "terms": {
+            "type": ["grant"]
+          }
+        },
+        {
+          "terms": {
+            "field_node_site": [8888]
+          }
+        },
+        {
+          "terms": {
+            "field_species_name": ["Dogs", "Cats"]
+          }
+        }
+      ]
+    }
+  },
+  "size": 10,
+  "from": 0,
+  "sort": [
+    {
+      "_score": "desc"
+    },
+    {
+      "_doc": "desc"
+    }
+  ]
+}

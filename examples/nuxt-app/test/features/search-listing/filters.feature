@@ -22,8 +22,6 @@ Feature: Search listing - Filter
     When I toggle the search listing filters section
     Then the search listing dropdown field labelled "Raw filter example" should have the value "Dogs, Birds"
 
-
-
   @mockserver
   Example: Term filter - Should reflect a single value from the URL
     Given the page endpoint for path "/filters" returns fixture "/search-listing/filters/page" with status 200
@@ -178,12 +176,43 @@ Feature: Search listing - Filter
       | Apples  |
       | Oranges |
 
-  @mockserver @focus
-  Example: Hierarchical filter from taxonomy
-    Given the page endpoint for path "/filters" returns fixture "/search-listing/hierarchical-filters/page" with status 200
-    And the search network request is stubbed with fixture "/search-listing/hierarchical-filters/response" and status 200
+  @mockserver
+  Example: Dependent filter - Should reflect the value from the URL
+    Given the page endpoint for path "/filters" returns fixture "/search-listing/dependent-filters/page" with status 200
+    And the search network request is stubbed with fixture "/search-listing/dependent-filters/response" and status 200
     And the current date is "Fri, 02 Feb 2050 03:04:05 GMT"
 
-    When I visit the page "/filters?rawFilter=Birds&rawFilter=Dogs"
-# Then the search listing page should have 2 results
-# And the search network request should be called with the "/search-listing/hierarchical-filters/request-raw" fixture
+    When I visit the page "/filters?dependentFilter=Mammals:Dogs,Cats"
+    Then the search listing page should have 2 results
+    And the search network request should be called with the "/search-listing/dependent-filters/request" fixture
+    Then the filters toggle should show 2 applied filters
+
+    When I toggle the search listing filters section
+    Then the search listing dropdown field labelled "Terms dependent example" should have the value "Mammals"
+#    Then the search listing dropdown field labelled "Terms dependent child example" should have the value "Dogs, Cats"
+    When I click the search listing dropdown field labelled "Terms dependent example"
+    Then the selected dropdown field should have the items:
+      | Mammals |
+      | Birds   |
+#    When I click the search listing dropdown field labelled "Terms dependent child example"
+#    Then the selected dropdown field should have the items:
+#      | Dogs |
+#      | Cats |
+
+  @mockserver
+  Example: Dependent filter - Child options should update on parent selection
+    Given the page endpoint for path "/filters" returns fixture "/search-listing/dependent-filters/page" with status 200
+    And the search network request is stubbed with fixture "/search-listing/dependent-filters/response" and status 200
+    And the current date is "Fri, 02 Feb 2050 03:04:05 GMT"
+
+    When I visit the page "/filters"
+    Then the search listing page should have 2 results
+    And the search network request should be called with the "/search-listing/dependent-filters/request-empty" fixture
+
+    When I toggle the search listing filters section
+    And I click the search listing dropdown field labelled "Terms dependent example"
+    Then I click the option labelled "Birds" in the selected dropdown
+#    And I click the search listing dropdown field labelled "Terms dependent child example"
+#    Then the selected dropdown field should have the items:
+#      | Parrot   |
+#      | Cockatoo |

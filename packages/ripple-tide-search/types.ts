@@ -22,7 +22,7 @@ export interface FilterConfigItem {
    */
   component: 'TideSearchFilterDropdown' | string
   filter?: {
-    type: 'raw' | 'term' | 'terms' | 'function'
+    type: 'raw' | 'term' | 'terms' | 'dependent' | 'function'
     value: string
   }
   aggregations?: {

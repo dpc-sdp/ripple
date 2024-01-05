@@ -1,5 +1,5 @@
 {
-  "title": "Hierarchical filters",
+  "title": "Depenedent filters",
   "changed": "2022-11-02T12:47:29+11:00",
   "created": "2022-11-02T12:47:29+11:00",
   "type": "tide_search_listing",
@@ -112,22 +112,26 @@
         "component": "TideSearchFilterDependent",
         "columns": "rpl-grid",
         "filter": {
-          "type": "raw",
-          "value": "{\"ids\":{\"values\":{{value}}}}"
+          "type": "dependent",
+          "multiple": false,
+          "value": "field_species_name"
         },
         "aggregations": {
-          "field": "rawFilter",
+          "field": "topic",
           "source": "taxonomy"
         },
         "props": {
           "id": "dependentFilter",
-          "label": "Dependent filter",
-          "placeholder": "Select a pet",
+          "label": "Terms dependent example",
+          "placeholder": "Select a species",
+          "dependantLabel": "Terms dependent child example",
+          "dependantPlaceholder": "All sub species",
+          "multiple": true,
           "options": [
             {
               "id": "1",
               "label": "Mammals",
-              "value": "mammals"
+              "value": "Mammals"
             },
             {
               "id": "2",
@@ -138,18 +142,24 @@
             {
               "id": "3",
               "label": "Birds",
-              "value": "birds"
+              "value": "Birds"
             },
             {
               "id": "4",
               "label": "Cats",
-              "value": "cats",
+              "value": "Cats",
               "parent": "1"
             },
             {
               "id": "5",
               "label": "Parrot",
-              "value": "parrot",
+              "value": "Parrot",
+              "parent": "3"
+            },
+            {
+              "id": "6",
+              "label": "Cockatoo",
+              "value": "Cockatoo",
               "parent": "3"
             }
           ]

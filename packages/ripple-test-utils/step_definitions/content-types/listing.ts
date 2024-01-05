@@ -206,6 +206,17 @@ Then(
 )
 
 Then(
+  `I click the option labelled {string} in the selected dropdown`,
+  (label: string) => {
+    cy.get(`@selectedDropdown`)
+      .siblings('[role="listbox"]')
+      .find('[role="option"]')
+      .contains(label)
+      .click()
+  }
+)
+
+Then(
   `the selected dropdown field should have the items:`,
   (dataTable: DataTable) => {
     const table = dataTable.raw()

@@ -1,5 +1,11 @@
 <script setup lang="ts">
-import { getActiveFilterURL, ref, toRaw, computed } from '#imports'
+import {
+  getActiveFilterURL,
+  getActiveFiltersTally,
+  ref,
+  toRaw,
+  computed
+} from '#imports'
 import { submitForm } from '@formkit/vue'
 import useTideSearch from './../composables/useTideSearch'
 import type { TidePageBase, TideSiteData } from '@dpc-sdp/ripple-tide-api/types'
@@ -103,6 +109,7 @@ const {
   suggestions,
   filterForm,
   appliedFilters,
+  resetFilters,
   submitSearch,
   goToPage,
   page,
@@ -210,7 +217,7 @@ const handleFilterSubmit = (event) => {
 
 const handleFilterReset = () => {
   searchTerm.value = ''
-  filterForm.value = {}
+  resetFilters()
   submitSearch()
 }
 
@@ -253,17 +260,7 @@ const handleToggleFilters = () => {
 }
 
 const numAppliedFilters = computed(() => {
-  return Object.values(appliedFilters.value).filter((value) => {
-    if (!value) {
-      return false
-    }
-
-    if (Array.isArray(value) && !value.length) {
-      return false
-    }
-
-    return true
-  }).length
+  return getActiveFiltersTally(appliedFilters.value)
 })
 
 const toggleFiltersLabel = computed(() => {

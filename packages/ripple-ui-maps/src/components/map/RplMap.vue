@@ -28,6 +28,7 @@ interface Props {
   pinStyle?: Function
   mapHeight?: number
   popupType?: 'sidebar' | 'popover'
+  noresults?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -49,7 +50,8 @@ const props = withDefaults(defineProps<Props>(), {
     })
     ic.load()
     return ic
-  }
+  },
+  noresults: false
 })
 
 const zoom = ref(props.initialZoom)
@@ -106,6 +108,8 @@ function onPopUpClose() {
 }
 
 function onMapSingleClick(evt) {
+  onNoResultsDismiss()
+
   const map = mapRef.value.map
   const point = getfeaturesAtMapPixel(map, evt.pixel)
   const largeClusterZoomAmount = 4 // Zoom levels to zoom in
@@ -162,6 +166,23 @@ function onMapMove(evt) {
     }
   }
 }
+
+const hideNoResults = ref(false)
+
+function onNoResultsDismiss() {
+  hideNoResults.value = true
+}
+// reset dismiss state when another query happens
+watch(
+  () => props.noresults,
+  (newNoResultsVal) => {
+    if (newNoResultsVal === true && hideNoResults.value === true) {
+      hideNoResults.value = false
+    }
+  }
+)
+
+const noResultsRef = ref(null)
 </script>
 
 <template>
@@ -190,6 +211,25 @@ function onMapMove(evt) {
         </template>
       </RplMapPopUp>
     </slot>
+    <div
+      v-if="noresults && !hideNoResults"
+      class="rpl-map__noresults"
+      ref="noResultsRef"
+    >
+      <button
+        title="dismiss no results message"
+        class="rpl-map__noresults-cancel"
+        @click="onNoResultsDismiss"
+      >
+        <RplIcon name="icon-cancel" size="xs"></RplIcon>
+      </button>
+      <slot name="noresults">
+        <p class="rpl-type-h4-fixed">Sorry, no results match your search.</p>
+        <p class="rpl-type-p-small">
+          Try again with different search options or check back later.
+        </p>
+      </slot>
+    </div>
     <ol-map
       ref="mapRef"
       :loadTilesWhileAnimating="false"

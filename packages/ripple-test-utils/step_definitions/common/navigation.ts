@@ -17,3 +17,6 @@ When('I visit the page {string}', (route: string) => {
 Given('I wait {int} seconds', (seconds: number) => {
   cy.wait(seconds * 1000)
 })
+Given('I pause the test', () => {
+  cy.pause()
+})

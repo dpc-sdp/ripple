@@ -1,5 +1,9 @@
 <template>
-  <ol-vector-layer :title="layerIdentifier" :zIndex="1">
+  <ol-vector-layer
+    v-if="results.length > 0"
+    :title="layerIdentifier"
+    :zIndex="1"
+  >
     <ol-source-vector :zIndex="0" :url="areaUrl" :format="shapeFormat">
     </ol-source-vector>
     <ol-style>
@@ -145,14 +149,20 @@ onMounted(async () => {
         hitTolerance: 5
       })
       // reset all shapes not hovered
-      shapeLayer
-        .getSource()
-        .getFeatures()
-        .forEach(function (feature) {
-          feature.setStyle(defaultStyleFn)
-        })
+      if (shapeLayer) {
+        const shapeSource = shapeLayer.getSource()
+        if (shapeSource) {
+          const shapeFeatures = shapeSource.getFeatures()
+          if (shapeFeatures) {
+            shapeFeatures.forEach(function (feature) {
+              feature.setStyle(defaultStyleFn)
+            })
+          }
+        }
+      }
       // Change the style for the hovered shape on mouseover
       if (feature) {
+        document.querySelector('canvas').style.cursor = 'pointer'
         feature.setStyle(mouseOverStyleFn)
       }
     })

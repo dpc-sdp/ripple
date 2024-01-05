@@ -8,7 +8,11 @@
       popupType="popover"
       :map-height="550"
       :pinStyle="pinStyle"
+      :noresults="noresults"
     >
+      <template #noresults>
+        <slot name="noresults"></slot>
+      </template>
       <template #map-provider>
         <rpl-map-provider-vic-map />
       </template>
@@ -95,6 +99,7 @@ interface Props {
     icon?: string
     iconColour?: string
   }[]
+  noresults?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -103,7 +108,8 @@ const props = withDefaults(defineProps<Props>(), {
   pinIconFn: 'defaultPinStyleFn',
   legendTitle: 'Key',
   legendExpanded: false,
-  legendItems: () => []
+  legendItems: () => [],
+  noresults: false
 })
 
 const appConfig = useAppConfig()
@@ -113,15 +119,6 @@ if (pinStyleFunctions && pinStyleFunctions.hasOwnProperty(props.pinIconFn)) {
   pinStyle.value = pinStyleFunctions[props.pinIconFn]
 }
 
-const getClusteredFeatures = (itms) => {
-  return itms.map((itm) => {
-    return {
-      id: itm.id,
-      title: itm[props.popup.title.objKey],
-      content: itm[props.popup.content.objKey]
-    }
-  })
-}
 const rplmap = ref()
 
 function getTitle(feature) {

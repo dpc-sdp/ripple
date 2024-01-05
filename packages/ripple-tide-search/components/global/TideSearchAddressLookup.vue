@@ -10,14 +10,15 @@
       :suggestions="results"
       :showNoResults="true"
       :debounce="5000"
+      :maxSuggestionsDisplayed="8"
       placeholder="Search by postcode or suburb"
-      :getOptionId="(itm:any) => itm.id"
-      :getSuggestionVal="(itm:any) => itm?.locality || ''"
+      :getOptionId="(itm:any) => itm.name"
+      :getSuggestionVal="(itm:any) => itm?.name || ''"
       @submit="submitAction"
       @update:input-value="onUpdate"
     >
       <template #suggestion="{ option: { option } }">
-        <span>{{ option?.locality }}</span>
+        <span>{{ option?.name }}</span>
         <RplTag
           v-if="option?.postcode"
           :label="option?.postcode"
@@ -32,23 +33,30 @@
 <script setup lang="ts">
 import { ref } from '#imports'
 import { useDebounceFn } from '@vueuse/core'
-import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
+import { transformExtent } from 'ol/proj'
+import { inAndOut } from 'ol/easing'
 import { fromLonLat } from 'ol/proj'
+import { Extent } from 'ol/extent'
+// TODO must add analytics events
+// import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
 
 interface Props {
   inputValue?: any
+  resultsloaded?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  inputValue: null
+  inputValue: null,
+  resultsloaded: false
 })
 
 const results = ref([])
 
 type addressResultType = {
   name: string
-  latitude: number
-  longitude: number
+  postcode: string
+  bbox: string[]
+  type: 'postcode' | 'locality'
 }
 
 const emit = defineEmits<{
@@ -73,13 +81,38 @@ async function submitAction(e: any) {
   pendingZoomAnimation.value = true
 }
 
-const fetchVicPostcodes = async (query: string) => {
-  const searchUrl = `/api/tide/app-search/vic-postcode-localities/search`
+const fetchSuggestions = async (query: string) => {
+  const searchUrl = `/api/tide/app-search/vic-postcode-localities/elasticsearch/_search`
   const queryDSL = {
-    query,
-    search_fields: {
-      locality: {},
-      postcode: {}
+    query: {
+      bool: {
+        should: [
+          {
+            match: {
+              locality: {
+                query,
+                operator: 'or',
+                fuzziness: 'auto'
+              }
+            }
+          },
+          {
+            match_phrase: {
+              'locality.keyword': {
+                query,
+                boost: 2
+              }
+            }
+          },
+          {
+            term: {
+              postcode: {
+                value: query
+              }
+            }
+          }
+        ]
+      }
     }
   }
 
@@ -87,16 +120,18 @@ const fetchVicPostcodes = async (query: string) => {
     const response = await $fetch(searchUrl, {
       method: 'POST',
       body: {
-        ...queryDSL
+        ...queryDSL,
+        size: 20
       }
     })
-    if (response && response.meta.page.total_results > 0) {
-      return response.results.map((itm) => ({
-        id: itm.id.raw,
-        locality: itm.locality.raw,
-        postcode: itm.postcode.raw,
-        location: itm.location.raw
-      }))
+    if (response && response.hits.total.value > 0) {
+      return response.hits.hits.map((itm: any) => {
+        return {
+          name: itm._source.locality,
+          postcode: itm._source.postcode,
+          bbox: itm._source.bbox
+        }
+      })
     }
   } catch (e) {
     console.error(e)
@@ -108,9 +143,7 @@ const onUpdate = useDebounceFn(async (q: string): Promise<void> => {
     results.value = []
     return
   }
-
-  const res = await fetchVicPostcodes(q)
-
+  const res = await fetchSuggestions(q)
   if (!res || res.length === 0) {
     results.value = []
   } else {
@@ -118,14 +151,24 @@ const onUpdate = useDebounceFn(async (q: string): Promise<void> => {
   }
 }, 300)
 
-// Center the map on the location when the map is ready
-// It can take a while for the map to be ready, so we need to watch for it
-// We don't animate the zoom here, because it's the initial load or a tab change
+// Center the map on the location when the map instance is ready
+// this is for tab switching only
 watch(
   () => rplMapRef.value,
-  (newMap, oldMap) => {
-    if (!oldMap && newMap) {
-      centerMapOnLocation(newMap, props.inputValue.location, false)
+  (newVal, oldVal) => {
+    if (!oldVal && newVal && props.resultsloaded) {
+      // We don't animate the zoom here, because it's the initial load or a tab change
+      centerMapOnLocation(newVal, props.inputValue, false)
+    }
+  }
+)
+// we also watch for the map search results to be loaded before centering
+// this is for first load
+watch(
+  () => props.resultsloaded,
+  (newVal, oldVal) => {
+    if (!oldVal && newVal && rplMapRef.value) {
+      centerMapOnLocation(rplMapRef.value, props.inputValue, false)
     }
   }
 )
@@ -133,24 +176,45 @@ watch(
 // Center the map on the location when the location changes
 // We look for the value of pendingZoomAnimation to determine if we should animate the zoom
 watch(
-  () => props.inputValue?.location,
-  (newLoc) => {
-    centerMapOnLocation(rplMapRef.value, newLoc, pendingZoomAnimation.value)
+  () => props.inputValue,
+  (newLocation) => {
+    centerMapOnLocation(
+      rplMapRef.value,
+      newLocation,
+      pendingZoomAnimation.value
+    )
     pendingZoomAnimation.value = false
   }
 )
 
-function centerMapOnLocation(map, location, animate: false) {
-  if (map && location) {
-    const targetZoom = 13
-    const duration = animate ? 800 : 0
-
-    const locationArr = location.split(',')
-    const lat = parseFloat(locationArr[0])
-    const lng = parseFloat(locationArr[1])
-    const center = fromLonLat([lng, lat], 'EPSG:3857')
-
-    map.getView().animate({ center, zoom: targetZoom, duration })
+async function centerMapOnLocation(
+  map: any,
+  location: addressResultType,
+  animate: boolean
+) {
+  if (map && location?.bbox) {
+    // fetch the geometry of the postcode so we can zoom to its extent
+    if (location?.bbox) {
+      const bbox: Extent = location.bbox.map((val) => parseFloat(val))
+      const mapSize = map.getSize()
+      if (mapSize) {
+        map.getView().fit(bbox, {
+          size: mapSize,
+          easing: inAndOut,
+          duration: animate ? 800 : 0,
+          padding: [100, 100, 100, 100]
+        })
+      }
+    }
+  } else if (!location?.postcode) {
+    // reset back to initial view on empty query
+    const center = [144.9631, -36.8136]
+    const initialZoom = 7.3
+    map.getView().animate({
+      center: fromLonLat(center),
+      duration: 1200,
+      zoom: initialZoom
+    })
   }
 }
 </script>

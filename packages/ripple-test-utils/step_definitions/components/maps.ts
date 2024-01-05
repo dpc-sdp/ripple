@@ -1,4 +1,4 @@
-import { Then, When } from '@badeball/cypress-cucumber-preprocessor'
+import { Then, When, Given } from '@badeball/cypress-cucumber-preprocessor'
 
 Then(`the ripple map component should be visible`, () => {
   cy.get(`.rpl-map canvas`).should('be.visible')
@@ -43,24 +43,17 @@ When(`I click the location search term {string}`, (term) => {
 })
 
 Then(`the map matches the image snapshot {string}`, (title) => {
+  cy.get('.rpl-primary-nav').invoke('remove')
   cy.get('.rpl-map').matchImage({
     title,
-    screenshotConfig: {
-      onBeforeScreenshot($el) {
-        const $primaryNav = $el.find('.rpl-primary-nav')
-
-        if ($primaryNav) {
-          $primaryNav.hide()
-        }
-      }
-    },
+    screenshotConfig: {},
     // pixelmatch options, see: https://www.npmjs.com/package/pixelmatch#pixelmatchimg1-img2-output-width-height-options
     diffConfig: {
       threshold: 0.1
     },
     // maximum threshold above which the test should fail
     // default: 0.01
-    maxDiffThreshold: 0.5
+    maxDiffThreshold: 0.3
   })
 })
 
@@ -71,5 +64,26 @@ When(
     cy.get('.rpl-map canvas').trigger('mousemove', 100, 100)
     // Click
     cy.get('.rpl-map canvas').click(x, y, { force: true })
+  }
+)
+
+Then(`the map no results message should be visible`, (term) => {
+  cy.get('.tide-custom-collection-no-results').should('be.visible')
+})
+Then(`the map no results message should contain {string}`, (term) => {
+  cy.get('.tide-custom-collection-no-results').should('contain', term)
+})
+
+Given(
+  'the arcgis FeatureServer {string} returns {string} fixture',
+  (featureId: string, requestFixture: string) => {
+    cy.intercept(
+      'GET',
+      `https://services6.arcgis.com/GB33F62SbDxJjwEL/ArcGIS/rest/services/Vicmap_Admin/FeatureServer/${featureId}/*`,
+      {
+        statusCode: 200,
+        requestFixture
+      }
+    ).as('arcGisRequest') // assign an alias
   }
 )

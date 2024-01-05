@@ -38,15 +38,16 @@ Feature: School buildings map
 
   @mockserver
   Scenario: No results message
-    Given the "/api/tide/elasticsearch/elasticsearch_index_develop_node/_search" network request is stubbed with fixture "/map-table/vsba/response-all" and status 200 as alias "searchReq"
+    Given the "/api/tide/elasticsearch/elasticsearch_index_develop_node/elasticsearch/_search" network request is stubbed with fixture "/map-table/vsba/response-all" and status 200 as alias "searchReq"
     Given the "/api/tide/app-search/vic-postcode-localities/search" network request is stubbed with fixture "/map-table/vsba/localities-nyah" and status 200 as alias "localitiesReq"
     And I visit the page "/map"
     Then the ripple map component should be visible
-    Given the "/api/tide/elasticsearch/elasticsearch_index_develop_node/_search" network request is stubbed with fixture "/map-table/vsba/response-none" and status 200 as alias "searchReq"
+    Given the "/api/tide/elasticsearch/elasticsearch_index_develop_node/elasticsearch/_search" network request is stubbed with fixture "/map-table/vsba/response-none" and status 200 as alias "searchReq"
     Given the arcgis FeatureServer "14" returns "/map-table/vsba/arcgis-nyah" fixture
     When I enter the term "nyah" into the location search input
     Then the location search results should contain "Nyah"
     When I click the location search term "Nyah"
+    And I wait 2 seconds
     Then the map no results message should be visible
     Then the map no results message should contain "Sorry, no results match your search. Try again with different search options or check back later. "
     Then the map matches the image snapshot "map-no-results"
@@ -68,12 +69,13 @@ Feature: School buildings map
       | Tech school          |
       | Non-government grant |
 
-  @mockserver @focus
+  @mockserver
   Scenario: Click on cluster should zoom in
     Given the "/api/tide/elasticsearch/elasticsearch_index_develop_node/_search" network request is stubbed with fixture "/map-table/vsba/response-all" and status 200 as alias "searchReq"
     And I visit the page "/map"
-    When I click the map component at coordinates 535 395
-    When I wait 5 seconds
+    When I wait 2 seconds
+    When I click the map component at coordinates 571 412
+    When I wait 4 seconds
     Then the map matches the image snapshot "map-cluster-zoom"
 
   @mockserver

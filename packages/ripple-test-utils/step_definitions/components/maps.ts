@@ -43,24 +43,17 @@ When(`I click the location search term {string}`, (term) => {
 })
 
 Then(`the map matches the image snapshot {string}`, (title) => {
+  cy.get('.rpl-primary-nav').invoke('remove')
   cy.get('.rpl-map').matchImage({
     title,
-    screenshotConfig: {
-      onBeforeScreenshot($el) {
-        const $primaryNav = $el.find('.rpl-primary-nav')
-
-        if ($primaryNav) {
-          $primaryNav.hide()
-        }
-      }
-    },
+    screenshotConfig: {},
     // pixelmatch options, see: https://www.npmjs.com/package/pixelmatch#pixelmatchimg1-img2-output-width-height-options
     diffConfig: {
       threshold: 0.1
     },
     // maximum threshold above which the test should fail
     // default: 0.01
-    maxDiffThreshold: 0.5
+    maxDiffThreshold: 0.1
   })
 })
 

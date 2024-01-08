@@ -1,0 +1,481 @@
+[
+  {
+    "title": "Melbourne",
+    "lat": -37.8142,
+    "lng": 144.9631,
+    "population": 4529500,
+    "description": "Melbourne is the capital of Victoria, Australia's most populous title, known for its diverse culture, art, and sports."
+  },
+  {
+    "title": "West Footscray",
+    "postcode": 3012,
+    "description": "A vibrant suburb with diverse cultures, trendy cafes, and local markets. Known for its community spirit and convenient amenities."
+  },
+  {
+    "title": "Brunswick",
+    "postcode": 3056,
+    "description": "Eclectic and bohemian, this Melbourne suburb thrives with diverse eateries, artsy boutiques, and a lively cultural scene."
+  },
+  {
+    "title": "Cranbourne",
+    "lat": -38.0996,
+    "lng": 145.2834,
+    "population": 460491,
+    "description": "Cranbourne is a suburban town with a growing population located in Victoria."
+  },
+  {
+    "title": "Geelong",
+    "lat": -38.15,
+    "lng": 144.35,
+    "population": 184182,
+    "description": "Geelong is a vibrant coastal title with a strong industrial base and a rich cultural scene."
+  },
+  {
+    "title": "Ballarat",
+    "lat": -37.5608,
+    "lng": 143.8475,
+    "population": 98543,
+    "description": "Ballarat is a historic gold rush title known for its beautiful architecture and cultural heritage."
+  },
+  {
+    "title": "Bendigo",
+    "lat": -36.75,
+    "lng": 144.2667,
+    "population": 95587,
+    "description": "Bendigo is a thriving regional title with a strong arts and cultural community."
+  },
+  {
+    "title": "Pakenham",
+    "lat": -38.0712,
+    "lng": 145.4878,
+    "population": 46421,
+    "description": "Pakenham is a growing suburban town in Victoria with a diverse and expanding community."
+  },
+  {
+    "title": "Frankston",
+    "lat": -38.158,
+    "lng": 145.135,
+    "population": 36097,
+    "description": "Frankston is a seaside suburb known for its beaches and recreational opportunities."
+  },
+  {
+    "title": "Sunbury",
+    "lat": -37.5811,
+    "lng": 144.7139,
+    "population": 36084,
+    "description": "Sunbury is a rapidly developing suburb with a range of amenities and services."
+  },
+  {
+    "title": "Mildura",
+    "lat": -34.1889,
+    "lng": 142.1583,
+    "population": 32738,
+    "description": "Mildura is a regional title on the Murray River, famous for its citrus orchards and wineries."
+  },
+  {
+    "title": "Dandenong",
+    "lat": -37.981,
+    "lng": 145.215,
+    "population": 29906,
+    "description": "Dandenong is a diverse and growing suburb with a thriving industrial sector."
+  },
+  {
+    "title": "Warrnambool",
+    "lat": -38.3833,
+    "lng": 142.4833,
+    "population": 29661,
+    "description": "Warrnambool is a coastal title known for its maritime heritage and natural beauty."
+  },
+  {
+    "title": "Traralgon",
+    "lat": -38.1958,
+    "lng": 146.5403,
+    "population": 24933,
+    "description": "Traralgon is a regional town offering a mix of recreational and cultural activities."
+  },
+  {
+    "title": "Mount Eliza",
+    "lat": -38.189,
+    "lng": 145.092,
+    "population": 17888,
+    "description": "Mount Eliza is a picturesque suburb with stunning views of Port Phillip Bay."
+  },
+  {
+    "title": "Lara",
+    "lat": -38.0167,
+    "lng": 144.4167,
+    "population": 16355,
+    "description": "Lara is a growing suburban area known for its family-friendly community."
+  },
+  {
+    "title": "Warragul",
+    "lat": -38.15,
+    "lng": 145.9333,
+    "population": 15757,
+    "description": "Warragul is a regional town with a strong agricultural and dairy industry presence."
+  },
+  {
+    "title": "Horsham",
+    "lat": -36.7167,
+    "lng": 142.2,
+    "population": 14543,
+    "description": "Horsham is a regional center known for its parks, gardens, and cultural events."
+  },
+  {
+    "title": "Barwon Heads",
+    "lat": -38.25,
+    "lng": 144.5167,
+    "population": 14165,
+    "description": "Barwon Heads is a coastal town with stunning beaches and a relaxed atmosphere."
+  },
+  {
+    "title": "Echuca",
+    "lat": -36.1333,
+    "lng": 144.75,
+    "population": 14043,
+    "description": "Echuca is a historic port town on the Murray River known for its paddle steamers."
+  },
+  {
+    "title": "Morwell",
+    "lat": -38.2333,
+    "lng": 146.4,
+    "population": 13771,
+    "description": "Morwell is a regional town with a strong sense of community and outdoor recreation opportunities."
+  },
+  {
+    "title": "Leopold",
+    "lat": -38.1892,
+    "lng": 144.4644,
+    "population": 12814,
+    "description": "Leopold is a suburban town with access to natural reserves and parks."
+  },
+  {
+    "title": "Wallan",
+    "lat": -37.4167,
+    "lng": 144.9833,
+    "population": 11074,
+    "description": "Wallan is a growing suburb with convenient access to Melbourne and surrounding areas."
+  },
+  {
+    "title": "Swan Hill",
+    "lat": -35.3333,
+    "lng": 143.55,
+    "population": 9864,
+    "description": "Swan Hill is a regional title located on the Murray River, known for its historic attractions and outdoor activities."
+  },
+  {
+    "title": "Mount Evelyn",
+    "lat": -37.783,
+    "lng": 145.385,
+    "population": 9702,
+    "description": "Mount Evelyn is a suburban town surrounded by natural beauty and recreational opportunities."
+  },
+  {
+    "title": "Colac",
+    "lat": -38.3403,
+    "lng": 143.5847,
+    "population": 9048,
+    "description": "Colac is a rural town known for its dairy industry and nearby lakes and forests."
+  },
+  {
+    "title": "Ararat",
+    "lat": -37.2833,
+    "lng": 142.9167,
+    "population": 8297,
+    "description": "Ararat is a regional title with a rich history and cultural heritage."
+  },
+  {
+    "title": "Mooroopna",
+    "lat": -36.3833,
+    "lng": 145.35,
+    "population": 7942,
+    "description": "Mooroopna is a regional town with a strong sense of community and access to outdoor activities."
+  },
+  {
+    "title": "Maryborough",
+    "lat": -37.05,
+    "lng": 143.735,
+    "population": 7921,
+    "description": "Maryborough is a charming country town with historic architecture and a relaxed atmosphere."
+  },
+  {
+    "title": "Clifton Springs",
+    "lat": -38.15,
+    "lng": 144.5667,
+    "population": 7519,
+    "description": "Clifton Springs is a coastal town with scenic views and a tranquil environment."
+  },
+  {
+    "title": "Healesville",
+    "lat": -37.6561,
+    "lng": 145.5139,
+    "population": 7461,
+    "description": "Healesville is a picturesque town known for its wineries and natural beauty."
+  },
+  {
+    "title": "Kyabram",
+    "lat": -36.3167,
+    "lng": 145.05,
+    "population": 7331,
+    "description": "Kyabram is a regional town with a focus on agriculture and community events."
+  },
+  {
+    "title": "Kyneton",
+    "lat": -37.247,
+    "lng": 144.455,
+    "population": 6951,
+    "description": "Kyneton is a charming town with historic architecture and a thriving arts scene."
+  },
+  {
+    "title": "Castlemaine",
+    "lat": -37.0636,
+    "lng": 144.2172,
+    "population": 6757,
+    "description": "Castlemaine is a historic gold rush town known for its artistic community and festivals."
+  },
+  {
+    "title": "Castlemaine 2",
+    "lat": -37.0637,
+    "lng": 144.2182,
+    "population": 6757,
+    "description": "Castlemaine 2 is a historic gold rush town known for its artistic community and festivals."
+  },
+  {
+    "title": "Seymour",
+    "lat": -37.03,
+    "lng": 145.13,
+    "population": 6327,
+    "description": "Seymour is a regional town with access to outdoor activities and historical sites."
+  },
+  {
+    "title": "Lakes Entrance",
+    "lat": -37.8667,
+    "lng": 147.9833,
+    "population": 6071,
+    "description": "Lakes Entrance is a coastal town known for its lakes, waterways, and seafood."
+  },
+  {
+    "title": "Dromana",
+    "lat": -38.338,
+    "lng": 144.965,
+    "population": 5803,
+    "description": "Dromana is a seaside town with beautiful beaches and a relaxed coastal vibe."
+  },
+  {
+    "title": "Stawell",
+    "lat": -37.05,
+    "lng": 142.7667,
+    "population": 5736,
+    "description": "Stawell is a regional town with a focus on community and outdoor sports."
+  },
+  {
+    "title": "Leongatha",
+    "lat": -38.4833,
+    "lng": 145.95,
+    "population": 5654,
+    "description": "Leongatha is a rural town with a strong agricultural presence and a close-knit community."
+  },
+  {
+    "title": "Whittlesea",
+    "lat": -37.5139,
+    "lng": 145.114,
+    "population": 5611,
+    "description": "Whittlesea is a suburban area with access to parks, nature reserves, and community events."
+  },
+  {
+    "title": "Inverloch",
+    "lat": -38.6334,
+    "lng": 145.7278,
+    "population": 5437,
+    "description": "Inverloch is a coastal town known for its beaches, fishing, and outdoor activities."
+  },
+  {
+    "title": "Maffra",
+    "lat": -37.95,
+    "lng": 146.983,
+    "population": 5280,
+    "description": "Maffra is a regional town with a focus on agriculture and a welcoming community."
+  },
+  {
+    "title": "Red Cliffs",
+    "lat": -34.3075,
+    "lng": 142.1881,
+    "population": 5060,
+    "description": "Red Cliffs is a rural town with a strong sense of community and agricultural heritage."
+  },
+  {
+    "title": "Mansfield",
+    "lat": -37.05,
+    "lng": 146.083,
+    "population": 4787,
+    "description": "Mansfield is a gateway to the Victorian Alps, known for its outdoor activities and scenic beauty."
+  },
+  {
+    "title": "Churchill",
+    "lat": -38.3167,
+    "lng": 146.417,
+    "population": 4783,
+    "description": "Churchill is a suburban town with access to parks, educational facilities, and community services."
+  },
+  {
+    "title": "Numurkah",
+    "lat": -36.0833,
+    "lng": 145.4333,
+    "population": 4477,
+    "description": "Numurkah is a regional town known for its agriculture and strong sense of community."
+  },
+  {
+    "title": "Korumburra",
+    "lat": -38.4333,
+    "lng": 145.8167,
+    "population": 4469,
+    "description": "Korumburra is a charming town with a focus on agriculture and a friendly atmosphere."
+  },
+  {
+    "title": "Tatura",
+    "lat": -36.4401,
+    "lng": 145.233,
+    "population": 4448,
+    "description": "Tatura is a regional town with a diverse community and access to parks and recreational activities."
+  },
+  {
+    "title": "Broadford",
+    "lat": -37.2,
+    "lng": 145.067,
+    "population": 4319,
+    "description": "Broadford is a suburban town known for its natural beauty, parks, and outdoor opportunities."
+  },
+  {
+    "title": "Drysdale",
+    "lat": -38.1667,
+    "lng": 144.5667,
+    "population": 4275,
+    "description": "Drysdale is a growing suburban area with access to coastal attractions and community events."
+  },
+  {
+    "title": "Cockatoo",
+    "lat": -37.935,
+    "lng": 145.492,
+    "population": 4256,
+    "description": "Cockatoo is a suburban town with a focus on community and access to natural reserves."
+  },
+  {
+    "title": "Trafalgar",
+    "lat": -38.2,
+    "lng": 146.15,
+    "population": 3912,
+    "description": "Trafalgar is a regional town known for its friendly atmosphere and access to outdoor activities."
+  },
+  {
+    "title": "Kerang",
+    "lat": -35.7167,
+    "lng": 143.9167,
+    "population": 3893,
+    "description": "Kerang is a regional town with a focus on agriculture and a close-knit community."
+  },
+  {
+    "title": "Beechworth",
+    "lat": -36.3594,
+    "lng": 146.6869,
+    "population": 3859,
+    "description": "Beechworth is a historic town known for its gold rush history and scenic beauty."
+  },
+  {
+    "title": "Pearcedale",
+    "lat": -38.203,
+    "lng": 145.231,
+    "population": 3821,
+    "description": "Pearcedale is a suburban town with access to parks and natural reserves."
+  },
+  {
+    "title": "Buninyong",
+    "lat": -37.6503,
+    "lng": 143.8839,
+    "population": 3714,
+    "description": "Buninyong is a historic town known for its architecture and cultural events."
+  },
+  {
+    "title": "Koo-Wee-Rup",
+    "lat": -38.198,
+    "lng": 145.489,
+    "population": 3579,
+    "description": "Koo-Wee-Rup is a suburban area with access to parks, nature reserves, and community events."
+  },
+  {
+    "title": "Paynesville",
+    "lat": -37.9167,
+    "lng": 147.7167,
+    "population": 3480,
+    "description": "Paynesville is a picturesque coastal town known for its waterways and boating opportunities."
+  },
+  {
+    "title": "Maddingley",
+    "lat": -37.6864,
+    "lng": 144.4336,
+    "population": 3453,
+    "description": "Maddingley is a growing suburban area with access to education, amenities, and parks."
+  },
+  {
+    "title": "Hurstbridge",
+    "lat": -37.6389,
+    "lng": 145.195,
+    "population": 3450,
+    "description": "Hurstbridge is a suburban town with access to parks, outdoor activities, and a close-knit community."
+  },
+  {
+    "title": "Camperdown",
+    "lat": -38.236,
+    "lng": 143.145,
+    "population": 3369,
+    "description": "Camperdown is a regional town known for its dairy industry and picturesque surroundings."
+  },
+  {
+    "title": "Port Fairy",
+    "lat": -38.384,
+    "lng": 142.235,
+    "population": 3340,
+    "description": "Port Fairy is a charming coastal town known for its historic architecture and cultural events."
+  },
+  {
+    "title": "Euroa",
+    "lat": -36.75,
+    "lng": 145.567,
+    "population": 3275,
+    "description": "Euroa is a regional town surrounded by natural beauty and offering outdoor activities."
+  },
+  {
+    "title": "Robinvale",
+    "lat": -34.5833,
+    "lng": 142.7667,
+    "population": 3088,
+    "description": "Robinvale is a rural town on the Murray River known for its agriculture and close community."
+  },
+  {
+    "title": "Woori Yallock",
+    "lat": -37.778,
+    "lng": 145.528,
+    "population": 2913,
+    "description": "Woori Yallock is a suburban town with access to natural reserves and outdoor activities."
+  },
+  {
+    "title": "Yarra Glen",
+    "lat": -37.6489,
+    "lng": 145.3719,
+    "population": 2869,
+    "description": "Yarra Glen is a picturesque town in the Yarra Valley known for its wineries and scenic landscapes."
+  },
+  {
+    "title": "Beaconsfield Upper",
+    "lat": -37.996,
+    "lng": 145.415,
+    "population": 2861,
+    "description": "Beaconsfield Upper is a suburban area with a focus on nature, parks, and a peaceful environment."
+  },
+  {
+    "title": "North Wonthaggi",
+    "lat": -38.6,
+    "lng": 145.6,
+    "population": 2806,
+    "description": "North Wonthaggi is a coastal town with beautiful beaches and a relaxed lifestyle."
+  }
+]

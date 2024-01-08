@@ -1,0 +1,139 @@
+{
+  "took": 1,
+  "timed_out": false,
+  "_shards": {
+    "total": 2,
+    "successful": 2,
+    "skipped": 0,
+    "failed": 0
+  },
+  "hits": {
+    "total": {
+      "value": 5,
+      "relation": "eq"
+    },
+    "max_score": 5.582128,
+    "hits": [
+      {
+        "_index": ".ent-search-engine-documents-vic-postcode-localities",
+        "_id": "doc-6596598dcfe7a980b7d6bf8f",
+        "_score": 5.582128,
+        "_ignored": [
+          "bbox.location",
+          "locality.location",
+          "locality.float",
+          "bbox.date",
+          "locality.date",
+          "postcode.date"
+        ],
+        "_source": {
+          "postcode": "3012",
+          "locality": "West Footscray",
+          "bbox": [
+            "16125731.2622",
+            "-4553144.2123",
+            "16128658.9812",
+            "-4549729.8726"
+          ],
+          "id": "doc-6596598dcfe7a980b7d6bf8f"
+        }
+      },
+      {
+        "_index": ".ent-search-engine-documents-vic-postcode-localities",
+        "_id": "doc-65965998cfe7a9121bd6c450",
+        "_score": 5.582128,
+        "_ignored": [
+          "bbox.location",
+          "locality.location",
+          "locality.float",
+          "bbox.date",
+          "locality.date",
+          "postcode.date"
+        ],
+        "_source": {
+          "postcode": "3012",
+          "locality": "Tottenham",
+          "bbox": [
+            "16123428.6605",
+            "-4553307.7969",
+            "16125960.5098",
+            "-4550778.4569"
+          ],
+          "id": "doc-65965998cfe7a9121bd6c450"
+        }
+      },
+      {
+        "_index": ".ent-search-engine-documents-vic-postcode-localities",
+        "_id": "doc-6596599bcfe7a980b7d6c5a1",
+        "_score": 5.582128,
+        "_ignored": [
+          "bbox.location",
+          "locality.location",
+          "locality.float",
+          "bbox.date",
+          "locality.date",
+          "postcode.date"
+        ],
+        "_source": {
+          "postcode": "3012",
+          "locality": "Kingsville",
+          "bbox": [
+            "16126768.6849",
+            "-4553017.8135",
+            "16128572.18",
+            "-4551575.8138"
+          ],
+          "id": "doc-6596599bcfe7a980b7d6c5a1"
+        }
+      },
+      {
+        "_index": ".ent-search-engine-documents-vic-postcode-localities",
+        "_id": "doc-6596599ccfe7a980b7d6c629",
+        "_score": 5.582128,
+        "_ignored": [
+          "bbox.location",
+          "locality.location",
+          "locality.float",
+          "bbox.date",
+          "locality.date",
+          "postcode.date"
+        ],
+        "_source": {
+          "postcode": "3012",
+          "locality": "Maidstone",
+          "bbox": [
+            "16126136.6235",
+            "-4549965.4885",
+            "16128587.3193",
+            "-4547280.8466"
+          ],
+          "id": "doc-6596599ccfe7a980b7d6c629"
+        }
+      },
+      {
+        "_index": ".ent-search-engine-documents-vic-postcode-localities",
+        "_id": "doc-659659a6cfe7a9121bd6ca7f",
+        "_score": 5.582128,
+        "_ignored": [
+          "bbox.location",
+          "locality.location",
+          "locality.float",
+          "bbox.date",
+          "locality.date",
+          "postcode.date"
+        ],
+        "_source": {
+          "postcode": "3012",
+          "locality": "Brooklyn",
+          "bbox": [
+            "16121522.8712",
+            "-4554837.46",
+            "16125722.9652",
+            "-4551531.4341"
+          ],
+          "id": "doc-659659a6cfe7a9121bd6ca7f"
+        }
+      }
+    ]
+  }
+}

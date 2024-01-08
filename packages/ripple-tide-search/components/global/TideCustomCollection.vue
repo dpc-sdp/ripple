@@ -6,14 +6,16 @@ import type {
   TideSearchListingPage,
   TideSearchListingResultLayout,
   TideSearchListingResultItem,
-  TideSearchListingSortOption
+  TideSearchListingSortOption,
+  TideSearchListingTabKey
 } from './../../types'
 import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
 import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
+import { get } from 'lodash-es'
 
 interface Props {
   id: string
-  title: string
+  title?: string
   introText?: string
   searchListingConfig?: TideSearchListingPage['searchListingConfig']
   autocompleteQuery?: boolean
@@ -24,7 +26,9 @@ interface Props {
     layout?: TideSearchListingResultLayout
     item?: Record<string, { component: string }>
   }
-  index: string
+  locationQueryConfig?: TideSearchListingPage['locationQueryConfig']
+  mapConfig?: TideSearchListingPage['mapConfig']
+  index?: string
   sortOptions?: TideSearchListingSortOption[]
 }
 
@@ -32,6 +36,7 @@ const props = withDefaults(defineProps<Props>(), {
   id: 'tide-search-listing',
   title: 'Search',
   introText: '',
+  index: undefined,
   autocompleteQuery: false,
   globalFilters: () => [],
   userFilters: () => [],
@@ -54,14 +59,17 @@ const props = withDefaults(defineProps<Props>(), {
       submit: 'Submit',
       reset: 'Reset',
       placeholder: 'Enter a search term'
-    }
+    },
+    displayMapTab: false
   }),
   resultsConfig: () => ({
     layout: {
       component: 'TideSearchResultsList'
     }
   }),
-  sortOptions: () => []
+  sortOptions: () => [],
+  locationQueryConfig: () => {},
+  mapConfig: () => {}
 })
 
 const emit = defineEmits<{
@@ -108,6 +116,26 @@ const searchResultsMappingFn = (item): TideSearchListingResultItem => {
   return item
 }
 
+const mapResultsMappingFn = (result) => {
+  const location = get(result, props.mapConfig.props.locationObjPath)
+  if (location && props.mapConfig && result._source) {
+    const locationLatLng = location.split(',')
+    return {
+      ...result._source,
+      lat: parseFloat(locationLatLng[0]),
+      lng: parseFloat(locationLatLng[1]),
+      id: result._id
+    }
+  } else {
+    return {
+      ...result._source,
+      id: result._id
+    }
+  }
+}
+
+const filtersExpanded = ref(false)
+
 const {
   isBusy,
   searchError,
@@ -115,6 +143,7 @@ const {
   searchTerm,
   results,
   filterForm,
+  appliedFilters,
   submitSearch,
   goToPage,
   page,
@@ -124,16 +153,25 @@ const {
   totalPages,
   pagingStart,
   pagingEnd,
-  onAggregationUpdateHook
-} = useTideSearch(
-  props.queryConfig,
-  props.userFilters,
-  props.globalFilters,
+  onAggregationUpdateHook,
+  mapResults,
+  locationQuery,
+  activeTab,
+  changeActiveTab
+} = useTideSearch({
+  queryConfig: props.queryConfig,
+  userFilters: props.userFilters,
+  globalFilters: props.globalFilters,
   searchResultsMappingFn,
-  props.searchListingConfig,
-  props.sortOptions
-)
+  searchListingConfig: props.searchListingConfig,
+  sortOptions: props.sortOptions,
+  includeMapsRequest: true,
+  mapConfig: props.mapConfig,
+  locationQueryConfig: props.locationQueryConfig,
+  mapResultsMappingFn
+})
 
+const uiFilters = ref(props.userFilters)
 const cachedSubmitEvent = ref({})
 
 const baseEvent = () => ({
@@ -147,8 +185,41 @@ const baseEvent = () => ({
 })
 
 // Updates filter options with aggregation value
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-onAggregationUpdateHook.value = (aggs) => {}
+onAggregationUpdateHook.value = (aggs) => {
+  const updateTimestamp = Date.now()
+
+  Object.keys(aggs).forEach((key) => {
+    uiFilters.value.forEach((uiFilter, idx) => {
+      if (uiFilter.id === key) {
+        const getDynamicOptions = () => {
+          const mappedOptions = aggs[key].map((item) => ({
+            id: item,
+            label: item,
+            value: item
+          }))
+
+          if (uiFilters.value[idx].props.hasOwnProperty('options')) {
+            return [
+              ...toRaw(uiFilters.value[idx].props.options),
+              ...mappedOptions
+            ]
+          }
+
+          return mappedOptions
+        }
+
+        uiFilters.value[idx] = {
+          ...uiFilters.value[idx],
+          props: {
+            ...uiFilters.value[idx].props,
+            timestamp: updateTimestamp,
+            dynamicOptions: getDynamicOptions()
+          }
+        }
+      }
+    })
+  })
+}
 
 const emitSearchEvent = (event) => {
   emitRplEvent(
@@ -199,6 +270,7 @@ const handleFilterReset = (event: rplEventPayload) => {
 
   searchTerm.value = ''
   filterForm.value = {}
+  locationQuery.value = null
   submitSearch()
 }
 
@@ -225,76 +297,255 @@ const handlePageChange = (event) => {
 const handleSortChange = (sortId) => {
   changeSortOrder(sortId)
 }
+
+const handleToggleFilters = () => {
+  filtersExpanded.value = !filtersExpanded.value
+
+  emitRplEvent(
+    'toggleFilters',
+    {
+      ...baseEvent(),
+      action: filtersExpanded.value ? 'open' : 'close',
+      text: toggleFiltersLabel.value
+    },
+    { global: true }
+  )
+}
+
+const numAppliedFilters = computed(() => {
+  return Object.values(appliedFilters.value).filter((value) => {
+    if (!value) {
+      return false
+    }
+
+    if (Array.isArray(value) && !value.length) {
+      return false
+    }
+
+    return true
+  }).length
+})
+
+const toggleFiltersLabel = computed(() => {
+  let label = 'Refine search'
+
+  return numAppliedFilters.value
+    ? `${label} (${numAppliedFilters.value})`
+    : label
+})
+
+const handleTabChange = (tab: TideSearchListingTabKey) => {
+  changeActiveTab(tab.id)
+}
+
+function handleLocationSearch(payload: any) {
+  locationQuery.value = payload
+  handleSearchSubmit({})
+}
+
+const rplMapRef = ref(null)
+const popup = ref({
+  isOpen: false,
+  position: [0, 0],
+  feature: null
+})
+provide('rplMapInstance', {
+  rplMapRef,
+  setRplMapRef,
+  popup
+})
+function setRplMapRef(mapInstance: any) {
+  rplMapRef.value = mapInstance
+}
+
+const mapFeatures = computed(() => {
+  if (Array.isArray(mapResults.value)) {
+    return mapResults.value.filter((itm) => !itm.isArea)
+  }
+  return []
+})
+const mapAreas = computed(() => {
+  if (Array.isArray(mapResults.value)) {
+    return mapResults.value.filter((itm) => itm.isArea)
+  }
+  return []
+})
 </script>
 
 <template>
   <div class="rpl-u-margin-t-8">
-    <RplSearchBar
-      id="custom-collection-search-bar"
-      variant="default"
-      :input-label="searchListingConfig.labels?.submit"
-      :inputValue="searchTerm"
-      :placeholder="searchListingConfig.labels?.placeholder"
-      :global-events="false"
-      @submit="handleSearchSubmit"
-      @update:input-value="handleUpdateSearchTerm"
-    />
-
-    <TideSearchFilters
-      v-if="userFilters && userFilters.length > 0"
-      :title="title"
-      :filter-form-values="filterForm"
-      :filterInputs="userFilters"
-      @reset="handleFilterReset"
-      @submit="handleFilterSubmit"
-    />
-
-    <TideSearchAboveResults
-      v-if="results?.length || (sortOptions && sortOptions.length)"
-      :hasSidebar="true"
+    <div
+      :class="{
+        'tide-search-header': true,
+        'tide-search-header--neutral': searchListingConfig.displayMapTab
+      }"
     >
-      <template #left>
-        <TideSearchResultsCount
-          v-if="!searchError && results?.length"
-          :pagingStart="pagingStart + 1"
-          :pagingEnd="pagingEnd + 1"
-          :totalResults="totalResults"
-        />
-      </template>
-
-      <template #right>
-        <TideSearchSortOptions
-          v-if="sortOptions && sortOptions.length"
-          :currentValue="userSelectedSort"
-          :sortOptions="sortOptions"
-          @change="handleSortChange"
-        />
-      </template>
-    </TideSearchAboveResults>
-
-    <TideSearchResultsLoadingState :isActive="isBusy">
-      <div class="rpl-u-margin-t-8">
-        <TideSearchError v-if="searchError" />
-        <TideSearchNoResults v-else-if="!isBusy && !results?.length" />
-      </div>
+      <RplSearchBar
+        v-if="!locationQueryConfig?.component"
+        id="custom-collection-search-bar"
+        variant="default"
+        :input-label="searchListingConfig.labels?.submit"
+        :inputValue="searchTerm"
+        :placeholder="searchListingConfig.labels?.placeholder"
+        :global-events="false"
+        @submit="handleSearchSubmit"
+        @update:input-value="handleUpdateSearchTerm"
+      />
 
       <component
-        :is="resultsConfig.layout?.component"
-        v-if="!searchError && results && results.length > 0"
-        :key="`TideSearchListingResultsLayout${resultsConfig.layout?.component}`"
-        v-bind="resultsConfig.layout?.props"
-        :results="results"
+        :is="locationQueryConfig?.component"
+        v-if="locationQueryConfig?.component"
+        v-bind="locationQueryConfig?.props"
+        :inputValue="locationQuery"
+        :resultsloaded="mapFeatures.length > 0"
+        @update="handleLocationSearch"
       />
-    </TideSearchResultsLoadingState>
 
-    <RplPageComponent>
-      <TideSearchPagination
-        v-if="!searchError"
-        :currentPage="page"
-        :totalPages="totalPages"
-        :scrollToSelector="`[data-component-id='${id}']`"
-        @paginate="handlePageChange"
-      />
-    </RplPageComponent>
+      <RplSearchBarRefine
+        v-if="userFilters && userFilters.length > 0"
+        class="tide-search-refine-btn"
+        :expanded="filtersExpanded"
+        @click="handleToggleFilters"
+        >{{ toggleFiltersLabel }}</RplSearchBarRefine
+      >
+      <RplExpandable
+        v-if="userFilters && userFilters.length > 0"
+        :expanded="filtersExpanded"
+      >
+        <ClientOnly>
+          <TideSearchFilters
+            :title="title"
+            :filter-form-values="filterForm"
+            :filterInputs="userFilters"
+            :reverseStyling="true"
+            @reset="handleFilterReset"
+            @submit="handleFilterSubmit"
+          >
+          </TideSearchFilters>
+        </ClientOnly>
+      </RplExpandable>
+    </div>
+
+    <RplTabs
+      v-if="searchListingConfig?.displayMapTab"
+      :tabs="[
+        {
+          title: props.searchListingConfig?.labels?.mapTab || 'Map',
+          key: 'map',
+          icon: 'pin'
+        },
+        {
+          title: props.searchListingConfig?.labels?.listingTab || 'List',
+          key: 'listing',
+          icon: 'list'
+        }
+      ]"
+      :activeTab="activeTab"
+      @toggleTab="handleTabChange"
+    />
+    <template
+      v-if="!searchListingConfig?.displayMapTab || activeTab === 'listing'"
+    >
+      <TideSearchAboveResults
+        v-if="results?.length || (sortOptions && sortOptions.length)"
+        :hasSidebar="true"
+      >
+        <template #left>
+          <TideSearchResultsCount
+            v-if="!searchError && results?.length"
+            :pagingStart="pagingStart + 1"
+            :pagingEnd="pagingEnd + 1"
+            :totalResults="totalResults"
+          />
+        </template>
+
+        <template #right>
+          <TideSearchSortOptions
+            v-if="sortOptions && sortOptions.length"
+            :currentValue="userSelectedSort"
+            :sortOptions="sortOptions"
+            @change="handleSortChange"
+          />
+        </template>
+      </TideSearchAboveResults>
+
+      <TideSearchResultsLoadingState :isActive="isBusy">
+        <TideSearchError v-if="searchError" class="rpl-u-margin-t-8" />
+        <TideCustomCollectionNoResults
+          class="rpl-u-margin-t-8 rpl-u-margin-b-8"
+          v-else-if="!isBusy && !results?.length"
+        />
+
+        <component
+          :is="resultsConfig.layout?.component"
+          v-if="!searchError && results && results.length > 0"
+          :key="`TideSearchListingResultsLayout${resultsConfig.layout?.component}`"
+          v-bind="resultsConfig.layout?.props"
+          :results="results"
+        />
+      </TideSearchResultsLoadingState>
+
+      <RplPageComponent>
+        <TideSearchPagination
+          v-if="!searchError"
+          :currentPage="page"
+          :totalPages="totalPages"
+          :scrollToSelector="`[data-component-id='${id}']`"
+          @paginate="handlePageChange"
+        />
+      </RplPageComponent>
+    </template>
+
+    <template v-if="activeTab === 'map'">
+      <TideSearchListingResultsMap
+        v-if="mapFeatures"
+        :results="mapFeatures"
+        :areas="mapAreas"
+        v-bind="mapConfig?.props"
+        :noresults="!isBusy && !results?.length"
+      >
+        <template #noresults>
+          <TideCustomCollectionNoResults v-if="!isBusy && !results?.length" />
+        </template>
+      </TideSearchListingResultsMap>
+    </template>
   </div>
 </template>
+
+<style>
+@import '@dpc-sdp/ripple-ui-core/style/breakpoints';
+
+.tide-search-header {
+  display: flex;
+  flex-direction: column;
+}
+
+.tide-search-header--neutral {
+  background-color: var(--rpl-clr-neutral-100);
+  padding: var(--rpl-sp-4);
+  margin-bottom: var(--rpl-sp-4);
+
+  @media (--rpl-bp-s) {
+    padding: var(--rpl-sp-5);
+  }
+}
+
+.tide-search-filters.rpl-grid {
+  row-gap: var(--rpl-sp-6);
+}
+
+.tide-search-filters .rpl-form__outer {
+  margin: 0;
+}
+
+.tide-search-refine-btn {
+  align-self: flex-end;
+  padding: 0;
+  margin-top: var(--rpl-sp-5);
+}
+
+.tide-search-results--loading {
+  opacity: 0.5;
+  pointer-events: none;
+}
+</style>

@@ -115,14 +115,14 @@ const {
   pagingStart,
   pagingEnd,
   onAggregationUpdateHook
-} = useTideSearch(
-  props.queryConfig,
-  props.userFilters,
-  props.globalFilters,
-  props.searchResultsMappingFn,
-  props.searchListingConfig,
-  props.sortOptions
-)
+} = useTideSearch({
+  queryConfig: props.queryConfig,
+  userFilters: props.userFilters,
+  globalFilters: props.globalFilters,
+  searchResultsMappingFn: props.searchResultsMappingFn,
+  searchListingConfig: props.searchListingConfig,
+  sortOptions: props.sortOptions
+})
 
 const uiFilters = ref(props.userFilters)
 const cachedSubmitEvent = ref({})

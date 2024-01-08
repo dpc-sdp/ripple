@@ -1,0 +1,123 @@
+{
+  "searchListingConfig": {
+    "searchProvider": "elasticsearch",
+    "index": "elasticsearch_index_develop_node",
+    "resultsPerPage": 10,
+    "displayMapTab": true,
+    "labels": {
+      "submit": "Search",
+      "placeholder": "Search by postcode or suburb"
+    }
+  },
+  "queryConfig": {
+    "multi_match": {
+      "query": "{{query}}",
+      "fields": ["field_postcode", "field_suburb"]
+    }
+  },
+  "mapConfig": {
+    "props": {
+      "popup": {
+        "title": {
+          "objKey": "_source.title[0]"
+        },
+        "content": {
+          "component": "VSBAMapPopupContent"
+        }
+      },
+      "pinIconFn": "vsbaPinIcons",
+      "locationObjPath": "_source.field_latitude_longitude_value[0]",
+      "titleObjPath": "title[0]",
+      "vectorLayerComponent": "VSBAProjectAreaLayer",
+      "legendExpanded": true,
+      "legendItems": [
+        {
+          "text": "New schools",
+          "icon": "icon-pin",
+          "iconColour": "#8A2A2B"
+        },
+        {
+          "text": "School upgrades",
+          "icon": "icon-pin",
+          "iconColour": "#E35205"
+        },
+        {
+          "text": "Planning projects",
+          "icon": "icon-pin",
+          "iconColour": "#FF9E1B"
+        },
+        {
+          "text": "Early childhood projects",
+          "icon": "icon-pin",
+          "iconColour": "#87189D"
+        },
+        {
+          "text": "Tech schools",
+          "icon": "icon-pin",
+          "iconColour": "#00B2A9"
+        },
+        {
+          "text": "Non-government grants",
+          "icon": "icon-pin",
+          "iconColour": "#71C5E8"
+        }
+      ]
+    }
+  },
+  "userFilters": [
+    {
+      "id": "category",
+      "component": "TideSearchFilterDropdown",
+      "filter": {
+        "type": "terms",
+        "value": "field_mappintype_value"
+      },
+      "aggregations": {
+        "field": "field_mappintype_value",
+        "source": "elastic"
+      },
+      "props": {
+        "id": "category",
+        "label": "Filter by",
+        "placeholder": "Select school type",
+        "type": "RplFormDropdown",
+        "multiple": true,
+        "options": []
+      }
+    }
+  ],
+  "globalFilters": [
+    {
+      "terms": {
+        "type": ["project_infrastructure"]
+      }
+    },
+    {
+      "terms": {
+        "field_node_site": [622]
+      }
+    }
+  ],
+  "locationQueryConfig": {
+    "component": "TideSearchAddressLookup",
+    "dslTransformFunction": "schoolBuildings",
+    "mapResultsMappingFn": "schoolBuildings"
+  },
+  "resultsConfig": {
+    "layout": {
+      "component": "TideSearchResultsTable",
+      "props": {
+        "columns": [
+          {
+            "label": "School name",
+            "component": "TideSearchListingTableLink"
+          },
+          {
+            "label": "Suburb",
+            "objectKey": "field_suburb"
+          }
+        ]
+      }
+    }
+  }
+}

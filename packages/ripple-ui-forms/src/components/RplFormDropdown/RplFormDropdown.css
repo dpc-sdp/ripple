@@ -130,6 +130,12 @@
   }
 }
 
+.rpl-form-dropdown--reverse .rpl-form-dropdown-option {
+  &:hover {
+    background: var(--rpl-clr-neutral-300);
+  }
+}
+
 .rpl-form-dropdown-option__tick {
   display: block;
   width: var(--rpl-sp-4);

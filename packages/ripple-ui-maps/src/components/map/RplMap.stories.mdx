@@ -1,0 +1,135 @@
+import {
+  Canvas,
+  Meta,
+  Story,
+  ArgsTable
+} from '@storybook/addon-docs'
+import { ref, provide } from 'vue'
+import { RplAccordion } from '@dpc-sdp/ripple-ui-core/vue'
+import RplMap from './RplMap.vue'
+import RplMapProviderEsri from './providers/RplMapProviderEsri.vue'
+import RplMapProviderVicMap from './providers/RplMapProviderVicMap.vue'
+import RplMapProviderMapbox from './providers/RplMapProviderMapbox.vue'
+import Icon from 'ol/style/Icon'
+import featureData from './__fixture__/largeset.json'
+import ExampleVectorLayer from './__fixture__/VectorLayer.example.vue'
+import '@dpc-sdp/ripple-ui-core/style/components'
+import { getIconForPopulation } from './__fixture__/utils.ts'
+
+export const Template = (args) => ({
+  components: { RplMap, RplMapProviderEsri, RplMapProviderVicMap, RplMapProviderMapbox, RplAccordion, ExampleVectorLayer },
+  setup() {
+    const rplMapRef = ref(null)
+    const popup = ref({
+      isOpen: false,
+      position: [0,0],
+      feature: null
+    })
+    function setRplMapRef(mapInstance) {
+      rplMapRef.value = mapInstance
+    }
+    provide('rplMapInstance', {
+      rplMapRef,
+      setRplMapRef,
+      popup
+    })
+    const getClusteredFeatures = (itms) => {
+      return itms.map((itm, idx) => {
+        return {
+          id: `${idx}-${itm.title}`,
+          title: itm.title,
+          content: itm.description
+        }
+      })
+    }
+    return {
+      getClusteredFeatures,
+      args
+    }
+  },
+  template: `
+    <RplMap v-bind="args">
+      <template #map-provider>
+        <rpl-map-provider-esri v-if="args.provider === 'esri'" />
+        <rpl-map-provider-vic-map v-if="args.provider === 'vicmap'" />
+        <rpl-map-provider-mapbox v-if="args.provider === 'mapbox'" />
+      </template>
+      <template v-if="args.vectorLayers" #shapes="{ mapFeatures }">
+        <ExampleVectorLayer :results="mapFeatures" />
+      </template>
+      <template #popupTitle="{ selectedFeatures }">
+        <span v-if="selectedFeatures.length === 1">
+          {{ selectedFeatures[0].title}}
+        </span>
+        <span v-else>
+          {{ selectedFeatures.length }} items found in this area
+        </span>
+      </template>
+      <template #popupContent="{ selectedFeatures }">
+        <div class="rpl-u-margin-4">
+          <p class="rpl-type-p-small" v-if="selectedFeatures.length === 1">
+            {{ selectedFeatures[0].description}}
+          </p>
+          <RplAccordion v-else :items="getClusteredFeatures(selectedFeatures)" :displayToggleAll="false">
+          </RplAccordion>
+        </div>
+      </template>
+    </RplMap>
+  `
+})
+
+<Meta
+  title='Maps/core'
+  component={RplMap}
+/>
+
+# Demo
+
+<ArgsTable of={RplMap} />
+
+<Canvas>
+  <Story
+    name='Mapbox'
+    args={{
+      id: '123',
+      features:featureData,
+      provider: 'mapbox'
+    }}
+  >
+    {Template.bind()}
+  </Story>
+  <Story
+    name='Esri'
+    args={{
+      id: '123',
+      features: featureData,
+      provider: 'esri'
+    }}
+  >
+    {Template.bind()}
+  </Story>
+  <Story
+    name='Vicmap'
+    args={{
+      id: '123',
+      provider: 'vicmap',
+      projection: 'EPSG:3857',
+      features:featureData
+    }}
+  >
+    {Template.bind()}
+  </Story>
+  <Story
+    name='Vector Layers'
+    args={{
+      id: '123',
+      projection: 'EPSG:3857',
+      features:featureData,
+      provider: 'mapbox',
+      popupType: 'popover',
+      vectorLayers: true
+    }}
+  >
+    {Template.bind()}
+  </Story>
+</Canvas>

@@ -1,0 +1,156 @@
+@import '@dpc-sdp/ripple-ui-core/style/breakpoints';
+
+.rpl-map {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  @media (--rpl-bp-m) {
+    flex-direction: row;
+  }
+
+    /* Magic number to account for the height of the zoom controls, which are positioned absolutely */
+    --local-zoom-controls-height: 88px;
+}
+
+.rpl-map__map {
+  width: 100%;
+  height: 300px;
+}
+
+.rpl-map__control {
+  position: absolute;
+  right: var(--rpl-sp-2);
+  z-index: var(--rpl-layer-1);
+  @media (--rpl-bp-l) {
+    right: var(--rpl-sp-3);
+  }
+
+  background-color: transparent;
+
+  button {
+    cursor: pointer;
+    border: var(--rpl-border-1) solid var(--rpl-clr-neutral-200);
+    border-radius: var(--rpl-border-radius-2);
+    box-shadow: var(--rpl-elevation-1);
+    background-color: var(--rpl-clr-light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.75rem;
+    line-height: 1.25rem;
+    height: 44px;
+    width: 44px;
+    color: var(--rpl-clr-neutral-600);
+
+    &:hover {
+      outline: none;
+      color: var(--rpl-clr-dark);
+    }
+
+    &:focus-visible,
+    &:focus-visible:visited,
+    &:focus-visible:hover {
+      background-color: var(--rpl-clr-focus) !important;
+      border-color: var(--rpl-clr-focus);
+      border-radius: 0;
+      border-width: var(--rpl-focusable-border-width, 0);
+      color: var(--rpl-clr-type-focus-contrast) !important;
+      text-decoration: none;
+      text-decoration-line: none;
+      outline: 0;
+      position: relative;
+
+      &::after {
+        display: block !important;
+        content: '';
+        background-color: var(--rpl-clr-dark);
+        position: absolute;
+        z-index: var(--rpl-layer-1);
+        top: auto !important;
+        right: auto !important;
+        bottom: calc(
+          var(--rpl-focusable-border-width, 0px) * -1
+        ) !important; /* invert border width as bottom position */
+        /* stylelint-disable-next-line declaration-block-no-redundant-longhand-properties */
+        left: calc(0px - var(--rpl-focusable-border-width, 0px)) !important;
+        height: var(--rpl-border-3);
+        width: calc(
+          100% + var(--rpl-focusable-border-width, 0%) * 2
+        ); /* 100% + left and right border width */
+      }
+    }
+  }
+}
+
+.rpl-map__control-zoom {
+  bottom: var(--rpl-sp-2);
+
+  @media (--rpl-bp-l) {
+    bottom: var(--rpl-sp-3);
+  }
+
+  .rpl-map__control-zoom-in {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .rpl-map__control-zoom-out {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-top: none;
+  }
+}
+
+.rpl-map__control-fullscreen {
+  top: var(--rpl-sp-2);
+
+  @media (--rpl-bp-l) {
+    top: var(--rpl-sp-3);
+  }
+}
+
+.rpl-map__control-home {
+  z-index: var(--rpl-layer-1);
+
+  svg {
+    fill: currentcolor;
+  }
+
+
+
+  /* Margin + zoom controls height + button spacing */
+  bottom: calc(
+    var(--rpl-sp-2) + var(--local-zoom-controls-height) + var(--rpl-sp-2)
+  );
+
+  @media (--rpl-bp-l) {
+    /* Margin + zoom controls height + button spacing */
+    bottom: calc(
+      var(--rpl-sp-3) + var(--local-zoom-controls-height) + var(--rpl-sp-2)
+    );
+  }
+}
+
+.rpl-map__noresults {
+  --local-noresults-box-width: calc(480px - var(--rpl-sp-5));
+
+  position: absolute;
+  left: calc(50% - var(--local-noresults-box-width) / 2);
+  right: calc(50% - var(--local-noresults-box-width) / 2);
+  top: calc(var(--local-zoom-controls-height) - var(--rpl-sp-4));
+  padding: var(--rpl-sp-5);
+  z-index: var(--rpl-layer-1);
+  border: var(--rpl-border-1) solid var(--rpl-clr-neutral-200);
+  border-radius: var(--rpl-border-radius-2);
+  box-shadow: var(--rpl-elevation-1);
+  background-color: var(--rpl-clr-light);
+  text-align: center;
+  @media (--rpl-bp-s) {
+    top: var(--rpl-sp-5);
+  }
+}
+.rpl-map__noresults-cancel {
+  position: absolute;
+  right: var(--rpl-sp-4);
+  top: var(--rpl-sp-4);
+}

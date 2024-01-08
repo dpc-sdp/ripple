@@ -69,7 +69,7 @@
       <slot name="sidebar"></slot>
     </template>
     <template #belowSidebar>
-      <slot name="aboveSidebar"></slot>
+      <slot name="belowSidebar"></slot>
     </template>
     <template #footer>
       <slot name="footer">

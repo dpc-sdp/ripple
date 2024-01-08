@@ -2,7 +2,9 @@
   <RplContent data-component-type="search-listing-no-results">
     <slot>
       <p class="rpl-type-h3">
-        Sorry! We couldn't find any matches for '{{ route.query.q }}'.
+        Sorry! We couldn't find any matches{{
+          query || route?.query?.q ? ` for ${query || route?.query?.q}.` : '.'
+        }}
       </p>
       <p>To improve your search results:</p>
       <ul>
@@ -17,4 +19,10 @@
 import { useRoute } from '#imports'
 
 const route = useRoute()
+interface Props {
+  query?: string | undefined
+}
+withDefaults(defineProps<Props>(), {
+  query: undefined
+})
 </script>

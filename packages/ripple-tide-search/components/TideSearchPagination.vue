@@ -19,7 +19,6 @@ const emit = defineEmits<{
 interface Props {
   currentPage: number
   totalPages: number
-  emitSearchEvent: Function
   scrollToSelector: string
 }
 

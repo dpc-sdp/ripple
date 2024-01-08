@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onMounted, reactive } from 'vue'
+import { computed } from 'vue'
 import RplButton from '../button/RplButton.vue'
 import {
   useRippleEvent,
@@ -31,15 +31,6 @@ const props = withDefaults(defineProps<Props>(), {
   mode: 'horizontal'
 })
 
-const state = reactive({
-  active: ''
-})
-
-onMounted(() => {
-  state.active =
-    state.active === '' ? props.activeTab || props.tabs[0].key : state.active
-})
-
 const componentClasses = computed(() => [
   'rpl-tabs',
   props.mode === 'vertical' ? 'rpl-tabs--vertical' : null
@@ -47,16 +38,15 @@ const componentClasses = computed(() => [
 
 const activeClasses = (key: string) => [
   'rpl-tab',
-  state.active === key ? 'rpl-tab--active' : null
+  props.activeTab === key ? 'rpl-tab--active' : null
 ]
 
 const updateActive = (key: string) => {
-  state.active = key
-
   emitRplEvent(
     'toggleTab',
     {
       action: 'select',
+      id: key,
       text: props.tabs.find((tab) => tab.key === key)?.title
     },
     { global: true }
@@ -77,7 +67,7 @@ const updateActive = (key: string) => {
       <RplButton
         :id="`tab-${item.key}`"
         :icon-name="item.icon ? `icon-${item.icon}` : null"
-        :aria-selected="state.active === item.key ? 'true' : null"
+        :aria-selected="activeTab === item.key ? 'true' : null"
         :aria-controls="`panel-${item.key}`"
         role="tab"
         variant="transparent"

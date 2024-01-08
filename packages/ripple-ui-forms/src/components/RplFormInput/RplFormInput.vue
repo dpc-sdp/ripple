@@ -21,6 +21,8 @@ interface Props {
   label?: string
   prefixIcon?: string
   suffixIcon?: string
+  min?: number
+  max?: number
   minlength?: number
   maxlength?: number
   variant?: 'default' | 'reverse'
@@ -40,6 +42,8 @@ const props = withDefaults(defineProps<Props>(), {
   label: undefined,
   prefixIcon: undefined,
   suffixIcon: undefined,
+  min: undefined,
+  max: undefined,
   minlength: undefined,
   maxlength: undefined,
   disabled: false,
@@ -111,6 +115,8 @@ const handleChange = useDebounceFn(() => {
         v-bind="$attrs"
         :name="name"
         :value="value"
+        :min="min"
+        :max="max"
         :minlength="minlength"
         :maxlength="maxlength"
         @blur="onBlur"

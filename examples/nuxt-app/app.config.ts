@@ -43,6 +43,81 @@ export default defineAppConfig({
             providedValues: values
           }
         }
+      },
+      locationDSLTransformFunctions: {
+        // DSL transform example for VSBA map tests
+        schoolBuildings: async (location) => {
+          return {
+            map: {
+              filter: null,
+              sort: null
+            },
+            listing: {
+              filter: location.name
+                ? {
+                    terms: {
+                      [`field_suburb.keyword`]: [location.name]
+                    }
+                  }
+                : null,
+              sort: null
+            }
+          }
+        },
+        csl: async (location) => {
+          const serviceUrl = `https://services6.arcgis.com/GB33F62SbDxJjwEL/arcgis/rest/services/Vicmap_Admin/FeatureServer`
+          const layer = '9'
+          const format = 'pgeojson'
+          const query = encodeURIComponent(`LGA_NAME='${location.lga_key}'`)
+          const url = `${serviceUrl}/${layer}/query/?where=${query}&f=${format}&returnGeometry=true&spatialRel=esriSpatialRelIntersects&geometryType=esriGeometryEnvelope`
+
+          const response = await $fetch(url)
+
+          const listingFilter = response?.features[0]?.geometry
+            ? {
+                geo_shape: {
+                  location: {
+                    shape: response?.features[0]?.geometry,
+                    relation: 'within'
+                  }
+                }
+              }
+            : null
+          return {
+            map: {
+              filter: null,
+              sort: null
+            },
+            listing: {
+              filter: listingFilter,
+              sort: null
+            }
+          }
+        }
+      },
+      mapPinStyleFn: {
+        vsbaPinIcons: (feature) => {
+          const projectType =
+            feature && feature['field_mappintype_name']
+              ? feature['field_mappintype_name'][0]
+              : ''
+          switch (projectType) {
+            case 'New school':
+              return '#8A2A2B'
+            case 'School upgrade':
+              return '#df4809'
+            case 'Planning project':
+              return '#FF9E1B'
+            case 'Early childhood':
+              return '#87189D'
+            case 'Tech school':
+              return '#00B2A9'
+            case 'Non-government grant':
+              return '#71C5E8'
+            default:
+              return '#333333'
+          }
+        }
       }
     }
   }

@@ -17,6 +17,7 @@ export interface IRplAnalyticsEventPayload {
   form_id?: string
   form_name?: string
   form_valid?: boolean
+  form_data?: boolean
   field_id?: string
   filters?: string
   type?: string

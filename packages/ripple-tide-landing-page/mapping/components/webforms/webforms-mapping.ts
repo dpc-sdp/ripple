@@ -160,6 +160,7 @@ const getFormSchemaFromMapping = async (
           help: field['#description'],
           checkboxLabel: field['#title'],
           value: field['#default_value'],
+          pii: false,
           ...getValidationAndConditionals(field)
         }
         break
@@ -175,6 +176,7 @@ const getFormSchemaFromMapping = async (
           help: field['#privacy_statement_content'],
           checkboxLabel: field['#title'],
           value: field['#default_value'],
+          pii: false,
           ...getValidationAndConditionals(field)
         }
         break
@@ -199,6 +201,7 @@ const getFormSchemaFromMapping = async (
             }
           ),
           value: field['#default_value'],
+          pii: false,
           ...getValidationAndConditionals(field)
         }
         break
@@ -221,6 +224,7 @@ const getFormSchemaFromMapping = async (
             }
           ),
           value: field['#default_value'],
+          pii: false,
           ...getValidationAndConditionals(field)
         }
         break
@@ -243,6 +247,7 @@ const getFormSchemaFromMapping = async (
             }
           ),
           value: field['#default_value'],
+          pii: false,
           ...getValidationAndConditionals(field)
         }
         break
@@ -268,6 +273,7 @@ const getFormSchemaFromMapping = async (
             }
           }),
           value: field['#default_value'],
+          pii: false,
           ...getValidationAndConditionals(field)
         }
         break

@@ -103,7 +103,8 @@ export const getAdvancedAddressMapping = (fieldKey, field, formId) => {
         { id: 'TAS', value: 'TAS', label: 'Tasmania' }
       ],
       validation: isFieldRequired('administrative_area') ? [['required']] : [],
-      value: defaultValues.administrative_area || ''
+      value: defaultValues.administrative_area || '',
+      pii: false
     },
     postal_code: {
       $formkit: 'RplFormText',

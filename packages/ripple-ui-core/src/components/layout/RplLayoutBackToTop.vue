@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import RplButton from '../button/RplButton.vue'
-import { useWindowScroll } from '@vueuse/core'
+import { useWindowScroll, useElementBounding } from '@vueuse/core'
 import { ref, computed } from 'vue'
 
 interface Props {
@@ -16,6 +16,7 @@ const SCROLL_THRESHOLD = 1080
 const containerRef = ref(null)
 
 const { y: scrollY } = useWindowScroll()
+const { top: offsetTop } = useElementBounding(containerRef)
 
 const isShown = computed(() => {
   return scrollY.value > SCROLL_THRESHOLD
@@ -26,8 +27,7 @@ const isSticky = computed(() => {
     return false
   }
 
-  const bottomPos = containerRef.value.offsetTop - window.innerHeight
-  return scrollY.value < bottomPos
+  return offsetTop.value > window.innerHeight
 })
 </script>
 

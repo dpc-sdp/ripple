@@ -133,7 +133,8 @@ const baseEvent = () => ({
   index: page.value,
   label: searchTerm.value,
   value: totalResults.value,
-  options: getActiveFilterURL(filterForm.value)
+  options: getActiveFilterURL(filterForm.value),
+  section: 'search-listing'
 })
 
 // Updates filter options with aggregation value

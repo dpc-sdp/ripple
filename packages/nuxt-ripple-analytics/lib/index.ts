@@ -718,7 +718,7 @@ export default {
         name: payload?.name,
         type: payload?.type,
         form_id: payload?.contextId,
-        component: 'tide-search',
+        component: `tide-${payload.section || 'search'}`,
         platform_event: 'search'
       })
     }
@@ -734,7 +734,7 @@ export default {
         index: payload?.index,
         filters: payload?.options,
         count: payload?.value,
-        component: 'tide-search',
+        component: `tide-${payload.section || 'search'}`,
         platform_event: 'search'
       })
     }
@@ -751,7 +751,7 @@ export default {
         index: payload?.index,
         count: payload?.value,
         filters: payload?.options,
-        component: 'tide-search',
+        component: `tide-${payload.section || 'search'}`,
         platform_event: 'paginate'
       })
     }
@@ -766,7 +766,7 @@ export default {
         name: payload?.name,
         form_id: payload?.contextId,
         filters: payload?.options,
-        component: 'tide-search',
+        component: `tide-${payload.section || 'search'}`,
         platform_event: 'toggleFilters'
       })
     }
@@ -775,13 +775,15 @@ export default {
     return (payload: any) => {
       trackEvent({
         event: `${payload.action}_filters`,
+        element_id: payload?.id,
         element_text: payload?.text,
         label: payload?.label,
         name: payload?.name,
         count: payload?.value,
+        type: payload?.type,
         form_id: payload?.contextId,
         filters: payload?.options,
-        component: 'tide-search',
+        component: `tide-${payload.section || 'search'}`,
         platform_event: 'clearQuery'
       })
     }

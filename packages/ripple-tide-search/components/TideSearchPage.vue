@@ -109,7 +109,8 @@ const baseEvent = () => ({
   index: searchState.value.current,
   label: searchState.value.searchTerm,
   value: searchState.value.totalResults,
-  options: getActiveFilterURL(filterFormValues.value)
+  options: getActiveFilterURL(filterFormValues.value),
+  section: 'search'
 })
 
 const emitSearchEvent = (event) => {

@@ -88,6 +88,7 @@ const emit = defineEmits<{
     e: 'toggleFilters',
     payload: rplEventPayload & { action: 'open' | 'close' }
   ): void
+  (e: 'reset', payload: rplEventPayload & { action: 'clear_search' }): void
 }>()
 
 const { emitRplEvent } = useRippleEvent('tide-search', emit)
@@ -132,7 +133,8 @@ const baseEvent = () => ({
   index: page.value,
   label: searchTerm.value,
   value: totalResults.value,
-  options: getActiveFilterURL(filterForm.value)
+  options: getActiveFilterURL(filterForm.value),
+  section: 'search-listing'
 })
 
 // Updates filter options with aggregation value
@@ -208,7 +210,17 @@ const handleFilterSubmit = (event) => {
   cachedSubmitEvent.value = {}
 }
 
-const handleFilterReset = () => {
+const handleFilterReset = (event: rplEventPayload) => {
+  emitRplEvent(
+    'reset',
+    {
+      ...event,
+      ...baseEvent(),
+      action: 'clear_search'
+    },
+    { global: true }
+  )
+
   searchTerm.value = ''
   filterForm.value = {}
   submitSearch()

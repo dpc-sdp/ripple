@@ -50,6 +50,10 @@
   &:active {
     text-decoration: underline;
   }
+
+  &:focus-visible .rpl-icon {
+    color: var(--rpl-clr-type-focus-contrast);
+  }
 }
 
 .rpl-media-gallery__modal {

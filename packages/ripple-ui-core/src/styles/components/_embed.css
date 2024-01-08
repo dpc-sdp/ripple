@@ -101,6 +101,10 @@
     padding-top: var(--rpl-sp-1);
     margin-right: var(--rpl-sp-2);
   }
+
+  &:focus-visible .rpl-icon {
+    color: var(--rpl-clr-type-focus-contrast);
+  }
 }
 
 .rpl-media-embed__view-data-content {

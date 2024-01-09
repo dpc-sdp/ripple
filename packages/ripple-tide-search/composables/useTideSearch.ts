@@ -419,7 +419,7 @@ export default ({
               fields: ['title']
             }
           },
-          size: 4
+          size: 8
         }
       }
     ).then((res) => {
@@ -427,6 +427,10 @@ export default ({
         (doc: { suggestion: string }) => doc.suggestion
       )
     })
+  }
+
+  const clearSuggestions = () => {
+    suggestions.value = []
   }
 
   /**
@@ -602,6 +606,7 @@ export default ({
     searchError,
     getSearchResults,
     getSuggestions,
+    clearSuggestions,
     onAggregationUpdateHook,
     searchTerm,
     results,

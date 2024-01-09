@@ -8,6 +8,8 @@
   --local-search-bar-clr-input-text: var(--rpl-clr-type-default);
   --local-search-bar-clr-placeholder: var(--rpl-clr-neutral-600);
   --local-search-bar-suggestion-height: 48px;
+  --local-search-bar-suggestion-odd: transparent;
+  --local-search-bar-suggestion-even: var(--rpl-clr-neutral-100);
 
   @media (--rpl-bp-m) {
     --local-search-bar-suggestion-height: 52px;
@@ -20,6 +22,8 @@
 
 .rpl-search-bar--reverse {
   --local-search-bar-clr-bg: var(--rpl-clr-light);
+  --local-search-bar-suggestion-odd: var(--rpl-clr-neutral-100);
+  --local-search-bar-suggestion-even: transparent;
 }
 
 .rpl-search-bar--menu {
@@ -154,6 +158,7 @@
   display: flex;
   align-items: center;
   padding: var(--rpl-sp-3);
+  background: var(--local-search-bar-suggestion-odd);
 
   @media (--rpl-bp-m) {
     padding-left: var(--rpl-sp-4);
@@ -161,7 +166,7 @@
   }
 
   &:nth-child(2n) {
-    background: var(--rpl-clr-neutral-100);
+    background: var(--local-search-bar-suggestion-even);
   }
 
   &:hover {

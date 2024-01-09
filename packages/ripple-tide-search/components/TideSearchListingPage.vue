@@ -26,6 +26,7 @@ interface Props {
   searchListingConfig?: TideSearchListingPage['searchListingConfig']
   sortOptions?: TideSearchListingSortOption[]
   autocompleteQuery?: boolean
+  autocompleteMinimumCharacters?: number
   queryConfig: Record<string, any>
   globalFilters?: any[]
   userFilters?: any[]
@@ -40,6 +41,7 @@ const props = withDefaults(defineProps<Props>(), {
   title: 'Search',
   introText: '',
   autocompleteQuery: true,
+  autocompleteMinimumCharacters: 3,
   globalFilters: () => [],
   userFilters: () => [],
   queryConfig: () => ({
@@ -99,6 +101,7 @@ const {
   isBusy,
   searchError,
   getSuggestions,
+  clearSuggestions,
   searchTerm,
   results,
   suggestions,
@@ -228,8 +231,13 @@ const handleFilterReset = (event: rplEventPayload) => {
 
 const handleUpdateSearchTerm = (term) => {
   searchTerm.value = term
+
   if (props.autocompleteQuery) {
-    getSuggestions()
+    if (term.length >= props.autocompleteMinimumCharacters) {
+      getSuggestions()
+    } else if (suggestions.value?.length) {
+      clearSuggestions()
+    }
   }
 }
 

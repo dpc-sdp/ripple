@@ -25,10 +25,6 @@ import {
 import TidePageMeta from './page-meta.js'
 import { getSiteSection } from '@dpc-sdp/ripple-tide-api'
 
-declare module '@dpc-sdp/ripple-tide-api' {
-  export const getSiteSection: (sectionId: string, src: any) => any
-}
-
 export const tidePageBaseMapping = ({
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   withTopicTags = false,

@@ -12,6 +12,7 @@ import useFormkitFriendlyEventEmitter from '../../composables/useFormkitFriendly
 import MultiValueLabel from './MultiValueLabel.vue'
 import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
 import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
+import { sanitisePIIField } from '../../lib/sanitisePII'
 
 export interface RplFormDropdownProps {
   id: string
@@ -31,6 +32,7 @@ export interface RplFormDropdownProps {
     value: string
   }[]
   maxItemsDisplayed?: number
+  pii?: boolean
 }
 
 const props = withDefaults(defineProps<RplFormDropdownProps>(), {
@@ -44,7 +46,8 @@ const props = withDefaults(defineProps<RplFormDropdownProps>(), {
   maxItemsDisplayed: 6,
   required: false,
   invalid: false,
-  multiple: false
+  multiple: false,
+  pii: true
 })
 
 const emit = defineEmits<{
@@ -192,7 +195,7 @@ const handleSelectOption = (optionValue) => {
       action: 'update',
       id: props.id,
       label: props?.label,
-      value: Array.isArray(newValue) ? newValue.join(',') : newValue,
+      value: sanitisePIIField(props.pii, newValue),
       contextId: form?.id,
       contextName: form?.name
     },

@@ -1,0 +1,79 @@
+import {
+  Canvas,
+  Meta,
+  Story,
+  ArgsTable
+} from '@storybook/addon-docs'
+import RplMapLegend from './RplMapLegend.vue'
+import RplMapLegendItem from './RplMapLegendItem.vue'
+import '@dpc-sdp/ripple-ui-core/style/components'
+
+export const SingleTemplate = (args) => ({
+  components: { RplMapLegend, RplMapLegendItem },
+  setup() {
+    return { args }
+  },
+  template: `<RplMapLegend v-bind="args">
+    <RplMapLegendItem v-for="(item, i) in args.items" :key="i" v-bind="item" />
+  </RplMapLegend>`
+})
+
+<Meta
+  title='Maps/Legend'
+  component={RplMapLegend}
+  argTypes={{
+    title: {
+      control: { type: 'text' },
+    }
+  }}
+  args={{
+    title: 'Legend',
+    defaultExpanded: true,
+    items: [
+      {
+        text: 'Group 1',
+        icon: "icon-pin",
+        iconColour: '#8A2A2B'
+      },
+      {
+        text: 'Group 2 with longer label',
+        icon: "icon-pin",
+        iconColour: '#E35205'
+      },
+      {
+        text: 'Group 3 with even longer label',
+        icon: "icon-pin",
+        iconColour: '#FF9E1B'
+      },
+      {
+        text: 'Group 4 that is very long',
+        icon: "icon-pin",
+        iconColour: '#87189D'
+      },
+      {
+        text: 'Group 5 to test the wrapping',
+        icon: "icon-pin",
+        iconColour: '#00B2A9'
+      },
+      {
+        text: 'Group 6',
+        icon: "icon-pin",
+        iconColour: '#71C5E8'
+      }
+    ]
+  }}
+/>
+
+# Tag
+
+<ArgsTable of={RplMapLegend} />
+
+## Default
+
+<Canvas>
+  <Story
+    name='Default'
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>

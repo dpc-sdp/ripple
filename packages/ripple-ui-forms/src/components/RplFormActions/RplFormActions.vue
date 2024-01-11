@@ -15,6 +15,7 @@ interface Props {
   prefixIcon?: string
   suffixIcon?: string
   displayResetButton?: boolean
+  globalEvents?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -26,7 +27,8 @@ const props = withDefaults(defineProps<Props>(), {
   displayResetButton: false,
   prefixIcon: undefined,
   suffixIcon: undefined,
-  disabled: false
+  disabled: false,
+  globalEvents: true
 })
 
 const emit = defineEmits<{
@@ -59,7 +61,7 @@ const handleReset = () => {
       contextId: form?.id,
       contextName: form?.name
     },
-    { global: true }
+    { global: props.globalEvents }
   )
 }
 </script>

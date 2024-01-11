@@ -10,6 +10,7 @@ import { useDebounceFn } from '@vueuse/core'
 import { RplIcon } from '@dpc-sdp/ripple-ui-core/vue'
 import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
 import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
+import { sanitisePIIField } from '../../lib/sanitisePII'
 
 interface Props {
   id: string
@@ -21,6 +22,8 @@ interface Props {
   label?: string
   prefixIcon?: string
   suffixIcon?: string
+  min?: number
+  max?: number
   minlength?: number
   maxlength?: number
   variant?: 'default' | 'reverse'
@@ -29,6 +32,7 @@ interface Props {
   centeredText?: boolean
   globalEvents?: boolean
   throttle?: number
+  pii?: boolean
   onInput?: (payload: Event) => void
   onBlur?: (payload: Event) => void
 }
@@ -40,6 +44,8 @@ const props = withDefaults(defineProps<Props>(), {
   label: undefined,
   prefixIcon: undefined,
   suffixIcon: undefined,
+  min: undefined,
+  max: undefined,
   minlength: undefined,
   maxlength: undefined,
   disabled: false,
@@ -49,6 +55,7 @@ const props = withDefaults(defineProps<Props>(), {
   centeredText: false,
   globalEvents: true,
   throttle: 500,
+  pii: true,
   onInput: () => null,
   onBlur: () => null
 })
@@ -83,7 +90,8 @@ const handleChange = useDebounceFn(() => {
       type: props.type,
       label: props?.label,
       contextId: form?.id,
-      contextName: form?.name
+      contextName: form?.name,
+      value: sanitisePIIField(props.pii, props?.value)
     },
     { global: props.globalEvents }
   )
@@ -111,6 +119,8 @@ const handleChange = useDebounceFn(() => {
         v-bind="$attrs"
         :name="name"
         :value="value"
+        :min="min"
+        :max="max"
         :minlength="minlength"
         :maxlength="maxlength"
         @blur="onBlur"

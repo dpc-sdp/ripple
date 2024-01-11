@@ -2,6 +2,7 @@
 import { computed, inject } from 'vue'
 import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
 import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
+import { sanitisePIIField } from '../../lib/sanitisePII'
 
 interface Props {
   id: string
@@ -16,6 +17,7 @@ interface Props {
   invalid?: boolean
   required?: boolean
   variant?: 'default' | 'reverse'
+  pii?: boolean
   handlers: Record<string, any>
 }
 
@@ -29,7 +31,8 @@ const props = withDefaults(defineProps<Props>(), {
   disabled: false,
   required: false,
   invalid: false,
-  variant: 'default'
+  variant: 'default',
+  pii: true
 })
 
 const emit = defineEmits<{
@@ -56,6 +59,7 @@ const handleChange = () => {
       action: 'update',
       id: props.id,
       label: props?.label,
+      value: sanitisePIIField(props.pii, props?.value),
       contextId: form?.id,
       contextName: form?.name
     },

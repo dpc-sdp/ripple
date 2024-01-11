@@ -1,0 +1,109 @@
+import {
+  Canvas,
+  Meta,
+  Story,
+  ArgsTable
+} from '@storybook/addon-docs'
+import { ref, provide } from 'vue'
+import { RplAccordion } from '@dpc-sdp/ripple-ui-core/vue'
+import { registerRplMapsPlugin } from '@dpc-sdp/ripple-ui-maps'
+import '@dpc-sdp/ripple-ui-core/style/components'
+import { transform } from 'ol/proj'
+import Icon from 'ol/style/Icon'
+import RplMap from './../map/RplMap.vue'
+import RplMapSidePanel from './RplMapSidePanel.vue'
+import RplMapSidePanelCard from './RplMapSidePanelCard.vue'
+import RplMapProviderMapbox from './../map/providers/RplMapProviderMapbox.vue'
+import featureData from './../map/__fixture__/features.json'
+import { truncateText } from './../map/__fixture__/utils.ts'
+
+export const Template = (args) => ({
+  components: { RplMap, RplMapProviderMapbox, RplMapSidePanel, RplMapSidePanelCard, RplAccordion },
+  setup() {
+    const rplMapRef = ref(null)
+    const rplMapSelectedFeatures = ref(null)
+    function setRplMapRef(mapInstance) {
+      rplMapRef.value = mapInstance
+    }
+    function setRplMapSelectedFeatures(features) {
+      rplMapSelectedFeatures.value = features
+    }
+    provide('rplMapInstance', {
+      rplMapRef,
+      setRplMapRef,
+      rplMapSelectedFeatures,
+      setRplMapSelectedFeatures
+    })
+    const getClusteredFeatures = (itms) => {
+      return itms.map((itm, idx) => {
+        return {
+          id: `${idx}-${itm.city}`,
+          title: itm.city,
+          content: itm.description
+        }
+      })
+    }
+    return {
+      truncateText,
+      getClusteredFeatures,
+      args
+    }
+  },
+  template: `
+    <RplMap
+      v-bind="args"
+    >
+      <template #map-provider>
+        <rpl-map-provider-mapbox />
+      </template>
+      <template #sidebar="{ mapHeight }">
+        <RplMapSidePanel :style="'height:' + mapHeight +'px'">
+          <p class="rpl-type-p-small rpl-u-margin-b-2 rpl-u-margin-l-1">{{args.cards.length}} items in {{args.searchTerm}}</p>
+          <RplMapSidePanelCard v-for="card in args.cards" :key="card.title" :feature="card" :title="card.city">
+            <p>{{truncateText(card.description, 50)}}</p>
+          </RplMapSidePanelCard>
+        </RplMapSidePanel>
+      </template>
+      <template #popupTitle="{ selectedFeatures }">
+        <span v-if="selectedFeatures.length === 1">
+          {{ selectedFeatures[0].city}}
+        </span>
+        <span v-else>
+          {{ selectedFeatures.length }} items found in this area
+        </span>
+      </template>
+      <template #popupContent="{ selectedFeatures }">
+        <p class="rpl-type-p-small" v-if="selectedFeatures.length === 1">
+          {{ selectedFeatures[0].description}}
+        </p>
+        <RplAccordion v-else :items="getClusteredFeatures(selectedFeatures)" :displayToggleAll="false">
+        </RplAccordion>
+      </template>
+    </RplMap>
+  `
+})
+
+<Meta
+  title='Maps/side-panel'
+  component={RplMap}
+/>
+
+# Demo
+
+<ArgsTable of={RplMap} />
+
+<Canvas>
+  <Story
+    name='Popup on click'
+    args={{
+      id: '123',
+      features:featureData,
+      provider: 'mapbox',
+      popupType: 'feature',
+      searchTerm: 'Melbourne',
+      cards: featureData.slice(0,10)
+    }}
+  >
+    {Template.bind()}
+  </Story>
+</Canvas>

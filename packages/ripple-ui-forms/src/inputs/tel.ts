@@ -37,7 +37,13 @@ export const tel: FormKitTypeDefinition = {
   /**
    * An array of extra props to accept for this input.
    */
-  props: [...minMaxProps, 'placeholder', 'validationMeta', 'columnClasses'],
+  props: [
+    ...minMaxProps,
+    'placeholder',
+    'validationMeta',
+    'columnClasses',
+    'pii'
+  ],
   /**
    * Additional features that should be added to your input
    */

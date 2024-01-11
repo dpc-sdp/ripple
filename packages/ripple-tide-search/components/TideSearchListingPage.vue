@@ -26,6 +26,7 @@ interface Props {
   searchListingConfig?: TideSearchListingPage['searchListingConfig']
   sortOptions?: TideSearchListingSortOption[]
   autocompleteQuery?: boolean
+  autocompleteMinimumCharacters?: number
   queryConfig: Record<string, any>
   globalFilters?: any[]
   userFilters?: any[]
@@ -40,6 +41,7 @@ const props = withDefaults(defineProps<Props>(), {
   title: 'Search',
   introText: '',
   autocompleteQuery: true,
+  autocompleteMinimumCharacters: 3,
   globalFilters: () => [],
   userFilters: () => [],
   queryConfig: () => ({
@@ -89,6 +91,7 @@ const emit = defineEmits<{
     e: 'toggleFilters',
     payload: rplEventPayload & { action: 'open' | 'close' }
   ): void
+  (e: 'reset', payload: rplEventPayload & { action: 'clear_search' }): void
 }>()
 
 const { emitRplEvent } = useRippleEvent('tide-search', emit)
@@ -99,6 +102,7 @@ const {
   isBusy,
   searchError,
   getSuggestions,
+  clearSuggestions,
   searchTerm,
   results,
   suggestions,
@@ -115,14 +119,14 @@ const {
   pagingStart,
   pagingEnd,
   onAggregationUpdateHook
-} = useTideSearch(
-  props.queryConfig,
-  props.userFilters,
-  props.globalFilters,
-  props.searchResultsMappingFn,
-  props.searchListingConfig,
-  props.sortOptions
-)
+} = useTideSearch({
+  queryConfig: props.queryConfig,
+  userFilters: props.userFilters,
+  globalFilters: props.globalFilters,
+  searchResultsMappingFn: props.searchResultsMappingFn,
+  searchListingConfig: props.searchListingConfig,
+  sortOptions: props.sortOptions
+})
 
 const uiFilters = ref(props.userFilters)
 const cachedSubmitEvent = ref({})
@@ -133,7 +137,8 @@ const baseEvent = () => ({
   index: page.value,
   label: searchTerm.value,
   value: totalResults.value,
-  options: getActiveFilterURL(filterForm.value)
+  options: getActiveFilterURL(filterForm.value),
+  section: 'search-listing'
 })
 
 // Updates filter options with aggregation value
@@ -209,7 +214,17 @@ const handleFilterSubmit = (event) => {
   cachedSubmitEvent.value = {}
 }
 
-const handleFilterReset = () => {
+const handleFilterReset = (event: rplEventPayload) => {
+  emitRplEvent(
+    'reset',
+    {
+      ...event,
+      ...baseEvent(),
+      action: 'clear_search'
+    },
+    { global: true }
+  )
+
   searchTerm.value = ''
   filterForm.value = {}
   submitSearch()
@@ -217,8 +232,13 @@ const handleFilterReset = () => {
 
 const handleUpdateSearchTerm = (term) => {
   searchTerm.value = term
+
   if (props.autocompleteQuery) {
-    getSuggestions()
+    if (term.length >= props.autocompleteMinimumCharacters) {
+      getSuggestions()
+    } else if (suggestions.value?.length) {
+      clearSuggestions()
+    }
   }
 }
 

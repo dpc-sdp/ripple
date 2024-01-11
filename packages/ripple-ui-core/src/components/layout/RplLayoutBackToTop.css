@@ -1,3 +1,5 @@
+@import '@dpc-sdp/ripple-ui-core/style/breakpoints';
+
 .rpl-back-to-top {
   position: relative;
   pointer-events: none;

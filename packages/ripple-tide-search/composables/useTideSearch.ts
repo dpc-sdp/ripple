@@ -411,6 +411,14 @@ export default ({
   }
 
   const getSuggestions = async () => {
+    let fields = ['title']
+
+    if (searchListingConfig?.suggestions?.key) {
+      fields = Array.isArray(searchListingConfig.suggestions.key)
+        ? searchListingConfig.suggestions.key
+        : [searchListingConfig.suggestions.key]
+    }
+
     suggestions.value = await $fetch(
       `/api/tide/app-search/${index}/query_suggestion`,
       {
@@ -419,7 +427,7 @@ export default ({
           query: searchTerm.value,
           types: {
             documents: {
-              fields: ['title']
+              fields
             }
           },
           size: 8

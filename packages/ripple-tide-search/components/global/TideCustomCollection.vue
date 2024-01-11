@@ -60,7 +60,11 @@ const props = withDefaults(defineProps<Props>(), {
       reset: 'Reset',
       placeholder: 'Enter a search term'
     },
-    displayMapTab: false
+    displayMapTab: false,
+    suggestions: {
+      key: 'title',
+      enabled: false
+    }
   }),
   resultsConfig: () => ({
     layout: {
@@ -276,7 +280,10 @@ const handleFilterReset = (event: rplEventPayload) => {
 
 const handleUpdateSearchTerm = (term) => {
   searchTerm.value = term
-  if (props.autocompleteQuery) {
+  if (
+    props.autocompleteQuery &&
+    props.searchListingConfig?.suggestions?.enabled !== false
+  ) {
     getSuggestions()
   }
 }

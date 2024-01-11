@@ -21,6 +21,11 @@
           "terms": {
             "termFilter.keyword": ["Green"]
           }
+        },
+        {
+          "terms": {
+            "singleTermFilter.keyword": ["Aqua"]
+          }
         }
       ]
     }

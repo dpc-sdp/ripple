@@ -133,6 +133,13 @@ export type TideSearchListingConfig = {
      * @description whether to display map tab and include map search results
      */
     displayMapTab?: boolean
+    /**
+     * @description options for utilizing the auto suggestions
+     */
+    suggestions: {
+      key: string
+      enabled: boolean
+    }
   }
   /**
    * @description Elastic Query DSL for query clause

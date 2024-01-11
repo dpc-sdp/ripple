@@ -29,14 +29,15 @@ Feature: Search listing - Filter
     And the search network request is stubbed with fixture "/search-listing/filters/response" and status 200
     And the current date is "Fri, 02 Feb 2050 03:04:05 GMT"
 
-    When I visit the page "/filters?termFilter=Green"
+    When I visit the page "/filters?termFilter=Green&singleTermFilter=Aqua"
     Then the search listing page should have 2 results
     And the search network request should be called with the "/search-listing/filters/request-term-single" fixture
 
-    Then the filters toggle should show 1 applied filters
+    Then the filters toggle should show 2 applied filters
 
     When I toggle the search listing filters section
     Then the search listing dropdown field labelled "Term filter example" should have the value "Green"
+    Then the search listing dropdown field labelled "Single term filter example" should have the value "Aqua"
 
   @mockserver
   Example: Term filter - Should reflect an array from the URL

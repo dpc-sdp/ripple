@@ -115,9 +115,12 @@ export type TideSearchListingConfig = {
      */
     index: string
     /**
-     * @description Toggle grid and list view of results, cards need to be a grid view
+     * @description Set the number of results to show per page
      */
     resultsPerPage?: number
+    /**
+     * @description Override the default labels
+     */
     labels: {
       submit: string
       reset: string
@@ -133,6 +136,10 @@ export type TideSearchListingConfig = {
      * @description whether to display map tab and include map search results
      */
     displayMapTab?: boolean
+    /**
+     * @description optionally hide the search form
+     */
+    hideSearchForm?: boolean
   }
   /**
    * @description Elastic Query DSL for query clause

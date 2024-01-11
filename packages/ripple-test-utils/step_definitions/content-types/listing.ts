@@ -260,3 +260,7 @@ Then(
     cy.get(`#search-listing-sort-options`).should('contain', option)
   }
 )
+
+Then('the search form should be hidden', () => {
+  cy.get(`.tide-search-header`).should('not.exist')
+})

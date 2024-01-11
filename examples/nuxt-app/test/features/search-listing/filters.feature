@@ -189,15 +189,15 @@ Feature: Search listing - Filter
 
     When I toggle the search listing filters section
     Then the search listing dropdown field labelled "Terms dependent example" should have the value "Mammals"
-#    Then the search listing dropdown field labelled "Terms dependent child example" should have the value "Dogs, Cats"
+    Then the search listing dropdown field labelled "Terms dependent child example" should have the value "Dogs, Cats"
     When I click the search listing dropdown field labelled "Terms dependent example"
     Then the selected dropdown field should have the items:
       | Mammals |
       | Birds   |
-#    When I click the search listing dropdown field labelled "Terms dependent child example"
-#    Then the selected dropdown field should have the items:
-#      | Dogs |
-#      | Cats |
+    When I click the search listing dropdown field labelled "Terms dependent child example"
+    Then the selected dropdown field should have the items:
+      | Dogs |
+      | Cats |
 
   @mockserver
   Example: Dependent filter - Child options should update on parent selection
@@ -212,7 +212,7 @@ Feature: Search listing - Filter
     When I toggle the search listing filters section
     And I click the search listing dropdown field labelled "Terms dependent example"
     Then I click the option labelled "Birds" in the selected dropdown
-#    And I click the search listing dropdown field labelled "Terms dependent child example"
-#    Then the selected dropdown field should have the items:
-#      | Parrot   |
-#      | Cockatoo |
+    And I click the search listing dropdown field labelled "Terms dependent child example"
+    Then the selected dropdown field should have the items:
+      | Parrot   |
+      | Cockatoo |

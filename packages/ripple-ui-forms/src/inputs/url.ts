@@ -37,7 +37,13 @@ export const url: FormKitTypeDefinition = {
   /**
    * An array of extra props to accept for this input.
    */
-  props: [...minMaxProps, 'placeholder', 'validationMeta', 'columnClasses'],
+  props: [
+    ...minMaxProps,
+    'placeholder',
+    'validationMeta',
+    'columnClasses',
+    'pii'
+  ],
   /**
    * Forces node.props.type to be this explicit value.
    */

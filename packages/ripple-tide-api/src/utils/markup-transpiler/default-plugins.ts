@@ -122,6 +122,9 @@ const pluginDocuments = function (this: any) {
             case 'file--mime-application-zip':
               fileType = 'zip'
               break
+            case 'file--mime-text-calendar':
+              fileType = 'ics'
+              break
           }
         })
     }

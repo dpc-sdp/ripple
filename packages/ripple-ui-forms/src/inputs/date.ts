@@ -21,6 +21,7 @@ export const date: FormKitTypeDefinition = {
       disabled: '$node.context.disabled',
       invalid: '$fns.isFieldInvalid()',
       required: '$fns.isFieldRequired()',
+      pii: '$node.props.pii',
       'aria-describedby': '$fns.getAriaDescribedBy()'
     }
   }),
@@ -37,7 +38,7 @@ export const date: FormKitTypeDefinition = {
   /**
    * An array of extra props to accept for this input.
    */
-  props: ['dateFormat'],
+  props: ['dateFormat', 'pii'],
   /**
    * Forces node.props.type to be this explicit value.
    */

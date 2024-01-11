@@ -20,7 +20,7 @@ export const SingleTemplate = (args) => ({
   data: () => ({ inputValue: null }),
   computed: {
     suggestions() {
-      if (!this.inputValue) {
+      if (this.args.variant === 'menu' || this.inputValue?.length < 3) {
         return []
       }
       return mockSuggestions.filter((val) => val.startsWith(this.inputValue))

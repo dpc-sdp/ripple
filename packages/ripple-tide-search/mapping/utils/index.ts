@@ -21,12 +21,12 @@ export const processConfig = async (config, tidePageApi) => {
         // sort taxonomy values by weight value to control order in dropdown
         const activeTaxonomies = taxonomyResults
           .filter((tax) => tax.status === true)
+          .sort((a, b) => a.weight - b.weight)
           .map((item) => ({
             id: item.drupal_internal__tid,
             label: item.name,
             value: item.name
           }))
-          .sort((a, b) => a.weight - b.weight)
 
         if (activeTaxonomies && activeTaxonomies.length > 0) {
           const test = {

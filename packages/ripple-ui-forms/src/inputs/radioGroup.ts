@@ -16,7 +16,8 @@ export const radioGroup: FormKitTypeDefinition = {
       onChange: '$node.input',
       options: '$node.props.options',
       validationMeta: '$node.props.validationMeta',
-      layout: '$node.props.layout'
+      layout: '$node.props.layout',
+      pii: '$node.props.pii'
     }
   }),
   library: inputLibrary,
@@ -32,7 +33,7 @@ export const radioGroup: FormKitTypeDefinition = {
   /**
    * An array of extra props to accept for this input.
    */
-  props: ['options', 'layout'],
+  props: ['options', 'layout', 'pii'],
   /**
    * Additional features that should be added to your input
    */

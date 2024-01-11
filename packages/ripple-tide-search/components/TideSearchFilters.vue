@@ -34,6 +34,7 @@
         :label="submitLabel"
         :resetLabel="resetLabel"
         :displayResetButton="!!resetLabel"
+        :globalEvents="false"
         @reset="handleFilterReset"
       />
     </div>
@@ -41,6 +42,8 @@
 </template>
 
 <script setup lang="ts">
+import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
+
 type CollectionFilter = {
   component: string
   props: Record<string, any>
@@ -57,7 +60,7 @@ interface Props {
 
 const emit = defineEmits<{
   (e: 'submit', payload: Record<string, any>): void
-  (e: 'reset'): void
+  (e: 'reset', payload: rplEventPayload): void
 }>()
 
 const props = withDefaults(defineProps<Props>(), {
@@ -66,8 +69,8 @@ const props = withDefaults(defineProps<Props>(), {
   reverseStyling: false
 })
 
-const handleFilterReset = () => {
-  emit('reset')
+const handleFilterReset = (event: rplEventPayload) => {
+  emit('reset', event)
 }
 
 const handleFilterSubmit = (formValues) => {

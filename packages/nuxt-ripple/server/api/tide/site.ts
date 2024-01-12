@@ -15,7 +15,9 @@ export const createSiteHandler = async (
       throw new BadRequestError('Site id is required')
     }
 
-    const siteResponse = await tideSiteApi.getSiteData(query.id)
+    const sectionId = getHeader(event, 'x-section-request-id')
+
+    const siteResponse = await tideSiteApi.getSiteData(query.id, sectionId)
 
     // Need to pass on the section cache tags to the nuxt app
     if (siteResponse.headers && siteResponse.headers['section-cache-tags']) {

@@ -82,12 +82,17 @@ export default class TidePageApi extends TideApiBase {
     }
   }
 
-  async getRouteByPath(path: string, site: string = this.site, headers = {}) {
+  async getRouteByPath(
+    path: string,
+    site: string = this.site,
+    headers = {},
+    logId?: string
+  ) {
     this.path = path
 
     const routeUrl = `/route?site=${site}&path=${path}`
 
-    return this.get(routeUrl, { headers })
+    return this.get(routeUrl, { headers, _logId: logId })
       .then((response) => response?.data?.data?.attributes)
       .catch((error) => {
         throw new NotFoundError(
@@ -103,19 +108,20 @@ export default class TidePageApi extends TideApiBase {
     path: string,
     siteQuery: string | undefined,
     params = {},
-    headers = {}
+    headers = {},
+    logId?: string
   ) {
     const site = siteQuery || this.site
 
     if (this.isShareLink(path)) {
-      return this.getPageByShareLink(path, site)
+      return this.getPageByShareLink(path, site, logId)
     }
 
     if (this.isPreviewLink(path)) {
-      return this.getPageFromPreviewLink(path, site, params, headers)
+      return this.getPageFromPreviewLink(path, site, params, headers, logId)
     }
 
-    const route = await this.getRouteByPath(path, site, headers)
+    const route = await this.getRouteByPath(path, site, headers, logId)
     if (route && !route.error) {
       if (route.hasOwnProperty('redirect_type')) {
         return {
@@ -133,11 +139,15 @@ export default class TidePageApi extends TideApiBase {
       if (includes !== '') {
         fullParams['include'] = includes
       }
-      return this.getPageByRouteData(route, { params: fullParams, headers })
+      return this.getPageByRouteData(route, {
+        params: fullParams,
+        headers,
+        _logId: logId
+      })
     }
   }
 
-  async getPageByShareLink(path: string, site: string) {
+  async getPageByShareLink(path: string, site: string, logId?: string) {
     const response = await this.get(path).then(({ data: res }) => {
       return res?.data ? jsonapiParse.parse(res).data || res.data : null
     })
@@ -163,7 +173,8 @@ export default class TidePageApi extends TideApiBase {
 
     return await this.getPageByRouteData(routeData, {
       headers: { 'X-Share-Link-Token': response.id },
-      params
+      params,
+      _logId: logId
     })
   }
 
@@ -171,7 +182,8 @@ export default class TidePageApi extends TideApiBase {
     path,
     site,
     params = {},
-    headers = {}
+    headers = {},
+    logId?: string
   ): Promise<any> {
     try {
       const { 2: contentType, 3: uuid, 4: revisionId } = path.split('/')
@@ -193,7 +205,8 @@ export default class TidePageApi extends TideApiBase {
 
       return await this.getPageByRouteData(routeData, {
         headers,
-        params: fullParams
+        params: fullParams,
+        _logId: logId
       })
     } catch (error) {
       throw new NotFoundError(`Couldn't get page preview`, {

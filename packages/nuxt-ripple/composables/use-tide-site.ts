@@ -1,11 +1,23 @@
 import type { TideSiteData } from './../types'
+import { useSectionId } from '#imports'
 
 export const useTideSite = async (id?: number): Promise<TideSiteData> => {
   const { public: config } = useRuntimeConfig()
   const siteId = id || config.tide?.site
   const { data: siteData } = useNuxtData(`site-${siteId}`)
+  const nuxt = useNuxtApp()
 
-  let sectionCacheTags
+  const sectionRequestId = useSectionId()
+
+  const headers: {
+    'x-section-request-id'?: string
+  } = {}
+
+  if (process.server) {
+    headers['x-section-request-id'] = sectionRequestId
+  }
+
+  let sectionCacheTags: string | null = null
 
   if (!siteData.value) {
     const { data, error } = await useFetch('/api/tide/site', {
@@ -14,6 +26,7 @@ export const useTideSite = async (id?: number): Promise<TideSiteData> => {
       params: {
         id: siteId
       },
+      headers,
       async onResponse({ response }) {
         sectionCacheTags = response.headers.get('section-cache-tags')
       }
@@ -26,7 +39,7 @@ export const useTideSite = async (id?: number): Promise<TideSiteData> => {
 
     // Section.io cache tags must be set on the response header to invalidate the cache after a change in drupal
     if (sectionCacheTags) {
-      useMergeSectionTags(sectionCacheTags)
+      nuxt.runWithContext(() => useMergeSectionTags(sectionCacheTags))
     }
 
     return data.value

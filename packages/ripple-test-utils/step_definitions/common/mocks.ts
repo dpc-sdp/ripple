@@ -174,6 +174,17 @@ Given(
 )
 
 Then(
+  'the search autocomplete request should be called with the {string} fixture',
+  (requestFixture: string) => {
+    cy.fixture(requestFixture).then((fixture) => {
+      cy.get(`@autocompleteRequest`)
+        .its('request.body')
+        .should('deep.equal', fixture)
+    })
+  }
+)
+
+Then(
   'the search network request should be called with the {string} fixture',
   (requestFixture: string) => {
     cy.fixture(requestFixture).then((fixture) => {
@@ -198,4 +209,8 @@ Given('the current date is {string}', (dateString: string) => {
 
 Given('the current date is restored', () => {
   cy.clock().invoke('restore')
+})
+
+Given('time moves {int} second', (sec: number = 1) => {
+  cy.tick(sec * 1000)
 })

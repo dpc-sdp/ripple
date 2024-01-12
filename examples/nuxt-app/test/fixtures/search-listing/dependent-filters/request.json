@@ -19,12 +19,7 @@
         },
         {
           "terms": {
-            "termFilter.keyword": ["Green"]
-          }
-        },
-        {
-          "terms": {
-            "singleTermFilter.keyword": ["Aqua"]
+            "field_species_name": ["Dogs", "Cats"]
           }
         }
       ]

@@ -1,5 +1,11 @@
 <script setup lang="ts">
-import { getActiveFilterURL, ref, toRaw, computed } from '#imports'
+import {
+  getActiveFilterURL,
+  getActiveFiltersTally,
+  ref,
+  toRaw,
+  computed
+} from '#imports'
 import { submitForm } from '@formkit/vue'
 import useTideSearch from './../composables/useTideSearch'
 import type { TidePageBase, TideSiteData } from '@dpc-sdp/ripple-tide-api/types'
@@ -57,11 +63,16 @@ const props = withDefaults(defineProps<Props>(), {
     }
   }),
   searchListingConfig: () => ({
+    hideSearchForm: false,
     resultsPerPage: 9,
     labels: {
       submit: 'Submit',
       reset: 'Reset',
       placeholder: 'Enter a search term'
+    },
+    suggestions: {
+      key: 'title',
+      enabled: true
     }
   }),
   resultsLayout: () => ({
@@ -107,6 +118,7 @@ const {
   suggestions,
   filterForm,
   appliedFilters,
+  resetFilters,
   submitSearch,
   goToPage,
   page,
@@ -225,14 +237,17 @@ const handleFilterReset = (event: rplEventPayload) => {
   )
 
   searchTerm.value = ''
-  filterForm.value = {}
+  resetFilters()
   submitSearch()
 }
 
 const handleUpdateSearchTerm = (term) => {
   searchTerm.value = term
 
-  if (props.autocompleteQuery) {
+  if (
+    props.autocompleteQuery &&
+    props.searchListingConfig?.suggestions?.enabled !== false
+  ) {
     if (term.length >= props.autocompleteMinimumCharacters) {
       getSuggestions()
     } else if (suggestions.value?.length) {
@@ -273,17 +288,7 @@ const handleToggleFilters = () => {
 }
 
 const numAppliedFilters = computed(() => {
-  return Object.values(appliedFilters.value).filter((value) => {
-    if (!value) {
-      return false
-    }
-
-    if (Array.isArray(value) && !value.length) {
-      return false
-    }
-
-    return true
-  }).length
+  return getActiveFiltersTally(appliedFilters.value)
 })
 
 const toggleFiltersLabel = computed(() => {
@@ -336,7 +341,10 @@ watch(
         :corner-bottom="false"
       >
         <p v-if="introText" class="rpl-type-p-large">{{ introText }}</p>
-        <div class="tide-search-header">
+        <div
+          v-if="!searchListingConfig.hideSearchForm"
+          class="tide-search-header"
+        >
           <RplSearchBar
             id="tide-search-bar"
             variant="default"

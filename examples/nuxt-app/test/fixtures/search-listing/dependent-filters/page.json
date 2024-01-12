@@ -1,5 +1,5 @@
 {
-  "title": "Grants and programs",
+  "title": "Depenedent filters",
   "changed": "2022-11-02T12:47:29+11:00",
   "created": "2022-11-02T12:47:29+11:00",
   "type": "tide_search_listing",
@@ -73,42 +73,6 @@
         }
       },
       {
-        "id": "singleTermFilter",
-        "component": "TideSearchFilterDropdown",
-        "filter": {
-          "type": "term",
-          "value": "singleTermFilter.keyword",
-          "multiple": false
-        },
-        "aggregations": {
-          "field": "termFilter",
-          "source": "taxonomy"
-        },
-        "props": {
-          "id": "singleTermFilter",
-          "label": "Single term filter example",
-          "placeholder": "Select a single colour",
-          "multiple": false,
-          "options": [
-            {
-              "id": "1",
-              "label": "Aqua",
-              "value": "Aqua"
-            },
-            {
-              "id": "2",
-              "label": "Burgundy",
-              "value": "Burgundy"
-            },
-            {
-              "id": "3",
-              "label": "Violet",
-              "value": "Violet"
-            }
-          ]
-        }
-      },
-      {
         "id": "termsFilter",
         "component": "TideSearchFilterDropdown",
         "filter": {
@@ -144,62 +108,59 @@
         }
       },
       {
-        "id": "rawFilter",
-        "component": "TideSearchFilterDropdown",
+        "id": "dependentFilter",
+        "component": "TideSearchFilterDependent",
+        "columns": "rpl-grid",
         "filter": {
-          "type": "raw",
-          "value": "{\"ids\":{\"values\":{{value}}}}"
+          "type": "dependent",
+          "multiple": false,
+          "value": "field_species_name"
         },
         "aggregations": {
-          "field": "rawFilter",
+          "field": "topic",
           "source": "taxonomy"
         },
         "props": {
-          "id": "rawFilter",
-          "label": "Raw filter example",
-          "placeholder": "Select a pet",
+          "id": "dependentFilter",
+          "label": "Terms dependent example",
+          "placeholder": "Select a species",
+          "dependantLabel": "Terms dependent child example",
+          "dependantPlaceholder": "All sub species",
           "multiple": true,
           "options": [
             {
               "id": "1",
-              "label": "Cats",
-              "value": "Cats"
+              "label": "Mammals",
+              "value": "Mammals"
             },
             {
               "id": "2",
               "label": "Dogs",
-              "value": "Dogs"
+              "value": "Dogs",
+              "parent": "1"
             },
             {
               "id": "3",
               "label": "Birds",
               "value": "Birds"
-            }
-          ]
-        }
-      },
-      {
-        "id": "functionFilter",
-        "component": "TideSearchFilterDropdown",
-        "filter": {
-          "type": "function",
-          "value": "dummyFunctionFilter"
-        },
-        "props": {
-          "id": "functionFilter",
-          "label": "Custom function filter example",
-          "placeholder": "Select a status",
-          "multiple": true,
-          "options": [
-            {
-              "id": "open",
-              "label": "Open",
-              "value": "open"
             },
             {
-              "id": "closed",
-              "label": "Closed",
-              "value": "closed"
+              "id": "4",
+              "label": "Cats",
+              "value": "Cats",
+              "parent": "1"
+            },
+            {
+              "id": "5",
+              "label": "Parrot",
+              "value": "Parrot",
+              "parent": "3"
+            },
+            {
+              "id": "6",
+              "label": "Cockatoo",
+              "value": "Cockatoo",
+              "parent": "3"
             }
           ]
         }

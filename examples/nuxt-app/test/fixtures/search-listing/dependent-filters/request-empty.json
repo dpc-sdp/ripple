@@ -17,16 +17,7 @@
             "field_node_site": [8888]
           }
         },
-        {
-          "terms": {
-            "termFilter.keyword": ["Green"]
-          }
-        },
-        {
-          "terms": {
-            "singleTermFilter.keyword": ["Aqua"]
-          }
-        }
+        null
       ]
     }
   },

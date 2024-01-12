@@ -260,3 +260,33 @@ Then(
     cy.get(`#search-listing-sort-options`).should('contain', option)
   }
 )
+
+Then(
+  `the search suggestions displayed should include`,
+  (dataTable: DataTable) => {
+    const table = dataTable.raw()
+    cy.get('#tide-search-bar__menu')
+      .find('[role="option"]')
+      .as('suggestedOptions')
+
+    table.forEach((row, i: number) => {
+      cy.get('@suggestedOptions')
+        .eq(i)
+        .then((item) => {
+          cy.wrap(item).as('item')
+          cy.get('@item').should('contain', row[0])
+        })
+    })
+  }
+)
+
+When('I click the search suggestion labelled {string}', (label: string) => {
+  cy.get('#tide-search-bar__menu')
+    .find('[role="option"]')
+    .contains(label)
+    .click()
+})
+
+Then('the search suggestions should not be displayed', (option: string) => {
+  cy.get('#tide-search-bar__menu').should('not.exist')
+})

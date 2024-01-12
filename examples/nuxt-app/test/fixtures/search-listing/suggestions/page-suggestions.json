@@ -1,0 +1,42 @@
+{
+  "title": "Suggestions",
+  "changed": "2022-11-02T12:47:29+11:00",
+  "created": "2022-11-02T12:47:29+11:00",
+  "type": "tide_search_listing",
+  "nid": "11dede11-10c0-111e1-1100-000000000330",
+  "showTopicTags": true,
+  "summary": "",
+  "config": {
+    "searchListingConfig": {
+      "index": "suggestion_index",
+      "resultsPerPage": 10
+    },
+    "queryConfig": {
+      "multi_match": {
+        "query": "{{query}}",
+        "fields": [
+          "title^3",
+          "field_landing_page_summary^2",
+          "body",
+          "field_paragraph_body",
+          "summary_processed"
+        ]
+      }
+    },
+    "results": {
+      "layout": {
+        "component": "TideSearchResultsList"
+      },
+      "item": {
+        "grant": {
+          "component": "TideSearchResult"
+        }
+      }
+    },
+    "globalFilters": [
+      { "terms": { "type": ["news"] } },
+      { "terms": { "field_node_site": [8888] } }
+    ],
+    "userFilters": []
+  }
+}

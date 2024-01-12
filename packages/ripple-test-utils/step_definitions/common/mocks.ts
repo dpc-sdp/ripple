@@ -174,6 +174,17 @@ Given(
 )
 
 Then(
+  'the search autocomplete request should be called with the {string} fixture',
+  (requestFixture: string) => {
+    cy.fixture(requestFixture).then((fixture) => {
+      cy.get(`@autocompleteRequest`)
+        .its('request.body')
+        .should('deep.equal', fixture)
+    })
+  }
+)
+
+Then(
   'the search network request should be called with the {string} fixture',
   (requestFixture: string) => {
     cy.fixture(requestFixture).then((fixture) => {

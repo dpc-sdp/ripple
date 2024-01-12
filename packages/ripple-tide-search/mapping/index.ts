@@ -5,7 +5,7 @@ import {
 import { getBodyFromField } from '@dpc-sdp/ripple-tide-api'
 import type { IRplTideModuleMapping } from '@dpc-sdp/ripple-tide-api/types'
 import { ApplicationError } from '@dpc-sdp/ripple-tide-api/errors'
-import { getUniqueListBy, parseJSONField } from './../mapping/utils'
+import { processConfig, parseJSONField } from './../mapping/utils'
 import {
   secondaryCampaignIncludes,
   secondaryCampaignMapping
@@ -13,7 +13,6 @@ import {
 
 const getProcessedSearchListingConfig = async (src, tidePageApi) => {
   let rawConfig = null
-
   rawConfig = getMaybeRawConfig(src)
 
   if (!rawConfig) {
@@ -106,6 +105,7 @@ const parseResultsConfigFromDrupal = (src) => {
 const buildConfigFromDrupalFields = (src) => {
   return {
     searchListingConfig: {
+      hideSearchForm: src?.field_listing_hide_search_form ?? false,
       resultsPerPage: src.field_listing_results_per_page || 10,
       labels: {
         submit: src.field_search_submit_label,
@@ -138,45 +138,6 @@ const getMaybeRawConfig = (src) => {
   }
 
   return parsedConfig
-}
-
-const processConfig = async (config, tidePageApi) => {
-  const filters = await Promise.all(
-    config.userFilters.map(async (uiFilter) => {
-      if (uiFilter.aggregations?.source === 'taxonomy') {
-        const taxonomyResults = await tidePageApi.getTaxonomy(
-          uiFilter.aggregations?.field
-        )
-        // Taxonomies can be disabled, only return active ones
-        const activeTaxonomies = taxonomyResults
-          .filter((tax) => tax.status === true)
-          .map((item) => ({
-            parent: item?.parent?.[0]?.meta.drupal_internal__target_id || null,
-            id: item.drupal_internal__tid,
-            label: item.name,
-            value: item.name
-          }))
-
-        if (activeTaxonomies && activeTaxonomies.length > 0) {
-          const test = {
-            ...uiFilter,
-            props: {
-              ...uiFilter.props,
-              options: getUniqueListBy(activeTaxonomies, 'label')
-            }
-          }
-          return test
-        }
-      }
-
-      return uiFilter
-    })
-  )
-
-  return {
-    ...config,
-    userFilters: filters
-  }
 }
 
 const tideCollectionModule: IRplTideModuleMapping = {

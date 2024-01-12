@@ -141,7 +141,8 @@ export const defaultRplFormInputProps = {
   'aria-describedby': '$fns.getAriaDescribedBy()',
   invalid: '$fns.isFieldInvalid()',
   required: '$fns.isFieldRequired()',
-  columnClasses: '$node.props.columnClasses'
+  columnClasses: '$node.props.columnClasses',
+  pii: '$node.props.pii'
 }
 
 export const minMaxRplFormProps = {

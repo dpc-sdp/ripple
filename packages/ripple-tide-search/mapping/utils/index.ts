@@ -9,3 +9,44 @@ export function getUniqueListBy(arr, key) {
 export const parseJSONField = (rawValue) => {
   return JSON.parse(rawValue)
 }
+
+export const processConfig = async (config, tidePageApi) => {
+  const filters = await Promise.all(
+    config.userFilters.map(async (uiFilter) => {
+      if (uiFilter.aggregations?.source === 'taxonomy') {
+        const taxonomyResults = await tidePageApi.getTaxonomy(
+          uiFilter.aggregations?.field
+        )
+        // Taxonomies can be disabled, only return active ones
+        // sort taxonomy values by weight value to control order in dropdown
+        const activeTaxonomies = taxonomyResults
+          .filter((tax) => tax.status === true)
+          .sort((a, b) => a.weight - b.weight)
+          .map((item) => ({
+            id: item.drupal_internal__tid,
+            label: item.name,
+            value: item.name,
+            parent: item?.parent?.[0]?.meta.drupal_internal__target_id || null
+          }))
+
+        if (activeTaxonomies && activeTaxonomies.length > 0) {
+          const test = {
+            ...uiFilter,
+            props: {
+              ...uiFilter.props,
+              options: getUniqueListBy(activeTaxonomies, 'label')
+            }
+          }
+          return test
+        }
+      }
+
+      return uiFilter
+    })
+  )
+
+  return {
+    ...config,
+    userFilters: filters
+  }
+}

@@ -21,17 +21,14 @@ describe('RplSearchBar', () => {
   it('suggestion slot', () => {
     cy.mount(RplSearchBar, {
       props: {
-        ...baseProps,
-        [`onUpdate:inputValue`]: () => {
-          console.log('testest')
-        }
+        ...baseProps
       },
       slots: {
         suggestion: (props) => `test - ${props.option.option}`
       }
     })
     cy.get('input#1234').click()
-    cy.get('#rip').should('contain.text', `test - rip`)
+    cy.get('[data-option-id="rip"]').should('contain.text', `test - rip`)
   })
   it('updates', () => {
     const onChangeSpy = cy.spy().as('onChangeSpy')

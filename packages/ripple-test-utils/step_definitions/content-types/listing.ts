@@ -179,7 +179,9 @@ When(
 )
 
 When(`I toggle the search listing filters section`, () => {
-  cy.get(`button`).contains('Refine search').click()
+  cy.get(`button`).contains('Refine search').as('refineBtn')
+  cy.wait(300)
+  cy.get('@refineBtn').click()
 })
 
 When(`I clear the search filters`, () => {
@@ -269,3 +271,7 @@ Then(
     cy.get(`#search-listing-sort-options`).should('contain', option)
   }
 )
+
+Then('the search form should be hidden', () => {
+  cy.get(`.tide-search-header`).should('not.exist')
+})

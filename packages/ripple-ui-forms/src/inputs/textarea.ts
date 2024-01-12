@@ -33,6 +33,7 @@ export const textarea: FormKitTypeDefinition = {
       'aria-describedby': '$fns.getAriaDescribedBy()',
       required: '$fns.isFieldRequired()',
       invalid: '$fns.isFieldInvalid()',
+      pii: '$node.props.pii',
       ...minMaxRplFormProps,
       ...counterRplFormProps
     }
@@ -56,7 +57,8 @@ export const textarea: FormKitTypeDefinition = {
     'rows',
     'placeholder',
     'validationMeta',
-    'columnClasses'
+    'columnClasses',
+    'pii'
   ],
   /**
    * Forces node.props.type to be this explicit value.

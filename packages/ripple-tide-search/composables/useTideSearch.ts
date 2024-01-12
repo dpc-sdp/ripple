@@ -29,14 +29,31 @@ const encodeCommasAndColons = (value: string): string => {
   })
 }
 
-export default (
-  queryConfig: TideSearchListingConfig['queryConfig'],
-  userFilterConfig: TideSearchListingConfig['userFilters'],
-  globalFilters: any[],
-  searchResultsMappingFn: (item: any) => any,
-  searchListingConfig: TideSearchListingConfig['searchListingConfig'],
-  sortOptions: TideSearchListingConfig['sortOptions']
-) => {
+interface Config {
+  queryConfig: TideSearchListingConfig['queryConfig']
+  userFilters: TideSearchListingConfig['userFilters']
+  globalFilters: any[]
+  searchResultsMappingFn: (item: any) => any
+  searchListingConfig: TideSearchListingConfig['searchListingConfig']
+  sortOptions?: TideSearchListingConfig['sortOptions']
+  includeMapsRequest?: boolean
+  mapResultsMappingFn?: (item: any) => any
+  mapConfig?: any
+  locationQueryConfig?: any
+}
+
+export default ({
+  queryConfig,
+  userFilters: userFilterConfig,
+  globalFilters,
+  searchResultsMappingFn,
+  searchListingConfig,
+  sortOptions = [],
+  includeMapsRequest = false,
+  mapResultsMappingFn = (item: any) => item,
+  mapConfig = {},
+  locationQueryConfig = {}
+}: Config) => {
   const { public: config } = useRuntimeConfig()
   const route: RouteLocation = useRoute()
   const appConfig = useAppConfig()
@@ -58,8 +75,14 @@ export default (
     return JSON.parse(JSON.stringify(obj).replace(re, escapedValue))
   }
 
+  const activeTab: TideSearchListingTabKey = ref(
+    searchListingConfig?.displayMapTab ? 'map' : null
+  )
+
   const isBusy = ref(true)
   const searchError = ref(null)
+
+  const locationQuery = ref(null)
 
   const searchTerm = ref('')
   const filterForm = ref({})
@@ -84,6 +107,9 @@ export default (
   const totalPages = computed(() => {
     return pageSize.value ? Math.ceil(totalResults.value / pageSize.value) : 0
   })
+
+  const mapResults = ref([])
+
   const onAggregationUpdateHook = ref()
 
   const getQueryClause = () => {
@@ -93,7 +119,7 @@ export default (
     return [{ match_all: {} }]
   }
 
-  const getFilterClause = () => {
+  const getUserFilterClause = () => {
     const _filters = [] as any[]
     if (globalFilters && globalFilters.length > 0) {
       _filters.push(...globalFilters)
@@ -102,6 +128,30 @@ export default (
       _filters.push(...userFilters.value)
     }
     return _filters
+  }
+
+  const getLocationFilterClause = async () => {
+    const transformFnName = locationQueryConfig?.dslTransformFunction
+    const fns = appConfig?.ripple?.search?.locationDSLTransformFunctions || {}
+
+    // If no transform function is defined, return an empty array
+    if (!transformFnName) {
+      return []
+    }
+
+    const transformFn = fns[transformFnName]
+
+    if (typeof transformFn !== 'function') {
+      throw new Error(
+        `Search listing: No matching location transform function called "${transformFnName}"`
+      )
+    }
+
+    const transformedDSL = await transformFn(locationQuery.value)
+    const listingFilters = transformedDSL?.listing?.filter || []
+
+    // return transformedDSL as an array to match the format of the other filters, transformedDSL might not be an array
+    return Array.isArray(listingFilters) ? listingFilters : [listingFilters]
   }
 
   const getAggregations = () => {
@@ -279,12 +329,14 @@ export default (
     })
   })
 
-  const getQueryDSL = () => {
+  const getQueryDSL = async () => {
+    const locationFilters = await getLocationFilterClause()
+
     return {
       query: {
         bool: {
           must: getQueryClause(),
-          filter: getFilterClause()
+          filter: [...getUserFilterClause(), ...locationFilters]
         }
       },
       size: pageSize.value,
@@ -301,10 +353,25 @@ export default (
           filter: globalFilters
         }
       },
-      size: 1,
+      size: 0,
       from: 0,
       sort: getSortClause(),
       aggs: getAggregations()
+    }
+  }
+
+  const getQueryDSLForMaps = async () => {
+    return {
+      query: {
+        bool: {
+          must: getQueryClause(),
+          filter: getUserFilterClause()
+        }
+      },
+      // ES queries have a 10k result limit, maps struggle drawing more than this anyway. If you need more you will need to implement a loading strategy see : https://openlayers.org/en/latest/apidoc/module-ol_loadingstrategy.html
+      size: 10000,
+      from: 0,
+      sort: getSortClause()
     }
   }
 
@@ -313,7 +380,7 @@ export default (
     searchError.value = null
 
     try {
-      const body = getQueryDSL()
+      const body = await getQueryDSL()
 
       if (process.env.NODE_ENV === 'development') {
         console.info(JSON.stringify(body, null, 2))
@@ -324,8 +391,9 @@ export default (
         body
       })
 
-      // Set the aggregations request to a resolved promise, this helps keep the Promise.all logic clean
+      // Set the aggregations and maps request to a resolved promise by default, this helps keep the Promise.all logic clean
       let aggsRequest: Promise<any> = Promise.resolve()
+      let mapsRequest: Promise<any> = Promise.resolve()
 
       if (isFirstRun) {
         // Kick off an 'empty' search in order to get the aggregations (options) for the dropdowns, this
@@ -337,9 +405,17 @@ export default (
         })
       }
 
-      const [searchResponse, aggsResponse] = await Promise.all([
+      if (activeTab.value === 'map') {
+        mapsRequest = $fetch(searchUrl, {
+          method: 'POST',
+          body: await getQueryDSLForMaps()
+        })
+      }
+
+      const [searchResponse, aggsResponse, mapsResponse] = await Promise.all([
         searchRequest,
-        aggsRequest
+        aggsRequest,
+        mapsRequest
       ])
 
       totalResults.value = searchResponse?.hits?.total?.value || 0
@@ -358,6 +434,10 @@ export default (
           {}
         )
         onAggregationUpdateHook.value(mappedAggs)
+      }
+
+      if (mapsResponse && mapsResponse.hits) {
+        mapResults.value = mapsResponse.hits?.hits.map(mapResultsMappingFn)
       }
 
       isBusy.value = false
@@ -380,7 +460,7 @@ export default (
               fields: ['title']
             }
           },
-          size: 4
+          size: 8
         }
       }
     ).then((res) => {
@@ -388,6 +468,10 @@ export default (
         (doc: { suggestion: string }) => doc.suggestion
       )
     })
+  }
+
+  const clearSuggestions = () => {
+    suggestions.value = []
   }
 
   /**
@@ -452,11 +536,24 @@ export default (
         .filter(([key, value]) => value)
     )
 
+    // flatten locationQuery into an object for adding to the query string
+    const locationParams = Object.entries(locationQuery.value || {}).reduce(
+      (obj, [key, value]) => {
+        return {
+          ...obj,
+          [`location[${key}]`]: value
+        }
+      },
+      {}
+    )
+
     await navigateTo({
       path: route.path,
       query: {
         page: 1,
         q: searchTerm.value || undefined,
+        activeTab: activeTab.value,
+        ...locationParams,
         ...filterFormValues
       }
     })
@@ -475,9 +572,6 @@ export default (
     })
   }
 
-  /**
-   * Navigates to a specific page using the search term and filters in the current URL
-   */
   const changeSortOrder = async (newSortId: string) => {
     await navigateTo({
       ...route,
@@ -485,6 +579,16 @@ export default (
         ...route.query,
         page: 1,
         sort: newSortId
+      }
+    })
+  }
+
+  const changeActiveTab = async (newActiveTab: string) => {
+    await navigateTo({
+      ...route,
+      query: {
+        ...route.query,
+        activeTab: newActiveTab
       }
     })
   }
@@ -530,6 +634,20 @@ export default (
       }, {})
   }
 
+  const getLocationQueryFromRoute = (newRoute: RouteLocation) => {
+    // parse the location query from the route
+    const location = Object.keys(newRoute.query)
+      .filter((key) => key.startsWith('location'))
+      .reduce((obj, key) => {
+        return {
+          ...obj,
+          [key.replace('location[', '').replace(']', '')]: newRoute.query[key]
+        }
+      }, {})
+
+    return location
+  }
+
   /**
    * Resets the filters to their default values.
    *
@@ -552,6 +670,10 @@ export default (
    * When the URL changes, the URL is parsed and the query is transformed into an elastic DSL query.
    */
   const searchFromRoute = (newRoute: RouteLocation, isFirstRun = false) => {
+    activeTab.value = searchListingConfig?.displayMapTab
+      ? getSingleQueryStringValue(newRoute.query, 'activeTab') || 'map'
+      : null
+
     searchTerm.value = getSingleQueryStringValue(newRoute.query, 'q') || ''
     page.value =
       parseInt(getSingleQueryStringValue(newRoute.query, 'page'), 10) || 1
@@ -563,6 +685,8 @@ export default (
     const routeFilters = getFiltersFromRoute(newRoute)
 
     resetFilters(routeFilters)
+
+    locationQuery.value = getLocationQueryFromRoute(newRoute)
 
     getSearchResults(isFirstRun)
   }
@@ -586,6 +710,7 @@ export default (
     searchError,
     getSearchResults,
     getSuggestions,
+    clearSuggestions,
     onAggregationUpdateHook,
     searchTerm,
     results,
@@ -602,6 +727,10 @@ export default (
     pagingStart,
     pagingEnd,
     userSelectedSort,
-    changeSortOrder
+    changeSortOrder,
+    mapResults,
+    activeTab,
+    changeActiveTab,
+    locationQuery
   }
 }

@@ -3,6 +3,7 @@ import useFormkitFriendlyEventEmitter from '../../composables/useFormkitFriendly
 import { inject } from 'vue'
 import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
 import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
+import { sanitisePIIField } from '../../lib/sanitisePII'
 
 export interface Props {
   id: string
@@ -17,6 +18,7 @@ export interface Props {
     label: string
     disabled?: boolean
   }[]
+  pii?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -25,6 +27,7 @@ const props = withDefaults(defineProps<Props>(), {
   variant: 'default',
   layout: 'block',
   perfectSquares: false,
+  pii: true,
   onChange: () => undefined,
   options: () => []
 })
@@ -46,7 +49,7 @@ const handleChange = (selectedId: string) => {
       action: 'update',
       id: props.id,
       label: props?.label,
-      value: selectedId,
+      value: sanitisePIIField(props.pii, selectedId),
       contextId: form?.id,
       contextName: form?.name
     },

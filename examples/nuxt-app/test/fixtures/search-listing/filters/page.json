@@ -73,6 +73,42 @@
         }
       },
       {
+        "id": "singleTermFilter",
+        "component": "TideSearchFilterDropdown",
+        "filter": {
+          "type": "term",
+          "value": "singleTermFilter.keyword",
+          "multiple": false
+        },
+        "aggregations": {
+          "field": "termFilter",
+          "source": "taxonomy"
+        },
+        "props": {
+          "id": "singleTermFilter",
+          "label": "Single term filter example",
+          "placeholder": "Select a single colour",
+          "multiple": false,
+          "options": [
+            {
+              "id": "1",
+              "label": "Aqua",
+              "value": "Aqua"
+            },
+            {
+              "id": "2",
+              "label": "Burgundy",
+              "value": "Burgundy"
+            },
+            {
+              "id": "3",
+              "label": "Violet",
+              "value": "Violet"
+            }
+          ]
+        }
+      },
+      {
         "id": "termsFilter",
         "component": "TideSearchFilterDropdown",
         "filter": {

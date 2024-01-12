@@ -12,7 +12,7 @@ export const parseJSONField = (rawValue) => {
 
 export const processConfig = async (config, tidePageApi) => {
   const filters = await Promise.all(
-    config.userFilters.map(async (uiFilter) => {
+    (config.userFilters || []).map(async (uiFilter) => {
       if (uiFilter.aggregations?.source === 'taxonomy') {
         const taxonomyResults = await tidePageApi.getTaxonomy(
           uiFilter.aggregations?.field

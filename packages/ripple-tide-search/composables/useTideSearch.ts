@@ -216,7 +216,10 @@ export default ({
 
       // Need to work out if form has value - will be different for different controls
       const hasValue = (v: unknown) => {
-        if (itm.component === 'TideSearchFilterDropdown') {
+        if (
+          itm.component === 'TideSearchFilterDropdown' &&
+          itm?.props?.multiple
+        ) {
           return Array.isArray(v) && v.length > 0
         }
         return v
@@ -449,6 +452,14 @@ export default ({
   }
 
   const getSuggestions = async () => {
+    let fields = ['title']
+
+    if (searchListingConfig?.suggestions?.key) {
+      fields = Array.isArray(searchListingConfig.suggestions.key)
+        ? searchListingConfig.suggestions.key
+        : [searchListingConfig.suggestions.key]
+    }
+
     suggestions.value = await $fetch(
       `/api/tide/app-search/${index}/query_suggestion`,
       {
@@ -457,7 +468,7 @@ export default ({
           query: searchTerm.value,
           types: {
             documents: {
-              fields: ['title']
+              fields
             }
           },
           size: 8
@@ -604,7 +615,10 @@ export default ({
           (filter) => filter.id === key
         )
 
-        if (filterConfig.component === 'TideSearchFilterDropdown') {
+        if (
+          filterConfig.component === 'TideSearchFilterDropdown' &&
+          filterConfig?.props?.multiple
+        ) {
           parsedValue = Array.isArray(parsedValue) ? parsedValue : [parsedValue]
         }
 

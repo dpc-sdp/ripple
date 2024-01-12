@@ -140,6 +140,13 @@ export type TideSearchListingConfig = {
      * @description optionally hide the search form
      */
     hideSearchForm?: boolean
+    /**
+     * @description options for utilizing the auto suggestions
+     */
+    suggestions: {
+      key: string
+      enabled: boolean
+    }
   }
   /**
    * @description Elastic Query DSL for query clause

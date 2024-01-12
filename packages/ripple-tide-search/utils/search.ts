@@ -52,3 +52,24 @@ export const getActiveFilterURL = (filters) => {
 
   return new URLSearchParams(activeFilters).toString()
 }
+
+/**
+ * @description Helper to calculate the number of applied filters
+ */
+export const getActiveFiltersTally = (values): number => {
+  return Object.values(values).reduce((acc: number, value): number => {
+    if (!value) {
+      return acc
+    }
+
+    if (Array.isArray(value) && !value.length) {
+      return acc
+    }
+
+    if (typeof value === 'object' && !Array.isArray(value)) {
+      return acc + getActiveFiltersTally(value)
+    }
+
+    return acc + 1
+  }, 0)
+}

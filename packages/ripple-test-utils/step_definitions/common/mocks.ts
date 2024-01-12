@@ -199,3 +199,7 @@ Given('the current date is {string}', (dateString: string) => {
 Given('the current date is restored', () => {
   cy.clock().invoke('restore')
 })
+
+Given('time moves {int} second', (sec: number = 1) => {
+  cy.tick(sec * 1000)
+})

@@ -120,7 +120,7 @@ export const useTidePage = async (
     headers['x-section-request-id'] = sectionRequestId
   }
 
-  let sectionCacheTags
+  let sectionCacheTags: string | null = null
 
   if (!pageData.value) {
     debugLogger('No cached page found, fetching the page data...')
@@ -144,7 +144,7 @@ export const useTidePage = async (
 
     // Section.io cache tags must be set on the response header to invalidate the cache after a change in drupal
     if (sectionCacheTags) {
-      useMergeSectionTags(sectionCacheTags)
+      nuxt.runWithContext(() => useMergeSectionTags(sectionCacheTags))
     }
 
     if (error && error.value?.statusCode) {

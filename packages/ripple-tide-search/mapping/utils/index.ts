@@ -25,7 +25,8 @@ export const processConfig = async (config, tidePageApi) => {
           .map((item) => ({
             id: item.drupal_internal__tid,
             label: item.name,
-            value: item.name
+            value: item.name,
+            parent: item?.parent?.[0]?.meta.drupal_internal__target_id || null
           }))
 
         if (activeTaxonomies && activeTaxonomies.length > 0) {

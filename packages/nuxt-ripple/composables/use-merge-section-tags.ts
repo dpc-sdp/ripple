@@ -9,9 +9,7 @@ const mergeTags = (existingTags: string, newTags: string): string => {
   return tags.join(' ')
 }
 
-export const useMergeSectionTags = async (
-  sectionCacheTags: any
-): Promise<void> => {
+export const useMergeSectionTags = (sectionCacheTags: string | null): void => {
   // event will be undefined if the request is on the client side
   const event = useRequestEvent()
 

@@ -73,7 +73,7 @@ export const useTidePage = async (
     headers.cookie = `${AuthCookieNames.ACCESS_TOKEN}=${accessTokenCookie.value};${AuthCookieNames.ACCESS_TOKEN_EXPIRY}=${accessTokenExpiryCookie.value}`
   }
 
-  let sectionCacheTags
+  let sectionCacheTags: string | null = null
 
   if (!pageData.value) {
     const { data, error } = await useFetch('/api/tide/page', {
@@ -95,7 +95,7 @@ export const useTidePage = async (
 
     // Section.io cache tags must be set on the response header to invalidate the cache after a change in drupal
     if (sectionCacheTags) {
-      useMergeSectionTags(sectionCacheTags)
+      nuxt.runWithContext(() => useMergeSectionTags(sectionCacheTags))
     }
 
     if (error && error.value?.statusCode) {

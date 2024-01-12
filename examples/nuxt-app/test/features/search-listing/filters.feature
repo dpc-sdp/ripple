@@ -180,7 +180,6 @@ Feature: Search listing - Filter
   Example: Dependent filter - Should reflect the value from the URL
     Given the page endpoint for path "/filters" returns fixture "/search-listing/dependent-filters/page" with status 200
     And the search network request is stubbed with fixture "/search-listing/dependent-filters/response" and status 200
-    And the current date is "Fri, 02 Feb 2050 03:04:05 GMT"
 
     When I visit the page "/filters?dependentFilter=Mammals:Dogs,Cats"
     Then the search listing page should have 2 results
@@ -203,8 +202,6 @@ Feature: Search listing - Filter
   Example: Dependent filter - Child options should update on parent selection
     Given the page endpoint for path "/filters" returns fixture "/search-listing/dependent-filters/page" with status 200
     And the search network request is stubbed with fixture "/search-listing/dependent-filters/response" and status 200
-    And the current date is "Fri, 02 Feb 2050 03:04:05 GMT"
-
     When I visit the page "/filters"
     Then the search listing page should have 2 results
     And the search network request should be called with the "/search-listing/dependent-filters/request-empty" fixture

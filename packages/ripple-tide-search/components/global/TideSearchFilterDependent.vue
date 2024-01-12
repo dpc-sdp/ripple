@@ -44,8 +44,8 @@ const handleSelect = (value: string) => {
     if (formNode && initialChild.value) {
       nextTick(() => {
         formNode.input({
-          'topic-parent': value,
-          'topic-child': initialChild.value
+          [`${props.id}-parent`]: value,
+          [`${props.id}-child`]: initialChild.value
         })
         initialChild.value = null
       })

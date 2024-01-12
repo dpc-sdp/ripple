@@ -178,3 +178,12 @@ Feature: Search listing - Filter
       | Apples  |
       | Oranges |
 
+  @mockserver
+  Example: Should hide the search form when hideSearchForm is set
+    Given the page endpoint for path "/no-search-form" returns fixture "/search-listing/filters/page-no-search-form" with status 200
+    And the search network request is stubbed with fixture "/search-listing/filters/response" and status 200
+
+    When I visit the page "/no-search-form"
+    Then the search listing page should have 2 results
+    And the search form should be hidden
+

@@ -261,6 +261,10 @@ Then(
   }
 )
 
+Then('the search form should be hidden', () => {
+  cy.get(`.tide-search-header`).should('not.exist')
+})
+
 Then(
   `the search suggestions displayed should include`,
   (dataTable: DataTable) => {

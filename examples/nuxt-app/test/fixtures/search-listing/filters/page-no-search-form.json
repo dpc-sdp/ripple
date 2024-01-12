@@ -1,0 +1,31 @@
+{
+  "title": "Listing without search form",
+  "changed": "2022-11-02T12:47:29+11:00",
+  "created": "2022-11-02T12:47:29+11:00",
+  "type": "tide_search_listing",
+  "nid": "11dede11-10c0-111e1-1100-000000000332",
+  "showTopicTags": true,
+  "summary": "",
+  "config": {
+    "searchListingConfig": {
+      "hideSearchForm": true,
+      "resultsPerPage": 10
+    },
+    "queryConfig": {},
+    "results": {
+      "layout": {
+        "component": "TideSearchResultsGrid"
+      },
+      "item": {
+        "*": {
+          "component": "TideSearchResultCard"
+        }
+      }
+    },
+    "globalFilters": [
+      { "terms": { "type": ["grant"] } },
+      { "terms": { "field_node_site": [8888] } }
+    ],
+    "userFilters": []
+  }
+}

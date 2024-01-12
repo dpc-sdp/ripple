@@ -1,5 +1,11 @@
 import type { TidePageBase } from './../types'
-import { useCookie, isPreviewPath, AuthCookieNames } from '#imports'
+import {
+  useCookie,
+  isPreviewPath,
+  AuthCookieNames,
+  useLogger,
+  useSectionId
+} from '#imports'
 
 const isCacheTimeExpired = (date: number, expiryInMinutes = 5) => {
   // 5 minute default expiry in step with varnish cache
@@ -8,7 +14,7 @@ const isCacheTimeExpired = (date: number, expiryInMinutes = 5) => {
   return date < timePlusExpiry
 }
 
-const checkForRedirect = async (page: TidePageBase) => {
+const checkForRedirect = async (page: TidePageBase, debugLogger) => {
   // Redirect on the 6 codes that Drupal supplies
   if (page?.type === 'redirect') {
     switch (page.status_code) {
@@ -18,6 +24,13 @@ const checkForRedirect = async (page: TidePageBase) => {
       case '304':
       case '305':
       case '307':
+        debugLogger(`Redirecting to ${page?.redirect_url}`, {
+          pageType: page?.type,
+          pageRedirectUrl: page?.redirect_url,
+          pageRedirectType: page?.redirect_type,
+          pageStatusCode: page?.status_code
+        })
+
         await navigateTo(page.redirect_url, {
           replace: true,
           redirectCode: page.status_code,
@@ -33,19 +46,41 @@ export const useTidePage = async (
   slug?: string,
   site?: number
 ): Promise<TidePageBase> => {
+  const logger = useLogger()
   const route = useRoute()
+
   const path = slug || route.path
   const { public: config } = useRuntimeConfig()
   const siteId = site || config.tide?.site
+
+  const sectionRequestId = useSectionId()
+
+  const debugLogger = (message: string, data = {}) => {
+    logger.debug(message, {
+      label: 'useTidePage',
+      section_io_id: sectionRequestId,
+      ...data
+    })
+  }
+
+  debugLogger('Route requested', {
+    path,
+    siteId
+  })
 
   // check we dont add too many keys to cache
   const nuxt = useNuxtApp()
   const maxCacheItems = 50
   if (nuxt.payload.data) {
-    if (Object.keys(nuxt.payload.data).length > maxCacheItems + 1) {
-      if (process.dev) {
-        console.log('clear nuxt cache')
+    debugLogger(
+      `Nuxt cache length is: ${Object.keys(nuxt.payload.data).length}`,
+      {
+        nuxtCacheKeys: Object.keys(nuxt.payload.data)
       }
+    )
+
+    if (Object.keys(nuxt.payload.data).length > maxCacheItems + 1) {
+      debugLogger(`Cache is larger than max ${maxCacheItems} items, clearing...`)
       clearNuxtData()
     }
   }
@@ -55,14 +90,22 @@ export const useTidePage = async (
   // Refresh data so it doesnt go stale whilst client side nav
   if (pageData.value && pageData.value._fetched) {
     if (isCacheTimeExpired(pageData.value._fetched)) {
-      if (process.dev) {
-        console.log('Cache reset for page', `page-${path}`)
-      }
+
+      debugLogger(
+        'Cached data for this page is stale, clearing nuxt cache just for this page...',
+        {
+          cacheKey: `page-${path}`
+        }
+      )
+
       await clearNuxtData(`page-${path}`)
     }
   }
 
-  const headers = {}
+  const headers: {
+    cookie?: string
+    'x-section-request-id'?: string
+  } = {}
 
   // Need to manually pass the cookies needed for auth as they aren't automatically added when server rendered
   if (isPreviewPath(path)) {
@@ -73,9 +116,15 @@ export const useTidePage = async (
     headers.cookie = `${AuthCookieNames.ACCESS_TOKEN}=${accessTokenCookie.value};${AuthCookieNames.ACCESS_TOKEN_EXPIRY}=${accessTokenExpiryCookie.value}`
   }
 
+  if (process.server) {
+    headers['x-section-request-id'] = sectionRequestId
+  }
+
   let sectionCacheTags: string | null = null
 
   if (!pageData.value) {
+    debugLogger('No cached page found, fetching the page data...')
+
     const { data, error } = await useFetch('/api/tide/page', {
       key: `page-${path}`,
       baseURL: config.apiUrl || '',
@@ -102,12 +151,22 @@ export const useTidePage = async (
       useTideError(error.value?.statusCode)
     }
 
-    await checkForRedirect(data.value)
+    debugLogger('Page data fetched', {
+      pageTitle: data.value.title,
+      pageNodeId: data.value.nid
+    })
+
+    await checkForRedirect(data.value, debugLogger)
 
     return data.value
   }
 
-  await checkForRedirect(pageData.value)
+  debugLogger('Cached data for this page was found and is being used...', {
+    pageTitle: pageData.value.title,
+    pageNodeId: pageData.value.nid
+  })
+
+  await checkForRedirect(pageData.value, debugLogger)
 
   return pageData.value
 }

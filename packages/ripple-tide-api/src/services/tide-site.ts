@@ -19,7 +19,7 @@ export default class TideSite extends TideApiBase {
     this.siteMapping = siteMapping
   }
 
-  async getSiteData(siteid) {
+  async getSiteData(siteid, logId?: string) {
     if (!this.siteMapping) {
       throw new Error('Error loading site mapping')
     }
@@ -41,7 +41,8 @@ export default class TideSite extends TideApiBase {
       const { data: response, headers } = await this.get(
         `/taxonomy_term/sites`,
         {
-          params
+          params,
+          _logId: logId
         }
       )
       if (response && response.data.length > 0) {

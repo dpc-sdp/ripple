@@ -4,7 +4,8 @@ import {
   getQuery,
   H3Event,
   getCookie,
-  setResponseHeader
+  setResponseHeader,
+  getHeader
 } from 'h3'
 import { createHandler, TidePageApi } from '@dpc-sdp/ripple-tide-api'
 import { BadRequestError } from '@dpc-sdp/ripple-tide-api/errors'
@@ -41,11 +42,14 @@ export const createPageHandler = async (
       headers['X-OAuth2-Authorization'] = `Bearer ${tokenCookie}`
     }
 
+    const sectionId = getHeader(event, 'x-section-request-id')
+
     const pageResponse = await tidePageApi.getPageByPath(
       query.path,
       query.site,
       {},
-      headers
+      headers,
+      sectionId
     )
 
     // Need to pass on the section cache tags to the nuxt app

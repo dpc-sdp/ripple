@@ -23,6 +23,12 @@ const escapeJSONString = (raw: string): string => {
     .replace(/[\t]/g, '\\t')
 }
 
+const encodeCommasAndColons = (value: string): string => {
+  return value.replace(/[:|,]/g, function (match) {
+    return '%' + match.charCodeAt(0).toString(16)
+  })
+}
+
 interface Config {
   queryConfig: TideSearchListingConfig['queryConfig']
   userFilters: TideSearchListingConfig['userFilters']
@@ -255,6 +261,41 @@ export default ({
         }
 
         /**
+         * Dependent queries - create a custom query based off the values of a parent and child field combo
+         */
+        if (itm.filter.type === 'dependent') {
+          const parent = filterVal?.[`${itm?.id}-parent`]
+          const child = filterVal?.[`${itm?.id}-child`]
+
+          // If we're searching for specific subcategories, let's use those subcategories
+          if (child?.length) {
+            return {
+              terms: {
+                [itm?.filter?.value]: Array.isArray(child) ? child : [child]
+              }
+            }
+          }
+
+          // Otherwise we'll search for the selected parent category and all subcategories
+          if (parent) {
+            const parentID = itm.props.options?.find(
+              (i) => i.value === parent
+            )?.id
+
+            return {
+              terms: {
+                [itm?.filter?.value]: itm.props.options
+                  ?.filter(
+                    (option) =>
+                      option.parent === parentID || option.id === parentID
+                  )
+                  .map((i) => i.value)
+              }
+            }
+          }
+        }
+
+        /**
          * Call a function passed from app.config to to allow extending and overriding. The function should
          * return a valid DSL query.
          * When called the function is passed the filter config and the value of the filter from the user
@@ -465,8 +506,34 @@ export default ({
    */
   const submitSearch = async () => {
     const filterFormValues = Object.fromEntries(
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      Object.entries(filterForm.value).filter(([key, value]) => value)
+      Object.entries(filterForm.value)
+        .map(([key, value]) => {
+          const filterConfig = userFilterConfig.find(
+            (itm: any) => itm.id === key
+          )
+
+          if (filterConfig.component === 'TideSearchFilterDependent') {
+            const parent = value[`${filterConfig.id}-parent`]
+            const child = value[`${filterConfig.id}-child`]
+            value = null
+
+            if (parent) {
+              value = encodeCommasAndColons(parent)
+
+              if (child) {
+                const childValue = Array.isArray(child) ? child : [child]
+
+                value = `${value}:${childValue
+                  .map(encodeCommasAndColons)
+                  .join(',')}`
+              }
+            }
+          }
+
+          return [key, value]
+        })
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        .filter(([key, value]) => value)
     )
 
     // flatten locationQuery into an object for adding to the query string
@@ -541,6 +608,25 @@ export default ({
           parsedValue = Array.isArray(parsedValue) ? parsedValue : [parsedValue]
         }
 
+        if (filterConfig.component === 'TideSearchFilterDependent') {
+          const [parent, child = ''] = parsedValue.split(':')
+
+          parsedValue = {
+            [`${filterConfig.id}-parent`]: decodeURIComponent(parent)
+          }
+
+          if (child) {
+            const childValue = child.split(',').map(decodeURIComponent)
+
+            parsedValue = {
+              ...parsedValue,
+              [`${filterConfig.id}-child`]: filterConfig?.props?.multiple
+                ? childValue
+                : childValue[0]
+            }
+          }
+        }
+
         return {
           ...obj,
           [key]: parsedValue
@@ -563,6 +649,22 @@ export default ({
   }
 
   /**
+   * Resets the filters to their default values.
+   *
+   * This is mostly needed for grouped fields which must be set back to an object.
+   */
+  const resetFilters = (withValues = {}) => {
+    const defaultValues = userFilterConfig.reduce((acc, curr) => {
+      if (curr.component === 'TideSearchFilterDependent') {
+        return { ...acc, [curr.id]: {} }
+      }
+      return { ...acc }
+    }, {})
+
+    filterForm.value = { ...defaultValues, ...withValues }
+  }
+
+  /**
    * The URL is the source of truth for what is shown in the search results.
    *
    * When the URL changes, the URL is parsed and the query is transformed into an elastic DSL query.
@@ -580,7 +682,9 @@ export default ({
       sortOptions?.[0]?.id ||
       null
 
-    filterForm.value = getFiltersFromRoute(newRoute)
+    const routeFilters = getFiltersFromRoute(newRoute)
+
+    resetFilters(routeFilters)
 
     locationQuery.value = getLocationQueryFromRoute(newRoute)
 
@@ -613,6 +717,7 @@ export default ({
     suggestions,
     filterForm,
     appliedFilters,
+    resetFilters,
     submitSearch,
     goToPage,
     page,

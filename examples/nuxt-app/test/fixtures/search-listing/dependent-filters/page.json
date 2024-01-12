@@ -1,0 +1,170 @@
+{
+  "title": "Depenedent filters",
+  "changed": "2022-11-02T12:47:29+11:00",
+  "created": "2022-11-02T12:47:29+11:00",
+  "type": "tide_search_listing",
+  "nid": "11dede11-10c0-111e1-1100-000000000330",
+  "showTopicTags": true,
+  "summary": "",
+  "config": {
+    "searchListingConfig": {
+      "resultsPerPage": 10
+    },
+    "queryConfig": {
+      "multi_match": {
+        "query": "{{query}}",
+        "fields": [
+          "title^3",
+          "field_landing_page_summary^2",
+          "body",
+          "field_paragraph_body",
+          "summary_processed"
+        ]
+      }
+    },
+    "results": {
+      "layout": {
+        "component": "TideSearchResultsList"
+      },
+      "item": {
+        "grant": {
+          "component": "TideGrantSearchResult"
+        }
+      }
+    },
+    "globalFilters": [
+      { "terms": { "type": ["grant"] } },
+      { "terms": { "field_node_site": [8888] } }
+    ],
+    "userFilters": [
+      {
+        "id": "termFilter",
+        "component": "TideSearchFilterDropdown",
+        "filter": {
+          "type": "term",
+          "value": "termFilter.keyword"
+        },
+        "aggregations": {
+          "field": "termFilter",
+          "source": "taxonomy"
+        },
+        "props": {
+          "id": "termFilter",
+          "label": "Term filter example",
+          "placeholder": "Select a colour",
+          "multiple": true,
+          "options": [
+            {
+              "id": "1",
+              "label": "Red",
+              "value": "Red"
+            },
+            {
+              "id": "2",
+              "label": "Green",
+              "value": "Green"
+            },
+            {
+              "id": "3",
+              "label": "Blue",
+              "value": "Blue"
+            }
+          ]
+        }
+      },
+      {
+        "id": "termsFilter",
+        "component": "TideSearchFilterDropdown",
+        "filter": {
+          "type": "terms",
+          "value": "termsFilter.keyword"
+        },
+        "aggregations": {
+          "field": "termsFilter",
+          "source": "taxonomy"
+        },
+        "props": {
+          "id": "termsFilter",
+          "label": "Terms filter example",
+          "placeholder": "Select a colour",
+          "multiple": true,
+          "options": [
+            {
+              "id": "1",
+              "label": "Orange",
+              "value": "Orange"
+            },
+            {
+              "id": "2",
+              "label": "Purple",
+              "value": "Purple"
+            },
+            {
+              "id": "3",
+              "label": "Yellow",
+              "value": "Yellow"
+            }
+          ]
+        }
+      },
+      {
+        "id": "dependentFilter",
+        "component": "TideSearchFilterDependent",
+        "columns": "rpl-grid",
+        "filter": {
+          "type": "dependent",
+          "multiple": false,
+          "value": "field_species_name"
+        },
+        "aggregations": {
+          "field": "topic",
+          "source": "taxonomy"
+        },
+        "props": {
+          "id": "dependentFilter",
+          "label": "Terms dependent example",
+          "placeholder": "Select a species",
+          "dependantLabel": "Terms dependent child example",
+          "dependantPlaceholder": "All sub species",
+          "multiple": true,
+          "options": [
+            {
+              "id": "1",
+              "label": "Mammals",
+              "value": "Mammals"
+            },
+            {
+              "id": "2",
+              "label": "Dogs",
+              "value": "Dogs",
+              "parent": "1"
+            },
+            {
+              "id": "3",
+              "label": "Birds",
+              "value": "Birds"
+            },
+            {
+              "id": "4",
+              "label": "Cats",
+              "value": "Cats",
+              "parent": "1"
+            },
+            {
+              "id": "5",
+              "label": "Parrot",
+              "value": "Parrot",
+              "parent": "3"
+            },
+            {
+              "id": "6",
+              "label": "Cockatoo",
+              "value": "Cockatoo",
+              "parent": "3"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

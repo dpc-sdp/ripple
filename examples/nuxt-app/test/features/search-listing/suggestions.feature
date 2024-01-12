@@ -6,7 +6,7 @@ Feature: Search listing - Suggestions
     Given the site endpoint returns fixture "/site/reference" with status 200
     And I am using a "macbook-16" device
 
-  @mockserver @focus
+  @mockserver
   Example: Displays autocomplete suggestions
     Given the page endpoint for path "/suggestions" returns fixture "/search-listing/suggestions/page-suggestions" with status 200
     And the search network request is stubbed with fixture "/search-listing/suggestions/search-response" and status 200
@@ -25,7 +25,7 @@ Feature: Search listing - Suggestions
     When I click the search suggestion labelled "there"
     Then the search input should have the value "there"
 
-  @mockserver @focus
+  @mockserver
   Example: Autocomplete suggestions search key can be overridden
     Given the page endpoint for path "/suggestions-override" returns fixture "/search-listing/suggestions/page-suggestions-override" with status 200
     And the search network request is stubbed with fixture "/search-listing/suggestions/search-response" and status 200
@@ -35,7 +35,7 @@ Feature: Search listing - Suggestions
     And I type "The" into the search input
     Then the search autocomplete request should be called with the "/search-listing/suggestions/request-override" fixture
 
-  @mockserver @focus
+  @mockserver
   Example: Autocomplete suggestions can be disabled
     Given the page endpoint for path "/no-suggestions" returns fixture "/search-listing/suggestions/page-no-suggestions" with status 200
     And the search network request is stubbed with fixture "/search-listing/suggestions/search-response" and status 200

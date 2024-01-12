@@ -80,9 +80,7 @@ export const useTidePage = async (
     )
 
     if (Object.keys(nuxt.payload.data).length > maxCacheItems + 1) {
-      if (process.dev) {
-        console.log('clear nuxt cache')
-      }
+      debugLogger(`Cache is larger than max ${maxCacheItems} items, clearing...`)
       clearNuxtData()
     }
   }
@@ -92,9 +90,6 @@ export const useTidePage = async (
   // Refresh data so it doesnt go stale whilst client side nav
   if (pageData.value && pageData.value._fetched) {
     if (isCacheTimeExpired(pageData.value._fetched)) {
-      if (process.dev) {
-        console.log('Cache reset for page', `page-${path}`)
-      }
 
       debugLogger(
         'Cached data for this page is stale, clearing nuxt cache just for this page...',

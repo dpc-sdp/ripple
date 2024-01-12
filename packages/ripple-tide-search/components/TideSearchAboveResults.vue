@@ -1,22 +1,20 @@
 <template>
-  <RplPageComponent>
-    <div
-      :class="{
-        'tide-search-listing-above-result': true,
-        'tide-search-listing-above-result--compact': hasSidebar
-      }"
-    >
-      <slot name="left">
+  <div
+    :class="{
+      'tide-search-listing-above-result': true,
+      'tide-search-listing-above-result--compact': hasSidebar
+    }"
+  >
+    <slot name="left">
+      <div />
+    </slot>
+
+    <div class="tide-search-listing-above-result__right">
+      <slot name="right">
         <div />
       </slot>
-
-      <div class="tide-search-listing-above-result__right">
-        <slot name="right">
-          <div />
-        </slot>
-      </div>
     </div>
-  </RplPageComponent>
+  </div>
 </template>
 
 <script setup lang="ts">

@@ -84,6 +84,22 @@ export type TideSearchListingSortOption = {
   clause: any
 }
 
+export type TideSearchLocationQueryConfig = {
+  component?: string
+  props?: {
+    [key: string]: unknown
+  }
+  dslTransformFn?: (location: any) => any
+}
+
+export type TideSearchListingMapConfig = {
+  props?: {
+    [key: string]: unknown
+  }
+}
+
+export type TideSearchListingTabKey = { id: 'map' | 'listing' }
+
 export type TideSearchListingConfig = {
   /**
    * @description general configuration for search listing
@@ -99,18 +115,31 @@ export type TideSearchListingConfig = {
      */
     index: string
     /**
-     * @description Toggle grid and list view of results, cards need to be a grid view
+     * @description Set the number of results to show per page
      */
     resultsPerPage?: number
+    /**
+     * @description Override the default labels
+     */
     labels: {
       submit: string
       reset: string
       placeholder: string
+      mapTab: string
+      listingTab: string
     }
     /**
      * @description custom sort clause
      */
     customSort?: Record<string, 'asc' | 'desc'>[]
+    /**
+     * @description whether to display map tab and include map search results
+     */
+    displayMapTab?: boolean
+    /**
+     * @description optionally hide the search form
+     */
+    hideSearchForm?: boolean
   }
   /**
    * @description Elastic Query DSL for query clause
@@ -140,6 +169,8 @@ export type TideSearchListingConfig = {
     }
   }
   sortOptions?: TideSearchListingSortOption[]
+  locationQueryConfig?: TideSearchLocationQueryConfig
+  mapConfig?: TideSearchListingMapConfig
 }
 
 export interface TideSearchListingPage extends TidePageBase {

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-type RplTagVariants = ['default', 'neutral']
+type RplTagVariants = ['default', 'neutral', 'dark']
 
 interface Props {
   variant?: RplTagVariants[number]
@@ -13,7 +13,7 @@ withDefaults(defineProps<Props>(), {
 </script>
 
 <template>
-  <span :className="`rpl-tag rpl-tag--${variant} rpl-type-label-small`">{{
+  <span :class="`rpl-tag rpl-tag--${variant} rpl-type-label-small`">{{
     label
   }}</span>
 </template>

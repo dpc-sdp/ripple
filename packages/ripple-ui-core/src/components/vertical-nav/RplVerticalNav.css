@@ -124,6 +124,10 @@
   align-items: flex-start;
   line-height: inherit;
   letter-spacing: inherit;
+
+  &:focus-visible .rpl-vertical-nav__toggle-icon {
+    color: var(--rpl-clr-type-focus-contrast);
+  }
 }
 
 .rpl-vertical-nav__toggle-icon {

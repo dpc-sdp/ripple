@@ -85,7 +85,8 @@ export const RplIconGroups = {
     'icon-view',
     'icon-zoom-in',
     'icon-zoom-out'
-  ]
+  ],
+  map: ['icon-enlarge', 'icon-map-zoom-in', 'icon-map-zoom-out', 'icon-home']
 } as const
 
 export default {

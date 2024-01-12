@@ -25,6 +25,13 @@
       padding: 0 0 var(--rpl-sp-2);
     }
 
+    &__icon {
+      color: var(--rpl-clr-link);
+      margin-right: var(--rpl-sp-2);
+      margin-top: var(--rpl-sp-1);
+      margin-left: calc(var(--rpl-sp-6) * -1);
+    }
+
     &__link {
       display: flex;
       color: var(--rpl-clr-type-default);
@@ -35,13 +42,10 @@
           display: none;
         }
       }
-    }
 
-    &__icon {
-      color: var(--rpl-clr-link);
-      margin-right: var(--rpl-sp-2);
-      margin-top: var(--rpl-sp-1);
-      margin-left: calc(var(--rpl-sp-6) * -1);
+      &:focus-visible .rpl-list__icon {
+        color: var(--rpl-clr-type-focus-contrast);
+      }
     }
   }
 }

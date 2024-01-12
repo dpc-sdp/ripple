@@ -48,6 +48,7 @@ export { default as RplSidebarComponent } from './components/layout/RplSidebarCo
 export { default as RplCardGrid } from './components/layout/RplCardGrid.vue'
 
 export { default as RplList } from './components/list/RplList.vue'
+export { default as RplExpandable } from './components/expandable/RplExpandable.vue'
 
 export { default as RplLink } from './components/link/RplLink.vue'
 

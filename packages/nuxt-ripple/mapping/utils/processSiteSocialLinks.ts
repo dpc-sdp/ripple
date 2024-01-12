@@ -39,8 +39,6 @@ interface RawLink {
 
 const processSiteSocialLinks = (rawLinks: RawLink[]): TideMenuItem[] => {
   return (rawLinks || []).map((link, i) => {
-    console.log(getIconForUrl(link.uri))
-
     return {
       id: `social_link-${i}`,
       text: link.title,

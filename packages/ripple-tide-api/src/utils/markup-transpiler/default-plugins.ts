@@ -1,19 +1,4 @@
-/// <reference types="cheerio" />
-
-// Note: for add obj type prop in template, please return data instead of set them in template otherwise it won't work properly.
-// e.g You have something like in your plugin: `<component-obj-prop :author="{name: 'Veronica', company: 'Veridian Dynamics'}"></component-obj-prop>`
-// You should make template: `<component-obj-prop :author="myPluginData1.author"></component-obj-prop>`
-// Then set myPluginData1.author = {name: 'Veronica', company: 'Veridian Dynamics'} and return {myPluginData1, myPluginData2 ... } in your plugin.
-// See a example in `pluginEmbeddedMediaVideo` plugin below.
-
 import { epochToDate } from '../epochToDate.js'
-
-// export const isRelativeUrl = (str: string): boolean => {
-//   if (str) {
-//     return true
-//   }
-//   return false
-// }
 
 const pluginTables = function (this: any) {
   // Wrap tables with a div.

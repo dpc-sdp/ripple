@@ -1,5 +1,146 @@
 # Changelog
 
+## v2.6.0
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.5.3...v2.6.0)
+
+
+### 🚀 Enhancements
+
+  - **@dpc-sdp/ripple-ui-forms:** Add native date picker ([469b84051](https://github.com/dpc-sdp/ripple-framework/commit/469b84051))
+  - **@dpc-sdp/ripple-ui-maps:** Added WIP ripple-ui-maps package ([631f17c40](https://github.com/dpc-sdp/ripple-framework/commit/631f17c40))
+  - **@dpc-sdp/ripple-tide-search:** 🚧  wip for data driven maps ([5d50880da](https://github.com/dpc-sdp/ripple-framework/commit/5d50880da))
+  - **@dpc-sdp/ripple-ui-maps:** 🚧  wip on maps ([57b751298](https://github.com/dpc-sdp/ripple-framework/commit/57b751298))
+  - **@dpc-sdp/ripple-ui-maps:** Added legend component ([c39ea92a1](https://github.com/dpc-sdp/ripple-framework/commit/c39ea92a1))
+  - **@dpc-sdp/ripple-ui-maps:** Add pin color on popup ([52d57db2f](https://github.com/dpc-sdp/ripple-framework/commit/52d57db2f))
+  - **@dpc-sdp/ripple-ui-maps:** Cleaned up map control button styling ([e566b01a1](https://github.com/dpc-sdp/ripple-framework/commit/e566b01a1))
+  - **@dpc-sdp/ripple-ui-maps:** ♻️  use custom map controls ([150e9ac9c](https://github.com/dpc-sdp/ripple-framework/commit/150e9ac9c))
+  - **@dpc-sdp/ripple-ui-maps:** Cleaned up map pop up styling and behavious ([bf3be769a](https://github.com/dpc-sdp/ripple-framework/commit/bf3be769a))
+  - **@dpc-sdp/ripple-tide-search:** Added grey background when map view enabled ([38acf22ac](https://github.com/dpc-sdp/ripple-framework/commit/38acf22ac))
+  - **@dpc-sdp/ripple-tide-search:** Use tag in search bar and fix keyboard controls ([212044860](https://github.com/dpc-sdp/ripple-framework/commit/212044860))
+  - **@dpc-sdp/ripple-tide-landing-page:** ✨  add date to news card ([5a375254f](https://github.com/dpc-sdp/ripple-framework/commit/5a375254f))
+  - **@dpc-sdp/nuxt-ripple:** Adds logging in vue/nuxt contexts ([18c1f12c6](https://github.com/dpc-sdp/ripple-framework/commit/18c1f12c6))
+  - **@dpc-sdp/nuxt-ripple-analytics:** ✨  push ripple version ([3e0a94f81](https://github.com/dpc-sdp/ripple-framework/commit/3e0a94f81))
+  - **@dpc-sdp/ripple-ui-forms:** Update form submission events ([b2830e271](https://github.com/dpc-sdp/ripple-framework/commit/b2830e271))
+  - **@dpc-sdp/ripple-tide-search:** Add clear search event ([370df095d](https://github.com/dpc-sdp/ripple-framework/commit/370df095d))
+  - **@dpc-sdp/ripple-ui-forms:** Add non-pii form data to submission events ([3f1cf84d3](https://github.com/dpc-sdp/ripple-framework/commit/3f1cf84d3))
+  - **@dpc-sdp/ripple-tide-api:** Add section id to logging messages and add debug info ([525f8319f](https://github.com/dpc-sdp/ripple-framework/commit/525f8319f))
+  - **@dpc-sdp/ripple-ui-forms:** Ios style fixes for native date field ([8ffb3e7c6](https://github.com/dpc-sdp/ripple-framework/commit/8ffb3e7c6))
+  - **@dpc-sdp/ripple-tide-search:** Add the search filter field for date picker ([55e440165](https://github.com/dpc-sdp/ripple-framework/commit/55e440165))
+  - **@dpc-sdp/ripple-tide-search:** Add option to hide the listing search form ([a13318564](https://github.com/dpc-sdp/ripple-framework/commit/a13318564))
+  - **@dpc-sdp/ripple-ui-core:** Add name field to search event ([767705fad](https://github.com/dpc-sdp/ripple-framework/commit/767705fad))
+  - **@dpc-sdp/ripple-ui-core:** Add reversed stripes to search bar ([1b5343b8e](https://github.com/dpc-sdp/ripple-framework/commit/1b5343b8e))
+  - **@dpc-sdp/ripple-tide-search:** Only search/show suggestions for 3+ characters ([c88de3f1e](https://github.com/dpc-sdp/ripple-framework/commit/c88de3f1e))
+  - **@dpc-sdp/ripple-tide-search:** 🚧  poc for adding dependent filters ([cfc97fb9f](https://github.com/dpc-sdp/ripple-framework/commit/cfc97fb9f))
+  - **@dpc-sdp/ripple-ui-forms:** Use new pii field to determine if field events include value ([6140f8f75](https://github.com/dpc-sdp/ripple-framework/commit/6140f8f75))
+  - **@dpc-sdp/ripple-tide-search:** 🚧  poc for adding dependent filters ([6381e7fc8](https://github.com/dpc-sdp/ripple-framework/commit/6381e7fc8))
+  - **@dpc-sdp/ripple-ui-maps:** ✨  adds noresults message to maps ([984d43028](https://github.com/dpc-sdp/ripple-framework/commit/984d43028))
+  - **@dpc-sdp/ripple-tide-search:** ✨  add options from taxonomy support in custom col ([168eafdcd](https://github.com/dpc-sdp/ripple-framework/commit/168eafdcd))
+  - **@dpc-sdp/ripple-ui-maps:** ✨  add dismiss noresults on map click ([eaeba1808](https://github.com/dpc-sdp/ripple-framework/commit/eaeba1808))
+  - **@dpc-sdp/ripple-tide-search:** Distinguish between tide search usages ([76bc9a9f9](https://github.com/dpc-sdp/ripple-framework/commit/76bc9a9f9))
+  - **@dpc-sdp/ripple-tide-search:** Wip for grouped dependent field ([d1ab7b1d8](https://github.com/dpc-sdp/ripple-framework/commit/d1ab7b1d8))
+  - **@dpc-sdp/ripple-tide-api:** Add check for ics files in markup transpiler ([e71d89928](https://github.com/dpc-sdp/ripple-framework/commit/e71d89928))
+  - **@dpc-sdp/ripple-tide-search:** Single selects, manage suggestions via config, fix map issue ([942ee58b7](https://github.com/dpc-sdp/ripple-framework/commit/942ee58b7))
+
+### 🩹 Fixes
+
+  - **nuxt-ripple:** 🐛  use theme colour instead of hardcoded value ([614af048b](https://github.com/dpc-sdp/ripple-framework/commit/614af048b))
+  - **@dpc-sdp/ripple-ui-maps:** ⚡️  fix map performance issues ([a0edccb7d](https://github.com/dpc-sdp/ripple-framework/commit/a0edccb7d))
+  - **@dpc-sdp/ripple-tide-search:** 🐛  prevent error with filters in SSR ([10a2af83c](https://github.com/dpc-sdp/ripple-framework/commit/10a2af83c))
+  - **@dpc-sdp/ripple-ui-maps:** 📌  pin openlayers to 7.x to fix re-render issue ([aa55a8aab](https://github.com/dpc-sdp/ripple-framework/commit/aa55a8aab))
+  - **@dpc-sdp/ripple-ui-maps:** Fix lodash import ([236c660c0](https://github.com/dpc-sdp/ripple-framework/commit/236c660c0))
+  - **@dpc-sdp/ripple-ui-maps:** 🩹  temp disable map controls to get site building ([425340e8a](https://github.com/dpc-sdp/ripple-framework/commit/425340e8a))
+  - **@dpc-sdp/ripple-ui-core:** Reverted bad table styling ([9a5ad6158](https://github.com/dpc-sdp/ripple-framework/commit/9a5ad6158))
+  - **@dpc-sdp/ripple-ui-maps:** Fixed missing ref import ([3568b8492](https://github.com/dpc-sdp/ripple-framework/commit/3568b8492))
+  - **@dpc-sdp/ripple-ui-maps:** 🐛  fix popup not displaying for features in the same location ([a760c8ca0](https://github.com/dpc-sdp/ripple-framework/commit/a760c8ca0))
+  - **@dpc-sdp/ripple-ui-core:** Added missing scroll wrapper for wysiwg tables ([3a3a48cbf](https://github.com/dpc-sdp/ripple-framework/commit/3a3a48cbf))
+  - **@dpc-sdp/ripple-tide-search:** Fixed back button behavior for maps and case sensitive suggestions ([495e0eb53](https://github.com/dpc-sdp/ripple-framework/commit/495e0eb53))
+  - **@dpc-sdp/ripple-ui-maps:** 🐛  cluster zoom behaviour for regional areas ([fedcb6217](https://github.com/dpc-sdp/ripple-framework/commit/fedcb6217))
+  - **@dpc-sdp/ripple-tide-search:** Fixed default legend expanded config not applying ([6bb71c0b0](https://github.com/dpc-sdp/ripple-framework/commit/6bb71c0b0))
+  - **@dpc-sdp/nuxt-ripple:** Fixed 'A composable that requires access to the Nuxt instance...' error ([acc30c915](https://github.com/dpc-sdp/ripple-framework/commit/acc30c915))
+  - **@dpc-sdp/nuxt-ripple:** Prevented url params being stripped for cached pages ([b7ee30058](https://github.com/dpc-sdp/ripple-framework/commit/b7ee30058))
+  - **@dpc-sdp/ripple-tide-search:** 🐛  zoom to extent of postcode on search ([92849fec9](https://github.com/dpc-sdp/ripple-framework/commit/92849fec9))
+  - **@dpc-sdp/ripple-ui-maps:** 🐛  fix noresults message for list ([492a094c8](https://github.com/dpc-sdp/ripple-framework/commit/492a094c8))
+  - **@dpc-sdp/ripple-tide-search:** 🐛  search projects by suburb instead of postcode ([650f114bd](https://github.com/dpc-sdp/ripple-framework/commit/650f114bd))
+  - **@dpc-sdp/ripple-tide-search:** 🐛  improve loaction search to only match exact postcode ([60b5220c5](https://github.com/dpc-sdp/ripple-framework/commit/60b5220c5))
+  - **@dpc-sdp/ripple-ui-forms:** 🐛  fix dropdown reverse variant hover state ([ef5b9f667](https://github.com/dpc-sdp/ripple-framework/commit/ef5b9f667))
+  - **@dpc-sdp/ripple-ui-maps:** 🐛  fix missing import ([505d3d7ed](https://github.com/dpc-sdp/ripple-framework/commit/505d3d7ed))
+  - **@dpc-sdp/ripple-ui-core:** Update icon focus colours ([5ef44f58d](https://github.com/dpc-sdp/ripple-framework/commit/5ef44f58d))
+  - **@dpc-sdp/ripple-ui-core:** Fix media query, update back to top positioning ([3965341d6](https://github.com/dpc-sdp/ripple-framework/commit/3965341d6))
+  - **@dpc-sdp/ripple-tide-search:** 🐛  fix dropdown option sort order from taxonomy weight ([177ca445c](https://github.com/dpc-sdp/ripple-framework/commit/177ca445c))
+  - **@dpc-sdp/ripple-tide-search:** Update to get single select dropdowns working ([41adf3bda](https://github.com/dpc-sdp/ripple-framework/commit/41adf3bda))
+  - **nuxt-app:** Remove @focus on tests ([bb840cd87](https://github.com/dpc-sdp/ripple-framework/commit/bb840cd87))
+  - **@dpc-sdp/ripple-tide-search:** ✅  fix failing dependent filter tests ([0603182ba](https://github.com/dpc-sdp/ripple-framework/commit/0603182ba))
+
+### 💅 Refactors
+
+  - **@dpc-sdp/ripple-tide-search:** Changed useTideSearch to use named params ([9cdf9c33d](https://github.com/dpc-sdp/ripple-framework/commit/9cdf9c33d))
+  - **@dpc-sdp/ripple-ui-maps:** 📌  move dependencies and make ol peer dep ([93fe15ccd](https://github.com/dpc-sdp/ripple-framework/commit/93fe15ccd))
+  - **@dpc-sdp/ripple-ui-maps:** ✨  improve cluster zoom behaviour ([502de55cf](https://github.com/dpc-sdp/ripple-framework/commit/502de55cf))
+  - **@dpc-sdp/ripple-tide-search:** Rename data driven map back to custom collection ([353812016](https://github.com/dpc-sdp/ripple-framework/commit/353812016))
+  - **@dpc-sdp/ripple-tide-search:** Fixed component renaming ([23750a908](https://github.com/dpc-sdp/ripple-framework/commit/23750a908))
+  - **@dpc-sdp/ripple-tide-publication:** ♻️  enable site breadcrumbs on publication parent ([53df8317b](https://github.com/dpc-sdp/ripple-framework/commit/53df8317b))
+  - **@dpc-sdp/ripple-ui-maps:** ♻️  change configuration key to use single location field ([4de958b0a](https://github.com/dpc-sdp/ripple-framework/commit/4de958b0a))
+  - **nuxt-ripple:** ♻️  guard against no theme ([de1bb106e](https://github.com/dpc-sdp/ripple-framework/commit/de1bb106e))
+  - ♻️  cleanup before merge ([5fa220ae8](https://github.com/dpc-sdp/ripple-framework/commit/5fa220ae8))
+
+### 🏡 Chore
+
+  - **@dpc-sdp/ripple-ui-maps:** Merge maps stuff in ([92c189e2c](https://github.com/dpc-sdp/ripple-framework/commit/92c189e2c))
+  - **@dpc-sdp/ripple-ui-maps:** ⬆️  update openlayers dependencies ([ce7f56d68](https://github.com/dpc-sdp/ripple-framework/commit/ce7f56d68))
+  - **@dpc-sdp/ripple-ui-maps:** Ignore example components and add ol as peer ([ae9a6b02d](https://github.com/dpc-sdp/ripple-framework/commit/ae9a6b02d))
+  - **@dpc-sdp/ripple-tide-search:** Transpile deps ([dd2cc868f](https://github.com/dpc-sdp/ripple-framework/commit/dd2cc868f))
+  - **@dpc-sdp/ripple-ui-maps:** 🍱  cleanup icon attrs ([e9229eff1](https://github.com/dpc-sdp/ripple-framework/commit/e9229eff1))
+  - Update maps fixture ([6e4e7b57e](https://github.com/dpc-sdp/ripple-framework/commit/6e4e7b57e))
+  - **@dpc-sdp/ripple-ui-core:** 🚚  rename incorrect case icon ([5ae41539e](https://github.com/dpc-sdp/ripple-framework/commit/5ae41539e))
+  - **@dpc-sdp/ripple-ui-maps:** Increase zoom level on center ([dda2be5a3](https://github.com/dpc-sdp/ripple-framework/commit/dda2be5a3))
+  - **@dpc-sdp/ripple-ui-maps:** Configure duplicate pin proximity ([c88f3b493](https://github.com/dpc-sdp/ripple-framework/commit/c88f3b493))
+  - Increase visual diff threshold ([56d3e87ff](https://github.com/dpc-sdp/ripple-framework/commit/56d3e87ff))
+  - **@dpc-sdp/ripple-ui-maps:** 💄  fix map icon and stories ([8f099df52](https://github.com/dpc-sdp/ripple-framework/commit/8f099df52))
+  - Remove reference site update step using circle ([430a45a65](https://github.com/dpc-sdp/ripple-framework/commit/430a45a65))
+  - **nuxt-app:** Updated example map config ([f0dbc93ee](https://github.com/dpc-sdp/ripple-framework/commit/f0dbc93ee))
+  - **@dpc-sdp/ripple-ui-forms:** Remove datepicker from storybook ([9ed5ae400](https://github.com/dpc-sdp/ripple-framework/commit/9ed5ae400))
+  - **nuxt-app:** Push up failing tests ([ff239ccdd](https://github.com/dpc-sdp/ripple-framework/commit/ff239ccdd))
+  - Remove console log ([3c0ae7f3f](https://github.com/dpc-sdp/ripple-framework/commit/3c0ae7f3f))
+
+### ✅ Tests
+
+  - **@dpc-sdp/ripple-ui-maps:** Update maps test ([c64ef5150](https://github.com/dpc-sdp/ripple-framework/commit/c64ef5150))
+  - **@dpc-sdp/ripple-ui-maps:** Update maps test ([3b26eb7a2](https://github.com/dpc-sdp/ripple-framework/commit/3b26eb7a2))
+  - **@dpc-sdp/ripple-ui-maps:** ✅  organise map tests ([f73f8467f](https://github.com/dpc-sdp/ripple-framework/commit/f73f8467f))
+  - **@dpc-sdp/ripple-ui-maps:** 🧪  adds visual tests for maps ([d628cb115](https://github.com/dpc-sdp/ripple-framework/commit/d628cb115))
+  - **@dpc-sdp/ripple-ui-maps:** ✅  hide primary nav in screenshots ([a8c5406dc](https://github.com/dpc-sdp/ripple-framework/commit/a8c5406dc))
+  - **@dpc-sdp/ripple-ui-maps:** ✅  fix storybook tests ([bd36e0259](https://github.com/dpc-sdp/ripple-framework/commit/bd36e0259))
+  - **@dpc-sdp/ripple-ui-maps:** ✅  update search bar component test ([9350d2bbb](https://github.com/dpc-sdp/ripple-framework/commit/9350d2bbb))
+  - **@dpc-sdp/ripple-ui-core:** ✅  update tabs cy test ([d5e1f35d8](https://github.com/dpc-sdp/ripple-framework/commit/d5e1f35d8))
+  - **@dpc-sdp/ripple-ui-maps:** ✅  add wait in location search test ([dada32fa5](https://github.com/dpc-sdp/ripple-framework/commit/dada32fa5))
+  - **@dpc-sdp/ripple-ui-maps:** ✅  fix locality search mock ([97a0401ab](https://github.com/dpc-sdp/ripple-framework/commit/97a0401ab))
+  - **@dpc-sdp/ripple-ui-maps:** ✅  update cluster screenshot ([e0bc7305c](https://github.com/dpc-sdp/ripple-framework/commit/e0bc7305c))
+  - **@dpc-sdp/ripple-ui-maps:** ✅  fix tests for map no results ([1dcac4c69](https://github.com/dpc-sdp/ripple-framework/commit/1dcac4c69))
+  - **@dpc-sdp/ripple-ui-maps:** ✅  fix maps tests ([56ed7ef14](https://github.com/dpc-sdp/ripple-framework/commit/56ed7ef14))
+  - **@dpc-sdp/ripple-ui-maps:** ✅  add waits on maps tests ([d84bbcfca](https://github.com/dpc-sdp/ripple-framework/commit/d84bbcfca))
+  - **@dpc-sdp/ripple-ui-maps:** ✅  update image snapshots ([569e062db](https://github.com/dpc-sdp/ripple-framework/commit/569e062db))
+  - **@dpc-sdp/ripple-ui-maps:** ✅  increase image diff threshold ([262a08dec](https://github.com/dpc-sdp/ripple-framework/commit/262a08dec))
+  - **@dpc-sdp/ripple-ui-maps:** ✅  fix tests ([a2bbff280](https://github.com/dpc-sdp/ripple-framework/commit/a2bbff280))
+  - **nuxt-app:** Adding basic cypress tests for autocomplete/suggestions ([0ef55fe12](https://github.com/dpc-sdp/ripple-framework/commit/0ef55fe12))
+
+### 🎨 Styles
+
+  - **@dpc-sdp/ripple-ui-maps:** 💄  update cluster size ([df2559e93](https://github.com/dpc-sdp/ripple-framework/commit/df2559e93))
+  - **@dpc-sdp/ripple-ui-maps:** 💄  style fixes for cluster and map controls ([398064b9f](https://github.com/dpc-sdp/ripple-framework/commit/398064b9f))
+  - **@dpc-sdp/ripple-ui-maps:** Add space around error message ([1e8cc17e3](https://github.com/dpc-sdp/ripple-framework/commit/1e8cc17e3))
+  - **@dpc-sdp/ripple-tide-search:** 💄  add margin around error message ([5db24d65b](https://github.com/dpc-sdp/ripple-framework/commit/5db24d65b))
+  - **@dpc-sdp/ripple-ui-maps:** Updated map styling after design feedback ([6eaf8cc8e](https://github.com/dpc-sdp/ripple-framework/commit/6eaf8cc8e))
+  - **@dpc-sdp/nuxt-ripple:** Fixed linting ([1b2821d2e](https://github.com/dpc-sdp/ripple-framework/commit/1b2821d2e))
+
+### ❤️  Contributors
+
+- Dylankelly <dylan.kelly@dpc.vic.gov.au>
+- Dylan Kelly <dylan.kelly@dpc.vic.gov.au>
+- David Featherston <david.featherstone@dpc.vic.gov.au>
+- Jeffrey Dowdle <jeffrey.dowdle@dpc.vic.gov.au>
+- Jason Smith <jason.smith@dpc.vic.gov.au>
+
 ## v2.5.2...release/v2.5.3
 
 [compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.5.2...release/v2.5.3)

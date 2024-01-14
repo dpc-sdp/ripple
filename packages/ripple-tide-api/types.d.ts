@@ -267,3 +267,5 @@ export function getImageFromField(
 ): string
 export function getLinkFromField(field: any, path: string | string[]): any
 export function humanizeFilesize(fileSize: number): string
+export function getSiteKeyValues(key: string, src: any): any
+export function getSiteSection(sectionId: string, src: any): any

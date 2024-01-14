@@ -1,19 +1,4 @@
-/// <reference types="cheerio" />
-
-// Note: for add obj type prop in template, please return data instead of set them in template otherwise it won't work properly.
-// e.g You have something like in your plugin: `<component-obj-prop :author="{name: 'Veronica', company: 'Veridian Dynamics'}"></component-obj-prop>`
-// You should make template: `<component-obj-prop :author="myPluginData1.author"></component-obj-prop>`
-// Then set myPluginData1.author = {name: 'Veronica', company: 'Veridian Dynamics'} and return {myPluginData1, myPluginData2 ... } in your plugin.
-// See a example in `pluginEmbeddedMediaVideo` plugin below.
-
 import { epochToDate } from '../epochToDate.js'
-
-export const isRelativeUrl = (str: string): boolean => {
-  if (str) {
-    return true
-  }
-  return false
-}
 
 const pluginTables = function (this: any) {
   // Wrap tables with a div.
@@ -75,9 +60,9 @@ const pluginQuotation = function (this: any) {
     return $quotation.replaceWith(`
 <figure class="rpl-blockquote">
   ${$quotation}
-  <figcaption class="rpl-blockquote__author rpl-type-label-small">
-    ${authors.join('')}
-  </figcaption>
+  <figcaption class="rpl-blockquote__author rpl-type-label-small">${authors.join(
+    ''
+  )}</figcaption>
 </figure>
 `)
   })
@@ -140,11 +125,9 @@ const pluginDocuments = function (this: any) {
       <div class="rpl-document__info rpl-type-label-small">
         <span class="rpl-file__meta">${fileType}</span>
         <span class="rpl-file__meta">${fileSize}</span>
-        ${updatedMarkup}
-      </div>
+      ${updatedMarkup}</div>
     </div>
-  </span>
-  <span class="rpl-u-visually-hidden">(opens in a new window)</span>
+    <span class="rpl-u-visually-hidden">(opens in a new window)</span>
   </a>
 </figure>
 `)
@@ -164,9 +147,9 @@ const pluginEmbededVideo = function (this: any) {
       const link = $video.find('.field--name-field-media-link a')?.attr('href')
 
       const captionMarkup = caption
-        ? `<figcaption class="rpl-media-embed__figcaption">
-        <p class="rpl-media-embed__caption rpl-type-p">${caption}</p>
-      </figcaption>`
+        ? `    <figcaption class="rpl-media-embed__figcaption">
+      <p class="rpl-media-embed__caption rpl-type-p">${caption}</p>
+    </figcaption>`
         : ''
 
       const transcriptMarkup = link
@@ -179,16 +162,18 @@ const pluginEmbededVideo = function (this: any) {
       </div>`
         : ''
 
-      return $video.replaceWith(`<div class="rpl-media-embed">
-        <figure class="rpl-media-embed__figure">
-          <div class="rpl-media-embed__video-container">
-            <iframe class="rpl-media-embed__video rpl-u-screen-only" src="${source}" title="${title}" width="${width}" height="${height}" allow="autoplay; fullscreen; picture-in-picture;" allowfullscreen></iframe>
-            <a href="${source}" class="rpl-text-link rpl-type-p rpl-u-print-only">${title}</a>
-          </div>
-          ${captionMarkup}
-        </figure>
-        ${transcriptMarkup}
-      </div>`)
+      return $video.replaceWith(`
+<div class="rpl-media-embed">
+  <figure class="rpl-media-embed__figure">
+    <div class="rpl-media-embed__video-container">
+      <iframe class="rpl-media-embed__video rpl-u-screen-only" src="${source}" title="${title}" width="${width}" height="${height}" allow="autoplay; fullscreen; picture-in-picture;" allowfullscreen></iframe>
+      <a href="${source}" class="rpl-text-link rpl-type-p rpl-u-print-only">${title}</a>
+    </div>
+${captionMarkup}
+  </figure>
+${transcriptMarkup}
+</div>
+`)
     }
   )
 }
@@ -203,8 +188,9 @@ const pluginImages = function (this: any) {
     // this is the max width of the content area
     const contentWidth = 720
     return this.find(el).replaceWith(
-      `<img src="${src}" class="rpl-img" width="${width}" alt="${alt}" srcset="${src}?width=${contentWidth},
-      ${src}?width=${contentWidth * 2} 2x"></img>`
+      `<img src="${src}" class="rpl-img" width="${width}" alt="${alt}" srcset="${src}?width=${contentWidth},${src}?width=${
+        contentWidth * 2
+      } 2x"></img>`
     )
   })
 }

@@ -197,7 +197,7 @@ export const getSiteSectionId = (
 /**
  * @description returns the correct site section from the page sites data
  */
-export const getSiteSection = (sectionId, src) => {
+export const getSiteSection = (sectionId: string, src: any) => {
   const siteId = getSiteSectionId(sectionId, src)
 
   if (!siteId) {
@@ -218,5 +218,6 @@ export default {
   getBodyFromField,
   humanizeFilesize,
   getField,
-  getSiteKeyValues
+  getSiteKeyValues,
+  getSiteSection
 }

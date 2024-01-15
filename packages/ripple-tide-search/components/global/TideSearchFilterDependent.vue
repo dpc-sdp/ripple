@@ -65,7 +65,7 @@ onMounted(() => {
 
 <template>
   <FormKit :id="`${id}`" :key="`${id}`" v-model="groupValues" type="group">
-    <div class="rpl-col-6-m">
+    <div class="rpl-col-12 rpl-col-6-m">
       <FormKit
         :id="`${id}-parent`"
         :key="`${id}-parent`"
@@ -78,7 +78,7 @@ onMounted(() => {
         @input="handleSelect"
       />
     </div>
-    <div class="rpl-col-6-m">
+    <div class="rpl-col-12 rpl-col-6-m">
       <FormKit
         :id="`${id}-child`"
         :key="`${id}-child-${selectedParent}`"

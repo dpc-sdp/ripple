@@ -28,14 +28,14 @@ const setupDataLayer = (featureFlags: IRplFeatureFlags) => {
       production,
       google_analytics: {
         prod_measurement_id: featureFlags?.prodMeasurementID,
-        uat_measurement_id: featureFlags?.uatMeasurementID,
-        ripple_version:
-          packages &&
-          packages.hasOwnProperty('nuxt-ripple') &&
-          packages['nuxt-ripple'] !== 'workspace:*'
-            ? packages['nuxt-ripple']
-            : '2.x'
-      }
+        uat_measurement_id: featureFlags?.uatMeasurementID
+      },
+      release:
+        packages &&
+        packages.hasOwnProperty('nuxt-ripple') &&
+        packages['nuxt-ripple'] !== 'workspace:*'
+          ? packages['nuxt-ripple']
+          : '2.x'
     })
   }
 }

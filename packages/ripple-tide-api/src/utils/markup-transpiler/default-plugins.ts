@@ -188,7 +188,7 @@ const pluginImages = function (this: any) {
     // this is the max width of the content area
     const contentWidth = 720
     return this.find(el).replaceWith(
-      `<img src="${src}" class="rpl-img" width="${width}" alt="${alt}" srcset="${src}?width=${contentWidth},${src}?width=${
+      `<img src="${src}" class="rpl-img" width="${width}" alt="${alt}" srcset="${src}?width=${contentWidth}, ${src}?width=${
         contentWidth * 2
       } 2x"></img>`
     )

@@ -138,10 +138,17 @@ const fetchSuggestions = async (query: string) => {
 }
 
 const onUpdate = useDebounceFn(async (q: string): Promise<void> => {
-  if (!q || typeof q !== 'string') {
+  if (!q) {
     results.value = []
     return
   }
+
+  // If the query is not a string, then a value has been selected from the dropdown
+  // and we shouldn't try to fetch suggestions
+  if (typeof q !== 'string') {
+    return
+  }
+
   const res = await fetchSuggestions(q)
   if (!res || res.length === 0) {
     results.value = []

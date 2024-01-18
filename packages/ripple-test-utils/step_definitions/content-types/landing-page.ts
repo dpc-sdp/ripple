@@ -11,6 +11,14 @@ Then('the landing page component {string} should exist', (type: string) => {
 Then('the sidebar component with ID {string} should exist', (id: string) => {
   cy.get(`[data-sidebar-component-id="${id}"]`).should('exist')
 })
+
+Then(
+  'the sidebar component with ID {string} should not exist',
+  (id: string) => {
+    cy.get(`[data-sidebar-component-id="${id}"]`).should('not.exist')
+  }
+)
+
 Then('the hero title should be {string}', (title: string) => {
   cy.get('[data-cy="hero-title"]').should('have.text', title)
 })

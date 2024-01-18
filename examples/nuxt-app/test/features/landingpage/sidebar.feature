@@ -14,8 +14,6 @@ Feature: Sidebar
     Then the sidebar component with ID "tide-sidebar-social-share" should exist
     Then the sidebar component with ID "tide-sidebar-related-links" should exist
 
-  This specific scenario tests the filter on incomplete related links
-
   @mockserver
   Scenario: Sidebar components
     When I visit the page "/sub2"

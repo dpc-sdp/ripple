@@ -2,6 +2,7 @@
 import { RplIcon } from '@dpc-sdp/ripple-ui-core/vue'
 import type { IRplMapFeature } from './../../types'
 import { onMounted, onUnmounted, ref, inject, computed, watch } from 'vue'
+import { useFullscreen } from '@vueuse/core'
 import { Map } from 'ol'
 import { Point } from 'ol/geom'
 import Icon from 'ol/style/Icon'
@@ -78,13 +79,10 @@ const center = computed(() => {
   }
 })
 
-const {
-  onHomeClick,
-  onZoomInClick,
-  onZoomOutClick,
-  onFullScreenClick,
-  isFullScreenRef
-} = useMapControls(mapRef, center, props.initialZoom)
+const { isFullscreen } = useFullscreen()
+
+const { onHomeClick, onZoomInClick, onZoomOutClick, onFullScreenClick } =
+  useMapControls(mapRef, center, props.initialZoom)
 
 const mapFeatures = computed(() => {
   if (Array.isArray(props.features)) {
@@ -295,7 +293,7 @@ const noResultsRef = ref(null)
       </slot>
       <div class="rpl-map__control rpl-map__control-fullscreen">
         <button title="View map fullscreen" @click="onFullScreenClick">
-          <RplIcon v-if="isFullScreenRef" name="icon-cancel"></RplIcon>
+          <RplIcon v-if="isFullscreen" name="icon-cancel"></RplIcon>
           <RplIcon v-else name="icon-enlarge" size="m"></RplIcon>
         </button>
       </div>

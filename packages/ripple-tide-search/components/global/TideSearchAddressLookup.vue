@@ -90,16 +90,15 @@ const fetchSuggestions = async (query: string) => {
             match: {
               locality: {
                 query,
-                operator: 'or',
-                fuzziness: 'auto'
+                operator: 'and'
               }
             }
           },
           {
-            match_phrase: {
-              'locality.keyword': {
-                query,
-                boost: 2
+            prefix: {
+              locality: {
+                value: query,
+                case_insensitive: true
               }
             }
           },

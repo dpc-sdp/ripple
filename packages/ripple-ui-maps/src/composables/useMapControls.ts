@@ -1,9 +1,7 @@
 import { easeOut } from 'ol/easing'
 import { centerMap } from './../components/map/utils.ts'
-import { ref } from 'vue'
-export default (mapRef, center, initialZoom) => {
-  const isFullScreenRef = ref(false)
 
+export default (mapRef, center, initialZoom) => {
   /**
    * @param {number} delta Zoom delta.
    * @private
@@ -98,9 +96,9 @@ export default (mapRef, center, initialZoom) => {
     if (!isFullScreenSupported(doc)) {
       return
     }
+
     if (isFullScreen(doc)) {
       exitFullScreen(doc)
-      isFullScreenRef.value = false
     } else {
       const element = map.getTargetElement()
       if (withKeys) {
@@ -108,7 +106,6 @@ export default (mapRef, center, initialZoom) => {
       } else {
         requestFullScreen(element)
       }
-      isFullScreenRef.value = true
     }
   }
 
@@ -129,7 +126,6 @@ export default (mapRef, center, initialZoom) => {
     onHomeClick,
     onZoomInClick,
     onZoomOutClick,
-    onFullScreenClick,
-    isFullScreenRef
+    onFullScreenClick
   }
 }

@@ -203,6 +203,21 @@
             }
           ]
         }
+      },
+      {
+        "id": "checkboxFilter",
+        "component": "TideSearchFilterCheckbox",
+        "filter": {
+          "type": "terms",
+          "value": "checkboxFilter.keyword",
+          "multiple": false
+        },
+        "props": {
+          "id": "checkboxFilter",
+          "label": "Checkbox example",
+          "checkboxLabel": "Show archived content",
+          "onValue": "Archived"
+        }
       }
     ]
   }

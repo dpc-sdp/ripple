@@ -9,7 +9,9 @@ export default [
         {
           name: 'preset-default',
           params: {
-            overrides: {}
+            overrides: {
+              removeHiddenElems: false
+            }
           }
         },
         {

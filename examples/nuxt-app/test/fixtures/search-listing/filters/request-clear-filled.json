@@ -67,6 +67,11 @@
           "ids": {
             "values": ["Birds"]
           }
+        },
+        {
+          "terms": {
+            "checkboxFilter.keyword": ["Archived"]
+          }
         }
       ]
     }

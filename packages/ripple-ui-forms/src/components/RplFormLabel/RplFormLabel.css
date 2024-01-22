@@ -5,6 +5,7 @@
   line-height: var(--rpl-type-lh-4);
   letter-spacing: var(--rpl-type-ls-1);
   margin-bottom: var(--rpl-sp-4);
+  vertical-align: middle;
 }
 
 .rpl-form-label__required {

@@ -64,6 +64,9 @@ export default ({
     searchprovider === 'elasticsearch' ? `_search` : `elasticsearch/_search`
   const searchUrl = `${config.apiUrl}/api/tide/${searchprovider}/${index}/${searchEndpoint}`
 
+  // Need to cache the current path on first load to check if we're navigating to another page when the route changes
+  const initialPath = route.path
+
   const processTemplate = (
     obj: Record<string, any>,
     key: string,
@@ -716,6 +719,12 @@ export default ({
 
   // Subsequently watch for any route changes and trigger a new search
   watch(route, (newRoute) => {
+    // When a user navigates to another page client side, this page will try to search again with an empty query string
+    // The map was zooming back to center when navigating to another page, which was jarring. This check prevents that from happening
+    if (initialPath !== newRoute.path) {
+      return
+    }
+
     searchFromRoute(newRoute, false)
   })
 

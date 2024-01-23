@@ -240,7 +240,7 @@ watch(activeOptionId, async (newId) => {
 })
 
 const slug = (label: string) => {
-  label.toLowerCase().replace(/[^\w-]+/g, '-')
+  return label.toLowerCase().replace(/[^\w-]+/g, '-')
 }
 </script>
 

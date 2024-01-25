@@ -26,6 +26,11 @@
           "terms": {
             "singleTermFilter.keyword": ["Aqua"]
           }
+        },
+        {
+          "terms": {
+            "checkboxFilter.keyword": ["Archived"]
+          }
         }
       ]
     }

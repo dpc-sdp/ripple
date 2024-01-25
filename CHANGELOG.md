@@ -1,5 +1,52 @@
 # Changelog
 
+## v2.6.0...release/v2.6.1
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.6.0...release/v2.6.1)
+
+
+### 🚀 Enhancements
+
+  - **@dpc-sdp/ripple-tide-search:** Add checkbox support ([18734846b](https://github.com/dpc-sdp/ripple-framework/commit/18734846b))
+
+### 🩹 Fixes
+
+  - **@dpc-sdp/ripple-tide-search:** Add lost class to dependent filter ([ec4ab5f4f](https://github.com/dpc-sdp/ripple-framework/commit/ec4ab5f4f))
+  - **@dpc-sdp/ripple-tide-api:** 🐛  regression in cheerio srcset ([c655dead3](https://github.com/dpc-sdp/ripple-framework/commit/c655dead3))
+  - **nuxt-ripple:** 🐛  filter incomplete related links ([5709351b2](https://github.com/dpc-sdp/ripple-framework/commit/5709351b2))
+  - **@dpc-sdp/ripple-tide-search:** Don't clear suggestions after selecting a suburb ([5240eaa78](https://github.com/dpc-sdp/ripple-framework/commit/5240eaa78))
+  - **@dpc-sdp/ripple-ui-maps:** Fixed icon not changing when exiting fullscreen map via keyboard ([3e79adc3a](https://github.com/dpc-sdp/ripple-framework/commit/3e79adc3a))
+  - **@dpc-sdp/ripple-tide-search:** Improved suburb autocomplete suggestions ([a60805757](https://github.com/dpc-sdp/ripple-framework/commit/a60805757))
+  - **@dpc-sdp/ripple-ui-core:** Fix svg sprite breaking in svgo 3.2.0 ([d8b78de5e](https://github.com/dpc-sdp/ripple-framework/commit/d8b78de5e))
+  - **@dpc-sdp/ripple-tide-search:** Fixed search logic firing after user navigated to a new page ([ab4eae4b0](https://github.com/dpc-sdp/ripple-framework/commit/ab4eae4b0))
+  - **@dpc-sdp/nuxt-ripple:** Wrap navigateTo to get redirects working again ([70a7f0caf](https://github.com/dpc-sdp/ripple-framework/commit/70a7f0caf))
+  - **@dpc-sdp/ripple-ui-core:** Return slug value ([5147533ae](https://github.com/dpc-sdp/ripple-framework/commit/5147533ae))
+
+### 💅 Refactors
+
+  - **@dpc-sdp/nuxt-ripple-analytics:** ♻️  move release to datalayer root ([9178fabc2](https://github.com/dpc-sdp/ripple-framework/commit/9178fabc2))
+
+### ✅ Tests
+
+  - **@dpc-sdp/ripple-tide-api:** ✅  increase unit test coverage ([e9561c08b](https://github.com/dpc-sdp/ripple-framework/commit/e9561c08b))
+  - **@dpc-sdp/ripple-tide-api:** ✅  add unit test ([bcc882fa0](https://github.com/dpc-sdp/ripple-framework/commit/bcc882fa0))
+  - **@dpc-sdp/ripple-tide-api:** ✅  add unit test ([3c770a7cb](https://github.com/dpc-sdp/ripple-framework/commit/3c770a7cb))
+  - **@dpc-sdp/ripple-tide-api:** ✅  increase unit test coverage ([3c4bb013b](https://github.com/dpc-sdp/ripple-framework/commit/3c4bb013b))
+  - ✅  fix landing page regression ([d5e40f422](https://github.com/dpc-sdp/ripple-framework/commit/d5e40f422))
+  - **nuxt-app:** ✅  fix test ([c072a2e0e](https://github.com/dpc-sdp/ripple-framework/commit/c072a2e0e))
+
+### 🎨 Styles
+
+  - 🔊  rename for consistency ([d7f923f1e](https://github.com/dpc-sdp/ripple-framework/commit/d7f923f1e))
+  - 🔥  remove deprecated ([8e6adcc75](https://github.com/dpc-sdp/ripple-framework/commit/8e6adcc75))
+  - **@dpc-sdp/ripple-tide-api:** 🏷️  move function decl to types ([1fe5bd6f6](https://github.com/dpc-sdp/ripple-framework/commit/1fe5bd6f6))
+
+### ❤️  Contributors
+
+- David Featherston <david.featherstone@dpc.vic.gov.au>
+- Jeffrey Dowdle <jeffrey.dowdle@dpc.vic.gov.au>
+- Jason Smith <jason.smith@dpc.vic.gov.au>
+
 ## v2.6.0
 
 [compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.5.3...v2.6.0)

@@ -14,7 +14,7 @@ const isCacheTimeExpired = (date: number, expiryInMinutes = 5) => {
   return date < timePlusExpiry
 }
 
-const checkForRedirect = async (page: TidePageBase, debugLogger) => {
+const checkForRedirect = async (page: TidePageBase, debugLogger, nuxt) => {
   // Redirect on the 6 codes that Drupal supplies
   if (page?.type === 'redirect') {
     switch (page.status_code) {
@@ -31,11 +31,13 @@ const checkForRedirect = async (page: TidePageBase, debugLogger) => {
           pageStatusCode: page?.status_code
         })
 
-        await navigateTo(page.redirect_url, {
-          replace: true,
-          redirectCode: page.status_code,
-          external: page.redirect_type === 'external'
-        })
+        await nuxt.runWithContext(() =>
+          navigateTo(page.redirect_url, {
+            replace: true,
+            redirectCode: page.status_code,
+            external: page.redirect_type === 'external'
+          })
+        )
         break
       default:
     }
@@ -80,7 +82,9 @@ export const useTidePage = async (
     )
 
     if (Object.keys(nuxt.payload.data).length > maxCacheItems + 1) {
-      debugLogger(`Cache is larger than max ${maxCacheItems} items, clearing...`)
+      debugLogger(
+        `Cache is larger than max ${maxCacheItems} items, clearing...`
+      )
       clearNuxtData()
     }
   }
@@ -90,7 +94,6 @@ export const useTidePage = async (
   // Refresh data so it doesnt go stale whilst client side nav
   if (pageData.value && pageData.value._fetched) {
     if (isCacheTimeExpired(pageData.value._fetched)) {
-
       debugLogger(
         'Cached data for this page is stale, clearing nuxt cache just for this page...',
         {
@@ -156,7 +159,7 @@ export const useTidePage = async (
       pageNodeId: data.value.nid
     })
 
-    await checkForRedirect(data.value, debugLogger)
+    await checkForRedirect(data.value, debugLogger, nuxt)
 
     return data.value
   }
@@ -166,7 +169,7 @@ export const useTidePage = async (
     pageNodeId: pageData.value.nid
   })
 
-  await checkForRedirect(pageData.value, debugLogger)
+  await checkForRedirect(pageData.value, debugLogger, nuxt)
 
   return pageData.value
 }

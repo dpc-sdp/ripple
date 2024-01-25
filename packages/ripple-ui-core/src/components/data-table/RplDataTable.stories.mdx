@@ -5,7 +5,7 @@ import {
   ArgsTable
 } from '@storybook/addon-docs'
 import RplDataTable from './RplDataTable.vue'
-import { RplDataTableColumns, RplDataTableItems, RplDataTableColumnConfig, RplDataTableComplexItems, RplDataTableObjectKeyColumnConfig, RplDataTableObjects, RplDataTableStructuredColumns, RplDataTableStructuredItems } from './fixtures/sample'
+import { RplDataTableColumns, RplDataTableItems, RplDataTableColumnConfig, RplDataTableComplexItems, RplDataTableObjectKeyColumnConfig, RplDataTableObjects, RplDataTableStructuredColumns, RplDataTableStructuredItems, RplDataTableExtraComponents } from './fixtures/sample'
 import { a11yStoryCheck } from './../../../stories/interactions.js'
 
 export const SingleTemplate = (args) => ({
@@ -38,8 +38,7 @@ export const SingleTemplate = (args) => ({
       headingType: {
         horizontal: true,
         vertical: true
-      },
-      alignHidden: 1
+      }
     }}
   >
     {SingleTemplate.bind()}
@@ -58,8 +57,7 @@ export const SingleTemplate = (args) => ({
       headingType: {
         horizontal: true,
         vertical: true
-      },
-      alignHidden: 1
+      }
     }}
   >
     {SingleTemplate.bind()}
@@ -78,8 +76,7 @@ export const SingleTemplate = (args) => ({
       headingType: {
         horizontal: true,
         vertical: false
-      },
-      alignHidden: 1
+      }
     }}
   >
     {SingleTemplate.bind()}
@@ -99,7 +96,28 @@ export const SingleTemplate = (args) => ({
         horizontal: true,
         vertical: true
       },
-      alignHidden: 1
+      offset: 1
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    name="More component"
+    play={a11yStoryCheck}
+    args={{
+      caption: "Pets",
+      footer: "Extra content displayed without offset",
+      columns: RplDataTableObjectKeyColumnConfig,
+      items: RplDataTableExtraComponents,
+      headingType: {
+        horizontal: true,
+        vertical: true
+      },
+      showExtraContent: true,
+      offset: 0
     }}
   >
     {SingleTemplate.bind()}

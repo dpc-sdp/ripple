@@ -21,20 +21,23 @@ export type tableRow = {
   [key: string]: any
 }
 
+export type extraRowContentItem = {
+  heading: string
+  content?: string
+  objectKey?: string
+  component?: string
+}
+
 export type extraRowContent = {
+  component?: string
   html?: string
-  items?: {
-    label: string
-    content: string
-  }[]
+  items?: extraRowContentItem[]
 }
 
 interface Props {
-  content: any
   columns: tableColumnConfig[]
-  items: Array<string>
   row: tableRow
-  extraContent?: extraRowContent | null
+  extraContent?: extraRowContent
   verticalHeader?: boolean
   offset: number
   caption?: string
@@ -42,11 +45,8 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  content: '',
-  items: () => [],
   verticalHeader: true,
   caption: undefined,
-  offset: 1,
   extraContent: null
 })
 
@@ -90,13 +90,14 @@ const handleClick = () => {
 const hasComponent = (column: any) =>
   typeof column === 'object' && column.hasOwnProperty('component')
 
-const getCellText = (colIndex: number) => {
-  const column = props.columns[colIndex]
-  const objectKey = column.objectKey
+const getCellText = (col?: number | string, value = '') => {
+  if (typeof col === 'undefined') return value
+
+  const objectKey = typeof col === 'string' ? col : props.columns[col].objectKey
 
   return typeof props.row === 'object' && props.row.hasOwnProperty(objectKey)
     ? props.row[objectKey]
-    : ''
+    : value
 }
 </script>
 
@@ -123,7 +124,6 @@ const getCellText = (colIndex: number) => {
           </template>
         </template>
       </component>
-
       <td v-if="extraContent" class="rpl-data-table__actions">
         <RplButton
           class="rpl-data-table__toggle"
@@ -137,6 +137,13 @@ const getCellText = (colIndex: number) => {
     <tr v-if="extraContent" ref="r1" class="rpl-data-table__details">
       <td v-if="offset > 0" :colspan="offset"></td>
       <td :colspan="columns.length + 1 - offset">
+        <template v-if="hasComponent(extraContent)">
+          <component
+            :is="extraContent.component"
+            class="rpl-data-table__details-content"
+            :item="row"
+          />
+        </template>
         <template v-if="(extraContent as extraRowContent).items">
           <div
             v-for="(item, i) of extraContent.items"
@@ -146,15 +153,17 @@ const getCellText = (colIndex: number) => {
             <p>
               <strong>{{ item.heading }}</strong>
             </p>
-            <p>{{ item.content }}</p>
+            <template v-if="hasComponent(item)">
+              <component :is="item.component" :item="row" :column="item" />
+            </template>
+            <p v-else>{{ getCellText(item?.objectKey, item.content) }}</p>
           </div>
         </template>
-
         <RplContent
           v-if="extraContent.html"
           :html="extraContent.html"
           class="rpl-data-table__details-content"
-        ></RplContent>
+        />
       </td>
     </tr>
   </tbody>

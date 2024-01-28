@@ -1,0 +1,133 @@
+{
+  "title": "Table with component extra data",
+  "changed": "2022-11-02T12:47:29+11:00",
+  "created": "2022-11-02T12:47:29+11:00",
+  "type": "tide_search_listing",
+  "nid": "11dede11-10c0-111e1-1100-000000000330",
+  "showTopicTags": true,
+  "summary": "On 28 January 2023 the Victorian Government announced the implementation of the final recommendations of the Royal Commission into Family Violence. This marks our public commitment to implementing all 227 recommendations.",
+  "config": {
+    "searchListingConfig": {
+      "resultsPerPage": 40,
+      "customSort": [
+        { "_score": "desc" },
+        { "field_fv_recommendation_number": "asc" },
+        { "_doc": "desc" }
+      ]
+    },
+    "queryConfig": {
+      "multi_match": {
+        "query": "{{query}}",
+        "fields": [
+          "title^3",
+          "field_landing_page_summary^2",
+          "body",
+          "field_paragraph_body",
+          "summary_processed"
+        ]
+      }
+    },
+    "results": {
+      "layout": {
+        "component": "TideSearchResultsTable",
+        "props": {
+          "offset": 0,
+          "showExtraContent": true,
+          "caption": "My Table",
+          "footer": "Some notes about the table",
+          "headingType": { "horizontal": true, "vertical": true },
+          "columns": [
+            {
+              "label": "Recommendation",
+              "objectKey": "field_fv_recommendation_number"
+            },
+            { "label": "Title", "component": "TideSearchListingTableLink" },
+            {
+              "label": "Category",
+              "objectKey": "field_fv_recommendation_category_name"
+            },
+            { "label": "Status", "objectKey": "fv_recommendation_status" }
+          ],
+          "extraContent": {
+            "component": "TableExtraContentComponentExample"
+          }
+        }
+      }
+    },
+    "globalFilters": [
+      { "terms": { "type": ["fv_recommendation"] } },
+      { "terms": { "field_node_site": ["4"] } }
+    ],
+    "userFilters": [
+      {
+        "id": "category",
+        "component": "TideSearchFilterDropdown",
+        "filter": {
+          "type": "terms",
+          "value": "field_fv_recommendation_category_name.keyword"
+        },
+        "aggregations": {
+          "field": "field_fv_recommendation_category_name.keyword",
+          "source": "elastic"
+        },
+        "props": {
+          "id": "category",
+          "label": "Category",
+          "placeholder": "Select a category",
+          "type": "RplFormDropdown",
+          "multiple": true
+        }
+      },
+      {
+        "id": "department",
+        "component": "TideSearchFilterDropdown",
+        "filter": {
+          "type": "terms",
+          "value": "field_fv_recommendation_dpt_name.keyword"
+        },
+        "aggregations": {
+          "field": "field_fv_recommendation_dpt_name.keyword",
+          "source": "elastic"
+        },
+        "props": {
+          "id": "department",
+          "label": "Deparment",
+          "placeholder": "Select a department",
+          "type": "RplFormDropdown",
+          "multiple": true
+        }
+      },
+      {
+        "id": "status",
+        "component": "TideSearchFilterDropdown",
+        "filter": {
+          "type": "terms",
+          "value": "fv_recommendation_status.keyword"
+        },
+        "aggregations": {
+          "field": "recommendation_status",
+          "source": "taxonomy"
+        },
+        "props": {
+          "id": "status",
+          "label": "Status",
+          "placeholder": "Select a status",
+          "type": "RplFormDropdown",
+          "multiple": true,
+          "options": [
+            {
+              "id": "1",
+              "label": "Implemented",
+              "value": "Implemented"
+            },
+            {
+              "id": "2",
+              "label": "Not Implemented",
+              "value": "Not Implemented"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

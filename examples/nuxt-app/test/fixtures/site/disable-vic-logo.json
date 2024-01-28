@@ -12,7 +12,8 @@
     "altText": ""
   },
   "featureFlags": {
-    "disablePrimaryLogo": true
+    "disablePrimaryLogo": true,
+    "disableFooterLogo": true
   },
   "menus": {
     "menuMain": [

@@ -36,6 +36,13 @@ Then(
   }
 )
 
+Then('the URL should reflect that the current page has been reset', () => {
+  cy.location().should((loc) => {
+    const params = new URLSearchParams(loc.search)
+    expect(params.get('page')).to.eq(null)
+  })
+})
+
 Then(
   'the URL should reflect that the current sort option is {string}',
   (sortId: string) => {

@@ -141,7 +141,7 @@ Feature: Search listing - Filter
     When I clear the search filters
 
     And the search network request should be called with the "/search-listing/filters/request-clear-empty" fixture
-    Then the URL should reflect that the current page number is 1
+    Then the URL should reflect that the current page has been reset
     Then the URL should reflect that the current search term is ""
     Then the URL should reflect that the current active filters are as follows:
       | id             |

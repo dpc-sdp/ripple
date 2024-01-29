@@ -21,6 +21,7 @@ export const getIconForUrl = (urlString: string) => {
     case 'instagr.am':
       return 'icon-instagram'
     case 'linkedin.com':
+    case 'au.linkedin.com':
       return 'icon-linkedin'
     case 'twitter.com':
     case 'x.com':

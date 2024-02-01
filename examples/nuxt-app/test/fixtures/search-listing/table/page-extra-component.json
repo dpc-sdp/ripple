@@ -27,7 +27,7 @@
         ]
       }
     },
-    "results": {
+    "resultsConfig": {
       "layout": {
         "component": "TideSearchResultsTable",
         "props": {

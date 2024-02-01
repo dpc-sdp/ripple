@@ -3,11 +3,9 @@ import { getActiveFilterURL, ref } from '#imports'
 import { submitForm } from '@formkit/vue'
 import useTideSearch from './../../composables/useTideSearch'
 import type {
-  TideSearchListingPage,
-  TideSearchListingResultLayout,
   TideSearchListingResultItem,
-  TideSearchListingSortOption,
-  TideSearchListingTabKey
+  TideSearchListingTabKey,
+  TideSearchListingConfig
 } from './../../types'
 import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
 import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
@@ -17,19 +15,17 @@ interface Props {
   id: string
   title?: string
   introText?: string
-  searchListingConfig?: TideSearchListingPage['searchListingConfig']
   autocompleteQuery?: boolean
-  queryConfig: Record<string, any>
-  globalFilters?: any[]
-  userFilters?: any[]
-  resultsConfig?: {
-    layout?: TideSearchListingResultLayout
-    item?: Record<string, { component: string }>
-  }
-  locationQueryConfig?: TideSearchListingPage['locationQueryConfig']
-  mapConfig?: TideSearchListingPage['mapConfig']
+  searchListingConfig?: TideSearchListingConfig['searchListingConfig']
+  sortOptions?: TideSearchListingConfig['sortOptions']
+  queryConfig: TideSearchListingConfig['queryConfig']
+  globalFilters?: TideSearchListingConfig['globalFilters']
+  userFilters?: TideSearchListingConfig['userFilters']
+  resultsConfig?: TideSearchListingConfig['resultsConfig']
+  locationQueryConfig?: TideSearchListingConfig['locationQueryConfig']
+  mapConfig?: TideSearchListingConfig['mapConfig']
+  pageBackground?: string
   index?: string
-  sortOptions?: TideSearchListingSortOption[]
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -64,7 +60,8 @@ const props = withDefaults(defineProps<Props>(), {
     suggestions: {
       key: 'title',
       enabled: false
-    }
+    },
+    formTheme: 'default'
   }),
   resultsConfig: () => ({
     layout: {
@@ -72,8 +69,9 @@ const props = withDefaults(defineProps<Props>(), {
     }
   }),
   sortOptions: () => [],
-  locationQueryConfig: () => {},
-  mapConfig: () => {}
+  locationQueryConfig: () => ({}),
+  mapConfig: () => ({}),
+  pageBackground: 'default'
 })
 
 const emit = defineEmits<{
@@ -377,6 +375,10 @@ const mapAreas = computed(() => {
   }
   return []
 })
+
+const reverseTheme = computed(() => {
+  return props.searchListingConfig?.formTheme === 'reverse'
+})
 </script>
 
 <template>
@@ -384,13 +386,15 @@ const mapAreas = computed(() => {
     <div
       :class="{
         'tide-search-header': true,
-        'tide-search-header--neutral': searchListingConfig.displayMapTab
+        'tide-search-header--neutral': reverseTheme,
+        'tide-search-header--default': !reverseTheme,
+        'tide-search-header--inset': reverseTheme && pageBackground !== 'alt'
       }"
     >
       <RplSearchBar
         v-if="!locationQueryConfig?.component"
         id="custom-collection-search-bar"
-        variant="default"
+        :variant="searchListingConfig?.formTheme"
         :input-label="searchListingConfig.labels?.submit"
         :inputValue="searchTerm"
         :placeholder="searchListingConfig.labels?.placeholder"
@@ -424,7 +428,7 @@ const mapAreas = computed(() => {
             :title="title"
             :filter-form-values="filterForm"
             :filterInputs="userFilters"
-            :reverseStyling="true"
+            :reverseStyling="reverseTheme"
             @reset="handleFilterReset"
             @submit="handleFilterSubmit"
           >
@@ -456,6 +460,7 @@ const mapAreas = computed(() => {
       <TideSearchAboveResults
         v-if="results?.length || (sortOptions && sortOptions.length)"
         :hasSidebar="true"
+        class="rpl-u-margin-t-8"
       >
         <template #left>
           <TideSearchResultsCount
@@ -529,8 +534,11 @@ const mapAreas = computed(() => {
 
 .tide-search-header--neutral {
   background-color: var(--rpl-clr-neutral-100);
-  padding: var(--rpl-sp-4);
   margin-bottom: var(--rpl-sp-4);
+}
+
+.tide-search-header--inset {
+  padding: var(--rpl-sp-4);
 
   @media (--rpl-bp-s) {
     padding: var(--rpl-sp-5);

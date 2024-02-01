@@ -376,9 +376,16 @@ const mapAreas = computed(() => {
   return []
 })
 
-const reverseTheme = computed(() => {
-  return props.searchListingConfig?.formTheme === 'reverse'
-})
+const altBackground = computed(() => props.pageBackground === 'alt')
+
+const reverseTheme = computed(
+  () => props.searchListingConfig?.formTheme === 'reverse'
+)
+const reverseFields = computed(
+  () =>
+    (reverseTheme.value && !altBackground.value) ||
+    (altBackground.value && !reverseTheme.value)
+)
 </script>
 
 <template>
@@ -386,15 +393,15 @@ const reverseTheme = computed(() => {
     <div
       :class="{
         'tide-search-header': true,
-        'tide-search-header--neutral': reverseTheme,
-        'tide-search-header--default': !reverseTheme,
-        'tide-search-header--inset': reverseTheme && pageBackground !== 'alt'
+        'tide-search-header--inset': reverseTheme,
+        'tide-search-header--neutral': reverseTheme && !altBackground,
+        'tide-search-header--light': reverseTheme && altBackground
       }"
     >
       <RplSearchBar
         v-if="!locationQueryConfig?.component"
         id="custom-collection-search-bar"
-        :variant="searchListingConfig?.formTheme"
+        :variant="reverseFields ? 'reverse' : 'default'"
         :input-label="searchListingConfig.labels?.submit"
         :inputValue="searchTerm"
         :placeholder="searchListingConfig.labels?.placeholder"
@@ -428,7 +435,7 @@ const reverseTheme = computed(() => {
             :title="title"
             :filter-form-values="filterForm"
             :filterInputs="userFilters"
-            :reverseStyling="reverseTheme"
+            :reverseStyling="reverseFields"
             @reset="handleFilterReset"
             @submit="handleFilterSubmit"
           >
@@ -534,11 +541,15 @@ const reverseTheme = computed(() => {
 
 .tide-search-header--neutral {
   background-color: var(--rpl-clr-neutral-100);
-  margin-bottom: var(--rpl-sp-4);
+}
+
+.tide-search-header--light {
+  background-color: var(--rpl-clr-light);
 }
 
 .tide-search-header--inset {
   padding: var(--rpl-sp-4);
+  margin-bottom: var(--rpl-sp-4);
 
   @media (--rpl-bp-s) {
     padding: var(--rpl-sp-5);

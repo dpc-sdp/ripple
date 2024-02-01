@@ -24,6 +24,15 @@ Then(
 )
 
 Then(
+  `the custom collection component should not have the {string} form theme applied`,
+  (theme: string) => {
+    cy.get(`[data-component-type="TideCustomCollection"]`)
+      .find(`.tide-search-header--${theme}`)
+      .should('not.exist')
+  }
+)
+
+Then(
   `the custom collection search bar field should have the {string} variant applied`,
   (theme: string) => {
     cy.get(`[data-component-type="TideCustomCollection"]`)

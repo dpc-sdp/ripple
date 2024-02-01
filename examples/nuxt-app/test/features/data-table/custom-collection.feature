@@ -19,13 +19,13 @@ Feature: Custom Collection
     And the search listing layout should be "table"
 
   @mockserver
-  Scenario: Default form theme
+  Scenario: Default page - default form theme
     Given the page endpoint for path "/custom-collection-theme-default" returns fixture "/landingpage/custom-collection/form-theme-default" with status 200
     Given the "/api/tide/elasticsearch/sdp_data_pipelines_scl/_search" network request is stubbed with fixture "/landingpage/custom-collection/response" and status 200 as alias "cslReq"
     Given I visit the page "/custom-collection-theme-default"
     Then the landing page component "TideCustomCollection" should exist
     And I toggle the content collection filters
-    Then the custom collection component should have the "default" form theme applied
+    Then the custom collection component should not have the "neutral" form theme applied
     Then the custom collection search bar field should have the "default" variant applied
     Then the custom collection checkbox field labelled "Show archived content" should have the "default" variant applied
     Then the custom collection dropdown field labelled "Term filter example" should have the "default" variant applied
@@ -33,7 +33,7 @@ Feature: Custom Collection
     Then the custom collection dropdown field labelled "Terms dependent child example" should have the "default" variant applied
 
   @mockserver
-  Scenario: Reverse form theme
+  Scenario: Default page - reverse form theme
     Given the page endpoint for path "/custom-collection-theme-reverse" returns fixture "/landingpage/custom-collection/form-theme-reverse" with status 200
     Given the "/api/tide/elasticsearch/sdp_data_pipelines_scl/_search" network request is stubbed with fixture "/landingpage/custom-collection/response" and status 200 as alias "cslReq"
     Given I visit the page "/custom-collection-theme-reverse"
@@ -45,6 +45,34 @@ Feature: Custom Collection
     Then the custom collection dropdown field labelled "Term filter example" should have the "reverse" variant applied
     Then the custom collection dropdown field labelled "Terms dependent example" should have the "reverse" variant applied
     Then the custom collection dropdown field labelled "Terms dependent child example" should have the "reverse" variant applied
+
+  @mockserver
+  Scenario: Alt page - default form theme
+    Given the page endpoint for path "/custom-collection-alt-theme-default" returns fixture "/landingpage/custom-collection/alt-form-theme-default" with status 200
+    Given the "/api/tide/elasticsearch/sdp_data_pipelines_scl/_search" network request is stubbed with fixture "/landingpage/custom-collection/response" and status 200 as alias "cslReq"
+    Given I visit the page "/custom-collection-alt-theme-default"
+    Then the landing page component "TideCustomCollection" should exist
+    And I toggle the content collection filters
+    Then the custom collection component should not have the "light" form theme applied
+    Then the custom collection search bar field should have the "reverse" variant applied
+    Then the custom collection checkbox field labelled "Show archived content" should have the "reverse" variant applied
+    Then the custom collection dropdown field labelled "Term filter example" should have the "reverse" variant applied
+    Then the custom collection dropdown field labelled "Terms dependent example" should have the "reverse" variant applied
+    Then the custom collection dropdown field labelled "Terms dependent child example" should have the "reverse" variant applied
+
+  @mockserver
+  Scenario: Alt page - reverse form theme
+    Given the page endpoint for path "/custom-collection-alt-theme-reverse" returns fixture "/landingpage/custom-collection/alt-form-theme-reverse" with status 200
+    Given the "/api/tide/elasticsearch/sdp_data_pipelines_scl/_search" network request is stubbed with fixture "/landingpage/custom-collection/response" and status 200 as alias "cslReq"
+    Given I visit the page "/custom-collection-alt-theme-reverse"
+    Then the landing page component "TideCustomCollection" should exist
+    And I toggle the content collection filters
+    Then the custom collection component should have the "light" form theme applied
+    Then the custom collection search bar field should have the "default" variant applied
+    Then the custom collection checkbox field labelled "Show archived content" should have the "default" variant applied
+    Then the custom collection dropdown field labelled "Term filter example" should have the "default" variant applied
+    Then the custom collection dropdown field labelled "Terms dependent example" should have the "default" variant applied
+    Then the custom collection dropdown field labelled "Terms dependent child example" should have the "default" variant applied
 
   @mockserver
   Scenario: Error
@@ -61,6 +89,3 @@ Feature: Custom Collection
     Given I visit the page "/custom-collection"
     Then the landing page component "TideCustomCollection" should exist
     And the custom collection component should display the error "Sorry, no results match your search. Try again with different search options or check back later."
-
-
-

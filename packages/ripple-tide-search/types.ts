@@ -169,6 +169,10 @@ export type TideSearchListingConfig = {
      */
     layout?: TideSearchListingResultLayout
     /**
+     * @description Component to render no results layout
+     */
+    empty?: any
+    /**
      * @description Component to render result items, can be either '*' for all types, or the content type name if you need to render different types of results differently
      */
     item?: {

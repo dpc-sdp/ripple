@@ -12,7 +12,7 @@ interface Props {
 
 const props = defineProps<Props>()
 
-const searchResultsMappingFn = (item): TideSearchListingResultItem => {
+const searchResultsMappingFn = (item: any): TideSearchListingResultItem => {
   if (props.page.config.results.item) {
     for (const key in props.page.config.results.item) {
       const mapping = props.page.config.results.item[key]
@@ -44,7 +44,7 @@ const searchResultsMappingFn = (item): TideSearchListingResultItem => {
 <template>
   <TideSearchListingPage
     :site="site"
-    :contentPage="page"
+    :contentPage="(page as any)"
     :title="page.title"
     :introText="page.introText"
     :searchListingConfig="page.config.searchListingConfig"
@@ -52,7 +52,8 @@ const searchResultsMappingFn = (item): TideSearchListingResultItem => {
     :globalFilters="page.config.globalFilters"
     :userFilters="page.config.userFilters"
     :resultsLayout="page.config.results?.layout"
-    :searchResultsMappingFn="searchResultsMappingFn"
+    :noResultsLayout="page.config.results?.empty"
+    :searchResultsMappingFn="(searchResultsMappingFn as any)"
     :sortOptions="page.config.sortOptions"
   />
 </template>

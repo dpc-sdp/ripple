@@ -1,5 +1,19 @@
 # Changelog
 
+## v2.6.2
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.6.1...v2.6.2)
+
+
+### 🩹 Fixes
+
+  - **@dpc-sdp/nuxt-ripple:** Fixed unpredictable meta tags by moving from hooks to composibles ([0b34ee454](https://github.com/dpc-sdp/ripple-framework/commit/0b34ee454))
+  - **@dpc-sdp/nuxt-ripple:** Changed section id header name ([f41f43dde](https://github.com/dpc-sdp/ripple-framework/commit/f41f43dde))
+
+### ❤️  Contributors
+
+- Jeffrey Dowdle <jeffrey.dowdle@dpc.vic.gov.au>
+
 ## v2.6.0...release/v2.6.1
 
 [compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.6.0...release/v2.6.1)

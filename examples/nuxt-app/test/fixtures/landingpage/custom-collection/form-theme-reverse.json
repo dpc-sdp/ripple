@@ -1,0 +1,214 @@
+{
+  "title": "Custom collection - Form theme",
+  "changed": "2022-11-02T12:47:29+11:00",
+  "created": "2022-11-02T12:47:29+11:00",
+  "type": "landing_page",
+  "nid": "11dede11-10c0-111e1-1100-000000000330",
+  "summary": "Page summary",
+  "showInPageNav": true,
+  "inPageNavHeadingLevel": "h3",
+  "background": "default",
+  "header": {
+    "title": "Custom collection form theme test",
+    "summary": "Test landing page title introduction text",
+    "theme": "default",
+    "backgroundImage": null
+  },
+  "sidebar": {},
+  "headerComponents": [],
+  "bodyComponents": [
+    {
+      "uuid": "55555555-5555-5555-5555-555555555555",
+      "component": "TideCustomCollection",
+      "id": "123",
+      "title": "Cameras save lives",
+      "props": {
+        "searchListingConfig": {
+          "searchProvider": "elasticsearch",
+          "index": "sdp_data_pipelines_scl",
+          "resultsPerPage": 10,
+          "labels": {
+            "submit": "Search",
+            "placeholder": "Enter suburb, postcode, streetname or offence location"
+          },
+          "customSort": [
+            {
+              "suburb": "asc"
+            }
+          ],
+          "formTheme": "reverse"
+        },
+        "queryConfig": {
+          "multi_match": {
+            "query": "{{query}}",
+            "fields": ["suburb^3", "street^2", "offence_location"]
+          }
+        },
+        "globalFilters": [],
+        "userFilters": [
+          {
+            "id": "termFilter",
+            "component": "TideSearchFilterDropdown",
+            "filter": {
+              "type": "term",
+              "value": "termFilter.keyword"
+            },
+            "aggregations": {
+              "field": "termFilter",
+              "source": "taxonomy"
+            },
+            "props": {
+              "id": "termFilter",
+              "label": "Term filter example",
+              "placeholder": "Select a colour",
+              "multiple": true,
+              "options": [
+                {
+                  "id": "1",
+                  "label": "Red",
+                  "value": "Red"
+                },
+                {
+                  "id": "2",
+                  "label": "Green",
+                  "value": "Green"
+                }
+              ]
+            }
+          },
+          {
+            "id": "checkboxFilter",
+            "component": "TideSearchFilterCheckbox",
+            "filter": {
+              "type": "terms",
+              "value": "checkboxFilter.keyword",
+              "multiple": false
+            },
+            "props": {
+              "id": "checkboxFilter",
+              "label": "Checkbox example",
+              "checkboxLabel": "Show archived content",
+              "onValue": "Archived"
+            }
+          },
+          {
+            "id": "dependentFilter",
+            "component": "TideSearchFilterDependent",
+            "columns": "rpl-grid",
+            "filter": {
+              "type": "dependent",
+              "multiple": false,
+              "value": "field_species_name"
+            },
+            "aggregations": {
+              "field": "topic",
+              "source": "taxonomy"
+            },
+            "props": {
+              "id": "dependentFilter",
+              "label": "Terms dependent example",
+              "placeholder": "Select a species",
+              "dependantLabel": "Terms dependent child example",
+              "dependantPlaceholder": "All sub species",
+              "multiple": true,
+              "options": [
+                {
+                  "id": "1",
+                  "label": "Mammals",
+                  "value": "Mammals"
+                },
+                {
+                  "id": "2",
+                  "label": "Dogs",
+                  "value": "Dogs",
+                  "parent": "1"
+                },
+                {
+                  "id": "3",
+                  "label": "Birds",
+                  "value": "Birds"
+                },
+                {
+                  "id": "4",
+                  "label": "Cats",
+                  "value": "Cats",
+                  "parent": "1"
+                },
+                {
+                  "id": "5",
+                  "label": "Parrot",
+                  "value": "Parrot",
+                  "parent": "3"
+                },
+                {
+                  "id": "6",
+                  "label": "Cockatoo",
+                  "value": "Cockatoo",
+                  "parent": "3"
+                }
+              ]
+            }
+          }
+        ],
+        "resultsConfig": {
+          "layout": {
+            "component": "TideSearchResultsTable",
+            "props": {
+              "columns": [
+                {
+                  "label": "Suburb",
+                  "objectKey": "suburb"
+                },
+                {
+                  "label": "Location",
+                  "objectKey": "street"
+                },
+                {
+                  "label": "Last annual test",
+                  "objectKey": "last_annual_test"
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  ],
+  "meta": {
+    "url": "/demo-landing-page",
+    "langcode": "en",
+    "description": "Nulla ultricies dignissim leo, posuere vestibulum erat cursus vitae",
+    "additional": [
+      {
+        "tag": "link",
+        "attributes": {
+          "rel": "canonical",
+          "href": "https://develop.content.reference.sdp.vic.gov.au/demo-landing-page"
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "title",
+          "content": "Demo Landing Page | Single Digital Presence Content Management System"
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "property": "og:image",
+          "content": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg"
+        }
+      }
+    ],
+    "keywords": "",
+    "image": {
+      "src": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg",
+      "alt": "Demo: Melbourne tram",
+      "title": "Demo: Melbourne tram",
+      "width": 1413,
+      "height": 785,
+      "drupal_internal__target_id": 46
+    }
+  }
+}

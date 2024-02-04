@@ -44,6 +44,19 @@ export interface FilterConfigItem {
   }
 }
 
+export type TideSearchListingResultsConfig = {
+  /**
+   * @description Component to render the results layout
+   */
+  layout?: TideSearchListingResultLayout
+  /**
+   * @description Component to render result items, can be either '*' for all types, or the content type name if you need to render different types of results differently
+   */
+  item?: {
+    [key: string]: TideSearchListingResultItem
+  }
+}
+
 export type TideSearchListingResultItem = {
   /**
    * @description search result key
@@ -125,8 +138,8 @@ export type TideSearchListingConfig = {
       submit: string
       reset: string
       placeholder: string
-      mapTab: string
-      listingTab: string
+      mapTab?: string
+      listingTab?: string
     }
     /**
      * @description custom sort clause
@@ -147,6 +160,10 @@ export type TideSearchListingConfig = {
       key: string
       enabled: boolean
     }
+    /**
+     * @description The theme to use for the display of form section and fields
+     */
+    formTheme: 'default' | 'reverse'
   }
   /**
    * @description Elastic Query DSL for query clause
@@ -162,21 +179,24 @@ export type TideSearchListingConfig = {
   userFilters: FilterConfigItem[]
   /**
    * @description Config for how to display results
+   * @deprecated please use resultsConfig instead
    */
-  results: {
-    /**
-     * @description Component to render results layout
-     */
-    layout?: TideSearchListingResultLayout
-    /**
-     * @description Component to render result items, can be either '*' for all types, or the content type name if you need to render different types of results differently
-     */
-    item?: {
-      [key: string]: TideSearchListingResultItem
-    }
-  }
+  results: TideSearchListingResultsConfig
+  /**
+   * @description Config for how to display results
+   */
+  resultsConfig: TideSearchListingResultsConfig
+  /**
+   * @description Config for custom sort options
+   */
   sortOptions?: TideSearchListingSortOption[]
+  /**
+   * @description Config for the location query
+   */
   locationQueryConfig?: TideSearchLocationQueryConfig
+  /**
+   * @description Config for results map
+   */
   mapConfig?: TideSearchListingMapConfig
 }
 

@@ -27,7 +27,7 @@
         ]
       }
     },
-    "results": {
+    "resultsConfig": {
       "layout": {
         "component": "TideSearchResultsTable",
         "props": {
@@ -49,7 +49,10 @@
             { "label": "Status", "objectKey": "fv_recommendation_status" }
           ],
           "extraContent": {
-            "component": "TableExtraContentComponentExample"
+            "component": "TableExtraContentComponentExample",
+            "props": {
+              "label": "Details"
+            }
           }
         }
       }

@@ -30,6 +30,7 @@ export type extraRowContentItem = {
 
 export type extraRowContent = {
   component?: string
+  props?: string
   html?: string
   items?: extraRowContentItem[]
 }
@@ -140,6 +141,7 @@ const getCellText = (col?: number | string, value = '') => {
         <template v-if="hasComponent(extraContent)">
           <component
             :is="extraContent.component"
+            v-bind="extraContent?.props"
             class="rpl-data-table__details-content"
             :item="row"
           />

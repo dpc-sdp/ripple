@@ -16,7 +16,7 @@ const resultsConfig = computed(() => {
   return props.page.config?.resultsConfig || props.page.config?.results
 })
 
-const searchResultsMappingFn = (item): TideSearchListingResultItem => {
+const searchResultsMappingFn = (item: any): TideSearchListingResultItem => {
   if (resultsConfig.value?.item) {
     for (const key in resultsConfig.value.item) {
       const mapping = resultsConfig.value.item[key]
@@ -48,7 +48,7 @@ const searchResultsMappingFn = (item): TideSearchListingResultItem => {
 <template>
   <TideSearchListingPage
     :site="site"
-    :contentPage="page"
+    :contentPage="(page as any)"
     :title="page.title"
     :introText="page.introText"
     :searchListingConfig="page.config.searchListingConfig"
@@ -56,7 +56,8 @@ const searchResultsMappingFn = (item): TideSearchListingResultItem => {
     :globalFilters="page.config.globalFilters"
     :userFilters="page.config.userFilters"
     :resultsLayout="resultsConfig?.layout"
-    :searchResultsMappingFn="searchResultsMappingFn"
+    :noResultsLayout="resultsConfig?.empty"
+    :searchResultsMappingFn="(searchResultsMappingFn as any)"
     :sortOptions="page.config.sortOptions"
   />
 </template>

@@ -1,5 +1,5 @@
 <template>
-  <RplTextLink :url="value">{{ value }}</RplTextLink>
+  <RplTextLink v-if="value" :url="value">{{ value }}</RplTextLink>
 </template>
 
 <script setup lang="ts">

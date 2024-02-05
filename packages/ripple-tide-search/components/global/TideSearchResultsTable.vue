@@ -33,6 +33,7 @@ type tableExtraContentItems = {
   label: string
   objectKey: string
   component?: string
+  props?: any
 }
 
 type tableExtraContentConfig = {
@@ -69,9 +70,9 @@ const getExtraContent = () => {
   let content = { ...props.extraContent }
   if (props.extraContent?.items) {
     content.items = props.extraContent.items.map((item) => ({
-      component: 'TideSearchListingTableValue',
-      heading: item?.label,
-      ...item
+      ...item,
+      component: 'TideSearchListingTableLabelValue',
+      props: { component: item?.component, props: item?.props }
     }))
   }
   return content

@@ -26,6 +26,7 @@ export type extraRowContentItem = {
   content?: string
   objectKey?: string
   component?: string
+  props?: any
 }
 
 export type extraRowContent = {
@@ -152,13 +153,20 @@ const getCellText = (col?: number | string, value = '') => {
             :key="i"
             class="rpl-data-table__details-content"
           >
-            <p>
-              <strong>{{ item.heading }}</strong>
-            </p>
             <template v-if="hasComponent(item)">
-              <component :is="item.component" :item="row" :column="item" />
+              <component
+                :is="item.component"
+                v-bind="item?.props"
+                :item="row"
+                :column="item"
+              />
             </template>
-            <p v-else>{{ getCellText(item?.objectKey, item.content) }}</p>
+            <template v-else>
+              <p>
+                <strong>{{ item.heading }}</strong>
+              </p>
+              <p>{{ getCellText(item?.objectKey, item.content) }}</p>
+            </template>
           </div>
         </template>
         <RplContent

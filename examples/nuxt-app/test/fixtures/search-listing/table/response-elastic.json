@@ -1,0 +1,187 @@
+{
+  "took": 1,
+  "timed_out": false,
+  "_shards": {
+    "total": 1,
+    "successful": 1,
+    "skipped": 0,
+    "failed": 0
+  },
+  "hits": {
+    "total": {
+      "value": 8253,
+      "relation": "eq"
+    },
+    "max_score": null,
+    "hits": [
+      {
+        "_index": "a83890f7a31dea14e1ae83c6f0afacca--sdp_data_pipelines_ise",
+        "_id": "ise:6901",
+        "_score": 1.0,
+        "_source": {
+          "Organisation": "African Family Services",
+          "Funded For": "Multicultural Service",
+          "Funding Department": "Department of Families Fairness and Housing ",
+          "FVISS\/CISS": "Both",
+          "RAE": "no",
+          "Statewide Service": "Includes statewide service",
+          "Email": "contact@africanfamilyservices.org.au",
+          "Telephone": "03 9602 5046",
+          "Website\/Links": "http:\/\/africanfamilyservices.org.au\/#contact-us",
+          "More Information": ""
+        },
+        "sort": [
+          1.0,
+          "African Family Services"
+        ]
+      },
+      {
+        "_index": "a83890f7a31dea14e1ae83c6f0afacca--sdp_data_pipelines_ise",
+        "_id": "ise:34",
+        "_score": 1.0,
+        "_source": {
+          "Organisation": "After The Bell Aus- Andale School",
+          "Funded For": "Before and\/or After School Hours Care Services",
+          "Funding Department": "Department of Education ",
+          "FVISS\/CISS": "Both",
+          "RAE": "no",
+          "Statewide Service": "no",
+          "Email": "admin@afterthebell.com.au",
+          "Telephone": "03 9758 6744",
+          "Website\/Links": "",
+          "More Information": ""
+        },
+        "sort": [
+          1.0,
+          "After The Bell Aus- Andale School"
+        ]
+      },
+      {
+        "_index": "a83890f7a31dea14e1ae83c6f0afacca--sdp_data_pipelines_ise",
+        "_id": "ise:35",
+        "_score": 1.0,
+        "_source": {
+          "Organisation": "After The Bell Aus- Drouin",
+          "Funded For": "Before and\/or After School Hours Care Services",
+          "Funding Department": "Department of Education ",
+          "FVISS\/CISS": "Both",
+          "RAE": "no",
+          "Statewide Service": "no",
+          "Email": "admin@afterthebell.com.au",
+          "Telephone": "03 9758 6744",
+          "Website\/Links": "",
+          "More Information": ""
+        },
+        "sort": [
+          1.0,
+          "After The Bell Aus- Drouin"
+        ]
+      },
+      {
+        "_index": "a83890f7a31dea14e1ae83c6f0afacca--sdp_data_pipelines_ise",
+        "_id": "ise:36",
+        "_score": 1.0,
+        "_source": {
+          "Organisation": "After The Bell Aus- Grey Street PS",
+          "Funded For": "Before and\/or After School Hours Care Services",
+          "Funding Department": "Department of Education ",
+          "FVISS\/CISS": "Both",
+          "RAE": "no",
+          "Statewide Service": "no",
+          "Email": "lana@afterthebell.com.au",
+          "Telephone": "0437 009 155",
+          "Website\/Links": "",
+          "More Information": ""
+        },
+        "sort": [
+          1.0,
+          "After The Bell Aus- Grey Street PS"
+        ]
+      },
+      {
+        "_index": "a83890f7a31dea14e1ae83c6f0afacca--sdp_data_pipelines_ise",
+        "_id": "ise:37",
+        "_score": 1.0,
+        "_source": {
+          "Organisation": "After The Bell Aus- Ruyton Girls School",
+          "Funded For": "Before and\/or After School Hours Care Services",
+          "Funding Department": "Department of Education ",
+          "FVISS\/CISS": "Both",
+          "RAE": "no",
+          "Statewide Service": "no",
+          "Email": "admin@afterthebell.com.au",
+          "Telephone": "03 9758 6744",
+          "Website\/Links": "",
+          "More Information": ""
+        },
+        "sort": [
+          1.0,
+          "After The Bell Aus- Ruyton Girls School"
+        ]
+      },
+      {
+        "_index": "a83890f7a31dea14e1ae83c6f0afacca--sdp_data_pipelines_ise",
+        "_id": "ise:38",
+        "_score": 1.0,
+        "_source": {
+          "Organisation": "After The Bell Aus- St Catherine's Toorak",
+          "Funded For": "Before and\/or After School Hours Care Services",
+          "Funding Department": "Department of Education ",
+          "FVISS\/CISS": "Both",
+          "RAE": "no",
+          "Statewide Service": "no",
+          "Email": "admin@afterthebell.com.au",
+          "Telephone": "03 9758 6744",
+          "Website\/Links": "",
+          "More Information": ""
+        },
+        "sort": [
+          1.0,
+          "After The Bell Aus- St Catherine's Toorak"
+        ]
+      },
+      {
+        "_index": "a83890f7a31dea14e1ae83c6f0afacca--sdp_data_pipelines_ise",
+        "_id": "ise:39",
+        "_score": 1.0,
+        "_source": {
+          "Organisation": "After The Bell Aus- St Peters PS",
+          "Funded For": "Before and\/or After School Hours Care Services",
+          "Funding Department": "Department of Education ",
+          "FVISS\/CISS": "Both",
+          "RAE": "no",
+          "Statewide Service": "no",
+          "Email": "admin@afterthebell.com.au",
+          "Telephone": "03 9758 6744",
+          "Website\/Links": "",
+          "More Information": ""
+        },
+        "sort": [
+          1.0,
+          "After The Bell Aus- St Peters PS"
+        ]
+      },
+      {
+        "_index": "a83890f7a31dea14e1ae83c6f0afacca--sdp_data_pipelines_ise",
+        "_id": "ise:40",
+        "_score": 1.0,
+        "_source": {
+          "Organisation": "After The Bell Aus- Tatura PS",
+          "Funded For": "Before and\/or After School Hours Care Services",
+          "Funding Department": "Department of Education ",
+          "FVISS\/CISS": "Both",
+          "RAE": "no",
+          "Statewide Service": "no",
+          "Email": "admin@afterthebell.com.au",
+          "Telephone": "03 9758 6744",
+          "Website\/Links": "",
+          "More Information": ""
+        },
+        "sort": [
+          1.0,
+          "After The Bell Aus- Tatura PS"
+        ]
+      }
+    ]
+  }
+}

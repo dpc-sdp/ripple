@@ -51,7 +51,7 @@
     "ol": "^7.4.0",
     "ol-contextmenu": "^5.2.1",
     "ol-ext": "^4.0.8",
-    "vue": "^3.3.4"
+    "vue": "3.3.4"
   },
   "devDependencies": {
     "@dpc-sdp/ripple-tide-api": "workspace:*",

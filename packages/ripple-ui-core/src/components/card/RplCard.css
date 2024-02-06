@@ -162,6 +162,10 @@
 
   &--avatar {
     text-align: center;
+
+    .rpl-card__content {
+      margin-top: var(--rpl-sp-3);
+    }
   }
 
   &--link {

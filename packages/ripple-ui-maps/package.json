@@ -2,7 +2,7 @@
   "packageManager": "pnpm@8.6.2",
   "name": "@dpc-sdp/ripple-ui-maps",
   "description": "Ripple UI Core component library",
-  "version": "2.6.1",
+  "version": "2.6.3",
   "license": "Apache-2.0",
   "repository": "https://github.com/dpc-sdp/ripple-framework",
   "files": [
@@ -51,7 +51,7 @@
     "ol": "^7.4.0",
     "ol-contextmenu": "^5.2.1",
     "ol-ext": "^4.0.8",
-    "vue": "^3.3.4"
+    "vue": "3.3.4"
   },
   "devDependencies": {
     "@dpc-sdp/ripple-tide-api": "workspace:*",

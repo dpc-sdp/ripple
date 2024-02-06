@@ -21,7 +21,7 @@ export const RplDataTableItems = [
     col3: 'R2 - C3',
     col4: 'R2 - C4',
     __extraContent: {
-      html: '<p><strong>R2 test heading</strong></p><p>R2 test content</p>'
+      html: '<p><strong>R2 test heading</strong></p><p><em>R2 test content</em></p>'
     }
   },
   {
@@ -88,11 +88,12 @@ export const RplDataTableStructuredItems = [
     col2: 'R3 - C2',
     col3: 'R3 - C3',
     col4: 'R3 - C4',
+    col5: 'R3 - Extra content cell',
     __extraContent: {
       items: [
         {
-          heading: 'R3 test heading',
-          content: 'R3 test content'
+          heading: 'R3 with object key',
+          objectKey: 'col5'
         }
       ]
     }
@@ -102,25 +103,25 @@ export const RplDataTableStructuredItems = [
 export const RplDataTableComplexItems = [
   {
     title: 'Turtle',
-    url: 'www.google.com',
+    url: 'https://www.google.com',
     speed: 'Slow',
     type: 'Reptile'
   },
   {
     title: 'Dog',
-    url: 'www.google.com',
+    url: 'https://duckduckgo.com',
     speed: 'Medium',
     type: 'Mammal'
   },
   {
     title: 'Horse',
-    url: 'www.google.com',
+    url: 'https://www.vic.gov.au',
     speed: 'Fast',
     type: 'Mammal'
   },
   {
     title: 'Cheetah',
-    url: 'www.google.com',
+    url: 'https://www.ripple.sdp.vic.gov.au',
     speed: 'Fastest',
     type: 'Mammal'
   }
@@ -184,5 +185,52 @@ export const RplDataTableObjects = [
     name: 'Megan',
     age: 30,
     type: 'Bird'
+  }
+]
+
+export const RplDataTableExtraComponents = [
+  {
+    name: 'George',
+    age: 20,
+    type: 'Lizard',
+    image: '/img/image-landscape-s.jpg',
+    __extraContent: {
+      component: {
+        props: {
+          item: Object
+        },
+        template: `<RplImg :src="item.image" width="200" />`
+      }
+    }
+  },
+  {
+    name: 'Fred',
+    age: 50,
+    type: 'Cat',
+    __extraContent: {
+      component: {
+        props: {
+          item: Object
+        },
+        template: `
+          <h4>{{ item.name }} the {{ item.age }} year old {{ item.type }} was an inspiration to us all.</h4>`
+      }
+    }
+  },
+  {
+    name: 'Sue',
+    age: 20,
+    type: 'Dog',
+    __extraContent: {
+      component: {
+        props: {
+          item: Object
+        },
+        template: `
+          <RplLink url="#">
+            Find out more about {{ item.name }} the {{ item.age }} year old {{ item.type }}
+          </RplLink>`
+      }
+    }
   }
 ]

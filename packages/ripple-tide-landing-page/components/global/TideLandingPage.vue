@@ -55,6 +55,7 @@
         v-if="page.bodyComponents?.length > 0"
         :components="page.bodyComponents"
         :hasSidebar="hasSidebar"
+        :pageBackground="page.background"
       />
     </template>
     <template #belowBody>

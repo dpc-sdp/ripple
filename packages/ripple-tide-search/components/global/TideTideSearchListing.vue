@@ -12,10 +12,14 @@ interface Props {
 
 const props = defineProps<Props>()
 
-const searchResultsMappingFn = (item): TideSearchListingResultItem => {
-  if (props.page.config.results.item) {
-    for (const key in props.page.config.results.item) {
-      const mapping = props.page.config.results.item[key]
+const resultsConfig = computed(() => {
+  return props.page.config?.resultsConfig || props.page.config?.results
+})
+
+const searchResultsMappingFn = (item: any): TideSearchListingResultItem => {
+  if (resultsConfig.value?.item) {
+    for (const key in resultsConfig.value.item) {
+      const mapping = resultsConfig.value.item[key]
       if (!item._source?.type || item._source?.type[0] === key || key === '*') {
         /* If there is no type, a component will be required */
         return {
@@ -44,15 +48,16 @@ const searchResultsMappingFn = (item): TideSearchListingResultItem => {
 <template>
   <TideSearchListingPage
     :site="site"
-    :contentPage="page"
+    :contentPage="(page as any)"
     :title="page.title"
     :introText="page.introText"
     :searchListingConfig="page.config.searchListingConfig"
     :queryConfig="page.config.queryConfig"
     :globalFilters="page.config.globalFilters"
     :userFilters="page.config.userFilters"
-    :resultsLayout="page.config.results?.layout"
-    :searchResultsMappingFn="searchResultsMappingFn"
+    :resultsLayout="resultsConfig?.layout"
+    :noResultsLayout="resultsConfig?.empty"
+    :searchResultsMappingFn="(searchResultsMappingFn as any)"
     :sortOptions="page.config.sortOptions"
   />
 </template>

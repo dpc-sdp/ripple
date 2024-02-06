@@ -1,10 +1,20 @@
-import { Then, Given, DataTable } from '@badeball/cypress-cucumber-preprocessor'
+import {
+  Then,
+  Given,
+  When,
+  DataTable
+} from '@badeball/cypress-cucumber-preprocessor'
 
 Given('a data table with ID {string}', (id: string) => {
   cy.get(`[data-component-id="${id}"]`).as('component')
   cy.get('@component')
     .should('exist')
     .should('have.attr', 'data-component-type', 'TideLandingPageDataTable')
+})
+
+Given('a data table with type {string}', (id: string) => {
+  cy.get(`[data-component-type="${id}"]`).as('component')
+  cy.get('@component').should('exist')
 })
 
 Then(
@@ -44,3 +54,36 @@ Then('it should have no heading', () => {
     cy.get('table thead tr').should('not.exist')
   })
 })
+
+Then('the table should have the caption {string}', (text: string) => {
+  cy.get('@component').within(() => {
+    cy.get('caption').contains(text)
+  })
+})
+
+Then('the table should have the footer {string}', (text: string) => {
+  cy.get('@component').within(() => {
+    cy.get('tfoot').contains(text)
+  })
+})
+
+When('I toggle the tables extra content row', () => {
+  cy.get('@component').within(() => {
+    cy.get('.rpl-data-table__toggle').first().click()
+  })
+})
+
+Then('the table should not display extra content', () => {
+  cy.get('@component').within(() => {
+    cy.get('.rpl-data-table__toggle').should('not.exist')
+  })
+})
+
+Then(
+  'the tables extra content should contain the text {string}',
+  (text: string) => {
+    cy.get('@component').within(() => {
+      cy.get('.rpl-data-table__details-content:visible').contains(text)
+    })
+  }
+)

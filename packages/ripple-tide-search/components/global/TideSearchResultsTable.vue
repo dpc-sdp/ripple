@@ -1,10 +1,14 @@
 <template>
   <RplDataTable
     data-component-type="search-listing-layout-table"
-    caption=""
     class="tide-search-listing-results-table"
     :columns="processedColumns"
     :items="items"
+    :offset="offset"
+    :caption="caption"
+    :footer="footer"
+    :headingType="headingType"
+    :showExtraContent="showExtraContent"
   />
 </template>
 
@@ -20,17 +24,64 @@ type tableColumnConfig = {
   props?: any
 }
 
-interface Props {
-  results: Record<string, unknown>[]
-  columns: tableColumnConfig[]
+type tableHeadingTypeConfig = {
+  horizontal: boolean
+  vertical: boolean
 }
 
-const props = defineProps<Props>()
+type tableExtraContentItems = {
+  label: string
+  objectKey: string
+  component?: string
+}
+
+type tableExtraContentConfig = {
+  component?: string
+  items?: tableExtraContentItems[]
+}
+
+interface Props {
+  results: Record<string, unknown>[]
+  offset?: number
+  columns: tableColumnConfig[]
+  headingType?: tableHeadingTypeConfig
+  extraContent?: tableExtraContentConfig
+  showExtraContent?: boolean
+  caption?: string
+  footer?: string
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  caption: '',
+  footer: '',
+  offset: 1,
+  extraContent: undefined,
+  showExtraContent: false,
+  headingType: () => ({
+    horizontal: true,
+    vertical: false
+  })
+})
+
+const getExtraContent = () => {
+  if (!props.extraContent) return null
+
+  let content = { ...props.extraContent }
+  if (props.extraContent?.items) {
+    content.items = props.extraContent.items.map((item) => ({
+      component: 'TideSearchListingTableValue',
+      heading: item?.label,
+      ...item
+    }))
+  }
+  return content
+}
 
 const items = computed(() => {
   return (props.results || []).map((result) => {
     return {
       id: result._id,
+      __extraContent: getExtraContent(),
       ...(result._source as Record<string, unknown>)
     }
   })

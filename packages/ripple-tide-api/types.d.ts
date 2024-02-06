@@ -215,6 +215,10 @@ export interface IRplFeatureFlags {
    */
   disablePrimaryLogo?: boolean
   /**
+   * @description Disable the footer vic.gov.au logo for sites that are not co-branded
+   */
+  disableFooterLogo?: boolean
+  /**
    * @description Sets which search connector to use for content collection queries
    */
   contentCollectionSearchConnector?: 'appSearch' | 'elasticsearch'

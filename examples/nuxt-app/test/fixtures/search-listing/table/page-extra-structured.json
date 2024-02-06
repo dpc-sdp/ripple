@@ -1,5 +1,5 @@
 {
-  "title": "The family violence recommendations TEST",
+  "title": "Table with structure extra data",
   "changed": "2022-11-02T12:47:29+11:00",
   "created": "2022-11-02T12:47:29+11:00",
   "type": "tide_search_listing",
@@ -31,24 +31,30 @@
       "layout": {
         "component": "TideSearchResultsTable",
         "props": {
+          "showExtraContent": true,
+          "caption": "My Table",
+          "footer": "Some notes about the table",
+          "headingType": { "horizontal": true, "vertical": true },
           "columns": [
             {
               "label": "Recommendation",
-              "key": "field_fv_recommendation_number"
+              "objectKey": "field_fv_recommendation_number"
             },
-            {
-              "label": "Title",
-              "component": "TideSearchListingTableLink"
-            },
+            { "label": "Title", "component": "TideSearchListingTableLink" },
             {
               "label": "Category",
-              "key": "field_fv_recommendation_category_name"
+              "objectKey": "field_fv_recommendation_category_name"
             },
-            {
-              "label": "Status",
-              "key": "fv_recommendation_status"
-            }
-          ]
+            { "label": "Status", "objectKey": "fv_recommendation_status" }
+          ],
+          "extraContent": {
+            "items": [
+              {
+                "label": "More info",
+                "objectKey": "title"
+              }
+            ]
+          }
         }
       }
     },

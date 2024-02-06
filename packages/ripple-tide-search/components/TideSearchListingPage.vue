@@ -10,10 +10,9 @@ import { submitForm } from '@formkit/vue'
 import useTideSearch from './../composables/useTideSearch'
 import type { TidePageBase, TideSiteData } from '@dpc-sdp/ripple-tide-api/types'
 import type {
-  TideSearchListingPage,
   MappedSearchResult,
   TideSearchListingResultLayout,
-  TideSearchListingSortOption
+  TideSearchListingConfig
 } from './../types'
 import type { ITideSecondaryCampaign } from '@dpc-sdp/ripple-tide-landing-page/mapping/secondary-campaign/secondary-campaign-mapping'
 import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
@@ -29,14 +28,15 @@ interface Props {
   id: string
   title: string
   introText?: string
-  searchListingConfig?: TideSearchListingPage['searchListingConfig']
-  sortOptions?: TideSearchListingSortOption[]
   autocompleteQuery?: boolean
   autocompleteMinimumCharacters?: number
-  queryConfig: Record<string, any>
-  globalFilters?: any[]
-  userFilters?: any[]
+  searchListingConfig?: TideSearchListingConfig['searchListingConfig']
+  sortOptions?: TideSearchListingConfig['sortOptions']
+  queryConfig: TideSearchListingConfig['queryConfig']
+  globalFilters?: TideSearchListingConfig['globalFilters']
+  userFilters?: TideSearchListingConfig['userFilters']
   resultsLayout: TideSearchListingResultLayout
+  noResultsLayout: any
   searchResultsMappingFn?: (item: any) => MappedSearchResult<any>
   contentPage: TideContentPage
   site: TideSiteData
@@ -77,6 +77,9 @@ const props = withDefaults(defineProps<Props>(), {
   }),
   resultsLayout: () => ({
     component: 'TideSearchResultsList'
+  }),
+  noResultsLayout: () => ({
+    component: 'TideSearchNoResults'
   }),
   searchResultsMappingFn: (item): MappedSearchResult<any> => {
     return {
@@ -419,7 +422,10 @@ watch(
       <RplPageComponent>
         <TideSearchResultsLoadingState :isActive="isBusy">
           <TideSearchError v-if="searchError" />
-          <TideSearchNoResults v-else-if="!isBusy && !results?.length" />
+          <component
+            :is="noResultsLayout.component"
+            v-else-if="!isBusy && !results?.length"
+          />
 
           <slot name="results" :results="results">
             <component

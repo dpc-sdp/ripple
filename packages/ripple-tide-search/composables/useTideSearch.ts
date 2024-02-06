@@ -78,9 +78,8 @@ export default ({
     return JSON.parse(JSON.stringify(obj).replace(re, escapedValue))
   }
 
-  const activeTab: TideSearchListingTabKey = ref(
-    searchListingConfig?.displayMapTab ? 'map' : null
-  )
+  const initialTab = searchListingConfig?.displayMapTab ? 'map' : null
+  const activeTab: TideSearchListingTabKey = ref(initialTab)
 
   const isBusy = ref(true)
   const searchError = ref(null)
@@ -564,9 +563,8 @@ export default ({
     await navigateTo({
       path: route.path,
       query: {
-        page: 1,
         q: searchTerm.value || undefined,
-        activeTab: activeTab.value,
+        activeTab: activeTab.value !== initialTab ? activeTab.value : undefined,
         ...locationParams,
         ...filterFormValues
       }
@@ -581,7 +579,7 @@ export default ({
       ...route,
       query: {
         ...route.query,
-        page: newPage
+        page: newPage > 1 ? newPage : undefined
       }
     })
   }
@@ -602,7 +600,7 @@ export default ({
       ...route,
       query: {
         ...route.query,
-        activeTab: newActiveTab
+        activeTab: newActiveTab !== initialTab ? newActiveTab : undefined
       }
     })
   }

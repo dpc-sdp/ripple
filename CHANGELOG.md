@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.6.3
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.6.3...v2.6.3)
+
 ## v2.6.2
 
 [compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.6.1...v2.6.2)

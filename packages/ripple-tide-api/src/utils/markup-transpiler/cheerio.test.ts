@@ -65,7 +65,7 @@ const fixed = {
 
 </div>
 `,
-  image: `<img src="https://example.com/image.jpg" class="rpl-img" width="100" alt="Image" srcset="https://example.com/image.jpg?width=720, https://example.com/image.jpg?width=1440 2x">`,
+  image: `<figure><img src="https://example.com/image.jpg" class="rpl-img" width="100" alt="Image" srcset="https://example.com/image.jpg?width=720, https://example.com/image.jpg?width=1440 2x"></figure>`,
   button: `<a class="rpl-button rpl-button--default rpl-u-focusable-block rpl-button--filled" href="https://example.com"><span class="rpl-button__label rpl-type-label rpl-type-weight-bold">Button</span></a>`,
   link: `<a href="https://example.com" target="_blank" class="rpl-text-link rpl-u-focusable-inline">Link<span class="rpl-u-visually-hidden">(opens in a new window)</span></a>`,
   iframe: `<div class="rpl-iframe rpl-iframe--default rpl-iframe--auto"><iframe src="https://powerbi.com" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>`

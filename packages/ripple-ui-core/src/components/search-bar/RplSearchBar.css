@@ -169,7 +169,8 @@
     background: var(--local-search-bar-suggestion-even);
   }
 
-  &:hover {
+  &:hover,
+  &:active {
     background: var(--rpl-clr-neutral-300);
   }
 }

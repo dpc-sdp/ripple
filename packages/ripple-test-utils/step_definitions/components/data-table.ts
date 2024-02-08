@@ -140,3 +140,14 @@ Then(
     })
   }
 )
+
+Then(
+  'the table row with text {string} should not display more information',
+  (text: string) => {
+    cy.get('@component').within(() => {
+      cy.get('.rpl-data-table__row').contains(text).as('tableRow')
+
+      cy.get('@tableRow').find('.rpl-data-table__toggle').should('not.exist')
+    })
+  }
+)

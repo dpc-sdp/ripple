@@ -31,6 +31,7 @@
       "layout": {
         "component": "TideSearchResultsTable",
         "props": {
+          "showExtraContent": true,
           "columns": [
             { "label": "Organisation", "objectKey": "Organisation" },
             { "label": "Funded for", "objectKey": "Funded For" },

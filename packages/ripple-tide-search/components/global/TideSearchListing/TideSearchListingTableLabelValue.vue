@@ -16,6 +16,8 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from '#imports'
+
 interface Props {
   item: any
   column: any

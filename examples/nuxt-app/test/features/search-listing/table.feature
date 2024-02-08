@@ -49,6 +49,7 @@ Feature: Search listing table layout
     And the tables extra content should contain the label "Website", value "http://africanfamilyservices.org.au/#contact-us" and link "http://africanfamilyservices.org.au/#contact-us"
     And the tables extra content should contain the text "Includes statewide service"
     And the tables extra content should contain the class "rpl-tag--dark"
+    And the table row with text "Department with no extra content" should not display more information
 
   @mockserver
   Example: Table renders cells using core components

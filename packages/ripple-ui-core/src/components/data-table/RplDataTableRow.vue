@@ -44,6 +44,7 @@ interface Props {
   offset: number
   caption?: string
   index: number
+  showExtraContent: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -126,8 +127,9 @@ const getCellText = (col?: number | string, value = '') => {
           </template>
         </template>
       </component>
-      <td v-if="extraContent" class="rpl-data-table__actions">
+      <td v-if="showExtraContent" class="rpl-data-table__actions">
         <RplButton
+          v-if="extraContent"
           class="rpl-data-table__toggle"
           variant="transparent"
           :icon-name="state.enabled ? 'icon-chevron-up' : 'icon-chevron-down'"

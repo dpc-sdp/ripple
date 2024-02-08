@@ -3,6 +3,8 @@
 </template>
 
 <script setup lang="ts">
+import { computed, getSearchResultValue } from '#imports'
+
 interface Props {
   item: any
   column: any

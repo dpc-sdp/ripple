@@ -317,7 +317,7 @@
   }
 }
 
-.rpl-header--background-cta {
+.rpl-header--image-cta {
   background-color: var(--rpl-clr-primary-alt);
 
   .rpl-header__title:not(.rpl-type-h1-highlight),

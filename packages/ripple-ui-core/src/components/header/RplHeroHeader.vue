@@ -58,7 +58,7 @@ const highlight = computed(
 const hasActions = computed(
   () => !!(props.primaryAction || props.secondaryAction)
 )
-const backgroundCta = computed(() => !!props.background && hasActions.value)
+const imageCta = computed(() => !!props.background && hasActions.value)
 
 const classes = computed(() => ({
   'rpl-header--hero': true,
@@ -67,8 +67,8 @@ const classes = computed(() => ({
   'rpl-header--breadcrumbs': props.breadcrumbs,
   'rpl-header--graphic-top': props.cornerTop,
   'rpl-header--graphic-bottom': props.cornerBottom,
-  'rpl-header--background': props.background,
-  'rpl-header--background-cta': backgroundCta.value
+  'rpl-header--background': props.background && !hasActions.value,
+  'rpl-header--image-cta': imageCta.value
 }))
 
 const titleClasses = computed(() => ({
@@ -83,7 +83,7 @@ const contentClasses = computed(() => ({
 }))
 
 const backImageRatio = computed(() => {
-  return backgroundCta.value
+  return imageCta.value
     ? { xs: 'full', s: 'ultrawide', m: 'wide' }
     : { xs: 'wide', m: 'wide' }
 })
@@ -113,11 +113,7 @@ const handleClick = (event) => {
 </script>
 
 <template>
-  <RplHeader
-    :class="classes"
-    :full-width="fullWidth"
-    :limit-content="backgroundCta"
-  >
+  <RplHeader :class="classes" :full-width="fullWidth" :limit-content="imageCta">
     <template v-if="background || cornerTop || cornerBottom" #behind>
       <RplImage
         v-if="background"
@@ -151,7 +147,7 @@ const handleClick = (event) => {
       <RplHeaderActions
         :primary="primaryAction"
         :secondary="secondaryAction"
-        :variant="backgroundCta ? 'white' : 'filled'"
+        :variant="imageCta ? 'white' : 'filled'"
         @item-click="handleClick"
       />
     </template>

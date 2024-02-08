@@ -93,13 +93,7 @@
 
 <script setup lang="ts">
 // @ts-ignore
-import {
-  useAppConfig,
-  useRoute,
-  useNuxtApp,
-  useTideLanguage,
-  useLogger
-} from '#imports'
+import { useAppConfig, useRoute, useNuxtApp, useTideLanguage } from '#imports'
 import { computed, onMounted, provide, ref } from 'vue'
 import { defu as defuMerge } from 'defu'
 import { TideSiteData } from '../types'
@@ -148,6 +142,7 @@ onMounted(() => {
   document.body.setAttribute('data-nuxt-hydrated', 'true')
 })
 
+const nuxtApp = useNuxtApp()
 const route = useRoute()
 const showBreadcrumbs = computed(() => route.path !== '/')
 const showDraftAlert = computed(() => props.page?.status === 'draft')
@@ -169,15 +164,13 @@ const footerNav = computed(() => {
   return menuMain
 })
 
-const nuxtApp = useNuxtApp()
-const logger = useLogger()
-
-logger.info('Calling tide:page hook...', {
-  label: 'TideBaseLayout'
-})
-
 /*
  * This hook can be called from plugins to extend Tide managed pages behaviour - see /plugins folder for examples
  */
 await nuxtApp.callHook('tide:page', props)
+
+useTideSiteTheme(props.site)
+useTideHideAlerts()
+useTideSiteMeta(props, nuxtApp?.$app_origin)
+useTideFavicons()
 </script>

@@ -185,12 +185,19 @@ const pluginImages = function (this: any) {
     const width = $img.attr('width')
     const src = $img.attr('src')
     const alt = $img.attr('alt')
+    const $caption = this.find(el)
+      .find('div.field--name-field-media-caption')
+      ?.text()
     // this is the max width of the content area
     const contentWidth = 720
     return this.find(el).replaceWith(
-      `<img src="${src}" class="rpl-img" width="${width}" alt="${alt}" srcset="${src}?width=${contentWidth}, ${src}?width=${
+      `<figure><img src="${src}" class="rpl-img" width="${width}" alt="${alt}" srcset="${src}?width=${contentWidth}, ${src}?width=${
         contentWidth * 2
-      } 2x"></img>`
+      } 2x"></img>${
+        $caption
+          ? '<figcaption class="rpl-img__caption">' + $caption + '</figcaption>'
+          : ''
+      }</figure>`
     )
   })
 }

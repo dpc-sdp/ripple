@@ -316,3 +316,54 @@
     }
   }
 }
+
+.rpl-header--background-cta {
+  background-color: var(--rpl-clr-primary-alt);
+
+  .rpl-header__title:not(.rpl-type-h1-highlight),
+  .rpl-header__content > :not(.rpl-type-p-large-highlight),
+  .rpl-header-actions__secondary {
+    color: var(--rpl-clr-type-primary-contrast);
+  }
+
+  .rpl-header-actions__secondary-link {
+    color: inherit;
+
+    .rpl-icon {
+      color: var(--rpl-clr-accent);
+    }
+  }
+
+  .rpl-header__behind {
+    --local-image-width: 100%;
+    --local-image-offset: 0;
+    --local-image-columns: calc((5 / 12) * 100%);
+    --local-image-margin-top: calc(var(--local-padding-top) * -1);
+    --local-image-margin-bottom: var(--rpl-sp-6);
+
+    position: relative;
+    margin-top: var(--local-image-margin-top);
+    margin-bottom: var(--local-image-margin-bottom);
+    width: calc(var(--local-image-width) - var(--local-image-offset));
+
+    @media (--rpl-bp-m) {
+      --local-image-margin-top: 0;
+      --local-image-margin-bottom: 0;
+      --local-image-offset: var(--rpl-sp-2);
+      --local-image-width: var(--local-image-columns);
+
+      position: absolute;
+      left: auto;
+    }
+
+    @media (--rpl-bp-l) {
+      --local-image-offset: var(--rpl-sp-1);
+    }
+
+    @media (--rpl-bp-xl) {
+      /* magic number: offset is equal to one column taking into account the cell spacing, this means the image starts at col 8. i.e. calc((120rem / 12) + (var(--rpl-sp-7) / 11)) */
+      --local-image-offset: 103px;
+      --local-image-width: 50vw;
+    }
+  }
+}

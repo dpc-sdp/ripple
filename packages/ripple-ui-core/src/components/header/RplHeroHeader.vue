@@ -55,6 +55,11 @@ const highlight = computed(
   () => props.theme === 'reverse' || props.theme === 'neutral'
 )
 
+const hasActions = computed(
+  () => !!(props.primaryAction || props.secondaryAction)
+)
+const backgroundCta = computed(() => !!props.background && hasActions.value)
+
 const classes = computed(() => ({
   'rpl-header--hero': true,
   [`rpl-header--${props.theme}`]: props.theme,
@@ -62,7 +67,8 @@ const classes = computed(() => ({
   'rpl-header--breadcrumbs': props.breadcrumbs,
   'rpl-header--graphic-top': props.cornerTop,
   'rpl-header--graphic-bottom': props.cornerBottom,
-  'rpl-header--background': props.background
+  'rpl-header--background': props.background,
+  'rpl-header--background-cta': backgroundCta.value
 }))
 
 const titleClasses = computed(() => ({
@@ -75,6 +81,12 @@ const contentClasses = computed(() => ({
   'rpl-type-p-large': !highlight.value,
   'rpl-type-p-large-highlight': highlight.value
 }))
+
+const backImageRatio = computed(() => {
+  return backgroundCta.value
+    ? { xs: 'full', s: 'ultrawide', m: 'wide' }
+    : { xs: 'wide', m: 'wide' }
+})
 
 const slots = useSlots()
 const defaultSlotIsEmpty = useEmptySlotCheck(slots.default)
@@ -101,13 +113,17 @@ const handleClick = (event) => {
 </script>
 
 <template>
-  <RplHeader :class="classes" :full-width="fullWidth">
+  <RplHeader
+    :class="classes"
+    :full-width="fullWidth"
+    :limit-content="backgroundCta"
+  >
     <template v-if="background || cornerTop || cornerBottom" #behind>
       <RplImage
         v-if="background"
         v-bind="background"
         priority="high"
-        :aspect="{ xs: 'wide', m: 'wide' }"
+        :aspect="backImageRatio"
         sizes="xs:100vw"
         alt=""
       />
@@ -131,10 +147,11 @@ const handleClick = (event) => {
     >
       <slot></slot>
     </p>
-    <template v-if="(primaryAction || secondaryAction) && !background" #lower>
+    <template v-if="hasActions" #lower>
       <RplHeaderActions
         :primary="primaryAction"
         :secondary="secondaryAction"
+        :variant="backgroundCta ? 'white' : 'filled'"
         @item-click="handleClick"
       />
     </template>

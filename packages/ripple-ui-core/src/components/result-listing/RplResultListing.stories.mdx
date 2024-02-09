@@ -63,12 +63,35 @@ export const SingleTemplate = (args) => ({
 
 <Canvas>
   <Story
-    name='Result listing'
+    name='Default'
     play={a11yStoryCheck}
   >
     {SingleTemplate.bind()}
   </Story>
 </Canvas>
+
+
+## Simple
+
+This is an example showing a simple version of the result listing
+
+<Canvas>
+  <Story
+    name='Simple'
+    play={a11yStoryCheck}
+    args={{
+      number: 3,
+      title: 'The page title',
+      url: 'https://www.vic.gov.au/victorian-government-directory',
+      content: null,
+      updated: null,
+      meta: '<span class="rpl-result-listing__topic">Topic</span><span class="rpl-result-listing__published">10 Aug 2022</span>',
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>
+
 
 ## With Meta
 

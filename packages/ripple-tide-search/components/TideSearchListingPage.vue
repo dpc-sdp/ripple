@@ -387,11 +387,12 @@ watch(
       </RplHeroHeader>
     </template>
     <template #body>
-      <RplContent
-        v-if="contentPage.beforeResults"
-        class="tide-content-before-results"
-        :html="contentPage.beforeResults"
-      />
+      <RplPageComponent v-if="contentPage.beforeResults">
+        <RplContent
+          class="tide-content-before-results"
+          :html="contentPage.beforeResults"
+        />
+      </RplPageComponent>
       <TideSearchAboveResults
         v-if="results?.length || (sortOptions && sortOptions.length)"
       >

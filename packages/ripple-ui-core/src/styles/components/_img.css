@@ -2,3 +2,9 @@
   object-fit: cover;
   max-width: 100%;
 }
+
+.rpl-img__caption {
+  margin-bottom: var(--rpl-sp-3);
+  margin-top: var(--rpl-sp-3);
+  color: var(--rpl-clr-neutral-600);
+}

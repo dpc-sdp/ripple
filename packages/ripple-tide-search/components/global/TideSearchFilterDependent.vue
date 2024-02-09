@@ -9,10 +9,12 @@ interface Props {
   dependantPlaceholder: string
   multiple: boolean
   options?: any[]
+  variant?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  options: () => []
+  options: () => [],
+  variant: 'default'
 })
 
 const groupValues = ref({})
@@ -75,6 +77,7 @@ onMounted(() => {
         :label="label"
         :placeholder="placeholder"
         :options="parentOptions"
+        :variant="variant"
         @input="handleSelect"
       />
     </div>
@@ -89,6 +92,7 @@ onMounted(() => {
         :label="dependantLabel"
         :placeholder="dependantPlaceholder"
         :options="childOptions"
+        :variant="variant"
       />
     </div>
   </FormKit>

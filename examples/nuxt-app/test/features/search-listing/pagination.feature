@@ -83,7 +83,7 @@ Feature: Searching listing - Pagination
     When I click the search button
     Given I wait 1 seconds
     Then the search network request should be called with the "/search-listing/pagination/request-page-1-with-term" fixture
-    And the URL should reflect that the current page number is 1
+    And the URL should reflect that the current page has been reset
     And the results counter should show 1 to 4 of 10 results
     And the search listing results should have following items:
       | title   |

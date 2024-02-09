@@ -109,7 +109,6 @@ const handleClick = (event) => {
         priority="high"
         :aspect="{ xs: 'wide', m: 'wide' }"
         sizes="xs:100vw"
-        alt=""
       />
       <RplHeaderGraphic v-if="cornerTop" :image="cornerTop" placement="top" />
       <RplHeaderGraphic
@@ -119,7 +118,7 @@ const handleClick = (event) => {
       />
     </template>
     <template v-if="logo" #upper>
-      <RplImage class="rpl-header__logo" v-bind="logo" alt="" />
+      <RplImage class="rpl-header__logo" v-bind="logo" />
     </template>
     <template #title>
       <h1 :class="titleClasses" data-cy="hero-title">{{ title }}</h1>

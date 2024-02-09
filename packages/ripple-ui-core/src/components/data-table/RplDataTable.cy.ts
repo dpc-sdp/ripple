@@ -2,6 +2,7 @@ import RplDataTable from './RplDataTable.vue'
 import { RplDataTableColumns, RplDataTableItems } from './fixtures/sample'
 
 const props = {
+  showExtraContent: true,
   columns: RplDataTableColumns,
   items: RplDataTableItems
 }

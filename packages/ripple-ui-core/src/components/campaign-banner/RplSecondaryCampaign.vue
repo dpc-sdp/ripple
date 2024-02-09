@@ -52,7 +52,6 @@ const handleClick = () => {
         v-bind="image"
         :aspect="{ xs: 'wide', s: 'ultrawide', l: 'wide' }"
         sizes="xs:992px md:328px"
-        alt=""
         data-cy="image"
       />
     </template>

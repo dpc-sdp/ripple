@@ -1,0 +1,22 @@
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "match_all": {}
+        }
+      ],
+      "filter": []
+    }
+  },
+  "size": 10,
+  "from": 0,
+  "sort": [
+    {
+      "_score": "desc"
+    },
+    {
+      "Organisation.keyword": "asc"
+    }
+  ]
+}

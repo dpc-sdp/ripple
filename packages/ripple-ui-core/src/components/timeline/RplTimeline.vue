@@ -93,7 +93,6 @@ const handleClick = (item) => {
           circle
           :aspect="{ xs: 'square' }"
           sizes="xs:80px"
-          alt=""
         />
         <h3
           v-if="item.title"

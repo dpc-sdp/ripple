@@ -13,7 +13,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from '#imports'
+import { computed, getSearchResultValue } from '#imports'
 
 type tableColumnConfig = {
   label: string
@@ -33,6 +33,7 @@ type tableExtraContentItems = {
   label: string
   objectKey: string
   component?: string
+  props?: any
 }
 
 type tableExtraContentConfig = {
@@ -63,25 +64,38 @@ const props = withDefaults(defineProps<Props>(), {
   })
 })
 
-const getExtraContent = () => {
+const getExtraContent = (result: any) => {
   if (!props.extraContent) return null
 
   let content = { ...props.extraContent }
   if (props.extraContent?.items) {
-    content.items = props.extraContent.items.map((item) => ({
-      component: 'TideSearchListingTableValue',
-      heading: item?.label,
-      ...item
-    }))
+    content.items = props.extraContent.items
+      .map((item) => ({
+        ...item,
+        component: 'TideSearchListingTableLabelValue',
+        props: { component: item?.component, props: item?.props }
+      }))
+      .filter((item) => {
+        const value = getSearchResultValue(
+          result?._source,
+          item.objectKey,
+          true
+        )
+        return Array.isArray(value) ? value.length : value
+      })
+
+    if (!content.items.length) {
+      delete content.items
+    }
   }
-  return content
+  return Object.keys(content).length ? content : null
 }
 
 const items = computed(() => {
   return (props.results || []).map((result) => {
     return {
       id: result._id,
-      __extraContent: getExtraContent(),
+      __extraContent: getExtraContent(result),
       ...(result._source as Record<string, unknown>)
     }
   })

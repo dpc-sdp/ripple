@@ -32,26 +32,61 @@
         "component": "TideSearchResultsTable",
         "props": {
           "showExtraContent": true,
-          "caption": "My Table",
-          "footer": "Some notes about the table",
-          "headingType": { "horizontal": true, "vertical": true },
           "columns": [
+            { "label": "Organisation", "objectKey": "Organisation" },
+            { "label": "Funded for", "objectKey": "Funded For" },
             {
-              "label": "Recommendation",
-              "objectKey": "field_fv_recommendation_number"
+              "label": "Funding department",
+              "objectKey": "Funding Department"
             },
-            { "label": "Title", "component": "TideSearchListingTableLink" },
+            { "label": "FVISS/CISS", "objectKey": "FVISS/CISS" },
+            { "label": "RAE", "objectKey": "RAE" },
             {
-              "label": "Category",
-              "objectKey": "field_fv_recommendation_category_name"
+              "label": "Phone",
+              "objectKey": "Telephone",
+              "component": "TideSearchListingTablePhone"
             },
-            { "label": "Status", "objectKey": "fv_recommendation_status" }
+            {
+              "label": "Email",
+              "objectKey": "Email",
+              "component": "TideSearchListingTableEmail"
+            },
+            {
+              "label": "Website",
+              "objectKey": "Website/Links",
+              "component": "TideSearchListingTableUrl"
+            }
           ],
           "extraContent": {
             "items": [
               {
-                "label": "More info",
-                "objectKey": "title"
+                "objectKey": "Organisation"
+              },
+              {
+                "label": "Funded for",
+                "objectKey": "Funded For"
+              },
+              {
+                "label": "Email",
+                "objectKey": "Email",
+                "component": "TideSearchListingTableEmail"
+              },
+              {
+                "label": "Phone",
+                "objectKey": "Telephone",
+                "component": "TideSearchListingTablePhone"
+              },
+              {
+                "label": "Website",
+                "objectKey": "Website/Links",
+                "component": "TideSearchListingTableUrl"
+              },
+              {
+                "objectKey": "Statewide Service",
+                "component": "TableExtraContentItemComponentExample",
+                "props": {
+                  "variant": "dark"
+                }
               }
             ]
           }

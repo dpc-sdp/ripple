@@ -1,5 +1,6 @@
 <template>
   <div class="tide-extra-component-example">
+    <strong>{{ label }}: </strong>
     <RplTag
       v-if="item?.field_fv_recommendation_number"
       :label="item.field_fv_recommendation_number[0]"
@@ -13,6 +14,7 @@
 <script setup lang="ts">
 interface Props {
   item: any
+  label: string
 }
 
 defineProps<Props>()

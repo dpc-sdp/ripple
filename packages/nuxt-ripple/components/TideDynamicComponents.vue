@@ -9,10 +9,12 @@ interface Props {
   components: TideDynamicPageComponent<any>[]
   fullWidth?: boolean
   hasSidebar?: boolean
+  pageBackground?: string
 }
 const props = withDefaults(defineProps<Props>(), {
   fullWidth: false,
-  hasSidebar: false
+  hasSidebar: false,
+  pageBackground: 'default'
 })
 
 const grouped: TideDynamicPageComponent<any> | TideDynamicComponentGroup =
@@ -49,6 +51,7 @@ const grouped: TideDynamicPageComponent<any> | TideDynamicComponentGroup =
         :is="item.component"
         :hasSidebar="hasSidebar"
         :hasTitle="!!item.title"
+        :pageBackground="pageBackground"
         v-bind="item.props"
       ></component>
     </RplPageComponent>

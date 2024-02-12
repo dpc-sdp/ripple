@@ -56,7 +56,6 @@ const handleClick = () => {
         circle
         :aspect="{ xs: 'square' }"
         sizes="xs:148px"
-        alt=""
         data-cy="image"
       />
     </template>

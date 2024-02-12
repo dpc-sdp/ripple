@@ -1,8 +1,5 @@
 <template>
-  <div
-    data-component-type="search-listing-result-count"
-    class="rpl-u-margin-t-8"
-  >
+  <div data-component-type="search-listing-result-count">
     <slot
       :pagingStart="pagingStart"
       :pagingEnd="pagingEnd"

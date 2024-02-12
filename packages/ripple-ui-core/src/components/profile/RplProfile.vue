@@ -21,7 +21,6 @@ withDefaults(defineProps<Props>(), {
         v-bind="image"
         :aspect="{ xs: 'square', m: 'square' }"
         sizes="xs:148px"
-        alt=""
         circle
       />
     </div>

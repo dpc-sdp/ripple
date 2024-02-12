@@ -1,5 +1,5 @@
 @import '@dpc-sdp/ripple-ui-core/style/breakpoints';
 
 .rpl-result-listing-item {
-  border-top: 1px solid var(--rpl-clr-neutral-300);
+  border-top: var(--rpl-border-1) solid var(--rpl-clr-neutral-300);
 }

@@ -23,6 +23,15 @@
 
 .rpl-search-result__heading {
   cursor: pointer;
+
+  &:hover a,
+  &:active a {
+    text-decoration: none;
+  }
+
+  &:active a {
+    color: var(--local-clr-link-active, var(--rpl-clr-dark));
+  }
 }
 
 .rpl-search-result__title {
@@ -67,7 +76,7 @@
   margin-top: var(--rpl-sp-2);
 
   em {
-    font-weight: bold;
+    font-weight: var(--rpl-type-weight-bold);
     font-style: normal;
   }
 }

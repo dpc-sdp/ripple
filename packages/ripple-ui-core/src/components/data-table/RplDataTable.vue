@@ -62,6 +62,7 @@ withDefaults(defineProps<Props>(), {
           :columns="columns"
           :row="row"
           :extraContent="(row.__extraContent as extraRowContent) || null"
+          :showExtraContent="showExtraContent"
           :vertical-header="headingType.vertical"
           :offset="offset"
           :caption="caption"

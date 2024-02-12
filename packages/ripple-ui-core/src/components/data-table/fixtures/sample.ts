@@ -89,14 +89,41 @@ export const RplDataTableStructuredItems = [
     col3: 'R3 - C3',
     col4: 'R3 - C4',
     col5: 'R3 - Extra content cell',
+    col6: 'R3 - Extra content cell value rendered with custom component',
     __extraContent: {
       items: [
         {
           heading: 'R3 with object key',
           objectKey: 'col5'
+        },
+        {
+          heading: 'R3 with object key',
+          objectKey: 'col6',
+          component: {
+            props: {
+              item: Object,
+              column: Object
+            },
+            template: `
+              <RplLink url="#">
+                {{ item[column.objectKey] }}
+              </RplLink>`
+          }
         }
       ]
     }
+  },
+  {
+    col1: 'R4 - C1',
+    col2: 'R4 - C2',
+    col3: 'R4 - C3',
+    col4: 'R4 - C4'
+  },
+  {
+    col1: 'R5 - C1',
+    col2: 'R5 - C2',
+    col3: 'R5 - C3',
+    col4: 'R5 - C4'
   }
 ]
 

@@ -9,6 +9,10 @@ defineProps<{
 </script>
 
 <template>
-  <RplContent v-if="description" :html="description" class="rpl-u-margin-b-4" />
+  <RplContent
+    v-if="description"
+    :html="description"
+    class="tide-accordion-description rpl-u-margin-b-4"
+  />
   <RplAccordion :id="id" :items="items" :numbered="numbered" :title="title" />
 </template>

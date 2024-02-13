@@ -4,6 +4,7 @@ import RplIcon from '../icon/RplIcon.vue'
 import RplButton from '../button/RplButton.vue'
 import { IRplHeaderLinkExtended } from './constants'
 import { RplLink } from '../../lib/constants'
+import { RplButtonVariants } from '../button/constants'
 import {
   useRippleEvent,
   rplEventPayload
@@ -12,6 +13,7 @@ import {
 interface Props {
   primary?: RplLink
   secondary?: IRplHeaderLinkExtended
+  variant: RplButtonVariants
 }
 
 withDefaults(defineProps<Props>(), {
@@ -42,6 +44,7 @@ const handleClick = (item, type: string) => {
       v-if="primary"
       :url="primary.url"
       class="rpl-header-actions__primary"
+      :variant="variant"
       el="a"
       @click="() => handleClick(primary, 'button')"
     >

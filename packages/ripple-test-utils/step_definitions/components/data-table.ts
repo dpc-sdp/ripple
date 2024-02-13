@@ -87,3 +87,67 @@ Then(
     })
   }
 )
+
+Then(
+  'the table should have the column {string}, with value {string} and link {string}',
+  (label: string, value: string, link: string) => {
+    cy.get('@component').within(() => {
+      cy.get(`td[data-label="${label}"] a`)
+        .contains(value)
+        .should('have.attr', 'href', link)
+    })
+  }
+)
+
+Then(
+  'the tables extra content should contain the label {string}, value {string} and link {string}',
+  (label: string, value: string, link: string) => {
+    cy.get('@component').within(() => {
+      cy.get('.rpl-data-table__details:visible').as('extraContent')
+
+      cy.get('@extraContent')
+        .find('.tide-search-listing-table-label-value__label')
+        .contains(label)
+      cy.get('@extraContent')
+        .find('.tide-search-listing-table-label-value__value a')
+        .contains(value)
+        .should('have.attr', 'href', link)
+    })
+  }
+)
+
+Then(
+  'the tables extra content should contain the label {string} and text {string}',
+  (label: string, text: string) => {
+    cy.get('@component').within(() => {
+      cy.get('.rpl-data-table__details:visible').as('extraContent')
+
+      cy.get('@extraContent')
+        .find('.tide-search-listing-table-label-value__label')
+        .contains(label)
+      cy.get('@extraContent')
+        .find('.tide-search-listing-table-label-value__value')
+        .contains(text)
+    })
+  }
+)
+
+Then(
+  'the tables extra content should contain the class {string}',
+  (selector: string) => {
+    cy.get('@component').within(() => {
+      cy.get(`.${selector}`).should('exist')
+    })
+  }
+)
+
+Then(
+  'the table row with text {string} should not display more information',
+  (text: string) => {
+    cy.get('@component').within(() => {
+      cy.get('.rpl-data-table__row').contains(text).as('tableRow')
+
+      cy.get('@tableRow').find('.rpl-data-table__toggle').should('not.exist')
+    })
+  }
+)

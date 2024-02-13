@@ -75,7 +75,6 @@ const handleClick = () => {
           m: 'wide'
         }"
         sizes="sm:768px"
-        alt=""
         data-cy="image"
       />
     </template>

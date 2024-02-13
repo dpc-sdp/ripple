@@ -16,6 +16,7 @@ Feature: Home page
       | title        | content                   |
       | Accordion #1 | Test rich text content #1 |
       | Accordion #2 | Test rich text content #2 |
+    And the accordion with ID "972" should display the description "Test accordion description"
 
   @mockserver
   Scenario: Page component - Accordion (Open/close all)

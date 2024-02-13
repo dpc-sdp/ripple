@@ -148,6 +148,8 @@ const tideCollectionModule: IRplTideModuleMapping = {
       withSidebarSocialShare: false
     }),
     summary: 'field_landing_page_summary',
+    beforeResults: (src: string) =>
+      getBodyFromField(src, 'field_above_results_content'),
     afterResults: (src: string) =>
       getBodyFromField(src, 'field_below_results_content'),
     introText: 'field_landing_page_intro_text',

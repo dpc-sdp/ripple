@@ -20,6 +20,7 @@ import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
 import { watch } from 'vue'
 
 interface TideContentPage extends TidePageBase {
+  beforeResults: string
   afterResults: string
   secondaryCampaign: ITideSecondaryCampaign
 }
@@ -386,6 +387,12 @@ watch(
       </RplHeroHeader>
     </template>
     <template #body>
+      <RplPageComponent v-if="contentPage.beforeResults">
+        <RplContent
+          class="tide-content-before-results"
+          :html="contentPage.beforeResults"
+        />
+      </RplPageComponent>
       <TideSearchAboveResults
         v-if="results?.length || (sortOptions && sortOptions.length)"
       >

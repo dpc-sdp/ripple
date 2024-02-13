@@ -21,6 +21,11 @@ const rawData = {
   default_langcode: true,
   revision_translation_affected: null,
   field_paragraph_accordion_style: 'basic',
+  field_paragraph_body: {
+    value: 'An accordion description',
+    format: 'rich_text',
+    processed: 'An accordion description'
+  },
   field_paragraph_title: 'TEST_TITLE',
   field_paragraph_accordion: [
     {
@@ -91,6 +96,7 @@ describe('accordionMapping', () => {
       props: {
         id: '4771',
         numbered: false,
+        description: 'An accordion description',
         items: [
           {
             id: '4769',
@@ -117,6 +123,7 @@ describe('accordionMapping', () => {
       props: {
         id: '4771',
         numbered: true,
+        description: 'An accordion description',
         items: [
           {
             id: '4769',

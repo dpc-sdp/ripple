@@ -246,6 +246,7 @@
       "props": {
         "id": "972",
         "numbered": false,
+        "description": "Test accordion description",
         "items": [
           {
             "id": "970",

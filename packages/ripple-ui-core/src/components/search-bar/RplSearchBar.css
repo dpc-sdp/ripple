@@ -1,6 +1,7 @@
 @import '@dpc-sdp/ripple-ui-core/style/breakpoints';
 
 .rpl-search-bar {
+  --local-search-bar-border-width: var(--rpl-border-2);
   --local-search-bar-clr-bg: var(--rpl-clr-neutral-100);
   --local-search-bar-clr-bottom-bar: var(--rpl-clr-neutral-600);
   --local-search-bar-clr-border-active: var(--rpl-clr-dark);
@@ -55,14 +56,31 @@
     line-height: var(--rpl-type-lh-5);
     letter-spacing: var(--rpl-type-ls-2);
   }
+
+  .rpl-search-bar--menu & {
+    /* rpl-type-p-large */
+    font-size: var(--rpl-type-size-3);
+    line-height: var(--rpl-type-lh-5);
+    letter-spacing: var(--rpl-type-ls-2);
+
+    @media (--rpl-bp-l) {
+      font-size: var(--rpl-type-size-4);
+      line-height: var(--rpl-type-lh-6);
+      letter-spacing: var(--rpl-type-ls-4);
+    }
+  }
 }
 
+/* stylelint-disable-next-line no-descending-specificity */
 .rpl-search-bar__input {
+  --local-border-inline-width: 0px;
+
   background: var(--local-search-bar-clr-bg);
-  border: var(--rpl-border-2) solid transparent;
-  border-bottom: var(--rpl-border-2) solid
-    var(--local-search-bar-clr-bottom-bar);
-  padding: var(--rpl-sp-3);
+  border: var(--local-search-bar-border-width) solid transparent;
+  border-bottom-color: var(--local-search-bar-clr-bottom-bar);
+  border-left-width: var(--local-border-inline-width);
+  border-right-width: var(--local-border-inline-width);
+  padding: var(--rpl-sp-4) calc(var(--rpl-sp-3) - var(--local-border-inline-width));
   border-radius: 0;
   /* stylelint-disable-next-line property-no-vendor-prefix */
   -webkit-appearance: none;
@@ -85,20 +103,21 @@
   }
 
   &:hover {
-    border-bottom: var(--rpl-border-2) solid
-      var(--local-search-bar-clr-border-active);
+    border-bottom-color: var(--local-search-bar-clr-border-active);
   }
 
   &:focus,
   &.rpl-u-focusable--force-on {
-    border: var(--rpl-border-2) solid var(--local-search-bar-clr-border-active);
+    --local-border-inline-width: var(--local-search-bar-border-width);
+
+    border-color: var(--local-search-bar-clr-border-active);
   }
 
   @media (--rpl-bp-m) {
-    padding-left: var(--rpl-sp-4);
+    padding-left: calc(var(--rpl-sp-4) - var(--local-border-inline-width));
 
     /* Magic number to represent the width of the search button */
-    padding-right: calc(var(--rpl-sp-4) + 94px + var(--rpl-sp-4));
+    padding-right: calc(var(--rpl-sp-4) + 94px + var(--rpl-sp-4) - var(--local-border-inline-width));
   }
 }
 

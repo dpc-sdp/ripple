@@ -8,13 +8,22 @@ Feature: Search listing - Filter
     And I am using a "macbook-16" device
 
   @mockserver
+  Example: Filter open on page load
+    Given the page endpoint for path "/filters" returns fixture "/search-listing/filters/filters-open" with status 200
+    And the search network request is stubbed with fixture "/search-listing/filters/response" and status 200
+
+    When I visit the page "/filters"
+    Then the search listing filters section should be open
+
+  @mockserver
   Example: Raw filter - Should reflect the value from the URL
     Given the page endpoint for path "/filters" returns fixture "/search-listing/filters/page" with status 200
     And the search network request is stubbed with fixture "/search-listing/filters/response" and status 200
     And the current date is "Fri, 02 Feb 2050 03:04:05 GMT"
 
     When I visit the page "/filters?rawFilter=Birds&rawFilter=Dogs"
-    Then the search listing page should have 2 results
+    Then the search listing filters section should not be open
+    And the search listing page should have 2 results
     And the search network request should be called with the "/search-listing/filters/request-raw" fixture
 
     Then the filters toggle should show 1 applied filters

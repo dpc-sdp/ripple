@@ -81,10 +81,10 @@ const tideGrantModule: IRplTideModuleMapping = {
           src,
           'field_node_guidelines.field_paragraph_accordion',
           []
-        ).map((acc: string) => ({
+        ).map((acc: any) => ({
           id: getField(acc, 'id'),
           title: getField(acc, 'field_paragraph_accordion_name'),
-          content: getField(acc, 'field_paragraph_accordion_body.processed', '')
+          content: getBodyFromField(acc, 'field_paragraph_accordion_body', '')
         }))
     },
     documents: (src: string) =>

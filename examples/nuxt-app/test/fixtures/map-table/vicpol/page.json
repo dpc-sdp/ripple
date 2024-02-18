@@ -86,154 +86,111 @@
       "title": "What's happening in your area?",
       "props": {
         "searchListingConfig": {
-          "searchProvider": "elasticsearch",
-          "index": "elasticsearch_index_develop_node",
+          "searchProvider": "app-search",
           "resultsPerPage": 10,
           "displayMapTab": true,
+          "formTheme": "reverse",
           "labels": {
-            "submit": "Search",
-            "placeholder": "Search by postcode or suburb"
-          },
-          "customSort": [
-            {
-              "title.keyword": "asc"
-            }
-          ]
-        },
-        "queryConfig": {
-          "multi_match": {
-            "query": "{{query}}",
-            "fields": ["field_postcode", "field_suburb"]
+            "submit": "Search by suburb or postcode",
+            "placeholder": "Search"
           }
         },
         "mapConfig": {
           "props": {
+            "popupType": "sidebar",
             "popup": {
               "title": {
                 "objKey": "_source.title[0]"
               },
               "content": {
-                "component": "VsbaMapPopupContent"
+                "component": "VicPolStationMapPopupContent"
               }
             },
-            "pinIconFn": "vsbaPinIcons",
-            "locationObjPath": "_source.field_latitude_longitude_value[0]",
-            "titleObjPath": "title[0]",
-            "vectorLayerComponent": "VsbaProjectAreaLayer",
-            "legendExpanded": true,
-            "legendItems": [
-              {
-                "text": "New schools",
-                "icon": "icon-pin",
-                "iconColour": "#8A2A2B"
-              },
-              {
-                "text": "School upgrades",
-                "icon": "icon-pin",
-                "iconColour": "#E57200"
-              },
-              {
-                "text": "Planning projects",
-                "icon": "icon-pin",
-                "iconColour": "#FF9E1B"
-              },
-              {
-                "text": "Early childhood projects",
-                "icon": "icon-pin",
-                "iconColour": "#87189D"
-              },
-              {
-                "text": "Tech schools",
-                "icon": "icon-pin",
-                "iconColour": "#00B2A9"
-              },
-              {
-                "text": "Non-government grants",
-                "icon": "icon-pin",
-                "iconColour": "#5FD2E1"
-              }
-            ]
+            "pinIconFn": "stationFinderPinStyle",
+            "locationObjPath": "_source.field_geolocation_latlon[0]",
+            "titleObjPath": "title[0]"
           }
         },
         "userFilters": [
           {
-            "id": "category",
+            "id": "service",
             "component": "TideSearchFilterDropdown",
-            "disableWhenLocationEmpty": true,
             "filter": {
               "type": "terms",
-              "value": "field_mappintype_name"
+              "value": "field_specialty_services_or_faci_name"
             },
             "aggregations": {
-              "field": "map_pin_type",
+              "field": "specialty_services_or_facilities",
               "source": "taxonomy"
             },
             "props": {
-              "id": "category",
-              "label": "Filter by",
-              "placeholder": "Select school type",
+              "id": "service",
+              "label": "Specialty services or facilities",
+              "placeholder": "Select service/facility",
               "type": "RplFormDropdown",
               "multiple": true
             }
           },
           {
-            "id": "distance",
-            "component": "TideSearchFilterDropdown",
+            "id": "open24Hours",
+            "component": "TideSearchFilterCheckbox",
+            "filter": {
+              "type": "terms",
+              "value": "field_opening_hours",
+              "multiple": false
+            },
             "props": {
-              "id": "distance",
-              "label": "Filter by",
-              "placeholder": "Select school type",
-              "type": "RplFormDropdown",
-              "multiple": false,
-              "options": [
-                {
-                  "id": "any",
-                  "label": "any distance",
-                  "value": ""
-                },
-                {
-                  "id": "5km",
-                  "label": "5km",
-                  "value": "5km"
-                },
-                {
-                  "id": "10km",
-                  "label": "10km",
-                  "value": "10km"
-                }
-              ]
+              "id": "open24Hours",
+              "label": "Locations open 24 hours",
+              "checkboxLabel": "Locations open 24 hours",
+              "onValue": "24 Hours"
             }
           }
         ],
         "globalFilters": [
           {
             "terms": {
-              "type": ["project_infrastructure"]
+              "type": ["station"]
             }
           },
           {
             "terms": {
-              "field_node_site": [622]
+              "field_node_site": [4]
             }
           }
         ],
         "locationQueryConfig": {
           "component": "TideSearchAddressLookup",
-          "dslTransformFunction": "schoolBuildings",
-          "mapResultsMappingFn": "schoolBuildings"
+          "props": {
+            "suggestionsIndex": "vicpol-postcode-localities"
+          },
+          "dslTransformFunction": "vicPolStationFinderLocationQuery"
         },
         "resultsConfig": {
           "layout": {
             "component": "TideSearchResultsTable",
             "props": {
+              "headingType": { "horizontal": true, "vertical": true },
               "columns": [
-                {
-                  "label": "School name",
-                  "component": "TideSearchListingTableLink"
-                },
                 {
                   "label": "Suburb",
                   "objectKey": "field_suburb"
+                },
+                {
+                  "label": "Location",
+                  "component": "VicPolSearchResultLocation"
+                },
+                {
+                  "label": "Contact",
+                  "component": "VicPolSearchResultContact"
+                },
+                {
+                  "label": "Opening hours",
+                  "component": "VicPolSearchResultHours"
+                },
+                {
+                  "label": "Specialty service",
+                  "component": "VicPolSearchResultServices"
                 }
               ]
             }

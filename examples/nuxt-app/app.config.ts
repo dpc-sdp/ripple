@@ -60,9 +60,9 @@ export default defineAppConfig({
 
           return {
             _geo_distance: {
-              field_latitude_longitude_value: {
-                lat: lonLat[1],
-                lon: lonLat[0]
+              field_geolocation_latlon: {
+                lat: location.center[1],
+                lon: location.center[0]
               },
               order: 'asc',
               unit: 'km',

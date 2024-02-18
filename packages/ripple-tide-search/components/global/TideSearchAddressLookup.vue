@@ -42,11 +42,13 @@ import { Extent } from 'ol/extent'
 interface Props {
   inputValue?: any
   resultsloaded?: boolean
+  suggestionsIndex?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
   inputValue: null,
-  resultsloaded: false
+  resultsloaded: false,
+  suggestionsIndex: 'vic-postcode-localities'
 })
 
 const results = ref([])
@@ -81,7 +83,7 @@ async function submitAction(e: any) {
 }
 
 const fetchSuggestions = async (query: string) => {
-  const searchUrl = `/api/tide/app-search/vic-postcode-localities/elasticsearch/_search`
+  const searchUrl = `/api/tide/app-search/${props.suggestionsIndex}/elasticsearch/_search`
   const queryDSL = {
     query: {
       bool: {
@@ -127,7 +129,8 @@ const fetchSuggestions = async (query: string) => {
         return {
           name: itm._source.locality,
           postcode: itm._source.postcode,
-          bbox: itm._source.bbox
+          bbox: itm._source.bbox,
+          center: itm._source.center?.split(',') || undefined
         }
       })
     }
@@ -200,7 +203,20 @@ async function centerMapOnLocation(
   if (map && location?.bbox) {
     // fetch the geometry of the postcode so we can zoom to its extent
     if (location?.bbox) {
-      const bbox: Extent = location.bbox.map((val) => parseFloat(val))
+      const topLeft = fromLonLat(
+        [parseFloat(location.bbox[0]), parseFloat(location.bbox[1])],
+        'EPSG:3857'
+      )
+      const bottomRight = fromLonLat(
+        [parseFloat(location.bbox[2]), parseFloat(location.bbox[3])],
+        'EPSG:3857'
+      )
+      const bbox: Extent = [
+        topLeft[0],
+        topLeft[1],
+        bottomRight[0],
+        bottomRight[1]
+      ]
       const mapSize = map.getSize()
       if (mapSize) {
         map.getView().fit(bbox, {

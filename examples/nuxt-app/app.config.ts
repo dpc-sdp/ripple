@@ -1,6 +1,6 @@
 import pkg from './package.json'
 import { getDpcPkgs } from '@dpc-sdp/ripple-tide-api/utils'
-import { toLonLat } from 'ol/proj'
+import { toLonLat } from 'ol/proj.js'
 
 export default defineAppConfig({
   project: {

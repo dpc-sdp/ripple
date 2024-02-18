@@ -1,5 +1,6 @@
 import pkg from './package.json'
 import { getDpcPkgs } from '@dpc-sdp/ripple-tide-api/utils'
+import { toLonLat } from 'ol/proj'
 
 export default defineAppConfig({
   project: {
@@ -41,6 +42,34 @@ export default defineAppConfig({
           return {
             providedFilterConfig: filterConfig,
             providedValues: values
+          }
+        }
+      },
+      sortFunctions: {
+        exampleDistanceSort: (location) => {
+          if (!location?.bbox) {
+            return {
+              'title.keyword': 'asc'
+            }
+          }
+
+          const lonLat = toLonLat(
+            [location.bbox[0], location.bbox[1]],
+            'EPSG:3857'
+          )
+
+          return {
+            _geo_distance: {
+              field_latitude_longitude_value: {
+                lat: lonLat[1],
+                lon: lonLat[0]
+              },
+              order: 'asc',
+              unit: 'km',
+              mode: 'min',
+              distance_type: 'arc',
+              ignore_unmapped: true
+            }
           }
         }
       },

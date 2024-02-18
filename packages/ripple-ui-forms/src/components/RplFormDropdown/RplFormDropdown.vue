@@ -59,7 +59,7 @@ const emit = defineEmits<{
   ): void
 }>()
 
-const form: object = inject('form')
+const form: object = inject('form', undefined)
 const { emitRplEvent } = useRippleEvent('rpl-form-dropdown', emit)
 
 const containerRef = ref(null)

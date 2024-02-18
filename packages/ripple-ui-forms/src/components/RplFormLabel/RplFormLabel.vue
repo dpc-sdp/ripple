@@ -1,6 +1,6 @@
 <script setup lang="ts">
 interface Props {
-  tag: 'label' | 'legend'
+  tag?: 'label' | 'legend'
   isRequired?: boolean
 }
 

@@ -1,0 +1,270 @@
+{
+  "title": "Find my nearest police station",
+  "changed": "2023-11-08T12:12:07+11:00",
+  "created": "2021-04-29T13:42:44+10:00",
+  "type": "landing_page",
+  "nid": "b6cf3563-ee60-4c2c-92eb-0212109e6b4d",
+  "_sectionId": "622",
+  "sidebar": {
+    "contacts": [],
+    "relatedLinks": [],
+    "whatsNext": [],
+    "socialShareNetworks": [],
+    "siteSectionNav": null
+  },
+  "status": "published",
+  "topicTags": [
+    {
+      "text": "Education",
+      "url": "/topic/education"
+    }
+  ],
+  "siteSection": {
+    "id": 622,
+    "name": "schoolbuildings.vic.gov.au"
+  },
+  "meta": {
+    "url": "/victorian-school-building-authority",
+    "langcode": "en",
+    "description": "The school infrastructure boom is part of our commitment to making Victoria the Education State.",
+    "additional": [
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "title",
+          "content": "Victorian School Building Authority | Victorian School Building Authority"
+        }
+      },
+      {
+        "tag": "link",
+        "attributes": {
+          "rel": "canonical",
+          "href": "https://develop.content.vic.gov.au/victorian-school-building-authority"
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "property": "og:locale",
+          "content": "en-AU"
+        }
+      }
+    ],
+    "keywords": "",
+    "image": null
+  },
+  "showContentRating": true,
+  "summary": "The school infrastructure boom is part of our commitment to making Victoria the Education State.",
+  "showHeroAcknowledgement": false,
+  "showInPageNav": false,
+  "showHeroImageCaption": false,
+  "showTopicTags": false,
+  "inPageNavHeadingLevel": "h2",
+  "background": "default",
+  "header": {
+    "title": "Find my nearest police station",
+    "summary": "The contact details and location of any police station in Victoria.",
+    "links": {
+      "title": "",
+      "items": [],
+      "more": null
+    },
+    "backgroundImageCaption": "VSDA Entrant",
+    "theme": "reverse",
+    "logoImage": null,
+    "cornerTop": null,
+    "cornerBottom": null,
+    "primaryAction": null,
+    "secondaryAction": null,
+    "secondaryActionLabel": ""
+  },
+  "bodyComponents": [
+    {
+      "uuid": "55555555-5555-5555-5555-555555555555",
+      "component": "TideCustomCollection",
+      "id": "123",
+      "title": "What's happening in your area?",
+      "props": {
+        "searchListingConfig": {
+          "searchProvider": "elasticsearch",
+          "index": "elasticsearch_index_develop_node",
+          "resultsPerPage": 10,
+          "displayMapTab": true,
+          "labels": {
+            "submit": "Search",
+            "placeholder": "Search by postcode or suburb"
+          },
+          "customSort": [
+            {
+              "title.keyword": "asc"
+            }
+          ]
+        },
+        "queryConfig": {
+          "multi_match": {
+            "query": "{{query}}",
+            "fields": ["field_postcode", "field_suburb"]
+          }
+        },
+        "mapConfig": {
+          "props": {
+            "popup": {
+              "title": {
+                "objKey": "_source.title[0]"
+              },
+              "content": {
+                "component": "VsbaMapPopupContent"
+              }
+            },
+            "pinIconFn": "vsbaPinIcons",
+            "locationObjPath": "_source.field_latitude_longitude_value[0]",
+            "titleObjPath": "title[0]",
+            "vectorLayerComponent": "VsbaProjectAreaLayer",
+            "legendExpanded": true,
+            "legendItems": [
+              {
+                "text": "New schools",
+                "icon": "icon-pin",
+                "iconColour": "#8A2A2B"
+              },
+              {
+                "text": "School upgrades",
+                "icon": "icon-pin",
+                "iconColour": "#E57200"
+              },
+              {
+                "text": "Planning projects",
+                "icon": "icon-pin",
+                "iconColour": "#FF9E1B"
+              },
+              {
+                "text": "Early childhood projects",
+                "icon": "icon-pin",
+                "iconColour": "#87189D"
+              },
+              {
+                "text": "Tech schools",
+                "icon": "icon-pin",
+                "iconColour": "#00B2A9"
+              },
+              {
+                "text": "Non-government grants",
+                "icon": "icon-pin",
+                "iconColour": "#5FD2E1"
+              }
+            ]
+          }
+        },
+        "userFilters": [
+          {
+            "id": "category",
+            "component": "TideSearchFilterDropdown",
+            "disableWhenLocationEmpty": true,
+            "filter": {
+              "type": "terms",
+              "value": "field_mappintype_name"
+            },
+            "aggregations": {
+              "field": "map_pin_type",
+              "source": "taxonomy"
+            },
+            "props": {
+              "id": "category",
+              "label": "Filter by",
+              "placeholder": "Select school type",
+              "type": "RplFormDropdown",
+              "multiple": true
+            }
+          },
+          {
+            "id": "distance",
+            "component": "TideSearchFilterDropdown",
+            "props": {
+              "id": "distance",
+              "label": "Filter by",
+              "placeholder": "Select school type",
+              "type": "RplFormDropdown",
+              "multiple": false,
+              "options": [
+                {
+                  "id": "any",
+                  "label": "any distance",
+                  "value": ""
+                },
+                {
+                  "id": "5km",
+                  "label": "5km",
+                  "value": "5km"
+                },
+                {
+                  "id": "10km",
+                  "label": "10km",
+                  "value": "10km"
+                }
+              ]
+            }
+          }
+        ],
+        "globalFilters": [
+          {
+            "terms": {
+              "type": ["project_infrastructure"]
+            }
+          },
+          {
+            "terms": {
+              "field_node_site": [622]
+            }
+          }
+        ],
+        "locationQueryConfig": {
+          "component": "TideSearchAddressLookup",
+          "dslTransformFunction": "schoolBuildings",
+          "mapResultsMappingFn": "schoolBuildings"
+        },
+        "resultsConfig": {
+          "layout": {
+            "component": "TideSearchResultsTable",
+            "props": {
+              "columns": [
+                {
+                  "label": "School name",
+                  "component": "TideSearchListingTableLink"
+                },
+                {
+                  "label": "Suburb",
+                  "objectKey": "field_suburb"
+                }
+              ]
+            }
+          }
+        },
+        "sortOptions": [
+          {
+            "id": "distance",
+            "label": "Distance",
+            "function": "vicPolDistanceSort"
+          },
+          {
+            "id": "a-to-z",
+            "label": "A to Z",
+            "clause": [
+              {
+                "title.keyword": "asc"
+              }
+            ]
+          },
+          {
+            "id": "z-to-a",
+            "label": "Z to A",
+            "clause": [
+              {
+                "title.keyword": "desc"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

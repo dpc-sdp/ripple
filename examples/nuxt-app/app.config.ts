@@ -1,6 +1,5 @@
 import pkg from './package.json'
 import { getDpcPkgs } from '@dpc-sdp/ripple-tide-api/utils'
-import { toLonLat } from 'ol/proj.js'
 
 export default defineAppConfig({
   project: {
@@ -47,16 +46,11 @@ export default defineAppConfig({
       },
       sortFunctions: {
         exampleDistanceSort: (location) => {
-          if (!location?.bbox) {
+          if (!location?.center) {
             return {
               'title.keyword': 'asc'
             }
           }
-
-          const lonLat = toLonLat(
-            [location.bbox[0], location.bbox[1]],
-            'EPSG:3857'
-          )
 
           return {
             _geo_distance: {

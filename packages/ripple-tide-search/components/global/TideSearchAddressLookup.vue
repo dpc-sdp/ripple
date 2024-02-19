@@ -34,7 +34,7 @@
 import { ref } from '#imports'
 import { useDebounceFn } from '@vueuse/core'
 import { inAndOut } from 'ol/easing'
-import { fromLonLat } from 'ol/proj'
+import { fromLonLat, transformExtent } from 'ol/proj'
 import { Extent } from 'ol/extent'
 // TODO must add analytics events
 // import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
@@ -203,20 +203,11 @@ async function centerMapOnLocation(
   if (map && location?.bbox) {
     // fetch the geometry of the postcode so we can zoom to its extent
     if (location?.bbox) {
-      const topLeft = fromLonLat(
-        [parseFloat(location.bbox[0]), parseFloat(location.bbox[1])],
+      const bbox: Extent = transformExtent(
+        location.bbox.map((val) => parseFloat(val)),
+        'EPSG:4326',
         'EPSG:3857'
       )
-      const bottomRight = fromLonLat(
-        [parseFloat(location.bbox[2]), parseFloat(location.bbox[3])],
-        'EPSG:3857'
-      )
-      const bbox: Extent = [
-        topLeft[0],
-        topLeft[1],
-        bottomRight[0],
-        bottomRight[1]
-      ]
       const mapSize = map.getSize()
       if (mapSize) {
         map.getView().fit(bbox, {

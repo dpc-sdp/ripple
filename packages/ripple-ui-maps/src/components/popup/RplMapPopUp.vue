@@ -8,8 +8,12 @@
         [`rpl-map-popup--${type}`]: type,
         [`rpl-map-popup--area`]: isArea
       }"
+      :style="{
+        '--local-map-height': `${mapHeight}px`,
+        '--local-popup-header-height': `${headerHeight}px`
+      }"
     >
-      <slot name="above">
+      <slot name="above" v-if="type === 'popover'">
         <LargePinIcon
           v-if="!isArea && isOpen"
           class="rpl-map-popup__large-pin"
@@ -19,7 +23,7 @@
       </slot>
 
       <div v-if="isOpen" class="rpl-map-popup__container">
-        <div class="rpl-map-popup__header">
+        <div ref="headerRef" class="rpl-map-popup__header">
           <h3 class="rpl-type-h4-fixed">
             <slot name="header"> </slot>
           </h3>
@@ -42,6 +46,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import { useResizeObserver } from '@vueuse/core'
 import { RplIcon } from '@dpc-sdp/ripple-ui-core/vue'
 import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
 import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
@@ -52,13 +57,15 @@ interface Props {
   isArea: boolean
   pinColor?: string
   type?: 'popover' | 'sidebar'
+  mapHeight?: number
 }
 
 withDefaults(defineProps<Props>(), {
   isOpen: false,
   isArea: false,
   pinColor: 'green',
-  type: 'sidebar'
+  type: 'sidebar',
+  mapHeight: 600
 })
 
 const emit = defineEmits<{
@@ -71,5 +78,13 @@ const popupEL = ref()
 function onClose() {
   emitRplEvent('close')
 }
+
+const headerRef = ref(null)
+const headerHeight = ref(80)
+
+useResizeObserver(headerRef, (entries) => {
+  const entry = entries[0]
+  headerHeight.value = entry.borderBoxSize[0].blockSize
+})
 </script>
 <style src="./RplMapPopUp.css" />

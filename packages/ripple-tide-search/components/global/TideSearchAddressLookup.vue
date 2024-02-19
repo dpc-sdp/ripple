@@ -34,7 +34,7 @@
 import { ref } from '#imports'
 import { useDebounceFn } from '@vueuse/core'
 import { inAndOut } from 'ol/easing'
-import { fromLonLat } from 'ol/proj'
+import { fromLonLat, transformExtent } from 'ol/proj'
 import { Extent } from 'ol/extent'
 // TODO must add analytics events
 // import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
@@ -42,11 +42,13 @@ import { Extent } from 'ol/extent'
 interface Props {
   inputValue?: any
   resultsloaded?: boolean
+  suggestionsIndex?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
   inputValue: null,
-  resultsloaded: false
+  resultsloaded: false,
+  suggestionsIndex: 'vic-postcode-localities'
 })
 
 const results = ref([])
@@ -81,7 +83,7 @@ async function submitAction(e: any) {
 }
 
 const fetchSuggestions = async (query: string) => {
-  const searchUrl = `/api/tide/app-search/vic-postcode-localities/elasticsearch/_search`
+  const searchUrl = `/api/tide/app-search/${props.suggestionsIndex}/elasticsearch/_search`
   const queryDSL = {
     query: {
       bool: {
@@ -127,7 +129,8 @@ const fetchSuggestions = async (query: string) => {
         return {
           name: itm._source.locality,
           postcode: itm._source.postcode,
-          bbox: itm._source.bbox
+          bbox: itm._source.bbox,
+          center: itm._source.center?.split(',') || undefined
         }
       })
     }
@@ -200,7 +203,11 @@ async function centerMapOnLocation(
   if (map && location?.bbox) {
     // fetch the geometry of the postcode so we can zoom to its extent
     if (location?.bbox) {
-      const bbox: Extent = location.bbox.map((val) => parseFloat(val))
+      const bbox: Extent = transformExtent(
+        location.bbox.map((val) => parseFloat(val)),
+        'EPSG:4326',
+        'EPSG:3857'
+      )
       const mapSize = map.getSize()
       if (mapSize) {
         map.getView().fit(bbox, {

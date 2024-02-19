@@ -44,6 +44,29 @@ export default defineAppConfig({
           }
         }
       },
+      sortFunctions: {
+        exampleDistanceSort: (location) => {
+          if (!location?.center) {
+            return {
+              'title.keyword': 'asc'
+            }
+          }
+
+          return {
+            _geo_distance: {
+              field_geolocation_latlon: {
+                lat: location.center[1],
+                lon: location.center[0]
+              },
+              order: 'asc',
+              unit: 'km',
+              mode: 'min',
+              distance_type: 'arc',
+              ignore_unmapped: true
+            }
+          }
+        }
+      },
       locationDSLTransformFunctions: {
         // DSL transform example for VSBA map tests
         schoolBuildings: async (location) => {

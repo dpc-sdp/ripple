@@ -1,0 +1,227 @@
+{
+  "title": "Find my nearest police station",
+  "changed": "2023-11-08T12:12:07+11:00",
+  "created": "2021-04-29T13:42:44+10:00",
+  "type": "landing_page",
+  "nid": "b6cf3563-ee60-4c2c-92eb-0212109e6b4d",
+  "_sectionId": "622",
+  "sidebar": {
+    "contacts": [],
+    "relatedLinks": [],
+    "whatsNext": [],
+    "socialShareNetworks": [],
+    "siteSectionNav": null
+  },
+  "status": "published",
+  "topicTags": [
+    {
+      "text": "Education",
+      "url": "/topic/education"
+    }
+  ],
+  "siteSection": {
+    "id": 622,
+    "name": "schoolbuildings.vic.gov.au"
+  },
+  "meta": {
+    "url": "/victorian-school-building-authority",
+    "langcode": "en",
+    "description": "The school infrastructure boom is part of our commitment to making Victoria the Education State.",
+    "additional": [
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "title",
+          "content": "Victorian School Building Authority | Victorian School Building Authority"
+        }
+      },
+      {
+        "tag": "link",
+        "attributes": {
+          "rel": "canonical",
+          "href": "https://develop.content.vic.gov.au/victorian-school-building-authority"
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "property": "og:locale",
+          "content": "en-AU"
+        }
+      }
+    ],
+    "keywords": "",
+    "image": null
+  },
+  "showContentRating": true,
+  "summary": "The school infrastructure boom is part of our commitment to making Victoria the Education State.",
+  "showHeroAcknowledgement": false,
+  "showInPageNav": false,
+  "showHeroImageCaption": false,
+  "showTopicTags": false,
+  "inPageNavHeadingLevel": "h2",
+  "background": "default",
+  "header": {
+    "title": "Find my nearest police station",
+    "summary": "The contact details and location of any police station in Victoria.",
+    "links": {
+      "title": "",
+      "items": [],
+      "more": null
+    },
+    "backgroundImageCaption": "VSDA Entrant",
+    "theme": "reverse",
+    "logoImage": null,
+    "cornerTop": null,
+    "cornerBottom": null,
+    "primaryAction": null,
+    "secondaryAction": null,
+    "secondaryActionLabel": ""
+  },
+  "bodyComponents": [
+    {
+      "uuid": "55555555-5555-5555-5555-555555555555",
+      "component": "TideCustomCollection",
+      "id": "123",
+      "title": "What's happening in your area?",
+      "props": {
+        "searchListingConfig": {
+          "searchProvider": "app-search",
+          "resultsPerPage": 10,
+          "displayMapTab": true,
+          "formTheme": "reverse",
+          "labels": {
+            "submit": "Search by suburb or postcode",
+            "placeholder": "Search"
+          }
+        },
+        "mapConfig": {
+          "props": {
+            "popupType": "sidebar",
+            "popup": {
+              "title": {
+                "objKey": "_source.title[0]"
+              },
+              "content": {
+                "component": "VicPolStationMapPopupContent"
+              }
+            },
+            "pinIconFn": "stationFinderPinStyle",
+            "locationObjPath": "_source.field_geolocation_latlon[0]",
+            "titleObjPath": "title[0]"
+          }
+        },
+        "userFilters": [
+          {
+            "id": "service",
+            "component": "TideSearchFilterDropdown",
+            "filter": {
+              "type": "terms",
+              "value": "field_specialty_services_or_faci_name"
+            },
+            "aggregations": {
+              "field": "specialty_services_or_facilities",
+              "source": "taxonomy"
+            },
+            "props": {
+              "id": "service",
+              "label": "Specialty services or facilities",
+              "placeholder": "Select service/facility",
+              "type": "RplFormDropdown",
+              "multiple": true
+            }
+          },
+          {
+            "id": "open24Hours",
+            "component": "TideSearchFilterCheckbox",
+            "filter": {
+              "type": "terms",
+              "value": "field_opening_hours",
+              "multiple": false
+            },
+            "props": {
+              "id": "open24Hours",
+              "label": "Locations open 24 hours",
+              "checkboxLabel": "Locations open 24 hours",
+              "onValue": "24 Hours"
+            }
+          }
+        ],
+        "globalFilters": [
+          {
+            "terms": {
+              "type": ["station"]
+            }
+          },
+          {
+            "terms": {
+              "field_node_site": [4]
+            }
+          }
+        ],
+        "locationQueryConfig": {
+          "component": "TideSearchAddressLookup",
+          "props": {
+            "suggestionsIndex": "vicpol-postcode-localities"
+          },
+          "dslTransformFunction": "vicPolStationFinderLocationQuery"
+        },
+        "resultsConfig": {
+          "layout": {
+            "component": "TideSearchResultsTable",
+            "props": {
+              "headingType": { "horizontal": true, "vertical": true },
+              "columns": [
+                {
+                  "label": "Suburb",
+                  "objectKey": "field_suburb"
+                },
+                {
+                  "label": "Location",
+                  "component": "VicPolSearchResultLocation"
+                },
+                {
+                  "label": "Contact",
+                  "component": "VicPolSearchResultContact"
+                },
+                {
+                  "label": "Opening hours",
+                  "component": "VicPolSearchResultHours"
+                },
+                {
+                  "label": "Specialty service",
+                  "component": "VicPolSearchResultServices"
+                }
+              ]
+            }
+          }
+        },
+        "sortOptions": [
+          {
+            "id": "distance",
+            "label": "Distance",
+            "function": "vicPolDistanceSort"
+          },
+          {
+            "id": "a-to-z",
+            "label": "A to Z",
+            "clause": [
+              {
+                "title.keyword": "asc"
+              }
+            ]
+          },
+          {
+            "id": "z-to-a",
+            "label": "Z to A",
+            "clause": [
+              {
+                "title.keyword": "desc"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

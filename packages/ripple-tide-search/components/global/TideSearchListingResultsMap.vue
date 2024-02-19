@@ -5,7 +5,7 @@
       ref="rplmap"
       :features="features"
       projection="EPSG:3857"
-      popupType="popover"
+      :popupType="popupType"
       :map-height="550"
       :pinStyle="pinStyle"
       :noresults="noresults"
@@ -78,6 +78,7 @@ type TideSearchListingMapFeature = {
 }
 
 interface Props {
+  popupType: 'popover' | 'sidebar'
   popup: {
     title: {
       objKey?: string
@@ -103,6 +104,7 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
+  popupType: 'popover',
   titleObjPath: '_source.title[0]',
   vectorLayerComponent: undefined,
   pinIconFn: 'defaultPinStyleFn',

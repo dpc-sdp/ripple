@@ -176,6 +176,10 @@ export type TideSearchListingConfig = {
     formTheme: 'default' | 'reverse'
   }
   /**
+   * @description Filter panel open on page load
+   */
+  showFiltersOnLoad: boolean
+  /**
    * @description Elastic Query DSL for query clause
    */
   queryConfig: Record<string, any>

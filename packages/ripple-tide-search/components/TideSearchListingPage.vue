@@ -32,6 +32,7 @@ interface Props {
   autocompleteQuery?: boolean
   autocompleteMinimumCharacters?: number
   searchListingConfig?: TideSearchListingConfig['searchListingConfig']
+  showFiltersOnLoad?: boolean
   sortOptions?: TideSearchListingConfig['sortOptions']
   queryConfig: TideSearchListingConfig['queryConfig']
   globalFilters?: TideSearchListingConfig['globalFilters']
@@ -76,6 +77,7 @@ const props = withDefaults(defineProps<Props>(), {
       enabled: true
     }
   }),
+  showFiltersOnLoad: false,
   resultsLayout: () => ({
     component: 'TideSearchResultsList'
   }),
@@ -110,7 +112,7 @@ const emit = defineEmits<{
 
 const { emitRplEvent } = useRippleEvent('tide-search', emit)
 
-const filtersExpanded = ref(false)
+const filtersExpanded = ref(props.showFiltersOnLoad)
 
 const {
   isBusy,

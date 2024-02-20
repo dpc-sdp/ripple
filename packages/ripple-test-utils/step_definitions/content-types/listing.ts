@@ -218,6 +218,14 @@ When(
   }
 )
 
+Then(
+  `the search listing filters section should {}be open`,
+  (clause: string) => {
+    const not = clause.trim().length > 0 ? `${clause.trim()}.` : ''
+    cy.get(`#tide-search-listing-filters`).should(`${not}be.visible`)
+  }
+)
+
 When(`I toggle the search listing filters section`, () => {
   cy.get(`button`).contains('Refine search').as('refineBtn')
   cy.wait(300)

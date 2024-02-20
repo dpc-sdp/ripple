@@ -12,6 +12,7 @@ import { fromLonLat } from 'ol/proj'
 import RplMapPopUp from './../popup/RplMapPopUp.vue'
 import RplMapCluster from './../cluster/RplMapCluster.vue'
 import markerIconDefaultSrc from './../feature-pin/icon-pin.svg?url'
+import markerIconSelectedSrc from './../feature-pin/icon-pin-selected.svg?url'
 import useMapControls from './../../composables/useMapControls.ts'
 
 import {
@@ -78,6 +79,18 @@ const center = computed(() => {
     return props.initialCenter
   }
 })
+
+const selectedPinStyle = (feature, style) => {
+  const ic = new Icon({
+    src: markerIconSelectedSrc,
+    color: popup.value.color,
+    anchor: [0.5, 1],
+    anchorXUnits: 'fraction',
+    anchorYUnits: 'fraction'
+  })
+  ic.load()
+  style.setImage(ic)
+}
 
 const { isFullscreen } = useFullscreen()
 
@@ -254,6 +267,19 @@ const noResultsRef = ref(null)
       />
       <slot name="map-provider"> </slot>
       <slot name="shapes" :mapFeatures="mapFeatures"></slot>
+
+      <!-- This enlarged pin is rendered for the sidebar/fixed popup style only -->
+      <ol-vector-layer
+        v-if="popupType === 'sidebar' && popup.isOpen"
+        :zIndex="5"
+      >
+        <ol-source-vector>
+          <ol-feature>
+            <ol-geom-point :coordinates="popup.position"></ol-geom-point>
+            <ol-style :overrideStyleFunction="selectedPinStyle"></ol-style>
+          </ol-feature>
+        </ol-source-vector>
+      </ol-vector-layer>
 
       <ol-vector-layer v-if="mapFeatures && mapFeatures.length > 0">
         <slot name="features" :features="mapFeatures">

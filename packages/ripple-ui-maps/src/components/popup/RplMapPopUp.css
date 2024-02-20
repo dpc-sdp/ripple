@@ -165,7 +165,7 @@
 }
 
 .rpl-map-popup--sidebar {
-  z-index: 1000;
+  z-index: var(--rpl-layer-1);
   margin-left: var(--rpl-sp-2);
   margin-top: var(--rpl-sp-2);
   height: calc(100% - var(--rpl-sp-2) * 2);

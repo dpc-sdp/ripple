@@ -175,8 +175,18 @@ function onMapMove(evt) {
     const point = getfeaturesAtMapPixel(map, evt.pixel)
     if (point && point.features) {
       document.querySelector('.rpl-map canvas').style.cursor = 'pointer'
+
+      // if there is only one feature, set the title attribute to the feature title
+      if (point.features.length === 1) {
+        document
+          .querySelector('.rpl-map canvas')
+          .setAttribute('title', point.features[0].getProperties().title)
+      }
     } else {
       document.querySelector('.rpl-map canvas').style.cursor = 'default'
+
+      // clear the title attribute
+      document.querySelector('.rpl-map canvas').setAttribute('title', '')
     }
   }
 }

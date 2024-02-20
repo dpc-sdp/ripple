@@ -160,6 +160,10 @@ export type TideSearchListingConfig = {
      */
     displayMapTab?: boolean
     /**
+     * @description which tab to display by default if not specified in URL
+     */
+    defaultTab?: 'map' | 'listing'
+    /**
      * @description optionally hide the search form
      */
     hideSearchForm?: boolean

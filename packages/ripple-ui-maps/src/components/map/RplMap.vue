@@ -201,33 +201,6 @@ const noResultsRef = ref(null)
 
 <template>
   <div class="rpl-map">
-    <slot
-      v-if="popupType === 'sidebar'"
-      name="sidebar"
-      :popupIsOpen="popup.isOpen"
-      :mapHeight="mapHeight"
-    >
-      <RplMapPopUp
-        :is-open="popup.isOpen"
-        :is-area="popup.isArea"
-        :type="popupType"
-        :pinColor="popup.color"
-        :mapHeight="mapHeight"
-        @close="onPopUpClose"
-      >
-        <template #header>
-          <slot name="popupTitle" :selectedFeatures="popup.feature">
-            {{ popup.feature[0].title }}
-          </slot>
-        </template>
-        <slot name="popupContent" :selectedFeatures="popup.feature">
-          {{ popup.feature }}
-          <p class="rpl-type-p-small">
-            {{ popup.feature[0].description }}
-          </p>
-        </slot>
-      </RplMapPopUp>
-    </slot>
     <div
       v-if="noresults && !hideNoResults"
       class="rpl-map__noresults"
@@ -352,6 +325,34 @@ const noResultsRef = ref(null)
           <RplIcon name="icon-map-zoom-out" size="s"></RplIcon>
         </button>
       </div>
+
+      <slot
+        v-if="popupType === 'sidebar'"
+        name="sidebar"
+        :popupIsOpen="popup.isOpen"
+        :mapHeight="mapHeight"
+      >
+        <RplMapPopUp
+          :is-open="popup.isOpen"
+          :is-area="popup.isArea"
+          :type="popupType"
+          :pinColor="popup.color"
+          :mapHeight="mapHeight"
+          @close="onPopUpClose"
+        >
+          <template #header>
+            <slot name="popupTitle" :selectedFeatures="popup.feature">
+              {{ popup.feature[0].title }}
+            </slot>
+          </template>
+          <slot name="popupContent" :selectedFeatures="popup.feature">
+            {{ popup.feature }}
+            <p class="rpl-type-p-small">
+              {{ popup.feature[0].description }}
+            </p>
+          </slot>
+        </RplMapPopUp>
+      </slot>
     </ol-map>
   </div>
 </template>

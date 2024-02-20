@@ -21,7 +21,7 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  scrollToSelector: '.rpl-map-side-panel'
+  scrollToSelector: '.rpl-map-side-panel__wrapper'
 })
 
 const emit = defineEmits<{

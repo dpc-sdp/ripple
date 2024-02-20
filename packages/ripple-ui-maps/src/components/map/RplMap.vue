@@ -188,7 +188,7 @@ const noResultsRef = ref(null)
 
 <template>
   <div class="rpl-map">
-    <slot name="sidepanel" :mapHeight="mapHeight" />
+    <slot v-if="$slots.sidepanel" name="sidepanel" :mapHeight="mapHeight" />
     <div
       v-if="noresults && !hideNoResults"
       class="rpl-map__noresults"

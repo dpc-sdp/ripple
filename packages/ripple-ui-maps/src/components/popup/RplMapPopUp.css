@@ -20,9 +20,9 @@
   }
 }
 
-.rpl-map-side-panel ~ .rpl-map-popup--sidebar {
+.rpl-map-side-panel ~ .rpl-map__map .rpl-map-popup--sidebar {
   @media (--rpl-bp-m) {
-    left: calc(var(--local-map-side-panel-width) + var(--rpl-sp-3));
+    left: var(--local-map-side-panel-width);
   }
 }
 

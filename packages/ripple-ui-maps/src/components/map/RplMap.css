@@ -6,6 +6,8 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
+
   @media (--rpl-bp-m) {
     flex-direction: row;
   }

@@ -78,7 +78,9 @@ export default ({
     return JSON.parse(JSON.stringify(obj).replace(re, escapedValue))
   }
 
-  const initialTab = searchListingConfig?.displayMapTab ? 'map' : null
+  const initialTab = searchListingConfig?.displayMapTab
+    ? searchListingConfig?.defaultTab || 'map'
+    : null
   const activeTab: TideSearchListingTabKey = ref(initialTab)
 
   const isBusy = ref(true)
@@ -735,7 +737,7 @@ export default ({
    */
   const searchFromRoute = (newRoute: RouteLocation, isFirstRun = false) => {
     activeTab.value = searchListingConfig?.displayMapTab
-      ? getSingleQueryStringValue(newRoute.query, 'activeTab') || 'map'
+      ? getSingleQueryStringValue(newRoute.query, 'activeTab') || initialTab
       : null
 
     searchTerm.value = getSingleQueryStringValue(newRoute.query, 'q') || ''

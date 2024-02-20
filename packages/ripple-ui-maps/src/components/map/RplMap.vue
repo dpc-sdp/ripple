@@ -188,33 +188,7 @@ const noResultsRef = ref(null)
 
 <template>
   <div class="rpl-map">
-    <slot
-      v-if="popupType === 'sidebar'"
-      name="sidebar"
-      :popupIsOpen="popup.isOpen"
-      :mapHeight="mapHeight"
-    >
-      <RplMapPopUp
-        :is-open="popup.isOpen"
-        :is-area="popup.isArea"
-        :type="popupType"
-        :pinColor="popup.color"
-        :mapHeight="mapHeight"
-        @close="onPopUpClose"
-      >
-        <template #header>
-          <slot name="popupTitle" :selectedFeatures="popup.feature">
-            {{ popup.feature[0].title }}
-          </slot>
-        </template>
-        <slot name="popupContent" :selectedFeatures="popup.feature">
-          {{ popup.feature }}
-          <p class="rpl-type-p-small">
-            {{ popup.feature[0].description }}
-          </p>
-        </slot>
-      </RplMapPopUp>
-    </slot>
+    <slot name="sidepanel" :mapHeight="mapHeight" />
     <div
       v-if="noresults && !hideNoResults"
       class="rpl-map__noresults"
@@ -244,6 +218,33 @@ const noResultsRef = ref(null)
       @singleclick="onMapSingleClick"
       @pointermove="onMapMove"
     >
+      <slot
+        v-if="popupType === 'sidebar'"
+        name="sidebar"
+        :popupIsOpen="popup.isOpen"
+        :mapHeight="mapHeight"
+      >
+        <RplMapPopUp
+          :is-open="popup.isOpen"
+          :is-area="popup.isArea"
+          :type="popupType"
+          :pinColor="popup.color"
+          :mapHeight="mapHeight"
+          @close="onPopUpClose"
+        >
+          <template #header>
+            <slot name="popupTitle" :selectedFeatures="popup.feature">
+              {{ popup.feature[0].title }}
+            </slot>
+          </template>
+          <slot name="popupContent" :selectedFeatures="popup.feature">
+            {{ popup.feature }}
+            <p class="rpl-type-p-small">
+              {{ popup.feature[0].description }}
+            </p>
+          </slot>
+        </RplMapPopUp>
+      </slot>
       <ol-view
         ref="view"
         :center="center"

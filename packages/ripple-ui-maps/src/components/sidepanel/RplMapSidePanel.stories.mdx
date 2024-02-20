@@ -4,48 +4,92 @@ import {
   Story,
   ArgsTable
 } from '@storybook/addon-docs'
-import { ref, provide } from 'vue'
-import { RplAccordion } from '@dpc-sdp/ripple-ui-core/vue'
-import { registerRplMapsPlugin } from '@dpc-sdp/ripple-ui-maps'
+import { computed, ref, provide, watch } from 'vue'
+import { RplAccordion, RplIcon } from '@dpc-sdp/ripple-ui-core/vue'
 import '@dpc-sdp/ripple-ui-core/style/components'
-import { transform } from 'ol/proj'
-import Icon from 'ol/style/Icon'
 import RplMap from './../map/RplMap.vue'
 import RplMapSidePanel from './RplMapSidePanel.vue'
-import RplMapSidePanelCard from './RplMapSidePanelCard.vue'
+import RplMapSidePanelPagination from './RplMapSidePanelPagination.vue'
+import RplMapSidePanelCount from './RplMapSidePanelCount.vue'
+import RplMapSidePanelItem from './RplMapSidePanelItem.vue'
 import RplMapProviderMapbox from './../map/providers/RplMapProviderMapbox.vue'
 import featureData from './../map/__fixture__/features.json'
 import { truncateText } from './../map/__fixture__/utils.ts'
 
 export const Template = (args) => ({
-  components: { RplMap, RplMapProviderMapbox, RplMapSidePanel, RplMapSidePanelCard, RplAccordion },
+  components: { RplMap, RplMapProviderMapbox, RplMapSidePanel, RplMapSidePanelItem, RplMapSidePanelPagination, RplMapSidePanelCount, RplAccordion, RplIcon },
   setup() {
     const rplMapRef = ref(null)
+    const mapPanelPage = ref(1)
+    const activeItemId = ref(null)
     const rplMapSelectedFeatures = ref(null)
+    const popup = ref({
+      isOpen: false,
+      position: [0, 0],
+      feature: null
+    })
     function setRplMapRef(mapInstance) {
       rplMapRef.value = mapInstance
     }
     function setRplMapSelectedFeatures(features) {
       rplMapSelectedFeatures.value = features
     }
+    const setMapPanelPage = ({ value }) => {
+      mapPanelPage.value = value
+    }
     provide('rplMapInstance', {
       rplMapRef,
       setRplMapRef,
       rplMapSelectedFeatures,
-      setRplMapSelectedFeatures
+      setRplMapSelectedFeatures,
+      popup
     })
-    const getClusteredFeatures = (itms) => {
-      return itms.map((itm, idx) => {
-        return {
-          id: `${idx}-${itm.city}`,
-          title: itm.city,
-          content: itm.description
+    const handleItemClick = ({ value }) => {
+      if (activeItemId.value !== value?.id) {
+        activeItemId.value = value?.id
+        if (args.popupType) {
+          popup.value = {
+            isOpen: true,
+            position: [value.lng, value.lat],
+            feature: [value]
+          }
         }
-      })
+      } else {
+        activeItemId.value = null
+        if (args.popupType) {
+          popup.value = {
+            isOpen: false,
+            feature: null
+          }
+        }
+      }
+      if (value?.lat && value?.lng) {
+        rplMapRef.value.getView().animate({
+          center: [value.lng, value.lat],
+          zoom: 10
+        })
+      }
+      if (rplMapRef?.value.targetElement_?.getBoundingClientRect().top < 0) {
+        rplMapRef.value.targetElement_.scrollIntoView({
+          behavior: 'smooth'
+        })
+      }
     }
+    const mapPanelItems = computed(() => {
+      return args.features.slice((mapPanelPage.value - 1) * args.perPage, mapPanelPage.value * args.perPage)
+    })
+    watch(() => popup.value.isOpen, (isOpen, wasOpen) => {
+      if (!isOpen && wasOpen) {
+        activeItemId.value = null
+      }
+    })
     return {
       truncateText,
-      getClusteredFeatures,
+      mapPanelPage,
+      setMapPanelPage,
+      mapPanelItems,
+      handleItemClick,
+      activeItemId,
       args
     }
   },
@@ -56,17 +100,28 @@ export const Template = (args) => ({
       <template #map-provider>
         <rpl-map-provider-mapbox />
       </template>
-      <template #sidebar="{ mapHeight }">
-        <RplMapSidePanel :style="'height:' + mapHeight +'px'">
-          <p class="rpl-type-p-small rpl-u-margin-b-2 rpl-u-margin-l-1">{{args.cards.length}} items in {{args.searchTerm}}</p>
-          <RplMapSidePanelCard v-for="card in args.cards" :key="card.title" :feature="card" :title="card.city">
-            <p>{{truncateText(card.description, 50)}}</p>
-          </RplMapSidePanelCard>
+      <template #sidepanel="{ mapHeight }">
+        <RplMapSidePanel :mapHeight="mapHeight">
+          <template #aboveItems>
+            <RplMapSidePanelCount :pagingStart="mapPanelPage" :pagingEnd="args.perPage" :totalResults="args.features.length" />
+          </template>
+          <RplMapSidePanelItem v-for="item in mapPanelItems" :key="item.title" :id="item.title" :title="item.title" :data="item" :active-id="activeItemId" @click="handleItemClick">
+            <template v-if="item.meta" #meta>
+              <span class="rpl-map-side-panel__item-marker"><RplIcon name="icon-pin" colour="default" />{{ item.meta }}</span>
+            </template>
+            <p class="rpl-type-p">{{truncateText(item.description, 50)}}</p>
+            <template v-if="item.population" #footer>
+              <span class="rpl-map-side-panel__item-population">{{ item.population }}</span>
+            </template>
+          </RplMapSidePanelItem>
+          <template #belowItems>
+            <RplMapSidePanelPagination :totalPages="Math.ceil(args.features.length / args.perPage)" :currentPage="mapPanelPage" @paginate="setMapPanelPage" />
+          </template>
         </RplMapSidePanel>
       </template>
       <template #popupTitle="{ selectedFeatures }">
         <span v-if="selectedFeatures.length === 1">
-          {{ selectedFeatures[0].city}}
+          {{ selectedFeatures[0].title}}
         </span>
         <span v-else>
           {{ selectedFeatures.length }} items found in this area
@@ -76,15 +131,13 @@ export const Template = (args) => ({
         <p class="rpl-type-p-small" v-if="selectedFeatures.length === 1">
           {{ selectedFeatures[0].description}}
         </p>
-        <RplAccordion v-else :items="getClusteredFeatures(selectedFeatures)" :displayToggleAll="false">
-        </RplAccordion>
       </template>
     </RplMap>
   `
 })
 
 <Meta
-  title='Maps/side-panel'
+  title='Maps/Side Panel'
   component={RplMap}
 />
 
@@ -94,14 +147,28 @@ export const Template = (args) => ({
 
 <Canvas>
   <Story
+    name='Default'
+    args={{
+      id: 'default',
+      features: featureData,
+      provider: 'vicmap',
+      searchTerm: 'Melbourne',
+      perPage: 10
+    }}
+  >
+    {Template.bind()}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
     name='Popup on click'
     args={{
-      id: '123',
-      features:featureData,
-      provider: 'mapbox',
-      popupType: 'feature',
-      searchTerm: 'Melbourne',
-      cards: featureData.slice(0,10)
+      id: 'popup-on-click',
+      features: featureData,
+      provider: 'vicmap',
+      popupType: 'sidebar',
+      perPage: 10
     }}
   >
     {Template.bind()}

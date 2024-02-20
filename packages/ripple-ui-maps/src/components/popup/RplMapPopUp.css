@@ -4,7 +4,7 @@
   position: absolute;
   height: calc(600px - var(--rpl-sp-4) * 2);
   background-color: var(--rpl-clr-light);
-  z-index: var(--rpl-z-index-4);
+  z-index: var(--rpl-layer-1);
   box-shadow: var(--rpl-elevation-1);
   border-radius: var(--rpl-border-radius-2);
   border: var(--rpl-border-1) solid var(--rpl-clr-neutral-300);
@@ -17,6 +17,12 @@
 
   @media (--rpl-bp-m) {
     margin-top: var(--rpl-sp-2);
+  }
+}
+
+.rpl-map-side-panel ~ .rpl-map-popup--sidebar {
+  @media (--rpl-bp-m) {
+    left: calc(var(--local-map-side-panel-width) + var(--rpl-sp-3));
   }
 }
 
@@ -168,8 +174,8 @@
   z-index: 1000;
   margin-left: var(--rpl-sp-2);
   margin-top: var(--rpl-sp-2);
-  height: calc(100% - var(--rpl-sp-2) * 2);
-  width: 320px;
+  height: calc(var(--local-map-height) - var(--rpl-sp-2) * 2);
+  width: 100%;
   max-width: calc(100% - var(--rpl-sp-2) * 2);
 
   .rpl-map-pop-up-scroll-container {
@@ -183,6 +189,7 @@
     margin-left: var(--rpl-sp-3);
     margin-top: var(--rpl-sp-3);
     height: calc(100% - var(--rpl-sp-3) * 2);
+    width: 320px;
 
     .rpl-map-pop-up-scroll-container {
       max-height: calc(

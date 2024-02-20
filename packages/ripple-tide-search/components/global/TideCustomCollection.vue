@@ -26,6 +26,7 @@ interface Props {
   mapConfig?: TideSearchListingConfig['mapConfig']
   pageBackground?: string
   index?: string
+  hasSidebar?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -71,7 +72,8 @@ const props = withDefaults(defineProps<Props>(), {
   sortOptions: () => [],
   locationQueryConfig: () => ({}),
   mapConfig: () => ({}),
-  pageBackground: 'default'
+  pageBackground: 'default',
+  hasSidebar: false
 })
 
 const emit = defineEmits<{
@@ -466,8 +468,8 @@ const reverseFields = computed(
     >
       <TideSearchAboveResults
         v-if="results?.length || (sortOptions && sortOptions.length)"
-        :hasSidebar="true"
-        class="rpl-u-margin-t-8"
+        :hasSidebar="hasSidebar"
+        class="rpl-u-margin-t-8 rpl-u-margin-b-6"
       >
         <template #left>
           <TideSearchResultsCount

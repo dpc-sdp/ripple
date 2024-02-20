@@ -8,7 +8,7 @@
   position: relative;
   flex: 1 0 auto;
   order: 1;
-  z-index: var(--rpl-layer-5);
+  z-index: var(--rpl-layer-1);
   height: var(--local-map-side-panel-height-mobile);
   transition: transform var(--rpl-motion-speed-5) cubic-bezier(0,0,.2,1);
 

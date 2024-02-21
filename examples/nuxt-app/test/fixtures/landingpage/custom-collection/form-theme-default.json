@@ -108,8 +108,8 @@
               "id": "dependentFilter",
               "label": "Terms dependent example",
               "placeholder": "Select a species",
-              "dependantLabel": "Terms dependent child example",
-              "dependantPlaceholder": "All sub species",
+              "dependentLabel": "Terms dependent child example",
+              "dependentPlaceholder": "All sub species",
               "multiple": true,
               "options": [
                 {

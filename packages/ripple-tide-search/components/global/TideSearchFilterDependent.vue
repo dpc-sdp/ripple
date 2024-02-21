@@ -5,8 +5,8 @@ interface Props {
   id: string
   label: string
   placeholder: string
-  dependantLabel: string
-  dependantPlaceholder: string
+  dependentLabel: string
+  dependentPlaceholder: string
   multiple: boolean
   options?: any[]
   variant?: string
@@ -89,8 +89,8 @@ onMounted(() => {
         :disabled="!selectedParent || !childOptions.length"
         type="RplFormDropdown"
         :multiple="multiple"
-        :label="dependantLabel"
-        :placeholder="dependantPlaceholder"
+        :label="dependentLabel"
+        :placeholder="dependentPlaceholder"
         :options="childOptions"
         :variant="variant"
       />

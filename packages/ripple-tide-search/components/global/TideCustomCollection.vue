@@ -482,7 +482,7 @@ const reverseFields = computed(
 
         <template #right>
           <TideSearchSortOptions
-            v-if="sortOptions && sortOptions.length"
+            v-if="sortOptions && sortOptions.length > 1"
             :currentValue="userSelectedSort"
             :sortOptions="sortOptions"
             @change="handleSortChange"

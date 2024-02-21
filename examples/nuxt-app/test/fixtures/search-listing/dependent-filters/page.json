@@ -117,7 +117,7 @@
           "value": "field_species_name"
         },
         "aggregations": {
-          "field": "topic",
+          "field": "field_species_name",
           "source": "taxonomy"
         },
         "props": {

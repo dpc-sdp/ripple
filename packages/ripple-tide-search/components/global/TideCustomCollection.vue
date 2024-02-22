@@ -17,6 +17,7 @@ interface Props {
   introText?: string
   autocompleteQuery?: boolean
   searchListingConfig?: TideSearchListingConfig['searchListingConfig']
+  showFiltersOnLoad?: boolean
   sortOptions?: TideSearchListingConfig['sortOptions']
   queryConfig: TideSearchListingConfig['queryConfig']
   globalFilters?: TideSearchListingConfig['globalFilters']
@@ -64,6 +65,7 @@ const props = withDefaults(defineProps<Props>(), {
     },
     formTheme: 'default'
   }),
+  showFiltersOnLoad: false,
   resultsConfig: () => ({
     layout: {
       component: 'TideSearchResultsList'
@@ -138,7 +140,7 @@ const mapResultsMappingFn = (result) => {
   }
 }
 
-const filtersExpanded = ref(false)
+const filtersExpanded = ref(props.showFiltersOnLoad)
 
 const {
   isBusy,

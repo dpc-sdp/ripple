@@ -17,6 +17,16 @@ export const getSearchResultValue = (
 }
 
 /**
+ * @description Helper to get a single string value from elastic search response, which are always arrays
+ */
+export const getSingleResultValue = (value?: string | string[]): string => {
+  if (Array.isArray(value)) {
+    return value.length ? value[0] : ''
+  }
+  return value || ''
+}
+
+/**
  * @description Helper to get a single string value from a query string in the case that there are multiple of the same key
  */
 export const getSingleQueryStringValue = (

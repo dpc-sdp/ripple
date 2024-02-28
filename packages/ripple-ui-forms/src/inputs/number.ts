@@ -15,10 +15,11 @@ export const number: FormKitTypeDefinition = {
    * The actual schema of the input, or a function that returns the schema.
    */
   schema: createRplFormInput({
-    $cmp: 'RplFormInput',
+    $cmp: 'RplFormNumber',
     props: {
       ...defaultRplFormInputProps,
       type: 'number',
+      onChange: '$node.input',
       min: '$node.props.min',
       max: '$node.props.max',
       step: '$node.props.step'

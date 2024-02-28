@@ -498,7 +498,9 @@ export default ({
         mapResults.value = mapsResponse.hits?.hits.map(mapResultsMappingFn)
       }
 
-      onMapResultsHook.value()
+      if (typeof onMapResultsHook.value === 'function') {
+        onMapResultsHook.value()
+      }
 
       isBusy.value = false
     } catch (error) {

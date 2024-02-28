@@ -115,6 +115,7 @@ export default ({
   const mapResults = ref([])
 
   const onAggregationUpdateHook = ref()
+  const onMapResultsHook = ref()
 
   const getQueryClause = () => {
     if (searchTerm.value) {
@@ -497,6 +498,8 @@ export default ({
         mapResults.value = mapsResponse.hits?.hits.map(mapResultsMappingFn)
       }
 
+      onMapResultsHook.value()
+
       isBusy.value = false
     } catch (error) {
       console.error(error)
@@ -785,6 +788,7 @@ export default ({
     getSuggestions,
     clearSuggestions,
     onAggregationUpdateHook,
+    onMapResultsHook,
     searchTerm,
     results,
     suggestions,

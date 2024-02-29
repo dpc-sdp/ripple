@@ -9,7 +9,7 @@
       :alt="body.image.alt"
       :width="body.image.width"
       :height="body.image.height"
-      :aspect="{ xs: 'wide' }"
+      :aspect="aspectRatio"
       sizes="sm:768px"
       data-cy="featured-image"
     />
@@ -35,6 +35,10 @@ const props = defineProps<{
 }>()
 
 const { news: flags }: IRplFeatureFlags = inject('featureFlags', {})
+
+const aspectRatio = computed(() =>
+  flags?.featuredImageAspect !== 'auto' ? flags?.featuredImageAspect : null
+)
 
 const detailsList = computed(() => {
   return Object.keys(props.details)

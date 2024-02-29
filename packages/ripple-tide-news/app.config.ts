@@ -2,7 +2,8 @@ export default defineAppConfig({
   ripple: {
     featureFlags: {
       news: {
-        hideDetailLabels: false
+        hideDetailLabels: false,
+        featuredImageAspect: 'wide'
       }
     }
   }

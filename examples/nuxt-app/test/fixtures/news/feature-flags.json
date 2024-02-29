@@ -12,7 +12,8 @@
     "altText": ""
   },
   "featureFlags": {
-    "news.hideDetailLabels": true
+    "news.hideDetailLabels": true,
+    "news.featuredImageAspect": "square"
   },
   "menus": {
     "menuMain": [

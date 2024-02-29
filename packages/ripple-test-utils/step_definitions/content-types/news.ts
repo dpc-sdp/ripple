@@ -7,6 +7,16 @@ Then(
   }
 )
 
+Then(
+  'the news page featured image aspect ratio is {string}',
+  (ratio: string) => {
+    cy.get('[data-cy="featured-image"]').should(
+      'have.class',
+      `rpl-u-aspect-${ratio}`
+    )
+  }
+)
+
 Then('the news page details should include {string}', (text: string) => {
   cy.get('[data-cy="details"] dd').should('contain', text)
 })

@@ -21,6 +21,7 @@ interface Props {
   value: string
   onChange: (value: string | string[]) => void
   type?: string
+  mode?: 'alt'
   name: string
   label?: string
   min?: number
@@ -38,6 +39,7 @@ interface Props {
 
 const props = withDefaults(defineProps<Props>(), {
   type: 'number',
+  mode: undefined,
   value: '0',
   className: 'rpl-form__input',
   onChange: () => undefined,
@@ -49,7 +51,7 @@ const props = withDefaults(defineProps<Props>(), {
   required: false,
   invalid: false,
   variant: 'default',
-  globalEvents: true,
+  globalEvents: false,
   throttle: 500,
   pii: true,
   onInput: () => null,
@@ -68,8 +70,9 @@ const form: any = inject('form')
 const classes = computed(() => {
   return {
     [`${props.className}`]: true,
-    [`${props.className}--with-prefix-icon`]: true,
-    [`${props.className}--with-suffix-icon`]: true,
+    [`${props.className}--with-prefix-icon`]: props.mode,
+    [`${props.className}--with-suffix-icon`]: props.mode,
+    [`${props.className}--type-number-alt`]: props.mode,
     [`${props.className}--${props.variant}`]: true,
     [`${props.className}--type-${props.type}`]: props.type,
     [`${props.className}--disabled`]: props.disabled,
@@ -102,10 +105,18 @@ const commitValue = (val: number) => {
   )
 }
 
+const withinBounds = (value: number) => {
+  if (props.min !== undefined && value < props.min) {
+    return props.min
+  }
+  if (props.max !== undefined && value > props.max) {
+    return props.max
+  }
+  return value
+}
+
 const handleDecrement = () => {
-  props.min !== undefined && current.value - 1 < props.min
-    ? (current.value = props.min)
-    : (current.value -= props.step)
+  current.value = withinBounds(current.value - props.step)
   useFormkitFriendlyEventEmitter(props, emit, 'onChange', current.value)
   commitValue(current.value)
 }
@@ -115,9 +126,7 @@ const handleChange = useDebounceFn(() => {
 }, props.throttle)
 
 const handleIncrement = () => {
-  props.max !== undefined && current.value + 1 > props.max
-    ? (current.value = props.max)
-    : (current.value += props.step)
+  current.value = withinBounds(current.value + props.step)
   useFormkitFriendlyEventEmitter(props, emit, 'onChange', current.value)
   commitValue(current.value)
 }
@@ -126,7 +135,11 @@ const handleIncrement = () => {
 <template>
   <div :class="classes">
     <div class="rpl-form__input-wrap">
-      <button class="rpl-form__input-dec" @click.prevent="handleDecrement">
+      <button
+        v-if="props.mode"
+        class="rpl-form__input-dec"
+        @click.prevent="handleDecrement"
+      >
         <span class="rpl-u-visually-hidden">Decrease value</span>
         <RplIcon
           name="icon-map-zoom-out"
@@ -152,7 +165,11 @@ const handleIncrement = () => {
         @change="handleChange"
         @focus=";($event.target as HTMLInputElement).select()"
       />
-      <button class="rpl-form__input-inc" @click.prevent="handleIncrement">
+      <button
+        v-if="props.mode"
+        class="rpl-form__input-inc"
+        @click.prevent="handleIncrement"
+      >
         <span class="rpl-u-visually-hidden">Increase value</span>
         <RplIcon
           name="icon-map-zoom-in"
@@ -167,7 +184,7 @@ const handleIncrement = () => {
 <style src="../RplFormInput/RplFormInput.css" />
 
 <style>
-.rpl-form__input--type-number {
+.rpl-form__input--type-number-alt {
   .rpl-form__input-icon {
     color: var(--rpl-clr-type-default);
   }

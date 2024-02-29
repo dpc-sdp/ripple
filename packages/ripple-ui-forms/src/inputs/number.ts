@@ -19,6 +19,7 @@ export const number: FormKitTypeDefinition = {
     props: {
       ...defaultRplFormInputProps,
       type: 'number',
+      mode: '$node.props.mode',
       onChange: '$node.input',
       min: '$node.props.min',
       max: '$node.props.max',
@@ -45,7 +46,8 @@ export const number: FormKitTypeDefinition = {
     'placeholder',
     'validationMeta',
     'columnClasses',
-    'pii'
+    'pii',
+    'mode'
   ],
   /**
    * Forces node.props.type to be this explicit value.

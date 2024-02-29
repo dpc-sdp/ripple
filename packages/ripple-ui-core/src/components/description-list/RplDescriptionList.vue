@@ -30,6 +30,7 @@ withDefaults(defineProps<Props>(), {
       <RplDescriptionListItem
         :inline="inline"
         :term="row.term"
+        :hide-term="row?.hideTerm"
         :variant="variant"
         :icon-name="row?.iconName"
         :icon-colour="row?.iconColour"

@@ -8,6 +8,7 @@ import { IRplDescriptionListVariant } from './constants'
 interface Props {
   inline?: boolean
   term: string
+  hideTerm?: boolean
   variant?: IRplDescriptionListVariant
   iconName?: (typeof RplIconNames)[number]
   iconColour?: (typeof RplColorThemes)[number]
@@ -15,6 +16,7 @@ interface Props {
 
 const props = withDefaults(defineProps<Props>(), {
   inline: false,
+  hideTerm: false,
   variant: 'default',
   iconName: undefined,
   iconColour: 'default'
@@ -25,7 +27,13 @@ const iconClasses = computed(() => ({
   'rpl-description-list--with-icon': props.iconName,
   'rpl-description-list--only-icon': iconOnly.value
 }))
-const termClass = computed(() => ({ 'rpl-u-visually-hidden': iconOnly.value }))
+const termClass = computed(() => ({
+  'rpl-u-visually-hidden': iconOnly.value || props.hideTerm
+}))
+const descriptionClass = computed(() => ({
+  'rpl-description-list__description': true,
+  'rpl-description-list__description--only': props.hideTerm
+}))
 </script>
 
 <template>
@@ -41,7 +49,7 @@ const termClass = computed(() => ({ 'rpl-u-visually-hidden': iconOnly.value }))
         aria-hidden="true"
       /><span :class="termClass">{{ term }}</span>
     </dt>
-    <dd class="rpl-description-list__description"><slot /></dd>
+    <dd :class="descriptionClass"><slot /></dd>
   </div>
   <template v-else>
     <dt :class="{ 'rpl-description-list__term': true, ...iconClasses }">
@@ -52,7 +60,7 @@ const termClass = computed(() => ({ 'rpl-u-visually-hidden': iconOnly.value }))
         aria-hidden="true"
       /><span :class="termClass">{{ term }}</span>
     </dt>
-    <dd class="rpl-description-list__description"><slot /></dd>
+    <dd :class="descriptionClass"><slot /></dd>
   </template>
 </template>
 

@@ -27,11 +27,14 @@
 import { computed } from 'vue'
 import type { TideNewsBody, TideNewsDetails } from '../types'
 import { formatDate } from '#imports'
+import type { IRplFeatureFlags } from '@dpc-sdp/ripple-tide-api/types'
 
 const props = defineProps<{
   details: TideNewsDetails
   body: TideNewsBody
 }>()
+
+const { news: flags }: IRplFeatureFlags = inject('featureFlags', {})
 
 const detailsList = computed(() => {
   return Object.keys(props.details)
@@ -48,6 +51,7 @@ const detailsList = computed(() => {
 
       return {
         term: key[0].toUpperCase() + key.substring(1) + ':',
+        hideTerm: flags?.hideDetailLabels,
         description: description
       }
     })

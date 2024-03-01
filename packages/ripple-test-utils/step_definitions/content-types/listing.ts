@@ -357,3 +357,7 @@ When('I click the search suggestion labelled {string}', (label: string) => {
 Then('the search suggestions should not be displayed', (option: string) => {
   cy.get('#tide-search-bar__menu').should('not.exist')
 })
+
+Then('a custom component should be rendered below the filter', () => {
+  cy.get('[data-cy="below-filter-component"]').should('be.visible')
+})

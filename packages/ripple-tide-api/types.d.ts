@@ -227,6 +227,10 @@ export interface IRplFeatureFlags {
    */
   disableTopicTags?: boolean
   /**
+   * @description Option to disable the display of the updated date on all content types
+   */
+  disableUpdatedDate?: boolean
+  /**
    * @description Option to disable the display of the search form within the primary navigation
    */
   disablePrimaryNavSearch?: boolean
@@ -246,6 +250,10 @@ export interface IRplFeatureFlags {
    * @description Sets a secondary GTM container ID
    */
   gtmContainerID?: string
+  /**
+   * @description Custom flags
+   */
+  [key: string]: any
 }
 
 declare module 'nitropack' {

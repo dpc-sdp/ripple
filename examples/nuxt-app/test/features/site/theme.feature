@@ -11,6 +11,8 @@ Feature: Site theme
     Then the site footer should have the "default" theme applied
     And ripple buttons should have the "default" theme applied
     And the hero banner should have the "default" theme applied
+    And the vic.gov.au logo should be displayed
+    And the footer vic.gov.au logo should be displayed
 
   @mockserver
   Scenario: Alternate Theme
@@ -27,8 +29,6 @@ Feature: Site theme
     Then the site footer should have the "neutral" theme applied
     And ripple buttons should have the "neutral" theme applied
     And the hero banner should have the "neutral" theme applied
-    And the vic.gov.au logo should be displayed
-    And the footer vic.gov.au logo should be displayed
 
   @mockserver
   Scenario: Feature flags can disable vic logo
@@ -38,3 +38,10 @@ Feature: Site theme
     Then the vic.gov.au logo should not be displayed
     And the footer vic.gov.au logo should not be displayed
     And the cobrand logo should be displayed
+
+  @mockserver
+  Scenario: Feature flags can disable the global updated date
+    Given the site endpoint returns fixture "/site/disable-updated-date" with status 200
+    And the page endpoint for path "/" returns fixture "/landingpage/image-banner" with status 200
+    Given I visit the page "/"
+    Then the last updated date should not be displayed

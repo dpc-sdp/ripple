@@ -53,7 +53,10 @@
         v-if="!featureFlags?.disableTopicTags && topicTags.length"
         :items="topicTags"
       />
-      <TideUpdatedDate v-if="updatedDate" :date="updatedDate" />
+      <TideUpdatedDate
+        v-if="!featureFlags?.disableUpdatedDate && updatedDate"
+        :date="updatedDate"
+      />
     </template>
     <template #belowBody>
       <slot name="belowBody"></slot>
@@ -93,9 +96,8 @@
 
 <script setup lang="ts">
 // @ts-ignore
-import { useAppConfig, useRoute, useNuxtApp, useTideLanguage } from '#imports'
-import { computed, onMounted, provide, ref } from 'vue'
-import { defu as defuMerge } from 'defu'
+import { useRoute, useNuxtApp, useTideLanguage } from '#imports'
+import { computed, onMounted, provide } from 'vue'
 import { TideSiteData } from '../types'
 import { TideTopicTag } from '../mapping/base/topic-tags/topic-tags-mapping'
 import { TideSiteSection } from '@dpc-sdp/ripple-tide-api/types'
@@ -125,13 +127,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 // Feature flags will be available on component instances with inject('featureFlags') - See https://vuejs.org/guide/components/provide-inject.html#inject
 // Site flags provided by drupal will override the app config flags
-const featureFlags = ref(
-  defuMerge(
-    props.site?.featureFlags || {},
-    useAppConfig()?.ripple?.featureFlags || {}
-  )
-)
-provide('featureFlags', featureFlags.value)
+const featureFlags = useFeatureFlags(props.site?.featureFlags)
 
 // Sets language global values
 const { locale, direction, language } = useTideLanguage(props.page)

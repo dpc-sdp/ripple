@@ -48,6 +48,10 @@ Then(
   }
 )
 
+Then('the last updated date should not be displayed', () => {
+  cy.get(`[data-cy="updated-date"]`).should('not.exist')
+})
+
 Then(
   'the page should have the following topic tags',
   (dataTable: DataTable) => {

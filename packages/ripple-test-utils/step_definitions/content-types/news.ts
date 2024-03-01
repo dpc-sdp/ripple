@@ -7,6 +7,35 @@ Then(
   }
 )
 
+Then(
+  'the news page featured image aspect ratio is {string}',
+  (ratio: string) => {
+    cy.get('[data-cy="featured-image"]').should(
+      'have.class',
+      `rpl-u-aspect-${ratio}`
+    )
+  }
+)
+
 Then('the news page details should include {string}', (text: string) => {
   cy.get('[data-cy="details"] dd').should('contain', text)
 })
+
+Then(
+  'the news page details should include {string} {string}',
+  (term: string, description: string) => {
+    cy.get('.tide-news__details dt').contains(term).parents('dt').as('term')
+    cy.get('@term').next('dd').contains(description)
+  }
+)
+
+Then(
+  'the news page details should display only the description for {string} {string}',
+  (term: string, description: string) => {
+    cy.get('.tide-news__details dd').contains(description).as('description')
+    cy.get('@description')
+      .prev('dt')
+      .contains(term)
+      .should('have.class', 'rpl-u-visually-hidden')
+  }
+)

@@ -27,9 +27,39 @@ export const SingleTemplate = (args) => ({
     name='Social share'
     play={a11yStoryCheck}
     args={{
+      pagetitle: 'Sample page title',
+      url: 'https://www.vic.gov.au/sample-page'
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    name='With more'
+    play={a11yStoryCheck}
+    args={{
       networks: Object.keys(RplSocialShareNetworks),
       pagetitle: 'Sample page title',
       url: 'https://www.vic.gov.au/sample-page'
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    name='With email'
+    play={a11yStoryCheck}
+    args={{
+      pagetitle: 'Sample page title',
+      url: 'https://www.vic.gov.au/sample-page',
+      email: {
+        subject: 'The email subject',
+        body: 'The email content.'
+      }
     }}
   >
     {SingleTemplate.bind()}

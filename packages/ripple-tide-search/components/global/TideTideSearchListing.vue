@@ -57,6 +57,7 @@ const searchResultsMappingFn = (item: any): TideSearchListingResultItem => {
     :userFilters="page.config.userFilters"
     :resultsLayout="resultsConfig?.layout"
     :noResultsLayout="resultsConfig?.empty"
+    :belowFilterComponent="page.config?.layoutConfig?.belowFilter"
     :searchResultsMappingFn="(searchResultsMappingFn as any)"
     :sortOptions="page.config.sortOptions"
     :showFiltersOnLoad="page.config.showFiltersOnLoad"

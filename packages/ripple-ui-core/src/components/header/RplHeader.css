@@ -247,6 +247,10 @@
   }
 }
 
+.rpl-header--hero-tight {
+  padding-bottom: 0;
+}
+
 .rpl-header--background {
   @media (--rpl-bp-s) {
     --local-padding-bottom: var(--rpl-sp-11);

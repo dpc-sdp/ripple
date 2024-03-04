@@ -135,6 +135,16 @@ export type TideSiteSection = {
   name: string
 }
 
+export interface TideSocialShare {
+  Facebook?: boolean
+  LinkedIn?: boolean
+  X?: boolean
+  WhatsApp?: boolean
+  email: boolean
+  emailSubject: string
+  emailBody: string
+}
+
 export interface RplTideModuleMappingConfig {
   /**
    * ContentType Mapping or path to file
@@ -250,6 +260,10 @@ export interface IRplFeatureFlags {
    * @description Sets a secondary GTM container ID
    */
   gtmContainerID?: string
+  /**
+   * @description Extends the default social share options
+   */
+  socialShare?: TideSocialShare
   /**
    * @description Custom flags
    */

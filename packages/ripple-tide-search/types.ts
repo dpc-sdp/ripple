@@ -59,15 +59,18 @@ export type TideSearchListingResultsConfig = {
    */
   empty?: any
   /**
-   * @description Arbitrary component to render in the page header, below filters
-   */
-  belowFilter?: any
-  /**
    * @description Component to render result items, can be either '*' for all types, or the content type name if you need to render different types of results differently
    */
   item?: {
     [key: string]: TideSearchListingResultItem
   }
+}
+
+export type TideSearchListingLayoutConfig = {
+  /**
+   * @description Arbitrary component to render in the page header, below filters
+   */
+  belowFilter?: any
 }
 
 export type TideSearchListingResultItem = {
@@ -208,6 +211,10 @@ export type TideSearchListingConfig = {
    * @description Config for how to display results
    */
   resultsConfig: TideSearchListingResultsConfig
+  /**
+   * @description Config for layout components
+   */
+  layoutConfig?: TideSearchListingLayoutConfig
   /**
    * @description Config for custom sort options
    */

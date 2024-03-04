@@ -13,7 +13,21 @@
 }
 
 .rpl-form-actions__reset {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &:active {
+    text-decoration: none;
+  }
+
   .rpl-icon {
     color: var(--rpl-clr-error);
+  }
+
+  &:focus-visible .rpl-icon {
+    color: var(--rpl-clr-type-focus-contrast);
   }
 }

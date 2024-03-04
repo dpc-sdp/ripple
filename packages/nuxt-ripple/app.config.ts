@@ -43,7 +43,10 @@ declare module '@nuxt/schema' {
           string,
           (location: any, filterForm: any) => Promise<any>
         >
-        mapPinStyleFn?: Record<string, (feature: any) => any>
+        mapResultHooks?: Record<
+          string,
+          (map: any, results: any, location: any) => void
+        >
       }
     }
   }

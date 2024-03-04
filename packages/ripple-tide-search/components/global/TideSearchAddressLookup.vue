@@ -43,12 +43,14 @@ interface Props {
   inputValue?: any
   resultsloaded?: boolean
   suggestionsIndex?: string
+  controlMapZooming?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
   inputValue: null,
   resultsloaded: false,
-  suggestionsIndex: 'vic-postcode-localities'
+  suggestionsIndex: 'vic-postcode-localities',
+  controlMapZooming: true
 })
 
 const results = ref([])
@@ -202,6 +204,10 @@ async function centerMapOnLocation(
   location: addressResultType,
   animate: boolean
 ) {
+  if (!props.controlMapZooming) {
+    return
+  }
+
   if (map && location?.bbox) {
     // fetch the geometry of the postcode so we can zoom to its extent
     if (location?.bbox) {

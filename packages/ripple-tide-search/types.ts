@@ -116,6 +116,19 @@ export type TideSearchLocationQueryConfig = {
 }
 
 export type TideSearchListingMapConfig = {
+  /**
+   * @description name of a function in appConfig.ripple.search.mapResultHooks
+   * that is called whenever the map results are updated
+   *
+   * The function is passed:
+   * - the map instance
+   * - the new results
+   * - the location query
+   *
+   * This is useful for customising the zoom behaviour of the map, for example zooming
+   * to the nearest item.
+   */
+  onResultsHook?: string
   props?: {
     [key: string]: unknown
   }

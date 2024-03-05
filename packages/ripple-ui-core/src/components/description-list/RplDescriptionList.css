@@ -59,6 +59,7 @@
   padding-left: var(--rpl-sp-6);
 }
 
+.rpl-description-list__description--only,
 .rpl-description-list--only-icon .rpl-description-list__description,
 .rpl-description-list--only-icon + .rpl-description-list__description {
   margin-left: 0;

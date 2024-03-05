@@ -20,7 +20,8 @@ export const datePicker: FormKitTypeDefinition = {
       ...defaultRplFormInputProps,
       min: '$node.props.min',
       max: '$node.props.max',
-      type: 'date'
+      type: 'date',
+      variant: '$node.props.variant'
     }
   }),
   library: inputLibrary,
@@ -36,7 +37,7 @@ export const datePicker: FormKitTypeDefinition = {
   /**
    * An array of extra props to accept for this input.
    */
-  props: ['min', 'max', 'validationMeta', 'columnClasses'],
+  props: ['min', 'max', 'validationMeta', 'columnClasses', 'variant'],
   /**
    * Forces node.props.type to be this explicit value.
    */

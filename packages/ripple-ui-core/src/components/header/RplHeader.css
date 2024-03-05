@@ -247,6 +247,10 @@
   }
 }
 
+.rpl-header--hero-tight {
+  padding-bottom: 0;
+}
+
 .rpl-header--background {
   @media (--rpl-bp-s) {
     --local-padding-bottom: var(--rpl-sp-11);
@@ -326,11 +330,15 @@
     color: var(--rpl-clr-type-primary-contrast);
   }
 
+  .rpl-header-actions__secondary {
+    border-left-color: var(--rpl-clr-type-primary-contrast);
+  }
+
   .rpl-header-actions__secondary-link {
     color: inherit;
 
     .rpl-icon {
-      color: var(--rpl-clr-accent);
+      color: var(--rpl-clr-type-primary-contrast);
     }
   }
 

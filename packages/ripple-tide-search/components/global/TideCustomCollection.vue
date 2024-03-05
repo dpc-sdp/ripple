@@ -17,6 +17,7 @@ interface Props {
   introText?: string
   autocompleteQuery?: boolean
   searchListingConfig?: TideSearchListingConfig['searchListingConfig']
+  showFiltersOnLoad?: boolean
   sortOptions?: TideSearchListingConfig['sortOptions']
   queryConfig: TideSearchListingConfig['queryConfig']
   globalFilters?: TideSearchListingConfig['globalFilters']
@@ -64,6 +65,7 @@ const props = withDefaults(defineProps<Props>(), {
     },
     formTheme: 'default'
   }),
+  showFiltersOnLoad: false,
   resultsConfig: () => ({
     layout: {
       component: 'TideSearchResultsList'
@@ -91,6 +93,8 @@ const emit = defineEmits<{
 }>()
 
 const { emitRplEvent } = useRippleEvent('tide-search', emit)
+
+const appConfig = useAppConfig()
 
 const searchResultsMappingFn = (item): TideSearchListingResultItem => {
   if (props.resultsConfig.item) {
@@ -138,7 +142,7 @@ const mapResultsMappingFn = (result) => {
   }
 }
 
-const filtersExpanded = ref(false)
+const filtersExpanded = ref(props.showFiltersOnLoad)
 
 const {
   isBusy,
@@ -158,6 +162,7 @@ const {
   pagingStart,
   pagingEnd,
   onAggregationUpdateHook,
+  onMapResultsHook,
   mapResults,
   locationQuery,
   activeTab,
@@ -223,6 +228,28 @@ onAggregationUpdateHook.value = (aggs) => {
       }
     })
   })
+}
+
+onMapResultsHook.value = () => {
+  const hookFnName = props.mapConfig?.onResultsHook
+  const fns: Record<
+    string,
+    (map: any, results: any, locationQuery: any) => Promise<any>
+  > = appConfig?.ripple?.search?.mapResultHooks || {}
+
+  if (!hookFnName) {
+    return
+  }
+
+  const hookFn = fns[hookFnName]
+
+  if (typeof hookFn !== 'function') {
+    throw new Error(
+      `Search listing: No matching onResultsHook function called "${hookFnName}"`
+    )
+  }
+
+  hookFn(rplMapRef.value, mapResults.value, locationQuery.value)
 }
 
 const emitSearchEvent = (event) => {
@@ -482,7 +509,7 @@ const reverseFields = computed(
 
         <template #right>
           <TideSearchSortOptions
-            v-if="sortOptions && sortOptions.length"
+            v-if="sortOptions && sortOptions.length > 1"
             :currentValue="userSelectedSort"
             :sortOptions="sortOptions"
             @change="handleSortChange"

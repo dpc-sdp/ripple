@@ -15,10 +15,12 @@ export const number: FormKitTypeDefinition = {
    * The actual schema of the input, or a function that returns the schema.
    */
   schema: createRplFormInput({
-    $cmp: 'RplFormInput',
+    $cmp: 'RplFormNumber',
     props: {
       ...defaultRplFormInputProps,
       type: 'number',
+      mode: '$node.props.mode',
+      onChange: '$node.input',
       min: '$node.props.min',
       max: '$node.props.max',
       step: '$node.props.step'
@@ -44,7 +46,8 @@ export const number: FormKitTypeDefinition = {
     'placeholder',
     'validationMeta',
     'columnClasses',
-    'pii'
+    'pii',
+    'mode'
   ],
   /**
    * Forces node.props.type to be this explicit value.

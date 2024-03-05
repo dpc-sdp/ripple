@@ -115,6 +115,7 @@ export default ({
   const mapResults = ref([])
 
   const onAggregationUpdateHook = ref()
+  const onMapResultsHook = ref()
 
   const getQueryClause = () => {
     if (searchTerm.value) {
@@ -381,6 +382,7 @@ export default ({
           }
         }
       })
+      .filter(Boolean)
   })
 
   const getQueryDSL = async () => {
@@ -494,6 +496,10 @@ export default ({
 
       if (mapsResponse && mapsResponse.hits) {
         mapResults.value = mapsResponse.hits?.hits.map(mapResultsMappingFn)
+      }
+
+      if (typeof onMapResultsHook.value === 'function') {
+        onMapResultsHook.value()
       }
 
       isBusy.value = false
@@ -784,6 +790,7 @@ export default ({
     getSuggestions,
     clearSuggestions,
     onAggregationUpdateHook,
+    onMapResultsHook,
     searchTerm,
     results,
     suggestions,

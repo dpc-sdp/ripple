@@ -320,6 +320,22 @@ export const SlotTemplate = (args) => ({
           }
         },
         {
+          $formkit: "RplFormNumber",
+          name: "qty",
+          label: "Quantity",
+          columnClasses: 'rpl-col-12 rpl-col-5-m',
+          id: "qty",
+          help: "How many do you need?",
+          min: 0,
+          max: 5,
+          mode: "alt",
+          value: 1,
+          validation: 'between:0,5',
+          validationMessages: {
+            between: "Please choose between 0 and 5"
+          }
+        },
+        {
           $formkit: 'RplFormActions',
           label: 'Submit form',
           id: '123'

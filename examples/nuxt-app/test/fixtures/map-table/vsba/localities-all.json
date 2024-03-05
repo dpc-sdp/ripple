@@ -28,7 +28,7 @@
         ],
         "_source": {
           "postcode": "3012",
-          "locality": "West Footscray",
+          "name": "West Footscray",
           "bbox": [
             "144.8599086043824",
             "-37.81372139711867",
@@ -52,7 +52,7 @@
         ],
         "_source": {
           "postcode": "3012",
-          "locality": "Tottenham",
+          "name": "Tottenham",
           "bbox": [
             "144.83922398137892",
             "-37.81488230937047",
@@ -76,7 +76,7 @@
         ],
         "_source": {
           "postcode": "3012",
-          "locality": "Kingsville",
+          "name": "Kingsville",
           "bbox": [
             "144.86922793105745",
             "-37.81282436915469",
@@ -100,7 +100,7 @@
         ],
         "_source": {
           "postcode": "3012",
-          "locality": "Maidstone",
+          "name": "Maidstone",
           "bbox": [
             "144.86355002689623",
             "-37.79115929674402",
@@ -124,7 +124,7 @@
         ],
         "_source": {
           "postcode": "3012",
-          "locality": "Brooklyn",
+          "name": "Brooklyn",
           "bbox": [
             "144.8221039848139",
             "-37.82573699929589",

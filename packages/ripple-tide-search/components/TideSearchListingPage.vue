@@ -39,6 +39,7 @@ interface Props {
   userFilters?: TideSearchListingConfig['userFilters']
   resultsLayout: TideSearchListingResultLayout
   noResultsLayout: any
+  belowFilterComponent?: any
   searchResultsMappingFn?: (item: any) => MappedSearchResult<any>
   contentPage: TideContentPage
   site: TideSiteData
@@ -84,6 +85,7 @@ const props = withDefaults(defineProps<Props>(), {
   noResultsLayout: () => ({
     component: 'TideSearchNoResults'
   }),
+  belowFilterComponent: undefined,
   searchResultsMappingFn: (item): MappedSearchResult<any> => {
     return {
       id: item._id,
@@ -345,6 +347,7 @@ watch(
         :full-width="true"
         :corner-top="site?.cornerGraphic?.top?.src || true"
         :corner-bottom="false"
+        :class="{ 'rpl-header--hero-tight': belowFilterComponent }"
       >
         <p v-if="introText" class="rpl-type-p-large">{{ introText }}</p>
         <div
@@ -386,6 +389,9 @@ watch(
             </TideSearchFilters>
           </RplExpandable>
         </div>
+        <template v-if="belowFilterComponent">
+          <component :is="belowFilterComponent.component" />
+        </template>
       </RplHeroHeader>
     </template>
     <template #body>

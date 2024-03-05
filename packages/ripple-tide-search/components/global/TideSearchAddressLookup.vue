@@ -31,7 +31,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from '#imports'
+import { ref, getSingleResultValue } from '#imports'
 import { useDebounceFn } from '@vueuse/core'
 import { inAndOut } from 'ol/easing'
 import { fromLonLat, transformExtent } from 'ol/proj'
@@ -43,12 +43,14 @@ interface Props {
   inputValue?: any
   resultsloaded?: boolean
   suggestionsIndex?: string
+  controlMapZooming?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
   inputValue: null,
   resultsloaded: false,
-  suggestionsIndex: 'vic-postcode-localities'
+  suggestionsIndex: 'vic-postcode-localities',
+  controlMapZooming: true
 })
 
 const results = ref([])
@@ -90,7 +92,7 @@ const fetchSuggestions = async (query: string) => {
         should: [
           {
             match: {
-              locality: {
+              name: {
                 query,
                 operator: 'and'
               }
@@ -98,7 +100,7 @@ const fetchSuggestions = async (query: string) => {
           },
           {
             prefix: {
-              locality: {
+              name: {
                 value: query,
                 case_insensitive: true
               }
@@ -126,11 +128,13 @@ const fetchSuggestions = async (query: string) => {
     })
     if (response && response.hits.total.value > 0) {
       return response.hits.hits.map((itm: any) => {
+        const center = getSingleResultValue(itm._source.center)?.split(',')
+
         return {
-          name: itm._source.locality,
-          postcode: itm._source.postcode,
+          name: getSingleResultValue(itm._source.name),
+          postcode: getSingleResultValue(itm._source.postcode),
           bbox: itm._source.bbox,
-          center: itm._source.center?.split(',') || undefined
+          center: center?.length === 2 ? [center[1], center[0]] : undefined
         }
       })
     }
@@ -200,6 +204,10 @@ async function centerMapOnLocation(
   location: addressResultType,
   animate: boolean
 ) {
+  if (!props.controlMapZooming) {
+    return
+  }
+
   if (map && location?.bbox) {
     // fetch the geometry of the postcode so we can zoom to its extent
     if (location?.bbox) {

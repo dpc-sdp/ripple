@@ -1,20 +1,4 @@
 import { markRaw } from 'vue'
-import RplFormInput from './../components/RplFormInput/RplFormInput.vue'
-import RplFormTextarea from './../components/RplFormTextarea/RplFormTextarea.vue'
-import RplFormOption from '../components/RplFormOptions/RplFormOption.vue'
-import RplFormCheckboxGroup from './../components/RplFormOptions/RplFormCheckboxGroup.vue'
-import RplFormRadioGroup from './../components/RplFormOptions/RplFormRadioGroup.vue'
-import RplFormOptionButtons from './../components/RplFormOptionButtons/RplFormOptionButtons.vue'
-import RplFormDropdown from './../components/RplFormDropdown/RplFormDropdown.vue'
-import RplFormDate from './../components/RplFormDate/RplFormDate.vue'
-import RplFormValidationError from './../components/RplFormValidationError/RplFormValidationError.vue'
-import RplFormHelpText from './../components/RplFormHelpText/RplFormHelpText.vue'
-import RplFormLabel from './../components/RplFormLabel/RplFormLabel.vue'
-import RplFormInputGrid from './../components/RplFormInputGrid/RplFormInputGrid.vue'
-import RplFormContent from '../components/RplFormContent/RplFormContent.vue'
-import RplFormFieldset from '../components/RplFormFieldset/RplFormFieldset.vue'
-import RplFormDivider from '../components/RplFormDivider/RplFormDivider.vue'
-import RplFormActions from '../components/RplFormActions/RplFormActions.vue'
 import {
   inner,
   wrapper,
@@ -39,8 +23,44 @@ import {
   hasNoLabel
 } from '../formkit-features'
 import { rplInputGrid } from '../sections/rplInputGrid'
+// @ts-expect-error vue SFC
+import RplFormInput from './../components/RplFormInput/RplFormInput.vue'
+// @ts-expect-error vue SFC
+import RplFormTextarea from './../components/RplFormTextarea/RplFormTextarea.vue'
+// @ts-expect-error vue SFC
+import RplFormOption from '../components/RplFormOptions/RplFormOption.vue'
+// @ts-expect-error vue SFC
+import RplFormCheckboxGroup from './../components/RplFormOptions/RplFormCheckboxGroup.vue'
+// @ts-expect-error vue SFC
+import RplFormRadioGroup from './../components/RplFormOptions/RplFormRadioGroup.vue'
+// @ts-expect-error vue SFC
+import RplFormOptionButtons from './../components/RplFormOptionButtons/RplFormOptionButtons.vue'
+// @ts-expect-error vue SFC
+import RplFormDropdown from './../components/RplFormDropdown/RplFormDropdown.vue'
+// @ts-expect-error vue SFC
+import RplFormDate from './../components/RplFormDate/RplFormDate.vue'
+// @ts-expect-error vue SFC
+import RplFormValidationError from './../components/RplFormValidationError/RplFormValidationError.vue'
+// @ts-expect-error vue SFC
+import RplFormHelpText from './../components/RplFormHelpText/RplFormHelpText.vue'
+// @ts-expect-error vue SFC
+import RplFormLabel from './../components/RplFormLabel/RplFormLabel.vue'
+// @ts-expect-error vue SFC
+import RplFormInputGrid from './../components/RplFormInputGrid/RplFormInputGrid.vue'
+// @ts-expect-error vue SFC
+import RplFormContent from '../components/RplFormContent/RplFormContent.vue'
+// @ts-expect-error vue SFC
+import RplFormFieldset from '../components/RplFormFieldset/RplFormFieldset.vue'
+// @ts-expect-error vue SFC
+import RplFormDivider from '../components/RplFormDivider/RplFormDivider.vue'
+// @ts-expect-error vue SFC
+import RplFormActions from '../components/RplFormActions/RplFormActions.vue'
+// @ts-expect-error vue SFC
 import FormkitInputError from '../components/RplForm/FormkitInputError.vue'
+// @ts-expect-error vue SFC
 import FormkitOuter from '../components/RplForm/FormkitOuter.vue'
+// @ts-expect-error vue SFC
+import RplFormNumber from '../components/RplFormNumber/RplFormNumber.vue'
 
 export const inputLibrary = {
   RplFormInput: markRaw(RplFormInput),
@@ -60,7 +80,8 @@ export const inputLibrary = {
   RplFormDivider: markRaw(RplFormDivider),
   RplFormActions: markRaw(RplFormActions),
   FormkitInputError: markRaw(FormkitInputError),
-  FormkitOuter: markRaw(FormkitOuter)
+  FormkitOuter: markRaw(FormkitOuter),
+  RplFormNumber: markRaw(RplFormNumber)
 }
 
 export const rplFeatures = [
@@ -98,7 +119,7 @@ export const createRplFormInput = (
         )
       )
     )
-  )
+  ) as unknown as FormKitExtendableSchemaRoot
 }
 
 /*
@@ -121,7 +142,7 @@ export const createRplFormGroup = (
       }))(),
       rplInputGrid(createSection('input', () => cmp)())
     )
-  )
+  ) as unknown as FormKitExtendableSchemaRoot
 }
 
 export const defaultRplFormInputProps = {

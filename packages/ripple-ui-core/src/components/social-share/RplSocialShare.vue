@@ -1,24 +1,28 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { RplSocialShareNetworks } from './constants'
+import { IRplSocialShareEmail, RplSocialShareNetworks } from './constants'
 import RplSocialShareLink from './RplSocialShareLink.vue'
+import RplSocialShareEmail from './RplSocialShareEmail.vue'
 
 interface Props {
   title?: string
   networks?: string[]
   pagetitle: string
   url: string // url to be determined by caller
+  email?: IRplSocialShareEmail
 }
 
 const props = withDefaults(defineProps<Props>(), {
   title: 'Share this page',
-  networks: () => Object.keys(RplSocialShareNetworks)
+  networks: () => ['Facebook', 'LinkedIn', 'X'],
+  email: undefined
 })
 
 // Check that network has a template in constants
 const validNetworks = computed(() =>
   props.networks.filter((k) => Object.keys(RplSocialShareNetworks).includes(k))
 )
+const hasEmail = computed(() => props.email?.subject && props.email?.body)
 </script>
 
 <template>
@@ -34,7 +38,15 @@ const validNetworks = computed(() =>
         :title="pagetitle"
         :label="title"
         :url="url"
-      ></RplSocialShareLink>
+      />
+      <RplSocialShareEmail
+        v-if="hasEmail"
+        :title="pagetitle"
+        :subject="email.subject"
+        :body="email.body"
+        :label="title"
+        :url="url"
+      />
     </div>
   </div>
 </template>

@@ -32,7 +32,6 @@ interface Props {
   autocompleteQuery?: boolean
   autocompleteMinimumCharacters?: number
   searchListingConfig?: TideSearchListingConfig['searchListingConfig']
-  showFiltersOnLoad?: boolean
   sortOptions?: TideSearchListingConfig['sortOptions']
   queryConfig: TideSearchListingConfig['queryConfig']
   globalFilters?: TideSearchListingConfig['globalFilters']
@@ -65,20 +64,21 @@ const props = withDefaults(defineProps<Props>(), {
       ]
     }
   }),
-  searchListingConfig: () => ({
-    hideSearchForm: false,
-    resultsPerPage: 9,
-    labels: {
-      submit: 'Submit',
-      reset: 'Reset',
-      placeholder: 'Enter a search term'
-    },
-    suggestions: {
-      key: 'title',
-      enabled: true
-    }
-  }),
-  showFiltersOnLoad: false,
+  searchListingConfig: () =>
+    ({
+      hideSearchForm: false,
+      resultsPerPage: 9,
+      labels: {
+        submit: 'Submit',
+        reset: 'Reset',
+        placeholder: 'Enter a search term'
+      },
+      suggestions: {
+        key: 'title',
+        enabled: true
+      },
+      showFiltersOnLoad: false
+    } as any),
   resultsLayout: () => ({
     component: 'TideSearchResultsList'
   }),
@@ -86,7 +86,7 @@ const props = withDefaults(defineProps<Props>(), {
     component: 'TideSearchNoResults'
   }),
   belowFilterComponent: undefined,
-  searchResultsMappingFn: (item): MappedSearchResult<any> => {
+  searchResultsMappingFn: (item: any): MappedSearchResult<any> => {
     return {
       id: item._id,
       component: 'TideSearchResult',
@@ -114,7 +114,7 @@ const emit = defineEmits<{
 
 const { emitRplEvent } = useRippleEvent('tide-search', emit)
 
-const filtersExpanded = ref(props.showFiltersOnLoad)
+const filtersExpanded = ref(props.searchListingConfig?.showFiltersOnLoad)
 
 const {
   isBusy,
@@ -161,22 +161,22 @@ const baseEvent = () => ({
 })
 
 // Updates filter options with aggregation value
-onAggregationUpdateHook.value = (aggs) => {
+onAggregationUpdateHook.value = (aggs: any) => {
   const updateTimestamp = Date.now()
 
   Object.keys(aggs).forEach((key) => {
     uiFilters.value.forEach((uiFilter, idx) => {
       if (uiFilter.id === key) {
         const getDynamicOptions = () => {
-          const mappedOptions = aggs[key].map((item) => ({
+          const mappedOptions = aggs[key].map((item: any) => ({
             id: item,
             label: item,
             value: item
           }))
 
-          if (uiFilters.value[idx].props.hasOwnProperty('options')) {
+          if (uiFilters.value[idx].props?.hasOwnProperty('options')) {
             return [
-              ...toRaw(uiFilters.value[idx].props.options),
+              ...toRaw(uiFilters.value[idx].props?.options as unknown as any),
               ...mappedOptions
             ]
           }
@@ -197,7 +197,7 @@ onAggregationUpdateHook.value = (aggs) => {
   })
 }
 
-const emitSearchEvent = (event) => {
+const emitSearchEvent = (event: any) => {
   emitRplEvent(
     'submit',
     {
@@ -209,7 +209,7 @@ const emitSearchEvent = (event) => {
   )
 }
 
-const handleSearchSubmit = (event) => {
+const handleSearchSubmit = (event: any) => {
   if (props.userFilters && props.userFilters.length) {
     cachedSubmitEvent.value = event
     // Submitting the search term should also 'apply' the filters, but the filters live in a seperate form.
@@ -224,7 +224,7 @@ const handleSearchSubmit = (event) => {
   }
 }
 
-const handleFilterSubmit = (event) => {
+const handleFilterSubmit = (event: any) => {
   filterForm.value = event.value
   submitSearch()
 
@@ -249,7 +249,7 @@ const handleFilterReset = (event: rplEventPayload) => {
   submitSearch()
 }
 
-const handleUpdateSearchTerm = (term) => {
+const handleUpdateSearchTerm = (term: string) => {
   searchTerm.value = term
 
   if (
@@ -264,7 +264,7 @@ const handleUpdateSearchTerm = (term) => {
   }
 }
 
-const handlePageChange = (event) => {
+const handlePageChange = (event: any) => {
   goToPage(event.value)
   emitRplEvent(
     'paginate',
@@ -277,7 +277,7 @@ const handlePageChange = (event) => {
   )
 }
 
-const handleSortChange = (sortId) => {
+const handleSortChange = (sortId: any) => {
   changeSortOrder(sortId)
 }
 
@@ -351,15 +351,15 @@ watch(
       >
         <p v-if="introText" class="rpl-type-p-large">{{ introText }}</p>
         <div
-          v-if="!searchListingConfig.hideSearchForm"
+          v-if="!searchListingConfig?.hideSearchForm"
           class="tide-search-header"
         >
           <RplSearchBar
             id="tide-search-bar"
             variant="default"
-            :input-label="searchListingConfig.labels?.submit"
+            :input-label="searchListingConfig?.labels?.submit"
             :inputValue="searchTerm"
-            :placeholder="searchListingConfig.labels?.placeholder"
+            :placeholder="searchListingConfig?.labels?.placeholder"
             :suggestions="suggestions"
             :global-events="false"
             @submit="handleSearchSubmit"
@@ -382,7 +382,7 @@ watch(
             <TideSearchFilters
               :title="title"
               :filter-form-values="filterForm"
-              :filterInputs="userFilters"
+              :filterInputs="userFilters as any"
               @reset="handleFilterReset"
               @submit="handleFilterSubmit"
             >
@@ -479,7 +479,7 @@ watch(
     </template>
     <template #belowBody>
       <RplPageComponent v-if="contentPage.secondaryCampaign">
-        <RplSecondaryCampaign v-bind="contentPage.secondaryCampaign" />
+        <RplSecondaryCampaign v-bind="contentPage.secondaryCampaign as any" />
       </RplPageComponent>
     </template>
   </TideBaseLayout>

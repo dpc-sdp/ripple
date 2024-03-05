@@ -34,7 +34,7 @@ Feature: Site feature flags
       | subject | Check out Demo Landing Page                              |
       | body    | I thought you might like this article Demo Landing Page. |
 
-  @mockserver @focus
+  @mockserver
   Scenario: Feature flags can set the footer to show only a single level
     Given the site endpoint returns fixture "/site/flags-footer-single.json" with status 200
     And the page endpoint for path "/" returns fixture "/landingpage/image-banner" with status 200

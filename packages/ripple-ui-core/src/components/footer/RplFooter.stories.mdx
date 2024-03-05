@@ -6,7 +6,7 @@ import {
 } from '@storybook/addon-docs'
 import RplFooter from './RplFooter.vue'
 import { RplFooterVariants } from './constants'
-import { RplFooterLinks } from './fixtures/sample'
+import { RplFooterLinks, RplFooterLinksSingleLevel } from './fixtures/sample'
 import { a11yStoryCheck } from './../../../stories/interactions.js'
 import { bpMin } from '../../lib/breakpoints'
 
@@ -96,6 +96,21 @@ export const SingleTemplate = (args) => ({
     }}
     args={{
       variant: 'neutral'
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+  <Story
+    name='Single level'
+    play={a11yStoryCheck}
+    parameters={{
+      layout: 'fullscreen',
+      chromatic: {
+        viewports: [bpMin.s - 100, bpMin.s, bpMin.m, bpMin.l, bpMin.xl]
+      }
+    }}
+    args={{
+      nav: RplFooterLinksSingleLevel
     }}
   >
     {SingleTemplate.bind()}

@@ -33,3 +33,17 @@ Feature: Site feature flags
       | key     | value                                                    |
       | subject | Check out Demo Landing Page                              |
       | body    | I thought you might like this article Demo Landing Page. |
+
+  @mockserver @focus
+  Scenario: Feature flags can set the footer to show only a single level
+    Given the site endpoint returns fixture "/site/flags-footer-single.json" with status 200
+    And the page endpoint for path "/" returns fixture "/landingpage/image-banner" with status 200
+    Given I visit the page "/"
+    Then the footer nav should have the following single level items
+      | text   | url     |
+      | Events | /events |
+      | News   | /news   |
+    And the footer nav section with title "Connect with us" should have the following links
+      | text     | url                           |
+      | Facebook | https://facebook.com/VicGovAu |
+      | Twitter  | https://twitter.com/VicGovAu  |

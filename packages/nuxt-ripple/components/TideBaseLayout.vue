@@ -144,7 +144,11 @@ const showBreadcrumbs = computed(() => route.path !== '/')
 const showDraftAlert = computed(() => props.page?.status === 'draft')
 
 const footerNav = computed(() => {
-  const menuMain = props.site?.menus.menuMain || []
+  const menuMain = (props.site?.menus.menuMain || []).map((item) => {
+    return featureFlags.value?.footerMenuSingleLevel
+      ? { ...item, single: true }
+      : item
+  })
 
   if (props.site?.socialLinks?.length) {
     return [

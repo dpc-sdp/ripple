@@ -103,6 +103,28 @@ Then(
     })
   }
 )
+Then(
+  'the footer nav should have the following single level items',
+  (dataTable: DataTable) => {
+    const table = dataTable.hashes()
+
+    cy.get(`.rpl-footer-nav-section__title`).as('items')
+
+    table.forEach((row, i: number) => {
+      cy.get('@items')
+        .eq(i)
+        .then((item) => {
+          cy.wrap(item).as('item')
+          cy.get('@item').should('contain', row.text)
+          cy.get('@item').find('a').should('have.attr', 'href', row.url)
+          cy.get('@item')
+            .parents('.rpl-footer-nav-section')
+            .find('.rpl-list__items')
+            .should('not.exist')
+        })
+    })
+  }
+)
 
 Then('the footer should have the following links', (dataTable: DataTable) => {
   const table = dataTable.hashes()

@@ -221,6 +221,10 @@ export interface IRplFeatureFlags {
    */
   footerTheme?: 'neutral' | 'default'
   /**
+   * @description Sets the display of the footer menu to one single level i.e. no children
+   */
+  footerMenuSingleLevel?: boolean
+  /**
    * @description Disable the primary vic.gov.au logo for sites that are not co-branded
    */
   disablePrimaryLogo?: boolean

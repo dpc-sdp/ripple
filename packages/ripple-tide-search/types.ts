@@ -198,11 +198,11 @@ export type TideSearchListingConfig = {
      * @description The theme to use for the display of form section and fields
      */
     formTheme: 'default' | 'reverse'
+    /**
+     * @description Filter panel open on page load
+     */
+    showFiltersOnLoad: boolean
   }
-  /**
-   * @description Filter panel open on page load
-   */
-  showFiltersOnLoad: boolean
   /**
    * @description Elastic Query DSL for query clause
    */

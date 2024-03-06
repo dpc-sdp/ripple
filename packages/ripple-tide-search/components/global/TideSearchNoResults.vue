@@ -17,15 +17,15 @@
 </template>
 
 <script setup lang="ts">
-import { useRoute, computed } from '#imports'
+import { useRoute, ref } from '#imports'
 
 interface Props {
-  query?: string | undefined
+  query?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
   query: undefined
 })
 
-const displayQuery = computed(() => props.query || useRoute().query?.q)
+const displayQuery = ref<string>(props.query || (useRoute().query?.q as string))
 </script>

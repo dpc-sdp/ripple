@@ -122,6 +122,12 @@ export type TideSearchLocationQueryConfig = {
   dslTransformFn?: (location: any) => any
 }
 
+export type TideSearchListingTab = {
+  title: string
+  key: TideSearchListingTabKey
+  icon: string
+}
+
 export type TideSearchListingMapConfig = {
   /**
    * @description name of a function in appConfig.ripple.search.mapResultHooks
@@ -141,7 +147,7 @@ export type TideSearchListingMapConfig = {
   }
 }
 
-export type TideSearchListingTabKey = { id: 'map' | 'listing' }
+export type TideSearchListingTabKey = 'map' | 'listing'
 
 export type TideSearchListingConfig = {
   /**
@@ -168,8 +174,6 @@ export type TideSearchListingConfig = {
       submit: string
       reset: string
       placeholder: string
-      mapTab?: string
-      listingTab?: string
     }
     /**
      * @description custom sort clause
@@ -182,7 +186,7 @@ export type TideSearchListingConfig = {
     /**
      * @description which tab to display by default if not specified in URL
      */
-    defaultTab?: 'map' | 'listing'
+    defaultTab?: TideSearchListingTabKey
     /**
      * @description optionally hide the search form
      */
@@ -203,6 +207,10 @@ export type TideSearchListingConfig = {
      */
     showFiltersOnLoad: boolean
   }
+  /**
+   * @description Tabs to display, key needs to be one of TideSearchListingTabKey
+   */
+  tabs: TideSearchListingTab[]
   /**
    * @description Elastic Query DSL for query clause
    */

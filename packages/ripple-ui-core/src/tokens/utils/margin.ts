@@ -48,7 +48,7 @@ StyleDictionary.extend({
   },
   platforms: {
     css: {
-      buildPath: '../src/styles/generated/',
+      buildPath: 'src/styles/generated/',
       transformGroup: 'css',
       files: [
         {

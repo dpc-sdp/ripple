@@ -202,42 +202,137 @@ Feature: Search listing - Filter
       | checkboxFilter | Archived |
 
   @mockserver
-  Example: Dependent filter - Should reflect the value from the URL
+  Example: Dependent filter - Should reflect values from the URL
     Given the page endpoint for path "/filters" returns fixture "/search-listing/dependent-filters/page" with status 200
     And the search network request is stubbed with fixture "/search-listing/dependent-filters/response" and status 200
 
-    When I visit the page "/filters?dependentFilter=Mammals:Dogs,Cats"
+    When I visit the page "/filters?dependentFilter=dependentFilter-1:Mammals&dependentFilter=dependentFilter-2:Dogs,Cats"
     Then the search listing page should have 2 results
-    And the search network request should be called with the "/search-listing/dependent-filters/request" fixture
-    Then the filters toggle should show 2 applied filters
+    And the search network request should be called with the "/search-listing/dependent-filters/request-mammals-children" fixture
+    And the filters toggle should show 2 applied filters
 
-    When I toggle the search listing filters section
-    Then the search listing dropdown field labelled "Terms dependent example" should have the value "Mammals"
-    Then the search listing dropdown field labelled "Terms dependent child example" should have the value "Dogs, Cats"
     When I click the search listing dropdown field labelled "Terms dependent example"
     Then the selected dropdown field should have the items:
       | Mammals |
       | Birds   |
+    And the search listing dropdown field labelled "Terms dependent example" should have the value "Mammals"
+
     When I click the search listing dropdown field labelled "Terms dependent child example"
     Then the selected dropdown field should have the items:
-      | Dogs |
-      | Cats |
+      | Dogs  |
+      | Cats  |
+      | Foxes |
+    And the search listing dropdown field labelled "Terms dependent child example" should have the value "Dogs, Cats"
+
+    When I click the search listing dropdown field labelled "Terms dependent grandchild example"
+    Then the selected dropdown field should have the items:
+      | Beagle  |
+      | Spaniel |
 
   @mockserver
-  Example: Dependent filter - Child options should update on parent selection
+  Example: Dependent filter - Child options should become available on parent selection, URL and search query should reflect this
     Given the page endpoint for path "/filters" returns fixture "/search-listing/dependent-filters/page" with status 200
     And the search network request is stubbed with fixture "/search-listing/dependent-filters/response" and status 200
+
     When I visit the page "/filters"
     Then the search listing page should have 2 results
     And the search network request should be called with the "/search-listing/dependent-filters/request-empty" fixture
+    And the search listing dropdown field labelled "Terms dependent child example" should be disabled
+    And the search listing dropdown field labelled "Terms dependent grandchild example" should be disabled
 
-    When I toggle the search listing filters section
-    And I click the search listing dropdown field labelled "Terms dependent example"
+    When I click the search listing dropdown field labelled "Terms dependent example"
     Then I click the option labelled "Birds" in the selected dropdown
     And I click the search listing dropdown field labelled "Terms dependent child example"
     Then the selected dropdown field should have the items:
-      | Parrot   |
-      | Cockatoo |
+      | Parrots |
+      | Eagles  |
+    And the search listing dropdown field labelled "Terms dependent grandchild example" should be disabled
+
+    When I click the option labelled "Parrots" in the selected dropdown
+    And I click the search listing dropdown field labelled "Terms dependent grandchild example"
+    Then the selected dropdown field should have the items:
+      | Cockatoos   |
+      | Budgerigars |
+    And I click the search listing dropdown field labelled "Terms dependent grandchild example"
+
+    When I submit the search filters
+    Then the URL should reflect that the current active filters are as follows:
+      | id              | value                     |
+      | dependentFilter | dependentFilter-1:Birds   |
+      | dependentFilter | dependentFilter-2:Parrots |
+    And the search network request should be called with the "/search-listing/dependent-filters/request-birds" fixture
+    And the filters toggle should show 2 applied filters
+
+    When I click the search listing dropdown field labelled "Terms dependent grandchild example"
+    And I click the option labelled "Cockatoos" in the selected dropdown
+    And I click the option labelled "Budgerigars" in the selected dropdown
+    And I click the search listing dropdown field labelled "Terms dependent grandchild example"
+    And I submit the search filters
+    Then the URL should reflect that the current active filters are as follows:
+      | id              | value                                   |
+      | dependentFilter | dependentFilter-1:Birds                 |
+      | dependentFilter | dependentFilter-2:Parrots               |
+      | dependentFilter | dependentFilter-3:Cockatoos,Budgerigars |
+    And the search network request should be called with the "/search-listing/dependent-filters/request-birds-grandchildren" fixture
+    And the filters toggle should show 3 applied filters
+
+  @mockserver
+  Example: Dependent filter (Single) - Updates to ancestors also update existing child options and selection, URL and search query should reflect this
+    Given the page endpoint for path "/filters" returns fixture "/search-listing/dependent-filters/page-single" with status 200
+    And the search network request is stubbed with fixture "/search-listing/dependent-filters/response" and status 200
+
+    When I visit the page "/filters?dependentFilter=dependentFilter-1:Birds&dependentFilter=dependentFilter-2:Parrots&dependentFilter=dependentFilter-3:Cockatoos"
+    Then the search listing page should have 2 results
+    And the search network request should be called with the "/search-listing/dependent-filters/request-birds-grandchildren-single" fixture
+    And the filters toggle should show 3 applied filters
+
+    When I click the search listing dropdown field labelled "Terms dependent example"
+    And I click the option labelled "Mammals" in the selected dropdown
+    Then I click the search listing dropdown field labelled "Terms dependent example"
+
+    When I click the search listing dropdown field labelled "Terms dependent child example"
+    Then the selected dropdown field should have the items:
+      | Dogs  |
+      | Cats  |
+      | Foxes |
+    And I click the search listing dropdown field labelled "Terms dependent child example"
+    And the search listing dropdown field labelled "Terms dependent grandchild example" should be disabled
+
+    When I submit the search filters
+    Then the search network request should be called with the "/search-listing/dependent-filters/request-mammals" fixture
+    And the URL should reflect that the current active filters are as follows:
+      | id              | value                     |
+      | dependentFilter | dependentFilter-1:Mammals |
+
+  @mockserver
+  Example: Dependent filter (Multiple) - Updates to ancestors also update existing child options and selection, URL and search query should reflect this
+    Given the page endpoint for path "/filters" returns fixture "/search-listing/dependent-filters/page" with status 200
+    And the search network request is stubbed with fixture "/search-listing/dependent-filters/response" and status 200
+
+    When I visit the page "/filters?dependentFilter=dependentFilter-1:Birds&dependentFilter=dependentFilter-2:Parrots&dependentFilter=dependentFilter-3:Cockatoos,Budgerigars"
+    Then the search listing page should have 2 results
+    And the search network request should be called with the "/search-listing/dependent-filters/request-birds-grandchildren" fixture
+    And the filters toggle should show 3 applied filters
+
+    When I click the search listing dropdown field labelled "Terms dependent example"
+    And I click the option labelled "Mammals" in the selected dropdown
+    Then I click the search listing dropdown field labelled "Terms dependent example"
+
+    When I click the search listing dropdown field labelled "Terms dependent child example"
+    And I click the option labelled "Dogs" in the selected dropdown
+    Then I click the search listing dropdown field labelled "Terms dependent child example"
+
+    When I click the search listing dropdown field labelled "Terms dependent grandchild example"
+    And I click the option labelled "Spaniel" in the selected dropdown
+    Then I click the search listing dropdown field labelled "Terms dependent grandchild example"
+
+    When I submit the search filters
+    Then the search network request should be called with the "/search-listing/dependent-filters/request-mammals-birds" fixture
+    And the URL should reflect that the current active filters are as follows:
+      | id              | value                                           |
+      | dependentFilter | dependentFilter-1:Birds,Mammals                 |
+      | dependentFilter | dependentFilter-2:Parrots,Dogs                  |
+      | dependentFilter | dependentFilter-3:Cockatoos,Budgerigars,Spaniel |
 
   @mockserver
   Example: Should hide the search form when hideSearchForm is set

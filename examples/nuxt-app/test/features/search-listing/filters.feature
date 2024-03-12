@@ -335,6 +335,28 @@ Feature: Search listing - Filter
       | dependentFilter | dependentFilter-3:Cockatoos,Budgerigars,Spaniel |
 
   @mockserver
+  Example: Dependent filter (Mix) - users should be able to mix single and multiple dropdowns
+    Given the page endpoint for path "/filters" returns fixture "/search-listing/dependent-filters/page-mix" with status 200
+    And the search network request is stubbed with fixture "/search-listing/dependent-filters/response" and status 200
+
+    When I visit the page "/filters?dependentFilter=dependentFilter-1:Birds&dependentFilter=dependentFilter-2:Parrots&dependentFilter=dependentFilter-3:Cockatoos,Budgerigars"
+    Then the search listing page should have 2 results
+    And the search network request should be called with the "/search-listing/dependent-filters/request-birds-grandchildren" fixture
+    And the filters toggle should show 3 applied filters
+
+    Then the search listing dropdown field labelled "Terms dependent example" should have the value "Birds"
+    And I click the search listing dropdown field labelled "Terms dependent example"
+    Then the selected dropdown field should allow "single" selection
+
+    Then the search listing dropdown field labelled "Terms dependent child example" should have the value "Parrots"
+    And I click the search listing dropdown field labelled "Terms dependent child example"
+    Then the selected dropdown field should allow "single" selection
+
+    Then the search listing dropdown field labelled "Terms dependent grandchild example" should have the value "Cockatoos, Budgerigars"
+    And I click the search listing dropdown field labelled "Terms dependent grandchild example"
+    Then the selected dropdown field should allow "multi" selection
+
+  @mockserver
   Example: Should hide the search form when hideSearchForm is set
     Given the page endpoint for path "/no-search-form" returns fixture "/search-listing/filters/page-no-search-form" with status 200
     And the search network request is stubbed with fixture "/search-listing/filters/response" and status 200

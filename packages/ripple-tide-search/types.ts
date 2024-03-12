@@ -45,8 +45,7 @@ export interface FilterConfigItem {
    * @description the relevant props that will be passed into the Vue component (see `component` key)
    */
   props?: {
-    [key: string]: unknown
-    options?: any
+    [key: string]: any
   }
 }
 

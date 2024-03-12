@@ -695,13 +695,16 @@ export default ({
         if (filterConfig?.component === 'TideSearchFilterDependent') {
           parsedValue = Object.fromEntries(
             (parsedValue as []).map((dep: string) => {
-              const [key, val] = (dep || '').split(':')
+              const [dependentKey, dependentValue] = (dep || '').split(':')
+
+              const depth = Number(dependentKey.match(/\d+$/)?.[0])
 
               return [
-                key,
+                dependentKey,
+                filterConfig?.props?.levels?.[depth - 1]?.multiple ||
                 filterConfig?.props?.multiple
-                  ? val.split(',').map(decodeURIComponent)
-                  : decodeURIComponent(val)
+                  ? dependentValue.split(',').map(decodeURIComponent)
+                  : decodeURIComponent(dependentValue)
               ]
             })
           )

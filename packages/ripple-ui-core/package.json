@@ -25,7 +25,7 @@
     "./style/components": "./dist/style.css"
   },
   "scripts": {
-    "build": "pnpm clean && pnpm build:types && pnpm build:tokens && pnpm build:styles && pnpm build:lib && pnpm build:vue && pnpm build:wc",
+    "build": "pnpm clean && pnpm build:types && pnpm build:tokens && pnpm build:utils && pnpm build:styles && pnpm build:lib && pnpm build:vue && pnpm build:wc",
     "build:types": "tsc -p tsconfig.json",
     "build:lib": "vite build",
     "build:vue": "vite build --config vue.vite.config.ts",

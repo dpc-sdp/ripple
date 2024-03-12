@@ -28,6 +28,11 @@ StyleDictionary.registerFormat({
   &.rpl-grid--no-row-gap {
     row-gap: 0;
   }
+
+  /* Inherit the parent grid */
+  &--inherit {
+    display: contents;
+  }
 }
 
 /* Columns */
@@ -130,7 +135,7 @@ StyleDictionary.extend({
   },
   platforms: {
     css: {
-      buildPath: '../src/styles/generated/',
+      buildPath: 'src/styles/generated/',
       transformGroup: 'css',
       files: [
         {

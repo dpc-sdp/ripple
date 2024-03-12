@@ -6,6 +6,7 @@ export const RplFooterVariants = ['default', 'neutral'] as const
 export interface INavSectionItem {
   text: string
   url?: string
+  single?: boolean
   items?: {
     text: string
     url: string

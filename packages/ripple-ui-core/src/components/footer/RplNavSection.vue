@@ -38,7 +38,7 @@ const { toggleProps, triggerProps } = useExpandable(
 )
 
 const items = computed(() => {
-  if (props.section.url) {
+  if (props.section.url && props.isExpandable) {
     return [
       {
         text: props.section.text,
@@ -111,7 +111,7 @@ const handleClick = (event) => {
           class="rpl-footer-nav-section__title rpl-type-label rpl-type-weight-bold"
         >
           <RplTextLink
-            v-if="singleLevel && section?.url"
+            v-if="!canExpand && section?.url"
             :url="section.url"
             class="rpl-list__link"
             @click="

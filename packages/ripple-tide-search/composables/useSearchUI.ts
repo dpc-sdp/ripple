@@ -43,6 +43,7 @@ export default async (
       }, {})
     }
   })
+  const searchComplete = ref(false)
   const searchDriver = getSearchDriver(apiConnectorOptions, config)
   const searchState = ref(searchDriver.getState())
   const urlManager = ref(searchDriver.URLManager)
@@ -72,6 +73,10 @@ export default async (
   )
 
   searchDriver.subscribeToStateChanges((state: SearchState) => {
+    if (!state.isLoading && searchState.value.isLoading) {
+      searchComplete.value = true
+    }
+
     searchState.value = state
   })
 
@@ -140,6 +145,7 @@ export default async (
     searchTermSuggestions,
     results,
     staticFacetOptions,
-    filterFormValues
+    filterFormValues,
+    searchComplete
   }
 }

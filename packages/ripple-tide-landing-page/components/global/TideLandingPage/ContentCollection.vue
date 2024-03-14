@@ -4,7 +4,7 @@
     <RplContent v-if="searchState.error">
       <p>Sorry! Something went wrong. Please try again later.</p>
     </RplContent>
-    <RplContent v-else-if="!searchState.isLoading && !searchState.totalResults">
+    <RplContent v-else-if="searchComplete && !searchState.totalResults">
       <p>Sorry! We couldn't find any matches.</p>
     </RplContent>
     <div v-else>
@@ -149,7 +149,7 @@ const searchDriverOptions = {
   }
 }
 
-const { results, searchState } = await useSearchUI(
+const { results, searchState, searchComplete } = await useSearchUI(
   apiConnectorOptions,
   searchDriverOptions,
   [],

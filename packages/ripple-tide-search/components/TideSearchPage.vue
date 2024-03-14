@@ -91,7 +91,8 @@ const {
   searchTermSuggestions,
   results,
   staticFacetOptions,
-  filterFormValues
+  filterFormValues,
+  searchComplete
 } = await useSearchUI(
   apiConnectorOptions,
   props.searchDriverOptions,
@@ -300,7 +301,7 @@ watch(
             >
               <TideSearchError v-if="searchState.error" />
               <TideSearchNoResults
-                v-else-if="!searchState.isLoading && !searchState.totalResults"
+                v-else-if="searchComplete && !searchState.totalResults"
               />
               <RplResultListing v-else>
                 <RplResultListingItem

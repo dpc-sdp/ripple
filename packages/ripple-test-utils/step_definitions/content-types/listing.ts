@@ -175,6 +175,17 @@ Then(
 )
 
 Then(
+  `the selected dropdown field should allow {string} selection`,
+  (type: string) => {
+    const isMultiSelect = type === 'multi' ? 'true' : 'false'
+
+    cy.get(`@selectedDropdown`)
+      .siblings('[role="listbox"]')
+      .should('have.attr', 'aria-multiselectable', isMultiSelect)
+  }
+)
+
+Then(
   `the search listing checkbox field labelled {string} should be checked`,
   (label: string) => {
     cy.get(`label`)

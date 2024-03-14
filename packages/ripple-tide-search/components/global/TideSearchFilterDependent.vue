@@ -10,6 +10,7 @@ interface Props {
   levels: {
     label: string
     placeholder: string
+    multiple?: boolean
   }[]
 }
 
@@ -47,7 +48,7 @@ const parentOptions = computed(() =>
   props.options.filter((option) => !option.parent)
 )
 
-const getChildOptions = (parent): any[] => {
+const getChildOptions = (parent: string | string[]): object[] => {
   const selectedIds = props.options?.filter((option) =>
     Array.isArray(parent)
       ? parent.includes(option.value)
@@ -60,19 +61,24 @@ const getChildOptions = (parent): any[] => {
     .flat()
 }
 
-const getChildSelection = (key, value, options) => {
+const getChildSelection = (value: string | string[], options: object[]) => {
   if (Array.isArray(value)) {
     return value.filter((selection) =>
-      options.some((options) => options.value === selection)
+      options.some((option: any) => option.value === selection)
     )
   }
 
-  return options.some((options) => options.value === value) ? value : null
+  return options.some((option: any) => option.value === value) ? value : null
 }
 
-const getUpdatedValues = (selected: object): object => {
-  const selection = {}
-  const options = {}
+const getUpdatedValues = (
+  selected: object
+): {
+  options: { [key: string]: object[] }
+  selection: { [key: string]: any }
+} => {
+  const selection: { [key: string]: any } = {}
+  const options: { [key: string]: object[] } = {}
 
   Object.entries(selected).forEach(([key, value]) => {
     const depth = Number(key.match(/\d+$/)?.[0])
@@ -82,7 +88,7 @@ const getUpdatedValues = (selected: object): object => {
       options[key] = parentOptions.value
     } else {
       options[key] = getChildOptions(selection[`${props.id}-${depth - 1}`])
-      selection[key] = getChildSelection(key, value, options[key])
+      selection[key] = getChildSelection(value, options[key])
     }
   })
 
@@ -98,7 +104,7 @@ watch(
     Object.entries(options).forEach(([key, value]) => {
       if (selectOptions[key]?.length) selectOptions[key].length = 0
 
-      value.forEach((val) => selectOptions[key].push(val))
+      value.forEach((val: object) => selectOptions[key].push(val))
     })
 
     // If the updated options results in a selection no longer being available, we need to remove that selection
@@ -106,13 +112,13 @@ watch(
       let change = false
 
       if (Array.isArray(curr[key])) {
-        change = curr[key].filter((val) => !value.includes(val)).length
+        change = curr[key].filter((val: string) => !value.includes(val)).length
       } else {
         change = curr[key] !== value
       }
 
       if (change) {
-        getNode(key)?.input(selection[key])
+        nextTick(() => getNode(key)?.input(selection[key]))
       }
     })
   },
@@ -131,7 +137,7 @@ watch(
         :id="`${id}-${i}`"
         :name="`${id}-${i}`"
         type="RplFormDropdown"
-        :multiple="multiple"
+        :multiple="levels?.[i - 1]?.multiple ?? multiple"
         :label="levels?.[i - 1]?.label"
         :placeholder="levels?.[i - 1]?.placeholder"
         :options="selectOptions[`${id}-${i}`] || []"

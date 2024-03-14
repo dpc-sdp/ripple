@@ -301,6 +301,7 @@ watch(
               <TideSearchError v-if="searchState.error" />
               <TideSearchNoResults
                 v-else-if="!searchState.isLoading && !searchState.totalResults"
+                :query="searchState.searchTerm"
               />
               <RplResultListing v-else>
                 <RplResultListingItem

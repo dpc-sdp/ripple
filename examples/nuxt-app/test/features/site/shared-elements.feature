@@ -65,14 +65,12 @@ Feature: Shared site elements
     And the page endpoint for path "/some-random-page" returns fixture "/landingpage/home" with status 200
     Given I visit the page "/some-random-page"
 
-    Then the footer nav section with title "Level 1 - Item 1" should have the following links
+    Then the footer nav section with title "Level 1 - Item 1" should link to "/level-1-item-1"
+    And the footer nav section with title "Level 1 - Item 1" should have the following links
       | text             | url             |
-      | Level 1 - Item 1 | /level-1-item-1 |
       | Level 2 - Item 1 | /level-2-item-1 |
       | Level 2 - Item 2 | /level-2-item-2 |
-    Then the footer nav section with title "Level 1 - Item 2" should have the following links
-      | text             | url             |
-      | Level 1 - Item 2 | /level-1-item-2 |
+    Then the footer nav section with title "Level 1 - Item 2" should link to "/level-1-item-2"
     Then the footer nav section with title "Connect with us" should have the following links
       | text     | url                       |
       | Facebook | https://www.facebook.com/ |
@@ -88,4 +86,21 @@ Feature: Shared site elements
       | Test logo 1 | /test-logo-1 | https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Aerial-shot-of-new-housing-development.jpg?w=1984 |
       | Test logo 2 | /test-logo-2 | https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/2018-19-State-Budget.jpg?w=1984                   |
 
+  @mockserver
+  Scenario: Footer (Mobile)
+    Given the site endpoint returns fixture "/site/shared-elements" with status 200
+    And the page endpoint for path "/some-random-page" returns fixture "/landingpage/home" with status 200
+    Given I visit the page "/some-random-page"
+    And I am using a "iphone-x" device
 
+    When I open the footer nav section with title "Level 1 - Item 1"
+    Then the footer nav section with title "Level 1 - Item 1" should have the following links
+      | text             | url             |
+      | Level 1 - Item 1 | /level-1-item-1 |
+      | Level 2 - Item 1 | /level-2-item-1 |
+      | Level 2 - Item 2 | /level-2-item-2 |
+
+    When I open the footer nav section with title "Level 1 - Item 1"
+    Then the footer nav section with title "Level 1 - Item 2" should have the following links
+      | text             | url             |
+      | Level 1 - Item 2 | /level-1-item-2 |

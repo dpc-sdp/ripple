@@ -1,4 +1,4 @@
-import { Then, DataTable } from '@badeball/cypress-cucumber-preprocessor'
+import { Then, DataTable, When } from '@badeball/cypress-cucumber-preprocessor'
 
 Then('the page title should be {string}', (title: string) => {
   cy.title().should('equal', title)
@@ -103,6 +103,25 @@ Then(
     })
   }
 )
+
+Then(
+  'the footer nav section with title {string} should link to {string}',
+  (title: string, link: string) => {
+    cy.get('.rpl-footer-nav-section__title a')
+      .contains(title)
+      .should('have.attr', 'href', link)
+  }
+)
+
+When(
+  'I open the footer nav section with title {string}',
+  (sectionTitle: string) => {
+    cy.get('.rpl-footer-nav-section button')
+      .contains('h3', sectionTitle)
+      .click()
+  }
+)
+
 Then(
   'the footer nav should have the following single level items',
   (dataTable: DataTable) => {

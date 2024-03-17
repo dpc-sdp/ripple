@@ -28,6 +28,7 @@ describe('RplTabs', () => {
     cy.get('@onChangeSpy').should('have.been.calledWith', {
       action: 'select',
       id: 'two',
+      key: 'two',
       text: 'Two'
     })
   })

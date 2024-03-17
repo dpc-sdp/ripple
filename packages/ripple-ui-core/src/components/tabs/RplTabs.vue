@@ -47,6 +47,7 @@ const updateActive = (key: string) => {
     {
       action: 'select',
       id: key,
+      key,
       text: props.tabs.find((tab) => tab.key === key)?.title
     },
     { global: true }

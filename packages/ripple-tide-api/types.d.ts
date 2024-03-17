@@ -288,7 +288,7 @@ export function getBody(body: any): string
 export function getBodyFromField(
   field: string,
   path: string | string[],
-  fallback: any
+  fallback?: any
 ): string
 export function getField(
   field: string,

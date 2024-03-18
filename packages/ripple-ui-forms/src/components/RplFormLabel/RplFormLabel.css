@@ -1,15 +1,15 @@
 .rpl-form-label {
   display: inline-block;
-  font-size: var(--rpl-type-size-2);
-  font-weight: var(--rpl-type-weight-bold);
-  line-height: var(--rpl-type-lh-4);
-  letter-spacing: var(--rpl-type-ls-1);
   margin-bottom: var(--rpl-sp-4);
   vertical-align: middle;
 }
 
+.rpl-form-label__inner {
+  margin-right: var(--rpl-sp-2);
+}
+
 .rpl-form-label__required {
   color: var(--rpl-clr-error);
-  margin-left: var(--rpl-sp-1);
   font-weight: var(--rpl-type-weight-regular);
+  line-height: inherit;
 }

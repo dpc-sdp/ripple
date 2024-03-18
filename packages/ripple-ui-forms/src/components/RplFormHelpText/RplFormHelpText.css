@@ -8,4 +8,8 @@
     line-height: var(--rpl-type-lh-3);
     letter-spacing: var(--rpl-type-ls-1);
   }
+
+  .rpl-form-label + & {
+    margin-top: calc(var(--rpl-sp-3) * -1);
+  }
 }

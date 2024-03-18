@@ -191,6 +191,16 @@ function onMapMove(evt) {
   }
 }
 
+// close popup when new features change
+watch(
+  () => props.features,
+  () => {
+    if (popup.value.isOpen) {
+      popup.value.isOpen = false
+    }
+  }
+)
+
 const hideNoResults = ref(false)
 
 function onNoResultsDismiss() {

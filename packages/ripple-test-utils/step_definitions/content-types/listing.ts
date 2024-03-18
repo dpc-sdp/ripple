@@ -164,8 +164,7 @@ Then('the search error message should be displayed', () => {
 Then(
   `the search listing dropdown field labelled {string} should have the value {string}`,
   (label: string, value: string) => {
-    cy.get(`label`)
-      .contains(label)
+    cy.contains('label', label)
       .invoke('attr', 'for')
       .then((dropdownId) => {
         cy.get(`#${dropdownId}`).as('selectedDropdown')
@@ -221,8 +220,7 @@ When(
 When(
   `I click the search listing dropdown field labelled {string}`,
   (label: string) => {
-    cy.get(`label`)
-      .contains(label)
+    cy.contains('label', label)
       .invoke('attr', 'for')
       .then((dropdownId) => {
         cy.get(`#${dropdownId}`).as('selectedDropdown').click()
@@ -233,8 +231,7 @@ When(
 When(
   `the search listing dropdown field labelled {string} should be disabled`,
   (label: string) => {
-    cy.get(`label`)
-      .contains(label)
+    cy.contains('label', label)
       .invoke('attr', 'for')
       .then((dropdownId) => {
         cy.get(`#${dropdownId}`).should('have.attr', 'disabled')

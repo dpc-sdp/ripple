@@ -24,7 +24,7 @@
           <component
             :is="popup.title.component"
             v-if="popup.title.component"
-            :selectedFeature="selectedFeatures[0]"
+            :feature="selectedFeatures[0]"
           ></component>
           <span v-else-if="popup.title.objKey">
             {{ getTitle(selectedFeatures[0]) }}

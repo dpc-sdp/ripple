@@ -88,6 +88,7 @@ const cardClasses = computed(() =>
 )
 
 const searchResultsMappingFn = (item): any => {
+  const { $app_origin } = useNuxtApp()
   const rawUpdated = item.changed?.raw?.[0]
   const rawImage = item.field_media_image_absolute_path?.raw?.[0]
 
@@ -96,7 +97,7 @@ const searchResultsMappingFn = (item): any => {
     props: {
       el: 'li',
       title: item.title?.raw?.[0],
-      url: item.url?.raw?.[0].replace(/\/site-(\d+)/, ''),
+      url: item.url?.raw?.[0].replace(/\/site-(\d+)/, $app_origin || ''),
       image:
         props.display.style === 'thumbnail' && rawImage
           ? { src: rawImage }

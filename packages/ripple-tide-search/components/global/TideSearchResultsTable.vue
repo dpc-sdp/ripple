@@ -14,6 +14,7 @@
 
 <script setup lang="ts">
 import { computed, getSearchResultValue } from '#imports'
+import type { TideSearchListingResultItem } from './../../types'
 
 type tableColumnConfig = {
   label: string
@@ -42,7 +43,7 @@ type tableExtraContentConfig = {
 }
 
 interface Props {
-  results: Record<string, unknown>[]
+  results: TideSearchListingResultItem[]
   offset?: number
   columns: tableColumnConfig[]
   headingType?: tableHeadingTypeConfig
@@ -76,11 +77,7 @@ const getExtraContent = (result: any) => {
         props: { component: item?.component, props: item?.props }
       }))
       .filter((item) => {
-        const value = getSearchResultValue(
-          result?._source,
-          item.objectKey,
-          true
-        )
+        const value = getSearchResultValue(result, item.objectKey, true)
         return Array.isArray(value) ? value.length : value
       })
 
@@ -92,11 +89,11 @@ const getExtraContent = (result: any) => {
 }
 
 const items = computed(() => {
-  return (props.results || []).map((result) => {
+  return (props.results || []).map((item) => {
     return {
-      id: result._id,
-      __extraContent: getExtraContent(result),
-      ...(result._source as Record<string, unknown>)
+      id: item.id,
+      __extraContent: getExtraContent(item.props?.result),
+      ...(item.props?.result as Record<string, unknown>)
     }
   })
 })

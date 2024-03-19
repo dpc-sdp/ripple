@@ -1,7 +1,11 @@
 @import '@dpc-sdp/ripple-ui-core/style/breakpoints';
 
 .rpl-map {
-  --local-map-side-panel-width: 280px;
+  --local-map-side-panel-width: 260px;
+
+  @media (--rpl-bp-xl) {
+    --local-map-side-panel-width: 300px;
+  }
 
   position: relative;
   display: flex;
@@ -12,8 +16,8 @@
     flex-direction: row;
   }
 
-    /* Magic number to account for the height of the zoom controls, which are positioned absolutely */
-    --local-zoom-controls-height: 88px;
+  /* Magic number to account for the height of the zoom controls, which are positioned absolutely */
+  --local-zoom-controls-height: 88px;
 }
 
 .rpl-map__map {
@@ -121,8 +125,6 @@
     fill: currentcolor;
   }
 
-
-
   /* Margin + zoom controls height + button spacing */
   bottom: calc(
     var(--rpl-sp-2) + var(--local-zoom-controls-height) + var(--rpl-sp-2)
@@ -154,6 +156,7 @@
     top: var(--rpl-sp-5);
   }
 }
+
 .rpl-map__noresults-cancel {
   position: absolute;
   right: var(--rpl-sp-4);

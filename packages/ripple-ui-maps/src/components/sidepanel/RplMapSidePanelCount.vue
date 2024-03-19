@@ -5,7 +5,7 @@
       :pagingEnd="pagingEnd"
       :totalResults="totalResults"
     >
-      <p class="rpl-type-label">
+      <p class="rpl-type-label-small">
         Displaying {{ pagingStart }}-{{ pagingEnd }} of
         {{ totalResults }} results
       </p>

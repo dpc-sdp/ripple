@@ -38,8 +38,12 @@ const descriptionClass = computed(() => ({
 
 <template>
   <div
-    v-if="inline"
-    :class="{ 'rpl-description-list__inline-wrap': true, ...iconClasses }"
+    v-if="inline || variant === 'compact'"
+    :class="{
+      'rpl-description-list__inline-wrap': inline,
+      'rpl-description-list__compact-wrap': variant === 'compact',
+      ...iconClasses
+    }"
   >
     <dt class="rpl-description-list__term">
       <RplIcon

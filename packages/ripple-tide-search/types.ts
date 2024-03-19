@@ -81,7 +81,7 @@ export type TideSearchListingResultItem = {
   /**
    * @description name of Vue component (globally imported) to render result
    */
-  component: string
+  component?: string
   /**
    * @description optionally pass props to component (useful for configuring an existing component)
    */
@@ -136,6 +136,10 @@ export type TideSearchListingMapConfig = {
    * to the nearest item.
    */
   onResultsHook?: string
+  sidePanel?: {
+    enabled: boolean
+    resultsComponent?: string
+  }
   props?: {
     [key: string]: unknown
   }

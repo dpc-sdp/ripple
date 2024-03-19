@@ -12,16 +12,15 @@
 <script setup lang="ts">
 import { RplPagination } from '@dpc-sdp/ripple-ui-core/vue'
 import { rplEventPayload, useRippleEvent } from '@dpc-sdp/ripple-ui-core'
-import { nextTick } from 'vue'
 
 interface Props {
   currentPage: number
   totalPages: number
-  scrollToSelector: string
+  scrollParentSelector: string
 }
 
-const props = withDefaults(defineProps<Props>(), {
-  scrollToSelector: '.rpl-map-side-panel__wrapper'
+withDefaults(defineProps<Props>(), {
+  scrollParentSelector: '.rpl-map-side-panel__wrapper'
 })
 
 const emit = defineEmits<{
@@ -34,17 +33,6 @@ const emit = defineEmits<{
 const { emitRplEvent } = useRippleEvent('rpl-map-side-panel', emit)
 
 const handlePageChange = async (event) => {
-  const scrollToElement = document.querySelector(props.scrollToSelector)
-
   emitRplEvent('paginate', event, { global: true })
-
-  if (scrollToElement) {
-    await nextTick()
-    scrollToElement.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: 'smooth'
-    })
-  }
 }
 </script>

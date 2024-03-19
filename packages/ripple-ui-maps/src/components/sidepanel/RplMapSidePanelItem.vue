@@ -3,7 +3,7 @@
     :is="el"
     :class="{
       'rpl-map-side-panel__item': true,
-      'rpl-map-side-panel__item--active': activeId === data?.id
+      'rpl-map-side-panel__item--active': isActive
     }"
   >
     <div
@@ -14,7 +14,7 @@
     </div>
     <RplButton
       variant="none"
-      class="rpl-map-side-panel__item-title rpl-type-p-large-fixed"
+      class="rpl-map-side-panel__item-title rpl-type-p"
       @click="handleClick"
     >
       {{ title }}
@@ -35,13 +35,13 @@ import { rplEventPayload, useRippleEvent } from '@dpc-sdp/ripple-ui-core'
 interface Props {
   el?: string
   title: string
-  activeId?: string | number
+  isActive?: boolean
   data?: any
 }
 
 const props = withDefaults(defineProps<Props>(), {
   el: 'li',
-  activeId: undefined,
+  isActive: false,
   data: undefined
 })
 
@@ -55,3 +55,5 @@ const handleClick = () => {
   emitRplEvent('click', { action: 'click', value: props.data })
 }
 </script>
+
+<style src="./RplMapSidePanel.css"></style>

@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import { RplIcon } from '@dpc-sdp/ripple-ui-core/vue'
+import { bpMin } from '@dpc-sdp/ripple-ui-core'
 import type { IRplMapFeature } from './../../types'
 import { onMounted, onUnmounted, ref, inject, computed, watch } from 'vue'
-import { useFullscreen } from '@vueuse/core'
+import { useFullscreen, useBreakpoints } from '@vueuse/core'
+import { withDefaults, defineProps, defineExpose } from '@vue/composition-api'
 import { Map } from 'ol'
 import { Point } from 'ol/geom'
 import Icon from 'ol/style/Icon'
@@ -29,6 +31,7 @@ interface Props {
   pinStyle?: Function
   mapHeight?: number
   popupType?: 'sidebar' | 'popover'
+  hasSidePanel?: boolean
   noresults?: boolean
 }
 
@@ -39,6 +42,7 @@ const props = withDefaults(defineProps<Props>(), {
   initialZoom: 7.3,
   mapHeight: 600,
   popupType: 'sidebar',
+  hasSidePanel: false,
   initialCenter: () => [144.9631, -36.8136], // melbourne CBD
   pinStyle: (feature) => {
     let color = feature.color || 'red'
@@ -55,6 +59,9 @@ const props = withDefaults(defineProps<Props>(), {
   noresults: false
 })
 
+const breakpoints = useBreakpoints(bpMin)
+const isMobile = breakpoints.smaller('m')
+
 const zoom = ref(props.initialZoom)
 const rotation = ref(0)
 const view = ref(null)
@@ -70,6 +77,43 @@ onMounted(() => {
 
 onUnmounted(() => {
   setRplMapRef(null)
+})
+
+const activatePin = (coordinates, featureProperties, zoom) => {
+  const map = mapRef.value.map
+
+  const pinStyle = props.pinStyle(featureProperties)
+  const pinColor =
+    typeof pinStyle === 'string' ? pinStyle : pinStyle?.getColor()
+
+  popup.value.feature = [featureProperties]
+  popup.value.color = asString(pinColor)
+  popup.value.isOpen = true
+  popup.value.isArea = false
+  popup.value.position = coordinates
+
+  // Default offset for the 'popover' popup type
+  let offset = { x: 0, y: -100 }
+
+  if (props.popupType === 'sidebar') {
+    offset = { x: -160, y: 0 }
+  }
+
+  if (props.hasSidePanel) {
+    if (isMobile.value) {
+      offset = { x: 0, y: 0 }
+    } else if (props.popupType === 'sidebar') {
+      offset = { x: -300, y: 0 }
+    } else if (props.popupType === 'popover') {
+      offset = { x: -150, y: -100 }
+    }
+  }
+
+  centerMap(map, coordinates, offset, zoom)
+}
+
+defineExpose({
+  activatePin
 })
 
 const center = computed(() => {
@@ -149,18 +193,8 @@ function onMapSingleClick(evt) {
       const clickedFeature = point.features[0]
       const coordinates = clickedFeature.getGeometry().flatCoordinates
       const featureProperties = clickedFeature.getProperties()
-      const pinStyle = props.pinStyle(featureProperties)
-      const pinColor =
-        typeof pinStyle === 'string' ? pinStyle : pinStyle?.getColor()
-      popup.value.feature = [featureProperties]
-      popup.value.color = asString(pinColor)
-      popup.value.isOpen = true
-      popup.value.isArea = false
-      popup.value.position = coordinates
 
-      const offset =
-        props.popupType === 'sidebar' ? { y: 0, x: -160 } : { y: -100, x: 0 }
-      centerMap(map, coordinates, offset)
+      activatePin(coordinates, featureProperties, null)
     }
   }
 
@@ -210,8 +244,18 @@ const noResultsRef = ref(null)
 </script>
 
 <template>
-  <div class="rpl-map">
-    <slot v-if="$slots.sidepanel" name="sidepanel" :mapHeight="mapHeight" />
+  <slot
+    v-if="hasSidePanel && $slots.sidepanelMobile"
+    name="sidepanelMobile"
+    :mapHeight="mapHeight"
+    :selectedFeatures="popup.feature"
+  />
+  <div
+    :class="{
+      'rpl-map': true,
+      'rpl-map--has-sidepanel': hasSidePanel
+    }"
+  >
     <div
       v-if="noresults && !hideNoResults"
       class="rpl-map__noresults"
@@ -254,7 +298,9 @@ const noResultsRef = ref(null)
 
       <!-- This enlarged pin is rendered for the sidebar/fixed popup style only -->
       <ol-vector-layer
-        v-if="popupType === 'sidebar' && popup.isOpen"
+        v-if="
+          (popupType === 'sidebar' || popupType === 'sidepanel') && popup.isOpen
+        "
         :zIndex="5"
       >
         <ol-source-vector>
@@ -338,6 +384,12 @@ const noResultsRef = ref(null)
       </div>
 
       <slot
+        v-if="hasSidePanel && $slots.sidepanel"
+        name="sidepanel"
+        :mapHeight="mapHeight"
+      />
+
+      <slot
         v-if="popupType === 'sidebar'"
         name="sidebar"
         :popupIsOpen="popup.isOpen"
@@ -357,7 +409,6 @@ const noResultsRef = ref(null)
             </slot>
           </template>
           <slot name="popupContent" :selectedFeatures="popup.feature">
-            {{ popup.feature }}
             <p class="rpl-type-p-small">
               {{ popup.feature[0].description }}
             </p>

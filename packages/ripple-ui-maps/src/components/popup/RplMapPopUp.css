@@ -1,6 +1,7 @@
 @import '@dpc-sdp/ripple-ui-core/style/breakpoints';
 
-.rpl-map-popup {
+.rpl-map-popup--popover,
+.rpl-map-popup--sidebar {
   position: absolute;
   height: calc(600px - var(--rpl-sp-4) * 2);
   background-color: var(--rpl-clr-light);
@@ -20,8 +21,17 @@
   }
 }
 
-.rpl-map-side-panel ~ .rpl-map__map .rpl-map-popup--sidebar {
-  @media (--rpl-bp-m) {
+.rpl-map--has-sidepanel {
+  .rpl-map-popup--sidebar,
+  .rpl-map-popup--popover {
+    display: none;
+
+    @media (--rpl-bp-m) {
+      display: block;
+    }
+  }
+
+  .rpl-map-popup--sidebar {
     left: var(--local-map-side-panel-width);
   }
 }
@@ -63,7 +73,8 @@
 .rpl-map-popup__header {
   display: flex;
   flex-direction: row;
-  align-items: baseline;
+  align-items: flex-start;
+  justify-content: space-between;
   column-gap: var(--rpl-sp-6);
   color: var(--rpl-clr-dark);
   background-color: var(--rpl-clr-neutral-200);
@@ -72,14 +83,16 @@
   border-radius: var(--rpl-border-radius-2) var(--rpl-border-radius-2) 0 0;
 }
 
+.rpl-map-popup--standalone .rpl-map-popup__header {
+  justify-content: flex-start;
+}
+
 .rpl-map-popup__close {
-  margin-left: auto;
   border-radius: var(--rpl-border-radius-3);
-  height: var(--rpl-sp-6);
-  width: var(--rpl-sp-6);
 
   .rpl-icon {
     color: var(--rpl-clr-primary);
+    margin: var(--rpl-sp-1);
   }
 
   &:focus {
@@ -158,16 +171,19 @@
   }
 }
 
-.rpl-map-pop-up-scroll-container {
-  max-height: 300px;
-  overflow-y: auto;
-  background: linear-gradient(white 33%, rgb(255 255 255 / 0%)),
-    linear-gradient(to bottom, rgb(26 26 26 / 16%), transparent);
-  background-color: white;
-  background-repeat: no-repeat;
-  background-attachment: local, scroll;
-  background-size: 100% 50px, 100% 10px;
-  border-radius: 0 0 var(--rpl-border-radius-2) var(--rpl-border-radius-2);
+.rpl-map-popup--sidebar,
+.rpl-map-popup--popover {
+  .rpl-map-pop-up-scroll-container {
+    max-height: 300px;
+    overflow-y: auto;
+    background: linear-gradient(white 33%, rgb(255 255 255 / 0%)),
+      linear-gradient(to bottom, rgb(26 26 26 / 16%), transparent);
+    background-color: white;
+    background-repeat: no-repeat;
+    background-attachment: local, scroll;
+    background-size: 100% 50px, 100% 10px;
+    border-radius: 0 0 var(--rpl-border-radius-2) var(--rpl-border-radius-2);
+  }
 }
 
 .rpl-map-popup--sidebar {
@@ -198,4 +214,10 @@
       );
     }
   }
+}
+
+.rpl-map-popup--standalone {
+  position: static;
+  border-bottom: var(--rpl-border-1) solid var(--rpl-clr-neutral-300);
+  margin-bottom: var(--rpl-sp-5);
 }

@@ -121,11 +121,17 @@ const searchResultsMappingFn = (item): TideSearchListingResultItem => {
       }
     }
   }
-  return item
+
+  return {
+    id: item._id,
+    props: {
+      result: item._source
+    }
+  }
 }
 
 const mapResultsMappingFn = (result) => {
-  const location = get(result, props.mapConfig.props.locationObjPath)
+  const location = get(result._source, props.mapConfig.props.locationObjPath)
   if (location && props.mapConfig && result._source) {
     const locationLatLng = location.split(',')
     return {
@@ -520,8 +526,8 @@ const reverseFields = computed(
       <TideSearchResultsLoadingState :isActive="isBusy">
         <TideSearchError v-if="searchError" class="rpl-u-margin-t-8" />
         <TideCustomCollectionNoResults
-          class="rpl-u-margin-t-8 rpl-u-margin-b-8"
           v-else-if="!isBusy && !results?.length"
+          class="rpl-u-margin-t-8 rpl-u-margin-b-8"
         />
 
         <component
@@ -551,9 +557,46 @@ const reverseFields = computed(
         :areas="mapAreas"
         v-bind="mapConfig?.props"
         :noresults="!isBusy && !results?.length"
+        :hasSidePanel="mapConfig?.sidePanel?.enabled"
       >
         <template #noresults>
           <TideCustomCollectionNoResults v-if="!isBusy && !results?.length" />
+        </template>
+
+        <template #sidepanel="{ activatePin }">
+          <TideSearchListingResultsMapSidepanel
+            variant="desktop"
+            :popup="popup"
+            :mapConfig="mapConfig"
+            :results="results"
+            :activatePin="activatePin"
+            :isBusy="isBusy"
+            :isStandalone="true"
+            :pagingStart="pagingStart + 1"
+            :pagingEnd="pagingEnd + 1"
+            :totalResults="totalResults"
+            :currentPage="page"
+            :totalPages="totalPages"
+            @paginate="handlePageChange"
+          />
+        </template>
+
+        <template #sidepanelMobile="{ activatePin }">
+          <TideSearchListingResultsMapSidepanel
+            variant="mobile"
+            :popup="popup"
+            :mapConfig="mapConfig"
+            :results="results"
+            :activatePin="activatePin"
+            :isBusy="isBusy"
+            :isStandalone="true"
+            :pagingStart="pagingStart + 1"
+            :pagingEnd="pagingEnd + 1"
+            :totalResults="totalResults"
+            :currentPage="page"
+            :totalPages="totalPages"
+            @paginate="handlePageChange"
+          />
         </template>
       </TideSearchListingResultsMap>
     </template>

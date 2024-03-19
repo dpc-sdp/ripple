@@ -109,6 +109,10 @@
         {
           "text": "Test link 3",
           "url": "/sdpta-accordion-landing-page-fixture"
+        },
+        {
+          "text": "Test link external",
+          "url": "https://www.vic.gov.au/"
         }
       ],
       "more": {

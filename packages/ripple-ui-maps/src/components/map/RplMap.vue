@@ -191,6 +191,14 @@ function onMapMove(evt) {
   }
 }
 
+function handleHomeClick() {
+  onHomeClick()
+  onPopUpClose()
+}
+
+// close popup when new features change
+watch(() => props.features, onPopUpClose)
+
 const hideNoResults = ref(false)
 
 function onNoResultsDismiss() {
@@ -314,7 +322,7 @@ const noResultsRef = ref(null)
         </button>
       </div>
       <div class="rpl-map__control rpl-map__control-home">
-        <button title="Centre map" @click="onHomeClick">
+        <button title="Centre map" @click="handleHomeClick">
           <RplIcon name="icon-home"></RplIcon>
         </button>
       </div>

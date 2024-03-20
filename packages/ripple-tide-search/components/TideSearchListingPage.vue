@@ -479,7 +479,9 @@ watch(
     </template>
     <template #belowBody>
       <RplPageComponent v-if="contentPage.secondaryCampaign">
-        <RplSecondaryCampaign v-bind="contentPage.secondaryCampaign as any" />
+        <TideLandingPageSecondaryCampaignBanner
+          :campaign="contentPage.secondaryCampaign"
+        />
       </RplPageComponent>
     </template>
   </TideBaseLayout>

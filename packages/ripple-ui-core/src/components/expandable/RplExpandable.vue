@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed, ref, onMounted } from 'vue'
 import { useComputedSpeed } from '../../composables/useComputedSpeed'
 
 interface Props {
@@ -11,6 +11,7 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 const containerRef = ref(null)
+const startExpanded = ref(false)
 const duration = useComputedSpeed(containerRef, '--rpl-motion-speed-9', 420)
 
 function onBeforeEnter(el: any) {
@@ -47,8 +48,15 @@ function onLeave(el: any, done: Function) {
 
 const classes = computed(() => ({
   'rpl-expandable': true,
-  'rpl-expandable--open': props.expanded
+  'rpl-expandable--open': props.expanded,
+  'rpl-expandable--start-expanded': startExpanded.value
 }))
+
+onMounted(() => {
+  if (props.expanded) {
+    startExpanded.value = true
+  }
+})
 </script>
 
 <template>
@@ -77,7 +85,7 @@ const classes = computed(() => ({
   }
 }
 
-.rpl-expandable--open {
+.rpl-expandable--start-expanded {
   height: auto;
   overflow: initial;
 }

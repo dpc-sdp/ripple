@@ -288,6 +288,7 @@ const handleSearchSubmit = (event) => {
   } else {
     // If there's no filters in the form, we need to just do the search without submitting the filter form
     submitSearch()
+    closeMapPopup()
     emitSearchEvent({ ...event, ...baseEvent() })
   }
 }
@@ -295,6 +296,7 @@ const handleSearchSubmit = (event) => {
 const handleFilterSubmit = (event) => {
   filterForm.value = event.value
   submitSearch()
+  closeMapPopup()
 
   emitSearchEvent({ ...event, ...cachedSubmitEvent.value, ...baseEvent() })
 
@@ -316,6 +318,7 @@ const handleFilterReset = (event: rplEventPayload) => {
   filterForm.value = {}
   locationQuery.value = null
   submitSearch()
+  closeMapPopup()
 }
 
 const handleUpdateSearchTerm = (term) => {
@@ -383,6 +386,7 @@ const toggleFiltersLabel = computed(() => {
 
 const handleTabChange = (tab: TideSearchListingTab) => {
   changeActiveTab(tab.key)
+  closeMapPopup()
 }
 
 function handleLocationSearch(payload: any) {
@@ -403,6 +407,11 @@ provide('rplMapInstance', {
 })
 function setRplMapRef(mapInstance: any) {
   rplMapRef.value = mapInstance
+}
+function closeMapPopup() {
+  if (popup.value.isOpen) {
+    popup.value.isOpen = false
+  }
 }
 
 const mapFeatures = computed(() => {

@@ -196,9 +196,6 @@ function handleHomeClick() {
   onPopUpClose()
 }
 
-// close popup when new features change
-watch(() => props.features, onPopUpClose)
-
 const hideNoResults = ref(false)
 
 function onNoResultsDismiss() {

@@ -46,7 +46,7 @@ const onClick = () => {
       class="rpl-document__link rpl-u-focusable-within"
       :href="url"
       :download="download"
-      :target="openInNewWindow ? '_blank' : null"
+      :target="openInNewWindow ? '_blank' : undefined"
       @click="onClick"
     >
       <div v-if="$slots.icon" class="rpl-document__icon">

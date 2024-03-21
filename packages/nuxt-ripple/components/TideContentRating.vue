@@ -50,6 +50,7 @@ onMounted(() => {
                   label="Was this page helpful?"
                   layout="inline"
                   value=""
+                  :pii="false"
                   :options="[
                     { id: 'Yes', label: 'Yes', value: 'Yes' },
                     { id: 'No', label: 'No', value: 'No' }

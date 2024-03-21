@@ -12,7 +12,7 @@ Use the File component to let users download an attachment. It is accompanied by
 File is made up of:
 
 - the file name
-- metadata including file type, size and updated date
+- metadata including file type and size
 - a document description.
 
 ::DocsExample

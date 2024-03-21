@@ -10,6 +10,7 @@ import { FormKit } from '@formkit/vue'
 import { SearchDriverOptions } from '@elastic/search-ui'
 import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
 import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
+import { stripSiteId } from '@dpc-sdp/ripple-tide-api'
 
 interface Props {
   id: string
@@ -50,7 +51,7 @@ const props = withDefaults(defineProps<Props>(), {
       component: 'TideAppSearchResult',
       props: {
         title: item.title?.raw?.[0],
-        url: item.url?.raw?.[0].replace(/\/site-(\d+)/, ''),
+        url: stripSiteId(item.url?.raw?.[0]),
         updated: item.changed?.raw?.[0]
       }
     }

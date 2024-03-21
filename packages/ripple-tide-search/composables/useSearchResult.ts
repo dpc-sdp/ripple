@@ -1,5 +1,6 @@
 import { computed } from 'vue'
 import { getSearchResultValue, truncateText } from '#imports'
+import { stripSiteId } from '@dpc-sdp/ripple-tide-api'
 
 interface ResultOptions {
   summaryMaxLength: number | null
@@ -15,10 +16,7 @@ export default (result, options: ResultOptions = { summaryMaxLength: 150 }) => {
       return externalURL
     }
 
-    return getSearchResultValue(result, 'url').replace(
-      /\/site-(\d+)/,
-      $app_origin || ''
-    )
+    return stripSiteId(getSearchResultValue(result, 'url'), $app_origin || '')
   })
   const updated = computed(() => {
     const rawDate = getSearchResultValue(result, 'changed')

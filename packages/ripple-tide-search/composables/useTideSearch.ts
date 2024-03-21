@@ -709,7 +709,7 @@ export default ({
   const getLocationQueryFromRoute = (newRoute: RouteLocation) => {
     // parse the location query from the route
     const location = Object.keys(newRoute.query)
-      .filter((key) => key.startsWith('location'))
+      .filter((key) => key.startsWith('location['))
       .reduce((obj, key) => {
         return {
           ...obj,

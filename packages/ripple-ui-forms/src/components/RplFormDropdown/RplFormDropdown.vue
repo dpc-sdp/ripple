@@ -207,6 +207,10 @@ const isOptionSelected = (optionValue) => {
   if (props.multiple) {
     return (props.value || []).includes(optionValue)
   } else {
+    if (!optionValue && !props.value) {
+      return true
+    }
+
     return props.value === optionValue
   }
 }
@@ -252,6 +256,10 @@ const selectedOptions = computed(() => {
 })
 
 const singleValueDisplay = computed((): string => {
+  if (emptyOption.value && !props.value) {
+    return emptyOption.value.label
+  }
+
   const selectedOption = (props.options || []).find(
     (opt) => props.value === opt.value
   )
@@ -265,6 +273,10 @@ const hasValue = computed((): boolean => {
   } else {
     return !!props.value
   }
+})
+
+const emptyOption = computed(() => {
+  return props.options.find((opt) => !opt.value)
 })
 </script>
 
@@ -309,7 +321,7 @@ const hasValue = computed((): boolean => {
       @keydown.space.prevent="handleToggle(true)"
     >
       <span
-        v-if="!hasValue"
+        v-if="!hasValue && !emptyOption"
         class="rpl-form-dropdown-input__placeholder rpl-type-p"
         >{{ placeholder }}</span
       >

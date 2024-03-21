@@ -1,7 +1,8 @@
-import { boundingExtent } from 'ol/extent'
+import { boundingExtent, Extent } from 'ol/extent'
 import { transform, transformExtent } from 'ol/proj'
 import { getDistance } from 'ol/sphere'
 import { inAndOut } from 'ol/easing'
+import Map from 'ol/Map'
 
 export const haversineDistance = (coord1, coord2) => getDistance(coord1, coord2)
 
@@ -36,7 +37,8 @@ export const zoomToClusterExtent = (
   popup,
   map,
   projection = 'EPSG:3857',
-  thresholdDistance = 20
+  thresholdDistance = 20,
+  deadSpace
 ) => {
   const clusterExtentCoordinates = features.map((f) => {
     const geo = f.getGeometry()
@@ -73,15 +75,10 @@ export const zoomToClusterExtent = (
           )
         : boundingExtent(clusterExtentCoordinates)
 
-    const mapSize = map.getSize()
-    if (mapSize) {
-      map.getView().fit(zoomRegion, {
-        size: mapSize,
-        easing: inAndOut,
-        duration: 800,
-        padding: [100, 100, 100, 100]
-      })
-    }
+    fitExtent(map, zoomRegion, deadSpace, {
+      padding: 100,
+      animationDuration: 0
+    })
   }
 }
 
@@ -108,4 +105,56 @@ export const centerMap = (
     easing: inAndOut,
     zoom: zoom || view.getZoom()
   })
+}
+
+type MapDeadSpace = {
+  top?: number
+  bottom?: number
+  left?: number
+  right?: number
+}
+
+export const fitExtent = (
+  map: Map,
+  extent: Extent,
+  _deadSpace?: MapDeadSpace,
+  {
+    animationDuration = 0,
+    padding = 12
+  }: { animationDuration?: number; padding?: number } = {}
+) => {
+  const defaultDeadSpace = {
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0
+  }
+
+  if (!map || !extent) {
+    return
+  }
+
+  const deadSpace = {
+    ...defaultDeadSpace,
+    ...(_deadSpace || {})
+  }
+
+  map.getView().fit(extent, {
+    easing: inAndOut,
+    duration: animationDuration,
+    padding: [
+      padding + deadSpace.top,
+      padding + deadSpace.right,
+      padding + deadSpace.bottom,
+      padding + deadSpace.left
+    ]
+  })
+}
+
+export const fitVictoria = (map: Map, deadSpace?: MapDeadSpace) => {
+  const victoriaBoundingBox = [
+    15691021.8303, -4740581.4984, 16695098.6338, -4026353.9061
+  ]
+
+  fitExtent(map, victoriaBoundingBox, deadSpace)
 }

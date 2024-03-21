@@ -54,7 +54,10 @@
 
 <script setup lang="ts">
 import { get } from 'lodash-es'
-import { fromLonLat } from 'ol/proj'
+import { fromLonLat, transformExtent } from 'ol/proj'
+import { Extent } from 'ol/extent'
+import { scrollToElementTopWithOffset } from '#imports'
+import { fitExtent, fitVictoria } from '@dpc-sdp/ripple-ui-maps'
 
 interface Props {
   variant: 'mobile' | 'desktop'
@@ -86,8 +89,9 @@ const emit = defineEmits<{
   ): void
 }>()
 
-const { popup } = inject('rplMapInstance')
+const { rplMapRef, popup, deadSpace } = inject('rplMapInstance')
 
+const route = useRoute()
 const mobilePopupRef = ref(null)
 
 const handleSidePanelClick = async (item, activatePin) => {
@@ -96,12 +100,36 @@ const handleSidePanelClick = async (item, activatePin) => {
     props.mapConfig?.props?.locationObjPath
   )
 
-  if (location && props.mapConfig && item.props) {
-    const locationLatLng = location.split(',')
-    const lat = parseFloat(locationLatLng[0])
-    const lng = parseFloat(locationLatLng[1])
+  if (item.props) {
+    let coords = null
 
-    activatePin(fromLonLat([lng, lat]), item.props.result)
+    if (location) {
+      const locationLatLng = location.split(',')
+      const lat = parseFloat(locationLatLng[0])
+      const lng = parseFloat(locationLatLng[1])
+      coords = fromLonLat([lng, lat])
+
+      activatePin(item.props.result, coords)
+    } else {
+      popup.value.feature = [item.props.result]
+      popup.value.isOpen = true
+      popup.value.isArea = false
+      popup.value.position = null
+
+      if (route.query['location[bbox]']) {
+        const bbox: Extent = transformExtent(
+          route.query['location[bbox]'].map((val) => parseFloat(val)),
+          'EPSG:4326',
+          'EPSG:3857'
+        )
+
+        await nextTick()
+        fitExtent(rplMapRef.value, bbox, deadSpace.value)
+      } else {
+        await nextTick()
+        fitVictoria(rplMapRef.value, deadSpace.value)
+      }
+    }
   }
 
   await nextTick()

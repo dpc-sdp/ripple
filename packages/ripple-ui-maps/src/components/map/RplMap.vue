@@ -1,9 +1,16 @@
 <script setup lang="ts">
 import { RplIcon } from '@dpc-sdp/ripple-ui-core/vue'
-import { bpMin } from '@dpc-sdp/ripple-ui-core'
 import type { IRplMapFeature } from './../../types'
-import { onMounted, onUnmounted, ref, inject, computed, watch } from 'vue'
-import { useFullscreen, useBreakpoints } from '@vueuse/core'
+import {
+  onMounted,
+  onUnmounted,
+  ref,
+  inject,
+  computed,
+  watch,
+  nextTick
+} from 'vue'
+import { useFullscreen } from '@vueuse/core'
 import { withDefaults, defineProps, defineExpose } from '@vue/composition-api'
 import { Map } from 'ol'
 import { Point } from 'ol/geom'
@@ -20,8 +27,9 @@ import useMapControls from './../../composables/useMapControls.ts'
 import {
   getfeaturesAtMapPixel,
   zoomToClusterExtent,
-  centerMap
-} from './utils.ts'
+  centerMap,
+  fitVictoria
+} from './utils'
 
 interface Props {
   features?: IRplMapFeature[]
@@ -44,6 +52,7 @@ const props = withDefaults(defineProps<Props>(), {
   popupType: 'sidebar',
   hasSidePanel: false,
   initialCenter: () => [144.9631, -36.8136], // melbourne CBD
+  homeViewExtent: () => [144.9631, -36.8136], // melbourne CBD
   pinStyle: (feature) => {
     let color = feature.color || 'red'
     const ic = new Icon({
@@ -59,14 +68,11 @@ const props = withDefaults(defineProps<Props>(), {
   noresults: false
 })
 
-const breakpoints = useBreakpoints(bpMin)
-const isMobile = breakpoints.smaller('m')
-
 const zoom = ref(props.initialZoom)
 const rotation = ref(0)
 const view = ref(null)
 
-const { setRplMapRef, popup } = inject('rplMapInstance')
+const { setRplMapRef, popup, deadSpace } = inject('rplMapInstance')
 
 // Reference to ol/map instance
 const mapRef = ref<{ map: Map } | null>(null)
@@ -79,7 +85,7 @@ onUnmounted(() => {
   setRplMapRef(null)
 })
 
-const activatePin = (coordinates, featureProperties, zoom) => {
+const activatePin = (featureProperties, coordinates, zoom) => {
   const map = mapRef.value.map
 
   const pinStyle = props.pinStyle(featureProperties)
@@ -90,24 +96,22 @@ const activatePin = (coordinates, featureProperties, zoom) => {
   popup.value.color = asString(pinColor)
   popup.value.isOpen = true
   popup.value.isArea = false
+
   popup.value.position = coordinates
 
-  // Default offset for the 'popover' popup type
-  let offset = { x: 0, y: -100 }
+  // Figure out offset based on the amount of space taken up by the sidepanel/sidebar
+  const mapSize = map.getSize()
+  const mapWidth = mapSize ? mapSize[0] : 0
+  const leftDeadSpace = deadSpace.value?.left || 0
+  const remaingingSpaceStart = mapWidth / 2 - leftDeadSpace
+  const remaingingSpaceWidth = mapWidth - leftDeadSpace
+  const xOffset = leftDeadSpace
+    ? remaingingSpaceStart - remaingingSpaceWidth / 2
+    : 0
 
-  if (props.popupType === 'sidebar') {
-    offset = { x: -160, y: 0 }
-  }
+  const yOffset = props.popupType === 'popover' ? -100 : 0
 
-  if (props.hasSidePanel) {
-    if (isMobile.value) {
-      offset = { x: 0, y: 0 }
-    } else if (props.popupType === 'sidebar') {
-      offset = { x: -300, y: 0 }
-    } else if (props.popupType === 'popover') {
-      offset = { x: -150, y: -100 }
-    }
-  }
+  const offset = { x: xOffset, y: yOffset }
 
   centerMap(map, coordinates, offset, zoom)
 }
@@ -139,7 +143,7 @@ const selectedPinStyle = (feature, style) => {
 const { isFullscreen } = useFullscreen()
 
 const { onHomeClick, onZoomInClick, onZoomOutClick, onFullScreenClick } =
-  useMapControls(mapRef, center, props.initialZoom)
+  useMapControls(mapRef)
 
 const mapFeatures = computed(() => {
   if (Array.isArray(props.features)) {
@@ -161,7 +165,7 @@ function onPopUpClose() {
   popup.value.isOpen = false
 }
 
-function onMapSingleClick(evt) {
+async function onMapSingleClick(evt) {
   onNoResultsDismiss()
 
   const map = mapRef.value.map
@@ -186,7 +190,15 @@ function onMapSingleClick(evt) {
         })
       } else {
         // if there are fewer items we zoom into view all items in the cluster
-        zoomToClusterExtent(point.features, popup, map, props.projection)
+        await nextTick()
+        zoomToClusterExtent(
+          point.features,
+          popup,
+          map,
+          props.projection,
+          20,
+          deadSpace.value
+        )
       }
     } else if (point.features.length === 1) {
       // if we click on a pin we open the popup
@@ -194,7 +206,7 @@ function onMapSingleClick(evt) {
       const coordinates = clickedFeature.getGeometry().flatCoordinates
       const featureProperties = clickedFeature.getProperties()
 
-      activatePin(coordinates, featureProperties, null)
+      activatePin(featureProperties, coordinates, null)
     }
   }
 
@@ -239,6 +251,10 @@ watch(
     }
   }
 )
+
+onMounted(() => {
+  fitVictoria(mapRef.value.map, deadSpace.value)
+})
 
 const noResultsRef = ref(null)
 </script>
@@ -290,8 +306,8 @@ const noResultsRef = ref(null)
         :center="center"
         :rotation="rotation"
         :projection="projection"
-        :minZoom="7"
         :zoom="zoom"
+        :minZoom="5"
       />
       <slot name="map-provider"> </slot>
       <slot name="shapes" :mapFeatures="mapFeatures"></slot>
@@ -299,7 +315,9 @@ const noResultsRef = ref(null)
       <!-- This enlarged pin is rendered for the sidebar/fixed popup style only -->
       <ol-vector-layer
         v-if="
-          (popupType === 'sidebar' || popupType === 'sidepanel') && popup.isOpen
+          (popupType === 'sidebar' || popupType === 'sidepanel') &&
+          popup.isOpen &&
+          popup.position
         "
         :zIndex="5"
       >

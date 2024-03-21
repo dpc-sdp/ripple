@@ -1,7 +1,10 @@
+import { inject } from 'vue'
 import { easeOut } from 'ol/easing'
-import { centerMap } from './../components/map/utils.ts'
+import { fitVictoria } from './../components/map/utils.ts'
 
-export default (mapRef, center, initialZoom) => {
+export default (mapRef) => {
+  const { deadSpace } = inject('rplMapInstance')
+
   /**
    * @param {number} delta Zoom delta.
    * @private
@@ -110,7 +113,7 @@ export default (mapRef, center, initialZoom) => {
   }
 
   function onHomeClick() {
-    centerMap(mapRef.value.map, center.value, { y: 0, x: 0 }, initialZoom)
+    fitVictoria(mapRef.value.map, deadSpace.value)
   }
   function onZoomInClick() {
     zoomByDelta(1)

@@ -10,6 +10,7 @@ import type {
 import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
 import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
 import { get } from 'lodash-es'
+import { useMapDeadSpace } from '@dpc-sdp/ripple-ui-maps'
 
 interface Props {
   id: string
@@ -389,11 +390,20 @@ const popup = ref({
   position: [0, 0],
   feature: null
 })
+
+const deadSpace = useMapDeadSpace(
+  props.mapConfig?.sidePanel?.enabled,
+  props.mapConfig?.props?.popupType,
+  popup
+)
+
 provide('rplMapInstance', {
   rplMapRef,
   setRplMapRef,
-  popup
+  popup,
+  deadSpace
 })
+
 function setRplMapRef(mapInstance: any) {
   rplMapRef.value = mapInstance
 }

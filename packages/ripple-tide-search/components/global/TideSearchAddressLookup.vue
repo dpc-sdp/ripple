@@ -36,6 +36,7 @@ import { useDebounceFn } from '@vueuse/core'
 import { inAndOut } from 'ol/easing'
 import { fromLonLat, transformExtent } from 'ol/proj'
 import { Extent } from 'ol/extent'
+import { fitExtent, fitVictoria } from '@dpc-sdp/ripple-ui-maps'
 // TODO must add analytics events
 // import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
 
@@ -66,7 +67,7 @@ const emit = defineEmits<{
   (e: 'update', payload: addressResultType): void
 }>()
 
-const { rplMapRef } = inject('rplMapInstance')
+const { rplMapRef, deadSpace } = inject('rplMapInstance')
 
 const pendingZoomAnimation = ref(false)
 
@@ -134,6 +135,7 @@ const fetchSuggestions = async (query: string) => {
           name: getSingleResultValue(itm._source.name),
           postcode: getSingleResultValue(itm._source.postcode),
           bbox: itm._source.bbox,
+          lga_code: itm._source.lga_code,
           center: center?.length === 2 ? [center[1], center[0]] : undefined
         }
       })
@@ -216,25 +218,15 @@ async function centerMapOnLocation(
         'EPSG:4326',
         'EPSG:3857'
       )
-      const mapSize = map.getSize()
-      if (mapSize) {
-        map.getView().fit(bbox, {
-          size: mapSize,
-          easing: inAndOut,
-          duration: animate ? 800 : 0,
-          padding: [100, 100, 100, 100]
-        })
-      }
+
+      fitExtent(map, bbox, deadSpace.value, {
+        padding: 100,
+        animationDuration: animate ? 800 : 0
+      })
     }
   } else if (!location?.postcode) {
     // reset back to initial view on empty query
-    const center = [144.9631, -36.8136]
-    const initialZoom = 7.3
-    map?.getView().animate({
-      center: fromLonLat(center),
-      duration: 1200,
-      zoom: initialZoom
-    })
+    fitVictoria(map, deadSpace.value)
   }
 }
 </script>

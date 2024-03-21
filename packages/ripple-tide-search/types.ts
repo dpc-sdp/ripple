@@ -28,6 +28,12 @@ export interface FilterConfigItem {
      * Can multiple options be selected?
      */
     multiple: boolean
+    /**
+     * @description if true, this filter won't be sent when getting the aggregrations (dropdown options) from elastic,
+     * this is so that the filter doesn't affect the options available in its own dropdown.
+     * Only relevant if `searchListingConfig.dynamicAggregations` is true
+     */
+    excludeFromAggregations?: boolean
   }
   aggregations?: {
     /**
@@ -202,6 +208,10 @@ export type TideSearchListingConfig = {
      * @description The theme to use for the display of form section and fields
      */
     formTheme: 'default' | 'reverse'
+    /**
+     * @description Whether the filter dropdown options should be dynamic based on the current search results, also displays a count of results for each option
+     */
+    dynamicAggregations?: boolean
   }
   /**
    * @description Filter panel open on page load

@@ -124,13 +124,16 @@ export default ({
     return [{ match_all: {} }]
   }
 
-  const getUserFilterClause = () => {
+  const getUserFilterClause = (forAggregations = false) => {
     const _filters = [] as any[]
     if (globalFilters && globalFilters.length > 0) {
       _filters.push(...globalFilters)
     }
-    if (userFilters.value.length > 0) {
-      _filters.push(...userFilters.value)
+
+    if (forAggregations) {
+      _filters.push(...(userFiltersForAggregations.value || []))
+    } else {
+      _filters.push(...(userFilters.value || []))
     }
     return _filters
   }
@@ -177,7 +180,8 @@ export default ({
               terms: {
                 field: currentFilter.aggregations.field,
                 order: { _key: 'asc' },
-                size: currentFilter.aggregations.size || 30
+                size: currentFilter.aggregations.size || 30,
+                min_doc_count: 0
               }
             }
           }
@@ -239,7 +243,7 @@ export default ({
     ]
   }
 
-  const userFilters = computed(() => {
+  const getUserFilters = (forAggregations = false) => {
     const filterValues: Record<string, any> = {
       ...filterForm.value,
       ...getFallbackValues()
@@ -248,6 +252,11 @@ export default ({
     return Object.keys(filterValues)
       .filter((key: string) => {
         const itm = userFilterConfig.find((itm: any) => itm.id === key)
+
+        if (forAggregations && itm?.filter?.excludeFromAggregations) {
+          return false
+        }
+
         return !!itm?.filter
       })
       .map((key: string) => {
@@ -383,6 +392,14 @@ export default ({
         }
       })
       .filter(Boolean)
+  }
+
+  const userFilters = computed(() => {
+    return getUserFilters()
+  })
+
+  const userFiltersForAggregations = computed(() => {
+    return getUserFilters(true)
   })
 
   const getQueryDSL = async () => {
@@ -401,7 +418,24 @@ export default ({
     }
   }
 
-  const getQueryDSLForAggregations = () => {
+  const getQueryDSLForDynamicAggregations = async () => {
+    const locationFilters = await getLocationFilterClause('listing')
+
+    return {
+      query: {
+        bool: {
+          must: getQueryClause(),
+          filter: [...getUserFilterClause(true), ...locationFilters]
+        }
+      },
+      size: 0,
+      from: 0,
+      sort: getSortClause(),
+      aggs: getAggregations()
+    }
+  }
+
+  const getQueryDSLForStaticAggregations = () => {
     return {
       query: {
         bool: {
@@ -453,13 +487,15 @@ export default ({
       let aggsRequest: Promise<any> = Promise.resolve()
       let mapsRequest: Promise<any> = Promise.resolve()
 
-      if (isFirstRun) {
+      if (isFirstRun || searchListingConfig.dynamicAggregations) {
         // Kick off an 'empty' search in order to get the aggregations (options) for the dropdowns, this
         // is only run once so that the aggregations don't change when filters/search is applied.
 
         aggsRequest = $fetch(searchUrl, {
           method: 'POST',
-          body: getQueryDSLForAggregations()
+          body: searchListingConfig.dynamicAggregations
+            ? await getQueryDSLForDynamicAggregations()
+            : getQueryDSLForStaticAggregations()
         })
       }
 
@@ -479,13 +515,16 @@ export default ({
       totalResults.value = searchResponse?.hits?.total?.value || 0
       results.value = searchResponse.hits?.hits.map(searchResultsMappingFn)
 
-      if (isFirstRun && aggsResponse.aggregations) {
+      if (
+        (isFirstRun || searchListingConfig.dynamicAggregations) &&
+        aggsResponse.aggregations
+      ) {
         const mappedAggs = Object.keys(aggsResponse.aggregations).reduce(
           (aggs, key) => {
             return {
               ...aggs,
               [`${key}`]: aggsResponse.aggregations[key].buckets.map(
-                (bkt) => bkt.key
+                (bkt) => bkt
               )
             }
           },

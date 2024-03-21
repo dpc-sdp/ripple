@@ -1,5 +1,23 @@
 # Changelog
 
+## v2.6.3...release/v2.6.4
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.6.3...release/v2.6.4)
+
+
+### 🚀 Enhancements
+
+  - **@dpc-sdp/nuxt-ripple:** Add pii flag to content rating ([1677a7422](https://github.com/dpc-sdp/ripple-framework/commit/1677a7422))
+
+### 🏡 Chore
+
+  - 🔖  release v2.6.3 ([2215e436e](https://github.com/dpc-sdp/ripple-framework/commit/2215e436e))
+
+### ❤️  Contributors
+
+- David Featherston <david.featherstone@dpc.vic.gov.au>
+- Dylan Kelly <dylan.kelly@dpc.vic.gov.au>
+
 ## v2.6.3
 
 [compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.6.3...v2.6.3)

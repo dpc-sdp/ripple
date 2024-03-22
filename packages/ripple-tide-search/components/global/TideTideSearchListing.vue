@@ -41,7 +41,13 @@ const searchResultsMappingFn = (item: any): TideSearchListingResultItem => {
       }
     }
   }
-  return item
+
+  return {
+    id: item._id,
+    props: {
+      result: item._source
+    }
+  }
 }
 </script>
 

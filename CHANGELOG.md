@@ -1,5 +1,128 @@
 # Changelog
 
+## v2.7.0
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.6.4...v2.7.0)
+
+
+### 🚀 Enhancements
+
+  - **@dpc-sdp/ripple-ui-core:** Add support for custom components in data table extra content ([e8f53e4e7](https://github.com/dpc-sdp/ripple-framework/commit/e8f53e4e7))
+  - **@dpc-sdp/ripple-ui-core:** Add flag for removing vic branding in footer ([3059f2dc6](https://github.com/dpc-sdp/ripple-framework/commit/3059f2dc6))
+  - **@dpc-sdp/ripple-ui-core:** Add icon support for au.linkedin.com ([ede77b76d](https://github.com/dpc-sdp/ripple-framework/commit/ede77b76d))
+  - **@dpc-sdp/ripple-ui-core:** Update promo card content margin ([6d135f62a](https://github.com/dpc-sdp/ripple-framework/commit/6d135f62a))
+  - **@dpc-sdp/ripple-tide-search:** Add support for content 'before' results ([e45d895cf](https://github.com/dpc-sdp/ripple-framework/commit/e45d895cf))
+  - **@dpc-sdp/ripple-tide-search:** ✨  custom no results component ([0dce96af6](https://github.com/dpc-sdp/ripple-framework/commit/0dce96af6))
+  - **@dpc-sdp/ripple-tide-search:** Update results key for interop, collection 'theme' improvements ([1df3158cb](https://github.com/dpc-sdp/ripple-framework/commit/1df3158cb))
+  - **@dpc-sdp/ripple-tide-search:** Update reverse form theme for alt pages ([ea4c0f4b7](https://github.com/dpc-sdp/ripple-framework/commit/ea4c0f4b7))
+  - **@dpc-sdp/ripple-ui-core:** Allow props to be passed to the main extraContent component ([7bcf5fba6](https://github.com/dpc-sdp/ripple-framework/commit/7bcf5fba6))
+  - **@dpc-sdp/ripple-tide-search:** Add basic table components to render cells and extra content ([105ffbb79](https://github.com/dpc-sdp/ripple-framework/commit/105ffbb79))
+  - **@dpc-sdp/ripple-ui-core:** Allow alt text on images ([5a69fce32](https://github.com/dpc-sdp/ripple-framework/commit/5a69fce32))
+  - ✨  add image captions in content ([5bf23a8ff](https://github.com/dpc-sdp/ripple-framework/commit/5bf23a8ff))
+  - **@dpc-sdp/ripple-ui-core:** Add background CTA 'variant' ([997863d2a](https://github.com/dpc-sdp/ripple-framework/commit/997863d2a))
+  - **@dpc-sdp/ripple-tide-search:** Hide more info button when no extra data is present ([c62870454](https://github.com/dpc-sdp/ripple-framework/commit/c62870454))
+  - **@dpc-sdp/ripple-tide-landing-page:** Add accordion descriptions ([38cf70847](https://github.com/dpc-sdp/ripple-framework/commit/38cf70847))
+  - **@dpc-sdp/ripple-tide-search:** ✨  flag to display filters on page load ([df0dc551b](https://github.com/dpc-sdp/ripple-framework/commit/df0dc551b))
+  - **@dpc-sdp/ripple-tide-search:** Added ability for sort options to be defined by functions ([18880d10f](https://github.com/dpc-sdp/ripple-framework/commit/18880d10f))
+  - **@dpc-sdp/ripple-tide-search:** Cleaned up 'fixed' popup and made address index configurable ([9e2e2b0d2](https://github.com/dpc-sdp/ripple-framework/commit/9e2e2b0d2))
+  - **@dpc-sdp/ripple-ui-maps:** Added large pin style when selected for sidebar popups ([66765837f](https://github.com/dpc-sdp/ripple-framework/commit/66765837f))
+  - **@dpc-sdp/ripple-ui-maps:** Added title attribute to pins on hover ([d7eb18856](https://github.com/dpc-sdp/ripple-framework/commit/d7eb18856))
+  - **@dpc-sdp/ripple-tide-search:** Added ability to configure default listing tab ([87345b981](https://github.com/dpc-sdp/ripple-framework/commit/87345b981))
+  - **@dpc-sdp/ripple-tide-search:** Hide sort options dropdown if there is only one option ([22b05649f](https://github.com/dpc-sdp/ripple-framework/commit/22b05649f))
+  - **@dpc-sdp/ripple-tide-search:** Added support for showFiltersOnLoad option in custom collections ([2d4f0e9fc](https://github.com/dpc-sdp/ripple-framework/commit/2d4f0e9fc))
+  - **@dpc-sdp/ripple-tide-search:** Add hook for customizing map zoom behaviour ([332cfe571](https://github.com/dpc-sdp/ripple-framework/commit/332cfe571))
+  - **@dpc-sdp/ripple-ui-forms:** ✨  preserve default number control ([18fab387b](https://github.com/dpc-sdp/ripple-framework/commit/18fab387b))
+  - **@dpc-sdp/ripple-ui-core:** Allow screen reader only terms ([5e04dcbee](https://github.com/dpc-sdp/ripple-framework/commit/5e04dcbee))
+  - **@dpc-sdp/ripple-tide-news:** Allow setting image aspect via feature flag ([3dce72491](https://github.com/dpc-sdp/ripple-framework/commit/3dce72491))
+  - ✨  add belowFilter component to search config ([3dddbd80e](https://github.com/dpc-sdp/ripple-framework/commit/3dddbd80e))
+  - **@dpc-sdp/ripple-ui-core:** Add WhatsApp and email to share links ([d35897678](https://github.com/dpc-sdp/ripple-framework/commit/d35897678))
+  - **@dpc-sdp/ripple-ui-core:** Allow single level only menu sections in footer nav ([340107b2d](https://github.com/dpc-sdp/ripple-framework/commit/340107b2d))
+  - **@dpc-sdp/ripple-tide-search:** Infinite dependent filters, fix utils css generation ([c95553217](https://github.com/dpc-sdp/ripple-framework/commit/c95553217))
+  - **@dpc-sdp/nuxt-ripple-analytics:** ✨  add index to rpl-card/navigate ([bbee8bb37](https://github.com/dpc-sdp/ripple-framework/commit/bbee8bb37))
+  - **@dpc-sdp/ripple-ui-core:** Only repeat section link for accordions, link titles on desktop ([94360c56d](https://github.com/dpc-sdp/ripple-framework/commit/94360c56d))
+  - **@dpc-sdp/ripple-tide-search:** ✨  add ability to customise order and labelling of tabs ([011229e8c](https://github.com/dpc-sdp/ripple-framework/commit/011229e8c))
+  - **@dpc-sdp/ripple-tide-search:** Make popup section props the same ([c680d6b78](https://github.com/dpc-sdp/ripple-framework/commit/c680d6b78))
+  - **@dpc-sdp/ripple-ui-maps:** Close popup on new searches ([af298fc2d](https://github.com/dpc-sdp/ripple-framework/commit/af298fc2d))
+  - **@dpc-sdp/ripple-ui-core:** Add a "stacked" version of the cta card ([dbb48c512](https://github.com/dpc-sdp/ripple-framework/commit/dbb48c512))
+  - **@dpc-sdp/ripple-ui-forms:** Updates to label area spacing ([fabf3c4a6](https://github.com/dpc-sdp/ripple-framework/commit/fabf3c4a6))
+  - **@dpc-sdp/ripple-tide-search:** Add label and placeholder props to address lookup ([388dd64ad](https://github.com/dpc-sdp/ripple-framework/commit/388dd64ad))
+  - **@dpc-sdp/ripple-ui-maps:** Close popup when clicking home ([a9d16629d](https://github.com/dpc-sdp/ripple-framework/commit/a9d16629d))
+  - **@dpc-sdp/ripple-tide-landing-page:** Bring content collection inline with search/search listings ([97e36cf11](https://github.com/dpc-sdp/ripple-framework/commit/97e36cf11))
+  - **@dpc-sdp/nuxt-ripple:** Add pii flag to content rating ([4074e835b](https://github.com/dpc-sdp/ripple-framework/commit/4074e835b))
+
+### 🩹 Fixes
+
+  - **@dpc-sdp/ripple-ui-core:** Stop search firing on clear when initial filters haven't changed ([959e15a26](https://github.com/dpc-sdp/ripple-framework/commit/959e15a26))
+  - **@dpc-sdp/ripple-tide-search:** Add extra v-if check ([d1ba7f682](https://github.com/dpc-sdp/ripple-framework/commit/d1ba7f682))
+  - **@dpc-sdp/ripple-ui-core:** Update avatar content margin ([5ca75d3da](https://github.com/dpc-sdp/ripple-framework/commit/5ca75d3da))
+  - **@dpc-sdp/ripple-ui-core:** Add suggestion active state ([55eb1dec2](https://github.com/dpc-sdp/ripple-framework/commit/55eb1dec2))
+  - **@dpc-sdp/ripple-ui-core:** Fix cypress component test for data table ([4023074fa](https://github.com/dpc-sdp/ripple-framework/commit/4023074fa))
+  - **@dpc-sdp/ripple-tide-search:** Remove now redundant hasValue check ([e7eda1ead](https://github.com/dpc-sdp/ripple-framework/commit/e7eda1ead))
+  - **@dpc-sdp/ripple-ui-core:** Minor style updates, add new result listing story ([da456d37d](https://github.com/dpc-sdp/ripple-framework/commit/da456d37d))
+  - **@dpc-sdp/ripple-tide-search:** Add RplPageComponent wrapper ([cfa61fbe5](https://github.com/dpc-sdp/ripple-framework/commit/cfa61fbe5))
+  - **@dpc-sdp/ripple-tide-grant:** Use getBodyFromField for grant accordion content ([dde11f565](https://github.com/dpc-sdp/ripple-framework/commit/dde11f565))
+  - **@dpc-sdp/ripple-tide-search:** Fixed map popup z-index ([a59ba4a5e](https://github.com/dpc-sdp/ripple-framework/commit/a59ba4a5e))
+  - **@dpc-sdp/ripple-tide-search:** Fixed sort option dropdown styling ([046929dea](https://github.com/dpc-sdp/ripple-framework/commit/046929dea))
+  - **@dpc-sdp/ripple-ui-maps:** Ensured that infobox appears in fullscreen ([c86f0c56e](https://github.com/dpc-sdp/ripple-framework/commit/c86f0c56e))
+  - **@dpc-sdp/ripple-tide-search:** Fix for dependent filter using elasticsearch ([44dc7a0b4](https://github.com/dpc-sdp/ripple-framework/commit/44dc7a0b4))
+  - **@dpc-sdp/ripple-tide-search:** Make spelling consistent ([003a659b3](https://github.com/dpc-sdp/ripple-framework/commit/003a659b3))
+  - **@dpc-sdp/ripple-ui-forms:** Add variant prop to datePicker ([979655c78](https://github.com/dpc-sdp/ripple-framework/commit/979655c78))
+  - **@dpc-sdp/ripple-tide-search:** Update location suggestion logic after result format change ([7e8a1e329](https://github.com/dpc-sdp/ripple-framework/commit/7e8a1e329))
+  - **@dpc-sdp/ripple-tide-search:** Check for map hook before calling it ([3f83ca537](https://github.com/dpc-sdp/ripple-framework/commit/3f83ca537))
+  - **@dpc-sdp/ripple-ui-forms:** Update filter btn states and clear filters icon colour ([988054e0a](https://github.com/dpc-sdp/ripple-framework/commit/988054e0a))
+  - **@dpc-sdp/ripple-ui-core:** 🐛  add open state initial styles ([8555c6d67](https://github.com/dpc-sdp/ripple-framework/commit/8555c6d67))
+  - **@dpc-sdp/ripple-tide-search:** 🐛  update keyword in noresults component ([b400b4ac4](https://github.com/dpc-sdp/ripple-framework/commit/b400b4ac4))
+  - **@dpc-sdp/ripple-tide-search:** Allow multiple to be set per level ([6a5d2a592](https://github.com/dpc-sdp/ripple-framework/commit/6a5d2a592))
+  - **@dpc-sdp/ripple-tide-search:** Don't show no results message before search is complete ([d98a9af41](https://github.com/dpc-sdp/ripple-framework/commit/d98a9af41))
+  - **@dpc-sdp/ripple-tide-search:** Add back extra searchState.isLoading check ([b2dfc991b](https://github.com/dpc-sdp/ripple-framework/commit/b2dfc991b))
+  - **@dpc-sdp/ripple-tide-search:** Use tide version of secondary campaign ([98dbb447b](https://github.com/dpc-sdp/ripple-framework/commit/98dbb447b))
+  - **docs:** 🐛  fix docs issues ([93510fcdd](https://github.com/dpc-sdp/ripple-framework/commit/93510fcdd))
+  - **@dpc-sdp/ripple-ui-core:** Hide quick exit for print ([16ebc9e06](https://github.com/dpc-sdp/ripple-framework/commit/16ebc9e06))
+
+### 💅 Refactors
+
+  - **@dpc-sdp/ripple-tide-search:** ♻️  add filter to search advice ([9347da5de](https://github.com/dpc-sdp/ripple-framework/commit/9347da5de))
+  - **@dpc-sdp/ripple-ui-forms:** ♻️  number input with buttons ([a43d816dc](https://github.com/dpc-sdp/ripple-framework/commit/a43d816dc))
+  - ♻️  create new layoutConfig ([a3c37c0d0](https://github.com/dpc-sdp/ripple-framework/commit/a3c37c0d0))
+  - **@dpc-sdp/ripple-tide-search:** ♻️  move key into searchListingConfig ([6b719b3f7](https://github.com/dpc-sdp/ripple-framework/commit/6b719b3f7))
+  - **@dpc-sdp/ripple-tide-search:** Explicitly close popups ([8d6bb16e7](https://github.com/dpc-sdp/ripple-framework/commit/8d6bb16e7))
+  - **@dpc-sdp/ripple-ui-core:** Add styles only for initially open sections ([226d1d555](https://github.com/dpc-sdp/ripple-framework/commit/226d1d555))
+  - **@dpc-sdp/ripple-tide-search:** Make custom collection expanded config the same as listings ([a184d1976](https://github.com/dpc-sdp/ripple-framework/commit/a184d1976))
+
+### 🏡 Chore
+
+  - **@dpc-sdp/ripple-ui-core:** Remove unused vars and padding from data table ([4359d2fb1](https://github.com/dpc-sdp/ripple-framework/commit/4359d2fb1))
+  - **@dpc-sdp/ripple-ui-core:** Rename background-cta to image-cta ([c2e2e8718](https://github.com/dpc-sdp/ripple-framework/commit/c2e2e8718))
+  - **@dpc-sdp/ripple-ui-core:** Update result story 'highlight' tag ([6d6813328](https://github.com/dpc-sdp/ripple-framework/commit/6d6813328))
+  - **nuxt-app:** Update json data ([96186a9c6](https://github.com/dpc-sdp/ripple-framework/commit/96186a9c6))
+  - **nuxt-app:** Remove @focus from test ([3ce500826](https://github.com/dpc-sdp/ripple-framework/commit/3ce500826))
+
+### ✅ Tests
+
+  - ✅  increase timeout ([fbbe8ffa7](https://github.com/dpc-sdp/ripple-framework/commit/fbbe8ffa7))
+  - **@dpc-sdp/ripple-tide-landing-page:** Update accordion tests ([a072c7470](https://github.com/dpc-sdp/ripple-framework/commit/a072c7470))
+  - Fixed cypress tests ([ff279252b](https://github.com/dpc-sdp/ripple-framework/commit/ff279252b))
+  - **@dpc-sdp/ripple-tide-search:** Fixed map tests ([ddf488134](https://github.com/dpc-sdp/ripple-framework/commit/ddf488134))
+  - **@dpc-sdp/ripple-tide-search:** Fixed suggestions in tests ([b136fa0d6](https://github.com/dpc-sdp/ripple-framework/commit/b136fa0d6))
+  - **@dpc-sdp/ripple-tide-search:** ✅  update fixture ([2816369d6](https://github.com/dpc-sdp/ripple-framework/commit/2816369d6))
+  - **@dpc-sdp/ripple-ui-core:** Update footer tests ([faf0ef035](https://github.com/dpc-sdp/ripple-framework/commit/faf0ef035))
+  - **@dpc-sdp/ripple-ui-core:** ✅  fix component tests ([a039c873c](https://github.com/dpc-sdp/ripple-framework/commit/a039c873c))
+
+### 🎨 Styles
+
+  - **@dpc-sdp/ripple-ui-core:** Make tables full width ([d0f042a38](https://github.com/dpc-sdp/ripple-framework/commit/d0f042a38))
+  - **@dpc-sdp/ripple-ui-core:** Promo/avatar meta margin ([fe3baaa73](https://github.com/dpc-sdp/ripple-framework/commit/fe3baaa73))
+  - **@dpc-sdp/ripple-ui-core:** Searchbar feedback ([294ea5214](https://github.com/dpc-sdp/ripple-framework/commit/294ea5214))
+  - **nuxt-app:** Cleaned up unused code ([6711fec60](https://github.com/dpc-sdp/ripple-framework/commit/6711fec60))
+  - **@dpc-sdp/ripple-ui-core:** Header cta with image updates ([8de0e8661](https://github.com/dpc-sdp/ripple-framework/commit/8de0e8661))
+
+### ❤️  Contributors
+
+- David Featherston <david.featherstone@dpc.vic.gov.au>
+- Jason Smith <jason.smith@dpc.vic.gov.au>
+- Dylan Kelly <dylan.kelly@dpc.vic.gov.au>
+- Jeffrey Dowdle <jeffrey.dowdle@dpc.vic.gov.au>
+
 ## v2.6.3...release/v2.6.4
 
 [compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.6.3...release/v2.6.4)

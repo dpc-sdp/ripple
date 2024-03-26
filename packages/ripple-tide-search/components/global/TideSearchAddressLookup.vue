@@ -19,8 +19,14 @@
     >
       <template #suggestion="{ option: { option } }">
         <span>{{ option?.name }}</span>
+
+        <component
+          :is="tagsComponent"
+          v-if="tagsComponent"
+          :option="option"
+        ></component>
         <RplTag
-          v-if="option?.postcode"
+          v-else-if="option?.postcode"
           :label="option?.postcode"
           variant="dark"
           class="rpl-u-margin-l-3"
@@ -33,8 +39,7 @@
 <script setup lang="ts">
 import { ref, getSingleResultValue } from '#imports'
 import { useDebounceFn } from '@vueuse/core'
-import { inAndOut } from 'ol/easing'
-import { fromLonLat, transformExtent } from 'ol/proj'
+import { transformExtent } from 'ol/proj'
 import { Extent } from 'ol/extent'
 import { fitExtent, fitVictoria } from '@dpc-sdp/ripple-ui-maps'
 // TODO must add analytics events
@@ -45,13 +50,17 @@ interface Props {
   resultsloaded?: boolean
   suggestionsIndex?: string
   controlMapZooming?: boolean
+  tagsComponent?: string
+  mapResultsFnName?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
   inputValue: null,
   resultsloaded: false,
   suggestionsIndex: 'vic-postcode-localities',
-  controlMapZooming: true
+  controlMapZooming: true,
+  tagsComponent: undefined,
+  mapResultsFnName: ''
 })
 
 const results = ref([])
@@ -67,6 +76,7 @@ const emit = defineEmits<{
   (e: 'update', payload: addressResultType): void
 }>()
 
+const appConfig = useAppConfig()
 const { rplMapRef, deadSpace } = inject('rplMapInstance')
 
 const pendingZoomAnimation = ref(false)
@@ -127,18 +137,36 @@ const fetchSuggestions = async (query: string) => {
         size: 20
       }
     })
-    if (response && response.hits.total.value > 0) {
-      return response.hits.hits.map((itm: any) => {
-        const center = getSingleResultValue(itm._source.center)?.split(',')
 
-        return {
-          name: getSingleResultValue(itm._source.name),
-          postcode: getSingleResultValue(itm._source.postcode),
-          bbox: itm._source.bbox,
-          lga_code: itm._source.lga_code,
-          center: center?.length === 2 ? [center[1], center[0]] : undefined
-        }
-      })
+    let mappingFn = (itm: any) => {
+      const center = getSingleResultValue(itm._source.center)?.split(',')
+
+      return {
+        name: getSingleResultValue(itm._source.name),
+        postcode: getSingleResultValue(itm._source.postcode),
+        bbox: itm._source.bbox,
+        center: center?.length === 2 ? [center[1], center[0]] : undefined
+      }
+    }
+
+    const fns: Record<string, (item: any) => any> =
+      appConfig?.ripple?.search?.locationSuggestionMappingFunctions || {}
+
+    // If no transform function is defined, return an empty array
+    if (props.mapResultsFnName) {
+      const transformFn = fns[props.mapResultsFnName]
+
+      if (typeof transformFn !== 'function') {
+        throw new Error(
+          `Search listing: No matching location transform function called "${props.mapResultsFnName}"`
+        )
+      }
+
+      mappingFn = transformFn
+    }
+
+    if (response && response.hits.total.value > 0) {
+      return response.hits.hits.map(mappingFn)
     }
   } catch (e) {
     console.error(e)

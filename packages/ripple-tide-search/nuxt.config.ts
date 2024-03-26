@@ -18,6 +18,10 @@ export default defineNuxtConfig({
     tide: {
       appSearch: {
         privateSearchKey: ''
+      },
+      elasticsearch: {
+        username: '',
+        password: ''
       }
     }
   },

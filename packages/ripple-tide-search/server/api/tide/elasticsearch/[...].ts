@@ -11,6 +11,20 @@ export const createElasticSearchHandler = async (event: H3Event) => {
     pathRewrite: {
       '^/api/tide/elasticsearch': ''
     },
+    on: {
+      proxyReq(proxyReq) {
+        const basicAuthUser = config.tide.elasticsearch.username
+        const basicAuthPass = config.tide.elasticsearch.password
+
+        // if a username and password is provided, set the basic Authorization header
+        if (basicAuthUser && basicAuthPass) {
+          const basicAuthBase64 = Buffer.from(
+            `${basicAuthUser}:${basicAuthPass}`
+          ).toString('base64')
+          proxyReq.setHeader('Authorization', `Basic ${basicAuthBase64}`)
+        }
+      }
+    },
     logger: logger,
     changeOrigin: true
   })

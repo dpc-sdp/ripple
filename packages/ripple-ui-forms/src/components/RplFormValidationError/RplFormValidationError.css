@@ -6,6 +6,11 @@
 
   .rpl-icon {
     margin-right: var(--rpl-sp-2);
-    margin-top: 3px;
+    margin-top: var(--rpl-sp-1);
+  }
+
+  .rpl-form-help + &,
+  .rpl-form-label + & {
+    margin-top: calc(var(--rpl-sp-1) * -1);
   }
 }

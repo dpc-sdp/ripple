@@ -1,7 +1,7 @@
 export const RplFooterLinks = [
   {
     text: 'Your Services',
-    url: '#',
+    url: '#services',
     items: [
       {
         text: 'Grants awards and assistance',
@@ -51,11 +51,11 @@ export const RplFooterLinks = [
   },
   {
     text: 'News',
-    url: '#'
+    url: '#news'
   },
   {
     text: 'About VIC Government - A very long title to test wrapping behaviour',
-    url: '#',
+    url: '#about',
     items: [
       {
         text: 'Grants awards and assistance',
@@ -105,7 +105,7 @@ export const RplFooterLinks = [
   },
   {
     text: 'Events',
-    url: '#'
+    url: '#events'
   },
   {
     text: 'Connect with us',
@@ -135,6 +135,56 @@ export const RplFooterLinks = [
         text: 'Youtube',
         url: '#',
         icon: 'icon-youtube'
+      }
+    ]
+  }
+]
+
+export const RplFooterLinksSingleLevel = [
+  {
+    text: 'Your Services',
+    url: '#services',
+    single: true,
+    items: [
+      {
+        text: 'Law and safety',
+        url: '#'
+      }
+    ]
+  },
+  {
+    text: 'About us',
+    url: '#about',
+    single: true
+  },
+  {
+    text: 'Latest News',
+    url: '#news',
+    single: true
+  },
+  {
+    text: 'Upcoming Events',
+    url: '#events',
+    single: true
+  },
+  {
+    text: 'Connect with us',
+    url: '',
+    items: [
+      {
+        text: 'DH Twitter',
+        url: '#',
+        icon: 'icon-x'
+      },
+      {
+        text: 'DFFH LinkedIn',
+        url: '#',
+        icon: 'icon-linkedin'
+      },
+      {
+        text: 'DFFH Facebook',
+        url: '#',
+        icon: 'icon-facebook'
       }
     ]
   }

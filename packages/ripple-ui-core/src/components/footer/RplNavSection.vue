@@ -9,6 +9,7 @@ import {
   useRippleEvent,
   rplEventPayload
 } from '../../composables/useRippleEvent'
+import RplTextLink from '../text-link/RplTextLink.vue'
 
 interface Props {
   id: string
@@ -37,7 +38,7 @@ const { toggleProps, triggerProps } = useExpandable(
 )
 
 const items = computed(() => {
-  if (props.section.url) {
+  if (props.section.url && props.isExpandable) {
     return [
       {
         text: props.section.text,
@@ -50,7 +51,12 @@ const items = computed(() => {
   }
 })
 
+const singleLevel = computed(() => props.section?.single)
+const canExpand = computed(() => props.isExpandable && !singleLevel.value)
+
 const handleToggle = () => {
+  if (!canExpand.value) return
+
   isExpanded.value = !isExpanded.value
 
   emitRplEvent(
@@ -70,6 +76,7 @@ const handleClick = (event) => {
     'navigate',
     {
       ...event,
+      action: 'click',
       label: props.section.text,
       index: props?.index + 1
     },
@@ -91,22 +98,31 @@ const handleClick = (event) => {
       }"
     >
       <component
-        :is="isExpandable ? 'button' : 'div'"
+        :is="canExpand ? 'button' : 'div'"
         :class="{
           'rpl-footer-nav-section__header-inner': true,
-          'rpl-footer-nav-section__header-inner-button': isExpandable,
-          'rpl-u-focusable-block': isExpandable
+          'rpl-footer-nav-section__header-inner-button': canExpand,
+          'rpl-u-focusable-block': canExpand
         }"
-        v-bind="isExpandable ? toggleProps : {}"
+        v-bind="canExpand ? toggleProps : {}"
         @click="handleToggle"
       >
         <h3
           class="rpl-footer-nav-section__title rpl-type-label rpl-type-weight-bold"
         >
-          {{ section.text }}
-
+          <RplTextLink
+            v-if="!canExpand && section?.url"
+            :url="section.url"
+            class="rpl-list__link"
+            @click="
+              () => handleClick({ value: section.url, text: section?.text })
+            "
+          >
+            {{ section.text }}
+          </RplTextLink>
+          <template v-else>{{ section.text }}</template>
           <RplIcon
-            v-if="isExpandable"
+            v-if="canExpand"
             role="presentation"
             name="icon-chevron-down"
             size="xs"
@@ -117,9 +133,10 @@ const handleClick = (event) => {
     </div>
 
     <component
-      :is="isExpandable ? RplExpandable : 'div'"
-      :expanded="isExpandable ? isExpanded : undefined"
-      v-bind="isExpandable ? triggerProps : null"
+      :is="canExpand ? RplExpandable : 'div'"
+      v-if="!singleLevel"
+      :expanded="canExpand ? isExpanded : undefined"
+      v-bind="canExpand ? triggerProps : null"
     >
       <RplList
         :items="items"

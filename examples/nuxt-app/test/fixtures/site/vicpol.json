@@ -1,0 +1,2683 @@
+{
+  "name": "VicPol Corporate",
+  "siteAlerts": [
+    {
+      "alertId": "f75a612a-26a5-4ee3-94e9-df26d34a11c1",
+      "variant": "warning",
+      "iconName": "icon-temperature",
+      "message": "1-BE-Alert-2 Demo Alert",
+      "linkText": "More details",
+      "linkUrl": "https://www.google.com"
+    },
+    {
+      "alertId": "05fd8385-cdcf-4478-a829-54d96e51925e",
+      "variant": "information",
+      "iconName": "icon-information-circle-filled",
+      "message": "1-BE-Alert-1 Demo Alert",
+      "linkText": "More details",
+      "linkUrl": "https://www.google.com"
+    },
+    {
+      "alertId": "11dede11-10c0-111e1-1100-000000000350",
+      "variant": "information",
+      "iconName": "icon-information-circle-filled",
+      "message": "Demo Alert",
+      "linkText": "More details",
+      "linkUrl": "https://vic.gov.au"
+    }
+  ],
+  "siteLogo": {
+    "href": "/",
+    "src": "https://develop.content.police.vic.gov.au/sites/default/files/site_logo/vic-police-main-logo_0.png",
+    "altText": ""
+  },
+  "showQuickExit": true,
+  "acknowledgementHeader": "The Victorian Government acknowledges Aboriginal and Torres Strait Islander people as the Traditional Custodians of the land and acknowledges and pays respect to their Elders, past and present.",
+  "cornerGraphic": {
+    "top": null,
+    "bottom": null
+  },
+  "acknowledgementFooter": "The Victorian Government acknowledges Aboriginal and Torres Strait Islander people as the Traditional Custodians of the land and acknowledges and pays respect to their Elders, past and present.",
+  "copyrightHtml": "<p>© Copyright State Government of Victoria</p>",
+  "footerLogos": [
+    {
+      "alt": "VicPol footer logo",
+      "url": "/homepage",
+      "src": "https://develop.content.police.vic.gov.au/sites/default/files/2022-10/vic-police-white-logo_2.png"
+    }
+  ],
+  "theme": {
+    "rpl-clr-primary": "#274B93",
+    "rpl-clr-primary-alt": "#032261",
+    "rpl-clr-primary-alpha": "rgba(82, 111, 169, 0.5)",
+    "rpl-clr-accent": "#21253F",
+    "rpl-clr-accent-alt": "#E9E9EC",
+    "rpl-clr-link": "#274B93",
+    "rpl-clr-focus": " #D8B46C ",
+    "rpl-clr-gradient-vertical": "linear-gradient(180deg, #032261 0%, #274B93 40%, #8199CE 100%)",
+    "rpl-clr-gradient-horizontal": "linear-gradient(90deg, #032261 0%, #274B93 40%, #8199CE 100%)",
+    "rpl-clr-type-primary-contrast": "#FFFFFF",
+    "rpl-clr-type-primary-accessible": "#274B93",
+    "rpl-clr-type-primary-alt-accessible": "#032261",
+    "rpl-clr-type-primary-contrast-alpha": "rgba(255, 255, 255, 0.75)",
+    "rpl-clr-type-accent-contrast": "#FFFFFF",
+    "rpl-clr-type-focus-contrast": "#1A1A1A",
+    "rpl-clr-footer": "#032261",
+    "rpl-clr-footer-alt": "#274B93",
+    "rpl-clr-type-footer-accessible": "#032261",
+    "rpl-clr-type-footer-contrast": "#FFFFFF"
+  },
+  "featureFlags": {},
+  "socialImages": {
+    "twitter": {
+      "src": "https://develop.content.police.vic.gov.au/sites/default/files/2021-11/META-IMAGES-1200x628-VP.png",
+      "alt": "",
+      "title": "",
+      "width": 5000,
+      "height": 2617,
+      "drupal_internal__target_id": 9783,
+      "focalPoint": {
+        "x": 2500,
+        "y": 1309
+      }
+    },
+    "og": {
+      "src": "https://develop.content.police.vic.gov.au/sites/default/files/2021-11/META-IMAGES-1200x628-VP.png",
+      "alt": "",
+      "title": "",
+      "width": 5000,
+      "height": 2617,
+      "drupal_internal__target_id": 9783,
+      "focalPoint": {
+        "x": 2500,
+        "y": 1309
+      }
+    }
+  },
+  "menus": {
+    "menuMain": [
+      {
+        "text": "Careers",
+        "url": "/careers",
+        "id": "d3c5d66e-26a5-471a-97d1-4cb39646e0c5",
+        "parent": null,
+        "weight": 0,
+        "items": [
+          {
+            "text": "Police officer careers",
+            "url": "/police-officer-careers",
+            "id": "a0a9bf5a-1ac5-4f4b-b58f-59ead3148731",
+            "parent": "d3c5d66e-26a5-471a-97d1-4cb39646e0c5",
+            "weight": 5,
+            "items": [
+              {
+                "text": "Prepare for your police officer application",
+                "url": "/prepare-for-your-police-officer-application",
+                "id": "0cd0b0e6-21ad-4f3d-bf81-5bbf3d9cf391",
+                "parent": "a0a9bf5a-1ac5-4f4b-b58f-59ead3148731",
+                "weight": 1,
+                "items": [
+                  {
+                    "text": "Check your eligibility and suitability",
+                    "url": "/check-your-eligibility-and-suitability-be-police-officer",
+                    "id": "78490874-912b-4873-8a35-037665cc686d",
+                    "parent": "0cd0b0e6-21ad-4f3d-bf81-5bbf3d9cf391",
+                    "weight": 2
+                  },
+                  {
+                    "text": "Entry requirements",
+                    "url": "/police-entry-requirements",
+                    "id": "6be31fcc-ab41-47e5-90ed-efe0abbe653e",
+                    "parent": "0cd0b0e6-21ad-4f3d-bf81-5bbf3d9cf391",
+                    "weight": 3
+                  },
+                  {
+                    "text": "Pre-application forms for police officers",
+                    "url": "/police-forms",
+                    "id": "3f68c2b2-ee1e-42c6-9d45-c7cf5bbf173d",
+                    "parent": "0cd0b0e6-21ad-4f3d-bf81-5bbf3d9cf391",
+                    "weight": 5
+                  },
+                  {
+                    "text": "School leaver and VCE career options",
+                    "url": "/school-leaver-and-vce-career-options",
+                    "id": "cb04db9b-1987-4549-ae21-aa2e9043466f",
+                    "parent": "0cd0b0e6-21ad-4f3d-bf81-5bbf3d9cf391",
+                    "weight": 6
+                  },
+                  {
+                    "text": "Resources for police officer applicants",
+                    "url": "/police-officer-resources",
+                    "id": "9897c786-0e6c-4668-865a-7662ca35afb4",
+                    "parent": "0cd0b0e6-21ad-4f3d-bf81-5bbf3d9cf391",
+                    "weight": 11
+                  },
+                  {
+                    "text": "Frequently asked questions",
+                    "url": "/police-faqs",
+                    "id": "ad033965-f3a1-4f15-a47d-6d9a140effa9",
+                    "parent": "0cd0b0e6-21ad-4f3d-bf81-5bbf3d9cf391",
+                    "weight": 12
+                  }
+                ]
+              },
+              {
+                "text": "Apply to be a police officer",
+                "url": "/police",
+                "id": "d2579139-f91f-43ae-a3ad-972e55c8ef2f",
+                "parent": "a0a9bf5a-1ac5-4f4b-b58f-59ead3148731",
+                "weight": 2
+              },
+              {
+                "text": "Recruitment process and police training",
+                "url": "/recruitment-and-police-training",
+                "id": "37d597fd-fb53-458c-80ea-b2a86b60faf1",
+                "parent": "a0a9bf5a-1ac5-4f4b-b58f-59ead3148731",
+                "weight": 3,
+                "items": [
+                  {
+                    "text": "Recruitment process for police officers",
+                    "url": "/police-recruitment-process",
+                    "id": "92f34111-5757-496e-8bd7-bea52d5b83c0",
+                    "parent": "37d597fd-fb53-458c-80ea-b2a86b60faf1",
+                    "weight": 3
+                  },
+                  {
+                    "text": "Victoria Police Academy and training",
+                    "url": "/police-officer-training",
+                    "id": "a76ff627-bfca-4e81-9ff6-8c60df81dc6f",
+                    "parent": "37d597fd-fb53-458c-80ea-b2a86b60faf1",
+                    "weight": 4
+                  },
+                  {
+                    "text": "POLICE FIT app",
+                    "url": "/police-fit-app",
+                    "id": "575b85ee-ae16-4f08-8bd8-10fbd47c3fed",
+                    "parent": "37d597fd-fb53-458c-80ea-b2a86b60faf1",
+                    "weight": 5
+                  }
+                ]
+              },
+              {
+                "text": "Benefits, career progression and police duties",
+                "url": "/benefits-and-life-job",
+                "id": "e0606b4b-e398-46de-91c8-43d25a0efff1",
+                "parent": "a0a9bf5a-1ac5-4f4b-b58f-59ead3148731",
+                "weight": 4,
+                "items": [
+                  {
+                    "text": "General duties police officers",
+                    "url": "/police-roles-duties",
+                    "id": "af235365-5841-4174-bfcd-4d6af2f87ac4",
+                    "parent": "e0606b4b-e398-46de-91c8-43d25a0efff1",
+                    "weight": 8
+                  },
+                  {
+                    "text": "Specialist roles and areas",
+                    "url": "/specialist-areas",
+                    "id": "73f35079-85f3-44ba-a786-d64d0545bf06",
+                    "parent": "e0606b4b-e398-46de-91c8-43d25a0efff1",
+                    "weight": 9
+                  },
+                  {
+                    "text": "Country and regional policing ",
+                    "url": "/country-and-regional-policing",
+                    "id": "a7a248f5-df31-4a40-b11b-fb3b08bc1de8",
+                    "parent": "e0606b4b-e398-46de-91c8-43d25a0efff1",
+                    "weight": 13
+                  },
+                  {
+                    "text": "Code of conduct, uniform and appearance",
+                    "url": "/code-conduct-uniform-and-appearance",
+                    "id": "a416aab3-5dbf-45dc-b6da-9fc522a76bd6",
+                    "parent": "e0606b4b-e398-46de-91c8-43d25a0efff1",
+                    "weight": 14
+                  },
+                  {
+                    "text": "Salary, leave, benefits and hours",
+                    "url": "/salary-and-benefits",
+                    "id": "4b93a4b3-67f5-428d-bdd6-363cdc035f66",
+                    "parent": "e0606b4b-e398-46de-91c8-43d25a0efff1",
+                    "weight": 15
+                  }
+                ]
+              },
+              {
+                "text": "Information sessions",
+                "url": "/police-information-sessions",
+                "id": "cb7fd2e3-37e2-498f-b752-e558b0c555aa",
+                "parent": "a0a9bf5a-1ac5-4f4b-b58f-59ead3148731",
+                "weight": 5,
+                "items": [
+                  {
+                    "text": "Victoria Police Career Expo: Your Made for More Pathway",
+                    "url": "/victoria-police-career-expo-your-made-more-pathway",
+                    "id": "6ac90a0f-e643-4bde-bff0-bdfa806d6533",
+                    "parent": "cb7fd2e3-37e2-498f-b752-e558b0c555aa",
+                    "weight": 0
+                  }
+                ]
+              },
+              {
+                "text": "Prior policing experience and former police officers",
+                "url": "/prior-policing-and-former-police-officers",
+                "id": "21cb3c27-38c2-49aa-af14-98b9b5292db8",
+                "parent": "a0a9bf5a-1ac5-4f4b-b58f-59ead3148731",
+                "weight": 6,
+                "items": [
+                  {
+                    "text": "Prior interstate and international policing experience",
+                    "url": "/prior-interstate-international-policing-experience",
+                    "id": "30622efc-ef5f-4e25-97e7-2982be1b5373",
+                    "parent": "21cb3c27-38c2-49aa-af14-98b9b5292db8",
+                    "weight": 10
+                  },
+                  {
+                    "text": "Former police officers (constable or senior constable)",
+                    "url": "/former-returning-victoria-police-officers-constable-senior-constable",
+                    "id": "479b0122-f5f0-4bee-bf3f-ccd860f65db6",
+                    "parent": "21cb3c27-38c2-49aa-af14-98b9b5292db8",
+                    "weight": 11
+                  },
+                  {
+                    "text": "Former police officers (sergeant or senior sergeant)",
+                    "url": "/former-or-returning-victoria-police-officers-sergeant-or-senior-sergeant",
+                    "id": "a3769f6e-7cf8-40a6-86c3-9cc6272675a8",
+                    "parent": "21cb3c27-38c2-49aa-af14-98b9b5292db8",
+                    "weight": 12
+                  }
+                ]
+              },
+              {
+                "text": "Victoria Police career podcasts, videos and tutorials",
+                "url": "/career-podcasts-videos-tutorials",
+                "id": "b2258121-20e0-432f-aae7-7f9abe28c2d6",
+                "parent": "a0a9bf5a-1ac5-4f4b-b58f-59ead3148731",
+                "weight": 7,
+                "items": [
+                  {
+                    "text": "Victoria Police + The Female Athlete Project podcast",
+                    "url": "/female-athlete-project-and-victoria-police-podcast",
+                    "id": "2ae4cb09-3677-4c46-90c2-c23a48b14551",
+                    "parent": "b2258121-20e0-432f-aae7-7f9abe28c2d6",
+                    "weight": 1
+                  },
+                  {
+                    "text": "Watch: Life as a police officer videos",
+                    "url": "/life-police-officer",
+                    "id": "419554df-6aea-4b3d-b5f7-b32faf256509",
+                    "parent": "b2258121-20e0-432f-aae7-7f9abe28c2d6",
+                    "weight": 2
+                  },
+                  {
+                    "text": "Watch: Training and preparation",
+                    "url": "/watch-police-training-and-preparation-videos",
+                    "id": "bc0cf2d2-9a32-4f99-848f-3ead90bcc444",
+                    "parent": "b2258121-20e0-432f-aae7-7f9abe28c2d6",
+                    "weight": 3
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "text": "Protective services officer careers",
+            "url": "/pso",
+            "id": "76b621dd-875a-4607-ba7f-1d7f858f73bf",
+            "parent": "d3c5d66e-26a5-471a-97d1-4cb39646e0c5",
+            "weight": 6,
+            "items": [
+              {
+                "text": "Recruitment process",
+                "url": "/pso-recruitment-process",
+                "id": "a21d180a-85b2-4e4a-9cff-41b8aacd2f9f",
+                "parent": "76b621dd-875a-4607-ba7f-1d7f858f73bf",
+                "weight": 15
+              },
+              {
+                "text": "Eligibility requirements",
+                "url": "/pso-eligibility-requirements",
+                "id": "dc49c3cf-0c08-4687-8fb6-81d2df390d51",
+                "parent": "76b621dd-875a-4607-ba7f-1d7f858f73bf",
+                "weight": 17
+              },
+              {
+                "text": "Information sessions",
+                "url": "/pso-information-sessions",
+                "id": "847acc19-457b-4ab6-b74f-9fc1e17095ec",
+                "parent": "76b621dd-875a-4607-ba7f-1d7f858f73bf",
+                "weight": 18
+              },
+              {
+                "text": "Roles and duties",
+                "url": "/pso-roles-duties",
+                "id": "7fb74789-b98f-4847-81e6-2dabff0eaa51",
+                "parent": "76b621dd-875a-4607-ba7f-1d7f858f73bf",
+                "weight": 19
+              },
+              {
+                "text": "Training ",
+                "url": "/protective-services-officer-training",
+                "id": "8c3c8196-d139-4dd0-ab70-4ff8b5b54159",
+                "parent": "76b621dd-875a-4607-ba7f-1d7f858f73bf",
+                "weight": 20
+              },
+              {
+                "text": "Life as a protective services officer ",
+                "url": "/life-protective-services-officer",
+                "id": "a1dbe542-b566-4709-862f-1d546a1ad02b",
+                "parent": "76b621dd-875a-4607-ba7f-1d7f858f73bf",
+                "weight": 21
+              },
+              {
+                "text": "Salary and benefits ",
+                "url": "/protective-services-officer-salary-and-benefits",
+                "id": "51350cee-aaaf-4602-ae0a-0dd5368beb70",
+                "parent": "76b621dd-875a-4607-ba7f-1d7f858f73bf",
+                "weight": 22
+              },
+              {
+                "text": "Valuing diversity",
+                "url": "/diversity",
+                "id": "f93d2e91-44c0-41d3-aafc-4e6b1f0f15e0",
+                "parent": "76b621dd-875a-4607-ba7f-1d7f858f73bf",
+                "weight": 23
+              },
+              {
+                "text": "Resources",
+                "url": "/protective-services-officer-resources",
+                "id": "ce028d07-e2a0-49f0-9152-be931d23d749",
+                "parent": "76b621dd-875a-4607-ba7f-1d7f858f73bf",
+                "weight": 24
+              },
+              {
+                "text": "Forms",
+                "url": "/pso-forms",
+                "id": "c32a7c08-401b-40d7-aac5-db401ee595a5",
+                "parent": "76b621dd-875a-4607-ba7f-1d7f858f73bf",
+                "weight": 25
+              },
+              {
+                "text": "Frequently asked questions",
+                "url": "/pso-faqs",
+                "id": "3e773d26-a3ff-4b85-b11c-abae458fe893",
+                "parent": "76b621dd-875a-4607-ba7f-1d7f858f73bf",
+                "weight": 26
+              },
+              {
+                "text": "Apply now",
+                "url": "/pso",
+                "id": "f7be328d-efd0-4303-92dc-60f8e4eb1b4e",
+                "parent": "76b621dd-875a-4607-ba7f-1d7f858f73bf",
+                "weight": 27
+              }
+            ]
+          },
+          {
+            "text": "Police custody officer careers",
+            "url": "/pco",
+            "id": "da288a16-1d6e-4cff-a63c-27a4c2af9be0",
+            "parent": "d3c5d66e-26a5-471a-97d1-4cb39646e0c5",
+            "weight": 8,
+            "items": [
+              {
+                "text": "Recruitment process",
+                "url": "/pco-recruitment-process",
+                "id": "5e51c1ce-9e80-472e-8471-5e778688afce",
+                "parent": "da288a16-1d6e-4cff-a63c-27a4c2af9be0",
+                "weight": 10
+              },
+              {
+                "text": "Entry requirements",
+                "url": "/pco-entry-requirements",
+                "id": "e5b6fc27-80a9-4350-9d51-caba8334fa11",
+                "parent": "da288a16-1d6e-4cff-a63c-27a4c2af9be0",
+                "weight": 11
+              },
+              {
+                "text": "Information sessions",
+                "url": "/pco-information-sessions",
+                "id": "88707766-414a-485e-bdf9-c4e7812ba8de",
+                "parent": "da288a16-1d6e-4cff-a63c-27a4c2af9be0",
+                "weight": 12
+              },
+              {
+                "text": "About the role",
+                "url": "/pco-about-role",
+                "id": "133862fb-4cc1-461b-9457-561e44eada31",
+                "parent": "da288a16-1d6e-4cff-a63c-27a4c2af9be0",
+                "weight": 13
+              },
+              {
+                "text": "Resources",
+                "url": "/police-custody-officers-resources",
+                "id": "18eef47b-6a04-4834-8139-c0756496b9e6",
+                "parent": "da288a16-1d6e-4cff-a63c-27a4c2af9be0",
+                "weight": 15
+              },
+              {
+                "text": "Multilingual information brochures",
+                "url": "/police-custody-officers-multi-lingual-information-brochures",
+                "id": "20490a26-a906-40d9-adca-5913f8b4df9e",
+                "parent": "da288a16-1d6e-4cff-a63c-27a4c2af9be0",
+                "weight": 16
+              },
+              {
+                "text": "Frequently asked questions",
+                "url": "/pco-faqs",
+                "id": "9626315b-9d56-4579-bc85-57ef03afd98b",
+                "parent": "da288a16-1d6e-4cff-a63c-27a4c2af9be0",
+                "weight": 17
+              },
+              {
+                "text": "Vacancies",
+                "url": "/pco-vacancies",
+                "id": "5b7625d5-e7e6-4ee4-ae82-70562cfe468f",
+                "parent": "da288a16-1d6e-4cff-a63c-27a4c2af9be0",
+                "weight": 18
+              }
+            ]
+          },
+          {
+            "text": "Victorian Public Service careers",
+            "url": "/vps",
+            "id": "c8a5459d-4eec-41d0-8089-ff86b63a98cb",
+            "parent": "d3c5d66e-26a5-471a-97d1-4cb39646e0c5",
+            "weight": 9,
+            "items": [
+              {
+                "text": "About the role",
+                "url": "/vps-about-role",
+                "id": "f2a49235-d4b6-41cf-9d64-cbcee44db57e",
+                "parent": "c8a5459d-4eec-41d0-8089-ff86b63a98cb",
+                "weight": 1
+              },
+              {
+                "text": "Our values",
+                "url": "/vps-our-values",
+                "id": "fe24d223-c536-47dd-bd24-575a7a4667c8",
+                "parent": "c8a5459d-4eec-41d0-8089-ff86b63a98cb",
+                "weight": 2
+              },
+              {
+                "text": "Selection process",
+                "url": "/vps-selection-process",
+                "id": "1f2677eb-acc1-4212-abb7-563705104a5c",
+                "parent": "c8a5459d-4eec-41d0-8089-ff86b63a98cb",
+                "weight": 3
+              },
+              {
+                "text": "Disability",
+                "url": "/disability",
+                "id": "7e0199c7-ec81-4329-923a-f96dacbe1e08",
+                "parent": "c8a5459d-4eec-41d0-8089-ff86b63a98cb",
+                "weight": 4
+              },
+              {
+                "text": "Vacancies",
+                "url": "/vps",
+                "id": "e17a61ab-f100-4a16-827d-25843e9dcc73",
+                "parent": "c8a5459d-4eec-41d0-8089-ff86b63a98cb",
+                "weight": 5
+              }
+            ]
+          },
+          {
+            "text": "Valuing diversity",
+            "url": "/diversity",
+            "id": "dfddbf5e-8a9c-4014-8c5d-b08ade93d892",
+            "parent": "d3c5d66e-26a5-471a-97d1-4cb39646e0c5",
+            "weight": 10
+          }
+        ]
+      },
+      {
+        "text": "News",
+        "url": "/news",
+        "id": "63ddc1de-3400-4841-83f5-dd6fe04b9d57",
+        "parent": null,
+        "weight": 1,
+        "items": [
+          {
+            "text": "Breaking news",
+            "url": "/breaking-news-0",
+            "id": "0bc463a0-6e8e-4a69-9497-88006d80a9f1",
+            "parent": "63ddc1de-3400-4841-83f5-dd6fe04b9d57",
+            "weight": 2
+          },
+          {
+            "text": "Media livestreams",
+            "url": "/media-livestreams",
+            "id": "22a66f4c-50f7-4b64-a35a-f069a3832000",
+            "parent": "63ddc1de-3400-4841-83f5-dd6fe04b9d57",
+            "weight": 3
+          },
+          {
+            "text": "Public notices",
+            "url": "/public-notices",
+            "id": "70cb6f5b-2f8f-4080-a66b-ce4099762029",
+            "parent": "63ddc1de-3400-4841-83f5-dd6fe04b9d57",
+            "weight": 4
+          },
+          {
+            "text": "Videos and stories",
+            "url": "/media-hub",
+            "id": "7be7b749-9a3a-4881-9daf-c25264c4b6fc",
+            "parent": "63ddc1de-3400-4841-83f5-dd6fe04b9d57",
+            "weight": 5
+          },
+          {
+            "text": "Police Life podcast and magazine",
+            "url": "/police-life",
+            "id": "e321519f-1b56-4b83-b9b8-befe6d2061d8",
+            "parent": "63ddc1de-3400-4841-83f5-dd6fe04b9d57",
+            "weight": 6,
+            "items": [
+              {
+                "text": "Police Life podcast",
+                "url": "/police-life-podcast",
+                "id": "68b7c19b-3364-48e0-b1ce-6974df2648db",
+                "parent": "e321519f-1b56-4b83-b9b8-befe6d2061d8",
+                "weight": 0
+              },
+              {
+                "text": "Police Life magazine ",
+                "url": "/police-life-magazine",
+                "id": "a47f141e-205d-4ee6-9271-9642bafffcd5",
+                "parent": "e321519f-1b56-4b83-b9b8-befe6d2061d8",
+                "weight": 1
+              }
+            ]
+          },
+          {
+            "text": "Subscribe to breaking news",
+            "url": "/news-article-subscription",
+            "id": "7a915cb3-49ff-4b7c-b927-86f6b054490c",
+            "parent": "63ddc1de-3400-4841-83f5-dd6fe04b9d57",
+            "weight": 7
+          },
+          {
+            "text": "Social media",
+            "url": "/social-media",
+            "id": "2a44763f-f086-4eac-aefc-0fb9f7c51b13",
+            "parent": "63ddc1de-3400-4841-83f5-dd6fe04b9d57",
+            "weight": 9
+          }
+        ]
+      },
+      {
+        "text": "Your safety",
+        "url": "/your-safety",
+        "id": "47a00f0c-595a-4e95-8f00-2add20b126b1",
+        "parent": null,
+        "weight": 2,
+        "items": [
+          {
+            "text": "Business and commercial",
+            "url": "/business-and-commercial",
+            "id": "8f53783e-c72d-4fc7-86c0-ec237ddee386",
+            "parent": "47a00f0c-595a-4e95-8f00-2add20b126b1",
+            "weight": 15,
+            "items": [
+              {
+                "text": "Cash handling tips",
+                "url": "/cash-handling-tips",
+                "id": "a743f4d7-3553-49e5-8556-1e4802731941",
+                "parent": "8f53783e-c72d-4fc7-86c0-ec237ddee386",
+                "weight": 0
+              },
+              {
+                "text": "Preventing construction site theft",
+                "url": "/preventing-construction-site-theft",
+                "id": "3596babd-4c44-40b6-b1c8-b37a65850a32",
+                "parent": "8f53783e-c72d-4fc7-86c0-ec237ddee386",
+                "weight": 1
+              },
+              {
+                "text": "Preventing shop theft",
+                "url": "/preventing-shop-theft",
+                "id": "3f0c1ffd-744f-4827-bdf5-c4a15e6fdbe6",
+                "parent": "8f53783e-c72d-4fc7-86c0-ec237ddee386",
+                "weight": 2
+              },
+              {
+                "text": "Responding to a robbery or armed robbery",
+                "url": "/responding-robbery-or-armed-robbery",
+                "id": "0fb06a04-e923-4e44-b10c-6eab863e385e",
+                "parent": "8f53783e-c72d-4fc7-86c0-ec237ddee386",
+                "weight": 3
+              },
+              {
+                "text": "Responding to aggressive customers",
+                "url": "/responding-to-aggressive-customers",
+                "id": "214dc740-ed1b-4567-8b1e-d4f3227f4314",
+                "parent": "8f53783e-c72d-4fc7-86c0-ec237ddee386",
+                "weight": 4
+              },
+              {
+                "text": "Secure your tools",
+                "url": "/secure-your-tools",
+                "id": "0bd6383f-51cd-42c9-9294-f1e36027d73a",
+                "parent": "8f53783e-c72d-4fc7-86c0-ec237ddee386",
+                "weight": 5
+              },
+              {
+                "text": "Victoria Police Armed Crime Squad RECCI register notification sheet",
+                "url": "/victoria-police-armed-crime-squad-recci-register-notification-sheet",
+                "id": "f8e6aa0b-8eb6-4dc8-ab46-230cfa677aee",
+                "parent": "8f53783e-c72d-4fc7-86c0-ec237ddee386",
+                "weight": 6
+              }
+            ]
+          },
+          {
+            "text": "CCTV systems",
+            "url": "/cctv-systems",
+            "id": "2aff1421-9f00-4500-9e0c-ad772c36508e",
+            "parent": "47a00f0c-595a-4e95-8f00-2add20b126b1",
+            "weight": 17
+          },
+          {
+            "text": "Cybercrime, reporting and online safety",
+            "url": "/cybercrime-reporting-and-online-safety",
+            "id": "c2148093-88f4-432d-9509-925b171cd0ba",
+            "parent": "47a00f0c-595a-4e95-8f00-2add20b126b1",
+            "weight": 18,
+            "items": [
+              {
+                "text": "Cybercrime and online scams",
+                "url": "/cybercrime-and-online-scams",
+                "id": "b0106f16-a7f1-4a3a-9f5d-5a46f75d1f11",
+                "parent": "c2148093-88f4-432d-9509-925b171cd0ba",
+                "weight": 0
+              },
+              {
+                "text": "Mobile device security",
+                "url": "/mobile-device-security",
+                "id": "d78c1ecb-d05c-4694-bc03-c16c324bb195",
+                "parent": "c2148093-88f4-432d-9509-925b171cd0ba",
+                "weight": 0
+              },
+              {
+                "text": "Online child safety",
+                "url": "/online-child-safety",
+                "id": "cbcc8a91-eb91-4ab3-8e5f-78d2bb77b7f2",
+                "parent": "c2148093-88f4-432d-9509-925b171cd0ba",
+                "weight": 0
+              },
+              {
+                "text": "Online identity theft",
+                "url": "/online-identity-theft",
+                "id": "d34ca537-3db1-4cb4-b7a3-9a37614a946d",
+                "parent": "c2148093-88f4-432d-9509-925b171cd0ba",
+                "weight": 0
+              },
+              {
+                "text": "Report a cybercrime",
+                "url": "/report-cybercrime",
+                "id": "6593f8ec-9fc7-451e-8bbd-7358c9826aea",
+                "parent": "c2148093-88f4-432d-9509-925b171cd0ba",
+                "weight": 0
+              },
+              {
+                "text": "Report online abuse",
+                "url": "/dealing-online-abuse",
+                "id": "833d6a0a-de33-4bb3-8cae-6bb248d658bf",
+                "parent": "c2148093-88f4-432d-9509-925b171cd0ba",
+                "weight": 0
+              }
+            ]
+          },
+          {
+            "text": "Emergency response",
+            "url": "/emergency-response",
+            "id": "813064d9-f464-4ac8-8f4c-7bb1369977ff",
+            "parent": "47a00f0c-595a-4e95-8f00-2add20b126b1",
+            "weight": 19
+          },
+          {
+            "text": "Family violence",
+            "url": "/family-violence",
+            "id": "6a86868e-cb90-49e3-9c90-e04d7a4a180a",
+            "parent": "47a00f0c-595a-4e95-8f00-2add20b126b1",
+            "weight": 20,
+            "items": [
+              {
+                "text": "Children and family violence",
+                "url": "/children-and-family-violence",
+                "id": "0f7f20a9-c90a-4e1d-9804-4828c2e85472",
+                "parent": "6a86868e-cb90-49e3-9c90-e04d7a4a180a",
+                "weight": 4
+              },
+              {
+                "text": "Elder abuse",
+                "url": "/elder-abuse",
+                "id": "202ba760-1cd4-43be-b0db-8e43334ec44e",
+                "parent": "6a86868e-cb90-49e3-9c90-e04d7a4a180a",
+                "weight": 5
+              },
+              {
+                "text": "Family violence and Aboriginal communities",
+                "url": "/family-violence-and-aboriginal-communities",
+                "id": "37b59f3c-2ff6-4035-a72b-3d5ea93b31b1",
+                "parent": "6a86868e-cb90-49e3-9c90-e04d7a4a180a",
+                "weight": 6
+              },
+              {
+                "text": "Family violence safety notices and intervention orders",
+                "url": "/intervention-orders",
+                "id": "bba59c6c-654b-40a5-a798-5c75330bee1f",
+                "parent": "6a86868e-cb90-49e3-9c90-e04d7a4a180a",
+                "weight": 7
+              },
+              {
+                "text": "National Domestic Violence Order Scheme",
+                "url": "/national-domestic-violence-order-scheme",
+                "id": "69e6702d-c6b3-4924-b191-b3865bc9a876",
+                "parent": "6a86868e-cb90-49e3-9c90-e04d7a4a180a",
+                "weight": 8
+              },
+              {
+                "text": "Resources and fact sheets",
+                "url": "/resources-and-fact-sheets-2",
+                "id": "b830aa1c-513a-45f6-97f6-c33efbfd8f61",
+                "parent": "6a86868e-cb90-49e3-9c90-e04d7a4a180a",
+                "weight": 9
+              },
+              {
+                "text": "Technology facilitated abuse",
+                "url": "/technology-facilitated-abuse",
+                "id": "09bec793-3fbe-493d-80f4-6f3e7993bfe8",
+                "parent": "6a86868e-cb90-49e3-9c90-e04d7a4a180a",
+                "weight": 10
+              }
+            ]
+          },
+          {
+            "text": "Farm and rural safety",
+            "url": "/farm-and-rural-safety",
+            "id": "81642b4a-be3b-40f7-8cd0-fd1bb8ed7813",
+            "parent": "47a00f0c-595a-4e95-8f00-2add20b126b1",
+            "weight": 21,
+            "items": [
+              {
+                "text": "Farm chemical security and safety",
+                "url": "/farm-chemical-security-and-safety",
+                "id": "178532b2-9625-4b5e-b9f1-0f745ed5134e",
+                "parent": "81642b4a-be3b-40f7-8cd0-fd1bb8ed7813",
+                "weight": 0
+              },
+              {
+                "text": "Livestock and stockyard security",
+                "url": "/livestock-stockyard-security",
+                "id": "2a1d24bb-d6a5-47c4-a2e2-d331fd172e6f",
+                "parent": "81642b4a-be3b-40f7-8cd0-fd1bb8ed7813",
+                "weight": 0
+              },
+              {
+                "text": "Shed, outhouse and garage security",
+                "url": "/shed-outhouse-and-garage-security",
+                "id": "bcefd10e-74fb-4516-a0ed-12af2425ee52",
+                "parent": "81642b4a-be3b-40f7-8cd0-fd1bb8ed7813",
+                "weight": 0
+              },
+              {
+                "text": "Theft of farm machinery and equipment",
+                "url": "/theft-farm-machinery-and-equipment",
+                "id": "b01da712-3e5b-4b09-8afe-ce5ea17aaf72",
+                "parent": "81642b4a-be3b-40f7-8cd0-fd1bb8ed7813",
+                "weight": 0
+              },
+              {
+                "text": "Trespassers and shooters on farm property",
+                "url": "/trespassers-shooters-farm-property",
+                "id": "79861171-3aa9-44ce-9207-59ca59a1c2a0",
+                "parent": "81642b4a-be3b-40f7-8cd0-fd1bb8ed7813",
+                "weight": 0
+              }
+            ]
+          },
+          {
+            "text": "Fraud and scams",
+            "url": "/fraud-and-scams",
+            "id": "d5aac019-97f3-4f69-8293-d0b5c688a6af",
+            "parent": "47a00f0c-595a-4e95-8f00-2add20b126b1",
+            "weight": 22
+          },
+          {
+            "text": "Home and property",
+            "url": "/home-and-property",
+            "id": "ef25621d-0092-4e7e-b089-71bb88a76c2e",
+            "parent": "47a00f0c-595a-4e95-8f00-2add20b126b1",
+            "weight": 23,
+            "items": [
+              {
+                "text": "Access to apartment buildings",
+                "url": "/access-to-apartment-buildings",
+                "id": "1b5faf51-2894-4a4c-b70f-dbe8cec79300",
+                "parent": "ef25621d-0092-4e7e-b089-71bb88a76c2e",
+                "weight": 0
+              },
+              {
+                "text": "Motor vehicle theft",
+                "url": "/preventing-motor-vehicle-theft",
+                "id": "94b06025-f13b-476a-9fa0-2ccb4e0159fa",
+                "parent": "ef25621d-0092-4e7e-b089-71bb88a76c2e",
+                "weight": 1
+              },
+              {
+                "text": "Number plate theft",
+                "url": "/preventing-number-plate-theft",
+                "id": "e810597d-2c54-4a62-80b2-f62d9a032484",
+                "parent": "ef25621d-0092-4e7e-b089-71bb88a76c2e",
+                "weight": 2
+              },
+              {
+                "text": "Parcel and letterbox security",
+                "url": "/parcel-and-letterbox-security",
+                "id": "9006bc8d-4ce8-447a-b29b-9b1dd3ac282d",
+                "parent": "ef25621d-0092-4e7e-b089-71bb88a76c2e",
+                "weight": 3
+              },
+              {
+                "text": "Preventing and removing graffiti",
+                "url": "/preventing-and-removing-graffiti",
+                "id": "33fe3ee4-3d9a-41fd-8a5c-d4b21aca405d",
+                "parent": "ef25621d-0092-4e7e-b089-71bb88a76c2e",
+                "weight": 4
+              },
+              {
+                "text": "Preventing home burglaries",
+                "url": "/preventing-home-burglaries",
+                "id": "c4569223-a83f-40da-9d26-12226aa72904",
+                "parent": "ef25621d-0092-4e7e-b089-71bb88a76c2e",
+                "weight": 5
+              },
+              {
+                "text": "Preventing theft from storage cages",
+                "url": "/preventing-theft-storage-cages",
+                "id": "acaf32ee-08c1-408e-9069-9639b83ad7aa",
+                "parent": "ef25621d-0092-4e7e-b089-71bb88a76c2e",
+                "weight": 6
+              },
+              {
+                "text": "Theft from motor vehicles",
+                "url": "/preventing-theft-from-motor-vehicles",
+                "id": "9656806a-2bea-46ac-b451-830ba9b94ce5",
+                "parent": "ef25621d-0092-4e7e-b089-71bb88a76c2e",
+                "weight": 7
+              }
+            ]
+          },
+          {
+            "text": "Human trafficking ",
+            "url": "/human-trafficking",
+            "id": "2d5b13e6-30aa-46c0-8f30-bd56ed519e94",
+            "parent": "47a00f0c-595a-4e95-8f00-2add20b126b1",
+            "weight": 24
+          },
+          {
+            "text": "LGBTIQA+ community safety",
+            "url": "/LGBTIQA-community-safety",
+            "id": "41925458-85a5-411d-8ec4-44c992a32952",
+            "parent": "47a00f0c-595a-4e95-8f00-2add20b126b1",
+            "weight": 25,
+            "items": [
+              {
+                "text": "LGBTIQA+ community commitment and consultation",
+                "url": "/LGBTIQA-community-commitment-and-consultation",
+                "id": "6d4c7669-15b3-4029-8c82-6fbca3535bbc",
+                "parent": "41925458-85a5-411d-8ec4-44c992a32952",
+                "weight": 0
+              },
+              {
+                "text": "Report a crime against the LGBTIQA+ community",
+                "url": "/report-crime-against-LGBTIQA-community",
+                "id": "cf300eef-703f-4deb-9135-e487c6177266",
+                "parent": "41925458-85a5-411d-8ec4-44c992a32952",
+                "weight": 0,
+                "items": [
+                  {
+                    "text": "Report a change or suppression (conversion) practice",
+                    "url": "/report-change-or-suppression-conversion-practice",
+                    "id": "47dd2679-ecde-4e98-ab6e-61ebc7f52cb3",
+                    "parent": "cf300eef-703f-4deb-9135-e487c6177266",
+                    "weight": 0
+                  }
+                ]
+              },
+              {
+                "text": "Victoria Police LGBTIQA+ employee networks",
+                "url": "/victoria-police-LGBTIQA-employee-networks",
+                "id": "78db5aac-a65f-48a4-a2a7-49abd63f96e4",
+                "parent": "41925458-85a5-411d-8ec4-44c992a32952",
+                "weight": 0
+              }
+            ]
+          },
+          {
+            "text": "Older Victorians",
+            "url": "/older-victorians",
+            "id": "b2a1f669-bd0c-4278-a93b-40b001ff733b",
+            "parent": "47a00f0c-595a-4e95-8f00-2add20b126b1",
+            "weight": 26
+          },
+          {
+            "text": "Outdoor and bush safety",
+            "url": "/outdoor-and-bush-safety",
+            "id": "0a21139a-b737-49fd-9e00-a554e8364d43",
+            "parent": "47a00f0c-595a-4e95-8f00-2add20b126b1",
+            "weight": 27,
+            "items": [
+              {
+                "text": "Bushfire arson",
+                "url": "/bushfire-arson",
+                "id": "17fe6a7a-4c8f-4e55-99ef-d22f4611ffaf",
+                "parent": "0a21139a-b737-49fd-9e00-a554e8364d43",
+                "weight": 4
+              }
+            ]
+          },
+          {
+            "text": "Personal safety",
+            "url": "/personal-safety",
+            "id": "530c2472-dd50-4349-b15f-b30183f6b994",
+            "parent": "47a00f0c-595a-4e95-8f00-2add20b126b1",
+            "weight": 28,
+            "items": [
+              {
+                "text": "Drink spiking",
+                "url": "/drink-spiking",
+                "id": "fb9c7c02-1241-40ee-94c8-35b9fa093d1d",
+                "parent": "530c2472-dd50-4349-b15f-b30183f6b994",
+                "weight": 26
+              },
+              {
+                "text": "Online safety ",
+                "url": "/online-safety",
+                "id": "cf5c3b9d-642d-4e4a-926f-4b1ab90677f8",
+                "parent": "530c2472-dd50-4349-b15f-b30183f6b994",
+                "weight": 27
+              },
+              {
+                "text": "Stalking",
+                "url": "/stalking",
+                "id": "95903bdd-c768-4923-97f3-e73d30b41f3d",
+                "parent": "530c2472-dd50-4349-b15f-b30183f6b994",
+                "weight": 28
+              }
+            ]
+          },
+          {
+            "text": "Prejudice motivated crime",
+            "url": "/prejudice-motivated-crime",
+            "id": "b1f19087-b078-4359-a5c9-25ec70f20a35",
+            "parent": "47a00f0c-595a-4e95-8f00-2add20b126b1",
+            "weight": 29
+          },
+          {
+            "text": "Public transport safety",
+            "url": "/public-transport-safety",
+            "id": "5d868eb4-8782-47d4-8a46-d7907dc028be",
+            "parent": "47a00f0c-595a-4e95-8f00-2add20b126b1",
+            "weight": 30,
+            "items": [
+              {
+                "text": "Unwanted sexual and anti-social behaviour on public transport",
+                "url": "/stopit",
+                "id": "43d261b5-d228-4e43-888d-cd126f416a17",
+                "parent": "5d868eb4-8782-47d4-8a46-d7907dc028be",
+                "weight": 0
+              }
+            ]
+          },
+          {
+            "text": "Road safety",
+            "url": "/road-safety",
+            "id": "de0ffc45-80fe-4d87-8a76-dd28cbed64fb",
+            "parent": "47a00f0c-595a-4e95-8f00-2add20b126b1",
+            "weight": 31,
+            "items": [
+              {
+                "text": "Road policing",
+                "url": "/road-policing",
+                "id": "d8c9757e-a1d0-48b8-8b30-a0025754e172",
+                "parent": "de0ffc45-80fe-4d87-8a76-dd28cbed64fb",
+                "weight": 7,
+                "items": [
+                  {
+                    "text": "Drug driving infringement process",
+                    "url": "/drug-driving-infringement-process",
+                    "id": "f865e5d8-ff86-4b4a-9b74-9298f2918431",
+                    "parent": "d8c9757e-a1d0-48b8-8b30-a0025754e172",
+                    "weight": 0
+                  },
+                  {
+                    "text": "Electric powered scooters (e-scooters)",
+                    "url": "/electric-powered-scooters-e-scooters",
+                    "id": "4a6daf35-66e0-4f19-875b-2b46aae366b8",
+                    "parent": "d8c9757e-a1d0-48b8-8b30-a0025754e172",
+                    "weight": 1
+                  },
+                  {
+                    "text": "Hoon laws",
+                    "url": "/hoon-laws",
+                    "id": "721ca543-58b5-4248-8cd4-3e64dd790e9b",
+                    "parent": "d8c9757e-a1d0-48b8-8b30-a0025754e172",
+                    "weight": 2
+                  },
+                  {
+                    "text": "Road Safety cameras",
+                    "url": "/road-safety-cameras",
+                    "id": "f3e99d3e-9d5f-41e6-8301-cdf73e868779",
+                    "parent": "d8c9757e-a1d0-48b8-8b30-a0025754e172",
+                    "weight": 3
+                  }
+                ]
+              },
+              {
+                "text": "Motorcycle safety",
+                "url": "/motorcycle-safety",
+                "id": "6dfeb53e-ad21-47ed-b983-40739c21d0ba",
+                "parent": "de0ffc45-80fe-4d87-8a76-dd28cbed64fb",
+                "weight": 8
+              },
+              {
+                "text": "Older drivers",
+                "url": "/older-drivers",
+                "id": "31040274-41c9-44c3-9d77-e5c14a548146",
+                "parent": "de0ffc45-80fe-4d87-8a76-dd28cbed64fb",
+                "weight": 10
+              },
+              {
+                "text": "Pedestrians and cyclists",
+                "url": "/pedestrians-and-cyclists",
+                "id": "a9e63653-3bad-4012-969b-b35b4fc6d1bb",
+                "parent": "de0ffc45-80fe-4d87-8a76-dd28cbed64fb",
+                "weight": 11,
+                "items": [
+                  {
+                    "text": "Bike theft",
+                    "url": "/bike-theft",
+                    "id": "1e787ec9-d33a-48bf-af6e-7986160918da",
+                    "parent": "a9e63653-3bad-4012-969b-b35b4fc6d1bb",
+                    "weight": 0
+                  }
+                ]
+              },
+              {
+                "text": "Trucks and heavy vehicles ",
+                "url": "/trucks-and-heavy-vehicles",
+                "id": "f649633d-a9af-42c3-90ed-2bbca1e3e93c",
+                "parent": "de0ffc45-80fe-4d87-8a76-dd28cbed64fb",
+                "weight": 12
+              },
+              {
+                "text": "Young drivers",
+                "url": "/young-drivers",
+                "id": "164d19b6-0f63-4363-98ab-5b6cdcbdaa04",
+                "parent": "de0ffc45-80fe-4d87-8a76-dd28cbed64fb",
+                "weight": 13
+              }
+            ]
+          },
+          {
+            "text": "Sexual offences and child abuse",
+            "url": "/sexual-offences",
+            "id": "084c3711-fbd3-4847-8921-29d178fab52f",
+            "parent": "47a00f0c-595a-4e95-8f00-2add20b126b1",
+            "weight": 32,
+            "items": [
+              {
+                "text": "Reporting sexual offences and child abuse",
+                "url": "/reporting-sexual-offences-child-abuse",
+                "id": "2d1e504c-e4aa-4657-bc92-fabea7c69a8f",
+                "parent": "084c3711-fbd3-4847-8921-29d178fab52f",
+                "weight": 0
+              },
+              {
+                "text": "Support and resources for sexual offences and child abuse",
+                "url": "/support-resources-sexual-offences-child-abuse",
+                "id": "8c0ed210-5888-409d-8a2f-f33a4e0b0ce3",
+                "parent": "084c3711-fbd3-4847-8921-29d178fab52f",
+                "weight": 0
+              }
+            ]
+          },
+          {
+            "text": "State security and counter-terrorism",
+            "url": "/state-security-and-counter-terrorism",
+            "id": "f93c45de-6448-484a-994c-1399c3c9016c",
+            "parent": "47a00f0c-595a-4e95-8f00-2add20b126b1",
+            "weight": 33,
+            "items": [
+              {
+                "text": "Victoria Police SHIELD",
+                "url": "/victoria-police-shield",
+                "id": "4d592dbd-eba2-4a56-b105-a6226b124077",
+                "parent": "f93c45de-6448-484a-994c-1399c3c9016c",
+                "weight": 0
+              },
+              {
+                "text": "Business preparedness",
+                "url": "/business-preparedness",
+                "id": "41bf2ed4-b8ee-4f1f-a5a5-6efbe7ba00bd",
+                "parent": "f93c45de-6448-484a-994c-1399c3c9016c",
+                "weight": 1
+              },
+              {
+                "text": "Community preparedness",
+                "url": "/community-preparedness",
+                "id": "159874c0-f01e-439d-983f-f6614da74353",
+                "parent": "f93c45de-6448-484a-994c-1399c3c9016c",
+                "weight": 2
+              },
+              {
+                "text": "National Terrorism Threat Advisory System",
+                "url": "/national-terrorism-threat-advisory-system",
+                "id": "da19c46a-8d3c-4c80-9259-46ab772dd6fe",
+                "parent": "f93c45de-6448-484a-994c-1399c3c9016c",
+                "weight": 4
+              }
+            ]
+          },
+          {
+            "text": "Staying safe at school leaver celebrations",
+            "url": "/staying-safe-school-leaver-celebrations",
+            "id": "b474b0f5-75cc-4abb-89aa-f36a19af9d46",
+            "parent": "47a00f0c-595a-4e95-8f00-2add20b126b1",
+            "weight": 34
+          },
+          {
+            "text": "Victims of crime",
+            "url": "/victims-crime",
+            "id": "37dc80f3-588d-401b-9552-045f6f03d109",
+            "parent": "47a00f0c-595a-4e95-8f00-2add20b126b1",
+            "weight": 35
+          },
+          {
+            "text": "Water safety",
+            "url": "/water-safety",
+            "id": "829d66b0-29f3-40a0-bc8a-9f289ccfb6e8",
+            "parent": "47a00f0c-595a-4e95-8f00-2add20b126b1",
+            "weight": 36,
+            "items": [
+              {
+                "text": "Beach and waterways safety ",
+                "url": "/beach-and-waterways-safety",
+                "id": "7c97ff81-c66d-4ff8-b304-2f1e261b5e1c",
+                "parent": "829d66b0-29f3-40a0-bc8a-9f289ccfb6e8",
+                "weight": 1
+              },
+              {
+                "text": "Marine services and resources",
+                "url": "/marine-services-and-resources",
+                "id": "977f873b-a05f-4b0a-9ae0-19dd6a065258",
+                "parent": "829d66b0-29f3-40a0-bc8a-9f289ccfb6e8",
+                "weight": 2
+              },
+              {
+                "text": "Recreational vessels ",
+                "url": "/recreational-vessels",
+                "id": "f89a1a0f-0498-428e-a016-915583b5777e",
+                "parent": "829d66b0-29f3-40a0-bc8a-9f289ccfb6e8",
+                "weight": 3
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "text": "Our services",
+        "url": "/our-services",
+        "id": "91eb7619-8b0d-4e97-96aa-46031456a614",
+        "parent": null,
+        "weight": 3,
+        "items": [
+          {
+            "text": "Accounts payable",
+            "url": "/accounts-payable",
+            "id": "6764e0d4-e46f-4a7a-b93c-1ae8c4c781a7",
+            "parent": "91eb7619-8b0d-4e97-96aa-46031456a614",
+            "weight": 1
+          },
+          {
+            "text": "Agency photographs",
+            "url": "/agency-photographs",
+            "id": "cc4401d3-2943-4f60-b3ef-35ac12655c4e",
+            "parent": "91eb7619-8b0d-4e97-96aa-46031456a614",
+            "weight": 2
+          },
+          {
+            "text": "Blood samples",
+            "url": "/blood-samples",
+            "id": "0e340ecb-7790-4bd8-a540-f1d2b87a6068",
+            "parent": "91eb7619-8b0d-4e97-96aa-46031456a614",
+            "weight": 3
+          },
+          {
+            "text": "Crime reports for insurance",
+            "url": "/crime-reports",
+            "id": "f40c5af7-08f4-4da2-bf40-37773cc87be0",
+            "parent": "91eb7619-8b0d-4e97-96aa-46031456a614",
+            "weight": 4
+          },
+          {
+            "text": "Events",
+            "url": "/events",
+            "id": "ff95f20b-a196-4221-84f9-a792d3ff205d",
+            "parent": "91eb7619-8b0d-4e97-96aa-46031456a614",
+            "weight": 5
+          },
+          {
+            "text": "Film and TV services",
+            "url": "/film-and-tv-services",
+            "id": "1c89b064-a29c-41e1-9d97-aa93b29a7b94",
+            "parent": "91eb7619-8b0d-4e97-96aa-46031456a614",
+            "weight": 6,
+            "items": [
+              {
+                "text": "Police uniform hire",
+                "url": "/police-uniform-hire",
+                "id": "c6fcdbf7-af58-42c9-be47-c0e2519b2d3a",
+                "parent": "1c89b064-a29c-41e1-9d97-aa93b29a7b94",
+                "weight": 0
+              }
+            ]
+          },
+          {
+            "text": "Firearms licensing",
+            "url": "/firearms-licensing",
+            "id": "cb0e3b9f-f79e-4c43-ba5f-c11eecdbceb4",
+            "parent": "91eb7619-8b0d-4e97-96aa-46031456a614",
+            "weight": 7,
+            "items": [
+              {
+                "text": "New firearm applicants",
+                "url": "/new-firearm-applicants",
+                "id": "5915ba40-fe74-4a21-94f0-99a0e3a068d7",
+                "parent": "cb0e3b9f-f79e-4c43-ba5f-c11eecdbceb4",
+                "weight": 1,
+                "items": [
+                  {
+                    "text": "Apply for a new licence",
+                    "url": "/apply-for-a-new-licence",
+                    "id": "0a71b06b-5bdc-44a3-9598-213c1f54cfc9",
+                    "parent": "5915ba40-fe74-4a21-94f0-99a0e3a068d7",
+                    "weight": 0
+                  },
+                  {
+                    "text": "Eligibility requirements",
+                    "url": "/eligibility-requirements",
+                    "id": "afa1604f-0824-402d-9b99-dff1c24adb05",
+                    "parent": "5915ba40-fe74-4a21-94f0-99a0e3a068d7",
+                    "weight": 1
+                  },
+                  {
+                    "text": "Interstate licences",
+                    "url": "/mutual-recognition-firearms-licences-interstate-0",
+                    "id": "1e090ab1-71e9-4142-9d64-5a98dfac5692",
+                    "parent": "5915ba40-fe74-4a21-94f0-99a0e3a068d7",
+                    "weight": 2
+                  },
+                  {
+                    "text": "Juniors",
+                    "url": "/juniors",
+                    "id": "2ff0555f-7431-428e-bfaa-7ef6703c19fa",
+                    "parent": "5915ba40-fe74-4a21-94f0-99a0e3a068d7",
+                    "weight": 4
+                  }
+                ]
+              },
+              {
+                "text": "Current licence holders",
+                "url": "/current-licence-holders",
+                "id": "36150e6b-8055-4baf-9fd4-b61cc6f6e331",
+                "parent": "cb0e3b9f-f79e-4c43-ba5f-c11eecdbceb4",
+                "weight": 2,
+                "items": [
+                  {
+                    "text": "Importing and exporting firearms ",
+                    "url": "/importing-and-exporting-firearms",
+                    "id": "52e57e3d-7961-48c1-b57a-dc8430961cba",
+                    "parent": "36150e6b-8055-4baf-9fd4-b61cc6f6e331",
+                    "weight": 0
+                  },
+                  {
+                    "text": "Renew your licence",
+                    "url": "/renew-your-licence",
+                    "id": "b638bd01-6b07-4117-9c2b-8497d9af10ea",
+                    "parent": "36150e6b-8055-4baf-9fd4-b61cc6f6e331",
+                    "weight": 1
+                  },
+                  {
+                    "text": "Acquiring, transferring and selling firearms",
+                    "url": "/acquiring-transferring-and-selling-firearms",
+                    "id": "a46bffcf-d9bb-4f2e-afbe-170e905e7673",
+                    "parent": "36150e6b-8055-4baf-9fd4-b61cc6f6e331",
+                    "weight": 2
+                  },
+                  {
+                    "text": "Altering your firearm ",
+                    "url": "/altering-and-registering-your-firearm",
+                    "id": "5b2efc13-c554-4f16-823c-2288a7a69a0b",
+                    "parent": "36150e6b-8055-4baf-9fd4-b61cc6f6e331",
+                    "weight": 3
+                  },
+                  {
+                    "text": "Firearm prohibition orders",
+                    "url": "/firearm-prohibition-orders",
+                    "id": "0fc55f2f-0cb3-44dc-9685-958c604f174f",
+                    "parent": "36150e6b-8055-4baf-9fd4-b61cc6f6e331",
+                    "weight": 4
+                  },
+                  {
+                    "text": "Sport target shooters and clubs, collectors and hunters",
+                    "url": "/sport-target-shooters-clubs-collectors-and-hunters",
+                    "id": "5a1399f5-e327-43e6-8f18-393e8dce2fe2",
+                    "parent": "36150e6b-8055-4baf-9fd4-b61cc6f6e331",
+                    "weight": 5
+                  }
+                ]
+              },
+              {
+                "text": "Firearm storage",
+                "url": "/firearm-storage",
+                "id": "7d41d752-f4ed-4b36-91d0-0996537f8b18",
+                "parent": "cb0e3b9f-f79e-4c43-ba5f-c11eecdbceb4",
+                "weight": 3
+              },
+              {
+                "text": "Change of details ",
+                "url": "/change-details",
+                "id": "1d88c6b4-648a-42f5-b24c-6fa5fa190560",
+                "parent": "cb0e3b9f-f79e-4c43-ba5f-c11eecdbceb4",
+                "weight": 4
+              },
+              {
+                "text": "Deceased estates ",
+                "url": "/deceased-estates",
+                "id": "f38d9635-20e0-4e60-abac-c511f606f8b5",
+                "parent": "cb0e3b9f-f79e-4c43-ba5f-c11eecdbceb4",
+                "weight": 5
+              },
+              {
+                "text": "Disposal of firearms and ammunition ",
+                "url": "/disposal-firearms-and-ammunition-0",
+                "id": "bca1cfa4-d179-4b99-a67c-0fc0680ea9ae",
+                "parent": "cb0e3b9f-f79e-4c43-ba5f-c11eecdbceb4",
+                "weight": 6
+              },
+              {
+                "text": "Divisional firearms officers",
+                "url": "/divisional-firearms-officers",
+                "id": "2120c4ae-83a3-41b3-960c-1b2c34f117a3",
+                "parent": "cb0e3b9f-f79e-4c43-ba5f-c11eecdbceb4",
+                "weight": 7
+              },
+              {
+                "text": "eServices",
+                "url": "/eservices-portal",
+                "id": "0d4d465e-2b2b-45a7-b9be-2cdcb545c635",
+                "parent": "cb0e3b9f-f79e-4c43-ba5f-c11eecdbceb4",
+                "weight": 8
+              },
+              {
+                "text": "Firearm forms and reference information",
+                "url": "/firearms-forms-and-reference-information",
+                "id": "af3fb21b-5779-4336-be0a-f93d9daa0274",
+                "parent": "cb0e3b9f-f79e-4c43-ba5f-c11eecdbceb4",
+                "weight": 9
+              },
+              {
+                "text": "Firearm industry news",
+                "url": "/firearms-industry-news",
+                "id": "fa68b24c-d5fc-4253-ba76-be54c460bc9a",
+                "parent": "cb0e3b9f-f79e-4c43-ba5f-c11eecdbceb4",
+                "weight": 10
+              },
+              {
+                "text": "Licensed firearm dealers",
+                "url": "/licensed-firearm-dealers",
+                "id": "219000b2-1aed-4fe5-93cd-1bfa311eefa1",
+                "parent": "cb0e3b9f-f79e-4c43-ba5f-c11eecdbceb4",
+                "weight": 16
+              },
+              {
+                "text": "Contact the Licensing and Regulation Division",
+                "url": "/enquire-about-firearms-private-security-or-weapons",
+                "id": "c58ffd7c-4260-4a87-a790-daee7513f4d1",
+                "parent": "cb0e3b9f-f79e-4c43-ba5f-c11eecdbceb4",
+                "weight": 27
+              }
+            ]
+          },
+          {
+            "text": "Freedom of information",
+            "url": "/freedom-information",
+            "id": "0052c2ae-f29d-4e11-afca-186c4a1164d9",
+            "parent": "91eb7619-8b0d-4e97-96aa-46031456a614",
+            "weight": 8
+          },
+          {
+            "text": "Forensic services",
+            "url": "/forensic-services",
+            "id": "75da6ca1-2ca6-477e-9e10-13333e459252",
+            "parent": "91eb7619-8b0d-4e97-96aa-46031456a614",
+            "weight": 9,
+            "items": [
+              {
+                "text": "Service delivery timeframes for forensic court reports",
+                "url": "/turn-around-times-and-backlogs",
+                "id": "82d003fb-af99-4ea6-8808-a3c0b852d5ba",
+                "parent": "75da6ca1-2ca6-477e-9e10-13333e459252",
+                "weight": -1
+              },
+              {
+                "text": "Employment and students",
+                "url": "/employment-and-students",
+                "id": "9557a7f1-4f87-46a5-85da-71685412328d",
+                "parent": "75da6ca1-2ca6-477e-9e10-13333e459252",
+                "weight": 1
+              }
+            ]
+          },
+          {
+            "text": "Highway permit applications",
+            "url": "/highway-permit-applications",
+            "id": "d7b006bf-88d5-4ad4-8bdf-86b711687916",
+            "parent": "91eb7619-8b0d-4e97-96aa-46031456a614",
+            "weight": 10
+          },
+          {
+            "text": "Infringement notices",
+            "url": "/infringement-notices",
+            "id": "b416828e-cf9c-44fe-b6f1-0a2a0b5bf073",
+            "parent": "91eb7619-8b0d-4e97-96aa-46031456a614",
+            "weight": 11,
+            "items": [
+              {
+                "text": "Official warnings",
+                "url": "/official-warnings",
+                "id": "dc4091ae-0cfe-4801-bef8-f94a28daa0c1",
+                "parent": "b416828e-cf9c-44fe-b6f1-0a2a0b5bf073",
+                "weight": 1
+              }
+            ]
+          },
+          {
+            "text": "National police checks and fingerprinting",
+            "url": "/national-police-records-checks",
+            "id": "1041874c-b958-4fdf-b170-33f8032dee70",
+            "parent": "91eb7619-8b0d-4e97-96aa-46031456a614",
+            "weight": 12,
+            "items": [
+              {
+                "text": "Apply for a national police check",
+                "url": "/apply-national-police-check",
+                "id": "71c84a92-d1c2-4099-bc39-04f80fe5161e",
+                "parent": "1041874c-b958-4fdf-b170-33f8032dee70",
+                "weight": 1
+              },
+              {
+                "text": "Book a fingerprinting appointment",
+                "url": "/fingerprinting",
+                "id": "fe729996-16af-428e-a0d3-0a789981b20b",
+                "parent": "1041874c-b958-4fdf-b170-33f8032dee70",
+                "weight": 2
+              },
+              {
+                "text": "National police check fees and charges",
+                "url": "/national-police-check-fees-charges",
+                "id": "93176cbb-0b3f-4182-adc6-660e0d395eb3",
+                "parent": "1041874c-b958-4fdf-b170-33f8032dee70",
+                "weight": 3
+              },
+              {
+                "text": "National police certificates",
+                "url": "/national-police-certificates",
+                "id": "9147ce6b-a0f0-4dcc-8430-acdf673edbf4",
+                "parent": "1041874c-b958-4fdf-b170-33f8032dee70",
+                "weight": 4
+              },
+              {
+                "text": "National police check disputes",
+                "url": "/national-police-check-disputes",
+                "id": "2e1d87c2-be4e-4076-bbdb-50c7c81e22d3",
+                "parent": "1041874c-b958-4fdf-b170-33f8032dee70",
+                "weight": 6
+              },
+              {
+                "text": "Contact us about police checks and fingerprinting",
+                "url": "/national-police-record-checks-fingerprinting-contact",
+                "id": "1f0e34ea-1fdc-4151-ac4d-074965f0a846",
+                "parent": "1041874c-b958-4fdf-b170-33f8032dee70",
+                "weight": 7
+              }
+            ]
+          },
+          {
+            "text": "Police prosecutions",
+            "url": "/police-prosecutions",
+            "id": "94a1b2b0-765a-4489-b3f2-2ce7a49a93de",
+            "parent": "91eb7619-8b0d-4e97-96aa-46031456a614",
+            "weight": 13,
+            "items": [
+              {
+                "text": "Witness summons",
+                "url": "/witness-summons",
+                "id": "00564809-781c-49cc-8b03-b700e6ed9733",
+                "parent": "94a1b2b0-765a-4489-b3f2-2ce7a49a93de",
+                "weight": 0
+              }
+            ]
+          },
+          {
+            "text": "Private security",
+            "url": "https://www.police.vic.gov.au/private-security",
+            "id": "0a4b7d7e-e1ec-42fc-a164-f8b56ebe78b0",
+            "parent": "91eb7619-8b0d-4e97-96aa-46031456a614",
+            "weight": 14,
+            "items": [
+              {
+                "text": "Applying for a new licence or registration",
+                "url": "/applying-new-individual-licence-or-registration",
+                "id": "60f0bdef-67a5-4ce1-bb43-4e035ff57b43",
+                "parent": "0a4b7d7e-e1ec-42fc-a164-f8b56ebe78b0",
+                "weight": 4
+              },
+              {
+                "text": "Approved security industry organisations",
+                "url": "/security-industry-organisations",
+                "id": "894f69d4-be13-4efd-8c31-a0f06c00f473",
+                "parent": "0a4b7d7e-e1ec-42fc-a164-f8b56ebe78b0",
+                "weight": 5
+              },
+              {
+                "text": "Authority types and eligibility",
+                "url": "/eligibility-requirements-1",
+                "id": "d83c29b6-c592-49ec-8392-d755621c9820",
+                "parent": "0a4b7d7e-e1ec-42fc-a164-f8b56ebe78b0",
+                "weight": 6
+              },
+              {
+                "text": "Alpha codes and alarm responses",
+                "url": "/alpha-code-and-alarm-responses",
+                "id": "c2e050bf-4d95-4615-b068-a6b365a530b2",
+                "parent": "0a4b7d7e-e1ec-42fc-a164-f8b56ebe78b0",
+                "weight": 8
+              },
+              {
+                "text": "Batons, body armour and handcuffs",
+                "url": "/batons-body-armour-and-handcuffs",
+                "id": "7fd041d8-5155-4bc2-afd6-d4b223192715",
+                "parent": "0a4b7d7e-e1ec-42fc-a164-f8b56ebe78b0",
+                "weight": 9
+              },
+              {
+                "text": "Change of details ",
+                "url": "/change-details",
+                "id": "8a9c3a2b-f998-4112-b062-7680b7825e36",
+                "parent": "0a4b7d7e-e1ec-42fc-a164-f8b56ebe78b0",
+                "weight": 10
+              },
+              {
+                "text": "eServices",
+                "url": "/eservices-portal",
+                "id": "400f04c8-aeec-449a-8431-9c915e9c5c67",
+                "parent": "0a4b7d7e-e1ec-42fc-a164-f8b56ebe78b0",
+                "weight": 11
+              },
+              {
+                "text": "Private security forms",
+                "url": "/private-security-forms-and-reference-information",
+                "id": "3aed2f16-89de-4845-a15d-7e72b99d9f86",
+                "parent": "0a4b7d7e-e1ec-42fc-a164-f8b56ebe78b0",
+                "weight": 13
+              },
+              {
+                "text": "Private security industry news ",
+                "url": "/private-security-industry-news",
+                "id": "385bb88c-fb74-45e0-b19c-59306272914b",
+                "parent": "0a4b7d7e-e1ec-42fc-a164-f8b56ebe78b0",
+                "weight": 14
+              },
+              {
+                "text": "Private Security Trainers and Registered Training Organisations",
+                "url": "/registered-training-organisations",
+                "id": "b7d9b570-9d65-4bc8-b6a6-f07197c7f9a9",
+                "parent": "0a4b7d7e-e1ec-42fc-a164-f8b56ebe78b0",
+                "weight": 18
+              },
+              {
+                "text": "Register of licence, registration and permit holders",
+                "url": "/register-licence-registration-and-permit-holders",
+                "id": "27e6d393-d262-4711-b714-de13098670ff",
+                "parent": "0a4b7d7e-e1ec-42fc-a164-f8b56ebe78b0",
+                "weight": 19
+              },
+              {
+                "text": "Renewing your private security licence or registration",
+                "url": "/renewing-your-private-security-licence-or-registration",
+                "id": "3598423d-b0ce-46f5-a91c-812dfd0d9dea",
+                "parent": "0a4b7d7e-e1ec-42fc-a164-f8b56ebe78b0",
+                "weight": 20
+              },
+              {
+                "text": "Contact the Licensing and Regulation Division",
+                "url": "/enquire-about-firearms-private-security-or-weapons",
+                "id": "95d03632-b382-4cc3-a26b-0e8e5a30501e",
+                "parent": "0a4b7d7e-e1ec-42fc-a164-f8b56ebe78b0",
+                "weight": 22
+              }
+            ]
+          },
+          {
+            "text": "Service fees and penalties",
+            "url": "/service-fees-and-penalties",
+            "id": "7e001345-704e-4f9e-ae25-61262ea5299d",
+            "parent": "91eb7619-8b0d-4e97-96aa-46031456a614",
+            "weight": 16
+          },
+          {
+            "text": "Statutory declarations",
+            "url": "/statutory-declarations",
+            "id": "1ffac766-bd5d-40e5-9921-bb62ce615b33",
+            "parent": "91eb7619-8b0d-4e97-96aa-46031456a614",
+            "weight": 17
+          },
+          {
+            "text": "Subpoena management",
+            "url": "/subpoena-coordination",
+            "id": "d00beada-e89c-4441-890e-8b6c9b9daed6",
+            "parent": "91eb7619-8b0d-4e97-96aa-46031456a614",
+            "weight": 18
+          },
+          {
+            "text": "Traffic accident reports",
+            "url": "/traffic-accident-reports",
+            "id": "8faf23ed-7713-4738-ad68-34e6bbbfcba6",
+            "parent": "91eb7619-8b0d-4e97-96aa-46031456a614",
+            "weight": 19
+          },
+          {
+            "text": "Vehicle impounds",
+            "url": "/vehicle-impounds",
+            "id": "2fe87b8d-fe73-4d51-9a58-200adc41cce1",
+            "parent": "91eb7619-8b0d-4e97-96aa-46031456a614",
+            "weight": 20,
+            "items": [
+              {
+                "text": "Vehicle collection locations",
+                "url": "/collection-locations",
+                "id": "71af05d8-1343-4749-bf17-b7102c5d22a3",
+                "parent": "2fe87b8d-fe73-4d51-9a58-200adc41cce1",
+                "weight": 13
+              }
+            ]
+          },
+          {
+            "text": "Veteran support",
+            "url": "/veteran-support",
+            "id": "da8dfeeb-ade3-4b3e-9240-7f3d3a2a35ed",
+            "parent": "91eb7619-8b0d-4e97-96aa-46031456a614",
+            "weight": 21
+          },
+          {
+            "text": "Weapons controls",
+            "url": "/weapons-controls",
+            "id": "142a0dda-6735-459f-af2f-ed4fc0ad7659",
+            "parent": "91eb7619-8b0d-4e97-96aa-46031456a614",
+            "weight": 22,
+            "items": [
+              {
+                "text": "Chief Commissioner approval",
+                "url": "/chief-commissioner-approval",
+                "id": "9e85e53f-46ea-46f2-b997-2bed40779cde",
+                "parent": "142a0dda-6735-459f-af2f-ed4fc0ad7659",
+                "weight": 8
+              },
+              {
+                "text": "Forms and applications",
+                "url": "/forms-and-applications",
+                "id": "acf91282-492e-49e4-b2ad-f77f7843e866",
+                "parent": "142a0dda-6735-459f-af2f-ed4fc0ad7659",
+                "weight": 9
+              },
+              {
+                "text": "Governor in Council Exemption Order",
+                "url": "/governor-council-exemption-order",
+                "id": "a5e003b3-7317-4f51-9da1-cd21b75c3247",
+                "parent": "142a0dda-6735-459f-af2f-ed4fc0ad7659",
+                "weight": 10
+              },
+              {
+                "text": "Weapons definitions",
+                "url": "/weapons-definitions",
+                "id": "5ad59d59-248e-4ced-ad43-02c60ee3f23f",
+                "parent": "142a0dda-6735-459f-af2f-ed4fc0ad7659",
+                "weight": 11
+              },
+              {
+                "text": "Weapons search areas",
+                "url": "/weapons-search-areas",
+                "id": "c821e6bf-7682-4a24-b71a-86c546c5f14f",
+                "parent": "142a0dda-6735-459f-af2f-ed4fc0ad7659",
+                "weight": 12
+              },
+              {
+                "text": "Contact the Licensing and Regulation Division",
+                "url": "/enquire-about-firearms-private-security-or-weapons",
+                "id": "1914f973-652f-44d6-b5f5-a37f7b270ba4",
+                "parent": "142a0dda-6735-459f-af2f-ed4fc0ad7659",
+                "weight": 13
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "text": "Can you help us? ",
+        "url": "/can-you-help-us",
+        "id": "5a588428-98e9-402e-be99-a62011edfb06",
+        "parent": null,
+        "weight": 4,
+        "items": [
+          {
+            "text": "Cold cases",
+            "url": "/cold-cases",
+            "id": "13e0f800-159d-49a1-8662-8686aad8e73d",
+            "parent": "5a588428-98e9-402e-be99-a62011edfb06",
+            "weight": 1,
+            "items": [
+              {
+                "text": "Cold case stories",
+                "url": "/cold-case-stories",
+                "id": "806abff5-9009-4109-a0f8-0555b2c85dbf",
+                "parent": "13e0f800-159d-49a1-8662-8686aad8e73d",
+                "weight": 0
+              }
+            ]
+          },
+          {
+            "text": "Missing persons",
+            "url": "/missing-persons",
+            "id": "1f14354d-1ae2-48fd-a984-2e7a42799818",
+            "parent": "5a588428-98e9-402e-be99-a62011edfb06",
+            "weight": 2,
+            "items": [
+              {
+                "text": "Information and support",
+                "url": "/missing-persons-information-support",
+                "id": "9980dd23-afce-4f7e-aca1-e9953767d7dd",
+                "parent": "1f14354d-1ae2-48fd-a984-2e7a42799818",
+                "weight": 3,
+                "items": [
+                  {
+                    "text": "Effects and impacts",
+                    "url": "/missing-persons-effects-and-impacts",
+                    "id": "c983fc05-d4e0-4424-873d-0650a5f01ad4",
+                    "parent": "9980dd23-afce-4f7e-aca1-e9953767d7dd",
+                    "weight": 0
+                  },
+                  {
+                    "text": "Located missing persons",
+                    "url": "/located-missing-persons",
+                    "id": "aa06cb9c-f49b-4ede-8758-e42609ede755",
+                    "parent": "9980dd23-afce-4f7e-aca1-e9953767d7dd",
+                    "weight": 1
+                  },
+                  {
+                    "text": "Missing persons and social media",
+                    "url": "/missing-persons-and-social-media",
+                    "id": "658bb1e5-e166-45aa-9032-ffa3f0242c12",
+                    "parent": "9980dd23-afce-4f7e-aca1-e9953767d7dd",
+                    "weight": 3
+                  },
+                  {
+                    "text": "Missing persons and suicide ",
+                    "url": "/missing-persons-and-suicide",
+                    "id": "618a7976-08b2-49da-be05-e5e71f745b46",
+                    "parent": "9980dd23-afce-4f7e-aca1-e9953767d7dd",
+                    "weight": 4
+                  },
+                  {
+                    "text": "Working with the media ",
+                    "url": "/missing-persons-working-media",
+                    "id": "7974d407-d966-45d6-b330-c14941cae576",
+                    "parent": "9980dd23-afce-4f7e-aca1-e9953767d7dd",
+                    "weight": 5
+                  }
+                ]
+              },
+              {
+                "text": "Missing persons list ",
+                "url": "/missing-persons-list",
+                "id": "c89f0175-b5cf-4428-a10c-c9e0cfe579b6",
+                "parent": "1f14354d-1ae2-48fd-a984-2e7a42799818",
+                "weight": 4
+              },
+              {
+                "text": "Report a missing person ",
+                "url": "/report-missing-person",
+                "id": "82d8a119-0f53-4ff7-b4f2-4da9094d3b49",
+                "parent": "1f14354d-1ae2-48fd-a984-2e7a42799818",
+                "weight": 5
+              }
+            ]
+          },
+          {
+            "text": "Missing registered sex offenders",
+            "url": "/missing-registered-sex-offenders",
+            "id": "fbe91002-217c-4895-acdf-080a533d9b29",
+            "parent": "5a588428-98e9-402e-be99-a62011edfb06",
+            "weight": 3,
+            "items": [
+              {
+                "text": "Reporting missing registered sex offenders",
+                "url": "/reporting-missing-registered-sex-offenders",
+                "id": "e6053a33-41b6-4e6f-a0d3-648064933ccc",
+                "parent": "fbe91002-217c-4895-acdf-080a533d9b29",
+                "weight": 7
+              }
+            ]
+          },
+          {
+            "text": "Rewards",
+            "url": "/rewards",
+            "id": "e5008839-1393-40d2-a83a-552a8888bdce",
+            "parent": "5a588428-98e9-402e-be99-a62011edfb06",
+            "weight": 5
+          }
+        ]
+      },
+      {
+        "text": "Report",
+        "url": "/report",
+        "id": "7a826f0f-7358-428c-873b-f62501ff1ef5",
+        "parent": null,
+        "weight": 5,
+        "items": [
+          {
+            "text": "Police Assistance Line and Online Reporting",
+            "url": "/police-assistance-line-and-online-reporting",
+            "id": "64eb7536-8525-4006-b299-14120e7438b4",
+            "parent": "7a826f0f-7358-428c-873b-f62501ff1ef5",
+            "weight": 1
+          }
+        ]
+      },
+      {
+        "text": "About",
+        "url": "/about-victoria-police",
+        "id": "938132de-8877-4f89-9d28-64bda4641e63",
+        "parent": null,
+        "weight": 6,
+        "items": [
+          {
+            "text": "Chief Commissioner",
+            "url": "/chief-commissioner",
+            "id": "86b29021-3ae3-40ae-8295-bbf7867b912a",
+            "parent": "938132de-8877-4f89-9d28-64bda4641e63",
+            "weight": -40
+          },
+          {
+            "text": "Community partners and reference groups",
+            "url": "/our-community",
+            "id": "65043a40-dd90-4cf8-acd3-a3df2788a8c8",
+            "parent": "938132de-8877-4f89-9d28-64bda4641e63",
+            "weight": -39,
+            "items": [
+              {
+                "text": "Partners",
+                "url": "/partners",
+                "id": "40026b60-0cd6-4640-a066-a47b836e5f77",
+                "parent": "65043a40-dd90-4cf8-acd3-a3df2788a8c8",
+                "weight": 7
+              },
+              {
+                "text": "Reference groups",
+                "url": "/reference-groups",
+                "id": "02e47b0e-5a4d-499b-93d0-8fae99d744dc",
+                "parent": "65043a40-dd90-4cf8-acd3-a3df2788a8c8",
+                "weight": 8
+              }
+            ]
+          },
+          {
+            "text": "Corporate governance",
+            "url": "/corporate-governance",
+            "id": "073b1cde-f449-4779-9e85-f0cded67e3ee",
+            "parent": "938132de-8877-4f89-9d28-64bda4641e63",
+            "weight": -38,
+            "items": [
+              {
+                "text": "Contractors, service providers and security clearances",
+                "url": "/contractors-service-providers-and-security-clearances",
+                "id": "28e8875c-6ea5-4d78-87af-3aa8817218de",
+                "parent": "073b1cde-f449-4779-9e85-f0cded67e3ee",
+                "weight": 6
+              },
+              {
+                "text": "Policies, procedures and legislation",
+                "url": "/procedures-and-legislation",
+                "id": "bcd4753f-1b36-4679-b128-a06f84f09afd",
+                "parent": "073b1cde-f449-4779-9e85-f0cded67e3ee",
+                "weight": 7,
+                "items": [
+                  {
+                    "text": "Gifts, benefits and hospitality policy ",
+                    "url": "/gifts-benefits-and-hospitality-policy",
+                    "id": "b23dc35f-f1b9-4920-ad45-0742b167e230",
+                    "parent": "bcd4753f-1b36-4679-b128-a06f84f09afd",
+                    "weight": 1
+                  },
+                  {
+                    "text": "Decriminalisation of Sex Work in Victoria ",
+                    "url": "/decriminalisation-sex-work-victoria",
+                    "id": "b37dc5ad-9ff8-446f-b147-4bbb716d4ce8",
+                    "parent": "bcd4753f-1b36-4679-b128-a06f84f09afd",
+                    "weight": 2
+                  }
+                ]
+              },
+              {
+                "text": "Publications, strategies and corporate information",
+                "url": "/publications-strategies-corporate-information",
+                "id": "1ff5ebf7-72fe-4a55-bb97-2df9b70446d7",
+                "parent": "073b1cde-f449-4779-9e85-f0cded67e3ee",
+                "weight": 8,
+                "items": [
+                  {
+                    "text": "Aboriginal and Torres Strait Islander Inclusion Action Plan 2023-2025",
+                    "url": "/victoria-police-aboriginal-and-torres-strait-islander-inclusion-action-plan-2023-2025",
+                    "id": "fdfeadf5-72fa-4b23-b38d-5c69fa3d2179",
+                    "parent": "1ff5ebf7-72fe-4a55-bb97-2df9b70446d7",
+                    "weight": -24
+                  },
+                  {
+                    "text": "Access and Inclusion Action Plan 2023-2024",
+                    "url": "/victoria-police-access-and-inclusion-action-plan-2023-2024",
+                    "id": "b5d66f84-a002-433c-9ce3-d515cd6eca92",
+                    "parent": "1ff5ebf7-72fe-4a55-bb97-2df9b70446d7",
+                    "weight": -23
+                  },
+                  {
+                    "text": "Annual report",
+                    "url": "/annual-report",
+                    "id": "0b013faf-081a-4f8a-b8f4-cccb80919861",
+                    "parent": "1ff5ebf7-72fe-4a55-bb97-2df9b70446d7",
+                    "weight": -22
+                  },
+                  {
+                    "text": "CALD Inclusion Action Plan 2023-2024",
+                    "url": "/victoria-police-cald-inclusion-action-plan-2023-2024",
+                    "id": "a55b26eb-b857-4241-8648-07cd17fc771c",
+                    "parent": "1ff5ebf7-72fe-4a55-bb97-2df9b70446d7",
+                    "weight": -21
+                  },
+                  {
+                    "text": "Code of Practice for the Investigation of Family Violence",
+                    "url": "/code-practice-investigation-family-violence",
+                    "id": "f7af6e81-988e-4798-9164-4be27932a043",
+                    "parent": "1ff5ebf7-72fe-4a55-bb97-2df9b70446d7",
+                    "weight": -20
+                  },
+                  {
+                    "text": "Corporate Plan 2023-2024",
+                    "url": "/victoria-police-corporate-plan-2023-2024",
+                    "id": "8c1dd56b-24f3-4da8-8485-2eb0b8e888de",
+                    "parent": "1ff5ebf7-72fe-4a55-bb97-2df9b70446d7",
+                    "weight": -19
+                  },
+                  {
+                    "text": "Counter Terrorism Strategy 2022-2025",
+                    "url": "/victoria-police-counter-terrorism-strategy-2022-2025",
+                    "id": "2bc8e9d7-bdea-4324-bb29-258350b69159",
+                    "parent": "1ff5ebf7-72fe-4a55-bb97-2df9b70446d7",
+                    "weight": -18
+                  },
+                  {
+                    "text": "Cybercrime Strategy 2022–2027",
+                    "url": "/cybercrime-strategy-2022-2027",
+                    "id": "bfac3447-16aa-4ccc-ad22-63f80932f4a7",
+                    "parent": "1ff5ebf7-72fe-4a55-bb97-2df9b70446d7",
+                    "weight": -17
+                  },
+                  {
+                    "text": "Drug strategy ",
+                    "url": "/drug-strategy",
+                    "id": "900cc828-8dae-452e-98a5-71338f55af3a",
+                    "parent": "1ff5ebf7-72fe-4a55-bb97-2df9b70446d7",
+                    "weight": -16
+                  },
+                  {
+                    "text": "Equal, Safe and Strong",
+                    "url": "/equal-safe-and-strong-victoria-police-gender-equality-action-plan-2022-2024",
+                    "id": "72e201a3-06a1-43e9-93c3-bffd00331331",
+                    "parent": "1ff5ebf7-72fe-4a55-bb97-2df9b70446d7",
+                    "weight": -15
+                  },
+                  {
+                    "text": "Equality is not the same",
+                    "url": "/equality-not-same",
+                    "id": "858f681e-47b7-4892-825c-bbc8e4ccecc4",
+                    "parent": "1ff5ebf7-72fe-4a55-bb97-2df9b70446d7",
+                    "weight": -14
+                  },
+                  {
+                    "text": "Family Violence, Sexual Offences and Child Abuse Strategy",
+                    "url": "/family-violence-sexual-offences-and-child-abuse-strategy",
+                    "id": "a62e336b-56ea-408c-b51d-f53b7dc68758",
+                    "parent": "1ff5ebf7-72fe-4a55-bb97-2df9b70446d7",
+                    "weight": -13
+                  },
+                  {
+                    "text": "Gender equality strategy",
+                    "url": "/gender-equality-strategy",
+                    "id": "9c5e4e04-18b0-4df3-9294-f6a5b61d7c3b",
+                    "parent": "1ff5ebf7-72fe-4a55-bb97-2df9b70446d7",
+                    "weight": -12
+                  },
+                  {
+                    "text": "Keeping You Safe: Victoria Police Strategy 2023-2028",
+                    "url": "/victoria-police-strategy-2023-2028",
+                    "id": "9c7e5870-628f-40bd-9965-b3f528dff7dc",
+                    "parent": "1ff5ebf7-72fe-4a55-bb97-2df9b70446d7",
+                    "weight": -11
+                  },
+                  {
+                    "text": "LGBTIQ+ Inclusion Action Plan 2023-2024",
+                    "url": "/victoria-police-lgbtiq-inclusion-action-plan-2023-2024",
+                    "id": "b2c0c837-cf6a-4b3f-bfed-0cd9c15d5c01",
+                    "parent": "1ff5ebf7-72fe-4a55-bb97-2df9b70446d7",
+                    "weight": -10
+                  },
+                  {
+                    "text": "Mental health strategy",
+                    "url": "/mental-health-strategy",
+                    "id": "099ccece-b3cb-4122-8dd1-60e0e2c6475b",
+                    "parent": "1ff5ebf7-72fe-4a55-bb97-2df9b70446d7",
+                    "weight": -9
+                  },
+                  {
+                    "text": "Past Annual Plans",
+                    "url": "/past-victoria-police-annual-plans",
+                    "id": "16666251-0de8-49f1-8bcd-59ba9c5981c9",
+                    "parent": "1ff5ebf7-72fe-4a55-bb97-2df9b70446d7",
+                    "weight": -8
+                  },
+                  {
+                    "text": "Police Life magazine",
+                    "url": "/police-life-magazine",
+                    "id": "1ad91f9e-23fe-4ba1-9f4b-4cac0c6202ed",
+                    "parent": "1ff5ebf7-72fe-4a55-bb97-2df9b70446d7",
+                    "weight": -7
+                  },
+                  {
+                    "text": "Road safety strategy",
+                    "url": "/road-safety-strategy",
+                    "id": "909d0297-5787-4baa-a69f-69fe7720cf28",
+                    "parent": "1ff5ebf7-72fe-4a55-bb97-2df9b70446d7",
+                    "weight": -6
+                  },
+                  {
+                    "text": "Taskforce reports ",
+                    "url": "/taskforce-reports",
+                    "id": "c0b66cd9-00bc-45df-b0b1-36dd30754b00",
+                    "parent": "1ff5ebf7-72fe-4a55-bb97-2df9b70446d7",
+                    "weight": -5
+                  },
+                  {
+                    "text": "VEOHRC review",
+                    "url": "/veohrc-review",
+                    "id": "f7cc9f8a-ed11-4918-9a23-e0ad22b93d3f",
+                    "parent": "1ff5ebf7-72fe-4a55-bb97-2df9b70446d7",
+                    "weight": -4
+                  },
+                  {
+                    "text": "Workforce Diversity and Inclusion Framework 2023-2030",
+                    "url": "/victoria-police-workforce-diversity-and-inclusion-framework-2023-2030",
+                    "id": "c67abc41-e472-4866-a8f5-8485d3851f49",
+                    "parent": "1ff5ebf7-72fe-4a55-bb97-2df9b70446d7",
+                    "weight": -3
+                  },
+                  {
+                    "text": "Youth Gang Strategy 2023–2026",
+                    "url": "/victoria-police-youth-gang-strategy-2023-2026",
+                    "id": "467932a4-5d25-4e2c-bd81-e190c2fc0e50",
+                    "parent": "1ff5ebf7-72fe-4a55-bb97-2df9b70446d7",
+                    "weight": -2
+                  }
+                ]
+              },
+              {
+                "text": "Procurement",
+                "url": "/procurement",
+                "id": "e7fac900-68a0-4b85-8f57-6454a9bbd28b",
+                "parent": "073b1cde-f449-4779-9e85-f0cded67e3ee",
+                "weight": 9,
+                "items": [
+                  {
+                    "text": "Procurement Complaints Management Policy",
+                    "url": "/procurement-complaints-management-policy",
+                    "id": "343fe460-c480-4d39-9986-18c20c6490dc",
+                    "parent": "e7fac900-68a0-4b85-8f57-6454a9bbd28b",
+                    "weight": 0
+                  }
+                ]
+              },
+              {
+                "text": "Structure",
+                "url": "/structure",
+                "id": "e5a1949c-37fe-4d24-b700-6e81dca0d1df",
+                "parent": "073b1cde-f449-4779-9e85-f0cded67e3ee",
+                "weight": 10,
+                "items": [
+                  {
+                    "text": "Crime Command",
+                    "url": "/crime-command",
+                    "id": "847b183b-6bf7-4f67-857c-3f5e593530f5",
+                    "parent": "e5a1949c-37fe-4d24-b700-6e81dca0d1df",
+                    "weight": 18
+                  },
+                  {
+                    "text": "Forensic Services Department",
+                    "url": "/forensic-services-department",
+                    "id": "292ab7fe-34d2-42ea-811f-eb64f1bd5064",
+                    "parent": "e5a1949c-37fe-4d24-b700-6e81dca0d1df",
+                    "weight": 19
+                  },
+                  {
+                    "text": "Human Resources Command",
+                    "url": "/human-resources-command",
+                    "id": "0ee85e98-4736-40d0-bfe4-221630284dcc",
+                    "parent": "e5a1949c-37fe-4d24-b700-6e81dca0d1df",
+                    "weight": 20
+                  },
+                  {
+                    "text": "Media, Communications and Engagement",
+                    "url": "/media-communications-and-engagement",
+                    "id": "7082daac-6800-40ba-9465-9f72d1ab68db",
+                    "parent": "e5a1949c-37fe-4d24-b700-6e81dca0d1df",
+                    "weight": 21
+                  },
+                  {
+                    "text": "Licensing and Regulation Division",
+                    "url": "/licensing-and-regulation-division",
+                    "id": "283d5e48-5cbf-4fb2-a0ff-d5f8406dc237",
+                    "parent": "e5a1949c-37fe-4d24-b700-6e81dca0d1df",
+                    "weight": 23
+                  },
+                  {
+                    "text": "Professional Standards Command",
+                    "url": "/professional-standards-command",
+                    "id": "9863a9be-edf5-4379-be74-d052ab87e51f",
+                    "parent": "e5a1949c-37fe-4d24-b700-6e81dca0d1df",
+                    "weight": 24
+                  },
+                  {
+                    "text": "Public Support Services",
+                    "url": "/public-support-services",
+                    "id": "3f559871-ca1d-4821-8db6-c00c41fdb71c",
+                    "parent": "e5a1949c-37fe-4d24-b700-6e81dca0d1df",
+                    "weight": 25
+                  },
+                  {
+                    "text": "Service Delivery Transformation Command",
+                    "url": "/service-delivery-transformation-command",
+                    "id": "e18f31a6-31c4-4a63-bee5-ca4434989b74",
+                    "parent": "e5a1949c-37fe-4d24-b700-6e81dca0d1df",
+                    "weight": 26
+                  },
+                  {
+                    "text": "Transit and Public Safety Command",
+                    "url": "/transit-and-public-safety-command",
+                    "id": "82d71624-394d-43c8-95c7-2c7b5bf11353",
+                    "parent": "e5a1949c-37fe-4d24-b700-6e81dca0d1df",
+                    "weight": 27
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "text": "Workforce diversity and inclusion",
+            "url": "/workforce-diversity-and-inclusion",
+            "id": "a453c7a4-ec8a-4068-aebd-1b02d5add3cb",
+            "parent": "938132de-8877-4f89-9d28-64bda4641e63",
+            "weight": -37
+          },
+          {
+            "text": "History ",
+            "url": "/history",
+            "id": "c64dd1c8-6786-41b1-b4cd-bb8c850bd083",
+            "parent": "938132de-8877-4f89-9d28-64bda4641e63",
+            "weight": -36,
+            "items": [
+              {
+                "text": "Honours and awards",
+                "url": "/honours-and-awards",
+                "id": "208e0c27-1824-4a16-9899-f2769a27c3d8",
+                "parent": "c64dd1c8-6786-41b1-b4cd-bb8c850bd083",
+                "weight": 5
+              },
+              {
+                "text": "Museum",
+                "url": "/victoria-police-museum",
+                "id": "60565196-f9a3-4ad2-ba53-3e2eaf6b5087",
+                "parent": "c64dd1c8-6786-41b1-b4cd-bb8c850bd083",
+                "weight": 6
+              },
+              {
+                "text": "National Police Remembrance Day and Memorial",
+                "url": "/national-police-remembrance-day-and-memorial",
+                "id": "eb4fb5b2-0916-46c7-8be6-6df4ee73643e",
+                "parent": "c64dd1c8-6786-41b1-b4cd-bb8c850bd083",
+                "weight": 7,
+                "items": [
+                  {
+                    "text": "Honour roll",
+                    "url": "/honour-roll",
+                    "id": "0ce4eacf-e7f2-4b24-81eb-6c2b7689f8d1",
+                    "parent": "eb4fb5b2-0916-46c7-8be6-6df4ee73643e",
+                    "weight": 9
+                  }
+                ]
+              },
+              {
+                "text": "Past and Present Women Police Association",
+                "url": "/past-and-present-women-police-association",
+                "id": "8278aea6-39bd-4ecc-9777-34db195038f1",
+                "parent": "c64dd1c8-6786-41b1-b4cd-bb8c850bd083",
+                "weight": 8
+              },
+              {
+                "text": "Victoria Police Library",
+                "url": "/victoria-police-library",
+                "id": "24d4938c-3656-4b0e-a494-2915de114814",
+                "parent": "c64dd1c8-6786-41b1-b4cd-bb8c850bd083",
+                "weight": 9
+              },
+              {
+                "text": "Victoria Police Interactive Mural",
+                "url": "/victoria-police-interactive-mural",
+                "id": "3d56d31c-88cc-4858-ada3-2e22ed869a16",
+                "parent": "c64dd1c8-6786-41b1-b4cd-bb8c850bd083",
+                "weight": 10
+              },
+              {
+                "text": "Victoria Police Pipe Band",
+                "url": "/victoria-police-pipe-band",
+                "id": "06d1008f-f3a7-4d02-9148-93697a0b1126",
+                "parent": "c64dd1c8-6786-41b1-b4cd-bb8c850bd083",
+                "weight": 11
+              },
+              {
+                "text": "Victorian bushfires remembered",
+                "url": "/victoria-bushfires-remembered",
+                "id": "525f2eff-bfca-4822-b588-40f7552209b4",
+                "parent": "c64dd1c8-6786-41b1-b4cd-bb8c850bd083",
+                "weight": 12,
+                "items": [
+                  {
+                    "text": "Community stories ",
+                    "url": "/community-stories",
+                    "id": "d6197eda-d5f9-47de-9738-834e1ec5d910",
+                    "parent": "525f2eff-bfca-4822-b588-40f7552209b4",
+                    "weight": 0
+                  },
+                  {
+                    "text": "Police stories",
+                    "url": "/bushfires-police-stories",
+                    "id": "03a70b86-195b-4a8e-b317-33ec8becca33",
+                    "parent": "525f2eff-bfca-4822-b588-40f7552209b4",
+                    "weight": 2
+                  },
+                  {
+                    "text": "Gallery",
+                    "url": "https://www.flickr.com/photos/victoriapolice/",
+                    "id": "9a7c8580-87c5-473b-b5fc-e953a0633ab1",
+                    "parent": "525f2eff-bfca-4822-b588-40f7552209b4",
+                    "weight": 4
+                  },
+                  {
+                    "text": "Media reports - around the world",
+                    "url": "/media-reports-around-world",
+                    "id": "0edb0348-6711-4acb-b5c4-f667cf1a89c0",
+                    "parent": "525f2eff-bfca-4822-b588-40f7552209b4",
+                    "weight": 5
+                  },
+                  {
+                    "text": "Subscribe to Police Life magazine",
+                    "url": "/police-life-magazine",
+                    "id": "9a2c8b66-cd53-441f-bb45-b97e2a2cb679",
+                    "parent": "525f2eff-bfca-4822-b588-40f7552209b4",
+                    "weight": 6
+                  },
+                  {
+                    "text": "Fire safety",
+                    "url": "https://www.police.vic.gov.au/emergency-response#bushfires",
+                    "id": "f6d13517-05c7-48c8-a12e-58ba3ae9f4d8",
+                    "parent": "525f2eff-bfca-4822-b588-40f7552209b4",
+                    "weight": 7
+                  }
+                ]
+              },
+              {
+                "text": "Women in policing",
+                "url": "/100-years-women-policing",
+                "id": "77bf7b9e-c7f4-4028-a59c-b6d6be001637",
+                "parent": "c64dd1c8-6786-41b1-b4cd-bb8c850bd083",
+                "weight": 13
+              }
+            ]
+          },
+          {
+            "text": "Programs and initiatives",
+            "url": "/programs-and-initiatives",
+            "id": "da1b0f78-b1d7-4458-a7b3-d65285621a0d",
+            "parent": "938132de-8877-4f89-9d28-64bda4641e63",
+            "weight": -35,
+            "items": [
+              {
+                "text": "Body-worn cameras",
+                "url": "/body-worn-cameras",
+                "id": "2b4eac7e-5ae5-4ed5-8865-10e5497632ed",
+                "parent": "da1b0f78-b1d7-4458-a7b3-d65285621a0d",
+                "weight": 1,
+                "items": [
+                  {
+                    "text": "Digitally recorded evidence-in-chief",
+                    "url": "/digitally-recorded-evidence-chief",
+                    "id": "b58c8857-1be9-4780-abab-b02355222767",
+                    "parent": "2b4eac7e-5ae5-4ed5-8865-10e5497632ed",
+                    "weight": 0
+                  }
+                ]
+              },
+              {
+                "text": "Contact cards",
+                "url": "/contact-cards",
+                "id": "1ad9eafc-e417-48e9-b947-d9fb412e0bee",
+                "parent": "da1b0f78-b1d7-4458-a7b3-d65285621a0d",
+                "weight": 2
+              },
+              {
+                "text": "Eyewatch",
+                "url": "/eyewatch",
+                "id": "cf4fe76c-10ed-4510-89f3-574227551880",
+                "parent": "da1b0f78-b1d7-4458-a7b3-d65285621a0d",
+                "weight": 3
+              },
+              {
+                "text": "Head to Head Walk",
+                "url": "/head-head-walk",
+                "id": "52cb565e-46b6-485b-b265-61bc20102e12",
+                "parent": "da1b0f78-b1d7-4458-a7b3-d65285621a0d",
+                "weight": 5
+              },
+              {
+                "text": "Neighbourhood policing",
+                "url": "/neighbourhood-policing",
+                "id": "af7e06ae-bb08-4fcf-8ad5-74fe14085081",
+                "parent": "da1b0f78-b1d7-4458-a7b3-d65285621a0d",
+                "weight": 6
+              },
+              {
+                "text": "Partysafe",
+                "url": "/party-safe",
+                "id": "11d71ee7-5948-426f-8341-1f05ccab4a64",
+                "parent": "da1b0f78-b1d7-4458-a7b3-d65285621a0d",
+                "weight": 7
+              },
+              {
+                "text": "Receipting proof of concept",
+                "url": "/receipting-proof-concept",
+                "id": "cd6714b7-f215-42c5-a3e5-2780aa29c276",
+                "parent": "da1b0f78-b1d7-4458-a7b3-d65285621a0d",
+                "weight": 8
+              },
+              {
+                "text": "SafePL8",
+                "url": "/safepl8",
+                "id": "6058738e-d73e-466b-8929-910806537dfc",
+                "parent": "da1b0f78-b1d7-4458-a7b3-d65285621a0d",
+                "weight": 10
+              },
+              {
+                "text": "Service delivery consultation",
+                "url": "/service-delivery-consultation",
+                "id": "d138cbd2-e297-4830-ab6a-594f35eaea26",
+                "parent": "da1b0f78-b1d7-4458-a7b3-d65285621a0d",
+                "weight": 11
+              },
+              {
+                "text": "Youth",
+                "url": "/youth",
+                "id": "c0ed1f42-5271-45e2-b468-5ab08a8d8fb0",
+                "parent": "da1b0f78-b1d7-4458-a7b3-d65285621a0d",
+                "weight": 12,
+                "items": [
+                  {
+                    "text": "Aboriginal Youth Cautioning Program (AYCP)",
+                    "url": "/aboriginal-youth-cautioning-program-aycp",
+                    "id": "f327a73f-74fb-4ecf-ba8b-0a4e486d22a0",
+                    "parent": "c0ed1f42-5271-45e2-b468-5ab08a8d8fb0",
+                    "weight": 0
+                  },
+                  {
+                    "text": "Embedded youth outreach project ",
+                    "url": "/embedded-youth-outreach-project",
+                    "id": "f5da24d6-69af-4d4e-94ee-de54a500a15d",
+                    "parent": "c0ed1f42-5271-45e2-b468-5ab08a8d8fb0",
+                    "weight": 0
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "text": "Research",
+            "url": "/research",
+            "id": "3439fd1f-2af9-4fd3-b988-4c40ab17101c",
+            "parent": "938132de-8877-4f89-9d28-64bda4641e63",
+            "weight": -34
+          },
+          {
+            "text": "Student resources",
+            "url": "/student-resources",
+            "id": "26818159-81b8-4d22-872f-5d352884f7ef",
+            "parent": "938132de-8877-4f89-9d28-64bda4641e63",
+            "weight": -33,
+            "items": [
+              {
+                "text": "Explore careers",
+                "url": "/careers",
+                "id": "01b1a50f-9188-43e4-9e34-89b4cdc73c76",
+                "parent": "26818159-81b8-4d22-872f-5d352884f7ef",
+                "weight": 3
+              },
+              {
+                "text": "Fun and games",
+                "url": "/fun-and-games",
+                "id": "881af209-0a2b-4d48-9bd2-aa4b90833191",
+                "parent": "26818159-81b8-4d22-872f-5d352884f7ef",
+                "weight": 4
+              },
+              {
+                "text": "Work experience, traineeships and employment schemes",
+                "url": "/work-experience-traineeships-and-employment-schemes",
+                "id": "b826701b-93e9-48a8-8ace-c8fb772a2374",
+                "parent": "26818159-81b8-4d22-872f-5d352884f7ef",
+                "weight": 6
+              }
+            ]
+          },
+          {
+            "text": "Statistics",
+            "url": "/statistics",
+            "id": "958b75f7-b6f0-460b-96b6-98b6abb33563",
+            "parent": "938132de-8877-4f89-9d28-64bda4641e63",
+            "weight": -32,
+            "items": [
+              {
+                "text": "Crime statistics",
+                "url": "/crime-statistics",
+                "id": "2353f981-4809-4c88-8ce1-228197238d82",
+                "parent": "958b75f7-b6f0-460b-96b6-98b6abb33563",
+                "weight": 0
+              },
+              {
+                "text": "Explanatory notes",
+                "url": "/explanatory-notes",
+                "id": "f088afc3-f86a-4c8f-855a-fa33e65d6791",
+                "parent": "958b75f7-b6f0-460b-96b6-98b6abb33563",
+                "weight": 2
+              },
+              {
+                "text": "Police number by region",
+                "url": "/police-number-region",
+                "id": "f909794d-436f-47e2-bfa5-3815c5eaa82f",
+                "parent": "958b75f7-b6f0-460b-96b6-98b6abb33563",
+                "weight": 3
+              },
+              {
+                "text": "Road policing statistics",
+                "url": "/road-policing-statistics",
+                "id": "f08ea07a-e3f3-467c-b7af-ead53b30d25b",
+                "parent": "958b75f7-b6f0-460b-96b6-98b6abb33563",
+                "weight": 4
+              },
+              {
+                "text": "Sex offender register statistics",
+                "url": "/sex-offender-register-statistics",
+                "id": "ee704846-0c42-4f15-977a-5313420b5859",
+                "parent": "958b75f7-b6f0-460b-96b6-98b6abb33563",
+                "weight": 5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "text": "Contact",
+        "url": "/contact",
+        "id": "0894b4d1-3604-4084-ac60-0a8d524327ee",
+        "parent": null,
+        "weight": 7,
+        "items": [
+          {
+            "text": "Find my local police station",
+            "url": "/police-station-location",
+            "id": "54fa3d95-068b-4cd0-b9ab-59b5d905fb2f",
+            "parent": "0894b4d1-3604-4084-ac60-0a8d524327ee",
+            "weight": 12
+          },
+          {
+            "text": "Community Liaison Officers",
+            "url": "/community-liaison-officers",
+            "id": "e46ab254-d3dd-4858-be59-27f7dce1b301",
+            "parent": "0894b4d1-3604-4084-ac60-0a8d524327ee",
+            "weight": 14,
+            "items": [
+              {
+                "text": "Aboriginal community liaison officers",
+                "url": "/aboriginal-community-liaison-officer-program",
+                "id": "632b7e92-f9e9-4050-ae60-6619ae6a250b",
+                "parent": "e46ab254-d3dd-4858-be59-27f7dce1b301",
+                "weight": 0
+              },
+              {
+                "text": "Farm crime liaison officers",
+                "url": "/farm-crime-liaison-officers",
+                "id": "723bad54-a10f-4713-ae78-34ffdf9ee930",
+                "parent": "e46ab254-d3dd-4858-be59-27f7dce1b301",
+                "weight": 6
+              },
+              {
+                "text": "LGBTIQA+ liaison officers",
+                "url": "/LGBTIQA-liaison-officers",
+                "id": "a95c722b-0795-4992-a24d-231f771956d6",
+                "parent": "e46ab254-d3dd-4858-be59-27f7dce1b301",
+                "weight": 8
+              }
+            ]
+          },
+          {
+            "text": "Compliments and complaints",
+            "url": "/compliments-and-complaints",
+            "id": "3374c6b7-9981-4eeb-8a78-e98c1f76370f",
+            "parent": "0894b4d1-3604-4084-ac60-0a8d524327ee",
+            "weight": 15,
+            "items": [
+              {
+                "text": "Compliments",
+                "url": "/compliments",
+                "id": "061d2944-69e3-4818-b2bc-aa4fb821a6e0",
+                "parent": "3374c6b7-9981-4eeb-8a78-e98c1f76370f",
+                "weight": 0
+              },
+              {
+                "text": "Complaints",
+                "url": "/complaints",
+                "id": "66602b1e-da7a-41ff-920a-3bc4e44a957d",
+                "parent": "3374c6b7-9981-4eeb-8a78-e98c1f76370f",
+                "weight": 1
+              },
+              {
+                "text": "Reporting family violence or sexual offences perpetrated by a Victoria Police employee ",
+                "url": "/reporting-family-violence-or-sexual-offences-perpetrated-victoria-police-employee",
+                "id": "0cacc689-e34e-4687-bc13-7223425731c5",
+                "parent": "3374c6b7-9981-4eeb-8a78-e98c1f76370f",
+                "weight": 2
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "menuFooter": [
+      {
+        "text": "Privacy",
+        "url": "/privacy",
+        "id": "7d63d985-3556-467b-89a3-f06079e3ba3d",
+        "parent": null,
+        "weight": -50
+      },
+      {
+        "text": "Disclaimer and copyright",
+        "url": "/disclaimer",
+        "id": "1c2ddd21-efa3-4a7a-b33a-ce6132261cf0",
+        "parent": null,
+        "weight": -49
+      },
+      {
+        "text": "Sitemap",
+        "url": "https://www.police.vic.gov.au/sitemap",
+        "id": "099ca3f7-42f3-4e4b-8667-5567e3b89650",
+        "parent": null,
+        "weight": -47
+      },
+      {
+        "text": "Accessibility",
+        "url": "/accessibility",
+        "id": "fc3639ea-6508-43a3-95e9-e83b1e093f98",
+        "parent": null,
+        "weight": -46
+      },
+      {
+        "text": "Contact",
+        "url": "/contact",
+        "id": "1fb6dad3-0f31-434e-a621-3ba600837bf5",
+        "parent": null,
+        "weight": 0
+      }
+    ]
+  },
+  "socialLinks": [],
+  "sitemap": {
+    "showTableOfContents": false,
+    "tableOfContentsTitle": null
+  }
+}

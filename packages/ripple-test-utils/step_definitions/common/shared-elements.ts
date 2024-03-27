@@ -1,4 +1,4 @@
-import { Then, DataTable } from '@badeball/cypress-cucumber-preprocessor'
+import { Then, DataTable, When } from '@badeball/cypress-cucumber-preprocessor'
 
 Then('the page title should be {string}', (title: string) => {
   cy.title().should('equal', title)
@@ -99,6 +99,47 @@ Then(
           cy.wrap(item).as('item')
           cy.get('@item').should('contain', row.text)
           cy.get('@item').find('a').should('have.attr', 'href', row.url)
+        })
+    })
+  }
+)
+
+Then(
+  'the footer nav section with title {string} should link to {string}',
+  (title: string, link: string) => {
+    cy.get('.rpl-footer-nav-section__title a')
+      .contains(title)
+      .should('have.attr', 'href', link)
+  }
+)
+
+When(
+  'I open the footer nav section with title {string}',
+  (sectionTitle: string) => {
+    cy.get('.rpl-footer-nav-section button')
+      .contains('h3', sectionTitle)
+      .click()
+  }
+)
+
+Then(
+  'the footer nav should have the following single level items',
+  (dataTable: DataTable) => {
+    const table = dataTable.hashes()
+
+    cy.get(`.rpl-footer-nav-section__title`).as('items')
+
+    table.forEach((row, i: number) => {
+      cy.get('@items')
+        .eq(i)
+        .then((item) => {
+          cy.wrap(item).as('item')
+          cy.get('@item').should('contain', row.text)
+          cy.get('@item').find('a').should('have.attr', 'href', row.url)
+          cy.get('@item')
+            .parents('.rpl-footer-nav-section')
+            .find('.rpl-list__items')
+            .should('not.exist')
         })
     })
   }

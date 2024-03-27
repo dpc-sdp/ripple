@@ -23,6 +23,11 @@
   &.rpl-grid--no-row-gap {
     row-gap: 0;
   }
+
+  /* Inherit the parent grid */
+  &--inherit {
+    display: contents;
+  }
 }
 
 /* Columns */

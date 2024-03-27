@@ -2,7 +2,7 @@
   <div class="tide-search-address-lookup">
     <RplSearchBar
       id="tide-address-lookup"
-      inputLabel="Search by postcode or suburb"
+      :inputLabel="label"
       :showLabel="true"
       variant="reverse"
       :submitLabel="false"
@@ -11,7 +11,7 @@
       :showNoResults="true"
       :debounce="5000"
       :maxSuggestionsDisplayed="8"
-      placeholder="Search by postcode or suburb"
+      :placeholder="placeholder"
       :getOptionId="(itm:any) => itm.name"
       :getSuggestionVal="(itm:any) => itm?.name || ''"
       @submit="submitAction"
@@ -50,6 +50,8 @@ interface Props {
   resultsloaded?: boolean
   suggestionsIndex?: string
   controlMapZooming?: boolean
+  label?: string
+  placeholder?: string
   tagsComponent?: string
   mapResultsFnName?: string
 }
@@ -59,6 +61,8 @@ const props = withDefaults(defineProps<Props>(), {
   resultsloaded: false,
   suggestionsIndex: 'vic-postcode-localities',
   controlMapZooming: true,
+  label: 'Search by postcode or suburb',
+  placeholder: 'Enter postcode or suburb',
   tagsComponent: undefined,
   mapResultsFnName: ''
 })

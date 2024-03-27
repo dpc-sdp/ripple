@@ -4,7 +4,7 @@ import { ref, onMounted, Ref } from 'vue'
 export function useComputedSpeed(
   container: Ref,
   property: string,
-  fallback = null
+  fallback: any = null
 ): Ref {
   const duration = ref(fallback)
 

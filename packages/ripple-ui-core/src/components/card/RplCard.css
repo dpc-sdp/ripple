@@ -259,6 +259,26 @@
     }
   }
 
+  &--call-to-action-stacked {
+    @media (--rpl-bp-l) {
+      align-items: initial;
+      flex-direction: column;
+
+      .rpl-card__upper {
+        flex-basis: auto;
+      }
+
+      .rpl-card__media--inset {
+        margin-bottom: 0;
+        height: calc(100% - var(--rpl-sp-8));
+      }
+
+      .rpl-card__upper + .rpl-card__body {
+        margin-left: var(--rpl-sp-8);
+      }
+    }
+  }
+
   &--category-grid {
     background-color: transparent;
     border-radius: 0;

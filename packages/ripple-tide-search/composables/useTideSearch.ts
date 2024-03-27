@@ -2,7 +2,7 @@ import { ref, computed, onMounted, watch } from 'vue'
 // IMPORTANT: Need to use useRoute from vue-router here instead of the nuxt one from #imports after nuxt 3.6.5
 // The nuxt version of the route stopped being watchable after the update.
 // See this issue for details: https://github.com/nuxt/nuxt/issues/14595
-import { useRoute, RouteLocation } from 'vue-router'
+import { useRoute, RouteLocation, LocationQueryValue } from 'vue-router'
 import {
   useAppConfig,
   useRuntimeConfig,
@@ -322,33 +322,41 @@ export default ({
           }
 
           /**
-           * Dependent queries - create a custom query based off the values of a parent and child field combo
+           * Dependent queries - create a custom query based off the values of multiple dependent options
            */
           if (itm.filter.type === 'dependent') {
-            const parent = filterVal?.[`${itm?.id}-parent`]
-            const child = filterVal?.[`${itm?.id}-child`]
+            const dependentFields = Object.entries(filterVal).reduce(
+              (acc: any, [key, value]) => {
+                if (value) acc[key] = value
+                return acc
+              },
+              {}
+            )
 
-            // If we're searching for specific subcategories, let's use those subcategories
-            if (child?.length) {
+            // Children items are included in search, for example;
+            // if the item selected in the first dropdown has direct children,
+            // then all items children will also be included in the term query
+            // provided no children have been selected
+            if (Object.keys(dependentFields).length) {
+              const depOptions = itm.props?.options || []
+              const depValues = Object.values(dependentFields)
+              const lastValues = depValues[depValues.length - 1]
+
+              const lastIDs = depOptions
+                .filter((opt: any) =>
+                  Array.isArray(lastValues)
+                    ? lastValues.includes(opt.value)
+                    : opt.value === lastValues
+                )
+                .map((opt: any) => opt.id)
+
               return {
                 terms: {
-                  [itm?.filter?.value]: Array.isArray(child) ? child : [child]
-                }
-              }
-            }
-
-            // Otherwise we'll search for the selected parent category and all subcategories
-            if (parent) {
-              const parentID = itm.props?.options?.find(
-                (opt: any) => opt.value === parent
-              )?.id
-
-              return {
-                terms: {
-                  [itm?.filter?.value]: itm.props?.options
-                    ?.filter(
-                      (option) =>
-                        option.parent === parentID || option.id === parentID
+                  [itm.filter.value]: depOptions
+                    .filter(
+                      (option: any) =>
+                        lastIDs.includes(option.parent) ||
+                        lastIDs.includes(option.id)
                     )
                     .map((opt: any) => opt.value)
                 }
@@ -621,21 +629,22 @@ export default ({
             (itm: any) => itm.id === key
           )
 
+          // Map the dependent filter object values to be URL friendly
           if (filterConfig?.component === 'TideSearchFilterDependent') {
-            const parent = value[`${filterConfig.id}-parent`]
-            const child = value[`${filterConfig.id}-child`]
-            value = null
+            const depValues = Object.fromEntries(
+              // eslint-disable-next-line @typescript-eslint/no-unused-vars
+              Object.entries(value as object).filter(([_key, value]) =>
+                Array.isArray(value) ? value.filter(Boolean).length : value
+              )
+            )
 
-            if (parent) {
-              value = encodeCommasAndColons(parent)
-
-              if (child) {
-                const childValue = Array.isArray(child) ? child : [child]
-
-                value = `${value}:${childValue
-                  .map(encodeCommasAndColons)
-                  .join(',')}`
-              }
+            if (Object.keys(depValues).length) {
+              value = Object.entries(depValues).map(([key, val]) => {
+                const v = Array.isArray(val) ? val : [val]
+                return `${key}:${v.map(encodeCommasAndColons).join(',')}`
+              })
+            } else {
+              value = null
             }
           }
 
@@ -707,35 +716,37 @@ export default ({
     return Object.keys(newRoute.query)
       .filter((key) => userFilterConfig.some((filter) => filter.id === key))
       .reduce((obj, key) => {
-        let parsedValue = newRoute.query[key]
+        let parsedValue: LocationQueryValue | LocationQueryValue[] | {} =
+          newRoute.query[key]
         const filterConfig = userFilterConfig.find(
           (filter) => filter.id === key
         )
 
         if (
-          filterConfig?.component === 'TideSearchFilterDropdown' &&
-          filterConfig?.props?.multiple
+          (filterConfig?.component === 'TideSearchFilterDropdown' &&
+            filterConfig?.props?.multiple) ||
+          filterConfig?.component === 'TideSearchFilterDependent'
         ) {
           parsedValue = Array.isArray(parsedValue) ? parsedValue : [parsedValue]
         }
 
+        // Convert the URL friendly values back into the dependent object
         if (filterConfig?.component === 'TideSearchFilterDependent') {
-          const [parent, child = ''] = parsedValue.split(':')
+          parsedValue = Object.fromEntries(
+            (parsedValue as []).map((dep: string) => {
+              const [dependentKey, dependentValue] = (dep || '').split(':')
 
-          parsedValue = {
-            [`${filterConfig.id}-parent`]: decodeURIComponent(parent)
-          }
+              const depth = Number(dependentKey.match(/\d+$/)?.[0])
 
-          if (child) {
-            const childValue = child.split(',').map(decodeURIComponent)
-
-            parsedValue = {
-              ...parsedValue,
-              [`${filterConfig.id}-child`]: filterConfig?.props?.multiple
-                ? childValue
-                : childValue[0]
-            }
-          }
+              return [
+                dependentKey,
+                filterConfig?.props?.levels?.[depth - 1]?.multiple ||
+                filterConfig?.props?.multiple
+                  ? dependentValue.split(',').map(decodeURIComponent)
+                  : decodeURIComponent(dependentValue)
+              ]
+            })
+          )
         }
 
         return {

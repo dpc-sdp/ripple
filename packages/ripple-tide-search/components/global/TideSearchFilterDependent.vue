@@ -1,97 +1,147 @@
 <script setup lang="ts">
-import { getNode, FormKitNode } from '@formkit/core'
+import { getNode } from '@formkit/core'
 
 interface Props {
   id: string
-  label: string
-  placeholder: string
-  dependentLabel: string
-  dependentPlaceholder: string
-  multiple: boolean
+  multiple?: boolean
   options?: any[]
   variant?: string
+  columns?: string
+  levels: {
+    label: string
+    placeholder: string
+    multiple?: boolean
+  }[]
 }
 
 const props = withDefaults(defineProps<Props>(), {
   options: () => [],
-  variant: 'default'
+  multiple: false,
+  variant: 'default',
+  columns: 'rpl-col-6-m',
+  levels: () => []
 })
 
-const groupValues = ref({})
-const selectedParent = ref('')
-const initialChild = ref(null)
-let formNode: FormKitNode | undefined
-let formChildNode: FormKitNode | undefined
+const groupValues: { [key: string]: any } = ref({})
+const selectOptions: { [key: string]: any } = reactive(
+  Object.fromEntries(
+    Array.from(Array(props.levels.length).keys()).map((i) => [
+      `${props.id}-${i + 1}`,
+      []
+    ])
+  )
+)
 
-const parentOptions = computed(() => {
-  return props.options.filter((option) => !option.parent)
+const keyedOptions = computed(() => {
+  return props.options.reduce((grouped, item) => {
+    let key = item?.parent
+
+    if (!grouped[key]) grouped[key] = []
+
+    grouped[key].push(item)
+
+    return grouped
+  }, {})
 })
 
-const childOptions = computed(() => {
-  if (!selectedParent.value) return []
+const parentOptions = computed(() =>
+  props.options.filter((option) => !option.parent)
+)
 
-  const selectedOption = props.options?.find(
-    (option) => option.value === selectedParent.value
+const getChildOptions = (parent: string | string[]): object[] => {
+  const selectedIds = props.options?.filter((option) =>
+    Array.isArray(parent)
+      ? parent.includes(option.value)
+      : parent === option.value
   )
 
-  return props.options.filter((opt) => opt.parent === selectedOption?.id)
-})
-
-const handleSelect = (value: string) => {
-  if (selectedParent.value !== value) {
-    selectedParent.value = value
-
-    // When the parent select is updated, the child select value is cleared, this is the desired case
-    // except for the initial load when we what the supplied child value to persist
-    if (formNode && initialChild.value) {
-      nextTick(() => {
-        formNode.input({
-          [`${props.id}-parent`]: value,
-          [`${props.id}-child`]: initialChild.value
-        })
-        initialChild.value = null
-      })
-    }
-  }
+  return selectedIds
+    .map((item) => keyedOptions.value[item.id])
+    .filter(Boolean)
+    .flat()
 }
 
-onMounted(() => {
-  formNode = getNode(`${props.id}`)
-  formChildNode = getNode(`${props.id}-child`)
-
-  if (formChildNode?.value) {
-    initialChild.value = formChildNode?.value
+const getChildSelection = (value: string | string[], options: object[]) => {
+  if (Array.isArray(value)) {
+    return value.filter((selection) =>
+      options.some((option: any) => option.value === selection)
+    )
   }
-})
+
+  return options.some((option: any) => option.value === value) ? value : null
+}
+
+const getUpdatedValues = (
+  selected: object
+): {
+  options: { [key: string]: object[] }
+  selection: { [key: string]: any }
+} => {
+  const selection: { [key: string]: any } = {}
+  const options: { [key: string]: object[] } = {}
+
+  Object.entries(selected).forEach(([key, value]) => {
+    const depth = Number(key.match(/\d+$/)?.[0])
+
+    if (depth === 1) {
+      selection[key] = value
+      options[key] = parentOptions.value
+    } else {
+      options[key] = getChildOptions(selection[`${props.id}-${depth - 1}`])
+      selection[key] = getChildSelection(value, options[key])
+    }
+  })
+
+  return { options, selection }
+}
+
+watch(
+  groupValues,
+  (curr) => {
+    const { options, selection } = getUpdatedValues(curr)
+
+    // Update child options based on parent selection
+    Object.entries(options).forEach(([key, value]) => {
+      if (selectOptions[key]?.length) selectOptions[key].length = 0
+
+      value.forEach((val: object) => selectOptions[key].push(val))
+    })
+
+    // If the updated options results in a selection no longer being available, we need to remove that selection
+    Object.entries(selection).forEach(([key, value]) => {
+      let change = false
+
+      if (Array.isArray(curr[key])) {
+        change = curr[key].filter((val: string) => !value.includes(val)).length
+      } else {
+        change = curr[key] !== value
+      }
+
+      if (change) {
+        nextTick(() => getNode(key)?.input(selection[key]))
+      }
+    })
+  },
+  { deep: true }
+)
 </script>
 
 <template>
   <FormKit :id="`${id}`" :key="`${id}`" v-model="groupValues" type="group">
-    <div class="rpl-col-12 rpl-col-6-m">
+    <div
+      v-for="i in levels.length"
+      :key="`${id}-${i}`"
+      :class="`rpl-col-12 ${columns}`"
+    >
       <FormKit
-        :id="`${id}-parent`"
-        :key="`${id}-parent`"
-        :name="`${id}-parent`"
+        :id="`${id}-${i}`"
+        :name="`${id}-${i}`"
         type="RplFormDropdown"
-        :multiple="false"
-        :label="label"
-        :placeholder="placeholder"
-        :options="parentOptions"
-        :variant="variant"
-        @input="handleSelect"
-      />
-    </div>
-    <div class="rpl-col-12 rpl-col-6-m">
-      <FormKit
-        :id="`${id}-child`"
-        :key="`${id}-child-${selectedParent}`"
-        :name="`${id}-child`"
-        :disabled="!selectedParent || !childOptions.length"
-        type="RplFormDropdown"
-        :multiple="multiple"
-        :label="dependentLabel"
-        :placeholder="dependentPlaceholder"
-        :options="childOptions"
+        :multiple="levels?.[i - 1]?.multiple ?? multiple"
+        :label="levels?.[i - 1]?.label"
+        :placeholder="levels?.[i - 1]?.placeholder"
+        :options="selectOptions[`${id}-${i}`] || []"
+        :disabled="!selectOptions[`${id}-${i}`]?.length"
         :variant="variant"
       />
     </div>

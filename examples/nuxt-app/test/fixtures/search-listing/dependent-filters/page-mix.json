@@ -135,7 +135,7 @@
         },
         "props": {
           "id": "dependentFilter",
-          "multiple": true,
+          "multiple": false,
           "levels": [
             {
               "label": "Terms dependent example",
@@ -143,11 +143,12 @@
             },
             {
               "label": "Terms dependent child example",
-              "placeholder": "All sub species"
+              "placeholder": "Select a sub species"
             },
             {
               "label": "Terms dependent grandchild example",
-              "placeholder": "All sub sub species"
+              "placeholder": "All sub sub species",
+              "multiple": true
             }
           ],
           "options": [

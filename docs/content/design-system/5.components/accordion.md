@@ -30,7 +30,7 @@ id: core-containers-accordion--accordion
 - Make sure accordion headings are descriptive and succinct.
 
 ### When and how not to use
-- Never use a single accordion. 
+- Never use a single accordion.
 - Avoid putting all page content into accordions.
 - Don't use accordions for important information all users need to read.
 - Putting accordions in accordions can confuse the user.
@@ -60,11 +60,11 @@ id: core-containers-accordion--accordion
 ::
 
 ### Numbered
-Use the numbered variant when it is important the content is read in sequential order. 
+Use the numbered variant when it is important the content is read in sequential order.
 
 ::DocsExample
 ---
-id: core-containers-accordion--accordion&args=numbered:true
+id: core-containers-accordion--accordion-numbered
 ---
 ::
 

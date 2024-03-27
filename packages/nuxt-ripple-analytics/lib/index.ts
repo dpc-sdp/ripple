@@ -77,6 +77,7 @@ export default {
         element_text: payload?.text,
         label: payload?.label,
         name: payload?.name,
+        index: payload?.index,
         link_url: payload?.value,
         type: payload?.type,
         component: 'rpl-card',

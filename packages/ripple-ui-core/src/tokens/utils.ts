@@ -1,7 +1,7 @@
-import './utils/grid.ts'
-import './utils/margin.ts'
-import './utils/padding.ts'
-import './utils/size.ts'
+import './utils/grid.js'
+import './utils/margin.js'
+import './utils/padding.js'
+import './utils/size.js'
 
 /**
  * We're taking advantage of StyleDictionary's output pipeline to render some

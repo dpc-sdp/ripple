@@ -135,7 +135,7 @@
         },
         "props": {
           "id": "dependentFilter",
-          "multiple": true,
+          "multiple": false,
           "levels": [
             {
               "label": "Terms dependent example",

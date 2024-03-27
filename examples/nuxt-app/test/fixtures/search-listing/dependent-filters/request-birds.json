@@ -19,7 +19,7 @@
         },
         {
           "terms": {
-            "field_species_name": ["Dogs", "Cats"]
+            "field_species_name": ["Parrots", "Cockatoos", "Budgerigars"]
           }
         }
       ]

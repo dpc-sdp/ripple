@@ -106,11 +106,17 @@
             },
             "props": {
               "id": "dependentFilter",
-              "label": "Terms dependent example",
-              "placeholder": "Select a species",
-              "dependentLabel": "Terms dependent child example",
-              "dependentPlaceholder": "All sub species",
               "multiple": true,
+              "levels": [
+                {
+                  "label": "Terms dependent example",
+                  "placeholder": "Select a species"
+                },
+                {
+                  "label": "Terms dependent child example",
+                  "placeholder": "All sub species"
+                }
+              ],
               "options": [
                 {
                   "id": "1",

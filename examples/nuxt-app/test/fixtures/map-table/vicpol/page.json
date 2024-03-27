@@ -1,10 +1,10 @@
 {
-  "title": "Find my nearest police station",
-  "changed": "2023-11-08T12:12:07+11:00",
-  "created": "2021-04-29T13:42:44+10:00",
+  "title": "Test map with tabs",
+  "changed": "2024-03-07T16:47:43+11:00",
+  "created": "2023-06-13T13:55:16+10:00",
   "type": "landing_page",
-  "nid": "b6cf3563-ee60-4c2c-92eb-0212109e6b4d",
-  "_sectionId": "622",
+  "nid": "62d3cd19-8252-4953-b7b8-744fc6266147",
+  "_sectionId": "585",
   "sidebar": {
     "contacts": [],
     "relatedLinks": [],
@@ -15,86 +15,81 @@
   "status": "published",
   "topicTags": [
     {
-      "text": "Education",
-      "url": "/topic/education"
+      "text": "Contact us",
+      "url": "/topic/contact-us"
     }
   ],
   "siteSection": {
-    "id": 622,
-    "name": "schoolbuildings.vic.gov.au"
-  },
-  "meta": {
-    "url": "/victorian-school-building-authority",
-    "langcode": "en",
-    "description": "The school infrastructure boom is part of our commitment to making Victoria the Education State.",
-    "additional": [
-      {
-        "tag": "meta",
-        "attributes": {
-          "name": "title",
-          "content": "Victorian School Building Authority | Victorian School Building Authority"
-        }
-      },
-      {
-        "tag": "link",
-        "attributes": {
-          "rel": "canonical",
-          "href": "https://develop.content.vic.gov.au/victorian-school-building-authority"
-        }
-      },
-      {
-        "tag": "meta",
-        "attributes": {
-          "property": "og:locale",
-          "content": "en-AU"
-        }
-      }
-    ],
-    "keywords": "",
-    "image": null
+    "id": 585,
+    "name": "Contact us"
   },
   "showContentRating": true,
-  "summary": "The school infrastructure boom is part of our commitment to making Victoria the Education State.",
+  "summary": "Search by postcode, suburb, or map to find the contact details and location of any police station in Victoria. ",
   "showHeroAcknowledgement": false,
   "showInPageNav": false,
   "showHeroImageCaption": false,
-  "showTopicTags": false,
+  "showTopicTags": true,
   "inPageNavHeadingLevel": "h2",
   "background": "default",
   "header": {
-    "title": "Find my nearest police station",
-    "summary": "The contact details and location of any police station in Victoria.",
+    "title": "Test map with tabs",
+    "summary": "The contact details and location of any police station in Victoria. ",
     "links": {
       "title": "",
       "items": [],
       "more": null
     },
-    "backgroundImageCaption": "VSDA Entrant",
-    "theme": "reverse",
-    "logoImage": null,
-    "cornerTop": null,
-    "cornerBottom": null,
-    "primaryAction": null,
-    "secondaryAction": null,
-    "secondaryActionLabel": ""
+    "backgroundImageCaption": "",
+    "theme": "default"
   },
+  "primaryCampaign": null,
+  "secondaryCampaign": {
+    "title": "Other ways to report non-urgent incidents",
+    "summaryHtml": "<p>To explore a range of non-urgent incident and crime reporting options, including anonymous reporting, visit our&nbsp;Report&nbsp;page.</p>",
+    "cta": {
+      "text": "Explore",
+      "url": "/report"
+    },
+    "image": null,
+    "imageCaption": ""
+  },
+  "headerComponents": [],
   "bodyComponents": [
     {
-      "uuid": "55555555-5555-5555-5555-555555555555",
+      "uuid": "24eeb3a0-6497-4b85-a50f-1883d691c9a1",
       "component": "TideCustomCollection",
-      "id": "123",
-      "title": "What's happening in your area?",
+      "id": "13437",
       "props": {
+        "id": "13437",
         "searchListingConfig": {
-          "searchProvider": "app-search",
+          "searchProvider": "elasticsearch",
+          "index": "elasticsearch_index_develop_node",
           "resultsPerPage": 10,
           "displayMapTab": true,
+          "defaultTab": "listing",
           "formTheme": "reverse",
           "labels": {
             "submit": "Search by suburb or postcode",
             "placeholder": "Search"
           }
         },
+        "tabs": [
+          {
+            "title": "Listy",
+            "key": "listing",
+            "icon": "list"
+          },
+          {
+            "title": "Mappy",
+            "key": "map",
+            "icon": "pin"
+          },
+          {
+            "title": "Videos",
+            "key": "video",
+            "icon": "video"
+          }
+        ],
         "mapConfig": {
           "props": {
             "popupType": "sidebar",
@@ -103,7 +98,7 @@
                 "objKey": "_source.title[0]"
               },
               "content": {
-                "component": "VicPolStationMapPopupContent"
+                "objKey": "_source.field_accessibility_name[0]"
               }
             },
             "pinIconFn": "stationFinderPinStyle",
@@ -128,7 +123,27 @@
               "label": "Specialty services or facilities",
               "placeholder": "Select service/facility",
               "type": "RplFormDropdown",
-              "multiple": true
+              "multiple": true,
+              "options": [
+                {
+                  "id": 4501,
+                  "label": "Crime Investigation Unit (CIU)",
+                  "value": "Crime Investigation Unit (CIU)",
+                  "parent": null
+                },
+                {
+                  "id": 4502,
+                  "label": "Farm Crime Liaison Officer (FCLO)",
+                  "value": "Farm Crime Liaison Officer (FCLO)",
+                  "parent": null
+                },
+                {
+                  "id": 4503,
+                  "label": "Prosecutions Unit",
+                  "value": "Prosecutions Unit",
+                  "parent": null
+                }
+              ]
             }
           },
           {
@@ -141,8 +156,8 @@
             },
             "props": {
               "id": "open24Hours",
-              "label": "Locations open 24 hours",
-              "checkboxLabel": "Locations open 24 hours",
+              "label": "Opening hours",
+              "checkboxLabel": "Open 24 hours",
               "onValue": "24 Hours"
             }
           }
@@ -162,65 +177,28 @@
         "locationQueryConfig": {
           "component": "TideSearchAddressLookup",
           "props": {
-            "suggestionsIndex": "vicpol-postcode-localities"
-          },
-          "dslTransformFunction": "vicPolStationFinderLocationQuery"
+            "suggestionsIndex": "vicpol-postcode-localities",
+            "controlMapZooming": false
+          }
         },
         "resultsConfig": {
           "layout": {
             "component": "TideSearchResultsTable",
             "props": {
-              "headingType": { "horizontal": true, "vertical": true },
+              "headingType": {
+                "horizontal": true,
+                "vertical": true
+              },
               "columns": [
                 {
                   "label": "Suburb",
                   "objectKey": "field_suburb"
-                },
-                {
-                  "label": "Location",
-                  "component": "VicPolSearchResultLocation"
-                },
-                {
-                  "label": "Contact",
-                  "component": "VicPolSearchResultContact"
-                },
-                {
-                  "label": "Opening hours",
-                  "component": "VicPolSearchResultHours"
-                },
-                {
-                  "label": "Specialty service",
-                  "component": "VicPolSearchResultServices"
                 }
               ]
             }
           }
         },
-        "sortOptions": [
-          {
-            "id": "distance",
-            "label": "Distance",
-            "function": "vicPolDistanceSort"
-          },
-          {
-            "id": "a-to-z",
-            "label": "A to Z",
-            "clause": [
-              {
-                "title.keyword": "asc"
-              }
-            ]
-          },
-          {
-            "id": "z-to-a",
-            "label": "Z to A",
-            "clause": [
-              {
-                "title.keyword": "desc"
-              }
-            ]
-          }
-        ]
+        "sortOptions": []
       }
     }
   ]

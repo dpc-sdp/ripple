@@ -51,7 +51,7 @@ export interface FilterConfigItem {
    * @description the relevant props that will be passed into the Vue component (see `component` key)
    */
   props?: {
-    [key: string]: unknown
+    [key: string]: any
   }
 }
 
@@ -128,6 +128,12 @@ export type TideSearchLocationQueryConfig = {
   dslTransformFn?: (location: any) => any
 }
 
+export type TideSearchListingTab = {
+  title: string
+  key: TideSearchListingTabKey
+  icon: string
+}
+
 export type TideSearchListingMapConfig = {
   /**
    * @description name of a function in appConfig.ripple.search.mapResultHooks
@@ -151,7 +157,7 @@ export type TideSearchListingMapConfig = {
   }
 }
 
-export type TideSearchListingTabKey = { id: 'map' | 'listing' }
+export type TideSearchListingTabKey = 'map' | 'listing'
 
 export type TideSearchListingConfig = {
   /**
@@ -178,8 +184,6 @@ export type TideSearchListingConfig = {
       submit: string
       reset: string
       placeholder: string
-      mapTab?: string
-      listingTab?: string
     }
     /**
      * @description custom sort clause
@@ -192,7 +196,7 @@ export type TideSearchListingConfig = {
     /**
      * @description which tab to display by default if not specified in URL
      */
-    defaultTab?: 'map' | 'listing'
+    defaultTab?: TideSearchListingTabKey
     /**
      * @description optionally hide the search form
      */
@@ -212,11 +216,15 @@ export type TideSearchListingConfig = {
      * @description Whether the filter dropdown options should be dynamic based on the current search results, also displays a count of results for each option
      */
     dynamicAggregations?: boolean
+    /**
+     * @description Filter panel open on page load
+     */
+    showFiltersOnLoad: boolean
   }
   /**
-   * @description Filter panel open on page load
+   * @description Tabs to display, key needs to be one of TideSearchListingTabKey
    */
-  showFiltersOnLoad: boolean
+  tabs: TideSearchListingTab[]
   /**
    * @description Elastic Query DSL for query clause
    */

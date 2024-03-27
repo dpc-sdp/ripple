@@ -4,7 +4,7 @@ import { submitForm } from '@formkit/vue'
 import useTideSearch from './../../composables/useTideSearch'
 import type {
   TideSearchListingResultItem,
-  TideSearchListingTabKey,
+  TideSearchListingTab,
   TideSearchListingConfig
 } from './../../types'
 import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
@@ -18,7 +18,6 @@ interface Props {
   introText?: string
   autocompleteQuery?: boolean
   searchListingConfig?: TideSearchListingConfig['searchListingConfig']
-  showFiltersOnLoad?: boolean
   sortOptions?: TideSearchListingConfig['sortOptions']
   queryConfig: TideSearchListingConfig['queryConfig']
   globalFilters?: TideSearchListingConfig['globalFilters']
@@ -29,6 +28,7 @@ interface Props {
   pageBackground?: string
   index?: string
   hasSidebar?: boolean
+  tabs: TideSearchListingConfig['tabs']
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -64,9 +64,21 @@ const props = withDefaults(defineProps<Props>(), {
       key: 'title',
       enabled: false
     },
-    formTheme: 'default'
+    formTheme: 'default',
+    showFiltersOnLoad: false
   }),
-  showFiltersOnLoad: false,
+  tabs: () => [
+    {
+      title: 'Map',
+      key: 'map',
+      icon: 'pin'
+    },
+    {
+      title: 'List',
+      key: 'listing',
+      icon: 'list'
+    }
+  ],
   resultsConfig: () => ({
     layout: {
       component: 'TideSearchResultsList'
@@ -149,7 +161,7 @@ const mapResultsMappingFn = (result) => {
   }
 }
 
-const filtersExpanded = ref(props.showFiltersOnLoad)
+const filtersExpanded = ref(props.searchListingConfig?.showFiltersOnLoad)
 
 const {
   isBusy,
@@ -282,6 +294,7 @@ const handleSearchSubmit = (event) => {
   } else {
     // If there's no filters in the form, we need to just do the search without submitting the filter form
     submitSearch()
+    closeMapPopup()
     emitSearchEvent({ ...event, ...baseEvent() })
   }
 }
@@ -289,6 +302,7 @@ const handleSearchSubmit = (event) => {
 const handleFilterSubmit = (event) => {
   filterForm.value = event.value
   submitSearch()
+  closeMapPopup()
 
   emitSearchEvent({ ...event, ...cachedSubmitEvent.value, ...baseEvent() })
 
@@ -310,6 +324,7 @@ const handleFilterReset = (event: rplEventPayload) => {
   filterForm.value = {}
   locationQuery.value = null
   submitSearch()
+  closeMapPopup()
 }
 
 const handleUpdateSearchTerm = (term) => {
@@ -375,8 +390,9 @@ const toggleFiltersLabel = computed(() => {
     : label
 })
 
-const handleTabChange = (tab: TideSearchListingTabKey) => {
-  changeActiveTab(tab.id)
+const handleTabChange = (tab: TideSearchListingTab) => {
+  changeActiveTab(tab.key)
+  closeMapPopup()
 }
 
 function handleLocationSearch(payload: any) {
@@ -406,6 +422,11 @@ provide('rplMapInstance', {
 
 function setRplMapRef(mapInstance: any) {
   rplMapRef.value = mapInstance
+}
+function closeMapPopup() {
+  if (popup.value.isOpen) {
+    popup.value.isOpen = false
+  }
 }
 
 const mapFeatures = computed(() => {
@@ -492,18 +513,7 @@ const reverseFields = computed(
 
     <RplTabs
       v-if="searchListingConfig?.displayMapTab"
-      :tabs="[
-        {
-          title: props.searchListingConfig?.labels?.mapTab || 'Map',
-          key: 'map',
-          icon: 'pin'
-        },
-        {
-          title: props.searchListingConfig?.labels?.listingTab || 'List',
-          key: 'listing',
-          icon: 'list'
-        }
-      ]"
+      :tabs="tabs"
       :activeTab="activeTab"
       @toggleTab="handleTabChange"
     />

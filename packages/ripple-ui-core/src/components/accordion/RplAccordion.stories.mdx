@@ -32,6 +32,8 @@ export const Template = (args) => ({
 
 <ArgsTable of={RplAccordion} />
 
+## Default
+
 <Canvas>
   <Story
     name='Accordion'
@@ -40,6 +42,22 @@ export const Template = (args) => ({
       id: 'example',
       items: SAMPLE,
       numbered: false
+    }}
+  >
+    {Template.bind()}
+  </Story>
+</Canvas>
+
+## Numbered
+
+<Canvas>
+  <Story
+    name='Accordion numbered'
+    play={a11yStoryCheck}
+    args={{
+      id: 'example',
+      items: SAMPLE,
+      numbered: true
     }}
   >
     {Template.bind()}

@@ -10,6 +10,7 @@
       :pinStyle="pinStyle"
       :noresults="noresults"
       :hasSidePanel="hasSidePanel"
+      :getFeatureTitle="getTitle"
     >
       <template #noresults>
         <slot name="noresults"></slot>

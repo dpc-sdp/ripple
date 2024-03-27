@@ -41,6 +41,7 @@ interface Props {
   popupType?: 'sidebar' | 'popover'
   hasSidePanel?: boolean
   noresults?: boolean
+  getFeatureTitle?: (feature: any) => string
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -65,7 +66,8 @@ const props = withDefaults(defineProps<Props>(), {
     ic.load()
     return ic
   },
-  noresults: false
+  noresults: false,
+  getFeatureTitle: (feature: any) => (feature ? feature.title : '')
 })
 
 const zoom = ref(props.initialZoom)
@@ -217,22 +219,26 @@ async function onMapSingleClick(evt) {
 
 function onMapMove(evt) {
   const map = mapRef.value.map
-  if (map) {
+  const canvas: HTMLCanvasElement | null =
+    document.querySelector('.rpl-map canvas')
+  if (map && canvas) {
     const point = getfeaturesAtMapPixel(map, evt.pixel)
+
     if (point && point.features) {
-      document.querySelector('.rpl-map canvas').style.cursor = 'pointer'
+      canvas.style.cursor = 'pointer'
+      const pinTitle = point.features.length
+        ? props.getFeatureTitle(point.features[0].getProperties())
+        : ''
 
       // if there is only one feature, set the title attribute to the feature title
-      if (point.features.length === 1) {
-        document
-          .querySelector('.rpl-map canvas')
-          .setAttribute('title', point.features[0].getProperties().title)
+      if (pinTitle) {
+        canvas.setAttribute('title', pinTitle)
       }
     } else {
-      document.querySelector('.rpl-map canvas').style.cursor = 'default'
+      canvas.style.cursor = 'default'
 
       // clear the title attribute
-      document.querySelector('.rpl-map canvas').setAttribute('title', '')
+      canvas.setAttribute('title', '')
     }
   }
 }

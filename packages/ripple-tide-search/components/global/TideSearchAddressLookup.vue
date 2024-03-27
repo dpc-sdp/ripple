@@ -12,7 +12,7 @@
       :debounce="5000"
       :maxSuggestionsDisplayed="8"
       :placeholder="placeholder"
-      :getOptionId="(itm:any) => itm.name"
+      :getOptionId="(itm:any) => itm?.id || itm?.name"
       :getSuggestionVal="(itm:any) => itm?.name || ''"
       @submit="submitAction"
       @update:input-value="onUpdate"
@@ -146,6 +146,7 @@ const fetchSuggestions = async (query: string) => {
       const center = getSingleResultValue(itm._source.center)?.split(',')
 
       return {
+        id: itm._id,
         name: getSingleResultValue(itm._source.name),
         postcode: getSingleResultValue(itm._source.postcode),
         bbox: itm._source.bbox,

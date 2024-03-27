@@ -1,6 +1,7 @@
 Feature: Home page
 
   Example of mocked page
+
   Background:
     Given the page endpoint for path "/" returns fixture "/landingpage/home" with status 200
     And the site endpoint returns fixture "/site/reference" with status 200
@@ -15,6 +16,12 @@ Feature: Home page
   Scenario: Hero header
     Then the hero title should be "Test landing page title"
     Then the hero intro text should be "Test landing page title introduction text"
+    And the hero should display the following items
+      | text               | url                                               |
+      | Test link 1        | /embedded-video-test                              |
+      | Test link 2        | /sdpta-statistics-grid-eight-landing-page-fixture |
+      | Test link 3        | /sdpta-accordion-landing-page-fixture             |
+      | Test link external | https://www.vic.gov.au/                           |
 
   @mockserver
   Scenario: Hero acknowledgement

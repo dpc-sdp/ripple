@@ -3,11 +3,21 @@ interface IRplLinkProps {
   url: string
 }
 
-withDefaults(defineProps<IRplLinkProps>(), {})
+const props = withDefaults(defineProps<IRplLinkProps>(), {})
+
+const { $app_origin } = useNuxtApp()
+
+const link = computed(() => {
+  if ($app_origin && props.url?.startsWith($app_origin)) {
+    return props.url.replace($app_origin, '')
+  }
+
+  return props.url
+})
 </script>
 
 <template>
-  <NuxtLink ref="link" :href="url">
+  <NuxtLink ref="link" :href="link">
     <slot />
   </NuxtLink>
 </template>

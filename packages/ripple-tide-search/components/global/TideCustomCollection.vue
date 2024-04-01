@@ -601,7 +601,11 @@ const reverseFields = computed(
             :currentPage="page"
             :totalPages="totalPages"
             @paginate="handlePageChange"
-          />
+          >
+            <template #noresults>
+              <TideCustomCollectionNoResults />
+            </template>
+          </TideSearchListingResultsMapSidepanel>
         </template>
 
         <template #sidepanelMobile="{ activatePin }">
@@ -619,7 +623,9 @@ const reverseFields = computed(
             :currentPage="page"
             :totalPages="totalPages"
             @paginate="handlePageChange"
-          />
+          >
+            <template #noresults> <TideCustomCollectionNoResults /> </template
+          ></TideSearchListingResultsMapSidepanel>
         </template>
       </TideSearchListingResultsMap>
     </template>

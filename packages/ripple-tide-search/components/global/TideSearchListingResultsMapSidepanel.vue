@@ -11,6 +11,12 @@
     :totalPages="totalPages"
     @paginate="handlePageChange"
   >
+    <div
+      v-if="!isBusy && !results?.length"
+      class="tide-search-sidepanel-noresults"
+    >
+      <slot name="noresults"></slot>
+    </div>
     <component
       :is="
         mapConfig.sidePanel?.resultsComponent ||
@@ -159,5 +165,9 @@ const handlePageChange = (event) => {
   @media (--rpl-bp-m) {
     display: block;
   }
+}
+
+.tide-search-sidepanel-noresults {
+  padding: var(--rpl-sp-4) var(--rpl-sp-2) var(--rpl-sp-8) var(--rpl-sp-2);
 }
 </style>

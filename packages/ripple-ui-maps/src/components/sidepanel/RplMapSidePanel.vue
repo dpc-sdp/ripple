@@ -10,7 +10,7 @@
   >
     <div ref="scrollParentRef" class="rpl-map-side-panel__wrapper">
       <div class="rpl-map-side-panel__above-items">
-        <slot name="aboveItems">
+        <slot v-if="totalResults" name="aboveItems">
           <RplMapSidePanelCount
             :pagingStart="pagingStart"
             :pagingEnd="pagingEnd"

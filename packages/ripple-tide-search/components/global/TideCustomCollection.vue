@@ -222,7 +222,11 @@ onAggregationUpdateHook.value = (aggs) => {
         const getDynamicOptions = () => {
           const mappedOptions = aggs[key].map((item) => ({
             id: item.key,
-            label: `${item.key} (${item.doc_count})`,
+            label: `${item.key}${
+              props.searchListingConfig?.dynamicAggregations
+                ? ` (${item.doc_count})`
+                : ''
+            }`,
             value: item.key
           }))
 

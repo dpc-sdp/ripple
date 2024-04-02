@@ -37,6 +37,7 @@
 </template>
 
 <script setup lang="ts">
+import { defineProps, defineEmits, inject, watch, toRaw } from 'vue'
 import { ref, getSingleResultValue } from '#imports'
 import { useDebounceFn } from '@vueuse/core'
 import { transformExtent } from 'ol/proj'
@@ -223,11 +224,12 @@ watch(
 // Center the map on the location when the location changes
 // We look for the value of pendingZoomAnimation to determine if we should animate the zoom
 watch(
-  () => props.inputValue,
-  (newLocation) => {
+  () => props.inputValue?.id,
+  async () => {
+    await nextTick()
     centerMapOnLocation(
       rplMapRef.value,
-      newLocation,
+      props.inputValue,
       pendingZoomAnimation.value
     )
     pendingZoomAnimation.value = false

@@ -12,6 +12,9 @@
   flex-direction: column;
   overflow: hidden;
 
+  /* By default the background color is set to the gray colour used by vicmaps baselayer (#ebebeb) */
+  background-color: var(--local-map-background-color, #ebebeb);
+
   @media (--rpl-bp-m) {
     flex-direction: row;
   }

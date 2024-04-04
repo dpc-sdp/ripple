@@ -531,9 +531,7 @@ export default ({
           (aggs, key) => {
             return {
               ...aggs,
-              [`${key}`]: aggsResponse.aggregations[key].buckets.map(
-                (bkt) => bkt
-              )
+              [`${key}`]: aggsResponse.aggregations[key].buckets
             }
           },
           {}

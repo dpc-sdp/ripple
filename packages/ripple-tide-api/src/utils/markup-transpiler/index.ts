@@ -14,7 +14,7 @@ const markupTranspiler = (
   const $body = $('body')
   let markupData = {}
 
-  if (Object.keys(plugins).length > 1) {
+  if (Object.keys(plugins).length) {
     // Load plugins to transpile embedded components
     for (const [index, plugin] of plugins.entries()) {
       $.prototype[`plugin${index}`] = plugin

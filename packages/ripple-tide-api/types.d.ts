@@ -284,7 +284,7 @@ declare module 'nitropack' {
 
 // Mapping util interfaces
 export function getAddress(address: any): string
-export function getBody(body: any): string
+export function getBody(body: any, customPlugins?: (() => void)[]): string
 export function getBodyFromField(
   field: string,
   path: string | string[],

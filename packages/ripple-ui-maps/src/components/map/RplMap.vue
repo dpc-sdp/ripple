@@ -328,7 +328,8 @@ const noResultsRef = ref(null)
         v-if="
           (popupType === 'sidebar' || popupType === 'sidepanel') &&
           popup.isOpen &&
-          popup.position
+          popup.position &&
+          popup.feature?.length === 1
         "
         :zIndex="5"
       >

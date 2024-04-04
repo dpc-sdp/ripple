@@ -226,9 +226,10 @@ function onMapMove(evt) {
 
     if (point && point.features) {
       canvas.style.cursor = 'pointer'
-      const pinTitle = point.features.length
-        ? props.getFeatureTitle(point.features[0].getProperties())
-        : ''
+      const pinTitle =
+        point.features.length === 1
+          ? props.getFeatureTitle(point.features[0].getProperties())
+          : ''
 
       // if there is only one feature, set the title attribute to the feature title
       if (pinTitle) {

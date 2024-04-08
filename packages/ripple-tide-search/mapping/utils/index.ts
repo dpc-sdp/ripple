@@ -26,10 +26,12 @@ export const processConfig = async (config, tidePageApi) => {
           .filter((tax) => tax.status === true)
           .sort((a, b) => a.weight - b.weight)
           .map((item) => ({
-            id: item.drupal_internal__tid,
+            id: item.drupal_internal__tid.toString(),
             label: item.name,
             value: item.name,
-            parent: item?.parent?.[0]?.meta.drupal_internal__target_id || null
+            parent:
+              item?.parent?.[0]?.meta?.drupal_internal__target_id?.toString() ||
+              null
           }))
 
         if (activeTaxonomies && activeTaxonomies.length > 0) {

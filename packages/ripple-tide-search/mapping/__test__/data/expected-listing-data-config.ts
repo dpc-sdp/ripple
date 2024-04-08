@@ -39,7 +39,7 @@ export default {
         multiple: true,
         options: [
           {
-            id: 1,
+            id: '1',
             label: 'Option 1',
             value: 'Option 1',
             parent: null

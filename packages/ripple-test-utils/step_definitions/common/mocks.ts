@@ -152,7 +152,7 @@ Given(
     cy.intercept('POST', url, (req) => {
       // Filter out the aggregation requests (they have size=1)
       if (req.body.size === 0) {
-        req.alias = 'aggReq' // assign an alias to aggregations
+        req.alias = alias || 'aggReq' // assign an alias to aggregations
         req.reply({
           statusCode: status,
           fixture: fixture

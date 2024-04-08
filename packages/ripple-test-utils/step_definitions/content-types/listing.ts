@@ -375,7 +375,7 @@ When('I click the search suggestion labelled {string}', (label: string) => {
     .click()
 })
 
-Then('the search suggestions should not be displayed', (option: string) => {
+Then('the search suggestions should not be displayed', () => {
   cy.get('#tide-search-bar__menu').should('not.exist')
 })
 

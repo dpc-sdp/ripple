@@ -68,7 +68,7 @@
 .rpl-description-list--compact {
   display: flex;
   flex-direction: column;
-  gap: var(--rpl-sp-4);
+  gap: var(--rpl-sp-3);
 }
 
 .rpl-description-list__compact-wrap {

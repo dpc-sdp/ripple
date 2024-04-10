@@ -28,7 +28,8 @@ import {
   getfeaturesAtMapPixel,
   zoomToClusterExtent,
   centerMap,
-  fitVictoria
+  fitVictoria,
+  areFeaturesCloseTogether
 } from './utils'
 
 interface Props {
@@ -101,21 +102,7 @@ const activatePin = (featureProperties, coordinates, zoom) => {
 
   popup.value.position = coordinates
 
-  // Figure out offset based on the amount of space taken up by the sidepanel/sidebar
-  const mapSize = map.getSize()
-  const mapWidth = mapSize ? mapSize[0] : 0
-  const leftDeadSpace = deadSpace.value?.left || 0
-  const remaingingSpaceStart = mapWidth / 2 - leftDeadSpace
-  const remaingingSpaceWidth = mapWidth - leftDeadSpace
-  const xOffset = leftDeadSpace
-    ? remaingingSpaceStart - remaingingSpaceWidth / 2
-    : 0
-
-  const yOffset = props.popupType === 'popover' ? -100 : 0
-
-  const offset = { x: xOffset, y: yOffset }
-
-  centerMap(map, coordinates, offset, zoom)
+  centerMap(map, coordinates, zoom, deadSpace.value, props.popupType)
 }
 
 defineExpose({
@@ -191,16 +178,30 @@ async function onMapSingleClick(evt) {
           center: evt.coordinate
         })
       } else {
-        // if there are fewer items we zoom into view all items in the cluster
-        await nextTick()
-        zoomToClusterExtent(
-          point.features,
-          popup,
-          map,
-          props.projection,
-          20,
-          deadSpace.value
-        )
+        const isCloseTogether = areFeaturesCloseTogether(point.features, 20)
+
+        if (isCloseTogether) {
+          // if the features are very close together/in the same location we show them all in an accordion in a popup
+          const coords = point.features[0].getGeometry().flatCoordinates
+
+          popup.value.feature = point.features.map((f) => f.getProperties())
+          popup.value.position = coords
+          popup.value.isOpen = true
+          popup.value.isArea = true
+
+          // Zoom in on the cluster icon
+          centerMap(map, coords, undefined, deadSpace.value, props.popupType)
+        } else {
+          // otherwise we zoom to the extent of the cluster
+          await nextTick()
+          zoomToClusterExtent(
+            point.features,
+            popup,
+            map,
+            props.projection,
+            deadSpace.value
+          )
+        }
       }
     } else if (point.features.length === 1) {
       // if we click on a pin we open the popup

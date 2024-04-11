@@ -1,47 +1,13 @@
 import { expect, describe, it } from '@jest/globals'
 import TideApiBase from './../tide-api-base'
+import { exampleConfig, exampleApiConfig, mockLogger } from './tide-config'
 import axios from 'axios'
 import MockAdapter from 'axios-mock-adapter'
 const mockClient = new MockAdapter(axios)
 
-const mockLogger = {
-  log: jest.fn(),
-  debug: jest.fn(),
-  info: jest.fn(),
-  warn: jest.fn(),
-  error: jest.fn()
-}
-
-const exampleMapping = {
-  includes: [],
-  mapping: {
-    test: 'field'
-  }
-}
-
-const exampleApiConnection = {
-  site: '123',
-  baseUrl: ''
-}
-
-const exampleApiConfig = {
-  apiPrefix: '/api/v1'
-}
-
 describe('TideApiBase', () => {
   describe('getMappedData', () => {
-    const tideApiBase = new TideApiBase(
-      {
-        ...exampleApiConnection,
-        debug: false,
-        mapping: {
-          site: exampleMapping,
-          event: exampleMapping
-        },
-        ...exampleApiConfig
-      },
-      mockLogger
-    )
+    const tideApiBase = new TideApiBase(exampleConfig, mockLogger)
     it('should return mapped data', async () => {
       const mapping = {
         stringField: 'title',
@@ -76,18 +42,7 @@ describe('TideApiBase', () => {
     })
   })
   describe('get', () => {
-    const tideApiBase = new TideApiBase(
-      {
-        ...exampleApiConnection,
-        debug: false,
-        mapping: {
-          site: exampleMapping,
-          event: exampleMapping
-        },
-        ...exampleApiConfig
-      },
-      mockLogger
-    )
+    const tideApiBase = new TideApiBase(exampleConfig, mockLogger)
     it('should call http client get method', async () => {
       mockClient.onGet(`${exampleApiConfig.apiPrefix}/site`).reply(
         200,

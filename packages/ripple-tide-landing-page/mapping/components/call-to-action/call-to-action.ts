@@ -1,6 +1,5 @@
 import {
   getBody,
-  getField,
   getImageFromField,
   getLinkFromField
 } from '@dpc-sdp/ripple-tide-api'
@@ -26,19 +25,16 @@ export const callToActionMapping = (
   )
 
   const link = getLinkFromField(field, 'field_paragraph_cta')
-  const style = getField(field, 'field_paragraph_cta_style')
 
   return {
     component: 'TideLandingPageCallToAction',
     id: field.drupal_internal__id,
-    layout: style === 'card' ? 'card' : undefined,
     props: {
       title: field.field_paragraph_title,
       image: image,
       url: link?.url,
       ctaText: link?.text,
-      summary: getBody(field.field_paragraph_body?.processed),
-      stacked: style === 'card'
+      summary: getBody(field.field_paragraph_body?.processed)
     }
   }
 }

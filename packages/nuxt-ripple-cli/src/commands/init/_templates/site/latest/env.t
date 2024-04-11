@@ -6,7 +6,7 @@ to: .example.env
 # If your site needs a new environment variable please log an issue with SDP support so it can be added via the config management database
 
 # Tide Drupal CMS URL - change this to the project CMS as required
-NUXT_PUBLIC_TIDE_BASE_URL=https://develop.content.reference.sdp.vic.gov.au/
+NUXT_PUBLIC_TIDE_BASE_URL=https://develop.content.reference.sdp.vic.gov.au
 # Tide site taxonomy id - change this to the project site ID as required
 NUXT_PUBLIC_TIDE_SITE=8888
 # SDP common GTM container - this should be common to all SDP sites utilising WoVG analytics

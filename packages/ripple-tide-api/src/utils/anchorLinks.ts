@@ -42,7 +42,7 @@ export const getAnchorLinksFromHTML = (
     // Ignore empty headings.
     if (textExists(item.text)) {
       result.push({
-        text: item.text,
+        text: decodeSpecialCharacters(item.text),
         id: getAnchorLinkId(item.text),
         type: item.type
       })
@@ -87,4 +87,26 @@ const getAnchorHeadings = (
 export const textExists = (text) => {
   // Text exists if characters remain after spaces and &nbsp; are removed.
   return text.replace(/\s|&nbsp;/g, '').length > 0
+}
+
+const decodeSpecialCharacters = (html) => {
+  const map = {
+    '&amp;': '&',
+    '&gt;': '>',
+    '&lt;': '<',
+    '&apos;': "'",
+    '&#039;': "'",
+    '&quot;': '"',
+    '&nbsp;': ' '
+  }
+  let replaceableCodes = '('
+  let first = true
+  for (const code in map) {
+    replaceableCodes += first ? code : `|${code}`
+    first = false
+  }
+  replaceableCodes += ')'
+  return html.replace(new RegExp(replaceableCodes, 'gi'), (code) => {
+    return map[code.toLowerCase()]
+  })
 }

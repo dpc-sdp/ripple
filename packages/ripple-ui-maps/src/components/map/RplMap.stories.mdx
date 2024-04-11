@@ -25,13 +25,20 @@ export const Template = (args) => ({
       position: [0,0],
       feature: null
     })
+    const deadspace = ref({
+      left: 0,
+      top: 0,
+      right: 0,
+      bottom: 0
+    })
     function setRplMapRef(mapInstance) {
       rplMapRef.value = mapInstance
     }
     provide('rplMapInstance', {
       rplMapRef,
       setRplMapRef,
-      popup
+      popup,
+      deadspace
     })
     const getClusteredFeatures = (itms) => {
       return itms.map((itm, idx) => {
@@ -48,7 +55,7 @@ export const Template = (args) => ({
     }
   },
   template: `
-    <RplMap v-bind="args">
+    <RplMap projection="EPSG:3857" v-bind="args">
       <template #map-provider>
         <rpl-map-provider-esri v-if="args.provider === 'esri'" />
         <rpl-map-provider-vic-map v-if="args.provider === 'vicmap'" />
@@ -93,7 +100,7 @@ export const Template = (args) => ({
     args={{
       id: '123',
       features:featureData,
-      provider: 'mapbox'
+      provider: 'mapbox',
     }}
   >
     {Template.bind()}

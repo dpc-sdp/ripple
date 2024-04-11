@@ -28,6 +28,12 @@ export const Template = (args) => ({
       position: [0, 0],
       feature: null
     })
+    const deadSpace = ref({
+      left: 0,
+      top: 0,
+      right: 0,
+      bottom: 0
+    })
     function setRplMapRef(mapInstance) {
       rplMapRef.value = mapInstance
     }
@@ -42,7 +48,8 @@ export const Template = (args) => ({
       setRplMapRef,
       rplMapSelectedFeatures,
       setRplMapSelectedFeatures,
-      popup
+      popup,
+      deadSpace
     })
     const handleItemClick = ({ value }) => {
       if (activeItemId.value !== value?.id) {
@@ -95,6 +102,7 @@ export const Template = (args) => ({
   },
   template: `
     <RplMap
+      projection="EPSG:3857"
       v-bind="args"
     >
       <template #map-provider>

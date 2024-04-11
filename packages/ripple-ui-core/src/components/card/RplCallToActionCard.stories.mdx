@@ -6,7 +6,6 @@ import {
 } from '@storybook/addon-docs'
 import RplCallToAction from './RplCallToActionCard.vue'
 import { a11yStoryCheck } from './../../../stories/interactions.js'
-import { bpMin } from '../../lib/breakpoints'
 
 export const SingleTemplate = (args) => ({
   components: { RplCallToAction },
@@ -36,12 +35,6 @@ export const SingleTemplate = (args) => ({
 <Meta
   title='Core/Navigation/Card'
   component={RplCallToAction}
-  parameters={{
-    layout: 'fullscreen',
-    chromatic: {
-      viewports: [bpMin.s, bpMin.l]
-    }
-  }}
   argTypes={{
     number: {
       control: { type: 'select' },
@@ -87,18 +80,6 @@ export const SingleTemplate = (args) => ({
   <Story
     name='Call to action'
     play={a11yStoryCheck}
-  >
-    {SingleTemplate.bind()}
-  </Story>
-</Canvas>
-
-<Canvas>
-  <Story
-    name='Call to action - Stacked'
-    play={a11yStoryCheck}
-    args={{
-      stacked: true
-    }}
   >
     {SingleTemplate.bind()}
   </Story>

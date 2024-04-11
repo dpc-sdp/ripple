@@ -10,7 +10,6 @@ import {
   useRippleEvent,
   rplEventPayload
 } from '../../composables/useRippleEvent'
-import { computed } from 'vue'
 
 interface Props {
   el?: (typeof RplCardElements)[number]
@@ -19,7 +18,6 @@ interface Props {
   url?: string
   ctaText?: string
   variant?: (typeof RplButtonVariants)[number]
-  stacked?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -27,8 +25,7 @@ const props = withDefaults(defineProps<Props>(), {
   image: undefined,
   url: undefined,
   variant: 'filled',
-  ctaText: 'Call to action',
-  stacked: false
+  ctaText: 'Call to action'
 })
 
 const emit = defineEmits<{
@@ -52,18 +49,13 @@ const handleClick = () => {
     { global: true }
   )
 }
-
-const classes = computed(() => ({
-  'rpl-card--inset': true,
-  'rpl-card--call-to-action-stacked': props.stacked
-}))
 </script>
 
 <template>
   <RplCard
     ref="container"
     type="call-to-action"
-    :class="classes"
+    class="rpl-card--inset"
     :link="url"
     :el="el"
   >

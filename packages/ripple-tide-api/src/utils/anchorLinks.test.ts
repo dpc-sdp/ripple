@@ -59,7 +59,7 @@ describe('anchor link utilities', () => {
       { text: 'Second Heading', id: 'second-heading', type: 'h2' },
       { text: 'Third Heading', id: 'third-heading', type: 'h3' },
       {
-        text: 'Special Character &amp; &lt; &gt; Heading',
+        text: 'Special Character & < > Heading',
         id: 'special-character-heading',
         type: 'h2'
       },
@@ -86,7 +86,7 @@ describe('anchor link utilities', () => {
     expect(getAnchorLinksFromHTML(html)).toEqual([
       { text: 'Second Heading', id: 'second-heading', type: 'h2' },
       {
-        text: 'Special Character &amp; &lt; &gt; Heading',
+        text: 'Special Character & < > Heading',
         id: 'special-character-heading',
         type: 'h2'
       },

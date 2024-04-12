@@ -755,15 +755,21 @@ export default ({
   }
 
   const getLocationQueryFromRoute = (newRoute: RouteLocation) => {
+    const locationKeys = Object.keys(newRoute.query).filter((key) =>
+      key.startsWith('location[')
+    )
+
+    if (!locationKeys.length) {
+      return null
+    }
+
     // parse the location query from the route
-    const location = Object.keys(newRoute.query)
-      .filter((key) => key.startsWith('location['))
-      .reduce((obj, key) => {
-        return {
-          ...obj,
-          [key.replace('location[', '').replace(']', '')]: newRoute.query[key]
-        }
-      }, {})
+    const location = locationKeys.reduce((obj, key) => {
+      return {
+        ...obj,
+        [key.replace('location[', '').replace(']', '')]: newRoute.query[key]
+      }
+    }, {})
 
     return location
   }

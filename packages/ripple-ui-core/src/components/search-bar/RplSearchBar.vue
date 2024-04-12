@@ -30,6 +30,7 @@ interface Props {
   getOptionId?: (item: any) => string
   isOptionSelectable?: Function
   showLabel?: boolean
+  isFreeText?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -47,7 +48,8 @@ const props = withDefaults(defineProps<Props>(), {
   getOptionLabel: (opt) => opt,
   getOptionId: (opt) => opt,
   isOptionSelectable: (opt) => true,
-  showLabel: false
+  showLabel: false,
+  isFreeText: true
 })
 
 const emit = defineEmits<{
@@ -68,6 +70,8 @@ const menuId = computed(() => `${props.id}__menu`)
 
 const isOpen = ref<boolean>(false)
 const activeOptionId = ref<string | null>(null)
+
+const isInputFocused = ref(false)
 
 onMounted(() => {
   if (props.autoFocus) {
@@ -149,6 +153,16 @@ const handleClose = (focusBackOnInput = false): void => {
   if (focusBackOnInput) {
     inputRef.value.focus()
   }
+}
+
+const handleInputFocus = async () => {
+  isInputFocused.value = true
+  await nextTick()
+  inputRef.value.focus()
+}
+
+const handleBlur = () => {
+  isInputFocused.value = false
 }
 
 const handleArrowDown = () => {
@@ -271,7 +285,23 @@ const slug = (label: string) => {
         @keydown.exact.tab="handleClose(false)"
         @keydown.shift.tab="handleClose(false)"
       >
+        <div
+          v-if="!isFreeText && inputValue && !isInputFocused && !isOpen"
+          tabindex="0"
+          :class="{
+            'rpl-search-bar__input': true,
+            'rpl-u-focusable-outline': true,
+            'rpl-u-focusable-outline--no-border': true,
+            'rpl-u-focusable--force-on': isOpen
+          }"
+          @focus="handleInputFocus()"
+        >
+          <slot name="suggestion" :option="{ option: inputValue }">
+            {{ getOptionLabel(inputValue) }}
+          </slot>
+        </div>
         <input
+          v-else
           v-bind="$attrs"
           :id="id"
           ref="inputRef"
@@ -291,6 +321,7 @@ const slug = (label: string) => {
           type="search"
           @input="handleInputChange"
           @focus="handleOpen(false)"
+          @blur="handleBlur()"
           @keydown.enter.prevent="handleSubmit('enter')"
         />
 

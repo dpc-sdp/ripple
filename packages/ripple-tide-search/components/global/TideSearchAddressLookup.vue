@@ -14,6 +14,7 @@
       :placeholder="placeholder"
       :getOptionId="(itm:any) => itm?.id || itm?.name"
       :getSuggestionVal="(itm:any) => itm?.name || ''"
+      :isFreeText="false"
       @submit="submitAction"
       @update:input-value="onUpdate"
     >

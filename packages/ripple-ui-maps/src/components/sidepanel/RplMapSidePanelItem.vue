@@ -1,10 +1,14 @@
 <template>
   <component
     :is="el"
+    role="button"
+    tabIndex="0"
     :class="{
       'rpl-map-side-panel__item': true,
-      'rpl-map-side-panel__item--active': isActive
+      'rpl-map-side-panel__item--active': isActive,
+      'rpl-u-focusable-within': true
     }"
+    @click="handleClick"
   >
     <div
       v-if="$slots.meta"
@@ -12,13 +16,11 @@
     >
       <slot name="meta"></slot>
     </div>
-    <RplButton
-      variant="none"
-      class="rpl-map-side-panel__item-title rpl-type-p"
-      @click="handleClick"
+    <div
+      class="rpl-map-side-panel__item-title rpl-type-p rpl-u-focusable-inline"
     >
       {{ title }}
-    </RplButton>
+    </div>
     <slot></slot>
     <div
       v-if="$slots.footer"
@@ -29,7 +31,6 @@
   </component>
 </template>
 <script setup lang="ts">
-import { RplButton } from '@dpc-sdp/ripple-ui-core/vue'
 import { rplEventPayload, useRippleEvent } from '@dpc-sdp/ripple-ui-core'
 
 interface Props {

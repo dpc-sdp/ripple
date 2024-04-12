@@ -123,37 +123,41 @@
   }
 }
 
+.rpl-map-side-panel__item-title {
+  display: inline-block;
+  color: var(--rpl-clr-link);
+  text-decoration: underline;
+  margin-bottom: var(--rpl-sp-3);
+  text-align: start;
+  font-weight: bold;
+}
+
 .rpl-map-side-panel__item {
   border-top: var(--rpl-border-1) solid var(--rpl-clr-neutral-300);
+  cursor: pointer;
 
   &:last-child {
     border-bottom: var(--rpl-border-1) solid var(--rpl-clr-neutral-300);
+  }
+
+  &:hover,
+  &:focus {
+    background-color: var(--rpl-clr-neutral-100);
+
+    .rpl-map-side-panel__item-title {
+      text-decoration: none;
+    }
+  }
+
+  &:active {
+    .rpl-map-side-panel__item-title {
+      color: var(--rpl-clr-type-default);
+    }
   }
 }
 
 .rpl-map-side-panel__item--active {
   background-color: var(--rpl-clr-neutral-100);
-}
-
-.rpl-map-side-panel__item-title {
-  color: var(--rpl-clr-primary);
-  text-decoration: underline;
-  margin-bottom: var(--rpl-sp-3);
-  text-align: start;
-
-  &:hover {
-    text-decoration: none;
-  }
-
-  &:active {
-    color: inherit;
-  }
-
-  .rpl-button__label {
-    font-size: inherit;
-    line-height: inherit;
-    letter-spacing: inherit;
-  }
 }
 
 .rpl-map-side-panel__item-meta {

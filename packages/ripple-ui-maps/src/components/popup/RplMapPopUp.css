@@ -224,5 +224,5 @@
 .rpl-map-popup--standalone {
   position: static;
   border-bottom: var(--rpl-border-1) solid var(--rpl-clr-neutral-300);
-  margin-bottom: var(--rpl-sp-5);
+  margin-bottom: var(--rpl-sp-4);
 }

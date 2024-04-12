@@ -6,6 +6,7 @@ export { default as logger } from './logger/logger.js'
 export * from './utils/createHandler.js'
 
 export {
+  getAnchorLinkId,
   addAnchorLinksToHTML,
   getAnchorLinksFromHTML
 } from './utils/anchorLinks.js'

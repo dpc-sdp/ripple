@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { getAnchorLinkId } from '@dpc-sdp/ripple-tide-api'
+import { getAnchorLinkId } from '@dpc-sdp/nuxt-ripple/mapping/utils'
 
 interface Props {
   components: Array<any>

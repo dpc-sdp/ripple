@@ -5,7 +5,7 @@ import type {
 } from '../types'
 import { computed } from 'vue'
 import groupDynamicComponents from '../utils/groupDynamicComponents'
-import { getAnchorLinkId } from '@dpc-sdp/ripple-tide-api'
+import { getAnchorLinkId } from '../mapping/utils'
 
 interface Props {
   components: TideDynamicPageComponent<any>[]

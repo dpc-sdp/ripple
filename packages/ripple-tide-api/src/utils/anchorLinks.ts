@@ -1,4 +1,4 @@
-export const getAnchorLinkId = (str) => {
+const getAnchorLinkId = (str) => {
   // Anchorlink should support any unicode characters.
   // But as anchorlink need to be used in URL, we strip out some special characters.
   // https://developers.google.com/maps/documentation/urls/url-encoding

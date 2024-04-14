@@ -76,7 +76,7 @@ export default defineAppConfig({
               sort: null
             },
             listing: {
-              filter: location.name
+              filter: location?.name
                 ? {
                     terms: {
                       [`field_suburb.keyword`]: [location.name]

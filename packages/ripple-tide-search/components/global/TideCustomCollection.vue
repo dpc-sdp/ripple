@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { getActiveFilterURL, ref } from '#imports'
+import { getActiveFiltersTally, getActiveFilterURL, ref } from '#imports'
 import { submitForm } from '@formkit/vue'
 import useTideSearch from './../../composables/useTideSearch'
 import type {
@@ -171,6 +171,7 @@ const {
   results,
   filterForm,
   appliedFilters,
+  resetFilters,
   submitSearch,
   goToPage,
   page,
@@ -325,8 +326,8 @@ const handleFilterReset = (event: rplEventPayload) => {
   )
 
   searchTerm.value = ''
-  filterForm.value = {}
   locationQuery.value = null
+  resetFilters()
   submitSearch()
   closeMapPopup()
 }
@@ -373,17 +374,7 @@ const handleToggleFilters = () => {
 }
 
 const numAppliedFilters = computed(() => {
-  return Object.values(appliedFilters.value).filter((value) => {
-    if (!value) {
-      return false
-    }
-
-    if (Array.isArray(value) && !value.length) {
-      return false
-    }
-
-    return true
-  }).length
+  return getActiveFiltersTally(appliedFilters.value)
 })
 
 const toggleFiltersLabel = computed(() => {

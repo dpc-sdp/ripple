@@ -3,6 +3,7 @@ import TideApiBase from './tide-api-base.js'
 import type { RplTideModuleConfig, IRplTideModuleMapping } from './../../types'
 import { ApplicationError } from '../errors/errors.js'
 import { ILogger } from '../logger/logger'
+import { defu as defuMerge } from 'defu'
 
 export default class TideSite extends TideApiBase {
   site: string
@@ -16,7 +17,11 @@ export default class TideSite extends TideApiBase {
   }
 
   setSiteMapping(siteMapping) {
-    this.siteMapping = siteMapping
+    if (!this.siteMapping) {
+      this.siteMapping = siteMapping
+    } else {
+      this.siteMapping = defuMerge(siteMapping, this.siteMapping)
+    }
   }
 
   async getSiteData(siteid, logId?: string) {

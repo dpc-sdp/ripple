@@ -67,7 +67,7 @@ When(
   }
 )
 
-Then(`the map no results message should be visible`, (term) => {
+Then(`the map no results message should be visible`, () => {
   cy.get('.tide-custom-collection-no-results').should('be.visible')
 })
 Then(`the map no results message should contain {string}`, (term) => {

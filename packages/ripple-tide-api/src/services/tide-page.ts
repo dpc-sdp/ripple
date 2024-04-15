@@ -8,6 +8,7 @@ import type {
 } from './../../types'
 import { ApplicationError, NotFoundError } from '../errors/errors.js'
 import { ILogger } from '../logger/logger'
+import { defu as defuMerge } from 'defu'
 
 export default class TidePageApi extends TideApiBase {
   contentTypes: {
@@ -31,6 +32,8 @@ export default class TidePageApi extends TideApiBase {
   setContentType(key, value) {
     if (!this.contentTypes[key]) {
       this.contentTypes[key] = value
+    } else {
+      this.contentTypes[key] = defuMerge(value, this.contentTypes[key])
     }
   }
 

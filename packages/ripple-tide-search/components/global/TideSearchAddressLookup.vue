@@ -43,6 +43,7 @@ interface Props {
   inputValue?: any
   resultsloaded?: boolean
   suggestionsIndex?: string
+  suggestionsKey?: string
   controlMapZooming?: boolean
   label?: string
   placeholder?: string
@@ -52,6 +53,7 @@ const props = withDefaults(defineProps<Props>(), {
   inputValue: null,
   resultsloaded: false,
   suggestionsIndex: 'vic-postcode-localities',
+  suggestionsKey: 'name',
   controlMapZooming: true,
   label: 'Search by postcode or suburb',
   placeholder: 'Enter postcode or suburb'
@@ -96,7 +98,7 @@ const fetchSuggestions = async (query: string) => {
         should: [
           {
             match: {
-              name: {
+              [props.suggestionsKey]: {
                 query,
                 operator: 'and'
               }
@@ -104,7 +106,7 @@ const fetchSuggestions = async (query: string) => {
           },
           {
             prefix: {
-              name: {
+              [props.suggestionsKey]: {
                 value: query,
                 case_insensitive: true
               }
@@ -135,7 +137,7 @@ const fetchSuggestions = async (query: string) => {
         const center = getSingleResultValue(itm._source.center)?.split(',')
 
         return {
-          name: getSingleResultValue(itm._source.name),
+          name: getSingleResultValue(itm._source[props.suggestionsKey]),
           postcode: getSingleResultValue(itm._source.postcode),
           bbox: itm._source.bbox,
           center: center?.length === 2 ? [center[1], center[0]] : undefined

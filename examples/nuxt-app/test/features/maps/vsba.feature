@@ -37,6 +37,18 @@ Feature: School buildings map
     Then the map matches the image snapshot "map-location-search"
 
   @mockserver
+  Scenario: Search for locality
+    Given the "/api/tide/elasticsearch/elasticsearch_index_develop_node/_search" network request is stubbed with fixture "/map-table/vsba/response-all" and status 200 as alias "searchReq"
+    Given the "/api/tide/app-search/vic-postcode-localities/elasticsearch/_search" network request is stubbed with fixture "/map-table/vsba/localities-all" and status 200 as alias "localitiesReq"
+    And I visit the page "/map"
+    Then the ripple map component should be visible
+    When I enter the term "Maidstone" into the location search input
+    Then the location search results should contain "Maidstone"
+    When I click the location search term "Maidstone"
+    And I wait 8 seconds
+    Then the map matches the image snapshot "map-locality-search"
+
+  @mockserver
   Scenario: No results message
     Given the "/api/tide/elasticsearch/elasticsearch_index_develop_node/elasticsearch/_search" network request is stubbed with fixture "/map-table/vsba/response-all" and status 200 as alias "searchReq"
     Given the "/api/tide/app-search/vic-postcode-localities/elasticsearch/_search" network request is stubbed with fixture "/map-table/vsba/localities-nyah" and status 200 as alias "localitiesReq"
@@ -51,7 +63,6 @@ Feature: School buildings map
     Then the map no results message should be visible
     Then the map no results message should contain "Sorry, no results match your search. Try again with different search options or check back later. "
     Then the map matches the image snapshot "map-no-results"
-
 
   @mockserver
   Scenario: Filters should display when expanded
@@ -86,4 +97,3 @@ Feature: School buildings map
     And I click the tab labelled "List"
     Then the search listing layout should be "table"
     And the custom collection component results count should read "Displaying 1-5 of 2159 results"
-

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
+import { getAnchorLinkId } from '@dpc-sdp/nuxt-ripple/mapping/utils'
 
 interface Props {
   components: Array<any>
@@ -18,7 +19,7 @@ const items = computed(() => {
         ...links,
         {
           text: component.title,
-          id: `page-component-${component.id}`,
+          id: getAnchorLinkId(component.title),
           type: 'h2'
         }
       ]

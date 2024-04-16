@@ -27,8 +27,8 @@
       v-bind="item.props"
       :isActive="
         popup?.isOpen &&
-        item.props.result.unique_id ===
-          (popup?.feature ? popup?.feature[0].unique_id : '')
+        getItemId(item.props.result) ===
+          (popup?.feature ? getItemId(popup?.feature[0]) : '')
       "
       @click="handleSidePanelClick(item, activatePin)"
     />
@@ -147,6 +147,12 @@ const handleSidePanelClick = async (item, activatePin) => {
 
 const handlePageChange = (event) => {
   emit('paginate', event)
+}
+
+const getItemId = (item) => {
+  if (!item) return ''
+
+  return get(item, props.mapConfig?.sidePanel?.itemIdObjPath || 'unique_id')
 }
 </script>
 

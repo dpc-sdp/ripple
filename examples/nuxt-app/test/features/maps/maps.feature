@@ -5,7 +5,7 @@ Feature: Custom collection map component
   Background:
     Given the site endpoint returns fixture "/site/vic" with status 200
     And the search autocomplete request is stubbed with "/search-listing/suggestions/none" fixture
-    Given I am using a "macbook-16" device
+    Given the viewport is set to 1536 x 960
     Given the "/api/tide/elasticsearch/elasticsearch_index_develop_node/_search" aggregation request is stubbed with fixture "/map-table/vsba/aggregations" and status 200 as alias "aggReq"
     Given the "/test-map-shape-layer" network request is stubbed with fixture "/maps/sample-shapes"
       | method | status |

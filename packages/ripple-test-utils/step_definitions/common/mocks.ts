@@ -67,6 +67,24 @@ Given(
   }
 )
 
+Given('I load the page fixture with {string}', function (fixture) {
+  cy.fixture(fixture).as('pageFixture')
+})
+
+Given(
+  `the page endpoint for path {string} returns the loaded fixture`,
+  (path: string) => {
+    cy.get('@pageFixture').then((response) => {
+      cy.task('setMockRouteWithQuery', {
+        route: '/api/tide/page',
+        status: 200,
+        response,
+        query: `?path=${path}&site=${Cypress.env('NUXT_PUBLIC_TIDE_SITE')}`
+      })
+    })
+  }
+)
+
 Given(
   `the endpoint {string} returns fixture {string} with status {int}`,
   (route: string, fixture: string, status: number) => {
@@ -158,6 +176,32 @@ Given(
           fixture: fixture
         })
         return
+      }
+    })
+  }
+)
+
+Given(
+  'the {string} network request is stubbed with fixture {string}',
+  (url: string, fixture: string, dataTable: DataTable) => {
+    const options = dataTable.hashes()
+    const status = options[0].status ? parseInt(options[0].status) : 200
+    const alias = options[0].alias
+    const method = options[0].method || 'GET'
+
+    cy.intercept(method, url, (req) => {
+      // Stub out aggregation requests
+      if (req.body.size === 0) {
+        req.reply({})
+      } else {
+        // Only apply the alias to the actual search request
+        if (alias) {
+          req.alias = alias // assign an alias
+        }
+        req.reply({
+          statusCode: status,
+          fixture: fixture
+        })
       }
     })
   }

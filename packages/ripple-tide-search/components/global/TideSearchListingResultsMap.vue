@@ -77,11 +77,9 @@ interface Props {
   popupType: 'popover' | 'sidebar'
   popup: {
     title: {
-      objKey?: string
       component?: string
     }
     content: {
-      objKey?: string
       component?: string
     }
   }

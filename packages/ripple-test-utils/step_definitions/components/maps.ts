@@ -1,4 +1,5 @@
 import { Then, When, Given } from '@badeball/cypress-cucumber-preprocessor'
+import { set } from 'lodash-es'
 
 Then(`the ripple map component should be visible`, () => {
   cy.get(`.rpl-map canvas`).should('be.visible')
@@ -53,7 +54,7 @@ Then(`the map matches the image snapshot {string}`, (title) => {
     },
     // maximum threshold above which the test should fail
     // default: 0.01
-    maxDiffThreshold: 0.3
+    maxDiffThreshold: 0.01
   })
 })
 
@@ -61,7 +62,7 @@ When(
   `I click the map component at coordinates {int} {int}`,
   (x: number, y: number) => {
     // Move mouse to some random position
-    cy.get('.rpl-map canvas').trigger('mousemove', 100, 100)
+    cy.get('.rpl-map canvas').trigger('mousemove', 100, 100, { force: true })
     // Click
     cy.get('.rpl-map canvas').click(x, y, { force: true })
   }
@@ -87,3 +88,25 @@ Given(
     ).as('arcGisRequest') // assign an alias
   }
 )
+
+Given('the popup type is {string}', (popupType) => {
+  cy.get('@pageFixture').then((response) => {
+    set(
+      response,
+      'bodyComponents[0].props.mapConfig.props.popupType',
+      popupType
+    )
+  })
+})
+
+Given('the side panel is enabled', () => {
+  cy.get('@pageFixture').then((response) => {
+    set(response, 'bodyComponents[0].props.mapConfig.sidePanel.enabled', true)
+  })
+})
+
+Given('I click the side panel item with text {string}', (title) => {
+  cy.get('.rpl-map-side-panel [role="button"]')
+    .contains(title)
+    .click({ force: true })
+})

@@ -1,8 +1,8 @@
 <template>
   <span v-if="popup.feature?.length === 1">
     <component
-      :is="popupConfig.title.component"
-      v-if="popupConfig.title.component"
+      :is="popupConfig.title?.component"
+      v-if="popupConfig.title?.component"
       :selectedFeature="popup.feature[0]"
     ></component>
     <span v-else>

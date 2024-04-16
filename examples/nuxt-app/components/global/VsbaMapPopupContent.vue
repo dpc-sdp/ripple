@@ -17,7 +17,7 @@
     </RplContent>
 
     <p class="rpl-type-p-small rpl-u-margin-t-3">
-      <RplTextLink :url="formatUrl(feature.url[0])">
+      <RplTextLink :url="stripSiteId(feature.url[0])">
         View {{ feature.title[0] }}
       </RplTextLink>
     </p>
@@ -25,12 +25,12 @@
 </template>
 
 <script setup lang="ts">
+import { stripSiteId } from '@dpc-sdp/ripple-tide-api'
+
 interface Props {
   feature: any
 }
 const props = withDefaults(defineProps<Props>(), {})
-
-const formatUrl = (str) => str.replace(/\/site-(\d+)/, '')
 </script>
 
 <style>

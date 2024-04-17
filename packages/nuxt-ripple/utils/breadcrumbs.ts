@@ -1,4 +1,4 @@
-import { stripSiteId } from '@dpc-sdp/ripple-tide-api'
+import { stripSiteId } from '@dpc-sdp/ripple-tide-api/helpers'
 
 // Private helpers
 function getActivePath(branch, path) {

@@ -518,7 +518,7 @@ const reverseFields = computed(
       <TideSearchAboveResults
         v-if="results?.length || (sortOptions && sortOptions.length)"
         :hasSidebar="hasSidebar"
-        class="rpl-u-margin-t-8 rpl-u-margin-b-6"
+        class="rpl-u-margin-t-4 rpl-u-padding-b-2 rpl-u-margin-b-4"
       >
         <template #left>
           <TideSearchResultsCount
@@ -555,7 +555,7 @@ const reverseFields = computed(
         />
       </TideSearchResultsLoadingState>
 
-      <RplPageComponent>
+      <div class="tide-search-pagination">
         <TideSearchPagination
           v-if="!searchError"
           :currentPage="page"
@@ -563,7 +563,7 @@ const reverseFields = computed(
           :scrollToSelector="`[data-component-id='${id}']`"
           @paginate="handlePageChange"
         />
-      </RplPageComponent>
+      </div>
     </template>
 
     <template v-if="activeTab === 'map'">
@@ -667,5 +667,13 @@ const reverseFields = computed(
 .tide-search-results--loading {
   opacity: 0.5;
   pointer-events: none;
+}
+
+.tide-search-pagination {
+  margin-top: var(--rpl-sp-4);
+
+  @media (--rpl-bp-m) {
+    margin-top: var(--rpl-sp-5);
+  }
 }
 </style>

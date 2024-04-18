@@ -1,5 +1,49 @@
 # Changelog
 
+## v2.7.1
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.7.0...v2.7.1)
+
+
+### 🚀 Enhancements
+
+  - **@dpc-sdp/nuxt-ripple:** Make links relative to avoid full refresh ([f11f1a9f5](https://github.com/dpc-sdp/ripple-framework/commit/f11f1a9f5))
+  - **nuxt-app:** Add hero links test ([c391b8476](https://github.com/dpc-sdp/ripple-framework/commit/c391b8476))
+  - **@dpc-sdp/ripple-tide-search:** Merge config and drupal ui fields ([ab4a51667](https://github.com/dpc-sdp/ripple-framework/commit/ab4a51667))
+  - **@dpc-sdp/ripple-tide-api:** Add utility to strip site id ([cbadf205a](https://github.com/dpc-sdp/ripple-framework/commit/cbadf205a))
+  - **@dpc-sdp/ripple-tide-api:** Allow the merging of page and site mapping ([7aa81a91f](https://github.com/dpc-sdp/ripple-framework/commit/7aa81a91f))
+  - **@dpc-sdp/ripple-ui-core:** Add a "stacked" version of the cta card" ([69057f237](https://github.com/dpc-sdp/ripple-framework/commit/69057f237))
+  - **@dpc-sdp/nuxt-ripple:** Proxy relative file paths ([b67a3e5d2](https://github.com/dpc-sdp/ripple-framework/commit/b67a3e5d2))
+  - **@dpc-sdp/ripple-tide-search:** Add suggestionsKey prop to address lookup ([dc53e89b7](https://github.com/dpc-sdp/ripple-framework/commit/dc53e89b7))
+  - **@dpc-sdp/ripple-tide-landing-page:** ✨  use component title for in page nav ([63ad0fa97](https://github.com/dpc-sdp/ripple-framework/commit/63ad0fa97))
+
+### 🩹 Fixes
+
+  - **@dpc-sdp/ripple-ui-forms:** Hide outline for form option input ([7582201d6](https://github.com/dpc-sdp/ripple-framework/commit/7582201d6))
+  - **@dpc-sdp/ripple-tide-search:** Fix dependent filter reset for content collection ([22e9d6223](https://github.com/dpc-sdp/ripple-framework/commit/22e9d6223))
+  - **@dpc-sdp/ripple-tide-api:** Decode special characters in anchor links ([f024dff23](https://github.com/dpc-sdp/ripple-framework/commit/f024dff23))
+  - **@dpc-sdp/ripple-tide-api:** Allow the use of a single markup plugin ([14dcbccf4](https://github.com/dpc-sdp/ripple-framework/commit/14dcbccf4))
+  - **@dpc-sdp/ripple-tide-search:** Fix search listing taxonomy dropdown error on keyboard navigation ([c39c801c6](https://github.com/dpc-sdp/ripple-framework/commit/c39c801c6))
+  - **@dpc-sdp/nuxt-ripple-cli:** Remove trailing slash from example env file ([9c6ba786e](https://github.com/dpc-sdp/ripple-framework/commit/9c6ba786e))
+  - **@dpc-sdp/ripple-tide-search:** Minor eslint cleanup ([512b18cd6](https://github.com/dpc-sdp/ripple-framework/commit/512b18cd6))
+  - **@dpc-sdp/ripple-tide-api:** 🐛  fix issue with node dependencies in export ([0cc1f8874](https://github.com/dpc-sdp/ripple-framework/commit/0cc1f8874))
+  - 🐛  import from new endpoint ([20033df2d](https://github.com/dpc-sdp/ripple-framework/commit/20033df2d))
+
+### 💅 Refactors
+
+  - ♻️  move util out of ripple-tide-api for cypress ([0b3146449](https://github.com/dpc-sdp/ripple-framework/commit/0b3146449))
+
+### ✅ Tests
+
+  - **nuxt-app:** Add location key test ([eb1620ddd](https://github.com/dpc-sdp/ripple-framework/commit/eb1620ddd))
+
+### ❤️  Contributors
+
+- Jason Smith <jason.smith@dpc.vic.gov.au>
+- Dylan Kelly <dylan.kelly@dpc.vic.gov.au>
+- David Featherston <david.featherstone@dpc.vic.gov.au>
+- Alan Cole ([@alan-cole](http://github.com/alan-cole))
+
 ## v2.7.0
 
 [compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.6.4...v2.7.0)

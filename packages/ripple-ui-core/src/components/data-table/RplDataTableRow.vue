@@ -133,6 +133,7 @@ const getCellText = (col?: number | string, value = '') => {
       <td v-if="showExtraContent" class="rpl-data-table__actions">
         <button
           v-if="extraContent"
+          type="button"
           :class="{
             'rpl-data-table-toggle': true,
             'rpl-data-table-toggle--expanded': state.enabled,

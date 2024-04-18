@@ -13,7 +13,7 @@
         '--local-popup-header-height': `${headerHeight}px`
       }"
     >
-      <slot name="above" v-if="type === 'popover'">
+      <slot v-if="type === 'popover'" name="above">
         <LargePinIcon
           v-if="!isArea && isOpen"
           class="rpl-map-popup__large-pin"

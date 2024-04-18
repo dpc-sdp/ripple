@@ -194,8 +194,6 @@ const {
   searchResultsMappingFn,
   searchListingConfig: props.searchListingConfig,
   sortOptions: props.sortOptions,
-  includeMapsRequest: true,
-  mapConfig: props.mapConfig,
   locationQueryConfig: props.locationQueryConfig,
   mapResultsMappingFn
 })

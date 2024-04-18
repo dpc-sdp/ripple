@@ -36,9 +36,7 @@ interface Config {
   searchResultsMappingFn: (item: any) => any
   searchListingConfig: TideSearchListingConfig['searchListingConfig']
   sortOptions?: TideSearchListingConfig['sortOptions']
-  includeMapsRequest?: boolean
   mapResultsMappingFn?: (item: any) => any
-  mapConfig?: any
   locationQueryConfig?: any
 }
 
@@ -49,9 +47,7 @@ export default ({
   searchResultsMappingFn,
   searchListingConfig,
   sortOptions = [],
-  includeMapsRequest = false,
   mapResultsMappingFn = (item: any) => item,
-  mapConfig = {},
   locationQueryConfig = {}
 }: Config) => {
   const { public: config } = useRuntimeConfig()

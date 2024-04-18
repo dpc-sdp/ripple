@@ -287,8 +287,8 @@ const noResultsRef = ref(null)
   >
     <div
       v-if="noresults && !hideNoResults && !hasSidePanel"
-      class="rpl-map__noresults"
       ref="noResultsRef"
+      class="rpl-map__noresults"
     >
       <button
         title="dismiss no results message"

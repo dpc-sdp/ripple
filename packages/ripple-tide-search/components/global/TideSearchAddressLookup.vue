@@ -38,7 +38,7 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps, defineEmits, inject, watch, toRaw } from 'vue'
+import { defineProps, defineEmits, inject, watch } from 'vue'
 import { ref, getSingleResultValue } from '#imports'
 import { useDebounceFn } from '@vueuse/core'
 import { transformExtent } from 'ol/proj'

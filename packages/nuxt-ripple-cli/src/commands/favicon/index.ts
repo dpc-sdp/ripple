@@ -17,7 +17,6 @@ export default function rplFaviconCommand() {
       'Absolute path to public directory',
       `${process.cwd()}/public`
     )
-    .parse(process.argv)
     .action(() => favicon(rplFaviconCommand.opts()))
 
   return rplFaviconCommand

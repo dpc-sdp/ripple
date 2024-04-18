@@ -21,7 +21,7 @@
     "@formkit/nuxt": "^1.6.0",
     "@formkit/validation": "^1.6.0",
     "@formkit/vue": "^1.6.0",
-    "@nuxt/kit": "^3.10.2",
+    "@nuxt/kit": "^3.11.2",
     "@vueuse/core": "^10.9.0",
     "date-fns": "^2.29.3"
   },

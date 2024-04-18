@@ -6,6 +6,7 @@ import {
   useRippleEvent,
   rplEventPayload
 } from '../../composables/useRippleEvent'
+import RplIcon from '../icon/RplIcon.vue'
 
 export type tableColumnConfig = {
   label: string
@@ -130,14 +131,19 @@ const getCellText = (col?: number | string, value = '') => {
         </template>
       </component>
       <td v-if="showExtraContent" class="rpl-data-table__actions">
-        <RplButton
+        <button
           v-if="extraContent"
-          class="rpl-data-table__toggle"
-          variant="transparent"
-          :icon-name="state.enabled ? 'icon-chevron-up' : 'icon-chevron-down'"
+          :class="{
+            'rpl-data-table-toggle': true,
+            'rpl-data-table-toggle--expanded': state.enabled,
+            'rpl-u-focusable-inline': true,
+            'rpl-type-p-small': true
+          }"
           @click="handleClick"
-          >{{ toggleLabel }}</RplButton
         >
+          {{ toggleLabel }}
+          <RplIcon name="icon-chevron-down" size="xs" />
+        </button>
       </td>
     </tr>
     <tr v-if="extraContent" ref="r1" class="rpl-data-table__details">

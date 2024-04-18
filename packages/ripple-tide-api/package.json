@@ -12,6 +12,7 @@
   "exports": {
     ".": "./dist/index.js",
     "./utils": "./dist/utils.js",
+    "./helpers": "./dist/helpers.js",
     "./types": "./types.d.ts",
     "./errors": "./dist/errors/errors.js",
     "./components": "./dist/nuxt/components",

@@ -22,6 +22,7 @@
     ],
     "paths": {
       "@dpc-sdp/ripple-tide-api/errors": ["ripple-tide-api/src/errors/errors"],
+      "@dpc-sdp/ripple-tide-api/helpers": ["ripple-tide-api/src/helpers"],
       "@dpc-sdp/ripple-tide-api": ["ripple-tide-api/src"],
       "@dpc-sdp/ripple-ui-core": ["ripple-ui-core/src"],
       "@dpc-sdp/ripple-tide-event": ["ripple-tide-event/src"],

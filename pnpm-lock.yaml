@@ -223,6 +223,9 @@ importers:
       '@dpc-sdp/nuxt-ripple-analytics':
         specifier: workspace:*
         version: link:../../packages/nuxt-ripple-analytics
+      '@dpc-sdp/nuxt-ripple-cli':
+        specifier: workspace:*
+        version: link:../../packages/nuxt-ripple-cli
       '@dpc-sdp/nuxt-ripple-preview':
         specifier: workspace:*
         version: link:../../packages/nuxt-ripple-preview
@@ -8261,7 +8264,7 @@ packages:
       ts-dedent: 2.2.0
       type-fest: 2.19.0
       vue: 3.3.4
-      vue-component-type-helpers: 1.8.27
+      vue-component-type-helpers: 2.0.13
     transitivePeerDependencies:
       - encoding
       - supports-color
@@ -28000,8 +28003,8 @@ packages:
       typescript: 5.1.3
     dev: true
 
-  /vue-component-type-helpers@1.8.27:
-    resolution: {integrity: sha512-0vOfAtI67UjeO1G6UiX5Kd76CqaQ67wrRZiOe7UAb9Jm6GzlUr/fC7CV90XfwapJRjpCMaZFhv1V0ajWRmE9Dg==}
+  /vue-component-type-helpers@2.0.13:
+    resolution: {integrity: sha512-xNO5B7DstNWETnoYflLkVgh8dK8h2ZDgxY1M2O0zrqGeBNq5yAZ8a10yCS9+HnixouNGYNX+ggU9MQQq86HTpg==}
     dev: true
 
   /vue-demi@0.13.11(vue@3.3.4):

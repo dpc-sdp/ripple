@@ -1,6 +1,6 @@
 import { computed } from 'vue'
 import { getSearchResultValue, truncateText } from '#imports'
-import { stripSiteId } from '@dpc-sdp/ripple-tide-api'
+import { stripSiteId } from '@dpc-sdp/ripple-tide-api/helpers'
 
 interface ResultOptions {
   summaryMaxLength: number | null

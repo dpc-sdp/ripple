@@ -69,13 +69,13 @@ Then('the table should have the footer {string}', (text: string) => {
 
 When('I toggle the tables extra content row', () => {
   cy.get('@component').within(() => {
-    cy.get('.rpl-data-table__toggle').first().click()
+    cy.get('.rpl-data-table-toggle').first().click()
   })
 })
 
 Then('the table should not display extra content', () => {
   cy.get('@component').within(() => {
-    cy.get('.rpl-data-table__toggle').should('not.exist')
+    cy.get('.rpl-data-table-toggle').should('not.exist')
   })
 })
 
@@ -147,7 +147,7 @@ Then(
     cy.get('@component').within(() => {
       cy.get('.rpl-data-table__row').contains(text).as('tableRow')
 
-      cy.get('@tableRow').find('.rpl-data-table__toggle').should('not.exist')
+      cy.get('@tableRow').find('.rpl-data-table-toggle').should('not.exist')
     })
   }
 )

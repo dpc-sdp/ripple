@@ -61,7 +61,9 @@ Given(
         route: '/api/tide/page',
         status,
         response,
-        query: `?path=${path}&site=${Cypress.env('NUXT_PUBLIC_TIDE_SITE')}`
+        query: `?path=${encodeURIComponent(path)}&site=${Cypress.env(
+          'NUXT_PUBLIC_TIDE_SITE'
+        )}`
       })
     })
   }

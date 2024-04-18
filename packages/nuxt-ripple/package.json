@@ -10,7 +10,8 @@
     ".": "./nuxt.config.ts",
     "./mapping": "./mapping/index.ts",
     "./robots": "./robots.config.ts",
-    "./mapping/utils": "./mapping/utils/index.ts"
+    "./mapping/utils": "./mapping/utils/index.ts",
+    "./types": "./types.d.ts"
   },
   "dependencies": {
     "@dpc-sdp/ripple-tide-api": "workspace:*",

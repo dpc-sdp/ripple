@@ -78,7 +78,7 @@ type TideSearchListingMapFeature = {
 }
 
 interface Props {
-  popupType: 'popover' | 'sidebar'
+  popupType?: 'popover' | 'sidebar'
   popup: {
     title: {
       objKey?: string

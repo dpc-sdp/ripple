@@ -116,6 +116,7 @@ export default ({
 
   const onAggregationUpdateHook = ref()
   const onMapResultsHook = ref()
+  const firstLoad = ref(false)
 
   const getQueryClause = () => {
     if (searchTerm.value) {
@@ -511,6 +512,7 @@ export default ({
       }
 
       isBusy.value = false
+      firstLoad.value = true
     } catch (error) {
       console.error(error)
       searchError.value = error
@@ -821,6 +823,7 @@ export default ({
     mapResults,
     activeTab,
     changeActiveTab,
-    locationQuery
+    locationQuery,
+    firstLoad
   }
 }

@@ -50,5 +50,6 @@ const processedNav = navigation?.map((level1Item) => {
 
 .docs-section-link {
   margin-top: var(--rpl-sp-3);
+  color: var(--rpl-clr-black);
 }
 </style>

@@ -16,8 +16,6 @@ jobs:
           node-version: 18
           cache: 'pnpm'
       - name: Install Dependencies
-        env:
-          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
         run: pnpm install --frozen-lockfile
       - run: pnpm run lint
       - run: pnpm run test:unit

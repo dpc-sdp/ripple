@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { TideDynamicPageComponentBase } from '@dpc-sdp/nuxt-ripple/types'
+import type { TideDynamicPageComponentBase } from '@dpc-sdp/nuxt-ripple/types'
 
 interface Props extends TideDynamicPageComponentBase {
   html: string

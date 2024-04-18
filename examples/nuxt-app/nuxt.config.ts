@@ -27,5 +27,9 @@ export default defineNuxtConfig({
     '@dpc-sdp/ripple-tide-media',
     '@dpc-sdp/ripple-tide-news',
     '@dpc-sdp/ripple-tide-search'
-  ]
+  ],
+  // Nuxt devtools
+  devtools: {
+    enabled: true
+  }
 })

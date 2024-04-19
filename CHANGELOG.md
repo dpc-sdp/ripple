@@ -1,5 +1,22 @@
 # Changelog
 
+## v2.8.1
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.8.0...v2.8.1)
+
+
+### 🩹 Fixes
+
+  - 🐛  move stripsite id fn to auto import util ([f33feeab1](https://github.com/dpc-sdp/ripple-framework/commit/f33feeab1))
+
+### 🏡 Chore
+
+  - **@dpc-sdp/nuxt-ripple:** 🧪  fix breadcrumb unit test ([6b55a20ec](https://github.com/dpc-sdp/ripple-framework/commit/6b55a20ec))
+
+### ❤️  Contributors
+
+- Dylan Kelly <dylan.kelly@dpc.vic.gov.au>
+
 ## v2.8.0
 
 [compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.7.1...v2.8.0)

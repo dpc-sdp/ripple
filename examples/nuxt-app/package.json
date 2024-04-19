@@ -9,7 +9,7 @@
   "sdp_version": "6.6.6",
   "scripts": {
     "dev": "nuxt dev",
-    "dev:mock": "NUXT_PUBLIC_API_URL=http://localhost:3001 API_PORT=3001 concurrently 'pnpm mockserver' 'pnpm dev'",
+    "dev:mock": "NUXT_PUBLIC_API_URL=http://localhost:3001 API_PORT=3001 pnpm dev",
     "build": "nuxi build",
     "preview": "nuxi preview",
     "compile": "tsc --build",

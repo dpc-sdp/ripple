@@ -1,5 +1,78 @@
 # Changelog
 
+## v2.8.0
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.7.1...v2.8.0)
+
+
+### 🚀 Enhancements
+
+  - **@dpc-sdp/ripple-ui-maps:** Add basic side panel ([2217a2f29](https://github.com/dpc-sdp/ripple-framework/commit/2217a2f29))
+  - **@dpc-sdp/ripple-ui-maps:** Make side panel toggle-able ([15199472e](https://github.com/dpc-sdp/ripple-framework/commit/15199472e))
+  - **@dpc-sdp/ripple-tide-search:** Added map sidebar to custom collection ([3d0bce471](https://github.com/dpc-sdp/ripple-framework/commit/3d0bce471))
+  - **@dpc-sdp/ripple-tide-search:** Updated logic for zooming to pins, shapes with sidepanel ([28aac9ebc](https://github.com/dpc-sdp/ripple-framework/commit/28aac9ebc))
+  - **@dpc-sdp/ripple-tide-search:** Allowed for empty dropdown default value ([bf7124b85](https://github.com/dpc-sdp/ripple-framework/commit/bf7124b85))
+  - **@dpc-sdp/ripple-tide-search:** Allowed for dynamic aggregations with doc count ([c9ceec6bf](https://github.com/dpc-sdp/ripple-framework/commit/c9ceec6bf))
+  - **@dpc-sdp/ripple-tide-search:** Send basic auth to elasticsearch when provided ([efa067201](https://github.com/dpc-sdp/ripple-framework/commit/efa067201))
+  - **@dpc-sdp/ripple-tide-search:** Ensure that new env variables reach the nuxt app ([038810ea8](https://github.com/dpc-sdp/ripple-framework/commit/038810ea8))
+  - **@dpc-sdp/ripple-tide-search:** Added ability to customise suggestion tags and mapping ([e0b2c0754](https://github.com/dpc-sdp/ripple-framework/commit/e0b2c0754))
+  - **@dpc-sdp/ripple-tide-search:** Allowed location autocomplete label to be customised ([8cf613b98](https://github.com/dpc-sdp/ripple-framework/commit/8cf613b98))
+  - **@dpc-sdp/ripple-tide-search:** Fixed undefined hover text for map pins ([32f694b4f](https://github.com/dpc-sdp/ripple-framework/commit/32f694b4f))
+  - **@dpc-sdp/ripple-tide-search:** Added new no results message styling for sidepanel map ([751bc327f](https://github.com/dpc-sdp/ripple-framework/commit/751bc327f))
+  - **@dpc-sdp/ripple-tide-search:** Allowed tags to be displayed in search bar when option selected ([627c0c505](https://github.com/dpc-sdp/ripple-framework/commit/627c0c505))
+  - **@dpc-sdp/ripple-tide-search:** Make map sidepanel item unique id customisable ([bb5b8b39a](https://github.com/dpc-sdp/ripple-framework/commit/bb5b8b39a))
+
+### 🩹 Fixes
+
+  - **@dpc-sdp/ripple-ui-maps:** Update panel z-index ([33c89ebf1](https://github.com/dpc-sdp/ripple-framework/commit/33c89ebf1))
+  - **@dpc-sdp/ripple-tide-search:** Fixed keyboard nav for suggestions with same label ([1a0c311e6](https://github.com/dpc-sdp/ripple-framework/commit/1a0c311e6))
+  - **@dpc-sdp/ripple-tide-search:** Only show doc count when dynamic aggregations is true ([14c062bb4](https://github.com/dpc-sdp/ripple-framework/commit/14c062bb4))
+  - **@dpc-sdp/ripple-tide-search:** Fixed map zooming when changing page in sidepanel ([a09b767b9](https://github.com/dpc-sdp/ripple-framework/commit/a09b767b9))
+  - **@dpc-sdp/ripple-tide-search:** Added background color to map to match vicmap tiles ([65dcf0b87](https://github.com/dpc-sdp/ripple-framework/commit/65dcf0b87))
+  - **@dpc-sdp/ripple-ui-maps:** Fixed map bg color not applying in fullscreen view ([624748dc6](https://github.com/dpc-sdp/ripple-framework/commit/624748dc6))
+  - **@dpc-sdp/ripple-tide-search:** Fixed blank popup when two pins in same location ([1966eae04](https://github.com/dpc-sdp/ripple-framework/commit/1966eae04))
+  - **@dpc-sdp/ripple-ui-maps:** Don't show enlarged pin if more than one feature is selected ([343a47d29](https://github.com/dpc-sdp/ripple-framework/commit/343a47d29))
+  - **@dpc-sdp/ripple-ui-maps:** Don't add title attribute for clusters, just pins ([45c1b1843](https://github.com/dpc-sdp/ripple-framework/commit/45c1b1843))
+  - **@dpc-sdp/ripple-ui-maps:** Fixed map not centering on cluster with pins in same location ([48958c156](https://github.com/dpc-sdp/ripple-framework/commit/48958c156))
+  - **@dpc-sdp/ripple-ui-maps:** Design feedback for maps popup / sidebar ([8dd57e278](https://github.com/dpc-sdp/ripple-framework/commit/8dd57e278))
+  - **@dpc-sdp/ripple-ui-maps:** Tweaked map sidepanel based on design feedback ([430b263cd](https://github.com/dpc-sdp/ripple-framework/commit/430b263cd))
+  - **@dpc-sdp/ripple-ui-core:** Added missing underline to pagination next/prev buttons ([41e255783](https://github.com/dpc-sdp/ripple-framework/commit/41e255783))
+  - **@dpc-sdp/ripple-ui-core:** Updated table styling based on design feedback ([fa32e9084](https://github.com/dpc-sdp/ripple-framework/commit/fa32e9084))
+  - **@dpc-sdp/ripple-ui-core:** Ensure that data table responds at the right breakpoints ([e6bd541a2](https://github.com/dpc-sdp/ripple-framework/commit/e6bd541a2))
+  - **@dpc-sdp/ripple-tide-search:** Adjusted spacing from design feedback ([0ac599fcd](https://github.com/dpc-sdp/ripple-framework/commit/0ac599fcd))
+  - **@dpc-sdp/ripple-ui-core:** Fixed broken tests ([ac87bc1c1](https://github.com/dpc-sdp/ripple-framework/commit/ac87bc1c1))
+  - **@dpc-sdp/ripple-ui-core:** Fixed storybook tests ([f76d198e7](https://github.com/dpc-sdp/ripple-framework/commit/f76d198e7))
+
+### 🏡 Chore
+
+  - Removed unneeded example code ([657ec8d82](https://github.com/dpc-sdp/ripple-framework/commit/657ec8d82))
+  - **@dpc-sdp/ripple-tide-search:** Removed redundant map function ([b8bb1cdd3](https://github.com/dpc-sdp/ripple-framework/commit/b8bb1cdd3))
+  - Remove mockserver from cypress test local run ([a084eecc1](https://github.com/dpc-sdp/ripple-framework/commit/a084eecc1))
+
+### ✅ Tests
+
+  - Updated cypress tests ([d9edd9c67](https://github.com/dpc-sdp/ripple-framework/commit/d9edd9c67))
+  - **@dpc-sdp/ripple-ui-maps:** Fixed storybook tests ([f8e102283](https://github.com/dpc-sdp/ripple-framework/commit/f8e102283))
+  - **nuxt-app:** Fixed broken map tests ([db137bb57](https://github.com/dpc-sdp/ripple-framework/commit/db137bb57))
+  - **@dpc-sdp/ripple-tide-search:** Added more tests for maps ([1a56309c2](https://github.com/dpc-sdp/ripple-framework/commit/1a56309c2))
+  - **@dpc-sdp/ripple-tide-search:** Set viewport width and height explicitly to fix tests ([345cf0257](https://github.com/dpc-sdp/ripple-framework/commit/345cf0257))
+  - **@dpc-sdp/ripple-tide-search:** Increase map snapshot threshold ([e7c22728a](https://github.com/dpc-sdp/ripple-framework/commit/e7c22728a))
+  - **@dpc-sdp/ripple-tide-search:** Regenerated image snapshot with cy run command ([b414337c6](https://github.com/dpc-sdp/ripple-framework/commit/b414337c6))
+  - **@dpc-sdp/ripple-ui-core:** Fixed table tests ([2eb659e4f](https://github.com/dpc-sdp/ripple-framework/commit/2eb659e4f))
+  - **@dpc-sdp/ripple-tide-search:** Cleaned up display of titles in map tests ([ee500604b](https://github.com/dpc-sdp/ripple-framework/commit/ee500604b))
+  - **@dpc-sdp/ripple-ui-maps:** Fixed storybook tests ([361b30026](https://github.com/dpc-sdp/ripple-framework/commit/361b30026))
+  - **@dpc-sdp/ripple-tide-search:** Fixed cypress tests after merge ([4bdd112f9](https://github.com/dpc-sdp/ripple-framework/commit/4bdd112f9))
+
+### 🎨 Styles
+
+  - Fixed linting errors ([bddbf421a](https://github.com/dpc-sdp/ripple-framework/commit/bddbf421a))
+
+### ❤️  Contributors
+
+- Jeffrey Dowdle <jeffrey.dowdle@dpc.vic.gov.au>
+- Dylan Kelly <dylan.kelly@dpc.vic.gov.au>
+- David Featherston <david.featherstone@dpc.vic.gov.au>
+
 ## v2.7.1
 
 [compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.7.0...v2.7.1)

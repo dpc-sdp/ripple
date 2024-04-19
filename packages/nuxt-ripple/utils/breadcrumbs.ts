@@ -1,5 +1,3 @@
-import { stripSiteId } from './utils'
-
 // Private helpers
 function getActivePath(branch, path) {
   for (let i = 0; i < branch.length; i++) {

@@ -11,7 +11,7 @@ import {
   nextTick
 } from 'vue'
 import { useFullscreen } from '@vueuse/core'
-import { withDefaults, defineProps, defineExpose } from '@vue/composition-api'
+import { withDefaults, defineExpose } from '@vue/composition-api'
 import { Map } from 'ol'
 import { Point } from 'ol/geom'
 import Icon from 'ol/style/Icon'

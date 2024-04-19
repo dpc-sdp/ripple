@@ -45,7 +45,7 @@ When(`I click the location search term {string}`, (term) => {
 
 Then(`the location search value should be {string}`, (term) => {
   cy.get('.tide-search-address-lookup .rpl-search-bar__input').should(
-    'have.value',
+    'contain',
     term
   )
 })

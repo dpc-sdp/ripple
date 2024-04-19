@@ -8,6 +8,7 @@
 </template>
 
 <script setup lang="ts">
+import { scrollToElementTopWithOffset } from '#imports'
 import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
 const emit = defineEmits<{
   (
@@ -25,16 +26,6 @@ interface Props {
 const props = withDefaults(defineProps<Props>(), {
   scrollToSelector: '.rpl-layout__body-wrap'
 })
-
-function scrollToElementTopWithOffset(element, offset) {
-  const elementTop = element.getBoundingClientRect().top + window.scrollY
-  const scrollToPosition = elementTop - offset
-
-  window.scrollTo({
-    top: scrollToPosition,
-    behavior: 'smooth'
-  })
-}
 
 const handlePageChange = (event) => {
   const navHeight = 92

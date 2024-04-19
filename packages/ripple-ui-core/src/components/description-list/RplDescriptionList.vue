@@ -7,6 +7,7 @@ import RplDescriptionListItem from './RplDescriptionListItem.vue'
 
 interface Props {
   inline?: boolean
+  block?: boolean
   items?: Array<IRplDescriptionListItem>
   variant?: IRplDescriptionListVariant
 }
@@ -23,7 +24,9 @@ withDefaults(defineProps<Props>(), {
     :class="{
       'rpl-description-list': true,
       'rpl-description-list--inline': inline,
-      'rpl-type-p': true
+      'rpl-description-list--compact': variant === 'compact',
+      'rpl-type-p': variant !== 'compact',
+      'rpl-type-p-small': variant === 'compact'
     }"
   >
     <template v-for="row in items" :key="row.term">

@@ -1,0 +1,213 @@
+{
+  "title": "Basic maps test page",
+  "changed": "2023-11-08T12:12:07+11:00",
+  "created": "2021-04-29T13:42:44+10:00",
+  "type": "landing_page",
+  "nid": "b6cf3563-ee60-4c2c-92eb-0212109e6b4d",
+  "_sectionId": "622",
+  "sidebar": {
+    "contacts": [],
+    "relatedLinks": [],
+    "whatsNext": [],
+    "socialShareNetworks": [],
+    "siteSectionNav": null
+  },
+  "status": "published",
+  "topicTags": [
+    {
+      "text": "Education",
+      "url": "/topic/education"
+    }
+  ],
+  "siteSection": {
+    "id": 622,
+    "name": "schoolbuildings.vic.gov.au"
+  },
+  "meta": {
+    "url": "/test-page",
+    "langcode": "en",
+    "description": "Testing maps.",
+    "additional": [
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "title",
+          "content": "Basic maps test page"
+        }
+      },
+      {
+        "tag": "link",
+        "attributes": {
+          "rel": "canonical",
+          "href": "https://develop.content.vic.gov.au/test-page"
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "property": "og:locale",
+          "content": "en-AU"
+        }
+      }
+    ],
+    "keywords": "",
+    "image": null
+  },
+  "showContentRating": true,
+  "summary": "Testing maps.",
+  "showHeroAcknowledgement": false,
+  "showInPageNav": false,
+  "showHeroImageCaption": false,
+  "showTopicTags": false,
+  "inPageNavHeadingLevel": "h2",
+  "background": "default",
+  "header": {
+    "title": "Basic maps test page",
+    "summary": "",
+    "links": {
+      "title": "",
+      "items": [],
+      "more": null
+    },
+    "backgroundImageCaption": "VSDA Entrant",
+    "theme": "reverse",
+    "logoImage": null,
+    "backgroundImage": null,
+    "cornerTop": null,
+    "cornerBottom": null,
+    "primaryAction": null,
+    "secondaryAction": null,
+    "secondaryActionLabel": ""
+  },
+  "bodyComponents": [
+    {
+      "uuid": "55555555-5555-5555-5555-555555555555",
+      "component": "TideCustomCollection",
+      "id": "123",
+      "title": "Test map title",
+      "props": {
+        "searchListingConfig": {
+          "searchProvider": "elasticsearch",
+          "index": "elasticsearch_index_develop_node",
+          "resultsPerPage": 5,
+          "displayMapTab": true,
+          "labels": {
+            "submit": "Search",
+            "placeholder": "Search by postcode or suburb"
+          }
+        },
+        "queryConfig": {
+          "multi_match": {
+            "query": "{{query}}",
+            "fields": ["field_postcode", "field_suburb"]
+          }
+        },
+        "mapConfig": {
+          "sidePanel": {
+            "enabled": false,
+            "resultsComponent": "TestMapSidepanelItem",
+            "itemIdObjPath": "test_item_id"
+          },
+          "props": {
+            "pinIconFn": "testMapPinStyle",
+            "popup": {
+              "content": {
+                "component": "TestMapPopupContent"
+              }
+            },
+            "locationObjPath": "test_latlong_field[0]",
+            "titleObjPath": "test_title[0]",
+            "vectorLayerComponent": "TestMapShapeLayer"
+          }
+        },
+        "userFilters": [
+          {
+            "id": "category",
+            "component": "TideSearchFilterDropdown",
+            "filter": {
+              "type": "terms",
+              "value": "field_mappintype_value"
+            },
+            "aggregations": {
+              "field": "map_pin_type",
+              "source": "taxonomy"
+            },
+            "props": {
+              "id": "category",
+              "label": "Project Type",
+              "placeholder": "Select",
+              "type": "RplFormDropdown",
+              "multiple": true,
+              "options": [
+                {
+                  "id": "1",
+                  "label": "New school",
+                  "value": "New school"
+                },
+                {
+                  "id": "2",
+                  "label": "School upgrade",
+                  "value": "School upgrade"
+                },
+                {
+                  "id": "3",
+                  "label": "Planning",
+                  "value": "Planning"
+                },
+                {
+                  "id": "4",
+                  "label": "Early childhood",
+                  "value": "Early childhood"
+                },
+                {
+                  "id": "5",
+                  "label": "Tech school",
+                  "value": "Tech school"
+                },
+                {
+                  "id": "6",
+                  "label": "Non-government grant",
+                  "value": "Non-government grant"
+                }
+              ]
+            }
+          }
+        ],
+        "globalFilters": [
+          {
+            "terms": {
+              "type": ["project_infrastructure"]
+            }
+          },
+          {
+            "terms": {
+              "field_node_site": [622]
+            }
+          }
+        ],
+        "locationQueryConfig": {
+          "component": "TideSearchAddressLookup",
+          "dslTransformFunction": "schoolBuildings",
+          "mapResultsMappingFn": "schoolBuildings"
+        },
+        "resultsConfig": {
+          "layout": {
+            "component": "TideSearchResultsTable",
+            "props": {
+              "columns": [
+                {
+                  "label": "School name",
+                  "component": "TideSearchListingTableLink"
+                },
+                {
+                  "label": "Suburb",
+                  "objectKey": "field_suburb"
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  ]
+}

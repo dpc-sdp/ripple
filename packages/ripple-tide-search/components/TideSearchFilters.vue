@@ -20,6 +20,7 @@
             :modelValue="filterFormValues[filter.id]"
             v-bind="filter.props"
             :variant="reverseStyling ? 'reverse' : 'default'"
+            :disabled="isBusy"
             :options="
               filter.props?.dynamicOptions?.length
                 ? filter.props.dynamicOptions
@@ -56,6 +57,7 @@ interface Props {
   submitLabel?: string | boolean
   resetLabel?: string | boolean
   reverseStyling?: boolean
+  isBusy?: boolean
 }
 
 const emit = defineEmits<{

@@ -10,6 +10,7 @@ import type {
 import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
 import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
 import { get } from 'lodash-es'
+import { useMapDeadSpace } from '@dpc-sdp/ripple-ui-maps'
 
 interface Props {
   id: string
@@ -133,11 +134,17 @@ const searchResultsMappingFn = (item): TideSearchListingResultItem => {
       }
     }
   }
-  return item
+
+  return {
+    id: item._id,
+    props: {
+      result: item._source
+    }
+  }
 }
 
 const mapResultsMappingFn = (result) => {
-  const location = get(result, props.mapConfig.props.locationObjPath)
+  const location = get(result._source, props.mapConfig.props.locationObjPath)
   if (location && props.mapConfig && result._source) {
     const locationLatLng = location.split(',')
     return {
@@ -188,8 +195,6 @@ const {
   searchResultsMappingFn,
   searchListingConfig: props.searchListingConfig,
   sortOptions: props.sortOptions,
-  includeMapsRequest: true,
-  mapConfig: props.mapConfig,
   locationQueryConfig: props.locationQueryConfig,
   mapResultsMappingFn
 })
@@ -216,9 +221,13 @@ onAggregationUpdateHook.value = (aggs) => {
       if (uiFilter.id === key) {
         const getDynamicOptions = () => {
           const mappedOptions = aggs[key].map((item) => ({
-            id: item,
-            label: item,
-            value: item
+            id: item.key,
+            label: `${item.key}${
+              props.searchListingConfig?.dynamicAggregations
+                ? ` (${item.doc_count})`
+                : ''
+            }`,
+            value: item.key
           }))
 
           if (uiFilters.value[idx].props.hasOwnProperty('options')) {
@@ -391,11 +400,20 @@ const popup = ref({
   position: [0, 0],
   feature: null
 })
+
+const deadSpace = useMapDeadSpace(
+  props.mapConfig?.sidePanel?.enabled,
+  props.mapConfig?.props?.popupType,
+  popup
+)
+
 provide('rplMapInstance', {
   rplMapRef,
   setRplMapRef,
-  popup
+  popup,
+  deadSpace
 })
+
 function setRplMapRef(mapInstance: any) {
   rplMapRef.value = mapInstance
 }
@@ -456,6 +474,8 @@ const reverseFields = computed(
         :is="locationQueryConfig?.component"
         v-if="locationQueryConfig?.component"
         v-bind="locationQueryConfig?.props"
+        :label="searchListingConfig.labels?.submit"
+        :placeholder="searchListingConfig.labels?.placeholder"
         :inputValue="locationQuery"
         :resultsloaded="mapFeatures.length > 0"
         @update="handleLocationSearch"
@@ -478,6 +498,7 @@ const reverseFields = computed(
             :filter-form-values="filterForm"
             :filterInputs="userFilters"
             :reverseStyling="reverseFields"
+            :is-busy="searchListingConfig.dynamicAggregations && isBusy"
             @reset="handleFilterReset"
             @submit="handleFilterSubmit"
           >
@@ -498,7 +519,7 @@ const reverseFields = computed(
       <TideSearchAboveResults
         v-if="results?.length || (sortOptions && sortOptions.length)"
         :hasSidebar="hasSidebar"
-        class="rpl-u-margin-t-8 rpl-u-margin-b-6"
+        class="rpl-u-margin-t-4 rpl-u-padding-b-2 rpl-u-margin-b-4"
       >
         <template #left>
           <TideSearchResultsCount
@@ -535,7 +556,7 @@ const reverseFields = computed(
         />
       </TideSearchResultsLoadingState>
 
-      <RplPageComponent>
+      <div class="tide-search-pagination">
         <TideSearchPagination
           v-if="!searchError"
           :currentPage="page"
@@ -543,7 +564,7 @@ const reverseFields = computed(
           :scrollToSelector="`[data-component-id='${id}']`"
           @paginate="handlePageChange"
         />
-      </RplPageComponent>
+      </div>
     </template>
 
     <template v-if="activeTab === 'map'">
@@ -553,9 +574,52 @@ const reverseFields = computed(
         :areas="mapAreas"
         v-bind="mapConfig?.props"
         :noresults="!isBusy && !results?.length"
+        :hasSidePanel="mapConfig?.sidePanel?.enabled"
       >
         <template #noresults>
           <TideCustomCollectionNoResults v-if="!isBusy && !results?.length" />
+        </template>
+
+        <template #sidepanel="{ activatePin }">
+          <TideSearchListingResultsMapSidepanel
+            variant="desktop"
+            :popup="popup"
+            :mapConfig="mapConfig"
+            :results="results"
+            :activatePin="activatePin"
+            :isBusy="isBusy"
+            :isStandalone="true"
+            :pagingStart="pagingStart + 1"
+            :pagingEnd="pagingEnd + 1"
+            :totalResults="totalResults"
+            :currentPage="page"
+            :totalPages="totalPages"
+            @paginate="handlePageChange"
+          >
+            <template #noresults>
+              <TideCustomCollectionNoResults />
+            </template>
+          </TideSearchListingResultsMapSidepanel>
+        </template>
+
+        <template #sidepanelMobile="{ activatePin }">
+          <TideSearchListingResultsMapSidepanel
+            variant="mobile"
+            :popup="popup"
+            :mapConfig="mapConfig"
+            :results="results"
+            :activatePin="activatePin"
+            :isBusy="isBusy"
+            :isStandalone="true"
+            :pagingStart="pagingStart + 1"
+            :pagingEnd="pagingEnd + 1"
+            :totalResults="totalResults"
+            :currentPage="page"
+            :totalPages="totalPages"
+            @paginate="handlePageChange"
+          >
+            <template #noresults> <TideCustomCollectionNoResults /> </template
+          ></TideSearchListingResultsMapSidepanel>
         </template>
       </TideSearchListingResultsMap>
     </template>
@@ -604,5 +668,13 @@ const reverseFields = computed(
 .tide-search-results--loading {
   opacity: 0.5;
   pointer-events: none;
+}
+
+.tide-search-pagination {
+  margin-top: var(--rpl-sp-4);
+
+  @media (--rpl-bp-m) {
+    margin-top: var(--rpl-sp-5);
+  }
 }
 </style>

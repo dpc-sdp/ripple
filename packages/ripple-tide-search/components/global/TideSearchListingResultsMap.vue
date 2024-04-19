@@ -2,60 +2,56 @@
   <ClientOnly>
     <RplMap
       :id="123"
-      ref="rplmap"
+      ref="mapRef"
       :features="features"
       projection="EPSG:3857"
       :popupType="popupType"
       :map-height="550"
       :pinStyle="pinStyle"
       :noresults="noresults"
+      :hasSidePanel="hasSidePanel"
+      :getFeatureTitle="getTitle"
     >
       <template #noresults>
         <slot name="noresults"></slot>
       </template>
+
       <template #map-provider>
         <rpl-map-provider-vic-map />
       </template>
+
       <template v-if="vectorLayerComponent" #shapes>
         <component :is="vectorLayerComponent" :results="results"></component>
       </template>
-      <template #popupTitle="{ selectedFeatures }">
-        <span v-if="selectedFeatures.length === 1">
-          <component
-            :is="popup.title.component"
-            v-if="popup.title.component"
-            :feature="selectedFeatures[0]"
-          ></component>
-          <span v-else-if="popup.title.objKey">
-            {{ getTitle(selectedFeatures[0]) }}
-          </span>
-        </span>
-        <template v-if="selectedFeatures.length > 1">
-          {{ selectedFeatures.length }} items found in this area
-        </template>
-      </template>
-      <template #popupContent="{ selectedFeatures }">
-        <template v-if="selectedFeatures.length === 1">
-          <div class="rpl-u-margin-t-4">
-            <component
-              :is="popup.content.component"
-              v-if="popup.content.component"
-              :feature="selectedFeatures[0]"
-            ></component>
-          </div>
-        </template>
 
-        <template v-if="selectedFeatures.length > 1">
-          <RplMapPopUpAccordion :features="selectedFeatures">
-            <template #feature="{ feature }">
-              <component
-                :is="popup.content.component"
-                v-if="popup.content.component"
-                :feature="feature"
-              ></component>
-            </template>
-          </RplMapPopUpAccordion>
-        </template>
+      <template #popupTitle>
+        <TideSearchListingResultsPopupTitle
+          :popupConfig="popup"
+          :titleObjPath="titleObjPath"
+        />
+      </template>
+
+      <template #popupContent>
+        <TideSearchListingResultsPopupContent
+          :popupConfig="popup"
+          :titleObjPath="titleObjPath"
+        />
+      </template>
+
+      <template #sidepanel="{ mapHeight }">
+        <slot
+          name="sidepanel"
+          :mapHeight="mapHeight"
+          :activatePin="mapRef?.activatePin"
+        />
+      </template>
+
+      <template #sidepanelMobile="{ selectedFeatures }">
+        <slot
+          name="sidepanelMobile"
+          :activatePin="mapRef?.activatePin"
+          :selectedFeatures="selectedFeatures"
+        />
       </template>
     </RplMap>
     <RplMapLegend
@@ -81,11 +77,9 @@ interface Props {
   popupType?: 'popover' | 'sidebar'
   popup: {
     title: {
-      objKey?: string
       component?: string
     }
     content: {
-      objKey?: string
       component?: string
     }
   }
@@ -101,6 +95,7 @@ interface Props {
     iconColour?: string
   }[]
   noresults?: boolean
+  hasSidePanel?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -111,7 +106,8 @@ const props = withDefaults(defineProps<Props>(), {
   legendTitle: 'Key',
   legendExpanded: false,
   legendItems: () => [],
-  noresults: false
+  noresults: false,
+  hasSidePanel: false
 })
 
 const appConfig = useAppConfig()
@@ -121,7 +117,7 @@ if (pinStyleFunctions && pinStyleFunctions.hasOwnProperty(props.pinIconFn)) {
   pinStyle.value = pinStyleFunctions[props.pinIconFn]
 }
 
-const rplmap = ref()
+const mapRef = ref()
 
 function getTitle(feature) {
   return get(feature, props.titleObjPath)

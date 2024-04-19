@@ -11,7 +11,6 @@
 
 <script setup lang="ts">
 import { GeoJSON } from 'ol/format'
-import { get } from 'ol/proj'
 import { Style, Fill, Stroke } from 'ol/style'
 import { computed, inject, onMounted, nextTick } from 'vue'
 interface Props {

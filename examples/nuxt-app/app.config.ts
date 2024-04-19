@@ -76,7 +76,7 @@ export default defineAppConfig({
               sort: null
             },
             listing: {
-              filter: location.name
+              filter: location?.name
                 ? {
                     terms: {
                       [`field_suburb.keyword`]: [location.name]
@@ -119,6 +119,10 @@ export default defineAppConfig({
         }
       },
       mapPinStyleFn: {
+        testMapPinStyle: (feature) => {
+          // Used for tests in cypress
+          return feature.test_pin_color ? feature.test_pin_color : 'black'
+        },
         vsbaPinIcons: (feature) => {
           const projectType =
             feature && feature['field_mappintype_name']

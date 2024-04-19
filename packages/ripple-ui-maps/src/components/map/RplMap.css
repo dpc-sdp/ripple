@@ -1,20 +1,32 @@
 @import '@dpc-sdp/ripple-ui-core/style/breakpoints';
 
 .rpl-map {
+  --local-map-side-panel-width: 260px;
+
+  @media (--rpl-bp-xl) {
+    --local-map-side-panel-width: 300px;
+  }
+
   position: relative;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
+
   @media (--rpl-bp-m) {
     flex-direction: row;
   }
 
-    /* Magic number to account for the height of the zoom controls, which are positioned absolutely */
-    --local-zoom-controls-height: 88px;
+  /* Magic number to account for the height of the zoom controls, which are positioned absolutely */
+  --local-zoom-controls-height: 88px;
 }
 
 .rpl-map__map {
   width: 100%;
   height: 300px;
+  position: relative;
+
+  /* By default the background color is set to the gray colour used by vicmaps baselayer (#ebebeb) */
+  background-color: var(--local-map-background-color, #ebebeb);
 }
 
 .rpl-map__control {
@@ -116,8 +128,6 @@
     fill: currentcolor;
   }
 
-
-
   /* Margin + zoom controls height + button spacing */
   bottom: calc(
     var(--rpl-sp-2) + var(--local-zoom-controls-height) + var(--rpl-sp-2)
@@ -149,6 +159,7 @@
     top: var(--rpl-sp-5);
   }
 }
+
 .rpl-map__noresults-cancel {
   position: absolute;
   right: var(--rpl-sp-4);

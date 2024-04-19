@@ -1,7 +1,5 @@
 <script setup lang="ts">
-import { useRippleEvent, rplEventPayload } from '@dpc-sdp/ripple-ui-core'
-import type { IRplMapFeature } from './../../types'
-import { ref, onMounted } from 'vue'
+import { onMounted } from 'vue'
 
 interface Props {
   id: string
@@ -15,7 +13,7 @@ interface Props {
   initialCenter?: [number, number]
 }
 
-const props = withDefaults(defineProps<Props>(), {
+withDefaults(defineProps<Props>(), {
   baseUrl: `https://base.maps.vic.gov.au/service`,
   requestParams: () => ({
     tilematrixset: 'EPSG%3A3857%3A256',

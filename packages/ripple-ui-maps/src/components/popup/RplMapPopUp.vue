@@ -13,7 +13,7 @@
         '--local-popup-header-height': `${headerHeight}px`
       }"
     >
-      <slot name="above" v-if="type === 'popover'">
+      <slot v-if="type === 'popover'" name="above">
         <LargePinIcon
           v-if="!isArea && isOpen"
           class="rpl-map-popup__large-pin"
@@ -24,10 +24,18 @@
 
       <div v-if="isOpen" class="rpl-map-popup__container">
         <div ref="headerRef" class="rpl-map-popup__header">
+          <button
+            v-if="type === 'standalone'"
+            class="rpl-map-popup__close rpl-u-focusable-block"
+            @click="onClose"
+          >
+            <RplIcon name="icon-arrow-left" size="s" colour="primary"></RplIcon>
+          </button>
           <h3 class="rpl-type-h4-fixed">
             <slot name="header"> </slot>
           </h3>
           <button
+            v-if="type !== 'standalone'"
             class="rpl-map-popup__close rpl-u-focusable-block"
             @click="onClose"
           >
@@ -56,7 +64,7 @@ interface Props {
   isOpen: boolean
   isArea: boolean
   pinColor?: string
-  type?: 'popover' | 'sidebar'
+  type?: 'standalone' | 'popover' | 'sidebar'
   mapHeight?: number
 }
 

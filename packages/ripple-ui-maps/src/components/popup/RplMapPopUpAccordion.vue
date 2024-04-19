@@ -3,6 +3,7 @@
     v-for="(feature, i) in features"
     :key="i"
     :feature="feature"
+    :getTitle="getTitle"
   >
     <slot name="feature" :feature="feature" />
   </RplMapPopUpAccordionItem>
@@ -13,6 +14,7 @@ import RplMapPopUpAccordionItem from './RplMapPopUpAccordionItem.vue'
 
 interface Props {
   features: any[]
+  getTitle: (feature: any) => string
 }
 
 withDefaults(defineProps<Props>(), {

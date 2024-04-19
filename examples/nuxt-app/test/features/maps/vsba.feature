@@ -85,7 +85,7 @@ Feature: School buildings map
     Given the "/api/tide/elasticsearch/elasticsearch_index_develop_node/_search" network request is stubbed with fixture "/map-table/vsba/response-all" and status 200 as alias "searchReq"
     And I visit the page "/map"
     When I wait 4 seconds
-    When I click the map component at coordinates 571 412
+    When I click the map component at coordinates 650 429
     When I wait 8 seconds
     Then the map matches the image snapshot "map-cluster-zoom"
 

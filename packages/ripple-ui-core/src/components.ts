@@ -54,6 +54,8 @@ export { default as RplLink } from './components/link/RplLink.vue'
 
 export { default as RplPageAction } from './components/page-action/RplPageAction.vue'
 export { default as RplPageLinks } from './components/page-links/RplPageLinks.vue'
+export { default as RplPagination } from './components/pagination/RplPagination.vue'
+
 export { default as RplPrimaryNav } from './components/primary-nav/RplPrimaryNav.vue'
 export { default as RplProfile } from './components/profile/RplProfile.vue'
 export { default as RplRelatedLinks } from './components/related-links/RplRelatedLinks.vue'

@@ -25,8 +25,6 @@
 </template>
 
 <script setup lang="ts">
-import { stripSiteId } from '@dpc-sdp/ripple-tide-api/helpers'
-
 interface Props {
   feature: any
 }

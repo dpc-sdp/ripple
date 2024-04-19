@@ -10,7 +10,6 @@ import { FormKit } from '@formkit/vue'
 import { SearchDriverOptions } from '@elastic/search-ui'
 import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
 import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
-import { stripSiteId } from '@dpc-sdp/ripple-tide-api/helpers'
 
 interface Props {
   id: string

@@ -1,0 +1,136 @@
+{
+  "took": 6,
+  "timed_out": false,
+  "_shards": {
+    "total": 2,
+    "successful": 2,
+    "skipped": 0,
+    "failed": 0
+  },
+  "hits": {
+    "total": {
+      "value": 3,
+      "relation": "eq"
+    },
+    "max_score": 8.186846,
+    "hits": [
+      {
+        "_index": ".ent-search-engine-documents-vicpol-postcode-localities",
+        "_id": "doc-6614936834893a271be59712",
+        "_score": 8.186846,
+        "_ignored": [
+          "name.date",
+          "bbox.location",
+          "bbox.date",
+          "center.date",
+          "lga.date",
+          "name.location",
+          "center.float",
+          "lga.float",
+          "name.float",
+          "lga.location",
+          "areatype.location",
+          "postcode.date",
+          "areatype.float",
+          "areatype.date"
+        ],
+        "_source": {
+          "name": "Brunswick",
+          "areatype": "locality",
+          "center": "-37.7663709,144.9612873",
+          "bbox": [
+            "144.9487312433437",
+            "-37.77914470698591",
+            "144.97699374149008",
+            "-37.754216423454395"
+          ],
+          "postcode": [
+            "3056"
+          ],
+          "lga": [
+            "Merri-Bek City"
+          ],
+          "id": "doc-6614936834893a271be59712"
+        }
+      },
+      {
+        "_index": ".ent-search-engine-documents-vicpol-postcode-localities",
+        "_id": "doc-6614936834893a271be59713",
+        "_score": 6.8628817,
+        "_ignored": [
+          "name.date",
+          "bbox.location",
+          "bbox.date",
+          "center.date",
+          "lga.date",
+          "name.location",
+          "center.float",
+          "lga.float",
+          "name.float",
+          "lga.location",
+          "areatype.location",
+          "postcode.date",
+          "areatype.float",
+          "areatype.date"
+        ],
+        "_source": {
+          "name": "Brunswick East",
+          "areatype": "locality",
+          "center": "-37.7688661,144.9774309",
+          "bbox": [
+            "144.97015817888433",
+            "-37.78006112595512",
+            "144.986858061226",
+            "-37.75690570182761"
+          ],
+          "postcode": [
+            "3057"
+          ],
+          "lga": [
+            "Merri-Bek City"
+          ],
+          "id": "doc-6614936834893a271be59713"
+        }
+      },
+      {
+        "_index": ".ent-search-engine-documents-vicpol-postcode-localities",
+        "_id": "doc-6614936834893a271be59714",
+        "_score": 6.391987,
+        "_ignored": [
+          "name.date",
+          "bbox.location",
+          "bbox.date",
+          "center.date",
+          "lga.date",
+          "name.location",
+          "center.float",
+          "lga.float",
+          "name.float",
+          "lga.location",
+          "areatype.location",
+          "postcode.date",
+          "areatype.float",
+          "areatype.date"
+        ],
+        "_source": {
+          "name": "Brunswick West",
+          "areatype": "locality",
+          "center": "-37.7631082,144.9428497",
+          "bbox": [
+            "144.92670325333916",
+            "-37.77675670579521",
+            "144.95387035489512",
+            "-37.751059631280654"
+          ],
+          "postcode": [
+            "3055"
+          ],
+          "lga": [
+            "Merri-Bek City"
+          ],
+          "id": "doc-6614936834893a271be59714"
+        }
+      }
+    ]
+  }
+}

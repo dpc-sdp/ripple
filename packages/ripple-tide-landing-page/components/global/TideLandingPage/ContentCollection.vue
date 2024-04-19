@@ -55,6 +55,7 @@ import {
   IContentCollectionSort
 } from '../../../mapping/components/content-collection/content-collection-mapping'
 import type { IRplFeatureFlags } from '@dpc-sdp/ripple-tide-api/types'
+import { stripSiteId } from '@dpc-sdp/ripple-tide-api/helpers'
 
 const { public: config } = useRuntimeConfig()
 
@@ -97,7 +98,7 @@ const searchResultsMappingFn = (item): any => {
     props: {
       el: 'li',
       title: item.title?.raw?.[0],
-      url: item.url?.raw?.[0].replace(/\/site-(\d+)/, $app_origin || ''),
+      url: stripSiteId(item.url?.raw?.[0], $app_origin || ''),
       image:
         props.display.style === 'thumbnail' && rawImage
           ? { src: rawImage }

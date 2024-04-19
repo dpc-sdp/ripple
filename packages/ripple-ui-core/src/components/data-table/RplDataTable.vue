@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import { useBreakpoints } from '@vueuse/core'
+import { computed, defineProps, withDefaults, ref, unref, onMounted } from 'vue'
+import { bpMin } from '../../lib/breakpoints'
 import RplDataTableRow, {
   extraRowContent,
   tableColumnConfig,
@@ -18,9 +21,10 @@ interface Props {
   showExtraContent?: boolean
   headingType?: HeadingType
   offset?: number
+  hasSidebar?: boolean
 }
 
-withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<Props>(), {
   caption: '',
   footer: '',
   headingType: () => ({
@@ -29,12 +33,37 @@ withDefaults(defineProps<Props>(), {
   }),
   offset: 1,
   showExtraContent: false,
-  items: () => []
+  items: () => [],
+  hasSidebar: false
+})
+
+const isMounted = ref(false)
+
+onMounted(() => {
+  isMounted.value = true
+})
+
+const breakpoints = useBreakpoints(bpMin)
+const isUpToMediumScreen = breakpoints.smaller('m')
+const isUpToLargeScreen = breakpoints.smaller('l')
+
+const displayMobileView: ComputedRef<boolean> = computed(() => {
+  if (!isMounted.value) {
+    return false
+  }
+
+  return props.hasSidebar ? unref(isUpToLargeScreen) : unref(isUpToMediumScreen)
 })
 </script>
 
 <template>
-  <div class="rpl-table rpl-data-table">
+  <div
+    :class="{
+      'rpl-table': true,
+      'rpl-data-table': true,
+      'rpl-data-table--mobile': displayMobileView
+    }"
+  >
     <div class="rpl-table__scroll-container" tabindex="0">
       <table>
         <caption v-if="caption">

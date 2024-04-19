@@ -306,7 +306,10 @@
         "locationQueryConfig": {
           "component": "TideSearchAddressLookup",
           "dslTransformFunction": "schoolBuildings",
-          "mapResultsMappingFn": "schoolBuildings"
+          "mapResultsMappingFn": "schoolBuildings",
+          "props": {
+            "suggestionsKey": "locality"
+          }
         },
         "resultsConfig": {
           "layout": {

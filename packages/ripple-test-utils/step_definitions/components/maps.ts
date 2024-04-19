@@ -43,6 +43,13 @@ When(`I click the location search term {string}`, (term) => {
     .click()
 })
 
+Then(`the location search value should be {string}`, (term) => {
+  cy.get('.tide-search-address-lookup .rpl-search-bar__input').should(
+    'have.value',
+    term
+  )
+})
+
 Then(`the map matches the image snapshot {string}`, (title) => {
   cy.get('.rpl-primary-nav').invoke('remove')
   cy.get('.rpl-map').matchImage({

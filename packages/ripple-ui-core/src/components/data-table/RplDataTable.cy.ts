@@ -16,7 +16,7 @@ describe('RplDataTable', () => {
     cy.mount(RplDataTable, { props })
 
     cy.get('.rpl-data-table__row').first().as('row')
-    cy.get('@row').find('.rpl-data-table__toggle').as('toggle')
+    cy.get('@row').find('.rpl-data-table-toggle').as('toggle')
     cy.get('@row').find('.rpl-data-table__details').as('details')
 
     cy.get('@details').should('be.hidden')

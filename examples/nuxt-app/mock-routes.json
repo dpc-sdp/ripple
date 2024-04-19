@@ -25,7 +25,7 @@
   },
   {
     "path": "/publication-page",
-    "fixture": "publication-page/sample-publication-page.json"
+    "fixture": "publication/sample-publication-page.json"
   },
   {
     "path": "/",

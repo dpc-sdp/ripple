@@ -10,6 +10,7 @@
 
 .rpl-form-option__input {
   appearance: none;
+  outline: 0;
 }
 
 .rpl-form-option__label {

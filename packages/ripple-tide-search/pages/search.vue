@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { stripSiteId } from '@dpc-sdp/ripple-tide-api/helpers'
 import { AppSearchFilterConfigItem, MappedSearchResult } from '../types'
 import { formatDate, useRuntimeConfig, useAppConfig } from '#imports'
 
@@ -90,7 +91,7 @@ const searchResultsMappingFn = (item): MappedSearchResult<any> => {
     component: 'TideAppSearchResult',
     props: {
       title: item.title?.raw?.[0],
-      url: item.url?.raw?.[0].replace(/\/site-(\d+)/, $app_origin || ''),
+      url: stripSiteId(item.url?.raw?.[0], $app_origin || ''),
       content: summaryField,
       updated: rawUpdated ? formatDate(rawUpdated) : ''
     }

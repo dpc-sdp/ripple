@@ -1,10 +1,11 @@
+import { stripSiteId } from '@dpc-sdp/ripple-tide-api/helpers'
+
 // Private helpers
-const siteMatch = /\/site-(\d+)/
 function getActivePath(branch, path) {
   for (let i = 0; i < branch.length; i++) {
     const item = branch[i]
     // ignore site id prefix when matching active path
-    if (item.url.replace(siteMatch, '') === path.replace(siteMatch, '')) {
+    if (stripSiteId(item.url) === stripSiteId(path)) {
       return [
         {
           text: item.text,

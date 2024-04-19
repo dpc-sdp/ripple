@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { stripSiteId } from '@dpc-sdp/ripple-tide-api/helpers'
 import { AppSearchFilterConfigItem, MappedSearchResult } from '../types'
 import { formatDate, useRuntimeConfig, useAppConfig } from '#imports'
 

@@ -1,5 +1,3 @@
-import { stripSiteId } from '@dpc-sdp/ripple-tide-api/helpers'
-
 // Private helpers
 function getActivePath(branch, path) {
   for (let i = 0; i < branch.length; i++) {

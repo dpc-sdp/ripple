@@ -2,64 +2,84 @@
 
 .rpl-tabs {
   border-bottom: var(--rpl-border-1) solid var(--rpl-clr-neutral-300);
+  display: flex;
 }
 
 .rpl-tab {
-  display: inline-block;
+  display: flex;
   position: relative;
+  padding: var(--rpl-sp-4);
+  gap: var(--rpl-sp-2);
+  align-items: center;
+  text-decoration: underline;
+  cursor: pointer;
+  margin-bottom: -1px;
 
-  .rpl-button--default {
-    --local-white-type-clr: var(--rpl-clr-type-default);
-    --local-white-type-clr-hover: var(--rpl-clr-type-primary-accessible);
-  }
-
-  .rpl-type-label {
-    font-weight: var(--rpl-type-weight-regular);
-  }
-
+  &:hover,
+  &:focus,
+  &:active,
   &--active {
-    --local-active-clr: var(--rpl-clr-link);
+    text-decoration: none;
+  }
+}
 
-    .rpl-u-focusable-block::after {
-      content: '';
-      position: absolute;
-      z-index: var(--rpl-layer-1);
-      height: var(--rpl-border-3);
-      width: calc(100% + var(--rpl-focusable-border-width, 0%) * 2);
-      background-color: var(--local-active-clr);
-      bottom: 0;
-    }
+.rpl-tab:active,
+.rpl-tab--active {
+  color: var(--rpl-clr-link);
 
-    .rpl-u-focusable-block:focus-visible::after {
-      background-color: var(--rpl-clr-dark);
-    }
+  &::after {
+    content: '';
+    position: absolute;
+    z-index: var(--rpl-layer-1);
+    height: var(--rpl-border-3);
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    background: var(--rpl-clr-link);
+  }
 
-    .rpl-button--default {
-      --local-white-type-clr: var(--local-active-clr);
-
-      text-decoration: none;
+  &:focus-visible {
+    &::after {
+      display: none;
     }
   }
 }
 
 .rpl-tabs--vertical {
+  display: inline-flex;
+  flex-direction: column;
   border-bottom: 0;
   border-left: var(--rpl-border-1) solid var(--rpl-clr-neutral-300);
 
+  /* stylelint-disable-next-line no-descending-specificity */
   .rpl-tab {
-    display: block;
-    border-left: var(--rpl-border-3) solid transparent;
+    justify-content: flex-start;
+    margin-bottom: 0;
+    margin-left: -1px;
 
-    .rpl-button {
-      justify-content: flex-start;
-      width: 100%;
-    }
-
+    &:active,
     &--active {
       border-color: var(--local-active-clr);
 
-      .rpl-u-focusable-block::after {
+      &::after {
         display: none;
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        z-index: var(--rpl-layer-1);
+        width: var(--rpl-border-3);
+        height: 100%;
+        left: 0;
+        bottom: 0;
+        background: var(--rpl-clr-link);
+      }
+
+      &:focus-visible {
+        &::before {
+          display: none;
+        }
       }
     }
   }

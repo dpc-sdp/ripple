@@ -52,8 +52,10 @@ const props = withDefaults(defineProps<Props>(), {
   isFreeText: true
 })
 
+type Timer = ReturnType<typeof setTimeout>
+
 const emit = defineEmits<{
-  (e: 'update:inputValue', value: string): void
+  (e: 'update:inputValue', value: string | null): void
   (e: 'submit', payload: rplEventPayload & { action: 'search' }): void
 }>()
 
@@ -61,10 +63,10 @@ const { emitRplEvent } = useRippleEvent('rpl-search-bar', emit)
 
 const internalValue = ref('')
 const containerRef = ref(null)
-const inputRef = ref(null)
+const inputRef: Ref<HTMLInputElement | null> = ref(null)
 const menuRef = ref(null)
 const optionRefs = ref([])
-const focusTimeout = ref(null)
+const focusTimeout: Ref<Timer | null> = ref(null)
 
 const menuId = computed(() => `${props.id}__menu`)
 
@@ -75,12 +77,14 @@ const isInputFocused = ref(false)
 
 onMounted(() => {
   if (props.autoFocus) {
-    focusTimeout.value = setTimeout(() => inputRef.value.focus(), 100)
+    focusTimeout.value = setTimeout(() => inputRef.value?.focus(), 100)
   }
 })
 
 onUnmounted(() => {
-  clearTimeout(focusTimeout.value)
+  if (focusTimeout.value) {
+    clearTimeout(focusTimeout.value)
+  }
 })
 
 onClickOutside(containerRef, () => {
@@ -108,11 +112,11 @@ const handleInputChange = (e) => {
   isOpen.value = true
 }
 
-const handleSelectOption = (optionValue: any, focusBackOnInput) => {
+const handleSelectOption = (optionValue: any, focusBackOnInput: boolean) => {
   const optionLabel = props.getOptionLabel(optionValue)
 
   if (focusBackOnInput) {
-    inputRef.value.focus()
+    inputRef.value?.focus()
   }
 
   internalValue.value = props.getSuggestionVal(optionValue)
@@ -151,18 +155,40 @@ const handleClose = (focusBackOnInput = false): void => {
   activeOptionId.value = null
 
   if (focusBackOnInput) {
-    inputRef.value.focus()
+    inputRef.value?.focus()
   }
 }
 
 const handleInputFocus = async () => {
   isInputFocused.value = true
   await nextTick()
-  inputRef.value.focus()
+  inputRef.value?.focus()
 }
 
 const handleBlur = () => {
   isInputFocused.value = false
+}
+
+const handleClear = async () => {
+  emit('update:inputValue', null)
+  internalValue.value = ''
+
+  emitRplEvent(
+    'submit',
+    {
+      action: 'search',
+      id: props.id,
+      text: '',
+      name: props.inputLabel,
+      value: '',
+      payload: null,
+      type: 'suggestion'
+    },
+    { global: props.globalEvents }
+  )
+
+  await nextTick()
+  inputRef.value?.focus()
 }
 
 const handleArrowDown = () => {
@@ -207,7 +233,7 @@ const isPrintableKeyCode = (keyCode) => {
 
 const handleKeydown = (e) => {
   if (isPrintableKeyCode(e.keyCode)) {
-    inputRef.value.focus()
+    inputRef.value?.focus()
   }
 }
 
@@ -260,7 +286,11 @@ const slug = (label: string) => {
 
 <template>
   <form
-    :class="`rpl-search-bar rpl-search-bar--${variant}`"
+    :class="{
+      'rpl-search-bar': true,
+      [`rpl-search-bar--${variant}`]: !!variant,
+      'rpl-search-bar--with-clear-btn': !!inputValue
+    }"
     :style="{
       '--local-max-items': maxSuggestionsDisplayed
     }"
@@ -381,6 +411,15 @@ const slug = (label: string) => {
         </div>
       </div>
       <div class="rpl-search-bar__right">
+        <button
+          v-if="internalValue || inputValue"
+          type="button"
+          aria-label="Clear search"
+          class="rpl-search-bar__clear rpl-u-focusable-inline"
+          @click="handleClear()"
+        >
+          <RplIcon name="icon-cancel-circle-filled" />
+        </button>
         <button
           type="submit"
           aria-label="search"

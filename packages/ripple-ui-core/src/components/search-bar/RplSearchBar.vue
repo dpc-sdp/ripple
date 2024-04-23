@@ -289,7 +289,8 @@ const slug = (label: string) => {
     :class="{
       'rpl-search-bar': true,
       [`rpl-search-bar--${variant}`]: !!variant,
-      'rpl-search-bar--with-clear-btn': !!inputValue
+      'rpl-search-bar--with-label': !!submitLabel,
+      'rpl-search-bar--with-clear-btn': !!inputValue || !!internalValue
     }"
     :style="{
       '--local-max-items': maxSuggestionsDisplayed

@@ -88,6 +88,14 @@
 
   /* Magic number to represent the width of the search button */
   padding-right: calc(var(--rpl-sp-4) + 24px + var(--rpl-sp-3));
+
+  .rpl-search-bar--with-clear-btn & {
+    /* Magic numbers to represent the width of the clear button and search button */
+    padding-right: calc(
+      var(--rpl-sp-4) + 16px + var(--rpl-sp-5) + 24px + var(--rpl-sp-3)
+    );
+  }
+
   width: 100%;
   color: var(--local-search-bar-clr-input-text);
 
@@ -117,11 +125,29 @@
   @media (--rpl-bp-m) {
     padding-left: calc(var(--rpl-sp-4) - var(--local-border-inline-width));
 
-    /* Magic number to represent the width of the search button */
-    padding-right: calc(
-      var(--rpl-sp-4) + 94px + var(--rpl-sp-4) -
-        var(--local-border-inline-width)
-    );
+    .rpl-search-bar--with-label & {
+      /* Magic number to represent the width of the search button with label */
+      padding-right: calc(
+        var(--rpl-sp-4) + 94px + var(--rpl-sp-4) -
+          var(--local-border-inline-width)
+      );
+    }
+
+    .rpl-search-bar--with-clear-btn & {
+      /* Magic number to represent the width of the clear button and search button without label */
+      padding-right: calc(
+        var(--rpl-sp-4) + 16px + var(--rpl-sp-5) + 24px + var(--rpl-sp-4) -
+          var(--local-border-inline-width)
+      );
+    }
+
+    .rpl-search-bar--with-label.rpl-search-bar--with-clear-btn & {
+      /* Magic numbera to represent the width of the clear button and search button with label */
+      padding-right: calc(
+        var(--rpl-sp-4) + 16px + var(--rpl-sp-5) + 94px + var(--rpl-sp-4) -
+          var(--local-border-inline-width)
+      );
+    }
   }
 }
 

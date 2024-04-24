@@ -2,7 +2,8 @@ import {
   defineNuxtModule,
   createResolver,
   addComponentsDir,
-  addPlugin
+  addPlugin,
+  addImportsDir
 } from '@nuxt/kit'
 
 export default <any>defineNuxtModule({
@@ -20,6 +21,9 @@ export default <any>defineNuxtModule({
       prefix: 'rpl',
       pathPrefix: false
     })
+
+    addImportsDir(resolve('./runtime/composables'))
+    addImportsDir(resolve('./runtime/utils'))
 
     addPlugin({
       src: resolve('./runtime/plugin.js'),

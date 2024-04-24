@@ -22,7 +22,10 @@
     "declaration": true
   },
   "include": [
-    "env.d.ts", "src/index.ts", "src/nuxt/**/*.ts", "src/tokens/**/*.ts", "src/tokens/**/*.json", "src/scripts/**/*.ts"
+    "env.d.ts",
+    "src/index.ts",
+    "src/nuxt/**/*.ts",
+    "src/plugins/register.ts"
   ],
   "exclude": ["src/components/global/stories/*"]
 }

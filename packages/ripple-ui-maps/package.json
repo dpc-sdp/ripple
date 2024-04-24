@@ -12,12 +12,14 @@
     "README.md"
   ],
   "type": "module",
-  "main": "./dist/rpl-lib.es.js",
-  "module": "./dist/rpl-lib.es.js",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
-    ".": "./dist/rpl-lib.es.js",
+    ".": "./dist/index.js",
+    "./vue": "./dist/rpl-lib.es.js",
     "./nuxt": "./dist/nuxt/index.js",
+    "./plugin": "./dist/plugins/register.js",
     "./style": "./dist/global.css",
     "./style/breakpoints": "./src/styles/_breakpoints.css",
     "./style/components": "./dist/style.css"

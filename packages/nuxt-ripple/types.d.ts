@@ -49,6 +49,15 @@ export interface TideLink {
   url: string
 }
 
+export interface TideAlert {
+  alertId: string
+  variant: 'information' | 'warning' | 'error'
+  iconName: string
+  message: string
+  linkText: string
+  linkUrl: string
+}
+
 export interface TideMenuItem {
   text: string
   url?: string

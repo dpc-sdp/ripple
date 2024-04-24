@@ -55,7 +55,6 @@ import {
   IContentCollectionSort
 } from '../../../mapping/components/content-collection/content-collection-mapping'
 import type { IRplFeatureFlags } from '@dpc-sdp/ripple-tide-api/types'
-import { stripSiteId } from '@dpc-sdp/ripple-tide-api/helpers'
 
 const { public: config } = useRuntimeConfig()
 

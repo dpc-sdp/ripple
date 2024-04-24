@@ -42,7 +42,7 @@ to: package.json
     "test:generate-output": "jest --json --outputFile=.jest-test-results.json"
   },
   "dependencies": {
-    "@nuxt/kit": "^3.10.2",
+    "@nuxt/kit": "^3.11.2",
     "@vueuse/core": "^9.13.0",
     "@vueuse/integrations": "^9.13.0",
     "postcss-each": "^1.1.0",

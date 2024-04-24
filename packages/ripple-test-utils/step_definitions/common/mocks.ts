@@ -42,12 +42,13 @@ Given(
 Given(
   `the site endpoint returns fixture {string} with status {int}`,
   (fixture: string, status: number) => {
+    cy.log(Cypress.env('NUXT_PUBLIC_TIDE_SITE'))
     cy.fixture(fixture).then((response) => {
       cy.task('setMockRouteWithQuery', {
         route: '/api/tide/site',
         status,
         response,
-        query: `?id=${Cypress.env('NUXT_PUBLIC_TIDE_SITE')}`
+        query: `?id=${encodeURIComponent(Cypress.env('NUXT_PUBLIC_TIDE_SITE'))}`
       })
     })
   }
@@ -81,7 +82,9 @@ Given(
         route: '/api/tide/page',
         status: 200,
         response,
-        query: `?path=${path}&site=${Cypress.env('NUXT_PUBLIC_TIDE_SITE')}`
+        query: `?path=${encodeURIComponent(path)}&site=${Cypress.env(
+          'NUXT_PUBLIC_TIDE_SITE'
+        )}`
       })
     })
   }

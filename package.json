@@ -67,7 +67,7 @@
     "babel-plugin-syntax-jsx": "^6.18.0",
     "babel-plugin-transform-vue-jsx": "^3.7.0",
     "changelogen": "^0.5.3",
-    "cypress": "12.8.1",
+    "cypress": "13.6.6",
     "eslint": "^8.36.0",
     "husky": "^8.0.3",
     "hygen": "^6.2.11",
@@ -94,7 +94,7 @@
     "overrides": {
       "@types/react": "file:./stub/types__react",
       "jest-matcher-utils@29.2.2>chalk": "5.2.0",
-      "cypress": "12.8.1",
+      "cypress": "13.6.6",
       "glob-parent@<5.1.2": "~6.0.2",
       "json5@<2.2.2": "~2.2.2",
       "nth-check@<2.1.1": "~2.1.1",

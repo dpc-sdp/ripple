@@ -34,7 +34,7 @@ jobs:
           node-version: 18
           scope: '@dpc-sdp'
       - name: Cypress run
-        uses: cypress-io/github-action@v5
+        uses: cypress-io/github-action@v6
         env:
           DEBUG: '@cypress/github-action'
           NUXT_PUBLIC_TIDE_BASE_URL: 'https://test.base.url/'

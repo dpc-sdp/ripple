@@ -45,7 +45,7 @@ to: package.json
     "@dpc-sdp/ripple-tide-news": "<%= rplVersion %>",
     "@dpc-sdp/ripple-tide-publication": "<%= rplVersion %>",
     "@dpc-sdp/ripple-tide-search": "<%= rplVersion %>",
-    "cypress": "^12.5.1",
+    "cypress": "^13.6.6",
     "eslint": "^8.28.0",
     "jest-environment-jsdom": "^29.5.0",
     "nuxt": "3.11.2",

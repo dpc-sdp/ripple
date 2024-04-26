@@ -73,14 +73,14 @@
 
 /* stylelint-disable-next-line no-descending-specificity */
 .rpl-search-bar__input {
-  --local-border-inline-width: 0px;
+  --local-border-width: 0px;
 
   background: var(--local-search-bar-clr-bg);
-  border: var(--local-search-bar-border-width) solid transparent;
+  border: var(--local-border-width) solid transparent;
+  border-bottom-width: var(--local-search-bar-border-width);
   border-bottom-color: var(--local-search-bar-clr-bottom-bar);
-  border-left-width: var(--local-border-inline-width);
-  border-right-width: var(--local-border-inline-width);
-  padding: var(--rpl-sp-4) calc(var(--rpl-sp-3) - var(--local-border-inline-width));
+  padding-inline: calc(var(--rpl-sp-3) - var(--local-border-width));
+  padding-block: calc(var(--rpl-sp-4) - var(--local-border-width)) calc(var(--rpl-sp-4) - var(--local-search-bar-border-width));
   border-radius: 0;
   /* stylelint-disable-next-line property-no-vendor-prefix */
   -webkit-appearance: none;
@@ -108,16 +108,16 @@
 
   &:focus,
   &.rpl-u-focusable--force-on {
-    --local-border-inline-width: var(--local-search-bar-border-width);
+    --local-border-width: var(--local-search-bar-border-width);
 
     border-color: var(--local-search-bar-clr-border-active);
   }
 
   @media (--rpl-bp-m) {
-    padding-left: calc(var(--rpl-sp-4) - var(--local-border-inline-width));
+    padding-left: calc(var(--rpl-sp-4) - var(--local-border-width));
 
     /* Magic number to represent the width of the search button */
-    padding-right: calc(var(--rpl-sp-4) + 94px + var(--rpl-sp-4) - var(--local-border-inline-width));
+    padding-right: calc(var(--rpl-sp-4) + 94px + var(--rpl-sp-4) - var(--local-border-width));
   }
 }
 
@@ -125,10 +125,14 @@
   position: absolute;
   display: flex;
   align-items: center;
-  right: var(--rpl-sp-4);
+  right: var(--rpl-sp-3);
   top: 0;
   bottom: 0;
   pointer-events: none;
+
+  @media (--rpl-bp-m) {
+    right: var(--rpl-sp-4);
+  }
 }
 
 .rpl-search-bar-submit__label {

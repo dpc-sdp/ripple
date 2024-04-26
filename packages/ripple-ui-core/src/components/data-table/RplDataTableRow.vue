@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { computed, reactive } from 'vue'
-import RplButton from '../button/RplButton.vue'
 import RplContent from '../content/RplContent.vue'
 import {
   useRippleEvent,

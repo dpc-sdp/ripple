@@ -195,11 +195,7 @@ const handleToggleItem = (level: number, item) => {
 
       <!-- Search toggle -->
       <li v-if="showSearch">
-        <RplPrimaryNavBarAction
-          type="toggle"
-          href="/search"
-          @click="toggleSearch()"
-        >
+        <RplPrimaryNavBarAction type="toggle" @click="toggleSearch()">
           <div v-if="!isSearchActive">
             <span class="rpl-primary-nav__nav-bar-search-label">Search</span
             >&NoBreak;<span

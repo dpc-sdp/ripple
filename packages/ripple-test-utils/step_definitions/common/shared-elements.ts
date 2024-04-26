@@ -1,4 +1,10 @@
-import { Then, DataTable, When } from '@badeball/cypress-cucumber-preprocessor'
+import {
+  Then,
+  DataTable,
+  When,
+  Given
+} from '@badeball/cypress-cucumber-preprocessor'
+import { set } from 'lodash-es'
 
 Then('the page title should be {string}', (title: string) => {
   cy.title().should('equal', title)
@@ -205,3 +211,12 @@ Then('the footer should have the following logos', (dataTable: DataTable) => {
       })
   })
 })
+
+Given(
+  'the feature flag {string} is set to {string}',
+  (flag: string, value: string) => {
+    cy.get('@siteFixture').then((response) => {
+      set(response, `featureFlags.${flag}`, value)
+    })
+  }
+)

@@ -61,6 +61,8 @@ import FormkitInputError from '../components/RplForm/FormkitInputError.vue'
 import FormkitOuter from '../components/RplForm/FormkitOuter.vue'
 // @ts-expect-error vue SFC
 import RplFormNumber from '../components/RplFormNumber/RplFormNumber.vue'
+// @ts-expect-error vue SFC
+import RplFormHidden from '../components/RplFormHidden/RplFormHidden.vue'
 
 export const inputLibrary = {
   RplFormInput: markRaw(RplFormInput),
@@ -81,7 +83,8 @@ export const inputLibrary = {
   RplFormActions: markRaw(RplFormActions),
   FormkitInputError: markRaw(FormkitInputError),
   FormkitOuter: markRaw(FormkitOuter),
-  RplFormNumber: markRaw(RplFormNumber)
+  RplFormNumber: markRaw(RplFormNumber),
+  RplFormHidden: markRaw(RplFormHidden)
 }
 
 export const rplFeatures = [
@@ -143,6 +146,20 @@ export const createRplFormGroup = (
       rplInputGrid(createSection('input', () => cmp)())
     )
   ) as unknown as FormKitExtendableSchemaRoot
+}
+
+/*
+ * Creates a Formkit schema for UI-less fields
+ * this is useful for when you don't need the wrapping elements
+ * and just want the input itself, for example, when using a hidden input
+ */
+export const createRplFormInputOnly = (
+  cmp: FormKitSchemaComponent
+): FormKitExtendableSchemaRoot => {
+  return createSection(
+    'input',
+    () => cmp
+  )() as unknown as FormKitExtendableSchemaRoot
 }
 
 export const defaultRplFormInputProps = {

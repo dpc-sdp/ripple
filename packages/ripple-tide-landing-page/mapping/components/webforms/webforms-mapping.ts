@@ -35,11 +35,12 @@ const getFormSchemaFromMapping = async (
     switch (field['#type']) {
       case 'hidden':
         mappedField = {
-          $formkit: 'hidden',
+          $formkit: 'RplFormHidden',
           key: fieldKey,
           name: fieldKey,
           id: fieldID,
-          value: field['#default_value']
+          value: field['#default_value'],
+          pii: false
         }
         break
       case 'textfield':

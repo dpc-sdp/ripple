@@ -111,7 +111,7 @@ export default async (
       autocompleteMinimumCharacters,
       debounce: 100
     }
-    searchDriver.getActions().setSearchTerm(value, searchTermOptions)
+    searchDriver.getActions().setSearchTerm(value || '', searchTermOptions)
   }
 
   const goToPage = (newPage: number) => {

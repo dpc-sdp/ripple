@@ -72,7 +72,7 @@ export const SlotTemplate = (args) => ({
           label: 'What kind of long enquiry do you have?',
           id: 'text',
           suffixIcon: 'icon-search',
-          help: 'Do you need help?',
+          help: '<p>Do you need help?</p>',
           validationLabel: 'enquiry',
           validation: 'required|length:0,20',
           columnClasses: 'rpl-col-6 rpl-col-3-m'
@@ -83,7 +83,7 @@ export const SlotTemplate = (args) => ({
           label: 'RplFormText Should you flush tissues down the toilet?',
           id: 'textnoicons',
           value: 'test content',
-          help: 'Do you need help?',
+          help: '<p>Do you need help?</p>',
           validation: 'required',
           columnClasses: 'rpl-col-12 rpl-col-5-m'
         },
@@ -92,7 +92,7 @@ export const SlotTemplate = (args) => ({
           name: 'Text',
           label: 'Email',
           id: 'email',
-          help: 'Add your work email',
+          help: '<p>Add your work email</p>',
           validation: 'required'
         },
         {
@@ -100,7 +100,7 @@ export const SlotTemplate = (args) => ({
           name: 'tel',
           label: 'Mobile number',
           id: 'tel',
-          help: 'Please enter a valid mobile number',
+          help: '<p>Please enter a valid mobile number</p>',
           validation:[['required'],['matches', /^(?:\+?(61))? ?(?:\((?=.*\)))?(0?[2-57-8])\)? ?(\d\d(?:[- ](?=\d{3})|(?!\d\d[- ]?\d[- ]))\d\d[- ]?\d[- ]?\d{3})$/]],
           validationMessages: {
             required: 'We require a mobile for verification purposes',
@@ -112,7 +112,7 @@ export const SlotTemplate = (args) => ({
           name: "role",
           label: "Role",
           id: "role",
-          help: "Enter your role",
+          help: "<p>Enter your role</p>",
           counter: "word",
           counterMin: 0,
           counterMax: 5,
@@ -126,7 +126,7 @@ export const SlotTemplate = (args) => ({
           name: 'message',
           label: 'Message',
           id: 'message',
-          help: 'Please enter a message',
+          help: '<p>Please enter a message</p>',
           counter: 'character',
           counterMin: 10,
           counterMax: 50,
@@ -142,7 +142,7 @@ export const SlotTemplate = (args) => ({
           name: 'single-checkbox',
           label: 'How are you?',
           checkboxLabel: 'I am good thanks',
-          help: 'A common human greeting',
+          help: '<p>A common human greeting</p>',
           value: false,
           validation: 'accepted',
           validationMessages: {
@@ -154,7 +154,7 @@ export const SlotTemplate = (args) => ({
           id: 'checkbox-group',
           name: 'checkbox-group',
           label: 'What is the answer?',
-          help: 'There may be multiple answers',
+          help: '<p>There may be multiple answers</p>',
           value: [],
           validation: 'required|length:2,3',
           validationMessages: {
@@ -184,7 +184,7 @@ export const SlotTemplate = (args) => ({
           id: 'radio-group',
           name: 'radio-group',
           label: 'Favourite colour?',
-          help: 'There is only one answer',
+          help: '<p>There is only one answer</p>',
           value: 'undefined',
           validation: 'required',
           validationMessages: {
@@ -213,7 +213,7 @@ export const SlotTemplate = (args) => ({
           id: 'option-buttons',
           name: 'option-buttons',
           label: 'Favourite fruit?',
-          help: 'What is it?',
+          help: '<p>What is it?</p>',
           value: '',
           validation: 'required',
           validationMessages: {
@@ -252,7 +252,7 @@ export const SlotTemplate = (args) => ({
           id: 'dropdown-single',
           name: 'dropdown-single',
           label: 'What is the answer?',
-          help: 'Just one answer',
+          help: '<p>Just one answer</p>',
           validation: 'required',
           validationMessages: {
             required: 'Please provide an answer',
@@ -281,7 +281,7 @@ export const SlotTemplate = (args) => ({
           id: 'dropdown-multi',
           name: 'dropdown-multi',
           label: 'What is the answer?',
-          help: 'There may be multiple answers',
+          help: '<p>There may be multiple answers</p>',
           columnClasses: 'rpl-col-12 rpl-col-5-m',
           validation: 'required|length:2,3',
           validationMessages: {
@@ -312,7 +312,7 @@ export const SlotTemplate = (args) => ({
           id: 'birthdate',
           name: 'birthdate',
           label: 'When is your birthday?',
-          help: 'The date you were born',
+          help: '<p>The date you were born</p>',
           validation: 'required|date_before:1999-12-25',
           validationMessages: {
             required: 'Please provide an answer',
@@ -325,7 +325,7 @@ export const SlotTemplate = (args) => ({
           label: "Quantity",
           columnClasses: 'rpl-col-12 rpl-col-5-m',
           id: "qty",
-          help: "How many do you need?",
+          help: "<p>How many do you need?</p>",
           min: 0,
           max: 5,
           mode: "alt",

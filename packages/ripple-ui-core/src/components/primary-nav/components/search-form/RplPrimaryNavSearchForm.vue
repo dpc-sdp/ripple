@@ -5,14 +5,15 @@ import { ref, onMounted } from 'vue'
 
 interface Props {
   showQuickExit: boolean
+  searchUrl: boolean
 }
 
 const searchBar = ref(null)
 
-withDefaults(defineProps<Props>(), {})
+const props = withDefaults(defineProps<Props>(), {})
 
 const handleSubmit = (event) => {
-  window.location.href = `/search?q=${event.value}`
+  window.location.href = `${props.searchUrl}?q=${event.value}`
 }
 
 onMounted(() => {

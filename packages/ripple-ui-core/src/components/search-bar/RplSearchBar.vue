@@ -31,6 +31,7 @@ interface Props {
   isOptionSelectable?: Function
   showLabel?: boolean
   isFreeText?: boolean
+  submitOnClear?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -49,7 +50,8 @@ const props = withDefaults(defineProps<Props>(), {
   getOptionId: (opt) => opt,
   isOptionSelectable: (opt) => true,
   showLabel: false,
-  isFreeText: true
+  isFreeText: true,
+  submitOnClear: false
 })
 
 type Timer = ReturnType<typeof setTimeout>
@@ -173,19 +175,21 @@ const handleClear = async () => {
   emit('update:inputValue', null)
   internalValue.value = ''
 
-  emitRplEvent(
-    'submit',
-    {
-      action: 'search',
-      id: props.id,
-      text: '',
-      name: props.inputLabel,
-      value: '',
-      payload: null,
-      type: 'suggestion'
-    },
-    { global: props.globalEvents }
-  )
+  if (props.submitOnClear) {
+    emitRplEvent(
+      'submit',
+      {
+        action: 'search',
+        id: props.id,
+        text: '',
+        name: props.inputLabel,
+        value: '',
+        payload: null,
+        type: 'suggestion'
+      },
+      { global: props.globalEvents }
+    )
+  }
 
   await nextTick()
   inputRef.value?.focus()

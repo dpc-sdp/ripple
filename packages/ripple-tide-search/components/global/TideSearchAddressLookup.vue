@@ -15,6 +15,7 @@
       :getOptionId="(itm:any) => itm?.id || itm?.name"
       :getSuggestionVal="(itm:any) => itm?.name || ''"
       :isFreeText="false"
+      :submitOnClear="true"
       @submit="submitAction"
       @update:input-value="onUpdate"
     >

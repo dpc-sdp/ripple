@@ -15,6 +15,7 @@
       :getOptionId="(itm:any) => itm?.id || itm?.name"
       :getSuggestionVal="(itm:any) => itm?.name || ''"
       :isFreeText="false"
+      :submitOnClear="true"
       @submit="submitAction"
       @update:input-value="onUpdate"
     >
@@ -38,7 +39,7 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps, defineEmits, inject, watch } from 'vue'
+import { inject, watch } from 'vue'
 import { ref, getSingleResultValue } from '#imports'
 import { useDebounceFn } from '@vueuse/core'
 import { transformExtent } from 'ol/proj'

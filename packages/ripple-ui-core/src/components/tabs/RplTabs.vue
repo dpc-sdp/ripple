@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import RplButton from '../button/RplButton.vue'
+import RplIcon from '../icon/RplIcon.vue'
 import {
   useRippleEvent,
   rplEventPayload
@@ -38,6 +38,8 @@ const componentClasses = computed(() => [
 
 const activeClasses = (key: string) => [
   'rpl-tab',
+  'rpl-type-p',
+  'rpl-u-focusable-block',
   props.activeTab === key ? 'rpl-tab--active' : null
 ]
 
@@ -60,22 +62,20 @@ const updateActive = (key: string) => {
 
 <template>
   <div :class="componentClasses" role="tablist">
-    <div
+    <button
       v-for="(item, index) in tabs"
+      :id="`tab-${item.key}`"
       :key="index"
       :class="activeClasses(item.key)"
+      type="button"
+      role="tab"
+      :aria-selected="activeTab === item.key ? 'true' : undefined"
+      :aria-controls="`panel-${item.key}`"
+      @click="updateActive(item.key)"
     >
-      <RplButton
-        :id="`tab-${item.key}`"
-        :icon-name="item.icon ? `icon-${item.icon}` : null"
-        :aria-selected="activeTab === item.key ? 'true' : null"
-        :aria-controls="`panel-${item.key}`"
-        role="tab"
-        variant="transparent"
-        @click="updateActive(item.key)"
-        >{{ item.title }}</RplButton
-      >
-    </div>
+      {{ item.title }}
+      <RplIcon v-if="item.icon" :name="`icon-${item.icon}`" />
+    </button>
   </div>
 </template>
 

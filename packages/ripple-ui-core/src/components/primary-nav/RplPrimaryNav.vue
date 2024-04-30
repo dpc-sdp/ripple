@@ -33,12 +33,14 @@ interface Props {
   secondaryLogo?: IRplPrimaryNavLogo
   items: IRplPrimaryNavItem[]
   showSearch?: boolean
+  searchUrl?: string
   showQuickExit?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
   secondaryLogo: undefined,
   showSearch: true,
+  searchUrl: '/search',
   showQuickExit: true
 })
 
@@ -300,6 +302,7 @@ provide('navFocus', navFocus)
       <RplPrimaryNavSearchForm
         v-if="isSearchActive"
         :show-quick-exit="showQuickExit"
+        :search-url="searchUrl"
       />
     </div>
     <RplPrimaryNavQuickExit v-if="showQuickExit" variant="fixed" />

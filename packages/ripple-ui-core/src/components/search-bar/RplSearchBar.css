@@ -87,6 +87,14 @@
 
   /* Magic number to represent the width of the search button */
   padding-right: calc(var(--rpl-sp-4) + 24px + var(--rpl-sp-3));
+
+  .rpl-search-bar--with-clear-btn & {
+    /* Magic numbers to represent the width of the clear button and search button */
+    padding-right: calc(
+      var(--rpl-sp-4) + 16px + var(--rpl-sp-5) + 24px + var(--rpl-sp-3)
+    );
+  }
+
   width: 100%;
   color: var(--local-search-bar-clr-input-text);
 
@@ -116,8 +124,29 @@
   @media (--rpl-bp-m) {
     padding-left: calc(var(--rpl-sp-4) - var(--local-border-width));
 
-    /* Magic number to represent the width of the search button */
-    padding-right: calc(var(--rpl-sp-4) + 94px + var(--rpl-sp-4) - var(--local-border-width));
+    .rpl-search-bar--with-label & {
+      /* Magic number to represent the width of the search button with label */
+      padding-right: calc(
+        var(--rpl-sp-4) + 94px + var(--rpl-sp-4) -
+          var(--local-border-width)
+      );
+    }
+
+    .rpl-search-bar--with-clear-btn & {
+      /* Magic number to represent the width of the clear button and search button without label */
+      padding-right: calc(
+        var(--rpl-sp-4) + 16px + var(--rpl-sp-5) + 24px + var(--rpl-sp-4) -
+          var(--local-border-width)
+      );
+    }
+
+    .rpl-search-bar--with-label.rpl-search-bar--with-clear-btn & {
+      /* Magic numbera to represent the width of the clear button and search button with label */
+      padding-right: calc(
+        var(--rpl-sp-4) + 16px + var(--rpl-sp-5) + 94px + var(--rpl-sp-4) -
+          var(--local-border-width)
+      );
+    }
   }
 }
 
@@ -129,6 +158,7 @@
   top: 0;
   bottom: 0;
   pointer-events: none;
+  gap: var(--rpl-sp-5);
 
   @media (--rpl-bp-m) {
     right: var(--rpl-sp-4);
@@ -206,5 +236,14 @@
   @media (--rpl-bp-m) {
     padding-left: var(--rpl-sp-4);
     padding-right: var(--rpl-sp-4);
+  }
+}
+
+.rpl-search-bar__clear {
+  pointer-events: initial;
+  color: var(--rpl-clr-error);
+
+  .rpl-search-bar--menu & {
+    color: var(--rpl-clr-type-primary-contrast);
   }
 }

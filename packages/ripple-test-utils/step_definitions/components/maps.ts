@@ -11,7 +11,7 @@ Then(`the data map component tabs should exist`, () => {
 
 Then(`the data map tabs should be labelled:`, (dataTable) => {
   const items = dataTable.raw()
-  cy.get('.rpl-tabs .rpl-tab .rpl-button__label').as('items')
+  cy.get('.rpl-tabs .rpl-tab').as('items')
   items.forEach((row, i: number) => {
     cy.get('@items')
       .eq(i)
@@ -23,7 +23,7 @@ Then(`the data map tabs should be labelled:`, (dataTable) => {
 })
 
 When(`I click the tab labelled {string}`, (label) => {
-  cy.get('.rpl-tabs .rpl-tab .rpl-button__label').contains(label).click()
+  cy.get('.rpl-tabs .rpl-tab').contains(label).click()
 })
 
 When(`I enter the term {string} into the location search input`, (term) => {

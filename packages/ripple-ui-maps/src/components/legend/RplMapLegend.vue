@@ -1,5 +1,10 @@
 <template>
-  <div class="rpl-map-legend">
+  <div
+    :class="{
+      'rpl-map-legend': true,
+      'rpl-map-legend--expanded': isExpanded
+    }"
+  >
     <button
       type="button"
       class="rpl-map-legend__toggle rpl-type-label rpl-type-weight-bold rpl-u-focusable-inline"
@@ -8,7 +13,7 @@
     >
       {{ title }}
       <RplIcon
-        :name="isExpanded ? 'icon-chevron-up' : 'icon-chevron-down'"
+        name="icon-chevron-down"
         size="s"
         class="rpl-map-legend__toggle-icon"
       />

@@ -67,7 +67,7 @@ Given(
   }
 )
 
-Given('I load the page fixture with {string}', function (fixture) {
+Given('I load the page fixture with {string}', (fixture: string) => {
   cy.fixture(fixture).as('pageFixture')
 })
 
@@ -84,6 +84,21 @@ Given(
     })
   }
 )
+
+Given('I load the site fixture with {string}', (fixture: string) => {
+  cy.fixture(fixture).as('siteFixture')
+})
+
+Given(`the site endpoint returns the loaded fixture`, () => {
+  cy.get('@siteFixture').then((response) => {
+    cy.task('setMockRouteWithQuery', {
+      route: '/api/tide/site',
+      status: 200,
+      response,
+      query: `?id=${Cypress.env('NUXT_PUBLIC_TIDE_SITE')}`
+    })
+  })
+})
 
 Given(
   `the endpoint {string} returns fixture {string} with status {int}`,

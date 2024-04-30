@@ -8,6 +8,18 @@
   column-gap: var(--rpl-sp-2);
   color: var(--rpl-clr-link);
   cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.rpl-map-legend__toggle-icon {
+  transition: transform var(--rpl-motion-speed-7) linear;
+
+  .rpl-map-legend--expanded & {
+    transform: rotate(-180deg);
+  }
 }
 
 .rpl-map-legend__list {

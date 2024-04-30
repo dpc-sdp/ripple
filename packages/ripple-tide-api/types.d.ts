@@ -249,6 +249,10 @@ export interface IRplFeatureFlags {
    */
   disablePrimaryNavSearch?: boolean
   /**
+   * @description Option to override the default URL the search for redirects to
+   */
+  primaryNavSearchUrl?: string
+  /**
    * @description Option to disable the display of coloured/rainbow stripes on top of promo cards
    */
   hidePromoCardStripe?: boolean

@@ -24,7 +24,7 @@ describe('RplTabs', () => {
     cy.mount(RplTabs, {
       props: { ...baseProps, activeTab: 'one', [`onToggleTab`]: onChangeSpy }
     })
-    cy.get('.rpl-tab button').contains('Two').click()
+    cy.get('.rpl-tab').contains('Two').click()
     cy.get('@onChangeSpy').should('have.been.calledWith', {
       action: 'select',
       id: 'two',

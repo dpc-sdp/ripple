@@ -1,4 +1,4 @@
-import { When, Given } from '@badeball/cypress-cucumber-preprocessor'
+import { When, Given, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given(`I am using a {string} device`, (deviceString: any) => {
   cy.viewport(deviceString)
@@ -19,4 +19,20 @@ Given('I wait {int} seconds', (seconds: number) => {
 })
 Given('I pause the test', () => {
   cy.pause()
+})
+
+When('I click the primary nav button labelled {string}', (label: string) => {
+  cy.get('.rpl-primary-nav__nav-bar-action')
+    .contains(label)
+    .click({ force: true })
+})
+
+Then('I submit the primary nav search form', () => {
+  cy.get('.rpl-primary-nav .rpl-search-bar').submit()
+})
+
+Then('the current path should be {string}', (path: string) => {
+  cy.location().should((loc) => {
+    expect(path).to.eq(loc.pathname)
+  })
 })

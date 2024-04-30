@@ -36,7 +36,7 @@ Feature: Site feature flags
 
   @mockserver
   Scenario: Feature flags can set the footer to show only a single level
-    Given the site endpoint returns fixture "/site/flags-footer-single.json" with status 200
+    Given the site endpoint returns fixture "/site/flags-footer-single" with status 200
     And the page endpoint for path "/" returns fixture "/landingpage/image-banner" with status 200
     Given I visit the page "/"
     Then the footer nav should have the following single level items
@@ -47,3 +47,24 @@ Feature: Site feature flags
       | text     | url                           |
       | Facebook | https://facebook.com/VicGovAu |
       | Twitter  | https://twitter.com/VicGovAu  |
+
+  @mockserver
+  Scenario: The default primary nav form navigates to /search
+    Given the site endpoint returns fixture "/site/reference" with status 200
+    And the page endpoint for path "/" returns fixture "/landingpage/image-banner" with status 200
+    Given I visit the page "/"
+    When I click the primary nav button labelled "Search"
+    And I submit the primary nav search form
+    Then the current path should be "/search"
+
+  @mockserver
+  Scenario: Feature flags can set the primary nav search URL
+    Given I load the site fixture with "/site/reference"
+    And the feature flag "primaryNavSearchUrl" is set to "/custom-search-results"
+    And the site endpoint returns the loaded fixture
+    And the page endpoint for path "/" returns fixture "/landingpage/image-banner" with status 200
+    And the page endpoint for path "/custom-search-results" returns fixture "/landingpage/image-banner" with status 200
+    Given I visit the page "/"
+    When I click the primary nav button labelled "Search"
+    And I submit the primary nav search form
+    Then the current path should be "/custom-search-results"

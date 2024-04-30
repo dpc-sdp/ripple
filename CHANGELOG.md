@@ -1,5 +1,38 @@
 # Changelog
 
+## v2.8.2
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.8.1...v2.8.2)
+
+
+### 🚀 Enhancements
+
+  - **@dpc-sdp/ripple-ui-core:** Added 'clear' button to search bar component ([35aed66f4](https://github.com/dpc-sdp/ripple-framework/commit/35aed66f4))
+  - **@dpc-sdp/ripple-ui-core:** Add searchUrl prop for primary nav, fix tabs test ([fc1c711d2](https://github.com/dpc-sdp/ripple-framework/commit/fc1c711d2))
+
+### 🩹 Fixes
+
+  - 🐛  fix imports for compiler macros ([24042d767](https://github.com/dpc-sdp/ripple-framework/commit/24042d767))
+  - **@dpc-sdp/ripple-ui-core:** Updated tabs component based on design feedback ([a44a0964d](https://github.com/dpc-sdp/ripple-framework/commit/a44a0964d))
+  - **@dpc-sdp/ripple-ui-core:** Fixed search bar input padding for clear and search btns ([8a173e319](https://github.com/dpc-sdp/ripple-framework/commit/8a173e319))
+  - **@dpc-sdp/ripple-ui-maps:** Updated map key styling after design feedback ([733a50cc3](https://github.com/dpc-sdp/ripple-framework/commit/733a50cc3))
+  - **@dpc-sdp/ripple-ui-core:** Fixed search bar clear btn submitting form when not wanted ([ab209fd09](https://github.com/dpc-sdp/ripple-framework/commit/ab209fd09))
+
+### 🏡 Chore
+
+  - **@dpc-sdp/ripple-ui-core:** Update CSS loading order for storybook ([5f2b75831](https://github.com/dpc-sdp/ripple-framework/commit/5f2b75831))
+  - **@dpc-sdp/ripple-ui-forms:** Update form story help text ([df7ccde41](https://github.com/dpc-sdp/ripple-framework/commit/df7ccde41))
+
+### ✅ Tests
+
+  - **@dpc-sdp/ripple-tide-search:** Fixed tests after tabs update ([82de86fc5](https://github.com/dpc-sdp/ripple-framework/commit/82de86fc5))
+
+### ❤️  Contributors
+
+- Jeffrey Dowdle <jeffrey.dowdle@dpc.vic.gov.au>
+- David Featherston <david.featherstone@dpc.vic.gov.au>
+- Dylan Kelly <dylan.kelly@dpc.vic.gov.au>
+
 ## v2.8.1
 
 [compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.8.0...v2.8.1)

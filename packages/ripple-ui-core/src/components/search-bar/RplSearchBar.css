@@ -80,13 +80,22 @@
   border-bottom-color: var(--local-search-bar-clr-bottom-bar);
   border-left-width: var(--local-border-inline-width);
   border-right-width: var(--local-border-inline-width);
-  padding: var(--rpl-sp-4) calc(var(--rpl-sp-3) - var(--local-border-inline-width));
+  padding: var(--rpl-sp-4)
+    calc(var(--rpl-sp-3) - var(--local-border-inline-width));
   border-radius: 0;
   /* stylelint-disable-next-line property-no-vendor-prefix */
   -webkit-appearance: none;
 
   /* Magic number to represent the width of the search button */
   padding-right: calc(var(--rpl-sp-4) + 24px + var(--rpl-sp-3));
+
+  .rpl-search-bar--with-clear-btn & {
+    /* Magic numbers to represent the width of the clear button and search button */
+    padding-right: calc(
+      var(--rpl-sp-4) + 16px + var(--rpl-sp-5) + 24px + var(--rpl-sp-3)
+    );
+  }
+
   width: 100%;
   color: var(--local-search-bar-clr-input-text);
 
@@ -116,8 +125,29 @@
   @media (--rpl-bp-m) {
     padding-left: calc(var(--rpl-sp-4) - var(--local-border-inline-width));
 
-    /* Magic number to represent the width of the search button */
-    padding-right: calc(var(--rpl-sp-4) + 94px + var(--rpl-sp-4) - var(--local-border-inline-width));
+    .rpl-search-bar--with-label & {
+      /* Magic number to represent the width of the search button with label */
+      padding-right: calc(
+        var(--rpl-sp-4) + 94px + var(--rpl-sp-4) -
+          var(--local-border-inline-width)
+      );
+    }
+
+    .rpl-search-bar--with-clear-btn & {
+      /* Magic number to represent the width of the clear button and search button without label */
+      padding-right: calc(
+        var(--rpl-sp-4) + 16px + var(--rpl-sp-5) + 24px + var(--rpl-sp-4) -
+          var(--local-border-inline-width)
+      );
+    }
+
+    .rpl-search-bar--with-label.rpl-search-bar--with-clear-btn & {
+      /* Magic numbera to represent the width of the clear button and search button with label */
+      padding-right: calc(
+        var(--rpl-sp-4) + 16px + var(--rpl-sp-5) + 94px + var(--rpl-sp-4) -
+          var(--local-border-inline-width)
+      );
+    }
   }
 }
 
@@ -129,6 +159,7 @@
   top: 0;
   bottom: 0;
   pointer-events: none;
+  gap: var(--rpl-sp-5);
 }
 
 .rpl-search-bar-submit__label {
@@ -202,5 +233,14 @@
   @media (--rpl-bp-m) {
     padding-left: var(--rpl-sp-4);
     padding-right: var(--rpl-sp-4);
+  }
+}
+
+.rpl-search-bar__clear {
+  pointer-events: initial;
+  color: var(--rpl-clr-error);
+
+  .rpl-search-bar--menu & {
+    color: var(--rpl-clr-type-primary-contrast);
   }
 }

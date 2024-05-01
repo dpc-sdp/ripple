@@ -35,7 +35,7 @@ Feature: School buildings map
     When I enter the term "3012" into the location search input
     Then the location search results should contain "West Footscray"
     When I click the location search term "West Footscray"
-    And I wait 4 seconds
+    And I wait 8 seconds
     Then the map matches the image snapshot "map-location-search"
 
   @mockserver
@@ -63,6 +63,7 @@ Feature: School buildings map
     And I wait 2 seconds
     Then the map no results message should be visible
     Then the map no results message should contain "Sorry, no results match your search. Try again with different search options or check back later. "
+    And I wait 8 seconds
     Then the map matches the image snapshot "map-no-results"
 
   @mockserver

@@ -2,7 +2,7 @@
 to: package.json
 ---
 {
-  "packageManager": "pnpm@8.6.2",
+  "packageManager": "pnpm@9.0.6",
   "name": "@dpc-sdp/<%= h.changeCase.kebabCase(name) %>",
   "description": "Ripple UI Core component library",
   "version": "2.1.1",

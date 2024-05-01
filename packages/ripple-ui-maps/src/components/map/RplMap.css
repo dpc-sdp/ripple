@@ -18,6 +18,12 @@
 
   /* Magic number to account for the height of the zoom controls, which are positioned absolutely */
   --local-zoom-controls-height: 88px;
+
+  /* Hide the default zoom controls, we implemented our own */
+  /* stylelint-disable selector-class-pattern */
+  .ol-zoom {
+    display: none;
+  }
 }
 
 .rpl-map__map {

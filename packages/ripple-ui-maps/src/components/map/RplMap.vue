@@ -310,7 +310,6 @@ const noResultsRef = ref(null)
       :loadTilesWhileInteracting="false"
       class="rpl-map__map"
       :style="`height: ${mapHeight}px`"
-      :controls="[]"
       @singleclick="onMapSingleClick"
       @pointermove="onMapMove"
     >

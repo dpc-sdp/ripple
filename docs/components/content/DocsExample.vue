@@ -175,6 +175,7 @@ watch(targetIsVisible, (visible, wasVisible) => {
   width: 1px;
   min-width: 100%;
   height: 100px;
+  border: none;
 }
 
 .with-padding .docs-example-body {

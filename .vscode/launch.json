@@ -5,36 +5,25 @@
   "version": "0.2.0",
   "compounds": [
     {
-      "name": "fullstack: Nuxt & Chrome",
-      "configurations": ["server: Nuxt", "client: Chrome"]
+      "name": "fullstack: nuxt",
+      "configurations": ["server: nuxt", "client: chrome"]
     }
   ],
   "configurations": [
     {
-      "name": "CLI",
-      "type": "node",
-      "request": "launch",
-      "cwd": "${workspaceFolder}",
-      "runtimeExecutable": "pnpm",
-      "runtimeArgs": ["-F", "@dpc-sdp/nuxt-ripple-cli", "nuxt-ripple", "init"],
-      "console": "integratedTerminal"
-    },
-    {
-      "name": "client: Chrome",
-      "request": "launch",
       "type": "chrome",
+      "request": "launch",
+      "name": "client: chrome",
       "url": "http://localhost:3000",
-      "webRoot": "${workspaceFolder}/examples/nuxt-app",
-      "preLaunchTask": "Sleep Delay"
+      "webRoot": "${workspaceFolder}"
     },
     {
-      "name": "server: Nuxt",
       "type": "node",
       "request": "launch",
-      "cwd": "${workspaceFolder}/examples/nuxt-app",
-      "runtimeExecutable": "pnpm",
-      "runtimeArgs": ["-F", "nuxt-app", "dev"],
-      "console": "integratedTerminal"
+      "name": "server: nuxt",
+      "outputCapture": "std",
+      "program": "${workspaceFolder}/node_modules/nuxi/bin/nuxi.mjs",
+      "args": ["dev", "examples/nuxt-app"]
     }
   ]
 }

@@ -14,6 +14,7 @@ Feature: School buildings map
   Scenario: On load
     Given the "/api/tide/elasticsearch/elasticsearch_index_develop_node/_search" network request is stubbed with fixture "/map-table/vsba/response-all" and status 200 as alias "searchReq"
     Given I visit the page "/map"
+    And I wait 4 seconds
     Then the landing page component "TideCustomCollection" should exist
     Then the custom collection component should have a search input bar
     And the ripple map component should be visible
@@ -29,6 +30,7 @@ Feature: School buildings map
     Given the "/api/tide/elasticsearch/elasticsearch_index_develop_node/_search" network request is stubbed with fixture "/map-table/vsba/response-all" and status 200 as alias "searchReq"
     Given the "/api/tide/app-search/vic-postcode-localities/elasticsearch/_search" network request is stubbed with fixture "/map-table/vsba/localities-all" and status 200 as alias "localitiesReq"
     And I visit the page "/map"
+    And I wait 4 seconds
     Then the ripple map component should be visible
     When I enter the term "3012" into the location search input
     Then the location search results should contain "West Footscray"
@@ -50,24 +52,25 @@ Feature: School buildings map
 
   @mockserver
   Scenario: No results message
-    Given the "/api/tide/elasticsearch/elasticsearch_index_develop_node/elasticsearch/_search" network request is stubbed with fixture "/map-table/vsba/response-all" and status 200 as alias "searchReq"
+    Given the "/api/tide/elasticsearch/elasticsearch_index_develop_node/_search" network request is stubbed with fixture "/map-table/vsba/response-all" and status 200 as alias "searchReq"
     Given the "/api/tide/app-search/vic-postcode-localities/elasticsearch/_search" network request is stubbed with fixture "/map-table/vsba/localities-nyah" and status 200 as alias "localitiesReq"
     And I visit the page "/map"
     Then the ripple map component should be visible
-    Given the "/api/tide/elasticsearch/elasticsearch_index_develop_node/elasticsearch/_search" network request is stubbed with fixture "/map-table/vsba/response-none" and status 200 as alias "searchReq"
-    Given the arcgis FeatureServer "14" returns "/map-table/vsba/arcgis-nyah" fixture
+    Given the "/api/tide/elasticsearch/elasticsearch_index_develop_node/_search" network request is stubbed with fixture "/map-table/vsba/response-none" and status 200 as alias "searchReq"
     When I enter the term "nyah" into the location search input
     Then the location search results should contain "Nyah"
     When I click the location search term "Nyah"
     And I wait 2 seconds
     Then the map no results message should be visible
     Then the map no results message should contain "Sorry, no results match your search. Try again with different search options or check back later. "
+    And I wait 8 seconds
     Then the map matches the image snapshot "map-no-results"
 
   @mockserver
   Scenario: Filters should display when expanded
     Given the "/api/tide/elasticsearch/elasticsearch_index_develop_node/_search" network request is stubbed with fixture "/map-table/vsba/response-all" and status 200 as alias "searchReq"
     Given I visit the page "/map"
+    And I wait 4 seconds
     When I toggle the search listing filters section
     And I wait 5 seconds
     Then the search listing dropdown field labelled "Project Type" should have the value "Select"

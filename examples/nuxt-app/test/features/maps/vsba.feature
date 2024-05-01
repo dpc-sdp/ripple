@@ -22,8 +22,8 @@ Feature: School buildings map
     And the data map tabs should be labelled:
       | Map  |
       | List |
-  # And I wait 4 seconds
-  # And the map matches the image snapshot "map-on-load"
+    And I wait 4 seconds
+    And the map matches the image snapshot "map-on-load"
 
   @mockserver
   Scenario: Search for postcode
@@ -35,8 +35,8 @@ Feature: School buildings map
     When I enter the term "3012" into the location search input
     Then the location search results should contain "West Footscray"
     When I click the location search term "West Footscray"
-  # And I wait 4 seconds
-  # Then the map matches the image snapshot "map-location-search"
+    And I wait 4 seconds
+    Then the map matches the image snapshot "map-location-search"
 
   @mockserver
   Scenario: Search for locality
@@ -56,16 +56,16 @@ Feature: School buildings map
     Given the "/api/tide/app-search/vic-postcode-localities/elasticsearch/_search" network request is stubbed with fixture "/map-table/vsba/localities-nyah" and status 200 as alias "localitiesReq"
     And I visit the page "/map"
     And I wait 5 seconds
-  # Then the ripple map component should be visible
-  # Given the "/api/tide/elasticsearch/elasticsearch_index_develop_node/elasticsearch/_search" network request is stubbed with fixture "/map-table/vsba/response-none" and status 200 as alias "searchReq"
-  # Given the arcgis FeatureServer "14" returns "/map-table/vsba/arcgis-nyah" fixture
-  # When I enter the term "nyah" into the location search input
-  # Then the location search results should contain "Nyah"
-  # When I click the location search term "Nyah"
-  # And I wait 2 seconds
-  # Then the map no results message should be visible
-  # Then the map no results message should contain "Sorry, no results match your search. Try again with different search options or check back later. "
-  # Then the map matches the image snapshot "map-no-results"
+    Then the ripple map component should be visible
+    Given the "/api/tide/elasticsearch/elasticsearch_index_develop_node/elasticsearch/_search" network request is stubbed with fixture "/map-table/vsba/response-none" and status 200 as alias "searchReq"
+    Given the arcgis FeatureServer "14" returns "/map-table/vsba/arcgis-nyah" fixture
+    When I enter the term "nyah" into the location search input
+    Then the location search results should contain "Nyah"
+    When I click the location search term "Nyah"
+    And I wait 2 seconds
+    Then the map no results message should be visible
+    Then the map no results message should contain "Sorry, no results match your search. Try again with different search options or check back later. "
+    Then the map matches the image snapshot "map-no-results"
 
   @mockserver
   Scenario: Filters should display when expanded

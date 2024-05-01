@@ -13,6 +13,7 @@ import {
 import { useFullscreen } from '@vueuse/core'
 import { withDefaults, defineExpose } from '@vue/composition-api'
 import { Map } from 'ol'
+import { Zoom } from 'ol/control'
 import { Point } from 'ol/geom'
 import Icon from 'ol/style/Icon'
 import Feature from 'ol/Feature'
@@ -266,6 +267,13 @@ watch(
 )
 
 onMounted(() => {
+  if (mapRef.value?.map) {
+    mapRef.value.map.getControls().forEach((control) => {
+      if (control instanceof Zoom) {
+        mapRef.value?.map.removeControl(control)
+      }
+    })
+  }
   fitVictoria(mapRef.value.map, deadSpace.value)
 })
 

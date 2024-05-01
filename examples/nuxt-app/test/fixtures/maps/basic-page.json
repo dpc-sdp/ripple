@@ -117,7 +117,7 @@
             },
             "locationObjPath": "test_latlong_field[0]",
             "titleObjPath": "test_title[0]",
-            "vectorLayerComponent": "TestMapShapeLayer"
+            "vectorLayerComponent": "VSBAProjectAreaLayer"
           }
         },
         "userFilters": [

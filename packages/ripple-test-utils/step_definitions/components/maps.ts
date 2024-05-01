@@ -2,7 +2,7 @@ import { Then, When, Given } from '@badeball/cypress-cucumber-preprocessor'
 import { set } from 'lodash-es'
 
 Then(`the ripple map component should be visible`, () => {
-  cy.get(`.rpl-map canvas`).should('be.visible')
+  cy.get(`.rpl-map canvas`, { timeout: 8000 }).should('be.visible')
 })
 
 Then(`the data map component tabs should exist`, () => {

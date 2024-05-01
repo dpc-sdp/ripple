@@ -29,6 +29,7 @@ export default defineNuxtConfig({
     '@dpc-sdp/ripple-tide-search'
   ],
   // Nuxt devtools
+  sourcemap: true,
   devtools: {
     enabled: true
   }

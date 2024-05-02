@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import aboriginalFlag from './../../assets/flags/flag-aboriginal.svg?url'
-import torresStraitIslanderFlag from './../../assets/flags/flag-torres-strait-islander.svg?url'
-import RplImage from '../image/RplImage.vue'
+// @ts-expect-error TS2307 import is an asset
+import aboriginalFlag from './../../assets/flags/flag-aboriginal.svg?data'
+// @ts-expect-error TS2307 import is an asset
+import torresStraitIslanderFlag from './../../assets/flags/flag-torres-strait-islander.svg?data'
 
 interface Props {
   message?: string
@@ -16,19 +17,23 @@ withDefaults(defineProps<Props>(), {
 <template>
   <div class="rpl-acknowledgement rpl-u-screen-only">
     <div class="rpl-acknowledgement__flags">
-      <RplImage
-        class="rpl-acknowledgement__flag"
+      <img
         :src="aboriginalFlag"
-        :width="55"
-        :height="38"
         alt="Aboriginal flag"
+        width="55"
+        height="38"
+        class="rpl-image rpl-image--cover rpl-acknowledgement__flag"
+        loading="lazy"
+        fetchpriority="auto"
       />
-      <RplImage
-        class="rpl-acknowledgement__flag"
-        :width="55"
-        :height="38"
+      <img
         :src="torresStraitIslanderFlag"
         alt="Torres Strait Islander flag"
+        width="55"
+        height="38"
+        class="rpl-image rpl-image--cover rpl-acknowledgement__flag"
+        loading="lazy"
+        fetchpriority="auto"
       />
     </div>
     <p class="rpl-acknowledgement__message rpl-type-p rpl-type-weight-bold">

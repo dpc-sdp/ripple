@@ -39,6 +39,7 @@ Feature: Forms
     Then a textarea field with the label "Message" should exist
       | help               | required |
       | Enter your message | true     |
+    Then a hidden field named "site_section" should exist with the value "DPC"
 
   @mockserver
   Scenario: Error summary

@@ -54,7 +54,7 @@ to: package.json
   },
   "devDependencies": {
     "@dpc-sdp/ripple-tide-api": "workspace:*",
-    "@vitejs/plugin-vue": "^4.1.0",
+    "@vitejs/plugin-vue": "^5.0.4",
     "@vue/compiler-sfc": "^3.2.47",
     "autoprefixer": "^10.4.14",
     "chromatic": "^6.17.2",

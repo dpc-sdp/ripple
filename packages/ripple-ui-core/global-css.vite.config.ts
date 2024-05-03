@@ -11,6 +11,7 @@ export default defineConfig({
   },
   build: {
     emptyOutDir: false,
+    cssCodeSplit: true,
     lib: {
       entry: path.resolve(__dirname, 'src/styles/global.css'),
       fileName: (f) => `delete.${f}.js`,

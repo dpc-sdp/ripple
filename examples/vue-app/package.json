@@ -24,7 +24,7 @@
     "@cypress/vue": "^5.0.5",
     "@rushstack/eslint-patch": "^1.2.0",
     "@types/node": "^18.15.10",
-    "@vitejs/plugin-vue": "^4.1.0",
+    "@vitejs/plugin-vue": "^5.0.4",
     "@vue/eslint-config-prettier": "^7.1.0",
     "@vue/eslint-config-typescript": "^11.0.2",
     "@vue/tsconfig": "^0.1.3",

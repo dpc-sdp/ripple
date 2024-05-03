@@ -92,7 +92,6 @@
   },
   "pnpm": {
     "overrides": {
-      "@types/react": "file:./stub/types__react",
       "jest-matcher-utils@29.2.2>chalk": "5.2.0",
       "cypress": "13.6.6",
       "glob-parent@<5.1.2": "~6.0.2",

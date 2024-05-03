@@ -21,8 +21,10 @@
       "@types/react"
     ],
     "paths": {
+      "@dpc-sdp/nuxt-ripple-preview/utils": ["nuxt-ripple-preview/utils"],
       "@dpc-sdp/ripple-tide-api/errors": ["ripple-tide-api/src/errors/errors"],
       "@dpc-sdp/ripple-tide-api/helpers": ["ripple-tide-api/src/helpers"],
+      "@dpc-sdp/ripple-tide-api/types": ["ripple-tide-api/types"],
       "@dpc-sdp/ripple-tide-api": ["ripple-tide-api/src"],
       "@dpc-sdp/ripple-ui-core": ["ripple-ui-core/src"],
       "@dpc-sdp/ripple-tide-event": ["ripple-tide-event/src"],
@@ -30,7 +32,9 @@
       "@dpc-sdp/ripple-tide-landing-page": ["ripple-tide-landing-page/src"],
       "@dpc-sdp/ripple-tide-media": ["ripple-tide-media/src"],
       "@dpc-sdp/ripple-tide-publication": ["ripple-tide-publication/src"],
-      "@dpc-sdp/ripple-tide-topic": ["ripple-tide-topic/src"]
+      "@dpc-sdp/ripple-tide-topic": ["ripple-tide-topic/src"],
+      "@dpc-sdp/ripple-tide-webform": ["ripple-tide-webform/src"],
+      "#imports": ["../examples/nuxt-app/.nuxt/imports"]
     }
   },
   "exclude": ["**/*.stories.ts", "**/*.stories.mdx"]

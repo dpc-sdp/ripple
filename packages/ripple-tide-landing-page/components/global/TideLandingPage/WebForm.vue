@@ -26,7 +26,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 const honeypotId = `${props.formId}-important-email`
 const isHoneypotTriggered = () => {
-  const honeypotElement: HTMLInputElement = document.querySelector(
+  const honeypotElement: HTMLInputElement | null = document.querySelector(
     `#${honeypotId}`
   )
 
@@ -57,7 +57,7 @@ const postForm = async (formId: string, formData = {}) => {
   const url = `/api/tide/${formResource}/${formId}`
   const { data, error } = await $fetch(url, {
     method: 'POST',
-    baseURL: config.apiUrl || '',
+    baseURL: (config.apiUrl as string) || '',
     body,
     params: {
       site: config.tide.site
@@ -84,7 +84,7 @@ const submissionState = ref({
   message: ''
 })
 
-const serverSuccessRef = ref<RplFormAlert>(null)
+const serverSuccessRef = ref<typeof RplFormAlert>(null)
 
 const submitHandler = async ({ data }) => {
   submissionState.value = {

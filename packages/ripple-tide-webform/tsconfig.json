@@ -1,0 +1,3 @@
+{
+  "extends": "./../../examples/nuxt-app/.nuxt/tsconfig.json"
+}

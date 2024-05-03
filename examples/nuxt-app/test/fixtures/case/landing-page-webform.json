@@ -1,0 +1,169 @@
+{
+  "title": "Webform",
+  "changed": "2024-05-02T16:22:08+10:00",
+  "created": "2024-05-02T14:42:13+10:00",
+  "type": "landing_page",
+  "nid": "45fa8751-74af-43ee-9cb9-8a8fdee7e593",
+  "_sectionId": "8888",
+  "sidebar": {
+    "contacts": [],
+    "relatedLinks": [],
+    "whatsNext": [],
+    "socialShareNetworks": ["Facebook", "X", "LinkedIn"],
+    "siteSectionNav": null
+  },
+  "status": "published",
+  "topicTags": [
+    {
+      "text": "Demo Topic",
+      "url": "/topic/demo-topic"
+    }
+  ],
+  "siteSection": {
+    "id": 8888,
+    "name": "Demo Site"
+  },
+  "meta": {
+    "url": "/webform",
+    "langcode": "en",
+    "description": "Testing the landing page webform mapping",
+    "additional": [
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "title",
+          "content": "Webform | Single Digital Presence Content Management System"
+        }
+      },
+      {
+        "tag": "link",
+        "attributes": {
+          "rel": "canonical",
+          "href": "http://content-sdp.docker.internal/webform"
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "property": "og:locale",
+          "content": "en-AU"
+        }
+      }
+    ],
+    "keywords": "",
+    "image": null
+  },
+  "showContentRating": true,
+  "summary": "Testing the landing page webform mapping",
+  "showHeroAcknowledgement": false,
+  "showInPageNav": false,
+  "showHeroImageCaption": false,
+  "showTopicTags": true,
+  "inPageNavHeadingLevel": "h2",
+  "background": "default",
+  "header": {
+    "title": "Webform",
+    "summary": "",
+    "links": {
+      "title": "",
+      "items": [],
+      "more": null
+    },
+    "backgroundImageCaption": "",
+    "theme": "default",
+    "logoImage": null,
+    "backgroundImage": null,
+    "cornerTop": null,
+    "cornerBottom": null,
+    "primaryAction": null,
+    "secondaryAction": null,
+    "secondaryActionLabel": ""
+  },
+  "primaryCampaign": null,
+  "secondaryCampaign": null,
+  "headerComponents": [],
+  "bodyComponents": [
+    {
+      "uuid": "2947c380-ab74-4b11-ac53-64ff91c760ff",
+      "component": "TideLandingPageWebForm",
+      "id": 1793,
+      "title": "Use the form",
+      "props": {
+        "title": "Use the form",
+        "formId": "contact",
+        "hideFormOnSubmit": false,
+        "successMessageTitle": "Form submitted",
+        "successMessageHTML": "Your message has been sent.",
+        "errorMessageTitle": "Form not submitted",
+        "errorMessageHTML": "We are experiencing a server error. Please try again, otherwise contact us.",
+        "schema": [
+          {
+            "$formkit": "RplFormText",
+            "key": "name",
+            "name": "name",
+            "label": "Your Name",
+            "id": "contact_name",
+            "validation": [["length", 0, 255], ["required"]],
+            "validationMessages": {
+              "required": "Your Name is required",
+              "accepted": "Your Name is required",
+              "length": "You can enter a maximum of 255 characters"
+            }
+          },
+          {
+            "$formkit": "RplFormEmail",
+            "key": "email",
+            "name": "email",
+            "label": "Your Email",
+            "id": "contact_email",
+            "validation": [["email"], ["length", 0, 255], ["required"]],
+            "validationMessages": {
+              "required": "Your Email is required",
+              "accepted": "Your Email is required",
+              "email": "Your Email must be a valid email address",
+              "length": "You can enter a maximum of 255 characters"
+            }
+          },
+          {
+            "$formkit": "RplFormText",
+            "key": "subject",
+            "name": "subject",
+            "label": "Subject",
+            "id": "contact_subject",
+            "validation": [["required"]],
+            "validationMessages": {
+              "required": "Subject is required",
+              "accepted": "Subject is required"
+            }
+          },
+          {
+            "$formkit": "RplFormTextarea",
+            "key": "message",
+            "id": "contact_message",
+            "name": "message",
+            "label": "Message",
+            "validation": [["required"]],
+            "validationMessages": {
+              "required": "Message is required",
+              "accepted": "Message is required"
+            }
+          },
+          {
+            "$formkit": "RplFormActions",
+            "key": "actions",
+            "name": "submit",
+            "variant": "filled",
+            "label": "Send message",
+            "id": "contact_actions",
+            "displayResetButton": false,
+            "validation": [],
+            "validationMessages": {
+              "required": "Submit button(s) is required",
+              "accepted": "Submit button(s) is required"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,7 +1,6 @@
 {
   "private": true,
   "name": "vue-app",
-  "packageManager": "pnpm@9.0.6",
   "version": "2.1.0-alpha.76",
   "license": "Apache-2.0",
   "scripts": {

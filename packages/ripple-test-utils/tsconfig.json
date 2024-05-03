@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
-    "target": "esnext",
-    "module": "esnext",
+    "module": "Node16",
     "moduleResolution": "Node16",
     "rootDir": "./src",
     "outDir": "./dist",

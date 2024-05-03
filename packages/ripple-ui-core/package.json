@@ -78,7 +78,6 @@
     "vite-plugin-dts": "^2.1.0",
     "vite-plugin-svg-icons": "^2.0.1",
     "vite-plugin-vue-svg": "^0.1.0",
-    "vite-svg-loader": "^4.0.0",
     "yaml": "^2.2.2"
   }
 }

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useRuntimeConfig } from '#imports'
 import { FormKitSchemaNode } from '@formkit/core'
-import { $fetch } from 'ohmyfetch'
+import { $fetch } from 'ofetch'
 import { computed, nextTick, ref, watch } from 'vue'
 import { RplFormAlert } from '@dpc-sdp/ripple-ui-forms'
 

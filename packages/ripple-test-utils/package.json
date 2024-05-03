@@ -1,5 +1,4 @@
 {
-  "packageManager": "pnpm@8.0.0",
   "name": "@dpc-sdp/ripple-test-utils",
   "description": "Test utils for Ripple sites",
   "version": "2.8.2",

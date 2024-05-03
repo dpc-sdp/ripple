@@ -19,7 +19,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           registry-url: 'https://npm.pkg.github.com/'
-          node-version: 18
+          node-version: 20
       - name: Set Git credentials
         run: |
           git config --global user.email "sdp.devs@dpc.vic.gov.au"

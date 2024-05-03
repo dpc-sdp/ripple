@@ -1,5 +1,4 @@
 {
-  "packageManager": "pnpm@8.6.2",
   "name": "@dpc-sdp/ripple-tide-news",
   "description": "Ripple mappings and components for Tide News content type",
   "version": "2.8.2",

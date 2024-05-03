@@ -1,5 +1,4 @@
 {
-  "packageManager": "pnpm@8.6.2",
   "name": "@dpc-sdp/ripple-tide-media",
   "description": "Ripple mappings and components for Tide media",
   "version": "2.8.2",

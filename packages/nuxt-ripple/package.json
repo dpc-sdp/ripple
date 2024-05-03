@@ -1,5 +1,4 @@
 {
-  "packageManager": "pnpm@8.6.2",
   "name": "@dpc-sdp/nuxt-ripple",
   "description": "Nuxt module for integrating Ripple and Tide",
   "version": "2.8.2",

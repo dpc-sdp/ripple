@@ -2,7 +2,6 @@
 to: package.json
 ---
 {
-  "packageManager": "pnpm@8.6.2",
   "name": "@dpc-sdp/<%= h.changeCase.kebabCase(name) %>",
   "description": "Ripple UI Core component library",
   "version": "2.1.1",
@@ -55,7 +54,7 @@ to: package.json
   },
   "devDependencies": {
     "@dpc-sdp/ripple-tide-api": "workspace:*",
-    "@vitejs/plugin-vue": "^4.1.0",
+    "@vitejs/plugin-vue": "^5.0.4",
     "@vue/compiler-sfc": "^3.2.47",
     "autoprefixer": "^10.4.14",
     "chromatic": "^6.17.2",

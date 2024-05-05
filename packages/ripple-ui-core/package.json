@@ -1,7 +1,7 @@
 {
   "name": "@dpc-sdp/ripple-ui-core",
   "description": "Ripple UI Core component library",
-  "version": "2.8.2",
+  "version": "2.9.0",
   "license": "Apache-2.0",
   "repository": "https://github.com/dpc-sdp/ripple-framework",
   "files": [
@@ -57,7 +57,6 @@
     "postcss-preset-env": "^8.1.0",
     "swiper": "^8.4.5",
     "vite-svg-loader": "^4.0.0"
-
   },
   "peerDependencies": {
     "vue": "^3.4.21"

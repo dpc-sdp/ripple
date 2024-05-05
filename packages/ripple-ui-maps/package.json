@@ -1,7 +1,7 @@
 {
   "name": "@dpc-sdp/ripple-ui-maps",
   "description": "Ripple UI Core component library",
-  "version": "2.8.2",
+  "version": "2.9.0",
   "license": "Apache-2.0",
   "repository": "https://github.com/dpc-sdp/ripple-framework",
   "files": [
@@ -42,14 +42,14 @@
     "@nuxt/kit": "3.11.2",
     "@vueuse/core": "^10.9.0",
     "@vueuse/integrations": "^10.9.0",
+    "ol": "^9.1.0",
+    "ol-contextmenu": "^5.4.0",
+    "ol-ext": "^4.0.18",
     "postcss-each": "^1.1.0",
     "postcss-nested": "^6.0.1",
     "postcss-normalize": "^10.0.1",
     "postcss-preset-env": "^8.1.0",
-    "vue3-openlayers": "^7.0.0",
-    "ol": "^9.1.0",
-    "ol-contextmenu": "^5.4.0",
-    "ol-ext": "^4.0.18"
+    "vue3-openlayers": "^7.0.0"
   },
   "peerDependencies": {
     "vue": "^3.4.21"

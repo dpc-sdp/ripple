@@ -3,8 +3,8 @@ export const RplVerticalNavItems = [
     id: '1',
     text: 'First level',
     active: true,
+    url: '#',
     items: [
-      { id: '2', text: 'First level repeat', url: '#' },
       {
         id: '3',
         text: 'Second level',
@@ -14,7 +14,14 @@ export const RplVerticalNavItems = [
             id: '4',
             text: 'Third level link with some text that will need to wrap',
             url: '#',
-            items: [{ id: '5', text: 'Fourth level', url: '#' }]
+            items: [
+              {
+                id: '5',
+                text: 'Fourth level',
+                url: '#',
+                items: [{ id: '51', text: 'Fifth level', url: '#' }]
+              }
+            ]
           }
         ]
       },
@@ -25,8 +32,8 @@ export const RplVerticalNavItems = [
   {
     id: '8',
     text: 'First level',
+    url: '#',
     items: [
-      { id: '9', text: 'First level repeat', url: '#' },
       {
         id: '10',
         text: 'Second level',
@@ -49,8 +56,8 @@ export const RplVerticalNavItems = [
   {
     id: '17',
     text: 'First level',
+    url: '#',
     items: [
-      { id: '18', text: 'First level repeat', url: '#' },
       {
         id: '19',
         text: 'Second level',

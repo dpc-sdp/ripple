@@ -120,7 +120,6 @@
 /* Toggles */
 .rpl-vertical-nav__toggle {
   display: flex;
-  justify-content: space-between;
   align-items: flex-start;
   line-height: inherit;
   letter-spacing: inherit;
@@ -128,18 +127,22 @@
   &:focus-visible .rpl-vertical-nav__toggle-icon {
     color: var(--rpl-clr-type-focus-contrast);
   }
+
+  .rpl-vertical-nav__list-item--expanded > & .rpl-icon  {
+    transform: rotate(-180deg);
+  }
+}
+
+.rpl-vertical-nav__toggle-text {
+  margin-right: var(--rpl-sp-2);
 }
 
 .rpl-vertical-nav__toggle-icon {
-  margin-left: var(--rpl-sp-2);
+  margin-left: auto;
   color: var(--rpl-clr-neutral-600);
 
   .rpl-icon {
     transition: transform var(--rpl-motion-speed-7) linear;
-
-    .rpl-vertical-nav__list-item--expanded & {
-      transform: rotate(-180deg);
-    }
   }
 }
 

@@ -5,3 +5,8 @@ export interface IRplVerticalNavItem {
   active: boolean
   items?: IRplVerticalNavItem[]
 }
+
+export interface IRplVerticalNavProcessed {
+  active?: string[]
+  items?: IRplVerticalNavItem[]
+}

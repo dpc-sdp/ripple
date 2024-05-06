@@ -39,10 +39,15 @@ class TideWebformApi extends TideApiBase {
 
   async getWebform(id: string, headers = {}) {
     try {
-      const { data: response } = await this.get(`/webform/webform/${id}`, {
-        headers
-      })
-      const resource = jsonapiParse.parse(response).data
+      // /webform/webform/${id}
+      // /webform/webform?filter[drupal_internal__id]=${id}
+      const { data: response } = await this.get(
+        `/webform/webform?filter[drupal_internal__id]=${id}`,
+        {
+          headers
+        }
+      )
+      const resource = jsonapiParse.parse(response).data[0]
       const siteData = await this.getMappedData(
         this.webformMapping.mapping,
         resource

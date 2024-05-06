@@ -273,6 +273,10 @@ export interface IRplFeatureFlags {
    */
   socialShare?: TideSocialShare
   /**
+   * @description Sets the number of toggle-able levels
+   */
+  sectionNavToggleLevels?: number
+  /**
    * @description Custom flags
    */
   [key: string]: any

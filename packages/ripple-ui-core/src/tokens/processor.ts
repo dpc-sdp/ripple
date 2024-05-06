@@ -1,15 +1,6 @@
-import path from 'path'
-import { readFileSync } from 'fs'
-import { fileURLToPath } from 'url'
 import StyleDictionary from 'style-dictionary'
 import yaml from 'yaml'
-
-const baseConfig = JSON.parse(
-  readFileSync(
-    path.join(path.dirname(fileURLToPath(import.meta.url)), './config.json'),
-    'utf-8'
-  )
-)
+import baseConfig from './config.json' assert { type: 'json' }
 
 StyleDictionary.registerTransform({
   name: 'size/pixels',
@@ -34,7 +25,6 @@ StyleDictionary.registerFilter({
 StyleDictionary.registerFilter({
   name: 'isColor',
   matcher: (token) => {
-    console.log(token.attributes)
     return token.attributes?.category === 'clr'
   }
 })

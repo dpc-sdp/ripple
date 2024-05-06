@@ -1,8 +1,7 @@
 {
-  "packageManager": "pnpm@8.6.2",
   "name": "@dpc-sdp/ripple-ui-core",
   "description": "Ripple UI Core component library",
-  "version": "2.8.2",
+  "version": "2.9.0",
   "license": "Apache-2.0",
   "repository": "https://github.com/dpc-sdp/ripple-framework",
   "files": [
@@ -58,14 +57,13 @@
     "postcss-preset-env": "^8.1.0",
     "swiper": "^8.4.5",
     "vite-svg-loader": "^4.0.0"
-
   },
   "peerDependencies": {
     "vue": "^3.4.21"
   },
   "devDependencies": {
     "@dpc-sdp/ripple-tide-api": "workspace:*",
-    "@vitejs/plugin-vue": "^4.1.0",
+    "@vitejs/plugin-vue": "^5.0.4",
     "@vue/compiler-sfc": "^3.2.47",
     "autoprefixer": "^10.4.14",
     "chromatic": "^6.17.2",
@@ -74,12 +72,11 @@
     "pathe": "^1.1.0",
     "rimraf": "^4.4.1",
     "style-dictionary": "^3.7.2",
-    "vite": "4.1.5",
+    "vite": "^5.2.11",
     "vite-plugin-copy": "^0.1.6",
     "vite-plugin-dts": "^2.1.0",
     "vite-plugin-svg-icons": "^2.0.1",
     "vite-plugin-vue-svg": "^0.1.0",
-    "vite-svg-loader": "^4.0.0",
     "yaml": "^2.2.2"
   }
 }

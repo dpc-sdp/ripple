@@ -8,12 +8,12 @@ jobs:
       - name: Install pnpm
         uses: pnpm/action-setup@v2
         with:
-          version: 8.6.2
+          version: 9.0.6
           run_install: false
       - name: Install Node
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 20
           cache: 'pnpm'
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile

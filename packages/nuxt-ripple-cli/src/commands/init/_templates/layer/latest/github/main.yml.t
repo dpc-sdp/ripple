@@ -12,7 +12,7 @@ jobs:
         with:
           always-auth: true
           registry-url: 'https://npm.pkg.github.com/'
-          node-version: 18
+          node-version: 20
           scope: '@dpc-sdp'
       - name: Install Dependencies
         run: npm ci
@@ -31,7 +31,7 @@ jobs:
         with:
           always-auth: true
           registry-url: 'https://npm.pkg.github.com/'
-          node-version: 18
+          node-version: 20
           scope: '@dpc-sdp'
       - name: Cypress run
         uses: cypress-io/github-action@v6

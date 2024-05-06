@@ -18,7 +18,7 @@ jobs:
       - name: Install pnpm
         uses: pnpm/action-setup@v2
         with:
-          version: 8.6.2
+          version: 9.0.6
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
       - name: Build Storybook
@@ -43,12 +43,12 @@ jobs:
         env:
           PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
         with:
-          version: 8.6.2
+          version: 9.0.6
           run_install: true
       - name: Install Node
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 20
           cache: 'pnpm'
       - name: Cypress component tests
         uses: cypress-io/github-action@v6
@@ -66,12 +66,12 @@ jobs:
         env:
           PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
         with:
-          version: 8.6.2
+          version: 9.0.6
           run_install: true
       - name: Install Node
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 20
           cache: 'pnpm'
 
       - name: Cypress component tests

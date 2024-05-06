@@ -68,3 +68,55 @@ Feature: Site feature flags
     When I click the primary nav button labelled "Search"
     And I submit the primary nav search form
     Then the current path should be "/custom-search-results"
+
+  @mockserver
+  Scenario: The default site section nav toggles one level and displays all children
+    Given the site endpoint returns fixture "/site/reference" with status 200
+    And the page endpoint for path "/" returns fixture "/landingpage/home" with status 200
+    Given I visit the page "/"
+    Then the site section nav should display the following
+      | text              | link                                          |
+      | Demo Landing Page |                                               |
+      | Events            |                                               |
+      | News              |                                               |
+      | Publications      | /17-be-pub-page-1-child-page-chapter-1-page-1 |
+    And clicking the site section nav item "Demo Landing Page" shows the following
+      | text                        | link                |
+      | Demo Landing Page           | /demo-landing-page  |
+      | 2.1 Accessibility - demo    | /accessibility-demo |
+      | 2.2 Copyright - demo        | /copyright-demo     |
+      | 2.3 Disclaimer - demo       | /disclaimer-demo    |
+      | 3.1 Find and connect - demo | /find-connect-demo  |
+      | 4.1 Many Talents - demo     | /many-talents-demo  |
+
+  @mockserver
+  Scenario: Feature flags can set the site section nav to use toggle-able children
+    Given I load the site fixture with "/site/reference"
+    And the feature flag "sectionNavToggleLevels" is set to "3"
+    And the site endpoint returns the loaded fixture
+    And the page endpoint for path "/" returns fixture "/landingpage/home" with status 200
+    Given I visit the page "/"
+    Then the site section nav should display the following
+      | text              | link                                          |
+      | Demo Landing Page |                                               |
+      | Events            |                                               |
+      | News              |                                               |
+      | Publications      | /17-be-pub-page-1-child-page-chapter-1-page-1 |
+    And clicking the site section nav item "Demo Landing Page" shows the following
+      | text                          | link                |
+      | Demo Landing Page             | /demo-landing-page  |
+      | 2.1 Accessibility - demo      | /accessibility-demo |
+      | 2.2 Copyright - demo          | /copyright-demo     |
+      | 2.3 Disclaimer - demo         |                     |
+      | 2.4 Working in the CMS - demo | /working-cms-demo   |
+    Then clicking the site section nav item "2.3 Disclaimer - demo" shows the following
+      | text                        | link              |
+      | 2.3 Disclaimer - demo       | /disclaimer-demo  |
+      | 3.1 Find and connect - demo |                   |
+      | 3.2 Legal notes - demo      | /legal-notes-demo |
+    Then clicking the site section nav item "3.1 Find and connect - demo" shows the following
+      | text                        | link               |
+      | 3.1 Find and connect - demo | /find-connect-demo |
+      | 4.1 Many Talents - demo     | /many-talents-demo |
+      | 5.1 Another menu - demo     | /another-demo      |
+      | 4.2 More Talents - demo     | /more-talents-demo |

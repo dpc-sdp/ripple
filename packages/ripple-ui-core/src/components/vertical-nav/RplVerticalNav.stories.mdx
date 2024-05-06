@@ -22,7 +22,16 @@ export const SingleTemplate = (args) => ({
   `
 })
 
-<Meta title='Core/Navigation/Vertical navigation' component={RplVerticalNav} />
+<Meta
+  title='Core/Navigation/Vertical navigation'
+  component={RplVerticalNav}
+  argTypes={{
+    toggleLevels: {
+      control: { type: 'select' },
+      options: [1, 2, 3]
+    }
+  }}
+/>
 
 # Vertical nav
 

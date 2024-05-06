@@ -209,6 +209,16 @@ Then(
   }
 )
 
+Then(
+  'a hidden field named {string} should exist with the value {string}',
+  (name: string, value: string) => {
+    cy.get(`input[name=${name}]`).as('hiddenInput')
+
+    cy.get('@hiddenInput').should('have.attr', 'type', 'hidden')
+    cy.get('@hiddenInput').should('have.value', value)
+  }
+)
+
 When(
   'I click {string} from the select field with label {string}',
   (value: string, label: string) => {

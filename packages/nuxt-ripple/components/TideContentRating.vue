@@ -37,11 +37,19 @@ onMounted(() => {
           >
             <template #default="{ value }">
               <div class="tide-content-rating__rating">
-                <FormKit type="hidden" name="url" :value="pageUrl" />
                 <FormKit
-                  type="hidden"
+                  id="was_this_page_helpful_url"
+                  type="RplFormHidden"
+                  name="url"
+                  :value="pageUrl"
+                  :pii="false"
+                />
+                <FormKit
+                  id="was_this_page_helpful_section"
+                  type="RplFormHidden"
                   name="site_section_name"
                   :value="siteSectionName"
+                  :pii="false"
                 />
                 <FormKit
                   id="was_this_page_helpful"

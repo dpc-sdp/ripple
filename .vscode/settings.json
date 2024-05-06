@@ -30,7 +30,8 @@
     "@dpc-sdp/nuxt-ripple-analytics",
     "eslint-config-ripple",
     "@dpc-sdp/ripple-ui-maps",
-    "@dpc-sdp/ripple-tide-webform"
+    "@dpc-sdp/ripple-tide-webform",
+    "ripple-storybook"
   ],
   "cSpell.words": [
     "colour",

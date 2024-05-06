@@ -1,4 +1,4 @@
-import { $fetch } from 'ohmyfetch'
+import { $fetch } from 'ofetch'
 import { ref, useRuntimeConfig } from '#imports'
 
 export function useWebformSubmit(formId: string) {

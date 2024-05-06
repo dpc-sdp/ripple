@@ -15,6 +15,6 @@
     "@dpc-sdp/ripple-tide-api": "workspace:*",
     "@dpc-sdp/nuxt-ripple-preview": "workspace:*",
     "h3": "^1.9.0",
-    "ohmyfetch": "^0.4.21"
+    "ofetch": "^1.3.4"
   }
 }

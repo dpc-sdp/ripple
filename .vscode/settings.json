@@ -29,7 +29,8 @@
     "@dpc-sdp/ripple-test-utils",
     "@dpc-sdp/nuxt-ripple-analytics",
     "eslint-config-ripple",
-    "@dpc-sdp/ripple-ui-maps"
+    "@dpc-sdp/ripple-ui-maps",
+    "@dpc-sdp/ripple-tide-webform"
   ],
   "cSpell.words": [
     "colour",

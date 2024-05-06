@@ -1,7 +1,7 @@
 import { $fetch } from 'ohmyfetch'
 import { ref, useRuntimeConfig } from '#imports'
 
-export function useWebForm() {
+export function useWebformSubmit(formId: string) {
   const postForm = async (formId: string, formData = {}) => {
     const { public: config } = useRuntimeConfig()
 
@@ -59,12 +59,32 @@ export function useWebForm() {
     errorMessageHTML: string
   }
 
+  const isHoneypotTriggered = () => {
+    const honeypotElement: HTMLInputElement | null = document.querySelector(
+      `#${formId}-important-email`
+    )
+
+    return honeypotElement && !!honeypotElement.value
+  }
+
   const submitHandler = async (props: FormConfig, data: any) => {
     submissionState.value = {
       status: 'submitting',
       title: '',
       message: '',
       receipt: ''
+    }
+
+    // If there's a value in the honeypot, just show a success message without actually submitting the form
+    if (isHoneypotTriggered()) {
+      submissionState.value = {
+        status: 'success',
+        title: props.successMessageTitle,
+        message: props.successMessageHTML,
+        receipt: ''
+      }
+
+      return
     }
 
     try {

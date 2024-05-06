@@ -25,7 +25,7 @@ const props = defineProps<Props>()
 
 const { $app_origin } = useNuxtApp()
 
-const url = computed(() => `${$app_origin}${useRoute().path}`)
+const url = computed(() => `${$app_origin}${useRoute()?.path}`)
 
 const { socialShare: flags }: IRplFeatureFlags = inject('featureFlags', {})
 

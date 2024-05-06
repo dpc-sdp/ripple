@@ -1,8 +1,7 @@
 {
-  "packageManager": "pnpm@8.6.2",
   "name": "@dpc-sdp/ripple-ui-maps",
   "description": "Ripple UI Core component library",
-  "version": "2.8.1",
+  "version": "2.9.0",
   "license": "Apache-2.0",
   "repository": "https://github.com/dpc-sdp/ripple-framework",
   "files": [
@@ -12,12 +11,14 @@
     "README.md"
   ],
   "type": "module",
-  "main": "./dist/rpl-lib.es.js",
-  "module": "./dist/rpl-lib.es.js",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
-    ".": "./dist/rpl-lib.es.js",
+    ".": "./dist/index.js",
+    "./vue": "./dist/rpl-lib.es.js",
     "./nuxt": "./dist/nuxt/index.js",
+    "./plugin": "./dist/plugins/register.js",
     "./style": "./dist/global.css",
     "./style/breakpoints": "./src/styles/_breakpoints.css",
     "./style/components": "./dist/style.css"
@@ -38,37 +39,39 @@
     "test:generate-output": "jest --json --outputFile=.jest-test-results.json"
   },
   "dependencies": {
-    "@nuxt/kit": "3.3.2",
-    "@vueuse/core": "^9.13.0",
-    "@vueuse/integrations": "^9.13.0",
+    "@nuxt/kit": "3.11.2",
+    "@vueuse/core": "^10.9.0",
+    "@vueuse/integrations": "^10.9.0",
+    "ol": "^9.1.0",
+    "ol-contextmenu": "^5.4.0",
+    "ol-ext": "^4.0.18",
     "postcss-each": "^1.1.0",
     "postcss-nested": "^6.0.1",
     "postcss-normalize": "^10.0.1",
     "postcss-preset-env": "^8.1.0",
-    "vue3-openlayers": "1.2.1"
+    "vue3-openlayers": "^7.0.0"
   },
   "peerDependencies": {
-    "ol": "^7.4.0",
-    "ol-contextmenu": "^5.2.1",
-    "ol-ext": "^4.0.8",
-    "vue": "3.3.4"
+    "vue": "^3.4.21"
   },
   "devDependencies": {
     "@dpc-sdp/ripple-tide-api": "workspace:*",
     "@dpc-sdp/ripple-ui-core": "workspace:*",
-    "@vitejs/plugin-vue": "^4.1.0",
+    "@vitejs/plugin-vue": "^5.0.4",
     "@vue/compiler-sfc": "^3.2.47",
     "autoprefixer": "^10.4.14",
     "jest-axe": "^7.0.1",
-    "ol": "^7.4.0",
-    "ol-contextmenu": "^5.2.1",
-    "ol-ext": "^4.0.8",
     "rimraf": "^4.4.1",
-    "vite": "4.1.5",
+    "vite": "^5.2.11",
     "vite-plugin-copy": "^0.1.6",
     "vite-plugin-dts": "^2.1.0",
     "vite-plugin-svg-icons": "^2.0.1",
     "vite-plugin-vue-svg": "^0.1.0",
     "vite-svg-loader": "^4.0.0"
+  },
+  "overrides": {
+    "ol-contextmenu": {
+      "ol": "^9.x"
+    }
   }
 }

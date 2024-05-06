@@ -52,7 +52,11 @@ export default <any>defineNuxtModule({
       extensions: ['vue'],
       path: resolve('./../../src/components'),
       prefix: 'rpl',
-      pathPrefix: false
+      pathPrefix: false,
+      // Nuxt 3.7.x changed the way that components take precedence over eachother,
+      // we need to set a zero priority here so that nuxt-ripple components take
+      // precedence over nuxt-ripple-core components
+      priority: 0
     })
     console.info('Added ripple-ui-core components')
     // Plugin adds runtime setup tasks, eg: event bus

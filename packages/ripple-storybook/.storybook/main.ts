@@ -48,9 +48,6 @@ const config: StorybookConfig = {
     name: '@storybook/vue3-vite',
     options: {}
   },
-  features: {
-    legacyMdx1: true
-  },
   staticDirs: ['./public'],
   previewHead: (head) => `
     ${head}

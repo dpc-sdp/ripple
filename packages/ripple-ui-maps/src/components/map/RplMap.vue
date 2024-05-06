@@ -13,6 +13,7 @@ import {
 import { useFullscreen } from '@vueuse/core'
 import { withDefaults, defineExpose } from '@vue/composition-api'
 import { Map } from 'ol'
+import { Zoom } from 'ol/control'
 import { Point } from 'ol/geom'
 import Icon from 'ol/style/Icon'
 import Feature from 'ol/Feature'
@@ -266,6 +267,13 @@ watch(
 )
 
 onMounted(() => {
+  if (mapRef.value?.map) {
+    mapRef.value.map.getControls().forEach((control) => {
+      if (control instanceof Zoom) {
+        mapRef.value?.map.removeControl(control)
+      }
+    })
+  }
   fitVictoria(mapRef.value.map, deadSpace.value)
 })
 
@@ -310,7 +318,6 @@ const noResultsRef = ref(null)
       :loadTilesWhileInteracting="false"
       class="rpl-map__map"
       :style="`height: ${mapHeight}px`"
-      :controls="[]"
       @singleclick="onMapSingleClick"
       @pointermove="onMapMove"
     >
@@ -323,7 +330,10 @@ const noResultsRef = ref(null)
         :minZoom="5"
       />
       <slot name="map-provider"> </slot>
-      <slot name="shapes" :mapFeatures="mapFeatures"></slot>
+      <slot
+        name="shapes"
+        :mapFeatures="mapFeatures && mapFeatures.length > 0"
+      ></slot>
 
       <!-- This enlarged pin is rendered for the sidebar/fixed popup style only -->
       <ol-vector-layer

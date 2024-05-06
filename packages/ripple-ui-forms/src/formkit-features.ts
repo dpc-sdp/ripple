@@ -30,7 +30,7 @@ export const isFieldInvalid = (node: FormKitNode): void => {
   node.on('created', () => {
     if (node.context?.fns) {
       node.context.fns.isFieldInvalid = () => {
-        return !!node.parent.props.inputErrors[node.name]
+        return !!node.parent.props.inputErrors?.[node.name]
       }
     }
   })
@@ -55,7 +55,10 @@ export const getAriaDescribedBy = (node: FormKitNode): void => {
 
         const describedBy = []
 
-        if (node.parent.props.inputErrors[node.name]) {
+        if (
+          node.parent.props?.inputErrors &&
+          node.parent.props.inputErrors[node.name]
+        ) {
           describedBy.push(errorId)
         }
 

@@ -20,6 +20,8 @@
 }
 
 .rpl-back-to-top--visible {
+  pointer-events: all;
+
   .rpl-back-to-top__inner {
     transition: opacity var(--rpl-motion-speed-8) ease-out,
       transform var(--rpl-motion-speed-8) ease-out;
@@ -35,7 +37,6 @@
 }
 
 .rpl-back-to-top__button {
-  pointer-events: all;
   margin-right: calc(-1 * var(--rpl-sp-2));
 
   @media (--rpl-bp-m) {

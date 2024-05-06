@@ -1,5 +1,111 @@
 # Changelog
 
+## v2.9.0
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.8.2...v2.9.0)
+
+
+### 🚀 Enhancements
+
+  - **@dpc-sdp/ripple-ui-forms:** Add RplFormHidden component ([e9ed9534e](https://github.com/dpc-sdp/ripple-framework/commit/e9ed9534e))
+
+### 🩹 Fixes
+
+  - 🐛  move stripsite id fn to auto import util ([b25df9392](https://github.com/dpc-sdp/ripple-framework/commit/b25df9392))
+  - 🐛  fix imports for compiler macros ([197b6d42b](https://github.com/dpc-sdp/ripple-framework/commit/197b6d42b))
+  - 🐛  move stripsite id fn to auto import util ([3855d319d](https://github.com/dpc-sdp/ripple-framework/commit/3855d319d))
+  - **@dpc-sdp/ripple-ui-core:** Updated tabs component based on design feedback ([fb6775cbd](https://github.com/dpc-sdp/ripple-framework/commit/fb6775cbd))
+  - **@dpc-sdp/ripple-ui-core:** 📝  fix missing argstable import ([0d48f3935](https://github.com/dpc-sdp/ripple-framework/commit/0d48f3935))
+  - **@dpc-sdp/ripple-ui-core:** Remove unused import to appease eslint ([119ceff0e](https://github.com/dpc-sdp/ripple-framework/commit/119ceff0e))
+  - **@dpc-sdp/ripple-ui-maps:** Fixed maps crashing after nuxt update ([141171b12](https://github.com/dpc-sdp/ripple-framework/commit/141171b12))
+  - **@dpc-sdp/ripple-ui-maps:** 🐛  remove default zoom controls after mount instead of hide ([50dea9d1a](https://github.com/dpc-sdp/ripple-framework/commit/50dea9d1a))
+  - **@dpc-sdp/ripple-ui-core:** Fixed back to top button being clickable when hidden ([0a844b970](https://github.com/dpc-sdp/ripple-framework/commit/0a844b970))
+
+### 💅 Refactors
+
+  - **@dpc-sdp/ripple-ui-core:** ♻️  refactor as html el with data attr ([689edf17c](https://github.com/dpc-sdp/ripple-framework/commit/689edf17c))
+
+### 📦 Build
+
+  - 👷  update to node v20 ([d1773c588](https://github.com/dpc-sdp/ripple-framework/commit/d1773c588))
+  - **@dpc-sdp/ripple-ui-core:** Use esm json import for token script ([91f6f36f6](https://github.com/dpc-sdp/ripple-framework/commit/91f6f36f6))
+  - 🔒️  add overrides for vulnerable packages ([12e5996d5](https://github.com/dpc-sdp/ripple-framework/commit/12e5996d5))
+  - Fix engines and remove unnecessary overrides ([7f5fa437d](https://github.com/dpc-sdp/ripple-framework/commit/7f5fa437d))
+  - **@dpc-sdp/ripple-ui-maps:** Fix outdated kit version ([609b9f43d](https://github.com/dpc-sdp/ripple-framework/commit/609b9f43d))
+
+### 🏡 Chore
+
+  - Update nuxt to 3.10.2 ([353101f54](https://github.com/dpc-sdp/ripple-framework/commit/353101f54))
+  - **@dpc-sdp/ripple-ui-maps:** Update vue3openlayers ([a1ddd41c0](https://github.com/dpc-sdp/ripple-framework/commit/a1ddd41c0))
+  - ⬆️  upgrade nuxt to 3.11.2 ([92f0e00a4](https://github.com/dpc-sdp/ripple-framework/commit/92f0e00a4))
+  - **@dpc-sdp/nuxt-ripple:** 🧪  fix breadcrumb unit test ([44255dad8](https://github.com/dpc-sdp/ripple-framework/commit/44255dad8))
+  - 🔖 release ripple 2.8.1 ([352e779be](https://github.com/dpc-sdp/ripple-framework/commit/352e779be))
+  - **@dpc-sdp/ripple-ui-core:** Update CSS loading order for storybook ([3c0653214](https://github.com/dpc-sdp/ripple-framework/commit/3c0653214))
+  - **@dpc-sdp/ripple-ui-maps:** Move ui-maps imports to auto import ([b35045bd6](https://github.com/dpc-sdp/ripple-framework/commit/b35045bd6))
+  - **@dpc-sdp/nuxt-ripple:** 🧪  fix breadcrumb unit test ([db10b51da](https://github.com/dpc-sdp/ripple-framework/commit/db10b51da))
+  - ✅  update cypress to v13 ([fb516c415](https://github.com/dpc-sdp/ripple-framework/commit/fb516c415))
+  - **@dpc-sdp/nuxt-ripple-cli:** ⬆️  update cli nuxt kit version ([5cf271d74](https://github.com/dpc-sdp/ripple-framework/commit/5cf271d74))
+  - **nuxt-app:** Add recommended vscode debug config ([ab3f102f5](https://github.com/dpc-sdp/ripple-framework/commit/ab3f102f5))
+  - ⬆️  update pnpm and node versions ([8f9618710](https://github.com/dpc-sdp/ripple-framework/commit/8f9618710))
+  - 🔧  remove vscode circleci extension ([2404a3ba3](https://github.com/dpc-sdp/ripple-framework/commit/2404a3ba3))
+  - 🔧  redundant devdep ([ff7e084b2](https://github.com/dpc-sdp/ripple-framework/commit/ff7e084b2))
+  - Remove packagemanager from subpackages ([578dd77e6](https://github.com/dpc-sdp/ripple-framework/commit/578dd77e6))
+  - Remove jest override in node 20 ([93b8cb53b](https://github.com/dpc-sdp/ripple-framework/commit/93b8cb53b))
+  - ⬆️  upgrade vite to fix security vulnerablity ([faa7f6a84](https://github.com/dpc-sdp/ripple-framework/commit/faa7f6a84))
+  - **@dpc-sdp/ripple-tide-landing-page:** ⬆️  update ofetch ([ccf2df75d](https://github.com/dpc-sdp/ripple-framework/commit/ccf2df75d))
+  - Update lockfile ([bcee645a3](https://github.com/dpc-sdp/ripple-framework/commit/bcee645a3))
+  - ➖  remove unused vue-jest ([fc814dc27](https://github.com/dpc-sdp/ripple-framework/commit/fc814dc27))
+  - **ripple-storybook:** ⬆️  update waiton ([552af3b35](https://github.com/dpc-sdp/ripple-framework/commit/552af3b35))
+
+### ✅ Tests
+
+  - **@dpc-sdp/ripple-tide-search:** Fixed tests after tabs update ([fa82cb0b3](https://github.com/dpc-sdp/ripple-framework/commit/fa82cb0b3))
+  - **@dpc-sdp/ripple-test-utils:** 🐛  fix path not encoded correctly in test request ([d1297137b](https://github.com/dpc-sdp/ripple-framework/commit/d1297137b))
+  - **@dpc-sdp/ripple-ui-core:** ✅  fix tabs test ([c3eb343bb](https://github.com/dpc-sdp/ripple-framework/commit/c3eb343bb))
+  - Update VSBA test snapshot ([ae1d087f7](https://github.com/dpc-sdp/ripple-framework/commit/ae1d087f7))
+  - Add additional waits for tile req ([63a46337a](https://github.com/dpc-sdp/ripple-framework/commit/63a46337a))
+  - Increase image diff threshold ([f2dcf7f8c](https://github.com/dpc-sdp/ripple-framework/commit/f2dcf7f8c))
+
+### ❤️  Contributors
+
+- Dylan Kelly <dylan.kelly@dpc.vic.gov.au>
+- Jason Smith <jason.smith@dpc.vic.gov.au>
+- Jeffrey Dowdle <jeffrey.dowdle@dpc.vic.gov.au>
+- David Featherston <david.featherstone@dpc.vic.gov.au>
+
+## v2.8.2
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.8.1...v2.8.2)
+
+
+### 🚀 Enhancements
+
+  - **@dpc-sdp/ripple-ui-core:** Added 'clear' button to search bar component ([35aed66f4](https://github.com/dpc-sdp/ripple-framework/commit/35aed66f4))
+  - **@dpc-sdp/ripple-ui-core:** Add searchUrl prop for primary nav, fix tabs test ([fc1c711d2](https://github.com/dpc-sdp/ripple-framework/commit/fc1c711d2))
+
+### 🩹 Fixes
+
+  - 🐛  fix imports for compiler macros ([24042d767](https://github.com/dpc-sdp/ripple-framework/commit/24042d767))
+  - **@dpc-sdp/ripple-ui-core:** Updated tabs component based on design feedback ([a44a0964d](https://github.com/dpc-sdp/ripple-framework/commit/a44a0964d))
+  - **@dpc-sdp/ripple-ui-core:** Fixed search bar input padding for clear and search btns ([8a173e319](https://github.com/dpc-sdp/ripple-framework/commit/8a173e319))
+  - **@dpc-sdp/ripple-ui-maps:** Updated map key styling after design feedback ([733a50cc3](https://github.com/dpc-sdp/ripple-framework/commit/733a50cc3))
+  - **@dpc-sdp/ripple-ui-core:** Fixed search bar clear btn submitting form when not wanted ([ab209fd09](https://github.com/dpc-sdp/ripple-framework/commit/ab209fd09))
+
+### 🏡 Chore
+
+  - **@dpc-sdp/ripple-ui-core:** Update CSS loading order for storybook ([5f2b75831](https://github.com/dpc-sdp/ripple-framework/commit/5f2b75831))
+  - **@dpc-sdp/ripple-ui-forms:** Update form story help text ([df7ccde41](https://github.com/dpc-sdp/ripple-framework/commit/df7ccde41))
+
+### ✅ Tests
+
+  - **@dpc-sdp/ripple-tide-search:** Fixed tests after tabs update ([82de86fc5](https://github.com/dpc-sdp/ripple-framework/commit/82de86fc5))
+
+### ❤️  Contributors
+
+- Jeffrey Dowdle <jeffrey.dowdle@dpc.vic.gov.au>
+- David Featherston <david.featherstone@dpc.vic.gov.au>
+- Dylan Kelly <dylan.kelly@dpc.vic.gov.au>
+
 ## v2.8.1
 
 [compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.8.0...v2.8.1)

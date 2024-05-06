@@ -186,7 +186,8 @@ const {
   mapResults,
   locationQuery,
   activeTab,
-  changeActiveTab
+  changeActiveTab,
+  firstLoad
 } = useTideSearch({
   queryConfig: props.queryConfig,
   userFilters: props.userFilters,
@@ -568,7 +569,7 @@ const reverseFields = computed(
 
     <template v-if="activeTab === 'map'">
       <TideSearchListingResultsMap
-        v-if="mapFeatures"
+        v-if="mapFeatures && firstLoad"
         :results="mapFeatures"
         :areas="mapAreas"
         v-bind="mapConfig?.props"

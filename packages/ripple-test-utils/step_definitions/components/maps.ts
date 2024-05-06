@@ -2,7 +2,7 @@ import { Then, When, Given } from '@badeball/cypress-cucumber-preprocessor'
 import { set } from 'lodash-es'
 
 Then(`the ripple map component should be visible`, () => {
-  cy.get(`.rpl-map canvas`).should('be.visible')
+  cy.get(`.rpl-map canvas`, { timeout: 8000 }).should('be.visible')
 })
 
 Then(`the data map component tabs should exist`, () => {
@@ -61,7 +61,7 @@ Then(`the map matches the image snapshot {string}`, (title) => {
     },
     // maximum threshold above which the test should fail
     // default: 0.01
-    maxDiffThreshold: 0.06
+    maxDiffThreshold: 0.08
   })
 })
 

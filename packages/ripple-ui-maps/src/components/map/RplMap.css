@@ -18,6 +18,7 @@
 
   /* Magic number to account for the height of the zoom controls, which are positioned absolutely */
   --local-zoom-controls-height: 88px;
+
 }
 
 .rpl-map__map {

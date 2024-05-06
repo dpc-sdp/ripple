@@ -276,6 +276,12 @@
             }
           },
           {
+            "$formkit": "RplFormHidden",
+            "name": "site_section",
+            "id": "site_section",
+            "value": "DPC"
+          },
+          {
             "$formkit": "RplFormActions",
             "name": "submit",
             "variant": "filled",

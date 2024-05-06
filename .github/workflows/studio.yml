@@ -49,7 +49,7 @@ jobs:
         name: Install pnpm
         id: pnpm-install
         with:
-          version: 8.6.2
+          version: 9.0.6
 
       - uses: actions/setup-node@v3
         with:

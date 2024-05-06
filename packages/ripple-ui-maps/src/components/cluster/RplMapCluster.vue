@@ -39,7 +39,7 @@ const overrideStyleFunction = (feature, style) => {
     })
   }
 
-  if (clusteredFeatures.length > 1) {
+  if (clusteredFeatures && clusteredFeatures.length > 1) {
     // 0.5 scale pixel size
     style.setImage(createCircleStyle({ radius: 20 }))
     style.getText().setText(size.toString())
@@ -66,5 +66,6 @@ const overrideStyleFunction = (feature, style) => {
     }
     style.getText().setText('')
   }
+  return style
 }
 </script>

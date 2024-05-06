@@ -8,9 +8,7 @@ export default defineNuxtConfig({
     '@dpc-sdp/ripple-ui-core/nuxt',
     '@dpc-sdp/ripple-ui-forms/nuxt',
     '@nuxt/content',
-    '@nuxthq/studio',
-    '@nuxtjs/tailwindcss',
-    '@nuxtlabs/github-module'
+    '@nuxthq/studio'
   ],
   github: {
     repo: 'dpc-sdp/ripple-framework'
@@ -37,6 +35,17 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       ignore: ['/storybook']
+    }
+  },
+  // A change in nuxt 3.8.0 means we were getting errors whenever a type was imported without the 'type' keyword
+  // This is a temporary workaround until we can fix all the types
+  // TODO: Add 'type' keyword to all type imports
+  // https://github.com/nuxt/nuxt/releases/tag/v3.8.0
+  typescript: {
+    tsConfig: {
+      compilerOptions: {
+        verbatimModuleSyntax: false
+      }
     }
   }
 })

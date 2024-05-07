@@ -10,7 +10,6 @@
 
 <script setup lang="ts">
 import { inject } from 'vue'
-import { useRoute } from 'vue-router'
 import type {
   IRplFeatureFlags,
   TideSocialShare
@@ -23,9 +22,10 @@ interface Props {
 
 const props = defineProps<Props>()
 
+const route = useRoute()
 const { $app_origin } = useNuxtApp()
 
-const url = computed(() => `${$app_origin}${useRoute()?.path}`)
+const url = computed(() => `${$app_origin}${route?.path}`)
 
 const { socialShare: flags }: IRplFeatureFlags = inject('featureFlags', {})
 

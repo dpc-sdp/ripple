@@ -11,7 +11,6 @@ Feature: Search listing - Aggregations
   Example: Aggregations and Taxonomies
     Given the page endpoint for path "/aggregations" returns fixture "/search-listing/aggregations/page" with status 200
     And the search network request is stubbed with fixture "/search-listing/aggregations/response" and status 200
-    And the current date is "Fri, 02 Feb 2050 03:04:05 GMT"
 
     When I visit the page "/aggregations"
     Then the search listing page should have 2 results
@@ -26,6 +25,7 @@ Feature: Search listing - Aggregations
       | Government            |
       | Individual            |
       | Not-for-profit groups |
+    And I click the option labelled "Business" in the selected dropdown
     # Close the dropdown
     When I click the search listing dropdown field labelled "Elastic aggregation test"
 
@@ -34,3 +34,11 @@ Feature: Search listing - Aggregations
     Then the selected dropdown field should have the items:
       | Arts     |
       | Business |
+    And I click the option labelled "Arts" in the selected dropdown
+    And I click the search listing dropdown field labelled "Taxonomy test"
+
+    When I submit the search filters
+    Then the URL should reflect that the current active filters are as follows:
+      | id       | value    |
+      | audience | Business |
+      | topic    | Arts     |

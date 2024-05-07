@@ -178,7 +178,7 @@ export default ({
                 field: currentFilter.aggregations.field,
                 order: { _key: 'asc' },
                 size: currentFilter.aggregations.size || 30,
-                min_doc_count: 0
+                min_doc_count: searchListingConfig?.dynamicAggregations ? 0 : 1
               }
             }
           }

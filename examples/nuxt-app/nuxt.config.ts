@@ -26,7 +26,8 @@ export default defineNuxtConfig({
     '@dpc-sdp/ripple-tide-publication',
     '@dpc-sdp/ripple-tide-media',
     '@dpc-sdp/ripple-tide-news',
-    '@dpc-sdp/ripple-tide-search'
+    '@dpc-sdp/ripple-tide-search',
+    '@dpc-sdp/ripple-tide-webform'
   ],
   // Nuxt devtools
   sourcemap: true,

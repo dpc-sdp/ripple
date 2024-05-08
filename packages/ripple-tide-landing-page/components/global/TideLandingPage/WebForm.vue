@@ -1,7 +1,5 @@
 <script setup lang="ts">
-import { useRuntimeConfig } from '#imports'
 import { FormKitSchemaNode } from '@formkit/core'
-import { $fetch } from 'ofetch'
 import { computed, nextTick, ref, watch } from 'vue'
 import { RplFormAlert } from '@dpc-sdp/ripple-ui-forms'
 
@@ -25,114 +23,10 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 const honeypotId = `${props.formId}-important-email`
-const isHoneypotTriggered = () => {
-  const honeypotElement: HTMLInputElement = document.querySelector(
-    `#${honeypotId}`
-  )
 
-  return honeypotElement && !!honeypotElement.value
-}
+const { submissionState, submitHandler } = useWebformSubmit(props.formId)
 
-/**
- * Post form data to Tide API
- */
-const postForm = async (formId: string, formData = {}) => {
-  const { public: config } = useRuntimeConfig()
-
-  const formResource = 'webform_submission'
-
-  const body = {
-    data: {
-      type: formResource,
-      attributes: {
-        remote_addr: '0.0.0.0', // IP placeholder for Tide validation, incase the IP is required.
-        data: JSON.stringify(formData)
-      }
-    }
-  }
-
-  // TODO: Add better error handling/log for form API error.
-  // It's blocked by Tide webform response issue SDPA-477.
-  // Currently the Tide webform has no right response.
-  const url = `/api/tide/${formResource}/${formId}`
-  const { data, error } = await $fetch(url, {
-    method: 'POST',
-    baseURL: config.apiUrl || '',
-    body,
-    params: {
-      site: config.tide.site
-    },
-    headers: {
-      'Content-Type': 'application/vnd.api+json;charset=UTF-8'
-    }
-  })
-
-  if (error) {
-    throw error
-  }
-
-  if (!data) {
-    throw new Error('Form submission failed')
-  }
-
-  return data
-}
-
-const submissionState = ref({
-  status: 'idle',
-  title: '',
-  message: ''
-})
-
-const serverSuccessRef = ref<RplFormAlert>(null)
-
-const submitHandler = async ({ data }) => {
-  submissionState.value = {
-    status: 'submitting',
-    title: '',
-    message: ''
-  }
-
-  // If there's a value in the honeypot, just show a success message without actually submitting the form
-  if (isHoneypotTriggered()) {
-    submissionState.value = {
-      status: 'success',
-      title: props.successMessageTitle,
-      message: props.successMessageHTML
-    }
-
-    return
-  }
-
-  try {
-    const resData = await postForm(props.formId, data)
-
-    const [code, note] = resData.attributes?.notes?.split('|') || []
-
-    // Upstream error
-    if (code && Number.isInteger(+code) && (+code <= 199 || +code >= 300)) {
-      submissionState.value = {
-        status: 'error',
-        title: props.errorMessageTitle,
-        message: note || props.errorMessageHTML
-      }
-    } else {
-      submissionState.value = {
-        status: 'success',
-        title: props.successMessageTitle,
-        message: note || props.successMessageHTML
-      }
-    }
-  } catch (error) {
-    console.error(error)
-
-    submissionState.value = {
-      status: 'error',
-      title: props.errorMessageTitle,
-      message: props.errorMessageHTML
-    }
-  }
-}
+const serverSuccessRef = ref<typeof RplFormAlert>(null as any)
 
 // Scroll to and focus on success and error messages when they appear
 watch(
@@ -173,8 +67,8 @@ const submitted = computed(() => submissionState.value.status === 'success')
         :id="formId"
         :title="title"
         :schema="schema"
-        :submissionState="submissionState"
-        @submit="submitHandler"
+        :submissionState="submissionState as any"
+        @submit="submitHandler(props, $event.data)"
       >
         <template #belowForm>
           <div class="tide-webform-important-email">

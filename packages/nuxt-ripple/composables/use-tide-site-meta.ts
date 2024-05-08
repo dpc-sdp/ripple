@@ -1,10 +1,40 @@
+import type {
+  TidePageBase,
+  TideSiteData,
+  TideSiteSection
+} from '@dpc-sdp/ripple-tide-api/types'
+
+interface PageProps extends TidePageBase {
+  meta?: any
+  type?: string
+}
+
+interface OverrideProps {
+  [key: string]: string
+}
+
+interface MetaProps {
+  tag?: string
+  attributes?: {
+    name?: string
+    property?: string
+    rel?: string
+    content?: string
+  }
+}
+
 const metaProperty = (str: string) => {
   const p = str.split(':')
   if (p.length === 1) return str
   return p[0] + p[1].charAt(0).toUpperCase() + p[1].slice(1)
 }
 
-export default (props, $app_origin) => {
+export default (props: {
+  page: PageProps
+  site: TideSiteData
+  pageTitle?: string
+  siteSection?: TideSiteSection
+}) => {
   const page = props.page
   const site = props.site
 
@@ -23,16 +53,16 @@ export default (props, $app_origin) => {
     })
   } else {
     // Additional <link>s in head
-    const links = []
+    const links: any = []
     const additionalMeta = page?.meta?.additional || []
 
     additionalMeta
       .filter(
-        (attr: any) =>
-          attr.tag === 'link' && attr.attributes.rel !== 'canonical'
+        (attr: MetaProps) =>
+          attr.tag === 'link' && attr.attributes?.rel !== 'canonical'
       )
-      .map((attr: any) => {
-        if (attr.attributes.rel) links.push(attr.attributes)
+      .map((attr: MetaProps) => {
+        if (attr.attributes?.rel) links.push(attr.attributes)
       })
 
     // Define basic attributes
@@ -41,31 +71,29 @@ export default (props, $app_origin) => {
     })
 
     // Override API values with metatag
-    const metaDescriptions = {
+    const metaDescriptions: OverrideProps = {
         ogDescription: '',
         description: ''
       },
-      metaOverrides = {}
+      metaOverrides: OverrideProps = {}
     additionalMeta
       .filter(
-        (attr: any) => attr.tag === 'meta' && attr.attributes.name !== 'title'
+        (attr: MetaProps) =>
+          attr.tag === 'meta' && attr.attributes?.name !== 'title'
       )
-      .map((attr: any) => {
-        if (attr.attributes.name || attr.attributes.property)
-          if (
-            ['ogDescription', 'description'].includes(
-              metaProperty(attr.attributes.name || attr.attributes.property)
-            )
-          ) {
+      .map((attr: MetaProps) => {
+        if (attr.attributes?.name || attr.attributes?.property) {
+          // Assert name || property
+          const field: string = metaProperty(
+            attr.attributes!.name! || attr.attributes!.property!
+          )
+          if (['ogDescription', 'description'].includes(field)) {
             // Keep description fields in a separate collection
-            metaDescriptions[
-              metaProperty(attr.attributes.name || attr.attributes.property)
-            ] = attr.attributes.content
+            metaDescriptions[field] = attr.attributes!.content!
           } else {
-            metaOverrides[
-              metaProperty(attr.attributes.name || attr.attributes.property)
-            ] = attr.attributes.content
+            metaOverrides[field] = attr.attributes!.content!
           }
+        }
       })
 
     // Determine unified description
@@ -133,6 +161,6 @@ export default (props, $app_origin) => {
 
       // Metatag escape hatch
       ...metaOverrides
-    })
+    } as any) // overriding default useSeoMeta prop type to add sitesection
   }
 }

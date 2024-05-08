@@ -137,7 +137,8 @@ const handleIncrement = () => {
     <div class="rpl-form__input-wrap">
       <button
         v-if="props.mode"
-        class="rpl-form__input-dec"
+        class="rpl-form__input-dec rpl-u-focusable-block"
+        type="button"
         @click.prevent="handleDecrement"
       >
         <span class="rpl-u-visually-hidden">Decrease value</span>
@@ -147,27 +148,29 @@ const handleIncrement = () => {
           size="s"
         />
       </button>
-      <input
-        :id="id"
-        type="number"
-        :value="value"
-        class="rpl-u-focusable-outline"
-        :disabled="disabled"
-        :required="required"
-        :aria-required="required"
-        :aria-invalid="invalid"
-        v-bind="$attrs"
-        :name="name"
-        :min="min"
-        :max="max"
-        @blur="onBlur"
-        @input="onInput"
-        @change="handleChange"
-        @focus=";($event.target as HTMLInputElement).select()"
-      />
+      <label class="rpl-form__input-wrap">
+        <input
+          :id="id"
+          type="number"
+          :value="value"
+          class="rpl-u-focusable-outline"
+          :disabled="disabled"
+          :required="required"
+          :aria-required="required"
+          :aria-invalid="invalid"
+          v-bind="$attrs"
+          :name="name"
+          :min="min"
+          :max="max"
+          @blur="onBlur"
+          @input="onInput"
+          @change="handleChange"
+          @focus=";($event.target as HTMLInputElement).select()"
+      /></label>
       <button
         v-if="props.mode"
-        class="rpl-form__input-inc"
+        class="rpl-form__input-inc rpl-u-focusable-block"
+        type="button"
         @click.prevent="handleIncrement"
       >
         <span class="rpl-u-visually-hidden">Increase value</span>
@@ -222,6 +225,10 @@ const handleIncrement = () => {
 
   .rpl-form__input-dec {
     margin-right: -4.75rem;
+  }
+
+  .rpl-form__input-wrap {
+    width: 100%;
   }
 }
 </style>

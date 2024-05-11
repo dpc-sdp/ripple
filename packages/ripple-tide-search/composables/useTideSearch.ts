@@ -84,7 +84,7 @@ export default ({
 
   const locationQuery = ref<any | null>(null)
 
-  const searchTerm = ref('')
+  const searchTerm = ref({ q: '' })
   const filterForm = ref({})
   const page = ref(1)
   const pageSize = ref(searchListingConfig.resultsPerPage || 10)
@@ -115,8 +115,25 @@ export default ({
   const firstLoad = ref(false)
 
   const getQueryClause = () => {
-    if (searchTerm.value) {
-      return processTemplate(queryConfig, '{{query}}', searchTerm.value)
+    if (searchTerm.value.q) {
+      const fns: Record<
+        string,
+        (queryValues: any, filterForm: any) => Record<string, any>
+      > = appConfig?.ripple?.search?.queryConfigFunctions || {}
+
+      if (queryConfig?.function && fns[queryConfig?.function]) {
+        const conf = fns[queryConfig?.function](
+          searchTerm.value,
+          filterForm.value
+        )
+        return processTemplate(conf, '{{query}}', searchTerm.value.q)
+      }
+
+      return processTemplate(
+        queryConfig?.config || queryConfig,
+        '{{query}}',
+        searchTerm.value.q
+      )
     }
     return [{ match_all: {} }]
   }
@@ -176,7 +193,9 @@ export default ({
             [`${currentFilter.id}`]: {
               terms: {
                 field: currentFilter.aggregations.field,
-                order: { _key: 'asc' },
+                order: {
+                  _key: currentFilter.aggregations.order || 'asc'
+                },
                 size: currentFilter.aggregations.size || 30,
                 min_doc_count: searchListingConfig?.dynamicAggregations ? 0 : 1
               }
@@ -567,7 +586,7 @@ export default ({
       {
         method: 'POST',
         body: {
-          query: searchTerm.value,
+          query: searchTerm.value.q,
           types: {
             documents: {
               fields
@@ -615,6 +634,19 @@ export default ({
   }
 
   /**
+   * Get a scoped set of query parameters
+   * i.e., custom location[] and search[] parameters
+   */
+  const getScopedQueryParams = (
+    scope: string,
+    params: { [key: string]: any }
+  ) => {
+    return Object.entries(params || {}).reduce((obj, [key, value]) => {
+      return { ...obj, [`${scope}[${key}]`]: value }
+    }, {})
+  }
+
+  /**
    * Updates the URL to trigger a new search, always returns to page 1 to avoid empty pages
    */
   const submitSearch = async () => {
@@ -650,22 +682,20 @@ export default ({
         .filter(([key, value]) => value)
     )
 
-    // flatten locationQuery into an object for adding to the query string
-    const locationParams = Object.entries(locationQuery.value || {}).reduce(
-      (obj, [key, value]) => {
-        return {
-          ...obj,
-          [`location[${key}]`]: value
-        }
-      },
-      {}
-    )
+    const locationParams = getScopedQueryParams('location', locationQuery.value)
+
+    let { q: searchQuery, ...searchParams } = searchTerm.value
+
+    if (searchParams) {
+      searchParams = getScopedQueryParams('search', searchParams)
+    }
 
     await navigateTo({
       path: route.path,
       query: {
-        q: searchTerm.value || undefined,
+        q: searchQuery || undefined,
         activeTab: activeTab.value !== initialTab ? activeTab.value : undefined,
+        ...searchParams,
         ...locationParams,
         ...filterFormValues
       }
@@ -752,24 +782,23 @@ export default ({
       }, {})
   }
 
-  const getLocationQueryFromRoute = (newRoute: RouteLocation) => {
-    const locationKeys = Object.keys(newRoute.query).filter((key) =>
-      key.startsWith('location[')
+  const getScopedQueryParamsFromRoute = (
+    scope: string,
+    newRoute: RouteLocation
+  ) => {
+    const keys = Object.keys(newRoute.query).filter((key) =>
+      key.startsWith(`${scope}[`)
     )
 
-    if (!locationKeys.length) {
-      return null
-    }
+    if (!keys.length) return null
 
-    // parse the location query from the route
-    const location = locationKeys.reduce((obj, key) => {
-      return {
+    return keys.reduce(
+      (obj, key) => ({
         ...obj,
-        [key.replace('location[', '').replace(']', '')]: newRoute.query[key]
-      }
-    }, {})
-
-    return location
+        [key.replace(`${scope}[`, '').replace(']', '')]: newRoute.query[key]
+      }),
+      {}
+    )
   }
 
   /**
@@ -789,6 +818,13 @@ export default ({
   }
 
   /**
+   * Resets the main search to its default values.
+   */
+  const resetSearch = (value = {}) => {
+    searchTerm.value = { q: '', ...value }
+  }
+
+  /**
    * The URL is the source of truth for what is shown in the search results.
    *
    * When the URL changes, the URL is parsed and the query is transformed into an elastic DSL query.
@@ -798,7 +834,14 @@ export default ({
       ? getSingleQueryStringValue(newRoute.query, 'activeTab') || initialTab
       : null
 
-    searchTerm.value = getSingleQueryStringValue(newRoute.query, 'q') || ''
+    searchTerm.value.q = getSingleQueryStringValue(newRoute.query, 'q') || ''
+
+    const searchParams = getScopedQueryParamsFromRoute('search', newRoute)
+
+    if (searchParams) {
+      searchTerm.value = { ...searchTerm.value, ...searchParams }
+    }
+
     page.value =
       parseInt(getSingleQueryStringValue(newRoute.query, 'page') || '', 10) || 1
     userSelectedSort.value =
@@ -810,7 +853,7 @@ export default ({
 
     resetFilters(routeFilters)
 
-    locationQuery.value = getLocationQueryFromRoute(newRoute)
+    locationQuery.value = getScopedQueryParamsFromRoute('location', newRoute)
 
     getSearchResults(isFirstRun)
   }
@@ -849,6 +892,7 @@ export default ({
     filterForm,
     appliedFilters,
     resetFilters,
+    resetSearch,
     submitSearch,
     goToPage,
     page,

@@ -45,6 +45,10 @@ export interface FilterConfigItem {
      * @description number of items to fetch
      */
     size?: number
+    /**
+     * @description order the items should be returned in
+     */
+    order?: number
   }
 
   /**
@@ -126,6 +130,14 @@ export type TideSearchLocationQueryConfig = {
     [key: string]: unknown
   }
   dslTransformFn?: (location: any) => any
+}
+
+export type TideSearchTermQueryConfig = {
+  component?: string
+  function?: string
+  props?: Record<string, any>
+  config?: Record<string, any>
+  [key: string]: any
 }
 
 export type TideSearchListingTab = {
@@ -228,7 +240,7 @@ export type TideSearchListingConfig = {
   /**
    * @description Elastic Query DSL for query clause
    */
-  queryConfig: Record<string, any>
+  queryConfig: TideSearchTermQueryConfig
   /**
    * @description Global filters to apply to ES Query DSL Filter clause
    */

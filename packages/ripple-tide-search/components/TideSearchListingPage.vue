@@ -127,6 +127,7 @@ const {
   filterForm,
   appliedFilters,
   resetFilters,
+  resetSearch,
   submitSearch,
   goToPage,
   page,
@@ -154,7 +155,7 @@ const baseEvent = () => ({
   contextId: props.id,
   name: props.title,
   index: page.value,
-  label: searchTerm.value,
+  label: searchTerm.value.q,
   value: totalResults.value,
   options: getActiveFilterURL(filterForm.value),
   section: 'search-listing'
@@ -244,23 +245,31 @@ const handleFilterReset = (event: rplEventPayload) => {
     { global: true }
   )
 
-  searchTerm.value = ''
+  resetSearch()
   resetFilters()
   submitSearch()
 }
 
 const handleUpdateSearchTerm = (term: string) => {
-  searchTerm.value = term
+  searchTerm.value.q = term
 
   if (
     props.autocompleteQuery &&
     props.searchListingConfig?.suggestions?.enabled !== false
   ) {
-    if (term.length >= props.autocompleteMinimumCharacters) {
+    if (term?.length >= props.autocompleteMinimumCharacters) {
       getSuggestions()
     } else if (suggestions.value?.length) {
       clearSuggestions()
     }
+  }
+}
+
+const handleUpdateSearch = (term: string | Record<string, any>) => {
+  if (term && typeof term === 'object') {
+    searchTerm.value = { ...searchTerm.value, ...term }
+  } else {
+    handleUpdateSearchTerm(term)
   }
 }
 
@@ -354,11 +363,26 @@ watch(
           v-if="!searchListingConfig?.hideSearchForm"
           class="tide-search-header"
         >
-          <RplSearchBar
+          <component
+            :is="queryConfig.component"
+            v-if="queryConfig?.component"
+            v-bind="queryConfig?.props"
             id="tide-search-bar"
             variant="default"
             :input-label="searchListingConfig?.labels?.submit"
             :inputValue="searchTerm"
+            :placeholder="searchListingConfig?.labels?.placeholder"
+            :suggestions="suggestions"
+            :global-events="false"
+            :handle-submit="handleSearchSubmit"
+            :handle-update="handleUpdateSearch"
+          />
+          <RplSearchBar
+            v-else
+            id="tide-search-bar"
+            variant="default"
+            :input-label="searchListingConfig?.labels?.submit"
+            :inputValue="searchTerm.q"
             :placeholder="searchListingConfig?.labels?.placeholder"
             :suggestions="suggestions"
             :global-events="false"

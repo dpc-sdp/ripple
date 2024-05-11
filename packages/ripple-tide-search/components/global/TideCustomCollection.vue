@@ -172,6 +172,7 @@ const {
   filterForm,
   appliedFilters,
   resetFilters,
+  resetSearch,
   submitSearch,
   goToPage,
   page,
@@ -206,7 +207,7 @@ const baseEvent = () => ({
   contextId: props.id,
   name: props.title,
   index: page.value,
-  label: searchTerm.value,
+  label: searchTerm.value.q,
   value: totalResults.value,
   options: getActiveFilterURL(filterForm.value),
   section: 'custom-collection'
@@ -324,20 +325,29 @@ const handleFilterReset = (event: rplEventPayload) => {
     { global: true }
   )
 
-  searchTerm.value = ''
   locationQuery.value = null
+  resetSearch()
   resetFilters()
   submitSearch()
   closeMapPopup()
 }
 
-const handleUpdateSearchTerm = (term) => {
-  searchTerm.value = term
+const handleUpdateSearchTerm = (term: string) => {
+  searchTerm.value.q = term
+
   if (
     props.autocompleteQuery &&
     props.searchListingConfig?.suggestions?.enabled !== false
   ) {
     getSuggestions()
+  }
+}
+
+const handleUpdateSearch = (term: string | Record<string, any>) => {
+  if (term && typeof term === 'object') {
+    searchTerm.value = { ...searchTerm.value, ...term }
+  } else {
+    handleUpdateSearchTerm(term)
   }
 }
 
@@ -458,18 +468,6 @@ const reverseFields = computed(
         'tide-search-header--light': reverseTheme && altBackground
       }"
     >
-      <RplSearchBar
-        v-if="!locationQueryConfig?.component"
-        id="custom-collection-search-bar"
-        :variant="reverseFields ? 'reverse' : 'default'"
-        :input-label="searchListingConfig.labels?.submit"
-        :inputValue="searchTerm"
-        :placeholder="searchListingConfig.labels?.placeholder"
-        :global-events="false"
-        @submit="handleSearchSubmit"
-        @update:input-value="handleUpdateSearchTerm"
-      />
-
       <component
         :is="locationQueryConfig?.component"
         v-if="locationQueryConfig?.component"
@@ -479,6 +477,30 @@ const reverseFields = computed(
         :inputValue="locationQuery"
         :resultsloaded="mapFeatures.length > 0"
         @update="handleLocationSearch"
+      />
+      <component
+        :is="queryConfig.component"
+        v-else-if="queryConfig?.component"
+        v-bind="queryConfig?.props"
+        id="custom-collection-search-bar"
+        :variant="reverseFields ? 'reverse' : 'default'"
+        :input-label="searchListingConfig?.labels?.submit"
+        :inputValue="searchTerm"
+        :placeholder="searchListingConfig?.labels?.placeholder"
+        :global-events="false"
+        :handle-submit="handleSearchSubmit"
+        :handle-update="handleUpdateSearch"
+      />
+      <RplSearchBar
+        v-else
+        id="custom-collection-search-bar"
+        :variant="reverseFields ? 'reverse' : 'default'"
+        :input-label="searchListingConfig.labels?.submit"
+        :inputValue="searchTerm.q"
+        :placeholder="searchListingConfig.labels?.placeholder"
+        :global-events="false"
+        @submit="handleSearchSubmit"
+        @update:input-value="handleUpdateSearchTerm"
       />
 
       <RplSearchBarRefine

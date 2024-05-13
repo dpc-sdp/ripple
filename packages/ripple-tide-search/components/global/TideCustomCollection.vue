@@ -10,7 +10,6 @@ import type {
 import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
 import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
 import { get } from 'lodash-es'
-import { useMapDeadSpace } from '@dpc-sdp/ripple-ui-maps'
 
 interface Props {
   id: string

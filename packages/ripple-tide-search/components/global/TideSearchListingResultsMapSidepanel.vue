@@ -63,7 +63,6 @@ import { get } from 'lodash-es'
 import { fromLonLat, transformExtent } from 'ol/proj'
 import { Extent } from 'ol/extent'
 import { scrollToElementTopWithOffset } from '#imports'
-import { fitExtent, fitVictoria } from '@dpc-sdp/ripple-ui-maps'
 
 interface Props {
   variant: 'mobile' | 'desktop'

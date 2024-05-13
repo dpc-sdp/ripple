@@ -148,25 +148,24 @@ const handleIncrement = () => {
           size="s"
         />
       </button>
-      <label class="rpl-form__input-wrap">
-        <input
-          :id="id"
-          type="number"
-          :value="value"
-          class="rpl-u-focusable-outline"
-          :disabled="disabled"
-          :required="required"
-          :aria-required="required"
-          :aria-invalid="invalid"
-          v-bind="$attrs"
-          :name="name"
-          :min="min"
-          :max="max"
-          @blur="onBlur"
-          @input="onInput"
-          @change="handleChange"
-          @focus=";($event.target as HTMLInputElement).select()"
-      /></label>
+      <input
+        :id="id"
+        type="number"
+        :value="value"
+        class="rpl-u-focusable-outline"
+        :disabled="disabled"
+        :required="required"
+        :aria-required="required"
+        :aria-invalid="invalid"
+        v-bind="$attrs"
+        :name="name"
+        :min="min"
+        :max="max"
+        @blur="onBlur"
+        @input="onInput"
+        @change="handleChange"
+        @focus=";($event.target as HTMLInputElement).select()"
+      />
       <button
         v-if="props.mode"
         class="rpl-form__input-inc rpl-u-focusable-outline"
@@ -193,8 +192,7 @@ const handleIncrement = () => {
   }
 
   input[type='number'] {
-    padding-left: 5.6rem;
-    padding-right: 5.6rem;
+    height: 5.6rem;
     text-align: center;
     color: var(--rpl-clr-type-default);
     padding: var(--rpl-sp-3)

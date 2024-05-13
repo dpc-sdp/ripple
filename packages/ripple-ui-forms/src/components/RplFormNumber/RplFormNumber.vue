@@ -8,7 +8,6 @@ export default {
 import { computed, inject, ref, watch } from 'vue'
 import { useDebounceFn } from '@vueuse/core'
 // @ts-expect-error vue SFC
-import { RplIcon } from '@dpc-sdp/ripple-ui-core/vue'
 import useFormkitFriendlyEventEmitter from '../../composables/useFormkitFriendlyEventEmitter.js'
 import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
 import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'

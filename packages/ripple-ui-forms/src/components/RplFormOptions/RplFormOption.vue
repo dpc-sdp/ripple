@@ -6,7 +6,6 @@ export default {
 
 <script setup lang="ts">
 import { computed, inject } from 'vue'
-import { RplIcon } from '@dpc-sdp/ripple-ui-core/vue'
 import useFormkitFriendlyEventEmitter from '../../composables/useFormkitFriendlyEventEmitter'
 import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
 import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'

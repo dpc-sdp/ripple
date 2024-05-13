@@ -8,6 +8,7 @@
       :placeholder="placeholder"
       :suggestions="suggestions"
       :global-events="globalEvents"
+      :show-clear-button="false"
       @submit="handleSubmit"
       @update:input-value="handleUpdate"
     >
@@ -77,10 +78,6 @@ const handleChange = (value: string) => props.handleUpdate({ queryType: value })
       display: flex;
       align-items: center;
     }
-  }
-
-  .rpl-search-bar__clear {
-    display: none;
   }
 
   .rpl-form-dropdown {

@@ -31,6 +31,7 @@ interface Props {
   isOptionSelectable?: Function
   showLabel?: boolean
   isFreeText?: boolean
+  showClearButton?: boolean
   submitOnClear?: boolean
 }
 
@@ -51,6 +52,7 @@ const props = withDefaults(defineProps<Props>(), {
   isOptionSelectable: (opt) => true,
   showLabel: false,
   isFreeText: true,
+  showClearButton: true,
   submitOnClear: false
 })
 
@@ -323,10 +325,7 @@ const slug = (label: string) => {
       @keydown.exact.tab="handleClose(false)"
       @keydown.shift.tab="handleClose(false)"
     >
-      <div
-        ref="containerRef"
-        class="rpl-search-bar__input-wrap"
-      >
+      <div ref="containerRef" class="rpl-search-bar__input-wrap">
         <div
           v-if="!isFreeText && inputValue && !isInputFocused && !isOpen"
           tabindex="0"
@@ -360,7 +359,7 @@ const slug = (label: string) => {
       <slot name="afterInput"></slot>
       <div class="rpl-search-bar__right">
         <button
-          v-if="internalValue || inputValue"
+          v-if="showClearButton && (internalValue || inputValue)"
           type="button"
           aria-label="Clear search"
           class="rpl-search-bar__clear rpl-u-focusable-inline"
@@ -376,7 +375,7 @@ const slug = (label: string) => {
           <span
             v-if="submitLabel"
             class="rpl-search-bar-submit__label rpl-type-label rpl-type-weight-bold"
-          >{{ submitLabel }}</span
+            >{{ submitLabel }}</span
           >
           <span class="rpl-search-bar-submit__icon">
             <RplIcon name="icon-search" size="m" />
@@ -386,11 +385,8 @@ const slug = (label: string) => {
 
       <template
         v-if="
-            showNoResults &&
-            suggestions.length === 0 &&
-            !!internalValue &&
-            isOpen
-          "
+          showNoResults && suggestions.length === 0 && !!internalValue && isOpen
+        "
       >
         <slot name="noresults">
           <div class="rpl-search-bar__menu">
@@ -414,22 +410,22 @@ const slug = (label: string) => {
           :data-option-id="getOptionId(option)"
           :role="isOptionSelectable(option) ? 'option' : null"
           :class="{
-              'rpl-search-bar__menu-option': true,
-              'rpl-u-focusable-block': true,
-              'rpl-u-focusable--force-on': isMenuItemKeyboardFocused(
-                getOptionId(option)
-              )
-            }"
+            'rpl-search-bar__menu-option': true,
+            'rpl-u-focusable-block': true,
+            'rpl-u-focusable--force-on': isMenuItemKeyboardFocused(
+              getOptionId(option)
+            )
+          }"
           tabindex="-1"
           @keydown.space.prevent="
-              isOptionSelectable(option) && handleSelectOption(option, true)
-            "
+            isOptionSelectable(option) && handleSelectOption(option, true)
+          "
           @keydown.enter.prevent="
-              isOptionSelectable(option) && handleSelectOption(option, true)
-            "
+            isOptionSelectable(option) && handleSelectOption(option, true)
+          "
           @click="
-              isOptionSelectable(option) && handleSelectOption(option, false)
-            "
+            isOptionSelectable(option) && handleSelectOption(option, false)
+          "
           @keydown="isOptionSelectable(option) && handleKeydown"
         >
           <slot name="suggestion" :option="{ option }">

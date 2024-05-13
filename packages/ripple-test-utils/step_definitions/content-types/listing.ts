@@ -1,4 +1,5 @@
 import { Then, When, DataTable } from '@badeball/cypress-cucumber-preprocessor'
+import { set } from 'lodash-es'
 
 Then(
   'the search listing page should have {int} results',
@@ -349,6 +350,12 @@ Then('the search form should be hidden', () => {
   cy.get(`.tide-search-header`).should('not.exist')
 })
 
+Then('only the search filters should be visible', () => {
+  cy.get(`.tide-search-header .rpl-search-bar`).should('not.exist')
+  cy.get(`.tide-search-header .rpl-search-bar-refine`).should('not.exist')
+  cy.get(`#tide-search-filter-form`).should('exist')
+})
+
 Then(
   `the search suggestions displayed should include`,
   (dataTable: DataTable) => {
@@ -382,3 +389,14 @@ Then('the search suggestions should not be displayed', () => {
 Then('a custom component should be rendered below the filter', () => {
   cy.get('[data-cy="below-filter-component"]').should('be.visible')
 })
+
+Then(
+  'the search listing config has {string} set to {string}',
+  (key: string, value: string | boolean) => {
+    cy.get('@pageFixture').then((response) => {
+      if (value === 'true') value = true
+      if (value === 'false') value = false
+      set(response, `config.searchListingConfig.${key}`, value)
+    })
+  }
+)

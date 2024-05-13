@@ -53,6 +53,7 @@ const props = withDefaults(defineProps<Props>(), {
   }),
   searchListingConfig: () => ({
     searchProvider: 'app-search',
+    hideSearchForm: false,
     resultsPerPage: 9,
     labels: {
       submit: 'Submit',
@@ -65,7 +66,8 @@ const props = withDefaults(defineProps<Props>(), {
       enabled: false
     },
     formTheme: 'default',
-    showFiltersOnLoad: false
+    showFiltersOnLoad: false,
+    showFiltersOnly: false
   }),
   tabs: () => [
     {
@@ -161,7 +163,10 @@ const mapResultsMappingFn = (result) => {
   }
 }
 
-const filtersExpanded = ref(props.searchListingConfig?.showFiltersOnLoad)
+const filtersExpanded = ref(
+  props.searchListingConfig?.showFiltersOnLoad ||
+    props.searchListingConfig?.showFiltersOnly
+)
 
 const {
   isBusy,
@@ -461,6 +466,7 @@ const reverseFields = computed(
 <template>
   <div class="rpl-u-margin-t-8">
     <div
+      v-if="!searchListingConfig?.hideSearchForm"
       :class="{
         'tide-search-header': true,
         'tide-search-header--inset': reverseTheme,
@@ -468,43 +474,49 @@ const reverseFields = computed(
         'tide-search-header--light': reverseTheme && altBackground
       }"
     >
-      <component
-        :is="locationQueryConfig?.component"
-        v-if="locationQueryConfig?.component"
-        v-bind="locationQueryConfig?.props"
-        :label="searchListingConfig.labels?.submit"
-        :placeholder="searchListingConfig.labels?.placeholder"
-        :inputValue="locationQuery"
-        :resultsloaded="mapFeatures.length > 0"
-        @update="handleLocationSearch"
-      />
-      <component
-        :is="queryConfig.component"
-        v-else-if="queryConfig?.component"
-        v-bind="queryConfig?.props"
-        id="custom-collection-search-bar"
-        :variant="reverseFields ? 'reverse' : 'default'"
-        :input-label="searchListingConfig?.labels?.submit"
-        :inputValue="searchTerm"
-        :placeholder="searchListingConfig?.labels?.placeholder"
-        :global-events="false"
-        :handle-submit="handleSearchSubmit"
-        :handle-update="handleUpdateSearch"
-      />
-      <RplSearchBar
-        v-else
-        id="custom-collection-search-bar"
-        :variant="reverseFields ? 'reverse' : 'default'"
-        :input-label="searchListingConfig.labels?.submit"
-        :inputValue="searchTerm.q"
-        :placeholder="searchListingConfig.labels?.placeholder"
-        :global-events="false"
-        @submit="handleSearchSubmit"
-        @update:input-value="handleUpdateSearchTerm"
-      />
+      <template v-if="!searchListingConfig?.showFiltersOnly">
+        <component
+          :is="locationQueryConfig?.component"
+          v-if="locationQueryConfig?.component"
+          v-bind="locationQueryConfig?.props"
+          :label="searchListingConfig.labels?.submit"
+          :placeholder="searchListingConfig.labels?.placeholder"
+          :inputValue="locationQuery"
+          :resultsloaded="mapFeatures.length > 0"
+          @update="handleLocationSearch"
+        />
+        <component
+          :is="queryConfig.component"
+          v-else-if="queryConfig?.component"
+          v-bind="queryConfig?.props"
+          id="custom-collection-search-bar"
+          :variant="reverseFields ? 'reverse' : 'default'"
+          :input-label="searchListingConfig?.labels?.submit"
+          :inputValue="searchTerm"
+          :placeholder="searchListingConfig?.labels?.placeholder"
+          :global-events="false"
+          :handle-submit="handleSearchSubmit"
+          :handle-update="handleUpdateSearch"
+        />
+        <RplSearchBar
+          v-else
+          id="custom-collection-search-bar"
+          :variant="reverseFields ? 'reverse' : 'default'"
+          :input-label="searchListingConfig.labels?.submit"
+          :inputValue="searchTerm.q"
+          :placeholder="searchListingConfig.labels?.placeholder"
+          :global-events="false"
+          @submit="handleSearchSubmit"
+          @update:input-value="handleUpdateSearchTerm"
+        />
+      </template>
 
       <RplSearchBarRefine
-        v-if="userFilters && userFilters.length > 0"
+        v-if="
+          !searchListingConfig?.showFiltersOnly &&
+          userFilters &&
+          userFilters.length > 0
+        "
         class="tide-search-refine-btn"
         :expanded="filtersExpanded"
         @click="handleToggleFilters"

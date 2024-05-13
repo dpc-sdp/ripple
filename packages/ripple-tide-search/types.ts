@@ -232,6 +232,10 @@ export type TideSearchListingConfig = {
      * @description Filter panel open on page load
      */
     showFiltersOnLoad: boolean
+    /**
+     * @description optionally display only the filters
+     */
+    showFiltersOnly?: boolean
   }
   /**
    * @description Tabs to display, key needs to be one of TideSearchListingTabKey

@@ -1,8 +1,8 @@
 import { getBody, TidePageApi } from '@dpc-sdp/ripple-tide-api'
 import { FormKitSchemaNode } from '@formkit/core'
-import { getInputIcons, getValidationAndConditionals } from './webform-utils.js'
+import { getInputIcons, getValidationAndConditionals } from './webform-utils'
 import { getAdvancedAddressMapping } from './webforms-address'
-import type { TideWebformElement, ApiWebForm } from './../types.js'
+import type { TideWebformElement, ApiWebForm } from './../types'
 
 export const getFormSchemaFromMapping = async (
   webform: ApiWebForm,

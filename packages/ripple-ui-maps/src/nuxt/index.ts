@@ -26,7 +26,7 @@ export default <any>defineNuxtModule({
     addImportsDir(resolve('./runtime/utils'))
 
     addPlugin({
-      src: resolve('./runtime/plugin.js'),
+      src: resolve('./runtime/plugin.ts'),
       mode: 'client'
     })
     // Adds Ripple UI Maps global styles

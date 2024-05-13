@@ -17,8 +17,8 @@
   "exports": {
     ".": "./dist/index.js",
     "./vue": "./dist/rpl-lib.es.js",
-    "./nuxt": "./dist/nuxt/index.js",
-    "./plugin": "./dist/plugins/register.js",
+    "./nuxt": "./src/nuxt/index.ts",
+    "./plugin": "./src/plugins/register.ts",
     "./style": "./dist/global.css",
     "./style/breakpoints": "./src/styles/_breakpoints.css",
     "./style/components": "./dist/style.css"

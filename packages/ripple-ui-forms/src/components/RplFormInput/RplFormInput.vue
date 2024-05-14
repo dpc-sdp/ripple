@@ -7,7 +7,6 @@ export default {
 <script setup lang="ts">
 import { computed, inject } from 'vue'
 import { useDebounceFn } from '@vueuse/core'
-import { RplIcon } from '@dpc-sdp/ripple-ui-core/vue'
 import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
 import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
 import { sanitisePIIField } from '../../lib/sanitisePII'

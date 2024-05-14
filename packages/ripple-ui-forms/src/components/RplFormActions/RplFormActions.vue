@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { RplButton } from '@dpc-sdp/ripple-ui-core/vue'
 import { reset } from '@formkit/vue'
 import { computed, inject } from 'vue'
 import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'

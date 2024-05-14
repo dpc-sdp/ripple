@@ -21,7 +21,7 @@ export const SingleTemplate = (args) => ({
       }"
     >
       <template #belowForm="{ value }">
-        <div class="rpl-storybook-form-values">
+        <div class="rpl-storybook-form-values rpl-u-margin-t-6">
           <h2 class="rpl-type-h4">Internal form values</h2>
           <pre wrap>{{ value }}</pre>
         </div>
@@ -45,7 +45,7 @@ export const SlotTemplate = (args) => ({
       }"
     />
     <template #belowForm="{ value }">
-      <div class="rpl-storybook-form-values">
+      <div v-if="Object.values(value).filter(Boolean).length" class="rpl-storybook-form-values rpl-u-margin-t-6">
         <h2 class="rpl-type-h4">Internal form values</h2>
         <pre wrap>{{ value }}</pre>
       </div>

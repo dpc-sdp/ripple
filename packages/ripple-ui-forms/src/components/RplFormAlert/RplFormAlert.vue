@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import { RplIcon, RplTextLink } from '@dpc-sdp/ripple-ui-core/vue'
 import { useMediaQuery } from '@vueuse/core'
 
 interface Props {

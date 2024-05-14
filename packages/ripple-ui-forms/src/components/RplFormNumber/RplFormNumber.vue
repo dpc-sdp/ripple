@@ -187,12 +187,14 @@ const handleIncrement = () => {
 
 <style>
 .rpl-form__input--type-number-alt {
+  --local-button-dimension: var(--rpl-sp-11);
+
   .rpl-form__input-icon {
     color: var(--rpl-clr-link);
   }
 
   input[type='number'] {
-    height: 5.6rem;
+    height: var(--local-button-dimension);
     text-align: center;
     color: var(--rpl-clr-type-default);
     padding: var(--rpl-sp-3)
@@ -219,8 +221,8 @@ const handleIncrement = () => {
   .rpl-form__input-dec {
     border: 1px solid var(--rpl-clr-neutral-600);
     cursor: pointer;
-    height: 5.6rem;
-    width: 5.6rem;
+    height: var(--local-button-dimension);
+    width: var(--local-button-dimension);
     padding: var(--rpl-sp-3) var(--rpl-sp-5);
     display: flex;
     z-index: 1;
@@ -236,12 +238,12 @@ const handleIncrement = () => {
 
   .rpl-form__input-inc {
     border-radius: 0 var(--rpl-border-radius-2) var(--rpl-border-radius-2) 0;
-    margin-left: -5.6rem;
+    margin-left: calc(-1 * var(--local-button-dimension));
   }
 
   .rpl-form__input-dec {
     border-radius: var(--rpl-border-radius-2) 0 0 var(--rpl-border-radius-2);
-    margin-right: -5.6rem;
+    margin-right: calc(-1 * var(--local-button-dimension));
   }
 
   .rpl-form__input-wrap {

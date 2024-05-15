@@ -35,6 +35,18 @@ export default (hasSidepanel, popupType, popup) => {
 
   const deadSpace = computed(() => {
     if (isMobile.value) {
+      // On mobile the infobox has a special design that shows a little bit of the map above it.
+      if (hasInfoboxPopup.value && !hasSidepanel) {
+        const mobileInfoboxHeight = 350
+
+        return {
+          left: 0,
+          right: 0,
+          bottom: mobileInfoboxHeight,
+          top: 0
+        }
+      }
+
       return {
         left: 0,
         right: 0,

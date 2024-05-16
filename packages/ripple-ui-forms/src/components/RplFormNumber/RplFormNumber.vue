@@ -264,6 +264,13 @@ const handleIncrement = () => {
   .rpl-form__input-wrap {
     width: 100%;
   }
+
+  .rpl-form__input-wrap:has(input[type='number']:focus) {
+    .rpl-form__input-dec,
+    .rpl-form__input-inc {
+      border-color: var(--rpl-clr-dark);
+    }
+  }
 }
 
 [data-invalid='true'] .rpl-form__input--type-number-alt {
@@ -274,6 +281,17 @@ const handleIncrement = () => {
 
     &:hover {
       border-color: var(--rpl-clr-error-dark);
+    }
+  }
+
+  .rpl-form__input-wrap:has(input[type='number']:focus) {
+    .rpl-form__input-dec,
+    .rpl-form__input-inc {
+      border-color: var(--rpl-clr-error-dark);
+
+      &:hover {
+        border-color: var(--rpl-clr-error-dark);
+      }
     }
   }
 }

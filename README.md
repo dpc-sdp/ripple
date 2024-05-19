@@ -55,7 +55,7 @@ We use custom rules for [ESLint](https://github.com/dpc-sdp/ripple-framework/blo
 
 ### Usage
 
-Ripple was built as a whole to implement front end sites for SDP using a framework of Vue 3 and Nuxt 3, but parts of the modular architecture can be used independently: `ripple-ui-core` and `ripple-ui-forms` can be used as UI component libraries for any Vue 3 project.
+Ripple was built as a whole to implement front end sites for SDP using a framework of Vue 3 and Nuxt 3, but parts of the modular architecture can be used independently: `ripple-ui-core` can be used as UI component libraries for any Vue 3 project.
 
 There is also an experimental web components implementation, and a standalone export of all Ripple design system CSS. See the [relevant section](https://ripple.sdp.vic.gov.au/design-system/develop/usage/) on the Ripple documentation site for more details.
 

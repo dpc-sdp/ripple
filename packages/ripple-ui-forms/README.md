@@ -70,14 +70,4 @@ There is no need to import the components as they will be registered globally by
 
 ## Usage (Vue)
 
-To use a component, import it from `@dpc-sdp/ripple-ui-forms/vue`, note the addition of `/vue`.
-
-```vue
-<script setup>
-  import { RplFormInput } from '@dpc-sdp/ripple-ui-forms/vue';
-</script>
-
-<template>
-  <RplFormInput id="name" name="name" type="text" />
-</template>
-```
+Usage in a Vue app is unfortunately not currently possible, we hope to support this in the future.

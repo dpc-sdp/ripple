@@ -7,7 +7,6 @@ export default {
 <script setup lang="ts">
 import { computed, inject, ref, watch } from 'vue'
 import { useDebounceFn } from '@vueuse/core'
-// @ts-expect-error vue SFC
 import useFormkitFriendlyEventEmitter from '../../composables/useFormkitFriendlyEventEmitter.js'
 import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
 import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
@@ -186,18 +185,28 @@ const handleIncrement = () => {
 
 <style>
 .rpl-form__input--type-number-alt {
-  --local-button-dimension: var(--rpl-sp-11);
+  --local-button-height: var(--rpl-sp-10);
+  --local-button-width: var(--rpl-sp-11);
 
   .rpl-form__input-icon {
     color: var(--rpl-clr-link);
   }
 
   input[type='number'] {
-    height: var(--local-button-dimension);
+    border-radius: var(--rpl-border-radius-2);
+    height: var(--local-button-height);
     text-align: center;
     color: var(--rpl-clr-type-default);
-    padding: var(--rpl-sp-3)
-      calc(var(--rpl-sp-5) * 2 + var(--rpl-sp-4) + var(--rpl-sp-3)); /* pad + icon + margin  */
+    padding: var(--rpl-sp-3) calc(var(--local-button-width) + var(--rpl-sp-5)); /* icon + margin  */
+
+    &:focus {
+      border-radius: 0;
+    }
+
+    &:hover,
+    &:focus {
+      border-color: var(--rpl-clr-dark);
+    }
   }
 
   input[type='number']::-webkit-inner-spin-button,
@@ -218,15 +227,20 @@ const handleIncrement = () => {
 
   .rpl-form__input-inc,
   .rpl-form__input-dec {
-    border: 1px solid var(--rpl-clr-neutral-600);
+    border: 1px solid transparent;
     cursor: pointer;
-    height: var(--local-button-dimension);
-    width: var(--local-button-dimension);
-    padding: var(--rpl-sp-3) var(--rpl-sp-5);
+    height: var(--local-button-height);
+    width: var(--local-button-width);
+    padding: var(--rpl-sp-4) var(--rpl-sp-5);
     display: flex;
     z-index: 1;
 
-    &:hover {
+    &:focus {
+      border-radius: 0;
+    }
+
+    &:hover,
+    &:focus {
       border-color: var(--rpl-clr-dark);
     }
 
@@ -237,21 +251,48 @@ const handleIncrement = () => {
 
   .rpl-form__input-inc {
     border-radius: 0 var(--rpl-border-radius-2) var(--rpl-border-radius-2) 0;
-    margin-left: calc(-1 * var(--local-button-dimension));
+    border-left-color: var(--rpl-clr-neutral-600);
+    margin-left: calc(-1 * var(--local-button-width));
   }
 
   .rpl-form__input-dec {
     border-radius: var(--rpl-border-radius-2) 0 0 var(--rpl-border-radius-2);
-    margin-right: calc(-1 * var(--local-button-dimension));
+    border-right-color: var(--rpl-clr-neutral-600);
+    margin-right: calc(-1 * var(--local-button-width));
   }
 
   .rpl-form__input-wrap {
     width: 100%;
   }
+
+  .rpl-form__input-wrap:has(input[type='number']:focus) {
+    .rpl-form__input-dec,
+    .rpl-form__input-inc {
+      border-color: var(--rpl-clr-dark);
+    }
+  }
 }
 
-[data-invalid='true'] .rpl-form__input-dec,
-[data-invalid='true'] .rpl-form__input-inc {
-  border-color: var(--rpl-clr-error);
+[data-invalid='true'] .rpl-form__input--type-number-alt {
+  input[type='number'],
+  .rpl-form__input-dec,
+  .rpl-form__input-inc {
+    border-color: var(--rpl-clr-error);
+
+    &:hover {
+      border-color: var(--rpl-clr-error-dark);
+    }
+  }
+
+  .rpl-form__input-wrap:has(input[type='number']:focus) {
+    .rpl-form__input-dec,
+    .rpl-form__input-inc {
+      border-color: var(--rpl-clr-error-dark);
+
+      &:hover {
+        border-color: var(--rpl-clr-error-dark);
+      }
+    }
+  }
 }
 </style>

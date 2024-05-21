@@ -9,7 +9,7 @@ function defineNitroPlugin(def: NitroAppPlugin): NitroAppPlugin {
 export default defineNitroPlugin(async (NitroApp) => {
   NitroApp.hooks.hook('error', (error, { event }) => {
     if (event && (error as any).statusCode === 404) {
-      // 404 responses are cached for 30s by reverse proxy to avoid load on origin, browsers should not cache and must revalidate
+      // 404 responses are cached for 5s by reverse proxy to avoid load on origin, browsers should not cache
       setHeader(
         event,
         'cache-control',

@@ -30,7 +30,7 @@ const url = computed(() => `${$app_origin}${route?.path}`)
 const { socialShare: flags }: IRplFeatureFlags = inject('featureFlags', {})
 
 const activeNetworks = computed(() => {
-  let items = props.networks.filter(
+  const items = props.networks?.filter(
     (item: any) => flags?.[item as keyof TideSocialShare] ?? true
   )
   if (flags?.WhatsApp) {

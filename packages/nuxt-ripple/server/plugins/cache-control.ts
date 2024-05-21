@@ -13,7 +13,7 @@ export default defineNitroPlugin(async (NitroApp) => {
       setHeader(
         event,
         'cache-control',
-        'public,max-age=0,s-maxage=30,must-revalidate'
+        'public, proxy-revalidate, s-maxage=5, max-age=0'
       )
     }
     if (event && (error as any).statusCode === 500) {

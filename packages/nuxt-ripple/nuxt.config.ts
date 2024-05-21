@@ -47,9 +47,16 @@ export default defineNuxtConfig({
   },
   nitro: {
     routeRules: {
-      '/_nuxt/**': {
+      // Allow images and css to be cached in the browser (max-age) as long as
+      // in varnish (s-maxage).
+      '/_nuxt/**/*.{css,png,jpg,svg}': {
         headers: {
           'cache-control': `public,max-age=${assetCacheTime},s-maxage=${assetCacheTime}`
+        }
+      },
+      '/_nuxt/**': {
+        headers: {
+          'cache-control': `public,max-age=30,s-maxage=${assetCacheTime}`
         }
       }
     }

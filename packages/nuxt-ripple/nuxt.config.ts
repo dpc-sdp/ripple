@@ -47,10 +47,16 @@ export default defineNuxtConfig({
   },
   nitro: {
     routeRules: {
+      '**': {
+        headers: {
+          // rendered html pages should be cached by the browser for 30s and by reverse proxies for 15min. Always revalidate
+          'cache-control': `public,max-age=30,s-maxage=900,must-revalidate`
+        }
+      },
       '/_nuxt/**': {
         headers: {
-          // assets should be cached by the browser for a day. Reverse proxies should cache for a year and serve stale for long time if origin is returning
-          'cache-control': `public,max-age=${assetCacheTime},s-maxage=${assetCacheTime}`
+          // assets should be cached by the browser for a day and reverse proxies for a year
+          'cache-control': `public,max-age=86400,s-maxage=31536000`
         }
       }
     }

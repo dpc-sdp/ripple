@@ -83,6 +83,48 @@ export const zoomToClusterExtent = (
   })
 }
 
+/**
+ * Find the distance we need to move from the center of the map to account for the
+ * dead space taken up by the sidepanel/sidebars/popups etc. The purpose of this function
+ * is to calculate the offset needed to center the map on a specific point, inside the
+ * available space on the map.
+ *
+ * Note that in OpenLayers, the x-axis is positive to the right and the y-axis is positive
+ * downwards.
+ */
+const getCenterPointDelta = (
+  mapWidth: number,
+  mapHeight: number,
+  _deadSpace?: MapDeadSpace
+): [number, number] => {
+  const defaultDeadSpace = {
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0
+  }
+
+  const deadSpace = {
+    ...defaultDeadSpace,
+    ...(_deadSpace || {})
+  }
+
+  const mapCenterX = mapWidth / 2
+  const mapCenterY = mapHeight / 2
+
+  const availableWidth = mapWidth - deadSpace.left - deadSpace.right
+  const availableHeight = mapHeight - deadSpace.top - deadSpace.bottom
+
+  const newCenterX = deadSpace.left + availableWidth / 2
+  const newCenterY = deadSpace.top + availableHeight / 2
+
+  // Get the difference between the current center and the new center
+  const deltaX = mapCenterX - newCenterX
+  const deltaY = newCenterY - mapCenterY
+
+  return [deltaX, deltaY]
+}
+
 export const centerMap = (
   map,
   position = [0, 0],
@@ -97,16 +139,18 @@ export const centerMap = (
   // Figure out offset based on the amount of space taken up by the sidepanel/sidebar
   const mapSize = map.getSize()
   const mapWidth = mapSize ? mapSize[0] : 0
-  const leftDeadSpace = deadSpace?.left || 0
-  const remaingingSpaceStart = mapWidth / 2 - leftDeadSpace
-  const remaingingSpaceWidth = mapWidth - leftDeadSpace
-  const xOffset = leftDeadSpace
-    ? remaingingSpaceStart - remaingingSpaceWidth / 2
-    : 0
+  const mapHeight = mapSize ? mapSize[0] : 0
 
-  const yOffset = popupType === 'popover' ? -100 : 0
+  const delta = getCenterPointDelta(mapWidth, mapHeight, deadSpace)
 
-  const offset = { x: xOffset, y: yOffset }
+  // If the popup is a popover, we need to adjust the y-axis to account for the
+  // desired design of the popover.
+  const yCorrection = popupType === 'popover' ? -100 : 0
+
+  const offset = {
+    x: delta[0],
+    y: delta[1] + yCorrection
+  }
 
   const view = map.getView()
   const resolution = view.getResolution()

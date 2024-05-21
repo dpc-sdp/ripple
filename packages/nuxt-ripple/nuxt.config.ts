@@ -2,7 +2,6 @@ import { defineNuxtConfig } from 'nuxt/config'
 import { createResolver } from '@nuxt/kit'
 
 const { resolve } = createResolver(import.meta.url)
-const assetCacheTime = 31536000 // 1 year
 
 export default defineNuxtConfig({
   runtimeConfig: {
@@ -47,9 +46,16 @@ export default defineNuxtConfig({
   },
   nitro: {
     routeRules: {
+      '**': {
+        headers: {
+          // rendered html pages should be cached by the browser for 30s and by reverse proxies for 15min. Always revalidate
+          'cache-control': `public,max-age=30,s-maxage=900,must-revalidate`
+        }
+      },
       '/_nuxt/**': {
         headers: {
-          'cache-control': `public,max-age=${assetCacheTime},s-maxage=${assetCacheTime}`
+          // assets should be cached by the browser for a day and reverse proxies for a year
+          'cache-control': `public,max-age=86400,s-maxage=31536000`
         }
       }
     }

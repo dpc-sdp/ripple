@@ -1,5 +1,75 @@
 # Changelog
 
+## v2.9.0...release/v2.10.0
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.9.0...release/v2.10.0)
+
+
+### 🚀 Enhancements
+
+  - ✨  spin off new layer pkg ([641e6969b](https://github.com/dpc-sdp/ripple-framework/commit/641e6969b))
+  - **@dpc-sdp/ripple-ui-core:** Add toggle levels for vertical nav ([128cdb548](https://github.com/dpc-sdp/ripple-framework/commit/128cdb548))
+  - **@dpc-sdp/ripple-tide-webform:** ✨  expose cacheable webform schema ([c77bc8d9f](https://github.com/dpc-sdp/ripple-framework/commit/c77bc8d9f))
+  - **@dpc-sdp/ripple-ui-forms:** Remove ripple-ui-core/vue imports ([0e5dc7c50](https://github.com/dpc-sdp/ripple-framework/commit/0e5dc7c50))
+  - **@dpc-sdp/ripple-ui-maps:** Changed the design of the 'infobox' popup on small screens ([e3a28933c](https://github.com/dpc-sdp/ripple-framework/commit/e3a28933c))
+  - **@dpc-sdp/nuxt-ripple:** Make sure topic/tags have a name ([22f8e7957](https://github.com/dpc-sdp/ripple-framework/commit/22f8e7957))
+  - **@dpc-sdp/ripple-tide-search:** Add search listings to site search ([69d00220e](https://github.com/dpc-sdp/ripple-framework/commit/69d00220e))
+
+### 🔥 Performance
+
+  - **nuxt-ripple:** 🚨  fix linter, ts ([3ca6fbf1b](https://github.com/dpc-sdp/ripple-framework/commit/3ca6fbf1b))
+  - **@dpc-sdp/ripple-ui-forms:** 🎨  add type and focusable class ([3bff8fad3](https://github.com/dpc-sdp/ripple-framework/commit/3bff8fad3))
+  - **@dpc-sdp/ripple-ui-core:** ⚡️  use local var ([c08fbebfb](https://github.com/dpc-sdp/ripple-framework/commit/c08fbebfb))
+  - **@dpc-sdp/nuxt-ripple:** ⚡️  allow for whatsapp only case ([70b36b902](https://github.com/dpc-sdp/ripple-framework/commit/70b36b902))
+
+### 🩹 Fixes
+
+  - **@dpc-sdp/ripple-ui-core:** Make only button clickable ([e036fb3ab](https://github.com/dpc-sdp/ripple-framework/commit/e036fb3ab))
+  - **@dpc-sdp/nuxt-ripple:** Fix console error on every route change ([0fc10cb46](https://github.com/dpc-sdp/ripple-framework/commit/0fc10cb46))
+  - **@dpc-sdp/nuxt-ripple:** Use nuxt route instead of vue-router's ([fab3b66f2](https://github.com/dpc-sdp/ripple-framework/commit/fab3b66f2))
+  - **@dpc-sdp/ripple-tide-webform:** ⏪️  fix merge regression ([31a1b4fd6](https://github.com/dpc-sdp/ripple-framework/commit/31a1b4fd6))
+  - **@dpc-sdp/ripple-tide-search:** Fix search listing dropdowns ([9d0b0bde8](https://github.com/dpc-sdp/ripple-framework/commit/9d0b0bde8))
+  - **@dpc-sdp/ripple-tide-webform:** 🐛  use ts target ([93e374196](https://github.com/dpc-sdp/ripple-framework/commit/93e374196))
+  - **@dpc-sdp/ripple-tide-search:** Removed imports for maps utils ([b2ac6488f](https://github.com/dpc-sdp/ripple-framework/commit/b2ac6488f))
+  - **@dpc-sdp/ripple-ui-maps:** Bring ui-maps into alignment with ui-core for nuxt imports ([730888c1c](https://github.com/dpc-sdp/ripple-framework/commit/730888c1c))
+  - **@dpc-sdp/ripple-tide-grant:** Use link function for resolving grant cta links ([ab8f098c6](https://github.com/dpc-sdp/ripple-framework/commit/ab8f098c6))
+  - **@dpc-sdp/nuxt-ripple:** 🐛  [DDS-1878] add cache headers on error response ([815246871](https://github.com/dpc-sdp/ripple-framework/commit/815246871))
+  - **@dpc-sdp/nuxt-ripple:** 🐛  fallback to default if unspecified ([a408bd58d](https://github.com/dpc-sdp/ripple-framework/commit/a408bd58d))
+  - **@dpc-sdp/nuxt-ripple:** 🐛  fix cache control plugin type ([cef96a4e2](https://github.com/dpc-sdp/ripple-framework/commit/cef96a4e2))
+  - **@dpc-sdp/nuxt-ripple:** 🐛  add cache rules for non asset routes ([f04df2fd7](https://github.com/dpc-sdp/ripple-framework/commit/f04df2fd7))
+
+### 💅 Refactors
+
+  - **@dpc-sdp/ripple-tide-webform:** ♻️  use internal id ([94b564ffb](https://github.com/dpc-sdp/ripple-framework/commit/94b564ffb))
+  - **@dpc-sdp/ripple-tide-landing-page:** ♻️  use composable for webform submit ([05356487b](https://github.com/dpc-sdp/ripple-framework/commit/05356487b))
+  - **@dpc-sdp/ripple-ui-forms:** 💄  focus, invalid styles ([952d484d1](https://github.com/dpc-sdp/ripple-framework/commit/952d484d1))
+  - **@dpc-sdp/ripple-ui-forms:** ♻️  improvements ([f068ba5be](https://github.com/dpc-sdp/ripple-framework/commit/f068ba5be))
+
+### 🏡 Chore
+
+  - ⬆️  remove conflicting version of wait-on ([5dfe55592](https://github.com/dpc-sdp/ripple-framework/commit/5dfe55592))
+  - ⬆️  post merge ([dd7b9c3fa](https://github.com/dpc-sdp/ripple-framework/commit/dd7b9c3fa))
+  - **@dpc-sdp/ripple-ui-forms:** Fixed incorrect docs relating to forms and vue apps ([f47be6e57](https://github.com/dpc-sdp/ripple-framework/commit/f47be6e57))
+  - **@dpc-sdp/ripple-ui-forms:** 💄  style updates from feedback ([374b7bde7](https://github.com/dpc-sdp/ripple-framework/commit/374b7bde7))
+  - **@dpc-sdp/ripple-ui-core:** 💄  update style on feedback ([305f8e3c4](https://github.com/dpc-sdp/ripple-framework/commit/305f8e3c4))
+  - **@dpc-sdp/ripple-ui-core:** Cleanup component exports and add missing exports ([f2a302449](https://github.com/dpc-sdp/ripple-framework/commit/f2a302449))
+  - **nuxt-ripple:** 🚨  remove unused cache time var ([adb6c9270](https://github.com/dpc-sdp/ripple-framework/commit/adb6c9270))
+  - **nuxt-ripple:** Ensure errors are not cached ([8e0efa48b](https://github.com/dpc-sdp/ripple-framework/commit/8e0efa48b))
+  - **nuxt-ripple:** Update 404 cache control headers ([09e7638bc](https://github.com/dpc-sdp/ripple-framework/commit/09e7638bc))
+  - **nuxt-ripple:** Update cache comments ([1c3373649](https://github.com/dpc-sdp/ripple-framework/commit/1c3373649))
+
+### 🎨 Styles
+
+  - **@dpc-sdp/ripple-ui-core:** Minor search bar input tweaks ([894a50871](https://github.com/dpc-sdp/ripple-framework/commit/894a50871))
+
+### ❤️  Contributors
+
+- Dylankelly <dylan.kelly@dpc.vic.gov.au>
+- Dylan Kelly <dylan.kelly@dpc.vic.gov.au>
+- Jason Smith <jason.smith@dpc.vic.gov.au>
+- David Featherston <david.featherstone@dpc.vic.gov.au>
+- Jeffrey Dowdle <jeffrey.dowdle@dpc.vic.gov.au>
+
 ## v2.9.0
 
 [compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.8.2...v2.9.0)

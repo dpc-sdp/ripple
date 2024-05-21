@@ -47,16 +47,10 @@ export default defineNuxtConfig({
   },
   nitro: {
     routeRules: {
-      // Allow images and css to be cached in the browser (max-age) as long as
-      // in varnish (s-maxage).
-      '/_nuxt/**/*.{css,png,jpg,svg}': {
-        headers: {
-          'cache-control': `public,max-age=${assetCacheTime},s-maxage=${assetCacheTime}`
-        }
-      },
       '/_nuxt/**': {
         headers: {
-          'cache-control': `public,max-age=30,s-maxage=${assetCacheTime}`
+          // assets should be cached by the browser for a day. Reverse proxies should cache for a year and serve stale for long time if origin is returning
+          'cache-control': `public,max-age=${assetCacheTime},s-maxage=${assetCacheTime}`
         }
       }
     }

@@ -18,7 +18,7 @@ export default defineNitroPlugin(async (NitroApp) => {
     }
     if (event && (error as any).statusCode === 500) {
       // 500 errors should never be cached
-      setHeader(event, 'cache-control', 'no-cache')
+      setHeader(event, 'cache-control', 'no-cache, private, max-age=0')
     }
   })
 })

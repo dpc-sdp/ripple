@@ -21,8 +21,8 @@
   </RplPageComponent>
 
   <RplPageComponent v-if="overview.link" class="tide-grant__overview-item">
-    <RplButton el="a" :href="overview.link.uri">
-      {{ overview.link.title }}
+    <RplButton el="a" :href="overview.link.url">
+      {{ overview.link.text }}
     </RplButton>
   </RplPageComponent>
 </template>

@@ -3,6 +3,7 @@ import {
   getBodyFromField,
   getField,
   getImageFromField,
+  getLinkFromField,
   humanizeFilesize
 } from '@dpc-sdp/ripple-tide-api'
 import {
@@ -41,7 +42,7 @@ const tideGrantModule: IRplTideModuleMapping = {
       },
       ongoing: 'field_node_on_going',
       description: (src: string) => getBodyFromField(src, 'field_description'),
-      link: 'field_call_to_action'
+      link: (src: any) => getLinkFromField(src, 'field_call_to_action')
     },
     timeline: {
       title: 'field_node_timeline.field_paragraph_title',

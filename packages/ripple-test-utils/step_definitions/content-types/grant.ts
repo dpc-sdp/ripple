@@ -36,6 +36,17 @@ Then('the overview should display funding of {string}', (funding: string) => {
 })
 
 Then(
+  'the overview CTA {string} should link to {string}',
+  (text: string, url: string) => {
+    cy.contains('.tide-grant__overview-item .rpl-button', text).should(
+      'have.attr',
+      'href',
+      url
+    )
+  }
+)
+
+Then(
   'the first timeline item should have a date of {string}',
   (date: string) => {
     cy.get(

@@ -15,6 +15,7 @@ Feature: Grant page
   Scenario: Overview
     And the overview should display a status of "Closed" with a "red" "cancel" icon
     And the overview should display funding of "$11,326 - $26,494"
+    And the overview CTA "More details" should link to "https://www.google.com"
 
   @mockserver
   Scenario: Timeline

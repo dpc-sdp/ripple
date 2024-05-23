@@ -35,9 +35,8 @@
     "ongoing": false,
     "description": "Description",
     "link": {
-      "uri": "https://www.google.com",
-      "title": "More details",
-      "options": []
+      "url": "https://www.google.com",
+      "text": "More details"
     }
   },
   "timeline": {

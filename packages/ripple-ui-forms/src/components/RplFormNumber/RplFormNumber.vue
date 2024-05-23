@@ -7,8 +7,6 @@ export default {
 <script setup lang="ts">
 import { computed, inject, ref, watch } from 'vue'
 import { useDebounceFn } from '@vueuse/core'
-// @ts-expect-error vue SFC
-import { RplIcon } from '@dpc-sdp/ripple-ui-core/vue'
 import useFormkitFriendlyEventEmitter from '../../composables/useFormkitFriendlyEventEmitter.js'
 import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
 import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
@@ -137,7 +135,8 @@ const handleIncrement = () => {
     <div class="rpl-form__input-wrap">
       <button
         v-if="props.mode"
-        class="rpl-form__input-dec"
+        class="rpl-form__input-dec rpl-u-focusable-outline"
+        type="button"
         @click.prevent="handleDecrement"
       >
         <span class="rpl-u-visually-hidden">Decrease value</span>
@@ -167,7 +166,8 @@ const handleIncrement = () => {
       />
       <button
         v-if="props.mode"
-        class="rpl-form__input-inc"
+        class="rpl-form__input-inc rpl-u-focusable-outline"
+        type="button"
         @click.prevent="handleIncrement"
       >
         <span class="rpl-u-visually-hidden">Increase value</span>
@@ -185,14 +185,28 @@ const handleIncrement = () => {
 
 <style>
 .rpl-form__input--type-number-alt {
+  --local-button-height: var(--rpl-sp-10);
+  --local-button-width: var(--rpl-sp-11);
+
   .rpl-form__input-icon {
-    color: var(--rpl-clr-type-default);
+    color: var(--rpl-clr-link);
   }
 
   input[type='number'] {
-    padding-left: 4.75rem;
-    padding-right: 4.75rem;
+    border-radius: var(--rpl-border-radius-2);
+    height: var(--local-button-height);
     text-align: center;
+    color: var(--rpl-clr-type-default);
+    padding: var(--rpl-sp-3) calc(var(--local-button-width) + var(--rpl-sp-5)); /* icon + margin  */
+
+    &:focus {
+      border-radius: 0;
+    }
+
+    &:hover,
+    &:focus {
+      border-color: var(--rpl-clr-dark);
+    }
   }
 
   input[type='number']::-webkit-inner-spin-button,
@@ -203,13 +217,32 @@ const handleIncrement = () => {
     margin: 0;
   }
 
+  .rpl-form__input-icon__prefix {
+    left: var(--rpl-sp-5);
+  }
+
+  .rpl-form__input-icon__suffix {
+    right: var(--rpl-sp-5);
+  }
+
   .rpl-form__input-inc,
   .rpl-form__input-dec {
+    border: 1px solid transparent;
     cursor: pointer;
-    height: 4.75rem;
-    width: 4.75rem;
+    height: var(--local-button-height);
+    width: var(--local-button-width);
+    padding: var(--rpl-sp-4) var(--rpl-sp-5);
     display: flex;
     z-index: 1;
+
+    &:focus {
+      border-radius: 0;
+    }
+
+    &:hover,
+    &:focus {
+      border-color: var(--rpl-clr-dark);
+    }
 
     &:hover .rpl-icon {
       color: var(--rpl-clr-primary);
@@ -217,11 +250,49 @@ const handleIncrement = () => {
   }
 
   .rpl-form__input-inc {
-    margin-left: -4.75rem;
+    border-radius: 0 var(--rpl-border-radius-2) var(--rpl-border-radius-2) 0;
+    border-left-color: var(--rpl-clr-neutral-600);
+    margin-left: calc(-1 * var(--local-button-width));
   }
 
   .rpl-form__input-dec {
-    margin-right: -4.75rem;
+    border-radius: var(--rpl-border-radius-2) 0 0 var(--rpl-border-radius-2);
+    border-right-color: var(--rpl-clr-neutral-600);
+    margin-right: calc(-1 * var(--local-button-width));
+  }
+
+  .rpl-form__input-wrap {
+    width: 100%;
+  }
+
+  .rpl-form__input-wrap:has(input[type='number']:focus) {
+    .rpl-form__input-dec,
+    .rpl-form__input-inc {
+      border-color: var(--rpl-clr-dark);
+    }
+  }
+}
+
+[data-invalid='true'] .rpl-form__input--type-number-alt {
+  input[type='number'],
+  .rpl-form__input-dec,
+  .rpl-form__input-inc {
+    border-color: var(--rpl-clr-error);
+
+    &:hover {
+      border-color: var(--rpl-clr-error-dark);
+    }
+  }
+
+  .rpl-form__input-wrap:has(input[type='number']:focus) {
+    .rpl-form__input-dec,
+    .rpl-form__input-inc {
+      border-color: var(--rpl-clr-error-dark);
+
+      &:hover {
+        border-color: var(--rpl-clr-error-dark);
+      }
+    }
   }
 }
 </style>

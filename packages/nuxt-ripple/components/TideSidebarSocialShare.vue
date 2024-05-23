@@ -30,13 +30,14 @@ const url = computed(() => `${$app_origin}${route?.path}`)
 const { socialShare: flags }: IRplFeatureFlags = inject('featureFlags', {})
 
 const activeNetworks = computed(() => {
-  let items = props.networks.filter(
-    (item: any) => flags?.[item as keyof TideSocialShare] ?? true
-  )
+  const items =
+    props.networks?.filter(
+      (item: any) => flags?.[item as keyof TideSocialShare] ?? true
+    ) || []
   if (flags?.WhatsApp) {
     items.push('WhatsApp')
   }
-  return items
+  return items.length > 0 ? items : undefined
 })
 
 const parseText = (text: string): string => {

@@ -44,7 +44,6 @@ import { ref, getSingleResultValue } from '#imports'
 import { useDebounceFn } from '@vueuse/core'
 import { transformExtent } from 'ol/proj'
 import { Extent } from 'ol/extent'
-import { fitExtent, fitVictoria } from '@dpc-sdp/ripple-ui-maps'
 // TODO must add analytics events
 // import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
 

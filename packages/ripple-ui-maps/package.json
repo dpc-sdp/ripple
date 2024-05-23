@@ -1,7 +1,7 @@
 {
   "name": "@dpc-sdp/ripple-ui-maps",
   "description": "Ripple UI Core component library",
-  "version": "2.9.0",
+  "version": "2.10.0",
   "license": "Apache-2.0",
   "repository": "https://github.com/dpc-sdp/ripple-framework",
   "files": [
@@ -17,8 +17,8 @@
   "exports": {
     ".": "./dist/index.js",
     "./vue": "./dist/rpl-lib.es.js",
-    "./nuxt": "./dist/nuxt/index.js",
-    "./plugin": "./dist/plugins/register.js",
+    "./nuxt": "./src/nuxt/index.ts",
+    "./plugin": "./src/plugins/register.ts",
     "./style": "./dist/global.css",
     "./style/breakpoints": "./src/styles/_breakpoints.css",
     "./style/components": "./dist/style.css"

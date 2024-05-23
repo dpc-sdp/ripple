@@ -128,6 +128,7 @@ const selectedPinStyle = (feature, style) => {
   })
   ic.load()
   style.setImage(ic)
+  return style
 }
 
 const { isFullscreen } = useFullscreen()

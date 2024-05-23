@@ -5,7 +5,6 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { RplIcon } from '@dpc-sdp/ripple-ui-core/vue'
 import { computed, ref, watch, nextTick, inject } from 'vue'
 import { onClickOutside } from '@vueuse/core'
 import useFormkitFriendlyEventEmitter from '../../composables/useFormkitFriendlyEventEmitter'

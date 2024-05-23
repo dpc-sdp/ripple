@@ -513,7 +513,7 @@ const reverseFields = computed(
           <TideSearchFilters
             :title="title"
             :filter-form-values="filterForm"
-            :filterInputs="userFilters"
+            :filterInputs="uiFilters"
             :reverseStyling="reverseFields"
             :is-busy="searchListingConfig.dynamicAggregations && isBusy"
             @reset="handleFilterReset"

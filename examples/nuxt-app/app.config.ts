@@ -44,6 +44,14 @@ export default defineAppConfig({
           }
         }
       },
+      transformResultFns: {
+        exampleResultTransformFn: (result) => {
+          return {
+            ...result._source,
+            distance: result.sort[0]
+          }
+        }
+      },
       sortFunctions: {
         exampleDistanceSort: (location) => {
           if (!location?.center) {

@@ -20,7 +20,7 @@ const markup = {
 }
 
 const fixed = {
-  table: `<div class="rpl-table"><div class="rpl-table__scroll-container" tabindex="0"><table>
+  table: `<div class="rpl-table"><div class="rpl-table__scroll-container rpl-u-focusable-outline--visible" tabindex="0"><table>
   <tbody>
     <tr><th>Fname</th><th>Lname</th></tr>
     <tr><td>Joe</td><td>Cool</td></tr>

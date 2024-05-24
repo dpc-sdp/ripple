@@ -1,0 +1,33 @@
+.rpl-map-geolocate-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--rpl-sp-2);
+  box-sizing: border-box;
+  color: var(--rpl-clr-link);
+
+  .rpl-icon {
+    transition: transform var(--rpl-motion-speed-7) linear;
+  }
+
+  span {
+    text-decoration: underline;
+  }
+
+  &:hover {
+    span {
+      text-decoration: none;
+    }
+  }
+
+  &:focus-visible {
+    span {
+      text-decoration: none;
+    }
+  }
+
+  &[disabled] {
+    color: var(--rpl-clr-link-disabled);
+    cursor: not-allowed;
+  }
+}

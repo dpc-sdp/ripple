@@ -180,6 +180,9 @@ const mapResultsMappingFn = (result) => {
 
 const filtersExpanded = ref(props.searchListingConfig?.showFiltersOnLoad)
 
+const isGettingLocation = ref<boolean>(false)
+const geolocationError = ref<string | null>(null)
+
 const {
   isBusy,
   searchError,
@@ -204,7 +207,8 @@ const {
   locationQuery,
   activeTab,
   changeActiveTab,
-  firstLoad
+  firstLoad,
+  userGeolocation
 } = useTideSearch({
   queryConfig: props.queryConfig,
   userFilters: props.userFilters,
@@ -289,7 +293,7 @@ onMapResultsHook.value = () => {
     )
   }
 
-  hookFn(rplMapRef.value, mapResults.value, locationQuery.value)
+  hookFn(rplMapRef.value, mapResults.value, locationOrGeolocation.value)
 }
 
 const emitSearchEvent = (event) => {
@@ -463,6 +467,54 @@ const reverseFields = computed(
     (reverseTheme.value && !altBackground.value) ||
     (altBackground.value && !reverseTheme.value)
 )
+
+const handleGeolocateClick = () => {
+  isGettingLocation.value = true
+  geolocationError.value = null
+}
+
+const handleGeolocateSuccess = (pos: GeolocationPosition) => {
+  isGettingLocation.value = false
+  geolocationError.value = null
+
+  userGeolocation.value = {
+    name: 'Current Location',
+    center: [pos.coords.longitude, pos.coords.latitude]
+  }
+
+  handleLocationSearch({
+    useGeolocation: true,
+    id: `__geo${pos.timestamp}`
+  })
+}
+
+const handleGeolocateError = (error: GeolocationPositionError) => {
+  let message
+
+  switch (error.code) {
+    case error.PERMISSION_DENIED:
+      message = 'User denied the request for Geolocation.'
+      break
+    case error.POSITION_UNAVAILABLE:
+      message = 'Location information is unavailable.'
+      break
+    case error.TIMEOUT:
+      message = 'The request to get user location timed out.'
+      break
+    default:
+      message = 'An unknown error occurred.'
+      break
+  }
+
+  isGettingLocation.value = false
+  geolocationError.value = message
+}
+
+const locationOrGeolocation = computed(() => {
+  return locationQuery.value?.useGeolocation && userGeolocation.value
+    ? userGeolocation.value
+    : locationQuery.value
+})
 </script>
 
 <template>
@@ -495,16 +547,34 @@ const reverseFields = computed(
         :placeholder="searchListingConfig.labels?.placeholder"
         :inputValue="locationQuery"
         :resultsloaded="mapFeatures.length > 0"
+        :isGettingLocation="isGettingLocation"
+        :userGeolocation="userGeolocation"
         @update="handleLocationSearch"
       />
 
-      <RplSearchBarRefine
-        v-if="userFilters && userFilters.length > 0"
-        class="tide-search-refine-btn"
-        :expanded="filtersExpanded"
-        @click="handleToggleFilters"
-        >{{ toggleFiltersLabel }}</RplSearchBarRefine
-      >
+      <div class="tide-search-util-bar">
+        <RplMapGeolocateButton
+          v-if="locationQueryConfig?.showGeolocationButton"
+          :isBusy="isGettingLocation"
+          :error="geolocationError"
+          @click="handleGeolocateClick"
+          @success="handleGeolocateSuccess"
+          @error="handleGeolocateError"
+        >
+          Use my location
+        </RplMapGeolocateButton>
+        <div class="tide-search-refine-wrapper">
+          <RplSearchBarRefine
+            v-if="userFilters && userFilters.length > 0"
+            class="tide-search-refine-btn"
+            :expanded="filtersExpanded"
+            @click="handleToggleFilters"
+          >
+            {{ toggleFiltersLabel }}
+          </RplSearchBarRefine>
+        </div>
+      </div>
+
       <RplExpandable
         v-if="userFilters && userFilters.length > 0"
         :expanded="filtersExpanded"
@@ -679,7 +749,6 @@ const reverseFields = computed(
 .tide-search-refine-btn {
   align-self: flex-end;
   padding: 0;
-  margin-top: var(--rpl-sp-5);
 }
 
 .tide-search-results--loading {
@@ -693,5 +762,25 @@ const reverseFields = computed(
   @media (--rpl-bp-m) {
     margin-top: var(--rpl-sp-5);
   }
+}
+
+.tide-search-util-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  row-gap: var(--rpl-sp-4);
+  column-gap: var(--rpl-sp-8);
+  margin-top: var(--rpl-sp-3);
+  @media (--rpl-bp-s) {
+    margin-top: var(--rpl-sp-5);
+  }
+}
+.tide-search-refine-wrapper {
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-end;
 }
 </style>

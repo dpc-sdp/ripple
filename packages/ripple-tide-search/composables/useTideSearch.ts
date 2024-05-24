@@ -108,6 +108,7 @@ export default ({
     return pageSize.value ? Math.ceil(totalResults.value / pageSize.value) : 0
   })
 
+  const userGeolocation = ref<any>(null)
   const mapResults = ref([])
 
   const onAggregationUpdateHook = ref()
@@ -156,7 +157,7 @@ export default ({
     }
 
     const transformedDSL = await transformFn(
-      locationQuery.value,
+      locationOrGeolocation.value,
       filterForm.value
     )
 
@@ -217,7 +218,7 @@ export default ({
             )
           }
 
-          const sortDSL = sortFn(locationQuery.value, filterForm.value)
+          const sortDSL = sortFn(locationOrGeolocation.value, filterForm.value)
 
           return sortDSL
         }
@@ -819,6 +820,12 @@ export default ({
     return getFiltersFromRoute(route)
   })
 
+  const locationOrGeolocation = computed(() => {
+    return locationQuery.value?.useGeolocation && userGeolocation.value
+      ? userGeolocation.value
+      : locationQuery.value
+  })
+
   onMounted(() => {
     // Read the url on first mount to kick of the initial search
     searchFromRoute(route, true)
@@ -863,6 +870,7 @@ export default ({
     activeTab,
     changeActiveTab,
     locationQuery,
-    firstLoad
+    firstLoad,
+    userGeolocation
   }
 }

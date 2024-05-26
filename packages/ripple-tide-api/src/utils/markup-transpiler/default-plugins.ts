@@ -6,7 +6,9 @@ const pluginTables = function (this: any) {
     const $table = this.find(el)
     return $table
       .wrap(`<div class="rpl-table"></div>`)
-      .wrap('<div class="rpl-table__scroll-container" tabindex="0"></div>')
+      .wrap(
+        '<div class="rpl-table__scroll-container rpl-u-focusable-outline--visible" tabindex="0"></div>'
+      )
   })
 }
 

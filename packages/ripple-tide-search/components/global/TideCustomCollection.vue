@@ -113,6 +113,24 @@ const { emitRplEvent } = useRippleEvent('tide-search', emit)
 const appConfig = useAppConfig()
 
 const searchResultsMappingFn = (item): TideSearchListingResultItem => {
+  let transformedItem = item._source
+
+  const transformResultFnName = props.resultsConfig?.transformResultFn
+  const fns: Record<string, (result: any) => Promise<any>> =
+    appConfig?.ripple?.search?.transformResultFns || {}
+
+  if (transformResultFnName) {
+    const transformResultFn = fns[transformResultFnName]
+
+    if (typeof transformResultFn !== 'function') {
+      throw new Error(
+        `Search listing: No matching transform result function called "${transformResultFnName}"`
+      )
+    }
+
+    transformedItem = transformResultFn(item)
+  }
+
   if (props.resultsConfig.item) {
     for (const key in props.resultsConfig.item) {
       const mapping = props.resultsConfig.item[key]
@@ -122,7 +140,7 @@ const searchResultsMappingFn = (item): TideSearchListingResultItem => {
           id: item._id,
           component: mapping.component,
           props: {
-            result: item._source
+            result: transformedItem
           }
         }
       } else {
@@ -131,7 +149,7 @@ const searchResultsMappingFn = (item): TideSearchListingResultItem => {
           id: item._id,
           component: 'TideSearchResult',
           props: {
-            result: item._source
+            result: transformedItem
           }
         }
       }
@@ -141,7 +159,7 @@ const searchResultsMappingFn = (item): TideSearchListingResultItem => {
   return {
     id: item._id,
     props: {
-      result: item._source
+      result: transformedItem
     }
   }
 }
@@ -532,7 +550,7 @@ const reverseFields = computed(
           <TideSearchFilters
             :title="title"
             :filter-form-values="filterForm"
-            :filterInputs="userFilters"
+            :filterInputs="uiFilters"
             :reverseStyling="reverseFields"
             :is-busy="searchListingConfig.dynamicAggregations && isBusy"
             @reset="handleFilterReset"

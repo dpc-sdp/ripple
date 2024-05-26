@@ -74,6 +74,12 @@ export type TideSearchListingResultsConfig = {
   item?: {
     [key: string]: TideSearchListingResultItem
   }
+  /**
+   * @description Function to transform the raw response from the search/api
+   * this gets called for each result, with the raw result as the argument
+   * by default, with no transformResultFn, the raw result is mapped to item._source
+   */
+  transformResultFn?: string
 }
 
 export type TideSearchListingLayoutConfig = {

@@ -1,0 +1,150 @@
+{
+  "meta": {
+    "alerts": [],
+    "warnings": [],
+    "precision": 2,
+    "engine": {
+      "name": "content-vic-production",
+      "type": "elasticsearch"
+    },
+    "page": {
+      "current": 1,
+      "total_pages": 1,
+      "total_results": 4,
+      "size": 10
+    },
+    "request_id": "3940dd8bb5a8a54484a2487ffb5fa272"
+  },
+  "results": [
+    {
+      "field_landing_page_summary": {
+        "snippet": "Explore local TAFE and training providers across Melbourne’s south-eastern region"
+      },
+      "title": {
+        "raw": ["TAFE and training providers in Melbourne’s south-east"]
+      },
+      "type": { "raw": ["landing_page"] },
+      "url": {
+        "raw": [
+          "/site-4/tafes-training-providers-melbourne-south-eastern-region"
+        ]
+      },
+      "changed": { "raw": ["2024-05-23T02:59:08+00:00"] },
+      "_meta": {
+        "engine": "content-vic-production",
+        "score": 1.0,
+        "id": "entity:node/37241:en"
+      },
+      "id": { "raw": "entity:node/37241:en" }
+    },
+    {
+      "field_landing_page_summary": {
+        "snippet": "With TAFE, it&#39;s now easier than ever to learn new skills for your chosen career or retrain to get the job of your dreams"
+      },
+      "title": { "raw": ["Time for a career change?"] },
+      "type": { "raw": ["landing_page"] },
+      "url": { "raw": ["/site-4/career-change"] },
+      "changed": { "raw": ["2024-05-23T00:06:15+00:00"] },
+      "_meta": {
+        "engine": "content-vic-production",
+        "score": 1.0,
+        "id": "entity:node/38798:en"
+      },
+      "id": { "raw": "entity:node/38798:en" }
+    },
+    {
+      "field_landing_page_summary": {
+        "snippet": "The Camps, Sports and Excursions Fund provides payments for eligible students to attend school camps, excursions, and sports and outdoor education"
+      },
+      "title": { "raw": ["Camps, Sports and Excursions Fund"] },
+      "type": { "raw": ["grant"] },
+      "url": { "raw": ["/site-4/camps-sports-and-excursions-fund"] },
+      "changed": { "raw": ["2024-05-23T04:49:38+00:00"] },
+      "_meta": {
+        "engine": "content-vic-production",
+        "score": 1.0,
+        "id": "entity:node/24023:en"
+      },
+      "id": { "raw": "entity:node/24023:en" }
+    },
+    {
+      "field_landing_page_summary": {
+        "snippet": "This program aims to enhance the quality of the movement environment in early childhood education settings"
+      },
+      "title": { "raw": ["Movement Environment Rating Scale (MOVERS)"] },
+      "type": { "raw": ["landing_page"] },
+      "url": { "raw": ["/site-4/movement-environment-rating-scale-movers"] },
+      "changed": { "raw": ["2024-03-01T08:25:05+00:00"] },
+      "_meta": {
+        "engine": "content-vic-production",
+        "score": 1.0,
+        "id": "entity:node/30713:en"
+      },
+      "id": { "raw": "entity:node/30713:en" }
+    },
+    {
+      "field_landing_page_summary": {
+        "snippet": "Learn more about our sponsors"
+      },
+      "title": { "raw": ["Sponsors of the 2024 Victorian Training Awards"] },
+      "type": { "raw": ["landing_page"] },
+      "url": { "raw": ["/site-4/2024-victorian-training-award-sponsors"] },
+      "changed": { "raw": ["2024-05-23T05:11:21+00:00"] },
+      "_meta": {
+        "engine": "content-vic-production",
+        "score": 1.0,
+        "id": "entity:node/17913:en"
+      },
+      "id": { "raw": "entity:node/17913:en" }
+    }
+  ],
+  "facets": {
+    "field_topic_name": [
+      {
+        "type": "value",
+        "data": [
+          {
+            "value": "Education",
+            "count": 2548
+          },
+          {
+            "value": "Governance",
+            "count": 775
+          },
+          {
+            "value": "Equality",
+            "count": 740
+          },
+          {
+            "value": "Communities",
+            "count": 692
+          },
+          {
+            "value": "Health & social support",
+            "count": 600
+          },
+          {
+            "value": "Traffic & transport",
+            "count": 313
+          },
+          {
+            "value": "Environment, water & energy",
+            "count": 302
+          },
+          {
+            "value": "Law & justice",
+            "count": 263
+          },
+          {
+            "value": "Business & the workplace",
+            "count": 170
+          },
+          {
+            "value": "Jobs & careers",
+            "count": 165
+          }
+        ]
+      }
+    ]
+  }
+}

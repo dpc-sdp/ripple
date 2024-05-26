@@ -121,13 +121,14 @@ export default ({
     const fns: Record<string, (queryData: any) => Record<string, any>> =
       appConfig?.ripple?.search?.queryConfigFunctions || {}
 
+    if (customQueryConfig?.function && fns[customQueryConfig?.function]) {
+      return fns[customQueryConfig.function]({
+        searchTerm: searchTerm.value,
+        queryFilters: filter
+      })
+    }
+
     if (searchTerm.value?.q) {
-      if (customQueryConfig?.function && fns[customQueryConfig?.function]) {
-        return fns[customQueryConfig?.function]({
-          searchTerm: searchTerm.value,
-          queryFilters: filter
-        })
-      }
       queryClause = processTemplate(
         queryConfig,
         '{{query}}',

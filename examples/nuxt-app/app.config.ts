@@ -77,6 +77,15 @@ export default defineAppConfig({
       },
       queryConfigFunctions: {
         exampleQueryFunction: ({ searchTerm, queryFilters }) => {
+          if (!searchTerm?.q) {
+            return {
+              bool: {
+                must: [{ match_all: {} }],
+                filter: queryFilters
+              }
+            }
+          }
+
           const fieldMap = {
             title: ['title'],
             content: ['field_paragraph_body'],

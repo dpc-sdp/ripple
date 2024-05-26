@@ -1,10 +1,11 @@
 {
   "query": {
     "bool": {
-      "must": {
+      "should": {
         "multi_match": {
           "query": "Demo",
           "fields": [
+            "title",
             "field_paragraph_body"
           ]
         }

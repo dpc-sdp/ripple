@@ -68,7 +68,7 @@ export default defineAppConfig({
         }
       },
       queryConfigFunctions: {
-        exampleQueryFunction: (searchTerm) => {
+        exampleQueryFunction: ({ searchTerm, queryFilters }) => {
           const fieldMap = {
             title: ['title'],
             content: ['field_paragraph_body'],
@@ -79,9 +79,14 @@ export default defineAppConfig({
             : searchTerm?.queryType
 
           return {
-            multi_match: {
-              query: '{{query}}',
-              fields: fieldMap[filter]
+            bool: {
+              should: {
+                multi_match: {
+                  query: searchTerm?.q,
+                  fields: fieldMap[filter]
+                }
+              },
+              filter: queryFilters
             }
           }
         }

@@ -33,7 +33,8 @@ interface Props {
   autocompleteMinimumCharacters?: number
   searchListingConfig?: TideSearchListingConfig['searchListingConfig']
   sortOptions?: TideSearchListingConfig['sortOptions']
-  queryConfig: TideSearchListingConfig['queryConfig']
+  customQueryConfig?: TideSearchListingConfig['customQueryConfig']
+  queryConfig?: TideSearchListingConfig['queryConfig']
   globalFilters?: TideSearchListingConfig['globalFilters']
   userFilters?: TideSearchListingConfig['userFilters']
   resultsLayout: TideSearchListingResultLayout
@@ -52,6 +53,7 @@ const props = withDefaults(defineProps<Props>(), {
   autocompleteMinimumCharacters: 3,
   globalFilters: () => [],
   userFilters: () => [],
+  customQueryConfig: undefined,
   queryConfig: () => ({
     multi_match: {
       query: '{{query}}',
@@ -144,6 +146,7 @@ const {
   pagingEnd,
   onAggregationUpdateHook
 } = useTideSearch({
+  customQueryConfig: props.customQueryConfig,
   queryConfig: props.queryConfig,
   userFilters: props.userFilters,
   globalFilters: props.globalFilters,
@@ -369,9 +372,9 @@ watch(
         >
           <template v-if="!searchListingConfig?.showFiltersOnly">
             <component
-              :is="queryConfig.component"
-              v-if="queryConfig?.component"
-              v-bind="queryConfig?.props"
+              :is="customQueryConfig.component"
+              v-if="customQueryConfig?.component"
+              v-bind="customQueryConfig?.props"
               id="tide-search-bar"
               variant="default"
               :input-label="searchListingConfig?.labels?.submit"

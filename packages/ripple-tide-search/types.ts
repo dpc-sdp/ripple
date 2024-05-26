@@ -132,12 +132,10 @@ export type TideSearchLocationQueryConfig = {
   dslTransformFn?: (location: any) => any
 }
 
-export type TideSearchTermQueryConfig = {
+export type TideSearchCustomQueryConfig = {
   component?: string
   function?: string
   props?: Record<string, any>
-  config?: Record<string, any>
-  [key: string]: any
 }
 
 export type TideSearchListingTab = {
@@ -242,9 +240,13 @@ export type TideSearchListingConfig = {
    */
   tabs: TideSearchListingTab[]
   /**
+   * @description Elastic Query DSL for query
+   */
+  customQueryConfig?: TideSearchCustomQueryConfig
+  /**
    * @description Elastic Query DSL for query clause
    */
-  queryConfig: TideSearchTermQueryConfig
+  queryConfig: Record<string, any>
   /**
    * @description Global filters to apply to ES Query DSL Filter clause
    */

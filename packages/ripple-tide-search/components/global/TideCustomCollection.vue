@@ -18,7 +18,8 @@ interface Props {
   autocompleteQuery?: boolean
   searchListingConfig?: TideSearchListingConfig['searchListingConfig']
   sortOptions?: TideSearchListingConfig['sortOptions']
-  queryConfig: TideSearchListingConfig['queryConfig']
+  customQueryConfig?: TideSearchListingConfig['customQueryConfig']
+  queryConfig?: TideSearchListingConfig['queryConfig']
   globalFilters?: TideSearchListingConfig['globalFilters']
   userFilters?: TideSearchListingConfig['userFilters']
   resultsConfig?: TideSearchListingConfig['resultsConfig']
@@ -38,6 +39,7 @@ const props = withDefaults(defineProps<Props>(), {
   autocompleteQuery: false,
   globalFilters: () => [],
   userFilters: () => [],
+  customQueryConfig: undefined,
   queryConfig: () => ({
     multi_match: {
       query: '{{query}}',
@@ -194,6 +196,7 @@ const {
   changeActiveTab,
   firstLoad
 } = useTideSearch({
+  customQueryConfig: props.customQueryConfig,
   queryConfig: props.queryConfig,
   userFilters: props.userFilters,
   globalFilters: props.globalFilters,
@@ -485,9 +488,9 @@ const reverseFields = computed(
           @update="handleLocationSearch"
         />
         <component
-          :is="queryConfig.component"
-          v-else-if="queryConfig?.component"
-          v-bind="queryConfig?.props"
+          :is="customQueryConfig.component"
+          v-else-if="customQueryConfig?.component"
+          v-bind="customQueryConfig?.props"
           id="custom-collection-search-bar"
           :variant="reverseFields ? 'reverse' : 'default'"
           :input-label="searchListingConfig?.labels?.submit"

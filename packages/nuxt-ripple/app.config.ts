@@ -39,10 +39,7 @@ declare module '@nuxt/schema' {
           (filterConfig: any, values: string[]) => any
         >
         sortFunctions?: Record<string, (location: any, filterForm: any) => any>
-        queryConfigFunctions?: Record<
-          string,
-          (searchTerm: any, filterForm: any) => any
-        >
+        queryConfigFunctions?: Record<string, (queryData: any) => any>
         locationDSLTransformFunctions?: Record<
           string,
           (location: any, filterForm: any) => Promise<any>

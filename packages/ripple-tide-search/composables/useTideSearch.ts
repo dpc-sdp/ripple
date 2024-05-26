@@ -31,6 +31,7 @@ const encodeCommasAndColons = (value: string): string => {
 
 interface Config {
   queryConfig: TideSearchListingConfig['queryConfig']
+  customQueryConfig?: TideSearchListingConfig['customQueryConfig']
   userFilters: TideSearchListingConfig['userFilters']
   globalFilters: any[]
   searchResultsMappingFn: (item: any) => any
@@ -42,6 +43,7 @@ interface Config {
 
 export default ({
   queryConfig,
+  customQueryConfig,
   userFilters: userFilterConfig,
   globalFilters,
   searchResultsMappingFn,
@@ -114,28 +116,31 @@ export default ({
   const onMapResultsHook = ref()
   const firstLoad = ref(false)
 
-  const getQueryClause = () => {
-    if (searchTerm.value.q) {
-      const fns: Record<
-        string,
-        (queryValues: any, filterForm: any) => Record<string, any>
-      > = appConfig?.ripple?.search?.queryConfigFunctions || {}
+  const getQueryClause = (filter: any[]) => {
+    let queryClause = [{ match_all: {} }]
+    const fns: Record<string, (queryData: any) => Record<string, any>> =
+      appConfig?.ripple?.search?.queryConfigFunctions || {}
 
-      if (queryConfig?.function && fns[queryConfig?.function]) {
-        const conf = fns[queryConfig?.function](
-          searchTerm.value,
-          filterForm.value
-        )
-        return processTemplate(conf, '{{query}}', searchTerm.value.q)
+    if (searchTerm.value?.q) {
+      if (customQueryConfig?.function && fns[customQueryConfig?.function]) {
+        return fns[customQueryConfig?.function]({
+          searchTerm: searchTerm.value,
+          queryFilters: filter
+        })
       }
-
-      return processTemplate(
-        queryConfig?.config || queryConfig,
+      queryClause = processTemplate(
+        queryConfig,
         '{{query}}',
         searchTerm.value.q
       )
     }
-    return [{ match_all: {} }]
+
+    return {
+      bool: {
+        must: queryClause,
+        filter
+      }
+    }
   }
 
   const getUserFilterClause = (forAggregations = false) => {
@@ -428,14 +433,10 @@ export default ({
 
   const getQueryDSL = async () => {
     const locationFilters = await getLocationFilterClause('listing')
+    const query = getQueryClause([...getUserFilterClause(), ...locationFilters])
 
     return {
-      query: {
-        bool: {
-          must: getQueryClause(),
-          filter: [...getUserFilterClause(), ...locationFilters]
-        }
-      },
+      query,
       size: pageSize.value,
       from: pagingStart.value,
       sort: getSortClause()
@@ -444,14 +445,13 @@ export default ({
 
   const getQueryDSLForDynamicAggregations = async () => {
     const locationFilters = await getLocationFilterClause('listing')
+    const query = getQueryClause([
+      ...getUserFilterClause(true),
+      ...locationFilters
+    ])
 
     return {
-      query: {
-        bool: {
-          must: getQueryClause(),
-          filter: [...getUserFilterClause(true), ...locationFilters]
-        }
-      },
+      query,
       size: 0,
       from: 0,
       sort: getSortClause(),
@@ -476,14 +476,10 @@ export default ({
 
   const getQueryDSLForMaps = async () => {
     const locationFilters = await getLocationFilterClause('map')
+    const query = getQueryClause([...getUserFilterClause(), ...locationFilters])
 
     return {
-      query: {
-        bool: {
-          must: getQueryClause(),
-          filter: [...getUserFilterClause(), ...locationFilters]
-        }
-      },
+      query,
       // ES queries have a 10k result limit, maps struggle drawing more than this anyway. If you need more you will need to implement a loading strategy see : https://openlayers.org/en/latest/apidoc/module-ol_loadingstrategy.html
       size: 10000,
       from: 0,

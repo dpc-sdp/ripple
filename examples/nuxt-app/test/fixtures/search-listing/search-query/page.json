@@ -1,5 +1,5 @@
 {
-  "title": "Extended search term",
+  "title": "Extended search query",
   "changed": "2022-11-02T12:47:29+11:00",
   "created": "2022-11-02T12:47:29+11:00",
   "type": "tide_search_listing",
@@ -13,7 +13,7 @@
         "enabled": false
       }
     },
-    "queryConfig": {
+    "customQueryConfig": {
       "component": "TideSearchBarComponentExample",
       "function": "exampleQueryFunction"
     },

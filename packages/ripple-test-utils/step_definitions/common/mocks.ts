@@ -258,6 +258,15 @@ Then(
 )
 
 Then(
+  'the network request {string} should be called with the {string} fixture',
+  (alias: string, requestFixture: string) => {
+    cy.fixture(requestFixture).then((fixture) => {
+      cy.get(`@${alias}`).its('request.body').should('deep.equal', fixture)
+    })
+  }
+)
+
+Then(
   'the search aggregation request should be called with the {string} fixture',
   (requestFixture: string) => {
     cy.fixture(requestFixture).then((fixture) => {

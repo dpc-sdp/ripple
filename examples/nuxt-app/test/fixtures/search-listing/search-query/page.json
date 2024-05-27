@@ -1,0 +1,68 @@
+{
+  "title": "Extended search query",
+  "changed": "2022-11-02T12:47:29+11:00",
+  "created": "2022-11-02T12:47:29+11:00",
+  "type": "tide_search_listing",
+  "nid": "22dede11-10c0-111e1-1100-000000000330",
+  "showTopicTags": true,
+  "summary": "",
+  "config": {
+    "searchListingConfig": {
+      "resultsPerPage": 10,
+      "suggestions": {
+        "enabled": false
+      }
+    },
+    "customQueryConfig": {
+      "component": "TideSearchBarComponentExample",
+      "function": "exampleQueryFunction"
+    },
+    "results": {
+      "layout": {
+        "component": "TideSearchResultsList"
+      },
+      "item": {
+        "*": {
+          "component": "TideSearchResult"
+        }
+      }
+    },
+    "globalFilters": [
+      {
+        "terms": {
+          "type": [
+            "landing_page"
+          ]
+        }
+      },
+      {
+        "terms": {
+          "field_node_site": [
+            8888
+          ]
+        }
+      }
+    ],
+    "userFilters": [
+      {
+        "id": "topic",
+        "component": "TideSearchFilterDropdown",
+        "filter": {
+          "type": "terms",
+          "value": "field_topic_name"
+        },
+        "aggregations": {
+          "field": "topic",
+          "source": "taxonomy"
+        },
+        "props": {
+          "id": "topic",
+          "label": "Topics",
+          "placeholder": "Select a topic",
+          "type": "RplFormDropdown",
+          "multiple": true
+        }
+      }
+    ]
+  }
+}

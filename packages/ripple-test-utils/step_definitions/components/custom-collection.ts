@@ -1,4 +1,5 @@
 import { Then, When } from '@badeball/cypress-cucumber-preprocessor'
+import { set } from 'lodash-es'
 
 Then(`the custom collection component should have a search input bar`, () => {
   cy.get(`[data-component-type="TideCustomCollection"]`).find('.rpl-search-bar')
@@ -88,3 +89,14 @@ When(`I toggle the content collection filters`, () => {
     .contains('Refine search')
     .click()
 })
+
+Then(
+  'the custom collection config has {string} set to {string}',
+  (key: string, value: string | boolean) => {
+    cy.get('@pageFixture').then((response) => {
+      if (value === 'true') value = true
+      if (value === 'false') value = false
+      set(response, `bodyComponents[0].props.searchListingConfig.${key}`, value)
+    })
+  }
+)

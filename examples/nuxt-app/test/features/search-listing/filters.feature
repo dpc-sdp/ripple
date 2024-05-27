@@ -365,3 +365,13 @@ Feature: Search listing - Filter
     Then the search listing page should have 2 results
     And the search form should be hidden
 
+  @mockserver
+  Example: Should only show filters when showFiltersOnly is set
+    Given I load the page fixture with "/search-listing/filters/page"
+    And the search listing config has "showFiltersOnly" set to "true"
+    And the search network request is stubbed with fixture "/search-listing/filters/response" and status 200
+    Then the page endpoint for path "/no-search-input" returns the loaded fixture
+
+    When I visit the page "/no-search-input"
+    Then the search listing page should have 2 results
+    And only the search filters should be visible

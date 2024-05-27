@@ -1,0 +1,290 @@
+{
+  "title": "Custom collection",
+  "changed": "2024-05-14T08:22:33+10:00",
+  "created": "2024-05-13T17:17:19+10:00",
+  "type": "landing_page",
+  "nid": "d8572411-257e-4956-95fe-a042ad3359a7",
+  "_sectionId": "8888",
+  "sidebar": {
+    "contacts": [],
+    "relatedLinks": [],
+    "whatsNext": [],
+    "socialShareNetworks": [
+      "Facebook",
+      "X",
+      "LinkedIn"
+    ],
+    "siteSectionNav": null
+  },
+  "status": "published",
+  "topicTags": [
+    {
+      "text": "Another Demo Topic",
+      "url": "/topic/another-demo-topic"
+    }
+  ],
+  "siteSection": {
+    "id": 8888,
+    "name": "Demo Site"
+  },
+  "meta": {
+    "url": "/test-ccn",
+    "langcode": "en",
+    "description": "...",
+    "additional": [
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "title",
+          "content": "Test: CCN | Single Digital Presence Content Management System"
+        }
+      },
+      {
+        "tag": "link",
+        "attributes": {
+          "rel": "canonical",
+          "href": "https://develop.content.reference.sdp.vic.gov.au/test-ccn"
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "property": "og:locale",
+          "content": "en-AU"
+        }
+      }
+    ],
+    "keywords": "",
+    "image": null
+  },
+  "showContentRating": true,
+  "summary": "Example custom collection",
+  "showHeroAcknowledgement": false,
+  "showInPageNav": false,
+  "showHeroImageCaption": false,
+  "showTopicTags": true,
+  "inPageNavHeadingLevel": "h2",
+  "background": "default",
+  "header": {
+    "title": "Custom collection",
+    "summary": "",
+    "links": {
+      "title": "",
+      "items": [],
+      "more": null
+    },
+    "backgroundImageCaption": "",
+    "theme": "default",
+    "logoImage": null,
+    "backgroundImage": null,
+    "cornerTop": null,
+    "cornerBottom": null,
+    "primaryAction": null,
+    "secondaryAction": null,
+    "secondaryActionLabel": ""
+  },
+  "primaryCampaign": null,
+  "secondaryCampaign": null,
+  "headerComponents": [],
+  "bodyComponents": [
+    {
+      "uuid": "368a4629-14f1-45a6-922b-ea277853e7ed",
+      "component": "TideCustomCollection",
+      "id": "4470",
+      "props": {
+        "id": "4470",
+        "searchListingConfig": {
+          "resultsPerPage": 20,
+          "formTheme": "default",
+          "labels": {
+            "submit": "Submit search",
+            "placeholder": "Start typing search term..."
+          },
+          "customSort": [
+            {
+              "title.keyword": "asc"
+            }
+          ]
+        },
+        "queryConfig": {
+          "multi_match": {
+            "query": "{{query}}",
+            "fields": [
+              "title^3",
+              "field_landing_page_summary^2",
+              "body",
+              "field_paragraph_body",
+              "summary_processed"
+            ]
+          }
+        },
+        "globalFilters": [
+          {
+            "terms": {
+              "type": [
+                "news"
+              ]
+            }
+          },
+          {
+            "terms": {
+              "field_node_site": [
+                8888
+              ]
+            }
+          }
+        ],
+        "userFilters": [
+          {
+            "id": "topic",
+            "component": "TideSearchFilterDropdown",
+            "filter": {
+              "type": "terms",
+              "value": "field_topic_name"
+            },
+            "aggregations": {
+              "field": "field_topic_name",
+              "source": "taxonomy"
+            },
+            "props": {
+              "id": "topic",
+              "label": "Topics",
+              "placeholder": "Select a topic",
+              "type": "RplFormDropdown",
+              "multiple": true,
+              "timestamp": 1715639556712,
+              "options": [
+                {
+                  "id": "Another Demo Topic",
+                  "label": "Another Demo Topic",
+                  "value": "Another Demo Topic"
+                },
+                {
+                  "id": "Bourke topic demo",
+                  "label": "Bourke topic demo",
+                  "value": "Bourke topic demo"
+                },
+                {
+                  "id": "Collins topic demo",
+                  "label": "Collins topic demo",
+                  "value": "Collins topic demo"
+                },
+                {
+                  "id": "Content Collection All Topic",
+                  "label": "Content Collection All Topic",
+                  "value": "Content Collection All Topic"
+                },
+                {
+                  "id": "Content Collection Topic 1",
+                  "label": "Content Collection Topic 1",
+                  "value": "Content Collection Topic 1"
+                },
+                {
+                  "id": "Content Collection Topic 2",
+                  "label": "Content Collection Topic 2",
+                  "value": "Content Collection Topic 2"
+                },
+                {
+                  "id": "Demo Topic",
+                  "label": "Demo Topic",
+                  "value": "Demo Topic"
+                },
+                {
+                  "id": "King topic demo",
+                  "label": "King topic demo",
+                  "value": "King topic demo"
+                }
+              ]
+            }
+          },
+          {
+            "id": "department",
+            "component": "TideSearchFilterDropdown",
+            "filter": {
+              "type": "terms",
+              "value": "field_department_name",
+              "multiple": false
+            },
+            "aggregations": {
+              "field": "department",
+              "source": "taxonomy"
+            },
+            "props": {
+              "id": "department",
+              "label": "Departments",
+              "placeholder": "Select a department",
+              "type": "RplFormDropdown",
+              "multiple": false,
+              "options": [
+                {
+                  "id": "8999",
+                  "label": "Department A",
+                  "value": "Department A",
+                  "parent": null
+                },
+                {
+                  "id": "9000",
+                  "label": "Department B",
+                  "value": "Department B",
+                  "parent": null
+                },
+                {
+                  "id": "9168",
+                  "label": "Demo Department",
+                  "value": "Demo Department",
+                  "parent": null
+                },
+                {
+                  "id": "9169",
+                  "label": "Another Demo Department",
+                  "value": "Another Demo Department",
+                  "parent": null
+                },
+                {
+                  "id": "9170",
+                  "label": "Department of Flat White demo",
+                  "value": "Department of Flat White demo",
+                  "parent": null
+                },
+                {
+                  "id": "9171",
+                  "label": "Department of Latte demo",
+                  "value": "Department of Latte demo",
+                  "parent": null
+                },
+                {
+                  "id": "9172",
+                  "label": "Department of Long Black demo",
+                  "value": "Department of Long Black demo",
+                  "parent": null
+                },
+                {
+                  "id": "9173",
+                  "label": "Department of Macchiato demo",
+                  "value": "Department of Macchiato demo",
+                  "parent": null
+                },
+                {
+                  "id": "9174",
+                  "label": "Department of Piccolo demo",
+                  "value": "Department of Piccolo demo",
+                  "parent": null
+                }
+              ]
+            }
+          }
+        ],
+        "resultsConfig": {
+          "layout": {
+            "component": "TideSearchResultsList"
+          },
+          "item": {
+            "*": {
+              "component": "TideSearchResult"
+            }
+          }
+        }
+      }
+    }
+  ]
+}

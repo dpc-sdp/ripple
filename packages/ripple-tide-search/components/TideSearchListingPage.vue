@@ -33,7 +33,8 @@ interface Props {
   autocompleteMinimumCharacters?: number
   searchListingConfig?: TideSearchListingConfig['searchListingConfig']
   sortOptions?: TideSearchListingConfig['sortOptions']
-  queryConfig: TideSearchListingConfig['queryConfig']
+  customQueryConfig?: TideSearchListingConfig['customQueryConfig']
+  queryConfig?: TideSearchListingConfig['queryConfig']
   globalFilters?: TideSearchListingConfig['globalFilters']
   userFilters?: TideSearchListingConfig['userFilters']
   resultsLayout: TideSearchListingResultLayout
@@ -52,6 +53,7 @@ const props = withDefaults(defineProps<Props>(), {
   autocompleteMinimumCharacters: 3,
   globalFilters: () => [],
   userFilters: () => [],
+  customQueryConfig: undefined,
   queryConfig: () => ({
     multi_match: {
       query: '{{query}}',
@@ -77,7 +79,8 @@ const props = withDefaults(defineProps<Props>(), {
         key: 'title',
         enabled: true
       },
-      showFiltersOnLoad: false
+      showFiltersOnLoad: false,
+      showFiltersOnly: false
     } as any),
   resultsLayout: () => ({
     component: 'TideSearchResultsList'
@@ -114,7 +117,10 @@ const emit = defineEmits<{
 
 const { emitRplEvent } = useRippleEvent('tide-search', emit)
 
-const filtersExpanded = ref(props.searchListingConfig?.showFiltersOnLoad)
+const filtersExpanded = ref(
+  props.searchListingConfig?.showFiltersOnLoad ||
+    props.searchListingConfig?.showFiltersOnly
+)
 
 const {
   isBusy,
@@ -127,6 +133,7 @@ const {
   filterForm,
   appliedFilters,
   resetFilters,
+  resetSearch,
   submitSearch,
   goToPage,
   page,
@@ -139,6 +146,7 @@ const {
   pagingEnd,
   onAggregationUpdateHook
 } = useTideSearch({
+  customQueryConfig: props.customQueryConfig,
   queryConfig: props.queryConfig,
   userFilters: props.userFilters,
   globalFilters: props.globalFilters,
@@ -154,7 +162,7 @@ const baseEvent = () => ({
   contextId: props.id,
   name: props.title,
   index: page.value,
-  label: searchTerm.value,
+  label: searchTerm.value.q,
   value: totalResults.value,
   options: getActiveFilterURL(filterForm.value),
   section: 'search-listing'
@@ -244,23 +252,31 @@ const handleFilterReset = (event: rplEventPayload) => {
     { global: true }
   )
 
-  searchTerm.value = ''
+  resetSearch()
   resetFilters()
   submitSearch()
 }
 
 const handleUpdateSearchTerm = (term: string) => {
-  searchTerm.value = term
+  searchTerm.value.q = term
 
   if (
     props.autocompleteQuery &&
     props.searchListingConfig?.suggestions?.enabled !== false
   ) {
-    if (term.length >= props.autocompleteMinimumCharacters) {
+    if (term?.length >= props.autocompleteMinimumCharacters) {
       getSuggestions()
     } else if (suggestions.value?.length) {
       clearSuggestions()
     }
+  }
+}
+
+const handleUpdateSearch = (term: string | Record<string, any>) => {
+  if (term && typeof term === 'object') {
+    searchTerm.value = { ...searchTerm.value, ...term }
+  } else {
+    handleUpdateSearchTerm(term)
   }
 }
 
@@ -354,19 +370,40 @@ watch(
           v-if="!searchListingConfig?.hideSearchForm"
           class="tide-search-header"
         >
-          <RplSearchBar
-            id="tide-search-bar"
-            variant="default"
-            :input-label="searchListingConfig?.labels?.submit"
-            :inputValue="searchTerm"
-            :placeholder="searchListingConfig?.labels?.placeholder"
-            :suggestions="suggestions"
-            :global-events="false"
-            @submit="handleSearchSubmit"
-            @update:input-value="handleUpdateSearchTerm"
-          />
+          <template v-if="!searchListingConfig?.showFiltersOnly">
+            <component
+              :is="customQueryConfig.component"
+              v-if="customQueryConfig?.component"
+              v-bind="customQueryConfig?.props"
+              id="tide-search-bar"
+              variant="default"
+              :input-label="searchListingConfig?.labels?.submit"
+              :inputValue="searchTerm"
+              :placeholder="searchListingConfig?.labels?.placeholder"
+              :suggestions="suggestions"
+              :global-events="false"
+              :handle-submit="handleSearchSubmit"
+              :handle-update="handleUpdateSearch"
+            />
+            <RplSearchBar
+              v-else
+              id="tide-search-bar"
+              variant="default"
+              :input-label="searchListingConfig?.labels?.submit"
+              :inputValue="searchTerm.q"
+              :placeholder="searchListingConfig?.labels?.placeholder"
+              :suggestions="suggestions"
+              :global-events="false"
+              @submit="handleSearchSubmit"
+              @update:input-value="handleUpdateSearchTerm"
+            />
+          </template>
           <RplSearchBarRefine
-            v-if="userFilters && userFilters.length > 0"
+            v-if="
+              !searchListingConfig?.showFiltersOnly &&
+              userFilters &&
+              userFilters.length > 0
+            "
             class="tide-search-refine-btn"
             :expanded="filtersExpanded"
             aria-controls="tide-search-listing-filters"

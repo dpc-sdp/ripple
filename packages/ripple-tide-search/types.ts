@@ -136,6 +136,7 @@ export type TideSearchLocationQueryConfig = {
     [key: string]: unknown
   }
   dslTransformFn?: (location: any) => any
+  showGeolocationButton?: boolean
 }
 
 export type TideSearchCustomQueryConfig = {

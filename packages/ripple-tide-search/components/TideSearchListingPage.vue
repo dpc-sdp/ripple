@@ -43,6 +43,7 @@ interface Props {
   searchResultsMappingFn?: (item: any) => MappedSearchResult<any>
   contentPage: TideContentPage
   site: TideSiteData
+  showUpdatedDate?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -98,7 +99,8 @@ const props = withDefaults(defineProps<Props>(), {
       }
     }
   },
-  sortOptions: () => []
+  sortOptions: () => [],
+  showUpdatedDate: false
 })
 
 const emit = defineEmits<{
@@ -349,7 +351,9 @@ watch(
     :background="contentPage.background"
     :pageTitle="contentPage.title"
     :pageLanguage="contentPage.lang"
-    :updatedDate="contentPage.changed || contentPage.created"
+    :updatedDate="
+      showUpdatedDate ? contentPage.changed || contentPage.created : null
+    "
     :showContentRating="contentPage.showContentRating"
   >
     <template #breadcrumbs>

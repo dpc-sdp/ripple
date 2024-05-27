@@ -89,3 +89,25 @@ Feature: Custom Collection
     Given I visit the page "/custom-collection"
     Then the landing page component "TideCustomCollection" should exist
     And the custom collection component should display the error "Sorry, no results match your search. Try again with different search options or check back later."
+
+  @mockserver
+  Example: Should hide the search form when hideSearchForm is set
+    Given I load the page fixture with "/landingpage/custom-collection/page"
+    And the custom collection config has "hideSearchForm" set to "true"
+    And the search network request is stubbed with fixture "/landingpage/custom-collection/response" and status 200
+    Then the page endpoint for path "/no-search-form" returns the loaded fixture
+
+    When I visit the page "/no-search-form"
+    Then the custom collection component results count should read "Displaying 1-20 of 282 results"
+    And the search form should be hidden
+
+  @mockserver
+  Example: Should only show filters when showFiltersOnly is set
+    Given I load the page fixture with "/landingpage/custom-collection/page"
+    And the custom collection config has "showFiltersOnly" set to "true"
+    And the search network request is stubbed with fixture "/landingpage/custom-collection/response" and status 200
+    Then the page endpoint for path "/filter-only" returns the loaded fixture
+
+    When I visit the page "/filter-only"
+    Then the custom collection component results count should read "Displaying 1-20 of 282 results"
+    And only the search filters should be visible

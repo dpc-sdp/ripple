@@ -45,6 +45,10 @@ export interface FilterConfigItem {
      * @description number of items to fetch
      */
     size?: number
+    /**
+     * @description order the items should be returned in
+     */
+    order?: number
   }
 
   /**
@@ -132,6 +136,12 @@ export type TideSearchLocationQueryConfig = {
     [key: string]: unknown
   }
   dslTransformFn?: (location: any) => any
+}
+
+export type TideSearchCustomQueryConfig = {
+  component?: string
+  function?: string
+  props?: Record<string, any>
 }
 
 export type TideSearchListingTab = {
@@ -226,11 +236,19 @@ export type TideSearchListingConfig = {
      * @description Filter panel open on page load
      */
     showFiltersOnLoad: boolean
+    /**
+     * @description optionally display only the filters
+     */
+    showFiltersOnly?: boolean
   }
   /**
    * @description Tabs to display, key needs to be one of TideSearchListingTabKey
    */
   tabs: TideSearchListingTab[]
+  /**
+   * @description Elastic Query DSL for query
+   */
+  customQueryConfig?: TideSearchCustomQueryConfig
   /**
    * @description Elastic Query DSL for query clause
    */

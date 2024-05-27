@@ -75,6 +75,39 @@ export default defineAppConfig({
           }
         }
       },
+      queryConfigFunctions: {
+        exampleQueryFunction: ({ searchTerm, queryFilters }) => {
+          if (!searchTerm?.q) {
+            return {
+              bool: {
+                must: [{ match_all: {} }],
+                filter: queryFilters
+              }
+            }
+          }
+
+          const fieldMap = {
+            title: ['title'],
+            content: ['field_paragraph_body'],
+            title_content: ['title', 'field_paragraph_body']
+          }
+          const filter = !searchTerm?.queryType
+            ? 'title_content'
+            : searchTerm?.queryType
+
+          return {
+            bool: {
+              should: {
+                multi_match: {
+                  query: searchTerm?.q,
+                  fields: fieldMap[filter]
+                }
+              },
+              filter: queryFilters
+            }
+          }
+        }
+      },
       locationDSLTransformFunctions: {
         // DSL transform example for VSBA map tests
         schoolBuildings: async (location) => {

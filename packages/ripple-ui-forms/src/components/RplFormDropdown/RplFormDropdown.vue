@@ -32,6 +32,7 @@ export interface RplFormDropdownProps {
   }[]
   maxItemsDisplayed?: number
   pii?: boolean
+  unselectedValue: any
 }
 
 const props = withDefaults(defineProps<RplFormDropdownProps>(), {
@@ -46,7 +47,8 @@ const props = withDefaults(defineProps<RplFormDropdownProps>(), {
   required: false,
   invalid: false,
   multiple: false,
-  pii: true
+  pii: true,
+  unselectedValue: undefined
 })
 
 const emit = defineEmits<{
@@ -61,6 +63,8 @@ const emit = defineEmits<{
 const form: object = inject('form', undefined)
 const { emitRplEvent } = useRippleEvent('rpl-form-dropdown', emit)
 
+const defaultOptionId = '__default-option'
+
 const containerRef = ref(null)
 const inputRef = ref(null)
 const menuRef = ref(null)
@@ -71,19 +75,38 @@ const menuId = computed(() => `${props.id}__menu`)
 const isOpen = ref<boolean>(false)
 const activeOptionId = ref<string | null>(null)
 
+const emptyOption = computed(() => {
+  return props.options.find((opt) => !opt.value && opt.id !== defaultOptionId)
+})
+
+const processedOptions = computed(() => {
+  if (!emptyOption.value && !props.multiple) {
+    return [
+      {
+        id: defaultOptionId,
+        label: props.placeholder,
+        value: props.unselectedValue
+      },
+      ...(props.options || [])
+    ]
+  }
+
+  return props.options || []
+})
+
 onClickOutside(containerRef, () => {
   handleClose(false)
 })
 
 const getDefaultActiveId = (): string => {
-  const firstOptionId = props.options[0].id
+  const firstOptionId = processedOptions.value[0].id
 
   if (props.multiple) {
     // Always start from the first option if we're in multi select mode
     return firstOptionId
   } else {
     // In single select mode, try to start from the currently selected item
-    const selectedOption = props.options.find(
+    const selectedOption = processedOptions.value.find(
       (opt) => opt.value === props.value
     )
 
@@ -120,7 +143,7 @@ const handleToggle = (fromKeyboard = false): void => {
 const handleOpen = (fromKeyboard = false): void => {
   isOpen.value = true
 
-  if (fromKeyboard && props.options?.length) {
+  if (fromKeyboard && processedOptions.value?.length) {
     activeOptionId.value = getDefaultActiveId()
   }
 }
@@ -139,14 +162,14 @@ const handleArrowUp = () => {
     isOpen.value = true
   }
 
-  const currentActiveIndex = props.options.findIndex(
+  const currentActiveIndex = processedOptions.value.findIndex(
     (opt) => opt.id === activeOptionId.value
   )
 
   if (currentActiveIndex < 0) {
     activeOptionId.value = getDefaultActiveId()
-  } else if (currentActiveIndex < props.options.length - 1) {
-    activeOptionId.value = props.options[currentActiveIndex + 1].id
+  } else if (currentActiveIndex < processedOptions.value.length - 1) {
+    activeOptionId.value = processedOptions.value[currentActiveIndex + 1].id
   }
 }
 
@@ -155,14 +178,14 @@ const handleArrowDown = () => {
     isOpen.value = true
   }
 
-  const currentActiveIndex = props.options.findIndex(
+  const currentActiveIndex = processedOptions.value.findIndex(
     (opt) => opt.id === activeOptionId.value
   )
 
   if (currentActiveIndex < 0) {
     activeOptionId.value = getDefaultActiveId()
   } else if (currentActiveIndex > 0) {
-    activeOptionId.value = props.options[currentActiveIndex - 1].id
+    activeOptionId.value = processedOptions.value[currentActiveIndex - 1].id
   }
 }
 
@@ -249,7 +272,7 @@ const isMenuItemKeyboardFocused = (optionId: string): boolean => {
 }
 
 const selectedOptions = computed(() => {
-  return (props.options || []).filter((opt) =>
+  return (processedOptions.value || []).filter((opt) =>
     (props.value || []).includes(opt.value)
   )
 })
@@ -259,7 +282,7 @@ const singleValueDisplay = computed((): string => {
     return emptyOption.value.label
   }
 
-  const selectedOption = (props.options || []).find(
+  const selectedOption = (processedOptions.value || []).find(
     (opt) => props.value === opt.value
   )
 
@@ -272,10 +295,6 @@ const hasValue = computed((): boolean => {
   } else {
     return !!props.value
   }
-})
-
-const emptyOption = computed(() => {
-  return props.options.find((opt) => !opt.value)
 })
 </script>
 
@@ -350,7 +369,7 @@ const emptyOption = computed(() => {
       tabindex="-1"
     >
       <div
-        v-for="option in options"
+        v-for="option in processedOptions"
         :id="getUniqueOptionId(option.id)"
         :key="option.id"
         ref="optionRefs"

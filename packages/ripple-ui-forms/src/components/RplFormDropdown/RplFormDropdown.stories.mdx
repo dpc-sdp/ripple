@@ -161,8 +161,36 @@ export const SingleTemplate = (args) => ({
   <Story
     name='Inactive'
     args={{
-      id: 'dropdown-long-labels',
+      id: 'dropdown-inactive',
       disabled: true
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    name='Empty default option'
+    args={{
+      id: 'dropdown-empty-option',
+      options: [
+        {
+          id: 'item-1',
+          value: '',
+          label: 'Value 1'
+        },
+        {
+          id: 'item-2',
+          value: 'item-2',
+          label: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+        },
+        {
+          id: 'item-3',
+          value: 'item-3',
+          label: 'Value 3'
+        }
+      ]
     }}
   >
     {SingleTemplate.bind()}

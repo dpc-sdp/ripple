@@ -21,7 +21,6 @@
 
 .rpl-form-option__label-text {
   margin-left: var(--rpl-sp-3);
-  margin-top: 1px;
 }
 
 [dir='rtl'] .rpl-form-option__label-text {
@@ -60,7 +59,7 @@
   opacity: 0;
 }
 
-.rpl-form-option__input:hover + .rpl-form-option__label {
+.rpl-form-option__input:is(:hover, :focus, :active) + .rpl-form-option__label {
   .rpl-form-option__mark {
     border-color: var(--rpl-clr-dark);
   }

@@ -59,7 +59,8 @@ const props = withDefaults(defineProps<Props>(), {
     labels: {
       submit: 'Submit',
       reset: 'Reset',
-      placeholder: 'Enter a search term'
+      placeholder: 'Enter a search term',
+      geolocateBtn: 'Use my current location'
     },
     displayMapTab: false,
     suggestions: {
@@ -594,7 +595,10 @@ const locationOrGeolocation = computed(() => {
           @success="handleGeolocateSuccess"
           @error="handleGeolocateError"
         >
-          Use my location
+          {{
+            searchListingConfig.labels?.geolocateBtn ||
+            'Use my current location'
+          }}
         </RplMapGeolocateButton>
         <div class="tide-search-refine-wrapper">
           <RplSearchBarRefine

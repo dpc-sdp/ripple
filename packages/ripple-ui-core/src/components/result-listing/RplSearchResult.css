@@ -1,6 +1,8 @@
 @import '@dpc-sdp/ripple-ui-core/style/breakpoints';
 
 .rpl-search-result {
+  --local-clr-link-visited: var(--rpl-clr-link-visited);
+
   padding-top: var(--rpl-sp-5);
   padding-bottom: var(--rpl-sp-5);
 

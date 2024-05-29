@@ -31,7 +31,6 @@
 .rpl-form-alert__description,
 .rpl-form-alert__fields {
   --local-clr-link: var(--rpl-clr-type-default);
-  --local-clr-link-visited: var(--rpl-clr-type-default);
   --local-clr-link-active: var(--rpl-clr-type-default);
   margin-top: var(--rpl-sp-4);
 }

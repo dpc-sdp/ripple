@@ -87,6 +87,19 @@ export const SingleTemplate = (args) => ({
 
 <Canvas>
   <Story
+    name='Single select - prevent deselect'
+    args={{
+      id: 'dropdown-single',
+      multiple: false,
+      preventDeselect: true
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
     name='Multi select - few items'
     args={{
       id: 'dropdown-multi',

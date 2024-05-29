@@ -33,6 +33,13 @@ export interface RplFormDropdownProps {
   maxItemsDisplayed?: number
   pii?: boolean
   unselectedValue: any
+  /**
+   * Only applicable when for single selects. If true, no 'placeholder' option
+   * is added and the user can't deselect a value, only choose a different value.
+   *
+   * Useful for when the field has a default value and the user must choose a value.
+   */
+  preventDeselect?: boolean
 }
 
 const props = withDefaults(defineProps<RplFormDropdownProps>(), {
@@ -48,7 +55,8 @@ const props = withDefaults(defineProps<RplFormDropdownProps>(), {
   invalid: false,
   multiple: false,
   pii: true,
-  unselectedValue: undefined
+  unselectedValue: undefined,
+  preventDeselect: false
 })
 
 const emit = defineEmits<{
@@ -80,7 +88,7 @@ const emptyOption = computed(() => {
 })
 
 const processedOptions = computed(() => {
-  if (!emptyOption.value && !props.multiple) {
+  if (!props.preventDeselect && !emptyOption.value && !props.multiple) {
     return [
       {
         id: defaultOptionId,

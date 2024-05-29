@@ -508,25 +508,8 @@ const handleGeolocateSuccess = (pos: GeolocationPosition) => {
 }
 
 const handleGeolocateError = (error: GeolocationPositionError) => {
-  let message
-
-  switch (error.code) {
-    case error.PERMISSION_DENIED:
-      message = 'User denied the request for Geolocation.'
-      break
-    case error.POSITION_UNAVAILABLE:
-      message = 'Location information is unavailable.'
-      break
-    case error.TIMEOUT:
-      message = 'The request to get user location timed out.'
-      break
-    default:
-      message = 'An unknown error occurred.'
-      break
-  }
-
   isGettingLocation.value = false
-  geolocationError.value = message
+  geolocationError.value = `We couldn't find your location. You could enable location services, or input your location search manually.`
 }
 
 const locationOrGeolocation = computed(() => {
@@ -589,6 +572,7 @@ const locationOrGeolocation = computed(() => {
       <div class="tide-search-util-bar">
         <RplMapGeolocateButton
           v-if="locationQueryConfig?.showGeolocationButton"
+          class="tide-search-geolocate"
           :isBusy="isGettingLocation"
           :error="geolocationError"
           @click="handleGeolocateClick"
@@ -823,5 +807,11 @@ const locationOrGeolocation = computed(() => {
   flex-grow: 1;
   display: flex;
   justify-content: flex-end;
+}
+
+.tide-search-geolocate {
+  @media (--rpl-bp-m) {
+    max-width: 500px;
+  }
 }
 </style>

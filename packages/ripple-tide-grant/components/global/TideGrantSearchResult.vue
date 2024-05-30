@@ -40,13 +40,19 @@ const dateFrom = computed(() =>
 const dateTo = computed(() =>
   getSearchResultValue(props.result, 'field_node_dates_end_value')
 )
+
+const link = computed(() => {
+  const externalURL = getSearchResultValue(props.result, 'field_node_link')
+
+  return externalURL || url.value
+})
 </script>
 
 <template>
   <RplSearchResult
     class="tide-grant-search-result"
     :title="title"
-    :url="url"
+    :url="link"
     :content="summary"
     :updated="updated"
   >

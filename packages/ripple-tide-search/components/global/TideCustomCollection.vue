@@ -509,7 +509,7 @@ const handleGeolocateSuccess = (pos: GeolocationPosition) => {
 
 const handleGeolocateError = (error: GeolocationPositionError) => {
   isGettingLocation.value = false
-  geolocationError.value = `We couldn't find your location. You could enable location services, or input your location search manually.`
+  geolocationError.value = `We couldn't find your location. Check your browser permissions or input your location manually`
 }
 
 const locationOrGeolocation = computed(() => {
@@ -572,7 +572,6 @@ const locationOrGeolocation = computed(() => {
       <div class="tide-search-util-bar">
         <RplMapGeolocateButton
           v-if="locationQueryConfig?.showGeolocationButton"
-          class="tide-search-geolocate"
           :isBusy="isGettingLocation"
           :error="geolocationError"
           @click="handleGeolocateClick"
@@ -807,11 +806,5 @@ const locationOrGeolocation = computed(() => {
   flex-grow: 1;
   display: flex;
   justify-content: flex-end;
-}
-
-.tide-search-geolocate {
-  @media (--rpl-bp-m) {
-    max-width: 500px;
-  }
 }
 </style>

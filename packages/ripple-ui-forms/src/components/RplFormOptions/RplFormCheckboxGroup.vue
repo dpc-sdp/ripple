@@ -90,6 +90,7 @@ const isChecked = (optionValue: string): boolean => {
       :disabled="disabled || option.disabled"
       :checked="isChecked(option.value)"
       :global-events="false"
+      :grouped="true"
       @on-change="handleToggle(option.value)"
     />
   </div>

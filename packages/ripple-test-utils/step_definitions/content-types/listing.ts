@@ -299,6 +299,7 @@ Then(
     cy.get(`@selectedDropdown`)
       .siblings('[role="listbox"]')
       .find('[role="option"]')
+      .not('[id$="__default-option"]')
       .as('selectedDropdownOptions')
 
     table.forEach((row, i: number) => {

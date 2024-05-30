@@ -28,7 +28,6 @@
 
   &__link {
     --local-clr-link: var(--rpl-clr-type-light);
-    --local-clr-link-visited: var(--rpl-clr-type-light);
 
     display: inline-block;
     color: var(--rpl-clr-type-light);

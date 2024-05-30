@@ -15,7 +15,8 @@
     background-color: transparent;
   }
 
-  > {
+  >,
+  .rpl-callout__wrapper > {
     :nth-child(n) {
       margin-top: var(--rpl-sp-4);
     }

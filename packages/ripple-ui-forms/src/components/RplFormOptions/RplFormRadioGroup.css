@@ -1,7 +1,6 @@
 .rpl-form-radio-group {
   display: flex;
   flex-direction: column;
-  gap: var(--rpl-sp-5);
 }
 
 .rpl-form-radio-group--inline {

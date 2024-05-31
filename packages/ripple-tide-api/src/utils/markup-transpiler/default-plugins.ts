@@ -16,7 +16,11 @@ const pluginCallout = function (this: any) {
   // These callouts are added in drupal via the 'C' button in the wysiwyg editor.
   // Wrap callouts with a div. If there are multiple callouts in a row, wrap them all in a div.
   this.find('.callout-wrapper').each((i: any, el: any) => {
-    if (this.find(el).prev().hasClass('callout-wrapper')) {
+    this.find(el)
+      .removeClass('callout-wrapper')
+      .addClass('rpl-callout__wrapper')
+
+    if (this.find(el).prev().hasClass('rpl-callout__wrapper')) {
       return
     }
 

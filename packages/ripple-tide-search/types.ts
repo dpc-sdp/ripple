@@ -201,6 +201,7 @@ export type TideSearchListingConfig = {
       submit: string
       reset: string
       placeholder: string
+      geolocateBtn?: string
     }
     /**
      * @description custom sort clause

@@ -26,7 +26,7 @@ const fixed = {
     <tr><td>Joe</td><td>Cool</td></tr>
   </tbody>
 </table></div></div>`,
-  callout: `<div class="rpl-callout"><div class="callout-wrapper"><p>Hey it's a callout</p></div><div class="callout-wrapper"><p>And another callout</p></div></div>
+  callout: `<div class="rpl-callout"><div class="rpl-callout__wrapper"><p>Hey it's a callout</p></div><div class="rpl-callout__wrapper"><p>And another callout</p></div></div>
 <div class="rpl-callout rpl-callout--neutral">This one is wysiwyg</div>`,
   quotation: `
 <figure class="rpl-blockquote">

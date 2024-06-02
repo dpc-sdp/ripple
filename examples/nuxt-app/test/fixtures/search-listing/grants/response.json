@@ -140,6 +140,50 @@
           "uuid": ["244b27ce-634c-4721-b70a-fea107b2ba9f"]
         },
         "sort": [1.0, 3522]
+      },
+      {
+        "_index": "a83890f7a31dea14e1ae83c6f0afacca--elasticsearch_index_production_node",
+        "_id": "entity:node/31026:en",
+        "_score": null,
+        "_ignored": ["field_landing_page_summary.keyword"],
+        "_source": {
+          "_language": "en",
+          "node_grants": ["node_access_all:0"],
+          "url": ["/site-4/2023-coastcare-victoria-community-grants"],
+          "changed": ["2023-03-08T10:26:00+11:00"],
+          "created": ["2023-03-07T11:24:06+11:00"],
+          "field_audience": [80, 82],
+          "field_audience_name": ["Individual", "Not-for-profit groups"],
+          "field_audience_uuid": [
+            "f86a3a17-380b-4840-8d54-195260ac9db1",
+            "4038b20b-a519-4963-9cb6-04364cbe8eba"
+          ],
+          "field_landing_page_summary": [
+            "This year, Coastcare Victoria has $210,000 available for grants of up to $10,000 each. Projects will fit into one of three streams on offer including ‘Stewardship and Education; Strengthening our Volunteer Groups; and Supporting Traditional Owner Self-Determination’."
+          ],
+          "field_node_dates_end_value": ["2023-03-30T11:00:00+11:00"],
+          "field_node_dates_start_value": ["2023-02-20T11:00:00+11:00"],
+          "field_node_link": [
+            "https://www.marineandcoasts.vic.gov.au/coastcare-victoria-community-grants"
+          ],
+          "field_node_on_going": [false],
+          "field_node_primary_csite": [4],
+          "field_node_site": [4],
+          "field_topic": [11],
+          "field_topic_name": ["Environment, water \u0026 energy"],
+          "field_topic_path": ["/topic/environment-water-energy"],
+          "field_topic_uuid": ["56387cfe-be0a-4f5c-b3ca-f980a154699c"],
+          "funding_level_from": [1],
+          "funding_level_to": [10000],
+          "langcode": ["en"],
+          "nid": [31026],
+          "status": [true],
+          "title": ["2023 Coastcare Victoria Community Grants"],
+          "type": ["grant"],
+          "uid": [6087],
+          "uuid": ["e8022205-e15f-4231-ac38-49ed14328823"]
+        },
+        "sort": [1.0, 3522]
       }
     ]
   },

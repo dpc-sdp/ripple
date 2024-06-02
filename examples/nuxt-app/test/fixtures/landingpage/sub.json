@@ -147,7 +147,7 @@
             "url": "/test-destination-1",
             "description": "<p>Milestone 1 <strong>summary</strong> <em>field</em></p>",
             "image": {
-              "src": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/VicFleet-Police-car-on-road.jpg"
+              "src": "/placeholders/medium.png"
             },
             "current": false,
             "dateStart": "2022-06-02T04:53:53+10:00",
@@ -233,7 +233,7 @@
             "title": "Card one",
             "summary": "Card one summary",
             "image": {
-              "src": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Aerial-shot-of-new-housing-development.jpg",
+              "src": "/placeholders/medium.png",
               "alt": "",
               "focalPoint": null,
               "height": 667,
@@ -246,7 +246,7 @@
             "title": "Card two",
             "summary": "Card two summary",
             "image": {
-              "src": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/2018-19-State-Budget.jpg",
+              "src": "/placeholders/medium.png",
               "alt": "",
               "focalPoint": null,
               "height": 667,
@@ -282,13 +282,13 @@
         "tag": "meta",
         "attributes": {
           "property": "og:image",
-          "content": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg"
+          "content": "/placeholders/medium.png"
         }
       }
     ],
     "keywords": "",
     "image": {
-      "src": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg",
+      "src": "/placeholders/medium.png",
       "alt": "Demo: Melbourne tram",
       "title": "Demo: Melbourne tram",
       "width": 1413,

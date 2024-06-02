@@ -136,13 +136,13 @@
         "tag": "meta",
         "attributes": {
           "property": "og:image",
-          "content": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg"
+          "content": "/placeholders/medium.png"
         }
       }
     ],
     "keywords": "",
     "image": {
-      "src": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg",
+      "src": "/placeholders/medium.png",
       "alt": "Demo: Melbourne tram",
       "title": "Demo: Melbourne tram",
       "width": 1413,

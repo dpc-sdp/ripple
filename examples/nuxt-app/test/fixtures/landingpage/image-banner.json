@@ -115,7 +115,7 @@
     "theme": "reverse",
     "logoImage": null,
     "backgroundImage": {
-      "src": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-skyline-at-dusk.jpg",
+      "src": "/placeholders/large.png",
       "alt": "Demo: Melbourne skyline at dusk",
       "title": "Demo: Melbourne skyline at dusk",
       "width": 2560,
@@ -123,7 +123,7 @@
       "drupal_internal__target_id": 44
     },
     "cornerTop": {
-      "src": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Parliament-of-Victoria.jpg",
+      "src": "/placeholders/small.png",
       "alt": "Demo: Parliament of Victoria",
       "title": "Demo: Parliament of Victoria",
       "width": 1650,
@@ -146,7 +146,7 @@
     "summaryHtml": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vobis voluptatum perceptarum recordatio vitam beatam facit</p>",
     "cta": { "text": "Find out more", "url": "https://www.vic.gov.au" },
     "image": {
-      "src": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-skyline-at-dusk.jpg",
+      "src": "/placeholders/medium.png",
       "alt": "Demo: Melbourne skyline at dusk",
       "title": "Demo: Melbourne skyline at dusk",
       "width": 2560,
@@ -160,7 +160,7 @@
     "summaryHtml": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vobis voluptatum perceptarum recordatio vitam beatam facit</p>",
     "cta": { "text": "Find out more", "url": "https://www.vic.gov.au" },
     "image": {
-      "src": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg",
+      "src": "/placeholders/medium.png",
       "alt": "Demo: Melbourne tram",
       "title": "Demo: Melbourne tram",
       "width": 1413,
@@ -212,7 +212,7 @@
         }
       ],
       "props": {
-        "html": "<h2 id=\"nulla-ultricies-dignissim-leo-posuere-vestibulum-erat-cursus-vitae\">Nulla ultricies dignissim leo, posuere vestibulum erat cursus vitae</h2>\n<h3 id=\"phasellus-congue-aliquam-vehicula\">Phasellus congue aliquam vehicula</h3>\n<p class=\"rpl-callout\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet ligula sit amet lacinia. In a leo nec tortor aliquet faucibus. Quisque nec congue ligula, vitae condimentum tellus. Nulla nec urna augue. Curabitur commodo nisi est, eu pulvinar tortor cursus vel. Morbi dictum ex est, et semper diam finibus eu. Cras rutrum, nunc a fringilla convallis, massa est vulputate velit, in blandit augue dui vitae elit. Donec hendrerit commodo augue, in maximus orci tempor congue. Mauris ultricies euismod orci, nec vehicula quam vehicula ac. Nunc dictum tortor dolor, nec eleifend orci luctus sed.</p>\n<h3 id=\"donec-scelerisque-cursus-ex-varius-efficitur\">Donec scelerisque cursus ex varius efficitur</h3>\n<h4>Morbi cursus placerat mi</h4>\n<h5>Nullam laoreet ante placerat</h5>\n<p>Integer interdum nisl ut neque dictum, et sagittis metus feugiat. Sed in mattis neque. Duis at risus non ipsum semper dapibus. Sed enim sapien, molestie sed commodo vel, lacinia vitae risus. Proin sagittis diam nisi, sed rhoncus diam varius id. Sed malesuada felis tortor, scelerisque pretium elit tempor non. Pellentesque ultrices volutpat tincidunt. Fusce quis viverra urna, quis finibus nulla.</p>\n\n<figure class=\"rpl-blockquote\">\n  <blockquote class=\"rpl-blockquote__quote\">\n  <p class=\"rpl-type-p-large-fixed\">Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus. Phasellus lacus lectus, sollicitudin sed posuere non, ultricies ut quam.</p>\n  </blockquote>\n  <figcaption class=\"rpl-blockquote__author rpl-type-label-small\">\n    <span class=\"rpl-blockquote__author-name\">Duis ligula lacus</span><span class=\"rpl-blockquote__author-name\">Phasellus est turpis, efficitur nec odio imperdiet</span>\n  </figcaption>\n</figure>\n\nMauris tincidunt tincidunt felis vel tempus\n<img src=\"https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg\" class=\"rpl-img\" width=\"1413\" alt=\"Demo: Melbourne tram\" srcset=\"https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg?width=606,\n      https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg?width=1212 2x\">\n<p>Phasellus in varius leo. Suspendisse potenti. Donec scelerisque cursus ex varius efficitur. Vivamus pretium nisi sed libero accumsan mattis. Duis convallis, velit eget varius tempus, orci erat aliquam sem, eget porta mauris nisl at mauris.</p>\n\n<figure class=\"rpl-document\">\n  <a tabindex=\"-1\" class=\"rpl-document__link\" aria-label=\"Demo Sample Document File type: Word. Size: 7.53 KB.\" href=\"https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/sample.docx\" target=\"_blank\">\n    <span class=\"rpl-document__icon rpl-icon rpl-icon--size-l rpl-icon--colour-default rpl-icon--icon-document-lined\">\n      <svg role=\"presentation\"><use xlink:href=\"#icon-document-lined\"></use></svg>\n    </span>\n    <div class=\"rpl-document__content\">\n      <span class=\"rpl-document__name rpl-type-p rpl-type-weight-bold rpl-u-focusable-inline\" tabindex=\"0\">Demo Sample Document</span>\n      <div class=\"rpl-document__info rpl-type-label-small\">\n        <span class=\"rpl-file__meta\">Word</span>\n        <span class=\"rpl-file__meta\">7.53 KB</span>\n      </div>\n    </div>\n  \n  </a>\n</figure>\n\n"
+        "html": "<h2 id=\"nulla-ultricies-dignissim-leo-posuere-vestibulum-erat-cursus-vitae\">Nulla ultricies dignissim leo, posuere vestibulum erat cursus vitae</h2>\n<h3 id=\"phasellus-congue-aliquam-vehicula\">Phasellus congue aliquam vehicula</h3>\n<p class=\"rpl-callout\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet ligula sit amet lacinia. In a leo nec tortor aliquet faucibus. Quisque nec congue ligula, vitae condimentum tellus. Nulla nec urna augue. Curabitur commodo nisi est, eu pulvinar tortor cursus vel. Morbi dictum ex est, et semper diam finibus eu. Cras rutrum, nunc a fringilla convallis, massa est vulputate velit, in blandit augue dui vitae elit. Donec hendrerit commodo augue, in maximus orci tempor congue. Mauris ultricies euismod orci, nec vehicula quam vehicula ac. Nunc dictum tortor dolor, nec eleifend orci luctus sed.</p>\n<h3 id=\"donec-scelerisque-cursus-ex-varius-efficitur\">Donec scelerisque cursus ex varius efficitur</h3>\n<h4>Morbi cursus placerat mi</h4>\n<h5>Nullam laoreet ante placerat</h5>\n<p>Integer interdum nisl ut neque dictum, et sagittis metus feugiat. Sed in mattis neque. Duis at risus non ipsum semper dapibus. Sed enim sapien, molestie sed commodo vel, lacinia vitae risus. Proin sagittis diam nisi, sed rhoncus diam varius id. Sed malesuada felis tortor, scelerisque pretium elit tempor non. Pellentesque ultrices volutpat tincidunt. Fusce quis viverra urna, quis finibus nulla.</p>\n\n<figure class=\"rpl-blockquote\">\n  <blockquote class=\"rpl-blockquote__quote\">\n  <p class=\"rpl-type-p-large-fixed\">Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus. Phasellus lacus lectus, sollicitudin sed posuere non, ultricies ut quam.</p>\n  </blockquote>\n  <figcaption class=\"rpl-blockquote__author rpl-type-label-small\">\n    <span class=\"rpl-blockquote__author-name\">Duis ligula lacus</span><span class=\"rpl-blockquote__author-name\">Phasellus est turpis, efficitur nec odio imperdiet</span>\n  </figcaption>\n</figure>\n\nMauris tincidunt tincidunt felis vel tempus\n<img src=\"/placeholders/medium.png?width=1212 2x\">\n<p>Phasellus in varius leo. Suspendisse potenti. Donec scelerisque cursus ex varius efficitur. Vivamus pretium nisi sed libero accumsan mattis. Duis convallis, velit eget varius tempus, orci erat aliquam sem, eget porta mauris nisl at mauris.</p>\n\n<figure class=\"rpl-document\">\n  <a tabindex=\"-1\" class=\"rpl-document__link\" aria-label=\"Demo Sample Document File type: Word. Size: 7.53 KB.\" href=\"https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/sample.docx\" target=\"_blank\">\n    <span class=\"rpl-document__icon rpl-icon rpl-icon--size-l rpl-icon--colour-default rpl-icon--icon-document-lined\">\n      <svg role=\"presentation\"><use xlink:href=\"#icon-document-lined\"></use></svg>\n    </span>\n    <div class=\"rpl-document__content\">\n      <span class=\"rpl-document__name rpl-type-p rpl-type-weight-bold rpl-u-focusable-inline\" tabindex=\"0\">Demo Sample Document</span>\n      <div class=\"rpl-document__info rpl-type-label-small\">\n        <span class=\"rpl-file__meta\">Word</span>\n        <span class=\"rpl-file__meta\">7.53 KB</span>\n      </div>\n    </div>\n  \n  </a>\n</figure>\n\n"
       }
     },
     {
@@ -281,7 +281,7 @@
             "title": "2-BE-event-1",
             "url": "/2-be-event-1",
             "image": {
-              "src": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg",
+              "src": "/placeholders/medium.png",
               "alt": "Demo: Melbourne tram",
               "title": "Demo: Melbourne tram",
               "width": 1413,
@@ -300,7 +300,7 @@
             "title": "Demo Event",
             "url": "/demo-event",
             "image": {
-              "src": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg",
+              "src": "/placeholders/medium.png",
               "alt": "Demo: Melbourne tram",
               "title": "Demo: Melbourne tram",
               "width": 1413,
@@ -319,7 +319,7 @@
             "title": "Roulette Aerial Display - demo",
             "url": "/roulette-aerial-display-demo",
             "image": {
-              "src": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/roulette-aerial-display-card.jpg",
+              "src": "/placeholders/medium.png",
               "alt": "Demo: Roulette aerial display",
               "title": "Demo: Roulette aerial display",
               "width": 818,
@@ -384,7 +384,7 @@
             "title": "News for CC 1",
             "url": "/news-cc-1",
             "image": {
-              "src": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg",
+              "src": "/placeholders/medium.png",
               "alt": "Demo: Melbourne tram",
               "title": "Demo: Melbourne tram",
               "width": 1413,
@@ -413,7 +413,7 @@
             "title": "SDPTA: news page news - 15-12-2022",
             "url": "/sdpta-news-page-news-15-12-2022-0",
             "image": {
-              "src": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/2022-12/Spoid_o.jpg",
+              "src": "/placeholders/medium.png",
               "alt": " Alternative text",
               "title": "Image Title",
               "width": 1000,
@@ -453,7 +453,7 @@
             "title": "SDPTA: Test News page - 15-12-2022",
             "url": "/sdpta-test-news-page-15-12-2022-0",
             "image": {
-              "src": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/2022-12/Spoid_o.jpg",
+              "src": "/placeholders/medium.png",
               "alt": " Alternative text",
               "title": "Image Title",
               "width": 1000,
@@ -471,7 +471,7 @@
             "title": "SDPTA: news page news - 15-12-2022",
             "url": "/sdpta-news-page-news-15-12-2022",
             "image": {
-              "src": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/2022-12/Spoid_o.jpg",
+              "src": "/placeholders/medium.png",
               "alt": " Alternative text",
               "title": "Image Title",
               "width": 1000,
@@ -519,7 +519,7 @@
         "title": "Card Promotion",
         "summary": "Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus.",
         "image": {
-          "src": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg",
+          "src": "/placeholders/medium.png",
           "alt": "Demo: Melbourne tram",
           "title": "Demo: Melbourne tram",
           "width": 1413,
@@ -548,7 +548,7 @@
         "title": "Navigation card",
         "summary": "Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus.",
         "image": {
-          "src": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg",
+          "src": "/placeholders/medium.png",
           "alt": "Demo: Melbourne tram",
           "title": "Demo: Melbourne tram",
           "width": 1413,
@@ -579,29 +579,29 @@
             "title": "Demo: 2018-19 State Budget",
             "caption": "Demo: 2018-19 State Budget sample caption",
             "alt": "Demo: 2018-19 State Budget",
-            "thumbnail": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/2018-19-State-Budget.jpg",
-            "image": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/2018-19-State-Budget.jpg"
+            "thumbnail": "/placeholders/medium.png",
+            "image": "/placeholders/medium.png"
           },
           {
             "title": "Demo: Aerial shot of new housing development",
             "caption": "Aerial shot of new housing development caption",
             "alt": "Demo: Aerial shot of new housing development",
-            "thumbnail": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Aerial-shot-of-new-housing-development.jpg",
-            "image": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Aerial-shot-of-new-housing-development.jpg"
+            "thumbnail": "/placeholders/medium.png",
+            "image": "/placeholders/medium.png"
           },
           {
             "title": "Demo: Bendigo Hospital",
             "caption": "ts",
             "alt": "Demo: Bendigo Hospital",
-            "thumbnail": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Bendigo-Hospital.jpg",
-            "image": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Bendigo-Hospital.jpg"
+            "thumbnail": "/placeholders/medium.png",
+            "image": "/placeholders/medium.png"
           },
           {
             "title": "Demo: Melbourne tram",
             "caption": null,
             "alt": "Demo: Melbourne tram",
-            "thumbnail": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg",
-            "image": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg"
+            "thumbnail": "/placeholders/medium.png",
+            "image": "/placeholders/medium.png"
           }
         ]
       }

@@ -260,7 +260,7 @@
     },
     "theme": "default",
     "logoImage": {
-      "src": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Bendigo-Hospital.jpg",
+      "src": "/placeholders/logo.png",
       "alt": "Demo: Bendigo Hospital",
       "title": "Demo: Bendigo Hospital.jpg",
       "width": 1280,
@@ -268,14 +268,14 @@
     },
     "backgroundImage": null,
     "cornerTop": {
-      "src": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Parliament-of-Victoria.jpg",
+      "src": "/placeholders/small.png",
       "alt": "Demo: Parliament of Victoria",
       "title": "Demo: Parliament of Victoria",
       "width": 1650,
       "height": 915
     },
     "cornerBottom": {
-      "src": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/VicFleet-Police-car-on-road.jpg",
+      "src": "/placeholders/small.png",
       "alt": "Demo: VicFleet - Police car on road",
       "title": "Demo: VicFleet - Police car on road",
       "width": 1065,
@@ -299,7 +299,7 @@
       "url": "/demo-destination"
     },
     "image": {
-      "src": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-skyline-at-dusk.jpg",
+      "src": "/placeholders/medium.png",
       "alt": "Demo: Melbourne skyline at dusk",
       "title": "Demo: Melbourne skyline at dusk",
       "width": 2560,
@@ -315,7 +315,7 @@
       "url": "/demo-secondary-destination"
     },
     "image": {
-      "src": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg",
+      "src": "/placeholders/medium.png",
       "alt": "Demo: Melbourne tram",
       "title": "Demo: Melbourne tram",
       "width": 1413,
@@ -413,7 +413,7 @@
         "title": "Promo card (noImage)",
         "summary": "Sample description",
         "image": {
-          "src": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg",
+          "src": "/placeholders/medium.png",
           "focalPoint": {
             "x": 707,
             "y": 393
@@ -449,7 +449,7 @@
         "title": "Promo card (thumbnail)",
         "summary": "Sample description",
         "image": {
-          "src": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg",
+          "src": "/placeholders/medium.png",
           "focalPoint": {
             "x": 707,
             "y": 393
@@ -485,7 +485,7 @@
         "title": "Promo card (profile)",
         "summary": "Sample description",
         "image": {
-          "src": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg",
+          "src": "/placeholders/medium.png",
           "focalPoint": {
             "x": 707,
             "y": 393
@@ -520,7 +520,7 @@
         "title": "Nav card (noImage)",
         "summary": "Sample description",
         "image": {
-          "src": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg",
+          "src": "/placeholders/medium.png",
           "focalPoint": {
             "x": 707,
             "y": 393
@@ -555,7 +555,7 @@
         "title": "Nav card (thumbnail)",
         "summary": "Sample description",
         "image": {
-          "src": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg",
+          "src": "/placeholders/medium.png",
           "focalPoint": {
             "x": 707,
             "y": 393
@@ -590,7 +590,7 @@
         "title": "Nav card (featured)",
         "summary": "Sample description",
         "image": {
-          "src": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg",
+          "src": "/placeholders/medium.png",
           "focalPoint": {
             "x": 707,
             "y": 393
@@ -653,7 +653,7 @@
             "url": "/test-destination-1",
             "description": "<p>Milestone 1 <strong>summary</strong> <em>field</em></p>",
             "image": {
-              "src": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/VicFleet-Police-car-on-road.jpg"
+              "src": "/placeholders/small.png"
             },
             "current": false,
             "dateStart": "2022-06-02T04:53:53+10:00",
@@ -691,7 +691,7 @@
       "props": {
         "title": "Test call to action title",
         "image": {
-          "src": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Two-men-working-in-hi-vis-clothing.jpg",
+          "src": "/placeholders/medium.png",
           "alt": "Two men working",
           "title": "Two men working"
         },
@@ -735,7 +735,7 @@
               "drupal_internal__target_id": 42,
               "focalPoint": null,
               "height": 571,
-              "src": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Aerial-shot-of-new-housing-development.jpg",
+              "src": "/placeholders/medium.png",
               "title": "Demo: Aerial shot of new housing development",
               "width": 1024
             },
@@ -755,7 +755,7 @@
               "drupal_internal__target_id": 52,
               "focalPoint": null,
               "height": 500,
-              "src": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Engage-Vic-photo-hero.jpeg",
+              "src": "/placeholders/medium.png",
               "title": "Engage Vic",
               "width": 737
             },
@@ -795,22 +795,22 @@
             "title": "Media title one",
             "caption": "The first media caption",
             "alt": "Demo: 2018-19 State Budget",
-            "thumbnail": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/2018-19-State-Budget.jpg",
-            "image": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/2018-19-State-Budget.jpg"
+            "thumbnail": "/placeholders/medium.png",
+            "image": "/placeholders/medium.png"
           },
           {
             "title": "Media title two",
             "caption": "The second media caption",
             "alt": "Demo: Aerial shot of new housing development",
-            "thumbnail": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Aerial-shot-of-new-housing-development.jpg",
-            "image": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Aerial-shot-of-new-housing-development.jpg"
+            "thumbnail": "/placeholders/medium.png",
+            "image": "/placeholders/medium.png"
           },
           {
             "title": "Media title three",
             "caption": "The third media caption",
             "alt": "Demo: Bendigo Hospital",
-            "thumbnail": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Bendigo-Hospital.jpg",
-            "image": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Bendigo-Hospital.jpg"
+            "thumbnail": "/placeholders/medium.png",
+            "image": "/placeholders/medium.png"
           }
         ]
       }
@@ -883,7 +883,7 @@
             "title": "Card one",
             "summary": "Card one summary",
             "image": {
-              "src": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Aerial-shot-of-new-housing-development.jpg",
+              "src": "/placeholders/medium.png",
               "alt": "",
               "focalPoint": null,
               "height": 667,
@@ -896,7 +896,7 @@
             "title": "Card two",
             "summary": "Card two summary",
             "image": {
-              "src": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/2018-19-State-Budget.jpg",
+              "src": "/placeholders/medium.png",
               "alt": "",
               "focalPoint": null,
               "height": 667,
@@ -932,13 +932,13 @@
         "tag": "meta",
         "attributes": {
           "property": "og:image",
-          "content": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg"
+          "content": "/placeholders/medium.png"
         }
       }
     ],
     "keywords": "",
     "image": {
-      "src": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg",
+      "src": "/placeholders/medium.png",
       "alt": "Demo: Melbourne tram",
       "title": "Demo: Melbourne tram",
       "width": 1413,

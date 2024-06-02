@@ -33,12 +33,12 @@ Feature: Home page
       | noImage      | Promo card (noImage) | Sample description |       |
 
     Then a promo card with ID "977" should exist with the following properties
-      | displayStyle | title                  | content            | image                                                                                                     |
-      | thumbnail    | Promo card (thumbnail) | Sample description | https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg |
+      | displayStyle | title                  | content            | image                    |
+      | thumbnail    | Promo card (thumbnail) | Sample description | /placeholders/medium.png |
 
     Then a promo card with ID "978" should exist with the following properties
-      | displayStyle | title                | content            | image                                                                                                     |
-      | profile      | Promo card (profile) | Sample description | https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg |
+      | displayStyle | title                | content            | image                    |
+      | profile      | Promo card (profile) | Sample description | /placeholders/medium.png |
 
   @mockserver
   Scenario: Page component - Nav card
@@ -47,12 +47,12 @@ Feature: Home page
       | noImage      | Nav card (noImage) | Sample description |       |
 
     Then a nav card with ID "982" should exist with the following properties
-      | displayStyle | title                | content            | image                                                                                                     |
-      | thumbnail    | Nav card (thumbnail) | Sample description | https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg |
+      | displayStyle | title                | content            | image                    |
+      | thumbnail    | Nav card (thumbnail) | Sample description | /placeholders/medium.png |
 
     Then a nav card with ID "983" should exist with the following properties
-      | displayStyle | title               | content            | image                                                                                                     |
-      | featured     | Nav card (featured) | Sample description | https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg |
+      | displayStyle | title               | content            | image                    |
+      | featured     | Nav card (featured) | Sample description | /placeholders/medium.png |
 
 
   @mockserver
@@ -68,16 +68,16 @@ Feature: Home page
   Scenario: Page component - Timeline
     Then a timeline with ID "992" should exist with the title "Test timeline title"
     Then a timeline with ID "992" should exist with the following items
-      | title             | date                     | summary                   | url                 | image                                                                                                                  |
-      | Milestone 1 title | 2 June to 11 November    | Milestone 1 summary field | /test-destination-1 | https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/VicFleet-Police-car-on-road.jpg |
-      | Milestone 2 title | 4 October to 17 November | Milestone 2 summary field | /test-destination-2 |                                                                                                                        |
-      | Milestone 3 title |                          | Milestone 3 text          |                     |                                                                                                                        |
+      | title             | date                     | summary                   | url                 | image                    |
+      | Milestone 1 title | 2 June to 11 November    | Milestone 1 summary field | /test-destination-1 | /placeholders/small.png  |
+      | Milestone 2 title | 4 October to 17 November | Milestone 2 summary field | /test-destination-2 |                          |
+      | Milestone 3 title |                          | Milestone 3 text          |                     |                          |
 
   @mockserver
   Scenario: Page component - Call to action
     Then a call to action with ID "1024" should exist with the following properties
-      | title                     | summary                 | ctaText       | image                                                                                                                         |
-      | Test call to action title | This is the description | Test CTA text | https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Two-men-working-in-hi-vis-clothing.jpg |
+      | title                     | summary                 | ctaText       | image                    |
+      | Test call to action title | This is the description | Test CTA text | /placeholders/medium.png |
 
   @mockserver
   Scenario: Page component - Stats grid
@@ -89,9 +89,9 @@ Feature: Home page
   @mockserver
   Scenario: Page component - Card carousel
     Given a card carousel with ID "1155" should exist with the following promo cards
-      | title           | date            | content                | url          | image                                                                                                                             |
-      | Sample title    | 1 Dec to 31 Dec | Sample Card Summary    | /sample-page | https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Aerial-shot-of-new-housing-development.jpg |
-      | Promotion title | 3 Nov 2022      | Promotion Card summary | /promo-page  | https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Engage-Vic-photo-hero.jpeg                 |
+      | title           | date            | content                | url          | image                    |
+      | Sample title    | 1 Dec to 31 Dec | Sample Card Summary    | /sample-page | /placeholders/medium.png |
+      | Promotion title | 3 Nov 2022      | Promotion Card summary | /promo-page  | /placeholders/medium.png |
     And the card carousel with ID "1155" should contain a key dates card with the title "Key calendar dates", link "/dates" and the following entries
       | title        | subtitle       | content       |
       | April 16th   | Key subtitle 1 | Key content 1 |
@@ -109,10 +109,10 @@ Feature: Home page
   @mockserver
   Scenario: Page component - Media Gallery
     Given a media gallery with ID "1056" should exist with the following gallery items
-      | title             | caption                  | image                                                                                                                             |
-      | Media title one   | The first media caption  | https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/2018-19-State-Budget.jpg                   |
-      | Media title two   | The second media caption | https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Aerial-shot-of-new-housing-development.jpg |
-      | Media title three | The third media caption  | https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Bendigo-Hospital.jpg                       |
+      | title             | caption                  | image                    |
+      | Media title one   | The first media caption  | /placeholders/medium.png |
+      | Media title two   | The second media caption | /placeholders/medium.png |
+      | Media title three | The third media caption  | /placeholders/medium.png |
 
   @mockserver
   Scenario: Page component - Media Gallery (Slider)
@@ -154,6 +154,6 @@ Feature: Home page
   @mockserver
   Scenario: Page component - Category Grid i.e. compact cards
     Then a category grid with ID "7052" should exist with the following cards
-      | title    | content          | image                                                                                                                             | url                 |
-      | Card one | Card one summary | https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Aerial-shot-of-new-housing-development.jpg | /landing-page-cc-2  |
-      | Card two | Card two summary | https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/2018-19-State-Budget.jpg                   | https://google.com/ |
+      | title    | content          | image                    | url                 |
+      | Card one | Card one summary | /placeholders/medium.png | /landing-page-cc-2  |
+      | Card two | Card two summary | /placeholders/medium.png | https://google.com/ |

@@ -19,7 +19,7 @@
   },
   "socialImages": {
     "twitter": {
-      "src": "https://master.content.vic.gov.au/sites/default/files/2022-09/Vic_Gov_Default_Display_Image_Proper_Spacing.png",
+      "src": "/placeholders/medium.png",
       "alt": "Vic Gov Feature Image",
       "title": "",
       "width": 818,
@@ -31,7 +31,7 @@
       }
     },
     "og": {
-      "src": "https://master.content.vic.gov.au/sites/default/files/2022-09/Vic_Gov_Default_Display_Image_Proper_Spacing.png",
+      "src": "/placeholders/medium.png",
       "alt": "Vic Gov Feature Image",
       "title": "",
       "width": 818,

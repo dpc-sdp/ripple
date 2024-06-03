@@ -110,6 +110,10 @@ Then(
           if (row.content) {
             cy.wrap(item).should('contain', row.content)
           }
+
+          if (row.component) {
+            cy.wrap(item).find('> *').should('have.class', row.component)
+          }
         })
     })
   }

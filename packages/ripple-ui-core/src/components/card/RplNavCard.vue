@@ -77,6 +77,7 @@ const handleClick = () => {
           l: highlight ? 'panorama' : 'full'
         }"
         sizes="xs:768px"
+        :drupal_internal__target_id="null"
         data-cy="image"
       />
     </template>

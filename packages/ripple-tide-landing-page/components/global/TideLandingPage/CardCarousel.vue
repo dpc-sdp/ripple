@@ -6,6 +6,8 @@ const props = defineProps<{
   title?: string
   items: ITideCardCarouselItem[]
   hasSidebar: boolean
+  hasTitle: boolean
+  pageBackground: string
 }>()
 
 const perView = computed(() => {

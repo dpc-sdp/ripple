@@ -51,7 +51,7 @@ const style = computed(() => ({
   height: `${props.height}px`,
   background: props.colour,
   opacity: progress.value ? 1 : 0,
-  transform: `scaleX(${progress.value}%)`
+  transform: progress.value ? `scaleX(${progress.value}%)` : 'scaleX(0)'
 }))
 </script>
 

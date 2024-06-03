@@ -75,6 +75,7 @@ const handleClick = () => {
           m: 'wide'
         }"
         sizes="sm:768px"
+        :drupal_internal__target_id="null"
         data-cy="image"
       />
     </template>

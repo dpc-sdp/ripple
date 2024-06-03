@@ -1,6 +1,7 @@
 <script setup lang="ts">
 type RplContentProps = {
   html?: string
+  pageBackground?: string
 }
 
 defineProps<RplContentProps>()

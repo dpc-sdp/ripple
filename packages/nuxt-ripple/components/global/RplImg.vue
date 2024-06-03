@@ -10,6 +10,8 @@ interface Props {
   aspect?: any
   srcSet?: string
   sizes?: any
+  // eslint-disable-next-line vue/prop-name-casing
+  drupal_internal__target_id?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -17,14 +19,17 @@ const props = withDefaults(defineProps<Props>(), {
   height: undefined,
   aspect: undefined,
   srcSet: undefined,
-  sizes: undefined
+  sizes: undefined,
+  drupal_internal__target_id: undefined
 })
 
 // Composable handles all the logic for determining the correct image to use
 const { providerSrcSet, providerSizes } = useProviderImage(props)
 
-const initialSrc = computed(
-  () => `${props.src}?w=${props.width * 2 < 1984 ? props.width * 2 : 1984}`
+const initialSrc = computed(() =>
+  props.width
+    ? `${props.src}?w=${props.width * 2 < 1984 ? props.width * 2 : 1984}`
+    : props.src
 )
 </script>
 

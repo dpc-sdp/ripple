@@ -50,6 +50,6 @@ const page = await useTidePage()
 const componentName = computed(
   () =>
     page &&
-    `Tide${pascalCase(page.type, { transform: pascalCaseTransformMerge })}`
+    `Tide${pascalCase(page.type as string, { transform: pascalCaseTransformMerge })}`
 )
 </script>

@@ -71,7 +71,7 @@ const isAnchor = computed(() => props.el === 'a')
     :is="el"
     ref="link"
     :href="isAnchor ? url : null"
-    type="button"
+    :type="el === 'button' ? 'button' : undefined"
     :class="classes"
     :disabled="disabled"
     :aria-busy="busy"

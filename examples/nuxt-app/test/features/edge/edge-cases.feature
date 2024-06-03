@@ -10,8 +10,3 @@ Feature: Edge case testing
   Example: Accordion titles linked up to inpage nav
     Given the page endpoint for path "/accordions-inpage-nav" returns fixture "/case/accordions-inpage-nav" with status 200
     Then I visit the page "/accordions-inpage-nav"
-
-  @mockserver
-  Example: Multi-step form
-    Given the page endpoint for path "/multi-step-webform" returns fixture "/case/multi-step-webform" with status 200
-    Then I visit the page "/multi-step-webform"

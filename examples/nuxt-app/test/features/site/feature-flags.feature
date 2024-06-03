@@ -120,3 +120,17 @@ Feature: Site feature flags
       | 4.1 Many Talents - demo     | /many-talents-demo |
       | 5.1 Another menu - demo     | /another-demo      |
       | 4.2 More Talents - demo     | /more-talents-demo |
+
+  @mockserver
+  Scenario: Feature flags can be set per site section
+    Given the site endpoint returns fixture "/site/reference" with status 200
+    And I load the page fixture with "/landingpage/home"
+    And the site sections share links are set to included WhatsApp
+    And the page endpoint for path "/section-page" returns the loaded fixture
+    When I visit the page "/section-page"
+    Then the sidebar social share links should display as follows
+      | link                 | visible |
+      | Facebook             | true    |
+      | X (formerly Twitter) | true    |
+      | LinkedIn             | true    |
+      | WhatsApp             | true    |

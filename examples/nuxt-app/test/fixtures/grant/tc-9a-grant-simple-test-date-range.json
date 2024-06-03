@@ -46,7 +46,7 @@
         "title": "Demo Timeline Item",
         "subtitle": null,
         "url": "https://www.google.com",
-        "image": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg",
+        "image": "/placeholders/medium.png",
         "dateStart": "2020-01-01T19:00:00+11:00",
         "dateEnd": "2020-01-01T21:00:00+11:00",
         "description": "Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus."
@@ -55,7 +55,7 @@
         "title": "Demo Timeline Item 2",
         "subtitle": "Alternative",
         "url": "https://www.google.com",
-        "image": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg",
+        "image": "/placeholders/medium.png",
         "dateStart": null,
         "dateEnd": null,
         "description": "Anim excepteur magna eu aliqua quis velit voluptate sit culpa."
@@ -120,13 +120,13 @@
         "tag": "meta",
         "attributes": {
           "property": "og:image",
-          "content": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg"
+          "content": "/placeholders/medium.png"
         }
       }
     ],
     "keywords": "",
     "image": {
-      "src": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg",
+      "src": "/placeholders/medium.png",
       "alt": "Demo: Melbourne tram",
       "title": "Demo: Melbourne tram",
       "width": 1413,

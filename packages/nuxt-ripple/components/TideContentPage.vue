@@ -43,9 +43,17 @@
 import { useTideSite, useTidePage } from '#imports'
 import { computed } from 'vue'
 import { pascalCase, pascalCaseTransformMerge } from 'change-case'
+import { defu as defuMerge } from 'defu'
 
-const site = await useTideSite()
+let _site = await useTideSite()
 const page = await useTidePage()
+
+// Allow page site section settings to override the main site settings
+const site = computed(() => {
+  return _site && page?.siteSection?.siteOverrides
+    ? defuMerge(page.siteSection.siteOverrides, _site)
+    : _site
+})
 
 const componentName = computed(
   () =>

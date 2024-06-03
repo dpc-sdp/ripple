@@ -22,6 +22,15 @@ Feature: Site theme
     Then the site header background color should be "rgb(225, 57, 64)"
 
   @mockserver
+  Scenario: The theme can be set per site section
+    Given the site endpoint returns fixture "/site/reference" with status 200
+    And I load the page fixture with "/landingpage/home"
+    And the site sections primary colour is set to "#1962A3"
+    And the page endpoint for path "/section-page" returns the loaded fixture
+    When I visit the page "/section-page"
+    Then the site header background color should be "rgb(25, 98, 163)"
+
+  @mockserver
   Scenario: Feature flags set neutral theme
     Given the site endpoint returns fixture "/site/neutral-footer" with status 200
     And the page endpoint for path "/" returns fixture "/landingpage/image-banner" with status 200

@@ -1,5 +1,9 @@
 import type { AxiosInstance } from 'axios'
-import { IRplFeatureFlags, IRplTideModuleMapping } from 'ripple-tide-api/types'
+import type {
+  IRplFeatureFlags,
+  IRplTideModuleMapping,
+  TideSiteSection
+} from '@dpc-sdp/ripple-tide-api/types'
 import { TideAlert } from './src/mapping/alerts/site-alerts-mapping'
 import { TideContact } from './src/mapping/sidebar-contacts/sidebar-contacts-mapping-types'
 import { TideTopicTag } from './src/mapping/topic-tags/topic-tags-mapping'
@@ -105,6 +109,7 @@ export interface TideHeroHeader {
 }
 
 export interface TidePageBase {
+  type: string
   title: string
   created: string
   changed: string
@@ -122,6 +127,7 @@ export interface TidePageBase {
     socialShareNetworks?: []
     whatsNext?: []
   }
+  siteSection: TideSiteSection
   [key: string]: unknown
 }
 

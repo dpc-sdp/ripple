@@ -41,7 +41,7 @@ export interface TideSiteData {
   theme: {
     [key: string]: string
   }
-  featureFlags: RplFeatureFlags
+  featureFlags: IRplFeatureFlags
   socialImages: {
     twitter: any
     og: any
@@ -130,9 +130,16 @@ export type TidePropRange = {
   to: string | number
 }
 
+export type TideSiteSectionOverrides = {
+  showQuickExit: boolean
+  theme: Record<string, string>
+  featureFlags: IRplFeatureFlags
+}
+
 export type TideSiteSection = {
   id: string
   name: string
+  siteOverrides: TideSiteSectionOverrides
 }
 
 export interface TideSocialShare {

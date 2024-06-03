@@ -59,7 +59,8 @@ const props = withDefaults(defineProps<Props>(), {
     labels: {
       submit: 'Submit',
       reset: 'Reset',
-      placeholder: 'Enter a search term'
+      placeholder: 'Enter a search term',
+      geolocateBtn: 'Use my current location'
     },
     displayMapTab: false,
     suggestions: {
@@ -507,25 +508,8 @@ const handleGeolocateSuccess = (pos: GeolocationPosition) => {
 }
 
 const handleGeolocateError = (error: GeolocationPositionError) => {
-  let message
-
-  switch (error.code) {
-    case error.PERMISSION_DENIED:
-      message = 'User denied the request for Geolocation.'
-      break
-    case error.POSITION_UNAVAILABLE:
-      message = 'Location information is unavailable.'
-      break
-    case error.TIMEOUT:
-      message = 'The request to get user location timed out.'
-      break
-    default:
-      message = 'An unknown error occurred.'
-      break
-  }
-
   isGettingLocation.value = false
-  geolocationError.value = message
+  geolocationError.value = `We couldn't find your location. Check your browser permissions or input your location manually`
 }
 
 const locationOrGeolocation = computed(() => {
@@ -594,7 +578,10 @@ const locationOrGeolocation = computed(() => {
           @success="handleGeolocateSuccess"
           @error="handleGeolocateError"
         >
-          Use my location
+          {{
+            searchListingConfig.labels?.geolocateBtn ||
+            'Use my current location'
+          }}
         </RplMapGeolocateButton>
         <div class="tide-search-refine-wrapper">
           <RplSearchBarRefine

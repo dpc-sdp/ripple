@@ -31,7 +31,7 @@ Feature: Home page
   Scenario: Primary campaign
     Then the "primary" campaign title should be "Demo primary campaign"
     Then the "primary" campaign summary should be "Test summary for primary campaign"
-    Then the "primary" campaign image src should be "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-skyline-at-dusk.jpg"
+    Then the "primary" campaign image src should be "/placeholders/medium.png"
     Then the "primary" campaign CTA label should be "Testing CTA text"
     Then clicking the "primary" campaign CTA should take me to "/demo-destination"
 
@@ -39,7 +39,7 @@ Feature: Home page
   Scenario: Secondary campaign
     Then the "secondary" campaign title should be "Demo secondary campaign"
     Then the "secondary" campaign summary should be "Test summary for secondary campaign"
-    Then the "secondary" campaign image src should be "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg"
+    Then the "secondary" campaign image src should be "/placeholders/medium.png"
     Then the "secondary" campaign CTA label should be "Testing secondary CTA text"
     Then clicking the "secondary" campaign CTA should take me to "/demo-secondary-destination"
 

@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div class="rpl-map-geolocate">
     <button
       :class="{
-        'rpl-map-geolocate-btn': true,
+        'rpl-map-geolocate__btn': true,
         'rpl-u-focusable-inline': true
       }"
       :disabled="isBusy"
@@ -13,7 +13,11 @@
         <slot> Use my current location </slot>
       </span>
     </button>
-    <RplFormValidationError v-if="error" :message="error" />
+    <RplFormValidationError
+      v-if="error"
+      class="rpl-map-geolocate__error"
+      :message="error"
+    />
   </div>
 </template>
 <script setup lang="ts">

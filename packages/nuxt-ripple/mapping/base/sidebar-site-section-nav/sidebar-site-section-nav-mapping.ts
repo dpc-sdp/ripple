@@ -27,7 +27,4 @@ export const map = async (src, tidePageApi: TidePageApi) => {
   }
 }
 
-export const includes = [
-  'field_node_site',
-  'field_node_site.field_site_main_menu'
-]
+export const includes = ['field_node_site.field_site_main_menu']

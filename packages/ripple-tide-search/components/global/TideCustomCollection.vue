@@ -115,6 +115,7 @@ const appConfig = useAppConfig()
 
 const searchResultsMappingFn = (item): TideSearchListingResultItem => {
   let transformedItem = item._source
+  let itemComponent = 'TideSearchResult'
 
   const transformResultFnName = props.resultsConfig?.transformResultFn
   const fns: Record<string, (result: any) => Promise<any>> =
@@ -132,33 +133,19 @@ const searchResultsMappingFn = (item): TideSearchListingResultItem => {
     transformedItem = transformResultFn(item)
   }
 
-  if (props.resultsConfig.item) {
-    for (const key in props.resultsConfig.item) {
-      const mapping = props.resultsConfig.item[key]
-      if (!item._source?.type || item._source?.type[0] === key || key === '*') {
-        /* If there is no type, a component will be required */
-        return {
-          id: item._id,
-          component: mapping.component,
-          props: {
-            result: transformedItem
-          }
-        }
-      } else {
-        /* Add default search result mapping if none provided */
-        return {
-          id: item._id,
-          component: 'TideSearchResult',
-          props: {
-            result: transformedItem
-          }
-        }
-      }
+  if (props.resultsConfig?.item) {
+    const mapping =
+      props.resultsConfig.item[item._source?.type] ??
+      props.resultsConfig.item?.['*']
+
+    if (mapping) {
+      itemComponent = mapping.component
     }
   }
 
   return {
     id: item._id,
+    component: itemComponent,
     props: {
       result: transformedItem
     }

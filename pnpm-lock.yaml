@@ -717,10 +717,10 @@ importers:
         specifier: workspace:*
         version: link:../ripple-ui-maps
       '@elastic/search-ui':
-        specifier: ^1.19.1
+        specifier: 1.19.1
         version: 1.19.1
       '@elastic/search-ui-app-search-connector':
-        specifier: ^1.19.1
+        specifier: 1.19.1
         version: 1.19.1
       '@elastic/search-ui-elasticsearch-connector':
         specifier: 1.19.1

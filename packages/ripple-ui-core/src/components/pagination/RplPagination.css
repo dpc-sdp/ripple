@@ -70,6 +70,7 @@
 .rpl-pagination__link,
 .rpl-pagination__page {
   color: var(--rpl-clr-type-default);
+  text-decoration: underline;
 
   &:hover {
     text-decoration: none;

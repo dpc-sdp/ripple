@@ -16,6 +16,7 @@ interface RawMediaImage {
       x: string
       y: string
     }
+    drupal_internal__target_id?: number
   }
 }
 
@@ -76,6 +77,12 @@ export const getMediaImage = (
   if (fieldMediaImage.meta?.focal_point) {
     delete fieldMediaImage.meta.focal_point
   }
+
+  // Silence drupal prop
+  if (fieldMediaImage.meta?.drupal_internal__target_id) {
+    delete fieldMediaImage.meta.drupal_internal__target_id
+  }
+
   return {
     src: normaliseImageUrl(
       process.env.NUXT_PUBLIC_TIDE_BASE_URL as string,
@@ -142,7 +149,11 @@ export const getBody = (html, customPlugins = []) => {
   return markupTranspiler(html, plugins)
 }
 
-export const getField = (field: {}, path: string | string[], fallback: string | undefined = undefined) => {
+export const getField = (
+  field: {},
+  path: string | string[],
+  fallback: string | undefined = undefined
+) => {
   return get(field, path, fallback)
 }
 

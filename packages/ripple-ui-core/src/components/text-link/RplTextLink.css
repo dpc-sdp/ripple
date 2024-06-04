@@ -14,7 +14,10 @@
   }
 
   &:visited {
-    color: var(--local-clr-link-visited, currentcolor);
+    color: var(
+      --local-clr-link-visited,
+      var(--local-clr-link, var(--rpl-clr-link))
+    );
   }
 
   &:active {

@@ -6,11 +6,14 @@ import { ref, onMounted } from 'vue'
 interface Props {
   showQuickExit: boolean
   searchUrl: boolean
+  maxLength?: number
 }
 
 const searchBar = ref(null)
 
-const props = withDefaults(defineProps<Props>(), {})
+const props = withDefaults(defineProps<Props>(), {
+  maxLength: 128
+})
 
 const handleSubmit = (event) => {
   window.location.href = `${props.searchUrl}?q=${event.value}`
@@ -38,6 +41,7 @@ onMounted(() => {
         ref="searchBar"
         variant="menu"
         placeholder="Start typing..."
+        :maxlength="maxLength"
         @submit="handleSubmit"
       />
     </div>

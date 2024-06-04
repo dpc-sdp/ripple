@@ -134,7 +134,7 @@
             "Tell me, O muse, of that ingenious hero who travelled far and wide after he had sacked the famous town of Troy. Many cities did he visit, and many were the nations with whose manners and customs END"
           ],
           "field_media_image_absolute_path": [
-            "https://develop.content.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg"
+            "/placeholders/medium.png"
           ],
           "field_node_link": [
             "http://www.weatherzone.com.au/vic/central/healesville"
@@ -617,7 +617,7 @@
             "What is GovHack? GovHack is Australia\u0027s largest open government and open data hackathon attracting over 1,000 participants each year"
           ],
           "field_media_image_absolute_path": [
-            "https://develop.content.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg"
+            "/placeholders/medium.png"
           ],
           "field_news_date": [
             "2022-07-13T19:54:00+10:00"

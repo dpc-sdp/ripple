@@ -17,33 +17,21 @@ const resultsConfig = computed(() => {
 })
 
 const searchResultsMappingFn = (item: any): TideSearchListingResultItem => {
+  let itemComponent = 'TideSearchResult'
+
   if (resultsConfig.value?.item) {
-    for (const key in resultsConfig.value.item) {
-      const mapping = resultsConfig.value.item[key]
-      if (!item._source?.type || item._source?.type[0] === key || key === '*') {
-        /* If there is no type, a component will be required */
-        return {
-          id: item._id,
-          component: mapping.component,
-          props: {
-            result: item._source
-          }
-        }
-      } else {
-        /* Add default search result mapping if none provided */
-        return {
-          id: item._id,
-          component: 'TideSearchResult',
-          props: {
-            result: item._source
-          }
-        }
-      }
+    const mapping =
+      resultsConfig.value.item[item._source?.type] ??
+      resultsConfig.value.item?.['*']
+
+    if (mapping) {
+      itemComponent = mapping.component
     }
   }
 
   return {
     id: item._id,
+    component: itemComponent,
     props: {
       result: item._source
     }

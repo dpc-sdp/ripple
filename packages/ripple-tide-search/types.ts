@@ -93,11 +93,11 @@ export type TideSearchListingResultItem = {
   /**
    * @description search result key
    */
-  id?: string
+  id: string
   /**
    * @description name of Vue component (globally imported) to render result
    */
-  component?: string
+  component: string
   /**
    * @description optionally pass props to component (useful for configuring an existing component)
    */

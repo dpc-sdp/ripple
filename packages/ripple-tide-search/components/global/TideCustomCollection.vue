@@ -494,7 +494,7 @@ const handleGeolocateSuccess = (pos: GeolocationPosition) => {
   })
 }
 
-const handleGeolocateError = (error: GeolocationPositionError) => {
+const handleGeolocateError = () => {
   isGettingLocation.value = false
   geolocationError.value = `We couldn't find your location. Check your browser permissions or input your location manually`
 }

@@ -12,14 +12,14 @@
 
   /* Landscape */
   &.rpl-media-embed__image--landscape {
-    &.rpl-media-emebed__image--large {
+    &.rpl-media-embed__image--large {
       max-width: none;
     }
   }
 
   /* Portrait */
   &.rpl-media-embed__image--portrait {
-    &.rpl-media-emebed__image--large {
+    &.rpl-media-embed__image--large {
       max-width: none;
       max-height: 595px;
     }
@@ -64,6 +64,8 @@
 }
 
 .rpl-media-embed__figcaption {
+  max-width: var(--rpl-content-max-width);
+
   p + p {
     margin-top: var(--rpl-sp-1);
   }
@@ -73,28 +75,14 @@
   color: var(--rpl-clr-neutral-600);
 }
 
-.rpl-media-embed__actions-list {
-  margin-top: var(--rpl-sp-3);
-
-  li {
-    margin-bottom: var(--rpl-sp-3);
-
-    &:last-of-type {
-      margin-bottom: 0;
-    }
-  }
-}
-
 .rpl-media-embed__action {
+  --local-clr-link: var(--rpl-clr-type-default);
+
   display: inline-flex;
-  color: var(--rpl-clr-type-default);
+  color: var(--local-clr-link);
   text-decoration: underline;
   text-align: left;
   cursor: pointer;
-
-  @media print {
-    color: var(--rpl-clr-link);
-  }
 
   .rpl-icon {
     color: var(--rpl-clr-link);
@@ -107,13 +95,42 @@
   }
 }
 
+.rpl-media-embed__actions-list {
+  margin-top: var(--rpl-sp-3);
+
+  li {
+    margin-bottom: var(--rpl-sp-3);
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+
+  .rpl-media-embed__action {
+    --local-clr-link: var(--rpl-clr-type-default);
+
+    &:hover {
+      --local-clr-link: var(--rpl-clr-link);
+
+      text-decoration: none;
+    }
+
+    &:active {
+      --local-clr-link: var(--rpl-clr-link);
+      --local-clr-link-active: var(--rpl-clr-link);
+
+      text-decoration: underline;
+    }
+  }
+}
+
 .rpl-media-embed__view-data-content {
   .rpl-content {
     padding-top: var(--rpl-sp-3);
     padding-right: var(--rpl-sp-3);
     padding-bottom: var(--rpl-sp-5);
     padding-left: var(--rpl-sp-6);
-    border-bottom: solid 1px var(--rpl-clr-neutral-300);
+    border-bottom: solid var(--rpl-border-1) var(--rpl-clr-neutral-300);
 
     @media print {
       padding-left: 0;

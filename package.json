@@ -108,7 +108,8 @@
       "vite@>=5.1.0 <=5.1.6": ">=5.1.7"
     },
     "patchedDependencies": {
-      "vite-svg-loader@4.0.0": "patches/vite-svg-loader@4.0.0.patch"
+      "vite-svg-loader@4.0.0": "patches/vite-svg-loader@4.0.0.patch",
+      "@vitejs/plugin-vue@5.0.4": "patches/@vitejs__plugin-vue@5.0.4.patch"
     }
   }
 }

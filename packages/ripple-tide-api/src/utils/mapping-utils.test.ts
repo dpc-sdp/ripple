@@ -124,7 +124,6 @@ const field = {
   },
   processedImg = {
     alt: 'Demo: Melbourne tram',
-    drupal_internal__target_id: 85,
     focalPoint: {
       x: 50,
       y: 50

@@ -152,7 +152,7 @@ export const getBody = (html, customPlugins = []) => {
 export const getField = (
   field: {},
   path: string | string[],
-  fallback: string | undefined = undefined
+  fallback: string | [] | undefined = undefined
 ) => {
   return get(field, path, fallback)
 }

@@ -11,7 +11,7 @@ interface Props {
   srcSet?: string
   sizes?: any
   // eslint-disable-next-line vue/prop-name-casing
-  drupal_internal__target_id?: string
+  drupal_internal__target_id?: number
 }
 
 const props = withDefaults(defineProps<Props>(), {

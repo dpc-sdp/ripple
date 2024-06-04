@@ -120,7 +120,6 @@ const handleClick = (event) => {
         v-bind="background"
         priority="high"
         :aspect="backImageRatio"
-        :drupal_internal__target_id="null"
         sizes="xs:100vw"
       />
       <RplHeaderGraphic v-if="cornerTop" :image="cornerTop" placement="top" />

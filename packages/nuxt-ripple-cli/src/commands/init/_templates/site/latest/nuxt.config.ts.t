@@ -8,6 +8,11 @@ export default defineNuxtConfig({
     '@dpc-sdp/nuxt-ripple',
     '@dpc-sdp/nuxt-ripple-analytics',
     '@dpc-sdp/nuxt-ripple-preview',
+    '@dpc-sdp/ripple-tide-webform',
+
+    // Custom layers
+
+    // Content types
     '@dpc-sdp/ripple-tide-event',
     '@dpc-sdp/ripple-tide-topic',
     '@dpc-sdp/ripple-tide-landing-page',
@@ -15,7 +20,8 @@ export default defineNuxtConfig({
     '@dpc-sdp/ripple-tide-publication',
     '@dpc-sdp/ripple-tide-media',
     '@dpc-sdp/ripple-tide-news',
-    '@dpc-sdp/ripple-tide-search'
-    // Custom layers
+    '@dpc-sdp/ripple-tide-search',
+    '@dpc-sdp/ripple-tide-webform'
+
   ]
 })

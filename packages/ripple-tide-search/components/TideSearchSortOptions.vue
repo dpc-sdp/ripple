@@ -10,6 +10,7 @@
           labelId="search-listing-sort-options-label"
           :options="dropdownOptions"
           :value="currentValue"
+          :prevent-deselect="true"
           @onChange="handleChange"
         />
       </div>

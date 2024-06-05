@@ -237,6 +237,7 @@ watch(
             :inputValue="searchState.searchTerm"
             :suggestions="searchTermSuggestions"
             :global-events="false"
+            maxlength="128"
             @submit="handleSubmit"
             @update:input-value="updateSearchTerm"
           />

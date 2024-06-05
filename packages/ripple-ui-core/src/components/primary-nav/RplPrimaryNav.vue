@@ -34,6 +34,7 @@ interface Props {
   items: IRplPrimaryNavItem[]
   showSearch?: boolean
   searchUrl?: string
+  searchMaxLength?: number
   showQuickExit?: boolean
 }
 
@@ -41,7 +42,8 @@ const props = withDefaults(defineProps<Props>(), {
   secondaryLogo: undefined,
   showSearch: true,
   searchUrl: '/search',
-  showQuickExit: true
+  showQuickExit: true,
+  searchMaxLength: 128
 })
 
 const emit = defineEmits<{
@@ -303,6 +305,7 @@ provide('navFocus', navFocus)
         v-if="isSearchActive"
         :show-quick-exit="showQuickExit"
         :search-url="searchUrl"
+        :max-length="searchMaxLength"
       />
     </div>
     <RplPrimaryNavQuickExit v-if="showQuickExit" variant="fixed" />

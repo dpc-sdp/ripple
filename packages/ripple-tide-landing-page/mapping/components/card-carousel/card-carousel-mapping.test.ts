@@ -14,7 +14,6 @@ describe('cardCarouselMapping', () => {
         url: '/demo-event',
         image: {
           alt: 'Demo: Aerial shot of new housing development',
-          drupal_internal__target_id: 42,
           focalPoint: undefined,
           height: 571,
           src: 'https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Aerial-shot-of-new-housing-development.jpg',
@@ -34,7 +33,6 @@ describe('cardCarouselMapping', () => {
         url: '/demo-event',
         image: {
           alt: 'Demo: Melbourne tram',
-          drupal_internal__target_id: 45,
           focalPoint: undefined,
           height: 785,
           src: 'https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg',
@@ -72,7 +70,6 @@ describe('cardCarouselMapping', () => {
         url: '/sdpta-promotion-card-landing-page-fixture',
         image: {
           alt: 'Demo: Engage Vic Hero',
-          drupal_internal__target_id: 52,
           focalPoint: undefined,
           height: 500,
           src: 'https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Engage-Vic-photo-hero.jpeg',
@@ -91,7 +88,6 @@ describe('cardCarouselMapping', () => {
         url: '/demo-news',
         image: {
           alt: 'Demo: Melbourne tram',
-          drupal_internal__target_id: 45,
           focalPoint: undefined,
           height: 785,
           src: 'https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg',
@@ -119,7 +115,6 @@ describe('cardCarouselMapping', () => {
         url: '/news-cc-1',
         image: {
           alt: 'Demo: Melbourne tram',
-          drupal_internal__target_id: 45,
           focalPoint: undefined,
           height: 785,
           src: 'https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg',
@@ -151,7 +146,6 @@ describe('cardCarouselMapping', () => {
         url: '/sdpta-news-page-news-fixture-0',
         image: {
           alt: 'Demo: 2018-19 State Budget',
-          drupal_internal__target_id: 41,
           focalPoint: undefined,
           height: 270,
           src: 'https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/2018-19-State-Budget.jpg',
@@ -192,7 +186,6 @@ describe('cardCarouselMapping', () => {
         url: '/sdpta-test-news-page-fixture-0',
         image: {
           alt: 'Demo: 2018-19 State Budget',
-          drupal_internal__target_id: 41,
           focalPoint: undefined,
           height: 270,
           src: 'https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/2018-19-State-Budget.jpg',
@@ -211,7 +204,6 @@ describe('cardCarouselMapping', () => {
         url: '/sdpta-news-page-news-fixture',
         image: {
           alt: 'Demo: 2018-19 State Budget',
-          drupal_internal__target_id: 41,
           focalPoint: undefined,
           height: 270,
           src: 'https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/2018-19-State-Budget.jpg',
@@ -259,7 +251,6 @@ describe('cardCarouselMapping', () => {
         url: '/2-be-event-1',
         image: {
           alt: 'Demo: Melbourne tram',
-          drupal_internal__target_id: 45,
           focalPoint: undefined,
           height: 785,
           src: 'https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg',
@@ -280,7 +271,6 @@ describe('cardCarouselMapping', () => {
         url: '/demo-event',
         image: {
           alt: 'Demo: Melbourne tram',
-          drupal_internal__target_id: 45,
           focalPoint: undefined,
           height: 785,
           src: 'https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg',
@@ -301,7 +291,6 @@ describe('cardCarouselMapping', () => {
         url: '/roulette-aerial-display-demo',
         image: {
           alt: 'Demo: Roulette aerial display',
-          drupal_internal__target_id: 55,
           focalPoint: undefined,
           height: 496,
           src: 'https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/roulette-aerial-display-card.jpg',

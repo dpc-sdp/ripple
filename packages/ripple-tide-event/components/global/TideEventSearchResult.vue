@@ -37,7 +37,7 @@ const location = computed(() => {
   <RplNavCard
     :title="title"
     :url="url"
-    :image="image"
+    :image="image as any"
     class="tide-event-search-result"
   >
     <template #meta>

@@ -4,11 +4,15 @@ import { computed, useSlots } from 'vue'
 interface Props {
   fullWidth?: boolean
   limitContent?: boolean
+  hasTitle?: boolean
+  hasSidebar?: boolean
+  pageBackground?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
   fullWidth: false,
-  limitContent: false
+  limitContent: false,
+  pageBackground: 'default'
 })
 
 const slots = useSlots()

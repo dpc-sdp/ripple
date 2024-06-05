@@ -28,7 +28,7 @@ interface Props {
   isMegaNavActive: boolean
   isSearchActive: boolean
   activeNavItems: IRplPrimaryNavActiveItems
-  toggleMobileMenu: () => void
+  toggleMobileMenu: (...args: any) => void
   toggleItem: (...args: RplPrimaryNavToggleItemOptions) => void
   toggleSearch: () => void
 }
@@ -49,7 +49,7 @@ const mobileToggleLabel = 'Menu'
 const isItemActive = (item: IRplPrimaryNavItem) =>
   props.activeNavItems.level1?.id == item.id
 
-const handleToggleItem = (level: number, item) => {
+const handleToggleItem = (level: number, item: IRplPrimaryNavItem) => {
   emitRplEvent(
     'toggleMenuItem',
     {
@@ -61,7 +61,7 @@ const handleToggleItem = (level: number, item) => {
     { global: true }
   )
 
-  props.toggleItem(level, item)
+  props.toggleItem(level as 3 | 2 | 1, item)
 }
 </script>
 
@@ -152,7 +152,6 @@ const handleToggleItem = (level: number, item) => {
       <li
         v-if="showSearch"
         class="rpl-primary-nav__nav-bar-mobile-menu-divider"
-        aria-role="presentation"
         aria-hidden="true"
       ></li>
 
@@ -196,20 +195,20 @@ const handleToggleItem = (level: number, item) => {
       <!-- Search toggle -->
       <li v-if="showSearch">
         <RplPrimaryNavBarAction type="toggle" @click="toggleSearch()">
-          <div v-if="!isSearchActive">
+          <template v-if="!isSearchActive">
             <span class="rpl-primary-nav__nav-bar-search-label">Search</span
             >&NoBreak;<span
               class="rpl-primary-nav__nav-bar-icon rpl-primary-nav__nav-bar-icon--large rpl-primary-nav__nav-bar-icon--search"
               ><RplIcon name="icon-search"></RplIcon>
             </span>
-          </div>
-          <div v-else>
+          </template>
+          <template v-else>
             <span class="rpl-primary-nav__nav-bar-search-label">Close</span
             >&NoBreak;<span
               class="rpl-primary-nav__nav-bar-icon rpl-primary-nav__nav-bar-icon--large rpl-primary-nav__nav-bar-icon--search"
               ><RplIcon name="icon-cancel"></RplIcon>
             </span>
-          </div>
+          </template>
         </RplPrimaryNavBarAction>
       </li>
     </ul>

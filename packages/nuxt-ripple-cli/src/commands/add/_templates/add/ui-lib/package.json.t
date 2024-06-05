@@ -58,7 +58,7 @@ to: package.json
     "@vue/compiler-sfc": "^3.2.47",
     "autoprefixer": "^10.4.14",
     "chromatic": "^6.17.2",
-    "eslint-config-prettier": "^8.8.0",
+    "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-storybook": "^0.6.13",
     "jest-axe": "^7.0.1",
     "rimraf": "^4.4.1",

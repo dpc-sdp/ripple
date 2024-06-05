@@ -16,8 +16,8 @@ interface Props {
 const props = withDefaults(defineProps<Props>(), {
   behindNav: true,
   hideBottomCornerGraphic: false,
-  cornerTop: null,
-  cornerBottom: null
+  cornerTop: undefined,
+  cornerBottom: undefined
 })
 
 const { direction, language } = inject('language')

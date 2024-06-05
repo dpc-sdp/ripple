@@ -110,6 +110,11 @@
       height: 60px;
     }
 
+    .rpl-primary-nav__nav-bar-action-wrapper {
+      display: block;
+      text-wrap: pretty;
+    }
+
     span {
       white-space: normal;
     }

@@ -48,6 +48,7 @@ const handleFocus = (event) => {
   <component
     :is="type === 'toggle' ? 'button' : 'a'"
     ref="action"
+    :type="type === 'toggle' ? 'button' : undefined"
     :class="{
       'rpl-primary-nav__nav-bar-action': true,
       'rpl-primary-nav__nav-bar-action--toggle': type === 'toggle',
@@ -57,11 +58,11 @@ const handleFocus = (event) => {
       'rpl-type-weight-bold': true,
       'rpl-u-focusable-block': true
     }"
-    :href="href"
+    :href="type === 'toggle' ? undefined : href"
     @keydown.tab.exact="handleFocus"
   >
-    <div>
+    <span class="rpl-primary-nav__nav-bar-action-wrapper">
       <slot></slot>
-    </div>
+    </span>
   </component>
 </template>

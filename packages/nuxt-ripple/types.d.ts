@@ -120,6 +120,12 @@ export interface TidePageBase {
   sidebar: {
     contacts?: TideContact[]
     relatedLinks?: any[]
+    siteSectionNav?: {
+      title: string
+      items: any[]
+    }
+    socialShareNetworks?: []
+    whatsNext?: []
   }
   siteSection: TideSiteSection
   [key: string]: unknown

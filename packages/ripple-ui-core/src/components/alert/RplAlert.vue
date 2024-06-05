@@ -83,7 +83,7 @@ onResizeHeight(alertRef, (height) => {
       role="region"
       :aria-labelledby="`alert-message-${props.alertId}`"
     >
-      <RplIcon class="rpl-alert__icon-info" size="m" nopad :name="iconName" />
+      <RplIcon class="rpl-alert__icon-info" size="m" :name="iconName" />
       <div class="rpl-alert__message-wrap">
         <div
           :id="`alert-message-${props.alertId}`"

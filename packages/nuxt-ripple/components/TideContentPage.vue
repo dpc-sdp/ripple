@@ -58,6 +58,6 @@ const site = computed(() => {
 const componentName = computed(
   () =>
     page &&
-    `Tide${pascalCase(page.type, { transform: pascalCaseTransformMerge })}`
+    `Tide${pascalCase(page.type as string, { transform: pascalCaseTransformMerge })}`
 )
 </script>

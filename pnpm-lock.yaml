@@ -723,14 +723,14 @@ importers:
         specifier: workspace:*
         version: link:../ripple-ui-maps
       '@elastic/search-ui':
-        specifier: ^1.19.1
-        version: 1.19.1
+        specifier: ^1.21.4
+        version: 1.21.4
       '@elastic/search-ui-app-search-connector':
-        specifier: ^1.19.1
-        version: 1.19.1
+        specifier: ^1.21.4
+        version: 1.21.4
       '@elastic/search-ui-elasticsearch-connector':
-        specifier: 1.19.1
-        version: 1.19.1
+        specifier: ^1.21.4
+        version: 1.21.4
 
   packages/ripple-tide-topic:
     dependencies:
@@ -2291,14 +2291,14 @@ packages:
     resolution: {integrity: sha512-mN5EbbgSp1rfRmQ/5Hv7jqAK8xhGJxCg7G84xje8hSefE59P+HPPCv/+DgesCUSJdZpwXIo0DwOWHfHvktxxLw==}
     engines: {node: '>=14'}
 
-  '@elastic/search-ui-app-search-connector@1.19.1':
-    resolution: {integrity: sha512-cHYtk2M6F1OdkJSXdb6EMvn6p4oE2duNZ/Il+W++6l5NXzyqPrVnh+6uGEPN64j+CxvTwxAEdV2uQbUpEKBrtw==}
+  '@elastic/search-ui-app-search-connector@1.21.4':
+    resolution: {integrity: sha512-HKhmvh9LqfHWTWbqdT57ZrLy7CwBgVgEFJL4ZOZi7bbLWwVaS2r7gt4s7s4HJLep61ZVnefm2lj7i2qqr8qYaQ==}
 
-  '@elastic/search-ui-elasticsearch-connector@1.19.1':
-    resolution: {integrity: sha512-cYR1vXN7HLREHsGZridqXtgrqLHH81E2leV/ZkvBlFDIszOUQCBlGnWBi4g/tt6fcfKSb3fGM1GMIRQhMaNSMA==}
+  '@elastic/search-ui-elasticsearch-connector@1.21.4':
+    resolution: {integrity: sha512-sZcrUA6Zehnn84oyoAE3HnDehH1OWtXBXSvSXUTPMmsNIQkAKLqCQphHBPkDoYe1kUJQMb4lllsXIc6Zk9KQYg==}
 
-  '@elastic/search-ui@1.19.1':
-    resolution: {integrity: sha512-2DcZ1b4fiL0vjRhVFU1OnqGKOy7aVJr563VO9FDpUUFCXlMySKWnuwh0kcUatqeNO4Sxw9GyJZbtzOgnTyQaag==}
+  '@elastic/search-ui@1.21.4':
+    resolution: {integrity: sha512-3Uep2aaFVzEn3hYWogd54zd5hbIrtEwEmI3P88o17JOEt296kwcoc6hsXJQLtMiXBIG4Wk3K28dJI+0KKBO9fQ==}
 
   '@elastic/transport@8.3.1':
     resolution: {integrity: sha512-jv/Yp2VLvv5tSMEOF8iGrtL2YsYHbpf4s+nDsItxUTLFTzuJGpnsB/xBlfsoT2kAYEnWHiSJuqrbRcpXEI/SEQ==}
@@ -18031,20 +18031,20 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@elastic/search-ui-app-search-connector@1.19.1':
+  '@elastic/search-ui-app-search-connector@1.21.4':
     dependencies:
       '@elastic/app-search-javascript': 8.5.1
-      '@elastic/search-ui': 1.19.1
+      '@elastic/search-ui': 1.21.4
 
-  '@elastic/search-ui-elasticsearch-connector@1.19.1':
+  '@elastic/search-ui-elasticsearch-connector@1.21.4':
     dependencies:
       '@elastic/elasticsearch': 8.6.0
-      '@elastic/search-ui': 1.19.1
+      '@elastic/search-ui': 1.21.4
       '@searchkit/sdk': 3.0.0(@elastic/elasticsearch@8.6.0)
     transitivePeerDependencies:
       - supports-color
 
-  '@elastic/search-ui@1.19.1':
+  '@elastic/search-ui@1.21.4':
     dependencies:
       date-fns: 1.30.1
       deep-equal: 1.1.1

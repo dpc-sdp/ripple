@@ -1,6 +1,6 @@
 .rpl-u-aspect {
-  @each $name, $ratio in (square, full, wide, ultrawide, panorama),
-    (1/1, 4/3, 16/9, 21/9, 3/1)
+  @each $name, $ratio in (square, full, wide, ultrawide, panorama, portrait),
+    (1/1, 4/3, 16/9, 21/9, 3/1, 3/4)
   {
     &-$(name) {
       aspect-ratio: $(ratio);
@@ -8,8 +8,8 @@
   }
 
   @each $size in (s, m, l, xl) {
-    @each $name, $ratio in (square, full, wide, ultrawide, panorama),
-      (1/1, 4/3, 16/9, 21/9, 3/1)
+    @each $name, $ratio in (square, full, wide, ultrawide, panorama, portrait),
+      (1/1, 4/3, 16/9, 21/9, 3/1, 3/4)
     {
       &-$(name)-$(size) {
         /* stylelint-disable-next-line media-query-no-invalid */

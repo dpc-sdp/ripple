@@ -46,7 +46,7 @@ const handleClick = () => {
 </script>
 
 <template>
-  <RplCampaignBanner class="rpl-campaign-banner--secondary">
+  <RplCampaignBanner type="secondary">
     <template v-if="image" #media>
       <RplImage
         v-bind="image"

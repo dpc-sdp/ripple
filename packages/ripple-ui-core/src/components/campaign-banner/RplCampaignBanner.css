@@ -1,27 +1,15 @@
 @import '@dpc-sdp/ripple-ui-core/style/breakpoints';
 
 .rpl-campaign-banner {
-  --local-flex-spacer: var(--rpl-sp-6);
-  --local-flex-wide: calc(100% / 12 * 7 - var(--local-flex-spacer));
-  --local-flex-narrow: calc(100% / 12 * 4 - var(--local-flex-spacer));
   --local-clr-border: var(--rpl-clr-neutral-300);
 
   position: relative;
   color: var(--rpl-clr-type-default);
   background-color: var(--rpl-clr-light);
-
-  @media (--rpl-bp-xl) {
-    --local-flex-spacer: var(--rpl-sp-7);
-  }
 }
 
 .rpl-campaign-banner__inner {
-  display: flex;
-  flex-direction: column;
-
-  @media (--rpl-bp-l) {
-    flex-direction: row;
-  }
+  row-gap: 0;
 }
 
 .rpl-campaign-banner__media {
@@ -62,12 +50,6 @@
 .rpl-campaign-banner--primary {
   border-bottom: var(--rpl-border-1) solid var(--local-clr-border);
 
-  .rpl-campaign-banner__inner {
-    @media (--rpl-bp-m) {
-      flex-direction: row;
-    }
-  }
-
   .rpl-campaign-banner__media {
     /* 100% width + left and right padding */
     width: calc(100% + (var(--rpl-sp-4) * 2));
@@ -80,7 +62,7 @@
       right: 0;
       bottom: 0;
       width: auto;
-      max-width: calc(50% + var(--local-flex-spacer));
+      max-width: calc(50% + var(--rpl-sp-6) / 2);
     }
 
     .rpl-image {
@@ -121,8 +103,6 @@
     margin-top: var(--rpl-sp-5);
 
     @media (--rpl-bp-m) {
-      flex-shrink: 0;
-      flex-basis: var(--local-flex-wide);
       margin-top: var(--rpl-sp-8);
     }
 
@@ -137,10 +117,6 @@
     @media (--rpl-bp-l) {
       margin-bottom: var(--rpl-sp-11);
     }
-  }
-
-  .rpl-campaign-banner__media + .rpl-campaign-banner__body {
-    flex-basis: calc(50% - var(--local-flex-spacer));
   }
 }
 
@@ -162,24 +138,6 @@
 
     @media (--rpl-bp-m) {
       padding-top: var(--rpl-sp-8);
-    }
-  }
-
-  .rpl-campaign-banner__media {
-    @media (--rpl-bp-l) {
-      margin-right: var(--rpl-sp-6);
-      flex-basis: var(--local-flex-narrow);
-    }
-
-    @media (--rpl-bp-xl) {
-      margin-right: var(--rpl-sp-7);
-    }
-  }
-
-  /* stylelint-disable no-descending-specificity */
-  .rpl-campaign-banner__body {
-    @media (--rpl-bp-l) {
-      flex-basis: var(--local-flex-wide);
     }
   }
 

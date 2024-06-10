@@ -7,6 +7,7 @@ import {
 import RplFormDropdown from './RplFormDropdown.vue'
 import { RplButton } from '@dpc-sdp/ripple-ui-core/vue'
 import StorybookInputFixture from './../StorybookInputFixture/StorybookInputFixture.vue'
+import { RplFormDropdownOptions } from './fixtures/sample'
 import '@dpc-sdp/ripple-ui-core/style/components'
 import '../RplForm/RplForm.css'
 
@@ -74,11 +75,7 @@ export const SingleTemplate = (args) => ({
     args={{
       id: 'dropdown-single',
       multiple: false,
-      options: [...Array(10).keys()].map((i) => ({
-        id: `item-${i + 1}`,
-        value: `item-${i + 1}`,
-        label: `Value ${i + 1}`
-      }))
+      options: RplFormDropdownOptions
     }}
   >
     {SingleTemplate.bind()}
@@ -116,11 +113,7 @@ export const SingleTemplate = (args) => ({
     args={{
       id: 'dropdown-multi',
       multiple: true,
-      options: [...Array(10).keys()].map((i) => ({
-        id: `item-${i + 1}`,
-        value: `item-${i + 1}`,
-        label: `Value ${i + 1}`
-      }))
+      options: RplFormDropdownOptions
     }}
   >
     {SingleTemplate.bind()}

@@ -6,7 +6,7 @@ export default {
 
 <script setup lang="ts">
 import { computed, ref, watch, nextTick, inject } from 'vue'
-import { onClickOutside } from '@vueuse/core'
+import { onClickOutside, useDebounceFn } from '@vueuse/core'
 import useFormkitFriendlyEventEmitter from '../../composables/useFormkitFriendlyEventEmitter'
 import MultiValueLabel from './MultiValueLabel.vue'
 import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
@@ -32,7 +32,7 @@ export interface RplFormDropdownProps {
   }[]
   maxItemsDisplayed?: number
   pii?: boolean
-  unselectedValue: any
+  unselectedValue?: any
   /**
    * Only applicable when for single selects. If true, no 'placeholder' option
    * is added and the user can't deselect a value, only choose a different value.
@@ -77,6 +77,7 @@ const containerRef = ref(null)
 const inputRef = ref(null)
 const menuRef = ref(null)
 const optionRefs = ref([])
+const searchCache = ref('')
 
 const menuId = computed(() => `${props.id}__menu`)
 
@@ -125,6 +126,29 @@ const getDefaultActiveId = (): string => {
 
 const getUniqueOptionId = (optionId: string): string => {
   return optionId ? `${props.id}-${optionId}` : ''
+}
+
+const processSearch = useDebounceFn(() => {
+  let options = [...(props.options || [])]
+  if (activeOptionId.value) {
+    const index = options.map((o) => o.id).indexOf(activeOptionId.value)
+    options = options.slice(index + 1).concat(options.slice(0, index + 1))
+  }
+  let found = options.find((o) =>
+    o.label.toLowerCase().startsWith(searchCache.value)
+  )
+  if (found) {
+    handleOpen()
+    activeOptionId.value = found.id
+  }
+  searchCache.value = ''
+})
+
+const handleSearch = (event: KeyboardEvent): void => {
+  if (event.key?.length === 1) {
+    searchCache.value = searchCache.value + event.key.toLowerCase()
+    processSearch()
+  }
 }
 
 const handleToggle = (fromKeyboard = false): void => {
@@ -322,6 +346,7 @@ const hasValue = computed((): boolean => {
     @keydown.esc.prevent="handleClose(true)"
     @keydown.exact.tab="handleClose(false)"
     @keydown.shift.tab="handleClose(false)"
+    @keydown.exact="handleSearch"
   >
     <div
       v-bind="$attrs"

@@ -14,7 +14,7 @@ defineProps<{
     data-cy="primary-campaign"
   >
     <RplContent :html="campaign.summaryHtml" data-cy="summary" />
-    <template #meta>
+    <template v-if="campaign.imageCaption" #meta>
       {{ campaign.imageCaption }}
     </template>
   </RplPrimaryCampaign>

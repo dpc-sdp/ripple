@@ -1,5 +1,12 @@
 <template>
+  <TideSearchResultsTableSkeleton
+    v-if="loading"
+    :columns="processedColumns"
+    :perPage="perPage"
+    :hasSidebar="hasSidebar"
+  />
   <RplDataTable
+    v-else-if="results?.length"
     data-component-type="search-listing-layout-table"
     class="tide-search-listing-results-table"
     :columns="processedColumns"
@@ -9,6 +16,7 @@
     :footer="footer"
     :headingType="headingType"
     :showExtraContent="showExtraContent"
+    :hasSidebar="hasSidebar"
   />
 </template>
 
@@ -44,6 +52,10 @@ type tableExtraContentConfig = {
 
 interface Props {
   results: TideSearchListingResultItem[]
+  hasSidebar?: boolean
+  perPage?: number
+  loading: boolean
+  skeleton?: string
   offset?: number
   columns: tableColumnConfig[]
   headingType?: tableHeadingTypeConfig
@@ -54,6 +66,9 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
+  results: () => [],
+  perPage: 10,
+  skeleton: 'TideSearchResultTableSkeleton',
   caption: '',
   footer: '',
   offset: 1,
@@ -62,7 +77,8 @@ const props = withDefaults(defineProps<Props>(), {
   headingType: () => ({
     horizontal: true,
     vertical: false
-  })
+  }),
+  hasSidebar: false
 })
 
 const getExtraContent = (result: any) => {

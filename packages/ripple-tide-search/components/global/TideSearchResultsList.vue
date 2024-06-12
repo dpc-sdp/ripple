@@ -1,10 +1,11 @@
 <template>
   <RplResultListing
+    v-if="displayResults.length"
     data-component-type="search-listing-layout-list"
     class="tide-search-result"
   >
     <RplResultListingItem
-      v-for="(result, idx) in results"
+      v-for="(result, idx) in displayResults"
       :key="`result-${idx}-${result.id}`"
       data-component-type="search-result"
     >
@@ -17,10 +18,28 @@
 import type { TideSearchListingResultItem } from './../../types'
 
 interface Props {
-  results: TideSearchListingResultItem[]
+  results?: TideSearchListingResultItem[]
+  perPage?: number
+  loading: boolean
+  skeleton?: string
 }
 
-defineProps<Props>()
+const props = withDefaults(defineProps<Props>(), {
+  results: () => [],
+  perPage: 10,
+  skeleton: 'TideSearchResultSkeleton'
+})
+
+const displayResults = computed(() => {
+  if (props.loading) {
+    return Array(props.perPage).fill({
+      id: 'skeleton',
+      component: props.skeleton
+    })
+  }
+
+  return props.results?.length ? props.results : []
+})
 </script>
 
 <style>

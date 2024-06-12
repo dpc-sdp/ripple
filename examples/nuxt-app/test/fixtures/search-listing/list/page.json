@@ -1,11 +1,11 @@
 {
-  "title": "Emergency Recovery Resource Portal - Search for a resource",
+  "title": "Search listing list",
   "changed": "2022-11-02T12:47:29+11:00",
   "created": "2022-11-02T12:47:29+11:00",
   "type": "tide_search_listing",
   "nid": "11dede11-10c0-111e1-1100-000000000330",
   "showTopicTags": true,
-  "summary": "Browse our collection of key recovery resources and guidance for the disaster recovery workforce.",
+  "summary": "Minim cillum dolore dolore laborum minim.",
   "config": {
     "searchListingConfig": {
       "resultsPerPage": 9
@@ -24,46 +24,42 @@
     },
     "resultsConfig": {
       "layout": {
-        "component": "TideSearchResultsGrid"
+        "component": "TideSearchResultsList"
       },
       "item": {
         "*": {
-          "component": "TideSearchResultCard"
+          "component": "TideSearchResult"
         }
       }
     },
     "globalFilters": [
-      { "terms": { "type": ["landing_page", "publication"] } },
+      { "terms": { "type": ["landing_page", "event"] } },
       { "terms": { "field_node_site": [8888] } }
     ],
     "userFilters": [
       {
-        "id": "topic",
+        "id": "type",
         "component": "TideSearchFilterDropdown",
         "filter": {
-          "type": "terms",
-          "value": "field_topic_name.keyword"
-        },
-        "aggregations": {
-          "field": "field_topic_name",
-          "source": "taxonomy"
+          "type": "type",
+          "value": "type.keyword"
         },
         "props": {
-          "id": "topic",
-          "label": "Topic",
-          "placeholder": "Select a topic",
+          "id": "type",
+          "label": "Type",
+          "placeholder": "Select a type",
           "type": "RplFormDropdown",
           "multiple": true,
           "options": [
             {
-              "id": "1",
-              "label": "Content Collection Topic 2",
-              "value": "Content Collection Topic 2"
+              "id": "landing_page",
+              "label": "Page",
+              "value": "Page"
             },
             {
-              "id": "2",
-              "label": "Bourke topic demo",
-              "value": "Bourke topic demo"
+              "id": "event",
+              "label": "Event",
+              "value": "Event"
             }
           ]
         }

@@ -1,6 +1,8 @@
 <template>
+  <TideSearchListingResultsMapSkeleton v-if="initialising" />
   <ClientOnly>
     <RplMap
+      v-if="!initialising"
       :id="123"
       ref="mapRef"
       :features="features"
@@ -96,6 +98,7 @@ interface Props {
   }[]
   noresults?: boolean
   hasSidePanel?: boolean
+  initialising?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -107,7 +110,8 @@ const props = withDefaults(defineProps<Props>(), {
   legendExpanded: false,
   legendItems: () => [],
   noresults: false,
-  hasSidePanel: false
+  hasSidePanel: false,
+  initialising: false
 })
 
 const appConfig = useAppConfig()

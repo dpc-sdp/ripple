@@ -242,6 +242,10 @@ export type TideSearchListingConfig = {
      * @description optionally display only the filters
      */
     showFiltersOnly?: boolean
+    /**
+     * @description whether or not to scroll the results into view on form submit
+     */
+    scrollToResultsOnSubmit?: boolean
   }
   /**
    * @description Tabs to display, key needs to be one of TideSearchListingTabKey

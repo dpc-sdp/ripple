@@ -375,3 +375,26 @@ Feature: Search listing - Filter
     When I visit the page "/no-search-input"
     Then the search listing page should have 2 results
     And only the search filters should be visible
+
+  @mockserver
+  Example: Submitting the filter form scrolls to results
+    Given the page endpoint for path "/" returns fixture "/search-listing/filters/page" with status 200
+    And the search network request is stubbed with fixture "/search-listing/filters/response" and status 200
+
+    When I visit the page "/"
+    And I type "The" into the search input
+    And I click the search button
+    Then I should be scrolled to the search results
+
+  @mockserver
+  Example: Submitting the filter form does not scroll to results when disabled
+    Given I load the page fixture with "/search-listing/filters/page"
+    And the search listing config has "scrollToResultsOnSubmit" set to "false"
+    And the search network request is stubbed with fixture "/search-listing/filters/response" and status 200
+    Then the page endpoint for path "/" returns the loaded fixture
+
+    When I visit the page "/"
+    And I type "The" into the search input
+    And I click the search button
+
+    Then I should not be scrolled to the search results

@@ -1,5 +1,10 @@
 <script setup lang="ts">
-import { getActiveFiltersTally, getActiveFilterURL, ref } from '#imports'
+import {
+  computed,
+  getActiveFiltersTally,
+  getActiveFilterURL,
+  ref
+} from '#imports'
 import { submitForm } from '@formkit/vue'
 import useTideSearch from './../../composables/useTideSearch'
 import type {
@@ -69,7 +74,8 @@ const props = withDefaults(defineProps<Props>(), {
     },
     formTheme: 'default',
     showFiltersOnLoad: false,
-    showFiltersOnly: false
+    showFiltersOnly: false,
+    scrollToResultsOnSubmit: true
   }),
   tabs: () => [
     {
@@ -204,7 +210,8 @@ const {
   activeTab,
   changeActiveTab,
   firstLoad,
-  userGeolocation
+  userGeolocation,
+  scrollToResults
 } = useTideSearch({
   customQueryConfig: props.customQueryConfig,
   queryConfig: props.queryConfig,
@@ -293,6 +300,10 @@ onMapResultsHook.value = () => {
   hookFn(rplMapRef.value, mapResults.value, locationOrGeolocation.value)
 }
 
+const resultsContainer = computed(
+  () => `[data-component-id='${props.id}'] .tide-search-listing-above-result`
+)
+
 const emitSearchEvent = (event) => {
   emitRplEvent(
     'submit',
@@ -317,6 +328,7 @@ const handleSearchSubmit = (event) => {
     // If there's no filters in the form, we need to just do the search without submitting the filter form
     submitSearch()
     closeMapPopup()
+    scrollToResults(resultsContainer.value, 16)
     emitSearchEvent({ ...event, ...baseEvent() })
   }
 }
@@ -325,6 +337,7 @@ const handleFilterSubmit = (event) => {
   filterForm.value = event.value
   submitSearch()
   closeMapPopup()
+  scrollToResults(resultsContainer.value, 16)
 
   emitSearchEvent({ ...event, ...cachedSubmitEvent.value, ...baseEvent() })
 
@@ -615,16 +628,17 @@ const locationOrGeolocation = computed(() => {
       v-if="!searchListingConfig?.displayMapTab || activeTab === 'listing'"
     >
       <TideSearchAboveResults
-        v-if="results?.length || (sortOptions && sortOptions.length)"
         :hasSidebar="hasSidebar"
         class="rpl-u-margin-t-4 rpl-u-padding-b-2 rpl-u-margin-b-4"
       >
         <template #left>
           <TideSearchResultsCount
-            v-if="!searchError && results?.length"
+            v-if="!searchError"
             :pagingStart="pagingStart + 1"
             :pagingEnd="pagingEnd + 1"
             :totalResults="totalResults"
+            :results="results"
+            :loading="isBusy"
           />
         </template>
 
@@ -645,13 +659,17 @@ const locationOrGeolocation = computed(() => {
           class="rpl-u-margin-t-8 rpl-u-margin-b-8"
         />
 
-        <component
-          :is="resultsConfig.layout?.component"
-          v-if="!searchError && results && results.length > 0"
-          :key="`TideSearchListingResultsLayout${resultsConfig.layout?.component}`"
-          v-bind="resultsConfig.layout?.props"
-          :results="results"
-        />
+        <div v-if="!searchError">
+          <component
+            :is="resultsConfig.layout?.component"
+            :key="`TideSearchListingResultsLayout${resultsConfig.layout?.component}`"
+            v-bind="resultsConfig.layout?.props"
+            :hasSidebar="hasSidebar"
+            :loading="isBusy"
+            :results="results"
+            :perPage="searchListingConfig?.resultsPerPage"
+          />
+        </div>
       </TideSearchResultsLoadingState>
 
       <div class="tide-search-pagination">
@@ -659,7 +677,7 @@ const locationOrGeolocation = computed(() => {
           v-if="!searchError"
           :currentPage="page"
           :totalPages="totalPages"
-          :scrollToSelector="`[data-component-id='${id}']`"
+          :scrollToSelector="resultsContainer"
           @paginate="handlePageChange"
         />
       </div>
@@ -667,12 +685,12 @@ const locationOrGeolocation = computed(() => {
 
     <template v-if="activeTab === 'map'">
       <TideSearchListingResultsMap
-        v-if="mapFeatures && firstLoad"
         :results="mapFeatures"
         :areas="mapAreas"
         v-bind="mapConfig?.props"
         :noresults="!isBusy && !results?.length"
         :hasSidePanel="mapConfig?.sidePanel?.enabled"
+        :initialising="!firstLoad"
       >
         <template #noresults>
           <TideCustomCollectionNoResults v-if="!isBusy && !results?.length" />

@@ -53,6 +53,7 @@ export { default as RplSearchResult } from './components/result-listing/RplSearc
 export { default as RplSecondaryCampaign } from './components/campaign-banner/RplSecondaryCampaign.vue'
 export { default as RplSidebarComponent } from './components/layout/RplSidebarComponent.vue'
 export { default as RplSitemap } from './components/sitemap/RplSitemap.vue'
+export { default as RplSkeleton } from './components/skeleton/RplSkeleton.vue'
 export { default as RplSlider } from './components/slider/RplSlider.vue'
 export { default as RplSocialShare } from './components/social-share/RplSocialShare.vue'
 export { default as RplSpinner } from './components/spinner/RplSpinner.vue'

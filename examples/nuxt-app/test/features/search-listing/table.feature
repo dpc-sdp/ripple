@@ -1,4 +1,4 @@
-Feature: Search listing table layout
+Feature: Table layout
 
   I can see a collection of results displayed in a tabular form
 
@@ -8,15 +8,28 @@ Feature: Search listing table layout
     And the search autocomplete request is stubbed with "/search-listing/suggestions/none" fixture
 
   @mockserver
-  Example: Grants
+  Example: Results are displayed in a table with default skeleton loader
     Given the page endpoint for path "/search-listing-table" returns fixture "/search-listing/table/page" with status 200
-    And the search network request is stubbed with fixture "/search-listing/table/response" and status 200
+    And the search network request is stubbed with fixture "/search-listing/table/response", status 200 and delayed by 400 milliseconds
     When I visit the page "/search-listing-table"
-    And the search network request should be called with the "/search-listing/table/request" fixture
+    Then the search listing skeleton should display 160 items with the class "tide-search-results-table-skeleton__cell"
+
+    When I wait 500 milliseconds
+    Then the search network request should be called with the "/search-listing/table/request" fixture
     And the search listing layout should be "table"
 
     Given a data table with type "search-listing-layout-table"
     Then the table should not display extra content
+
+  @mockserver
+  Example: A custom skeleton loader can be use for table cells items
+    Given I load the page fixture with "/search-listing/table/page"
+    And the search listing table result skeleton is set to the "TideSearchResultExampleSkeleton" component
+    And the search network request is stubbed with fixture "/search-listing/table/response", status 200 and delayed by 400 milliseconds
+    Then the page endpoint for path "/search-table" returns the loaded fixture
+
+    When I visit the page "/search-table"
+    Then the search listing skeleton should display 40 items with the class "tide-search-results-example-skeleton"
 
   @mockserver
   Example: Table shows extra content using a custom component

@@ -31,7 +31,6 @@ onMounted(() => {
             :formId="contentRatingFormId"
             hideFormOnSubmit
             title="Was this page helpful?"
-            successMessageTitle=""
             successMessageHTML="Thank you! Your response has been submitted."
             errorMessageHTML="We are experiencing a server error. Please try again, otherwise contact us."
           >
@@ -102,21 +101,30 @@ onMounted(() => {
 </template>
 
 <style>
+@import '@dpc-sdp/ripple-ui-core/style/breakpoints';
+
 .tide-content-rating {
   border-top: var(--rpl-border-1) solid var(--rpl-clr-neutral-300);
   padding-top: var(--rpl-sp-6);
-}
 
-.tide-content-rating__rating .rpl-form-label {
-  @media (--rpl-bp-m) {
-    float: left;
-    margin: 0;
-    margin-right: var(--rpl-sp-6);
+  .rpl-form-alert {
+    margin-bottom: var(--rpl-sp-6);
   }
 }
 
 .tide-content-rating__rating {
   margin-bottom: var(--rpl-sp-6);
+
+  @media (--rpl-bp-s) {
+    .rpl-form-label {
+      float: left;
+      margin: 0 var(--rpl-sp-4) 0 0;
+    }
+
+    .rpl-form-radio-group {
+      --local-block-padding: 0;
+    }
+  }
 }
 
 .tide-content-rating__expanded {
@@ -125,7 +133,10 @@ onMounted(() => {
 
   @media (--rpl-bp-m) {
     padding-top: var(--rpl-sp-2);
-    padding-bottom: var(--rpl-sp-8);
+  }
+
+  @media (--rpl-bp-l) {
+    padding-bottom: var(--rpl-sp-9);
   }
 }
 </style>

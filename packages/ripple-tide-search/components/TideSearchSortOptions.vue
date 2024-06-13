@@ -1,7 +1,9 @@
 <template>
   <div class="rpl-form__outer tide-search-sort-options" data-invalid="false">
     <div class="rpl-form__wrapper">
-      <RplFormLabel for="search-listing-sort-options">Sort by</RplFormLabel>
+      <RplFormLabel id="search-listing-sort-options-label">
+        Sort by
+      </RplFormLabel>
       <div class="rpl-form__inner">
         <RplFormDropdown
           id="search-listing-sort-options"

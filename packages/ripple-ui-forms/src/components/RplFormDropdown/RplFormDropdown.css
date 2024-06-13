@@ -101,6 +101,7 @@
   max-height: calc(var(--local-max-items) * var(--local-item-height));
   overflow-y: auto;
   scroll-behavior: auto;
+  overscroll-behavior: contain;
 
   position: absolute;
   width: 100%;

@@ -20,7 +20,8 @@
   /* Portrait */
   &.rpl-media-embed__image--portrait {
     &.rpl-media-embed__image--large {
-      max-width: none;
+      width: auto;
+      height: auto;
       max-height: 595px;
     }
   }
@@ -97,6 +98,7 @@
 
 .rpl-media-embed__actions-list {
   margin-top: var(--rpl-sp-3);
+  max-width: var(--rpl-content-max-width);
 
   li {
     margin-bottom: var(--rpl-sp-3);

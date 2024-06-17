@@ -1,14 +1,12 @@
 <template>
-  <TideSearchResultsTableSkeleton
-    v-if="loading"
-    :columns="processedColumns"
-    :perPage="perPage"
-    :hasSidebar="hasSidebar"
-  />
   <RplDataTable
-    v-else-if="results?.length"
+    v-if="items?.length"
     data-component-type="search-listing-layout-table"
     class="tide-search-listing-results-table"
+    :class="{
+      'tide-search-listing-results-table': true,
+      'tide-search-listing-results-table--mounting': !isMounted
+    }"
     :columns="processedColumns"
     :items="items"
     :offset="offset"
@@ -21,7 +19,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, getSearchResultValue } from '#imports'
+import { computed, getSearchResultValue, ref } from '#imports'
 import type { TideSearchListingResultItem } from './../../types'
 
 type tableColumnConfig = {
@@ -30,6 +28,7 @@ type tableColumnConfig = {
   format?: 'date' | null
   cols?: number
   component?: string
+  skeleton?: string
   props?: any
 }
 
@@ -81,6 +80,8 @@ const props = withDefaults(defineProps<Props>(), {
   hasSidebar: false
 })
 
+const isMounted = ref(false)
+
 const getExtraContent = (result: any) => {
   if (!props.extraContent) return null
 
@@ -105,6 +106,10 @@ const getExtraContent = (result: any) => {
 }
 
 const items = computed(() => {
+  if (props.loading) {
+    return Array(props.perPage).fill({})
+  }
+
   return (props.results || []).map((item) => {
     return {
       id: item.id,
@@ -121,6 +126,14 @@ const processedColumns = computed(() => {
         ? [`tide-search-listing-table-cols__${column.cols}`]
         : []
 
+    if (props.loading) {
+      return {
+        ...column,
+        component: column?.skeleton || 'TideSearchResultsTableSkeleton',
+        classes
+      }
+    }
+
     if (column.component) {
       return {
         ...column,
@@ -135,10 +148,16 @@ const processedColumns = computed(() => {
     }
   })
 })
+
+onMounted(() => (isMounted.value = true))
 </script>
 
 <style>
 @import '@dpc-sdp/ripple-ui-core/style/breakpoints';
+
+.tide-search-listing-results-table--mounting {
+  visibility: hidden;
+}
 
 .tide-search-listing-results-table {
   padding: 0;

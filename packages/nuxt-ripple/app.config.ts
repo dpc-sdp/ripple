@@ -26,7 +26,6 @@ declare module '@nuxt/schema' {
           name: string
           url: string
           rtl?: boolean
-          styles?: Record<string, string>
         }
       }
       search?: {
@@ -72,10 +71,7 @@ export default defineAppConfig({
       ar: {
         name: 'Noto Kufi Arabic',
         url: 'https://fonts.googleapis.com/earlyaccess/notokufiarabic.css',
-        rtl: true,
-        styles: {
-          '.rpl-type-p-large-highlight': 'line-height: var(--rpl-type-lh-9)'
-        }
+        rtl: true
       },
       bn: {
         name: 'Noto Sans Bengali',

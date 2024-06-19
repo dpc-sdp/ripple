@@ -14,9 +14,9 @@
       :debounce="5000"
       :maxSuggestionsDisplayed="8"
       :placeholder="placeholder"
-      :getOptionId="(itm:any) => itm?.id || itm?.name"
-      :getSuggestionVal="(itm:any) => itm?.name || ''"
-      :getOptionLabel="(itm:any) => itm?.name || ''"
+      :getOptionId="(itm: any) => itm?.id || itm?.name"
+      :getSuggestionVal="(itm: any) => itm?.name || ''"
+      :getOptionLabel="(itm: any) => itm?.name || ''"
       :isBusy="isGettingLocation"
       :isFreeText="false"
       :submitOnClear="true"
@@ -44,10 +44,11 @@
 
 <script setup lang="ts">
 import { inject, watch } from 'vue'
-import { ref, getSingleResultValue } from '#imports'
+import { ref } from '#imports'
 import { useDebounceFn } from '@vueuse/core'
 import { transformExtent, fromLonLat } from 'ol/proj'
 import { Extent } from 'ol/extent'
+import { addressResultType } from '../../types'
 // TODO must add analytics events
 // import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
 
@@ -63,6 +64,10 @@ interface Props {
   mapResultsFnName?: string
   isGettingLocation?: boolean
   userGeolocation: any
+  suggestionsConfig: {
+    function: string
+    args: Record<string, any>
+  }
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -81,18 +86,10 @@ const props = withDefaults(defineProps<Props>(), {
 
 const results = ref([])
 
-type addressResultType = {
-  name: string
-  postcode: string
-  bbox: string[]
-  type: 'postcode' | 'locality'
-}
-
 const emit = defineEmits<{
   (e: 'update', payload: addressResultType): void
 }>()
 
-const appConfig = useAppConfig()
 const { rplMapRef, deadSpace } = inject('rplMapInstance')
 
 const pendingZoomAnimation = ref(false)
@@ -105,86 +102,36 @@ async function submitAction(e: any) {
     return
   }
 
-  emit('update', item || null)
+  if (item?.arcGISMagicKey) {
+    const arcGISAddress = await getAddressFromArcGISMagicKey(
+      item.arcGISMagicKey
+    )
+    emit('update', arcGISAddress)
+  } else {
+    emit('update', item || null)
+  }
 
   // Because this was a user initiated action, we want to animate the zoom
   pendingZoomAnimation.value = true
 }
 
 const fetchSuggestions = async (query: string) => {
-  const searchUrl = `/api/tide/app-search/${props.suggestionsIndex}/elasticsearch/_search`
-  const queryDSL = {
-    query: {
-      bool: {
-        should: [
-          {
-            match: {
-              [props.suggestionsKey]: {
-                query,
-                operator: 'and'
-              }
-            }
-          },
-          {
-            prefix: {
-              [props.suggestionsKey]: {
-                value: query,
-                case_insensitive: true
-              }
-            }
-          },
-          {
-            term: {
-              postcode: {
-                value: query
-              }
-            }
-          }
-        ]
-      }
-    }
-  }
-
   try {
-    const response = await $fetch(searchUrl, {
-      method: 'POST',
-      body: {
-        ...queryDSL,
-        size: 20
-      }
-    })
+    if (props.suggestionsConfig?.function) {
+      const suggestionsFn = useAppConfigFunction(
+        props.suggestionsConfig.function,
+        'suggestionsFunctions'
+      )
 
-    let mappingFn = (itm: any) => {
-      const center = getSingleResultValue(itm._source.center)?.split(',')
-
-      return {
-        id: itm._id,
-        name: getSingleResultValue(itm._source[props.suggestionsKey]),
-        postcode: getSingleResultValue(itm._source.postcode),
-        bbox: itm._source.bbox,
-        center: center?.length === 2 ? [center[1], center[0]] : undefined
-      }
+      return await suggestionsFn(query, props.suggestionsConfig.args)
     }
 
-    const fns: Record<string, (item: any) => any> =
-      appConfig?.ripple?.search?.locationSuggestionMappingFunctions || {}
-
-    // If no transform function is defined, return an empty array
-    if (props.mapResultsFnName) {
-      const transformFn = fns[props.mapResultsFnName]
-
-      if (typeof transformFn !== 'function') {
-        throw new Error(
-          `Search listing: No matching location transform function called "${props.mapResultsFnName}"`
-        )
-      }
-
-      mappingFn = transformFn
-    }
-
-    if (response && response.hits.total.value > 0) {
-      return response.hits.hits.map(mappingFn)
-    }
+    return await useLegacySuggestions(
+      query,
+      props.suggestionsIndex,
+      props.suggestionsKey,
+      props.mapResultsFnName
+    )
   } catch (e) {
     console.error(e)
   }

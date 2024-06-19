@@ -78,6 +78,7 @@
   }
 
   .rpl-primary-nav--expanded & {
+    display: block;
     transition: height var(--rpl-motion-speed-7) ease-in,
       background-color var(--rpl-motion-speed-4) ease-in;
     background-color: var(--rpl-clr-primary-alt);

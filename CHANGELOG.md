@@ -1,5 +1,29 @@
 # Changelog
 
+## v2.10.2
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.10.0...v2.10.2)
+
+
+### 🚀 Enhancements
+
+  - **@dpc-sdp/ripple-tide-search:** Allow search result mapping to be customised ([10ecda804](https://github.com/dpc-sdp/ripple-framework/commit/10ecda804))
+  - **@dpc-sdp/ripple-tide-search:** Fix issue with search dropdown option reactivity ([726494f03](https://github.com/dpc-sdp/ripple-framework/commit/726494f03))
+
+### 🩹 Fixes
+
+  - **@dpc-sdp/ripple-ui-core:** Allways ensure expanded menu is visible ([2386ef581](https://github.com/dpc-sdp/ripple-framework/commit/2386ef581))
+
+### 🏡 Chore
+
+  - 🔖 release ripple 2.10.1 ([c5aebdc05](https://github.com/dpc-sdp/ripple-framework/commit/c5aebdc05))
+
+### ❤️  Contributors
+
+- David Featherston <david.featherstone@dpc.vic.gov.au>
+- Dylan Kelly <dylan.kelly@dpc.vic.gov.au>
+- Jeffrey Dowdle <jeffrey.dowdle@dpc.vic.gov.au>
+
 ## v2.10.1
 
 [compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.9.0...v2.10.1)

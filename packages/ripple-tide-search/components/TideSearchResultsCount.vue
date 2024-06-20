@@ -19,11 +19,12 @@ interface Props {
   pagingStart: number
   pagingEnd: number
   totalResults: number
-  loading: boolean
+  loading?: boolean
   results?: any[]
 }
 
 withDefaults(defineProps<Props>(), {
-  results: () => []
+  results: () => [],
+  loading: false
 })
 </script>

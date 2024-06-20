@@ -297,6 +297,7 @@ watch(
           :pagingStart="searchState.pagingStart"
           :pagingEnd="searchState.pagingEnd"
           :totalResults="searchState.totalResults"
+          :results="results"
         />
       </RplPageComponent>
       <RplPageComponent>

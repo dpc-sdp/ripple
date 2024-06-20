@@ -7,7 +7,8 @@ import {
   useAppConfig,
   useRuntimeConfig,
   navigateTo,
-  getSingleQueryStringValue
+  getSingleQueryStringValue,
+  scrollToElementTopWithOffset
 } from '#imports'
 import type { TideSearchListingConfig, FilterConfigItem } from './../types'
 
@@ -856,6 +857,19 @@ export default ({
     getSearchResults(isFirstRun)
   }
 
+  /**
+   * Scroll to search results
+   */
+  const scrollToResults = (selector: string, offset = 0) => {
+    if (searchListingConfig?.scrollToResultsOnSubmit !== false) {
+      const scrollToElement = document.querySelector(selector)
+
+      if (scrollToElement) {
+        scrollToElementTopWithOffset(scrollToElement, offset)
+      }
+    }
+  }
+
   const appliedFilters = computed(() => {
     return getFiltersFromRoute(route)
   })
@@ -912,6 +926,7 @@ export default ({
     changeActiveTab,
     locationQuery,
     firstLoad,
-    userGeolocation
+    userGeolocation,
+    scrollToResults
   }
 }

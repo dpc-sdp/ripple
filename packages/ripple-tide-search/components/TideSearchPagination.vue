@@ -20,7 +20,7 @@ const emit = defineEmits<{
 interface Props {
   currentPage: number
   totalPages: number
-  scrollToSelector: string
+  scrollToSelector?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {

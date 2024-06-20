@@ -5,9 +5,11 @@
       'tide-search-listing-above-result--compact': hasSidebar
     }"
   >
-    <slot name="left">
-      <div />
-    </slot>
+    <div class="tide-search-listing-above-result__left">
+      <slot name="left">
+        <div />
+      </slot>
+    </div>
 
     <div class="tide-search-listing-above-result__right">
       <slot name="right">
@@ -31,11 +33,19 @@ withDefaults(defineProps<Props>(), {
 @import '@dpc-sdp/ripple-ui-core/style/breakpoints';
 
 .tide-search-listing-above-result {
+  display: flex;
+  flex-direction: column;
+  gap: var(--rpl-sp-4);
+
   @media (--rpl-bp-m) {
-    display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: baseline;
   }
+}
+
+.tide-search-listing-above-result__left {
+  flex-grow: 1;
 }
 
 .tide-search-listing-above-result__right {
@@ -44,16 +54,15 @@ withDefaults(defineProps<Props>(), {
   }
 }
 
-.tide-search-listing-above-result.tide-search-listing-above-result--compact {
+.tide-search-listing-above-result--compact {
   @media (--rpl-bp-m) {
-    display: block;
-  }
-}
+    flex-direction: column;
 
-.tide-search-listing-above-result--compact
-  .tide-search-listing-above-result__right {
-  @media (--rpl-bp-m) {
-    width: auto;
+    .tide-search-listing-above-result__left,
+    .tide-search-listing-above-result__right {
+      flex-grow: 1;
+      width: 100%;
+    }
   }
 }
 </style>

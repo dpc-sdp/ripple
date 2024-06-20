@@ -14,6 +14,7 @@ Feature: Search listing - Filter
 
     When I visit the page "/filters"
     Then the search listing filters section should be open
+    And the filters toggle should be hidden
 
   @mockserver
   Example: Raw filter - Should reflect the value from the URL
@@ -211,7 +212,8 @@ Feature: Search listing - Filter
     And the search network request should be called with the "/search-listing/dependent-filters/request-mammals-children" fixture
     And the filters toggle should show 2 applied filters
 
-    When I click the search listing dropdown field labelled "Terms dependent example"
+    When I toggle the search listing filters section
+    Then I click the search listing dropdown field labelled "Terms dependent example"
     Then the selected dropdown field should have the items:
       | Mammals |
       | Birds   |
@@ -237,7 +239,9 @@ Feature: Search listing - Filter
     When I visit the page "/filters"
     Then the search listing page should have 2 results
     And the search network request should be called with the "/search-listing/dependent-filters/request-empty" fixture
-    And the search listing dropdown field labelled "Terms dependent child example" should be disabled
+
+    When I toggle the search listing filters section
+    Then the search listing dropdown field labelled "Terms dependent child example" should be disabled
     And the search listing dropdown field labelled "Terms dependent grandchild example" should be disabled
 
     When I click the search listing dropdown field labelled "Terms dependent example"
@@ -286,7 +290,8 @@ Feature: Search listing - Filter
     And the search network request should be called with the "/search-listing/dependent-filters/request-birds-grandchildren-single" fixture
     And the filters toggle should show 3 applied filters
 
-    When I click the search listing dropdown field labelled "Terms dependent example"
+    When I toggle the search listing filters section
+    Then I click the search listing dropdown field labelled "Terms dependent example"
     And I click the option labelled "Mammals" in the selected dropdown
     Then I click the search listing dropdown field labelled "Terms dependent example"
 
@@ -314,7 +319,8 @@ Feature: Search listing - Filter
     And the search network request should be called with the "/search-listing/dependent-filters/request-birds-grandchildren" fixture
     And the filters toggle should show 3 applied filters
 
-    When I click the search listing dropdown field labelled "Terms dependent example"
+    When I toggle the search listing filters section
+    Then I click the search listing dropdown field labelled "Terms dependent example"
     And I click the option labelled "Mammals" in the selected dropdown
     Then I click the search listing dropdown field labelled "Terms dependent example"
 
@@ -344,6 +350,7 @@ Feature: Search listing - Filter
     And the search network request should be called with the "/search-listing/dependent-filters/request-birds-grandchildren" fixture
     And the filters toggle should show 3 applied filters
 
+    When I toggle the search listing filters section
     Then the search listing dropdown field labelled "Terms dependent example" should have the value "Birds"
     And I click the search listing dropdown field labelled "Terms dependent example"
     Then the selected dropdown field should allow "single" selection

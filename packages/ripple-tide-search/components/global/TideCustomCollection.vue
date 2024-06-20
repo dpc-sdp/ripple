@@ -586,6 +586,7 @@ const locationOrGeolocation = computed(() => {
         <div class="tide-search-refine-wrapper">
           <RplSearchBarRefine
             v-if="
+              !searchListingConfig?.showFiltersOnLoad &&
               !searchListingConfig?.showFiltersOnly &&
               userFilters &&
               userFilters.length > 0

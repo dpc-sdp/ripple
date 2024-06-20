@@ -410,6 +410,7 @@ watch(
           </template>
           <RplSearchBarRefine
             v-if="
+              !searchListingConfig?.showFiltersOnLoad &&
               !searchListingConfig?.showFiltersOnly &&
               userFilters &&
               userFilters.length > 0

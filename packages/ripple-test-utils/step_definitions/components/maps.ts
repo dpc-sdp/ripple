@@ -1,4 +1,9 @@
-import { Then, When, Given } from '@badeball/cypress-cucumber-preprocessor'
+import {
+  Then,
+  When,
+  Given,
+  DataTable
+} from '@badeball/cypress-cucumber-preprocessor'
 import { set } from 'lodash-es'
 
 Then(`the ripple map component should be visible`, () => {
@@ -117,3 +122,63 @@ Given('I click the side panel item with text {string}', (title) => {
     .contains(title)
     .click({ force: true })
 })
+
+Given('a custom suggestions function called {string} is used', (fnName) => {
+  cy.get('@pageFixture').then((response) => {
+    set(
+      response,
+      'bodyComponents[0].props.locationQueryConfig.props.suggestionsConfig',
+      {
+        function: fnName,
+        args: {
+          testArg: 'testValue'
+        }
+      }
+    )
+  })
+})
+
+When(`I type {string} into the location search bar`, (inputStr: string) => {
+  cy.get(`[id="tide-address-lookup"]`).focus()
+  cy.get(`[id="tide-address-lookup"]`).type(`${inputStr}`)
+  cy.get(`[id="tide-address-lookup"]`).focus()
+})
+
+Given(
+  'the location autocomplete request is stubbed with {string} fixture',
+  (fixture: string) => {
+    cy.intercept('POST', `/api/tide/app-search/**/elasticsearch/_search`, {
+      statusCode: 200,
+      fixture
+    }).as('autocompleteRequest') // assign an alias
+  }
+)
+
+Then(
+  'the URL should reflect that the location has the following:',
+  (dataTable) => {
+    const items = dataTable.hashes()
+
+    cy.location().should((loc) => {
+      const params = new URLSearchParams(loc.search)
+
+      items.forEach((row, i: number) => {
+        expect(params.get(`location[${row.key}]`)).to.eq(`${row.value}`)
+      })
+    })
+  }
+)
+
+Given(
+  'the ArcGIS findAddressCandidates endpoint returns {string} fixture',
+  (fixture: string) => {
+    cy.intercept(
+      'GET',
+      `https://corp-geo.mapshare.vic.gov.au/arcgis/rest/services/Geocoder/VMAddressEZIAdd/GeocodeServer/findAddressCandidates*`,
+      {
+        statusCode: 200,
+        fixture
+      }
+    )
+  }
+)

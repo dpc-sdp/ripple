@@ -220,3 +220,49 @@ Given(
     })
   }
 )
+
+Given('the site wide quick exit is enabled', () => {
+  cy.get('@siteFixture').then((response) => {
+    set(response, 'showQuickExit', true)
+  })
+})
+
+Given('the site section quick exit is enabled', () => {
+  cy.get('@pageFixture').then((response) => {
+    set(response, 'siteSection.siteOverrides.showQuickExit', true)
+  })
+})
+
+Then('the quick exit should be displayed', () => {
+  cy.get('.rpl-primary-nav__quick-exit').should('be.visible')
+})
+
+Then('the quick exit should not be displayed', () => {
+  cy.get('.rpl-primary-nav__quick-exit').should('not.exist')
+})
+
+Given('the site sections share links are set to included WhatsApp', () => {
+  cy.get('@pageFixture').then((response) => {
+    set(
+      response,
+      'siteSection.siteOverrides.featureFlags[socialShare.WhatsApp]',
+      true
+    )
+  })
+})
+
+Then('the in page navigation should include', (dataTable: DataTable) => {
+  const table = dataTable.hashes()
+
+  cy.get('.rpl-in-page-navigation li').as('links')
+
+  table.forEach((row, i: number) => {
+    cy.get('@links')
+      .eq(i)
+      .then((link) => {
+        cy.wrap(link).as('link')
+        cy.get('@link').find('a').first().should('have.attr', 'href', row.url)
+        cy.get('@link').find('.rpl-list__label').first().contains(row.title)
+      })
+  })
+})

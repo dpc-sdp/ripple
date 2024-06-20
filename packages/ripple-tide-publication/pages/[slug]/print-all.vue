@@ -36,6 +36,10 @@ const childPages = await useTidePublicationChildren(
 onMounted(() => {
   window.print()
 })
+
+useHead({
+  meta: [{ name: 'robots', content: 'noindex' }]
+})
 </script>
 
 <template>

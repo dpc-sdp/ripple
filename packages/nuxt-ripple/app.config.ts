@@ -77,6 +77,11 @@ export default defineAppConfig({
         name: 'Noto Sans Bengali',
         url: 'https://fonts.googleapis.com/earlyaccess/notosansbengali.css'
       },
+      ckb: {
+        name: 'Noto Naskh Arabic',
+        url: 'https://fonts.googleapis.com/earlyaccess/notonaskharabic.css',
+        rtl: true
+      },
       cld: {
         name: 'Noto Naskh Arabic',
         url: 'https://fonts.googleapis.com/earlyaccess/notonaskharabic.css'
@@ -123,6 +128,11 @@ export default defineAppConfig({
       ko: {
         name: 'Noto Sans KR',
         url: 'https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap'
+      },
+      kmr: {
+        name: 'Noto Naskh Arabic',
+        url: 'https://fonts.googleapis.com/earlyaccess/notonaskharabic.css',
+        rtl: true
       },
       kyu: {
         name: 'Noto Sans Kayah Li',

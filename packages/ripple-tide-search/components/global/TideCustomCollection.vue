@@ -328,7 +328,9 @@ const handleSearchSubmit = (event) => {
     // If there's no filters in the form, we need to just do the search without submitting the filter form
     submitSearch()
     closeMapPopup()
-    scrollToResults(resultsContainer.value, 16)
+    if (event?.type === 'button') {
+      scrollToResults(resultsContainer.value, 16)
+    }
     emitSearchEvent({ ...event, ...baseEvent() })
   }
 }
@@ -337,7 +339,13 @@ const handleFilterSubmit = (event) => {
   filterForm.value = event.value
   submitSearch()
   closeMapPopup()
-  scrollToResults(resultsContainer.value, 16)
+
+  if (
+    !cachedSubmitEvent.value?.type ||
+    cachedSubmitEvent.value?.type === 'button'
+  ) {
+    scrollToResults(resultsContainer.value, 16)
+  }
 
   emitSearchEvent({ ...event, ...cachedSubmitEvent.value, ...baseEvent() })
 
@@ -431,7 +439,7 @@ const handleTabChange = (tab: TideSearchListingTab) => {
 
 function handleLocationSearch(payload: any) {
   locationQuery.value = payload
-  handleSearchSubmit({})
+  handleSearchSubmit({ type: 'suggestion' })
 }
 
 const rplMapRef = ref(null)

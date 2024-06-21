@@ -11,6 +11,7 @@
 @import 'utilities/_accessibility.css';
 @import 'utilities/_container.css';
 @import 'utilities/_focus.css';
+@import 'utilities/_visited.css';
 @import 'generated/_grid.css';
 @import 'utilities/_lists.css';
 @import 'generated/_margin.css';

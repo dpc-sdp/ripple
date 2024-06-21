@@ -5,7 +5,8 @@
       :pagingEnd="pagingEnd"
       :totalResults="totalResults"
     >
-      <p class="rpl-type-label">
+      <RplSkeleton v-if="loading" width="s" class="rpl-type-label" />
+      <p v-else-if="results?.length" class="rpl-type-label">
         Displaying {{ pagingStart }}-{{ pagingEnd }} of
         {{ totalResults }} results
       </p>
@@ -18,7 +19,11 @@ interface Props {
   pagingStart: number
   pagingEnd: number
   totalResults: number
+  loading: boolean
+  results?: any[]
 }
 
-defineProps<Props>()
+withDefaults(defineProps<Props>(), {
+  results: () => []
+})
 </script>

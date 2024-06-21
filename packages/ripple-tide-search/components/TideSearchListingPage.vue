@@ -81,8 +81,9 @@ const props = withDefaults(defineProps<Props>(), {
         enabled: true
       },
       showFiltersOnLoad: false,
-      showFiltersOnly: false
-    } as any),
+      showFiltersOnly: false,
+      scrollToResultsOnSubmit: true
+    }) as any,
   resultsLayout: () => ({
     component: 'TideSearchResultsList'
   }),
@@ -146,6 +147,7 @@ const {
   totalPages,
   pagingStart,
   pagingEnd,
+  scrollToResults,
   onAggregationUpdateHook
 } = useTideSearch({
   customQueryConfig: props.customQueryConfig,
@@ -207,6 +209,8 @@ onAggregationUpdateHook.value = (aggs: any) => {
   })
 }
 
+const resultsContainer = '.rpl-layout__body-wrap'
+
 const emitSearchEvent = (event: any) => {
   emitRplEvent(
     'submit',
@@ -230,6 +234,7 @@ const handleSearchSubmit = (event: any) => {
   } else {
     // If there's no filters in the form, we need to just do the search without submitting the filter form
     submitSearch()
+    scrollToResults(resultsContainer)
     emitSearchEvent({ ...event, ...baseEvent() })
   }
 }
@@ -237,6 +242,7 @@ const handleSearchSubmit = (event: any) => {
 const handleFilterSubmit = (event: any) => {
   filterForm.value = event.value
   submitSearch()
+  scrollToResults(resultsContainer)
 
   emitSearchEvent({ ...event, ...cachedSubmitEvent.value, ...baseEvent() })
 
@@ -404,6 +410,7 @@ watch(
           </template>
           <RplSearchBarRefine
             v-if="
+              !searchListingConfig?.showFiltersOnLoad &&
               !searchListingConfig?.showFiltersOnly &&
               userFilters &&
               userFilters.length > 0
@@ -442,9 +449,7 @@ watch(
           :html="contentPage.beforeResults"
         />
       </RplPageComponent>
-      <TideSearchAboveResults
-        v-if="results?.length || (sortOptions && sortOptions.length)"
-      >
+      <TideSearchAboveResults>
         <template #left>
           <slot
             name="resultsCount"
@@ -456,10 +461,12 @@ watch(
           >
             <div data-component-type="search-listing-result-count">
               <TideSearchResultsCount
-                v-if="!searchError && results?.length"
+                v-if="!searchError"
                 :pagingStart="pagingStart + 1"
                 :pagingEnd="pagingEnd + 1"
                 :totalResults="totalResults"
+                :results="results"
+                :loading="isBusy"
               />
             </div>
           </slot>
@@ -483,13 +490,14 @@ watch(
             v-else-if="!isBusy && !results?.length"
           />
 
-          <slot name="results" :results="results">
+          <slot v-if="!searchError" name="results" :results="results">
             <component
               :is="resultsLayout.component"
-              v-if="!searchError && results && results.length > 0"
               :key="`TideSearchListingResultsLayout${resultsLayout.component}`"
               v-bind="resultsLayout.props"
+              :loading="isBusy"
               :results="results"
+              :perPage="searchListingConfig?.resultsPerPage"
             />
           </slot>
         </TideSearchResultsLoadingState>
@@ -507,6 +515,7 @@ watch(
             v-if="!searchError"
             :currentPage="page"
             :totalPages="totalPages"
+            :scroll-to-selector="resultsContainer"
             @paginate="handlePageChange"
           />
         </slot>

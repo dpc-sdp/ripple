@@ -8,8 +8,7 @@
   "summary": "",
   "config": {
     "searchListingConfig": {
-      "resultsPerPage": 10,
-      "showFiltersOnLoad": true
+      "resultsPerPage": 10
     },
     "queryConfig": {
       "multi_match": {

@@ -1,0 +1,614 @@
+diff --git a/dist/cjs/common/doctype.d.ts b/dist/cjs/common/doctype.d.ts
+index 8c56fd7183c9bce5b5c88047075abcefbcebb6dc..993afaac5b5b5a808eb4a32c9707c3ec052442b4 100644
+--- a/dist/cjs/common/doctype.d.ts
++++ b/dist/cjs/common/doctype.d.ts
+@@ -2,4 +2,3 @@ import { DOCUMENT_MODE } from './html.js';
+ import type { DoctypeToken } from './token.js';
+ export declare function isConforming(token: DoctypeToken): boolean;
+ export declare function getDocumentMode(token: DoctypeToken): DOCUMENT_MODE;
+-//# sourceMappingURL=doctype.d.ts.map
+\ No newline at end of file
+diff --git a/dist/cjs/common/doctype.js b/dist/cjs/common/doctype.js
+index cd287f73995f4f36ea6eeb79930e33083604b49a..00ab2d4b9c17bdd9c381756bcfebe571ffb8f07c 100644
+--- a/dist/cjs/common/doctype.js
++++ b/dist/cjs/common/doctype.js
+@@ -117,4 +117,3 @@ function getDocumentMode(token) {
+     return html_js_1.DOCUMENT_MODE.NO_QUIRKS;
+ }
+ exports.getDocumentMode = getDocumentMode;
+-//# sourceMappingURL=doctype.js.map
+\ No newline at end of file
+diff --git a/dist/cjs/common/error-codes.d.ts b/dist/cjs/common/error-codes.d.ts
+index 503451dfd83da30606cc6884bfd86e4d7c2a28fa..ac15bb3b605c59af68a87be1ade6803d7a258ae8 100644
+--- a/dist/cjs/common/error-codes.d.ts
++++ b/dist/cjs/common/error-codes.d.ts
+@@ -65,4 +65,3 @@ export declare enum ERR {
+     nestedNoscriptInHead = "nested-noscript-in-head",
+     eofInElementThatCanContainOnlyText = "eof-in-element-that-can-contain-only-text"
+ }
+-//# sourceMappingURL=error-codes.d.ts.map
+\ No newline at end of file
+diff --git a/dist/cjs/common/error-codes.js b/dist/cjs/common/error-codes.js
+index 9fa3c8a488ffc382cd3ee259ff2ce9cd964e0c22..35d49df17bcf14bff89a1a46fa1f1bc8ce645081 100644
+--- a/dist/cjs/common/error-codes.js
++++ b/dist/cjs/common/error-codes.js
+@@ -64,4 +64,3 @@ var ERR;
+     ERR["nestedNoscriptInHead"] = "nested-noscript-in-head";
+     ERR["eofInElementThatCanContainOnlyText"] = "eof-in-element-that-can-contain-only-text";
+ })(ERR = exports.ERR || (exports.ERR = {}));
+-//# sourceMappingURL=error-codes.js.map
+\ No newline at end of file
+diff --git a/dist/cjs/common/foreign-content.d.ts b/dist/cjs/common/foreign-content.d.ts
+index 8d9f1827625509c5ebb126c8b3aecb3108c87ca5..d08d02b2cbdca814cea75bf32575636ccebd801e 100644
+--- a/dist/cjs/common/foreign-content.d.ts
++++ b/dist/cjs/common/foreign-content.d.ts
+@@ -7,4 +7,3 @@ export declare function adjustTokenSVGAttrs(token: TagToken): void;
+ export declare function adjustTokenXMLAttrs(token: TagToken): void;
+ export declare function adjustTokenSVGTagName(token: TagToken): void;
+ export declare function isIntegrationPoint(tn: $, ns: NS, attrs: Attribute[], foreignNS?: NS): boolean;
+-//# sourceMappingURL=foreign-content.d.ts.map
+\ No newline at end of file
+diff --git a/dist/cjs/common/foreign-content.js b/dist/cjs/common/foreign-content.js
+index 2a60b138a8d16680425efe7a42fd845035d1190c..ea971969ef8cf84db779a97b613c72f28fc7f4c4 100644
+--- a/dist/cjs/common/foreign-content.js
++++ b/dist/cjs/common/foreign-content.js
+@@ -236,4 +236,3 @@ function isIntegrationPoint(tn, ns, attrs, foreignNS) {
+         ((!foreignNS || foreignNS === html_js_1.NS.MATHML) && isMathMLTextIntegrationPoint(tn, ns)));
+ }
+ exports.isIntegrationPoint = isIntegrationPoint;
+-//# sourceMappingURL=foreign-content.js.map
+\ No newline at end of file
+diff --git a/dist/cjs/common/html.d.ts b/dist/cjs/common/html.d.ts
+index 0b470953c34d1c87488e1e3b5dfb044d3b6e754f..3f82e532ce3ec01ecc92aca3cdedecacfe7ec5aa 100644
+--- a/dist/cjs/common/html.d.ts
++++ b/dist/cjs/common/html.d.ts
+@@ -285,4 +285,3 @@ export declare function getTagID(tagName: string): TAG_ID;
+ export declare const SPECIAL_ELEMENTS: Record<NS, Set<TAG_ID>>;
+ export declare function isNumberedHeader(tn: TAG_ID): boolean;
+ export declare function hasUnescapedText(tn: string, scriptingEnabled: boolean): boolean;
+-//# sourceMappingURL=html.d.ts.map
+\ No newline at end of file
+diff --git a/dist/cjs/common/html.js b/dist/cjs/common/html.js
+index cd361d43002f1314497921444f149142a57cc772..2d6758c2e5277a62a005ce62144f730aa85f641b 100644
+--- a/dist/cjs/common/html.js
++++ b/dist/cjs/common/html.js
+@@ -526,4 +526,3 @@ function hasUnescapedText(tn, scriptingEnabled) {
+     return UNESCAPED_TEXT.has(tn) || (scriptingEnabled && tn === TAG_NAMES.NOSCRIPT);
+ }
+ exports.hasUnescapedText = hasUnescapedText;
+-//# sourceMappingURL=html.js.map
+\ No newline at end of file
+diff --git a/dist/cjs/common/token.d.ts b/dist/cjs/common/token.d.ts
+index aeb03469a8230e9ac05deb36bf3a7b171f04b690..9bcc7dc545832a1c5cb46505501e89447874abcd 100644
+--- a/dist/cjs/common/token.d.ts
++++ b/dist/cjs/common/token.d.ts
+@@ -82,4 +82,3 @@ export interface CharacterToken extends TokenBase {
+ }
+ export type Token = DoctypeToken | TagToken | CommentToken | EOFToken | CharacterToken;
+ export {};
+-//# sourceMappingURL=token.d.ts.map
+\ No newline at end of file
+diff --git a/dist/cjs/common/token.js b/dist/cjs/common/token.js
+index 1875411055768e8d8413db9902d22daf76329e40..be4028146b8e0773f0865ff2b749f4a666d76014 100644
+--- a/dist/cjs/common/token.js
++++ b/dist/cjs/common/token.js
+@@ -22,4 +22,3 @@ function getTokenAttr(token, attrName) {
+     return null;
+ }
+ exports.getTokenAttr = getTokenAttr;
+-//# sourceMappingURL=token.js.map
+\ No newline at end of file
+diff --git a/dist/cjs/common/unicode.d.ts b/dist/cjs/common/unicode.d.ts
+index 9713197bbfd0b4e3dea28a8e4817629a052c4941..91a6202e3bdc3f059da3eb20644201b01e01bed3 100644
+--- a/dist/cjs/common/unicode.d.ts
++++ b/dist/cjs/common/unicode.d.ts
+@@ -46,4 +46,3 @@ export declare function isSurrogatePair(cp: number): boolean;
+ export declare function getSurrogatePairCodePoint(cp1: number, cp2: number): number;
+ export declare function isControlCodePoint(cp: number): boolean;
+ export declare function isUndefinedCodePoint(cp: number): boolean;
+-//# sourceMappingURL=unicode.d.ts.map
+\ No newline at end of file
+diff --git a/dist/cjs/common/unicode.js b/dist/cjs/common/unicode.js
+index 2187bc9d19a1e4ac82759bee30ebfc3ce3e6189d..c2fcc25b4a7880629927377c7da70657fc1be033 100644
+--- a/dist/cjs/common/unicode.js
++++ b/dist/cjs/common/unicode.js
+@@ -74,4 +74,3 @@ function isUndefinedCodePoint(cp) {
+     return (cp >= 64976 && cp <= 65007) || UNDEFINED_CODE_POINTS.has(cp);
+ }
+ exports.isUndefinedCodePoint = isUndefinedCodePoint;
+-//# sourceMappingURL=unicode.js.map
+\ No newline at end of file
+diff --git a/dist/cjs/index.d.ts b/dist/cjs/index.d.ts
+index 66eb3236059f88f73355d4fddef9e06a0169b407..7361935ae75023f8d05f40811e2617ac865ff95f 100644
+--- a/dist/cjs/index.d.ts
++++ b/dist/cjs/index.d.ts
+@@ -57,4 +57,3 @@ export declare function parse<T extends TreeAdapterTypeMap = DefaultTreeAdapterM
+  */
+ export declare function parseFragment<T extends TreeAdapterTypeMap = DefaultTreeAdapterMap>(fragmentContext: T['parentNode'] | null, html: string, options: ParserOptions<T>): T['documentFragment'];
+ export declare function parseFragment<T extends TreeAdapterTypeMap = DefaultTreeAdapterMap>(html: string, options?: ParserOptions<T>): T['documentFragment'];
+-//# sourceMappingURL=index.d.ts.map
+\ No newline at end of file
+diff --git a/dist/cjs/index.js b/dist/cjs/index.js
+index f8a91f39fa7c503cb74a09ab2f50b0edd178e862..bb015af898e1f7592bf3aea625dc0c04d8832dd4 100644
+--- a/dist/cjs/index.js
++++ b/dist/cjs/index.js
+@@ -54,4 +54,3 @@ function parseFragment(fragmentContext, html, options) {
+     return parser.getFragment();
+ }
+ exports.parseFragment = parseFragment;
+-//# sourceMappingURL=index.js.map
+\ No newline at end of file
+diff --git a/dist/cjs/parser/formatting-element-list.d.ts b/dist/cjs/parser/formatting-element-list.d.ts
+index d6c9dcdd39d44f3f2e89da688520c9aa0756ecb2..1d421b6a8d92d158b8db518b0ebdd90b7b728e65 100644
+--- a/dist/cjs/parser/formatting-element-list.d.ts
++++ b/dist/cjs/parser/formatting-element-list.d.ts
+@@ -34,4 +34,3 @@ export declare class FormattingElementList<T extends TreeAdapterTypeMap> {
+     getElementEntry(element: T['element']): ElementEntry<T> | undefined;
+ }
+ export {};
+-//# sourceMappingURL=formatting-element-list.d.ts.map
+\ No newline at end of file
+diff --git a/dist/cjs/parser/formatting-element-list.js b/dist/cjs/parser/formatting-element-list.js
+index 7354fd45eea62b75ac8ec173a5137fde206df3a2..44f4fae86564503ce6b703f36e907e1d44725579 100644
+--- a/dist/cjs/parser/formatting-element-list.js
++++ b/dist/cjs/parser/formatting-element-list.js
+@@ -112,4 +112,3 @@ class FormattingElementList {
+     }
+ }
+ exports.FormattingElementList = FormattingElementList;
+-//# sourceMappingURL=formatting-element-list.js.map
+\ No newline at end of file
+diff --git a/dist/cjs/parser/index.d.ts b/dist/cjs/parser/index.d.ts
+index 50a9bd0c73649e4a78edd0d18b4ee44ae9cdf3b7..995241fe430a564f805341d3413955fcf20d70d6 100644
+--- a/dist/cjs/parser/index.d.ts
++++ b/dist/cjs/parser/index.d.ts
+@@ -154,4 +154,3 @@ export declare class Parser<T extends TreeAdapterTypeMap> implements TokenHandle
+     onWhitespaceCharacter(token: CharacterToken): void;
+ }
+ export {};
+-//# sourceMappingURL=index.d.ts.map
+\ No newline at end of file
+diff --git a/dist/cjs/parser/index.js b/dist/cjs/parser/index.js
+index 4dbf9d5b5037362a04e6a87c62ebaf83398d551f..6354b64a5ee4027dcc703b3207626c533c34eb5c 100644
+--- a/dist/cjs/parser/index.js
++++ b/dist/cjs/parser/index.js
+@@ -337,7 +337,7 @@ class Parser {
+         if (this.treeAdapter.getNodeSourceCodeLocation(element) && closingToken.location) {
+             const ctLoc = closingToken.location;
+             const tn = this.treeAdapter.getTagName(element);
+-            const endLoc = 
++            const endLoc =
+             // NOTE: For cases like <p> <p> </p> - First 'p' closes without a closing
+             // tag and for cases like <td> <p> </td> - 'p' closes without a closing tag.
+             closingToken.type === token_js_1.TokenType.END_TAG && tn === closingToken.tagName
+@@ -3160,4 +3160,3 @@ function endTagInForeignContent(p, token) {
+         }
+     }
+ }
+-//# sourceMappingURL=index.js.map
+\ No newline at end of file
+diff --git a/dist/cjs/parser/open-element-stack.d.ts b/dist/cjs/parser/open-element-stack.d.ts
+index 77c1800e8b9bd291d282fc8081091e93dcd76c33..3257b7753799cedbed3ea6642124a61ce6ffb6f9 100644
+--- a/dist/cjs/parser/open-element-stack.d.ts
++++ b/dist/cjs/parser/open-element-stack.d.ts
+@@ -50,4 +50,3 @@ export declare class OpenElementStack<T extends TreeAdapterTypeMap> {
+     generateImpliedEndTagsThoroughly(): void;
+     generateImpliedEndTagsWithExclusion(exclusionId: $): void;
+ }
+-//# sourceMappingURL=open-element-stack.d.ts.map
+\ No newline at end of file
+diff --git a/dist/cjs/parser/open-element-stack.js b/dist/cjs/parser/open-element-stack.js
+index b6c4316452ea4864accc78da73c7952b35c27352..435a5a8c95541fa77214e33f46bf26e06a477942 100644
+--- a/dist/cjs/parser/open-element-stack.js
++++ b/dist/cjs/parser/open-element-stack.js
+@@ -313,4 +313,3 @@ class OpenElementStack {
+     }
+ }
+ exports.OpenElementStack = OpenElementStack;
+-//# sourceMappingURL=open-element-stack.js.map
+\ No newline at end of file
+diff --git a/dist/cjs/serializer/index.d.ts b/dist/cjs/serializer/index.d.ts
+index bf759e63ba1be31a2ab14884fcfd6bd3e8ecd2d7..8956280fb841f55a7a24de51a036b3cd7c9b315a 100644
+--- a/dist/cjs/serializer/index.d.ts
++++ b/dist/cjs/serializer/index.d.ts
+@@ -58,4 +58,3 @@ export declare function serialize<T extends TreeAdapterTypeMap = DefaultTreeAdap
+  * @param options Serialization options.
+  */
+ export declare function serializeOuter<T extends TreeAdapterTypeMap = DefaultTreeAdapterMap>(node: T['node'], options?: SerializerOptions<T>): string;
+-//# sourceMappingURL=index.d.ts.map
+\ No newline at end of file
+diff --git a/dist/cjs/serializer/index.js b/dist/cjs/serializer/index.js
+index a6b122669e8c69d8e902c992e01e438f8cbd7f47..7daa6c837db1bba210d93f772f63e4119a9a715f 100644
+--- a/dist/cjs/serializer/index.js
++++ b/dist/cjs/serializer/index.js
+@@ -170,4 +170,3 @@ function serializeCommentNode(node, { treeAdapter }) {
+ function serializeDocumentTypeNode(node, { treeAdapter }) {
+     return `<!DOCTYPE ${treeAdapter.getDocumentTypeNodeName(node)}>`;
+ }
+-//# sourceMappingURL=index.js.map
+\ No newline at end of file
+diff --git a/dist/cjs/tokenizer/index.d.ts b/dist/cjs/tokenizer/index.d.ts
+index 5afab96d6499bb0bba706aee7d2f153647db8713..39be5ad3080aad1df6f25e7d94b1ab681df56046 100644
+--- a/dist/cjs/tokenizer/index.d.ts
++++ b/dist/cjs/tokenizer/index.d.ts
+@@ -245,4 +245,3 @@ export declare class Tokenizer {
+     private _stateNumericCharacterReferenceEnd;
+ }
+ export {};
+-//# sourceMappingURL=index.d.ts.map
+\ No newline at end of file
+diff --git a/dist/cjs/tokenizer/index.js b/dist/cjs/tokenizer/index.js
+index b8a5970435f83c9f4322e812ad1bad431795d2a8..a0dfb07d9967b45be021cd3c531e11da4e83d702 100644
+--- a/dist/cjs/tokenizer/index.js
++++ b/dist/cjs/tokenizer/index.js
+@@ -2905,4 +2905,3 @@ class Tokenizer {
+     }
+ }
+ exports.Tokenizer = Tokenizer;
+-//# sourceMappingURL=index.js.map
+\ No newline at end of file
+diff --git a/dist/cjs/tokenizer/preprocessor.d.ts b/dist/cjs/tokenizer/preprocessor.d.ts
+index e74a590783b4688fb6498b019c1a75cfd9ac23e7..28adac885aec098262cb1a07a02b9b06ad8ff32b 100644
+--- a/dist/cjs/tokenizer/preprocessor.d.ts
++++ b/dist/cjs/tokenizer/preprocessor.d.ts
+@@ -34,4 +34,3 @@ export declare class Preprocessor {
+     private _checkForProblematicCharacters;
+     retreat(count: number): void;
+ }
+-//# sourceMappingURL=preprocessor.d.ts.map
+\ No newline at end of file
+diff --git a/dist/cjs/tokenizer/preprocessor.js b/dist/cjs/tokenizer/preprocessor.js
+index e09f0d706202f69238ea5c1e036078f5a841bfd3..8eb66ea3ee150bc9a2e53ddd7bce5eed63e0ab4e 100644
+--- a/dist/cjs/tokenizer/preprocessor.js
++++ b/dist/cjs/tokenizer/preprocessor.js
+@@ -196,4 +196,3 @@ class Preprocessor {
+     }
+ }
+ exports.Preprocessor = Preprocessor;
+-//# sourceMappingURL=preprocessor.js.map
+\ No newline at end of file
+diff --git a/dist/cjs/tree-adapters/default.d.ts b/dist/cjs/tree-adapters/default.d.ts
+index 547d714bdc5a664ba1414c16bdfc9247c71ab4de..98fb8f63bb06f0b2d740c91ec788c13479c50b06 100644
+--- a/dist/cjs/tree-adapters/default.d.ts
++++ b/dist/cjs/tree-adapters/default.d.ts
+@@ -82,4 +82,3 @@ export type ChildNode = Element | Template | CommentNode | TextNode | DocumentTy
+ export type Node = ParentNode | ChildNode;
+ export type DefaultTreeAdapterMap = TreeAdapterTypeMap<Node, ParentNode, ChildNode, Document, DocumentFragment, Element, CommentNode, TextNode, Template, DocumentType>;
+ export declare const defaultTreeAdapter: TreeAdapter<DefaultTreeAdapterMap>;
+-//# sourceMappingURL=default.d.ts.map
+\ No newline at end of file
+diff --git a/dist/cjs/tree-adapters/default.js b/dist/cjs/tree-adapters/default.js
+index 7d723aaa6b0d9918321142f7741614b35b44eec4..8c563c13af7ff7b44ae02dd0acf3bc75440672cb 100644
+--- a/dist/cjs/tree-adapters/default.js
++++ b/dist/cjs/tree-adapters/default.js
+@@ -174,4 +174,3 @@ exports.defaultTreeAdapter = {
+         node.sourceCodeLocation = Object.assign(Object.assign({}, node.sourceCodeLocation), endLocation);
+     },
+ };
+-//# sourceMappingURL=default.js.map
+\ No newline at end of file
+diff --git a/dist/cjs/tree-adapters/interface.d.ts b/dist/cjs/tree-adapters/interface.d.ts
+index 8de74eeb883e1ff4b7fc3c5a18ba2010705a5b9a..dd053623e1ee8d018afb4baf64fc45a45a08478c 100644
+--- a/dist/cjs/tree-adapters/interface.d.ts
++++ b/dist/cjs/tree-adapters/interface.d.ts
+@@ -247,4 +247,3 @@ export interface TreeAdapter<T extends TreeAdapterTypeMap = TreeAdapterTypeMap>
+      */
+     onItemPop?: (item: T['element'], newTop: T['parentNode']) => void;
+ }
+-//# sourceMappingURL=interface.d.ts.map
+\ No newline at end of file
+diff --git a/dist/cjs/tree-adapters/interface.js b/dist/cjs/tree-adapters/interface.js
+index d549d1f117025f0c7dd5c45dab827dfd0f679f54..c8ad2e549bdc6801e0d1c80b0308d4b9bd4985ce 100644
+--- a/dist/cjs/tree-adapters/interface.js
++++ b/dist/cjs/tree-adapters/interface.js
+@@ -1,3 +1,2 @@
+ "use strict";
+ Object.defineProperty(exports, "__esModule", { value: true });
+-//# sourceMappingURL=interface.js.map
+\ No newline at end of file
+diff --git a/dist/common/doctype.d.ts b/dist/common/doctype.d.ts
+index 8c56fd7183c9bce5b5c88047075abcefbcebb6dc..993afaac5b5b5a808eb4a32c9707c3ec052442b4 100644
+--- a/dist/common/doctype.d.ts
++++ b/dist/common/doctype.d.ts
+@@ -2,4 +2,3 @@ import { DOCUMENT_MODE } from './html.js';
+ import type { DoctypeToken } from './token.js';
+ export declare function isConforming(token: DoctypeToken): boolean;
+ export declare function getDocumentMode(token: DoctypeToken): DOCUMENT_MODE;
+-//# sourceMappingURL=doctype.d.ts.map
+\ No newline at end of file
+diff --git a/dist/common/doctype.js b/dist/common/doctype.js
+index 1f0df53c553945b97685e8472f239e838e8cb504..bfd0e7a5825ff0b1f66de7fafad6e5e12558508e 100644
+--- a/dist/common/doctype.js
++++ b/dist/common/doctype.js
+@@ -112,4 +112,3 @@ export function getDocumentMode(token) {
+     }
+     return DOCUMENT_MODE.NO_QUIRKS;
+ }
+-//# sourceMappingURL=doctype.js.map
+\ No newline at end of file
+diff --git a/dist/common/error-codes.d.ts b/dist/common/error-codes.d.ts
+index 503451dfd83da30606cc6884bfd86e4d7c2a28fa..ac15bb3b605c59af68a87be1ade6803d7a258ae8 100644
+--- a/dist/common/error-codes.d.ts
++++ b/dist/common/error-codes.d.ts
+@@ -65,4 +65,3 @@ export declare enum ERR {
+     nestedNoscriptInHead = "nested-noscript-in-head",
+     eofInElementThatCanContainOnlyText = "eof-in-element-that-can-contain-only-text"
+ }
+-//# sourceMappingURL=error-codes.d.ts.map
+\ No newline at end of file
+diff --git a/dist/common/error-codes.js b/dist/common/error-codes.js
+index 994730e634f98997dc55a95e7afd841058837c8c..86c63e5541a6f976d6d6b1d4c6488f7ae6251899 100644
+--- a/dist/common/error-codes.js
++++ b/dist/common/error-codes.js
+@@ -61,4 +61,3 @@ export var ERR;
+     ERR["nestedNoscriptInHead"] = "nested-noscript-in-head";
+     ERR["eofInElementThatCanContainOnlyText"] = "eof-in-element-that-can-contain-only-text";
+ })(ERR = ERR || (ERR = {}));
+-//# sourceMappingURL=error-codes.js.map
+\ No newline at end of file
+diff --git a/dist/common/foreign-content.d.ts b/dist/common/foreign-content.d.ts
+index 8d9f1827625509c5ebb126c8b3aecb3108c87ca5..d08d02b2cbdca814cea75bf32575636ccebd801e 100644
+--- a/dist/common/foreign-content.d.ts
++++ b/dist/common/foreign-content.d.ts
+@@ -7,4 +7,3 @@ export declare function adjustTokenSVGAttrs(token: TagToken): void;
+ export declare function adjustTokenXMLAttrs(token: TagToken): void;
+ export declare function adjustTokenSVGTagName(token: TagToken): void;
+ export declare function isIntegrationPoint(tn: $, ns: NS, attrs: Attribute[], foreignNS?: NS): boolean;
+-//# sourceMappingURL=foreign-content.d.ts.map
+\ No newline at end of file
+diff --git a/dist/common/foreign-content.js b/dist/common/foreign-content.js
+index f560248bd3ea4e5604bf8035da2130394b91d58b..1d25f2b3c435aaf511df56cf87d8cde73c374beb 100644
+--- a/dist/common/foreign-content.js
++++ b/dist/common/foreign-content.js
+@@ -227,4 +227,3 @@ export function isIntegrationPoint(tn, ns, attrs, foreignNS) {
+     return (((!foreignNS || foreignNS === NS.HTML) && isHtmlIntegrationPoint(tn, ns, attrs)) ||
+         ((!foreignNS || foreignNS === NS.MATHML) && isMathMLTextIntegrationPoint(tn, ns)));
+ }
+-//# sourceMappingURL=foreign-content.js.map
+\ No newline at end of file
+diff --git a/dist/common/html.d.ts b/dist/common/html.d.ts
+index 0b470953c34d1c87488e1e3b5dfb044d3b6e754f..3f82e532ce3ec01ecc92aca3cdedecacfe7ec5aa 100644
+--- a/dist/common/html.d.ts
++++ b/dist/common/html.d.ts
+@@ -285,4 +285,3 @@ export declare function getTagID(tagName: string): TAG_ID;
+ export declare const SPECIAL_ELEMENTS: Record<NS, Set<TAG_ID>>;
+ export declare function isNumberedHeader(tn: TAG_ID): boolean;
+ export declare function hasUnescapedText(tn: string, scriptingEnabled: boolean): boolean;
+-//# sourceMappingURL=html.d.ts.map
+\ No newline at end of file
+diff --git a/dist/common/html.js b/dist/common/html.js
+index 5b29e5a07678c68940bceb156c879185673d8e3e..68be7467c843ddc14bcc04e9bb10d30766567333 100644
+--- a/dist/common/html.js
++++ b/dist/common/html.js
+@@ -520,4 +520,3 @@ const UNESCAPED_TEXT = new Set([
+ export function hasUnescapedText(tn, scriptingEnabled) {
+     return UNESCAPED_TEXT.has(tn) || (scriptingEnabled && tn === TAG_NAMES.NOSCRIPT);
+ }
+-//# sourceMappingURL=html.js.map
+\ No newline at end of file
+diff --git a/dist/common/token.d.ts b/dist/common/token.d.ts
+index aeb03469a8230e9ac05deb36bf3a7b171f04b690..9bcc7dc545832a1c5cb46505501e89447874abcd 100644
+--- a/dist/common/token.d.ts
++++ b/dist/common/token.d.ts
+@@ -82,4 +82,3 @@ export interface CharacterToken extends TokenBase {
+ }
+ export type Token = DoctypeToken | TagToken | CommentToken | EOFToken | CharacterToken;
+ export {};
+-//# sourceMappingURL=token.d.ts.map
+\ No newline at end of file
+diff --git a/dist/common/token.js b/dist/common/token.js
+index 0f9300e2fe4c8f742751a623addeda829aeb6de2..529983103504b6acc30093835a2f3c3af49d5777 100644
+--- a/dist/common/token.js
++++ b/dist/common/token.js
+@@ -18,4 +18,3 @@ export function getTokenAttr(token, attrName) {
+     }
+     return null;
+ }
+-//# sourceMappingURL=token.js.map
+\ No newline at end of file
+diff --git a/dist/common/unicode.d.ts b/dist/common/unicode.d.ts
+index 9713197bbfd0b4e3dea28a8e4817629a052c4941..91a6202e3bdc3f059da3eb20644201b01e01bed3 100644
+--- a/dist/common/unicode.d.ts
++++ b/dist/common/unicode.d.ts
+@@ -46,4 +46,3 @@ export declare function isSurrogatePair(cp: number): boolean;
+ export declare function getSurrogatePairCodePoint(cp1: number, cp2: number): number;
+ export declare function isControlCodePoint(cp: number): boolean;
+ export declare function isUndefinedCodePoint(cp: number): boolean;
+-//# sourceMappingURL=unicode.d.ts.map
+\ No newline at end of file
+diff --git a/dist/common/unicode.js b/dist/common/unicode.js
+index 5e73fb740c367c35c9ba9295970300fedf723500..41d6384d06a9f80e74c2861f599c4035d1aa456d 100644
+--- a/dist/common/unicode.js
++++ b/dist/common/unicode.js
+@@ -66,4 +66,3 @@ export function isControlCodePoint(cp) {
+ export function isUndefinedCodePoint(cp) {
+     return (cp >= 64976 && cp <= 65007) || UNDEFINED_CODE_POINTS.has(cp);
+ }
+-//# sourceMappingURL=unicode.js.map
+\ No newline at end of file
+diff --git a/dist/index.d.ts b/dist/index.d.ts
+index 66eb3236059f88f73355d4fddef9e06a0169b407..7361935ae75023f8d05f40811e2617ac865ff95f 100644
+--- a/dist/index.d.ts
++++ b/dist/index.d.ts
+@@ -57,4 +57,3 @@ export declare function parse<T extends TreeAdapterTypeMap = DefaultTreeAdapterM
+  */
+ export declare function parseFragment<T extends TreeAdapterTypeMap = DefaultTreeAdapterMap>(fragmentContext: T['parentNode'] | null, html: string, options: ParserOptions<T>): T['documentFragment'];
+ export declare function parseFragment<T extends TreeAdapterTypeMap = DefaultTreeAdapterMap>(html: string, options?: ParserOptions<T>): T['documentFragment'];
+-//# sourceMappingURL=index.d.ts.map
+\ No newline at end of file
+diff --git a/dist/index.js b/dist/index.js
+index f7d8273955d3acfaa909374ed8222594894636ff..d54b09ba1f4f5a4acb7435bdc820f045a8960aba 100644
+--- a/dist/index.js
++++ b/dist/index.js
+@@ -42,4 +42,3 @@ export function parseFragment(fragmentContext, html, options) {
+     parser.tokenizer.write(html, true);
+     return parser.getFragment();
+ }
+-//# sourceMappingURL=index.js.map
+\ No newline at end of file
+diff --git a/dist/parser/formatting-element-list.d.ts b/dist/parser/formatting-element-list.d.ts
+index d6c9dcdd39d44f3f2e89da688520c9aa0756ecb2..1d421b6a8d92d158b8db518b0ebdd90b7b728e65 100644
+--- a/dist/parser/formatting-element-list.d.ts
++++ b/dist/parser/formatting-element-list.d.ts
+@@ -34,4 +34,3 @@ export declare class FormattingElementList<T extends TreeAdapterTypeMap> {
+     getElementEntry(element: T['element']): ElementEntry<T> | undefined;
+ }
+ export {};
+-//# sourceMappingURL=formatting-element-list.d.ts.map
+\ No newline at end of file
+diff --git a/dist/parser/formatting-element-list.js b/dist/parser/formatting-element-list.js
+index 32736bc7b3bec16d7f4613abe556743d249c2e85..d9b57c76e0a2927fd2de13528fb61a5b520d9a0f 100644
+--- a/dist/parser/formatting-element-list.js
++++ b/dist/parser/formatting-element-list.js
+@@ -108,4 +108,3 @@ export class FormattingElementList {
+         return this.entries.find((entry) => entry.type === EntryType.Element && entry.element === element);
+     }
+ }
+-//# sourceMappingURL=formatting-element-list.js.map
+\ No newline at end of file
+diff --git a/dist/parser/index.d.ts b/dist/parser/index.d.ts
+index 50a9bd0c73649e4a78edd0d18b4ee44ae9cdf3b7..995241fe430a564f805341d3413955fcf20d70d6 100644
+--- a/dist/parser/index.d.ts
++++ b/dist/parser/index.d.ts
+@@ -154,4 +154,3 @@ export declare class Parser<T extends TreeAdapterTypeMap> implements TokenHandle
+     onWhitespaceCharacter(token: CharacterToken): void;
+ }
+ export {};
+-//# sourceMappingURL=index.d.ts.map
+\ No newline at end of file
+diff --git a/dist/parser/index.js b/dist/parser/index.js
+index 4a3dc7a8e8d980d51ef9af5e739707623bde85c3..ac95fd5c15b13cd05e9b2e4323df14e0aeeb595d 100644
+--- a/dist/parser/index.js
++++ b/dist/parser/index.js
+@@ -343,7 +343,7 @@ export class Parser {
+         if (this.treeAdapter.getNodeSourceCodeLocation(element) && closingToken.location) {
+             const ctLoc = closingToken.location;
+             const tn = this.treeAdapter.getTagName(element);
+-            const endLoc = 
++            const endLoc =
+             // NOTE: For cases like <p> <p> </p> - First 'p' closes without a closing
+             // tag and for cases like <td> <p> </td> - 'p' closes without a closing tag.
+             closingToken.type === TokenType.END_TAG && tn === closingToken.tagName
+@@ -3165,4 +3165,3 @@ function endTagInForeignContent(p, token) {
+         }
+     }
+ }
+-//# sourceMappingURL=index.js.map
+\ No newline at end of file
+diff --git a/dist/parser/open-element-stack.d.ts b/dist/parser/open-element-stack.d.ts
+index 77c1800e8b9bd291d282fc8081091e93dcd76c33..3257b7753799cedbed3ea6642124a61ce6ffb6f9 100644
+--- a/dist/parser/open-element-stack.d.ts
++++ b/dist/parser/open-element-stack.d.ts
+@@ -50,4 +50,3 @@ export declare class OpenElementStack<T extends TreeAdapterTypeMap> {
+     generateImpliedEndTagsThoroughly(): void;
+     generateImpliedEndTagsWithExclusion(exclusionId: $): void;
+ }
+-//# sourceMappingURL=open-element-stack.d.ts.map
+\ No newline at end of file
+diff --git a/dist/parser/open-element-stack.js b/dist/parser/open-element-stack.js
+index bd136eae19c1d9ea60525436b0d2e858cc601fcd..04b12df4601f09c743e2b2dd28a9e7dd8c2884fa 100644
+--- a/dist/parser/open-element-stack.js
++++ b/dist/parser/open-element-stack.js
+@@ -309,4 +309,3 @@ export class OpenElementStack {
+         }
+     }
+ }
+-//# sourceMappingURL=open-element-stack.js.map
+\ No newline at end of file
+diff --git a/dist/serializer/index.d.ts b/dist/serializer/index.d.ts
+index bf759e63ba1be31a2ab14884fcfd6bd3e8ecd2d7..8956280fb841f55a7a24de51a036b3cd7c9b315a 100644
+--- a/dist/serializer/index.d.ts
++++ b/dist/serializer/index.d.ts
+@@ -58,4 +58,3 @@ export declare function serialize<T extends TreeAdapterTypeMap = DefaultTreeAdap
+  * @param options Serialization options.
+  */
+ export declare function serializeOuter<T extends TreeAdapterTypeMap = DefaultTreeAdapterMap>(node: T['node'], options?: SerializerOptions<T>): string;
+-//# sourceMappingURL=index.d.ts.map
+\ No newline at end of file
+diff --git a/dist/serializer/index.js b/dist/serializer/index.js
+index f8d6e3432816e75cc630ac5cac7dd6229addfaa1..b75d7bcf06caa01cf53a19e59d9151f7e792f054 100644
+--- a/dist/serializer/index.js
++++ b/dist/serializer/index.js
+@@ -165,4 +165,3 @@ function serializeCommentNode(node, { treeAdapter }) {
+ function serializeDocumentTypeNode(node, { treeAdapter }) {
+     return `<!DOCTYPE ${treeAdapter.getDocumentTypeNodeName(node)}>`;
+ }
+-//# sourceMappingURL=index.js.map
+\ No newline at end of file
+diff --git a/dist/tokenizer/index.d.ts b/dist/tokenizer/index.d.ts
+index 5afab96d6499bb0bba706aee7d2f153647db8713..39be5ad3080aad1df6f25e7d94b1ab681df56046 100644
+--- a/dist/tokenizer/index.d.ts
++++ b/dist/tokenizer/index.d.ts
+@@ -245,4 +245,3 @@ export declare class Tokenizer {
+     private _stateNumericCharacterReferenceEnd;
+ }
+ export {};
+-//# sourceMappingURL=index.d.ts.map
+\ No newline at end of file
+diff --git a/dist/tokenizer/index.js b/dist/tokenizer/index.js
+index 217b7bcf79ebd04872a6e287b09fac6e54027669..9f3dbf7a28a408342ceaf787c438b36acfdaabcc 100644
+--- a/dist/tokenizer/index.js
++++ b/dist/tokenizer/index.js
+@@ -2901,4 +2901,3 @@ export class Tokenizer {
+         this._reconsumeInState(this.returnState, cp);
+     }
+ }
+-//# sourceMappingURL=index.js.map
+\ No newline at end of file
+diff --git a/dist/tokenizer/preprocessor.d.ts b/dist/tokenizer/preprocessor.d.ts
+index e74a590783b4688fb6498b019c1a75cfd9ac23e7..28adac885aec098262cb1a07a02b9b06ad8ff32b 100644
+--- a/dist/tokenizer/preprocessor.d.ts
++++ b/dist/tokenizer/preprocessor.d.ts
+@@ -34,4 +34,3 @@ export declare class Preprocessor {
+     private _checkForProblematicCharacters;
+     retreat(count: number): void;
+ }
+-//# sourceMappingURL=preprocessor.d.ts.map
+\ No newline at end of file
+diff --git a/dist/tokenizer/preprocessor.js b/dist/tokenizer/preprocessor.js
+index 25f6d6bba550e22fba38e2b3378159619655b3cb..aca8d886520f69fc5783ff52d270ff2358216e51 100644
+--- a/dist/tokenizer/preprocessor.js
++++ b/dist/tokenizer/preprocessor.js
+@@ -192,4 +192,3 @@ export class Preprocessor {
+         this.isEol = false;
+     }
+ }
+-//# sourceMappingURL=preprocessor.js.map
+\ No newline at end of file
+diff --git a/dist/tree-adapters/default.d.ts b/dist/tree-adapters/default.d.ts
+index 547d714bdc5a664ba1414c16bdfc9247c71ab4de..98fb8f63bb06f0b2d740c91ec788c13479c50b06 100644
+--- a/dist/tree-adapters/default.d.ts
++++ b/dist/tree-adapters/default.d.ts
+@@ -82,4 +82,3 @@ export type ChildNode = Element | Template | CommentNode | TextNode | DocumentTy
+ export type Node = ParentNode | ChildNode;
+ export type DefaultTreeAdapterMap = TreeAdapterTypeMap<Node, ParentNode, ChildNode, Document, DocumentFragment, Element, CommentNode, TextNode, Template, DocumentType>;
+ export declare const defaultTreeAdapter: TreeAdapter<DefaultTreeAdapterMap>;
+-//# sourceMappingURL=default.d.ts.map
+\ No newline at end of file
+diff --git a/dist/tree-adapters/default.js b/dist/tree-adapters/default.js
+index 9db7d1c31365973f16584b448f629e67233fa972..f437db3f48c839a15d7f05a2a4494c9449e116e0 100644
+--- a/dist/tree-adapters/default.js
++++ b/dist/tree-adapters/default.js
+@@ -171,4 +171,3 @@ export const defaultTreeAdapter = {
+         node.sourceCodeLocation = { ...node.sourceCodeLocation, ...endLocation };
+     },
+ };
+-//# sourceMappingURL=default.js.map
+\ No newline at end of file
+diff --git a/dist/tree-adapters/interface.d.ts b/dist/tree-adapters/interface.d.ts
+index 8de74eeb883e1ff4b7fc3c5a18ba2010705a5b9a..dd053623e1ee8d018afb4baf64fc45a45a08478c 100644
+--- a/dist/tree-adapters/interface.d.ts
++++ b/dist/tree-adapters/interface.d.ts
+@@ -247,4 +247,3 @@ export interface TreeAdapter<T extends TreeAdapterTypeMap = TreeAdapterTypeMap>
+      */
+     onItemPop?: (item: T['element'], newTop: T['parentNode']) => void;
+ }
+-//# sourceMappingURL=interface.d.ts.map
+\ No newline at end of file
+diff --git a/dist/tree-adapters/interface.js b/dist/tree-adapters/interface.js
+index 95423acbd021c6493674e59f896667158ccf9086..cb0ff5c3b541f646105198ee23ac0fc3d805023e 100644
+--- a/dist/tree-adapters/interface.js
++++ b/dist/tree-adapters/interface.js
+@@ -1,2 +1 @@
+ export {};
+-//# sourceMappingURL=interface.js.map

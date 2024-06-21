@@ -28,7 +28,7 @@
   ],
   "siteLogo": {
     "href": "/",
-    "src": "https://develop.content.police.vic.gov.au/sites/default/files/site_logo/vic-police-main-logo_0.png",
+    "src": "/placeholders/logo.png",
     "altText": ""
   },
   "showQuickExit": true,
@@ -43,7 +43,7 @@
     {
       "alt": "VicPol footer logo",
       "url": "/homepage",
-      "src": "https://develop.content.police.vic.gov.au/sites/default/files/2022-10/vic-police-white-logo_2.png"
+      "src": "/placeholders/logo.png"
     }
   ],
   "theme": {
@@ -70,7 +70,7 @@
   "featureFlags": {},
   "socialImages": {
     "twitter": {
-      "src": "https://develop.content.police.vic.gov.au/sites/default/files/2021-11/META-IMAGES-1200x628-VP.png",
+      "src": "/placeholders/medium.png",
       "alt": "",
       "title": "",
       "width": 5000,
@@ -82,7 +82,7 @@
       }
     },
     "og": {
-      "src": "https://develop.content.police.vic.gov.au/sites/default/files/2021-11/META-IMAGES-1200x628-VP.png",
+      "src": "/placeholders/medium.png",
       "alt": "",
       "title": "",
       "width": 5000,

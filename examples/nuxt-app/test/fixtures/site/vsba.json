@@ -3,28 +3,14 @@
   "siteAlerts": [],
   "siteLogo": {
     "href": "/",
-    "src": "https://develop.content.vic.gov.au/sites/default/files/site_logo/VSBA_Logo_Website_AF272F%20%281%29.svg",
+    "src": "/placeholders/logo.png",
     "altText": ""
   },
   "showQuickExit": false,
   "acknowledgementHeader": "The Victorian Government acknowledges Aboriginal and Torres Strait Islander people as the Traditional Custodians of the land and acknowledges and pays respect to their Elders, past and present.",
   "cornerGraphic": {
-    "top": {
-      "src": "https://develop.content.vic.gov.au/sites/default/files/2023-10/VictorianSchoolBuilding_Ripple2_Corner-Graphic-Top.png",
-      "alt": "Top corner graphic",
-      "title": "",
-      "width": 1140,
-      "height": 696,
-      "drupal_internal__target_id": 317179
-    },
-    "bottom": {
-      "src": "https://develop.content.vic.gov.au/sites/default/files/2023-10/VictorianSchoolBuilding_Ripple2_Corner-Graphic-Bottom.png",
-      "alt": "Bottom corner graphic",
-      "title": "",
-      "width": 816,
-      "height": 288,
-      "drupal_internal__target_id": 317178
-    }
+    "top": null,
+    "bottom": null
   },
   "acknowledgementFooter": "The Victorian Government acknowledges Aboriginal and Torres Strait Islander people as the Traditional Custodians of the land and acknowledges and pays respect to their Elders, past and present.",
   "copyrightHtml": "",
@@ -32,12 +18,12 @@
     {
       "alt": "https://schoolbuildings.vic.gov.au",
       "url": "https://schoolbuildings.vic.gov.au",
-      "src": "https://develop.content.vic.gov.au/sites/default/files/2021-12/VSBA-logo-footer-red.png"
+      "src": "/placeholders/logo.png"
     },
     {
       "alt": "https://www.vic.gov.au",
       "url": "https://www.vic.gov.au",
-      "src": "https://develop.content.vic.gov.au/sites/default/files/2021-03/Vic_Gov_Logo_Footer_x_3_times%20%282%29.png"
+      "src": "/placeholders/logo.png"
     }
   ],
   "theme": {
@@ -70,7 +56,7 @@
   "socialImages": {
     "twitter": {},
     "og": {
-      "src": "https://develop.content.vic.gov.au/sites/default/files/2021-11/VSBA-Socia-Media-Tile_0.png",
+      "src": "/placeholders/medium.png",
       "alt": "",
       "title": "",
       "width": 600,

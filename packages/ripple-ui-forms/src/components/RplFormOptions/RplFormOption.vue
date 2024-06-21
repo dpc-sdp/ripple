@@ -23,6 +23,7 @@ export interface RplFormOptionProps {
   offValue?: boolean | string | number
   showRequiredInLabel?: boolean
   globalEvents?: boolean
+  grouped?: boolean
 }
 
 const props = withDefaults(defineProps<RplFormOptionProps>(), {
@@ -34,7 +35,8 @@ const props = withDefaults(defineProps<RplFormOptionProps>(), {
   onValue: true,
   offValue: false,
   showRequiredInLabel: false,
-  globalEvents: true
+  globalEvents: true,
+  grouped: false
 })
 
 const emit = defineEmits<{
@@ -46,7 +48,11 @@ const form: object = inject('form')
 const { emitRplEvent } = useRippleEvent('rpl-form-option', emit)
 
 const classes = computed(() => {
-  return ['rpl-form-option', `rpl-form-option--${props.variant}`]
+  return {
+    'rpl-form-option': true,
+    [`rpl-form-option--${props.variant}`]: props.variant,
+    [`rpl-form-option--single`]: !props.grouped
+  }
 })
 
 const handleChange = (e: Event) => {

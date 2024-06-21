@@ -17,8 +17,8 @@
     "mockserver": "node ./../../packages/nuxt-ripple-cli/dist/commands/index.js mock ./test/fixtures -S ./test/fixtures/site/reference.json -R mock-routes.json",
     "cy:open": "cypress open --e2e --browser electron",
     "cy:run": "cypress run",
-    "test:ci": "NUXT_PUBLIC_API_URL=http://localhost:3001 API_PORT=3001 start-test start tcp:3000 'cy:run'",
-    "test:integration": "NUXT_PUBLIC_TIDE_SITE=TEST_SITE NUXT_PUBLIC_TIDE_BASE_URL=https://test.base.url/ NUXT_PUBLIC_API_URL=http://localhost:3001 API_PORT=3001 start-test dev tcp:3000 'cy:open'"
+    "test:ci": "NUXT_PUBLIC_TIDE_SITE=TEST_SITE NUXT_PUBLIC_TIDE_APP_SEARCH_ENGINE_NAME=TEST_ENGINE NUXT_PUBLIC_API_URL=http://localhost:3001 API_PORT=3001 start-test start tcp:3000 'cy:run'",
+    "test:integration": "NUXT_PUBLIC_TIDE_SITE=TEST_SITE NUXT_PUBLIC_TIDE_APP_SEARCH_ENGINE_NAME=TEST_ENGINE NUXT_PUBLIC_TIDE_BASE_URL=https://test.base.url/ NUXT_PUBLIC_API_URL=http://localhost:3001 API_PORT=3001 start-test dev tcp:3000 'cy:open'"
   },
   "dependencies": {
     "@dpc-sdp/nuxt-ripple": "workspace:*",

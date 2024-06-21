@@ -25,7 +25,7 @@ export interface ITideCardBase {
   metadata: ITideCardMeta
 }
 
-const getCardTitle = (field) => {
+const getCardTitle = (field: { [key: string]: any }) => {
   // There are two possible titles to choose from:
   // - one is linked to another drupal node (i.e. an event page)
   // - one is the title of this node, used if there is no linked node
@@ -42,7 +42,7 @@ const getCardTitle = (field) => {
   return linkedTitle ? linkedTitle : ownTitle
 }
 
-const getCardSummary = (field) => {
+const getCardSummary = (field: { [key: string]: any }) => {
   // There are two possible summaries to choose from:
   // - one is linked to another drupal node (i.e. an event page)
   // - one is the title of this node, used if there is no linked node
@@ -59,7 +59,7 @@ const getCardSummary = (field) => {
   return linkedSummary ? linkedSummary : ownSummary
 }
 
-const getCardImage = (field): TideImageField => {
+const getCardImage = (field: {}): TideImageField => {
   // There are two possible images to choose from:
   // - one is linked to another drupal node (i.e. an event page)
   // - one is the image of this node, used if there is no linked node
@@ -74,7 +74,7 @@ const getCardImage = (field): TideImageField => {
   return linkedImage ? linkedImage : ownImage
 }
 
-const getIsGrantOngoing = (field): boolean => {
+const getIsGrantOngoing = (field: {}): boolean => {
   const value = getField(
     field,
     ['field_paragraph_link', 'internal_node_fields', 'ongoing'],
@@ -89,7 +89,7 @@ const getIsGrantOngoing = (field): boolean => {
   return !!value
 }
 
-export const genericCardMapping = (field): ITideCardBase => {
+export const genericCardMapping = (field: {}): ITideCardBase => {
   const link = getLinkFromField(field, 'field_paragraph_link')
 
   return {

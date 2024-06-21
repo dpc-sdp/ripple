@@ -9,6 +9,30 @@ Feature: Shared site elements
     Given I visit the page "/"
     Then the page title should be "Demo Landing Page | vic.gov.au"
 
+  @mockserver
+  Scenario: Quick Exit (default: disabled site wide)
+    Given the site endpoint returns fixture "/site/shared-elements" with status 200
+    And the page endpoint for path "/" returns fixture "/landingpage/home" with status 200
+    Given I visit the page "/"
+    Then the quick exit should not be displayed
+
+  @mockserver
+  Scenario: Quick Exit (enabled site wide)
+    Given I load the site fixture with "/site/shared-elements"
+    And the page endpoint for path "/" returns fixture "/landingpage/home" with status 200
+    And the site wide quick exit is enabled
+    And the site endpoint returns the loaded fixture
+    Given I visit the page "/"
+    Then the quick exit should be displayed
+
+  @mockserver
+  Scenario: Quick Exit (enabled in site section)
+    Given the site endpoint returns fixture "/site/shared-elements" with status 200
+    And I load the page fixture with "/landingpage/home"
+    And the site section quick exit is enabled
+    And the page endpoint for path "/section-page" returns the loaded fixture
+    Given I visit the page "/section-page"
+    Then the quick exit should be displayed
 
   @mockserver
   Scenario: Breadcrumbs (page exists in menu)
@@ -82,9 +106,9 @@ Feature: Shared site elements
     Then the footer copyright text should be "Test footer copyright html"
     Then the footer acknowledgement text should be "Test footer acknowledgement"
     Then the footer should have the following logos
-      | alt         | url          | src                                                                                                                                      |
-      | Test logo 1 | /test-logo-1 | https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Aerial-shot-of-new-housing-development.jpg?w=1984 |
-      | Test logo 2 | /test-logo-2 | https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/2018-19-State-Budget.jpg?w=1984                   |
+      | alt         | url          | src                    |
+      | Test logo 1 | /test-logo-1 | /placeholders/logo.png |
+      | Test logo 2 | /test-logo-2 | /placeholders/logo.png |
 
   @mockserver
   Scenario: Footer (Mobile)

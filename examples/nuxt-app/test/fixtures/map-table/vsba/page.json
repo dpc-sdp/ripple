@@ -73,7 +73,7 @@
     "theme": "reverse",
     "logoImage": null,
     "backgroundImage": {
-      "src": "https://develop.content.vic.gov.au/sites/default/files/2023-05/2023-24StateBudget_230523_HomeB.png",
+      "src": "/placeholders/header.png",
       "alt": "Home page banner - White Hills PS, VSDA Entrant",
       "title": "Home page banner - White Hills PS, VSDA Entrant",
       "width": 1600,
@@ -98,7 +98,7 @@
       "url": "/new-names-for-new-schools"
     },
     "image": {
-      "src": "https://develop.content.vic.gov.au/sites/default/files/2023-07/230714_MerrifieldSouthPS_Construction_FI.png",
+      "src": "/placeholders/medium.png",
       "alt": "2024 new school naming - feature image, Merrifield South Primary School (interim name) - construction",
       "title": "2024 new school naming - feature image, Merrifield South Primary School (interim name) - construction",
       "width": 818,
@@ -119,7 +119,7 @@
       "url": "/new-schools"
     },
     "image": {
-      "src": "https://develop.content.vic.gov.au/sites/default/files/2021-12/100NewSchools_211201_CampaignImage.png",
+      "src": "/placeholders/medium.png",
       "alt": "Inside of a new school learning space",
       "title": "",
       "width": 699,
@@ -355,7 +355,7 @@
         "title": "Australian Government Schools Upgrade Fund Information",
         "summary": "The Australian Government's Schools Upgrade Fund (SUF) invests in large building projects. All Victorian government schools must seek endorsement from the VSBA. ",
         "image": {
-          "src": "https://develop.content.vic.gov.au/sites/default/files/2023-11/SchoolUpgrade_231101_ParkwoodGreenPS_Feature.jpg",
+          "src": "/placeholders/medium.png",
           "focalPoint": {
             "x": 409,
             "y": 248
@@ -388,7 +388,7 @@
         "title": "Kinders at schools",
         "summary": "New Victorian primary schools will have a kinder on-site or next door. We're also planning and building a pipeline of kindergartens at existing schools. ",
         "image": {
-          "src": "https://develop.content.vic.gov.au/sites/default/files/2023-10/KAS_SothernCrossKindergarten_220801_Featuretile.jpg",
+          "src": "/placeholders/medium.png",
           "focalPoint": {
             "x": 409,
             "y": 248
@@ -421,7 +421,7 @@
         "title": "50 early learning centres for Victoria",
         "summary": "We're building 50 new early learning centres across Victoria ",
         "image": {
-          "src": "https://develop.content.vic.gov.au/sites/default/files/2023-02/220307_FroebelCarltonELC-Feature.png",
+          "src": "/placeholders/small.png",
           "focalPoint": {
             "x": 640,
             "y": 388

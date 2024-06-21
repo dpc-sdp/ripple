@@ -22,7 +22,7 @@
   }
 
   tbody {
-    tr:nth-child(odd) {
+    &.rpl-data-table__row:nth-child(even) tr {
       background-color: transparent;
     }
 

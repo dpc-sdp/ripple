@@ -165,6 +165,31 @@ Given(
   }
 )
 
+Given(
+  'the search network request is stubbed with fixture {string}, status {int} and delayed by {int} milliseconds',
+  (fixture: string, statusCode: number, delay: number) => {
+    cy.intercept(
+      'POST',
+      `/api/tide/app-search/**/elasticsearch/_search`,
+      (req) => {
+        if (req.body.size === 0) {
+          req.reply({
+            statusCode: status,
+            fixture: fixture
+          })
+        } else {
+          req.alias = 'searchReq'
+          req.reply({
+            statusCode,
+            fixture,
+            delay
+          })
+        }
+      }
+    )
+  }
+)
+
 /* SEARCH */
 Given(
   'the {string} network request is stubbed with fixture {string} and status {int} as alias {string}',
@@ -253,6 +278,15 @@ Then(
   (requestFixture: string) => {
     cy.fixture(requestFixture).then((fixture) => {
       cy.get(`@searchReq`).its('request.body').should('deep.equal', fixture)
+    })
+  }
+)
+
+Then(
+  'the network request {string} should be called with the {string} fixture',
+  (alias: string, requestFixture: string) => {
+    cy.fixture(requestFixture).then((fixture) => {
+      cy.get(`@${alias}`).its('request.body').should('deep.equal', fixture)
     })
   }
 )

@@ -1,0 +1,18 @@
+diff --git a/dist/index.mjs b/dist/index.mjs
+index 651cce2951161bfd811ef55f4ed5c4ed6a676dde..fa381af3d9cc6eab21bd13a41768f8df4940936c 100644
+--- a/dist/index.mjs
++++ b/dist/index.mjs
+@@ -2917,6 +2917,13 @@ function vuePlugin(rawOptions = {}) {
+         );
+       } else {
+         const descriptor = query.src ? getSrcDescriptor(filename, query) || getTempSrcDescriptor(filename, query) : getDescriptor(filename, options.value);
++        
++    	// TEMPORARY PATCH: https://github.com/vitejs/vite-plugin-vue/issues/397
++        // Fixes CSS files imported into .vue files not being watched
++        if (query.src) {
++          this.addWatchFile(filename);
++        }
++        
+         if (query.type === "template") {
+           return transformTemplateAsModule(
+             code,

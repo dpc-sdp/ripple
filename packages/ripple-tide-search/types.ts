@@ -45,6 +45,10 @@ export interface FilterConfigItem {
      * @description number of items to fetch
      */
     size?: number
+    /**
+     * @description order the items should be returned in
+     */
+    order?: number
   }
 
   /**
@@ -89,11 +93,11 @@ export type TideSearchListingResultItem = {
   /**
    * @description search result key
    */
-  id?: string
+  id: string
   /**
    * @description name of Vue component (globally imported) to render result
    */
-  component?: string
+  component: string
   /**
    * @description optionally pass props to component (useful for configuring an existing component)
    */
@@ -132,6 +136,13 @@ export type TideSearchLocationQueryConfig = {
     [key: string]: unknown
   }
   dslTransformFn?: (location: any) => any
+  showGeolocationButton?: boolean
+}
+
+export type TideSearchCustomQueryConfig = {
+  component?: string
+  function?: string
+  props?: Record<string, any>
 }
 
 export type TideSearchListingTab = {
@@ -190,6 +201,7 @@ export type TideSearchListingConfig = {
       submit: string
       reset: string
       placeholder: string
+      geolocateBtn?: string
     }
     /**
      * @description custom sort clause
@@ -226,11 +238,23 @@ export type TideSearchListingConfig = {
      * @description Filter panel open on page load
      */
     showFiltersOnLoad: boolean
+    /**
+     * @description optionally display only the filters
+     */
+    showFiltersOnly?: boolean
+    /**
+     * @description whether or not to scroll the results into view on form submit
+     */
+    scrollToResultsOnSubmit?: boolean
   }
   /**
    * @description Tabs to display, key needs to be one of TideSearchListingTabKey
    */
   tabs: TideSearchListingTab[]
+  /**
+   * @description Elastic Query DSL for query
+   */
+  customQueryConfig?: TideSearchCustomQueryConfig
   /**
    * @description Elastic Query DSL for query clause
    */

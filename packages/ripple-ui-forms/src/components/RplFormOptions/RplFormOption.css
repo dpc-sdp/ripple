@@ -17,11 +17,11 @@
   display: flex;
   align-items: flex-start;
   cursor: pointer;
+  padding-block: var(--local-block-padding);
 }
 
 .rpl-form-option__label-text {
   margin-left: var(--rpl-sp-3);
-  margin-top: 1px;
 }
 
 [dir='rtl'] .rpl-form-option__label-text {
@@ -60,7 +60,7 @@
   opacity: 0;
 }
 
-.rpl-form-option__input:hover + .rpl-form-option__label {
+.rpl-form-option__input:is(:hover, :focus, :active) + .rpl-form-option__label {
   .rpl-form-option__mark {
     border-color: var(--rpl-clr-dark);
   }
@@ -91,4 +91,12 @@
     border: var(--rpl-border-1) solid var(--rpl-clr-neutral-200);
     background: var(--rpl-clr-neutral-100);
   }
+}
+
+.rpl-form-option--single,
+.rpl-form-option-group,
+.rpl-form-radio-group {
+  --local-block-padding: calc(var(--rpl-sp-5) / 2);
+
+  margin-block: calc(var(--local-block-padding) * -1);
 }

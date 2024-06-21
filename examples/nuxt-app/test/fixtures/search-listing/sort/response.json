@@ -60,7 +60,7 @@
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet ligula sit amet lacinia. In a leo nec tortor aliquet faucibus."
           ],
           "field_media_image_absolute_path": [
-            "https://nginx-php.pr-1500.content-vic.sdp4.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg"
+            "/placeholders/medium.png"
           ],
           "field_node_dates_end_value": ["2019-04-09T20:00:00+10:00"],
           "field_node_dates_start_value": ["2019-03-09T19:00:00+11:00"],
@@ -111,7 +111,7 @@
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet ligula sit amet lacinia. In a leo nec tortor aliquet faucibus."
           ],
           "field_media_image_absolute_path": [
-            "https://nginx-php.pr-1500.content-vic.sdp4.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg"
+            "/placeholders/medium.png"
           ],
           "field_node_dates_end_value": ["2050-07-16T00:00:00+10:00"],
           "field_node_dates_start_value": ["2019-04-08T18:00:00+10:00"],

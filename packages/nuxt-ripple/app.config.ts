@@ -39,6 +39,7 @@ declare module '@nuxt/schema' {
           (filterConfig: any, values: string[]) => any
         >
         sortFunctions?: Record<string, (location: any, filterForm: any) => any>
+        queryConfigFunctions?: Record<string, (queryData: any) => any>
         locationDSLTransformFunctions?: Record<
           string,
           (location: any, filterForm: any) => Promise<any>
@@ -75,6 +76,11 @@ export default defineAppConfig({
       bn: {
         name: 'Noto Sans Bengali',
         url: 'https://fonts.googleapis.com/earlyaccess/notosansbengali.css'
+      },
+      ckb: {
+        name: 'Noto Naskh Arabic',
+        url: 'https://fonts.googleapis.com/earlyaccess/notonaskharabic.css',
+        rtl: true
       },
       cld: {
         name: 'Noto Naskh Arabic',
@@ -122,6 +128,11 @@ export default defineAppConfig({
       ko: {
         name: 'Noto Sans KR',
         url: 'https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap'
+      },
+      kmr: {
+        name: 'Noto Naskh Arabic',
+        url: 'https://fonts.googleapis.com/earlyaccess/notonaskharabic.css',
+        rtl: true
       },
       kyu: {
         name: 'Noto Sans Kayah Li',

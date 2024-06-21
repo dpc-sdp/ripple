@@ -45,7 +45,7 @@ const meta = computed(() => {
 <template>
   <RplPromoCard
     :key="id"
-    class="rpl-col-12 rpl-col-4-m"
+    class="tide-search-result-card rpl-col-12 rpl-col-4-m"
     :image="image"
     :title="title"
     :url="url"

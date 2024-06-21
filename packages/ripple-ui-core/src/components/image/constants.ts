@@ -17,7 +17,7 @@ type RplImageAspectOptions =
   | 'panorama'
 
 type RplImageAspectBreakpointsMap<Type> = {
-  [Property in keyof Type]: RplImageAspectOptions
+  [Property in keyof Type as string]: RplImageAspectOptions
 }
 
 type RplImageAspectBreakpoints = RplImageAspectBreakpointsMap<RplBreakpoints>

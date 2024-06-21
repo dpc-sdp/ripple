@@ -6,7 +6,9 @@ const pluginTables = function (this: any) {
     const $table = this.find(el)
     return $table
       .wrap(`<div class="rpl-table"></div>`)
-      .wrap('<div class="rpl-table__scroll-container" tabindex="0"></div>')
+      .wrap(
+        '<div class="rpl-table__scroll-container rpl-u-focusable-outline--visible" tabindex="0"></div>'
+      )
   })
 }
 
@@ -14,7 +16,11 @@ const pluginCallout = function (this: any) {
   // These callouts are added in drupal via the 'C' button in the wysiwyg editor.
   // Wrap callouts with a div. If there are multiple callouts in a row, wrap them all in a div.
   this.find('.callout-wrapper').each((i: any, el: any) => {
-    if (this.find(el).prev().hasClass('callout-wrapper')) {
+    this.find(el)
+      .removeClass('callout-wrapper')
+      .addClass('rpl-callout__wrapper')
+
+    if (this.find(el).prev().hasClass('rpl-callout__wrapper')) {
       return
     }
 

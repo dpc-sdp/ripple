@@ -73,7 +73,7 @@ const imageAspect = computed(() => {
     case 'landscape':
       return 'wide'
     case 'portrait':
-      return 'full'
+      return 'portrait'
     case 'square':
       return 'square'
     case 'avatar':

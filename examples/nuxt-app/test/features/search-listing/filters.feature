@@ -14,6 +14,7 @@ Feature: Search listing - Filter
 
     When I visit the page "/filters"
     Then the search listing filters section should be open
+    And the filters toggle should be hidden
 
   @mockserver
   Example: Raw filter - Should reflect the value from the URL
@@ -211,7 +212,8 @@ Feature: Search listing - Filter
     And the search network request should be called with the "/search-listing/dependent-filters/request-mammals-children" fixture
     And the filters toggle should show 2 applied filters
 
-    When I click the search listing dropdown field labelled "Terms dependent example"
+    When I toggle the search listing filters section
+    Then I click the search listing dropdown field labelled "Terms dependent example"
     Then the selected dropdown field should have the items:
       | Mammals |
       | Birds   |
@@ -237,7 +239,9 @@ Feature: Search listing - Filter
     When I visit the page "/filters"
     Then the search listing page should have 2 results
     And the search network request should be called with the "/search-listing/dependent-filters/request-empty" fixture
-    And the search listing dropdown field labelled "Terms dependent child example" should be disabled
+
+    When I toggle the search listing filters section
+    Then the search listing dropdown field labelled "Terms dependent child example" should be disabled
     And the search listing dropdown field labelled "Terms dependent grandchild example" should be disabled
 
     When I click the search listing dropdown field labelled "Terms dependent example"
@@ -286,7 +290,8 @@ Feature: Search listing - Filter
     And the search network request should be called with the "/search-listing/dependent-filters/request-birds-grandchildren-single" fixture
     And the filters toggle should show 3 applied filters
 
-    When I click the search listing dropdown field labelled "Terms dependent example"
+    When I toggle the search listing filters section
+    Then I click the search listing dropdown field labelled "Terms dependent example"
     And I click the option labelled "Mammals" in the selected dropdown
     Then I click the search listing dropdown field labelled "Terms dependent example"
 
@@ -314,7 +319,8 @@ Feature: Search listing - Filter
     And the search network request should be called with the "/search-listing/dependent-filters/request-birds-grandchildren" fixture
     And the filters toggle should show 3 applied filters
 
-    When I click the search listing dropdown field labelled "Terms dependent example"
+    When I toggle the search listing filters section
+    Then I click the search listing dropdown field labelled "Terms dependent example"
     And I click the option labelled "Mammals" in the selected dropdown
     Then I click the search listing dropdown field labelled "Terms dependent example"
 
@@ -344,6 +350,7 @@ Feature: Search listing - Filter
     And the search network request should be called with the "/search-listing/dependent-filters/request-birds-grandchildren" fixture
     And the filters toggle should show 3 applied filters
 
+    When I toggle the search listing filters section
     Then the search listing dropdown field labelled "Terms dependent example" should have the value "Birds"
     And I click the search listing dropdown field labelled "Terms dependent example"
     Then the selected dropdown field should allow "single" selection
@@ -365,3 +372,36 @@ Feature: Search listing - Filter
     Then the search listing page should have 2 results
     And the search form should be hidden
 
+  @mockserver
+  Example: Should only show filters when showFiltersOnly is set
+    Given I load the page fixture with "/search-listing/filters/page"
+    And the search listing config has "showFiltersOnly" set to "true"
+    And the search network request is stubbed with fixture "/search-listing/filters/response" and status 200
+    Then the page endpoint for path "/no-search-input" returns the loaded fixture
+
+    When I visit the page "/no-search-input"
+    Then the search listing page should have 2 results
+    And only the search filters should be visible
+
+  @mockserver
+  Example: Submitting the filter form scrolls to results
+    Given the page endpoint for path "/" returns fixture "/search-listing/filters/page" with status 200
+    And the search network request is stubbed with fixture "/search-listing/filters/response" and status 200
+
+    When I visit the page "/"
+    And I type "The" into the search input
+    And I click the search button
+    Then I should be scrolled to the search results
+
+  @mockserver
+  Example: Submitting the filter form does not scroll to results when disabled
+    Given I load the page fixture with "/search-listing/filters/page"
+    And the search listing config has "scrollToResultsOnSubmit" set to "false"
+    And the search network request is stubbed with fixture "/search-listing/filters/response" and status 200
+    Then the page endpoint for path "/" returns the loaded fixture
+
+    When I visit the page "/"
+    And I type "The" into the search input
+    And I click the search button
+
+    Then I should not be scrolled to the search results

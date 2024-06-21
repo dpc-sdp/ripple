@@ -110,6 +110,11 @@
       height: 60px;
     }
 
+    .rpl-primary-nav__nav-bar-action-wrapper {
+      display: block;
+      text-wrap: pretty;
+    }
+
     span {
       white-space: normal;
     }
@@ -177,12 +182,17 @@
 
 .rpl-primary-nav__nav-bar-icon {
   display: inline-block;
+  margin-top: -1px;
   transform: translateY(1px);
   transition: transform var(--rpl-motion-speed-7) linear;
 
   &.rpl-primary-nav__nav-bar-icon--large {
     margin-top: -4px;
     transform: translateY(3px);
+
+    @media (--rpl-bp-s) {
+      margin-top: -5px;
+    }
   }
 
   &.rpl-primary-nav__nav-bar-icon--search {

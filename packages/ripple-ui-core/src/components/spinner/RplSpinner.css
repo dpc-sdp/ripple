@@ -32,7 +32,7 @@
     animation-iteration-count: infinite;
 
     &:nth-child(1) {
-      animation-delay: 0;
+      animation-delay: 0s;
     }
 
     &:nth-child(2) {

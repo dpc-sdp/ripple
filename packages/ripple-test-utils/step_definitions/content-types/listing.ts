@@ -1,4 +1,5 @@
 import { Then, When, DataTable } from '@badeball/cypress-cucumber-preprocessor'
+import { set } from 'lodash-es'
 
 Then(
   'the search listing page should have {int} results',
@@ -9,6 +10,13 @@ Then(
     )
   }
 )
+
+Then(`the search listing results count should read {string}`, (str: string) => {
+  cy.get(`[data-component-type="search-listing-result-count"]`).should(
+    'contain',
+    str
+  )
+})
 
 Then('the search listing layout should be {string}', (layout: string) => {
   cy.get(`[data-component-type="search-listing-layout-${layout}"]`).should(
@@ -23,6 +31,35 @@ Then(
       'contain',
       `Displaying ${start}-${end} of ${total} results`
     )
+  }
+)
+
+Then(
+  'the search listing skeleton should display {int} items with the class {string}',
+  (items: number, selector: number) => {
+    cy.get(`.${selector}`).should('have.length', items)
+  }
+)
+
+Then(
+  'the search listing result skeleton is set to the {string} component',
+  (component: string) => {
+    cy.get('@pageFixture').then((response) => {
+      set(response, 'config.resultsConfig.layout.props.skeleton', component)
+    })
+  }
+)
+
+Then(
+  'the search listing table result skeleton is set to the {string} component',
+  (component: string) => {
+    cy.get('@pageFixture').then((response) => {
+      set(
+        response,
+        'config.resultsConfig.layout.props.columns[0].skeleton',
+        component
+      )
+    })
   }
 )
 
@@ -109,6 +146,10 @@ Then(
           if (row.content) {
             cy.wrap(item).should('contain', row.content)
           }
+
+          if (row.component) {
+            cy.wrap(item).find('> *').should('have.class', row.component)
+          }
         })
     })
   }
@@ -128,6 +169,18 @@ When(`I clear the search input`, () => {
 
 When(`I click the search button`, () => {
   cy.get(`.rpl-search-bar button[type="submit"]`).click()
+})
+
+Then(`I should be scrolled to the search results`, () => {
+  cy.window()
+    .its('scrollY')
+    .should('equal', cy.$$('.rpl-layout__body-wrap').offset().top)
+})
+
+Then(`I should not be scrolled to the search results`, () => {
+  cy.window()
+    .its('scrollY')
+    .should('be.lessThan', cy.$$('.rpl-layout__body-wrap').offset().top)
 })
 
 When(`I click on page {int} in the pagination controls`, (page: string) => {
@@ -280,6 +333,10 @@ Then(
   }
 )
 
+Then('the filters toggle should be hidden', () => {
+  cy.get(`.tide-search-header .rpl-search-bar-refine`).should('not.exist')
+})
+
 Then(
   `I click the option labelled {string} in the selected dropdown`,
   (label: string) => {
@@ -298,6 +355,7 @@ Then(
     cy.get(`@selectedDropdown`)
       .siblings('[role="listbox"]')
       .find('[role="option"]')
+      .not('[id$="__default-option"]')
       .as('selectedDropdownOptions')
 
     table.forEach((row, i: number) => {
@@ -349,6 +407,12 @@ Then('the search form should be hidden', () => {
   cy.get(`.tide-search-header`).should('not.exist')
 })
 
+Then('only the search filters should be visible', () => {
+  cy.get(`.tide-search-header .rpl-search-bar`).should('not.exist')
+  cy.get(`.tide-search-header .rpl-search-bar-refine`).should('not.exist')
+  cy.get(`#tide-search-filter-form`).should('exist')
+})
+
 Then(
   `the search suggestions displayed should include`,
   (dataTable: DataTable) => {
@@ -382,3 +446,14 @@ Then('the search suggestions should not be displayed', () => {
 Then('a custom component should be rendered below the filter', () => {
   cy.get('[data-cy="below-filter-component"]').should('be.visible')
 })
+
+Then(
+  'the search listing config has {string} set to {string}',
+  (key: string, value: string | boolean) => {
+    cy.get('@pageFixture').then((response) => {
+      if (value === 'true') value = true
+      if (value === 'false') value = false
+      set(response, `config.searchListingConfig.${key}`, value)
+    })
+  }
+)

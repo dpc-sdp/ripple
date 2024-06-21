@@ -19,17 +19,17 @@
     {
       "alt": "Test logo 1",
       "url": "/test-logo-1",
-      "src": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Aerial-shot-of-new-housing-development.jpg"
+      "src": "/placeholders/logo.png"
     },
     {
       "alt": "Test logo 2",
       "url": "/test-logo-2",
-      "src": "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/2018-19-State-Budget.jpg"
+      "src": "/placeholders/logo.png"
     }
   ],
   "socialImages": {
     "twitter": {
-      "src": "https://develop.content.vic.gov.au/sites/default/files/2022-09/Vic_Gov_Default_Display_Image_Proper_Spacing.png",
+      "src": "/placeholders/medium.png",
       "alt": "Vic Gov Feature Image",
       "title": "",
       "width": 818,
@@ -40,7 +40,7 @@
       }
     },
     "og": {
-      "src": "https://develop.content.vic.gov.au/sites/default/files/2022-09/Vic_Gov_Default_Display_Image_Proper_Spacing.png",
+      "src": "/placeholders/medium.png",
       "alt": "Vic Gov Feature Image",
       "title": "",
       "width": 818,

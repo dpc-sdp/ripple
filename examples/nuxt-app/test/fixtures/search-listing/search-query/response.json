@@ -1,0 +1,420 @@
+{
+  "hits": {
+    "total": {
+      "value": 2,
+      "relation": "eq"
+    },
+    "hits": [
+      {
+        "_index": "b56de58036ae7d6456d5b246f85ffe88--elasticsearch_index_develop_node",
+        "_id": "entity:node/193:en",
+        "_score": 4.627835,
+        "_ignored": [
+          "field_paragraph_body.keyword"
+        ],
+        "_source": {
+          "_language": "en",
+          "node_grants": [
+            "node_access_all:0",
+            "node_access_all:0"
+          ],
+          "url": [
+            "/site-9207/copyright-demo",
+            "/site-8888/copyright-demo",
+            "/site-9012/copyright-demo",
+            "/site-9202/copyright-demo"
+          ],
+          "changed": [
+            "2024-05-05T22:21:29+10:00"
+          ],
+          "created": [
+            "2024-05-05T22:21:29+10:00"
+          ],
+          "field_landing_page_intro_text": [
+            "Copyright information for this website."
+          ],
+          "field_landing_page_summary": [
+            "Copyright information for this website."
+          ],
+          "field_node_site": [
+            9207,
+            8888,
+            9012,
+            9202
+          ],
+          "field_paragraph_body": [
+            "We encourage the sharing and re-use of information provided on this website. The State of Victoria owns the copyright in all material produced for this website by the Department of Premier and Cabinet. All material provided on this website is provided under a Creative Commons Attribution 4.0 international licence Creative Commons Attribution 4.0 International licence , except : any images or branding, including the Victorian Coat of Arms and the Victorian Government logo content supplied by third parties Creative Commons Attribution 4.0 International full licence Read the full licence . Attribution Material obtained from this website must be attributed as: © Copyright State Government of Victoria Third-party copyright In some cases, a third party may hold copyright in material presented on this website. Their permission may be required to use the material. Contact us You can inquire about copyright and use of the material on this website via our Connect with us page . DataVic copyright and attribution Raw data available on DataVic It is essential that you check the record page of a dataset for the licensing terms which apply to that dataset and its contents. To the maximum extent possible, the datasets provided via this site and their contents, to the extent they are protected by copyright, are provided under a Creative Commons Attribution Version 4.0 (international licence). The details of the licence conditions are available on the Creative Commons website (accessible using the link above or the linked Creative Commons licence image), as is the full legal code for the CC BY 4.0 (international licence). However, there may be different or additional licence conditions for some datasets on this site. Historical records If you are using Historical Records of a dataset, copyright in the dataset and its contents may be licensed under different terms from those which apply to the current release. You must check the record page for the Historical Records of a dataset for the licensing terms which apply to the Historical Records of the dataset. Attributing DataVic material If you use the text, datasets or tools made available on this site you must comply with the attribution requirements set out below. Attributing datasets You are required to identify the source of any dataset or data it contains in the manner specified on the record page for the dataset. Please check the requirement stated under \u0027Attribution\u0027 on the record page. For material licensed under a Creative Commons Attribution Version 4.0 (international licence) , or other Creative Commons Version 4.0 licences, the basic requirement for attribution is: (c) [name of agency] and licensed for re-use under the [name of and link to or URL for applicable Creative Commons licence] However, there may be different or additional attribution requirements for some datasets on this site, particularly where data is modified or transformed in any way. Please check the record page of the dataset. If you have any questions, please contact the contributing agency by clicking on ‘Add Comment’ at the end of the record page for the dataset and complete the comment fields. Attributing other text on DataVic When you reproduce text on this site (including descriptions of datasets, comments and blog entries), to the extent that copyright applies, please include the following attribution. Source: [name of agency] and licensed for re-use under the [name of and link to or URL for Creative Commons Attribution Version 4.0 (international licence) ]"
+          ],
+          "field_tags": [
+            9183,
+            9184
+          ],
+          "field_tags_name": [
+            "Boomers tag demo",
+            "Gen X tag demo"
+          ],
+          "field_tags_path": [
+            "/tags/boomers-tag-demo",
+            "/tags/gen-x-tag-demo"
+          ],
+          "field_tags_uuid": [
+            "11dede11-10c0-111e1-1101-000000000016",
+            "11dede11-10c0-111e1-1101-000000000017"
+          ],
+          "field_topic": [
+            9197
+          ],
+          "field_topic_name": [
+            "Bourke topic demo"
+          ],
+          "field_topic_path": [
+            "/topic/bourke-topic-demo"
+          ],
+          "field_topic_uuid": [
+            "11dede11-10c0-111e1-1102-000000000028"
+          ],
+          "langcode": [
+            "en"
+          ],
+          "nid": [
+            193
+          ],
+          "status": [
+            true
+          ],
+          "title": [
+            "Copyright - demo"
+          ],
+          "type": [
+            "landing_page"
+          ],
+          "uid": [
+            1
+          ],
+          "uuid": [
+            "34484160-9822-41e2-a093-3f37e8fa92f5"
+          ]
+        },
+        "sort": [
+          4.627835,
+          11
+        ]
+      },
+      {
+        "_index": "b56de58036ae7d6456d5b246f85ffe88--elasticsearch_index_develop_node",
+        "_id": "entity:node/191:en",
+        "_score": 3.987222,
+        "_source": {
+          "_language": "en",
+          "node_grants": [
+            "node_access_all:0",
+            "node_access_all:0"
+          ],
+          "url": [
+            "/site-9207/image-test-doc-demo",
+            "/site-8888/image-test-doc-demo",
+            "/site-9012/image-test-doc-demo",
+            "/site-9202/image-test-doc-demo"
+          ],
+          "changed": [
+            "2024-05-05T22:21:29+10:00"
+          ],
+          "created": [
+            "2024-05-05T22:21:29+10:00"
+          ],
+          "field_landing_page_summary": [
+            "VCE is changing from 2023. Victorian senior secondary education is changing. From 2023, the new VCE Vocational Major and Victorian Pathways Certificate will replace VCAL."
+          ],
+          "field_media_image_absolute_path": [
+            "/placeholders/medium.png"
+          ],
+          "field_node_site": [
+            9207,
+            9211,
+            9210,
+            8888,
+            9012,
+            9202
+          ],
+          "field_paragraph_body": [
+            "Image Test 1"
+          ],
+          "field_paragraph_summary": [
+            "Your senior certificate options are changing. Find out what it means for you.",
+            "The VCE is changing to also offer the VCE Vocational Major, a new 2-year program. It will give you work-related skills and prepare you for further education and training.",
+            "This new, inclusive certificate will replace Foundation VCAL. The VPC is a flexible program that you can build around your needs.",
+            "This new, inclusive certificate will replace Foundation VCAL. The VPC is a flexible program that you can build around your needs.",
+            "Discover more about the VCE Vocational Major and Victorian Pathways Certificate on the VCAA website.",
+            "More dummy text."
+          ],
+          "field_paragraph_title": [
+            "Promo Image 2A",
+            "Promo Image 2B",
+            "Promo Image 2C",
+            "Promo Image 2D",
+            "Nav Card Image 3A",
+            "Nav Card Image 3B"
+          ],
+          "field_tags": [
+            9184,
+            9186
+          ],
+          "field_tags_name": [
+            "Gen X tag demo",
+            "Gen Z tag demo"
+          ],
+          "field_tags_path": [
+            "/tags/gen-x-tag-demo",
+            "/tags/gen-z-tag-demo"
+          ],
+          "field_tags_uuid": [
+            "11dede11-10c0-111e1-1101-000000000017",
+            "11dede11-10c0-111e1-1101-000000000019"
+          ],
+          "field_topic": [
+            9197
+          ],
+          "field_topic_name": [
+            "Bourke topic demo"
+          ],
+          "field_topic_path": [
+            "/topic/bourke-topic-demo"
+          ],
+          "field_topic_uuid": [
+            "11dede11-10c0-111e1-1102-000000000028"
+          ],
+          "langcode": [
+            "en"
+          ],
+          "nid": [
+            191
+          ],
+          "status": [
+            true
+          ],
+          "title": [
+            "Image Test Doc - demo"
+          ],
+          "type": [
+            "landing_page"
+          ],
+          "uid": [
+            0
+          ],
+          "uuid": [
+            "2820b3ea-57ae-4411-aa47-eda54302518d"
+          ]
+        },
+        "sort": [
+          3.987222,
+          10
+        ]
+      },
+      {
+        "_index": "b56de58036ae7d6456d5b246f85ffe88--elasticsearch_index_develop_node",
+        "_id": "entity:node/193:en",
+        "_score": 4.627835,
+        "_ignored": [
+          "field_paragraph_body.keyword"
+        ],
+        "_source": {
+          "_language": "en",
+          "node_grants": [
+            "node_access_all:0",
+            "node_access_all:0"
+          ],
+          "url": [
+            "/site-9207/copyright-demo",
+            "/site-8888/copyright-demo",
+            "/site-9012/copyright-demo",
+            "/site-9202/copyright-demo"
+          ],
+          "changed": [
+            "2024-05-05T22:21:29+10:00"
+          ],
+          "created": [
+            "2024-05-05T22:21:29+10:00"
+          ],
+          "field_landing_page_intro_text": [
+            "Copyright information for this website."
+          ],
+          "field_landing_page_summary": [
+            "Copyright information for this website."
+          ],
+          "field_node_site": [
+            9207,
+            8888,
+            9012,
+            9202
+          ],
+          "field_paragraph_body": [
+            "We encourage the sharing and re-use of information provided on this website. The State of Victoria owns the copyright in all material produced for this website by the Department of Premier and Cabinet. All material provided on this website is provided under a Creative Commons Attribution 4.0 international licence Creative Commons Attribution 4.0 International licence , except : any images or branding, including the Victorian Coat of Arms and the Victorian Government logo content supplied by third parties Creative Commons Attribution 4.0 International full licence Read the full licence . Attribution Material obtained from this website must be attributed as: © Copyright State Government of Victoria Third-party copyright In some cases, a third party may hold copyright in material presented on this website. Their permission may be required to use the material. Contact us You can inquire about copyright and use of the material on this website via our Connect with us page . DataVic copyright and attribution Raw data available on DataVic It is essential that you check the record page of a dataset for the licensing terms which apply to that dataset and its contents. To the maximum extent possible, the datasets provided via this site and their contents, to the extent they are protected by copyright, are provided under a Creative Commons Attribution Version 4.0 (international licence). The details of the licence conditions are available on the Creative Commons website (accessible using the link above or the linked Creative Commons licence image), as is the full legal code for the CC BY 4.0 (international licence). However, there may be different or additional licence conditions for some datasets on this site. Historical records If you are using Historical Records of a dataset, copyright in the dataset and its contents may be licensed under different terms from those which apply to the current release. You must check the record page for the Historical Records of a dataset for the licensing terms which apply to the Historical Records of the dataset. Attributing DataVic material If you use the text, datasets or tools made available on this site you must comply with the attribution requirements set out below. Attributing datasets You are required to identify the source of any dataset or data it contains in the manner specified on the record page for the dataset. Please check the requirement stated under \u0027Attribution\u0027 on the record page. For material licensed under a Creative Commons Attribution Version 4.0 (international licence) , or other Creative Commons Version 4.0 licences, the basic requirement for attribution is: (c) [name of agency] and licensed for re-use under the [name of and link to or URL for applicable Creative Commons licence] However, there may be different or additional attribution requirements for some datasets on this site, particularly where data is modified or transformed in any way. Please check the record page of the dataset. If you have any questions, please contact the contributing agency by clicking on ‘Add Comment’ at the end of the record page for the dataset and complete the comment fields. Attributing other text on DataVic When you reproduce text on this site (including descriptions of datasets, comments and blog entries), to the extent that copyright applies, please include the following attribution. Source: [name of agency] and licensed for re-use under the [name of and link to or URL for Creative Commons Attribution Version 4.0 (international licence) ]"
+          ],
+          "field_tags": [
+            9183,
+            9184
+          ],
+          "field_tags_name": [
+            "Boomers tag demo",
+            "Gen X tag demo"
+          ],
+          "field_tags_path": [
+            "/tags/boomers-tag-demo",
+            "/tags/gen-x-tag-demo"
+          ],
+          "field_tags_uuid": [
+            "11dede11-10c0-111e1-1101-000000000016",
+            "11dede11-10c0-111e1-1101-000000000017"
+          ],
+          "field_topic": [
+            9197
+          ],
+          "field_topic_name": [
+            "Bourke topic demo"
+          ],
+          "field_topic_path": [
+            "/topic/bourke-topic-demo"
+          ],
+          "field_topic_uuid": [
+            "11dede11-10c0-111e1-1102-000000000028"
+          ],
+          "langcode": [
+            "en"
+          ],
+          "nid": [
+            193
+          ],
+          "status": [
+            true
+          ],
+          "title": [
+            "Copyright - demo 2"
+          ],
+          "type": [
+            "landing_page"
+          ],
+          "uid": [
+            1
+          ],
+          "uuid": [
+            "34484160-9822-41e2-a093-3f37e8fa92f5"
+          ]
+        },
+        "sort": [
+          4.627835,
+          11
+        ]
+      },
+      {
+        "_index": "b56de58036ae7d6456d5b246f85ffe88--elasticsearch_index_develop_node",
+        "_id": "entity:node/191:en",
+        "_score": 3.987222,
+        "_source": {
+          "_language": "en",
+          "node_grants": [
+            "node_access_all:0",
+            "node_access_all:0"
+          ],
+          "url": [
+            "/site-9207/image-test-doc-demo",
+            "/site-8888/image-test-doc-demo",
+            "/site-9012/image-test-doc-demo",
+            "/site-9202/image-test-doc-demo"
+          ],
+          "changed": [
+            "2024-05-05T22:21:29+10:00"
+          ],
+          "created": [
+            "2024-05-05T22:21:29+10:00"
+          ],
+          "field_landing_page_summary": [
+            "VCE is changing from 2023. Victorian senior secondary education is changing. From 2023, the new VCE Vocational Major and Victorian Pathways Certificate will replace VCAL."
+          ],
+          "field_media_image_absolute_path": [
+            "/placeholders/medium.png"
+          ],
+          "field_node_site": [
+            9207,
+            9211,
+            9210,
+            8888,
+            9012,
+            9202
+          ],
+          "field_paragraph_body": [
+            "Image Test 1"
+          ],
+          "field_paragraph_summary": [
+            "Your senior certificate options are changing. Find out what it means for you.",
+            "The VCE is changing to also offer the VCE Vocational Major, a new 2-year program. It will give you work-related skills and prepare you for further education and training.",
+            "This new, inclusive certificate will replace Foundation VCAL. The VPC is a flexible program that you can build around your needs.",
+            "This new, inclusive certificate will replace Foundation VCAL. The VPC is a flexible program that you can build around your needs.",
+            "Discover more about the VCE Vocational Major and Victorian Pathways Certificate on the VCAA website.",
+            "More dummy text."
+          ],
+          "field_paragraph_title": [
+            "Promo Image 2A",
+            "Promo Image 2B",
+            "Promo Image 2C",
+            "Promo Image 2D",
+            "Nav Card Image 3A",
+            "Nav Card Image 3B"
+          ],
+          "field_tags": [
+            9184,
+            9186
+          ],
+          "field_tags_name": [
+            "Gen X tag demo",
+            "Gen Z tag demo"
+          ],
+          "field_tags_path": [
+            "/tags/gen-x-tag-demo",
+            "/tags/gen-z-tag-demo"
+          ],
+          "field_tags_uuid": [
+            "11dede11-10c0-111e1-1101-000000000017",
+            "11dede11-10c0-111e1-1101-000000000019"
+          ],
+          "field_topic": [
+            9197
+          ],
+          "field_topic_name": [
+            "Bourke topic demo"
+          ],
+          "field_topic_path": [
+            "/topic/bourke-topic-demo"
+          ],
+          "field_topic_uuid": [
+            "11dede11-10c0-111e1-1102-000000000028"
+          ],
+          "langcode": [
+            "en"
+          ],
+          "nid": [
+            191
+          ],
+          "status": [
+            true
+          ],
+          "title": [
+            "Image Test Doc - demo 2"
+          ],
+          "type": [
+            "landing_page"
+          ],
+          "uid": [
+            0
+          ],
+          "uuid": [
+            "2820b3ea-57ae-4411-aa47-eda54302518d"
+          ]
+        },
+        "sort": [
+          3.987222,
+          10
+        ]
+      }
+    ]
+  }
+}

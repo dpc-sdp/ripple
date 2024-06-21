@@ -33,7 +33,12 @@ interface Props {
     topic: string
     isGrantOngoing: boolean
   }
+  hasSidebar?: boolean
+  hasTitle?: boolean
+  pageBackground?: string
 }
 
-withDefaults(defineProps<Props>(), {})
+withDefaults(defineProps<Props>(), {
+  pageBackground: 'default'
+})
 </script>

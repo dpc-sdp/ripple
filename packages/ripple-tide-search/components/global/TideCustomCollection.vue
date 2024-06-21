@@ -1,5 +1,10 @@
 <script setup lang="ts">
-import { getActiveFiltersTally, getActiveFilterURL, ref } from '#imports'
+import {
+  computed,
+  getActiveFiltersTally,
+  getActiveFilterURL,
+  ref
+} from '#imports'
 import { submitForm } from '@formkit/vue'
 import useTideSearch from './../../composables/useTideSearch'
 import type {
@@ -18,7 +23,8 @@ interface Props {
   autocompleteQuery?: boolean
   searchListingConfig?: TideSearchListingConfig['searchListingConfig']
   sortOptions?: TideSearchListingConfig['sortOptions']
-  queryConfig: TideSearchListingConfig['queryConfig']
+  customQueryConfig?: TideSearchListingConfig['customQueryConfig']
+  queryConfig?: TideSearchListingConfig['queryConfig']
   globalFilters?: TideSearchListingConfig['globalFilters']
   userFilters?: TideSearchListingConfig['userFilters']
   resultsConfig?: TideSearchListingConfig['resultsConfig']
@@ -38,6 +44,7 @@ const props = withDefaults(defineProps<Props>(), {
   autocompleteQuery: false,
   globalFilters: () => [],
   userFilters: () => [],
+  customQueryConfig: undefined,
   queryConfig: () => ({
     multi_match: {
       query: '{{query}}',
@@ -52,11 +59,13 @@ const props = withDefaults(defineProps<Props>(), {
   }),
   searchListingConfig: () => ({
     searchProvider: 'app-search',
+    hideSearchForm: false,
     resultsPerPage: 9,
     labels: {
       submit: 'Submit',
       reset: 'Reset',
-      placeholder: 'Enter a search term'
+      placeholder: 'Enter a search term',
+      geolocateBtn: 'Use my current location'
     },
     displayMapTab: false,
     suggestions: {
@@ -64,7 +73,9 @@ const props = withDefaults(defineProps<Props>(), {
       enabled: false
     },
     formTheme: 'default',
-    showFiltersOnLoad: false
+    showFiltersOnLoad: false,
+    showFiltersOnly: false,
+    scrollToResultsOnSubmit: true
   }),
   tabs: () => [
     {
@@ -110,6 +121,7 @@ const appConfig = useAppConfig()
 
 const searchResultsMappingFn = (item): TideSearchListingResultItem => {
   let transformedItem = item._source
+  let itemComponent = 'TideSearchResult'
 
   const transformResultFnName = props.resultsConfig?.transformResultFn
   const fns: Record<string, (result: any) => Promise<any>> =
@@ -127,33 +139,19 @@ const searchResultsMappingFn = (item): TideSearchListingResultItem => {
     transformedItem = transformResultFn(item)
   }
 
-  if (props.resultsConfig.item) {
-    for (const key in props.resultsConfig.item) {
-      const mapping = props.resultsConfig.item[key]
-      if (!item._source?.type || item._source?.type[0] === key || key === '*') {
-        /* If there is no type, a component will be required */
-        return {
-          id: item._id,
-          component: mapping.component,
-          props: {
-            result: transformedItem
-          }
-        }
-      } else {
-        /* Add default search result mapping if none provided */
-        return {
-          id: item._id,
-          component: 'TideSearchResult',
-          props: {
-            result: transformedItem
-          }
-        }
-      }
+  if (props.resultsConfig?.item) {
+    const mapping =
+      props.resultsConfig.item[item._source?.type] ??
+      props.resultsConfig.item?.['*']
+
+    if (mapping) {
+      itemComponent = mapping.component
     }
   }
 
   return {
     id: item._id,
+    component: itemComponent,
     props: {
       result: transformedItem
     }
@@ -178,7 +176,13 @@ const mapResultsMappingFn = (result) => {
   }
 }
 
-const filtersExpanded = ref(props.searchListingConfig?.showFiltersOnLoad)
+const filtersExpanded = ref(
+  props.searchListingConfig?.showFiltersOnLoad ||
+    props.searchListingConfig?.showFiltersOnly
+)
+
+const isGettingLocation = ref<boolean>(false)
+const geolocationError = ref<string | null>(null)
 
 const {
   isBusy,
@@ -189,6 +193,7 @@ const {
   filterForm,
   appliedFilters,
   resetFilters,
+  resetSearch,
   submitSearch,
   goToPage,
   page,
@@ -204,8 +209,11 @@ const {
   locationQuery,
   activeTab,
   changeActiveTab,
-  firstLoad
+  firstLoad,
+  userGeolocation,
+  scrollToResults
 } = useTideSearch({
+  customQueryConfig: props.customQueryConfig,
   queryConfig: props.queryConfig,
   userFilters: props.userFilters,
   globalFilters: props.globalFilters,
@@ -223,7 +231,7 @@ const baseEvent = () => ({
   contextId: props.id,
   name: props.title,
   index: page.value,
-  label: searchTerm.value,
+  label: searchTerm.value.q,
   value: totalResults.value,
   options: getActiveFilterURL(filterForm.value),
   section: 'custom-collection'
@@ -289,8 +297,12 @@ onMapResultsHook.value = () => {
     )
   }
 
-  hookFn(rplMapRef.value, mapResults.value, locationQuery.value)
+  hookFn(rplMapRef.value, mapResults.value, locationOrGeolocation.value)
 }
+
+const resultsContainer = computed(
+  () => `[data-component-id='${props.id}'] .tide-search-listing-above-result`
+)
 
 const emitSearchEvent = (event) => {
   emitRplEvent(
@@ -316,6 +328,7 @@ const handleSearchSubmit = (event) => {
     // If there's no filters in the form, we need to just do the search without submitting the filter form
     submitSearch()
     closeMapPopup()
+    scrollToResults(resultsContainer.value, 16)
     emitSearchEvent({ ...event, ...baseEvent() })
   }
 }
@@ -324,6 +337,7 @@ const handleFilterSubmit = (event) => {
   filterForm.value = event.value
   submitSearch()
   closeMapPopup()
+  scrollToResults(resultsContainer.value, 16)
 
   emitSearchEvent({ ...event, ...cachedSubmitEvent.value, ...baseEvent() })
 
@@ -341,20 +355,29 @@ const handleFilterReset = (event: rplEventPayload) => {
     { global: true }
   )
 
-  searchTerm.value = ''
   locationQuery.value = null
+  resetSearch()
   resetFilters()
   submitSearch()
   closeMapPopup()
 }
 
-const handleUpdateSearchTerm = (term) => {
-  searchTerm.value = term
+const handleUpdateSearchTerm = (term: string) => {
+  searchTerm.value.q = term
+
   if (
     props.autocompleteQuery &&
     props.searchListingConfig?.suggestions?.enabled !== false
   ) {
     getSuggestions()
+  }
+}
+
+const handleUpdateSearch = (term: string | Record<string, any>) => {
+  if (term && typeof term === 'object') {
+    searchTerm.value = { ...searchTerm.value, ...term }
+  } else {
+    handleUpdateSearchTerm(term)
   }
 }
 
@@ -463,11 +486,43 @@ const reverseFields = computed(
     (reverseTheme.value && !altBackground.value) ||
     (altBackground.value && !reverseTheme.value)
 )
+
+const handleGeolocateClick = () => {
+  isGettingLocation.value = true
+  geolocationError.value = null
+}
+
+const handleGeolocateSuccess = (pos: GeolocationPosition) => {
+  isGettingLocation.value = false
+  geolocationError.value = null
+
+  userGeolocation.value = {
+    name: 'Current Location',
+    center: [pos.coords.longitude, pos.coords.latitude]
+  }
+
+  handleLocationSearch({
+    useGeolocation: true,
+    id: `__geo${pos.timestamp}`
+  })
+}
+
+const handleGeolocateError = () => {
+  isGettingLocation.value = false
+  geolocationError.value = `We couldn't find your location. Check your browser permissions or input your location manually`
+}
+
+const locationOrGeolocation = computed(() => {
+  return locationQuery.value?.useGeolocation && userGeolocation.value
+    ? userGeolocation.value
+    : locationQuery.value
+})
 </script>
 
 <template>
   <div class="rpl-u-margin-t-8">
     <div
+      v-if="!searchListingConfig?.hideSearchForm"
       :class="{
         'tide-search-header': true,
         'tide-search-header--inset': reverseTheme,
@@ -475,36 +530,76 @@ const reverseFields = computed(
         'tide-search-header--light': reverseTheme && altBackground
       }"
     >
-      <RplSearchBar
-        v-if="!locationQueryConfig?.component"
-        id="custom-collection-search-bar"
-        :variant="reverseFields ? 'reverse' : 'default'"
-        :input-label="searchListingConfig.labels?.submit"
-        :inputValue="searchTerm"
-        :placeholder="searchListingConfig.labels?.placeholder"
-        :global-events="false"
-        @submit="handleSearchSubmit"
-        @update:input-value="handleUpdateSearchTerm"
-      />
+      <template v-if="!searchListingConfig?.showFiltersOnly">
+        <component
+          :is="locationQueryConfig?.component"
+          v-if="locationQueryConfig?.component"
+          v-bind="locationQueryConfig?.props"
+          :label="searchListingConfig.labels?.submit"
+          :placeholder="searchListingConfig.labels?.placeholder"
+          :inputValue="locationQuery"
+          :resultsloaded="mapFeatures.length > 0"
+          :isGettingLocation="isGettingLocation"
+          :userGeolocation="userGeolocation"
+          @update="handleLocationSearch"
+        />
+        <component
+          :is="customQueryConfig.component"
+          v-else-if="customQueryConfig?.component"
+          v-bind="customQueryConfig?.props"
+          id="custom-collection-search-bar"
+          :variant="reverseFields ? 'reverse' : 'default'"
+          :input-label="searchListingConfig?.labels?.submit"
+          :inputValue="searchTerm"
+          :placeholder="searchListingConfig?.labels?.placeholder"
+          :global-events="false"
+          :handle-submit="handleSearchSubmit"
+          :handle-update="handleUpdateSearch"
+        />
+        <RplSearchBar
+          v-else
+          id="custom-collection-search-bar"
+          :variant="reverseFields ? 'reverse' : 'default'"
+          :input-label="searchListingConfig.labels?.submit"
+          :inputValue="searchTerm.q"
+          :placeholder="searchListingConfig.labels?.placeholder"
+          :global-events="false"
+          @submit="handleSearchSubmit"
+          @update:input-value="handleUpdateSearchTerm"
+        />
+      </template>
 
-      <component
-        :is="locationQueryConfig?.component"
-        v-if="locationQueryConfig?.component"
-        v-bind="locationQueryConfig?.props"
-        :label="searchListingConfig.labels?.submit"
-        :placeholder="searchListingConfig.labels?.placeholder"
-        :inputValue="locationQuery"
-        :resultsloaded="mapFeatures.length > 0"
-        @update="handleLocationSearch"
-      />
+      <div class="tide-search-util-bar">
+        <RplMapGeolocateButton
+          v-if="locationQueryConfig?.showGeolocationButton"
+          :isBusy="isGettingLocation"
+          :error="geolocationError"
+          @click="handleGeolocateClick"
+          @success="handleGeolocateSuccess"
+          @error="handleGeolocateError"
+        >
+          {{
+            searchListingConfig.labels?.geolocateBtn ||
+            'Use my current location'
+          }}
+        </RplMapGeolocateButton>
+        <div class="tide-search-refine-wrapper">
+          <RplSearchBarRefine
+            v-if="
+              !searchListingConfig?.showFiltersOnLoad &&
+              !searchListingConfig?.showFiltersOnly &&
+              userFilters &&
+              userFilters.length > 0
+            "
+            class="tide-search-refine-btn"
+            :expanded="filtersExpanded"
+            @click="handleToggleFilters"
+          >
+            {{ toggleFiltersLabel }}
+          </RplSearchBarRefine>
+        </div>
+      </div>
 
-      <RplSearchBarRefine
-        v-if="userFilters && userFilters.length > 0"
-        class="tide-search-refine-btn"
-        :expanded="filtersExpanded"
-        @click="handleToggleFilters"
-        >{{ toggleFiltersLabel }}</RplSearchBarRefine
-      >
       <RplExpandable
         v-if="userFilters && userFilters.length > 0"
         :expanded="filtersExpanded"
@@ -534,16 +629,17 @@ const reverseFields = computed(
       v-if="!searchListingConfig?.displayMapTab || activeTab === 'listing'"
     >
       <TideSearchAboveResults
-        v-if="results?.length || (sortOptions && sortOptions.length)"
         :hasSidebar="hasSidebar"
         class="rpl-u-margin-t-4 rpl-u-padding-b-2 rpl-u-margin-b-4"
       >
         <template #left>
           <TideSearchResultsCount
-            v-if="!searchError && results?.length"
+            v-if="!searchError"
             :pagingStart="pagingStart + 1"
             :pagingEnd="pagingEnd + 1"
             :totalResults="totalResults"
+            :results="results"
+            :loading="isBusy"
           />
         </template>
 
@@ -564,13 +660,17 @@ const reverseFields = computed(
           class="rpl-u-margin-t-8 rpl-u-margin-b-8"
         />
 
-        <component
-          :is="resultsConfig.layout?.component"
-          v-if="!searchError && results && results.length > 0"
-          :key="`TideSearchListingResultsLayout${resultsConfig.layout?.component}`"
-          v-bind="resultsConfig.layout?.props"
-          :results="results"
-        />
+        <div v-if="!searchError">
+          <component
+            :is="resultsConfig.layout?.component"
+            :key="`TideSearchListingResultsLayout${resultsConfig.layout?.component}`"
+            v-bind="resultsConfig.layout?.props"
+            :hasSidebar="hasSidebar"
+            :loading="isBusy"
+            :results="results"
+            :perPage="searchListingConfig?.resultsPerPage"
+          />
+        </div>
       </TideSearchResultsLoadingState>
 
       <div class="tide-search-pagination">
@@ -578,7 +678,7 @@ const reverseFields = computed(
           v-if="!searchError"
           :currentPage="page"
           :totalPages="totalPages"
-          :scrollToSelector="`[data-component-id='${id}']`"
+          :scrollToSelector="resultsContainer"
           @paginate="handlePageChange"
         />
       </div>
@@ -586,12 +686,12 @@ const reverseFields = computed(
 
     <template v-if="activeTab === 'map'">
       <TideSearchListingResultsMap
-        v-if="mapFeatures && firstLoad"
         :results="mapFeatures"
         :areas="mapAreas"
         v-bind="mapConfig?.props"
         :noresults="!isBusy && !results?.length"
         :hasSidePanel="mapConfig?.sidePanel?.enabled"
+        :initialising="!firstLoad"
       >
         <template #noresults>
           <TideCustomCollectionNoResults v-if="!isBusy && !results?.length" />
@@ -679,7 +779,6 @@ const reverseFields = computed(
 .tide-search-refine-btn {
   align-self: flex-end;
   padding: 0;
-  margin-top: var(--rpl-sp-5);
 }
 
 .tide-search-results--loading {
@@ -693,5 +792,25 @@ const reverseFields = computed(
   @media (--rpl-bp-m) {
     margin-top: var(--rpl-sp-5);
   }
+}
+
+.tide-search-util-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  row-gap: var(--rpl-sp-4);
+  column-gap: var(--rpl-sp-8);
+  margin-top: var(--rpl-sp-3);
+  @media (--rpl-bp-s) {
+    margin-top: var(--rpl-sp-5);
+  }
+}
+.tide-search-refine-wrapper {
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-end;
 }
 </style>

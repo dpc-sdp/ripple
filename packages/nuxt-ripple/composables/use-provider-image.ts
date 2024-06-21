@@ -1,6 +1,8 @@
 import { computed } from 'vue'
 
-const screens = {
+const screens: {
+  [key: string]: number
+} = {
   xs: 0,
   md: 992,
   lg: 1200
@@ -23,7 +25,11 @@ export default (props: any) => {
 
   const providerSizes = computed(() =>
     labels
-      .map((bp: string) => `(min-width: ${screens[bp]}px) ${breakpoints[bp]}`)
+      .map((bp: string) =>
+        screens[bp]
+          ? `(min-width: ${screens[bp]}px) ${breakpoints[bp]}`
+          : `(min-width: 0) ${breakpoints[bp]}`
+      )
       .join(', ')
   )
 

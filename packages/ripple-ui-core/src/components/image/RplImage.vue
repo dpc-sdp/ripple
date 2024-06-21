@@ -42,7 +42,9 @@ const aspectClasses = computed(() => {
     return { [`${base}-${props.aspect}`]: true }
   }
   if (typeof props.aspect === 'object') {
-    const o = {}
+    const o: {
+      [key: string]: boolean
+    } = {}
     for (const bp in props.aspect) {
       const breakpoint = bp !== 'xs' ? `-${bp}` : ''
       o[`${base}-${props.aspect[bp]}${breakpoint}`] = true

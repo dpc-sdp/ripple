@@ -20,13 +20,13 @@ const markup = {
 }
 
 const fixed = {
-  table: `<div class="rpl-table"><div class="rpl-table__scroll-container" tabindex="0"><table>
+  table: `<div class="rpl-table"><div class="rpl-table__scroll-container rpl-u-focusable-outline--visible" tabindex="0"><table>
   <tbody>
     <tr><th>Fname</th><th>Lname</th></tr>
     <tr><td>Joe</td><td>Cool</td></tr>
   </tbody>
 </table></div></div>`,
-  callout: `<div class="rpl-callout"><div class="callout-wrapper"><p>Hey it's a callout</p></div><div class="callout-wrapper"><p>And another callout</p></div></div>
+  callout: `<div class="rpl-callout"><div class="rpl-callout__wrapper"><p>Hey it's a callout</p></div><div class="rpl-callout__wrapper"><p>And another callout</p></div></div>
 <div class="rpl-callout rpl-callout--neutral">This one is wysiwyg</div>`,
   quotation: `
 <figure class="rpl-blockquote">

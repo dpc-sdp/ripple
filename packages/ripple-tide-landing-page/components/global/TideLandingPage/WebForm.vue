@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { FormKitSchemaNode } from '@formkit/core'
 import { computed, nextTick, ref, watch } from 'vue'
-import { RplFormAlert } from '@dpc-sdp/ripple-ui-forms'
 
 interface Props {
   title?: string
@@ -26,7 +25,7 @@ const honeypotId = `${props.formId}-important-email`
 
 const { submissionState, submitHandler } = useWebformSubmit(props.formId)
 
-const serverSuccessRef = ref<typeof RplFormAlert>(null as any)
+const serverSuccessRef = ref(null)
 
 // Scroll to and focus on success and error messages when they appear
 watch(
@@ -53,7 +52,7 @@ const submitted = computed(() => submissionState.value.status === 'success')
     <RplFormAlert
       v-if="hideFormOnSubmit && submitted"
       ref="serverSuccessRef"
-      :status="submissionState.status"
+      status="success"
       :title="submissionState.title"
       data-component-type="form-server-message"
       :restrictWidth="true"

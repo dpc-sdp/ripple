@@ -16,7 +16,7 @@ withDefaults(defineProps<Props>(), {
 
 <style>
 .tide-search-results--loading {
-  opacity: 0.5;
   pointer-events: none;
+  cursor: progress;
 }
 </style>

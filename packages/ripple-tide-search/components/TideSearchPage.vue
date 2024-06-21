@@ -101,8 +101,15 @@ const {
 )
 
 const filtersExpanded = ref(false)
-const toggleFiltersLabel = 'Refine search'
 const submitFiltersLabel = 'Apply search filters'
+
+const toggleFiltersLabel = computed(() => {
+  let label = 'Refine search'
+
+  return searchState.value?.filters?.length
+    ? `${label} (${searchState.value.filters.length})`
+    : label
+})
 
 const baseEvent = () => ({
   contextId: props.id,
@@ -230,6 +237,7 @@ watch(
             :inputValue="searchState.searchTerm"
             :suggestions="searchTermSuggestions"
             :global-events="false"
+            maxlength="128"
             @submit="handleSubmit"
             @update:input-value="updateSearchTerm"
           />
@@ -251,7 +259,9 @@ watch(
               :title="pageTitle"
               @submit="handleFilterSubmit"
             >
-              <div class="rpl-grid rpl-grid--no-row-gap tide-search-filters">
+              <div
+                class="rpl-grid rpl-grid--no-row-gap rpl-u-margin-t-6 tide-search-filters"
+              >
                 <div
                   v-for="filter in filtersConfig"
                   :key="filter.field"
@@ -312,6 +322,7 @@ watch(
                 <RplResultListingItem
                   v-for="(result, idx) in results"
                   :key="`result-${idx}-${result.id}`"
+                  data-component-type="search-result"
                 >
                   <component :is="result.component" v-bind="result.props" />
                 </RplResultListingItem>

@@ -7,7 +7,8 @@ import {
   useAppConfig,
   useRuntimeConfig,
   navigateTo,
-  getSingleQueryStringValue
+  getSingleQueryStringValue,
+  scrollToElementTopWithOffset
 } from '#imports'
 import type { TideSearchListingConfig, FilterConfigItem } from './../types'
 
@@ -31,6 +32,7 @@ const encodeCommasAndColons = (value: string): string => {
 
 interface Config {
   queryConfig: TideSearchListingConfig['queryConfig']
+  customQueryConfig?: TideSearchListingConfig['customQueryConfig']
   userFilters: TideSearchListingConfig['userFilters']
   globalFilters: any[]
   searchResultsMappingFn: (item: any) => any
@@ -42,6 +44,7 @@ interface Config {
 
 export default ({
   queryConfig,
+  customQueryConfig,
   userFilters: userFilterConfig,
   globalFilters,
   searchResultsMappingFn,
@@ -84,7 +87,7 @@ export default ({
 
   const locationQuery = ref<any | null>(null)
 
-  const searchTerm = ref('')
+  const searchTerm = ref({ q: '' })
   const filterForm = ref({})
   const page = ref(1)
   const pageSize = ref(searchListingConfig.resultsPerPage || 10)
@@ -108,17 +111,39 @@ export default ({
     return pageSize.value ? Math.ceil(totalResults.value / pageSize.value) : 0
   })
 
+  const userGeolocation = ref<any>(null)
   const mapResults = ref([])
 
   const onAggregationUpdateHook = ref()
   const onMapResultsHook = ref()
   const firstLoad = ref(false)
 
-  const getQueryClause = () => {
-    if (searchTerm.value) {
-      return processTemplate(queryConfig, '{{query}}', searchTerm.value)
+  const getQueryClause = (filter: any[]) => {
+    let queryClause = [{ match_all: {} }]
+    const fns: Record<string, (queryData: any) => Record<string, any>> =
+      appConfig?.ripple?.search?.queryConfigFunctions || {}
+
+    if (customQueryConfig?.function && fns[customQueryConfig?.function]) {
+      return fns[customQueryConfig.function]({
+        searchTerm: searchTerm.value,
+        queryFilters: filter
+      })
     }
-    return [{ match_all: {} }]
+
+    if (searchTerm.value?.q) {
+      queryClause = processTemplate(
+        queryConfig,
+        '{{query}}',
+        searchTerm.value.q
+      )
+    }
+
+    return {
+      bool: {
+        must: queryClause,
+        filter
+      }
+    }
   }
 
   const getUserFilterClause = (forAggregations = false) => {
@@ -156,7 +181,7 @@ export default ({
     }
 
     const transformedDSL = await transformFn(
-      locationQuery.value,
+      locationOrGeolocation.value,
       filterForm.value
     )
 
@@ -176,7 +201,9 @@ export default ({
             [`${currentFilter.id}`]: {
               terms: {
                 field: currentFilter.aggregations.field,
-                order: { _key: 'asc' },
+                order: {
+                  _key: currentFilter.aggregations.order || 'asc'
+                },
                 size: currentFilter.aggregations.size || 30,
                 min_doc_count: searchListingConfig?.dynamicAggregations ? 0 : 1
               }
@@ -217,7 +244,7 @@ export default ({
             )
           }
 
-          const sortDSL = sortFn(locationQuery.value, filterForm.value)
+          const sortDSL = sortFn(locationOrGeolocation.value, filterForm.value)
 
           return sortDSL
         }
@@ -409,14 +436,10 @@ export default ({
 
   const getQueryDSL = async () => {
     const locationFilters = await getLocationFilterClause('listing')
+    const query = getQueryClause([...getUserFilterClause(), ...locationFilters])
 
     return {
-      query: {
-        bool: {
-          must: getQueryClause(),
-          filter: [...getUserFilterClause(), ...locationFilters]
-        }
-      },
+      query,
       size: pageSize.value,
       from: pagingStart.value,
       sort: getSortClause()
@@ -425,14 +448,13 @@ export default ({
 
   const getQueryDSLForDynamicAggregations = async () => {
     const locationFilters = await getLocationFilterClause('listing')
+    const query = getQueryClause([
+      ...getUserFilterClause(true),
+      ...locationFilters
+    ])
 
     return {
-      query: {
-        bool: {
-          must: getQueryClause(),
-          filter: [...getUserFilterClause(true), ...locationFilters]
-        }
-      },
+      query,
       size: 0,
       from: 0,
       sort: getSortClause(),
@@ -457,14 +479,10 @@ export default ({
 
   const getQueryDSLForMaps = async () => {
     const locationFilters = await getLocationFilterClause('map')
+    const query = getQueryClause([...getUserFilterClause(), ...locationFilters])
 
     return {
-      query: {
-        bool: {
-          must: getQueryClause(),
-          filter: [...getUserFilterClause(), ...locationFilters]
-        }
-      },
+      query,
       // ES queries have a 10k result limit, maps struggle drawing more than this anyway. If you need more you will need to implement a loading strategy see : https://openlayers.org/en/latest/apidoc/module-ol_loadingstrategy.html
       size: 10000,
       from: 0,
@@ -567,7 +585,7 @@ export default ({
       {
         method: 'POST',
         body: {
-          query: searchTerm.value,
+          query: searchTerm.value.q,
           types: {
             documents: {
               fields
@@ -615,6 +633,19 @@ export default ({
   }
 
   /**
+   * Get a scoped set of query parameters
+   * i.e., custom location[] and search[] parameters
+   */
+  const getScopedQueryParams = (
+    scope: string,
+    params: { [key: string]: any }
+  ) => {
+    return Object.entries(params || {}).reduce((obj, [key, value]) => {
+      return { ...obj, [`${scope}[${key}]`]: value }
+    }, {})
+  }
+
+  /**
    * Updates the URL to trigger a new search, always returns to page 1 to avoid empty pages
    */
   const submitSearch = async () => {
@@ -650,22 +681,20 @@ export default ({
         .filter(([key, value]) => value)
     )
 
-    // flatten locationQuery into an object for adding to the query string
-    const locationParams = Object.entries(locationQuery.value || {}).reduce(
-      (obj, [key, value]) => {
-        return {
-          ...obj,
-          [`location[${key}]`]: value
-        }
-      },
-      {}
-    )
+    const locationParams = getScopedQueryParams('location', locationQuery.value)
+
+    let { q: searchQuery, ...searchParams } = searchTerm.value
+
+    if (searchParams) {
+      searchParams = getScopedQueryParams('search', searchParams)
+    }
 
     await navigateTo({
       path: route.path,
       query: {
-        q: searchTerm.value || undefined,
+        q: searchQuery || undefined,
         activeTab: activeTab.value !== initialTab ? activeTab.value : undefined,
+        ...searchParams,
         ...locationParams,
         ...filterFormValues
       }
@@ -752,24 +781,23 @@ export default ({
       }, {})
   }
 
-  const getLocationQueryFromRoute = (newRoute: RouteLocation) => {
-    const locationKeys = Object.keys(newRoute.query).filter((key) =>
-      key.startsWith('location[')
+  const getScopedQueryParamsFromRoute = (
+    scope: string,
+    newRoute: RouteLocation
+  ) => {
+    const keys = Object.keys(newRoute.query).filter((key) =>
+      key.startsWith(`${scope}[`)
     )
 
-    if (!locationKeys.length) {
-      return null
-    }
+    if (!keys.length) return null
 
-    // parse the location query from the route
-    const location = locationKeys.reduce((obj, key) => {
-      return {
+    return keys.reduce(
+      (obj, key) => ({
         ...obj,
-        [key.replace('location[', '').replace(']', '')]: newRoute.query[key]
-      }
-    }, {})
-
-    return location
+        [key.replace(`${scope}[`, '').replace(']', '')]: newRoute.query[key]
+      }),
+      {}
+    )
   }
 
   /**
@@ -789,6 +817,13 @@ export default ({
   }
 
   /**
+   * Resets the main search to its default values.
+   */
+  const resetSearch = (value = {}) => {
+    searchTerm.value = { q: '', ...value }
+  }
+
+  /**
    * The URL is the source of truth for what is shown in the search results.
    *
    * When the URL changes, the URL is parsed and the query is transformed into an elastic DSL query.
@@ -798,7 +833,14 @@ export default ({
       ? getSingleQueryStringValue(newRoute.query, 'activeTab') || initialTab
       : null
 
-    searchTerm.value = getSingleQueryStringValue(newRoute.query, 'q') || ''
+    searchTerm.value.q = getSingleQueryStringValue(newRoute.query, 'q') || ''
+
+    const searchParams = getScopedQueryParamsFromRoute('search', newRoute)
+
+    if (searchParams) {
+      searchTerm.value = { ...searchTerm.value, ...searchParams }
+    }
+
     page.value =
       parseInt(getSingleQueryStringValue(newRoute.query, 'page') || '', 10) || 1
     userSelectedSort.value =
@@ -810,13 +852,32 @@ export default ({
 
     resetFilters(routeFilters)
 
-    locationQuery.value = getLocationQueryFromRoute(newRoute)
+    locationQuery.value = getScopedQueryParamsFromRoute('location', newRoute)
 
     getSearchResults(isFirstRun)
   }
 
+  /**
+   * Scroll to search results
+   */
+  const scrollToResults = (selector: string, offset = 0) => {
+    if (searchListingConfig?.scrollToResultsOnSubmit !== false) {
+      const scrollToElement = document.querySelector(selector)
+
+      if (scrollToElement) {
+        scrollToElementTopWithOffset(scrollToElement, offset)
+      }
+    }
+  }
+
   const appliedFilters = computed(() => {
     return getFiltersFromRoute(route)
+  })
+
+  const locationOrGeolocation = computed(() => {
+    return locationQuery.value?.useGeolocation && userGeolocation.value
+      ? userGeolocation.value
+      : locationQuery.value
   })
 
   onMounted(() => {
@@ -849,6 +910,7 @@ export default ({
     filterForm,
     appliedFilters,
     resetFilters,
+    resetSearch,
     submitSearch,
     goToPage,
     page,
@@ -863,6 +925,8 @@ export default ({
     activeTab,
     changeActiveTab,
     locationQuery,
-    firstLoad
+    firstLoad,
+    userGeolocation,
+    scrollToResults
   }
 }

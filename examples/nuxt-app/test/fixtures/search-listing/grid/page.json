@@ -22,7 +22,7 @@
         ]
       }
     },
-    "results": {
+    "resultsConfig": {
       "layout": {
         "component": "TideSearchResultsGrid"
       },

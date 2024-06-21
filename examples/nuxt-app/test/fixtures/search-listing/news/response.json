@@ -39,7 +39,7 @@
           "field_landing_page_summary": [
             "NP1 Etiam scelerisque lorem sit amet sapien iaculis, nec dignissim augue cursus. Mauris eu purus a neque tristique venenatis sit amet sed sem. Aenean viverra lectus ut tempus sollicitudin."
           ],
-          "field_media_image_absolute_path": ["/cy/placeholder.png"],
+          "field_media_image_absolute_path": ["/placeholders/medium.png"],
           "field_news_date": ["2050-07-02T09:00:00+10:00"],
           "field_node_site": [8888, 9136, 9138, 9141, 9012, 9143],
           "field_tags": [9116],
@@ -130,7 +130,7 @@
           "field_landing_page_summary": [
             "NP3 Suspendisse condimentum turpis fermentum lectus feugiat massa maximus at. In hendrerit gravida imperdiet. Donec rutrum turpis et tempor pulvinar."
           ],
-          "field_media_image_absolute_path": ["/cy/placeholder.png"],
+          "field_media_image_absolute_path": ["/placeholders/medium.png"],
           "field_news_date": ["2023-12-08T13:29:41+11:00"],
           "field_node_site": [8888, 9141, 9012, 9138, 9143],
           "field_tags": [9116],
@@ -168,7 +168,7 @@
           "changed": ["2023-05-30T15:28:16+10:00"],
           "created": ["2023-05-30T13:20:41+10:00"],
           "field_landing_page_summary": ["Summary"],
-          "field_media_image_absolute_path": ["/cy/placeholder.png"],
+          "field_media_image_absolute_path": ["/placeholders/medium.png"],
           "field_news_date": ["2023-05-30T11:15:46+10:00"],
           "field_node_site": [9013],
           "field_tags": [8992, 8993],
@@ -344,7 +344,7 @@
           "created": ["2023-05-30T13:20:25+10:00"],
           "field_event_intro_text": ["Intro"],
           "field_landing_page_summary": ["Summary"],
-          "field_media_image_absolute_path": ["/cy/placeholder.png"],
+          "field_media_image_absolute_path": ["/placeholders/medium.png"],
           "field_news_date": ["2023-05-30T11:15:46+10:00"],
           "field_node_site": [9012],
           "field_tags": [8993, 8992],

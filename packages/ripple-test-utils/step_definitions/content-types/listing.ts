@@ -174,12 +174,7 @@ When(`I click the search button`, () => {
 Then(`I should be scrolled to the search results`, () => {
   cy.window()
     .its('scrollY')
-    .then((scrollY) => {
-      expect(scrollY).to.be.closeTo(
-        cy.$$('.rpl-layout__body-wrap').offset().top,
-        2
-      )
-    })
+    .should('equal', cy.$$('.rpl-layout__body-wrap').offset().top)
 })
 
 Then(`I should not be scrolled to the search results`, () => {

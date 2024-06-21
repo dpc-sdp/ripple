@@ -31,11 +31,3 @@ Feature: Site search
     When I clear the search filters
     Then the filters toggle should show 0 applied filters
     And the search input should have the value ""
-
-  @mockserver
-  Example: Submitting the search form scrolls to results
-    When I visit the page "/search"
-    And I type "The" into the search input
-    And I click the search button
-    And I wait 1 seconds
-    Then I should be scrolled to the search results

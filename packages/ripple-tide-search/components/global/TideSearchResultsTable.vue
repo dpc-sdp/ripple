@@ -53,7 +53,7 @@ interface Props {
   results: TideSearchListingResultItem[]
   hasSidebar?: boolean
   perPage?: number
-  loading: boolean
+  loading?: boolean
   skeleton?: string
   offset?: number
   columns: tableColumnConfig[]
@@ -66,6 +66,7 @@ interface Props {
 
 const props = withDefaults(defineProps<Props>(), {
   results: () => [],
+  loading: false,
   perPage: 10,
   skeleton: 'TideSearchResultTableSkeleton',
   caption: '',

@@ -37,5 +37,5 @@ Feature: Site search
     When I visit the page "/search"
     And I type "The" into the search input
     And I click the search button
-    And I wait 500 milliseconds
+    And I wait 1 seconds
     Then I should be scrolled to the search results

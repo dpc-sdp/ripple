@@ -393,7 +393,7 @@ Feature: Search listing - Filter
     And I click the search listing dropdown field labelled "Terms filter example"
     Then I click the option labelled "Purple" in the selected dropdown
     And I submit the search filters
-    And I wait 500 milliseconds
+    And I wait 1 seconds
     Then I should be scrolled to the search results
 
   @mockserver

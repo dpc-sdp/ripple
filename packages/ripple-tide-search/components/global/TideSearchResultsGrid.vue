@@ -21,13 +21,14 @@ import type { TideSearchListingResultItem } from './../../types'
 interface Props {
   results?: TideSearchListingResultItem[]
   perPage?: number
-  loading: boolean
+  loading?: boolean
   skeleton?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
   results: () => [],
   perPage: 10,
+  loading: false,
   skeleton: 'TideSearchResultCardSkeleton'
 })
 

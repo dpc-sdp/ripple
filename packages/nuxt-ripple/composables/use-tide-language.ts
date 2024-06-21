@@ -24,20 +24,12 @@ export default (page: any) => {
   const direction = computed(() => (found.value?.rtl ? 'rtl' : 'ltr'))
 
   if (found.value) {
-    let customCSS = ''
-
-    if (found.value?.styles) {
-      Object.keys(found.value.styles).forEach((selector) => {
-        customCSS += `.${language.value} ${selector} { ${found.value.styles[selector]}; }`
-      })
-    }
-
     useHead({
       link: [{ rel: 'stylesheet', href: found.value?.url }],
       style: [
         {
           children: `
-          .${language.value} * { font-family: '${found.value?.name}', var(--rpl-type-font-family) !important } ${customCSS}
+          .${language.value} * { font-family: '${found.value?.name}', var(--rpl-type-font-family) !important }
           `
         }
       ]

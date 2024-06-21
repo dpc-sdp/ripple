@@ -1,0 +1,21 @@
+@import '@dpc-sdp/ripple-ui-core/style/breakpoints';
+
+.rpl-u-font-lang--ar {
+  .rpl-type-h1-highlight {
+    line-height: var(--rpl-type-lh-10);
+  }
+
+  .rpl-type-p-large-highlight {
+    line-height: var(--rpl-type-lh-7);
+  }
+
+  @media (--rpl-bp-l) {
+    .rpl-type-h1-highlight {
+      line-height: 9rem;
+    }
+
+    .rpl-type-p-large-highlight {
+      line-height: var(--rpl-type-lh-9);
+    }
+  }
+}

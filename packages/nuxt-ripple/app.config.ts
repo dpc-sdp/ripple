@@ -26,7 +26,6 @@ declare module '@nuxt/schema' {
           name: string
           url: string
           rtl?: boolean
-          styles?: Record<string, string>
         }
       }
       search?: {
@@ -72,14 +71,16 @@ export default defineAppConfig({
       ar: {
         name: 'Noto Kufi Arabic',
         url: 'https://fonts.googleapis.com/earlyaccess/notokufiarabic.css',
-        rtl: true,
-        styles: {
-          '.rpl-type-p-large-highlight': 'line-height: var(--rpl-type-lh-9)'
-        }
+        rtl: true
       },
       bn: {
         name: 'Noto Sans Bengali',
         url: 'https://fonts.googleapis.com/earlyaccess/notosansbengali.css'
+      },
+      ckb: {
+        name: 'Noto Naskh Arabic',
+        url: 'https://fonts.googleapis.com/earlyaccess/notonaskharabic.css',
+        rtl: true
       },
       cld: {
         name: 'Noto Naskh Arabic',
@@ -127,6 +128,11 @@ export default defineAppConfig({
       ko: {
         name: 'Noto Sans KR',
         url: 'https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap'
+      },
+      kmr: {
+        name: 'Noto Naskh Arabic',
+        url: 'https://fonts.googleapis.com/earlyaccess/notonaskharabic.css',
+        rtl: true
       },
       kyu: {
         name: 'Noto Sans Kayah Li',

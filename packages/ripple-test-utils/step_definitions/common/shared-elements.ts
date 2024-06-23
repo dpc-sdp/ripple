@@ -250,3 +250,19 @@ Given('the site sections share links are set to included WhatsApp', () => {
     )
   })
 })
+
+Then('the in page navigation should include', (dataTable: DataTable) => {
+  const table = dataTable.hashes()
+
+  cy.get('.rpl-in-page-navigation li').as('links')
+
+  table.forEach((row, i: number) => {
+    cy.get('@links')
+      .eq(i)
+      .then((link) => {
+        cy.wrap(link).as('link')
+        cy.get('@link').find('a').first().should('have.attr', 'href', row.url)
+        cy.get('@link').find('.rpl-list__label').first().contains(row.title)
+      })
+  })
+})

@@ -43,9 +43,10 @@ export const createPageHandler = async (
     }
 
     const sectionId = getHeader(event, 'x-section-request-id')
+    const path = query.path.length > 1 && query.path.charAt(query.path.length - 1) === '/' ? query.path.substring(0, query.path.length - 1) : query.path
 
     const pageResponse = await tidePageApi.getPageByPath(
-      query.path,
+      path,
       query.site,
       {},
       headers,

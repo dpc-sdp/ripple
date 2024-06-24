@@ -1,5 +1,5 @@
 import { expect, describe, it } from '@jest/globals'
-import { getConditionals } from './webform-conditional-logic.js'
+import { getConditionals } from './webform-conditional-logic'
 
 describe('getConditionals', () => {
   describe('states', () => {

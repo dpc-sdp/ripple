@@ -4,6 +4,16 @@ import { getInputIcons, getValidationAndConditionals } from './webform-utils'
 import { getAdvancedAddressMapping } from './webforms-address'
 import type { TideWebformElement, ApiWebForm } from './../types'
 
+interface CustomInputsConfig {
+  [key: string]: {
+    [key: string]: any
+    mapping: Function
+  }
+}
+
+const appConfig = useAppConfig().ripple as CustomInputsConfig
+const customInputs: CustomInputsConfig = appConfig.customInputs || {}
+
 export const getFormSchemaFromMapping = async (
   webform: ApiWebForm,
   tidePageApi: TidePageApi
@@ -315,12 +325,20 @@ export const getFormSchemaFromMapping = async (
         }
         break
       default:
-        mappedField = {
-          $el: 'div',
-          attrs: {
-            class: 'rpl-form__outer rpl-form__input--unsupported'
-          },
-          children: [`"${field['#type']}" is not yet supported`]
+        if (Object.keys(customInputs).includes(field['#type'])) {
+          mappedField = customInputs[field['#type']].mapping(
+            fieldID,
+            field,
+            fieldKey
+          )
+        } else {
+          mappedField = {
+            $el: 'div',
+            attrs: {
+              class: 'rpl-form__outer rpl-form__input--unsupported'
+            },
+            children: [`"${field['#type']}" is not yet supported`]
+          }
         }
     }
 

@@ -8,6 +8,7 @@
   "exports": {
     ".": "./nuxt.config.ts",
     "./mapping": "./mapping/index.ts",
+    "./mapping/utils": "./mapping/webform-utils.ts",
     "./types": "./types.ts"
   },
   "dependencies": {

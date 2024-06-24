@@ -1,5 +1,5 @@
-import { getConditionals } from './webform-conditional-logic.js'
-import { getValidation } from './webform-validation.js'
+import { getConditionals } from './webform-conditional-logic'
+import { getValidation } from './webform-validation'
 
 export const getValidationAndConditionals = (field) => {
   const conditionals = getConditionals(field)

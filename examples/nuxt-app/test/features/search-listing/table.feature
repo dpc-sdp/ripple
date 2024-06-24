@@ -34,7 +34,7 @@ Feature: Table layout
   @mockserver
   Example: Table shows extra content using a custom component
     Given the page endpoint for path "/search-listing-table-extra-components" returns fixture "/search-listing/table/page-extra-component" with status 200
-    And the search network request is stubbed with fixture "/search-listing/table/response", status 200 and delayed by 400 milliseconds
+    And the search network request is stubbed with fixture "/search-listing/table/response" and status 200
     When I visit the page "/search-listing-table-extra-components"
     And the search network request should be called with the "/search-listing/table/request" fixture
     And the search listing layout should be "table"
@@ -48,7 +48,7 @@ Feature: Table layout
   @mockserver
   Example: Table shows extra structured content using object keys and components
     Given the page endpoint for path "/search-listing-table-structured" returns fixture "/search-listing/table/page-extra-structured" with status 200
-    And the search network request is stubbed with fixture "/search-listing/table/response-elastic", status 200 and delayed by 400 milliseconds
+    And the search network request is stubbed with fixture "/search-listing/table/response-elastic" and status 200
     When I visit the page "/search-listing-table-structured"
     And the search network request should be called with the "/search-listing/table/request" fixture
     And the search listing layout should be "table"
@@ -67,7 +67,7 @@ Feature: Table layout
   @mockserver
   Example: Table renders cells using core components
     Given the page endpoint for path "/search-listing-table-structured" returns fixture "/search-listing/table/page-extra-structured" with status 200
-    And the search network request is stubbed with fixture "/search-listing/table/response-elastic", status 200 and delayed by 400 milliseconds
+    And the search network request is stubbed with fixture "/search-listing/table/response-elastic" and status 200
     When I visit the page "/search-listing-table-structured"
     And the search network request should be called with the "/search-listing/table/request" fixture
 

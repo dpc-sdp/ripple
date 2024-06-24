@@ -1,21 +1,23 @@
 <template>
-  <RplDataTable
-    v-if="items?.length"
-    data-component-type="search-listing-layout-table"
-    class="tide-search-listing-results-table"
-    :class="{
-      'tide-search-listing-results-table': true,
-      'tide-search-listing-results-table--mounting': !isMounted
-    }"
-    :columns="processedColumns"
-    :items="items"
-    :offset="offset"
-    :caption="caption"
-    :footer="footer"
-    :headingType="headingType"
-    :showExtraContent="showExtraContent"
-    :hasSidebar="hasSidebar"
-  />
+  <component :is="loading ? 'div' : 'section'">
+    <RplDataTable
+      v-if="items?.length"
+      data-component-type="search-listing-layout-table"
+      class="tide-search-listing-results-table"
+      :class="{
+        'tide-search-listing-results-table': true,
+        'tide-search-listing-results-table--mounting': !isMounted
+      }"
+      :columns="processedColumns"
+      :items="items"
+      :offset="offset"
+      :caption="caption"
+      :footer="footer"
+      :headingType="headingType"
+      :showExtraContent="showExtraContent"
+      :hasSidebar="hasSidebar"
+    />
+  </component>
 </template>
 
 <script setup lang="ts">

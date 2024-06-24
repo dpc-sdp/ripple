@@ -226,6 +226,9 @@ const {
 
 const uiFilters = ref(props.userFilters)
 const cachedSubmitEvent = ref({})
+// this offset is used to avoid the result count hitting
+// the top of the screen when scrolling to the results
+const scrollTopOffset = 16
 
 const baseEvent = () => ({
   contextId: props.id,
@@ -329,7 +332,7 @@ const handleSearchSubmit = (event) => {
     submitSearch()
     closeMapPopup()
     if (event?.type === 'button') {
-      scrollToResults(resultsContainer.value, 16)
+      scrollToResults(resultsContainer.value, scrollTopOffset)
     }
     emitSearchEvent({ ...event, ...baseEvent() })
   }
@@ -344,7 +347,7 @@ const handleFilterSubmit = (event) => {
     !cachedSubmitEvent.value?.type ||
     cachedSubmitEvent.value?.type === 'button'
   ) {
-    scrollToResults(resultsContainer.value, 16)
+    scrollToResults(resultsContainer.value, scrollTopOffset)
   }
 
   emitSearchEvent({ ...event, ...cachedSubmitEvent.value, ...baseEvent() })

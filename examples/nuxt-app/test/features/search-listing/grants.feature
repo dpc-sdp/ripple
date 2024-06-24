@@ -10,7 +10,7 @@ Feature: Grants collection
   @mockserver
   Example: Results formatting
     Given the page endpoint for path "/grants" returns fixture "/search-listing/grants/page" with status 200
-    And the search network request is stubbed with fixture "/search-listing/grants/response", status 200 and delayed by 400 milliseconds
+    And the search network request is stubbed with fixture "/search-listing/grants/response" and status 200
     And the current date is "Fri, 02 Feb 2050 03:04:05 GMT"
     When I visit the page "/grants"
     Then the search listing page should have 3 results

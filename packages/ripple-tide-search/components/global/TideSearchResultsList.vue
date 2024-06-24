@@ -1,17 +1,19 @@
 <template>
-  <RplResultListing
-    v-if="displayResults.length"
-    data-component-type="search-listing-layout-list"
-    class="tide-search-result"
-  >
-    <RplResultListingItem
-      v-for="(result, idx) in displayResults"
-      :key="`result-${idx}-${result.id}`"
-      data-component-type="search-result"
+  <component :is="loading ? 'div' : 'section'">
+    <RplResultListing
+      v-if="displayResults.length"
+      data-component-type="search-listing-layout-list"
+      class="tide-search-result"
     >
-      <component :is="result.component" v-bind="result.props" />
-    </RplResultListingItem>
-  </RplResultListing>
+      <RplResultListingItem
+        v-for="(result, idx) in displayResults"
+        :key="`result-${idx}-${result.id}`"
+        data-component-type="search-result"
+      >
+        <component :is="result.component" v-bind="result.props" />
+      </RplResultListingItem>
+    </RplResultListing>
+  </component>
 </template>
 
 <script setup lang="ts">

@@ -1,0 +1,20 @@
+{
+  "name": "@dpc-sdp/ripple-ui-forms-ext",
+  "description": "Custom form inputs",
+  "version": "2.10.1",
+  "license": "Apache-2.0",
+  "repository": "https://github.com/dpc-sdp/ripple-framework",
+  "main": "./nuxt.config.ts",
+  "type": "module",
+  "exports": {
+    ".": "./nuxt.config.ts"
+  },
+  "dependencies": {
+    "@dpc-sdp/ripple-tide-webform": "workspace:*",
+    "@dpc-sdp/ripple-ui-forms": "workspace:*"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.5",
+    "rollup-plugin-postcss": "^4.0.2"
+  }
+}

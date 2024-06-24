@@ -1,0 +1,148 @@
+{
+  "title": "Webform",
+  "changed": "2024-06-07T17:15:09+10:00",
+  "created": "2024-05-02T14:42:13+10:00",
+  "type": "landing_page",
+  "nid": "45fa8751-74af-43ee-9cb9-8a8fdee7e593",
+  "_sectionId": "8888",
+  "sidebar": {
+    "contacts": [],
+    "relatedLinks": [],
+    "whatsNext": [],
+    "socialShareNetworks": ["Facebook", "X", "LinkedIn"],
+    "siteSectionNav": null
+  },
+  "status": "published",
+  "topicTags": [
+    {
+      "text": "Demo Topic",
+      "url": "/topic/demo-topic"
+    }
+  ],
+  "siteSection": {
+    "id": 8888,
+    "name": "Demo Site",
+    "siteOverrides": {
+      "showQuickExit": null,
+      "theme": {},
+      "featureFlags": {}
+    }
+  },
+  "meta": {
+    "url": "/webform",
+    "langcode": "en",
+    "description": "Testing the landing page webform mapping",
+    "additional": [
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "title",
+          "content": "Webform | Single Digital Presence Content Management System"
+        }
+      },
+      {
+        "tag": "link",
+        "attributes": {
+          "rel": "canonical",
+          "href": "http://content-sdp.docker.internal/webform"
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "property": "og:locale",
+          "content": "en-AU"
+        }
+      }
+    ],
+    "keywords": "",
+    "image": null
+  },
+  "showContentRating": true,
+  "summary": "Testing the landing page webform mapping",
+  "showHeroAcknowledgement": false,
+  "showInPageNav": false,
+  "showHeroImageCaption": false,
+  "showTopicTags": true,
+  "inPageNavHeadingLevel": "h2",
+  "background": "default",
+  "header": {
+    "title": "Webform",
+    "summary": "",
+    "links": {
+      "title": "",
+      "items": [],
+      "more": null
+    },
+    "backgroundImageCaption": "",
+    "theme": "default",
+    "logoImage": null,
+    "backgroundImage": null,
+    "cornerTop": null,
+    "cornerBottom": null,
+    "primaryAction": null,
+    "secondaryAction": null,
+    "secondaryActionLabel": ""
+  },
+  "primaryCampaign": null,
+  "secondaryCampaign": null,
+  "headerComponents": [],
+  "bodyComponents": [
+    {
+      "uuid": "986aca36-9a3a-408c-9455-c00396dcfb39",
+      "component": "TideLandingPageWebForm",
+      "id": 1795,
+      "title": "Partially supported",
+      "props": {
+        "title": "Partially supported",
+        "formId": "test_of_fields",
+        "hideFormOnSubmit": false,
+        "successMessageTitle": "Form submitted",
+        "successMessageHTML": "Thank you! Your response has been submitted.",
+        "errorMessageTitle": "Form not submitted",
+        "errorMessageHTML": "We are experiencing a server error. Please try again, otherwise contact us.",
+        "schema": [
+          {
+            "$formkit": "RplFormText",
+            "key": "name",
+            "name": "name",
+            "label": "Name",
+            "id": "test_of_fields_name",
+            "validation": [["length", 0, 255]],
+            "validationMessages": {
+              "required": "Name is required",
+              "accepted": "Name is required",
+              "length": "You can enter a maximum of 255 characters"
+            }
+          },
+          {
+            "$formkit": "RplFormItem",
+            "key": "test",
+            "name": "test",
+            "label": "Test",
+            "id": "test_of_fields_test",
+            "validation": [["length", 0, 255]],
+            "validationMessages": {
+              "required": "Item is required!",
+              "accepted": "Item is required",
+              "length": "You can enter a maximum of 255 characters"
+            }
+          },
+          {
+            "$formkit": "RplFormActions",
+            "key": "actions",
+            "name": "submit",
+            "variant": "filled",
+            "id": "test_of_fields_actions",
+            "displayResetButton": false,
+            "validation": [],
+            "validationMessages": {
+              "required": "Submit is required",
+              "accepted": "Submit is required"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

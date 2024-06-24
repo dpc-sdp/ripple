@@ -39,6 +39,7 @@
   "devDependencies": {
     "@dpc-sdp/ripple-test-utils": "workspace:*",
     "@dpc-sdp/ripple-tide-api": "workspace:*",
+    "@dpc-sdp/ripple-ui-forms-ext": "workspace:*",
     "@nuxt/devtools": "^0.6.7",
     "cypress": "13.6.6",
     "node-fetch-native": "^1.4.1",

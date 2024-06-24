@@ -266,4 +266,3 @@ Then('the in page navigation should include', (dataTable: DataTable) => {
       })
   })
 })
-

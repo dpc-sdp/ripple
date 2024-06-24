@@ -26,3 +26,9 @@ Feature: Site search
     When I clear the search filters
     Then the filters toggle should show 0 applied filters
     And the search input should have the value ""
+
+  @mockserver
+  Example: Search bar max input length
+    Given the "/api/tide/search/**" network request is stubbed with fixture "/site/search-response" and status 200 as alias "siteSearchReq"
+    When I visit the page "/search"
+    Then the search input should be have a max length of 128

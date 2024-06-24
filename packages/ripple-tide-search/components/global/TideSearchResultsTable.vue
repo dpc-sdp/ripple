@@ -1,4 +1,6 @@
 <template>
+  <!-- We swap the element type here when loading has completed -->
+  <!-- this was best way to ensure the results correctly replace skeleton screens in cypress -->
   <component :is="loading ? 'div' : 'section'">
     <RplDataTable
       v-if="items?.length"

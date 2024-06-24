@@ -55,12 +55,21 @@ import { addressResultType } from '../../types'
 interface Props {
   inputValue?: any
   resultsloaded?: boolean
+  /**
+   * @deprecated use suggestionsConfig instead to customise suggestions
+   */
   suggestionsIndex?: string
+  /**
+   * @deprecated use suggestionsConfig instead to customise suggestions
+   */
   suggestionsKey?: string
   controlMapZooming?: boolean
   label?: string
   placeholder?: string
   tagsComponent?: string
+  /**
+   * @deprecated use suggestionsConfig instead to customise suggestions
+   */
   mapResultsFnName?: string
   isGettingLocation?: boolean
   userGeolocation: any

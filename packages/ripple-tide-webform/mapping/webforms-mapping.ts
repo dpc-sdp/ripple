@@ -1,6 +1,9 @@
 import { getBody, TidePageApi } from '@dpc-sdp/ripple-tide-api'
 import { FormKitSchemaNode } from '@formkit/core'
-import { getInputIcons, getValidationAndConditionals } from './webform-utils'
+import {
+  getInputIcons,
+  getValidationAndConditionals
+} from './../server/webform-utils'
 import { getAdvancedAddressMapping } from './webforms-address'
 import type { TideWebformElement, ApiWebForm } from './../types'
 

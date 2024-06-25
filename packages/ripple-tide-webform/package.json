@@ -9,6 +9,7 @@
     ".": "./nuxt.config.ts",
     "./mapping": "./mapping/index.ts",
     "./mapping/utils": "./mapping/webform-utils.ts",
+    "./server/utils": "./server/webform-utils.ts",
     "./types": "./types.ts"
   },
   "dependencies": {

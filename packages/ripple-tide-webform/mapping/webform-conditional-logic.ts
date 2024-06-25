@@ -1,5 +1,3 @@
-import { logger } from '@dpc-sdp/ripple-tide-api'
-
 type SupportedStates =
   | 'required'
   | 'disabled'
@@ -23,7 +21,7 @@ interface NormalisedRule {
  * @param {String} rule :input[name=\"check_a\"]
  * @param {String} prefix string to prepend to the name
  */
-const getNameFromSelector = (rule: string, prefix: string): string => {
+const getNameFromSelector = (rule: string, prefix: string | null): string => {
   const start = rule.indexOf('"') + 1
   const end = rule.indexOf('"', start + 1)
   const name = rule.substr(start, end - start)
@@ -35,7 +33,7 @@ const getNameFromSelector = (rule: string, prefix: string): string => {
  * Return the first key of an object
  * @param {Object} obj Object with keys
  */
-const getFirstObjectKey = (obj): string => {
+const getFirstObjectKey = (obj: {}): string => {
   if (!obj) {
     return ''
   }
@@ -50,10 +48,16 @@ const getFirstObjectKey = (obj): string => {
  * @param {String} selector a field selector e.g. ':input[name=\"check_a\"]' or ':input[name=\"check_a[option]\"]'
  * @param {String} prefix used to prepend the fieldName
  */
-function convertSelectorToOperand(ruleObject, selector, prefix): Operand {
+function convertSelectorToOperand(
+  ruleObject: [],
+  selector: any,
+  prefix: string | null
+): Operand {
   let fieldName = getNameFromSelector(selector, prefix)
   const triggerType = getFirstObjectKey(ruleObject[selector])
-  let triggerValue = triggerType ? ruleObject[selector][triggerType] : null
+  let triggerValue: string | null = triggerType
+    ? ruleObject[selector][triggerType]
+    : null
 
   // Check for nested selectors, i.e. checkbox lists and multi selects
   const arrayRegex = /\[(.*?)]/
@@ -73,7 +77,11 @@ function convertSelectorToOperand(ruleObject, selector, prefix): Operand {
  * @param {Object} rulesObject webform rules object
  * @param {String} prefix optional prefix to scope rules to a form
  */
-const normaliseRule = (rulesObject, prefix = null): NormalisedRule => {
+const normaliseRule = (
+  rulesObject: any,
+  prefix: string | null = null,
+  logger: { warn: Function }
+): NormalisedRule => {
   const rulesType = Array.isArray(rulesObject) ? 'array' : typeof rulesObject
   let operator: LogicOperator = 'and'
   const operands: Operand[] = []
@@ -81,7 +89,7 @@ const normaliseRule = (rulesObject, prefix = null): NormalisedRule => {
   switch (rulesType) {
     case 'array':
       // Used for 'or' / 'xor' operators.
-      rulesObject.forEach((item) => {
+      rulesObject.forEach((item: any) => {
         if (typeof item === 'object') {
           const selector = getFirstObjectKey(item)
           operands.push(convertSelectorToOperand(item, selector, prefix))
@@ -162,7 +170,10 @@ const toFormkitExpression = (rule: NormalisedRule): string => {
  * @param {Object} field
  */
 export const getConditionals = (
-  field
+  field: {
+    [key: string]: any
+  },
+  logger: { warn: Function }
 ): {
   [key: string]: string
 } => {
@@ -170,7 +181,7 @@ export const getConditionals = (
 
   return (Object.keys(states || {}) as SupportedStates[]).reduce(
     (result, state: SupportedStates) => {
-      const rule = normaliseRule(states[state], field?.formId)
+      const rule = normaliseRule(states[state], field?.formId, logger)
       const expression = toFormkitExpression(rule)
 
       switch (state) {

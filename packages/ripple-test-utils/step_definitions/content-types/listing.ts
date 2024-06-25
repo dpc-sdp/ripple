@@ -333,6 +333,10 @@ Then(
   }
 )
 
+Then('the filters toggle should be hidden', () => {
+  cy.get(`.tide-search-header .rpl-search-bar-refine`).should('not.exist')
+})
+
 Then(
   `I click the option labelled {string} in the selected dropdown`,
   (label: string) => {

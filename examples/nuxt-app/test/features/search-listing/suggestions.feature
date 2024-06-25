@@ -45,3 +45,12 @@ Feature: Search listing - Suggestions
 
     When I type "The" into the search input
     Then the search suggestions should not be displayed
+
+  @mockserver
+  Example: Search bar max input length
+    Given the page endpoint for path "/suggestions" returns fixture "/search-listing/suggestions/page-suggestions" with status 200
+    And the search network request is stubbed with fixture "/search-listing/suggestions/search-response" and status 200
+    And the search autocomplete request is stubbed with "/search-listing/suggestions/response" fixture
+
+    When I visit the page "/suggestions"
+    Then the search input should be have a max length of 128

@@ -407,6 +407,19 @@ Then('the search form should be hidden', () => {
   cy.get(`.tide-search-header`).should('not.exist')
 })
 
+Then(
+  'the search input should be have a max length of {int}',
+  (maxLength: number) => {
+    cy.get(`.rpl-search-bar input`).should('have.attr', 'maxlength', maxLength)
+
+    cy.get(`.rpl-search-bar input`).type(new Array(maxLength + 5).join('A'))
+    cy.get(`.rpl-search-bar input`).should(
+      'have.value',
+      new Array(maxLength + 1).join('A')
+    )
+  }
+)
+
 Then('only the search filters should be visible', () => {
   cy.get(`.tide-search-header .rpl-search-bar`).should('not.exist')
   cy.get(`.tide-search-header .rpl-search-bar-refine`).should('not.exist')

@@ -7,6 +7,7 @@ import {
   computed
 } from '#imports'
 import { submitForm } from '@formkit/vue'
+import { useDebounceFn } from '@vueuse/core'
 import useTideSearch from './../composables/useTideSearch'
 import type { TidePageBase, TideSiteData } from '@dpc-sdp/ripple-tide-api/types'
 import type {
@@ -267,7 +268,10 @@ const handleFilterReset = (event: rplEventPayload) => {
 
 const handleUpdateSearchTerm = (term: string) => {
   searchTerm.value.q = term
+  getDebouncedSuggestions(term)
+}
 
+const getDebouncedSuggestions = useDebounceFn((term: string) => {
   if (
     props.autocompleteQuery &&
     props.searchListingConfig?.suggestions?.enabled !== false
@@ -278,7 +282,7 @@ const handleUpdateSearchTerm = (term: string) => {
       clearSuggestions()
     }
   }
-}
+}, 300)
 
 const handleUpdateSearch = (term: string | Record<string, any>) => {
   if (term && typeof term === 'object') {
@@ -404,6 +408,7 @@ watch(
               :placeholder="searchListingConfig?.labels?.placeholder"
               :suggestions="suggestions"
               :global-events="false"
+              :maxlength="128"
               @submit="handleSearchSubmit"
               @update:input-value="handleUpdateSearchTerm"
             />

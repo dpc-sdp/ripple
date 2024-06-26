@@ -561,13 +561,12 @@ export default ({
       if (typeof onMapResultsHook.value === 'function') {
         onMapResultsHook.value()
       }
-
-      isBusy.value = false
-      firstLoad.value = true
     } catch (error) {
       console.error(error)
       searchError.value = error
+    } finally {
       isBusy.value = false
+      firstLoad.value = true
     }
   }
 

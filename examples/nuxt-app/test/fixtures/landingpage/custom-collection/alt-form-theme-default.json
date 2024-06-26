@@ -92,6 +92,32 @@
             }
           },
           {
+            "id": "checkboxFilterGroup",
+            "component": "TideSearchFilterCheckboxGroup",
+            "filter": {
+              "type": "terms",
+              "value": "checkboxFilterGroup.keyword",
+              "multiple": true
+            },
+            "props": {
+              "id": "checkboxFilterGroup",
+              "label": "Checkbox group",
+              "layout": "inline",
+              "options": [
+                {
+                  "id": "Weekdays",
+                  "label": "Weekdays",
+                  "value": "Weekdays"
+                },
+                {
+                  "id": "Weekends",
+                  "label": "Weekends",
+                  "value": "Weekends"
+                }
+              ]
+            }
+          },
+          {
             "id": "dependentFilter",
             "component": "TideSearchFilterDependent",
             "columns": "rpl-grid",

@@ -54,6 +54,19 @@ Then(
 )
 
 Then(
+  `the custom collection checkbox group labelled {string} should have the {string} variant applied`,
+  (label: string, theme: string) => {
+    cy.get(`[data-component-type="TideCustomCollection"] .rpl-form-label`)
+      .contains(label)
+      .parents('.rpl-form__fieldset')
+      .find('.rpl-form-option-group .rpl-form-option')
+      .each(($el) => {
+        cy.wrap($el).should('have.class', `rpl-form-option--${theme}`)
+      })
+  }
+)
+
+Then(
   `the custom collection dropdown field labelled {string} should have the {string} variant applied`,
   (label: string, theme: string) => {
     cy.get(`[data-component-type="TideCustomCollection"] label`)

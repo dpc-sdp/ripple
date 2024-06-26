@@ -2,3 +2,9 @@
   display: flex;
   flex-direction: column;
 }
+
+.rpl-form-option-group--inline {
+  flex-wrap: wrap;
+  flex-direction: row;
+  column-gap: var(--rpl-sp-6);
+}

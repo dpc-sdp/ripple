@@ -21,6 +21,11 @@
           "terms": {
             "termFilter.keyword": ["Green", "Red"]
           }
+        },
+        {
+          "terms": {
+            "checkboxFilterGroup.keyword": ["Weekdays", "Weekends"]
+          }
         }
       ]
     }

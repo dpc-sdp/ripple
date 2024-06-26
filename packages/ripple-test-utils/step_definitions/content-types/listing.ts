@@ -251,6 +251,42 @@ Then(
 )
 
 Then(
+  `the search listing checkbox group labelled {string} should have the following options checked`,
+  (label: string, dataTable: DataTable) => {
+    const table = dataTable.hashes()
+
+    cy.get('.rpl-form-label')
+      .contains(label)
+      .parents('.rpl-form__fieldset')
+      .find('.rpl-form-option-group')
+      .as('checkboxGroup')
+
+    table.forEach((row) => {
+      cy.get('@checkboxGroup').within(() => {
+        cy.contains('label', row.label)
+          .invoke('attr', 'for')
+          .then((checkboxId) => {
+            cy.get(`#${checkboxId}`).should('be.checked')
+          })
+      })
+    })
+  }
+)
+
+Then(
+  `the search listing checkbox group labelled {string} should not have any options checked`,
+  (label: string) => {
+    cy.get('.rpl-form-label')
+      .contains(label)
+      .parents('.rpl-form__fieldset')
+      .find('.rpl-form-option-group input')
+      .each(($el) => {
+        cy.wrap($el).should('not.be.checked')
+      })
+  }
+)
+
+Then(
   `the search listing checkbox field labelled {string} should not be checked`,
   (label: string) => {
     cy.get(`label`)

@@ -174,8 +174,8 @@ Given(
       (req) => {
         if (req.body.size === 0) {
           req.reply({
-            statusCode: status,
-            fixture: fixture
+            statusCode,
+            fixture
           })
         } else {
           req.alias = 'searchReq'
@@ -209,6 +209,31 @@ Given(
     })
   }
 )
+
+Given(
+  'the {string} network request is delayed by {int} milliseconds and stubbed with fixture {string}, status {int} and alias {string}',
+  (
+    url: string,
+    delay: number,
+    fixture: string,
+    statusCode: number,
+    alias: string
+  ) => {
+    cy.intercept('POST', url, (req) => {
+      if (req.body.size === 0) {
+        req.reply({})
+      } else {
+        req.alias = alias
+        req.reply({
+          statusCode,
+          fixture,
+          delay
+        })
+      }
+    })
+  }
+)
+
 Given(
   'the {string} aggregation request is stubbed with fixture {string} and status {int} as alias {string}',
   (url: string, fixture: string, status: number, alias: string) => {

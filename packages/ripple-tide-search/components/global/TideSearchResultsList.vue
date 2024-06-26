@@ -1,17 +1,21 @@
 <template>
-  <RplResultListing
-    v-if="displayResults.length"
-    data-component-type="search-listing-layout-list"
-    class="tide-search-result"
-  >
-    <RplResultListingItem
-      v-for="(result, idx) in displayResults"
-      :key="`result-${idx}-${result.id}`"
-      data-component-type="search-result"
+  <!-- We swap the element type here when loading has completed -->
+  <!-- this was best way to ensure the results correctly replace skeleton screens in cypress -->
+  <component :is="loading ? 'div' : 'section'">
+    <RplResultListing
+      v-if="displayResults.length"
+      data-component-type="search-listing-layout-list"
+      class="tide-search-result"
     >
-      <component :is="result.component" v-bind="result.props" />
-    </RplResultListingItem>
-  </RplResultListing>
+      <RplResultListingItem
+        v-for="(result, idx) in displayResults"
+        :key="`result-${idx}-${result.id}`"
+        data-component-type="search-result"
+      >
+        <component :is="result.component" v-bind="result.props" />
+      </RplResultListingItem>
+    </RplResultListing>
+  </component>
 </template>
 
 <script setup lang="ts">
@@ -20,13 +24,14 @@ import type { TideSearchListingResultItem } from './../../types'
 interface Props {
   results?: TideSearchListingResultItem[]
   perPage?: number
-  loading: boolean
+  loading?: boolean
   skeleton?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
   results: () => [],
   perPage: 10,
+  loading: false,
   skeleton: 'TideSearchResultSkeleton'
 })
 

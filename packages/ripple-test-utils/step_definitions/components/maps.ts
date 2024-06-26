@@ -65,6 +65,14 @@ Then(`the map matches the image snapshot {string}`, (title) => {
   })
 })
 
+Then(`the map loading screen should be displayed`, () => {
+  cy.get('.tide-search-listing-results-map-skeleton').should('be.visible')
+})
+
+Then(`the map should be displayed`, () => {
+  cy.get('.rpl-map').should('be.visible')
+})
+
 When(
   `I click the map component at coordinates {int} {int}`,
   (x: number, y: number) => {

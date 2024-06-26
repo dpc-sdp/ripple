@@ -389,8 +389,10 @@ Feature: Search listing - Filter
     And the search network request is stubbed with fixture "/search-listing/filters/response" and status 200
 
     When I visit the page "/"
-    And I type "The" into the search input
-    And I click the search button
+    And I toggle the search listing filters section
+    And I click the search listing dropdown field labelled "Terms filter example"
+    Then I click the option labelled "Purple" in the selected dropdown
+    And I submit the search filters
     Then I should be scrolled to the search results
 
   @mockserver
@@ -401,7 +403,8 @@ Feature: Search listing - Filter
     Then the page endpoint for path "/" returns the loaded fixture
 
     When I visit the page "/"
-    And I type "The" into the search input
-    And I click the search button
-
+    And I toggle the search listing filters section
+    And I click the search listing dropdown field labelled "Terms filter example"
+    Then I click the option labelled "Purple" in the selected dropdown
+    And I submit the search filters
     Then I should not be scrolled to the search results

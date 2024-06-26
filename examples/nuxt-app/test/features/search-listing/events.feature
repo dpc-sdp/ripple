@@ -6,7 +6,7 @@ Feature: Events collection
   @mockserver
   Example: Results formatting
     Given the page endpoint for path "/events" returns fixture "/search-listing/events/page" with status 200
-    And the search network request is stubbed with fixture "/search-listing/events/response", status 200 and delayed by 400 milliseconds
+    And the search network request is stubbed with fixture "/search-listing/events/response" and status 200
     When I visit the page "/events"
     Then the search listing page should have 2 results
     And the search listing layout should be "grid"

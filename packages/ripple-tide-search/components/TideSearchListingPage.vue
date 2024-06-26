@@ -235,7 +235,9 @@ const handleSearchSubmit = (event: any) => {
   } else {
     // If there's no filters in the form, we need to just do the search without submitting the filter form
     submitSearch()
-    scrollToResults(resultsContainer)
+    if (event?.type === 'button') {
+      scrollToResults(resultsContainer)
+    }
     emitSearchEvent({ ...event, ...baseEvent() })
   }
 }
@@ -243,7 +245,13 @@ const handleSearchSubmit = (event: any) => {
 const handleFilterSubmit = (event: any) => {
   filterForm.value = event.value
   submitSearch()
-  scrollToResults(resultsContainer)
+
+  if (
+    !cachedSubmitEvent.value?.type ||
+    cachedSubmitEvent.value?.type === 'button'
+  ) {
+    scrollToResults(resultsContainer)
+  }
 
   emitSearchEvent({ ...event, ...cachedSubmitEvent.value, ...baseEvent() })
 

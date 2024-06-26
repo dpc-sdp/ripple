@@ -1,21 +1,25 @@
 <template>
-  <RplDataTable
-    v-if="items?.length"
-    data-component-type="search-listing-layout-table"
-    class="tide-search-listing-results-table"
-    :class="{
-      'tide-search-listing-results-table': true,
-      'tide-search-listing-results-table--mounting': !isMounted
-    }"
-    :columns="processedColumns"
-    :items="items"
-    :offset="offset"
-    :caption="caption"
-    :footer="footer"
-    :headingType="headingType"
-    :showExtraContent="showExtraContent"
-    :hasSidebar="hasSidebar"
-  />
+  <!-- We swap the element type here when loading has completed -->
+  <!-- this was best way to ensure the results correctly replace skeleton screens in cypress -->
+  <component :is="loading ? 'div' : 'section'">
+    <RplDataTable
+      v-if="items?.length"
+      data-component-type="search-listing-layout-table"
+      class="tide-search-listing-results-table"
+      :class="{
+        'tide-search-listing-results-table': true,
+        'tide-search-listing-results-table--mounting': !isMounted
+      }"
+      :columns="processedColumns"
+      :items="items"
+      :offset="offset"
+      :caption="caption"
+      :footer="footer"
+      :headingType="headingType"
+      :showExtraContent="showExtraContent"
+      :hasSidebar="hasSidebar"
+    />
+  </component>
 </template>
 
 <script setup lang="ts">
@@ -53,7 +57,7 @@ interface Props {
   results: TideSearchListingResultItem[]
   hasSidebar?: boolean
   perPage?: number
-  loading: boolean
+  loading?: boolean
   skeleton?: string
   offset?: number
   columns: tableColumnConfig[]
@@ -66,6 +70,7 @@ interface Props {
 
 const props = withDefaults(defineProps<Props>(), {
   results: () => [],
+  loading: false,
   perPage: 10,
   skeleton: 'TideSearchResultTableSkeleton',
   caption: '',

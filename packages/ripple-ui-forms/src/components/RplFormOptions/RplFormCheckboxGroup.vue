@@ -12,6 +12,7 @@ interface Props {
   label?: string
   disabled?: boolean
   variant?: 'default' | 'reverse'
+  layout?: 'block' | 'inline'
   pii?: boolean
   onChange: (value: string[]) => void
   options: {
@@ -26,6 +27,7 @@ const props = withDefaults(defineProps<Props>(), {
   label: undefined,
   disabled: false,
   variant: 'default',
+  layout: 'block',
   pii: true,
   onChange: () => undefined,
   options: () => []
@@ -77,7 +79,7 @@ const isChecked = (optionValue: string): boolean => {
 </script>
 
 <template>
-  <div class="rpl-form-option-group">
+  <div :class="['rpl-form-option-group', `rpl-form-option-group--${layout}`]">
     <RplFormOption
       v-for="(option, i) in options"
       :id="`${id}-${option.id}`"

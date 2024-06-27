@@ -38,16 +38,19 @@ Feature: Search listing - Filter
     And the search network request is stubbed with fixture "/search-listing/filters/response" and status 200
     And the current date is "Fri, 02 Feb 2050 03:04:05 GMT"
 
-    When I visit the page "/filters?termFilter=Green&singleTermFilter=Aqua&checkboxFilter=Archived"
+    When I visit the page "/filters?termFilter=Green&singleTermFilter=Aqua&checkboxFilter=Archived&checkboxFilterGroup=Weekdays"
     Then the search listing page should have 2 results
     And the search network request should be called with the "/search-listing/filters/request-term-single" fixture
 
-    Then the filters toggle should show 3 applied filters
+    Then the filters toggle should show 4 applied filters
 
     When I toggle the search listing filters section
     Then the search listing dropdown field labelled "Term filter example" should have the value "Green"
     And the search listing dropdown field labelled "Single term filter example" should have the value "Aqua"
     And the search listing checkbox field labelled "Show archived content" should be checked
+    And the search listing checkbox group labelled "Checkbox group" should have the following options checked
+      | label    |
+      | Weekdays |
 
   @mockserver
   Example: Term filter - Should reflect an array from the URL
@@ -55,14 +58,18 @@ Feature: Search listing - Filter
     And the search network request is stubbed with fixture "/search-listing/filters/response" and status 200
     And the current date is "Fri, 02 Feb 2050 03:04:05 GMT"
 
-    When I visit the page "/filters?termFilter=Green&termFilter=Red"
+    When I visit the page "/filters?termFilter=Green&termFilter=Red&checkboxFilterGroup=Weekdays&checkboxFilterGroup=Weekends"
     Then the search listing page should have 2 results
     And the search network request should be called with the "/search-listing/filters/request-term-array" fixture
 
-    Then the filters toggle should show 1 applied filters
+    Then the filters toggle should show 2 applied filters
 
     When I toggle the search listing filters section
     Then the search listing dropdown field labelled "Term filter example" should have the value "Red, Green"
+    And the search listing checkbox group labelled "Checkbox group" should have the following options checked
+      | label    |
+      | Weekdays |
+      | Weekends |
 
   @mockserver
   Example: Terms (with an 's') - Should reflect a single value from the URL
@@ -124,23 +131,24 @@ Feature: Search listing - Filter
     And the search network request is stubbed with fixture "/search-listing/filters/response" and status 200
     And the current date is "Fri, 02 Feb 2050 03:04:05 GMT"
 
-    When I visit the page "/filters?q=test123&page=2&functionFilter=open&termsFilter=Purple&termFilter=Green&rawFilter=Birds&checkboxFilter=Archived"
+    When I visit the page "/filters?q=test123&page=2&functionFilter=open&termsFilter=Purple&termFilter=Green&rawFilter=Birds&checkboxFilter=Archived&checkboxFilterGroup=Weekdays"
     Then the search listing page should have 2 results
     And the search network request should be called with the "/search-listing/filters/request-clear-filled" fixture
 
-    Then the filters toggle should show 5 applied filters
+    Then the filters toggle should show 6 applied filters
     Then the URL should reflect that the current page number is 2
     Then the URL should reflect that the current search term is "test123"
 
     When I toggle the search listing filters section
     Then the search input should have the value "test123"
     Then the URL should reflect that the current active filters are as follows:
-      | id             | value    |
-      | rawFilter      | Birds    |
-      | termFilter     | Green    |
-      | termsFilter    | Purple   |
-      | functionFilter | open     |
-      | checkboxFilter | Archived |
+      | id                  | value    |
+      | rawFilter           | Birds    |
+      | termFilter          | Green    |
+      | termsFilter         | Purple   |
+      | functionFilter      | open     |
+      | checkboxFilter      | Archived |
+      | checkboxFilterGroup | Weekdays |
 
     Then the search listing dropdown field labelled "Raw filter example" should have the value "Birds"
     Then the search listing dropdown field labelled "Term filter example" should have the value "Green"
@@ -154,12 +162,13 @@ Feature: Search listing - Filter
     Then the URL should reflect that the current page has been reset
     Then the URL should reflect that the current search term is ""
     Then the URL should reflect that the current active filters are as follows:
-      | id             |
-      | rawFilter      |
-      | termFilter     |
-      | termsFilter    |
-      | functionFilter |
-      | checkboxFilter |
+      | id                  |
+      | rawFilter           |
+      | termFilter          |
+      | termsFilter         |
+      | functionFilter      |
+      | checkboxFilter      |
+      | checkboxFilterGroup |
 
     Then the search input should have the value ""
     Then the search listing dropdown field labelled "Raw filter example" should have the value "Select a pet"
@@ -167,6 +176,7 @@ Feature: Search listing - Filter
     Then the search listing dropdown field labelled "Terms filter example" should have the value "Select a colour"
     Then the search listing dropdown field labelled "Custom function filter example" should have the value "Select a status"
     And the search listing checkbox field labelled "Show archived content" should not be checked
+    And the search listing checkbox group labelled "Checkbox group" should not have any options checked
 
   @mockserver
   Example: Should update the URL when the filters are applied

@@ -56,7 +56,6 @@ export const SingleTemplate = (args) => ({
   </Story>
 </Canvas>
 
-
 <Canvas>
   <Story
     name='Reverse variant'
@@ -84,7 +83,6 @@ export const SingleTemplate = (args) => ({
     {SingleTemplate.bind()}
   </Story>
 </Canvas>
-
 
 <Canvas>
   <Story
@@ -122,3 +120,26 @@ export const SingleTemplate = (args) => ({
   </Story>
 </Canvas>
 
+<Canvas>
+  <Story
+    name='Horizontal layout'
+    args={{
+      id: 'checkbox-inline',
+      layout: 'inline',
+      options: [
+        {
+          id: 'checkbox-inline-item-1',
+          value: 'item-1',
+          label: 'An inline checkbox'
+        },
+        {
+          id: 'checkbox-inline-item-2',
+          value: 'item-2',
+          label: 'Another inline checkbox'
+        }
+      ]
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>

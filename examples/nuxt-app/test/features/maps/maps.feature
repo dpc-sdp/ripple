@@ -18,10 +18,10 @@ Feature: Custom collection map component
   Scenario: A loading screen is shown while the map loads
     Given I load the page fixture with "/maps/basic-page"
     And the page endpoint for path "/map" returns fixture "/maps/basic-page" with status 200
-    And the "/api/tide/elasticsearch/elasticsearch_index_develop_node/_search" network request is delayed by 500 milliseconds and stubbed with fixture "/site/search-response", status 200 and alias "searchReq"
+    And the "/api/tide/elasticsearch/elasticsearch_index_develop_node/_search" network request is delayed by 1000 milliseconds and stubbed with fixture "/site/search-response", status 200 and alias "searchReq"
     Given I visit the page "/map"
     Then the map loading screen should be displayed
-    When I wait 500 milliseconds
+    When I wait 2 seconds
     Then the map should be displayed
 
   @mockserver

@@ -24,6 +24,46 @@ describe('RplFormDropDown', () => {
     cy.get('.rpl-form-dropdown-menu').should('not.exist')
   })
 
+  it('allows for single options to be selected', () => {
+    cy.mount(RplFormDropDown, { props })
+
+    cy.get('.rpl-form-dropdown-input').click()
+    cy.get('.rpl-form-dropdown-option').contains('Apple').click()
+    cy.get('.rpl-form-dropdown-input').should('contain', 'Apple')
+
+    cy.get('.rpl-form-dropdown-input').click()
+    cy.get('.rpl-form-dropdown-option').contains('Orange').click()
+    cy.get('.rpl-form-dropdown-input').should('contain', 'Orange')
+  })
+
+  it('allows for multiple options to be selected', () => {
+    cy.mount(RplFormDropDown, { props: { ...props, multiple: true } })
+
+    cy.get('.rpl-form-dropdown-input').click()
+    cy.get('.rpl-form-dropdown-option').contains('Apple').click()
+    cy.get('.rpl-form-dropdown-option').contains('Orange').click()
+
+    cy.get('.rpl-form-dropdown-input').should(($div) => {
+      expect($div.get(0).innerText).to.eq('Apple, Orange')
+    })
+  })
+
+  it.only('correctly display the number of hidden selected options for tablet', () => {
+    cy.viewport(746, 1280)
+    cy.mount(RplFormDropDown, { props: { ...props, multiple: true } })
+    cy.get('.rpl-form-dropdown-input').click()
+    cy.get('.rpl-form-dropdown-option').click({ multiple: true })
+    cy.get('.rpl-form-dropdown__more-label').contains('+5 more')
+  })
+
+  it.only('correctly display the number of hidden selected options for mobile', () => {
+    cy.viewport(370, 680)
+    cy.mount(RplFormDropDown, { props: { ...props, multiple: true } })
+    cy.get('.rpl-form-dropdown-input').click()
+    cy.get('.rpl-form-dropdown-option').click({ multiple: true })
+    cy.get('.rpl-form-dropdown__more-label').contains('+10 more')
+  })
+
   it('can be "searched" by typing from the input', () => {
     cy.mount(RplFormDropDown, { props })
 

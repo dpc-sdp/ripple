@@ -48,19 +48,20 @@ describe('RplFormDropDown', () => {
     })
   })
 
-  it.only('correctly display the number of hidden selected options for tablet', () => {
-    cy.viewport(746, 1280)
+  it('correctly displays the number of hidden selected options', () => {
+    cy.viewport(960, 680)
     cy.mount(RplFormDropDown, { props: { ...props, multiple: true } })
     cy.get('.rpl-form-dropdown-input').click()
     cy.get('.rpl-form-dropdown-option').click({ multiple: true })
-    cy.get('.rpl-form-dropdown__more-label').contains('+5 more')
-  })
+    cy.get('.rpl-form-dropdown__more-label').contains('+2 more')
 
-  it.only('correctly display the number of hidden selected options for mobile', () => {
+    cy.viewport(746, 680)
+    cy.get('.rpl-form-dropdown__more-label').contains('+5 more')
+
+    cy.viewport(480, 680)
+    cy.get('.rpl-form-dropdown__more-label').contains('+8 more')
+
     cy.viewport(370, 680)
-    cy.mount(RplFormDropDown, { props: { ...props, multiple: true } })
-    cy.get('.rpl-form-dropdown-input').click()
-    cy.get('.rpl-form-dropdown-option').click({ multiple: true })
     cy.get('.rpl-form-dropdown__more-label').contains('+10 more')
   })
 

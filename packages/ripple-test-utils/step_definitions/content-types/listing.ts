@@ -136,7 +136,6 @@ Then(
       cy.get(`[data-component-type="search-result"]`)
         .eq(i)
         .then((item) => {
-          cy.log(item)
           cy.wrap(item).should('contain', row.title)
 
           if (row.url) {

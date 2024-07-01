@@ -1,4 +1,4 @@
-import { Then, When } from '@badeball/cypress-cucumber-preprocessor'
+import { DataTable, Then, When } from '@badeball/cypress-cucumber-preprocessor'
 
 When('I visit the print all page {string}', (route: string) => {
   cy.visit(route, {
@@ -24,5 +24,49 @@ Then(
   (title: string, desc: string) => {
     cy.get('.rpl-page-links__link-label').contains(title).should('exist')
     cy.get('.rpl-page-links__link-text').contains(desc).should('exist')
+  }
+)
+
+Then(
+  'the publication details should include the following items',
+  (dataTable: DataTable) => {
+    const table = dataTable.hashes()
+
+    cy.get(`.tide-publication__details dt`).as('items')
+
+    table.forEach((row, i: number) => {
+      cy.get('@items')
+        .eq(i)
+        .then((item) => {
+          cy.wrap(item).as('item')
+
+          cy.get('@item').contains(row.term)
+          cy.get('@item').next('dd').contains(row.description)
+        })
+    })
+  }
+)
+
+Then(
+  'the publication should display the following chapters',
+  (dataTable: DataTable) => {
+    const table = dataTable.hashes()
+
+    cy.get(`.tide-publication__chapters li`).as('items')
+
+    table.forEach((row, i: number) => {
+      cy.get('@items')
+        .eq(i)
+        .then((item) => {
+          cy.wrap(item).as('item')
+
+          cy.get('@item').find('a').as('link')
+          cy.get('@link').contains(row.title)
+          cy.get('@link').should('have.attr', 'href', row.url)
+          cy.get('@item')
+            .find('.rpl-card__content')
+            .should('have.text', row.content)
+        })
+    })
   }
 )

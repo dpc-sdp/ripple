@@ -221,7 +221,9 @@ Then(
       .invoke('attr', 'for')
       .then((dropdownId) => {
         cy.get(`#${dropdownId}`).as('selectedDropdown')
-        cy.get('@selectedDropdown').should('have.text', value)
+        cy.get('@selectedDropdown').should(($div) => {
+          expect($div.get(0).innerText).to.eq(value)
+        })
       })
   }
 )

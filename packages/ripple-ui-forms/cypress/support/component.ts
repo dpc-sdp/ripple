@@ -26,20 +26,12 @@ import { plugin, defaultConfig } from '@formkit/vue'
 
 import { mount } from 'cypress/vue'
 import { h } from 'vue'
-import { RplIconSprite } from '@dpc-sdp/ripple-ui-core/vue'
-
-const RplAppWrapper = {
-  components: { RplIconSprite },
-  template: `<div style="margin: 1rem;">
-    <RplIconSprite style="display: none;" />
-    <slot></slot>
-  </div>`
-}
+import RplFauxForm from './components/RplFauxForm.vue'
 
 Cypress.Commands.add('mount', (component, options = {}) => {
   return mount(
     () => {
-      return h(RplAppWrapper, null, () => h(component, { ...options.props }))
+      return h(RplFauxForm, { component, componentProps: options.props })
     },
     {
       ...options,

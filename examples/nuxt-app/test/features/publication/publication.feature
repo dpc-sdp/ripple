@@ -12,6 +12,16 @@ Feature: Publication page
   Example: Publication parent
     When I visit the page "/victorian-skills-plan-2023-implementation-update"
     Then the title should be "Victorian Skills Plan Implementation Update"
+    And the publication details should include the following items
+      | term          | description          |
+      | Published by: | DPC                  |
+      | Date:         | 24 Oct 2023          |
+      | Copyright:    | All rights reserved. |
+    And the publication should display the following chapters
+      | title                                                            | content                                                                                 | url                                                                                                    |
+      | The Victorian Skills Plan 2022 into 2023 actions and initiatives | The 25 initiatives scheduled to start in year one are well underway.                    | /victorian-skills-plan-2023-implementation-update/2022-victorian-skills-plan-actions-and-initiatives   |
+      | Promoting post-secondary education skills and career pathways    | The first priority area's actions and initiatives from the Victorian Skills Plan 2022.  | /victorian-skills-plan-2023-implementation-update/promoting-post-secondary-education-skills-and-career |
+      | Lifting participation in education and training                  | The second priority area's actions and initiatives from the Victorian Skills Plan 2022. | /victorian-skills-plan-2023-implementation-update/lifting-participation-education-and-training         |
 
   @mockserver
   Example: Publication child

@@ -29,22 +29,27 @@ interface IRplDescriptionListItem {
 }
 
 const processed = computed(() => {
-  if (!props.details) return []
+  const list: Array<IRplDescriptionListItem> = []
 
-  const out: Array<IRplDescriptionListItem> = []
-  for (const [key, value] of Object.entries(props.details)) {
-    let val = value
-    if (val) {
-      if (key === 'date') {
-        const published = new Date(props.details.date)
-        val = formatDate(published)
-      }
-      out.push({
-        term: key[0].toUpperCase() + key.substring(1) + ':',
-        description: val
-      })
-    }
+  if (props.details?.author) {
+    list.push({
+      term: 'Published by:',
+      description: props.details.author
+    })
   }
-  return out
+  if (props.details?.date) {
+    list.push({
+      term: 'Date:',
+      description: formatDate(new Date(props.details.date))
+    })
+  }
+  if (props.details?.copyright) {
+    list.push({
+      term: 'Copyright:',
+      description: props.details.copyright
+    })
+  }
+
+  return list
 })
 </script>

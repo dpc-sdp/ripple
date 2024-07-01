@@ -2,7 +2,7 @@
 
 .rpl-u-font-lang--ar {
   .rpl-type-h1-highlight {
-    line-height: var(--rpl-type-lh-10);
+    line-height: 6.5rem;
   }
 
   .rpl-type-p-large-highlight {
@@ -11,7 +11,7 @@
 
   @media (--rpl-bp-l) {
     .rpl-type-h1-highlight {
-      line-height: 9rem;
+      line-height: 11.75rem;
     }
 
     .rpl-type-p-large-highlight {

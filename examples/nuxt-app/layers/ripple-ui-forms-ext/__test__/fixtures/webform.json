@@ -92,9 +92,9 @@
       "uuid": "986aca36-9a3a-408c-9455-c00396dcfb39",
       "component": "TideLandingPageWebForm",
       "id": 1795,
-      "title": "Partially supported",
+      "title": "Input support",
       "props": {
-        "title": "Partially supported",
+        "title": "Input support",
         "formId": "test_of_fields",
         "hideFormOnSubmit": false,
         "successMessageTitle": "Form submitted",
@@ -106,7 +106,7 @@
             "$formkit": "RplFormText",
             "key": "name",
             "name": "name",
-            "label": "Name",
+            "label": "Supported",
             "id": "test_of_fields_name",
             "validation": [["length", 0, 255]],
             "validationMessages": {
@@ -119,7 +119,7 @@
             "$formkit": "RplFormItem",
             "key": "test",
             "name": "test",
-            "label": "Test",
+            "label": "Extended",
             "id": "test_of_fields_test",
             "validation": [["length", 0, 255]],
             "validationMessages": {
@@ -127,6 +127,13 @@
               "accepted": "Item is required",
               "length": "You can enter a maximum of 255 characters"
             }
+          },
+          {
+            "$el": "div",
+            "attrs": {
+              "class": "rpl-form__outer rpl-form__input--unsupported"
+            },
+            "children": ["\"signature\" is not yet supported"]
           },
           {
             "$formkit": "RplFormActions",

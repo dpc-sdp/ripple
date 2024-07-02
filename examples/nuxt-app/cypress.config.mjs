@@ -12,7 +12,6 @@ export default defineConfig({
     baseUrl: 'http://localhost:3000',
     specPattern: '**/*.{feature,feature.ts}',
     supportFile: false,
-    supportFolder: './test',
     downloadsFolder: './test/downloads',
     fixturesFolder: './test/fixtures',
     videosFolder: './test/videos',

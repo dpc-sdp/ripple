@@ -136,7 +136,6 @@ Then(
       cy.get(`[data-component-type="search-result"]`)
         .eq(i)
         .then((item) => {
-          cy.log(item)
           cy.wrap(item).should('contain', row.title)
 
           if (row.url) {
@@ -221,7 +220,9 @@ Then(
       .invoke('attr', 'for')
       .then((dropdownId) => {
         cy.get(`#${dropdownId}`).as('selectedDropdown')
-        cy.get('@selectedDropdown').should('have.text', value)
+        cy.get('@selectedDropdown').should(($div) => {
+          expect($div.get(0).innerText).to.eq(value)
+        })
       })
   }
 )
@@ -246,6 +247,42 @@ Then(
       .invoke('attr', 'for')
       .then((checkboxId) => {
         cy.get(`#${checkboxId}`).should('be.checked')
+      })
+  }
+)
+
+Then(
+  `the search listing checkbox group labelled {string} should have the following options checked`,
+  (label: string, dataTable: DataTable) => {
+    const table = dataTable.hashes()
+
+    cy.get('.rpl-form-label')
+      .contains(label)
+      .parents('.rpl-form__fieldset')
+      .find('.rpl-form-option-group')
+      .as('checkboxGroup')
+
+    table.forEach((row) => {
+      cy.get('@checkboxGroup').within(() => {
+        cy.contains('label', row.label)
+          .invoke('attr', 'for')
+          .then((checkboxId) => {
+            cy.get(`#${checkboxId}`).should('be.checked')
+          })
+      })
+    })
+  }
+)
+
+Then(
+  `the search listing checkbox group labelled {string} should not have any options checked`,
+  (label: string) => {
+    cy.get('.rpl-form-label')
+      .contains(label)
+      .parents('.rpl-form__fieldset')
+      .find('.rpl-form-option-group input')
+      .each(($el) => {
+        cy.wrap($el).should('not.be.checked')
       })
   }
 )
@@ -406,6 +443,19 @@ Then(
 Then('the search form should be hidden', () => {
   cy.get(`.tide-search-header`).should('not.exist')
 })
+
+Then(
+  'the search input should be have a max length of {int}',
+  (maxLength: number) => {
+    cy.get(`.rpl-search-bar input`).should('have.attr', 'maxlength', maxLength)
+
+    cy.get(`.rpl-search-bar input`).type(new Array(maxLength + 5).join('A'))
+    cy.get(`.rpl-search-bar input`).should(
+      'have.value',
+      new Array(maxLength + 1).join('A')
+    )
+  }
+)
 
 Then('only the search filters should be visible', () => {
   cy.get(`.tide-search-header .rpl-search-bar`).should('not.exist')

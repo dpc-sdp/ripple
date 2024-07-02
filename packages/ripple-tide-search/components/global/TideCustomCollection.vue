@@ -6,6 +6,7 @@ import {
   ref
 } from '#imports'
 import { submitForm } from '@formkit/vue'
+import { useDebounceFn } from '@vueuse/core'
 import useTideSearch from './../../composables/useTideSearch'
 import type {
   TideSearchListingResultItem,
@@ -226,6 +227,9 @@ const {
 
 const uiFilters = ref(props.userFilters)
 const cachedSubmitEvent = ref({})
+// this offset is used to avoid the result count hitting
+// the top of the screen when scrolling to the results
+const scrollTopOffset = 16
 
 const baseEvent = () => ({
   contextId: props.id,
@@ -328,7 +332,9 @@ const handleSearchSubmit = (event) => {
     // If there's no filters in the form, we need to just do the search without submitting the filter form
     submitSearch()
     closeMapPopup()
-    scrollToResults(resultsContainer.value, 16)
+    if (event?.type === 'button') {
+      scrollToResults(resultsContainer.value, scrollTopOffset)
+    }
     emitSearchEvent({ ...event, ...baseEvent() })
   }
 }
@@ -337,7 +343,13 @@ const handleFilterSubmit = (event) => {
   filterForm.value = event.value
   submitSearch()
   closeMapPopup()
-  scrollToResults(resultsContainer.value, 16)
+
+  if (
+    !cachedSubmitEvent.value?.type ||
+    cachedSubmitEvent.value?.type === 'button'
+  ) {
+    scrollToResults(resultsContainer.value, scrollTopOffset)
+  }
 
   emitSearchEvent({ ...event, ...cachedSubmitEvent.value, ...baseEvent() })
 
@@ -364,14 +376,17 @@ const handleFilterReset = (event: rplEventPayload) => {
 
 const handleUpdateSearchTerm = (term: string) => {
   searchTerm.value.q = term
+  getDebouncedSuggestions()
+}
 
+const getDebouncedSuggestions = useDebounceFn(() => {
   if (
     props.autocompleteQuery &&
     props.searchListingConfig?.suggestions?.enabled !== false
   ) {
     getSuggestions()
   }
-}
+}, 300)
 
 const handleUpdateSearch = (term: string | Record<string, any>) => {
   if (term && typeof term === 'object') {
@@ -431,7 +446,7 @@ const handleTabChange = (tab: TideSearchListingTab) => {
 
 function handleLocationSearch(payload: any) {
   locationQuery.value = payload
-  handleSearchSubmit({})
+  handleSearchSubmit({ type: 'suggestion' })
 }
 
 const rplMapRef = ref(null)
@@ -564,6 +579,7 @@ const locationOrGeolocation = computed(() => {
           :inputValue="searchTerm.q"
           :placeholder="searchListingConfig.labels?.placeholder"
           :global-events="false"
+          :maxlength="128"
           @submit="handleSearchSubmit"
           @update:input-value="handleUpdateSearchTerm"
         />

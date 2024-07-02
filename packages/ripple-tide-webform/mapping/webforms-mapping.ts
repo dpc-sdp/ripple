@@ -213,6 +213,8 @@ export const getFormSchemaFromMapping = async (
           disabled: field['#disabled'],
           label: field['#title'],
           help: field['#description'],
+          layout:
+            field['#options_display'] === 'side_by_side' ? 'inline' : 'block',
           options: Object.entries(field['#options'] || {}).map(
             ([value, label]) => {
               return {
@@ -236,6 +238,8 @@ export const getFormSchemaFromMapping = async (
           disabled: field['#disabled'],
           label: field['#title'],
           help: field['#description'],
+          layout:
+            field['#options_display'] === 'side_by_side' ? 'inline' : 'block',
           options: Object.entries(field['#options'] || {}).map(
             ([value, label]) => {
               return {

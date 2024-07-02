@@ -1,5 +1,18 @@
 # Changelog
 
+## v2.10.3
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.10.2...v2.10.3)
+
+
+### 🚀 Enhancements
+
+  - **@dpc-sdp/ripple-tide-publication:** Fix print all pages, add no-index and some tests ([59d5f576a](https://github.com/dpc-sdp/ripple-framework/commit/59d5f576a))
+
+### ❤️  Contributors
+
+- David Featherston <david.featherstone@dpc.vic.gov.au>
+
 ## v2.10.2
 
 [compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.10.0...v2.10.2)

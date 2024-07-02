@@ -7,7 +7,7 @@ Feature: Result items
   @mockserver
   Example: Result item type can be set per result
     Given the page endpoint for path "/search-results" returns fixture "/search-listing/result-items/page" with status 200
-    And the search network request is stubbed with fixture "/search-listing/result-items/response", status 200 and delayed by 400 milliseconds
+    And the search network request is stubbed with fixture "/search-listing/result-items/response" and status 200
 
     When I visit the page "/search-results"
     Then the search listing page should have 4 results

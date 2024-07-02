@@ -24,6 +24,47 @@ describe('RplFormDropDown', () => {
     cy.get('.rpl-form-dropdown-menu').should('not.exist')
   })
 
+  it('allows for single options to be selected', () => {
+    cy.mount(RplFormDropDown, { props })
+
+    cy.get('.rpl-form-dropdown-input').click()
+    cy.get('.rpl-form-dropdown-option').contains('Apple').click()
+    cy.get('.rpl-form-dropdown-input').should('contain', 'Apple')
+
+    cy.get('.rpl-form-dropdown-input').click()
+    cy.get('.rpl-form-dropdown-option').contains('Orange').click()
+    cy.get('.rpl-form-dropdown-input').should('contain', 'Orange')
+  })
+
+  it('allows for multiple options to be selected', () => {
+    cy.mount(RplFormDropDown, { props: { ...props, multiple: true } })
+
+    cy.get('.rpl-form-dropdown-input').click()
+    cy.get('.rpl-form-dropdown-option').contains('Apple').click()
+    cy.get('.rpl-form-dropdown-option').contains('Orange').click()
+
+    cy.get('.rpl-form-dropdown-input').should(($div) => {
+      expect($div.get(0).innerText).to.eq('Apple, Orange')
+    })
+  })
+
+  it('correctly displays the number of hidden selected options', () => {
+    cy.viewport(960, 680)
+    cy.mount(RplFormDropDown, { props: { ...props, multiple: true } })
+    cy.get('.rpl-form-dropdown-input').click()
+    cy.get('.rpl-form-dropdown-option').click({ multiple: true })
+    cy.get('.rpl-form-dropdown__more-label').contains('+2 more')
+
+    cy.viewport(746, 680)
+    cy.get('.rpl-form-dropdown__more-label').contains('+5 more')
+
+    cy.viewport(480, 680)
+    cy.get('.rpl-form-dropdown__more-label').contains('+8 more')
+
+    cy.viewport(370, 680)
+    cy.get('.rpl-form-dropdown__more-label').contains('+10 more')
+  })
+
   it('can be "searched" by typing from the input', () => {
     cy.mount(RplFormDropDown, { props })
 

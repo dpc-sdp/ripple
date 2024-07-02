@@ -1,5 +1,9 @@
 @import '@dpc-sdp/ripple-ui-core/style/breakpoints';
 
+.rpl-layout {
+  background-color: var(--rpl-clr-neutral-0);
+}
+
 .rpl-layout__body-wrap {
   padding-top: var(--rpl-sp-8);
   padding-bottom: var(--rpl-sp-8);

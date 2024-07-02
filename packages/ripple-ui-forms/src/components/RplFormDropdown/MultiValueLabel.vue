@@ -42,7 +42,7 @@ const calculateNumberOfHiddenItems = async () => {
   const containerBBox = itemsRef.value.getBoundingClientRect()
 
   // Here we figure out how much space there is to fit the items in, it's
-  // important to factor in the the width of the '+# more' label here even
+  // important to factor in the width of the '+# more' label here even
   // if it's not currently being rendered.
   const widthToFill =
     numItemsHidden.value === 0
@@ -55,7 +55,12 @@ const calculateNumberOfHiddenItems = async () => {
   for (const labelEl of labelElements) {
     const itemBBox = labelEl.getBoundingClientRect()
 
-    if (itemBBox.left - containerBBox.left > widthToFill) {
+    const itemCharWidth =
+      labelEl
+        .querySelector('.rpl-form-dropdown__multi-value-label-char')
+        ?.getBoundingClientRect()?.width || 0
+
+    if (itemBBox.left - containerBBox.left > widthToFill - itemCharWidth) {
       break
     } else {
       countShown += 1
@@ -90,18 +95,30 @@ useResizeObserver(itemsRef, (entries) => {
 <template>
   <div class="rpl-form-dropdown__multi-value-label-wrap">
     <div ref="itemsRef" class="rpl-form-dropdown__multi-value-label rpl-type-p">
-      <span v-for="(option, i) in selectedOptions" :key="option.id" data-option-label="true">{{
-        option.label
-      }}{{ i === selectedOptions.length - 1 ? '' : ', ' }}</span>
+      <span
+        v-for="(option, i) in selectedOptions"
+        :key="option.id"
+        data-option-label="true"
+        >{{ option.label
+        }}<span
+          class="rpl-form-dropdown__multi-value-label-char"
+          aria-hidden="true"
+          >&hellip;{{ option.label?.charAt(0) }}</span
+        >{{ i === selectedOptions.length - 1 ? '' : ', ' }}</span
+      >
     </div>
-    <div v-if="numItemsHidden > 0" :style="{
-      width: `${MORE_LABEL_WIDTH}px`
-    }" class="rpl-form-dropdown__more-label rpl-type-p">
+    <div
+      v-if="numItemsHidden > 0"
+      :style="{
+        width: `${MORE_LABEL_WIDTH}px`
+      }"
+      class="rpl-form-dropdown__more-label rpl-type-p"
+    >
       +{{ numItemsHidden }} more
     </div>
   </div>
 </template>
 
-<style src="./MultiValueLabel.css">
+<style src="./MultiValueLabel.css"></style>
 
-</style>
+<style></style>

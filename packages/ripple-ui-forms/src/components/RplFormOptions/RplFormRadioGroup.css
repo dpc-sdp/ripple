@@ -4,6 +4,7 @@
 }
 
 .rpl-form-radio-group--inline {
+  flex-wrap: wrap;
   flex-direction: row;
-  gap: var(--rpl-sp-6);
+  column-gap: var(--rpl-sp-6);
 }

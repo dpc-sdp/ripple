@@ -11,7 +11,6 @@
       "
       :suggestions="results"
       :showNoResults="true"
-      :debounce="5000"
       :maxSuggestionsDisplayed="8"
       :placeholder="placeholder"
       :getOptionId="(itm:any) => itm?.id || itm?.name"

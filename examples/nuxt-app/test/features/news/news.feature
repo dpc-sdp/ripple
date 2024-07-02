@@ -15,7 +15,7 @@ Feature: News page
     When I visit the page "/sample-news"
     And the news page details should include "Published:" "Friday, 11 November 2022 at 12:11 pm"
     And the news page details should include "Location:" "Melbourne metropolitan, Eastern metropolitan Melbourne"
-    And the news page details should include "Department:" "DPC"
+    And the news page details should include "Published by:" "DPC"
 
   @mockserver
   Scenario: Body
@@ -31,7 +31,7 @@ Feature: News page
     When I visit the page "/sample-news"
     Then the news page details should display only the description for "Published:" "Friday, 11 November 2022 at 12:11 pm"
     Then the news page details should display only the description for "Location:" "Melbourne metropolitan, Eastern metropolitan Melbourne"
-    Then the news page details should display only the description for "Department:" "DPC"
+    Then the news page details should display only the description for "Published by:" "DPC"
 
   @mockserver
   Scenario: Feature flags can set the feature image aspect ratio

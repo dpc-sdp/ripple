@@ -3,7 +3,7 @@ export default { name: 'TidePublicationChapters' }
 </script>
 
 <template>
-  <ul class="rpl-grid rpl-u-margin-t-6">
+  <ul class="tide-publication__chapters rpl-grid rpl-u-margin-t-6">
     <TidePublicationChapterCard
       v-for="(chapter, i) in chapters"
       :key="i"

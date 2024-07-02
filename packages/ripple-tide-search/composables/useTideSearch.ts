@@ -296,8 +296,9 @@ export default ({
         // Need to work out if form has value - will be different for different controls
         const hasValue = (v: unknown) => {
           if (
-            itm.component === 'TideSearchFilterDropdown' &&
-            itm?.props?.multiple
+            (itm.component === 'TideSearchFilterDropdown' &&
+              itm?.props?.multiple) ||
+            itm?.component === 'TideSearchFilterCheckboxGroup'
           ) {
             return Array.isArray(v) && v.length > 0
           }
@@ -561,13 +562,12 @@ export default ({
       if (typeof onMapResultsHook.value === 'function') {
         onMapResultsHook.value()
       }
-
-      isBusy.value = false
-      firstLoad.value = true
     } catch (error) {
       console.error(error)
       searchError.value = error
+    } finally {
       isBusy.value = false
+      firstLoad.value = true
     }
   }
 
@@ -750,6 +750,7 @@ export default ({
         if (
           (filterConfig?.component === 'TideSearchFilterDropdown' &&
             filterConfig?.props?.multiple) ||
+          filterConfig?.component === 'TideSearchFilterCheckboxGroup' ||
           filterConfig?.component === 'TideSearchFilterDependent'
         ) {
           parsedValue = Array.isArray(parsedValue) ? parsedValue : [parsedValue]

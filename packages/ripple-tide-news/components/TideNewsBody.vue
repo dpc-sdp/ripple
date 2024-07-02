@@ -41,24 +41,33 @@ const aspectRatio = computed(() =>
 )
 
 const detailsList = computed(() => {
-  return Object.keys(props.details)
-    .map((key) => {
-      if (!props.details[key]) return null
+  const list = []
 
-      let description = props.details[key]
-      if (key === 'published') {
-        description = formatDate(description, {
-          dateStyle: 'full',
-          timeStyle: 'short'
-        })
-      }
-
-      return {
-        term: key[0].toUpperCase() + key.substring(1) + ':',
-        hideTerm: flags?.hideDetailLabels,
-        description: description
-      }
+  if (props.details?.published) {
+    list.push({
+      term: 'Published:',
+      hideTerm: flags?.hideDetailLabels,
+      description: formatDate(props.details?.published, {
+        dateStyle: 'full',
+        timeStyle: 'short'
+      })
     })
-    .filter(Boolean)
+  }
+  if (props.details?.location) {
+    list.push({
+      term: 'Location:',
+      hideTerm: flags?.hideDetailLabels,
+      description: props.details.location
+    })
+  }
+  if (props.details?.department) {
+    list.push({
+      term: 'Published by:',
+      hideTerm: flags?.hideDetailLabels,
+      description: props.details.department
+    })
+  }
+
+  return list
 })
 </script>

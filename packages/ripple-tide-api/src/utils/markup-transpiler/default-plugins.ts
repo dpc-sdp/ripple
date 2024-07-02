@@ -248,6 +248,29 @@ const pluginLinks = function (this: any) {
   })
 }
 
+const pluginLists = function (this: any) {
+  this.find('ul[type], ol[type]').map((i: any, el: any) => {
+    const $list = this.find(el)
+    const type = $list.attr('type')
+
+    const listTypes = {
+      a: 'lower-latin',
+      A: 'upper-latin',
+      i: 'lower-roman',
+      I: 'upper-roman',
+      square: 'square',
+      disc: 'disc',
+      circle: 'disc'
+    }
+
+    $list
+      .removeAttr('type')
+      .addClass(`rpl-type-list-${el?.name}--${listTypes[type]}`)
+
+    return $list
+  })
+}
+
 const pluginIFrames = function (this: any) {
   this.find('iframe').map((i: any, el: any) => {
     const $iframe = this.find(el)
@@ -277,5 +300,6 @@ export default [
   pluginImages,
   pluginButtons,
   pluginLinks,
+  pluginLists,
   pluginIFrames
 ]

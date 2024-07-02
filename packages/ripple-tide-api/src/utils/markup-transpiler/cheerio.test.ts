@@ -16,6 +16,7 @@ const markup = {
   image: `<div class="embedded-entity--media--image"><img src="https://example.com/image.jpg" alt="Image" title="Image" width="100" height="100"></div>`,
   button: `<a class="button" href="https://example.com">Button</a>`,
   link: `<a href="https://example.com" target="_blank">Link</a>`,
+  list: `<ul type="disc"><li>List item</li></ul><ul type="circle"><li>List item</li></ul><ul type="square"><li>List item</li></ul><ol type="i"><li>List item</li></ol><ol type="I"><li>List item</li></ol><ol type="a"><li>List item</li></ol><ol type="A"><li>List item</li></ol>`,
   iframe: `<iframe src="https://powerbi.com" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>`
 }
 
@@ -68,6 +69,7 @@ const fixed = {
   image: `<figure><img src="https://example.com/image.jpg" class="rpl-img" width="100" alt="Image" srcset="https://example.com/image.jpg?width=720, https://example.com/image.jpg?width=1440 2x"></figure>`,
   button: `<a class="rpl-button rpl-button--default rpl-u-focusable-block rpl-button--filled" href="https://example.com"><span class="rpl-button__label rpl-type-label rpl-type-weight-bold">Button</span></a>`,
   link: `<a href="https://example.com" target="_blank" class="rpl-text-link rpl-u-focusable-inline">Link<span class="rpl-u-visually-hidden">(opens in a new window)</span></a>`,
+  list: `<ul class="rpl-type-list-ul--disc"><li>List item</li></ul><ul class="rpl-type-list-ul--disc"><li>List item</li></ul><ul class="rpl-type-list-ul--square"><li>List item</li></ul><ol class="rpl-type-list-ol--lower-roman"><li>List item</li></ol><ol class="rpl-type-list-ol--upper-roman"><li>List item</li></ol><ol class="rpl-type-list-ol--lower-latin"><li>List item</li></ol><ol class="rpl-type-list-ol--upper-latin"><li>List item</li></ol>`,
   iframe: `<div class="rpl-iframe rpl-iframe--default rpl-iframe--auto"><iframe src="https://powerbi.com" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>`
 }
 

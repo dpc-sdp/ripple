@@ -1,6 +1,7 @@
 import {
   getImageFromField,
   getBody,
+  getBodyFromField,
   getLinkFromField,
   getSiteKeyValues,
   TideSiteApi
@@ -41,6 +42,9 @@ export default {
       top: (src: any) => getImageFromField(src, 'field_top_corner_graphic'),
       bottom: (src: any) =>
         getImageFromField(src, 'field_bottom_corner_graphic')
+    },
+    contentRatingText: (src: any) => {
+      return getBodyFromField(src, 'field_additional_comment')
     },
     acknowledgementFooter: 'field_acknowledgement_to_country',
     copyrightHtml: (src: any) => {

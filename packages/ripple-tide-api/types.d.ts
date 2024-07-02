@@ -30,6 +30,7 @@ export interface TideSiteData {
     top?: TideImageField
     bottom?: TideImageField
   }
+  contentRatingText?: string
   acknowledgementHeader?: string
   acknowledgementFooter: string
   copyrightHtml: string

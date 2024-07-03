@@ -1,5 +1,126 @@
 # Changelog
 
+## v2.11.0
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.10.3...v2.11.0)
+
+
+### 🚀 Enhancements
+
+  - **@dpc-sdp/ripple-tide-search:** Add support for overriding the search listing search bar ([ca7e4ad68](https://github.com/dpc-sdp/ripple-framework/commit/ca7e4ad68))
+  - **@dpc-sdp/ripple-ui-core:** Add prop to manage clear btn for search bar ([9c4d6e24e](https://github.com/dpc-sdp/ripple-framework/commit/9c4d6e24e))
+  - **@dpc-sdp/ripple-tide-search:** Allow showing only filters on listings and custom collections ([84a13cd43](https://github.com/dpc-sdp/ripple-framework/commit/84a13cd43))
+  - **@dpc-sdp/ripple-ui-core:** Focus state for scrolling tables ([15d22084c](https://github.com/dpc-sdp/ripple-framework/commit/15d22084c))
+  - **@dpc-sdp/ripple-tide-search:** Fix spacing, add refine tally, and some tests ([379482990](https://github.com/dpc-sdp/ripple-framework/commit/379482990))
+  - **@dpc-sdp/ripple-tide-search:** Added geolocate button to custom collections/maps ([0e482795e](https://github.com/dpc-sdp/ripple-framework/commit/0e482795e))
+  - **@dpc-sdp/ripple-tide-search:** Update query config functions to allow overriding entire query ([57efe9a39](https://github.com/dpc-sdp/ripple-framework/commit/57efe9a39))
+  - **@dpc-sdp/ripple-tide-search:** Always give custom query config functions control ([c4e77bccf](https://github.com/dpc-sdp/ripple-framework/commit/c4e77bccf))
+  - **@dpc-sdp/ripple-ui-forms:** Allow single select dropdowns to be 'deselected'/cleared ([62c8e5686](https://github.com/dpc-sdp/ripple-framework/commit/62c8e5686))
+  - **@dpc-sdp/ripple-ui-forms:** Allowed for a way to opt out of new single select behaviour ([932876bea](https://github.com/dpc-sdp/ripple-framework/commit/932876bea))
+  - **@dpc-sdp/ripple-ui-core:** Removed visited styling from all links, reapply to search results ([c6effcf0d](https://github.com/dpc-sdp/ripple-framework/commit/c6effcf0d))
+  - **@dpc-sdp/ripple-tide-search:** Made geolocate button label configurable ([ca7291a4a](https://github.com/dpc-sdp/ripple-framework/commit/ca7291a4a))
+  - **@dpc-sdp/ripple-ui-maps:** Updated geolocate error message and styling based on feedback ([87ce10380](https://github.com/dpc-sdp/ripple-framework/commit/87ce10380))
+  - **@dpc-sdp/nuxt-ripple:** Allow per section overrides i.e. quick exit ([d241e8553](https://github.com/dpc-sdp/ripple-framework/commit/d241e8553))
+  - **@dpc-sdp/ripple-tide-search:** Allow multiple result items types ([ae054e8b3](https://github.com/dpc-sdp/ripple-framework/commit/ae054e8b3))
+  - **@dpc-sdp/ripple-ui-core:** Design feedback for media embeds ([4a3932d49](https://github.com/dpc-sdp/ripple-framework/commit/4a3932d49))
+  - **@dpc-sdp/ripple-ui-forms:** Add basic keyboard/search support to dropdowns ([24cc4fdc3](https://github.com/dpc-sdp/ripple-framework/commit/24cc4fdc3))
+  - **@dpc-sdp/ripple-ui-core:** Changed visited link style to a util class to fix issues ([49cbbe4d8](https://github.com/dpc-sdp/ripple-framework/commit/49cbbe4d8))
+  - **@dpc-sdp/ripple-tide-search:** Skeleton loading ([d9f4741f2](https://github.com/dpc-sdp/ripple-framework/commit/d9f4741f2))
+  - **@dpc-sdp/nuxt-ripple:** Support quick type adjustments for language fonts ([a83c1277c](https://github.com/dpc-sdp/ripple-framework/commit/a83c1277c))
+  - **@dpc-sdp/nuxt-ripple:** Support media queries in language css ([7a08bb370](https://github.com/dpc-sdp/ripple-framework/commit/7a08bb370))
+  - **@dpc-sdp/ripple-tide-search:** Hide refine search when filters are already open ([7f0f5eb1e](https://github.com/dpc-sdp/ripple-framework/commit/7f0f5eb1e))
+  - **@dpc-sdp/nuxt-ripple:** Add Kurdish (kmr, ckb) support ([40312d08d](https://github.com/dpc-sdp/ripple-framework/commit/40312d08d))
+  - **@dpc-sdp/ripple-tide-publication:** Fix print all pages, add no-index and some tests ([f82b58e44](https://github.com/dpc-sdp/ripple-framework/commit/f82b58e44))
+  - **@dpc-sdp/ripple-tide-search:** Add skeleton and scroll to results for search ui ([8064b1216](https://github.com/dpc-sdp/ripple-framework/commit/8064b1216))
+  - **@dpc-sdp/ripple-ui-forms:** Support for inline checkboxes, update webforms and search listings ([e675e7db8](https://github.com/dpc-sdp/ripple-framework/commit/e675e7db8))
+  - **@dpc-sdp/ripple-ui-core:** Set default layout background colour ([f7d5cc01b](https://github.com/dpc-sdp/ripple-framework/commit/f7d5cc01b))
+  - **@dpc-sdp/nuxt-ripple:** Tweak ar line height ([c95d2093d](https://github.com/dpc-sdp/ripple-framework/commit/c95d2093d))
+  - **@dpc-sdp/ripple-ui-core:** Add support for list types ([4a5ef01a8](https://github.com/dpc-sdp/ripple-framework/commit/4a5ef01a8))
+  - **@dpc-sdp/ripple-tide-publication:** Update details and add tests ([aef2f683a](https://github.com/dpc-sdp/ripple-framework/commit/aef2f683a))
+  - **@dpc-sdp/ripple-tide-news:** Update details and tests ([46704544d](https://github.com/dpc-sdp/ripple-framework/commit/46704544d))
+
+### 🩹 Fixes
+
+  - **@dpc-sdp/ripple-tide-topic:** Hide page updated date for topic/tag/search listing pages ([618afec3b](https://github.com/dpc-sdp/ripple-framework/commit/618afec3b))
+  - **@dpc-sdp/ripple-tide-search:** Remove external link check so results always link to result page ([7c066e562](https://github.com/dpc-sdp/ripple-framework/commit/7c066e562))
+  - **@dpc-sdp/ripple-tide-search:** Updated geolocate error message to match AC ([48ea73633](https://github.com/dpc-sdp/ripple-framework/commit/48ea73633))
+  - **@dpc-sdp/ripple-tide-grant:** Check for external links ([860d28244](https://github.com/dpc-sdp/ripple-framework/commit/860d28244))
+  - **@dpc-sdp/ripple-tide-api:** Fix callout margin ([a585dda82](https://github.com/dpc-sdp/ripple-framework/commit/a585dda82))
+  - ⚡️  validation fixes ([c4384e869](https://github.com/dpc-sdp/ripple-framework/commit/c4384e869))
+  - **@dpc-sdp/ripple-tide-search:** Pin @elastic/search-ui packages ([c7ff4f2e5](https://github.com/dpc-sdp/ripple-framework/commit/c7ff4f2e5))
+  - **@dpc-sdp/ripple-tide-search:** Set a max length on site search bar to match search-ui max length ([5ac8a8ee9](https://github.com/dpc-sdp/ripple-framework/commit/5ac8a8ee9))
+  - **@dpc-sdp/ripple-ui-core:** Added underlines to pagination page links ([8e6201f73](https://github.com/dpc-sdp/ripple-framework/commit/8e6201f73))
+  - **@dpc-sdp/ripple-tide-search:** Update elastic search packages ([3c652673d](https://github.com/dpc-sdp/ripple-framework/commit/3c652673d))
+  - **@dpc-sdp/ripple-ui-core:** Fixed visited link colors not being original link color ([5c0c02400](https://github.com/dpc-sdp/ripple-framework/commit/5c0c02400))
+  - **@dpc-sdp/ripple-tide-search:** Add allow deselect prop to sort ([460add19e](https://github.com/dpc-sdp/ripple-framework/commit/460add19e))
+  - **@dpc-sdp/ripple-tide-landing-page:** Add if check to primary campaign meta ([3ba2a12b1](https://github.com/dpc-sdp/ripple-framework/commit/3ba2a12b1))
+  - **@dpc-sdp/ripple-tide-search:** Fix sort options aria label ([e08dc8aad](https://github.com/dpc-sdp/ripple-framework/commit/e08dc8aad))
+  - **@dpc-sdp/ripple-tide-landing-page:** Content rating success icon ([808d29481](https://github.com/dpc-sdp/ripple-framework/commit/808d29481))
+  - **@dpc-sdp/ripple-ui-core:** Allways ensure expanded menu is visible ([ac041dd1d](https://github.com/dpc-sdp/ripple-framework/commit/ac041dd1d))
+  - **@dpc-sdp/ripple-tide-search:** Fix result tally display for site search ([79d50ef30](https://github.com/dpc-sdp/ripple-framework/commit/79d50ef30))
+  - **@dpc-sdp/nuxt-ripple:** Removes trailing slash on api request ([c3d032452](https://github.com/dpc-sdp/ripple-framework/commit/c3d032452))
+  - **@dpc-sdp/ripple-tide-search:** Added missing debouncing to suggestions and limit to 128 chars ([d12a4bba4](https://github.com/dpc-sdp/ripple-framework/commit/d12a4bba4))
+  - **@dpc-sdp/ripple-tide-search:** Fix cypress result loading issue, add const for scroll offset ([73c8b9b59](https://github.com/dpc-sdp/ripple-framework/commit/73c8b9b59))
+  - **@dpc-sdp/ripple-tide-search:** Fix cypress result loading issue, add const for scroll offset ([9145db521](https://github.com/dpc-sdp/ripple-framework/commit/9145db521))
+  - **@dpc-sdp/ripple-ui-core:** Set firstLoad in finally block ([876b84e73](https://github.com/dpc-sdp/ripple-framework/commit/876b84e73))
+  - **@dpc-sdp/ripple-ui-core:** Improve accuracy of more count for dropdowns ([278e7e8d0](https://github.com/dpc-sdp/ripple-framework/commit/278e7e8d0))
+
+### 💅 Refactors
+
+  - 🔥  remove unneeded meta ([5d43b114c](https://github.com/dpc-sdp/ripple-framework/commit/5d43b114c))
+  - ♻️  silence drupal prop at nuxt-ripple ([5c3931b43](https://github.com/dpc-sdp/ripple-framework/commit/5c3931b43))
+  - ♻️  silence prop at mapping ([788fae5ca](https://github.com/dpc-sdp/ripple-framework/commit/788fae5ca))
+  - **@dpc-sdp/ripple-ui-core:** Updated visited link class name to be clearer ([0ebdecc66](https://github.com/dpc-sdp/ripple-framework/commit/0ebdecc66))
+  - **@dpc-sdp/ripple-tide-search:** Update table skeleton, fix background colour flash ([55ad9b757](https://github.com/dpc-sdp/ripple-framework/commit/55ad9b757))
+
+### 🏡 Chore
+
+  - **@dpc-sdp/nuxt-ripple-cli:** Update new project template ([0c5763b2c](https://github.com/dpc-sdp/ripple-framework/commit/0c5763b2c))
+  - Patch vite-plugin-vue to fix CSS files not triggering HMR ([b4e0f3fca](https://github.com/dpc-sdp/ripple-framework/commit/b4e0f3fca))
+  - **@dpc-sdp/ripple-ui-core:** Story content update ([a6d1200d0](https://github.com/dpc-sdp/ripple-framework/commit/a6d1200d0))
+  - 🧑‍💻  patch sourcemap refs out of parse5 ([39e9733a6](https://github.com/dpc-sdp/ripple-framework/commit/39e9733a6))
+
+### ✅ Tests
+
+  - Fixed tests that check the items of a single select dropdown ([9b123b336](https://github.com/dpc-sdp/ripple-framework/commit/9b123b336))
+  - **nuxt-app:** Update grants listing test ([76bbd6f43](https://github.com/dpc-sdp/ripple-framework/commit/76bbd6f43))
+  - ✅  update tests ([d9f6de5e3](https://github.com/dpc-sdp/ripple-framework/commit/d9f6de5e3))
+  - 🔥  remove unused fixture ([8401a17ea](https://github.com/dpc-sdp/ripple-framework/commit/8401a17ea))
+  - ✅  allow more types in fallback ([61aad8fcc](https://github.com/dpc-sdp/ripple-framework/commit/61aad8fcc))
+  - ✅  remove external img links ([4129c1a2b](https://github.com/dpc-sdp/ripple-framework/commit/4129c1a2b))
+  - ✅  fix lint ([62375ca3f](https://github.com/dpc-sdp/ripple-framework/commit/62375ca3f))
+  - ✅  update fixtures ([866064d39](https://github.com/dpc-sdp/ripple-framework/commit/866064d39))
+  - **nuxt-app:** Fix table tests ([072a00b5c](https://github.com/dpc-sdp/ripple-framework/commit/072a00b5c))
+  - **nuxt-app:** Use expect.closeTo as sometime scroll is half a pixel different in CI ([664b4e29e](https://github.com/dpc-sdp/ripple-framework/commit/664b4e29e))
+  - **nuxt-app:** Increase scroll wait time ([61cdb37a4](https://github.com/dpc-sdp/ripple-framework/commit/61cdb37a4))
+  - **nuxt-app:** Testing tests ([097a85fd0](https://github.com/dpc-sdp/ripple-framework/commit/097a85fd0))
+  - **nuxt-app:** Adding extra search tests ([f66bb6c8a](https://github.com/dpc-sdp/ripple-framework/commit/f66bb6c8a))
+  - **@dpc-sdp/ripple-tide-search:** Added tests for max search bar characters ([ab81dabaf](https://github.com/dpc-sdp/ripple-framework/commit/ab81dabaf))
+  - **@dpc-sdp/ripple-ui-core:** Add more dropdown component tests ([178994e8c](https://github.com/dpc-sdp/ripple-framework/commit/178994e8c))
+  - **@dpc-sdp/ripple-ui-core:** Add test change for CI ([424018a2e](https://github.com/dpc-sdp/ripple-framework/commit/424018a2e))
+
+### 🎨 Styles
+
+  - **@dpc-sdp/ripple-ui-forms:** Minor feedback items ([49da969e1](https://github.com/dpc-sdp/ripple-framework/commit/49da969e1))
+  - **@dpc-sdp/ripple-ui-forms:** Radio and checkbox touch targets ([06fe87493](https://github.com/dpc-sdp/ripple-framework/commit/06fe87493))
+  - **@dpc-sdp/ripple-ui-core:** Fix primary nav alignment ([1f0043d3c](https://github.com/dpc-sdp/ripple-framework/commit/1f0043d3c))
+  - **@dpc-sdp/ripple-ui-core:** Add new portrait aspect ratio for media embed ([1bfa21d3f](https://github.com/dpc-sdp/ripple-framework/commit/1bfa21d3f))
+  - **@dpc-sdp/ripple-ui-core:** Switch to grid for accuracy and css simplicity ([032255d18](https://github.com/dpc-sdp/ripple-framework/commit/032255d18))
+  - **@dpc-sdp/ripple-ui-forms:** Stop overscrolling on dropdowns ([88a9d6aaf](https://github.com/dpc-sdp/ripple-framework/commit/88a9d6aaf))
+  - **@dpc-sdp/nuxt-ripple:** Content rating feedback ([60a1ee200](https://github.com/dpc-sdp/ripple-framework/commit/60a1ee200))
+
+### 🤖 CI
+
+  - **nuxt-app:** Remove 'external' images and add placeholders ([3da514b5f](https://github.com/dpc-sdp/ripple-framework/commit/3da514b5f))
+
+### ❤️  Contributors
+
+- David Featherston <david.featherstone@dpc.vic.gov.au>
+- Jeffrey Dowdle <jeffrey.dowdle@dpc.vic.gov.au>
+- Awang <awang@salsadigital.com.au>
+- Jason Smith <jason.smith@dpc.vic.gov.au>
+- Dylankelly <dylan.kelly@dpc.vic.gov.au>
+
 ## v2.10.3
 
 [compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.10.2...v2.10.3)

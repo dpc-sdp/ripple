@@ -20,6 +20,12 @@
   }
 }
 
+.rpl-document__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--rpl-sp-2);
+}
+
 .rpl-document__name {
   display: inline;
   text-decoration: underline;
@@ -27,7 +33,6 @@
 
 .rpl-document__info {
   color: var(--rpl-clr-neutral-600);
-  margin-top: var(--rpl-sp-2);
   line-height: var(--rpl-type-lh-1);
 }
 

@@ -254,18 +254,21 @@ const pluginLists = function (this: any) {
     const type = $list.attr('type')
 
     const listTypes = {
+      1: 'decimal',
       a: 'lower-latin',
       A: 'upper-latin',
       i: 'lower-roman',
       I: 'upper-roman',
-      square: 'square',
       disc: 'disc',
-      circle: 'disc'
+      square: 'square',
+      circle: 'disc' // circles selection uses disc (a11y request)
     }
 
-    $list
-      .removeAttr('type')
-      .addClass(`rpl-type-list-${el?.name}--${listTypes[type]}`)
+    $list.removeAttr('type')
+
+    if (listTypes[type]) {
+      $list.addClass(`rpl-type-list-${el?.name}--${listTypes[type]}`)
+    }
 
     return $list
   })

@@ -16,7 +16,7 @@ describe('cardCarouselMapping', () => {
           alt: 'Demo: Aerial shot of new housing development',
           focalPoint: undefined,
           height: 571,
-          src: 'https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Aerial-shot-of-new-housing-development.jpg',
+          src: '/sites/default/files/tide_demo_content/Aerial-shot-of-new-housing-development.jpg',
           title: 'Demo: Aerial shot of new housing development',
           width: 1024
         },
@@ -35,7 +35,7 @@ describe('cardCarouselMapping', () => {
           alt: 'Demo: Melbourne tram',
           focalPoint: undefined,
           height: 785,
-          src: 'https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg',
+          src: '/sites/default/files/tide_demo_content/Melbourne-tram.jpg',
           title: 'Demo: Melbourne tram',
           width: 1413
         },
@@ -72,7 +72,7 @@ describe('cardCarouselMapping', () => {
           alt: 'Demo: Engage Vic Hero',
           focalPoint: undefined,
           height: 500,
-          src: 'https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Engage-Vic-photo-hero.jpeg',
+          src: '/sites/default/files/tide_demo_content/Engage-Vic-photo-hero.jpeg',
           title: 'Engage Vic',
           width: 737
         },
@@ -90,7 +90,7 @@ describe('cardCarouselMapping', () => {
           alt: 'Demo: Melbourne tram',
           focalPoint: undefined,
           height: 785,
-          src: 'https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg',
+          src: '/sites/default/files/tide_demo_content/Melbourne-tram.jpg',
           title: 'Demo: Melbourne tram',
           width: 1413
         },
@@ -117,7 +117,7 @@ describe('cardCarouselMapping', () => {
           alt: 'Demo: Melbourne tram',
           focalPoint: undefined,
           height: 785,
-          src: 'https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg',
+          src: '/sites/default/files/tide_demo_content/Melbourne-tram.jpg',
           title: 'Demo: Melbourne tram',
           width: 1413
         },
@@ -148,7 +148,7 @@ describe('cardCarouselMapping', () => {
           alt: 'Demo: 2018-19 State Budget',
           focalPoint: undefined,
           height: 270,
-          src: 'https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/2018-19-State-Budget.jpg',
+          src: '/sites/default/files/tide_demo_content/2018-19-State-Budget.jpg',
           title: 'Demo: 2018-19 State Budget',
           width: 450
         },
@@ -188,7 +188,7 @@ describe('cardCarouselMapping', () => {
           alt: 'Demo: 2018-19 State Budget',
           focalPoint: undefined,
           height: 270,
-          src: 'https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/2018-19-State-Budget.jpg',
+          src: '/sites/default/files/tide_demo_content/2018-19-State-Budget.jpg',
           title: 'Demo: 2018-19 State Budget',
           width: 450
         },
@@ -206,7 +206,7 @@ describe('cardCarouselMapping', () => {
           alt: 'Demo: 2018-19 State Budget',
           focalPoint: undefined,
           height: 270,
-          src: 'https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/2018-19-State-Budget.jpg',
+          src: '/sites/default/files/tide_demo_content/2018-19-State-Budget.jpg',
           title: 'Demo: 2018-19 State Budget',
           width: 450
         },
@@ -253,7 +253,7 @@ describe('cardCarouselMapping', () => {
           alt: 'Demo: Melbourne tram',
           focalPoint: undefined,
           height: 785,
-          src: 'https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg',
+          src: '/sites/default/files/tide_demo_content/Melbourne-tram.jpg',
           title: 'Demo: Melbourne tram',
           width: 1413
         },
@@ -273,7 +273,7 @@ describe('cardCarouselMapping', () => {
           alt: 'Demo: Melbourne tram',
           focalPoint: undefined,
           height: 785,
-          src: 'https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg',
+          src: '/sites/default/files/tide_demo_content/Melbourne-tram.jpg',
           title: 'Demo: Melbourne tram',
           width: 1413
         },
@@ -293,7 +293,7 @@ describe('cardCarouselMapping', () => {
           alt: 'Demo: Roulette aerial display',
           focalPoint: undefined,
           height: 496,
-          src: 'https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/roulette-aerial-display-card.jpg',
+          src: '/sites/default/files/tide_demo_content/roulette-aerial-display-card.jpg',
           title: 'Demo: Roulette aerial display',
           width: 818
         },

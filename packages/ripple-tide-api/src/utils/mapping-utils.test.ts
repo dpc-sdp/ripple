@@ -1,6 +1,5 @@
 import { expect, describe } from '@jest/globals'
 import {
-  removeDomainFromPath,
   getImageFromField,
   getCardImageFromField,
   getLinkFromField,
@@ -129,7 +128,7 @@ const field = {
       y: 50
     },
     height: 700,
-    src: 'https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg',
+    src: '/sites/default/files/tide_demo_content/Melbourne-tram.jpg',
     title: 'Demo: Melbourne tram',
     width: 900
   },
@@ -140,18 +139,12 @@ const field = {
       y: 300
     },
     height: 785,
-    src: 'https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg',
+    src: '/sites/default/files/tide_demo_content/Melbourne-tram.jpg',
     title: 'Demo: Melbourne tram',
     width: 1413
   }
 
 describe('ripple-tide-api/mapping utils', () => {
-  it(`removes domain from a given path`, () => {
-    expect(
-      removeDomainFromPath('https://domain.com/sites/default/files')
-    ).toEqual('/sites/default/files')
-  })
-
   it(`processes api field data for images`, () => {
     expect(getImageFromField(field, 'field_media_image')).toEqual(processedImg)
   })

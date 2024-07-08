@@ -26,7 +26,7 @@ const result: TideHeroHeader = {
   },
   theme: 'default',
   logoImage: {
-    src: 'https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Parliament-of-Victoria.jpg',
+    src: '/sites/default/files/tide_demo_content/Parliament-of-Victoria.jpg',
     alt: 'Demo: Parliament of Victoria',
     title: 'Demo: Parliament of Victoria',
     width: 1650,
@@ -35,14 +35,14 @@ const result: TideHeroHeader = {
   backgroundImage: null,
   backgroundImageCaption: '',
   cornerTop: {
-    src: 'https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Aerial-shot-of-new-housing-development.jpg',
+    src: '/sites/default/files/tide_demo_content/Aerial-shot-of-new-housing-development.jpg',
     alt: 'Demo: Aerial shot of new housing development',
     title: 'Demo: Aerial shot of new housing development',
     width: 1024,
     height: 571
   },
   cornerBottom: {
-    src: 'https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/VicFleet-Police-car-on-road.jpg',
+    src: '/sites/default/files/tide_demo_content/VicFleet-Police-car-on-road.jpg',
     alt: 'Demo: VicFleet - Police car on road',
     title: 'Demo: VicFleet - Police car on road',
     width: 1065,

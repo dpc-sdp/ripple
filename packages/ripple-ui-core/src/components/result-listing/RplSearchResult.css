@@ -70,6 +70,10 @@
     gap: var(--rpl-sp-2);
     align-items: center;
   }
+
+  .rpl-document {
+    padding-bottom: var(--rpl-sp-1);
+  }
 }
 
 .rpl-search-result__body {

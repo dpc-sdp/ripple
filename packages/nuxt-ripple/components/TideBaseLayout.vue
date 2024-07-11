@@ -173,5 +173,5 @@ await nuxtApp.callHook('tide:page', props)
 useTideSiteTheme(props.site)
 useTideHideAlerts()
 useTideSiteMeta(props, nuxtApp?.$app_origin)
-useTideFavicons()
+useTideFavicons(props.site)
 </script>

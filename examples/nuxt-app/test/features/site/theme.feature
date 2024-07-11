@@ -54,3 +54,26 @@ Feature: Site theme
     And the page endpoint for path "/" returns fixture "/landingpage/image-banner" with status 200
     Given I visit the page "/"
     Then the last updated date should not be displayed
+
+  @mockserver
+  Scenario: Favicon and app icons are set correctly
+    Given the site endpoint returns fixture "/site/reference" with status 200
+    And the page endpoint for path "/" returns fixture "/landingpage/image-banner" with status 200
+    Given I visit the page "/"
+    And the site should include the following meta tags
+      | name        | value   |
+      | theme-color | #6B19A3 |
+    And the site should include the following link tags
+      | name             | value                    |
+      | icon             | /placeholders/logo.png   |
+      | apple-touch-icon | /placeholders/medium.png |
+    And the sites manifest should include the following details
+      | key              | value              |
+      | name             | Test site          |
+      | short_name       | Testing            |
+      | description      | About my test site |
+      | theme_color      | #6B19A3            |
+      | background_color | #ffffff            |
+    And the sites manifest should include the following icons
+      | url                      | sizes |
+      | /placeholders/medium.png | any   |

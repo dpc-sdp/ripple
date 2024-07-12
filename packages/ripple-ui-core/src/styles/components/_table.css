@@ -140,3 +140,11 @@
     }
   }
 }
+
+[dir='rtl'] .rpl-table {
+  caption,
+  th,
+  td {
+    text-align: right;
+  }
+}

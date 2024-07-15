@@ -51,7 +51,7 @@ jobs:
         with:
           version: 9.0.6
 
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           version: ${{ matrix.node }}
           cache: ${{ steps.pkgman.outputs.cache }}

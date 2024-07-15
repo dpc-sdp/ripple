@@ -41,6 +41,41 @@ watch(
 )
 
 const submitted = computed(() => submissionState.value.status === 'success')
+
+import { FormKitPlugin, FormKitTypeDefinition } from '@formkit/core'
+import {
+  createRplFormInput,
+  defaultRplFormInputProps,
+  inputLibrary,
+  rplFeatures
+} from '@dpc-sdp/ripple-ui-forms'
+
+const appConfig = useAppConfig()?.ripple as { customInputs: any }
+const customInputDefs = appConfig.customInputs || {}
+
+const customInputs: FormKitPlugin = () => {}
+customInputs.library = (node: any) => {
+  Object.values(customInputDefs).forEach((item: any) => {
+    if (node.props.type === item.id) {
+      const def: FormKitTypeDefinition = {
+        schema: createRplFormInput({
+          $cmp: item.id,
+          props: {
+            ...defaultRplFormInputProps,
+            type: item.type
+          }
+        }),
+        library: {
+          [item.id]: resolveComponent(item.id),
+          ...inputLibrary
+        },
+        ...item.formkitDefProps,
+        features: rplFeatures
+      }
+      return node.define(def)
+    }
+  })
+}
 </script>
 
 <template>
@@ -65,6 +100,7 @@ const submitted = computed(() => submissionState.value.status === 'success')
       <RplForm
         :id="formId"
         :title="title"
+        :customInputs="customInputs"
         :schema="schema"
         :submissionState="submissionState as any"
         @submit="submitHandler(props, $event.data)"

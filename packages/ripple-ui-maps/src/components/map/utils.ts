@@ -153,7 +153,7 @@ export const centerMap = (
   }
 
   const view = map.getView()
-  const resolution = view.getResolution()
+  const resolution = view.getResolutionForZoom(zoom || view.getZoom())
   const offsetCoord = [
     position[0] + offset.x * resolution,
     position[1] + offset.y * resolution

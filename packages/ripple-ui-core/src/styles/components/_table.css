@@ -57,6 +57,10 @@
   th,
   td {
     vertical-align: top;
+
+    > *:first-child {
+      margin-top: 0;
+    }
   }
 
   caption {
@@ -76,7 +80,6 @@
   caption,
   th,
   td {
-    text-align: left;
     padding: var(--rpl-sp-4) var(--rpl-sp-3);
 
     &:first-child {
@@ -86,6 +89,11 @@
     &:last-child {
       padding-right: var(--rpl-sp-4);
     }
+  }
+
+  caption:not([align]),
+  th:not([align]) {
+    text-align: left;
   }
 
   tbody {
@@ -142,9 +150,8 @@
 }
 
 [dir='rtl'] .rpl-table {
-  caption,
-  th,
-  td {
+  caption:not([align]),
+  th:not([align]) {
     text-align: right;
   }
 }

@@ -1,5 +1,6 @@
 <template>
   <RplTextLink v-if="url" :url="url">{{ value }}</RplTextLink>
+  <span v-else>{{ value }}</span>
 </template>
 
 <script setup lang="ts">

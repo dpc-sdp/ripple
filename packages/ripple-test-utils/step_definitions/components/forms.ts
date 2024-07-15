@@ -349,8 +349,25 @@ Then(
   }
 )
 
-// Open forms
+// Extended
+Then(
+  'a field labelled {string} should exist with the CSS class {string}',
+  (label: string, css: string) => {
+    cy.get(css)
+      .closest('.rpl-form__outer')
+      .find('label.rpl-form-label')
+      .should('contain', label)
+  }
+)
 
+// Unsupported
+Then('an input of type {string} is not yet supported', (inputType: string) => {
+  cy.get('.rpl-form__outer.rpl-form__input--unsupported')
+    .contains(inputType)
+    .should('exist')
+})
+
+// Open forms
 Then('there is an openforms embed with the url {string}', (url: string) => {
   cy.get(`iframe[src^="${url}"]`).should('exist')
 })

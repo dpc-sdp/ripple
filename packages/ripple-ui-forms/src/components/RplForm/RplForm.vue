@@ -5,7 +5,8 @@ import {
   FormKitSchemaCondition,
   FormKitSchemaNode,
   FormKitConfig,
-  FormKitNode
+  FormKitNode,
+  FormKitPlugin
 } from '@formkit/core'
 import { getValidationMessages } from '@formkit/validation'
 import rplFormInputs from '../../plugin'
@@ -26,6 +27,7 @@ interface Props {
     title: string
     message: string
   }
+  customInputs?: FormKitPlugin
 }
 
 interface CachedError {
@@ -53,7 +55,8 @@ const props = withDefaults(defineProps<Props>(), {
     status: 'idle',
     title: '',
     message: ''
-  })
+  }),
+  customInputs: () => {}
 })
 
 const emit = defineEmits<{
@@ -230,6 +233,13 @@ const data = reactive({
     return matches && matches.length > 0
   }
 })
+
+const plugins = computed(
+  () =>
+    [rplFormInputs, props.customInputs ? props.customInputs : false].filter(
+      Boolean
+    ) as FormKitPlugin[]
+)
 </script>
 
 <template>
@@ -237,7 +247,7 @@ const data = reactive({
     :id="id"
     v-slot="{ value }"
     type="form"
-    :plugins="[rplFormInputs]"
+    :plugins="plugins"
     form-class="rpl-form"
     :config="rplFormConfig"
     :actions="false"

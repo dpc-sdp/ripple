@@ -49,6 +49,20 @@ declare module '@nuxt/schema' {
           (map: any, results: any, location: any, mapDeadSpace: any) => void
         >
       }
+      customInputs?: {
+        [key: string]: {
+          id: string
+          type: string
+          formkitDefProps: {
+            [key: string]: any
+          }
+          mapping: (
+            fieldID: string,
+            field: any,
+            fieldKey: string
+          ) => Record<string, any>
+        }
+      }
     }
   }
 }

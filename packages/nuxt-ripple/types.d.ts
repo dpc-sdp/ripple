@@ -29,9 +29,9 @@ export interface TideSiteData {
     height: string
   }
   appIcon?: {
-    src: string
-    width: string
-    height: string
+    src?: string
+    apple?: string
+    android?: string
   }
   acknowledgementHeader?: string
   acknowledgementFooter: string

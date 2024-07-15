@@ -56,10 +56,11 @@ export const removeDomainFromPath = (path: string) =>
 
 export const getImageFromField = (
   field: object,
-  path: string | string[]
+  path: string | string[],
+  fallback: any = null
 ): TideImageField | null => {
   const image = get(field, path)
-  return image ? getMediaImage(image) : null
+  return image ? getMediaImage(image) : fallback
 }
 
 export const getCardImageFromField = (

@@ -312,7 +312,8 @@ export function getField(
 ): any
 export function getImageFromField(
   field: string,
-  path: string | string[]
+  path: string | string[],
+  fallback?: any
 ): string
 export function getLinkFromField(field: any, path: string | string[]): any
 export function humanizeFilesize(fileSize: number): string

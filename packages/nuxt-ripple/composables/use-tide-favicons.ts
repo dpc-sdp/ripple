@@ -1,23 +1,21 @@
 import { TideSiteData } from '../types'
 
-export default (site: TideSiteData) => {
-  const theme = useAppConfig()?.ripple?.theme
+export default (site: TideSiteData, theme: any) => {
   const { public: config } = useRuntimeConfig()
 
   let link = []
-  const favicon = site.favicon?.src ?? '/favicon.png'
-  const appIcon = site.appIcon?.src ?? '/app-icon.png'
+  const siteUrl = config?.siteUrl || ''
   const themeColour = theme?.['rpl-clr-primary'] ?? '#ffffff'
 
   const manifest = {
-    id: config?.siteUrl,
+    id: siteUrl,
     name: site?.name,
     short_name: site?.shortName,
     description: site?.slogan?.replace(/<[^>]*>/g, ''),
-    start_url: config?.siteUrl,
+    start_url: siteUrl,
     icons: [
       {
-        src: appIcon,
+        src: site.appIcon?.src ?? siteUrl + (site.appIcon?.android || ''),
         sizes: 'any'
       }
     ],
@@ -28,7 +26,7 @@ export default (site: TideSiteData) => {
 
   link.push({
     rel: 'apple-touch-icon',
-    href: appIcon
+    href: site.appIcon?.src ?? site.appIcon?.apple
   })
 
   link.push({
@@ -38,7 +36,7 @@ export default (site: TideSiteData) => {
 
   link.push({
     rel: 'icon',
-    href: favicon
+    href: site.favicon?.src
   })
 
   useHead({ link, meta: [{ name: 'theme-color', content: themeColour }] })

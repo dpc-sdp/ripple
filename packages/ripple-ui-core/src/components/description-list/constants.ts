@@ -9,4 +9,4 @@ export type IRplDescriptionListItem = {
   iconColour?: (typeof RplColorThemes)[number]
 }
 
-export type IRplDescriptionListVariant = 'default' | 'icon'
+export type IRplDescriptionListVariant = 'default' | 'icon' | 'compact'

@@ -30,6 +30,7 @@ describe('RplSearchBar', () => {
     cy.get('input#1234').click()
     cy.get('[data-option-id="rip"]').should('contain.text', `test - rip`)
   })
+
   it('updates', () => {
     const onChangeSpy = cy.spy().as('onChangeSpy')
     cy.mount(RplSearchBar, {

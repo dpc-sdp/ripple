@@ -91,6 +91,7 @@
           "index": "elasticsearch_index_develop_node",
           "resultsPerPage": 5,
           "displayMapTab": true,
+          "formTheme": "reverse",
           "labels": {
             "submit": "Search",
             "placeholder": "Search by postcode or suburb"
@@ -196,12 +197,12 @@
             "props": {
               "columns": [
                 {
-                  "label": "School name",
-                  "component": "TideSearchListingTableLink"
+                  "label": "Title",
+                  "objectKey": "test_title"
                 },
                 {
-                  "label": "Suburb",
-                  "objectKey": "field_suburb"
+                  "label": "Description",
+                  "objectKey": "description"
                 }
               ]
             }

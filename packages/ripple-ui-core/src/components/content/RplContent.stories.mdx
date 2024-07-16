@@ -150,8 +150,7 @@ export const SingleTemplate = (args) => ({
       html: `
       <figure class="rpl-document">
         <a
-         tabindex="-1"
-         class="rpl-document__link"
+         class="rpl-document__link rpl-u-focusable-within"
          aria-label="Example file File type: PDF. Size: 1.5 mb."
          href="http://vic.gov.au/"
          target="_blank">
@@ -159,7 +158,7 @@ export const SingleTemplate = (args) => ({
             <svg role="presentation"><use xlink:href="#icon-document-lined"></use></svg>
           </span>
           <div class="rpl-document__content">
-            <span class="rpl-document__name rpl-type-p rpl-type-weight-bold rpl-u-focusable-inline" tabindex="0">This is an example of a document title</span>
+            <span class="rpl-document__name rpl-type-p rpl-type-weight-bold rpl-u-focusable-inline"">This is an example of a document title</span>
             <div class="rpl-document__info rpl-type-label-small">
               <span class="rpl-file__meta">PDF</span>
               <span class="rpl-file__meta">1.5 mb</span>

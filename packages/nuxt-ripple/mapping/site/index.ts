@@ -1,6 +1,7 @@
 import {
   getImageFromField,
   getBody,
+  getMediaPath,
   getLinkFromField,
   getSiteKeyValues,
   TideSiteApi
@@ -21,9 +22,9 @@ export default {
       if (src.field_site_logo) {
         return {
           href: '/',
-          src: src.field_site_logo.url,
+          src: getMediaPath(src, 'field_site_logo'),
           altText: src.field_site_logo.meta?.alt,
-          printSrc: getImageFromField(src, 'field_print_friendly_logo')?.src
+          printSrc: getMediaPath(src, 'field_print_friendly_logo')
         }
       }
 

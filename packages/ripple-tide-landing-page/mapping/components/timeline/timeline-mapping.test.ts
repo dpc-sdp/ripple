@@ -375,7 +375,7 @@ describe('timelineMapping', () => {
               alt: 'Demo: Bendigo Hospital',
               focalPoint: undefined,
               height: 959,
-              src: 'https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Bendigo-Hospital.jpg',
+              src: '/sites/default/files/tide_demo_content/Bendigo-Hospital.jpg',
               title: 'Demo: Bendigo Hospital.jpg',
               width: 1280
             },

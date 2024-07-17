@@ -1,4 +1,5 @@
 import basicTextMapping from './components/basic-text/basic-text-mapping'
+import fromLibraryMapping from './components/from-library/from-library-mapping'
 import accordionMapping from './components/accordion/accordion-mapping'
 import promoCardMapping from './components/promo-card/promo-card-mapping'
 import navigationCardMapping from './components/navigation-card/navigation-card-mapping'
@@ -19,6 +20,7 @@ import openFormsMapping from './components/openforms/openforms-mapping'
 
 export default {
   'paragraph--basic_text': basicTextMapping,
+  'paragraph--from_library': fromLibraryMapping,
   'paragraph--accordion': accordionMapping,
   'paragraph--promotion_card': promoCardMapping,
   'paragraph--navigation_card': navigationCardMapping,

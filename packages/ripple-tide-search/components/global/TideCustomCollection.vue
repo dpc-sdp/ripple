@@ -562,6 +562,7 @@ const locationOrGeolocation = computed(() => {
           v-bind="locationQueryConfig?.props"
           :label="searchListingConfig.labels?.submit"
           :placeholder="searchListingConfig.labels?.placeholder"
+          :variant="reverseFields ? 'reverse' : 'default'"
           :inputValue="locationQuery"
           :resultsloaded="mapFeatures.length > 0"
           :isGettingLocation="isGettingLocation"

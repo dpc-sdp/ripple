@@ -5,6 +5,7 @@ export { default as TideSiteApi } from './services/tide-site.js'
 export { default as logger } from './logger/logger.js'
 export * from './utils/createHandler.js'
 export { stripSiteId } from './utils/stripSiteId.js'
+export { stripMediaBaseUrl } from './utils/stripMediaBaseUrl.js'
 
 export {
   addAnchorLinksToHTML,

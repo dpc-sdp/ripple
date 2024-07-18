@@ -59,7 +59,7 @@ Feature: Table layout
     Then the tables extra content should contain the label "Funded for" and text "Multicultural Service"
     And the tables extra content should contain the label "Email", value "contact@africanfamilyservices.org.au" and link "mailto:contact@africanfamilyservices.org.au"
     And the tables extra content should contain the label "Phone", value "03 9602 5046" and link "tel:03 9602 5046"
-    And the tables extra content should contain the label "Website", value "http://africanfamilyservices.org.au/#contact-us" and link "http://africanfamilyservices.org.au/#contact-us"
+    And the tables extra content should contain the label "Website", value "African Family Services" and link "http://africanfamilyservices.org.au/#contact-us"
     And the tables extra content should contain the text "Includes statewide service"
     And the tables extra content should contain the class "rpl-tag--dark"
     And the table row with text "Department with no extra content" should not display more information

@@ -1,4 +1,4 @@
-import { getBody } from '@dpc-sdp/ripple-tide-api'
+import { getBody, getMediaPath } from '@dpc-sdp/ripple-tide-api'
 import { TideDynamicPageComponent } from '@dpc-sdp/ripple-tide-api/types'
 
 export interface ITideComplexImage {
@@ -25,11 +25,13 @@ export const complexImageMapping = (
     props: {
       title: field.field_complex_image_title,
       sourceCaption: field.field_complex_image_source,
-      src: field.field_complex_image_media.field_media_image.url,
+      src: getMediaPath(field.field_complex_image_media.field_media_image),
       dataLabel: field.field_complex_image_data_label,
       dataContent: getBody(field.field_complex_image_data?.processed),
       fullscreenLabel: field.field_complex_image_full_label,
-      downloadUrl: field.field_complex_image_media.field_media_image.url,
+      downloadUrl: getMediaPath(
+        field.field_complex_image_media.field_media_image
+      ),
       downloadLabel: field.field_complex_image_dl_label,
       type: 'image',
       variant: 'complex',

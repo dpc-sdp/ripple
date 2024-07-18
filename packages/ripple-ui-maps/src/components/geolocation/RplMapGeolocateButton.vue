@@ -21,7 +21,6 @@
   </div>
 </template>
 <script setup lang="ts">
-import { defineEmits } from 'vue'
 import { RplIcon } from '@dpc-sdp/ripple-ui-core/vue'
 
 interface Props {

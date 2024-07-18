@@ -1,5 +1,4 @@
-import mime from 'mime-types'
-import { getField, humanizeFilesize } from '@dpc-sdp/ripple-tide-api'
+import { getField, getDocumentFromField } from '@dpc-sdp/ripple-tide-api'
 import {
   tidePageBaseMapping,
   tidePageBaseIncludes
@@ -59,13 +58,9 @@ const tidePublicationModule: IRplTideModuleMapping = {
       url: 'path.url',
       id: 'id',
       documents: (src: string) =>
-        getField(src, 'field_node_documents').map((doc: any) => ({
-          name: doc.name,
-          url: doc.field_media_file.url || doc.field_media_file.uri,
-          size: humanizeFilesize(doc.field_media_file.filesize),
-          extension: mime.extension(doc.field_media_file.filemime),
-          id: doc.id
-        }))
+        getField(src, 'field_node_documents').map((doc: any) =>
+          getDocumentFromField(doc)
+        )
     },
     showLastUpdated: () => true
   },

@@ -79,6 +79,7 @@
               {
                 "label": "Website",
                 "objectKey": "Website/Links",
+                "objectTextKey": "Organisation",
                 "component": "TideSearchListingTableUrl"
               },
               {

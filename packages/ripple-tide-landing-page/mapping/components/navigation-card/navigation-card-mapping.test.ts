@@ -79,7 +79,7 @@ describe('navigationCardMapping', () => {
           alt: 'Demo: Melbourne tram',
           focalPoint: undefined,
           height: 785,
-          src: 'https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg',
+          src: '/sites/default/files/tide_demo_content/Melbourne-tram.jpg',
           title: 'Demo: Melbourne tram',
           width: 1413
         },

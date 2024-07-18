@@ -18,7 +18,7 @@ import dataTableMapping from './components/data-table/data-table-mapping'
 import compactCardsMapping from './components/compact-cards/compact-cards-mapping'
 import openFormsMapping from './components/openforms/openforms-mapping'
 
-export default {
+const mappings = {
   'paragraph--basic_text': basicTextMapping,
   'paragraph--from_library': fromLibraryMapping,
   'paragraph--accordion': accordionMapping,
@@ -39,3 +39,12 @@ export default {
   'paragraph--compact_card_collection': compactCardsMapping,
   'paragraph--form_embed_openforms': openFormsMapping
 }
+
+// Handle reusable paragraphs in any includes so they load the referenced items.
+Object.keys(mappings).forEach(k => {
+  if (k !== 'paragraph--from_library' && mappings[k].includes.length > 0) {
+    mappings[k].includes = mappings[k].includes.concat(mappings[k].includes.map(k => k.replace('field_landing_page_component.','field_landing_page_component.field_reusable_paragraph.paragraphs.')))
+  }
+})
+
+export default mappings

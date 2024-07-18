@@ -49,7 +49,7 @@ const detailsList = computed(() => {
       hideTerm: flags?.hideDetailLabels,
       description: formatDate(props.details?.published, {
         dateStyle: 'full',
-        timeStyle: 'short'
+        timeStyle: flags?.hidePublishedTime ? undefined : 'short'
       })
     })
   }

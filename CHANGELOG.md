@@ -1,5 +1,18 @@
 # Changelog
 
+## v2.11.1
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.11.0...v2.11.1)
+
+
+### 🩹 Fixes
+
+  - **@dpc-sdp/ripple-tide-news:** 🐛  added flag option to remove published time ([50c04d3e1](https://github.com/dpc-sdp/ripple-framework/commit/50c04d3e1))
+
+### ❤️  Contributors
+
+- Dylan Kelly <dylan.kelly@dpc.vic.gov.au>
+
 ## v2.11.0
 
 [compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.10.3...v2.11.0)

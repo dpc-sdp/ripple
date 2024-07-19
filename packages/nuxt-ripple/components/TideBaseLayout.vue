@@ -111,8 +111,8 @@ export interface Props {
   footerImageCaption?: string
   topicTags?: TideTopicTag[]
   updatedDate?: string | null
-  siteSection: TideSiteSection | null
-  page: any
+  siteSection?: TideSiteSection | null
+  page?: any
   showContentRating?: boolean
 }
 
@@ -123,6 +123,7 @@ const props = withDefaults(defineProps<Props>(), {
   topicTags: () => [],
   updatedDate: null,
   siteSection: null,
+  page: null,
   showContentRating: false
 })
 

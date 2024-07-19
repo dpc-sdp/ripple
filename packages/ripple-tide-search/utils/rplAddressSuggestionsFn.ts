@@ -1,6 +1,6 @@
 import { capitalCase } from 'change-case'
 
-const getSuburbSuggestions = async (query, args) => {
+const getSuburbSuggestions = async (query) => {
   const suggestionsIndex = 'vicpol-postcode-localities'
 
   const searchUrl = `/api/tide/app-search/${suggestionsIndex}/elasticsearch/_search`
@@ -50,7 +50,7 @@ const getSuburbSuggestions = async (query, args) => {
   })
 }
 
-const getAddressSuggestions = async (query, args) => {
+const getAddressSuggestions = async (query) => {
   const geocodeServerUrl =
     'https://corp-geo.mapshare.vic.gov.au/arcgis/rest/services/Geocoder/VMAddressEZIAdd/GeocodeServer'
 

@@ -17,12 +17,12 @@ import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
 import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
 
 interface Props {
-  id: string
+  id?: string
   pageTitle: string
   filtersConfig: AppSearchFilterConfigItem[]
   searchDriverOptions: Omit<SearchDriverOptions, 'apiConnector'>
   searchResultsMappingFn: (item: any) => MappedSearchResult<any>
-  scrollToResults: boolean
+  scrollToResults?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -316,6 +316,7 @@ watch(
                 </div>
               </div>
               <RplFormActions
+                id="tide-search-page-actions"
                 :label="submitFiltersLabel"
                 resetLabel="Clear search filters"
                 :displayResetButton="true"

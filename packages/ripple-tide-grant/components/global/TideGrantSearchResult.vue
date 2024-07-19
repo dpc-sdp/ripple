@@ -29,8 +29,8 @@ const amount = computed(() => {
   return null
 })
 
-const isOnGoing = computed(() =>
-  getSearchResultValue(props.result, 'field_node_on_going')
+const isOnGoing = computed(
+  () => getSearchResultValue(props.result, 'field_node_on_going') ?? false
 )
 
 const dateFrom = computed(() =>

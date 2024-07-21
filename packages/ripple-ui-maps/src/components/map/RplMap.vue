@@ -1,3 +1,9 @@
+<script lang="ts">
+const primaryColor = getComputedStyle(
+  document.documentElement
+).getPropertyValue('--rpl-clr-primary')
+</script>
+
 <script setup lang="ts">
 import { RplIcon } from '@dpc-sdp/ripple-ui-core/vue'
 import type { IRplMapFeature } from './../../types'
@@ -57,7 +63,7 @@ const props = withDefaults(defineProps<Props>(), {
   initialCenter: () => [144.9631, -36.8136], // melbourne CBD
   homeViewExtent: () => [144.9631, -36.8136], // melbourne CBD
   pinStyle: (feature) => {
-    let color = feature.color || 'red'
+    let color = feature.color || primaryColor || 'red'
     const ic = new Icon({
       src: markerIconDefaultSrc,
       color,

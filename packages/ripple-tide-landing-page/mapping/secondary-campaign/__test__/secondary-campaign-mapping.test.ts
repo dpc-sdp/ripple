@@ -18,7 +18,7 @@ describe('secondaryCampaignMapping', () => {
         url: 'https://www.vic.gov.au'
       },
       image: {
-        src: 'https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg',
+        src: '/sites/default/files/tide_demo_content/Melbourne-tram.jpg',
         alt: 'Demo: Melbourne tram',
         title: 'Demo: Melbourne tram',
         width: 1413,

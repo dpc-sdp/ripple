@@ -467,7 +467,7 @@ Then(
   `the search suggestions displayed should include`,
   (dataTable: DataTable) => {
     const table = dataTable.raw()
-    cy.get('#tide-search-bar__menu')
+    cy.get('.rpl-search-bar__menu')
       .find('[role="option"]')
       .as('suggestedOptions')
 
@@ -483,7 +483,7 @@ Then(
 )
 
 When('I click the search suggestion labelled {string}', (label: string) => {
-  cy.get('#tide-search-bar__menu')
+  cy.get('.rpl-search-bar__menu')
     .find('[role="option"]')
     .contains(label)
     .click()

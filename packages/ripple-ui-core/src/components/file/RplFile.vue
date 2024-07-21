@@ -6,21 +6,26 @@ import {
   useRippleEvent,
   rplEventPayload
 } from '../../composables/useRippleEvent'
+import { RplIconSizes } from '../icon/constants'
 
 interface Props {
-  name: string
-  url: string
+  name?: string
+  url?: string
   extension?: string
   size?: string
   updated?: string
   caption?: string
+  iconSize?: (typeof RplIconSizes)[number]
 }
 
 const props = withDefaults(defineProps<Props>(), {
+  name: undefined,
+  url: undefined,
   extension: undefined,
   size: undefined,
   updated: undefined,
-  caption: undefined
+  caption: undefined,
+  iconSize: 'l'
 })
 
 const emit = defineEmits<{
@@ -47,11 +52,16 @@ const hasInfo = computed(() => props.extension || props.size || props.updated)
 </script>
 
 <template>
-  <RplDocument :url="url" :global-events="false" @download="onDownload">
+  <RplDocument
+    :url="url"
+    :global-events="false"
+    :class="`rpl-file--icon-${iconSize}`"
+    @download="onDownload"
+  >
     <template #icon>
-      <RplIcon name="icon-document-lined" size="l" colour="default" />
+      <RplIcon name="icon-document-lined" :size="iconSize" colour="default" />
     </template>
-    <template #name>
+    <template v-if="name" #name>
       {{ name }}
     </template>
     <template v-if="hasInfo" #info>

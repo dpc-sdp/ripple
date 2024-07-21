@@ -36,7 +36,7 @@ describe('RplMediaGallery', () => {
     cy.document().get('.rpl-media-gallery__modal').should('be.visible')
   })
 
-  it('navigates to next item via pagination', () => {
+  it('navigates to through items with pagination', () => {
     cy.mount(RplMediaGallery, { props })
 
     cy.get('[aria-label="Go to next item"]').click()
@@ -47,6 +47,15 @@ describe('RplMediaGallery', () => {
     cy.get('.rpl-media-gallery__primary-images .swiper-slide-active .rpl-image')
       .should('have.attr', 'src')
       .and('equal', items[1].thumbnail)
+
+    cy.get('[aria-label="Go to previous item"]').click()
+    cy.get('.rpl-media-gallery__primary-content .swiper-slide-active').should(
+      'contain',
+      items[0].title
+    )
+    cy.get('.rpl-media-gallery__primary-images .swiper-slide-active .rpl-image')
+      .should('have.attr', 'src')
+      .and('equal', items[0].thumbnail)
   })
 
   it('displays the item navigated too fullscreen', () => {
@@ -58,11 +67,46 @@ describe('RplMediaGallery', () => {
       .find(' .rpl-media-gallery__button')
       .click()
 
-    cy.document()
-      .get('.rpl-media-gallery__modal-content .swiper-slide-active')
-      .should('contain', items[1].title)
+    cy.get('.rpl-media-gallery__modal').should('be.visible')
+
+    cy.get('.rpl-media-gallery__modal-content .swiper-slide-active').should(
+      'contain',
+      items[1].title
+    )
     cy.get('.rpl-media-gallery__modal-images .swiper-slide-active .rpl-image')
       .should('have.attr', 'src')
       .and('equal', items[1].thumbnail)
+  })
+
+  it('allows navigating through items in fullscreen gallery', () => {
+    cy.mount(RplMediaGallery, { props })
+
+    cy.get('.rpl-media-gallery__primary-content .rpl-media-gallery__button')
+      .first()
+      .click()
+
+    cy.get('.rpl-media-gallery__modal').as('modal')
+
+    cy.get('@modal').find('[aria-label="Go to next item"]').click()
+
+    cy.get('@modal').contains(
+      '.rpl-media-gallery__modal-content .swiper-slide-active',
+      items[1].title
+    )
+    cy.get('@modal')
+      .find('.swiper-slide-active .rpl-image')
+      .should('have.attr', 'src')
+      .and('equal', items[1].image)
+
+    cy.get('@modal').find('[aria-label="Go to previous item"]').click()
+
+    cy.get('@modal').contains(
+      '.rpl-media-gallery__modal-content .swiper-slide-active',
+      items[0].title
+    )
+    cy.get('@modal')
+      .find('.swiper-slide-active .rpl-image')
+      .should('have.attr', 'src')
+      .and('equal', items[0].image)
   })
 })

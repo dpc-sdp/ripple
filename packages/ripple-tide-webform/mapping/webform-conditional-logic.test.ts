@@ -1,5 +1,11 @@
 import { expect, describe, it } from '@jest/globals'
-import { getConditionals } from './webform-conditional-logic.js'
+import { getConditionals } from './webform-conditional-logic'
+
+const logger = {
+  warn: (message: string, props: { label: string }) => {
+    console.warn(props.label, message)
+  }
+}
 
 describe('getConditionals', () => {
   describe('states', () => {
@@ -18,7 +24,7 @@ describe('getConditionals', () => {
         required: '$isChecked($get(input_a).value, "true")'
       }
 
-      expect(getConditionals(input)).toEqual(expected)
+      expect(getConditionals(input, logger)).toEqual(expected)
     })
 
     it('disabled', () => {
@@ -36,7 +42,7 @@ describe('getConditionals', () => {
         disabled: '$isChecked($get(input_a).value, "true")'
       }
 
-      expect(getConditionals(input)).toEqual(expected)
+      expect(getConditionals(input, logger)).toEqual(expected)
     })
 
     it('enabled', () => {
@@ -54,7 +60,7 @@ describe('getConditionals', () => {
         disabled: '$negate($isChecked($get(input_a).value, "true"))'
       }
 
-      expect(getConditionals(input)).toEqual(expected)
+      expect(getConditionals(input, logger)).toEqual(expected)
     })
 
     it('visible', () => {
@@ -72,7 +78,7 @@ describe('getConditionals', () => {
         if: '$isChecked($get(input_a).value, "true")'
       }
 
-      expect(getConditionals(input)).toEqual(expected)
+      expect(getConditionals(input, logger)).toEqual(expected)
     })
 
     it('invisible', () => {
@@ -90,7 +96,7 @@ describe('getConditionals', () => {
         if: '$negate($isChecked($get(input_a).value, "true"))'
       }
 
-      expect(getConditionals(input)).toEqual(expected)
+      expect(getConditionals(input, logger)).toEqual(expected)
     })
   })
 
@@ -110,7 +116,7 @@ describe('getConditionals', () => {
         required: '$negate($isFilled($get(input_a).value))'
       }
 
-      expect(getConditionals(input)).toEqual(expected)
+      expect(getConditionals(input, logger)).toEqual(expected)
     })
 
     it('filled', () => {
@@ -128,7 +134,7 @@ describe('getConditionals', () => {
         required: '$isFilled($get(input_a).value)'
       }
 
-      expect(getConditionals(input)).toEqual(expected)
+      expect(getConditionals(input, logger)).toEqual(expected)
     })
 
     it('checked', () => {
@@ -146,7 +152,7 @@ describe('getConditionals', () => {
         required: '$isChecked($get(input_a).value, "true")'
       }
 
-      expect(getConditionals(input)).toEqual(expected)
+      expect(getConditionals(input, logger)).toEqual(expected)
     })
 
     it('unchecked', () => {
@@ -164,7 +170,7 @@ describe('getConditionals', () => {
         required: '$negate($isChecked($get(input_a).value, "true"))'
       }
 
-      expect(getConditionals(input)).toEqual(expected)
+      expect(getConditionals(input, logger)).toEqual(expected)
     })
 
     it('value', () => {
@@ -182,7 +188,7 @@ describe('getConditionals', () => {
         required: '$isEqual($get(input_a).value, "abc")'
       }
 
-      expect(getConditionals(input)).toEqual(expected)
+      expect(getConditionals(input, logger)).toEqual(expected)
     })
 
     it('!value', () => {
@@ -200,7 +206,7 @@ describe('getConditionals', () => {
         required: '$negate($isEqual($get(input_a).value, abc))'
       }
 
-      expect(getConditionals(input)).toEqual(expected)
+      expect(getConditionals(input, logger)).toEqual(expected)
     })
 
     it('pattern', () => {
@@ -218,7 +224,7 @@ describe('getConditionals', () => {
         required: '$isPatternMatch($get(input_a).value, "abc")'
       }
 
-      expect(getConditionals(input)).toEqual(expected)
+      expect(getConditionals(input, logger)).toEqual(expected)
     })
 
     it('!pattern', () => {
@@ -236,7 +242,7 @@ describe('getConditionals', () => {
         required: '$negate($isPatternMatch($get(input_a).value, "abc"))'
       }
 
-      expect(getConditionals(input)).toEqual(expected)
+      expect(getConditionals(input, logger)).toEqual(expected)
     })
 
     it('less', () => {
@@ -254,7 +260,7 @@ describe('getConditionals', () => {
         required: '$difference($get(input_a).value, 10) < 0'
       }
 
-      expect(getConditionals(input)).toEqual(expected)
+      expect(getConditionals(input, logger)).toEqual(expected)
     })
 
     it('greater', () => {
@@ -272,7 +278,7 @@ describe('getConditionals', () => {
         required: '$difference($get(input_a).value, 10) > 0'
       }
 
-      expect(getConditionals(input)).toEqual(expected)
+      expect(getConditionals(input, logger)).toEqual(expected)
     })
   })
 
@@ -296,7 +302,7 @@ describe('getConditionals', () => {
           '$isChecked($get(input_a).value, "true") && $isEqual($get(input_b).value, "abc")'
       }
 
-      expect(getConditionals(input)).toEqual(expected)
+      expect(getConditionals(input, logger)).toEqual(expected)
     })
 
     it('OR', () => {
@@ -323,7 +329,7 @@ describe('getConditionals', () => {
           '$isChecked($get(input_a).value, "true") || $isEqual($get(input_b).value, "abc")'
       }
 
-      expect(getConditionals(input)).toEqual(expected)
+      expect(getConditionals(input, logger)).toEqual(expected)
     })
 
     it('XOR', () => {
@@ -350,7 +356,7 @@ describe('getConditionals', () => {
           '$xor($isChecked($get(input_a).value, "true"), $isEqual($get(input_b).value, "abc"))'
       }
 
-      expect(getConditionals(input)).toEqual(expected)
+      expect(getConditionals(input, logger)).toEqual(expected)
     })
   })
 
@@ -370,7 +376,7 @@ describe('getConditionals', () => {
         required: '$isChecked($get(input_a).value, "option_one")'
       }
 
-      expect(getConditionals(input)).toEqual(expected)
+      expect(getConditionals(input, logger)).toEqual(expected)
     })
 
     it('value', () => {
@@ -388,7 +394,7 @@ describe('getConditionals', () => {
         required: '$isEqual($get(input_a).value, "option_one")'
       }
 
-      expect(getConditionals(input)).toEqual(expected)
+      expect(getConditionals(input, logger)).toEqual(expected)
     })
   })
 
@@ -408,6 +414,6 @@ describe('getConditionals', () => {
       required: '$isChecked($get(test_id_input_a).value, "true")'
     }
 
-    expect(getConditionals(input)).toEqual(expected)
+    expect(getConditionals(input, logger)).toEqual(expected)
   })
 })

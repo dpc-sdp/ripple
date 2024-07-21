@@ -1,4 +1,5 @@
 import { TideDynamicPageComponent } from '@dpc-sdp/ripple-tide-api/types'
+import { getMediaPath } from '@dpc-sdp/ripple-tide-api'
 
 export interface ITideMediaGallery {
   id: string
@@ -25,9 +26,8 @@ export const mediaGalleryMapping = (
             title: item.name,
             caption: item.field_media_caption,
             alt: item.field_media_image.meta.alt,
-            thumbnail:
-              item.field_media_image?.url || item.field_media_image.uri,
-            image: item.field_media_image?.url || item.field_media_image.uri
+            thumbnail: getMediaPath(item.field_media_image),
+            image: getMediaPath(item.field_media_image)
           }
         }
       )

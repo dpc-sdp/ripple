@@ -1,5 +1,73 @@
 # Changelog
 
+## v2.12.0
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.11.1...v2.12.0)
+
+
+### 🚀 Enhancements
+
+  - **@dpc-sdp/ripple-tide-search:** Adds address search and refactors search suggestions ([46609e3a0](https://github.com/dpc-sdp/ripple-framework/commit/46609e3a0))
+  - ✨  extend formkit input library ([f93e47d7e](https://github.com/dpc-sdp/ripple-framework/commit/f93e47d7e))
+  - **@dpc-sdp/nuxt-ripple-cli:** Update action versions, respect GitHubs prerelease checkbox ([7c91a1dfd](https://github.com/dpc-sdp/ripple-framework/commit/7c91a1dfd))
+  - **@dpc-sdp/ripple-ui-maps:** Default map pin color to primary site color instead of red ([6c21be8a1](https://github.com/dpc-sdp/ripple-framework/commit/6c21be8a1))
+  - **@dpc-sdp/ripple-tide-search:** Added helper components for laying out result tables ([87a470be6](https://github.com/dpc-sdp/ripple-framework/commit/87a470be6))
+  - **@dpc-sdp/ripple-ui-core:** Use classes for list types, remove circle ([3627fb8b1](https://github.com/dpc-sdp/ripple-framework/commit/3627fb8b1))
+  - **@dpc-sdp/ripple-ui-core:** Update component tests ([07829674c](https://github.com/dpc-sdp/ripple-framework/commit/07829674c))
+  - **@dpc-sdp/ripple-tide-api:** Update list plugin ([e86005d53](https://github.com/dpc-sdp/ripple-framework/commit/e86005d53))
+  - **@dpc-sdp/ripple-ui-core:** Add file example to search results ([4a069a7fe](https://github.com/dpc-sdp/ripple-framework/commit/4a069a7fe))
+  - **@dpc-sdp/ripple-tide-api:** Use relative URLs for media files ([48199d668](https://github.com/dpc-sdp/ripple-framework/commit/48199d668))
+  - **@dpc-sdp/ripple-tide-search:** Allow specifying the url text key ([fed98ed31](https://github.com/dpc-sdp/ripple-framework/commit/fed98ed31))
+
+### 🩹 Fixes
+
+  - **@dpc-sdp/ripple-ui-core:** Fixed description list missing types ([db90aaceb](https://github.com/dpc-sdp/ripple-framework/commit/db90aaceb))
+  - **@dpc-sdp/ripple-tide-search:** Pass map deadspace to map results hook ([ed11a1468](https://github.com/dpc-sdp/ripple-framework/commit/ed11a1468))
+  - **@dpc-sdp/ripple-ui-maps:** Fixed centreMap util when it's given a custom zoom level ([ef6a21741](https://github.com/dpc-sdp/ripple-framework/commit/ef6a21741))
+  - **@dpc-sdp/nuxt-ripple:** Fallback to value if no URL exists ([b653e76c3](https://github.com/dpc-sdp/ripple-framework/commit/b653e76c3))
+  - **@dpc-sdp/ripple-tide-search:** Add variant prop to locationQueryConfig component ([717ca9985](https://github.com/dpc-sdp/ripple-framework/commit/717ca9985))
+
+### 💅 Refactors
+
+  - ♻️  move layer to nuxt-app ([fbffa9ac9](https://github.com/dpc-sdp/ripple-framework/commit/fbffa9ac9))
+
+### 📦 Build
+
+  - 👷  update actions to node 20 ([b51d24e9c](https://github.com/dpc-sdp/ripple-framework/commit/b51d24e9c))
+  - 👷  update actions to node 20 ([54b46e710](https://github.com/dpc-sdp/ripple-framework/commit/54b46e710))
+
+### 🏡 Chore
+
+  - **@dpc-sdp/ripple-tide-search:** Depricate old suggestions props ([9131e3a63](https://github.com/dpc-sdp/ripple-framework/commit/9131e3a63))
+  - **ripple-ui-forms-ext:** ⚗️  example layer for custom input ([03f5c3c60](https://github.com/dpc-sdp/ripple-framework/commit/03f5c3c60))
+  - Remove unneeded import ([dbc71a6fd](https://github.com/dpc-sdp/ripple-framework/commit/dbc71a6fd))
+  - **@dpc-sdp/nuxt-ripple:** Update label ([5d9dd42c6](https://github.com/dpc-sdp/ripple-framework/commit/5d9dd42c6))
+
+### ✅ Tests
+
+  - **@dpc-sdp/ripple-tide-search:** Added tests for location suggestions ([b6f1be8a4](https://github.com/dpc-sdp/ripple-framework/commit/b6f1be8a4))
+  - **@dpc-sdp/ripple-tide-webform:** ✅  fix unit test ([349ac75c4](https://github.com/dpc-sdp/ripple-framework/commit/349ac75c4))
+  - ✅  add cypress tests for form input extend ([4bdb5a5c4](https://github.com/dpc-sdp/ripple-framework/commit/4bdb5a5c4))
+
+### ❤️  Contributors
+
+- David Featherston <david.featherstone@dpc.vic.gov.au>
+- Jeffrey Dowdle <jeffrey.dowdle@dpc.vic.gov.au>
+- Jason Smith <jason.smith@dpc.vic.gov.au>
+
+## v2.11.1
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.11.0...v2.11.1)
+
+
+### 🩹 Fixes
+
+  - **@dpc-sdp/ripple-tide-news:** 🐛  added flag option to remove published time ([50c04d3e1](https://github.com/dpc-sdp/ripple-framework/commit/50c04d3e1))
+
+### ❤️  Contributors
+
+- Dylan Kelly <dylan.kelly@dpc.vic.gov.au>
+
 ## v2.11.0
 
 [compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.10.3...v2.11.0)

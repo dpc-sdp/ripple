@@ -35,6 +35,27 @@ export default defineAppConfig({
         // `dynamicValue` is used in a cypress test to ensure fallbackValues function are called
         dynamicValue: () => ['blue']
       },
+      suggestionsFunctions: {
+        exampleSuggestionsFn: async (query, args) => {
+          return [
+            {
+              id: '1',
+              name: `Test location - ${args.testArg} - 1`,
+              center: [144.9631, -37.8136]
+            },
+            {
+              id: '2',
+              name: `Test location - ${args.testArg} - 2`,
+              center: [-33.8688, 151.2093]
+            },
+            {
+              id: '2',
+              name: `With magic key`,
+              arcGISMagicKey: 'fake1234'
+            }
+          ]
+        }
+      },
       filterFunctions: {
         // `dummyFunctionFilter` is used in a cypress test to check that the correct parameters are passed to custom filter functions
         dummyFunctionFilter: (filterConfig, values) => {

@@ -1,12 +1,13 @@
 import { computed } from 'vue'
 import { getSearchResultValue, truncateText } from '#imports'
+import { stripMediaBaseUrl } from '@dpc-sdp/ripple-tide-api/utils'
 
 interface ResultOptions {
   summaryMaxLength: number | null
 }
 
 export default (result, options: ResultOptions = { summaryMaxLength: 150 }) => {
-  const { $app_origin } = useNuxtApp()
+  const { $app_origin, $config } = useNuxtApp()
   const title = computed(() => getSearchResultValue(result, 'title'))
   const url = computed(() => {
     return stripSiteId(getSearchResultValue(result, 'url'), $app_origin || '')
@@ -46,7 +47,7 @@ export default (result, options: ResultOptions = { summaryMaxLength: 150 }) => {
 
     if (src) {
       return {
-        src,
+        src: stripMediaBaseUrl(src, $config.public?.tide?.baseUrl),
         alt: ''
       }
     }

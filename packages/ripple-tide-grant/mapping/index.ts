@@ -1,10 +1,9 @@
-import mime from 'mime-types'
 import {
   getBodyFromField,
   getField,
   getImageFromField,
   getLinkFromField,
-  humanizeFilesize
+  getDocumentFromField
 } from '@dpc-sdp/ripple-tide-api'
 import {
   tidePageBaseMapping,
@@ -89,13 +88,9 @@ const tideGrantModule: IRplTideModuleMapping = {
         }))
     },
     documents: (src: string) =>
-      getField(src, 'field_node_documents').map((doc: any) => ({
-        name: doc.name,
-        url: doc.field_media_file.url || doc.field_media_file.uri,
-        extension: mime.extension(doc.field_media_file.filemime),
-        size: humanizeFilesize(doc.field_media_file.filesize),
-        id: doc.id
-      })),
+      getField(src, 'field_node_documents').map((doc: any) =>
+        getDocumentFromField(doc)
+      ),
     sidebarComponents: ['RplSocialShare']
   },
   includes: [

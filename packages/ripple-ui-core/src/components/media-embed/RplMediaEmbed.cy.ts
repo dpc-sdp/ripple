@@ -33,6 +33,9 @@ describe('RplMediaEmbed', () => {
     cy.mount(RplMediaEmbed, { props })
 
     cy.get('.rpl-media-embed__fullscreen-button').click()
-    cy.document().get('.rpl-media-embed__modal').should('be.visible')
+    cy.get('.rpl-media-embed__modal').should('be.visible')
+
+    cy.get('.rpl-media-embed__modal button').click()
+    cy.get('.rpl-media-embed__modal').should('not.exist')
   })
 })

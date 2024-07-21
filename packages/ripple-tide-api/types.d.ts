@@ -85,6 +85,14 @@ export interface TideImageField {
   }
 }
 
+export type TideDocumentField = {
+  name: string
+  url: string
+  extension: string
+  size: string
+  id: string
+}
+
 export interface TidePageBase {
   title: string
   created: string

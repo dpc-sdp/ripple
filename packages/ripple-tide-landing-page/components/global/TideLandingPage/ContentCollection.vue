@@ -55,6 +55,7 @@ import {
   IContentCollectionSort
 } from '../../../mapping/components/content-collection/content-collection-mapping'
 import type { IRplFeatureFlags } from '@dpc-sdp/ripple-tide-api/types'
+import { stripMediaBaseUrl } from '@dpc-sdp/ripple-tide-api/utils'
 
 const { public: config } = useRuntimeConfig()
 
@@ -88,7 +89,7 @@ const cardClasses = computed(() =>
 )
 
 const searchResultsMappingFn = (item): any => {
-  const { $app_origin } = useNuxtApp()
+  const { $app_origin, $config } = useNuxtApp()
   const rawUpdated = item.changed?.raw?.[0]
   const rawImage = item.field_media_image_absolute_path?.raw?.[0]
 
@@ -100,7 +101,7 @@ const searchResultsMappingFn = (item): any => {
       url: stripSiteId(item.url?.raw?.[0], $app_origin || ''),
       image:
         props.display.style === 'thumbnail' && rawImage
-          ? { src: rawImage }
+          ? { src: stripMediaBaseUrl(rawImage, $config.public?.tide?.baseUrl) }
           : null,
       updated: rawUpdated ? formatDate(rawUpdated) : '',
       type: item.type?.raw?.[0]

@@ -1,7 +1,8 @@
 import { get } from 'lodash-es'
-import { TideImageField, TideUrlField } from '../../types'
+import { TideImageField, TideUrlField, TideDocumentField } from '../../types'
 import markupTranspiler from './markup-transpiler/index.js'
-import normaliseImageUrl from './normaliseImageUrl.js'
+import { stripMediaBaseUrl } from './stripMediaBaseUrl.js'
+import mime from 'mime-types'
 
 export type drupalField = Record<string, any>
 
@@ -46,13 +47,21 @@ type tidePageSitePartial = {
   ]
 }
 
-/**
- * @deprecated Need to make a decision on whether we proxy images or use direct url
- */
-export const removeDomainFromPath = (path: string) =>
-  typeof path === 'string' && path.length > 0
-    ? path.replace(/^.*(?=(\/sites\/default\/files))/, '')
-    : path
+export const getMediaPath = (field: any, path?: string | string[]): string => {
+  let uri = ''
+
+  if (path) {
+    field = get(field, path)
+  }
+
+  if (!field?.uri) {
+    uri = field?.url
+  } else {
+    uri = field?.uri?.url || field?.uri
+  }
+
+  return stripMediaBaseUrl(uri, process.env.NUXT_PUBLIC_TIDE_BASE_URL as string)
+}
 
 export const getImageFromField = (
   field: object,
@@ -84,10 +93,7 @@ export const getMediaImage = (
   }
 
   return {
-    src: normaliseImageUrl(
-      process.env.NUXT_PUBLIC_TIDE_BASE_URL as string,
-      fieldMediaImage.url
-    ),
+    src: getMediaPath(fieldMediaImage),
     ...fieldMediaImage.meta,
     focalPoint
   }
@@ -104,15 +110,27 @@ export const getCardImage = (fieldMediaImage: RawCardImage): TideImageField => {
     : null
 
   return {
-    src: normaliseImageUrl(
-      process.env.NUXT_PUBLIC_TIDE_BASE_URL as string,
-      fieldMediaImage.url
-    ),
+    src: getMediaPath(fieldMediaImage),
     focalPoint,
     alt: data?.alt,
     width: data?.width ? parseInt(data.width) : undefined,
     height: data?.height ? parseInt(data.height) : undefined,
     title: data?.title
+  }
+}
+
+export const getDocumentFromField = (
+  field: drupalField,
+  path = 'field_media_file'
+): TideDocumentField => {
+  const medaFile = get(field, path)
+
+  return {
+    id: field.id,
+    name: field.name,
+    url: getMediaPath(medaFile),
+    extension: mime.extension(medaFile.filemime) || '',
+    size: humanizeFilesize(medaFile.filesize)
   }
 }
 
@@ -229,6 +247,8 @@ export default {
   getBodyFromField,
   humanizeFilesize,
   getField,
+  getMediaPath,
+  getDocumentFromField,
   getSiteKeyValues,
   getSiteSection
 }

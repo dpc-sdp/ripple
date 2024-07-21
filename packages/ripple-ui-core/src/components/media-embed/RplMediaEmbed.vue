@@ -138,7 +138,7 @@ const toggleFullscreen = (event) => {
     'viewFullscreen',
     {
       action: isFullScreenOpen.value ? 'enter' : 'exit',
-      text: event?.label || fullscreenContentLabel.value,
+      text: event?.text || fullscreenContentLabel.value,
       label: props.title,
       type: props.type
     },

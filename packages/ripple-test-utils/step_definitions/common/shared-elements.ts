@@ -266,3 +266,7 @@ Then('the in page navigation should include', (dataTable: DataTable) => {
       })
   })
 })
+
+Given('I click on the document {string}', (label: string) => {
+  cy.contains('.rpl-document__link', label).trigger('click')
+})

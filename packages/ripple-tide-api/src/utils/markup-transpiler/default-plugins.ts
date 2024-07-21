@@ -301,6 +301,25 @@ const pluginIFrames = function (this: any) {
   })
 }
 
+const pluginTextAlign = function (this: any) {
+  this.find('.text-align-left, .text-align-center, .text-align-right').map(
+    (i: any, el: any) => {
+      const $el = this.find(el)
+      const alignments = ['left', 'center', 'right']
+
+      alignments.forEach((alignment) => {
+        if ($el.hasClass(`text-align-${alignment}`)) {
+          $el
+            .removeClass(`text-align-${alignment}`)
+            .addClass(`rpl-u-text-${alignment}`)
+        }
+      })
+
+      return $el
+    }
+  )
+}
+
 export default [
   pluginTables,
   pluginCallout,
@@ -311,5 +330,6 @@ export default [
   pluginButtons,
   pluginLinks,
   pluginLists,
-  pluginIFrames
+  pluginIFrames,
+  pluginTextAlign
 ]

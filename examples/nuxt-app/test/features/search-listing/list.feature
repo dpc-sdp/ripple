@@ -20,10 +20,10 @@ Feature: List layout
     And the search network request should be called with the "/search-listing/list/request" fixture
     And the search listing results count should read "Displaying 1-9 of 124 results"
     And the search listing results should have following items:
-      | title                    | content                                       | component          |
-      | 2-BE-event-1             | The ingenious hero who travelled far and wide | tide-search-result |
-      | 5-BE-land-3 Landing Page | Outside thundered the approaching surf of war | tide-search-result |
-      | Accessibility - demo     | Accessibility information about this website. | tide-search-result |
+      | title                    | content                                       | url                                     | component          |
+      | 2-BE-event-1             | The ingenious hero who travelled far and wide | /2-be-event-1                           | tide-search-result |
+      | 5-BE-land-3 Landing Page | Outside thundered the approaching surf of war | /5-be-land-3-landing-page-complete-test | tide-search-result |
+      | Accessibility - demo     | Accessibility information about this website. | https://vic.gov.au/page                 | tide-search-result |
 
   @mockserver
   Example: A custom skeleton loader can be use for list result items

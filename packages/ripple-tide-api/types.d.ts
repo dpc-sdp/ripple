@@ -292,6 +292,10 @@ export interface IRplFeatureFlags {
    */
   sectionNavToggleLevels?: number
   /**
+   * @description Allow overriding the site search content types
+   */
+  siteSearchContentTypes?: string
+  /**
    * @description Custom flags
    */
   [key: string]: any

@@ -1,9 +1,15 @@
 <script setup lang="ts">
 import { AppSearchFilterConfigItem, MappedSearchResult } from '../types'
-import { formatDate, useRuntimeConfig, useAppConfig } from '#imports'
+import {
+  formatDate,
+  useRuntimeConfig,
+  useAppConfig,
+  useTideSite
+} from '#imports'
 
 const appConfig = useAppConfig()
 const runtimeConfig = useRuntimeConfig()
+const site = await useTideSite()
 
 const filtersConfig: AppSearchFilterConfigItem[] = [
   {
@@ -25,7 +31,11 @@ const searchDriverOptions = {
       },
       {
         field: 'type',
-        values: appConfig.ripple?.search?.contentTypes
+        values: site?.featureFlags?.siteSearchContentTypes
+          ? site?.featureFlags?.siteSearchContentTypes
+              .split(',')
+              .map((type) => type.trim())
+          : appConfig.ripple?.search?.contentTypes
       }
     ],
     search_fields: {
@@ -101,6 +111,7 @@ const searchResultsMappingFn = (item): MappedSearchResult<any> => {
 <template>
   <TideSearchPage
     pageTitle="Search"
+    :site="site"
     :searchDriverOptions="searchDriverOptions"
     :filtersConfig="filtersConfig"
     :searchResultsMappingFn="searchResultsMappingFn"

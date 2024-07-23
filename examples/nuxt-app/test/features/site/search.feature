@@ -1,10 +1,8 @@
 Feature: Site search
 
-  Background:
-    Given the site endpoint returns fixture "/site/reference" with status 200
-
   @mockserver
   Example: Display and manage site search results
+    Given the site endpoint returns fixture "/site/reference" with status 200
     Given the "/api/tide/search/**" network request is delayed by 500 milliseconds and stubbed with fixture "/site/search-response", status 200 and alias "siteSearchReq"
     When I visit the page "/search?q=demo"
     Then the search listing skeleton should display 10 items with the class "tide-search-result-skeleton"
@@ -36,7 +34,20 @@ Feature: Site search
     And the search input should have the value ""
 
   @mockserver
+  Example: Overrides site search content types with feature flag
+    Given the "/api/tide/search/**" network request is stubbed with fixture "/site/search-response" and status 200 as alias "siteSearchReq"
+    Then I load the site fixture with "/site/reference"
+    And the feature flag "siteSearchContentTypes" is set to "landing_page, event, news, publication"
+    And the site endpoint returns the loaded fixture
+
+    When I visit the page "/search?q=demo"
+    Then I toggle the search listing filters section
+    And I clear the search filters
+    Then the network request "siteSearchReq" should be called with the "/site/search-request-content-types" fixture
+
+  @mockserver
   Example: Search bar max input length
+    Given the site endpoint returns fixture "/site/reference" with status 200
     Given the "/api/tide/search/**" network request is stubbed with fixture "/site/search-response" and status 200 as alias "siteSearchReq"
     When I visit the page "/search"
     Then the search input should be have a max length of 128

@@ -215,6 +215,8 @@ Then('the footer should have the following logos', (dataTable: DataTable) => {
 Given(
   'the feature flag {string} is set to {string}',
   (flag: string, value: string) => {
+    if (value === 'true') value = true
+    if (value === 'false') value = false
     cy.get('@siteFixture').then((response) => {
       set(response, `featureFlags.${flag}`, value)
     })

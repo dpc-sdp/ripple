@@ -37,7 +37,8 @@ Feature: Site search
   Example: Overrides site search content types with feature flag
     Given the "/api/tide/search/**" network request is stubbed with fixture "/site/search-response" and status 200 as alias "siteSearchReq"
     Then I load the site fixture with "/site/reference"
-    And the feature flag "siteSearchContentTypes" is set to "landing_page, event, news, publication"
+    And the feature flag "search.contentTypes.grant" is set to "false"
+    And the feature flag "search.contentTypes.product" is set to "true"
     And the site endpoint returns the loaded fixture
 
     When I visit the page "/search?q=demo"

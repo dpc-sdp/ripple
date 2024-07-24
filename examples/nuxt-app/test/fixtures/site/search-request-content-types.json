@@ -16,7 +16,10 @@
               "landing_page",
               "event",
               "news",
-              "publication"
+              "publication",
+              "publication_page",
+              "tide_search_listing",
+              "product"
             ]
           }
         ]

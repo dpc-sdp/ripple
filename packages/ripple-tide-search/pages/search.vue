@@ -10,6 +10,26 @@ import {
 const appConfig = useAppConfig()
 const runtimeConfig = useRuntimeConfig()
 const site = await useTideSite()
+const featureFlags = useFeatureFlags(site?.featureFlags)
+
+const getContentTypes = () => {
+  let contentTypes = appConfig.ripple?.search?.contentTypes
+  const overrideTypes = featureFlags.value?.search?.contentTypes
+
+  if (!overrideTypes) {
+    return contentTypes
+  }
+
+  Object.keys(overrideTypes).forEach((type) => {
+    if (overrideTypes[type] && !contentTypes.includes(type)) {
+      contentTypes.push(type)
+    } else if (!overrideTypes[type] && contentTypes.includes(type)) {
+      contentTypes = contentTypes.filter((t: string) => t !== type)
+    }
+  })
+
+  return contentTypes
+}
 
 const filtersConfig: AppSearchFilterConfigItem[] = [
   {
@@ -31,11 +51,7 @@ const searchDriverOptions = {
       },
       {
         field: 'type',
-        values: site?.featureFlags?.siteSearchContentTypes
-          ? site?.featureFlags?.siteSearchContentTypes
-              .split(',')
-              .map((type) => type.trim())
-          : appConfig.ripple?.search?.contentTypes
+        values: getContentTypes()
       }
     ],
     search_fields: {

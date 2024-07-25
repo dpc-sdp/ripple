@@ -43,6 +43,13 @@ Then(
   }
 )
 
+Then(
+  'I click the accordion item {string} in accordion with ID {string}',
+  (text: string, id: string) => {
+    cy.get(`#${id}`).contains('button', text).click()
+  }
+)
+
 When(
   'I click the open all button on accordion with ID {string}',
   (id: string) => {

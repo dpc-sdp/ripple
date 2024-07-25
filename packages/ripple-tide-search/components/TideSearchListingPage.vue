@@ -27,7 +27,7 @@ interface TideContentPage extends TidePageBase {
 }
 
 interface Props {
-  id: string
+  id?: string
   title: string
   introText?: string
   autocompleteQuery?: boolean

@@ -3,7 +3,7 @@ on:
   push:
     branches:
       - develop
-      - release/alpha-**
+      - release/*
 jobs:
   Canary:
     runs-on: ubuntu-latest

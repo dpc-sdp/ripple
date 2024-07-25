@@ -246,6 +246,7 @@ const plugins = computed(
   <FormKit
     :id="id"
     v-slot="{ value }"
+    :name="id"
     type="form"
     :plugins="plugins"
     form-class="rpl-form"

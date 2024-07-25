@@ -14,7 +14,7 @@ Then(`the data map component tabs should exist`, () => {
   cy.get('.rpl-tabs').should('exist')
 })
 
-Then(`the data map tabs should be labelled:`, (dataTable) => {
+Then(`the data map tabs should be labelled:`, (dataTable: DataTable) => {
   const items = dataTable.raw()
   cy.get('.rpl-tabs .rpl-tab').as('items')
   items.forEach((row, i: number) => {
@@ -170,7 +170,7 @@ Then(
     cy.location().should((loc) => {
       const params = new URLSearchParams(loc.search)
 
-      items.forEach((row, i: number) => {
+      items.forEach((row) => {
         expect(params.get(`location[${row.key}]`)).to.eq(`${row.value}`)
       })
     })

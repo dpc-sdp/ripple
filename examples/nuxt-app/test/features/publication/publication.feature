@@ -26,6 +26,10 @@ Feature: Publication page
       | title                                                    | url                                                                               | type | size    |
       | Victorian Skills Plan Implementation Update October 2023 | /sites/default/files/2023-10/16686-VSA-Implementation-Plan-Section_FA_Digital.pdf | pdf  | 4.61 MB |
       | Print full document                                      | /victorian-skills-plan-2023-implementation-update/print-all                       |      |         |
+    When I click on the document "Victorian Skills Plan Implementation Update October 2023"
+    Then the dataLayer should include the following events
+      | event         | element_text                                             | file_name                                            | file_extension | file_size | component |
+      | file_download | Victorian Skills Plan Implementation Update October 2023 | 16686-VSA-Implementation-Plan-Section_FA_Digital.pdf | pdf            | 4.61 MB   | rpl-file  |
 
   @mockserver
   Example: Publication child

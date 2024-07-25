@@ -1,0 +1,22 @@
+{
+  "name": "@dpc-sdp/ripple-sdp-core",
+  "description": "SDP core content types",
+  "version": "2.12.0",
+  "license": "Apache-2.0",
+  "repository": "https://github.com/dpc-sdp/ripple-framework",
+  "main": "./nuxt.config.ts",
+  "exports": {
+    ".": "./nuxt.config.ts"
+  },
+  "dependencies": {
+    "@dpc-sdp/ripple-tide-event": "workspace:*",
+    "@dpc-sdp/ripple-tide-grant": "workspace:*",
+    "@dpc-sdp/ripple-tide-landing-page": "workspace:*",
+    "@dpc-sdp/ripple-tide-media": "workspace:*",
+    "@dpc-sdp/ripple-tide-news": "workspace:*",
+    "@dpc-sdp/ripple-tide-publication": "workspace:*",
+    "@dpc-sdp/ripple-tide-search": "workspace:*",
+    "@dpc-sdp/ripple-tide-topic": "workspace:*",
+    "@dpc-sdp/ripple-tide-webform": "workspace:*"
+  }
+}

@@ -241,6 +241,37 @@ Then('the quick exit should not be displayed', () => {
   cy.get('.rpl-primary-nav__quick-exit').should('not.exist')
 })
 
+Then('the content rating form should be displayed', () => {
+  cy.get('.tide-content-rating').should('be.visible')
+})
+
+Then('the content rating form should not be displayed', () => {
+  cy.get('.tide-content-rating').should('not.exist')
+})
+
+Then(
+  'the content rating form should display the custom text {string}',
+  (text: string) => {
+    cy.get('.tide-content-rating__text').should('have.text', text)
+  }
+)
+
+Then('I click the content rating option labelled {string}', (label: string) => {
+  cy.get('.tide-content-rating label').contains(label).click()
+})
+
+Given('the content rating form is enabled', () => {
+  cy.get('@pageFixture').then((response) => {
+    set(response, 'showContentRating', true)
+  })
+})
+
+Given('the content rating form is disabled', () => {
+  cy.get('@pageFixture').then((response) => {
+    set(response, 'showContentRating', false)
+  })
+})
+
 Given('the site sections share links are set to included WhatsApp', () => {
   cy.get('@pageFixture').then((response) => {
     set(

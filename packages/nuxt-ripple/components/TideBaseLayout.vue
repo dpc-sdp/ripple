@@ -63,6 +63,7 @@
       <slot name="belowBody"></slot>
       <TideContentRating
         v-if="showContentRating"
+        :contentRatingText="site?.contentRatingText"
         :siteSectionName="siteSection ? siteSection.name : ''"
       />
     </template>

@@ -84,6 +84,28 @@ Feature: Shared site elements
       | Demo Tag   | /tags/demo-tag    |
 
   @mockserver
+  Scenario: Content Rating (visible)
+    Given the site endpoint returns fixture "/site/shared-elements" with status 200
+    And I load the page fixture with "/landingpage/home"
+    And the content rating form is enabled
+    Then the page endpoint for path "/page" returns the loaded fixture
+
+    Given I visit the page "/page"
+    Then the content rating form should be displayed
+    And I click the content rating option labelled "Yes"
+    Then the content rating form should display the custom text "Test custom rating text."
+
+  @mockserver
+  Scenario: Content Rating (hidden)
+    Given the site endpoint returns fixture "/site/shared-elements" with status 200
+    And I load the page fixture with "/landingpage/home"
+    And the content rating form is disabled
+    Then the page endpoint for path "/page" returns the loaded fixture
+
+    Given I visit the page "/page"
+    Then the content rating form should not be displayed
+
+  @mockserver
   Scenario: Footer
     Given the site endpoint returns fixture "/site/shared-elements" with status 200
     And the page endpoint for path "/some-random-page" returns fixture "/landingpage/home" with status 200

@@ -5,6 +5,7 @@
   "acknowledgementHeader": "The Victorian Government acknowledges Aboriginal Traditional Owners of Country throughout Victoria and pays respect to their cultures and Elders past, present and emerging.",
   "acknowledgementFooter": "Test footer acknowledgement",
   "copyrightHtml": "<p>Test <strong>footer</strong> copyright html</p>",
+  "contentRatingText": "<p>Test custom rating text.</p>",
   "footerLogos": [
     {
       "alt": "Test logo 1",

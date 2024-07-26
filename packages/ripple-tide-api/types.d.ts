@@ -293,6 +293,14 @@ export interface IRplFeatureFlags {
    */
   sectionNavToggleLevels?: number
   /**
+   * @description Allow overriding the default site search content types
+   */
+  search?: {
+    contentTypes: {
+      [key: string]: boolean
+    }
+  }
+  /**
    * @description Custom flags
    */
   [key: string]: any

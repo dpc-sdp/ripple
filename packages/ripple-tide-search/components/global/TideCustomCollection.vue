@@ -331,6 +331,8 @@ const emitSearchEvent = (event) => {
 }
 
 const handleSearchSubmit = (event) => {
+  geolocationError.value = null
+
   if (props.userFilters && props.userFilters.length) {
     cachedSubmitEvent.value = event
     // Submitting the search term should also 'apply' the filters, but the filters live in a seperate form.
@@ -378,6 +380,7 @@ const handleFilterReset = (event: rplEventPayload) => {
   )
 
   locationQuery.value = null
+  geolocationError.value = null
   resetSearch()
   resetFilters()
   submitSearch()

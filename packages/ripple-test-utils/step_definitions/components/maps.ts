@@ -190,3 +190,31 @@ Given(
     )
   }
 )
+
+Given(`the geolocation button is not enabled`, () => {
+  cy.get('@pageFixture').then((response) => {
+    set(
+      response,
+      'bodyComponents[0].props.locationQueryConfig.showGeolocationButton',
+      false
+    )
+  })
+})
+
+Given(`the geolocation button is enabled`, () => {
+  cy.get('@pageFixture').then((response) => {
+    set(
+      response,
+      'bodyComponents[0].props.locationQueryConfig.showGeolocationButton',
+      true
+    )
+  })
+})
+
+Given(`the geolocate button is hidden`, () => {
+  cy.get('.rpl-map-geolocate__btn').should('not.exist')
+})
+
+Given(`the geolocate button is displayed`, () => {
+  cy.get('.rpl-map-geolocate__btn').should('exist')
+})

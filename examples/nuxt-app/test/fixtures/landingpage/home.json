@@ -907,6 +907,25 @@
           }
         ]
       }
+    },
+    {
+      "uuid": "5cb51ee5-a63f-433e-92a6-017b92ce37fe",
+      "component": "TideLandingPageMediaEmbed",
+      "id": "1951",
+      "props": {
+        "title": "Complex image",
+        "caption": "Source by the Department",
+        "src": "/placeholders/medium.png",
+        "dataLabel": "More info",
+        "dataContent": "<p>Ex eiusmod quis pariatur ipsum exercitation est velit eu magna.</p>",
+        "fullscreenLabel": "Fullscreen",
+        "downloadUrl": "/placeholders/medium.png",
+        "downloadLabel": "Download it",
+        "type": "image",
+        "variant": "complex",
+        "allowFullscreen": true,
+        "showTitle": true
+      }
     }
   ],
   "meta": {

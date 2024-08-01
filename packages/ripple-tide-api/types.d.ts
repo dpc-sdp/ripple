@@ -30,6 +30,7 @@ export interface TideSiteData {
     top?: TideImageField
     bottom?: TideImageField
   }
+  contentRatingText?: string
   acknowledgementHeader?: string
   acknowledgementFooter: string
   copyrightHtml: string
@@ -291,6 +292,14 @@ export interface IRplFeatureFlags {
    * @description Sets the number of toggle-able levels
    */
   sectionNavToggleLevels?: number
+  /**
+   * @description Allow overriding the default site search content types
+   */
+  search?: {
+    contentTypes: {
+      [key: string]: boolean
+    }
+  }
   /**
    * @description Custom flags
    */

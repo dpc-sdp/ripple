@@ -1,21 +1,14 @@
 {
-  "name": "@dpc-sdp/nuxt-ripple-analytics",
-  "description": "Nuxt module for handling event tracking.",
+  "name": "@dpc-sdp/ripple-sdp-core",
+  "description": "SDP core content types",
   "version": "2.13.0",
   "license": "Apache-2.0",
-  "main": "./nuxt.config.ts",
   "repository": "https://github.com/dpc-sdp/ripple-framework",
+  "main": "./nuxt.config.ts",
   "exports": {
-    ".": "./nuxt.config.ts",
-    "./events": "./lib/index.ts"
+    ".": "./nuxt.config.ts"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-ui-core": "workspace:*",
-    "@gtm-support/core": "^2.0.0"
-  },
-  "devDependencies": {
-    "@dpc-sdp/nuxt-ripple": "workspace:*",
-    "@dpc-sdp/ripple-tide-api": "workspace:*",
     "@dpc-sdp/ripple-tide-event": "workspace:*",
     "@dpc-sdp/ripple-tide-grant": "workspace:*",
     "@dpc-sdp/ripple-tide-landing-page": "workspace:*",
@@ -24,8 +17,6 @@
     "@dpc-sdp/ripple-tide-publication": "workspace:*",
     "@dpc-sdp/ripple-tide-search": "workspace:*",
     "@dpc-sdp/ripple-tide-topic": "workspace:*",
-    "@dpc-sdp/ripple-ui-core": "workspace:*",
-    "@dpc-sdp/ripple-ui-forms": "workspace:*",
-    "@nuxt/eslint-config": "^0.1.1"
+    "@dpc-sdp/ripple-tide-webform": "workspace:*"
   }
 }

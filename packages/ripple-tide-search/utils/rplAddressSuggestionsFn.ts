@@ -18,6 +18,14 @@ const getSuburbSuggestions = async (query, args) => {
             }
           },
           {
+            prefix: {
+              name: {
+                value: query,
+                case_insensitive: true
+              }
+            }
+          },
+          {
             term: {
               postcode: {
                 value: query
@@ -33,7 +41,7 @@ const getSuburbSuggestions = async (query, args) => {
     method: 'POST',
     body: {
       ...queryDSL,
-      size: 1
+      size: args.maxSuburbSuggestions
     }
   })
 
@@ -57,7 +65,7 @@ const getAddressSuggestions = async (query, args) => {
   const suggestions = await $fetch(`${geocodeServerUrl}/suggest`, {
     params: {
       text: query,
-      maxSuggestions: 10,
+      maxSuggestions: args.maxAddressSuggestions,
       f: 'json'
     }
   })
@@ -72,8 +80,20 @@ const getAddressSuggestions = async (query, args) => {
 }
 
 export default async (query, args) => {
+  const defaultArgs = {
+    maxSuburbSuggestions: 0,
+    maxAddressSuggestions: 10
+  }
+
+  const argsWithDefaults = {
+    ...defaultArgs,
+    ...(args || {})
+  }
+
   return [
-    ...(args?.includeSuburbs ? await getSuburbSuggestions(query, args) : []),
-    ...(await getAddressSuggestions(query, args))
+    ...(args.maxSuburbSuggestions > 0
+      ? await getSuburbSuggestions(query, argsWithDefaults)
+      : []),
+    ...(await getAddressSuggestions(query, argsWithDefaults))
   ]
 }

@@ -3,10 +3,12 @@ import { onMounted, ref } from 'vue'
 
 interface Props {
   siteSectionName: string
+  contentRatingText: string
 }
 
 withDefaults(defineProps<Props>(), {
-  siteSectionName: ''
+  siteSectionName: '',
+  contentRatingText: ''
 })
 
 // This is an actual webform that exists in drupal
@@ -78,14 +80,11 @@ onMounted(() => {
                       matches: 'You must enter between 1 and 500 words'
                     }"
                   />
-                  <RplContent>
-                    <p>
-                      If you need a response, please use our
-                      <RplTextLink url="/contact-us"
-                        >contact us form</RplTextLink
-                      >.
-                    </p>
-                  </RplContent>
+                  <RplContent
+                    v-if="contentRatingText"
+                    :html="contentRatingText"
+                    class="tide-content-rating__text"
+                  />
                   <FormKit
                     v-if="value.was_this_page_helpful"
                     type="RplFormActions"

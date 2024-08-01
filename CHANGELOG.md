@@ -1,5 +1,45 @@
 # Changelog
 
+## v2.13.0
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.12.0...v2.13.0)
+
+
+### 🚀 Enhancements
+
+  - **@dpc-sdp/nuxt-ripple:** Add custom content rating text ([bdce60ca3](https://github.com/dpc-sdp/ripple-framework/commit/bdce60ca3))
+  - **@dpc-sdp/ripple-ui-core:** Make sure all table content is rtl ([7cc2831e4](https://github.com/dpc-sdp/ripple-framework/commit/7cc2831e4))
+  - **@dpc-sdp/nuxt-ripple:** Add fallback for legacy tide versions ([28d0cdce5](https://github.com/dpc-sdp/ripple-framework/commit/28d0cdce5))
+  - **@dpc-sdp/ripple-ui-core:** Support cell alignment ([63766f5cd](https://github.com/dpc-sdp/ripple-framework/commit/63766f5cd))
+  - ✨  create sdp-core content type pkg ([bb0a519a9](https://github.com/dpc-sdp/ripple-framework/commit/bb0a519a9))
+  - **@dpc-sdp/ripple-tide-search:** Add siteSearchContentTypes featureFlag ([1d2ab6f79](https://github.com/dpc-sdp/ripple-framework/commit/1d2ab6f79))
+  - **@dpc-sdp/ripple-tide-search:** Allow individual content types to be toggled on or off ([4cb50a565](https://github.com/dpc-sdp/ripple-framework/commit/4cb50a565))
+  - **@dpc-sdp/ripple-tide-search:** Allow address search function to be customised via JSON ([695b18cd1](https://github.com/dpc-sdp/ripple-framework/commit/695b18cd1))
+
+### 🩹 Fixes
+
+  - **@dpc-sdp/ripple-tide-search:** Add field_redirect_website check ([e6418d1c2](https://github.com/dpc-sdp/ripple-framework/commit/e6418d1c2))
+  - **@dpc-sdp/nuxt-ripple-analytics:** Add fallback origin in dataLayer for relative URLs ([76ee3d1de](https://github.com/dpc-sdp/ripple-framework/commit/76ee3d1de))
+  - **@dpc-sdp/ripple-tide-search:** Clear geolocation button errors on search or reset ([15e916abf](https://github.com/dpc-sdp/ripple-framework/commit/15e916abf))
+
+### 🏡 Chore
+
+  - **@dpc-sdp/ripple-ui-core:** Cleanup some console/linting warnings ([eb9311e4c](https://github.com/dpc-sdp/ripple-framework/commit/eb9311e4c))
+  - Update canary action to publish on release branches ([5aa2fec52](https://github.com/dpc-sdp/ripple-framework/commit/5aa2fec52))
+  - Remove develop branch from canary publish ([5542fe498](https://github.com/dpc-sdp/ripple-framework/commit/5542fe498))
+
+### ✅ Tests
+
+  - **nuxt-app:** Adding tests for analytics events ([33a499424](https://github.com/dpc-sdp/ripple-framework/commit/33a499424))
+  - **nuxt-app:** Adding test for field_redirect_website support ([badd972b2](https://github.com/dpc-sdp/ripple-framework/commit/badd972b2))
+
+### ❤️  Contributors
+
+- Jeffrey Dowdle <jeffrey.dowdle@dpc.vic.gov.au>
+- Dylankelly <dylan.kelly@dpc.vic.gov.au>
+- David Featherston <david.featherstone@dpc.vic.gov.au>
+- Jason Smith <jason.smith@dpc.vic.gov.au>
+
 ## v2.12.0
 
 [compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.11.1...v2.12.0)

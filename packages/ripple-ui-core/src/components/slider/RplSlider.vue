@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref, useSlots, watch } from 'vue'
+import { computed, ref, useSlots, watch, onMounted } from 'vue'
 import RplPagination from '../pagination/RplPagination.vue'
 import { bpMin } from '../../lib/breakpoints'
 import { RplSlidesPerView } from './constants'
@@ -44,6 +44,7 @@ const emit = defineEmits<{
   (e: 'change', payload: rplEventPayload & { action: 'prev' | 'next' }): void
 }>()
 
+const mounted = ref(false)
 const container = ref()
 const swiper = ref()
 const activePage = ref(1)
@@ -117,6 +118,8 @@ watch(
   () => props.currentSlide,
   (slide) => swiper.value.$el.swiper.slideTo(slide)
 )
+
+onMounted(() => (mounted.value = true))
 
 const paginationClick = ({ action, text, value }) => {
   paginate.value = true
@@ -206,7 +209,7 @@ const slideChangeNotice = computed(() => {
       </SwiperSlide>
     </Swiper>
     <div
-      v-if="changeNotice"
+      v-if="mounted && changeNotice"
       aria-live="polite"
       aria-atomic="true"
       class="rpl-u-visually-hidden"

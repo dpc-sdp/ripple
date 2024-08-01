@@ -10,6 +10,12 @@ export default (result, options: ResultOptions = { summaryMaxLength: 150 }) => {
   const { $app_origin, $config } = useNuxtApp()
   const title = computed(() => getSearchResultValue(result, 'title'))
   const url = computed(() => {
+    const externalURL = getSearchResultValue(result, 'field_redirect_website')
+
+    if (externalURL) {
+      return externalURL
+    }
+
     return stripSiteId(getSearchResultValue(result, 'url'), $app_origin || '')
   })
   const updated = computed(() => {

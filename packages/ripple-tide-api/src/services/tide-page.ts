@@ -327,10 +327,10 @@ export default class TidePageApi extends TideApiBase {
   async getEntityList(
     entityType,
     bundle,
-    filtering,
-    includes,
-    pagination,
-    sorting,
+    filtering?,
+    includes?,
+    pagination?,
+    sorting?,
     { allPages = true } = {}
   ) {
     const params: Record<string, any> = {
@@ -442,20 +442,8 @@ export default class TidePageApi extends TideApiBase {
   }
 
   async getTaxonomy(taxonomyName: string) {
-    const params = {
-      site: this.site
-    }
     try {
-      const { data: response } = await this.get(
-        `/taxonomy_term/${taxonomyName}`,
-        {
-          params
-        }
-      )
-      if (response) {
-        const resource = jsonapiParse.parse(response).data
-        return resource
-      }
+      return await this.getEntityList('taxonomy_term', taxonomyName)
     } catch (error: any) {
       throw new ApplicationError('Error fetching taxonomy', { cause: error })
     }

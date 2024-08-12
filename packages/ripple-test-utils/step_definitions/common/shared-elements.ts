@@ -58,6 +58,17 @@ Then('the last updated date should not be displayed', () => {
   cy.get(`[data-cy="updated-date"]`).should('not.exist')
 })
 
+Then('the primary nav links should wrap', () => {
+  cy.get('.rpl-primary-nav__nav-bar-actions-list--nowrap').should('not.exist')
+})
+
+Then('the primary nav links should not wrap', () => {
+  cy.get('.rpl-primary-nav__nav-bar-actions-list').should(
+    'have.class',
+    'rpl-primary-nav__nav-bar-actions-list--nowrap'
+  )
+})
+
 Then(
   'the page should have the following topic tags',
   (dataTable: DataTable) => {

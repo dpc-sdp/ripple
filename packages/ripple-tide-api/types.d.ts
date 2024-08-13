@@ -265,6 +265,10 @@ export interface IRplFeatureFlags {
    */
   disablePrimaryNavSearch?: boolean
   /**
+   * @description Force multi-line links to render on a single line in the primary navigation
+   */
+  primaryNavNowrap?: boolean
+  /**
    * @description Option to override the default URL the search for redirects to
    */
   primaryNavSearchUrl?: string

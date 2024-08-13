@@ -1,5 +1,18 @@
 # Changelog
 
+## v2.13.1
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.13.0...v2.13.1)
+
+
+### 🩹 Fixes
+
+  - **@dpc-sdp/ripple-tide-api:** 🐛  fixed getTaxonomy only getting first 50 items ([f46ed87fb](https://github.com/dpc-sdp/ripple-framework/commit/f46ed87fb))
+
+### ❤️  Contributors
+
+- Jeffrey Dowdle <jeffrey.dowdle@dpc.vic.gov.au>
+
 ## v2.13.0
 
 [compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.12.0...v2.13.0)

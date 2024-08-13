@@ -139,4 +139,26 @@ export const Template = (args) => ({
   >
     {Template.bind()}
   </Story>
+  <Story
+    name='Clustering Nearer'
+    args={{
+      id: '123',
+      features:featureData,
+      provider: 'mapbox',
+      clusteringDistance: 25
+    }}
+  >
+    {Template.bind()}
+  </Story>
+  <Story
+    name='Clustering Disabled'
+    args={{
+      id: '123',
+      features:featureData,
+      provider: 'mapbox',
+      clusteringDistance: 0
+    }}
+  >
+    {Template.bind()}
+  </Story>
 </Canvas>

@@ -50,6 +50,7 @@ interface Props {
   hasSidePanel?: boolean
   noresults?: boolean
   getFeatureTitle?: (feature: any) => string
+  clusteringDistance?: number
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -75,7 +76,8 @@ const props = withDefaults(defineProps<Props>(), {
     return ic
   },
   noresults: false,
-  getFeatureTitle: (feature: any) => (feature ? feature.title : '')
+  getFeatureTitle: (feature: any) => (feature ? feature.title : ''),
+  clusteringDistance: 100
 })
 
 const zoom = ref(props.initialZoom)
@@ -365,7 +367,7 @@ const noResultsRef = ref(null)
           <ol-animated-clusterlayer
             title="clusterLayer"
             :animationDuration="300"
-            :distance="100"
+            :distance="clusteringDistance"
             :zIndex="4"
           >
             <ol-source-vector :features="mapFeatures"> </ol-source-vector>

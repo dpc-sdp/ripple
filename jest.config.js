@@ -13,7 +13,9 @@ module.exports = {
     '^.+\\.ts$': '<rootDir>/node_modules/ts-jest',
     '.*\\.vue$': '<rootDir>/node_modules/@vue/vue3-jest'
   },
-  transformIgnorePatterns: ['node_modules/(?!.pnpm)(?!(ripple-*|lodash-es)/)'],
+  transformIgnorePatterns: [
+    'node_modules/(?!.pnpm)(?!(ripple-*|lodash-es|cheerio)/)'
+  ],
   extensionsToTreatAsEsm: ['.ts'],
   moduleNameMapper: {
     '^(\\.{1,2}/.*)\\.js$': '$1',

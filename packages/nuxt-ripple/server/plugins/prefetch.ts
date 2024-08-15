@@ -1,4 +1,4 @@
-import * as cheerio from 'cheerio'
+import { load } from 'cheerio'
 import type { NitroApp } from 'nitropack'
 
 // fix type stub - See https://github.com/nuxt/nuxt/issues/18556
@@ -17,7 +17,7 @@ export default defineNitroPlugin((nitroApp) => {
     // https://github.com/nuxt/nuxt/issues/18376
 
     html.head = html.head.map((head) => {
-      const $ = cheerio.load(head)
+      const $ = load(head)
       $('link[rel=prefetch]').each(function () {
         $(this).remove()
       })

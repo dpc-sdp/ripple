@@ -125,6 +125,13 @@
       text-decoration-thickness: 2px;
     }
   }
+
+  &.rpl-primary-nav__nav-bar-actions-list--nowrap {
+    a,
+    button {
+      max-width: none;
+    }
+  }
 }
 
 .rpl-primary-nav__nav-bar-mobile-menu-toggle-container {

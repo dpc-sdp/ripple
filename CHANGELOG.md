@@ -1,5 +1,37 @@
 # Changelog
 
+## v2.14.0
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.13.1...v2.14.0)
+
+
+### 🚀 Enhancements
+
+  - **@dpc-sdp/ripple-ui-core:** ✨  feature flag for long menu titles ([b67cab766](https://github.com/dpc-sdp/ripple-framework/commit/b67cab766))
+  - **@dpc-sdp/ripple-ui-maps:** Add clustering distance optional prop, default as current ([ed81faa17](https://github.com/dpc-sdp/ripple-framework/commit/ed81faa17))
+  - **@dpc-sdp/ripple-ui-maps:** Add map stories to demonstrate clustering distance (nearer/disabled) ([ad297e4e2](https://github.com/dpc-sdp/ripple-framework/commit/ad297e4e2))
+
+### 🩹 Fixes
+
+  - **@dpc-sdp/ripple-tide-api:** 🐛  fixed getTaxonomy only getting first 50 items ([70cea0223](https://github.com/dpc-sdp/ripple-framework/commit/70cea0223))
+  - **@dpc-sdp/ripple-tide-api:** 👽️  cheerio default export has been removed ([0b832893b](https://github.com/dpc-sdp/ripple-framework/commit/0b832893b))
+
+### 🏡 Chore
+
+  - **docs:** Update modules and links ([7bf5bd6c8](https://github.com/dpc-sdp/ripple-framework/commit/7bf5bd6c8))
+  - **docs:** Update NPM reference ([19ed68981](https://github.com/dpc-sdp/ripple-framework/commit/19ed68981))
+
+### ✅ Tests
+
+  - ✅  long menu title feature flag ([9b6a42fed](https://github.com/dpc-sdp/ripple-framework/commit/9b6a42fed))
+
+### ❤️  Contributors
+
+- Jason Smith <jason.smith@dpc.vic.gov.au>
+- Bryce Gilhome <bryce.gilhome@nowdigital.com.au>
+- Jeffrey Dowdle <jeffrey.dowdle@dpc.vic.gov.au>
+- David Featherston <david.featherstone@dpc.vic.gov.au>
+
 ## v2.13.1
 
 [compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.13.0...v2.13.1)

@@ -25,6 +25,152 @@ export const rawDataCustom = {
     {
       links: {
         self: {
+          href: 'https://develop.content.vic.gov.au/api/v1/paragraph/card_event/74a9f7fe-749b-433a-a187-34673d1522c6?resourceVersion=id%3A5915431'
+        }
+      },
+      meta: {
+        target_revision_id: 5915431,
+        drupal_internal__target_id: 3360896
+      },
+      drupal_internal__id: 3360896,
+      drupal_internal__revision_id: 5915431,
+      langcode: 'en',
+      status: true,
+      created: '2024-08-15T04:44:50+00:00',
+      parent_id: '3360889',
+      parent_type: 'paragraph',
+      parent_field_name: 'field_paragraph_items',
+      behavior_settings: [],
+      default_langcode: true,
+      revision_translation_affected: null,
+      field_paragraph_cta: {
+        uri: 'https://www.google.com.au/',
+        title: 'Link',
+        options: []
+      },
+      field_paragraph_status: 'My status',
+      field_paragraph_date: null,
+      field_paragraph_date_range: {
+        value: '2024-08-14T03:46:26+10:00',
+        end_value: '2024-08-17T15:46:29+10:00'
+      },
+      field_paragraph_location: null,
+      field_paragraph_summary:
+        'Adipisicing sint consectetur consequat excepteur exercitation et laboris cillum.',
+      field_paragraph_title: 'Test event',
+      field_paragraph_media: {
+        links: {
+          self: {
+            href: 'https://develop.content.vic.gov.au/api/v1/media/image/4db9e790-f656-451f-9a58-673097d88db5?resourceVersion=id%3A211954'
+          }
+        },
+        meta: { drupal_internal__target_id: 205201 },
+        drupal_internal__mid: 205201,
+        drupal_internal__vid: 211954,
+        langcode: 'en',
+        revision_created: '2022-07-19T07:51:46+00:00',
+        status: true,
+        name: ' Aintree Primary School - New School',
+        created: '2022-07-19T17:51:46+10:00',
+        changed: '2022-07-19T17:51:46+10:00',
+        default_langcode: true,
+        revision_translation_affected: true,
+        metatag: [
+          {
+            tag: 'link',
+            attributes: {
+              rel: 'canonical',
+              href: 'https://develop.content.vic.gov.au/api/v1/node/landing_page/e65fc987-a415-4b43-b8a7-3e1e575e6e6b'
+            }
+          },
+          {
+            tag: 'meta',
+            attributes: { property: 'og:locale', content: 'en-AU' }
+          }
+        ],
+        path: { alias: null, pid: null, langcode: 'en' },
+        field_media_alignment: null,
+        field_media_caption: 'Photography of Aintree Primary School',
+        thumbnail: {
+          links: {
+            self: {
+              href: 'https://develop.content.vic.gov.au/api/v1/file/file/87c09d7a-9eff-4f53-a908-61b154a08236'
+            }
+          },
+          meta: {
+            alt: 'Photography of Aintree Primary School',
+            title: null,
+            width: 1620,
+            height: 1080,
+            drupal_internal__target_id: 50561,
+            focal_point: { x: 810, y: 540 }
+          },
+          drupal_internal__fid: 50561,
+          langcode: 'en',
+          filename: 'aintree-primary-school-new-school-22.jpg',
+          uri: {
+            value: 'public://2022-07/aintree-primary-school-new-school-22.jpg',
+            url: '/sites/default/files/2022-07/aintree-primary-school-new-school-22.jpg'
+          },
+          filemime: 'image/jpeg',
+          filesize: 1717481,
+          status: true,
+          created: '2022-07-19T17:51:16+10:00',
+          changed: '2022-07-19T17:51:46+10:00',
+          url: 'https://develop.content.vic.gov.au/sites/default/files/2022-07/aintree-primary-school-new-school-22.jpg',
+          id: '87c09d7a-9eff-4f53-a908-61b154a08236',
+          type: 'file--file'
+        },
+        field_license_type: {
+          type: 'taxonomy_term--license_type',
+          id: '83382454-1554-4c8f-8c74-883e3eacf2f6',
+          meta: { drupal_internal__target_id: 212 }
+        },
+        field_media_image: {
+          links: {
+            self: {
+              href: 'https://develop.content.vic.gov.au/api/v1/file/file/87c09d7a-9eff-4f53-a908-61b154a08236'
+            }
+          },
+          meta: {
+            alt: 'Photography of Aintree Primary School',
+            title: 'Photography of Aintree Primary School',
+            width: 1620,
+            height: 1080
+          },
+          drupal_internal__fid: 50561,
+          langcode: 'en',
+          filename: 'aintree-primary-school-new-school-22.jpg',
+          uri: {
+            value: 'public://2022-07/aintree-primary-school-new-school-22.jpg',
+            url: '/sites/default/files/2022-07/aintree-primary-school-new-school-22.jpg'
+          },
+          filemime: 'image/jpeg',
+          filesize: 1717481,
+          status: true,
+          created: '2022-07-19T17:51:16+10:00',
+          changed: '2022-07-19T17:51:46+10:00',
+          url: 'https://develop.content.vic.gov.au/sites/default/files/2022-07/aintree-primary-school-new-school-22.jpg',
+          id: '87c09d7a-9eff-4f53-a908-61b154a08236',
+          type: 'file--file'
+        },
+        field_media_site: [
+          {
+            type: 'taxonomy_term--sites',
+            id: '27c78994-43cf-4d48-8b34-0a6d8ef14c4e',
+            meta: { drupal_internal__target_id: 622 }
+          }
+        ],
+        id: '4db9e790-f656-451f-9a58-673097d88db5',
+        type: 'media--image'
+      },
+      field_paragraph_topic: [],
+      id: '74a9f7fe-749b-433a-a187-34673d1522c6',
+      type: 'paragraph--card_event'
+    },
+    {
+      links: {
+        self: {
           href: 'https://develop.content.reference.sdp.vic.gov.au/api/v1/paragraph/card_event/eaa06682-f196-468b-8aa0-9fb466054df8?resourceVersion=id%3A1534'
         }
       },

@@ -15,7 +15,7 @@ export const formatDate = (
 ): string => {
   const date = new Date(value)
 
-  const defaultOptions: Intl.DateTimeFormatOptions = { dateStyle: 'medium' }
+  const defaultOptions: Intl.DateTimeFormatOptions = { dateStyle: 'medium', timeZone: 'Australia/Melbourne' }
 
   options = { ...defaultOptions, ...options }
 

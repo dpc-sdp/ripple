@@ -50,7 +50,7 @@ const rawData = {
       node_type: 'Event',
       topic: 'Demo Topic',
       tags: ['Demo Tag', 'Another Demo Tag'],
-      summary: 'Demo event summary',
+      summary: 'Demo event summary \r\n',
       date: {
         value: '2019-07-02 09:00:00',
         end_value: '2019-07-07 10:00:00'

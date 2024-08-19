@@ -98,7 +98,7 @@ const emit = defineEmits<{
   (e: 'update', payload: addressResultType): void
 }>()
 
-const { rplMapRef, deadSpace } = inject('rplMapInstance')
+const { rplMapRef, deadSpace, defaultExtent } = inject('rplMapInstance')
 
 const pendingZoomAnimation = ref(false)
 
@@ -241,7 +241,7 @@ async function centerMapOnLocation(
     }
   } else if (!location?.postcode) {
     // reset back to initial view on empty query
-    fitVictoria(map, deadSpace.value)
+    fitDefaultExtent(map, deadSpace.value, defaultExtent)
   }
 }
 </script>

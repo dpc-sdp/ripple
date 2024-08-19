@@ -174,6 +174,8 @@ type MapDeadSpace = {
   right?: number
 }
 
+type MapDefaultExtent = [number, number, number, number]
+
 export const fitExtent = (
   map: Map,
   extent: Extent,
@@ -217,4 +219,16 @@ export const fitVictoria = (map: Map, deadSpace?: MapDeadSpace) => {
   ]
 
   fitExtent(map, victoriaBoundingBox, deadSpace)
+}
+
+export const fitDefaultExtent = (
+  map: Map,
+  deadSpace?: MapDeadSpace,
+  defaultExtent?: MapDefaultExtent
+) => {
+  if (!defaultExtent) {
+    return fitVictoria(map, deadSpace)
+  }
+
+  fitExtent(map, defaultExtent, deadSpace)
 }

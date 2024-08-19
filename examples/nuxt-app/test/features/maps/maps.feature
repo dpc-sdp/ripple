@@ -97,3 +97,13 @@ Feature: Custom collection map component
     Given I click the side panel item with text "Single Pin Test"
     When I wait 2 seconds
     Then the map matches the image snapshot "map-sidepanel-item-click"
+
+  @mockserver
+  Scenario: Map zooms to intended initial location with results hook
+    Given I load the page fixture with "/maps/basic-page"
+    And a custom map results hook called "exampleMapResultsHook" is used
+    Then the page endpoint for path "/map" returns the loaded fixture
+    And the "/api/tide/elasticsearch/elasticsearch_index_develop_node/_search" network request is stubbed with fixture "/maps/simple-map-results" and status 200 as alias "searchReq"
+    Given I visit the page "/map?location[center]=15809362.126037747&location[center]=-4543542.166789566"
+    When I wait 2 seconds
+    Then the map matches the image snapshot "map-initial-location-results-hook"

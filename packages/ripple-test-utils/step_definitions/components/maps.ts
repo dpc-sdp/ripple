@@ -146,6 +146,12 @@ Given('a custom suggestions function called {string} is used', (fnName) => {
   })
 })
 
+Given('a custom map results hook called {string} is used', (hook) => {
+  cy.get('@pageFixture').then((response) => {
+    set(response, 'bodyComponents[0].props.mapConfig.onResultsHook', hook)
+  })
+})
+
 When(`I type {string} into the location search bar`, (inputStr: string) => {
   cy.get(`[id="tide-address-lookup"]`).focus()
   cy.get(`[id="tide-address-lookup"]`).type(`${inputStr}`)

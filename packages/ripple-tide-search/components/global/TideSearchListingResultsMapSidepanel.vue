@@ -94,7 +94,7 @@ const emit = defineEmits<{
   ): void
 }>()
 
-const { rplMapRef, popup, deadSpace } = inject('rplMapInstance')
+const { rplMapRef, popup, deadSpace, defaultExtent } = inject('rplMapInstance')
 
 const route = useRoute()
 const mobilePopupRef = ref(null)
@@ -132,7 +132,7 @@ const handleSidePanelClick = async (item, activatePin) => {
         fitExtent(rplMapRef.value, bbox, deadSpace.value)
       } else {
         await nextTick()
-        fitVictoria(rplMapRef.value, deadSpace.value)
+        fitDefaultExtent(rplMapRef.value, deadSpace.value, defaultExtent)
       }
     }
   }

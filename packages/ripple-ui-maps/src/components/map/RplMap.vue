@@ -35,7 +35,7 @@ import {
   getfeaturesAtMapPixel,
   zoomToClusterExtent,
   centerMap,
-  fitVictoria,
+  fitDefaultExtent,
   areFeaturesCloseTogether
 } from './utils'
 
@@ -84,7 +84,8 @@ const zoom = ref(props.initialZoom)
 const rotation = ref(0)
 const view = ref(null)
 
-const { setRplMapRef, popup, deadSpace } = inject('rplMapInstance')
+const { setRplMapRef, popup, deadSpace, defaultExtent } =
+  inject('rplMapInstance')
 
 // Reference to ol/map instance
 const mapRef = ref<{ map: Map } | null>(null)
@@ -283,7 +284,7 @@ onMounted(() => {
       }
     })
   }
-  fitVictoria(mapRef.value.map, deadSpace.value)
+  fitDefaultExtent(mapRef.value.map, deadSpace.value, defaultExtent)
 })
 
 const noResultsRef = ref(null)

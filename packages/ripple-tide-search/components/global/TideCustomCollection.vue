@@ -290,7 +290,8 @@ onMapResultsHook.value = () => {
       map: any,
       results: any,
       locationQuery: any,
-      mapDeadSpace?: any
+      mapDeadSpace: any,
+      options: Record<string, any>
     ) => Promise<any>
   > = appConfig?.ripple?.search?.mapResultHooks || {}
 
@@ -310,7 +311,8 @@ onMapResultsHook.value = () => {
     rplMapRef.value,
     mapResults.value,
     locationOrGeolocation.value,
-    deadSpace.value
+    deadSpace.value,
+    { defaultExtent: props.mapConfig?.props?.defaultExtent }
   )
 }
 
@@ -479,7 +481,8 @@ provide('rplMapInstance', {
   rplMapRef,
   setRplMapRef,
   popup,
-  deadSpace
+  deadSpace,
+  defaultExtent: props.mapConfig?.props?.defaultExtent
 })
 
 function setRplMapRef(mapInstance: any) {

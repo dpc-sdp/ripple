@@ -224,3 +224,16 @@ Given(`the geolocate button is hidden`, () => {
 Given(`the geolocate button is displayed`, () => {
   cy.get('.rpl-map-geolocate__btn').should('exist')
 })
+
+Given('the following default extent is used', (dataTable: DataTable) => {
+  const table = dataTable.hashes()
+
+  cy.get('@pageFixture').then((response) => {
+    set(response, 'bodyComponents[0].props.mapConfig.props.defaultExtent', [
+      parseFloat(table[0].minx),
+      parseFloat(table[0].miny),
+      parseFloat(table[0].maxx),
+      parseFloat(table[0].maxy)
+    ])
+  })
+})

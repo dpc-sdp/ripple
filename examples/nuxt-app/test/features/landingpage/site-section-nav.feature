@@ -3,7 +3,7 @@ Feature: Site section navigation
   Example of the site section navigation in the landing page sidebar
 
   Background:
-    Given the page endpoint for path "/level-2-2" returns fixture "/landingpage/home" with status 200
+    Given the page endpoint for path "/level-2-2" returns fixture "/landingpage/site-section-nav" with status 200
     And the site endpoint returns fixture "/site/reference" with status 200
 
   @mockserver

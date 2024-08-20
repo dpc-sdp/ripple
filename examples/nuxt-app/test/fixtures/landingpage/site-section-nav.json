@@ -78,149 +78,52 @@
       "title": "Site-section Navigation",
       "items": [
         {
-          "text": "Demo Landing Page",
-          "url": "/demo-landing-page",
+          "text": "Level 1 - 1",
+          "url": "/level-1-1",
           "id": "c9b2419b-c89d-4a43-87de-f991291c4894",
           "parent": null,
           "weight": 0,
+          "active": true,
           "items": [
             {
-              "text": "2.1 Accessibility - demo",
-              "url": "/accessibility-demo",
+              "text": "Level 2 - 1",
+              "url": "/level-2-1",
               "id": "5c890826-dcf8-4389-b852-6fb2521443e1",
               "parent": "c9b2419b-c89d-4a43-87de-f991291c4894",
               "weight": 0
             },
             {
-              "text": "2.2 Copyright - demo",
-              "url": "/copyright-demo",
+              "text": "Level 2 - 2",
+              "url": "/level-2-2",
               "id": "9ece6be1-ecad-4c48-8a75-084c2b2ab478",
               "parent": "c9b2419b-c89d-4a43-87de-f991291c4894",
-              "weight": 0
-            },
-            {
-              "text": "2.3 Disclaimer - demo",
-              "url": "/disclaimer-demo",
-              "id": "c9b2419b-c89d-4a43-87de-f991291c5000",
-              "parent": "c9b2419b-c89d-4a43-87de-f991291c4894",
               "weight": 0,
-              "items": [
-                {
-                  "text": "3.1 Find and connect - demo",
-                  "url": "/find-connect-demo",
-                  "id": "c9b2419b-c89d-4a43-87de-f991291c9000",
-                  "parent": "c9b2419b-c89d-4a43-87de-f991291c5000",
-                  "weight": 0,
-                  "items": [
-                    {
-                      "text": "4.1 Many Talents - demo",
-                      "url": "/many-talents-demo",
-                      "id": "2db8693c-5231-44f2-83a3-0c082001fb65",
-                      "parent": "c9b2419b-c89d-4a43-87de-f991291c9000",
-                      "weight": 0,
-                      "items": [
-                        {
-                          "text": "5.1 Another menu - demo",
-                          "url": "/another-demo",
-                          "id": "2xs8693c-5231-44f2-83a3-0c082001fb65",
-                          "parent": "2db8693c-5231-44f2-83a3-0c082001fb65",
-                          "weight": 0
-                        }
-                      ]
-                    },
-                    {
-                      "text": "4.2 More Talents - demo",
-                      "url": "/more-talents-demo",
-                      "id": "2db8693c-5231-44f2-83a3-0c082001fb65",
-                      "parent": "c9b2419b-c89d-4a43-87de-f991291c9000",
-                      "weight": 0
-                    }
-                  ]
-                },
-                {
-                  "text": "3.2 Legal notes - demo",
-                  "url": "/legal-notes-demo",
-                  "id": "x9b2419b-c89d-4a43-87de-f991291c9000",
-                  "parent": "c9b2419b-c89d-4a43-87de-f991291c5000",
-                  "weight": 0
-                }
-              ]
-            },
-            {
-              "text": "2.4 Working in the CMS - demo",
-              "url": "/working-cms-demo",
-              "id": "2e517f44-8545-4806-a155-ad56a93197cd",
-              "parent": "c9b2419b-c89d-4a43-87de-f991291c4894",
-              "weight": 0
+              "active": true
             }
           ]
         },
         {
-          "text": "Events",
-          "url": "/2-be-event-1",
+          "text": "Level 1 - 2",
+          "url": "/level-1-2",
           "id": "c9b2419b-c89d-4a43-87de-f991291c4896",
           "parent": null,
           "weight": 0,
           "items": [
             {
-              "text": "Kensington Primary School - information session - demo",
-              "url": "/kensington-primary-school-information-session-demo",
+              "text": "Level 2 - 3",
+              "url": "/level-2-3",
               "id": "64978dd4-866e-4f3b-a607-38f1837fda79",
               "parent": "c9b2419b-c89d-4a43-87de-f991291c4896",
               "weight": 0
             },
             {
-              "text": "Roulette Aerial Display - demo",
-              "url": "/roulette-aerial-display-demo",
-              "id": "7df7c024-3829-4fb9-8823-2cfda6637cc0",
-              "parent": "c9b2419b-c89d-4a43-87de-f991291c4896",
-              "weight": 0
-            },
-            {
-              "text": "The Trades Fit: Young Women in Trades and Tech - demo",
-              "url": "/trades-fit-young-women-trades-and-tech-demo",
-              "id": "6b6f41a9-701f-49a0-b3e2-de5ec31d5e78",
+              "text": "Level 2 - 4",
+              "url": "/level-2-4",
+              "id": "64978dd4-866e-4f3b-a607-38f1837fda79",
               "parent": "c9b2419b-c89d-4a43-87de-f991291c4896",
               "weight": 0
             }
           ]
-        },
-        {
-          "text": "News",
-          "url": "/demo-news",
-          "id": "c9b2419b-c89d-4a43-87de-f991291c4895",
-          "parent": null,
-          "weight": 0,
-          "items": [
-            {
-              "text": "FIRST-OF-ITS-KIND EXHIBITION CELEBRATES THE SERVICE OF LGBTQ+ DEFENCE PERSONNEL - demo",
-              "url": "/first-its-kind-exhibition-celebrates-service-lgbtq-defence-personnel-demo",
-              "id": "6e71585a-e721-4e81-9ca2-30dc6dc6f747",
-              "parent": "c9b2419b-c89d-4a43-87de-f991291c4895",
-              "weight": 0
-            },
-            {
-              "text": "GovHack 2022 is coming soon - Connections Event and Hack weekend - demo",
-              "url": "/govhack-2022-coming-soon-connections-event-and-hack-weekend-demo",
-              "id": "c600e93f-023b-46a0-81c2-f2a2f29024c5",
-              "parent": "c9b2419b-c89d-4a43-87de-f991291c4895",
-              "weight": 0
-            },
-            {
-              "text": "Wage Inspectorate helps 15,000 Victorians in first year - demo",
-              "url": "/wage-inspectorate-helps-15000-victorians-first-year-demo",
-              "id": "c6f121c2-64ca-4b52-b583-4edfbad4376c",
-              "parent": "c9b2419b-c89d-4a43-87de-f991291c4895",
-              "weight": 0
-            }
-          ]
-        },
-        {
-          "text": "Publications",
-          "url": "/17-be-pub-page-1-child-page-chapter-1-page-1",
-          "id": "c9b2419b-c89d-4a43-87de-f991291c4897",
-          "parent": null,
-          "weight": 0
         }
       ]
     }

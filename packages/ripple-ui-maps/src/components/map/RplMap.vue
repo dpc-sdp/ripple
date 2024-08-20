@@ -35,7 +35,7 @@ import {
   getfeaturesAtMapPixel,
   zoomToClusterExtent,
   centerMap,
-  fitVictoria,
+  fitDefaultExtent,
   areFeaturesCloseTogether
 } from './utils'
 

@@ -214,8 +214,11 @@ export default defineAppConfig({
 
           centerMap(
             map,
-            [+locationQuery?.center[0], +locationQuery?.center[1]],
-            15,
+            [
+              parseFloat(locationQuery?.center[0]),
+              parseFloat(locationQuery?.center[1])
+            ],
+            13,
             {},
             'popover'
           )

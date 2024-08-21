@@ -15,6 +15,12 @@ Then(
   }
 )
 
+Then(`the custom collection component results count should be hidden`, () => {
+  cy.get(`[data-component-type="search-listing-result-count"]`).should(
+    'not.exist'
+  )
+})
+
 Then(
   `the custom collection component should have the {string} form theme applied`,
   (theme: string) => {
@@ -113,3 +119,13 @@ Then(
     })
   }
 )
+
+When('the custom collection results count has been hidden', () => {
+  cy.get('@pageFixture').then((response) => {
+    set(
+      response,
+      `bodyComponents[0].props.resultsConfig.hideResultsCount`,
+      true
+    )
+  })
+})

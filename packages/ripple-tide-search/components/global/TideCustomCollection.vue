@@ -667,7 +667,7 @@ const locationOrGeolocation = computed(() => {
       >
         <template #left>
           <TideSearchResultsCount
-            v-if="!searchError"
+            v-if="!resultsConfig.hideResultsCount && !searchError"
             :pagingStart="pagingStart + 1"
             :pagingEnd="pagingEnd + 1"
             :totalResults="totalResults"

@@ -207,6 +207,22 @@ export default defineAppConfig({
               return '#333333'
           }
         }
+      },
+      mapResultHooks: {
+        exampleMapResultsHook: (map, results, locationQuery) => {
+          if (!map || !results || !locationQuery) return
+
+          centerMap(
+            map,
+            [
+              parseFloat(locationQuery?.center[0]),
+              parseFloat(locationQuery?.center[1])
+            ],
+            13,
+            {},
+            'popover'
+          )
+        }
       }
     }
   }

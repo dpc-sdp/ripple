@@ -89,6 +89,10 @@ export type TideSearchListingResultsConfig = {
    * by default, with no transformResultFn, the raw result is mapped to item._source
    */
   transformResultFn?: string
+  /**
+   * @description useful for listings that want to completely customise the results area
+   */
+  hideResultsCount?: false
 }
 
 export type TideSearchListingLayoutConfig = {

@@ -16,7 +16,6 @@ import {
   watch,
   nextTick
 } from 'vue'
-import { useFullscreen } from '@vueuse/core'
 import { withDefaults, defineExpose } from '@vue/composition-api'
 import { Map } from 'ol'
 import { Zoom } from 'ol/control'
@@ -140,10 +139,14 @@ const selectedPinStyle = (feature, style) => {
   return style
 }
 
-const { isFullscreen } = useFullscreen()
-
-const { onHomeClick, onZoomInClick, onZoomOutClick, onFullScreenClick } =
-  useMapControls(mapRef)
+const {
+  onHomeClick,
+  onZoomInClick,
+  onZoomOutClick,
+  onFullScreenClick,
+  isFullScreen,
+  supportsFullScreen
+} = useMapControls(mapRef)
 
 const mapFeatures = computed(() => {
   if (Array.isArray(props.features)) {
@@ -288,6 +291,10 @@ onMounted(() => {
 })
 
 const noResultsRef = ref(null)
+
+const fullScreenLabel = computed(() =>
+  isFullScreen.value ? 'Exit full screen' : 'View full screen'
+)
 </script>
 
 <template>
@@ -406,9 +413,12 @@ const noResultsRef = ref(null)
           </RplMapPopUp>
         </ol-overlay>
       </slot>
-      <div class="rpl-map__control rpl-map__control-fullscreen">
-        <button title="View map fullscreen" @click="onFullScreenClick">
-          <RplIcon v-if="isFullscreen" name="icon-cancel"></RplIcon>
+      <div
+        v-if="supportsFullScreen"
+        class="rpl-map__control rpl-map__control-fullscreen"
+      >
+        <button :title="fullScreenLabel" @click="onFullScreenClick">
+          <RplIcon v-if="isFullScreen" name="icon-cancel"></RplIcon>
           <RplIcon v-else name="icon-enlarge" size="m"></RplIcon>
         </button>
       </div>

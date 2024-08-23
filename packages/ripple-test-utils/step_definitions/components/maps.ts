@@ -237,3 +237,23 @@ Given('the following default extent is used', (dataTable: DataTable) => {
     ])
   })
 })
+
+When('I click the view fullscreen button', () => {
+  cy.get('.rpl-map__control button[title="View full screen"]').realClick()
+})
+
+When('I click the exit fullscreen button', () => {
+  cy.get('.rpl-map__control button[title="Exit full screen"]').realClick()
+})
+
+Then('the map should be fullscreen', () => {
+  cy.document().then((doc) => {
+    expect(doc.fullscreenElement).to.not.be.null
+  })
+})
+
+Then('the map should not be fullscreen', () => {
+  cy.document().then((doc) => {
+    expect(doc.fullscreenElement).to.be.null
+  })
+})

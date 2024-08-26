@@ -11,7 +11,7 @@ export default (site: TideSiteData, theme: any) => {
     id: siteUrl,
     name: site?.name,
     short_name: site?.shortName,
-    description: site?.slogan?.replace(/<[^>]*>/g, ''),
+    description: site?.slogan?.replace(/<[^>]*>|<|>/g, ''),
     start_url: siteUrl,
     icons: [
       {

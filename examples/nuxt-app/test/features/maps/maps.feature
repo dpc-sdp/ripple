@@ -119,3 +119,15 @@ Feature: Custom collection map component
     Given I visit the page "/map"
     And I wait 2 seconds
     Then the map matches the image snapshot "map-custom-default-extent"
+
+  @mockserver
+  Scenario: Map can be viewed fullscreen
+    Given I load the page fixture with "/maps/basic-page"
+    And the page endpoint for path "/map" returns the loaded fixture
+    And I visit the page "/map"
+    When I click the view fullscreen button
+    And I wait 100 milliseconds
+    Then the map should be fullscreen
+    When I click the exit fullscreen button
+    And I wait 100 milliseconds
+    Then the map should not be fullscreen

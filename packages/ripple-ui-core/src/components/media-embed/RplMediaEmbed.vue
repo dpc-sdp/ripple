@@ -128,7 +128,7 @@ const fullscreenContentLabel = computed(() => {
   return props.fullscreenLabel || `View '${props.title}' fullscreen`
 })
 const downloadContentLabel = computed(() => {
-  return props.downloadLabel || `Download' ${props.title}'`
+  return props.downloadLabel || `Download '${props.title}'`
 })
 
 const toggleFullscreen = (event) => {
@@ -138,7 +138,7 @@ const toggleFullscreen = (event) => {
     'viewFullscreen',
     {
       action: isFullScreenOpen.value ? 'enter' : 'exit',
-      text: event?.label || fullscreenContentLabel.value,
+      text: event?.text || fullscreenContentLabel.value,
       label: props.title,
       type: props.type
     },
@@ -292,16 +292,16 @@ const handleDownload = () => {
 
       <!-- Download link -->
       <li v-if="downloadUrl">
-        <RplTextLink
+        <a
           class="rpl-media-embed__download-link rpl-media-embed__action rpl-u-focusable-inline rpl-type-p"
-          :url="downloadUrl"
+          :href="downloadUrl"
           download
           @click="handleDownload"
         >
           <RplIcon name="icon-download" class="rpl-u-screen-only" />{{
             downloadContentLabel
           }}
-        </RplTextLink>
+        </a>
       </li>
     </ul>
 

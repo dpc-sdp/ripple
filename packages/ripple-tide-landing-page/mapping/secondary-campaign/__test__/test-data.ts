@@ -370,7 +370,7 @@ export const testData = {
         filename: 'Melbourne-tram.jpg',
         uri: {
           value: 'public://tide_demo_content/Melbourne-tram.jpg',
-          url: 'https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg'
+          url: '/sites/default/files/tide_demo_content/Melbourne-tram.jpg'
         },
         filemime: 'image/jpeg',
         filesize: 176549,

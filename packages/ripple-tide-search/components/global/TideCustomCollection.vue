@@ -286,7 +286,12 @@ onMapResultsHook.value = () => {
   const hookFnName = props.mapConfig?.onResultsHook
   const fns: Record<
     string,
-    (map: any, results: any, locationQuery: any) => Promise<any>
+    (
+      map: any,
+      results: any,
+      locationQuery: any,
+      mapDeadSpace?: any
+    ) => Promise<any>
   > = appConfig?.ripple?.search?.mapResultHooks || {}
 
   if (!hookFnName) {
@@ -301,7 +306,12 @@ onMapResultsHook.value = () => {
     )
   }
 
-  hookFn(rplMapRef.value, mapResults.value, locationOrGeolocation.value)
+  hookFn(
+    rplMapRef.value,
+    mapResults.value,
+    locationOrGeolocation.value,
+    deadSpace.value
+  )
 }
 
 const resultsContainer = computed(
@@ -321,6 +331,8 @@ const emitSearchEvent = (event) => {
 }
 
 const handleSearchSubmit = (event) => {
+  geolocationError.value = null
+
   if (props.userFilters && props.userFilters.length) {
     cachedSubmitEvent.value = event
     // Submitting the search term should also 'apply' the filters, but the filters live in a seperate form.
@@ -368,6 +380,7 @@ const handleFilterReset = (event: rplEventPayload) => {
   )
 
   locationQuery.value = null
+  geolocationError.value = null
   resetSearch()
   resetFilters()
   submitSearch()
@@ -552,6 +565,7 @@ const locationOrGeolocation = computed(() => {
           v-bind="locationQueryConfig?.props"
           :label="searchListingConfig.labels?.submit"
           :placeholder="searchListingConfig.labels?.placeholder"
+          :variant="reverseFields ? 'reverse' : 'default'"
           :inputValue="locationQuery"
           :resultsloaded="mapFeatures.length > 0"
           :isGettingLocation="isGettingLocation"

@@ -14,9 +14,9 @@ jobs:
       packages: write
       contents: write
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Install Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           registry-url: 'https://npm.pkg.github.com/'
           node-version: 20
@@ -25,10 +25,10 @@ jobs:
           git config --global user.email "sdp.devs@dpc.vic.gov.au"
           git config --global user.name "SDP Deploy"
       - name: Bump version from release number
-        run: npm version ${{ github.event.release.name }} --allow-same-version
+        run: npm version ${{ github.event.release.name }} --no-git-tag-version
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Publish to GH Package registry
-        run: npm publish
+        run: npm publish --tag ${{ github.event.release.prerelease && 'alpha' || 'latest' }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

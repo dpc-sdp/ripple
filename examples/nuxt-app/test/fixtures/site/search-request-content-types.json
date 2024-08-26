@@ -1,0 +1,72 @@
+{
+  "query": "",
+  "filters": {
+    "all": [
+      {
+        "any": [
+          {
+            "field_node_site": "TEST_SITE"
+          }
+        ]
+      },
+      {
+        "any": [
+          {
+            "type": [
+              "landing_page",
+              "event",
+              "news",
+              "publication",
+              "publication_page",
+              "tide_search_listing",
+              "product"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "search_fields": {
+    "title": {
+      "weight": 10
+    },
+    "body": {},
+    "field_paragraph_body": {},
+    "field_landing_page_summary": {},
+    "summary_processed": {},
+    "field_paragraph_summary": {},
+    "field_event_details_event_locality": {}
+  },
+  "result_fields": {
+    "title": {
+      "raw": {
+        "size": 150
+      }
+    },
+    "field_landing_page_summary": {
+      "snippet": {
+        "size": 150,
+        "fallback": true
+      }
+    },
+    "summary_processed": {
+      "snippet": {
+        "size": 150,
+        "fallback": true
+      }
+    },
+    "changed": {
+      "raw": {}
+    },
+    "url": {
+      "raw": {}
+    },
+    "type": {
+      "raw": {}
+    }
+  },
+  "page": {
+    "size": 10,
+    "current": 1
+  }
+}

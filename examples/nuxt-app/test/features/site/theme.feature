@@ -56,6 +56,20 @@ Feature: Site theme
     Then the last updated date should not be displayed
 
   @mockserver
+  Scenario: Default behaviour for long link titles in the primary navigation
+    Given the site endpoint returns fixture "/site/primary-nav-wrap" with status 200
+    And the page endpoint for path "/" returns fixture "/landingpage/image-banner" with status 200
+    Given I visit the page "/"
+    Then the primary nav links should wrap
+
+  @mockserver
+  Scenario: Feature flag to force multi-line links to render on a single line in the primary navigation
+    Given the site endpoint returns fixture "/site/primary-nav-nowrap" with status 200
+    And the page endpoint for path "/" returns fixture "/landingpage/image-banner" with status 200
+    Given I visit the page "/"
+    Then the primary nav links should not wrap
+
+  @mockserver
   Scenario: Favicon and app icons are set correctly
     Given the site endpoint returns fixture "/site/reference" with status 200
     And the page endpoint for path "/" returns fixture "/landingpage/image-banner" with status 200

@@ -1,7 +1,7 @@
 {
   "name": "@dpc-sdp/nuxt-ripple",
   "description": "Nuxt module for integrating Ripple and Tide",
-  "version": "2.11.0",
+  "version": "2.14.0",
   "license": "Apache-2.0",
   "main": "./nuxt.config.ts",
   "repository": "https://github.com/dpc-sdp/ripple-framework",

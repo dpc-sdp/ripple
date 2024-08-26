@@ -70,3 +70,36 @@ Then(
     })
   }
 )
+
+Then(
+  'the publication should display the following documents',
+  (dataTable: DataTable) => {
+    const table = dataTable.hashes()
+
+    cy.get(`.tide-publication__sidebar .rpl-document`).as('items')
+
+    table.forEach((row, i: number) => {
+      cy.get('@items')
+        .eq(i)
+        .then((item) => {
+          cy.wrap(item).as('item')
+
+          cy.get('@item').find('a').as('link')
+          cy.get('@link').contains(row.title)
+          cy.get('@link')
+            .should('have.attr', 'href')
+            .then((href) => {
+              expect(href).to.contain(row.url)
+            })
+
+          if (row.type) {
+            cy.get('@item').find('.rpl-file__meta').contains(row.type)
+          }
+
+          if (row.size) {
+            cy.get('@item').find('.rpl-file__meta').contains(row.size)
+          }
+        })
+    })
+  }
+)

@@ -5,6 +5,9 @@ defineProps<{
   description?: string
   numbered: boolean
   items: Array<any>
+  hasSidebar?: boolean
+  hasTitle?: boolean
+  pageBackground?: string
 }>()
 </script>
 

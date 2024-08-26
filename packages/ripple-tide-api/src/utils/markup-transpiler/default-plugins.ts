@@ -1,4 +1,5 @@
 import { epochToDate } from '../epochToDate.js'
+import { stripMediaBaseUrl } from '../stripMediaBaseUrl.js'
 
 const pluginTables = function (this: any) {
   // Wrap tables with a div.
@@ -86,7 +87,10 @@ const pluginDocuments = function (this: any) {
       mediaType === 'document' ? '.file--title' : '.field--name-name'
 
     const label = $element.find('a[aria-label]').attr('aria-label'),
-      link = $element.find('a').attr('href'),
+      link = stripMediaBaseUrl(
+        $element.find('a').attr('href'),
+        process.env.NUXT_PUBLIC_TIDE_BASE_URL as string
+      ),
       title = $element.find(titleSelector).text(),
       fileSize = $element.find('.file--size').text(),
       updated = $element.attr('data-last-updated')
@@ -189,7 +193,10 @@ const pluginImages = function (this: any) {
   this.find('.embedded-entity--media--image').map((i: any, el: any) => {
     const $img = this.find(el).find('img')
     const width = $img.attr('width')
-    const src = $img.attr('src')
+    const src = stripMediaBaseUrl(
+      $img.attr('src'),
+      process.env.NUXT_PUBLIC_TIDE_BASE_URL as string
+    )
     const alt = $img.attr('alt')
     const $caption = this.find(el)
       .find('div.field--name-field-media-caption')
@@ -248,6 +255,32 @@ const pluginLinks = function (this: any) {
   })
 }
 
+const pluginLists = function (this: any) {
+  this.find('ul[type], ol[type]').map((i: any, el: any) => {
+    const $list = this.find(el)
+    const type = $list.attr('type')
+
+    const listTypes = {
+      1: 'decimal',
+      a: 'lower-latin',
+      A: 'upper-latin',
+      i: 'lower-roman',
+      I: 'upper-roman',
+      disc: 'disc',
+      square: 'square',
+      circle: 'disc' // circles selection uses disc (a11y request)
+    }
+
+    $list.removeAttr('type')
+
+    if (listTypes[type]) {
+      $list.addClass(`rpl-type-list-${el?.name}--${listTypes[type]}`)
+    }
+
+    return $list
+  })
+}
+
 const pluginIFrames = function (this: any) {
   this.find('iframe').map((i: any, el: any) => {
     const $iframe = this.find(el)
@@ -268,6 +301,25 @@ const pluginIFrames = function (this: any) {
   })
 }
 
+const pluginTextAlign = function (this: any) {
+  this.find('.text-align-left, .text-align-center, .text-align-right').map(
+    (i: any, el: any) => {
+      const $el = this.find(el)
+      const alignments = ['left', 'center', 'right']
+
+      alignments.forEach((alignment) => {
+        if ($el.hasClass(`text-align-${alignment}`)) {
+          $el
+            .removeClass(`text-align-${alignment}`)
+            .addClass(`rpl-u-text-${alignment}`)
+        }
+      })
+
+      return $el
+    }
+  )
+}
+
 export default [
   pluginTables,
   pluginCallout,
@@ -277,5 +329,7 @@ export default [
   pluginImages,
   pluginButtons,
   pluginLinks,
-  pluginIFrames
+  pluginLists,
+  pluginIFrames,
+  pluginTextAlign
 ]

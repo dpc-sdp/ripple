@@ -11,9 +11,9 @@ const result: TideDynamicPageComponent<ITideComplexImage> = {
     sourceCaption: 'Complex Image Source',
     dataContent: '<p>Image Data</p>',
     dataLabel: 'Complex Image Additional data',
-    src: 'https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/2018-19-State-Budget.jpg',
+    src: '/sites/default/files/tide_demo_content/2018-19-State-Budget.jpg',
     downloadUrl:
-      'https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/2018-19-State-Budget.jpg',
+      '/sites/default/files/tide_demo_content/2018-19-State-Budget.jpg',
     downloadLabel: 'Complex Image Download',
     type: 'image',
     variant: 'complex',

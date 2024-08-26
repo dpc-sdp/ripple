@@ -305,3 +305,15 @@ html {
 .rpl-u-hyphenate {
   hyphens: auto;
 }
+
+.rpl-u-text-left {
+  text-align: left;
+}
+
+.rpl-u-text-center {
+  text-align: center;
+}
+
+.rpl-u-text-right {
+  text-align: right;
+}

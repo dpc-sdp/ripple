@@ -170,7 +170,8 @@ export default {
   },
   'rpl-file/download': () => {
     return (payload: any) => {
-      const { host, pathname } = new URL(payload?.value)
+      const { $app_origin } = useNuxtApp()
+      const { host, pathname } = new URL(payload?.value, $app_origin)
 
       trackEvent({
         event: `file_${payload.action}`,
@@ -291,7 +292,8 @@ export default {
   },
   'rpl-media-embed/downloadImage': () => {
     return (payload: any) => {
-      const { pathname, host } = new URL(payload?.value)
+      const { $app_origin } = useNuxtApp()
+      const { pathname, host } = new URL(payload?.value, $app_origin)
       const fileName = pathname.split('/').pop()
 
       trackEvent({

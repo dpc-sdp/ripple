@@ -30,6 +30,7 @@ export interface TideSiteData {
     top?: TideImageField
     bottom?: TideImageField
   }
+  contentRatingText?: string
   acknowledgementHeader?: string
   acknowledgementFooter: string
   copyrightHtml: string
@@ -82,6 +83,14 @@ export interface TideImageField {
     x: string
     y: string
   }
+}
+
+export type TideDocumentField = {
+  name: string
+  url: string
+  extension: string
+  size: string
+  id: string
 }
 
 export interface TidePageBase {
@@ -256,6 +265,10 @@ export interface IRplFeatureFlags {
    */
   disablePrimaryNavSearch?: boolean
   /**
+   * @description Force multi-line links to render on a single line in the primary navigation
+   */
+  primaryNavNowrap?: boolean
+  /**
    * @description Option to override the default URL the search for redirects to
    */
   primaryNavSearchUrl?: string
@@ -283,6 +296,14 @@ export interface IRplFeatureFlags {
    * @description Sets the number of toggle-able levels
    */
   sectionNavToggleLevels?: number
+  /**
+   * @description Allow overriding the default site search content types
+   */
+  search?: {
+    contentTypes: {
+      [key: string]: boolean
+    }
+  }
   /**
    * @description Custom flags
    */

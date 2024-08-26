@@ -321,6 +321,9 @@
           "field_paragraph_body": [
             "The Department of Premier and Cabinet, as owner of this website on behalf of the Victorian Government, is committed to providing a website that is accessible to the widest possible audience, regardless of technology or ability.  This website aims to meet level AA of the Web Content Accessibility Guidelines (WCAG) 2.1 World Wide Web Consortium (W3C) Web Content Accessibility Guidelines 2.0 . If there is information on this website that you can't access, or have any suggestions on how we can improve the accessibility of this website, please email us via  digital@dpc.vic.gov.au digital@dpc.vic.gov.au  or contact us by mail to: Department of Premier and Cabinet 1 Treasury Place East Melbourne VIC 3002 All constructive feedback regarding the accessibility or usability of this website is welcome and will be carefully considered. Assistance If you are a TTY user, phone 133 677 133 677 then ask for 1300 366 356 If you are a Speak and Listen user, phone 1300 555 727 1300 555 727 then ask for 1300 366 356 For SMS relay, use 0423 677 767 0423 677 767 If you are an internet relay user, visit the Internet Relay call page Make an Internet Relay call page and use this number: 1300 366 356"
           ],
+          "field_redirect_website": [
+            "https://vic.gov.au/page"
+          ],
           "field_tags": [
             2095,
             2096

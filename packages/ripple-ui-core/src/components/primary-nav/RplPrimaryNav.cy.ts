@@ -76,5 +76,18 @@ describe('RplPrimaryNav', () => {
       cy.get(levelToggle(2)).first().click()
       cy.get(level(3)).should('not.exist')
     })
+
+    it('toggles the display of the search form', () => {
+      cy.contains('.rpl-primary-nav__nav-bar-action--toggle', 'Search').click()
+
+      cy.get('.rpl-primary-nav__search-form').as('form')
+
+      cy.get('form').should('be.visible')
+      cy.get('form').find('.rpl-search-bar__input').should('have.focus')
+
+      cy.contains('.rpl-primary-nav__nav-bar-action--toggle', 'Close').click()
+
+      cy.get('.rpl-primary-nav__search-form').should('not.exist')
+    })
   })
 })

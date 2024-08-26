@@ -9,3 +9,13 @@
 .rpl-file__updated {
   margin-top: var(--rpl-sp-1);
 }
+
+.rpl-file--icon-s {
+  .rpl-document__icon {
+    margin-right: var(--rpl-sp-2);
+  }
+
+  .rpl-icon {
+    vertical-align: top;
+  }
+}

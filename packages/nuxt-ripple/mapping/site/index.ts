@@ -2,6 +2,7 @@ import {
   getImageFromField,
   getBody,
   getBodyFromField,
+  getMediaPath,
   getLinkFromField,
   getSiteKeyValues,
   TideSiteApi
@@ -31,9 +32,9 @@ export default {
       if (src.field_site_logo) {
         return {
           href: '/',
-          src: src.field_site_logo.url,
+          src: getMediaPath(src, 'field_site_logo'),
           altText: src.field_site_logo.meta?.alt,
-          printSrc: getImageFromField(src, 'field_print_friendly_logo')?.src
+          printSrc: getMediaPath(src, 'field_print_friendly_logo')
         }
       }
 
@@ -51,6 +52,11 @@ export default {
       top: (src: any) => getImageFromField(src, 'field_top_corner_graphic'),
       bottom: (src: any) =>
         getImageFromField(src, 'field_bottom_corner_graphic')
+    },
+    contentRatingText: (src: any) => {
+      return src.hasOwnProperty('field_additional_comment')
+        ? getBodyFromField(src, 'field_additional_comment')
+        : '<p>If you need a response, please use our <a href="/contact-us" class="rpl-text-link rpl-u-focusable-inline">contact us form</a>.</p>'
     },
     acknowledgementFooter: 'field_acknowledgement_to_country',
     copyrightHtml: (src: any) => {

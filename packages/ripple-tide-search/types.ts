@@ -1,5 +1,14 @@
 import { FilterType } from '@elastic/search-ui'
 import type { TidePageBase, TideSiteData } from '@dpc-sdp/ripple-tide-api/types'
+
+export type addressResultType = {
+  id: string
+  name: string
+  postcode: string
+  bbox: string[]
+  type: 'postcode' | 'locality'
+}
+
 export interface MappedSearchResult<T> {
   id: string
   component: string

@@ -22,6 +22,14 @@ Feature: Publication page
       | The Victorian Skills Plan 2022 into 2023 actions and initiatives | The 25 initiatives scheduled to start in year one are well underway.                    | /victorian-skills-plan-2023-implementation-update/2022-victorian-skills-plan-actions-and-initiatives   |
       | Promoting post-secondary education skills and career pathways    | The first priority area's actions and initiatives from the Victorian Skills Plan 2022.  | /victorian-skills-plan-2023-implementation-update/promoting-post-secondary-education-skills-and-career |
       | Lifting participation in education and training                  | The second priority area's actions and initiatives from the Victorian Skills Plan 2022. | /victorian-skills-plan-2023-implementation-update/lifting-participation-education-and-training         |
+    And the publication should display the following documents
+      | title                                                    | url                                                                               | type | size    |
+      | Victorian Skills Plan Implementation Update October 2023 | /sites/default/files/2023-10/16686-VSA-Implementation-Plan-Section_FA_Digital.pdf | pdf  | 4.61 MB |
+      | Print full document                                      | /victorian-skills-plan-2023-implementation-update/print-all                       |      |         |
+    When I click on the document "Victorian Skills Plan Implementation Update October 2023"
+    Then the dataLayer should include the following events
+      | event         | element_text                                             | file_name                                            | file_extension | file_size | component |
+      | file_download | Victorian Skills Plan Implementation Update October 2023 | 16686-VSA-Implementation-Plan-Section_FA_Digital.pdf | pdf            | 4.61 MB   | rpl-file  |
 
   @mockserver
   Example: Publication child
@@ -29,6 +37,10 @@ Feature: Publication page
     Then the title should be "The Victorian Skills Plan 2022 into 2023 actions and initiatives"
     And there should be a page link with a title of "Previous" and description text of "Victorian Skills Plan Implementation Update"
     And there should be a page link with a title of "Next" and description text of "Promoting post-secondary education skills and career pathways"
+    And the publication should display the following documents
+      | title                                                    | url                                                                               | type | size    |
+      | Victorian Skills Plan Implementation Update October 2023 | /sites/default/files/2023-10/16686-VSA-Implementation-Plan-Section_FA_Digital.pdf | pdf  | 4.61 MB |
+      | Print full document                                      | /victorian-skills-plan-2023-implementation-update/print-all                       |      |         |
 
   @mockserver
   Example: Publication print all

@@ -10,9 +10,10 @@ import RplSearchResult from './RplSearchResult.vue'
 import { a11yStoryCheck } from './../../../stories/interactions.js'
 import RplList from '../list/RplList.vue'
 import RplIcon from '../icon/RplIcon.vue'
+import RplFile from '../file/RplFile.vue'
 
 export const SingleTemplate = (args) => ({
-  components: { RplResultListing, RplResultListingItem, RplSearchResult, RplList, RplIcon },
+  components: { RplResultListing, RplResultListingItem, RplSearchResult, RplList, RplIcon, RplFile },
   setup() {
     return { args }
   },
@@ -123,6 +124,29 @@ This is an example showing the result listing with extra details
         { text: '$10,000 - $20,000', icon: 'icon-dollar-circle-filled' },
         { text: 'Closed', icon: 'icon-cancel-circle-filled', iconColour: 'error' }
       ]" />`
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>
+
+## With details (file)
+
+This is an example showing results with custom details
+
+<Canvas>
+  <Story
+    name='With details (file)'
+    play={a11yStoryCheck}
+    args={{
+      updated: null,
+      showUrl: false,
+      details: `<RplFile
+        size="1.5mb"
+        extension="pdf"
+        updated="July 17, 2022"
+        icon-size="s"
+      />`
     }}
   >
     {SingleTemplate.bind()}

@@ -13,12 +13,14 @@ interface Props {
   content?: string
   updated?: string
   dateLabel?: string
+  showUrl?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
   content: undefined,
   updated: undefined,
-  dateLabel: 'Updated'
+  dateLabel: 'Updated',
+  showUrl: true
 })
 
 const emit = defineEmits<{
@@ -51,12 +53,17 @@ const handleClick = () => {
     </div>
     <div ref="container" class="rpl-search-result__heading">
       <h2 class="rpl-search-result__title rpl-type-h3">
-        <RplTextLink ref="trigger" :url="url" class="rpl-u-link-visited" @click="handleClick">
+        <RplTextLink
+          ref="trigger"
+          :url="url"
+          class="rpl-u-link-visited"
+          @click="handleClick"
+        >
           {{ title }}
         </RplTextLink>
       </h2>
       <div
-        v-if="url"
+        v-if="url && showUrl"
         aria-hidden="true"
         class="rpl-search-result__url rpl-type-p-small rpl-u-screen-only"
       >

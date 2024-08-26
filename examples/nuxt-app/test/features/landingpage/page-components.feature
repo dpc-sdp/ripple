@@ -17,6 +17,12 @@ Feature: Home page
       | Accordion #1 | Test rich text content #1 |
       | Accordion #2 | Test rich text content #2 |
     And the accordion with ID "972" should display the description "Test accordion description"
+    When I click the accordion item "Accordion #1" in accordion with ID "accordion-972"
+    When I click the accordion item "Accordion #1" in accordion with ID "accordion-972"
+    Then the dataLayer should include the following events
+      | event           | element_id        | element_text | name                 | component     |
+      | open_accordion  | accordion-972-970 | Accordion #1 | Test accordion title | rpl-accordion |
+      | close_accordion | accordion-972-970 | Accordion #1 | Test accordion title | rpl-accordion |
 
   @mockserver
   Scenario: Page component - Accordion (Open/close all)
@@ -25,6 +31,10 @@ Feature: Home page
 
     When I click the close all button on accordion with ID "accordion-972"
     Then all accordion items in accordion ID "accordion-972" should be hidden
+    And the dataLayer should include the following events
+      | event               | element_id    | element_text | name                 | component     |
+      | open_accordion_all  | accordion-972 | Open all     | Test accordion title | rpl-accordion |
+      | close_accordion_all | accordion-972 | Close all    | Test accordion title | rpl-accordion |
 
   @mockserver
   Scenario: Page component - Promo card
@@ -54,7 +64,6 @@ Feature: Home page
       | displayStyle | title               | content            | image                    |
       | featured     | Nav card (featured) | Sample description | /placeholders/medium.png |
 
-
   @mockserver
   Scenario: Page component - Key dates card
     Then a key dates card with ID "988" should exist with the title "Key calendar dates"
@@ -68,10 +77,10 @@ Feature: Home page
   Scenario: Page component - Timeline
     Then a timeline with ID "992" should exist with the title "Test timeline title"
     Then a timeline with ID "992" should exist with the following items
-      | title             | date                     | summary                   | url                 | image                    |
-      | Milestone 1 title | 2 June to 11 November    | Milestone 1 summary field | /test-destination-1 | /placeholders/small.png  |
-      | Milestone 2 title | 4 October to 17 November | Milestone 2 summary field | /test-destination-2 |                          |
-      | Milestone 3 title |                          | Milestone 3 text          |                     |                          |
+      | title             | date                     | summary                   | url                 | image                   |
+      | Milestone 1 title | 2 June to 11 November    | Milestone 1 summary field | /test-destination-1 | /placeholders/small.png |
+      | Milestone 2 title | 4 October to 17 November | Milestone 2 summary field | /test-destination-2 |                         |
+      | Milestone 3 title |                          | Milestone 3 text          |                     |                         |
 
   @mockserver
   Scenario: Page component - Call to action
@@ -106,6 +115,11 @@ Feature: Home page
     Then the active slide on "1155" should be "1"
     And the pagination button "Previous" on "1155" should be disabled
 
+    And the dataLayer should include the following events
+      | event         | element_id          | element_text | component         |
+      | paginate_next | page-component-1155 | Next         | rpl-card-carousel |
+      | paginate_prev | page-component-1155 | Previous     | rpl-card-carousel |
+
   @mockserver
   Scenario: Page component - Media Gallery
     Given a media gallery with ID "1056" should exist with the following gallery items
@@ -124,6 +138,10 @@ Feature: Home page
     And the pagination button "Next" on "1056" should be disabled
     When I click the button "Previous" on the component with ID "1056"
     Then the active slide on "1056" should be "2"
+    And the dataLayer should include the following events
+      | event         | element_id          | element_text | label           | component         |
+      | paginate_next | page-component-1056 | Next         | Media title two | rpl-media-gallery |
+      | paginate_prev | page-component-1056 | Previous     | Media title two | rpl-media-gallery |
 
   @mockserver
   Scenario: Page component - Media Gallery (Modal)
@@ -131,6 +149,10 @@ Feature: Home page
     Then the "media-gallery" modal should be "visible"
     When I click the "media-gallery" modal button "Close"
     Then the "media-gallery" modal should be "hidden"
+    And the dataLayer should include the following events
+      | event            | element_id          | element_text                      | label           | component         |
+      | enter_fullscreen | page-component-1056 | View 'Media title one' fullscreen | Media title one | rpl-media-gallery |
+      | exit_fullscreen  | page-component-1056 | Close                             | Media title one | rpl-media-gallery |
 
   @mockserver
   Scenario: Page component - Data Table
@@ -157,3 +179,29 @@ Feature: Home page
       | title    | content          | image                    | url                 |
       | Card one | Card one summary | /placeholders/medium.png | /landing-page-cc-2  |
       | Card two | Card two summary | /placeholders/medium.png | https://google.com/ |
+
+  @mockserver
+  Scenario: Page component - Complex image/Media Embed
+    Given a media embed with ID "1951" should exist
+    Then the media embed image for "1951" should be "/placeholders/medium.png"
+    When I click the action "More info" for media embed "1951"
+    Then the extra data for media embed "1951" should be visible
+    When I click the action "More info" for media embed "1951"
+    Then the extra data for media embed "1951" should be hidden
+
+    When I click the action "Fullscreen" for media embed "1951"
+    Then the "media-embed" modal should be "visible"
+    When I click the "media-embed" modal button "Close"
+    Then the "media-embed" modal should be "hidden"
+
+    And the dataLayer should include the following events
+      | event            | element_id          | element_text | label         | component       |
+      | open_data        | page-component-1951 | More info    | Complex image | rpl-media-embed |
+      | close_data       | page-component-1951 | More info    | Complex image | rpl-media-embed |
+      | enter_fullscreen | page-component-1951 | Fullscreen   | Complex image | rpl-media-embed |
+      | exit_fullscreen  | page-component-1951 | Close        | Complex image | rpl-media-embed |
+
+    When I trigger a click for the action "Download it" on the media embed "1951"
+    Then the dataLayer should include the following events
+      | event         | element_id          | element_text | label         | file_name  | file_extension | type  | component       |
+      | file_download | page-component-1951 | Download it  | Complex image | medium.png | png            | image | rpl-media-embed |

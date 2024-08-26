@@ -1,3 +1,9 @@
+<script lang="ts">
+const primaryColor = getComputedStyle(
+  document.documentElement
+).getPropertyValue('--rpl-clr-primary')
+</script>
+
 <script setup lang="ts">
 import { RplIcon } from '@dpc-sdp/ripple-ui-core/vue'
 import type { IRplMapFeature } from './../../types'
@@ -44,6 +50,7 @@ interface Props {
   hasSidePanel?: boolean
   noresults?: boolean
   getFeatureTitle?: (feature: any) => string
+  clusteringDistance?: number
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -57,7 +64,7 @@ const props = withDefaults(defineProps<Props>(), {
   initialCenter: () => [144.9631, -36.8136], // melbourne CBD
   homeViewExtent: () => [144.9631, -36.8136], // melbourne CBD
   pinStyle: (feature) => {
-    let color = feature.color || 'red'
+    let color = feature.color || primaryColor || 'red'
     const ic = new Icon({
       src: markerIconDefaultSrc,
       color,
@@ -69,7 +76,8 @@ const props = withDefaults(defineProps<Props>(), {
     return ic
   },
   noresults: false,
-  getFeatureTitle: (feature: any) => (feature ? feature.title : '')
+  getFeatureTitle: (feature: any) => (feature ? feature.title : ''),
+  clusteringDistance: 100
 })
 
 const zoom = ref(props.initialZoom)
@@ -359,7 +367,7 @@ const noResultsRef = ref(null)
           <ol-animated-clusterlayer
             title="clusterLayer"
             :animationDuration="300"
-            :distance="100"
+            :distance="clusteringDistance"
             :zIndex="4"
           >
             <ol-source-vector :features="mapFeatures"> </ol-source-vector>

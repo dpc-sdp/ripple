@@ -1,4 +1,4 @@
-import cheerio from 'cheerio'
+import { load } from 'cheerio'
 import defaultPlugins from './default-plugins.js'
 
 // A markup transpiler for converting HTML into Vue template by giving plugins.
@@ -10,7 +10,7 @@ const markupTranspiler = (
   if (!html) {
     return ''
   }
-  const $ = cheerio.load(html, options)
+  const $ = load(html, options)
   const $body = $('body')
   let markupData = {}
 

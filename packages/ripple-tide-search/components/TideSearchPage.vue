@@ -3,8 +3,7 @@ import { ref, watch } from 'vue'
 import {
   getActiveFilterURL,
   scrollToElementTopWithOffset,
-  useRuntimeConfig,
-  useTideSite
+  useRuntimeConfig
 } from '#imports'
 import useSearchUI from './../composables/useSearchUI'
 import {
@@ -15,14 +14,16 @@ import { FormKit } from '@formkit/vue'
 import { SearchDriverOptions } from '@elastic/search-ui'
 import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
 import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
+import type { TideSiteData } from '@dpc-sdp/ripple-tide-api/types'
 
 interface Props {
-  id: string
+  id?: string
+  site: TideSiteData
   pageTitle: string
   filtersConfig: AppSearchFilterConfigItem[]
   searchDriverOptions: Omit<SearchDriverOptions, 'apiConnector'>
   searchResultsMappingFn: (item: any) => MappedSearchResult<any>
-  scrollToResults: boolean
+  scrollToResults?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -81,7 +82,6 @@ const emit = defineEmits<{
 const { emitRplEvent } = useRippleEvent('tide-search', emit)
 
 const { public: config } = useRuntimeConfig()
-const site = await useTideSite()
 
 const apiConnectorOptions = {
   // Omit the search key, we'll add it on the server
@@ -316,6 +316,7 @@ watch(
                 </div>
               </div>
               <RplFormActions
+                id="tide-search-page-actions"
                 :label="submitFiltersLabel"
                 resetLabel="Clear search filters"
                 :displayResetButton="true"

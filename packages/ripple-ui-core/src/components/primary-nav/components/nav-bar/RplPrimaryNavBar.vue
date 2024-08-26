@@ -15,9 +15,13 @@ import {
 import VicGovLogo from './../../../../assets/logos/logo-vic-gov.svg?component'
 import type { IRplFeatureFlags } from '@dpc-sdp/ripple-tide-api/types'
 
-const { disablePrimaryLogo }: IRplFeatureFlags = inject('featureFlags', {
-  disablePrimaryLogo: false
-})
+const { disablePrimaryLogo, primaryNavNowrap }: IRplFeatureFlags = inject(
+  'featureFlags',
+  {
+    disablePrimaryLogo: false,
+    primaryNavNowrap: false
+  }
+)
 
 interface Props {
   primaryLogo: IRplPrimaryNavLogo
@@ -130,7 +134,12 @@ const handleToggleItem = (level: number, item: IRplPrimaryNavItem) => {
       </RplLink>
     </div>
 
-    <ul class="rpl-primary-nav__nav-bar-actions-list">
+    <ul
+      :class="[
+        'rpl-primary-nav__nav-bar-actions-list',
+        { 'rpl-primary-nav__nav-bar-actions-list--nowrap': primaryNavNowrap }
+      ]"
+    >
       <!-- Mobile menu toggle -->
       <li class="rpl-primary-nav__nav-bar-mobile-menu-toggle-container">
         <RplPrimaryNavBarAction

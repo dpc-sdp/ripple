@@ -168,6 +168,19 @@ export default {
       })
     }
   },
+  'rpl-document/print': () => {
+    return (payload: any) => {
+      trackEvent({
+        event: `${payload.action}_document`,
+        element_id: payload?.id,
+        element_text: payload?.text,
+        link_url: payload?.value,
+        name: payload?.name,
+        component: 'rpl-document',
+        platform_event: 'print'
+      })
+    }
+  },
   'rpl-file/download': () => {
     return (payload: any) => {
       const { $app_origin } = useNuxtApp()

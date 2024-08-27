@@ -30,8 +30,6 @@ to: package.json
   },
   "devDependencies": {
     "@dpc-sdp/eslint-config-ripple": "<%= rplVersion %>",
-    "@elastic/search-ui-app-search-connector": "1.19.1",
-    "@elastic/search-ui-elasticsearch-connector": "1.19.1",
     "nuxt": "3.11.2",
     "eslint": "^8.28.0"
   },

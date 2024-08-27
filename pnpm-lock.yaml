@@ -747,14 +747,14 @@ importers:
         specifier: workspace:*
         version: link:../ripple-ui-maps
       '@elastic/search-ui':
-        specifier: ^1.21.4
-        version: 1.21.4
+        specifier: 1.19.1
+        version: 1.19.1
       '@elastic/search-ui-app-search-connector':
-        specifier: ^1.21.4
-        version: 1.21.4
+        specifier: 1.19.1
+        version: 1.19.1
       '@elastic/search-ui-elasticsearch-connector':
-        specifier: ^1.21.4
-        version: 1.21.4
+        specifier: 1.19.1
+        version: 1.19.1
 
   packages/ripple-tide-topic:
     dependencies:
@@ -2317,14 +2317,14 @@ packages:
     resolution: {integrity: sha512-mN5EbbgSp1rfRmQ/5Hv7jqAK8xhGJxCg7G84xje8hSefE59P+HPPCv/+DgesCUSJdZpwXIo0DwOWHfHvktxxLw==}
     engines: {node: '>=14'}
 
-  '@elastic/search-ui-app-search-connector@1.21.4':
-    resolution: {integrity: sha512-HKhmvh9LqfHWTWbqdT57ZrLy7CwBgVgEFJL4ZOZi7bbLWwVaS2r7gt4s7s4HJLep61ZVnefm2lj7i2qqr8qYaQ==}
+  '@elastic/search-ui-app-search-connector@1.19.1':
+    resolution: {integrity: sha512-cHYtk2M6F1OdkJSXdb6EMvn6p4oE2duNZ/Il+W++6l5NXzyqPrVnh+6uGEPN64j+CxvTwxAEdV2uQbUpEKBrtw==}
 
-  '@elastic/search-ui-elasticsearch-connector@1.21.4':
-    resolution: {integrity: sha512-sZcrUA6Zehnn84oyoAE3HnDehH1OWtXBXSvSXUTPMmsNIQkAKLqCQphHBPkDoYe1kUJQMb4lllsXIc6Zk9KQYg==}
+  '@elastic/search-ui-elasticsearch-connector@1.19.1':
+    resolution: {integrity: sha512-cYR1vXN7HLREHsGZridqXtgrqLHH81E2leV/ZkvBlFDIszOUQCBlGnWBi4g/tt6fcfKSb3fGM1GMIRQhMaNSMA==}
 
-  '@elastic/search-ui@1.21.4':
-    resolution: {integrity: sha512-3Uep2aaFVzEn3hYWogd54zd5hbIrtEwEmI3P88o17JOEt296kwcoc6hsXJQLtMiXBIG4Wk3K28dJI+0KKBO9fQ==}
+  '@elastic/search-ui@1.19.1':
+    resolution: {integrity: sha512-2DcZ1b4fiL0vjRhVFU1OnqGKOy7aVJr563VO9FDpUUFCXlMySKWnuwh0kcUatqeNO4Sxw9GyJZbtzOgnTyQaag==}
 
   '@elastic/transport@8.3.1':
     resolution: {integrity: sha512-jv/Yp2VLvv5tSMEOF8iGrtL2YsYHbpf4s+nDsItxUTLFTzuJGpnsB/xBlfsoT2kAYEnWHiSJuqrbRcpXEI/SEQ==}
@@ -18126,24 +18126,24 @@ snapshots:
   '@elastic/elasticsearch@8.6.0':
     dependencies:
       '@elastic/transport': 8.3.1
-      tslib: 2.5.0
+      tslib: 2.6.2
     transitivePeerDependencies:
       - supports-color
 
-  '@elastic/search-ui-app-search-connector@1.21.4':
+  '@elastic/search-ui-app-search-connector@1.19.1':
     dependencies:
       '@elastic/app-search-javascript': 8.5.1
-      '@elastic/search-ui': 1.21.4
+      '@elastic/search-ui': 1.19.1
 
-  '@elastic/search-ui-elasticsearch-connector@1.21.4':
+  '@elastic/search-ui-elasticsearch-connector@1.19.1':
     dependencies:
       '@elastic/elasticsearch': 8.6.0
-      '@elastic/search-ui': 1.21.4
+      '@elastic/search-ui': 1.19.1
       '@searchkit/sdk': 3.0.0(@elastic/elasticsearch@8.6.0)
     transitivePeerDependencies:
       - supports-color
 
-  '@elastic/search-ui@1.21.4':
+  '@elastic/search-ui@1.19.1':
     dependencies:
       date-fns: 1.30.1
       deep-equal: 1.1.1
@@ -18156,7 +18156,7 @@ snapshots:
       hpagent: 1.2.0
       ms: 2.1.3
       secure-json-parse: 2.7.0
-      tslib: 2.5.0
+      tslib: 2.6.2
       undici: 5.28.2
     transitivePeerDependencies:
       - supports-color
@@ -27909,10 +27909,10 @@ snapshots:
 
   history@4.10.1:
     dependencies:
-      '@babel/runtime': 7.20.13
+      '@babel/runtime': 7.22.6
       loose-envify: 1.4.0
       resolve-pathname: 3.0.0
-      tiny-invariant: 1.3.1
+      tiny-invariant: 1.3.3
       tiny-warning: 1.0.3
       value-equal: 1.0.1
 
@@ -34943,7 +34943,7 @@ snapshots:
       '@tsconfig/node14': 1.0.3
       '@tsconfig/node16': 1.0.3
       '@types/node': 16.18.12
-      acorn: 8.11.3
+      acorn: 8.8.2
       acorn-walk: 8.2.0
       arg: 4.1.3
       create-require: 1.1.1
@@ -34963,7 +34963,7 @@ snapshots:
       '@tsconfig/node14': 1.0.3
       '@tsconfig/node16': 1.0.3
       '@types/node': 18.15.10
-      acorn: 8.11.3
+      acorn: 8.8.2
       acorn-walk: 8.2.0
       arg: 4.1.3
       create-require: 1.1.1

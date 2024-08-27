@@ -18,7 +18,9 @@ Then(
           }
         }, {})
 
-        cy.wrap(event).should('include', updatedRow)
+        Object.keys(updatedRow).forEach((key) => {
+          expect(event[key]).to.contain(updatedRow[key])
+        })
       })
     })
   }

@@ -314,3 +314,73 @@ Then('the in page navigation should include', (dataTable: DataTable) => {
 Given('I click on the document {string}', (label: string) => {
   cy.contains('.rpl-document__link', label).trigger('click')
 })
+
+Then(
+  'the site section nav should contain the following level 1 items:',
+  (dataTable: DataTable) => {
+    const table = dataTable.hashes()
+
+    cy.get(
+      '[data-sidebar-component-id="tide-sidebar-site-section-nav"] .rpl-vertical-nav__list--level-1 > li'
+    ).as('items')
+
+    table.forEach((row, i: number) => {
+      cy.get('@items')
+        .eq(i)
+        .then((link) => {
+          cy.wrap(link).as('link')
+          cy.get('@link').find('a').first().should('have.attr', 'href', row.url)
+          cy.get('@link').find('a').first().contains(row.text)
+        })
+    })
+  }
+)
+
+Then(
+  'the site section nav item with label {string} should be collapsed',
+  (label: string) => {
+    cy.contains(
+      '[data-sidebar-component-id="tide-sidebar-site-section-nav"] .rpl-vertical-nav__list--level-1 > li',
+      label
+    ).as('item')
+    cy.get('@item').should(
+      'not.have.class',
+      'rpl-vertical-nav__list-item--expanded'
+    )
+  }
+)
+
+Then(
+  'the site section nav item with label {string} should be expanded',
+  (label: string) => {
+    cy.contains(
+      '[data-sidebar-component-id="tide-sidebar-site-section-nav"] .rpl-vertical-nav__list--level-1 > li',
+      label
+    ).as('item')
+    cy.get('@item').should(
+      'have.class',
+      'rpl-vertical-nav__list-item--expanded'
+    )
+  }
+)
+
+Then(
+  'the site section nav item with label {string} should be active',
+  (label: string) => {
+    cy.get(
+      '[data-sidebar-component-id="tide-sidebar-site-section-nav"] .rpl-vertical-nav__item--active'
+    ).as('item')
+    cy.get('@item').should('have.length', 1)
+    cy.get('@item').should('contain', label)
+  }
+)
+
+Then(
+  'the site section nav item with label {string} should be inactive',
+  (label: string) => {
+    cy.get(
+      '[data-sidebar-component-id="tide-sidebar-site-section-nav"] .rpl-vertical-nav__item--active'
+    ).as('item')
+    cy.get('@item').should('not.contain', label)
+  }
+)

@@ -56,7 +56,9 @@ const getCardSummary = (field: { [key: string]: any }) => {
   )
   const ownSummary = field.field_paragraph_summary || ''
 
-  return linkedSummary ? linkedSummary : ownSummary
+  const summary = linkedSummary ? linkedSummary : ownSummary
+
+  return summary?.trim()
 }
 
 const getCardImage = (field: {}): TideImageField => {

@@ -16,7 +16,6 @@ import {
   watch,
   nextTick
 } from 'vue'
-import { useFullscreen } from '@vueuse/core'
 import { withDefaults, defineExpose } from '@vue/composition-api'
 import { Map } from 'ol'
 import { Zoom } from 'ol/control'
@@ -35,7 +34,7 @@ import {
   getfeaturesAtMapPixel,
   zoomToClusterExtent,
   centerMap,
-  fitVictoria,
+  fitDefaultExtent,
   areFeaturesCloseTogether
 } from './utils'
 
@@ -84,7 +83,8 @@ const zoom = ref(props.initialZoom)
 const rotation = ref(0)
 const view = ref(null)
 
-const { setRplMapRef, popup, deadSpace } = inject('rplMapInstance')
+const { setRplMapRef, popup, deadSpace, defaultExtent } =
+  inject('rplMapInstance')
 
 // Reference to ol/map instance
 const mapRef = ref<{ map: Map } | null>(null)
@@ -139,10 +139,14 @@ const selectedPinStyle = (feature, style) => {
   return style
 }
 
-const { isFullscreen } = useFullscreen()
-
-const { onHomeClick, onZoomInClick, onZoomOutClick, onFullScreenClick } =
-  useMapControls(mapRef)
+const {
+  onHomeClick,
+  onZoomInClick,
+  onZoomOutClick,
+  onFullScreenClick,
+  isFullScreen,
+  supportsFullScreen
+} = useMapControls(mapRef)
 
 const mapFeatures = computed(() => {
   if (Array.isArray(props.features)) {
@@ -283,10 +287,14 @@ onMounted(() => {
       }
     })
   }
-  fitVictoria(mapRef.value.map, deadSpace.value)
+  fitDefaultExtent(mapRef.value.map, deadSpace.value, defaultExtent)
 })
 
 const noResultsRef = ref(null)
+
+const fullScreenLabel = computed(() =>
+  isFullScreen.value ? 'Exit full screen' : 'View full screen'
+)
 </script>
 
 <template>
@@ -405,9 +413,12 @@ const noResultsRef = ref(null)
           </RplMapPopUp>
         </ol-overlay>
       </slot>
-      <div class="rpl-map__control rpl-map__control-fullscreen">
-        <button title="View map fullscreen" @click="onFullScreenClick">
-          <RplIcon v-if="isFullscreen" name="icon-cancel"></RplIcon>
+      <div
+        v-if="supportsFullScreen"
+        class="rpl-map__control rpl-map__control-fullscreen"
+      >
+        <button :title="fullScreenLabel" @click="onFullScreenClick">
+          <RplIcon v-if="isFullScreen" name="icon-cancel"></RplIcon>
           <RplIcon v-else name="icon-enlarge" size="m"></RplIcon>
         </button>
       </div>

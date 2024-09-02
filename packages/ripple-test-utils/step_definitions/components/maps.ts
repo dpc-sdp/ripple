@@ -146,6 +146,12 @@ Given('a custom suggestions function called {string} is used', (fnName) => {
   })
 })
 
+Given('a custom map results hook called {string} is used', (hook) => {
+  cy.get('@pageFixture').then((response) => {
+    set(response, 'bodyComponents[0].props.mapConfig.onResultsHook', hook)
+  })
+})
+
 When(`I type {string} into the location search bar`, (inputStr: string) => {
   cy.get(`[id="tide-address-lookup"]`).focus()
   cy.get(`[id="tide-address-lookup"]`).type(`${inputStr}`)
@@ -217,4 +223,37 @@ Given(`the geolocate button is hidden`, () => {
 
 Given(`the geolocate button is displayed`, () => {
   cy.get('.rpl-map-geolocate__btn').should('exist')
+})
+
+Given('the following default extent is used', (dataTable: DataTable) => {
+  const table = dataTable.hashes()
+
+  cy.get('@pageFixture').then((response) => {
+    set(response, 'bodyComponents[0].props.mapConfig.props.defaultExtent', [
+      parseFloat(table[0].minx),
+      parseFloat(table[0].miny),
+      parseFloat(table[0].maxx),
+      parseFloat(table[0].maxy)
+    ])
+  })
+})
+
+When('I click the view fullscreen button', () => {
+  cy.get('.rpl-map__control button[title="View full screen"]').realClick()
+})
+
+When('I click the exit fullscreen button', () => {
+  cy.get('.rpl-map__control button[title="Exit full screen"]').realClick()
+})
+
+Then('the map should be fullscreen', () => {
+  cy.document().then((doc) => {
+    expect(doc.fullscreenElement).to.not.be.null
+  })
+})
+
+Then('the map should not be fullscreen', () => {
+  cy.document().then((doc) => {
+    expect(doc.fullscreenElement).to.be.null
+  })
 })

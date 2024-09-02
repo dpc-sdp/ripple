@@ -36,6 +36,12 @@
           variant="dark"
           class="rpl-u-margin-l-3"
         />
+        <RplTag
+          v-else-if="option?.tag"
+          :label="option?.tag"
+          variant="dark"
+          class="rpl-u-margin-l-3"
+        />
       </template>
     </RplSearchBar>
   </div>
@@ -98,7 +104,7 @@ const emit = defineEmits<{
   (e: 'update', payload: addressResultType): void
 }>()
 
-const { rplMapRef, deadSpace } = inject('rplMapInstance')
+const { rplMapRef, deadSpace, defaultExtent } = inject('rplMapInstance')
 
 const pendingZoomAnimation = ref(false)
 
@@ -114,7 +120,11 @@ async function submitAction(e: any) {
     const arcGISAddress = await getAddressFromArcGISMagicKey(
       item.arcGISMagicKey
     )
-    emit('update', arcGISAddress)
+    emit('update', {
+      ...item,
+      ...(arcGISAddress || {}),
+      arcGISMagicKey: undefined
+    })
   } else {
     emit('update', item || null)
   }
@@ -239,9 +249,19 @@ async function centerMapOnLocation(
         animationDuration: animate ? 800 : 0
       })
     }
-  } else if (!location?.postcode) {
+
+    return
+  }
+
+  if (map && location?.center) {
+    const zoom = location?.zoomLevel || 16
+    centerMap(map, fromLonLat(location?.center), zoom, deadSpace.value, null)
+    return
+  }
+
+  if (!location) {
     // reset back to initial view on empty query
-    fitVictoria(map, deadSpace.value)
+    fitDefaultExtent(map, deadSpace.value, defaultExtent)
   }
 }
 </script>

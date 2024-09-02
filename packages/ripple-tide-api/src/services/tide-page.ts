@@ -18,12 +18,10 @@ export default class TidePageApi extends TideApiBase {
     [key: string]: IRplTideDynamicComponentMapping
   }
   site: string
-  path: string
 
   constructor(tide: RplTideModuleConfig, logger: ILogger) {
     super(tide, logger)
     this.site = tide.site
-    this.path = ''
     this.contentTypes = {}
     this.dynamicComponents = {}
     this.logLabel = 'TidePage'
@@ -91,8 +89,6 @@ export default class TidePageApi extends TideApiBase {
     headers = {},
     logId?: string
   ) {
-    this.path = path
-
     const routeUrl = `/route?site=${site}&path=${path}`
 
     return this.get(routeUrl, { headers, _logId: logId })

@@ -1,5 +1,49 @@
 # Changelog
 
+## v2.15.0
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/2.14.0...v2.15.0)
+
+
+### 🚀 Enhancements
+
+  - **@dpc-sdp/ripple-tide-search:** Allow setting a defaultExtent value for maps ([ce7d68d77](https://github.com/dpc-sdp/ripple-framework/commit/ce7d68d77))
+  - **@dpc-sdp/ripple-tide-search:** Added 'hideResultsCount' option to custom collection ([9a4757bf0](https://github.com/dpc-sdp/ripple-framework/commit/9a4757bf0))
+  - **@dpc-sdp/nuxt-ripple-analytics:** Add new print event ([d2a581dea](https://github.com/dpc-sdp/ripple-framework/commit/d2a581dea))
+  - **@dpc-sdp/ripple-tide-search:** Added additional functional needed for KYC map migration ([1f7e68727](https://github.com/dpc-sdp/ripple-framework/commit/1f7e68727))
+
+### 🩹 Fixes
+
+  - **@dpc-sdp/ripple-ui-core:** Add default timeZone for formatDate ([4c16b66b1](https://github.com/dpc-sdp/ripple-framework/commit/4c16b66b1))
+  - **@dpc-sdp/ripple-tide-landing-page:** Use getLinkFromField function for carousel events ([34bfabf2f](https://github.com/dpc-sdp/ripple-framework/commit/34bfabf2f))
+  - **@dpc-sdp/ripple-tide-landing-page:** Hydration mismatch error on card content ([dccdfa1ce](https://github.com/dpc-sdp/ripple-framework/commit/dccdfa1ce))
+  - **@dpc-sdp/ripple-tide-search:** First map results hook firing before map is ready ([afee797a4](https://github.com/dpc-sdp/ripple-framework/commit/afee797a4))
+  - **@dpc-sdp/ripple-ui-maps:** Update map imports ([442670ea1](https://github.com/dpc-sdp/ripple-framework/commit/442670ea1))
+  - **@dpc-sdp/ripple-tide-api:** Fixed site section sometimes not displaying correct active page ([3a00469d7](https://github.com/dpc-sdp/ripple-framework/commit/3a00469d7))
+  - **@dpc-sdp/ripple-ui-maps:** Update map snapshot ([a3238e433](https://github.com/dpc-sdp/ripple-framework/commit/a3238e433))
+  - **@dpc-sdp/ripple-ui-core:** Remove RTL 'before' list styles ([3c5696cb2](https://github.com/dpc-sdp/ripple-framework/commit/3c5696cb2))
+  - **@dpc-sdp/ripple-ui-maps:** Move isFullScreen check and add supportsFullScreen ([05ccc8c10](https://github.com/dpc-sdp/ripple-framework/commit/05ccc8c10))
+
+### 📦 Build
+
+  - 💚  update lockfile ([e8f728a28](https://github.com/dpc-sdp/ripple-framework/commit/e8f728a28))
+
+### 🏡 Chore
+
+  - **@dpc-sdp/ripple-tide-search:** Pin es dependency versions ([d3d64f943](https://github.com/dpc-sdp/ripple-framework/commit/d3d64f943))
+  - **@dpc-sdp/nuxt-ripple-cli:** Remove pinned es versions ([e10bd47d7](https://github.com/dpc-sdp/ripple-framework/commit/e10bd47d7))
+
+### ✅ Tests
+
+  - **@dpc-sdp/ripple-tide-api:** Fixed broken site section nav tests ([ccaf4af87](https://github.com/dpc-sdp/ripple-framework/commit/ccaf4af87))
+
+### ❤️  Contributors
+
+- Jeffrey Dowdle <jeffrey.dowdle@dpc.vic.gov.au>
+- David Featherston <david.featherstone@dpc.vic.gov.au>
+- Dylankelly <dylan.kelly@dpc.vic.gov.au>
+- Jason Smith <jason.smith@dpc.vic.gov.au>
+
 ## v2.14.0
 
 [compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.13.1...v2.14.0)

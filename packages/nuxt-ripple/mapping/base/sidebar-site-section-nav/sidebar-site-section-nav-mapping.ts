@@ -18,7 +18,7 @@ export const map = async (src, tidePageApi: TidePageApi) => {
   const menu = await tidePageApi.getSiteMenu(
     tidePageApi.site,
     menuData,
-    tidePageApi.path
+    src.path?.alias || src.path?.url
   )
 
   return {

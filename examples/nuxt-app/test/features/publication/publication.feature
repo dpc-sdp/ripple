@@ -41,6 +41,10 @@ Feature: Publication page
       | title                                                    | url                                                                               | type | size    |
       | Victorian Skills Plan Implementation Update October 2023 | /sites/default/files/2023-10/16686-VSA-Implementation-Plan-Section_FA_Digital.pdf | pdf  | 4.61 MB |
       | Print full document                                      | /victorian-skills-plan-2023-implementation-update/print-all                       |      |         |
+    When I click on the document "Print full document"
+    Then the dataLayer should include the following events
+      | event          | element_text        | link_url                                                    | component    |
+      | print_document | Print full document | /victorian-skills-plan-2023-implementation-update/print-all | rpl-document |
 
   @mockserver
   Example: Publication print all

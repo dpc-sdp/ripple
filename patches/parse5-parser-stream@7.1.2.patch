@@ -1,0 +1,43 @@
+diff --git a/dist/cjs/index.d.ts b/dist/cjs/index.d.ts
+index b4cc829fb24e7dc47714c36d11f9477315efbbe5..4556d50a41d40ff6010af3ed31fb53ab17e6ac5c 100644
+--- a/dist/cjs/index.d.ts
++++ b/dist/cjs/index.d.ts
+@@ -82,4 +82,3 @@ export interface ParserStream<T extends TreeAdapterTypeMap = DefaultTreeAdapterM
+      */
+     on(event: string, handler: (...args: any[]) => void): this;
+ }
+\ No newline at end of file
+-//# sourceMappingURL=index.d.ts.map
+\ No newline at end of file
+diff --git a/dist/cjs/index.js b/dist/cjs/index.js
+index a5002be2d78409f8785571447772edbaaa495b96..861526dca1c15ab442287965de40729dae067a83 100644
+--- a/dist/cjs/index.js
++++ b/dist/cjs/index.js
+@@ -87,4 +87,3 @@ class ParserStream extends node_stream_1.Writable {
+     }
+ }
+ exports.ParserStream = ParserStream;
+\ No newline at end of file
+-//# sourceMappingURL=index.js.map
+\ No newline at end of file
+diff --git a/dist/index.d.ts b/dist/index.d.ts
+index b4cc829fb24e7dc47714c36d11f9477315efbbe5..4556d50a41d40ff6010af3ed31fb53ab17e6ac5c 100644
+--- a/dist/index.d.ts
++++ b/dist/index.d.ts
+@@ -82,4 +82,3 @@ export interface ParserStream<T extends TreeAdapterTypeMap = DefaultTreeAdapterM
+      */
+     on(event: string, handler: (...args: any[]) => void): this;
+ }
+\ No newline at end of file
+-//# sourceMappingURL=index.d.ts.map
+\ No newline at end of file
+diff --git a/dist/index.js b/dist/index.js
+index 56d33dda5613b4e84e0756b97d5f88642f68daf6..0150db3d1ce9ac1747817c4014daecff50351eee 100644
+--- a/dist/index.js
++++ b/dist/index.js
+@@ -83,4 +83,3 @@ export class ParserStream extends Writable {
+         super.end(chunk || '', encoding, callback);
+     }
+ }
+\ No newline at end of file
+-//# sourceMappingURL=index.js.map

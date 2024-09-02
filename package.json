@@ -112,6 +112,7 @@
       "@vitejs/plugin-vue@5.0.4": "patches/@vitejs__plugin-vue@5.0.4.patch",
       "parse5@7.1.2": "patches/parse5@7.1.2.patch",
       "parse5-htmlparser2-tree-adapter@7.0.0": "patches/parse5-htmlparser2-tree-adapter@7.0.0.patch",
+      "parse5-parser-stream@7.1.2": "patches/parse5-parser-stream@7.1.2.patch",
       "vite-svg-loader@4.0.0": "patches/vite-svg-loader@4.0.0.patch"
     }
   }

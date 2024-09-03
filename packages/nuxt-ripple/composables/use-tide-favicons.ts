@@ -10,12 +10,12 @@ export default (site: TideSiteData, theme: any) => {
   const manifest = {
     id: siteUrl,
     name: site?.name,
-    short_name: site?.shortName,
+    short_name: site?.shortName || '',
     description: site?.slogan?.replace(/<[^>]*>|<|>/g, ''),
     start_url: siteUrl,
     icons: [
       {
-        src: site.appIcon?.src ?? siteUrl + (site.appIcon?.android || ''),
+        src: siteUrl + (site.appIcon?.src ?? '/android-chrome-512x512.png'),
         sizes: 'any'
       }
     ],
@@ -26,7 +26,7 @@ export default (site: TideSiteData, theme: any) => {
 
   link.push({
     rel: 'apple-touch-icon',
-    href: site.appIcon?.src ?? site.appIcon?.apple
+    href: site.appIcon?.src ?? '/apple-touch-icon.png'
   })
 
   link.push({
@@ -36,7 +36,7 @@ export default (site: TideSiteData, theme: any) => {
 
   link.push({
     rel: 'icon',
-    href: site.favicon?.src
+    href: site.favicon?.src ?? '/favicon.ico'
   })
 
   useHead({ link, meta: [{ name: 'theme-color', content: themeColour }] })

@@ -89,5 +89,5 @@ Feature: Site theme
       | theme_color      | #6B19A3            |
       | background_color | #ffffff            |
     And the sites manifest should include the following icons
-      | url                      | sizes |
+      | src                      | sizes |
       | /placeholders/medium.png | any   |

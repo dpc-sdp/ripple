@@ -21,13 +21,8 @@ export default {
       process.env.NODE_ENV === 'development' ? src : undefined,
     siteAlerts: siteAlertsMapping,
     slogan: (src: any) => getBodyFromField(src, 'field_site_slogan'),
-    favicon: (src: any) =>
-      getImageFromField(src, 'field_site_favicon', { src: '/favicon.ico' }),
-    appIcon: (src: any) =>
-      getImageFromField(src, 'field_site_app_icon', {
-        apple: '/apple-touch-icon.png',
-        android: '/android-chrome-512x512.png'
-      }),
+    favicon: (src: any) => getImageFromField(src, 'field_site_favicon'),
+    appIcon: (src: any) => getImageFromField(src, 'field_site_app_icon'),
     siteLogo: (src: any) => {
       if (src.field_site_logo) {
         return {

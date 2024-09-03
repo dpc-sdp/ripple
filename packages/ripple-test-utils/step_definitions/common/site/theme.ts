@@ -114,14 +114,11 @@ Then(
       .invoke('attr', 'href')
       .then((href) => {
         const manifest = JSON.parse(decodeURIComponent(href.split(',')[1]))
-        cy.wrap(manifest).as('manifest')
-      })
 
-    table.forEach((row) => {
-      cy.get('@manifest').its('icons').should('deep.include', {
-        src: row.url,
-        sizes: row.sizes
+        table.forEach((row, i: number) => {
+          expect(manifest.icons[i].src).to.include(row.src)
+          expect(manifest.icons[i].sizes).to.equal(row.sizes)
+        })
       })
-    })
   }
 )

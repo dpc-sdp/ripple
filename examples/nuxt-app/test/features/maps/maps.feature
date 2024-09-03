@@ -99,6 +99,22 @@ Feature: Custom collection map component
     Then the map matches the image snapshot "map-sidepanel-item-click"
 
   @mockserver
+  Scenario: Reaching the maximum zoom level will show clustered features in grouped popup
+    Given I load the page fixture with "/maps/basic-page"
+    And the popup type is "popover"
+    And the maximum zoom level is set to "7"
+    And the clustering distance is set to "300"
+    Then the page endpoint for path "/map" returns the loaded fixture
+    And the "/api/tide/elasticsearch/elasticsearch_index_develop_node/_search" network request is stubbed with fixture "/maps/simple-map-results" and status 200 as alias "searchReq"
+    Given I visit the page "/map"
+    When I wait 2 seconds
+    Then I click the map component at coordinates 545 385
+    And I wait 1 seconds
+    Then I click the map component at coordinates 660 320
+    And I wait 2 seconds
+    Then the map matches the image snapshot "map-popover-max-zoom-cluster"
+
+  @mockserver
   Scenario: Map zooms to intended initial location with results hook
     Given I load the page fixture with "/maps/basic-page"
     And a custom map results hook called "exampleMapResultsHook" is used

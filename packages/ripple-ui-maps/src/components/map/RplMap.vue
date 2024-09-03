@@ -35,13 +35,15 @@ import {
   zoomToClusterExtent,
   centerMap,
   fitDefaultExtent,
-  areFeaturesCloseTogether
+  areFeaturesCloseTogether,
+  getFeaturesCenterPoint
 } from './utils'
 
 interface Props {
   features?: IRplMapFeature[]
   projection?: 'EPSG:4326' | 'EPSG:3857'
   initialZoom?: number
+  maxZoom?: number
   initialCenter?: [number, number]
   pinStyle?: Function
   mapHeight?: number
@@ -57,6 +59,7 @@ const props = withDefaults(defineProps<Props>(), {
   projection: 'EPSG:4326',
   features: () => [],
   initialZoom: 7.3,
+  maxZoom: undefined,
   mapHeight: 600,
   popupType: 'sidebar',
   hasSidePanel: false,
@@ -188,16 +191,15 @@ async function onMapSingleClick(evt) {
       ) {
         // if there are lots of features and we are zoomed out, we just zoom in a bit
         view.animate({
-          zoom: view.getZoom() + largeClusterZoomAmount,
+          zoom: currentZoom + largeClusterZoomAmount,
           center: evt.coordinate
         })
       } else {
         const isCloseTogether = areFeaturesCloseTogether(point.features, 20)
 
-        if (isCloseTogether) {
+        if (isCloseTogether || currentZoom >= props.maxZoom) {
           // if the features are very close together/in the same location we show them all in an accordion in a popup
-          const coords = point.features[0].getGeometry().flatCoordinates
-
+          const coords = getFeaturesCenterPoint(point.features)
           popup.value.feature = point.features.map((f) => f.getProperties())
           popup.value.position = coords
           popup.value.isOpen = true
@@ -344,6 +346,7 @@ const fullScreenLabel = computed(() =>
         :rotation="rotation"
         :projection="projection"
         :zoom="zoom"
+        :maxZoom="maxZoom"
         :minZoom="5"
       />
       <slot name="map-provider"> </slot>

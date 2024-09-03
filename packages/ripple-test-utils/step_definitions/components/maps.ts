@@ -119,6 +119,26 @@ Given('the popup type is {string}', (popupType) => {
   })
 })
 
+Given('the maximum zoom level is set to {string}', (maxZoom) => {
+  cy.get('@pageFixture').then((response) => {
+    set(
+      response,
+      'bodyComponents[0].props.mapConfig.props.maxZoom',
+      Number(maxZoom)
+    )
+  })
+})
+
+Given('the clustering distance is set to {string}', (clusteringDistance) => {
+  cy.get('@pageFixture').then((response) => {
+    set(
+      response,
+      'bodyComponents[0].props.mapConfig.props.clusteringDistance',
+      Number(clusteringDistance)
+    )
+  })
+})
+
 Given('the side panel is enabled', () => {
   cy.get('@pageFixture').then((response) => {
     set(response, 'bodyComponents[0].props.mapConfig.sidePanel.enabled', true)

@@ -27,6 +27,7 @@ export const textarea: FormKitTypeDefinition = {
       label: '$label',
       disabled: '$node.context.disabled',
       placeholder: '$node.props.placeholder',
+      autocomplete: '$node.props.autocomplete',
       rows: '$node.props.rows',
       options: '$node.props.options',
       validationMeta: '$node.props.validationMeta',
@@ -56,6 +57,7 @@ export const textarea: FormKitTypeDefinition = {
     ...counterProps,
     'rows',
     'placeholder',
+    'autocomplete',
     'validationMeta',
     'columnClasses',
     'pii'

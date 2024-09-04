@@ -44,6 +44,7 @@ export const number: FormKitTypeDefinition = {
     'max',
     'step',
     'placeholder',
+    'autocomplete',
     'validationMeta',
     'columnClasses',
     'pii',

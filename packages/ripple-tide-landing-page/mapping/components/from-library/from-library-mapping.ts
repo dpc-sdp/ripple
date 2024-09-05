@@ -1,26 +1,30 @@
 import { TideDynamicPageComponent } from '@dpc-sdp/ripple-tide-api/types'
 import componentMappings from '../../components'
+import { reusableParagraphTypes } from '../../../types'
 
-export interface ITideFromLibrary {
+interface TideFromLibrary {
   id: string | null
+  type: string
 }
 
-export const fromLibraryMapping = async (
-  field,
-  page,
-  tidePageApi
-): TideDynamicPageComponent<ITideFromLibrary> => {
-  const paragraph = field?.field_reusable_paragraph?.paragraphs;
-  if (paragraph) {
-    return componentMappings[paragraph.type].mapping(paragraph, page, tidePageApi)
+export const fromLibraryMapping = (
+  field: { field_reusable_paragraph: { paragraphs: TideFromLibrary } },
+  page: any,
+  tidePageApi: any
+): TideDynamicPageComponent<TideFromLibrary> => {
+  const paragraph = field?.field_reusable_paragraph?.paragraphs
+  if (paragraph && reusableParagraphTypes.includes(paragraph.type)) {
+    return componentMappings[paragraph.type].mapping(
+      paragraph,
+      page,
+      tidePageApi
+    )
   }
 
-  console.error(`No mapping found for paragraphs library item ${id}`)
+  console.error(`No mapping found for paragraphs library item ${field?.id}`)
 }
 
-export const fromLibraryIncludes = [
-  'field_landing_page_component.field_reusable_paragraph.paragraphs'
-]
+export const fromLibraryIncludes = []
 
 export default {
   includes: fromLibraryIncludes,

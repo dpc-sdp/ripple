@@ -14,6 +14,7 @@ export type tableColumnConfig = {
   component?: string
   props?: any
   isHTML?: boolean
+  isLabelHTML?: boolean
 }
 
 export type tableRow = {
@@ -40,7 +41,7 @@ interface Props {
   columns: tableColumnConfig[]
   items?: Array<string>
   row: tableRow
-  extraContent?: extraRowContent
+  extraContent?: extraRowContent | null
   verticalHeader?: boolean
   offset: number
   caption?: string

@@ -111,6 +111,8 @@
 }
 
 .rpl-map-popup--popover.rpl-map-popup--area {
+  margin-top: var(--rpl-sp-3);
+
   &::before {
     position: absolute;
     content: '';

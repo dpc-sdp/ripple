@@ -512,6 +512,42 @@
       }
     },
     {
+      "uuid": "c509edfe-89a6-4b8d-b8e1-f72e6774da1x",
+      "component": "TideLandingPagePromoCard",
+      "id": "979",
+      "layout": "card",
+      "props": {
+        "displayStyle": "highlight",
+        "title": "Promo card (highlight)",
+        "summary": "Sample description",
+        "image": {
+          "src": "/placeholders/medium.png",
+          "focalPoint": {
+            "x": 707,
+            "y": 393
+          },
+          "alt": "Demo: Melbourne tram",
+          "width": 1413,
+          "height": 785,
+          "title": "Demo: Melbourne tram"
+        },
+        "link": {
+          "text": "",
+          "url": "/demo-destination"
+        },
+        "showMetadata": true,
+        "metadata": {
+          "dateStart": "2019-07-02 09:00:00",
+          "dateEnd": "2019-07-07 10:00:00",
+          "topic": "Demo Topic",
+          "contentType": "Event",
+          "fvRecommendationStatus": "",
+          "inductionYear": "",
+          "isGrantOngoing": false
+        }
+      }
+    },
+    {
       "uuid": "e92bbc8b-a2b6-4fdf-aa10-2329a0b0bc5a",
       "component": "TideLandingPageNavCard",
       "id": "981",

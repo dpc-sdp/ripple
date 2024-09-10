@@ -19,7 +19,7 @@ export default function ({ route, site, page }): IRplAnalyticsEventPayload {
 
   const pageBreadcrumbs = page?.breadcrumbs
     ? page?.breadcrumbs
-    : getBreadcrumbs(route.fullPath, page?.title, site?.menus?.menuMain)
+    : getBreadcrumbs(route.path, page?.title, site?.menus?.menuMain)
 
   if (Array.isArray(pageBreadcrumbs)) {
     payload.breadcrumbs = pageBreadcrumbs

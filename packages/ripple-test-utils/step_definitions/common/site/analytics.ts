@@ -25,3 +25,18 @@ Then(
     })
   }
 )
+
+Then(
+  'the dataLayer should have the following breadcrumbs',
+  (dataTable: DataTable) => {
+    const table = dataTable.hashes()
+
+    cy.window().then((window) => {
+      const event = window.dataLayer?.find((i) => i.event === 'routeChange')
+
+      table.forEach((row, index) => {
+        expect(event.breadcrumbs[index]).to.contain(row.title)
+      })
+    })
+  }
+)

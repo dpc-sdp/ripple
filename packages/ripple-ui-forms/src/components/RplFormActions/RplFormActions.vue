@@ -3,6 +3,7 @@ import { reset } from '@formkit/vue'
 import { computed, inject } from 'vue'
 import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
 import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
+import { getCaptchaElementId } from '#imports'
 
 interface Props {
   id: string
@@ -63,8 +64,13 @@ const handleReset = () => {
     { global: props.globalEvents }
   )
 }
+
+const captchaElementId = computed(() => {
+  return getCaptchaElementId(form?.id)
+})
 </script>
 <template>
+  <div v-if="captchaElementId" :id="captchaElementId"></div>
   <div class="rpl-form-actions rpl-u-screen-only">
     <RplButton
       :id="id"

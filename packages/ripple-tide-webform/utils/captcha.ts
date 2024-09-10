@@ -51,7 +51,3 @@ export const getCaptchaResponse = async (
 
   return response
 }
-
-export const getCaptchaElementId = (formId: string): string => {
-  return `rpl-captcha-element__${formId}`
-}

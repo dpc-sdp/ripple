@@ -11,3 +11,4 @@ export {
   inputLibrary,
   rplFeatures
 } from './inputs/input-utils'
+export { getCaptchaElementId } from './utils/getCaptchaElementId'

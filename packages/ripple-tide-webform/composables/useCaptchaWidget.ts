@@ -1,6 +1,7 @@
 import { ref } from 'vue'
 import { CaptchaType, MappedCaptchaConfig } from '../types'
 import type { Script } from '@unhead/schema'
+import { getCaptchaElementId } from '@dpc-sdp/ripple-ui-forms'
 
 const getThirdPartyScript = (
   captchaConfig: MappedCaptchaConfig

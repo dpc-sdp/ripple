@@ -40,6 +40,7 @@ export const email: FormKitTypeDefinition = {
   props: [
     ...minMaxProps,
     'placeholder',
+    'autocomplete',
     'validationMeta',
     'columnClasses',
     'pii'

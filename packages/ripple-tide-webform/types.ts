@@ -39,7 +39,7 @@ export interface ApiWebForm {
     form_reset?: boolean
   }
   third_party_settings?: {
-    tide_webform?: ApiCaptchaSettings
+    tide_webform_captcha?: ApiCaptchaSettings
   }
 }
 
@@ -53,14 +53,15 @@ export interface ApiField {
 }
 
 export enum CaptchaType {
-  RECAPTCHA_V2 = 'recaptchaV2',
-  RECAPTCHA_V3 = 'recaptchaV3',
-  TURNSTILE = 'turnstile'
+  RECAPTCHA_V2 = 'google_recaptcha_v2',
+  RECAPTCHA_V3 = 'google_recaptcha_v3',
+  TURNSTILE = 'cloudfare_turnstile'
 }
 
 export interface ApiCaptchaSettings {
-  enable_captcha: number
+  enable_captcha: 0 | 1
   captcha_type: CaptchaType
+  score_threshold: string | null
   captcha_details: {
     term_id: string
     site_key: string

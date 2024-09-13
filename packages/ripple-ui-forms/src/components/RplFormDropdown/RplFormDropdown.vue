@@ -166,7 +166,7 @@ const handleToggle = (fromKeyboard = false): void => {
       label: props?.label,
       contextId: form?.id,
       contextName: form?.name,
-      value: Array.isArray(props.value) ? props.value.join(',') : props.value
+      value: sanitisePIIField(props.pii, props.value, processedOptions.value)
     },
     { global: true }
   )
@@ -249,7 +249,7 @@ const handleSelectOption = (optionValue) => {
       action: 'update',
       id: props.id,
       label: props?.label,
-      value: sanitisePIIField(props.pii, newValue),
+      value: sanitisePIIField(props.pii, newValue, processedOptions.value),
       contextId: form?.id,
       contextName: form?.name
     },

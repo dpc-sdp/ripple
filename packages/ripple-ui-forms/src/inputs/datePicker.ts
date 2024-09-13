@@ -37,7 +37,7 @@ export const datePicker: FormKitTypeDefinition = {
   /**
    * An array of extra props to accept for this input.
    */
-  props: ['min', 'max', 'validationMeta', 'columnClasses', 'variant'],
+  props: ['min', 'max', 'validationMeta', 'columnClasses', 'variant', 'pii'],
   /**
    * Forces node.props.type to be this explicit value.
    */

@@ -65,6 +65,10 @@ Feature: Forms
       | You must accept the terms      | /kitchen-sink#i_accept_the_terms |
     Then clicking on an error summary link with text "Must choose a favourite colour" should focus on the input with ID "favourite_colour"
 
+    And the dataLayer should include the following events
+      | event       | form_id   | form_valid | element_text | component |
+      | form_submit | full_form | false      | Submit       | rpl-form  |
+
   @mockserver
   Scenario: Simple validation
     Given the mock server has started
@@ -124,6 +128,9 @@ Feature: Forms
     And I click "Green" from the select field with label "Favourite colour"
     And I click "Free admission" from the select field with label "Term select"
     And I click "Seniors" from the select field with label "Term select"
+    And I click "Dog person" from the radio group with label "Type of person"
+    And I click "London" from the checkbox group with label "Favourite Locations"
+    And I click "Tokyo" from the checkbox group with label "Favourite Locations"
     And I toggle the checkbox with label "Terms and conditions"
 
     And I submit the form with ID "full_form"
@@ -131,3 +138,46 @@ Feature: Forms
     Then a server message should be displayed above the form
       | status  | title          | description          |
       | success | Server success | Test success message |
+
+    And the dataLayer should include the following events
+      | event             | label               | form_id   | field_id                     | type     | value                  | component               |
+      | update_form_field | First name          | full_form | first_name                   | text     | [redacted]             | rpl-form-input          |
+      | update_form_field | Last name           | full_form | last_name                    | text     | [redacted]             | rpl-form-input          |
+      | update_form_field | Email               | full_form | email                        | email    | [redacted]             | rpl-form-input          |
+      | update_form_field | Quantity            | full_form | quantity                     | number   | [redacted]             | rpl-form-number         |
+      | update_form_field | Website             | full_form | website                      | url      | [redacted]             | rpl-form-input          |
+      | update_form_field | Mobile phone        | full_form | mobile_phone                 | tel      | [redacted]             | rpl-form-input          |
+      | update_form_field | Message             | full_form | message                      | textarea | [redacted]             | rpl-form-textarea       |
+      | open_form_field   | Favourite colour    | full_form | favourite_colour             | select   |                        | rpl-form-dropdown       |
+      | update_form_field | Favourite colour    | full_form | favourite_colour             | select   | Green                  | rpl-form-dropdown       |
+      | open_form_field   | Term select         | full_form | term_select                  | select   |                        | rpl-form-dropdown       |
+      | update_form_field | Term select         | full_form | term_select                  | select   | Free admission         | rpl-form-dropdown       |
+      | open_form_field   | Term select         | full_form | term_select                  | select   | Free admission         | rpl-form-dropdown       |
+      | update_form_field | Term select         | full_form | term_select                  | select   | Free admission,Seniors | rpl-form-dropdown       |
+      | update_form_field | Type of person      | full_form | person_type                  | radio    | Dog person             | rpl-form-radio-group    |
+      | update_form_field | Favourite Locations | full_form | favourite_locations          | checkbox | London                 | rpl-form-checkbox-group |
+      | update_form_field | Favourite Locations | full_form | favourite_locations          | checkbox | London,Tokyo           | rpl-form-checkbox-group |
+      | update_form_field | I accept the terms  | full_form | i_accept_the_terms__checkbox | checkbox | true                   | rpl-form-option         |
+
+    And the dataLayer should include the following events
+      | event         | form_id   | form_valid | element_text | component |
+      | form_submit   | full_form | true       | Submit       | rpl-form  |
+      | form_complete | full_form |            | Submit       | rpl-form  |
+
+    And the dataLayer form data for "form_complete" should include the following values
+      | key                 | value                  |
+      | first_name          | [redacted]             |
+      | last_name           | [redacted]             |
+      | role                | [redacted]             |
+      | email               | [redacted]             |
+      | quantity            | [redacted]             |
+      | website             | [redacted]             |
+      | mobile_phone        | [redacted]             |
+      | dob                 | [redacted]             |
+      | message             | [redacted]             |
+      | favourite_colour    | Green                  |
+      | term_select         | Free admission,Seniors |
+      | person_type         | Dog person             |
+      | favourite_locations | London,Tokyo           |
+      | i_accept_the_terms  | true                   |
+      | site_section        | DPC                    |

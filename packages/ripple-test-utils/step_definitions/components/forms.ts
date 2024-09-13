@@ -269,6 +269,30 @@ Then('I toggle the checkbox with label {string}', (label: string) => {
   cy.get('@field').find('input[type="checkbox"]').check({ force: true })
 })
 
+Then(
+  'I click {string} from the checkbox group with label {string}',
+  (option: string, label: string) => {
+    cy.get('legend.rpl-form-label')
+      .contains(label)
+      .closest('.rpl-form__outer')
+      .as('field')
+
+    cy.get('@field').find(`label`).contains(option).click()
+  }
+)
+
+Then(
+  'I click {string} from the radio group with label {string}',
+  (option: string, label: string) => {
+    cy.get('legend.rpl-form-label')
+      .contains(label)
+      .closest('.rpl-form__outer')
+      .as('field')
+
+    cy.get('@field').find(`label`).contains(option).click()
+  }
+)
+
 When('I submit the form with ID {string}', (formId: string) => {
   cy.get(`form#${formId}`).submit()
 })

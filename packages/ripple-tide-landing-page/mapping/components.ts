@@ -1,4 +1,7 @@
+import { reusableParagraphTypes } from '../types'
+
 import basicTextMapping from './components/basic-text/basic-text-mapping'
+import fromLibraryMapping from './components/from-library/from-library-mapping'
 import accordionMapping from './components/accordion/accordion-mapping'
 import promoCardMapping from './components/promo-card/promo-card-mapping'
 import navigationCardMapping from './components/navigation-card/navigation-card-mapping'
@@ -17,8 +20,15 @@ import dataTableMapping from './components/data-table/data-table-mapping'
 import compactCardsMapping from './components/compact-cards/compact-cards-mapping'
 import openFormsMapping from './components/openforms/openforms-mapping'
 
-export default {
+const mappings: {
+  [key: string]: {
+    includes: string[]
+    mapping: Function
+    contentTypes: string[]
+  }
+} = {
   'paragraph--basic_text': basicTextMapping,
+  'paragraph--from_library': fromLibraryMapping,
   'paragraph--accordion': accordionMapping,
   'paragraph--promotion_card': promoCardMapping,
   'paragraph--navigation_card': navigationCardMapping,
@@ -37,3 +47,20 @@ export default {
   'paragraph--compact_card_collection': compactCardsMapping,
   'paragraph--form_embed_openforms': openFormsMapping
 }
+
+// Add reusable include on whitelisted paragraph types
+reusableParagraphTypes.forEach((k) => {
+  if (mappings[k].includes.length > 0) {
+    mappings[k].includes = [
+      ...mappings[k].includes,
+      ...mappings[k].includes.map((j) =>
+        j.replace(
+          'field_landing_page_component.',
+          'field_landing_page_component.field_reusable_paragraph.paragraphs.'
+        )
+      )
+    ]
+  }
+})
+
+export default mappings

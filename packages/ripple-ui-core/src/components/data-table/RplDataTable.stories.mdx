@@ -5,7 +5,18 @@ import {
   ArgsTable
 } from '@storybook/addon-docs'
 import RplDataTable from './RplDataTable.vue'
-import { RplDataTableColumns, RplDataTableItems, RplDataTableColumnConfig, RplDataTableComplexItems, RplDataTableObjectKeyColumnConfig, RplDataTableObjects, RplDataTableStructuredColumns, RplDataTableStructuredItems, RplDataTableExtraComponents } from './fixtures/sample'
+import {
+  RplDataTableColumns,
+  RplDataTableItems,
+  RplDataTableColumnConfig,
+  RplDataTableComplexItems,
+  RplDataTableObjectKeyColumnConfig,
+  RplDataTableObjectKeyColumnHTMLConfig,
+  RplDataTableObjects,
+  RplDataTableStructuredColumns,
+  RplDataTableStructuredItems,
+  RplDataTableExtraComponents
+} from './fixtures/sample'
 import { a11yStoryCheck } from './../../../stories/interactions.js'
 
 export const SingleTemplate = (args) => ({
@@ -112,6 +123,27 @@ export const SingleTemplate = (args) => ({
       caption: "Pets",
       footer: "Extra content displayed without offset",
       columns: RplDataTableObjectKeyColumnConfig,
+      items: RplDataTableExtraComponents,
+      headingType: {
+        horizontal: true,
+        vertical: true
+      },
+      showExtraContent: true,
+      offset: 0
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    name="HTML headings"
+    play={a11yStoryCheck}
+    args={{
+      caption: "Pets II: The Return",
+      footer: "HTML passed through to headings",
+      columns: RplDataTableObjectKeyColumnHTMLConfig,
       items: RplDataTableExtraComponents,
       headingType: {
         horizontal: true,

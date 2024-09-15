@@ -1,4 +1,4 @@
-import { Given, Then } from '@badeball/cypress-cucumber-preprocessor'
+import { DataTable, Given, Then } from '@badeball/cypress-cucumber-preprocessor'
 import { set } from 'lodash-es'
 
 Then(
@@ -56,5 +56,69 @@ Given(
     cy.get('@pageFixture').then((response) => {
       set(response, 'siteSection.siteOverrides.theme["rpl-clr-primary"]', value)
     })
+  }
+)
+
+Then(
+  'the site should include the following meta tags',
+  (dataTable: DataTable) => {
+    const table = dataTable.hashes()
+
+    table.forEach((row) => {
+      cy.get(`meta[name="${row.name}"]`).should(
+        'have.attr',
+        'content',
+        row.value
+      )
+    })
+  }
+)
+
+Then(
+  'the site should include the following link tags',
+  (dataTable: DataTable) => {
+    const table = dataTable.hashes()
+
+    table.forEach((row) => {
+      cy.get(`link[rel="${row.name}"]`).should('have.attr', 'href', row.value)
+    })
+  }
+)
+
+Then(
+  'the sites manifest should include the following details',
+  (dataTable: DataTable) => {
+    const table = dataTable.hashes()
+
+    cy.get('link[rel="manifest"]')
+      .invoke('attr', 'href')
+      .then((href) => {
+        const manifest = JSON.parse(decodeURIComponent(href.split(',')[1]))
+        cy.wrap(manifest).as('manifest')
+      })
+
+    table.forEach((row) => {
+      cy.get('@manifest').should('include', {
+        [row.key]: row.value
+      })
+    })
+  }
+)
+
+Then(
+  'the sites manifest should include the following icons',
+  (dataTable: DataTable) => {
+    const table = dataTable.hashes()
+
+    cy.get('link[rel="manifest"]')
+      .invoke('attr', 'href')
+      .then((href) => {
+        const manifest = JSON.parse(decodeURIComponent(href.split(',')[1]))
+
+        table.forEach((row, i: number) => {
+          expect(manifest.icons[i].src).to.include(row.src)
+          expect(manifest.icons[i].sizes).to.equal(row.sizes)
+        })
+      })
   }
 )

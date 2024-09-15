@@ -1,5 +1,40 @@
 # Changelog
 
+## v2.16.0
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/2.15.0...v2.16.0)
+
+
+### 🚀 Enhancements
+
+  - **@dpc-sdp/nuxt-ripple:** Drupal supplied manifest and icons ([2188fb876](https://github.com/dpc-sdp/ripple-framework/commit/2188fb876))
+  - **@dpc-sdp/ripple-ui-maps:** Add max zoom prop ([6a82a9d13](https://github.com/dpc-sdp/ripple-framework/commit/6a82a9d13))
+  - **@dpc-sdp/ripple-ui-forms:** Add webform autocomplete attribute support ([2e21be5f7](https://github.com/dpc-sdp/ripple-framework/commit/2e21be5f7))
+  - **@dpc-sdp/ripple-tide-search:** Pass location to customQueryConfig function ([89477e9c7](https://github.com/dpc-sdp/ripple-framework/commit/89477e9c7))
+  - **@dpc-sdp/ripple-ui-core:** ✨  support html heading ([c4559b52a](https://github.com/dpc-sdp/ripple-framework/commit/c4559b52a))
+  - **@dpc-sdp/ripple-tide-landing-page:** Support new 'highlight' cms display option ([f487327ae](https://github.com/dpc-sdp/ripple-framework/commit/f487327ae))
+
+### 🩹 Fixes
+
+  - **@dpc-sdp/nuxt-ripple:** Update regex for manifest description ([f98ca7497](https://github.com/dpc-sdp/ripple-framework/commit/f98ca7497))
+  - **@dpc-sdp/ripple-ui-core:** 🐛  right align rtl accordion heading ([4f766964c](https://github.com/dpc-sdp/ripple-framework/commit/4f766964c))
+  - **@dpc-sdp/nuxt-ripple:** Minor favicon updates ([6bb9e4d22](https://github.com/dpc-sdp/ripple-framework/commit/6bb9e4d22))
+  - **@dpc-sdp/nuxt-ripple-analytics:** Switch to useRouter for routeChange tracking ([ba4124d61](https://github.com/dpc-sdp/ripple-framework/commit/ba4124d61))
+
+### 💅 Refactors
+
+  - **@dpc-sdp/nuxt-ripple:** Make image fallback to existing site assets, use merged theme ([2f820849e](https://github.com/dpc-sdp/ripple-framework/commit/2f820849e))
+  - **@dpc-sdp/ripple-tide-landing-page:** ♻️  add whitelist for reusable paragraph types ([61a5655d3](https://github.com/dpc-sdp/ripple-framework/commit/61a5655d3))
+
+### 🏡 Chore
+
+  - 🚨  suppress another sourcemap warning ([bd9e6f79f](https://github.com/dpc-sdp/ripple-framework/commit/bd9e6f79f))
+
+### ❤️  Contributors
+
+- David Featherston <david.featherstone@dpc.vic.gov.au>
+- Jason Smith <jason.smith@dpc.vic.gov.au>
+
 ## v2.15.0
 
 [compare changes](https://github.com/dpc-sdp/ripple-framework/compare/2.14.0...v2.15.0)

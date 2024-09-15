@@ -3,7 +3,7 @@ import { TideDynamicPageComponent } from '@dpc-sdp/ripple-tide-api/types'
 import { genericCardMapping, ITideCardBase } from '../generic-card-mapping.js'
 
 export interface ITidePromoCard extends ITideCardBase {
-  displayStyle: 'noImage' | 'thumbnail' | 'profile'
+  displayStyle: 'noImage' | 'thumbnail' | 'profile' | 'highlight'
 }
 
 export const promoCardMapping = (

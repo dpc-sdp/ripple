@@ -192,6 +192,23 @@ export const RplDataTableObjectKeyColumnConfig = [
   }
 ]
 
+export const RplDataTableObjectKeyColumnHTMLConfig = [
+  {
+    label: '<em>Nominative descriptor</em>',
+    objectKey: 'name',
+    isLabelHTML: true
+  },
+  {
+    label: 'Duration<sup>1</sup>',
+    objectKey: 'age',
+    isLabelHTML: true
+  },
+  {
+    label: 'Species',
+    objectKey: 'type'
+  }
+]
+
 export const RplDataTableObjects = [
   {
     name: 'George',

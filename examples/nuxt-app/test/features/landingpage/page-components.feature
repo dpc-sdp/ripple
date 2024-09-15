@@ -50,6 +50,10 @@ Feature: Home page
       | displayStyle | title                | content            | image                    |
       | profile      | Promo card (profile) | Sample description | /placeholders/medium.png |
 
+    Then a promo card with ID "979" should exist with the following properties
+      | displayStyle | title                  | content            | image |
+      | highlight    | Promo card (highlight) | Sample description |       |
+
   @mockserver
   Scenario: Page component - Nav card
     Then a nav card with ID "981" should exist with the following properties

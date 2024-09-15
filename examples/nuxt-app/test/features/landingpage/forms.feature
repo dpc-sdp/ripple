@@ -40,6 +40,11 @@ Feature: Forms
       | help               | required |
       | Enter your message | true     |
     Then a hidden field named "site_section" should exist with the value "DPC"
+    And the following field attributes should exist
+      | field     | attribute    | value |
+      | Last name | autocomplete | on    |
+      | Role      | autocomplete | off   |
+      | Email     | autocomplete | email |
 
   @mockserver
   Scenario: Error summary

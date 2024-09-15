@@ -28,3 +28,18 @@ export interface TideLandingPagePage extends TidePageBase {
    * @description Background body colour
    */
 }
+
+// Whitelist reusable paragraph types
+export const reusableParagraphTypes = [
+  'paragraph--basic_text',
+  'paragraph--from_library',
+  'paragraph--accordion',
+  'paragraph--promotion_card',
+  'paragraph--navigation_card',
+  'paragraph--statistics_grid',
+  'paragraph--timelines',
+  'paragraph--call_to_action',
+  'paragraph--card_carousel',
+  'paragraph--complex_image',
+  'paragraph--data_table'
+]

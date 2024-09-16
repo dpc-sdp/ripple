@@ -1,15 +1,14 @@
 <script setup lang="ts">
-import { computed } from 'vue'
-import RplIcon from '../icon/RplIcon.vue'
+import { computed, ref, type Ref, provide, useSlots } from 'vue'
 import RplContent from '../content/RplContent.vue'
-import RplExpandable from '../expandable/RplExpandable.vue'
 import { useExpandableState } from '../../composables/useExpandableState'
 import {
   useRippleEvent,
   rplEventPayload
 } from '../../composables/useRippleEvent'
+import RplAccordionItem from './RplAccordionItem.vue'
 
-type RplAccordionItem = {
+type AccordionItem = {
   id: string
   title?: string
   content: string
@@ -18,7 +17,7 @@ type RplAccordionItem = {
 
 interface Props {
   id: string
-  items: RplAccordionItem[]
+  items?: AccordionItem[]
   numbered?: boolean
   displayToggleAll?: boolean
 }
@@ -42,23 +41,58 @@ const emit = defineEmits<{
 
 const { emitRplEvent } = useRippleEvent('rpl-accordion', emit)
 
-const initialActiveIndexes: string[] = props.items.reduce(
-  (result: string[], current: RplAccordionItem): string[] => {
-    if (current.active) {
-      return [...result, current.id]
-    }
+const slots = useSlots()
 
-    return result
-  },
-  []
+const itemise = (inputId: string): string => `accordion-${props.id}-${inputId}`
+
+const initialActiveIndexes: Ref<string[]> = ref([])
+
+// Prop based items
+initialActiveIndexes.value.push(
+  ...props.items.reduce(
+    (result: string[], current: AccordionItem): string[] => {
+      if (current.active) {
+        return [...result, itemise(current.id)]
+      }
+
+      return result
+    },
+    []
+  )
+)
+
+// Slot based items
+initialActiveIndexes.value.push(
+  ...(slots.default
+    ? slots.default().reduce((result: string[], current): string[] => {
+        if (current.props.active) {
+          return [...result, itemise(current.props.id)]
+        }
+        return result
+      }, [])
+    : [])
+)
+
+const sharedActiveItems = ref(initialActiveIndexes.value)
+
+const itemLength = computed(() =>
+  props.items.length > 0
+    ? props.items.length
+    : (slots?.default?.()?.length as number) || 0
 )
 
 const { isItemExpanded, isAllExpanded, toggleItem } = useExpandableState(
-  initialActiveIndexes,
-  props.items.length
+  initialActiveIndexes.value,
+  itemLength.value,
+  sharedActiveItems
 )
 
-const itemID = (itemId) => `accordion-${props.id}-${itemId}`
+provide('activeItems', {
+  initialActiveIndexes: initialActiveIndexes,
+  totalItems: itemLength.value,
+  sharedActiveItems: sharedActiveItems,
+  parentId: props.id
+})
 
 const toggleAll = () => {
   emitRplEvent(
@@ -73,59 +107,48 @@ const toggleAll = () => {
 
   // Make all items active
   if (!isAllExpanded()) {
+    // If the item is not expanded, make it expanded
     props.items.forEach((item) => {
-      // If the item is not expanded, make it expanded
-      if (!isItemExpanded(item.id)) {
-        toggleItem(item.id)
+      if (!isItemExpanded(itemise(item.id))) {
+        toggleItem(itemise(item.id))
+      }
+    })
+    slots.default?.().forEach((item) => {
+      if (!isItemExpanded(itemise(item.props.id))) {
+        toggleItem(itemise(item.props.id))
       }
     })
   }
 
   // Make all items inactive
   else {
+    // If the item is expanded, make it not expanded
     props.items.forEach((item) => {
-      // If the item is expanded, make it not expanded
-      if (isItemExpanded(item.id)) {
-        toggleItem(item.id)
+      if (isItemExpanded(itemise(item.id))) {
+        toggleItem(itemise(item.id))
+      }
+    })
+    slots.default?.().forEach((item) => {
+      if (isItemExpanded(itemise(item.props.id))) {
+        toggleItem(itemise(item.props.id))
       }
     })
   }
 }
 
-const toggleSingle = (item: RplAccordionItem) => {
-  emitRplEvent(
-    'toggleItem',
-    {
-      id: itemID(item.id),
-      action: isItemExpanded(item.id) ? 'close' : 'open',
-      text: item.title
-    },
-    { global: true }
-  )
-
-  toggleItem(item.id)
-}
-
-const toggleAllLabel = computed(() => {
-  let label = 'Open all'
-
-  if (isAllExpanded()) {
-    label = 'Close all'
-  }
-
-  return label
-})
+const toggleAllLabel = computed(
+  () => `${isAllExpanded() ? 'Close' : 'Open'} all`
+)
 </script>
 
 <template>
   <div :id="`accordion-${id}`" class="rpl-accordion">
     <!-- Toggle all -->
     <div
-      v-if="displayToggleAll"
+      v-if="displayToggleAll && itemLength > 1"
       class="rpl-accordion__toggle-all-wrapper rpl-u-screen-only"
     >
       <button
-        v-if="items.length > 1"
         class="rpl-accordion__toggle-all rpl-u-focusable-inline"
         @click="toggleAll()"
       >
@@ -134,64 +157,25 @@ const toggleAllLabel = computed(() => {
     </div>
 
     <!-- Items -->
-    <component :is="numbered ? 'ol' : 'ul'" class="rpl-accordion__items">
-      <li
+    <component
+      :is="numbered ? 'ol' : 'ul'"
+      v-if="itemLength > 0"
+      class="rpl-accordion__items"
+    >
+      <RplAccordionItem
         v-for="(item, index) in items"
-        :id="itemID(item.id)"
         :key="item.id"
-        :class="{
-          'rpl-accordion__item': true,
-          'rpl-accordion__item--active': isItemExpanded(item.id)
-        }"
+        :item="item"
+        :numbered="numbered"
+        :index="index"
       >
-        <!-- Item toggle -->
-        <button
-          :id="`${itemID(item.id)}-toggle`"
-          class="rpl-accordion__item-toggle rpl-u-focusable-block"
-          type="button"
-          :aria-controls="`${itemID(item.id)}-content`"
-          :aria-expanded="isItemExpanded(item.id)"
-          @click="toggleSingle(item)"
-        >
-          <span class="rpl-accordion__item-heading-wrapper">
-            <!-- Number -->
-            <span
-              v-if="numbered"
-              class="rpl-accordion__item-number rpl-type-h4"
-            >
-              {{ index + 1 }}
-            </span>
-
-            <!-- Title -->
-            <span class="rpl-accordion__item-heading rpl-type-h4">
-              {{ item.title }}
-            </span>
-          </span>
-
-          <!-- Icon -->
-          <span
-            class="rpl-accordion__item-icon rpl-u-screen-only"
-            aria-hidden="true"
-          >
-            <RplIcon name="icon-chevron-down"></RplIcon>
-          </span>
-        </button>
-
-        <!-- Item content -->
-        <RplExpandable
-          :id="`${itemID(item.id)}-content`"
-          :aria-labelledby="`${itemID(item.id)}-toggle`"
-          :aria-hidden="isItemExpanded(item.id) === false ? 'true' : null"
-          :expanded="isItemExpanded(item.id)"
-          class="rpl-accordion__item-content"
-        >
-          <RplContent
-            class="rpl-accordion__item-content-inner"
-            :html="item.content"
-          >
-          </RplContent>
-        </RplExpandable>
-      </li>
+        <template #title>{{ item.title }}</template>
+        <RplContent
+          class="rpl-accordion__item-content-inner"
+          :html="item.content"
+        />
+      </RplAccordionItem>
+      <slot />
     </component>
   </div>
 </template>

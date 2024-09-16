@@ -1,11 +1,12 @@
-import { ref } from 'vue'
-import type { Ref } from 'vue'
+import { ref, type Ref } from 'vue'
 
 export function useExpandableState(
   initialActiveItems: string[],
-  itemsLength: number
+  itemsLength: number,
+  sharedActiveItems?: Ref<string[]>
 ) {
-  const activeItems: Ref<string[]> = ref(initialActiveItems)
+  const activeItems: Ref<string[]> =
+    sharedActiveItems || ref(initialActiveItems)
 
   function isItemExpanded(id: string) {
     return activeItems.value.includes(id)
@@ -21,7 +22,7 @@ export function useExpandableState(
       activeItems.value.push(id)
     }
 
-    // Item needs to be made inactive
+    // // Item needs to be made inactive
     else {
       activeItems.value = activeItems.value.filter((item) => item != id)
     }

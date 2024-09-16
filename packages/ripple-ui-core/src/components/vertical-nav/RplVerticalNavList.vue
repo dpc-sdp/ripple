@@ -89,7 +89,6 @@ const handleClick = (event) => {
           :href="item.url"
           :active="item?.active && !item.items?.some((i) => i.active)"
           :show-child-icon="showIcon(index)"
-          :tabindex="isExpanded(item.id) ? '0' : '-1'"
           @item-click="(event) => handleClick(event)"
         />
         <RplVerticalNavList

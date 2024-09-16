@@ -1,7 +1,10 @@
 Feature: Analytics
 
+  Background:
+    Given I am using a "macbook-16" device
+
   @mockserver
-  Scenario: DataLayer - page view
+  Scenario: Page view
     Given the site endpoint returns fixture "/site/reference" with status 200
     And the page endpoint for path "/" returns fixture "/landingpage/home" with status 200
     Given I visit the page "/"
@@ -10,7 +13,7 @@ Feature: Analytics
       | routeChange | Demo Landing Page | /        | landing_page |
 
   @mockserver
-  Scenario: DataLayer - breadcrumbs
+  Scenario: Breadcrumbs
     Given the site endpoint returns fixture "/site/vic" with status 200
     And the page endpoint for path "/education" returns fixture "/landingpage/home" with status 200
     Given I visit the page "/education"
@@ -18,3 +21,12 @@ Feature: Analytics
       | title                    |
       | Information and services |
       | Education                |
+
+  @mockserver
+  Scenario: Back to top
+    Given the site endpoint returns fixture "/site/vic" with status 200
+    And the page endpoint for path "/" returns fixture "/landingpage/home" with status 200
+    Given I visit the page "/"
+    Then I scroll 1900 pixels
+    And I click the back to top button
+    Then the dataLayer back to top event should have a value of 25

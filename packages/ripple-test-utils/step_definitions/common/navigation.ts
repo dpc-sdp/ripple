@@ -112,3 +112,11 @@ Then(
     })
   }
 )
+
+Then('I scroll {int} pixels', (pixels: number) => {
+  cy.scrollTo(0, pixels)
+})
+
+Then('I click the back to top button', () => {
+  cy.get('.rpl-back-to-top__button').click()
+})

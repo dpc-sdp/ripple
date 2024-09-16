@@ -562,6 +562,17 @@ export default {
       })
     }
   },
+  'rpl-layout-back-to-top/navigate': () => {
+    return (payload: any) => {
+      trackEvent({
+        event: `${payload.action}_back_to_top`,
+        element_text: payload?.text,
+        value: payload?.value,
+        component: 'rpl-layout-back-to-top',
+        platform_event: 'navigate'
+      })
+    }
+  },
   // UI Forms components
   'rpl-form/submit': () => {
     return (payload: any) => {

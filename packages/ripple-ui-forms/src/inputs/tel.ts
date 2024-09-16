@@ -40,6 +40,7 @@ export const tel: FormKitTypeDefinition = {
   props: [
     ...minMaxProps,
     'placeholder',
+    'autocomplete',
     'validationMeta',
     'columnClasses',
     'pii'

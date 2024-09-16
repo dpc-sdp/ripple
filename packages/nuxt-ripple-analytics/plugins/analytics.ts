@@ -56,7 +56,7 @@ export default defineNuxtPlugin((nuxtApp) => {
   /* @ts-ignore process is extended by webpack */
   if (process.client) {
     nuxtApp.hook('tide:page', ({ page, site }) => {
-      const route = useRoute()
+      const route = useRouter().currentRoute.value
 
       if (appConfig?.analytics?.routeChange === false) return
 

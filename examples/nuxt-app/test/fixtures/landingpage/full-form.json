@@ -74,6 +74,7 @@
             "$formkit": "RplFormText",
             "name": "last_name",
             "label": "Last name",
+            "autocomplete": "on",
             "id": "last_name",
             "validation": "",
             "validationMessages": {}
@@ -84,6 +85,7 @@
             "label": "Role",
             "id": "role",
             "help": "Enter your role",
+            "autocomplete": "off",
             "counter": "word",
             "counterMin": 0,
             "counterMax": 5,
@@ -97,6 +99,7 @@
             "name": "email",
             "label": "Email",
             "id": "email",
+            "autocomplete": "email",
             "validation": "email",
             "validationMessages": {
               "email": "Email must be a valid email address"

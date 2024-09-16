@@ -1,6 +1,22 @@
 {
   "name": "Test site",
+  "shortName": "Testing",
+  "slogan": "<p>About my test site</p>",
   "acknowledgementHeader": "Test hero acknowledgement",
+  "favicon": {
+    "src": "/placeholders/logo.png",
+    "alt": "",
+    "title": "",
+    "width": 192,
+    "height": 192
+  },
+  "appIcon": {
+    "src": "/placeholders/medium.png",
+    "alt": "",
+    "title": "",
+    "width": 512,
+    "height": 512
+  },
   "acknowledgementFooter": "Test footer acknowledgement",
   "socialImages": {
     "twitter": {},

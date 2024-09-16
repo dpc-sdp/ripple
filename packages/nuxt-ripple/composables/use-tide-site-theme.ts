@@ -22,4 +22,6 @@ export default (site) => {
       ]
     })
   }
+
+  return siteTheme
 }

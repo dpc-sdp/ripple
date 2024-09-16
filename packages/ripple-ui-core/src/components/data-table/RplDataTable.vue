@@ -1,6 +1,13 @@
 <script setup lang="ts">
 import { useBreakpoints } from '@vueuse/core'
-import { computed, withDefaults, ref, unref, onMounted } from 'vue'
+import {
+  computed,
+  type ComputedRef,
+  withDefaults,
+  ref,
+  unref,
+  onMounted
+} from 'vue'
 import { bpMin } from '../../lib/breakpoints'
 import RplDataTableRow, {
   extraRowContent,
@@ -76,13 +83,16 @@ const displayMobileView: ComputedRef<boolean> = computed(() => {
         </caption>
         <thead v-if="headingType.horizontal && columns.length > 0">
           <tr>
-            <th
-              v-for="(column, index) in columns"
-              :key="index"
-              :class="column.classes"
-            >
-              {{ column.label }}
-            </th>
+            <template v-for="(column, index) in columns" :key="index">
+              <th
+                v-if="column.isLabelHTML"
+                :class="column.classes"
+                v-html="column.label"
+              ></th>
+              <th v-else :class="column.classes">
+                {{ column.label }}
+              </th>
+            </template>
             <th v-if="showExtraContent" class="rpl-data-table__actions">
               <span class="rpl-u-visually-hidden">Actions</span>
             </th>

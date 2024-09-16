@@ -126,7 +126,8 @@ export default ({
     if (customQueryConfig?.function && fns[customQueryConfig?.function]) {
       return fns[customQueryConfig.function]({
         searchTerm: searchTerm.value,
-        queryFilters: filter
+        queryFilters: filter,
+        locationValue: locationOrGeolocation.value
       })
     }
 

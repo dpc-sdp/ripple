@@ -44,6 +44,7 @@ export const text: FormKitTypeDefinition = {
     ...minMaxProps,
     ...counterProps,
     'placeholder',
+    'autocomplete',
     'validationMeta',
     'columnClasses',
     'pii'

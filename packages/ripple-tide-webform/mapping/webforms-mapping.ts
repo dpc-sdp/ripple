@@ -52,6 +52,7 @@ export const getFormSchemaFromMapping = async (
           id: fieldID,
           help: field['#description'] || field['#help_title'],
           value: field['#default_value'],
+          autocomplete: field['#autocomplete'],
           ...getValidationAndConditionals(field),
           ...getInputIcons(field)
         }
@@ -67,6 +68,7 @@ export const getFormSchemaFromMapping = async (
           id: fieldID,
           help: field['#description'] || field['#help_title'],
           value: field['#default_value'],
+          autocomplete: field['#autocomplete'],
           ...getValidationAndConditionals(field),
           ...getInputIcons(field)
         }
@@ -82,6 +84,7 @@ export const getFormSchemaFromMapping = async (
           id: fieldID,
           help: field['#description'] || field['#help_title'],
           value: field['#default_value'],
+          autocomplete: field['#autocomplete'],
           min: field['#min'],
           max: field['#max'],
           step: field['#step'],
@@ -100,6 +103,7 @@ export const getFormSchemaFromMapping = async (
           id: fieldID,
           help: field['#description'] || field['#help_title'],
           value: field['#default_value'],
+          autocomplete: field['#autocomplete'],
           ...getValidationAndConditionals(field),
           ...getInputIcons(field)
         }
@@ -115,6 +119,7 @@ export const getFormSchemaFromMapping = async (
           id: fieldID,
           help: field['#description'] || field['#help_title'],
           value: field['#default_value'],
+          autocomplete: field['#autocomplete'],
           ...getValidationAndConditionals(field),
           ...getInputIcons(field)
         }
@@ -131,6 +136,7 @@ export const getFormSchemaFromMapping = async (
           rows: field['#rows'],
           help: field['#description'] || field['#help_title'],
           value: field['#default_value'],
+          autocomplete: field['#autocomplete'],
           ...getValidationAndConditionals(field)
         }
         break

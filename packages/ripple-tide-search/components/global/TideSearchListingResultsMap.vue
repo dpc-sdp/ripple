@@ -13,6 +13,8 @@
       :noresults="noresults"
       :hasSidePanel="hasSidePanel"
       :getFeatureTitle="getTitle"
+      :clusteringDistance="clusteringDistance"
+      :maxZoom="maxZoom"
     >
       <template #noresults>
         <slot name="noresults"></slot>
@@ -99,6 +101,8 @@ interface Props {
   noresults?: boolean
   hasSidePanel?: boolean
   initialising?: boolean
+  clusteringDistance?: number
+  maxZoom?: number
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -111,7 +115,9 @@ const props = withDefaults(defineProps<Props>(), {
   legendItems: () => [],
   noresults: false,
   hasSidePanel: false,
-  initialising: false
+  initialising: false,
+  clusteringDistance: undefined,
+  maxZoom: undefined
 })
 
 const appConfig = useAppConfig()

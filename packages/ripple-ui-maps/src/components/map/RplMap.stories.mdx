@@ -7,17 +7,16 @@ import {
 import { ref, provide } from 'vue'
 import { RplAccordion } from '@dpc-sdp/ripple-ui-core/vue'
 import RplMap from './RplMap.vue'
+import RplMapPopUpAccordion from '../popup/RplMapPopUpAccordion.vue'
 import RplMapProviderEsri from './providers/RplMapProviderEsri.vue'
 import RplMapProviderVicMap from './providers/RplMapProviderVicMap.vue'
 import RplMapProviderMapbox from './providers/RplMapProviderMapbox.vue'
-import Icon from 'ol/style/Icon'
 import featureData from './__fixture__/largeset.json'
 import ExampleVectorLayer from './__fixture__/VectorLayer.example.vue'
 import '@dpc-sdp/ripple-ui-core/style/components'
-import { getIconForPopulation } from './__fixture__/utils.ts'
 
 export const Template = (args) => ({
-  components: { RplMap, RplMapProviderEsri, RplMapProviderVicMap, RplMapProviderMapbox, RplAccordion, ExampleVectorLayer },
+  components: { RplMap, RplMapPopUpAccordion, RplMapProviderEsri, RplMapProviderVicMap, RplMapProviderMapbox, RplAccordion, ExampleVectorLayer },
   setup() {
     const rplMapRef = ref(null)
     const popup = ref({
@@ -66,20 +65,21 @@ export const Template = (args) => ({
       </template>
       <template #popupTitle="{ selectedFeatures }">
         <span v-if="selectedFeatures.length === 1">
-          {{ selectedFeatures[0].title}}
+          {{ selectedFeatures[0].title }}
         </span>
         <span v-else>
           {{ selectedFeatures.length }} items found in this area
         </span>
       </template>
       <template #popupContent="{ selectedFeatures }">
-        <div class="rpl-u-margin-4">
-          <p class="rpl-type-p-small" v-if="selectedFeatures.length === 1">
-            {{ selectedFeatures[0].description}}
-          </p>
-          <RplAccordion v-else :items="getClusteredFeatures(selectedFeatures)" :displayToggleAll="false">
-          </RplAccordion>
-        </div>
+        <p class="rpl-type-p-small rpl-u-margin-t-4" v-if="selectedFeatures.length === 1">
+          {{ selectedFeatures[0].description }}
+        </p>
+        <RplMapPopUpAccordion v-else :features="getClusteredFeatures(selectedFeatures)" :getTitle="(f) => f.title">
+          <template #feature="{ feature }">
+            <p class="rpl-type-p-small">{{ feature.content }}</p>
+          </template>
+        </RplMapPopUpAccordion>
       </template>
     </RplMap>
   `

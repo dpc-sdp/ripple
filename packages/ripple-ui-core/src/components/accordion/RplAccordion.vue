@@ -168,13 +168,7 @@ const toggleAllLabel = computed(
         :item="item"
         :numbered="numbered"
         :index="index"
-      >
-        <template #title>{{ item.title }}</template>
-        <RplContent
-          class="rpl-accordion__item-content-inner"
-          :html="item.content"
-        />
-      </RplAccordionItem>
+      />
       <slot />
     </component>
   </div>

@@ -31,7 +31,7 @@ const { submissionState, submitHandler } = useWebformSubmit(
   props.captchaConfig
 )
 
-const { resetCaptcha } = useCaptchaWidget(props.formId, props.captchaConfig)
+const { captchaWidgetId } = useCaptcha(props.formId, props.captchaConfig)
 
 const serverSuccessRef = ref(null)
 
@@ -46,7 +46,7 @@ watch(
       }
 
       // Need to reset captcha because some captchas won't allow using the same captcha challenge token twice
-      resetCaptcha()
+      useResetCaptcha(captchaWidgetId.value, props.captchaConfig)
     }
   }
 )
@@ -114,7 +114,7 @@ customInputs.library = (node: any) => {
         :customInputs="customInputs"
         :schema="schema"
         :submissionState="submissionState as any"
-        @submit="submitHandler(props, $event.data)"
+        @submit="submitHandler(props, $event.data, captchaWidgetId)"
       >
         <template #belowForm>
           <div class="tide-webform-important-email">

@@ -4,7 +4,7 @@ import { MappedCaptchaConfig } from '../types'
 
 export function useWebformSubmit(
   formId: string,
-  captchaConfig?: MappedCaptchaConfig
+  captchaConfig?: MappedCaptchaConfig | null
 ) {
   const postForm = async (
     formId: string,
@@ -76,7 +76,11 @@ export function useWebformSubmit(
     return honeypotElement && !!honeypotElement.value
   }
 
-  const submitHandler = async (props: FormConfig, data: any) => {
+  const submitHandler = async (
+    props: FormConfig,
+    data: any,
+    captchaWidgetId?: string
+  ) => {
     submissionState.value = {
       status: 'submitting',
       title: '',
@@ -99,7 +103,12 @@ export function useWebformSubmit(
     let maybeCaptchaResponse = null
 
     try {
-      maybeCaptchaResponse = await getCaptchaResponse(captchaConfig, window)
+      maybeCaptchaResponse = await getCaptchaResponse(
+        formId,
+        captchaConfig,
+        captchaWidgetId,
+        window
+      )
     } catch (e) {
       console.error(e)
 

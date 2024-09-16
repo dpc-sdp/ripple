@@ -17,6 +17,16 @@ const contentRatingFormId = 'tide_webform_content_rating'
 const isMounted = ref(false)
 const pageUrl = ref('')
 
+const { data: webformData, status: webformFetchStatus } = await useFetch(
+  '/api/tide/webform',
+  {
+    baseURL: '',
+    params: {
+      id: contentRatingFormId
+    }
+  }
+)
+
 onMounted(() => {
   isMounted.value = true
   pageUrl.value = window.location.href
@@ -29,12 +39,13 @@ onMounted(() => {
       <div class="rpl-grid">
         <div class="rpl-col-12 rpl-col-7-m">
           <TideLandingPageWebForm
-            v-if="isMounted"
+            v-if="isMounted && webformFetchStatus === 'success'"
             :formId="contentRatingFormId"
             hideFormOnSubmit
             title="Was this page helpful?"
             successMessageHTML="Thank you! Your response has been submitted."
             errorMessageHTML="We are experiencing a server error. Please try again, otherwise contact us."
+            :captcha-config="webformData.captchaConfig"
           >
             <template #default="{ value }">
               <div class="tide-content-rating__rating">
@@ -83,7 +94,7 @@ onMounted(() => {
                   <RplContent
                     v-if="contentRatingText"
                     :html="contentRatingText"
-                    class="tide-content-rating__text"
+                    class="tide-content-rating__text rpl-u-margin-b-6"
                   />
                   <FormKit
                     v-if="value.was_this_page_helpful"

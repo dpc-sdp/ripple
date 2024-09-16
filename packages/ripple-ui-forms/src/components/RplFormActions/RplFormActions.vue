@@ -48,6 +48,9 @@ const iconPosition = computed(() => {
 })
 
 const form: object = inject('form')
+const onCaptchaElementReady: (() => void) | undefined = inject(
+  'onCaptchaElementReady'
+)
 const isFormSubmitting: any = inject('isFormSubmitting')
 
 const handleReset = () => {
@@ -67,6 +70,12 @@ const handleReset = () => {
 
 const captchaElementId = computed(() => {
   return getCaptchaElementId(form?.id)
+})
+
+onMounted(() => {
+  if (typeof onCaptchaElementReady === 'function') {
+    onCaptchaElementReady()
+  }
 })
 </script>
 <template>

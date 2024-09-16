@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { reset } from '@formkit/vue'
-import { computed, inject } from 'vue'
+import { computed, inject, onMounted } from 'vue'
 import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
 import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
 import { getCaptchaElementId } from '../../utils/getCaptchaElementId'

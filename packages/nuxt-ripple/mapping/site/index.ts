@@ -16,9 +16,13 @@ import processSiteSocialLinks from '../utils/processSiteSocialLinks.js'
 export default {
   mapping: {
     name: 'name',
+    shortName: 'field_short_name',
     _src: (src: any) =>
       process.env.NODE_ENV === 'development' ? src : undefined,
     siteAlerts: siteAlertsMapping,
+    slogan: (src: any) => getBodyFromField(src, 'field_site_slogan'),
+    favicon: (src: any) => getImageFromField(src, 'field_site_favicon'),
+    appIcon: (src: any) => getImageFromField(src, 'field_site_app_icon'),
     siteLogo: (src: any) => {
       if (src.field_site_logo) {
         return {
@@ -121,6 +125,8 @@ export default {
   },
   includes: [
     ...siteAlertsIncludes,
+    'field_site_favicon',
+    'field_site_app_icon',
     'field_site_og_image',
     'field_site_og_image.field_media_image',
     'field_site_twitter_image',

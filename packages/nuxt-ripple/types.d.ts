@@ -13,6 +13,8 @@ export type TideApiResponse = any
 
 export interface TideSiteData {
   name: string
+  shortName?: string
+  slogan?: string
   _src?: any
   siteAlerts: TideAlert[]
   siteLogo: {
@@ -21,6 +23,16 @@ export interface TideSiteData {
     altText: string
   }
   showQuickExit: boolean
+  favicon?: {
+    src: string
+    width: string
+    height: string
+  }
+  appIcon?: {
+    src?: string
+    apple?: string
+    android?: string
+  }
   acknowledgementHeader?: string
   acknowledgementFooter: string
   cornerGraphic?: {

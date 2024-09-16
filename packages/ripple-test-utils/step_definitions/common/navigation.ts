@@ -112,3 +112,7 @@ Then(
     })
   }
 )
+
+When(`I click on the {string} page link`, (label: string) => {
+  cy.get(`.rpl-page-links__link`).contains(`${label}`).click()
+})

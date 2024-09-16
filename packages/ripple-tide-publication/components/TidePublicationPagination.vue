@@ -6,6 +6,8 @@
         direction="prev"
         :label="pagination.prev.label"
         :url="pagination.prev.url"
+        :global-events="false"
+        @paginate="(event) => handleClick(pagination.prev, event)"
       >
         {{ pagination.prev.description }}
       </RplPageLinksItem>
@@ -14,6 +16,8 @@
         direction="next"
         :label="pagination.next.label"
         :url="pagination.next.url"
+        :global-events="false"
+        @paginate="(event) => handleClick(pagination.next, event)"
       >
         {{ pagination.next.description }}
       </RplPageLinksItem>
@@ -22,11 +26,36 @@
 </template>
 
 <script setup lang="ts">
-import { TidePublicationPagination } from '../types'
+import {
+  TidePublicationPagination,
+  TidePublicationPaginationLink
+} from '../types'
+import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
+import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
 
 interface Props {
   pagination: TidePublicationPagination
 }
 
 defineProps<Props>()
+
+const emit = defineEmits<{
+  (e: 'paginate', payload: rplEventPayload): void
+}>()
+
+const { emitRplEvent } = useRippleEvent('rpl-page-links', emit)
+
+const handleClick = (
+  paginate: TidePublicationPaginationLink,
+  payload: rplEventPayload
+) => {
+  emitRplEvent(
+    'paginate',
+    {
+      ...payload,
+      name: paginate.description
+    },
+    { global: true }
+  )
+}
 </script>

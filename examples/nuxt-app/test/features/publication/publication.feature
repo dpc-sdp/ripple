@@ -33,6 +33,7 @@ Feature: Publication page
 
   @mockserver
   Example: Publication child
+    Given the page endpoint for path "/victorian-skills-plan-2023-implementation-update/promoting-post-secondary-education-skills-and-career" returns fixture "/publication/sample-publication-page" with status 200
     When I visit the page "/victorian-skills-plan-2023-implementation-update/2022-victorian-skills-plan-actions-and-initiatives"
     Then the title should be "The Victorian Skills Plan 2022 into 2023 actions and initiatives"
     And there should be a page link with a title of "Previous" and description text of "Victorian Skills Plan Implementation Update"
@@ -41,6 +42,12 @@ Feature: Publication page
       | title                                                    | url                                                                               | type | size    |
       | Victorian Skills Plan Implementation Update October 2023 | /sites/default/files/2023-10/16686-VSA-Implementation-Plan-Section_FA_Digital.pdf | pdf  | 4.61 MB |
       | Print full document                                      | /victorian-skills-plan-2023-implementation-update/print-all                       |      |         |
+
+    When I click on the "Next" page link
+    Then the dataLayer should include the following events
+      | event         | element_text | link_url                                                                                               | name                                                          | component      |
+      | paginate_next | Next         | /victorian-skills-plan-2023-implementation-update/promoting-post-secondary-education-skills-and-career | Promoting post-secondary education skills and career pathways | rpl-page-links |
+
     When I click on the document "Print full document"
     Then the dataLayer should include the following events
       | event          | element_text        | link_url                                                    | component    |

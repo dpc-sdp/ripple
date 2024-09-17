@@ -95,13 +95,14 @@ const toggleCollapsed = () => {
           v-if="firstItem(index) && collapseInnerLinks"
           class="rpl-breadcrumbs__collapse-link"
         >
-          <RplTextLink
-            url=""
-            :theme="false"
-            class="rpl-breadcrumbs__collapse-link-trigger"
+          <button
+            class="rpl-text-link rpl-u-focusable-inline rpl-breadcrumbs__collapse-link-trigger"
+            type="button"
+            aria-label="Expand hidden breadcrumbs"
             @click.prevent="() => toggleCollapsed()"
-            >&hellip;</RplTextLink
           >
+            &hellip;
+          </button>
         </span>
       </li>
     </ol>

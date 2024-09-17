@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { inject, ref, computed, useSlots } from 'vue'
+import { inject, ref, computed, useSlots, type Ref } from 'vue'
 import RplIcon from '../icon/RplIcon.vue'
 import RplExpandable from '../expandable/RplExpandable.vue'
 import { useExpandableState } from '../../composables/useExpandableState'
@@ -40,18 +40,16 @@ const { emitRplEvent } = useRippleEvent('rpl-accordion', emit)
 
 const slots = useSlots()
 
-const { initialActiveIndexes, totalItems, sharedActiveItems, parentId } =
-  inject('activeItems', {
-    initialActiveIndexes: [],
-    totalItems: 0,
-    sharedActiveItems: ref<string[]>(),
-    parentId: ''
-  })
+const { sharedActiveItems, totalItems, parentId } = inject('activeItems', {
+  sharedActiveItems: ref<string[]>(),
+  totalItems: 0,
+  parentId: ''
+})
 
 const { isItemExpanded, toggleItem } = useExpandableState(
-  initialActiveIndexes,
+  [],
   totalItems,
-  sharedActiveItems
+  sharedActiveItems as Ref<string[]>
 )
 
 const toggleSingle = () => {

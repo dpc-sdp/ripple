@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { computed, ref, type Ref, provide, useSlots } from 'vue'
-import RplContent from '../content/RplContent.vue'
 import { useExpandableState } from '../../composables/useExpandableState'
 import {
   useRippleEvent,
@@ -45,10 +44,10 @@ const slots = useSlots()
 
 const itemise = (inputId: string): string => `accordion-${props.id}-${inputId}`
 
-const initialActiveIndexes: Ref<string[]> = ref([])
+const sharedActiveItems: Ref<string[]> = ref([])
 
 // Prop based items
-initialActiveIndexes.value.push(
+sharedActiveItems.value.push(
   ...props.items.reduce(
     (result: string[], current: AccordionItem): string[] => {
       if (current.active) {
@@ -62,18 +61,16 @@ initialActiveIndexes.value.push(
 )
 
 // Slot based items
-initialActiveIndexes.value.push(
+sharedActiveItems.value.push(
   ...(slots.default
     ? slots.default().reduce((result: string[], current): string[] => {
-        if (current.props.active) {
+        if (current.props?.active) {
           return [...result, itemise(current.props.id)]
         }
         return result
       }, [])
     : [])
 )
-
-const sharedActiveItems = ref(initialActiveIndexes.value)
 
 const itemLength = computed(() =>
   props.items.length > 0
@@ -82,15 +79,14 @@ const itemLength = computed(() =>
 )
 
 const { isItemExpanded, isAllExpanded, toggleItem } = useExpandableState(
-  initialActiveIndexes.value,
+  [],
   itemLength.value,
   sharedActiveItems
 )
 
 provide('activeItems', {
-  initialActiveIndexes: initialActiveIndexes,
-  totalItems: itemLength.value,
   sharedActiveItems: sharedActiveItems,
+  totalItems: itemLength.value,
   parentId: props.id
 })
 
@@ -114,8 +110,8 @@ const toggleAll = () => {
       }
     })
     slots.default?.().forEach((item) => {
-      if (!isItemExpanded(itemise(item.props.id))) {
-        toggleItem(itemise(item.props.id))
+      if (!isItemExpanded(itemise(item.props!.id))) {
+        toggleItem(itemise(item.props!.id))
       }
     })
   }
@@ -129,8 +125,8 @@ const toggleAll = () => {
       }
     })
     slots.default?.().forEach((item) => {
-      if (isItemExpanded(itemise(item.props.id))) {
-        toggleItem(itemise(item.props.id))
+      if (isItemExpanded(itemise(item.props!.id))) {
+        toggleItem(itemise(item.props!.id))
       }
     })
   }

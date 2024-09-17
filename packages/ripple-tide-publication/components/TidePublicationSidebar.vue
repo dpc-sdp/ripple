@@ -7,9 +7,9 @@
     </TidePublicationPageActions>
     <RplSidebarComponent>
       <RplVerticalNav
-        v-if="sidebar.items.length > 0"
+        v-if="navigation?.length"
         :title="publication.text"
-        :items="sidebar.items"
+        :items="navigation"
         class="rpl-u-margin-b-9"
       ></RplVerticalNav>
     </RplSidebarComponent>
@@ -17,28 +17,12 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, reactive } from 'vue'
-import { indexNode, processMenu } from '../utils/processMenu.js'
-// @ts-ignore TS2307 nuxt auto import
-import { useTidePublicationMenu, useRoute } from '#imports'
+import { indexNode } from '../types'
 
 interface Props {
   publication: any
+  navigation: indexNode[]
 }
 
-const props = defineProps<Props>()
-
-const sidebar = reactive({
-  items: new Array<indexNode>()
-})
-
-const menu = props.publication.id
-  ? await useTidePublicationMenu(props.publication.id)
-  : null
-
-onMounted(() => {
-  if (menu) {
-    sidebar.items = processMenu(menu.publication, useRoute())
-  }
-})
+defineProps<Props>()
 </script>

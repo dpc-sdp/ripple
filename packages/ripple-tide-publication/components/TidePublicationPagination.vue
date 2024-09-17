@@ -27,17 +27,20 @@
 
 <script setup lang="ts">
 import {
+  indexNode,
   TidePublicationPagination,
   TidePublicationPaginationLink
 } from '../types'
+import { flattenMenu } from '#imports'
 import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
 import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
 
 interface Props {
   pagination: TidePublicationPagination
+  navigation: indexNode[]
 }
 
-defineProps<Props>()
+const props = defineProps<Props>()
 
 const emit = defineEmits<{
   (e: 'paginate', payload: rplEventPayload): void
@@ -49,11 +52,15 @@ const handleClick = (
   paginate: TidePublicationPaginationLink,
   payload: rplEventPayload
 ) => {
+  const menu = flattenMenu(props.navigation)
+
   emitRplEvent(
     'paginate',
     {
       ...payload,
-      name: paginate.description
+      name: paginate.description,
+      count: menu.length,
+      index: menu.findLastIndex((item) => item.active) + 1
     },
     { global: true }
   )

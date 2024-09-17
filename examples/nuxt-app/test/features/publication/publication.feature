@@ -45,8 +45,8 @@ Feature: Publication page
 
     When I click on the "Next" page link
     Then the dataLayer should include the following events
-      | event         | element_text | link_url                                                                                               | name                                                          | component      |
-      | paginate_next | Next         | /victorian-skills-plan-2023-implementation-update/promoting-post-secondary-education-skills-and-career | Promoting post-secondary education skills and career pathways | rpl-page-links |
+      | event         | element_text | link_url                                                                                               | name                                                          | count | index | component      |
+      | paginate_next | Next         | /victorian-skills-plan-2023-implementation-update/promoting-post-secondary-education-skills-and-career | Promoting post-secondary education skills and career pathways | 28    | 2     | rpl-page-links |
 
     When I click on the document "Print full document"
     Then the dataLayer should include the following events

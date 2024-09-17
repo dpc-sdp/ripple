@@ -1,5 +1,5 @@
 import type { RouteRecord } from 'vue-router'
-import type { indexNode } from '../types'
+import type { indexNode, flatIndexNode } from '../types'
 
 const parseChildren = (node: indexNode, route: RouteRecord): indexNode[] => {
   if (!node.items) {
@@ -40,4 +40,11 @@ const processMenu = (res: indexNode, route: RouteRecord): indexNode[] => {
   ]
 }
 
-export { type indexNode, processMenu }
+const flattenMenu = (items?: indexNode[]): flatIndexNode[] => {
+  return (items || []).reduce((acc: flatIndexNode[], item): flatIndexNode[] => {
+    const { items = [], ...values } = item
+    return [...acc, values, ...flattenMenu(items)]
+  }, [])
+}
+
+export { type indexNode, processMenu, flattenMenu }

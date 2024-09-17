@@ -64,6 +64,7 @@ export interface ApiCaptchaSettings {
   score_threshold: string | null
   captcha_details: {
     term_id: string
+    captcha_id: string
     site_key: string
   }
 }

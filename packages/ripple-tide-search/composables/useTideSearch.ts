@@ -1,4 +1,4 @@
-import { ref, computed, onMounted, watch } from 'vue'
+import { ref, computed, nextTick, onMounted, watch } from 'vue'
 // IMPORTANT: Need to use useRoute from vue-router here instead of the nuxt one from #imports after nuxt 3.6.5
 // The nuxt version of the route stopped being watchable after the update.
 // See this issue for details: https://github.com/nuxt/nuxt/issues/14595
@@ -126,7 +126,8 @@ export default ({
     if (customQueryConfig?.function && fns[customQueryConfig?.function]) {
       return fns[customQueryConfig.function]({
         searchTerm: searchTerm.value,
-        queryFilters: filter
+        queryFilters: filter,
+        locationValue: locationOrGeolocation.value
       })
     }
 
@@ -560,7 +561,7 @@ export default ({
       }
 
       if (typeof onMapResultsHook.value === 'function') {
-        onMapResultsHook.value()
+        nextTick(onMapResultsHook.value)
       }
     } catch (error) {
       console.error(error)

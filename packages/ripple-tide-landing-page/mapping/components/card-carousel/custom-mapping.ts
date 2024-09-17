@@ -20,7 +20,7 @@ export const mapping = (field) => {
       item = {
         type: 'promo',
         title: getField(field, 'field_paragraph_title', ''),
-        url: getField(field, 'field_paragraph_cta.url', ''),
+        url: getLinkFromField(field, 'field_paragraph_cta')?.url,
         image: getImageFromField(
           field,
           'field_paragraph_media.field_media_image'

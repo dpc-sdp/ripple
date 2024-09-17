@@ -83,6 +83,23 @@ export const zoomToClusterExtent = (
   })
 }
 
+export function getFeaturesCenterPoint(features) {
+  const coordinates = features.map(
+    (feature) => feature.getGeometry().flatCoordinates
+  )
+
+  const sum = coordinates.reduce(
+    (acc: number, coord: number) => {
+      acc[0] += coord[0]
+      acc[1] += coord[1]
+      return acc
+    },
+    [0, 0]
+  )
+
+  return [sum[0] / coordinates.length, sum[1] / coordinates.length]
+}
+
 /**
  * Find the distance we need to move from the center of the map to account for the
  * dead space taken up by the sidepanel/sidebars/popups etc. The purpose of this function
@@ -174,6 +191,8 @@ type MapDeadSpace = {
   right?: number
 }
 
+type MapDefaultExtent = [number, number, number, number]
+
 export const fitExtent = (
   map: Map,
   extent: Extent,
@@ -217,4 +236,16 @@ export const fitVictoria = (map: Map, deadSpace?: MapDeadSpace) => {
   ]
 
   fitExtent(map, victoriaBoundingBox, deadSpace)
+}
+
+export const fitDefaultExtent = (
+  map: Map,
+  deadSpace?: MapDeadSpace,
+  defaultExtent?: MapDefaultExtent
+) => {
+  if (!defaultExtent) {
+    return fitVictoria(map, deadSpace)
+  }
+
+  fitExtent(map, defaultExtent, deadSpace)
 }

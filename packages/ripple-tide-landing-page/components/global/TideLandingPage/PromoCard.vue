@@ -18,9 +18,9 @@
   <RplPromoCard
     v-else
     :title="title"
-    :image="displayStyle !== 'noImage' ? image : null"
+    :image="promoImage"
     :url="url"
-    :highlight="displayStyle === 'noImage' || !image"
+    :highlight="displayStyle === 'highlight'"
   >
     <p>{{ summary }}</p>
     <template v-if="showMetadata && metadataExists" #meta>
@@ -44,7 +44,7 @@ interface Props {
       y: number
     }
   } | null
-  displayStyle: 'noImage' | 'thumbnail' | 'profile'
+  displayStyle: 'noImage' | 'thumbnail' | 'profile' | 'highlight'
   showMetadata: boolean
   metadata: {
     contentType: string
@@ -61,4 +61,10 @@ const metadataExists = computed(
     props.metadata.topic?.length > 0 ||
     props.metadata.isGrantOngoing
 )
+
+const promoImage = computed(() => {
+  return props.displayStyle === 'thumbnail' || props.displayStyle === 'profile'
+    ? props.image
+    : null
+})
 </script>

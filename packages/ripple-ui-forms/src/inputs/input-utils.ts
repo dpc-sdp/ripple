@@ -150,6 +150,7 @@ export const defaultRplFormInputProps = {
   prefixIcon: '$node.props.prefixIcon',
   suffixIcon: '$node.props.suffixIcon',
   value: '$_value',
+  autocomplete: '$node.props.autocomplete',
   disabled: '$node.context.disabled',
   placeholder: '$node.context.placeholder',
   options: '$node.context.options',

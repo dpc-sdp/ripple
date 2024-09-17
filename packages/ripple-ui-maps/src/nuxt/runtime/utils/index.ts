@@ -1,5 +1,6 @@
 export {
   centerMap,
   fitExtent,
-  fitVictoria
+  fitVictoria,
+  fitDefaultExtent
 } from './../../../components/map/utils'

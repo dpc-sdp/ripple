@@ -1,9 +1,13 @@
-import { inject } from 'vue'
+import { inject, ref, onMounted } from 'vue'
+import { useEventListener } from '@vueuse/core'
 import { easeOut } from 'ol/easing'
-import { fitVictoria } from './../components/map/utils.ts'
+import { fitDefaultExtent } from './../components/map/utils.ts'
 
 export default (mapRef) => {
-  const { deadSpace } = inject('rplMapInstance')
+  const { deadSpace, defaultExtent } = inject('rplMapInstance')
+
+  const isFullScreen = ref(false)
+  const supportsFullScreen = ref(false)
 
   /**
    * @param {number} delta Zoom delta.
@@ -50,7 +54,7 @@ export default (mapRef) => {
    * @param {Document} doc The root document to check.
    * @return {boolean} Element is currently in fullscreen.
    */
-  function isFullScreen(doc) {
+  function isFullScreenActive(doc) {
     return !!(doc['webkitIsFullScreen'] || doc.fullscreenElement)
   }
 
@@ -100,7 +104,7 @@ export default (mapRef) => {
       return
     }
 
-    if (isFullScreen(doc)) {
+    if (isFullScreenActive(doc)) {
       exitFullScreen(doc)
     } else {
       const element = map.getTargetElement()
@@ -113,7 +117,7 @@ export default (mapRef) => {
   }
 
   function onHomeClick() {
-    fitVictoria(mapRef.value.map, deadSpace.value)
+    fitDefaultExtent(mapRef.value.map, deadSpace.value, defaultExtent)
   }
   function onZoomInClick() {
     zoomByDelta(1)
@@ -125,10 +129,27 @@ export default (mapRef) => {
     handleFullScreen()
   }
 
+  function handleFullScreenChange() {
+    if (!mapRef.value.map) return
+
+    const doc = mapRef.value.map.getOwnerDocument()
+    isFullScreen.value = isFullScreenActive(doc)
+  }
+
+  onMounted(() => {
+    // Listen to fullscreen change events and update isFullScreen
+    useEventListener(document, 'fullscreenchange', handleFullScreenChange)
+    useEventListener(document, 'webkitfullscreenchange', handleFullScreenChange)
+
+    supportsFullScreen.value = isFullScreenSupported(document)
+  })
+
   return {
     onHomeClick,
     onZoomInClick,
     onZoomOutClick,
-    onFullScreenClick
+    onFullScreenClick,
+    supportsFullScreen,
+    isFullScreen
   }
 }

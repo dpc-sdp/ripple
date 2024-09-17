@@ -172,8 +172,8 @@ const footerNav = computed(() => {
  */
 await nuxtApp.callHook('tide:page', props)
 
-useTideSiteTheme(props.site)
+const theme = useTideSiteTheme(props.site)
 useTideHideAlerts()
 useTideSiteMeta(props, nuxtApp?.$app_origin)
-useTideFavicons()
+useTideFavicons(props.site, theme)
 </script>

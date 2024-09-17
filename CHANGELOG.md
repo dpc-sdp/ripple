@@ -1,5 +1,84 @@
 # Changelog
 
+## v2.16.0
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/2.15.0...v2.16.0)
+
+
+### 🚀 Enhancements
+
+  - **@dpc-sdp/nuxt-ripple:** Drupal supplied manifest and icons ([2188fb876](https://github.com/dpc-sdp/ripple-framework/commit/2188fb876))
+  - **@dpc-sdp/ripple-ui-maps:** Add max zoom prop ([6a82a9d13](https://github.com/dpc-sdp/ripple-framework/commit/6a82a9d13))
+  - **@dpc-sdp/ripple-ui-forms:** Add webform autocomplete attribute support ([2e21be5f7](https://github.com/dpc-sdp/ripple-framework/commit/2e21be5f7))
+  - **@dpc-sdp/ripple-tide-search:** Pass location to customQueryConfig function ([89477e9c7](https://github.com/dpc-sdp/ripple-framework/commit/89477e9c7))
+  - **@dpc-sdp/ripple-ui-core:** ✨  support html heading ([c4559b52a](https://github.com/dpc-sdp/ripple-framework/commit/c4559b52a))
+  - **@dpc-sdp/ripple-tide-landing-page:** Support new 'highlight' cms display option ([f487327ae](https://github.com/dpc-sdp/ripple-framework/commit/f487327ae))
+
+### 🩹 Fixes
+
+  - **@dpc-sdp/nuxt-ripple:** Update regex for manifest description ([f98ca7497](https://github.com/dpc-sdp/ripple-framework/commit/f98ca7497))
+  - **@dpc-sdp/ripple-ui-core:** 🐛  right align rtl accordion heading ([4f766964c](https://github.com/dpc-sdp/ripple-framework/commit/4f766964c))
+  - **@dpc-sdp/nuxt-ripple:** Minor favicon updates ([6bb9e4d22](https://github.com/dpc-sdp/ripple-framework/commit/6bb9e4d22))
+  - **@dpc-sdp/nuxt-ripple-analytics:** Switch to useRouter for routeChange tracking ([ba4124d61](https://github.com/dpc-sdp/ripple-framework/commit/ba4124d61))
+
+### 💅 Refactors
+
+  - **@dpc-sdp/nuxt-ripple:** Make image fallback to existing site assets, use merged theme ([2f820849e](https://github.com/dpc-sdp/ripple-framework/commit/2f820849e))
+  - **@dpc-sdp/ripple-tide-landing-page:** ♻️  add whitelist for reusable paragraph types ([61a5655d3](https://github.com/dpc-sdp/ripple-framework/commit/61a5655d3))
+
+### 🏡 Chore
+
+  - 🚨  suppress another sourcemap warning ([bd9e6f79f](https://github.com/dpc-sdp/ripple-framework/commit/bd9e6f79f))
+
+### ❤️  Contributors
+
+- David Featherston <david.featherstone@dpc.vic.gov.au>
+- Jason Smith <jason.smith@dpc.vic.gov.au>
+
+## v2.15.0
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/2.14.0...v2.15.0)
+
+
+### 🚀 Enhancements
+
+  - **@dpc-sdp/ripple-tide-search:** Allow setting a defaultExtent value for maps ([ce7d68d77](https://github.com/dpc-sdp/ripple-framework/commit/ce7d68d77))
+  - **@dpc-sdp/ripple-tide-search:** Added 'hideResultsCount' option to custom collection ([9a4757bf0](https://github.com/dpc-sdp/ripple-framework/commit/9a4757bf0))
+  - **@dpc-sdp/nuxt-ripple-analytics:** Add new print event ([d2a581dea](https://github.com/dpc-sdp/ripple-framework/commit/d2a581dea))
+  - **@dpc-sdp/ripple-tide-search:** Added additional functional needed for KYC map migration ([1f7e68727](https://github.com/dpc-sdp/ripple-framework/commit/1f7e68727))
+
+### 🩹 Fixes
+
+  - **@dpc-sdp/ripple-ui-core:** Add default timeZone for formatDate ([4c16b66b1](https://github.com/dpc-sdp/ripple-framework/commit/4c16b66b1))
+  - **@dpc-sdp/ripple-tide-landing-page:** Use getLinkFromField function for carousel events ([34bfabf2f](https://github.com/dpc-sdp/ripple-framework/commit/34bfabf2f))
+  - **@dpc-sdp/ripple-tide-landing-page:** Hydration mismatch error on card content ([dccdfa1ce](https://github.com/dpc-sdp/ripple-framework/commit/dccdfa1ce))
+  - **@dpc-sdp/ripple-tide-search:** First map results hook firing before map is ready ([afee797a4](https://github.com/dpc-sdp/ripple-framework/commit/afee797a4))
+  - **@dpc-sdp/ripple-ui-maps:** Update map imports ([442670ea1](https://github.com/dpc-sdp/ripple-framework/commit/442670ea1))
+  - **@dpc-sdp/ripple-tide-api:** Fixed site section sometimes not displaying correct active page ([3a00469d7](https://github.com/dpc-sdp/ripple-framework/commit/3a00469d7))
+  - **@dpc-sdp/ripple-ui-maps:** Update map snapshot ([a3238e433](https://github.com/dpc-sdp/ripple-framework/commit/a3238e433))
+  - **@dpc-sdp/ripple-ui-core:** Remove RTL 'before' list styles ([3c5696cb2](https://github.com/dpc-sdp/ripple-framework/commit/3c5696cb2))
+  - **@dpc-sdp/ripple-ui-maps:** Move isFullScreen check and add supportsFullScreen ([05ccc8c10](https://github.com/dpc-sdp/ripple-framework/commit/05ccc8c10))
+
+### 📦 Build
+
+  - 💚  update lockfile ([e8f728a28](https://github.com/dpc-sdp/ripple-framework/commit/e8f728a28))
+
+### 🏡 Chore
+
+  - **@dpc-sdp/ripple-tide-search:** Pin es dependency versions ([d3d64f943](https://github.com/dpc-sdp/ripple-framework/commit/d3d64f943))
+  - **@dpc-sdp/nuxt-ripple-cli:** Remove pinned es versions ([e10bd47d7](https://github.com/dpc-sdp/ripple-framework/commit/e10bd47d7))
+
+### ✅ Tests
+
+  - **@dpc-sdp/ripple-tide-api:** Fixed broken site section nav tests ([ccaf4af87](https://github.com/dpc-sdp/ripple-framework/commit/ccaf4af87))
+
+### ❤️  Contributors
+
+- Jeffrey Dowdle <jeffrey.dowdle@dpc.vic.gov.au>
+- David Featherston <david.featherstone@dpc.vic.gov.au>
+- Dylankelly <dylan.kelly@dpc.vic.gov.au>
+- Jason Smith <jason.smith@dpc.vic.gov.au>
+
 ## v2.14.0
 
 [compare changes](https://github.com/dpc-sdp/ripple-framework/compare/v2.13.1...v2.14.0)

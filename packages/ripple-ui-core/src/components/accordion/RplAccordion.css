@@ -190,6 +190,10 @@
   right: 0;
 }
 
+[dir='rtl'] .rpl-accordion__item-heading.rpl-type-h4 {
+  text-align: right;
+}
+
 /* stylelint-disable-next-line no-descending-specificity */
 [dir='rtl'] .rpl-accordion__item-icon {
   margin-left: 0;

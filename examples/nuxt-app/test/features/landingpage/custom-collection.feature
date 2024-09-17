@@ -115,3 +115,13 @@ Feature: Custom Collection
     When I visit the page "/filter-only"
     Then the custom collection component results count should read "Displaying 1-20 of 282 results"
     And only the search filters should be visible
+
+  @mockserver
+  Example: Should hide results count when hideResultsCount is set
+    Given I load the page fixture with "/landingpage/custom-collection/page"
+    And the custom collection results count has been hidden
+    And the search network request is stubbed with fixture "/landingpage/custom-collection/response" and status 200
+    Then the page endpoint for path "/filter-only" returns the loaded fixture
+
+    When I visit the page "/filter-only"
+    Then the custom collection component results count should be hidden

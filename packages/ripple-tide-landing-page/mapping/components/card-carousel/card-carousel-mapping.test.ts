@@ -10,6 +10,25 @@ describe('cardCarouselMapping', () => {
     const result: Array<ITideCardCarouselItem> = [
       {
         type: 'promo',
+        title: 'Test event',
+        url: 'https://www.google.com.au/',
+        image: {
+          src: '/sites/default/files/2022-07/aintree-primary-school-new-school-22.jpg',
+          alt: 'Photography of Aintree Primary School',
+          title: 'Photography of Aintree Primary School',
+          width: 1620,
+          height: 1080
+        },
+        meta: {
+          topic: null,
+          dateStart: '2024-08-14T03:46:26+10:00',
+          dateEnd: '2024-08-17T15:46:29+10:00'
+        },
+        summary:
+          'Adipisicing sint consectetur consequat excepteur exercitation et laboris cillum.'
+      },
+      {
+        type: 'promo',
         title: 'Event title',
         url: '/demo-event',
         image: {

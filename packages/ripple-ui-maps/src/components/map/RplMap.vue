@@ -16,7 +16,6 @@ import {
   watch,
   nextTick
 } from 'vue'
-import { useFullscreen } from '@vueuse/core'
 import { withDefaults, defineExpose } from '@vue/composition-api'
 import { Map } from 'ol'
 import { Zoom } from 'ol/control'
@@ -35,14 +34,16 @@ import {
   getfeaturesAtMapPixel,
   zoomToClusterExtent,
   centerMap,
-  fitVictoria,
-  areFeaturesCloseTogether
+  fitDefaultExtent,
+  areFeaturesCloseTogether,
+  getFeaturesCenterPoint
 } from './utils'
 
 interface Props {
   features?: IRplMapFeature[]
   projection?: 'EPSG:4326' | 'EPSG:3857'
   initialZoom?: number
+  maxZoom?: number
   initialCenter?: [number, number]
   pinStyle?: Function
   mapHeight?: number
@@ -58,6 +59,7 @@ const props = withDefaults(defineProps<Props>(), {
   projection: 'EPSG:4326',
   features: () => [],
   initialZoom: 7.3,
+  maxZoom: undefined,
   mapHeight: 600,
   popupType: 'sidebar',
   hasSidePanel: false,
@@ -84,7 +86,8 @@ const zoom = ref(props.initialZoom)
 const rotation = ref(0)
 const view = ref(null)
 
-const { setRplMapRef, popup, deadSpace } = inject('rplMapInstance')
+const { setRplMapRef, popup, deadSpace, defaultExtent } =
+  inject('rplMapInstance')
 
 // Reference to ol/map instance
 const mapRef = ref<{ map: Map } | null>(null)
@@ -139,10 +142,14 @@ const selectedPinStyle = (feature, style) => {
   return style
 }
 
-const { isFullscreen } = useFullscreen()
-
-const { onHomeClick, onZoomInClick, onZoomOutClick, onFullScreenClick } =
-  useMapControls(mapRef)
+const {
+  onHomeClick,
+  onZoomInClick,
+  onZoomOutClick,
+  onFullScreenClick,
+  isFullScreen,
+  supportsFullScreen
+} = useMapControls(mapRef)
 
 const mapFeatures = computed(() => {
   if (Array.isArray(props.features)) {
@@ -184,16 +191,15 @@ async function onMapSingleClick(evt) {
       ) {
         // if there are lots of features and we are zoomed out, we just zoom in a bit
         view.animate({
-          zoom: view.getZoom() + largeClusterZoomAmount,
+          zoom: currentZoom + largeClusterZoomAmount,
           center: evt.coordinate
         })
       } else {
         const isCloseTogether = areFeaturesCloseTogether(point.features, 20)
 
-        if (isCloseTogether) {
+        if (isCloseTogether || currentZoom >= props.maxZoom) {
           // if the features are very close together/in the same location we show them all in an accordion in a popup
-          const coords = point.features[0].getGeometry().flatCoordinates
-
+          const coords = getFeaturesCenterPoint(point.features)
           popup.value.feature = point.features.map((f) => f.getProperties())
           popup.value.position = coords
           popup.value.isOpen = true
@@ -283,10 +289,14 @@ onMounted(() => {
       }
     })
   }
-  fitVictoria(mapRef.value.map, deadSpace.value)
+  fitDefaultExtent(mapRef.value.map, deadSpace.value, defaultExtent)
 })
 
 const noResultsRef = ref(null)
+
+const fullScreenLabel = computed(() =>
+  isFullScreen.value ? 'Exit full screen' : 'View full screen'
+)
 </script>
 
 <template>
@@ -336,6 +346,7 @@ const noResultsRef = ref(null)
         :rotation="rotation"
         :projection="projection"
         :zoom="zoom"
+        :maxZoom="maxZoom"
         :minZoom="5"
       />
       <slot name="map-provider"> </slot>
@@ -405,9 +416,12 @@ const noResultsRef = ref(null)
           </RplMapPopUp>
         </ol-overlay>
       </slot>
-      <div class="rpl-map__control rpl-map__control-fullscreen">
-        <button title="View map fullscreen" @click="onFullScreenClick">
-          <RplIcon v-if="isFullscreen" name="icon-cancel"></RplIcon>
+      <div
+        v-if="supportsFullScreen"
+        class="rpl-map__control rpl-map__control-fullscreen"
+      >
+        <button :title="fullScreenLabel" @click="onFullScreenClick">
+          <RplIcon v-if="isFullScreen" name="icon-cancel"></RplIcon>
           <RplIcon v-else name="icon-enlarge" size="m"></RplIcon>
         </button>
       </div>

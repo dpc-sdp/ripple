@@ -349,6 +349,19 @@ Then(
   }
 )
 
+Then('the following field attributes should exist', (dataTable: DataTable) => {
+  const table = dataTable.hashes()
+
+  table.forEach((row) => {
+    cy.get('label.rpl-form-label')
+      .contains(row.field)
+      .closest('.rpl-form__outer')
+      .as('field')
+
+    cy.get('@field').find('input').should('have.attr', row.attribute, row.value)
+  })
+})
+
 // Extended
 Then(
   'a field labelled {string} should exist with the CSS class {string}',

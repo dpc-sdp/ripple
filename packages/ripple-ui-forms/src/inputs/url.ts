@@ -40,6 +40,7 @@ export const url: FormKitTypeDefinition = {
   props: [
     ...minMaxProps,
     'placeholder',
+    'autocomplete',
     'validationMeta',
     'columnClasses',
     'pii'

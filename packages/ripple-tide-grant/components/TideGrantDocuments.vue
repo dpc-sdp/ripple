@@ -29,3 +29,11 @@ interface Props {
 
 defineProps<Props>()
 </script>
+
+<style>
+.tide-grant__documents ul {
+  display: flex;
+  flex-direction: column;
+  gap: var(--rpl-sp-3);
+}
+</style>

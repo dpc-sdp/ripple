@@ -31,6 +31,7 @@ export interface IRplAnalyticsEventPayload {
   // Route properties
   status_code?: number
   content_type?: string
+  content_status?: string
   search_term?: string
   site_section?: string
   publication_name?: string

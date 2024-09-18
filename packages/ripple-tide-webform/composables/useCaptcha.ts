@@ -25,8 +25,8 @@ const getThirdPartyScript = (
         key: `${CaptchaType.RECAPTCHA_V3}-${captchaConfig.siteKey}`,
         src: `https://www.google.com/recaptcha/api.js?render=${captchaConfig.siteKey}&onload=${onLoadCallbackName}`,
         tagPosition: 'head',
-        async: false,
-        defer: false
+        async: true,
+        defer: true
       }
     }
     case CaptchaType.RECAPTCHA_V2: {
@@ -42,7 +42,7 @@ const getThirdPartyScript = (
         key: CaptchaType.RECAPTCHA_V2,
         src: `https://www.google.com/recaptcha/api.js?render=explicit&onload=${onLoadCallbackName}`,
         tagPosition: 'head',
-        async: false,
+        async: true,
         defer: true
       }
     }
@@ -58,8 +58,8 @@ const getThirdPartyScript = (
       return {
         src: `https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=${onLoadCallbackName}`,
         tagPosition: 'head',
-        async: false,
-        defer: false
+        async: true,
+        defer: true
       }
     }
     default:
@@ -262,14 +262,15 @@ export const useCaptcha = (
     return isCaptchaScriptReady.value && isCaptchaElementReady.value
   })
 
-  if (captchaConfig) {
-    useCaptchaScripts(captchaConfig)
-  }
-
   // Sometimes the captcha element isn't rendered on load, so we provide a callback for telling us when it's ready
   const onCaptchaElementReady = () => {
     isCaptchaElementReady.value = true
+
+    if (captchaConfig) {
+      useCaptchaScripts(captchaConfig)
+    }
   }
+
   provide('onCaptchaElementReady', onCaptchaElementReady)
 
   watch(isCaptchaReady, (isReady) => {

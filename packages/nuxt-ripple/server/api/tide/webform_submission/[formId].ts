@@ -14,7 +14,10 @@ export const createWebformProxyHandler = async (event: H3Event) => {
   try {
     await verifyCaptcha(event)
   } catch (error) {
-    logger.error(`CAPTCHA validation error`, error)
+    logger.error(`CAPTCHA validation error`, {
+      error,
+      label: 'TideWebformHandler'
+    })
     sendError(
       event,
       createError({

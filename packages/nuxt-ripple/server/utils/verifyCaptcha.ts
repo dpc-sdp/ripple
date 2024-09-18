@@ -11,11 +11,13 @@ import {
   MappedCaptchaConfig
 } from '@dpc-sdp/ripple-tide-webform/types'
 
+const logLabel = 'Verify CAPTCHA'
+
 const genericCaptchaVerify = async (
   verifyUrl: string,
   secretKey: string,
   responseToken: string,
-  responseCallback: (response: any) => boolean
+  responseCallback: (response: any, statusCode: number) => boolean
 ) => {
   try {
     const formData = new FormData()
@@ -23,15 +25,22 @@ const genericCaptchaVerify = async (
     formData.append('secret', secretKey)
     formData.append('response', responseToken)
 
-    const verifyResponse = await $fetch(verifyUrl, {
+    const response = await $fetch.raw(verifyUrl, {
       method: 'POST',
       body: formData
     })
 
-    const isValid = responseCallback(verifyResponse)
+    const statusCode = response.status
+    const verifyResponse = response._data
+
+    const isValid = responseCallback(verifyResponse, statusCode)
 
     if (!isValid) {
-      logger.error('CAPTCHA verification failed, response was:', verifyResponse)
+      logger.error('CAPTCHA verification failed', {
+        label: logLabel,
+        statusCode,
+        response: verifyResponse
+      })
     }
 
     return isValid
@@ -72,7 +81,19 @@ const verifyGoogleRecaptchaV2 = async (
     'https://www.google.com/recaptcha/api/siteverify',
     secretKey,
     captchaResponse,
-    (verifyResponse) => {
+    (verifyResponse, statusCode) => {
+      const QUOTA_EXCEEDED_STATUS_CODE = 429
+
+      if (statusCode === QUOTA_EXCEEDED_STATUS_CODE) {
+        // If any quotas are hit, allow the submission
+        // We don't want to block genuine requests to the form, but we log an error
+        logger.error('Recaptcha V2 quota reached, allowing all submissions', {
+          label: logLabel
+        })
+
+        return true
+      }
+
       return !!verifyResponse?.success
     }
   )

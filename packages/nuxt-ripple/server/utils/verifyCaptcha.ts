@@ -188,6 +188,11 @@ const verifyCaptcha = async (event: H3Event) => {
   if (!isValid) {
     throw new UnauthorisedError('Failed to verify CAPTCHA response token')
   }
+
+  logger.info('CAPTCHA verification successful', {
+    label: logLabel,
+    formId
+  })
 }
 
 export default verifyCaptcha

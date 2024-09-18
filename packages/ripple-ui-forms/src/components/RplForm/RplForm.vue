@@ -63,6 +63,7 @@ const emit = defineEmits<{
   (e: 'submit', payload: rplEventPayload & { action: 'submit' }): void
   (e: 'invalid', payload: rplEventPayload & { action: 'submit' }): void
   (e: 'submitted', payload: rplEventPayload & { action: 'complete' }): void
+  (e: 'start', payload: rplEventPayload): void
 }>()
 
 const { emitRplEvent } = useRippleEvent('rpl-form', emit)
@@ -275,7 +276,7 @@ const plugins = computed(
     novalidate
     @submit-invalid="submitInvalidHandler"
     @submit="submitHandler"
-    @change="handleChange"
+    @input="handleChange"
   >
     <fieldset
       class="rpl-form__submit-guard"

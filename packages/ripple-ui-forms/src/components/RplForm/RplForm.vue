@@ -77,6 +77,9 @@ const errorSummaryRef = ref(null)
 const cachedErrors = ref<Record<string, CachedError>>({})
 const submitCounter = ref(0)
 
+// Keep track of whether user has changed something in the form
+const formStarted = ref<boolean>(false)
+
 provide('form', { id: props.id, name: props.title })
 provide('isFormSubmitting', isFormSubmitting)
 // submitCounter is watched by some components to efficiently know when to update
@@ -198,6 +201,22 @@ watch(
   }
 )
 
+const handleChange = () => {
+  // 'Form start' analytics event, fires on first change of the form
+  if (!formStarted.value) {
+    formStarted.value = true
+
+    emitRplEvent(
+      'start',
+      {
+        id: props.id,
+        name: props.title
+      },
+      { global: true }
+    )
+  }
+}
+
 const data = reactive({
   isFilled: (val) =>
     typeof val === 'number'
@@ -256,6 +275,7 @@ const plugins = computed(
     novalidate
     @submit-invalid="submitInvalidHandler"
     @submit="submitHandler"
+    @change="handleChange"
   >
     <fieldset
       class="rpl-form__submit-guard"

@@ -103,6 +103,16 @@ When(
   }
 )
 
+When('I blur the input with the label {string}', (label: string) => {
+  cy.get('label.rpl-form-label')
+    .contains(label)
+    .closest('.rpl-form__outer')
+    .as('field')
+
+  cy.get('@field').should('exist')
+  cy.get('@field').find('input').blur()
+})
+
 When(
   'I type {string} into the textarea with the label {string}',
   (value: string, label: string) => {

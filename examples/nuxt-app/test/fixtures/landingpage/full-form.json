@@ -52,6 +52,7 @@
       "id": 1119,
       "title": "Test form",
       "props": {
+        "title": "Test form",
         "formId": "full_form",
         "hideFormOnSubmit": false,
         "successMessageTitle": "Server success",

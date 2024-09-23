@@ -1,5 +1,13 @@
 <script setup lang="ts">
-import { nextTick, provide, ref, watch, reactive, computed } from 'vue'
+import {
+  nextTick,
+  provide,
+  ref,
+  watch,
+  reactive,
+  computed,
+  onBeforeUnmount
+} from 'vue'
 import {
   getNode,
   FormKitSchemaCondition,

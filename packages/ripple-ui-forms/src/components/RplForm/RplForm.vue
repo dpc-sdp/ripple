@@ -81,10 +81,34 @@ const submitCounter = ref(0)
 // Keep track of whether user has changed something in the form
 const formStarted = ref<boolean>(false)
 
+const tryAbandonForm = () => {
+  if (formStarted.value && props.submissionState.status !== 'success') {
+    emitRplEvent(
+      'abandon',
+      {
+        id: props.id,
+        name: props.title,
+        value: sanitisePIIFields(getNode(props.id))
+      },
+      { global: true }
+    )
+  }
+
+  formStarted.value = false
+}
+
+const onFormReset = () => {
+  cachedErrors.value = {}
+  submitCounter.value = 0
+
+  tryAbandonForm()
+}
+
 provide('form', { id: props.id, name: props.title })
 provide('isFormSubmitting', isFormSubmitting)
 // submitCounter is watched by some components to efficiently know when to update
 provide('submitCounter', submitCounter)
+provide('onFormReset', onFormReset)
 
 const submitLabel =
   props.schema?.find((field) => field?.key === 'actions')?.label || 'Submit'
@@ -196,13 +220,15 @@ watch(
           { global: true }
         )
 
+        formStarted.value = false
+
         reset(props.id)
       }
     }
   }
 )
 
-const handleChange = () => {
+const handleInput = () => {
   // 'Form start' analytics event, fires on first change of the form
   if (!formStarted.value) {
     formStarted.value = true
@@ -217,6 +243,10 @@ const handleChange = () => {
     )
   }
 }
+
+onBeforeUnmount(() => {
+  tryAbandonForm()
+})
 
 const data = reactive({
   isFilled: (val) =>
@@ -276,7 +306,7 @@ const plugins = computed(
     novalidate
     @submit-invalid="submitInvalidHandler"
     @submit="submitHandler"
-    @input="handleChange"
+    @input="handleInput"
   >
     <fieldset
       class="rpl-form__submit-guard"

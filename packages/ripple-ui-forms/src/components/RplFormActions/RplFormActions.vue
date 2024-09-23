@@ -48,8 +48,13 @@ const iconPosition = computed(() => {
 
 const form: object = inject('form')
 const isFormSubmitting: any = inject('isFormSubmitting')
+const onFormReset = inject('onFormReset')
 
 const handleReset = () => {
+  if (typeof onFormReset === 'function') {
+    onFormReset()
+  }
+
   reset(form.id)
 
   emitRplEvent(

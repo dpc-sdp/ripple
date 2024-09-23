@@ -147,3 +147,11 @@ Feature: Custom collection map component
     When I click the exit fullscreen button
     And I wait 100 milliseconds
     Then the map should not be fullscreen
+
+  @mockserver
+  Scenario: Map height can be customised
+    Given I load the page fixture with "/maps/basic-page"
+    And the map height is set to 606
+    Then the page endpoint for path "/map" returns the loaded fixture
+    When I visit the page "/map"
+    Then the map height is 606

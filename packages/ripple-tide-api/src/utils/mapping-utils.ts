@@ -145,10 +145,14 @@ export const getLinkFromField = (
     return null
   }
 
-  return {
-    text: linkField.title || linkField.text || '',
-    url: linkField.url || linkField.origin_url || linkField.uri || ''
+  let text = linkField.title || linkField.text || ''
+  let url = linkField.url || linkField.origin_url || linkField.uri || ''
+
+  if (url.startsWith('internal:')) {
+    url = url.replace(/^internal:/, '')
   }
+
+  return { text, url }
 }
 
 export const getAddress = (field: drupalField) => {

@@ -563,6 +563,17 @@ export default {
     }
   },
   // UI Forms components
+  'rpl-form/start': () => {
+    return (payload: any) => {
+      trackEvent({
+        event: `form_start`,
+        form_id: payload?.id,
+        form_name: payload?.name,
+        component: 'rpl-form',
+        platform_event: 'start'
+      })
+    }
+  },
   'rpl-form/submit': () => {
     return (payload: any) => {
       trackEvent({

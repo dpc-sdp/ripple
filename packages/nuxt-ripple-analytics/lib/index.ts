@@ -585,6 +585,18 @@ export default {
       })
     }
   },
+  'rpl-form/abandon': () => {
+    return (payload: any) => {
+      trackEvent({
+        event: `form_abandon`,
+        form_id: payload?.id,
+        form_name: payload?.name,
+        component: 'rpl-form',
+        platform_event: 'abandon',
+        form_data: payload?.value
+      })
+    }
+  },
   'rpl-form/submit': () => {
     return (payload: any) => {
       trackEvent({

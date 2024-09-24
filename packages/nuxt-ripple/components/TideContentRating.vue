@@ -83,7 +83,7 @@ onMounted(() => {
                   <RplContent
                     v-if="contentRatingText"
                     :html="contentRatingText"
-                    class="tide-content-rating__text"
+                    class="tide-content-rating__text rpl-u-margin-b-6"
                   />
                   <FormKit
                     v-if="value.was_this_page_helpful"

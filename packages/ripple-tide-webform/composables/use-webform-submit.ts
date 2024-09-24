@@ -1,8 +1,16 @@
 import { $fetch } from 'ofetch'
 import { ref, useRuntimeConfig } from '#imports'
+import { MappedCaptchaConfig } from '../types'
 
-export function useWebformSubmit(formId: string) {
-  const postForm = async (formId: string, formData = {}) => {
+export function useWebformSubmit(
+  formId: string,
+  captchaConfig?: MappedCaptchaConfig | null
+) {
+  const postForm = async (
+    formId: string,
+    formData = {},
+    maybeCaptchaResponse: string | null
+  ) => {
     const { public: config } = useRuntimeConfig()
 
     const formResource = 'webform_submission'
@@ -29,7 +37,8 @@ export function useWebformSubmit(formId: string) {
         site: config.tide.site
       },
       headers: {
-        'Content-Type': 'application/vnd.api+json;charset=UTF-8'
+        'Content-Type': 'application/vnd.api+json;charset=UTF-8',
+        'x-captcha-response': maybeCaptchaResponse || undefined
       }
     })
 
@@ -67,7 +76,11 @@ export function useWebformSubmit(formId: string) {
     return honeypotElement && !!honeypotElement.value
   }
 
-  const submitHandler = async (props: FormConfig, data: any) => {
+  const submitHandler = async (
+    props: FormConfig,
+    data: any,
+    captchaWidgetId?: string
+  ) => {
     submissionState.value = {
       status: 'submitting',
       title: '',
@@ -87,8 +100,30 @@ export function useWebformSubmit(formId: string) {
       return
     }
 
+    let maybeCaptchaResponse = null
+
     try {
-      const resData = await postForm(props.formId, data)
+      maybeCaptchaResponse = await getCaptchaResponse(
+        formId,
+        captchaConfig,
+        captchaWidgetId,
+        window
+      )
+    } catch (e) {
+      console.error(e)
+
+      submissionState.value = {
+        status: 'error',
+        title: props.errorMessageTitle,
+        message: 'Invalid CAPTCHA',
+        receipt: ''
+      }
+
+      return
+    }
+
+    try {
+      const resData = await postForm(props.formId, data, maybeCaptchaResponse)
 
       const [code, note] = resData.attributes?.notes?.split('|') || []
 

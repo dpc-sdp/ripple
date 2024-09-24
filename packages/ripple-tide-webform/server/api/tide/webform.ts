@@ -14,7 +14,7 @@ import type {
 } from '@dpc-sdp/ripple-tide-api/types'
 import { useRuntimeConfig } from '#imports'
 import { AuthCookieNames } from '@dpc-sdp/nuxt-ripple-preview/utils'
-import { getFormSchemaFromMapping } from '../../../mapping'
+import { getFormSchemaFromMapping, getCaptchaSettings } from '../../../mapping'
 
 /**
  * @description Custom API call methods and response mapping for webform
@@ -30,7 +30,8 @@ class TideWebformApi extends TideApiBase {
         _src: (field: any) =>
           process.env.NODE_ENV === 'development' ? field : undefined,
         schema: async (field: any, page, tidePageApi: TidePageApi) =>
-          await getFormSchemaFromMapping(field, tidePageApi)
+          await getFormSchemaFromMapping(field, tidePageApi),
+        captchaConfig: (field: any) => getCaptchaSettings(field)
       },
       includes: []
     }

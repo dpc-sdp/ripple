@@ -1,7 +1,10 @@
 import type { TideDynamicPageComponent } from '@dpc-sdp/ripple-tide-api/types'
 import { TidePageApi } from '@dpc-sdp/ripple-tide-api'
 import type { TideWebform, ApiField } from '@dpc-sdp/ripple-tide-webform/types'
-import { getFormSchemaFromMapping } from '@dpc-sdp/ripple-tide-webform/mapping'
+import {
+  getFormSchemaFromMapping,
+  getCaptchaSettings
+} from '@dpc-sdp/ripple-tide-webform/mapping'
 
 const componentMapping = async (field: ApiField, tidePageApi: TidePageApi) => {
   return {
@@ -22,7 +25,8 @@ const componentMapping = async (field: ApiField, tidePageApi: TidePageApi) => {
     schema: await getFormSchemaFromMapping(
       field.field_paragraph_webform,
       tidePageApi
-    )
+    ),
+    captchaConfig: getCaptchaSettings(field.field_paragraph_webform)
   }
 }
 export const webformMapping = async (

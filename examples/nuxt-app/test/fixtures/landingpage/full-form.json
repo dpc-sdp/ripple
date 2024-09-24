@@ -93,7 +93,8 @@
             "validation": [[["matches", ",/^\\W*(\\w+(\\W+|$)){0,5}$/"]]],
             "validationMessages": {
               "matches": "You can enter a maximum of 5 words"
-            }
+            },
+            "pii": true
           },
           {
             "$formkit": "RplFormEmail",
@@ -104,7 +105,8 @@
             "validation": "email",
             "validationMessages": {
               "email": "Email must be a valid email address"
-            }
+            },
+            "pii": true
           },
           {
             "$formkit": "RplFormNumber",
@@ -112,7 +114,8 @@
             "label": "Quantity",
             "id": "quantity",
             "validation": "",
-            "validationMessages": {}
+            "validationMessages": {},
+            "pii": true
           },
           {
             "$formkit": "RplFormUrl",
@@ -121,7 +124,8 @@
             "id": "website",
             "help": "Enter a URL",
             "validation": "",
-            "validationMessages": {}
+            "validationMessages": {},
+            "pii": true
           },
           {
             "$formkit": "RplFormTel",
@@ -129,7 +133,8 @@
             "label": "Mobile phone",
             "id": "mobile_phone",
             "validation": "",
-            "validationMessages": {}
+            "validationMessages": {},
+            "pii": true
           },
           {
             "$formkit": "RplFormDatePicker",
@@ -137,7 +142,8 @@
             "label": "Date of birth",
             "id": "dob",
             "validation": "",
-            "validationMessages": {}
+            "validationMessages": {},
+            "pii": true
           },
           {
             "$formkit": "RplFormTextarea",
@@ -152,7 +158,8 @@
             "validationMessages": {
               "required": "The message field is required",
               "matches": "Please enter between 10 and 50 characters"
-            }
+            },
+            "pii": true
           },
           {
             "$formkit": "RplFormDropdown",
@@ -179,7 +186,8 @@
             "validation": "required",
             "validationMessages": {
               "required": "Must choose a favourite colour"
-            }
+            },
+            "pii": false
           },
           {
             "$formkit": "RplFormDropdown",
@@ -217,7 +225,8 @@
             "validation": "length:0,2",
             "validationMessages": {
               "length": "Must choose at least two"
-            }
+            },
+            "pii": false
           },
           {
             "$formkit": "RplFormRadioGroup",
@@ -240,7 +249,8 @@
                 "value": "8986",
                 "label": "Bird person"
               }
-            ]
+            ],
+            "pii": false
           },
           {
             "$formkit": "RplFormCheckboxGroup",
@@ -264,7 +274,8 @@
                 "value": "tokyo",
                 "label": "Tokyo"
               }
-            ]
+            ],
+            "pii": false
           },
           {
             "$formkit": "RplFormCheckbox",
@@ -277,13 +288,15 @@
             "validationMessages": {
               "required": "You must accept the terms",
               "accepted": "You must accept the terms"
-            }
+            },
+            "pii": false
           },
           {
             "$formkit": "RplFormHidden",
             "name": "site_section",
             "id": "site_section",
-            "value": "DPC"
+            "value": "DPC",
+            "pii": false
           },
           {
             "$formkit": "RplFormActions",

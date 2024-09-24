@@ -22,5 +22,6 @@ defineProps<Props>()
     :label="label"
     :placeholder="placeholder"
     :options="options"
+    :pii="false"
   />
 </template>

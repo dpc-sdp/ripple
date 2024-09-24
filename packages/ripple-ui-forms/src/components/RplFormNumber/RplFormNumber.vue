@@ -49,7 +49,7 @@ const props = withDefaults(defineProps<Props>(), {
   required: false,
   invalid: false,
   variant: 'default',
-  globalEvents: false,
+  globalEvents: true,
   throttle: 500,
   pii: true,
   onInput: () => null,

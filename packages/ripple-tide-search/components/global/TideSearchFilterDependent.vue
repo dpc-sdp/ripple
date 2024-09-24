@@ -143,6 +143,7 @@ watch(
         :options="selectOptions[`${id}-${i}`] || []"
         :disabled="!selectOptions[`${id}-${i}`]?.length"
         :variant="variant"
+        :pii="false"
       />
     </div>
   </FormKit>

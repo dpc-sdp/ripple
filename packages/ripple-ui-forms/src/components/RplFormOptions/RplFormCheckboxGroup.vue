@@ -65,7 +65,7 @@ const handleToggle = (selectedValue: string) => {
       action: 'update',
       id: props.id,
       label: props?.label,
-      value: sanitisePIIField(props.pii, newValue),
+      value: sanitisePIIField(props.pii, newValue, props.options),
       contextId: form?.id,
       contextName: form?.name
     },

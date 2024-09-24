@@ -10,6 +10,7 @@ export default function ({ route, site, page }): IRplAnalyticsEventPayload {
     page_title: page?.title,
     page_url: route.fullPath,
     content_type: page?.type,
+    content_status: page?.status,
     publication_name: page?.publication?.text,
     search_term: trimValue(route.query?.q),
     site_section: page?.siteSection?.name,

@@ -116,3 +116,11 @@ Then(
 When(`I click on the {string} page link`, (label: string) => {
   cy.get(`.rpl-page-links__link`).contains(`${label}`).click()
 })
+
+Then('I scroll {int} pixels', (pixels: number) => {
+  cy.scrollTo(0, pixels)
+})
+
+Then('I click the back to top button', () => {
+  cy.get('.rpl-back-to-top__button').click()
+})

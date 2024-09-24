@@ -63,6 +63,7 @@ const emit = defineEmits<{
   (e: 'submit', payload: rplEventPayload & { action: 'submit' }): void
   (e: 'invalid', payload: rplEventPayload & { action: 'submit' }): void
   (e: 'submitted', payload: rplEventPayload & { action: 'complete' }): void
+  (e: 'start', payload: rplEventPayload): void
 }>()
 
 const { emitRplEvent } = useRippleEvent('rpl-form', emit)
@@ -76,6 +77,9 @@ const serverMessageRef = ref(null)
 const errorSummaryRef = ref(null)
 const cachedErrors = ref<Record<string, CachedError>>({})
 const submitCounter = ref(0)
+
+// Keep track of whether user has changed something in the form
+const formStarted = ref<boolean>(false)
 
 provide('form', { id: props.id, name: props.title })
 provide('isFormSubmitting', isFormSubmitting)
@@ -198,6 +202,22 @@ watch(
   }
 )
 
+const handleChange = () => {
+  // 'Form start' analytics event, fires on first change of the form
+  if (!formStarted.value) {
+    formStarted.value = true
+
+    emitRplEvent(
+      'start',
+      {
+        id: props.id,
+        name: props.title
+      },
+      { global: true }
+    )
+  }
+}
+
 const data = reactive({
   isFilled: (val) =>
     typeof val === 'number'
@@ -256,6 +276,7 @@ const plugins = computed(
     novalidate
     @submit-invalid="submitInvalidHandler"
     @submit="submitHandler"
+    @input="handleChange"
   >
     <fieldset
       class="rpl-form__submit-guard"

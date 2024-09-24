@@ -87,3 +87,19 @@ Then(
     })
   }
 )
+
+Then(
+  'the dataLayer back to top event should have a value of {int}',
+  (percentage: string) => {
+    cy.window().then((window) => {
+      const event = window.dataLayer?.find(
+        (i) => i.event === 'click_back_to_top'
+      )
+
+      expect(event?.value).to.be.within(
+        Number(percentage) - 2,
+        Number(percentage) + 2
+      )
+    })
+  }
+)

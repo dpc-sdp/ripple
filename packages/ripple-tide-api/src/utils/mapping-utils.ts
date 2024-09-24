@@ -65,10 +65,11 @@ export const getMediaPath = (field: any, path?: string | string[]): string => {
 
 export const getImageFromField = (
   field: object,
-  path: string | string[]
+  path: string | string[],
+  fallback: any = null
 ): TideImageField | null => {
   const image = get(field, path)
-  return image ? getMediaImage(image) : null
+  return image ? getMediaImage(image) : fallback
 }
 
 export const getCardImageFromField = (
@@ -144,10 +145,14 @@ export const getLinkFromField = (
     return null
   }
 
-  return {
-    text: linkField.title || linkField.text || '',
-    url: linkField.url || linkField.origin_url || linkField.uri || ''
+  let text = linkField.title || linkField.text || ''
+  let url = linkField.url || linkField.origin_url || linkField.uri || ''
+
+  if (url.startsWith('internal:')) {
+    url = url.replace(/^internal:/, '')
   }
+
+  return { text, url }
 }
 
 export const getAddress = (field: drupalField) => {

@@ -375,6 +375,8 @@ export default {
         element_text: payload?.text,
         link_url: payload?.value,
         name: payload?.name,
+        count: payload?.count,
+        index: payload?.index,
         component: 'rpl-page-links',
         platform_event: 'paginate'
       })

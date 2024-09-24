@@ -18,10 +18,13 @@ Then(
         const columns = Object.entries(row).reduce(
           (
             acc: Record<string, any>,
-            [key, value]: [string, string | boolean | undefined]
+            [key, value]: [string, string | boolean | number | undefined]
           ) => {
-            if (value === 'true') value = true
-            if (value === 'false') value = false
+            if (value !== '') {
+              if (!isNaN(Number(value))) value = Number(value)
+              else if (value === 'true') value = true
+              else if (value === 'false') value = false
+            }
 
             return {
               ...acc,
@@ -32,7 +35,10 @@ Then(
         )
 
         Object.keys(columns).forEach((key) => {
-          if (typeof columns[key] === 'boolean') {
+          if (
+            typeof columns[key] === 'boolean' ||
+            typeof columns[key] === 'number'
+          ) {
             expect(events?.[eventIndex[row.event]][key]).to.equal(columns[key])
           } else if (columns[key]) {
             expect(events?.[eventIndex[row.event]][key]).to.contain(

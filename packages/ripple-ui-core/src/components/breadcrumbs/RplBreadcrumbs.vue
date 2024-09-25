@@ -1,9 +1,11 @@
 <script setup lang="ts">
+import { inject, ref } from 'vue'
 import RplTextLink from '../text-link/RplTextLink.vue'
 import {
   useRippleEvent,
   rplEventPayload
 } from '../../composables/useRippleEvent'
+import type { IRplFeatureFlags } from '@dpc-sdp/ripple-tide-api/types'
 
 interface IRplBreadcrumbsItem {
   text: string
@@ -13,11 +15,13 @@ interface IRplBreadcrumbsItem {
 interface Props {
   items: IRplBreadcrumbsItem[]
   besideQuickExit?: boolean
+  displayBeforeCollapse?: number
 }
 
 const props = withDefaults(defineProps<Props>(), {
   items: () => [],
-  besideQuickExit: false
+  besideQuickExit: false,
+  displayBeforeCollapse: 3
 })
 
 const emit = defineEmits<{
@@ -25,6 +29,13 @@ const emit = defineEmits<{
 }>()
 
 const { emitRplEvent } = useRippleEvent('rpl-breadcrumbs', emit)
+
+const { breadcrumbsCollapseInnerLinks }: IRplFeatureFlags = inject(
+  'featureFlags',
+  {
+    breadcrumbsCollapseInnerLinks: false
+  }
+)
 
 const handleClick = (item, index) => {
   emitRplEvent(
@@ -38,6 +49,19 @@ const handleClick = (item, index) => {
     { global: true }
   )
 }
+
+const collapseInnerLinks = ref()
+collapseInnerLinks.value =
+  props.items.length > breadcrumbsCollapseInnerLinks!
+    ? props.displayBeforeCollapse
+    : 0
+
+const firstItem = (index: number) => index === 0
+const lastItem = (index: number) => index === props.items.length - 1
+
+const toggleCollapsed = () => {
+  collapseInnerLinks.value = 0
+}
 </script>
 
 <template>
@@ -49,26 +73,50 @@ const handleClick = (item, index) => {
       'rpl-breadcrumbs--beside-exit': props.besideQuickExit
     }"
   >
-    <ol v-if="items.length > 0" class="rpl-breadcrumbs__items rpl-type-p">
+    <ol
+      v-if="items.length > 0"
+      :class="[
+        'rpl-breadcrumbs__items',
+        'rpl-type-p-small',
+        { 'rpl-breadcrumbs__items--collapsed': collapseInnerLinks }
+      ]"
+    >
       <li
         v-for="(item, index) of items"
         :key="index"
-        :class="{
-          'rpl-breadcrumbs__item': true,
-          'rpl-breadcrumbs__item--parent': index === items.length - 2
-        }"
+        :class="[
+          'rpl-breadcrumbs__item',
+          { 'rpl-breadcrumbs__item--parent': index === items.length - 1 },
+          {
+            'rpl-breadcrumbs__item--first':
+              firstItem(index) && collapseInnerLinks
+          },
+          {
+            'rpl-breadcrumbs__item--collapsed':
+              !firstItem(index) && !lastItem(index) && collapseInnerLinks
+          }
+        ]"
       >
         <RplTextLink
-          v-if="index < items.length - 1"
           :url="item.url"
           :theme="false"
           class="rpl-breadcrumbs__item-link"
           @click="() => handleClick(item, index)"
           >{{ item.text }}</RplTextLink
         >
-        <span v-else class="rpl-breadcrumbs__item--current">{{
-          item.text
-        }}</span>
+        <span
+          v-if="firstItem(index) && collapseInnerLinks"
+          class="rpl-breadcrumbs__collapse-link"
+        >
+          <button
+            class="rpl-text-link rpl-u-focusable-inline rpl-breadcrumbs__collapse-link-trigger"
+            type="button"
+            aria-label="Expand hidden breadcrumbs"
+            @click.prevent="() => toggleCollapsed()"
+          >
+            &hellip;
+          </button>
+        </span>
       </li>
     </ol>
   </nav>

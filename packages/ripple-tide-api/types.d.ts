@@ -305,6 +305,10 @@ export interface IRplFeatureFlags {
     }
   }
   /**
+   * @description Collapse inner links in breadcrumbs
+   */
+  breadcrumbsCollapseInnerLinks?: boolean
+  /**
    * @description Custom flags
    */
   [key: string]: any

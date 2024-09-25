@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { inject, ref } from 'vue'
 import RplTextLink from '../text-link/RplTextLink.vue'
 import {
   useRippleEvent,
   rplEventPayload
 } from '../../composables/useRippleEvent'
+import type { IRplFeatureFlags } from '@dpc-sdp/ripple-tide-api/types'
 
 interface IRplBreadcrumbsItem {
   text: string
@@ -14,11 +15,13 @@ interface IRplBreadcrumbsItem {
 interface Props {
   items: IRplBreadcrumbsItem[]
   besideQuickExit?: boolean
+  displayBeforeCollapse?: number
 }
 
 const props = withDefaults(defineProps<Props>(), {
   items: () => [],
-  besideQuickExit: false
+  besideQuickExit: false,
+  displayBeforeCollapse: 3
 })
 
 const emit = defineEmits<{
@@ -26,6 +29,13 @@ const emit = defineEmits<{
 }>()
 
 const { emitRplEvent } = useRippleEvent('rpl-breadcrumbs', emit)
+
+const { breadcrumbsCollapseInnerLinks }: IRplFeatureFlags = inject(
+  'featureFlags',
+  {
+    breadcrumbsCollapseInnerLinks: false
+  }
+)
 
 const handleClick = (item, index) => {
   emitRplEvent(
@@ -41,7 +51,10 @@ const handleClick = (item, index) => {
 }
 
 const collapseInnerLinks = ref()
-collapseInnerLinks.value = props.items.length > 3
+collapseInnerLinks.value =
+  props.items.length > breadcrumbsCollapseInnerLinks!
+    ? props.displayBeforeCollapse
+    : 0
 
 const firstItem = (index: number) => index === 0
 const lastItem = (index: number) => index === props.items.length - 1

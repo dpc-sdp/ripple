@@ -540,7 +540,7 @@ const handleGeolocateSuccess = (pos: GeolocationPosition) => {
 
 const handleGeolocateError = () => {
   isGettingLocation.value = false
-  geolocationError.value = `We couldn't find your location. Check your browser permissions or input your location manually`
+  geolocationError.value = `We couldn't find your location. Check your browser permissions or input your location manually.`
 }
 
 const locationOrGeolocation = computed(() => {

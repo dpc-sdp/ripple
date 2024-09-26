@@ -6,6 +6,7 @@ import {
 } from '@storybook/addon-docs'
 import { a11yStoryCheck } from './../../../stories/interactions.js'
 import RplAccordion from './RplAccordion.vue'
+import RplAccordionItem from './RplAccordionItem.vue'
 import SAMPLE from './fixtures/default.js'
 
 export const Template = (args) => ({
@@ -20,6 +21,29 @@ export const Template = (args) => ({
     <RplAccordion
       v-bind="args"
     />
+  `
+})
+
+export const SlotsTemplate = (args) => ({
+  components: { RplAccordion, RplAccordionItem },
+  setup() {
+    return { args }
+  },
+  template: `
+  <RplAccordion :id="args.id">
+    <RplAccordionItem id="item1">
+      <template #title>
+        Title content here
+      </template>
+      <p>Body content here</p>
+    </RplAccordionItem>
+    <RplAccordionItem id="item2" :active="true">
+      <template #title>
+        Title content here
+      </template>
+      <p>Body content here</p>
+    </RplAccordionItem>
+  </RplAccordion>
   `
 })
 
@@ -55,11 +79,25 @@ export const Template = (args) => ({
     name='Accordion numbered'
     play={a11yStoryCheck}
     args={{
-      id: 'example',
+      id: 'example-numbered',
       items: SAMPLE,
       numbered: true
     }}
   >
     {Template.bind()}
+  </Story>
+</Canvas>
+
+## With slots
+
+<Canvas>
+  <Story
+    name='Accordion with slots'
+    play={a11yStoryCheck}
+    args={{
+      id: 'example-slots'
+    }}
+  >
+    {SlotsTemplate.bind()}
   </Story>
 </Canvas>

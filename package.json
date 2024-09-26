@@ -80,7 +80,7 @@
     "start-server-and-test": "^2.0.3",
     "stylelint": "^15.10.2",
     "ts-jest": "^29.0.5",
-    "typescript": "^5.0.2"
+    "typescript": "5.0.2"
   },
   "engines": {
     "node": "^18.15.0 || ^20.9.0",

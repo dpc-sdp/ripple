@@ -10,7 +10,7 @@ export const rplCypressConfigPlugin = async (on, config) => {
   on(
     'file:preprocessor',
     createBundler({
-      plugins: [createEsbuildPlugin(config)]
+      plugins: [createEsbuildPlugin(config) as any]
     })
   )
   on('task', { ...apiMocking })

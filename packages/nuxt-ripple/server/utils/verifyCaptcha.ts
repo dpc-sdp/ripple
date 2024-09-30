@@ -11,6 +11,8 @@ import {
   MappedCaptchaConfig
 } from '@dpc-sdp/ripple-tide-webform/types'
 
+import { TideWebformApi } from '@dpc-sdp/ripple-tide-webform/api'
+
 const logLabel = 'Verify CAPTCHA'
 
 const genericCaptchaVerify = async (
@@ -145,12 +147,12 @@ const verifyCaptcha = async (event: H3Event) => {
   let webform
 
   try {
-    webform = await $fetch('/api/tide/webform', {
-      baseURL: config.apiUrl || '',
-      params: {
-        id: formId
-      }
-    })
+    const webformApi = new TideWebformApi(
+      { ...config.public.tide, ...config.tide },
+      logger
+    )
+
+    webform = webformApi.getWebform(formId)
   } catch (error) {
     throw new ApplicationError(
       `Couldn't get webform data, unable to continue because we don't know if a captcha is required`,

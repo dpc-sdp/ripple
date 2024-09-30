@@ -19,7 +19,7 @@ import { getFormSchemaFromMapping, getCaptchaSettings } from '../../../mapping'
 /**
  * @description Custom API call methods and response mapping for webform
  */
-class TideWebformApi extends TideApiBase {
+export class TideWebformApi extends TideApiBase {
   webformMapping: IRplTideModuleMapping
   declare logLabel: string
 

@@ -83,6 +83,7 @@ const toggleCollapsed = () => {
       :class="[
         'rpl-breadcrumbs__items',
         { 'rpl-type-p-small': initialCollapseInnerLinks },
+        { 'rpl-type-p': !initialCollapseInnerLinks },
         { 'rpl-breadcrumbs__items--collapsed': collapseInnerLinks }
       ]"
     >

@@ -16,12 +16,14 @@ interface Props {
   items: IRplBreadcrumbsItem[]
   besideQuickExit?: boolean
   displayBeforeCollapse?: number
+  collapse?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
   items: () => [],
   besideQuickExit: false,
-  displayBeforeCollapse: 3
+  displayBeforeCollapse: 3,
+  collapse: false
 })
 
 const emit = defineEmits<{
@@ -50,14 +52,17 @@ const handleClick = (item, index) => {
   )
 }
 
+const initialCollapseInnerLinks =
+  props.collapse || breadcrumbsCollapseInnerLinks!
+
 const collapseInnerLinks = ref()
-collapseInnerLinks.value =
-  props.items.length > breadcrumbsCollapseInnerLinks!
-    ? props.displayBeforeCollapse
-    : 0
+collapseInnerLinks.value = initialCollapseInnerLinks
+  ? props.displayBeforeCollapse
+  : 0
 
 const firstItem = (index: number) => index === 0
 const lastItem = (index: number) => index === props.items.length - 1
+const secondLastItem = (index: number) => index === props.items.length - 2
 
 const toggleCollapsed = () => {
   collapseInnerLinks.value = 0
@@ -77,47 +82,58 @@ const toggleCollapsed = () => {
       v-if="items.length > 0"
       :class="[
         'rpl-breadcrumbs__items',
-        'rpl-type-p-small',
+        { 'rpl-type-p-small': initialCollapseInnerLinks },
         { 'rpl-breadcrumbs__items--collapsed': collapseInnerLinks }
       ]"
     >
-      <li
-        v-for="(item, index) of items"
-        :key="index"
-        :class="[
-          'rpl-breadcrumbs__item',
-          { 'rpl-breadcrumbs__item--parent': index === items.length - 1 },
-          {
-            'rpl-breadcrumbs__item--first':
-              firstItem(index) && collapseInnerLinks
-          },
-          {
-            'rpl-breadcrumbs__item--collapsed':
-              !firstItem(index) && !lastItem(index) && collapseInnerLinks
-          }
-        ]"
-      >
-        <RplTextLink
-          :url="item.url"
-          :theme="false"
-          class="rpl-breadcrumbs__item-link"
-          @click="() => handleClick(item, index)"
-          >{{ item.text }}</RplTextLink
+      <template v-for="(item, index) of items" :key="index">
+        <li
+          v-if="!initialCollapseInnerLinks || !lastItem(index)"
+          :class="[
+            'rpl-breadcrumbs__item',
+            {
+              'rpl-breadcrumbs__item--parent': index === items.length - 2
+            },
+            {
+              'rpl-breadcrumbs__item--first':
+                firstItem(index) && collapseInnerLinks
+            },
+            {
+              'rpl-breadcrumbs__item--collapsed':
+                !firstItem(index) &&
+                !secondLastItem(index) &&
+                collapseInnerLinks
+            }
+          ]"
         >
-        <span
-          v-if="firstItem(index) && collapseInnerLinks"
-          class="rpl-breadcrumbs__collapse-link"
-        >
-          <button
-            class="rpl-text-link rpl-u-focusable-inline rpl-breadcrumbs__collapse-link-trigger"
-            type="button"
-            aria-label="Expand hidden breadcrumbs"
-            @click.prevent="() => toggleCollapsed()"
+          <RplTextLink
+            v-if="!lastItem(index) || collapseInnerLinks"
+            :url="item.url"
+            :theme="false"
+            class="rpl-breadcrumbs__item-link"
+            @click="() => handleClick(item, index)"
+            >{{ item.text }}</RplTextLink
           >
-            &hellip;
-          </button>
-        </span>
-      </li>
+          <span
+            v-if="firstItem(index) && collapseInnerLinks"
+            class="rpl-breadcrumbs__collapse-link"
+          >
+            <button
+              class="rpl-text-link rpl-u-focusable-inline rpl-breadcrumbs__collapse-link-trigger"
+              type="button"
+              aria-label="Expand hidden breadcrumbs"
+              @click.prevent="() => toggleCollapsed()"
+            >
+              &hellip;
+            </button>
+          </span>
+          <span
+            v-if="!initialCollapseInnerLinks && lastItem(index)"
+            class="rpl-breadcrumbs__item--current"
+            >{{ item.text }}</span
+          >
+        </li>
+      </template>
     </ol>
   </nav>
 </template>

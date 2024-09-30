@@ -82,3 +82,25 @@ This is a more real world example, but this time it's too deep. The ideal number
     {SingleTemplate.bind()}
   </Story>
 </Canvas>
+
+## Example / Collapse inner links
+
+<Canvas>
+  <Story
+    name='Example/Collapse inner links'
+    play={a11yStoryCheck}
+    args={{
+      items: [
+        { text: 'Home', url: '/' },
+        { text: 'About the VIC Government', url: '#' },
+        { text: 'The state government', url: '#' },
+        { text: 'Victoria is the state', url: '#' },
+        { text: 'VIC government data', url: '#' },
+        { text: "Using Victoria's data", url: '#' }
+      ],
+      collapse: true
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>

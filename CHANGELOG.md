@@ -1,5 +1,18 @@
 # Changelog
 
+## v2.17.1
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/2.17.0...v2.17.1)
+
+
+### 🩹 Fixes
+
+  - **@dpc-sdp/ripple-tide-webform:** Fixed verifycaptcha not fetching webform correctly ([cf7b1d168](https://github.com/dpc-sdp/ripple-framework/commit/cf7b1d168))
+
+### ❤️  Contributors
+
+- Jeffrey Dowdle <jeffrey.dowdle@dpc.vic.gov.au>
+
 ## v2.17.0
 
 [compare changes](https://github.com/dpc-sdp/ripple-framework/compare/2.16.0...v2.17.0)

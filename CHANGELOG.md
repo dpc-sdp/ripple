@@ -1,5 +1,18 @@
 # Changelog
 
+## v2.17.2
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/2.17.1...v2.17.2)
+
+
+### 🩹 Fixes
+
+  - **@dpc-sdp/ripple-ui-core:** 🐛  fix regression in unflagged mode ([f90da6469](https://github.com/dpc-sdp/ripple-framework/commit/f90da6469))
+
+### ❤️  Contributors
+
+- Jason Smith <jason.smith@dpc.vic.gov.au>
+
 ## v2.17.1
 
 [compare changes](https://github.com/dpc-sdp/ripple-framework/compare/2.17.0...v2.17.1)

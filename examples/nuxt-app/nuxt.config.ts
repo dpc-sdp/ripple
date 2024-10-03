@@ -1,4 +1,5 @@
 import { defineNuxtConfig } from 'nuxt/config'
+
 export default defineNuxtConfig({
   runtimeConfig: {
     public: {
@@ -20,11 +21,15 @@ export default defineNuxtConfig({
     '@dpc-sdp/nuxt-ripple-analytics',
     '@dpc-sdp/nuxt-ripple-preview',
     '@dpc-sdp/ripple-sdp-core',
+    // Local layers
+    './layers/example-components',
+    './layers/fixture-api',
+    './layers/map-features',
     './layers/ripple-ui-forms-ext'
   ],
   // Nuxt devtools
   sourcemap: true,
   devtools: {
-    enabled: true
+    enabled: false
   }
 })

@@ -80,8 +80,6 @@
 </template>
 
 <script setup lang="ts">
-import page from '../test/fixtures/case/landing-page-webform.json'
-import { useTideSite } from '#imports'
-
-const site = await useTideSite()
+import site from '../../test/fixtures/site/vic.json'
+import page from '../../test/fixtures/page/landing-page-webform.json'
 </script>

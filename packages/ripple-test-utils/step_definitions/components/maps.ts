@@ -277,3 +277,13 @@ Then('the map should not be fullscreen', () => {
     expect(doc.fullscreenElement).to.be.null
   })
 })
+
+Given('the map height is set to {int}', (height: number) => {
+  cy.get('@pageFixture').then((response) => {
+    set(response, 'bodyComponents[0].props.mapConfig.props.height', height)
+  })
+})
+
+Then('the map height is {int}', (height: number) => {
+  cy.get('.rpl-map__map').should('have.css', 'height', `${height}px`)
+})

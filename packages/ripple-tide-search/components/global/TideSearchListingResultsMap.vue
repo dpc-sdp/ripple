@@ -8,7 +8,7 @@
       :features="features"
       projection="EPSG:3857"
       :popupType="popupType"
-      :map-height="550"
+      :map-height="height"
       :pinStyle="pinStyle"
       :noresults="noresults"
       :hasSidePanel="hasSidePanel"
@@ -103,6 +103,7 @@ interface Props {
   initialising?: boolean
   clusteringDistance?: number
   maxZoom?: number
+  height?: number
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -117,7 +118,8 @@ const props = withDefaults(defineProps<Props>(), {
   hasSidePanel: false,
   initialising: false,
   clusteringDistance: undefined,
-  maxZoom: undefined
+  maxZoom: undefined,
+  height: 550
 })
 
 const appConfig = useAppConfig()

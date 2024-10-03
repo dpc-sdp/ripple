@@ -1,5 +1,13 @@
 <script setup lang="ts">
-import { nextTick, provide, ref, watch, reactive, computed } from 'vue'
+import {
+  nextTick,
+  provide,
+  ref,
+  watch,
+  reactive,
+  computed,
+  onBeforeUnmount
+} from 'vue'
 import {
   getNode,
   FormKitSchemaCondition,
@@ -63,6 +71,7 @@ const emit = defineEmits<{
   (e: 'submit', payload: rplEventPayload & { action: 'submit' }): void
   (e: 'invalid', payload: rplEventPayload & { action: 'submit' }): void
   (e: 'submitted', payload: rplEventPayload & { action: 'complete' }): void
+  (e: 'start', payload: rplEventPayload): void
 }>()
 
 const { emitRplEvent } = useRippleEvent('rpl-form', emit)
@@ -77,10 +86,37 @@ const errorSummaryRef = ref(null)
 const cachedErrors = ref<Record<string, CachedError>>({})
 const submitCounter = ref(0)
 
+// Keep track of whether user has changed something in the form
+const formStarted = ref<boolean>(false)
+
+const tryAbandonForm = () => {
+  if (formStarted.value && props.submissionState.status !== 'success') {
+    emitRplEvent(
+      'abandon',
+      {
+        id: props.id,
+        name: props.title,
+        value: sanitisePIIFields(getNode(props.id))
+      },
+      { global: true }
+    )
+  }
+
+  formStarted.value = false
+}
+
+const onFormReset = () => {
+  cachedErrors.value = {}
+  submitCounter.value = 0
+
+  tryAbandonForm()
+}
+
 provide('form', { id: props.id, name: props.title })
 provide('isFormSubmitting', isFormSubmitting)
 // submitCounter is watched by some components to efficiently know when to update
 provide('submitCounter', submitCounter)
+provide('onFormReset', onFormReset)
 
 const submitLabel =
   props.schema?.find((field) => field?.key === 'actions')?.label || 'Submit'
@@ -192,11 +228,33 @@ watch(
           { global: true }
         )
 
+        formStarted.value = false
+
         reset(props.id)
       }
     }
   }
 )
+
+const handleInput = () => {
+  // 'Form start' analytics event, fires on first change of the form
+  if (!formStarted.value) {
+    formStarted.value = true
+
+    emitRplEvent(
+      'start',
+      {
+        id: props.id,
+        name: props.title
+      },
+      { global: true }
+    )
+  }
+}
+
+onBeforeUnmount(() => {
+  tryAbandonForm()
+})
 
 const data = reactive({
   isFilled: (val) =>
@@ -256,6 +314,7 @@ const plugins = computed(
     novalidate
     @submit-invalid="submitInvalidHandler"
     @submit="submitHandler"
+    @input="handleInput"
   >
     <fieldset
       class="rpl-form__submit-guard"

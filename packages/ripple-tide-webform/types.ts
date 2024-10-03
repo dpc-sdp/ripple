@@ -9,6 +9,7 @@ export interface TideWebform {
   errorMessageTitle: string
   errorMessageHTML: string
   schema: FormKitSchemaNode[]
+  captchaConfig: MappedCaptchaConfig
 }
 
 export interface TideWebformElement {
@@ -37,6 +38,9 @@ export interface ApiWebForm {
     submission_exception_message?: string
     form_reset?: boolean
   }
+  third_party_settings?: {
+    tide_webform_captcha?: ApiCaptchaSettings
+  }
 }
 
 /**
@@ -46,4 +50,29 @@ export interface ApiField {
   drupal_internal__id: string
   field_paragraph_title: string
   field_paragraph_webform: ApiWebForm
+}
+
+export enum CaptchaType {
+  RECAPTCHA_V2 = 'google_recaptcha_v2',
+  RECAPTCHA_V3 = 'google_recaptcha_v3',
+  TURNSTILE = 'cloudfare_turnstile'
+}
+
+export interface ApiCaptchaSettings {
+  enable_captcha: 0 | 1
+  captcha_type: CaptchaType
+  score_threshold: string | null
+  captcha_details: {
+    term_id: string
+    captcha_id: string
+    site_key: string
+  }
+}
+
+export interface MappedCaptchaConfig {
+  enabled: boolean
+  type: CaptchaType
+  siteKey: string
+  siteIdentifier: string
+  scoreThreshold?: number
 }

@@ -375,6 +375,8 @@ export default {
         element_text: payload?.text,
         link_url: payload?.value,
         name: payload?.name,
+        count: payload?.count,
+        index: payload?.index,
         component: 'rpl-page-links',
         platform_event: 'paginate'
       })
@@ -562,7 +564,41 @@ export default {
       })
     }
   },
+  'rpl-layout-back-to-top/navigate': () => {
+    return (payload: any) => {
+      trackEvent({
+        event: `${payload.action}_back_to_top`,
+        element_text: payload?.text,
+        value: payload?.value,
+        component: 'rpl-layout-back-to-top',
+        platform_event: 'navigate'
+      })
+    }
+  },
   // UI Forms components
+  'rpl-form/start': () => {
+    return (payload: any) => {
+      trackEvent({
+        event: `form_start`,
+        form_id: payload?.id,
+        form_name: payload?.name,
+        component: 'rpl-form',
+        platform_event: 'start'
+      })
+    }
+  },
+  'rpl-form/abandon': () => {
+    return (payload: any) => {
+      trackEvent({
+        event: `form_abandon`,
+        form_id: payload?.id,
+        form_name: payload?.name,
+        component: 'rpl-form',
+        platform_event: 'abandon',
+        form_data: payload?.value
+      })
+    }
+  },
   'rpl-form/submit': () => {
     return (payload: any) => {
       trackEvent({
@@ -672,6 +708,21 @@ export default {
         type: payload?.type,
         value: payload?.value,
         component: 'rpl-form-input',
+        platform_event: 'update'
+      })
+    }
+  },
+  'rpl-form-number/update': () => {
+    return (payload: any) => {
+      trackEvent({
+        event: `${payload.action}_form_field`,
+        label: payload?.label,
+        form_name: payload?.contextName,
+        form_id: payload?.contextId,
+        field_id: payload?.id,
+        type: payload?.type,
+        value: payload?.value,
+        component: 'rpl-form-number',
         platform_event: 'update'
       })
     }

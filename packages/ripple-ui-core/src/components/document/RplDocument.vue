@@ -49,7 +49,7 @@ const onClick = () => {
       :is="url ? 'a' : 'div'"
       class="rpl-document__link rpl-u-focusable-within"
       :href="url"
-      :download="download"
+      :download="download ? '' : undefined"
       :target="openInNewWindow ? '_blank' : undefined"
       @click="onClick"
     >

@@ -21,5 +21,6 @@ defineProps<Props>()
     :variant="variant"
     :layout="layout"
     :options="options"
+    :pii="false"
   />
 </template>

@@ -1,6 +1,7 @@
 import type {
-  TidePageBase,
-  TideDynamicPageComponent
+  TideDocumentField,
+  TideDynamicPageComponent,
+  TidePageBase
 } from '@dpc-sdp/ripple-tide-api/types'
 
 export type TidePublicationHeader = {
@@ -12,6 +13,13 @@ export type TidePublicationChapter = {
   title: string
   summary: string
   url: string
+}
+
+export type TidePublication = {
+  text: string
+  url: string
+  id: string
+  documents: TideDocumentField[]
 }
 
 export interface apiNode {
@@ -28,6 +36,8 @@ export interface indexNode {
   items: indexNode[] | undefined
   active: boolean | undefined
 }
+
+export type flatIndexNode = Omit<indexNode, 'items'>
 
 export interface TidePublicationPage extends TidePageBase {
   /**
@@ -54,13 +64,7 @@ export interface TidePublicationPage extends TidePageBase {
    * @description Landing page components
    */
   bodyComponents: TideDynamicPageComponent<any>[]
-  /**
-   * @description Page action documents
-   */
-  // documents: any
-
-  publication: Array<any>
-  // children: Array<any>
+  publication: TidePublication
   breadcrumbs: Array<any>
 }
 

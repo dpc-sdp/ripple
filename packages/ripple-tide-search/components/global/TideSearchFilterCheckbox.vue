@@ -20,5 +20,6 @@ defineProps<Props>()
     :label="label"
     :checkboxLabel="checkboxLabel"
     :onValue="onValue"
+    :pii="false"
   />
 </template>

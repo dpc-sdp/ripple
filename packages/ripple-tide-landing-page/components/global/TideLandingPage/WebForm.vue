@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { FormKitSchemaNode } from '@formkit/core'
 import { computed, nextTick, ref, watch } from 'vue'
+import type { MappedCaptchaConfig } from '@dpc-sdp/ripple-tide-webform/types'
 
 interface Props {
   title?: string
@@ -11,6 +12,7 @@ interface Props {
   errorMessageTitle?: string
   errorMessageHTML: string
   schema?: Array<FormKitSchemaNode>
+  captchaConfig?: MappedCaptchaConfig | null
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -18,12 +20,18 @@ const props = withDefaults(defineProps<Props>(), {
   hideFormOnSubmit: false,
   successMessageTitle: 'Form submitted',
   errorMessageTitle: 'Form not submitted',
-  schema: undefined
+  schema: undefined,
+  captchaConfig: null
 })
 
 const honeypotId = `${props.formId}-important-email`
 
-const { submissionState, submitHandler } = useWebformSubmit(props.formId)
+const { submissionState, submitHandler } = useWebformSubmit(
+  props.formId,
+  props.captchaConfig
+)
+
+const { captchaWidgetId } = useCaptcha(props.formId, props.captchaConfig)
 
 const serverSuccessRef = ref(null)
 
@@ -36,6 +44,9 @@ watch(
       if (serverSuccessRef.value) {
         serverSuccessRef.value.focus()
       }
+
+      // Need to reset captcha because some captchas won't allow using the same captcha challenge token twice
+      useResetCaptcha(captchaWidgetId.value, props.captchaConfig)
     }
   }
 )
@@ -103,7 +114,7 @@ customInputs.library = (node: any) => {
         :customInputs="customInputs"
         :schema="schema"
         :submissionState="submissionState as any"
-        @submit="submitHandler(props, $event.data)"
+        @submit="submitHandler(props, $event.data, captchaWidgetId)"
       >
         <template #belowForm>
           <div class="tide-webform-important-email">

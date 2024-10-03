@@ -38,6 +38,7 @@
     <template #sidebar>
       <TidePublicationSidebar
         :publication="page.publication"
+        :navigation="nav"
       ></TidePublicationSidebar>
       <slot name="sidebar"></slot>
     </template>
@@ -49,12 +50,24 @@
 
 <script setup lang="ts">
 import { TideSiteData } from '@dpc-sdp/ripple-tide-api/types'
-import type { TidePublicationPage } from '../../types'
+import { indexNode, TidePublicationPage } from '../../types'
+import { processMenu, useRoute, useTidePublicationMenu } from '#imports'
+import { ref } from 'vue'
 
 interface Props {
   site: TideSiteData
   page: TidePublicationPage
 }
 
-defineProps<Props>()
+const props = defineProps<Props>()
+
+const nav = ref<Array<indexNode>>([])
+
+const menu = props.page?.publication?.id
+  ? await useTidePublicationMenu(props.page.publication.id)
+  : null
+
+if (menu) {
+  nav.value = processMenu(menu.publication, useRoute())
+}
 </script>

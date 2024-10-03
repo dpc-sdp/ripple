@@ -51,7 +51,7 @@ const handleChange = (selectedValue: string) => {
       action: 'update',
       id: props.id,
       label: props?.label,
-      value: sanitisePIIField(props.pii, selectedValue),
+      value: sanitisePIIField(props.pii, selectedValue, props.options),
       contextId: form?.id,
       contextName: form?.name
     },

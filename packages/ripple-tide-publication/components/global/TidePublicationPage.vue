@@ -36,11 +36,13 @@
       ></TidePublicationBody>
       <TidePublicationPagination
         :pagination="page.publication.pagination"
+        :navigation="nav"
       ></TidePublicationPagination>
     </template>
     <template #sidebar>
       <TidePublicationSidebar
         :publication="page.publication"
+        :navigation="nav"
       ></TidePublicationSidebar>
       <slot name="sidebar"></slot>
     </template>
@@ -51,12 +53,24 @@
 </template>
 
 <script setup lang="ts">
-import { TidePublicationPagePage } from '../../types'
+import { indexNode, TidePublicationPagePage } from '../../types'
+import { processMenu, useRoute, useTidePublicationMenu } from '#imports'
+import { ref } from 'vue'
 
 interface Props {
   site: any
   page: TidePublicationPagePage
 }
 
-defineProps<Props>()
+const props = defineProps<Props>()
+
+const nav = ref<Array<indexNode>>([])
+
+const menu = props.page?.publication?.id
+  ? await useTidePublicationMenu(props.page.publication.id)
+  : null
+
+if (menu) {
+  nav.value = processMenu(menu.publication, useRoute())
+}
 </script>

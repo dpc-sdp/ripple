@@ -15,10 +15,12 @@ interface Props {
   direction: 'prev' | 'next'
   label?: string
   url: string
+  globalEvents: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  label: undefined
+  label: undefined,
+  globalEvents: true
 })
 
 const emit = defineEmits<{
@@ -39,7 +41,7 @@ const handleClick = () => {
       value: props.url,
       text: displayLabel.value
     },
-    { global: true }
+    { global: props.globalEvents }
   )
 }
 </script>

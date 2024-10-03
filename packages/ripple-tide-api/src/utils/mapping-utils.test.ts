@@ -79,6 +79,11 @@ const field = {
       url: '/landing-page-cc-2',
       origin_url: '/landing-page-cc-2'
     },
+    field_related_link: {
+      uri: 'internal:/contact-us',
+      title: 'Get in touch',
+      options: []
+    },
     field_paragraph_location: {
       langcode: null,
       country_code: 'AU',
@@ -159,6 +164,11 @@ describe('ripple-tide-api/mapping utils', () => {
     expect(getLinkFromField(field, 'field_paragraph_link')).toEqual({
       text: '',
       url: '/landing-page-cc-2'
+    })
+
+    expect(getLinkFromField(field, 'field_related_link')).toEqual({
+      text: 'Get in touch',
+      url: '/contact-us'
     })
   })
 

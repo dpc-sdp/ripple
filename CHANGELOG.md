@@ -1,5 +1,74 @@
 # Changelog
 
+## v2.17.0
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/2.16.0...v2.17.0)
+
+
+### 🚀 Enhancements
+
+  - **@dpc-sdp/ripple-tide-webform:** Added support for CAPTCHAs in webforms ([611794fcf](https://github.com/dpc-sdp/ripple-framework/commit/611794fcf))
+  - **@dpc-sdp/ripple-tide-webform:** Updated captcha mapping after backend update ([15ddd5d41](https://github.com/dpc-sdp/ripple-framework/commit/15ddd5d41))
+  - **@dpc-sdp/ripple-tide-search:** Set pii value for search listing filters ([383195090](https://github.com/dpc-sdp/ripple-framework/commit/383195090))
+  - **@dpc-sdp/ripple-ui-forms:** Use labels for dataLayer events, add rpl-form-number dataLayer event ([ac8d207af](https://github.com/dpc-sdp/ripple-framework/commit/ac8d207af))
+  - **@dpc-sdp/ripple-tide-webform:** Captchas for content rating and support multiple on a page ([30a0f90a6](https://github.com/dpc-sdp/ripple-framework/commit/30a0f90a6))
+  - **@dpc-sdp/ripple-ui-core:** Add aria label to vertical nav toggles ([edda55e8e](https://github.com/dpc-sdp/ripple-framework/commit/edda55e8e))
+  - **@dpc-sdp/nuxt-ripple-analytics:** Add content status to routeChange event ([91d408c32](https://github.com/dpc-sdp/ripple-framework/commit/91d408c32))
+  - **@dpc-sdp/ripple-ui-core:** Add back to top event ([e9a6148c2](https://github.com/dpc-sdp/ripple-framework/commit/e9a6148c2))
+  - **@dpc-sdp/ripple-tide-webform:** Change the way captcha is configured to be less finnicky ([fa53a4719](https://github.com/dpc-sdp/ripple-framework/commit/fa53a4719))
+  - **@dpc-sdp/ripple-tide-publication:** Extend page links event ([2fc97251a](https://github.com/dpc-sdp/ripple-framework/commit/2fc97251a))
+  - **@dpc-sdp/ripple-ui-forms:** Added form_start analytics event ([9f4a26c9e](https://github.com/dpc-sdp/ripple-framework/commit/9f4a26c9e))
+  - **@dpc-sdp/ripple-tide-webform:** Handle recaptcha v2 quota exceeding gracefully ([345bdee4a](https://github.com/dpc-sdp/ripple-framework/commit/345bdee4a))
+  - **@dpc-sdp/ripple-tide-publication:** Add count and index to page link event ([cdc702e40](https://github.com/dpc-sdp/ripple-framework/commit/cdc702e40))
+  - **@dpc-sdp/ripple-tide-webform:** Logged captcha success with form id ([2ecb481bb](https://github.com/dpc-sdp/ripple-framework/commit/2ecb481bb))
+  - **@dpc-sdp/ripple-tide-webform:** Only load captcha scripts when captcha element is rendered ([a66b17710](https://github.com/dpc-sdp/ripple-framework/commit/a66b17710))
+  - **@dpc-sdp/ripple-tide-search:** Add prop for map height to match rpl-map ([372885a74](https://github.com/dpc-sdp/ripple-framework/commit/372885a74))
+  - **@dpc-sdp/ripple-ui-forms:** Added form abandon analytics event ([d4dc8c398](https://github.com/dpc-sdp/ripple-framework/commit/d4dc8c398))
+
+### 🩹 Fixes
+
+  - **@dpc-sdp/ripple-tide-webform:** Fixed rollup import error ([18d259672](https://github.com/dpc-sdp/ripple-framework/commit/18d259672))
+  - **@dpc-sdp/ripple-ui-forms:** Fixed issue with util imports in storybook ([19754e807](https://github.com/dpc-sdp/ripple-framework/commit/19754e807))
+  - **@dpc-sdp/ripple-ui-forms:** Fixed storybook tests ([b61548848](https://github.com/dpc-sdp/ripple-framework/commit/b61548848))
+  - **@dpc-sdp/ripple-ui-core:** Update download attribute ([335e36792](https://github.com/dpc-sdp/ripple-framework/commit/335e36792))
+  - **@dpc-sdp/ripple-tide-webform:** Fixed broken test after content rating form changes ([909f94402](https://github.com/dpc-sdp/ripple-framework/commit/909f94402))
+  - **@dpc-sdp/ripple-ui-core:** Remove un-needed tabindex from vertical nav ([ca11280f8](https://github.com/dpc-sdp/ripple-framework/commit/ca11280f8))
+  - **@dpc-sdp/ripple-ui-core:** 🐛  remove double render ([0466cf5c0](https://github.com/dpc-sdp/ripple-framework/commit/0466cf5c0))
+  - **@dpc-sdp/ripple-ui-core:** Update tabs story so tabs can be clicked ([8f8b2f8ae](https://github.com/dpc-sdp/ripple-framework/commit/8f8b2f8ae))
+  - **@dpc-sdp/ripple-tide-api:** Update getLinkFromField to account for internal: links ([2e23ba81f](https://github.com/dpc-sdp/ripple-framework/commit/2e23ba81f))
+  - **@dpc-sdp/ripple-ui-forms:** Fixed missing import for rplform ([e749444ca](https://github.com/dpc-sdp/ripple-framework/commit/e749444ca))
+  - **@dpc-sdp/ripple-tide-search:** Add full stop to the end of sentence ([da648273d](https://github.com/dpc-sdp/ripple-framework/commit/da648273d))
+
+### 💅 Refactors
+
+  - **@dpc-sdp/ripple-ui-core:** ♻️  rework breadcrumbs for 4+ terms ([c14334320](https://github.com/dpc-sdp/ripple-framework/commit/c14334320))
+  - **@dpc-sdp/ripple-ui-core:** ♻️  support slot usage ([88c6274fe](https://github.com/dpc-sdp/ripple-framework/commit/88c6274fe))
+  - **@dpc-sdp/ripple-ui-core:** ♻️  use a single collector index ([621ea1a9e](https://github.com/dpc-sdp/ripple-framework/commit/621ea1a9e))
+  - **@dpc-sdp/ripple-ui-core:** ♻️  improve accessibility ([94f38f122](https://github.com/dpc-sdp/ripple-framework/commit/94f38f122))
+  - **@dpc-sdp/ripple-ui-forms:** Use input instead of change event for form_start event ([2cc23d281](https://github.com/dpc-sdp/ripple-framework/commit/2cc23d281))
+  - **@dpc-sdp/ripple-ui-core:** ♻️  use prop and featureflag ([14f31aa0d](https://github.com/dpc-sdp/ripple-framework/commit/14f31aa0d))
+
+### 📖 Documentation
+
+  - **@dpc-sdp/ripple-ui-core:** 📝  add markup to story ([220219c52](https://github.com/dpc-sdp/ripple-framework/commit/220219c52))
+
+### 🏡 Chore
+
+  - Update PR template ([f16fa689d](https://github.com/dpc-sdp/ripple-framework/commit/f16fa689d))
+  - ⬆️  update nuxt to 3.13.2 ([60830c6b2](https://github.com/dpc-sdp/ripple-framework/commit/60830c6b2))
+  - ⬆️  fix formkit version and typescript error on test utils ([0db813243](https://github.com/dpc-sdp/ripple-framework/commit/0db813243))
+
+### 🎨 Styles
+
+  - **@dpc-sdp/ripple-tide-grant:** Add space between grant downloads ([b8decf191](https://github.com/dpc-sdp/ripple-framework/commit/b8decf191))
+
+### ❤️  Contributors
+
+- Dylan Kelly <dylan.kelly@dpc.vic.gov.au>
+- David Featherston <david@lambry.com>
+- Jason Smith <jason.smith@dpc.vic.gov.au>
+- Jeffrey Dowdle <jeffrey.dowdle@dpc.vic.gov.au>
+
 ## v2.16.0
 
 [compare changes](https://github.com/dpc-sdp/ripple-framework/compare/2.15.0...v2.16.0)

@@ -48,7 +48,7 @@ to: package.json
     "cypress": "^13.6.6",
     "eslint": "^8.28.0",
     "jest-environment-jsdom": "^29.5.0",
-    "nuxt": "3.11.2",
+    "nuxt": "3.13.2",
     "start-server-and-test": "^2.0.0",
     "ts-jest": "^29.1.0",
     "typescript": "^4.9.3"

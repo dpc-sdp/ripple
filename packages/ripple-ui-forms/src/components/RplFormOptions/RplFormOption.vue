@@ -9,6 +9,7 @@ import { computed, inject } from 'vue'
 import useFormkitFriendlyEventEmitter from '../../composables/useFormkitFriendlyEventEmitter'
 import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
 import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
+import { sanitisePIIField } from '../../lib/sanitisePII'
 
 export interface RplFormOptionProps {
   type?: 'radio' | 'checkbox'
@@ -24,6 +25,7 @@ export interface RplFormOptionProps {
   showRequiredInLabel?: boolean
   globalEvents?: boolean
   grouped?: boolean
+  pii?: boolean
 }
 
 const props = withDefaults(defineProps<RplFormOptionProps>(), {
@@ -36,7 +38,8 @@ const props = withDefaults(defineProps<RplFormOptionProps>(), {
   offValue: false,
   showRequiredInLabel: false,
   globalEvents: true,
-  grouped: false
+  grouped: false,
+  pii: true
 })
 
 const emit = defineEmits<{
@@ -68,7 +71,7 @@ const handleChange = (e: Event) => {
       id: props.id,
       type: props.type,
       label: props?.label,
-      value: newValue,
+      value: sanitisePIIField(props.pii, newValue),
       contextId: form?.id,
       contextName: form?.name
     },

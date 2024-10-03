@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { reset } from '@formkit/vue'
-import { computed, inject } from 'vue'
+import { computed, inject, onMounted } from 'vue'
 import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
 import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
+import { getCaptchaElementId } from '../../utils/getCaptchaElementId'
 
 interface Props {
   id: string
@@ -47,9 +48,17 @@ const iconPosition = computed(() => {
 })
 
 const form: object = inject('form')
+const onCaptchaElementReady: (() => void) | undefined = inject(
+  'onCaptchaElementReady'
+)
 const isFormSubmitting: any = inject('isFormSubmitting')
+const onFormReset = inject('onFormReset')
 
 const handleReset = () => {
+  if (typeof onFormReset === 'function') {
+    onFormReset()
+  }
+
   reset(form.id)
 
   emitRplEvent(
@@ -63,8 +72,19 @@ const handleReset = () => {
     { global: props.globalEvents }
   )
 }
+
+const captchaElementId = computed(() => {
+  return getCaptchaElementId(form?.id)
+})
+
+onMounted(() => {
+  if (typeof onCaptchaElementReady === 'function') {
+    onCaptchaElementReady()
+  }
+})
 </script>
 <template>
+  <div v-if="captchaElementId" :id="captchaElementId"></div>
   <div class="rpl-form-actions rpl-u-screen-only">
     <RplButton
       :id="id"

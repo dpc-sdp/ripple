@@ -62,10 +62,13 @@ useHead({
       </slot>
     </template>
     <template #aboveBody="{ hasBreadcrumbs }">
-      <TidePublicationHeader
+      <TideHeroHeader
+        v-if="parentPage.header"
         :header="parentPage.header"
         :hasBreadcrumbs="hasBreadcrumbs"
-      ></TidePublicationHeader>
+        :cornerTop="site?.cornerGraphic?.top"
+        :cornerBottom="site?.cornerGraphic?.bottom"
+      />
     </template>
     <template #body>
       <RplInPageNavigation

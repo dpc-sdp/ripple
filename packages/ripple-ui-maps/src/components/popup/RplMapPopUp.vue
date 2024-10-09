@@ -112,7 +112,7 @@ const bodyHeight = computed(() => {
   const availablePopupHeight =
     props.mapHeight / 2 + popoverYOffset - mapPadding - borderPixels
 
-  // Choose the biggest avaible
+  // Choose the smaller of the max height and available space to get the body height
   return Math.min(maxPopupHeight, availablePopupHeight) - headerHeight.value
 })
 </script>

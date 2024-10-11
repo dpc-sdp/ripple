@@ -113,13 +113,17 @@ const fromMax = computed(() => internalTo.value || props.max)
 const toMin = computed(() => internalFrom.value || props.min)
 
 const handleUpdate = (event) => {
+  const eventValue =
+    internalFrom.value || internalTo.value
+      ? `${internalFrom.value || null},${internalTo.value || null}`
+      : ''
   emitRplEvent(
     'update',
     {
       ...event,
       id: props.id,
       label: props?.label,
-      value: sanitisePIIField(props.pii, props?.value)
+      value: sanitisePIIField(props.pii, eventValue)
     },
     { global: true }
   )

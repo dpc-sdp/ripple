@@ -676,7 +676,7 @@ export default {
         form_id: payload?.contextId,
         field_id: payload?.id,
         value: payload?.value,
-        type: 'date',
+        type: 'date-range',
         component: 'rpl-form-date-range',
         platform_event: 'update'
       })

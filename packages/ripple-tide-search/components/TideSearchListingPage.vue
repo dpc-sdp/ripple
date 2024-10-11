@@ -332,7 +332,7 @@ const handleToggleFilters = () => {
 }
 
 const numAppliedFilters = computed(() => {
-  return getActiveFiltersTally(appliedFilters.value)
+  return getActiveFiltersTally(appliedFilters.value, props.userFilters)
 })
 
 const toggleFiltersLabel = computed(() => {

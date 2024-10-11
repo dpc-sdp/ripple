@@ -10,7 +10,11 @@ import {
   getSingleQueryStringValue,
   scrollToElementTopWithOffset
 } from '#imports'
-import type { TideSearchListingConfig, FilterConfigItem } from './../types'
+import type {
+  TideSearchListingConfig,
+  FilterConfigItem,
+  TideSearchRangeFilter
+} from './../types'
 
 const escapeJSONString = (raw: string): string => {
   return `${raw}`
@@ -284,7 +288,7 @@ export default ({
 
         return !!itm?.filter
       })
-      .map((key: string) => {
+      .flatMap((key: string) => {
         const itm: FilterConfigItem = userFilterConfig.find(
           (itm: any) => itm.id === key
         )
@@ -303,6 +307,15 @@ export default ({
           ) {
             return Array.isArray(v) && v.length > 0
           }
+
+          if (
+            itm?.filter?.valueIsObject &&
+            typeof v === 'object' &&
+            v !== null
+          ) {
+            return Object.keys(v).length
+          }
+
           return v
         }
 
@@ -343,6 +356,62 @@ export default ({
                 [`${itm.filter.value}`]: Array.isArray(filterVal)
                   ? filterVal
                   : [filterVal]
+              }
+            }
+          }
+
+          /**
+           * Range filter - creates a range query clause
+           */
+          if (itm.filter.type === 'range') {
+            const rangeQuery: TideSearchRangeFilter = {
+              time_zone: 'Australia/Melbourne'
+            }
+
+            if (itm.filter?.format) {
+              rangeQuery.format = itm.filter.format
+            }
+
+            if (itm.filter?.value?.start && itm.filter?.value?.end) {
+              // Match a range against two fields, i.e. start and end dates
+              const multiRangeQuery = []
+
+              if (filterVal?.from) {
+                multiRangeQuery.push({
+                  range: {
+                    [`${itm.filter?.value?.end}`]: {
+                      gte: filterVal?.from,
+                      ...rangeQuery
+                    }
+                  }
+                })
+              }
+
+              if (filterVal?.to) {
+                multiRangeQuery.push({
+                  range: {
+                    [`${itm.filter?.value?.start}`]: {
+                      lte: filterVal?.to,
+                      ...rangeQuery
+                    }
+                  }
+                })
+              }
+
+              return multiRangeQuery
+            } else {
+              // Match a range against a single field
+              if (filterVal?.from) {
+                rangeQuery.gte = filterVal?.from
+              }
+              if (filterVal?.to) {
+                rangeQuery.lte = filterVal?.to
+              }
+
+              return {
+                range: {
+                  [`${itm.filter.value}`]: rangeQuery
+                }
               }
             }
           }
@@ -658,16 +727,19 @@ export default ({
           )
 
           // Map the dependent filter object values to be URL friendly
-          if (filterConfig?.component === 'TideSearchFilterDependent') {
-            const depValues = Object.fromEntries(
+          if (
+            filterConfig?.component === 'TideSearchFilterDependent' ||
+            filterConfig?.filter?.valueIsObject
+          ) {
+            const objValues = Object.fromEntries(
               // eslint-disable-next-line @typescript-eslint/no-unused-vars
               Object.entries(value as object).filter(([_key, value]) =>
                 Array.isArray(value) ? value.filter(Boolean).length : value
               )
             )
 
-            if (Object.keys(depValues).length) {
-              value = Object.entries(depValues).map(([key, val]) => {
+            if (Object.keys(objValues).length) {
+              value = Object.entries(objValues).map(([key, val]) => {
                 const v = Array.isArray(val) ? val : [val]
                 return `${key}:${v.map(encodeCommasAndColons).join(',')}`
               })
@@ -752,25 +824,29 @@ export default ({
           (filterConfig?.component === 'TideSearchFilterDropdown' &&
             filterConfig?.props?.multiple) ||
           filterConfig?.component === 'TideSearchFilterCheckboxGroup' ||
-          filterConfig?.component === 'TideSearchFilterDependent'
+          filterConfig?.component === 'TideSearchFilterDependent' ||
+          filterConfig?.filter?.valueIsObject
         ) {
           parsedValue = Array.isArray(parsedValue) ? parsedValue : [parsedValue]
         }
 
         // Convert the URL friendly values back into the dependent object
-        if (filterConfig?.component === 'TideSearchFilterDependent') {
+        if (
+          filterConfig?.component === 'TideSearchFilterDependent' ||
+          filterConfig?.filter?.valueIsObject
+        ) {
           parsedValue = Object.fromEntries(
-            (parsedValue as []).map((dep: string) => {
-              const [dependentKey, dependentValue] = (dep || '').split(':')
+            (parsedValue as []).map((v: string) => {
+              const [objectKey, objectValue] = (v || '').split(':')
 
-              const depth = Number(dependentKey.match(/\d+$/)?.[0])
+              const depth = Number(objectKey.match(/\d+$/)?.[0])
 
               return [
-                dependentKey,
+                objectKey,
                 filterConfig?.props?.levels?.[depth - 1]?.multiple ||
                 filterConfig?.props?.multiple
-                  ? dependentValue.split(',').map(decodeURIComponent)
-                  : decodeURIComponent(dependentValue)
+                  ? objectValue.split(',').map(decodeURIComponent)
+                  : decodeURIComponent(objectValue)
               ]
             })
           )
@@ -809,7 +885,10 @@ export default ({
    */
   const resetFilters = (withValues = {}) => {
     const defaultValues = userFilterConfig.reduce((acc, curr) => {
-      if (curr.component === 'TideSearchFilterDependent') {
+      if (
+        curr.component === 'TideSearchFilterDependent' ||
+        curr?.filter?.valueIsObject
+      ) {
         return { ...acc, [curr.id]: {} }
       }
       return { ...acc }

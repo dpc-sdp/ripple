@@ -253,6 +253,150 @@
         "sort": [
           1679203800000
         ]
+      },
+      {
+        "_index": "b56de58036ae7d6456d5b246f85ffe88--elasticsearch_index_develop_node",
+        "_id": "entity:node/182:en",
+        "_score": null,
+        "_ignored": ["body.keyword"],
+        "_source": {
+          "_language": "en",
+          "node_grants": ["node_access_all:0", "node_access_all:0"],
+          "url": [
+            "/site-9210/roulette-aerial-display-demo",
+            "/site-8888/roulette-aerial-display-demo",
+            "/site-9012/roulette-aerial-display-demo",
+            "/site-9170/roulette-aerial-display-demo",
+            "/site-9205/roulette-aerial-display-demo"
+          ],
+          "body": [
+            "The Air Force Roulettes will conduct a flypast of Melbourne CBD on Australia Day at 12.30pm. Following this flypast, the Roulettes will conduct an aerobatic display over Kings Domain Gardens and the Shrine of Remembrance. Throughout the flypasts and displays, the Roulettes will be flying as low as 250 feet (80 metres), at speeds up to 540km/h, and experiencing up to 6 times the force of gravity in their PC-21 aircraft. All flying is subject to change due to weather and operational requirements."
+          ],
+          "changed": ["2024-10-03T14:34:37+10:00"],
+          "created": ["2024-10-03T14:34:37+10:00"],
+          "field_event_category_name": ["Demo Event Category"],
+          "field_event_category_tid": [9236],
+          "field_event_category_uuid": [
+            "11dede11-10c0-111e1-1099-000000000050"
+          ],
+          "field_event_date_end_value": [
+            "2023-06-01T14:30:00+11:00"
+          ],
+          "field_event_date_start_value": [
+            "2023-08-28T10:30:00+11:00"
+          ],
+          "field_event_details_event_address_1": ["Melbourne CBD"],
+          "field_event_details_event_address_line2": [""],
+          "field_event_details_event_administrative_area": ["VIC"],
+          "field_event_details_event_locality": ["Melbourne"],
+          "field_event_details_event_postal_code": ["3000"],
+          "field_event_details_event_price_from": ["Free entry"],
+          "field_event_details_event_price_to": ["0"],
+          "field_event_intro_text": [
+            "Air Force Roulettes at Australia Day in Victoria."
+          ],
+          "field_landing_page_summary": [
+            "Air Force Roulettes at Australia Day in Victoria."
+          ],
+          "field_media_image_absolute_path": [
+            "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/roulette-aerial-display-card.jpg"
+          ],
+          "field_node_site": [9210, 9211, 9212, 8888, 9012, 9170, 9205],
+          "field_tags": [9187, 9186],
+          "field_tags_name": ["Gen X tag demo", "Boomers tag demo"],
+          "field_tags_path": ["/tags/gen-x-tag-demo", "/tags/boomers-tag-demo"],
+          "field_tags_uuid": [
+            "11dede11-10c0-111e1-1101-000000000017",
+            "11dede11-10c0-111e1-1101-000000000016"
+          ],
+          "field_topic": [9198],
+          "field_topic_name": ["Spencer topic demo"],
+          "field_topic_path": ["/topic/spencer-topic-demo"],
+          "field_topic_uuid": ["11dede11-10c0-111e1-1102-000000000026"],
+          "langcode": ["en"],
+          "nid": [182],
+          "status": [true],
+          "title": ["Roulette Aerial Display - demo"],
+          "type": ["event"],
+          "uid": [1],
+          "uuid": ["d9f0aa89-4350-46e6-8d94-6664110c0a9e"]
+        },
+        "sort": [1727930077000]
+      },
+      {
+        "_index": "b56de58036ae7d6456d5b246f85ffe88--elasticsearch_index_develop_node",
+        "_id": "entity:node/178:en",
+        "_score": null,
+        "_ignored": ["field_event_description.keyword", "body.keyword"],
+        "_source": {
+          "_language": "en",
+          "node_grants": ["node_access_all:0", "node_access_all:0"],
+          "url": [
+            "/site-8888/demo-event",
+            "/site-9205/demo-event",
+            "/site-9012/demo-event",
+            "/site-9170/demo-event",
+            "/site-9210/demo-event"
+          ],
+          "body": [
+            "Nulla ultricies dignissim leo, posuere vestibulum erat cursus vitae Phasellus congue aliquam vehicula Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet ligula sit amet lacinia. In a leo nec tortor aliquet faucibus. Quisque nec congue ligula, vitae condimentum tellus. Nulla nec urna augue. Curabitur commodo nisi est, eu pulvinar tortor cursus vel. Morbi dictum ex est, et semper diam finibus eu. Cras rutrum, nunc a fringilla convallis, massa est vulputate velit, in blandit augue dui vitae elit. Donec hendrerit commodo augue, in maximus orci tempor congue. Mauris ultricies euismod orci, nec vehicula quam vehicula ac. Nunc dictum tortor dolor, nec eleifend orci luctus sed. Donec scelerisque cursus ex varius efficitur Morbi cursus placerat mi Nullam laoreet ante placerat Integer interdum nisl ut neque dictum, et sagittis metus feugiat. Sed in mattis neque. Duis at risus non ipsum semper dapibus. Sed enim sapien, molestie sed commodo vel, lacinia vitae risus. Proin sagittis diam nisi, sed rhoncus diam varius id. Sed malesuada felis tortor, scelerisque pretium elit tempor non. Pellentesque ultrices volutpat tincidunt. Fusce quis viverra urna, quis finibus nulla. Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus. Phasellus lacus lectus, sollicitudin sed posuere non, ultricies ut quam. Duis ligula lacus Phasellus est turpis, efficitur nec odio imperdiet Mauris tincidunt tincidunt felis vel tempus Phasellus in varius leo. Suspendisse potenti. Donec scelerisque cursus ex varius efficitur. Vivamus pretium nisi sed libero accumsan mattis. Duis convallis, velit eget varius tempus, orci erat aliquam sem, eget porta mauris nisl at mauris."
+          ],
+          "changed": ["2024-10-03T14:34:37+10:00"],
+          "created": ["2024-10-03T14:34:37+10:00"],
+          "field_event_category_name": ["Demo Event Category"],
+          "field_event_category_tid": [9236],
+          "field_event_category_uuid": [
+            "11dede11-10c0-111e1-1099-000000000050"
+          ],
+          "field_event_date_end_value": [
+            "2023-07-12T14:30:00+11:00"
+          ],
+          "field_event_date_start_value": [
+            "2023-12-02T10:30:00+11:00"
+          ],
+          "field_event_description": [
+            "Integer interdum nisl ut neque dictum, et sagittis metus feugiat. Sed in mattis neque. Duis at risus non ipsum semper dapibus. Sed enim sapien, molestie sed commodo vel, lacinia vitae risus. Proin sagittis diam nisi, sed rhoncus diam varius id. Sed malesuada felis tortor, scelerisque pretium elit tempor non. Pellentesque ultrices volutpat tincidunt. Fusce quis viverra urna, quis finibus nulla."
+          ],
+          "field_event_details_event_address_1": [
+            "Department of Premier and Cabinet"
+          ],
+          "field_event_details_event_address_line2": ["GPO Box 4509"],
+          "field_event_details_event_administrative_area": ["VIC"],
+          "field_event_details_event_locality": ["Melbourne"],
+          "field_event_details_event_postal_code": ["3001"],
+          "field_event_details_event_price_from": ["Free entry"],
+          "field_event_details_event_price_to": ["0"],
+          "field_event_intro_text": [
+            "Nulla ultricies dignissim leo, posuere vestibulum erat cursus vitae"
+          ],
+          "field_landing_page_contact_name": ["Victorian Government"],
+          "field_landing_page_summary": [
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet ligula sit amet lacinia. In a leo nec tortor aliquet faucibus."
+          ],
+          "field_media_image_absolute_path": [
+            "https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Demo-tram.jpg"
+          ],
+          "field_node_site": [8888, 9203, 9205, 9012, 9170, 9210],
+          "field_tags": [9180, 9181],
+          "field_tags_name": ["Demo Tag", "Another Demo Tag"],
+          "field_tags_path": ["/tags/demo-tag", "/tags/another-demo-tag"],
+          "field_tags_uuid": [
+            "11dede11-10c0-111e1-1101-000000000010",
+            "11dede11-10c0-111e1-1101-000000000011"
+          ],
+          "field_topic": [9192],
+          "field_topic_name": ["Demo Topic"],
+          "field_topic_path": ["/topic/demo-topic"],
+          "field_topic_uuid": ["11dede11-10c0-111e1-1102-000000000020"],
+          "langcode": ["en"],
+          "nid": [178],
+          "status": [true],
+          "title": ["Demo Event"],
+          "type": ["event"],
+          "uid": [1],
+          "uuid": ["11dede11-10c0-111e1-1100-000000000310"]
+        },
+        "sort": [1727930077000]
       }
     ]
   }

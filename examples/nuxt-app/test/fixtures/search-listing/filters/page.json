@@ -244,6 +244,23 @@
             }
           ]
         }
+      },
+      {
+        "id": "dateRangeFilter",
+        "component": "TideSearchFilterDateRange",
+        "filter": {
+          "type": "range",
+          "value": "changed",
+          "multiple": false,
+          "countAsSingle": true,
+          "valueIsObject": true
+        },
+        "props": {
+          "id": "dateRangeFilter",
+          "label": "Date range example",
+          "min": "2024-07-01",
+          "max": "2084-06-30"
+        }
       }
     ]
   }

@@ -1,4 +1,5 @@
 import { LocationQuery } from 'vue-router'
+import type { TideSearchListingConfig } from '../types'
 
 /**
  * @description Helper to get value from elastic search response
@@ -68,8 +69,11 @@ export const getActiveFilterURL = (filters) => {
 /**
  * @description Helper to calculate the number of applied filters
  */
-export const getActiveFiltersTally = (values): number => {
-  return Object.values(values).reduce((acc: number, value): number => {
+export const getActiveFiltersTally = (
+  values: any,
+  userFilters: TideSearchListingConfig['userFilters'] = []
+): number => {
+  return Object.entries(values).reduce((acc: number, [key, value]): number => {
     if (!value) {
       return acc
     }
@@ -79,7 +83,14 @@ export const getActiveFiltersTally = (values): number => {
     }
 
     if (typeof value === 'object' && !Array.isArray(value)) {
-      return acc + getActiveFiltersTally(value)
+      // Check for objects that should not be counted as a single filter
+      // i.e. each field in the object group increments our tally
+      const countAsSingle = userFilters.find((i) => i.id === key)?.filter
+        ?.countAsSingle
+
+      if (!countAsSingle) {
+        return acc + getActiveFiltersTally(value)
+      }
     }
 
     return acc + 1

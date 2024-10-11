@@ -32,6 +32,7 @@ Feature: Custom Collection
     Then the custom collection dropdown field labelled "Terms dependent example" should have the "default" variant applied
     Then the custom collection dropdown field labelled "Terms dependent child example" should have the "default" variant applied
     And the custom collection checkbox group labelled "Checkbox group" should have the "default" variant applied
+    And the custom collection date range field labelled "Date range example" should have the "default" variant applied
 
   @mockserver
   Scenario: Default page - reverse form theme
@@ -47,6 +48,7 @@ Feature: Custom Collection
     Then the custom collection dropdown field labelled "Terms dependent example" should have the "reverse" variant applied
     Then the custom collection dropdown field labelled "Terms dependent child example" should have the "reverse" variant applied
     And the custom collection checkbox group labelled "Checkbox group" should have the "reverse" variant applied
+    And the custom collection date range field labelled "Date range example" should have the "reverse" variant applied
 
   @mockserver
   Scenario: Alt page - default form theme
@@ -62,6 +64,7 @@ Feature: Custom Collection
     Then the custom collection dropdown field labelled "Terms dependent example" should have the "reverse" variant applied
     Then the custom collection dropdown field labelled "Terms dependent child example" should have the "reverse" variant applied
     And the custom collection checkbox group labelled "Checkbox group" should have the "reverse" variant applied
+    And the custom collection date range field labelled "Date range example" should have the "reverse" variant applied
 
   @mockserver
   Scenario: Alt page - reverse form theme
@@ -77,6 +80,7 @@ Feature: Custom Collection
     Then the custom collection dropdown field labelled "Terms dependent example" should have the "default" variant applied
     Then the custom collection dropdown field labelled "Terms dependent child example" should have the "default" variant applied
     And the custom collection checkbox group labelled "Checkbox group" should have the "default" variant applied
+    And the custom collection date range field labelled "Date range example" should have the "default" variant applied
 
   @mockserver
   Scenario: Error

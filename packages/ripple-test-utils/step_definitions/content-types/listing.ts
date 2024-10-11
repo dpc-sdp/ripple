@@ -300,6 +300,24 @@ Then(
   }
 )
 
+Then(
+  `the search listing date range field labelled {string} should have the values`,
+  (label: string, dataTable: DataTable) => {
+    const table = dataTable.hashes()
+
+    cy.get(`legend`)
+      .contains(label)
+      .closest('fieldset')
+      .find('input')
+      .as('dates')
+
+    table.forEach((row) => {
+      cy.get('@dates').eq(0).should('have.value', row.from)
+      cy.get('@dates').eq(1).should('have.value', row.to)
+    })
+  }
+)
+
 When(
   `I click the search listing checkbox field labelled {string}`,
   (label: string) => {

@@ -14,7 +14,7 @@ defineProps<Props>()
     :id="id"
     :key="`${id}-${timestamp}`"
     :name="id"
-    type="RplFormDatePicker"
+    type="RplFormDateRange"
     :variant="variant"
     :label="label"
     :pii="false"

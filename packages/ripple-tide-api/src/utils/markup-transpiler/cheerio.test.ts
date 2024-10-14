@@ -11,7 +11,10 @@ const markup = {
   callout: `<div class="callout-wrapper"><p>Hey it's a callout</p></div><div class="callout-wrapper"><p>And another callout</p></div>
 <div class="wysiwyg-callout">This one is wysiwyg</div>`,
   quotation: `<blockquote class="quotation"><p>It was the best of times, it was the blurst of times.</p><footer><span>Chimp 273</span></footer></blockquote>`,
-  document: `<div class="embedded-entity--media--file" data-last-updated="1704932250"><a class="file file--mime-application-zip" href="https://develop.content.reference.sdp.vic.gov.au/sites/default/files/file.zip">File</a></div>`,
+  document: [
+    `<div class="embedded-entity--media--file" data-last-updated="1704932250"><a class="file file--mime-application-zip" href="https://develop.content.reference.sdp.vic.gov.au/sites/default/files/file.zip">File</a></div>`,
+    `<div data-show-last-updated="1" class="embedded-entity embedded-entity--media embedded-entity--media--secure-file" data-last-updated="1727162281"><article class="media media--type-secure-file media--view-mode-embedded"><div class="field field--name-field-secure-file field--type-file field--label-visually_hidden"><div class="field__label visually-hidden">File</div><div class="field__item"><span class="file file--mime-application-pdf file--application-pdf"><a href="https://content.vic.gov.au/system/files/secure/2024-09/file-sample_150kB.pdf" class="application-pdf" aria-label="Secure document File type: PDF. Size: 139.44 KB."><span class="file--title">Secure document</span><span class="file--type">PDF</span><span class="file--size">139.44 KB</span></a> <span class="file__size">(139.44 KB)</span></span></div></div></article></div>`
+  ],
   video: `<figure class="embedded-entity--media--embedded-video"><iframe src="https://www.youtube.com/embed/1234" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe><figcaption>Caption goes here</figcaption</figure>`,
   image: `<div class="embedded-entity--media--image"><img src="https://develop.content.reference.sdp.vic.gov.au/sites/default/files/image.jpg" alt="Image" title="Image" width="100" height="100"></div>`,
   button: `<a class="button" href="https://example.com">Button</a>`,
@@ -36,7 +39,8 @@ const fixed = {
   <figcaption class="rpl-blockquote__author rpl-type-label-small"><span class="rpl-blockquote__author-name">Chimp 273</span></figcaption>
 </figure>
 `,
-  document: `
+  document: [
+    `
 <figure class="rpl-document">
   <a class="rpl-document__link rpl-u-focusable-within" aria-label="undefined" href="/sites/default/files/file.zip" target="_blank">
     <span class="rpl-document__icon rpl-icon rpl-icon--size-l rpl-icon--colour-default rpl-icon--icon-document-lined">
@@ -53,6 +57,24 @@ const fixed = {
   </a>
 </figure>
 `,
+    `
+<figure class="rpl-document">
+  <a class="rpl-document__link rpl-u-focusable-within" aria-label="Secure document File type: PDF. Size: 139.44 KB." href="https://content.vic.gov.au/system/files/secure/2024-09/file-sample_150kB.pdf" target="_blank">
+    <span class="rpl-document__icon rpl-icon rpl-icon--size-l rpl-icon--colour-default rpl-icon--icon-document-lined">
+      <svg role="presentation"><use xlink:href="#icon-document-lined"></use></svg>
+    </span>
+    <div class="rpl-document__content">
+      <span class="rpl-document__name rpl-type-p rpl-type-weight-bold rpl-u-focusable-inline">Secure document</span>
+      <div class="rpl-document__info rpl-type-label-small">
+        <span class="rpl-file__meta">PDF</span>
+        <span class="rpl-file__meta">139.44 KB</span>
+      <div class="rpl-file__updated">Updated 24 Sept 2024</div></div>
+    </div>
+    <span class="rpl-u-visually-hidden">(opens in a new window)</span>
+  </a>
+</figure>
+`
+  ],
   video: `
 <div class="rpl-media-embed">
   <figure class="rpl-media-embed__figure">
@@ -78,7 +100,13 @@ const fixed = {
 describe('ripple-tide-api/utils/markup-transpiler/cheerio', () => {
   for (const [label, html] of Object.entries(markup)) {
     it(`runs ${label} plugin on markup`, () => {
-      expect(markupTranspiler(html)).toEqual(fixed[label])
+      if (Array.isArray(html)) {
+        html.forEach((entry, i) => {
+          expect(markupTranspiler(entry)).toEqual(fixed[label][i])
+        })
+      } else {
+        expect(markupTranspiler(html)).toEqual(fixed[label])
+      }
     })
   }
 })

@@ -77,7 +77,7 @@ const pluginQuotation = function (this: any) {
 
 const pluginDocuments = function (this: any) {
   this.find(
-    '.embedded-entity--media--file, .embedded-entity--media--document'
+    '.embedded-entity--media--file, .embedded-entity--media--document, .embedded-entity--media--secure-file'
   ).map((i: number, el: any) => {
     const $element = this.find(el)
     const mediaType = $element.hasClass('embedded-entity--media--file')

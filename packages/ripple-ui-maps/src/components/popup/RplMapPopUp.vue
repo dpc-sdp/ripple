@@ -55,7 +55,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import { useResizeObserver, useBreakpoints } from '@vueuse/core'
 import { RplIcon } from '@dpc-sdp/ripple-ui-core/vue'
 import { useRippleEvent, bpMin } from '@dpc-sdp/ripple-ui-core'

@@ -86,7 +86,23 @@
                 "url": "/level-3-item-2",
                 "id": "e239b5d2-54f4-4d1e-8ce2-5b5cfc9a2c29",
                 "parent": "36b23e56-103b-4fcc-8005-d7f1403c6ded",
-                "weight": 16
+                "weight": 16,
+                "items": [
+                  {
+                    "text": "Level 4 - Item 1",
+                    "url": "/level-4-item-1",
+                    "id": "b484de04-8faa-4246-adc1-70c8a56b2c22",
+                    "parent": "46b24e56-104b-4fcc-8005-d7f1404c6ded",
+                    "weight": 15
+                  },
+                  {
+                    "text": "Level 4 - Item 2",
+                    "url": "/level-4-item-2",
+                    "id": "e249b5d2-54f4-4d1e-8ce2-5b5cfc9a2c29",
+                    "parent": "46b24e56-104b-4fcc-8005-d7f1404c6ded",
+                    "weight": 16
+                  }
+                ]
               }
             ]
           },

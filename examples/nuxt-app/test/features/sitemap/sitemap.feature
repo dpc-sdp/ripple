@@ -12,6 +12,7 @@ Feature: Sitemap
       | Level 2 - Item 1 |
       | Level 3 - Item 1 |
       | Level 3 - Item 2 |
+      | Level 4 - Item 1 |
+      | Level 4 - Item 2 |
       | Level 2 - Item 2 |
       | Level 1 - Item 2 |
-

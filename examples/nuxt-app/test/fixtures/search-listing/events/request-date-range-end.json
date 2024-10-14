@@ -1,0 +1,42 @@
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "match_all": {}
+        }
+      ],
+      "filter": [
+        {
+          "terms": {
+            "type": [
+              "event"
+            ]
+          }
+        },
+        {
+          "terms": {
+            "field_node_site": [
+              4
+            ]
+          }
+        },
+        {
+          "range": {
+            "field_event_date_start_value": {
+              "lte": "2025-06-28",
+              "time_zone": "Australia/Melbourne"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "size": 9,
+  "from": 0,
+  "sort": [
+    {
+      "field_event_date_end_value": "asc"
+    }
+  ]
+}

@@ -21,8 +21,8 @@ interface Props {
   label?: string
   prefixIcon?: string
   suffixIcon?: string
-  min?: number
-  max?: number
+  min?: number | string
+  max?: number | string
   minlength?: number
   maxlength?: number
   variant?: 'default' | 'reverse'

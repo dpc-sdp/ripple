@@ -667,6 +667,21 @@ export default {
       })
     }
   },
+  'rpl-form-date-range/update': () => {
+    return (payload: any) => {
+      trackEvent({
+        event: `${payload.action}_form_field`,
+        label: payload?.label,
+        form_name: payload?.contextName,
+        form_id: payload?.contextId,
+        field_id: payload?.id,
+        value: payload?.value,
+        type: 'date-range',
+        component: 'rpl-form-date-range',
+        platform_event: 'update'
+      })
+    }
+  },
   'rpl-form-dropdown/toggleOpen': () => {
     return (payload: any) => {
       trackEvent({

@@ -15,6 +15,7 @@ import {
   divider,
   date,
   datePicker,
+  dateRange,
   optionButtons,
   fieldset,
   hidden
@@ -52,6 +53,8 @@ rplFormInputs.library = (node) => {
       return node.define(date)
     case 'RplFormDatePicker':
       return node.define(datePicker)
+    case 'RplFormDateRange':
+      return node.define(dateRange)
     case 'RplFormContent':
       return node.define(content)
     case 'RplFormLabel':

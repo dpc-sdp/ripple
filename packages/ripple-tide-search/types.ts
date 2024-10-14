@@ -31,8 +31,15 @@ export interface FilterConfigItem {
    */
   component: 'TideSearchFilterDropdown' | string
   filter?: {
-    type: 'raw' | 'term' | 'terms' | 'dependent' | 'function' | 'prefix'
-    value: string
+    type:
+      | 'raw'
+      | 'term'
+      | 'terms'
+      | 'dependent'
+      | 'function'
+      | 'prefix'
+      | 'range'
+    value: string | TideSearchRangeFilterValue
     /**
      * Can multiple options be selected?
      */
@@ -43,6 +50,18 @@ export interface FilterConfigItem {
      * Only relevant if `searchListingConfig.dynamicAggregations` is true
      */
     excludeFromAggregations?: boolean
+    /**
+     * @description used for object based form values, this means an object with multiple properties/values is treated as a single filter in our refine tally
+     */
+    countAsSingle?: boolean
+    /**
+     * @description marks a field value as an object, this means it's value won't be a single value or array but an object group
+     */
+    valueIsObject?: boolean
+    /**
+     * @description specifies the format the value for the filter query is supplied in (this is used for range queries)
+     */
+    format?: string
   }
   aggregations?: {
     /**
@@ -152,10 +171,17 @@ export type TideSearchLocationQueryConfig = {
   showGeolocationButton?: boolean
 }
 
-export type TideSearchCustomQueryConfig = {
-  component?: string
-  function?: string
-  props?: Record<string, any>
+export type TideSearchRangeFilter = {
+  gte?: string
+  lte?: string
+  relation?: string
+  format?: string
+  time_zone?: string
+}
+
+export type TideSearchRangeFilterValue = {
+  from: string
+  to: string
 }
 
 export type TideSearchListingTab = {

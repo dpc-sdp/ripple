@@ -73,6 +73,19 @@ Then(
 )
 
 Then(
+  `the custom collection date range field labelled {string} should have the {string} variant applied`,
+  (label: string, theme: string) => {
+    cy.get(`legend`)
+      .contains(label)
+      .closest('fieldset')
+      .find('.rpl-form__input')
+      .each(($el) => {
+        cy.wrap($el).should('have.class', `rpl-form__input--${theme}`)
+      })
+  }
+)
+
+Then(
   `the custom collection dropdown field labelled {string} should have the {string} variant applied`,
   (label: string, theme: string) => {
     cy.get(`[data-component-type="TideCustomCollection"] label`)

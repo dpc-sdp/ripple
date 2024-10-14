@@ -25,6 +25,15 @@
           }
         },
         {
+          "range": {
+            "changed": {
+              "time_zone": "Australia/Melbourne",
+              "gte": "2024-10-01",
+              "lte": "2025-06-28"
+            }
+          }
+        },
+        {
           "providedFilterConfig": {
             "id": "functionFilter",
             "component": "TideSearchFilterDropdown",

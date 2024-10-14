@@ -1,0 +1,62 @@
+{
+  "title": "Date range",
+  "changed": "2022-11-02T12:47:29+11:00",
+  "created": "2022-11-02T12:47:29+11:00",
+  "type": "tide_search_listing",
+  "nid": "11dede11-10c0-111e1-1100-000000000330",
+  "showTopicTags": true,
+  "summary": "",
+  "config": {
+    "searchListingConfig": {
+      "resultsPerPage": 10
+    },
+    "queryConfig": {
+      "multi_match": {
+        "query": "{{query}}",
+        "fields": [
+          "title^3",
+          "field_landing_page_summary^2",
+          "body",
+          "field_paragraph_body",
+          "summary_processed"
+        ]
+      }
+    },
+    "results": {
+      "layout": {
+        "component": "TideSearchResultsList"
+      },
+      "item": {
+        "grant": {
+          "component": "TideGrantSearchResult"
+        }
+      }
+    },
+    "globalFilters": [
+      { "terms": { "type": ["grant"] } },
+      { "terms": { "field_node_site": [8888] } }
+    ],
+    "userFilters": [
+       {
+        "id": "dateRangeFilter",
+        "component": "TideSearchFilterDateRange",
+        "filter": {
+          "type": "range",
+          "value": "changed",
+          "multiple": false,
+          "countAsSingle": true,
+          "valueIsObject": true,
+          "relation": "CONTAINS",
+          "format": "yyyy/mm/dd"
+        },
+        "props": {
+          "id": "dateRangeFilter",
+          "label": "Date range example",
+          "dateFormat": "yyyy/mm/dd",
+          "min": "2024-07-01",
+          "max": "2084-06-30"
+        }
+      }
+    ]
+  }
+}

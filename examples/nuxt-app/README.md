@@ -1,31 +1,55 @@
-# Nuxt 3 Minimal Starter
+# Nuxt-app
 
-We recommend to look at the [documentation](https://v3.nuxtjs.org).
+A Nuxt 3 app with all Ripple and SDP core inclusions.
 
-## Setup
+Separate [example layers](#example-layers) are included under [/layers](/layers) to demonstrate specific features and use cases. These can be disabled in [nuxt.config.ts](nuxt.config.ts) if needed.
 
-Make sure to install the dependencies
+## Dev mode
 
-```bash
-yarn install
-```
+Copy [.example.env](.example.env) to `.env` if using non-reference back end / site ID.
 
-## Development
-
-- Copy `.example.env` to `.env`  
-
-Start the development server on http://localhost:3000
+Install monorepo deps
 
 ```bash
-yarn dev
+pnpm i
 ```
 
-## Production
-
-Build the application for production:
+Start the server in dev mode
 
 ```bash
-yarn build
+pnpm -F nuxt-app dev
 ```
 
-Checkout the [deployment documentation](https://v3.nuxtjs.org/docs/deployment).
+Now serving on [http://localhost:3000](http://localhost:3000)
+
+## Build mode (production-like)
+
+Build the app to `.output`
+
+```bash
+pnpm -F nuxt-app build
+```
+
+Start the server on `.output` in build mode
+
+```bash
+pnpm -F nuxt-app start
+```
+
+Same as above, but using `.env` for runtime environment
+
+```bash
+pnpm -F nuxt-app preview
+```
+
+Now serving on [http://localhost:3000](http://localhost:3000)
+
+## Example layers
+
+1. [layers/example-components](layers/example-components)<br> Examples of custom components (used in cypress tests)
+
+2. [layers/fixture-api](layers/fixture-api)<br> Use json fixtures instead of back end API calls
+
+3. [layers/map-features](layers/map-features)<br> Map features including popup, side panel and shape layer (used in cypress tests)
+
+4. [layers/ripple-ui-forms-ext](layers/ripple-ui-forms-ext)<br> Extend `ripple-ui-forms` with a custom control

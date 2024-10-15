@@ -55,10 +55,12 @@ const handleClick = (item, index) => {
 const initialCollapseInnerLinks =
   props.collapse || breadcrumbsCollapseInnerLinks!
 
-const collapseInnerLinks = ref()
-collapseInnerLinks.value = initialCollapseInnerLinks
-  ? props.displayBeforeCollapse
-  : 0
+const collapseInnerLinks = ref(
+  initialCollapseInnerLinks &&
+    props.items.length - 1 > props.displayBeforeCollapse
+    ? props.displayBeforeCollapse
+    : 0
+)
 
 const firstItem = (index: number) => index === 0
 const lastItem = (index: number) => index === props.items.length - 1
@@ -82,8 +84,7 @@ const toggleCollapsed = () => {
       v-if="items.length > 0"
       :class="[
         'rpl-breadcrumbs__items',
-        { 'rpl-type-p-small': initialCollapseInnerLinks },
-        { 'rpl-type-p': !initialCollapseInnerLinks },
+        'rpl-type-p-small',
         { 'rpl-breadcrumbs__items--collapsed': collapseInnerLinks }
       ]"
     >

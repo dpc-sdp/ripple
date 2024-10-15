@@ -7,8 +7,6 @@
 </template>
 
 <script setup lang="ts">
-import page from '../test/fixtures/case/accordions-inpage-nav.json'
-import { useTideSite } from '#imports'
-
-const site = await useTideSite()
+import site from '../../test/fixtures/site/vic.json'
+import page from '../../test/fixtures/page/accordions-inpage-nav.json'
 </script>

@@ -1,5 +1,42 @@
 # Changelog
 
+## v2.18.0
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/2.17.2...v2.18.0)
+
+
+### 🚀 Enhancements
+
+  - **@dpc-sdp/ripple-ui-core:** Add date range field and search listing support ([0cd1e3cca](https://github.com/dpc-sdp/ripple-framework/commit/0cd1e3cca))
+  - **@dpc-sdp/ripple-ui-core:** Consistent font size, check if links should collapse, add tests ([6b0ea3d74](https://github.com/dpc-sdp/ripple-framework/commit/6b0ea3d74))
+  - **@dpc-sdp/ripple-ui-maps:** Fix for storybook test ([9263e25e9](https://github.com/dpc-sdp/ripple-framework/commit/9263e25e9))
+
+### 🩹 Fixes
+
+  - **@dpc-sdp/ripple-tide-publication:** Added back the publication print all page header ([0b98191ad](https://github.com/dpc-sdp/ripple-framework/commit/0b98191ad))
+  - **@dpc-sdp/ripple-ui-maps:** Changed styling of map 'popover' to match designs ([2c303a903](https://github.com/dpc-sdp/ripple-framework/commit/2c303a903))
+
+### 💅 Refactors
+
+  - **nuxt-app:** ♻️  move examples to separate layers ([1be0b29b2](https://github.com/dpc-sdp/ripple-framework/commit/1be0b29b2))
+
+### 🏡 Chore
+
+  - **@dpc-sdp/nuxt-ripple-cli:** Update scaffold scripts to use sdp core pkg ([5fc111cd8](https://github.com/dpc-sdp/ripple-framework/commit/5fc111cd8))
+  - **@dpc-sdp/ripple-ui-core:** Update dataLayer value format ([3cd25fc1b](https://github.com/dpc-sdp/ripple-framework/commit/3cd25fc1b))
+  - **@dpc-sdp/ripple-tide-api:** Add support for secure file display ([d0f3d1353](https://github.com/dpc-sdp/ripple-framework/commit/d0f3d1353))
+
+### 🎨 Styles
+
+  - **@dpc-sdp/ripple-ui-maps:** Fixed incorrect comment ([4680089e2](https://github.com/dpc-sdp/ripple-framework/commit/4680089e2))
+
+### ❤️  Contributors
+
+- David Featherston <david@lambry.com>
+- Jeffrey Dowdle <jeffrey.dowdle@dpc.vic.gov.au>
+- Dylankelly <dylan.kelly@dpc.vic.gov.au>
+- Jason Smith <jason.smith@dpc.vic.gov.au>
+
 ## v2.17.2
 
 [compare changes](https://github.com/dpc-sdp/ripple-framework/compare/2.17.1...v2.17.2)

@@ -134,3 +134,23 @@ Feature: Site feature flags
       | X (formerly Twitter) | true    |
       | LinkedIn             | true    |
       | WhatsApp             | true    |
+
+  @mockserver
+  Scenario: Feature flags can collapse site breadcrumbs
+    Given I load the site fixture with "/site/shared-elements"
+    And the feature flag "breadcrumbsCollapseInnerLinks" is set to "true"
+    And the site endpoint returns the loaded fixture
+    And the page endpoint for path "/level-4-item-1" returns fixture "/landingpage/home" with status 200
+    Given I visit the page "/level-4-item-1"
+    Then the breadcrumbs should have the following items
+      | text             | url             |
+      | Home             | /               |
+      | Level 3 - Item 2 | /level-3-item-2 |
+
+    When I expand the breadcrumbs
+    Then the breadcrumbs should have the following items
+      | text             | url             |
+      | Home             | /               |
+      | Level 1 - Item 1 | /level-1-item-1 |
+      | Level 2 - Item 1 | /level-2-item-1 |
+      | Level 3 - Item 2 | /level-3-item-2 |

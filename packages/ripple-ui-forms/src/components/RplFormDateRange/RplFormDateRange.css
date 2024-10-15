@@ -1,0 +1,5 @@
+.rpl-form-date-range {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: var(--rpl-sp-3);
+}

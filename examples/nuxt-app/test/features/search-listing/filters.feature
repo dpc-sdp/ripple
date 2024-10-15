@@ -102,6 +102,62 @@ Feature: Search listing - Filter
     Then the search listing dropdown field labelled "Terms filter example" should have the value "Orange, Purple"
 
   @mockserver
+  Example: Date range filter (single query value) - Should reflect the range value from the URL
+    Given the page endpoint for path "/filters" returns fixture "/search-listing/filters/page" with status 200
+    And the search network request is stubbed with fixture "/search-listing/filters/response" and status 200
+
+    When I visit the page "/filters?dateRangeFilter=from:2024-10-01&dateRangeFilter=to:2025-06-28"
+    And the search network request should be called with the "/search-listing/filters/request-date-range" fixture
+    Then the filters toggle should show 1 applied filters
+
+    When I toggle the search listing filters section
+    Then the search listing date range field labelled "Date range example" should have the values
+      | from       | to         |
+      | 2024-10-01 | 2025-06-28 |
+
+  @mockserver
+  Example: Date range filter (query range matches start and end date) - Should correctly query search API
+    Given the page endpoint for path "/filters" returns fixture "/search-listing/events/page" with status 200
+    And the search network request is stubbed with fixture "/search-listing/events/response" and status 200
+
+    When I visit the page "/filters?dateRangeFilter=from:2024-10-01&dateRangeFilter=to:2025-06-28"
+    And the search network request should be called with the "/search-listing/events/request-date-range" fixture
+    Then the filters toggle should show 1 applied filters
+
+    When I toggle the search listing filters section
+    Then the search listing date range field labelled "Date range example" should have the values
+      | from       | to         |
+      | 2024-10-01 | 2025-06-28 |
+
+  @mockserver
+  Example: Date range filter (query range matches start date) - Should correctly query search API
+    Given the page endpoint for path "/filters" returns fixture "/search-listing/events/page" with status 200
+    And the search network request is stubbed with fixture "/search-listing/events/response" and status 200
+
+    When I visit the page "/filters?dateRangeFilter=from:2024-10-01"
+    And the search network request should be called with the "/search-listing/events/request-date-range-start" fixture
+    Then the filters toggle should show 1 applied filters
+
+    When I toggle the search listing filters section
+    Then the search listing date range field labelled "Date range example" should have the values
+      | from       | to |
+      | 2024-10-01 |    |
+
+  @mockserver
+  Example: Date range filter (query range matches end date) - Should correctly query search API
+    Given the page endpoint for path "/filters" returns fixture "/search-listing/events/page" with status 200
+    And the search network request is stubbed with fixture "/search-listing/events/response" and status 200
+
+    When I visit the page "/filters?dateRangeFilter=to:2025-06-28"
+    And the search network request should be called with the "/search-listing/events/request-date-range-end" fixture
+    Then the filters toggle should show 1 applied filters
+
+    When I toggle the search listing filters section
+    Then the search listing date range field labelled "Date range example" should have the values
+      | from | to         |
+      |      | 2025-06-28 |
+
+  @mockserver
   Example: Custom function filters - Should reflect an array from the URL
     Given the page endpoint for path "/filters" returns fixture "/search-listing/filters/page" with status 200
     And the search network request is stubbed with fixture "/search-listing/filters/response" and status 200
@@ -131,11 +187,11 @@ Feature: Search listing - Filter
     And the search network request is stubbed with fixture "/search-listing/filters/response" and status 200
     And the current date is "Fri, 02 Feb 2050 03:04:05 GMT"
 
-    When I visit the page "/filters?q=test123&page=2&functionFilter=open&termsFilter=Purple&termFilter=Green&rawFilter=Birds&checkboxFilter=Archived&checkboxFilterGroup=Weekdays"
+    When I visit the page "/filters?q=test123&page=2&functionFilter=open&termsFilter=Purple&termFilter=Green&rawFilter=Birds&checkboxFilter=Archived&checkboxFilterGroup=Weekdays&dateRangeFilter=from:2024-10-01&dateRangeFilter=to:2025-06-28"
     Then the search listing page should have 2 results
     And the search network request should be called with the "/search-listing/filters/request-clear-filled" fixture
 
-    Then the filters toggle should show 6 applied filters
+    Then the filters toggle should show 7 applied filters
     Then the URL should reflect that the current page number is 2
     Then the URL should reflect that the current search term is "test123"
 
@@ -149,6 +205,9 @@ Feature: Search listing - Filter
       | functionFilter      | open     |
       | checkboxFilter      | Archived |
       | checkboxFilterGroup | Weekdays |
+    And the URL should reflect that the current active filters are as follows:
+      | dateRangeFilter | from:2024-10-01 |
+      | dateRangeFilter | to:2025-06-28   |
 
     Then the search listing dropdown field labelled "Raw filter example" should have the value "Birds"
     Then the search listing dropdown field labelled "Term filter example" should have the value "Green"
@@ -169,6 +228,7 @@ Feature: Search listing - Filter
       | functionFilter      |
       | checkboxFilter      |
       | checkboxFilterGroup |
+      | dateRangeFilter     |
 
     Then the search input should have the value ""
     Then the search listing dropdown field labelled "Raw filter example" should have the value "Select a pet"
@@ -177,6 +237,9 @@ Feature: Search listing - Filter
     Then the search listing dropdown field labelled "Custom function filter example" should have the value "Select a status"
     And the search listing checkbox field labelled "Show archived content" should not be checked
     And the search listing checkbox group labelled "Checkbox group" should not have any options checked
+    And the search listing date range field labelled "Date range example" should have the values
+      | from | to |
+      |      |    |
 
   @mockserver
   Example: Should update the URL when the filters are applied
@@ -372,6 +435,19 @@ Feature: Search listing - Filter
     Then the search listing dropdown field labelled "Terms dependent grandchild example" should have the value "Cockatoos, Budgerigars"
     And I click the search listing dropdown field labelled "Terms dependent grandchild example"
     Then the selected dropdown field should allow "multi" selection
+
+  @mockserver
+  Example: Date range filter query can be customised with user options
+    Given the page endpoint for path "/filters" returns fixture "/search-listing/filters/page-date-range" with status 200
+    And the search network request is stubbed with fixture "/search-listing/filters/response" and status 200
+
+    When I visit the page "/filters?dateRangeFilter=from:2024/10/01"
+    And the search network request should be called with the "/search-listing/filters/request-date-range-custom" fixture
+
+    When I toggle the search listing filters section
+    Then the search listing date range field labelled "Date range example" should have the values
+      | from       | to |
+      | 2024-10-01 |    |
 
   @mockserver
   Example: Should hide the search form when hideSearchForm is set

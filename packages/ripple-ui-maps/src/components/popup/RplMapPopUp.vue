@@ -10,7 +10,9 @@
       }"
       :style="{
         '--local-map-height': `${mapHeight}px`,
-        '--local-popup-header-height': `${headerHeight}px`
+        '--local-popup-header-height': `${headerHeight}px`,
+        '--local-popup-body-height':
+          type === 'popover' ? `${bodyHeight}px` : undefined
       }"
     >
       <slot v-if="type === 'popover'" name="above">
@@ -53,10 +55,10 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import { useResizeObserver } from '@vueuse/core'
+import { computed, ref } from 'vue'
+import { useResizeObserver, useBreakpoints } from '@vueuse/core'
 import { RplIcon } from '@dpc-sdp/ripple-ui-core/vue'
-import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
+import { useRippleEvent, bpMin } from '@dpc-sdp/ripple-ui-core'
 import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
 import LargePinIcon from './../../assets/icons/icon-pin-large.svg?component'
 
@@ -68,7 +70,7 @@ interface Props {
   mapHeight?: number
 }
 
-withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<Props>(), {
   isOpen: false,
   isArea: false,
   pinColor: 'green',
@@ -87,12 +89,31 @@ function onClose() {
   emitRplEvent('close')
 }
 
+const breakpoints = useBreakpoints(bpMin)
+const isLargePlus = breakpoints.greaterOrEqual('l')
+
 const headerRef = ref(null)
 const headerHeight = ref(80)
 
 useResizeObserver(headerRef, (entries) => {
   const entry = entries[0]
   headerHeight.value = entry.borderBoxSize[0].blockSize
+})
+
+const bodyHeight = computed(() => {
+  // 360px is the maximum height of the whole popover type popup as per the design
+  const maxPopupHeight = 360
+
+  // If we can't fit the whole popup, calculate the largest height that will fit, taking into account padding and borders
+  // The 'popover' type popup doesn't emanate from the centre of the map, it's offset slightly
+  const popoverYOffset = 100 - (isLargePlus.value ? 8 : 4)
+  const mapPadding = isLargePlus.value ? 12 : 8
+  const borderPixels = 2
+  const availablePopupHeight =
+    props.mapHeight / 2 + popoverYOffset - mapPadding - borderPixels
+
+  // Choose the smaller of the max height and available space to get the body height
+  return Math.min(maxPopupHeight, availablePopupHeight) - headerHeight.value
 })
 </script>
 <style src="./RplMapPopUp.css" />

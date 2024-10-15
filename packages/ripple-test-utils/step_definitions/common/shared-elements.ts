@@ -22,7 +22,9 @@ Then(
     cy.get(`[data-cy="breadcrumbs"]`).as('component')
 
     cy.get('@component').within(() => {
-      cy.get(`.rpl-breadcrumbs__item`).as('items')
+      cy.get(
+        `.rpl-breadcrumbs__item:not(.rpl-breadcrumbs__item--collapsed)`
+      ).as('items')
     })
 
     cy.get('@items').should('have.length', table.length)
@@ -45,6 +47,10 @@ Then(
 
 Then('the breadcrumbs should not exist', () => {
   cy.get(`[data-cy="breadcrumbs"]`).should('not.exist')
+})
+
+Then('I expand the breadcrumbs', () => {
+  cy.get(`.rpl-breadcrumbs__collapse-link-trigger`).click()
 })
 
 Then(

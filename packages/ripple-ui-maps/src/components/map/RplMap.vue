@@ -400,6 +400,7 @@ const fullScreenLabel = computed(() =>
             :is-area="popup.isArea"
             :type="popupType"
             :pinColor="popup.color"
+            :mapHeight="mapHeight"
             @close="onPopUpClose"
           >
             <template #header>

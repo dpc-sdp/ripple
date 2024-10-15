@@ -8,7 +8,7 @@ Feature: Events collection
     Given the page endpoint for path "/events" returns fixture "/search-listing/events/page" with status 200
     And the search network request is stubbed with fixture "/search-listing/events/response" and status 200
     When I visit the page "/events"
-    Then the search listing page should have 2 results
+    Then the search listing page should have 4 results
     And the search listing layout should be "grid"
     And the search network request should be called with the "/search-listing/events/request" fixture
     And the event search listing results should have following items:

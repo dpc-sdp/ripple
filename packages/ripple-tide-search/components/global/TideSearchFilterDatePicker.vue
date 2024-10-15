@@ -17,5 +17,6 @@ defineProps<Props>()
     type="RplFormDatePicker"
     :variant="variant"
     :label="label"
+    :pii="false"
   />
 </template>

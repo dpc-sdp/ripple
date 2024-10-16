@@ -31,7 +31,7 @@ jobs:
 
       - name: Bump versions for proper release
         if: ${{ !github.event.release.prerelease  }}
-        run: npm run release:version ${{ github.event.release.name }} --yes
+        run: npm run release:version ${{ github.event.release.name }} -- --yes
 
       - name: Run release:changelog script for proper release
         if: ${{ !github.event.release.prerelease  }}

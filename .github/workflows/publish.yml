@@ -28,12 +28,48 @@ jobs:
           CYPRESS_INSTALL_BINARY: 0
           PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
         run: pnpm install --frozen-lockfile
-      - name: Publish release
+
+      - name: Bump versions for proper release
+        if: ${{ !github.event.release.prerelease  }}
+        run: npm run release:version ${{ !github.event.release.name }} --yes
+
+      - name: Run release:changelog script for proper release
+        if: ${{ !github.event.release.prerelease  }}
+        run: npm run release:changelog
+
+      - name: Configure Git
+        if: ${{ !github.event.release.prerelease  }}
+        run: |
+          git config --global user.email "sdp.devs@dpc.vic.gov.au"
+          git config --global user.name "SDP Deploy"
+
+      - name: Commit changes
+        if: ${{ !github.event.release.prerelease }}
+        run: |
+          git add .
+          git commit -m "chore: release ${{ !github.event.release.name }}"
+
+      - name: Push changes
+        if: ${{ !github.event.release.prerelease  }}
+        run: |
+          git push origin ${{ github.ref }} # Pushes back to the same branch
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Publish draft release as alpha
+        if: ${{ github.event.release.prerelease }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          git config --global user.email "sdp.devs@dpc.vic.gov.au"
-          git config --global user.name "SDP Deploy"
+          pnpm config set access public
+          pnpm release:publish-alpha --yes
+
+      - name: Publish proper release
+        if: ${{ !github.event.release.prerelease  }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
           pnpm config set access public
           pnpm run release:publish --yes

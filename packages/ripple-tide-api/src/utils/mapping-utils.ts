@@ -244,6 +244,13 @@ export const getSiteSection = (sectionId: string, src: any) => {
   })
 }
 
+/**
+ * @description strips line returns i.e. new line from the supplied content, returning a 'single' line
+ */
+export const stripNewLines = (content: string): string => {
+  return content?.replace(/(\r\n|\n|\r)/g, '')?.trim()
+}
+
 export default {
   getImageFromField,
   getLinkFromField,
@@ -255,5 +262,6 @@ export default {
   getMediaPath,
   getDocumentFromField,
   getSiteKeyValues,
-  getSiteSection
+  getSiteSection,
+  stripNewLines
 }

@@ -4,7 +4,7 @@ import {
   getCardImageFromField,
   getImageFromField,
   getLinkFromField,
-  stripNewLines
+  getPlainText
 } from '@dpc-sdp/ripple-tide-api'
 
 export interface ITideCardMeta {
@@ -59,7 +59,7 @@ const getCardSummary = (field: { [key: string]: any }) => {
 
   const summary = linkedSummary ? linkedSummary : ownSummary
 
-  return stripNewLines(summary)
+  return getPlainText(summary)
 }
 
 const getCardImage = (field: {}): TideImageField => {

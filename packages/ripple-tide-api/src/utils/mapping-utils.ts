@@ -247,7 +247,7 @@ export const getSiteSection = (sectionId: string, src: any) => {
 /**
  * @description strips line returns i.e. new line from the supplied content, returning a 'single' line
  */
-export const stripNewLines = (content: string): string => {
+export const getPlainText = (content: string): string => {
   return content?.replace(/(\r\n|\n|\r)/g, '')?.trim()
 }
 
@@ -263,5 +263,5 @@ export default {
   getDocumentFromField,
   getSiteKeyValues,
   getSiteSection,
-  stripNewLines
+  getPlainText
 }

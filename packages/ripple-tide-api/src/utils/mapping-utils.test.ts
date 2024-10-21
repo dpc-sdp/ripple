@@ -9,7 +9,7 @@ import {
   getSiteKeyValues,
   getSiteSection,
   humanizeFilesize,
-  stripNewLines
+  getPlainText
 } from './mapping-utils.js'
 
 const field = {
@@ -225,7 +225,7 @@ describe('ripple-tide-api/mapping utils', () => {
   })
 
   it(`returns a single line of text without line breaks`, () => {
-    expect(stripNewLines(field.field_acknowledgement_to_country)).toEqual(
+    expect(getPlainText(field.field_acknowledgement_to_country)).toEqual(
       'We acknowledge Aboriginal and Torres Strait Islander people as the First People and traditional owners and custodians of the lands, seas and waters of Australia. We pay our respect to Elders past and present.'
     )
   })

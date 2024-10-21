@@ -2,7 +2,7 @@ import {
   getField,
   getLinkFromField,
   getImageFromField,
-  stripNewLines
+  getPlainText
 } from '@dpc-sdp/ripple-tide-api'
 import type { TideUrlField } from '@dpc-sdp/ripple-tide-api/types'
 import { TideHeroHeader } from '@dpc-sdp/nuxt-ripple/types'
@@ -15,7 +15,7 @@ const getIntroText = (src) => {
     src.field_page_intro_text ||
     ''
 
-  return stripNewLines(introText)
+  return getPlainText(introText)
 }
 
 const getHeaderTheme = (src) => {

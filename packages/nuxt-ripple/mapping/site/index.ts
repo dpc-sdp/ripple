@@ -5,6 +5,7 @@ import {
   getMediaPath,
   getLinkFromField,
   getSiteKeyValues,
+  getPlainText,
   TideSiteApi
 } from '@dpc-sdp/ripple-tide-api'
 import {
@@ -53,7 +54,9 @@ export default {
         ? getBodyFromField(src, 'field_additional_comment')
         : '<p>If you need a response, please use our <a href="/contact-us" class="rpl-text-link rpl-u-focusable-inline">contact us form</a>.</p>'
     },
-    acknowledgementFooter: 'field_acknowledgement_to_country',
+    acknowledgementFooter: (src: any) => {
+      return getPlainText(src?.field_acknowledgement_to_country)
+    },
     copyrightHtml: (src: any) => {
       return getBody(src.field_site_footer_text?.processed)
     },

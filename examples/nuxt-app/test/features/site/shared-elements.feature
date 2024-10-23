@@ -26,10 +26,32 @@ Feature: Shared site elements
     Then the quick exit should be displayed
 
   @mockserver
-  Scenario: Quick Exit (enabled in site section)
+  Scenario: Quick Exit (disabled site wide, enabled in site section)
     Given the site endpoint returns fixture "/site/shared-elements" with status 200
     And I load the page fixture with "/landingpage/home"
     And the site section quick exit is enabled
+    And the page endpoint for path "/section-page" returns the loaded fixture
+    Given I visit the page "/section-page"
+    Then the quick exit should be displayed
+
+  @mockserver
+  Scenario: Quick Exit (enabled site wide, disabled in site section)
+    Given I load the site fixture with "/site/shared-elements"
+    And the site wide quick exit is enabled
+    And the site endpoint returns the loaded fixture
+    Given I load the page fixture with "/landingpage/home"
+    And the site section quick exit is disabled
+    And the page endpoint for path "/section-page" returns the loaded fixture
+    Given I visit the page "/section-page"
+    Then the quick exit should not be displayed
+
+  @mockserver
+  Scenario: Quick Exit (enabled site wide, inherited in site section)
+    Given I load the site fixture with "/site/shared-elements"
+    And the site wide quick exit is enabled
+    And the site endpoint returns the loaded fixture
+    Given I load the page fixture with "/landingpage/home"
+    And the site section quick exit is inherited
     And the page endpoint for path "/section-page" returns the loaded fixture
     Given I visit the page "/section-page"
     Then the quick exit should be displayed

@@ -14,7 +14,10 @@ export const map = async (src, tidePageApi: TidePageApi) => {
 
   // Finally, this site data will contain a reference to the menu we need to fetch
   const menuData = siteData.field_site_main_menu
-
+  // if a menu is deleted Drupal returns an id of 'missing'
+  if (menuData?.id === 'missing') {
+    return null
+  }
   const menu = await tidePageApi.getSiteMenu(
     tidePageApi.site,
     menuData,

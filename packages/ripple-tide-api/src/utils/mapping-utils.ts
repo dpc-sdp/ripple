@@ -251,6 +251,16 @@ export const getPlainText = (content: string): string => {
   return content?.replace(/(\r\n|\n|\r)/g, '')?.trim()
 }
 
+/**
+ * @description converts supplied string value i.e. 'yes', 'no' into true or false
+ */
+export const getBoolFromString = (text: string): boolean | null => {
+  if (text === 'yes') return true
+  if (text === 'no') return false
+
+  return null
+}
+
 export default {
   getImageFromField,
   getLinkFromField,
@@ -263,5 +273,6 @@ export default {
   getDocumentFromField,
   getSiteKeyValues,
   getSiteSection,
-  getPlainText
+  getPlainText,
+  getBoolFromString
 }

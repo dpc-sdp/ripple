@@ -23,7 +23,11 @@ import {
   includes as sidebarSiteSectionNavIncludes
 } from './sidebar-site-section-nav/sidebar-site-section-nav-mapping.js'
 import TidePageMeta from './page-meta.js'
-import { getSiteKeyValues, getSiteSection } from '@dpc-sdp/ripple-tide-api'
+import {
+  getSiteKeyValues,
+  getSiteSection,
+  getBoolFromString
+} from '@dpc-sdp/ripple-tide-api'
 
 export const tidePageBaseMapping = ({
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -76,7 +80,9 @@ export const tidePageBaseMapping = ({
         id: siteData.drupal_internal__tid,
         name: siteData.name,
         siteOverrides: {
-          showQuickExit: siteData?.field_site_show_exit_site || null,
+          showQuickExit: getBoolFromString(
+            siteData?.field_show_exit_site_specific
+          ),
           theme: getSiteKeyValues('field_site_theme_values', siteData) || {},
           featureFlags:
             getSiteKeyValues('field_site_feature_flags', siteData) || {}

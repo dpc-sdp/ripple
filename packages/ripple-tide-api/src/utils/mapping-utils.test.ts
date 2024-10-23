@@ -9,7 +9,8 @@ import {
   getSiteKeyValues,
   getSiteSection,
   humanizeFilesize,
-  getPlainText
+  getPlainText,
+  getBoolFromString
 } from './mapping-utils.js'
 
 const field = {
@@ -228,5 +229,11 @@ describe('ripple-tide-api/mapping utils', () => {
     expect(getPlainText(field.field_acknowledgement_to_country)).toEqual(
       'We acknowledge Aboriginal and Torres Strait Islander people as the First People and traditional owners and custodians of the lands, seas and waters of Australia. We pay our respect to Elders past and present.'
     )
+  })
+
+  it(`returns a boolean value from supplied string`, () => {
+    expect(getBoolFromString('yes')).toEqual(true)
+    expect(getBoolFromString('no')).toEqual(false)
+    expect(getBoolFromString('')).toEqual(null)
   })
 })

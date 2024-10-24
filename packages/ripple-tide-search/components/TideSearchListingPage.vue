@@ -443,7 +443,7 @@ watch(
             <TideSearchFilters
               :title="title"
               :filter-form-values="filterForm"
-              :filterInputs="userFilters as any"
+              :filterInputs="uiFilters as any"
               @reset="handleFilterReset"
               @submit="handleFilterSubmit"
             >

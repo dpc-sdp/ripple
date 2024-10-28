@@ -10,6 +10,7 @@ import {
   getSiteSection,
   humanizeFilesize,
   getPlainText,
+  getPlainTextFromField,
   getBoolFromString
 } from './mapping-utils.js'
 
@@ -227,6 +228,14 @@ describe('ripple-tide-api/mapping utils', () => {
 
   it(`returns a single line of text without line breaks`, () => {
     expect(getPlainText(field.field_acknowledgement_to_country)).toEqual(
+      'We acknowledge Aboriginal and Torres Strait Islander people as the First People and traditional owners and custodians of the lands, seas and waters of Australia. We pay our respect to Elders past and present.'
+    )
+  })
+
+  it(`returns the plain text value of a field`, () => {
+    expect(
+      getPlainTextFromField(field, 'field_acknowledgement_to_country')
+    ).toEqual(
       'We acknowledge Aboriginal and Torres Strait Islander people as the First People and traditional owners and custodians of the lands, seas and waters of Australia. We pay our respect to Elders past and present.'
     )
   })

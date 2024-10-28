@@ -344,3 +344,15 @@ export function getLinkFromField(field: any, path: string | string[]): any
 export function humanizeFilesize(fileSize: number): string
 export function getSiteKeyValues(key: string, src: any): any
 export function getSiteSection(sectionId: string, src: any): any
+export function getMediaPath(field: any, path?: string | string[]): string
+export function getDocumentFromField(
+  field: Record<string, any>,
+  path: string
+): TideDocumentField
+export function getPlainText(content: string): string
+export function getPlainTextFromField(
+  field: string,
+  path: string | string[],
+  fallback?: any
+): any
+export function getBoolFromString(text: string): boolean | null

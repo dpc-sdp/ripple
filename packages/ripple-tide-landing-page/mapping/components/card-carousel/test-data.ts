@@ -56,7 +56,7 @@ export const rawDataCustom = {
       },
       field_paragraph_location: null,
       field_paragraph_summary:
-        'Adipisicing sint consectetur consequat excepteur exercitation et laboris cillum.',
+        'Adipisicing sint consectetur\r\n consequat excepteur exercitation et laboris cillum.',
       field_paragraph_title: 'Test event',
       field_paragraph_media: {
         links: {
@@ -720,7 +720,7 @@ export const rawDataCustom = {
         },
         field_landing_page_show_contact: true,
         field_landing_page_summary:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet ligula sit amet lacinia. In a leo nec tortor aliquet faucibus.',
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit.\r\n Aliquam tincidunt sit amet ligula sit amet lacinia. In a leo nec tortor aliquet faucibus.',
         field_news_intro_text:
           'Nulla ultricies dignissim leo, posuere vestibulum erat cursus vitae',
         field_node_author: 'Nulla ultricies',
@@ -1617,7 +1617,7 @@ export const rawDataCustom = {
           revision_translation_affected: null,
           field_paragraph_keydate: 'June 13th, 2023 and beyond',
           field_paragraph_link: null,
-          field_paragraph_summary: 'Key Dates Card Summary',
+          field_paragraph_summary: 'Key Dates Card Summary\r\n',
           field_paragraph_title: 'Key Dates Card',
           id: '7865b901-e85b-47f0-adbc-1690ece4559c',
           type: 'paragraph--keydates'
@@ -1691,7 +1691,7 @@ export const rawDataCustom = {
         url: '/sdpta-promotion-card-landing-page-fixture',
         origin_url: '/sdpta-promotion-card-landing-page-fixture'
       },
-      field_paragraph_summary: 'Promotion Card summary',
+      field_paragraph_summary: 'Promotion Card summary\r\n',
       field_paragraph_title: 'Promotion Card',
       field_paragraph_media: {
         links: {
@@ -3038,7 +3038,7 @@ export const rawDataNews = [
     field_landing_page_nav_title: null,
     field_landing_page_show_contact: false,
     field_landing_page_summary:
-      'NP1 Etiam scelerisque lorem sit amet sapien iaculis, nec dignissim augue cursus. Mauris eu purus a neque tristique venenatis sit amet sed sem. Aenean viverra lectus ut tempus sollicitudin.',
+      'NP1 Etiam scelerisque lorem sit amet sapien iaculis,\r\n nec dignissim augue cursus. Mauris eu purus a neque tristique venenatis sit amet sed sem. Aenean viverra lectus ut tempus sollicitudin.',
     field_metatags: null,
     field_news_date: '2050-07-02T10:00:00+11:00',
     field_news_intro_text:
@@ -5270,7 +5270,7 @@ export const rawDataEvent = [
     },
     field_landing_page_show_contact: true,
     field_landing_page_summary:
-      'Tell me, O muse, of that ingenious hero who travelled far and wide after he had sacked the famous town of Troy. Many cities did he visit, and many were the nations with whose manners and customs END',
+      'Tell me, O muse\r\n, of that ingenious hero who travelled far and wide after he had sacked the famous town of Troy. Many cities did he visit, and many were the nations with whose manners and customs END',
     field_news_intro_text:
       'Nulla ultricies dignissim leo, posuere vestibulum erat cursus vitae',
     field_node_author: 'Full Name',

@@ -42,17 +42,19 @@ jobs:
         run: |
           git config --global user.email "sdp.devs@dpc.vic.gov.au"
           git config --global user.name "SDP Deploy"
+          git fetch origin ${{ github.event.release.target_commitish }}
+          git checkout ${{ github.event.release.target_commitish }}
 
       - name: Commit changes
         if: ${{ !github.event.release.prerelease }}
         run: |
           git add .
-          git commit -m "chore: release ${{ !github.event.release.name }}"
+          git commit -m "chore: release ${{ github.event.release.name }}"
 
       - name: Push changes
         if: ${{ !github.event.release.prerelease  }}
         run: |
-          git push origin ${{ github.ref }} # Pushes back to the same branch
+          git push origin ${{ github.event.release.target_commitish }} # Pushes back to target branch
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 

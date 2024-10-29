@@ -3,9 +3,7 @@ to: .playground/app.config.ts
 ---
 export default defineAppConfig({
   ripple: {
-    featureFlags: {
-      contentCollectionSearchConnector: 'elasticsearch'
-    },
+    featureFlags: {},
     theme: {
       'rpl-clr-primary': '#6B19A3',
       'rpl-clr-footer-alt': '#6B19A3',

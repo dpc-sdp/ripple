@@ -59,13 +59,14 @@ import { stripMediaBaseUrl } from '@dpc-sdp/ripple-tide-api/utils'
 
 const { public: config } = useRuntimeConfig()
 
-const featureFlags: IRplFeatureFlags = inject('featureFlags', {
-  contentCollectionSearchConnector: 'appSearch'
-})
+const featureFlags: IRplFeatureFlags = inject('featureFlags', {})
+
+const connectorType =
+  featureFlags.contentCollectionSearchConnector || 'appSearch'
 
 const apiConnectorOptions = {
-  type: featureFlags.contentCollectionSearchConnector,
-  ...(config.tide?.[featureFlags.contentCollectionSearchConnector] || {})
+  type: connectorType,
+  ...(config.tide?.[connectorType] || {})
 }
 
 const props = defineProps<{

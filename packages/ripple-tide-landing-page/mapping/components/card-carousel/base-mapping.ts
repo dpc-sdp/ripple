@@ -1,4 +1,8 @@
-import { getField, getImageFromField } from '@dpc-sdp/ripple-tide-api'
+import {
+  getField,
+  getImageFromField,
+  getPlainTextFromField
+} from '@dpc-sdp/ripple-tide-api'
 import { ITideCardCarouselItem } from './card-carousel-mapping'
 
 export const baseIncludes = [
@@ -13,5 +17,5 @@ export const baseMapping = (field): ITideCardCarouselItem => ({
   meta: {
     topic: getField(field, 'field_topic.name', null)
   },
-  summary: getField(field, 'field_landing_page_summary', '')
+  summary: getPlainTextFromField(field, 'field_landing_page_summary', '')
 })

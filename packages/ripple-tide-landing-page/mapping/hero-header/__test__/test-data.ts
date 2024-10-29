@@ -59,7 +59,7 @@ export const testData = {
       },
       field_landing_page_bg_colour: 'white',
       field_landing_page_hero_theme: 'light',
-      field_landing_page_intro_text: "Here's the introduction text",
+      field_landing_page_intro_text: "Here's the introduction\r\n text",
       field_landing_page_nav_title: 'Site-section Navigation',
       field_landing_page_show_contact: true,
       field_landing_page_summary: 'Ripple 2 landing page summary',

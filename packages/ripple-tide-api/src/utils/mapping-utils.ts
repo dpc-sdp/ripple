@@ -244,6 +244,36 @@ export const getSiteSection = (sectionId: string, src: any) => {
   })
 }
 
+/**
+ * @description strips line returns i.e. new line from the supplied content, returning a 'single' line
+ */
+export const getPlainText = (content: string): string => {
+  return content?.replace(/(\r\n|\n|\r)/g, '')?.trim()
+}
+
+/**
+ * @description gets the fields value as plain text
+ */
+export const getPlainTextFromField = (
+  field: {},
+  path: string | string[],
+  fallback = ''
+) => {
+  const content = get(field, path, fallback)
+
+  return content ? getPlainText(content) : content
+}
+
+/**
+ * @description converts supplied string value i.e. 'yes', 'no' into true or false
+ */
+export const getBoolFromString = (text: string): boolean | null => {
+  if (text === 'yes') return true
+  if (text === 'no') return false
+
+  return null
+}
+
 export default {
   getImageFromField,
   getLinkFromField,
@@ -255,5 +285,8 @@ export default {
   getMediaPath,
   getDocumentFromField,
   getSiteKeyValues,
-  getSiteSection
+  getSiteSection,
+  getPlainText,
+  getPlainTextFromField,
+  getBoolFromString
 }

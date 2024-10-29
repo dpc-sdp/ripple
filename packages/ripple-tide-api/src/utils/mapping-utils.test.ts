@@ -8,7 +8,10 @@ import {
   getField,
   getSiteKeyValues,
   getSiteSection,
-  humanizeFilesize
+  humanizeFilesize,
+  getPlainText,
+  getPlainTextFromField,
+  getBoolFromString
 } from './mapping-utils.js'
 
 const field = {
@@ -124,7 +127,9 @@ const field = {
       {
         drupal_internal__tid: 179
       }
-    ]
+    ],
+    field_acknowledgement_to_country:
+      'We acknowledge Aboriginal and Torres Strait Islander people as the First People and traditional owners and custodians of the lands, seas and waters of Australia. \r\n\r\nWe pay our respect to Elders past and present.\r\n '
   },
   processedImg = {
     alt: 'Demo: Melbourne tram',
@@ -219,5 +224,25 @@ describe('ripple-tide-api/mapping utils', () => {
 
   it(`returns null if field_node_site has no data`, () => {
     expect(getSiteSection('', { field_node_site: {} })).toEqual(null)
+  })
+
+  it(`returns a single line of text without line breaks`, () => {
+    expect(getPlainText(field.field_acknowledgement_to_country)).toEqual(
+      'We acknowledge Aboriginal and Torres Strait Islander people as the First People and traditional owners and custodians of the lands, seas and waters of Australia. We pay our respect to Elders past and present.'
+    )
+  })
+
+  it(`returns the plain text value of a field`, () => {
+    expect(
+      getPlainTextFromField(field, 'field_acknowledgement_to_country')
+    ).toEqual(
+      'We acknowledge Aboriginal and Torres Strait Islander people as the First People and traditional owners and custodians of the lands, seas and waters of Australia. We pay our respect to Elders past and present.'
+    )
+  })
+
+  it(`returns a boolean value from supplied string`, () => {
+    expect(getBoolFromString('yes')).toEqual(true)
+    expect(getBoolFromString('no')).toEqual(false)
+    expect(getBoolFromString('')).toEqual(null)
   })
 })

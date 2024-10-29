@@ -1,7 +1,8 @@
 import {
   getField,
   getImageFromField,
-  getLinkFromField
+  getLinkFromField,
+  getPlainTextFromField
 } from '@dpc-sdp/ripple-tide-api'
 
 const getCardImage = (card) => {
@@ -30,7 +31,7 @@ export const mapping = (field) => {
           dateStart: getField(field, 'field_paragraph_date_range.value', null),
           dateEnd: getField(field, 'field_paragraph_date_range.end_value', null)
         },
-        summary: getField(field, 'field_paragraph_summary', '')
+        summary: getPlainTextFromField(field, 'field_paragraph_summary', '')
       }
       break
     case 'paragraph--card_event_auto':
@@ -52,7 +53,7 @@ export const mapping = (field) => {
             null
           )
         },
-        summary: getField(
+        summary: getPlainTextFromField(
           field,
           'field_paragraph_reference.field_landing_page_summary',
           ''
@@ -67,7 +68,7 @@ export const mapping = (field) => {
         keyDates: field.field_paragraph_keydates.map((date) => ({
           title: getField(date, 'field_paragraph_keydate', ''),
           subtitle: getField(date, 'field_paragraph_title', ''),
-          content: getField(date, 'field_paragraph_summary', '')
+          content: getPlainTextFromField(date, 'field_paragraph_summary', '')
         }))
       }
       break
@@ -84,7 +85,7 @@ export const mapping = (field) => {
           topic: getField(field, 'field_paragraph_topic.[0].name', null),
           date: getField(field, 'field_paragraph_date', null)
         },
-        summary: getField(field, 'field_paragraph_summary', '')
+        summary: getPlainTextFromField(field, 'field_paragraph_summary', '')
       }
       break
     case 'paragraph--card_promotion_auto': {
@@ -110,7 +111,7 @@ export const mapping = (field) => {
             ? getField(field, 'field_paragraph_reference.created', null)
             : null
         },
-        summary: getField(
+        summary: getPlainTextFromField(
           field,
           'field_paragraph_reference.field_landing_page_summary',
           ''

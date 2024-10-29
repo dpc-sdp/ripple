@@ -252,6 +252,18 @@ Given('the site section quick exit is enabled', () => {
   })
 })
 
+Given('the site section quick exit is disabled', () => {
+  cy.get('@pageFixture').then((response) => {
+    set(response, 'siteSection.siteOverrides.showQuickExit', false)
+  })
+})
+
+Given('the site section quick exit is inherited', () => {
+  cy.get('@pageFixture').then((response) => {
+    set(response, 'siteSection.siteOverrides.showQuickExit', null)
+  })
+})
+
 Then('the quick exit should be displayed', () => {
   cy.get('.rpl-primary-nav__quick-exit').should('be.visible')
 })

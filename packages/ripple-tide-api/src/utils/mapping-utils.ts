@@ -252,6 +252,19 @@ export const getPlainText = (content: string): string => {
 }
 
 /**
+ * @description gets the fields value as plain text
+ */
+export const getPlainTextFromField = (
+  field: {},
+  path: string | string[],
+  fallback = ''
+) => {
+  const content = get(field, path, fallback)
+
+  return content ? getPlainText(content) : content
+}
+
+/**
  * @description converts supplied string value i.e. 'yes', 'no' into true or false
  */
 export const getBoolFromString = (text: string): boolean | null => {
@@ -274,5 +287,6 @@ export default {
   getSiteKeyValues,
   getSiteSection,
   getPlainText,
+  getPlainTextFromField,
   getBoolFromString
 }

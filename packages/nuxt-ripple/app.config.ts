@@ -48,6 +48,17 @@ declare module '@nuxt/schema' {
           string,
           (map: any, results: any, location: any, mapDeadSpace: any) => void
         >
+        onLocationSelectOverrideFns: Record<
+          string,
+          // Return true if behaviour was overridden, or false to use the default behaviour
+          (
+            map: any,
+            popup: any,
+            location: any,
+            userGeolocation: any,
+            mapDeadSpace: any
+          ) => boolean | void
+        >
       }
       customInputs?: {
         [key: string]: {

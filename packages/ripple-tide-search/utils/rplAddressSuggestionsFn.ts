@@ -57,6 +57,7 @@ const getLGASuggestions = async (query, args) => {
     return {
       id: itm._id,
       name,
+      lgaOfficialName: itm._source.lga_official_name,
       bbox: itm._source.lga_bbox,
       tag
     }

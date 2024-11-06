@@ -124,11 +124,15 @@ const pluginDocuments = function (this: any) {
         })
     }
 
+    const mediaIcon = $element.hasClass('embedded-entity--media--secure-file')
+      ? 'file-secure'
+      : 'document-lined'
+
     return $element.replaceWith(`
 <figure class="rpl-document">
   <a class="rpl-document__link rpl-u-focusable-within" aria-label="${label}" href="${link}" target="_blank">
-    <span class="rpl-document__icon rpl-icon rpl-icon--size-l rpl-icon--colour-default rpl-icon--icon-document-lined">
-      <svg role="presentation"><use xlink:href="#icon-document-lined"></use></svg>
+    <span class="rpl-document__icon rpl-icon rpl-icon--size-l rpl-icon--colour-default rpl-icon--icon-${mediaIcon}">
+      <svg role="presentation"><use xlink:href="#icon-${mediaIcon}"></use></svg>
     </span>
     <div class="rpl-document__content">
       <span class="rpl-document__name rpl-type-p rpl-type-weight-bold rpl-u-focusable-inline">${title}</span>

@@ -54,6 +54,7 @@ export const RplIconGroups = {
     'icon-enlarge',
     'icon-enlarge-square-filled',
     'icon-exclamation-circle-filled',
+    'icon-file-secure',
     'icon-free',
     'icon-home',
     'icon-information-circle-filled',

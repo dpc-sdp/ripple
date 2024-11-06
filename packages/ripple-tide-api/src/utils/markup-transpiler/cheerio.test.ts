@@ -60,8 +60,8 @@ const fixed = {
     `
 <figure class="rpl-document">
   <a class="rpl-document__link rpl-u-focusable-within" aria-label="Secure document File type: PDF. Size: 139.44 KB." href="https://content.vic.gov.au/system/files/secure/2024-09/file-sample_150kB.pdf" target="_blank">
-    <span class="rpl-document__icon rpl-icon rpl-icon--size-l rpl-icon--colour-default rpl-icon--icon-document-lined">
-      <svg role="presentation"><use xlink:href="#icon-document-lined"></use></svg>
+    <span class="rpl-document__icon rpl-icon rpl-icon--size-l rpl-icon--colour-default rpl-icon--icon-file-secure">
+      <svg role="presentation"><use xlink:href="#icon-file-secure"></use></svg>
     </span>
     <div class="rpl-document__content">
       <span class="rpl-document__name rpl-type-p rpl-type-weight-bold rpl-u-focusable-inline">Secure document</span>

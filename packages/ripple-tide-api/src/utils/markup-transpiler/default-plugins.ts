@@ -5,6 +5,16 @@ const pluginTables = function (this: any) {
   // Wrap tables with a div.
   this.find('table').map((i: any, el: any) => {
     const $table = this.find(el)
+
+    $table.find('col[data-width]').each((i: any, col: any) => {
+      const $col = this.find(col)
+      const colWidth = $col.attr('data-width')
+
+      if (colWidth) {
+        $col.attr('style', `width: ${colWidth}`).removeAttr('data-width')
+      }
+    })
+
     return $table
       .wrap(`<div class="rpl-table"></div>`)
       .wrap(

@@ -40,6 +40,18 @@
 - Jeffrey Dowdle <jeffrey.dowdle@dpc.vic.gov.au>
 - Dylankelly <dylan.kelly@dpc.vic.gov.au>
 - Jason Smith <jason.smith@dpc.vic.gov.au>
+## v2.17.3
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/2.17.2...v2.17.3)
+
+
+### 🩹 Fixes
+
+  - **@dpc-sdp/ripple-tide-search:** Fix issue with search listing dropdown reactivity ([3ef6daed1](https://github.com/dpc-sdp/ripple-framework/commit/3ef6daed1))
+
+### ❤️  Contributors
+
+- Jeffrey Dowdle <jeffrey.dowdle@dpc.vic.gov.au>
 
 ## v2.17.2
 

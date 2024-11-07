@@ -82,6 +82,7 @@ interface Props {
     function: string
     args: Record<string, any>
   }
+  onLocationSelectOverrideFn?: string | null
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -95,7 +96,8 @@ const props = withDefaults(defineProps<Props>(), {
   tagsComponent: undefined,
   mapResultsFnName: '',
   isGettingLocation: false,
-  userGeolocation: null
+  userGeolocation: null,
+  onLocationSelectOverrideFn: null
 })
 
 const results = ref([])
@@ -104,7 +106,7 @@ const emit = defineEmits<{
   (e: 'update', payload: addressResultType): void
 }>()
 
-const { rplMapRef, deadSpace, defaultExtent } = inject('rplMapInstance')
+const { rplMapRef, popup, deadSpace, defaultExtent } = inject('rplMapInstance')
 
 const pendingZoomAnimation = ref(false)
 
@@ -217,6 +219,42 @@ async function centerMapOnLocation(
   location: addressResultType,
   animate: boolean
 ) {
+  // There is the option of overriding the default zoom behavior by passing in an app config function
+  //
+  // In app.config.ts:
+  // {
+  //   ripple: {
+  //     search: {
+  //       onLocationSelectOverrideFns: <function>
+  //     }
+  //   }
+  // }
+  //
+  if (props.onLocationSelectOverrideFn) {
+    const overrideFn = useAppConfigFunction(
+      props.onLocationSelectOverrideFn,
+      'onLocationSelectOverrideFns'
+    )
+
+    const didOverride = overrideFn(
+      map,
+      popup,
+      location,
+      props.userGeolocation,
+      deadSpace
+    )
+
+    // Sometimes you only want to override the behavior for a specific behavior, and it would be
+    // annoying to have to reimplement everything else. For this reason, the function can return a
+    // boolean indicating whether the behavior was overridden. If false, the default behavior will
+    // still run.
+    //
+    // If the function doesn't return anything (i.e. undefined), the default behavior won't run
+    if (didOverride || typeof didOverride === undefined) {
+      return
+    }
+  }
+
   if (!props.controlMapZooming) {
     return
   }

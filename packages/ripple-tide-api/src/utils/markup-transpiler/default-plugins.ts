@@ -96,7 +96,7 @@ const pluginDocuments = function (this: any) {
       updated = $element.attr('data-last-updated')
 
     // Remove markup stub if there are no details
-    if (!title || !link) {
+    if (!link) {
       return $element.remove()
     }
 

@@ -95,6 +95,11 @@ const pluginDocuments = function (this: any) {
       fileSize = $element.find('.file--size').text(),
       updated = $element.attr('data-last-updated')
 
+    // Remove markup stub if there are no details
+    if (!link) {
+      return $element.remove()
+    }
+
     let updatedMarkup = ''
 
     if (updated) {

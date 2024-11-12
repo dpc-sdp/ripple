@@ -7,6 +7,7 @@ export default defineNuxtConfig({
   css: [resolve('./assets/css/languages.css')],
   runtimeConfig: {
     basicAuth: 0,
+    compatibilityDate: '2024-10-31',
     tide: {
       config: {
         apiPrefix: '/api/v1',

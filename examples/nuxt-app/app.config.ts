@@ -9,9 +9,7 @@ export default defineAppConfig({
   },
   ripple: {
     packages: getDpcPkgs({ ...pkg.dependencies, ...pkg.devDependencies }),
-    featureFlags: {
-      contentCollectionSearchConnector: 'elasticsearch'
-    },
+    featureFlags: {},
     theme: {
       'rpl-clr-primary': '#6B19A3',
       'rpl-clr-footer-alt': '#6B19A3',

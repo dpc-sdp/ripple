@@ -83,6 +83,7 @@ interface Props {
     args: Record<string, any>
   }
   onLocationSelectOverrideFn?: string | null
+  bboxZoomPadding?: number
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -97,7 +98,8 @@ const props = withDefaults(defineProps<Props>(), {
   mapResultsFnName: '',
   isGettingLocation: false,
   userGeolocation: null,
-  onLocationSelectOverrideFn: null
+  onLocationSelectOverrideFn: null,
+  bboxZoomPadding: 100
 })
 
 const results = ref([])
@@ -283,7 +285,7 @@ async function centerMapOnLocation(
       )
 
       fitExtent(map, bbox, deadSpace.value, {
-        padding: 100,
+        padding: props.bboxZoomPadding,
         animationDuration: animate ? 800 : 0
       })
     }

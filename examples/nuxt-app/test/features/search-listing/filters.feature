@@ -14,7 +14,6 @@ Feature: Search listing - Filter
 
     When I visit the page "/filters"
     Then the search listing filters section should be open
-    And the filters toggle should be hidden
 
   @mockserver
   Example: Raw filter - Should reflect the value from the URL

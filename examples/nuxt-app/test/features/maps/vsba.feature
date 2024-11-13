@@ -87,9 +87,9 @@ Feature: School buildings map
   Scenario: Click on cluster should zoom in
     Given the "/api/tide/elasticsearch/elasticsearch_index_develop_node/_search" network request is stubbed with fixture "/map-table/vsba/response-all" and status 200 as alias "searchReq"
     And I visit the page "/map"
-    When I wait 4 seconds
+    When the map is loaded
     When I click the map component at coordinates 650 429
-    When I wait 8 seconds
+    When I wait 4 seconds
     Then the map matches the image snapshot "map-cluster-zoom"
 
   @mockserver

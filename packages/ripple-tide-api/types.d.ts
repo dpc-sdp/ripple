@@ -141,7 +141,6 @@ export type TidePropRange = {
 
 export type TideSiteSectionOverrides = {
   showQuickExit: boolean
-  theme: Record<string, string>
   featureFlags: IRplFeatureFlags
 }
 

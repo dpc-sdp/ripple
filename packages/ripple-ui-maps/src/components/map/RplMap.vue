@@ -1,7 +1,5 @@
 <script lang="ts">
-const primaryColor = getComputedStyle(
-  document.documentElement
-).getPropertyValue('--rpl-clr-primary')
+let mapAccentColor: string = ''
 </script>
 
 <script setup lang="ts">
@@ -66,7 +64,7 @@ const props = withDefaults(defineProps<Props>(), {
   initialCenter: () => [144.9631, -36.8136], // melbourne CBD
   homeViewExtent: () => [144.9631, -36.8136], // melbourne CBD
   pinStyle: (feature) => {
-    let color = feature.color || primaryColor || 'red'
+    let color = feature.color || mapAccentColor || 'red'
     const ic = new Icon({
       src: markerIconDefaultSrc,
       color,
@@ -94,6 +92,10 @@ const mapRef = ref<{ map: Map } | null>(null)
 
 onMounted(() => {
   setRplMapRef(mapRef.value.map)
+
+  mapAccentColor = getComputedStyle(document.documentElement).getPropertyValue(
+    '--rpl-clr-link'
+  )
 })
 
 onUnmounted(() => {

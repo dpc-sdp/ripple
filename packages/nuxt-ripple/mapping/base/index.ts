@@ -83,7 +83,6 @@ export const tidePageBaseMapping = ({
           showQuickExit: getBoolFromString(
             siteData?.field_show_exit_site_specific
           ),
-          theme: getSiteKeyValues('field_site_theme_values', siteData) || {},
           featureFlags:
             getSiteKeyValues('field_site_feature_flags', siteData) || {}
         }

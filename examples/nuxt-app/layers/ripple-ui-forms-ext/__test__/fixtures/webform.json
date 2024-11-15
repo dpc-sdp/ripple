@@ -24,7 +24,6 @@
     "name": "Demo Site",
     "siteOverrides": {
       "showQuickExit": null,
-      "theme": {},
       "featureFlags": {}
     }
   },

@@ -9,8 +9,12 @@ Feature: Analytics
     And the page endpoint for path "/" returns fixture "/landingpage/home" with status 200
     Given I visit the page "/"
     Then the dataLayer should include the following events
-      | event       | page_title        | page_url | content_type | content_status |
-      | routeChange | Demo Landing Page | /        | landing_page | published      |
+      | event       | page_title        | page_url | content_type | content_status | content_topic |
+      | routeChange | Demo Landing Page | /        | landing_page | published      | Demo Topic    |
+    Then the dataLayer should have the following tags
+      | name             |
+      | Demo Tag         |
+      | Another Demo Tag |
 
   @mockserver
   Scenario: Breadcrumbs

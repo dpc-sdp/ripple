@@ -21,11 +21,9 @@
     "copyfiles": "^2.4.1",
     "enquirer": "^2.3.6",
     "hygen": "^6.2.11",
-    "jsonapi-parse": "^2.0.1",
     "mockttp": "^3.9.1",
     "npm-check-updates": "^16.10.16",
     "object-to-argv": "^2.0.0",
-    "rfg-api": "^0.5.3",
     "rimraf": "^4.4.1",
     "ts-node": "^10.7.0"
   }

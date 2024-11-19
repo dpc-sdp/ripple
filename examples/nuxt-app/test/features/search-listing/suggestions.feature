@@ -7,7 +7,18 @@ Feature: Search listing - Suggestions
     And I am using a "macbook-16" device
 
   @mockserver
-  Example: Displays autocomplete suggestions
+  Example: Autocomplete suggestions are disabled by default
+    Given the page endpoint for path "/no-suggestions" returns fixture "/search-listing/suggestions/page-no-suggestions" with status 200
+    And the search network request is stubbed with fixture "/search-listing/suggestions/search-response" and status 200
+
+    When I visit the page "/no-suggestions"
+    Then the search listing page should have 2 results
+
+    When I type "The" into the search input
+    Then the search suggestions should not be displayed
+
+  @mockserver
+  Example: Autocomplete suggestions can be enabled
     Given the page endpoint for path "/suggestions" returns fixture "/search-listing/suggestions/page-suggestions" with status 200
     And the search network request is stubbed with fixture "/search-listing/suggestions/search-response" and status 200
     And the search autocomplete request is stubbed with "/search-listing/suggestions/response" fixture
@@ -32,19 +43,21 @@ Feature: Search listing - Suggestions
     And the search autocomplete request is stubbed with "/search-listing/suggestions/response" fixture
 
     When I visit the page "/suggestions-override"
-    And I type "The" into the search input
+    And I type "There" into the search input
     Then the search autocomplete request should be called with the "/search-listing/suggestions/request-override" fixture
 
   @mockserver
-  Example: Autocomplete suggestions can be disabled
-    Given the page endpoint for path "/no-suggestions" returns fixture "/search-listing/suggestions/page-no-suggestions" with status 200
+  Example: Autocomplete minimum characters can be customised
+    Given the page endpoint for path "/suggestions-characters" returns fixture "/search-listing/suggestions/page-suggestions-override" with status 200
     And the search network request is stubbed with fixture "/search-listing/suggestions/search-response" and status 200
+    And the search autocomplete request is stubbed with "/search-listing/suggestions/response" fixture
 
-    When I visit the page "/no-suggestions"
-    Then the search listing page should have 2 results
+    When I visit the page "/suggestions-characters"
+    Then I type "The" into the search input
+    And the search suggestions should not be displayed
 
-    When I type "The" into the search input
-    Then the search suggestions should not be displayed
+    When I type "re" into the search input
+    Then the search suggestions should be displayed
 
   @mockserver
   Example: Search bar max input length

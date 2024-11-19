@@ -15,6 +15,10 @@ Then(
   }
 )
 
+When(`I type {string} into the custom collection input`, (inputStr: string) => {
+  cy.get(`[id="custom-collection-search-bar"]`).type(`${inputStr}`)
+})
+
 Then(`the custom collection component results count should be hidden`, () => {
   cy.get(`[data-component-type="search-listing-result-count"]`).should(
     'not.exist'
@@ -124,8 +128,9 @@ When(`I toggle the content collection filters`, () => {
 
 Then(
   'the custom collection config has {string} set to {string}',
-  (key: string, value: string | boolean) => {
+  (key: string, value: string | boolean | number) => {
     cy.get('@pageFixture').then((response) => {
+      if (!isNaN(Number(value))) value = Number(value)
       if (value === 'true') value = true
       if (value === 'false') value = false
       set(response, `bodyComponents[0].props.searchListingConfig.${key}`, value)

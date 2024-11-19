@@ -4,6 +4,10 @@ import { getBreadcrumbs } from '#imports'
 const trimValue = (value: any) =>
   typeof value === 'string' ? value.trim() : value
 
+const mapTags = (items: { text: string }[]) => {
+  return (items || []).map((item) => item?.text)
+}
+
 export default function ({ route, site, page }): IRplAnalyticsEventPayload {
   const payload: IRplAnalyticsEventPayload = {
     event: 'routeChange',
@@ -11,6 +15,8 @@ export default function ({ route, site, page }): IRplAnalyticsEventPayload {
     page_url: route.fullPath,
     content_type: page?.type,
     content_status: page?.status,
+    content_topic: page?.topic?.text,
+    content_tags: mapTags(page?.tags),
     publication_name: page?.publication?.text,
     search_term: trimValue(route.query?.q),
     site_section: page?.siteSection?.name,

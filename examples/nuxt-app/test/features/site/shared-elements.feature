@@ -101,9 +101,10 @@ Feature: Shared site elements
     Given I visit the page "/some-random-page"
 
     Then the page should have the following topic tags
-      | text       | url               |
-      | Demo Topic | /topic/demo-topic |
-      | Demo Tag   | /tags/demo-tag    |
+      | text             | url                    |
+      | Demo Topic       | /topic/demo-topic      |
+      | Demo Tag         | /tags/demo-tag         |
+      | Another Demo Tag | /tags/another-demo-tag |
 
   @mockserver
   Scenario: Content Rating (visible)

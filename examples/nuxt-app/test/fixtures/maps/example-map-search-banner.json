@@ -1,0 +1,550 @@
+{
+  "title": "Early Learning Victoria",
+  "changed": "2024-11-11T14:25:56+11:00",
+  "created": "2024-10-28T17:42:15+11:00",
+  "type": "landing_page",
+  "nid": "1cf34a40-130f-42a5-bd83-612cfa71c889",
+  "_sectionId": "2138",
+  "sidebar": {
+    "contacts": [
+      {
+        "id": "8a8c6dd5-2283-47f5-bd7e-32d9367f5b86",
+        "contactTitle": "Contact us",
+        "contactName": null,
+        "department": "Early Learning Victoria",
+        "email": "elv@education.vic.gov.au",
+        "locationAddress": null,
+        "postalAddress": null,
+        "phones": [
+          {
+            "id": "4128fe95-3d0b-4a58-aa84-25e7d7b411bc",
+            "title": null,
+            "number": "03 9057 4444"
+          }
+        ],
+        "socialMedia": []
+      }
+    ],
+    "relatedLinks": [
+      {
+        "id": "bd89e478-92b6-478c-97e6-f8e71d62c3de",
+        "text": "Best Start, Best Life reforms",
+        "url": "https://www.vic.gov.au/best-start-best-life-reforms"
+      },
+      {
+        "id": "1c33131b-bcfe-4013-9f1a-8e89a9b85880",
+        "text": "Pre-prep roll-out schedule",
+        "url": "https://www.vic.gov.au/preprep#roll-out-schedule"
+      }
+    ],
+    "whatsNext": [],
+    "socialShareNetworks": ["Facebook", "X", "LinkedIn"],
+    "siteSectionNav": {
+      "title": "Early Learning Victoria",
+      "items": [
+        {
+          "text": "Home",
+          "url": "/",
+          "id": "f39af687-8630-4321-bba2-4e9578ad55d3",
+          "parent": null,
+          "weight": -50
+        },
+        {
+          "text": "Find a centre",
+          "url": "/find-centre",
+          "id": "b3f05fc8-445e-4129-a765-f38c1258e9e9",
+          "parent": null,
+          "weight": -49
+        },
+        {
+          "text": "About us",
+          "url": "/about",
+          "id": "1f3a27e3-23b4-4d1d-ac99-289c5bd3abfb",
+          "parent": null,
+          "weight": -48
+        },
+        {
+          "text": "What our centres offer",
+          "url": "/programs",
+          "id": "517a7c49-e18a-495f-9d22-3471e859706c",
+          "parent": null,
+          "weight": -47
+        },
+        {
+          "text": "Centre locations",
+          "url": "/centre-locations",
+          "id": "68ae6673-da75-4847-a127-605a9159f837",
+          "parent": null,
+          "weight": -46,
+          "items": [
+            {
+              "text": "Eaglehawk North",
+              "url": "/eaglehawk-north-primary-school-early-learning-childcare-centre",
+              "id": "aa71e657-1bc4-4591-a225-1a77ef25cc91",
+              "parent": "68ae6673-da75-4847-a127-605a9159f837",
+              "weight": -50
+            },
+            {
+              "text": "Murtoa",
+              "url": "/murtoa-college-early-learning-childcare-centre",
+              "id": "646f1e9b-c446-43c7-af25-13e5c0b59e30",
+              "parent": "68ae6673-da75-4847-a127-605a9159f837",
+              "weight": -49
+            },
+            {
+              "text": "Sunshine",
+              "url": "/sunshine-primary-school-early-learning-childcare-centre",
+              "id": "2a2d76ca-09b5-43f0-b9e6-2c2acef7b599",
+              "parent": "68ae6673-da75-4847-a127-605a9159f837",
+              "weight": -48
+            },
+            {
+              "text": "Moomba Park",
+              "url": "/moomba-park-primary-school-early-learning-childcare-centre",
+              "id": "450844ce-7f44-4f13-8abc-bfc735e270e1",
+              "parent": "68ae6673-da75-4847-a127-605a9159f837",
+              "weight": -47
+            }
+          ]
+        },
+        {
+          "text": "Work with us",
+          "url": "/jobs",
+          "id": "d2615316-ad69-429a-8d8e-fe7b93c34523",
+          "parent": null,
+          "weight": -45
+        },
+        {
+          "text": "Enrolment process",
+          "url": "/enrol",
+          "id": "ff7edeed-02cc-40f4-8b5e-e4464b8d96cd",
+          "parent": null,
+          "weight": -44
+        },
+        {
+          "text": "Paying fees",
+          "url": "/fees",
+          "id": "59e9dd09-888c-4c1e-b54f-e2e8a07e8d40",
+          "parent": null,
+          "weight": -43
+        }
+      ]
+    }
+  },
+  "status": "published",
+  "topicTags": [
+    {
+      "text": "Education",
+      "url": "/topic/education"
+    }
+  ],
+  "siteSection": {
+    "id": 2138,
+    "name": "earlylearning.vic.gov.au",
+    "siteOverrides": {
+      "showQuickExit": null,
+      "theme": {
+        "rpl-clr-primary": "#311B42",
+        "rpl-clr-primary-alt": "#5A4968",
+        "rpl-clr-primary-alpha": "rgba(49, 27, 66, 0.5)",
+        "rpl-clr-accent": "#80D0D5",
+        "rpl-clr-link": "#6C137E",
+        "rpl-clr-focus": "#BAD2A0",
+        "rpl-clr-gradient-horizontal": "linear-gradient(90deg, #8AB4BE 0%, #80D0D5 20%, #BAD2A0 40%, #FCD5A7 65%, #FFE497 90%)",
+        "rpl-clr-gradient-vertical": "linear-gradient(180deg, #8AB4BE 0%, #80D0D5 20%, #BAD2A0 40%, #FCD5A7 65%, #FFE497 90%)",
+        "rpl-clr-type-primary-contrast": "#FFFFFF",
+        "rpl-clr-type-primary-accessible": "#311B42",
+        "rpl-clr-type-primary-alt-accessible": "#5A4968",
+        "rpl-clr-type-primary-contrast-alpha": "rgba(255, 255, 255, 0.75)",
+        "rpl-clr-type-accent-contrast": "#1A1A1A",
+        "rpl-clr-type-focus-contrast": "#1A1A1A"
+      },
+      "featureFlags": {
+        "prodMeasurementID": "G-0N8H6LF759",
+        "uatMeasurementID": "G-2F2SMKQZL8",
+        "gtmContainerID": "GTM-P9FDVVFW",
+        "footerTheme": "neutral",
+        "contentCollectionSearchConnector": "elasticsearch"
+      }
+    }
+  },
+  "meta": {
+    "url": "/early-learning-victoria",
+    "langcode": "en",
+    "description": "We're opening 50 new early learning and childcare centres across Victoria. These will be government owned and operated, providing long day care and integrated kinder programs.",
+    "additional": [
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "title",
+          "content": "Early Learning Victoria | l"
+        }
+      },
+      {
+        "tag": "link",
+        "attributes": {
+          "rel": "canonical",
+          "href": "https://content.vic.gov.au/early-learning-victoria"
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "property": "og:locale",
+          "content": "en-AU"
+        }
+      }
+    ],
+    "keywords": "",
+    "image": null
+  },
+  "showContentRating": true,
+  "summary": "Learn about Early Learning Victoria, including details on the 50 new government-owned and operated early learning and childcare centres, enrolment information and job opportunities.",
+  "showHeroAcknowledgement": false,
+  "showInPageNav": false,
+  "showHeroImageCaption": false,
+  "showTopicTags": true,
+  "inPageNavHeadingLevel": "h2",
+  "background": "alt",
+  "header": {
+    "title": "Early Learning Victoria",
+    "summary": "We're opening 50 new early learning and childcare centres across Victoria. These will be government owned and operated, providing long day care and integrated kinder programs.",
+    "links": {
+      "title": "",
+      "items": [],
+      "more": null
+    },
+    "backgroundImageCaption": null,
+    "theme": "default",
+    "logoImage": null,
+    "backgroundImage": {
+      "src": "/placeholders/medium.png",
+      "alt": "",
+      "title": "",
+      "width": 10667,
+      "height": 4500,
+      "focalPoint": {
+        "x": 5334,
+        "y": 2520
+      }
+    },
+    "cornerTop": {
+      "src": "/placeholders/medium.png",
+      "alt": "",
+      "title": "",
+      "width": 804,
+      "height": 491,
+      "focalPoint": {
+        "x": 402,
+        "y": 246
+      }
+    },
+    "cornerBottom": {
+      "src": "/placeholders/medium.png",
+      "alt": "",
+      "title": "",
+      "width": 804,
+      "height": 284,
+      "focalPoint": {
+        "x": 402,
+        "y": 142
+      }
+    },
+    "primaryAction": null,
+    "secondaryAction": null,
+    "secondaryActionLabel": null
+  },
+  "primaryCampaign": {
+    "title": "What do Early Learning Victoria centres offer?",
+    "summaryHtml": "<ul><li>Long day care</li><li>Three-Year-Old Kindergarten</li><li>Four-Year-Old Kindergarten, transitioning to Pre-Prep in line with state-wide rollout timeframes for each location (which includes Murtoa in 2025)</li><li>Many centres will also provide infrastructure to support services such as maternal and child health, allied health, and playgroups.</li></ul>",
+    "cta": {
+      "text": "Learn more",
+      "url": "/programs"
+    },
+    "image": {
+      "src": "/placeholders/medium.png",
+      "alt": "An architectural render showing an external view of the centre. It's a low-set, modern-style building surrounded by gardens and trees.",
+      "title": "",
+      "width": 1285,
+      "height": 720,
+      "focalPoint": {
+        "x": 643,
+        "y": 360
+      }
+    },
+    "imageCaption": null
+  },
+  "secondaryCampaign": null,
+  "headerComponents": [
+    {
+      "uuid": "27b0781b-2533-40ba-a9da-28fefc41d83d",
+      "component": "TideLandingPageIntroBanner",
+      "id": "3434418",
+      "props": {
+        "title": "Get started",
+        "withIcon": false,
+        "links": {
+          "title": null,
+          "items": [
+            {
+              "text": "How to enrol",
+              "url": "/enrol"
+            },
+            {
+              "text": "Work with us",
+              "url": "/jobs"
+            }
+          ],
+          "type": "button",
+          "more": null
+        },
+        "html": "<p>Are you ready to enrol your child or interested in joining our team? Learn how to apply or express your interest today.</p>"
+      }
+    },
+    {
+      "uuid": "27b0781b-2533-40ba-a9da-28fefc41d83e",
+      "component": "TideLandingPageMapSearchBanner",
+      "id": "3434418",
+      "props": {
+        "title": "Search heading",
+        "intro": "Introduction text",
+        "searchPlaceholder": "Search for a centre",
+        "image": "/placeholders/mapbg.png"
+      }
+    }
+  ],
+  "bodyComponents": [
+    {
+      "uuid": "3fab0fb6-e3b6-43a8-8a26-10d9495a2b65",
+      "component": "TideLandingPageNavCard",
+      "id": "3434405",
+      "props": {
+        "displayStyle": "noImage",
+        "title": "About us",
+        "summary": "Early Learning Victoria is committed to high-quality early childhood education and care, fostering inclusive environments where children thrive.",
+        "image": {
+          "src": "/placeholders/medium.png",
+          "focalPoint": {
+            "x": 1276,
+            "y": 718
+          },
+          "alt": "A simple illustration of a purple leadbeater possum curled around a yellow star.",
+          "width": 2552,
+          "height": 1435,
+          "title": ""
+        },
+        "url": "/about",
+        "showMetadata": false,
+        "metadata": {
+          "dateStart": "",
+          "dateEnd": "",
+          "topic": "Education",
+          "contentType": "Landing page",
+          "fvRecommendationStatus": "",
+          "inductionYear": "",
+          "isGrantOngoing": false
+        }
+      }
+    },
+    {
+      "uuid": "ef6687c6-170b-4c6c-affd-1d3792b049e8",
+      "component": "TideLandingPageNavCard",
+      "id": "3434406",
+      "props": {
+        "displayStyle": "noImage",
+        "title": "Centre locations",
+        "summary": "Watch this page for more announcements, including sites for future centres.",
+        "image": null,
+        "url": "/centre-locations",
+        "showMetadata": false,
+        "metadata": {
+          "dateStart": "",
+          "dateEnd": "",
+          "topic": "Education",
+          "contentType": "Landing page",
+          "fvRecommendationStatus": "",
+          "inductionYear": "",
+          "isGrantOngoing": false
+        }
+      }
+    },
+    {
+      "uuid": "c9d04abf-fbad-4c3f-8d3f-dd3b9fd4f67c",
+      "component": "TideLandingPageCardCarousel",
+      "id": "3434411",
+      "title": "Centres opening in 2025",
+      "props": {
+        "items": [
+          {
+            "type": "promo",
+            "title": "Eaglehawk North Primary School Early Learning and Childcare Centre (interim name)",
+            "url": "/eaglehawk-north-primary-school-early-learning-childcare-centre",
+            "image": {
+              "src": "/placeholders/medium.png",
+              "alt": "An architectural render showing an external view of the Early Learning and Childcare Centre. It's a low-set, modern-style building surrounded by gardens and trees.",
+              "title": "Exterior view of the future centre at Eaglehawk",
+              "width": 2970,
+              "height": 1664,
+              "focalPoint": {
+                "x": 1841,
+                "y": 832
+              }
+            },
+            "meta": {
+              "topic": null,
+              "date": null
+            },
+            "summary": "Our centre in Bendigo will have space for up to 102 local children each day, with long day care, Three- and Four-Year-Old Kindergarten."
+          },
+          {
+            "type": "promo",
+            "title": "Moomba Park Primary School Early Learning and Childcare Centre (interim name)",
+            "url": "/moomba-park-primary-school-early-learning-childcare-centre",
+            "image": {
+              "src": "/placeholders/medium.png",
+              "alt": "An architectural render showing an external view of the centre. It's a low-set, modern-style building surrounded by gardens and trees.",
+              "title": "",
+              "width": 1285,
+              "height": 720,
+              "focalPoint": {
+                "x": 643,
+                "y": 360
+              }
+            },
+            "meta": {
+              "topic": null,
+              "date": null
+            },
+            "summary": "Our centre in Fawkner will have space for up to 130 local children each day, with long day care, Three- and Four-Year-Old Kindergarten."
+          },
+          {
+            "type": "promo",
+            "title": "Murtoa College Early Learning and Childcare Centre (interim name)",
+            "url": "/murtoa-college-early-learning-childcare-centre",
+            "image": {
+              "src": "/placeholders/medium.png",
+              "alt": " An architectural render showing an external view of the Early Learning and Childcare Centre. It's a low-set, modern-style building surrounded by gardens and trees.",
+              "title": "",
+              "width": 1285,
+              "height": 720,
+              "focalPoint": {
+                "x": 643,
+                "y": 360
+              }
+            },
+            "meta": {
+              "topic": null,
+              "date": null
+            },
+            "summary": "Our centre in Murtoa will have space for up to 57 local children each day, with long day care, Three-Year-Old Kindergarten and Pre-Prep programs."
+          },
+          {
+            "type": "promo",
+            "title": "Sunshine Primary School Early Learning and Childcare Centre (interim name)",
+            "url": "/sunshine-primary-school-early-learning-childcare-centre",
+            "image": {
+              "src": "/placeholders/medium.png",
+              "alt": "An architectural render showing an external view of the Early Learning and Childcare Centre. It's a low-set, modern-style building surrounded by gardens and trees.",
+              "title": "",
+              "width": 1285,
+              "height": 720,
+              "focalPoint": {
+                "x": 643,
+                "y": 360
+              }
+            },
+            "meta": {
+              "topic": null,
+              "date": null
+            },
+            "summary": "Our centre in Sunshine will have space for up to 130 local children each day, with long day care, Three- and Four-Year-Old Kindergarten."
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "3b4b677e-0098-44f8-8ff1-62e34275655b",
+      "component": "TideLandingPageContent",
+      "id": "3434412",
+      "internalAnchors": [
+        {
+          "text": "Getting started",
+          "id": "getting-started",
+          "type": "h2"
+        }
+      ],
+      "props": {
+        "html": "<h2 id=\"getting-started\">Getting started</h2>"
+      }
+    },
+    {
+      "uuid": "b0f28aca-e6fd-4609-b52a-a9e4e21cf112",
+      "component": "TideLandingPagePromoCard",
+      "id": "3434413",
+      "layout": "card",
+      "props": {
+        "displayStyle": "noImage",
+        "title": "How to enrol",
+        "summary": "Learn more about the Early Learning Victoria enrolment and application process.",
+        "image": null,
+        "url": "/enrol",
+        "showMetadata": false,
+        "metadata": {
+          "dateStart": "",
+          "dateEnd": "",
+          "topic": "Education",
+          "contentType": "Landing page",
+          "fvRecommendationStatus": "",
+          "inductionYear": "",
+          "isGrantOngoing": false
+        }
+      }
+    },
+    {
+      "uuid": "a16ffc51-8052-43fb-ac47-f446c9e45b5b",
+      "component": "TideLandingPagePromoCard",
+      "id": "3434414",
+      "layout": "card",
+      "props": {
+        "displayStyle": "noImage",
+        "title": "Paying fees",
+        "summary": "Discover how fees work at Early Learning Victoria centres and what government fee assistance is available.",
+        "image": null,
+        "url": "/fees",
+        "showMetadata": false,
+        "metadata": {
+          "dateStart": "",
+          "dateEnd": "",
+          "topic": "Education",
+          "contentType": "Landing page",
+          "fvRecommendationStatus": "",
+          "inductionYear": "",
+          "isGrantOngoing": false
+        }
+      }
+    },
+    {
+      "uuid": "51a792fb-3e12-4428-aa56-b31544d271a0",
+      "component": "TideLandingPagePromoCard",
+      "id": "3434415",
+      "layout": "card",
+      "props": {
+        "displayStyle": "noImage",
+        "title": "Work with us",
+        "summary": "Join Early Learning Victoria and make an impact for children and families enrolled in these new centres.",
+        "image": null,
+        "url": "/jobs",
+        "showMetadata": false,
+        "metadata": {
+          "dateStart": "",
+          "dateEnd": "",
+          "topic": "Education",
+          "contentType": "Landing page",
+          "fvRecommendationStatus": "",
+          "inductionYear": "",
+          "isGrantOngoing": false
+        }
+      }
+    }
+  ]
+}

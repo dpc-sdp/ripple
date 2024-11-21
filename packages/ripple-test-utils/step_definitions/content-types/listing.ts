@@ -356,7 +356,7 @@ Then(
 )
 
 When(`I toggle the search listing filters section`, () => {
-  cy.get(`button`).contains('Refine search').as('refineBtn')
+  cy.get(`button`).contains('Filters').as('refineBtn')
   cy.wait(300)
   cy.get('@refineBtn').click()
 })
@@ -374,15 +374,15 @@ Then(
   (filterCount: number) => {
     if (filterCount === 0) {
       cy.get(`button`)
-        .contains('Refine search')
+        .contains('Filters')
         .should(($div) => {
-          expect($div.text().trim()).equal(`Refine search`)
+          expect($div.text().trim()).equal(`Filters`)
         })
     } else {
       cy.get(`button`)
-        .contains('Refine search')
+        .contains('Filters')
         .should(($div) => {
-          expect($div.text().trim()).equal(`Refine search (${filterCount})`)
+          expect($div.text().trim()).equal(`Filters (${filterCount})`)
         })
     }
   }

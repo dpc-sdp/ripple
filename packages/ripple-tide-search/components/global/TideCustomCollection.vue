@@ -451,7 +451,7 @@ const numAppliedFilters = computed(() => {
 })
 
 const toggleFiltersLabel = computed(() => {
-  let label = 'Refine search'
+  let label = 'Filters'
 
   return numAppliedFilters.value
     ? `${label} (${numAppliedFilters.value})`
@@ -625,7 +625,6 @@ const locationOrGeolocation = computed(() => {
         <div class="tide-search-refine-wrapper">
           <RplSearchBarRefine
             v-if="
-              !searchListingConfig?.showFiltersOnLoad &&
               !searchListingConfig?.showFiltersOnly &&
               userFilters &&
               userFilters.length > 0

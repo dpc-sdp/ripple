@@ -112,7 +112,7 @@ const filtersExpanded = ref(false)
 const submitFiltersLabel = 'Apply search filters'
 
 const toggleFiltersLabel = computed(() => {
-  let label = 'Refine search'
+  let label = 'Filters'
 
   return searchState.value?.filters?.length
     ? `${label} (${searchState.value.filters.length})`

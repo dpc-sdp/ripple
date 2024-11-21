@@ -122,7 +122,7 @@ Then(
 When(`I toggle the content collection filters`, () => {
   cy.get(`[data-component-type="TideCustomCollection"]`)
     .find(`button`)
-    .contains('Refine search')
+    .contains('Filters')
     .click()
 })
 

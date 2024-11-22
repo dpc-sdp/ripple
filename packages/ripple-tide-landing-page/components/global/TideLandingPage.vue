@@ -40,6 +40,33 @@
         class="rpl-col-12"
         :fullWidth="true"
       />
+      <!-- <TideLandingPageMapSearchBanner
+        title="asdasd"
+        intro="asdasd"
+        image="/placeholders/mapbg.png"
+        searchUrl="/test-csl-map"
+      /> -->
+      <TideLandingPageMapSearchBanner
+        title="asdasd"
+        intro="asdasd"
+        image="/placeholders/mapbg.png"
+        searchUrl="/know-your-council"
+        v-bind="{
+          controlMapZooming: true,
+          label: 'Search by suburb or postcode',
+          placeholder: 'Enter suburb or poasdasdstcode',
+          onLocationSelectOverrideFn: 'kycLocationSelectFn',
+          suggestionsConfig: {
+            function: 'rplAddressSuggestionsFn',
+            args: {
+              maxLGASuggestions: 5,
+              maxAddressSuggestions: 10,
+              lgaIndex: 'budget-areas-data',
+              addressZoomLevel: 12
+            }
+          }
+        }"
+      />
       <TideLandingPagePrimaryCampaignBanner
         v-if="page.primaryCampaign"
         :campaign="page.primaryCampaign"

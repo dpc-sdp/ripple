@@ -9,7 +9,10 @@
   "config": {
     "searchListingConfig": {
       "index": "suggestion_index",
-      "resultsPerPage": 10
+      "resultsPerPage": 10,
+      "suggestions": {
+        "enabled": true
+      }
     },
     "queryConfig": {
       "multi_match": {

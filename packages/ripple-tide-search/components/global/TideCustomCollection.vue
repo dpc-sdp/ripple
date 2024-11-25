@@ -21,7 +21,6 @@ interface Props {
   id: string
   title?: string
   introText?: string
-  autocompleteQuery?: boolean
   searchListingConfig?: TideSearchListingConfig['searchListingConfig']
   sortOptions?: TideSearchListingConfig['sortOptions']
   customQueryConfig?: TideSearchListingConfig['customQueryConfig']
@@ -42,7 +41,6 @@ const props = withDefaults(defineProps<Props>(), {
   title: 'Search',
   introText: '',
   index: undefined,
-  autocompleteQuery: false,
   globalFilters: () => [],
   userFilters: () => [],
   customQueryConfig: undefined,
@@ -189,6 +187,8 @@ const {
   isBusy,
   searchError,
   getSuggestions,
+  clearSuggestions,
+  suggestions,
   searchTerm,
   results,
   filterForm,
@@ -391,15 +391,19 @@ const handleFilterReset = (event: rplEventPayload) => {
 
 const handleUpdateSearchTerm = (term: string) => {
   searchTerm.value.q = term
-  getDebouncedSuggestions()
+  getDebouncedSuggestions(term)
 }
 
-const getDebouncedSuggestions = useDebounceFn(() => {
-  if (
-    props.autocompleteQuery &&
-    props.searchListingConfig?.suggestions?.enabled !== false
-  ) {
-    getSuggestions()
+const getDebouncedSuggestions = useDebounceFn((term: string) => {
+  if (props.searchListingConfig?.suggestions?.enabled) {
+    const minCharacters =
+      props.searchListingConfig?.suggestions?.minCharacters || 3
+
+    if (term?.length >= minCharacters) {
+      getSuggestions()
+    } else if (suggestions.value?.length) {
+      clearSuggestions()
+    }
   }
 }, 300)
 
@@ -447,7 +451,7 @@ const numAppliedFilters = computed(() => {
 })
 
 const toggleFiltersLabel = computed(() => {
-  let label = 'Refine search'
+  let label = 'Filters'
 
   return numAppliedFilters.value
     ? `${label} (${numAppliedFilters.value})`
@@ -584,6 +588,7 @@ const locationOrGeolocation = computed(() => {
           :input-label="searchListingConfig?.labels?.submit"
           :inputValue="searchTerm"
           :placeholder="searchListingConfig?.labels?.placeholder"
+          :suggestions="suggestions"
           :global-events="false"
           :handle-submit="handleSearchSubmit"
           :handle-update="handleUpdateSearch"
@@ -595,6 +600,7 @@ const locationOrGeolocation = computed(() => {
           :input-label="searchListingConfig.labels?.submit"
           :inputValue="searchTerm.q"
           :placeholder="searchListingConfig.labels?.placeholder"
+          :suggestions="suggestions"
           :global-events="false"
           :maxlength="128"
           @submit="handleSearchSubmit"
@@ -619,7 +625,6 @@ const locationOrGeolocation = computed(() => {
         <div class="tide-search-refine-wrapper">
           <RplSearchBarRefine
             v-if="
-              !searchListingConfig?.showFiltersOnLoad &&
               !searchListingConfig?.showFiltersOnly &&
               userFilters &&
               userFilters.length > 0

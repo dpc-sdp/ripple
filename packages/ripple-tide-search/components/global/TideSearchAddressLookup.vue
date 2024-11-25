@@ -83,6 +83,7 @@ interface Props {
     args: Record<string, any>
   }
   onLocationSelectOverrideFn?: string | null
+  bboxZoomPadding?: number
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -97,7 +98,8 @@ const props = withDefaults(defineProps<Props>(), {
   mapResultsFnName: '',
   isGettingLocation: false,
   userGeolocation: null,
-  onLocationSelectOverrideFn: null
+  onLocationSelectOverrideFn: null,
+  bboxZoomPadding: 100
 })
 
 const results = ref([])
@@ -177,24 +179,25 @@ const onUpdate = useDebounceFn(async (q: string): Promise<void> => {
   }
 }, 300)
 
-// Center the map on the location when the map instance is ready
-// this is for tab switching only
+// Center the map on the correct location on first load or when switching back to the map tab
+//
+// Wait until both:
+// - the openlayers map instance has been created
+// - the map results have loaded
+// Then listen for the 'rendercomplete' event is fired by openlayers before centering
 watch(
-  () => rplMapRef.value,
-  (newVal, oldVal) => {
-    if (!oldVal && newVal && props.resultsloaded) {
-      // We don't animate the zoom here, because it's the initial load or a tab change
-      centerMapOnLocation(newVal, props.inputValue, false)
+  [() => rplMapRef.value, () => props.resultsloaded],
+  ([newMapRef, newLoaded], [oldMapRef, oldLoaded]) => {
+    const stateHasChanged = newMapRef !== oldMapRef || newLoaded !== oldLoaded
+
+    if (!stateHasChanged) {
+      return
     }
-  }
-)
-// we also watch for the map search results to be loaded before centering
-// this is for first load
-watch(
-  () => props.resultsloaded,
-  (newVal, oldVal) => {
-    if (!oldVal && newVal && rplMapRef.value) {
-      centerMapOnLocation(rplMapRef.value, props.inputValue, false)
+
+    if (newMapRef && newLoaded) {
+      rplMapRef.value.once('rendercomplete', function () {
+        centerMapOnLocation(newMapRef, props.inputValue, false)
+      })
     }
   }
 )
@@ -283,7 +286,7 @@ async function centerMapOnLocation(
       )
 
       fitExtent(map, bbox, deadSpace.value, {
-        padding: 100,
+        padding: props.bboxZoomPadding,
         animationDuration: animate ? 800 : 0
       })
     }

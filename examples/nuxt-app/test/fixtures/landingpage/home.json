@@ -14,6 +14,24 @@
     {
       "text": "Demo Tag",
       "url": "/tags/demo-tag"
+    },
+    {
+      "text": "Another Demo Tag",
+      "url": "/tags/another-demo-tag"
+    }
+  ],
+  "topic": {
+    "text": "Demo Topic",
+    "url": "/topic/demo-topic"
+  },
+  "tags": [
+    {
+      "text": "Demo Tag",
+      "url": "/tags/demo-tag"
+    },
+    {
+      "text": "Another Demo Tag",
+      "url": "/tags/another-demo-tag"
     }
   ],
   "sidebar": {

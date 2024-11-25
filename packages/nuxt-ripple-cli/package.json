@@ -1,7 +1,7 @@
 {
   "name": "@dpc-sdp/nuxt-ripple-cli",
   "description": "A CLI for simplifying common setup and scaffolding tasks",
-  "version": "2.20.0",
+  "version": "2.21.0",
   "license": "Apache-2.0",
   "repository": "https://github.com/dpc-sdp/ripple-framework",
   "main": "./dist/index.js",
@@ -21,11 +21,9 @@
     "copyfiles": "^2.4.1",
     "enquirer": "^2.3.6",
     "hygen": "^6.2.11",
-    "jsonapi-parse": "^2.0.1",
     "mockttp": "^3.9.1",
     "npm-check-updates": "^16.10.16",
     "object-to-argv": "^2.0.0",
-    "rfg-api": "^0.5.3",
     "rimraf": "^4.4.1",
     "ts-node": "^10.7.0"
   }

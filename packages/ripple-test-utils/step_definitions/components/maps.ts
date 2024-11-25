@@ -287,3 +287,7 @@ Given('the map height is set to {int}', (height: number) => {
 Then('the map height is {int}', (height: number) => {
   cy.get('.rpl-map__map').should('have.css', 'height', `${height}px`)
 })
+
+Then('the map is loaded', () => {
+  cy.get('.ol-map-fully-loaded', { timeout: 12000 }).should('be.visible')
+})

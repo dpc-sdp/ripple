@@ -1,5 +1,7 @@
 import {
   map as topicTagsMapping,
+  tagMap as tagMapping,
+  topicMap as topicMapping,
   includes as topicTagsIncludes
 } from './topic-tags/topic-tags-mapping.js'
 import {
@@ -68,6 +70,8 @@ export const tidePageBaseMapping = ({
     sidebar: sidebar,
     status: 'moderation_state',
     topicTags: topicTagsMapping,
+    tags: (src) => tagMapping(src?.field_tags),
+    topic: (src) => topicMapping(src?.field_topic),
     siteSection: async (src) => {
       // With the correct site/section id, we can now choose the correct site data from 'field_node_site'
       const siteData = getSiteSection(src._sectionId, src)
@@ -83,7 +87,6 @@ export const tidePageBaseMapping = ({
           showQuickExit: getBoolFromString(
             siteData?.field_show_exit_site_specific
           ),
-          theme: getSiteKeyValues('field_site_theme_values', siteData) || {},
           featureFlags:
             getSiteKeyValues('field_site_feature_flags', siteData) || {}
         }

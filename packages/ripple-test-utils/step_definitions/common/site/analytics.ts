@@ -68,6 +68,18 @@ Then(
   }
 )
 
+Then('the dataLayer should have the following tags', (dataTable: DataTable) => {
+  const table = dataTable.hashes()
+
+  cy.window().then((window) => {
+    const event = window.dataLayer?.find((i) => i.event === 'routeChange')
+
+    table.forEach((row, index) => {
+      expect(event?.content_tags[index]).to.contain(row.name)
+    })
+  })
+})
+
 Then(
   'the dataLayer form data for {string} should include the following values',
   (name: string, dataTable: DataTable) => {

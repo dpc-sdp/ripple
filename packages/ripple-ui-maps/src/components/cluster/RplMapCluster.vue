@@ -12,6 +12,7 @@ import CircleStyle from 'ol/style/Circle'
 import Fill from 'ol/style/Fill'
 import Stroke from 'ol/style/Stroke'
 import markerIconDefaultSrc from './../feature-pin/icon-pin.svg?url'
+import type { Options } from 'ol/style/Circle'
 
 interface Props {
   pinStyle: Function
@@ -40,11 +41,21 @@ const overrideStyleFunction = (feature, style) => {
   }
 
   if (clusteredFeatures && clusteredFeatures.length > 1) {
-    // 0.5 scale pixel size
-    style.setImage(createCircleStyle({ radius: 20 }))
+    let circleRadius = 20 // 0.5 scale pixel size
+    // Increase circle size for larger clusters
+    if (size > 99) {
+      circleRadius = 22
+    }
+    if (size > 999) {
+      circleRadius = 24
+    }
+
+    style.setImage(createCircleStyle({ radius: circleRadius }))
     style.getText().setText(size.toString())
     style.getText().setStroke(undefined)
-    style.getText().setFont('12px VIC-Bold, Arial, Helvetica, sans-serif')
+    style.getText().setFont(`700 1.6rem VIC, Arial, Helvetica, sans-serif`)
+    // text is rendered slightly off center in chrome and firefox, this is a middle ground so it's decent in all browsers
+    style.getText().setOffsetY(0.25)
   } else if (Array.isArray(clusteredFeatures) && clusteredFeatures[0]) {
     const icon = props.pinStyle(
       clusteredFeatures[0].getProperties(),

@@ -77,7 +77,7 @@ const props = withDefaults(defineProps<Props>(), {
   },
   noresults: false,
   getFeatureTitle: (feature: any) => (feature ? feature.title : ''),
-  clusteringDistance: 100
+  clusteringDistance: 120
 })
 
 const zoom = ref(props.initialZoom)

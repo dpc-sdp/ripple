@@ -11,7 +11,8 @@
   },
   "dependencies": {
     "@dpc-sdp/ripple-ui-core": "workspace:*",
-    "@gtm-support/core": "^2.0.0"
+    "@gtm-support/core": "^2.0.0",
+    "@newrelic/browser-agent": "^1.273.0"
   },
   "devDependencies": {
     "@dpc-sdp/nuxt-ripple": "workspace:*",

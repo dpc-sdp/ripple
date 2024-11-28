@@ -1,12 +1,12 @@
 declare global {
   interface Window {
     newrelic?: {
-      noticeError: (error: Error) => void
+      noticeError: (error: any) => void
     }
   }
 }
 
-const trackError = (error: Error) => {
+const trackError = (error: any) => {
   if (window?.newrelic?.noticeError) {
     window.newrelic.noticeError(error)
   }

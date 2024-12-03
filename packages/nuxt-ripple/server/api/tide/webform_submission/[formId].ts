@@ -2,6 +2,7 @@
 import { defineEventHandler, H3Event } from 'h3'
 import { createHandler, logger } from '@dpc-sdp/ripple-tide-api'
 import { createProxyMiddleware } from 'http-proxy-middleware'
+import verifyCaptcha from '../../../utils/verifyCaptcha'
 
 export const createWebformProxyHandler = async (event: H3Event) => {
   const { public: config } = useRuntimeConfig()

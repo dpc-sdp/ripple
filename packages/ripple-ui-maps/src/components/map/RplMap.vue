@@ -396,6 +396,7 @@ const fullScreenLabel = computed(() =>
           :position="popup.position"
           positioning="top-center"
           :stopEvent="true"
+          :offset="[0, popup.isArea ? 6 : 8]"
         >
           <RplMapPopUp
             :is-open="popup.isOpen"

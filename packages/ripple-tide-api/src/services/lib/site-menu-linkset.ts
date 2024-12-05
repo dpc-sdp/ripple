@@ -1,3 +1,5 @@
+import { stripSiteId } from '../../utils/stripSiteId.js'
+
 type LinksetMenu = {
   href: string
   title: string
@@ -41,7 +43,7 @@ const processNode = (linkset: LinksetMenu[], parentKey: string, level = 1) => {
     if (level === 1 || nodeKey.startsWith(parentKey)) {
       const values: ProcessedMenu = {
         text: link.title,
-        url: link.href.replace(/\/site-(\d+)/, ''),
+        url: stripSiteId(link.href),
         id: nodeKey,
         parent: level === 1 ? null : parentKey
       }

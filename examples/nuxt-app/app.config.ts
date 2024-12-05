@@ -207,19 +207,12 @@ export default defineAppConfig({
         }
       },
       mapResultHooks: {
-        exampleMapResultsHook: (map, results, locationQuery) => {
-          if (!map || !results || !locationQuery) return
+        exampleMapResultsHook: (map, results) => {
+          if (!map || !results) return
 
-          centerMap(
-            map,
-            [
-              parseFloat(locationQuery?.center[0]),
-              parseFloat(locationQuery?.center[1])
-            ],
-            13,
-            {},
-            'popover'
-          )
+          map.getView().animate({
+            zoom: 8
+          })
         }
       }
     }

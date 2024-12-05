@@ -82,7 +82,7 @@ Feature: Custom collection map component
     Given the "/api/tide/elasticsearch/elasticsearch_index_develop_node/_search" network request is stubbed with fixture "/maps/simple-map-results" and status 200 as alias "searchReq"
     Given I visit the page "/map"
     And the map is loaded
-    When I click the map component at coordinates 606 424
+    When I click the map component at coordinates 606 442
     When I wait 2 seconds
     Then the map matches the image snapshot "map-popup-type-sidebar-with-sidepanel-double-pin"
 
@@ -111,7 +111,7 @@ Feature: Custom collection map component
     And the map is loaded
     Then I click the map component at coordinates 545 385
     And I wait 1 seconds
-    Then I click the map component at coordinates 660 320
+    Then I click the map component at coordinates 650 320
     And I wait 2 seconds
     Then the map matches the image snapshot "map-popover-max-zoom-cluster"
 
@@ -121,8 +121,9 @@ Feature: Custom collection map component
     And a custom map results hook called "exampleMapResultsHook" is used
     Then the page endpoint for path "/map" returns the loaded fixture
     And the "/api/tide/elasticsearch/elasticsearch_index_develop_node/_search" network request is stubbed with fixture "/maps/simple-map-results" and status 200 as alias "searchReq"
-    Given I visit the page "/map?location[center]=15809362.126037747&location[center]=-4543542.166789566"
+    Given I visit the page "/map"
     And the map is loaded
+    When I wait 2 seconds
     Then the map matches the image snapshot "map-initial-location-results-hook"
 
   @mockserver

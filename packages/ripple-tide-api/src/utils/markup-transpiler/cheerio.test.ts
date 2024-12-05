@@ -3,6 +3,7 @@ import markupTranspiler from './index'
 
 const markup = {
   table: `<table>
+  <colgroup><col data-width="40%"><col data-width="60%"></colgroup>
   <tbody>
     <tr><th>Fname</th><th>Lname</th></tr>
     <tr><td>Joe</td><td>Cool</td></tr>
@@ -26,6 +27,7 @@ const markup = {
 
 const fixed = {
   table: `<div class="rpl-table"><div class="rpl-table__scroll-container rpl-u-focusable-outline--visible" tabindex="0"><table>
+  <colgroup><col style="width: 40%"><col style="width: 60%"></colgroup>
   <tbody>
     <tr><th>Fname</th><th>Lname</th></tr>
     <tr><td>Joe</td><td>Cool</td></tr>

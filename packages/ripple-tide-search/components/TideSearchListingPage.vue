@@ -30,8 +30,6 @@ interface Props {
   id?: string
   title: string
   introText?: string
-  autocompleteQuery?: boolean
-  autocompleteMinimumCharacters?: number
   searchListingConfig?: TideSearchListingConfig['searchListingConfig']
   sortOptions?: TideSearchListingConfig['sortOptions']
   customQueryConfig?: TideSearchListingConfig['customQueryConfig']
@@ -51,8 +49,6 @@ const props = withDefaults(defineProps<Props>(), {
   id: 'tide-search-listing',
   title: 'Search',
   introText: '',
-  autocompleteQuery: true,
-  autocompleteMinimumCharacters: 3,
   globalFilters: () => [],
   userFilters: () => [],
   customQueryConfig: undefined,
@@ -280,11 +276,11 @@ const handleUpdateSearchTerm = (term: string) => {
 }
 
 const getDebouncedSuggestions = useDebounceFn((term: string) => {
-  if (
-    props.autocompleteQuery &&
-    props.searchListingConfig?.suggestions?.enabled !== false
-  ) {
-    if (term?.length >= props.autocompleteMinimumCharacters) {
+  if (props.searchListingConfig?.suggestions?.enabled) {
+    const minCharacters =
+      props.searchListingConfig?.suggestions?.minCharacters || 3
+
+    if (term?.length >= minCharacters) {
       getSuggestions()
     } else if (suggestions.value?.length) {
       clearSuggestions()
@@ -336,7 +332,7 @@ const numAppliedFilters = computed(() => {
 })
 
 const toggleFiltersLabel = computed(() => {
-  let label = 'Refine search'
+  let label = 'Filters'
 
   return numAppliedFilters.value
     ? `${label} (${numAppliedFilters.value})`
@@ -423,7 +419,6 @@ watch(
           </template>
           <RplSearchBarRefine
             v-if="
-              !searchListingConfig?.showFiltersOnLoad &&
               !searchListingConfig?.showFiltersOnly &&
               userFilters &&
               userFilters.length > 0

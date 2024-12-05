@@ -32,6 +32,8 @@ export interface IRplAnalyticsEventPayload {
   status_code?: number
   content_type?: string
   content_status?: string
+  content_topic?: string
+  content_tags?: string[]
   search_term?: string
   site_section?: string
   publication_name?: string

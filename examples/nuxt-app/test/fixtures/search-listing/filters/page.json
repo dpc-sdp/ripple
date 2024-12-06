@@ -261,6 +261,58 @@
           "min": "2024-07-01",
           "max": "2084-06-30"
         }
+      },
+      {
+        "id": "singleSearchDropdownFilter",
+        "component": "TideSearchFilterDropdown",
+        "filter": {
+          "type": "term",
+          "value": "singleSearchDropdownFilter.keyword",
+          "multiple": false
+        },
+        "aggregations": {
+          "field": "singleSearchDropdownFilter",
+          "source": "taxonomy"
+        },
+        "props": {
+          "id": "singleSearchDropdownFilter",
+          "label": "Single search dropdown filter",
+          "placeholder": "Select a fruit",
+          "multiple": false,
+          "searchable": true,
+          "options": [
+            { "id": "Apple", "value": "Apple", "label": "Apple" },
+            { "id": "Banana", "value": "Banana", "label": "Banana" },
+            { "id": "Orange", "value": "Orange", "label": "Orange" },
+            { "id": "Mango", "value": "Mango", "label": "Mango" },
+            { "id": "Pineapple", "value": "Pineapple", "label": "Pineapple" }
+          ]
+        }
+      }, {
+        "id": "multiSearchDropdownFilter",
+        "component": "TideSearchFilterDropdown",
+        "filter": {
+          "type": "term",
+          "value": "multiSearchDropdownFilter.keyword"
+        },
+        "aggregations": {
+          "field": "multiSearchDropdownFilter",
+          "source": "taxonomy"
+        },
+        "props": {
+          "id": "multiSearchDropdownFilter",
+          "label": "Multi search dropdown filter",
+          "placeholder": "Select a vegetable",
+          "multiple": true,
+          "searchable": true,
+          "options": [
+            { "id": "Carrot", "value": "Carrot", "label": "Carrot" },
+            { "id": "Potato", "value": "Potato", "label": "Potato" },
+            { "id": "Tomato", "value": "Tomato", "label": "Tomato" },
+            { "id": "Onion", "value": "Onion", "label": "Onion" },
+            { "id": "Cabbage", "value": "Cabbage", "label": "Cabbage" }
+          ]
+        }
       }
     ]
   }

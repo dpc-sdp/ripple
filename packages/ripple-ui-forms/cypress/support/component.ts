@@ -28,6 +28,13 @@ import { mount } from 'cypress/vue'
 import { h } from 'vue'
 import RplFauxForm from './components/RplFauxForm.vue'
 
+Cypress.on('uncaught:exception', (err) => {
+  // https://stackoverflow.com/a/50387233 Ignore Resize observer loop
+  if (err.message.includes('ResizeObserver loop')) {
+    return false
+  }
+})
+
 Cypress.Commands.add('mount', (component, options = {}) => {
   return mount(
     () => {

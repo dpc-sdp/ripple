@@ -210,9 +210,13 @@ export default defineAppConfig({
         exampleMapResultsHook: (map, results) => {
           if (!map || !results) return
 
-          map.getView().animate({
-            zoom: 8
-          })
+          centerMap(
+            map,
+            [15809362.126037747, -4543542.166789566],
+            8,
+            {},
+            'popover'
+          )
         }
       }
     }

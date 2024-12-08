@@ -120,7 +120,7 @@ Feature: Custom collection map component
     Given I load the page fixture with "/maps/basic-page"
     And a custom map results hook called "exampleMapResultsHook" is used
     Then the page endpoint for path "/map" returns the loaded fixture
-    And the "/api/tide/elasticsearch/elasticsearch_index_develop_node/_search" network request is stubbed with fixture "/maps/simple-map-results" and status 200 as alias "searchReq"
+    And the "/api/tide/elasticsearch/elasticsearch_index_develop_node/_search" network request is delayed by 500 milliseconds and stubbed with fixture "/maps/simple-map-results", status 200 and alias "searchReq"
     Given I visit the page "/map"
     And the map is loaded
     When I wait 4 seconds

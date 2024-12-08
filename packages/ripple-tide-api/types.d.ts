@@ -181,7 +181,7 @@ export interface RplTideModuleConfig {
   /**
    * Menu endpoint variant - default single
    */
-  menuEndpoint?: 'single' | 'paginated'
+  menuEndpoint?: 'single' | 'paginated' | 'linkset'
   mapping: {
     /**
      * ContentType Mapping or path to file

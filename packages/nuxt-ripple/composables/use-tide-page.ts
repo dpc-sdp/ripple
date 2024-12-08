@@ -151,7 +151,7 @@ export const useTidePage = async (
     }
 
     if (error && error.value?.statusCode) {
-      useTideError(error.value?.statusCode)
+      useTideError(error.value?.statusCode, error.value)
     }
 
     debugLogger('Page data fetched', {

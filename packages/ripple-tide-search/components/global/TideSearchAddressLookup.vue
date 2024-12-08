@@ -155,6 +155,7 @@ const fetchSuggestions = async (query: string) => {
       props.mapResultsFnName
     )
   } catch (e) {
+    trackError(e)
     console.error(e)
   }
 }

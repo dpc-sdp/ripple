@@ -10,14 +10,9 @@
   border-radius: var(--rpl-border-radius-2);
   border: var(--rpl-border-1) solid var(--rpl-clr-neutral-300);
   margin: 0 auto;
-  margin-top: var(--rpl-sp-1);
 
   @media (--rpl-bp-s) {
     width: 300px;
-  }
-
-  @media (--rpl-bp-m) {
-    margin-top: var(--rpl-sp-2);
   }
 }
 
@@ -108,11 +103,14 @@
   height: auto;
   display: block;
   width: 300px;
+  margin-top: -2px;
+
+  @media (--rpl-bp-m) {
+    margin-top: 0;
+  }
 }
 
 .rpl-map-popup--popover.rpl-map-popup--area {
-  margin-top: var(--rpl-sp-3);
-
   &::before {
     position: absolute;
     content: '';

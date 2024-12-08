@@ -77,7 +77,7 @@ const props = withDefaults(defineProps<Props>(), {
   },
   noresults: false,
   getFeatureTitle: (feature: any) => (feature ? feature.title : ''),
-  clusteringDistance: 100
+  clusteringDistance: 120
 })
 
 const zoom = ref(props.initialZoom)
@@ -396,6 +396,7 @@ const fullScreenLabel = computed(() =>
           :position="popup.position"
           positioning="top-center"
           :stopEvent="true"
+          :offset="[0, popup.isArea ? 6 : 8]"
         >
           <RplMapPopUp
             :is-open="popup.isOpen"

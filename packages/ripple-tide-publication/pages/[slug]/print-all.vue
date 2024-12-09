@@ -33,6 +33,10 @@ const childPages = await useTidePublicationChildren(
   flattenedChildIds
 )
 
+const page = computed(() => {
+  return { title: `Print - ${parentPage.title}` }
+})
+
 onMounted(() => {
   window.print()
 })
@@ -45,8 +49,8 @@ useHead({
 <template>
   <TideBaseLayout
     :site="site"
-    :page="{}"
-    :pageTitle="`Print - ${parentPage.title}`"
+    :page="page"
+    :pageTitle="page.title"
     pageLanguage="en-AU"
   >
     <template #breadcrumbs>

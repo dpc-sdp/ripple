@@ -8,6 +8,7 @@ export default {
 import { useTideSite } from '#imports'
 
 const site = await useTideSite()
+const page = { title: 'Sitemap' }
 
 const toc = computed(() => {
   return site.menus.menuMain.map((item) => {
@@ -22,8 +23,8 @@ const toc = computed(() => {
 <template>
   <TideBaseLayout
     :site="site"
-    :page="{}"
-    :pageTitle="`Sitemap - ${site.name}`"
+    :page="page"
+    :pageTitle="page.title"
     pageLanguage="en-AU"
   >
     <template #aboveBody="{ hasBreadcrumbs }">

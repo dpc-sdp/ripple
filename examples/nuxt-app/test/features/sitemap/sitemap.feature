@@ -16,3 +16,6 @@ Feature: Sitemap
       | Level 4 - Item 2 |
       | Level 2 - Item 2 |
       | Level 1 - Item 2 |
+    And the dataLayer should include the following events
+      | event       | page_title |
+      | routeChange | Sitemap    |

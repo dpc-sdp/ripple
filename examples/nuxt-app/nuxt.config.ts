@@ -31,5 +31,13 @@ export default defineNuxtConfig({
   sourcemap: true,
   devtools: {
     enabled: false
+  },
+  // Vite HMR temporary fix - see https://github.com/nuxt/nuxt/discussions/27779
+  vite: {
+    server: {
+      hmr: {
+        clientPort: 3000
+      }
+    }
   }
 })

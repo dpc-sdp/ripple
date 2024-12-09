@@ -6,6 +6,9 @@ Feature: Site search
     Given the "/api/tide/search/**" network request is delayed by 500 milliseconds and stubbed with fixture "/site/search-response", status 200 and alias "siteSearchReq"
     When I visit the page "/search?q=demo"
     Then the search listing skeleton should display 10 items with the class "tide-search-result-skeleton"
+    And the dataLayer should include the following events
+      | event       | page_title | search_term |
+      | routeChange | Search     | demo        |
 
     When I wait 500 milliseconds
     Then the search listing page should have 5 results

@@ -11,6 +11,7 @@ const appConfig = useAppConfig()
 const runtimeConfig = useRuntimeConfig()
 const site = await useTideSite()
 const featureFlags = useFeatureFlags(site?.featureFlags)
+const page = { title: 'Search' }
 
 const getContentTypes = () => {
   let contentTypes = appConfig.ripple?.search?.contentTypes
@@ -126,7 +127,8 @@ const searchResultsMappingFn = (item): MappedSearchResult<any> => {
 
 <template>
   <TideSearchPage
-    pageTitle="Search"
+    :pageTitle="page.title"
+    :page="page"
     :site="site"
     :searchDriverOptions="searchDriverOptions"
     :filtersConfig="filtersConfig"

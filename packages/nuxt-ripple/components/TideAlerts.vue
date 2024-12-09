@@ -71,6 +71,7 @@ const filteredAlerts = computed(() => {
       return !dismissedIds.includes(alert.alertId)
     })
   } catch (e) {
+    trackError(e)
     console.error(
       'Something went wrong when trying to get dismissed alerts cookie'
     )

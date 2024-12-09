@@ -633,6 +633,7 @@ export default ({
         nextTick(onMapResultsHook.value)
       }
     } catch (error) {
+      trackError(error)
       console.error(error)
       searchError.value = error
     } finally {

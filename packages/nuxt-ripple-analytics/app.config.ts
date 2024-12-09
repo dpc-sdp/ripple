@@ -15,6 +15,13 @@ export default defineAppConfig({
   ripple: {
     analytics: {
       eventListeners
+    },
+    featureFlags: {
+      newRelicBrowserBeacon: 'bam.nr-data.net',
+      newRelicBrowserJSErrorsEnabled: true,
+      newRelicBrowserCookiesEnabled: false,
+      newRelicBrowserDistributedTracingEnabled: false,
+      newRelicBrowserAjaxDenyList: ['bam.nr-data.net']
     }
   }
 })

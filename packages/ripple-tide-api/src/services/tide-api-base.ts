@@ -2,6 +2,7 @@ import HttpClient from './http-client.js'
 import { get } from 'lodash-es'
 import type { RplTideModuleConfig } from './../../types'
 import getHierarchicalMenu from './lib/site-menu.js'
+import getHierarchicalMenuFromLinkset from './lib/site-menu-linkset.js'
 import { ApplicationError, WrappedAxiosError } from '../errors/errors.js'
 import axios from 'axios'
 import { ILogger } from '../logger/logger'
@@ -80,7 +81,32 @@ export default class TideApiBase extends HttpClient {
       return await this.getPaginatedMenu(siteId, menuName, activePath)
     }
 
+    // Transition to linkset menu endpoint
+    if (this.tide?.menuEndpoint === 'linkset') {
+      return await this.getLinksetMenu(menuName, activePath)
+    }
+
     return await this.getCompleteMenu(siteId, menuName, activePath)
+  }
+
+  async getLinksetMenu(menuName: string, activePath: string | null) {
+    try {
+      const { data: menusResponse } = await this.get(
+        `${this.tide.baseUrl.replace('/api/v1', '')}/system/menu/${menuName}/linkset`
+      )
+
+      if (menusResponse?.linkset?.[0]?.item) {
+        return getHierarchicalMenuFromLinkset(
+          menusResponse.linkset[0].item,
+          activePath ?? undefined
+        )
+      }
+    } catch (error) {
+      throw new ApplicationError(
+        `Error fetching menu with name "${menuName}"`,
+        { cause: error }
+      )
+    }
   }
 
   async getCompleteMenu(siteId, menuName, activePath) {

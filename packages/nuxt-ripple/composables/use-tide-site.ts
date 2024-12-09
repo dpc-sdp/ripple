@@ -34,7 +34,7 @@ export const useTideSite = async (id?: number): Promise<TideSiteData> => {
     if (error && error.value?.statusCode) {
       console.log(error)
       console.log('API error fetching site data')
-      useTideError(500)
+      useTideError(500, error.value)
     }
 
     // Section.io cache tags must be set on the response header to invalidate the cache after a change in drupal

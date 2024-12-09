@@ -1,4 +1,7 @@
-export const useTideError = (statusCode: number): void => {
+export const useTideError = (
+  statusCode: number,
+  originalError?: Error
+): void => {
   if (statusCode) {
     switch (statusCode) {
       case 404:
@@ -28,6 +31,10 @@ export const useTideError = (statusCode: number): void => {
         break
 
       default:
+        if (originalError) {
+          trackError(originalError)
+        }
+
         throw createError({
           statusCode: 500,
           statusMessage: 'We have a glitch in our system.',

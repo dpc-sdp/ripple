@@ -20,7 +20,7 @@ export const useWebformSchema = async (
       }
     })
     if (error && error.value?.statusCode) {
-      useTideError(error.value?.statusCode)
+      useTideError(error.value?.statusCode, error.value)
     }
     return data.value
   }

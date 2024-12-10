@@ -207,16 +207,13 @@ export default defineAppConfig({
         }
       },
       mapResultHooks: {
-        exampleMapResultsHook: (map, results, locationQuery) => {
-          if (!map || !results || !locationQuery) return
+        exampleMapResultsHook: (map, results) => {
+          if (!map || !results) return
 
           centerMap(
             map,
-            [
-              parseFloat(locationQuery?.center[0]),
-              parseFloat(locationQuery?.center[1])
-            ],
-            13,
+            [15809362.126037747, -4543542.166789566],
+            8,
             {},
             'popover'
           )

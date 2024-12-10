@@ -26,6 +26,8 @@ const lgaShapeURL = computed(() => {
 
 const defaultStyleFn = (feature: Feature, style: Style) => {
   style.getFill().setColor([255, 255, 255, 0.5])
+
+  return style
 }
 
 const layerIdentifier = 'shapeLayer'

@@ -110,6 +110,7 @@ export function useWebformSubmit(
         window
       )
     } catch (e) {
+      trackError(e)
       console.error(e)
 
       submissionState.value = {
@@ -144,6 +145,7 @@ export function useWebformSubmit(
         }
       }
     } catch (error) {
+      trackError(error)
       console.error(error)
 
       submissionState.value = {

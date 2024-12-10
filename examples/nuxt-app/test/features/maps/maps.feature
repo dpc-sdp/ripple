@@ -33,7 +33,7 @@ Feature: Custom collection map component
     Given I visit the page "/map"
     And the map is loaded
     When I click the map component at coordinates 517 242
-    When I wait 2 seconds
+    When I wait 4 seconds
     Then the map matches the image snapshot "map-popup-type-popover"
 
   @mockserver
@@ -45,7 +45,7 @@ Feature: Custom collection map component
     Given I visit the page "/map"
     And the map is loaded
     When I click the map component at coordinates 517 242
-    When I wait 2 seconds
+    When I wait 4 seconds
     Then the map matches the image snapshot "map-popup-type-sidebar"
 
   @mockserver
@@ -58,7 +58,7 @@ Feature: Custom collection map component
     Given I visit the page "/map"
     And the map is loaded
     When I click the map component at coordinates 663 242
-    When I wait 2 seconds
+    When I wait 4 seconds
     Then the map matches the image snapshot "map-popup-type-popover-with-sidepanel"
 
   @mockserver
@@ -71,7 +71,7 @@ Feature: Custom collection map component
     Given I visit the page "/map"
     And the map is loaded
     When I click the map component at coordinates 663 242
-    When I wait 2 seconds
+    When I wait 4 seconds
     Then the map matches the image snapshot "map-popup-type-sidebar-with-sidepanel"
 
   @mockserver
@@ -82,8 +82,8 @@ Feature: Custom collection map component
     Given the "/api/tide/elasticsearch/elasticsearch_index_develop_node/_search" network request is stubbed with fixture "/maps/simple-map-results" and status 200 as alias "searchReq"
     Given I visit the page "/map"
     And the map is loaded
-    When I click the map component at coordinates 606 424
-    When I wait 2 seconds
+    When I click the map component at coordinates 606 442
+    When I wait 4 seconds
     Then the map matches the image snapshot "map-popup-type-sidebar-with-sidepanel-double-pin"
 
   @mockserver
@@ -96,7 +96,7 @@ Feature: Custom collection map component
     Given I visit the page "/map"
     And the map is loaded
     Given I click the side panel item with text "Single Pin Test"
-    When I wait 2 seconds
+    When I wait 4 seconds
     Then the map matches the image snapshot "map-sidepanel-item-click"
 
   @mockserver
@@ -111,8 +111,8 @@ Feature: Custom collection map component
     And the map is loaded
     Then I click the map component at coordinates 545 385
     And I wait 1 seconds
-    Then I click the map component at coordinates 660 320
-    And I wait 2 seconds
+    Then I click the map component at coordinates 650 320
+    And I wait 4 seconds
     Then the map matches the image snapshot "map-popover-max-zoom-cluster"
 
   @mockserver
@@ -120,9 +120,10 @@ Feature: Custom collection map component
     Given I load the page fixture with "/maps/basic-page"
     And a custom map results hook called "exampleMapResultsHook" is used
     Then the page endpoint for path "/map" returns the loaded fixture
-    And the "/api/tide/elasticsearch/elasticsearch_index_develop_node/_search" network request is stubbed with fixture "/maps/simple-map-results" and status 200 as alias "searchReq"
-    Given I visit the page "/map?location[center]=15809362.126037747&location[center]=-4543542.166789566"
+    And the "/api/tide/elasticsearch/elasticsearch_index_develop_node/_search" network request is delayed by 500 milliseconds and stubbed with fixture "/maps/simple-map-results", status 200 and alias "searchReq"
+    Given I visit the page "/map"
     And the map is loaded
+    When I wait 4 seconds
     Then the map matches the image snapshot "map-initial-location-results-hook"
 
   @mockserver

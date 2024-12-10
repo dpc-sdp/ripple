@@ -23,7 +23,7 @@ export const useTidePublicationChildren = async (
       }
     })
     if (error && error.value?.statusCode) {
-      useTideError(error.value?.statusCode)
+      useTideError(error.value?.statusCode, error.value)
     }
     return data.value
   }

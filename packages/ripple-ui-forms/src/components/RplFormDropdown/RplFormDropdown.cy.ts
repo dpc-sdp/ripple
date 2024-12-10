@@ -295,6 +295,21 @@ describe('RplFormDropDown', () => {
     })
   })
 
+  it('selecting the only matching option clears the search input', () => {
+    cy.mount(RplFormDropDown, {
+      props: {
+        ...props,
+        multiple: true,
+        searchable: true
+      }
+    })
+
+    cy.get(input).click()
+    cy.focused().type('Gra{enter}')
+    cy.get(tagItem).contains('Grapes')
+    cy.get(search).should('have.value', '')
+  })
+
   it('displays tags with the number of hidden selected options when closed', () => {
     cy.viewport(960, 680)
     cy.mount(RplFormDropDown, {
@@ -422,5 +437,8 @@ describe('RplFormDropDown', () => {
     cy.focused().contains('Orange')
     cy.focused().type('{rightarrow}')
     cy.get(search).should('have.focus')
+
+    cy.focused().type('ap{leftarrow}{leftarrow}{leftarrow}')
+    cy.focused().contains('Orange')
   })
 })

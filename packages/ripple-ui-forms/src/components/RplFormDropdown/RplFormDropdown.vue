@@ -224,9 +224,9 @@ const handleSearchSubmit = () => {
 // Jump to the tag list when navigating left of an empty search input
 const handleSearchLeft = () => {
   if (
-    !searchValue.value &&
     multiSearch.value &&
-    selectedOptions.value?.length
+    selectedOptions.value?.length &&
+    searchRef.value?.selectionStart === 0
   ) {
     focusTag.value = focusTag.value + 1
   }

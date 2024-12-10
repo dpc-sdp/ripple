@@ -36,6 +36,10 @@
   white-space: nowrap;
   cursor: pointer;
 
+  &:active {
+    border-color: var(--rpl-clr-neutral-800);
+  }
+
   .rpl-icon {
     pointer-events: none;
   }

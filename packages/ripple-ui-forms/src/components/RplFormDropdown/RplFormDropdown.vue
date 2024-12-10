@@ -214,6 +214,10 @@ const handleSearchSubmit = () => {
     isMatchingSearchResult(processedOptions.value[0].label)
   ) {
     handleSelectOption(processedOptions.value[0])
+
+    if (multiSearch.value) {
+      searchValue.value = ''
+    }
   }
 }
 

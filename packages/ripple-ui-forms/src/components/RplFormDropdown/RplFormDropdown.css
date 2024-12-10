@@ -53,7 +53,8 @@
   }
 
   &:hover,
-  &:focus {
+  &:focus,
+  &.rpl-u-focusable--force-on {
     border-color: var(--rpl-clr-dark);
   }
 
@@ -118,6 +119,7 @@
   top: 50%;
   right: calc(var(--rpl-sp-5) - var(--local-toogle-inset));
   margin-top: -8px;
+  transition: transform var(--rpl-motion-speed-7) linear;
 }
 
 .rpl-form-dropdown-menu {
@@ -200,6 +202,7 @@
   background: none;
   width: 100%;
   min-width: var(--rpl-sp-9);
+  color: inherit;
 }
 
 .rpl-form-dropdown-search__no-results {

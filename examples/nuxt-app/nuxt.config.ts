@@ -25,7 +25,8 @@ export default defineNuxtConfig({
     './layers/example-components',
     './layers/fixture-api',
     './layers/map-features',
-    './layers/ripple-ui-forms-ext'
+    './layers/ripple-ui-forms-ext',
+    './layers/example-data-driven-component'
   ],
   // Nuxt devtools
   sourcemap: true,

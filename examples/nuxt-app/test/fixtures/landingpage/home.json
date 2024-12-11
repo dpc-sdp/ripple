@@ -981,6 +981,18 @@
         "allowFullscreen": true,
         "showTitle": true
       }
+    },
+    {
+      "uuid": "0aa14648-604d-4aab-833a-bbce065433f4",
+      "component": "ExampleDDC",
+      "id": "3553540",
+      "props": {
+        "title": "Test data driven title",
+        "description": "<p>Test data driven desc</p>",
+        "field": "example_ddc",
+        "component": "ExampleDDC",
+        "testCustomProp": "testCustomValue"
+      }
     }
   ],
   "meta": {

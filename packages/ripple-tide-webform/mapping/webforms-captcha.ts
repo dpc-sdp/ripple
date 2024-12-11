@@ -9,20 +9,19 @@ export const getCaptchaSettings = (
   webform: ApiWebForm
 ): MappedCaptchaConfig => {
   const scoreThreshold =
-    webform?.third_party_settings?.tide_webform_captcha?.score_threshold
+    webform?.third_party_settings?.tide_webform?.score_threshold
 
   const siteIdentifier = camelCase(
-    (webform?.third_party_settings?.tide_webform_captcha?.captcha_details
-      ?.captcha_id || '') as string
+    (webform?.third_party_settings?.tide_webform?.captcha_details?.captcha_id ||
+      '') as string
   )
 
   return {
-    enabled:
-      webform?.third_party_settings?.tide_webform_captcha?.enable_captcha === 1,
-    type: webform?.third_party_settings?.tide_webform_captcha
+    enabled: webform?.third_party_settings?.tide_webform?.enable_captcha === 1,
+    type: webform?.third_party_settings?.tide_webform
       ?.captcha_type as CaptchaType,
-    siteKey: (webform?.third_party_settings?.tide_webform_captcha
-      ?.captcha_details?.site_key || '') as string,
+    siteKey: (webform?.third_party_settings?.tide_webform?.captcha_details
+      ?.site_key || '') as string,
     siteIdentifier,
     scoreThreshold:
       typeof scoreThreshold === 'number' ? scoreThreshold : undefined

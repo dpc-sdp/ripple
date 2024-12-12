@@ -114,8 +114,9 @@ const getCellText = (col?: number | string, value = '') => {
         :is="i === 0 && verticalHeader ? 'th' : 'td'"
         v-for="(column, i) of columns"
         :key="i"
-        :data-label="column.label"
       >
+        <div v-if="column.isLabelHTML" class="rpl-data-table__mobile-label" v-html="column.label" />
+        <div v-else class="rpl-data-table__mobile-label">{{ column.label }}</div>
         <template v-if="hasComponent(column)">
           <component
             :is="(column as tableColumnConfig).component"

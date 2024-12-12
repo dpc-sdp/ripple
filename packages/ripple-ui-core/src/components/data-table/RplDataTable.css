@@ -83,6 +83,10 @@
       }
     }
   }
+
+  &__mobile-label {
+    display: none;
+  }
 }
 
 .rpl-data-table--mobile {
@@ -151,9 +155,8 @@
     }
   }
 
-  [data-label]::before {
+  .rpl-data-table__mobile-label {
     font-weight: var(--rpl-type-weight-bold);
-    content: attr(data-label);
     display: block;
     margin-bottom: var(--rpl-sp-1);
   }
@@ -166,8 +169,8 @@
       line-height: var(--rpl-type-lh-4);
       letter-spacing: var(--rpl-type-ls-1);
 
-      &[data-label]::before {
-        content: '';
+      .rpl-data-table__mobile-label {
+        display: none;
       }
     }
   }

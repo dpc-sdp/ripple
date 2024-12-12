@@ -168,10 +168,6 @@
       font-size: var(--rpl-type-size-2);
       line-height: var(--rpl-type-lh-4);
       letter-spacing: var(--rpl-type-ls-1);
-
-      .rpl-data-table__mobile-label {
-        display: none;
-      }
     }
   }
 }

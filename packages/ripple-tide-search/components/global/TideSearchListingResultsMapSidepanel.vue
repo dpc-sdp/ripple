@@ -151,7 +151,7 @@ const handlePageChange = (event) => {
 const getItemId = (item) => {
   if (!item) return ''
 
-  return get(item, props.mapConfig?.sidePanel?.itemIdObjPath || 'unique_id')
+  return get(item, props.mapConfig?.sidePanel?.itemIdObjPath || '_id')
 }
 </script>
 

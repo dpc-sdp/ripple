@@ -19,6 +19,7 @@ import complexImageMapping from './components/complex-image/complex-image-mappin
 import dataTableMapping from './components/data-table/data-table-mapping'
 import compactCardsMapping from './components/compact-cards/compact-cards-mapping'
 import openFormsMapping from './components/openforms/openforms-mapping'
+import dataDrivenComponentMapping from './components/data-driven-component/data-driven-component-mapping'
 
 const mappings: {
   [key: string]: {
@@ -45,7 +46,8 @@ const mappings: {
   'paragraph--complex_image': complexImageMapping,
   'paragraph--data_table': dataTableMapping,
   'paragraph--compact_card_collection': compactCardsMapping,
-  'paragraph--form_embed_openforms': openFormsMapping
+  'paragraph--form_embed_openforms': openFormsMapping,
+  'paragraph--data_driven_component': dataDrivenComponentMapping
 }
 
 // Add reusable include on whitelisted paragraph types

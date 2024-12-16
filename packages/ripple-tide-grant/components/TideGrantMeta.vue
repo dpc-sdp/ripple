@@ -39,15 +39,27 @@ const overviewList = computed(() => {
     })
   }
 
-  const open =
-    grantStatus.value.status === 'open' ||
-    grantStatus.value.status === 'opening_soon'
+  const icons = {
+    open: {
+      name: 'icon-check-circle-filled',
+      color: 'success'
+    },
+    closed: {
+      name: 'icon-cancel-circle-filled',
+      color: 'error'
+    },
+    opening_soon: {
+      name: 'icon-clock-circle-filled',
+      color: 'warning'
+    }
+  }
 
   list.push({
     term: 'Status:',
     description: grantStatus.value.displayLabel,
-    iconName: open ? 'icon-check-circle-filled' : 'icon-cancel-circle-filled',
-    iconColour: open ? 'success' : 'error'
+    iconName:
+      icons[grantStatus.value.status]?.name || 'icon-info-circle-filled',
+    iconColour: icons[grantStatus.value.status]?.color || 'default'
   })
 
   if (props.funding) {

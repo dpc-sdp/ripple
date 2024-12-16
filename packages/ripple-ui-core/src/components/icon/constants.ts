@@ -46,6 +46,7 @@ export const RplIconGroups = {
     'icon-chevron-down',
     'icon-chevron-left',
     'icon-child-lined',
+    'icon-clock-circle-filled',
     'icon-current-location',
     'icon-document',
     'icon-document-lined',

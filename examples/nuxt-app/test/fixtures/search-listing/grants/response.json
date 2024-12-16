@@ -9,7 +9,7 @@
   },
   "hits": {
     "total": {
-      "value": 2,
+      "value": 5,
       "relation": "eq"
     },
     "max_score": null,
@@ -184,6 +184,87 @@
           "uuid": ["e8022205-e15f-4231-ac38-49ed14328823"]
         },
         "sort": [1.0, 3522]
+      },
+      {
+        "_index": "a83890f7a31dea14e1ae83c6f0afacca--elasticsearch_index_develop_node",
+        "_id": "entity:node/45297:en",
+        "_score": 2.0,
+        "_source": {
+          "_language": "en",
+          "node_grants": ["node_access_all:0"],
+          "url": ["/site-4/opening-soon-test"],
+          "changed": ["2024-12-13T15:03:02+11:00"],
+          "created": ["2024-12-13T15:01:54+11:00"],
+          "field_audience": [2128],
+          "field_audience_name": ["Government schools"],
+          "field_audience_uuid": ["b753188a-fa7c-4252-bc5e-3d60d242a36d"],
+          "field_content_category": [1317],
+          "field_content_category_name": ["Program"],
+          "field_landing_page_intro_text": [
+            "Supporting schools to build strong VCE Vocational Major and Victorian Pathways Certificate delivery"
+          ],
+          "field_landing_page_summary": [
+            "Supporting schools to build strong VCE Vocational Major and Victorian Pathways Certificate delivery"
+          ],
+          "field_node_dates_end_value": ["2050-12-16T00:00:00+10:00"],
+          "field_node_dates_start_value": ["2050-04-16T18:00:00+10:00"],
+          "field_node_on_going": [false],
+          "field_node_primary_csite": [4],
+          "field_node_site": [4, 842],
+          "field_topic": [10],
+          "field_topic_name": ["Education"],
+          "field_topic_path": ["/topic/education"],
+          "field_topic_uuid": ["3764c1dc-9475-43cc-a483-96bec239c4f7"],
+          "funding_level_from": [0],
+          "funding_level_to": [30000],
+          "langcode": ["en"],
+          "nid": [45297],
+          "status": [true],
+          "title": ["Opening soon test"],
+          "type": ["grant"],
+          "uid": [11836],
+          "uuid": ["f46e3c08-3dc5-4791-8494-9d3d6955441c"]
+        },
+        "sort": [2.0, 1798549200000, "Opening soon test"]
+      },
+      {
+        "_index": "a83890f7a31dea14e1ae83c6f0afacca--elasticsearch_index_production_node",
+        "_id": "entity:node/24378:en",
+        "_score": 1.0,
+        "_source": {
+          "_language": "en",
+          "node_grants": ["node_access_all:0"],
+          "url": ["/site-4/youth-access-initiative"],
+          "changed": ["2023-09-28T15:52:24+10:00"],
+          "created": ["2022-03-28T16:47:53+11:00"],
+          "field_audience": [80],
+          "field_audience_name": ["Individual"],
+          "field_audience_uuid": ["f86a3a17-380b-4840-8d54-195260ac9db1"],
+          "field_content_category": [1318, 1317],
+          "field_content_category_name": ["Initiative", "Program"],
+          "field_landing_page_contact_name": ["The Skills First team"],
+          "field_landing_page_intro_text": [
+            "The Youth Access Initiative provides young people who have care and/or youth justice experience or who are residing in Education First Youth Foyers with access to vocational education and training opportunities through a tuition fee waiver."
+          ],
+          "field_landing_page_summary": [
+            "The Youth Access Initiative provides young people who have care and/or youth justice experience or who are residing in Education First Youth Foyers with access to vocational education and training opportunities through a tuition fee waiver."
+          ],
+          "field_node_on_going": [true],
+          "field_node_primary_csite": [4],
+          "field_node_site": [1036, 4],
+          "field_topic": [10],
+          "field_topic_name": ["Education"],
+          "field_topic_path": ["/topic/education"],
+          "field_topic_uuid": ["3764c1dc-9475-43cc-a483-96bec239c4f7"],
+          "langcode": ["en"],
+          "nid": [24378],
+          "status": [true],
+          "title": ["Youth Access Initiative"],
+          "type": ["grant"],
+          "uid": [9920],
+          "uuid": ["a9b548ec-f44b-48eb-8407-21cf7e6ef4ed"]
+        },
+        "sort": [1.0, "Youth Access Initiative"]
       }
     ]
   },

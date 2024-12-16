@@ -14,6 +14,8 @@ export default {
   'icon-car': () => import('./custom/icon-car.svg?component'),
   'icon-check': () => import('./custom/icon-check.svg?component'),
   'icon-child-lined': () => import('./custom/icon-child-lined.svg?component'),
+  'icon-clock-circle-filled': () =>
+    import('./custom/icon-clock-circle-filled.svg?component'),
   'icon-dollar-circle-filled': () =>
     import('./custom/icon-dollar-circle-filled.svg?component'),
   'icon-fire': () => import('./custom/icon-fire.svg?component'),

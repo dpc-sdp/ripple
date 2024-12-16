@@ -162,6 +162,12 @@ export type TideSearchListingSortOption = {
   function?: string
 }
 
+export type TideSearchCustomQueryConfig = {
+  component?: string
+  function?: string
+  props?: Record<string, any>
+}
+
 export type TideSearchLocationQueryConfig = {
   component?: string
   props?: {

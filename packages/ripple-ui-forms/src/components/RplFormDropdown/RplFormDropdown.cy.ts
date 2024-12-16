@@ -56,6 +56,20 @@ describe('RplFormDropDown', () => {
     })
   })
 
+  it('selected options are displayed in the order which they were selected', () => {
+    cy.mount(RplFormDropDown, { props: { ...props, multiple: true } })
+
+    cy.get(input).click()
+    cy.get(option).contains('Apple').click()
+    cy.get(option).contains('Grapes').click()
+    cy.get(option).contains('Apricots').click()
+    cy.get(option).contains('Orange').click()
+
+    cy.get(input).should(($div) => {
+      expect($div.get(0).innerText).to.eq('Apple, Grapes, Apricots, Orange')
+    })
+  })
+
   it('correctly displays the number of hidden selected options', () => {
     cy.viewport(960, 680)
     cy.mount(RplFormDropDown, { props: { ...props, multiple: true } })
@@ -416,29 +430,29 @@ describe('RplFormDropDown', () => {
     // Select options
     cy.focused().type('{downarrow}')
     cy.focused().type('{enter}')
-    cy.focused().type('{downarrow}')
+    cy.focused().type('{downarrow}{downarrow}')
     cy.focused().type('{enter}')
-    cy.focused().type('{downarrow}')
+    cy.focused().type('{uparrow}')
     cy.focused().type('{enter}')
 
     // Return to search
-    cy.focused().type('{uparrow}{uparrow}{uparrow}')
+    cy.focused().type('{uparrow}{uparrow}')
     cy.get(search).should('have.focus')
 
     // Manage tags
     cy.focused().type('{leftarrow}')
-    cy.focused().contains('Orange')
+    cy.focused().contains('Banana')
     cy.focused().type('{leftarrow}')
-    cy.focused().contains('Banana').type('{del}')
+    cy.focused().contains('Orange').type('{del}')
     cy.focused().contains('Apple')
     cy.focused().type('{leftarrow}')
     cy.focused().contains('Apple')
     cy.focused().type('{rightarrow}')
-    cy.focused().contains('Orange')
+    cy.focused().contains('Banana')
     cy.focused().type('{rightarrow}')
     cy.get(search).should('have.focus')
 
     cy.focused().type('ap{leftarrow}{leftarrow}{leftarrow}')
-    cy.focused().contains('Orange')
+    cy.focused().contains('Banana')
   })
 })

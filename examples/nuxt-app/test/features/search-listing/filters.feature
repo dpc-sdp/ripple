@@ -29,7 +29,7 @@ Feature: Search listing - Filter
     Then the filters toggle should show 1 applied filters
 
     When I toggle the search listing filters section
-    Then the search listing dropdown field labelled "Raw filter example" should have the value "Dogs, Birds"
+    Then the search listing dropdown field labelled "Raw filter example" should have the value "Birds, Dogs"
 
   @mockserver
   Example: Term filter - Should reflect a single value from the URL
@@ -66,7 +66,7 @@ Feature: Search listing - Filter
     Then the filters toggle should show 3 applied filters
 
     When I toggle the search listing filters section
-    Then the search listing dropdown field labelled "Term filter example" should have the value "Red, Green"
+    Then the search listing dropdown field labelled "Term filter example" should have the value "Green, Red"
     And the search listing checkbox group labelled "Checkbox group" should have the following options checked
       | label    |
       | Weekdays |
@@ -103,7 +103,7 @@ Feature: Search listing - Filter
     Then the filters toggle should show 1 applied filters
 
     When I toggle the search listing filters section
-    Then the search listing dropdown field labelled "Terms filter example" should have the value "Orange, Purple"
+    Then the search listing dropdown field labelled "Terms filter example" should have the value "Purple, Orange"
 
   @mockserver
   Example: Date range filter (single query value) - Should reflect the range value from the URL
@@ -167,7 +167,7 @@ Feature: Search listing - Filter
     And the search network request is stubbed with fixture "/search-listing/filters/response" and status 200
     And the current date is "Fri, 02 Feb 2050 03:04:05 GMT"
 
-    When I visit the page "/filters?functionFilter=closed&functionFilter=open"
+    When I visit the page "/filters?functionFilter=open&functionFilter=closed"
     Then the search listing page should have 2 results
     And the search network request should be called with the "/search-listing/filters/request-function-filter" fixture
 

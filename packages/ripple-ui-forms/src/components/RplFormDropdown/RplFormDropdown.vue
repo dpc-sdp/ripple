@@ -496,9 +496,13 @@ const isMenuItemKeyboardFocused = (optionId: string): boolean => {
 }
 
 const selectedOptions = computed(() => {
-  return (props.options || []).filter((opt) =>
-    (props.value || []).includes(opt.value)
-  )
+  const values = Array.isArray(props.value) ? props.value : [props.value]
+
+  return values
+    .map((value) => {
+      return (props.options || []).find((opt) => opt.value === value)
+    })
+    .filter(Boolean)
 })
 
 const singleValueDisplay = computed((): string => {

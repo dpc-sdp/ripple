@@ -23,6 +23,8 @@ Feature: Forms
       | required |
       | true     |
     Then a select field with the label "Term select" should exist
+    Then a select field with the label "Searchable single select" should exist
+    Then a select field with the label "Searchable multi select" should exist
     Then a radio group field with the label "Type of person" should exist with the following options
       | label       |
       | Dog person  |
@@ -58,11 +60,12 @@ Feature: Forms
     Then the error summary should not display
     When I submit the form with ID "full_form"
     Then the error summary should display with the following errors
-      | text                           | url                              |
-      | You must enter your first name | /kitchen-sink#first_name         |
-      | The message field is required  | /kitchen-sink#message            |
-      | Must choose a favourite colour | /kitchen-sink#favourite_colour   |
-      | You must accept the terms      | /kitchen-sink#i_accept_the_terms |
+      | text                                     | url                                    |
+      | You must enter your first name           | /kitchen-sink#first_name               |
+      | The message field is required            | /kitchen-sink#message                  |
+      | Must choose a favourite colour           | /kitchen-sink#favourite_colour         |
+      | The searchable single select is required | /kitchen-sink#searchable_single_select |
+      | You must accept the terms                | /kitchen-sink#i_accept_the_terms       |
     Then clicking on an error summary link with text "Must choose a favourite colour" should focus on the input with ID "favourite_colour"
 
     And the dataLayer should include the following events
@@ -79,13 +82,16 @@ Feature: Forms
     And the form with ID "full_form" should exist
 
     Then the input with the label "First name" should be valid
+    And the select with the label "Searchable single select" should be valid
     When I submit the form with ID "full_form"
     Then the input with the label "First name" should be invalid with message "You must enter your first name"
+    And the select with the label "Searchable single select" should be invalid with message "The searchable single select is required"
     When I type "Cat" into the input with the label "First name"
-    Then the input with the label "First name" should be invalid with message "You must enter your first name"
+    And I select "Orange" by searching the select field with label "Searchable single select"
 
     When I submit the form with ID "full_form"
     Then the input with the label "First name" should be valid
+    Then the select with the label "Searchable single select" should be valid
 
   @mockserver
   Scenario: Form submission - Error
@@ -101,6 +107,7 @@ Feature: Forms
     And I type "Here is some text to go in the textarea field" into the textarea with the label "Message"
     And I click "Green" from the select field with label "Favourite colour"
     And I toggle the checkbox with label "Terms and conditions"
+    And I click "Orange" from the select field with label "Searchable single select"
 
     When I submit the form with ID "full_form"
 
@@ -126,6 +133,10 @@ Feature: Forms
     And I type "0400 000 000" into the input with the label "Mobile phone"
     And I type "Here is some text to go in the textarea field" into the textarea with the label "Message"
     And I click "Green" from the select field with label "Favourite colour"
+    And I select "Mango" by searching the select field with label "Searchable single select"
+    And I select the following options by searching for "Ap" the select field with label "Searchable multi select"
+      | Aprium  |
+      | Apricot |
     And I click "Free admission" from the select field with label "Term select"
     And I click "Seniors" from the select field with label "Term select"
     And I click "Dog person" from the radio group with label "Type of person"
@@ -140,24 +151,29 @@ Feature: Forms
       | success | Server success | Test success message |
 
     And the dataLayer should include the following events
-      | event             | label               | form_id   | field_id                     | type     | value                  | component               |
-      | update_form_field | First name          | full_form | first_name                   | text     | [redacted]             | rpl-form-input          |
-      | update_form_field | Last name           | full_form | last_name                    | text     | [redacted]             | rpl-form-input          |
-      | update_form_field | Email               | full_form | email                        | email    | [redacted]             | rpl-form-input          |
-      | update_form_field | Quantity            | full_form | quantity                     | number   | [redacted]             | rpl-form-number         |
-      | update_form_field | Website             | full_form | website                      | url      | [redacted]             | rpl-form-input          |
-      | update_form_field | Mobile phone        | full_form | mobile_phone                 | tel      | [redacted]             | rpl-form-input          |
-      | update_form_field | Message             | full_form | message                      | textarea | [redacted]             | rpl-form-textarea       |
-      | open_form_field   | Favourite colour    | full_form | favourite_colour             | select   |                        | rpl-form-dropdown       |
-      | update_form_field | Favourite colour    | full_form | favourite_colour             | select   | Green                  | rpl-form-dropdown       |
-      | open_form_field   | Term select         | full_form | term_select                  | select   |                        | rpl-form-dropdown       |
-      | update_form_field | Term select         | full_form | term_select                  | select   | Free admission         | rpl-form-dropdown       |
-      | open_form_field   | Term select         | full_form | term_select                  | select   | Free admission         | rpl-form-dropdown       |
-      | update_form_field | Term select         | full_form | term_select                  | select   | Free admission,Seniors | rpl-form-dropdown       |
-      | update_form_field | Type of person      | full_form | person_type                  | radio    | Dog person             | rpl-form-radio-group    |
-      | update_form_field | Favourite Locations | full_form | favourite_locations          | checkbox | London                 | rpl-form-checkbox-group |
-      | update_form_field | Favourite Locations | full_form | favourite_locations          | checkbox | London,Tokyo           | rpl-form-checkbox-group |
-      | update_form_field | I accept the terms  | full_form | i_accept_the_terms__checkbox | checkbox | true                   | rpl-form-option         |
+      | event             | label                    | form_id   | field_id                     | type     | value                  | component               |
+      | update_form_field | First name               | full_form | first_name                   | text     | [redacted]             | rpl-form-input          |
+      | update_form_field | Last name                | full_form | last_name                    | text     | [redacted]             | rpl-form-input          |
+      | update_form_field | Email                    | full_form | email                        | email    | [redacted]             | rpl-form-input          |
+      | update_form_field | Quantity                 | full_form | quantity                     | number   | [redacted]             | rpl-form-number         |
+      | update_form_field | Website                  | full_form | website                      | url      | [redacted]             | rpl-form-input          |
+      | update_form_field | Mobile phone             | full_form | mobile_phone                 | tel      | [redacted]             | rpl-form-input          |
+      | update_form_field | Message                  | full_form | message                      | textarea | [redacted]             | rpl-form-textarea       |
+      | open_form_field   | Favourite colour         | full_form | favourite_colour             | select   |                        | rpl-form-dropdown       |
+      | update_form_field | Favourite colour         | full_form | favourite_colour             | select   | Green                  | rpl-form-dropdown       |
+      | open_form_field   | Searchable single select | full_form | searchable_single_select     | select   |                        | rpl-form-dropdown       |
+      | update_form_field | Searchable single select | full_form | searchable_single_select     | select   | Mango                  | rpl-form-dropdown       |
+      | open_form_field   | Searchable multi select  | full_form | searchable_multi_select      | select   |                        | rpl-form-dropdown       |
+      | update_form_field | Searchable multi select  | full_form | searchable_multi_select      | select   | Aprium                 | rpl-form-dropdown       |
+      | update_form_field | Searchable multi select  | full_form | searchable_multi_select      | select   | Apricot                | rpl-form-dropdown       |
+      | open_form_field   | Term select              | full_form | term_select                  | select   |                        | rpl-form-dropdown       |
+      | update_form_field | Term select              | full_form | term_select                  | select   | Free admission         | rpl-form-dropdown       |
+      | open_form_field   | Term select              | full_form | term_select                  | select   | Free admission         | rpl-form-dropdown       |
+      | update_form_field | Term select              | full_form | term_select                  | select   | Free admission,Seniors | rpl-form-dropdown       |
+      | update_form_field | Type of person           | full_form | person_type                  | radio    | Dog person             | rpl-form-radio-group    |
+      | update_form_field | Favourite Locations      | full_form | favourite_locations          | checkbox | London                 | rpl-form-checkbox-group |
+      | update_form_field | Favourite Locations      | full_form | favourite_locations          | checkbox | London,Tokyo           | rpl-form-checkbox-group |
+      | update_form_field | I accept the terms       | full_form | i_accept_the_terms__checkbox | checkbox | true                   | rpl-form-option         |
 
     And the dataLayer should include the following events
       | event         | form_id   | form_valid | element_text | component |
@@ -165,19 +181,20 @@ Feature: Forms
       | form_complete | full_form |            | Submit       | rpl-form  |
 
     And the dataLayer form data for "form_complete" should include the following values
-      | key                 | value                  |
-      | first_name          | [redacted]             |
-      | last_name           | [redacted]             |
-      | role                | [redacted]             |
-      | email               | [redacted]             |
-      | quantity            | [redacted]             |
-      | website             | [redacted]             |
-      | mobile_phone        | [redacted]             |
-      | dob                 | [redacted]             |
-      | message             | [redacted]             |
-      | favourite_colour    | Green                  |
-      | term_select         | Free admission,Seniors |
-      | person_type         | Dog person             |
-      | favourite_locations | London,Tokyo           |
-      | i_accept_the_terms  | true                   |
-      | site_section        | DPC                    |
+      | key                      | value                  |
+      | first_name               | [redacted]             |
+      | last_name                | [redacted]             |
+      | role                     | [redacted]             |
+      | email                    | [redacted]             |
+      | quantity                 | [redacted]             |
+      | website                  | [redacted]             |
+      | mobile_phone             | [redacted]             |
+      | dob                      | [redacted]             |
+      | message                  | [redacted]             |
+      | favourite_colour         | Green                  |
+      | searchable_single_select | Mango                  |
+      | term_select              | Free admission,Seniors |
+      | person_type              | Dog person             |
+      | favourite_locations      | London,Tokyo           |
+      | i_accept_the_terms       | true                   |
+      | site_section             | DPC                    |

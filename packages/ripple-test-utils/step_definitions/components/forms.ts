@@ -116,6 +116,107 @@ When(
   }
 )
 
+When(
+  'I select {string} by searching the select field with label {string}',
+  (option: string, label: string) => {
+    cy.contains('label', label)
+      .invoke('attr', 'for')
+      .then((dropdownId) => {
+        cy.get(`#${dropdownId}`).click()
+        cy.focused().type(option)
+        cy.get(`#${dropdownId}__menu`)
+          .find(`.rpl-form-dropdown-option`)
+          .as('availableOptions')
+        cy.get('@availableOptions').should('have.length', 1)
+        cy.get('@availableOptions').eq(0).click()
+      })
+  }
+)
+
+When(
+  'I delete the text for the select field with label {string}',
+  (label: string) => {
+    cy.contains('label', label)
+      .invoke('attr', 'for')
+      .then((dropdownId) => {
+        cy.get(`#${dropdownId}`).as('dropdown')
+        cy.get('@dropdown').click()
+
+        cy.focused().as('searchInput')
+        cy.get('@searchInput').invoke('val').should('not.be.empty')
+        cy.get('@searchInput').clear()
+      })
+  }
+)
+
+Then(
+  `the select field labelled {string} should have the following tags`,
+  (label: string, dataTable: DataTable) => {
+    const table = dataTable.raw()
+
+    cy.contains('label', label)
+      .invoke('attr', 'for')
+      .then((dropdownId) => {
+        cy.get(`#${dropdownId}`).find('[data-tag-id]').as('selectedTags')
+      })
+
+    table.forEach((row, i: number) => {
+      cy.get('@selectedTags')
+        .eq(i)
+        .then((item) => {
+          cy.wrap(item).as('item')
+          cy.get('@item').should('contain', row[0])
+        })
+    })
+  }
+)
+
+When(
+  'I delete the following tags for the select field with label {string}',
+  (label: string, dataTable: DataTable) => {
+    const table = dataTable.raw()
+
+    cy.contains('label', label)
+      .invoke('attr', 'for')
+      .then((dropdownId) => {
+        cy.get(`#${dropdownId}`).find('[data-tag-id]').as('selectedTags')
+      })
+
+    table.forEach((row) => {
+      cy.get('@selectedTags').contains(row[0]).click()
+    })
+  }
+)
+
+When(
+  'I select the following options by searching for {string} the select field with label {string}',
+  (search: string, label: string, dataTable: DataTable) => {
+    const table = dataTable.raw()
+
+    cy.contains('label', label)
+      .invoke('attr', 'for')
+      .then((dropdownId) => {
+        cy.get(`#${dropdownId}`).click()
+        cy.focused().type(search)
+
+        cy.get(`#${dropdownId}__menu`)
+          .find(`.rpl-form-dropdown-option`)
+          .as('availableOptions')
+
+        cy.get('@availableOptions').should('have.length', 2)
+
+        table.forEach((row, i: number) => {
+          cy.get('@availableOptions')
+            .eq(i)
+            .then((item) => {
+              cy.wrap(item).as('item')
+              cy.get('@item').contains(row[0]).click()
+            })
+        })
+      })
+  }
+)
+
 Then(
   'a select field with the label {string} should exist',
   (label: string, dataTable: DataTable) => {
@@ -137,6 +238,37 @@ Then(
 
     cy.get('@field').should('exist')
     cy.get('@field').find('[role="combobox"]').should('exist')
+  }
+)
+
+Then('the select with the label {string} should be valid', (label: string) => {
+  cy.get('label.rpl-form-label')
+    .contains(label)
+    .closest('.rpl-form__outer')
+    .as('field')
+
+  cy.get('@field').should('exist')
+  cy.get('@field')
+    .find('.rpl-form-dropdown-input')
+    .should('have.attr', 'aria-invalid', 'false')
+  cy.get('@field').find('.rpl-form-validation-error').should('not.exist')
+})
+
+Then(
+  'the select with the label {string} should be invalid with message {string}',
+  (label: string, errorMsg: string) => {
+    cy.get('label.rpl-form-label')
+      .contains(label)
+      .closest('.rpl-form__outer')
+      .as('field')
+
+    cy.get('@field').should('exist')
+    cy.get('@field')
+      .find('.rpl-form-dropdown-input')
+      .should('have.attr', 'aria-invalid', 'true')
+    cy.get('@field')
+      .find('.rpl-form-validation-error')
+      .should('contain', errorMsg)
   }
 )
 

@@ -26,6 +26,14 @@
           "terms": {
             "checkboxFilterGroup.keyword": ["Weekdays", "Weekends"]
           }
+        },
+        {
+          "terms": {
+            "multiSearchDropdownFilter.keyword": [
+              "Potato",
+              "Onion"
+            ]
+          }
         }
       ]
     }

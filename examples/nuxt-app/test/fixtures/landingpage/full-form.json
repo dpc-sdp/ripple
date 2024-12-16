@@ -229,6 +229,44 @@
             "pii": false
           },
           {
+            "$formkit": "RplFormDropdown",
+            "key": "searchable_single_select",
+            "id": "searchable_single_select",
+            "name": "searchable_single_select",
+            "label": "Searchable single select",
+            "multiple": false,
+            "searchable": true,
+            "options": [
+              { "id": "apple", "value": "apple", "label": "Apple" },
+              { "id": "banana", "value": "banana", "label": "Banana" },
+              { "id": "orange", "value": "orange", "label": "Orange" },
+              { "id": "mango", "value": "mango", "label": "Mango" },
+              { "id": "grape", "value": "grape", "label": "Grape" }
+            ],
+            "validation": "required",
+            "validationMessages": {
+              "required": "The searchable single select is required"
+            },
+            "pii": false
+          },
+          {
+            "$formkit": "RplFormDropdown",
+            "key": "searchable_multi_select",
+            "id": "searchable_multi_select",
+            "name": "searchable_multi_select",
+            "label": "Searchable multi select",
+            "multiple": true,
+            "searchable": true,
+            "options": [
+              { "id": "cherry", "value": "cherry", "label": "Cherry" },
+              { "id": "aprium", "value": "aprium", "label": "Aprium" },
+              { "id": "pear", "value": "pear", "label": "Pear" },
+              { "id": "plum", "value": "plum", "label": "Plum" },
+              { "id": "apricot", "value": "apricot", "label": "Apricot" }
+            ],
+            "pii": false
+          },
+          {
             "$formkit": "RplFormRadioGroup",
             "id": "person_type",
             "name": "person_type",

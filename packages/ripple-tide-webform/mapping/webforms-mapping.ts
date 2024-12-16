@@ -197,6 +197,7 @@ export const getFormSchemaFromMapping = async (
           label: field['#title'],
           help: field['#description'],
           multiple: !!field['#multiple'],
+          searchable: !!field['#searchable'],
           options: Object.entries(field['#options'] || {}).map(
             ([value, label]) => {
               return {

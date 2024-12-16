@@ -28,6 +28,8 @@ export const dropdown: FormKitTypeDefinition = {
       invalid: '$fns.isFieldInvalid()',
       columnClasses: '$node.props.columnClasses',
       variant: '$node.props.variant',
+      searchable: '$node.props.searchable',
+      noResultsLabel: '$node.props.noResultsLabel',
       pii: '$node.props.pii'
     }
   }),
@@ -44,7 +46,16 @@ export const dropdown: FormKitTypeDefinition = {
   /**
    * An array of extra props to accept for this input.
    */
-  props: ['placeholder', 'multiple', 'options', 'columnClasses', 'variant', 'pii'],
+  props: [
+    'placeholder',
+    'multiple',
+    'options',
+    'columnClasses',
+    'variant',
+    'searchable',
+    'noResultsLabel',
+    'pii'
+  ],
   /**
    * Additional features that should be added to your input
    */

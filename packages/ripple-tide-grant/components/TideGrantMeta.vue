@@ -31,14 +31,6 @@ const grantStatus = computed(() => {
 const overviewList = computed(() => {
   let list: any[] = []
 
-  if (props.audience) {
-    list.push({
-      term: 'Who can apply:',
-      description: props.audience,
-      iconName: 'icon-user-circle-filled'
-    })
-  }
-
   const icons = {
     open: {
       name: 'icon-check-circle-filled',
@@ -61,6 +53,14 @@ const overviewList = computed(() => {
       icons[grantStatus.value.status]?.name || 'icon-info-circle-filled',
     iconColour: icons[grantStatus.value.status]?.color || 'default'
   })
+
+  if (props.audience) {
+    list.push({
+      term: 'Who can apply:',
+      description: props.audience,
+      iconName: 'icon-user-circle-filled'
+    })
+  }
 
   if (props.funding) {
     list.push({

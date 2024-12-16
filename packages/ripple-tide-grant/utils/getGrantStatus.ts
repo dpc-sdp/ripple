@@ -1,16 +1,27 @@
-import { isWithinInterval, isBefore } from 'date-fns'
+import { differenceInDays, isWithinInterval, isBefore } from 'date-fns'
 
 export interface TideGrantStatus {
   status: 'opening_soon' | 'open' | 'closed'
   displayLabel: string
 }
 
-const openStatus = (end: Date | number): TideGrantStatus => ({
-  status: 'open',
-  displayLabel: `Open (closes ${Intl.DateTimeFormat('en-AU', {
-    dateStyle: 'long'
-  }).format(end)})`
-})
+const openStatus = (end: Date | number, now): TideGrantStatus => {
+  const daysRemaining = differenceInDays(end, now)
+
+  if (daysRemaining === 0) {
+    return {
+      status: 'open',
+      displayLabel: 'Open, closes today'
+    }
+  }
+
+  return {
+    status: 'open',
+    displayLabel: `Open, closes ${Intl.DateTimeFormat('en-AU', {
+      dateStyle: 'long'
+    }).format(end)}`
+  }
+}
 
 const openingSoonStatus = (start: Date | number): TideGrantStatus => ({
   status: 'opening_soon',
@@ -47,7 +58,7 @@ const getGrantStatus = (
 
   if (start && end) {
     if (isBefore(start, end) && isWithinInterval(now, { start, end })) {
-      return openStatus(end)
+      return openStatus(end, now)
     } else if (isBefore(now, start)) {
       return openingSoonStatus(start)
     } else {
@@ -61,7 +72,7 @@ const getGrantStatus = (
     }
   } else if (end) {
     if (isBefore(now, end)) {
-      return openStatus(end)
+      return openStatus(end, now)
     } else {
       return closedStatus
     }

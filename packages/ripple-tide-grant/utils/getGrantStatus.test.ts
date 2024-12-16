@@ -58,7 +58,7 @@ describe('getGrantStatus', () => {
     })
   })
 
-  it('displays status as "Open (closes <enddate>)" when current date is after start date and before end date', () => {
+  it('displays status as "Open, closes <enddate>" when current date is after start date and before end date', () => {
     const now = new Date('2019-04-11T06:19:17+00:00')
     const ongoing = false
     const dateStart = '2019-04-09T06:19:17+00:00'
@@ -68,11 +68,11 @@ describe('getGrantStatus', () => {
 
     expect(result).toEqual({
       status: 'open',
-      displayLabel: 'Open (closes 10 May 2019)'
+      displayLabel: 'Open, closes 10 May 2019'
     })
   })
 
-  it('displays status as "Open (closes <enddate>)" when current date is after start date and 1 day from end date', () => {
+  it('displays status as "Open, closes <enddate>" when current date is after start date and 1 day from end date', () => {
     const now = new Date('2019-04-11T06:19:17+00:00')
     const ongoing = false
     const dateStart = '2019-04-10T06:19:17+00:00'
@@ -82,11 +82,11 @@ describe('getGrantStatus', () => {
 
     expect(result).toEqual({
       status: 'open',
-      displayLabel: 'Open (closes 12 April 2019)'
+      displayLabel: 'Open, closes 12 April 2019'
     })
   })
 
-  it('displays status as "Open (closes <enddate>)" when current date is after start date and the same as end date', () => {
+  it('displays status as "Open, closes today" when current date is after start date and the same as end date', () => {
     const now = new Date('2019-04-12T06:19:17+00:00')
     const ongoing = false
     const dateStart = '2019-04-10T06:19:17+00:00'
@@ -96,7 +96,7 @@ describe('getGrantStatus', () => {
 
     expect(result).toEqual({
       status: 'open',
-      displayLabel: 'Open (closes 12 April 2019)'
+      displayLabel: 'Open, closes today'
     })
   })
 

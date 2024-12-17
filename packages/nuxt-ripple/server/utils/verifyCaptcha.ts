@@ -152,7 +152,7 @@ const verifyCaptcha = async (event: H3Event) => {
       logger
     )
 
-    webform = webformApi.getWebform(formId)
+    webform = await webformApi.getWebform(formId)
   } catch (error) {
     throw new ApplicationError(
       `Couldn't get webform data, unable to continue because we don't know if a captcha is required`,

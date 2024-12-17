@@ -152,7 +152,10 @@ const searchResultsMappingFn = (item): TideSearchListingResultItem => {
     id: item._id,
     component: itemComponent,
     props: {
-      result: transformedItem
+      result: {
+        _id: item._id,
+        ...transformedItem
+      }
     }
   }
 }

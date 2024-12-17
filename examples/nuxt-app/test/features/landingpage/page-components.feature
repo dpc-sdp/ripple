@@ -209,3 +209,9 @@ Feature: Home page
     Then the dataLayer should include the following events
       | event         | element_id          | element_text | label         | file_name  | file_extension | type  | component       |
       | file_download | page-component-1951 | Download it  | Complex image | medium.png | png            | image | rpl-media-embed |
+
+  @mockserver
+  Scenario: Page component - Data driven component
+    Then a custom data driven component with ID "3553540" should exist with title "Test data driven title" and have the properties
+      | description           | testCustomProp  |
+      | Test data driven desc | testCustomValue |

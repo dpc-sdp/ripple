@@ -25,10 +25,11 @@ export const getFormSchemaFromMapping = async (
   const fields = []
   const formId = webform.drupal_internal__id
 
-  for (const [fieldKey, fieldData] of Object.entries(elements)) {
+  for (const [fieldMachineName, fieldData] of Object.entries(elements)) {
     let mappedField
     const field: TideWebformElement = { ...fieldData, formId }
-    const fieldID = `${formId}_${fieldKey}`
+    const fieldID = `${formId}_${fieldMachineName}`
+    const fieldKey = field['#attributes']?.name || fieldMachineName
 
     switch (field['#type']) {
       case 'hidden':
@@ -196,6 +197,7 @@ export const getFormSchemaFromMapping = async (
           label: field['#title'],
           help: field['#description'],
           multiple: !!field['#multiple'],
+          searchable: !!field['#searchable'],
           options: Object.entries(field['#options'] || {}).map(
             ([value, label]) => {
               return {

@@ -1,21 +1,14 @@
 .rpl-form-dropdown {
   --local-item-height: 48px;
+  --local-background-color: var(--rpl-clr-neutral-100);
+  --local-background-strip-color: var(--rpl-clr-light);
 
   position: relative;
 }
 
 .rpl-form-dropdown--reverse {
-  .rpl-form-dropdown-input {
-    background: var(--rpl-clr-light);
-  }
-
-  .rpl-form-dropdown-menu {
-    background: var(--rpl-clr-neutral-100);
-  }
-
-  .rpl-form-dropdown-option:nth-child(2n) {
-    background: var(--rpl-clr-light);
-  }
+  --local-background-color: var(--rpl-clr-light);
+  --local-background-strip-color: var(--rpl-clr-neutral-100);
 }
 
 .rpl-form-dropdown--invalid {
@@ -28,26 +21,40 @@
   }
 }
 
+.rpl-form-dropdown--multi-search {
+  .rpl-form-dropdown-input {
+    padding-block: calc(var(--rpl-sp-2) - var(--rpl-border-1));
+  }
+}
+
 .rpl-form-dropdown-input {
-  background: var(--rpl-clr-neutral-100);
-  border: 0;
+  --local-input-padding-right: calc(var(--rpl-sp-2) + var(--rpl-sp-4) + var(--rpl-sp-5));
+
+  background: var(--local-background-color);
   outline: 0;
   width: 100%;
   height: 100%;
+  min-height: var(--local-item-height);
   max-height: var(--local-item-height);
   padding-top: var(--rpl-sp-3);
   padding-bottom: var(--rpl-sp-3);
   padding-left: var(--rpl-sp-5);
-  padding-right: calc(var(--rpl-sp-2) + var(--rpl-sp-4) + var(--rpl-sp-5));
+  padding-right: var(--local-input-padding-right);
   border: var(--rpl-border-1) solid var(--rpl-clr-neutral-600);
   border-radius: var(--rpl-border-radius-2);
   display: flex;
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
   &:hover,
-  &:focus {
+  &:focus,
+  &.rpl-u-focusable--force-on {
     border-color: var(--rpl-clr-dark);
   }
 
@@ -56,8 +63,12 @@
     border-radius: 0;
   }
 
-  &[aria-expanded='true'] .rpl-form-dropdown__chevron {
-    transform: rotate(-180deg);
+  &[aria-expanded='true'] {
+    overflow-x: auto;
+
+    .rpl-form-dropdown__chevron {
+      transform: rotate(-180deg);
+    }
   }
 
   &[aria-disabled='true'] {
@@ -86,23 +97,39 @@
   overflow: hidden;
 }
 
+.rpl-form-dropdown-input__toggle {
+  --local-toogle-inset: var(--rpl-border-2);
+
+  position: absolute;
+  top: var(--local-toogle-inset);
+  right: var(--local-toogle-inset);
+  bottom: var(--local-toogle-inset);
+  width: var(--local-input-padding-right);
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--local-background-color) 10%
+  );
+}
+
 .rpl-form-dropdown__chevron {
+  pointer-events: none;
   color: var(--rpl-clr-link);
   position: absolute;
   top: 50%;
-  right: var(--rpl-sp-5);
+  right: calc(var(--rpl-sp-5) - var(--local-toogle-inset));
   margin-top: -8px;
+  transition: transform var(--rpl-motion-speed-7) linear;
 }
 
 .rpl-form-dropdown-menu {
   z-index: var(--rpl-layer-2);
   border: var(--rpl-border-2) solid var(--rpl-clr-dark);
-  background: var(--rpl-clr-light);
-  max-height: calc(var(--local-max-items) * var(--local-item-height));
+  background: var(--local-background-strip-color);
+  max-height: calc(var(--local-max-items) * var(--local-item-height) + (var(--rpl-border-2) * 2));
   overflow-y: auto;
   scroll-behavior: auto;
   overscroll-behavior: contain;
-
   position: absolute;
   width: 100%;
   margin-top: -2px;
@@ -119,21 +146,15 @@
   padding: var(--rpl-sp-3) var(--rpl-sp-5);
 
   &:nth-child(2n) {
-    background: var(--rpl-clr-neutral-100);
+    background: var(--local-background-color);
   }
 
-  &:hover {
+  &:is(:hover, &.rpl-form-dropdown-option--highlight) {
     background: var(--rpl-clr-neutral-300);
   }
 
   &:focus-visible .rpl-form-dropdown-option__check {
     border-color: var(--rpl-clr-dark);
-  }
-}
-
-.rpl-form-dropdown--reverse .rpl-form-dropdown-option {
-  &:hover {
-    background: var(--rpl-clr-neutral-300);
   }
 }
 
@@ -149,7 +170,7 @@
   color: var(--rpl-clr-dark);
   width: var(--rpl-sp-6);
   height: var(--rpl-sp-6);
-  background: var(--rpl-clr-neutral-100);
+  background: var(--local-background-color);
   border: var(--rpl-border-1) solid var(--rpl-clr-neutral-600);
   border-radius: var(--rpl-border-radius-1);
   display: flex;
@@ -172,4 +193,19 @@
 [dir='rtl'] .rpl-form-dropdown__chevron {
   right: auto;
   left: var(--rpl-sp-5);
+}
+
+.rpl-form-dropdown-search__input {
+  padding: 0;
+  outline: none;
+  border: none;
+  background: none;
+  width: 100%;
+  min-width: var(--rpl-sp-9);
+  color: inherit;
+}
+
+.rpl-form-dropdown-search__no-results {
+  text-align: center;
+  padding: var(--rpl-sp-3) var(--rpl-sp-5);
 }

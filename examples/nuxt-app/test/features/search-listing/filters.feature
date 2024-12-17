@@ -29,7 +29,7 @@ Feature: Search listing - Filter
     Then the filters toggle should show 1 applied filters
 
     When I toggle the search listing filters section
-    Then the search listing dropdown field labelled "Raw filter example" should have the value "Dogs, Birds"
+    Then the search listing dropdown field labelled "Raw filter example" should have the value "Birds, Dogs"
 
   @mockserver
   Example: Term filter - Should reflect a single value from the URL
@@ -37,11 +37,11 @@ Feature: Search listing - Filter
     And the search network request is stubbed with fixture "/search-listing/filters/response" and status 200
     And the current date is "Fri, 02 Feb 2050 03:04:05 GMT"
 
-    When I visit the page "/filters?termFilter=Green&singleTermFilter=Aqua&checkboxFilter=Archived&checkboxFilterGroup=Weekdays"
+    When I visit the page "/filters?termFilter=Green&singleTermFilter=Aqua&checkboxFilter=Archived&checkboxFilterGroup=Weekdays&singleSearchDropdownFilter=Banana"
     Then the search listing page should have 2 results
     And the search network request should be called with the "/search-listing/filters/request-term-single" fixture
 
-    Then the filters toggle should show 4 applied filters
+    Then the filters toggle should show 5 applied filters
 
     When I toggle the search listing filters section
     Then the search listing dropdown field labelled "Term filter example" should have the value "Green"
@@ -50,6 +50,8 @@ Feature: Search listing - Filter
     And the search listing checkbox group labelled "Checkbox group" should have the following options checked
       | label    |
       | Weekdays |
+    Then the search listing dropdown field labelled "Single search dropdown filter" should have the value "Banana"
+    And the search listing dropdown field labelled "Single search dropdown filter" should have the search text "Banana" when opened
 
   @mockserver
   Example: Term filter - Should reflect an array from the URL
@@ -57,18 +59,21 @@ Feature: Search listing - Filter
     And the search network request is stubbed with fixture "/search-listing/filters/response" and status 200
     And the current date is "Fri, 02 Feb 2050 03:04:05 GMT"
 
-    When I visit the page "/filters?termFilter=Green&termFilter=Red&checkboxFilterGroup=Weekdays&checkboxFilterGroup=Weekends"
+    When I visit the page "/filters?termFilter=Green&termFilter=Red&checkboxFilterGroup=Weekdays&checkboxFilterGroup=Weekends&multiSearchDropdownFilter=Potato&multiSearchDropdownFilter=Onion"
     Then the search listing page should have 2 results
     And the search network request should be called with the "/search-listing/filters/request-term-array" fixture
 
-    Then the filters toggle should show 2 applied filters
+    Then the filters toggle should show 3 applied filters
 
     When I toggle the search listing filters section
-    Then the search listing dropdown field labelled "Term filter example" should have the value "Red, Green"
+    Then the search listing dropdown field labelled "Term filter example" should have the value "Green, Red"
     And the search listing checkbox group labelled "Checkbox group" should have the following options checked
       | label    |
       | Weekdays |
       | Weekends |
+    Then the select field labelled "Multi search dropdown filter" should have the following tags
+      | Potato |
+      | Onion  |
 
   @mockserver
   Example: Terms (with an 's') - Should reflect a single value from the URL
@@ -98,7 +103,7 @@ Feature: Search listing - Filter
     Then the filters toggle should show 1 applied filters
 
     When I toggle the search listing filters section
-    Then the search listing dropdown field labelled "Terms filter example" should have the value "Orange, Purple"
+    Then the search listing dropdown field labelled "Terms filter example" should have the value "Purple, Orange"
 
   @mockserver
   Example: Date range filter (single query value) - Should reflect the range value from the URL
@@ -162,7 +167,7 @@ Feature: Search listing - Filter
     And the search network request is stubbed with fixture "/search-listing/filters/response" and status 200
     And the current date is "Fri, 02 Feb 2050 03:04:05 GMT"
 
-    When I visit the page "/filters?functionFilter=closed&functionFilter=open"
+    When I visit the page "/filters?functionFilter=open&functionFilter=closed"
     Then the search listing page should have 2 results
     And the search network request should be called with the "/search-listing/filters/request-function-filter" fixture
 
@@ -266,13 +271,32 @@ Feature: Search listing - Filter
       | Yellow |
     Then I click the option labelled "Purple" in the selected dropdown
     And I click the search listing checkbox field labelled "Show archived content"
+    And I select "Mango" by searching the select field with label "Single search dropdown filter"
+    And I select the following options by searching for "Ca" the select field with label "Multi search dropdown filter"
+      | Carrot  |
+      | Cabbage |
+
     And I submit the search filters
     Then the URL should reflect that the current active filters are as follows:
-      | id             | value    |
-      | q              | the      |
-      | termFilter     | Blue     |
-      | termsFilter    | Orange   |
-      | checkboxFilter | Archived |
+      | id                         | value    |
+      | q                          | the      |
+      | termFilter                 | Blue     |
+      | termsFilter                | Orange   |
+      | checkboxFilter             | Archived |
+      | singleSearchDropdownFilter | Mango    |
+    Then the URL should reflect that the current active filters are as follows:
+      | multiSearchDropdownFilter | Carrot  |
+      | multiSearchDropdownFilter | Cabbage |
+
+    When I delete the text for the select field with label "Single search dropdown filter"
+    And I delete the following tags for the select field with label "Multi search dropdown filter"
+      | Carrot |
+      | Cabbage |
+
+    Then I submit the search filters
+    Then the URL should reflect that the current active filters are as follows:
+      | singleSearchDropdownFilter |
+      | multiSearchDropdownFilter  |
 
   @mockserver
   Example: Dependent filter - Should reflect values from the URL

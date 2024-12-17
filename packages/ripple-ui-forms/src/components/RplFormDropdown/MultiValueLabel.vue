@@ -1,13 +1,10 @@
 <script setup lang="ts">
 import { useResizeObserver } from '@vueuse/core'
 import { computed, nextTick, onMounted, ref, watch } from 'vue'
+import { RplFormDropdownOption } from './RplFormDropdown.vue'
 
 export interface MultiValueLabelProps {
-  selectedOptions: {
-    id: string
-    label: string
-    value: string
-  }[]
+  selectedOptions: RplFormDropdownOption[]
 }
 
 const props = withDefaults(defineProps<MultiValueLabelProps>(), {

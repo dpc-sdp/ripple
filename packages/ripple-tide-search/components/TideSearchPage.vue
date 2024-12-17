@@ -14,11 +14,12 @@ import { FormKit } from '@formkit/vue'
 import { SearchDriverOptions } from '@elastic/search-ui'
 import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
 import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
-import type { TideSiteData } from '@dpc-sdp/ripple-tide-api/types'
+import type { TideSiteData, TidePageBase } from '@dpc-sdp/ripple-tide-api/types'
 
 interface Props {
   id?: string
   site: TideSiteData
+  page: TidePageBase
   pageTitle: string
   filtersConfig: AppSearchFilterConfigItem[]
   searchDriverOptions: Omit<SearchDriverOptions, 'apiConnector'>
@@ -256,7 +257,7 @@ watch(
 </script>
 
 <template>
-  <TideBaseLayout :id="id" :site="site" :pageTitle="pageTitle">
+  <TideBaseLayout :id="id" :site="site" :page="page" :pageTitle="pageTitle">
     <template #aboveBody>
       <RplHeroHeader
         :title="pageTitle"

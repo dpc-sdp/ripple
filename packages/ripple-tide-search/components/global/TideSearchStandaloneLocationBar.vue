@@ -25,7 +25,7 @@ interface Props {
     function: string
     args: Record<string, any>
   }
-  showLabel: boolean
+  showLabel?: boolean
   /**
    * @deprecated use suggestionsConfig instead to customise suggestions
    */

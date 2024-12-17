@@ -3,7 +3,7 @@ interface Props {
   // props for UI wrapper
   title: string
   intro: string
-  image: string
+  image?: IRplImageType
 
   // props for search bar
   searchUrl: string
@@ -32,6 +32,7 @@ interface Props {
 }
 
 withDefaults(defineProps<Props>(), {
+  image: undefined,
   openInNewWindow: false,
   label: 'Search by postcode or suburb',
   placeholder: 'Enter postcode or suburb',

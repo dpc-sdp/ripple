@@ -30,7 +30,21 @@ describe('getGrantStatus', () => {
     })
   })
 
-  it('displays status as "Opening on <startdate>" when current date is within one month of startdate', () => {
+  it('displays status as "Opens <startdate>" when startdate is tommorrow', () => {
+    const now = new Date('2019-03-11T06:19:17+00:00')
+    const ongoing = false
+    const dateStart = '2019-03-12T06:19:17+00:00'
+    const dateEnd = '2019-05-10T06:19:17+00:00'
+
+    const result = getGrantStatus(now, ongoing, dateStart, dateEnd)
+
+    expect(result).toEqual({
+      status: 'opening_soon',
+      displayLabel: 'Opens 12 March 2019'
+    })
+  })
+
+  it('displays status as "Opens <startdate>" when startdate further in the future', () => {
     const now = new Date('2019-03-11T06:19:17+00:00')
     const ongoing = false
     const dateStart = '2019-04-10T06:19:17+00:00'
@@ -40,25 +54,11 @@ describe('getGrantStatus', () => {
 
     expect(result).toEqual({
       status: 'opening_soon',
-      displayLabel: 'Opening on 10 April 2019'
+      displayLabel: 'Opens 10 April 2019'
     })
   })
 
-  it('displays status as "Closed" when current date is more than one month before startdate', () => {
-    const now = new Date('2019-01-10T06:19:16+00:00')
-    const ongoing = false
-    const dateStart = '2019-02-10T06:19:17+00:00'
-    const dateEnd = '2019-05-10T06:19:17+00:00'
-
-    const result = getGrantStatus(now, ongoing, dateStart, dateEnd)
-
-    expect(result).toEqual({
-      status: 'closed',
-      displayLabel: 'Closed'
-    })
-  })
-
-  it('displays status as "Open, closing in x days" when current date is after start date and before end date', () => {
+  it('displays status as "Open, closes <enddate>" when current date is after start date and before end date', () => {
     const now = new Date('2019-04-11T06:19:17+00:00')
     const ongoing = false
     const dateStart = '2019-04-09T06:19:17+00:00'
@@ -68,11 +68,11 @@ describe('getGrantStatus', () => {
 
     expect(result).toEqual({
       status: 'open',
-      displayLabel: 'Open, closing in 29 days'
+      displayLabel: 'Open, closes 10 May 2019'
     })
   })
 
-  it('displays status as "Open, closing in 1 day" when current date is after start date and 1 day from end date', () => {
+  it('displays status as "Open, closes <enddate>" when current date is after start date and 1 day from end date', () => {
     const now = new Date('2019-04-11T06:19:17+00:00')
     const ongoing = false
     const dateStart = '2019-04-10T06:19:17+00:00'
@@ -82,7 +82,7 @@ describe('getGrantStatus', () => {
 
     expect(result).toEqual({
       status: 'open',
-      displayLabel: 'Open, closing in 1 day'
+      displayLabel: 'Open, closes 12 April 2019'
     })
   })
 
@@ -96,7 +96,7 @@ describe('getGrantStatus', () => {
 
     expect(result).toEqual({
       status: 'open',
-      displayLabel: 'Open, closing today'
+      displayLabel: 'Open, closes today'
     })
   })
 

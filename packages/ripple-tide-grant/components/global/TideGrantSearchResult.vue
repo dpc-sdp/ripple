@@ -54,7 +54,6 @@ const link = computed(() => {
     :title="title"
     :url="link"
     :content="summary"
-    :updated="updated"
   >
     <template #details>
       <TideGrantMeta

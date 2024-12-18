@@ -31,6 +31,29 @@ const grantStatus = computed(() => {
 const overviewList = computed(() => {
   let list: any[] = []
 
+  const icons = {
+    open: {
+      name: 'icon-check-circle-filled',
+      color: 'success'
+    },
+    closed: {
+      name: 'icon-cancel-circle-filled',
+      color: 'error'
+    },
+    opening_soon: {
+      name: 'icon-clock-circle-filled',
+      color: 'warning'
+    }
+  }
+
+  list.push({
+    term: 'Status:',
+    description: grantStatus.value.displayLabel,
+    iconName:
+      icons[grantStatus.value.status]?.name || 'icon-info-circle-filled',
+    iconColour: icons[grantStatus.value.status]?.color || 'default'
+  })
+
   if (props.audience) {
     list.push({
       term: 'Who can apply:',
@@ -38,17 +61,6 @@ const overviewList = computed(() => {
       iconName: 'icon-user-circle-filled'
     })
   }
-
-  const open =
-    grantStatus.value.status === 'open' ||
-    grantStatus.value.status === 'opening_soon'
-
-  list.push({
-    term: 'Status:',
-    description: grantStatus.value.displayLabel,
-    iconName: open ? 'icon-check-circle-filled' : 'icon-cancel-circle-filled',
-    iconColour: open ? 'success' : 'error'
-  })
 
   if (props.funding) {
     list.push({

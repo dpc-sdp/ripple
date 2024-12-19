@@ -241,9 +241,8 @@ const handleSearchUpdate = (event: Event) => {
   }
 }
 
-const handleSearchBlur = () => {
-  searchFocused.value = false
-}
+const handleSearchFocus = () => (searchFocused.value = true)
+const handleSearchBlur = () => (searchFocused.value = false)
 
 watch(
   () => props.value,
@@ -600,6 +599,7 @@ const hasValue = computed((): boolean => {
             autocomplete="off"
             @keydown.enter.prevent="handleSearchSubmit"
             @keydown.left.stop="handleSearchLeft"
+            @focus="handleSearchFocus"
             @blur="handleSearchBlur"
             @input="handleSearchUpdate"
           />

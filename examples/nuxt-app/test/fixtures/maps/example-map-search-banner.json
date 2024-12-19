@@ -1,0 +1,134 @@
+{
+  "title": "Test location search banner",
+  "changed": "2024-11-11T14:25:56+11:00",
+  "created": "2024-10-28T17:42:15+11:00",
+  "type": "landing_page",
+  "nid": "1cf34a40-130f-42a5-bd83-612cfa71c889",
+  "_sectionId": "2138",
+  "sidebar": {
+    "contacts": [],
+    "whatsNext": [],
+    "siteSectionNav": null
+  },
+  "status": "published",
+  "topicTags": [
+    {
+      "text": "Education",
+      "url": "/topic/education"
+    }
+  ],
+  "siteSection": null,
+  "meta": {
+    "url": "/early-learning-victoria",
+    "langcode": "en",
+    "description": "We're opening 50 new early learning and childcare centres across Victoria. These will be government owned and operated, providing long day care and integrated kinder programs.",
+    "additional": [
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "title",
+          "content": "Early Learning Victoria | l"
+        }
+      },
+      {
+        "tag": "link",
+        "attributes": {
+          "rel": "canonical",
+          "href": "https://content.vic.gov.au/early-learning-victoria"
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "property": "og:locale",
+          "content": "en-AU"
+        }
+      }
+    ],
+    "keywords": "",
+    "image": null
+  },
+  "showContentRating": true,
+  "summary": "Test",
+  "showHeroAcknowledgement": false,
+  "showInPageNav": false,
+  "showHeroImageCaption": false,
+  "showTopicTags": true,
+  "inPageNavHeadingLevel": "h2",
+  "background": "alt",
+  "header": {
+    "title": "Test location search banner",
+    "summary": "Test",
+    "links": {
+      "title": "",
+      "items": [],
+      "more": null
+    },
+    "backgroundImageCaption": null,
+    "theme": "default",
+    "logoImage": null,
+    "backgroundImage": {
+      "src": "/placeholders/medium.png",
+      "alt": "",
+      "title": "",
+      "width": 10667,
+      "height": 4500,
+      "focalPoint": {
+        "x": 5334,
+        "y": 2520
+      }
+    },
+    "cornerTop": {
+      "src": "/placeholders/medium.png",
+      "alt": "",
+      "title": "",
+      "width": 804,
+      "height": 491,
+      "focalPoint": {
+        "x": 402,
+        "y": 246
+      }
+    },
+    "cornerBottom": {
+      "src": "/placeholders/medium.png",
+      "alt": "",
+      "title": "",
+      "width": 804,
+      "height": 284,
+      "focalPoint": {
+        "x": 402,
+        "y": 142
+      }
+    },
+    "primaryAction": null,
+    "secondaryAction": null,
+    "secondaryActionLabel": null
+  },
+  "primaryCampaign": null,
+  "secondaryCampaign": null,
+  "headerComponents": [
+    {
+      "uuid": "27b0781b-2533-40ba-a9da-28fefc41d83e",
+      "component": "TideLandingPageMapSearchBanner",
+      "id": "3434418",
+      "props": {
+        "title": "Test search heading",
+        "intro": "Test introduction text",
+        "label": "Test label",
+        "placeholder": "Test placeholder",
+        "image": {
+          "src": "/placeholders/mapbg.png",
+          "alt": "Example map image"
+        },
+        "searchUrl": "/test/target/url",
+        "suggestionsConfig": {
+          "function": "exampleSuggestionsFn",
+          "args": {
+            "testArg": "testValue"
+          }
+        }
+      }
+    }
+  ],
+  "bodyComponents": []
+}

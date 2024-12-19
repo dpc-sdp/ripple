@@ -371,7 +371,7 @@
     @media (--rpl-bp-xl) {
       /* magic number: offset is equal to one column taking into account the cell spacing, this means the image starts at col 8. i.e. calc((120rem / 12) + (var(--rpl-sp-7) / 11)) */
       --local-image-offset: 103px;
-      --local-image-width: 50vw;
+      --local-image-width: 50%;
     }
   }
 }

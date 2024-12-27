@@ -7,6 +7,7 @@ interface Props {
   options?: any[]
   variant?: string
   columns?: string
+  display?: 'inline' | 'block'
   levels: {
     label: string
     placeholder: string
@@ -18,7 +19,8 @@ const props = withDefaults(defineProps<Props>(), {
   options: () => [],
   multiple: false,
   variant: 'default',
-  columns: 'rpl-col-6-m',
+  columns: undefined,
+  display: 'inline',
   levels: () => []
 })
 
@@ -124,15 +126,19 @@ watch(
   },
   { deep: true }
 )
+
+const columns = computed(() => {
+  if (props.columns) {
+    return `rpl-col-12 ${props.columns}`
+  }
+
+  return props.display === 'block' ? 'rpl-col-12' : 'rpl-col-12 rpl-col-6-m'
+})
 </script>
 
 <template>
   <FormKit :id="`${id}`" :key="`${id}`" v-model="groupValues" type="group">
-    <div
-      v-for="i in levels.length"
-      :key="`${id}-${i}`"
-      :class="`rpl-col-12 ${columns}`"
-    >
+    <div v-for="i in levels.length" :key="`${id}-${i}`" :class="columns">
       <FormKit
         :id="`${id}-${i}`"
         :name="`${id}-${i}`"

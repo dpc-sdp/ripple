@@ -193,6 +193,7 @@ const {
   clearSuggestions,
   suggestions,
   searchTerm,
+  appliedSearchTerm,
   results,
   filterForm,
   appliedFilters,
@@ -320,7 +321,7 @@ onMapResultsHook.value = () => {
 }
 
 const resultsContainer = computed(
-  () => `[data-component-id='${props.id}'] .tide-search-listing-above-result`
+  () => `[data-component-id='${props.id}'] .tide-search-results-wrapper`
 )
 
 const emitSearchEvent = (event) => {
@@ -435,15 +436,15 @@ const handleSortChange = (sortId) => {
   changeSortOrder(sortId)
 }
 
-const handleToggleFilters = () => {
+const handleToggleFilters = (event: rplEventPayload) => {
   filtersExpanded.value = !filtersExpanded.value
 
   emitRplEvent(
     'toggleFilters',
     {
       ...baseEvent(),
-      action: filtersExpanded.value ? 'open' : 'close',
-      text: toggleFiltersLabel.value
+      ...event,
+      action: filtersExpanded.value ? 'open' : 'close'
     },
     { global: true }
   )
@@ -451,14 +452,6 @@ const handleToggleFilters = () => {
 
 const numAppliedFilters = computed(() => {
   return getActiveFiltersTally(appliedFilters.value, props.userFilters)
-})
-
-const toggleFiltersLabel = computed(() => {
-  let label = 'Filters'
-
-  return numAppliedFilters.value
-    ? `${label} (${numAppliedFilters.value})`
-    : label
 })
 
 const handleTabChange = (tab: TideSearchListingTab) => {
@@ -565,7 +558,8 @@ const locationOrGeolocation = computed(() => {
         'tide-search-header': true,
         'tide-search-header--inset': reverseTheme,
         'tide-search-header--neutral': reverseTheme && !altBackground,
-        'tide-search-header--light': reverseTheme && altBackground
+        'tide-search-header--light': reverseTheme && altBackground,
+        'rpl-u-margin-b-8': true
       }"
     >
       <template v-if="!searchListingConfig?.showFiltersOnly">
@@ -611,11 +605,18 @@ const locationOrGeolocation = computed(() => {
         />
       </template>
 
-      <div class="tide-search-util-bar">
+      <div
+        :class="{
+          'tide-search-util-bar': true,
+          'tide-search-util-bar--geolocate':
+            locationQueryConfig?.showGeolocationButton
+        }"
+      >
         <RplMapGeolocateButton
           v-if="locationQueryConfig?.showGeolocationButton"
           :isBusy="isGettingLocation"
           :error="geolocationError"
+          class="tide-search-map-geolocate"
           @click="handleGeolocateClick"
           @success="handleGeolocateSuccess"
           @error="handleGeolocateError"
@@ -625,19 +626,20 @@ const locationOrGeolocation = computed(() => {
             'Use my current location'
           }}
         </RplMapGeolocateButton>
-        <div class="tide-search-refine-wrapper">
-          <RplSearchBarRefine
-            v-if="
-              !searchListingConfig?.showFiltersOnly &&
-              userFilters &&
-              userFilters.length > 0
-            "
+        <div
+          v-if="
+            !searchListingConfig?.showFiltersOnly &&
+            userFilters &&
+            userFilters.length > 0
+          "
+          class="tide-search-refine-wrapper"
+        >
+          <TideSearchFilterToggle
             class="tide-search-refine-btn"
+            :appliedTally="numAppliedFilters"
             :expanded="filtersExpanded"
-            @click="handleToggleFilters"
-          >
-            {{ toggleFiltersLabel }}
-          </RplSearchBarRefine>
+            :onClick="handleToggleFilters"
+          />
         </div>
       </div>
 
@@ -660,127 +662,132 @@ const locationOrGeolocation = computed(() => {
       </RplExpandable>
     </div>
 
-    <RplTabs
-      v-if="searchListingConfig?.displayMapTab"
-      :tabs="tabs"
-      :activeTab="activeTab"
-      @toggleTab="handleTabChange"
-    />
-    <template
-      v-if="!searchListingConfig?.displayMapTab || activeTab === 'listing'"
-    >
-      <TideSearchAboveResults
-        :hasSidebar="hasSidebar"
-        class="rpl-u-margin-t-4 rpl-u-padding-b-2 rpl-u-margin-b-4"
+    <div class="tide-search-results-wrapper">
+      <RplTabs
+        v-if="searchListingConfig?.displayMapTab"
+        :tabs="tabs"
+        :activeTab="activeTab"
+        @toggleTab="handleTabChange"
+      />
+      <template
+        v-if="!searchListingConfig?.displayMapTab || activeTab === 'listing'"
       >
-        <template #left>
-          <TideSearchResultsCount
-            v-if="!resultsConfig.hideResultsCount && !searchError"
-            :pagingStart="pagingStart + 1"
-            :pagingEnd="pagingEnd + 1"
-            :totalResults="totalResults"
-            :results="results"
-            :loading="isBusy"
-          />
-        </template>
-
-        <template #right>
-          <TideSearchSortOptions
-            v-if="sortOptions && sortOptions.length > 1"
-            :currentValue="userSelectedSort"
-            :sortOptions="sortOptions"
-            @change="handleSortChange"
-          />
-        </template>
-      </TideSearchAboveResults>
-
-      <TideSearchResultsLoadingState :isActive="isBusy">
-        <TideSearchError v-if="searchError" class="rpl-u-margin-t-8" />
-        <TideCustomCollectionNoResults
-          v-else-if="!isBusy && !results?.length"
-          class="rpl-u-margin-t-8 rpl-u-margin-b-8"
+        <TideSearchResultsHeading
+          v-if="results?.length && !searchError"
+          :searchTerm="appliedSearchTerm.q"
         />
+        <TideSearchAboveResults
+          :hasSidebar="hasSidebar"
+          class="rpl-u-margin-t-4"
+        >
+          <template #left>
+            <TideSearchResultsCount
+              v-if="!resultsConfig.hideResultsCount && !searchError"
+              :pagingStart="pagingStart + 1"
+              :pagingEnd="pagingEnd + 1"
+              :totalResults="totalResults"
+              :results="results"
+              :loading="isBusy"
+            />
+          </template>
 
-        <div v-if="!searchError">
-          <component
-            :is="resultsConfig.layout?.component"
-            :key="`TideSearchListingResultsLayout${resultsConfig.layout?.component}`"
-            v-bind="resultsConfig.layout?.props"
-            :hasSidebar="hasSidebar"
-            :loading="isBusy"
-            :results="results"
-            :perPage="searchListingConfig?.resultsPerPage"
+          <template #right>
+            <TideSearchSortOptions
+              v-if="sortOptions && sortOptions.length > 1"
+              :currentValue="userSelectedSort"
+              :sortOptions="sortOptions"
+              @change="handleSortChange"
+            />
+          </template>
+        </TideSearchAboveResults>
+
+        <TideSearchResultsLoadingState :isActive="isBusy">
+          <TideSearchError v-if="searchError" class="rpl-u-margin-t-8" />
+          <TideCustomCollectionNoResults
+            v-else-if="!isBusy && !results?.length"
+            class="rpl-u-margin-t-8 rpl-u-margin-b-8"
+          />
+
+          <div v-if="!searchError">
+            <component
+              :is="resultsConfig.layout?.component"
+              :key="`TideSearchListingResultsLayout${resultsConfig.layout?.component}`"
+              v-bind="resultsConfig.layout?.props"
+              :hasSidebar="hasSidebar"
+              :loading="isBusy"
+              :results="results"
+              :perPage="searchListingConfig?.resultsPerPage"
+            />
+          </div>
+        </TideSearchResultsLoadingState>
+
+        <div class="tide-search-pagination">
+          <TideSearchPagination
+            v-if="!searchError"
+            :currentPage="page"
+            :totalPages="totalPages"
+            :scrollToSelector="resultsContainer"
+            @paginate="handlePageChange"
           />
         </div>
-      </TideSearchResultsLoadingState>
+      </template>
+      <template v-if="activeTab === 'map'">
+        <TideSearchListingResultsMap
+          :results="mapFeatures"
+          :areas="mapAreas"
+          v-bind="mapConfig?.props"
+          :noresults="!isBusy && !results?.length"
+          :hasSidePanel="mapConfig?.sidePanel?.enabled"
+          :initialising="!firstLoad"
+        >
+          <template #noresults>
+            <TideCustomCollectionNoResults v-if="!isBusy && !results?.length" />
+          </template>
 
-      <div class="tide-search-pagination">
-        <TideSearchPagination
-          v-if="!searchError"
-          :currentPage="page"
-          :totalPages="totalPages"
-          :scrollToSelector="resultsContainer"
-          @paginate="handlePageChange"
-        />
-      </div>
-    </template>
+          <template #sidepanel="{ activatePin }">
+            <TideSearchListingResultsMapSidepanel
+              variant="desktop"
+              :popup="popup"
+              :mapConfig="mapConfig"
+              :results="results"
+              :activatePin="activatePin"
+              :isBusy="isBusy"
+              :isStandalone="true"
+              :pagingStart="pagingStart + 1"
+              :pagingEnd="pagingEnd + 1"
+              :totalResults="totalResults"
+              :currentPage="page"
+              :totalPages="totalPages"
+              @paginate="handlePageChange"
+            >
+              <template #noresults>
+                <TideCustomCollectionNoResults />
+              </template>
+            </TideSearchListingResultsMapSidepanel>
+          </template>
 
-    <template v-if="activeTab === 'map'">
-      <TideSearchListingResultsMap
-        :results="mapFeatures"
-        :areas="mapAreas"
-        v-bind="mapConfig?.props"
-        :noresults="!isBusy && !results?.length"
-        :hasSidePanel="mapConfig?.sidePanel?.enabled"
-        :initialising="!firstLoad"
-      >
-        <template #noresults>
-          <TideCustomCollectionNoResults v-if="!isBusy && !results?.length" />
-        </template>
-
-        <template #sidepanel="{ activatePin }">
-          <TideSearchListingResultsMapSidepanel
-            variant="desktop"
-            :popup="popup"
-            :mapConfig="mapConfig"
-            :results="results"
-            :activatePin="activatePin"
-            :isBusy="isBusy"
-            :isStandalone="true"
-            :pagingStart="pagingStart + 1"
-            :pagingEnd="pagingEnd + 1"
-            :totalResults="totalResults"
-            :currentPage="page"
-            :totalPages="totalPages"
-            @paginate="handlePageChange"
-          >
-            <template #noresults>
-              <TideCustomCollectionNoResults />
-            </template>
-          </TideSearchListingResultsMapSidepanel>
-        </template>
-
-        <template #sidepanelMobile="{ activatePin }">
-          <TideSearchListingResultsMapSidepanel
-            variant="mobile"
-            :popup="popup"
-            :mapConfig="mapConfig"
-            :results="results"
-            :activatePin="activatePin"
-            :isBusy="isBusy"
-            :isStandalone="true"
-            :pagingStart="pagingStart + 1"
-            :pagingEnd="pagingEnd + 1"
-            :totalResults="totalResults"
-            :currentPage="page"
-            :totalPages="totalPages"
-            @paginate="handlePageChange"
-          >
-            <template #noresults> <TideCustomCollectionNoResults /> </template
-          ></TideSearchListingResultsMapSidepanel>
-        </template>
-      </TideSearchListingResultsMap>
-    </template>
+          <template #sidepanelMobile="{ activatePin }">
+            <TideSearchListingResultsMapSidepanel
+              variant="mobile"
+              :popup="popup"
+              :mapConfig="mapConfig"
+              :results="results"
+              :activatePin="activatePin"
+              :isBusy="isBusy"
+              :isStandalone="true"
+              :pagingStart="pagingStart + 1"
+              :pagingEnd="pagingEnd + 1"
+              :totalResults="totalResults"
+              :currentPage="page"
+              :totalPages="totalPages"
+              @paginate="handlePageChange"
+            >
+              <template #noresults> <TideCustomCollectionNoResults /> </template
+            ></TideSearchListingResultsMapSidepanel>
+          </template>
+        </TideSearchListingResultsMap>
+      </template>
+    </div>
   </div>
 </template>
 
@@ -801,11 +808,11 @@ const locationOrGeolocation = computed(() => {
 }
 
 .tide-search-header--inset {
-  padding: var(--rpl-sp-4);
+  padding: var(--rpl-sp-4) var(--rpl-sp-4) var(--rpl-sp-5);
   margin-bottom: var(--rpl-sp-4);
 
   @media (--rpl-bp-s) {
-    padding: var(--rpl-sp-5);
+    padding: var(--rpl-sp-5) var(--rpl-sp-5) var(--rpl-sp-6);
   }
 }
 
@@ -815,11 +822,6 @@ const locationOrGeolocation = computed(() => {
 
 .tide-search-filters .rpl-form__outer {
   margin: 0;
-}
-
-.tide-search-refine-btn {
-  align-self: flex-end;
-  padding: 0;
 }
 
 .tide-search-results--loading {
@@ -837,21 +839,52 @@ const locationOrGeolocation = computed(() => {
 
 .tide-search-util-bar {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
   flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-between;
   align-items: flex-start;
   row-gap: var(--rpl-sp-4);
-  column-gap: var(--rpl-sp-8);
+  column-gap: var(--rpl-sp-9);
+  margin-top: var(--rpl-sp-4);
+
+  @media (--rpl-bp-m) {
+    row-gap: var(--rpl-sp-3);
+    margin-top: var(--rpl-sp-5);
+  }
+
+  @media (--rpl-bp-m) {
+    flex-direction: row;
+  }
+}
+
+.tide-search-util-bar--geolocate {
   margin-top: var(--rpl-sp-3);
-  @media (--rpl-bp-s) {
+
+  @media (--rpl-bp-m) {
     margin-top: var(--rpl-sp-5);
   }
 }
+
+.tide-search-map-geolocate {
+  @media (--rpl-bp-m) {
+    display: contents;
+  }
+
+  .rpl-map-geolocate__error {
+    width: 100%;
+
+    @media (--rpl-bp-m) {
+      margin: 0;
+    }
+  }
+}
+
 .tide-search-refine-wrapper {
   flex-grow: 1;
   display: flex;
-  justify-content: flex-end;
+
+  @media (--rpl-bp-m) {
+    order: -1;
+  }
 }
 </style>

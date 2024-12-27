@@ -218,6 +218,7 @@ Feature: Search listing - Filter
     Then the search listing dropdown field labelled "Terms filter example" should have the value "Purple"
     Then the search listing dropdown field labelled "Custom function filter example" should have the value "Open"
     And the search listing checkbox field labelled "Show archived content" should be checked
+    And the search listing checkbox field labelled "Weekdays" should be checked
 
     When I clear the search filters
 

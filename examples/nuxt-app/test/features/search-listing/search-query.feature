@@ -5,6 +5,26 @@ Feature: Search Queries
     And I am using a "macbook-16" device
 
   @mockserver
+  Example: The search term is displayed after submitting a search with results
+    Given the page endpoint for path "/" returns fixture "/search-listing/search-query/page" with status 200
+    And the search network request is stubbed with fixture "/search-listing/search-query/response" and status 200
+
+    When I visit the page "/"
+    Then I type "Grant" into the search input
+    And I click the search button
+    Then the search results heading should show "Search results for 'Grant'"
+
+  @mockserver
+  Example: The search term is not displayed after submitting a search with no results
+    Given the page endpoint for path "/" returns fixture "/search-listing/search-query/page" with status 200
+    And the search network request is stubbed with fixture "/search-listing/errors/response-empty" and status 200
+
+    When I visit the page "/"
+    Then I type "Zoo" into the search input
+    And I click the search button
+    Then the search results heading should not be displayed
+
+  @mockserver
   Example: The search term query can be extended and a custom query config supplied
     Given the page endpoint for path "/" returns fixture "/search-listing/search-query/page" with status 200
     And the search network request is stubbed with fixture "/search-listing/search-query/response" and status 200

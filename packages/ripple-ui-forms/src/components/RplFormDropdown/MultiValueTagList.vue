@@ -143,7 +143,7 @@ useResizeObserver(itemsRef, calculateHiddenItems)
 </script>
 
 <template>
-  <div class="rpl-form-dropdown__multi-value-tag-list-wrap">
+  <div v-if="isMounted" class="rpl-form-dropdown__multi-value-tag-list-wrap">
     <div
       ref="faxItemsRef"
       class="rpl-form-dropdown__multi-value-tag-list"

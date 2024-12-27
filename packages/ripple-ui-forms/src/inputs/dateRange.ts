@@ -20,10 +20,13 @@ export const dateRange: FormKitTypeDefinition = {
       min: '$node.props.min',
       max: '$node.props.max',
       dateFormat: '$node.props.dateFormat',
+      fromLabel: '$node.props.fromLabel',
+      toLabel: '$node.props.toLabel',
       disabled: '$node.context.disabled',
       invalid: '$fns.isFieldInvalid()',
       required: '$fns.isFieldRequired()',
       variant: '$node.props.variant',
+      display: '$node.props.display',
       pii: '$node.props.pii',
       'aria-describedby': '$fns.getAriaDescribedBy()'
     }
@@ -41,7 +44,16 @@ export const dateRange: FormKitTypeDefinition = {
   /**
    * An array of extra props to accept for this input.
    */
-  props: ['min', 'max', 'dateFormat', 'variant', 'pii'],
+  props: [
+    'min',
+    'max',
+    'dateFormat',
+    'fromLabel',
+    'toLabel',
+    'variant',
+    'display',
+    'pii'
+  ],
   /**
    * Forces node.props.type to be this explicit value.
    */

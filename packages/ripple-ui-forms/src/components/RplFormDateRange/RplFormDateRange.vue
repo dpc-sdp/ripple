@@ -22,10 +22,13 @@ interface Props {
   id: string
   name: string
   label?: string
+  fromLabel?: string
+  toLabel?: string
   disabled?: boolean
   required?: boolean
   invalid?: boolean
   variant?: 'default' | 'reverse'
+  display?: 'inline' | 'block'
   value?: InternalDate
   onChange: (value: string | string[]) => void
   dateFormat?: string
@@ -40,8 +43,11 @@ const props = withDefaults(defineProps<Props>(), {
   required: false,
   invalid: false,
   label: undefined,
+  fromLabel: 'From',
+  toLabel: 'To',
   value: undefined,
   variant: 'default',
+  display: 'inline',
   dateFormat: 'yyyy-mm-dd',
   min: '',
   max: '',
@@ -128,12 +134,19 @@ const handleUpdate = (event) => {
     { global: true }
   )
 }
+
+const labelClasses = computed(() => ({
+  'rpl-form-date-range__label': true,
+  'rpl-type-label-small': true,
+  'rpl-u-margin-b-2': props.display === 'block',
+  'rpl-u-visually-hidden': props.display === 'inline'
+}))
 </script>
 
 <template>
-  <div class="rpl-form-date-range">
+  <div :class="`rpl-form-date-range rpl-form-date-range--${display}`">
     <div class="rpl-form-date-range__option">
-      <label :for="`${id}__from`" class="rpl-u-visually-hidden">From</label>
+      <label :for="`${id}__from`" :class="labelClasses">{{ fromLabel }}</label>
       <RplFormInput
         :id="`${id}__from`"
         :name="`${id}__from`"
@@ -152,7 +165,7 @@ const handleUpdate = (event) => {
       />
     </div>
     <div class="rpl-form-date-range__option">
-      <label :for="`${id}__to`" class="rpl-u-visually-hidden">To</label>
+      <label :for="`${id}__to`" :class="labelClasses">{{ toLabel }}</label>
       <RplFormInput
         :id="`${id}__to`"
         :name="`${id}__to`"

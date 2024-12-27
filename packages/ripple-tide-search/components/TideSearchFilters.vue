@@ -4,14 +4,19 @@
     :title="title"
     @submit="handleFilterSubmit"
   >
-    <div class="rpl-u-margin-t-4 rpl-u-margin-b-4">
-      <div class="rpl-grid tide-search-filters" style="--local-grid-cols: 12">
+    <div class="rpl-u-margin-t-6">
+      <div
+        :class="`rpl-grid tide-search-filters tide-search-filters--${display}`"
+        style="--local-grid-cols: 12"
+      >
         <div
           v-for="filter in filterInputs"
           :key="filter.id"
-          :class="`rpl-col-12 ${
-            filter?.columns ? filter.columns : 'rpl-col-6-m'
-          }`"
+          :class="{
+            'rpl-col-12': true,
+            [`${filter?.columns}`]: filter?.columns,
+            'rpl-col-6-m': !filter?.columns && display === 'inline'
+          }"
         >
           <component
             :is="filter.component"
@@ -21,6 +26,7 @@
             v-bind="filter.props"
             :variant="reverseStyling ? 'reverse' : 'default'"
             :disabled="isBusy"
+            :display="display"
             :options="
               filter.props?.dynamicOptions?.length
                 ? filter.props.dynamicOptions
@@ -36,6 +42,7 @@
         :resetLabel="resetLabel"
         :displayResetButton="!!resetLabel"
         :globalEvents="false"
+        :display="display"
         @reset="handleFilterReset"
       />
     </div>
@@ -58,6 +65,7 @@ interface Props {
   resetLabel?: string | boolean
   reverseStyling?: boolean
   isBusy?: boolean
+  display?: 'inline' | 'block'
 }
 
 const emit = defineEmits<{
@@ -68,7 +76,8 @@ const emit = defineEmits<{
 const props = withDefaults(defineProps<Props>(), {
   submitLabel: 'Apply search filters',
   resetLabel: 'Clear search filters',
-  reverseStyling: false
+  reverseStyling: false,
+  display: 'inline'
 })
 
 const handleFilterReset = (event: rplEventPayload) => {
@@ -83,3 +92,9 @@ const handleFilterSubmit = (formValues) => {
   })
 }
 </script>
+
+<style>
+.tide-search-filters--block {
+  column-gap: 0;
+}
+</style>

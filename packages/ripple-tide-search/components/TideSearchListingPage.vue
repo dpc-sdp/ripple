@@ -7,7 +7,7 @@ import {
   computed
 } from '#imports'
 import { submitForm } from '@formkit/vue'
-import { useDebounceFn } from '@vueuse/core'
+import { useBreakpoints, useDebounceFn } from '@vueuse/core'
 import useTideSearch from './../composables/useTideSearch'
 import type { TidePageBase, TideSiteData } from '@dpc-sdp/ripple-tide-api/types'
 import type {
@@ -16,7 +16,7 @@ import type {
   TideSearchListingConfig
 } from './../types'
 import type { ITideSecondaryCampaign } from '@dpc-sdp/ripple-tide-landing-page/mapping/secondary-campaign/secondary-campaign-mapping'
-import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
+import { bpMin, useRippleEvent } from '@dpc-sdp/ripple-ui-core'
 import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
 import { watch } from 'vue'
 
@@ -79,6 +79,7 @@ const props = withDefaults(defineProps<Props>(), {
       },
       showFiltersOnLoad: false,
       showFiltersOnly: false,
+      filtersInSidebar: false,
       scrollToResultsOnSubmit: true
     }) as any,
   resultsLayout: () => ({
@@ -117,10 +118,15 @@ const emit = defineEmits<{
 
 const { emitRplEvent } = useRippleEvent('tide-search', emit)
 
-const filtersExpanded = ref(
+const breakpoints = useBreakpoints(bpMin)
+const isMobile = breakpoints.smaller('m')
+
+const initialFiltersState =
+  props.searchListingConfig?.filtersInSidebar ||
   props.searchListingConfig?.showFiltersOnLoad ||
-    props.searchListingConfig?.showFiltersOnly
-)
+  props.searchListingConfig?.showFiltersOnly
+
+const filtersExpanded = ref(Boolean(initialFiltersState))
 
 const {
   isBusy,
@@ -128,6 +134,7 @@ const {
   getSuggestions,
   clearSuggestions,
   searchTerm,
+  appliedSearchTerm,
   results,
   suggestions,
   filterForm,
@@ -206,7 +213,15 @@ onAggregationUpdateHook.value = (aggs: any) => {
   })
 }
 
-const resultsContainer = '.rpl-layout__body-wrap'
+const resultsContainer = computed((): string => {
+  return props.searchListingConfig?.filtersInSidebar
+    ? '.rpl-layout__main'
+    : '.rpl-layout__body-wrap'
+})
+
+const resultsScrollOffset = computed((): number => {
+  return props.searchListingConfig?.filtersInSidebar ? 32 : 0
+})
 
 const emitSearchEvent = (event: any) => {
   emitRplEvent(
@@ -232,7 +247,7 @@ const handleSearchSubmit = (event: any) => {
     // If there's no filters in the form, we need to just do the search without submitting the filter form
     submitSearch()
     if (event?.type === 'button') {
-      scrollToResults(resultsContainer)
+      scrollToResults(resultsContainer.value, resultsScrollOffset.value)
     }
     emitSearchEvent({ ...event, ...baseEvent() })
   }
@@ -246,7 +261,7 @@ const handleFilterSubmit = (event: any) => {
     !cachedSubmitEvent.value?.type ||
     cachedSubmitEvent.value?.type === 'button'
   ) {
-    scrollToResults(resultsContainer)
+    scrollToResults(resultsContainer.value, resultsScrollOffset.value)
   }
 
   emitSearchEvent({ ...event, ...cachedSubmitEvent.value, ...baseEvent() })
@@ -313,15 +328,15 @@ const handleSortChange = (sortId: any) => {
   changeSortOrder(sortId)
 }
 
-const handleToggleFilters = () => {
+const handleToggleFilters = (event: rplEventPayload) => {
   filtersExpanded.value = !filtersExpanded.value
 
   emitRplEvent(
     'toggleFilters',
     {
       ...baseEvent(),
-      action: filtersExpanded.value ? 'open' : 'close',
-      text: toggleFiltersLabel.value
+      ...event,
+      action: filtersExpanded.value ? 'open' : 'close'
     },
     { global: true }
   )
@@ -329,14 +344,6 @@ const handleToggleFilters = () => {
 
 const numAppliedFilters = computed(() => {
   return getActiveFiltersTally(appliedFilters.value, props.userFilters)
-})
-
-const toggleFiltersLabel = computed(() => {
-  let label = 'Filters'
-
-  return numAppliedFilters.value
-    ? `${label} (${numAppliedFilters.value})`
-    : label
 })
 
 watch(
@@ -354,6 +361,12 @@ watch(
     }
   }
 )
+
+onMounted(() => {
+  if (props.searchListingConfig?.filtersInSidebar && isMobile.value) {
+    filtersExpanded.value = false
+  }
+})
 </script>
 
 <template>
@@ -369,6 +382,8 @@ watch(
       showUpdatedDate ? contentPage.changed || contentPage.created : null
     "
     :showContentRating="contentPage.showContentRating"
+    :sideBarPlacement="searchListingConfig?.filtersInSidebar ? 'left' : 'right'"
+    class="tide-search-listing-page"
   >
     <template #breadcrumbs>
       <slot name="breadcrumbs"></slot>
@@ -381,7 +396,7 @@ watch(
         :full-width="true"
         :corner-top="site?.cornerGraphic?.top?.src || true"
         :corner-bottom="false"
-        :class="{ 'rpl-header--hero-tight': belowFilterComponent }"
+        class="rpl-header--hero-tight tide-search-header-component"
       >
         <p v-if="introText" class="rpl-type-p-large">{{ introText }}</p>
         <div
@@ -417,38 +432,65 @@ watch(
               @update:input-value="handleUpdateSearchTerm"
             />
           </template>
-          <RplSearchBarRefine
+          <template
             v-if="
-              !searchListingConfig?.showFiltersOnly &&
-              userFilters &&
-              userFilters.length > 0
+              !searchListingConfig?.filtersInSidebar && userFilters?.length > 0
             "
-            class="tide-search-refine-btn"
-            :expanded="filtersExpanded"
-            aria-controls="tide-search-listing-filters"
-            @click="handleToggleFilters"
-            >{{ toggleFiltersLabel }}</RplSearchBarRefine
           >
-          <RplExpandable
-            v-if="userFilters && userFilters.length > 0"
-            id="tide-search-listing-filters"
-            :expanded="filtersExpanded"
-            class="rpl-u-margin-t-4"
-          >
-            <TideSearchFilters
-              :title="title"
-              :filter-form-values="filterForm"
-              :filterInputs="uiFilters as any"
-              @reset="handleFilterReset"
-              @submit="handleFilterSubmit"
+            <TideSearchFilterToggle
+              v-if="!searchListingConfig?.showFiltersOnly"
+              class="tide-search-refine-btn tide-search-refine-btn--margin"
+              :expanded="filtersExpanded"
+              :appliedTally="numAppliedFilters"
+              :onClick="handleToggleFilters"
+              aria-controls="tide-search-listing-filters"
+            />
+            <RplExpandable
+              id="tide-search-listing-filters"
+              :expanded="filtersExpanded"
             >
-            </TideSearchFilters>
-          </RplExpandable>
+              <TideSearchFilters
+                :title="title"
+                :filter-form-values="filterForm"
+                :filterInputs="uiFilters as any"
+                @reset="handleFilterReset"
+                @submit="handleFilterSubmit"
+              >
+              </TideSearchFilters>
+            </RplExpandable>
+          </template>
         </div>
         <template v-if="belowFilterComponent">
           <component :is="belowFilterComponent.component" />
         </template>
       </RplHeroHeader>
+    </template>
+    <template
+      v-if="searchListingConfig?.filtersInSidebar && userFilters?.length > 0"
+      #sidebar
+    >
+      <TideSearchFilterToggle
+        v-if="isMobile"
+        class="tide-search-refine-btn tide-search-refine-btn--margin"
+        :expanded="filtersExpanded"
+        :appliedTally="numAppliedFilters"
+        :onClick="handleToggleFilters"
+        aria-controls="tide-search-listing-filters"
+      />
+      <TideSearchFilterHeader v-else :numAppliedFilters="numAppliedFilters" />
+      <RplExpandable
+        id="tide-search-listing-filters"
+        :expanded="filtersExpanded || !isMobile"
+      >
+        <TideSearchFilters
+          :title="title"
+          :filter-form-values="filterForm"
+          :filterInputs="uiFilters as any"
+          display="block"
+          @reset="handleFilterReset"
+          @submit="handleFilterSubmit"
+        />
+      </RplExpandable>
     </template>
     <template #body>
       <RplPageComponent v-if="contentPage.beforeResults">
@@ -457,7 +499,13 @@ watch(
           :html="contentPage.beforeResults"
         />
       </RplPageComponent>
-      <TideSearchAboveResults>
+      <TideSearchResultsHeading
+        v-if="results?.length && !searchError"
+        :searchTerm="appliedSearchTerm.q"
+      />
+      <TideSearchAboveResults
+        :hasSidebar="searchListingConfig?.filtersInSidebar"
+      >
         <template #left>
           <slot
             name="resultsCount"
@@ -490,7 +538,7 @@ watch(
         </template>
       </TideSearchAboveResults>
 
-      <RplPageComponent>
+      <RplPageComponent :full-width="true">
         <TideSearchResultsLoadingState :isActive="isBusy">
           <TideSearchError v-if="searchError" />
           <component
@@ -548,6 +596,22 @@ watch(
 <style>
 @import '@dpc-sdp/ripple-ui-core/style/breakpoints';
 
+.tide-search-listing-page .rpl-layout__sidebar--left {
+  margin-top: calc(var(--rpl-sp-8) * -1);
+
+  @media (--rpl-bp-m) {
+    margin-top: 0;
+  }
+}
+
+.tide-search-header-component {
+  --local-min-height: auto;
+
+  &.rpl-header {
+    border-bottom: none;
+  }
+}
+
 .tide-search-header {
   display: flex;
   flex-direction: column;
@@ -562,10 +626,12 @@ watch(
   margin: 0;
 }
 
-.tide-search-refine-btn {
-  align-self: flex-end;
-  padding: 0;
-  margin-top: var(--rpl-sp-5);
+.tide-search-refine-btn--margin {
+  margin-top: var(--rpl-sp-4);
+
+  @media (--rpl-bp-m) {
+    margin-top: var(--rpl-sp-5);
+  }
 }
 
 .tide-search-results--loading {

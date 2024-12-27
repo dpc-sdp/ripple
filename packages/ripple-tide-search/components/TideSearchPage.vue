@@ -112,14 +112,6 @@ const initialLoad = ref(true)
 const filtersExpanded = ref(false)
 const submitFiltersLabel = 'Apply search filters'
 
-const toggleFiltersLabel = computed(() => {
-  let label = 'Filters'
-
-  return searchState.value?.filters?.length
-    ? `${label} (${searchState.value.filters.length})`
-    : label
-})
-
 const baseEvent = () => ({
   contextId: props.id,
   name: props.pageTitle,
@@ -130,7 +122,7 @@ const baseEvent = () => ({
   section: 'search'
 })
 
-const emitSearchEvent = (event) => {
+const emitSearchEvent = (event: rplEventPayload) => {
   emitRplEvent(
     'submit',
     {
@@ -152,7 +144,7 @@ const scrollToResults = () => {
   }
 }
 
-const handleSubmit = (event) => {
+const handleSubmit = (event: rplEventPayload) => {
   doSearch()
   emitSearchEvent(event)
 
@@ -161,7 +153,7 @@ const handleSubmit = (event) => {
   }
 }
 
-const handleFilterSubmit = (event) => {
+const handleFilterSubmit = (event: rplEventPayload) => {
   filterFormValues.value = event.data
   doSearch()
   scrollToResults()
@@ -185,15 +177,15 @@ const handleFilterReset = (event: rplEventPayload) => {
   doSearch()
 }
 
-const toggleFilters = () => {
+const toggleFilters = (event: rplEventPayload) => {
   filtersExpanded.value = !filtersExpanded.value
 
   emitRplEvent(
     'toggleFilters',
     {
       ...baseEvent(),
-      action: filtersExpanded.value ? 'open' : 'close',
-      text: toggleFiltersLabel
+      ...event,
+      action: filtersExpanded.value ? 'open' : 'close'
     },
     { global: true }
   )
@@ -211,7 +203,7 @@ const getFilterOptions = (field) => {
   }))
 }
 
-const handlePagination = (event) => {
+const handlePagination = (event: rplEventPayload) => {
   goToPage(event.value)
 
   emitRplEvent(
@@ -266,6 +258,7 @@ watch(
         :full-width="true"
         :corner-top="site?.cornerGraphic?.top?.src || true"
         :corner-bottom="false"
+        class="rpl-header--hero-tight tide-search-header-wrapper"
       >
         <div class="tide-search-header">
           <RplSearchBar
@@ -279,13 +272,13 @@ watch(
             @submit="handleSubmit"
             @update:input-value="updateSearchTerm"
           />
-          <RplSearchBarRefine
-            class="tide-search-refine-btn"
+          <TideSearchFilterToggle
+            class="tide-search-refine-btn tide-search-refine-btn--margin"
             :expanded="filtersExpanded"
+            :appliedTally="searchState?.filters?.length"
+            :onClick="toggleFilters"
             aria-controls="tide-search-page-filters"
-            @click="toggleFilters"
-            >{{ toggleFiltersLabel }}</RplSearchBarRefine
-          >
+          />
           <RplExpandable
             id="tide-search-page-filters"
             :expanded="filtersExpanded"
@@ -381,6 +374,14 @@ watch(
 </template>
 
 <style>
+@import '@dpc-sdp/ripple-ui-core/style/breakpoints';
+
+.tide-search-header-wrapper {
+  &.rpl-header {
+    border-bottom: none;
+  }
+}
+
 .tide-search-header {
   display: flex;
   flex-direction: column;
@@ -395,10 +396,12 @@ watch(
   margin: 0;
 }
 
-.tide-search-refine-btn {
-  align-self: flex-end;
-  padding: 0;
-  margin-top: var(--rpl-sp-5);
+.tide-search-refine-btn--margin {
+  margin-top: var(--rpl-sp-4);
+
+  @media (--rpl-bp-m) {
+    margin-top: var(--rpl-sp-5);
+  }
 }
 
 .tide-search-results--loading {

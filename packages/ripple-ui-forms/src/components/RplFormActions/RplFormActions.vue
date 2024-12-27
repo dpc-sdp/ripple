@@ -16,6 +16,7 @@ interface Props {
   suffixIcon?: string
   displayResetButton?: boolean
   globalEvents?: boolean
+  display?: 'inline' | 'block'
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -28,7 +29,8 @@ const props = withDefaults(defineProps<Props>(), {
   prefixIcon: undefined,
   suffixIcon: undefined,
   disabled: false,
-  globalEvents: true
+  globalEvents: true,
+  display: 'inline'
 })
 
 const emit = defineEmits<{
@@ -85,7 +87,9 @@ onMounted(() => {
 </script>
 <template>
   <div v-if="captchaElementId" :id="captchaElementId"></div>
-  <div class="rpl-form-actions rpl-u-screen-only">
+  <div
+    :class="`rpl-form-actions rpl-u-screen-only rpl-form-actions--${display}`"
+  >
     <RplButton
       :id="id"
       :variant="variant"

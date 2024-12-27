@@ -3,3 +3,11 @@
   grid-template-columns: 1fr 1fr;
   grid-gap: var(--rpl-sp-3);
 }
+
+.rpl-form-date-range--block {
+  grid-template-columns: 1fr;
+
+  .rpl-form-date-range__label {
+    display: block;
+  }
+}

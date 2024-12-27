@@ -30,7 +30,15 @@
   }
 }
 
-.rpl-layout__sidebar {
+.rpl-layout__sidebar--left {
+  padding-bottom: var(--rpl-sp-8);
+
+  @media (--rpl-bp-m) {
+    padding-bottom: 0;
+  }
+}
+
+.rpl-layout__sidebar--right {
   padding-top: var(--rpl-sp-8);
 
   @media (--rpl-bp-m) {

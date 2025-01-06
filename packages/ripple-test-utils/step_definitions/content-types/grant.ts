@@ -81,7 +81,9 @@ Then(
           cy.get('@meta').should('contain', row.amount)
           cy.get('@meta').should('contain', row.status)
           cy.get('@item').should('contain', row.content)
-          cy.get('@item').should('contain', row.updated)
+          if (row.updated) {
+            cy.get('@item').should('contain', row.updated)
+          }
         })
     })
   }

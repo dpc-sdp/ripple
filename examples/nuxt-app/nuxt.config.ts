@@ -25,11 +25,20 @@ export default defineNuxtConfig({
     './layers/example-components',
     './layers/fixture-api',
     './layers/map-features',
-    './layers/ripple-ui-forms-ext'
+    './layers/ripple-ui-forms-ext',
+    './layers/example-data-driven-component'
   ],
   // Nuxt devtools
   sourcemap: true,
   devtools: {
     enabled: false
+  },
+  // Vite HMR temporary fix - see https://github.com/nuxt/nuxt/discussions/27779
+  vite: {
+    server: {
+      hmr: {
+        clientPort: 3000
+      }
+    }
   }
 })

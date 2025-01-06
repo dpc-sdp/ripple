@@ -25,6 +25,13 @@
                         }
                       }
                     }
+                  ],
+                  "must_not": [
+                    {
+                      "term": {
+                        "field_node_on_going": "true"
+                      }
+                    }
                   ]
                 }
               }

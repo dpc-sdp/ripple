@@ -228,6 +228,21 @@ Then(
 )
 
 Then(
+  `the search listing dropdown field labelled {string} should have the search text {string} when opened`,
+  (label: string, value: string) => {
+    cy.contains('label', label)
+      .invoke('attr', 'for')
+      .then((dropdownId) => {
+        cy.get(`#${dropdownId}`).as('selectedDropdown')
+        cy.get('@selectedDropdown').click()
+        cy.get('@selectedDropdown')
+          .find('.rpl-form-dropdown-search__input')
+          .should('have.value', value)
+      })
+  }
+)
+
+Then(
   `the selected dropdown field should allow {string} selection`,
   (type: string) => {
     const isMultiSelect = type === 'multi' ? 'true' : 'false'

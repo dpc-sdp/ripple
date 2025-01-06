@@ -6,7 +6,6 @@
 
 .rpl-form-dropdown__multi-value-label {
   position: relative;
-
   flex-grow: 1;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -26,4 +25,5 @@
   flex-shrink: 0;
   text-align: right;
   white-space: nowrap;
+  align-self: center;
 }

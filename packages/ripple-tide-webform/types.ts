@@ -39,7 +39,7 @@ export interface ApiWebForm {
     form_reset?: boolean
   }
   third_party_settings?: {
-    tide_webform_captcha?: ApiCaptchaSettings
+    tide_webform?: ApiCaptchaSettings
   }
 }
 

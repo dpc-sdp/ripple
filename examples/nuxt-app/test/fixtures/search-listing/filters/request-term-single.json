@@ -36,6 +36,13 @@
           "terms": {
             "checkboxFilterGroup.keyword": ["Weekdays"]
           }
+        },
+        {
+          "terms": {
+            "singleSearchDropdownFilter.keyword": [
+              "Banana"
+            ]
+          }
         }
       ]
     }

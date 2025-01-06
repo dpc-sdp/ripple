@@ -1,54 +1,45 @@
-import {
-  isWithinInterval,
-  differenceInDays,
-  isBefore,
-  subMonths
-} from 'date-fns'
+import { differenceInDays, isWithinInterval, isBefore } from 'date-fns'
 
 export interface TideGrantStatus {
   status: 'opening_soon' | 'open' | 'closed'
   displayLabel: string
 }
 
-const getBeforeOpenStatus = (
-  now: Date | number,
-  start: Date | number
-): TideGrantStatus => {
-  if (isBefore(now, subMonths(start, 1))) {
-    return {
-      status: 'closed',
-      displayLabel: 'Closed'
-    }
-  } else {
-    return {
-      status: 'opening_soon',
-      displayLabel: `Opening on ${Intl.DateTimeFormat('en-AU', {
-        dateStyle: 'long'
-      }).format(start)}`
-    }
-  }
-}
-
-const getBeforeCloseStatus = (
-  now: Date | number,
-  end: Date | number
-): TideGrantStatus => {
+const openStatus = (end: Date | number, now): TideGrantStatus => {
   const daysRemaining = differenceInDays(end, now)
-  let displayLabel
 
-  if (daysRemaining > 0) {
-    displayLabel = `Open, closing in ${new Intl.NumberFormat('en-AU').format(
-      daysRemaining
-    )} day${daysRemaining > 1 ? 's' : ''}`
-  } else {
-    displayLabel = 'Open, closing today'
+  if (daysRemaining === 0) {
+    return {
+      status: 'open',
+      displayLabel: 'Open, closes today'
+    }
   }
 
   return {
     status: 'open',
-    displayLabel
+    displayLabel: `Open, closes ${Intl.DateTimeFormat('en-AU', {
+      dateStyle: 'long'
+    }).format(end)}`
   }
 }
+
+const openingSoonStatus = (start: Date | number): TideGrantStatus => ({
+  status: 'opening_soon',
+  displayLabel: `Opens ${Intl.DateTimeFormat('en-AU', {
+    dateStyle: 'long'
+  }).format(start)}`
+})
+
+const ongoingStatus: TideGrantStatus = {
+  status: 'open',
+  displayLabel: 'Ongoing'
+}
+
+const closedStatus: TideGrantStatus = {
+  status: 'closed',
+  displayLabel: 'Closed'
+}
+
 /**
  * @description Calculate Grant status in relation to current date
  */
@@ -62,46 +53,31 @@ const getGrantStatus = (
   const end = dateEnd ? new Date(dateEnd) : null
 
   if (isOngoing) {
-    return {
-      status: 'open',
-      displayLabel: 'Ongoing'
-    }
+    return ongoingStatus
   }
 
   if (start && end) {
     if (isBefore(start, end) && isWithinInterval(now, { start, end })) {
-      return getBeforeCloseStatus(now, end)
+      return openStatus(end, now)
     } else if (isBefore(now, start)) {
-      return getBeforeOpenStatus(now, start)
+      return openingSoonStatus(start)
     } else {
-      return {
-        status: 'closed',
-        displayLabel: 'Closed'
-      }
+      return closedStatus
     }
   } else if (start) {
     if (isBefore(now, start)) {
-      return getBeforeOpenStatus(now, start)
+      return openingSoonStatus(start)
     } else {
-      return {
-        status: 'open',
-        displayLabel: 'Ongoing'
-      }
+      return ongoingStatus
     }
   } else if (end) {
     if (isBefore(now, end)) {
-      return getBeforeCloseStatus(now, end)
+      return openStatus(end, now)
     } else {
-      return {
-        status: 'closed',
-        displayLabel: 'Closed'
-      }
+      return closedStatus
     }
   } else {
-    return {
-      status: 'open',
-      displayLabel: 'Ongoing'
-    }
+    return ongoingStatus
   }
 }
 

@@ -5,13 +5,20 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { computed, ref, watch, nextTick, inject } from 'vue'
+import { computed, ref, watch, nextTick, inject, type Ref } from 'vue'
 import { onClickOutside, useDebounceFn } from '@vueuse/core'
 import useFormkitFriendlyEventEmitter from '../../composables/useFormkitFriendlyEventEmitter'
 import MultiValueLabel from './MultiValueLabel.vue'
+import MultiValueTagList from './MultiValueTagList.vue'
 import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
 import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
 import { sanitisePIIField } from '../../lib/sanitisePII'
+
+export interface RplFormDropdownOption {
+  id: string
+  label: string
+  value: string
+}
 
 export interface RplFormDropdownProps {
   id: string
@@ -25,21 +32,19 @@ export interface RplFormDropdownProps {
   required?: boolean
   invalid?: boolean
   onChange?: (value: string | string[]) => void
-  options: {
-    id: string
-    label: string
-    value: string
-  }[]
+  options: RplFormDropdownOption[]
   maxItemsDisplayed?: number
   pii?: boolean
   unselectedValue?: any
   /**
-   * Only applicable when for single selects. If true, no 'placeholder' option
+   * Only applicable when for non-searchable single selects. If true, no 'placeholder' option
    * is added and the user can't deselect a value, only choose a different value.
    *
    * Useful for when the field has a default value and the user must choose a value.
    */
   preventDeselect?: boolean
+  searchable?: boolean
+  noResultsLabel?: string
 }
 
 const props = withDefaults(defineProps<RplFormDropdownProps>(), {
@@ -56,7 +61,9 @@ const props = withDefaults(defineProps<RplFormDropdownProps>(), {
   multiple: false,
   pii: true,
   unselectedValue: undefined,
-  preventDeselect: false
+  preventDeselect: false,
+  searchable: false,
+  noResultsLabel: 'No results found'
 })
 
 const emit = defineEmits<{
@@ -78,19 +85,36 @@ const inputRef = ref(null)
 const menuRef = ref(null)
 const optionRefs = ref([])
 const searchCache = ref('')
+const searchRef = ref<Ref<HTMLInputElement | null>>(null)
+const searchValue = ref('')
+const searchFocused = ref(false)
+const filtering = ref(false)
+const toggleRef = ref<Ref<HTMLElement>>(null)
+const tagListRef = ref(null)
+const focusTag = ref(0)
 
 const menuId = computed(() => `${props.id}__menu`)
 
 const isOpen = ref<boolean>(false)
 const activeOptionId = ref<string | null>(null)
 
+const singleSearch = computed(() => !props.multiple && props.searchable)
+const multiSearch = computed(() => props.multiple && props.searchable)
+
 const emptyOption = computed(() => {
   return props.options.find((opt) => !opt.value && opt.id !== defaultOptionId)
 })
 
 const processedOptions = computed(() => {
-  if (!props.preventDeselect && !emptyOption.value && !props.multiple) {
-    return [
+  let options = props.options || []
+
+  if (
+    !props.preventDeselect &&
+    !emptyOption.value &&
+    !props.multiple &&
+    !props.searchable
+  ) {
+    options = [
       {
         id: defaultOptionId,
         label: props.placeholder,
@@ -100,12 +124,27 @@ const processedOptions = computed(() => {
     ]
   }
 
-  return props.options || []
+  // Only return options matching search value when searching
+  if (searchValue.value && filtering.value) {
+    const searchQuery = searchValue.value.toLowerCase()
+
+    options = options.filter((opt) =>
+      opt.label.toLowerCase().includes(searchQuery)
+    )
+  }
+
+  return options
 })
 
 onClickOutside(containerRef, () => {
   handleClose(false)
 })
+
+const getOptionLabel = (optionValue: string): string | undefined => {
+  const option = (props.options || []).find((opt) => opt.value === optionValue)
+
+  return option?.label
+}
 
 const getDefaultActiveId = (): string => {
   const firstOptionId = processedOptions.value[0].id
@@ -144,14 +183,100 @@ const processSearch = useDebounceFn(() => {
   searchCache.value = ''
 })
 
-const handleSearch = (event: KeyboardEvent): void => {
-  if (event.key?.length === 1) {
-    searchCache.value = searchCache.value + event.key.toLowerCase()
-    processSearch()
+// Handles when a user just starts typing when the dropdown is focused;
+// this will either enter the search input or jump to the matching option (native style)
+const handleTyping = (event: KeyboardEvent): void => {
+  if (event.key?.length === 1 && !searchFocused.value) {
+    if (props.searchable && !isOpen.value) {
+      // Open the menu so we can type into the search input straight away
+      handleOpen()
+    } else {
+      // Native select style search; it'll jump to the matching option
+      searchCache.value = searchCache.value + event.key.toLowerCase()
+      processSearch()
+    }
   }
 }
 
-const handleToggle = (fromKeyboard = false): void => {
+const focusSearch = (): void => {
+  activeOptionId.value = null
+
+  nextTick(() => {
+    searchRef.value?.focus()
+    searchFocused.value = true
+  })
+}
+
+// If there's a single search match let's select it
+const handleSearchSubmit = () => {
+  if (
+    processedOptions.value.length === 1 &&
+    isMatchingSearchResult(processedOptions.value[0].label)
+  ) {
+    handleSelectOption(processedOptions.value[0])
+
+    if (multiSearch.value) {
+      searchValue.value = ''
+    }
+  }
+}
+
+// Jump to the tag list when navigating left of an empty search input
+const handleSearchLeft = () => {
+  if (
+    multiSearch.value &&
+    selectedOptions.value?.length &&
+    searchRef.value?.selectionStart === 0
+  ) {
+    focusTag.value = focusTag.value + 1
+  }
+}
+
+const handleSearchUpdate = (event: Event) => {
+  filtering.value = true
+
+  // If the single search value is cleared the selected option should be cleared
+  if (singleSearch.value && props.value && event.target?.value === '') {
+    useFormkitFriendlyEventEmitter(props, emit, 'onChange', null)
+  }
+}
+
+const handleSearchFocus = () => (searchFocused.value = true)
+const handleSearchBlur = () => (searchFocused.value = false)
+
+watch(
+  () => props.value,
+  (newOptions, oldOptions) => {
+    // Make sure search input is in view for multi-select search
+    if (
+      isOpen.value &&
+      multiSearch.value &&
+      newOptions?.length > oldOptions?.length
+    ) {
+      nextTick(() =>
+        searchRef.value?.scrollIntoView({
+          block: 'nearest',
+          inline: 'start'
+        })
+      )
+    }
+  }
+)
+
+const handleToggle = (
+  fromKeyboard = false,
+  event?: KeyboardEvent | MouseEvent
+): void => {
+  // Prevent the default action when we're not searching
+  if (fromKeyboard && !searchFocused.value) {
+    event.preventDefault()
+  }
+
+  // Only toggle (close) searchable dropdowns with the toggle
+  if (isOpen.value && props.searchable && event?.target !== toggleRef.value) {
+    return
+  }
+
   if (isOpen.value) {
     handleClose(fromKeyboard)
   } else {
@@ -175,54 +300,108 @@ const handleToggle = (fromKeyboard = false): void => {
 const handleOpen = (fromKeyboard = false): void => {
   isOpen.value = true
 
-  if (fromKeyboard && processedOptions.value?.length) {
+  if (singleSearch.value && props.value && !searchValue.value) {
+    searchValue.value = getOptionLabel(props.value as string)
+  }
+
+  if (fromKeyboard && processedOptions.value?.length && !props.searchable) {
     activeOptionId.value = getDefaultActiveId()
+  } else if (props.searchable) {
+    focusSearch()
   }
 }
 
-const handleClose = (focusBackOnInput = false): void => {
+const handleClose = (focusBackOnInput = false, fromSelection = false): void => {
   isOpen.value = false
   activeOptionId.value = null
 
   if (focusBackOnInput) {
     inputRef.value.focus()
   }
+
+  // For a single search we restore the search value if it wasn't fully deleted
+  if (
+    !fromSelection &&
+    singleSearch.value &&
+    searchValue.value &&
+    searchValue.value !== props.value
+  ) {
+    searchValue.value = getOptionLabel(props.value as string)
+  }
+
+  // For a multi search we always remove the search value
+  if (multiSearch.value && searchValue.value) {
+    searchValue.value = ''
+  }
+
+  filtering.value = false
+  searchFocused.value = false
 }
 
-const handleArrowUp = () => {
-  if (!isOpen.value) {
+const handleArrowDown = () => {
+  const open = isOpen.value
+
+  if (!open) {
     isOpen.value = true
   }
+
+  if (!processedOptions.value.length) return
 
   const currentActiveIndex = processedOptions.value.findIndex(
     (opt) => opt.id === activeOptionId.value
   )
 
-  if (currentActiveIndex < 0) {
+  if (!open && props.searchable) {
+    focusSearch()
+  } else if (searchFocused.value && filtering.value) {
+    activeOptionId.value = processedOptions.value[0].id
+  } else if (currentActiveIndex < 0) {
     activeOptionId.value = getDefaultActiveId()
   } else if (currentActiveIndex < processedOptions.value.length - 1) {
     activeOptionId.value = processedOptions.value[currentActiveIndex + 1].id
   }
 }
 
-const handleArrowDown = () => {
-  if (!isOpen.value) {
+const handleArrowUp = () => {
+  const open = isOpen.value
+
+  if (!open) {
     isOpen.value = true
   }
+
+  if (!processedOptions.value.length) return
 
   const currentActiveIndex = processedOptions.value.findIndex(
     (opt) => opt.id === activeOptionId.value
   )
 
-  if (currentActiveIndex < 0) {
+  if (
+    (!open && props.searchable) ||
+    (props.searchable && currentActiveIndex < 1)
+  ) {
+    focusSearch()
+  } else if (currentActiveIndex < 0) {
     activeOptionId.value = getDefaultActiveId()
   } else if (currentActiveIndex > 0) {
     activeOptionId.value = processedOptions.value[currentActiveIndex - 1].id
   }
 }
 
-const handleSelectOption = (optionValue) => {
-  let newValue = optionValue
+const handleDeleteKey = () => {
+  // For searchable dropdowns open the input so the search text can be deleted
+  if (props.searchable && !isOpen.value) {
+    handleToggle()
+  }
+
+  // For multi search dropdowns without search text we can autofocus the last tag for deletion
+  if (multiSearch.value && !searchValue.value) {
+    nextTick(handleSearchLeft)
+  }
+}
+
+const handleSelectOption = (option: RplFormDropdownOption) => {
+  let optionValue = option.value
+  let newValue: string | string[] = option.value
 
   if (props.multiple) {
     if (!Array.isArray(props.value)) {
@@ -239,7 +418,11 @@ const handleSelectOption = (optionValue) => {
     }
     useFormkitFriendlyEventEmitter(props, emit, 'onChange', newValue)
   } else {
-    handleClose(true)
+    if (props.searchable) {
+      searchValue.value = option.label
+    }
+
+    handleClose(true, true)
     useFormkitFriendlyEventEmitter(props, emit, 'onChange', newValue)
   }
 
@@ -299,14 +482,26 @@ watch(activeOptionId, async (newId) => {
   }
 })
 
+const isMatchingSearchResult = (option: string): boolean => {
+  if (!props.searchable || processedOptions.value?.length > 1) {
+    return false
+  }
+
+  return option.toLowerCase().includes(searchValue.value.toLowerCase())
+}
+
 const isMenuItemKeyboardFocused = (optionId: string): boolean => {
   return activeOptionId.value === optionId
 }
 
 const selectedOptions = computed(() => {
-  return (processedOptions.value || []).filter((opt) =>
-    (props.value || []).includes(opt.value)
-  )
+  const values = Array.isArray(props.value) ? props.value : [props.value]
+
+  return values
+    .map((value) => {
+      return (props.options || []).find((opt) => opt.value === value)
+    })
+    .filter(Boolean)
 })
 
 const singleValueDisplay = computed((): string => {
@@ -314,7 +509,7 @@ const singleValueDisplay = computed((): string => {
     return emptyOption.value.label
   }
 
-  const selectedOption = (processedOptions.value || []).find(
+  const selectedOption = (props.options || []).find(
     (opt) => props.value === opt.value
   )
 
@@ -339,14 +534,16 @@ const hasValue = computed((): boolean => {
     :class="{
       'rpl-form-dropdown': true,
       [`rpl-form-dropdown--${props.variant}`]: true,
-      'rpl-form-dropdown--invalid': invalid
+      'rpl-form-dropdown--invalid': invalid,
+      'rpl-form-dropdown--multi-search': multiSearch
     }"
-    @keydown.down.prevent="handleArrowUp"
-    @keydown.up.prevent="handleArrowDown"
+    @keydown.down.prevent="handleArrowDown"
+    @keydown.up.prevent="handleArrowUp"
     @keydown.esc.prevent="handleClose(true)"
     @keydown.exact.tab="handleClose(false)"
     @keydown.shift.tab="handleClose(false)"
-    @keydown.exact="handleSearch"
+    @keydown.delete="handleDeleteKey"
+    @keydown.exact="handleTyping"
   >
     <div
       v-bind="$attrs"
@@ -368,26 +565,67 @@ const hasValue = computed((): boolean => {
       :disabled="disabled"
       role="combobox"
       :tabindex="disabled ? -1 : 0"
-      @click="handleToggle(false)"
-      @keydown.space.prevent="handleToggle(true)"
+      @click="(e) => handleToggle(false, e)"
+      @keydown.space.exact="(e) => handleToggle(true, e)"
     >
-      <span
-        v-if="!hasValue && !emptyOption"
-        class="rpl-form-dropdown-input__placeholder rpl-type-p"
-        >{{ placeholder }}</span
-      >
-      <MultiValueLabel
-        v-else-if="multiple"
-        :selectedOptions="selectedOptions"
-      />
-      <span v-else class="rpl-form-dropdown-input__single-value rpl-type-p">
-        {{ singleValueDisplay }}
+      <template v-if="searchable">
+        <MultiValueTagList
+          v-if="multiple && hasValue"
+          ref="tagListRef"
+          :is-open="isOpen"
+          :selectedOptions="selectedOptions"
+          :toggleOption="handleSelectOption"
+          :focusTag="focusTag"
+          :focusSearch="focusSearch"
+        />
+        <span
+          v-if="!isOpen && !hasValue && !emptyOption"
+          class="rpl-form-dropdown-input__placeholder rpl-type-p"
+          >{{ placeholder }}</span
+        >
+        <span
+          v-else-if="!isOpen && !multiple"
+          class="rpl-form-dropdown-input__single-value rpl-type-p"
+        >
+          {{ singleValueDisplay }}
+        </span>
+        <template v-if="isOpen">
+          <input
+            ref="searchRef"
+            v-model="searchValue"
+            :name="`${id}-search`"
+            :aria-label="`Search options ${label && 'for ' + label}`"
+            class="rpl-form-dropdown-search__input rpl-type-p"
+            autocomplete="off"
+            @keydown.enter.prevent="handleSearchSubmit"
+            @keydown.left.stop="handleSearchLeft"
+            @focus="handleSearchFocus"
+            @blur="handleSearchBlur"
+            @input="handleSearchUpdate"
+          />
+        </template>
+      </template>
+      <template v-else>
+        <span
+          v-if="!hasValue && !emptyOption"
+          class="rpl-form-dropdown-input__placeholder rpl-type-p"
+          >{{ placeholder }}</span
+        >
+        <MultiValueLabel
+          v-else-if="multiple"
+          :selectedOptions="selectedOptions"
+        />
+        <span v-else class="rpl-form-dropdown-input__single-value rpl-type-p">
+          {{ singleValueDisplay }}
+        </span>
+      </template>
+      <span ref="toggleRef" class="rpl-form-dropdown-input__toggle">
+        <RplIcon
+          name="icon-chevron-down"
+          size="s"
+          class="rpl-form-dropdown__chevron"
+        />
       </span>
-      <RplIcon
-        name="icon-chevron-down"
-        size="s"
-        class="rpl-form-dropdown__chevron"
-      />
     </div>
     <div
       v-if="isOpen"
@@ -402,6 +640,13 @@ const hasValue = computed((): boolean => {
       tabindex="-1"
     >
       <div
+        v-if="searchable && searchValue && !processedOptions.length"
+        class="rpl-form-dropdown-search__no-results rpl-type-p"
+        aria-live="polite"
+      >
+        {{ noResultsLabel }}
+      </div>
+      <div
         v-for="option in processedOptions"
         :id="getUniqueOptionId(option.id)"
         :key="option.id"
@@ -412,13 +657,16 @@ const hasValue = computed((): boolean => {
           'rpl-form-dropdown-option': true,
           'rpl-type-p': true,
           'rpl-u-focusable-block': true,
+          'rpl-form-dropdown-option--highlight': isMatchingSearchResult(
+            option.label
+          ),
           'rpl-u-focusable--force-on': isMenuItemKeyboardFocused(option.id)
         }"
         :aria-selected="isOptionSelected(option.value)"
         tabindex="-1"
-        @keydown.space.prevent="handleSelectOption(option.value)"
-        @keydown.enter.prevent="handleSelectOption(option.value)"
-        @click="handleSelectOption(option.value)"
+        @keydown.space.prevent="handleSelectOption(option)"
+        @keydown.enter.prevent="handleSelectOption(option)"
+        @click="handleSelectOption(option)"
       >
         <span
           :class="{

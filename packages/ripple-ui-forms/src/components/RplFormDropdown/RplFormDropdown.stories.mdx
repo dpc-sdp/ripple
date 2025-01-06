@@ -202,3 +202,137 @@ export const SingleTemplate = (args) => ({
     {SingleTemplate.bind()}
   </Story>
 </Canvas>
+
+<Canvas>
+  <Story
+    name='Single select - search'
+    args={{
+      id: 'dropdown-search-single',
+      search: true,
+      multiple: false,
+      searchable: true,
+      labelId: 'dropdown-search-single',
+      options: [
+        {
+          id: 'red',
+          value: 'red',
+          label: 'Red'
+        },
+        {
+          id: 'blue',
+          value: 'blue',
+          label: 'Blue'
+        },
+        {
+          id: 'rebecca-purple',
+          value: 'rebecca-purple',
+          label: 'Rebecca Purple'
+        },
+        {
+          id: 'blue-violet',
+          value: 'blue-violet',
+          label: 'Blue Violet'
+        },
+        {
+          id: 'black-velvet',
+          value: 'black-velvet',
+          label: 'Black Velvet'
+        },
+        {
+          id: 'royal-blue',
+          value: 'royal-blue',
+          label: 'Royal Blue'
+        },
+        {
+          id: 'pink',
+          value: 'pink',
+          label: 'Pink'
+        },
+        {
+          id: 'rosy-brown',
+          value: 'rosy-brown',
+          label: 'Rosy Brown'
+        },
+        {
+          id: 'green-yellow',
+          value: 'green-yellow',
+          label: 'Green Yellow'
+        },
+        {
+          id: 'green-yellow-and-more',
+          value: 'green-yellow-and-more',
+          label: 'Green Yellow Red Blue Red Green Yellow Yellow Red Blue Red Green Yellow'
+        }
+      ]
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    name='Multi select - search'
+    args={{
+      id: 'dropdown-search-multi',
+      search: true,
+      multiple: true,
+      searchable: true,
+      labelId: 'dropdown-search-multi',
+      options: [
+        {
+          id: 'red',
+          value: 'red',
+          label: 'Red'
+        },
+        {
+          id: 'blue',
+          value: 'blue',
+          label: 'Blue'
+        },
+        {
+          id: 'rebecca-purple',
+          value: 'rebecca-purple',
+          label: 'Rebecca Purple'
+        },
+        {
+          id: 'blue-violet',
+          value: 'blue-violet',
+          label: 'Blue Violet'
+        },
+        {
+          id: 'black-velvet',
+          value: 'black-velvet',
+          label: 'Black Velvet'
+        },
+        {
+          id: 'royal-blue',
+          value: 'royal-blue',
+          label: 'Royal Blue'
+        },
+        {
+          id: 'pink',
+          value: 'pink',
+          label: 'Pink'
+        },
+        {
+          id: 'rosy-brown',
+          value: 'rosy-brown',
+          label: 'Rosy Brown'
+        },
+        {
+          id: 'green-yellow',
+          value: 'green-yellow',
+          label: 'Green Yellow'
+        },
+        {
+          id: 'green-yellow-and-more',
+          value: 'green-yellow-and-more',
+          label: 'Green Yellow Red Blue Red Green Yellow Yellow Red Blue Red Green Yellow'
+        }
+      ]
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>

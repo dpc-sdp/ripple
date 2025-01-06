@@ -96,3 +96,16 @@ export const getActiveFiltersTally = (
     return acc + 1
   }, 0)
 }
+
+/**
+ * Get a scoped set of query parameters
+ * i.e., custom location[] and search[] parameters
+ */
+export const getScopedQueryParams = (
+  scope: string,
+  params: { [key: string]: any }
+) => {
+  return Object.entries(params || {}).reduce((obj, [key, value]) => {
+    return { ...obj, [`${scope}[${key}]`]: value }
+  }, {})
+}

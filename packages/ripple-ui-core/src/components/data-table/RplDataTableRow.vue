@@ -116,6 +116,7 @@ const getCellText = (col?: number | string, value = '') => {
         :key="i"
         :data-label="column.label"
       >
+        <div class="rpl-data-table__mobile-label" v-html="column.label" />
         <template v-if="hasComponent(column)">
           <component
             :is="(column as tableColumnConfig).component"

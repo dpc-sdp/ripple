@@ -127,6 +127,7 @@ const initialFiltersState =
   props.searchListingConfig?.showFiltersOnly
 
 const filtersExpanded = ref(Boolean(initialFiltersState))
+const sidebarFiltersMobileClass = ref('hidden')
 
 const {
   isBusy,
@@ -363,8 +364,9 @@ watch(
 )
 
 onMounted(() => {
-  if (props.searchListingConfig?.filtersInSidebar && isMobile.value) {
-    filtersExpanded.value = false
+  if (props.searchListingConfig?.filtersInSidebar) {
+    filtersExpanded.value = isMobile.value ? false : true
+    sidebarFiltersMobileClass.value = 'visible'
   }
 })
 </script>
@@ -480,6 +482,7 @@ onMounted(() => {
       <TideSearchFilterHeader v-else :numAppliedFilters="numAppliedFilters" />
       <RplExpandable
         id="tide-search-listing-filters"
+        :class="`tide-search-listing-filters--${sidebarFiltersMobileClass}`"
         :expanded="filtersExpanded || !isMobile"
       >
         <TideSearchFilters
@@ -624,6 +627,14 @@ onMounted(() => {
 
 .tide-search-filters .rpl-form__outer {
   margin: 0;
+}
+
+.tide-search-listing-filters--hidden {
+  display: none;
+
+  @media (--rpl-bp-m) {
+    display: block;
+  }
 }
 
 .tide-search-refine-btn--margin {

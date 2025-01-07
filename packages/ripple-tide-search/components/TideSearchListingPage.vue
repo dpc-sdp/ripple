@@ -366,7 +366,7 @@ watch(
 onMounted(() => {
   if (props.searchListingConfig?.filtersInSidebar) {
     filtersExpanded.value = isMobile.value ? false : true
-    sidebarFiltersMobileClass.value = 'visible'
+    nextTick(() => (sidebarFiltersMobileClass.value = 'visible'))
   }
 })
 </script>

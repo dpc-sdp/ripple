@@ -5,7 +5,7 @@ import {
   getValidationAndConditionals
 } from './../server/webform-utils'
 import { getAdvancedAddressMapping } from './webforms-address'
-import type { TideWebformElement, ApiWebForm } from './../types'
+import type { TideWebformElement, ApiWebForm, ApiPage } from './../types'
 
 interface CustomInputsConfig {
   [key: string]: {
@@ -19,11 +19,14 @@ const customInputs: CustomInputsConfig = appConfig.customInputs || {}
 
 export const getFormSchemaFromMapping = async (
   webform: ApiWebForm,
+  page: ApiPage,
   tidePageApi: TidePageApi
 ): Promise<FormKitSchemaNode[]> => {
   const elements: TideWebformElement[] = webform.elements || []
   const fields = []
   const formId = webform.drupal_internal__id
+
+  const isDraftMode = page.moderation_state === 'draft'
 
   for (const [fieldMachineName, fieldData] of Object.entries(elements)) {
     let mappedField
@@ -347,17 +350,24 @@ export const getFormSchemaFromMapping = async (
             fieldKey
           )
         } else {
-          mappedField = {
-            $el: 'div',
-            attrs: {
-              class: 'rpl-form__outer rpl-form__input--unsupported'
-            },
-            children: [`"${field['#type']}" is not yet supported`]
-          }
+          // For unsupported fields, render a message to users when previewing a draft page
+          mappedField = isDraftMode
+            ? {
+                $el: 'div',
+                attrs: {
+                  class: 'rpl-form__outer rpl-form__input--unsupported'
+                },
+                children: [
+                  `The "${field['#type']}" field is not supported (this message will only show in draft mode).`
+                ]
+              }
+            : null
         }
     }
 
-    fields.push(mappedField)
+    if (mappedField) {
+      fields.push(mappedField)
+    }
   }
 
   return fields

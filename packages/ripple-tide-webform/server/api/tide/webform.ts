@@ -29,8 +29,8 @@ export class TideWebformApi extends TideApiBase {
       mapping: {
         _src: (field: any) =>
           process.env.NODE_ENV === 'development' ? field : undefined,
-        schema: async (field: any, page, tidePageApi: TidePageApi) =>
-          await getFormSchemaFromMapping(field, tidePageApi),
+        schema: async (field: any, page: any, tidePageApi: TidePageApi) =>
+          await getFormSchemaFromMapping(field, page, tidePageApi),
         captchaConfig: (field: any) => getCaptchaSettings(field)
       },
       includes: []

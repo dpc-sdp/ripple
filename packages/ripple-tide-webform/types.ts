@@ -52,6 +52,10 @@ export interface ApiField {
   field_paragraph_webform: ApiWebForm
 }
 
+export interface ApiPage {
+  moderation_state?: string
+}
+
 export enum CaptchaType {
   RECAPTCHA_V2 = 'google_recaptcha_v2',
   RECAPTCHA_V3 = 'google_recaptcha_v3',

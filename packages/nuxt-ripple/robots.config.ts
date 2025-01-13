@@ -3,6 +3,7 @@ export default [
   { UserAgent: 'SemrushBot', Disallow: '/' },
   {
     UserAgent: '*',
+    CrawlDelay: 2,
     Disallow: [
       '/js',
       '/img',

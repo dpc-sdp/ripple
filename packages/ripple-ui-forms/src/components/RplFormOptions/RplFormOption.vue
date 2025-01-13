@@ -82,6 +82,8 @@ const handleChange = (e: Event) => {
 }
 
 const isChecked = computed(() => {
+  // We're waiting for mount before using the supplied checked prop
+  // This is to get tests that check the initial checkbox state working in cypress
   return isMounted.value ? props.checked : false
 })
 

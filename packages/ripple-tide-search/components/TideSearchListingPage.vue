@@ -121,13 +121,14 @@ const { emitRplEvent } = useRippleEvent('tide-search', emit)
 const breakpoints = useBreakpoints(bpMin)
 const isMobile = breakpoints.smaller('m')
 
-const initialFiltersState =
+const initialFiltersExpanded = Boolean(
   props.searchListingConfig?.filtersInSidebar ||
-  props.searchListingConfig?.showFiltersOnLoad ||
-  props.searchListingConfig?.showFiltersOnly
+    props.searchListingConfig?.showFiltersOnLoad ||
+    props.searchListingConfig?.showFiltersOnly
+)
 
-const filtersExpanded = ref(Boolean(initialFiltersState))
-const sidebarFiltersMobileClass = ref('hidden')
+const filtersExpanded = ref(initialFiltersExpanded)
+const filtersMobileClass = ref('hidden')
 
 const {
   isBusy,
@@ -364,10 +365,12 @@ watch(
 )
 
 onMounted(() => {
-  if (props.searchListingConfig?.filtersInSidebar) {
-    filtersExpanded.value = isMobile.value ? false : true
-    nextTick(() => (sidebarFiltersMobileClass.value = 'visible'))
+  // If filters are shown on load for desktop, we still need to hide them on mobile
+  if (initialFiltersExpanded && isMobile.value) {
+    filtersExpanded.value = false
   }
+
+  nextTick(() => (filtersMobileClass.value = 'visible'))
 })
 </script>
 
@@ -449,6 +452,7 @@ onMounted(() => {
             />
             <RplExpandable
               id="tide-search-listing-filters"
+              :class="`tide-search-listing-filters--${filtersMobileClass}`"
               :expanded="filtersExpanded"
             >
               <TideSearchFilters
@@ -482,7 +486,7 @@ onMounted(() => {
       <TideSearchFilterHeader v-else :numAppliedFilters="numAppliedFilters" />
       <RplExpandable
         id="tide-search-listing-filters"
-        :class="`tide-search-listing-filters--${sidebarFiltersMobileClass}`"
+        :class="`tide-search-listing-filters--${filtersMobileClass}`"
         :expanded="filtersExpanded || !isMobile"
       >
         <TideSearchFilters

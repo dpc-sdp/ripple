@@ -6,14 +6,14 @@ import {
   ref
 } from '#imports'
 import { submitForm } from '@formkit/vue'
-import { useDebounceFn } from '@vueuse/core'
+import { useBreakpoints, useDebounceFn } from '@vueuse/core'
 import useTideSearch from './../../composables/useTideSearch'
 import type {
   TideSearchListingResultItem,
   TideSearchListingTab,
   TideSearchListingConfig
 } from './../../types'
-import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
+import { bpMin, useRippleEvent } from '@dpc-sdp/ripple-ui-core'
 import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
 import { get } from 'lodash-es'
 
@@ -178,10 +178,16 @@ const mapResultsMappingFn = (result) => {
   }
 }
 
-const filtersExpanded = ref(
+const breakpoints = useBreakpoints(bpMin)
+const isMobile = breakpoints.smaller('m')
+
+const initialFiltersExpanded = Boolean(
   props.searchListingConfig?.showFiltersOnLoad ||
     props.searchListingConfig?.showFiltersOnly
 )
+
+const filtersExpanded = ref(initialFiltersExpanded)
+const filtersMobileClass = ref('hidden')
 
 const isGettingLocation = ref<boolean>(false)
 const geolocationError = ref<string | null>(null)
@@ -548,6 +554,15 @@ const locationOrGeolocation = computed(() => {
     ? userGeolocation.value
     : locationQuery.value
 })
+
+onMounted(() => {
+  // If filters are shown on load for desktop, we still need to hide them on mobile
+  if (initialFiltersExpanded && isMobile.value) {
+    filtersExpanded.value = false
+  }
+
+  nextTick(() => (filtersMobileClass.value = 'visible'))
+})
 </script>
 
 <template>
@@ -606,6 +621,10 @@ const locationOrGeolocation = computed(() => {
       </template>
 
       <div
+        v-if="
+          locationQueryConfig?.showGeolocationButton ||
+          (userFilters && userFilters.length > 0)
+        "
         :class="{
           'tide-search-util-bar': true,
           'tide-search-util-bar--geolocate':
@@ -645,6 +664,7 @@ const locationOrGeolocation = computed(() => {
 
       <RplExpandable
         v-if="userFilters && userFilters.length > 0"
+        :class="`tide-search-filters--${filtersMobileClass}`"
         :expanded="filtersExpanded"
       >
         <ClientOnly>
@@ -822,6 +842,14 @@ const locationOrGeolocation = computed(() => {
 
 .tide-search-filters .rpl-form__outer {
   margin: 0;
+}
+
+.tide-search-filters--hidden {
+  display: none;
+
+  @media (--rpl-bp-m) {
+    display: block;
+  }
 }
 
 .tide-search-results--loading {

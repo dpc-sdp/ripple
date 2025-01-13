@@ -14,7 +14,7 @@ Feature: Forms, extended
     And a field labelled "Extended" should exist with the CSS class ".rpl-form__input--type-item"
 
   @mockserver
-  Scenario: Unsupported input
+  Scenario: Unsupported input (draft page)
     Given I visit the page "/webform"
     Then the landing page component "TideLandingPageWebForm" should exist
     And an input of type "signature" is not yet supported

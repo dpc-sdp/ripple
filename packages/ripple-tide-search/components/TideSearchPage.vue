@@ -97,6 +97,7 @@ const {
   goToPage,
   searchState,
   searchTermSuggestions,
+  appliedSearchTerm,
   results,
   staticFacetOptions,
   filterFormValues,
@@ -323,7 +324,11 @@ watch(
       </RplHeroHeader>
     </template>
     <template #body>
-      <RplPageComponent v-if="!searchState.error">
+      <TideSearchResultsHeading
+        v-if="results?.length && !searchState.error"
+        :searchTerm="appliedSearchTerm"
+      />
+      <RplPageComponent v-if="!searchState.error" :full-width="true">
         <TideSearchResultsCount
           :pagingStart="searchState.pagingStart"
           :pagingEnd="searchState.pagingEnd"

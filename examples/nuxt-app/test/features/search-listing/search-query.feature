@@ -14,6 +14,9 @@ Feature: Search Queries
     And I click the search button
     Then the search results heading should show "Search results for 'Grant'"
 
+    When I type "Grants" into the search input
+    Then the search results heading should show "Search results for 'Grant'"
+
   @mockserver
   Example: The search term is not displayed after submitting a search with no results
     Given the page endpoint for path "/" returns fixture "/search-listing/search-query/page" with status 200

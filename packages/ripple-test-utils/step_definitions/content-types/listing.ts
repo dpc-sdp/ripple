@@ -11,7 +11,7 @@ Then(
   }
 )
 
-Then('the no results component should be display {string}', (text: string) => {
+Then('the no results component should display {string}', (text: string) => {
   cy.get(`[data-component-type="search-listing-no-results"]`).contains(text)
 })
 

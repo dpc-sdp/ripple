@@ -199,7 +199,6 @@ const {
   clearSuggestions,
   suggestions,
   searchTerm,
-  appliedSearchTerm,
   results,
   filterForm,
   appliedFilters,
@@ -692,10 +691,6 @@ onMounted(() => {
       <template
         v-if="!searchListingConfig?.displayMapTab || activeTab === 'listing'"
       >
-        <TideSearchResultsHeading
-          v-if="results?.length && !searchError"
-          :searchTerm="appliedSearchTerm.q"
-        />
         <TideSearchAboveResults
           :hasSidebar="hasSidebar"
           class="rpl-u-margin-t-4"

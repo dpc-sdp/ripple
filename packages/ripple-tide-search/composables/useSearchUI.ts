@@ -47,6 +47,7 @@ export default async (
   const searchDriver = getSearchDriver(apiConnectorOptions, config)
   const searchState = ref(searchDriver.getState())
   const urlManager = ref(searchDriver.URLManager)
+  const appliedSearchTerm = ref(searchDriver.getState().searchTerm)
   const autocompleteMinimumCharacters = 3
 
   const staticFacetOptions = ref(null)
@@ -122,6 +123,7 @@ export default async (
   const doSearch = () => {
     searchDriver.getActions().setSearchTerm(searchDriver.getState().searchTerm)
     applyFilters()
+    appliedSearchTerm.value = searchDriver.getState().searchTerm
   }
 
   const applyFilters = () => {
@@ -143,6 +145,7 @@ export default async (
     goToPage,
     searchState,
     searchTermSuggestions,
+    appliedSearchTerm,
     results,
     staticFacetOptions,
     filterFormValues,

@@ -11,7 +11,9 @@ export default (page: any) => {
     )
 
     return (
-      lang?.attributes?.content?.toLowerCase() || page?.meta?.langcode || 'en'
+      lang?.attributes?.content?.toLowerCase() ||
+      page?.meta?.langcode ||
+      'en-AU'
     )
   })
 
@@ -38,7 +40,7 @@ export default (page: any) => {
 
   useHead({
     htmlAttrs: {
-      lang: language.value || 'en-AU'
+      lang: locale.value
     }
   })
 

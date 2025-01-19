@@ -1,0 +1,117 @@
+@import '@dpc-sdp/ripple-ui-core/style/breakpoints';
+
+.rpl-progress__header {
+  display: flex;
+  align-items: center;
+  padding-bottom: var(--rpl-sp-5);
+  text-align: start;
+  width: 100%;
+  column-gap: var(--rpl-sp-4);
+}
+
+.rpl-progress__header-inner {
+  flex-grow: 1;
+}
+
+.rpl-progress__title {
+  margin-bottom: var(--rpl-sp-1);
+}
+
+.rpl-progress__chevron {
+  color: var(--rpl-clr-link);
+  transition: transform var(--rpl-motion-speed-7) linear;
+
+  .rpl-progress--expanded & {
+    transform: rotate(-180deg);
+  }
+}
+
+.rpl-progress__steps {
+  padding-top: var(--rpl-sp-2);
+}
+
+.rpl-progress-step {
+  counter-increment: section;
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  padding-bottom: var(--rpl-sp-5);
+
+  &::after {
+    content: '';
+    display: block;
+    width: var(--rpl-border-3);
+    position: absolute;
+    background: var(--rpl-clr-neutral-300);
+    top: 16px;
+    left: 14px;
+    height: 100%;
+    z-index: -1;
+  }
+
+  &:last-child {
+    &::after {
+      display: none;
+    }
+  }
+
+  &::before {
+    content: counter(section);
+    position: absolute;
+    display: inline-flex;
+    flex-shrink: 0;
+    justify-content: center;
+    align-items: center;
+    font-size: var(--rpl-type-size-2);
+    line-height: var(--rpl-type-lh-2);
+    letter-spacing: var(--rpl-type-ls-1);
+    font-weight: var(--rpl-type-weight-bold);
+    border-radius: 50%;
+    border: var(--rpl-border-3) solid var(--rpl-clr-neutral-300);
+    width: 32px;
+    height: 32px;
+    background: white;
+  }
+}
+
+.rpl-progress-step__label {
+  padding-left: calc(32px + var(--rpl-sp-3));
+}
+
+.rpl-progress-step--active {
+  .rpl-progress-step__label {
+    font-weight: var(--rpl-type-weight-bold);
+  }
+
+  &::before {
+    border-color: var(--rpl-clr-link);
+  }
+}
+
+.rpl-progress-step--complete {
+  &::before {
+    display: none;
+  }
+
+  &::after {
+    background-color: var(--rpl-clr-link);
+  }
+}
+
+.rpl-progress__complete-icon {
+  position: absolute;
+  display: flex;
+  width: 32px;
+  height: 32px;
+  background: white;
+
+  svg {
+    fill: var(--rpl-clr-link);
+    width: 32px;
+    height: 32px;
+  }
+}
+
+.rpl-progress--expandable {
+  border-bottom: var(--rpl-border-1) solid var(--rpl-clr-neutral-300);
+}

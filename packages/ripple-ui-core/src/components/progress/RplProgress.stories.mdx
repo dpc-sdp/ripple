@@ -1,0 +1,148 @@
+import {
+  Canvas,
+  Meta,
+  Story,
+  ArgsTable
+} from '@storybook/addon-docs'
+import RplProgress from './RplProgress.vue'
+import { a11yStoryCheck } from '../../../stories/interactions.js'
+
+export const SimpleTemplate = (args) => ({
+  components: { RplProgress },
+  setup() {
+    return { args }
+  },
+  template: `<RplProgress
+    title="Heading text"
+    :steps="[
+      {
+        id: 'step1',
+        label: 'Step label 1'
+      },
+      {
+        id: 'step2',
+        label: 'Step label 2'
+      },
+      {
+        id: 'step3',
+        label: 'Step label 3'
+      },
+      {
+        id: 'step4',
+        label: 'Step label 4'
+      }
+    ]"
+    v-bind="args"
+  />`
+})
+
+<Meta title='Core/Containers/Progress' component={RplProgress} />
+
+# Timeline
+
+<ArgsTable of={RplProgress} />
+
+## Default
+
+<Canvas>
+  <Story
+    name='No active step'
+    play={a11yStoryCheck}
+    args={{
+      currentStepId: null,
+    }}
+  >
+    {SimpleTemplate.bind()}
+  </Story>
+    <Story
+    name='1st step active'
+    play={a11yStoryCheck}
+    args={{
+      currentStepId: 'step1',
+    }}
+  >
+    {SimpleTemplate.bind()}
+  </Story>
+    <Story
+    name='2nd step active'
+    play={a11yStoryCheck}
+    args={{
+      currentStepId: 'step2',
+    }}
+  >
+    {SimpleTemplate.bind()}
+  </Story>
+    <Story
+    name='3rd step active'
+    play={a11yStoryCheck}
+    args={{
+      currentStepId: 'step3',
+    }}
+  >
+    {SimpleTemplate.bind()}
+  </Story>
+    <Story
+    name='4th step active'
+    play={a11yStoryCheck}
+    args={{
+      currentStepId: 'step4',
+    }}
+  >
+    {SimpleTemplate.bind()}
+  </Story>
+     <Story
+    name='Long label'
+    play={a11yStoryCheck}
+    args={{
+      currentStepId: 'step1',
+      steps: [
+        {
+          id: 'step1',
+          label: 'Step 1'
+        },
+        {
+          id: 'step2',
+          label: 'Step 2 with very long label for demonstration purposes, the label should wrap nicely across multiple lines'
+        },
+        {
+          id: 'step3',
+          label: 'Step 3'
+        }
+      ]
+    }}
+  >
+    {SimpleTemplate.bind()}
+  </Story>
+
+  <Story
+    name='Expandable only on smaller screens (breakpoint driven)'
+    play={a11yStoryCheck}
+    args={{
+      currentStepId: 'step1',
+      autoExpandable: true
+    }}
+  >
+    {SimpleTemplate.bind()}
+  </Story>
+  <Story
+    name='Expandable (prop driven)'
+    play={a11yStoryCheck}
+    args={{
+      currentStepId: 'step1',
+      expandable: true
+    }}
+  >
+    {SimpleTemplate.bind()}
+  </Story>
+  <Story
+    name='Initially expanded'
+    play={a11yStoryCheck}
+    args={{
+      currentStepId: 'step1',
+      expandable: true,
+      initiallyExpanded: true
+    }}
+  >
+    {SimpleTemplate.bind()}
+  </Story>
+</Canvas>

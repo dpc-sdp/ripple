@@ -35,6 +35,10 @@
 .rpl-search-banner__search-inner {
   margin-bottom: var(--rpl-sp-6);
   max-width: var(--rpl-content-max-width);
+
+  @media (--rpl-bp-l) {
+    margin-bottom: var(--rpl-sp-7);
+  }
 }
 
 .rpl-search-banner__media {

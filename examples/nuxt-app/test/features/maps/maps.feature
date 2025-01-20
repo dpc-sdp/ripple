@@ -100,6 +100,20 @@ Feature: Custom collection map component
     Then the map matches the image snapshot "map-sidepanel-item-click"
 
   @mockserver
+  Scenario: Single active feature is split out from clustered features
+    Given I load the page fixture with "/maps/basic-page"
+    Given the side panel is enabled
+    And the clustering distance is set to "400"
+    Given the popup type is "sidebar"
+    Given the page endpoint for path "/map" returns the loaded fixture
+    Given the "/api/tide/elasticsearch/elasticsearch_index_develop_node/_search" network request is stubbed with fixture "/maps/simple-map-results" and status 200 as alias "searchReq"
+    Given I visit the page "/map"
+    And the map is loaded
+    Given I click the side panel item with text "Single Pin Test"
+    When I wait 4 seconds
+    Then the map matches the image snapshot "map-popup-type-sidebar-with-sidepanel-double-pin-single-active"
+
+  @mockserver
   Scenario: Reaching the maximum zoom level will show clustered features in grouped popup
     Given I load the page fixture with "/maps/basic-page"
     And the popup type is "popover"

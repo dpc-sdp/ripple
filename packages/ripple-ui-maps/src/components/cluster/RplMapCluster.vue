@@ -1,5 +1,5 @@
 <template>
-  <ol-style :overrideStyleFunction="overrideStyleFunction">
+  <ol-style :overrideStyleFunction="overrideStyleFunction" :key="key">
     <ol-style-text>
       <ol-style-fill color="white"></ol-style-fill>
     </ol-style-text>
@@ -13,7 +13,7 @@ import Fill from 'ol/style/Fill'
 import Stroke from 'ol/style/Stroke'
 import markerIconDefaultSrc from './../feature-pin/icon-pin.svg?url'
 import { Style, Text } from 'ol/style'
-import { inject, nextTick, onMounted, Ref, ref } from 'vue'
+import { inject, nextTick, onMounted, Ref, ref, watch } from 'vue'
 import { Feature, Map } from 'ol'
 
 interface Props {
@@ -22,8 +22,12 @@ interface Props {
 
 const props = withDefaults(defineProps<Props>(), {})
 
-const { rplMapRef } = inject<{ rplMapRef: Ref<Map | null> }>('rplMapInstance', {
-  rplMapRef: ref(null)
+const { rplMapRef, popup } = inject<{
+  rplMapRef: Ref<Map | null>
+  popup: Ref
+}>('rplMapInstance', {
+  rplMapRef: ref(null),
+  popup: ref(null)
 })
 
 const hoveredFeature = ref<Feature | null>(null)
@@ -32,15 +36,32 @@ const setClusterStyle = (
   style: Style,
   {
     clusterSize,
+    clusteredFeatures,
     isHovering = false
   }: {
     clusterSize: number
+    clusteredFeatures: Feature[]
     isHovering?: boolean
   }
 ) => {
   const strokeWidthDefault = 16
   const strokeWidthHover = 20
   let circleRadius = 20 // 0.5 scale pixel size
+
+  // If we have a single item displayed in the popup we can omit it from the cluster tally
+  if (
+    popup.value?.isOpen &&
+    popup.value?.feature?.length === 1 &&
+    clusteredFeatures?.length
+  ) {
+    const popupInCluster = clusteredFeatures.find(
+      (feature) => feature.getProperties()?.id === popup.value.feature[0]?.id
+    )
+
+    if (popupInCluster) {
+      clusterSize = clusterSize - 1
+    }
+  }
 
   // Increase circle size for larger clusters
   if (clusterSize > 99) {
@@ -84,7 +105,8 @@ const overrideStyleFunction = (feature, style) => {
 
   if (clusteredFeatures && clusteredFeatures.length > 1) {
     setClusterStyle(style, {
-      clusterSize: size
+      clusterSize: size,
+      clusteredFeatures
     })
   } else if (Array.isArray(clusteredFeatures) && clusteredFeatures[0]) {
     const icon = props.pinStyle(
@@ -131,6 +153,7 @@ onMounted(async () => {
 
           setClusterStyle(style, {
             clusterSize: clusteredFeatures.length,
+            clusteredFeatures,
             isHovering: true
           })
 
@@ -141,4 +164,13 @@ onMounted(async () => {
     })
   }
 })
+
+watch(
+  () => popup.value?.isOpen,
+  () => {
+    // Trigger the redrawText function to ensure the tally is updated
+    // when the map itself hasn't been interacted with but the 'popup' is toggled
+    rplMapRef.value?.redrawText()
+  }
+)
 </script>

@@ -13,6 +13,7 @@ Feature: No results
     And the search network request is stubbed with fixture "/search-listing/errors/response-empty" and status 200
     When I visit the page "/search-list-grid"
     Then the search listing page should have 0 results
+    And the no results component should display "Sorry! We couldn't find any matches"
 
   @mockserver
   Example: Empty response with custom component
@@ -20,3 +21,4 @@ Feature: No results
     And the search network request is stubbed with fixture "/search-listing/errors/response-empty" and status 200
     When I visit the page "/search-list-custom"
     Then the search listing page should have 0 results
+    And the no results component should display "This is a custom component"

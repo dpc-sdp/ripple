@@ -1,0 +1,90 @@
+{
+  "query": {
+    "bool": {
+      "must": {
+        "multi_match": {
+          "query": "the",
+          "fields": [
+            "title^3",
+            "field_landing_page_summary^2",
+            "body",
+            "field_paragraph_body",
+            "summary_processed"
+          ]
+        }
+      },
+      "filter": [
+        {
+          "terms": {
+            "type": [
+              "grant"
+            ]
+          }
+        },
+        {
+          "terms": {
+            "field_node_site": [
+              8888
+            ]
+          }
+        },
+        {
+          "terms": {
+            "field_species_name": [
+              "Beagle",
+              "Spaniel"
+            ]
+          }
+        },
+        {
+          "range": {
+            "changed": {
+              "time_zone": "Australia/Melbourne",
+              "gte": "2025-02-22",
+              "lte": "2026-06-03"
+            }
+          }
+        },
+        {
+          "terms": {
+            "termFilter.keyword": [
+              "Blue"
+            ]
+          }
+        },
+        {
+          "terms": {
+            "termsFilter.keyword": [
+              "Purple",
+              "Yellow"
+            ]
+          }
+        },
+        {
+          "terms": {
+            "checkboxFilter.keyword": [
+              "Archived"
+            ]
+          }
+        },
+        {
+          "terms": {
+            "checkboxFilterGroup.keyword": [
+              "Weekends"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "size": 10,
+  "from": 0,
+  "sort": [
+    {
+      "_score": "desc"
+    },
+    {
+      "_doc": "desc"
+    }
+  ]
+}

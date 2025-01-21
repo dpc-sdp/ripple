@@ -121,6 +121,33 @@ Feature: Custom Collection
     And only the search filters should be visible
 
   @mockserver
+  Example: Should show filters on load when showFiltersOnLoad is set
+    Given I load the page fixture with "/landingpage/custom-collection/form-theme-default"
+    And the custom collection config has "showFiltersOnLoad" set to "true"
+    And the search network request is stubbed with fixture "/landingpage/custom-collection/response" and status 200
+    Then the page endpoint for path "/filters-on-load" returns the loaded fixture
+
+    When I visit the page "/filters-on-load"
+    Then the custom collection filters should be open
+
+    When I toggle the content collection filters
+    Then the custom collection filters should not be open
+
+  @mockserver
+  Example: Should collapse filters on mobile load when showFiltersOnLoad is set
+    Given I am using a "iphone-x" device
+    Then I load the page fixture with "/landingpage/custom-collection/form-theme-default"
+    And the custom collection config has "showFiltersOnLoad" set to "true"
+    And the search network request is stubbed with fixture "/landingpage/custom-collection/response" and status 200
+    Then the page endpoint for path "/filters-on-load" returns the loaded fixture
+
+    When I visit the page "/filters-on-load"
+    Then the custom collection filters should not be open
+
+    When I toggle the content collection filters
+    Then the custom collection filters should be open
+
+  @mockserver
   Example: Should hide results count when hideResultsCount is set
     Given I load the page fixture with "/landingpage/custom-collection/page"
     And the custom collection results count has been hidden

@@ -8,7 +8,7 @@ import { sanitisePIIField } from '../../lib/sanitisePII'
 
 interface Props {
   id: string
-  value: string[]
+  value?: string[]
   label?: string
   disabled?: boolean
   variant?: 'default' | 'reverse'
@@ -26,6 +26,7 @@ interface Props {
 const props = withDefaults(defineProps<Props>(), {
   label: undefined,
   disabled: false,
+  value: undefined,
   variant: 'default',
   layout: 'block',
   pii: true,

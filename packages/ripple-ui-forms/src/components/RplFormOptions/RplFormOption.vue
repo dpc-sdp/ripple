@@ -5,7 +5,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { computed, inject } from 'vue'
+import { computed, inject, ref, onMounted } from 'vue'
 import useFormkitFriendlyEventEmitter from '../../composables/useFormkitFriendlyEventEmitter'
 import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
 import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
@@ -32,6 +32,7 @@ const props = withDefaults(defineProps<RplFormOptionProps>(), {
   type: 'checkbox',
   disabled: false,
   required: false,
+  checked: false,
   variant: 'default',
   onChange: () => undefined,
   onValue: true,
@@ -47,6 +48,7 @@ const emit = defineEmits<{
   (e: 'update', payload: rplEventPayload & { action: 'update' }): void
 }>()
 
+const isMounted = ref(false)
 const form: object = inject('form')
 const { emitRplEvent } = useRippleEvent('rpl-form-option', emit)
 
@@ -78,6 +80,14 @@ const handleChange = (e: Event) => {
     { global: props.globalEvents }
   )
 }
+
+const isChecked = computed(() => {
+  // We're waiting for mount before using the supplied checked prop
+  // This is to get tests that check the initial checkbox state working in cypress
+  return isMounted.value ? props.checked : false
+})
+
+onMounted(() => (isMounted.value = true))
 </script>
 
 <template>
@@ -87,7 +97,7 @@ const handleChange = (e: Event) => {
       :type="type"
       class="rpl-form-option__input"
       :disabled="disabled"
-      :checked="checked"
+      :checked="isChecked"
       v-bind="$attrs"
       @change="handleChange"
     />

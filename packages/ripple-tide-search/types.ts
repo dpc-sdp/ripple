@@ -281,7 +281,7 @@ export type TideSearchListingConfig = {
      */
     dynamicAggregations?: boolean
     /**
-     * @description Filter panel open on page load
+     * @description Filter panel open on page load, this applies to the simple search listing only where filters are above the results
      */
     showFiltersOnLoad: boolean
     /**
@@ -292,6 +292,10 @@ export type TideSearchListingConfig = {
      * @description whether or not to scroll the results into view on form submit
      */
     scrollToResultsOnSubmit?: boolean
+    /**
+     * @description show filters in the sidebar?
+     */
+    filtersInSidebar?: boolean
   }
   /**
    * @description Tabs to display, key needs to be one of TideSearchListingTabKey

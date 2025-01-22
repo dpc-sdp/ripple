@@ -1,7 +1,7 @@
 {
   "name": "@dpc-sdp/ripple-tide-search",
   "description": "Ripple search UI and services for connecting to Tide search",
-  "version": "2.23.0",
+  "version": "2.24.0",
   "license": "Apache-2.0",
   "repository": "https://github.com/dpc-sdp/ripple-framework",
   "main": "./nuxt.config.ts",

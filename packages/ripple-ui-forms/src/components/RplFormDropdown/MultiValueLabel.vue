@@ -90,7 +90,7 @@ useResizeObserver(itemsRef, (entries) => {
 </script>
 
 <template>
-  <div class="rpl-form-dropdown__multi-value-label-wrap">
+  <div v-if="isMounted" class="rpl-form-dropdown__multi-value-label-wrap">
     <div ref="itemsRef" class="rpl-form-dropdown__multi-value-label rpl-type-p">
       <span
         v-for="(option, i) in selectedOptions"

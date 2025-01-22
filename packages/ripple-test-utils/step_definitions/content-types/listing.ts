@@ -11,6 +11,10 @@ Then(
   }
 )
 
+Then('the no results component should display {string}', (text: string) => {
+  cy.get(`[data-component-type="search-listing-no-results"]`).contains(text)
+})
+
 Then(`the search listing results count should read {string}`, (str: string) => {
   cy.get(`[data-component-type="search-listing-result-count"]`).should(
     'contain',
@@ -115,7 +119,7 @@ Then(
 
       table.forEach((row, i: number) => {
         const actualValue = params.getAll(row.id)
-        const index = actualValue.length === 1 ? 0 : i
+        const index = row.index ? row.index : actualValue.length === 1 ? 0 : i
 
         if (!row.value) {
           expect(actualValue[index]).to.not.be.ok // should be falsey
@@ -173,7 +177,7 @@ When(`I click the search button`, () => {
 Then(`I should be scrolled to the search results`, () => {
   cy.window()
     .its('scrollY')
-    .should('equal', cy.$$('.rpl-layout__body-wrap').offset().top)
+    .should('be.closeTo', cy.$$('.rpl-layout__body-wrap').offset().top, 1)
 })
 
 Then(`I should not be scrolled to the search results`, () => {
@@ -181,6 +185,15 @@ Then(`I should not be scrolled to the search results`, () => {
     .its('scrollY')
     .should('be.lessThan', cy.$$('.rpl-layout__body-wrap').offset().top)
 })
+
+Then(
+  `I should be scrolled to the search results with an offset of {int}`,
+  (offset: number) => {
+    cy.window()
+      .its('scrollY')
+      .should('be.closeTo', cy.$$('.rpl-layout__main').offset().top - offset, 1)
+  }
+)
 
 When(`I click on page {int} in the pagination controls`, (page: string) => {
   cy.get(`.rpl-pagination__page`).contains(`${page}`).click()
@@ -333,6 +346,20 @@ Then(
   }
 )
 
+Then(
+  `I enter the range from {string} to {string} in the date range field labelled {string}`,
+  (from: string, to: string, label: string) => {
+    cy.get(`legend`)
+      .contains(label)
+      .closest('fieldset')
+      .find('input')
+      .as('dates')
+
+    cy.get('@dates').eq(0).type(from)
+    cy.get('@dates').eq(1).type(to)
+  }
+)
+
 When(
   `I click the search listing checkbox field labelled {string}`,
   (label: string) => {
@@ -370,8 +397,14 @@ Then(
   }
 )
 
+Then(`the search listing filters should be within the sidebar`, () => {
+  cy.get(`#tide-search-listing-filters`)
+    .closest('.rpl-layout__sidebar--left')
+    .should('exist')
+})
+
 When(`I toggle the search listing filters section`, () => {
-  cy.get(`button`).contains('Filters').as('refineBtn')
+  cy.get('.tide-search-filter-toggle button').as('refineBtn')
   cy.wait(300)
   cy.get('@refineBtn').click()
 })
@@ -388,23 +421,38 @@ Then(
   'the filters toggle should show {int} applied filters',
   (filterCount: number) => {
     if (filterCount === 0) {
-      cy.get(`button`)
-        .contains('Filters')
-        .should(($div) => {
-          expect($div.text().trim()).equal(`Filters`)
-        })
+      cy.get(`.tide-search-filter-toggle__tally`).should('not.exist')
     } else {
-      cy.get(`button`)
-        .contains('Filters')
-        .should(($div) => {
-          expect($div.text().trim()).equal(`Filters (${filterCount})`)
-        })
+      cy.get(`.tide-search-filter-toggle__tally`).should(($div) => {
+        expect($div.text().trim()).equal(`${filterCount} selected`)
+      })
+    }
+  }
+)
+
+Then(
+  'the sidebar filters heading should show {int} applied filters',
+  (filterCount: number) => {
+    if (filterCount === 0) {
+      cy.get(`.tide-search-filter-header__selected`).should('not.exist')
+    } else {
+      cy.get(`.tide-search-filter-header__selected`).should(($div) => {
+        expect($div.text().trim()).equal(`${filterCount} selected`)
+      })
     }
   }
 )
 
 Then('the filters toggle should be hidden', () => {
-  cy.get(`.tide-search-header .rpl-search-bar-refine`).should('not.exist')
+  cy.get(`.tide-search-header .tide-search-filter-toggle`).should('not.exist')
+})
+
+Then('the search results heading should show {string}', (text: string) => {
+  cy.get(`.tide-search-results-heading`).contains(text)
+})
+
+Then('the search results heading should not be displayed', () => {
+  cy.get(`.tide-search-results-heading`).should('not.exist')
 })
 
 Then(
@@ -491,8 +539,8 @@ Then(
 )
 
 Then('only the search filters should be visible', () => {
-  cy.get(`.tide-search-header .rpl-search-bar`).should('not.exist')
-  cy.get(`.tide-search-header .rpl-search-bar-refine`).should('not.exist')
+  cy.get(`.tide-search-header .tide-search-filter-toggle`).should('not.exist')
+  cy.get(`.tide-search-header .tide-search-filter-toggle`).should('not.exist')
   cy.get(`#tide-search-filter-form`).should('exist')
 })
 

@@ -31,3 +31,12 @@
     color: var(--rpl-clr-type-focus-contrast);
   }
 }
+
+.rpl-form-actions--block {
+  flex-direction: column;
+  align-items: start;
+
+  .rpl-form-actions__reset {
+    padding-inline: var(--rpl-sp-2);
+  }
+}

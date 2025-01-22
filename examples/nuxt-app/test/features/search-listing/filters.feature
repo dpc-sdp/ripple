@@ -15,6 +15,21 @@ Feature: Search listing - Filter
     When I visit the page "/filters"
     Then the search listing filters section should be open
 
+    When I toggle the search listing filters section
+    Then the search listing filters section should not be open
+
+  @mockserver
+  Example: Filter collapsed open on mobile page load
+    Given I am using a "iphone-x" device
+    Then the page endpoint for path "/filters" returns fixture "/search-listing/filters/filters-open" with status 200
+    And the search network request is stubbed with fixture "/search-listing/filters/response" and status 200
+
+    When I visit the page "/filters"
+    Then the search listing filters section should not be open
+
+    When I toggle the search listing filters section
+    Then the search listing filters section should be open
+
   @mockserver
   Example: Raw filter - Should reflect the value from the URL
     Given the page endpoint for path "/filters" returns fixture "/search-listing/filters/page" with status 200
@@ -218,6 +233,7 @@ Feature: Search listing - Filter
     Then the search listing dropdown field labelled "Terms filter example" should have the value "Purple"
     Then the search listing dropdown field labelled "Custom function filter example" should have the value "Open"
     And the search listing checkbox field labelled "Show archived content" should be checked
+    And the search listing checkbox field labelled "Weekdays" should be checked
 
     When I clear the search filters
 

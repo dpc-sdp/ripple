@@ -55,6 +55,8 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 const handleSelect = async (val: any) => {
+  if (!val) return
+
   const locationParams = getScopedQueryParams('location', val)
 
   await navigateTo(

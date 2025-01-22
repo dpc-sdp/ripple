@@ -13,7 +13,7 @@ interface Props {
 
 const props = defineProps<Props>()
 
-const { title, url, updated, summary } = useSearchResult(props.result)
+const { title, url, summary } = useSearchResult(props.result)
 
 const audience = computed(() =>
   formatGrantAudiences(

@@ -126,6 +126,18 @@ When(`I toggle the content collection filters`, () => {
     .click()
 })
 
+Then(`the custom collection filters should be open`, () => {
+  cy.get(`[data-component-type="TideCustomCollection"]`)
+    .find(`.tide-search-filters`)
+    .should(`be.visible`)
+})
+
+Then(`the custom collection filters should not be open`, () => {
+  cy.get(`[data-component-type="TideCustomCollection"]`)
+    .find(`.tide-search-filters`)
+    .should(`not.be.visible`)
+})
+
 Then(
   'the custom collection config has {string} set to {string}',
   (key: string, value: string | boolean | number) => {

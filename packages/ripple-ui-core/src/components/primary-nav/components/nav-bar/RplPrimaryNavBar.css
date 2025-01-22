@@ -69,7 +69,7 @@
 .rpl-primary-nav__secondary-logo-image {
   display: block;
   max-width: 126px;
-  max-height: 36px;
+  max-height: 32px;
 
   @media (--rpl-bp-m) {
     max-width: 140px;

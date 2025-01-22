@@ -1,4 +1,9 @@
-import { Then } from '@badeball/cypress-cucumber-preprocessor'
+import { Given, Then } from '@badeball/cypress-cucumber-preprocessor'
+import { set } from 'lodash-es'
+
+Then('the html language should be {string}', (language: string) => {
+  cy.get('html').should('have.attr', 'lang', language)
+})
 
 Then(
   `the section {string} should be display {string} in {string} with the font {string}`,
@@ -13,3 +18,9 @@ Then(
     })
   }
 )
+
+Given('the page language is set to {string}', (language: string) => {
+  cy.get('@pageFixture').then((response) => {
+    set(response, 'meta.langcode', language)
+  })
+})

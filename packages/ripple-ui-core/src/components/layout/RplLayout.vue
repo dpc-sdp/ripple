@@ -8,13 +8,15 @@ interface Props {
   showBackToTop?: boolean
   direction?: string
   language?: string
+  sideBarPlacement?: 'left' | 'right'
 }
 
 withDefaults(defineProps<Props>(), {
   background: 'default',
   showBackToTop: true,
   direction: undefined,
-  language: undefined
+  language: undefined,
+  sideBarPlacement: 'right'
 })
 
 // Currently in Vue 3 there is no standard way to check if a slot has anything in it because
@@ -79,11 +81,19 @@ const skipLinksId = 'rpl-skip-links'
         <div class="rpl-layout__body-wrap">
           <div class="rpl-container">
             <div class="rpl-grid rpl-grid--no-row-gap rpl-layout__body">
+              <aside
+                v-if="hasSidebar && sideBarPlacement === 'left'"
+                id="rpl-sidebar-left"
+                class="rpl-layout__sidebar rpl-layout__sidebar--left rpl-col-4-m rpl-col-12"
+              >
+                <slot name="sidebar"></slot>
+              </aside>
               <main
                 :id="mainId"
                 :class="{
                   'rpl-col-12': true,
                   'rpl-col-7-m': hasSidebar,
+                  'rpl-col-start-6-m': sideBarPlacement === 'left',
                   [`${language}`]: language
                 }"
                 class="rpl-layout__main"
@@ -92,9 +102,9 @@ const skipLinksId = 'rpl-skip-links'
                 <slot name="body" :hasSidebar="hasSidebar"></slot>
               </main>
               <aside
-                v-if="hasSidebar"
+                v-if="hasSidebar && sideBarPlacement === 'right'"
                 id="rpl-sidebar"
-                class="rpl-layout__sidebar rpl-col-4-m rpl-col-start-9-m rpl-col-12"
+                class="rpl-layout__sidebar rpl-layout__sidebar--right rpl-col-4-m rpl-col-start-9-m rpl-col-12"
               >
                 <slot name="sidebar"></slot>
               </aside>

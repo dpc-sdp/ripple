@@ -3,6 +3,7 @@
     :background="background"
     :direction="direction"
     :language="language"
+    :sideBarPlacement="sideBarPlacement"
   >
     <template #aboveHeader>
       <RplIconSprite />
@@ -115,6 +116,7 @@ export interface Props {
   siteSection?: TideSiteSection | null
   page?: any
   showContentRating?: boolean
+  sideBarPlacement?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -125,7 +127,8 @@ const props = withDefaults(defineProps<Props>(), {
   updatedDate: null,
   siteSection: null,
   page: null,
-  showContentRating: false
+  showContentRating: false,
+  sideBarPlacement: undefined
 })
 
 // Feature flags will be available on component instances with inject('featureFlags') - See https://vuejs.org/guide/components/provide-inject.html#inject

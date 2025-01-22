@@ -14,6 +14,7 @@ Feature: Site search
     Then the search listing page should have 5 results
     And the filters toggle should show 0 applied filters
     And the search input should have the value "demo"
+    Then the search results heading should show "Search results for 'demo'"
     And the search listing results count should read "Displaying 1-5 of 5 results"
     And the search listing results should have following items:
       | title                                                 | content                                                                                                                  | url                                                      | component         |
@@ -32,9 +33,13 @@ Feature: Site search
       | filters[0][values][0] | Education        |
     And the network request "siteSearchReq" should be called with the "/site/search-request" fixture
 
+    When I type "the" into the search input
+    Then the search results heading should show "Search results for 'demo'"
+
     When I clear the search filters
     Then the filters toggle should show 0 applied filters
     And the search input should have the value ""
+    And the search results heading should not be displayed
 
   @mockserver
   Example: Overrides site search content types with feature flag
@@ -55,3 +60,4 @@ Feature: Site search
     Given the "/api/tide/search/**" network request is stubbed with fixture "/site/search-response" and status 200 as alias "siteSearchReq"
     When I visit the page "/search"
     Then the search input should be have a max length of 128
+    And the search results heading should not be displayed

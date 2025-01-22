@@ -93,6 +93,7 @@ export default ({
   const locationQuery = ref<any | null>(null)
 
   const searchTerm = ref({ q: '' })
+  const appliedSearchTerm = ref({ q: '' })
   const filterForm = ref({})
   const page = ref(1)
   const pageSize = ref(searchListingConfig.resultsPerPage || 10)
@@ -565,6 +566,7 @@ export default ({
   const getSearchResults = async (isFirstRun: boolean) => {
     isBusy.value = true
     searchError.value = null
+    appliedSearchTerm.value = { ...searchTerm.value }
 
     try {
       const body = await getQueryDSL()
@@ -935,6 +937,12 @@ export default ({
       const scrollToElement = document.querySelector(selector)
 
       if (scrollToElement) {
+        const scrollElementTop = scrollToElement.getBoundingClientRect()?.top
+        // if we're scrolling up we add extra space for the nav bar
+        if (scrollElementTop < 0) {
+          offset = offset + 60
+        }
+
         scrollToElementTopWithOffset(scrollToElement, offset)
       }
     }
@@ -975,6 +983,7 @@ export default ({
     onAggregationUpdateHook,
     onMapResultsHook,
     searchTerm,
+    appliedSearchTerm,
     results,
     suggestions,
     filterForm,

@@ -2,8 +2,11 @@
 interface Props {
   id: string
   label: string
+  fromLabel?: string
+  toLabel?: string
   timestamp?: string
   variant: 'default' | 'reverse'
+  display?: 'inline' | 'block'
 }
 
 defineProps<Props>()
@@ -15,8 +18,11 @@ defineProps<Props>()
     :key="`${id}-${timestamp}`"
     :name="id"
     type="RplFormDateRange"
+    :display="display"
     :variant="variant"
     :label="label"
+    :fromLabel="fromLabel"
+    :toLabel="toLabel"
     :pii="false"
   />
 </template>

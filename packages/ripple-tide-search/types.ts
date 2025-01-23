@@ -296,6 +296,13 @@ export type TideSearchListingConfig = {
      * @description show filters in the sidebar?
      */
     filtersInSidebar?: boolean
+    /**
+     * @description modify the elasticsearch response source
+     */
+    responseSource?: {
+      include?: string[]
+      exclude?: string[]
+    }
   }
   /**
    * @description Tabs to display, key needs to be one of TideSearchListingTabKey

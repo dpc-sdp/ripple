@@ -274,6 +274,19 @@ export default ({
     ]
   }
 
+  const getSourceOptions = () => {
+    let source: { include?: string[]; exclude?: string[] } = {}
+
+    if (searchListingConfig?.responseSource?.include) {
+      source.include = searchListingConfig?.responseSource?.include
+    }
+    if (searchListingConfig?.responseSource?.exclude) {
+      source.exclude = searchListingConfig?.responseSource?.exclude
+    }
+
+    return Object.keys(source).length ? source : false
+  }
+
   const getUserFilters = (forAggregations = false) => {
     const filterValues: Record<string, any> = {
       ...filterForm.value,
@@ -510,13 +523,20 @@ export default ({
   const getQueryDSL = async () => {
     const locationFilters = await getLocationFilterClause('listing')
     const query = getQueryClause([...getUserFilterClause(), ...locationFilters])
+    const source = getSourceOptions()
 
-    return {
+    let queryDSL = {
       query,
       size: pageSize.value,
       from: pagingStart.value,
       sort: getSortClause()
     }
+
+    if (source) {
+      queryDSL._source = source
+    }
+
+    return queryDSL
   }
 
   const getQueryDSLForDynamicAggregations = async () => {
@@ -553,14 +573,21 @@ export default ({
   const getQueryDSLForMaps = async () => {
     const locationFilters = await getLocationFilterClause('map')
     const query = getQueryClause([...getUserFilterClause(), ...locationFilters])
+    const source = getSourceOptions()
 
-    return {
+    let queryDSL = {
       query,
       // ES queries have a 10k result limit, maps struggle drawing more than this anyway. If you need more you will need to implement a loading strategy see : https://openlayers.org/en/latest/apidoc/module-ol_loadingstrategy.html
       size: 10000,
       from: 0,
       sort: getSortClause()
     }
+
+    if (source) {
+      queryDSL._source = source
+    }
+
+    return queryDSL
   }
 
   const getSearchResults = async (isFirstRun: boolean) => {

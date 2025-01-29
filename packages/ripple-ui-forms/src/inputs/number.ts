@@ -14,7 +14,7 @@ export const number: FormKitTypeDefinition = {
   /**
    * The actual schema of the input, or a function that returns the schema.
    */
-  schema: createRplFormInput({
+  schema: createRplFormInput(() => ({
     $cmp: 'RplFormNumber',
     props: {
       ...defaultRplFormInputProps,
@@ -25,7 +25,7 @@ export const number: FormKitTypeDefinition = {
       max: '$node.props.max',
       step: '$node.props.step'
     }
-  }),
+  })),
   library: inputLibrary,
   /**
    * The type of node, can be a list, group, or input.

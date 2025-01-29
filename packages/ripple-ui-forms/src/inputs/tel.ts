@@ -16,14 +16,14 @@ export const tel: FormKitTypeDefinition = {
   /**
    * The actual schema of the input, or a function that returns the schema.
    */
-  schema: createRplFormInput({
+  schema: createRplFormInput(() => ({
     $cmp: 'RplFormInput',
     props: {
       ...defaultRplFormInputProps,
       ...minMaxRplFormProps,
       type: 'tel'
     }
-  }),
+  })),
   library: inputLibrary,
   /**
    * The type of node, can be a list, group, or input.

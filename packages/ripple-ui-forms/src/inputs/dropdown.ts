@@ -9,7 +9,7 @@ export const dropdown: FormKitTypeDefinition = {
   /**
    * The actual schema of the input, or a function that returns the schema.
    */
-  schema: createRplFormInput({
+  schema: createRplFormInput(() => ({
     $cmp: 'RplFormDropdown',
     props: {
       multiple: '$node.props.multiple',
@@ -32,7 +32,7 @@ export const dropdown: FormKitTypeDefinition = {
       noResultsLabel: '$node.props.noResultsLabel',
       pii: '$node.props.pii'
     }
-  }),
+  })),
   library: inputLibrary,
   /**
    * The type of node, can be a list, group, or input.

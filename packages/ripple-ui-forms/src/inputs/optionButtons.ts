@@ -5,7 +5,7 @@ export const optionButtons: FormKitTypeDefinition = {
   /**
    * The actual schema of the input, or a function that returns the schema.
    */
-  schema: createRplFormGroup({
+  schema: createRplFormGroup(() => ({
     $cmp: 'RplFormOptionButtons',
     props: {
       id: `$id`,
@@ -19,7 +19,7 @@ export const optionButtons: FormKitTypeDefinition = {
       perfectSquares: '$node.props.perfectSquares',
       pii: '$node.props.pii'
     }
-  }),
+  })),
   library: inputLibrary,
   /**
    * The type of node, can be a list, group, or input.

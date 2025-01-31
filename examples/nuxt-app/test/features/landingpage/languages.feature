@@ -23,6 +23,7 @@ Feature: Languages
     When I visit the page "/arabic-page"
     Then the section ".rpl-header" should be display "rtl" in "ar" with the font "Noto Kufi Arabic"
     And the section "#rpl-main" should be display "rtl" in "ar" with the font "Noto Kufi Arabic"
+    And the section ".rpl-breadcrumbs__item:last-child" should be display "rtl" in "ar" with the font "Noto Kufi Arabic"
     And the html language should be "ar"
 
   @mockserver
@@ -31,4 +32,5 @@ Feature: Languages
     When I visit the page "/korean-page"
     Then the section ".rpl-header" should be display "ltr" in "ko" with the font "Noto Sans KR"
     And the section "#rpl-main" should be display "ltr" in "ko" with the font "Noto Sans KR"
+    And the section ".rpl-breadcrumbs__item:last-child" should be display "ltr" in "ko" with the font "Noto Sans KR"
     And the html language should be "ko"

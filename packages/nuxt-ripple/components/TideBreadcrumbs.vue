@@ -4,11 +4,13 @@
     :items="breadcrumbs"
     :besideQuickExit="besideQuickExit"
     data-cy="breadcrumbs"
+    :current-class="language"
+    :current-dir="direction"
   />
 </template>
 
 <script setup lang="ts">
-import { computed, toRaw, unref } from 'vue'
+import { computed, inject, toRaw, unref } from 'vue'
 import { getBreadcrumbs } from '#imports'
 
 interface IRplBreadcrumbsItem {
@@ -31,6 +33,8 @@ const props = withDefaults(defineProps<Props>(), {
   currentPageTitle: undefined,
   besideQuickExit: false
 })
+
+const { direction, language } = inject('language')
 
 const breadcrumbs = computed(() => {
   return props.items.length > 0

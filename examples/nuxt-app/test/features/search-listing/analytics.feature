@@ -6,6 +6,37 @@ Feature: Search listing - Analytics
     And I am using a "macbook-16" device
 
   @mockserver
+  Example: Listing emits search related events for analytics
+    Given the page endpoint for path "/search-listing" returns fixture "/search-listing/filters/page-simple" with status 200
+    And the search network request is stubbed with fixture "/search-listing/filters/response-large" and status 200
+
+    When I visit the page "/search-listing"
+    And I wait 400 milliseconds
+    Then I type "the" into the search input
+    And I toggle the search listing filters section
+    Then I click the search listing dropdown field labelled "Term filter example"
+    And I click the option labelled "Blue" in the selected dropdown
+    And I click the search listing dropdown field labelled "Term filter example"
+    And I submit the search filters
+    And I wait 400 milliseconds
+    Then I clear the search filters
+    And I toggle the search listing filters section
+    And I click 'next' in the pagination controls
+    And I wait 400 milliseconds
+
+    Then the dataLayer should include the following events
+      | event                | name           | form_id             | element_text         | filters         | count | label | component           | index |
+      | view_search_results  | Simple listing | tide-search-listing |                      |                 | 133   |       | tide-search-listing | 1     |
+      | open_filters         | Simple listing | tide-search-listing | Filters              |                 |       | the   | tide-search-listing |       |
+      | search               | Simple listing | tide-search-listing | Apply search filters | termFilter=Blue |       | the   | tide-search-listing |       |
+      | view_search_results  | Simple listing | tide-search-listing |                      | termFilter=Blue | 133   | the   | tide-search-listing | 1     |
+      | clear_search_filters | Simple listing | tide-search-listing | Clear search filters | termFilter=Blue | 133   | the   | tide-search-listing |       |
+      | view_search_results  | Simple listing | tide-search-listing |                      |                 | 133   |       | tide-search-listing | 1     |
+      | close_filters        | Simple listing | tide-search-listing | Filters              |                 |       |       | tide-search-listing |       |
+      | paginate_next        | Simple listing | tide-search-listing | Next                 |                 | 133   |       | tide-search-listing | 2     |
+      | view_search_results  | Simple listing | tide-search-listing |                      |                 | 133   |       | tide-search-listing | 2     |
+
+  @mockserver
   Example: Filters emit data for analytics
     Given the page endpoint for path "/filters" returns fixture "/search-listing/filters/page" with status 200
     And the search network request is stubbed with fixture "/search-listing/filters/response" and status 200

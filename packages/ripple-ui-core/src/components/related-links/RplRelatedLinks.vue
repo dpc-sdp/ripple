@@ -36,9 +36,9 @@ const handleClick = (event) => {
 
 <template>
   <div class="rpl-related-links">
-    <div class="rpl-related-links__heading rpl-type-label-large">
+    <h3 class="rpl-related-links__heading rpl-type-label-large">
       {{ title }}
-    </div>
+    </h3>
     <RplList
       :items="items"
       container-class="rpl-related-links__list"

@@ -81,7 +81,7 @@ export const rplFeatures = [
  * this to wrap fields like text inputs
  */
 export const createRplFormInput = (
-  cmp: FormKitSchemaComponent
+  cmpFn: () => FormKitSchemaComponent
 ): FormKitExtendableSchemaRoot => {
   return rplOuter(
     wrapper(
@@ -98,7 +98,7 @@ export const createRplFormInput = (
         inner(
           icon('prefix', 'label'),
           prefix(),
-          createSection('input', () => cmp)(),
+          createSection('input', cmpFn)(),
           suffix(),
           icon('suffix')
         )
@@ -112,7 +112,7 @@ export const createRplFormInput = (
  * fieldset and legend instead of plain label (e.g. radios, checkboxes, date field)
  */
 export const createRplFormGroup = (
-  cmp: FormKitSchemaComponent
+  cmpFn: () => FormKitSchemaComponent
 ): FormKitExtendableSchemaRoot => {
   return rplOuter(
     fieldset(
@@ -125,7 +125,7 @@ export const createRplFormGroup = (
           fieldName: `$node.name`
         }
       }))(),
-      rplInputGrid(createSection('input', () => cmp)())
+      rplInputGrid(createSection('input', cmpFn)())
     )
   ) as unknown as FormKitExtendableSchemaRoot
 }
@@ -136,11 +136,11 @@ export const createRplFormGroup = (
  * and just want the input itself, for example, when using a hidden input
  */
 export const createRplFormInputOnly = (
-  cmp: FormKitSchemaComponent
+  cmpFn: () => FormKitSchemaComponent
 ): FormKitExtendableSchemaRoot => {
   return createSection(
     'input',
-    () => cmp
+    cmpFn
   )() as unknown as FormKitExtendableSchemaRoot
 }
 

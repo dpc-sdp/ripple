@@ -9,7 +9,7 @@ export const date: FormKitTypeDefinition = {
   /**
    * The actual schema of the input, or a function that returns the schema.
    */
-  schema: createRplFormGroup({
+  schema: createRplFormGroup(() => ({
     $cmp: 'RplFormDate',
     props: {
       id: `$id`,
@@ -24,7 +24,7 @@ export const date: FormKitTypeDefinition = {
       pii: '$node.props.pii',
       'aria-describedby': '$fns.getAriaDescribedBy()'
     }
-  }),
+  })),
   library: inputLibrary,
   /**
    * The type of node, can be a list, group, or input.

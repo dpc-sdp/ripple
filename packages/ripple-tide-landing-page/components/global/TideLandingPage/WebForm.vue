@@ -69,13 +69,13 @@ customInputs.library = (node: any) => {
   Object.values(customInputDefs).forEach((item: any) => {
     if (node.props.type === item.id) {
       const def: FormKitTypeDefinition = {
-        schema: createRplFormInput({
+        schema: createRplFormInput(() => ({
           $cmp: item.id,
           props: {
             ...defaultRplFormInputProps,
             type: item.type
           }
-        }),
+        })),
         library: {
           [item.id]: resolveComponent(item.id),
           ...inputLibrary

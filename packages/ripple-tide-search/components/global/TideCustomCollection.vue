@@ -3,7 +3,8 @@ import {
   computed,
   getActiveFiltersTally,
   getActiveFilterURL,
-  ref
+  ref,
+  watch
 } from '#imports'
 import { submitForm } from '@formkit/vue'
 import { useBreakpoints, useDebounceFn } from '@vueuse/core'
@@ -244,7 +245,9 @@ const baseEvent = () => ({
   contextId: props.id,
   name: props.title,
   index: page.value,
-  label: searchTerm.value.q,
+  label: props.locationQueryConfig?.component
+    ? locationOrGeolocation.value?.name
+    : searchTerm.value.q,
   value: totalResults.value,
   options: getActiveFilterURL(filterForm.value),
   section: 'custom-collection'
@@ -553,6 +556,22 @@ const locationOrGeolocation = computed(() => {
     ? userGeolocation.value
     : locationQuery.value
 })
+
+watch(
+  () => isBusy.value,
+  (loading, prevLoading) => {
+    if (!loading && prevLoading) {
+      emitRplEvent(
+        'results',
+        {
+          ...baseEvent(),
+          action: 'view'
+        },
+        { global: true }
+      )
+    }
+  }
+)
 
 onMounted(() => {
   // If filters are shown on load for desktop, we still need to hide them on mobile

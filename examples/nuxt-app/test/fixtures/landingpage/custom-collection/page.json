@@ -93,6 +93,7 @@
       "id": "4470",
       "props": {
         "id": "4470",
+        "title": "Test custom collection",
         "searchListingConfig": {
           "resultsPerPage": 20,
           "formTheme": "default",

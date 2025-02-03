@@ -19,6 +19,37 @@ Feature: Custom Collection
     And the search listing layout should be "table"
 
   @mockserver
+  Scenario: Custom collection emits search related events for analytics
+    Given the page endpoint for path "/custom-collection" returns fixture "/landingpage/custom-collection/page" with status 200
+    And the search network request is stubbed with fixture "/landingpage/custom-collection/response" and status 200
+
+    When I visit the page "/custom-collection"
+    And I wait 400 milliseconds
+    Then I type "the" into the custom collection input
+    Then I toggle the content collection filters
+    When I click the search listing dropdown field labelled "Topics"
+    And I click the option labelled "Another Demo Topic" in the selected dropdown
+    When I click the search listing dropdown field labelled "Topics"
+    And I submit the search filters
+    And I wait 400 milliseconds
+    Then I clear the search filters
+    Then I toggle the content collection filters
+    And I click 'next' in the pagination controls
+    And I wait 400 milliseconds
+
+    Then the dataLayer should include the following events
+      | event                | name                   | element_id          | element_text         | filters                  | count | label | component              | index |
+      | view_search_results  | Test custom collection | page-component-4470 |                      |                          | 282   |       | tide-custom-collection | 1     |
+      | open_filters         | Test custom collection | page-component-4470 | Filters              |                          |       | the   | tide-custom-collection |       |
+      | search               | Test custom collection | page-component-4470 | Apply search filters | topic=Another+Demo+Topic |       | the   | tide-custom-collection |       |
+      | view_search_results  | Test custom collection | page-component-4470 |                      | topic=Another+Demo+Topic | 282   | the   | tide-custom-collection | 1     |
+      | clear_search_filters | Test custom collection | page-component-4470 | Clear search filters | topic=Another+Demo+Topic | 282   | the   | tide-custom-collection |       |
+      | view_search_results  | Test custom collection | page-component-4470 |                      |                          | 282   |       | tide-custom-collection | 1     |
+      | close_filters        | Test custom collection | page-component-4470 | Filters              |                          |       |       | tide-custom-collection |       |
+      | paginate_next        | Test custom collection | page-component-4470 | Next                 |                          | 282   |       | tide-custom-collection | 2     |
+      | view_search_results  | Test custom collection | page-component-4470 |                      |                          | 282   |       | tide-custom-collection | 2     |
+
+  @mockserver
   Scenario: Default page - default form theme
     Given the page endpoint for path "/custom-collection-theme-default" returns fixture "/landingpage/custom-collection/form-theme-default" with status 200
     Given the "/api/tide/elasticsearch/sdp_data_pipelines_scl/_search" network request is stubbed with fixture "/landingpage/custom-collection/response" and status 200 as alias "cslReq"

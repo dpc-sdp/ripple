@@ -20,11 +20,11 @@
 
       &::before {
         content: '"';
-        content: '"' / "";
+        content: '"' / '';
         font-style: italic;
         font-size: var(--local-icon-size);
         font-weight: var(--rpl-type-weight-bold);
-        color: var(--rpl-clr-primary);
+        color: var(--rpl-clr-link);
         position: absolute;
         top: var(--rpl-sp-2);
         right: calc(100% + var(--rpl-sp-4));

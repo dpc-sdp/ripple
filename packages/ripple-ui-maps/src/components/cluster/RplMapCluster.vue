@@ -1,5 +1,5 @@
 <template>
-  <ol-style :overrideStyleFunction="overrideStyleFunction" :key="key">
+  <ol-style :overrideStyleFunction="overrideStyleFunction">
     <ol-style-text>
       <ol-style-fill color="white"></ol-style-fill>
     </ol-style-text>

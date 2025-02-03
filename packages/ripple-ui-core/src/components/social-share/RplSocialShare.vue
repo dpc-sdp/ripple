@@ -30,24 +30,29 @@ const hasEmail = computed(() => props.email?.subject && props.email?.body)
     <h3 v-if="title" class="rpl-social-share__title rpl-type-label-large">
       {{ title }}
     </h3>
-    <div class="rpl-social-share__items">
-      <RplSocialShareLink
+    <ul class="rpl-social-share__items">
+      <li
         v-for="network in validNetworks"
         :key="network.toLowerCase()"
-        :network="network"
-        :title="pagetitle"
-        :label="title"
-        :url="url"
-      />
-      <RplSocialShareEmail
-        v-if="hasEmail"
-        :title="pagetitle"
-        :subject="email.subject"
-        :body="email.body"
-        :label="title"
-        :url="url"
-      />
-    </div>
+        class="rpl-social-share__item"
+      >
+        <RplSocialShareLink
+          :network="network"
+          :title="pagetitle"
+          :label="title"
+          :url="url"
+        />
+      </li>
+      <li v-if="hasEmail" class="rpl-social-share__item">
+        <RplSocialShareEmail
+          :title="pagetitle"
+          :subject="email.subject"
+          :body="email.body"
+          :label="title"
+          :url="url"
+        />
+      </li>
+    </ul>
   </div>
 </template>
 

@@ -9,6 +9,7 @@ export default defineNitroPlugin(async (nitroApp: NitroApp) => {
     'publication_page',
     tidePublicationPageModule
   )
+
   // Adding support for landing page component includes
   nitroApp.tide?.pageApi.dynamicComponents[
     'paragraph--basic_text'
@@ -45,5 +46,14 @@ export default defineNitroPlugin(async (nitroApp: NitroApp) => {
   ]?.contentTypes.push(...['publication_page'])
   nitroApp.tide?.pageApi.dynamicComponents[
     'paragraph--call_to_action'
+  ]?.contentTypes.push(...['publication_page'])
+  nitroApp.tide?.pageApi.dynamicComponents[
+    'paragraph--from_library'
+  ]?.contentTypes.push(...['publication', 'publication_page'])
+  nitroApp.tide?.pageApi.dynamicComponents[
+    'paragraph--data_table'
+  ]?.contentTypes.push(...['publication_page'])
+  nitroApp.tide?.pageApi.dynamicComponents[
+    'paragraph--data_driven_component'
   ]?.contentTypes.push(...['publication_page'])
 })

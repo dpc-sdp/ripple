@@ -9,6 +9,7 @@ import { heroHeaderMapping } from '@dpc-sdp/ripple-tide-landing-page/mapping'
 const tidePublicationPageModule: IRplTideModuleMapping = {
   mapping: {
     ...tidePageBaseMapping({
+      withTopicTags: true,
       withSidebarContacts: true,
       withSidebarRelatedLinks: true,
       withSidebarSocialShare: true
@@ -67,6 +68,7 @@ const tidePublicationPageModule: IRplTideModuleMapping = {
   },
   includes: [
     ...tidePageBaseIncludes({
+      withTopicTags: true,
       withSidebarContacts: true,
       withSidebarRelatedLinks: true,
       withSidebarSocialShare: true

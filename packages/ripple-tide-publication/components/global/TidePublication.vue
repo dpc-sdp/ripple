@@ -5,6 +5,7 @@
     :siteSection="page.siteSection"
     :pageTitle="page.title"
     :pageLanguage="page.lang"
+    :topicTags="page.showTopicTags ? page.topicTags : []"
     :updatedDate="page.changed || page.created"
     :showContentRating="page.showContentRating"
   >
@@ -49,10 +50,9 @@
 </template>
 
 <script setup lang="ts">
-import { TideSiteData } from '@dpc-sdp/ripple-tide-api/types'
-import { indexNode, TidePublicationPage } from '../../types'
-import { processMenu, useRoute, useTidePublicationMenu } from '#imports'
-import { ref } from 'vue'
+import type { indexNode, TidePublicationPage } from '../../types'
+import type { TideSiteData } from '@dpc-sdp/ripple-tide-api/types'
+import { processMenu, useRoute, useTidePublicationMenu, ref } from '#imports'
 
 interface Props {
   site: TideSiteData

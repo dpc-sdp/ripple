@@ -9,7 +9,7 @@
 
 <script setup lang="ts">
 import { computed } from '#imports'
-import { TideLink } from '../../../../types'
+import { TideLink } from '../types'
 
 interface Props {
   title: string

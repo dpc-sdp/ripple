@@ -113,8 +113,6 @@
 
   width: auto;
   height: auto;
-  max-width: var(--local-logo-width);
-  max-height: var(--local-logo-height);
   margin-top: var(--rpl-sp-1);
   margin-bottom: var(--rpl-sp-4);
 
@@ -125,6 +123,11 @@
     margin-top: var(--rpl-sp-2);
     margin-bottom: var(--rpl-sp-5);
   }
+}
+
+img.rpl-header__logo {
+  max-width: var(--local-logo-width);
+  max-height: var(--local-logo-height);
 }
 
 .rpl-header__title {
@@ -223,6 +226,15 @@
 
     @media print {
       --local-padding-top: var(--rpl-sp-10);
+    }
+  }
+
+  .rpl-header__upper {
+    @media (--rpl-bp-l) {
+      display: flex;
+      flex-flow: row wrap;
+      align-items: center;
+      column-gap: var(--rpl-sp-6);
     }
   }
 

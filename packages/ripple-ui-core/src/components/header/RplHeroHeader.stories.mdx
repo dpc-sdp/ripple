@@ -128,6 +128,32 @@ This is an example header with a logo image
   </Story>
 </Canvas>
 
+## Default / Logos
+
+This is an example header with a multiple logos
+
+<Canvas>
+  <Story
+    name='Default/Logos'
+    play={a11yStoryCheck}
+    args={{
+      cornerTop: true,
+      logo: [
+        {
+          src: svgPlaceholder({ width: 150, height: 100 }),
+          alt: 'A description of the logo'
+        },
+        {
+          src: svgPlaceholder({ width: 200, height: 100 }),
+          alt: 'Another description of the logo'
+        }
+      ]
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>
+
 ## Default / Journey links
 
 This is an example header with journey links

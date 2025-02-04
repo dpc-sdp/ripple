@@ -15,6 +15,7 @@ Feature: Home page
   @mockserver
   Scenario: Hero header
     Then the hero title should be "Test landing page title"
+    Then the hero logo should be "/placeholders/logo.png"
     Then the hero intro text should be "Test landing page title introduction text"
     And the hero should display the following items
       | text               | url                                               |

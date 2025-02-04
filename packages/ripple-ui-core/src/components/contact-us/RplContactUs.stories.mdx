@@ -12,7 +12,9 @@ export const SingleTemplate = (args) => ({
   setup() {
     return { args }
   },
-  template: '<RplContactUs v-bind="args" />'
+  template: `
+    <RplContactUs v-bind="args"><span v-if="args.content">${args.content}</span></RplContactUs>
+  `
 })
 
 <Meta title='Core/Containers/Contact us' component={RplContactUs} />
@@ -81,6 +83,43 @@ export const SingleTemplate = (args) => ({
           text: '',
           url: '',
           icon: 'icon-browser'
+        }
+      ]
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>
+
+# With slot content
+
+<ArgsTable of={RplContactUs} />
+
+<Canvas>
+  <Story
+    name='Contact us/With Slot'
+    play={a11yStoryCheck}
+    args={{
+      content: 'This is extra content added in the default slot.',
+      address: {
+        department: 'Department Name',
+        street: 'Address Line, Suburb, 3019'
+      },
+      items: [
+        {
+          text: '99 Street St, Suburb VIC 3000',
+          url: 'googlemaps',
+          icon: 'icon-pin'
+        },
+        {
+          text: '03 9999 9999',
+          url: 'tel:0399999999',
+          icon: 'icon-phone'
+        },
+        {
+          text: 'email@vic.gov.au',
+          url: 'mailto:email',
+          icon: 'icon-mail'
         }
       ]
     }}

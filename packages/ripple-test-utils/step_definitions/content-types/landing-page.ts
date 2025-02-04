@@ -27,6 +27,10 @@ Then('the hero intro text should be {string}', (introText: string) => {
   cy.get('[data-cy="hero-summary"]').should('have.text', introText)
 })
 
+Then('the hero logo should be {string}', (image: string) => {
+  cy.get(`.rpl-header__logo`).should('have.attr', 'src').and('contain', image)
+})
+
 Then('the hero should display the following items', (dataTable: DataTable) => {
   const table = dataTable.hashes()
 

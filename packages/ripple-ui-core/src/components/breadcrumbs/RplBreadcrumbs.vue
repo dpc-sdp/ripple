@@ -17,13 +17,17 @@ interface Props {
   besideQuickExit?: boolean
   displayBeforeCollapse?: number
   collapse?: boolean
+  currentClass?: string
+  currentDir?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
   items: () => [],
   besideQuickExit: false,
   displayBeforeCollapse: 3,
-  collapse: false
+  collapse: false,
+  currentClass: undefined,
+  currentDir: undefined
 })
 
 const emit = defineEmits<{
@@ -105,8 +109,12 @@ const toggleCollapsed = () => {
                 !firstItem(index) &&
                 !secondLastItem(index) &&
                 collapseInnerLinks
+            },
+            {
+              [currentClass]: lastItem(index) && currentClass
             }
           ]"
+          :dir="lastItem(index) ? currentDir : undefined"
         >
           <RplTextLink
             v-if="!lastItem(index) || collapseInnerLinks"

@@ -9,7 +9,7 @@ export const checkboxGroup: FormKitTypeDefinition = {
   /**
    * The actual schema of the input, or a function that returns the schema.
    */
-  schema: createRplFormGroup({
+  schema: createRplFormGroup(() => ({
     $cmp: 'RplFormCheckboxGroup',
     props: {
       id: `$id`,
@@ -24,7 +24,7 @@ export const checkboxGroup: FormKitTypeDefinition = {
       layout: '$node.props.layout',
       pii: '$node.props.pii'
     }
-  }),
+  })),
   library: inputLibrary,
   /**
    * The type of node, can be a list, group, or input.

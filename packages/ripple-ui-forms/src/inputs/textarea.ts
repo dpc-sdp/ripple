@@ -17,7 +17,7 @@ export const textarea: FormKitTypeDefinition = {
   /**
    * The actual schema of the input, or a function that returns the schema.
    */
-  schema: createRplFormInput({
+  schema: createRplFormInput(() => ({
     $cmp: 'RplFormTextarea',
     props: {
       handlers: '$handlers',
@@ -38,7 +38,7 @@ export const textarea: FormKitTypeDefinition = {
       ...minMaxRplFormProps,
       ...counterRplFormProps
     }
-  }),
+  })),
   library: inputLibrary,
   /**
    * The type of node, can be a list, group, or input.

@@ -21,7 +21,7 @@ import {
 interface Props {
   theme?: (typeof RplHeaderThemes)[number]
   title: string
-  logo?: IRplImageType
+  logo?: IRplImageType | IRplImageType[]
   background?: IRplImageType
   cornerTop?: string | boolean
   cornerBottom?: string | boolean
@@ -88,6 +88,13 @@ const backImageRatio = computed(() => {
     : { xs: 'wide', m: 'wide' }
 })
 
+const logos = computed((): IRplImageType[] => {
+  if (!props.logo) {
+    return []
+  }
+  return Array.isArray(props.logo) ? props.logo : [props.logo]
+})
+
 const slots = useSlots()
 const defaultSlotIsEmpty = useEmptySlotCheck(slots.default)
 const { emitRplEvent, withOptions } = useRippleEvent('rpl-header', emit)
@@ -130,7 +137,12 @@ const handleClick = (event) => {
       />
     </template>
     <template v-if="logo" #upper>
-      <RplImage class="rpl-header__logo" v-bind="logo" />
+      <RplImage
+        v-for="image in logos"
+        :key="image.src"
+        class="rpl-header__logo"
+        v-bind="image"
+      />
     </template>
     <template #title>
       <h1 :class="titleClasses" data-cy="hero-title">{{ title }}</h1>

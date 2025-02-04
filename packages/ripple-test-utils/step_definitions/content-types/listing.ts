@@ -592,3 +592,35 @@ Then(
     })
   }
 )
+
+Then(
+  'the search listing config has the following excludes added to source',
+  (dataTable: DataTable) => {
+    const table = dataTable.hashes()
+    const excludes = table.map((row) => row.key)
+
+    cy.get('@pageFixture').then((response) => {
+      set(
+        response,
+        `config.searchListingConfig.responseSource.exclude`,
+        excludes
+      )
+    })
+  }
+)
+
+Then(
+  'the search listing config has the following includes added to source',
+  (dataTable: DataTable) => {
+    const table = dataTable.hashes()
+    const includes = table.map((row) => row.key)
+
+    cy.get('@pageFixture').then((response) => {
+      set(
+        response,
+        `config.searchListingConfig.responseSource.include`,
+        includes
+      )
+    })
+  }
+)

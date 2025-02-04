@@ -19,6 +19,7 @@ const chapters = (src: string) =>
 const tidePublicationModule: IRplTideModuleMapping = {
   mapping: {
     ...tidePageBaseMapping({
+      withTopicTags: true,
       withSidebarContacts: true,
       withSidebarRelatedLinks: true,
       withSidebarSocialShare: true
@@ -66,6 +67,7 @@ const tidePublicationModule: IRplTideModuleMapping = {
   },
   includes: [
     ...tidePageBaseIncludes({
+      withTopicTags: true,
       withSidebarContacts: true,
       withSidebarRelatedLinks: true,
       withSidebarSocialShare: true

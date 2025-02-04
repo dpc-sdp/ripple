@@ -3,6 +3,10 @@
     margin-bottom: var(--rpl-sp-4);
   }
 
+  &__content {
+    margin-bottom: var(--rpl-sp-4);
+  }
+
   &__details {
     border-left-style: solid;
     border-left-width: var(--rpl-border-3);

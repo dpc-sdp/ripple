@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import type { IRplListItemArray } from '../list/constants'
-import { computed } from 'vue'
+import { computed, useSlots } from 'vue'
 import RplList from '../list/RplList.vue'
 import {
   useRippleEvent,
   rplEventPayload
 } from '../../composables/useRippleEvent'
+import useEmptySlotCheck from '../../composables/useEmptySlotCheck'
 
 interface IRplContactUsDetails {
   name: string
@@ -31,6 +32,9 @@ const emit = defineEmits<{
 
 const { emitRplEvent } = useRippleEvent('rpl-contact-us', emit)
 
+const slots = useSlots()
+const defaultSlotIsEmpty = useEmptySlotCheck(slots.default)
+
 const handleClick = (event) => {
   emitRplEvent(
     'itemClick',
@@ -55,6 +59,9 @@ const socialLinks = computed(() =>
     <h3 v-if="title" class="rpl-contact-us__title rpl-type-label-large">
       {{ title }}
     </h3>
+    <div v-if="!defaultSlotIsEmpty" class="rpl-contact-us__content rpl-type-p">
+      <slot />
+    </div>
     <div v-if="address" class="rpl-contact-us__details rpl-type-p">
       <p>
         <template v-if="address.name"

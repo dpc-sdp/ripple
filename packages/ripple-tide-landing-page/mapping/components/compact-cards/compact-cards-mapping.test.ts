@@ -1,5 +1,5 @@
 import { TideDynamicPageComponent } from '@dpc-sdp/ripple-tide-api/types'
-import { expect, describe, it } from '@jest/globals'
+import { expect, describe, it } from 'vitest'
 import { compactCardsMapping, ITideCompactCards } from './compact-cards-mapping'
 import rawData from './compact-cards'
 

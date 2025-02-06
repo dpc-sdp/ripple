@@ -1,4 +1,4 @@
-import { expect, describe } from '@jest/globals'
+import { expect, describe, test } from 'vitest'
 import { getBreadcrumbs } from './breadcrumbs.js'
 
 const nestedMenu = [

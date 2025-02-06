@@ -1,4 +1,4 @@
-import { expect, describe, it, beforeAll } from '@jest/globals'
+import { expect, describe, it, beforeAll } from 'vitest'
 import * as jsonapiParse from 'jsonapi-parse'
 import { rawData } from './rawdata'
 import { map as sidebarWhatsNextMapping } from '../sidebar-whats-next-mapping'

@@ -24,7 +24,9 @@
     "release:publish-next": "lerna publish --canary --preid next.$(git rev-parse --short HEAD) --dist-tag next --force-publish",
     "release:publish": "lerna publish from-package",
     "lint": "eslint . --ext .ts,.vue && stylelint 'packages/ripple-ui-core/**/*.css'",
-    "test:unit": "jest --colors --runInBand",
+    "test:unit": "vitest run",
+    "test:unit-watch": "vitest watch",
+    "test:jest": "jest --colors --runInBand",
     "test:components-core": "pnpm -F @dpc-sdp/ripple-ui-core test:components",
     "test:components-forms": "pnpm -F @dpc-sdp/ripple-ui-forms test:components",
     "test:storybook": "pnpm -F ripple-storybook test",
@@ -60,6 +62,7 @@
     "@lerna-lite/publish": "^1.17.0",
     "@lerna-lite/version": "^1.17.0",
     "@types/jest": "^29.5.0",
+    "@vitest/coverage-v8": "3.0.5",
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "^29.5.0",
     "babel-loader": "^9.1.2",
@@ -79,7 +82,8 @@
     "postcss-preset-env": "^8.1.0",
     "start-server-and-test": "^2.0.3",
     "stylelint": "^15.10.2",
-    "ts-jest": "^29.0.5"
+    "ts-jest": "^29.0.5",
+    "vitest": "3.0.5"
   },
   "engines": {
     "node": "^18.15.0 || ^20.9.0",

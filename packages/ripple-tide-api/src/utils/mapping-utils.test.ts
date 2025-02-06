@@ -1,4 +1,4 @@
-import { expect, describe } from '@jest/globals'
+import { expect, describe, it } from 'vitest'
 import {
   getImageFromField,
   getCardImageFromField,
@@ -15,144 +15,146 @@ import {
 } from './mapping-utils.js'
 
 const field = {
-    field_media_image: {
-      links: {
-        self: {
-          href: 'https://develop.content.reference.sdp.vic.gov.au/api/v1/file/file/7f3b1a29-76f1-4ec9-8991-0a42543588e4'
-        }
+  field_media_image: {
+    links: {
+      self: {
+        href: 'https://develop.content.reference.sdp.vic.gov.au/api/v1/file/file/7f3b1a29-76f1-4ec9-8991-0a42543588e4'
+      }
+    },
+    meta: {
+      alt: 'Demo: Melbourne tram',
+      title: 'Demo: Melbourne tram',
+      width: 900,
+      height: 700,
+      focal_point: {
+        x: 50,
+        y: 50
       },
-      meta: {
+      drupal_internal__target_id: 85
+    },
+    drupal_internal__fid: 85,
+    langcode: 'en',
+    filename: 'Melbourne-tram.jpg',
+    uri: {
+      value: 'public://tide_demo_content/Melbourne-tram.jpg',
+      url: '/sites/default/files/tide_demo_content/Melbourne-tram.jpg'
+    },
+    filemime: 'image/jpeg',
+    filesize: 10654,
+    status: true,
+    created: '2023-10-25T22:41:42+00:00',
+    changed: '2023-10-25T22:41:42+00:00',
+    url: 'https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg',
+    id: '7f3b1a29-76f1-4ec9-8991-0a42543588e4',
+    type: 'file--file'
+  },
+  field_card_image: {
+    data: [
+      {
+        target_id: '44',
         alt: 'Demo: Melbourne tram',
         title: 'Demo: Melbourne tram',
-        width: 900,
-        height: 700,
-        focal_point: {
-          x: 50,
-          y: 50
-        },
-        drupal_internal__target_id: 85
-      },
-      drupal_internal__fid: 85,
-      langcode: 'en',
-      filename: 'Melbourne-tram.jpg',
-      uri: {
-        value: 'public://tide_demo_content/Melbourne-tram.jpg',
-        url: '/sites/default/files/tide_demo_content/Melbourne-tram.jpg'
-      },
-      filemime: 'image/jpeg',
-      filesize: 10654,
-      status: true,
-      created: '2023-10-25T22:41:42+00:00',
-      changed: '2023-10-25T22:41:42+00:00',
-      url: 'https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/Melbourne-tram.jpg',
-      id: '7f3b1a29-76f1-4ec9-8991-0a42543588e4',
-      type: 'file--file'
-    },
-    field_card_image: {
-      data: [
-        {
-          target_id: '44',
-          alt: 'Demo: Melbourne tram',
-          title: 'Demo: Melbourne tram',
-          width: '1413',
-          height: '785',
-          _loaded: true,
-          _accessCacheability: {}
-        }
-      ],
-      url: '/sites/default/files/tide_demo_content/Melbourne-tram.jpg',
-      meta: {
-        focal_point: {
-          x: 700,
-          y: 300
-        }
-      }
-    },
-    field_paragraph_link: {
-      uri: 'entity:node/landing_page/11dede11-10c0-111e1-1100-000000000332',
-      title: '',
-      options: [],
-      entity: {
-        uri: 'entity:node/179',
-        entity_type: 'node',
-        entity_id: '179',
-        bundle: 'landing_page',
-        uuid: '11dede11-10c0-111e1-1100-000000000332'
-      },
-      url: '/landing-page-cc-2',
-      origin_url: '/landing-page-cc-2'
-    },
-    field_related_link: {
-      uri: 'internal:/contact-us',
-      title: 'Get in touch',
-      options: []
-    },
-    field_paragraph_location: {
-      langcode: null,
-      country_code: 'AU',
-      administrative_area: 'VIC',
-      locality: 'Melbourne',
-      postal_code: '3001',
-      address_line1: 'Level 14',
-      address_line2: '35 Collins St'
-    },
-    field_paragraph_body: {
-      value: '<p>Milestone 1 <strong>summary</strong> <em>text</em></p>\r\n',
-      format: 'rich_text',
-      processed: '<p>Milestone 1 <strong>summary</strong> <em>text</em></p>'
-    },
-    field_site_theme_values: [
-      {
-        key: 'rpl-clr-primary',
-        description: null,
-        value: '#6B19A3'
-      },
-      {
-        key: 'rpl-clr-accent',
-        description: null,
-        value: '#6DDD97'
-      },
-      {
-        key: 'neutral-theme',
-        description: null,
-        value: 'true'
-      },
-      {
-        key: 'it-it-false-tho',
-        description: null,
-        value: 'false'
+        width: '1413',
+        height: '785',
+        _loaded: true,
+        _accessCacheability: {}
       }
     ],
-    field_node_site: [
-      {
-        drupal_internal__tid: 179
+    url: '/sites/default/files/tide_demo_content/Melbourne-tram.jpg',
+    meta: {
+      focal_point: {
+        x: 700,
+        y: 300
       }
-    ],
-    field_acknowledgement_to_country:
-      'We acknowledge Aboriginal and Torres Strait Islander people as the First People and traditional owners and custodians of the lands, seas and waters of Australia. \r\n\r\nWe pay our respect to Elders past and present.\r\n '
+    }
   },
-  processedImg = {
-    alt: 'Demo: Melbourne tram',
-    focalPoint: {
-      x: 50,
-      y: 50
+  field_paragraph_link: {
+    uri: 'entity:node/landing_page/11dede11-10c0-111e1-1100-000000000332',
+    title: '',
+    options: [],
+    entity: {
+      uri: 'entity:node/179',
+      entity_type: 'node',
+      entity_id: '179',
+      bundle: 'landing_page',
+      uuid: '11dede11-10c0-111e1-1100-000000000332'
     },
-    height: 700,
-    src: '/sites/default/files/tide_demo_content/Melbourne-tram.jpg',
-    title: 'Demo: Melbourne tram',
-    width: 900
+    url: '/landing-page-cc-2',
+    origin_url: '/landing-page-cc-2'
   },
-  processedCard = {
-    alt: 'Demo: Melbourne tram',
-    focalPoint: {
-      x: 700,
-      y: 300
+  field_related_link: {
+    uri: 'internal:/contact-us',
+    title: 'Get in touch',
+    options: []
+  },
+  field_paragraph_location: {
+    langcode: null,
+    country_code: 'AU',
+    administrative_area: 'VIC',
+    locality: 'Melbourne',
+    postal_code: '3001',
+    address_line1: 'Level 14',
+    address_line2: '35 Collins St'
+  },
+  field_paragraph_body: {
+    value: '<p>Milestone 1 <strong>summary</strong> <em>text</em></p>\r\n',
+    format: 'rich_text',
+    processed: '<p>Milestone 1 <strong>summary</strong> <em>text</em></p>'
+  },
+  field_site_theme_values: [
+    {
+      key: 'rpl-clr-primary',
+      description: null,
+      value: '#6B19A3'
     },
-    height: 785,
-    src: '/sites/default/files/tide_demo_content/Melbourne-tram.jpg',
-    title: 'Demo: Melbourne tram',
-    width: 1413
-  }
+    {
+      key: 'rpl-clr-accent',
+      description: null,
+      value: '#6DDD97'
+    },
+    {
+      key: 'neutral-theme',
+      description: null,
+      value: 'true'
+    },
+    {
+      key: 'it-it-false-tho',
+      description: null,
+      value: 'false'
+    }
+  ],
+  field_node_site: [
+    {
+      drupal_internal__tid: 179
+    }
+  ],
+  field_acknowledgement_to_country:
+    'We acknowledge Aboriginal and Torres Strait Islander people as the First People and traditional owners and custodians of the lands, seas and waters of Australia. \r\n\r\nWe pay our respect to Elders past and present.\r\n '
+}
+
+const processedImg = {
+  alt: 'Demo: Melbourne tram',
+  focalPoint: {
+    x: 50,
+    y: 50
+  },
+  height: 700,
+  src: '/sites/default/files/tide_demo_content/Melbourne-tram.jpg',
+  title: 'Demo: Melbourne tram',
+  width: 900
+}
+
+const processedCard = {
+  alt: 'Demo: Melbourne tram',
+  focalPoint: {
+    x: 700,
+    y: 300
+  },
+  height: 785,
+  src: '/sites/default/files/tide_demo_content/Melbourne-tram.jpg',
+  title: 'Demo: Melbourne tram',
+  width: 1413
+}
 
 describe('ripple-tide-api/mapping utils', () => {
   it(`processes api field data for images`, () => {

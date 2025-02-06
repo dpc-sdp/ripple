@@ -1,4 +1,4 @@
-import { expect, describe, it, jest } from '@jest/globals'
+import { expect, describe, it, vi } from 'vitest'
 import mapping from './from-library-mapping'
 import { useAppConfig } from '#imports'
 
@@ -201,18 +201,18 @@ const MAPPED = {
   }
 }
 
-jest.mock('#imports', () => ({
-  useAppConfig: jest.fn()
-}))
-;(useAppConfig as jest.Mock).mockReturnValue({ ripple: { site: '123' } })
-
 describe('From library component mapping', () => {
+  vi.mock('#imports', () => ({
+    useAppConfig: vi.fn()
+  }))
+
   it('transforms a raw json api from_library paragraph to mapped component', async () => {
+    useAppConfig.mockReturnValue({ ripple: { site: '123' } })
     expect(mapping.mapping(RAW, {}, {})).toEqual(MAPPED)
   })
 
   it('logs a console error when a paragraph type is not supported', async () => {
-    const spy = jest.spyOn(console, 'error')
+    const spy = vi.spyOn(console, 'error')
     mapping.mapping(UNSUPPORTED, {}, {})
     expect(spy).toHaveBeenCalled()
   })

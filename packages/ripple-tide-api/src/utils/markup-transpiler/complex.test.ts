@@ -1,9 +1,12 @@
-import { expect, describe } from '@jest/globals'
+import { expect, describe, it } from 'vitest'
 import markupTranspiler from './index'
 import fixture from './complex.fixture.js'
 
+process.env.NUXT_PUBLIC_TIDE_BASE_URL =
+  'https://develop.content.reference.sdp.vic.gov.au/'
+
 describe('ripple-tide-api/utils/markup-transpiler/cheerio', () => {
-  it(`runs plugins on complex markup`, () => {
+  it('runs plugins on complex markup', () => {
     expect(markupTranspiler(fixture.api)).toEqual(fixture.processed)
   })
 })

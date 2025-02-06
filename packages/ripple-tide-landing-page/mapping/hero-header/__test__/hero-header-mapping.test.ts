@@ -1,5 +1,5 @@
 import * as jsonapiParse from 'jsonapi-parse'
-import { expect, describe, it } from '@jest/globals'
+import { expect, describe, it, beforeAll } from 'vitest'
 import { heroHeaderMapping } from '../hero-header-mapping'
 import { TideHeroHeader } from '@dpc-sdp/nuxt-ripple/types'
 import { testData } from './test-data'

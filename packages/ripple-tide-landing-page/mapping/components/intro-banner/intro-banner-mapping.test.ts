@@ -1,5 +1,5 @@
 import { TideDynamicPageComponent } from '@dpc-sdp/ripple-tide-api/types'
-import { expect, describe, it } from '@jest/globals'
+import { expect, describe, it } from 'vitest'
 import { introBannerMapping, ITideIntroBanner } from './intro-banner-mapping'
 
 const rawData = {

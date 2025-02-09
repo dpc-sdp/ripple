@@ -175,7 +175,6 @@ Given('a custom map results hook called {string} is used', (hook) => {
 When(`I type {string} into the location search bar`, (inputStr: string) => {
   cy.get(`[id="tide-address-lookup"]`).focus()
   cy.get(`[id="tide-address-lookup"]`).type(`${inputStr}`)
-  cy.get(`[id="tide-address-lookup"]`).focus()
 })
 
 Given(
@@ -197,7 +196,11 @@ Then(
       const params = new URLSearchParams(loc.search)
 
       items.forEach((row) => {
-        expect(params.get(`location[${row.key}]`)).to.eq(`${row.value}`)
+        if (row.value) {
+          expect(params.get(`location[${row.key}]`)).to.eq(`${row.value}`)
+        } else {
+          expect(params.get(`location[${row.key}]`)).to.be.null
+        }
       })
     })
   }

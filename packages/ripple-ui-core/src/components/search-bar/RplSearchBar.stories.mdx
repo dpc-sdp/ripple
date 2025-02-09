@@ -91,4 +91,14 @@ export const SingleTemplate = (args) => ({
   >
     {SingleTemplate.bind()}
   </Story>
+  <Story
+    name='Suggestion required'
+    play={a11yStoryCheck}
+    args={{
+      id: 'suggestion',
+      submitOnSuggestionOnly: true
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
 </Canvas>

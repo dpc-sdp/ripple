@@ -18,6 +18,7 @@
     :isBusy="isGettingLocation"
     :isFreeText="false"
     :submitOnClear="true"
+    :submitOnSuggestionOnly="true"
     @submit="submitAction"
     @update:input-value="onUpdate"
   >

@@ -3,7 +3,15 @@ export default { inheritAttrs: false }
 </script>
 
 <script setup lang="ts">
-import { ref, watch, nextTick, computed, onMounted, onUnmounted } from 'vue'
+import {
+  ref,
+  watch,
+  nextTick,
+  computed,
+  onMounted,
+  onUnmounted,
+  Ref
+} from 'vue'
 import { onClickOutside } from '@vueuse/core'
 import RplIcon from '../icon/RplIcon.vue'
 import {
@@ -33,6 +41,7 @@ interface Props {
   isFreeText?: boolean
   showClearButton?: boolean
   submitOnClear?: boolean
+  submitOnSuggestionOnly?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -53,7 +62,8 @@ const props = withDefaults(defineProps<Props>(), {
   showLabel: false,
   isFreeText: true,
   showClearButton: true,
-  submitOnClear: false
+  submitOnClear: false,
+  submitOnSuggestionOnly: false
 })
 
 type Timer = ReturnType<typeof setTimeout>
@@ -79,6 +89,8 @@ const activeOptionId = ref<string | null>(null)
 
 const isInputFocused = ref(false)
 
+const showSubmitButton = computed(() => !props.submitOnSuggestionOnly)
+
 onMounted(() => {
   if (props.autoFocus) {
     focusTimeout.value = setTimeout(() => inputRef.value?.focus(), 100)
@@ -96,6 +108,10 @@ onClickOutside(containerRef, () => {
 })
 
 const handleSubmit = (type: 'button' | 'enter') => {
+  if (props.submitOnSuggestionOnly) {
+    return maybeSelectOption()
+  }
+
   emitRplEvent(
     'submit',
     {
@@ -140,6 +156,14 @@ const handleSelectOption = (optionValue: any, focusBackOnInput: boolean) => {
     },
     { global: props.globalEvents }
   )
+}
+
+const maybeSelectOption = () => {
+  if (!props.suggestions?.length) return
+
+  handleSelectOption(props.suggestions[0], false)
+
+  handleBlur()
 }
 
 const getDefaultActiveId = (): string => {
@@ -296,7 +320,8 @@ const slug = (label: string) => {
       'rpl-search-bar': true,
       [`rpl-search-bar--${variant}`]: !!variant,
       'rpl-search-bar--with-label': !!submitLabel,
-      'rpl-search-bar--with-clear-btn': !!inputValue || !!internalValue
+      'rpl-search-bar--with-clear-btn': !!inputValue || !!internalValue,
+      'rpl-search-bar--with-submit-btn': showSubmitButton
     }"
     :style="{
       '--local-max-items': maxSuggestionsDisplayed
@@ -326,6 +351,14 @@ const slug = (label: string) => {
       @keydown.shift.tab="handleClose(false)"
     >
       <div ref="containerRef" class="rpl-search-bar__input-wrap">
+        <RplIcon
+          v-if="!showSubmitButton"
+          name="icon-search"
+          size="m"
+          colour="default"
+          class="rpl-search-bar__input-icon"
+          role="presentation"
+        />
         <div
           v-if="!isFreeText && inputValue && !isInputFocused && !isOpen"
           tabindex="0"
@@ -368,6 +401,7 @@ const slug = (label: string) => {
           <RplIcon name="icon-cancel-circle-filled" />
         </button>
         <button
+          v-if="showSubmitButton"
           type="submit"
           aria-label="search"
           class="rpl-search-bar-submit rpl-u-focusable-inline"

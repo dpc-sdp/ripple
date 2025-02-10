@@ -97,10 +97,7 @@ const pluginDocuments = function (this: any) {
       mediaType === 'document' ? '.file--title' : '.field--name-name'
 
     const label = $element.find('a[aria-label]').attr('aria-label'),
-      link = stripMediaBaseUrl(
-        $element.find('a').attr('href'),
-        process.env.NUXT_PUBLIC_TIDE_BASE_URL as string
-      ),
+      link = $element.find('a').attr('href'),
       title = $element.find(titleSelector).text(),
       fileSize = $element.find('.file--size').text(),
       updated = $element.attr('data-last-updated')

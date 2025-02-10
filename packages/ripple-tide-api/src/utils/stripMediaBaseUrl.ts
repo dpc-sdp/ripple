@@ -7,7 +7,9 @@ export function stripMediaBaseUrl(url: string, baseUrl: string): string {
     return url
   }
 
-  return url.replace(baseUrl.replace(/\/$/, ''), '')
+  return process.env.NUXT_PUBLIC_IS_STATIC
+    ? url.split('?')[0]
+    : url.replace(baseUrl.replace(/\/$/, ''), '')
 }
 
 export default stripMediaBaseUrl

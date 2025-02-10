@@ -29,9 +29,7 @@ export const complexImageMapping = (
       dataLabel: field.field_complex_image_data_label,
       dataContent: getBody(field.field_complex_image_data?.processed),
       fullscreenLabel: field.field_complex_image_full_label,
-      downloadUrl: getMediaPath(
-        field.field_complex_image_media.field_media_image
-      ),
+      downloadUrl: field.field_complex_image_media.field_media_image.url,
       downloadLabel: field.field_complex_image_dl_label,
       type: 'image',
       variant: 'complex',

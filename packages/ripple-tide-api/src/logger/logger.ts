@@ -56,7 +56,10 @@ const setupWinston = () => {
 
   // If we're not in production then **ALSO** log to the `console`
   // with human readable formatting
-  if (process.env.NODE_ENV !== 'production') {
+  if (
+    process.env.NODE_ENV !== 'production' ||
+    process.env.NUXT_PUBLIC_IS_STATIC === 'true'
+  ) {
     const colors = {
       error: 'white redBG',
       warn: 'black yellowBG',

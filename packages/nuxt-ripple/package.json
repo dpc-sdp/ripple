@@ -16,6 +16,7 @@
     "@dpc-sdp/ripple-tide-api": "workspace:*",
     "@dpc-sdp/ripple-ui-core": "workspace:*",
     "@dpc-sdp/ripple-ui-forms": "workspace:*",
+    "@nuxt/image": "^1.9.0",
     "@nuxtjs/robots": "^3.0.0",
     "@vueuse/core": "^9.13.0",
     "change-case": "^4.1.2",

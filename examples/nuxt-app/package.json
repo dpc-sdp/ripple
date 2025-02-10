@@ -10,6 +10,7 @@
     "dev": "nuxt dev",
     "dev:mock": "NUXT_PUBLIC_API_URL=http://localhost:3001 API_PORT=3001 pnpm dev",
     "build": "nuxi build",
+    "generate": "nuxi generate",
     "preview": "nuxi preview",
     "compile": "tsc --build",
     "start": "node .output/server/index.mjs",
@@ -26,7 +27,8 @@
     "@dpc-sdp/nuxt-ripple-cli": "workspace:*",
     "@dpc-sdp/nuxt-ripple-preview": "workspace:*",
     "@dpc-sdp/ripple-sdp-core": "workspace:*",
-    "@dpc-sdp/ripple-ui-maps": "workspace:*"
+    "@dpc-sdp/ripple-ui-maps": "workspace:*",
+    "@nuxt/image": "^1.9.0"
   },
   "devDependencies": {
     "@dpc-sdp/ripple-test-utils": "workspace:*",

@@ -94,13 +94,13 @@ const handleToggleItem = (level: number, item: IRplPrimaryNavItem) => {
           :aria-label="primaryLogo.altText"
           class="rpl-primary-nav__primary-logo-image"
         />
-        <img
+        <RplImg
           v-else
           class="rpl-primary-nav__primary-logo-image rpl-u-screen-only"
           :src="primaryLogo.src"
           :alt="primaryLogo.altText"
         />
-        <img
+        <RplImg
           v-if="primaryLogo?.src"
           class="rpl-primary-nav__primary-logo-image rpl-primary-nav__logo-alt rpl-u-print-only"
           :src="primaryLogo?.printSrc ? primaryLogo?.printSrc : primaryLogo.src"
@@ -120,12 +120,12 @@ const handleToggleItem = (level: number, item: IRplPrimaryNavItem) => {
         class="rpl-primary-nav__secondary-logo-link rpl-u-focusable-outline rpl-u-focusable-outline--no-border"
         :url="secondaryLogo.href"
       >
-        <img
+        <RplImg
           class="rpl-primary-nav__secondary-logo-image rpl-u-screen-only"
           :src="secondaryLogo.src"
           :alt="secondaryLogo.altText"
         />
-        <img
+        <RplImg
           v-if="secondaryLogo.printSrc"
           class="rpl-primary-nav__secondary-logo-image rpl-primary-nav__logo-alt rpl-u-print-only"
           :src="secondaryLogo.printSrc"

@@ -47,7 +47,11 @@ type tidePageSitePartial = {
   ]
 }
 
-export const getMediaPath = (field: any, path?: string | string[]): string => {
+export const getMediaPath = (
+  field: any,
+  path?: string | string[],
+  strip: boolean = true
+): string => {
   let uri = ''
 
   if (path) {
@@ -60,7 +64,9 @@ export const getMediaPath = (field: any, path?: string | string[]): string => {
     uri = field?.uri?.url || field?.uri
   }
 
-  return stripMediaBaseUrl(uri, process.env.NUXT_PUBLIC_TIDE_BASE_URL as string)
+  return strip
+    ? stripMediaBaseUrl(uri, process.env.NUXT_PUBLIC_TIDE_BASE_URL as string)
+    : uri
 }
 
 export const getImageFromField = (
@@ -129,7 +135,7 @@ export const getDocumentFromField = (
   return {
     id: field.id,
     name: field.name,
-    url: getMediaPath(medaFile),
+    url: medaFile.url,
     extension: mime.extension(medaFile.filemime) || '',
     size: humanizeFilesize(medaFile.filesize)
   }

@@ -1,4 +1,4 @@
-import { expect, describe, it, beforeEach } from '@jest/globals'
+import { expect, describe, it, beforeEach } from 'vitest'
 
 import formatPriceRange from './formatPriceRange.js'
 

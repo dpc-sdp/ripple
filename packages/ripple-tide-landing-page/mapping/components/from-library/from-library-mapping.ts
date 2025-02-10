@@ -8,7 +8,10 @@ interface TideFromLibrary {
 }
 
 export const fromLibraryMapping = (
-  field: { field_reusable_paragraph: { paragraphs: TideFromLibrary } },
+  field: {
+    field_reusable_paragraph: { paragraphs: TideFromLibrary }
+    id: string | null
+  },
   page: any,
   tidePageApi: any
 ): TideDynamicPageComponent<TideFromLibrary> => {

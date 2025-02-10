@@ -1,4 +1,4 @@
-import { expect, describe, it, beforeAll } from '@jest/globals'
+import { expect, describe, it, beforeAll } from 'vitest'
 import * as jsonapiParse from 'jsonapi-parse'
 import type { indexNode, apiNode } from '../types'
 import RAW from './publication-index-mapping.api.js'

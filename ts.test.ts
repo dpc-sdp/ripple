@@ -1,7 +1,7 @@
-import { expect, describe } from '@jest/globals'
+import { expect, describe, it } from 'vitest'
 const reflect = (param: number) => param
 
-describe('Functional test', () => {
+describe('Suite config test', () => {
   const t = reflect(2)
 
   it('should return a number type', () => {

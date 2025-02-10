@@ -1,4 +1,4 @@
-import { expect, describe, it } from '@jest/globals'
+import { expect, describe, it } from 'vitest'
 import { ITideCardCarouselItem } from './card-carousel-mapping'
 import { mapping as customMapping } from './custom-mapping.js'
 import { mapping as newsMapping } from './news-mapping.js'

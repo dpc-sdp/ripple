@@ -52,7 +52,7 @@ const mappings: {
 
 // Add reusable include on whitelisted paragraph types
 reusableParagraphTypes.forEach((k) => {
-  if (mappings[k].includes.length > 0) {
+  if (mappings[k]?.includes.length > 0) {
     mappings[k].includes = [
       ...mappings[k].includes,
       ...mappings[k].includes.map((j) =>

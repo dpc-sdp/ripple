@@ -1,4 +1,4 @@
-import { expect, describe } from '@jest/globals'
+import { expect, describe, it } from 'vitest'
 import {
   BadRequestError,
   NotFoundError,

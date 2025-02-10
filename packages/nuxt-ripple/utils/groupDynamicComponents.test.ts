@@ -1,4 +1,4 @@
-import { expect, describe, it } from '@jest/globals'
+import { expect, describe, it } from 'vitest'
 import { TideDynamicPageComponent } from '../types'
 import groupDynamicComponents from './groupDynamicComponents.js'
 

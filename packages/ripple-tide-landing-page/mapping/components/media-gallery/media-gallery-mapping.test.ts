@@ -1,4 +1,4 @@
-import { expect, describe, it } from '@jest/globals'
+import { expect, describe, it } from 'vitest'
 import { mediaGalleryMapping } from './media-gallery-mapping'
 import { TideDynamicPageComponent } from '@dpc-sdp/ripple-tide-api/types'
 import { rawData } from './test-data'

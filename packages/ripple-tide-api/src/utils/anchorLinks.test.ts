@@ -1,4 +1,4 @@
-import { expect, describe } from '@jest/globals'
+import { expect, describe, test } from 'vitest'
 import { addAnchorLinksToHTML, getAnchorLinksFromHTML } from './anchorLinks.js'
 
 const html = `<h1>First Heading</h1>

@@ -4,7 +4,6 @@
     :inputLabel="label"
     :showLabel="showLabel"
     variant="reverse"
-    :submitLabel="false"
     :inputValue="
       inputValue?.useGeolocation ? userGeolocation || null : inputValue
     "
@@ -18,7 +17,9 @@
     :isBusy="isGettingLocation"
     :isFreeText="false"
     :submitOnClear="true"
-    :submitOnSuggestionOnly="true"
+    :iconPosition="iconPosition"
+    :showSubmitButton="showSubmitButton"
+    :submitOnSuggestionOnly="submitOnSuggestionOnly"
     @submit="submitAction"
     @update:input-value="onUpdate"
   >
@@ -75,6 +76,9 @@ interface Props {
     args: Record<string, any>
   }
   showLabel?: boolean
+  iconPosition: 'left' | 'right' | 'none'
+  showSubmitButton: boolean
+  submitOnSuggestionOnly: true
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -87,7 +91,10 @@ const props = withDefaults(defineProps<Props>(), {
   mapResultsFnName: '',
   isGettingLocation: false,
   userGeolocation: null,
-  showLabel: true
+  showLabel: true,
+  iconPosition: 'left',
+  showSubmitButton: false,
+  submitOnSuggestionOnly: true
 })
 
 const results = ref([])

@@ -79,7 +79,7 @@ describe('RplSearchBar', () => {
     })
   })
 
-  it('does not submit suggestion selection is required and there are no suggestions', () => {
+  it('does not submit if suggestion selection is required and there are no suggestions', () => {
     const onSubmitSpy = cy.spy().as('onSubmitSpy')
     cy.mount(RplSearchBar, {
       props: {
@@ -90,8 +90,6 @@ describe('RplSearchBar', () => {
       }
     })
 
-    cy.get('button[type="submit"]').should('not.exist')
-
     cy.get('#search-bar').type('ripx{enter}')
     cy.get('@onSubmitSpy').should('not.have.been.called')
 
@@ -99,7 +97,7 @@ describe('RplSearchBar', () => {
     cy.get('@onSubmitSpy').should('not.have.been.called')
   })
 
-  it('submits with first suggestion when a suggestion selection is required', () => {
+  it('auto submits with first suggestion when a suggestion selection is required', () => {
     const onSubmitSpy = cy.spy().as('onSubmitSpy')
     cy.mount(RplSearchBar, {
       props: {

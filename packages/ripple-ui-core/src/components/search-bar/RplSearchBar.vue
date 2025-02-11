@@ -39,7 +39,9 @@ interface Props {
   isOptionSelectable?: Function
   showLabel?: boolean
   isFreeText?: boolean
+  iconPosition?: 'left' | 'right' | 'none'
   showClearButton?: boolean
+  showSubmitButton?: boolean
   submitOnClear?: boolean
   submitOnSuggestionOnly?: boolean
 }
@@ -61,7 +63,9 @@ const props = withDefaults(defineProps<Props>(), {
   isOptionSelectable: (opt) => true,
   showLabel: false,
   isFreeText: true,
+  iconPosition: 'right',
   showClearButton: true,
+  showSubmitButton: true,
   submitOnClear: false,
   submitOnSuggestionOnly: false
 })
@@ -88,8 +92,6 @@ const isOpen = ref<boolean>(false)
 const activeOptionId = ref<string | null>(null)
 
 const isInputFocused = ref(false)
-
-const showSubmitButton = computed(() => !props.submitOnSuggestionOnly)
 
 onMounted(() => {
   if (props.autoFocus) {
@@ -321,7 +323,8 @@ const slug = (label: string) => {
       [`rpl-search-bar--${variant}`]: !!variant,
       'rpl-search-bar--with-label': !!submitLabel,
       'rpl-search-bar--with-clear-btn': !!inputValue || !!internalValue,
-      'rpl-search-bar--with-submit-btn': showSubmitButton
+      'rpl-search-bar--with-submit-btn': showSubmitButton,
+      [`rpl-search-bar--icon-${iconPosition}`]: true
     }"
     :style="{
       '--local-max-items': maxSuggestionsDisplayed
@@ -352,12 +355,11 @@ const slug = (label: string) => {
     >
       <div ref="containerRef" class="rpl-search-bar__input-wrap">
         <RplIcon
-          v-if="!showSubmitButton"
+          v-if="iconPosition === 'left'"
           name="icon-search"
           size="m"
-          colour="default"
-          class="rpl-search-bar__input-icon"
           role="presentation"
+          class="rpl-search-bar__icon rpl-search-bar__icon--left"
         />
         <div
           v-if="!isFreeText && inputValue && !isInputFocused && !isOpen"
@@ -411,10 +413,21 @@ const slug = (label: string) => {
             class="rpl-search-bar-submit__label rpl-type-label rpl-type-weight-bold"
             >{{ submitLabel }}</span
           >
-          <span class="rpl-search-bar-submit__icon">
+          <span
+            v-if="iconPosition === 'right'"
+            class="rpl-search-bar-submit__icon rpl-search-bar__icon"
+          >
             <RplIcon name="icon-search" size="m" />
           </span>
         </button>
+        <RplIcon
+          v-else-if="iconPosition === 'right'"
+          name="icon-search"
+          size="m"
+          role="presentation"
+          class="rpl-search-bar__icon rpl-search-bar__icon--right"
+          @click="handleInputFocus"
+        />
       </div>
 
       <template

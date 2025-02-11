@@ -670,3 +670,17 @@ Then(
     })
   }
 )
+
+Then(
+  'the search listing should display {string} before the results',
+  (text: string) => {
+    cy.get(`.tide-content-before-results`).contains(text)
+  }
+)
+
+Then(
+  'the search listing should display {string} after the results',
+  (text: string) => {
+    cy.get(`.tide-content-after-results`).contains(text)
+  }
+)

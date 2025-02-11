@@ -2,7 +2,7 @@ import {
   tidePageBaseMapping,
   tidePageBaseIncludes
 } from '@dpc-sdp/nuxt-ripple/mapping'
-import { getBodyFromField } from '@dpc-sdp/ripple-tide-api'
+import { getBodyFromField, getImageFromField } from '@dpc-sdp/ripple-tide-api'
 import type { IRplTideModuleMapping } from '@dpc-sdp/ripple-tide-api/types'
 import {
   secondaryCampaignIncludes,
@@ -17,6 +17,8 @@ const tideCollectionModule: IRplTideModuleMapping = {
       withSidebarRelatedLinks: false,
       withSidebarSocialShare: false
     }),
+    cornerTop: (src: any) =>
+      getImageFromField(src, 'field_graphical_image.field_media_image'),
     summary: 'field_landing_page_summary',
     beforeResults: (src: string) =>
       getBodyFromField(src, 'field_above_results_content'),
@@ -37,7 +39,8 @@ const tideCollectionModule: IRplTideModuleMapping = {
     'field_listing_user_filters',
     'field_listing_user_filters.field_field',
     'field_layout_component',
-    'field_results_component'
+    'field_results_component',
+    'field_graphical_image.field_media_image'
   ]
 }
 

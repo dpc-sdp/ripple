@@ -52,7 +52,7 @@ export const createHandler = async (
           statusMessage: getPublicFacingStatusMessage(error.statusCode)
         })
       )
-      logger.error(`User error occurred when ${event.req.url} was requested:`, {
+      logger.info(`User error occurred when ${event.req.url} was requested:`, {
         error,
         label: logLabel
       })

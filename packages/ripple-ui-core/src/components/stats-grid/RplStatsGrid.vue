@@ -17,7 +17,7 @@ const numItems = computed(() => {
 </script>
 
 <template>
-  <div
+  <dl
     :class="{
       'rpl-stats-grid': true,
       'rpl-stats-grid--on-light': variant === 'onLight',
@@ -28,7 +28,7 @@ const numItems = computed(() => {
     }"
   >
     <slot />
-  </div>
+  </dl>
 </template>
 
 <style src="./RplStatsGrid.css" />

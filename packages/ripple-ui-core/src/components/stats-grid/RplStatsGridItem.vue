@@ -8,11 +8,9 @@ withDefaults(defineProps<Props>(), {})
 
 <template>
   <div class="rpl-stats-grid-item">
-    <dl class="rpl-stats-grid-item__inner">
-      <dt class="rpl-type-h3">{{ value }}</dt>
-      <dd class="rpl-type-p rpl-stats-grid-item__description">
-        <slot></slot>
-      </dd>
-    </dl>
+    <dt class="rpl-type-h3">{{ value }}</dt>
+    <dd class="rpl-type-p rpl-stats-grid-item__description">
+      <slot></slot>
+    </dd>
   </div>
 </template>

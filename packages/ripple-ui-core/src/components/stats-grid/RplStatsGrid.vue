@@ -12,12 +12,12 @@ withDefaults(defineProps<Props>(), {
 })
 
 const numItems = computed(() => {
-  return useSlots().default()[0].children.length
+  return useSlots().default()[0].children.length as number
 })
 </script>
 
 <template>
-  <ul
+  <div
     :class="{
       'rpl-stats-grid': true,
       'rpl-stats-grid--on-light': variant === 'onLight',
@@ -28,7 +28,7 @@ const numItems = computed(() => {
     }"
   >
     <slot />
-  </ul>
+  </div>
 </template>
 
 <style src="./RplStatsGrid.css" />

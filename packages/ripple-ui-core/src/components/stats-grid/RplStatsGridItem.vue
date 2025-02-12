@@ -7,12 +7,12 @@ withDefaults(defineProps<Props>(), {})
 </script>
 
 <template>
-  <li class="rpl-stats-grid-item">
-    <div class="rpl-stats-grid-item__inner">
-      <span class="rpl-type-h3">{{ value }}</span>
-      <span class="rpl-type-p">
+  <div class="rpl-stats-grid-item">
+    <dl class="rpl-stats-grid-item__inner">
+      <dt class="rpl-type-h3">{{ value }}</dt>
+      <dd class="rpl-type-p rpl-stats-grid-item__description">
         <slot></slot>
-      </span>
-    </div>
-  </li>
+      </dd>
+    </dl>
+  </div>
 </template>

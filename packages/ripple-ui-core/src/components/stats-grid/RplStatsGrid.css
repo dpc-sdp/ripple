@@ -61,6 +61,7 @@
 
 .rpl-stats-grid-item__inner {
   background: var(--rpl-clr-neutral-100);
+  margin: 0;
   padding: var(--rpl-sp-9) var(--rpl-sp-4);
   text-align: center;
   word-break: break-word;
@@ -69,4 +70,8 @@
   .rpl-stats-grid--on-dark & {
     background: var(--rpl-clr-light);
   }
+}
+
+.rpl-stats-grid-item__description {
+  margin-left: 0;
 }

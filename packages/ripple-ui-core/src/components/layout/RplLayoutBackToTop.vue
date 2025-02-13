@@ -81,6 +81,7 @@ const handleClick = () => {
         iconName="icon-arrow-up"
         url="#rpl-skip-links"
         class="rpl-back-to-top__button"
+        aria-label="Back to top"
         @click="handleClick"
       >
         {{ label }}

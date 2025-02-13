@@ -27,8 +27,7 @@
     "@dpc-sdp/nuxt-ripple-cli": "workspace:*",
     "@dpc-sdp/nuxt-ripple-preview": "workspace:*",
     "@dpc-sdp/ripple-sdp-core": "workspace:*",
-    "@dpc-sdp/ripple-ui-maps": "workspace:*",
-    "@nuxt/image": "^1.9.0"
+    "@dpc-sdp/ripple-ui-maps": "workspace:*"
   },
   "devDependencies": {
     "@dpc-sdp/ripple-test-utils": "workspace:*",

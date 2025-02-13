@@ -18,7 +18,7 @@ export default defineNuxtConfig({
       }
     },
     public: {
-      isStatic: true,
+      isStatic: false,
       siteUrl: '',
       apiUrl: '',
       isProduction: process.env?.LAGOON_ENVIRONMENT_TYPE === 'production',

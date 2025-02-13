@@ -3,7 +3,6 @@ import { defineNuxtConfig } from 'nuxt/config'
 export default defineNuxtConfig({
   runtimeConfig: {
     public: {
-      isDREnv: false,
       siteUrl: '',
       apiUrl: '',
       tide: {
@@ -40,16 +39,6 @@ export default defineNuxtConfig({
       hmr: {
         clientPort: 3000
       }
-    }
-  },
-  nitro: {
-    prerender: {
-      crawlLinks: true,
-      failOnError: false,
-      retryDelay: 4000,
-      retry: 3,
-      interval: 3000,
-      routes: ['/', '/search']
     }
   }
 })

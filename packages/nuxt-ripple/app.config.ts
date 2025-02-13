@@ -111,6 +111,10 @@ export default defineAppConfig({
         name: 'Noto Naskh Arabic',
         url: 'https://fonts.googleapis.com/earlyaccess/notonaskharabic.css'
       },
+      din: {
+        name: 'Noto Sans',
+        url: 'https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap'
+      },
       el: {
         name: 'Roboto',
         url: 'https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap'

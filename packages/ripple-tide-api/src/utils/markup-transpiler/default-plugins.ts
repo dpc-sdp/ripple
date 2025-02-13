@@ -1,5 +1,5 @@
 import { epochToDate } from '../epochToDate.js'
-import { stripMediaBaseUrl } from '../stripMediaBaseUrl.js'
+import { stripMediaBaseUrl, defaultFilesPath } from '../stripMediaBaseUrl.js'
 
 const pluginTables = function (this: any) {
   // Wrap tables with a div.
@@ -97,7 +97,10 @@ const pluginDocuments = function (this: any) {
       mediaType === 'document' ? '.file--title' : '.field--name-name'
 
     const label = $element.find('a[aria-label]').attr('aria-label'),
-      link = $element.find('a').attr('href'),
+      link = defaultFilesPath(
+        $element.find('a').attr('href'),
+        process.env.NUXT_PUBLIC_TIDE_BASE_URL as string
+      ),
       title = $element.find(titleSelector).text(),
       fileSize = $element.find('.file--size').text(),
       updated = $element.attr('data-last-updated')

@@ -1,7 +1,7 @@
 import { get } from 'lodash-es'
 import { TideImageField, TideUrlField, TideDocumentField } from '../../types'
 import markupTranspiler from './markup-transpiler/index.js'
-import { stripMediaBaseUrl } from './stripMediaBaseUrl.js'
+import { stripMediaBaseUrl, defaultFilesPath } from './stripMediaBaseUrl.js'
 import mime from 'mime-types'
 
 export type drupalField = Record<string, any>
@@ -135,7 +135,10 @@ export const getDocumentFromField = (
   return {
     id: field.id,
     name: field.name,
-    url: medaFile.url,
+    url: defaultFilesPath(
+      medaFile.url,
+      process.env.NUXT_PUBLIC_TIDE_BASE_URL as string
+    ),
     extension: mime.extension(medaFile.filemime) || '',
     size: humanizeFilesize(medaFile.filesize)
   }

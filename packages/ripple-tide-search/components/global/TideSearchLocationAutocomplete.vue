@@ -95,8 +95,6 @@ const emit = defineEmits<{
   (e: 'update', payload: addressResultType): void
 }>()
 
-const pendingZoomAnimation = ref(false)
-
 async function submitAction(e: any) {
   const item = e.payload
 
@@ -117,9 +115,6 @@ async function submitAction(e: any) {
   } else {
     emit('update', item || null)
   }
-
-  // Because this was a user initiated action, we want to animate the zoom
-  pendingZoomAnimation.value = true
 }
 
 const fetchSuggestions = async (query: string) => {

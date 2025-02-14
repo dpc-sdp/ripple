@@ -16,7 +16,7 @@ function processUrl(url: string, baseUrl: string, isStatic: boolean): string {
 
 export function stripMediaBaseUrl(url: string, baseUrl: string): string {
   return process.env.NUXT_PUBLIC_IS_STATIC
-    ? url.split('?')[0]
+    ? url
     : processUrl(url, baseUrl, false)
 }
 

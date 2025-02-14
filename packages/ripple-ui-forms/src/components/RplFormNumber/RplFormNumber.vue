@@ -137,6 +137,7 @@ const handleIncrement = () => {
         v-if="props.mode"
         class="rpl-form__input-dec rpl-u-focusable-outline"
         type="button"
+        :disabled="disabled"
         @click.prevent="handleDecrement"
       >
         <span class="rpl-u-visually-hidden">Decrease value</span>
@@ -168,6 +169,7 @@ const handleIncrement = () => {
         v-if="props.mode"
         class="rpl-form__input-inc rpl-u-focusable-outline"
         type="button"
+        :disabled="disabled"
         @click.prevent="handleIncrement"
       >
         <span class="rpl-u-visually-hidden">Increase value</span>
@@ -206,6 +208,11 @@ const handleIncrement = () => {
     &:hover,
     &:focus {
       border-color: var(--rpl-clr-dark);
+    }
+
+    &:disabled {
+      color: var(--rpl-clr-neutral-300);
+      border-color: var(--rpl-clr-neutral-200);
     }
   }
 
@@ -246,6 +253,15 @@ const handleIncrement = () => {
 
     &:hover .rpl-icon {
       color: var(--rpl-clr-primary);
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      border-color: var(--rpl-clr-neutral-200);
+
+      .rpl-icon {
+        color: var(--rpl-clr-neutral-300);
+      }
     }
   }
 

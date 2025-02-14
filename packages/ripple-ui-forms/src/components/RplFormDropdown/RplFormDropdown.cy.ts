@@ -346,10 +346,10 @@ describe('RplFormDropDown', () => {
     cy.get(option).click({ multiple: true })
     cy.get(toggle).click()
 
-    cy.get(moreLabel).contains('+7 more')
+    cy.get(moreLabel).contains('+8 more')
 
     cy.viewport(746, 680)
-    cy.get(moreLabel).contains('+9 more')
+    cy.get(moreLabel).contains('+10 more')
 
     cy.viewport(480, 680)
     cy.get(moreLabel).contains('+12 more')

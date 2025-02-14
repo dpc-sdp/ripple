@@ -84,6 +84,8 @@ onMounted(() => {
     onCaptchaElementReady()
   }
 })
+
+const isDisabled = computed(() => props.disabled || isFormSubmitting.value)
 </script>
 <template>
   <div v-if="captchaElementId" :id="captchaElementId"></div>
@@ -94,7 +96,7 @@ onMounted(() => {
       :id="id"
       :variant="variant"
       type="submit"
-      :disabled="disabled"
+      :disabled="isDisabled"
       :icon-name="prefixIcon || suffixIcon"
       :icon-position="iconPosition"
       :busy="isFormSubmitting"
@@ -105,7 +107,7 @@ onMounted(() => {
       v-if="displayResetButton"
       variant="white"
       type="reset"
-      :disabled="disabled"
+      :disabled="isDisabled"
       class="rpl-form-actions__reset"
       iconName="icon-cancel-circle-filled"
       iconPosition="left"

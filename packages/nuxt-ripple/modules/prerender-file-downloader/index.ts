@@ -20,7 +20,7 @@ export default defineNuxtModule<PrerenderFileDownloaderOptions>({
     fileRegex: 'pdf|jpg|png|zip|docx|txt|mp3|mp4|csv|xlsx|pptx'
   },
   setup(options, nuxt) {
-    const baseURL = nuxt.options.runtimeConfig.public.tide.baseUrl || ''
+    const baseURL = process.env.NUXT_PUBLIC_TIDE_BASE_URL
 
     nuxt.hook('nitro:config', (nitroConfig: NitroConfig) => {
       if (!nitroConfig.hooks) {
@@ -58,7 +58,7 @@ export default defineNuxtModule<PrerenderFileDownloaderOptions>({
             // Process each matched file link
             const downloads = matches.map(async (relativePath) => {
               const localPath = path.join(outputDir, relativePath)
-              const fullPath =
+              const drupalFilePath =
                 baseURL +
                 relativePath.replace('/_local/files/', '/sites/default/files/')
 
@@ -67,7 +67,7 @@ export default defineNuxtModule<PrerenderFileDownloaderOptions>({
 
               try {
                 // Fetch the file from the external source
-                const res = await fetch(fullPath)
+                const res = await fetch(drupalFilePath)
                 const buffer = await res.buffer()
 
                 // Save the file locally

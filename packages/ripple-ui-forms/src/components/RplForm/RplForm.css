@@ -12,12 +12,6 @@
   }
 }
 
-.rpl-form__submit-guard {
-  border: 0;
-  padding: 0;
-  margin: 0;
-}
-
 .rpl-form__messages {
   /* Formkit always adds an error message to the bottom of the form and there is currently no nice way to remove it */
   display: none;

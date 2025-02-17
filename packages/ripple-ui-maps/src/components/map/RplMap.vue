@@ -264,8 +264,8 @@ function onMapMove(evt) {
 }
 
 function handleHomeClick() {
-  onHomeClick()
   onPopUpClose()
+  onHomeClick()
 }
 
 const hideNoResults = ref(false)

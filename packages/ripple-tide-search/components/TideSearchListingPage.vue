@@ -9,7 +9,11 @@ import {
 import { submitForm } from '@formkit/vue'
 import { useBreakpoints, useDebounceFn } from '@vueuse/core'
 import useTideSearch from './../composables/useTideSearch'
-import type { TidePageBase, TideSiteData } from '@dpc-sdp/ripple-tide-api/types'
+import {
+  TideImageField,
+  TidePageBase,
+  TideSiteData
+} from '@dpc-sdp/ripple-tide-api/types'
 import type {
   MappedSearchResult,
   TideSearchListingResultLayout,
@@ -21,6 +25,7 @@ import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
 import { watch } from 'vue'
 
 interface TideContentPage extends TidePageBase {
+  cornerTop?: TideImageField
   beforeResults: string
   afterResults: string
   secondaryCampaign: ITideSecondaryCampaign
@@ -399,7 +404,9 @@ onMounted(() => {
         :behind-nav="true"
         :breadcrumbs="hasBreadcrumbs"
         :full-width="true"
-        :corner-top="site?.cornerGraphic?.top?.src || true"
+        :corner-top="
+          contentPage?.cornerTop?.src || site?.cornerGraphic?.top?.src || true
+        "
         :corner-bottom="false"
         class="rpl-header--hero-tight tide-search-header-component"
       >

@@ -30,7 +30,7 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 const breakpoints = useBreakpoints(bpMin)
-const isSmallScreen = breakpoints.smaller('l')
+const isSmallScreen = breakpoints.smaller('m')
 
 const isExpanded = ref(props.initiallyExpanded)
 
@@ -61,6 +61,7 @@ const headerAttrs = computed(() => {
   if (isExpandable.value) {
     return {
       id: toggleId.value,
+      type: 'button',
       'aria-expanded': isExpanded.value,
       'aria-controls': panelId.value
     }

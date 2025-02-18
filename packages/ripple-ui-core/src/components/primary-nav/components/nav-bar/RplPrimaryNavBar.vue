@@ -51,7 +51,7 @@ const { emitRplEvent } = useRippleEvent('rpl-primary-nav', emit)
 const mobileToggleLabel = 'Menu'
 
 const isItemActive = (item: IRplPrimaryNavItem) =>
-  props.activeNavItems.level1?.id === item.id
+  props.activeNavItems.level1?.id == item.id
 
 const handleToggleItem = (level: number, item: IRplPrimaryNavItem) => {
   emitRplEvent(

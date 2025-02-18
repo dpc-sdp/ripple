@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { computed, inject, onMounted, ref } from 'vue'
+import type { IRplFeatureFlags } from '@dpc-sdp/ripple-tide-api/types'
 
 interface Props {
   siteSectionName: string
@@ -17,6 +18,9 @@ const contentRatingFormId = 'tide_webform_content_rating'
 const isMounted = ref(false)
 const pageUrl = ref('')
 
+const featureFlags: IRplFeatureFlags = inject('featureFlags')
+const showContentRating = computed(() => !featureFlags?.disableContentRating)
+
 onMounted(() => {
   isMounted.value = true
   pageUrl.value = window.location.href
@@ -24,7 +28,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="tide-content-rating rpl-u-screen-only">
+  <div v-if="showContentRating" class="tide-content-rating rpl-u-screen-only">
     <div class="rpl-container">
       <div class="rpl-grid">
         <div class="rpl-col-12 rpl-col-7-m">

@@ -154,3 +154,16 @@ Feature: Site feature flags
       | Level 1 - Item 1 | /level-1-item-1 |
       | Level 2 - Item 1 | /level-2-item-1 |
       | Level 3 - Item 2 | /level-3-item-2 |
+
+  @mockserver
+  Scenario: Feature flags can remove the content rating form
+    Given I load the site fixture with "/site/shared-elements"
+    And the feature flag "disableContentRating" is set to "true"
+    And the site endpoint returns the loaded fixture
+
+    Then I load the page fixture with "/landingpage/home"
+    And the content rating form is enabled
+    And the page endpoint for path "/" returns the loaded fixture
+
+    When I visit the page "/"
+    Then the content rating form should not be displayed

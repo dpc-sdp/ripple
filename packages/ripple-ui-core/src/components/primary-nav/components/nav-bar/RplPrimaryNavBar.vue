@@ -2,7 +2,7 @@
 import { inject } from 'vue'
 import RplIcon from '../../../icon/RplIcon.vue'
 import RplPrimaryNavBarAction from './RplPrimaryNavBarAction.vue'
-import {
+import type {
   IRplPrimaryNavLogo,
   IRplPrimaryNavItem,
   IRplPrimaryNavActiveItems,
@@ -10,7 +10,7 @@ import {
 } from '../../constants'
 import {
   useRippleEvent,
-  rplEventPayload
+  type rplEventPayload
 } from '../../../../composables/useRippleEvent'
 import VicGovLogo from './../../../../assets/logos/logo-vic-gov.svg?component'
 import type { IRplFeatureFlags } from '@dpc-sdp/ripple-tide-api/types'
@@ -208,7 +208,7 @@ const handleToggleItem = (level: number, item: IRplPrimaryNavItem) => {
             <span class="rpl-primary-nav__nav-bar-search-label">Search</span
             >&NoBreak;<span
               class="rpl-primary-nav__nav-bar-icon rpl-primary-nav__nav-bar-icon--large rpl-primary-nav__nav-bar-icon--search"
-              ><RplIcon name="icon-search"></RplIcon>
+              ><RplIcon name="icon-search" aria-hidden="true"></RplIcon>
             </span>
           </template>
           <template v-else>

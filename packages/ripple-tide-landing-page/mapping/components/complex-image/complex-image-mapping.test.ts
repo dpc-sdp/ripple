@@ -1,5 +1,5 @@
 import { TideDynamicPageComponent } from '@dpc-sdp/ripple-tide-api/types'
-import { expect, describe, it } from '@jest/globals'
+import { expect, describe, it } from 'vitest'
 import { complexImageMapping, ITideComplexImage } from './complex-image-mapping'
 import rawData from './complex-image'
 

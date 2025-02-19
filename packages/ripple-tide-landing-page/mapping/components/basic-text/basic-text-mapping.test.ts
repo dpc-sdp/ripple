@@ -1,6 +1,11 @@
-import { TideDynamicPageComponent } from '@dpc-sdp/ripple-tide-api/types'
-import { expect, describe, it } from '@jest/globals'
-import { basicTextMapping, ITideBasicText } from './basic-text-mapping'
+import type { TideDynamicPageComponent } from '@dpc-sdp/ripple-tide-api/types'
+import { expect, describe, it, vi } from 'vitest'
+import { basicTextMapping, type ITideBasicText } from './basic-text-mapping'
+
+vi.stubEnv(
+  'NUXT_PUBLIC_TIDE_BASE_URL',
+  'https://develop.content.reference.sdp.vic.gov.au/'
+)
 
 const rawData = {
   links: {

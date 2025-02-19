@@ -1,4 +1,4 @@
-import { expect, describe, it } from '@jest/globals'
+import { expect, describe, it } from 'vitest'
 import { TideAlert } from './../mapping/site/alerts/site-alerts-mapping'
 import sortAlertsByPriority from './sortAlertsByPriority.js'
 

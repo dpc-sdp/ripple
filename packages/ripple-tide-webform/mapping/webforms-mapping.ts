@@ -6,6 +6,7 @@ import {
 } from './../server/webform-utils'
 import { getAdvancedAddressMapping } from './webforms-address'
 import type { TideWebformElement, ApiWebForm, ApiPage } from './../types'
+import { useAppConfig } from '#imports'
 
 interface CustomInputsConfig {
   [key: string]: {
@@ -14,8 +15,8 @@ interface CustomInputsConfig {
   }
 }
 
-const appConfig = useAppConfig().ripple as CustomInputsConfig
-const customInputs: CustomInputsConfig = appConfig.customInputs || {}
+const appConfig = useAppConfig()?.ripple as CustomInputsConfig
+const customInputs: CustomInputsConfig = appConfig?.customInputs || {}
 
 export const getFormSchemaFromMapping = async (
   webform: ApiWebForm,

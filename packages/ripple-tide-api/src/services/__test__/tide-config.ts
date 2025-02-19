@@ -1,9 +1,11 @@
+import { vi } from 'vitest'
+
 export const mockLogger = {
-  log: jest.fn(),
-  debug: jest.fn(),
-  info: jest.fn(),
-  warn: jest.fn(),
-  error: jest.fn()
+  log: vi.fn(),
+  debug: vi.fn(),
+  info: vi.fn(),
+  warn: vi.fn(),
+  error: vi.fn()
 }
 
 export const exampleMapping = {

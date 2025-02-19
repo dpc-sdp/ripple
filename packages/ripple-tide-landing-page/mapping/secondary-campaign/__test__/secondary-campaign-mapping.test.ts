@@ -1,5 +1,5 @@
 import * as jsonapiParse from 'jsonapi-parse'
-import { expect, describe, it } from '@jest/globals'
+import { expect, describe, it } from 'vitest'
 import {
   secondaryCampaignMapping,
   ITideSecondaryCampaign

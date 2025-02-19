@@ -1,4 +1,4 @@
-import { expect, describe, it } from '@jest/globals'
+import { expect, describe, it } from 'vitest'
 import TideSiteApi from './../tide-site'
 import { exampleConfig, mockLogger } from './tide-config'
 

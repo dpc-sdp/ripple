@@ -35,6 +35,26 @@ Feature: Search listing - Suggestions
 
     When I click the search suggestion labelled "there"
     Then the search input should have the value "there"
+    And the URL should reflect that the current search query is "there"
+
+  @mockserver
+  Example: Autocomplete suggestions aren't auto selected
+    Given the page endpoint for path "/suggestions" returns fixture "/search-listing/suggestions/page-suggestions" with status 200
+    And the search network request is stubbed with fixture "/search-listing/suggestions/search-response" and status 200
+    And the search autocomplete request is stubbed with "/search-listing/suggestions/response" fixture
+
+    When I visit the page "/suggestions"
+    Then the search submit button should be displayed
+    And the search clear button should not be displayed
+
+    When I type "Ther" into the search input
+    Then the search clear button should be displayed
+    And the search suggestions displayed should include
+      | the   |
+      | there |
+    Then I type "{enter}" into the search input
+    Then the search input should have the value "Ther"
+    And the URL should reflect that the current search query is "Ther"
 
   @mockserver
   Example: Autocomplete suggestions search key can be overridden

@@ -95,6 +95,21 @@ Then(
 )
 
 Then(
+  'the URL should reflect that the current search query is {string}',
+  (query: string) => {
+    cy.location().should((loc) => {
+      const params = new URLSearchParams(loc.search)
+
+      if (query) {
+        expect(params.get('q')).to.eq(`${query}`)
+      } else {
+        expect(params.get('q')).to.be.null
+      }
+    })
+  }
+)
+
+Then(
   'the URL should reflect that the current search term is {string}',
   (searchTerm: string) => {
     cy.location().should((loc) => {
@@ -159,19 +174,50 @@ Then(
 )
 
 When(`I type {string} into the search input`, (inputStr: string) => {
-  cy.get(`[id="tide-search-bar"]`).type(`${inputStr}`)
+  cy.get(`.tide-search-header .rpl-search-bar__input`).type(`${inputStr}`)
 })
 
 Then(`the search input should have the value {string}`, (inputStr: string) => {
-  cy.get(`[id="tide-search-bar"]`).should(`have.value`, inputStr)
+  cy.get(`.tide-search-header .rpl-search-bar__input`).should(
+    `have.value`,
+    inputStr
+  )
+})
+
+Then(`the search submit button should be displayed`, () => {
+  cy.get(`.tide-search-header .rpl-search-bar-submit`).should('be.visible')
+})
+
+Then(`the search submit button should not be displayed`, () => {
+  cy.get(`.tide-search-header .rpl-search-bar-submit`).should('not.exist')
+})
+
+Then(`the search clear button should be displayed`, () => {
+  cy.get(`.tide-search-header .rpl-search-bar__clear`).should('be.visible')
+})
+
+Then(`the search clear button should not be displayed`, () => {
+  cy.get(`.tide-search-header .rpl-search-bar__clear`).should('not.exist')
+})
+
+Then(`the search input should display the text {string}`, (text: string) => {
+  cy.get(`.tide-search-header .rpl-search-bar__input`).contains(text)
+})
+
+Then(`the search input should display the tag {string}`, (text: string) => {
+  cy.get(`.tide-search-header .rpl-search-bar__input .rpl-tag`).contains(text)
 })
 
 When(`I clear the search input`, () => {
-  cy.get(`[id="tide-search-bar"]`).clear()
+  cy.get(`.tide-search-header .rpl-search-bar__input`).clear()
 })
 
 When(`I click the search button`, () => {
   cy.get(`.rpl-search-bar button[type="submit"]`).click()
+})
+
+When(`I click the clear search button`, () => {
+  cy.get(`.rpl-search-bar__clear`).click()
 })
 
 Then(`I should be scrolled to the search results`, () => {
@@ -622,5 +668,19 @@ Then(
         includes
       )
     })
+  }
+)
+
+Then(
+  'the search listing should display {string} before the results',
+  (text: string) => {
+    cy.get(`.tide-content-before-results`).contains(text)
+  }
+)
+
+Then(
+  'the search listing should display {string} after the results',
+  (text: string) => {
+    cy.get(`.tide-content-after-results`).contains(text)
   }
 )

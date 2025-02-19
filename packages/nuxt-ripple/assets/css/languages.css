@@ -1,6 +1,7 @@
 @import '@dpc-sdp/ripple-ui-core/style/breakpoints';
 
-.rpl-u-font-lang--ar {
+.rpl-u-font-lang--ar,
+.rpl-u-font-lang--my {
   .rpl-type-h1-highlight {
     line-height: 6.5rem;
   }

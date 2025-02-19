@@ -3,7 +3,15 @@ export default { inheritAttrs: false }
 </script>
 
 <script setup lang="ts">
-import { ref, watch, nextTick, computed, onMounted, onUnmounted } from 'vue'
+import {
+  ref,
+  watch,
+  nextTick,
+  computed,
+  onMounted,
+  onUnmounted,
+  Ref
+} from 'vue'
 import { onClickOutside } from '@vueuse/core'
 import RplIcon from '../icon/RplIcon.vue'
 import {
@@ -31,8 +39,11 @@ interface Props {
   isOptionSelectable?: Function
   showLabel?: boolean
   isFreeText?: boolean
+  iconPosition?: 'left' | 'right' | 'none'
   showClearButton?: boolean
+  showSubmitButton?: boolean
   submitOnClear?: boolean
+  submitOnSuggestionOnly?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -52,8 +63,11 @@ const props = withDefaults(defineProps<Props>(), {
   isOptionSelectable: (opt) => true,
   showLabel: false,
   isFreeText: true,
+  iconPosition: 'right',
   showClearButton: true,
-  submitOnClear: false
+  showSubmitButton: true,
+  submitOnClear: false,
+  submitOnSuggestionOnly: false
 })
 
 type Timer = ReturnType<typeof setTimeout>
@@ -96,6 +110,10 @@ onClickOutside(containerRef, () => {
 })
 
 const handleSubmit = (type: 'button' | 'enter') => {
+  if (props.submitOnSuggestionOnly) {
+    return maybeSelectOption()
+  }
+
   emitRplEvent(
     'submit',
     {
@@ -140,6 +158,14 @@ const handleSelectOption = (optionValue: any, focusBackOnInput: boolean) => {
     },
     { global: props.globalEvents }
   )
+}
+
+const maybeSelectOption = () => {
+  if (!props.suggestions?.length) return
+
+  handleSelectOption(props.suggestions[0], false)
+
+  handleBlur()
 }
 
 const getDefaultActiveId = (): string => {
@@ -296,7 +322,9 @@ const slug = (label: string) => {
       'rpl-search-bar': true,
       [`rpl-search-bar--${variant}`]: !!variant,
       'rpl-search-bar--with-label': !!submitLabel,
-      'rpl-search-bar--with-clear-btn': !!inputValue || !!internalValue
+      'rpl-search-bar--with-clear-btn': !!inputValue || !!internalValue,
+      'rpl-search-bar--with-submit-btn': showSubmitButton,
+      [`rpl-search-bar--icon-${iconPosition}`]: true
     }"
     :style="{
       '--local-max-items': maxSuggestionsDisplayed
@@ -326,6 +354,13 @@ const slug = (label: string) => {
       @keydown.shift.tab="handleClose(false)"
     >
       <div ref="containerRef" class="rpl-search-bar__input-wrap">
+        <RplIcon
+          v-if="iconPosition === 'left'"
+          name="icon-search"
+          size="m"
+          role="presentation"
+          class="rpl-search-bar__icon rpl-search-bar__icon--left"
+        />
         <div
           v-if="!isFreeText && inputValue && !isInputFocused && !isOpen"
           tabindex="0"
@@ -368,6 +403,7 @@ const slug = (label: string) => {
           <RplIcon name="icon-cancel-circle-filled" />
         </button>
         <button
+          v-if="showSubmitButton"
           type="submit"
           aria-label="search"
           class="rpl-search-bar-submit rpl-u-focusable-inline"
@@ -377,10 +413,21 @@ const slug = (label: string) => {
             class="rpl-search-bar-submit__label rpl-type-label rpl-type-weight-bold"
             >{{ submitLabel }}</span
           >
-          <span class="rpl-search-bar-submit__icon">
+          <span
+            v-if="iconPosition === 'right'"
+            class="rpl-search-bar-submit__icon rpl-search-bar__icon"
+          >
             <RplIcon name="icon-search" size="m" />
           </span>
         </button>
+        <RplIcon
+          v-else-if="iconPosition === 'right'"
+          name="icon-search"
+          size="m"
+          role="presentation"
+          class="rpl-search-bar__icon rpl-search-bar__icon--right"
+          @click="handleInputFocus"
+        />
       </div>
 
       <template

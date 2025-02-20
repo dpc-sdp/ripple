@@ -1,14 +1,15 @@
 <script setup lang="ts">
-import { computed, useSlots } from 'vue'
+import { computed, useSlots, ref, inject } from 'vue'
 import RplPrimaryNavBackButton from './RplPrimaryNavMegaMenuBackButton.vue'
 import RplPrimaryNavMegaMenuList from './RplPrimaryNavMegaMenuList.vue'
 import RplPrimaryNavQuickExit from '../quick-exit/RplPrimaryNavQuickExit.vue'
-import {
+import type {
   IRplPrimaryNavItem,
   IRplPrimaryNavActiveItems,
   RplPrimaryNavToggleItemOptions
 } from '../../constants'
-import { rplEventPayload, useRippleEvent } from '@dpc-sdp/ripple-ui-core'
+import { type rplEventPayload, useRippleEvent } from '@dpc-sdp/ripple-ui-core'
+import type { rplEventBus } from '../../../../lib/eventbus'
 
 interface Props {
   items: IRplPrimaryNavItem[]
@@ -76,10 +77,19 @@ const backButtonHandler = (label: string) => {
     props.toggleItem(1, props.activeNavItems.level1, true)
   }
 }
+
+// Scroll to top of mega menu when a menu item is toggled
+const $rplEvent: typeof rplEventBus = inject('$rplEvent')
+const megaMenuEl = ref<HTMLElement | null>(null)
+
+$rplEvent.on('rpl-primary-nav/toggleMenuItem', () => {
+  megaMenuEl.value?.scrollTo(0, 0)
+})
 </script>
 
 <template>
   <div
+    ref="megaMenuEl"
     :class="`
       rpl-primary-nav__mega-menu
       rpl-primary-nav__mega-menu--current-level-${currentLevel}

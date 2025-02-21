@@ -1,0 +1,49 @@
+@import '@dpc-sdp/ripple-ui-core/style/breakpoints';
+
+.rpl-form--multi-step {
+  --local-max-width: 100%;
+}
+
+.rpl-form {
+  [data-type='step'],
+  [data-type='multi-step']{
+    &[data-invalid='true'] {
+      padding-left: 0;
+      border-left: none;
+    }
+  }
+}
+
+.rpl-form__steps {
+  outline: none;
+}
+
+.rpl-form--default {
+  [data-tab-style='progress'] {
+    @media (--rpl-bp-m) {
+      display: grid;
+      gap: var(--rpl-sp-6);
+      grid-template-columns: repeat(12, 1fr);
+    }
+
+    @media (--rpl-bp-xl) {
+      gap: var(--rpl-sp-7);
+    }
+  }
+
+  .rpl-form__progress {
+    @media (--rpl-bp-m) {
+      padding-right: var(--rpl-sp-8);
+      border-right: var(--rpl-border-1) solid var(--rpl-clr-neutral-300);
+    }
+  }
+
+  .rpl-form__steps {
+    outline: none;
+    margin-top: var(--rpl-sp-7);
+
+    @media (--rpl-bp-m) {
+      margin-top: var(--rpl-sp-1);
+    }
+  }
+}

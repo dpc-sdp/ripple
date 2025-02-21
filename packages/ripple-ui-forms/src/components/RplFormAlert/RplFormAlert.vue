@@ -32,14 +32,13 @@ const iconName = computed(() => {
     : 'icon-exclamation-circle-filled'
 })
 
-const scrollToElement = (element) => {
+const scrollToElement = (element, offset = 10) => {
   if (!element) {
     return
   }
 
-  const topOffset = -10
   const elementYPos =
-    element.getBoundingClientRect().top + window.pageYOffset + topOffset
+    element.getBoundingClientRect().top + window.pageYOffset - offset
 
   window.scrollTo({
     top: elementYPos,
@@ -77,7 +76,16 @@ const handleFieldClick = (fieldId: string) => {
 const focus = () => {
   if (containerRef.value) {
     containerRef.value.focus({ preventScroll: true })
-    scrollToElement(containerRef.value)
+
+    const navHeight = 92
+    const top = containerRef.value?.getBoundingClientRect().top
+    const bottom =
+      containerRef.value?.getBoundingClientRect().top +
+      containerRef.value?.getBoundingClientRect().height
+
+    if (top < 0 || bottom > window.innerHeight) {
+      scrollToElement(containerRef.value, top < 0 ? navHeight : 10)
+    }
   }
 }
 

@@ -343,6 +343,23 @@ export const getFormSchemaFromMapping = async (
           ...getInputIcons(field)
         }
         break
+      case 'webform_wizard_page':
+        // eslint-disable-next-line no-case-declarations
+        const subform = webform
+
+        subform.elements = field as unknown as TideWebformElement[]
+
+        mappedField = {
+          $step: true,
+          id: fieldKey,
+          key: fieldKey,
+          name: fieldKey,
+          title: field['#title'],
+          nextButton: field['#next_button_label'],
+          prevButton: field['#prev_button_label'],
+          schema: await getFormSchemaFromMapping(subform, page, tidePageApi)
+        }
+        break
       default:
         if (Object.keys(customInputs).includes(field['#type'])) {
           mappedField = customInputs[field['#type']].mapping(

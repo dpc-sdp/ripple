@@ -17,6 +17,7 @@ import {
   FormKitPlugin
 } from '@formkit/core'
 import { getValidationMessages } from '@formkit/validation'
+import { createMultiStepPlugin } from '@formkit/addons'
 import rplFormInputs from '../../plugin'
 import RplFormAlert from '../RplFormAlert/RplFormAlert.vue'
 import { reset } from '@formkit/vue'
@@ -36,11 +37,18 @@ interface Props {
     message: string
   }
   customInputs?: FormKitPlugin
+  layout?: 'default' | 'compact'
 }
 
 interface CachedError {
   fieldId: string
   text: string
+}
+
+interface StepFormData {
+  [key: string]: {
+    [key: string]: string
+  }
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -64,7 +72,8 @@ const props = withDefaults(defineProps<Props>(), {
     title: '',
     message: ''
   }),
-  customInputs: () => {}
+  customInputs: () => {},
+  layout: 'default'
 })
 
 const emit = defineEmits<{
@@ -80,11 +89,24 @@ const isFormSubmitting = computed(() => {
   return props.submissionState.status === 'submitting'
 })
 
+const stepsRef = ref(null)
 const serverMessageRef = ref(null)
-
 const errorSummaryRef = ref(null)
 const cachedErrors = ref<Record<string, CachedError>>({})
 const submitCounter = ref(0)
+
+const stepsId = `${props.id}-steps`
+const activeStep = ref(1)
+
+const formSteps = computed(() => {
+  if (!props.schema || !Array.isArray(props.schema)) return []
+
+  return props.schema.filter((i) => i['$step'])
+})
+
+const getFormNode = (node?: FormKitNode) => {
+  return formSteps.value.length ? getNode(stepsId) : node || getNode(props.id)
+}
 
 // Keep track of whether user has changed something in the form
 const formStarted = ref<boolean>(false)
@@ -96,7 +118,7 @@ const tryAbandonForm = () => {
       {
         id: props.id,
         name: props.title,
-        value: sanitisePIIFields(getNode(props.id))
+        value: sanitisePIIFields(getFormNode())
       },
       { global: true }
     )
@@ -121,10 +143,40 @@ provide('onFormReset', onFormReset)
 const submitLabel =
   props.schema?.find((field) => field?.key === 'actions')?.label || 'Submit'
 
+const getErrorMessages = (node: FormKitNode) => {
+  const validations = getValidationMessages(node)
+
+  const cachedErrorsMap = {}
+
+  // Note: validations is a JS Map https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map
+  validations.forEach((inputMessages, fieldNode) => {
+    const fieldId = fieldNode.context.id
+
+    cachedErrorsMap[fieldNode.name] = inputMessages.map((message) => ({
+      fieldId,
+      text: message.value
+    }))[0]
+  })
+
+  return cachedErrorsMap
+}
+
 const submitHandler = (form, node: FormKitNode) => {
   // Reset the error summary as it is not reactive
   cachedErrors.value = {}
   submitCounter.value = 0
+
+  // Steps are nested so we need to flatten them data before submission
+  if (formSteps.value.length) {
+    const formSteps: StepFormData = form?.[stepsId] || {}
+
+    form = Object.values(formSteps).reduce(
+      (acc, step) => ({ ...acc, ...step }),
+      {}
+    )
+
+    node = getNode(stepsId)
+  }
 
   emitRplEvent(
     'submit',
@@ -141,23 +193,15 @@ const submitHandler = (form, node: FormKitNode) => {
 }
 
 const submitInvalidHandler = async (node: FormKitNode) => {
+  // If a user hits enter within a form field in a multistep form
+  // we check if in there's a next step and if so navigate to that
+  if (formSteps.value.length && activeStep.value < formSteps.value.length) {
+    return getNode(stepsId)?.next()
+  }
+
   submitCounter.value = submitCounter.value + 1
 
-  const validations = getValidationMessages(node)
-
-  const cachedErrorsMap = {}
-
-  // Note: validations is a JS Map https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map
-  validations.forEach((inputMessages, fieldNode) => {
-    const fieldId = fieldNode.context.id
-
-    cachedErrorsMap[fieldNode.name] = inputMessages.map((message) => ({
-      fieldId,
-      text: message.value
-    }))[0]
-  })
-
-  cachedErrors.value = cachedErrorsMap
+  cachedErrors.value = getErrorMessages(node)
 
   emitRplEvent(
     'invalid',
@@ -166,7 +210,7 @@ const submitInvalidHandler = async (node: FormKitNode) => {
       action: 'submit',
       name: props.title,
       text: submitLabel,
-      value: sanitisePIIFields(node)
+      value: sanitisePIIFields(getFormNode(node))
     },
     { global: true }
   )
@@ -223,7 +267,7 @@ watch(
             action: 'complete',
             name: props.title,
             text: submitLabel,
-            value: sanitisePIIFields(getNode(props.id))
+            value: sanitisePIIFields(getFormNode())
           },
           { global: true }
         )
@@ -231,6 +275,10 @@ watch(
         formStarted.value = false
 
         reset(props.id)
+
+        if (formSteps.value.length) {
+          getNode(stepsId)?.goTo(formSteps.value[0]?.id)
+        }
       }
     }
   }
@@ -250,6 +298,38 @@ const handleInput = () => {
       { global: true }
     )
   }
+}
+
+const handleStepChange = async ({ currentStep, delta }) => {
+  const forwards = delta > 0
+  let isStepValid = currentStep.isValid
+
+  // Going backwards is always allowed
+  if (!forwards) {
+    isStepValid = true
+  }
+
+  // Always focus the next step except after submission, then the alert is focused instead
+  if (submitCounter.value !== 0 || forwards) {
+    await nextTick()
+    if (stepsRef.value) {
+      stepsRef.value.focus()
+    }
+  }
+
+  cachedErrors.value = {}
+  submitCounter.value = submitCounter.value + 1
+
+  // Get the current steps errors when it's invalid, and we're trying to proceed
+  if (!currentStep.isValid && forwards) {
+    cachedErrors.value = getErrorMessages(getNode(currentStep.id))
+  }
+
+  if (isStepValid) {
+    activeStep.value = activeStep.value + delta
+  }
+
+  return isStepValid
 }
 
 onBeforeUnmount(() => {
@@ -294,10 +374,20 @@ const data = reactive({
 
 const plugins = computed(
   () =>
-    [rplFormInputs, props.customInputs ? props.customInputs : false].filter(
-      Boolean
-    ) as FormKitPlugin[]
+    [
+      rplFormInputs,
+      createMultiStepPlugin(),
+      props.customInputs ? props.customInputs : false
+    ].filter(Boolean) as FormKitPlugin[]
 )
+
+const formClasses = computed(() => {
+  return {
+    'rpl-form': true,
+    [`rpl-form--${props.layout}`]: true,
+    'rpl-form--multi-step': formSteps.value.length
+  }
+})
 </script>
 
 <template>
@@ -307,7 +397,7 @@ const plugins = computed(
     :name="id"
     type="form"
     :plugins="plugins"
-    form-class="rpl-form"
+    :form-class="formClasses"
     :config="rplFormConfig"
     :actions="false"
     :inputErrors="inputErrors"
@@ -318,7 +408,9 @@ const plugins = computed(
     @input="handleInput"
   >
     <RplFormAlert
-      v-if="errorSummaryMessages && errorSummaryMessages.length"
+      v-if="
+        errorSummaryMessages && errorSummaryMessages.length && !formSteps.length
+      "
       ref="errorSummaryRef"
       status="error"
       title="Form not submitted"
@@ -341,11 +433,18 @@ const plugins = computed(
     </RplFormAlert>
     <slot name="aboveForm"></slot>
     <slot :value="value">
-      <FormKitSchema
-        v-if="schema"
-        :schema="schema"
+      <RplFormSteps
+        v-if="formSteps.length"
+        :id="stepsId"
+        ref="stepsRef"
         :data="data"
-      ></FormKitSchema>
+        :schema="formSteps"
+        :errors="errorSummaryMessages"
+        :disabled="isFormSubmitting"
+        :handle-step-change="handleStepChange"
+        :layout="layout"
+      />
+      <FormKitSchema v-else-if="schema" :schema="schema" :data="data" />
     </slot>
     <slot name="belowForm" :value="value"></slot>
   </FormKit>

@@ -165,10 +165,12 @@ Feature: Multi Step Forms
     And I type "0400123456" into the input with the label "Phone"
 
     Then I navigate to the next form step by clicking "Next"
-    When I type "Correct" into the input with the label "Delivery for vic.gov"
+    And I wait 400 milliseconds
+    And I click "Victoria" from the select field with label "State"
 
-    And I navigate to the next form step by clicking "Go forwards"
-    Then I click "Online" from the checkbox group with label "How did you find us"
+    Then I navigate to the next form step by clicking "Go forwards"
+    And I wait 400 milliseconds
+    And I click "Online" from the checkbox group with label "How did you find us"
     And I toggle the checkbox with label "Privacy statement"
 
     When I submit the form with ID "multistep"
@@ -187,6 +189,7 @@ Feature: Multi Step Forms
       | update_form_field | Name                                              | multistep | multistep_name                        | text     | [redacted] | rpl-form-input          |
       | update_form_field | Email                                             | multistep | multistep_email                       | email    | [redacted] | rpl-form-input          |
       | update_form_field | Phone                                             | multistep | multistep_phone                       | tel      | [redacted] | rpl-form-input          |
+      | update_form_field | State                                             | multistep | multistep_address_administrative_area | select   | Victoria   | rpl-form-dropdown       |
       | update_form_field | How did you find us                               | multistep | multistep_how_did_you_find_us         | checkbox | Online     | rpl-form-checkbox-group |
       | update_form_field | I have read and understood the privacy statement. | multistep | multistep_privacy_statement__checkbox | checkbox | true       | rpl-form-option         |
 

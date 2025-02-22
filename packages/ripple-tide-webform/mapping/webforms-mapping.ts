@@ -388,5 +388,13 @@ export const getFormSchemaFromMapping = async (
     }
   }
 
+  // Check if there top level steps and actions, and if so, add the actions to the last step
+  const steps = fields.filter((i) => i['$step'])
+  const actions = fields.filter((i) => i['$formkit'] === 'RplFormActions')
+  if (steps.length && actions.length) {
+    const lastStep = steps[steps.length - 1]
+    lastStep.schema = [...(lastStep.schema || []), ...actions]
+  }
+
   return fields
 }

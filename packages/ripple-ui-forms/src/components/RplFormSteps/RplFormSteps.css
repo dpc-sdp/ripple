@@ -14,6 +14,14 @@
   }
 }
 
+.rpl-form__progress {
+  border-bottom: var(--rpl-border-1) solid var(--rpl-clr-neutral-300);
+
+  @media (--rpl-bp-m) {
+    border-bottom: none;
+  }
+}
+
 .rpl-form__steps {
   outline: none;
 }

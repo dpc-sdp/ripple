@@ -96,7 +96,6 @@ const cachedErrors = ref<Record<string, CachedError>>({})
 const submitCounter = ref(0)
 
 const stepsId = `${props.id}-steps`
-const activeStep = ref(1)
 
 const formSteps = computed(() => {
   if (!props.schema || !Array.isArray(props.schema)) return []
@@ -194,9 +193,15 @@ const submitHandler = (form, node: FormKitNode) => {
 
 const submitInvalidHandler = async (node: FormKitNode) => {
   // If a user hits enter within a form field in a multistep form
-  // we check if in there's a next step and if so navigate to that
-  if (formSteps.value.length && activeStep.value < formSteps.value.length) {
-    return getNode(stepsId)?.next()
+  // we check if in there's a next step and if so navigate to that instead of submitting
+  if (formSteps.value.length) {
+    const activeStep = getNode(stepsId)?.context?.steps?.find(
+      (s) => s?.isActiveStep
+    )
+
+    if (!activeStep?.isLastStep) {
+      return getNode(stepsId)?.next()
+    }
   }
 
   submitCounter.value = submitCounter.value + 1
@@ -304,29 +309,26 @@ const handleStepChange = async ({ currentStep, delta }) => {
   const forwards = delta > 0
   let isStepValid = currentStep.isValid
 
+  cachedErrors.value = {}
+
   // Going backwards is always allowed
   if (!forwards) {
     isStepValid = true
   }
 
-  // Always focus the next step except after submission, then the alert is focused instead
+  // Always focus the next step and increment the counter
+  // except after submission, then the alert is focused instead
   if (submitCounter.value !== 0 || forwards) {
     await nextTick()
     if (stepsRef.value) {
       stepsRef.value.focus()
     }
+    submitCounter.value = submitCounter.value + 1
   }
-
-  cachedErrors.value = {}
-  submitCounter.value = submitCounter.value + 1
 
   // Get the current steps errors when it's invalid, and we're trying to proceed
   if (!currentStep.isValid && forwards) {
     cachedErrors.value = getErrorMessages(getNode(currentStep.id))
-  }
-
-  if (isStepValid) {
-    activeStep.value = activeStep.value + delta
   }
 
   return isStepValid
@@ -419,8 +421,9 @@ const formClasses = computed(() => {
     />
     <RplFormAlert
       v-else-if="
-        submissionState.status === 'error' ||
-        submissionState.status === 'success'
+        (submissionState.status === 'error' ||
+          submissionState.status === 'success') &&
+        submitCounter === 0
       "
       ref="serverMessageRef"
       :status="submissionState.status"

@@ -1,6 +1,17 @@
+/// <reference types="cypress" />
+// @ts-expect-error vue sfc import
 import RplPrimaryNav from './RplPrimaryNav.vue'
 import { RplPrimaryNavItems } from './fixtures/sample'
 import { bpMin } from '../../lib/breakpoints'
+
+import type { mount } from 'cypress/vue'
+declare global {
+  namespace Cypress {
+    interface Chainable {
+      mount: typeof mount
+    }
+  }
+}
 
 const props = {
   primaryLogo: {

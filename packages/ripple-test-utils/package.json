@@ -28,7 +28,7 @@
     "@frsource/cypress-plugin-visual-regression-diff": "^3.3.10",
     "@testing-library/cypress": "^10.0.1",
     "@types/node": "18.15.10",
-    "cypress": "^13.6.6",
+    "cypress": "13.7.3",
     "cypress-real-events": "^1.13.0",
     "mockttp": "^3.9.1",
     "start-server-and-test": "^2.0.3",

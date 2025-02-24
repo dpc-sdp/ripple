@@ -21,10 +21,12 @@
       v-if="errors.length"
       ref="stepErrorsRef"
       status="error"
-      title="Step not completed"
+      title="There is a problem"
       :fields="errors"
       data-component-type="form-error-summary"
-    />
+    >
+      Please correct the following fields and try again.
+    </RplFormAlert>
 
     <FormKitSchema v-if="schema" :schema="schema" :data="data" />
 

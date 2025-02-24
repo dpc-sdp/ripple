@@ -652,7 +652,6 @@ Then(
 
     cy.get('[data-component-type="form-error-summary"]').as('summary')
     cy.get('@summary').should('exist')
-    cy.get('@summary').should('contain', 'Step not completed')
     cy.get('@summary').should('have.focus')
 
     table.forEach((row, i: number) => {

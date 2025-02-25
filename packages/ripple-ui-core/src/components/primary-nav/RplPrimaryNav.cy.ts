@@ -65,8 +65,9 @@ describe('RplPrimaryNav', () => {
     })
 
     it('navigates through mega menu sub levels', () => {
-      const level = (val) => `.rpl-primary-nav__mega-menu-list--level-${val}`
-      const levelToggle = (val) =>
+      const level = (val: number) =>
+        `.rpl-primary-nav__mega-menu-list--level-${val}`
+      const levelToggle = (val: number) =>
         `${level(val)} .rpl-primary-nav__mega-menu-action--toggle`
 
       cy.get(

@@ -119,8 +119,5 @@ export const RplPrimaryNavItems = [
       { id: '32', text: 'Second level', url: '#' }
     ]
   },
-  { id: '26', text: 'First level E', url: '#' },
-  { id: '36', text: 'Extra link to pad out the list', url: '#' },
-  { id: '37', text: 'Extra link to pad out the list', url: '#' },
-  { id: '38', text: 'Extra link to pad out the list', url: '#' }
+  { id: '26', text: 'First level E', url: '#' }
 ]

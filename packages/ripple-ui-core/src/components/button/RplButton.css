@@ -98,7 +98,9 @@
     &.rpl-button--busy {
       color: var(--local-white-type-clr-hover);
     }
+  }
 
+  &--icon-only-small-screens {
     .rpl-button__label {
       display: none;
     }

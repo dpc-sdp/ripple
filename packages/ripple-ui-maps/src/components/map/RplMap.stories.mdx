@@ -100,7 +100,7 @@ export const Template = (args) => ({
     args={{
       id: '123',
       features:featureData,
-      provider: 'mapbox',
+      provider: 'mapbox'
     }}
   >
     {Template.bind()}
@@ -157,6 +157,34 @@ export const Template = (args) => ({
       features:featureData,
       provider: 'mapbox',
       clusteringDistance: 0
+    }}
+  >
+    {Template.bind()}
+  </Story>
+  <Story
+    name='With layer list'
+    args={{
+      id: '123',
+      features:featureData,
+      provider: 'mapbox',
+      selectedLayers: ['red', 'green'],
+      layerList: [
+        {
+          id: 'red',
+          label: 'Red layer',
+          image: svgPlaceholder({ width: 44, height: 44, fgColor: '#fff', bgColor: '#ffb2b2' }),
+        },
+        {
+          id: 'green',
+          label: 'Green layer',
+          image: svgPlaceholder({ width: 44, height: 44, fgColor: '#fff', bgColor: '#caffae' }),
+        },
+        {
+          id: 'blue',
+          label: 'Blue layer',
+          image: svgPlaceholder({ width: 44, height: 44, fgColor: '#fff', bgColor: '#aee9ff' }),
+        }
+      ]
     }}
   >
     {Template.bind()}

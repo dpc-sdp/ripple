@@ -55,7 +55,9 @@ const classes = computed(() => {
     [`rpl-button--${buttonTheme.value}`]: true,
     'rpl-u-focusable-block': true,
     'rpl-button--reverse': props.iconPosition === 'left',
-    'rpl-button--busy': props.busy
+    'rpl-button--busy': props.busy,
+    'rpl-button--icon-only-small-screens':
+      props.variant === 'elevated' && !!props.iconName
   }
 })
 

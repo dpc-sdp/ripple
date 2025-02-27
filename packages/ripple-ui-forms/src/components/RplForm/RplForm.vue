@@ -103,6 +103,11 @@ const formSteps = computed(() => {
   return props.schema.filter((i) => i['$step'])
 })
 
+const isLastStep = () => {
+  return getNode(stepsId)?.context?.steps?.find((s) => s?.isActiveStep)
+    ?.isLastStep
+}
+
 const getFormNode = (node?: FormKitNode) => {
   return formSteps.value.length ? getNode(stepsId) : node || getNode(props.id)
 }
@@ -161,6 +166,12 @@ const getErrorMessages = (node: FormKitNode) => {
 }
 
 const submitHandler = (form, node: FormKitNode) => {
+  // If a user hits enter within a form field in a multistep form
+  // we check if in there's a next step and if so navigate to that instead of submitting
+  if (formSteps.value.length && !isLastStep()) {
+    return getNode(stepsId)?.next()
+  }
+
   // Reset the error summary as it is not reactive
   cachedErrors.value = {}
   submitCounter.value = 0
@@ -194,14 +205,8 @@ const submitHandler = (form, node: FormKitNode) => {
 const submitInvalidHandler = async (node: FormKitNode) => {
   // If a user hits enter within a form field in a multistep form
   // we check if in there's a next step and if so navigate to that instead of submitting
-  if (formSteps.value.length) {
-    const activeStep = getNode(stepsId)?.context?.steps?.find(
-      (s) => s?.isActiveStep
-    )
-
-    if (!activeStep?.isLastStep) {
-      return getNode(stepsId)?.next()
-    }
+  if (formSteps.value.length && !isLastStep()) {
+    return getNode(stepsId)?.next()
   }
 
   submitCounter.value = submitCounter.value + 1

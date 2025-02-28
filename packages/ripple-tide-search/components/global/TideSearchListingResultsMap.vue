@@ -15,6 +15,9 @@
       :getFeatureTitle="getTitle"
       :clusteringDistance="clusteringDistance"
       :maxZoom="maxZoom"
+      :layerList="layerList"
+      :selectedLayers="selectedLayers"
+      @updateSelectedLayers="handleUpdateSelectedLayers"
     >
       <template #noresults>
         <slot name="noresults"></slot>
@@ -25,7 +28,11 @@
       </template>
 
       <template v-if="vectorLayerComponent" #shapes>
-        <component :is="vectorLayerComponent" :results="results"></component>
+        <component
+          :is="vectorLayerComponent"
+          :results="results"
+          :activeLayers="selectedLayers"
+        ></component>
       </template>
 
       <template #popupTitle>
@@ -104,6 +111,8 @@ interface Props {
   clusteringDistance?: number
   maxZoom?: number
   height?: number
+  defaultSelectedLayers?: string[]
+  layerList?: any
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -119,7 +128,9 @@ const props = withDefaults(defineProps<Props>(), {
   initialising: false,
   clusteringDistance: undefined,
   maxZoom: undefined,
-  height: 550
+  height: 550,
+  defaultSelectedLayers: () => [],
+  layerList: undefined
 })
 
 const appConfig = useAppConfig()
@@ -138,6 +149,12 @@ function getTitle(feature) {
 const features = computed(() => {
   return props.results.filter((itm) => itm.lat && itm.lng)
 })
+
+const selectedLayers = ref<string[]>(props.defaultSelectedLayers)
+
+const handleUpdateSelectedLayers = (newSelectedLayers: string[]) => {
+  selectedLayers.value = newSelectedLayers
+}
 </script>
 
 <style>

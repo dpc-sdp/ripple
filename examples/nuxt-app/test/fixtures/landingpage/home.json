@@ -349,7 +349,7 @@
       "id": "1911",
       "props": {
         "placeholder": "Test search placeholder",
-        "searchUrl": "/search?q=[SEARCH-KEYWORDS]",
+        "searchUrl": "/search/[SEARCH-KEYWORDS]",
         "openInNewWindow": false
       }
     },

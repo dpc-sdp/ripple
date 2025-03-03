@@ -7,7 +7,9 @@
       :data-cy="`error-${props.error.statusCode}`"
       class="tide-error-500"
     >
-      <RplContent :html="props.error.message" />
+      <p v-if="props.error?.message">
+        {{ props.error.message }}
+      </p>
     </RplErrorMessage>
   </template>
   <TideBaseLayout
@@ -32,9 +34,24 @@
         :link="{ url: '/', text: 'Go back home' }"
         :data-cy="`error-${props.error.statusCode}`"
       >
-        <div v-if="props.error?.message">
-          <RplContent :html="props.error.message" />
-        </div>
+        <RplContent v-if="props.error.statusCode === 404">
+          <p>
+            Have a look at the web address to make sure it was typed correctly.
+            We may also have deleted this page.
+          </p>
+          <p>
+            If none of our suggestions help you find the information you were
+            looking for, please
+            <a
+              href="/connect-with-us"
+              class="rpl-text-link rpl-u-focusable-inline"
+              >contact us</a
+            >.
+          </p>
+        </RplContent>
+        <p v-else>
+          {{ props.error.message }}
+        </p>
       </RplErrorMessage>
     </template>
   </TideBaseLayout>

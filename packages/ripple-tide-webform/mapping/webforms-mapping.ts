@@ -321,6 +321,14 @@ export const getFormSchemaFromMapping = async (
           ...getValidationAndConditionals(field)
         }
         break
+      case 'webform_review_component':
+        mappedField = {
+          $formkit: 'RplFormReview',
+          title: field['#title'],
+          key: fieldKey,
+          ...getValidationAndConditionals(field)
+        }
+        break
       case 'label':
         mappedField = {
           $formkit: 'RplFormLabel',

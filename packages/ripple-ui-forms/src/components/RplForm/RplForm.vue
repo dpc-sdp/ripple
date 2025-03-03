@@ -24,6 +24,7 @@ import { reset } from '@formkit/vue'
 import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
 import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
 import { sanitisePIIFields } from '../../lib/sanitisePII'
+import useFormFocus from '../../composables/useFormFocus'
 
 interface Props {
   id: string
@@ -85,16 +86,19 @@ const emit = defineEmits<{
 
 const { emitRplEvent } = useRippleEvent('rpl-form', emit)
 
+const { focusFormElement } = useFormFocus()
+
 const isFormSubmitting = computed(() => {
   return props.submissionState.status === 'submitting'
 })
 
+const formValues = ref({})
 const stepsRef = ref(null)
 const serverMessageRef = ref(null)
 const errorSummaryRef = ref(null)
 const cachedErrors = ref<Record<string, CachedError>>({})
 const submitCounter = ref(0)
-
+const focusStepField = ref(null)
 const stepsId = `${props.id}-steps`
 
 const formSteps = computed(() => {
@@ -110,6 +114,18 @@ const isLastStep = () => {
 
 const getFormNode = (node?: FormKitNode) => {
   return formSteps.value.length ? getNode(stepsId) : node || getNode(props.id)
+}
+
+// Unfortunately we can't await the step change or use nextTick here as the step field is still hidden directly after nextTick
+// As a workaround we set the field we want to focus then let the step itself handle the focus for this field
+const goToField = async (field: string, step = null) => {
+  focusStepField.value = field
+
+  if (step) {
+    getFormNode()?.goTo(step)
+  } else {
+    focusFormElement(field)
+  }
 }
 
 // Keep track of whether user has changed something in the form
@@ -138,7 +154,16 @@ const onFormReset = () => {
   tryAbandonForm()
 }
 
-provide('form', { id: props.id, name: props.title })
+provide('form', {
+  id: props.id,
+  name: props.title,
+  schema: props.schema,
+  values: formValues,
+  multiStep: formSteps.value.length,
+  focusStepField,
+  goToField,
+  stepsId
+})
 provide('isFormSubmitting', isFormSubmitting)
 // submitCounter is watched by some components to efficiently know when to update
 provide('submitCounter', submitCounter)
@@ -294,7 +319,8 @@ watch(
   }
 )
 
-const handleInput = () => {
+const handleInput = (values: any) => {
+  formValues.value = values
   // 'Form start' analytics event, fires on first change of the form
   if (!formStarted.value) {
     formStarted.value = true
@@ -323,7 +349,7 @@ const handleStepChange = async ({ currentStep, delta }) => {
 
   // Always focus the next step and increment the counter
   // except after submission, then the alert is focused instead
-  if (submitCounter.value !== 0 || forwards) {
+  if ((submitCounter.value !== 0 || forwards) && !focusStepField.value) {
     await nextTick()
     if (stepsRef.value) {
       stepsRef.value.focus()

@@ -60,12 +60,12 @@ Feature: Forms
     Then the error summary should not display
     When I submit the form with ID "full_form"
     Then the error summary should display with the following errors
-      | text                                     | url                                    |
-      | You must enter your first name           | /kitchen-sink#first_name               |
-      | The message field is required            | /kitchen-sink#message                  |
-      | Must choose a favourite colour           | /kitchen-sink#favourite_colour         |
-      | The searchable single select is required | /kitchen-sink#searchable_single_select |
-      | You must accept the terms                | /kitchen-sink#i_accept_the_terms       |
+      | text                                     | url                       |
+      | You must enter your first name           | #first_name               |
+      | The message field is required            | #message                  |
+      | Must choose a favourite colour           | #favourite_colour         |
+      | The searchable single select is required | #searchable_single_select |
+      | You must accept the terms                | #i_accept_the_terms       |
     Then clicking on an error summary link with text "Must choose a favourite colour" should focus on the input with ID "favourite_colour"
 
     And the dataLayer should include the following events

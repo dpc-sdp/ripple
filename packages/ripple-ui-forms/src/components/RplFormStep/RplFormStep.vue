@@ -1,5 +1,11 @@
 <template>
-  <FormKit type="step" :name="name" :label="title" :input-errors="inputErrors">
+  <FormKit
+    :id="id"
+    type="step"
+    :name="name"
+    :label="title"
+    :input-errors="inputErrors"
+  >
     <button
       v-if="number > 1"
       type="button"
@@ -51,9 +57,11 @@ import {
   FormKitSchemaNode,
   getNode
 } from '@formkit/core'
+import useFormFocus from '../../composables/useFormFocus'
 
 interface Props {
   form: string
+  id: string
   name: string
   title: string
   number: number
@@ -77,6 +85,9 @@ const props = withDefaults(defineProps<Props>(), {
   errors: () => []
 })
 
+const { focusFormElement } = useFormFocus()
+const form: { focusStepField: Ref<string> } = inject('form')
+
 const stepErrorsRef = ref(null)
 const inputErrors: Ref<Record<string, string>> = inject('inputErrors')
 
@@ -90,6 +101,20 @@ watch(
       await nextTick()
 
       stepErrorsRef.value?.focus()
+    }
+  }
+)
+
+// Check if we need to focus a step field when step becomes active
+watch(
+  () => props.activeStep,
+  async (newStep) => {
+    if (newStep === props.name && form.focusStepField.value) {
+      await nextTick()
+
+      focusFormElement(form.focusStepField.value)
+
+      form.focusStepField.value = null
     }
   }
 )

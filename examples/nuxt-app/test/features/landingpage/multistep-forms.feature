@@ -71,17 +71,17 @@ Feature: Multi Step Forms
     Then the input with the label "Name" should be invalid with message "Name is required"
     And the input with the label "Phone" should be invalid with message "A valid phone number is essential"
     And the steps error summary should display with the following errors
-      | text                              | url                             |
-      | Name is required                  | /multistep-form#multistep_name  |
-      | A valid phone number is essential | /multistep-form#multistep_phone |
+      | text                              | url              |
+      | Name is required                  | #multistep_name  |
+      | A valid phone number is essential | #multistep_phone |
 
     When I type "John Smith" into the input with the label "Name"
     Then I toggle the checkbox with label "Add contact preference"
     And I navigate to the next form step by clicking "Next"
     And the steps error summary should display with the following errors
-      | text                              | url                                    |
-      | A valid phone number is essential | /multistep-form#multistep_phone        |
-      | Contact type is required          | /multistep-form#multistep_contact_type |
+      | text                              | url                     |
+      | A valid phone number is essential | #multistep_phone        |
+      | Contact type is required          | #multistep_contact_type |
 
     Then I type "0400123456" into the input with the label "Phone"
     And I click "Phone" from the radio group with label "Contact type"
@@ -92,9 +92,9 @@ Feature: Multi Step Forms
 
     When I submit the form with ID "multistep"
     Then the steps error summary should display with the following errors
-      | text                                                         | url                                           |
-      | How did you find us is required                              | /multistep-form#multistep_how_did_you_find_us |
-      | I have read and understood the privacy statement is required | /multistep-form#multistep_privacy_statement   |
+      | text                                                         | url                            |
+      | How did you find us is required                              | #multistep_how_did_you_find_us |
+      | I have read and understood the privacy statement is required | #multistep_privacy_statement   |
 
     When I navigate to the previous form step by clicking "Back"
     And the error summary should not display
@@ -224,3 +224,73 @@ Feature: Multi Step Forms
     And the page endpoint for path "/multistep-form-sidebar" returns the loaded fixture
     When I visit the page "/multistep-form-sidebar"
     Then the form progress bar should be hidden
+
+  @mockserver
+  Scenario: Form Review - Display
+    When I visit the page "/multistep-form"
+    Then I type "John Smith" into the input with the label "Name"
+    And I type "0400123456" into the input with the label "Phone"
+    Then I toggle the checkbox with label "Add contact preference"
+    And I click "Phone" from the radio group with label "Contact type"
+
+    Then I navigate to the next form step by clicking "Next"
+    Then I type "DPC" into the input with the label "Organization"
+    And I type "1 Lane" into the input with the label "Street address"
+    And I type "Brunswick" into the input with the label "Suburb"
+    And I click "Victoria" from the select field with label "State"
+    And I type "3056" into the input with the label "Postcode"
+    And I toggle the checkbox with label "Include delivery instructions"
+    And I type "Post haste" into the textarea with the label "Your delivery instructions"
+    And I click "Monday to Wednesday" from the checkbox group with label "Delivery slot"
+    And I type 20 02 2025 into the date input with the label "Delivery date"
+
+    When I navigate to the next form step by clicking "Go forwards"
+    Then the form review component should display the following "details"
+      | question               | answer       | link                              |
+      | Name                   | John Smith   | #multistep_name                   |
+      | Email                  | Not provided | #multistep_email                  |
+      | Phone                  | 0400123456   | #multistep_phone                  |
+      | Add contact preference | Yes          | #multistep_add_contact_preference |
+      | Contact type           | Phone        | #multistep_contact_type           |
+    Then the form review component should display the following "location"
+      | question                      | answer              | link                                     |
+      | Organization                  | DPC                 | #multistep_address_organization          |
+      | Given name                    | Not provided        | #multistep_address_given_name            |
+      | Family name                   | Not provided        | #multistep_address_family_name           |
+      | Street address                | 1 Lane              | #multistep_address_address_line1         |
+      | Street address line 2         | Not provided        | #multistep_address_address_line2         |
+      | Suburb                        | Brunswick           | #multistep_address_locality              |
+      | State                         | Victoria            | #multistep_address_administrative_area   |
+      | Postcode                      | 3056                | #multistep_address_postal_code           |
+      | Include delivery instructions | Yes                 | #multistep_include_delivery_instructions |
+      | Your delivery instructions    | Post haste          | #multistep_delivery_instructions         |
+      | Delivery slot                 | Monday to Wednesday | #multistep_delivery_slot                 |
+      | Delivery date                 | 20 Feb 2025         | #multistep_delivery_date                 |
+      | Delivery for vic.gov          | Not provided        | #multistep_delivery_for_vic_gov          |
+
+    When I edit "Email" in the review section for "details"
+    Then the form step 1 of 3 named "Details" should be visible
+    And the field labelled "Email" should have focus
+
+    When I navigate to the next form step by clicking "Next"
+    Then I navigate to the next form step by clicking "Go forwards"
+    Then I edit "State" in the review section for "location"
+    Then the form step 2 of 3 named "Location" should be visible
+    And the field labelled "State" should have focus
+
+  @mockserver
+  Scenario: Form Review - Conditionally hidden and hidden fields aren't shown
+    When I visit the page "/multistep-form"
+    Then I type "John Smith" into the input with the label "Name"
+    And I type "0400123456" into the input with the label "Phone"
+
+    Then I navigate to the next form step by clicking "Next"
+    When I navigate to the next form step by clicking "Go forwards"
+    Then the form review component should not display the following "details"
+      | question     |
+      | Site ID      |
+      | Site section |
+      | Contact type |
+    Then the form review component should not display the following "location"
+      | question                   |
+      | Your delivery instructions |

@@ -117,6 +117,20 @@ When(
 )
 
 When(
+  'I type {int} {int} {int} into the date input with the label {string}',
+  (day: number, month: number, year: number, label: string) => {
+    cy.get('legend.rpl-form-label')
+      .contains(label)
+      .closest('.rpl-form__outer')
+      .as('field')
+
+    cy.get('@field').find('input[placeholder="DD"]').type(`${day}`)
+    cy.get('@field').find('input[placeholder="MM"]').type(`${month}`)
+    cy.get('@field').find('input[placeholder="YYYY"]').type(`${year}`)
+  }
+)
+
+When(
   'I select {string} by searching the select field with label {string}',
   (option: string, label: string) => {
     cy.contains('label', label)
@@ -666,3 +680,58 @@ Then(
     })
   }
 )
+
+Then(
+  'the form review component should display the following {string}',
+  (key: string, dataTable: DataTable) => {
+    const table = dataTable.hashes()
+
+    cy.get(`.rpl-form-review--${key} table tr`).as('rows')
+
+    table.forEach((row, i: number) => {
+      cy.get('@rows')
+        .eq(i)
+        .then((item) => {
+          cy.wrap(item).as('item')
+          cy.get('@item').find('th').should('contain', row.question)
+          cy.get('@item').find('td:nth-child(2)').should('contain', row.answer)
+          cy.get('@item')
+            .find('td:last-child a')
+            .should('have.attr', 'href', row.link)
+        })
+    })
+  }
+)
+
+Then(
+  'the form review component should not display the following {string}',
+  (key: string, dataTable: DataTable) => {
+    const table = dataTable.hashes()
+
+    cy.get(`.rpl-form-review--${key} table`).as('table')
+
+    table.forEach((row) => {
+      cy.get('@table').then((item) => {
+        cy.wrap(item).as('item')
+
+        cy.get('@item').contains('th', row.question).should('not.exist')
+      })
+    })
+  }
+)
+
+Then(
+  'I edit {string} in the review section for {string}',
+  (field: string, section: string) => {
+    cy.get(`.rpl-form-review--${section} th`).contains(field).as('edit')
+    cy.get('@edit').parent().find('a').click()
+  }
+)
+
+Then('the field labelled {string} should have focus', (label: string) => {
+  cy.contains('.rpl-form-label', label)
+    .invoke('attr', 'for')
+    .then((forId) => {
+      cy.get(`#${forId}`).should('have.focus')
+    })
+})

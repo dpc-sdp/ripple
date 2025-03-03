@@ -114,6 +114,22 @@
             "title": "Details",
             "schema": [
               {
+                "$formkit": "hidden",
+                "label": "Site ID",
+                "name": "site_id",
+                "id": "site_id",
+                "value": "1",
+                "pii": false
+              },
+              {
+                "$formkit": "RplFormHidden",
+                "label": "Site section",
+                "name": "site_section",
+                "id": "site_section",
+                "value": "DPC",
+                "pii": false
+              },
+              {
                 "$formkit": "RplFormText",
                 "key": "name",
                 "name": "name",
@@ -379,6 +395,46 @@
                 }
               },
               {
+                "$formkit": "RplFormCheckboxGroup",
+                "key": "delivery_slot",
+                "id": "multistep_delivery_slot",
+                "name": "delivery_slot",
+                "label": "Delivery slot",
+                "layout": "block",
+                "options": [
+                  {
+                    "id": "mon-wed",
+                    "value": "mon-wed",
+                    "label": "Monday to Wednesday"
+                  },
+                  {
+                    "id": "thur-sun",
+                    "value": "thur-sun",
+                    "label": "Thursday to Sunday"
+                  }
+                ],
+                "pii": false,
+                "validation": [],
+                "validationMessages": {}
+              },
+              {
+                "$formkit": "RplFormDate",
+                "key": "delivery_date",
+                "id": "multistep_delivery_date",
+                "name": "delivery_date",
+                "label": "Delivery date",
+                "dateFormat": "yyyy-MM-dd",
+                "validation": [
+                  [
+                    "date_format",
+                    "YYYY-MM-DD"
+                  ]
+                ],
+                "validationMessages": {
+                  "date_format": "Delivery date must be a valid date in the format DD MM YYYY"
+                }
+              },
+              {
                 "$formkit": "RplFormText",
                 "key": "delivery_for_vic_gov",
                 "id": "multistep_delivery_for_vic_gov",
@@ -462,6 +518,10 @@
                   "required": "Preferred contact time is required",
                   "accepted": "Preferred contact time is required"
                 }
+              },
+              {
+                "$formkit": "RplFormReview",
+                "key": "review_component"
               },
               {
                 "$formkit": "RplFormCheckbox",

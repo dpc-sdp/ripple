@@ -5,6 +5,8 @@
     :name="name"
     :label="title"
     :input-errors="inputErrors"
+    :previous-label="prevButton"
+    :next-label="nextButton"
   >
     <button
       v-if="number > 1"
@@ -51,7 +53,7 @@
 </template>
 
 <script setup lang="ts">
-import { inject, nextTick, Ref, ref, watch } from 'vue'
+import { inject, nextTick, provide, Ref, ref, watch } from 'vue'
 import {
   FormKitSchemaCondition,
   FormKitSchemaNode,
@@ -92,6 +94,11 @@ const stepErrorsRef = ref(null)
 const inputErrors: Ref<Record<string, string>> = inject('inputErrors')
 
 const handleBack = () => getNode(props.form)?.previous()
+
+provide('eventContext', {
+  contextStep: props.title,
+  contextIndex: props.number
+})
 
 // Scroll to and focus step errors when they appear
 watch(

@@ -6,6 +6,7 @@ import { formatDate } from '@dpc-sdp/ripple-ui-core'
 
 interface Props {
   title?: any
+  actionLabel?: any
   omitFinalStep?: boolean
 }
 
@@ -24,6 +25,7 @@ interface FormReviewItem {
 
 const props = withDefaults(defineProps<Props>(), {
   title: 'Review form',
+  actionLabel: 'Change',
   omitFinalStep: true
 })
 
@@ -33,7 +35,7 @@ const form: {
   multiStep: boolean
   goToField: Function
   stepsId: string
-} = inject('form')
+} = inject('form', {})
 
 const shouldDisplayField = (field: any, values: any) => {
   return (
@@ -63,7 +65,7 @@ const getDisplayedValue = (field: any, value: string | boolean) => {
   return value
 }
 
-const getItemValues = (field: any, value: any) => {
+const getItemValues = (field: any, value: any): FormReviewItemValue => {
   return {
     id: field.id,
     q: field.label || field.checkboxLabel || field.name,
@@ -75,7 +77,10 @@ const getItemValues = (field: any, value: any) => {
   }
 }
 
-const processSchemaItems = (schema: FormKitSchemaNode[], values: any) => {
+const processSchemaItems = (
+  schema: FormKitSchemaNode[],
+  values: any
+): FormReviewItemValue[] => {
   return schema
     .filter((field: any) => shouldDisplayField(field, values))
     .flatMap((field: any) => {
@@ -145,9 +150,11 @@ const items = computed<FormReviewItem[]>(() => {
                 <a
                   class="rpl-type-p-small rpl-text-link rpl-u-focusable-inline"
                   :href="`#${field.id}`"
-                  @click.prevent="form.goToField(field.id, entry?.step)"
+                  @click.prevent="
+                    form.goToField(field.id, entry?.step, actionLabel)
+                  "
                 >
-                  Change
+                  {{ actionLabel }}
                 </a>
               </td>
             </tr>

@@ -36,7 +36,8 @@ Feature: Multi Step Forms
     And the main form steps container should have focus
     And I should be scrolled to the top of the form step with an offset of 92
 
-    When I navigate to the next form step by clicking "Go forwards"
+    When I click "Monday to Wednesday" from the checkbox group with label "Delivery slot"
+    And I navigate to the next form step by clicking "Go forwards"
     Then the form step 3 of 3 named "Finish" should be visible
     And the form progress bar should display the steps
       | label    | status   |
@@ -64,6 +65,13 @@ Feature: Multi Step Forms
       | Finish   | pending |
     And the main form steps container should have focus
 
+    Then the dataLayer should include the following events
+      | event              | form_step | target_form_step | form_id   | form_name      | index | target_index | element_text | component |
+      | form_step_forward  | Details   | Location         | multistep | MultiStep Form | 1     | 2            | Next         | rpl-form  |
+      | form_step_forward  | Location  | Finish           | multistep | MultiStep Form | 2     | 3            | Go forwards  | rpl-form  |
+      | form_step_backward | Finish    | Location         | multistep | MultiStep Form | 3     | 2            | Back         | rpl-form  |
+      | form_step_backward | Location  | Details          | multistep | MultiStep Form | 2     | 1            | Go backwards | rpl-form  |
+
   @mockserver
   Scenario: Validation applies only to the current step
     When I visit the page "/multistep-form"
@@ -87,8 +95,13 @@ Feature: Multi Step Forms
     And I click "Phone" from the radio group with label "Contact type"
     And I navigate to the next form step by clicking "Next"
     And the error summary should not display
+
+    When I navigate to the next form step by clicking "Go forwards"
+    And the steps error summary should display with the following errors
+      | text                              | url                      |
+      | A valid delivery slot is required | #multistep_delivery_slot |
+    Then I click "Monday to Wednesday" from the checkbox group with label "Delivery slot"
     And I navigate to the next form step by clicking "Go forwards"
-    And the error summary should not display
 
     When I submit the form with ID "multistep"
     Then the steps error summary should display with the following errors
@@ -100,6 +113,10 @@ Feature: Multi Step Forms
     And the error summary should not display
     When I navigate to the previous form step by clicking "Go backwards"
     And the error summary should not display
+
+    Then the dataLayer should include the following events
+      | event       | form_step | form_id   | form_name      | form_valid | index | element_text | component |
+      | form_submit | Finish    | multistep | MultiStep Form | false      | 3     | Submit       | rpl-form  |
 
   @mockserver
   Scenario: Conditional logic works across steps
@@ -119,6 +136,7 @@ Feature: Multi Step Forms
 
     When I toggle the checkbox with label "Include delivery instructions"
     Then a textarea field with the label "Your delivery instructions" should exist
+    And I click "Monday to Wednesday" from the checkbox group with label "Delivery slot"
 
     When I navigate to the next form step by clicking "Go forwards"
     Then the form step 3 of 3 named "Finish" should be visible
@@ -146,6 +164,7 @@ Feature: Multi Step Forms
     And I type "0400123456" into the input with the label "Phone"
 
     Then I navigate to the next form step by clicking "Next"
+    And I click "Monday to Wednesday" from the checkbox group with label "Delivery slot"
     And I navigate to the next form step by clicking "Go forwards"
 
     Then I click "Online" from the checkbox group with label "How did you find us"
@@ -167,6 +186,8 @@ Feature: Multi Step Forms
     Then I navigate to the next form step by clicking "Next"
     And I wait 400 milliseconds
     And I click "Victoria" from the select field with label "State"
+    And I click "Monday to Wednesday" from the checkbox group with label "Delivery slot"
+    And I click "High" from the radio group with label "Priority"
 
     Then I navigate to the next form step by clicking "Go forwards"
     And I wait 400 milliseconds
@@ -185,37 +206,44 @@ Feature: Multi Step Forms
       | Finish   | pending |
 
     And the dataLayer should include the following events
-      | event             | label                                             | form_id   | field_id                              | type     | value      | component               |
-      | update_form_field | Name                                              | multistep | multistep_name                        | text     | [redacted] | rpl-form-input          |
-      | update_form_field | Email                                             | multistep | multistep_email                       | email    | [redacted] | rpl-form-input          |
-      | update_form_field | Phone                                             | multistep | multistep_phone                       | tel      | [redacted] | rpl-form-input          |
-      | update_form_field | State                                             | multistep | multistep_address_administrative_area | select   | Victoria   | rpl-form-dropdown       |
-      | update_form_field | How did you find us                               | multistep | multistep_how_did_you_find_us         | checkbox | Online     | rpl-form-checkbox-group |
-      | update_form_field | I have read and understood the privacy statement. | multistep | multistep_privacy_statement__checkbox | checkbox | true       | rpl-form-option         |
+      | event             | label                                             | form_id   | field_id                              | form_step | index | type     | value               | component               |
+      | update_form_field | Name                                              | multistep | multistep_name                        | Details   | 1     | text     | [redacted]          | rpl-form-input          |
+      | update_form_field | Email                                             | multistep | multistep_email                       | Details   | 1     | email    | [redacted]          | rpl-form-input          |
+      | update_form_field | Phone                                             | multistep | multistep_phone                       | Details   | 1     | tel      | [redacted]          | rpl-form-input          |
+      | open_form_field   | State                                             | multistep | multistep_address_administrative_area | Location  | 2     | select   |                     | rpl-form-dropdown       |
+      | update_form_field | State                                             | multistep | multistep_address_administrative_area | Location  | 2     | select   | Victoria            | rpl-form-dropdown       |
+      | update_form_field | Delivery slot                                     | multistep | multistep_delivery_slot               | Location  | 2     | checkbox | Monday to Wednesday | rpl-form-checkbox-group |
+      | update_form_field | Priority                                          | multistep | multistep_delivery_priority           | Location  | 2     | radio    | High                | rpl-form-radio-group    |
+      | update_form_field | How did you find us                               | multistep | multistep_how_did_you_find_us         | Finish    | 3     | checkbox | Online              | rpl-form-checkbox-group |
+      | update_form_field | I have read and understood the privacy statement. | multistep | multistep_privacy_statement__checkbox | Finish    | 3     | checkbox | true                | rpl-form-option         |
 
     And the dataLayer should include the following events
-      | event         | form_id   | form_valid | element_text | component |
-      | form_start    | multistep |            |              | rpl-form  |
-      | form_submit   | multistep | true       | Submit       | rpl-form  |
-      | form_complete | multistep |            | Submit       | rpl-form  |
+      | event         | form_id   | form_valid | form_step | index | element_text | component |
+      | form_start    | multistep |            | Details   | 1     |              | rpl-form  |
+      | form_submit   | multistep | true       | Finish    | 3     | Submit       | rpl-form  |
+      | form_complete | multistep |            | Finish    | 3     | Submit       | rpl-form  |
 
     And the dataLayer form data for "form_submit" should include the following values
-      | step     | key                  | value      |
-      | details  | name                 | [redacted] |
-      | details  | email                | [redacted] |
-      | details  | phone                | [redacted] |
-      | location | delivery_for_vic_gov | [redacted] |
-      | finish   | how_did_you_find_us  | Online     |
-      | finish   | privacy_statement    | true       |
+      | step     | key                  | value               |
+      | details  | site_section         | DPC                 |
+      | details  | name                 | [redacted]          |
+      | details  | email                | [redacted]          |
+      | details  | phone                | [redacted]          |
+      | location | delivery_slot        | Monday to Wednesday |
+      | location | delivery_for_vic_gov | [redacted]          |
+      | finish   | how_did_you_find_us  | Online              |
+      | finish   | privacy_statement    | true                |
 
     And the dataLayer form data for "form_complete" should include the following values
-      | step     | key                  | value      |
-      | details  | name                 | [redacted] |
-      | details  | email                | [redacted] |
-      | details  | phone                | [redacted] |
-      | location | delivery_for_vic_gov | [redacted] |
-      | finish   | how_did_you_find_us  | Online     |
-      | finish   | privacy_statement    | true       |
+      | step     | key                  | value               |
+      | details  | site_section         | DPC                 |
+      | details  | name                 | [redacted]          |
+      | details  | email                | [redacted]          |
+      | details  | phone                | [redacted]          |
+      | location | delivery_slot        | Monday to Wednesday |
+      | location | delivery_for_vic_gov | [redacted]          |
+      | finish   | how_did_you_find_us  | Online              |
+      | finish   | privacy_statement    | true                |
 
   @mockserver
   Scenario: Progress bar is hidden when the sidebar is visible
@@ -264,6 +292,7 @@ Feature: Multi Step Forms
       | Postcode                      | 3056                | #multistep_address_postal_code           |
       | Include delivery instructions | Yes                 | #multistep_include_delivery_instructions |
       | Your delivery instructions    | Post haste          | #multistep_delivery_instructions         |
+      | Priority                      | Not provided        | #multistep_delivery_priority             |
       | Delivery slot                 | Monday to Wednesday | #multistep_delivery_slot                 |
       | Delivery date                 | 20 Feb 2025         | #multistep_delivery_date                 |
       | Delivery for vic.gov          | Not provided        | #multistep_delivery_for_vic_gov          |
@@ -278,14 +307,20 @@ Feature: Multi Step Forms
     Then the form step 2 of 3 named "Location" should be visible
     And the field labelled "State" should have focus
 
+    Then the dataLayer should include the following events
+      | event              | form_step | target_form_step | form_id   | index | target_index | element_text | component |
+      | form_step_backward | Finish    | Details          | multistep | 3     | 1            | Change       | rpl-form  |
+      | form_step_backward | Finish    | Location         | multistep | 3     | 2            | Change       | rpl-form  |
+
   @mockserver
   Scenario: Form Review - Conditionally hidden and hidden fields aren't shown
     When I visit the page "/multistep-form"
     Then I type "John Smith" into the input with the label "Name"
     And I type "0400123456" into the input with the label "Phone"
 
-    Then I navigate to the next form step by clicking "Next"
-    When I navigate to the next form step by clicking "Go forwards"
+    When I navigate to the next form step by clicking "Next"
+    And I click "Monday to Wednesday" from the checkbox group with label "Delivery slot"
+    Then I navigate to the next form step by clicking "Go forwards"
     Then the form review component should not display the following "details"
       | question     |
       | Site ID      |

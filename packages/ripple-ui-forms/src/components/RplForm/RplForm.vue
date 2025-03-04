@@ -82,6 +82,10 @@ const emit = defineEmits<{
   (e: 'invalid', payload: rplEventPayload & { action: 'submit' }): void
   (e: 'submitted', payload: rplEventPayload & { action: 'complete' }): void
   (e: 'start', payload: rplEventPayload): void
+  (
+    e: 'step',
+    payload: rplEventPayload & { action: 'forward' | 'backward' }
+  ): void
 }>()
 
 const { emitRplEvent } = useRippleEvent('rpl-form', emit)
@@ -99,6 +103,7 @@ const errorSummaryRef = ref(null)
 const cachedErrors = ref<Record<string, CachedError>>({})
 const submitCounter = ref(0)
 const focusStepField = ref(null)
+const focusStepFromLabel = ref(null)
 const stepsId = `${props.id}-steps`
 
 const formSteps = computed(() => {
@@ -106,26 +111,34 @@ const formSteps = computed(() => {
 
   return props.schema.filter((i) => i['$step'])
 })
-
 const isLastStep = () => {
   return getNode(stepsId)?.context?.steps?.find((s) => s?.isActiveStep)
     ?.isLastStep
 }
-
 const getFormNode = (node?: FormKitNode) => {
   return formSteps.value.length ? getNode(stepsId) : node || getNode(props.id)
+}
+const getStepEventData = (
+  step: { stepIndex: number; stepName: string } = null
+) => {
+  if (!formSteps.value.length) return {}
+  const steps = getFormNode()?.context?.steps
+
+  return {
+    index: step
+      ? step.stepIndex + 1
+      : steps?.findIndex((s) => s?.isActiveStep) + 1,
+    label: step ? step.stepName : steps?.find((s) => s?.isActiveStep)?.stepName
+  }
 }
 
 // Unfortunately we can't await the step change or use nextTick here as the step field is still hidden directly after nextTick
 // As a workaround we set the field we want to focus then let the step itself handle the focus for this field
-const goToField = async (field: string, step = null) => {
+const goToField = (field: string, step = null, label = null) => {
   focusStepField.value = field
+  focusStepFromLabel.value = label
 
-  if (step) {
-    getFormNode()?.goTo(step)
-  } else {
-    focusFormElement(field)
-  }
+  return step ? getFormNode()?.goTo(step) : focusFormElement(field)
 }
 
 // Keep track of whether user has changed something in the form
@@ -138,7 +151,8 @@ const tryAbandonForm = () => {
       {
         id: props.id,
         name: props.title,
-        value: sanitisePIIFields(getFormNode())
+        value: sanitisePIIFields(getFormNode()),
+        ...getStepEventData()
       },
       { global: true }
     )
@@ -221,7 +235,8 @@ const submitHandler = (form, node: FormKitNode) => {
       name: props.title,
       action: 'submit',
       text: submitLabel,
-      value: sanitisePIIFields(node)
+      value: sanitisePIIFields(node),
+      ...getStepEventData()
     },
     { global: true }
   )
@@ -245,7 +260,8 @@ const submitInvalidHandler = async (node: FormKitNode) => {
       action: 'submit',
       name: props.title,
       text: submitLabel,
-      value: sanitisePIIFields(getFormNode(node))
+      value: sanitisePIIFields(getFormNode(node)),
+      ...getStepEventData()
     },
     { global: true }
   )
@@ -302,7 +318,8 @@ watch(
             action: 'complete',
             name: props.title,
             text: submitLabel,
-            value: sanitisePIIFields(getFormNode())
+            value: sanitisePIIFields(getFormNode()),
+            ...getStepEventData()
           },
           { global: true }
         )
@@ -329,14 +346,37 @@ const handleInput = (values: any) => {
       'start',
       {
         id: props.id,
-        name: props.title
+        name: props.title,
+        ...getStepEventData()
       },
       { global: true }
     )
   }
 }
 
-const handleStepChange = async ({ currentStep, delta }) => {
+const emitStepChange = (currentStep, targetStep, forwards) => {
+  const elementText = forwards
+    ? currentStep.nextLabel
+    : currentStep.previousLabel
+
+  emitRplEvent(
+    'step',
+    {
+      id: props.id,
+      name: props.title,
+      action: forwards ? 'forward' : 'backward',
+      text: focusStepFromLabel.value || elementText,
+      targetIndex: targetStep.stepIndex + 1,
+      targetLabel: targetStep.stepName,
+      ...getStepEventData(currentStep)
+    },
+    { global: true }
+  )
+
+  focusStepFromLabel.value = null
+}
+
+const handleStepChange = async ({ currentStep, delta, targetStep }) => {
   const forwards = delta > 0
   let isStepValid = currentStep.isValid
 
@@ -360,6 +400,10 @@ const handleStepChange = async ({ currentStep, delta }) => {
   // Get the current steps errors when it's invalid, and we're trying to proceed
   if (!currentStep.isValid && forwards) {
     cachedErrors.value = getErrorMessages(getNode(currentStep.id))
+  }
+
+  if (isStepValid) {
+    emitStepChange(currentStep, targetStep, forwards)
   }
 
   return isStepValid

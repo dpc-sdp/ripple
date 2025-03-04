@@ -98,7 +98,7 @@
       "id": 2095,
       "title": null,
       "props": {
-        "title": null,
+        "title": "MultiStep Form",
         "formId": "multistep",
         "hideFormOnSubmit": false,
         "successMessageTitle": "Form submitted",
@@ -395,6 +395,29 @@
                 }
               },
               {
+                "$formkit": "RplFormRadioGroup",
+                "key": "contact_type",
+                "id": "multistep_delivery_priority",
+                "name": "delivery_priority",
+                "label": "Priority",
+                "layout": "block",
+                "options": [
+                  {
+                    "id": "low",
+                    "value": "low",
+                    "label": "Low"
+                  },
+                  {
+                    "id": "high",
+                    "value": "high",
+                    "label": "High"
+                  }
+                ],
+                "pii": false,
+                "validation": [],
+                "validationMessages": {}
+              },
+              {
                 "$formkit": "RplFormCheckboxGroup",
                 "key": "delivery_slot",
                 "id": "multistep_delivery_slot",
@@ -414,8 +437,15 @@
                   }
                 ],
                 "pii": false,
-                "validation": [],
-                "validationMessages": {}
+                "validation": [
+                  [
+                    "required"
+                  ]
+                ],
+                "validationMessages": {
+                  "required": "A valid delivery slot is required",
+                  "accepted": "A valid delivery slot is required"
+                }
               },
               {
                 "$formkit": "RplFormDate",

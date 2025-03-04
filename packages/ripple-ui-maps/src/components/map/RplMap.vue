@@ -81,7 +81,8 @@ const props = withDefaults(defineProps<Props>(), {
   noresults: false,
   getFeatureTitle: (feature: any) => (feature ? feature.title : ''),
   clusteringDistance: 120,
-  layerList: undefined
+  layerList: undefined,
+  selectedLayers: () => []
 })
 
 const emit = defineEmits<{

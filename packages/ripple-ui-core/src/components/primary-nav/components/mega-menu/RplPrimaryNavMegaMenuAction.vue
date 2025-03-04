@@ -74,22 +74,10 @@ const clickHandler = (item: IRplPrimaryNavItem) => {
       { global: true }
     )
     if (isActive.value) {
-      rootNode.value?.scrollTo(0, 0)
+      document.getElementById('megamenu')?.scrollTo(0, 0)
     }
   }
 }
-
-const findRootNode = (node: HTMLElement) => {
-  if (!node) {
-    return null
-  }
-  if (node.classList.contains('rpl-primary-nav__mega-menu')) {
-    return node
-  }
-  return findRootNode(node.parentElement)
-}
-
-const rootNode = computed(() => findRootNode(action.value))
 
 const focusHandler = (event: KeyboardEvent) => {
   const next = props.level + 1

@@ -80,6 +80,7 @@ const backButtonHandler = (label: string) => {
 
 <template>
   <div
+    id="megamenu"
     :class="`
       rpl-primary-nav__mega-menu
       rpl-primary-nav__mega-menu--current-level-${currentLevel}

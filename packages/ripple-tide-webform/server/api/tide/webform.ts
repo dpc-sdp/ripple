@@ -1,18 +1,14 @@
+//@ts-nocheck runtime imports
 import jsonapiParse from 'jsonapi-parse'
 import { defineEventHandler, getCookie, getQuery, H3Event } from 'h3'
-import {
-  createHandler,
-  TideApiBase,
-  logger,
-  TidePageApi
-} from '@dpc-sdp/ripple-tide-api'
+import { createHandler, TideApiBase, logger } from '@dpc-sdp/ripple-tide-api'
 import { BadRequestError } from '@dpc-sdp/ripple-tide-api/errors'
 import type {
   RplTideModuleConfig,
   IRplTideModuleMapping,
   ILogger
 } from '@dpc-sdp/ripple-tide-api/types'
-import { useRuntimeConfig } from '#imports'
+import { useNitroApp, useRuntimeConfig } from '#imports'
 import { AuthCookieNames } from '@dpc-sdp/nuxt-ripple-preview/utils'
 import { getFormSchemaFromMapping, getCaptchaSettings } from '../../../mapping'
 
@@ -25,12 +21,15 @@ export class TideWebformApi extends TideApiBase {
 
   constructor(tide: RplTideModuleConfig, logger: ILogger) {
     super(tide, logger)
+
+    const nitroApp = useNitroApp()
+
     this.webformMapping = {
       mapping: {
         _src: (field: any) =>
           process.env.NODE_ENV === 'development' ? field : undefined,
-        schema: async (field: any, page: any, tidePageApi: TidePageApi) =>
-          await getFormSchemaFromMapping(field, page, tidePageApi),
+        schema: async (field: any, page: any) =>
+          await getFormSchemaFromMapping(field, page, nitroApp?.tide?.pageApi),
         captchaConfig: (field: any) => getCaptchaSettings(field)
       },
       includes: []

@@ -3,12 +3,12 @@ import { computed, useSlots } from 'vue'
 import RplPrimaryNavBackButton from './RplPrimaryNavMegaMenuBackButton.vue'
 import RplPrimaryNavMegaMenuList from './RplPrimaryNavMegaMenuList.vue'
 import RplPrimaryNavQuickExit from '../quick-exit/RplPrimaryNavQuickExit.vue'
-import {
+import type {
   IRplPrimaryNavItem,
   IRplPrimaryNavActiveItems,
   RplPrimaryNavToggleItemOptions
 } from '../../constants'
-import { rplEventPayload, useRippleEvent } from '@dpc-sdp/ripple-ui-core'
+import { type rplEventPayload, useRippleEvent } from '@dpc-sdp/ripple-ui-core'
 
 interface Props {
   items: IRplPrimaryNavItem[]
@@ -80,6 +80,7 @@ const backButtonHandler = (label: string) => {
 
 <template>
   <div
+    id="megamenu"
     :class="`
       rpl-primary-nav__mega-menu
       rpl-primary-nav__mega-menu--current-level-${currentLevel}

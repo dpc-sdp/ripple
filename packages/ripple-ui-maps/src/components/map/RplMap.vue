@@ -4,7 +4,7 @@ let mapAccentColor: string = ''
 
 <script setup lang="ts">
 import { RplIcon } from '@dpc-sdp/ripple-ui-core/vue'
-import type { IRplMapFeature } from './../../types'
+import type { IRplMapFeature, IRplMapLayer } from './../../types'
 import {
   onMounted,
   onUnmounted,
@@ -24,6 +24,7 @@ import { asString } from 'ol/color'
 import { fromLonLat } from 'ol/proj'
 import RplMapPopUp from './../popup/RplMapPopUp.vue'
 import RplMapCluster from './../cluster/RplMapCluster.vue'
+import RplMapLayerList from './../layer-list/RplMapLayerList.vue'
 import markerIconDefaultSrc from './../feature-pin/icon-pin.svg?url'
 import markerIconSelectedSrc from './../feature-pin/icon-pin-selected.svg?url'
 import useMapControls from './../../composables/useMapControls.ts'
@@ -50,6 +51,8 @@ interface Props {
   noresults?: boolean
   getFeatureTitle?: (feature: any) => string
   clusteringDistance?: number
+  layerList?: IRplMapLayer[]
+  selectedLayers?: string[]
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -77,8 +80,14 @@ const props = withDefaults(defineProps<Props>(), {
   },
   noresults: false,
   getFeatureTitle: (feature: any) => (feature ? feature.title : ''),
-  clusteringDistance: 120
+  clusteringDistance: 120,
+  layerList: undefined,
+  selectedLayers: () => []
 })
+
+const emit = defineEmits<{
+  updateSelectedLayers: [value: string[]]
+}>()
 
 const zoom = ref(props.initialZoom)
 const rotation = ref(0)
@@ -299,6 +308,10 @@ const noResultsRef = ref(null)
 const fullScreenLabel = computed(() =>
   isFullScreen.value ? 'Exit full screen' : 'View full screen'
 )
+
+const handleUpdateSelectedLayers = (newSelectedLayers: string[]) => {
+  emit('updateSelectedLayers', newSelectedLayers)
+}
 </script>
 
 <template>
@@ -420,6 +433,14 @@ const fullScreenLabel = computed(() =>
           </RplMapPopUp>
         </ol-overlay>
       </slot>
+
+      <RplMapLayerList
+        v-if="layerList?.length"
+        :layers="layerList"
+        :selectedLayers="selectedLayers"
+        @update="handleUpdateSelectedLayers"
+      />
+
       <div
         v-if="supportsFullScreen"
         class="rpl-map__control rpl-map__control-fullscreen"

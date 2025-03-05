@@ -56,7 +56,12 @@
 
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import { useResizeObserver, useBreakpoints } from '@vueuse/core'
+import {
+  useResizeObserver,
+  useBreakpoints,
+  onClickOutside,
+  onKeyStroke
+} from '@vueuse/core'
 import { RplIcon } from '@dpc-sdp/ripple-ui-core/vue'
 import { useRippleEvent, bpMin } from '@dpc-sdp/ripple-ui-core'
 import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
@@ -66,7 +71,7 @@ interface Props {
   isOpen: boolean
   isArea: boolean
   pinColor?: string
-  type?: 'standalone' | 'popover' | 'sidebar'
+  type?: 'standalone' | 'popover' | 'sidebar' | 'layerlist'
   mapHeight?: number
 }
 
@@ -88,6 +93,9 @@ const popupEL = ref()
 function onClose() {
   emitRplEvent('close')
 }
+
+onClickOutside(popupEL, onClose)
+onKeyStroke(['Escape'], onClose)
 
 const breakpoints = useBreakpoints(bpMin)
 const isLargePlus = breakpoints.greaterOrEqual('l')

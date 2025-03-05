@@ -1,0 +1,68 @@
+import {
+  Canvas,
+  Meta,
+  Story,
+  ArgsTable
+} from '@storybook/addon-docs'
+import RplMapLayerList from './RplMapLayerList.vue'
+import { action } from '@storybook/addon-actions';
+import '@dpc-sdp/ripple-ui-core/style/components'
+
+export const SingleTemplate = (args) => ({
+  components: { RplMapLayerList },
+  setup() {
+    return { args }
+  },
+  data: () => ({ selectedLayers: args.selectedLayers }),
+  template: `<RplMapLayerList v-bind="args" @update="onUpdate" :selectedLayers="selectedLayers"></RplMapLayerList>`,
+  methods: {
+    onUpdate: function(val) {
+      this.selectedLayers = val
+      action('onUpdate')(val)
+    }
+  }
+})
+
+<Meta
+  title='Maps/Layer list'
+  component={RplMapLayerList}
+  argTypes={{
+    title: {
+      control: { type: 'text' },
+    }
+  }}
+  args={{
+    selectedLayers: ['red', 'green'],
+    layers: [
+      {
+        id: 'red',
+        label: 'Red layer',
+        image: svgPlaceholder({ width: 44, height: 44, fgColor: '#fff', bgColor: '#ffb2b2' }),
+      },
+      {
+        id: 'green',
+        label: 'Green layer',
+        image: svgPlaceholder({ width: 44, height: 44, fgColor: '#fff', bgColor: '#caffae' }),
+      },
+      {
+        id: 'blue',
+        label: 'Blue layer',
+        image: svgPlaceholder({ width: 44, height: 44, fgColor: '#fff', bgColor: '#aee9ff' }),
+      }
+    ]
+  }}
+/>
+
+# Tag
+
+<ArgsTable of={RplMapLayerList} />
+
+## Default
+
+<Canvas>
+  <Story
+    name='Default'
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>

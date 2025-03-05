@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import {
+import type {
   IRplPrimaryNavItem,
   IRplPrimaryNavActiveItems,
   RplPrimaryNavToggleItemOptions
@@ -9,7 +9,7 @@ import RplIcon from '../../../icon/RplIcon.vue'
 import { usePrimaryNavFocus } from '../../../../composables/usePrimaryNavFocus'
 import {
   useRippleEvent,
-  rplEventPayload
+  type rplEventPayload
 } from '../../../../composables/useRippleEvent'
 
 interface Props {
@@ -73,10 +73,13 @@ const clickHandler = (item: IRplPrimaryNavItem) => {
       },
       { global: true }
     )
+    if (isActive.value) {
+      document.getElementById('megamenu')?.scrollTo(0, 0)
+    }
   }
 }
 
-const focusHandler = (event) => {
+const focusHandler = (event: KeyboardEvent) => {
   const next = props.level + 1
   const previous = props.level - 1
 

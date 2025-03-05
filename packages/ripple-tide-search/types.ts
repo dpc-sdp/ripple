@@ -303,6 +303,10 @@ export type TideSearchListingConfig = {
       include?: string[]
       exclude?: string[]
     }
+    /**
+     * @description when true, don't actually make any search api calls, useful for maps that don't actually get there data from elasticsearch
+     */
+    disableSearch: boolean
   }
   /**
    * @description Tabs to display, key needs to be one of TideSearchListingTabKey

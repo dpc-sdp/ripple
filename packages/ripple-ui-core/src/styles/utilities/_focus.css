@@ -96,17 +96,20 @@
 
 .rpl-u-focusable-outline {
   &:focus,
-  &.rpl-u-focusable--force-on {
+  &.rpl-u-focusable--force-on,
+  .rpl-u-focusable-within:focus & {
     outline: none;
-    box-shadow: 0 0 0 var(--rpl-border-1) var(--rpl-clr-dark) inset,
+    box-shadow:
+      0 0 0 var(--rpl-border-1) var(--rpl-clr-dark) inset,
       0 0 0 var(--rpl-border-3) var(--rpl-clr-focus);
   }
 
   &.rpl-u-focusable--alt-colour {
     &:focus,
-    &.rpl-u-focusable--force-on {
-      box-shadow: 0 0 0 var(--rpl-border-1) var(--rpl-clr-type-primary-contrast)
-          inset,
+    &.rpl-u-focusable--force-on,
+    .rpl-u-focusable-within:focus & {
+      box-shadow:
+        0 0 0 var(--rpl-border-1) var(--rpl-clr-type-primary-contrast) inset,
         0 0 0 var(--rpl-border-3) var(--rpl-clr-focus);
     }
   }
@@ -114,30 +117,35 @@
 
 .rpl-u-focusable-outline--no-border {
   &:focus,
-  &.rpl-u-focusable--force-on {
+  &.rpl-u-focusable--force-on,
+  .rpl-u-focusable-within:focus & {
     box-shadow: 0 0 0 var(--rpl-border-3) var(--rpl-clr-focus);
   }
 
   &.rpl-u-focusable--alt-colour {
     &:focus,
-    &.rpl-u-focusable--force-on {
+    &.rpl-u-focusable--force-on,
+    .rpl-u-focusable-within:focus & {
       box-shadow: 0 0 0 var(--rpl-border-3) var(--rpl-clr-focus);
     }
   }
 }
 
 .rpl-u-focusable-outline--visible {
-  &:focus-visible {
+  &:focus-visible,
+  .rpl-u-focusable-within:focus-visible & {
     outline: none;
-    box-shadow: 0 0 0 var(--rpl-border-1) var(--rpl-clr-dark) inset,
-    0 0 0 var(--rpl-border-3) var(--rpl-clr-focus);
+    box-shadow:
+      0 0 0 var(--rpl-border-1) var(--rpl-clr-dark) inset,
+      0 0 0 var(--rpl-border-3) var(--rpl-clr-focus);
   }
 
   &.rpl-u-focusable--alt-colour {
-    &:focus-visible {
-      box-shadow: 0 0 0 var(--rpl-border-1) var(--rpl-clr-type-primary-contrast)
-      inset,
-      0 0 0 var(--rpl-border-3) var(--rpl-clr-focus);
+    &:focus-visible,
+    .rpl-u-focusable-within:focus-visible & {
+      box-shadow:
+        0 0 0 var(--rpl-border-1) var(--rpl-clr-type-primary-contrast) inset,
+        0 0 0 var(--rpl-border-3) var(--rpl-clr-focus);
     }
   }
 }

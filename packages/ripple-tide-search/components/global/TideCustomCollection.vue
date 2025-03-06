@@ -770,7 +770,9 @@ onMounted(() => {
           :results="mapFeatures"
           :areas="mapAreas"
           v-bind="mapConfig?.props"
-          :noresults="!isBusy && !results?.length"
+          :noresults="
+            !searchListingConfig?.disableSearch && !isBusy && !results?.length
+          "
           :hasSidePanel="mapConfig?.sidePanel?.enabled"
           :initialising="!firstLoad"
         >

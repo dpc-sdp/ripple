@@ -14,10 +14,7 @@ const props = defineProps<{
 
 const handleSubmit = (event) => {
   const searchPath = encodeURI(
-    props.searchUrl.replace(
-      '[SEARCH-KEYWORDS]',
-      encodeURIComponent(event.value)
-    )
+    props.searchUrl.replace('[SEARCH-KEYWORDS]', event.value)
   )
 
   const isInternalUrl = !isExternalUrl(searchPath, $app_hostname)

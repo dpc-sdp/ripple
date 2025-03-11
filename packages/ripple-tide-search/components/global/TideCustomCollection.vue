@@ -154,6 +154,8 @@ const searchResultsMappingFn = (item): TideSearchListingResultItem => {
     component: itemComponent,
     props: {
       result: {
+        // NOTE: id was added to match the mapResultsMappingFn signature; _id remains for backwards compatibility
+        id: item._id,
         _id: item._id,
         ...transformedItem
       }

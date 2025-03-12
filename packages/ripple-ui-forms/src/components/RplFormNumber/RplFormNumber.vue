@@ -128,22 +128,39 @@ const handleIncrement = () => {
   useFormkitFriendlyEventEmitter(props, emit, 'onChange', current.value)
   commitValue(current.value)
 }
+
+const decreaseLabel = computed(() => {
+  const proposedValue = current.value - props.step
+  if (proposedValue >= props.min) {
+    return `Decrease to ${current.value - props.step}`
+  }
+  return `Cannot decrease further, the minimum value is ${props.min}`
+})
+
+const increaseLabel = computed(() => {
+  const proposedValue = current.value + props.step
+  if (proposedValue <= props.max) {
+    return `Increase to ${current.value + props.step}`
+  }
+  return `Cannot increase further, the maximum value is ${props.max}`
+})
 </script>
 
 <template>
   <div :class="classes">
-    <div class="rpl-form__input-wrap">
+    <component :is="mode ? 'fieldset' : 'div'" class="rpl-form__input-wrap">
       <button
-        v-if="props.mode"
+        v-if="mode"
         class="rpl-form__input-dec rpl-u-focusable-outline"
         type="button"
         :disabled="disabled"
+        :aria-label="decreaseLabel"
         @click.prevent="handleDecrement"
       >
         <span class="rpl-u-visually-hidden">Decrease value</span>
         <RplIcon
           name="icon-map-zoom-out"
-          :class="`${props.className}-icon ${props.className}-icon__prefix`"
+          :class="`${className}-icon ${className}-icon__prefix`"
           size="s"
         />
       </button>
@@ -166,20 +183,21 @@ const handleIncrement = () => {
         @focus=";($event.target as HTMLInputElement).select()"
       />
       <button
-        v-if="props.mode"
+        v-if="mode"
         class="rpl-form__input-inc rpl-u-focusable-outline"
         type="button"
         :disabled="disabled"
+        :aria-label="increaseLabel"
         @click.prevent="handleIncrement"
       >
         <span class="rpl-u-visually-hidden">Increase value</span>
         <RplIcon
           name="icon-map-zoom-in"
-          :class="`${props.className}-icon ${props.className}-icon__suffix`"
+          :class="`${className}-icon ${className}-icon__suffix`"
           size="s"
         />
       </button>
-    </div>
+    </component>
   </div>
 </template>
 
@@ -279,6 +297,9 @@ const handleIncrement = () => {
 
   .rpl-form__input-wrap {
     width: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0 none;
   }
 
   .rpl-form__input-wrap:has(input[type='number']:focus) {

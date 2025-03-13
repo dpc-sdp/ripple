@@ -155,6 +155,8 @@ const searchResultsMappingFn = (item): TideSearchListingResultItem => {
     component: itemComponent,
     props: {
       result: {
+        // NOTE: id was added to match the mapResultsMappingFn signature; _id remains for backwards compatibility
+        id: item._id,
         _id: item._id,
         ...transformedItem
       }
@@ -774,7 +776,9 @@ onMounted(() => {
           :results="mapFeatures"
           :areas="mapAreas"
           v-bind="mapConfig?.props"
-          :noresults="!isBusy && !results?.length"
+          :noresults="
+            !searchListingConfig?.disableSearch && !isBusy && !results?.length
+          "
           :hasSidePanel="mapConfig?.sidePanel?.enabled"
           :initialising="!firstLoad"
         >

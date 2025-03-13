@@ -591,6 +591,12 @@ export default ({
   }
 
   const getSearchResults = async (isFirstRun: boolean) => {
+    if (searchListingConfig.disableSearch) {
+      isBusy.value = false
+      firstLoad.value = true
+      return
+    }
+
     isBusy.value = true
     searchError.value = null
     appliedSearchTerm.value = { ...searchTerm.value }

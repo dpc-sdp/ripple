@@ -27,7 +27,6 @@ import RplMapCluster from './../cluster/RplMapCluster.vue'
 import markerIconDefaultSrc from './../feature-pin/icon-pin.svg?url'
 import markerIconSelectedSrc from './../feature-pin/icon-pin-selected.svg?url'
 import useMapControls from './../../composables/useMapControls.ts'
-
 import {
   getfeaturesAtMapPixel,
   zoomToClusterExtent,
@@ -36,6 +35,8 @@ import {
   areFeaturesCloseTogether,
   getFeaturesCenterPoint
 } from './utils'
+import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
+import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
 
 interface Props {
   features?: IRplMapFeature[]
@@ -80,6 +81,12 @@ const props = withDefaults(defineProps<Props>(), {
   clusteringDistance: 120
 })
 
+const emit = defineEmits<{
+  (e: 'togglePopup', payload: rplEventPayload & { action: 'open' }): void
+}>()
+
+const { emitRplEvent } = useRippleEvent('rpl-map', emit)
+
 const zoom = ref(props.initialZoom)
 const rotation = ref(0)
 const view = ref(null)
@@ -102,7 +109,7 @@ onUnmounted(() => {
   setRplMapRef(null)
 })
 
-const activatePin = (featureProperties, coordinates, zoom) => {
+const activatePin = (featureProperties, coordinates, zoom, trigger = 'pin') => {
   const map = mapRef.value.map
 
   const pinStyle = props.pinStyle(featureProperties)
@@ -111,6 +118,7 @@ const activatePin = (featureProperties, coordinates, zoom) => {
 
   popup.value.feature = [featureProperties]
   popup.value.color = asString(pinColor)
+  popup.value.trigger = trigger
   popup.value.isOpen = true
   popup.value.isArea = false
 
@@ -204,6 +212,7 @@ async function onMapSingleClick(evt) {
           const coords = getFeaturesCenterPoint(point.features)
           popup.value.feature = point.features.map((f) => f.getProperties())
           popup.value.position = coords
+          popup.value.trigger = 'cluster'
           popup.value.isOpen = true
           popup.value.isArea = true
 
@@ -280,6 +289,37 @@ watch(
     if (newNoResultsVal === true && hideNoResults.value === true) {
       hideNoResults.value = false
     }
+  }
+)
+
+// watch the popup value and emit an event when it changes
+watch(
+  () => popup.value,
+  (newPopup) => {
+    if (newPopup.isOpen) {
+      let title = popup.value?.title
+      const features = Array.isArray(popup.value?.feature)
+        ? popup.value.feature
+        : [popup.value.feature]
+
+      if (!title) {
+        title = features.map((item: any) => props.getFeatureTitle(item))
+        title = title.length === 1 ? title[0] : title
+      }
+
+      emitRplEvent(
+        'togglePopup',
+        {
+          action: 'open',
+          mode: popup.value?.trigger,
+          label: title
+        },
+        { global: true }
+      )
+    }
+  },
+  {
+    deep: true
   }
 )
 

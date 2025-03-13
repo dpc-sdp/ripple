@@ -4,7 +4,8 @@ import {
   getActiveFiltersTally,
   getActiveFilterURL,
   ref,
-  watch
+  watch,
+  provide
 } from '#imports'
 import { submitForm } from '@formkit/vue'
 import { useBreakpoints, useDebounceFn } from '@vueuse/core'
@@ -241,6 +242,8 @@ const cachedSubmitEvent = ref({})
 // the top of the screen when scrolling to the results
 const scrollTopOffset = 16
 
+provide('eventContext', { name: props?.title })
+
 const baseEvent = () => ({
   contextId: props.id,
   name: props.title,
@@ -476,7 +479,8 @@ const rplMapRef = ref(null)
 const popup = ref({
   isOpen: false,
   position: [0, 0],
-  feature: null
+  feature: null,
+  trigger: null
 })
 
 const deadSpace = useMapDeadSpace(

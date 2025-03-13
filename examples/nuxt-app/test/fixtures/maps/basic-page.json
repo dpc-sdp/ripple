@@ -86,6 +86,7 @@
       "id": "123",
       "title": "Test map title",
       "props": {
+        "title": "Test map title",
         "searchListingConfig": {
           "searchProvider": "elasticsearch",
           "index": "elasticsearch_index_develop_node",

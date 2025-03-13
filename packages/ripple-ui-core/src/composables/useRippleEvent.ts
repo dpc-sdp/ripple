@@ -5,7 +5,7 @@ export type rplEventPayload = {
   id?: string
   action?: string
   text?: string
-  label?: string
+  label?: string | string[]
   value?: any
   index?: number
   type?: string

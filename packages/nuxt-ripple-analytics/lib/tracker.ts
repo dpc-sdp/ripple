@@ -26,6 +26,7 @@ export interface IRplAnalyticsEventPayload {
   theme?: string
   section?: string
   count?: number
+  mode?: string
   component?: string
   component_options?: string
   // Route properties

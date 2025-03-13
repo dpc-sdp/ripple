@@ -87,7 +87,7 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 const emit = defineEmits<{
-  updateSelectedLayers: [value: string[]]
+  (e: 'updateSelectedLayers', payload: [value: string[]]): void
   (e: 'togglePopup', payload: rplEventPayload & { action: 'open' }): void
 }>()
 

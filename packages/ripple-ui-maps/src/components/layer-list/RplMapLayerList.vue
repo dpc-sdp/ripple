@@ -11,7 +11,13 @@
     </RplButton>
   </div>
 
-  <RplMapPopUp :isOpen="isOpen" type="layerlist" @close="handleClose">
+  <RplMapPopUp
+    :isOpen="isOpen"
+    type="layerlist"
+    :closeOnClickOutside="true"
+    :closeOnEscape="true"
+    @close="handleClose"
+  >
     <template #header>{{ title }}</template>
     <ul ref="content" class="rpl-map-layer-list">
       <li v-for="layer in layers" :key="layer.id">

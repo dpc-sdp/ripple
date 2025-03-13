@@ -20,6 +20,7 @@
     :iconPosition="iconPosition"
     :showSubmitButton="showSubmitButton"
     :submitOnSuggestionOnly="submitOnSuggestionOnly"
+    :analyticsName="context.name"
     @submit="submitAction"
     @update:input-value="onUpdate"
   >
@@ -51,6 +52,7 @@
 import { ref } from '#imports'
 import { useDebounceFn } from '@vueuse/core'
 import { addressResultType } from '../../types'
+import { useEventContext } from '@dpc-sdp/ripple-ui-core'
 
 interface Props {
   inputValue?: any
@@ -102,6 +104,8 @@ const results = ref([])
 const emit = defineEmits<{
   (e: 'update', payload: addressResultType): void
 }>()
+
+const { context } = useEventContext()
 
 async function submitAction(e: any) {
   const item = e.payload

@@ -589,7 +589,10 @@ onMounted(() => {
   nextTick(() => (filtersMobileClass.value = 'visible'))
 })
 
-const { updateContext } = useEventContext({ mode: activeTab })
+const { updateContext } = useEventContext({
+  name: props.title,
+  mode: activeTab
+})
 
 watch(activeTab, (newActiveTab) => {
   updateContext('mode', newActiveTab)

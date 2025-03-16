@@ -1,0 +1,23 @@
+.rpl-form__step-count {
+  color: var(--rpl-clr-neutral-600);
+}
+
+.rpl-form__step-prev {
+  display: flex;
+  align-items: center;
+  gap: var(--rpl-sp-2);
+  cursor: pointer;
+
+  &:hover,
+  &:active {
+    color: var(--rpl-clr-link);
+  }
+
+  &:active {
+    text-decoration: underline;
+  }
+
+  &:focus-visible .rpl-icon {
+    color: var(--rpl-clr-type-focus-contrast);
+  }
+}

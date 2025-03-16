@@ -117,6 +117,20 @@ When(
 )
 
 When(
+  'I type {int} {int} {int} into the date input with the label {string}',
+  (day: number, month: number, year: number, label: string) => {
+    cy.get('legend.rpl-form-label')
+      .contains(label)
+      .closest('.rpl-form__outer')
+      .as('field')
+
+    cy.get('@field').find('input[placeholder="DD"]').type(`${day}`)
+    cy.get('@field').find('input[placeholder="MM"]').type(`${month}`)
+    cy.get('@field').find('input[placeholder="YYYY"]').type(`${year}`)
+  }
+)
+
+When(
   'I select {string} by searching the select field with label {string}',
   (option: string, label: string) => {
     cy.contains('label', label)
@@ -371,7 +385,7 @@ Then(
   (label: string, dataTable: DataTable) => {
     const data = dataTable?.hashes()[0] || {}
 
-    cy.get('legend.rpl-form-label')
+    cy.get('legend.rpl-form-label,.rpl-form-option__label')
       .contains(label)
       .closest('.rpl-form__outer')
       .as('field')
@@ -388,17 +402,28 @@ Then(
 
     cy.get('@field').should('exist')
     cy.get('@field').find('input[type="checkbox"]').should('exist')
-    cy.get('@field').find('label').should('contain', data.checkboxLabel)
+
+    if (data.checkboxLabel) {
+      cy.get('@field').find('label').should('contain', data.checkboxLabel)
+    }
   }
 )
 
 Then('I toggle the checkbox with label {string}', (label: string) => {
-  cy.get('legend.rpl-form-label')
+  cy.get('legend.rpl-form-label,.rpl-form-option__label')
     .contains(label)
     .closest('.rpl-form__outer')
     .as('field')
 
-  cy.get('@field').find('input[type="checkbox"]').check({ force: true })
+  cy.get('@field')
+    .find('input[type="checkbox"]')
+    .then(($checkbox) => {
+      if ($checkbox.is(':checked')) {
+        cy.get('@field').find('input[type="checkbox"]').uncheck({ force: true })
+      } else {
+        cy.get('@field').find('input[type="checkbox"]').check({ force: true })
+      }
+    })
 })
 
 Then(
@@ -424,6 +449,14 @@ Then(
     cy.get('@field').find(`label`).contains(option).click()
   }
 )
+
+Then('a field with the label {string} should not exist', (label: string) => {
+  cy.contains('.rpl-form-label', label).should('not.exist')
+})
+
+Then('a field with the label {string} should exist', (label: string) => {
+  cy.contains('.rpl-form-label', label).should('exist')
+})
 
 When('I submit the form with ID {string}', (formId: string) => {
   cy.get(`form#${formId}`).submit()
@@ -545,4 +578,160 @@ Then('the openforms iframe height is at least {int}', (height: number) => {
   cy.get(`.tide-open-form iframe`).invoke('height').as('iframeHeight')
   cy.wait(4000)
   cy.get('@iframeHeight').should('be.at.least', height)
+})
+
+// Multistep form
+Then(
+  'the form step {int} of {int} named {string} should be visible',
+  (current: number, total: number, name: string) => {
+    cy.get('.rpl-form__step:not([hidden])').as('step')
+    cy.get('@step').should('have.length', 1)
+    cy.get('@step')
+      .find(`.rpl-form__step-count`)
+      .contains(`Step ${current} of ${total}`)
+    cy.get('@step').find(`.rpl-form__step-title`).contains(name)
+  }
+)
+
+Then(
+  'the form progress bar should display the steps',
+  (dataTable: DataTable) => {
+    const table = dataTable.hashes()
+
+    cy.get('.rpl-form__progress .rpl-progress-step').as('steps')
+
+    table.forEach((row, i: number) => {
+      cy.get('@steps')
+        .eq(i)
+        .then((item) => {
+          cy.wrap(item).as('item')
+          cy.get('@item').contains(row.label)
+
+          if (row.status === 'pending') {
+            cy.get('@item').should(
+              'not.have.class',
+              'rpl-progress-step--active'
+            )
+            cy.get('@item').should(
+              'not.have.class',
+              'rpl-progress-step--complete'
+            )
+          }
+          if (row.status === 'active') {
+            cy.get('@item').should('have.class', 'rpl-progress-step--active')
+          }
+          if (row.status === 'complete') {
+            cy.get('@item').should('have.class', 'rpl-progress-step--complete')
+          }
+        })
+    })
+  }
+)
+
+Then('the form progress bar should be hidden', () => {
+  cy.get('.rpl-form__progress').should('not.exist')
+})
+
+Then(
+  'I navigate to the next form step by clicking {string}',
+  (label: string) => {
+    cy.get(`.rpl-form__step-next`).contains(label).click()
+  }
+)
+
+Then(
+  'I navigate to the previous form step by clicking {string}',
+  (label: string) => {
+    cy.get(`.rpl-form__step-prev`).contains(label).click()
+  }
+)
+
+Then('the main form steps container should have focus', () => {
+  cy.get(`.rpl-form__steps`).should('have.focus')
+})
+
+Then(
+  'I should be scrolled to the top of the form step with an offset of {int}',
+  (offset: number) => {
+    cy.window()
+      .its('scrollY')
+      .should('be.closeTo', cy.$$('.rpl-form__steps').offset().top - offset, 1)
+  }
+)
+
+Then(
+  'the steps error summary should display with the following errors',
+  (dataTable: DataTable) => {
+    const table = dataTable.hashes()
+
+    cy.get('[data-component-type="form-error-summary"]').as('summary')
+    cy.get('@summary').should('exist')
+    cy.get('@summary').should('have.focus')
+
+    table.forEach((row, i: number) => {
+      cy.get('@summary')
+        .find('.rpl-form-alert__field-link')
+        .eq(i)
+        .then((item) => {
+          cy.wrap(item).as('item')
+          cy.get('@item').should('contain', row.text)
+          cy.get('@item').should('have.attr', 'href', row.url)
+        })
+    })
+  }
+)
+
+Then(
+  'the form review component should display the following {string}',
+  (key: string, dataTable: DataTable) => {
+    const table = dataTable.hashes()
+
+    cy.get(`.rpl-form-review--${key} table tr`).as('rows')
+
+    table.forEach((row, i: number) => {
+      cy.get('@rows')
+        .eq(i)
+        .then((item) => {
+          cy.wrap(item).as('item')
+          cy.get('@item').find('th').should('contain', row.question)
+          cy.get('@item').find('td:nth-child(2)').should('contain', row.answer)
+          cy.get('@item')
+            .find('td:last-child a')
+            .should('have.attr', 'href', row.link)
+        })
+    })
+  }
+)
+
+Then(
+  'the form review component should not display the following {string}',
+  (key: string, dataTable: DataTable) => {
+    const table = dataTable.hashes()
+
+    cy.get(`.rpl-form-review--${key} table`).as('table')
+
+    table.forEach((row) => {
+      cy.get('@table').then((item) => {
+        cy.wrap(item).as('item')
+
+        cy.get('@item').contains('th', row.question).should('not.exist')
+      })
+    })
+  }
+)
+
+Then(
+  'I edit {string} in the review section for {string}',
+  (field: string, section: string) => {
+    cy.get(`.rpl-form-review--${section} th`).contains(field).as('edit')
+    cy.get('@edit').parent().find('a').click()
+  }
+)
+
+Then('the field labelled {string} should have focus', (label: string) => {
+  cy.contains('.rpl-form-label', label)
+    .invoke('attr', 'for')
+    .then((forId) => {
+      cy.get(`#${forId}`).should('have.focus')
+    })
 })

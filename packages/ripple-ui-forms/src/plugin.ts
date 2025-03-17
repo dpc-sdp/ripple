@@ -18,7 +18,8 @@ import {
   dateRange,
   optionButtons,
   fieldset,
-  hidden
+  hidden,
+  review
 } from './inputs/index'
 
 const rplFormInputs = () => {
@@ -67,6 +68,8 @@ rplFormInputs.library = (node) => {
       return node.define(actions)
     case 'RplFormHidden':
       return node.define(hidden)
+    case 'RplFormReview':
+      return node.define(review)
   }
 }
 

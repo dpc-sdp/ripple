@@ -303,6 +303,12 @@ Given('the content rating form is disabled', () => {
   })
 })
 
+Given('the social share links are enabled', () => {
+  cy.get('@pageFixture').then((response) => {
+    set(response, 'sidebar.socialShareNetworks', ['Facebook', 'X', 'LinkedIn'])
+  })
+})
+
 Given('the site sections share links are set to included WhatsApp', () => {
   cy.get('@pageFixture').then((response) => {
     set(

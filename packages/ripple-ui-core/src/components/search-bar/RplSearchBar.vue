@@ -44,6 +44,7 @@ interface Props {
   showSubmitButton?: boolean
   submitOnClear?: boolean
   submitOnSuggestionOnly?: boolean
+  analyticsName?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -67,7 +68,8 @@ const props = withDefaults(defineProps<Props>(), {
   showClearButton: true,
   showSubmitButton: true,
   submitOnClear: false,
-  submitOnSuggestionOnly: false
+  submitOnSuggestionOnly: false,
+  analyticsName: undefined
 })
 
 type Timer = ReturnType<typeof setTimeout>
@@ -119,7 +121,7 @@ const handleSubmit = (type: 'button' | 'enter') => {
     {
       action: 'search',
       id: props.id,
-      name: props.inputLabel,
+      name: props.analyticsName || props.inputLabel,
       value: internalValue.value,
       text: type === 'button' ? props.submitLabel : null,
       type
@@ -151,7 +153,7 @@ const handleSelectOption = (optionValue: any, focusBackOnInput: boolean) => {
       action: 'search',
       id: props.id,
       text: props.getSuggestionVal(optionValue),
-      name: props.inputLabel,
+      name: props.analyticsName || props.inputLabel,
       value: optionLabel,
       payload: optionValue,
       type: 'suggestion'
@@ -210,7 +212,7 @@ const handleClear = async () => {
         action: 'search',
         id: props.id,
         text: '',
-        name: props.inputLabel,
+        name: props.analyticsName || props.inputLabel,
         value: '',
         payload: null,
         type: 'suggestion'

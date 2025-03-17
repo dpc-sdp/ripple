@@ -13,6 +13,7 @@ interface Props {
   errorMessageHTML: string
   schema?: Array<FormKitSchemaNode>
   captchaConfig?: MappedCaptchaConfig | null
+  hasSidebar?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -21,7 +22,8 @@ const props = withDefaults(defineProps<Props>(), {
   successMessageTitle: 'Form submitted',
   errorMessageTitle: 'Form not submitted',
   schema: undefined,
-  captchaConfig: null
+  captchaConfig: null,
+  hasSidebar: false
 })
 
 const honeypotId = `${props.formId}-important-email`
@@ -114,6 +116,7 @@ customInputs.library = (node: any) => {
         :customInputs="customInputs"
         :schema="schema"
         :submissionState="submissionState as any"
+        :layout="hasSidebar ? 'compact' : 'default'"
         @submit="submitHandler(props, $event.data, captchaWidgetId)"
       >
         <template #belowForm>

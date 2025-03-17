@@ -482,7 +482,8 @@ export default {
         name: payload?.name,
         link_url: payload?.value,
         component: 'rpl-search-result',
-        platform_event: 'navigate'
+        platform_event: 'navigate',
+        mode: payload?.mode
       })
     }
   },
@@ -582,6 +583,8 @@ export default {
         event: `form_start`,
         form_id: payload?.id,
         form_name: payload?.name,
+        form_step: payload?.label,
+        index: payload?.index,
         component: 'rpl-form',
         platform_event: 'start'
       })
@@ -593,6 +596,8 @@ export default {
         event: `form_abandon`,
         form_id: payload?.id,
         form_name: payload?.name,
+        form_step: payload?.label,
+        index: payload?.index,
         component: 'rpl-form',
         platform_event: 'abandon',
         form_data: payload?.value
@@ -607,7 +612,9 @@ export default {
         form_name: payload?.name,
         form_valid: true,
         form_data: payload?.value,
+        form_step: payload?.label,
         element_text: payload?.text,
+        index: payload?.index,
         component: 'rpl-form',
         platform_event: 'submit'
       })
@@ -621,7 +628,9 @@ export default {
         form_name: payload?.name,
         form_valid: false,
         form_data: payload?.value,
+        form_step: payload?.label,
         element_text: payload?.text,
+        index: payload?.index,
         component: 'rpl-form',
         platform_event: 'submit'
       })
@@ -634,9 +643,27 @@ export default {
         form_id: payload?.id,
         form_name: payload?.name,
         form_data: payload?.value,
+        form_step: payload?.label,
         element_text: payload?.text,
+        index: payload?.index,
         component: 'rpl-form',
         platform_event: 'submit'
+      })
+    }
+  },
+  'rpl-form/step': () => {
+    return (payload: any) => {
+      trackEvent({
+        event: `form_step_${payload.action}`,
+        form_id: payload?.id,
+        form_name: payload?.name,
+        form_step: payload?.label,
+        target_form_step: payload?.targetLabel,
+        element_text: payload?.text,
+        index: payload?.index,
+        target_index: payload?.targetIndex,
+        component: 'rpl-form',
+        platform_event: 'step'
       })
     }
   },
@@ -646,6 +673,8 @@ export default {
         event: `${payload.action}_reset_form`,
         form_id: payload?.contextId,
         form_name: payload?.contextName,
+        form_step: payload?.contextStep,
+        index: payload?.contextIndex,
         element_text: payload?.text,
         component: 'rpl-form-actions',
         platform_event: 'resetForm'
@@ -660,6 +689,8 @@ export default {
         form_name: payload?.contextName,
         form_id: payload?.contextId,
         field_id: payload?.id,
+        form_step: payload?.contextStep,
+        index: payload?.contextIndex,
         value: payload?.value,
         type: 'date',
         component: 'rpl-form-date',
@@ -675,6 +706,8 @@ export default {
         form_name: payload?.contextName,
         form_id: payload?.contextId,
         field_id: payload?.id,
+        form_step: payload?.contextStep,
+        index: payload?.contextIndex,
         value: payload?.value,
         type: 'date-range',
         component: 'rpl-form-date-range',
@@ -690,6 +723,8 @@ export default {
         form_name: payload?.contextName,
         form_id: payload?.contextId,
         field_id: payload?.id,
+        form_step: payload?.contextStep,
+        index: payload?.contextIndex,
         value: payload?.value,
         type: 'select',
         component: 'rpl-form-dropdown',
@@ -705,6 +740,8 @@ export default {
         form_name: payload?.contextName,
         form_id: payload?.contextId,
         field_id: payload?.id,
+        form_step: payload?.contextStep,
+        index: payload?.contextIndex,
         value: payload?.value,
         type: 'select',
         component: 'rpl-form-dropdown',
@@ -720,6 +757,8 @@ export default {
         form_name: payload?.contextName,
         form_id: payload?.contextId,
         field_id: payload?.id,
+        form_step: payload?.contextStep,
+        index: payload?.contextIndex,
         type: payload?.type,
         value: payload?.value,
         component: 'rpl-form-input',
@@ -735,6 +774,8 @@ export default {
         form_name: payload?.contextName,
         form_id: payload?.contextId,
         field_id: payload?.id,
+        form_step: payload?.contextStep,
+        index: payload?.contextIndex,
         type: payload?.type,
         value: payload?.value,
         component: 'rpl-form-number',
@@ -750,6 +791,8 @@ export default {
         form_name: payload?.contextName,
         form_id: payload?.contextId,
         field_id: payload?.id,
+        form_step: payload?.contextStep,
+        index: payload?.contextIndex,
         type: payload?.type,
         value: payload?.value,
         component: 'rpl-form-option',
@@ -765,6 +808,8 @@ export default {
         form_name: payload?.contextName,
         form_id: payload?.contextId,
         field_id: payload?.id,
+        form_step: payload?.contextStep,
+        index: payload?.contextIndex,
         value: payload?.value,
         type: 'radio',
         component: 'rpl-form-option-buttons',
@@ -780,6 +825,8 @@ export default {
         form_name: payload?.contextName,
         form_id: payload?.contextId,
         field_id: payload?.id,
+        form_step: payload?.contextStep,
+        index: payload?.contextIndex,
         value: payload?.value,
         type: 'checkbox',
         component: 'rpl-form-checkbox-group',
@@ -795,6 +842,8 @@ export default {
         form_name: payload?.contextName,
         form_id: payload?.contextId,
         field_id: payload?.id,
+        form_step: payload?.contextStep,
+        index: payload?.contextIndex,
         value: payload?.value,
         type: 'radio',
         component: 'rpl-form-radio-group',
@@ -810,6 +859,8 @@ export default {
         form_name: payload?.contextName,
         form_id: payload?.contextId,
         field_id: payload?.id,
+        form_step: payload?.contextStep,
+        index: payload?.contextIndex,
         value: payload?.value,
         type: 'textarea',
         component: 'rpl-form-textarea',
@@ -846,7 +897,8 @@ export default {
         filters: payload?.options,
         count: payload?.value,
         component: `tide-${payload.section || 'search'}`,
-        platform_event: 'search'
+        platform_event: 'search',
+        mode: payload?.mode
       })
     }
   },
@@ -863,7 +915,8 @@ export default {
         count: payload?.value,
         filters: payload?.options,
         component: `tide-${payload.section || 'search'}`,
-        platform_event: 'paginate'
+        platform_event: 'paginate',
+        mode: payload?.mode
       })
     }
   },
@@ -878,7 +931,8 @@ export default {
         form_id: payload?.contextId,
         filters: payload?.options,
         component: `tide-${payload.section || 'search'}`,
-        platform_event: 'toggleFilters'
+        platform_event: 'toggleFilters',
+        mode: payload?.mode
       })
     }
   },
@@ -895,7 +949,8 @@ export default {
         form_id: payload?.contextId,
         filters: payload?.options,
         component: `tide-${payload.section || 'search'}`,
-        platform_event: 'clearQuery'
+        platform_event: 'clearQuery',
+        mode: payload?.mode
       })
     }
   },

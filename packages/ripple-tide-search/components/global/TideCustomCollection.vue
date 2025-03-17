@@ -5,7 +5,10 @@ import {
   getActiveFilterURL,
   ref,
   watch,
-  provide
+  nextTick,
+  provide,
+  onMounted,
+  toRaw
 } from '#imports'
 import { submitForm } from '@formkit/vue'
 import { useBreakpoints, useDebounceFn } from '@vueuse/core'
@@ -18,6 +21,7 @@ import type {
 import { bpMin, useRippleEvent } from '@dpc-sdp/ripple-ui-core'
 import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
 import { get } from 'lodash-es'
+import { useEventContext } from '@dpc-sdp/ripple-ui-core'
 
 interface Props {
   id: string
@@ -243,8 +247,6 @@ const cachedSubmitEvent = ref({})
 // this offset is used to avoid the result count hitting
 // the top of the screen when scrolling to the results
 const scrollTopOffset = 16
-
-provide('eventContext', { name: props?.title })
 
 const baseEvent = () => ({
   contextId: props.id,
@@ -586,6 +588,15 @@ onMounted(() => {
   }
 
   nextTick(() => (filtersMobileClass.value = 'visible'))
+})
+
+const { updateContext } = useEventContext({
+  name: props.title,
+  mode: activeTab
+})
+
+watch(activeTab, (newActiveTab) => {
+  updateContext('mode', newActiveTab)
 })
 </script>
 

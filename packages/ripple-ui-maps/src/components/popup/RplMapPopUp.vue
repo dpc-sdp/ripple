@@ -73,6 +73,8 @@ interface Props {
   pinColor?: string
   type?: 'standalone' | 'popover' | 'sidebar' | 'layerlist'
   mapHeight?: number
+  closeOnClickOutside?: boolean
+  closeOnEscape?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -80,7 +82,9 @@ const props = withDefaults(defineProps<Props>(), {
   isArea: false,
   pinColor: 'green',
   type: 'sidebar',
-  mapHeight: 600
+  mapHeight: 600,
+  closeOnClickOutside: false,
+  closeOnEscape: false
 })
 
 const emit = defineEmits<{
@@ -94,8 +98,13 @@ function onClose() {
   emitRplEvent('close')
 }
 
-onClickOutside(popupEL, onClose)
-onKeyStroke(['Escape'], onClose)
+if (props.closeOnClickOutside) {
+  onClickOutside(popupEL, onClose)
+}
+
+if (props.closeOnEscape) {
+  onKeyStroke(['Escape'], onClose)
+}
 
 const breakpoints = useBreakpoints(bpMin)
 const isLargePlus = breakpoints.greaterOrEqual('l')

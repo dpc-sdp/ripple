@@ -482,7 +482,8 @@ export default {
         name: payload?.name,
         link_url: payload?.value,
         component: 'rpl-search-result',
-        platform_event: 'navigate'
+        platform_event: 'navigate',
+        mode: payload?.mode
       })
     }
   },
@@ -896,7 +897,8 @@ export default {
         filters: payload?.options,
         count: payload?.value,
         component: `tide-${payload.section || 'search'}`,
-        platform_event: 'search'
+        platform_event: 'search',
+        mode: payload?.mode
       })
     }
   },
@@ -913,7 +915,8 @@ export default {
         count: payload?.value,
         filters: payload?.options,
         component: `tide-${payload.section || 'search'}`,
-        platform_event: 'paginate'
+        platform_event: 'paginate',
+        mode: payload?.mode
       })
     }
   },
@@ -928,7 +931,8 @@ export default {
         form_id: payload?.contextId,
         filters: payload?.options,
         component: `tide-${payload.section || 'search'}`,
-        platform_event: 'toggleFilters'
+        platform_event: 'toggleFilters',
+        mode: payload?.mode
       })
     }
   },
@@ -945,7 +949,8 @@ export default {
         form_id: payload?.contextId,
         filters: payload?.options,
         component: `tide-${payload.section || 'search'}`,
-        platform_event: 'clearQuery'
+        platform_event: 'clearQuery',
+        mode: payload?.mode
       })
     }
   }

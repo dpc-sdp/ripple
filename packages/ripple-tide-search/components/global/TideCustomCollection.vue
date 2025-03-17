@@ -4,7 +4,11 @@ import {
   getActiveFiltersTally,
   getActiveFilterURL,
   ref,
-  watch
+  watch,
+  nextTick,
+  provide,
+  onMounted,
+  toRaw
 } from '#imports'
 import { submitForm } from '@formkit/vue'
 import { useBreakpoints, useDebounceFn } from '@vueuse/core'
@@ -17,6 +21,7 @@ import type {
 import { bpMin, useRippleEvent } from '@dpc-sdp/ripple-ui-core'
 import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
 import { get } from 'lodash-es'
+import { useEventContext } from '@dpc-sdp/ripple-ui-core'
 
 interface Props {
   id: string
@@ -582,6 +587,15 @@ onMounted(() => {
   }
 
   nextTick(() => (filtersMobileClass.value = 'visible'))
+})
+
+const { updateContext } = useEventContext({
+  name: props.title,
+  mode: activeTab
+})
+
+watch(activeTab, (newActiveTab) => {
+  updateContext('mode', newActiveTab)
 })
 </script>
 

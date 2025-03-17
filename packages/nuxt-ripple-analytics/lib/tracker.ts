@@ -31,6 +31,7 @@ export interface IRplAnalyticsEventPayload {
   count?: number
   component?: string
   component_options?: string
+  mode?: string
   // Route properties
   status_code?: number
   content_type?: string

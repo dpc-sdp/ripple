@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { provide } from 'vue'
+import useEventContext from '../../composables/useEventContext'
 
 export interface Props {
   id?: string
@@ -13,10 +13,7 @@ const props = withDefaults(defineProps<Props>(), {
   fullWidth: false
 })
 
-provide('eventContext', {
-  id: props?.id,
-  name: props?.title
-})
+useEventContext({ id: props?.id, name: props?.title, mode: '' })
 </script>
 
 <template>

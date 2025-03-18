@@ -1,0 +1,69 @@
+@import '@dpc-sdp/ripple-ui-core/style/breakpoints';
+
+.rpl-form-review {
+  .rpl-table {
+    --local-table-row-background: transparent;
+    --local-table-cell-padding-block: var(--rpl-sp-4);
+    --local-table-cell-padding-inline: var(--rpl-sp-3);
+
+    margin-top: 0;
+    word-break: break-word;
+  }
+
+  tr,
+  th,
+  td {
+    display: block;
+
+    @media (--rpl-bp-m) {
+      display: revert;
+    }
+  }
+
+  tr {
+    padding-block: var(--local-table-cell-padding-block);
+
+    &:first-child {
+      --local-dividing-border: none;
+    }
+
+    @media (--rpl-bp-m) {
+      padding-block: 0;
+    }
+  }
+
+  th,
+  td {
+    padding: 0;
+  }
+
+  .rpl-form-review__question:first-child {
+    padding-left: 0;
+
+    @media (--rpl-bp-m) {
+      width: 35%;
+      padding: var(--local-table-cell-padding-block);
+      padding-left: 0;
+    }
+  }
+
+  .rpl-form-review__answer {
+    padding-top: var(--rpl-sp-1);
+
+    @media (--rpl-bp-m) {
+      padding: var(--local-table-cell-padding-block);
+    }
+  }
+
+  .rpl-form-review__action:last-child {
+    padding-right: 0;
+    padding-top: var(--rpl-sp-2);
+
+    @media (--rpl-bp-m) {
+      width: 20%;
+      text-align: right;
+      padding-top: var(--local-table-cell-padding-block);
+      padding-left: var(--local-table-cell-padding-inline);
+    }
+  }
+}

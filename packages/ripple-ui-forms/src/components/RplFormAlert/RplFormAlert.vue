@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import { useMediaQuery } from '@vueuse/core'
+import useFormFocus from '../../composables/useFormFocus'
 
 interface Props {
   status: 'error' | 'success'
@@ -15,7 +15,7 @@ const props = withDefaults(defineProps<Props>(), {
   fields: () => []
 })
 
-const prefersReducedMotion = useMediaQuery('(prefers-reduced-motion: reduce)')
+const { focusFormElement, scrollToFormElement } = useFormFocus()
 
 const classes = computed(() => {
   return {
@@ -32,52 +32,11 @@ const iconName = computed(() => {
     : 'icon-exclamation-circle-filled'
 })
 
-const scrollToElement = (element) => {
-  if (!element) {
-    return
-  }
-
-  const topOffset = -10
-  const elementYPos =
-    element.getBoundingClientRect().top + window.pageYOffset + topOffset
-
-  window.scrollTo({
-    top: elementYPos,
-    behavior: prefersReducedMotion.value ? 'auto' : 'smooth'
-  })
-}
-
-const handleFieldClick = (fieldId: string) => {
-  const fieldContainerSelector = '.rpl-form__outer'
-
-  // First look for this data attribute which allows inputs to specify exactly which element should be focused
-  let input: HTMLElement = document.querySelector(
-    `[data-rpl-focus-input="${fieldId}"]`
-  )
-
-  // Then fallback to just getting the element by it's id
-  if (!input) {
-    input = document.getElementById(fieldId)
-  }
-
-  if (input) {
-    // Try to get the wrapper of the input as a nicer target for scrolling, otherwise fallback to scrolling to the input itself
-    const container = input.closest(fieldContainerSelector)
-
-    input.focus({ preventScroll: true })
-
-    if (container) {
-      scrollToElement(container)
-    } else {
-      scrollToElement(input)
-    }
-  }
-}
-
 const focus = () => {
   if (containerRef.value) {
     containerRef.value.focus({ preventScroll: true })
-    scrollToElement(containerRef.value)
+
+    scrollToFormElement(containerRef.value)
   }
 }
 
@@ -101,13 +60,13 @@ defineExpose({
         :key="field.fieldId"
         class="rpl-form-alert__field"
       >
-        <RplTextLink
-          class="rpl-form-alert__field-link rpl-type-p"
-          :url="`#${field.fieldId}`"
-          @click.prevent="handleFieldClick(field.fieldId)"
+        <a
+          class="rpl-form-alert__field-link rpl-type-p rpl-text-link rpl-u-focusable-inline"
+          :href="`#${field.fieldId}`"
+          @click.prevent="focusFormElement(field.fieldId)"
         >
           {{ field.text }}
-        </RplTextLink>
+        </a>
       </li>
     </ul>
   </div>

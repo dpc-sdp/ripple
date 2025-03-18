@@ -1,11 +1,12 @@
 import { inject } from 'vue'
 import rplEventBus from './../lib/eventbus'
+import useEventContext from '../composables/useEventContext'
 
 export type rplEventPayload = {
   id?: string
   action?: string
   text?: string
-  label?: string
+  label?: string | string[]
   value?: any
   index?: number
   type?: string
@@ -24,15 +25,15 @@ export type rplEventOptions = {
 
 export function useRippleEvent(namespace: string, emit?: any) {
   const $rplEvent: typeof rplEventBus | undefined = inject('$rplEvent')
-  const eventContext: rplEventPayload = inject('eventContext', {})
+  const { context } = useEventContext()
 
   const emitRplEvent = (
     event: string,
     payload: rplEventPayload = {},
     options: rplEventOptions = {}
   ) => {
-    if (eventContext) {
-      payload = { ...eventContext, ...payload }
+    if (context?.value) {
+      payload = { ...context.value, ...payload }
     }
     if (emit) {
       emit(event, payload)

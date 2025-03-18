@@ -44,6 +44,7 @@ import FormkitInputError from '../components/RplForm/FormkitInputError.vue'
 import FormkitOuter from '../components/RplForm/FormkitOuter.vue'
 import RplFormNumber from '../components/RplFormNumber/RplFormNumber.vue'
 import RplFormHidden from '../components/RplFormHidden/RplFormHidden.vue'
+import RplFormReview from '../components/RplFormReview/RplFormReview.vue'
 
 export const inputLibrary = {
   RplFormInput: markRaw(RplFormInput),
@@ -66,7 +67,8 @@ export const inputLibrary = {
   FormkitInputError: markRaw(FormkitInputError),
   FormkitOuter: markRaw(FormkitOuter),
   RplFormNumber: markRaw(RplFormNumber),
-  RplFormHidden: markRaw(RplFormHidden)
+  RplFormHidden: markRaw(RplFormHidden),
+  RplFormReview: markRaw(RplFormReview)
 }
 
 export const rplFeatures = [

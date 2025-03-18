@@ -34,6 +34,9 @@ Feature: Custom collection map component
     And the map is loaded
     When I click the map component at coordinates 517 242
     When I wait 4 seconds
+    Then the dataLayer should include the following events
+      | event          | name           | label           | mode | component |
+      | map_popup_open | Test map title | Single Pin Test | pin  | rpl-map   |
     Then the map matches the image snapshot "map-popup-type-popover"
 
   @mockserver
@@ -84,6 +87,13 @@ Feature: Custom collection map component
     And the map is loaded
     When I click the map component at coordinates 606 442
     When I wait 4 seconds
+    Then the dataLayer should include the following events
+      | event          | name           | mode    | component |
+      | map_popup_open | Test map title | cluster | rpl-map   |
+    Then the dataLayer event for "map_popup_open" should include the following "label"
+      | value                       |
+      | Double Pin Test - Point One |
+      | Double Pin Test - Point Two |
     Then the map matches the image snapshot "map-popup-type-sidebar-with-sidepanel-double-pin"
 
   @mockserver
@@ -97,6 +107,9 @@ Feature: Custom collection map component
     And the map is loaded
     Given I click the side panel item with text "Single Pin Test"
     When I wait 4 seconds
+    Then the dataLayer should include the following events
+      | event          | name           | label           | mode      | component |
+      | map_popup_open | Test map title | Single Pin Test | sidepanel | rpl-map   |
     Then the map matches the image snapshot "map-sidepanel-item-click"
 
   @mockserver

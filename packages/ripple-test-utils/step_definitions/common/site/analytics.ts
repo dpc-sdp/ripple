@@ -68,6 +68,21 @@ Then(
   }
 )
 
+Then(
+  'the dataLayer event for {string} should include the following {string}',
+  (name: string, key: string, dataTable: DataTable) => {
+    const table = dataTable.hashes()
+
+    cy.window().then((window) => {
+      const event = window.dataLayer?.find((i) => i.event === name)
+
+      table.forEach((row, index) => {
+        expect(event?.[key][index]).to.contain(row.value)
+      })
+    })
+  }
+)
+
 Then('the dataLayer should have the following tags', (dataTable: DataTable) => {
   const table = dataTable.hashes()
 

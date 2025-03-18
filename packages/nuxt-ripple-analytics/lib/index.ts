@@ -953,6 +953,19 @@ export default {
         mode: payload?.mode
       })
     }
+  },
+  // Maps
+  'rpl-map/togglePopup': () => {
+    return (payload: any) => {
+      trackEvent({
+        event: `map_popup_${payload.action}`,
+        label: payload?.label,
+        name: payload?.name,
+        mode: payload?.mode,
+        component: 'rpl-map',
+        platform_event: 'togglePopup'
+      })
+    }
   }
 }
 

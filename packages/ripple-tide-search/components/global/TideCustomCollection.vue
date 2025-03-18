@@ -483,7 +483,8 @@ const rplMapRef = ref(null)
 const popup = ref({
   isOpen: false,
   position: [0, 0],
-  feature: null
+  feature: null,
+  trigger: null
 })
 
 const deadSpace = useMapDeadSpace(

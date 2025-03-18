@@ -107,6 +107,7 @@ const handleSidePanelClick = async (item, activatePin) => {
 
   if (item.props) {
     let coords = null
+    const trigger = 'sidepanel'
 
     if (location) {
       const locationLatLng = location.split(',')
@@ -114,9 +115,10 @@ const handleSidePanelClick = async (item, activatePin) => {
       const lng = parseFloat(locationLatLng[1])
       coords = fromLonLat([lng, lat])
 
-      activatePin(item.props.result, coords)
+      activatePin(item.props.result, coords, null, trigger)
     } else {
       popup.value.feature = [item.props.result]
+      popup.value.tigger = trigger
       popup.value.isOpen = true
       popup.value.isArea = false
       popup.value.position = null

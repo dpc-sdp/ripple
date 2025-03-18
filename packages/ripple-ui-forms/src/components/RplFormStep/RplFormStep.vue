@@ -60,6 +60,7 @@ import {
   getNode
 } from '@formkit/core'
 import useFormFocus from '../../composables/useFormFocus'
+import { useEventContext } from '@dpc-sdp/ripple-ui-core'
 
 interface Props {
   form: string
@@ -95,7 +96,7 @@ const inputErrors: Ref<Record<string, string>> = inject('inputErrors')
 
 const handleBack = () => getNode(props.form)?.previous()
 
-provide('eventContext', {
+useEventContext({
   contextStep: props.title,
   contextIndex: props.number
 })

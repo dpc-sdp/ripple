@@ -28,7 +28,7 @@ const {
 
 const imageSrc = computed(() => {
   const baseUrl = isStatic ? 'images' : ''
-  return `${baseUrl}${props.src.replace(/\/$/, '')}`
+  return `${baseUrl}${props.src?.replace(/\/$/, '')}`
 })
 </script>
 

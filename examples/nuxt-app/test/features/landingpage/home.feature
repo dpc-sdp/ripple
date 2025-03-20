@@ -1,5 +1,4 @@
 Feature: Home page
-
   Example of mocked page
 
   Background:
@@ -47,11 +46,11 @@ Feature: Home page
   @mockserver
   Scenario: In page nav
     Then the in page nav should have the following items
-      | text                 | url                    |
-      | Content Anchor 1     | /#content-anchor-1     |
-      | Content Anchor 2     | /#content-anchor-2     |
-      | Test accordion title | /#test-accordion-title |
-      | Test timeline title  | /#test-timeline-title  |
+      | text                 | url                   |
+      | Content Anchor 1     | #content-anchor-1     |
+      | Content Anchor 2     | #content-anchor-2     |
+      | Test accordion title | #test-accordion-title |
+      | Test timeline title  | #test-timeline-title  |
 
   @mockserver
   Scenario: Header component - Intro banner

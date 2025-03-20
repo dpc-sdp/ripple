@@ -7,8 +7,7 @@ export default defineNuxtConfig({
   modules: [
     '@dpc-sdp/ripple-ui-core/nuxt',
     '@dpc-sdp/ripple-ui-forms/nuxt',
-    '@nuxt/content',
-    '@nuxthq/studio'
+    '@nuxt/content'
   ],
   github: {
     repo: 'dpc-sdp/ripple-framework'

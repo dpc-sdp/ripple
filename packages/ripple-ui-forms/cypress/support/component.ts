@@ -27,6 +27,7 @@ import { plugin, defaultConfig } from '@formkit/vue'
 import { mount } from 'cypress/vue'
 import { h } from 'vue'
 import RplFauxForm from './components/RplFauxForm.vue'
+import { RplButton, RplIcon } from '@dpc-sdp/ripple-ui-core/vue'
 
 Cypress.on('uncaught:exception', (err) => {
   // https://stackoverflow.com/a/50387233 Ignore Resize observer loop
@@ -43,7 +44,8 @@ Cypress.Commands.add('mount', (component, options = {}) => {
     {
       ...options,
       global: {
-        plugins: [[plugin, defaultConfig]]
+        plugins: [[plugin, defaultConfig]],
+        components: { RplButton, RplIcon }
       }
     }
   )

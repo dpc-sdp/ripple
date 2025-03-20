@@ -1,4 +1,4 @@
-import { expect, describe, it } from '@jest/globals'
+import { expect, describe, it } from 'vitest'
 
 import getHierarchicalMenu from './../site-menu'
 import menu_items from './fixtures/menu_items'

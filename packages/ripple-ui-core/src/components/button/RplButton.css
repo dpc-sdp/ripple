@@ -24,6 +24,11 @@
     text-decoration: underline;
   }
 
+  &:disabled {
+    cursor: not-allowed;
+    text-decoration: none;
+  }
+
   @media (--rpl-bp-s) {
     width: auto;
   }
@@ -77,6 +82,10 @@
     &:hover {
       text-decoration: none;
     }
+
+    &:disabled {
+      text-decoration: underline;
+    }
   }
 
   /* stylelint-disable-next-line no-descending-specificity */
@@ -98,7 +107,9 @@
     &.rpl-button--busy {
       color: var(--local-white-type-clr-hover);
     }
+  }
 
+  &--icon-only-small-screens {
     .rpl-button__label {
       display: none;
     }

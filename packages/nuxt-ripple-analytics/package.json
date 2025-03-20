@@ -1,7 +1,7 @@
 {
   "name": "@dpc-sdp/nuxt-ripple-analytics",
   "description": "Nuxt module for handling event tracking.",
-  "version": "2.25.0",
+  "version": "2.28.0",
   "license": "Apache-2.0",
   "main": "./nuxt.config.ts",
   "repository": "https://github.com/dpc-sdp/ripple-framework",

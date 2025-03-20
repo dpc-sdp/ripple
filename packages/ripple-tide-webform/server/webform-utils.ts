@@ -1,4 +1,3 @@
-// @ts-expect-error ts7016 monorepo ref
 import { logger } from '@dpc-sdp/ripple-tide-api'
 import { getConditionals } from './../mapping/webform-conditional-logic'
 import { getValidation } from './../mapping/webform-validation'

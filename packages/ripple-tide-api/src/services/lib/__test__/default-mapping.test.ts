@@ -1,4 +1,4 @@
-import { expect, describe, it } from '@jest/globals'
+import { expect, describe, it } from 'vitest'
 import defaultMapping from './../default-mapping'
 
 const { mapping } = defaultMapping,

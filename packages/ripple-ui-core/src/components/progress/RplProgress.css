@@ -37,7 +37,7 @@
   align-items: flex-start;
   padding-bottom: var(--rpl-sp-5);
 
-  &::after {
+  &::before {
     content: '';
     display: block;
     width: var(--rpl-border-3);
@@ -46,16 +46,15 @@
     top: 16px;
     left: 14px;
     height: 100%;
-    z-index: -1;
   }
 
   &:last-child {
-    &::after {
+    &::before {
       display: none;
     }
   }
 
-  &::before {
+  &::after {
     content: counter(section);
     position: absolute;
     display: inline-flex;
@@ -83,17 +82,17 @@
     font-weight: var(--rpl-type-weight-bold);
   }
 
-  &::before {
+  &::after {
     border-color: var(--rpl-clr-link);
   }
 }
 
 .rpl-progress-step--complete {
-  &::before {
+  &::after {
     display: none;
   }
 
-  &::after {
+  &::before {
     background-color: var(--rpl-clr-link);
   }
 }
@@ -104,6 +103,7 @@
   width: 32px;
   height: 32px;
   background: white;
+  border-radius: 50%;
 
   svg {
     fill: var(--rpl-clr-link);

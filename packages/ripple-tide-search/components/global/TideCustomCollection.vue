@@ -4,7 +4,11 @@ import {
   getActiveFiltersTally,
   getActiveFilterURL,
   ref,
-  watch
+  watch,
+  nextTick,
+  provide,
+  onMounted,
+  toRaw
 } from '#imports'
 import { submitForm } from '@formkit/vue'
 import { useBreakpoints, useDebounceFn } from '@vueuse/core'
@@ -17,6 +21,7 @@ import type {
 import { bpMin, useRippleEvent } from '@dpc-sdp/ripple-ui-core'
 import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
 import { get } from 'lodash-es'
+import { useEventContext } from '@dpc-sdp/ripple-ui-core'
 
 interface Props {
   id: string
@@ -154,6 +159,8 @@ const searchResultsMappingFn = (item): TideSearchListingResultItem => {
     component: itemComponent,
     props: {
       result: {
+        // NOTE: id was added to match the mapResultsMappingFn signature; _id remains for backwards compatibility
+        id: item._id,
         _id: item._id,
         ...transformedItem
       }
@@ -476,7 +483,8 @@ const rplMapRef = ref(null)
 const popup = ref({
   isOpen: false,
   position: [0, 0],
-  feature: null
+  feature: null,
+  trigger: null
 })
 
 const deadSpace = useMapDeadSpace(
@@ -580,6 +588,15 @@ onMounted(() => {
   }
 
   nextTick(() => (filtersMobileClass.value = 'visible'))
+})
+
+const { updateContext } = useEventContext({
+  name: props.title,
+  mode: activeTab
+})
+
+watch(activeTab, (newActiveTab) => {
+  updateContext('mode', newActiveTab)
 })
 </script>
 
@@ -770,7 +787,9 @@ onMounted(() => {
           :results="mapFeatures"
           :areas="mapAreas"
           v-bind="mapConfig?.props"
-          :noresults="!isBusy && !results?.length"
+          :noresults="
+            !searchListingConfig?.disableSearch && !isBusy && !results?.length
+          "
           :hasSidePanel="mapConfig?.sidePanel?.enabled"
           :initialising="!firstLoad"
         >

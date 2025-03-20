@@ -1,4 +1,4 @@
-import { expect, describe, it } from '@jest/globals'
+import { expect, describe, it } from 'vitest'
 
 import { formatDate, distanceAsPercentage } from './helpers.js'
 
@@ -7,6 +7,11 @@ describe('Formatting a date', () => {
 
   it('formats a date', () => {
     expect(formatDate(raw)).toEqual('2 Aug 2024')
+    expect(formatDate('06/22/2025')).toEqual('22 June 2025')
+    expect(formatDate('2024-12-24')).toEqual('24 Dec 2024')
+    expect(formatDate('April 17, 2025')).toEqual('17 Apr 2025')
+    expect(formatDate('December 17, 2024 03:24:00')).toEqual('17 Dec 2024')
+    expect(formatDate(628021800000)).toEqual('26 Nov 1989')
   })
 
   it('accepts custom date options', () => {
@@ -23,6 +28,13 @@ describe('Formatting a date', () => {
         timeStyle: 'short'
       })
     ).toEqual('2 Aug 2024, 8:00 am')
+  })
+
+  it('returns the supplied value if the date is invalid', () => {
+    expect(formatDate('')).toEqual('')
+    expect(formatDate('23/5/2026')).toEqual('23/5/2026')
+    expect(formatDate('20/13/2O26')).toEqual('20/13/2O26')
+    expect(formatDate('June 10th, 2026')).toEqual('June 10th, 2026')
   })
 })
 

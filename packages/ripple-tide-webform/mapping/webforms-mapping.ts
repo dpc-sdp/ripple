@@ -6,6 +6,7 @@ import {
 } from './../server/webform-utils'
 import { getAdvancedAddressMapping } from './webforms-address'
 import type { TideWebformElement, ApiWebForm, ApiPage } from './../types'
+import { useAppConfig } from '#imports'
 
 interface CustomInputsConfig {
   [key: string]: {
@@ -14,8 +15,8 @@ interface CustomInputsConfig {
   }
 }
 
-const appConfig = useAppConfig().ripple as CustomInputsConfig
-const customInputs: CustomInputsConfig = appConfig.customInputs || {}
+const appConfig = useAppConfig()?.ripple as CustomInputsConfig
+const customInputs: CustomInputsConfig = appConfig?.customInputs || {}
 
 export const getFormSchemaFromMapping = async (
   webform: ApiWebForm,
@@ -320,6 +321,14 @@ export const getFormSchemaFromMapping = async (
           ...getValidationAndConditionals(field)
         }
         break
+      case 'webform_review_component':
+        mappedField = {
+          $formkit: 'RplFormReview',
+          title: field['#title'],
+          key: fieldKey,
+          ...getValidationAndConditionals(field)
+        }
+        break
       case 'label':
         mappedField = {
           $formkit: 'RplFormLabel',
@@ -340,6 +349,23 @@ export const getFormSchemaFromMapping = async (
           displayResetButton: !!webform?.settings?.form_reset,
           ...getValidationAndConditionals(field),
           ...getInputIcons(field)
+        }
+        break
+      case 'webform_wizard_page':
+        // eslint-disable-next-line no-case-declarations
+        const subform = webform
+
+        subform.elements = field as unknown as TideWebformElement[]
+
+        mappedField = {
+          $step: true,
+          id: fieldKey,
+          key: fieldKey,
+          name: fieldKey,
+          title: field['#title'],
+          nextButton: field['#next_button_label'],
+          prevButton: field['#prev_button_label'],
+          schema: await getFormSchemaFromMapping(subform, page, tidePageApi)
         }
         break
       default:

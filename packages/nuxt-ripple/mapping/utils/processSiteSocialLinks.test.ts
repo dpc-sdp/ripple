@@ -1,4 +1,4 @@
-import { expect, describe, it } from '@jest/globals'
+import { expect, describe, it } from 'vitest'
 import processSiteSocialLinks, { getIconForUrl } from './processSiteSocialLinks'
 
 // write jest unit tests for the getIconForUrl function

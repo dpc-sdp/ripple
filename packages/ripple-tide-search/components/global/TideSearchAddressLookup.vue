@@ -80,6 +80,9 @@ const { rplMapRef, popup, deadSpace, defaultExtent } = inject('rplMapInstance')
 const pendingZoomAnimation = ref(false)
 
 const handleUpdate = (item) => {
+  // Because this was a user initiated action, we want to animate the zoom
+  pendingZoomAnimation.value = true
+
   emit('update', item || null)
 }
 

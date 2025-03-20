@@ -312,6 +312,10 @@ export interface IRplFeatureFlags {
    */
   breadcrumbsCollapseInnerLinks?: boolean
   /**
+   * @description Remove the content rating form
+   */
+  disableContentRating?: boolean
+  /**
    * @description Custom flags
    */
   [key: string]: any

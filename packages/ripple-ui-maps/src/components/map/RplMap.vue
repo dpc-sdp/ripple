@@ -4,7 +4,7 @@ let mapAccentColor: string = ''
 
 <script setup lang="ts">
 import { RplIcon } from '@dpc-sdp/ripple-ui-core/vue'
-import type { IRplMapFeature } from './../../types'
+import type { IRplMapFeature, IRplMapLayer } from './../../types'
 import {
   onMounted,
   onUnmounted,
@@ -24,10 +24,10 @@ import { asString } from 'ol/color'
 import { fromLonLat } from 'ol/proj'
 import RplMapPopUp from './../popup/RplMapPopUp.vue'
 import RplMapCluster from './../cluster/RplMapCluster.vue'
+import RplMapLayerList from './../layer-list/RplMapLayerList.vue'
 import markerIconDefaultSrc from './../feature-pin/icon-pin.svg?url'
 import markerIconSelectedSrc from './../feature-pin/icon-pin-selected.svg?url'
 import useMapControls from './../../composables/useMapControls.ts'
-
 import {
   getfeaturesAtMapPixel,
   zoomToClusterExtent,
@@ -36,6 +36,8 @@ import {
   areFeaturesCloseTogether,
   getFeaturesCenterPoint
 } from './utils'
+import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
+import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
 
 interface Props {
   features?: IRplMapFeature[]
@@ -50,6 +52,8 @@ interface Props {
   noresults?: boolean
   getFeatureTitle?: (feature: any) => string
   clusteringDistance?: number
+  layerList?: IRplMapLayer[]
+  selectedLayers?: string[]
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -77,8 +81,17 @@ const props = withDefaults(defineProps<Props>(), {
   },
   noresults: false,
   getFeatureTitle: (feature: any) => (feature ? feature.title : ''),
-  clusteringDistance: 120
+  clusteringDistance: 120,
+  layerList: undefined,
+  selectedLayers: () => []
 })
+
+const emit = defineEmits<{
+  (e: 'updateSelectedLayers', payload: [value: string[]]): void
+  (e: 'togglePopup', payload: rplEventPayload & { action: 'open' }): void
+}>()
+
+const { emitRplEvent } = useRippleEvent('rpl-map', emit)
 
 const zoom = ref(props.initialZoom)
 const rotation = ref(0)
@@ -102,7 +115,7 @@ onUnmounted(() => {
   setRplMapRef(null)
 })
 
-const activatePin = (featureProperties, coordinates, zoom) => {
+const activatePin = (featureProperties, coordinates, zoom, trigger = 'pin') => {
   const map = mapRef.value.map
 
   const pinStyle = props.pinStyle(featureProperties)
@@ -111,6 +124,7 @@ const activatePin = (featureProperties, coordinates, zoom) => {
 
   popup.value.feature = [featureProperties]
   popup.value.color = asString(pinColor)
+  popup.value.trigger = trigger
   popup.value.isOpen = true
   popup.value.isArea = false
 
@@ -204,6 +218,7 @@ async function onMapSingleClick(evt) {
           const coords = getFeaturesCenterPoint(point.features)
           popup.value.feature = point.features.map((f) => f.getProperties())
           popup.value.position = coords
+          popup.value.trigger = 'cluster'
           popup.value.isOpen = true
           popup.value.isArea = true
 
@@ -264,8 +279,8 @@ function onMapMove(evt) {
 }
 
 function handleHomeClick() {
-  onHomeClick()
   onPopUpClose()
+  onHomeClick()
 }
 
 const hideNoResults = ref(false)
@@ -280,6 +295,37 @@ watch(
     if (newNoResultsVal === true && hideNoResults.value === true) {
       hideNoResults.value = false
     }
+  }
+)
+
+// watch the popup value and emit an event when it changes
+watch(
+  () => popup.value,
+  (newPopup) => {
+    if (newPopup.isOpen) {
+      let title = popup.value?.title
+      const features = Array.isArray(popup.value?.feature)
+        ? popup.value.feature
+        : [popup.value.feature]
+
+      if (!title) {
+        title = features.map((item: any) => props.getFeatureTitle(item))
+        title = title.length === 1 ? title[0] : title
+      }
+
+      emitRplEvent(
+        'togglePopup',
+        {
+          action: 'open',
+          mode: popup.value?.trigger,
+          label: title
+        },
+        { global: true }
+      )
+    }
+  },
+  {
+    deep: true
   }
 )
 
@@ -299,6 +345,10 @@ const noResultsRef = ref(null)
 const fullScreenLabel = computed(() =>
   isFullScreen.value ? 'Exit full screen' : 'View full screen'
 )
+
+const handleUpdateSelectedLayers = (newSelectedLayers: string[]) => {
+  emit('updateSelectedLayers', newSelectedLayers)
+}
 </script>
 
 <template>
@@ -420,6 +470,14 @@ const fullScreenLabel = computed(() =>
           </RplMapPopUp>
         </ol-overlay>
       </slot>
+
+      <RplMapLayerList
+        v-if="layerList?.length"
+        :layers="layerList"
+        :selectedLayers="selectedLayers"
+        @update="handleUpdateSelectedLayers"
+      />
+
       <div
         v-if="supportsFullScreen"
         class="rpl-map__control rpl-map__control-fullscreen"

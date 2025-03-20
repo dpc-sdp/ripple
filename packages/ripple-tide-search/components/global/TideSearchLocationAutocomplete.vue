@@ -4,7 +4,6 @@
     :inputLabel="label"
     :showLabel="showLabel"
     variant="reverse"
-    :submitLabel="false"
     :inputValue="
       inputValue?.useGeolocation ? userGeolocation || null : inputValue
     "
@@ -18,6 +17,10 @@
     :isBusy="isGettingLocation"
     :isFreeText="false"
     :submitOnClear="true"
+    :iconPosition="iconPosition"
+    :showSubmitButton="showSubmitButton"
+    :submitOnSuggestionOnly="submitOnSuggestionOnly"
+    :analyticsName="context.name"
     @submit="submitAction"
     @update:input-value="onUpdate"
   >
@@ -49,6 +52,7 @@
 import { ref } from '#imports'
 import { useDebounceFn } from '@vueuse/core'
 import { addressResultType } from '../../types'
+import { useEventContext } from '@dpc-sdp/ripple-ui-core'
 
 interface Props {
   inputValue?: any
@@ -74,6 +78,9 @@ interface Props {
     args: Record<string, any>
   }
   showLabel?: boolean
+  iconPosition: 'left' | 'right' | 'none'
+  showSubmitButton: boolean
+  submitOnSuggestionOnly: true
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -86,7 +93,10 @@ const props = withDefaults(defineProps<Props>(), {
   mapResultsFnName: '',
   isGettingLocation: false,
   userGeolocation: null,
-  showLabel: true
+  showLabel: true,
+  iconPosition: 'left',
+  showSubmitButton: false,
+  submitOnSuggestionOnly: true
 })
 
 const results = ref([])
@@ -95,7 +105,7 @@ const emit = defineEmits<{
   (e: 'update', payload: addressResultType): void
 }>()
 
-const pendingZoomAnimation = ref(false)
+const { context } = useEventContext()
 
 async function submitAction(e: any) {
   const item = e.payload
@@ -117,9 +127,6 @@ async function submitAction(e: any) {
   } else {
     emit('update', item || null)
   }
-
-  // Because this was a user initiated action, we want to animate the zoom
-  pendingZoomAnimation.value = true
 }
 
 const fetchSuggestions = async (query: string) => {

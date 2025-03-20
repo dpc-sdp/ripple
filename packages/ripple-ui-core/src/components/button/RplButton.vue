@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { computed, ref, inject, Ref } from 'vue'
-import {
+import { computed, ref, inject, type Ref } from 'vue'
+import type {
   RplButtonElements,
   RplButtonVariants,
   RplButtonThemes,
   RplButtonIconPositions
 } from './constants'
-import { RplIconNames } from '../icon/constants'
+import type { RplIconNames } from '../icon/constants'
 import RplIcon from '../icon/RplIcon.vue'
 import type { IRplFeatureFlags } from '@dpc-sdp/ripple-tide-api/types'
 import RplSpinner from '../spinner/RplSpinner.vue'
@@ -42,8 +42,9 @@ const props = withDefaults(defineProps<Props>(), {
 const buttonTheme = computed(() => {
   if (props.theme) {
     return props.theme
-  } else if (featureFlags && featureFlags.hasOwnProperty('buttonTheme')) {
-    return featureFlags['buttonTheme']
+  }
+  if (featureFlags?.buttonTheme) {
+    return featureFlags.buttonTheme
   }
   return 'default'
 })
@@ -55,7 +56,9 @@ const classes = computed(() => {
     [`rpl-button--${buttonTheme.value}`]: true,
     'rpl-u-focusable-block': true,
     'rpl-button--reverse': props.iconPosition === 'left',
-    'rpl-button--busy': props.busy
+    'rpl-button--busy': props.busy,
+    'rpl-button--icon-only-small-screens':
+      props.variant === 'elevated' && !!props.iconName
   }
 })
 
@@ -87,6 +90,7 @@ const isAnchor = computed(() => props.el === 'a')
       v-if="iconName"
       :name="iconName"
       class="rpl-button__icon"
+      aria-hidden="true"
     ></RplIcon>
   </component>
 </template>

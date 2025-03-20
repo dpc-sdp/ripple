@@ -57,6 +57,10 @@
     cursor: not-allowed;
     color: var(--rpl-clr-neutral-300);
     border-color: var(--rpl-clr-neutral-200);
+
+    &::placeholder {
+      color: var(--rpl-clr-neutral-300);
+    }
   }
 
   &[type='date'] {

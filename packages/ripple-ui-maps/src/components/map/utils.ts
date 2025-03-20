@@ -147,7 +147,8 @@ export const centerMap = (
   position = [0, 0],
   zoom,
   deadSpace,
-  popupType
+  popupType,
+  duration = 1200
 ) => {
   if (!map) {
     return
@@ -178,7 +179,7 @@ export const centerMap = (
 
   view.animate({
     center: offsetCoord,
-    duration: 1200,
+    duration: duration,
     easing: inAndOut,
     zoom: zoom || view.getZoom()
   })

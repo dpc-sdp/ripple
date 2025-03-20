@@ -17,12 +17,14 @@ import {
   FormKitPlugin
 } from '@formkit/core'
 import { getValidationMessages } from '@formkit/validation'
+import { createMultiStepPlugin } from '@formkit/addons'
 import rplFormInputs from '../../plugin'
 import RplFormAlert from '../RplFormAlert/RplFormAlert.vue'
 import { reset } from '@formkit/vue'
 import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
 import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
 import { sanitisePIIFields } from '../../lib/sanitisePII'
+import useFormFocus from '../../composables/useFormFocus'
 
 interface Props {
   id: string
@@ -36,11 +38,18 @@ interface Props {
     message: string
   }
   customInputs?: FormKitPlugin
+  layout?: 'default' | 'compact'
 }
 
 interface CachedError {
   fieldId: string
   text: string
+}
+
+interface StepFormData {
+  [key: string]: {
+    [key: string]: string
+  }
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -64,7 +73,8 @@ const props = withDefaults(defineProps<Props>(), {
     title: '',
     message: ''
   }),
-  customInputs: () => {}
+  customInputs: () => {},
+  layout: 'default'
 })
 
 const emit = defineEmits<{
@@ -72,19 +82,64 @@ const emit = defineEmits<{
   (e: 'invalid', payload: rplEventPayload & { action: 'submit' }): void
   (e: 'submitted', payload: rplEventPayload & { action: 'complete' }): void
   (e: 'start', payload: rplEventPayload): void
+  (
+    e: 'step',
+    payload: rplEventPayload & { action: 'forward' | 'backward' }
+  ): void
 }>()
 
 const { emitRplEvent } = useRippleEvent('rpl-form', emit)
+
+const { focusFormElement } = useFormFocus()
 
 const isFormSubmitting = computed(() => {
   return props.submissionState.status === 'submitting'
 })
 
+const formValues = ref({})
+const stepsRef = ref(null)
 const serverMessageRef = ref(null)
-
 const errorSummaryRef = ref(null)
 const cachedErrors = ref<Record<string, CachedError>>({})
 const submitCounter = ref(0)
+const focusStepField = ref(null)
+const focusStepFromLabel = ref(null)
+const stepsId = `${props.id}-steps`
+
+const formSteps = computed(() => {
+  if (!props.schema || !Array.isArray(props.schema)) return []
+
+  return props.schema.filter((i) => i['$step'])
+})
+const isLastStep = () => {
+  return getNode(stepsId)?.context?.steps?.find((s) => s?.isActiveStep)
+    ?.isLastStep
+}
+const getFormNode = (node?: FormKitNode) => {
+  return formSteps.value.length ? getNode(stepsId) : node || getNode(props.id)
+}
+const getStepEventData = (
+  step: { stepIndex: number; stepName: string } = null
+) => {
+  if (!formSteps.value.length) return {}
+  const steps = getFormNode()?.context?.steps
+
+  return {
+    index: step
+      ? step.stepIndex + 1
+      : steps?.findIndex((s) => s?.isActiveStep) + 1,
+    label: step ? step.stepName : steps?.find((s) => s?.isActiveStep)?.stepName
+  }
+}
+
+// Unfortunately we can't await the step change or use nextTick here as the step field is still hidden directly after nextTick
+// As a workaround we set the field we want to focus then let the step itself handle the focus for this field
+const goToField = (field: string, step = null, label = null) => {
+  focusStepField.value = field
+  focusStepFromLabel.value = label
+
+  return step ? getFormNode()?.goTo(step) : focusFormElement(field)
+}
 
 // Keep track of whether user has changed something in the form
 const formStarted = ref<boolean>(false)
@@ -96,7 +151,8 @@ const tryAbandonForm = () => {
       {
         id: props.id,
         name: props.title,
-        value: sanitisePIIFields(getNode(props.id))
+        value: sanitisePIIFields(getFormNode()),
+        ...getStepEventData()
       },
       { global: true }
     )
@@ -112,7 +168,16 @@ const onFormReset = () => {
   tryAbandonForm()
 }
 
-provide('form', { id: props.id, name: props.title })
+provide('form', {
+  id: props.id,
+  name: props.title,
+  schema: props.schema,
+  values: formValues,
+  multiStep: formSteps.value.length,
+  focusStepField,
+  goToField,
+  stepsId
+})
 provide('isFormSubmitting', isFormSubmitting)
 // submitCounter is watched by some components to efficiently know when to update
 provide('submitCounter', submitCounter)
@@ -121,28 +186,7 @@ provide('onFormReset', onFormReset)
 const submitLabel =
   props.schema?.find((field) => field?.key === 'actions')?.label || 'Submit'
 
-const submitHandler = (form, node: FormKitNode) => {
-  // Reset the error summary as it is not reactive
-  cachedErrors.value = {}
-  submitCounter.value = 0
-
-  emitRplEvent(
-    'submit',
-    {
-      data: form,
-      id: props.id,
-      name: props.title,
-      action: 'submit',
-      text: submitLabel,
-      value: sanitisePIIFields(node)
-    },
-    { global: true }
-  )
-}
-
-const submitInvalidHandler = async (node: FormKitNode) => {
-  submitCounter.value = submitCounter.value + 1
-
+const getErrorMessages = (node: FormKitNode) => {
   const validations = getValidationMessages(node)
 
   const cachedErrorsMap = {}
@@ -157,7 +201,57 @@ const submitInvalidHandler = async (node: FormKitNode) => {
     }))[0]
   })
 
-  cachedErrors.value = cachedErrorsMap
+  return cachedErrorsMap
+}
+
+const submitHandler = (form, node: FormKitNode) => {
+  // If a user hits enter within a form field in a multistep form
+  // we check if in there's a next step and if so navigate to that instead of submitting
+  if (formSteps.value.length && !isLastStep()) {
+    return getNode(stepsId)?.next()
+  }
+
+  // Reset the error summary as it is not reactive
+  cachedErrors.value = {}
+  submitCounter.value = 0
+
+  // Steps are nested so we need to flatten them data before submission
+  if (formSteps.value.length) {
+    const formSteps: StepFormData = form?.[stepsId] || {}
+
+    form = Object.values(formSteps).reduce(
+      (acc, step) => ({ ...acc, ...step }),
+      {}
+    )
+
+    node = getNode(stepsId)
+  }
+
+  emitRplEvent(
+    'submit',
+    {
+      data: form,
+      id: props.id,
+      name: props.title,
+      action: 'submit',
+      text: submitLabel,
+      value: sanitisePIIFields(node),
+      ...getStepEventData()
+    },
+    { global: true }
+  )
+}
+
+const submitInvalidHandler = async (node: FormKitNode) => {
+  // If a user hits enter within a form field in a multistep form
+  // we check if in there's a next step and if so navigate to that instead of submitting
+  if (formSteps.value.length && !isLastStep()) {
+    return getNode(stepsId)?.next()
+  }
+
+  submitCounter.value = submitCounter.value + 1
+
+  cachedErrors.value = getErrorMessages(node)
 
   emitRplEvent(
     'invalid',
@@ -166,7 +260,8 @@ const submitInvalidHandler = async (node: FormKitNode) => {
       action: 'submit',
       name: props.title,
       text: submitLabel,
-      value: sanitisePIIFields(node)
+      value: sanitisePIIFields(getFormNode(node)),
+      ...getStepEventData()
     },
     { global: true }
   )
@@ -223,7 +318,8 @@ watch(
             action: 'complete',
             name: props.title,
             text: submitLabel,
-            value: sanitisePIIFields(getNode(props.id))
+            value: sanitisePIIFields(getFormNode()),
+            ...getStepEventData()
           },
           { global: true }
         )
@@ -231,12 +327,17 @@ watch(
         formStarted.value = false
 
         reset(props.id)
+
+        if (formSteps.value.length) {
+          getNode(stepsId)?.goTo(formSteps.value[0]?.id)
+        }
       }
     }
   }
 )
 
-const handleInput = () => {
+const handleInput = (values: any) => {
+  formValues.value = values
   // 'Form start' analytics event, fires on first change of the form
   if (!formStarted.value) {
     formStarted.value = true
@@ -245,11 +346,67 @@ const handleInput = () => {
       'start',
       {
         id: props.id,
-        name: props.title
+        name: props.title,
+        ...getStepEventData()
       },
       { global: true }
     )
   }
+}
+
+const emitStepChange = (currentStep, targetStep, forwards) => {
+  const elementText = forwards
+    ? currentStep.nextLabel
+    : currentStep.previousLabel
+
+  emitRplEvent(
+    'step',
+    {
+      id: props.id,
+      name: props.title,
+      action: forwards ? 'forward' : 'backward',
+      text: focusStepFromLabel.value || elementText,
+      targetIndex: targetStep.stepIndex + 1,
+      targetLabel: targetStep.stepName,
+      ...getStepEventData(currentStep)
+    },
+    { global: true }
+  )
+
+  focusStepFromLabel.value = null
+}
+
+const handleStepChange = async ({ currentStep, delta, targetStep }) => {
+  const forwards = delta > 0
+  let isStepValid = currentStep.isValid
+
+  cachedErrors.value = {}
+
+  // Going backwards is always allowed
+  if (!forwards) {
+    isStepValid = true
+  }
+
+  // Always focus the next step and increment the counter
+  // except after submission, then the alert is focused instead
+  if ((submitCounter.value !== 0 || forwards) && !focusStepField.value) {
+    await nextTick()
+    if (stepsRef.value) {
+      stepsRef.value.focus()
+    }
+    submitCounter.value = submitCounter.value + 1
+  }
+
+  // Get the current steps errors when it's invalid, and we're trying to proceed
+  if (!currentStep.isValid && forwards) {
+    cachedErrors.value = getErrorMessages(getNode(currentStep.id))
+  }
+
+  if (isStepValid) {
+    emitStepChange(currentStep, targetStep, forwards)
+  }
+
+  return isStepValid
 }
 
 onBeforeUnmount(() => {
@@ -294,10 +451,20 @@ const data = reactive({
 
 const plugins = computed(
   () =>
-    [rplFormInputs, props.customInputs ? props.customInputs : false].filter(
-      Boolean
-    ) as FormKitPlugin[]
+    [
+      rplFormInputs,
+      createMultiStepPlugin(),
+      props.customInputs ? props.customInputs : false
+    ].filter(Boolean) as FormKitPlugin[]
 )
+
+const formClasses = computed(() => {
+  return {
+    'rpl-form': true,
+    [`rpl-form--${props.layout}`]: true,
+    'rpl-form--multi-step': formSteps.value.length
+  }
+})
 </script>
 
 <template>
@@ -307,51 +474,57 @@ const plugins = computed(
     :name="id"
     type="form"
     :plugins="plugins"
-    form-class="rpl-form"
+    :form-class="formClasses"
     :config="rplFormConfig"
     :actions="false"
     :inputErrors="inputErrors"
+    :disabled="isFormSubmitting"
     novalidate
     @submit-invalid="submitInvalidHandler"
     @submit="submitHandler"
     @input="handleInput"
   >
-    <fieldset
-      class="rpl-form__submit-guard"
-      :disabled="submissionState.status === 'submitting'"
+    <RplFormAlert
+      v-if="
+        errorSummaryMessages && errorSummaryMessages.length && !formSteps.length
+      "
+      ref="errorSummaryRef"
+      status="error"
+      title="Form not submitted"
+      :fields="errorSummaryMessages"
+      data-component-type="form-error-summary"
+    />
+    <RplFormAlert
+      v-else-if="
+        (submissionState.status === 'error' ||
+          submissionState.status === 'success') &&
+        submitCounter === 0
+      "
+      ref="serverMessageRef"
+      :status="submissionState.status"
+      :title="submissionState.title"
+      data-component-type="form-server-message"
     >
-      <RplFormAlert
-        v-if="errorSummaryMessages && errorSummaryMessages.length"
-        ref="errorSummaryRef"
-        status="error"
-        title="Form not submitted"
-        :fields="errorSummaryMessages"
-        data-component-type="form-error-summary"
+      <template #default>
+        <RplContent :html="submissionState.message" />
+      </template>
+    </RplFormAlert>
+    <slot name="aboveForm"></slot>
+    <slot :value="value">
+      <RplFormSteps
+        v-if="formSteps.length"
+        :id="stepsId"
+        ref="stepsRef"
+        :data="data"
+        :schema="formSteps"
+        :errors="errorSummaryMessages"
+        :disabled="isFormSubmitting"
+        :handle-step-change="handleStepChange"
+        :layout="layout"
       />
-      <RplFormAlert
-        v-else-if="
-          submissionState.status === 'error' ||
-          submissionState.status === 'success'
-        "
-        ref="serverMessageRef"
-        :status="submissionState.status"
-        :title="submissionState.title"
-        data-component-type="form-server-message"
-      >
-        <template #default>
-          <RplContent :html="submissionState.message" />
-        </template>
-      </RplFormAlert>
-      <slot name="aboveForm"></slot>
-      <slot :value="value">
-        <FormKitSchema
-          v-if="schema"
-          :schema="schema"
-          :data="data"
-        ></FormKitSchema>
-      </slot>
-      <slot name="belowForm" :value="value"></slot>
-    </fieldset>
+      <FormKitSchema v-else-if="schema" :schema="schema" :data="data" />
+    </slot>
+    <slot name="belowForm" :value="value"></slot>
   </FormKit>
 </template>
 

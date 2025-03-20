@@ -47,6 +47,16 @@ Then('the hero should display the following items', (dataTable: DataTable) => {
   })
 })
 
+Then('the hero top corner graphic should be {string}', (image: string) => {
+  if (image === 'default') {
+    cy.get(`.rpl-header-graphic--top svg`).should('exist')
+  } else {
+    cy.get(`.rpl-header-graphic--top img`)
+      .should('have.attr', 'src')
+      .and('contain', image)
+  }
+})
+
 Then(
   'the {string} campaign title should be {string}',
   (campaign: string, title: string) => {

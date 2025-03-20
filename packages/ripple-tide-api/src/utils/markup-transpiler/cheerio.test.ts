@@ -1,5 +1,10 @@
-import { expect, describe } from '@jest/globals'
+import { expect, describe, it, vi } from 'vitest'
 import markupTranspiler from './index'
+
+vi.stubEnv(
+  'NUXT_PUBLIC_TIDE_BASE_URL',
+  'https://develop.content.reference.sdp.vic.gov.au/'
+)
 
 const markup = {
   table: `<table>

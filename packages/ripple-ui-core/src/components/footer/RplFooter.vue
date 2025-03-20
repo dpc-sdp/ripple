@@ -239,12 +239,12 @@ const handleClick = (link) => {
             v-if="!disableFooterLogo"
             class="rpl-footer-logo-link rpl-u-focusable-outline rpl-u-focusable-outline--no-border rpl-u-focusable--alt-colour"
             :url="vicGovHomeUrl"
+            :aria-label="vicGovHomeLabel"
             @click="
               () => handleClick({ url: vicGovHomeUrl, text: vicGovHomeLabel })
             "
           >
-            <span class="rpl-u-visually-hidden">{{ vicGovHomeLabel }}</span>
-            <VicGovLogo class="rpl-footer-vic-gov-logo" />
+            <VicGovLogo class="rpl-footer-vic-gov-logo" aria-hidden="true" />
           </RplLink>
         </div>
       </div>

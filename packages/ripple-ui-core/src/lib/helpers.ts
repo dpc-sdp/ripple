@@ -12,8 +12,12 @@ export const distanceAsPercentage = (point: number, total: number): number => {
 export const formatDate = (
   value: string | number | Date,
   options: Intl.DateTimeFormatOptions | undefined = undefined
-): string => {
+): string | number | Date => {
   const date = new Date(value)
+
+  if (Number.isNaN(date.valueOf())) {
+    return value
+  }
 
   const defaultOptions: Intl.DateTimeFormatOptions = {
     dateStyle: 'medium',

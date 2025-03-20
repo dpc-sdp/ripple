@@ -19,9 +19,9 @@ to: package.json
     "@dpc-sdp/nuxt-ripple": "<%= rplVersion %>",
     "@dpc-sdp/nuxt-ripple-analytics": "<%= rplVersion %>",
     "@dpc-sdp/nuxt-ripple-preview": "<%= rplVersion %>",
-    "@dpc-sdp/ripple-sdp-core": "<%= rplVersion %>",    
+    "@dpc-sdp/ripple-sdp-core": "<%= rplVersion %>",
     "eslint": "^8.28.0",
-    "nuxt": "3.13.2"
+    "nuxt": "^3.16.1"
   },
   "engines": {
     "node": "^18.15.0 || ^20.9.0",

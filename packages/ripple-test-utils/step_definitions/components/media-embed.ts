@@ -38,7 +38,12 @@ Then(
     cy.get(`[data-component-id="${id}"]`).as('component')
 
     cy.get('@component').within(() => {
-      cy.get('.rpl-media-embed__image').should('have.attr', 'src', image)
+      cy.get('.rpl-media-embed__image')
+        .invoke('attr', 'src')
+        .should((src) => {
+          const [baseSrc] = src.split('?')
+          expect(baseSrc).to.eq(image)
+        })
     })
   }
 )

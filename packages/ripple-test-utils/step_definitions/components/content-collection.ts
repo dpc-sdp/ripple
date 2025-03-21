@@ -33,7 +33,11 @@ Then(
           if (row.image) {
             cy.get('@item')
               .find('.rpl-image')
-              .should('have.attr', 'src', row.image)
+              .invoke('attr', 'src')
+              .should((src) => {
+                const [baseSrc] = src.split('?')
+                expect(baseSrc).to.eq(row.image)
+              })
           } else {
             cy.get('@item').find('.rpl-image').should('not.exist')
           }

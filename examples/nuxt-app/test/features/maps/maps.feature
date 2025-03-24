@@ -185,7 +185,6 @@ Feature: Custom collection map component
     When I visit the page "/map"
     Then the map height is 606
 
-  @focus
   @mockserver
   Scenario: Clicking a result link fires the click_search_result event
     Given I load the page fixture with "/maps/basic-page"

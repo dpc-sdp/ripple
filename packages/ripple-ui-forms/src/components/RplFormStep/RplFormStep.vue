@@ -53,10 +53,10 @@
 </template>
 
 <script setup lang="ts">
-import { inject, nextTick, provide, Ref, ref, watch } from 'vue'
+import { inject, nextTick, type Ref, ref, watch } from 'vue'
 import {
-  FormKitSchemaCondition,
-  FormKitSchemaNode,
+  type FormKitSchemaCondition,
+  type FormKitSchemaNode,
   getNode
 } from '@formkit/core'
 import useFormFocus from '../../composables/useFormFocus'
@@ -89,7 +89,7 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 const { focusFormElement } = useFormFocus()
-const form: { focusStepField: Ref<string> } = inject('form')
+const formEl: { focusStepField: Ref<string> } = inject('form')
 
 const stepErrorsRef = ref(null)
 const inputErrors: Ref<Record<string, string>> = inject('inputErrors')
@@ -117,12 +117,12 @@ watch(
 watch(
   () => props.activeStep,
   async (newStep) => {
-    if (newStep === props.name && form.focusStepField.value) {
+    if (newStep === props.name && formEl.focusStepField.value) {
       await nextTick()
 
-      focusFormElement(form.focusStepField.value)
+      focusFormElement(formEl.focusStepField.value)
 
-      form.focusStepField.value = null
+      formEl.focusStepField.value = null
     }
   }
 )

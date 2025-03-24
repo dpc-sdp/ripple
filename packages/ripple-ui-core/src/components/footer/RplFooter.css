@@ -111,8 +111,7 @@
 .rpl-footer-core-links {
   display: flex;
   flex-wrap: wrap;
-  row-gap: var(--rpl-sp-2);
-  column-gap: var(--rpl-sp-5);
+  gap: var(--rpl-sp-2) var(--rpl-sp-5);
   margin-bottom: var(--rpl-sp-2);
 
   .rpl-text-link:active {

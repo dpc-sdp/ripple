@@ -15,6 +15,7 @@ export default defineNuxtConfig({
       }
     }
   },
+
   // See https://nuxt.com/docs/getting-started/layers - each content type is a added as a Nuxt layer
   extends: [
     '@dpc-sdp/nuxt-ripple',
@@ -28,11 +29,14 @@ export default defineNuxtConfig({
     './layers/ripple-ui-forms-ext',
     './layers/example-data-driven-component'
   ],
+
   // Nuxt devtools
   sourcemap: true,
+
   devtools: {
     enabled: false
   },
+
   // Vite HMR temporary fix - see https://github.com/nuxt/nuxt/discussions/27779
   vite: {
     server: {
@@ -40,5 +44,7 @@ export default defineNuxtConfig({
         clientPort: 3000
       }
     }
-  }
+  },
+
+  compatibilityDate: '2025-03-20'
 })

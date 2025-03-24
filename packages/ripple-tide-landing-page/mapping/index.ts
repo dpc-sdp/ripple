@@ -89,5 +89,6 @@ export default tideLandingPageModule
 export {
   secondaryCampaignIncludes,
   secondaryCampaignMapping,
-  heroHeaderMapping
+  heroHeaderMapping,
+  heroHeaderIncludes
 }

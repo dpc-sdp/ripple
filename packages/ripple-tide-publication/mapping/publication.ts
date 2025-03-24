@@ -4,7 +4,10 @@ import {
   tidePageBaseIncludes
 } from '@dpc-sdp/nuxt-ripple/mapping'
 import type { IRplTideModuleMapping } from '@dpc-sdp/ripple-tide-api/types'
-import { heroHeaderMapping } from '@dpc-sdp/ripple-tide-landing-page/mapping'
+import {
+  heroHeaderMapping,
+  heroHeaderIncludes
+} from '@dpc-sdp/ripple-tide-landing-page/mapping'
 
 const chapters = (src: string) =>
   getField(src, 'publication_children')
@@ -72,6 +75,7 @@ const tidePublicationModule: IRplTideModuleMapping = {
       withSidebarRelatedLinks: true,
       withSidebarSocialShare: true
     }),
+    ...heroHeaderIncludes,
     'field_node_documents.field_media_file',
     'field_landing_page_contact.field_paragraph_phones',
     'field_landing_page_contact.field_paragraph_social_media',

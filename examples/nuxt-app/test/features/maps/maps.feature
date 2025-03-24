@@ -185,6 +185,7 @@ Feature: Custom collection map component
     When I visit the page "/map"
     Then the map height is 606
 
+  @focus
   @mockserver
   Scenario: Clicking a result link fires the click_search_result event
     Given I load the page fixture with "/maps/basic-page"
@@ -195,8 +196,8 @@ Feature: Custom collection map component
     Then the list view should be displayed
     When I click the link in the list view with label "Blue Pin"
     Then the dataLayer should include the following events
-      | event               | name           | mode    | component         | platform_event | index | count | element_text | element_id     | link_url                                  | filters           | label        |
-      | click_search_result | Test map title | listing | rpl-search-result | navigate       | 3     | 2159  | Blue Pin     | test-map-title | http://localhost:3000/site-622/aaa-school | category=Planning | testQuery123 |
+      | event               | name           | mode    | component         | platform_event | index | count | element_text | element_id     | link_url             | filters           | label        |
+      | click_search_result | Test map title | listing | rpl-search-result | navigate       | 3     | 2159  | Blue Pin     | test-map-title | /site-622/aaa-school | category=Planning | testQuery123 |
 
   @mockserver
   Scenario: Viewing results fires the view_search_results event

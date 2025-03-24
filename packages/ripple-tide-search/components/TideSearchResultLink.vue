@@ -28,7 +28,7 @@ const handleClick = () => {
 </script>
 
 <template>
-  <RplTextLink @click="handleClick">
+  <RplTextLink @click="handleClick" :url="url">
     <slot />
   </RplTextLink>
 </template>

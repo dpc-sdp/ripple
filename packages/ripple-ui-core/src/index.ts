@@ -1,5 +1,6 @@
 export { default as rplEventBus } from './lib/eventbus'
 export { useAccessibleContainer } from './composables/useAccessibleContainer'
+export { useSlotContent } from './composables/useSlotContent'
 export { formatDateRange } from './lib/formatDateRange'
 export { bpMin } from './lib/breakpoints'
 export { isExternalUrl } from './utils/isExternalUrl'

@@ -1,18 +1,18 @@
 <script setup lang="ts">
-import { useSlots } from 'vue'
-import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
+import { useRippleEvent, useSlotContent } from '@dpc-sdp/ripple-ui-core'
 
 interface Props {
   url: string
+  text?: string
 }
 
-const props = withDefaults(defineProps<Props>(), {})
+const props = withDefaults(defineProps<Props>(), { text: '' })
 
 const emit = defineEmits<{}>()
 
 const { emitRplEvent } = useRippleEvent('rpl-search-result', emit)
 
-const slots = useSlots()
+const slotText = useSlotContent()
 
 const handleClick = () => {
   emitRplEvent(
@@ -20,7 +20,7 @@ const handleClick = () => {
     {
       action: 'click',
       value: props?.url,
-      text: slots.default()[0].children
+      text: slotText || props.text
     },
     { global: true }
   )
@@ -28,7 +28,7 @@ const handleClick = () => {
 </script>
 
 <template>
-  <RplTextLink @click="handleClick" :url="url">
+  <RplTextLink :url="url" :text="text" @click="handleClick">
     <slot />
   </RplTextLink>
 </template>

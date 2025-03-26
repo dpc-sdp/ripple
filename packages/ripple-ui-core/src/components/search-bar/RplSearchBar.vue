@@ -386,7 +386,7 @@ const slug = (label: string) => {
           :placeholder="placeholder"
           role="combobox"
           class="rpl-search-bar__input"
-          type="search"
+          type="text"
           @input="handleInputChange"
           @focus="handleOpen(false)"
           @blur="handleBlur()"

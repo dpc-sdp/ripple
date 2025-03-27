@@ -62,9 +62,7 @@ export default class HttpClient {
           this.logger.error(
             `${error.request.method?.toUpperCase()} request failed with status ${
               error.response?.status
-            } - ${error.response?.statusText}: ${error.config?.baseURL}${
-              error.request.path
-            }`,
+            } - ${error.response?.statusText}: ${error.request.protocol}://${error.request.host}${error.request.path}`,
             {
               label: this.logLabel,
               // _logId is a custom property added by us https://github.com/axios/axios/issues/2203

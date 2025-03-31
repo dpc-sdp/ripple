@@ -184,3 +184,42 @@ Feature: Custom collection map component
     Then the page endpoint for path "/map" returns the loaded fixture
     When I visit the page "/map"
     Then the map height is 606
+
+  @mockserver
+  Scenario: Clicking a result link fires the click_search_result event
+    Given I load the page fixture with "/maps/basic-page"
+    Given the popup type is "popover"
+    Given the page endpoint for path "/map" returns the loaded fixture
+    Given the "/api/tide/elasticsearch/elasticsearch_index_develop_node/_search" network request is stubbed with fixture "/maps/simple-map-results" and status 200 as alias "searchReq"
+    Given I visit the page "/map?location[name]=testQuery123&activeTab=listing&page=3&category=Planning"
+    Then the list view should be displayed
+    When I click the link in the list view with label "Blue Pin"
+    Then the dataLayer should include the following events
+      | event               | name           | mode    | component         | platform_event | index | count | element_text | element_id     | link_url             | filters           | label        |
+      | click_search_result | Test map title | listing | rpl-search-result | navigate       | 3     | 2159  | Blue Pin     | test-map-title | /site-622/aaa-school | category=Planning | testQuery123 |
+
+  @mockserver
+  Scenario: Viewing results fires the view_search_results event
+    Given I load the page fixture with "/maps/basic-page"
+    Given the popup type is "popover"
+    Given the page endpoint for path "/map" returns the loaded fixture
+    Given the "/api/tide/elasticsearch/elasticsearch_index_develop_node/_search" network request is stubbed with fixture "/maps/simple-map-results" and status 200 as alias "searchReq"
+    Given I visit the page "/map?location[name]=testQuery123&activeTab=listing&page=3&category=Planning"
+    Then the list view should be displayed
+    And the dataLayer should include the following events
+      | event               | name           | mode    | component              | platform_event | index | count | element_id     | filters           | label        |
+      | view_search_results | Test map title | listing | tide-custom-collection | search         | 3     | 2159  | test-map-title | category=Planning | testQuery123 |
+
+  @mockserver
+  Scenario: Switching tabs fires the select_tab event
+    Given I load the page fixture with "/maps/basic-page"
+    Given the popup type is "popover"
+    Given the page endpoint for path "/map" returns the loaded fixture
+    Given the "/api/tide/elasticsearch/elasticsearch_index_develop_node/_search" network request is stubbed with fixture "/maps/simple-map-results" and status 200 as alias "searchReq"
+    And I visit the page "/map?location[name]=testQuery123&activeTab=map&page=3&category=Planning"
+    And the map is loaded
+    And I click the tab labelled "List"
+    Then the list view should be displayed
+    And the dataLayer should include the following events
+      | event      | name           | component | platform_event | element_id | element_text |
+      | select_tab | Test map title | rpl-tabs  | toggleTab      | listing    | List         |

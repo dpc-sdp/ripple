@@ -18,10 +18,9 @@ import type {
   TideSearchListingTab,
   TideSearchListingConfig
 } from './../../types'
-import { bpMin, useRippleEvent } from '@dpc-sdp/ripple-ui-core'
+import { bpMin, useRippleEvent, useEventContext } from '@dpc-sdp/ripple-ui-core'
 import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
 import { get } from 'lodash-es'
-import { useEventContext } from '@dpc-sdp/ripple-ui-core'
 
 interface Props {
   id: string
@@ -248,16 +247,19 @@ const cachedSubmitEvent = ref({})
 // the top of the screen when scrolling to the results
 const scrollTopOffset = 16
 
-const baseEvent = () => ({
-  contextId: props.id,
-  name: props.title,
-  index: page.value,
-  label: props.locationQueryConfig?.component
-    ? locationOrGeolocation.value?.name
-    : searchTerm.value.q,
-  value: totalResults.value,
-  options: getActiveFilterURL(filterForm.value),
-  section: 'custom-collection'
+const baseEvent = computed(() => {
+  return {
+    section: 'custom-collection',
+    contextId: props.id,
+    name: props.title,
+    index: page.value,
+    label: props.locationQueryConfig?.component
+      ? locationOrGeolocation.value?.name
+      : searchTerm.value.q,
+    count: totalResults.value,
+    options: getActiveFilterURL(filterForm.value),
+    mode: activeTab.value
+  }
 })
 
 // Updates filter options with aggregation value
@@ -344,7 +346,7 @@ const emitSearchEvent = (event) => {
     'submit',
     {
       ...event,
-      ...baseEvent(),
+      ...baseEvent.value,
       action: 'search'
     },
     { global: true }
@@ -368,7 +370,7 @@ const handleSearchSubmit = (event) => {
     if (event?.type === 'button') {
       scrollToResults(resultsContainer.value, scrollTopOffset)
     }
-    emitSearchEvent({ ...event, ...baseEvent() })
+    emitSearchEvent({ ...event, ...baseEvent.value })
   }
 }
 
@@ -384,7 +386,11 @@ const handleFilterSubmit = (event) => {
     scrollToResults(resultsContainer.value, scrollTopOffset)
   }
 
-  emitSearchEvent({ ...event, ...cachedSubmitEvent.value, ...baseEvent() })
+  emitSearchEvent({
+    ...event,
+    ...cachedSubmitEvent.value,
+    ...baseEvent.value
+  })
 
   cachedSubmitEvent.value = {}
 }
@@ -394,7 +400,7 @@ const handleFilterReset = (event: rplEventPayload) => {
     'reset',
     {
       ...event,
-      ...baseEvent(),
+      ...baseEvent.value,
       action: 'clear_search'
     },
     { global: true }
@@ -440,7 +446,7 @@ const handlePageChange = (event) => {
     'paginate',
     {
       ...event,
-      ...baseEvent(),
+      ...baseEvent.value,
       index: event.value
     },
     { global: true }
@@ -457,7 +463,7 @@ const handleToggleFilters = (event: rplEventPayload) => {
   emitRplEvent(
     'toggleFilters',
     {
-      ...baseEvent(),
+      ...baseEvent.value,
       ...event,
       action: filtersExpanded.value ? 'open' : 'close'
     },
@@ -572,7 +578,7 @@ watch(
       emitRplEvent(
         'results',
         {
-          ...baseEvent(),
+          ...baseEvent.value,
           action: 'view'
         },
         { global: true }
@@ -591,12 +597,13 @@ onMounted(() => {
 })
 
 const { updateContext } = useEventContext({
-  name: props.title,
-  mode: activeTab
+  ...baseEvent.value
 })
 
-watch(activeTab, (newActiveTab) => {
-  updateContext('mode', newActiveTab)
+watch(baseEvent, (newBaseEvent) => {
+  for (const key in newBaseEvent) {
+    updateContext(key, newBaseEvent[key])
+  }
 })
 </script>
 

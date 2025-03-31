@@ -23,13 +23,13 @@
     "@storybook/addon-links": "^7.6.10",
     "@storybook/blocks": "^7.6.10",
     "@storybook/jest": "^0.2.2",
-    "@storybook/test-runner": "^0.17.0",
+    "@storybook/test-runner": "0.16.0",
     "@storybook/testing-library": "^0.2.0",
     "@storybook/vue3": "^7.6.10",
     "@storybook/vue3-vite": "^7.6.10",
     "http-server": "^14.1.1",
     "jest-axe": "^8.0.0",
-    "storybook": "^7.6.10",
+    "storybook": "^7.6.20",
     "wait-on": "^7.2.0"
   },
   "dependencies": {

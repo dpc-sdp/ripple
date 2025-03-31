@@ -24,9 +24,24 @@
   "status": "published",
   "topicTags": [
     {
-      "url": ""
+      "text": "Another Demo Topic",
+      "url": "/topic/another-demo-topic"
+    },
+    {
+      "text": "Aboriginal Victorians",
+      "url": "/tags/aboriginal-victorians"
     }
   ],
+  "tags": [
+    {
+      "text": "Aboriginal Victorians",
+      "url": "/tags/aboriginal-victorians"
+    }
+  ],
+  "topic": {
+    "text": "Another Demo Topic",
+    "url": "/topic/another-demo-topic"
+  },
   "siteSection": null,
   "meta": {
     "url": "/victorian-skills-plan-2023-implementation-update",
@@ -79,13 +94,34 @@
     "theme": "default",
     "logoImage": null,
     "backgroundImage": null,
-    "cornerTop": null,
-    "cornerBottom": null,
+    "cornerTop": {
+      "src": "/placeholders/corner-graphic.png",
+      "alt": "",
+      "title": "",
+      "width": 760,
+      "height": 464,
+      "focalPoint": {
+        "x": 380,
+        "y": 232
+      }
+    },
+    "cornerBottom": {
+      "src": "/placeholders/corner-graphic-bottom.png",
+      "alt": "",
+      "title": "",
+      "width": 544,
+      "height": 192,
+      "focalPoint": {
+        "x": 272,
+        "y": 96
+      }
+    },
     "primaryAction": null,
     "secondaryAction": null,
     "secondaryActionLabel": ""
   },
   "summary": "The Victorian Skills Plan outlines how we are tracking against the 25 initiatives identified in last year's skills plan.",
+  "showTopicTags": true,
   "showInPageNav": false,
   "inPageNavHeadingLevel": "h2",
   "details": {

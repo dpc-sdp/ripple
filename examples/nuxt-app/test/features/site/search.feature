@@ -61,3 +61,14 @@ Feature: Site search
     When I visit the page "/search"
     Then the search input should be have a max length of 128
     And the search results heading should not be displayed
+
+  @mockserver
+  Example: View search results analytics event
+    Given the site endpoint returns fixture "/site/reference" with status 200
+    Given the "/api/tide/search/**" network request is stubbed with fixture "/site/search-response" and status 200 as alias "siteSearchReq"
+    When I visit the page "/search?q=testQuery123&size=n_10_n&filters%5B0%5D%5Bfield%5D=field_topic_name&filters%5B0%5D%5Bvalues%5D%5B0%5D=Governance&filters%5B0%5D%5Btype%5D=any"
+    And the dataLayer should include the following events
+      | event               | name   | component   | platform_event | index | filters                     | label        |
+      | view_search_results | Search | tide-search | search         | 1     | field_topic_name=Governance | testQuery123 |
+
+

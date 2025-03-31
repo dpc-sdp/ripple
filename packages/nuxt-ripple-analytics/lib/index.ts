@@ -483,6 +483,9 @@ export default {
         link_url: payload?.value,
         component: 'rpl-search-result',
         platform_event: 'navigate',
+        index: payload?.index,
+        filters: payload?.options,
+        count: payload?.count,
         mode: payload?.mode
       })
     }
@@ -895,7 +898,7 @@ export default {
         form_id: payload?.contextId,
         index: payload?.index,
         filters: payload?.options,
-        count: payload?.value,
+        count: payload?.count,
         component: `tide-${payload.section || 'search'}`,
         platform_event: 'search',
         mode: payload?.mode
@@ -912,7 +915,7 @@ export default {
         name: payload?.name,
         form_id: payload?.contextId,
         index: payload?.index,
-        count: payload?.value,
+        count: payload?.count,
         filters: payload?.options,
         component: `tide-${payload.section || 'search'}`,
         platform_event: 'paginate',
@@ -944,7 +947,7 @@ export default {
         element_text: payload?.text,
         label: payload?.label,
         name: payload?.name,
-        count: payload?.value,
+        count: payload?.count,
         type: payload?.type,
         form_id: payload?.contextId,
         filters: payload?.options,

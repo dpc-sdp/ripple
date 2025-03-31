@@ -294,3 +294,18 @@ Then('the map height is {int}', (height: number) => {
 Then('the map is loaded', () => {
   cy.get('.ol-map-fully-loaded', { timeout: 12000 }).should('be.visible')
 })
+
+Then(`the list view should be displayed`, () => {
+  cy.get('[data-component-type="search-listing-layout-table"]', {
+    timeout: 12000
+  }).should('be.visible')
+})
+
+When(
+  `I click the link in the list view with label {string}`,
+  (label: string) => {
+    cy.get('[data-component-type="search-listing-layout-table"] a')
+      .contains(label)
+      .click()
+  }
+)

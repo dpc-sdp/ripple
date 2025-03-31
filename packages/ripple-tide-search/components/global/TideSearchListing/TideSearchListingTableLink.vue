@@ -1,7 +1,7 @@
 <template>
-  <RplTextLink :url="url">
+  <TideSearchResultLink :url="url">
     {{ title }}
-  </RplTextLink>
+  </TideSearchResultLink>
 </template>
 
 <script setup lang="ts">

@@ -776,6 +776,25 @@
       }
     },
     {
+      "uuid": "96d21d9a-f5c2-4ae5-8b0f-546641233123123",
+      "component": "TideLandingPageLinkList",
+      "id": "4444",
+      "props": {
+        "items": [
+          {
+            "id": "123",
+            "text": "Label 1",
+            "url": "/test/url/one"
+          },
+          {
+            "id": "345",
+            "text": "Label 2",
+            "url": "/test/url/two"
+          }
+        ]
+      }
+    },
+    {
       "uuid": "pd9356djw-f5c2-4ae5-8b0f-54664945bcf9",
       "component": "TideLandingPageCardCarousel",
       "id": "1155",

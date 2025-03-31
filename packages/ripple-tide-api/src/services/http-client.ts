@@ -35,9 +35,7 @@ export default class HttpClient {
     this.client.interceptors.request.use(
       (request) => {
         this.logger.debug(
-          `${request.method?.toUpperCase()} request to ${this.client.getUri(
-            request
-          )}`,
+          `${request.method!.toUpperCase()} request to ${this.client.getUri(request)}`,
           {
             label: this.logLabel,
             // _logId is a custom property added by us https://github.com/axios/axios/issues/2203
@@ -60,11 +58,9 @@ export default class HttpClient {
       (error) => {
         if (axios.isAxiosError(error)) {
           this.logger.error(
-            `${error.request.method?.toUpperCase()} request failed with status ${
-              error.response?.status
-            } - ${error.response?.statusText}: ${error.config?.baseURL}${
-              error.request.path
-            }`,
+            `${error.request.method!.toUpperCase()} request failed with status ${
+              error.response!.status
+            } - ${error.response!.statusText}: ${this.client.getUri(error.response!.config)}`,
             {
               label: this.logLabel,
               // _logId is a custom property added by us https://github.com/axios/axios/issues/2203

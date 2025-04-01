@@ -2,11 +2,11 @@
 import { computed, useSlots } from 'vue'
 
 interface Props {
-  hasSidebar?: boolean
+  numColumns?: 1 | 2 | 3 | 4
 }
 
-withDefaults(defineProps<Props>(), {
-  hasSidebar: false
+const props = withDefaults(defineProps<Props>(), {
+  numColumns: 2
 })
 
 const numItems = computed(() => {
@@ -21,10 +21,10 @@ const numItems = computed(() => {
   <ul
     :class="{
       'rpl-link-list': true,
-      'rpl-link-list--has-sidebar': hasSidebar
+      [`rpl-link-list--cols-${numColumns}`]: true
     }"
     :style="{
-      '--local-link-list-rows': Math.ceil(numItems / 2)
+      '--local-link-list-rows': Math.ceil(numItems / props.numColumns)
     }"
   >
     <slot />

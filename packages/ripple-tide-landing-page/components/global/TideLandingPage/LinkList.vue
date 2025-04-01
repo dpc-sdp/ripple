@@ -1,5 +1,5 @@
 <template>
-  <RplLinkList :variant="variant">
+  <RplLinkList :numColumns="numColumns">
     <RplLinkListItem v-for="item in items" :key="item.id" :url="item.url">{{
       item.text
     }}</RplLinkListItem>
@@ -7,8 +7,10 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from '#imports'
+
 interface Props {
-  variant: 'onLight' | 'onDark'
+  hasSidebar?: boolean
   items: Array<{
     id: string
     text: string
@@ -16,8 +18,12 @@ interface Props {
   }>
 }
 
-withDefaults(defineProps<Props>(), {
-  variant: 'onLight',
+const props = withDefaults(defineProps<Props>(), {
+  hasSidebar: false,
   items: () => []
+})
+
+const numColumns = computed(() => {
+  return props.hasSidebar ? 1 : 2
 })
 </script>

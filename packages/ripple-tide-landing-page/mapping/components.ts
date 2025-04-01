@@ -20,6 +20,7 @@ import dataTableMapping from './components/data-table/data-table-mapping'
 import compactCardsMapping from './components/compact-cards/compact-cards-mapping'
 import openFormsMapping from './components/openforms/openforms-mapping'
 import dataDrivenComponentMapping from './components/data-driven-component/data-driven-component-mapping'
+import linkListMapping from './components/link-list/link-list-mapping'
 
 const mappings: {
   [key: string]: {
@@ -47,7 +48,8 @@ const mappings: {
   'paragraph--data_table': dataTableMapping,
   'paragraph--compact_card_collection': compactCardsMapping,
   'paragraph--form_embed_openforms': openFormsMapping,
-  'paragraph--data_driven_component': dataDrivenComponentMapping
+  'paragraph--data_driven_component': dataDrivenComponentMapping,
+  'paragraph--link_list': linkListMapping
 }
 
 // Add reusable include on whitelisted paragraph types

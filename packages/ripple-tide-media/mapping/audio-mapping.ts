@@ -7,7 +7,7 @@ const tideMediaAudioMapping: IRplTideModuleMapping = {
     ...tideMediaBaseMapping,
     media: {
       ...tideMediaBaseMapping.media,
-      url: (src: any) => getMediaPath(src.field_media_file)
+      url: (src: any) => getMediaPath(src.field_media_file, false, false)
     }
   },
   includes: [...tideMediaBaseIncludes, 'field_media_file']

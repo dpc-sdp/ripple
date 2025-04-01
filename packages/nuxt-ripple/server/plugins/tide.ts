@@ -22,11 +22,19 @@ export default defineNitroPlugin(async (NitroApp) => {
     )
   }
   const pageApi = new TidePageApi(
-    { ...config.public.tide, ...config.tide },
+    {
+      ...config.public.tide,
+      ...config.tide,
+      isCrawler: config.public.isStatic
+    },
     logger
   )
   const siteApi = new TideSiteApi(
-    { ...config.public.tide, ...config.tide },
+    {
+      ...config.public.tide,
+      ...config.tide,
+      isCrawler: config.public.isStatic
+    },
     logger
   )
   NitroApp.tide = {

@@ -18,6 +18,7 @@ export default defineNuxtConfig({
       }
     },
     public: {
+      isStatic: false,
       siteUrl: '',
       apiUrl: '',
       isProduction: process.env?.LAGOON_ENVIRONMENT_TYPE === 'production',
@@ -60,9 +61,27 @@ export default defineNuxtConfig({
           'cache-control': `public,max-age=86400,s-maxage=31536000`
         }
       }
+    },
+    prerender: {
+      crawlLinks: process.env.NUXT_PUBLIC_IS_STATIC === 'true'
+    }
+  },
+  // defaults for static prerendering - can be overridden in the project
+
+  image: {
+    domains: [process.env.NUXT_PUBLIC_TIDE_BASE_URL || ''],
+    provider: process.env.NUXT_PUBLIC_IS_STATIC === 'true' ? 'ipx' : 'section',
+    providers: {
+      section: {
+        provider: resolve('./providers/section.ts') // Path to custom provider
+      }
+    },
+    alias: {
+      images: process.env.NUXT_PUBLIC_TIDE_BASE_URL
     }
   },
   modules: [
+    '@nuxt/image',
     'nuxt-proxy',
     '@dpc-sdp/ripple-ui-core/nuxt',
     '@dpc-sdp/ripple-ui-forms/nuxt',

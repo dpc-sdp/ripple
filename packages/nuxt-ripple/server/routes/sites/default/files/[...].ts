@@ -13,6 +13,10 @@ export const createFilesProxyHandler = async (event: H3Event) => {
     on: {
       proxyReq(proxyReq) {
         proxyReq.setHeader('X-Sdp-Request-Location', 'tide')
+        // Set User-Agent for static crawler requests to prevent rate limiting
+        if (config.isStatic) {
+          proxyReq.setHeader('User-Agent', 'Quant;')
+        }
       },
       proxyRes(proxyRes) {
         if (proxyRes?.headers) {

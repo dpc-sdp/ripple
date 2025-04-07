@@ -56,8 +56,7 @@
 
   .rpl-list__items {
     display: flex;
-    row-gap: var(--rpl-sp-1);
-    column-gap: var(--rpl-sp-4);
+    gap: var(--rpl-sp-1) var(--rpl-sp-4);
     flex-flow: column wrap;
 
     @media (--rpl-bp-m) {

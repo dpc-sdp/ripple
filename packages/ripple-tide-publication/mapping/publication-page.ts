@@ -4,7 +4,10 @@ import {
   tidePageBaseIncludes
 } from '@dpc-sdp/nuxt-ripple/mapping'
 import type { IRplTideModuleMapping } from '@dpc-sdp/ripple-tide-api/types'
-import { heroHeaderMapping } from '@dpc-sdp/ripple-tide-landing-page/mapping'
+import {
+  heroHeaderMapping,
+  heroHeaderIncludes
+} from '@dpc-sdp/ripple-tide-landing-page/mapping'
 
 const tidePublicationPageModule: IRplTideModuleMapping = {
   mapping: {
@@ -16,8 +19,9 @@ const tidePublicationPageModule: IRplTideModuleMapping = {
     }),
     url: 'path.url',
     summary: 'field_landing_page_summary',
+    showTopicTags: 'field_show_topic_term_and_tags',
     showInPageNav: 'field_show_table_of_content',
-    inPageNavHeadingLevel: (src: any) => {
+    inPageNavHeadingLevel: (src) => {
       if (src.field_node_display_headings === 'showH2AndH3') {
         return 'h3'
       }
@@ -42,7 +46,7 @@ const tidePublicationPageModule: IRplTideModuleMapping = {
       text: 'publication_navigation_root.meta.title',
       url: 'publication_navigation_root.meta.url',
       id: 'publication_navigation_root.meta.id',
-      documents: (src: any) =>
+      documents: (src) =>
         (
           getField(
             src,
@@ -50,7 +54,7 @@ const tidePublicationPageModule: IRplTideModuleMapping = {
               ? 'field_publication.field_publication.field_node_documents'
               : 'field_publication.field_node_documents'
           ) || []
-        ).map((doc: any) => getDocumentFromField(doc)),
+        ).map((doc) => getDocumentFromField(doc)),
       pagination: {
         prev: {
           label: () => 'Previous',
@@ -73,6 +77,7 @@ const tidePublicationPageModule: IRplTideModuleMapping = {
       withSidebarRelatedLinks: true,
       withSidebarSocialShare: true
     }),
+    ...heroHeaderIncludes,
     'field_node_primary_site',
     'field_node_site.field_site_main_menu',
     'field_related_links',

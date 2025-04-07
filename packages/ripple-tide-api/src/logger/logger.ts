@@ -15,8 +15,8 @@ const setupWinston = () => {
   })
 
   // Format for our console output. Taken from Ripple 1
-  const printFormat = winston.format.printf((info) => {
-    const { timestamp, message, level, label, error, ...rest } = info
+  const printFormat = winston.format.printf((info: any) => {
+    const { timestamp, message, level, label, error, ...rest }: any = info
     const printLabel = label ? `[${label}] ` : ' '
     let log = `${timestamp} ${printLabel}${level} ${message}`
 
@@ -38,7 +38,7 @@ const setupWinston = () => {
 
   // Add error stack into error meta value.
   const errorPrint = winston.format((info) => {
-    if (info.error) {
+    if (info.error && info.error instanceof Error) {
       info.error = info.error.stack || info.error.toString()
     }
     return info

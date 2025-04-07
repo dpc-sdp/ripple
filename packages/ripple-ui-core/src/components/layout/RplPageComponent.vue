@@ -13,7 +13,10 @@ const props = withDefaults(defineProps<Props>(), {
   fullWidth: false
 })
 
-useEventContext({ id: props?.id, name: props?.title, mode: '' })
+useEventContext({
+  id: props?.id,
+  name: props?.title
+})
 </script>
 
 <template>

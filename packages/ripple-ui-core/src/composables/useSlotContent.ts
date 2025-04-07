@@ -23,5 +23,5 @@ export function useSlotContent(slot = 'default') {
     return null
   }
 
-  return getSlotContent(slots[slot]())
+  return getSlotContent(slots?.[slot]?.())
 }

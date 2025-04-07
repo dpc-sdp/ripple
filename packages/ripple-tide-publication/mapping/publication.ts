@@ -4,12 +4,15 @@ import {
   tidePageBaseIncludes
 } from '@dpc-sdp/nuxt-ripple/mapping'
 import type { IRplTideModuleMapping } from '@dpc-sdp/ripple-tide-api/types'
-import { heroHeaderMapping } from '@dpc-sdp/ripple-tide-landing-page/mapping'
+import {
+  heroHeaderMapping,
+  heroHeaderIncludes
+} from '@dpc-sdp/ripple-tide-landing-page/mapping'
 
 const chapters = (src: string) =>
   getField(src, 'publication_children')
-    .filter((x: any) => x.meta)
-    .map((item: any) => ({
+    .filter((x) => x.meta)
+    .map((item) => ({
       id: item.meta.id,
       title: getField(item.meta, 'title', ''),
       summary: getField(item.meta, 'field_landing_page_summary', ''),
@@ -27,6 +30,7 @@ const tidePublicationModule: IRplTideModuleMapping = {
     url: 'path.url',
     header: heroHeaderMapping,
     summary: 'field_landing_page_summary',
+    showTopicTags: 'field_show_topic_term_and_tags',
     showInPageNav: 'field_show_table_of_content',
     inPageNavHeadingLevel: (src) => {
       if (src.field_node_display_headings === 'showH2AndH3') {
@@ -35,14 +39,11 @@ const tidePublicationModule: IRplTideModuleMapping = {
       return 'h2'
     },
     details: {
-      author: (src: any) => {
+      author: (src) => {
         if (Array.isArray(src.field_publication_authors)) {
-          return src.field_publication_authors
-            .map((x: any) => x.name)
-            .join(', ')
-        } else {
-          return src.field_publication_authors?.name
+          return src.field_publication_authors.map((x) => x.name).join(', ')
         }
+        return src.field_publication_authors?.name
       },
       date: 'field_publication_date',
       copyright: 'field_license_type.description'
@@ -59,7 +60,7 @@ const tidePublicationModule: IRplTideModuleMapping = {
       url: 'path.url',
       id: 'id',
       documents: (src: string) =>
-        getField(src, 'field_node_documents').map((doc: any) =>
+        getField(src, 'field_node_documents').map((doc) =>
           getDocumentFromField(doc)
         )
     },
@@ -72,6 +73,7 @@ const tidePublicationModule: IRplTideModuleMapping = {
       withSidebarRelatedLinks: true,
       withSidebarSocialShare: true
     }),
+    ...heroHeaderIncludes,
     'field_node_documents.field_media_file',
     'field_landing_page_contact.field_paragraph_phones',
     'field_landing_page_contact.field_paragraph_social_media',

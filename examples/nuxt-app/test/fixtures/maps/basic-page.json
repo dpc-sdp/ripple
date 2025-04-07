@@ -199,7 +199,11 @@
               "columns": [
                 {
                   "label": "Title",
-                  "objectKey": "test_title"
+                  "component": "TestMapResultsLink",
+                  "props": {
+                    "titleObjKey": "test_title",
+                    "urlObjKey": "test_url"
+                  }
                 },
                 {
                   "label": "Description",

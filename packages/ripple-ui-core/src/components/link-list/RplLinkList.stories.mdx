@@ -1,0 +1,171 @@
+import {
+  Canvas,
+  Meta,
+  Story,
+  ArgsTable
+} from '@storybook/addon-docs'
+import RplLinkList from './RplLinkList.vue'
+import RplLinkListItem from './RplLinkListItem.vue'
+import { a11yStoryCheck } from '../../../stories/interactions.js'
+
+export const SlotTemplate = (args) => ({
+  components: { RplLinkList, RplLinkListItem },
+  setup() {
+    return { args }
+  },
+  template: `<RplLinkList v-bind="args">
+    <RplLinkListItem v-for="link in args.items" :url="link.url">{{ link.text }}</RplLinkListItem>
+  </RplLinkList>`
+})
+
+<Meta
+  title='Core/Navigation/Link list'
+  component={RplLinkList}
+/>
+
+# Link list
+
+<ArgsTable of={RplLinkList} />
+
+
+<Canvas>
+  <Story
+    name='Long labels'
+    play={a11yStoryCheck}
+    args={{
+      items: [
+        { text: "Link label 1", url: "#" },
+        { text: "Link label 2", url: "#" },
+        { text: "Link label 3", url: "#" },
+        { text: "Link label 4 with very long text that wraps over multiple lines", url: "#" },
+        { text: "Link label 5", url: "#" },
+        { text: "Link label 6", url: "#" },
+      ]
+    }}
+  >
+    {SlotTemplate.bind()}
+  </Story>
+</Canvas>
+
+
+<Canvas>
+  <Story
+    name='1 item'
+    play={a11yStoryCheck}
+    args={{
+      items: [
+        { text: "Link label 1", url: "#" }
+      ]
+    }}
+  >
+    {SlotTemplate.bind()}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    name='2 items'
+    play={a11yStoryCheck}
+    args={{
+      items: [
+        { text: "Link label 1", url: "#" },
+        { text: "Link label 2", url: "#" },
+      ]
+    }}
+  >
+    {SlotTemplate.bind()}
+  </Story>
+</Canvas>
+
+
+<Canvas>
+  <Story
+    name='3 items'
+    play={a11yStoryCheck}
+    args={{
+      items: [
+        { text: "Link label 1", url: "#" },
+        { text: "Link label 2", url: "#" },
+        { text: "Link label 3", url: "#" },
+      ]
+    }}
+  >
+    {SlotTemplate.bind()}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    name='4 items'
+    play={a11yStoryCheck}
+    args={{
+      items: [
+        { text: "Link label 1", url: "#" },
+        { text: "Link label 2", url: "#" },
+        { text: "Link label 3", url: "#" },
+        { text: "Link label 4", url: "#" },
+      ]
+    }}
+  >
+    {SlotTemplate.bind()}
+  </Story>
+</Canvas>
+
+
+<Canvas>
+  <Story
+    name='5 items'
+    play={a11yStoryCheck}
+    args={{
+      items: [
+        { text: "Link label 1", url: "#" },
+        { text: "Link label 2", url: "#" },
+        { text: "Link label 3", url: "#" },
+        { text: "Link label 4", url: "#" },
+        { text: "Link label 5", url: "#" },
+      ]
+    }}
+  >
+    {SlotTemplate.bind()}
+  </Story>
+</Canvas>
+
+
+<Canvas>
+  <Story
+    name='6 items'
+    play={a11yStoryCheck}
+    args={{
+      items: [
+        { text: "Link label 1", url: "#" },
+        { text: "Link label 2", url: "#" },
+        { text: "Link label 3", url: "#" },
+        { text: "Link label 4", url: "#" },
+        { text: "Link label 5", url: "#" },
+        { text: "Link label 6", url: "#" },
+      ]
+    }}
+  >
+    {SlotTemplate.bind()}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    name='With sidebar (1 column)'
+    play={a11yStoryCheck}
+    args={{
+      items: [
+        { text: "Link label 1", url: "#" },
+        { text: "Link label 2", url: "#" },
+        { text: "Link label 3", url: "#" },
+        { text: "Link label 4", url: "#" },
+        { text: "Link label 5", url: "#" },
+        { text: "Link label 6", url: "#" },
+      ],
+      numColumns: 1,
+    }}
+  >
+    {SlotTemplate.bind()}
+  </Story>
+</Canvas>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, watch } from 'vue'
+import { ref, watch, computed } from 'vue'
 import {
   getActiveFilterURL,
   scrollToElementTopWithOffset,
@@ -12,7 +12,7 @@ import {
 } from 'ripple-tide-search/types'
 import { FormKit } from '@formkit/vue'
 import { SearchDriverOptions } from '@elastic/search-ui'
-import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
+import { useRippleEvent, useEventContext } from '@dpc-sdp/ripple-ui-core'
 import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
 import type { TideSiteData, TidePageBase } from '@dpc-sdp/ripple-tide-api/types'
 
@@ -113,14 +113,16 @@ const initialLoad = ref(true)
 const filtersExpanded = ref(false)
 const submitFiltersLabel = 'Apply search filters'
 
-const baseEvent = () => ({
-  contextId: props.id,
-  name: props.pageTitle,
-  index: searchState.value.current,
-  label: searchState.value.searchTerm,
-  value: searchState.value.totalResults,
-  options: getActiveFilterURL(filterFormValues.value),
-  section: 'search'
+const baseEvent = computed(() => {
+  return {
+    section: 'search',
+    contextId: props.id,
+    name: props.pageTitle,
+    index: searchState.value.current,
+    label: searchState.value.searchTerm,
+    value: searchState.value.totalResults,
+    options: getActiveFilterURL(filterFormValues.value)
+  }
 })
 
 const emitSearchEvent = (event: rplEventPayload) => {
@@ -128,7 +130,7 @@ const emitSearchEvent = (event: rplEventPayload) => {
     'submit',
     {
       ...event,
-      ...baseEvent(),
+      ...baseEvent.value,
       action: 'search'
     },
     { global: true }
@@ -167,7 +169,7 @@ const handleFilterReset = (event: rplEventPayload) => {
     'reset',
     {
       ...event,
-      ...baseEvent(),
+      ...baseEvent.value,
       action: 'clear_search'
     },
     { global: true }
@@ -184,7 +186,7 @@ const toggleFilters = (event: rplEventPayload) => {
   emitRplEvent(
     'toggleFilters',
     {
-      ...baseEvent(),
+      ...baseEvent.value,
       ...event,
       action: filtersExpanded.value ? 'open' : 'close'
     },
@@ -211,7 +213,7 @@ const handlePagination = (event: rplEventPayload) => {
     'paginate',
     {
       ...event,
-      ...baseEvent()
+      ...baseEvent.value
     },
     { global: true }
   )
@@ -237,7 +239,7 @@ watch(
       emitRplEvent(
         'results',
         {
-          ...baseEvent(),
+          ...baseEvent.value,
           action: 'view'
         },
         { global: true }
@@ -247,6 +249,16 @@ watch(
     }
   }
 )
+
+const { updateContext } = useEventContext({
+  ...baseEvent.value
+})
+
+watch(baseEvent, (newBaseEvent) => {
+  for (const key in newBaseEvent) {
+    updateContext(key, newBaseEvent[key])
+  }
+})
 </script>
 
 <template>

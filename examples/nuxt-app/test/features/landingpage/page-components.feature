@@ -100,6 +100,13 @@ Feature: Home page
       | Label 2 | Value 2 |
 
   @mockserver
+  Scenario: Page component - Link list
+    Then a link list with ID "4444" should exist with the following items
+      | text    | url           |
+      | Label 1 | /test/url/one |
+      | Label 2 | /test/url/two |
+
+  @mockserver
   Scenario: Page component - Card carousel
     Given a card carousel with ID "1155" should exist with the following promo cards
       | title           | date            | content                | url          | image                    |

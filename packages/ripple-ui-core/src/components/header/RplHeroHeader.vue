@@ -127,7 +127,7 @@ const handleClick = (event) => {
         v-bind="background"
         priority="high"
         :aspect="backImageRatio"
-        sizes="xs:100vw"
+        sizes="100vw sm:41vw md:50vw lg:100vw"
       />
       <RplHeaderGraphic v-if="cornerTop" :image="cornerTop" placement="top" />
       <RplHeaderGraphic

@@ -37,6 +37,10 @@ jobs:
         if: ${{ !github.event.release.prerelease  }}
         run: npm run release:changelog
 
+      - name: Set lib version for ripple cli
+        if: ${{ !github.event.release.prerelease  }}
+        run: pnpm -F @dpc-sdp/nuxt-ripple-cli setlibversion
+
       - name: Configure Git
         if: ${{ !github.event.release.prerelease  }}
         run: |
@@ -55,6 +59,13 @@ jobs:
         if: ${{ !github.event.release.prerelease  }}
         run: |
           git push origin ${{ github.event.release.target_commitish }} # Pushes back to target branch
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create PR to merge release to develop
+        if: ${{ !github.event.release.prerelease  }}
+        run: |
+          gh pr create --title "Release ${{ github.event.release.name }}"  --reviewer dpc-sdp/dpc-frontend
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 

@@ -18,11 +18,11 @@ export const linkListMapping = (
     title: field.field_paragraph_title,
     props: {
       items: getField(field, 'field_paragraph_link_list', []).map((item) => {
-        const link = getLinkFromField(item, 'field_paragraph_link')
+        const link = getLinkFromField(item, 'field_paragraph_link_required')
         return {
           id: item.drupal_internal__id.toString(),
-          text: link.text,
-          url: link.url
+          text: link?.text,
+          url: link?.url
         }
       })
     }

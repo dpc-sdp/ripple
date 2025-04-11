@@ -27,22 +27,28 @@ const getHeaderTheme = (src) => {
 }
 
 const getTopCornerGraphic = (src) => {
+  // Check for the `corner_graphic_field` field, which will return the correct corner graphic for the page
+  // `corner_graphic_field` takes into account the site, site section and page level corner graphics.
   if (src?.corner_graphic_field?.top_corner_graphic) {
     return {
       src: src.corner_graphic_field.top_corner_graphic
     }
   }
 
+  // Fallback to the page level corner graphics
   return getImageFromField(src, 'field_graphical_image.field_media_image')
 }
 
 const getBottomCornerGraphic = (src) => {
+  // Check for the `corner_graphic_field` field, which will return the correct corner graphic for the page
+  // `corner_graphic_field` takes into account the site, site section and page level corner graphics.
   if (src?.corner_graphic_field?.bottom_corner_graphic) {
     return {
       src: src.corner_graphic_field.bottom_corner_graphic
     }
   }
 
+  // Fallback to the page level corner graphics
   return getImageFromField(
     src,
     'field_bottom_graphical_image.field_media_image'

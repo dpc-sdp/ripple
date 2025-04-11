@@ -4,6 +4,10 @@ export default defineNuxtPlugin((nuxtApp) => {
   let host = ''
   let protocol = 'https'
 
+  const {
+    public: { isStatic, siteUrl }
+  } = useRuntimeConfig()
+
   // Get host in case of server side request
   if (import.meta.env.SSR) {
     host = nuxtApp?.ssrContext?.event?.req?.headers?.host || ''
@@ -15,7 +19,11 @@ export default defineNuxtPlugin((nuxtApp) => {
     protocol = 'http'
   }
 
-  const origin = new URL(`${protocol}://${host}`)
+  let origin = new URL(`${protocol}://${host}`)
+
+  if (isStatic) {
+    origin = new URL(siteUrl)
+  }
 
   // Extract origin and set data in app context
   return {

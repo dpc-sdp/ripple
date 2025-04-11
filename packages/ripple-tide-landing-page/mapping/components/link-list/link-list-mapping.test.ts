@@ -36,7 +36,7 @@ const rawData = {
       behavior_settings: [],
       default_langcode: true,
       revision_translation_affected: true,
-      field_paragraph_link: {
+      field_paragraph_link_required: {
         uri: 'entity:node/event/5d10a7df-ea5c-42ea-9678-5b8c416e1f89',
         title: 'Test link text',
         options: [],
@@ -69,7 +69,7 @@ const rawData = {
       behavior_settings: [],
       default_langcode: true,
       revision_translation_affected: true,
-      field_paragraph_link: {
+      field_paragraph_link_required: {
         uri: 'entity:node/landing_page/5f617766-6d11-4631-842f-c4727e2be1b3',
         title: 'Another link',
         options: [],

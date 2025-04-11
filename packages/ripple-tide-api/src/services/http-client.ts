@@ -6,6 +6,7 @@ export default class HttpClient {
   client: AxiosInstance
   logLabel: string
   logger: ILogger
+  isCrawler: boolean
   constructor(config, logger: ILogger) {
     if (config.client) {
       this.client = config.client
@@ -27,6 +28,8 @@ export default class HttpClient {
     this.logLabel = 'HttpClient'
     this.logger = logger
 
+    this.isCrawler = config.isCrawler
+
     this._initializeRequestInterceptor()
     this._initializeResponseInterceptor()
   }
@@ -34,6 +37,9 @@ export default class HttpClient {
   _initializeRequestInterceptor() {
     this.client.interceptors.request.use(
       (request) => {
+        request.headers['User-Agent'] = this.isCrawler
+          ? `Mozilla/5.0 (compatible; Quant;} https://ripple.sdp.vic.gov.au`
+          : `Axios (ripple-tide-api)`
         this.logger.debug(
           `${request.method!.toUpperCase()} request to ${this.client.getUri(request)}`,
           {

@@ -47,11 +47,29 @@ Then('the hero should display the following items', (dataTable: DataTable) => {
   })
 })
 
+Then('the hero top corner graphic should be empty', () => {
+  cy.get(`.rpl-header-graphic--top`).should('not.exist')
+})
+
+Then('the hero bottom corner graphic should be empty', () => {
+  cy.get(`.rpl-header-graphic--bottom`).should('not.exist')
+})
+
 Then('the hero top corner graphic should be {string}', (image: string) => {
   if (image === 'default') {
     cy.get(`.rpl-header-graphic--top svg`).should('exist')
   } else {
     cy.get(`.rpl-header-graphic--top img`)
+      .should('have.attr', 'src')
+      .and('contain', image)
+  }
+})
+
+Then('the hero bottom corner graphic should be {string}', (image: string) => {
+  if (image === 'default') {
+    cy.get(`.rpl-header-graphic--bottom svg`).should('exist')
+  } else {
+    cy.get(`.rpl-header-graphic--bottom img`)
       .should('have.attr', 'src')
       .and('contain', image)
   }

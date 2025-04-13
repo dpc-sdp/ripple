@@ -24,6 +24,24 @@
       "outputCapture": "std",
       "program": "${workspaceFolder}/node_modules/nuxi/bin/nuxi.mjs",
       "args": ["dev", "examples/nuxt-app"]
-    }
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "generate",
+      "outputCapture": "std",
+      "program": "${workspaceFolder}/node_modules/nuxi/bin/nuxi.mjs",
+      "args": ["generate", "examples/nuxt-app"],
+      "env": {
+        "NUXT_PUBLIC_TIDE_APP_SEARCH_ENGINE_NAME": "content-vicpol-vic-gov-au-production",
+        "NUXT_BASIC_AUTH": 0,
+        "NUXT_PUBLIC_TIDE_APP_SEARCH_ENDPOINT_BASE": "https://ent.sdp4.elastic.sdp.vic.gov.au",
+        "NUXT_PUBLIC_TIDE_ELASTICSEARCH_INDEX": "elasticsearch_index_develop_node",
+        "NUXT_PUBLIC_SITE_URL": "https://www.reference.sdp.vic.gov.au",
+        "NUXT_PUBLIC_TIDE_BASE_URL": "https://develop.content.reference.sdp.vic.gov.au",
+        "NUXT_PUBLIC_TIDE_SITE": "8888",
+        "NUXT_PUBLIC_IS_STATIC": "true",
+        "LOG_LEVEL": "warn"
+      }
   ]
 }

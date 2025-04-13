@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import useProviderImage from '../../composables/use-provider-image'
 import { computed } from 'vue'
 
 interface Props {
@@ -23,23 +22,23 @@ const props = withDefaults(defineProps<Props>(), {
   drupal_internal__target_id: undefined
 })
 
-// Composable handles all the logic for determining the correct image to use
-const { providerSrcSet, providerSizes } = useProviderImage(props)
+const {
+  public: { isStatic }
+} = useRuntimeConfig()
 
-const initialSrc = computed(() =>
-  props.width
-    ? `${props.src}?w=${props.width * 2 < 1984 ? props.width * 2 : 1984}`
-    : props.src
-)
+const imageSrc = computed(() => {
+  const baseUrl = isStatic ? 'images' : ''
+  return `${baseUrl}${props.src?.replace(/\/$/, '')}`
+})
 </script>
 
 <template>
-  <img
-    :src="initialSrc"
-    :srcSet="providerSrcSet"
-    :sizes="providerSizes"
+  <NuxtImg
+    :src="imageSrc"
+    :sizes="sizes"
     :width="width"
     :height="height"
     :alt="alt || ''"
+    loading="lazy"
   />
 </template>

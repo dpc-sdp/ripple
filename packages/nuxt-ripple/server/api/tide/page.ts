@@ -9,7 +9,7 @@ import {
 } from 'h3'
 import { createHandler, TidePageApi } from '@dpc-sdp/ripple-tide-api'
 import { BadRequestError } from '@dpc-sdp/ripple-tide-api/errors'
-import { useNitroApp } from '#imports'
+import { useNitroApp, useRuntimeConfig } from '#imports'
 import { AuthCookieNames } from '@dpc-sdp/nuxt-ripple-preview/utils'
 
 export const createPageHandler = async (
@@ -43,7 +43,10 @@ export const createPageHandler = async (
     }
 
     const sectionId = getHeader(event, 'x-section-request-id')
-    const path = query.path.length > 1 && query.path.charAt(query.path.length - 1) === '/' ? query.path.substring(0, query.path.length - 1) : query.path
+    const path =
+      query.path.length > 1 && query.path.charAt(query.path.length - 1) === '/'
+        ? query.path.substring(0, query.path.length - 1)
+        : query.path
 
     const pageResponse = await tidePageApi.getPageByPath(
       path,

@@ -18,7 +18,8 @@ export default class TideApiBase extends HttpClient {
       {
         client: tide.client,
         baseUrl: `${tide.baseUrl}${tide.config?.apiPrefix || '/api/v1'}`,
-        auth: tide.config?.auth
+        auth: tide.config?.auth,
+        isCrawler: tide.isCrawler
       },
       logger
     )

@@ -204,6 +204,10 @@ export interface RplTideModuleConfig {
    * Private config merged at runtime
    */
   config?: RplTideModuleInternalConfig
+  /**
+   * @description Set to true if the request to add the crawler user agent
+   */
+  isCrawler?: boolean
 }
 
 interface RplTideModuleInternalConfig {

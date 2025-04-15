@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { inject } from 'vue'
+import { inject, useSlots, computed } from 'vue'
 import RplIcon from '../../../icon/RplIcon.vue'
 import RplPrimaryNavBarAction from './RplPrimaryNavBarAction.vue'
 import type {
@@ -12,6 +12,7 @@ import {
   useRippleEvent,
   type rplEventPayload
 } from '../../../../composables/useRippleEvent'
+import useEmptySlotCheck from '../../../../composables/useEmptySlotCheck'
 import VicGovLogo from './../../../../assets/logos/logo-vic-gov.svg?component'
 import type { IRplFeatureFlags } from '@dpc-sdp/ripple-tide-api/types'
 
@@ -48,6 +49,9 @@ const emit = defineEmits<{
 
 const { emitRplEvent } = useRippleEvent('rpl-primary-nav', emit)
 
+const slots = useSlots()
+const userActionSlotIsEmpty = useEmptySlotCheck(slots.userAction)
+
 const mobileToggleLabel = 'Menu'
 
 const isItemActive = (item: IRplPrimaryNavItem) =>
@@ -67,6 +71,10 @@ const handleToggleItem = (level: number, item: IRplPrimaryNavItem) => {
 
   props.toggleItem(level as 3 | 2 | 1, item)
 }
+
+const showMobileToggle = computed(() => {
+  return !!props.items?.length || !userActionSlotIsEmpty.value
+})
 </script>
 
 <template>
@@ -141,7 +149,7 @@ const handleToggleItem = (level: number, item: IRplPrimaryNavItem) => {
       ]"
     >
       <!-- Mobile menu toggle -->
-      <li class="rpl-primary-nav__nav-bar-mobile-menu-toggle-container">
+      <li v-if="showMobileToggle" class="rpl-primary-nav__nav-bar-mobile-menu-toggle-container">
         <RplPrimaryNavBarAction
           type="toggle"
           href="/"

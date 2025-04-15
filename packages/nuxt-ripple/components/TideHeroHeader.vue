@@ -27,7 +27,20 @@ const cornerTop = computed(() => {
     return false
   }
 
-  return props.header?.cornerTop?.src || props.cornerTop?.src || true
+  // `header.cornerTop` is the correct graphic that is calculated based on
+  // the site, site section and node level graphics for the current page.
+  if (props.header?.cornerTop?.src) {
+    return props.header?.cornerTop?.src
+  }
+
+  // Only if there's no top or bottom corner graphic from the header mapping
+  // should we fallback to the site corner graphics. This is here for backwards
+  // compatibility.
+  if (!props.header?.cornerBottom?.src && !props.header?.cornerTop?.src) {
+    return props.cornerTop?.src || true
+  }
+
+  return false
 })
 
 const cornerBottom = computed(() => {
@@ -35,7 +48,20 @@ const cornerBottom = computed(() => {
     return false
   }
 
-  return props.header?.cornerBottom?.src || props.cornerBottom?.src || true
+  // `header.cornerBottom` is the correct graphic that is calculated based on
+  // the site, site section and node level graphics for the current page.
+  if (props.header?.cornerBottom?.src) {
+    return props.header?.cornerBottom?.src
+  }
+
+  // Only if there's no top or bottom corner graphic from the header mapping
+  // should we fallback to the site corner graphics. This is here for backwards
+  // compatibility.
+  if (!props.header?.cornerBottom?.src && !props.header?.cornerTop?.src) {
+    return props.cornerBottom?.src || true
+  }
+
+  return false
 })
 
 const secondaryAction = computed(() => {

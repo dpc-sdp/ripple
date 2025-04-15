@@ -4,6 +4,10 @@
 
 [compare changes](https://github.com/dpc-sdp/ripple-framework/compare/2.30.0...v2.30.0)
 
+## v2.30.0
+
+[compare changes](https://github.com/dpc-sdp/ripple-framework/compare/2.30.0...v2.30.0)
+
 ## v2.29.0
 
 [compare changes](https://github.com/dpc-sdp/ripple-framework/compare/2.29.0...v2.29.0)

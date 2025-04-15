@@ -65,7 +65,7 @@ jobs:
       - name: Create PR to merge release to develop
         if: ${{ !github.event.release.prerelease  }}
         run: |
-          gh pr create --title "Release ${{ github.event.release.name }}"  --reviewer dpc-sdp/dpc-frontend
+          gh pr create --title "Release ${{ github.event.release.name }}" --fill  --reviewer dpc-sdp/dpc-frontend
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 

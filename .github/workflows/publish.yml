@@ -8,6 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       packages: write
+      pull-requests: write
       contents: write
     steps:
       - uses: actions/checkout@v4
@@ -39,7 +40,7 @@ jobs:
 
       - name: Set lib version for ripple cli
         if: ${{ !github.event.release.prerelease  }}
-        run: pnpm -F @dpc-sdp/nuxt-ripple-cli setlibversion
+        run: pnpm -F @dpc-sdp/nuxt-ripple-cli preinstall
 
       - name: Configure Git
         if: ${{ !github.event.release.prerelease  }}
@@ -65,7 +66,7 @@ jobs:
       - name: Create PR to merge release to develop
         if: ${{ !github.event.release.prerelease  }}
         run: |
-          gh pr create --title "Release ${{ github.event.release.name }}"  --reviewer dpc-sdp/dpc-frontend
+          gh pr create --title "Release ${{ github.event.release.name }}" --body-file .github/PULL_REQUEST_TEMPLATE.md
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 

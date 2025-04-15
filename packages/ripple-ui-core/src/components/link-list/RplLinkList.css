@@ -51,6 +51,7 @@
   }
 
   &:hover,
+  &:active,
   &:focus {
     text-decoration: none;
   }

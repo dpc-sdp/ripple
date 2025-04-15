@@ -16,6 +16,8 @@ Feature: Home page
     Then the hero title should be "Test landing page title"
     Then the hero logo should be "/placeholders/logo.png"
     Then the hero intro text should be "Test landing page title introduction text"
+    Then the hero top corner graphic should be "/placeholders/corner-graphic.png"
+    Then the hero bottom corner graphic should be empty
     And the hero should display the following items
       | text               | url                                               |
       | Test link 1        | /embedded-video-test                              |

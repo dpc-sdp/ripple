@@ -39,7 +39,7 @@ jobs:
 
       - name: Set lib version for ripple cli
         if: ${{ !github.event.release.prerelease  }}
-        run: pnpm -F @dpc-sdp/nuxt-ripple-cli setlibversion
+        run: pnpm -F @dpc-sdp/nuxt-ripple-cli preinstall
 
       - name: Configure Git
         if: ${{ !github.event.release.prerelease  }}

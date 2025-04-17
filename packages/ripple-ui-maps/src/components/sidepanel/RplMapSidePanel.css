@@ -27,6 +27,7 @@
   overflow-y: auto;
   scrollbar-color: var(--rpl-clr-neutral-300) var(--rpl-clr-neutral-100);
   scrollbar-width: thin;
+  outline: none;
 }
 
 .rpl-map-side-panel--open {
@@ -143,6 +144,7 @@
 .rpl-map-side-panel__item-inner {
   cursor: pointer;
   text-align: start;
+  width: 100%;
 
   &:hover,
   &:focus {

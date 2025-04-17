@@ -1,5 +1,9 @@
 @import '@dpc-sdp/ripple-ui-core/style/breakpoints';
 
+.rpl-map-popup {
+  outline: none;
+}
+
 .rpl-map-popup--popover,
 .rpl-map-popup--sidebar,
 .rpl-map-popup--layerlist {
@@ -180,7 +184,8 @@
   .rpl-map-pop-up-scroll-container {
     max-height: var(--local-popup-body-height);
     overflow-y: auto;
-    background: linear-gradient(white 33%, rgb(255 255 255 / 0%)),
+    background:
+      linear-gradient(white 33%, rgb(255 255 255 / 0%)),
       linear-gradient(to bottom, rgb(26 26 26 / 16%), transparent);
     background-color: white;
     background-repeat: no-repeat;

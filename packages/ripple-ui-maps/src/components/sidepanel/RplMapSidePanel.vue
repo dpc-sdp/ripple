@@ -120,6 +120,8 @@ const handlePageChange = async (event) => {
       })
     }
   }
+
+  scrollParentRef?.value?.focus({ preventScroll: true })
 }
 </script>
 

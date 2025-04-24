@@ -26,6 +26,14 @@ export default async (
             }
           },
           {
+            match_phrase_prefix: {
+              [`${suggestionsKey}.stem`]: {
+                query,
+                max_expansions: 150
+              }
+            }
+          },
+          {
             term: {
               postcode: {
                 value: query

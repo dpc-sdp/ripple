@@ -35,8 +35,9 @@ export function useAccessibleContainer() {
         const element = container.value?.$el || container.value
         // Only fire a click if the target is not the trigger el
         const clickedElement = element.querySelector('a')
+        const targetElement = (e.target as HTMLElement).closest('a')
 
-        if (clickedElement !== e.target) {
+        if (clickedElement !== targetElement) {
           clickedElement.click()
         }
       }

@@ -1,5 +1,10 @@
 import RplDataTable from './RplDataTable.vue'
-import { RplDataTableColumns, RplDataTableItems } from './fixtures/sample'
+import {
+  RplDataTableColumns,
+  RplDataTableItems,
+  RplDataTableItemsSimple
+} from './fixtures/sample'
+import { bpMin } from '@dpc-sdp/ripple-ui-core'
 
 const props = {
   showExtraContent: true,
@@ -26,5 +31,46 @@ describe('RplDataTable', () => {
 
     cy.get('@details').should('be.visible')
     cy.get('@toggle').should('contain.text', 'Less info')
+  })
+
+  it('sets the scope correctly for horizontal headings', () => {
+    cy.viewport(bpMin.l, 600)
+    cy.mount(RplDataTable, {
+      props: { items: RplDataTableItemsSimple, columns: RplDataTableColumns }
+    })
+
+    cy.get('thead th').should('have.attr', 'scope', 'col')
+    cy.get('tbody td').should('not.have.attr', 'scope')
+    cy.get('tbody th').should('not.exist')
+  })
+
+  it('sets the scope correctly for vertical headings', () => {
+    cy.viewport(bpMin.l, 600)
+    cy.mount(RplDataTable, {
+      props: {
+        items: RplDataTableItemsSimple,
+        columns: RplDataTableColumns,
+        headingType: { vertical: true, horizontal: false }
+      }
+    })
+
+    cy.get('thead').should('not.exist')
+    cy.get('tbody th').should('have.attr', 'scope', 'row')
+    cy.get('tbody td').should('not.have.attr', 'scope')
+  })
+
+  it('sets the scope correctly for vertical and horizontal headings', () => {
+    cy.viewport(bpMin.l, 600)
+    cy.mount(RplDataTable, {
+      props: {
+        items: RplDataTableItemsSimple,
+        columns: RplDataTableColumns,
+        headingType: { vertical: true, horizontal: true }
+      }
+    })
+
+    cy.get('thead th').should('have.attr', 'scope', 'col')
+    cy.get('tbody th').should('have.attr', 'scope', 'row')
+    cy.get('tbody td').should('not.have.attr', 'scope')
   })
 })

@@ -7,13 +7,19 @@ vi.stubEnv(
 )
 
 const markup = {
-  table: `<table>
+  table: [
+    `<table>
   <colgroup><col data-width="40%"><col data-width="60%"></colgroup>
   <tbody>
-    <tr><th>Fname</th><th>Lname</th></tr>
-    <tr><td>Joe</td><td>Cool</td></tr>
+    <tr><th>Term 1</th><td>January</td></tr>
+    <tr><th>Term 2</th><td>April</td></tr>
   </tbody>
 </table>`,
+    `<table>
+  <thead><tr><th>One</th><th>Two</th><th>Three</th></tr></thead>
+  <tbody><tr><td>Lorem minim</td><td>Lorem minim</td><td>Lorem minim</td></tr><tr><td>Lorem minim</td><td>Lorem minim</td><td>Lorem minim</td></tr><tr><td>Lorem minim</td><td>Lorem minim</td><td>Lorem minim</td></tr></tbody>
+</table>`
+  ],
   callout: `<div class="callout-wrapper"><p>Hey it's a callout</p></div><div class="callout-wrapper"><p>And another callout</p></div>
 <div class="wysiwyg-callout">This one is wysiwyg</div>`,
   quotation: `<blockquote class="quotation"><p>It was the best of times, it was the blurst of times.</p><footer><span>Chimp 273</span></footer></blockquote>`,
@@ -31,13 +37,19 @@ const markup = {
 }
 
 const fixed = {
-  table: `<div class="rpl-table"><div class="rpl-table__scroll-container rpl-u-focusable-outline--visible" tabindex="0"><table>
+  table: [
+    `<div class="rpl-table"><div class="rpl-table__scroll-container rpl-u-focusable-outline--visible" tabindex="0"><table>
   <colgroup><col style="width: 40%"><col style="width: 60%"></colgroup>
   <tbody>
-    <tr><th>Fname</th><th>Lname</th></tr>
-    <tr><td>Joe</td><td>Cool</td></tr>
+    <tr><th scope="row">Term 1</th><td>January</td></tr>
+    <tr><th scope="row">Term 2</th><td>April</td></tr>
   </tbody>
 </table></div></div>`,
+    `<div class="rpl-table"><div class="rpl-table__scroll-container rpl-u-focusable-outline--visible" tabindex="0"><table>
+  <thead><tr><th scope="col">One</th><th scope="col">Two</th><th scope="col">Three</th></tr></thead>
+  <tbody><tr><td>Lorem minim</td><td>Lorem minim</td><td>Lorem minim</td></tr><tr><td>Lorem minim</td><td>Lorem minim</td><td>Lorem minim</td></tr><tr><td>Lorem minim</td><td>Lorem minim</td><td>Lorem minim</td></tr></tbody>
+</table></div></div>`
+  ],
   callout: `<div class="rpl-callout"><div class="rpl-callout__wrapper"><p>Hey it's a callout</p></div><div class="rpl-callout__wrapper"><p>And another callout</p></div></div>
 <div class="rpl-callout rpl-callout--neutral">This one is wysiwyg</div>`,
   quotation: `

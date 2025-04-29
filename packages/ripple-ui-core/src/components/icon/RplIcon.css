@@ -73,7 +73,7 @@
 
   /* TODO: Update this colour once designs for inactive state are finalised */
   &--colour-inactive {
-    color: var(--rpl-clr-neutral-4);
+    color: var(--rpl-clr-neutral-400);
   }
 }
 

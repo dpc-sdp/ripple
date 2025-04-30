@@ -87,9 +87,10 @@ const displayMobileView: ComputedRef<boolean> = computed(() => {
               <th
                 v-if="column.isLabelHTML"
                 :class="column.classes"
+                scope="col"
                 v-html="column.label"
               ></th>
-              <th v-else :class="column.classes">
+              <th v-else :class="column.classes" scope="col">
                 {{ column.label }}
               </th>
             </template>

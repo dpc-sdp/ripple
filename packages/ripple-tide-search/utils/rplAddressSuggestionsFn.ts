@@ -26,6 +26,14 @@ const getLGASuggestions = async (query, args) => {
             }
           },
           {
+            match_phrase_prefix: {
+              'name.stem': {
+                query,
+                max_expansions: 150
+              }
+            }
+          },
+          {
             term: {
               postcode: {
                 value: query
@@ -86,6 +94,14 @@ const getSuburbSuggestions = async (query, args) => {
               name: {
                 value: query,
                 case_insensitive: true
+              }
+            }
+          },
+          {
+            match_phrase_prefix: {
+              'name.stem': {
+                query,
+                max_expansions: 150
               }
             }
           },

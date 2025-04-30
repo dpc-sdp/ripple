@@ -35,6 +35,27 @@ export const RplDataTableItems = [
   }
 ]
 
+export const RplDataTableItemsSimple = [
+  {
+    col1: 'R1 - C1',
+    col2: 'R1 - C2',
+    col3: 'R1 - C3',
+    col4: 'R1 - C4'
+  },
+  {
+    col1: 'R2 - C1',
+    col2: 'R2 - C2',
+    col3: 'R2 - C3',
+    col4: 'R2 - C4'
+  },
+  {
+    col1: 'R3 - C1',
+    col2: 'R3 - C2',
+    col3: 'R3 - C3',
+    col4: 'R3 - C4'
+  }
+]
+
 export const RplDataTableStructuredColumns = [
   { label: 'Column 1', objectKey: 'col1' },
   { label: 'Column 2', objectKey: 'col2' },

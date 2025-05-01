@@ -1,5 +1,11 @@
+<script lang="ts">
+export default {
+  inheritAttrs: false
+}
+</script>
+
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, useAttrs } from 'vue'
 
 interface Props {
   src: string
@@ -26,6 +32,14 @@ const {
   public: { isStatic }
 } = useRuntimeConfig()
 
+const attrs = useAttrs()
+const route = useRoute()
+
+// the loading attribute defaults to lazy, but this can be overridden by the parent component and the page itself
+const imageLoading = computed(
+  () => route?.meta?.ripple?.imageLoading ?? attrs?.loading ?? 'lazy'
+)
+
 const imageSrc = computed(() => {
   const baseUrl = isStatic ? 'images' : ''
   return `${baseUrl}${props.src?.replace(/\/$/, '')}`
@@ -39,6 +53,7 @@ const imageSrc = computed(() => {
     :width="width"
     :height="height"
     :alt="alt || ''"
-    loading="lazy"
+    v-bind="$attrs"
+    :loading="imageLoading"
   />
 </template>

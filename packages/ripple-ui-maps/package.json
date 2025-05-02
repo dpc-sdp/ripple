@@ -42,14 +42,14 @@
     "@nuxt/kit": "^3.16.1",
     "@vueuse/core": "^10.9.0",
     "@vueuse/integrations": "^10.9.0",
-    "ol": "^9.1.0",
-    "ol-contextmenu": "^5.4.0",
-    "ol-ext": "^4.0.18",
+    "ol": "^10.5.0",
+    "ol-contextmenu": "^5.5.0",
+    "ol-ext": "^4.0.31",
     "postcss-each": "^1.1.0",
     "postcss-nested": "^6.0.1",
     "postcss-normalize": "^10.0.1",
     "postcss-preset-env": "^8.1.0",
-    "vue3-openlayers": "^7.0.0"
+    "vue3-openlayers": "^11.5.0"
   },
   "peerDependencies": {
     "vue": "^3.4.21"

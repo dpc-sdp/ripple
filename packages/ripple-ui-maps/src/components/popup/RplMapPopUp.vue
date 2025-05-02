@@ -95,10 +95,14 @@ const emit = defineEmits<{
 
 const { emitRplEvent } = useRippleEvent('rpl-map-popup', emit)
 const popupEL = ref()
-const previouslyFocused = ref(null)
+const previouslyFocused = ref<Element>(null)
 
 function onClose() {
-  if (previouslyFocused.value) {
+  // Return focus to where the popup was originally opened from, if the element is still in the dom
+  if (
+    previouslyFocused.value &&
+    previouslyFocused.value instanceof HTMLElement
+  ) {
     previouslyFocused.value.focus({ preventScroll: true })
   }
 
@@ -140,16 +144,16 @@ const bodyHeight = computed(() => {
   return Math.min(maxPopupHeight, availablePopupHeight) - headerHeight.value
 })
 
-watch(
-  [() => props.isOpen, () => props.featureId],
-  async (newIsOpen, newFeatureId) => {
-    if (newIsOpen) {
-      previouslyFocused.value = document.activeElement
+// Watch the featureId and isOpen to know when the popup is opened or has updated with new data.
+// Anytime this happens we want to bring focus to the popup and remember the previously focused element
+// so that we can return there when the popup is closed.
+watch([() => props.isOpen, () => props.featureId], async (newIsOpen) => {
+  if (newIsOpen) {
+    previouslyFocused.value = document.activeElement
 
-      await nextTick()
-      popupEL.value?.focus({ preventScroll: true })
-    }
+    await nextTick()
+    popupEL.value?.focus({ preventScroll: true })
   }
-)
+})
 </script>
 <style src="./RplMapPopUp.css" />

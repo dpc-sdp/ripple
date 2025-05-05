@@ -15,7 +15,8 @@ import {
   RplDataTableObjects,
   RplDataTableStructuredColumns,
   RplDataTableStructuredItems,
-  RplDataTableExtraComponents
+  RplDataTableExtraComponents,
+  RplDataTableItemsSimple
 } from './fixtures/sample'
 import { a11yStoryCheck } from './../../../stories/interactions.js'
 
@@ -151,6 +152,19 @@ export const SingleTemplate = (args) => ({
       },
       showExtraContent: true,
       offset: 0
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    name="Simple"
+    play={a11yStoryCheck}
+    args={{
+      columns: RplDataTableColumns,
+      items: RplDataTableItemsSimple
     }}
   >
     {SingleTemplate.bind()}

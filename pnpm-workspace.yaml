@@ -2,10 +2,20 @@ packages:
   - "packages/**"
   - "examples/**"
   - "docs"
-
 catalog:
   vite: "^6.3.4"
   nuxt: "^3.17.2"
   cypress: "^13.7.3"
   vite-svg-loader: "^5.1.0"
   rimraf: "^6.0.1"
+onlyBuiltDependencies:
+- "@badeball/cypress-cucumber-preprocessor"
+- "@parcel/watcher"
+- "@swc/core"
+- "better-sqlite3"
+- "core-js"
+- "cypress"
+- "esbuild"
+- "sharp"
+- "swiper"
+- "vue-demi"

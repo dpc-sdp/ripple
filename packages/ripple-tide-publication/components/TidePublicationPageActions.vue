@@ -5,8 +5,10 @@
         <RplFile v-for="file in documents" :key="file.id" v-bind="file" />
       </template>
       <RplDocument
+        v-if="printUrl"
         :url="printUrl"
         :global-events="false"
+        class="tide-publication__actions-print"
         @download="handleDownload"
       >
         <template #icon>
@@ -24,11 +26,12 @@ import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
 
 interface Props {
   documents?: any
-  printUrl: string
+  printUrl?: string
 }
 
 withDefaults(defineProps<Props>(), {
-  documents: () => []
+  documents: () => [],
+  printUrl: undefined
 })
 
 const emit = defineEmits<{

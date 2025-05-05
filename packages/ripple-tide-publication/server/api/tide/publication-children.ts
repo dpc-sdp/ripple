@@ -26,7 +26,7 @@ export const createPageHandler = async (
       pub: {
         condition: {
           operator: 'IN',
-          path: 'id',
+          path: 'nid',
           value: idList
         }
       }
@@ -45,7 +45,9 @@ export const createPageHandler = async (
 
     const sortedChildren = idList
       .map((id) => {
-        return children.find((page) => page.id === id)
+        return children.find((page) => {
+          return `${page.drupal_internal__nid}` === id
+        })
       })
       .filter((s) => s)
 

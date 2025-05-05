@@ -19,6 +19,10 @@ Then('the print dialog should be shown', () => {
   })
 })
 
+Then('the print document link should be hidden', () => {
+  cy.get('.tide-publication__actions-print').should('not.exist')
+})
+
 Then(
   'there should be a page link with a title of {string} and description text of {string}',
   (title: string, desc: string) => {

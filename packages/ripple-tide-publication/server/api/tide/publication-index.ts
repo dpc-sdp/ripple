@@ -19,6 +19,7 @@ const processChildren = (node: apiNode) => {
     text: node.title,
     url: node.url,
     id: node.id,
+    nid: node.entity_id,
     items: node.children ? [] : undefined,
     active: undefined
   }

@@ -103,17 +103,6 @@
   "header": {
     "title": "Demo Landing Page",
     "summary": "Nulla ultricies dignissim leo, posuere vestibulum erat cursus vitae",
-    "links": {
-      "title": "Want to know more about...",
-      "items": [
-        { "text": "Nullam laoreet", "url": "https://vic.gov.au" },
-        { "text": "Morbi cursus placerat mi", "url": "https://vic.gov.au" }
-      ],
-      "more": { "text": "Nullam laoreet", "url": "https://vic.gov.au" }
-    },
-    "backgroundImageCaption": null,
-    "theme": "reverse",
-    "logoImage": null,
     "backgroundImage": {
       "src": "/placeholders/large.png",
       "alt": "Demo: Melbourne skyline at dusk",
@@ -121,25 +110,7 @@
       "width": 2560,
       "height": 650,
       "drupal_internal__target_id": 44
-    },
-    "cornerTop": {
-      "src": "/placeholders/small.png",
-      "alt": "Demo: Parliament of Victoria",
-      "title": "Demo: Parliament of Victoria",
-      "width": 1650,
-      "height": 915,
-      "drupal_internal__target_id": 46
-    },
-    "cornerBottom": null,
-    "primaryAction": {
-      "text": "Phasellus congue",
-      "url": "https://www.vic.gov.au"
-    },
-    "secondaryAction": {
-      "text": "Nullam laoreet",
-      "url": "https://vic.gov.au"
-    },
-    "secondaryActionLabel": "Nulla ultricies dignissim leo, posuere vestibulum erat cursus vitae"
+    }
   },
   "primaryCampaign": {
     "title": "Demo Campaign",

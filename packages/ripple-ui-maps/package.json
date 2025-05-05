@@ -49,7 +49,7 @@
     "postcss-nested": "^6.0.1",
     "postcss-normalize": "^10.0.1",
     "postcss-preset-env": "^8.1.0",
-    "vue3-openlayers": "^11.5.0"
+    "vue3-openlayers": "^11.6.0"
   },
   "peerDependencies": {
     "vue": "^3.4.21"

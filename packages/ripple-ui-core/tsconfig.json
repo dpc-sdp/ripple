@@ -13,7 +13,7 @@
     "sourceMap": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
-    "types": ["vite/client", "@types/jest", "vite-plugin-svg-icons/client", "cypress"],
+    "types": ["vite/client", "@types/jest", "cypress"],
     "paths": {
       "@/*": ["src/*"]
     },
@@ -22,7 +22,12 @@
     "declaration": true
   },
   "include": [
-    "env.d.ts", "src/index.ts", "src/nuxt/**/*.ts", "src/tokens/**/*.ts", "src/tokens/**/*.json", "src/scripts/**/*.ts"
+    "env.d.ts",
+    "src/index.ts",
+    "src/nuxt/**/*.ts",
+    "src/tokens/**/*.ts",
+    "src/tokens/**/*.json",
+    "src/scripts/**/*.ts"
   ],
   "exclude": ["src/components/global/stories/*"]
 }

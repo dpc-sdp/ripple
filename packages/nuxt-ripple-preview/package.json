@@ -16,6 +16,6 @@
     "@dpc-sdp/ripple-ui-core": "workspace:*",
     "client-oauth2": "^4.3.3",
     "cookie-signature": "^1.2.1",
-    "nanoid": "^4.0.2"
+    "nanoid": "^5.1.5"
   }
 }

@@ -19,7 +19,7 @@
     "./nuxt": "./src/nuxt/index.ts",
     "./vue": "./dist/rpl-vue.es.js",
     "./webcomponents": "./dist/web-components/rpl-wc.es.js",
-    "./style": "./dist/global.css",
+    "./style": "./dist/ripple-ui-core.css",
     "./style/breakpoints": "./src/styles/_breakpoints.css",
     "./style/components": "./dist/style.css"
   },

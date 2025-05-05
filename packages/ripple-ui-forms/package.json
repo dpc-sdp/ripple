@@ -37,7 +37,7 @@
     "rimraf": "catalog:",
     "ts-node": "^10.7.0",
     "vite": "catalog:",
-    "vite-plugin-static-copy": "^0.13.1",
+    "vite-plugin-static-copy": "^2.3.1",
     "vite-svg-loader": "catalog:",
     "vue-loader": "^17.0.0"
   },

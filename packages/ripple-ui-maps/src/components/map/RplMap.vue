@@ -350,14 +350,22 @@ const handleUpdateSelectedLayers = (newSelectedLayers: string[]) => {
   emit('updateSelectedLayers', newSelectedLayers)
 }
 
-const popupId = computed(() => {
+// Try to construct a unique id for the currently active popup, this is needed for focus management
+// Not all features have an id, and not all features have a set of coordinates
+// A popup can also contain multiple features, so we join them together
+const activePopupId = computed(() => {
+  if (!popup.value?.feature || !popup.value?.feature?.length) {
+    return null
+  }
+
   const features = Array.isArray(popup.value?.feature)
     ? popup.value.feature
     : [popup.value.feature]
-  return (
-    popup.value.position.join(',') ||
-    features.map((feature) => feature?.id).join('-')
-  )
+
+  const jointId = features.map((feature) => feature?.id).join('-')
+  const fallbackPositionId = popup.value.position.join(',')
+
+  return jointId ? jointId : fallbackPositionId
 })
 </script>
 
@@ -459,7 +467,7 @@ const popupId = computed(() => {
           :offset="[0, popup.isArea ? 6 : 8]"
         >
           <RplMapPopUp
-            :featureId="popupId"
+            :featureId="activePopupId"
             :is-open="popup.isOpen"
             :is-area="popup.isArea"
             :type="popupType"
@@ -503,7 +511,7 @@ const popupId = computed(() => {
         :mapHeight="mapHeight"
       >
         <RplMapPopUp
-          :featureId="popupId"
+          :featureId="activePopupId"
           :is-open="popup.isOpen"
           :is-area="popup.isArea"
           :type="popupType"

@@ -19,7 +19,11 @@
         "url": "/state-victorian-labour-market-2023"
       }
     ],
-    "socialShareNetworks": ["Facebook", "X", "LinkedIn"]
+    "socialShareNetworks": [
+      "Facebook",
+      "X",
+      "LinkedIn"
+    ]
   },
   "status": "published",
   "topicTags": [
@@ -227,7 +231,148 @@
       "url": "/victorian-skills-plan-2023-implementation-update/expand-re-skilling-and-skilling-opportunities"
     }
   ],
-  "bodyComponents": [],
+  "bodyComponents": [
+    {
+      "uuid": "5cb51ee5-a63f-433e-92a6-017b92ce37fe",
+      "component": "TideLandingPageMediaEmbed",
+      "id": "1951",
+      "props": {
+        "title": "Complex image",
+        "caption": "Source by the Department",
+        "src": "/placeholders/medium.png",
+        "dataLabel": "More info",
+        "dataContent": "<p>Ex eiusmod quis pariatur ipsum exercitation est velit eu magna.</p>",
+        "fullscreenLabel": "Fullscreen",
+        "downloadUrl": "/placeholders/medium.png",
+        "downloadLabel": "Download it",
+        "type": "image",
+        "variant": "complex",
+        "allowFullscreen": true,
+        "showTitle": true
+      }
+    },
+    {
+      "uuid": "c509edfe-89a6-4b8d-b8e1-f72e6774da1f",
+      "component": "TideLandingPagePromoCard",
+      "id": "978",
+      "layout": "card",
+      "props": {
+        "displayStyle": "profile",
+        "title": "Promo card (profile)",
+        "summary": "Sample description",
+        "image": {
+          "src": "/placeholders/medium.png",
+          "focalPoint": {
+            "x": 707,
+            "y": 393
+          },
+          "alt": "Demo: Melbourne tram",
+          "width": 1413,
+          "height": 785,
+          "title": "Demo: Melbourne tram"
+        },
+        "link": {
+          "text": "",
+          "url": "/demo-destination"
+        },
+        "showMetadata": true,
+        "metadata": {
+          "dateStart": "2019-07-02 09:00:00",
+          "dateEnd": "2019-07-07 10:00:00",
+          "topic": "Demo Topic",
+          "contentType": "Event",
+          "fvRecommendationStatus": "",
+          "inductionYear": "",
+          "isGrantOngoing": false
+        }
+      }
+    },
+    {
+      "uuid": "77e1ae48-8bf7-44ce-8561-79fe4b528611",
+      "component": "TideLandingPageNavCard",
+      "id": "982",
+      "props": {
+        "displayStyle": "thumbnail",
+        "title": "Nav card (thumbnail)",
+        "summary": "Sample description",
+        "image": {
+          "src": "/placeholders/medium.png",
+          "focalPoint": {
+            "x": 707,
+            "y": 393
+          },
+          "alt": "Demo: Melbourne tram",
+          "width": 1413,
+          "height": 785,
+          "title": "Demo: Melbourne tram"
+        },
+        "link": {
+          "text": "",
+          "url": "/test-grant"
+        }
+      }
+    },
+    {
+      "uuid": "5706a002-8b3b-4318-a553-455514495080",
+      "component": "TideLandingPageCallToAction",
+      "id": "1024",
+      "props": {
+        "title": "Test call to action title",
+        "image": {
+          "src": "/placeholders/medium.png",
+          "alt": "Two men working",
+          "title": "Two men working"
+        },
+        "url": "/test-cta-destination",
+        "ctaText": "Test CTA text",
+        "summary": "<p>This is <strong>the description</strong></p>"
+      }
+    },
+    {
+      "uuid": "pd9356djw-f5c2-4ae5-8b0f-54664945bcf9",
+      "component": "TideLandingPageCardCarousel",
+      "id": "1155",
+      "props": {
+        "items": [
+          {
+            "type": "promo",
+            "title": "Promotion title",
+            "url": "/promo-page",
+            "image": {
+              "alt": "Demo: Engage Vic Hero",
+              "drupal_internal__target_id": 52,
+              "focalPoint": null,
+              "height": 500,
+              "src": "/placeholders/medium.png",
+              "title": "Engage Vic",
+              "width": 737
+            },
+            "meta": {
+              "topic": "Environment",
+              "date": "2022-11-03T03:15:00+11:00"
+            },
+            "summary": "Promotion Card summary"
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "5288de89-f5c2-4ae5-8b0f-54664945bcf9",
+      "component": "TideLandingPageMediaGallery",
+      "id": "1056",
+      "props": {
+        "items": [
+          {
+            "title": "Media title one",
+            "caption": "The first media caption",
+            "alt": "Demo: 2018-19 State Budget",
+            "thumbnail": "/placeholders/medium.png",
+            "image": "/placeholders/medium.png"
+          }
+        ]
+      }
+    }
+  ],
   "publication": {
     "text": "Victorian Skills Plan Implementation Update",
     "url": "/victorian-skills-plan-2023-implementation-update",

@@ -22,11 +22,11 @@
   }
 
   tbody {
-    &.rpl-data-table__row:nth-child(even) tr {
+    &.rpl-data-table__row--even tr {
       background-color: transparent;
     }
 
-    &.rpl-data-table__row:nth-child(odd) tr {
+    &.rpl-data-table__row--odd tr {
       background-color: var(--local-table-row-background);
     }
 

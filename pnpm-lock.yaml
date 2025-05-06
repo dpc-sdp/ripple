@@ -9,6 +9,9 @@ catalogs:
     cypress:
       specifier: ^13.7.3
       version: 13.7.3
+    http-proxy-middleware:
+      specifier: ^3.0.5
+      version: 3.0.5
     nuxt:
       specifier: ^3.17.2
       version: 3.17.2
@@ -360,6 +363,9 @@ importers:
       defu:
         specifier: ^6.1.2
         version: 6.1.4
+      http-proxy-middleware:
+        specifier: 'catalog:'
+        version: 3.0.5
 
   packages/nuxt-ripple-analytics:
     dependencies:
@@ -759,6 +765,9 @@ importers:
       '@elastic/search-ui-elasticsearch-connector':
         specifier: 1.19.1
         version: 1.19.1
+      http-proxy-middleware:
+        specifier: 'catalog:'
+        version: 3.0.5
 
   packages/ripple-tide-topic:
     dependencies:
@@ -828,6 +837,9 @@ importers:
       postcss-preset-env:
         specifier: ^8.1.0
         version: 8.5.1(postcss@8.5.3)
+      svgo:
+        specifier: ^3.3.2
+        version: 3.3.2
       swiper:
         specifier: ^8.4.5
         version: 8.4.7
@@ -4841,6 +4853,9 @@ packages:
   '@types/http-errors@2.0.4':
     resolution: {integrity: sha512-D0CFMMtydbJAegzOyHjtiKPLlvnm3iTZyZRSZoLq2mRhDdmLfIWOCYPfQJ4cu2erKghU++QvjcUjp/5h7hESpA==}
 
+  '@types/http-proxy@1.17.16':
+    resolution: {integrity: sha512-sdWoUajOB1cd0A8cRRQ1cfyWNbmFKLAqBB89Y8x5iYyG/mkJHc0YUH8pdWBy2omi9qtCpiIgGjuwO0dQST2l5w==}
+
   '@types/iframe-resizer@4.0.0':
     resolution: {integrity: sha512-RKrT4goNVtqZvf9WPkV0cUcphQWXzLVW1IE4yOIY21c1W+obJJbcHFD1lQu5ncNHm/6TeQSeedVf9bmkx2NaGQ==}
 
@@ -8765,6 +8780,10 @@ packages:
   http-proxy-agent@7.0.2:
     resolution: {integrity: sha512-T1gkAiYYDWYx3V5Bmyu7HcfcvL7mUrTWiM6yOfa3PIphViJ/gFPbvidQ+veqSOHci/PxBcDabeUNCzpOODJZig==}
     engines: {node: '>= 14'}
+
+  http-proxy-middleware@3.0.5:
+    resolution: {integrity: sha512-GLZZm1X38BPY4lkXA01jhwxvDoOkkXqjgVyUzVxiEK4iuRu03PZoYHhHRwxnfhQMDuaxi3vVri0YgSro/1oWqg==}
+    engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
 
   http-proxy@1.18.1:
     resolution: {integrity: sha512-7mz/721AbnJwIVbnaSv1Cz3Am0ZLT/UBwkC92VlxhXv/k/BBQfM2fXElQNC27BVGr0uwUpplYPQM9LnaBMR5NQ==}
@@ -19743,6 +19762,10 @@ snapshots:
 
   '@types/http-errors@2.0.4': {}
 
+  '@types/http-proxy@1.17.16':
+    dependencies:
+      '@types/node': 18.15.10
+
   '@types/iframe-resizer@4.0.0': {}
 
   '@types/istanbul-lib-coverage@2.0.6': {}
@@ -24639,7 +24662,18 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  http-proxy@1.18.1:
+  http-proxy-middleware@3.0.5:
+    dependencies:
+      '@types/http-proxy': 1.17.16
+      debug: 4.4.0(supports-color@8.1.1)
+      http-proxy: 1.18.1(debug@4.4.0)
+      is-glob: 4.0.3
+      is-plain-object: 5.0.0
+      micromatch: 4.0.8
+    transitivePeerDependencies:
+      - supports-color
+
+  http-proxy@1.18.1(debug@4.4.0):
     dependencies:
       eventemitter3: 4.0.7
       follow-redirects: 1.15.9(debug@4.4.0)
@@ -24654,7 +24688,7 @@ snapshots:
       corser: 2.0.1
       he: 1.2.0
       html-encoding-sniffer: 3.0.0
-      http-proxy: 1.18.1
+      http-proxy: 1.18.1(debug@4.4.0)
       mime: 1.6.0
       minimist: 1.2.8
       opener: 1.5.2

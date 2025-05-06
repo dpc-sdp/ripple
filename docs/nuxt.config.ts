@@ -34,7 +34,8 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       ignore: ['/storybook']
-    }
+    },
+    preset: 'netlify-static'
   },
   // A change in nuxt 3.8.0 means we were getting errors whenever a type was imported without the 'type' keyword
   // This is a temporary workaround until we can fix all the types

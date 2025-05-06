@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { inject } from 'vue'
+import { inject, useSlots, computed } from 'vue'
 import RplIcon from '../../../icon/RplIcon.vue'
+import RplImage from '../../../image/RplImage.vue'
 import RplPrimaryNavBarAction from './RplPrimaryNavBarAction.vue'
 import type {
   IRplPrimaryNavLogo,
@@ -12,6 +13,7 @@ import {
   useRippleEvent,
   type rplEventPayload
 } from '../../../../composables/useRippleEvent'
+import useEmptySlotCheck from '../../../../composables/useEmptySlotCheck'
 import VicGovLogo from './../../../../assets/logos/logo-vic-gov.svg?component'
 import type { IRplFeatureFlags } from '@dpc-sdp/ripple-tide-api/types'
 
@@ -48,6 +50,9 @@ const emit = defineEmits<{
 
 const { emitRplEvent } = useRippleEvent('rpl-primary-nav', emit)
 
+const slots = useSlots()
+const userActionSlotIsEmpty = useEmptySlotCheck(slots.userAction)
+
 const mobileToggleLabel = 'Menu'
 
 const isItemActive = (item: IRplPrimaryNavItem) =>
@@ -67,6 +72,10 @@ const handleToggleItem = (level: number, item: IRplPrimaryNavItem) => {
 
   props.toggleItem(level as 3 | 2 | 1, item)
 }
+
+const showMobileToggle = computed(() => {
+  return !!props.items?.length || !userActionSlotIsEmpty.value
+})
 </script>
 
 <template>
@@ -94,13 +103,14 @@ const handleToggleItem = (level: number, item: IRplPrimaryNavItem) => {
           :aria-label="primaryLogo.altText"
           class="rpl-primary-nav__primary-logo-image"
         />
-        <RplImg
+        <RplImage
           v-else
           class="rpl-primary-nav__primary-logo-image rpl-u-screen-only"
           :src="primaryLogo.src"
           :alt="primaryLogo.altText"
+          priority="high"
         />
-        <RplImg
+        <RplImage
           v-if="primaryLogo?.src"
           class="rpl-primary-nav__primary-logo-image rpl-primary-nav__logo-alt rpl-u-print-only"
           :src="primaryLogo?.printSrc ? primaryLogo?.printSrc : primaryLogo.src"
@@ -120,12 +130,13 @@ const handleToggleItem = (level: number, item: IRplPrimaryNavItem) => {
         class="rpl-primary-nav__secondary-logo-link rpl-u-focusable-outline rpl-u-focusable-outline--no-border"
         :url="secondaryLogo.href"
       >
-        <RplImg
+        <RplImage
           class="rpl-primary-nav__secondary-logo-image rpl-u-screen-only"
           :src="secondaryLogo.src"
           :alt="secondaryLogo.altText"
+          priority="high"
         />
-        <RplImg
+        <RplImage
           v-if="secondaryLogo.printSrc"
           class="rpl-primary-nav__secondary-logo-image rpl-primary-nav__logo-alt rpl-u-print-only"
           :src="secondaryLogo.printSrc"
@@ -141,7 +152,10 @@ const handleToggleItem = (level: number, item: IRplPrimaryNavItem) => {
       ]"
     >
       <!-- Mobile menu toggle -->
-      <li class="rpl-primary-nav__nav-bar-mobile-menu-toggle-container">
+      <li
+        v-if="showMobileToggle"
+        class="rpl-primary-nav__nav-bar-mobile-menu-toggle-container"
+      >
         <RplPrimaryNavBarAction
           type="toggle"
           href="/"

@@ -15,6 +15,9 @@ const pluginTables = function (this: any) {
       }
     })
 
+    $table.find('thead th').attr('scope', 'col')
+    $table.find('tbody th').attr('scope', 'row')
+
     return $table
       .wrap(`<div class="rpl-table"></div>`)
       .wrap(

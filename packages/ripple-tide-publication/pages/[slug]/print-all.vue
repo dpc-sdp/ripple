@@ -10,13 +10,22 @@ import {
   useTidePage,
   useTidePublicationMenu,
   useTidePublicationChildren,
-  useRoute
+  useRoute,
+  definePageMeta
 } from '#imports'
-import { onMounted } from 'vue'
+import { onMounted, onUnmounted } from 'vue'
+
+// Set image loading to eager so printed pages can
+// load all images before launching the print dialogue
+definePageMeta({
+  ripple: {
+    imageLoading: 'eager'
+  }
+})
 
 const flatten = (items) => {
   return (items || []).reduce((acc, item) => {
-    return [...acc, item.id, ...flatten(item.items)]
+    return [...acc, item.nid, ...flatten(item.items)]
   }, [])
 }
 
@@ -37,8 +46,18 @@ const page = computed(() => {
   return { title: `Print - ${parentPage.title}` }
 })
 
+const handlePrint = () => window.print()
+
 onMounted(() => {
-  window.print()
+  if (document.readyState === 'complete') {
+    handlePrint()
+  } else {
+    window.addEventListener('load', handlePrint)
+  }
+})
+
+onUnmounted(() => {
+  window.removeEventListener('load', handlePrint)
 })
 
 useHead({

@@ -72,6 +72,9 @@ const state = reactive({
 const rowClasses = computed(() => [
   'rpl-data-table__row',
   state.enabled ? 'rpl-data-table__row--open' : null,
+  (props.index + 1) % 2 === 0
+    ? 'rpl-data-table__row--even'
+    : 'rpl-data-table__row--odd',
   ...(props.columns[props.index]?.classes || [])
 ])
 
@@ -115,6 +118,7 @@ const getCellText = (col?: number | string, value = '') => {
         v-for="(column, i) of columns"
         :key="i"
         :data-label="column.label"
+        :scope="i === 0 && verticalHeader ? 'row' : null"
       >
         <div class="rpl-data-table__mobile-label" v-html="column.label" />
         <template v-if="hasComponent(column)">

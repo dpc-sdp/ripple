@@ -287,14 +287,14 @@
     },
     "backgroundImage": null,
     "cornerTop": {
-      "src": "/placeholders/small.png",
+      "src": "/placeholders/corner-graphic.png",
       "alt": "Demo: Parliament of Victoria",
       "title": "Demo: Parliament of Victoria",
       "width": 1650,
       "height": 915
     },
     "cornerBottom": {
-      "src": "/placeholders/small.png",
+      "src": "/placeholders/corner-graphic-bottom.png",
       "alt": "Demo: VicFleet - Police car on road",
       "title": "Demo: VicFleet - Police car on road",
       "width": 1065,

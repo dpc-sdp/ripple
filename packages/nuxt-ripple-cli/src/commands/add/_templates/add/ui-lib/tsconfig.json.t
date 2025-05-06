@@ -16,7 +16,7 @@ to: tsconfig.json
     "sourceMap": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
-    "types": ["vite/client", "@types/jest", "vite-plugin-svg-icons/client"],
+    "types": ["vite/client", "@types/jest"],
     "paths": {
       "@/*": ["src/*"]
     },

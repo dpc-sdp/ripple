@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { inject, useSlots, computed } from 'vue'
 import RplIcon from '../../../icon/RplIcon.vue'
-import RplImage from '../../../image/RplImage.vue'
 import RplPrimaryNavBarAction from './RplPrimaryNavBarAction.vue'
 import type {
   IRplPrimaryNavLogo,
@@ -103,14 +102,13 @@ const showMobileToggle = computed(() => {
           :aria-label="primaryLogo.altText"
           class="rpl-primary-nav__primary-logo-image"
         />
-        <RplImage
+        <RplImg
           v-else
           class="rpl-primary-nav__primary-logo-image rpl-u-screen-only"
           :src="primaryLogo.src"
           :alt="primaryLogo.altText"
-          priority="high"
         />
-        <RplImage
+        <RplImg
           v-if="primaryLogo?.src"
           class="rpl-primary-nav__primary-logo-image rpl-primary-nav__logo-alt rpl-u-print-only"
           :src="primaryLogo?.printSrc ? primaryLogo?.printSrc : primaryLogo.src"
@@ -130,13 +128,12 @@ const showMobileToggle = computed(() => {
         class="rpl-primary-nav__secondary-logo-link rpl-u-focusable-outline rpl-u-focusable-outline--no-border"
         :url="secondaryLogo.href"
       >
-        <RplImage
+        <RplImg
           class="rpl-primary-nav__secondary-logo-image rpl-u-screen-only"
           :src="secondaryLogo.src"
           :alt="secondaryLogo.altText"
-          priority="high"
         />
-        <RplImage
+        <RplImg
           v-if="secondaryLogo.printSrc"
           class="rpl-primary-nav__secondary-logo-image rpl-primary-nav__logo-alt rpl-u-print-only"
           :src="secondaryLogo.printSrc"
@@ -152,10 +149,7 @@ const showMobileToggle = computed(() => {
       ]"
     >
       <!-- Mobile menu toggle -->
-      <li
-        v-if="showMobileToggle"
-        class="rpl-primary-nav__nav-bar-mobile-menu-toggle-container"
-      >
+      <li v-if="showMobileToggle" class="rpl-primary-nav__nav-bar-mobile-menu-toggle-container">
         <RplPrimaryNavBarAction
           type="toggle"
           href="/"

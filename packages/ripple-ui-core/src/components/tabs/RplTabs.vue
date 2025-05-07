@@ -17,6 +17,7 @@ const RplTabsModes = ['horizontal', 'vertical']
 interface IRplTab {
   title: string
   key: string
+  isHTML?: boolean
   icon?: string | undefined
 }
 
@@ -73,7 +74,7 @@ const updateActive = (key: string) => {
       :aria-controls="`panel-${item.key}`"
       @click="updateActive(item.key)"
     >
-      {{ item.title }}
+      <span v-html="item.title" />
       <RplIcon v-if="item.icon" :name="`icon-${item.icon}`" />
     </button>
   </div>

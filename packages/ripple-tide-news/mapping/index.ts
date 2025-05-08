@@ -8,10 +8,6 @@ import {
   tidePageBaseMapping,
   tidePageBaseIncludes
 } from '@dpc-sdp/nuxt-ripple/mapping'
-import {
-  heroHeaderMapping,
-  heroHeaderIncludes
-} from '@dpc-sdp/ripple-tide-landing-page/mapping'
 
 const tideNewsModule: IRplTideModuleMapping = {
   mapping: {
@@ -22,7 +18,6 @@ const tideNewsModule: IRplTideModuleMapping = {
       withSidebarSocialShare: true
     }),
     showTopicTags: 'field_show_topic_term_and_tags',
-    header: heroHeaderMapping,
     details: {
       published: 'field_news_date',
       location: (src) =>
@@ -47,7 +42,6 @@ const tideNewsModule: IRplTideModuleMapping = {
       withSidebarRelatedLinks: true,
       withSidebarSocialShare: true
     }),
-    ...heroHeaderIncludes,
     'field_location',
     'field_node_department',
     'field_featured_image',

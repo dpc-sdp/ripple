@@ -10,10 +10,6 @@ import {
 } from '@dpc-sdp/nuxt-ripple/mapping'
 import { formatPriceRange } from '@dpc-sdp/nuxt-ripple/mapping/utils'
 import type { IRplTideModuleMapping } from '@dpc-sdp/ripple-tide-api/types'
-import {
-  heroHeaderMapping,
-  heroHeaderIncludes
-} from '@dpc-sdp/ripple-tide-landing-page/mapping'
 
 const tideEventModule: IRplTideModuleMapping = {
   mapping: {
@@ -31,7 +27,6 @@ const tideEventModule: IRplTideModuleMapping = {
       }
       return 'h2'
     },
-    header: heroHeaderMapping,
     date: {
       from: 'field_event_details[0].field_paragraph_date_range.value',
       to: 'field_event_details[0].field_paragraph_date_range.end_value'
@@ -71,7 +66,6 @@ const tideEventModule: IRplTideModuleMapping = {
       withSidebarRelatedLinks: true,
       withSidebarSocialShare: true
     }),
-    ...heroHeaderIncludes,
     'field_event_details',
     'field_featured_image',
     'field_event_details.field_event_requirements'

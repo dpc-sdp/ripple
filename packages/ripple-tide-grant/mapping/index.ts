@@ -12,10 +12,6 @@ import {
 import { formatPriceRange } from '@dpc-sdp/nuxt-ripple/mapping/utils'
 import formatGrantAudiences from './utils/formatGrantAudiences'
 import type { IRplTideModuleMapping } from '@dpc-sdp/ripple-tide-api/types'
-import {
-  heroHeaderMapping,
-  heroHeaderIncludes
-} from '@dpc-sdp/ripple-tide-landing-page/mapping'
 
 const tideGrantModule: IRplTideModuleMapping = {
   mapping: {
@@ -26,7 +22,6 @@ const tideGrantModule: IRplTideModuleMapping = {
       withSidebarSocialShare: true
     }),
     summary: 'field_landing_page_summary',
-    header: heroHeaderMapping,
     overview: {
       title: 'field_overview_title',
       funding: (src: string) =>
@@ -101,7 +96,6 @@ const tideGrantModule: IRplTideModuleMapping = {
       withSidebarRelatedLinks: false,
       withSidebarSocialShare: true
     }),
-    ...heroHeaderIncludes,
     'field_audience',
     'field_node_guidelines',
     'field_node_timeline',

@@ -5,8 +5,6 @@ import {
 import { getBodyFromField, getImageFromField } from '@dpc-sdp/ripple-tide-api'
 import type { IRplTideModuleMapping } from '@dpc-sdp/ripple-tide-api/types'
 import {
-  heroHeaderMapping,
-  heroHeaderIncludes,
   secondaryCampaignIncludes,
   secondaryCampaignMapping
 } from '@dpc-sdp/ripple-tide-landing-page/mapping'
@@ -19,7 +17,6 @@ const tideCollectionModule: IRplTideModuleMapping = {
       withSidebarRelatedLinks: false,
       withSidebarSocialShare: false
     }),
-    header: heroHeaderMapping,
     summary: 'field_landing_page_summary',
     beforeResults: (src: string) =>
       getBodyFromField(src, 'field_above_results_content'),
@@ -35,7 +32,6 @@ const tideCollectionModule: IRplTideModuleMapping = {
       withSidebarRelatedLinks: false,
       withSidebarSocialShare: false
     }),
-    ...heroHeaderIncludes,
     ...secondaryCampaignIncludes,
     'field_listing_global_filters',
     'field_listing_user_filters',

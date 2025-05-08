@@ -17,7 +17,6 @@ const RplTabsModes = ['horizontal', 'vertical']
 interface IRplTab {
   title: string
   key: string
-  isHTML?: boolean
   icon?: string | undefined
 }
 

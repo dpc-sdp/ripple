@@ -540,6 +540,17 @@ const reverseFields = computed(
     (altBackground.value && !reverseTheme.value)
 )
 
+const tabsLabel = computed(() => {
+  const hasMapAndList =
+    (props.tabs || [])?.filter(
+      (tab) => tab.key === 'map' || tab.key === 'listing'
+    ).length === 2
+
+  return hasMapAndList
+    ? 'Select the list tab for a fully accessible format, some map features cannot be accessed using a keyboard.'
+    : null
+})
+
 const handleGeolocateClick = () => {
   isGettingLocation.value = true
   geolocationError.value = null
@@ -729,6 +740,7 @@ watch(baseEvent, (newBaseEvent) => {
         v-if="searchListingConfig?.displayMapTab"
         :tabs="tabs"
         :activeTab="activeTab"
+        :aria-label="tabsLabel"
         @toggleTab="handleTabChange"
       />
       <template
@@ -791,6 +803,8 @@ watch(baseEvent, (newBaseEvent) => {
       </template>
       <template v-if="activeTab === 'map'">
         <TideSearchListingResultsMap
+          :id="`${id}-map`"
+          :title="title"
           :results="mapFeatures"
           :areas="mapAreas"
           v-bind="mapConfig?.props"

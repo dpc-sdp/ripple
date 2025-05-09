@@ -10,22 +10,21 @@ const setupMockServer = async () => {
 
   console.log('starting mock server...', mockServer.url)
 
-  console.log(`Mocking site data: ${mockServer.url}/api/tide/site?id=8888`)
+  console.log(`Mocking site data: ${mockServer.url}/api/tide/site`)
   await mockServer
     .forGet('/api/tide/site')
     .always()
-    .withExactQuery(`?id=8888`)
     .thenJson(200, mockSiteTaxonomy)
 
   for (let index = 0; index < mockedRoutes.length; index++) {
     const route = mockedRoutes[index]
     console.log(
-      `Mocking route : ${mockServer.url}/api/tide/page?path=${route.path}&site=8888`
+      `Mocking route : ${mockServer.url}/api/tide/page?path=${route.path}`
     )
     await mockServer
       .forGet('/api/tide/page')
       .always()
-      .withExactQuery(`?path=${route.path}&site=8888`)
+      .withExactQuery(`?path=${route.path}`)
       .thenJson(200, require(`./test/fixtures/${route.fixture}`))
   }
 

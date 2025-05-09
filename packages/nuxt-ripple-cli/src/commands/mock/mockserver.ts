@@ -18,11 +18,10 @@ const rippleMockServer = async (
     path.resolve(process.cwd(), `${siteFixturePath}`)
   )
 
-  console.info(`Mocking site data: ${mockServer.url}/api/tide/site?id=8888`)
+  console.info(`Mocking site data: ${mockServer.url}/api/tide/site`)
   await mockServer
     .forGet('/api/tide/site')
     .always()
-    .withExactQuery(`?id=8888`)
     .thenJson(200, mockSiteTaxonomy)
 
   /*
@@ -36,7 +35,7 @@ const rippleMockServer = async (
   for (let index = 0; index < mockedRoutes.length; index++) {
     const route = mockedRoutes[index]
     console.info(
-      `Mocking route : ${mockServer.url}/api/tide/page?path=${route.path}&site=8888`
+      `Mocking route : ${mockServer.url}/api/tide/page?path=${route.path}`
     )
     const fixture = await import(
       path.resolve(process.cwd(), `${fixtureFolder}/${route.fixture}`)
@@ -45,7 +44,7 @@ const rippleMockServer = async (
     await mockServer
       .forGet('/api/tide/page')
       .always()
-      .withExactQuery(`?path=${route.path}&site=8888`)
+      .withExactQuery(`?path=${route.path}`)
       .thenJson(200, fixture)
   }
   /*

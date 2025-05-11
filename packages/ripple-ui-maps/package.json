@@ -42,14 +42,14 @@
     "@nuxt/kit": "^3.16.1",
     "@vueuse/core": "^10.9.0",
     "@vueuse/integrations": "^10.9.0",
-    "ol": "^9.1.0",
-    "ol-contextmenu": "^5.4.0",
-    "ol-ext": "^4.0.18",
+    "ol": "^10.5.0",
+    "ol-contextmenu": "^5.5.0",
+    "ol-ext": "^4.0.31",
     "postcss-each": "^1.1.0",
     "postcss-nested": "^6.0.1",
     "postcss-normalize": "^10.0.1",
     "postcss-preset-env": "^8.1.0",
-    "vue3-openlayers": "^7.0.0"
+    "vue3-openlayers": "^11.6.0"
   },
   "peerDependencies": {
     "vue": "^3.4.21"
@@ -61,13 +61,12 @@
     "@vue/compiler-sfc": "^3.2.47",
     "autoprefixer": "^10.4.14",
     "jest-axe": "^7.0.1",
-    "rimraf": "^4.4.1",
-    "vite": "^5.2.11",
+    "rimraf": "catalog:",
+    "vite": "catalog:",
     "vite-plugin-copy": "^0.1.6",
     "vite-plugin-dts": "^2.1.0",
-    "vite-plugin-svg-icons": "^2.0.1",
     "vite-plugin-vue-svg": "^0.1.0",
-    "vite-svg-loader": "^4.0.0"
+    "vite-svg-loader": "catalog:"
   },
   "overrides": {
     "ol-contextmenu": {

@@ -1,9 +1,18 @@
-import { defineEventHandler, H3Event, proxyRequest } from 'h3'
+import {
+  defineEventHandler,
+  H3Event,
+  proxyRequest,
+  getRequestURL,
+  sendError,
+  createError
+} from 'h3'
 import { createHandler, logger } from '@dpc-sdp/ripple-tide-api'
 import { BadRequestError } from '@dpc-sdp/ripple-tide-api/errors'
 import verifyCaptcha from '../../../utils/verifyCaptcha'
+import { useRuntimeConfig } from '#imports'
 
 export default defineEventHandler(async (event: H3Event) => {
+  const label = 'TideWebformProxyHandler'
   const { tide, public: config } = useRuntimeConfig()
 
   const formId = event.context.params?.formId
@@ -29,7 +38,7 @@ export default defineEventHandler(async (event: H3Event) => {
     return
   }
 
-  return createHandler(event, 'TideWebformProxyHandler', async () => {
+  return createHandler(event, label, async () => {
     const route = getRequestURL(event)
     const target =
       config.tide.baseUrl + route.pathname.replace('/api/tide/', '/api/v1/')
@@ -45,6 +54,8 @@ export default defineEventHandler(async (event: H3Event) => {
       ).toString('base64')
       headers['Authorization'] = `Basic ${basicAuthBase64}`
     }
+
+    logger.info(`Proxy ${route.href} request to ${target}`, { label })
 
     return await proxyRequest(event, target, { headers })
   })

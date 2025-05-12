@@ -73,4 +73,4 @@ Feature: Home page
   Scenario: Header component - Search banner - url encoding
     Given the page endpoint for path "/search/cats" returns fixture "/landingpage/home" with status 200
     Then a search banner with ID "1911" should exist with the placeholder "Test search placeholder"
-    Then in a search banner with ID "1911", searching for "cats test" should take me to "/search/cats%20test"
+    Then in a search banner with ID "1911", searching for "cats test & dogs rest" should take me to "/search/cats%20test%20%26%20dogs%20rest"

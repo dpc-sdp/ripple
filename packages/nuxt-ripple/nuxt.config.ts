@@ -82,7 +82,6 @@ export default defineNuxtConfig({
   },
   modules: [
     '@nuxt/image',
-    'nuxt-proxy',
     '@dpc-sdp/ripple-ui-core/nuxt',
     '@dpc-sdp/ripple-ui-forms/nuxt',
     '@nuxtjs/robots'

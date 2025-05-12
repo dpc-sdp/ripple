@@ -72,6 +72,9 @@ const state = reactive({
 const rowClasses = computed(() => [
   'rpl-data-table__row',
   state.enabled ? 'rpl-data-table__row--open' : null,
+  (props.index + 1) % 2 === 0
+    ? 'rpl-data-table__row--even'
+    : 'rpl-data-table__row--odd',
   ...(props.columns[props.index]?.classes || [])
 ])
 

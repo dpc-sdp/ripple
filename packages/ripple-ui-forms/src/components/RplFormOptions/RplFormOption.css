@@ -11,6 +11,8 @@
 .rpl-form-option__input {
   appearance: none;
   outline: 0;
+  width: 0;
+  height: 0;
 }
 
 .rpl-form-option__label {
@@ -60,19 +62,19 @@
   opacity: 0;
 }
 
-.rpl-form-option__input:is(:hover, :focus, :active) + .rpl-form-option__label {
+.rpl-form-option__input:is(:hover, :focus, :active)+.rpl-form-option__label {
   .rpl-form-option__mark {
     border-color: var(--rpl-clr-dark);
   }
 }
 
-.rpl-form-option__input:checked + .rpl-form-option__label {
+.rpl-form-option__input:checked+.rpl-form-option__label {
   .rpl-form-option__mark-tick {
     opacity: 1;
   }
 }
 
-.rpl-form-option__input:focus + .rpl-form-option__label {
+.rpl-form-option__input:focus+.rpl-form-option__label {
   .rpl-form-option__check {
     border-radius: 0;
   }
@@ -83,7 +85,7 @@
   }
 }
 
-.rpl-form-option__input:disabled + .rpl-form-option__label {
+.rpl-form-option__input:disabled+.rpl-form-option__label {
   color: var(--rpl-clr-neutral-300);
   cursor: not-allowed;
 

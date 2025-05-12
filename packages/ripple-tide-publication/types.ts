@@ -26,6 +26,7 @@ export interface apiNode {
   title: string
   url: string
   id: string
+  entity_id: string
   children: apiNode[] | undefined
 }
 
@@ -33,6 +34,7 @@ export interface indexNode {
   text: string
   url: string
   id: string
+  nid: string
   items: indexNode[] | undefined
   active: boolean | undefined
 }

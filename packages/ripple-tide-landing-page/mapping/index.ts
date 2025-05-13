@@ -1,12 +1,10 @@
 import {
   tidePageBaseMapping,
-  tidePageBaseIncludes
-} from '@dpc-sdp/nuxt-ripple/mapping'
-import type { IRplTideModuleMapping } from '@dpc-sdp/ripple-tide-api/types'
-import {
+  tidePageBaseIncludes,
   heroHeaderMapping,
   heroHeaderIncludes
-} from './hero-header/hero-header-mapping.js'
+} from '@dpc-sdp/nuxt-ripple/mapping'
+import type { IRplTideModuleMapping } from '@dpc-sdp/ripple-tide-api/types'
 import {
   primaryCampaignIncludes,
   primaryCampaignMapping
@@ -45,7 +43,6 @@ const tideLandingPageModule: IRplTideModuleMapping = {
 
       return 'default'
     },
-    header: heroHeaderMapping,
     primaryCampaign: primaryCampaignMapping,
     secondaryCampaign: secondaryCampaignMapping,
     headerComponents: async (src, tidePageApi) => {
@@ -70,7 +67,6 @@ const tideLandingPageModule: IRplTideModuleMapping = {
       withSidebarWhatsNext: true,
       withSidebarSocialShare: true
     }),
-    ...heroHeaderIncludes,
     ...primaryCampaignIncludes,
     ...secondaryCampaignIncludes,
     'field_landing_page_header',

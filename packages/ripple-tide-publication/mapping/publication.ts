@@ -4,10 +4,6 @@ import {
   tidePageBaseIncludes
 } from '@dpc-sdp/nuxt-ripple/mapping'
 import type { IRplTideModuleMapping } from '@dpc-sdp/ripple-tide-api/types'
-import {
-  heroHeaderMapping,
-  heroHeaderIncludes
-} from '@dpc-sdp/ripple-tide-landing-page/mapping'
 
 const chapters = (src: string) =>
   getField(src, 'publication_children')
@@ -28,7 +24,6 @@ const tidePublicationModule: IRplTideModuleMapping = {
       withSidebarSocialShare: true
     }),
     url: 'path.url',
-    header: heroHeaderMapping,
     summary: 'field_landing_page_summary',
     showTopicTags: 'field_show_topic_term_and_tags',
     showInPageNav: 'field_show_table_of_content',
@@ -73,7 +68,6 @@ const tidePublicationModule: IRplTideModuleMapping = {
       withSidebarRelatedLinks: true,
       withSidebarSocialShare: true
     }),
-    ...heroHeaderIncludes,
     'field_node_documents.field_media_file',
     'field_landing_page_contact.field_paragraph_phones',
     'field_landing_page_contact.field_paragraph_social_media',

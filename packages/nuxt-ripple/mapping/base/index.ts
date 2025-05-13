@@ -5,6 +5,10 @@ import {
   includes as topicTagsIncludes
 } from './topic-tags/topic-tags-mapping.js'
 import {
+  heroHeaderMapping,
+  heroHeaderIncludes
+} from './hero-header/hero-header-mapping.js'
+import {
   map as sidebarContactsMapping,
   includes as sidebarContactsIncludes
 } from './sidebar-contacts/sidebar-contacts-mapping.js'
@@ -72,6 +76,7 @@ export const tidePageBaseMapping = ({
     topicTags: topicTagsMapping,
     tags: (src) => tagMapping(src?.field_tags),
     topic: (src) => topicMapping(src?.field_topic),
+    header: heroHeaderMapping,
     siteSection: async (src) => {
       // With the correct site/section id, we can now choose the correct site data from 'field_node_site'
       const siteData = getSiteSection(src._sectionId, src)
@@ -114,7 +119,8 @@ export const tidePageBaseIncludes = ({
     ...(withSidebarRelatedLinks ? sidebarRelatedLinksIncludes : []),
     ...(withSidebarWhatsNext ? sidebarWhatsNextIncludes : []),
     ...(withSidebarSocialShare ? sidebarSocialShareIncludes : []),
-    ...(withSidebarSiteSectionNav ? sidebarSiteSectionNavIncludes : [])
+    ...(withSidebarSiteSectionNav ? sidebarSiteSectionNavIncludes : []),
+    ...heroHeaderIncludes
   ]
 }
 

@@ -22,10 +22,6 @@ const tideGrantModule: IRplTideModuleMapping = {
       withSidebarSocialShare: true
     }),
     summary: 'field_landing_page_summary',
-    header: {
-      title: 'title',
-      summary: 'field_landing_page_intro_text'
-    },
     overview: {
       title: 'field_overview_title',
       funding: (src: string) =>

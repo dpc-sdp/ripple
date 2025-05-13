@@ -1,23 +1,18 @@
 //@ts-nocheck runtime imports
-import { defineEventHandler, getQuery, H3Event } from 'h3'
+import { defineEventHandler, H3Event } from 'h3'
 import { createHandler, TideSiteApi } from '@dpc-sdp/ripple-tide-api'
-import { BadRequestError } from '@dpc-sdp/ripple-tide-api/errors'
-import { useNitroApp } from '#imports'
+import { useNitroApp, useRuntimeConfig } from '#imports'
 
 export const createSiteHandler = async (
   event: H3Event,
   tideSiteApi: TideSiteApi
 ) => {
   return createHandler(event, 'TidePageHandler', async () => {
-    const query = await getQuery(event)
-
-    if (!query.id) {
-      throw new BadRequestError('Site id is required')
-    }
+    const { site } = useRuntimeConfig().public.tide
 
     const sectionId = getHeader(event, 'x-section-request-id')
 
-    const siteResponse = await tideSiteApi.getSiteData(query.id, sectionId)
+    const siteResponse = await tideSiteApi.getSiteData(site, sectionId)
 
     // Need to pass on the section cache tags to the nuxt app
     if (siteResponse.headers && siteResponse.headers['section-cache-tags']) {

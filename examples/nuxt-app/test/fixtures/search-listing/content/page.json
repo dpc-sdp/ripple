@@ -6,8 +6,10 @@
   "nid": "11dede11-10c0-111e1-1100-000000000330",
   "showTopicTags": true,
   "summary": "Browse our collection of key recovery resources and guidance for the disaster recovery workforce.",
-  "cornerTop": {
-    "src": "/placeholders/medium.png"
+  "header": {
+    "cornerTop": {
+      "src": "/placeholders/medium.png"
+    }
   },
   "beforeResults": "<p>This goes before the results.</p>",
   "afterResults": "<p>This goes after the results.</p>",

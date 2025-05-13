@@ -23,9 +23,6 @@ export const useTideSite = async (id?: number): Promise<TideSiteData> => {
     const { data, error } = await useFetch('/api/tide/site', {
       key: `site-${siteId}`,
       baseURL: config.apiUrl || '',
-      params: {
-        id: siteId
-      },
       headers,
       async onResponse({ response }) {
         sectionCacheTags = response.headers.get('section-cache-tags')

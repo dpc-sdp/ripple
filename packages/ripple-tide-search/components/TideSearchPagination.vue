@@ -29,10 +29,13 @@ const props = withDefaults(defineProps<Props>(), {
 
 const handlePageChange = (event) => {
   const navHeight = 92
-  const scrollToElement = document.querySelector(props.scrollToSelector)
+  const scrollToElement = document.querySelector(
+    props.scrollToSelector
+  ) as HTMLElement
 
   if (scrollToElement) {
     scrollToElementTopWithOffset(scrollToElement, navHeight)
+    scrollToElement.focus?.({ preventScroll: true })
   }
   emit('paginate', event)
 }

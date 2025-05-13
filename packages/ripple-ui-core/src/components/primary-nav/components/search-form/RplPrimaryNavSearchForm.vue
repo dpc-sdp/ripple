@@ -16,7 +16,7 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 const handleSubmit = (event) => {
-  window.location.href = `${props.searchUrl}?q=${event.value}`
+  window.location.href = `${props.searchUrl}?q=${encodeURIComponent(event.value)}`
 }
 
 onMounted(() => {

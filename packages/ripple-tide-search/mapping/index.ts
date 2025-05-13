@@ -17,8 +17,6 @@ const tideCollectionModule: IRplTideModuleMapping = {
       withSidebarRelatedLinks: false,
       withSidebarSocialShare: false
     }),
-    cornerTop: (src: any) =>
-      getImageFromField(src, 'field_graphical_image.field_media_image'),
     summary: 'field_landing_page_summary',
     beforeResults: (src: string) =>
       getBodyFromField(src, 'field_above_results_content'),

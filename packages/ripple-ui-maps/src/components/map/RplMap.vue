@@ -40,6 +40,8 @@ import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
 import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
 
 interface Props {
+  id?: string
+  title?: string
   features?: IRplMapFeature[]
   projection?: 'EPSG:4326' | 'EPSG:3857'
   initialZoom?: number
@@ -57,6 +59,8 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
+  id: 'rpl-map',
+  title: 'Interactive map',
   closeOnMapClick: true,
   projection: 'EPSG:4326',
   features: () => [],
@@ -288,6 +292,7 @@ const hideNoResults = ref(false)
 function onNoResultsDismiss() {
   hideNoResults.value = true
 }
+
 // reset dismiss state when another query happens
 watch(
   () => props.noresults,
@@ -349,6 +354,24 @@ const fullScreenLabel = computed(() =>
 const handleUpdateSelectedLayers = (newSelectedLayers: string[]) => {
   emit('updateSelectedLayers', newSelectedLayers)
 }
+
+// Try to construct a unique id for the currently active popup, this is needed for focus management
+// Not all features have an id, and not all features have a set of coordinates
+// A popup can also contain multiple features, so we join them together
+const activePopupId = computed(() => {
+  if (!popup.value?.feature || !popup.value?.feature?.length) {
+    return null
+  }
+
+  const features = Array.isArray(popup.value?.feature)
+    ? popup.value.feature
+    : [popup.value.feature]
+
+  const jointId = features.map((feature) => feature?.id).join('-')
+  const fallbackPositionId = popup.value.position.join(',')
+
+  return jointId ? jointId : fallbackPositionId
+})
 </script>
 
 <template>
@@ -383,12 +406,22 @@ const handleUpdateSelectedLayers = (newSelectedLayers: string[]) => {
         </p>
       </slot>
     </div>
+    <p :id="`${id}-map-instructions`" class="rpl-u-visually-hidden">
+      Use arrow keys to pan the map, and plus and minus keys to zoom in and out.
+      You can also use the full screen, home and zoom control buttons to
+      interact with the map. Note that some map features cannot be accessed
+      using a keyboard.
+    </p>
     <ol-map
       ref="mapRef"
       :loadTilesWhileAnimating="false"
       :loadTilesWhileInteracting="false"
       class="rpl-map__map"
       :style="`height: ${mapHeight}px`"
+      :aria-label="title"
+      :aria-describedby="`${id}-map-instructions`"
+      role="application"
+      tabindex="0"
       @singleclick="onMapSingleClick"
       @pointermove="onMapMove"
     >
@@ -401,7 +434,7 @@ const handleUpdateSelectedLayers = (newSelectedLayers: string[]) => {
         :maxZoom="maxZoom"
         :minZoom="5"
       />
-      <slot name="map-provider"> </slot>
+      <slot name="map-provider"></slot>
       <slot
         name="shapes"
         :mapFeatures="mapFeatures && mapFeatures.length > 0"
@@ -433,7 +466,7 @@ const handleUpdateSelectedLayers = (newSelectedLayers: string[]) => {
             :distance="clusteringDistance"
             :zIndex="4"
           >
-            <ol-source-vector :features="mapFeatures"> </ol-source-vector>
+            <ol-source-vector :features="mapFeatures"></ol-source-vector>
             <slot name="pin">
               <RplMapCluster :pinStyle="pinStyle"></RplMapCluster>
             </slot>
@@ -449,11 +482,13 @@ const handleUpdateSelectedLayers = (newSelectedLayers: string[]) => {
           :offset="[0, popup.isArea ? 6 : 8]"
         >
           <RplMapPopUp
+            :featureId="activePopupId"
             :is-open="popup.isOpen"
             :is-area="popup.isArea"
             :type="popupType"
             :pinColor="popup.color"
             :mapHeight="mapHeight"
+            :closeOnEscape="true"
             @close="onPopUpClose"
           >
             <template #header>
@@ -477,6 +512,41 @@ const handleUpdateSelectedLayers = (newSelectedLayers: string[]) => {
         :selectedLayers="selectedLayers"
         @update="handleUpdateSelectedLayers"
       />
+
+      <slot
+        v-if="hasSidePanel && $slots.sidepanel"
+        name="sidepanel"
+        :mapHeight="mapHeight"
+      />
+
+      <slot
+        v-if="popupType === 'sidebar'"
+        name="sidebar"
+        :popupIsOpen="popup.isOpen"
+        :mapHeight="mapHeight"
+      >
+        <RplMapPopUp
+          :featureId="activePopupId"
+          :is-open="popup.isOpen"
+          :is-area="popup.isArea"
+          :type="popupType"
+          :pinColor="popup.color"
+          :mapHeight="mapHeight"
+          :closeOnEscape="true"
+          @close="onPopUpClose"
+        >
+          <template #header>
+            <slot name="popupTitle" :selectedFeatures="popup.feature">
+              {{ popup.feature[0].title }}
+            </slot>
+          </template>
+          <slot name="popupContent" :selectedFeatures="popup.feature">
+            <p class="rpl-type-p-small">
+              {{ popup.feature[0].description }}
+            </p>
+          </slot>
+        </RplMapPopUp>
+      </slot>
 
       <div
         v-if="supportsFullScreen"
@@ -509,39 +579,6 @@ const handleUpdateSelectedLayers = (newSelectedLayers: string[]) => {
           <RplIcon name="icon-map-zoom-out" size="s"></RplIcon>
         </button>
       </div>
-
-      <slot
-        v-if="hasSidePanel && $slots.sidepanel"
-        name="sidepanel"
-        :mapHeight="mapHeight"
-      />
-
-      <slot
-        v-if="popupType === 'sidebar'"
-        name="sidebar"
-        :popupIsOpen="popup.isOpen"
-        :mapHeight="mapHeight"
-      >
-        <RplMapPopUp
-          :is-open="popup.isOpen"
-          :is-area="popup.isArea"
-          :type="popupType"
-          :pinColor="popup.color"
-          :mapHeight="mapHeight"
-          @close="onPopUpClose"
-        >
-          <template #header>
-            <slot name="popupTitle" :selectedFeatures="popup.feature">
-              {{ popup.feature[0].title }}
-            </slot>
-          </template>
-          <slot name="popupContent" :selectedFeatures="popup.feature">
-            <p class="rpl-type-p-small">
-              {{ popup.feature[0].description }}
-            </p>
-          </slot>
-        </RplMapPopUp>
-      </slot>
     </ol-map>
   </div>
 </template>

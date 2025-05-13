@@ -3,8 +3,9 @@
   <ClientOnly>
     <RplMap
       v-if="!initialising"
-      :id="123"
+      :id="id"
       ref="mapRef"
+      :title="title"
       :features="features"
       projection="EPSG:3857"
       :popupType="popupType"
@@ -85,6 +86,8 @@ type TideSearchListingMapFeature = {
 }
 
 interface Props {
+  id: string
+  title?: string
   popupType?: 'popover' | 'sidebar'
   popup: {
     title: {
@@ -116,6 +119,7 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
+  title: 'Interactive map',
   popupType: 'popover',
   titleObjPath: '_source.title[0]',
   vectorLayerComponent: undefined,

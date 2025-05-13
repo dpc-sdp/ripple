@@ -18,13 +18,10 @@ export const createPageHandler = async (
 ) => {
   return createHandler(event, 'TidePageHandler', async () => {
     const query = await getQuery(event)
+    const { site } = useRuntimeConfig().public.tide
 
     if (!query.path || Array.isArray(query.path)) {
       throw new BadRequestError('Path is required')
-    }
-
-    if (Array.isArray(query.site)) {
-      throw new BadRequestError('Duplicate site values')
     }
 
     const tokenCookie = getCookie(event, AuthCookieNames.ACCESS_TOKEN)
@@ -50,7 +47,7 @@ export const createPageHandler = async (
 
     const pageResponse = await tidePageApi.getPageByPath(
       path,
-      query.site,
+      site,
       {},
       headers,
       sectionId

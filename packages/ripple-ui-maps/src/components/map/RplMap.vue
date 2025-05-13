@@ -40,6 +40,8 @@ import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
 import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
 
 interface Props {
+  id?: string
+  title?: string
   features?: IRplMapFeature[]
   projection?: 'EPSG:4326' | 'EPSG:3857'
   initialZoom?: number
@@ -57,6 +59,8 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
+  id: 'rpl-map',
+  title: 'Interactive map',
   closeOnMapClick: true,
   projection: 'EPSG:4326',
   features: () => [],
@@ -288,6 +292,7 @@ const hideNoResults = ref(false)
 function onNoResultsDismiss() {
   hideNoResults.value = true
 }
+
 // reset dismiss state when another query happens
 watch(
   () => props.noresults,
@@ -401,12 +406,22 @@ const activePopupId = computed(() => {
         </p>
       </slot>
     </div>
+    <p :id="`${id}-map-instructions`" class="rpl-u-visually-hidden">
+      Use arrow keys to pan the map, and plus and minus keys to zoom in and out.
+      You can also use the full screen, home and zoom control buttons to
+      interact with the map. Note that some map features cannot be accessed
+      using a keyboard.
+    </p>
     <ol-map
       ref="mapRef"
       :loadTilesWhileAnimating="false"
       :loadTilesWhileInteracting="false"
       class="rpl-map__map"
       :style="`height: ${mapHeight}px`"
+      :aria-label="title"
+      :aria-describedby="`${id}-map-instructions`"
+      role="application"
+      tabindex="0"
       @singleclick="onMapSingleClick"
       @pointermove="onMapMove"
     >
@@ -419,7 +434,7 @@ const activePopupId = computed(() => {
         :maxZoom="maxZoom"
         :minZoom="5"
       />
-      <slot name="map-provider"> </slot>
+      <slot name="map-provider"></slot>
       <slot
         name="shapes"
         :mapFeatures="mapFeatures && mapFeatures.length > 0"
@@ -451,7 +466,7 @@ const activePopupId = computed(() => {
             :distance="clusteringDistance"
             :zIndex="4"
           >
-            <ol-source-vector :features="mapFeatures"> </ol-source-vector>
+            <ol-source-vector :features="mapFeatures"></ol-source-vector>
             <slot name="pin">
               <RplMapCluster :pinStyle="pinStyle"></RplMapCluster>
             </slot>

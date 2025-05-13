@@ -83,8 +83,9 @@ When(
   (x: number, y: number) => {
     // Move mouse to some random position
     cy.get('.rpl-map canvas').trigger('mousemove', 100, 100, { force: true })
-    // Click
-    cy.get('.rpl-map canvas').click(x, y, { force: true })
+    // Note: using cy.click(x, y, { force: true })
+    // triggers focus-visible on the first focusable parent
+    cy.get('.rpl-map canvas').realClick({ x, y })
   }
 )
 

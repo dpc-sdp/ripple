@@ -37,6 +37,10 @@ When('I click the primary nav button labelled {string}', (label: string) => {
     .click({ force: true })
 })
 
+Then('I type {string} into the primary nav search box', (text: string) => {
+  cy.get('#primary-nav-search').type(text)
+})
+
 Then('I submit the primary nav search form', () => {
   cy.get('.rpl-primary-nav .rpl-search-bar').submit()
 })
@@ -44,6 +48,12 @@ Then('I submit the primary nav search form', () => {
 Then('the current path should be {string}', (path: string) => {
   cy.location().should((loc) => {
     expect(path).to.eq(loc.pathname)
+  })
+})
+
+Then('the current query string should include {string}', (path: string) => {
+  cy.location().should((loc) => {
+    expect(path).to.contain(loc.search)
   })
 })
 

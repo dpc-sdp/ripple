@@ -1,14 +1,9 @@
 /* stylelint-disable comment-empty-line-before */
 @import '@dpc-sdp/ripple-ui-core/style/breakpoints';
 
-.rpl-primary-nav {
+html {
   --local-nav-bar-height: 48px;
   --local-nav-bar-padding: var(--rpl-sp-3);
-
-  position: relative;
-  width: 100%;
-  height: calc(var(--local-nav-bar-height) + var(--local-nav-bar-padding));
-  padding: var(--local-nav-bar-padding);
 
   @media (--rpl-bp-s) {
     --local-nav-bar-height: 52px;
@@ -19,6 +14,17 @@
     --local-nav-bar-padding: var(--rpl-sp-4);
   }
 
+  scroll-padding-top: calc(
+    var(--local-nav-bar-height) + var(--local-nav-bar-padding)
+  );
+}
+
+.rpl-primary-nav {
+  position: relative;
+  width: 100%;
+  height: calc(var(--local-nav-bar-height) + var(--local-nav-bar-padding));
+  padding: var(--local-nav-bar-padding);
+
   @media print {
     --local-nav-bar-height: 46px;
 
@@ -28,8 +34,6 @@
 }
 
 .rpl-primary-nav__inner {
-  --local-nav-bar-height: 48px;
-
   position: absolute;
   top: 0;
   left: 0;
@@ -42,13 +46,7 @@
   overflow: hidden;
   z-index: var(--rpl-layer-2);
 
-  @media (--rpl-bp-s) {
-    --local-nav-bar-height: 52px;
-  }
-
   @media (--rpl-bp-m) {
-    --local-nav-bar-height: 60px;
-
     width: calc(100% - var(--rpl-sp-4) * 2);
     margin: var(--rpl-sp-4);
   }
@@ -79,7 +77,8 @@
 
   .rpl-primary-nav--expanded & {
     display: block;
-    transition: height var(--rpl-motion-speed-7) ease-in,
+    transition:
+      height var(--rpl-motion-speed-7) ease-in,
       background-color var(--rpl-motion-speed-4) ease-in;
     background-color: var(--rpl-clr-primary-alt);
     /* 100vh - top and bottom margin */

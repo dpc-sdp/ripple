@@ -349,6 +349,24 @@ const fullScreenLabel = computed(() =>
 const handleUpdateSelectedLayers = (newSelectedLayers: string[]) => {
   emit('updateSelectedLayers', newSelectedLayers)
 }
+
+// Try to construct a unique id for the currently active popup, this is needed for focus management
+// Not all features have an id, and not all features have a set of coordinates
+// A popup can also contain multiple features, so we join them together
+const activePopupId = computed(() => {
+  if (!popup.value?.feature || !popup.value?.feature?.length) {
+    return null
+  }
+
+  const features = Array.isArray(popup.value?.feature)
+    ? popup.value.feature
+    : [popup.value.feature]
+
+  const jointId = features.map((feature) => feature?.id).join('-')
+  const fallbackPositionId = popup.value.position.join(',')
+
+  return jointId ? jointId : fallbackPositionId
+})
 </script>
 
 <template>
@@ -449,11 +467,13 @@ const handleUpdateSelectedLayers = (newSelectedLayers: string[]) => {
           :offset="[0, popup.isArea ? 6 : 8]"
         >
           <RplMapPopUp
+            :featureId="activePopupId"
             :is-open="popup.isOpen"
             :is-area="popup.isArea"
             :type="popupType"
             :pinColor="popup.color"
             :mapHeight="mapHeight"
+            :closeOnEscape="true"
             @close="onPopUpClose"
           >
             <template #header>
@@ -477,6 +497,41 @@ const handleUpdateSelectedLayers = (newSelectedLayers: string[]) => {
         :selectedLayers="selectedLayers"
         @update="handleUpdateSelectedLayers"
       />
+
+      <slot
+        v-if="hasSidePanel && $slots.sidepanel"
+        name="sidepanel"
+        :mapHeight="mapHeight"
+      />
+
+      <slot
+        v-if="popupType === 'sidebar'"
+        name="sidebar"
+        :popupIsOpen="popup.isOpen"
+        :mapHeight="mapHeight"
+      >
+        <RplMapPopUp
+          :featureId="activePopupId"
+          :is-open="popup.isOpen"
+          :is-area="popup.isArea"
+          :type="popupType"
+          :pinColor="popup.color"
+          :mapHeight="mapHeight"
+          :closeOnEscape="true"
+          @close="onPopUpClose"
+        >
+          <template #header>
+            <slot name="popupTitle" :selectedFeatures="popup.feature">
+              {{ popup.feature[0].title }}
+            </slot>
+          </template>
+          <slot name="popupContent" :selectedFeatures="popup.feature">
+            <p class="rpl-type-p-small">
+              {{ popup.feature[0].description }}
+            </p>
+          </slot>
+        </RplMapPopUp>
+      </slot>
 
       <div
         v-if="supportsFullScreen"
@@ -509,39 +564,6 @@ const handleUpdateSelectedLayers = (newSelectedLayers: string[]) => {
           <RplIcon name="icon-map-zoom-out" size="s"></RplIcon>
         </button>
       </div>
-
-      <slot
-        v-if="hasSidePanel && $slots.sidepanel"
-        name="sidepanel"
-        :mapHeight="mapHeight"
-      />
-
-      <slot
-        v-if="popupType === 'sidebar'"
-        name="sidebar"
-        :popupIsOpen="popup.isOpen"
-        :mapHeight="mapHeight"
-      >
-        <RplMapPopUp
-          :is-open="popup.isOpen"
-          :is-area="popup.isArea"
-          :type="popupType"
-          :pinColor="popup.color"
-          :mapHeight="mapHeight"
-          @close="onPopUpClose"
-        >
-          <template #header>
-            <slot name="popupTitle" :selectedFeatures="popup.feature">
-              {{ popup.feature[0].title }}
-            </slot>
-          </template>
-          <slot name="popupContent" :selectedFeatures="popup.feature">
-            <p class="rpl-type-p-small">
-              {{ popup.feature[0].description }}
-            </p>
-          </slot>
-        </RplMapPopUp>
-      </slot>
     </ol-map>
   </div>
 </template>

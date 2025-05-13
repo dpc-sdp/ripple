@@ -145,10 +145,8 @@ Given('the side panel is enabled', () => {
   })
 })
 
-Given('I click the side panel item with text {string}', (title) => {
-  cy.get('.rpl-map-side-panel [role="button"]')
-    .contains(title)
-    .click({ force: true })
+Given('I click the side panel item with text {string}', (title: string) => {
+  cy.get('.rpl-map-side-panel button').contains(title).click({ force: true })
 })
 
 Given('a custom suggestions function called {string} is used', (fnName) => {

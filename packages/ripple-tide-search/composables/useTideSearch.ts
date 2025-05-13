@@ -967,7 +967,7 @@ export default ({
    */
   const scrollToResults = (selector: string, offset = 0) => {
     if (searchListingConfig?.scrollToResultsOnSubmit !== false) {
-      const scrollToElement = document.querySelector(selector)
+      const scrollToElement = document.querySelector(selector) as HTMLElement
 
       if (scrollToElement) {
         const scrollElementTop = scrollToElement.getBoundingClientRect()?.top
@@ -977,6 +977,7 @@ export default ({
         }
 
         scrollToElementTopWithOffset(scrollToElement, offset)
+        scrollToElement.focus({ preventScroll: true })
       }
     }
   }

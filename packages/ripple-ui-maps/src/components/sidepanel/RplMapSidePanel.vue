@@ -19,7 +19,11 @@
         </slot>
       </div>
 
-      <component :is="el" class="rpl-map-side-panel__items">
+      <component
+        :is="el"
+        :aria-label="listLabel"
+        class="rpl-map-side-panel__items"
+      >
         <slot></slot>
       </component>
 
@@ -66,13 +70,15 @@ interface Props {
   totalResults: number
   totalPages: number
   currentPage: number
+  listLabel?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
   el: 'ul',
   panelLocation: 'left',
   isStandalone: false,
-  showToggle: false
+  showToggle: false,
+  listLabel: 'Map search results'
 })
 
 const isOpen = ref(true)
@@ -114,6 +120,8 @@ const handlePageChange = async (event) => {
       })
     }
   }
+
+  scrollParentRef?.value?.focus({ preventScroll: true })
 }
 </script>
 

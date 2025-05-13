@@ -724,7 +724,7 @@ watch(baseEvent, (newBaseEvent) => {
       </RplExpandable>
     </div>
 
-    <div class="tide-search-results-wrapper">
+    <div tabIndex="-1" class="tide-search-results-wrapper">
       <RplTabs
         v-if="searchListingConfig?.displayMapTab"
         :tabs="tabs"
@@ -954,5 +954,9 @@ watch(baseEvent, (newBaseEvent) => {
   @media (--rpl-bp-m) {
     order: -1;
   }
+}
+
+.tide-search-results-wrapper {
+  outline: none;
 }
 </style>

@@ -408,3 +408,9 @@ Then(
     cy.get('@item').should('not.contain', label)
   }
 )
+
+Then('all content images should be {string} loaded', (type: string) => {
+  cy.get('.rpl-layout__body img').each(($img) => {
+    cy.wrap($img).should('have.attr', 'loading', type)
+  })
+})

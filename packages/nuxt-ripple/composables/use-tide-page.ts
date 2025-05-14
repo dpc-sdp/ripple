@@ -131,10 +131,7 @@ export const useTidePage = async (
     const { data, error } = await useFetch('/api/tide/page', {
       key: `page-${path}`,
       baseURL: config.apiUrl || '',
-      params: {
-        path,
-        site: siteId
-      },
+      params: { path },
       headers,
       async onResponse({ response }) {
         sectionCacheTags = response.headers.get('section-cache-tags')

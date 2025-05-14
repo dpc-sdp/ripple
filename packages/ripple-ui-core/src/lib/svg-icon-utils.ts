@@ -2,7 +2,6 @@ import fs from 'fs'
 import { resolve } from 'pathe'
 import { promisify } from 'util'
 import { optimize } from 'svgo'
-import type { OptimizeOptions } from 'svgo'
 
 const asyncReadFile = promisify(fs.readFile)
 
@@ -106,7 +105,7 @@ export type RplSvgSpriteOptions = {
   generateList?: boolean
   spriteOptions?: {
     id?: string
-    svgoConfig?: OptimizeOptions
+    svgoConfig?: any
     ariaHidden: boolean
   }
 }

@@ -83,8 +83,9 @@ When(
   (x: number, y: number) => {
     // Move mouse to some random position
     cy.get('.rpl-map canvas').trigger('mousemove', 100, 100, { force: true })
-    // Click
-    cy.get('.rpl-map canvas').click(x, y, { force: true })
+    // Note: using cy.click(x, y, { force: true })
+    // triggers focus-visible on the first focusable parent
+    cy.get('.rpl-map canvas').realClick({ x, y })
   }
 )
 
@@ -145,10 +146,8 @@ Given('the side panel is enabled', () => {
   })
 })
 
-Given('I click the side panel item with text {string}', (title) => {
-  cy.get('.rpl-map-side-panel [role="button"]')
-    .contains(title)
-    .click({ force: true })
+Given('I click the side panel item with text {string}', (title: string) => {
+  cy.get('.rpl-map-side-panel button').contains(title).click({ force: true })
 })
 
 Given('a custom suggestions function called {string} is used', (fnName) => {

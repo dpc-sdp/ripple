@@ -1,8 +1,9 @@
 <template>
   <div class="tide-publication__sidebar">
     <TidePublicationPageActions
+      v-if="publication.documents?.length || printUrl"
       :documents="publication.documents"
-      :printUrl="`${publication.url}/print-all`"
+      :printUrl="printUrl"
     >
     </TidePublicationPageActions>
     <RplSidebarComponent>
@@ -17,12 +18,28 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'
 import { indexNode } from '../types'
+import { flattenMenu } from '#imports'
 
 interface Props {
   publication: any
   navigation: indexNode[]
 }
 
-defineProps<Props>()
+const props = defineProps<Props>()
+
+// The maximum number of items is used as larger publication print pages
+// will result in "414 Request-URI Too Large"
+const MAX_NAV_ITEMS = 80
+
+const printUrl = computed(() => {
+  if (!props.navigation?.length) return null
+
+  const navItems = flattenMenu(props.navigation)
+
+  return navItems.length < MAX_NAV_ITEMS
+    ? `${props.publication.url}/print-all`
+    : null
+})
 </script>

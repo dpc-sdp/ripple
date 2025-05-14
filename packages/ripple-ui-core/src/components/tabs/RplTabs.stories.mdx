@@ -87,4 +87,28 @@ export const SingleTemplate = (args) => ({
   >
     {SingleTemplate.bind()}
   </Story>
+  <Story
+    name='HTML Titles'
+    play={a11yStoryCheck}
+    args={{
+      tabs: [
+        {
+          title: 'Some <em>italic</em> text',
+          key: 'default',
+        },
+        {
+          title: 'Some <sup>sup</sup> text',
+          key: 'extra'
+        },
+        {
+          title: 'More',
+          key: 'more',
+          icon: 'pin'
+        }
+      ],
+      mode: 'horizontal'
+    }}
+  >
+    {SingleTemplate.bind()}
+  </Story>  
 </Canvas>

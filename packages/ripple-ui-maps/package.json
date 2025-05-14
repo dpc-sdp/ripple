@@ -1,7 +1,7 @@
 {
   "name": "@dpc-sdp/ripple-ui-maps",
   "description": "Ripple UI Core component library",
-  "version": "2.31.0",
+  "version": "2.32.0",
   "license": "Apache-2.0",
   "repository": "https://github.com/dpc-sdp/ripple-framework",
   "files": [
@@ -61,13 +61,12 @@
     "@vue/compiler-sfc": "^3.2.47",
     "autoprefixer": "^10.4.14",
     "jest-axe": "^7.0.1",
-    "rimraf": "^4.4.1",
-    "vite": "^5.2.11",
+    "rimraf": "catalog:",
+    "vite": "catalog:",
     "vite-plugin-copy": "^0.1.6",
     "vite-plugin-dts": "^2.1.0",
-    "vite-plugin-svg-icons": "^2.0.1",
     "vite-plugin-vue-svg": "^0.1.0",
-    "vite-svg-loader": "^4.0.0"
+    "vite-svg-loader": "catalog:"
   },
   "overrides": {
     "ol-contextmenu": {

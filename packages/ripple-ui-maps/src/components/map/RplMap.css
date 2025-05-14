@@ -28,6 +28,27 @@
 
   /* By default the background color is set to the gray colour used by vicmaps baselayer (#ebebeb) */
   background-color: var(--local-map-background-color, #ebebeb);
+
+  &:focus-visible {
+    &::before,
+    &::after {
+      content: '';
+      inset: 0;
+      position: absolute;
+      pointer-events: none;
+      z-index: var(--rpl-layer-2);
+    }
+
+    &::before {
+      outline: var(--rpl-border-3) solid var(--rpl-clr-focus);
+      outline-offset: calc(var(--rpl-border-3) * -1);
+    }
+
+    &::after {
+      outline: var(--rpl-border-2) solid var(--rpl-clr-dark);
+      outline-offset: calc((var(--rpl-border-3) + var(--rpl-border-2)) * -1);
+    }
+  }
 }
 
 .rpl-map__control {

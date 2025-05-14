@@ -1,7 +1,7 @@
 {
   "name": "@dpc-sdp/ripple-tide-api",
   "description": "Ripple API endpoints for Tide Drupal backend",
-  "version": "2.31.0",
+  "version": "2.32.0",
   "license": "Apache-2.0",
   "repository": "https://github.com/dpc-sdp/ripple-framework",
   "main": "./dist/index.js",
@@ -31,7 +31,6 @@
     "js-yaml": "^4.1.0",
     "jsonapi-parse": "^2.0.1",
     "lodash-es": "^4.17.21",
-    "nuxt-proxy": "^0.4.1",
     "pathe": "^1.1.0",
     "qs": "^6.11.1",
     "ts-json-schema-generator": "^1.2.0",
@@ -44,7 +43,7 @@
     "@types/cheerio": "^0.22.35",
     "axios-mock-adapter": "^1.21.3",
     "defu": "^6.1.2",
-    "rimraf": "^4.4.1"
+    "rimraf": "catalog:"
   },
   "files": [
     "dist",

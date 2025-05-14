@@ -3,6 +3,7 @@
     <div
       v-if="isOpen"
       ref="popupEL"
+      tabIndex="-1"
       class="rpl-map-popup"
       :class="{
         [`rpl-map-popup--${type}`]: type,
@@ -55,7 +56,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed, ref, watch, nextTick } from 'vue'
 import {
   useResizeObserver,
   useBreakpoints,
@@ -68,6 +69,7 @@ import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
 import LargePinIcon from './../../assets/icons/icon-pin-large.svg?component'
 
 interface Props {
+  featureId: string
   isOpen: boolean
   isArea: boolean
   pinColor?: string
@@ -93,8 +95,17 @@ const emit = defineEmits<{
 
 const { emitRplEvent } = useRippleEvent('rpl-map-popup', emit)
 const popupEL = ref()
+const previouslyFocused = ref<Element>(null)
 
 function onClose() {
+  // Return focus to where the popup was originally opened from, if the element is still in the dom
+  if (
+    previouslyFocused.value &&
+    previouslyFocused.value instanceof HTMLElement
+  ) {
+    previouslyFocused.value.focus({ preventScroll: true })
+  }
+
   emitRplEvent('close')
 }
 
@@ -131,6 +142,18 @@ const bodyHeight = computed(() => {
 
   // Choose the smaller of the max height and available space to get the body height
   return Math.min(maxPopupHeight, availablePopupHeight) - headerHeight.value
+})
+
+// Watch the featureId and isOpen to know when the popup is opened or has updated with new data.
+// Anytime this happens we want to bring focus to the popup and remember the previously focused element
+// so that we can return there when the popup is closed.
+watch([() => props.isOpen, () => props.featureId], async (newIsOpen) => {
+  if (newIsOpen) {
+    previouslyFocused.value = document.activeElement
+
+    await nextTick()
+    popupEL.value?.focus({ preventScroll: true })
+  }
 })
 </script>
 <style src="./RplMapPopUp.css" />

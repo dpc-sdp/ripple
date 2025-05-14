@@ -393,6 +393,26 @@ watch(baseEvent, (newBaseEvent) => {
     updateContext(key, newBaseEvent[key])
   }
 })
+
+const cornerTopGraphic = computed(() => {
+  // `header.cornerBottom` is the correct graphic that is calculated based on
+  // the site, site section and node level graphics for the current page.
+  if (props.contentPage?.header?.cornerTop?.src) {
+    return props.contentPage?.header?.cornerTop?.src
+  }
+
+  // Only if there's no top or bottom corner graphic from the header mapping
+  // should we fallback to the site corner graphics. This is here for backwards
+  // compatibility.
+  if (
+    !props.contentPage?.header?.cornerTop?.src &&
+    !props.contentPage?.header?.cornerBottom?.src
+  ) {
+    return props.site?.cornerGraphic?.top?.src || true
+  }
+
+  return false
+})
 </script>
 
 <template>
@@ -420,9 +440,7 @@ watch(baseEvent, (newBaseEvent) => {
         :behind-nav="true"
         :breadcrumbs="hasBreadcrumbs"
         :full-width="true"
-        :corner-top="
-          contentPage?.cornerTop?.src || site?.cornerGraphic?.top?.src || true
-        "
+        :corner-top="cornerTopGraphic"
         :corner-bottom="false"
         class="rpl-header--hero-tight tide-search-header-component"
       >

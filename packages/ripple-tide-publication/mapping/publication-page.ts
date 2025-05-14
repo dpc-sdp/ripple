@@ -4,10 +4,6 @@ import {
   tidePageBaseIncludes
 } from '@dpc-sdp/nuxt-ripple/mapping'
 import type { IRplTideModuleMapping } from '@dpc-sdp/ripple-tide-api/types'
-import {
-  heroHeaderMapping,
-  heroHeaderIncludes
-} from '@dpc-sdp/ripple-tide-landing-page/mapping'
 
 const tidePublicationPageModule: IRplTideModuleMapping = {
   mapping: {
@@ -27,7 +23,6 @@ const tidePublicationPageModule: IRplTideModuleMapping = {
       }
       return 'h2'
     },
-    header: heroHeaderMapping,
     breadcrumbs: (src: string) => [
       { text: 'Home', url: '/' },
       {
@@ -77,7 +72,6 @@ const tidePublicationPageModule: IRplTideModuleMapping = {
       withSidebarRelatedLinks: true,
       withSidebarSocialShare: true
     }),
-    ...heroHeaderIncludes,
     'field_node_primary_site',
     'field_node_site.field_site_main_menu',
     'field_related_links',

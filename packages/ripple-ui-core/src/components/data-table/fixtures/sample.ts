@@ -53,6 +53,12 @@ export const RplDataTableItemsSimple = [
     col2: 'R3 - C2',
     col3: 'R3 - C3',
     col4: 'R3 - C4'
+  },
+  {
+    col1: 'R4 - C1',
+    col2: 'R4 - C2',
+    col3: 'R4 - C3',
+    col4: 'R4 - C4'
   }
 ]
 

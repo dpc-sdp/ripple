@@ -1,7 +1,7 @@
 {
   "name": "@dpc-sdp/ripple-test-utils",
   "description": "Test utils for Ripple sites",
-  "version": "2.31.0",
+  "version": "2.32.0",
   "license": "Apache-2.0",
   "type": "module",
   "main": "./dist/config/index.js",
@@ -23,15 +23,15 @@
     "LICENSE"
   ],
   "dependencies": {
-    "@badeball/cypress-cucumber-preprocessor": "^18.0.6",
-    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.0",
+    "@badeball/cypress-cucumber-preprocessor": "^22.0.1",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.4",
     "@frsource/cypress-plugin-visual-regression-diff": "^3.3.10",
-    "@testing-library/cypress": "^10.0.1",
+    "@testing-library/cypress": "^10.0.3",
     "@types/node": "18.15.10",
-    "cypress": "13.7.3",
-    "cypress-real-events": "^1.13.0",
-    "mockttp": "^3.9.1",
-    "start-server-and-test": "^2.0.3",
+    "cypress": "catalog:",
+    "cypress-real-events": "^1.14.0",
+    "mockttp": "^3.17.1",
+    "start-server-and-test": "^2.0.11",
     "typescript": "5.0.2"
   }
 }

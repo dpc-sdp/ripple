@@ -54,8 +54,10 @@ Feature: Site feature flags
     And the page endpoint for path "/" returns fixture "/landingpage/image-banner" with status 200
     Given I visit the page "/"
     When I click the primary nav button labelled "Search"
+    And I type "news & events #latest" into the primary nav search box
     And I submit the primary nav search form
     Then the current path should be "/search"
+    And the current query string should include "?q=news%20%26%20events%20%23latest"
 
   @mockserver
   Scenario: Feature flags can set the primary nav search URL

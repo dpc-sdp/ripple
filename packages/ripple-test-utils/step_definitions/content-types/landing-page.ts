@@ -75,6 +75,10 @@ Then('the hero bottom corner graphic should be {string}', (image: string) => {
   }
 })
 
+Then('the hero image should be {string} loaded', (type: string) => {
+  cy.get('.rpl-header__behind img').should('have.attr', 'loading', type)
+})
+
 Then(
   'the {string} campaign title should be {string}',
   (campaign: string, title: string) => {

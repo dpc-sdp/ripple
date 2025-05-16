@@ -15,6 +15,16 @@
 
 .rpl-progress__title {
   margin-bottom: var(--rpl-sp-1);
+
+  .rpl-progress__header:hover & {
+    text-decoration: underline;
+    color: var(--rpl-clr-link);
+  }
+
+  .rpl-progress__header:active & {
+    text-decoration: none;
+    color: inherit;
+  }
 }
 
 .rpl-progress__chevron {

@@ -134,27 +134,27 @@ const items = computed<FormReviewItem[]>(() => {
     <div
       v-for="entry in items"
       :key="entry.key"
-      :class="`rpl-form-review--${entry.key} rpl-u-margin-t-8 rpl-u-padding-b-2`"
+      :class="`rpl-form-review--${entry.key} rpl-form-review__wrap`"
     >
-      <h3
-        v-if="entry?.name"
-        class="rpl-form-review__step rpl-type-h3 rpl-u-margin-b-4"
-      >
+      <h3 v-if="entry?.name" class="rpl-form-review__step rpl-type-h3">
         {{ entry.name }}
       </h3>
       <div class="rpl-table">
         <table>
           <tbody>
             <tr v-for="field in entry.items" :key="field.id">
-              <th scope="row" class="rpl-form-review__question">
+              <th
+                scope="row"
+                class="rpl-form-review__question rpl-type-h4-fixed"
+              >
                 {{ field.q }}
               </th>
-              <td class="rpl-form-review__answer">
+              <td class="rpl-form-review__answer rpl-type-p">
                 {{ field.a || 'Not provided' }}
               </td>
-              <td class="rpl-form-review__action">
+              <td class="rpl-form-review__action rpl-type-p">
                 <a
-                  class="rpl-type-p-small rpl-text-link rpl-u-focusable-inline"
+                  class="rpl-text-link rpl-u-focusable-inline"
                   :href="`#${field.id}`"
                   @click.prevent="
                     form.goToField(field.id, entry?.step, actionLabel)

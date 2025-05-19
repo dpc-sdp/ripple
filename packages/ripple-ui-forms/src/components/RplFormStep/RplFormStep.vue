@@ -42,7 +42,7 @@
     <template #stepNext="{ handlers, node }">
       <RplButton
         v-if="!node.context.isLastStep"
-        class="rpl-form__step-next rpl-u-margin-t-6"
+        class="rpl-form__step-next"
         variant="filled"
         @click="handlers.next"
       >
@@ -82,7 +82,7 @@ interface Props {
 
 const props = withDefaults(defineProps<Props>(), {
   schema: undefined,
-  nextButton: 'Next',
+  nextButton: 'Continue',
   prevButton: 'Back',
   data: () => ({}),
   errors: () => []

@@ -1,3 +1,15 @@
+@import '@dpc-sdp/ripple-ui-core/style/breakpoints';
+
+.rpl-form__step {
+  .rpl-form-alert--error {
+    margin-block: var(--rpl-sp-7);
+
+    @media (--rpl-bp-l) {
+      margin-block: var(--rpl-sp-8);
+    }
+  }
+}
+
 .rpl-form__step-count {
   color: var(--rpl-clr-neutral-600);
 }
@@ -7,10 +19,16 @@
   align-items: center;
   gap: var(--rpl-sp-2);
   cursor: pointer;
+  text-decoration: underline;
+
+  @media (--rpl-bp-m) {
+    margin-top: var(--rpl-sp-1);
+  }
 
   &:hover,
   &:active {
     color: var(--rpl-clr-link);
+    text-decoration: none;
   }
 
   &:active {
@@ -19,5 +37,14 @@
 
   &:focus-visible .rpl-icon {
     color: var(--rpl-clr-type-focus-contrast);
+  }
+}
+
+.rpl-form__step-next,
+.rpl-form__step .rpl-form-actions {
+  margin-top: var(--rpl-sp-7);
+
+  @media (--rpl-bp-l) {
+    margin-top: var(--rpl-sp-8);
   }
 }

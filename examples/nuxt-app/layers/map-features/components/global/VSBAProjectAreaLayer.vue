@@ -45,7 +45,7 @@ const shapeFormat = new GeoJSON()
 
 const areaUrl = computed(() => {
   const baseArcGISURL =
-    'https://services6.arcgis.com/GB33F62SbDxJjwEL/ArcGIS/rest/services/Vicmap_Admin/FeatureServer/14/query'
+    'https://services-ap1.arcgis.com/P744lA0wf4LlBZ84/ArcGIS/rest/services/Vicmap_Admin/FeatureServer/14/query'
   const query = `postcode IN (${mappedAreas.value.join(',')})`
   const inSR = '4326'
   return `${baseArcGISURL}?where=${query}&geometryType=esriGeometryEnvelope&inSR=${inSR}&spatialRel=esriSpatialRelIntersects&units=esriSRUnit_Meter&returnGeodetic=false&outFields=postcode&returnGeometry=true&returnCentroid=false&f=pgeojson&token=`

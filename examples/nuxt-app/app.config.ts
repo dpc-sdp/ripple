@@ -148,7 +148,7 @@ export default defineAppConfig({
           }
         },
         csl: async (location) => {
-          const serviceUrl = `https://services6.arcgis.com/GB33F62SbDxJjwEL/arcgis/rest/services/Vicmap_Admin/FeatureServer`
+          const serviceUrl = `https://services-ap1.arcgis.com/P744lA0wf4LlBZ84/arcgis/rest/services/Vicmap_Admin/FeatureServer`
           const layer = '9'
           const format = 'pgeojson'
           const query = encodeURIComponent(`LGA_NAME='${location.lga_key}'`)

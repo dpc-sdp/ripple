@@ -101,7 +101,7 @@ Given(
   (featureId: string, requestFixture: string) => {
     cy.intercept(
       'GET',
-      `https://services6.arcgis.com/GB33F62SbDxJjwEL/ArcGIS/rest/services/Vicmap_Admin/FeatureServer/${featureId}/*`,
+      `https://services-ap1.arcgis.com/P744lA0wf4LlBZ84/ArcGIS/rest/services/Vicmap_Admin/FeatureServer/${featureId}/*`,
       {
         statusCode: 200,
         requestFixture

@@ -21,7 +21,7 @@
     <div class="rpl-form__step-count rpl-type-p rpl-type-weight-bold">
       Step {{ number }} of {{ total }}
     </div>
-    <h3 class="rpl-form__step-title rpl-type-h2 rpl-u-margin-b-4">
+    <h3 class="rpl-form__step-title rpl-type-h2">
       {{ title }}
     </h3>
 

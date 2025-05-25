@@ -34,6 +34,10 @@
   .rpl-progress--expanded & {
     transform: rotate(-180deg);
   }
+
+  .rpl-progress__header:focus-visible & {
+    color: var(--rpl-clr-type-focus-contrast);
+  }
 }
 
 .rpl-progress__steps {

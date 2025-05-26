@@ -38,20 +38,12 @@
   }
 
   .rpl-form-review__wrap {
-    --local-form-review-margin: var(--rpl-sp-5);
+    --local-form-review-spacing: var(--rpl-sp-5);
 
-    margin-top: var(--local-form-review-margin);
+    padding-block: var(--local-form-review-spacing);
 
     @media (--rpl-bp-l) {
-      --local-form-review-margin: var(--rpl-sp-7);
-    }
-
-    & + .rpl-form-review__wrap {
-      --local-form-review-margin: var(--rpl-sp-9);
-
-      @media (--rpl-bp-l) {
-        --local-form-review-margin: var(--rpl-sp-11);
-      }
+      --local-form-review-spacing: var(--rpl-sp-7);
     }
   }
 

@@ -79,6 +79,18 @@ Then('the table should not display extra content', () => {
   })
 })
 
+Then('the tables extra content should be visible', () => {
+  cy.get('@component').within(() => {
+    cy.get('.rpl-data-table__details').should('be.visible')
+  })
+})
+
+Then('the tables extra content should be hidden', () => {
+  cy.get('@component').within(() => {
+    cy.get('.rpl-data-table__details').should('not.be.visible')
+  })
+})
+
 Then(
   'the tables extra content should contain the text {string}',
   (text: string) => {

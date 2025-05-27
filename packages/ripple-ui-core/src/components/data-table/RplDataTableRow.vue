@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, reactive } from 'vue'
 import RplContent from '../content/RplContent.vue'
+import RplExpandable from '../expandable/RplExpandable.vue'
 import {
   useRippleEvent,
   rplEventPayload
@@ -66,12 +67,13 @@ const emit = defineEmits<{
 const { emitRplEvent } = useRippleEvent('rpl-data-table', emit)
 
 const state = reactive({
-  enabled: false
+  enabled: false,
+  opened: false
 })
 
 const rowClasses = computed(() => [
   'rpl-data-table__row',
-  state.enabled ? 'rpl-data-table__row--open' : null,
+  state.opened ? 'rpl-data-table__row--open' : null,
   (props.index + 1) % 2 === 0
     ? 'rpl-data-table__row--even'
     : 'rpl-data-table__row--odd',
@@ -92,7 +94,9 @@ const handleClick = () => {
     },
     { global: true }
   )
-
+  if (!state.enabled) {
+    state.opened = true
+  }
   state.enabled = !state.enabled
 }
 
@@ -108,6 +112,8 @@ const getCellText = (col?: number | string, value = '') => {
     ? props.row[objectKey]
     : value
 }
+
+const handleClosed = () => (state.opened = false)
 </script>
 
 <template>
@@ -155,41 +161,50 @@ const getCellText = (col?: number | string, value = '') => {
     <tr v-if="extraContent" ref="r1" class="rpl-data-table__details">
       <td v-if="offset > 0" :colspan="offset"></td>
       <td :colspan="columns.length + 1 - offset">
-        <template v-if="hasComponent(extraContent)">
-          <component
-            :is="extraContent.component"
-            v-bind="extraContent?.props"
-            class="rpl-data-table__details-content"
-            :item="row"
-          />
-        </template>
-        <template v-if="(extraContent as extraRowContent).items">
+        <RplExpandable :expanded="state.enabled" @closed="handleClosed">
           <div
-            v-for="(item, i) of extraContent.items"
-            :key="i"
-            class="rpl-data-table__details-content"
+            :class="{
+              'rpl-data-table__details-wrap': true,
+              'rpl-data-table__details-wrap--offset': offset
+            }"
           >
-            <template v-if="hasComponent(item)">
+            <template v-if="hasComponent(extraContent)">
               <component
-                :is="item.component"
-                v-bind="item?.props"
+                :is="extraContent.component"
+                v-bind="extraContent?.props"
+                class="rpl-data-table__details-content"
                 :item="row"
-                :column="item"
               />
             </template>
-            <template v-else>
-              <p>
-                <strong>{{ item.heading }}</strong>
-              </p>
-              <p>{{ getCellText(item?.objectKey, item.content) }}</p>
+            <template v-if="(extraContent as extraRowContent).items">
+              <div
+                v-for="(item, i) of extraContent.items"
+                :key="i"
+                class="rpl-data-table__details-content"
+              >
+                <template v-if="hasComponent(item)">
+                  <component
+                    :is="item.component"
+                    v-bind="item?.props"
+                    :item="row"
+                    :column="item"
+                  />
+                </template>
+                <template v-else>
+                  <p>
+                    <strong>{{ item.heading }}</strong>
+                  </p>
+                  <p>{{ getCellText(item?.objectKey, item.content) }}</p>
+                </template>
+              </div>
             </template>
+            <RplContent
+              v-if="extraContent.html"
+              :html="extraContent.html"
+              class="rpl-data-table__details-content"
+            />
           </div>
-        </template>
-        <RplContent
-          v-if="extraContent.html"
-          :html="extraContent.html"
-          class="rpl-data-table__details-content"
-        />
+        </RplExpandable>
       </td>
     </tr>
   </tbody>

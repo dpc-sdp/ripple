@@ -10,6 +10,11 @@ const props = withDefaults(defineProps<Props>(), {
   expanded: false
 })
 
+const emit = defineEmits<{
+  (e: 'opened'): void
+  (e: 'closed'): void
+}>()
+
 const containerRef = ref(null)
 const startExpanded = ref(false)
 const duration = useComputedSpeed(containerRef, '--rpl-motion-speed-9', 420)
@@ -30,6 +35,8 @@ function onEnter(el: any, done: Function): void {
 function onAfterEnter(el: any) {
   el.style.height = 'auto'
   el.style.overflow = 'initial'
+
+  emit('opened')
 }
 
 function onBeforeLeave(el: any) {
@@ -44,6 +51,10 @@ function onLeave(el: any, done: Function) {
 
   // call the done callback to indicate transition end
   setTimeout(done, duration.value)
+}
+
+function onAfterLeave() {
+  emit('closed')
 }
 
 const classes = computed(() => ({
@@ -66,6 +77,7 @@ onMounted(() => {
     @after-enter="onAfterEnter"
     @before-leave="onBeforeLeave"
     @leave="onLeave"
+    @after-leave="onAfterLeave"
   >
     <div v-show="expanded" ref="containerRef" :class="classes" role="region">
       <slot />

@@ -25,7 +25,8 @@ export const map = async (src, tidePageApi: TidePageApi) => {
   )
 
   return {
-    title: src.field_landing_page_nav_title,
+    title:
+      siteData.field_taxonomy_machine_name || src.field_landing_page_nav_title,
     items: menu
   }
 }

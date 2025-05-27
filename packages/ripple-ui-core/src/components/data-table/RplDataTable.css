@@ -176,6 +176,10 @@
   }
 }
 
+.rpl-data-table .rpl-data-table__details > td:nth-child(1n) {
+  margin-top: 0;
+}
+
 .rpl-data-table-toggle {
   display: inline-flex;
   align-items: center;

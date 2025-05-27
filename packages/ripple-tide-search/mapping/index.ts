@@ -2,7 +2,7 @@ import {
   tidePageBaseMapping,
   tidePageBaseIncludes
 } from '@dpc-sdp/nuxt-ripple/mapping'
-import { getBodyFromField, getImageFromField } from '@dpc-sdp/ripple-tide-api'
+import { getBodyFromField } from '@dpc-sdp/ripple-tide-api'
 import type { IRplTideModuleMapping } from '@dpc-sdp/ripple-tide-api/types'
 import {
   secondaryCampaignIncludes,

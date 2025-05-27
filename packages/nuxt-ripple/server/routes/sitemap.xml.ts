@@ -1,33 +1,15 @@
-//@ts-nocheck runtime imports
 import { defineEventHandler, H3Event } from 'h3'
-import { createHandler, logger } from '@dpc-sdp/ripple-tide-api'
-import { createProxyMiddleware } from 'http-proxy-middleware'
-
-export const createSitemapProxyHandler = async (event: H3Event) => {
-  const { public: config } = useRuntimeConfig()
-
-  const proxyMiddleware = createProxyMiddleware({
-    target: config.tide.baseUrl,
-    logger: logger,
-    changeOrigin: true,
-    pathRewrite: {
-      '^/sitemap.xml': `/site-${config.tide.site}/sitemap.xml`
-    }
-  })
-
-  return createHandler(event, 'TideSitemapProxyHandler', async () => {
-    await new Promise((resolve, reject) => {
-      proxyMiddleware(event.node.req, event.node.res, (err) => {
-        if (err) {
-          reject(err)
-        } else {
-          resolve(true)
-        }
-      })
-    })
-  })
-}
+import { createProxyHandler } from '@dpc-sdp/ripple-tide-api'
+import { useRuntimeConfig } from '#imports'
 
 export default defineEventHandler(async (event: H3Event) => {
-  return createSitemapProxyHandler(event)
+  const { public: config } = useRuntimeConfig()
+
+  return createProxyHandler(event, 'TideSitemapProxyHandler', {
+    changeOrigin: true,
+    target: config.tide.baseUrl,
+    pathRewrite: {
+      '/sitemap.xml': `/site-${config.tide.site}/sitemap.xml`
+    }
+  })
 })

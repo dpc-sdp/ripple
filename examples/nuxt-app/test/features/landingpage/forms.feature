@@ -200,7 +200,7 @@ Feature: Forms
       | site_section             | DPC                    |
 
 
-  @mockserver @focus
+  @mockserver
   Scenario: Form default values
     Given the mock server has started
     Given the current date is "Fri, 02 Feb 2050 03:04:05 GMT"

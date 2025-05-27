@@ -198,3 +198,18 @@ Feature: Forms
       | favourite_locations      | London,Tokyo           |
       | i_accept_the_terms       | true                   |
       | site_section             | DPC                    |
+
+
+  @mockserver @focus
+  Scenario: Form default values
+    Given the mock server has started
+    Given the current date is "Fri, 02 Feb 2050 03:04:05 GMT"
+    And I have set the cookie "testcookie" with value "thisisatest"
+    And I have set localstorage key "localtest" with value "thisisalocaltest"
+    And the page endpoint for path "/form-default" returns fixture "/landingpage/form-default" with status 200
+    And the site endpoint returns fixture "/site/reference" with status 200
+    Given I visit the page "/form-default"
+    Then a hidden field named "testcookie" should exist with the value "thisisatest"
+    Then a hidden field named "testlocalstorage" should exist with the value "thisisalocaltest"
+    Then a hidden field named "currenttime" should exist with the value "2527383845000"
+

@@ -39,6 +39,7 @@ interface Props {
   }
   customInputs?: FormKitPlugin
   layout?: 'default' | 'compact'
+  utils?: Record<string, (arg: any) => any>
 }
 
 interface CachedError {
@@ -74,7 +75,8 @@ const props = withDefaults(defineProps<Props>(), {
     message: ''
   }),
   customInputs: () => {},
-  layout: 'default'
+  layout: 'default',
+  utils: () => ({})
 })
 
 const emit = defineEmits<{
@@ -413,7 +415,7 @@ onBeforeUnmount(() => {
   tryAbandonForm()
 })
 
-const data = reactive({
+const utils = reactive({
   isFilled: (val) =>
     typeof val === 'number'
       ? !isNaN(val)
@@ -446,7 +448,8 @@ const data = reactive({
   isPatternMatch: (val, pattern) => {
     const matches = val ? `${val}`.match(new RegExp(pattern)) : null
     return matches && matches.length > 0
-  }
+  },
+  ...props.utils
 })
 
 const plugins = computed(
@@ -515,14 +518,14 @@ const formClasses = computed(() => {
         v-if="formSteps.length"
         :id="stepsId"
         ref="stepsRef"
-        :data="data"
+        :data="utils"
         :schema="formSteps"
         :errors="errorSummaryMessages"
         :disabled="isFormSubmitting"
         :handle-step-change="handleStepChange"
         :layout="layout"
       />
-      <FormKitSchema v-else-if="schema" :schema="schema" :data="data" />
+      <FormKitSchema v-else-if="schema" :schema="schema" :data="utils" />
     </slot>
     <slot name="belowForm" :value="value"></slot>
   </FormKit>

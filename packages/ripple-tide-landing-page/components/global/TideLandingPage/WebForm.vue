@@ -96,8 +96,6 @@ const utils = { ...formUtils, ...customFormUtils }
 </script>
 
 <template>
-  <pre>{{ customFormUtils }}</pre>
-  <pre>{{ customFormUtils.test }}</pre>
   <div
     :style="{
       '--local-max-width': '595px'

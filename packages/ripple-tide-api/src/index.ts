@@ -6,7 +6,10 @@ export { default as logger } from './logger/logger.js'
 export * from './utils/createHandler.js'
 export * from './utils/createProxyHandler.js'
 export { stripSiteId } from './utils/stripSiteId.js'
-export { stripMediaBaseUrl } from './utils/stripMediaBaseUrl.js'
+export {
+  stripMediaBaseUrl,
+  defaultFilesPath
+} from './utils/stripMediaBaseUrl.js'
 
 export {
   addAnchorLinksToHTML,

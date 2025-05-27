@@ -1,44 +1,23 @@
-//@ts-nocheck runtime imports
 import { defineEventHandler, H3Event } from 'h3'
-import { createHandler, logger } from '@dpc-sdp/ripple-tide-api'
-import { createProxyMiddleware } from 'http-proxy-middleware'
-
-export const createFilesProxyHandler = async (event: H3Event) => {
-  const { public: config } = useRuntimeConfig()
-
-  const proxyMiddleware = createProxyMiddleware({
-    target: config.tide.baseUrl,
-    logger: logger,
-    changeOrigin: true,
-    on: {
-      proxyReq(proxyReq) {
-        proxyReq.setHeader('X-Sdp-Request-Location', 'tide')
-        // Set User-Agent for static crawler requests to prevent rate limiting
-        if (config.isStatic) {
-          proxyReq.setHeader('User-Agent', 'Quant;')
-        }
-      },
-      proxyRes(proxyRes) {
-        if (proxyRes?.headers) {
-          proxyRes.headers['X-Sdp-App-Type'] = 'tide'
-        }
-      }
-    }
-  })
-
-  return createHandler(event, 'TideFilesProxyHandler', async () => {
-    await new Promise((resolve, reject) => {
-      proxyMiddleware(event.node.req, event.node.res, (err) => {
-        if (err) {
-          reject(err)
-        } else {
-          resolve(true)
-        }
-      })
-    })
-  })
-}
+import { createProxyHandler } from '@dpc-sdp/ripple-tide-api'
+import { useRuntimeConfig } from '#imports'
 
 export default defineEventHandler(async (event: H3Event) => {
-  return createFilesProxyHandler(event)
+  const { public: config } = useRuntimeConfig()
+
+  const headers = {
+    'X-Sdp-Request-Location': 'tide'
+  }
+  if (config.isStatic) {
+    headers['User-Agent'] = 'Quant'
+  }
+
+  return createProxyHandler(event, 'TideFilesHandler', {
+    headers,
+    changeOrigin: true,
+    target: config.tide.baseUrl,
+    onResponse(_event) {
+      _event.node.res.setHeader('X-Sdp-App-Type', 'tide')
+    }
+  })
 })

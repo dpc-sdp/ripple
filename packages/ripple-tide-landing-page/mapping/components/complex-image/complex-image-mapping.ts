@@ -1,4 +1,8 @@
-import { getBody, getMediaPath } from '@dpc-sdp/ripple-tide-api'
+import {
+  getBody,
+  getMediaPath,
+  defaultFilesPath
+} from '@dpc-sdp/ripple-tide-api'
 import { TideDynamicPageComponent } from '@dpc-sdp/ripple-tide-api/types'
 
 export interface ITideComplexImage {
@@ -29,7 +33,10 @@ export const complexImageMapping = (
       dataLabel: field.field_complex_image_data_label,
       dataContent: getBody(field.field_complex_image_data?.processed),
       fullscreenLabel: field.field_complex_image_full_label,
-      downloadUrl: field.field_complex_image_media.field_media_image.url,
+      downloadUrl: defaultFilesPath(
+        field.field_complex_image_media.field_media_image.url,
+        process.env.NUXT_PUBLIC_TIDE_BASE_URL as string
+      ),
       downloadLabel: field.field_complex_image_dl_label,
       type: 'image',
       variant: 'complex',

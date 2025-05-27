@@ -57,13 +57,23 @@
   th,
   td {
     vertical-align: top;
+    padding: var(--rpl-sp-4) var(--rpl-sp-3);
 
     > *:first-child {
       margin-top: 0;
     }
+
+    &:first-child {
+      padding-left: var(--rpl-sp-4);
+    }
+
+    &:last-child {
+      padding-right: var(--rpl-sp-4);
+    }
   }
 
   caption {
+    padding: var(--rpl-sp-4);
     font-size: var(--rpl-type-size-2);
     font-weight: var(--rpl-type-weight-bold);
     line-height: var(--rpl-type-lh-4);
@@ -75,20 +85,6 @@
   caption,
   caption + thead {
     border-top: var(--local-dividing-border);
-  }
-
-  caption,
-  th,
-  td {
-    padding: var(--rpl-sp-4) var(--rpl-sp-3);
-
-    &:first-child {
-      padding-left: var(--rpl-sp-4);
-    }
-
-    &:last-child {
-      padding-right: var(--rpl-sp-4);
-    }
   }
 
   caption:not([align]),

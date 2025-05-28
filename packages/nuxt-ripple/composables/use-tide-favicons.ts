@@ -1,9 +1,10 @@
-import { TideSiteData } from '../types'
+import type { TideSiteData } from '../types'
+import { useRuntimeConfig, useHead } from '#imports'
 
-export default (site: TideSiteData, theme: any) => {
+export default (site: TideSiteData, theme: { 'rpl-clr-primary'?: string }) => {
   const { public: config } = useRuntimeConfig()
 
-  let link = []
+  const link = []
   const siteUrl = config?.siteUrl || ''
   const themeColour = theme?.['rpl-clr-primary'] ?? '#ffffff'
 
@@ -13,31 +14,37 @@ export default (site: TideSiteData, theme: any) => {
     short_name: site?.shortName || '',
     description: site?.slogan?.replace(/<[^>]*>|<|>/g, ''),
     start_url: siteUrl,
-    icons: [
-      {
-        src: siteUrl + (site.appIcon?.src ?? '/android-chrome-512x512.png'),
-        sizes: 'any'
-      }
-    ],
+    icons: site.appIcon?.src
+      ? [
+          {
+            src: siteUrl + site.appIcon.src,
+            sizes: 'any'
+          }
+        ]
+      : undefined,
     theme_color: themeColour,
     background_color: '#ffffff',
     display: 'standalone'
   }
 
-  link.push({
-    rel: 'apple-touch-icon',
-    href: site.appIcon?.src ?? '/apple-touch-icon.png'
-  })
+  if (site.appIcon?.src) {
+    link.push({
+      rel: 'apple-touch-icon',
+      href: site.appIcon?.src
+    })
+  }
 
   link.push({
     rel: 'manifest',
     href: `data:application/manifest+json,${encodeURIComponent(JSON.stringify(manifest))}`
   })
 
-  link.push({
-    rel: 'icon',
-    href: site.favicon?.src ?? '/favicon.ico'
-  })
+  if (site.favicon?.src) {
+    link.push({
+      rel: 'icon',
+      href: site.favicon?.src
+    })
+  }
 
   useHead({ link, meta: [{ name: 'theme-color', content: themeColour }] })
 }

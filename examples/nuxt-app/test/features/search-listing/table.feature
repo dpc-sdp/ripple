@@ -42,8 +42,12 @@ Feature: Table layout
     Given a data table with type "search-listing-layout-table"
     And the table should have the caption "My Table"
     And the table should have the footer "Some notes about the table"
+    Then the tables extra content should be hidden
     When I toggle the tables extra content row
-    Then the tables extra content should contain the text "Details: 1 Implemented"
+    Then the tables extra content should be visible
+    And the tables extra content should contain the text "Details: 1 Implemented"
+    When I toggle the tables extra content row
+    Then the tables extra content should be hidden
 
   @mockserver
   Example: Table shows extra structured content using object keys and components

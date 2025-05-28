@@ -19,7 +19,7 @@ const setupDataLayer = (featureFlags: IRplFeatureFlags) => {
   const packages: IPackages = useAppConfig()?.ripple?.packages
 
   /*eslint-disable no-prototype-builtins */
-  if (typeof window !== undefined) {
+  if (typeof window !== 'undefined') {
     if (!window.hasOwnProperty('dataLayer')) {
       window.dataLayer = []
     }

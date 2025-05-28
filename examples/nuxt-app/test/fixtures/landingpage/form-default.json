@@ -1,0 +1,103 @@
+{
+  "title": "Testing forms",
+  "changed": "2022-12-08T12:05:35+11:00",
+  "created": "2022-12-01T11:36:44+11:00",
+  "type": "landing_page",
+  "nid": "48cc390c-3952-48b4-8b61-d6eacb10a7e6",
+  "sidebar": {
+    "contacts": [],
+    "relatedLinks": [],
+    "whatsNext": [],
+    "socialShareNetworks": ["Facebook", "X", "LinkedIn"],
+    "siteSectionNav": null
+  },
+  "topicTags": [
+    {
+      "text": "Demo Topic",
+      "url": "/topic/demo-topic"
+    }
+  ],
+  "summary": "Testing forms",
+  "showHeroAcknowledgement": false,
+  "showInPageNav": false,
+  "showHeroImageCaption": false,
+  "showTopicTags": true,
+  "inPageNavHeadingLevel": "h2",
+  "background": "default",
+  "header": {
+    "title": "Testing forms",
+    "summary": "",
+    "links": {
+      "title": "",
+      "items": [],
+      "more": null
+    },
+    "backgroundImageCaption": "",
+    "theme": "default",
+    "logoImage": null,
+    "backgroundImage": null,
+    "cornerTopImage": null,
+    "cornerBottomImage": null,
+    "primaryAction": null,
+    "secondaryAction": null,
+    "secondaryActionLabel": ""
+  },
+  "primaryCampaign": null,
+  "secondaryCampaign": null,
+  "headerComponents": [],
+  "bodyComponents": [
+    {
+      "uuid": "f150b404-c1cf-48a3-b222-281ee4fffe1c",
+      "component": "TideLandingPageWebForm",
+      "id": 1119,
+      "title": "Test form",
+      "props": {
+        "title": "Test form",
+        "formId": "full_form",
+        "hideFormOnSubmit": false,
+        "successMessageTitle": "Server success",
+        "successMessageHTML": "Test <strong>success</strong> message",
+        "errorMessageTitle": "Server error",
+        "errorMessageHTML": "Test <strong>error</strong> message",
+        "schema": [
+          {
+            "$formkit": "RplFormHidden",
+            "name": "testcookie",
+            "id": "testcookie",
+            "value": "$fromUserCookie('testcookie')",
+            "pii": true
+          },
+          {
+            "$formkit": "RplFormHidden",
+            "name": "testlocalstorage",
+            "id": "testlocalstorage",
+            "value": "$fromLocalStorage('localtest')",
+            "pii": true
+          },
+          {
+            "$formkit": "RplFormHidden",
+            "name": "currenttime",
+            "id": "currenttime",
+            "value": "$currentTimestamp()"
+          },
+          {
+            "$formkit": "RplFormText",
+            "name": "currentdate",
+            "label": "Date",
+            "id": "currentdate",
+            "help": "Enter the date you submitted",
+            "value": "$currentDate()"
+          },
+          {
+            "$formkit": "RplFormActions",
+            "name": "submit",
+            "variant": "filled",
+            "label": "Submit this form",
+            "id": "actions",
+            "displayResetButton": false
+          }
+        ]
+      }
+    }
+  ]
+}

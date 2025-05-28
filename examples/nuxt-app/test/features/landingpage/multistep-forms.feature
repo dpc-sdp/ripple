@@ -26,7 +26,7 @@ Feature: Multi Step Forms
     Then I type "John Smith" into the input with the label "Name"
     And I type "0400123456" into the input with the label "Phone"
 
-    Then I navigate to the next form step by clicking "Next"
+    Then I navigate to the next form step by clicking "Continue"
     Then the form step 2 of 3 named "Location" should be visible
     And the form progress bar should display the steps
       | label    | status   |
@@ -67,7 +67,7 @@ Feature: Multi Step Forms
 
     Then the dataLayer should include the following events
       | event              | form_step | target_form_step | form_id   | form_name      | index | target_index | element_text | component |
-      | form_step_forward  | Details   | Location         | multistep | MultiStep Form | 1     | 2            | Next         | rpl-form  |
+      | form_step_forward  | Details   | Location         | multistep | MultiStep Form | 1     | 2            | Continue     | rpl-form  |
       | form_step_forward  | Location  | Finish           | multistep | MultiStep Form | 2     | 3            | Go forwards  | rpl-form  |
       | form_step_backward | Finish    | Location         | multistep | MultiStep Form | 3     | 2            | Back         | rpl-form  |
       | form_step_backward | Location  | Details          | multistep | MultiStep Form | 2     | 1            | Go backwards | rpl-form  |
@@ -75,7 +75,7 @@ Feature: Multi Step Forms
   @mockserver
   Scenario: Validation applies only to the current step
     When I visit the page "/multistep-form"
-    Then I navigate to the next form step by clicking "Next"
+    Then I navigate to the next form step by clicking "Continue"
     Then the input with the label "Name" should be invalid with message "Name is required"
     And the input with the label "Phone" should be invalid with message "A valid phone number is essential"
     And the steps error summary should display with the following errors
@@ -85,7 +85,7 @@ Feature: Multi Step Forms
 
     When I type "John Smith" into the input with the label "Name"
     Then I toggle the checkbox with label "Add contact preference"
-    And I navigate to the next form step by clicking "Next"
+    And I navigate to the next form step by clicking "Continue"
     And the steps error summary should display with the following errors
       | text                              | url                     |
       | A valid phone number is essential | #multistep_phone        |
@@ -93,7 +93,7 @@ Feature: Multi Step Forms
 
     Then I type "0400123456" into the input with the label "Phone"
     And I click "Phone" from the radio group with label "Contact type"
-    And I navigate to the next form step by clicking "Next"
+    And I navigate to the next form step by clicking "Continue"
     And the error summary should not display
 
     When I navigate to the next form step by clicking "Go forwards"
@@ -129,7 +129,7 @@ Feature: Multi Step Forms
 
     When I type "John Smith" into the input with the label "Name"
     And I type "0400123456" into the input with the label "Phone"
-    And I navigate to the next form step by clicking "Next"
+    And I navigate to the next form step by clicking "Continue"
     Then the form step 2 of 3 named "Location" should be visible
     Then a "text" input with the label "Delivery for vic.gov" should exist
     And a field with the label "Your delivery instructions" should not exist
@@ -148,7 +148,7 @@ Feature: Multi Step Forms
     And I toggle the checkbox with label "Add contact preference"
     And I click "Phone" from the radio group with label "Contact type"
 
-    When I navigate to the next form step by clicking "Next"
+    When I navigate to the next form step by clicking "Continue"
     Then the form step 2 of 3 named "Location" should be visible
     And a field with the label "Delivery for vic.gov" should not exist
 
@@ -163,7 +163,7 @@ Feature: Multi Step Forms
     Then I type "John Smith" into the input with the label "Name"
     And I type "0400123456" into the input with the label "Phone"
 
-    Then I navigate to the next form step by clicking "Next"
+    Then I navigate to the next form step by clicking "Continue"
     And I click "Monday to Wednesday" from the checkbox group with label "Delivery slot"
     And I navigate to the next form step by clicking "Go forwards"
 
@@ -183,7 +183,7 @@ Feature: Multi Step Forms
     And I type "test@mail.co" into the input with the label "Email"
     And I type "0400123456" into the input with the label "Phone"
 
-    Then I navigate to the next form step by clicking "Next"
+    Then I navigate to the next form step by clicking "Continue"
     And I wait 400 milliseconds
     And I click "Victoria" from the select field with label "State"
     And I click "Monday to Wednesday" from the checkbox group with label "Delivery slot"
@@ -261,7 +261,7 @@ Feature: Multi Step Forms
     Then I toggle the checkbox with label "Add contact preference"
     And I click "Phone" from the radio group with label "Contact type"
 
-    Then I navigate to the next form step by clicking "Next"
+    Then I navigate to the next form step by clicking "Continue"
     Then I type "DPC" into the input with the label "Organization"
     And I type "1 Lane" into the input with the label "Street address"
     And I type "Brunswick" into the input with the label "Suburb"
@@ -301,7 +301,7 @@ Feature: Multi Step Forms
     Then the form step 1 of 3 named "Details" should be visible
     And the field labelled "Email" should have focus
 
-    When I navigate to the next form step by clicking "Next"
+    When I navigate to the next form step by clicking "Continue"
     Then I navigate to the next form step by clicking "Go forwards"
     Then I edit "State" in the review section for "location"
     Then the form step 2 of 3 named "Location" should be visible
@@ -318,7 +318,7 @@ Feature: Multi Step Forms
     Then I type "John Smith" into the input with the label "Name"
     And I type "0400123456" into the input with the label "Phone"
 
-    When I navigate to the next form step by clicking "Next"
+    When I navigate to the next form step by clicking "Continue"
     And I click "Monday to Wednesday" from the checkbox group with label "Delivery slot"
     Then I navigate to the next form step by clicking "Go forwards"
     Then the form review component should not display the following "details"

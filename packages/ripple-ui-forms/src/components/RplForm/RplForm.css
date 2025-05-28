@@ -1,3 +1,5 @@
+@import '@dpc-sdp/ripple-ui-core/style/breakpoints';
+
 .rpl-form {
   max-width: var(--local-max-width, initial);
   display: block;
@@ -20,7 +22,7 @@
 .rpl-form__outer {
   margin-bottom: var(--rpl-sp-7);
 
-  @media (--rpl-bp-m) {
+  @media (--rpl-bp-l) {
     margin-bottom: var(--rpl-sp-8);
   }
 

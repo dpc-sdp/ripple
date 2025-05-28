@@ -331,3 +331,26 @@ Given('the current date is restored', () => {
 Given('time moves {int} second', (sec: number = 1) => {
   cy.tick(sec * 1000)
 })
+
+Given(
+  'I have set the cookie {string} with value {string}',
+  (cookieKey: string, cookieVal: string) => {
+    cy.setCookie(cookieKey, cookieVal)
+  }
+)
+
+Then(
+  'the cookie {string} should have the value {string}',
+  (cookieKey: string, cookieVal: string) => {
+    cy.getCookie(cookieKey).should('have.property', 'value', cookieVal)
+  }
+)
+
+Then(
+  'I have set localstorage key {string} with value {string}',
+  (localKey: string, localVal: string) => {
+    cy.window().then((win) => {
+      win.localStorage.setItem(localKey, localVal)
+    })
+  }
+)

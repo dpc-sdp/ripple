@@ -2,6 +2,7 @@
 import { FormKitSchemaNode } from '@formkit/core'
 import { computed, nextTick, ref, watch } from 'vue'
 import type { MappedCaptchaConfig } from '@dpc-sdp/ripple-tide-webform/types'
+import { useFormUtils, useAppConfig } from '#imports'
 
 interface Props {
   title?: string
@@ -63,7 +64,7 @@ import {
   rplFeatures
 } from '@dpc-sdp/ripple-ui-forms'
 
-const appConfig = useAppConfig()?.ripple as { customInputs: any }
+const appConfig = useAppConfig()?.ripple as { customInputs: any; form: any }
 const customInputDefs = appConfig.customInputs || {}
 
 const customInputs: FormKitPlugin = () => {}
@@ -89,6 +90,9 @@ customInputs.library = (node: any) => {
     }
   })
 }
+const customFormUtils = appConfig?.form?.utils || {}
+const { formUtils } = useFormUtils()
+const utils = { ...formUtils, ...customFormUtils }
 </script>
 
 <template>
@@ -117,6 +121,7 @@ customInputs.library = (node: any) => {
         :schema="schema"
         :submissionState="submissionState as any"
         :layout="hasSidebar ? 'compact' : 'default'"
+        :utils="utils"
         @submit="submitHandler(props, $event.data, captchaWidgetId)"
       >
         <template #belowForm>

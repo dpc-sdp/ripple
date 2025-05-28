@@ -219,6 +219,11 @@ export default defineAppConfig({
           )
         }
       }
+    },
+    form: {
+      utils: {
+        currentTimestamp: () => (import.meta.client ? new Date().getTime() : '')
+      }
     }
   }
 })

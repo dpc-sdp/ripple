@@ -30,7 +30,7 @@ export default {
           href: '/',
           src: getMediaPath(src, 'field_site_logo'),
           altText:
-            src.field_site_logo.meta?.alt || src.field_taxonomy_machine_name,
+            src.field_site_logo.meta?.alt || src.field_site_name,
           printSrc: getMediaPath(src, 'field_print_friendly_logo')
         }
       }

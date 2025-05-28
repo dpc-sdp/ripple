@@ -21,15 +21,16 @@ export default {
     _src: (src: any) =>
       process.env.NODE_ENV === 'development' ? src : undefined,
     siteAlerts: siteAlertsMapping,
-    slogan: (src: any) => getBodyFromField(src, 'field_site_slogan'),
-    favicon: (src: any) => getImageFromField(src, 'field_site_favicon'),
-    appIcon: (src: any) => getImageFromField(src, 'field_site_app_icon'),
-    siteLogo: (src: any) => {
+    slogan: (src) => getBodyFromField(src, 'field_site_slogan'),
+    favicon: (src) => getImageFromField(src, 'field_site_favicon'),
+    appIcon: (src) => getImageFromField(src, 'field_site_app_icon'),
+    siteLogo: (src) => {
       if (src.field_site_logo) {
         return {
           href: '/',
           src: getMediaPath(src, 'field_site_logo'),
-          altText: src.field_site_logo.meta?.alt,
+          altText:
+            src.field_site_logo.meta?.alt || src.field_site_name,
           printSrc: getMediaPath(src, 'field_print_friendly_logo')
         }
       }

@@ -17,6 +17,16 @@
     }
   }
 
+  .rpl-data-table__details-wrap {
+    padding: 0 var(--rpl-sp-4) var(--rpl-sp-4);
+  }
+
+  .rpl-data-table__details-wrap--offset {
+    @media (--rpl-bp-m) {
+      padding-left: var(--rpl-sp-3);
+    }
+  }
+
   table {
     width: 100%;
   }
@@ -177,6 +187,7 @@
 }
 
 .rpl-data-table .rpl-data-table__details > td:nth-child(1n) {
+  padding: 0;
   margin-top: 0;
 }
 

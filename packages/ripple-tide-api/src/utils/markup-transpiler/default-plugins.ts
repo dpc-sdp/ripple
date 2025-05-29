@@ -225,8 +225,9 @@ const pluginImages = function (this: any) {
       ?.text()
     // this is the max width of the content area
     const contentWidth = 720
+    const newOrAdd = src?.includes('?') ? '&' : '?'
     return this.find(el).replaceWith(
-      `<figure><img src="${src}" class="rpl-img" width="${width}" alt="${alt}" srcset="${src}?width=${contentWidth}, ${src}?width=${
+      `<figure><img src="${src}" class="rpl-img" width="${width}" alt="${alt}" srcset="${src}${newOrAdd}width=${contentWidth}, ${src}${newOrAdd}width=${
         contentWidth * 2
       } 2x"></img>${
         $caption

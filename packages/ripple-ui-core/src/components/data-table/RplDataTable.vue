@@ -107,6 +107,7 @@ const displayMobileView: ComputedRef<boolean> = computed(() => {
           :extraContent="(row.__extraContent as extraRowContent) || null"
           :showExtraContent="showExtraContent"
           :vertical-header="headingType.vertical"
+          :horizontal-header="headingType.horizontal"
           :offset="offset"
           :caption="caption"
           :index="index"

@@ -640,6 +640,7 @@ watch(baseEvent, (newBaseEvent) => {
           :variant="reverseFields ? 'reverse' : 'default'"
           :inputValue="locationQuery"
           :resultsloaded="mapFeatures.length > 0"
+          :filters="filterForm"
           :isGettingLocation="isGettingLocation"
           :userGeolocation="userGeolocation"
           @update="handleLocationSearch"

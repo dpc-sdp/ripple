@@ -56,7 +56,13 @@ Then(`the location search value should be {string}`, (term) => {
 })
 
 Then(`the map matches the image snapshot {string}`, (title) => {
-  cy.get('.rpl-primary-nav').invoke('remove')
+  cy.get('body').then(($body) => {
+    const nav = $body.find('.rpl-primary-nav')
+    if (nav.length) {
+      nav.remove()
+    }
+  })
+
   cy.get('.rpl-map').matchImage({
     title,
     screenshotConfig: {},
@@ -266,6 +272,14 @@ When('I click the view fullscreen button', () => {
 
 When('I click the exit fullscreen button', () => {
   cy.get('.rpl-map__control button[title="Exit full screen"]').realClick()
+})
+
+When('I click the zoom in button', () => {
+  cy.get('.rpl-map__control-zoom-in').click()
+})
+
+When('I click the zoom out button', () => {
+  cy.get('.rpl-map__control-zoom-out').click()
 })
 
 Then('the map should be fullscreen', () => {

@@ -53,6 +53,7 @@ interface Props {
   }
   onLocationSelectOverrideFn?: string | null
   bboxZoomPadding?: number
+  filters?: Record<string, any>
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -68,7 +69,8 @@ const props = withDefaults(defineProps<Props>(), {
   isGettingLocation: false,
   userGeolocation: null,
   onLocationSelectOverrideFn: null,
-  bboxZoomPadding: 100
+  bboxZoomPadding: 100,
+  filters: null
 })
 
 const emit = defineEmits<{
@@ -109,10 +111,10 @@ watch(
   }
 )
 
-// Center the map on the location when the location changes
+// Center the map on the location when the location or filters change
 // We look for the value of pendingZoomAnimation to determine if we should animate the zoom
 watch(
-  () => props.inputValue?.id,
+  [() => props.inputValue?.id, () => props.filters],
   async () => {
     await nextTick()
     centerMapOnLocation(
@@ -121,7 +123,8 @@ watch(
       pendingZoomAnimation.value
     )
     pendingZoomAnimation.value = false
-  }
+  },
+  { deep: true }
 )
 
 async function centerMapOnLocation(

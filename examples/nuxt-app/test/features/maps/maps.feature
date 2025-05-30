@@ -4,7 +4,7 @@ Feature: Custom collection map component
 
   Background:
     Given the site endpoint returns fixture "/site/vic" with status 200
-    And the search autocomplete request is stubbed with "/search-listing/suggestions/none" fixture
+    And the location autocomplete request is stubbed with "/maps/example-suburbs-response" fixture
     Given I am using a "macbook-16" device
     Given the "/api/tide/elasticsearch/elasticsearch_index_develop_node/_search" aggregation request is stubbed with fixture "/map-table/vsba/aggregations" and status 200 as alias "aggReq"
     Given the "/test-map-shape-layer" network request is stubbed with fixture "/maps/sample-shapes"
@@ -184,6 +184,66 @@ Feature: Custom collection map component
     Then the page endpoint for path "/map" returns the loaded fixture
     When I visit the page "/map"
     Then the map height is 606
+
+  @mockserver
+  Scenario: Updating the filters will revert the map position
+    Given I load the page fixture with "/maps/basic-page"
+    And the "/api/tide/elasticsearch/elasticsearch_index_develop_node/_search" network request is stubbed with fixture "/maps/simple-map-results" and status 200 as alias "searchReq"
+    Then the page endpoint for path "/map" returns the loaded fixture
+    When I visit the page "/map"
+    Then I wait 4 seconds
+    Then the map matches the image snapshot "map-position-initial"
+
+    When I click the zoom in button
+    Then I wait 2 seconds
+    Then the map matches the image snapshot "map-position-zoom-in"
+
+    When I toggle the search listing filters section
+    Then I click the search listing dropdown field labelled "Project Type"
+    And I click the option labelled "Planning" in the selected dropdown
+    And I click the search listing dropdown field labelled "Project Type"
+    Then I submit the search filters
+    And I wait 2 seconds
+    Then the map matches the image snapshot "map-position-filtered"
+
+    When I click the zoom in button
+    When I click the zoom in button
+    Then I wait 2 seconds
+    Then the map matches the image snapshot "map-position-filtered-zoom-in"
+
+    When I clear the search filters
+    And I wait 2 seconds
+    Then the map matches the image snapshot "map-position-cleared"
+
+  @mockserver
+  Scenario: Applying filters with location only will revert the map position to the location
+    Given I load the page fixture with "/maps/basic-page"
+    And the "/api/tide/elasticsearch/elasticsearch_index_develop_node/_search" network request is stubbed with fixture "/maps/simple-map-results" and status 200 as alias "searchReq"
+    Then the page endpoint for path "/map" returns the loaded fixture
+    When I visit the page "/map"
+
+    When I type "bays" into the location search bar
+    Then I click the search suggestion labelled "Bayswater North"
+    And I wait 2 seconds
+    Then the map matches the image snapshot "map-position-location"
+
+    When I click the zoom out button
+    And I click the zoom out button
+    And I click the zoom out button
+    Then I wait 2 seconds
+    Then the map matches the image snapshot "map-position-location-zoom-out"
+
+    When I toggle the search listing filters section
+    Then I click the search listing dropdown field labelled "Project Type"
+    And I click the option labelled "Planning" in the selected dropdown
+    And I click the search listing dropdown field labelled "Project Type"
+    Then I submit the search filters
+    And I wait 2 seconds
+    Then the map matches the image snapshot "map-position-location-filtered"
+
+    When I clear the search filters
+    And I wait 2 seconds
+    Then the map matches the image snapshot "map-position-location-cleared"
 
   @mockserver
   Scenario: Clicking a result link fires the click_search_result event

@@ -335,6 +335,23 @@ Then('the in page navigation should include', (dataTable: DataTable) => {
   })
 })
 
+Given('I click on the in page nav link {string}', (label: string) => {
+  cy.contains('.rpl-in-page-navigation a', label).click()
+})
+
+Then('I should jump to the targeted section {string}', (heading: string) => {
+  cy.get('#rpl-main [data-cy="page-component-title"]')
+    .contains(heading)
+    .parents('.rpl-page-component')
+    .then(($el) => {
+      cy.window().then((win) => {
+        const elementTop = $el.offset().top
+        expect($el.get(0).matches(':target')).to.be.true
+        expect(win.scrollY).to.be.closeTo(elementTop, 100)
+      })
+    })
+})
+
 Given('I click on the document {string}', (label: string) => {
   cy.contains('.rpl-document__link', label).trigger('click')
 })

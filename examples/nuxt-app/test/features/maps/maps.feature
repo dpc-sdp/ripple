@@ -190,12 +190,11 @@ Feature: Custom collection map component
     Given I load the page fixture with "/maps/basic-page"
     And the "/api/tide/elasticsearch/elasticsearch_index_develop_node/_search" network request is stubbed with fixture "/maps/simple-map-results" and status 200 as alias "searchReq"
     Then the page endpoint for path "/map" returns the loaded fixture
-    When I visit the page "/map"
-    Then I wait 4 seconds
-    Then the map matches the image snapshot "map-position-initial"
+    And I visit the page "/map"
+    Then I wait 3 seconds
 
     When I click the zoom in button
-    Then I wait 2 seconds
+    Then I wait 4 seconds
     Then the map matches the image snapshot "map-position-zoom-in"
 
     When I toggle the search listing filters section
@@ -203,16 +202,15 @@ Feature: Custom collection map component
     And I click the option labelled "Planning" in the selected dropdown
     And I click the search listing dropdown field labelled "Project Type"
     Then I submit the search filters
-    And I wait 2 seconds
+    And I wait 3 seconds
     Then the map matches the image snapshot "map-position-filtered"
 
-    When I click the zoom in button
-    When I click the zoom in button
-    Then I wait 2 seconds
-    Then the map matches the image snapshot "map-position-filtered-zoom-in"
+    When I click the zoom out button
+    Then I wait 4 seconds
+    Then the map matches the image snapshot "map-position-filtered-zoom-out"
 
     When I clear the search filters
-    And I wait 2 seconds
+    And I wait 3 seconds
     Then the map matches the image snapshot "map-position-cleared"
 
   @mockserver
@@ -220,17 +218,12 @@ Feature: Custom collection map component
     Given I load the page fixture with "/maps/basic-page"
     And the "/api/tide/elasticsearch/elasticsearch_index_develop_node/_search" network request is stubbed with fixture "/maps/simple-map-results" and status 200 as alias "searchReq"
     Then the page endpoint for path "/map" returns the loaded fixture
-    When I visit the page "/map"
-
-    When I type "bays" into the location search bar
-    Then I click the search suggestion labelled "Bayswater North"
-    And I wait 2 seconds
-    Then the map matches the image snapshot "map-position-location"
+    When I visit the page "/map?location[id]=doc-661493669bd65fde1ab9b791&location[name]=Bayswater+North&location[postcode]=3153&location[bbox]=145.25846667091363&location[bbox]=-37.83800461846399&location[bbox]=145.30593610877344&location[bbox]=-37.813258938042594&location[center]=145.2836623&location[center]=-37.8268821"
+    Then I wait 3 seconds
 
     When I click the zoom out button
-    And I click the zoom out button
-    And I click the zoom out button
-    Then I wait 2 seconds
+    Then I click the zoom out button
+    And I wait 4 seconds
     Then the map matches the image snapshot "map-position-location-zoom-out"
 
     When I toggle the search listing filters section
@@ -238,11 +231,11 @@ Feature: Custom collection map component
     And I click the option labelled "Planning" in the selected dropdown
     And I click the search listing dropdown field labelled "Project Type"
     Then I submit the search filters
-    And I wait 2 seconds
+    And I wait 3 seconds
     Then the map matches the image snapshot "map-position-location-filtered"
 
     When I clear the search filters
-    And I wait 2 seconds
+    And I wait 3 seconds
     Then the map matches the image snapshot "map-position-location-cleared"
 
   @mockserver

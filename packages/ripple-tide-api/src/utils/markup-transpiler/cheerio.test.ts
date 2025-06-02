@@ -28,7 +28,10 @@ const markup = {
     `<div data-show-last-updated="1" class="embedded-entity embedded-entity--media embedded-entity--media--secure-file" data-last-updated="1727162281"><article class="media media--type-secure-file media--view-mode-embedded"><div class="field field--name-field-secure-file field--type-file field--label-visually_hidden"><div class="field__label visually-hidden">File</div><div class="field__item"><span class="file file--mime-application-pdf file--application-pdf"><a href="https://content.vic.gov.au/system/files/secure/2024-09/file-sample_150kB.pdf" class="application-pdf" aria-label="Secure document File type: PDF. Size: 139.44 KB."><span class="file--title">Secure document</span><span class="file--type">PDF</span><span class="file--size">139.44 KB</span></a> <span class="file__size">(139.44 KB)</span></span></div></div></article></div>`
   ],
   video: `<figure class="embedded-entity--media--embedded-video"><iframe src="https://www.youtube.com/embed/1234" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe><figcaption>Caption goes here</figcaption</figure>`,
-  image: `<div class="embedded-entity--media--image"><img src="https://develop.content.reference.sdp.vic.gov.au/sites/default/files/image.jpg" alt="Image" title="Image" width="100" height="100"></div>`,
+  image: [
+    `<div class="embedded-entity--media--image"><img src="https://develop.content.reference.sdp.vic.gov.au/sites/default/files/image.jpg" alt="Image" title="Image" width="100" height="100"></div>`,
+    `<div class="embedded-entity--media--image"><img src="https://develop.content.reference.sdp.vic.gov.au/sites/default/files/image.jpg?itok=Noa2hd8" alt="Image" title="Image" width="100" height="100"></div>`
+  ],
   button: `<a class="button" href="https://example.com">Button</a>`,
   link: `<a href="https://example.com" target="_blank">Link</a>`,
   list: `<ul type="disc"><li>List item</li></ul><ul type="circle"><li>List item</li></ul><ul type="square"><li>List item</li></ul><ol type="i"><li>List item</li></ol><ol type="I"><li>List item</li></ol><ol type="a"><li>List item</li></ol><ol type="A"><li>List item</li></ol>`,
@@ -108,7 +111,10 @@ const fixed = {
 
 </div>
 `,
-  image: `<figure><img src="/sites/default/files/image.jpg" class="rpl-img" width="100" alt="Image" srcset="/sites/default/files/image.jpg?width=720, /sites/default/files/image.jpg?width=1440 2x"></figure>`,
+  image: [
+    `<figure><img src="/sites/default/files/image.jpg" class="rpl-img" width="100" alt="Image" srcset="/sites/default/files/image.jpg?width=720, /sites/default/files/image.jpg?width=1440 2x"></figure>`,
+    `<figure><img src="/sites/default/files/image.jpg?itok=Noa2hd8" class="rpl-img" width="100" alt="Image" srcset="/sites/default/files/image.jpg?itok=Noa2hd8&amp;width=720, /sites/default/files/image.jpg?itok=Noa2hd8&amp;width=1440 2x"></figure>`
+  ],
   button: `<a class="rpl-button rpl-button--default rpl-u-focusable-block rpl-button--filled" href="https://example.com"><span class="rpl-button__label rpl-type-label rpl-type-weight-bold">Button</span></a>`,
   link: `<a href="https://example.com" target="_blank" class="rpl-text-link rpl-u-focusable-inline">Link<span class="rpl-u-visually-hidden">(opens in a new window)</span></a>`,
   list: `<ul class="rpl-type-list-ul--disc"><li>List item</li></ul><ul class="rpl-type-list-ul--disc"><li>List item</li></ul><ul class="rpl-type-list-ul--square"><li>List item</li></ul><ol class="rpl-type-list-ol--lower-roman"><li>List item</li></ol><ol class="rpl-type-list-ol--upper-roman"><li>List item</li></ol><ol class="rpl-type-list-ol--lower-latin"><li>List item</li></ol><ol class="rpl-type-list-ol--upper-latin"><li>List item</li></ol>`,

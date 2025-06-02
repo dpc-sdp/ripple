@@ -12,12 +12,12 @@ import RplMapSidePanel from './RplMapSidePanel.vue'
 import RplMapSidePanelPagination from './RplMapSidePanelPagination.vue'
 import RplMapSidePanelCount from './RplMapSidePanelCount.vue'
 import RplMapSidePanelItem from './RplMapSidePanelItem.vue'
-import RplMapProviderMapbox from './../map/providers/RplMapProviderMapbox.vue'
+import RplMapProviderVicMap from './../map/providers/RplMapProviderVicMap.vue'
 import featureData from './../map/__fixture__/features.json'
 import { truncateText } from './../map/__fixture__/utils.ts'
 
 export const Template = (args) => ({
-  components: { RplMap, RplMapProviderMapbox, RplMapSidePanel, RplMapSidePanelItem, RplMapSidePanelPagination, RplMapSidePanelCount, RplAccordion, RplIcon },
+  components: { RplMap, RplMapProviderVicMap, RplMapSidePanel, RplMapSidePanelItem, RplMapSidePanelPagination, RplMapSidePanelCount, RplAccordion, RplIcon },
   setup() {
     const rplMapRef = ref(null)
     const mapPanelPage = ref(1)
@@ -106,7 +106,7 @@ export const Template = (args) => ({
       v-bind="args"
     >
       <template #map-provider>
-        <rpl-map-provider-mapbox />
+        <rpl-map-provider-vicmap />
       </template>
       <template #sidepanel="{ mapHeight }">
         <RplMapSidePanel :mapHeight="mapHeight">

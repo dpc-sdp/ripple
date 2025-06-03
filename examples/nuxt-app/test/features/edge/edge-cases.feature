@@ -10,3 +10,10 @@ Feature: Edge case testing
   Example: Accordion titles linked up to inpage nav
     Given the page endpoint for path "/accordions-inpage-nav" returns fixture "/case/accordions-inpage-nav" with status 200
     Then I visit the page "/accordions-inpage-nav"
+    Then the in page nav should have the following items
+      | text              | url                |
+      | The first one     | #the-first-one     |
+      | Another accordion | #another-accordion |
+      | Basic text        | #basic-text        |
+    When I click on the in page nav link "Another accordion"
+    Then I should jump to the targeted section "Another accordion"

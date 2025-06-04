@@ -150,8 +150,13 @@ const parseResultsConfigFromDrupal = (src) => {
 }
 
 const buildConfigFromDrupalFields = (src) => {
+  const hasSiteFilter = src.field_listing_global_filters?.some((rawFilter) => {
+    return rawFilter.type === 'paragraph--listing_site'
+  })
+
   return {
     searchListingConfig: {
+      filterByCurrentSite: !hasSiteFilter,
       hideSearchForm: src?.field_listing_hide_search_form ?? false,
       resultsPerPage: src?.field_listing_results_per_page || 10,
       labels: {

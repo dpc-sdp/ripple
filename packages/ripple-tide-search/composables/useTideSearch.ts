@@ -155,8 +155,8 @@ export default ({
 
   const getUserFilterClause = (forAggregations = false) => {
     const _filters = [] as any[]
-    if (globalFilters && globalFilters.length > 0) {
-      _filters.push(...globalFilters)
+    if (computedGlobalFilters.value && computedGlobalFilters.value.length > 0) {
+      _filters.push(...computedGlobalFilters.value)
     }
 
     if (forAggregations) {
@@ -520,6 +520,21 @@ export default ({
     return getUserFilters(true)
   })
 
+  const computedGlobalFilters = computed(() => {
+    if (!searchListingConfig.filterByCurrentSite) {
+      return globalFilters
+    }
+
+    return [
+      ...globalFilters,
+      {
+        term: {
+          field_node_site: config.tide.site
+        }
+      }
+    ]
+  })
+
   const getQueryDSL = async () => {
     const locationFilters = await getLocationFilterClause('listing')
     const query = getQueryClause([...getUserFilterClause(), ...locationFilters])
@@ -560,7 +575,7 @@ export default ({
       query: {
         bool: {
           must: [{ match_all: {} }],
-          filter: globalFilters
+          filter: computedGlobalFilters.value
         }
       },
       size: 0,

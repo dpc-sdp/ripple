@@ -33,13 +33,13 @@ const metaProperty = (str: string) => {
  * The og:image attribute should be an absolute URL, but the share image can come to us in many formats.
  * Here we standardize all of them to absolute URLs.
  */
-const getAbsoluteImageUrl = (siteURL: string, imgUrl: string): string => {
+const getAbsoluteImageUrl = (siteURL: string, imgURL: string): string => {
   if (siteURL && imgURL) {
-    const url = new URL(imgUrl, siteURL)
+    const url = new URL(imgURL, siteURL)
     return `${siteURL}${url?.pathname}`
   }
 
-  return imgUrl
+  return imgURL
 }
 
 export default (props: {

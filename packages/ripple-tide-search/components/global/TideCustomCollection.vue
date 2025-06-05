@@ -228,7 +228,8 @@ const {
   changeActiveTab,
   firstLoad,
   userGeolocation,
-  scrollToResults
+  scrollToResults,
+  searchCount
 } = useTideSearch({
   customQueryConfig: props.customQueryConfig,
   queryConfig: props.queryConfig,
@@ -643,6 +644,7 @@ watch(baseEvent, (newBaseEvent) => {
           :filters="filterForm"
           :isGettingLocation="isGettingLocation"
           :userGeolocation="userGeolocation"
+          :searchCount="searchCount"
           @update="handleLocationSearch"
         />
         <component

@@ -211,7 +211,7 @@ Feature: Custom collection map component
 
     When I clear the search filters
     And I wait 3 seconds
-    Then the map matches the image snapshot "map-position-cleared"
+    Then the map matches the image snapshot "map-position-filtered-clear"
 
   @mockserver
   Scenario: Applying filters with location only will revert the map position to the location
@@ -222,6 +222,7 @@ Feature: Custom collection map component
     Then I wait 3 seconds
 
     When I click the zoom out button
+    Then I click the zoom out button
     Then I click the zoom out button
     And I wait 4 seconds
     Then the map matches the image snapshot "map-position-location-zoom-out"
@@ -237,6 +238,24 @@ Feature: Custom collection map component
     When I clear the search filters
     And I wait 3 seconds
     Then the map matches the image snapshot "map-position-location-cleared"
+
+  @mockserver
+  Scenario: Reapplying filters will re-run search and restore map position
+    Given I load the page fixture with "/maps/basic-page"
+    And the "/api/tide/elasticsearch/elasticsearch_index_develop_node/_search" network request is stubbed with fixture "/maps/simple-map-results" and status 200 as alias "searchReq"
+    Then the page endpoint for path "/map" returns the loaded fixture
+    And I visit the page "/map"
+    Then I wait 3 seconds
+
+    When I click the zoom in button
+    Then I wait 4 seconds
+    Then the map matches the image snapshot "map-position-reapply-zoom-in"
+
+    When I toggle the search listing filters section
+    Then I submit the search filters
+    And I wait 3 seconds
+    Then the map matches the image snapshot "map-position-reapply-default"
+    And the aliased request "searchReq" has been called 4 times
 
   @mockserver
   Scenario: Clicking a result link fires the click_search_result event

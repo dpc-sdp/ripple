@@ -111,7 +111,7 @@ watch(
   }
 )
 
-// Center the map on the location when the location or filters change
+// Center the map on the location when the location or a search is performed
 // We look for the value of pendingZoomAnimation to determine if we should animate the zoom
 watch([() => props.inputValue?.id, () => props.searchCount], async () => {
   await nextTick()

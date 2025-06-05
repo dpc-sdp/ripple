@@ -802,7 +802,7 @@ export default ({
       }
     })
 
-    searchFromRoute(route)
+    searchFromRoute(route, false)
   }
 
   /**
@@ -1004,9 +1004,9 @@ export default ({
     searchFromRoute(route, true)
   })
 
-  // submitSearch now handles running the actual search
-  // here we watch for route changes and trigger a new search
-  // if the route update wasn't triggered via form submission, clicking back
+  // The submitSearch function handles searches initiated from the main search form,
+  // here we watch for route changes and trigger a new search if the route update wasn't triggered by form submission,
+  // for example, if the user clicks the browser back button
   watch(route, (newRoute) => {
     // When a user navigates to another page client side, this page will try to search again with an empty query string
     // The map was zooming back to center when navigating to another page, which was jarring. This check prevents that from happening

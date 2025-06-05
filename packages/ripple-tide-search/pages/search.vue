@@ -1,137 +1,128 @@
 <script setup lang="ts">
-import { AppSearchFilterConfigItem, MappedSearchResult } from '../types'
-import {
-  formatDate,
-  useRuntimeConfig,
-  useAppConfig,
-  useTideSite
-} from '#imports'
+import { TideSiteData } from '@dpc-sdp/ripple-tide-api/types'
+import type { TideSearchListingResultItem } from './../../types'
 
-const appConfig = useAppConfig()
-const runtimeConfig = useRuntimeConfig()
-const site = await useTideSite()
-const featureFlags = useFeatureFlags(site?.featureFlags)
-const page = { title: 'Search' }
-
-const getContentTypes = () => {
-  let contentTypes = appConfig.ripple?.search?.contentTypes
-  const overrideTypes = featureFlags.value?.search?.contentTypes
-
-  if (!overrideTypes) {
-    return contentTypes
-  }
-
-  Object.keys(overrideTypes).forEach((type) => {
-    if (overrideTypes[type] && !contentTypes.includes(type)) {
-      contentTypes.push(type)
-    } else if (!overrideTypes[type] && contentTypes.includes(type)) {
-      contentTypes = contentTypes.filter((t: string) => t !== type)
-    }
-  })
-
-  return contentTypes
-}
-
-const filtersConfig: AppSearchFilterConfigItem[] = [
-  {
-    label: 'Select a topic',
-    placeholder: 'Select',
-    field: 'field_topic_name',
-    filterType: 'any'
-  }
-]
-
-const searchDriverOptions = {
-  initialState: { resultsPerPage: 10 },
-  alwaysSearchOnInitialLoad: true,
-  searchQuery: {
-    filters: [
-      {
-        field: 'field_node_site',
-        values: [runtimeConfig.public.tide?.site]
-      },
-      {
-        field: 'type',
-        values: getContentTypes()
-      }
-    ],
-    search_fields: {
-      title: {
-        weight: 10
-      },
-      body: {},
-      field_paragraph_body: {},
-      field_landing_page_summary: {},
-      summary_processed: {},
-      field_paragraph_summary: {},
-      field_event_details_event_locality: {}
+const searchConfig = {
+  searchListingConfig: {
+    title: 'Search',
+    filterByCurrentSite: true,
+    resultsPerPage: 10,
+    showFiltersOnLoad: true,
+    labels: {
+      submit: 'Search',
+      placeholder: ''
     },
-    result_fields: {
-      title: {
-        raw: {
-          size: 150
-        }
+    customSort: [
+      {
+        _score: 'desc'
       },
-      field_landing_page_summary: {
-        snippet: {
-          size: 150,
-          fallback: true
-        }
-      },
-      summary_processed: {
-        snippet: {
-          size: 150,
-          fallback: true
-        }
-      },
-      changed: {
-        raw: {}
-      },
-      url: {
-        raw: {}
-      },
-      type: {
-        raw: {}
+      {
+        changed: 'desc'
+      }
+    ]
+  },
+  queryConfig: {
+    multi_match: {
+      query: '{{query}}',
+      fields: [
+        'title^3',
+        'field_landing_page_summary^2',
+        'body',
+        'field_paragraph_body',
+        'summary_processed',
+        'field_paragraph_summary',
+        'field_event_details_event_locality'
+      ]
+    }
+  },
+  resultsConfig: {
+    layout: {
+      component: 'TideSearchResultsList'
+    },
+    item: {
+      '*': {
+        component: 'TideSearchResult'
       }
     }
   },
-  autocompleteQuery: {
-    suggestions: {
-      types: {
-        documents: { fields: ['title'] }
-      },
-      size: 8
+  globalFilters: [
+    {
+      terms: {
+        type: [
+          'landing_page',
+          'event',
+          'grant',
+          'news',
+          'publication',
+          'tide_search_listing'
+        ]
+      }
     }
-  }
+  ],
+  userFilters: [
+    {
+      id: 'topic',
+      component: 'TideSearchFilterDropdown',
+      filter: {
+        type: 'terms',
+        value: 'field_topic_name'
+      },
+      aggregations: {
+        field: 'field_topic_name',
+        source: 'elastic'
+      },
+      props: {
+        id: 'topic',
+        label: 'Select a topic',
+        placeholder: 'Select',
+        type: 'RplFormDropdown',
+        multiple: true
+      }
+    }
+  ]
 }
 
-const searchResultsMappingFn = (item): MappedSearchResult<any> => {
-  const { $app_origin } = useNuxtApp()
-  let summaryField =
-    item.summary_processed?.snippet || item.field_landing_page_summary?.snippet
+const site: TideSiteData = await useTideSite()
+const page = { title: 'Search' }
 
-  const rawUpdated = item.changed?.raw?.[0]
+const searchResultsMappingFn = (item: any): TideSearchListingResultItem => {
+  let itemComponent = 'TideSearchResult'
+
+  if (searchConfig?.resultsConfig.value?.item) {
+    const mapping =
+      searchConfig.resultsConfig.value.item[item._source?.type] ??
+      searchConfig.resultsConfig.value.item?.['*']
+
+    if (mapping) {
+      itemComponent = mapping.component
+    }
+  }
 
   return {
-    id: item._meta.id,
-    component: 'TideAppSearchResult',
+    id: item._id,
+    component: itemComponent,
     props: {
-      title: item.title?.raw?.[0],
-      url: stripSiteId(item.url?.raw?.[0], $app_origin || ''),
-      content: summaryField,
-      updated: rawUpdated ? formatDate(rawUpdated) : ''
+      result: item._source
     }
   }
 }
 </script>
 
 <template>
-  <TideSearchPage
-    :pageTitle="page.title"
-    :page="page"
+  <TideSearchListingPage
     :site="site"
-    :searchDriverOptions="searchDriverOptions"
-    :filtersConfig="filtersConfig"
-    :searchResultsMappingFn="searchResultsMappingFn"
+    :contentPage="page as any"
+    :title="page.title"
+    :introText="page.introText"
+    :searchListingConfig="searchConfig.searchListingConfig"
+    :customQueryConfig="searchConfig.customQueryConfig"
+    :queryConfig="searchConfig.queryConfig"
+    :globalFilters="searchConfig.globalFilters"
+    :userFilters="searchConfig.userFilters"
+    :resultsLayout="searchConfig?.resultsConfig?.layout"
+    :noResultsLayout="searchConfig?.resultsConfig?.empty"
+    :belowFilterComponent="searchConfig?.layoutConfig?.belowFilter"
+    :searchResultsMappingFn="searchResultsMappingFn as any"
+    :sortOptions="searchConfig.sortOptions"
   />
 </template>

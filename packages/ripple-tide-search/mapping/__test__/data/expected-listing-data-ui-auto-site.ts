@@ -1,6 +1,6 @@
 export default {
   searchListingConfig: {
-    filterByCurrentSite: false,
+    filterByCurrentSite: true,
     hideSearchForm: false,
     resultsPerPage: 15,
     labels: { submit: 'Submit', placeholder: 'Search me....' },
@@ -10,7 +10,6 @@ export default {
     multi_match: { query: '{{query}}', fields: ['title', 'body'] }
   },
   globalFilters: [
-    { terms: { field_node_site: [8888] } },
     { terms: { type: ['news'] } },
     { terms: { field_topic_name: ['Demo Topic'] } }
   ],

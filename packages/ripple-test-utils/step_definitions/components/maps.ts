@@ -308,6 +308,32 @@ Then('the map is loaded', () => {
   cy.get('.ol-map-fully-loaded', { timeout: 12000 }).should('be.visible')
 })
 
+Then('the map is positioned at', (dataTable: DataTable) => {
+  const table = dataTable.hashes()
+
+  cy.get('.rpl-map').as('map')
+
+  table.forEach((row) => {
+    const center =
+      row.center === 'default' ? '16193060.23205,-4383467.70225' : row.center
+    const zoom = row.zoom === 'default' ? '6.849094430405593' : row.zoom
+
+    cy.get('@map').should('have.attr', 'data-center', center)
+    cy.get('@map').should('have.attr', 'data-zoom', zoom)
+  })
+})
+
+Then('the map is in the default position', () => {
+  cy.get('.rpl-map').as('map')
+
+  cy.get('@map').should(
+    'have.attr',
+    'data-center',
+    '16193060.23205,-4383467.70225'
+  )
+  cy.get('@map').should('have.attr', 'data-zoom', '6.849094430405593')
+})
+
 Then(`the list view should be displayed`, () => {
   cy.get('[data-component-type="search-listing-layout-table"]', {
     timeout: 12000

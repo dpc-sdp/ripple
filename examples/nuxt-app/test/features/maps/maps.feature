@@ -191,71 +191,75 @@ Feature: Custom collection map component
     And the "/api/tide/elasticsearch/elasticsearch_index_develop_node/_search" network request is stubbed with fixture "/maps/simple-map-results" and status 200 as alias "searchReq"
     Then the page endpoint for path "/map" returns the loaded fixture
     And I visit the page "/map"
-    Then I wait 3 seconds
+    And the map is loaded
+    Then the map is in the default position
 
     When I click the zoom in button
-    Then I wait 4 seconds
-    Then the map matches the image snapshot "map-position-zoom-in"
+    Then the map is positioned at
+      | center  | zoom              |
+      | default | 7.849094430405593 |
 
     When I toggle the search listing filters section
     Then I click the search listing dropdown field labelled "Project Type"
     And I click the option labelled "Planning" in the selected dropdown
     And I click the search listing dropdown field labelled "Project Type"
     Then I submit the search filters
-    And I wait 3 seconds
-    Then the map matches the image snapshot "map-position-filtered"
+    Then the map is in the default position
 
     When I click the zoom out button
-    Then I wait 4 seconds
-    Then the map matches the image snapshot "map-position-filtered-zoom-out"
+    Then the map is positioned at
+      | center  | zoom              |
+      | default | 5.849094430405593 |
 
     When I clear the search filters
-    And I wait 3 seconds
-    Then the map matches the image snapshot "map-position-filtered-clear"
+    Then the map is in the default position
 
   @mockserver
   Scenario: Applying filters with location only will revert the map position to the location
     Given I load the page fixture with "/maps/basic-page"
     And the "/api/tide/elasticsearch/elasticsearch_index_develop_node/_search" network request is stubbed with fixture "/maps/simple-map-results" and status 200 as alias "searchReq"
     Then the page endpoint for path "/map" returns the loaded fixture
-    When I visit the page "/map?location[id]=doc-661493669bd65fde1ab9b791&location[name]=Bayswater+North&location[postcode]=3153&location[bbox]=145.25846667091363&location[bbox]=-37.83800461846399&location[bbox]=145.30593610877344&location[bbox]=-37.813258938042594&location[center]=145.2836623&location[center]=-37.8268821"
-    Then I wait 3 seconds
+    Then I visit the page "/map?location[id]=doc-661493669bd65fde1ab9b791&location[name]=Bayswater+North&location[postcode]=3153&location[bbox]=145.25846667091363&location[bbox]=-37.83800461846399&location[bbox]=145.30593610877344&location[bbox]=-37.813258938042594&location[center]=145.2836623&location[center]=-37.8268821"
+    And the map is loaded
+    Then the map is positioned at
+      | center                                | zoom               |
+      | 16172740.680043206,-4554822.777152179 | 13.939450418166157 |
 
-    When I click the zoom out button
     Then I click the zoom out button
-    Then I click the zoom out button
-    And I wait 4 seconds
-    Then the map matches the image snapshot "map-position-location-zoom-out"
+    Then the map is positioned at
+      | center                                | zoom               |
+      | 16172740.680043206,-4554822.777152179 | 12.939450418166157 |
 
     When I toggle the search listing filters section
     Then I click the search listing dropdown field labelled "Project Type"
     And I click the option labelled "Planning" in the selected dropdown
     And I click the search listing dropdown field labelled "Project Type"
     Then I submit the search filters
-    And I wait 3 seconds
-    Then the map matches the image snapshot "map-position-location-filtered"
+    Then the map is positioned at
+      | center                                | zoom               |
+      | 16172740.680043206,-4554822.777152179 | 13.939450418166157 |
 
     When I clear the search filters
-    And I wait 3 seconds
-    Then the map matches the image snapshot "map-position-location-cleared"
+    Then the map is in the default position
 
   @mockserver
   Scenario: Reapplying filters will re-run search and restore map position
     Given I load the page fixture with "/maps/basic-page"
     And the "/api/tide/elasticsearch/elasticsearch_index_develop_node/_search" network request is stubbed with fixture "/maps/simple-map-results" and status 200 as alias "searchReq"
     Then the page endpoint for path "/map" returns the loaded fixture
-    And I visit the page "/map"
-    Then I wait 3 seconds
+    Then I visit the page "/map"
+    And the map is loaded
+    Then the map is in the default position
 
     When I click the zoom in button
-    Then I wait 4 seconds
-    Then the map matches the image snapshot "map-position-reapply-zoom-in"
+    Then the map is positioned at
+      | center  | zoom              |
+      | default | 7.849094430405593 |
 
     When I toggle the search listing filters section
     Then I submit the search filters
-    And I wait 3 seconds
-    Then the map matches the image snapshot "map-position-reapply-default"
     And the aliased request "searchReq" has been called 4 times
+    Then the map is in the default position
 
   @mockserver
   Scenario: Clicking a result link fires the click_search_result event

@@ -30,8 +30,8 @@ export default defineAppConfig({
     },
     search: {
       fallbackValues: {
-        // `dynamicValue` is used in a cypress test to ensure fallbackValues function are called
-        dynamicValue: () => ['blue']
+        // `exampleDynamicValue` is used in a cypress test to ensure fallbackValues function are called
+        exampleDynamicValue: () => ['blue']
       },
       suggestionsFunctions: {
         exampleSuggestionsFn: async (query, args) => {
@@ -47,7 +47,7 @@ export default defineAppConfig({
               center: [-33.8688, 151.2093]
             },
             {
-              id: '2',
+              id: '3',
               name: `With magic key`,
               arcGISMagicKey: 'fake1234'
             }
@@ -55,8 +55,8 @@ export default defineAppConfig({
         }
       },
       filterFunctions: {
-        // `dummyFunctionFilter` is used in a cypress test to check that the correct parameters are passed to custom filter functions
-        dummyFunctionFilter: (filterConfig, values) => {
+        // `exampleFunctionFilter` is used in a cypress test to check that the correct parameters are passed to custom filter functions
+        exampleFunctionFilter: (filterConfig, values) => {
           return {
             providedFilterConfig: filterConfig,
             providedValues: values
@@ -110,9 +110,11 @@ export default defineAppConfig({
             content: ['field_paragraph_body'],
             title_content: ['title', 'field_paragraph_body']
           }
-          const filter = !searchTerm?.queryType
-            ? 'title_content'
-            : searchTerm?.queryType
+
+          const filterType: keyof typeof fieldMap | undefined =
+            searchTerm?.queryType
+
+          const filter = filterType ?? 'title_content'
 
           return {
             bool: {
@@ -129,7 +131,7 @@ export default defineAppConfig({
       },
       locationDSLTransformFunctions: {
         // DSL transform example for VSBA map tests
-        schoolBuildings: async (location) => {
+        exampleDSLTransformFunction: async (location) => {
           return {
             map: {
               filter: null,
@@ -146,44 +148,13 @@ export default defineAppConfig({
               sort: null
             }
           }
-        },
-        csl: async (location) => {
-          const serviceUrl = `https://services-ap1.arcgis.com/P744lA0wf4LlBZ84/arcgis/rest/services/Vicmap_Admin/FeatureServer`
-          const layer = '9'
-          const format = 'pgeojson'
-          const query = encodeURIComponent(`LGA_NAME='${location.lga_key}'`)
-          const url = `${serviceUrl}/${layer}/query/?where=${query}&f=${format}&returnGeometry=true&spatialRel=esriSpatialRelIntersects&geometryType=esriGeometryEnvelope`
-
-          const response = await $fetch(url)
-
-          const listingFilter = response?.features[0]?.geometry
-            ? {
-                geo_shape: {
-                  location: {
-                    shape: response?.features[0]?.geometry,
-                    relation: 'within'
-                  }
-                }
-              }
-            : null
-          return {
-            map: {
-              filter: null,
-              sort: null
-            },
-            listing: {
-              filter: listingFilter,
-              sort: null
-            }
-          }
         }
       },
       mapPinStyleFn: {
-        testMapPinStyle: (feature) => {
-          // Used for tests in cypress
+        exampleMapPinStyle: (feature: any) => {
           return feature.test_pin_color ? feature.test_pin_color : 'black'
         },
-        vsbaPinIcons: (feature) => {
+        examplePinIcons: (feature: any) => {
           const projectType =
             feature && feature['field_mappintype_name']
               ? feature['field_mappintype_name'][0]
@@ -222,7 +193,8 @@ export default defineAppConfig({
     },
     form: {
       utils: {
-        currentTimestamp: () => (import.meta.client ? new Date().getTime() : '')
+        exampleCurrentTimestamp: () =>
+          import.meta.client ? new Date().getTime() : ''
       }
     }
   }

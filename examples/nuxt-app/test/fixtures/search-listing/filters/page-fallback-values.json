@@ -42,7 +42,7 @@
         "component": "TideSearchFilterDropdown",
         "filter": {
           "type": "terms",
-          "fallbackValue": "dynamicValue",
+          "fallbackValue": "exampleDynamicValue",
           "value": "fallbackValuesFunction"
         },
         "props": {

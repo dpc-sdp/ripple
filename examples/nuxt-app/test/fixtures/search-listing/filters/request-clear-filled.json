@@ -39,7 +39,7 @@
             "component": "TideSearchFilterDropdown",
             "filter": {
               "type": "function",
-              "value": "dummyFunctionFilter"
+              "value": "exampleFunctionFilter"
             },
             "props": {
               "id": "functionFilter",

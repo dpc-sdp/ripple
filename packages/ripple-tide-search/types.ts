@@ -1,4 +1,3 @@
-import { FilterType } from '@elastic/search-ui'
 import type { TidePageBase, TideSiteData } from '@dpc-sdp/ripple-tide-api/types'
 
 export type addressResultType = {
@@ -13,12 +12,6 @@ export interface MappedSearchResult<T> {
   id: string
   component: string
   props: T
-}
-
-export interface AppSearchFilterConfigItem {
-  label: string
-  field: string
-  filterType: FilterType
 }
 
 export interface FilterConfigItem {

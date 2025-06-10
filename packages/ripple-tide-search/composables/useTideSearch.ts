@@ -724,7 +724,16 @@ export default ({
     const fallbackValues = appConfig?.ripple?.search?.fallbackValues || {}
 
     return userFilterConfig.reduce((acc, curr) => {
-      if (curr?.filter?.fallbackValue && !filterForm.value?.[curr.id]) {
+      let value = filterForm.value?.[curr.id]
+      let hasValue = value
+
+      if (typeof value === 'object' && value !== null) {
+        hasValue = Object.values(hasValue).length
+      } else if (Array.isArray(value)) {
+        hasValue = value?.length
+      }
+
+      if (curr?.filter?.fallbackValue && !hasValue) {
         const fallback = curr.filter.fallbackValue
 
         const value =

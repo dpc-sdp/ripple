@@ -1,0 +1,165 @@
+[data-datepicker-instance] {
+  .dp__theme_light {
+    --dp-hover-color: var(--rpl-clr-primary);
+    --dp-hover-text-color: white;
+    --dp-border-color-focus: rgb(102 102 102);
+    --dp-border-color-hover: rgb(102 102 102);
+    --dp-primary-color: var(--rpl-clr-primary);
+    --dp-range-between-dates-background-color: var(--rpl-clr-primary-alpha);
+    --dp-range-between-dates-border-color: var(--rpl-clr-primary-alpha);
+    --dp-range-between-dates-text-color: white;
+  }
+
+  --dp-background-color: var(--rpl-clr-neutral-100);
+  --dp-border-color: rgb(102 102 102);
+  --dp-font-family: var(--rpl-type-font-family);
+  --dp-animation-duration: 0s;
+  --dp-font-size: 16px;
+  --dp-preview-font-size: 14px;
+  --dp-border-radius: var(--rpl-border-radius-2);
+  --dp-cell-border-radius: 0;
+  --dp-row-margin: 0;
+  --dp-input-padding: 6px 40px 6px 12px;
+
+  max-width: 265px;
+
+  .dp__menu {
+    background: rgb(245 245 245);
+    border-color: rgb(102 102 102);
+    border-width: 2px;
+  }
+
+  .dp__menu_index {
+    border-radius: 0;
+  }
+
+  .dp__arrow_top,
+  .dp__arrow_bottom {
+    display: none;
+  }
+
+  .dp__outer_menu_wrap.dp--menu-wrapper {
+    margin-top: -2px;
+  }
+
+  .dp__calendar_header_separator {
+    background: transparent;
+  }
+
+  .dp__input {
+    border-width: var(--rpl-border-1);
+    border-color: var(--rpl-clr-dark);
+
+    &:hover {
+      border-color: var(--rpl-clr-dark);
+    }
+  }
+
+  .dp__input_icon_pad {
+    padding-inline-start: 12px;
+  }
+
+  .dp__input_icon {
+    border-left: 1px solid var(--dp-border-color);
+    inset-inline: auto;
+    right: 0;
+    margin-right: 2px;
+    padding: 10px;
+    color: var(--rpl-clr-link);
+  }
+
+  .dp__input_focus {
+    background: rgb(245 245 245);
+    --dp-border-radius: 0;
+
+    ~ div > .dp__input_icon {
+      border-color: var(--rpl-clr-focus);
+      color: black;
+
+      --local-background-colour: var(--rpl-clr-focus);
+
+      outline: none;
+      box-shadow:
+        0 0 0 var(--rpl-border-1) var(--rpl-clr-dark) inset,
+        0 0 0 var(--rpl-border-3) var(--rpl-clr-focus);
+    }
+  }
+
+  .dp__btn {
+    font-weight: bold;
+  }
+
+  .dp__action_button {
+    /* background: var(--rpl-clr-primary);
+    color: white; */
+    border: 1px solid rgb(102 102 102);
+    border-radius: 3px;
+    padding: 15px;
+    margin: 0 5px;
+    font-weight: bold;
+  }
+
+  .dp--clear-btn {
+    right: 40px;
+  }
+
+  .dp__inner_nav {
+    color: var(--rpl-clr-link);
+  }
+
+  .dp__today {
+    background: var(--rpl-clr-neutral-200);
+    border: 0;
+    font-weight: bold;
+    position: relative;
+
+    &::after {
+      content: '.';
+      font-size: 28px;
+      position: absolute;
+      bottom: -5px;
+    }
+  }
+
+  .dp__cell_inner {
+    border-radius: var(--rpl-border-radius-2);
+  }
+
+  .dp__active_date {
+    font-weight: bold;
+
+    &.dp__today {
+      background: var(--rpl-clr-link);
+    }
+  }
+
+  .dp__date_hover:hover {
+    background: var(--rpl-clr-neutral-300);
+    color: var(--rpl-clr-type-default);
+    text-decoration: underline;
+  }
+
+  [data-invalid='true'] & {
+    .dp__input,
+    .dp__input_icon {
+      border-color: var(--rpl-clr-error);
+    }
+  }
+
+  .dp__disabled,
+  .dp__disabled:hover,
+  .dp__disabled + div > .dp__input_icon {
+    cursor: not-allowed;
+    color: var(--rpl-clr-neutral-300);
+    border-color: var(--rpl-clr-neutral-200);
+  }
+}
+
+.dp__range_between {
+  border-color: transparent;
+}
+
+.rpl-form-date-select-label {
+  display: block;
+  margin-bottom: var(--rpl-sp-2);
+}

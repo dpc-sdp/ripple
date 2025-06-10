@@ -10,11 +10,11 @@ import {
 } from 'vue'
 import {
   getNode,
-  FormKitSchemaCondition,
-  FormKitSchemaNode,
-  FormKitConfig,
-  FormKitNode,
-  FormKitPlugin
+  type FormKitSchemaCondition,
+  type FormKitSchemaNode,
+  type FormKitConfig,
+  type FormKitNode,
+  type FormKitPlugin
 } from '@formkit/core'
 import { getValidationMessages } from '@formkit/validation'
 import { createMultiStepPlugin } from '@formkit/addons'
@@ -39,7 +39,7 @@ interface Props {
   }
   customInputs?: FormKitPlugin
   layout?: 'default' | 'compact'
-  utils?: Record<string, (arg: any) => any>
+  utils?: Record<string, (arg) => any>
 }
 
 interface CachedError {
@@ -120,11 +120,15 @@ const isLastStep = () => {
 const getFormNode = (node?: FormKitNode) => {
   return formSteps.value.length ? getNode(stepsId) : node || getNode(props.id)
 }
+interface Steps {
+  findIndex: (arg0) => string
+  find: (arg0) => { stepName: string }
+}
 const getStepEventData = (
   step: { stepIndex: number; stepName: string } = null
 ) => {
   if (!formSteps.value.length) return {}
-  const steps = getFormNode()?.context?.steps
+  const steps: Steps = getFormNode()?.context?.steps as Steps
 
   return {
     index: step
@@ -155,7 +159,7 @@ const tryAbandonForm = () => {
         name: props.title,
         value: sanitisePIIFields(getFormNode()),
         ...getStepEventData()
-      },
+      } as rplEventPayload,
       { global: true }
     )
   }
@@ -239,7 +243,7 @@ const submitHandler = (form, node: FormKitNode) => {
       text: submitLabel,
       value: sanitisePIIFields(node),
       ...getStepEventData()
-    },
+    } as rplEventPayload,
     { global: true }
   )
 }
@@ -264,7 +268,7 @@ const submitInvalidHandler = async (node: FormKitNode) => {
       text: submitLabel,
       value: sanitisePIIFields(getFormNode(node)),
       ...getStepEventData()
-    },
+    } as rplEventPayload,
     { global: true }
   )
 
@@ -322,7 +326,7 @@ watch(
             text: submitLabel,
             value: sanitisePIIFields(getFormNode()),
             ...getStepEventData()
-          },
+          } as rplEventPayload,
           { global: true }
         )
 
@@ -350,7 +354,7 @@ const handleInput = (values: any) => {
         id: props.id,
         name: props.title,
         ...getStepEventData()
-      },
+      } as rplEventPayload,
       { global: true }
     )
   }
@@ -371,7 +375,7 @@ const emitStepChange = (currentStep, targetStep, forwards) => {
       targetIndex: targetStep.stepIndex + 1,
       targetLabel: targetStep.stepName,
       ...getStepEventData(currentStep)
-    },
+    } as rplEventPayload,
     { global: true }
   )
 

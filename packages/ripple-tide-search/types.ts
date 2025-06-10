@@ -306,7 +306,11 @@ export type TideSearchListingConfig = {
     /**
      * @description when true, don't actually make any search api calls, useful for maps that don't actually get there data from elasticsearch
      */
-    disableSearch: boolean
+    disableSearch?: boolean
+    /**
+     * @description when true, will automatically filter results by the current site. Useful for search listings configs that are applied across multiple sites.
+     */
+    filterByCurrentSite?: boolean
   }
   /**
    * @description Tabs to display, key needs to be one of TideSearchListingTabKey

@@ -4,12 +4,7 @@
   "version": "2.33.0",
   "license": "Apache-2.0",
   "repository": "https://github.com/dpc-sdp/ripple-framework",
-  "files": [
-    "dist",
-    "src",
-    "./postcssrc.json",
-    "README.md"
-  ],
+  "files": ["dist", "src", "./postcssrc.json", "README.md"],
   "type": "module",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
@@ -39,7 +34,7 @@
     "test:generate-output": "jest --json --outputFile=.jest-test-results.json"
   },
   "dependencies": {
-    "@nuxt/kit": "^3.16.1",
+    "@nuxt/kit": "catalog:",
     "@vueuse/core": "^10.9.0",
     "@vueuse/integrations": "^10.9.0",
     "ol": "^10.5.0",

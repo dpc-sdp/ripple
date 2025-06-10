@@ -37,7 +37,7 @@
         </ul>
       </template>
       <div
-        v-if="link.url"
+        v-if="link?.url"
         class="rpl-type-label rpl-type-weight-bold rpl-u-margin-t-6"
       >
         <RplTextLink v-bind="link" />
@@ -55,15 +55,14 @@ import { stripMediaBaseUrl } from '@dpc-sdp/ripple-tide-api/utils'
 const { public: config } = useRuntimeConfig()
 
 const props = defineProps<{
-  title: string
   description?: string
-  link: {
+  link?: {
     text: string
     url: string
-  }
+  } | null
   searchQuery: Record<string, any>
   display: IContentCollectionDisplay
-  hasSidebar: boolean
+  hasSidebar?: boolean
 }>()
 
 const cardClasses = computed(() =>

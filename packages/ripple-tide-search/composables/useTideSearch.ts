@@ -89,6 +89,8 @@ export default ({
 
   const isBusy = ref(true)
   const searchError = ref(null)
+  const searchCount = ref(0)
+  const manualSearch = ref(false)
 
   const locationQuery = ref<any | null>(null)
 
@@ -612,6 +614,7 @@ export default ({
       return
     }
 
+    searchCount.value++
     isBusy.value = true
     searchError.value = null
     appliedSearchTerm.value = { ...searchTerm.value }
@@ -810,6 +813,8 @@ export default ({
       searchParams = getScopedQueryParams('search', searchParams)
     }
 
+    manualSearch.value = true
+
     await navigateTo({
       path: route.path,
       query: {
@@ -820,6 +825,8 @@ export default ({
         ...filterFormValues
       }
     })
+
+    searchFromRoute(route, false)
   }
 
   /**
@@ -1021,7 +1028,9 @@ export default ({
     searchFromRoute(route, true)
   })
 
-  // Subsequently watch for any route changes and trigger a new search
+  // The submitSearch function handles searches initiated from the main search form,
+  // here we watch for route changes and trigger a new search if the route update wasn't triggered by form submission,
+  // for example, if the user clicks the browser back button
   watch(route, (newRoute) => {
     // When a user navigates to another page client side, this page will try to search again with an empty query string
     // The map was zooming back to center when navigating to another page, which was jarring. This check prevents that from happening
@@ -1029,6 +1038,10 @@ export default ({
       return
     }
 
+    if (manualSearch.value) {
+      manualSearch.value = false
+      return
+    }
     searchFromRoute(newRoute, false)
   })
 
@@ -1064,6 +1077,7 @@ export default ({
     locationQuery,
     firstLoad,
     userGeolocation,
-    scrollToResults
+    scrollToResults,
+    searchCount
   }
 }

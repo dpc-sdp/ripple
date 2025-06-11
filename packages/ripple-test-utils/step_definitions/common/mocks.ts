@@ -354,3 +354,10 @@ Then(
     })
   }
 )
+
+Then(
+  'the aliased request {string} has been called {int} times',
+  (alias: string, tally: string) => {
+    cy.get(`@${alias}.all`).should('have.length', tally)
+  }
+)

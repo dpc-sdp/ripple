@@ -1,7 +1,7 @@
 {
   "name": "@dpc-sdp/ripple-tide-publication",
   "description": "Ripple mappings and components for Tide Publication Content type",
-  "version": "2.33.0",
+  "version": "2.34.0",
   "license": "Apache-2.0",
   "repository": "https://github.com/dpc-sdp/ripple-framework",
   "main": "./nuxt.config.ts",

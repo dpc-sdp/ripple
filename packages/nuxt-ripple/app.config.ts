@@ -34,6 +34,10 @@ declare module '@nuxt/schema' {
           string,
           (filterConfig: any, values: string[]) => void
         >
+        suggestionsFunctions?: Record<
+          string,
+          (query: string, args: any) => Promise<any>
+        >
         filterFunctions?: Record<
           string,
           (filterConfig: any, values: string[]) => any
@@ -48,7 +52,8 @@ declare module '@nuxt/schema' {
           string,
           (map: any, results: any, location: any, mapDeadSpace: any) => void
         >
-        onLocationSelectOverrideFns: Record<
+        transformResultFns?: Record<string, (item: any) => any>
+        onLocationSelectOverrideFns?: Record<
           string,
           // Return true if behaviour was overridden, or false to use the default behaviour
           (
@@ -59,6 +64,7 @@ declare module '@nuxt/schema' {
             mapDeadSpace: any
           ) => boolean | void
         >
+        mapPinStyleFn?: Record<string, (features: any) => any>
       }
       customInputs?: {
         [key: string]: {

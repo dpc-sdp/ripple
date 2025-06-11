@@ -25,7 +25,7 @@
           "component": "VSBAMapPopupContent"
         }
       },
-      "pinIconFn": "vsbaPinIcons",
+      "pinIconFn": "examplePinIcons",
       "locationObjPath": "_source.field_latitude_longitude_value[0]",
       "titleObjPath": "title[0]",
       "vectorLayerComponent": "VSBAProjectAreaLayer",
@@ -100,8 +100,7 @@
   ],
   "locationQueryConfig": {
     "component": "TideSearchAddressLookup",
-    "dslTransformFunction": "schoolBuildings",
-    "mapResultsMappingFn": "schoolBuildings"
+    "dslTransformFunction": "exampleDSLTransformFunction"
   },
   "resultsConfig": {
     "layout": {

@@ -42,7 +42,7 @@
         "component": "TideSearchFilterDropdown",
         "filter": {
           "type": "terms",
-          "fallbackValue": "dynamicValue",
+          "fallbackValue": "exampleDynamicValue",
           "value": "fallbackValuesFunction"
         },
         "props": {
@@ -113,6 +113,25 @@
               "value": "orange"
             }
           ]
+        }
+      },
+      {
+        "id": "dateRangeFilter",
+        "component": "TideSearchFilterDateRange",
+        "filter": {
+          "type": "range",
+          "value": "published_at",
+          "fallbackValue": {
+            "from": "now/d"
+          },
+          "field": "field_event_date",
+          "multiple": false,
+          "countAsSingle": true,
+          "valueIsObject": true
+        },
+        "props": {
+          "id": "dateRangeFilter",
+          "label": "Date range example"
         }
       }
     ]

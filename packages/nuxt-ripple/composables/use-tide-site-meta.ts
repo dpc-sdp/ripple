@@ -29,6 +29,19 @@ const metaProperty = (str: string) => {
   return p[0] + p[1].charAt(0).toUpperCase() + p[1].slice(1)
 }
 
+/**
+ * The og:image attribute should be an absolute URL, but the share image can come to us in many formats.
+ * Here we standardize all of them to absolute URLs.
+ */
+const getAbsoluteImageUrl = (siteURL: string, imgURL: string): string => {
+  if (siteURL && imgURL) {
+    const url = new URL(imgURL, siteURL)
+    return `${siteURL}${url?.pathname}`
+  }
+
+  return imgURL
+}
+
 export default (props: {
   page: PageProps
   site: TideSiteData
@@ -145,13 +158,13 @@ export default (props: {
       ogDescription: description,
       ogType: 'website',
       ogUrl: $app_origin + page.meta?.url,
-      ogImage: featuredImage,
+      ogImage: getAbsoluteImageUrl($app_origin, featuredImage),
       ogImageAlt: featuredImageAlt,
       twitterCard: 'summary',
       twitterSite: $app_origin,
       twitterTitle: props.pageTitle,
       twitterDescription: description,
-      twitterImage: twitterImage,
+      twitterImage: getAbsoluteImageUrl($app_origin, twitterImage),
       twitterImageAlt: twitterImageAlt,
       keywords: page.meta?.keywords,
 

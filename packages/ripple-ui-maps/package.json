@@ -1,7 +1,7 @@
 {
   "name": "@dpc-sdp/ripple-ui-maps",
   "description": "Ripple UI Core component library",
-  "version": "2.33.0",
+  "version": "2.34.0",
   "license": "Apache-2.0",
   "repository": "https://github.com/dpc-sdp/ripple-framework",
   "files": [
@@ -39,7 +39,7 @@
     "test:generate-output": "jest --json --outputFile=.jest-test-results.json"
   },
   "dependencies": {
-    "@nuxt/kit": "^3.16.1",
+    "@nuxt/kit": "catalog:",
     "@vueuse/core": "^10.9.0",
     "@vueuse/integrations": "^10.9.0",
     "ol": "^10.5.0",

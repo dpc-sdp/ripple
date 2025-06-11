@@ -44,6 +44,7 @@ interface Props {
   row: tableRow
   extraContent?: extraRowContent | null
   verticalHeader?: boolean
+  horizontalHeader?: boolean
   offset: number
   caption?: string
   index: number
@@ -53,6 +54,7 @@ interface Props {
 const props = withDefaults(defineProps<Props>(), {
   items: () => [],
   verticalHeader: true,
+  horizontalHeader: true,
   caption: undefined,
   extraContent: null
 })
@@ -126,7 +128,11 @@ const handleClosed = () => (state.opened = false)
         :data-label="column.label"
         :scope="i === 0 && verticalHeader ? 'row' : null"
       >
-        <div class="rpl-data-table__mobile-label" v-html="column.label" />
+        <div
+          v-if="!(i === 0 && verticalHeader) && horizontalHeader"
+          class="rpl-data-table__mobile-label"
+          v-html="column.label"
+        />
         <template v-if="hasComponent(column)">
           <component
             :is="(column as tableColumnConfig).component"

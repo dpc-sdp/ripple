@@ -58,7 +58,10 @@ export const processConfig = async (config, tidePageApi) => {
 
 export const getProcessedSearchListingConfig = async (src, tidePageApi) => {
   const rawConfig = getMaybeRawConfig(src)
-  const drupalFields = buildConfigFromDrupalFields(src)
+  const drupalFields = buildConfigFromDrupalFields(
+    src,
+    !!src.field_search_configuration
+  )
 
   const config = defuMerge(rawConfig, drupalFields)
 
@@ -149,9 +152,21 @@ const parseResultsConfigFromDrupal = (src) => {
   return null
 }
 
-const buildConfigFromDrupalFields = (src) => {
+const shouldAutoFilterByCurrentSite = (src, hasRawConfig: boolean) => {
+  const hasSiteFilter = src.field_listing_global_filters?.some((rawFilter) => {
+    return rawFilter.type === 'paragraph--listing_site'
+  })
+
+  // If the custom JSON blob field has a value, we can no longer assume that an
+  // empty site filter means that we want to filter by the current site.
+  // Instead we need to respect whatever value is in the custom JSON blob.
+  return !hasRawConfig ? !hasSiteFilter : undefined
+}
+
+const buildConfigFromDrupalFields = (src, hasRawConfig: boolean) => {
   return {
     searchListingConfig: {
+      filterByCurrentSite: shouldAutoFilterByCurrentSite(src, hasRawConfig),
       hideSearchForm: src?.field_listing_hide_search_form ?? false,
       resultsPerPage: src?.field_listing_results_per_page || 10,
       labels: {

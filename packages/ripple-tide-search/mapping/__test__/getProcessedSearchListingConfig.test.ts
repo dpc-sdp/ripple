@@ -2,9 +2,11 @@ import { expect, describe, it } from 'vitest'
 import { getProcessedSearchListingConfig } from '../utils'
 import {
   testListingUI,
+  testListingUIAutoSite,
   testListingConfig,
   testListingMix,
   expectedListingUI,
+  expectedListingUIAutoSite,
   expectedListingConfig,
   expectedListingMix
 } from './data'
@@ -32,6 +34,15 @@ describe('getProcessedSearchListingConfig', () => {
     )
 
     expect(output).toEqual(expectedListingUI)
+  })
+
+  it('it automatically sets filterByCurrentSite=true if there is no Drupal UI site filter', async () => {
+    const output = await getProcessedSearchListingConfig(
+      testListingUIAutoSite,
+      tidePageApi
+    )
+
+    expect(output).toEqual(expectedListingUIAutoSite)
   })
 
   it('it handles using a supplied config directly, taking into account Drupal defaults', async () => {

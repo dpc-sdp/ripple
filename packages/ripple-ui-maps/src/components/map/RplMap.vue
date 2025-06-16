@@ -100,6 +100,7 @@ const { emitRplEvent } = useRippleEvent('rpl-map', emit)
 const zoom = ref(props.initialZoom)
 const rotation = ref(0)
 const view = ref(null)
+const mapPosition = ref({})
 
 const { setRplMapRef, popup, deadSpace, defaultExtent } =
   inject('rplMapInstance')
@@ -372,6 +373,13 @@ const activePopupId = computed(() => {
 
   return jointId ? jointId : fallbackPositionId
 })
+
+const trackMapPosition = ({ target }) => {
+  mapPosition.value = {
+    center: target.getCenter(),
+    zoom: target.getZoom()
+  }
+}
 </script>
 
 <template>
@@ -386,6 +394,8 @@ const activePopupId = computed(() => {
       'rpl-map': true,
       'rpl-map--has-sidepanel': hasSidePanel
     }"
+    :data-center="mapPosition.center"
+    :data-zoom="mapPosition.zoom"
   >
     <div
       v-if="noresults && !hideNoResults && !hasSidePanel"
@@ -433,6 +443,7 @@ const activePopupId = computed(() => {
         :zoom="zoom"
         :maxZoom="maxZoom"
         :minZoom="5"
+        @change="trackMapPosition"
       />
       <slot name="map-provider"></slot>
       <slot

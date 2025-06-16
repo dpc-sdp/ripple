@@ -75,7 +75,7 @@
     "postcss-preset-env": "^8.1.0",
     "start-server-and-test": "^2.0.3",
     "stylelint": "^15.10.2",
-    "vitest": "3.0.5"
+    "vitest": "catalog:"
   },
   "engines": {
     "node": "^18.15.0 || ^20.9.0",

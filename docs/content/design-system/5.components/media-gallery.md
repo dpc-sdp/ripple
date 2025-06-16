@@ -18,7 +18,7 @@ See [media](/design-system/components/media/) for information relating to file t
 
 ::DocsExample
 ---
-id: core-containers-media-gallery--default-story
+id: core-containers-media-gallery--default
 ---
 ::
 
@@ -50,7 +50,7 @@ It also adopts its theming from the pagination component.
 ::DocsThemeChooser
   ::DocsExample
   ---
-  id: core-containers-media-gallery--default-story
+  id: core-containers-media-gallery--default
   ---
   ::
 ::

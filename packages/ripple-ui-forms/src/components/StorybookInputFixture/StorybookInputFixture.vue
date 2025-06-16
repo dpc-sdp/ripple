@@ -1,15 +1,30 @@
 <script setup lang="ts">
 import RplFormLabel from './../RplFormLabel/RplFormLabel.vue'
 import RplFormValidationError from './../RplFormValidationError/RplFormValidationError.vue'
+import { provide } from 'vue'
 
 interface Props {
-  useFieldset: boolean
-  invalid: boolean
+  useFieldset?: boolean
+  invalid?: boolean
+  label?: string
+  labelId?: string
+  id?: string
 }
 
-withDefaults(defineProps<Props>(), { useFieldset: false, invalid: false })
+withDefaults(defineProps<Props>(), {
+  useFieldset: false,
+  invalid: false,
+  label: 'Label',
+  labelId: 'label-id',
+  id: 'id'
+})
 
 const fakeError = { test: { value: 'Field is invalid' } }
+
+provide('form', {
+  id: 'sb-form',
+  name: 'SB Form'
+})
 </script>
 
 <template>
@@ -21,12 +36,16 @@ const fakeError = { test: { value: 'Field is invalid' } }
         class="rpl-form__fieldset"
         aria-describedby="help-checkbox-group"
       >
-        <RplFormLabel isRequired tag="legend">Label</RplFormLabel>
+        <RplFormLabel isRequired tag="legend" :for="labelId" :id="id">
+          {{ label }}
+        </RplFormLabel>
         <RplFormValidationError v-if="invalid" :messages="fakeError" />
         <slot />
       </fieldset>
       <div v-else class="rpl-form__wrapper">
-        <RplFormLabel isRequired>Label</RplFormLabel>
+        <RplFormLabel isRequired :for="labelId" :id="id">
+          {{ label }}
+        </RplFormLabel>
         <RplFormValidationError v-if="invalid" :messages="fakeError" />
         <div class="rpl-form__inner">
           <slot />

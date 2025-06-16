@@ -42,7 +42,7 @@ Tags have 2 variants:
 ### Default
 ::DocsExample
 ---
-id: core-containers-tag--default-story
+id: core-containers-tag--default
 ---
 ::
 
@@ -54,4 +54,3 @@ Use the reverse variant when the chip appears on the primary colour.
 id: core-containers-tag--neutral
 ---
 ::
-

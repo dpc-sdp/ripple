@@ -24,7 +24,7 @@ The search bar includes:
 
 ::DocsExample
 ---
-id: core-navigation-search-bar--default-story
+id: core-navigation-search-bar--default
 ---
 ::
 
@@ -98,7 +98,7 @@ This is standard search. The button initiates search based on the text input.
 
 ::DocsExample
 ---
-id: core-navigation-search-bar--default-story
+id: core-navigation-search-bar--default
 ---
 ::
 
@@ -134,7 +134,7 @@ The search bar uses colour for:
 ::DocsThemeChooser
   ::DocsExample
   ---
-  id: core-navigation-search-bar--default-story
+  id: core-navigation-search-bar--default
   ---
   ::
   ::DocsExample

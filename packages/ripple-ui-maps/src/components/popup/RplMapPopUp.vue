@@ -31,6 +31,7 @@
             v-if="type === 'standalone'"
             class="rpl-map-popup__close rpl-u-focusable-block"
             @click="onClose"
+            aria-label="Close"
           >
             <RplIcon name="icon-arrow-left" size="s" colour="primary"></RplIcon>
           </button>
@@ -41,6 +42,7 @@
             v-if="type !== 'standalone'"
             class="rpl-map-popup__close rpl-u-focusable-block"
             @click="onClose"
+            aria-label="Close"
           >
             <RplIcon name="icon-cancel" size="s" colour="primary"></RplIcon>
           </button>

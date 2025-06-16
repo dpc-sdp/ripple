@@ -29,7 +29,7 @@ Icons tell the user the category of content under a tab. Keep icons simple and e
 
 ::DocsExample
 ---
-id: core-navigation-tabs--default-story
+id: core-navigation-tabs--default
 ---
 ::
 
@@ -65,7 +65,7 @@ The default variant sets the tab group bottom border to span the full available 
 
 ::DocsExample
 ---
-id: core-navigation-tabs--default-story
+id: core-navigation-tabs--default
 ---
 ::
 
@@ -88,7 +88,7 @@ Tabs use colour to represent interaction states.
 ::DocsThemeChooser
   ::DocsExample
   ---
-  id: core-navigation-tabs--default-story
+  id: core-navigation-tabs--default
   ---
   ::
 ::

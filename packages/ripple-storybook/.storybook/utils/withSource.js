@@ -1,116 +1,136 @@
 /**
- * Adds proper support for Vue 3 code snippets, in storybook 7 there will be OOTB support, this workaround can be removed after upgrading.
- *
- * From a combination of solutions found in this github issue:
- * https://github.com/storybookjs/storybook/issues/13917
+ * Adds proper support for Vue 3 code snippets in Storybook 9.
  */
 
-import { addons, makeDecorator } from "@storybook/addons";
-import kebabCase from "lodash.kebabcase"
-import { h, onMounted } from "vue";
+import { addons } from 'storybook/preview-api'
+import kebabCase from 'lodash.kebabcase'
+import { h, onMounted } from 'vue'
 
 // this value doesn't seem to be exported by addons-docs
-export const SNIPPET_RENDERED = `storybook/docs/snippet-rendered`;
+export const SNIPPET_RENDERED = `storybook/docs/snippet-rendered`
 
-function templateSourceCode (
+const propToSource = (key, val) => {
+  const type = typeof val
+  switch (type) {
+    case 'function':
+      return val ? key : ''
+    case 'boolean':
+      return val ? key : ''
+    case 'string':
+      return `${key}="${val}"`
+    case 'object':
+      return `${key}="${JSON.stringify(val, null, 4)
+        .replace(/"(\w+)"\s*:/g, '$1:')
+        .replaceAll('"', "'")}"` // here
+    default:
+      return `:${key}="${val}"`
+  }
+}
+
+function templateSourceCode(
   templateSource,
   args,
   argTypes,
-  replacing = 'v-bind="args"',
+  replacing = 'v-bind="args"'
 ) {
   const componentArgs = {}
   for (const [k, t] of Object.entries(argTypes)) {
     const val = args[k]
-    if (typeof val !== 'undefined' && t.table && t.table.category === 'props' && val !== t.defaultValue) {
+    if (
+      typeof val !== 'undefined' &&
+      t.table &&
+      t.table.category === 'props' &&
+      val !== t.defaultValue
+    ) {
       componentArgs[k] = val
     }
   }
 
-  const propToSource = (key, val) => {
-    const type = typeof val;
-    switch (type) {
-      case 'boolean':
-        return val ? key : '';
-      case 'string':
-        return `${key}="${val}"`;
-      case 'object':
-        return `${key}="${JSON.stringify(val, null, 4).replace(/"(\w+)"\s*:/g, '$1:').replaceAll('"', '\'')}"`; // here
-      default:
-        return `:${key}="${val}"`;
-    }
-  };
-
   return templateSource.replace(
     replacing,
     Object.keys(componentArgs)
-      .map((key) => " " + propToSource(kebabCase(key), args[key]))
-      .join(""),
+      .map((key) => ' ' + propToSource(kebabCase(key), args[key]))
+      .join('')
   )
 }
 
-export const withSource = makeDecorator({
-  name: "withSource",
-  wrapper: (storyFn, context) => {
-    const story = storyFn(context);
+async function getSnippet(prettier, code, prettierHtml) {
+  let snippet = ''
 
-    // this returns a new component that computes the source code when mounted
-    // and emits an events that is handled by addons-docs
-    // this approach is based on the vue (2) implementation
-    // see https://github.com/storybookjs/storybook/blob/next/addons/docs/src/frameworks/vue/sourceDecorator.ts
-    return {
-      components: {
-        Story: story,
-      },
+  try {
+    snippet = await prettier.format(`<template>${code}</template>`, {
+      parser: 'vue',
+      plugins: [prettierHtml],
+      htmlWhitespaceSensitivity: 'ignore'
+    })
+  } catch (e) {
+    console.warn('Failed to get snippet', e)
+  }
 
-      setup() {
-        onMounted(() => {
-          try {
-            // get the story source
-            const src = context.originalStoryFn(context.args).template;
+  return snippet
+}
 
-            // generate the source code based on the current args
-            const code = templateSourceCode(
-              src,
-              context.args,
-              context.argTypes
-            );
+export const withSource = (storyFn, context) => {
+  const story = storyFn(context)
 
-            const channel = addons.getChannel();
+  // this returns a new component that computes the source code when mounted
+  // and emits an event that is handled by addons-docs
+  return {
+    components: {
+      Story: story
+    },
 
-            const emitFormattedTemplate = async () => {
-              const prettier = await import("prettier/standalone");
-              const prettierHtml = await import("prettier/parser-html");
+    setup() {
+      onMounted(async () => {
+        try {
+          let code = ''
+          const originalStory = context.originalStoryFn(context.args, context)
+          // get the story source
+          let src = originalStory?.template
 
-              const snippet = prettier.format(`<template>${code}</template>`, {
-                parser: "vue",
-                plugins: [prettierHtml],
-                htmlWhitespaceSensitivity: "ignore",
-              })
+          // generate the source code based on the current args
+          if (src) {
+            code = templateSourceCode(src, context.args, context.argTypes)
+          } else {
+            const rawStory = originalStory()
+            const propsString = Object.entries(rawStory.props || {})
+              .map(([key, val]) => propToSource(kebabCase(key), val))
+              .join(' ')
 
-              // We need to add wrapping template tags to render the actual code snippet otherwise
-              // certain examples will break, however we don't actually want to display the template
-              // tags in the code example, so we manually remove them here.
-              const snippetWithoutTemplateTags = snippet
-                .replace(/^<template>/, '')
-                .replace(/<\/template>\s*$/, '')
-                .trim()
-
-              // emits an event  when the transformation is completed
-              channel.emit(
-                SNIPPET_RENDERED,
-                (context || {}).id,
-                snippetWithoutTemplateTags
-              );
-            };
-
-            setTimeout(emitFormattedTemplate, 0);
-          } catch (e) {
-            console.warn("Failed to render code", e);
+            code = `<${rawStory.type.__name}${propsString ? ' ' + propsString : ''} />`
           }
-        });
 
-        return () => h(story);
-      },
-    };
-  },
-});
+          const channel = addons.getChannel()
+
+          const emitFormattedTemplate = async () => {
+            const prettier = await import('prettier/standalone')
+            const prettierHtml = await import('prettier/parser-html')
+
+            const snippet = await getSnippet(prettier, code, prettierHtml)
+
+            // We need to add wrapping template tags to render the actual code snippet otherwise
+            // certain examples will break, however, we don't want to display the template
+            // tags in the code example, so we manually remove them here.
+            const snippetWithoutTemplateTags = snippet
+              .replace(/^<template>/, '')
+              .replace(/<\/template>\s*$/, '')
+              .trim()
+
+            // emits an event when the transformation is completed
+            channel.emit(
+              SNIPPET_RENDERED,
+              (context || {}).id,
+              snippetWithoutTemplateTags
+            )
+          }
+
+          setTimeout(emitFormattedTemplate, 0)
+        } catch (e) {
+          console.warn('Failed to render code', e)
+        }
+      })
+
+      return () => h(story)
+    }
+  }
+}

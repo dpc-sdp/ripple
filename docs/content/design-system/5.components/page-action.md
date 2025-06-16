@@ -24,7 +24,7 @@ The print action prints the full document (section), not just the page the user 
 
 ::DocsExample
 ---
-id: core-containers-page-action--default-story
+id: core-containers-page-action--default
 ---
 ::
 
@@ -54,7 +54,7 @@ Page action uses colour for:
 ::DocsThemeChooser
   ::DocsExample
   ---
-  id: core-containers-page-action--default-story
+  id: core-containers-page-action--default
   ---
   ::
 ::

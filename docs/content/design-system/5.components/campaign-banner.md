@@ -15,7 +15,7 @@ Campaign banners can be used at the top or bottom of a page, under the header or
 
 ::DocsExample
 ---
-id: core-navigation-campaign-banner--primary-image
+id: core-navigation-campaign-banner--primary-with-image
 ---
 ::
 
@@ -42,7 +42,7 @@ There is an option to include metadata for the image if required.
 
 ::DocsExample
 ---
-id: core-navigation-campaign-banner--primary-image
+id: core-navigation-campaign-banner--primary-with-image
 ---
 ::
 
@@ -51,7 +51,7 @@ The image inset variant sits above the footer at the bottom of the page. This sh
 
 ::DocsExample
 ---
-id: core-navigation-campaign-banner--secondary-image
+id: core-navigation-campaign-banner--secondary-with-image
 ---
 ::
 
@@ -65,7 +65,7 @@ If you choose the neutral button variant for your site, the campaign banner will
 ::DocsThemeChooser
   ::DocsExample
   ---
-  id: core-navigation-campaign-banner--primary-image
+  id: core-navigation-campaign-banner--primary-with-image
   ---
   ::
 ::

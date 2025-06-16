@@ -18,7 +18,7 @@ Don’t use text area for succinct responses such as email addresses or names. I
 
 ::DocsExample
 ---
-id: forms-textarea--default-story
+id: forms-textarea--default
 ---
 ::
 
@@ -96,7 +96,7 @@ The text area has 2 variants:
 
 ::DocsExample
 ---
-id: forms-textarea--default-story
+id: forms-textarea--default
 ---
 ::
 
@@ -161,7 +161,7 @@ Text area uses colour to show interactive states. A text area field in an active
 ::DocsThemeChooser
   ::DocsExample
   ---
-  id: forms-textarea--default-story
+  id: forms-textarea--default
   ---
   ::
 ::

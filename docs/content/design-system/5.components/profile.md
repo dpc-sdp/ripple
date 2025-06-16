@@ -25,7 +25,7 @@ Only use the profile component for displaying simple information. For data or co
 
 ::DocsExample
 ---
-id: core-containers-profile--default-story
+id: core-containers-profile--default
 ---
 ::
 

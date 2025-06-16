@@ -23,7 +23,7 @@ When displaying the results listing, consider a user's needs. Only display what 
 
 ::DocsExample
 ---
-id: core-navigation-result-listing--default-story
+id: core-navigation-result-listing--default
 ---
 ::
 

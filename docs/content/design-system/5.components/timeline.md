@@ -32,7 +32,7 @@ Use between 3 to 8 discrete sections of content, so the user is not overwhelmed.
 
 ::DocsExample
 ---
-id: core-containers-timeline--default-story
+id: core-containers-timeline--default
 ---
 ::
 
@@ -60,7 +60,7 @@ This is for steps or stages along a process. Use the default timeline when progr
 
 ::DocsExample
 ---
-id: core-containers-timeline--default-story
+id: core-containers-timeline--default
 ---
 ::
 
@@ -89,4 +89,3 @@ Timeline uses colour to:
 ::
 
 To create your own theme see [theming guidance for designers](/design-system/design/theming-guidance-for-designers) or [theming guidance for developers](/design-system/develop/theming).
-

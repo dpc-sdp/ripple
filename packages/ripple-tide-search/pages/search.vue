@@ -1,10 +1,13 @@
 <script setup lang="ts">
+import { useTideSite } from '#imports'
 import { TideSiteData } from '@dpc-sdp/ripple-tide-api/types'
-import type { TideSearchListingResultItem } from './../../types'
+import type {
+  TideSearchListingConfig,
+  TideSearchListingResultItem
+} from './../types'
 
-const searchConfig = {
+const searchConfig: TideSearchListingConfig = {
   searchListingConfig: {
-    title: 'Search',
     filterByCurrentSite: true,
     resultsPerPage: 10,
     showFiltersOnLoad: true,
@@ -65,10 +68,11 @@ const searchConfig = {
       component: 'TideSearchFilterDropdown',
       filter: {
         type: 'terms',
-        value: 'field_topic_name'
+        value: 'field_topic_name.keyword',
+        multiple: true
       },
       aggregations: {
-        field: 'field_topic_name',
+        field: 'field_topic_name.keyword',
         source: 'elastic'
       },
       props: {
@@ -88,10 +92,10 @@ const page = { title: 'Search' }
 const searchResultsMappingFn = (item: any): TideSearchListingResultItem => {
   let itemComponent = 'TideSearchResult'
 
-  if (searchConfig?.resultsConfig.value?.item) {
+  if (searchConfig?.resultsConfig?.item) {
     const mapping =
-      searchConfig.resultsConfig.value.item[item._source?.type] ??
-      searchConfig.resultsConfig.value.item?.['*']
+      searchConfig.resultsConfig.item[item._source?.type] ??
+      searchConfig.resultsConfig.item?.['*']
 
     if (mapping) {
       itemComponent = mapping.component
@@ -113,7 +117,6 @@ const searchResultsMappingFn = (item: any): TideSearchListingResultItem => {
     :site="site"
     :contentPage="page as any"
     :title="page.title"
-    :introText="page.introText"
     :searchListingConfig="searchConfig.searchListingConfig"
     :customQueryConfig="searchConfig.customQueryConfig"
     :queryConfig="searchConfig.queryConfig"

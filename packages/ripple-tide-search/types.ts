@@ -224,11 +224,11 @@ export type TideSearchListingConfig = {
      * @default 'elasticsearch' defaults to elasticsearch
      * @deprecated app search is no longer supported, so this option is no longer in use
      */
-    searchProvider: 'elasticsearch'
+    searchProvider?: 'elasticsearch'
     /**
      * @description Custom search index to use - EG for data pipelines
      */
-    index: string
+    index?: string
     /**
      * @description Set the number of results to show per page
      */
@@ -237,9 +237,9 @@ export type TideSearchListingConfig = {
      * @description Override the default labels
      */
     labels: {
-      submit: string
-      reset: string
-      placeholder: string
+      submit?: string
+      reset?: string
+      placeholder?: string
       geolocateBtn?: string
     }
     /**
@@ -261,7 +261,7 @@ export type TideSearchListingConfig = {
     /**
      * @description options for utilizing the auto suggestions
      */
-    suggestions: {
+    suggestions?: {
       key?: string
       enabled: boolean
       minCharacters?: number
@@ -269,7 +269,7 @@ export type TideSearchListingConfig = {
     /**
      * @description The theme to use for the display of form section and fields
      */
-    formTheme: 'default' | 'reverse'
+    formTheme?: 'default' | 'reverse'
     /**
      * @description Whether the filter dropdown options should be dynamic based on the current search results, also displays a count of results for each option
      */

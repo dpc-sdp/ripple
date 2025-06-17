@@ -34,7 +34,10 @@ type ExtendedFormNumberProps = Partial<typeof RplFormNumber> & {
 export default {
   title: 'Forms/Input',
   component: RplFormElement,
-  render: Template
+  render: Template,
+  args: {
+    label: 'Number'
+  }
 } satisfies Meta<ExtendedFormNumberProps>
 
 type Story = StoryObj<ExtendedFormNumberProps>
@@ -48,7 +51,6 @@ export const NumberWithButtons: Story = {
     max: 10,
     step: 1,
     mode: 'alt',
-    label: 'Number',
     help: 'Enter a number between 0 and 10'
   }
 }

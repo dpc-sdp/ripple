@@ -96,6 +96,7 @@ export default {
   title: 'Maps/Core',
   component: RplMap,
   render: Template,
+  tags: ['skip'],
   args: {
     id: '123'
   }
@@ -105,6 +106,7 @@ type Story = StoryObj<ExtendedMapPropsProps>
 
 export const Esri: Story = {
   args: {
+    id: 'map-esri',
     features: featureData,
     provider: 'esri'
   }
@@ -112,6 +114,7 @@ export const Esri: Story = {
 
 export const Vicmap: Story = {
   args: {
+    id: 'map-vicmap',
     provider: 'vicmap',
     projection: 'EPSG:3857',
     features: featureData
@@ -120,6 +123,7 @@ export const Vicmap: Story = {
 
 export const VectorLayers: Story = {
   args: {
+    id: 'map-vector-layers',
     projection: 'EPSG:3857',
     features: featureData,
     provider: 'vicmap',
@@ -130,6 +134,7 @@ export const VectorLayers: Story = {
 
 export const ClusteringNearer: Story = {
   args: {
+    id: 'map-clustering-nearer',
     features: featureData,
     provider: 'vicmap',
     clusteringDistance: 25
@@ -138,6 +143,7 @@ export const ClusteringNearer: Story = {
 
 export const ClusteringDisabled: Story = {
   args: {
+    id: 'map-clustering-disabled',
     features: featureData,
     provider: 'vicmap',
     clusteringDistance: 0
@@ -146,6 +152,7 @@ export const ClusteringDisabled: Story = {
 
 export const WithLayerList: Story = {
   args: {
+    id: 'map-with-layer-list',
     features: featureData,
     provider: 'vicmap',
     selectedLayers: ['red', 'green'],

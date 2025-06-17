@@ -8,15 +8,15 @@ interface Props {
   invalid?: boolean
   label?: string
   labelId?: string
-  id?: string
+  fieldId?: string
 }
 
 withDefaults(defineProps<Props>(), {
   useFieldset: false,
   invalid: false,
   label: 'Label',
-  labelId: 'label-id',
-  id: 'id'
+  labelId: null,
+  fieldId: null
 })
 
 const fakeError = { test: { value: 'Field is invalid' } }
@@ -36,14 +36,14 @@ provide('form', {
         class="rpl-form__fieldset"
         aria-describedby="help-checkbox-group"
       >
-        <RplFormLabel isRequired tag="legend" :for="labelId" :id="id">
+        <RplFormLabel :id="labelId" isRequired tag="legend" :for="fieldId">
           {{ label }}
         </RplFormLabel>
         <RplFormValidationError v-if="invalid" :messages="fakeError" />
         <slot />
       </fieldset>
       <div v-else class="rpl-form__wrapper">
-        <RplFormLabel isRequired :for="labelId" :id="id">
+        <RplFormLabel :id="labelId" isRequired :for="fieldId">
           {{ label }}
         </RplFormLabel>
         <RplFormValidationError v-if="invalid" :messages="fakeError" />

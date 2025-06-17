@@ -28,26 +28,26 @@ const Template = (args: any) => {
   }
 }
 
-const meta = {
+export default {
   title: 'Forms/Date input',
   component: RplFormDate,
-  render: Template
+  render: Template,
+  args: {
+    id: 'date-field',
+    name: 'date-field'
+  }
 } satisfies Meta<typeof RplFormDate>
-
-export default meta
 
 type Story = StoryObj<typeof RplFormDate>
 
 export const Default: Story = {
   args: {
-    id: 'date-default',
     variant: 'default'
   }
 }
 
 export const Reverse: Story = {
   args: {
-    id: 'date-reverse',
     variant: 'reverse'
   },
   parameters: {
@@ -57,7 +57,6 @@ export const Reverse: Story = {
 
 export const Inactive: Story = {
   args: {
-    id: 'date-inactive',
     variant: 'default',
     disabled: true
   }
@@ -65,7 +64,6 @@ export const Inactive: Story = {
 
 export const Invalid: Story = {
   args: {
-    id: 'date-invalid',
     variant: 'default',
     invalid: true
   }
@@ -73,7 +71,6 @@ export const Invalid: Story = {
 
 export const CustomDateFormat: Story = {
   args: {
-    id: 'date-format',
     variant: 'default',
     dateFormat: 'dd/MM/yyyy'
   }

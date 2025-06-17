@@ -38,7 +38,8 @@ export const CategoryGrid: Story = {
           height: 800,
           bgColor: '#e76',
           fgColor: '#a31'
-        })
+        }),
+        alt: 'Alt text'
       }
       return { args, img }
     },

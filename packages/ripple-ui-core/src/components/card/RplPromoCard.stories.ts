@@ -44,7 +44,8 @@ export const Promo: Story = {
         bgColor: '#ad9',
         fgColor: '#efc'
       })
-      const img = args.graphicElement === 'Image' ? { src } : null
+      const img =
+        args.graphicElement === 'Image' ? { src, alt: 'Alt text' } : null
       return { args, img }
     },
     template: `

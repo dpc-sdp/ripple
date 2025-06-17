@@ -63,7 +63,6 @@ const IconListTemplate = (args: any) => ({
 
 export const Alert: Story = {
   render: IconListTemplate,
-  name: 'Alert',
   args: {
     columns: ['Alert'],
     items: RplIconGroups.alert
@@ -72,7 +71,6 @@ export const Alert: Story = {
 
 export const Social: Story = {
   render: IconListTemplate,
-  name: 'Social',
   args: {
     columns: ['Social'],
     items: RplIconGroups.social
@@ -81,7 +79,6 @@ export const Social: Story = {
 
 export const Standard: Story = {
   render: IconListTemplate,
-  name: 'Standard',
   args: {
     columns: ['Standard'],
     items: RplIconGroups.standard

@@ -21,7 +21,8 @@ export default {
   render: Template,
   args: {
     id: 'ob-default',
-    name: 'ob-default'
+    name: 'ob-default',
+    value: ''
   }
 } satisfies Meta<typeof RplFormOptionButtons>
 

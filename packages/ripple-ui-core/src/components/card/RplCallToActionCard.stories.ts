@@ -36,7 +36,8 @@ export const CallToAction: Story = {
           height: 800,
           bgColor: '#ccc',
           fgColor: '#444'
-        })
+        }),
+        alt: 'Alt test'
       }
       return { args, img }
     },

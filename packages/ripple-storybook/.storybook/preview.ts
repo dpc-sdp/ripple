@@ -39,7 +39,7 @@ setup((app) => {
 const preview: Preview = {
   parameters: {
     actions: { argTypesRegex: '^on[A-Z].*' },
-    ally: {
+    a11y: {
       test: 'error',
       options: {
         runOnly: {

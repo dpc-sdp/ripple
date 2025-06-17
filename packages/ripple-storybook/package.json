@@ -9,8 +9,8 @@
     "start": "storybook dev -p 6006",
     "static:build": "storybook build",
     "static:start": "http-server storybook-static --port 6006 --silent",
-    "test": "vitest --project=storybook --maxWorkers=2",
-    "test:ci": "concurrently -k -s first -n \"SB,TEST\" -c \"magenta,blue\" \"pnpm static:start\" \"pnpm test\""
+    "test": "vitest --watch --project=storybook",
+    "test:ci": "vitest --run --project=storybook"
   },
   "exports": {
     "./utils": "./utils/index.ts"
@@ -33,7 +33,6 @@
   "dependencies": {
     "@dpc-sdp/ripple-ui-core": "workspace:*",
     "@dpc-sdp/ripple-ui-maps": "workspace:*",
-    "concurrently": "^8.2.1",
     "vite-svg-loader": "catalog:"
   }
 }

@@ -41,7 +41,8 @@ export const SecondaryWithImage: Story = {
   name: 'Secondary/Image',
   args: {
     image: {
-      src: 'img/image-landscape-m.jpg'
+      src: 'img/image-landscape-m.jpg',
+      alt: 'Image alt text'
     }
   }
 }

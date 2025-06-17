@@ -10,7 +10,7 @@ const Template = (args: any) => ({
     return { args }
   },
   template: `
-    <StorybookInputFixture :invalid="args.invalid">
+    <StorybookInputFixture :invalid="args.invalid" :labelId="args.labelId" :fieldId="args.id">
       <RplFormInput v-bind="args" />
     </StorybookInputFixture>`
 })
@@ -22,7 +22,12 @@ type ExtendedFormInputProps = Partial<typeof RplFormInput> & {
 export default {
   title: 'Forms/Input',
   component: RplFormInput,
-  render: Template
+  render: Template,
+  args: {
+    name: 'example-name',
+    id: 'example-id',
+    labelId: 'example-id'
+  }
 } satisfies Meta<ExtendedFormInputProps>
 
 type Story = StoryObj<ExtendedFormInputProps>

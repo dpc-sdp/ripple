@@ -23,6 +23,7 @@ export default {
 type Story = StoryObj<typeof RplHeroHeader>
 
 const backgroundSample = {
+  alt: 'A description of the image',
   src: 'img/image-landscape-s.jpg',
   srcSet:
     '/img/image-landscape-s.jpg 640w, /img/image-landscape-m.jpg 960w , /img/image-landscape-l.jpg 1240w',

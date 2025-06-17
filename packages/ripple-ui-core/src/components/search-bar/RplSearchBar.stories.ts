@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
+import { action } from 'storybook/actions'
 import RplSearchBar from './RplSearchBar.vue'
 import { mockSuggestions } from './fixtures'
 
@@ -18,6 +19,13 @@ const Template = (args: any) => ({
       return mockSuggestions.filter((val: string) =>
         val.startsWith(this.inputValue)
       )
+    }
+  },
+  methods: {
+    submitAction: action('submit'),
+    onUpdate: function (val) {
+      this.inputValue = val
+      action('onUpdate')(val)
     }
   },
   template: `

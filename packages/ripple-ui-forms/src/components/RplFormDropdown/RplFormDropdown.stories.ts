@@ -19,7 +19,7 @@ const Template = (args: any) => ({
   },
   template: `
       <RplButton class="rpl-u-margin-b-6">Button above to test keyboard behaviour (not part of dropdown)</RplButton>
-      <StorybookInputFixture :invalid="args.invalid" :id="args.id" :label-id="args.labelId" :label="args.label">
+      <StorybookInputFixture :invalid="args.invalid" :labelId="args.labelId" :fieldId="args.id" :label="args.label">
         <RplFormDropdown v-bind="args" :value="currentValue" @onChange="onChange"/>
       </StorybookInputFixture>
       <RplButton class="rpl-u-margin-t-6">Button below to test keyboard behaviour (not part of dropdown)</RplButton>

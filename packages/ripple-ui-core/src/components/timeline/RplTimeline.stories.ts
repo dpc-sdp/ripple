@@ -14,7 +14,10 @@ export const Default: Story = {
     title: 'Timeline heading',
     items: [
       {
-        image: { src: svgPlaceholder({ width: 320, height: 240 }) },
+        image: {
+          src: svgPlaceholder({ width: 320, height: 240 }),
+          alt: 'Placeholder image'
+        },
         title: 'Timeline item with link',
         url: '#',
         dateStart: '2019-01-01T09:00:00.000+10:00',
@@ -27,7 +30,10 @@ export const Default: Story = {
         subtitle: 'Contains title and custom subtitle.'
       },
       {
-        image: { src: svgPlaceholder({ width: 80, height: 80 }) },
+        image: {
+          src: svgPlaceholder({ width: 80, height: 80 }),
+          alt: 'Placeholder image'
+        },
         title: 'Timeline item 3',
         dateStart: '2018-01-01T09:00:00.000+10:00',
         dateEnd: '2018-01-15T09:00:00.000+10:00',
@@ -43,7 +49,10 @@ export const Default: Story = {
           'Contains title, matching start / end date and description.'
       },
       {
-        image: { src: svgPlaceholder({ width: 80, height: 80 }) },
+        image: {
+          src: svgPlaceholder({ width: 80, height: 80 }),
+          alt: 'Placeholder image'
+        },
         title: 'Timeline item 5 with link',
         url: 'https://www.google.com',
         description:
@@ -151,7 +160,10 @@ export const ProgressiveImage1: Story = {
   args: {
     items: [
       {
-        image: { src: svgPlaceholder({ width: 80, height: 80 }) },
+        image: {
+          src: svgPlaceholder({ width: 80, height: 80 }),
+          alt: 'Placeholder image'
+        },
         title: 'First item',
         description: '<p>Text</p><p>Another line, why not</p>',
         current: true
@@ -180,7 +192,10 @@ export const ProgressiveImage2: Story = {
         current: true
       },
       {
-        image: { src: svgPlaceholder({ width: 80, height: 80 }) },
+        image: {
+          src: svgPlaceholder({ width: 80, height: 80 }),
+          alt: 'Placeholder image'
+        },
         title: '2nd item'
       },
       {
@@ -206,7 +221,10 @@ export const ProgressiveImage3: Story = {
         title: '2nd item'
       },
       {
-        image: { src: svgPlaceholder({ width: 80, height: 80 }) },
+        image: {
+          src: svgPlaceholder({ width: 80, height: 80 }),
+          alt: 'Placeholder image'
+        },
         title: 'The last item',
         description: '<p>Different <em>markup</em></p>',
         url: 'https://g'
@@ -220,7 +238,10 @@ export const ProgressiveImage4: Story = {
   args: {
     items: [
       {
-        image: { src: svgPlaceholder({ width: 80, height: 80 }) },
+        image: {
+          src: svgPlaceholder({ width: 80, height: 80 }),
+          alt: 'Placeholder image'
+        },
         title: 'First item',
         description: '<p>Text</p><p>Another line, why not</p>'
       },
@@ -254,7 +275,8 @@ export const ProgressiveImage5: Story = {
             height: 80,
             bgColor: 'rgb(0, 82, 194)',
             fgColor: '#fff'
-          })
+          }),
+          alt: 'Placeholder image'
         },
         title: '2nd item',
         current: true
@@ -282,7 +304,10 @@ export const ProgressiveImage6: Story = {
         current: true
       },
       {
-        image: { src: svgPlaceholder({ width: 80, height: 80 }) },
+        image: {
+          src: svgPlaceholder({ width: 80, height: 80 }),
+          alt: 'Placeholder image'
+        },
         title: 'The last item',
         description: '<p>Different <em>markup</em></p>',
         url: 'https://g'
@@ -296,7 +321,10 @@ export const ProgressiveImage7: Story = {
   args: {
     items: [
       {
-        image: { src: svgPlaceholder({ width: 80, height: 80 }) },
+        image: {
+          src: svgPlaceholder({ width: 80, height: 80 }),
+          alt: 'Placeholder image'
+        },
         title: 'First item',
         description: '<p>Text</p><p>Another line, why not</p>'
       },
@@ -324,7 +352,10 @@ export const ProgressiveImage8: Story = {
         description: '<p>Text</p><p>Another line, why not</p>'
       },
       {
-        image: { src: svgPlaceholder({ width: 80, height: 80 }) },
+        image: {
+          src: svgPlaceholder({ width: 80, height: 80 }),
+          alt: 'Placeholder image'
+        },
         title: '2nd item'
       },
       {
@@ -349,7 +380,10 @@ export const ProgressiveImage9: Story = {
         title: '2nd item'
       },
       {
-        image: { src: svgPlaceholder({ width: 80, height: 80 }) },
+        image: {
+          src: svgPlaceholder({ width: 80, height: 80 }),
+          alt: 'Placeholder image'
+        },
         title: 'The last item',
         description: '<p>Different <em>markup</em></p>',
         url: 'https://g',
@@ -377,7 +411,10 @@ export const ProgressiveImage10: Story = {
         current: true
       },
       {
-        image: { src: svgPlaceholder({ width: 80, height: 80 }) },
+        image: {
+          src: svgPlaceholder({ width: 80, height: 80 }),
+          alt: 'Placeholder image'
+        },
         title: 'The last item',
         description: '<p>Different <em>markup</em></p>',
         url: 'https://g'
@@ -406,7 +443,8 @@ export const ProgressiveImage11: Story = {
             height: 80,
             bgColor: 'rgb(0, 82, 194)',
             fgColor: '#fff'
-          })
+          }),
+          alt: 'Placeholder image'
         },
         description: '<p>Text</p><p>Another line, why not</p>',
         current: true

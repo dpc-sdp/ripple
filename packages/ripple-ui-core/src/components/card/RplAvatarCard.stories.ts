@@ -41,7 +41,8 @@ export const Avatar: Story = {
           height: 220,
           bgColor: '#da7',
           fgColor: '#333'
-        })
+        }),
+        alt: 'Alt text'
       }
       return { args, img }
     },

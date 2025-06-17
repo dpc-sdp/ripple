@@ -60,7 +60,7 @@ export const Nav: Story = {
       const img =
         args.graphicElement === 'Image inset' ||
         args.graphicElement === 'Heading highlighted'
-          ? { src }
+          ? { src, alt: 'Alt text' }
           : null
       return { args, img }
     },

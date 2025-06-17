@@ -20,7 +20,7 @@ interface InternalDate {
 
 interface Props {
   id: string
-  name?: string
+  name: string
   label?: string
   fromLabel?: string
   toLabel?: string

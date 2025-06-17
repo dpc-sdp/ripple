@@ -24,7 +24,7 @@ export default {
 type Story = StoryObj<ExtendedImageProps>
 
 export const Image: Story = {
-  args: { src: 'img/image-landscape-m.jpg' }
+  args: { src: 'img/image-landscape-m.jpg', alt: 'Alt text' }
 }
 
 export const Circle: Story = {
@@ -32,7 +32,8 @@ export const Circle: Story = {
     src: 'img/image-landscape-s.jpg',
     height: 200,
     width: 200,
-    circle: true
+    circle: true,
+    alt: 'Alt text'
   }
 }
 
@@ -42,7 +43,8 @@ export const Square: Story = {
     src: 'img/image-landscape-m.jpg',
     height: 500,
     width: 600,
-    aspect: 'square'
+    aspect: 'square',
+    alt: 'Alt text'
   }
 }
 
@@ -52,7 +54,8 @@ export const Full: Story = {
     src: 'img/image-landscape-m.jpg',
     height: 500,
     width: 600,
-    aspect: 'full'
+    aspect: 'full',
+    alt: 'Alt text'
   }
 }
 
@@ -62,7 +65,8 @@ export const Wide: Story = {
     src: 'img/image-landscape-m.jpg',
     height: 500,
     width: 600,
-    aspect: 'wide'
+    aspect: 'wide',
+    alt: 'Alt text'
   }
 }
 
@@ -72,7 +76,8 @@ export const Ultrawide: Story = {
     src: 'img/image-landscape-m.jpg',
     height: 500,
     width: 600,
-    aspect: 'ultrawide'
+    aspect: 'ultrawide',
+    alt: 'Alt text'
   }
 }
 
@@ -82,7 +87,8 @@ export const Panorama: Story = {
     src: 'img/image-landscape-m.jpg',
     height: 500,
     width: 600,
-    aspect: 'panorama'
+    aspect: 'panorama',
+    alt: 'Alt text'
   }
 }
 
@@ -91,7 +97,8 @@ export const LazyLoading: Story = {
     src: 'img/image-landscape-m.jpg',
     height: 500,
     width: 600,
-    priority: 'low'
+    priority: 'low',
+    alt: 'Alt text'
   }
 }
 
@@ -107,7 +114,8 @@ export const ResponsiveRatios: Story = {
       l: 'ultrawide',
       xl: 'panorama'
     },
-    priority: 'high'
+    priority: 'high',
+    alt: 'Alt text'
   }
 }
 
@@ -124,7 +132,8 @@ export const FocalPosition: Story = {
       l: 'ultrawide',
       xl: 'panorama'
     },
-    priority: 'high'
+    priority: 'high',
+    alt: 'Alt text'
   }
 }
 
@@ -133,7 +142,8 @@ export const ImageFit: Story = {
     src: 'img/image-landscape-m.jpg',
     height: 800,
     width: 800,
-    fit: 'contain'
+    fit: 'contain',
+    alt: 'Alt text'
   }
 }
 
@@ -143,6 +153,7 @@ export const SourceSets: Story = {
     srcSet:
       'img/image-landscape-s.jpg 640w, img/image-landscape-m.jpg 960w , img/image-landscape-l.jpg 1240w',
     sizes:
-      '(min-width: 640px) 640px, (min-width: 960px) 960px, (min-width: 1240px) 1240px'
+      '(min-width: 640px) 640px, (min-width: 960px) 960px, (min-width: 1240px) 1240px',
+    alt: 'Alt text'
   }
 }

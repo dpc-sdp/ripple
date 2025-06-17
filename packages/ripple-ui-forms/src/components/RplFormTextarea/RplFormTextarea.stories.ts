@@ -10,7 +10,7 @@ const Template = (args: any) => ({
     return { args }
   },
   template: `
-      <StorybookInputFixture :invalid="args.invalid">
+      <StorybookInputFixture :invalid="args.invalid" :labelId="args.labelId" :fieldId="args.id">
         <RplFormTextarea v-bind="args"/>
       </StorybookInputFixture>`
 })
@@ -22,7 +22,13 @@ type ExtendedFormTextareaProps = Partial<typeof RplFormTextarea> & {
 export default {
   title: 'Forms/Textarea',
   component: RplFormTextarea,
-  render: Template
+  render: Template,
+  args: {
+    name: 'example-name',
+    id: 'example-id',
+    labelId: 'example-label-id',
+    handlers: {}
+  }
 } satisfies Meta<ExtendedFormTextareaProps>
 
 type Story = StoryObj<ExtendedFormTextareaProps>

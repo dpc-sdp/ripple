@@ -326,7 +326,7 @@ export const WithSlots: Story = {
       return { args }
     },
     template: `
-      <RplForm>
+      <RplForm id="form">
         <RplFormElement
           type="RplFormText"
           label="test"

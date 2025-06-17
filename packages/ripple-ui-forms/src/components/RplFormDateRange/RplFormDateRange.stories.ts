@@ -27,21 +27,23 @@ const Template = (args) => ({
 export default {
   title: 'Forms/Date range',
   component: RplFormDateRange,
-  render: Template
+  render: Template,
+  args: {
+    id: 'date-range-field',
+    name: 'date-range-field'
+  }
 } satisfies Meta<typeof RplFormDateRange>
 
 type Story = StoryObj<typeof RplFormDateRange>
 
 export const Default: Story = {
   args: {
-    id: 'date-range-default',
     variant: 'default'
   }
 }
 
 export const Reverse: Story = {
   args: {
-    id: 'date-range-reverse',
     variant: 'reverse'
   },
   parameters: {
@@ -51,7 +53,6 @@ export const Reverse: Story = {
 
 export const Inactive: Story = {
   args: {
-    id: 'date-range-inactive',
     variant: 'default',
     disabled: true
   }
@@ -59,7 +60,6 @@ export const Inactive: Story = {
 
 export const Invalid: Story = {
   args: {
-    id: 'date-range-invalid',
     variant: 'default',
     invalid: true
   }
@@ -67,7 +67,6 @@ export const Invalid: Story = {
 
 export const CustomDateFormat: Story = {
   args: {
-    id: 'date-range-format',
     variant: 'default',
     dateFormat: 'yyyy/mm/dd'
   }
@@ -75,7 +74,6 @@ export const CustomDateFormat: Story = {
 
 export const BlockDisplay: Story = {
   args: {
-    id: 'date-range-display-block',
     display: 'block'
   }
 }

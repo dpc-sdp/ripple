@@ -18,7 +18,10 @@ const Template = (args: any) => ({
 export default {
   title: 'Forms/Checkbox',
   component: RplFormOption,
-  render: Template
+  render: Template,
+  args: {
+    onValue: true
+  }
 } satisfies Meta<typeof RplFormOption>
 
 type Story = StoryObj<typeof RplFormOption>

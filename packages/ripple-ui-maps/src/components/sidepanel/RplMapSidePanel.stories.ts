@@ -106,6 +106,7 @@ const Template = (args: any) => ({
           :totalResults="args.features.length"
           :totalPages="(args.features.length / perPage)"
           :mapHeight="mapHeight"
+          :isBusy="false"
           @paginate="setMapPanelPage"
         >
           <RplMapSidePanelItem

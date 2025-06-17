@@ -23,7 +23,8 @@ export const Default: Story = {}
 export const Image: Story = {
   args: {
     image: {
-      src: '/img/image-landscape-m.jpg'
+      src: '/img/image-landscape-m.jpg',
+      alt: 'Image alt text'
     }
   }
 }

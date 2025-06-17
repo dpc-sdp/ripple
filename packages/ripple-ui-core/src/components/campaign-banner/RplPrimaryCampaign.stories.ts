@@ -44,7 +44,8 @@ export const PrimaryWithImage: Story = {
   name: 'Primary/Image',
   args: {
     image: {
-      src: 'img/image-landscape-m.jpg'
+      src: 'img/image-landscape-m.jpg',
+      alt: 'Image alt text'
     },
     meta: '<span>Some metadata, probably about the image</span>'
   }

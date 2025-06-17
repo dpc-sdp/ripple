@@ -221,9 +221,10 @@ export type TideSearchListingConfig = {
   searchListingConfig: {
     /**
      * @description Search provider used for queries - either elasticsearch or elastic app search
-     * @default 'app-search' defaults to app-search
+     * @default 'elasticsearch' defaults to elasticsearch
+     * @deprecated app search is no longer supported, so this option is no longer in use
      */
-    searchProvider: 'elasticsearch' | 'app-search'
+    searchProvider: 'elasticsearch'
     /**
      * @description Custom search index to use - EG for data pipelines
      */

@@ -1,10 +1,10 @@
 <template>
   <div>
     <RplContent class="rpl-type-p rpl-u-margin-b-4" :html="description" />
-    <RplContent v-if="searchState.error">
+    <RplContent v-if="error">
       <p>Sorry! Something went wrong. Please try again later.</p>
     </RplContent>
-    <RplContent v-else-if="searchComplete && !searchState.totalResults">
+    <RplContent v-else-if="searchComplete && !results.length">
       <p>Sorry! We couldn't find any matches.</p>
     </RplContent>
     <div v-else>
@@ -37,7 +37,7 @@
         </ul>
       </template>
       <div
-        v-if="link.url"
+        v-if="link?.url"
         class="rpl-type-label rpl-type-weight-bold rpl-u-margin-t-6"
       >
         <RplTextLink v-bind="link" />
@@ -47,40 +47,22 @@
 </template>
 
 <script setup lang="ts">
-import { formatDate, useSearchUI, useRuntimeConfig } from '#imports'
-import { computed, inject } from 'vue'
-import {
-  IContentCollectionDisplay,
-  IContentCollectionFilter,
-  IContentCollectionSort
-} from '../../../mapping/components/content-collection/content-collection-mapping'
-import type { IRplFeatureFlags } from '@dpc-sdp/ripple-tide-api/types'
+import { formatDate, useRuntimeConfig } from '#imports'
+import { computed } from 'vue'
+import { IContentCollectionDisplay } from '../../../mapping/components/content-collection/content-collection-mapping'
 import { stripMediaBaseUrl } from '@dpc-sdp/ripple-tide-api/utils'
 
 const { public: config } = useRuntimeConfig()
 
-const featureFlags: IRplFeatureFlags = inject('featureFlags', {})
-
-const connectorType =
-  featureFlags.contentCollectionSearchConnector || 'appSearch'
-
-const apiConnectorOptions = {
-  type: connectorType,
-  ...(config.tide?.[connectorType] || {})
-}
-
 const props = defineProps<{
-  title: string
   description?: string
-  link: {
+  link?: {
     text: string
     url: string
-  }
+  } | null
+  searchQuery: Record<string, any>
   display: IContentCollectionDisplay
-  perPage: number
-  filters: IContentCollectionFilter[]
-  sortBy: IContentCollectionSort[]
-  hasSidebar: boolean
+  hasSidebar?: boolean
 }>()
 
 const cardClasses = computed(() =>
@@ -91,71 +73,51 @@ const cardClasses = computed(() =>
 
 const searchResultsMappingFn = (item): any => {
   const { $app_origin, $config } = useNuxtApp()
-  const rawUpdated = item.changed?.raw?.[0]
-  const rawImage = item.field_media_image_absolute_path?.raw?.[0]
+  const rawUpdated = getSingleResultValue(item._source?.changed)
+  const rawImage = getSingleResultValue(
+    item._source?.field_media_image_absolute_path
+  )
 
   return {
-    id: item._meta.id,
+    id: item._id,
     props: {
       el: 'li',
-      title: item.title?.raw?.[0],
-      url: stripSiteId(item.url?.raw?.[0], $app_origin || ''),
+      title: getSingleResultValue(item._source?.title),
+      url: stripSiteId(
+        getSingleResultValue(item._source?.url),
+        $app_origin || ''
+      ),
       image:
         props.display.style === 'thumbnail' && rawImage
           ? { src: stripMediaBaseUrl(rawImage, $config.public?.tide?.baseUrl) }
           : null,
       updated: rawUpdated ? formatDate(rawUpdated) : '',
-      type: item.type?.raw?.[0]
+      type: getSingleResultValue(item._source?.type)
     },
     slots: {
-      default:
-        item.field_landing_page_summary?.snippet ||
-        item.field_landing_page_summary?.raw?.[0]
+      default: getSingleResultValue(item._source?.field_landing_page_summary)
     }
   }
 }
 
-const searchDriverOptions = {
-  trackUrlState: false,
-  alwaysSearchOnInitialLoad: true,
-  initialState: {
-    resultsPerPage: props.perPage,
-    sortList: props.sortBy
-  },
-  searchQuery: {
-    filters: props.filters,
-    result_fields: {
-      title: {
-        raw: {
-          size: 150
-        }
-      },
-      field_landing_page_summary: {
-        snippet: {
-          size: 150,
-          fallback: true
-        }
-      },
-      field_media_image_absolute_path: {
-        raw: {}
-      },
-      changed: {
-        raw: {}
-      },
-      url: {
-        raw: {}
-      },
-      type: {
-        raw: {}
-      }
-    }
-  }
-}
+const error = ref(null)
+const searchComplete = ref(false)
+const results = ref(null)
 
-const { results, searchState, searchComplete } = await useSearchUI(
-  apiConnectorOptions,
-  searchDriverOptions,
-  [],
-  searchResultsMappingFn
-)
+const index = config.tide.elasticsearch.index
+const searchUrl = `${config.apiUrl}/api/tide/elasticsearch/${index}/_search`
+
+try {
+  const searchResponse = await $fetch(searchUrl, {
+    method: 'POST',
+    body: props.searchQuery
+  })
+
+  results.value = searchResponse?.hits?.hits?.map(searchResultsMappingFn)
+} catch (e) {
+  trackError(e)
+  error.value = e
+} finally {
+  searchComplete.value = true
+}
 </script>

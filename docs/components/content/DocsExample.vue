@@ -115,7 +115,7 @@ onMounted(() => {
         parsedData.id === props.id &&
         parsedData.uid === uid.value
       ) {
-        height.value = parsedData.iframeSize + 4
+        height.value = parsedData.iframeSize + 12
       }
     },
     false
@@ -175,12 +175,12 @@ watch(targetIsVisible, (visible, wasVisible) => {
 }
 
 .frame {
-  width: 1px;
-  min-width: 100%;
+  width: 100%;
   height: 100px;
   border: none;
   overflow: hidden;
   vertical-align: bottom;
+  margin-bottom: calc(-1 * var(--rpl-sp-3));
 }
 
 .with-padding .docs-example-body {
@@ -203,6 +203,7 @@ watch(targetIsVisible, (visible, wasVisible) => {
 }
 
 .docs-example-footer {
+  position: relative;
   border-top: var(--rpl-border-1) solid var(--rpl-clr-neutral-300);
   padding: var(--rpl-sp-3) var(--rpl-sp-5);
 }

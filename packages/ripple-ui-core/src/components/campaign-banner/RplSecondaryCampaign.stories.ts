@@ -37,7 +37,7 @@ type Story = StoryObj<typeof RplSecondaryCampaign>
 
 export const Secondary: Story = {}
 
-export const SecondaryWithImage: Story = {
+export const SecondaryImage: Story = {
   name: 'Secondary/Image',
   args: {
     image: {

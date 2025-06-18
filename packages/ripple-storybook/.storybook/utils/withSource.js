@@ -88,8 +88,11 @@ export const withSource = (storyFn, context) => {
           // get the story source
           let src = originalStory?.template
 
-          // generate the source code based on the current args
-          if (src) {
+          if (context.parameters?.source) {
+            // optionally render a parameter as is, i.e., HTML prop
+            code = context.args[context.parameters?.source]
+          } else if (src) {
+            // generate the source code based on the current args
             code = templateSourceCode(src, context.args, context.argTypes)
           } else {
             const rawStory = originalStory()

@@ -10,7 +10,8 @@ export default {
 
 type Story = StoryObj<typeof RplMapGeolocateButton>
 
-export const Default: Story = {
+export const DefaultStory: Story = {
+  name: 'Default',
   args: {
     error: null
   },

@@ -64,7 +64,7 @@ Use the numbered variant when it is important the content is read in sequential 
 
 ::DocsExample
 ---
-id: core-containers-accordion--numbered
+id: core-containers-accordion--accordion-numbered
 ---
 ::
 

@@ -18,7 +18,7 @@ The header can also support a campaign logo if required. This will display above
 
 ::DocsExample
 ---
-id: core-containers-header--journey-links
+id: core-containers-header--default-journey-links
 ---
 ::
 
@@ -57,13 +57,13 @@ All variants can be used with the introduction banner.
 
 ::DocsExample
 ---
-id: core-containers-header--default
+id: core-containers-header--default-story
 ---
 ::
 
 ::DocsExample
 ---
-id: core-containers-header--call-to-action
+id: core-containers-header--default-call-to-action
 ---
 ::
 
@@ -139,7 +139,7 @@ If you choose neutral button for your site, the header will display buttons in t
 ::DocsThemeChooser
   ::DocsExample
   ---
-  id: core-containers-header--call-to-action
+  id: core-containers-header--default-call-to-action
   ---
   ::
   ::DocsExample

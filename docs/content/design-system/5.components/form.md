@@ -27,7 +27,7 @@ The user can submit a form when all fields are valid (see [form alert](/design-s
 
 ::DocsExample
 ---
-id: forms-form--default
+id: forms-form--default-story
 ---
 ::
 
@@ -126,7 +126,7 @@ A form component in an active state will adopt the same colour as the overall si
 ::DocsThemeChooser
   ::DocsExample
   ---
-  id: forms-form--default
+  id: forms-form--default-story
   ---
   ::
 ::

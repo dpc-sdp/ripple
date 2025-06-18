@@ -41,7 +41,8 @@ export default {
 
 type Story = StoryObj<typeof RplTabs>
 
-export const Default: Story = {
+export const DefaultStory: Story = {
+  name: 'Default',
   args: {
     mode: 'horizontal'
   }

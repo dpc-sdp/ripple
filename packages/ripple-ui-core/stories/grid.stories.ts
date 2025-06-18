@@ -9,7 +9,7 @@ export default {
 
 const template = (template: string) => () => ({ template })
 
-export const XS: StoryObj = {
+export const GridColumnsXSDefault: StoryObj = {
   name: 'Grid/Columns/XS - Default',
   render: template(`
     <div class="rpl-grid">
@@ -20,7 +20,7 @@ export const XS: StoryObj = {
   `)
 }
 
-export const S: StoryObj = {
+export const GridColumnsS: StoryObj = {
   name: 'Grid/Columns/S',
   render: template(`
     <div class="rpl-grid">
@@ -36,7 +36,7 @@ export const S: StoryObj = {
   `)
 }
 
-export const M: StoryObj = {
+export const GridColumnsM: StoryObj = {
   name: 'Grid/Columns/M',
   render: template(`
     <div class="rpl-grid">
@@ -52,7 +52,7 @@ export const M: StoryObj = {
   `)
 }
 
-export const L: StoryObj = {
+export const GridColumnsL: StoryObj = {
   name: 'Grid/Columns/L',
   render: template(`
     <div class="rpl-grid">
@@ -72,7 +72,7 @@ export const L: StoryObj = {
   `)
 }
 
-export const XL: StoryObj = {
+export const GridColumnsXL: StoryObj = {
   name: 'Grid/Columns/XL',
   render: template(`
     <div class="rpl-grid">
@@ -92,7 +92,7 @@ export const XL: StoryObj = {
   `)
 }
 
-export const Simple: StoryObj = {
+export const GridExampleSimple: StoryObj = {
   name: 'Grid/Example/Simple',
   render: template(`
     <div class="rpl-grid">
@@ -101,7 +101,7 @@ export const Simple: StoryObj = {
   `)
 }
 
-export const Layout: StoryObj = {
+export const GridExampleLayout: StoryObj = {
   name: 'Grid/Example/Layout',
   render: template(`
     <div class="rpl-grid">
@@ -116,7 +116,7 @@ export const Layout: StoryObj = {
   `)
 }
 
-export const NoRowGap: StoryObj = {
+export const GridModifiersNoRowGap: StoryObj = {
   name: 'Grid/Modifiers/No row gap',
   render: template(`
     <div class="rpl-grid rpl-grid--no-row-gap">
@@ -127,7 +127,7 @@ export const NoRowGap: StoryObj = {
   `)
 }
 
-export const StartingColumn: StoryObj = {
+export const GridModifiersStartingColumn: StoryObj = {
   name: 'Grid/Modifiers/Starting column',
   render: template(`
     <div class="rpl-grid">
@@ -147,7 +147,7 @@ export const StartingColumn: StoryObj = {
   `)
 }
 
-export const NestedGrids: StoryObj = {
+export const GridModifiersNestedGrids: StoryObj = {
   name: 'Grid/Modifiers/Nested grids',
   render: template(`
     <div class="rpl-grid">

@@ -60,7 +60,7 @@ export const IntroWithLinks: Story = {
   }
 }
 
-export const WithButton: Story = {
+export const IntroWithButton: Story = {
   name: 'Intro/With button',
   args: {
     iconName: 'icon-information-circle-filled',

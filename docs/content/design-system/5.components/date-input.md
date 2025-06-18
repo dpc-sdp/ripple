@@ -15,7 +15,7 @@ Don’t set this component to automatically tab between these fields. This can b
 
 ::DocsExample
 ---
-id: forms-date-input--default
+id: forms-date-input--default-story
 ---
 ::
 
@@ -62,7 +62,7 @@ The date input has 2 variants:
 ### Default
 ::DocsExample
 ---
-id: forms-date-input--default
+id: forms-date-input--default-story
 ---
 ::
 
@@ -164,7 +164,7 @@ Date input uses colour to show interactive states. A date input field in an acti
 ::DocsThemeChooser
   ::DocsExample
   ---
-  id: forms-date-input--default
+  id: forms-date-input--default-story
   ---
   ::
 ::

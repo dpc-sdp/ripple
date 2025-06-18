@@ -10,7 +10,8 @@ export default {
 
 type Story = StoryObj<typeof RplForm>
 
-export const Default: Story = {
+export const DefaultStory: Story = {
+  name: 'Default',
   render: (args) => ({
     components: { RplForm },
     setup() {

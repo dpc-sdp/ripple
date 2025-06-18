@@ -32,7 +32,8 @@ export default {
 
 type Story = StoryObj<ExtendedFormInputProps>
 
-export const Default: Story = {
+export const DefaultStory: Story = {
+  name: 'Default',
   args: {
     type: 'text',
     placeholder: 'Enter some text'

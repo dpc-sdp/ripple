@@ -41,7 +41,8 @@ const sampleUpper = `<RplDocument url="https://vic.gov.au/#print">
   </template>
 </RplDocument>`
 
-export const Default: Story = {
+export const DefaultStory: Story = {
+  name: 'Default',
   args: {
     name: 'The document title',
     url: 'https://vic.gov.au/',

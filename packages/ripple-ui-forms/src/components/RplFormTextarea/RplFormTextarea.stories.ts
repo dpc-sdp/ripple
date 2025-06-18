@@ -33,7 +33,9 @@ export default {
 
 type Story = StoryObj<ExtendedFormTextareaProps>
 
-export const Default: Story = {}
+export const DefaultStory: Story = {
+  name: 'Default'
+}
 
 export const Reverse: Story = {
   parameters: {

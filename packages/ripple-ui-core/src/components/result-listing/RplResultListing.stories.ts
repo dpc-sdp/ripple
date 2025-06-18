@@ -51,7 +51,9 @@ export default {
 
 type Story = StoryObj<typeof RplSearchResult>
 
-export const Default: Story = {}
+export const DefaultStory: Story = {
+  name: 'Default'
+}
 
 export const Simple: Story = {
   args: {

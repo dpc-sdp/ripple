@@ -7,7 +7,7 @@ export default {
   decorators: [
     () => ({
       template:
-        '<div class="rpl-grid"><div class="rpl-col-12 rpl-col-4-m"><story /></div></div>'
+        '<div class="rpl-storybook__page rpl-grid"><div class="rpl-col-12 rpl-col-4-m"><story /></div></div>'
     })
   ]
 } satisfies Meta<typeof RplRelatedLinks>

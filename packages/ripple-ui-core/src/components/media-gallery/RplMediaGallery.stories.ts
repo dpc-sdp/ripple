@@ -9,7 +9,8 @@ export default {
 
 type Story = StoryObj<typeof RplMediaGallery>
 
-export const Default: Story = {
+export const DefaultStory: Story = {
+  name: 'Default',
   args: {
     id: 'media-gallery-1',
     items: [

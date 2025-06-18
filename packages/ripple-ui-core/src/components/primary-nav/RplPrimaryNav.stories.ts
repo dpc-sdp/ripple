@@ -21,7 +21,8 @@ export default {
 
 type Story = StoryObj<typeof RplPrimaryNav>
 
-export const Default: Story = {
+export const DefaultStory: Story = {
+  name: 'Default',
   parameters: {
     chromatic: {
       viewports: [bpMin.s, bpMin.l]

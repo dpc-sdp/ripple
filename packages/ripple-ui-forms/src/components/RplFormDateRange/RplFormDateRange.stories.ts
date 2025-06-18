@@ -36,7 +36,8 @@ export default {
 
 type Story = StoryObj<typeof RplFormDateRange>
 
-export const Default: Story = {
+export const DefaultStory: Story = {
+  name: 'Default',
   args: {
     variant: 'default'
   }

@@ -14,7 +14,8 @@ export default {
 
 type Story = StoryObj<typeof RplFile>
 
-export const Default: Story = {
+export const DefaultStory: Story = {
+  name: 'Default',
   args: {
     name: 'An example of a document title that is a little longer'
   }

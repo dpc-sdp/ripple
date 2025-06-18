@@ -18,7 +18,7 @@ A breadcrumb displays the parent page, icons and the current page.
 
 ::DocsExample
 ---
-id: core-navigation-breadcrumbs--default
+id: core-navigation-breadcrumbs--default-story
 ---
 ::
 
@@ -50,7 +50,7 @@ The Breadcrumb uses colour to:
 ::DocsThemeChooser
   ::DocsExample
   ---
-  id: core-navigation-breadcrumbs--default
+  id: core-navigation-breadcrumbs--default-story
   ---
   ::
 ::

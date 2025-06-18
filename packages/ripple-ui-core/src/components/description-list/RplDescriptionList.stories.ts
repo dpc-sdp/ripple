@@ -16,7 +16,8 @@ export default {
 
 type Story = StoryObj<typeof RplDescriptionList>
 
-export const Default: Story = {
+export const DefaultStory: Story = {
+  name: 'Default',
   args: {
     items: [
       { term: 'Author:', description: 'Department of Premier and Cabinet' },

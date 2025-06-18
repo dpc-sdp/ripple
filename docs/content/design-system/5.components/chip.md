@@ -15,7 +15,7 @@ When displaying multiple chips together, place them in a row.
 
 ::DocsExample
 ---
-id: core-navigation-chip--default
+id: core-navigation-chip--default-story
 ---
 ::
 
@@ -49,7 +49,7 @@ The chip has a default and reverse variant, allowing flexible use across a range
 ### Default
 ::DocsExample
 ---
-id: core-navigation-chip--default
+id: core-navigation-chip--default-story
 ---
 ::
 
@@ -72,7 +72,7 @@ If the site primary colour is ‘light’, the chip content will display in the 
 ::DocsThemeChooser
   ::DocsExample
   ---
-  id: core-navigation-chip--default
+  id: core-navigation-chip--default-story
   ---
   ::
 ::

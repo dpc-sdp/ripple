@@ -115,7 +115,7 @@ export const SixItems: Story = {
   }
 }
 
-export const WithSidebar: Story = {
+export const WithSidebar1Column: Story = {
   name: 'With sidebar (1 column)',
   args: {
     items: [

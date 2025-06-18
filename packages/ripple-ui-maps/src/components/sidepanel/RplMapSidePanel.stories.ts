@@ -163,7 +163,8 @@ export default {
 
 type Story = StoryObj<ExtendedMapPropsProps>
 
-export const Default: Story = {
+export const DefaultStory: Story = {
+  name: 'Default',
   args: {
     id: 'default',
     features: featureData

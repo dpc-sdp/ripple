@@ -9,7 +9,8 @@ export default {
 
 type Story = StoryObj<typeof RplTimeline>
 
-export const Default: Story = {
+export const DefaultStory: Story = {
+  name: 'Default',
   args: {
     title: 'Timeline heading',
     items: [

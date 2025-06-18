@@ -42,7 +42,7 @@ Tags have 2 variants:
 ### Default
 ::DocsExample
 ---
-id: core-containers-tag--default
+id: core-containers-tag--default-story
 ---
 ::
 

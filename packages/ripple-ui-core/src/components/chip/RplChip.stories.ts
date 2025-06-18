@@ -36,11 +36,12 @@ const ManyTemplate = (args: any) => ({
     '<div class="sb-container"><RplChip v-bind="args" /><RplChip v-bind="args" /></div>'
 })
 
-export const Default: Story = {
+export const DefaultStory: Story = {
+  name: 'Default',
   render: SingleTemplate
 }
 
-export const TwoChips: Story = {
+export const ExampleTwoChips: Story = {
   render: ManyTemplate,
   name: 'Example/Two chips'
 }

@@ -71,7 +71,7 @@ export const ExpandableAuto: Story = {
   }
 }
 
-export const ExpandableProp: Story = {
+export const ExpandablePropDriven: Story = {
   name: 'Expandable (prop driven)',
   args: {
     currentStepId: 'step1',

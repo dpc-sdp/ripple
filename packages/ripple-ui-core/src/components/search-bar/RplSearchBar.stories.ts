@@ -60,7 +60,8 @@ export default {
 
 type Story = StoryObj<typeof RplSearchBar>
 
-export const Default: Story = {
+export const DefaultStory: Story = {
+  name: 'Default',
   args: { id: 'default' }
 }
 

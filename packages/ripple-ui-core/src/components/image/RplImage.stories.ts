@@ -37,7 +37,7 @@ export const Circle: Story = {
   }
 }
 
-export const Square: Story = {
+export const Square11: Story = {
   name: 'Square 1/1',
   args: {
     src: 'img/image-landscape-m.jpg',
@@ -48,7 +48,7 @@ export const Square: Story = {
   }
 }
 
-export const Full: Story = {
+export const Full43: Story = {
   name: 'Full 4/3',
   args: {
     src: 'img/image-landscape-m.jpg',
@@ -59,7 +59,7 @@ export const Full: Story = {
   }
 }
 
-export const Wide: Story = {
+export const Wide169: Story = {
   name: 'Wide 16/9',
   args: {
     src: 'img/image-landscape-m.jpg',
@@ -70,7 +70,7 @@ export const Wide: Story = {
   }
 }
 
-export const Ultrawide: Story = {
+export const Ultrawide219: Story = {
   name: 'Ultrawide 21/9',
   args: {
     src: 'img/image-landscape-m.jpg',
@@ -81,7 +81,7 @@ export const Ultrawide: Story = {
   }
 }
 
-export const Panorama: Story = {
+export const Panorama31: Story = {
   name: 'Panorama 3/1',
   args: {
     src: 'img/image-landscape-m.jpg',

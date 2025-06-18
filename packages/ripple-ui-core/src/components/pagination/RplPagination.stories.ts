@@ -15,7 +15,10 @@ export default {
     totalPages: 20,
     currentPage: 1,
     surroundingPages: 3
-  }
+  },
+  decorators: [
+    () => ({ template: '<div class="sb-demo-container"><story /></div>' })
+  ]
 } satisfies Meta<typeof RplPagination>
 
 type Story = StoryObj<typeof RplPagination>

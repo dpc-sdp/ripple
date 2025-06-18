@@ -21,14 +21,15 @@ const Template = (args: any) => ({
     '<p class="sb-container rpl-type-p">This para contains a <RplTextLink @click.prevent="() => null" v-bind="args">{{ args.text }}</RplTextLink> in the middle.</p>'
 })
 
-export const Default: Story = {
+export const DefaultStory: Story = {
+  name: 'Default',
   args: {
     text: 'link'
   },
   render: Template
 }
 
-export const ContentAccent: Story = {
+export const ExampleContentAccent: Story = {
   name: 'Example/Content/Accent',
   args: {
     text: 'voilà'
@@ -36,7 +37,7 @@ export const ContentAccent: Story = {
   render: Template
 }
 
-export const ContentEmoji: Story = {
+export const ExampleContentEmoji: Story = {
   name: 'Example/Content/Emoji',
   args: {
     text: '😍'
@@ -44,7 +45,7 @@ export const ContentEmoji: Story = {
   render: Template
 }
 
-export const ContentTarget: Story = {
+export const ExampleContentTarget: Story = {
   name: 'Example/Content/Target',
   render: (args: any) => ({
     components: { RplTextLink },
@@ -55,7 +56,7 @@ export const ContentTarget: Story = {
   })
 }
 
-export const ComponentIcon: Story = {
+export const ExampleComponentIcon: Story = {
   name: 'Example/Component/Icon',
   render: (args: any) => ({
     components: { RplTextLink, RplIcon },

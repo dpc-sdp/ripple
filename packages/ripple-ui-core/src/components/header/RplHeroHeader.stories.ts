@@ -34,14 +34,16 @@ const backgroundSample = {
   focalPoint: { x: 2620, y: 620 }
 }
 
-export const Default: Story = {}
+export const DefaultStory: Story = {
+  name: 'Default'
+}
 
-export const NoCornerGraphics: Story = {
+export const DefaultNoCornerGraphics: Story = {
   name: 'Default/No corner graphics',
   args: { cornerTop: false, cornerBottom: false }
 }
 
-export const CustomCornerGraphics: Story = {
+export const DefaultCustomCornerGraphics: Story = {
   name: 'Default/Custom corner graphics',
   args: {
     cornerTop: '/img/hero-corner-top.png',
@@ -49,7 +51,7 @@ export const CustomCornerGraphics: Story = {
   }
 }
 
-export const Logo: Story = {
+export const DefaultLogo: Story = {
   name: 'Default/Logo',
   args: {
     cornerTop: true,
@@ -60,7 +62,7 @@ export const Logo: Story = {
   }
 }
 
-export const Logos: Story = {
+export const DefaultLogos: Story = {
   name: 'Default/Logos',
   args: {
     cornerTop: true,
@@ -77,7 +79,7 @@ export const Logos: Story = {
   }
 }
 
-export const JourneyLinks: Story = {
+export const DefaultJourneyLinks: Story = {
   name: 'Default/Journey links',
   args: {
     links: {
@@ -93,7 +95,7 @@ export const JourneyLinks: Story = {
   }
 }
 
-export const CallToAction: Story = {
+export const DefaultCallToAction: Story = {
   name: 'Default/Call to action',
   args: {
     primaryAction: { text: 'Primary action', url: '#primary' },

@@ -23,7 +23,7 @@ The primary navigation always sits at the top of the page. It displays above all
 
 ::DocsExample
 ---
-id: core-navigation-primary-nav--default
+id: core-navigation-primary-nav--default-story
 ---
 ::
 
@@ -112,7 +112,7 @@ Primary navigation also adopts its theming from the search bar component.
 ::DocsThemeChooser
   ::DocsExample
   ---
-  id: core-navigation-primary-nav--default
+  id: core-navigation-primary-nav--default-story
   ---
   ::
 ::

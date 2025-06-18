@@ -19,7 +19,7 @@ The footer must be used at the bottom of every page. It is separate from the pri
 
 ::DocsExample
 ---
-id: core-navigation-footer--default
+id: core-navigation-footer--default-story
 ---
 ::
 
@@ -59,7 +59,7 @@ You can theme the footer in 3 ways:
 ::DocsThemeChooser
   ::DocsExample
   ---
-  id: core-navigation-footer--default
+  id: core-navigation-footer--default-story
   ---
   ::
 ::
@@ -84,7 +84,7 @@ See [component specific theming guidance for designers]().
 
 ::DocsExample
 ---
-id: core-navigation-footer--default
+id: core-navigation-footer--default-story
 theme: 'docsTheme3'
 ---
 ::

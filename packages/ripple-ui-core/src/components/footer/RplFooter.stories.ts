@@ -45,7 +45,8 @@ export default {
 
 type Story = StoryObj<typeof RplFooter>
 
-export const Default: Story = {
+export const DefaultStory: Story = {
+  name: 'Default',
   args: { variant: 'default' }
 }
 

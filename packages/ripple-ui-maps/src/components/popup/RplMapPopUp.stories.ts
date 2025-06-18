@@ -9,7 +9,8 @@ export default {
 
 type Story = StoryObj<typeof RplMapPopUp>
 
-export const Default: Story = {
+export const DefaultStory: Story = {
+  name: 'Default',
   args: {
     isOpen: true,
     header: 'Pop up header'

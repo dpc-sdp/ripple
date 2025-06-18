@@ -18,7 +18,7 @@ See [media](/design-system/components/media/) for information relating to file t
 
 ::DocsExample
 ---
-id: core-containers-media-gallery--default
+id: core-containers-media-gallery--default-story
 ---
 ::
 
@@ -46,7 +46,7 @@ Media fullscreen adopts its theming from the pagination component.
 ::DocsThemeChooser
   ::DocsExample
   ---
-  id: core-containers-media-gallery--default
+  id: core-containers-media-gallery--default-story
   ---
   ::
 ::

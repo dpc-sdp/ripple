@@ -50,7 +50,7 @@ export const ContactUs: Story = {
   }
 }
 
-export const WithSlot: Story = {
+export const ContactUsWithSlot: Story = {
   name: 'Contact us/With slot',
   args: {
     default: 'This is extra content added in the default slot.',

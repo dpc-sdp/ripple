@@ -32,7 +32,7 @@ Use between 3 to 8 discrete sections of content, so the user is not overwhelmed.
 
 ::DocsExample
 ---
-id: core-containers-timeline--default
+id: core-containers-timeline--default-story
 ---
 ::
 
@@ -60,7 +60,7 @@ This is for steps or stages along a process. Use the default timeline when progr
 
 ::DocsExample
 ---
-id: core-containers-timeline--default
+id: core-containers-timeline--default-story
 ---
 ::
 

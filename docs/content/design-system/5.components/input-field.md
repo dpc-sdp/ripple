@@ -23,7 +23,7 @@ Don’t use an input field if the user’s text needs to be more than one line l
 
 ::DocsExample
 ---
-id: forms-input--default
+id: forms-input--default-story
 ---
 ::
 
@@ -90,7 +90,7 @@ The input field has 2 variants:
 
 ::DocsExample
 ---
-id: forms-input--default
+id: forms-input--default-story
 ---
 ::
 
@@ -145,7 +145,7 @@ An input field in an active state will adopt the same colour as the overall site
 ::DocsThemeChooser
   ::DocsExample
   ---
-  id: forms-input--default
+  id: forms-input--default-story
   ---
   ::
 ::

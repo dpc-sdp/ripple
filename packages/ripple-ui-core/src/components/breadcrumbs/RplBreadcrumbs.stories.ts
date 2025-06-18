@@ -8,7 +8,8 @@ export default {
 
 type Story = StoryObj<typeof RplBreadcrumbs>
 
-export const Default: Story = {
+export const DefaultStory: Story = {
+  name: 'Default',
   args: {
     items: [
       { text: 'Home', url: '/' },
@@ -18,7 +19,7 @@ export const Default: Story = {
   }
 }
 
-export const LongTitle: Story = {
+export const ExampleLongTitle: Story = {
   name: 'Example/Long title',
   args: {
     items: [
@@ -31,7 +32,7 @@ export const LongTitle: Story = {
   }
 }
 
-export const ManyLinks: Story = {
+export const ExampleManyLinks: Story = {
   name: 'Example/Many links',
   args: {
     items: [
@@ -45,7 +46,7 @@ export const ManyLinks: Story = {
   }
 }
 
-export const CollapseInnerLinks: Story = {
+export const ExampleCollapseInnerLinks: Story = {
   name: 'Example/Collapse inner links',
   args: {
     items: [

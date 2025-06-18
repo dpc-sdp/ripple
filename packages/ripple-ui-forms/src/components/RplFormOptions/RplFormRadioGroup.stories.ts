@@ -39,9 +39,7 @@ export default {
         value: 'item-3',
         label: 'Here is another radio'
       }
-    ],
-
-    value: 'item-2'
+    ]
   }
 } satisfies Meta<typeof RplFormRadioGroup>
 

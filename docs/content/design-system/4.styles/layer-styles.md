@@ -83,7 +83,7 @@ Elevation helps components to stand out. You can use them to flag interactivity,
 
 ::DocsExample
 ---
-id: core-navigation-breadcrumbs--default
+id: core-navigation-breadcrumbs--default-story
 hideCode: true
 ---
 ::

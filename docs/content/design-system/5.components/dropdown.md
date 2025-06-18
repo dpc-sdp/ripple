@@ -142,7 +142,8 @@ id: forms-dropdown--multi-select-many-items
 
 ::DocsExample
 ---
-id: forms-dropdown--reverse-variant&args=multiple:true
+id: forms-dropdown--reverse-variant
+argsString: 'multiple:true'
 ---
 ::
 

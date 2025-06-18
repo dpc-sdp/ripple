@@ -45,7 +45,7 @@ File uses colour for:
 ::DocsThemeChooser
   ::DocsExample
   ---
-  id: core-containers-file--default
+  id: core-containers-file--default-story
   ---
   ::
 ::

@@ -18,7 +18,9 @@ export default {
 
 type Story = StoryObj<typeof RplSearchBanner>
 
-export const Default: Story = {}
+export const DefaultStory: Story = {
+  name: 'Default'
+}
 
 export const Image: Story = {
   args: {

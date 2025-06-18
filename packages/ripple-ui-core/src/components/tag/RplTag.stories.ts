@@ -17,7 +17,8 @@ export default {
 
 type Story = StoryObj<typeof RplTag>
 
-export const Default: Story = {
+export const DefaultStory: Story = {
+  name: 'Default',
   args: {
     variant: 'default'
   }

@@ -22,7 +22,7 @@ export const Accordion: Story = {
   }
 }
 
-export const Numbered: Story = {
+export const AccordionNumbered: Story = {
   args: {
     id: 'example-numbered',
     items: SAMPLE,
@@ -30,7 +30,7 @@ export const Numbered: Story = {
   }
 }
 
-export const WithSlots: Story = {
+export const AccordionWithSlots: Story = {
   args: {
     id: 'example-slots'
   },

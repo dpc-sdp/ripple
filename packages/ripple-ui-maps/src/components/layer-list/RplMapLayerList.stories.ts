@@ -10,7 +10,8 @@ export default {
 
 type Story = StoryObj<typeof RplMapLayerList>
 
-export const Default: Story = {
+export const DefaultStory: Story = {
+  name: 'Default',
   args: {
     selectedLayers: ['red', 'green'],
     layers: [

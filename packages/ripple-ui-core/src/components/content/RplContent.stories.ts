@@ -2,10 +2,14 @@ import type { Meta, StoryObj } from '@storybook/vue3'
 import RplContent from './RplContent.vue'
 // @ts-ignore: Cannot find module
 import testcontent from './fixtures/testcontent.html?raw'
+import '@dpc-sdp/ripple-ui-core/style/components'
 
 export default {
   title: 'Core/Containers/Content',
-  component: RplContent
+  component: RplContent,
+  parameters: {
+    source: 'html'
+  }
 } satisfies Meta<typeof RplContent>
 
 type Story = StoryObj<typeof RplContent>

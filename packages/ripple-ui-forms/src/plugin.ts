@@ -7,6 +7,7 @@ import {
   checkbox,
   checkboxGroup,
   dateSelect,
+  dateSelectRange,
   dropdown,
   number,
   url,
@@ -59,6 +60,8 @@ rplFormInputs.library = (node) => {
       return node.define(dateRange)
     case 'RplFormDateSelect':
       return node.define(dateSelect)
+    case 'RplFormDateSelectRange':
+      return node.define(dateSelectRange)
     case 'RplFormContent':
       return node.define(content)
     case 'RplFormLabel':

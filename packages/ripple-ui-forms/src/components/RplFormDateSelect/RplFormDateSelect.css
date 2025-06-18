@@ -5,7 +5,8 @@
     --dp-border-color-focus: rgb(102 102 102);
     --dp-border-color-hover: rgb(102 102 102);
     --dp-primary-color: var(--rpl-clr-primary);
-    --dp-range-between-dates-background-color: var(--rpl-clr-primary-alpha);
+    --dp-icon-color: var(--rpl-clr-link);
+    --dp-range-between-dates-background-color: rgb(0 82 194 / 0.2);
     --dp-range-between-dates-border-color: var(--rpl-clr-primary-alpha);
     --dp-range-between-dates-text-color: white;
   }
@@ -19,8 +20,10 @@
   --dp-border-radius: var(--rpl-border-radius-2);
   --dp-cell-border-radius: 0;
   --dp-row-margin: 0;
-  --dp-input-padding: 6px 40px 6px 12px;
+  --dp-input-padding: var(--rpl-sp-3) var(--rpl-sp-13) var(--rpl-sp-3)
+    var(--rpl-sp-5);
 
+  margin-top: -1px;
   max-width: 265px;
 
   .dp__menu {
@@ -49,6 +52,8 @@
   .dp__input {
     border-width: var(--rpl-border-1);
     border-color: var(--rpl-clr-dark);
+    line-height: 1;
+    height: 50%;
 
     &:hover {
       border-color: var(--rpl-clr-dark);
@@ -56,7 +61,7 @@
   }
 
   .dp__input_icon_pad {
-    padding-inline-start: 12px;
+    padding-inline-start: var(--rpl-sp-5);
   }
 
   .dp__input_icon {
@@ -64,23 +69,31 @@
     inset-inline: auto;
     right: 0;
     margin-right: 2px;
-    padding: 10px;
+    padding: var(--rpl-sp-3) var(--rpl-sp-5);
+    line-height: 1;
     color: var(--rpl-clr-link);
   }
 
   .dp__input_focus {
+    margin-bottom: -1px;
+    margin-top: -1px;
     background: rgb(245 245 245);
     --dp-border-radius: 0;
+    border-width: var(--rpl-border-2);
+    padding-left: calc(var(--rpl-sp-5) - 1px);
 
     ~ div > .dp__input_icon {
       border-color: var(--rpl-clr-focus);
-      color: black;
 
       --local-background-colour: var(--rpl-clr-focus);
+      padding-top: 14px;
+      padding-bottom: 14px;
+      margin-right: 0;
+      padding-right: 22px;
 
       outline: none;
       box-shadow:
-        0 0 0 var(--rpl-border-1) var(--rpl-clr-dark) inset,
+        0 0 0 var(--rpl-border-2) var(--rpl-clr-dark) inset,
         0 0 0 var(--rpl-border-3) var(--rpl-clr-focus);
     }
   }
@@ -89,18 +102,8 @@
     font-weight: bold;
   }
 
-  .dp__action_button {
-    /* background: var(--rpl-clr-primary);
-    color: white; */
-    border: 1px solid rgb(102 102 102);
-    border-radius: 3px;
-    padding: 15px;
-    margin: 0 5px;
-    font-weight: bold;
-  }
-
   .dp--clear-btn {
-    right: 40px;
+    right: var(--rpl-sp-11);
   }
 
   .dp__inner_nav {
@@ -153,6 +156,10 @@
     color: var(--rpl-clr-neutral-300);
     border-color: var(--rpl-clr-neutral-200);
   }
+
+  .dp__month_year_wrap {
+    align-items: baseline;
+  }
 }
 
 .dp__range_between {
@@ -162,4 +169,61 @@
 .rpl-form-date-select-label {
   display: block;
   margin-bottom: var(--rpl-sp-2);
+}
+
+.custom-month-year-component {
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.select-input {
+  margin: 5px 3px;
+  padding: 5px;
+  width: auto;
+  outline: none;
+  appearance: multilist;
+  appearance: base-select;
+  border: 0;
+  background: transparent;
+  font-weight: bold;
+
+  &::picker-icon {
+    color: var(--rpl-clr-link);
+    content: '\2335';
+    font-size: 20px;
+    margin-top: -6px;
+  }
+
+  &::picker(select) {
+    appearance: base-select;
+    border-width: 2px;
+  }
+
+  option {
+    background: var(--rpl-clr-neutral-100);
+    padding: var(--rpl-sp-3);
+    font-weight: normal;
+  }
+
+  option:nth-of-type(odd) {
+    background: #fff;
+  }
+}
+
+.icons {
+  display: flex;
+  box-sizing: border-box;
+}
+
+.custom-icon {
+  padding: 10px;
+  display: flex;
+  height: 20px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  width: 20px;
+  color: var(--dp-icon-color);
+  text-align: center;
 }

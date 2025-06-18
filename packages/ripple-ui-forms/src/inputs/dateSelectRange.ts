@@ -5,12 +5,12 @@ import { createRplFormInput, inputLibrary, rplFeatures } from './input-utils'
  * Input definition for Ripple text input.
  * @public
  */
-export const dateSelect: FormKitTypeDefinition = {
+export const dateSelectRange: FormKitTypeDefinition = {
   /**
    * The actual schema of the input, or a function that returns the schema.
    */
   schema: createRplFormInput(() => ({
-    $cmp: 'RplFormDateSelect',
+    $cmp: 'RplFormDateSelectRange',
     props: {
       id: `$id`,
       name: '$node.name',
@@ -38,16 +38,7 @@ export const dateSelect: FormKitTypeDefinition = {
   /**
    * An array of extra props to accept for this input.
    */
-  props: [
-    'min',
-    'max',
-    'validationMeta',
-    'columnClasses',
-    'dateFormat',
-    'range',
-    'onUpdate',
-    'pii'
-  ],
+  props: ['min', 'max', 'validationMeta', 'columnClasses', 'dateFormat', 'pii'],
   /**
    * Forces node.props.type to be this explicit value.
    */

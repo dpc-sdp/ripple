@@ -1,0 +1,53 @@
+import {
+  Canvas,
+  Meta,
+  Story,
+  ArgsTable
+} from '@storybook/addon-docs'
+import { ref } from 'vue'
+import RplForm from '../RplForm/RplForm.vue'
+import RplFormDateSelectRange from './RplFormDateSelectRange.vue'
+import '@dpc-sdp/ripple-ui-core/style/components'
+
+export const FormElementTemplate = (args) => ({
+  components: { RplForm },
+  setup() {
+    return { args }
+  },
+  template: `
+    <RplForm
+      id="storybook-form-${args.id}"
+      :data-invalid="args.invalid"
+      :style="{
+        '--local-max-width': '595px'
+      }"
+    >
+      <FormKit v-bind="args" form-class="rpl-form" type="RplFormDateSelectRange" />
+      <template #belowForm="{ value }">
+        <div class="rpl-storybook-form-values">
+          <h2 class="rpl-type-h4">Internal form values</h2>
+          <pre wrap>{{ value }}</pre>
+        </div>
+      </template>
+    </RplForm>
+`
+})
+
+<Meta title='Forms/Date select range' component={RplFormDateSelectRange} />
+
+# Forms
+
+<ArgsTable of={RplFormDateSelectRange} />
+
+<Canvas>
+  <Story
+    name='Default'
+    args={{
+      id: 'date-select-range-default',
+      name: 'date-select-range-default',
+      label: 'Date select range'
+    }}
+  >
+    {FormElementTemplate.bind()}
+  </Story>
+</Canvas>

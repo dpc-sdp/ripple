@@ -82,3 +82,11 @@ Feature: Search Queries
     And I type "The" into the search input
     And I click the search button
     Then I should not be scrolled to the search results
+
+  @mockserver
+  Example: Search bar max input length
+    Given the page endpoint for path "/searchbar" returns fixture "/search-listing/list/page" with status 200
+    And the search network request is stubbed with fixture "/search-listing/list/response" and status 200
+
+    When I visit the page "/searchbar"
+    Then the search input should be have a max length of 128

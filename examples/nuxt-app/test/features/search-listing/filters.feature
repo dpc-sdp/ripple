@@ -4,7 +4,6 @@ Feature: Search listing - Filter
 
   Background:
     Given the site endpoint returns fixture "/site/reference" with status 200
-    And the search autocomplete request is stubbed with "/search-listing/suggestions/none" fixture
     And I am using a "macbook-16" device
 
   @mockserver
@@ -306,7 +305,7 @@ Feature: Search listing - Filter
 
     When I delete the text for the select field with label "Single search dropdown filter"
     And I delete the following tags for the select field with label "Multi search dropdown filter"
-      | Carrot |
+      | Carrot  |
       | Cabbage |
 
     Then I submit the search filters

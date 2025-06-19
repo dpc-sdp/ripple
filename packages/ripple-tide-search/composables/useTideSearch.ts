@@ -99,7 +99,6 @@ export default ({
 
   const results = ref()
   const totalResults = ref(0)
-  const suggestions = ref([])
   const userSelectedSort = ref<string | null>(null)
 
   const pagingStart = computed(() => {
@@ -693,40 +692,6 @@ export default ({
     }
   }
 
-  const getSuggestions = async () => {
-    let fields = ['title']
-
-    if (searchListingConfig?.suggestions?.key) {
-      fields = Array.isArray(searchListingConfig.suggestions.key)
-        ? searchListingConfig.suggestions.key
-        : [searchListingConfig.suggestions.key]
-    }
-
-    suggestions.value = await $fetch(
-      `/api/tide/app-search/${index}/query_suggestion`,
-      {
-        method: 'POST',
-        body: {
-          query: searchTerm.value.q,
-          types: {
-            documents: {
-              fields
-            }
-          },
-          size: 8
-        }
-      }
-    ).then((res) => {
-      return res.results?.documents.map(
-        (doc: { suggestion: string }) => doc.suggestion
-      )
-    })
-  }
-
-  const clearSuggestions = () => {
-    suggestions.value = []
-  }
-
   /**
    * Get any fallback values to be included in the search query
    *
@@ -1046,14 +1011,11 @@ export default ({
     isBusy,
     searchError,
     getSearchResults,
-    getSuggestions,
-    clearSuggestions,
     onAggregationUpdateHook,
     onMapResultsHook,
     searchTerm,
     appliedSearchTerm,
     results,
-    suggestions,
     filterForm,
     appliedFilters,
     resetFilters,

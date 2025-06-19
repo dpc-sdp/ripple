@@ -1,9 +1,15 @@
+.rpl-form-date-select-range {
+  max-width: 560px;
+}
+
 .rpl-form-date-select-range .rpl-form-date-select {
   margin-bottom: var(--rpl-sp-4);
 }
 
 .rpl-form-date-select-range [data-datepicker-instance] {
-  .dp__cell_inner.dp__range_between {
+  .dp__cell_inner.dp__range_between,
+  .dp__cell_inner.dp__cell_highlight {
+    background: var(--dp-range-between-dates-background-color);
     border-radius: 0;
     font-weight: var(--rpl-type-weight-bold);
     color: var(--rpl-clr-dark);
@@ -13,12 +19,20 @@
     font-weight: var(--rpl-type-weight-bold);
   }
   .dp__range_start {
+    background: var(--dp-primary-color);
+    color: var(--dp-primary-text-color);
     border-radius: var(--rpl-border-radius-2) 0 0 var(--rpl-border-radius-2);
   }
   .dp__range_end {
+    background: var(--dp-primary-color);
+    color: var(--dp-primary-text-color);
     border-radius: 0 var(--rpl-border-radius-2) var(--rpl-border-radius-2) 0;
   }
   .dp__today.dp__range_between {
     background: var(--dp-range-between-dates-background-color);
+  }
+  .dp__cell_inner.dp__cell_highlight:first-of-type,
+  .dp__cell_inner.dp__cell_highlight:last-of-type {
+    padding: var(--rpl-sp-4);
   }
 }

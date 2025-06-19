@@ -5,7 +5,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { watch, ref, computed, type Ref } from 'vue'
+import { watch, ref, computed } from 'vue'
 import { format, parse } from 'date-fns'
 import useFormkitFriendlyEventEmitter from '../../composables/useFormkitFriendlyEventEmitter.js'
 import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
@@ -15,64 +15,99 @@ import { sanitisePIIField } from '../../lib/sanitisePII'
 import VueDatePicker from '@vuepic/vue-datepicker'
 import '@vuepic/vue-datepicker/dist/main.css'
 
-type DatePart = 'day' | 'month' | 'year'
-
 interface Props {
   id: string
   name: string
-  label?: string
+  sublabel?: string
   disabled?: boolean
   required?: boolean
-  invalid?: boolean | DatePart[]
+  invalid?: boolean
   value?: string
+  min?: Date
+  max?: Date
   onChange: (value: string | string[]) => void
-  onUpdate?: (value: string | string[]) => void
   dateFormat?: string
   ariaDescribedby?: string
   pii?: boolean
-  range?: Ref
+  range?: string[]
 }
 
 const props = withDefaults(defineProps<Props>(), {
   disabled: false,
   invalid: false,
-  label: undefined,
+  sublabel: undefined,
   value: undefined,
-  onUpdate: undefined,
+  min: undefined,
+  max: undefined,
   dateFormat: 'yyyy-MM-dd',
   ariaDescribedby: '',
   pii: true,
-  range: ref()
+  range: undefined
 })
 
 const emit = defineEmits<{
   (e: 'onChange', value: string[]): void
   (e: 'update', payload: rplEventPayload & { action: 'update' }): void
+  (e: 'update:value', value: string): void
 }>()
 
 const { emitRplEvent } = useRippleEvent('rpl-form-date', emit)
 
-const internalDate = props.range || ref()
+const internalDate = ref()
 
-if (props.value && props.range === undefined) {
+// Emit event for range control to manage highlight state
+watch(internalDate, (newValue) => {
+  emit('update:value', newValue)
+})
+
+const internalDateString = computed(() => {
+  if (markers?.value?.length === 2) {
+    return {
+      from: format(markers.value[0].date, props.dateFormat),
+      to: format(markers.value[1].date, props.dateFormat)
+    }
+  }
+  if (internalDate.value) {
+    return format(internalDate.value, props.dateFormat)
+  }
+  return ''
+})
+
+// Prefill value
+if (props.value) {
   internalDate.value = parse(props.value, props.dateFormat, new Date())
   useFormkitFriendlyEventEmitter(
     props,
     emit,
     'onChange',
-    format(internalDate.value, props.dateFormat)
+    internalDateString.value
   )
 }
 
-const internalDateString = computed(() =>
-  format(internalDate.value, props.dateFormat)
+const highlightedRange = computed(() =>
+  props.range?.map((val) => parse(val, props.dateFormat, new Date()))
 )
 
-const params = {
+const markers = computed(() =>
+  highlightedRange.value?.length > 0
+    ? [
+        {
+          date: highlightedRange.value[0],
+          type: 'line'
+        },
+        {
+          date: highlightedRange.value[highlightedRange.value.length - 1],
+          type: 'dot'
+        }
+      ]
+    : undefined
+)
+
+// Vue-datepicker config
+const params = computed(() => ({
   enableTimePicker: false,
   disabled: props.disabled,
   name: props.name,
-  range: props.range !== undefined,
   id: props.id,
   format: 'd/MM/yyyy',
   placeholder: 'dd/mm/yyyy',
@@ -80,19 +115,21 @@ const params = {
   locale: 'en-AU',
   offset: '0',
   hideOffsetDates: true,
+  highlight: highlightedRange?.value,
+  markers: markers?.value,
+  minDate: props.min,
+  maxDate: props.max,
   autoApply: true,
-  partialRange: true,
-  modelAuto: true,
   textInput: true,
   actionRow: {
     showPreview: false
   }
-}
+}))
 
 watch(
   () => internalDate.value,
   (updated) => {
-    if (updated && !props.onUpdate) {
+    if (updated) {
       useFormkitFriendlyEventEmitter(
         props,
         emit,
@@ -104,21 +141,19 @@ watch(
 )
 
 const handleUpdate = (event) => {
-  if (props.onUpdate) {
-    return
-  }
   emitRplEvent(
     'update',
     {
       ...event,
       id: props.id,
-      label: props?.label,
+      label: `${props.label ? props.label : ''}${props.sublabel ? ' - ' + props.sublabel : ''}`,
       value: sanitisePIIField(props.pii, props?.value)
     },
     { global: true }
   )
 }
 
+// Vue-datepicker custom month/year selection
 type UpdateMonthYear = (month: number, year: number) => void
 
 const updateMonth = (
@@ -136,17 +171,25 @@ const updateYear = (
 ) => {
   updateMonthYear(month, +(event.target as HTMLSelectElement).value)
 }
+
+// Class helper
+const classes = computed(() => [
+  'rpl-form-date-select',
+  highlightedRange.value?.length > 0
+    ? 'rpl-form-date-select--highlighted'
+    : null
+])
 </script>
 
 <template>
-  <div class="rpl-form-date-select">
-    <label v-if="label" :for="id" class="rpl-form-label rpl-type-h4-fixed">{{
-      label
+  <div :class="classes">
+    <label v-if="sublabel" :for="id" class="rpl-form-label rpl-type-h4-fixed">{{
+      sublabel
     }}</label>
     <VueDatePicker
       v-model="internalDate"
       v-bind="params"
-      @update="onUpdate || handleUpdate"
+      @update="handleUpdate"
     >
       <template
         #month-year="{
@@ -202,6 +245,7 @@ const updateYear = (
       </template>
       <template #action-row></template>
     </VueDatePicker>
+    <pre>{{ props }}</pre>
   </div>
 </template>
 

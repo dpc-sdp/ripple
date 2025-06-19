@@ -45,7 +45,7 @@ export const dateSelect: FormKitTypeDefinition = {
     'columnClasses',
     'dateFormat',
     'range',
-    'onUpdate',
+    'sublabel',
     'pii'
   ],
   /**

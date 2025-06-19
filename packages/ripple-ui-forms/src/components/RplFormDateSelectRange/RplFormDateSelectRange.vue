@@ -5,12 +5,8 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { watch, ref, computed } from 'vue'
-import { format, parse } from 'date-fns'
-import useFormkitFriendlyEventEmitter from '../../composables/useFormkitFriendlyEventEmitter.js'
-import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
-import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
-import { sanitisePIIField } from '../../lib/sanitisePII'
+import { ref, computed } from 'vue'
+import { differenceInDays, addDays, format } from 'date-fns'
 
 import RplFormDateSelect from '../RplFormDateSelect/RplFormDateSelect.vue'
 
@@ -20,7 +16,7 @@ interface Props {
   label?: string
   disabled?: boolean
   required?: boolean
-  invalid?: boolean | DatePart[]
+  invalid?: boolean
   variant?: 'default' | 'reverse'
   value?: string
   onChange: (value: string | string[]) => void
@@ -40,79 +36,54 @@ const props = withDefaults(defineProps<Props>(), {
   pii: true
 })
 
-const emit = defineEmits<{
-  (e: 'onChange', value: string[]): void
-  (e: 'update', payload: rplEventPayload & { action: 'update' }): void
-}>()
+const dateFrom = ref()
+const dateTo = ref()
 
-const { emitRplEvent } = useRippleEvent('rpl-form-date', emit)
+const highlightedRange = computed(() => {
+  const days = []
+  const between =
+    dateFrom.value && dateTo.value
+      ? differenceInDays(dateTo.value, dateFrom.value)
+      : 0
 
-const internalDate = ref()
-
-const internalDateString = computed(() => [
-  format(internalDate.value[0], props.dateFormat),
-  format(internalDate.value[1], props.dateFormat)
-])
-
-if (props.value) {
-  internalDate.value = [
-    parse(props.value[0], props.dateFormat, new Date()),
-    parse(props.value[1], props.dateFormat, new Date())
-  ]
-  useFormkitFriendlyEventEmitter(
-    props,
-    emit,
-    'onChange',
-    internalDateString.value
-  )
-}
-
-const handleUpdate = (event) => {
-  emitRplEvent(
-    'update',
-    {
-      ...event,
-      id: props.id,
-      label: props?.label,
-      value: sanitisePIIField(props.pii, props?.value)
-    },
-    { global: true }
-  )
-}
-
-watch(
-  () => internalDate.value,
-  (updated) => {
-    if (updated) {
-      useFormkitFriendlyEventEmitter(
-        props,
-        emit,
-        'onChange',
-        internalDateString.value
-      )
+  // Start date
+  if (between) {
+    days.push(format(dateFrom.value, props.dateFormat))
+  }
+  for (let i = 1; i <= between; i++) {
+    days.push(format(addDays(dateFrom.value, i), props.dateFormat))
+  }
+  if (between) {
+    const dateToString = format(dateTo.value, props.dateFormat)
+    if (days[days.length - 1] !== dateToString) {
+      days.push(dateToString)
     }
   }
-)
+
+  return days
+}) as any
 </script>
 
 <template>
   <div class="rpl-form-date-select-range rpl-form-date-range">
     <RplFormDateSelect
       :id="`${id}-from`"
-      :range="internalDate"
+      :range="highlightedRange"
       :name="`${id}-from`"
-      label="From"
+      :max="dateTo"
+      sublabel="From"
       class="rpl-form-date-range--block"
-      :onUpdate="handleUpdate"
+      @update:value="(val) => (dateFrom = val)"
       @change="onChange"
     />
     <RplFormDateSelect
       :id="`${id}-to`"
-      :range="internalDate"
+      :range="highlightedRange"
       :name="`${id}-to`"
-      label="To"
+      :min="dateFrom"
+      sublabel="To"
       class="rpl-form-date-range--block"
-      :onUpdate="handleUpdate"
+      @update:value="(val) => (dateTo = val)"
       @change="onChange"
     />
   </div>

@@ -24,7 +24,7 @@ Feature: Vicpol map
   Scenario: Search for location i.e. name
     Given the page endpoint for path "/police-station-location" returns fixture "/map-table/vicpol/page" with status 200
     Given the "/api/tide/elasticsearch/elasticsearch_index_develop_node/_search" network request is stubbed with fixture "/map-table/vicpol/response" and status 200 as alias "searchReq"
-    Given the "/api/tide/app-search/vicpol-postcode-localities/elasticsearch/_search" network request is stubbed with fixture "/map-table/vicpol/locations-brunswick" and status 200 as alias "locationsReq"
+    Given the "/api/tide/elasticsearch/sdp_data_pipelines_sdp_localities_data/_search" network request is stubbed with fixture "/map-table/vicpol/locations-brunswick" and status 200 as alias "locationsReq"
     Given I visit the page "/police-station-location"
     When I enter the term "Brunswick" into the location search input
     Then the location search results should contain "Brunswick"

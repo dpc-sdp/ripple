@@ -185,7 +185,7 @@ When(`I type {string} into the location search bar`, (inputStr: string) => {
 Given(
   'the location autocomplete request is stubbed with {string} fixture',
   (fixture: string) => {
-    cy.intercept('POST', `/api/tide/app-search/**/elasticsearch/_search`, {
+    cy.intercept('POST', `/api/tide/elasticsearch/**/_search`, {
       statusCode: 200,
       fixture
     }).as('autocompleteRequest') // assign an alias

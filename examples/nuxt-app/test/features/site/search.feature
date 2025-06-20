@@ -1,7 +1,7 @@
 Feature: Site search
   Background:
-    Given the "/api/tide/elasticsearch/elasticsearch_index_develop_node/_search" aggregation request is stubbed with fixture "/site/search-aggregations" and status 200 as alias "aggReq"
-    Given the "/api/tide/elasticsearch/elasticsearch_index_develop_node/_search" search request is stubbed with fixture "/site/search-response" and status 200 as alias "siteSearchReq"
+    Given the "/api/tide/elasticsearch/**/_search" aggregation request is stubbed with fixture "/site/search-aggregations" and status 200 as alias "aggReq"
+    Given the "/api/tide/elasticsearch/**/_search" search request is stubbed with fixture "/site/search-response" and status 200 as alias "siteSearchReq"
 
   @mockserver
   Example: Display and manage site search results

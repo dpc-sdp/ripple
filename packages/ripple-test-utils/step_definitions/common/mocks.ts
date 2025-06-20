@@ -238,6 +238,23 @@ Given(
 )
 
 Given(
+  'the {string} search request is stubbed with fixture {string} and status {int} as alias {string}',
+  (url: string, fixture: string, status: number, alias: string) => {
+    cy.intercept('POST', url, (req) => {
+      // Filter out the aggregation requests (they have size<1)
+      if (req.body.size > 0) {
+        req.alias = alias
+        req.reply({
+          statusCode: status,
+          fixture: fixture
+        })
+        return
+      }
+    })
+  }
+)
+
+Given(
   'the {string} network request is stubbed with fixture {string}',
   (url: string, fixture: string, dataTable: DataTable) => {
     const options = dataTable.hashes()

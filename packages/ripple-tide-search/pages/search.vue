@@ -1,16 +1,40 @@
 <script setup lang="ts">
-import { useTideSite } from '#imports'
+import { useTideSite, useFeatureFlags, useAppConfig } from '#imports'
 import { TideSiteData } from '@dpc-sdp/ripple-tide-api/types'
 import type {
   TideSearchListingConfig,
   TideSearchListingResultItem
 } from './../types'
 
+const appConfig = useAppConfig()
+
+const site: TideSiteData = await useTideSite()
+const featureFlags = useFeatureFlags(site?.featureFlags)
+
+const getContentTypes = () => {
+  let contentTypes = appConfig.ripple?.search?.contentTypes
+  const overrideTypes = featureFlags.value?.search?.contentTypes
+
+  if (!overrideTypes) {
+    return contentTypes
+  }
+
+  Object.keys(overrideTypes).forEach((type) => {
+    if (overrideTypes[type] && !contentTypes.includes(type)) {
+      contentTypes.push(type)
+    } else if (!overrideTypes[type] && contentTypes.includes(type)) {
+      contentTypes = contentTypes.filter((t: string) => t !== type)
+    }
+  })
+
+  return contentTypes
+}
+
 const searchConfig: TideSearchListingConfig = {
   searchListingConfig: {
     filterByCurrentSite: true,
     resultsPerPage: 10,
-    showFiltersOnLoad: true,
+    showFiltersOnLoad: false,
     labels: {
       submit: 'Search',
       placeholder: ''
@@ -51,14 +75,7 @@ const searchConfig: TideSearchListingConfig = {
   globalFilters: [
     {
       terms: {
-        type: [
-          'landing_page',
-          'event',
-          'grant',
-          'news',
-          'publication',
-          'tide_search_listing'
-        ]
+        type: getContentTypes()
       }
     }
   ],
@@ -68,11 +85,11 @@ const searchConfig: TideSearchListingConfig = {
       component: 'TideSearchFilterDropdown',
       filter: {
         type: 'terms',
-        value: 'field_topic_name.keyword',
+        value: 'field_topic_name',
         multiple: true
       },
       aggregations: {
-        field: 'field_topic_name.keyword',
+        field: 'field_topic_name',
         source: 'elastic'
       },
       props: {
@@ -86,7 +103,6 @@ const searchConfig: TideSearchListingConfig = {
   ]
 }
 
-const site: TideSiteData = await useTideSite()
 const page = { title: 'Search' }
 
 const searchResultsMappingFn = (item: any): TideSearchListingResultItem => {

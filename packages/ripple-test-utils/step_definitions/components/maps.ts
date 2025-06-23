@@ -340,6 +340,12 @@ Then(`the list view should be displayed`, () => {
   }).should('be.visible')
 })
 
+Then(`the map view should be displayed`, () => {
+  cy.get('.rpl-map', {
+    timeout: 12000
+  }).should('be.visible')
+})
+
 When(
   `I click the link in the list view with label {string}`,
   (label: string) => {

@@ -39,11 +39,11 @@ export const dateSelect: FormKitTypeDefinition = {
    * An array of extra props to accept for this input.
    */
   props: [
-    'min',
-    'max',
     'validationMeta',
     'columnClasses',
     'dateFormat',
+    'minDate',
+    'maxDate',
     'range',
     'sublabel',
     'pii'

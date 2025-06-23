@@ -22,9 +22,14 @@ interface Props {
   disabled?: boolean
   required?: boolean
   invalid?: boolean
-  value?: string
-  min?: Date
-  max?: Date
+  value?:
+    | string
+    | {
+        from: string
+        to: string
+      }
+  minDate?: string
+  maxDate?: string
   onChange: (value: string | string[]) => void
   dateFormat?: string
   ariaDescribedby?: string
@@ -37,9 +42,9 @@ const props = withDefaults(defineProps<Props>(), {
   invalid: false,
   sublabel: undefined,
   value: undefined,
-  min: undefined,
-  max: undefined,
-  dateFormat: 'yyyy-MM-dd',
+  minDate: undefined,
+  maxDate: undefined,
+  dateFormat: 'dd/MM/yyyy',
   ariaDescribedby: '',
   pii: true,
   range: undefined
@@ -52,37 +57,6 @@ const emit = defineEmits<{
 }>()
 
 const { emitRplEvent } = useRippleEvent('rpl-form-date', emit)
-
-const internalDate = ref()
-
-// Emit event for range control to manage highlight state
-watch(internalDate, (newValue) => {
-  emit('update:value', newValue)
-})
-
-const internalDateString = computed(() => {
-  if (markers?.value?.length === 2) {
-    return {
-      from: format(markers.value[0].date, props.dateFormat),
-      to: format(markers.value[1].date, props.dateFormat)
-    }
-  }
-  if (internalDate.value) {
-    return format(internalDate.value, props.dateFormat)
-  }
-  return ''
-})
-
-// Prefill value
-if (props.value) {
-  internalDate.value = parse(props.value, props.dateFormat, new Date())
-  useFormkitFriendlyEventEmitter(
-    props,
-    emit,
-    'onChange',
-    internalDateString.value
-  )
-}
 
 const highlightedRange = computed(() =>
   props.range?.map((val) => parse(val, props.dateFormat, new Date()))
@@ -103,6 +77,49 @@ const markers = computed(() =>
     : undefined
 )
 
+const internalDate = ref()
+
+// Emit event for range control to manage highlight state
+watch(internalDate, (newValue) => {
+  emit('update:value', format(newValue, props.dateFormat))
+})
+
+const internalDateString = computed(() => {
+  if (markers?.value?.length === 2) {
+    return {
+      from: format(markers.value[0].date, props.dateFormat),
+      to: format(markers.value[1].date, props.dateFormat)
+    }
+  }
+  if (internalDate.value) {
+    return format(internalDate.value, props.dateFormat)
+  } else if (props.value) {
+    return props.value
+  }
+  return ''
+})
+
+// Prefill value
+if (props.value) {
+  if (props.maxDate) {
+    internalDate.value = markers.value[0].date
+  } else if (props.minDate) {
+    internalDate.value = markers.value[1].date
+  } else {
+    internalDate.value = parse(
+      props.value as string,
+      props.dateFormat,
+      new Date()
+    )
+  }
+  useFormkitFriendlyEventEmitter(
+    props,
+    emit,
+    'onChange',
+    internalDateString.value
+  )
+}
+
 // Vue-datepicker config
 const params = computed(() => ({
   enableTimePicker: false,
@@ -117,8 +134,12 @@ const params = computed(() => ({
   hideOffsetDates: true,
   highlight: highlightedRange?.value,
   markers: markers?.value,
-  minDate: props.min,
-  maxDate: props.max,
+  minDate: props.minDate
+    ? parse(props.minDate, props.dateFormat, new Date())
+    : undefined,
+  maxDate: props.maxDate
+    ? parse(props.maxDate, props.dateFormat, new Date())
+    : undefined,
   autoApply: true,
   textInput: true,
   actionRow: {
@@ -245,7 +266,6 @@ const classes = computed(() => [
       </template>
       <template #action-row></template>
     </VueDatePicker>
-    <pre>{{ props }}</pre>
   </div>
 </template>
 

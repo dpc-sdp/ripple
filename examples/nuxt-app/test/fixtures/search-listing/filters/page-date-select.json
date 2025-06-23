@@ -1,5 +1,5 @@
 {
-  "title": "Date select",
+  "title": "Date select (range)",
   "changed": "2022-11-02T12:47:29+11:00",
   "created": "2022-11-02T12:47:29+11:00",
   "type": "tide_search_listing",
@@ -8,7 +8,8 @@
   "summary": "",
   "config": {
     "searchListingConfig": {
-      "resultsPerPage": 10
+      "resultsPerPage": 10,
+      "showFiltersOnLoad": true
     },
     "queryConfig": {
       "multi_match": {
@@ -39,7 +40,7 @@
     "userFilters": [
       {
         "id": "dateSelectFilter",
-        "component": "TideSearchFilterDateSelect",
+        "component": "TideSearchFilterDateSelectRange",
         "filter": {
           "type": "range",
           "value": "changed",
@@ -47,12 +48,11 @@
           "countAsSingle": true,
           "valueIsObject": true,
           "relation": "CONTAINS",
-          "format": "yyyy-mm-dd"
+          "format": "d/MM/yyyy"
         },
         "props": {
           "id": "dateSelectFilter",
-          "label": "Date",
-          "dateFormat": "yyyy-mm-dd"
+          "label": "Date"
         }
       }
     ]

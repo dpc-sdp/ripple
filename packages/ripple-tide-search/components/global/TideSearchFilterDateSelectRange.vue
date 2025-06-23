@@ -2,6 +2,8 @@
 interface Props {
   id: string
   label: string
+  fromLabel?: string
+  toLabel?: string
   timestamp?: string
 }
 
@@ -13,9 +15,10 @@ defineProps<Props>()
     :id="id"
     :key="`${id}-${timestamp}`"
     :name="id"
-    type="RplFormDateSelect"
-    format="yyyy-MM-dd"
+    type="RplFormDateSelectRange"
     :label="label"
+    :fromLabel="fromLabel"
+    :toLabel="toLabel"
     :pii="false"
   />
 </template>

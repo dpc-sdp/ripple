@@ -5,8 +5,8 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
-import { differenceInDays, addDays, format, parse } from 'date-fns'
+import { ref, computed, watch } from 'vue'
+import { differenceInDays, addDays, format, parse, isValid } from 'date-fns'
 
 import RplFormDateSelect from '../RplFormDateSelect/RplFormDateSelect.vue'
 
@@ -14,6 +14,8 @@ interface Props {
   id: string
   name: string
   label?: string
+  fromLabel?: string
+  toLabel?: string
   disabled?: boolean
   required?: boolean
   invalid?: boolean
@@ -32,34 +34,36 @@ const props = withDefaults(defineProps<Props>(), {
   disabled: false,
   invalid: false,
   label: undefined,
+  fromLabel: undefined,
+  toLabel: undefined,
   value: undefined,
   variant: 'default',
-  dateFormat: 'dd/MM/yyyy',
+  dateFormat: 'd/MM/yyyy',
   ariaDescribedby: '',
   pii: true
 })
 
-// Initial prefill and then store state
+// Initial prefill and parse to date object
 const strDateFrom = ref()
-strDateFrom.value = props.value?.from
-  ? format(
-      parse(props.value.from, props.dateFormat, new Date()),
-      props.dateFormat
-    )
-  : ''
-const strDateTo = ref()
-strDateTo.value = props.value?.to
-  ? format(
-      parse(props.value.to, props.dateFormat, new Date()),
-      props.dateFormat
-    )
-  : ''
-
+strDateFrom.value = props.value?.from ? props.value.from : ''
 const dateFrom = computed(() =>
   parse(strDateFrom.value, props.dateFormat, new Date())
 )
+
+const strDateTo = ref()
+strDateTo.value = props.value?.to ? props.value.to : ''
 const dateTo = computed(() =>
   parse(strDateTo.value, props.dateFormat, new Date())
+)
+
+watch(
+  () => props.value,
+  (updated) => {
+    if (updated) {
+      strDateFrom.value = props.value?.from ? props.value.from : ''
+      strDateTo.value = props.value?.to ? props.value.to : ''
+    }
+  }
 )
 
 // Manage state of highlighted fields
@@ -71,11 +75,13 @@ const highlightedRange = computed(() => {
       : 0
 
   // Start date
-  if (between) {
+  if (between && isValid(dateFrom.value)) {
     days.push(format(dateFrom.value, props.dateFormat))
   }
   for (let i = 1; i <= between; i++) {
-    days.push(format(addDays(dateFrom.value, i), props.dateFormat))
+    if (isValid(dateFrom.value)) {
+      days.push(format(addDays(dateFrom.value, i), props.dateFormat))
+    }
   }
   // End date if not included in diff
   if (between) {
@@ -96,7 +102,7 @@ const highlightedRange = computed(() => {
       :name="`${id}-from`"
       :value="strDateFrom"
       :maxDate="strDateTo"
-      sublabel="From"
+      :sublabel="fromLabel || 'From'"
       class="rpl-form-date-range--block"
       @update:value="(val) => (strDateFrom = val)"
       @change="onChange"
@@ -108,7 +114,7 @@ const highlightedRange = computed(() => {
       :name="`${id}-to`"
       :value="strDateTo"
       :minDate="strDateFrom"
-      sublabel="To"
+      :sublabel="toLabel || 'To'"
       class="rpl-form-date-range--block"
       @update:value="(val) => (strDateTo = val)"
       @change="onChange"

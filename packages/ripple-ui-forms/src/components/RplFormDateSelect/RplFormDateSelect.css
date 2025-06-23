@@ -25,6 +25,7 @@
     var(--rpl-sp-5);
 
   margin-top: -1px;
+  margin-bottom: -1px;
   max-width: 265px;
 
   .dp__menu {
@@ -53,7 +54,9 @@
     border-width: var(--rpl-border-1);
     border-color: var(--rpl-clr-dark);
     line-height: 1;
-    height: 50%;
+    height: 52px;
+    margin-top: -1px;
+    margin-bottom: -1px;
 
     &:hover {
       border-color: var(--rpl-clr-dark);
@@ -86,8 +89,8 @@
       border-color: var(--rpl-clr-focus);
 
       --local-background-colour: var(--rpl-clr-focus);
-      padding-top: var(--rpl-sp-4);
-      padding-bottom: var(--rpl-sp-4);
+      padding-top: 14px;
+      padding-bottom: 14px;
       margin-right: 0;
       padding-right: calc(var(--rpl-sp-6) - var(--rpl-sp-1) / 2);
 

@@ -6,7 +6,7 @@ export default {
 
 <script setup lang="ts">
 import { watch, ref, computed } from 'vue'
-import { format, parse } from 'date-fns'
+import { format, parse, isValid } from 'date-fns'
 import useFormkitFriendlyEventEmitter from '../../composables/useFormkitFriendlyEventEmitter.js'
 import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
 import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
@@ -44,7 +44,7 @@ const props = withDefaults(defineProps<Props>(), {
   value: undefined,
   minDate: undefined,
   maxDate: undefined,
-  dateFormat: 'dd/MM/yyyy',
+  dateFormat: 'd/MM/yyyy',
   ariaDescribedby: '',
   pii: true,
   range: undefined
@@ -77,22 +77,31 @@ const markers = computed(() =>
     : undefined
 )
 
-const internalDate = ref()
+const internalDate = ref(null)
 
 // Emit event for range control to manage highlight state
 watch(internalDate, (newValue) => {
-  emit('update:value', format(newValue, props.dateFormat))
+  emit(
+    'update:value',
+    isValid(newValue) ? format(newValue, props.dateFormat) : ''
+  )
 })
 
 const internalDateString = computed(() => {
+  // Range mode
   if (markers?.value?.length === 2) {
-    return {
-      from: format(markers.value[0].date, props.dateFormat),
-      to: format(markers.value[1].date, props.dateFormat)
-    }
-  }
-  if (internalDate.value) {
-    return format(internalDate.value, props.dateFormat)
+    return markers.value[0].date && markers.value[0].date
+      ? {
+          from: format(markers.value[0].date, props.dateFormat),
+          to: format(markers.value[1].date, props.dateFormat)
+        }
+      : ''
+    // A date has been selected
+  } else if (internalDate.value) {
+    return isValid(internalDate.value)
+      ? format(internalDate.value, props.dateFormat)
+      : ''
+    // Prefilled value
   } else if (props.value) {
     return props.value
   }
@@ -106,11 +115,7 @@ if (props.value) {
   } else if (props.minDate) {
     internalDate.value = markers.value[1].date
   } else {
-    internalDate.value = parse(
-      props.value as string,
-      props.dateFormat,
-      new Date()
-    )
+    internalDate.value = parse(props.value, props.dateFormat, new Date())
   }
   useFormkitFriendlyEventEmitter(
     props,
@@ -119,6 +124,21 @@ if (props.value) {
     internalDateString.value
   )
 }
+
+watch(
+  () => props.value,
+  (updated) => {
+    if (updated) {
+      internalDate.value = parse(props.value, props.dateFormat, new Date())
+      useFormkitFriendlyEventEmitter(
+        props,
+        emit,
+        'onChange',
+        internalDateString.value
+      )
+    }
+  }
+)
 
 // Vue-datepicker config
 const params = computed(() => ({
@@ -140,6 +160,9 @@ const params = computed(() => ({
   maxDate: props.maxDate
     ? parse(props.maxDate, props.dateFormat, new Date())
     : undefined,
+  startDate: props.value
+    ? parse(props.value, props.dateFormat, new Date())
+    : null,
   autoApply: true,
   textInput: true,
   actionRow: {

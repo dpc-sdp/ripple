@@ -58,6 +58,11 @@ const dateTo = computed(() =>
     : undefined
 )
 
+const state = ref({
+  from: strDateFrom,
+  to: strDateTo
+})
+
 watch(props, (updated) => {
   if (updated) {
     strDateFrom.value = props.value?.from || ''
@@ -105,6 +110,7 @@ const highlightedRange = computed(() => {
       :disabled="disabled"
       :range="highlightedRange"
       :rangedMode="`start`"
+      :rangedState="state"
       :name="`${id}-from`"
       :value="strDateFrom"
       :maxDate="strDateTo"
@@ -118,6 +124,7 @@ const highlightedRange = computed(() => {
       :disabled="disabled"
       :range="highlightedRange"
       :rangedMode="`end`"
+      :rangedState="state"
       :name="`${id}-to`"
       :value="strDateTo"
       :minDate="strDateFrom"
@@ -126,6 +133,7 @@ const highlightedRange = computed(() => {
       @update:value="(val) => (strDateTo = val)"
       @change="onChange"
     />
+    <pre wrap>{{ highlightedRange }}</pre>
   </div>
 </template>
 

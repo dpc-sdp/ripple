@@ -31,6 +31,10 @@ interface Props {
   pii?: boolean
   range?: string[]
   rangedMode?: string
+  rangedState?: {
+    from?: string
+    to?: string
+  }
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -44,7 +48,11 @@ const props = withDefaults(defineProps<Props>(), {
   ariaDescribedby: '',
   pii: true,
   range: undefined,
-  rangedMode: undefined
+  rangedMode: undefined,
+  rangedState: () => ({
+    from: '',
+    to: ''
+  })
 })
 
 const emit = defineEmits<{
@@ -60,14 +68,19 @@ const highlightedRange = computed(() =>
 )
 
 const rangeLimits = computed(() => {
-  if (!highlightedRange.value || highlightedRange.value.length < 2) {
-    return undefined
+  if (
+    highlightedRange.value &&
+    (highlightedRange.value?.length > 1 ||
+      (highlightedRange.value?.length === 2 &&
+        highlightedRange.value[0] === highlightedRange.value[1]))
+  ) {
+    return {
+      start: highlightedRange.value[0],
+      end: highlightedRange.value[highlightedRange.value.length - 1]
+    }
   }
 
-  return {
-    start: highlightedRange.value[0],
-    end: highlightedRange.value[highlightedRange.value.length - 1]
-  }
+  return undefined
 })
 
 const markers = computed(() => {
@@ -100,18 +113,20 @@ watch(internalDate, (newValue) => {
     'update:value',
     isValid(newValue) ? format(newValue, props.dateFormat) : ''
   )
+  useFormkitFriendlyEventEmitter(
+    props,
+    emit,
+    'onChange',
+    internalDateString.value
+  )
 })
 
 const internalDateString = computed(() => {
   // Range mode
   if (props.rangedMode) {
     return {
-      from: rangeLimits.value?.start
-        ? format(rangeLimits.value.start, props.dateFormat)
-        : undefined,
-      to: rangeLimits.value?.end
-        ? format(rangeLimits.value.end, props.dateFormat)
-        : undefined
+      from: props.rangedState.from ? props.rangedState.from : undefined,
+      to: props.rangedState.to ? props.rangedState.to : undefined
     }
   }
 
@@ -133,6 +148,12 @@ const internalDateString = computed(() => {
 // Prefill value
 if (props.value) {
   internalDate.value = parse(props.value, props.dateFormat, new Date())
+  useFormkitFriendlyEventEmitter(
+    props,
+    emit,
+    'onChange',
+    internalDateString.value
+  )
 }
 
 // Update from range
@@ -164,16 +185,20 @@ const params = computed(() => ({
   offset: '0',
   hideOffsetDates: true,
   highlight:
-    highlightedRange?.value.length > 1 ? highlightedRange.value : undefined,
-  markers: highlightedRange?.value.length > 1 ? markers?.value : undefined,
+    highlightedRange?.value?.length > 1 ? highlightedRange.value : undefined,
+  markers: highlightedRange?.value?.length > 1 ? markers?.value : undefined,
   minDate:
-    highlightedRange.value.length > 0 && props.minDate !== undefined
+    highlightedRange.value?.length > 0 &&
+    props.minDate !== '' &&
+    props.minDate !== undefined
       ? parse(props.minDate, props.dateFormat, new Date())
-      : undefined,
+      : null,
   maxDate:
-    highlightedRange.value.length > 0 && props.maxDate !== undefined
+    highlightedRange.value?.length > 0 &&
+    props.maxDate !== '' &&
+    props.maxDate !== undefined
       ? parse(props.maxDate, props.dateFormat, new Date())
-      : undefined,
+      : null,
   startDate: internalDate.value ? internalDate.value : undefined,
   autoApply: true,
   textInput: true,
@@ -185,7 +210,7 @@ const params = computed(() => ({
 watch(internalDate, (updated) => {
   if (updated) {
     useFormkitFriendlyEventEmitter(
-      props,
+      updated,
       emit,
       'onChange',
       internalDateString.value

@@ -76,7 +76,6 @@
     "vite": "catalog:",
     "vite-plugin-copy": "^0.1.6",
     "vite-plugin-dts": "^2.1.0",
-    "vite-plugin-vue-svg": "^0.1.0",
     "yaml": "^2.2.2"
   }
 }

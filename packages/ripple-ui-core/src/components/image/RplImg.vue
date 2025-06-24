@@ -6,7 +6,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { withDefaults, StyleValue } from 'vue'
+import { StyleValue } from 'vue'
 
 // Verbose declaration due to disabled inheritance
 interface Props {

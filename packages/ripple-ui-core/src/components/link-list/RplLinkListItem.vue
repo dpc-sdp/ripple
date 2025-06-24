@@ -3,7 +3,7 @@ import RplIcon from '../icon/RplIcon.vue'
 
 interface Props {
   url: string
-  icon: string
+  icon?: string
 }
 
 withDefaults(defineProps<Props>(), {

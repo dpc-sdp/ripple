@@ -1,6 +1,7 @@
 <template>
   <RplContent data-component-type="search-listing-no-results">
     <slot>
+      <p class="rpl-type-h4 rpl-u-margin-b-2">Alas no results.</p>
       <p class="rpl-type-h3 rpl-u-margin-b-6">
         This is a custom component, you can do or say whatever you want here,
         e.g.

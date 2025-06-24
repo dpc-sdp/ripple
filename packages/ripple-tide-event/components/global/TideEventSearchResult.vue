@@ -34,21 +34,25 @@ const location = computed(() => {
 </script>
 
 <template>
-  <RplNavCard
+  <RplPromoCard
     :title="title"
     :url="url"
     :image="image as any"
     class="tide-event-search-result"
   >
     <template #meta>
-      <RplTag v-if="date" variant="neutral" :label="date" />
+      <span v-if="location" class="tide-event-search-result__location">
+        <RplIcon name="icon-pin" colour="default" />
+        <span class="rpl-u-visually-hidden">Location: </span>
+        {{ location }}
+      </span>
+      <span v-if="date">
+        <span class="rpl-u-visually-hidden">Date: </span>
+        <RplTag v-if="date" variant="neutral" :label="date" />
+      </span>
     </template>
     <p>{{ summary }}</p>
-    <span v-if="location" class="tide-event-search-result__location">
-      <RplIcon name="icon-pin" colour="default" />
-      {{ location }}
-    </span>
-  </RplNavCard>
+  </RplPromoCard>
 </template>
 
 <style>
@@ -56,6 +60,10 @@ const location = computed(() => {
   display: flex;
   gap: var(--rpl-sp-2);
   align-items: center;
-  margin-top: var(--rpl-sp-3);
+  margin-top: 0;
+
+  .rpl-icon {
+    align-self: start;
+  }
 }
 </style>

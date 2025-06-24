@@ -12,7 +12,7 @@
     ".": "./dist/rpl-forms.es.js",
     "./components": "./dist/components",
     "./nuxt": "./dist/nuxt.js",
-    "./style": "./dist/style.css"
+    "./style": "./dist/ripple-ui-forms.css"
   },
   "dependencies": {
     "@dpc-sdp/ripple-ui-core": "workspace:*",

@@ -44,53 +44,58 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 // Initial prefill and parse to date object
-const strDateFrom = ref()
-strDateFrom.value = props.value?.from ? props.value.from : ''
+const strDateFrom = ref(props.value?.from || '')
 const dateFrom = computed(() =>
-  parse(strDateFrom.value, props.dateFormat, new Date())
+  strDateFrom.value
+    ? parse(strDateFrom.value, props.dateFormat, new Date())
+    : undefined
 )
 
-const strDateTo = ref()
-strDateTo.value = props.value?.to ? props.value.to : ''
+const strDateTo = ref(props.value?.to || '')
 const dateTo = computed(() =>
-  parse(strDateTo.value, props.dateFormat, new Date())
+  strDateTo.value
+    ? parse(strDateTo.value, props.dateFormat, new Date())
+    : undefined
 )
 
-watch(
-  () => props.value,
-  (updated) => {
-    if (updated) {
-      strDateFrom.value = props.value?.from ? props.value.from : ''
-      strDateTo.value = props.value?.to ? props.value.to : ''
-    }
+watch(props, (updated) => {
+  if (updated) {
+    strDateFrom.value = props.value?.from || ''
+    strDateTo.value = props.value?.to || ''
   }
-)
+})
 
 // Manage state of highlighted fields
 const highlightedRange = computed(() => {
   const days = []
-  const between =
-    strDateFrom.value && strDateTo.value
-      ? differenceInDays(dateTo.value, dateFrom.value)
-      : 0
 
   // Start date
-  if (between && isValid(dateFrom.value)) {
+  if (isValid(dateFrom.value)) {
     days.push(format(dateFrom.value, props.dateFormat))
   }
-  for (let i = 1; i <= between; i++) {
-    if (isValid(dateFrom.value)) {
+
+  // If both dates are valid, calculate the range
+  if (isValid(dateFrom.value) && isValid(dateTo.value)) {
+    const between = differenceInDays(dateTo.value, dateFrom.value)
+
+    for (let i = 1; i <= between; i++) {
       days.push(format(addDays(dateFrom.value, i), props.dateFormat))
     }
   }
-  // End date if not included in diff
-  if (between) {
-    if (days[days.length - 1] !== strDateTo.value) {
-      days.push(strDateTo)
+
+  // End date
+  if (isValid(dateTo.value)) {
+    if (
+      days.length === 0 ||
+      (days.length > 0 &&
+        days[days.length - 1] !== format(dateTo.value, props.dateFormat))
+    ) {
+      days.push(format(dateTo.value, props.dateFormat))
     }
   }
+
   return days
-}) as any
+})
 </script>
 
 <template>
@@ -99,6 +104,7 @@ const highlightedRange = computed(() => {
       :id="`${id}-from`"
       :disabled="disabled"
       :range="highlightedRange"
+      :rangedMode="`start`"
       :name="`${id}-from`"
       :value="strDateFrom"
       :maxDate="strDateTo"
@@ -111,6 +117,7 @@ const highlightedRange = computed(() => {
       :id="`${id}-to`"
       :disabled="disabled"
       :range="highlightedRange"
+      :rangedMode="`end`"
       :name="`${id}-to`"
       :value="strDateTo"
       :minDate="strDateFrom"

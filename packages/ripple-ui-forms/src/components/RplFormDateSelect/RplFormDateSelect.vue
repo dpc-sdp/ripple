@@ -22,12 +22,7 @@ interface Props {
   disabled?: boolean
   required?: boolean
   invalid?: boolean
-  value?:
-    | string
-    | {
-        from: string
-        to: string
-      }
+  value?: string
   minDate?: string
   maxDate?: string
   onChange: (value: string | string[]) => void
@@ -35,6 +30,7 @@ interface Props {
   ariaDescribedby?: string
   pii?: boolean
   range?: string[]
+  rangedMode?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -47,7 +43,8 @@ const props = withDefaults(defineProps<Props>(), {
   dateFormat: 'd/MM/yyyy',
   ariaDescribedby: '',
   pii: true,
-  range: undefined
+  range: undefined,
+  rangedMode: undefined
 })
 
 const emit = defineEmits<{
@@ -62,22 +59,40 @@ const highlightedRange = computed(() =>
   props.range?.map((val) => parse(val, props.dateFormat, new Date()))
 )
 
-const markers = computed(() =>
-  highlightedRange.value?.length > 0
-    ? [
-        {
-          date: highlightedRange.value[0],
-          type: 'line'
-        },
-        {
-          date: highlightedRange.value[highlightedRange.value.length - 1],
-          type: 'dot'
-        }
-      ]
-    : undefined
-)
+const rangeLimits = computed(() => {
+  if (!highlightedRange.value || highlightedRange.value.length < 2) {
+    return undefined
+  }
 
-const internalDate = ref(null)
+  return {
+    start: highlightedRange.value[0],
+    end: highlightedRange.value[highlightedRange.value.length - 1]
+  }
+})
+
+const markers = computed(() => {
+  if (!rangeLimits.value) {
+    return undefined
+  }
+
+  const markerArray = []
+  if (rangeLimits.value.start) {
+    markerArray.push({
+      date: rangeLimits.value.start,
+      type: 'line'
+    })
+  }
+  if (rangeLimits.value.end) {
+    markerArray.push({
+      date: rangeLimits.value.end,
+      type: 'dot'
+    })
+  }
+
+  return markerArray
+})
+
+const internalDate: Date | undefined = ref()
 
 // Emit event for range control to manage highlight state
 watch(internalDate, (newValue) => {
@@ -89,42 +104,38 @@ watch(internalDate, (newValue) => {
 
 const internalDateString = computed(() => {
   // Range mode
-  if (markers?.value?.length === 2) {
-    return markers.value[0].date && markers.value[0].date
-      ? {
-          from: format(markers.value[0].date, props.dateFormat),
-          to: format(markers.value[1].date, props.dateFormat)
-        }
-      : ''
-    // A date has been selected
-  } else if (internalDate.value) {
+  if (props.rangedMode) {
+    return {
+      from: rangeLimits.value?.start
+        ? format(rangeLimits.value.start, props.dateFormat)
+        : undefined,
+      to: rangeLimits.value?.end
+        ? format(rangeLimits.value.end, props.dateFormat)
+        : undefined
+    }
+  }
+
+  // Single date mode, date has been selected
+  if (internalDate.value) {
     return isValid(internalDate.value)
       ? format(internalDate.value, props.dateFormat)
       : ''
-    // Prefilled value
-  } else if (props.value) {
+  }
+
+  // Prefilled value
+  if (props.value) {
     return props.value
   }
+
   return ''
 })
 
 // Prefill value
 if (props.value) {
-  if (props.maxDate) {
-    internalDate.value = markers.value[0].date
-  } else if (props.minDate) {
-    internalDate.value = markers.value[1].date
-  } else {
-    internalDate.value = parse(props.value, props.dateFormat, new Date())
-  }
-  useFormkitFriendlyEventEmitter(
-    props,
-    emit,
-    'onChange',
-    internalDateString.value
-  )
+  internalDate.value = parse(props.value, props.dateFormat, new Date())
 }
 
+// Update from range
 watch(
   () => props.value,
   (updated) => {
@@ -152,17 +163,18 @@ const params = computed(() => ({
   locale: 'en-AU',
   offset: '0',
   hideOffsetDates: true,
-  highlight: highlightedRange?.value,
-  markers: markers?.value,
-  minDate: props.minDate
-    ? parse(props.minDate, props.dateFormat, new Date())
-    : undefined,
-  maxDate: props.maxDate
-    ? parse(props.maxDate, props.dateFormat, new Date())
-    : undefined,
-  startDate: props.value
-    ? parse(props.value, props.dateFormat, new Date())
-    : null,
+  highlight:
+    highlightedRange?.value.length > 1 ? highlightedRange.value : undefined,
+  markers: highlightedRange?.value.length > 1 ? markers?.value : undefined,
+  minDate:
+    highlightedRange.value.length > 0 && props.minDate !== undefined
+      ? parse(props.minDate, props.dateFormat, new Date())
+      : undefined,
+  maxDate:
+    highlightedRange.value.length > 0 && props.maxDate !== undefined
+      ? parse(props.maxDate, props.dateFormat, new Date())
+      : undefined,
+  startDate: internalDate.value ? internalDate.value : undefined,
   autoApply: true,
   textInput: true,
   actionRow: {
@@ -170,19 +182,16 @@ const params = computed(() => ({
   }
 }))
 
-watch(
-  () => internalDate.value,
-  (updated) => {
-    if (updated) {
-      useFormkitFriendlyEventEmitter(
-        props,
-        emit,
-        'onChange',
-        internalDateString.value
-      )
-    }
+watch(internalDate, (updated) => {
+  if (updated) {
+    useFormkitFriendlyEventEmitter(
+      props,
+      emit,
+      'onChange',
+      internalDateString.value
+    )
   }
-)
+})
 
 const handleUpdate = (event) => {
   emitRplEvent(

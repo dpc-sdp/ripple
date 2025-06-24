@@ -62,9 +62,45 @@ export const FormElementTemplate = (args) => ({
         from: new Date().toLocaleDateString(),
         to: new Date(Date.now() + (4*86400000)).toLocaleDateString()
       },
-      dateFormat: 'dd/MM/yyyy',
+      dateFormat: 'd/MM/yyyy',
       label: 'Prefilled',
       help: 'Date select control with prefilled value.'
+    }}
+  >
+    {FormElementTemplate.bind()}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    name='Prefilled (from)'
+    args={{
+      id: 'date-select-range-prefilled-from',
+      name: 'date-select-range-prefilled-from',
+      value: {
+        from: new Date().toLocaleDateString()
+      },
+      dateFormat: 'd/MM/yyyy',
+      label: 'Prefilled',
+      help: 'Date select control with prefilled value (from only).'
+    }}
+  >
+    {FormElementTemplate.bind()}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    name='Prefilled (to)'
+    args={{
+      id: 'date-select-range-prefilled-to',
+      name: 'date-select-range-prefilled-to',
+      value: {
+        to: new Date(Date.now() + (4*86400000)).toLocaleDateString()
+      },
+      dateFormat: 'd/MM/yyyy',
+      label: 'Prefilled',
+      help: 'Date select control with prefilled value (to only).'
     }}
   >
     {FormElementTemplate.bind()}

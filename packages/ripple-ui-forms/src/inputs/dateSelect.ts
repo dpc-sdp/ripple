@@ -45,6 +45,7 @@ export const dateSelect: FormKitTypeDefinition = {
     'minDate',
     'maxDate',
     'range',
+    'rangedMode',
     'sublabel',
     'pii'
   ],

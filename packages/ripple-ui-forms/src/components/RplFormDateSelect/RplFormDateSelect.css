@@ -51,6 +51,7 @@
   }
 
   .dp__input {
+    box-sizing: border-box;
     border-width: var(--rpl-border-1);
     border-color: var(--rpl-clr-dark);
     line-height: 1;
@@ -72,8 +73,9 @@
     inset-inline: auto;
     right: 0;
     margin-right: 2px;
-    padding: calc(var(--rpl-sp-3) + var(--rpl-sp-1) / 2) var(--rpl-sp-5);
-    line-height: 1;
+    padding: var(--rpl-sp-4) var(--rpl-sp-5);
+    line-height: 0.88;
+    height: 20px;
     color: var(--rpl-clr-link);
   }
 
@@ -89,8 +91,8 @@
       border-color: var(--rpl-clr-focus);
 
       --local-background-colour: var(--rpl-clr-focus);
-      padding-top: 14px;
-      padding-bottom: 14px;
+      padding-top: 16px;
+      padding-bottom: 16px;
       margin-right: 0;
       padding-right: calc(var(--rpl-sp-6) - var(--rpl-sp-1) / 2);
 

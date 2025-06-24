@@ -133,7 +133,6 @@ const highlightedRange = computed(() => {
       @update:value="(val) => (strDateTo = val)"
       @change="onChange"
     />
-    <pre wrap>{{ highlightedRange }}</pre>
   </div>
 </template>
 

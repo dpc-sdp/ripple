@@ -363,9 +363,6 @@ importers:
       change-case:
         specifier: ^4.1.2
         version: 4.1.2
-      date-fns:
-        specifier: 'catalog:'
-        version: 2.30.0
       defu:
         specifier: ^6.1.2
         version: 6.1.4
@@ -708,6 +705,9 @@ importers:
       '@dpc-sdp/ripple-tide-api':
         specifier: workspace:*
         version: link:../ripple-tide-api
+      date-fns:
+        specifier: 'catalog:'
+        version: 2.30.0
 
   packages/ripple-tide-publication:
     dependencies:

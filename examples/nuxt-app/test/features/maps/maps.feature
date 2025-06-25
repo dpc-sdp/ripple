@@ -113,6 +113,21 @@ Feature: Custom collection map component
     Then the map matches the image snapshot "map-sidepanel-item-click"
 
   @mockserver
+  Scenario: Sidepanel - Resets scroll position upon search
+    Given I load the page fixture with "/maps/basic-page"
+    Then the popup type is "sidebar"
+    And the side panel is enabled
+    And the page endpoint for path "/map" returns the loaded fixture
+    And the "/api/tide/elasticsearch/elasticsearch_index_develop_node/_search" network request is stubbed with fixture "/maps/many-map-results" and status 200 as alias "searchReq"
+
+    When I visit the page "/map"
+    And the map is loaded
+    Then I scroll to the maps side panel item titled "Orange Pin"
+    And I toggle the search listing filters section
+    Then I submit the search filters
+    Then the maps side panel should be scrolled to the top
+
+  @mockserver
   Scenario: Single active feature is split out from clustered features
     Given I load the page fixture with "/maps/basic-page"
     Given the side panel is enabled

@@ -863,6 +863,7 @@ watch(baseEvent, (newBaseEvent) => {
               :totalResults="totalResults"
               :currentPage="page"
               :totalPages="totalPages"
+              :searchCount="searchCount"
               @paginate="handlePageChange"
             >
               <template #noresults>

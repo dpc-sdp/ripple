@@ -1,6 +1,7 @@
 <template>
   <RplMapSidePanel
     v-if="variant === 'desktop' || (variant === 'mobile' && !popup?.isOpen)"
+    ref="sidePanelRef"
     :isBusy="isBusy"
     :isStandalone="variant === 'mobile'"
     :class="`tide-search-sidepanel--${variant}`"
@@ -79,12 +80,14 @@ interface Props {
   totalResults: number
   totalPages: number
   currentPage: number
+  searchCount?: number
 }
 
 const props = withDefaults(defineProps<Props>(), {
   panelLocation: 'left',
   isStandalone: false,
-  showToggle: false
+  showToggle: false,
+  searchCount: 0
 })
 
 const emit = defineEmits<{
@@ -97,6 +100,7 @@ const emit = defineEmits<{
 const { rplMapRef, popup, deadSpace, defaultExtent } = inject('rplMapInstance')
 
 const route = useRoute()
+const sidePanelRef = ref(null)
 const mobilePopupRef = ref(null)
 
 const handleSidePanelClick = async (item, activatePin) => {
@@ -155,6 +159,13 @@ const getItemId = (item) => {
 
   return get(item, props.mapConfig?.sidePanel?.itemIdObjPath || '_id')
 }
+
+// When a search occurs, we scroll the side panel back to the top
+watch([() => props.searchCount], async () => {
+  if (sidePanelRef.value) {
+    sidePanelRef.value?.scrollToTop()
+  }
+})
 </script>
 
 <style>

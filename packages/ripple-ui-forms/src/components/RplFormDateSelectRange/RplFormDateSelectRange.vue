@@ -16,13 +16,14 @@ interface Props {
   label?: string
   fromLabel?: string
   toLabel?: string
+  help?: string
   disabled?: boolean
   required?: boolean
   invalid?: boolean
   variant?: 'default' | 'reverse'
   value?: {
-    from: string
-    to: string
+    from?: string
+    to?: string
   }
   onChange: (value: string | string[]) => void
   dateFormat?: string
@@ -36,6 +37,7 @@ const props = withDefaults(defineProps<Props>(), {
   label: undefined,
   fromLabel: undefined,
   toLabel: undefined,
+  help: undefined,
   value: undefined,
   variant: 'default',
   dateFormat: 'd/MM/yyyy',

@@ -283,7 +283,7 @@ export const DefaultStory: Story = {
         ]
       },
       {
-        $formkit: 'RplFormDate',
+        $formkit: 'RplFormDateSelect',
         multiple: true,
         id: 'birthdate',
         name: 'birthdate',

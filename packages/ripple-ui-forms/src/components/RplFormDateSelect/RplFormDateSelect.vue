@@ -18,7 +18,9 @@ import '@vuepic/vue-datepicker/dist/main.css'
 interface Props {
   id: string
   name: string
+  label?: string
   sublabel?: string
+  help?: string
   disabled?: boolean
   required?: boolean
   invalid?: boolean
@@ -40,7 +42,9 @@ interface Props {
 const props = withDefaults(defineProps<Props>(), {
   disabled: false,
   invalid: false,
+  label: undefined,
   sublabel: undefined,
+  help: undefined,
   value: undefined,
   minDate: undefined,
   maxDate: undefined,

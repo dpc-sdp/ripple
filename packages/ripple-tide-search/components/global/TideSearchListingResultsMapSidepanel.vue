@@ -64,6 +64,8 @@ import { get } from 'lodash-es'
 import { fromLonLat, transformExtent } from 'ol/proj'
 import { Extent } from 'ol/extent'
 import { scrollToElementTopWithOffset } from '#imports'
+import { useBreakpoints } from '@vueuse/core'
+import { bpMin } from '@dpc-sdp/ripple-ui-core'
 
 interface Props {
   variant: 'mobile' | 'desktop'
@@ -102,6 +104,9 @@ const { rplMapRef, popup, deadSpace, defaultExtent } = inject('rplMapInstance')
 const route = useRoute()
 const sidePanelRef = ref(null)
 const mobilePopupRef = ref(null)
+
+const breakpoints = useBreakpoints(bpMin)
+const isMediumPlus = breakpoints.greaterOrEqual('m')
 
 const handleSidePanelClick = async (item, activatePin) => {
   const location = get(
@@ -160,9 +165,9 @@ const getItemId = (item) => {
   return get(item, props.mapConfig?.sidePanel?.itemIdObjPath || '_id')
 }
 
-// When a search occurs, we scroll the side panel back to the top
+// When a search occurs, we scroll the desktop side panel back to the top
 watch([() => props.searchCount], async () => {
-  if (sidePanelRef.value) {
+  if (sidePanelRef.value && props.variant === 'desktop' && isMediumPlus.value) {
     sidePanelRef.value?.scrollToTop()
   }
 })

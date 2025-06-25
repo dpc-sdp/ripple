@@ -5,15 +5,12 @@ import {
   getLinkFromField
 } from '@dpc-sdp/ripple-tide-api'
 
+type ElasticQueryDSL = Record<string, any>
+type ElasticQueryDSLFilter = Record<string, any>
+
 export interface IContentCollectionDisplay {
   type: 'list' | 'card'
   style?: 'thumbnail' | 'noImage'
-}
-
-export interface IContentCollectionFilter {
-  type?: 'any' | 'all'
-  field: string
-  values: string[] | number[]
 }
 
 export interface IContentCollectionSort {
@@ -28,9 +25,7 @@ export interface IContentCollection {
     url: string
   }
   display: IContentCollectionDisplay
-  perPage?: number
-  filters?: IContentCollectionFilter[]
-  sortBy?: IContentCollectionSort[]
+  query: ElasticQueryDSL
 }
 
 export interface ITideContentCollectionFilterConfig {
@@ -51,21 +46,21 @@ export interface ITideContentCollectionConfig {
 const getContentCollectionFiltersFromConfig = (
   config: ITideContentCollectionConfig,
   siteId?: string
-): IContentCollectionFilter[] => {
+): ElasticQueryDSLFilter[] => {
   const filters = []
   if (config.internal?.contentTypes) {
     filters.push({
-      type: 'any',
-      field: 'type',
-      values: config.internal?.contentTypes
+      terms: {
+        type: config.internal?.contentTypes
+      }
     })
   }
   if (config.internal?.contentFields) {
     const contentFieldFilters = Object.keys(config.internal?.contentFields).map(
       (field) => ({
-        field,
-        type: 'any',
-        values: config.internal?.contentFields[field].values
+        terms: {
+          [field]: config.internal?.contentFields[field].values
+        }
       })
     )
     filters.push(...contentFieldFilters)
@@ -73,9 +68,9 @@ const getContentCollectionFiltersFromConfig = (
 
   if (siteId) {
     filters.push({
-      type: 'any',
-      field: 'field_node_site',
-      values: [siteId]
+      term: {
+        field_node_site: siteId
+      }
     })
   }
 
@@ -85,19 +80,44 @@ const getContentCollectionFiltersFromConfig = (
 const getContentCollectionSortBy = (config) => {
   const sort = [
     {
-      field: getField(config, 'internal.sort.field', 'created'),
-      direction: getField(config, 'internal.sort.direction', 'desc')
+      [getField(config, 'internal.sort.field', 'created')]: getField(
+        config,
+        'internal.sort.direction',
+        'desc'
+      )
     }
   ]
 
   if (getField(config, 'internal.contentTypes', []).includes('news')) {
     sort.unshift({
-      field: 'field_news_date',
-      direction: getField(config, 'internal.sort.direction', 'desc')
+      field_news_date: getField(config, 'internal.sort.direction', 'desc')
     })
   }
 
   return sort
+}
+
+const getSearchQuery = (
+  config: ITideContentCollectionConfig,
+  pageSize: number,
+  siteId?: string
+): ElasticQueryDSL[] => {
+  const filters = getContentCollectionFiltersFromConfig(config, siteId)
+
+  return {
+    query: {
+      bool: {
+        filter: filters.map((f) => ({
+          bool: {
+            should: [f]
+          }
+        }))
+      }
+    },
+    size: pageSize,
+    from: 0,
+    sort: getContentCollectionSortBy(config)
+  }
 }
 
 export const contentCollectionMapping = (
@@ -105,6 +125,12 @@ export const contentCollectionMapping = (
   pageData,
   TidePageApi
 ): TideDynamicPageComponent<IContentCollection> => {
+  const pageSize = getField(
+    field,
+    'field_content_collection_config.internal.itemsToLoad',
+    6
+  )
+
   return {
     component: 'TideLandingPageContentCollection',
     id: field.drupal_internal__id.toString(),
@@ -115,15 +141,10 @@ export const contentCollectionMapping = (
         'field_content_collection_config',
         'callToAction'
       ]),
-      filters: getContentCollectionFiltersFromConfig(
+      searchQuery: getSearchQuery(
         field.field_content_collection_config,
+        pageSize,
         TidePageApi?.site
-      ),
-      sortBy: getContentCollectionSortBy(field.field_content_collection_config),
-      perPage: getField(
-        field,
-        'field_content_collection_config.internal.itemsToLoad',
-        6
       ),
       display: {
         type:

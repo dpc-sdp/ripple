@@ -30,6 +30,7 @@
           <button
             v-if="type === 'standalone'"
             class="rpl-map-popup__close rpl-u-focusable-block"
+            aria-label="Close"
             @click="onClose"
           >
             <RplIcon name="icon-arrow-left" size="s" colour="primary"></RplIcon>
@@ -40,6 +41,7 @@
           <button
             v-if="type !== 'standalone'"
             class="rpl-map-popup__close rpl-u-focusable-block"
+            aria-label="Close"
             @click="onClose"
           >
             <RplIcon name="icon-cancel" size="s" colour="primary"></RplIcon>
@@ -71,7 +73,7 @@ import LargePinIcon from './../../assets/icons/icon-pin-large.svg?component'
 interface Props {
   featureId: string
   isOpen: boolean
-  isArea: boolean
+  isArea?: boolean
   pinColor?: string
   type?: 'standalone' | 'popover' | 'sidebar' | 'layerlist'
   mapHeight?: number

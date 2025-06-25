@@ -43,6 +43,7 @@ interface Props {
   userFilters?: TideSearchListingConfig['userFilters']
   resultsLayout: TideSearchListingResultLayout
   noResultsLayout: any
+  emptyIndexLayout: any
   belowFilterComponent?: any
   searchResultsMappingFn?: (item: any) => MappedSearchResult<any>
   contentPage: TideContentPage
@@ -92,6 +93,9 @@ const props = withDefaults(defineProps<Props>(), {
   }),
   noResultsLayout: () => ({
     component: 'TideSearchNoResults'
+  }),
+  emptyIndexLayout: () => ({
+    component: 'TideSearchEmptyIndex'
   }),
   belowFilterComponent: undefined,
   searchResultsMappingFn: (item: any): MappedSearchResult<any> => {
@@ -359,6 +363,10 @@ const numAppliedFilters = computed(() => {
   return getActiveFiltersTally(appliedFilters.value, props.userFilters)
 })
 
+const hasAppliedSearchTerm = computed(() => {
+  return Object.values(appliedSearchTerm.value).some((value) => value)
+})
+
 watch(
   () => isBusy.value,
   (loading, prevLoading) => {
@@ -589,10 +597,18 @@ const cornerTopGraphic = computed(() => {
       <RplPageComponent :full-width="true">
         <TideSearchResultsLoadingState :isActive="isBusy">
           <TideSearchError v-if="searchError" />
-          <component
-            :is="noResultsLayout.component"
-            v-else-if="!isBusy && !results?.length"
-          />
+          <template v-else-if="!isBusy && !results?.length">
+            <component
+              :is="emptyIndexLayout.component"
+              v-if="
+                emptyIndexLayout?.component &&
+                !numAppliedFilters &&
+                !hasAppliedSearchTerm
+              "
+              v-bind="emptyIndexLayout.props"
+            />
+            <component :is="noResultsLayout.component" v-else />
+          </template>
 
           <slot v-if="!searchError" name="results" :results="results">
             <component

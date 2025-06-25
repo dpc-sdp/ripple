@@ -61,8 +61,8 @@ import { rplEventPayload, useRippleEvent } from '@dpc-sdp/ripple-ui-core'
 interface Props {
   el?: string
   mapHeight: number
-  showToggle: boolean
-  isStandalone: boolean
+  showToggle?: boolean
+  isStandalone?: boolean
   isBusy: boolean
   panelLocation?: 'left' | 'right'
   pagingStart: number

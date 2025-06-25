@@ -13,7 +13,7 @@
     "sourceMap": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
-    "types": ["vite/client", "@types/jest", "cypress"],
+    "types": ["vite/client", "cypress"],
     "paths": {
       "@/*": ["src/*"]
     },

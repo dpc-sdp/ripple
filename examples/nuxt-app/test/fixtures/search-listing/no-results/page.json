@@ -27,7 +27,10 @@
         "component": "TideSearchResultsGrid"
       },
       "empty": {
-        "component": "TideSearchEmpty"
+        "component": "TideSearchEmptyExample"
+      },
+      "emptyIndex": {
+        "component": "TideSearchEmptyIndexExample"
       },
       "item": {
         "*": {

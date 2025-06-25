@@ -123,4 +123,3 @@ Primary navigation also adopts its theming from the search bar component.
 To aim to conform with [WCAG2.2 Criterion 2.5.8](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum), the primary navigation bar uses the space either side of menu items. This allows for increased touch targets and the use of the block focus state styling.
 
 > 2.5.8 Target Size (Minimum) The size of the [target](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum#dfn-target) for [pointer inputs](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum#dfn-pointer-input) is at least 24 by 24 [CSS pixels](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum#dfn-css-pixel),
-

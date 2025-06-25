@@ -15,12 +15,10 @@
     "@dpc-sdp/stylelint-config-ripple": "workspace:*",
     "@modyfi/vite-plugin-yaml": "^1.0.4",
     "highlight.js": "^11.7.0",
-    "iframe-resizer": "^5.4.6",
     "nuxt": "catalog:"
   },
   "devDependencies": {
     "@iconify/vue": "^5.0.0",
-    "@nuxt/content": "^2.13.4",
-    "@types/iframe-resizer": "^4.0.0"
+    "@nuxt/content": "^2.13.4"
   }
 }

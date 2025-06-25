@@ -54,4 +54,3 @@ Use the reverse variant when the chip appears on the primary colour.
 id: core-containers-tag--neutral
 ---
 ::
-

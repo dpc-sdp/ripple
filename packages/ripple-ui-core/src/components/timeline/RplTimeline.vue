@@ -15,13 +15,13 @@ interface Props {
 
 interface IRplTimelineItem {
   image?: IRplImageType
-  title: string
-  subtitle: string
-  dateStart: string
-  dateEnd: string
-  current: boolean
-  description: string
-  url: string
+  title?: string
+  subtitle?: string
+  dateStart?: string
+  dateEnd?: string
+  current?: boolean
+  description?: string
+  url?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {

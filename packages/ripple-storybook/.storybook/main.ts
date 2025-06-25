@@ -1,4 +1,4 @@
-import { StorybookConfig } from '@storybook/vue3-vite'
+import type { StorybookConfig } from '@storybook/vue3-vite'
 import svgLoader from 'vite-svg-loader'
 import viteYamlLoader from '@modyfi/vite-plugin-yaml'
 import nodeResolve from '@rollup/plugin-node-resolve'
@@ -37,13 +37,8 @@ const vitePlugins = [
 ]
 
 const config: StorybookConfig = {
-  stories: ['./../../ripple-ui*/**/*.stories.@(js|jsx|ts|tsx|mdx)'],
-  addons: [
-    '@storybook/addon-links',
-    '@storybook/addon-essentials',
-    '@storybook/addon-interactions',
-    '@storybook/addon-a11y'
-  ],
+  stories: ['./../../ripple-ui*/!(node_modules)/**/*.stories.@(js|jsx|ts|tsx)'],
+  addons: ['@storybook/addon-a11y', '@storybook/addon-vitest'],
   framework: {
     name: '@storybook/vue3-vite',
     options: {}
@@ -53,7 +48,7 @@ const config: StorybookConfig = {
     ${head}
     <script src="${
       process.env.STATIC_BASE_PATH ? process.env.STATIC_BASE_PATH : '/'
-    }js/iframeResizer.contentWindow.min.js"></script>
+    }js/iframeResizer.js"></script>
   `,
   async viteFinal(config) {
     if (process.env.STATIC_BASE_PATH) {

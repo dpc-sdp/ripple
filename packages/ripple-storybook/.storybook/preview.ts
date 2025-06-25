@@ -1,5 +1,4 @@
 import { setup, type Preview } from '@storybook/vue3'
-
 // @ts-ignore-next-line: Missing declaration
 import { registerRplFormPlugin } from '@dpc-sdp/ripple-ui-forms'
 import registerRplMapsPlugin from '@dpc-sdp/ripple-ui-maps/plugin'
@@ -17,16 +16,11 @@ import {
 import '@dpc-sdp/ripple-ui-core/style'
 import themes from './themes.js'
 import withBackground from './utils/withBackground'
-import svgPlaceholder from './utils/svgPlaceholder'
 import { withSource } from './utils/withSource'
 // Storybook specific CSS
 import './storybook.css'
 import withTheme from './utils/withTheme'
 import withEventBus from './utils/withEventBus'
-
-// Add SVG based image placeholder for use in all stories
-// @ts-ignore-next-line: Yes, adding this to global scope, thank you tslint
-window.svgPlaceholder = svgPlaceholder
 
 setup((app) => {
   // Ripple vue plugins
@@ -45,9 +39,18 @@ setup((app) => {
 const preview: Preview = {
   parameters: {
     actions: { argTypesRegex: '^on[A-Z].*' },
+    a11y: {
+      test: 'error',
+      options: {
+        runOnly: {
+          type: 'tag',
+          values: ['wcag2a', 'wcag2aa']
+        }
+      }
+    },
     options: {
       storySort: {
-        order: ['Base Styles', 'Core', '*', 'WIP']
+        order: ['Introduction', 'Base Styles', 'Core', '*', 'WIP']
       }
     },
     controls: {

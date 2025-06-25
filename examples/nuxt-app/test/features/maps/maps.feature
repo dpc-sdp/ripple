@@ -262,6 +262,90 @@ Feature: Custom collection map component
     Then the map is in the default position
 
   @mockserver
+  Scenario: Navigating off the map tab and back after re-applying search works as expected
+    Given I load the page fixture with "/maps/basic-page"
+    And the "/api/tide/elasticsearch/elasticsearch_index_develop_node/_search" network request is stubbed with fixture "/maps/simple-map-results" and status 200 as alias "searchReq"
+    Then the page endpoint for path "/map" returns the loaded fixture
+    Then I visit the page "/map"
+    And the map is loaded
+
+    When I toggle the search listing filters section
+    Then I submit the search filters
+    And I click the tab labelled "List"
+    Then the URL should reflect that the current active filters are as follows:
+      | id        | value   |
+      | activeTab | listing |
+    And the list view should be displayed
+    And the search network request should be called with the "/maps/request-empty" fixture
+
+    When I submit the search filters
+    Then I click the tab labelled "Map"
+    And the map view should be displayed
+    And the URL should reflect that the current active filters are as follows:
+      | id        |
+      | activeTab |
+
+    When I click the search listing dropdown field labelled "Project Type"
+    And I click the option labelled "Planning" in the selected dropdown
+    And I click the search listing dropdown field labelled "Project Type"
+    And I submit the search filters
+    Then I click the tab labelled "List"
+    Then the list view should be displayed
+    And the search network request should be called with the "/maps/request-with-filter" fixture
+
+  @mockserver
+  Scenario: Browser navigation is respected when using the map, search and tabs
+    Given I load the page fixture with "/maps/basic-page"
+    And the "/api/tide/elasticsearch/elasticsearch_index_develop_node/_search" network request is stubbed with fixture "/maps/simple-map-results" and status 200 as alias "searchReq"
+    Then the page endpoint for path "/map" returns the loaded fixture
+    Then I visit the page "/map"
+    And the map is loaded
+
+    When I click the tab labelled "List"
+    Then the list view should be displayed
+    When I toggle the search listing filters section
+    Then I click the search listing dropdown field labelled "Project Type"
+    And I click the option labelled "Planning" in the selected dropdown
+    And I click the search listing dropdown field labelled "Project Type"
+    And I submit the search filters
+    Then the URL should reflect that the current active filters are as follows:
+      | id        | value    |
+      | category  | Planning |
+      | activeTab | listing  |
+    And the search network request should be called with the "/maps/request-with-filter" fixture
+
+    When I navigate back
+    Then the list view should be displayed
+    Then the URL should reflect that the current active filters are as follows:
+      | id        | value   |
+      | category  |         |
+      | activeTab | listing |
+    And the search listing dropdown field labelled "Project Type" should have the value "Select"
+    And the search network request should be called with the "/maps/request-empty" fixture
+
+    When I navigate back
+    Then the URL should reflect that the current active filters are as follows:
+      | id        | value |
+      | category  |       |
+      | activeTab |       |
+    And the map view should be displayed
+
+    When I navigate forward
+    Then the list view should be displayed
+    And the URL should reflect that the current active filters are as follows:
+      | id        | value   |
+      | category  |         |
+      | activeTab | listing |
+    And the search network request should be called with the "/maps/request-empty" fixture
+
+    When I navigate forward
+    And the URL should reflect that the current active filters are as follows:
+      | id        | value    |
+      | category  | Planning |
+      | activeTab | listing  |
+    And the search network request should be called with the "/maps/request-with-filter" fixture
+
+  @mockserver
   Scenario: Clicking a result link fires the click_search_result event
     Given I load the page fixture with "/maps/basic-page"
     Given the popup type is "popover"

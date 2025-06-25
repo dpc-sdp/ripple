@@ -1,0 +1,38 @@
+
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "match_all": {}
+        }
+      ],
+      "filter": [
+        {
+          "terms": {
+            "type": [
+              "project_infrastructure"
+            ]
+          }
+        },
+        {
+          "terms": {
+            "field_node_site": [
+              622
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "size": 5,
+  "from": 0,
+  "sort": [
+    {
+      "_score": "desc"
+    },
+    {
+      "_doc": "desc"
+    }
+  ]
+}

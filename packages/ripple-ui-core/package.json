@@ -1,7 +1,7 @@
 {
   "name": "@dpc-sdp/ripple-ui-core",
   "description": "Ripple UI Core component library",
-  "version": "2.34.0",
+  "version": "2.35.0",
   "license": "Apache-2.0",
   "repository": "https://github.com/dpc-sdp/ripple-framework",
   "files": [
@@ -76,7 +76,6 @@
     "vite": "catalog:",
     "vite-plugin-copy": "^0.1.6",
     "vite-plugin-dts": "^2.1.0",
-    "vite-plugin-vue-svg": "^0.1.0",
     "yaml": "^2.2.2"
   }
 }

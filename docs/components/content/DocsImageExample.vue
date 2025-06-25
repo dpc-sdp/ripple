@@ -35,6 +35,10 @@ withDefaults(defineProps<Props>(), {})
 
 .docs-example-body {
   padding: var(--rpl-sp-5);
+
+  img {
+    max-width: 100%;
+  }
 }
 
 .docs-example-footer {

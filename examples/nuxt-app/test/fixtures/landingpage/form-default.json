@@ -78,7 +78,7 @@
             "$formkit": "RplFormHidden",
             "name": "currenttime",
             "id": "currenttime",
-            "value": "$currentTimestamp()"
+            "value": "$exampleCurrentTimestamp()"
           },
           {
             "$formkit": "RplFormText",

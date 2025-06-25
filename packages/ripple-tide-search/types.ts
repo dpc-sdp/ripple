@@ -93,9 +93,13 @@ export type TideSearchListingResultsConfig = {
    */
   layout?: TideSearchListingResultLayout
   /**
-   * @description Component to render no results layout
+   * @description Component to render when no results are found
    */
   empty?: any
+  /**
+   * @description Component to render when the index is "empty"
+   */
+  emptyIndex?: any
   /**
    * @description Component to render result items, can be either '*' for all types, or the content type name if you need to render different types of results differently
    */
@@ -306,7 +310,11 @@ export type TideSearchListingConfig = {
     /**
      * @description when true, don't actually make any search api calls, useful for maps that don't actually get there data from elasticsearch
      */
-    disableSearch: boolean
+    disableSearch?: boolean
+    /**
+     * @description when true, will automatically filter results by the current site. Useful for search listings configs that are applied across multiple sites.
+     */
+    filterByCurrentSite?: boolean
   }
   /**
    * @description Tabs to display, key needs to be one of TideSearchListingTabKey

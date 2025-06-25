@@ -56,7 +56,13 @@ Then(`the location search value should be {string}`, (term) => {
 })
 
 Then(`the map matches the image snapshot {string}`, (title) => {
-  cy.get('.rpl-primary-nav').invoke('remove')
+  cy.get('body').then(($body) => {
+    const nav = $body.find('.rpl-primary-nav')
+    if (nav.length) {
+      nav.remove()
+    }
+  })
+
   cy.get('.rpl-map').matchImage({
     title,
     screenshotConfig: {},
@@ -268,6 +274,14 @@ When('I click the exit fullscreen button', () => {
   cy.get('.rpl-map__control button[title="Exit full screen"]').realClick()
 })
 
+When('I click the zoom in button', () => {
+  cy.get('.rpl-map__control-zoom-in').click()
+})
+
+When('I click the zoom out button', () => {
+  cy.get('.rpl-map__control-zoom-out').click()
+})
+
 Then('the map should be fullscreen', () => {
   cy.document().then((doc) => {
     expect(doc.fullscreenElement).to.not.be.null
@@ -294,8 +308,40 @@ Then('the map is loaded', () => {
   cy.get('.ol-map-fully-loaded', { timeout: 12000 }).should('be.visible')
 })
 
+Then('the map is positioned at', (dataTable: DataTable) => {
+  const table = dataTable.hashes()
+
+  cy.get('.rpl-map').as('map')
+
+  table.forEach((row) => {
+    const center =
+      row.center === 'default' ? '16193060.23205,-4383467.70225' : row.center
+    const zoom = row.zoom === 'default' ? '6.849094430405593' : row.zoom
+
+    cy.get('@map').should('have.attr', 'data-center', center)
+    cy.get('@map').should('have.attr', 'data-zoom', zoom)
+  })
+})
+
+Then('the map is in the default position', () => {
+  cy.get('.rpl-map').as('map')
+
+  cy.get('@map').should(
+    'have.attr',
+    'data-center',
+    '16193060.23205,-4383467.70225'
+  )
+  cy.get('@map').should('have.attr', 'data-zoom', '6.849094430405593')
+})
+
 Then(`the list view should be displayed`, () => {
   cy.get('[data-component-type="search-listing-layout-table"]', {
+    timeout: 12000
+  }).should('be.visible')
+})
+
+Then(`the map view should be displayed`, () => {
+  cy.get('.rpl-map', {
     timeout: 12000
   }).should('be.visible')
 })

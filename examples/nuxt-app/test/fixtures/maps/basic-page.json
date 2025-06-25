@@ -111,7 +111,7 @@
             "itemIdObjPath": "test_item_id"
           },
           "props": {
-            "pinIconFn": "testMapPinStyle",
+            "pinIconFn": "exampleMapPinStyle",
             "popup": {
               "content": {
                 "component": "TestMapPopupContent"
@@ -189,8 +189,7 @@
         ],
         "locationQueryConfig": {
           "component": "TideSearchAddressLookup",
-          "dslTransformFunction": "schoolBuildings",
-          "mapResultsMappingFn": "schoolBuildings"
+          "dslTransformFunction": "exampleDSLTransformFunction"
         },
         "resultsConfig": {
           "layout": {

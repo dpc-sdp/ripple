@@ -134,3 +134,11 @@ Then('I scroll {int} pixels', (pixels: number) => {
 Then('I click the back to top button', () => {
   cy.get('.rpl-back-to-top__button').click()
 })
+
+Then('I navigate back', () => {
+  cy.go('back')
+})
+
+Then('I navigate forward', () => {
+  cy.go('forward')
+})

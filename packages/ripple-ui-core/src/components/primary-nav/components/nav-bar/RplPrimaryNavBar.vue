@@ -107,12 +107,14 @@ const showMobileToggle = computed(() => {
           class="rpl-primary-nav__primary-logo-image rpl-u-screen-only"
           :src="primaryLogo.src"
           :alt="primaryLogo.altText"
+          sizes="xs:106px"
         />
         <RplImg
           v-if="primaryLogo?.src"
           class="rpl-primary-nav__primary-logo-image rpl-primary-nav__logo-alt rpl-u-print-only"
           :src="primaryLogo?.printSrc ? primaryLogo?.printSrc : primaryLogo.src"
           :alt="primaryLogo.altText"
+          sizes="xs:106px"
         />
       </RplLink>
 
@@ -132,12 +134,14 @@ const showMobileToggle = computed(() => {
           class="rpl-primary-nav__secondary-logo-image rpl-u-screen-only"
           :src="secondaryLogo.src"
           :alt="secondaryLogo.altText"
+          sizes="xs:148px"
         />
         <RplImg
           v-if="secondaryLogo.printSrc"
           class="rpl-primary-nav__secondary-logo-image rpl-primary-nav__logo-alt rpl-u-print-only"
           :src="secondaryLogo.printSrc"
           :alt="secondaryLogo.altText"
+          sizes="xs:148px"
         />
       </RplLink>
     </div>
@@ -149,7 +153,10 @@ const showMobileToggle = computed(() => {
       ]"
     >
       <!-- Mobile menu toggle -->
-      <li v-if="showMobileToggle" class="rpl-primary-nav__nav-bar-mobile-menu-toggle-container">
+      <li
+        v-if="showMobileToggle"
+        class="rpl-primary-nav__nav-bar-mobile-menu-toggle-container"
+      >
         <RplPrimaryNavBarAction
           type="toggle"
           href="/"

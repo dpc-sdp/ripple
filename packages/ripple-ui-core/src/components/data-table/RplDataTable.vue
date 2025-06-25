@@ -1,13 +1,6 @@
 <script setup lang="ts">
 import { useBreakpoints } from '@vueuse/core'
-import {
-  computed,
-  type ComputedRef,
-  withDefaults,
-  ref,
-  unref,
-  onMounted
-} from 'vue'
+import { computed, type ComputedRef, ref, unref, onMounted } from 'vue'
 import { bpMin } from '../../lib/breakpoints'
 import RplDataTableRow, {
   extraRowContent,

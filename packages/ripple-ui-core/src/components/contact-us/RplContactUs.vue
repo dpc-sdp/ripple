@@ -9,9 +9,9 @@ import {
 import useEmptySlotCheck from '../../composables/useEmptySlotCheck'
 
 interface IRplContactUsDetails {
-  name: string
-  department: string
-  street: string
+  name?: string
+  department?: string
+  street?: string
 }
 
 interface Props {

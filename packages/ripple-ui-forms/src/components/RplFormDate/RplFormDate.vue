@@ -25,12 +25,12 @@ interface Props {
   name: string
   label?: string
   disabled?: boolean
-  required: boolean
+  required?: boolean
   invalid?: boolean | DatePart[]
   variant?: 'default' | 'reverse'
   value?: string
   onChange: (value: string | string[]) => void
-  dateFormat: string
+  dateFormat?: string
   ariaDescribedby?: string
   pii?: boolean
 }

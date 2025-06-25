@@ -1,7 +1,7 @@
 {
   "name": "@dpc-sdp/ripple-ui-forms",
   "description": "A form component library built with Formkit",
-  "version": "2.33.0",
+  "version": "2.35.0",
   "license": "Apache-2.0",
   "repository": "https://github.com/dpc-sdp/ripple-framework",
   "main": "./dist/rpl-forms.umd.js",
@@ -12,7 +12,7 @@
     ".": "./dist/rpl-forms.es.js",
     "./components": "./dist/components",
     "./nuxt": "./dist/nuxt.js",
-    "./style": "./dist/style.css"
+    "./style": "./dist/ripple-ui-forms.css"
   },
   "dependencies": {
     "@dpc-sdp/ripple-ui-core": "workspace:*",
@@ -21,7 +21,7 @@
     "@formkit/nuxt": "1.6.0",
     "@formkit/validation": "1.6.0",
     "@formkit/vue": "1.6.0",
-    "@nuxt/kit": "^3.16.1",
+    "@nuxt/kit": "catalog:",
     "@vueuse/core": "^10.9.0",
     "date-fns": "^2.29.3"
   },

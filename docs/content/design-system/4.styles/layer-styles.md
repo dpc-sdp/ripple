@@ -87,4 +87,3 @@ id: core-navigation-breadcrumbs--default-story
 hideCode: true
 ---
 ::
-

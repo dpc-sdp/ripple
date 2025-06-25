@@ -18,6 +18,14 @@
           }
         },
         {
+          "range": {
+            "published_at": {
+              "time_zone": "Australia/Melbourne",
+              "gte": "now/d"
+            }
+          }
+        },
+        {
           "terms": {
             "valueSet": [
               "orange"

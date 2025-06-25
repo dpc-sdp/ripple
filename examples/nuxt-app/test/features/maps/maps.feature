@@ -4,7 +4,7 @@ Feature: Custom collection map component
 
   Background:
     Given the site endpoint returns fixture "/site/vic" with status 200
-    And the search autocomplete request is stubbed with "/search-listing/suggestions/none" fixture
+    And the location autocomplete request is stubbed with "/maps/example-suburbs-response" fixture
     Given I am using a "macbook-16" device
     Given the "/api/tide/elasticsearch/elasticsearch_index_develop_node/_search" aggregation request is stubbed with fixture "/map-table/vsba/aggregations" and status 200 as alias "aggReq"
     Given the "/test-map-shape-layer" network request is stubbed with fixture "/maps/sample-shapes"
@@ -184,6 +184,166 @@ Feature: Custom collection map component
     Then the page endpoint for path "/map" returns the loaded fixture
     When I visit the page "/map"
     Then the map height is 606
+
+  @mockserver
+  Scenario: Updating the filters will revert the map position
+    Given I load the page fixture with "/maps/basic-page"
+    And the "/api/tide/elasticsearch/elasticsearch_index_develop_node/_search" network request is stubbed with fixture "/maps/simple-map-results" and status 200 as alias "searchReq"
+    Then the page endpoint for path "/map" returns the loaded fixture
+    And I visit the page "/map"
+    And the map is loaded
+    Then the map is in the default position
+
+    When I click the zoom in button
+    Then the map is positioned at
+      | center  | zoom              |
+      | default | 7.849094430405593 |
+
+    When I toggle the search listing filters section
+    Then I click the search listing dropdown field labelled "Project Type"
+    And I click the option labelled "Planning" in the selected dropdown
+    And I click the search listing dropdown field labelled "Project Type"
+    Then I submit the search filters
+    Then the map is in the default position
+
+    When I click the zoom out button
+    Then the map is positioned at
+      | center  | zoom              |
+      | default | 5.849094430405593 |
+
+    When I clear the search filters
+    Then the map is in the default position
+
+  @mockserver
+  Scenario: Applying filters with location only will revert the map position to the location
+    Given I load the page fixture with "/maps/basic-page"
+    And the "/api/tide/elasticsearch/elasticsearch_index_develop_node/_search" network request is stubbed with fixture "/maps/simple-map-results" and status 200 as alias "searchReq"
+    Then the page endpoint for path "/map" returns the loaded fixture
+    Then I visit the page "/map?location[id]=doc-661493669bd65fde1ab9b791&location[name]=Bayswater+North&location[postcode]=3153&location[bbox]=145.25846667091363&location[bbox]=-37.83800461846399&location[bbox]=145.30593610877344&location[bbox]=-37.813258938042594&location[center]=145.2836623&location[center]=-37.8268821"
+    And the map is loaded
+    Then the map is positioned at
+      | center                                | zoom               |
+      | 16172740.680043206,-4554822.777152179 | 13.939450418166157 |
+
+    Then I click the zoom out button
+    Then the map is positioned at
+      | center                                | zoom               |
+      | 16172740.680043206,-4554822.777152179 | 12.939450418166157 |
+
+    When I toggle the search listing filters section
+    Then I click the search listing dropdown field labelled "Project Type"
+    And I click the option labelled "Planning" in the selected dropdown
+    And I click the search listing dropdown field labelled "Project Type"
+    Then I submit the search filters
+    Then the map is positioned at
+      | center                                | zoom               |
+      | 16172740.680043206,-4554822.777152179 | 13.939450418166157 |
+
+    When I clear the search filters
+    Then the map is in the default position
+
+  @mockserver
+  Scenario: Reapplying filters will re-run search and restore map position
+    Given I load the page fixture with "/maps/basic-page"
+    And the "/api/tide/elasticsearch/elasticsearch_index_develop_node/_search" network request is stubbed with fixture "/maps/simple-map-results" and status 200 as alias "searchReq"
+    Then the page endpoint for path "/map" returns the loaded fixture
+    Then I visit the page "/map"
+    And the map is loaded
+    Then the map is in the default position
+
+    When I click the zoom in button
+    Then the map is positioned at
+      | center  | zoom              |
+      | default | 7.849094430405593 |
+
+    When I toggle the search listing filters section
+    Then I submit the search filters
+    And the aliased request "searchReq" has been called 4 times
+    Then the map is in the default position
+
+  @mockserver
+  Scenario: Navigating off the map tab and back after re-applying search works as expected
+    Given I load the page fixture with "/maps/basic-page"
+    And the "/api/tide/elasticsearch/elasticsearch_index_develop_node/_search" network request is stubbed with fixture "/maps/simple-map-results" and status 200 as alias "searchReq"
+    Then the page endpoint for path "/map" returns the loaded fixture
+    Then I visit the page "/map"
+    And the map is loaded
+
+    When I toggle the search listing filters section
+    Then I submit the search filters
+    And I click the tab labelled "List"
+    Then the URL should reflect that the current active filters are as follows:
+      | id        | value   |
+      | activeTab | listing |
+    And the list view should be displayed
+    And the search network request should be called with the "/maps/request-empty" fixture
+
+    When I submit the search filters
+    Then I click the tab labelled "Map"
+    And the map view should be displayed
+    And the URL should reflect that the current active filters are as follows:
+      | id        |
+      | activeTab |
+
+    When I click the search listing dropdown field labelled "Project Type"
+    And I click the option labelled "Planning" in the selected dropdown
+    And I click the search listing dropdown field labelled "Project Type"
+    And I submit the search filters
+    Then I click the tab labelled "List"
+    Then the list view should be displayed
+    And the search network request should be called with the "/maps/request-with-filter" fixture
+
+  @mockserver
+  Scenario: Browser navigation is respected when using the map, search and tabs
+    Given I load the page fixture with "/maps/basic-page"
+    And the "/api/tide/elasticsearch/elasticsearch_index_develop_node/_search" network request is stubbed with fixture "/maps/simple-map-results" and status 200 as alias "searchReq"
+    Then the page endpoint for path "/map" returns the loaded fixture
+    Then I visit the page "/map"
+    And the map is loaded
+
+    When I click the tab labelled "List"
+    Then the list view should be displayed
+    When I toggle the search listing filters section
+    Then I click the search listing dropdown field labelled "Project Type"
+    And I click the option labelled "Planning" in the selected dropdown
+    And I click the search listing dropdown field labelled "Project Type"
+    And I submit the search filters
+    Then the URL should reflect that the current active filters are as follows:
+      | id        | value    |
+      | category  | Planning |
+      | activeTab | listing  |
+    And the search network request should be called with the "/maps/request-with-filter" fixture
+
+    When I navigate back
+    Then the list view should be displayed
+    Then the URL should reflect that the current active filters are as follows:
+      | id        | value   |
+      | category  |         |
+      | activeTab | listing |
+    And the search listing dropdown field labelled "Project Type" should have the value "Select"
+    And the search network request should be called with the "/maps/request-empty" fixture
+
+    When I navigate back
+    Then the URL should reflect that the current active filters are as follows:
+      | id        | value |
+      | category  |       |
+      | activeTab |       |
+    And the map view should be displayed
+
+    When I navigate forward
+    Then the list view should be displayed
+    And the URL should reflect that the current active filters are as follows:
+      | id        | value   |
+      | category  |         |
+      | activeTab | listing |
+    And the search network request should be called with the "/maps/request-empty" fixture
+
+    When I navigate forward
+    And the URL should reflect that the current active filters are as follows:
+      | id        | value    |
+      | category  | Planning |
+      | activeTab | listing  |
+    And the search network request should be called with the "/maps/request-with-filter" fixture
 
   @mockserver
   Scenario: Clicking a result link fires the click_search_result event

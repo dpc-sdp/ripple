@@ -1,7 +1,7 @@
 {
   "name": "@dpc-sdp/stylelint-config-ripple",
   "description": "ESLint config for Ripple projects",
-  "version": "2.33.0",
+  "version": "2.35.0",
   "license": "Apache-2.0",
   "repository": "https://github.com/dpc-sdp/ripple-framework",
   "main": "index.js",

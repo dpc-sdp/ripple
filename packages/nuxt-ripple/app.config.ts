@@ -35,6 +35,10 @@ declare module '@nuxt/schema' {
           string,
           (filterConfig: any, values: string[]) => void
         >
+        suggestionsFunctions?: Record<
+          string,
+          (query: string, args: any) => Promise<any>
+        >
         filterFunctions?: Record<
           string,
           (filterConfig: any, values: string[]) => any
@@ -45,7 +49,6 @@ declare module '@nuxt/schema' {
           string,
           (location: any, filterForm: any) => Promise<any>
         >
-        mapPinStyleFn?: Record<string, (feature) => any>
         mapResultHooks?: Record<
           string,
           (map: any, results: any, location: any, mapDeadSpace: any) => void
@@ -61,8 +64,8 @@ declare module '@nuxt/schema' {
             mapDeadSpace: any
           ) => boolean | void
         >
-        suggestionsFunctions?: Record<string, (query, args) => any>
         transformResultFns?: Record<string, (result) => any>
+        mapPinStyleFn?: Record<string, (features) => any>
       }
       customInputs?: {
         [key: string]: {

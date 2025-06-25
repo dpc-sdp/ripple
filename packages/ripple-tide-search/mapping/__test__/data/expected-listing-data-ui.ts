@@ -1,5 +1,6 @@
 export default {
   searchListingConfig: {
+    filterByCurrentSite: false,
     hideSearchForm: false,
     resultsPerPage: 15,
     labels: { submit: 'Submit', placeholder: 'Search me....' },

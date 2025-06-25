@@ -247,6 +247,7 @@ export interface IRplFeatureFlags {
    */
   disableFooterLogo?: boolean
   /**
+   * @deprecated content collections will no longer use app search, this feature flag will have no effect
    * @description Sets which search connector to use for content collection queries
    */
   contentCollectionSearchConnector?: 'appSearch' | 'elasticsearch'

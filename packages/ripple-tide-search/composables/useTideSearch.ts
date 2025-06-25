@@ -89,6 +89,8 @@ export default ({
 
   const isBusy = ref(true)
   const searchError = ref(null)
+  const searchCount = ref(0)
+  const manualSearch = ref(false)
 
   const locationQuery = ref<any | null>(null)
 
@@ -155,8 +157,8 @@ export default ({
 
   const getUserFilterClause = (forAggregations = false) => {
     const _filters = [] as any[]
-    if (globalFilters && globalFilters.length > 0) {
-      _filters.push(...globalFilters)
+    if (computedGlobalFilters.value && computedGlobalFilters.value.length > 0) {
+      _filters.push(...computedGlobalFilters.value)
     }
 
     if (forAggregations) {
@@ -520,6 +522,21 @@ export default ({
     return getUserFilters(true)
   })
 
+  const computedGlobalFilters = computed(() => {
+    if (!searchListingConfig.filterByCurrentSite) {
+      return globalFilters
+    }
+
+    return [
+      ...globalFilters,
+      {
+        term: {
+          field_node_site: config.tide.site
+        }
+      }
+    ]
+  })
+
   const getQueryDSL = async () => {
     const locationFilters = await getLocationFilterClause('listing')
     const query = getQueryClause([...getUserFilterClause(), ...locationFilters])
@@ -560,7 +577,7 @@ export default ({
       query: {
         bool: {
           must: [{ match_all: {} }],
-          filter: globalFilters
+          filter: computedGlobalFilters.value
         }
       },
       size: 0,
@@ -597,6 +614,7 @@ export default ({
       return
     }
 
+    searchCount.value++
     isBusy.value = true
     searchError.value = null
     appliedSearchTerm.value = { ...searchTerm.value }
@@ -724,7 +742,16 @@ export default ({
     const fallbackValues = appConfig?.ripple?.search?.fallbackValues || {}
 
     return userFilterConfig.reduce((acc, curr) => {
-      if (curr?.filter?.fallbackValue && !filterForm.value?.[curr.id]) {
+      let value = filterForm.value?.[curr.id]
+      let hasValue = value
+
+      if (typeof value === 'object' && value !== null) {
+        hasValue = Object.values(hasValue).length
+      } else if (Array.isArray(value)) {
+        hasValue = value?.length
+      }
+
+      if (curr?.filter?.fallbackValue && !hasValue) {
         const fallback = curr.filter.fallbackValue
 
         const value =
@@ -786,6 +813,8 @@ export default ({
       searchParams = getScopedQueryParams('search', searchParams)
     }
 
+    manualSearch.value = true
+
     await navigateTo({
       path: route.path,
       query: {
@@ -796,6 +825,10 @@ export default ({
         ...filterFormValues
       }
     })
+
+    await nextTick()
+    searchFromRoute(route, false)
+    manualSearch.value = false
   }
 
   /**
@@ -997,7 +1030,9 @@ export default ({
     searchFromRoute(route, true)
   })
 
-  // Subsequently watch for any route changes and trigger a new search
+  // The submitSearch function handles searches initiated from the main search form,
+  // here we watch for route changes and trigger a new search if the route update wasn't triggered by form submission,
+  // for example, if the user clicks the browser back button
   watch(route, (newRoute) => {
     // When a user navigates to another page client side, this page will try to search again with an empty query string
     // The map was zooming back to center when navigating to another page, which was jarring. This check prevents that from happening
@@ -1005,6 +1040,9 @@ export default ({
       return
     }
 
+    if (manualSearch.value) {
+      return
+    }
     searchFromRoute(newRoute, false)
   })
 
@@ -1040,6 +1078,7 @@ export default ({
     locationQuery,
     firstLoad,
     userGeolocation,
-    scrollToResults
+    scrollToResults,
+    searchCount
   }
 }

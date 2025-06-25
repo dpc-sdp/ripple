@@ -61,15 +61,3 @@ NUXT_PUBLIC_TIDE_ELASTICSEARCH_HOST=
 # Elasticsearch index
 NUXT_PUBLIC_TIDE_ELASTICSEARCH_INDEX=
 ```
-
-There's also a feature flag for setting the content collection search engine to either `appSearch` or `elasticsearch`. This can be set in your sites `app.config.js` file under the `ripple` property.
-
-```js
-export default defineAppConfig({
-  ripple: {
-    featureFlags: {
-      contentCollectionSearchConnector: 'elasticsearch'
-    }
-  }
-})
-```

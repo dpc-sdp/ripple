@@ -9,6 +9,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
+import { format } from 'date-fns'
 
 interface Props {
   date: string
@@ -16,14 +17,8 @@ interface Props {
 
 const props = withDefaults(defineProps<Props>(), {})
 
-const formattedDate = computed(() => {
-  const date = new Date(props.date)
-
-  return Intl.DateTimeFormat('en-AU', {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric',
-    timeZone: 'Australia/Melbourne'
-  }).format(date)
-})
+// Wednesday 16 April 2025 at 8:41 am
+const formattedDate = computed(() =>
+  format(new Date(props.date), "EEEE d MMMM yyyy 'at' K:mm aaa")
+)
 </script>

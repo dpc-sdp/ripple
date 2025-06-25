@@ -20,6 +20,7 @@
     "@nuxtjs/robots": "^3.0.0",
     "@vueuse/core": "^9.13.0",
     "change-case": "^4.1.2",
+    "date-fns": "catalog:",
     "defu": "^6.1.2"
   }
 }

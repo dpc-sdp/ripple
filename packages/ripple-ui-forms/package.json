@@ -23,7 +23,7 @@
     "@formkit/vue": "1.6.0",
     "@nuxt/kit": "catalog:",
     "@vueuse/core": "^10.9.0",
-    "date-fns": "^2.29.3"
+    "date-fns": "catalog:"
   },
   "devDependencies": {
     "@babel/core": "^7.23.2",

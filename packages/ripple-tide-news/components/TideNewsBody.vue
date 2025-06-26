@@ -49,8 +49,8 @@ const detailsList = computed(() => {
       hideTerm: flags?.hideDetailLabels,
       description: format(
         new Date(props.details.published),
-        // Wednesday 16 April 2025 at 8:41 am
-        "EEEE d MMMM yyyy 'at' K:mm aaa"
+        // Wednesday, 16 April 2025 at 8:41 am
+        "EEEE, d MMMM yyyy 'at' K:mm aaa"
       )
     })
   }

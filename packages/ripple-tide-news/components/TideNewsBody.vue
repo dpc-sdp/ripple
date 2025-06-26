@@ -50,7 +50,7 @@ const detailsList = computed(() => {
       description: format(
         new Date(props.details.published),
         // Wednesday, 16 April 2025 at 8:41 am
-        "EEEE, d MMMM yyyy 'at' K:mm aaa"
+        "EEEE, d MMMM yyyy 'at' h:mm aaa"
       )
     })
   }

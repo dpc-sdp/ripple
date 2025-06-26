@@ -10,19 +10,22 @@ Feature: Search listing - Filter
   Example: Date select range smoke test (to and from prefilled)
     Given the page endpoint for path "/range" returns fixture "/search-listing/filters/page-date-select" with status 200
     And the search network request is stubbed with fixture "/search-listing/grants/response" and status 200
-    When I visit the page "/range?dateSelectFilter=from:5/09/2023&dateSelectFilter=to:10/09/2025"
-    And the search network request should be called with the "/search-listing/grants/request-date-range" fixture
+    When I visit the page "/range?dateRangeFilter=from:5/09/2023&dateRangeFilter=to:10/09/2025"
+    Then the search network request should be called with the "/search-listing/grants/request-date-range" fixture
+    And the search listing page should have 5 results
 
   @mockserver
   Example: Date select FROM smoke test (from prefilled)
     Given the page endpoint for path "/range" returns fixture "/search-listing/filters/page-date-select" with status 200
     And the search network request is stubbed with fixture "/search-listing/grants/response" and status 200
-    When I visit the page "/range?dateSelectFilter=from:5/09/2023"
-    And the search network request should be called with the "/search-listing/grants/request-date-range-from" fixture
+    When I visit the page "/range?dateRangeFilter=from:5/09/2023"
+    Then the search network request should be called with the "/search-listing/grants/request-date-range-from" fixture
+    And the search listing page should have 5 results
 
   @mockserver
   Example: Date select TO smoke test (to prefilled)
     Given the page endpoint for path "/range" returns fixture "/search-listing/filters/page-date-select" with status 200
     And the search network request is stubbed with fixture "/search-listing/grants/response" and status 200
-    When I visit the page "/range?dateSelectFilter=to:10/09/2025"
-    And the search network request should be called with the "/search-listing/grants/request-date-range-to" fixture
+    When I visit the page "/range?dateRangeFilter=to:10/09/2025"
+    Then the search network request should be called with the "/search-listing/grants/request-date-range-to" fixture
+    And the search listing page should have 5 results

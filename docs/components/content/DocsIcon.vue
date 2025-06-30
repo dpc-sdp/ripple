@@ -4,7 +4,7 @@ interface Props {
   size?: 'xs' | 's' | 'm' | 'l'
 }
 
-const props = withDefaults(defineProps<Props>(), {
+withDefaults(defineProps<Props>(), {
   size: 'xs'
 })
 </script>

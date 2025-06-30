@@ -3,7 +3,6 @@ title: Form alert
 description: The Form alert component shows the user the outcome of a form submission or validation.
 layout: page
 label: Core
-
 ---
 
 ## Usage
@@ -82,10 +81,9 @@ id: forms-form-alert--error
 
 #### Error messages
 Specific error messages must be provided for specific error states. Style your error messages as directed by the ‘Error’ section on the pages for the following form components:
-- [input field](/design-system/components/input-field/)
-- [text area](/design-system/components/text-area/)
-- [date input](/design-system/components/date-input/)
-- [checkbox](/design-system/components/checkbox/)
-- [radio button](/design-system/components/radio-button/)
-- [dropdown](/design-system/components/dropdown/).
-
+- [input field](/design-system/components/input-field)
+- [text area](/design-system/components/text-area)
+- [date input](/design-system/components/date-input)
+- [checkbox](/design-system/components/checkbox)
+- [radio button](/design-system/components/radio-button)
+- [dropdown](/design-system/components/dropdown).

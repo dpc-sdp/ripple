@@ -3,7 +3,6 @@ title: Option button
 description: The Option button component is a set of buttons to help users filter content.
 layout: page
 label: Core
-
 ---
 
 ## Usage

@@ -3,7 +3,6 @@ title: Media
 description: The Media component is a container that houses media items to use in other components on a page.
 layout: page
 label: Core
-
 ---
 
 ## Usage

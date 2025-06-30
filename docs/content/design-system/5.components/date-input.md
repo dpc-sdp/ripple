@@ -3,7 +3,6 @@ title: Date input
 description: The Date input component helps users enter a date.
 layout: page
 label: Core
-
 ---
 
 ## Usage

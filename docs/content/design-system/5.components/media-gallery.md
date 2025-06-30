@@ -3,7 +3,6 @@ title: Media gallery
 description: The Media gallery component is a series of images users can side-scroll through.
 layout: page
 label: Core
-
 ---
 
 ## Usage
@@ -14,7 +13,7 @@ Media gallery combines images and text to give users context within the content.
 
 Media items inside a media gallery will display as either landscape or portrait, at predefined ratios.
 
-See [media](/design-system/components/media/) for information relating to file type, ratios and focal point.
+See [media](/design-system/components/media) for information relating to file type, ratios and focal point.
 
 ::DocsExample
 ---

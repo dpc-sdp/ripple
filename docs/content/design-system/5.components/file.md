@@ -3,7 +3,6 @@ title: File
 description: The File component shows a link, with additional metadata, and lets a user download a file attachment.
 layout: page
 label: Core
-
 ---
 
 ## Usage

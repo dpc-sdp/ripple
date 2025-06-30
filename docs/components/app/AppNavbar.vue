@@ -115,6 +115,7 @@ onUnmounted(() => {
 
 <style scoped>
 @import '@dpc-sdp/ripple-ui-core/style/breakpoints';
+
 .docs-header {
   --docs-header-color: var(--rpl-clr-primary);
 }
@@ -189,10 +190,7 @@ onUnmounted(() => {
 
   overflow-y: auto;
   background: var(--rpl-clr-neutral-100);
-  padding-top: var(--rpl-sp-4);
-  padding-bottom: var(--rpl-sp-5);
-  padding-left: var(--rpl-sp-3);
-  padding-right: var(--rpl-sp-3);
+  padding: var(--rpl-sp-4) var(--rpl-sp-3) var(--rpl-sp-5);
   position: fixed;
   top: 101px;
   bottom: 0;

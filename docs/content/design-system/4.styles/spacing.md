@@ -32,4 +32,4 @@ Spacing should be proportional to the size and importance of the elements on the
 
 Consider spacing in responsive design to ensure that the spacing remains consistent and proportionate on different screen sizes and devices.
 
-For page level, component and content spacing see [layout](/design-system/styles/layout/).
+For page level, component and content spacing see [layout](/design-system/styles/layout).

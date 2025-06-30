@@ -15,7 +15,7 @@ const mappedTypes = computed(() => {
 
     return {
       name,
-      values: value?.values.map((line) => ({
+      values: value?.values.map((line: string) => ({
         name: Object.keys(line)[0],
         value: Object.values(line)[0]
       })),

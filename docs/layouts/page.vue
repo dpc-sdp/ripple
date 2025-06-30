@@ -15,19 +15,19 @@
           :links="page.links"
         />
       </template>
+
       <ContentRenderer
-        :tag="page.tag || 'DocsContent'"
+        tag="DocsContent"
         v-if="page"
-        :key="page._id"
+        :key="page.id"
         :value="page"
-      >
-      </ContentRenderer>
+      />
       <br />
 
       <RplTextLink
         class="rpl-u-margin-t-12 rpl-type-p"
         style="display: inline-flex; align-items: center"
-        :url="`https://github.com/dpc-sdp/ripple-framework/edit/develop/docs/content/${page._file}`"
+        :url="`https://github.com/dpc-sdp/ripple-framework/edit/develop/docs/${page.id}`"
         ><svg
           xmlns="http://www.w3.org/2000/svg"
           aria-hidden="true"
@@ -49,11 +49,13 @@
 </template>
 
 <script setup lang="ts">
-import { useContent, useContentHead } from '#imports'
+import type { ContentCollectionItem } from '@nuxt/content'
 
-const { page } = useContent()
+interface Props {
+  page: ContentCollectionItem
+}
 
-useContentHead(page)
+defineProps<Props>()
 
 const route = useRoute()
 const sectionSlug = route.params.slug[0]

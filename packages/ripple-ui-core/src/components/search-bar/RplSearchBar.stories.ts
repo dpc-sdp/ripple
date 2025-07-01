@@ -80,3 +80,12 @@ export const Menu: Story = {
   },
   parameters: { background: 'reverse' }
 }
+
+export const Input: Story = {
+  args: {
+    id: 'menu',
+    iconPosition: 'left',
+    showSubmitButton: false,
+    submitOnSuggestionOnly: true
+  }
+}

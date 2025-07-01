@@ -7,7 +7,7 @@ export default {
   argTypes: {
     variant: {
       control: { type: 'radio' },
-      options: ['default', 'neutral']
+      options: ['default', 'neutral', 'dark']
     }
   },
   args: {
@@ -27,5 +27,11 @@ export const DefaultStory: Story = {
 export const Neutral: Story = {
   args: {
     variant: 'neutral'
+  }
+}
+
+export const Dark: Story = {
+  args: {
+    variant: 'dark'
   }
 }

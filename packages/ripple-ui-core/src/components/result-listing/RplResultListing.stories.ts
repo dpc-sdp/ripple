@@ -74,9 +74,9 @@ export const WithMeta: Story = {
 export const WithDetails: Story = {
   args: {
     details: `<RplList :items="[
+      { text: 'Closed', icon: 'icon-cancel-circle-filled', iconColour: 'error' },
       { text: 'Department', icon: 'icon-user-circle-filled' },
-      { text: '$10,000 - $20,000', icon: 'icon-dollar-circle-filled' },
-      { text: 'Closed', icon: 'icon-cancel-circle-filled', iconColour: 'error' }
+      { text: '$10,000 - $20,000', icon: 'icon-dollar-circle-filled' }
     ]" />`
   }
 }

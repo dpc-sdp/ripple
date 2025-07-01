@@ -4,6 +4,7 @@ import ViteYaml from '@modyfi/vite-plugin-yaml'
 // https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
 export default defineNuxtConfig({
   ssr: true,
+  css: ['~/public/assets/css/main.css'],
   modules: [
     '@dpc-sdp/ripple-ui-core/nuxt',
     '@dpc-sdp/ripple-ui-forms/nuxt',

@@ -3,11 +3,9 @@
     <div class="docs-example-body">
       <img :src="src" :alt="alt" />
     </div>
-    <div class="docs-example-footer" v-if="$slots.default">
-      <figcaption>
-        <ContentSlot :use="$slots.default" unwrap="p" />
-      </figcaption>
-    </div>
+    <figcaption class="docs-example-footer" v-if="$slots.default">
+      <ContentSlot :use="$slots.default" unwrap="p" />
+    </figcaption>
   </figure>
 </template>
 

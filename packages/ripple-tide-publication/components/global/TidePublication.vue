@@ -67,7 +67,7 @@ const menu = props.page?.publication?.id
   ? await useTidePublicationMenu(props.page.publication.id)
   : null
 
-if (menu) {
+if (menu?.publication?.items) {
   nav.value = processMenu(menu.publication, useRoute())
 }
 </script>

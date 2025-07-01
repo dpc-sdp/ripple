@@ -1,8 +1,8 @@
-import type { indexNode } from './../types'
+import type { TidePublicationMenu } from './../types'
 
 export const useTidePublicationMenu = async (
   publicationId: string
-): Promise<indexNode[]> => {
+): Promise<TidePublicationMenu> => {
   const { public: config } = useRuntimeConfig()
   const { data: menuData } = useNuxtData(`publication-menu-${publicationId}`)
 

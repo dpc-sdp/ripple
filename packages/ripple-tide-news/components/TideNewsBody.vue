@@ -25,8 +25,8 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import { format } from 'date-fns'
 import type { TideNewsBody, TideNewsDetails } from '../types'
+import { formatDate } from '#imports'
 import type { IRplFeatureFlags } from '@dpc-sdp/ripple-tide-api/types'
 
 const props = defineProps<{
@@ -47,11 +47,10 @@ const detailsList = computed(() => {
     list.push({
       term: 'Published:',
       hideTerm: flags?.hideDetailLabels,
-      description: format(
-        new Date(props.details.published),
-        // Wednesday, 16 April 2025 at 8:41 am
-        "EEEE, d MMMM yyyy 'at' h:mm aaa"
-      )
+      description: formatDate(props.details?.published, {
+        dateStyle: 'full',
+        timeStyle: flags?.hidePublishedTime ? undefined : 'short'
+      })
     })
   }
   if (props.details?.location) {

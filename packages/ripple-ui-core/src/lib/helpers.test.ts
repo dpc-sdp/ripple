@@ -13,7 +13,13 @@ describe('Formatting a date', () => {
     expect(formatDate(628021800000)).toEqual('26 Nov 1989')
   })
 
-  it('accepts custom date options', () => {
+  it('accepts summary level Intl.DateTimeFormatOptions', () => {
+    expect(formatDate(raw, { dateStyle: 'full' })).toEqual(
+      'Friday, 2 August 2024 at 9:00 am'
+    )
+  })
+
+  it('accepts separate Intl.DateTimeFormatOptions', () => {
     expect(
       formatDate(raw, { day: 'numeric', month: 'short', year: '2-digit' })
     ).toEqual('2 Aug 24')

@@ -1,3 +1,5 @@
+import { format, isValid } from 'date-fns'
+
 export const distanceAsPercentage = (point: number, total: number): number => {
   if (point < 0) {
     return 0
@@ -10,29 +12,59 @@ export const distanceAsPercentage = (point: number, total: number): number => {
 }
 
 export const formatDate = (
-  value: string | number | Date,
-  options: Intl.DateTimeFormatOptions | undefined = undefined
-): string | number | Date => {
-  const date = new Date(value)
+  value: Date | string | number,
+  options?: Intl.DateTimeFormatOptions
+): string | unknown => {
+  const input = new Date(value)
 
-  if (Number.isNaN(date.valueOf())) {
+  if (!isValid(input)) {
     return value
   }
 
-  const defaultOptions: Intl.DateTimeFormatOptions = {
-    dateStyle: 'medium',
-    timeZone: 'Australia/Melbourne'
+  const tokens: Array<string> = []
+
+  if (options?.dateStyle === 'medium') {
+    tokens.push('d MMM yyyy, h:mm aaa')
+  } else {
+    if (options?.weekday === 'long') {
+      tokens.push('EEEE')
+    }
+
+    if (options?.day === '2-digit') {
+      tokens.push('dd')
+    } else {
+      tokens.push('d')
+    }
+
+    if (options?.month === 'long') {
+      tokens.push('MMMM')
+    } else {
+      tokens.push('MMM')
+    }
+
+    if (<'none'>options?.year === 'none') {
+      // skip
+    } else if (options?.year === '2-digit') {
+      tokens.push('yy')
+    } else {
+      tokens.push('yyyy')
+    }
+
+    if (options?.timeStyle === 'short') {
+      tokens[tokens.length - 1] += ','
+      tokens.push('h:mm aaa')
+    }
   }
 
-  // Set default TZ
-  if (options && !options.timeZone) {
-    options.timeZone = 'Australia/Melbourne'
+  if (options?.timeZone) {
+    // Reinstantiate with custom TZ
+    const date = new Date(
+      input.toLocaleString('en', { timeZone: options.timeZone })
+    )
+    return format(date, tokens.join(' '))
+  } else {
+    return format(input, tokens.join(' '))
   }
-
-  return new Intl.DateTimeFormat(
-    'en-AU',
-    options ? options : defaultOptions
-  ).format(date)
 }
 
 export { formatDateRange } from './formatDateRange'

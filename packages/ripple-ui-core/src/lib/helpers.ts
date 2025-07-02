@@ -63,7 +63,10 @@ export const formatDate = (
     )
     return format(date, tokens.join(' '))
   } else {
-    return format(input, tokens.join(' '))
+    const date = new Date(
+      input.toLocaleString('en', { timeZone: 'Australia/Melbourne' })
+    )
+    return format(date, tokens.join(' '))
   }
 }
 

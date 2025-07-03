@@ -21,7 +21,10 @@
     <div class="rpl-form__step-count rpl-type-p rpl-type-weight-bold">
       Step {{ number }} of {{ total }}
     </div>
-    <h3 class="rpl-form__step-title rpl-type-h2">
+    <h3
+      class="rpl-form__step-title rpl-type-h2"
+      :id="`${form}_tab_${number - 1}`"
+    >
       {{ title }}
     </h3>
 

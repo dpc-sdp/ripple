@@ -75,7 +75,7 @@ export const WithSlots: Story = {
           <mark>{{value}}</mark>
         </template>
         <template #action="{ item: { id } }">
-          <a class="rpl-text-link rpl-u-focusable-inline" href="#">
+          <a v-if="id === 'location' || id === 'information'" class="rpl-text-link rpl-u-focusable-inline" href="#">
             <span v-if="id === 'location'">Get directions</span>
             <span v-else-if="id === 'information'">Find out more</span>
           </a>

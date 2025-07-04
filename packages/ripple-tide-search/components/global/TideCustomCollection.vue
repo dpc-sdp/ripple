@@ -496,7 +496,7 @@ const handleTabChange = (tab: TideSearchListingTab) => {
 
 function handleLocationSearch(payload: any) {
   locationQuery.value = payload
-  handleSearchSubmit({ type: 'suggestion' })
+  handleSearchSubmit({ type: 'suggestion', text: payload?.name })
 }
 
 const rplMapRef = ref(null)

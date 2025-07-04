@@ -21,6 +21,7 @@
     :showSubmitButton="showSubmitButton"
     :submitOnSuggestionOnly="submitOnSuggestionOnly"
     :analyticsName="context.name"
+    :globalEvents="false"
     @submit="submitAction"
     @update:input-value="onUpdate"
   >

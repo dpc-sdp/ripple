@@ -11,6 +11,7 @@ catalog:
   vite-svg-loader: "^5.1.0"
   rimraf: "^6.0.1"
   vitest: "^3.2.3"
+  "date-fns": "^2.29.3"
 onlyBuiltDependencies:
 - "@badeball/cypress-cucumber-preprocessor"
 - "@parcel/watcher"

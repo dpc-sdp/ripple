@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@dpc-sdp/nuxt-ripple": "workspace:*",
-    "@dpc-sdp/ripple-tide-api": "workspace:*"
+    "@dpc-sdp/ripple-tide-api": "workspace:*",
+    "date-fns": "catalog:"
   }
 }

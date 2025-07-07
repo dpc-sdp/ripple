@@ -15,6 +15,9 @@ catalogs:
     cypress:
       specifier: ^13.7.3
       version: 13.7.3
+    date-fns:
+      specifier: ^2.29.3
+      version: 2.30.0
     nuxt:
       specifier: ^3.17.2
       version: 3.17.2
@@ -702,6 +705,9 @@ importers:
       '@dpc-sdp/ripple-tide-api':
         specifier: workspace:*
         version: link:../ripple-tide-api
+      date-fns:
+        specifier: 'catalog:'
+        version: 2.30.0
 
   packages/ripple-tide-publication:
     dependencies:
@@ -790,7 +796,7 @@ importers:
         specifier: ^10.9.0
         version: 10.11.1(axios@1.8.4)(change-case@4.1.2)(focus-trap@7.6.4)(vue@3.5.13(typescript@5.8.3))
       date-fns:
-        specifier: ^2.29.3
+        specifier: 'catalog:'
         version: 2.30.0
       focus-trap:
         specifier: ^7.4.0
@@ -896,7 +902,7 @@ importers:
         specifier: ^10.9.0
         version: 10.11.1(vue@3.5.13(typescript@5.8.3))
       date-fns:
-        specifier: ^2.29.3
+        specifier: 'catalog:'
         version: 2.30.0
     devDependencies:
       '@babel/core':

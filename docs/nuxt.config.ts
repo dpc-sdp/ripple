@@ -10,27 +10,19 @@ export default defineNuxtConfig({
     '@dpc-sdp/ripple-ui-forms/nuxt',
     '@nuxt/content'
   ],
-  github: {
-    repo: 'dpc-sdp/ripple-framework'
-  },
   // https://content.nuxtjs.org
   content: {
-    navigation: {
-      fields: ['icon']
-    },
-    documentDriven: {
-      layoutFallbacks: ['page']
-    },
-    highlight: {
-      theme: 'github-light',
-      preload: ['vue', 'bash', 'markdown']
+    build: {
+      markdown: {
+        highlight: {
+          theme: 'github-light',
+          langs: ['css', 'vue', 'js', 'bash', 'markdown']
+        }
+      }
     }
   },
   vite: {
     plugins: [ViteYaml()]
-  },
-  experimental: {
-    inlineSSRStyles: (id) => !id?.includes('entry')
   },
   nitro: {
     prerender: {

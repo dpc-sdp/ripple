@@ -3,7 +3,6 @@ title: Key dates
 description: The Key dates component shows users a card promoting key dates or events.
 layout: page
 label: Core
-
 ---
 
 ## Usage

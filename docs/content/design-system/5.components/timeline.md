@@ -3,7 +3,6 @@ title: Timeline
 description: The Timeline component contains blocks of content displayed in a linear order.
 layout: page
 label: Core
-
 ---
 
 ## Usage

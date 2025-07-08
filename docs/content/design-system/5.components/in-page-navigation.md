@@ -3,7 +3,6 @@ title: In-page navigation
 description: The In-page navigation component sits above a page’s main content and shows a set of links.
 layout: page
 label: Core
-
 ---
 
 ## Usage

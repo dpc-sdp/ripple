@@ -3,7 +3,6 @@ title: Vertical navigation
 description: The Vertical navigation component displays a list of links to help users navigate a section of related pages.
 layout: page
 label: Core
-
 ---
 
 ## Usage
@@ -61,4 +60,3 @@ To create your own theme see [theming guidance for designers](/design-system/des
 To show the user which page in the vertical navigation they are currently on, the active state is used. This displays as an underline in addition to colour, to aim to conform with the [Web Content Accessibility Guidelines 2.0 Success Criterion 1.4.1](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-without-color.html).
 
 > **[1.4.1](https://www.w3.org/TR/2008/REC-WCAG20-20081211/#visual-audio-contrast-without-color) Use of Color:** Color is not used as the only visual means of conveying information, indicating an action, prompting a response, or distinguishing a visual element.
-

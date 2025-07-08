@@ -3,7 +3,6 @@ title: Results listing
 description: The Results listing component shows a list of search result items, with each item displaying key information relevant to that search.
 layout: page
 label: Core
-
 ---
 
 ## Usage

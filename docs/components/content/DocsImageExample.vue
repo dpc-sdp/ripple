@@ -4,7 +4,7 @@
       <img :src="src" :alt="alt" />
     </div>
     <figcaption class="docs-example-footer" v-if="$slots.default">
-      <ContentSlot :use="$slots.default" unwrap="p" />
+      <slot />
     </figcaption>
   </figure>
 </template>
@@ -42,5 +42,9 @@ withDefaults(defineProps<Props>(), {})
 .docs-example-footer {
   border-top: var(--rpl-border-1) solid var(--rpl-clr-neutral-300);
   padding: var(--rpl-sp-3) var(--rpl-sp-5);
+
+  *:first-child {
+    margin-top: 0;
+  }
 }
 </style>

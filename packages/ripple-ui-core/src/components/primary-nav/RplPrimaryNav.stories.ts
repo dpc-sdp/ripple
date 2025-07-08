@@ -15,7 +15,7 @@ export default {
     items: RplPrimaryNavItems
   },
   decorators: [
-    () => ({ template: '<story /><div style="height: 400px;"></div>' })
+    () => ({ template: '<story /><div style="height: 500px;"></div>' })
   ]
 } satisfies Meta<typeof RplPrimaryNav>
 

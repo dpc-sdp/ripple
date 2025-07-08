@@ -10,9 +10,10 @@
           url="/framework/modules/all-modules"
           icon="icon-chevron-left"
           iconPosition="start"
-          >All modules</DocsNavLink
         >
-        <DocsModuleInfo :module="module" />
+          All modules
+        </DocsNavLink>
+        <DocsModuleInfo v-if="module" :module="module" />
         <div class="docs-sidebar-nav">
           <DocsModuleNavigation />
         </div>
@@ -25,9 +26,9 @@
         />
       </template>
       <ContentRenderer
-        :tag="page.tag || 'DocsContent'"
+        tag="DocsContent"
         v-if="page"
-        :key="page._id"
+        :key="page.id"
         :value="page"
       >
       </ContentRenderer>
@@ -36,24 +37,25 @@
 </template>
 
 <script setup lang="ts">
-import { useContent, useContentHead } from '#imports'
+import type { ContentCollectionItem } from '@nuxt/content'
 
-const { page } = useContent()
+interface Props {
+  page: ContentCollectionItem
+}
 
-useContentHead(page)
+defineProps<Props>()
 
 const route = useRoute()
 const sectionSlug = route.params.slug[0]
 const isModuleSection = sectionSlug === 'framework'
+const packageName = route.params.slug[2].replace('@dpc-sdp-', '@dpc-sdp/')
 
 const { data: module } = await useAsyncData(
-  `module-info-${route.params.slug[2]}`,
+  `module-info-${packageName}`,
   async () => {
-    const moduleInfo = await queryContent(
-      `${route.params.slug[0]}/${route.params.slug[1]}/${route.params.slug[2]}/_module`
-    ).findOne()
-
-    return moduleInfo || null
+    return queryCollection('modules')
+      .where('packageName', '=', packageName)
+      .first()
   }
 )
 </script>

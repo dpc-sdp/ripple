@@ -3,7 +3,6 @@ title: Icons
 description: 'Use icons to illustrate actions and interactions, communicate statuses, and draw attention to important information.'
 layout: page
 label: Core
-
 ---
 
 Icons are a visual representation of an action, idea, or object. They provide a quick and easy way to communicate information. They can also enhance the usability of a design.

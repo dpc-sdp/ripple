@@ -40,7 +40,7 @@ const colours = computed(() => {
         <tbody>
           <tr v-for="gradient in gradients" :key="gradient.name">
             <td>
-              <Swatch :colour="`var(--${gradient.token})`" />
+              <DocsSwatch :colour="`var(--${gradient.token})`" />
             </td>
             <td>{{ gradient.name }}</td>
             <td>{{ gradient.token }}</td>
@@ -55,7 +55,7 @@ const colours = computed(() => {
         </thead>
         <tbody>
           <tr v-for="colour in colours" :key="colour.name">
-            <td><Swatch :colour="colour.value" /></td>
+            <td><DocsSwatch :colour="colour.value" /></td>
             <td>{{ colour.value }}</td>
             <td>{{ colour.position }}%</td>
           </tr>

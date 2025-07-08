@@ -3,7 +3,6 @@ title: Skip link
 description: The Skip link component makes your page more accessible and easier to navigate, by helping keyboard users skip to the main content on a page.
 layout: page
 label: Core
-
 ---
 
 ## Usage

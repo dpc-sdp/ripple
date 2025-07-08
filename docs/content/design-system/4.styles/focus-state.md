@@ -3,7 +3,6 @@ title: Focus state
 description: 'Focus states show when a user has highlighted an element, using an input method such as a keyboard or voice.'
 layout: page
 label: Core
-
 ---
 
 Some users use keyboards or other devices to navigate through a page by jumping from one interactive element to the next. Focus states help users understand which element is currently selected and ready for interaction.
@@ -60,11 +59,11 @@ alt: Component Modified Focus State Sample
 ### CSS Variables 
 The focus state has three CSS Variables.
 
-| Swatch                    | Element                | Value   | CSS Variable           |
-|---------------------------|------------------------|---------|------------------------|
-| :Swatch{colour="#FF9E1B"} | Background Fill        | #FF9E1B | rpl-clr-focus          |
-| :Swatch{colour="#1A1A1A"} | Content / Text / Icons | #1A1A1A | rpl-clr-focus-contrast |
-| :Swatch{colour="#1A1A1A"} | Bottom Border          | #1A1A1A | rpl-clr-dark           |
+| Swatch                        | Element                | Value   | CSS Variable           |
+|-------------------------------|------------------------|---------|------------------------|
+| :DocsSwatch{colour="#FF9E1B"} | Background Fill        | #FF9E1B | rpl-clr-focus          |
+| :DocsSwatch{colour="#1A1A1A"} | Content / Text / Icons | #1A1A1A | rpl-clr-focus-contrast |
+| :DocsSwatch{colour="#1A1A1A"} | Bottom Border          | #1A1A1A | rpl-clr-dark           |
 
 ### Theming
-For advice on focus state theming, see [theming guidance for designers](/design-system/design/theming-guidance-for-designers/) or [theming guidance for developers](/design-system/develop/theming/).
+For advice on focus state theming, see [theming guidance for designers](/design-system/design/theming-guidance-for-designers) or [theming guidance for developers](/design-system/develop/theming/).

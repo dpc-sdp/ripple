@@ -1,7 +1,7 @@
 ---
 title: Markdown Kitchen Sink (DEV ONLY)
 description: This is an example page to demonstrate and document the markdown features available in the docs site
-draft: true
+published: false
 layout: page
 links:
   - text: Vic gov
@@ -504,8 +504,8 @@ Cards can also be added. Ensure that you wrap them with DocsCardGrid so that the
 
   ::DocsCard
   ---
-  title: Code standards
-  url: /framework/code-standards
+  title: Framework
+  url: /framework
   ---
   Here's the summary text
   ::
@@ -531,8 +531,8 @@ Cards can also be added. Ensure that you wrap them with DocsCardGrid so that the
 
   ::DocsCard
   ---
-  title: Code standards
-  url: /framework/code-standards
+  title: Framework
+  url: /framework
   ---
   Here's the summary text
   ::

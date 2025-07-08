@@ -3,7 +3,6 @@ title: Typography
 description: 'Type styles are used to present content clearly.'
 layout: page
 label: Core
-
 ---
 
 ## Font

@@ -3,7 +3,6 @@ title: Colour
 description: 'Colour plays an important role in creating a consistent and strong visual digital products and services.'
 layout: page
 label: Core
-
 ---
 
 You want users to recognise your brand. A well-designed colour palette can help you create a consistent look and feel.
@@ -16,7 +15,7 @@ We've designed and tested colour pairings that already pass accessibility contra
 
 If you change your core brand colours, your styles and components will re-theme automatically using the design system's colour framework. 
 
-For more guidance on theming options, see [theming guidance for designers](/design-system/design/theming-guidance-for-designers/) or [theming guidance for developers](/design-system/develop/theming/).
+For more guidance on theming options, see [theming guidance for designers](/design-system/design/theming-guidance-for-designers) or [theming guidance for developers](/design-system/develop/theming/).
 
 >**You don’t need to use hex colours in code.** 
 >
@@ -132,7 +131,7 @@ colours:
 
 ## Focus
 
-See [focus state](/design-system/styles/focus-state/) for guidance. 
+See [focus state](/design-system/styles/focus-state) for guidance. 
 
 ::DocsColourTable
 ---
@@ -140,8 +139,6 @@ colours:
   - clr.focus
 ---
 ::
-
----
 
 ## Theming
 

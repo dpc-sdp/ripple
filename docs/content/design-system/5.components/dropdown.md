@@ -3,7 +3,6 @@ title: Dropdown
 description: The Dropdown component lets users see a list of available options and then select one or more options.
 layout: page
 label: Core
-
 ---
 
 ## Usage

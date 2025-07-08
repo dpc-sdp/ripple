@@ -3,7 +3,6 @@ title: Alert
 description: The Alert component display required actions or important messages to users.
 layout: page
 label: Core
-
 ---
 
 ## Usage

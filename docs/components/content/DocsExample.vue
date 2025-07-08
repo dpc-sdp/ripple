@@ -24,17 +24,17 @@
     <div class="docs-example-body">
       <iframe
         v-if="hasAppeared"
-        :src="storyPreviewUrl"
+        :src="storyEmbedUrl"
         ref="iframeRef"
         class="frame"
         :style="`height: ${height}px`"
       ></iframe>
       <div v-else class="frame"></div>
     </div>
-    <div class="docs-example-footer" v-if="!hideCode">
+    <div v-if="!hideCode" class="docs-example-footer">
       <button
         @click="handleToggleCode"
-        class="docs-example-code-btn rpl-type-p-small"
+        class="docs-example-code-btn rpl-type-p-small rpl-u-focusable-block"
       >
         Show code
         <RplIcon
@@ -115,7 +115,7 @@ onMounted(() => {
         parsedData.id === props.id &&
         parsedData.uid === uid.value
       ) {
-        height.value = parsedData.iframeSize + 12
+        height.value = parsedData.iframeSize
       }
     },
     false
@@ -132,7 +132,7 @@ const highlightedCode = computed((): string => {
 
 const { storybookBaseUrl } = useAppConfig()
 
-const injectedTheme = inject('exampleTheme', 'default')
+const injectedTheme = inject('exampleTheme', ref('default'))
 
 const computedTheme = computed(() => {
   return props.theme ? props.theme : injectedTheme.value
@@ -143,7 +143,7 @@ const buttonTheme = computed(() => {
 
 const sharedParams = computed(
   () =>
-    `args=${props.argsString}&viewMode=story&globals=theme:${computedTheme.value};buttonTheme:${buttonTheme.value}&uid=${uid.value}`
+    `args=${props.argsString}&viewMode=story&globals=theme:${computedTheme.value};buttonTheme:${buttonTheme.value}`
 )
 
 const storyUrl = computed(
@@ -152,6 +152,9 @@ const storyUrl = computed(
 
 const storyPreviewUrl = computed(
   () => `${storybookBaseUrl}/iframe.html?id=${props.id}&${sharedParams.value}`
+)
+const storyEmbedUrl = computed(
+  () => `${storyPreviewUrl.value}&uid=${uid.value}&rplDocs=true`
 )
 
 watch(targetIsVisible, (visible, wasVisible) => {
@@ -164,9 +167,8 @@ watch(targetIsVisible, (visible, wasVisible) => {
 <style scoped>
 @import '@dpc-sdp/ripple-ui-core/style/breakpoints';
 .docs-example {
+  background: var(--rpl-clr-light);
   border: var(--rpl-border-1) solid var(--rpl-clr-neutral-300);
-  background: white;
-
   margin: var(--rpl-sp-3) 0;
 
   @media (--rpl-bp-l) {
@@ -180,7 +182,6 @@ watch(targetIsVisible, (visible, wasVisible) => {
   border: none;
   overflow: hidden;
   vertical-align: bottom;
-  margin-bottom: calc(-1 * var(--rpl-sp-3));
 }
 
 .with-padding .docs-example-body {
@@ -205,7 +206,6 @@ watch(targetIsVisible, (visible, wasVisible) => {
 .docs-example-footer {
   position: relative;
   border-top: var(--rpl-border-1) solid var(--rpl-clr-neutral-300);
-  padding: var(--rpl-sp-3) var(--rpl-sp-5);
 }
 
 .docs-example-code {
@@ -218,6 +218,7 @@ watch(targetIsVisible, (visible, wasVisible) => {
   align-items: center;
   gap: var(--rpl-sp-2);
   text-decoration: underline;
+  padding: var(--rpl-sp-3) var(--rpl-sp-5);
 }
 
 .docs-example-code-btn:hover {

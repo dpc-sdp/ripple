@@ -1,7 +1,4 @@
-import { format, isValid, setDefaultOptions } from 'date-fns'
-import { enAU } from 'date-fns/locale'
-
-setDefaultOptions({ locale: enAU })
+import { format, isValid } from 'date-fns'
 
 export const distanceAsPercentage = (point: number, total: number): number => {
   if (point < 0) {

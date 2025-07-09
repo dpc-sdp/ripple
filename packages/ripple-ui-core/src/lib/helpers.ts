@@ -26,7 +26,11 @@ export const formatDate = (
   if (options?.dateStyle === 'medium') {
     tokens.push('d MMM yyyy, h:mm aaa')
   } else if (options?.dateStyle === 'full') {
-    tokens.push("EEEE, d MMMM yyyy 'at' h:mm aaa")
+    tokens.push('EEEE d MMMM yyyy')
+
+    if (options?.timeStyle === undefined || options?.timeStyle === 'short') {
+      tokens.push("'at' h:mm aaa")
+    }
   } else {
     if (options?.weekday === 'long') {
       tokens.push('EEEE')
@@ -64,11 +68,15 @@ export const formatDate = (
       input.toLocaleString('en', { timeZone: options.timeZone })
     )
     return format(date, tokens.join(' '))
+      .replace('Jun ', 'June ')
+      .replace('Jul ', 'July ')
   } else {
     const date = new Date(
       input.toLocaleString('en', { timeZone: 'Australia/Melbourne' })
     )
     return format(date, tokens.join(' '))
+      .replace('Jun ', 'June ')
+      .replace('Jul ', 'July ')
   }
 }
 

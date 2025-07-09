@@ -13,7 +13,7 @@ Feature: News page
   Scenario: Details
     Given the site endpoint returns fixture "/site/reference" with status 200
     When I visit the page "/sample-news"
-    And the news page details should include "Published:" "Friday, 11 November 2022 at 12:11 pm"
+    And the news page details should include "Published:" "Friday 11 November 2022 at 12:11 pm"
     And the news page details should include "Location:" "Melbourne metropolitan, Eastern metropolitan Melbourne"
     And the news page details should include "Published by:" "DPC"
 
@@ -29,7 +29,7 @@ Feature: News page
   Scenario: Feature flags can disable the detail labels
     Given the site endpoint returns fixture "/news/feature-flags" with status 200
     When I visit the page "/sample-news"
-    Then the news page details should display only the description for "Published:" "Friday, 11 November 2022 at 12:11 pm"
+    Then the news page details should display only the description for "Published:" "Friday 11 November 2022 at 12:11 pm"
     Then the news page details should display only the description for "Location:" "Melbourne metropolitan, Eastern metropolitan Melbourne"
     Then the news page details should display only the description for "Published by:" "DPC"
 

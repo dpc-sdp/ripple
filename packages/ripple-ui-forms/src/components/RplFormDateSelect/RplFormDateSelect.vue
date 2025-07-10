@@ -5,7 +5,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { watch, ref, computed } from 'vue'
+import { watch, ref, computed, type Ref } from 'vue'
 import { format, parse, isValid } from 'date-fns'
 import useFormkitFriendlyEventEmitter from '../../composables/useFormkitFriendlyEventEmitter.js'
 import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
@@ -109,7 +109,7 @@ const markers = computed(() => {
   return markerArray
 })
 
-const internalDate: Date | undefined = ref()
+const internalDate: Ref<Date> | undefined = ref()
 
 // Emit event for range control to manage highlight state
 watch(internalDate, (newValue) => {
@@ -187,7 +187,8 @@ const params = computed(() => ({
   dayNames: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
   locale: 'en-AU',
   offset: '0',
-  hideOffsetDates: true,
+  hideOffsetDates: false,
+  arrowNavigation: true,
   highlight:
     highlightedRange?.value?.length > 1 ? highlightedRange.value : undefined,
   markers: highlightedRange?.value?.length > 1 ? markers?.value : undefined,
@@ -205,7 +206,10 @@ const params = computed(() => ({
       : null,
   startDate: internalDate.value ? internalDate.value : undefined,
   autoApply: true,
-  textInput: true,
+  textInput: {
+    format: 'd/M/yyyy',
+    selectOnFocus: true
+  },
   actionRow: {
     showPreview: false
   }
@@ -271,6 +275,7 @@ const classes = computed(() => [
     <VueDatePicker
       v-model="internalDate"
       v-bind="params"
+      aria-label="Enter a date or press space to open the date picker"
       @update="handleUpdate"
     >
       <template
@@ -288,8 +293,10 @@ const classes = computed(() => [
         </span>
         <div class="custom-month-year-component">
           <select
-            class="select-input"
+            class="select-input rpl-u-focusable-block"
+            tabindex="0"
             :value="month"
+            aria-label="Select month"
             @change="
               updateMonth(
                 $event as InputEvent,
@@ -303,8 +310,10 @@ const classes = computed(() => [
             </option>
           </select>
           <select
-            class="select-input"
+            class="select-input rpl-u-focusable-block"
+            tabindex="0"
             :value="year"
+            aria-label="Select year"
             @change="
               updateYear(
                 $event as InputEvent,

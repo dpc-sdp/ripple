@@ -909,8 +909,8 @@ importers:
         specifier: 5.0.4
         version: 5.0.4(patch_hash=a5f231e14e3c831bc72c3714d6b9d3575ddc83f2c1c4870b5b58e4eab8545293)(vite@6.3.5(@types/node@18.15.10)(jiti@2.4.2)(terser@5.39.0)(tsx@4.19.4)(yaml@2.7.1))(vue@3.5.13(typescript@5.8.3))
       '@vuepic/vue-datepicker':
-        specifier: ^11.0.2
-        version: 11.0.2(vue@3.5.13(typescript@5.8.3))
+        specifier: 11.0.1
+        version: 11.0.1(vue@3.5.13(typescript@5.8.3))
       babel-loader:
         specifier: ^9.1.2
         version: 9.2.1(@babel/core@7.26.10)(webpack@5.98.0(@swc/core@1.11.11(@swc/helpers@0.5.15))(esbuild@0.25.3))
@@ -4424,8 +4424,8 @@ packages:
       '@types/node':
         optional: true
 
-  '@vuepic/vue-datepicker@11.0.2':
-    resolution: {integrity: sha512-uHh78mVBXCEjam1uVfTzZ/HkyDwut/H6b2djSN9YTF+l/EA+XONfdCnOVSi1g+qVGSy65DcQAwyBNidAssnudQ==}
+  '@vuepic/vue-datepicker@11.0.1':
+    resolution: {integrity: sha512-xtGbgZAftBiU1H8pwM54vOCutLzEHsHiolRuDn+memTjqpfzT0x1Ml1tykJ53PLvdkCTyb6sB+1muv5Gsd4nQA==}
     engines: {node: '>=18.12.0'}
     peerDependencies:
       vue: '>=3.3.0'
@@ -12305,6 +12305,9 @@ packages:
   vue-component-type-helpers@2.2.10:
     resolution: {integrity: sha512-iDUO7uQK+Sab2tYuiP9D1oLujCWlhHELHMgV/cB13cuGbG4qwkLHvtfWb6FzvxrIOPDnU0oHsz2MlQjhYDeaHA==}
 
+  vue-component-type-helpers@3.0.1:
+    resolution: {integrity: sha512-j23mCB5iEbGsyIhnVdXdWUOg+UdwmVxpKnYYf2j+4ppCt5VSFXKjwu9YFt0QYxUaf5G99PuHsVfRScjHCRSsGQ==}
+
   vue-demi@0.14.10:
     resolution: {integrity: sha512-nMZBOwuzabUO0nLgIcc6rycZEebF6eeUfaiQx9+WSk8e29IbLvPU9feI6tqW4kTo3hvoYAJkMh8n8D0fuISphg==}
     engines: {node: '>=12'}
@@ -16161,7 +16164,7 @@ snapshots:
       storybook: 9.0.10(@testing-library/dom@10.4.0)(prettier@3.5.3)
       type-fest: 2.19.0
       vue: 3.5.13(typescript@5.8.3)
-      vue-component-type-helpers: 2.2.10
+      vue-component-type-helpers: 3.0.1
 
   '@swc/core-darwin-arm64@1.11.11':
     optional: true
@@ -17184,7 +17187,7 @@ snapshots:
     optionalDependencies:
       '@types/node': 18.15.10
 
-  '@vuepic/vue-datepicker@11.0.2(vue@3.5.13(typescript@5.8.3))':
+  '@vuepic/vue-datepicker@11.0.1(vue@3.5.13(typescript@5.8.3))':
     dependencies:
       date-fns: 4.1.0
       vue: 3.5.13(typescript@5.8.3)
@@ -26765,6 +26768,8 @@ snapshots:
       typescript: 5.8.3
 
   vue-component-type-helpers@2.2.10: {}
+
+  vue-component-type-helpers@3.0.1: {}
 
   vue-demi@0.14.10(vue@3.5.13(typescript@5.8.3)):
     dependencies:

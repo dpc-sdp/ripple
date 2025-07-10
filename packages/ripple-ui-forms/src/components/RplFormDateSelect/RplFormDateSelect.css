@@ -166,6 +166,18 @@
     align-items: baseline;
   }
 
+  .dp__calendar_item {
+    &:focus-visible {
+      z-index: 999;
+      border-color: var(--rpl-clr-focus);
+
+      outline: none;
+      box-shadow:
+        0 0 0 var(--rpl-border-2) var(--rpl-clr-dark) inset,
+        0 0 0 var(--rpl-border-3) var(--rpl-clr-focus);
+    }
+  }
+
   .dp__calendar_item:has(.dp__cell_inner .dp__marker_line) .dp__cell_inner {
     background: var(--rpl-clr-primary);
     color: white;
@@ -206,10 +218,10 @@
   margin: 5px 3px;
   padding: 5px;
   width: auto;
-  outline: none;
   appearance: multilist;
   appearance: base-select;
   border: 0;
+  border-radius: 0;
   background: transparent;
   font-weight: bold;
 
@@ -218,21 +230,6 @@
     content: '\2335';
     font-size: 20px;
     margin-top: -6px;
-  }
-
-  &::picker(select) {
-    appearance: base-select;
-    border-width: 2px;
-  }
-
-  option {
-    background: var(--rpl-clr-neutral-100);
-    padding: var(--rpl-sp-3);
-    font-weight: normal;
-  }
-
-  option:nth-of-type(odd) {
-    background: #fff;
   }
 }
 

@@ -1,27 +1,15 @@
 <script setup lang="ts">
 import { computed, reactive } from 'vue'
 import RplContent from '../content/RplContent.vue'
+import RplDataTableCell from './RplDataTableCell.vue'
 import RplExpandable from '../expandable/RplExpandable.vue'
 import {
   useRippleEvent,
   rplEventPayload
 } from '../../composables/useRippleEvent'
 import RplIcon from '../icon/RplIcon.vue'
-
-export type tableColumnConfig = {
-  label: string
-  objectKey?: string
-  classes?: string
-  component?: string
-  props?: any
-  isHTML?: boolean
-  isLabelHTML?: boolean
-}
-
-export type tableRow = {
-  id?: string
-  [key: string]: any
-}
+import { getCellText, hasComponent } from './helpers'
+import type { tableColumnConfig, tableRow } from './types'
 
 export type extraRowContentItem = {
   heading: string
@@ -78,8 +66,7 @@ const rowClasses = computed(() => [
   state.opened ? 'rpl-data-table__row--open' : null,
   (props.index + 1) % 2 === 0
     ? 'rpl-data-table__row--even'
-    : 'rpl-data-table__row--odd',
-  ...(props.columns[props.index]?.classes || [])
+    : 'rpl-data-table__row--odd'
 ])
 
 const toggleLabel = computed(() => (state.enabled ? 'Less info' : 'More info'))
@@ -90,7 +77,7 @@ const handleClick = () => {
     {
       action: !state.enabled ? 'open' : 'close',
       text: toggleLabel.value,
-      label: getCellText(0),
+      label: getCellText(0, null, props.columns, props.row),
       name: props.caption,
       index: props.index + 1
     },
@@ -100,19 +87,6 @@ const handleClick = () => {
     state.opened = true
   }
   state.enabled = !state.enabled
-}
-
-const hasComponent = (column: any) =>
-  typeof column === 'object' && column.hasOwnProperty('component')
-
-const getCellText = (col?: number | string, value = '') => {
-  if (typeof col === 'undefined') return value
-
-  const objectKey = typeof col === 'string' ? col : props.columns[col].objectKey
-
-  return typeof props.row === 'object' && props.row.hasOwnProperty(objectKey)
-    ? props.row[objectKey]
-    : value
 }
 
 const handleClosed = () => (state.opened = false)
@@ -133,19 +107,7 @@ const handleClosed = () => (state.opened = false)
           class="rpl-data-table__mobile-label"
           v-html="column.label"
         />
-        <template v-if="hasComponent(column)">
-          <component
-            :is="(column as tableColumnConfig).component"
-            :item="row"
-            :column="column"
-          />
-        </template>
-        <template v-else>
-          <div v-if="column.isHTML" v-html="getCellText(i)" />
-          <template v-else>
-            {{ getCellText(i) }}
-          </template>
-        </template>
+        <RplDataTableCell :columns :row :i :column />
       </component>
       <td v-if="showExtraContent" class="rpl-data-table__actions">
         <button
@@ -200,7 +162,11 @@ const handleClosed = () => (state.opened = false)
                   <p>
                     <strong>{{ item.heading }}</strong>
                   </p>
-                  <p>{{ getCellText(item?.objectKey, item.content) }}</p>
+                  <p>
+                    {{
+                      getCellText(item?.objectKey, item.content, columns, row)
+                    }}
+                  </p>
                 </template>
               </div>
             </template>

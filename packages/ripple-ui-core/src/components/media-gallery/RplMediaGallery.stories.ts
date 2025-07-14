@@ -94,3 +94,74 @@ export const SingleItem: Story = {
     ]
   }
 }
+
+export const NoBackgroundGallery: Story = {
+  name: 'No background / Gallery',
+  args: {
+    id: 'media-gallery-3',
+    background: false,
+    items: [
+      {
+        alt: 'Alt text',
+        title: 'Media title',
+        caption: 'Optional media caption content section',
+        thumbnail: svgPlaceholder({
+          width: 1200,
+          height: 800,
+          bgColor: '#ccc',
+          fgColor: '#444'
+        }),
+        image: svgPlaceholder({
+          width: 2400,
+          height: 1440,
+          bgColor: '#ccc',
+          fgColor: '#444'
+        })
+      },
+      {
+        alt: 'Alt text',
+        title: 'Media title',
+        caption: 'Some more text...',
+        thumbnail: svgPlaceholder({
+          width: 1200,
+          height: 800,
+          bgColor: '#aaa',
+          fgColor: '#666'
+        }),
+        image: svgPlaceholder({
+          width: 2400,
+          height: 1440,
+          bgColor: '#aaa',
+          fgColor: '#666'
+        })
+      }
+    ]
+  }
+}
+
+export const NoBackgroundSingleItem: Story = {
+  name: 'No Background / Single item',
+  args: {
+    id: 'media-gallery-4',
+    background: false,
+    items: [
+      {
+        alt: 'Alt text',
+        title: 'Media title',
+        caption: 'Optional media caption content section',
+        thumbnail: svgPlaceholder({
+          width: 1200,
+          height: 800,
+          bgColor: '#ccc',
+          fgColor: '#444'
+        }),
+        image: svgPlaceholder({
+          width: 2400,
+          height: 1440,
+          bgColor: '#ccc',
+          fgColor: '#444'
+        })
+      }
+    ]
+  }
+}

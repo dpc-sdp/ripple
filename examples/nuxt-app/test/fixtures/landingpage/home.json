@@ -948,6 +948,40 @@
       }
     },
     {
+      "component": "TideLandingPageDataTable",
+      "id": "1938",
+      "props": {
+        "caption": "My caption",
+        "headingType": {
+          "horizontal": true,
+          "vertical": false
+        },
+        "orientation": "column",
+        "columns": [
+          { "label": "Fruit", "objectKey": "col0" },
+          { "label": "Vegetable", "objectKey": "col1" },
+          { "label": "Elements", "objectKey": "col2" }
+        ],
+        "items": [
+          {
+            "col0": "Apple",
+            "col1": "Potato",
+            "col2": "Zinc"
+          },
+          {
+            "col0": "Orange",
+            "col1": "Broccoli",
+            "col2": "Copper"
+          },
+          {
+            "col0": "Banana",
+            "col1": "Pumpkin",
+            "col2": "Iron"
+          }
+        ]
+      }
+    },
+    {
       "component": "TideLandingPageCategoryGrid",
       "id": "7052",
       "title": "Category Grid",

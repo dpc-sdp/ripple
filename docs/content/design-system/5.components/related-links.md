@@ -3,7 +3,6 @@ title: Related links
 description: The Related links component is a list of links to help users discover related content.
 layout: page
 label: Core
-
 ---
 
 ## Usage

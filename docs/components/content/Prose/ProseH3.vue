@@ -19,9 +19,10 @@ const generate = computed(() => props.id && headings?.anchorLinks?.h2)
 
 <style scoped>
 .docs-h3 a {
+  color: inherit;
   text-decoration: none;
-  color: var(--rpl-clr-black);
   position: relative;
+
   &:hover .docs-h3--hash {
     display: block;
   }

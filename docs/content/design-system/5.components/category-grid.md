@@ -3,7 +3,6 @@ title: Category grid
 description: The Category grid component shows multiple cards laid out in a grid, allowing users to browse a collection of categories.
 layout: page
 label: Core
-
 ---
 
 ## Usage

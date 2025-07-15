@@ -95,9 +95,7 @@ const emit = defineEmits<{
 
 const { emitRplEvent } = useRippleEvent('rpl-map-side-panel', emit)
 
-const handlePageChange = async (event) => {
-  emitRplEvent('paginate', event, { global: true })
-
+const scrollToTop = async (focus = false) => {
   if (props.isStandalone) {
     if (scrollParentRef.value) {
       const elementTop =
@@ -121,8 +119,18 @@ const handlePageChange = async (event) => {
     }
   }
 
-  scrollParentRef?.value?.focus({ preventScroll: true })
+  if (focus) {
+    scrollParentRef?.value?.focus({ preventScroll: true })
+  }
 }
+
+const handlePageChange = async (event) => {
+  emitRplEvent('paginate', event, { global: true })
+
+  await scrollToTop(true)
+}
+
+defineExpose({ scrollToTop })
 </script>
 
 <style src="./RplMapSidePanel.css"></style>

@@ -59,6 +59,7 @@ export { default as RplSocialShare } from './components/social-share/RplSocialSh
 export { default as RplSpinner } from './components/spinner/RplSpinner.vue'
 export { default as RplStatsGrid } from './components/stats-grid/RplStatsGrid.vue'
 export { default as RplStatsGridItem } from './components/stats-grid/RplStatsGridItem.vue'
+export { default as RplSummaryList } from './components/summary-list/RplSummaryList.vue'
 export { default as RplTabs } from './components/tabs/RplTabs.vue'
 export { default as RplTag } from './components/tag/RplTag.vue'
 export { default as RplTextLink } from './components/text-link/RplTextLink.vue'

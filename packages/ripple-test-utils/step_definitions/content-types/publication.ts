@@ -23,6 +23,10 @@ Then('the print document link should be hidden', () => {
   cy.get('.tide-publication__actions-print').should('not.exist')
 })
 
+Then('the print document link should visible', () => {
+  cy.get('.tide-publication__actions-print').should('exist')
+})
+
 Then(
   'there should be a page link with a title of {string} and description text of {string}',
   (title: string, desc: string) => {
@@ -74,6 +78,35 @@ Then(
     })
   }
 )
+
+Then('the publication nav should have {int} links', (num: number) => {
+  cy.get(`.tide-publication__sidebar-nav li`).should('have.length', num)
+})
+
+Then(
+  'the publication nav should include the following links',
+  (dataTable: DataTable) => {
+    const table = dataTable.hashes()
+
+    cy.get(`.tide-publication__sidebar-nav li`).as('items')
+
+    table.forEach((row, i: number) => {
+      cy.get('@items')
+        .eq(i)
+        .then((item) => {
+          cy.wrap(item).as('item')
+
+          cy.get('@item').find('a').as('link')
+          cy.get('@link').contains(row.title)
+          cy.get('@link').should('have.attr', 'href', row.url)
+        })
+    })
+  }
+)
+
+Then('the publication nav should not exist', () => {
+  cy.get(`.tide-publication__sidebar-nav`).should('not.exist')
+})
 
 Then(
   'the publication should display the following documents',

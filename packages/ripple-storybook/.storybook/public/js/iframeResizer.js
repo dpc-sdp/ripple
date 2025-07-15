@@ -5,7 +5,9 @@
 
   function updateParentHeight() {
     const height = document.body.scrollHeight
-    const isModal = document.body.classList.contains('rpl-modal-open')
+    const isModal =
+      document.body.classList.contains('rpl-modal-open') ||
+      document.body.classList.contains('rpl-u-viewport-locked')
 
     if (isModal) return
 

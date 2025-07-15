@@ -3,7 +3,6 @@ title: Grid
 description: 'With up to 12 columns, you can build grids with responsive layouts across different breakpoints.'
 layout: page
 label: Core
-
 ---
 
 Grids are a crucial component of any design system. They provide a framework for arranging content in an appealing and structured manner. 

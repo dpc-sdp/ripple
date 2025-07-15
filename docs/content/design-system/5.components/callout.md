@@ -3,7 +3,6 @@ title: Callout
 description: The Callout component is a text excerpt that draws attention to specific or important content.
 layout: page
 label: Core
-
 ---
 
 ## Usage

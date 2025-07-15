@@ -26,6 +26,7 @@ withDefaults(defineProps<Props>(), {
 
 <style scoped>
 @import '@dpc-sdp/ripple-ui-core/style/breakpoints';
+
 .root {
   border-bottom: var(--rpl-border-1) solid var(--rpl-clr-neutral-300);
 }

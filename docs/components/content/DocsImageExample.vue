@@ -3,11 +3,9 @@
     <div class="docs-example-body">
       <img :src="src" :alt="alt" />
     </div>
-    <div class="docs-example-footer" v-if="$slots.default">
-      <figcaption>
-        <ContentSlot :use="$slots.default" unwrap="p" />
-      </figcaption>
-    </div>
+    <figcaption class="docs-example-footer" v-if="$slots.default">
+      <slot />
+    </figcaption>
   </figure>
 </template>
 
@@ -44,5 +42,9 @@ withDefaults(defineProps<Props>(), {})
 .docs-example-footer {
   border-top: var(--rpl-border-1) solid var(--rpl-clr-neutral-300);
   padding: var(--rpl-sp-3) var(--rpl-sp-5);
+
+  *:first-child {
+    margin-top: 0;
+  }
 }
 </style>

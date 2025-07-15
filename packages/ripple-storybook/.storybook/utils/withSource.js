@@ -82,6 +82,13 @@ export const withSource = (storyFn, context) => {
 
     setup() {
       onMounted(async () => {
+        // set overflow hidden when embedding in the docs site,
+        // this is to avoid the scrollbar jumping in and out as content expands
+        const searchParams = new URLSearchParams(window.location.search)
+        if (searchParams.get('rplDocs')) {
+          document.body.style.overflow = 'hidden'
+        }
+
         try {
           let code = ''
           const originalStory = context.originalStoryFn(context.args, context)

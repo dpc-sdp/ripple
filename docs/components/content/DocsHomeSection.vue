@@ -23,6 +23,7 @@ withDefaults(defineProps<Props>(), {
 
 <style scoped>
 @import '@dpc-sdp/ripple-ui-core/style/breakpoints';
+
 .docs-home-section {
   margin-bottom: var(--rpl-sp-7);
 

@@ -3,7 +3,6 @@ title: Call to action
 description: The Call to action component is a card promoting a specific piece of content and featuring a button highlighting the call to action.
 layout: page
 label: Core
-
 ---
 
 ## Usage

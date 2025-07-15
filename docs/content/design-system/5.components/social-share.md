@@ -3,7 +3,6 @@ title: Social share
 description: The Social share component shows a list of links to help users to share pages to social media.
 layout: page
 label: Core
-
 ---
 
 ## Usage

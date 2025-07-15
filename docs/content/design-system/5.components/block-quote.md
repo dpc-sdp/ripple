@@ -3,7 +3,6 @@ title: Block quote
 description: The Block quote component adds emphasis to a quote.
 layout: page
 label: Core
-
 ---
 
 ## Usage

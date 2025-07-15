@@ -3,7 +3,6 @@ title: Tag
 description: The Tag component adds, and draws attention to, a category name for your content. 
 layout: page
 label: Core
-
 ---
 
 ## Usage
@@ -52,5 +51,13 @@ Use the reverse variant when the chip appears on the primary colour.
 ::DocsExample
 ---
 id: core-containers-tag--neutral
+---
+::
+
+### Dark
+
+::DocsExample
+---
+id: core-containers-tag--dark
 ---
 ::

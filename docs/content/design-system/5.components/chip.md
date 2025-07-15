@@ -3,7 +3,6 @@ title: Chip
 description: The Chip component is an interactive element to draw a user’s user attention to a category.
 layout: page
 label: Core
-
 ---
 
 ## Usage

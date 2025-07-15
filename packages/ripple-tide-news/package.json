@@ -1,7 +1,7 @@
 {
   "name": "@dpc-sdp/ripple-tide-news",
   "description": "Ripple mappings and components for Tide News content type",
-  "version": "2.35.0",
+  "version": "2.36.0",
   "license": "Apache-2.0",
   "repository": "https://github.com/dpc-sdp/ripple-framework",
   "main": "./nuxt.config.ts",
@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@dpc-sdp/nuxt-ripple": "workspace:*",
-    "@dpc-sdp/ripple-tide-api": "workspace:*"
+    "@dpc-sdp/ripple-tide-api": "workspace:*",
+    "date-fns": "catalog:"
   }
 }

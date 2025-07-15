@@ -3,7 +3,6 @@ title: Text area
 description: The Text area component lets users select one option from a list.
 layout: page
 label: Core
-
 ---
 
 ## Usage

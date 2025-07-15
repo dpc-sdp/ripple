@@ -3,7 +3,6 @@ title: Media embed
 description: The Media embed component shows an image or video within the page content, with optional text to give context. 
 layout: page
 label: Core
-
 ---
 
 ## Usage
@@ -16,7 +15,7 @@ Media can be an image or video. Images can display as small, medium or large.
 
 When using the complex media variant, media displays at either a max width or height. This ensures it always displays the full image.
 
-See [media](/design-system/components/media/) for information relating to file type, ratios and focal point.
+See [media](/design-system/components/media) for information relating to file type, ratios and focal point.
 
 ::DocsExample
 ---

@@ -37,7 +37,7 @@ export default async (
           ...result,
           [filter.field]: {
             type: 'value',
-            size: 10
+            size: filter.maxValue || 10
           }
         }
       }, {})
@@ -129,13 +129,15 @@ export default async (
   const applyFilters = () => {
     searchDriver.clearFilters()
 
-    Object.entries(filterFormValues.value).forEach(([key, val]) => {
-      if (val && val.length) {
-        const config = filterConfig.find((filter) => filter.field === key)
+    Object.entries(filterFormValues.value).forEach(
+      ([key, val]: [string, []]) => {
+        if (val && val.length) {
+          const config = filterConfig.find((filter) => filter.field === key)
 
-        searchDriver.addFilter(key, val, config.filterType)
+          searchDriver.addFilter(key, val, config.filterType)
+        }
       }
-    })
+    )
   }
 
   return {

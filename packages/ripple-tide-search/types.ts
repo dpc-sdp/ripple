@@ -19,6 +19,8 @@ export interface AppSearchFilterConfigItem {
   label: string
   field: string
   filterType: FilterType
+  placeholder?: string
+  maxValue?: number
 }
 
 export interface FilterConfigItem {

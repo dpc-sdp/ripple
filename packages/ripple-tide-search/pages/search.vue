@@ -4,7 +4,10 @@ import {
   formatDate,
   useRuntimeConfig,
   useAppConfig,
-  useTideSite
+  useTideSite,
+  useFeatureFlags,
+  useNuxtApp,
+  stripSiteId
 } from '#imports'
 
 const appConfig = useAppConfig()
@@ -37,7 +40,8 @@ const filtersConfig: AppSearchFilterConfigItem[] = [
     label: 'Select a topic',
     placeholder: 'Select',
     field: 'field_topic_name',
-    filterType: 'any'
+    filterType: 'any',
+    maxValue: 20
   }
 ]
 

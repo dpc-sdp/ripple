@@ -8,7 +8,7 @@ import {
   fieldset,
   createSection
 } from '@formkit/inputs'
-import {
+import type {
   FormKitSchemaComponent,
   FormKitExtendableSchemaRoot
 } from '@formkit/core'
@@ -32,6 +32,8 @@ import RplFormOptionButtons from './../components/RplFormOptionButtons/RplFormOp
 import RplFormDropdown from './../components/RplFormDropdown/RplFormDropdown.vue'
 import RplFormDate from './../components/RplFormDate/RplFormDate.vue'
 import RplFormDateRange from './../components/RplFormDateRange/RplFormDateRange.vue'
+import RplFormDateSelect from '../components/RplFormDateSelect/RplFormDateSelect.vue'
+import RplFormDateSelectRange from '../components/RplFormDateSelectRange/RplFormDateSelectRange.vue'
 import RplFormValidationError from './../components/RplFormValidationError/RplFormValidationError.vue'
 import RplFormHelpText from './../components/RplFormHelpText/RplFormHelpText.vue'
 import RplFormLabel from './../components/RplFormLabel/RplFormLabel.vue'
@@ -56,6 +58,8 @@ export const inputLibrary = {
   RplFormDropdown: markRaw(RplFormDropdown),
   RplFormDate: markRaw(RplFormDate),
   RplFormDateRange: markRaw(RplFormDateRange),
+  RplFormDateSelect: markRaw(RplFormDateSelect),
+  RplFormDateSelectRange: markRaw(RplFormDateSelectRange),
   RplFormValidationError: markRaw(RplFormValidationError),
   RplFormHelpText: markRaw(RplFormHelpText),
   RplFormLabel: markRaw(RplFormLabel),

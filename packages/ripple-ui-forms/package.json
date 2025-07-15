@@ -29,6 +29,7 @@
     "@babel/core": "^7.23.2",
     "@types/node": "^18.15.10",
     "@vitejs/plugin-vue": "5.0.4",
+    "@vuepic/vue-datepicker": "11.0.1",
     "babel-loader": "^9.1.2",
     "pathe": "^1.1.0",
     "postcss-nested": "^6.0.1",

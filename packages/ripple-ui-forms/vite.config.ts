@@ -42,7 +42,11 @@ export default defineConfig({
     // Leave minification for now whilst we are non prod
     minify: false,
     rollupOptions: {
-      external: ['vue', '@dpc-sdp/ripple-ui-core/vue'],
+      external: [
+        'vue',
+        '@dpc-sdp/ripple-ui-core/vue',
+        '@vuepic/vue-datepicker'
+      ],
       output: {
         inlineDynamicImports: true,
         globals: {

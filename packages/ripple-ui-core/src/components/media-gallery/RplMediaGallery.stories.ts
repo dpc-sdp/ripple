@@ -34,8 +34,7 @@ export const DefaultStory: Story = {
       {
         alt: 'Alt text',
         title: 'Another media',
-        caption:
-          'Another optional media caption content section, et another optional media caption content section',
+        caption: 'Another optional media caption content section',
         thumbnail: svgPlaceholder({
           width: 1200,
           height: 800,

@@ -54,18 +54,6 @@ export const ImageSquare: Story = {
   }
 }
 
-export const ImageAvatar: Story = {
-  args: {
-    type: 'image',
-    variant: 'avatar',
-    size: 'large',
-    title: 'Media title',
-    src: 'img/image-landscape-s.jpg',
-    caption: 'Optional media caption content section',
-    sourceCaption: 'Optional media source information content section'
-  }
-}
-
 export const ComplexImage: Story = {
   args: {
     type: 'image',
@@ -121,8 +109,6 @@ export const NoBackground: Story = {
     type: 'image',
     variant: 'landscape',
     size: 'large',
-    title: 'Media title',
-    showTitle: true,
     background: false,
     src: 'img/image-landscape-m.jpg',
     caption: 'Optional media caption content section',

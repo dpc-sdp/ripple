@@ -36,13 +36,6 @@
       max-width: 595px;
     }
   }
-
-  /* Avatar */
-  &.rpl-media-embed__image--avatar {
-    &.rpl-media-embed__image--large {
-      max-width: 264px;
-    }
-  }
 }
 
 .rpl-media-embed__content {

@@ -85,8 +85,6 @@ const imageAspect = computed(() => {
       return 'portrait'
     case 'square':
       return 'square'
-    case 'avatar':
-      return 'square'
     default:
       return undefined
   }
@@ -221,7 +219,6 @@ const handleDownload = () => {
         :alt="caption"
         :aspect="{ xs: imageAspect }"
         sizes="xs:768px"
-        :circle="variant === 'avatar'"
         :class="imageClasses"
       />
 

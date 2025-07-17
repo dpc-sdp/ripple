@@ -312,6 +312,24 @@ export const DefaultStory: Story = {
         }
       },
       {
+        $formkit: 'RplFormCheckbox',
+        key: 'privacy_statement',
+        id: 'connect_with_us_privacy_statement',
+        name: 'privacy_statement',
+        label: 'Collection notice',
+        description:
+          '<p>The Department of Government Services (the Department) collects the information that you provide with this form. The information that you provide is used to respond to your enquiry. You can request access to, and corrections of, any personal information provided in this form. Requests for access or correction should be sent to <a href="mailto:privacy@dgs.vic.gov.au">privacy@dgs.vic.gov.au</a></p>',
+        checkboxLabel:
+          'I have read and understand how the Victorian Government stores information.',
+        validation: 'required',
+        validationMessages: {
+          required:
+            'I have read and understand how the Victorian Government stores information. is required',
+          accepted:
+            'I have read and understand how the Victorian Government stores information. is required'
+        }
+      },
+      {
         $formkit: 'RplFormActions',
         label: 'Submit form',
         id: '123'

@@ -72,12 +72,14 @@ const rowClasses = computed(() => [
 const toggleLabel = computed(() => (state.enabled ? 'Less info' : 'More info'))
 
 const handleClick = () => {
+  const label = getCellText(0, null, props.columns, props.row)
+
   emitRplEvent(
     'expandRow',
     {
       action: !state.enabled ? 'open' : 'close',
       text: toggleLabel.value,
-      label: getCellText(0, null, props.columns, props.row),
+      label: Array.isArray(label) ? label[0] : label,
       name: props.caption,
       index: props.index + 1
     },

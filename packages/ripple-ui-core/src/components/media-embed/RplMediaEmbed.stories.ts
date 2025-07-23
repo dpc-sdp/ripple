@@ -54,18 +54,6 @@ export const ImageSquare: Story = {
   }
 }
 
-export const ImageAvatar: Story = {
-  args: {
-    type: 'image',
-    variant: 'avatar',
-    size: 'large',
-    title: 'Media title',
-    src: 'img/image-landscape-s.jpg',
-    caption: 'Optional media caption content section',
-    sourceCaption: 'Optional media source information content section'
-  }
-}
-
 export const ComplexImage: Story = {
   args: {
     type: 'image',
@@ -91,9 +79,81 @@ export const ComplexImage: Story = {
   }
 }
 
+export const ComplexImageNoCaption: Story = {
+  name: 'Complex / No Caption',
+  args: {
+    type: 'image',
+    variant: 'complex',
+    title: 'Media title',
+    src: 'img/image-landscape-l.jpg',
+    showTitle: true,
+    allowFullscreen: true,
+    dataContent: `Commodo qui exercitation sint.`,
+    downloadUrl: 'img/image-landscape-l.jpg'
+  }
+}
+
 export const Video: Story = {
   args: {
     type: 'video',
+    title: 'Media title',
+    src: 'https://www.youtube.com/embed/bSlnfyGTiss',
+    transcriptUrl: '#',
+    caption: 'Optional media caption content section'
+  }
+}
+
+export const NoBackground: Story = {
+  name: 'No background',
+  args: {
+    type: 'image',
+    variant: 'landscape',
+    size: 'large',
+    background: false,
+    src: 'img/image-landscape-m.jpg',
+    caption: 'Optional media caption content section',
+    sourceCaption: 'Optional media source information content section'
+  }
+}
+
+export const NoBackgroundComplex: Story = {
+  name: 'No background / Complex',
+  args: {
+    type: 'image',
+    variant: 'complex',
+    title: 'Media title',
+    src: 'img/image-landscape-l.jpg',
+    showTitle: true,
+    allowFullscreen: true,
+    background: false,
+    caption: 'Caption section',
+    sourceCaption: 'Some info about the image',
+    downloadUrl: 'img/image-landscape-l.jpg',
+    dataContent: 'Some more info...'
+  }
+}
+
+export const NoBackgroundComplexNoCaption: Story = {
+  name: 'No background / Complex no Caption',
+  args: {
+    type: 'image',
+    variant: 'landscape',
+    size: 'large',
+    title: 'Media title',
+    src: 'img/image-landscape-m.jpg',
+    showTitle: true,
+    allowFullscreen: true,
+    background: false,
+    downloadUrl: 'img/image-landscape-l.jpg',
+    dataContent: 'Some more info...'
+  }
+}
+
+export const NoBackgroundVideo: Story = {
+  name: 'No background / Video',
+  args: {
+    type: 'video',
+    background: false,
     title: 'Media title',
     src: 'https://www.youtube.com/embed/bSlnfyGTiss',
     transcriptUrl: '#',

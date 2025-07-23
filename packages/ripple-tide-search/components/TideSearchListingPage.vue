@@ -181,6 +181,7 @@ const baseEvent = computed(() => {
   return {
     section: 'search-listing',
     contextId: props.id,
+    contextName: props.title,
     name: props.title,
     index: page.value,
     label: searchTerm.value.q,

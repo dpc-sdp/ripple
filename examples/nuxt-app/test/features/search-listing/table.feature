@@ -74,14 +74,14 @@ Feature: Table layout
     And the tables extra content should contain the class "rpl-tag--dark"
     And the table row with text "Department with no extra content" should not display more information
     And the dataLayer should include the following events
-      | event          | element_text | index | label                   | component      |
-      | open_table_row | More info    | 1     | African Family Services | rpl-data-table |
+      | event          | element_text | index | label                   | name                            | component      |
+      | open_table_row | More info    | 1     | African Family Services | Table with structure extra data | rpl-data-table |
 
     When I toggle the tables extra content row
     Then the tables extra content should be hidden
     And the dataLayer should include the following events
-      | event           | element_text | index | label                   | component      |
-      | close_table_row | Less info    | 1     | African Family Services | rpl-data-table |
+      | event           | element_text | index | label                   | name                            | component      |
+      | close_table_row | Less info    | 1     | African Family Services | Table with structure extra data | rpl-data-table |
 
   @mockserver
   Example: Table renders cells using core components

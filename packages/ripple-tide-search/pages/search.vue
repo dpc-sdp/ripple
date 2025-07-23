@@ -41,7 +41,7 @@ const filtersConfig: AppSearchFilterConfigItem[] = [
     placeholder: 'Select',
     field: 'field_topic_name',
     filterType: 'any',
-    maxValue: 20
+    topicSize: appConfig.ripple?.search?.topicSize
   }
 ]
 

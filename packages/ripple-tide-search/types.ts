@@ -20,7 +20,7 @@ export interface AppSearchFilterConfigItem {
   field: string
   filterType: FilterType
   placeholder?: string
-  maxValue?: number
+  topicSize?: number
 }
 
 export interface FilterConfigItem {

@@ -37,7 +37,7 @@ export default async (
           ...result,
           [filter.field]: {
             type: 'value',
-            size: filter.maxValue || 10
+            size: filter.topicSize
           }
         }
       }, {})

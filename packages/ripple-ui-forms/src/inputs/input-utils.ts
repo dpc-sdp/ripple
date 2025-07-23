@@ -16,6 +16,7 @@ import { rplOuter } from '../sections/rplOuter'
 import { rplLabel } from '../sections/rplLabel'
 import { rplLegend } from '../sections/rplLegend'
 import { rplHelp } from '../sections/rplHelp'
+import { rplDescription } from '../sections/rplDescription'
 import {
   isFieldRequired,
   isFieldInvalid,
@@ -35,6 +36,7 @@ import RplFormDateRange from './../components/RplFormDateRange/RplFormDateRange.
 import RplFormDateSelect from '../components/RplFormDateSelect/RplFormDateSelect.vue'
 import RplFormDateSelectRange from '../components/RplFormDateSelectRange/RplFormDateSelectRange.vue'
 import RplFormValidationError from './../components/RplFormValidationError/RplFormValidationError.vue'
+import RplFormDescription from './../components/RplFormDescription/RplFormDescription.vue'
 import RplFormHelpText from './../components/RplFormHelpText/RplFormHelpText.vue'
 import RplFormLabel from './../components/RplFormLabel/RplFormLabel.vue'
 import RplFormInputGrid from './../components/RplFormInputGrid/RplFormInputGrid.vue'
@@ -62,6 +64,7 @@ export const inputLibrary = {
   RplFormDateSelectRange: markRaw(RplFormDateSelectRange),
   RplFormValidationError: markRaw(RplFormValidationError),
   RplFormHelpText: markRaw(RplFormHelpText),
+  RplFormDescription: markRaw(RplFormDescription),
   RplFormLabel: markRaw(RplFormLabel),
   RplFormInputGrid: markRaw(RplFormInputGrid),
   RplFormFieldset: markRaw(RplFormFieldset),
@@ -124,6 +127,7 @@ export const createRplFormGroup = (
     fieldset(
       rplLegend('$label'),
       rplHelp('$help'),
+      rplDescription('$description'),
       createSection('error', () => ({
         $cmp: 'FormkitInputError',
         props: {

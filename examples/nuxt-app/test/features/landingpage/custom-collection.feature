@@ -18,6 +18,14 @@ Feature: Custom Collection
     And the "cslReq" network request should be made to the elasticsearch endpoint
     And the search listing layout should be "table"
 
+    Given a data table with type "search-listing-layout-table"
+    When I toggle the tables extra content row
+    Then the tables extra content should be visible
+    Then the tables extra content should contain the label "Offence location" and text "Alexandra Parade, at the intersection of Alexandra Parade and Smith Street, Fitzroy North"
+    And the dataLayer should include the following events
+      | event          | element_text | index | label         | name               | component      |
+      | open_table_row | More info    | 1     | Fitzroy North | Cameras save lives | rpl-data-table |
+
   @mockserver
   Scenario: Custom collection emits search related events for analytics
     Given the page endpoint for path "/custom-collection" returns fixture "/landingpage/custom-collection/page" with status 200

@@ -253,6 +253,7 @@ const baseEvent = computed(() => {
   return {
     section: 'custom-collection',
     contextId: props.id,
+    contextName: props.title,
     name: props.title,
     index: page.value,
     label: props.locationQueryConfig?.component

@@ -14,7 +14,8 @@ export default defineAppConfig({
       ],
       suggestionsFunctions: {
         rplAddressSuggestionsFn
-      }
+      },
+      topicSize: 20
     }
   }
 })

@@ -697,3 +697,18 @@ Then(
     })
   }
 )
+
+Then(
+  'the search listing results table should display the following',
+  (dataTable: DataTable) => {
+    const table = dataTable.raw()
+
+    table.forEach((row: any, i: number) => {
+      cy.get('tr').eq(i).as('row')
+
+      row.forEach((cell: any, j: number) => {
+        cy.get('@row').find('th, td').eq(j).contains(cell)
+      })
+    })
+  }
+)

@@ -15,6 +15,7 @@ defineProps<{
   <RplDataTable
     :caption="caption"
     :headingType="headingType"
+    :orientation="orientation"
     :columns="columns"
     :items="items"
   />

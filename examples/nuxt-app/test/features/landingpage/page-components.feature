@@ -185,6 +185,22 @@ Feature: Home page
       | td   | Row Three Column One | Row Three Column Two | Row Three Column Three |
 
   @mockserver
+  Scenario: Page component - Data Table column oriented
+    Given a data table with ID "1938"
+    Then it should have a heading
+    And the table should display the following
+      | Fruit  | Vegetable | Elements |
+      | Apple  | Potato    | Zinc     |
+      | Orange | Broccoli  | Copper   |
+      | Banana | Pumpkin   | Iron     |
+    When I am using a "iphone-x" device
+    Then it should have no heading
+    And the table should display the following
+      | Fruit     | Apple  | Orange   | Banana  |
+      | Vegetable | Potato | Broccoli | Pumpkin |
+      | Elements  | Zinc   | Copper   | Iron    |
+
+  @mockserver
   Scenario: Page component - Category Grid i.e. compact cards
     Then a category grid with ID "7052" should exist with the following cards
       | title    | content          | image                    | url                 |

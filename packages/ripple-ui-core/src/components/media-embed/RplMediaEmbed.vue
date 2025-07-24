@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
+import { useResizeObserver } from '@vueuse/core'
 import {
   RplMediaEmbedTypes,
   RplMediaEmbedVariants,
@@ -32,6 +33,7 @@ interface Props {
   dataLabel?: string
   downloadUrl?: string
   downloadLabel?: string
+  background?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -46,7 +48,8 @@ const props = withDefaults(defineProps<Props>(), {
   dataContent: undefined,
   dataLabel: undefined,
   downloadUrl: undefined,
-  downloadLabel: undefined
+  downloadLabel: undefined,
+  background: true
 })
 
 const emit = defineEmits<{
@@ -61,8 +64,14 @@ const emit = defineEmits<{
 
 const { emitRplEvent } = useRippleEvent('rpl-media-embed', emit)
 
+const imageRef = ref(null)
 const isFullScreenOpen = ref(false)
 const isDataContentOpen = ref(false)
+const contentWidth = ref(null)
+
+useResizeObserver(imageRef, (entries) => {
+  contentWidth.value = `${entries[0].contentRect.width}px`
+})
 
 const imageAspect = computed(() => {
   if (props.type != 'image') {
@@ -75,8 +84,6 @@ const imageAspect = computed(() => {
     case 'portrait':
       return 'portrait'
     case 'square':
-      return 'square'
-    case 'avatar':
       return 'square'
     default:
       return undefined
@@ -190,7 +197,13 @@ const handleDownload = () => {
 </script>
 
 <template>
-  <div class="rpl-media-embed">
+  <div
+    :class="{
+      'rpl-media-embed': true,
+      'rpl-media-embed--background': props.background
+    }"
+    :style="{ '--local-content-width': contentWidth }"
+  >
     <!-- Title -->
     <h3 v-if="showTitle" class="rpl-type-h3 rpl-u-margin-b-3">
       {{ title }}
@@ -201,11 +214,11 @@ const handleDownload = () => {
       <!-- Image -->
       <RplImage
         v-if="type === 'image'"
+        ref="imageRef"
         :src="src"
         :alt="caption"
         :aspect="{ xs: imageAspect }"
         sizes="xs:768px"
-        :circle="variant === 'avatar'"
         :class="imageClasses"
       />
 

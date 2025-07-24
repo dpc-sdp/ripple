@@ -12,7 +12,11 @@ import {
   RplDataTableStructuredColumns,
   RplDataTableStructuredItems,
   RplDataTableExtraComponents,
-  RplDataTableItemsSimple
+  RplDataTableItemsSimple,
+  RplDataTableMixedColumns,
+  RplDataTableMixedItems,
+  RplDataTableColumnsCustom,
+  RplDataTableItemsCustom
 } from './fixtures/sample'
 
 type ExtendedPDataTableProps = Partial<typeof RplDataTable> & {
@@ -21,7 +25,13 @@ type ExtendedPDataTableProps = Partial<typeof RplDataTable> & {
 
 export default {
   title: 'Core/Containers/Data table',
-  component: RplDataTable
+  component: RplDataTable,
+  argTypes: {
+    orientation: {
+      control: { type: 'radio' },
+      options: ['row', 'column']
+    }
+  }
 } satisfies Meta<ExtendedPDataTableProps>
 
 type Story = StoryObj<ExtendedPDataTableProps>
@@ -102,5 +112,85 @@ export const Simple: Story = {
   args: {
     columns: RplDataTableColumns,
     items: RplDataTableItemsSimple
+  }
+}
+
+export const NoHeadings: Story = {
+  args: {
+    columns: RplDataTableColumns,
+    items: RplDataTableItemsSimple,
+    headingType: { horizontal: false, vertical: false }
+  }
+}
+
+export const ColumnOrientedNoHeadings: Story = {
+  name: 'Column Oriented - No Headings',
+  parameters: {
+    chromatic: {
+      viewports: [bpMin.s, bpMin.l]
+    }
+  },
+  args: {
+    columns: RplDataTableColumnsCustom,
+    items: RplDataTableItemsCustom,
+    headingType: {
+      vertical: false,
+      horizontal: false
+    },
+    orientation: 'column'
+  }
+}
+
+export const ColumnOrientedHorizontalHeadings: Story = {
+  name: 'Column Oriented - Horizontal Headings',
+  parameters: {
+    chromatic: {
+      viewports: [bpMin.s, bpMin.l]
+    }
+  },
+  args: {
+    columns: RplDataTableColumnsCustom,
+    items: RplDataTableItemsCustom,
+    headingType: {
+      vertical: false,
+      horizontal: true
+    },
+    orientation: 'column'
+  }
+}
+
+export const ColumnOrientedVerticalHeadings: Story = {
+  name: 'Column Oriented - Vertical Headings',
+  parameters: {
+    chromatic: {
+      viewports: [bpMin.s, bpMin.l]
+    }
+  },
+  args: {
+    columns: RplDataTableMixedColumns,
+    items: RplDataTableMixedItems,
+    headingType: {
+      vertical: true,
+      horizontal: false
+    },
+    orientation: 'column'
+  }
+}
+
+export const ColumnOrientedDualHeadings: Story = {
+  name: 'Column Oriented - Dual Headings',
+  parameters: {
+    chromatic: {
+      viewports: [bpMin.s, bpMin.l]
+    }
+  },
+  args: {
+    columns: RplDataTableMixedColumns,
+    items: RplDataTableMixedItems,
+    headingType: {
+      vertical: true,
+      horizontal: true
+    },
+    orientation: 'column'
   }
 }

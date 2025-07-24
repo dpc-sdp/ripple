@@ -305,3 +305,66 @@ export const RplDataTableExtraComponents = [
     }
   }
 ]
+
+export const RplDataTableMixedColumns = [
+  { label: 'Design plan', objectKey: 'col0' },
+  {
+    label: 'Time frame',
+    component: {
+      props: {
+        item: Object
+      },
+      template: `⏰ {{ item.col1 }}`
+    }
+  },
+  { label: 'Budget <sup>$</sup>', objectKey: 'col2', isLabelHTML: true },
+  { label: 'Risk', objectKey: 'col3', isHTML: true }
+]
+
+export const RplDataTableMixedItems = [
+  {
+    col0: 'Design ideas',
+    col1: '2-4 weeks',
+    col2: '$50k',
+    col3: 'High <sup>H</sup>'
+  },
+  {
+    col0: 'Co-design solutions',
+    col1: '8-10 weeks',
+    col2: '$60k',
+    col3: 'Medium <sup>M</sup>'
+  },
+  {
+    col0: 'Single solution',
+    col1: '12 weeks',
+    col2: '$100k',
+    col3: 'Low <sup>L</sup>'
+  },
+  {
+    col0: 'Development',
+    col1: '16 weeks',
+    col2: '$125k',
+    col3: 'High <sup>H</sup>'
+  }
+]
+
+export const RplDataTableColumnsCustom = [
+  {
+    label: 'Fruit',
+    objectKey: 'col0'
+  },
+  { label: 'Vegetable', objectKey: 'col1' },
+  { label: 'Elements', objectKey: 'col2' }
+]
+
+export const RplDataTableItemsCustom = [
+  { col0: 'Apple', col1: 'Potato', col2: 'Zinc' },
+  { col0: 'Orange', col1: 'Broccoli', col2: 'Copper' },
+  {
+    col0: 'Banana',
+    col1: 'Pumpkin',
+    col2: 'Iron'
+  },
+  { col0: 'Pear', col1: 'Carrot', col2: 'Bronze' },
+  { col0: 'Mango', col1: 'Mushrooms', col2: 'Slate' }
+]

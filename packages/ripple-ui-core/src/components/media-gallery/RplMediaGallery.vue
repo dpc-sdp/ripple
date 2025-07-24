@@ -22,9 +22,12 @@ interface RplMediaGalleryItem {
 interface Props {
   id: string
   items: RplMediaGalleryItem[]
+  background?: boolean
 }
 
-const props = defineProps<Props>()
+const props = withDefaults(defineProps<Props>(), {
+  background: true
+})
 
 const emit = defineEmits<{
   (e: 'paginate', payload: rplEventPayload & { action: 'prev' | 'next' }): void
@@ -131,7 +134,12 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="rpl-media-gallery">
+  <div
+    :class="{
+      'rpl-media-gallery': true,
+      'rpl-media-gallery--background': props.background
+    }"
+  >
     <RplSlider
       :current-slide="activeImageSlide"
       :show-pagination="false"

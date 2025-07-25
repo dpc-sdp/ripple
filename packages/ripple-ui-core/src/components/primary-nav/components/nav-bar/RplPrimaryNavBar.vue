@@ -162,6 +162,10 @@ const showMobileToggle = computed(() => {
           href="/"
           :active="isMegaNavActive"
           focusKey="menu:toggle"
+          aria-haspopup="true"
+          aria-controls="megamenu"
+          :aria-expanded="isMegaNavActive ? 'true' : 'false'"
+          :aria-label="`${isMegaNavActive ? 'Close' : 'Open'} ${mobileToggleLabel}`"
           @click="toggleMobileMenu(mobileToggleLabel)"
         >
           <span>{{ mobileToggleLabel }}</span
@@ -218,7 +222,14 @@ const showMobileToggle = computed(() => {
 
       <!-- Search toggle -->
       <li v-if="showSearch">
-        <RplPrimaryNavBarAction type="toggle" @click="toggleSearch()">
+        <RplPrimaryNavBarAction
+          type="toggle"
+          aria-haspopup="true"
+          aria-controls="search-megamenu"
+          :aria-expanded="isSearchActive ? 'true' : 'false'"
+          :aria-label="`${isSearchActive ? 'Close' : 'Open'} Search`"
+          @click="toggleSearch()"
+        >
           <template v-if="!isSearchActive">
             <span class="rpl-primary-nav__nav-bar-search-label">Search</span
             >&NoBreak;<span

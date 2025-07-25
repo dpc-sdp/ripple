@@ -32,15 +32,23 @@ describe('RplPrimaryNav', () => {
       cy.viewport(bpMin.s, 1000)
       cy.mount(RplPrimaryNav, { props })
 
-      cy.get(
-        '.rpl-primary-nav__nav-bar-mobile-menu-toggle-container .rpl-primary-nav__nav-bar-action--toggle'
-      ).as('toggle')
+      cy.get('[aria-label="Open Menu"]').as('openMenu')
+      cy.get('@openMenu').should('have.attr', 'aria-expanded', 'false')
+      cy.get('@openMenu').click()
 
-      cy.get('@toggle').click()
-      cy.get('.rpl-primary-nav__mega-menu').should('be.visible')
+      cy.get('[aria-label="Close Menu"]').as('closeMenu')
 
-      cy.get('@toggle').click()
-      cy.get('.rpl-primary-nav__mega-menu').should('not.exist')
+      cy.get('@closeMenu')
+        .invoke('attr', 'aria-controls')
+        .then((id) => {
+          cy.get(`#${id}`).as('menu')
+        })
+
+      cy.get('@menu').should('be.visible')
+      cy.get('@closeMenu').should('have.attr', 'aria-expanded', 'true')
+
+      cy.get('@closeMenu').click()
+      cy.get('@menu').should('not.exist')
     })
   })
 
@@ -90,16 +98,26 @@ describe('RplPrimaryNav', () => {
     })
 
     it('toggles the display of the search form', () => {
-      cy.contains('.rpl-primary-nav__nav-bar-action--toggle', 'Search').click()
+      cy.get('[aria-label="Open Search"]').as('openSearch')
+      cy.get('@openSearch').should('contain', 'Search')
+      cy.get('@openSearch').should('have.attr', 'aria-expanded', 'false')
+      cy.get('@openSearch').click()
 
-      cy.get('.rpl-primary-nav__search-form').as('form')
+      cy.get('[aria-label="Close Search"]').as('closeSearch')
+      cy.get('@closeSearch').should('contain', 'Close')
 
-      cy.get('form').should('be.visible')
-      cy.get('form').find('.rpl-search-bar__input').should('have.focus')
+      cy.get('@closeSearch')
+        .invoke('attr', 'aria-controls')
+        .then((id) => {
+          cy.get(`#${id}`).as('search')
+        })
 
-      cy.contains('.rpl-primary-nav__nav-bar-action--toggle', 'Close').click()
+      cy.get('@search').should('be.visible')
+      cy.get('@closeSearch').should('have.attr', 'aria-expanded', 'true')
+      cy.get('@search').find('input').should('have.focus')
 
-      cy.get('.rpl-primary-nav__search-form').should('not.exist')
+      cy.get('@closeSearch').click()
+      cy.get('@search').should('not.exist')
     })
   })
 })

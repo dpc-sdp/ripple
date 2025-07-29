@@ -236,8 +236,8 @@ const pluginImages = function (this: any) {
     let caption = $caption?.text()
 
     return $context.replaceWith(
-      `<div class="rpl-media-embed rpl-media-embed--background" style="--local-content-width: ${width}px">
-        <figure class="rpl-media-embed__figure">
+      `<div class="rpl-media-embed rpl-media-embed--background">
+        <figure class="rpl-media-embed__main--contain">
           <img src="${src}" class="rpl-image" width="${width}" height="${height}" alt="${alt}" srcset="${src}${newOrAdd}width=${contentWidth}, ${src}${newOrAdd}width=${
             contentWidth * 2
           } 2x">${

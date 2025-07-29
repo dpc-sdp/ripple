@@ -112,23 +112,23 @@ const fixed = {
 </div>
 `,
   image: [
-    `<div class="rpl-media-embed rpl-media-embed--background" style="--local-content-width: 200px">
-        <figure class="rpl-media-embed__figure">
+    `<div class="rpl-media-embed rpl-media-embed--background">
+        <figure class="rpl-media-embed__main--contain">
           <img src="/sites/default/files/image.jpg" class="rpl-image" width="200" height="100" alt="Image" srcset="/sites/default/files/image.jpg?width=720, /sites/default/files/image.jpg?width=1440 2x">
         </figure>
       </div>`,
-    `<div class="rpl-media-embed rpl-media-embed--background" style="--local-content-width: 200px">
-        <figure class="rpl-media-embed__figure">
+    `<div class="rpl-media-embed rpl-media-embed--background">
+        <figure class="rpl-media-embed__main--contain">
           <img src="/sites/default/files/image.jpg?itok=Noa2hd8" class="rpl-image" width="200" height="100" alt="Image" srcset="/sites/default/files/image.jpg?itok=Noa2hd8&amp;width=720, /sites/default/files/image.jpg?itok=Noa2hd8&amp;width=1440 2x">
         </figure>
       </div>`,
-    `<div class="rpl-media-embed rpl-media-embed--background" style="--local-content-width: 1440px">
-        <figure class="rpl-media-embed__figure">
+    `<div class="rpl-media-embed rpl-media-embed--background">
+        <figure class="rpl-media-embed__main--contain">
           <img src="/sites/default/files/2025-07/wallpaper-1.jpg" class="rpl-image" width="1440" height="880" alt="Wallpaper 1 alt text" srcset="/sites/default/files/2025-07/wallpaper-1.jpg?width=720, /sites/default/files/2025-07/wallpaper-1.jpg?width=1440 2x"><figcaption class="rpl-media-embed__figcaption">Wallpaper caption from image</figcaption>
         </figure>
       </div>`,
-    `<div class="rpl-media-embed rpl-media-embed--background" style="--local-content-width: 1200px">
-        <figure class="rpl-media-embed__figure">
+    `<div class="rpl-media-embed rpl-media-embed--background">
+        <figure class="rpl-media-embed__main--contain">
           <img src="/sites/default/files/2025-07/wallpaper-2.jpg" class="rpl-image" width="1200" height="500" alt="Wallpaper 2 alt text" srcset="/sites/default/files/2025-07/wallpaper-2.jpg?width=720, /sites/default/files/2025-07/wallpaper-2.jpg?width=1440 2x"><figcaption class="rpl-media-embed__figcaption">Caption from wallpaper instance</figcaption>
         </figure>
       </div>`

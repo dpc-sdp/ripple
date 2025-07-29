@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-import { useResizeObserver } from '@vueuse/core'
 import {
   RplMediaEmbedTypes,
   RplMediaEmbedVariants,
@@ -67,14 +66,8 @@ const emit = defineEmits<{
 
 const { emitRplEvent } = useRippleEvent('rpl-media-embed', emit)
 
-const imageRef = ref(null)
 const isFullScreenOpen = ref(false)
 const isDataContentOpen = ref(false)
-const contentWidth = ref(null)
-
-useResizeObserver(imageRef, (entries) => {
-  contentWidth.value = `${entries[0].contentRect.width}px`
-})
 
 const imageAspect = computed(() => {
   if (props.type != 'image') {
@@ -205,123 +198,130 @@ const handleDownload = () => {
       'rpl-media-embed': true,
       'rpl-media-embed--background': props.background
     }"
-    :style="{ '--local-content-width': contentWidth }"
   >
     <!-- Title -->
     <h3 v-if="showTitle" class="rpl-type-h3 rpl-u-margin-b-3">
       {{ title }}
     </h3>
 
-    <!-- Figure (iframe, caption, source info) -->
-    <figure class="rpl-media-embed__figure">
-      <!-- Image -->
-      <RplImage
-        v-if="type === 'image'"
-        ref="imageRef"
-        :src="src"
-        :alt="image?.alt"
-        :width="image?.width"
-        :height="image?.height"
-        :aspect="{ xs: imageAspect }"
-        sizes="xs:768px"
-        :class="imageClasses"
-      />
-
-      <!-- Video -->
-      <div
-        v-else-if="type === 'video'"
-        class="rpl-media-embed__video-container"
-      >
-        <iframe
-          class="rpl-media-embed__video rpl-u-screen-only"
+    <div
+      :class="{
+        'rpl-media-embed__main': true,
+        'rpl-media-embed__main--contain':
+          type === 'image' && variant !== 'complex'
+      }"
+    >
+      <!-- Figure (iframe, caption, source info) -->
+      <figure class="rpl-media-embed__figure">
+        <!-- Image -->
+        <RplImage
+          v-if="type === 'image'"
+          ref="imageRef"
           :src="src"
-          allow="autoplay; fullscreen; picture-in-picture"
-          allowfullscreen
-          data-chromatic="ignore"
-          :title="title"
-        >
-        </iframe>
-        <RplTextLink class="rpl-type-p rpl-u-print-only" :url="src">
-          {{ title }}
-        </RplTextLink>
-      </div>
+          :alt="image?.alt"
+          :width="image?.width"
+          :height="image?.height"
+          :aspect="{ xs: imageAspect }"
+          sizes="xs:768px"
+          :class="imageClasses"
+        />
 
-      <!-- Caption and source caption -->
-      <figcaption
-        v-if="caption || sourceCaption"
-        class="rpl-media-embed__figcaption"
-      >
-        <p v-if="caption" class="rpl-media-embed__caption rpl-type-p">
-          {{ caption }}
-        </p>
-        <p
-          v-if="sourceCaption"
-          class="rpl-media-embed__source-caption rpl-type-p-small"
+        <!-- Video -->
+        <div
+          v-else-if="type === 'video'"
+          class="rpl-media-embed__video-container"
         >
-          {{ sourceCaption }}
-        </p>
-      </figcaption>
-    </figure>
+          <iframe
+            class="rpl-media-embed__video rpl-u-screen-only"
+            :src="src"
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowfullscreen
+            data-chromatic="ignore"
+            :title="title"
+          >
+          </iframe>
+          <RplTextLink class="rpl-type-p rpl-u-print-only" :url="src">
+            {{ title }}
+          </RplTextLink>
+        </div>
 
-    <!-- Actions list -->
-    <ul v-if="!isActionsListEmpty" class="rpl-media-embed__actions-list">
-      <!-- Transcript link -->
-      <li v-if="transcriptUrl">
-        <RplTextLink
-          class="rpl-media-embed__transcript-link rpl-media-embed__action rpl-u-focusable-inline rpl-type-p"
-          :url="transcriptUrl"
-          @click="handleTranscript"
+        <!-- Caption and source caption -->
+        <figcaption
+          v-if="caption || sourceCaption"
+          class="rpl-media-embed__figcaption"
         >
-          <RplIcon name="icon-view" />{{ transcriptContentLabel }}
-        </RplTextLink>
-      </li>
+          <p v-if="caption" class="rpl-media-embed__caption rpl-type-p">
+            {{ caption }}
+          </p>
+          <p
+            v-if="sourceCaption"
+            class="rpl-media-embed__source-caption rpl-type-p-small"
+          >
+            {{ sourceCaption }}
+          </p>
+        </figcaption>
+      </figure>
 
-      <!-- Fullscreen button -->
-      <li v-if="allowFullscreen">
-        <button
-          class="rpl-media-embed__fullscreen-button rpl-media-embed__action rpl-u-focusable-inline rpl-type-p rpl-u-screen-only"
-          type="button"
-          @click="toggleFullscreen"
-        >
-          <RplIcon name="icon-enlarge-square-filled" />{{
-            fullscreenContentLabel
-          }}
-        </button>
-      </li>
+      <!-- Actions list -->
+      <ul v-if="!isActionsListEmpty" class="rpl-media-embed__actions-list">
+        <!-- Transcript link -->
+        <li v-if="transcriptUrl">
+          <RplTextLink
+            class="rpl-media-embed__transcript-link rpl-media-embed__action rpl-u-focusable-inline rpl-type-p"
+            :url="transcriptUrl"
+            @click="handleTranscript"
+          >
+            <RplIcon name="icon-view" />{{ transcriptContentLabel }}
+          </RplTextLink>
+        </li>
 
-      <!-- View data toggle & content -->
-      <li v-if="dataContent">
-        <button
-          class="rpl-media-embed__view-data-toggle rpl-media-embed__action rpl-u-focusable-inline rpl-type-p rpl-u-screen-only"
-          @click="toggleData"
-        >
-          <RplIcon v-if="isDataContentOpen" name="icon-cancel" />
-          <RplIcon v-else name="icon-table-lined" />{{ dataContentLabel }}
-        </button>
+        <!-- Fullscreen button -->
+        <li v-if="allowFullscreen">
+          <button
+            class="rpl-media-embed__fullscreen-button rpl-media-embed__action rpl-u-focusable-inline rpl-type-p rpl-u-screen-only"
+            type="button"
+            @click="toggleFullscreen"
+          >
+            <RplIcon name="icon-enlarge-square-filled" />{{
+              fullscreenContentLabel
+            }}
+          </button>
+        </li>
 
-        <RplExpandable
-          :aria-hidden="isDataContentOpen ? null : 'true'"
-          :expanded="isDataContentOpen"
-          class="rpl-media-embed__view-data-content"
-        >
-          <RplContent :html="dataContent"></RplContent>
-        </RplExpandable>
-      </li>
+        <!-- View data toggle & content -->
+        <li v-if="dataContent">
+          <button
+            class="rpl-media-embed__view-data-toggle rpl-media-embed__action rpl-u-focusable-inline rpl-type-p rpl-u-screen-only"
+            @click="toggleData"
+          >
+            <RplIcon v-if="isDataContentOpen" name="icon-cancel" />
+            <RplIcon v-else name="icon-table-lined" />{{ dataContentLabel }}
+          </button>
 
-      <!-- Download link -->
-      <li v-if="downloadUrl">
-        <a
-          class="rpl-media-embed__download-link rpl-media-embed__action rpl-u-focusable-inline rpl-type-p"
-          :href="downloadUrl"
-          download
-          @click="handleDownload"
-        >
-          <RplIcon name="icon-download" class="rpl-u-screen-only" />{{
-            downloadContentLabel
-          }}
-        </a>
-      </li>
-    </ul>
+          <RplExpandable
+            :aria-hidden="isDataContentOpen ? null : 'true'"
+            :expanded="isDataContentOpen"
+            class="rpl-media-embed__view-data-content"
+          >
+            <RplContent :html="dataContent"></RplContent>
+          </RplExpandable>
+        </li>
+
+        <!-- Download link -->
+        <li v-if="downloadUrl">
+          <a
+            class="rpl-media-embed__download-link rpl-media-embed__action rpl-u-focusable-inline rpl-type-p"
+            :href="downloadUrl"
+            download
+            @click="handleDownload"
+          >
+            <RplIcon name="icon-download" class="rpl-u-screen-only" />{{
+              downloadContentLabel
+            }}
+          </a>
+        </li>
+      </ul>
+    </div>
 
     <RplModal
       :is-open="isFullScreenOpen"

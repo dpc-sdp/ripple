@@ -74,8 +74,8 @@ const result: TideDynamicPageComponent<ITideBasicText> = {
 </figure>
 
 Mauris tincidunt tincidunt felis vel tempus
-<div class="rpl-media-embed rpl-media-embed--background" style="--local-content-width: 900px">
-        <figure class="rpl-media-embed__figure">
+<div class="rpl-media-embed rpl-media-embed--background">
+        <figure class="rpl-media-embed__main--contain">
           <img src="/sites/default/files/tide_demo_content/Melbourne-tram.jpg" class="rpl-image" width="900" height="700" alt="Demo: Melbourne tram" srcset="/sites/default/files/tide_demo_content/Melbourne-tram.jpg?width=720, /sites/default/files/tide_demo_content/Melbourne-tram.jpg?width=1440 2x">
         </figure>
       </div>

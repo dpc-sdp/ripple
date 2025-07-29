@@ -14,17 +14,34 @@ export default {
 
 type Story = StoryObj<typeof RplMediaEmbed>
 
+const imageMedium = {
+  src: 'img/image-landscape-m.jpg',
+  image: {
+    alt: 'Image medium alt text',
+    width: 1600,
+    height: 1067
+  }
+}
+const imageLarge = {
+  src: 'img/image-landscape-l.jpg',
+  image: {
+    alt: 'Image large alt text',
+    width: 2880,
+    height: 1920
+  }
+}
+
 export const ImageLandscape: Story = {
   args: {
     type: 'image',
     variant: 'landscape',
     size: 'large',
     title: 'Media title',
-    src: 'img/image-landscape-m.jpg',
     showTitle: false,
     allowFullscreen: false,
     caption: 'Optional media caption content section',
-    sourceCaption: 'Optional media source information content section'
+    sourceCaption: 'Optional media source information content section',
+    ...imageMedium
   }
 }
 
@@ -34,11 +51,11 @@ export const ImagePortrait: Story = {
     variant: 'portrait',
     size: 'large',
     title: 'Media title',
-    src: 'img/image-landscape-m.jpg',
     showTitle: false,
     allowFullscreen: false,
     caption: 'Optional media caption content section',
-    sourceCaption: 'Optional media source information content section'
+    sourceCaption: 'Optional media source information content section',
+    ...imageMedium
   }
 }
 
@@ -48,9 +65,9 @@ export const ImageSquare: Story = {
     variant: 'square',
     size: 'large',
     title: 'Media title',
-    src: 'img/image-landscape-m.jpg',
     caption: 'Optional media caption content section',
-    sourceCaption: 'Optional media source information content section'
+    sourceCaption: 'Optional media source information content section',
+    ...imageMedium
   }
 }
 
@@ -75,7 +92,8 @@ export const ComplexImage: Story = {
         gravida, mi a pharetra tempor.
       </p>
     `,
-    downloadUrl: 'img/image-landscape-l.jpg'
+    downloadUrl: 'img/image-landscape-l.jpg',
+    ...imageLarge
   }
 }
 
@@ -85,11 +103,11 @@ export const ComplexImageNoCaption: Story = {
     type: 'image',
     variant: 'complex',
     title: 'Media title',
-    src: 'img/image-landscape-l.jpg',
     showTitle: true,
     allowFullscreen: true,
     dataContent: `Commodo qui exercitation sint.`,
-    downloadUrl: 'img/image-landscape-l.jpg'
+    downloadUrl: 'img/image-landscape-l.jpg',
+    ...imageLarge
   }
 }
 
@@ -110,9 +128,9 @@ export const NoBackground: Story = {
     variant: 'landscape',
     size: 'large',
     background: false,
-    src: 'img/image-landscape-m.jpg',
     caption: 'Optional media caption content section',
-    sourceCaption: 'Optional media source information content section'
+    sourceCaption: 'Optional media source information content section',
+    ...imageMedium
   }
 }
 
@@ -122,14 +140,14 @@ export const NoBackgroundComplex: Story = {
     type: 'image',
     variant: 'complex',
     title: 'Media title',
-    src: 'img/image-landscape-l.jpg',
     showTitle: true,
     allowFullscreen: true,
     background: false,
     caption: 'Caption section',
     sourceCaption: 'Some info about the image',
     downloadUrl: 'img/image-landscape-l.jpg',
-    dataContent: 'Some more info...'
+    dataContent: 'Some more info...',
+    ...imageLarge
   }
 }
 
@@ -140,12 +158,12 @@ export const NoBackgroundComplexNoCaption: Story = {
     variant: 'landscape',
     size: 'large',
     title: 'Media title',
-    src: 'img/image-landscape-m.jpg',
     showTitle: true,
     allowFullscreen: true,
     background: false,
     downloadUrl: 'img/image-landscape-l.jpg',
-    dataContent: 'Some more info...'
+    dataContent: 'Some more info...',
+    ...imageMedium
   }
 }
 

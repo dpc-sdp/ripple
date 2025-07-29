@@ -169,19 +169,20 @@ const pluginDocuments = function (this: any) {
 const pluginEmbededVideo = function (this: any) {
   this.find('.embedded-entity--media--embedded-video').map(
     (i: number, el: any) => {
+      const $figure = this.find(el).parents('figure.caption')
+      const $context = $figure.length ? $figure : this.find(el)
+
       const $video = this.find(el)
       const iframe = $video.find('iframe')
       const height = iframe.attr('height')
       const width = iframe.attr('width')
       const source = iframe.attr('src')
       const title = $video.attr('title') || ''
-      const caption = $video.find('figcaption')?.text()
+      const caption = $context.find('figcaption')?.text()
       const link = $video.find('.field--name-field-media-link a')?.attr('href')
 
       const captionMarkup = caption
-        ? `    <figcaption class="rpl-media-embed__figcaption">
-      <p class="rpl-media-embed__caption rpl-type-p">${caption}</p>
-    </figcaption>`
+        ? `<figcaption class="rpl-media-embed__figcaption">${caption}</figcaption>`
         : ''
 
       const transcriptMarkup = link
@@ -194,14 +195,14 @@ const pluginEmbededVideo = function (this: any) {
       </div>`
         : ''
 
-      return $video.replaceWith(`
-<div class="rpl-media-embed">
+      return $context.replaceWith(`
+<div class="rpl-media-embed rpl-media-embed--background">
   <figure class="rpl-media-embed__figure">
     <div class="rpl-media-embed__video-container">
       <iframe class="rpl-media-embed__video rpl-u-screen-only" src="${source}" title="${title}" width="${width}" height="${height}" allow="autoplay; fullscreen; picture-in-picture;" allowfullscreen></iframe>
       <a href="${source}" class="rpl-text-link rpl-type-p rpl-u-print-only">${title}</a>
     </div>
-${captionMarkup}
+    ${captionMarkup}
   </figure>
 ${transcriptMarkup}
 </div>
@@ -213,27 +214,39 @@ ${transcriptMarkup}
 const pluginImages = function (this: any) {
   // Find all drupal image embeds
   this.find('.embedded-entity--media--image').map((i: any, el: any) => {
-    const $img = this.find(el).find('img')
+    const $figure = this.find(el).parents('figure.caption')
+    const $context = $figure.length ? $figure : this.find(el)
+    const $img = $context.find('img')
     const width = $img.attr('width')
+    const height = $img.attr('height')
     const src = stripMediaBaseUrl(
       $img.attr('src'),
       process.env.NUXT_PUBLIC_TIDE_BASE_URL as string
     )
     const alt = $img.attr('alt')
-    const $caption = this.find(el)
-      .find('div.field--name-field-media-caption')
-      ?.text()
     // this is the max width of the content area
     const contentWidth = 720
     const newOrAdd = src?.includes('?') ? '&' : '?'
-    return this.find(el).replaceWith(
-      `<figure><img src="${src}" class="rpl-img" width="${width}" alt="${alt}" srcset="${src}${newOrAdd}width=${contentWidth}, ${src}${newOrAdd}width=${
-        contentWidth * 2
-      } 2x"></img>${
-        $caption
-          ? '<figcaption class="rpl-img__caption">' + $caption + '</figcaption>'
-          : ''
-      }</figure>`
+
+    // The caption can be provided from the source image and from the embed itself,
+    // we use the embed itself as the main caption then fallback to the source image caption
+    let $caption = $context.find('figcaption').length
+      ? $context.find('figcaption')
+      : $context.find('.field--name-field-media-caption')
+    let caption = $caption?.text()
+
+    return $context.replaceWith(
+      `<div class="rpl-media-embed rpl-media-embed--background" style="--local-content-width: ${width}px">
+        <figure class="rpl-media-embed__figure">
+          <img src="${src}" class="rpl-image" width="${width}" height="${height}" alt="${alt}" srcset="${src}${newOrAdd}width=${contentWidth}, ${src}${newOrAdd}width=${
+            contentWidth * 2
+          } 2x">${
+            caption
+              ? `<figcaption class="rpl-media-embed__figcaption">${caption}</figcaption>`
+              : ''
+          }
+        </figure>
+      </div>`
     )
   })
 }

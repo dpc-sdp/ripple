@@ -29,8 +29,10 @@ const markup = {
   ],
   video: `<figure class="embedded-entity--media--embedded-video"><iframe src="https://www.youtube.com/embed/1234" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe><figcaption>Caption goes here</figcaption</figure>`,
   image: [
-    `<div class="embedded-entity--media--image"><img src="https://develop.content.reference.sdp.vic.gov.au/sites/default/files/image.jpg" alt="Image" title="Image" width="100" height="100"></div>`,
-    `<div class="embedded-entity--media--image"><img src="https://develop.content.reference.sdp.vic.gov.au/sites/default/files/image.jpg?itok=Noa2hd8" alt="Image" title="Image" width="100" height="100"></div>`
+    `<div class="embedded-entity--media--image"><img src="https://develop.content.reference.sdp.vic.gov.au/sites/default/files/image.jpg" alt="Image" title="Image" width="200" height="100"></div>`,
+    `<div class="embedded-entity--media--image"><img src="https://develop.content.reference.sdp.vic.gov.au/sites/default/files/image.jpg?itok=Noa2hd8" alt="Image" title="Image" width="200" height="100"></div>`,
+    `<div class="embedded-entity embedded-entity--media embedded-entity--media--image"><article class="media media--type-image media--view-mode-embedded-with-caption"><div class="field field--name-field-media-image field--type-image field--label-hidden field__item"><img loading="lazy" src="https://develop.content.reference.sdp.vic.gov.au/sites/default/files/2025-07/wallpaper-1.jpg" width="1440" height="880" alt="Wallpaper 1 alt text" title="Wallpaper 1 title"></div><div class="field field--name-field-media-caption field--type-string field--label-hidden field__item">Wallpaper caption from image</div></article></div>`,
+    `<figure class="caption caption-drupal-entity"><div class="embedded-entity embedded-entity--media embedded-entity--media--image"><article class="media media--type-image media--view-mode-embedded"><div class="field field--name-field-media-image field--type-image field--label-hidden field__item"><img loading="lazy" src="https://develop.content.reference.sdp.vic.gov.au/sites/default/files/2025-07/wallpaper-2.jpg" width="1200" height="500" alt="Wallpaper 2 alt text" title="Wallpaper 2 title"></div></article></div><figcaption>Caption from wallpaper instance</figcaption></figure>`
   ],
   button: `<a class="button" href="https://example.com">Button</a>`,
   link: `<a href="https://example.com" target="_blank">Link</a>`,
@@ -98,22 +100,38 @@ const fixed = {
 `
   ],
   video: `
-<div class="rpl-media-embed">
+<div class="rpl-media-embed rpl-media-embed--background">
   <figure class="rpl-media-embed__figure">
     <div class="rpl-media-embed__video-container">
       <div class="rpl-iframe"><iframe class="rpl-media-embed__video rpl-u-screen-only" src="https://www.youtube.com/embed/1234" title="" width="undefined" height="undefined" allow="autoplay; fullscreen; picture-in-picture;" allowfullscreen=""></iframe></div>
       <a href="https://www.youtube.com/embed/1234" class="rpl-text-link rpl-type-p rpl-u-print-only"></a>
     </div>
-    <figcaption class="rpl-media-embed__figcaption">
-      <p class="rpl-media-embed__caption rpl-type-p">Caption goes here</p>
-    </figcaption>
+    <figcaption class="rpl-media-embed__figcaption">Caption goes here</figcaption>
   </figure>
 
 </div>
 `,
   image: [
-    `<figure><img src="/sites/default/files/image.jpg" class="rpl-img" width="100" alt="Image" srcset="/sites/default/files/image.jpg?width=720, /sites/default/files/image.jpg?width=1440 2x"></figure>`,
-    `<figure><img src="/sites/default/files/image.jpg?itok=Noa2hd8" class="rpl-img" width="100" alt="Image" srcset="/sites/default/files/image.jpg?itok=Noa2hd8&amp;width=720, /sites/default/files/image.jpg?itok=Noa2hd8&amp;width=1440 2x"></figure>`
+    `<div class="rpl-media-embed rpl-media-embed--background" style="--local-content-width: 200px">
+        <figure class="rpl-media-embed__figure">
+          <img src="/sites/default/files/image.jpg" class="rpl-image" width="200" height="100" alt="Image" srcset="/sites/default/files/image.jpg?width=720, /sites/default/files/image.jpg?width=1440 2x">
+        </figure>
+      </div>`,
+    `<div class="rpl-media-embed rpl-media-embed--background" style="--local-content-width: 200px">
+        <figure class="rpl-media-embed__figure">
+          <img src="/sites/default/files/image.jpg?itok=Noa2hd8" class="rpl-image" width="200" height="100" alt="Image" srcset="/sites/default/files/image.jpg?itok=Noa2hd8&amp;width=720, /sites/default/files/image.jpg?itok=Noa2hd8&amp;width=1440 2x">
+        </figure>
+      </div>`,
+    `<div class="rpl-media-embed rpl-media-embed--background" style="--local-content-width: 1440px">
+        <figure class="rpl-media-embed__figure">
+          <img src="/sites/default/files/2025-07/wallpaper-1.jpg" class="rpl-image" width="1440" height="880" alt="Wallpaper 1 alt text" srcset="/sites/default/files/2025-07/wallpaper-1.jpg?width=720, /sites/default/files/2025-07/wallpaper-1.jpg?width=1440 2x"><figcaption class="rpl-media-embed__figcaption">Wallpaper caption from image</figcaption>
+        </figure>
+      </div>`,
+    `<div class="rpl-media-embed rpl-media-embed--background" style="--local-content-width: 1200px">
+        <figure class="rpl-media-embed__figure">
+          <img src="/sites/default/files/2025-07/wallpaper-2.jpg" class="rpl-image" width="1200" height="500" alt="Wallpaper 2 alt text" srcset="/sites/default/files/2025-07/wallpaper-2.jpg?width=720, /sites/default/files/2025-07/wallpaper-2.jpg?width=1440 2x"><figcaption class="rpl-media-embed__figcaption">Caption from wallpaper instance</figcaption>
+        </figure>
+      </div>`
   ],
   button: `<a class="rpl-button rpl-button--default rpl-u-focusable-block rpl-button--filled" href="https://example.com"><span class="rpl-button__label rpl-type-label rpl-type-weight-bold">Button</span></a>`,
   link: `<a href="https://example.com" target="_blank" class="rpl-text-link rpl-u-focusable-inline">Link<span class="rpl-u-visually-hidden">(opens in a new window)</span></a>`,

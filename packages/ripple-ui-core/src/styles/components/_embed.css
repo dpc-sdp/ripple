@@ -47,6 +47,10 @@
   padding-top: 56.25%;
   margin-bottom: var(--rpl-sp-3);
 
+  .rpl-iframe {
+    margin-top: 0;
+  }
+
   @media print {
     padding-top: 0;
   }

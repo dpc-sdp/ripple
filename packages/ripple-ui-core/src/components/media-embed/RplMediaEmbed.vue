@@ -4,7 +4,8 @@ import { useResizeObserver } from '@vueuse/core'
 import {
   RplMediaEmbedTypes,
   RplMediaEmbedVariants,
-  RplMediaEmbedSizes
+  RplMediaEmbedSizes,
+  RplMediaEmbedImage
 } from './constants'
 import RplImage from '../image/RplImage.vue'
 import RplIcon from '../icon/RplIcon.vue'
@@ -23,6 +24,7 @@ interface Props {
   size?: RplMediaEmbedSizes
   title: string
   src: string
+  image?: RplMediaEmbedImage
   showTitle?: boolean
   transcriptUrl?: string
   caption?: string
@@ -49,7 +51,8 @@ const props = withDefaults(defineProps<Props>(), {
   dataLabel: undefined,
   downloadUrl: undefined,
   downloadLabel: undefined,
-  background: true
+  background: true,
+  image: undefined
 })
 
 const emit = defineEmits<{
@@ -216,7 +219,9 @@ const handleDownload = () => {
         v-if="type === 'image'"
         ref="imageRef"
         :src="src"
-        :alt="caption"
+        :alt="image?.alt"
+        :width="image?.width"
+        :height="image?.height"
         :aspect="{ xs: imageAspect }"
         sizes="xs:768px"
         :class="imageClasses"

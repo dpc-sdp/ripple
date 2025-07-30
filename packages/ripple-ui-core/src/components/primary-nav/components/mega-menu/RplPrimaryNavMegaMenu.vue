@@ -124,6 +124,7 @@ const backButtonHandler = (label: string) => {
               :items="items ? items : []"
               :active-nav-items="activeNavItems"
               :toggle-item="toggleItem"
+              aria-label="Main menu"
             />
           </div>
 
@@ -152,6 +153,7 @@ const backButtonHandler = (label: string) => {
               "
               :active-nav-items="activeNavItems"
               :toggle-item="toggleItem"
+              :aria-label="`${activeNavItems.level1.text} level 2 menu`"
             />
           </div>
 
@@ -181,6 +183,7 @@ const backButtonHandler = (label: string) => {
               "
               :active-nav-items="activeNavItems"
               :toggle-item="toggleItem"
+              :aria-label="`${activeNavItems.level2.text} level 3 menu`"
             />
           </div>
 
@@ -210,6 +213,7 @@ const backButtonHandler = (label: string) => {
               "
               :active-nav-items="activeNavItems"
               :toggle-item="toggleItem"
+              :aria-label="`${activeNavItems.level3.text} level 4 menu`"
             />
           </div>
         </div>

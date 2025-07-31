@@ -56,7 +56,7 @@ const pluginCallout = function (this: any) {
 }
 
 const pluginQuotation = function (this: any) {
-  this.find('.quotation').map((i: number, el: any) => {
+  this.find('blockquote').map((i: number, el: any) => {
     // Remove drupal class, add type to paras
     const $quotation = this.find(el)
     $quotation.removeClass().addClass('rpl-blockquote__quote')
@@ -79,10 +79,13 @@ const pluginQuotation = function (this: any) {
     // Rewrite blockquote
     return $quotation.replaceWith(`
 <figure class="rpl-blockquote">
-  ${$quotation}
-  <figcaption class="rpl-blockquote__author rpl-type-label-small">${authors.join(
-    ''
-  )}</figcaption>
+  ${$quotation}${
+    authors.length
+      ? `<figcaption class="rpl-blockquote__author rpl-type-label-small">${authors.join(
+          ''
+        )}</figcaption>`
+      : ''
+  }
 </figure>
 `)
   })
@@ -92,6 +95,9 @@ const pluginDocuments = function (this: any) {
   this.find(
     '.embedded-entity--media--file, .embedded-entity--media--document, .embedded-entity--media--secure-file'
   ).map((i: number, el: any) => {
+    const $figure = this.find(el).parents('figure.caption')
+    const $context = $figure.length ? $figure : this.find(el)
+
     const $element = this.find(el)
     const mediaType = $element.hasClass('embedded-entity--media--file')
       ? 'file'
@@ -146,7 +152,9 @@ const pluginDocuments = function (this: any) {
       ? 'file-secure'
       : 'document-lined'
 
-    return $element.replaceWith(`
+    const caption = $context.find('figcaption')?.text()
+
+    return $context.replaceWith(`
 <figure class="rpl-document">
   <a class="rpl-document__link rpl-u-focusable-within" aria-label="${label}" href="${link}" target="_blank">
     <span class="rpl-document__icon rpl-icon rpl-icon--size-l rpl-icon--colour-default rpl-icon--icon-${mediaIcon}">
@@ -160,7 +168,7 @@ const pluginDocuments = function (this: any) {
       ${updatedMarkup}</div>
     </div>
     <span class="rpl-u-visually-hidden">(opens in a new window)</span>
-  </a>
+  </a>${caption ? `<figcaption class="rpl-document__caption rpl-type-p-small">${caption}</figcaption>` : ''}
 </figure>
 `)
   })

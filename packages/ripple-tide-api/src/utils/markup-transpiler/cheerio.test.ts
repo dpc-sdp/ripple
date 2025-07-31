@@ -22,10 +22,14 @@ const markup = {
   ],
   callout: `<div class="callout-wrapper"><p>Hey it's a callout</p></div><div class="callout-wrapper"><p>And another callout</p></div>
 <div class="wysiwyg-callout">This one is wysiwyg</div>`,
-  quotation: `<blockquote class="quotation"><p>It was the best of times, it was the blurst of times.</p><footer><span>Chimp 273</span></footer></blockquote>`,
+  quotation: [
+    `<blockquote class="quotation"><p>It was the best of times, it was the blurst of times.</p><footer><span>Chimp 273</span></footer></blockquote>`,
+    `<blockquote><p>It was the best of times, it was the blurst of times.</p></blockquote>`
+  ],
   document: [
     `<div class="embedded-entity--media--file" data-last-updated="1704932250"><a class="file file--mime-application-zip" href="https://develop.content.reference.sdp.vic.gov.au/sites/default/files/file.zip">File</a></div>`,
-    `<div data-show-last-updated="1" class="embedded-entity embedded-entity--media embedded-entity--media--secure-file" data-last-updated="1727162281"><article class="media media--type-secure-file media--view-mode-embedded"><div class="field field--name-field-secure-file field--type-file field--label-visually_hidden"><div class="field__label visually-hidden">File</div><div class="field__item"><span class="file file--mime-application-pdf file--application-pdf"><a href="https://content.vic.gov.au/system/files/secure/2024-09/file-sample_150kB.pdf" class="application-pdf" aria-label="Secure document File type: PDF. Size: 139.44 KB."><span class="file--title">Secure document</span><span class="file--type">PDF</span><span class="file--size">139.44 KB</span></a> <span class="file__size">(139.44 KB)</span></span></div></div></article></div>`
+    `<div data-show-last-updated="1" class="embedded-entity embedded-entity--media embedded-entity--media--secure-file" data-last-updated="1727162281"><article class="media media--type-secure-file media--view-mode-embedded"><div class="field field--name-field-secure-file field--type-file field--label-visually_hidden"><div class="field__label visually-hidden">File</div><div class="field__item"><span class="file file--mime-application-pdf file--application-pdf"><a href="https://content.vic.gov.au/system/files/secure/2024-09/file-sample_150kB.pdf" class="application-pdf" aria-label="Secure document File type: PDF. Size: 139.44 KB."><span class="file--title">Secure document</span><span class="file--type">PDF</span><span class="file--size">139.44 KB</span></a> <span class="file__size">(139.44 KB)</span></span></div></div></article></div>`,
+    `<figure class="caption caption-drupal-entity"><div data-embed-button="tide_media" data-entity-embed-display="view_mode:media.embedded" data-entity-type="media" data-entity-uuid="11dede11-10c0-111e1-1100-000000000100" data-langcode="en" data-entity-embed-display-settings="[]" class="embedded-entity embedded-entity--media embedded-entity--media--document"><article class="media media--type-document media--view-mode-embedded"><div class="field field--name-field-media-file field--type-file field--label-hidden field__item"><span class="file file--mime-application-pdf file--application-pdf"><a href="https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/sample.pdf" class="application-pdf" aria-label="Demo Sample PDF File type: PDF. Size: 14.53 KB."><span class="file--title">Demo Sample PDF</span><span class="file--type">PDF</span><span class="file--size">14.53 KB</span></a> <span class="file__size">(14.53 KB)</span></span></div></article></div><figcaption>My PDF caption</figcaption></figure>`
   ],
   video: `<figure class="embedded-entity--media--embedded-video"><iframe src="https://www.youtube.com/embed/1234" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe><figcaption>Caption goes here</figcaption</figure>`,
   image: [
@@ -57,12 +61,18 @@ const fixed = {
   ],
   callout: `<div class="rpl-callout"><div class="rpl-callout__wrapper"><p>Hey it's a callout</p></div><div class="rpl-callout__wrapper"><p>And another callout</p></div></div>
 <div class="rpl-callout rpl-callout--neutral">This one is wysiwyg</div>`,
-  quotation: `
+  quotation: [
+    `
 <figure class="rpl-blockquote">
-  <blockquote class="rpl-blockquote__quote"><p class="rpl-type-p-large-fixed">It was the best of times, it was the blurst of times.</p></blockquote>
-  <figcaption class="rpl-blockquote__author rpl-type-label-small"><span class="rpl-blockquote__author-name">Chimp 273</span></figcaption>
+  <blockquote class="rpl-blockquote__quote"><p class="rpl-type-p-large-fixed">It was the best of times, it was the blurst of times.</p></blockquote><figcaption class="rpl-blockquote__author rpl-type-label-small"><span class="rpl-blockquote__author-name">Chimp 273</span></figcaption>
 </figure>
 `,
+    `
+<figure class="rpl-blockquote">
+  <blockquote class="rpl-blockquote__quote"><p class="rpl-type-p-large-fixed">It was the best of times, it was the blurst of times.</p></blockquote>
+</figure>
+`
+  ],
   document: [
     `
 <figure class="rpl-document">
@@ -96,6 +106,23 @@ const fixed = {
     </div>
     <span class="rpl-u-visually-hidden">(opens in a new window)</span>
   </a>
+</figure>
+`,
+    `
+<figure class="rpl-document">
+  <a class="rpl-document__link rpl-u-focusable-within" aria-label="Demo Sample PDF File type: PDF. Size: 14.53 KB." href="/sites/default/files/tide_demo_content/sample.pdf" target="_blank">
+    <span class="rpl-document__icon rpl-icon rpl-icon--size-l rpl-icon--colour-default rpl-icon--icon-document-lined">
+      <svg role="presentation"><use xlink:href="#icon-document-lined"></use></svg>
+    </span>
+    <div class="rpl-document__content">
+      <span class="rpl-document__name rpl-type-p rpl-type-weight-bold rpl-u-focusable-inline">Demo Sample PDF</span>
+      <div class="rpl-document__info rpl-type-label-small">
+        <span class="rpl-file__meta">PDF</span>
+        <span class="rpl-file__meta">14.53 KB</span>
+      </div>
+    </div>
+    <span class="rpl-u-visually-hidden">(opens in a new window)</span>
+  </a><figcaption class="rpl-document__caption rpl-type-p-small">My PDF caption</figcaption>
 </figure>
 `
   ],

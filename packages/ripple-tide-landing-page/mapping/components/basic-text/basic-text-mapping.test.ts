@@ -69,8 +69,7 @@ const result: TideDynamicPageComponent<ITideBasicText> = {
 <figure class="rpl-blockquote">
   <blockquote class="rpl-blockquote__quote">
   <p class="rpl-type-p-large-fixed">Mauris tincidunt tincidunt felis vel tempus. Vestibulum rhoncus blandit justo quis finibus. Phasellus lacus lectus, sollicitudin sed posuere non, ultricies ut quam.</p>
-  </blockquote>
-  <figcaption class="rpl-blockquote__author rpl-type-label-small"><span class="rpl-blockquote__author-name">Duis ligula lacus</span><span class="rpl-blockquote__author-name">Phasellus est turpis, efficitur nec odio imperdiet</span></figcaption>
+  </blockquote><figcaption class="rpl-blockquote__author rpl-type-label-small"><span class="rpl-blockquote__author-name">Duis ligula lacus</span><span class="rpl-blockquote__author-name">Phasellus est turpis, efficitur nec odio imperdiet</span></figcaption>
 </figure>
 
 Mauris tincidunt tincidunt felis vel tempus

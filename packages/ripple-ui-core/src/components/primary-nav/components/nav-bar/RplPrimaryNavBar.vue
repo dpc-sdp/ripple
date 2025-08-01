@@ -196,6 +196,9 @@ const showMobileToggle = computed(() => {
           :href="item.url"
           :active="isItemActive(item)"
           :focusKey="`list:1:${item.id}`"
+          aria-haspopup="true"
+          aria-controls="megamenu"
+          :aria-expanded="isItemActive(item) ? 'true' : 'false'"
           @click="handleToggleItem(1, item)"
         >
           <span>{{ item.text }}</span

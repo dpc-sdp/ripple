@@ -22,15 +22,21 @@ const markup = {
   ],
   callout: `<div class="callout-wrapper"><p>Hey it's a callout</p></div><div class="callout-wrapper"><p>And another callout</p></div>
 <div class="wysiwyg-callout">This one is wysiwyg</div>`,
-  quotation: `<blockquote class="quotation"><p>It was the best of times, it was the blurst of times.</p><footer><span>Chimp 273</span></footer></blockquote>`,
+  quotation: [
+    `<blockquote class="quotation"><p>It was the best of times, it was the blurst of times.</p><footer><span>Chimp 273</span></footer></blockquote>`,
+    `<blockquote><p>It was the best of times, it was the blurst of times.</p></blockquote>`
+  ],
   document: [
     `<div class="embedded-entity--media--file" data-last-updated="1704932250"><a class="file file--mime-application-zip" href="https://develop.content.reference.sdp.vic.gov.au/sites/default/files/file.zip">File</a></div>`,
-    `<div data-show-last-updated="1" class="embedded-entity embedded-entity--media embedded-entity--media--secure-file" data-last-updated="1727162281"><article class="media media--type-secure-file media--view-mode-embedded"><div class="field field--name-field-secure-file field--type-file field--label-visually_hidden"><div class="field__label visually-hidden">File</div><div class="field__item"><span class="file file--mime-application-pdf file--application-pdf"><a href="https://content.vic.gov.au/system/files/secure/2024-09/file-sample_150kB.pdf" class="application-pdf" aria-label="Secure document File type: PDF. Size: 139.44 KB."><span class="file--title">Secure document</span><span class="file--type">PDF</span><span class="file--size">139.44 KB</span></a> <span class="file__size">(139.44 KB)</span></span></div></div></article></div>`
+    `<div data-show-last-updated="1" class="embedded-entity embedded-entity--media embedded-entity--media--secure-file" data-last-updated="1727162281"><article class="media media--type-secure-file media--view-mode-embedded"><div class="field field--name-field-secure-file field--type-file field--label-visually_hidden"><div class="field__label visually-hidden">File</div><div class="field__item"><span class="file file--mime-application-pdf file--application-pdf"><a href="https://content.vic.gov.au/system/files/secure/2024-09/file-sample_150kB.pdf" class="application-pdf" aria-label="Secure document File type: PDF. Size: 139.44 KB."><span class="file--title">Secure document</span><span class="file--type">PDF</span><span class="file--size">139.44 KB</span></a> <span class="file__size">(139.44 KB)</span></span></div></div></article></div>`,
+    `<figure class="caption caption-drupal-entity"><div data-embed-button="tide_media" data-entity-embed-display="view_mode:media.embedded" data-entity-type="media" data-entity-uuid="11dede11-10c0-111e1-1100-000000000100" data-langcode="en" data-entity-embed-display-settings="[]" class="embedded-entity embedded-entity--media embedded-entity--media--document"><article class="media media--type-document media--view-mode-embedded"><div class="field field--name-field-media-file field--type-file field--label-hidden field__item"><span class="file file--mime-application-pdf file--application-pdf"><a href="https://develop.content.reference.sdp.vic.gov.au/sites/default/files/tide_demo_content/sample.pdf" class="application-pdf" aria-label="Demo Sample PDF File type: PDF. Size: 14.53 KB."><span class="file--title">Demo Sample PDF</span><span class="file--type">PDF</span><span class="file--size">14.53 KB</span></a> <span class="file__size">(14.53 KB)</span></span></div></article></div><figcaption>My PDF caption</figcaption></figure>`
   ],
   video: `<figure class="embedded-entity--media--embedded-video"><iframe src="https://www.youtube.com/embed/1234" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe><figcaption>Caption goes here</figcaption</figure>`,
   image: [
-    `<div class="embedded-entity--media--image"><img src="https://develop.content.reference.sdp.vic.gov.au/sites/default/files/image.jpg" alt="Image" title="Image" width="100" height="100"></div>`,
-    `<div class="embedded-entity--media--image"><img src="https://develop.content.reference.sdp.vic.gov.au/sites/default/files/image.jpg?itok=Noa2hd8" alt="Image" title="Image" width="100" height="100"></div>`
+    `<div class="embedded-entity--media--image"><img src="https://develop.content.reference.sdp.vic.gov.au/sites/default/files/image.jpg" alt="Image" title="Image" width="200" height="100"></div>`,
+    `<div class="embedded-entity--media--image"><img src="https://develop.content.reference.sdp.vic.gov.au/sites/default/files/image.jpg?itok=Noa2hd8" alt="Image" title="Image" width="200" height="100"></div>`,
+    `<div class="embedded-entity embedded-entity--media embedded-entity--media--image"><article class="media media--type-image media--view-mode-embedded-with-caption"><div class="field field--name-field-media-image field--type-image field--label-hidden field__item"><img loading="lazy" src="https://develop.content.reference.sdp.vic.gov.au/sites/default/files/2025-07/wallpaper-1.jpg" width="1440" height="880" alt="Wallpaper 1 alt text" title="Wallpaper 1 title"></div><div class="field field--name-field-media-caption field--type-string field--label-hidden field__item">Wallpaper caption from image</div></article></div>`,
+    `<figure class="caption caption-drupal-entity"><div class="embedded-entity embedded-entity--media embedded-entity--media--image"><article class="media media--type-image media--view-mode-embedded"><div class="field field--name-field-media-image field--type-image field--label-hidden field__item"><img loading="lazy" src="https://develop.content.reference.sdp.vic.gov.au/sites/default/files/2025-07/wallpaper-2.jpg" width="1200" height="500" alt="Wallpaper 2 alt text" title="Wallpaper 2 title"></div></article></div><figcaption>Caption from wallpaper instance</figcaption></figure>`
   ],
   button: `<a class="button" href="https://example.com">Button</a>`,
   link: `<a href="https://example.com" target="_blank">Link</a>`,
@@ -55,12 +61,18 @@ const fixed = {
   ],
   callout: `<div class="rpl-callout"><div class="rpl-callout__wrapper"><p>Hey it's a callout</p></div><div class="rpl-callout__wrapper"><p>And another callout</p></div></div>
 <div class="rpl-callout rpl-callout--neutral">This one is wysiwyg</div>`,
-  quotation: `
+  quotation: [
+    `
 <figure class="rpl-blockquote">
-  <blockquote class="rpl-blockquote__quote"><p class="rpl-type-p-large-fixed">It was the best of times, it was the blurst of times.</p></blockquote>
-  <figcaption class="rpl-blockquote__author rpl-type-label-small"><span class="rpl-blockquote__author-name">Chimp 273</span></figcaption>
+  <blockquote class="rpl-blockquote__quote"><p class="rpl-type-p-large-fixed">It was the best of times, it was the blurst of times.</p></blockquote><figcaption class="rpl-blockquote__author rpl-type-label-small"><span class="rpl-blockquote__author-name">Chimp 273</span></figcaption>
 </figure>
 `,
+    `
+<figure class="rpl-blockquote">
+  <blockquote class="rpl-blockquote__quote"><p class="rpl-type-p-large-fixed">It was the best of times, it was the blurst of times.</p></blockquote>
+</figure>
+`
+  ],
   document: [
     `
 <figure class="rpl-document">
@@ -95,25 +107,58 @@ const fixed = {
     <span class="rpl-u-visually-hidden">(opens in a new window)</span>
   </a>
 </figure>
+`,
+    `
+<figure class="rpl-document">
+  <a class="rpl-document__link rpl-u-focusable-within" aria-label="Demo Sample PDF File type: PDF. Size: 14.53 KB." href="/sites/default/files/tide_demo_content/sample.pdf" target="_blank">
+    <span class="rpl-document__icon rpl-icon rpl-icon--size-l rpl-icon--colour-default rpl-icon--icon-document-lined">
+      <svg role="presentation"><use xlink:href="#icon-document-lined"></use></svg>
+    </span>
+    <div class="rpl-document__content">
+      <span class="rpl-document__name rpl-type-p rpl-type-weight-bold rpl-u-focusable-inline">Demo Sample PDF</span>
+      <div class="rpl-document__info rpl-type-label-small">
+        <span class="rpl-file__meta">PDF</span>
+        <span class="rpl-file__meta">14.53 KB</span>
+      </div>
+    </div>
+    <span class="rpl-u-visually-hidden">(opens in a new window)</span>
+  </a><figcaption class="rpl-document__caption rpl-type-p-small">My PDF caption</figcaption>
+</figure>
 `
   ],
   video: `
-<div class="rpl-media-embed">
+<div class="rpl-media-embed rpl-media-embed--background">
   <figure class="rpl-media-embed__figure">
     <div class="rpl-media-embed__video-container">
       <div class="rpl-iframe"><iframe class="rpl-media-embed__video rpl-u-screen-only" src="https://www.youtube.com/embed/1234" title="" width="undefined" height="undefined" allow="autoplay; fullscreen; picture-in-picture;" allowfullscreen=""></iframe></div>
       <a href="https://www.youtube.com/embed/1234" class="rpl-text-link rpl-type-p rpl-u-print-only"></a>
     </div>
-    <figcaption class="rpl-media-embed__figcaption">
-      <p class="rpl-media-embed__caption rpl-type-p">Caption goes here</p>
-    </figcaption>
+    <figcaption class="rpl-media-embed__figcaption">Caption goes here</figcaption>
   </figure>
 
 </div>
 `,
   image: [
-    `<figure><img src="/sites/default/files/image.jpg" class="rpl-img" width="100" alt="Image" srcset="/sites/default/files/image.jpg?width=720, /sites/default/files/image.jpg?width=1440 2x"></figure>`,
-    `<figure><img src="/sites/default/files/image.jpg?itok=Noa2hd8" class="rpl-img" width="100" alt="Image" srcset="/sites/default/files/image.jpg?itok=Noa2hd8&amp;width=720, /sites/default/files/image.jpg?itok=Noa2hd8&amp;width=1440 2x"></figure>`
+    `<div class="rpl-media-embed rpl-media-embed--background">
+        <figure class="rpl-media-embed__main--contain">
+          <img src="/sites/default/files/image.jpg" class="rpl-image" width="200" height="100" alt="Image" srcset="/sites/default/files/image.jpg?width=720, /sites/default/files/image.jpg?width=1440 2x">
+        </figure>
+      </div>`,
+    `<div class="rpl-media-embed rpl-media-embed--background">
+        <figure class="rpl-media-embed__main--contain">
+          <img src="/sites/default/files/image.jpg?itok=Noa2hd8" class="rpl-image" width="200" height="100" alt="Image" srcset="/sites/default/files/image.jpg?itok=Noa2hd8&amp;width=720, /sites/default/files/image.jpg?itok=Noa2hd8&amp;width=1440 2x">
+        </figure>
+      </div>`,
+    `<div class="rpl-media-embed rpl-media-embed--background">
+        <figure class="rpl-media-embed__main--contain">
+          <img src="/sites/default/files/2025-07/wallpaper-1.jpg" class="rpl-image" width="1440" height="880" alt="Wallpaper 1 alt text" srcset="/sites/default/files/2025-07/wallpaper-1.jpg?width=720, /sites/default/files/2025-07/wallpaper-1.jpg?width=1440 2x"><figcaption class="rpl-media-embed__figcaption">Wallpaper caption from image</figcaption>
+        </figure>
+      </div>`,
+    `<div class="rpl-media-embed rpl-media-embed--background">
+        <figure class="rpl-media-embed__main--contain">
+          <img src="/sites/default/files/2025-07/wallpaper-2.jpg" class="rpl-image" width="1200" height="500" alt="Wallpaper 2 alt text" srcset="/sites/default/files/2025-07/wallpaper-2.jpg?width=720, /sites/default/files/2025-07/wallpaper-2.jpg?width=1440 2x"><figcaption class="rpl-media-embed__figcaption">Caption from wallpaper instance</figcaption>
+        </figure>
+      </div>`
   ],
   button: `<a class="rpl-button rpl-button--default rpl-u-focusable-block rpl-button--filled" href="https://example.com"><span class="rpl-button__label rpl-type-label rpl-type-weight-bold">Button</span></a>`,
   link: `<a href="https://example.com" target="_blank" class="rpl-text-link rpl-u-focusable-inline">Link<span class="rpl-u-visually-hidden">(opens in a new window)</span></a>`,

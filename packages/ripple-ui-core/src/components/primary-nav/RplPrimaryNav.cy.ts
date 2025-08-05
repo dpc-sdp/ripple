@@ -3,6 +3,7 @@
 import RplPrimaryNav from './RplPrimaryNav.vue'
 import { RplPrimaryNavItems } from './fixtures/sample'
 import { bpMin } from '../../lib/breakpoints'
+import 'cypress-real-events'
 
 import type { mount } from 'cypress/vue'
 declare global {
@@ -16,8 +17,7 @@ declare global {
 const props = {
   primaryLogo: {
     href: '#',
-    altText: 'Logo',
-    src: 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'
+    altText: 'Logo'
   },
   items: RplPrimaryNavItems
 }
@@ -65,11 +65,15 @@ describe('RplPrimaryNav', () => {
         .first()
         .as('toggle')
 
+      cy.get('@toggle').should('have.attr', 'aria-expanded', 'false')
+
       cy.get('@toggle').click()
       cy.get('.rpl-primary-nav__mega-menu').should('be.visible')
+      cy.get('@toggle').should('have.attr', 'aria-expanded', 'true')
 
       cy.get('@toggle').click()
       cy.get('.rpl-primary-nav__mega-menu').should('not.exist')
+      cy.get('@toggle').should('have.attr', 'aria-expanded', 'false')
     })
 
     it('navigates through mega menu sub levels', () => {
@@ -118,6 +122,69 @@ describe('RplPrimaryNav', () => {
 
       cy.get('@closeSearch').click()
       cy.get('@search').should('not.exist')
+    })
+
+    it('megamenu can be navigated with the keyboard', () => {
+      cy.contains('button', 'First level A').focus()
+      cy.focused().should('have.attr', 'aria-expanded', 'false')
+
+      cy.focused().focus().realPress('Enter')
+      cy.focused().should('have.attr', 'aria-expanded', 'true')
+
+      // Get into megamenu
+      cy.focused().realPress('Tab')
+      cy.focused().contains('Quick exit')
+      cy.focused().realPress('Tab')
+      cy.focused().should('match', 'a').should('contain.text', 'First level A')
+
+      // Navigate to 'sub' menu
+      cy.focused().realPress('Tab').realPress('Enter').realPress('Tab')
+      cy.focused().should('match', 'a').should('have.text', 'Second level A')
+
+      // Navigate to 'sub sub' menu
+      cy.focused().realPress('Tab').realPress('Enter').realPress('Tab')
+      cy.focused().should('match', 'a').should('contain.text', 'Third level A')
+
+      // Navigate back up through the levels
+      cy.focused().realPress(['Shift', 'Tab'])
+      cy.focused()
+        .should('match', 'button')
+        .should('contain.text', 'Third level A')
+      cy.focused().realPress(['Shift', 'Tab']).realPress(['Shift', 'Tab'])
+      cy.focused()
+        .should('match', 'button')
+        .should('have.text', 'Second level A')
+
+      // Navigate out of the megamenu
+      cy.focused().realPress(['Shift', 'Tab']).realPress(['Shift', 'Tab'])
+      cy.focused()
+        .should('match', 'button')
+        .should('contain.text', 'First level A')
+        .should('have.attr', 'aria-expanded', 'false')
+
+      // And into the next top level item
+      cy.contains('button', 'First level B').as('nextItem')
+      cy.focused().realPress('Tab')
+      cy.focused()
+        .should('have.attr', 'aria-expanded', 'false')
+        .should('match', 'button')
+        .should('contain.text', 'First level B')
+
+      cy.focused().realPress('Enter')
+      cy.focused().should('have.attr', 'aria-expanded', 'true')
+
+      cy.focused().realPress('Tab')
+      cy.focused().contains('Quick exit')
+
+      cy.get('@nextItem').realClick().focus()
+
+      cy.focused()
+        .realPress('Enter')
+        .realPress('Tab')
+        .realPress('Tab')
+        .realPress('Tab')
+
+      cy.focused().should('match', 'button').should('have.text', 'Second level')
     })
   })
 })

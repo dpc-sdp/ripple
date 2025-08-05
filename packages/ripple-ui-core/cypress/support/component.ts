@@ -21,7 +21,7 @@
 
 import { mount } from 'cypress/vue'
 import { h } from 'vue'
-import { RplIconSprite } from '@dpc-sdp/ripple-ui-core/vue'
+import { RplIconSprite, RplLink, RplImg } from '@dpc-sdp/ripple-ui-core/vue'
 // Ensure global styles are loaded
 import '@dpc-sdp/ripple-ui-core/style'
 
@@ -34,11 +34,18 @@ const RplAppWrapper = {
 }
 
 Cypress.Commands.add('mount', (component: any, options = {}) => {
-  return mount(() => {
-    return h(RplAppWrapper, null, () =>
-      h(component, { ...options.props }, { ...options.slots })
-    )
-  })
+  return mount(
+    () => {
+      return h(RplAppWrapper, null, () =>
+        h(component, { ...options.props }, { ...options.slots })
+      )
+    },
+    {
+      global: {
+        components: { RplLink, RplImg }
+      }
+    }
+  )
 })
 
 // Example use:

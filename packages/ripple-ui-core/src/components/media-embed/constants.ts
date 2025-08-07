@@ -7,3 +7,9 @@ export type RplMediaEmbedVariants =
   | 'complex'
 
 export type RplMediaEmbedSizes = 'small' | 'medium' | 'large'
+
+export interface RplMediaEmbedImage {
+  alt?: string
+  width?: number
+  height?: number
+}

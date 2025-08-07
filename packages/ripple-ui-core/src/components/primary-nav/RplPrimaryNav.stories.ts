@@ -94,3 +94,14 @@ export const WithCustomUserAction: Story = {
     `
   })
 }
+
+export const WithManyItems: Story = {
+  args: {
+    items: [
+      ...RplPrimaryNavItems,
+      { id: '100', text: 'First level X', url: '#' },
+      { id: '101', text: 'First level Y', url: '#' },
+      { id: '102', text: 'First level Z', url: '#' }
+    ]
+  }
+}

@@ -19,7 +19,12 @@ const result: TideDynamicPageComponent<ITideComplexImage> = {
     variant: 'complex',
     allowFullscreen: true,
     fullscreenLabel: 'Complex Image Fullscreen',
-    showTitle: true
+    showTitle: true,
+    image: {
+      alt: 'Demo: 2018-19 State Budget',
+      height: 270,
+      width: 450
+    }
   }
 }
 

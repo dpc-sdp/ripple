@@ -1,4 +1,4 @@
-import { Ref, inject, watch } from 'vue'
+import { Ref, inject, watch, nextTick } from 'vue'
 import { IRplPrimaryNavFocusOptions } from '../components/primary-nav/constants'
 
 export function usePrimaryNavFocus(element: Ref, key: string) {
@@ -10,11 +10,13 @@ export function usePrimaryNavFocus(element: Ref, key: string) {
     hasUserActions
   }: IRplPrimaryNavFocusOptions = inject('navFocus')
 
-  watch(focus, (value) => {
+  watch(focus, async (value) => {
     const el = element?.value?.$el || element?.value
 
     if (el && value === key) {
       el.focus()
+      await nextTick()
+      setFocus('')
     }
   })
 

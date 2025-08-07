@@ -1,7 +1,7 @@
 {
   "name": "@dpc-sdp/ripple-ui-core",
   "description": "Ripple UI Core component library",
-  "version": "2.37.0",
+  "version": "2.38.0",
   "license": "Apache-2.0",
   "repository": "https://github.com/dpc-sdp/ripple-framework",
   "files": [
@@ -47,6 +47,7 @@
     "@nuxt/kit": "catalog:",
     "@vueuse/core": "^10.9.0",
     "@vueuse/integrations": "^10.9.0",
+    "cypress-real-events": "catalog:",
     "date-fns": "catalog:",
     "focus-trap": "^7.4.0",
     "mitt": "^3.0.0",

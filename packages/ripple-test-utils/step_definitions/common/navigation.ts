@@ -41,13 +41,19 @@ When(
 )
 
 When('I click the primary nav button labelled {string}', (label: string) => {
-  cy.get('.rpl-primary-nav__nav-bar-action')
+  cy.get('.rpl-primary-nav__nav-bar-actions-list :is(button, a)')
     .contains(label)
     .click({ force: true })
 })
 
 Then('I type {string} into the primary nav search box', (text: string) => {
   cy.get('#primary-nav-search').type(text)
+})
+
+Then('the primary nav search should be hidden', (text: string) => {
+  cy.get('.rpl-primary-nav__nav-bar-action')
+    .contains('Search')
+    .should('not.exist')
 })
 
 Then('I submit the primary nav search form', () => {

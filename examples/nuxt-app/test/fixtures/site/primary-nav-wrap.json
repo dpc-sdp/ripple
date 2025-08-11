@@ -7,9 +7,9 @@
     "og": {}
   },
   "siteLogo": {
-    "href": "/",
+    "href": "/home",
     "src": "https://placehold.co/140x40",
-    "altText": ""
+    "altText": "Some alt text"
   },
   "menus": {
     "menuMain": [

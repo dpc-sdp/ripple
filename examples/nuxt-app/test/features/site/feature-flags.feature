@@ -187,6 +187,22 @@ Feature: Site feature flags
     And the feature flag "primaryNavLogin.text" is set to "My Account"
     And the site endpoint returns the loaded fixture
     And the page endpoint for path "/" returns fixture "/landingpage/image-banner" with status 200
+    And the page endpoint for path "/my-account" returns fixture "/landingpage/sub" with status 200
 
     When I visit the page "/"
     Then the primary nav should include the user action "My Account" "/my-account"
+    When I click the primary nav button labelled "My Account"
+    Then the title should be "Demo Landing Subpage"
+    And the dataLayer should include the following events
+      | event           | element_text | link_url    | component       |
+      | click_menu_item | My Account   | /my-account | rpl-primary-nav |
+
+  @mockserver
+  Scenario: Feature flags can hide the primary nav search button
+    Given I load the site fixture with "/site/shared-elements"
+    And the feature flag "disablePrimaryNavSearch" is set to "true"
+    And the site endpoint returns the loaded fixture
+    And the page endpoint for path "/" returns fixture "/landingpage/image-banner" with status 200
+
+    When I visit the page "/"
+    Then the primary nav search should be hidden

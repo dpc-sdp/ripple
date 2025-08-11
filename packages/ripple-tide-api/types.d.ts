@@ -272,6 +272,13 @@ export interface IRplFeatureFlags {
    */
   primaryNavSearchUrl?: string
   /**
+   * @description Add a login link to the primary navigation
+   */
+  primaryNavLogin?: {
+    url: string
+    text?: string
+  }
+  /**
    * @description Option to disable the display of coloured/rainbow stripes on top of promo cards
    */
   hidePromoCardStripe?: boolean

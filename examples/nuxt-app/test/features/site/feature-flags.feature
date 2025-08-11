@@ -169,3 +169,24 @@ Feature: Site feature flags
 
     When I visit the page "/"
     Then the content rating form should not be displayed
+
+  @mockserver
+  Scenario: Feature flags can enable the primary nav login
+    Given I load the site fixture with "/site/shared-elements"
+    And the feature flag "primaryNavLogin.url" is set to "/login"
+    And the site endpoint returns the loaded fixture
+    And the page endpoint for path "/" returns fixture "/landingpage/image-banner" with status 200
+
+    When I visit the page "/"
+    Then the primary nav should include the user action "Login" "/login"
+
+  @mockserver
+  Scenario: Feature flags can enable the primary nav login and customise the text
+    Given I load the site fixture with "/site/shared-elements"
+    And the feature flag "primaryNavLogin.url" is set to "/my-account"
+    And the feature flag "primaryNavLogin.text" is set to "My Account"
+    And the site endpoint returns the loaded fixture
+    And the page endpoint for path "/" returns fixture "/landingpage/image-banner" with status 200
+
+    When I visit the page "/"
+    Then the primary nav should include the user action "My Account" "/my-account"

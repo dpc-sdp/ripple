@@ -31,6 +31,15 @@ Given('I pause the test', () => {
   cy.pause()
 })
 
+When(
+  'the primary nav should include the user action {string} {string}',
+  (label: string, href: string) => {
+    cy.get('.rpl-primary-nav__nav-bar-user-action')
+      .contains(label)
+      .should('have.attr', 'href', href)
+  }
+)
+
 When('I click the primary nav button labelled {string}', (label: string) => {
   cy.get('.rpl-primary-nav__nav-bar-action')
     .contains(label)

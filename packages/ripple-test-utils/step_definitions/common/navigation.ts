@@ -50,7 +50,7 @@ Then('I type {string} into the primary nav search box', (text: string) => {
   cy.get('#primary-nav-search').type(text)
 })
 
-Then('the primary nav search should be hidden', (text: string) => {
+Then('the primary nav search should be hidden', () => {
   cy.get('.rpl-primary-nav__nav-bar-action')
     .contains('Search')
     .should('not.exist')

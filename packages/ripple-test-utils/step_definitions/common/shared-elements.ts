@@ -431,3 +431,19 @@ Then('all content images should be {string} loaded', (type: string) => {
     cy.wrap($img).should('have.attr', 'loading', type)
   })
 })
+
+Then(
+  'the site logo should be have the following attributes',
+  (dataTable: DataTable) => {
+    const table = dataTable.hashes()
+
+    cy.get('.rpl-primary-nav__secondary-logo-link').as('logo')
+
+    cy.get('@logo').should('have.attr', 'href', table[0].url)
+    cy.get('@logo')
+      .find('img')
+      .should('have.attr', 'src')
+      .and('contain', table[0].src)
+    cy.get('@logo').find('img').should('have.attr', 'alt', table[0].alt)
+  }
+)

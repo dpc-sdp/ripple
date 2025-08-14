@@ -36,6 +36,7 @@ withDefaults(defineProps<Props>(), {
     <!-- Repeat of parent as a clickable link -->
     <li v-if="parent" class="rpl-primary-nav__mega-menu-item">
       <RplPrimaryNavMegaMenuAction
+        :key="`${level}:${parent.id}`"
         :item="parent"
         :level="level"
         position="first"

@@ -46,6 +46,7 @@ const searchResultsMappingFn = (item: any): TideSearchListingResultItem => {
     :title="page.title"
     :introText="page.introText"
     :searchListingConfig="page.config.searchListingConfig"
+    :curationConfig="page.config.curationConfig"
     :customQueryConfig="page.config.customQueryConfig"
     :queryConfig="page.config.queryConfig"
     :globalFilters="page.config.globalFilters"

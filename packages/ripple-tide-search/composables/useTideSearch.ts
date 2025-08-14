@@ -45,6 +45,7 @@ interface Config {
   sortOptions?: TideSearchListingConfig['sortOptions']
   mapResultsMappingFn?: (item: any) => any
   locationQueryConfig?: any
+  curationConfig?: TideSearchListingConfig['curationConfig']
 }
 
 export default ({
@@ -56,7 +57,8 @@ export default ({
   searchListingConfig,
   sortOptions = [],
   mapResultsMappingFn = (item: any) => item,
-  locationQueryConfig = {}
+  locationQueryConfig = {},
+  curationConfig
 }: Config) => {
   const { public: config } = useRuntimeConfig()
   const route: RouteLocation = useRoute()
@@ -126,8 +128,41 @@ export default ({
   const onMapResultsHook = ref()
   const firstLoad = ref(false)
 
+  const getCurationsForSearchTerm = () => {
+    if (!searchTerm.value?.q || !curationConfig?.items?.length) {
+      return null
+    }
+
+    const sanitizeQueryTerm = (term: string) => {
+      return term
+        .trim()
+        .toLowerCase()
+        .replace(/[^A-Za-z0-9\s]/g, '')
+    }
+
+    const matchedItems = curationConfig.items.reduce((acc, curr) => {
+      const isMatch = curr.queryTerms.some(
+        (term: string) =>
+          sanitizeQueryTerm(searchTerm.value.q) === sanitizeQueryTerm(term)
+      )
+      return isMatch ? [...acc, ...curr.promotedItems] : acc
+    }, [])
+
+    if (matchedItems.length) {
+      return {
+        key: curationConfig.key || 'nid',
+        boost: curationConfig.boost || 20,
+        items: [...new Set(matchedItems)]
+      }
+    }
+
+    return null
+  }
+
   const getQueryClause = (filter: any[]) => {
     let queryClause = [{ match_all: {} }]
+    const activeCurations = getCurationsForSearchTerm()
+
     const fns: Record<string, (queryData: any) => Record<string, any>> =
       appConfig?.ripple?.search?.queryConfigFunctions || {}
 
@@ -135,7 +170,8 @@ export default ({
       return fns[customQueryConfig.function]({
         searchTerm: searchTerm.value,
         queryFilters: filter,
-        locationValue: locationOrGeolocation.value
+        locationValue: locationOrGeolocation.value,
+        curations: activeCurations
       })
     }
 
@@ -145,6 +181,23 @@ export default ({
         '{{query}}',
         searchTerm.value.q
       )
+    }
+
+    if (activeCurations) {
+      const curationClause = {
+        terms: {
+          [activeCurations.key]: activeCurations.items,
+          boost: activeCurations.boost
+        }
+      }
+
+      return {
+        bool: {
+          filter,
+          should: [queryClause, curationClause],
+          minimum_should_match: 1
+        }
+      }
     }
 
     return {

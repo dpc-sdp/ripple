@@ -1,0 +1,65 @@
+{
+  "title": "Curations search query",
+  "changed": "2022-11-02T12:47:29+11:00",
+  "created": "2022-11-02T12:47:29+11:00",
+  "type": "tide_search_listing",
+  "nid": "22dede11-10c0-111e1-1100-000000000330",
+  "showTopicTags": true,
+  "summary": "...",
+  "config": {
+    "searchListingConfig": {
+      "resultsPerPage": 10
+    },
+    "queryConfig": {
+      "multi_match": {
+        "query": "{{query}}",
+        "fields": [
+          "title",
+          "body"
+        ]
+      }
+    },
+    "curationConfig": {
+      "items": [
+        {
+          "queryTerms": ["edupay", "payroll login"],
+          "promotedItems": [50, 55]
+        },
+        {
+          "queryTerms": ["vicpol", "police force"],
+          "promotedItems": [99]
+        },
+        {
+          "queryTerms": ["edupay", "help"],
+          "promotedItems": [50, 60]
+        }
+      ]
+    },
+    "globalFilters": [
+      {
+        "terms": {
+          "type": [
+            "landing_page"
+          ]
+        }
+      },
+      {
+        "terms": {
+          "field_node_site": [
+            8888
+          ]
+        }
+      }
+    ],
+    "resultsConfig": {
+      "layout": {
+        "component": "TideSearchResultsList"
+      },
+      "item": {
+        "*": {
+          "component": "TideSearchResult"
+        }
+      }
+    }
+  }
+}

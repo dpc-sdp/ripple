@@ -48,6 +48,9 @@ export default (props: {
   pageTitle?: string
   siteSection?: TideSiteSection
 }) => {
+  const { public: config } = useRuntimeConfig()
+  const route = useRoute()
+
   const page = props.page
   const site = props.site
 
@@ -60,6 +63,16 @@ export default (props: {
     return titleOfSite
   })
 
+  // Gets the correct absolute canonical/og:url for the current page
+  const getAbsoluteUrl = (url: string): string => {
+    if (!url || !config.siteUrl || !config.tide?.baseUrl) return url
+    // The homepage exists on two URLs so we need to ensure the real homepage takes precedence
+    if (route.path === '/' || (page?.nid && page?.nid === site?.homePageId)) {
+      return config.siteUrl + '/'
+    }
+    return url.replace(config.tide.baseUrl, config.siteUrl)
+  }
+
   if (!page) {
     useHead({
       title: pageTitle
@@ -68,14 +81,18 @@ export default (props: {
     // Additional <link>s in head
     const links: any = []
     const additionalMeta = page?.meta?.additional || []
+    let canonical = null
 
     additionalMeta
-      .filter(
-        (attr: MetaProps) =>
-          attr.tag === 'link' && attr.attributes?.rel !== 'canonical'
-      )
-      .map((attr: MetaProps) => {
-        if (attr.attributes?.rel) links.push(attr.attributes)
+      .filter((attr: MetaProps) => attr.tag === 'link' && attr.attributes?.rel)
+      .forEach((attr: MetaProps) => {
+        if (attr.attributes.rel === 'canonical') {
+          attr.attributes.href = canonical = getAbsoluteUrl(
+            attr.attributes.href
+          )
+        }
+
+        links.push(attr.attributes)
       })
 
     // Define basic attributes
@@ -148,7 +165,9 @@ export default (props: {
       twitterImageAlt = site.socialImages.og.alt
     }
 
-    const { $app_origin } = useNuxtApp()
+    // Remove ogImage from metaOverrides,
+    // it's being set manually and shouldn't be overridden
+    delete metaOverrides.ogImage
 
     // Define SEO meta
     useSeoMeta({
@@ -157,14 +176,13 @@ export default (props: {
       ogTitle: props.pageTitle,
       ogDescription: description,
       ogType: 'website',
-      ogUrl: $app_origin + page.meta?.url,
-      ogImage: getAbsoluteImageUrl($app_origin, featuredImage),
+      ogUrl: canonical,
+      ogImage: getAbsoluteImageUrl(config.siteUrl, featuredImage),
       ogImageAlt: featuredImageAlt,
       twitterCard: 'summary',
-      twitterSite: $app_origin,
       twitterTitle: props.pageTitle,
       twitterDescription: description,
-      twitterImage: getAbsoluteImageUrl($app_origin, twitterImage),
+      twitterImage: getAbsoluteImageUrl(config.siteUrl, twitterImage),
       twitterImageAlt: twitterImageAlt,
       keywords: page.meta?.keywords,
 

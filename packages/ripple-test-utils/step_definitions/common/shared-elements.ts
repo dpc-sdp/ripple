@@ -246,6 +246,12 @@ Given('the site wide quick exit is enabled', () => {
   })
 })
 
+Given('the site home page is set to {string}', (id: string) => {
+  cy.get('@siteFixture').then((response) => {
+    set(response, 'homePageId', id)
+  })
+})
+
 Given('the site section quick exit is enabled', () => {
   cy.get('@pageFixture').then((response) => {
     set(response, 'siteSection.siteOverrides.showQuickExit', true)

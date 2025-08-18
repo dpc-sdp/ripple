@@ -16,7 +16,7 @@
         :url="loginLink.url"
         @click="handleLogin"
       >
-        <RplIcon name="icon-user-circle-filled" />{{ loginText }}
+        <RplIcon name="icon-user-circle-filled" /><span>{{ loginText }}</span>
       </RplLink>
     </template>
   </RplPrimaryNav>
@@ -52,7 +52,7 @@ const emit = defineEmits<{
 
 const { emitRplEvent } = useRippleEvent('rpl-primary-nav', emit)
 
-const loginText = computed(() => props.loginLink?.text || 'Login')
+const loginText = computed(() => props.loginLink?.text || 'Log in')
 
 const handleLogin = () => {
   emitRplEvent(

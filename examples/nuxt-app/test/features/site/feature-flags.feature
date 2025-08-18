@@ -178,7 +178,7 @@ Feature: Site feature flags
     And the page endpoint for path "/" returns fixture "/landingpage/image-banner" with status 200
 
     When I visit the page "/"
-    Then the primary nav should include the user action "Login" "/login"
+    Then the primary nav should include the user action "Log in" "/login"
 
   @mockserver
   Scenario: Feature flags can enable the primary nav login and customise the text

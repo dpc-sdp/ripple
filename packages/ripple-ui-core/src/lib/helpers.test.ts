@@ -67,6 +67,15 @@ describe('Formatting a date', () => {
     ).toEqual('Friday 11 November 2022 at 12:11 pm')
   })
 
+  it('outputs the full date as per the det_150 content type', () => {
+    const overview = {
+      openingDate: '1874-10-01'
+    }
+    expect(formatDate(overview.openingDate, { dateStyle: 'long' })).toEqual(
+      '1 October 1874'
+    )
+  })
+
   it('returns the supplied value if the date is invalid', () => {
     expect(formatDate('')).toEqual('')
     expect(formatDate('23/5/2026')).toEqual('23/5/2026')

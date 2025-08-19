@@ -1,6 +1,7 @@
 import {
   getImageFromField,
   getBody,
+  getField,
   getBodyFromField,
   getMediaPath,
   getLinkFromField,
@@ -29,14 +30,14 @@ export default {
         return {
           href: '/',
           src: getMediaPath(src, 'field_site_logo'),
-          altText:
-            src.field_site_logo.meta?.alt || src.field_site_name,
+          altText: src.field_site_logo.meta?.alt || src.field_site_name,
           printSrc: getMediaPath(src, 'field_print_friendly_logo')
         }
       }
 
       return null
     },
+    homePageId: (src: any) => getField(src, 'field_site_homepage.id'),
     showQuickExit: 'field_site_show_exit_site',
     acknowledgementHeader: (src: any) => {
       if (src.field_prominence_ack_to_country) {

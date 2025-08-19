@@ -25,6 +25,7 @@ export interface TideSiteData {
     printSrc: string
   }
   showQuickExit: boolean
+  homePageId: string
   cornerGraphic?: {
     top?: TideImageField
     bottom?: TideImageField
@@ -96,7 +97,7 @@ export interface TidePageBase {
   title: string
   created: string
   changed: string
-  nid: number
+  nid: string
   background: string
   lang: string
   topicTags: TideTopicTag[]

@@ -82,3 +82,44 @@ Feature: Search Queries
     And I type "The" into the search input
     And I click the search button
     Then I should not be scrolled to the search results
+
+  @mockserver
+  Example: Curations can be used to promote search results
+    Given I load the page fixture with "/search-listing/search-query/page-curations"
+    And the search network request is stubbed with fixture "/search-listing/search-query/response" and status 200
+    Then the page endpoint for path "/" returns the loaded fixture
+
+    When I visit the page "/"
+    And I type "EduPay" into the search input
+    And I click the search button
+    Then the search network request should be called with the "/search-listing/search-query/request-curation-edupay" fixture
+
+    When I clear the search input
+    And I type " police force! " into the search input
+    And I click the search button
+    Then the search network request should be called with the "/search-listing/search-query/request-curation-police" fixture
+
+  @mockserver
+  Example: The curations field key can be customized
+    Given I load the page fixture with "/search-listing/search-query/page-curations"
+    And the search listing curation "key" is set to "uid"
+    And the search listing curation "boost" is set to "5"
+    And the search network request is stubbed with fixture "/search-listing/search-query/response" and status 200
+    Then the page endpoint for path "/" returns the loaded fixture
+
+    When I visit the page "/"
+    And I type "help" into the search input
+    And I click the search button
+    Then the search network request should be called with the "/search-listing/search-query/request-curation-key" fixture
+
+  @mockserver
+  Example: Curations can be used and customized within custom query functions
+    Given I load the page fixture with "/search-listing/search-query/page-curations-custom"
+    And the search listing curation "key" is set to "id"
+    And the search network request is stubbed with fixture "/search-listing/search-query/response" and status 200
+    Then the page endpoint for path "/" returns the loaded fixture
+
+    When I visit the page "/"
+    And I type "departments" into the search input
+    And I click the search button
+    Then the search network request should be called with the "/search-listing/search-query/request-curation-custom" fixture

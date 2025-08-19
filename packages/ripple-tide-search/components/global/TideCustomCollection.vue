@@ -28,6 +28,7 @@ interface Props {
   introText?: string
   searchListingConfig?: TideSearchListingConfig['searchListingConfig']
   sortOptions?: TideSearchListingConfig['sortOptions']
+  curationConfig?: TideSearchListingConfig['curationConfig']
   customQueryConfig?: TideSearchListingConfig['customQueryConfig']
   queryConfig?: TideSearchListingConfig['queryConfig']
   globalFilters?: TideSearchListingConfig['globalFilters']
@@ -48,6 +49,7 @@ const props = withDefaults(defineProps<Props>(), {
   index: undefined,
   globalFilters: () => [],
   userFilters: () => [],
+  curationConfig: undefined,
   customQueryConfig: undefined,
   queryConfig: () => ({
     multi_match: {
@@ -234,6 +236,7 @@ const {
 } = useTideSearch({
   customQueryConfig: props.customQueryConfig,
   queryConfig: props.queryConfig,
+  curationConfig: props.curationConfig,
   userFilters: props.userFilters,
   globalFilters: props.globalFilters,
   searchResultsMappingFn,

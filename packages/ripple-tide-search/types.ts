@@ -196,6 +196,15 @@ export type TideSearchRangeFilterValue = {
   to: string
 }
 
+export type TideSearchListingCurationConfig = {
+  key?: string
+  boost?: number
+  items: {
+    queryTerms: string[]
+    promotedItems: string[] | number[]
+  }[]
+}
+
 export type TideSearchListingTab = {
   title: string
   key: TideSearchListingTabKey
@@ -318,6 +327,10 @@ export type TideSearchListingConfig = {
      */
     filterByCurrentSite?: boolean
   }
+  /**
+   * @description Tabs to display, key needs to be one of TideSearchListingTabKey
+   */
+  curationConfig?: TideSearchListingCurationConfig
   /**
    * @description Tabs to display, key needs to be one of TideSearchListingTabKey
    */

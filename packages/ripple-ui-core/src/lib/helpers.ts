@@ -25,6 +25,8 @@ export const formatDate = (
 
   if (options?.dateStyle === 'medium') {
     tokens.push('d MMM yyyy, h:mm aaa')
+  } else if (options?.dateStyle === 'long') {
+    tokens.push('d MMMM yyyy')
   } else if (options?.dateStyle === 'full') {
     tokens.push('EEEE d MMMM yyyy')
 

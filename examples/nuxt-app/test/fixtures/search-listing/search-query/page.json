@@ -8,10 +8,7 @@
   "summary": "",
   "config": {
     "searchListingConfig": {
-      "resultsPerPage": 10,
-      "suggestions": {
-        "enabled": false
-      }
+      "resultsPerPage": 10
     },
     "customQueryConfig": {
       "component": "TideSearchBarComponentExample",
@@ -30,16 +27,12 @@
     "globalFilters": [
       {
         "terms": {
-          "type": [
-            "landing_page"
-          ]
+          "type": ["landing_page"]
         }
       },
       {
         "terms": {
-          "field_node_site": [
-            8888
-          ]
+          "field_node_site": [8888]
         }
       }
     ],

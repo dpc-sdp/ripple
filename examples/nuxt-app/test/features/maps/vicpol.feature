@@ -4,7 +4,6 @@ Feature: Vicpol map
 
   Background:
     Given the site endpoint returns fixture "/site/vicpol" with status 200
-    And the search autocomplete request is stubbed with "/search-listing/suggestions/none" fixture
 
   @mockserver
   Scenario: Custom tabs

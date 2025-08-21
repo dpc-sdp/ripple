@@ -5,7 +5,6 @@ Feature: School buildings map
   Background:
     Given the page endpoint for path "/map" returns fixture "/map-table/vsba/page" with status 200
     Given the site endpoint returns fixture "/site/vsba" with status 200
-    And the search autocomplete request is stubbed with "/search-listing/suggestions/none" fixture
     Given I am using a "macbook-16" device
     Given the "/api/tide/elasticsearch/elasticsearch_index_develop_node/_search" aggregation request is stubbed with fixture "/map-table/vsba/aggregations" and status 200 as alias "aggReq"
 

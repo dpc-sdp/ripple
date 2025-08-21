@@ -272,14 +272,6 @@ export type TideSearchListingConfig = {
      */
     hideSearchForm?: boolean
     /**
-     * @description options for utilizing the auto suggestions
-     */
-    suggestions?: {
-      key?: string
-      enabled: boolean
-      minCharacters?: number
-    }
-    /**
      * @description The theme to use for the display of form section and fields
      */
     formTheme?: 'default' | 'reverse'

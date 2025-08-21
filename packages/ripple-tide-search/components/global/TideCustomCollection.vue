@@ -74,10 +74,6 @@ const props = withDefaults(defineProps<Props>(), {
       geolocateBtn: 'Use my current location'
     },
     displayMapTab: false,
-    suggestions: {
-      key: 'title',
-      enabled: false
-    },
     formTheme: 'default',
     showFiltersOnLoad: false,
     showFiltersOnly: false,
@@ -204,9 +200,6 @@ const geolocationError = ref<string | null>(null)
 const {
   isBusy,
   searchError,
-  getSuggestions,
-  clearSuggestions,
-  suggestions,
   searchTerm,
   appliedSearchTerm,
   results,
@@ -422,21 +415,7 @@ const handleFilterReset = (event: rplEventPayload) => {
 
 const handleUpdateSearchTerm = (term: string) => {
   searchTerm.value.q = term
-  getDebouncedSuggestions(term)
 }
-
-const getDebouncedSuggestions = useDebounceFn((term: string) => {
-  if (props.searchListingConfig?.suggestions?.enabled) {
-    const minCharacters =
-      props.searchListingConfig?.suggestions?.minCharacters || 3
-
-    if (term?.length >= minCharacters) {
-      getSuggestions()
-    } else if (suggestions.value?.length) {
-      clearSuggestions()
-    }
-  }
-}, 300)
 
 const handleUpdateSearch = (term: string | Record<string, any>) => {
   if (term && typeof term === 'object') {
@@ -672,7 +651,6 @@ watch(baseEvent, (newBaseEvent) => {
           :input-label="searchListingConfig?.labels?.submit"
           :inputValue="searchTerm"
           :placeholder="searchListingConfig?.labels?.placeholder"
-          :suggestions="suggestions"
           :global-events="false"
           :handle-submit="handleSearchSubmit"
           :handle-update="handleUpdateSearch"
@@ -684,7 +662,6 @@ watch(baseEvent, (newBaseEvent) => {
           :input-label="searchListingConfig.labels?.submit"
           :inputValue="searchTerm.q"
           :placeholder="searchListingConfig.labels?.placeholder"
-          :suggestions="suggestions"
           :global-events="false"
           :maxlength="128"
           @submit="handleSearchSubmit"

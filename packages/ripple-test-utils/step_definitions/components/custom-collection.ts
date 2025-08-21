@@ -159,3 +159,21 @@ When('the custom collection results count has been hidden', () => {
     )
   })
 })
+
+Then(
+  'the custom collection results config has {string} set to {string}',
+  (key: string, value: string | boolean) => {
+    cy.get('@pageFixture').then((response) => {
+      set(response, `bodyComponents[0].props.resultsConfig.${key}`, value)
+    })
+  }
+)
+
+Then(
+  'the custom collection no results component should display {string}',
+  (text: string) => {
+    cy.get(`[data-component-type="custom-collection-no-results"]`).contains(
+      text
+    )
+  }
+)

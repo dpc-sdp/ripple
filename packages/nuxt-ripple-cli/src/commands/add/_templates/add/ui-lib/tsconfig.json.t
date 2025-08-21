@@ -16,7 +16,7 @@ to: tsconfig.json
     "sourceMap": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
-    "types": ["vite/client", "@types/jest"],
+    "types": ["vite/client"],
     "paths": {
       "@/*": ["src/*"]
     },

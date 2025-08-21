@@ -34,7 +34,7 @@
           "columns": [
             {
               "label": "Recommendation",
-              "key": "field_fv_recommendation_number"
+              "objectKey": "field_fv_recommendation_number"
             },
             {
               "label": "Title",
@@ -42,11 +42,11 @@
             },
             {
               "label": "Category",
-              "key": "field_fv_recommendation_category_name"
+              "objectKey": "field_fv_recommendation_category_name"
             },
             {
               "label": "Status",
-              "key": "fv_recommendation_status"
+              "objectKey": "fv_recommendation_status"
             }
           ]
         }

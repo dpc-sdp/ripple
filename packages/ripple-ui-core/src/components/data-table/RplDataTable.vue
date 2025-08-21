@@ -1,24 +1,10 @@
 <script setup lang="ts">
 import { useBreakpoints } from '@vueuse/core'
-import {
-  computed,
-  type ComputedRef,
-  withDefaults,
-  ref,
-  unref,
-  onMounted
-} from 'vue'
+import { computed, type ComputedRef, ref, unref, onMounted } from 'vue'
 import { bpMin } from '../../lib/breakpoints'
-import RplDataTableRow, {
-  extraRowContent,
-  tableColumnConfig,
-  tableRow
-} from './RplDataTableRow.vue'
-
-interface HeadingType {
-  horizontal: boolean
-  vertical: boolean
-}
+import RplDataTableRow, { extraRowContent } from './RplDataTableRow.vue'
+import RplDataTableColumnOriented from './RplDataTableColumnOriented.vue'
+import type { tableColumnConfig, tableRow, HeadingType } from './types'
 
 interface Props {
   caption?: string
@@ -29,6 +15,7 @@ interface Props {
   headingType?: HeadingType
   offset?: number
   hasSidebar?: boolean
+  orientation?: 'row' | 'column'
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -41,7 +28,8 @@ const props = withDefaults(defineProps<Props>(), {
   offset: 1,
   showExtraContent: false,
   items: () => [],
-  hasSidebar: false
+  hasSidebar: false,
+  orientation: 'row'
 })
 
 const isMounted = ref(false)
@@ -99,19 +87,28 @@ const displayMobileView: ComputedRef<boolean> = computed(() => {
             </th>
           </tr>
         </thead>
-        <RplDataTableRow
-          v-for="(row, index) in items"
-          :key="row.id || index"
-          :columns="columns"
-          :row="row"
-          :extraContent="(row.__extraContent as extraRowContent) || null"
-          :showExtraContent="showExtraContent"
-          :vertical-header="headingType.vertical"
-          :horizontal-header="headingType.horizontal"
-          :offset="offset"
-          :caption="caption"
-          :index="index"
-        ></RplDataTableRow>
+        <template v-if="displayMobileView && props.orientation === 'column'">
+          <RplDataTableColumnOriented
+            :items="items"
+            :columns="columns"
+            :heading-type="headingType"
+          />
+        </template>
+        <template v-else>
+          <RplDataTableRow
+            v-for="(row, index) in items"
+            :key="row.id || index"
+            :columns="columns"
+            :row="row"
+            :extraContent="(row.__extraContent as extraRowContent) || null"
+            :showExtraContent="showExtraContent"
+            :vertical-header="headingType.vertical"
+            :horizontal-header="headingType.horizontal"
+            :offset="offset"
+            :caption="caption"
+            :index="index"
+          />
+        </template>
         <tfoot v-if="footer">
           <tr>
             <td :colspan="columns.length">{{ footer }}</td>

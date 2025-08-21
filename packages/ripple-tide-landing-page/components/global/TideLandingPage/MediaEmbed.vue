@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import type {
+import {
   RplMediaEmbedTypes,
   RplMediaEmbedVariants,
-  RplMediaEmbedSizes
+  RplMediaEmbedSizes,
+  RplMediaEmbedImage
 } from '@dpc-sdp/ripple-ui-core/src/components/media-embed/constants'
 
 defineProps<{
@@ -11,6 +12,7 @@ defineProps<{
   size?: RplMediaEmbedSizes
   title: string
   src: string
+  image: RplMediaEmbedImage
   showTitle?: boolean
   transcriptUrl?: string
   caption?: string

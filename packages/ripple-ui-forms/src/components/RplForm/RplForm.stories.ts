@@ -1,0 +1,365 @@
+import type { Meta, StoryObj } from '@storybook/vue3'
+import RplForm from './RplForm.vue'
+import RplFormElement from './../RplFormElement/RplFormElement.vue'
+import '@dpc-sdp/ripple-ui-core/style/components'
+
+export default {
+  title: 'Forms/Form',
+  component: RplForm
+} satisfies Meta<typeof RplForm>
+
+type Story = StoryObj<typeof RplForm>
+
+export const DefaultStory: Story = {
+  name: 'Default',
+  render: (args) => ({
+    components: { RplForm },
+    setup() {
+      return { args }
+    },
+    template: `
+      <RplForm
+        v-bind="args"
+        :style="{
+        '--local-max-width': '595px'
+      }"
+      >
+        <template #belowForm="{ value }">
+          <div class="rpl-storybook-form-values rpl-u-margin-t-6">
+            <h2 class="rpl-type-h4">Internal form values</h2>
+            <pre wrap>{{ value }}</pre>
+          </div>
+        </template>
+      </RplForm>
+    `
+  }),
+  args: {
+    id: 'test123form',
+    schema: [
+      {
+        $formkit: 'RplFormText',
+        name: 'long_enquiry',
+        label: 'What kind of long enquiry do you have?',
+        id: 'text',
+        suffixIcon: 'icon-search',
+        help: '<p>Do you need help?</p>',
+        validationLabel: 'enquiry',
+        validation: 'required|length:0,20',
+        columnClasses: 'rpl-col-6 rpl-col-3-m'
+      },
+      {
+        $formkit: 'RplFormText',
+        name: 'Text no icons',
+        label: 'RplFormText Should you flush tissues down the toilet?',
+        id: 'textnoicons',
+        value: 'test content',
+        help: '<p>Do you need help?</p>',
+        validation: 'required',
+        columnClasses: 'rpl-col-12 rpl-col-5-m'
+      },
+      {
+        $formkit: 'RplFormEmail',
+        name: 'Text',
+        label: 'Email',
+        id: 'email',
+        help: '<p>Add your work email</p>',
+        validation: 'required'
+      },
+      {
+        $formkit: 'RplFormTel',
+        name: 'tel',
+        label: 'Mobile number',
+        id: 'tel',
+        help: '<p>Please enter a valid mobile number</p>',
+        validation: [
+          ['required'],
+          [
+            'matches',
+            /^(?:\+?(61))? ?(?:\((?=.*\)))?(0?[2-57-8])\)? ?(\d\d(?:[- ](?=\d{3})|(?!\d\d[- ]?\d[- ]))\d\d[- ]?\d[- ]?\d{3})$/
+          ]
+        ],
+        validationMessages: {
+          required: 'We require a mobile for verification purposes',
+          matches: 'Please enter a valid mobile number'
+        }
+      },
+      {
+        $formkit: 'RplFormText',
+        name: 'role',
+        label: 'Role',
+        id: 'role',
+        help: '<p>Enter your role</p>',
+        counter: 'word',
+        counterMin: 0,
+        counterMax: 5,
+        validation: [[['matches', /^\\W*(\\w+(\\W+|$)){0,5}$/]]],
+        validationMessages: {
+          matches: 'You can enter a maximum of 5 words'
+        }
+      },
+      {
+        $formkit: 'RplFormTextarea',
+        name: 'message',
+        label: 'Message',
+        id: 'message',
+        help: '<p>Please enter a message</p>',
+        counter: 'character',
+        counterMin: 10,
+        counterMax: 50,
+        validation: [['required'], ['length', 10, 50]],
+        validationMessages: {
+          required: 'The message field is required',
+          matches: 'Please enter between 10 and 50 characters'
+        }
+      },
+      {
+        $formkit: 'RplFormCheckbox',
+        id: 'single-checkbox',
+        name: 'single-checkbox',
+        label: 'How are you?',
+        checkboxLabel: 'I am good thanks',
+        help: '<p>A common human greeting</p>',
+        value: false,
+        validation: 'accepted',
+        validationMessages: {
+          accepted: 'Please confirm that you are good thanks'
+        }
+      },
+      {
+        $formkit: 'RplFormCheckboxGroup',
+        id: 'checkbox-group',
+        name: 'checkbox-group',
+        label: 'What is the answer?',
+        help: '<p>There may be multiple answers</p>',
+        value: [],
+        validation: 'required|length:2,3',
+        validationMessages: {
+          required: 'Please provide an answer',
+          length: 'You must choose at least two answers'
+        },
+        options: [
+          {
+            id: 'checkbox-group-thing-1',
+            value: 'thing-1',
+            label: 'Thing 1'
+          },
+          {
+            id: 'checkbox-group-thing-2',
+            value: 'thing-2',
+            label: 'Thing 2'
+          },
+          {
+            id: 'checkbox-group-thing-3',
+            value: 'thing-3',
+            label: 'Thing 3'
+          }
+        ]
+      },
+      {
+        $formkit: 'RplFormRadioGroup',
+        id: 'radio-group',
+        name: 'radio-group',
+        label: 'Favourite colour?',
+        help: '<p>There is only one answer</p>',
+        value: '',
+        validation: 'required',
+        validationMessages: {
+          required: 'Please choose a colour'
+        },
+        options: [
+          {
+            id: 'radio-1',
+            label: 'Red',
+            value: 'red'
+          },
+          {
+            id: 'radio-2',
+            label: 'Green',
+            value: 'green'
+          },
+          {
+            id: 'radio-3',
+            label: 'Blue',
+            value: 'blue'
+          }
+        ]
+      },
+      {
+        $formkit: 'RplFormOptionButtons',
+        id: 'option-buttons',
+        name: 'option-buttons',
+        label: 'Favourite fruit?',
+        help: '<p>What is it?</p>',
+        value: '',
+        validation: 'required',
+        validationMessages: {
+          required: 'Please choose a fruit'
+        },
+        options: [
+          {
+            id: 'ob-1',
+            label: 'Apple'
+          },
+          {
+            id: 'ob-2',
+            label: 'Oranges'
+          },
+          {
+            id: 'ob-3',
+            label: 'Pear'
+          },
+          {
+            id: 'ob-4',
+            label: 'Strawberries'
+          },
+          {
+            id: 'ob-5',
+            label: 'Watermelon'
+          }
+        ]
+      },
+      {
+        $formkit: 'RplFormContent',
+        html: `<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi congue suscipit diam, vitae sagittis ante sollicitudin in. Pellentesque tristique lectus eget nisl convallis ornare. <strong>Quisque ut enim non velit rutrum condimentum. Integer vitae ipsum semper nibh</strong> sollicitudin hendrerit sit amet a tellus. Proin in sapien tellus. Praesent ullamcorper dui ac pulvinar gravida.<em> Fusce condimentum, justo nec volutpat sagittis, ipsum tellus accumsan erat, quis placerat arcu est at ipsum. Nunc varius eget purus nec varius. Donec sed ligula sit amet lorem cursus finibus. Fusce vel nisi porta, imperdiet turpis vitae, tempus ex. Proin nec efficitur massa.</em><br />&nbsp;</p><blockquote><p>Ut gravida erat convallis hendrerit condimentum. Nullam rutrum accumsan efficitur. Fusce ac enim nisi.</p></blockquote><p>Morbi ut hendrerit felis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Morbi sed tempor ante, vel eleifend turpis. Suspendisse id accumsan magna. Nulla condimentum tortor at dui eleifend, ut feugiat dui lobortis. Sed sit amet metus vel sapien placerat fringilla. Praesent dapibus ut metus nec blandit. Sed blandit euismod tempor. Nam dui elit, facilisis vitae nisl non, imperdiet luctus augue. Ut gravida erat convallis hendrerit condimentum. Nullam rutrum accumsan efficitur. Fusce ac enim nisi.</p><ol><li>A list</li><li>Of items</li><li>And things</li></ol><p>Quisque vulputate elit sit amet leo mattis varius. Praesent nibh ex, dignissim eget justo et, ornare lacinia nisl. <a href="https://google.com">Nam a felis libero. Morbi varius elementum malesuada</a>. Aenean eu auctor enim. Quisque eleifend erat et augue imperdiet vestibulum. Aliquam eu ultricies risus. Morbi eget euismod enim. Donec gravida feugiat auctor. Nullam eu venenatis dui. Praesent at mi ornare, fermentum tortor in, faucibus mauris. Quisque a ante dui. Donec lorem elit, egestas a elit ac, tincidunt euismod felis. Integer dictum faucibus ex, eu varius eros fringilla vitae. Suspendisse in nibh vitae nunc fringilla iaculis. Morbi consequat rutrum finibus.</p>`
+      },
+      {
+        $formkit: 'RplFormDropdown',
+        multiple: false,
+        id: 'dropdown-single',
+        name: 'dropdown-single',
+        label: 'What is the answer?',
+        help: '<p>Just one answer</p>',
+        validation: 'required',
+        validationMessages: {
+          required: 'Please provide an answer'
+        },
+        options: [
+          {
+            id: 'thing-1',
+            value: 'thing-1',
+            label: 'Thing 1'
+          },
+          {
+            id: 'thing-2',
+            value: 'thing-2',
+            label: 'Thing 2'
+          },
+          {
+            id: 'thing-3',
+            value: 'thing-3',
+            label: 'Thing 3'
+          }
+        ]
+      },
+      {
+        $formkit: 'RplFormDropdown',
+        multiple: true,
+        id: 'dropdown-multi',
+        name: 'dropdown-multi',
+        label: 'What is the answer?',
+        help: '<p>There may be multiple answers</p>',
+        columnClasses: 'rpl-col-12 rpl-col-5-m',
+        validation: 'required|length:2,3',
+        validationMessages: {
+          required: 'Please provide an answer',
+          length: 'You must choose at least two answers'
+        },
+        options: [
+          {
+            id: 'thing-1',
+            value: 'thing-1',
+            label: 'Thing 1'
+          },
+          {
+            id: 'thing-2',
+            value: 'thing-2',
+            label: 'Thing 2'
+          },
+          {
+            id: 'thing-3',
+            value: 'thing-3',
+            label: 'Thing 3'
+          }
+        ]
+      },
+      {
+        $formkit: 'RplFormDateSelect',
+        multiple: true,
+        id: 'birthdate',
+        name: 'birthdate',
+        label: 'When is your birthday?',
+        help: '<p>The date you were born</p>',
+        validation: 'required|date_before:1999-12-25',
+        validationMessages: {
+          required: 'Please provide an answer',
+          date_before: 'Must be before 25th December 1999'
+        }
+      },
+      {
+        $formkit: 'RplFormNumber',
+        name: 'qty',
+        label: 'Quantity',
+        columnClasses: 'rpl-col-12 rpl-col-5-m',
+        id: 'qty',
+        help: '<p>How many do you need?</p>',
+        min: 0,
+        max: 5,
+        mode: 'alt',
+        value: 1,
+        validation: 'between:0,5',
+        validationMessages: {
+          between: 'Please choose between 0 and 5'
+        }
+      },
+      {
+        $formkit: 'RplFormCheckbox',
+        key: 'privacy_statement',
+        id: 'connect_with_us_privacy_statement',
+        name: 'privacy_statement',
+        label: 'Collection notice',
+        description:
+          '<p>The Department of Government Services (the Department) collects the information that you provide with this form. The information that you provide is used to respond to your enquiry. You can request access to, and corrections of, any personal information provided in this form. Requests for access or correction should be sent to <a href="mailto:privacy@dgs.vic.gov.au">privacy@dgs.vic.gov.au</a></p>',
+        checkboxLabel:
+          'I have read and understand how the Victorian Government stores information.',
+        validation: 'required',
+        validationMessages: {
+          required:
+            'I have read and understand how the Victorian Government stores information. is required',
+          accepted:
+            'I have read and understand how the Victorian Government stores information. is required'
+        }
+      },
+      {
+        $formkit: 'RplFormActions',
+        label: 'Submit form',
+        id: '123'
+      }
+    ]
+  }
+}
+
+export const WithSlots: Story = {
+  render: (args) => ({
+    components: { RplForm, RplFormElement },
+    setup() {
+      return { args }
+    },
+    template: `
+      <RplForm id="form">
+        <RplFormElement
+          type="RplFormText"
+          label="test"
+          :style="{
+        '--local-max-width': '595px'
+      }"
+        />
+        <template #belowForm="{ value }">
+          <div v-if="Object.values(value).filter(Boolean).length" class="rpl-storybook-form-values rpl-u-margin-t-6">
+            <h2 class="rpl-type-h4">Internal form values</h2>
+            <pre wrap>{{ value }}</pre>
+          </div>
+        </template>
+      </RplForm>
+    `
+  })
+}

@@ -3,7 +3,6 @@ title: Carousel
 description: The Carousel component is a set of related cards that users can side-scroll through.
 layout: page
 label: Core
-
 ---
 
 ## Usage
@@ -41,4 +40,3 @@ The carousel adopts its theming from the card and pagination components.
 ::
 
 To create your own theme see [theming guidance for designers](/design-system/design/theming-guidance-for-designers) or [theming guidance for developers](/design-system/develop/theming).
-

@@ -132,3 +132,11 @@ Then(
     })
   }
 )
+
+Then('the {string} dataLayer event should be fired once', (name: string) => {
+  cy.window().then((window) => {
+    const event = window.dataLayer?.filter((i) => i.event === name)
+
+    expect(event).to.have.length(1)
+  })
+})

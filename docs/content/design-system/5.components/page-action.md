@@ -3,7 +3,6 @@ title: Page action
 description: The Page action component presents a collection of links that offer users a choice of actions, such as printing or downloading a document.
 layout: page
 label: Core
-
 ---
 
 ## Usage

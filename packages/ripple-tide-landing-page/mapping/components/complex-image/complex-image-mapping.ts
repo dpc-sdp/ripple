@@ -1,5 +1,6 @@
 import {
   getBody,
+  getField,
   getMediaPath,
   defaultFilesPath
 } from '@dpc-sdp/ripple-tide-api'
@@ -18,6 +19,11 @@ export interface ITideComplexImage {
   allowFullscreen: boolean
   fullscreenLabel: string
   showTitle: boolean
+  image: {
+    alt: string
+    width: number
+    height: number
+  }
 }
 
 export const complexImageMapping = (
@@ -30,6 +36,20 @@ export const complexImageMapping = (
       title: field.field_complex_image_title,
       sourceCaption: field.field_complex_image_source,
       src: getMediaPath(field.field_complex_image_media.field_media_image),
+      image: {
+        alt: getField(
+          field,
+          'field_complex_image_media.field_media_image.meta.alt'
+        ),
+        width: getField(
+          field,
+          'field_complex_image_media.field_media_image.meta.width'
+        ),
+        height: getField(
+          field,
+          'field_complex_image_media.field_media_image.meta.height'
+        )
+      },
       dataLabel: field.field_complex_image_data_label,
       dataContent: getBody(field.field_complex_image_data?.processed),
       fullscreenLabel: field.field_complex_image_full_label,

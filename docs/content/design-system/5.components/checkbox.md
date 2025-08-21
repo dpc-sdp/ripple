@@ -3,7 +3,6 @@ title: Checkbox
 description: The Checkbox component lets users select one or more options from a list.
 layout: page
 label: Core
-
 ---
 
 ## Usage

@@ -15,6 +15,10 @@ Then('the no results component should display {string}', (text: string) => {
   cy.get(`[data-component-type="search-listing-no-results"]`).contains(text)
 })
 
+Then('the empty index component should display {string}', (text: string) => {
+  cy.get(`[data-component-type="search-listing-empty-index"]`).contains(text)
+})
+
 Then(`the search listing results count should read {string}`, (str: string) => {
   cy.get(`[data-component-type="search-listing-result-count"]`).should(
     'contain',
@@ -682,5 +686,29 @@ Then(
   'the search listing should display {string} after the results',
   (text: string) => {
     cy.get(`.tide-content-after-results`).contains(text)
+  }
+)
+
+Then(
+  'the search listing results config has {string} set to {string}',
+  (key: string, value: string | boolean) => {
+    cy.get('@pageFixture').then((response) => {
+      set(response, `config.resultsConfig.${key}`, value)
+    })
+  }
+)
+
+Then(
+  'the search listing results table should display the following',
+  (dataTable: DataTable) => {
+    const table = dataTable.raw()
+
+    table.forEach((row: any, i: number) => {
+      cy.get('tr').eq(i).as('row')
+
+      row.forEach((cell: any, j: number) => {
+        cy.get('@row').find('th, td').eq(j).contains(cell)
+      })
+    })
   }
 )

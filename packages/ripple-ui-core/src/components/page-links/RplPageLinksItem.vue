@@ -15,7 +15,7 @@ interface Props {
   direction: 'prev' | 'next'
   label?: string
   url: string
-  globalEvents: boolean
+  globalEvents?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {

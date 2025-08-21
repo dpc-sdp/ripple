@@ -87,6 +87,8 @@ theme:
       36: '#E57200'
       52: '#FFC166'
       80: '#F9E062'
-    link: '#0052C2'
+    link:
+      500: '#0052C2'
+      alpha: 'rgb(0 82 194 / 20%)'
     link-visited: '#9F46B1'
     focus: '#FF9E1B'

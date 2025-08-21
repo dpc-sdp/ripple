@@ -68,3 +68,18 @@
     }
   }
 }
+
+.rpl-media-gallery--background {
+  .rpl-media-gallery__primary-images {
+    margin-bottom: 0;
+  }
+
+  .rpl-media-gallery__primary-content {
+    padding: var(--rpl-sp-3) var(--rpl-sp-4);
+  }
+
+  .rpl-media-gallery__content,
+  .rpl-media-gallery__primary-content {
+    background-color: var(--rpl-clr-neutral-100);
+  }
+}

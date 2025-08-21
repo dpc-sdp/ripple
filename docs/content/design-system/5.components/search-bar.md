@@ -3,7 +3,6 @@ title: Search bar
 description: The Search bar shows a text input field with a search button to let users enter keywords and search content on the website.
 layout: page
 label: Core
-
 ---
 
 ## Usage
@@ -114,11 +113,19 @@ id: core-navigation-search-bar--reverse
 
 ### Menu
 
-Use this in the mega menu. See [Primary Navigation](/design-system/components/primary-navigation/) for more information.
+Use this in the mega menu. See [Primary Navigation](/design-system/components/primary-navigation) for more information.
 
 ::DocsExample
 ---
 id: core-navigation-search-bar--menu
+---
+::
+
+### Input
+
+::DocsExample
+---
+id: core-navigation-search-bar--input
 ---
 ::
 

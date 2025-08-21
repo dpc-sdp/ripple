@@ -1,9 +1,13 @@
 import { capitalCase } from 'change-case'
+import {
+  standardiseLocationIndexName,
+  lgaDataIndex,
+  localityDataIndex
+} from './locationDatasets'
 
 const getLGASuggestions = async (query, args) => {
-  const suggestionsIndex = args.lgaIndex
-
-  const searchUrl = `/api/tide/app-search/${suggestionsIndex}/elasticsearch/_search`
+  const index = standardiseLocationIndexName(args.lgaIndex)
+  const searchUrl = `/api/tide/elasticsearch/${index}/_search`
 
   const queryDSL = {
     query: {
@@ -73,9 +77,8 @@ const getLGASuggestions = async (query, args) => {
 }
 
 const getSuburbSuggestions = async (query, args) => {
-  const suggestionsIndex = args.suburbsIndex
-
-  const searchUrl = `/api/tide/app-search/${suggestionsIndex}/elasticsearch/_search`
+  const index = standardiseLocationIndexName(args.suburbsIndex)
+  const searchUrl = `/api/tide/elasticsearch/${index}/_search`
 
   const queryDSL = {
     query: {
@@ -165,8 +168,8 @@ export default async (query, args) => {
     maxLGASuggestions: 0,
     maxSuburbSuggestions: 0,
     maxAddressSuggestions: 10,
-    suburbsIndex: 'vicpol-postcode-localities',
-    lgaIndex: 'budget-areas-data',
+    suburbsIndex: localityDataIndex,
+    lgaIndex: lgaDataIndex,
     addressZoomLevel: 12
   }
 

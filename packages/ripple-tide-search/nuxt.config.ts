@@ -4,11 +4,6 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       tide: {
-        appSearch: {
-          searchKey: '',
-          endpointBase: '',
-          engineName: ''
-        },
         elasticsearch: {
           host: '',
           index: ''
@@ -16,9 +11,6 @@ export default defineNuxtConfig({
       }
     },
     tide: {
-      appSearch: {
-        privateSearchKey: ''
-      },
       elasticsearch: {
         username: '',
         password: ''

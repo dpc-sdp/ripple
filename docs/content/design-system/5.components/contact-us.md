@@ -3,7 +3,6 @@ title: Contact us
 description: The Contact us component is a list of contact details and links to help the user get in touch with you.
 layout: page
 label: Core
-
 ---
 
 ## Usage
@@ -46,4 +45,3 @@ Contact us uses colour for:
 ::
 
 To create your own theme see [theming guidance for designers](/design-system/design/theming-guidance-for-designers) or [theming guidance for developers](/design-system/develop/theming).
-

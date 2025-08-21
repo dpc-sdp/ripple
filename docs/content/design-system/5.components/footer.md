@@ -3,7 +3,6 @@ title: Footer
 description: The Footer component helps help users find information at the bottom of a page.
 layout: page
 label: Core
-
 ---
 
 ## Usage

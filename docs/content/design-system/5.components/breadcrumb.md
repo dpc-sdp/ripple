@@ -3,7 +3,6 @@ title: Breadcrumb
 description: The Breadcrumb component shows a user their location on a website. This allows quick navigation between page levels.
 layout: page
 label: Core
-
 ---
 
 ## Usage

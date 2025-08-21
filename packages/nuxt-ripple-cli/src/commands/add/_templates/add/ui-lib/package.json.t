@@ -60,13 +60,11 @@ to: package.json
     "chromatic": "^6.17.2",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-storybook": "^0.6.13",
-    "jest-axe": "^7.0.1",
     "rimraf": "catalog:",
     "style-dictionary": "^3.7.2",
     "vite": "catalog:",
     "vite-plugin-copy": "^0.1.6",
     "vite-plugin-dts": "^2.1.0",
-    "vite-plugin-vue-svg": "^0.1.0",
     "vite-svg-loader": "^4.0.0"
   }
 }

@@ -33,6 +33,10 @@ Feature: Suggestions
     And the URL should reflect that the location has the following:
       | key  | value           |
       | name | Bayswater North |
+    And the dataLayer should include the following events
+      | event  | element_text    | name           | type       | component              |
+      | search | Bayswater North | Test map title | suggestion | tide-custom-collection |
+    And the "search" dataLayer event should be fired once
 
   @mockserver
   Scenario: Suggestion is auto selected on enter

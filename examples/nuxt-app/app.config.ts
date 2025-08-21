@@ -20,6 +20,7 @@ export default defineAppConfig({
       'rpl-clr-footer': '#3F006B',
       'rpl-clr-type-footer-accessible': '#3F006B',
       'rpl-clr-primary-alpha': 'rgba(107, 25, 163, 0.5)',
+      'rpl-clr-link-alpha': 'rgba(107, 25, 163, 0.2)',
       'rpl-clr-accent': '#6DDD97',
       'rpl-clr-accent-alt': '#EAFAF0',
       'rpl-clr-focus': '#9DEF65',
@@ -105,7 +106,9 @@ export default defineAppConfig({
             }
           }
 
-          const fieldMap = {
+          const fieldMap: {
+            [key: string]: any
+          } = {
             title: ['title'],
             content: ['field_paragraph_body'],
             title_content: ['title', 'field_paragraph_body']

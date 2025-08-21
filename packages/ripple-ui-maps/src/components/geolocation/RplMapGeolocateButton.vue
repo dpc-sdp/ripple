@@ -24,7 +24,7 @@
 import { RplIcon } from '@dpc-sdp/ripple-ui-core/vue'
 
 interface Props {
-  isBusy: boolean
+  isBusy?: boolean
   error: string | null
 }
 

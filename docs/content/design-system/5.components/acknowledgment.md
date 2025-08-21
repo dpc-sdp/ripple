@@ -3,7 +3,6 @@ title: Acknowledgement
 description: The Acknowledgement component pays respect to the First Peoples of Victoria.
 layout: page
 label: Core
-
 ---
 
 ## Usage

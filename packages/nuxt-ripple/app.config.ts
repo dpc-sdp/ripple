@@ -16,6 +16,7 @@ declare module '@nuxt/schema' {
         ['rpl-clr-accent']?: string
         ['rpl-clr-accent-alt']?: string
         ['rpl-clr-link']?: string
+        ['rpl-clr-link-alpha']?: string
         ['rpl-clr-focus']?: string
         ['rpl-clr-type-focus-contrast']?: string
         ['rpl-clr-gradient-horizontal']?: string
@@ -52,7 +53,6 @@ declare module '@nuxt/schema' {
           string,
           (map: any, results: any, location: any, mapDeadSpace: any) => void
         >
-        transformResultFns?: Record<string, (item: any) => any>
         onLocationSelectOverrideFns?: Record<
           string,
           // Return true if behaviour was overridden, or false to use the default behaviour
@@ -64,7 +64,8 @@ declare module '@nuxt/schema' {
             mapDeadSpace: any
           ) => boolean | void
         >
-        mapPinStyleFn?: Record<string, (features: any) => any>
+        transformResultFns?: Record<string, (result) => any>
+        mapPinStyleFn?: Record<string, (features) => any>
       }
       customInputs?: {
         [key: string]: {

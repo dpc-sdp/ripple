@@ -24,16 +24,17 @@
     <div class="docs-example-body">
       <iframe
         v-if="hasAppeared"
-        :src="storyPreviewUrl"
-        v-resize
+        :src="storyEmbedUrl"
+        ref="iframeRef"
         class="frame"
+        :style="`height: ${height}px`"
       ></iframe>
       <div v-else class="frame"></div>
     </div>
-    <div class="docs-example-footer" v-if="!hideCode">
+    <div v-if="!hideCode" class="docs-example-footer">
       <button
         @click="handleToggleCode"
-        class="docs-example-code-btn rpl-type-p-small"
+        class="docs-example-code-btn rpl-type-p-small rpl-u-focusable-block"
       >
         Show code
         <RplIcon
@@ -50,7 +51,6 @@
 </template>
 
 <script lang="ts" setup>
-import iframeResize from 'iframe-resizer/js/iframeResizer'
 import { useElementVisibility } from '@vueuse/core'
 import 'highlight.js/styles/github.css'
 import hljs from 'highlight.js/lib/core'
@@ -77,6 +77,9 @@ const props = withDefaults(defineProps<Props>(), {
 
 const SNIPPET_RENDERED = `storybook/docs/snippet-rendered`
 
+const uid = ref<number | undefined>(0)
+const iframeRef = ref<HTMLElement | null>(null)
+const height = ref(100)
 const isCodeOpen = ref(false)
 const sourceCode = ref('')
 const hasAppeared = ref(false)
@@ -84,19 +87,12 @@ const hasAppeared = ref(false)
 const target = ref(null)
 const targetIsVisible = useElementVisibility(target)
 
-const vResize = {
-  mounted: (el: HTMLElement, { value = {} }) => {
-    el.addEventListener('load', () => iframeResize(value, el))
-  },
-  unmounted: (el: HTMLElement & { iFrameResizer?: any }) =>
-    el.iFrameResizer?.removeListeners()
-}
-
 const handleToggleCode = () => {
   isCodeOpen.value = !isCodeOpen.value
 }
 
 onMounted(() => {
+  uid.value = getCurrentInstance()?.uid
   // Here we hook into the 'snippet rendered' hook from storybook, which will
   // give us the code snippet for the example. This hook is trigger using
   // window.postMessage from inside the iframe.
@@ -114,6 +110,13 @@ onMounted(() => {
           sourceCode.value = parsedData.event.args[1]
         }
       }
+      if (
+        parsedData?.iframeSize &&
+        parsedData.id === props.id &&
+        parsedData.uid === uid.value
+      ) {
+        height.value = parsedData.iframeSize
+      }
     },
     false
   )
@@ -129,7 +132,7 @@ const highlightedCode = computed((): string => {
 
 const { storybookBaseUrl } = useAppConfig()
 
-const injectedTheme = inject('exampleTheme', 'default')
+const injectedTheme = inject('exampleTheme', ref('default'))
 
 const computedTheme = computed(() => {
   return props.theme ? props.theme : injectedTheme.value
@@ -150,6 +153,9 @@ const storyUrl = computed(
 const storyPreviewUrl = computed(
   () => `${storybookBaseUrl}/iframe.html?id=${props.id}&${sharedParams.value}`
 )
+const storyEmbedUrl = computed(
+  () => `${storyPreviewUrl.value}&uid=${uid.value}&rplDocs=true`
+)
 
 watch(targetIsVisible, (visible, wasVisible) => {
   if (visible && !wasVisible) {
@@ -161,9 +167,8 @@ watch(targetIsVisible, (visible, wasVisible) => {
 <style scoped>
 @import '@dpc-sdp/ripple-ui-core/style/breakpoints';
 .docs-example {
+  background: var(--rpl-clr-light);
   border: var(--rpl-border-1) solid var(--rpl-clr-neutral-300);
-  background: white;
-
   margin: var(--rpl-sp-3) 0;
 
   @media (--rpl-bp-l) {
@@ -172,10 +177,11 @@ watch(targetIsVisible, (visible, wasVisible) => {
 }
 
 .frame {
-  width: 1px;
-  min-width: 100%;
+  width: 100%;
   height: 100px;
   border: none;
+  overflow: hidden;
+  vertical-align: bottom;
 }
 
 .with-padding .docs-example-body {
@@ -198,8 +204,8 @@ watch(targetIsVisible, (visible, wasVisible) => {
 }
 
 .docs-example-footer {
+  position: relative;
   border-top: var(--rpl-border-1) solid var(--rpl-clr-neutral-300);
-  padding: var(--rpl-sp-3) var(--rpl-sp-5);
 }
 
 .docs-example-code {
@@ -212,6 +218,7 @@ watch(targetIsVisible, (visible, wasVisible) => {
   align-items: center;
   gap: var(--rpl-sp-2);
   text-decoration: underline;
+  padding: var(--rpl-sp-3) var(--rpl-sp-5);
 }
 
 .docs-example-code-btn:hover {

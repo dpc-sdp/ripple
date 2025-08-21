@@ -11,7 +11,7 @@
         v-if="navigation?.length"
         :title="publication.text"
         :items="navigation"
-        class="rpl-u-margin-b-9"
+        class="tide-publication__sidebar-nav rpl-u-margin-b-9"
       ></RplVerticalNav>
     </RplSidebarComponent>
   </div>
@@ -34,12 +34,12 @@ const props = defineProps<Props>()
 const MAX_NAV_ITEMS = 80
 
 const printUrl = computed(() => {
-  if (!props.navigation?.length) return null
+  const url = `${props.publication.url}/print-all`
+
+  if (!props.navigation?.length) return url
 
   const navItems = flattenMenu(props.navigation)
 
-  return navItems.length < MAX_NAV_ITEMS
-    ? `${props.publication.url}/print-all`
-    : null
+  return navItems.length < MAX_NAV_ITEMS ? url : null
 })
 </script>

@@ -3,7 +3,6 @@ title: Profile
 description: The Profile component shows an avatar (image) on your page, with supporting text to display key information.
 layout: page
 label: Core
-
 ---
 
 ## Usage

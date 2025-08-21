@@ -1,14 +1,12 @@
 Feature: Publication page
 
-  Example of mocked page
-
   Background:
-    Given the page endpoint for path "/victorian-skills-plan-2023-implementation-update" returns fixture "/publication/sample-publication" with status 200
-    And the site endpoint returns fixture "/site/vic" with status 200
+    Given the site endpoint returns fixture "/site/vic" with status 200
 
   @mockserver
   Example: Publication parent
-    Given the endpoint "/api/tide/publication-index" with query "?id=ecb799a1-a1a3-4989-89f6-1657f786e12e" returns fixture "/publication/sample-index" with status 200
+    Given the page endpoint for path "/victorian-skills-plan-2023-implementation-update" returns fixture "/publication/sample-publication" with status 200
+    And the endpoint "/api/tide/publication-index" with query "?id=ecb799a1-a1a3-4989-89f6-1657f786e12e" returns fixture "/publication/sample-index" with status 200
     When I visit the page "/victorian-skills-plan-2023-implementation-update"
     Then the title should be "Victorian Skills Plan Implementation Update"
     And the publication details should include the following items
@@ -25,6 +23,15 @@ Feature: Publication page
       | title                                                    | url                                                                               | type | size    |
       | Victorian Skills Plan Implementation Update October 2023 | /sites/default/files/2023-10/16686-VSA-Implementation-Plan-Section_FA_Digital.pdf | pdf  | 4.61 MB |
       | Print full document                                      | /victorian-skills-plan-2023-implementation-update/print-all                       |      |         |
+    And the publication nav should have 36 links
+    And the publication nav should include the following links
+      | title                                                            | url                                                                                                    |
+      | Victorian Skills Plan Implementation Update                      | /victorian-skills-plan-2023-implementation-update                                                      |
+      | The Victorian Skills Plan 2022 into 2023 actions and initiatives | /victorian-skills-plan-2023-implementation-update/2022-victorian-skills-plan-actions-and-initiatives   |
+      | Promoting post-secondary education skills and career pathways    | /victorian-skills-plan-2023-implementation-update/promoting-post-secondary-education-skills-and-career |
+      | Lifting participation in education and training                  | /victorian-skills-plan-2023-implementation-update/lifting-participation-education-and-training         |
+    And the print document link should visible
+
     When I click on the document "Victorian Skills Plan Implementation Update October 2023"
     Then the dataLayer should include the following events
       | event         | element_text                                             | file_name                                            | file_extension | file_size | component |
@@ -32,7 +39,8 @@ Feature: Publication page
 
   @mockserver
   Example: Publication child
-    Given the page endpoint for path "/victorian-skills-plan-2023-implementation-update/2022-victorian-skills-plan-actions-and-initiatives" returns fixture "/publication/sample-publication-page" with status 200
+    Given the page endpoint for path "/victorian-skills-plan-2023-implementation-update" returns fixture "/publication/sample-publication" with status 200
+    And the page endpoint for path "/victorian-skills-plan-2023-implementation-update/2022-victorian-skills-plan-actions-and-initiatives" returns fixture "/publication/sample-publication-page" with status 200
     And the page endpoint for path "/victorian-skills-plan-2023-implementation-update/promoting-post-secondary-education-skills-and-career" returns fixture "/publication/sample-publication-page" with status 200
     And the endpoint "/api/tide/publication-index" with query "?id=ecb799a1-a1a3-4989-89f6-1657f786e12e" returns fixture "/publication/sample-index" with status 200
     When I visit the page "/victorian-skills-plan-2023-implementation-update/2022-victorian-skills-plan-actions-and-initiatives"
@@ -43,6 +51,8 @@ Feature: Publication page
       | title                                                    | url                                                                               | type | size    |
       | Victorian Skills Plan Implementation Update October 2023 | /sites/default/files/2023-10/16686-VSA-Implementation-Plan-Section_FA_Digital.pdf | pdf  | 4.61 MB |
       | Print full document                                      | /victorian-skills-plan-2023-implementation-update/print-all                       |      |         |
+    And the publication nav should have 36 links
+    And the print document link should visible
 
     When I click on the "Next" page link
     Then the dataLayer should include the following events
@@ -56,7 +66,8 @@ Feature: Publication page
 
   @mockserver
   Example: Publication print all
-    Given the endpoint "/api/tide/publication-children" with query "?ids=100&ids=101&ids=102&ids=103&ids=104&ids=105&ids=106&ids=107&ids=108&ids=109&ids=110&ids=111&ids=112&ids=113&ids=114&ids=115&ids=116&ids=117&ids=118&ids=119&ids=120&ids=121&ids=122&ids=123&ids=124&ids=125&ids=126" returns fixture "/publication/sample-print-all" with status 200
+    Given the page endpoint for path "/victorian-skills-plan-2023-implementation-update" returns fixture "/publication/sample-publication" with status 200
+    And the endpoint "/api/tide/publication-children" with query "?ids=100&ids=101&ids=102&ids=103&ids=104&ids=105&ids=106&ids=107&ids=108&ids=109&ids=110&ids=111&ids=112&ids=113&ids=114&ids=115&ids=116&ids=117&ids=118&ids=119&ids=120&ids=121&ids=122&ids=123&ids=124&ids=125&ids=126" returns fixture "/publication/sample-print-all" with status 200
     And the endpoint "/api/tide/publication-index" with query "?id=ecb799a1-a1a3-4989-89f6-1657f786e12e" returns fixture "/publication/sample-index" with status 200
     When I visit the print all page "/victorian-skills-plan-2023-implementation-update/print-all"
     Then the dataLayer should include the following events
@@ -78,6 +89,15 @@ Feature: Publication page
 
   @mockserver
   Example: Hides print all button when node limit exceeded
-    Given the endpoint "/api/tide/publication-index" with query "?id=ecb799a1-a1a3-4989-89f6-1657f786e12e" returns fixture "/publication/sample-index-large" with status 200
+    Given the page endpoint for path "/victorian-skills-plan-2023-implementation-update" returns fixture "/publication/sample-publication" with status 200
+    And the endpoint "/api/tide/publication-index" with query "?id=ecb799a1-a1a3-4989-89f6-1657f786e12e" returns fixture "/publication/sample-index-large" with status 200
     When I visit the page "/victorian-skills-plan-2023-implementation-update"
     Then the print document link should be hidden
+
+  @mockserver
+  Example: Hides publication menu when there are no child pages
+    Given the page endpoint for path "/publication-no-pages" returns fixture "/publication/sample-publication-no-children" with status 200
+    And the endpoint "/api/tide/publication-index" with query "?id=cecd683a-c34b-4613-ac06-0d4147cf1a42" returns fixture "/publication/sample-index-no-children" with status 200
+    When I visit the page "/publication-no-pages"
+    Then the publication nav should not exist
+    And the print document link should visible

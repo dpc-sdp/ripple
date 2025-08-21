@@ -1,0 +1,11 @@
+{
+  "name": "Nuxt Ripple",
+  "packageName": "@dpc-sdp/nuxt-ripple",
+  "description": "A Nuxt module for integrating Ripple and Tide",
+  "sourceUrl": "https://github.com/dpc-sdp/ripple-framework/tree/develop/packages/nuxt-ripple",
+  "issuesUrl": "https://github.com/dpc-sdp/ripple-framework/issues",
+  "contributor": {
+    "name": "SDP",
+    "url": "https://www.vic.gov.au/single-digital-presence"
+  }
+}

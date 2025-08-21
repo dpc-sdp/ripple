@@ -3,7 +3,6 @@ title: Card
 description: The Card component shows content about another page, event or topic. They help users find relevant information.
 layout: page
 label: Core
-
 ---
 
 ## Usage

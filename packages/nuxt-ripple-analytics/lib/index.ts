@@ -148,7 +148,7 @@ export default {
         element_id: payload?.id,
         element_text: payload?.text,
         label: payload?.label,
-        name: payload?.name,
+        name: payload?.name || payload?.contextName,
         index: payload?.index,
         component: 'rpl-data-table',
         platform_event: 'expandRow'

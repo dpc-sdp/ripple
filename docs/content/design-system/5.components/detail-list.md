@@ -3,7 +3,6 @@ title: Detail list
 description: The Detail list component shows a list of key information to users.
 layout: page
 label: Core
-
 ---
 
 ## Usage

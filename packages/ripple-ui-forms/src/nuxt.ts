@@ -6,8 +6,10 @@ import {
 } from '@nuxt/kit'
 
 export default <any>defineNuxtModule({
-  async setup() {
+  async setup(options, nuxt) {
     await installModule('@formkit/nuxt')
+    nuxt.options.build.transpile ||= []
+    nuxt.options.build.transpile.push('@vuepic/vue-datepicker')
 
     const { resolve } = createResolver(import.meta.url)
     addComponentsDir({

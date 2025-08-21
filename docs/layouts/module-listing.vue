@@ -22,9 +22,9 @@
       <DocsCardGrid>
         <RplPromoCard
           v-for="mod in filteredModules"
-          :key="mod._path"
+          :key="mod.path"
           :title="mod.name"
-          :url="`${mod._path?.replace(/\/_module$/, '')}`"
+          :url="`${mod.meta.path?.replace(/\/module$/, '')}`"
         >
           <template #default>
             <p>{{ mod.description }}</p>
@@ -36,20 +36,20 @@
 </template>
 
 <script setup lang="ts">
-import { useContent, useContentHead } from '#imports'
+import type { ContentCollectionItem } from '@nuxt/content'
 
-const { page } = useContent()
+interface Props {
+  page: ContentCollectionItem
+}
 
-useContentHead(page)
+defineProps<Props>()
 
 const route = useRoute()
 const sectionSlug = route.params.slug[0]
 const isModuleSection = sectionSlug === 'framework'
 
 const { data: modules } = await useAsyncData(`module-listing`, async () => {
-  return await queryContent()
-    .where({ isModuleInfo: { $eq: true } })
-    .find()
+  return queryCollection('modules').all()
 })
 
 const searchTerm = ref('')

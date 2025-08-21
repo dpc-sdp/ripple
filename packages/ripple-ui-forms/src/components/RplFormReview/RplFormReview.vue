@@ -5,15 +5,15 @@ import { isValid, parse } from 'date-fns'
 import { formatDate } from '@dpc-sdp/ripple-ui-core'
 
 interface Props {
-  title?: any
-  actionLabel?: any
+  title?: string
+  actionLabel?: string
   omitFinalStep?: boolean
 }
 
 interface FormReviewItemValue {
   id: string
-  q: string
-  a?: string
+  label: string
+  value?: string
 }
 
 interface FormReviewItem {
@@ -70,8 +70,8 @@ const getDisplayedValue = (field: any, value: string | boolean) => {
 const getItemValues = (field: any, value: any): FormReviewItemValue => {
   return {
     id: field.id,
-    q: field.label || field.checkboxLabel || field.name,
-    a: field.options
+    label: field.label || field.checkboxLabel || field.name,
+    value: field.options
       ? Array.isArray(value)
         ? value.map((val) => getOptionLabel(field, val)).join(', ')
         : getOptionLabel(field, value)
@@ -136,37 +136,25 @@ const items = computed<FormReviewItem[]>(() => {
       :key="entry.key"
       :class="`rpl-form-review--${entry.key} rpl-form-review__wrap`"
     >
-      <h3 v-if="entry?.name" class="rpl-form-review__step rpl-type-h3">
-        {{ entry.name }}
-      </h3>
-      <div class="rpl-table">
-        <table>
-          <tbody>
-            <tr v-for="field in entry.items" :key="field.id">
-              <th
-                scope="row"
-                class="rpl-form-review__question rpl-type-h4-fixed"
-              >
-                {{ field.q }}
-              </th>
-              <td class="rpl-form-review__answer rpl-type-p">
-                {{ field.a || 'Not provided' }}
-              </td>
-              <td class="rpl-form-review__action rpl-type-p">
-                <a
-                  class="rpl-text-link rpl-u-focusable-inline"
-                  :href="`#${field.id}`"
-                  @click.prevent="
-                    form.goToField(field.id, entry?.step, actionLabel)
-                  "
-                >
-                  {{ actionLabel }}
-                </a>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      <RplSummaryList
+        :title="entry.name"
+        :items="entry.items"
+        :displayAction="true"
+      >
+        <template #value="{ item: { value } }">
+          {{ value || 'Not provided' }}
+        </template>
+        <template #action="{ item }">
+          <a
+            class="rpl-text-link rpl-u-focusable-inline"
+            :href="`#${item.id}`"
+            :aria-label="`${actionLabel} ${item.label}`"
+            @click.prevent="form.goToField(item.id, entry?.step, actionLabel)"
+          >
+            {{ actionLabel }}
+          </a>
+        </template>
+      </RplSummaryList>
     </div>
   </div>
 </template>

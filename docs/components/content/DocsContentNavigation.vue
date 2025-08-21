@@ -3,16 +3,15 @@ const route = useRoute()
 const { sections, hideModulesSection } = useAppConfig()
 
 // The site is split into sections with separate sidebar navigations
-// E.g. If we on the page `/cats/are/cute`, then we just want the content for 'cats' (i.e. `queryContent('cats')`)
+// E.g., If we on the page `/design-system/components/accordion`, then we just want the content for 'design-system'
 const sectionSlug = route.params.slug[0]
 
-const navigation = await useDocsNavigation([sectionSlug || 'design-system'], {
-  layout: { $ne: 'module' }
-})
-const processedNav = navigation?.map((level1Item) => {
+const navigation = await useDocsNavigation([sectionSlug || 'design-system'])
+
+const processedNav = navigation?.map((item) => {
   return {
-    ...level1Item,
-    url: level1Item.items?.length ? null : level1Item.url
+    ...item,
+    url: item.items?.length ? null : item.url
   }
 })
 </script>
@@ -42,14 +41,11 @@ const processedNav = navigation?.map((level1Item) => {
 
 <style scoped>
 .rpl-vertical-nav {
-  padding-top: 0;
-  padding-right: 0;
-  padding-bottom: 0;
-  padding-left: 0;
+  padding: 0;
 }
 
 .docs-section-link {
+  color: inherit;
   margin-top: var(--rpl-sp-3);
-  color: var(--rpl-clr-black);
 }
 </style>

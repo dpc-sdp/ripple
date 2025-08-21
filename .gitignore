@@ -50,4 +50,4 @@ lerna-debug.log*
 *.sublime-workspace
 nbproject
 Thumbs.db
-
+biome.json

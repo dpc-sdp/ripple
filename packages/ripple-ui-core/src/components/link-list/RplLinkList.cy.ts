@@ -26,6 +26,6 @@ describe('RplLinkListItem', () => {
       'contains.text',
       'testSlotContents'
     )
-    cy.get('.rpl-link-list-item__link').should('have.attr', 'url', '/test/url')
+    cy.get('.rpl-link-list-item__link').should('have.attr', 'href', '/test/url')
   })
 })

@@ -3,7 +3,6 @@ title: Tabs
 description: The Tab component lets you organise related content so that users can switch between related information on the same page.
 layout: page
 label: Core
-
 ---
 
 ## Usage

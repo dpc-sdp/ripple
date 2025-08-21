@@ -1,0 +1,498 @@
+{
+  "took": 80,
+  "timed_out": false,
+  "_shards": { "total": 5, "successful": 5, "skipped": 0, "failed": 0 },
+  "hits": {
+    "total": { "value": 2159, "relation": "eq" },
+    "max_score": null,
+    "hits": [
+      {
+        "_index": "a83890f7a31dea14e1ae83c6f0afacca--elasticsearch_index_develop_node",
+        "_id": "entity:node/37143:en",
+        "_score": null,
+        "_source": {
+          "_language": "en",
+          "node_grants": [
+            "node_access_all:0"
+          ],
+          "url": [
+            "/site-622/a1-school"
+          ],
+          "changed": [
+            "2023-12-29T12:00:37+11:00"
+          ],
+          "created": [
+            "2023-12-22T14:38:48+11:00"
+          ],
+          "test_latlong_field": [
+            "-36.381077,145.399274"
+          ],
+          "nid": [
+            37143
+          ],
+          "status": [
+            true
+          ],
+          "test_title": [
+            "Single Pin Test"
+          ],
+          "description": "Test description for single pin test",
+          "test_item_id": [
+            "1111"
+          ],
+          "type": [
+            "project_infrastructure"
+          ],
+          "uid": [
+            11547
+          ],
+          "uuid": [
+            "aa52fdf0-1421-488f-9043-315b2837ee72"
+          ]
+        },
+        "sort": [
+          "A1 school"
+        ]
+      },
+      {
+        "_index": "a83890f7a31dea14e1ae83c6f0afacca--elasticsearch_index_develop_node",
+        "_id": "entity:node/37144:en",
+        "_score": null,
+        "_source": {
+          "_language": "en",
+          "node_grants": [
+            "node_access_all:0"
+          ],
+          "url": [
+            "/site-622/aaa-school"
+          ],
+          "changed": [
+            "2023-12-29T12:00:35+11:00"
+          ],
+          "created": [
+            "2023-12-29T12:00:34+11:00"
+          ],
+          "test_latlong_field": [
+            "-38.196299,146.538115"
+          ],
+          "nid": [
+            37146
+          ],
+          "status": [
+            true
+          ],
+          "test_title": [
+            "Double Pin Test - Point One"
+          ],
+          "test_item_id": [
+            "2222"
+          ],
+          "description": "Test description for double pin test - point one",
+          "type": [
+            "project_infrastructure"
+          ],
+          "uid": [
+            11547
+          ],
+          "uuid": [
+            "7c7e0a0f-fbf5-4fda-bc9a-393980fcd9ba"
+          ]
+        },
+        "sort": [
+          "AAA school"
+        ]
+      },
+      {
+        "_index": "a83890f7a31dea14e1ae83c6f0afacca--elasticsearch_index_develop_node",
+        "_id": "entity:node/37145:en",
+        "_score": null,
+        "_source": {
+          "_language": "en",
+          "node_grants": [
+            "node_access_all:0"
+          ],
+          "url": [
+            "/site-622/aaa-school"
+          ],
+          "changed": [
+            "2023-12-29T12:00:35+11:00"
+          ],
+          "created": [
+            "2023-12-29T12:00:34+11:00"
+          ],
+          "test_latlong_field": [
+            "-38.196299,146.538115"
+          ],
+          "nid": [
+            37146
+          ],
+          "status": [
+            true
+          ],
+          "test_title": [
+            "Double Pin Test - Point Two"
+          ],
+          "test_item_id": [
+            "3333"
+          ],
+          "description": "Test description for double pin test - point two",
+          "type": [
+            "project_infrastructure"
+          ],
+          "uid": [
+            11547
+          ],
+          "uuid": [
+            "7c7e0a0f-fbf5-4fda-bc9a-393980fcd9ba"
+          ]
+        },
+        "sort": [
+          "AAA school"
+        ]
+      },
+      {
+        "_index": "a83890f7a31dea14e1ae83c6f0afacca--elasticsearch_index_develop_node",
+        "_id": "entity:node/37146:en",
+        "_score": null,
+        "_source": {
+          "_language": "en",
+          "node_grants": [
+            "node_access_all:0"
+          ],
+          "url": [
+            "/site-622/aaa-school"
+          ],
+          "changed": [
+            "2023-12-29T12:00:35+11:00"
+          ],
+          "created": [
+            "2023-12-29T12:00:34+11:00"
+          ],
+          "test_latlong_field": [
+            "-37.747966,142.017946"
+          ],
+          "nid": [
+            37146
+          ],
+          "status": [
+            true
+          ],
+          "test_title": [
+            "Blue Pin"
+          ],
+          "test_item_id": [
+            "44"
+          ],
+          "test_pin_color": "#0000FF",
+          "description": "Test description for blue pin",
+          "type": [
+            "project_infrastructure"
+          ],
+          "uid": [
+            11547
+          ],
+          "uuid": [
+            "7c7e0a0f-fbf5-4fda-bc9a-393980fcd9ba"
+          ]
+        },
+        "sort": [
+          "AAA school"
+        ]
+      },
+      {
+        "_index": "a83890f7a31dea14e1ae83c6f0afacca--elasticsearch_index_develop_node",
+        "_id": "entity:node/37147:en",
+        "_score": null,
+        "_source": {
+          "_language": "en",
+          "node_grants": [
+            "node_access_all:0"
+          ],
+          "url": [
+            "/site-622/aaa-school"
+          ],
+          "changed": [
+            "2023-12-29T12:00:35+11:00"
+          ],
+          "created": [
+            "2023-12-29T12:00:34+11:00"
+          ],
+          "test_latlong_field": [
+            "-37.713821,148.463101"
+          ],
+          "nid": [
+            37146
+          ],
+          "status": [
+            true
+          ],
+          "test_title": [
+            "Green Pin"
+          ],
+          "test_item_id": [
+            "5555"
+          ],
+          "test_pin_color": "#00FF00",
+          "description": "Test description for green pin",
+          "type": [
+            "project_infrastructure"
+          ],
+          "uid": [
+            11547
+          ],
+          "uuid": [
+            "7c7e0a0f-fbf5-4fda-bc9a-393980fcd9ba"
+          ]
+        },
+        "sort": [
+          "AAA school"
+        ]
+      },
+      {
+        "_index": "a83890f7a31dea14e1ae83c6f0afacca--elasticsearch_index_develop_node",
+        "_id": "entity:node/37148:en",
+        "_score": null,
+        "_source": {
+          "_language": "en",
+          "node_grants": [
+            "node_access_all:0"
+          ],
+          "url": [
+            "/site-622/bbb-school"
+          ],
+          "changed": [
+            "2023-12-29T12:00:35+11:00"
+          ],
+          "created": [
+            "2023-12-29T12:00:34+11:00"
+          ],
+          "test_latlong_field": [
+            "-37.813821,147.463101"
+          ],
+          "nid": [
+            37148
+          ],
+          "status": [
+            true
+          ],
+          "test_title": [
+            "Red Pin"
+          ],
+          "test_item_id": [
+            "6666"
+          ],
+          "test_pin_color": "#FF0000",
+          "description": "Test description for red pin",
+          "type": [
+            "project_infrastructure"
+          ],
+          "uid": [
+            11547
+          ],
+          "uuid": [
+            "8d8e1b1f-gbf5-4fda-bc9a-393980fcd9ba"
+          ]
+        },
+        "sort": [
+          "BBB school"
+        ]
+      },
+      {
+        "_index": "a83890f7a31dea14e1ae83c6f0afacca--elasticsearch_index_develop_node",
+        "_id": "entity:node/37149:en",
+        "_score": null,
+        "_source": {
+          "_language": "en",
+          "node_grants": [
+            "node_access_all:0"
+          ],
+          "url": [
+            "/site-622/ccc-school"
+          ],
+          "changed": [
+            "2023-12-29T12:00:35+11:00"
+          ],
+          "created": [
+            "2023-12-29T12:00:34+11:00"
+          ],
+          "test_latlong_field": [
+            "-38.913821,146.463101"
+          ],
+          "nid": [
+            37149
+          ],
+          "status": [
+            true
+          ],
+          "test_title": [
+            "Yellow Pin"
+          ],
+          "test_item_id": [
+            "7777"
+          ],
+          "test_pin_color": "#FFFF00",
+          "description": "Test description for yellow pin",
+          "type": [
+            "project_infrastructure"
+          ],
+          "uid": [
+            11547
+          ],
+          "uuid": [
+            "9e9f2c2g-hcf6-4fda-bc9a-393980fcd9ba"
+          ]
+        },
+        "sort": [
+          "CCC school"
+        ]
+      },
+      {
+        "_index": "a83890f7a31dea14e1ae83c6f0afacca--elasticsearch_index_develop_node",
+        "_id": "entity:node/37150:en",
+        "_score": null,
+        "_source": {
+          "_language": "en",
+          "node_grants": [
+            "node_access_all:0"
+          ],
+          "url": [
+            "/site-622/ddd-school"
+          ],
+          "changed": [
+            "2023-12-29T12:00:35+11:00"
+          ],
+          "created": [
+            "2023-12-29T12:00:34+11:00"
+          ],
+          "test_latlong_field": [
+            "-36.613821,145.463101"
+          ],
+          "nid": [
+            37150
+          ],
+          "status": [
+            true
+          ],
+          "test_title": [
+            "Purple Pin"
+          ],
+          "test_item_id": [
+            "8888"
+          ],
+          "test_pin_color": "#800080",
+          "description": "Test description for purple pin",
+          "type": [
+            "project_infrastructure"
+          ],
+          "uid": [
+            11547
+          ],
+          "uuid": [
+            "0f0g3d3h-idf7-4fda-bc9a-393980fcd9ba"
+          ]
+        },
+        "sort": [
+          "DDD school"
+        ]
+      },
+      {
+        "_index": "a83890f7a31dea14e1ae83c6f0afacca--elasticsearch_index_develop_node",
+        "_id": "entity:node/37151:en",
+        "_score": null,
+        "_source": {
+          "_language": "en",
+          "node_grants": [
+            "node_access_all:0"
+          ],
+          "url": [
+            "/site-622/eee-school"
+          ],
+          "changed": [
+            "2023-12-29T12:00:35+11:00"
+          ],
+          "created": [
+            "2023-12-29T12:00:34+11:00"
+          ],
+          "test_latlong_field": [
+            "-37.913821,144.463101"
+          ],
+          "nid": [
+            37151
+          ],
+          "status": [
+            true
+          ],
+          "test_title": [
+            "Orange Pin"
+          ],
+          "test_item_id": [
+            "9999"
+          ],
+          "test_pin_color": "#FFA500",
+          "description": "Test description for orange pin",
+          "type": [
+            "project_infrastructure"
+          ],
+          "uid": [
+            11547
+          ],
+          "uuid": [
+            "1g1h4e4i-jeg8-4fda-bc9a-393980fcd9ba"
+          ]
+        },
+        "sort": [
+          "EEE school"
+        ]
+      },
+      {
+        "_index": "a83890f7a31dea14e1ae83c6f0afacca--elasticsearch_index_develop_node",
+        "_id": "entity:node/37152:en",
+        "_score": null,
+        "_source": {
+          "_language": "en",
+          "node_grants": [
+            "node_access_all:0"
+          ],
+          "url": [
+            "/site-622/fff-school"
+          ],
+          "changed": [
+            "2023-12-29T12:00:35+11:00"
+          ],
+          "created": [
+            "2023-12-29T12:00:34+11:00"
+          ],
+          "test_latlong_field": [
+            "-38.013821,143.463101"
+          ],
+          "nid": [
+            37152
+          ],
+          "status": [
+            true
+          ],
+          "test_title": [
+            "Pink Pin"
+          ],
+          "test_item_id": [
+            "1010"
+          ],
+          "test_pin_color": "#FFC0CB",
+          "description": "Test description for pink pin",
+          "type": [
+            "project_infrastructure"
+          ],
+          "uid": [
+            11547
+          ],
+          "uuid": [
+            "2h2i5f5j-kfh9-4fda-bc9a-393980fcd9ba"
+          ]
+        },
+        "sort": [
+          "FFF school"
+        ]
+      }
+    ]
+  }
+}

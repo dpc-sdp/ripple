@@ -18,18 +18,20 @@
         <div class="rpl-container">
           <DocsHomeSection title="Getting Started">
             <div class="rpl-grid">
-              <div class="rpl-col-12 rpl-col-6-m">
-                <RplPromoCard v-bind="page.primaryCTA">
-                  <p>
-                    {{ page.primaryCTA.description }}
-                  </p>
+              <div
+                v-if="page.content?.primaryCTA"
+                class="rpl-col-12 rpl-col-6-m"
+              >
+                <RplPromoCard v-bind="page.content.primaryCTA">
+                  <p>{{ page.content.primaryCTA.description }}</p>
                 </RplPromoCard>
               </div>
-              <div class="rpl-col-12 rpl-col-6-m">
-                <RplPromoCard v-bind="page.secondaryCTA">
-                  <p>
-                    {{ page.secondaryCTA.description }}
-                  </p>
+              <div
+                v-if="page.content?.secondaryCTA"
+                class="rpl-col-12 rpl-col-6-m"
+              >
+                <RplPromoCard v-bind="page.content.secondaryCTA">
+                  <p>{{ page.content.secondaryCTA.description }}</p>
                 </RplPromoCard>
               </div>
             </div>
@@ -40,24 +42,33 @@
 
     <DocsHomeSection title="Find out more">
       <div class="rpl-grid">
-        <div class="rpl-col-12 rpl-col-6-m rpl-col-4-l">
-          <RplPromoCard v-bind="page.quickLink1">
+        <div
+          v-if="page.content?.quickLink1"
+          class="rpl-col-12 rpl-col-6-m rpl-col-4-l docs-home-col-fill"
+        >
+          <RplPromoCard v-bind="page.content.quickLink1">
             <p>
-              {{ page.quickLink1.description }}
+              {{ page.content.quickLink1.description }}
             </p>
           </RplPromoCard>
         </div>
-        <div class="rpl-col-12 rpl-col-6-m rpl-col-4-l">
-          <RplPromoCard v-bind="page.quickLink2">
+        <div
+          v-if="page.content?.quickLink2"
+          class="rpl-col-12 rpl-col-6-m rpl-col-4-l docs-home-col-fill"
+        >
+          <RplPromoCard v-bind="page.content.quickLink2">
             <p>
-              {{ page.quickLink2.description }}
+              {{ page.content.quickLink2.description }}
             </p>
           </RplPromoCard>
         </div>
-        <div class="rpl-col-12 rpl-col-12-m rpl-col-4-l">
-          <RplPromoCard v-bind="page.quickLink3">
+        <div
+          v-if="page.content?.quickLink3"
+          class="rpl-col-12 rpl-col-12-m rpl-col-4-l docs-home-col-fill"
+        >
+          <RplPromoCard v-bind="page.content.quickLink3">
             <p>
-              {{ page.quickLink3.description }}
+              {{ page.content.quickLink3.description }}
             </p>
           </RplPromoCard>
         </div>
@@ -65,7 +76,7 @@
     </DocsHomeSection>
 
     <DocsHomeSection
-      v-if="!hideModulesSection && page.modulesCTA"
+      v-if="page.content?.framework"
       title="Using Ripple in SDP sites"
     >
       <div
@@ -73,9 +84,9 @@
         :style="{ '--rpl-clr-gradient-horizontal': 'var(--rpl-clr-dark)' }"
       >
         <div class="rpl-col-12">
-          <RplPromoCard v-bind="page.framework" highlight>
+          <RplPromoCard v-bind="page.content.framework" highlight>
             <p>
-              {{ page.framework.description }}
+              {{ page.content.framework.description }}
             </p>
           </RplPromoCard>
         </div>
@@ -86,21 +97,20 @@
       <ContentRenderer
         tag="DocsContent"
         class="content-full"
-        v-if="page && !page._empty"
-        :key="page._id"
+        v-if="page.body.value.length"
+        :key="page.id"
         :value="page"
-      >
-      </ContentRenderer>
+      />
     </DocsHomeSection>
 
     <template #belowBody>
       <DocsWhatsNew
-        v-if="page.whatsNew"
-        :title="page.whatsNew.title"
-        :links="page.whatsNew.links"
+        v-if="page.content?.whatsNew"
+        :title="page.content.whatsNew.title"
+        :links="page.content.whatsNew.links"
       >
         <RplContent>
-          <p>{{ page.whatsNew.description }}</p>
+          <p>{{ page.content.whatsNew.description }}</p>
         </RplContent>
       </DocsWhatsNew>
     </template>
@@ -108,10 +118,38 @@
 </template>
 
 <script setup lang="ts">
-import { useContent, useContentHead } from '#imports'
-const { page, toc } = useContent()
-const { title, subheader, description, hideModulesSection } = useAppConfig()
-useContentHead(page)
+import type { ContentCollectionItem } from '@nuxt/content'
+
+type HomeCard = {
+  title: string
+  description: string
+  url: string
+  image?: string
+  links?: {
+    text: string
+    url: string
+  }[]
+}
+
+interface HomeContent {
+  primaryCTA?: HomeCard
+  secondaryCTA?: HomeCard
+  quickLink1?: HomeCard
+  quickLink2?: HomeCard
+  quickLink3?: HomeCard
+  framework?: HomeCard
+  whatsNew?: HomeCard
+}
+
+interface Props {
+  page: ContentCollectionItem & {
+    content?: HomeContent
+  }
+}
+
+defineProps<Props>()
+
+const { title, subheader } = useAppConfig()
 </script>
 
 <style scoped>
@@ -119,6 +157,10 @@ useContentHead(page)
   border-bottom: var(--rpl-border-1) solid var(--rpl-clr-neutral-300);
   padding-bottom: var(--rpl-sp-9);
   margin-bottom: var(--rpl-sp-9);
+}
+
+.docs-home-col-fill {
+  display: grid;
 }
 
 .docs-home-getting-started {

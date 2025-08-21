@@ -3,7 +3,6 @@ title: Statistics grid
 description: The Statistics grid component shows a summary of 2 to 8 key statistics in a grid layout.
 layout: page
 label: Core
-
 ---
 
 ## Usage

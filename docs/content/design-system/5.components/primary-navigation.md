@@ -3,7 +3,6 @@ title: Primary navigation
 description: The Primary navigation component appears as a menu sitting at the top of the page and contains links to site’s content pages. 
 layout: page
 label: Core
-
 ---
 
 ## Usage
@@ -36,7 +35,7 @@ Within the primary navigation component, the logo is centred vertically.
 #### Co-branding logos
 Primary navigation allows for co-branding when required. The maximum size a co-branded logo can appear is 40h x 140w pixels.
 
-See [logo](/design-system/styles/logo/) for guidance and requirements including co-branding.
+See [logo](/design-system/styles/logo) for guidance and requirements including co-branding.
 
 #### Navigation links 
 The primary navigation displays the top level of the site’s information architecture (IA). When the link has child pages, a chevron (a v-shaped arrow icon) displays next to the top page name. When clicked, this opens the mega menu and displays the child pages.
@@ -123,4 +122,3 @@ Primary navigation also adopts its theming from the search bar component.
 To aim to conform with [WCAG2.2 Criterion 2.5.8](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum), the primary navigation bar uses the space either side of menu items. This allows for increased touch targets and the use of the block focus state styling.
 
 > 2.5.8 Target Size (Minimum) The size of the [target](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum#dfn-target) for [pointer inputs](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum#dfn-pointer-input) is at least 24 by 24 [CSS pixels](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum#dfn-css-pixel),
-

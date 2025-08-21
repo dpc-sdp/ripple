@@ -26,7 +26,10 @@ interface Props {
   iconPosition?: 'start' | 'end'
 }
 
-withDefaults(defineProps<Props>(), { icon: '', iconPosition: 'start' })
+withDefaults(defineProps<Props>(), {
+  icon: '',
+  iconPosition: 'start'
+})
 </script>
 
 <style scoped>

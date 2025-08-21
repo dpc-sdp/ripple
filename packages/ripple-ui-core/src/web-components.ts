@@ -58,6 +58,7 @@ import { default as RplSocialShareCmp } from './components/social-share/RplSocia
 
 import { default as RplStatsGridCmp } from './components/stats-grid/RplStatsGrid.vue'
 import { default as RplStatsGridItemCmp } from './components/stats-grid/RplStatsGridItem.vue'
+import { default as RplSummaryListCmp } from './components/summary-list/RplSummaryList.vue'
 
 import { default as RplTagCmp } from './components/tag/RplTag.vue'
 import { default as RplTextLinkCmp } from './components/text-link/RplTextLink.vue'
@@ -128,6 +129,7 @@ const RplSocialShare = defineCustomElement(RplSocialShareCmp)
 
 const RplStatsGrid = defineCustomElement(RplStatsGridCmp)
 const RplStatsGridItem = defineCustomElement(RplStatsGridItemCmp)
+const RplSummaryList = defineCustomElement(RplSummaryListCmp)
 
 const RplTag = defineCustomElement(RplTagCmp)
 const RplTextLink = defineCustomElement(RplTextLinkCmp)
@@ -198,6 +200,7 @@ export { RplSocialShare }
 
 export { RplStatsGrid }
 export { RplStatsGridItem }
+export { RplSummaryList }
 
 export { RplTag }
 export { RplTextLink }
@@ -269,6 +272,7 @@ export function registerRplWebComponents() {
 
   customElements.define('rpl-stats-grid', RplStatsGrid)
   customElements.define('rpl-stats-grid-item', RplStatsGridItem)
+  customElements.define('rpl-summary-list', RplSummaryList)
 
   customElements.define('rpl-tag', RplTag)
   customElements.define('rpl-text-link', RplTextLink)

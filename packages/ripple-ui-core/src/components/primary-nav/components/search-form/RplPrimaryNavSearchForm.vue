@@ -29,7 +29,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="rpl-primary-nav__search-form">
+  <div id="search-megamenu" class="rpl-primary-nav__search-form">
     <!-- Quick links -->
     <div v-if="showQuickExit" class="rpl-primary-nav__search-form-quick-links">
       <RplPrimaryNavQuickExit />

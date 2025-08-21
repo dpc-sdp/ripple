@@ -3,7 +3,6 @@ title: Input field
 description: The Input field component lets users input a short amount of text.
 layout: page
 label: Core
-
 ---
 
 ## Usage

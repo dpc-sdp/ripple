@@ -44,7 +44,7 @@
     align-items: center;
     justify-content: flex-start;
     flex-wrap: wrap;
-    gap: var(--rpl-sp-3);
+    gap: var(--rpl-sp-2) var(--rpl-sp-3) ;
     margin-bottom: var(--rpl-sp-3);
 
     @media (--rpl-bp-l) {

@@ -3,7 +3,6 @@ title: Campaign banner
 description: The Campaign banner component draws a user's attention to promoted content.
 layout: page
 label: Core
-
 ---
 
 ## Usage

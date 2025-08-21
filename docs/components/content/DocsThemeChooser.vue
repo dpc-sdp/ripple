@@ -19,9 +19,9 @@
           value: 'dark'
         },
         {
-          id: 'default',
+          id: 'docsThemeDefault',
           label: 'vic.gov.au',
-          value: 'default'
+          value: 'docsThemeDefault'
         }
       ]"
     />
@@ -32,14 +32,10 @@
 </template>
 
 <script lang="ts" setup>
-interface Props {}
-
-const props = defineProps<Props>()
-
 const theme = ref('docsTheme1')
 
-const handleThemeChange = (val) => {
-  theme.value = val
+const handleThemeChange = (val: string) => {
+  theme.value = val === 'docsThemeDefault' ? 'default' : val
 }
 
 provide('exampleTheme', theme)

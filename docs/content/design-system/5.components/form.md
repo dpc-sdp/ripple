@@ -3,19 +3,18 @@ title: Form
 description: The Form component guides users to give information and consists of a group of related inputs or controls.
 layout: page
 label: Core
-
 ---
 
 ## Usage
 Use a form and its form input components to capture data from users. A form consists of a group of related inputs or controls. 
 
 Common form components include the:
-- [input field component](/design-system/components/input-field/)
-- [text area component](/design-system/components/text-area/)
-- [date input component](/design-system/components/date-input/)
-- [radio button component](/design-system/components/radio-button/)
-- [checkbox component](/design-system/components/checkbox/)
-- [dropdown component](/design-system/components/dropdown/).
+- [input field component](/design-system/components/input-field)
+- [text area component](/design-system/components/text-area)
+- [date input component](/design-system/components/date-input)
+- [radio button component](/design-system/components/radio-button)
+- [checkbox component](/design-system/components/checkbox)
+- [dropdown component](/design-system/components/dropdown).
 
 An input field) is for short (single-line) text entry. A text area is for longer text.
 

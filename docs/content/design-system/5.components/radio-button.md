@@ -3,7 +3,6 @@ title: Radio button
 description: The Radio button component shows a list of options, with a radio (round) button to the left of each option’s description.
 layout: page
 label: Core
-
 ---
 
 ## Usage

@@ -2,7 +2,7 @@ import { Ref } from 'vue'
 
 export interface IRplPrimaryNavLogo {
   href: string
-  src: string
+  src?: string
   printSrc?: string
   altText: string
 }
@@ -12,7 +12,7 @@ export interface IRplPrimaryNavItem {
   text: string
   url: string
   items?: IRplPrimaryNavItem[]
-  active: boolean
+  active?: boolean
 }
 
 export interface IRplPrimaryNavActiveItems {

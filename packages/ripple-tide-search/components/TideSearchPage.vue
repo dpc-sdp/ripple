@@ -3,7 +3,8 @@ import { ref, watch, computed } from 'vue'
 import {
   getActiveFilterURL,
   scrollToElementTopWithOffset,
-  useRuntimeConfig
+  useRuntimeConfig,
+  stripSiteId
 } from '#imports'
 import useSearchUI from './../composables/useSearchUI'
 import {

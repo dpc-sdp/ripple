@@ -23,12 +23,13 @@ export const getfeaturesAtMapPixel = (
 ) => {
   return map.forEachFeatureAtPixel(
     pixel,
-    (feature, layer) => {
-      if (layer.get('title') === identifier) {
-        return feature.getProperties()
-      }
+    (feature) => {
+      return feature.getProperties()
     },
-    options
+    {
+      layerFilter: (layer) => layer.get('title') === identifier,
+      ...options
+    }
   )
 }
 

@@ -3,7 +3,6 @@ title: Layer styles
 description: 
 layout: page
 label: Core
-
 ---
 
 ## Border
@@ -25,7 +24,7 @@ type: border
 ::
 
 ### Usage
-Find examples of borders that add visual consistency on the [in-page navigation](/design-system/components/in-page-navigation/), [cards](/design-system/components/card/) and [contact us](/design-system/components/contact-us/) pages. 
+Find examples of borders that add visual consistency on the [in-page navigation](/design-system/components/in-page-navigation), [cards](/design-system/components/card) and [contact us](/design-system/components/contact-us) pages. 
 
 Borders can also segment content (like on banners).
 
@@ -87,4 +86,3 @@ id: core-navigation-breadcrumbs--default-story
 hideCode: true
 ---
 ::
-

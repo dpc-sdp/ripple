@@ -18,6 +18,14 @@ Feature: Custom Collection
     And the "cslReq" network request should be made to the elasticsearch endpoint
     And the search listing layout should be "table"
 
+    Given a data table with type "search-listing-layout-table"
+    When I toggle the tables extra content row
+    Then the tables extra content should be visible
+    Then the tables extra content should contain the label "Offence location" and text "Alexandra Parade, at the intersection of Alexandra Parade and Smith Street, Fitzroy North"
+    And the dataLayer should include the following events
+      | event          | element_text | index | label         | name               | component      |
+      | open_table_row | More info    | 1     | Fitzroy North | Cameras save lives | rpl-data-table |
+
   @mockserver
   Scenario: Custom collection emits search related events for analytics
     Given the page endpoint for path "/custom-collection" returns fixture "/landingpage/custom-collection/page" with status 200
@@ -122,12 +130,55 @@ Feature: Custom Collection
     And the custom collection component should display the error "Sorry! Something went wrong. Please try again later."
 
   @mockserver
-  Scenario: No results
-    Given the page endpoint for path "/custom-collection" returns fixture "/landingpage/custom-collection" with status 200
-    Given the "/api/tide/elasticsearch/sdp_data_pipelines_scl/_search" network request is stubbed with fixture "/landingpage/custom-collection/response-no-items" and status 200 as alias "cslReq"
-    Given I visit the page "/custom-collection"
-    Then the landing page component "TideCustomCollection" should exist
-    And the custom collection component should display the error "Sorry, no results match your search. Try again with different search options or check back later."
+  Example: Renders no results or empty index component
+    Given the page endpoint for path "/" returns fixture "/landingpage/custom-collection/page" with status 200
+    And the search network request is stubbed with fixture "/landingpage/custom-collection/response-no-items" and status 200
+    When I visit the page "/"
+    Then the search listing page should have 0 results
+    And the empty index component should display "There are currently no records to display."
+
+    When I type "www" into the search input
+    And I click the search button
+    Then the custom collection no results component should display "Sorry, no results match your search."
+
+    When I toggle the search listing filters section
+    Then I click the search listing dropdown field labelled "Topic"
+    Then I click the option labelled "Bourke topic demo" in the selected dropdown
+    Then I click the search listing dropdown field labelled "Topic"
+    And I submit the search filters
+    Then the custom collection no results component should display "Sorry, no results match your search."
+
+    When I clear the search input
+    Then I submit the search filters
+    Then the custom collection no results component should display "Sorry, no results match your search."
+
+    Then I clear the search filters
+    And the empty index component should display "There are currently no records to display."
+
+  @mockserver
+  Example: Renders a custom empty index component
+    Given I load the page fixture with "/landingpage/custom-collection/page"
+    And the search network request is stubbed with fixture "/landingpage/custom-collection/response-no-items" and status 200
+    Then the custom collection results config has "emptyIndex.component" set to "TideSearchEmptyIndexExample"
+    And the page endpoint for path "/" returns the loaded fixture
+
+    When I visit the page "/"
+    Then the search listing page should have 0 results
+    And the empty index component should display "The index, it's empty!"
+
+  @mockserver
+  Example: The empty index component message can be customised
+    Given I load the page fixture with "/landingpage/custom-collection/page"
+    And the search network request is stubbed with fixture "/landingpage/custom-collection/response-no-items" and status 200
+    Then the custom collection results config has "emptyIndex.component" set to "TideSearchEmptyIndex"
+    Then the custom collection results config has "emptyIndex.props.title" set to "There is nothing to see..."
+    Then the custom collection results config has "emptyIndex.props.content" set to "Sorry about that."
+    And the page endpoint for path "/" returns the loaded fixture
+
+    When I visit the page "/"
+    Then the search listing page should have 0 results
+    And the empty index component should display "There is nothing to see..."
+    And the empty index component should display "Sorry about that."
 
   @mockserver
   Example: Should hide the search form when hideSearchForm is set

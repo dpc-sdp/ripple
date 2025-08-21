@@ -1,5 +1,5 @@
-import { RplDateRange } from './constants'
-
+import type { RplDateRange } from './constants'
+import { formatDate } from './helpers'
 /**
  * @description Output a formatted date range, but only show range if days are different
  * @param date - { from: string, to: string }
@@ -23,14 +23,10 @@ export const formatDateRange = (
       timeZone: 'Australia/Melbourne',
       ...options
     }
-    const startDate = new Intl.DateTimeFormat('en-AU', dateOpts).format(from)
-    dateOpts.year = 'numeric'
-    const startDateWithYear = new Intl.DateTimeFormat('en-AU', dateOpts).format(
-      from
-    )
-    const endDateWithYear = new Intl.DateTimeFormat('en-AU', dateOpts).format(
-      to
-    )
+    const startDateWithYear = formatDate(from, dateOpts) as string
+    const endDateWithYear = formatDate(to, dateOpts) as string
+    dateOpts.year = 'none' as '2-digit' | 'numeric' | undefined
+    const startDate = formatDate(from, dateOpts) as string
 
     // Display year on start date, if
     //   1. Different start year and end year

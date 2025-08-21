@@ -34,12 +34,16 @@ export interface indexNode {
   text: string
   url: string
   id: string
-  nid: string
+  nid?: string
   items: indexNode[] | undefined
   active: boolean | undefined
 }
 
 export type flatIndexNode = Omit<indexNode, 'items'>
+
+export interface TidePublicationMenu {
+  publication: indexNode
+}
 
 export interface TidePublicationPage extends TidePageBase {
   /**

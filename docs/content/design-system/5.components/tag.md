@@ -3,7 +3,6 @@ title: Tag
 description: The Tag component adds, and draws attention to, a category name for your content. 
 layout: page
 label: Core
-
 ---
 
 ## Usage
@@ -55,3 +54,10 @@ id: core-containers-tag--neutral
 ---
 ::
 
+### Dark
+
+::DocsExample
+---
+id: core-containers-tag--dark
+---
+::

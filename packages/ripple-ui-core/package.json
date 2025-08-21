@@ -1,7 +1,7 @@
 {
   "name": "@dpc-sdp/ripple-ui-core",
   "description": "Ripple UI Core component library",
-  "version": "2.34.0",
+  "version": "2.38.0",
   "license": "Apache-2.0",
   "repository": "https://github.com/dpc-sdp/ripple-framework",
   "files": [
@@ -47,7 +47,8 @@
     "@nuxt/kit": "catalog:",
     "@vueuse/core": "^10.9.0",
     "@vueuse/integrations": "^10.9.0",
-    "date-fns": "^2.29.3",
+    "cypress-real-events": "catalog:",
+    "date-fns": "catalog:",
     "focus-trap": "^7.4.0",
     "mitt": "^3.0.0",
     "normalize.css": "^8.0.1",
@@ -76,7 +77,6 @@
     "vite": "catalog:",
     "vite-plugin-copy": "^0.1.6",
     "vite-plugin-dts": "^2.1.0",
-    "vite-plugin-vue-svg": "^0.1.0",
     "yaml": "^2.2.2"
   }
 }

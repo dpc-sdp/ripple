@@ -14,7 +14,7 @@
     "jsx": "preserve",
     "resolveJsonModule": true,
     "baseUrl": "./packages",
-    "types": ["vite/client", "@types/jest", "@types/react"],
+    "types": ["vite/client"],
     "paths": {
       "@dpc-sdp/nuxt-ripple-preview/utils": ["nuxt-ripple-preview/utils"],
       "@dpc-sdp/ripple-tide-api/errors": ["ripple-tide-api/src/errors/errors"],

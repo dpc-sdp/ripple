@@ -1,5 +1,5 @@
 import { $fetch } from 'ofetch'
-import { ref, useRuntimeConfig } from '#imports'
+import { ref, useRuntimeConfig, useAppConfig } from '#imports'
 import { MappedCaptchaConfig } from '../types'
 
 export function useWebformSubmit(
@@ -124,7 +124,42 @@ export function useWebformSubmit(
     }
 
     try {
-      const resData = await postForm(props.formId, data, maybeCaptchaResponse)
+      // custom handlers can be defined in appConfig.ripple.form.submitHandlers to process formData before submission
+      const appConfig = useAppConfig()?.ripple as
+        | {
+            form?: {
+              submitHandlers?: Record<
+                string,
+                (formData: any, props: any) => any
+              >
+            }
+          }
+        | undefined
+      const customFormHandlers = appConfig?.form?.submitHandlers
+
+      let processedFormData = data
+
+      if (
+        customFormHandlers &&
+        typeof customFormHandlers === 'object' &&
+        Object.keys(customFormHandlers).length > 0
+      ) {
+        for (const handler of Object.values(customFormHandlers)) {
+          if (typeof handler === 'function') {
+            if (handler.constructor.name === 'AsyncFunction') {
+              processedFormData = await handler(processedFormData, props)
+            } else {
+              processedFormData = handler(processedFormData, props)
+            }
+          }
+        }
+      }
+
+      const resData = await postForm(
+        props.formId,
+        processedFormData,
+        maybeCaptchaResponse
+      )
 
       const [code, note] = resData.attributes?.notes?.split('|') || []
 

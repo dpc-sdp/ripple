@@ -3,7 +3,6 @@ title: Header
 description: The Header component introduces the purpose and content of a page.
 layout: page
 label: Core
-
 ---
 
 ## Usage

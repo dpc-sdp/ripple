@@ -19,6 +19,11 @@ Feature: Table layout
 
     Given a data table with type "search-listing-layout-table"
     Then the table should not display extra content
+    And the search listing results table should display the following
+      | Recommendation | Title               | Category                       | Status      |
+      | 1              | Review and begin    | Risk assessment and management | Implemented |
+      | 2              | Amend the Family    | Information sharing            | Implemented |
+      | 3              | Develop a workforce | Risk assessment and management | Implemented |
 
   @mockserver
   Example: A custom skeleton loader can be use for table cells items
@@ -58,6 +63,7 @@ Feature: Table layout
 
     Given a data table with type "search-listing-layout-table"
     When I toggle the tables extra content row
+    Then the tables extra content should be visible
     Then the tables extra content should contain the text "African Family Services"
     Then the tables extra content should contain the label "Funded for" and text "Multicultural Service"
     And the tables extra content should contain the label "Email", value "contact@africanfamilyservices.org.au" and link "mailto:contact@africanfamilyservices.org.au"
@@ -66,6 +72,15 @@ Feature: Table layout
     And the tables extra content should contain the text "Includes statewide service"
     And the tables extra content should contain the class "rpl-tag--dark"
     And the table row with text "Department with no extra content" should not display more information
+    And the dataLayer should include the following events
+      | event          | element_text | index | label                   | name                            | component      |
+      | open_table_row | More info    | 1     | African Family Services | Table with structure extra data | rpl-data-table |
+
+    When I toggle the tables extra content row
+    Then the tables extra content should be hidden
+    And the dataLayer should include the following events
+      | event           | element_text | index | label                   | name                            | component      |
+      | close_table_row | Less info    | 1     | African Family Services | Table with structure extra data | rpl-data-table |
 
   @mockserver
   Example: Table renders cells using core components
@@ -75,6 +90,8 @@ Feature: Table layout
     And the search network request should be called with the "/search-listing/table/request" fixture
 
     Given a data table with type "search-listing-layout-table"
+    Then the table should have the column "Funded for", with value "Multicultural Service"
+    Then the table should have the column "RAE", with value "no"
     Then the table should have the column "Email", with value "contact@africanfamilyservices.org.au" and link "mailto:contact@africanfamilyservices.org.au"
     And the table should have the column "Phone", with value "03 9602 5046" and link "tel:03 9602 5046"
     And the table should have the column "Website", with value "http://africanfamilyservices.org.au/#contact-us" and link "http://africanfamilyservices.org.au/#contact-us"

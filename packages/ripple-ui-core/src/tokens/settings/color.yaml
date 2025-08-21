@@ -42,7 +42,10 @@ clr:
       accessible:
         value: '{clr.type.primary.alt.accessible}'
   link:
-    value: '{theme.clr.link}'
+    _:
+      value: '{theme.clr.link.500}'
+    alpha:
+      value: '{theme.clr.link.alpha}'
   link-visited:
     value: '{theme.clr.link-visited}'
   focus:

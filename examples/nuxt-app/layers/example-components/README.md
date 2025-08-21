@@ -84,11 +84,11 @@ A collection of custom components for specific use cases.
     ...
     ```
 
-5. [components/global/TideSearchEmpty.vue](components/global/TideSearchEmpty.vue)<br> Testing the `empty` component slot used in `searchConfig` used to override the default message for no results, e.g.
+5. [components/global/TideSearchEmptyExample.vue](components/global/TideSearchEmptyExample.vue)<br> Testing the `empty` component slot used in `searchConfig` used to override the default message for no results, e.g.
     ```json
     "results": {
       "empty": {
-        "component": "TideSearchEmpty"
+        "component": "TideSearchEmptyExample"
       },
       ...
     ```

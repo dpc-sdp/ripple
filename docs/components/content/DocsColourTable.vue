@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import {
-  getColourOptions,
-  getColourValue,
   getColourName,
-  getColourToken
+  getColourOptions,
+  getColourToken,
+  getColourValue
 } from '#imports'
 
 interface Props {
@@ -37,7 +37,7 @@ const colours = computed(() => {
         </thead>
         <tbody>
           <tr v-for="color in colours" :key="color.name">
-            <td><Swatch :colour="`var(--${color.token})`" /></td>
+            <td><DocsSwatch :colour="`var(--${color.token})`" /></td>
             <td>{{ color.name }}</td>
             <td>{{ color.value }}</td>
             <td>{{ color.token }}</td>

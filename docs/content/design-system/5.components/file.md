@@ -3,7 +3,6 @@ title: File
 description: The File component shows a link, with additional metadata, and lets a user download a file attachment.
 layout: page
 label: Core
-
 ---
 
 ## Usage
@@ -45,7 +44,7 @@ File uses colour for:
 ::DocsThemeChooser
   ::DocsExample
   ---
-  id: core-containers-content--file
+  id: core-containers-file--default-story
   ---
   ::
 ::

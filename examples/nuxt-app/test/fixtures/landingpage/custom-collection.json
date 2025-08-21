@@ -102,6 +102,7 @@
       "id": "123",
       "title": "Cameras save lives",
       "props": {
+        "title": "Cameras save lives",
         "searchListingConfig": {
           "searchProvider": "elasticsearch",
           "index": "sdp_data_pipelines_scl",
@@ -127,6 +128,7 @@
           "layout": {
             "component": "TideSearchResultsTable",
             "props": {
+              "showExtraContent": true,
               "columns": [
                 {
                   "label": "Suburb",
@@ -140,7 +142,15 @@
                   "label": "Last annual test",
                   "objectKey": "last_annual_test"
                 }
-              ]
+              ],
+              "extraContent": {
+                "items": [
+                  {
+                    "label": "Offence location",
+                    "objectKey": "offence_location"
+                  }
+                ]
+              }
             }
           }
         }

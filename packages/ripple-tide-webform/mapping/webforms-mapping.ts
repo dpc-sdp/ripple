@@ -183,7 +183,7 @@ export const getFormSchemaFromMapping = async (
           disabled: field['#disabled'],
           // TODO: It's not clear what field we should be using for the 'label' here because it's a new requirement, setting as 'help title' for now
           label: field['#privacy_statement_heading'],
-          help: field['#privacy_statement_content'],
+          description: field['#privacy_statement_content'],
           checkboxLabel: field['#title'],
           value: field['#default_value'],
           pii: false,

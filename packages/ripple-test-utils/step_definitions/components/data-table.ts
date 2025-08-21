@@ -51,7 +51,9 @@ Then('it should have a heading', () => {
 
 Then('it should have no heading', () => {
   cy.get('@component').within(() => {
-    cy.get('table thead tr').should('not.exist')
+    cy.get('table thead').should('satisfy', ($el) => {
+      return !$el.length || !$el.is(':visible')
+    })
   })
 })
 
@@ -96,6 +98,15 @@ Then(
   (text: string) => {
     cy.get('@component').within(() => {
       cy.get('.rpl-data-table__details-content:visible').contains(text)
+    })
+  }
+)
+
+Then(
+  'the table should have the column {string}, with value {string}',
+  (label: string, value: string) => {
+    cy.get('@component').within(() => {
+      cy.get(`td[data-label="${label}"]`).contains(value)
     })
   }
 )
@@ -163,3 +174,17 @@ Then(
     })
   }
 )
+
+Then('the table should display the following', (dataTable: DataTable) => {
+  const table = dataTable.raw()
+
+  cy.get('@component').within(() => {
+    table.forEach((row: any, i: number) => {
+      cy.get('tr:visible').eq(i).as('row')
+
+      row.forEach((cell: any, j: number) => {
+        cy.get('@row').find('th, td').eq(j).contains(cell)
+      })
+    })
+  })
+})

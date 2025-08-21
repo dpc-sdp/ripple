@@ -13,7 +13,7 @@ Feature: Searching listing - Errors
     And the current date is "Fri, 02 Feb 2050 03:04:05 GMT"
     When I visit the page "/errors"
 
-    Then the no results message should show with the search term ""
+    Then the empty index component should display "There are currently no records to display."
 
     When I type "test123" into the search input
     When I click the search button

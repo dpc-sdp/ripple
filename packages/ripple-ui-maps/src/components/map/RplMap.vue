@@ -14,7 +14,6 @@ import {
   watch,
   nextTick
 } from 'vue'
-import { withDefaults, defineExpose } from '@vue/composition-api'
 import { Map } from 'ol'
 import { Zoom } from 'ol/control'
 import { Point } from 'ol/geom'

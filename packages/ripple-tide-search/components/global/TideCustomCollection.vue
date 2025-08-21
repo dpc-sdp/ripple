@@ -199,6 +199,7 @@ const {
   isBusy,
   searchError,
   searchTerm,
+  appliedSearchTerm,
   results,
   filterForm,
   appliedFilters,
@@ -245,6 +246,7 @@ const baseEvent = computed(() => {
   return {
     section: 'custom-collection',
     contextId: props.id,
+    contextName: props.title,
     name: props.title,
     index: page.value,
     label: props.locationQueryConfig?.component
@@ -455,6 +457,18 @@ const numAppliedFilters = computed(() => {
   return getActiveFiltersTally(appliedFilters.value, props.userFilters)
 })
 
+const hasAppliedSearchTerm = computed(() => {
+  const hasSearchQuery = Object.values(appliedSearchTerm.value).some(
+    (value) => value
+  )
+
+  return hasSearchQuery || locationOrGeolocation.value
+})
+
+const emptyIndexComponent = computed(() => {
+  return props.resultsConfig.emptyIndex?.component || 'TideSearchEmptyIndex'
+})
+
 const handleTabChange = (tab: TideSearchListingTab) => {
   changeActiveTab(tab.key)
   closeMapPopup()
@@ -462,7 +476,7 @@ const handleTabChange = (tab: TideSearchListingTab) => {
 
 function handleLocationSearch(payload: any) {
   locationQuery.value = payload
-  handleSearchSubmit({ type: 'suggestion' })
+  handleSearchSubmit({ type: 'suggestion', text: payload?.name })
 }
 
 const rplMapRef = ref(null)
@@ -752,10 +766,18 @@ watch(baseEvent, (newBaseEvent) => {
 
         <TideSearchResultsLoadingState :isActive="isBusy">
           <TideSearchError v-if="searchError" class="rpl-u-margin-t-8" />
-          <TideCustomCollectionNoResults
+          <div
             v-else-if="!isBusy && !results?.length"
             class="rpl-u-margin-t-8 rpl-u-margin-b-8"
-          />
+          >
+            <component
+              :is="emptyIndexComponent"
+              v-if="!numAppliedFilters && !hasAppliedSearchTerm"
+              v-bind="resultsConfig.emptyIndex?.props"
+              variant="secondary"
+            />
+            <TideCustomCollectionNoResults v-else />
+          </div>
 
           <div v-if="!searchError">
             <component
@@ -794,7 +816,15 @@ watch(baseEvent, (newBaseEvent) => {
           :initialising="!firstLoad"
         >
           <template #noresults>
-            <TideCustomCollectionNoResults v-if="!isBusy && !results?.length" />
+            <template v-if="!isBusy && !results?.length">
+              <component
+                :is="emptyIndexComponent"
+                v-if="!numAppliedFilters && !hasAppliedSearchTerm"
+                v-bind="resultsConfig.emptyIndex?.props"
+                variant="secondary"
+              />
+              <TideCustomCollectionNoResults v-else />
+            </template>
           </template>
 
           <template #sidepanel="{ activatePin }">
@@ -811,10 +841,17 @@ watch(baseEvent, (newBaseEvent) => {
               :totalResults="totalResults"
               :currentPage="page"
               :totalPages="totalPages"
+              :searchCount="searchCount"
               @paginate="handlePageChange"
             >
               <template #noresults>
-                <TideCustomCollectionNoResults />
+                <component
+                  :is="emptyIndexComponent"
+                  v-if="!numAppliedFilters && !hasAppliedSearchTerm"
+                  v-bind="resultsConfig.emptyIndex?.props"
+                  variant="secondary"
+                />
+                <TideCustomCollectionNoResults v-else />
               </template>
             </TideSearchListingResultsMapSidepanel>
           </template>
@@ -835,8 +872,16 @@ watch(baseEvent, (newBaseEvent) => {
               :totalPages="totalPages"
               @paginate="handlePageChange"
             >
-              <template #noresults> <TideCustomCollectionNoResults /> </template
-            ></TideSearchListingResultsMapSidepanel>
+              <template #noresults>
+                <component
+                  :is="emptyIndexComponent"
+                  v-if="!numAppliedFilters && !hasAppliedSearchTerm"
+                  v-bind="resultsConfig.emptyIndex?.props"
+                  variant="secondary"
+                />
+                <TideCustomCollectionNoResults v-else />
+              </template>
+            </TideSearchListingResultsMapSidepanel>
           </template>
         </TideSearchListingResultsMap>
       </template>

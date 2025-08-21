@@ -3,7 +3,6 @@ title: Date input
 description: The Date input component helps users enter a date.
 layout: page
 label: Core
-
 ---
 
 ## Usage
@@ -177,4 +176,3 @@ To create your own theme see [theming guidance for designers](/design-system/des
 The active and focus states both use the site’s focus state colour. This creates a seamless user experience. If we used a different colour, keyboard users would have colour changes between focusing on and interacting with an input field. This could be jarring or confusing to users.
 
 This occurs across all form and input elements, for a consistent experience.  
-

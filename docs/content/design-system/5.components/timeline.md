@@ -3,7 +3,6 @@ title: Timeline
 description: The Timeline component contains blocks of content displayed in a linear order.
 layout: page
 label: Core
-
 ---
 
 ## Usage
@@ -89,4 +88,3 @@ Timeline uses colour to:
 ::
 
 To create your own theme see [theming guidance for designers](/design-system/design/theming-guidance-for-designers) or [theming guidance for developers](/design-system/develop/theming).
-

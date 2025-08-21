@@ -22,7 +22,8 @@ const nuxtApp = useNuxtApp()
 const data = reactive({
   percent: 0,
   show: false,
-  canSucceed: true
+  canSucceed: true,
+  left: 0
 })
 // Local variables
 let _timer = null
@@ -30,13 +31,16 @@ let _throttle = null
 let _cut
 
 // Functions
-function clear () {
+function clear() {
   _timer && clearInterval(_timer)
   _throttle && clearTimeout(_throttle)
   _timer = null
 }
-function start () {
-  if (data.show) { return }
+
+function start() {
+  if (data.show) {
+    return
+  }
   clear()
   data.percent = 0
   data.canSucceed = true
@@ -47,14 +51,17 @@ function start () {
     startTimer()
   }
 }
-function increase (num) {
+
+function increase(num) {
   data.percent = Math.min(100, Math.floor(data.percent + num))
 }
-function finish () {
+
+function finish() {
   data.percent = 100
   hide()
 }
-function hide () {
+
+function hide() {
   clear()
   setTimeout(() => {
     data.show = false
@@ -63,7 +70,8 @@ function hide () {
     }, 400)
   }, 500)
 }
-function startTimer () {
+
+function startTimer() {
   data.show = true
   _cut = 10000 / Math.floor(props.duration)
   _timer = setInterval(() => {
@@ -83,14 +91,14 @@ onBeforeUnmount(() => clear)
   <div
     class="nuxt-progress"
     :class="{
-      'nuxt-progress-failed': !data.canSucceed,
+      'nuxt-progress-failed': !data.canSucceed
     }"
     :style="{
       width: `${data.percent}%`,
       left: data.left,
       height: `${props.height}px`,
       opacity: data.show ? 1 : 0,
-      backgroundSize: `${(100 / data.percent) * 100}% auto`,
+      backgroundSize: `${(100 / data.percent) * 100}% auto`
     }"
   />
 </template>
@@ -98,13 +106,21 @@ onBeforeUnmount(() => clear)
 <style>
 .nuxt-progress {
   position: fixed;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  width: 0%;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 0;
   opacity: 1;
-  transition: width 0.1s, height 0.4s, opacity 0.4s;
-  background: repeating-linear-gradient(to right, #00dc82 0%, #34cdfe 50%, #0047e1 100%);
+  transition:
+    width 0.1s,
+    height 0.4s,
+    opacity 0.4s;
+  background: repeating-linear-gradient(
+    to right,
+    #00dc82 0%,
+    #34cdfe 50%,
+    #0047e1 100%
+  );
   z-index: 999999;
 }
 </style>

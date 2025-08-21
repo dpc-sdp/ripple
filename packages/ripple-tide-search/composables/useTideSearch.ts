@@ -788,7 +788,9 @@ export default ({
       }
     })
 
+    await nextTick()
     searchFromRoute(route, false)
+    manualSearch.value = false
   }
 
   /**
@@ -1001,7 +1003,6 @@ export default ({
     }
 
     if (manualSearch.value) {
-      manualSearch.value = false
       return
     }
     searchFromRoute(newRoute, false)

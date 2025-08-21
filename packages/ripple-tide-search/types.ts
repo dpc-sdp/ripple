@@ -19,6 +19,8 @@ export interface AppSearchFilterConfigItem {
   label: string
   field: string
   filterType: FilterType
+  placeholder?: string
+  topicSize?: number
 }
 
 export interface FilterConfigItem {
@@ -93,9 +95,13 @@ export type TideSearchListingResultsConfig = {
    */
   layout?: TideSearchListingResultLayout
   /**
-   * @description Component to render no results layout
+   * @description Component to render when no results are found
    */
   empty?: any
+  /**
+   * @description Component to render when the index is "empty"
+   */
+  emptyIndex?: any
   /**
    * @description Component to render result items, can be either '*' for all types, or the content type name if you need to render different types of results differently
    */

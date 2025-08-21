@@ -3,7 +3,6 @@ title: Pagination
 description: The Pagination component divides your content across more than one page into smaller lists to help users navigate forward and backwards.
 layout: page
 label: Core
-
 ---
 
 ## Usage
@@ -39,7 +38,7 @@ id: core-navigation-page-links--page-links
 
 - Stack standard pagination variant links vertically.
 - Only use standard and complex variants at the bottom of the body content area.
-- Use the simple variant nested in components, for example, the [media gallery](/design-system/components/media-gallery/) or [carousel](/design-system/components/carousel/).
+- Use the simple variant nested in components, for example, the [media gallery](/design-system/components/media-gallery) or [carousel](/design-system/components/carousel).
 - Use ellipses to replace any skipped pages.
 - Use pagination to avoid an infinite scroll of results, which can be a problem for keyboard users.
 

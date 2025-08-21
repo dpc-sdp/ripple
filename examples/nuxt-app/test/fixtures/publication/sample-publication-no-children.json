@@ -1,0 +1,115 @@
+{
+  "title": "Publication with no pages",
+  "changed": "2025-06-26T11:47:06+10:00",
+  "created": "2025-06-26T11:45:33+10:00",
+  "type": "publication",
+  "nid": "cecd683a-c34b-4613-ac06-0d4147cf1a42",
+  "_sectionId": "8888",
+  "sidebar": {
+    "contacts": [],
+    "relatedLinks": [],
+    "socialShareNetworks": [
+      "Facebook",
+      "X",
+      "LinkedIn"
+    ]
+  },
+  "status": "published",
+  "topicTags": [
+    {
+      "text": "Another Demo Topic",
+      "url": "/topic/another-demo-topic"
+    }
+  ],
+  "tags": [],
+  "topic": {
+    "text": "Another Demo Topic",
+    "url": "/topic/another-demo-topic"
+  },
+  "header": {
+    "title": "Publication with no pages",
+    "summary": "",
+    "links": {
+      "title": "",
+      "items": [],
+      "more": null
+    },
+    "backgroundImageCaption": "",
+    "theme": "default",
+    "logoImage": null,
+    "backgroundImage": null,
+    "cornerTop": null,
+    "cornerBottom": null,
+    "primaryAction": null,
+    "secondaryAction": null,
+    "secondaryActionLabel": ""
+  },
+  "siteSection": {
+    "id": 8888,
+    "name": "Demo Site",
+    "siteOverrides": {
+      "showQuickExit": null,
+      "featureFlags": {}
+    }
+  },
+  "meta": {
+    "url": "/publication-no-pages",
+    "langcode": "en",
+    "description": "...",
+    "additional": [
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "title",
+          "content": "Publication with no pages | Single Digital Presence Content Management System"
+        }
+      },
+      {
+        "tag": "link",
+        "attributes": {
+          "rel": "canonical",
+          "href": "https://develop.content.reference.sdp.vic.gov.au/publication-no-pages"
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "property": "og:locale",
+          "content": "en-AU"
+        }
+      }
+    ],
+    "keywords": "",
+    "image": null
+  },
+  "showContentRating": true,
+  "url": "/publication-no-pages",
+  "summary": "...",
+  "showTopicTags": false,
+  "showInPageNav": false,
+  "inPageNavHeadingLevel": "h2",
+  "details": {
+    "author": "Demo Organisation 1",
+    "date": "2025-06-26T10:00:00+10:00",
+    "copyright": null
+  },
+  "chapters": [],
+  "bodyComponents": [
+    {
+      "uuid": "0207a1c0-d937-4cd2-820a-f0f8795c246f",
+      "component": "TideLandingPageContent",
+      "id": "1902",
+      "internalAnchors": [],
+      "props": {
+        "html": "<p>Magna Lorem ea cupidatat proident in cillum velit ex adipisicing proident qui sit commodo nulla. Quis cupidatat aute proident. Aliqua exercitation esse tempor ullamco laborum sit. Deserunt laboris laborum laboris eiusmod non culpa qui.</p><p>Ullamco culpa nulla eiusmod proident dolor incididunt reprehenderit cupidatat ad incididunt qui commodo. Fugiat sunt est magna esse pariatur aute aliquip amet eu pariatur magna exercitation proident. Nisi qui tempor non Lorem. Pariatur cillum reprehenderit Lorem minim dolor esse. Elit nisi pariatur reprehenderit exercitation excepteur deserunt.</p>"
+      }
+    }
+  ],
+  "publication": {
+    "text": "Publication with no pages",
+    "url": "/publication-no-pages",
+    "id": "cecd683a-c34b-4613-ac06-0d4147cf1a42",
+    "documents": []
+  },
+  "showLastUpdated": true
+}

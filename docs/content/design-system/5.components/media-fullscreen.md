@@ -3,7 +3,6 @@ title: Media fullscreen
 description: The Media fullscreen component is an icon, with text instructions, beneath your media items for users to interact with so they can view one or more related media items in fullscreen.
 layout: page
 label: Core
-
 ---
 
 ## Usage
@@ -14,7 +13,7 @@ Fullscreen view includes the media item's title and caption.
 
 Media fullscreen takes over the viewport completely. A transparent background helps users to know they are still on the page. When a user closes fullscreen view, they return to that same item in the gallery.
 
-See [media](/design-system/components/media/) for information relating to file type, ratios and focal point.
+See [media](/design-system/components/media) for information relating to file type, ratios and focal point.
 
 ::DocsExample
 ---

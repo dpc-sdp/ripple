@@ -340,6 +340,12 @@ Then(`the list view should be displayed`, () => {
   }).should('be.visible')
 })
 
+Then(`the map view should be displayed`, () => {
+  cy.get('.rpl-map', {
+    timeout: 12000
+  }).should('be.visible')
+})
+
 When(
   `I click the link in the list view with label {string}`,
   (label: string) => {
@@ -348,3 +354,24 @@ When(
       .click()
   }
 )
+
+Then(
+  'I scroll to the maps side panel item titled {string}',
+  (title: string) => {
+    cy.get('.tide-search-sidepanel--desktop').as('sidePanel')
+
+    cy.get('@sidePanel')
+      .find('button')
+      .contains(title)
+      .then(($el) => {
+        $el.get(0).scrollIntoView()
+        expect($el.is(':visible')).to.be.true
+      })
+  }
+)
+
+Then('the maps side panel should be scrolled to the top', () => {
+  cy.get('.tide-search-sidepanel--desktop').then(($el) => {
+    expect($el[0].scrollTop).to.equal(0)
+  })
+})

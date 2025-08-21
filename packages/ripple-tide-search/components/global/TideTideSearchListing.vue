@@ -42,7 +42,7 @@ const searchResultsMappingFn = (item: any): TideSearchListingResultItem => {
 <template>
   <TideSearchListingPage
     :site="site"
-    :contentPage="(page as any)"
+    :contentPage="page as any"
     :title="page.title"
     :introText="page.introText"
     :searchListingConfig="page.config.searchListingConfig"
@@ -52,8 +52,9 @@ const searchResultsMappingFn = (item: any): TideSearchListingResultItem => {
     :userFilters="page.config.userFilters"
     :resultsLayout="resultsConfig?.layout"
     :noResultsLayout="resultsConfig?.empty"
+    :emptyIndexLayout="resultsConfig?.emptyIndex"
     :belowFilterComponent="page.config?.layoutConfig?.belowFilter"
-    :searchResultsMappingFn="(searchResultsMappingFn as any)"
+    :searchResultsMappingFn="searchResultsMappingFn as any"
     :sortOptions="page.config.sortOptions"
   />
 </template>

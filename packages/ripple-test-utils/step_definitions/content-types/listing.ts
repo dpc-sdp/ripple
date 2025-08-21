@@ -644,6 +644,19 @@ Then(
 )
 
 Then(
+  'the search listing curation {string} is set to {string}',
+  (key: string, value: string) => {
+    cy.get('@pageFixture').then((response) => {
+      set(
+        response,
+        `config.curationConfig.${key}`,
+        isNaN(Number(value)) ? value : Number(value)
+      )
+    })
+  }
+)
+
+Then(
   'the search listing config has the following excludes added to source',
   (dataTable: DataTable) => {
     const table = dataTable.hashes()

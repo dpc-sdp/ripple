@@ -25,6 +25,7 @@ export interface TideSiteData {
     printSrc: string
   }
   showQuickExit: boolean
+  homePageId: string
   cornerGraphic?: {
     top?: TideImageField
     bottom?: TideImageField
@@ -96,7 +97,7 @@ export interface TidePageBase {
   title: string
   created: string
   changed: string
-  nid: number
+  nid: string
   background: string
   lang: string
   topicTags: TideTopicTag[]
@@ -271,6 +272,13 @@ export interface IRplFeatureFlags {
    * @description Option to override the default URL the search for redirects to
    */
   primaryNavSearchUrl?: string
+  /**
+   * @description Add a login link to the primary navigation
+   */
+  primaryNavLogin?: {
+    url: string
+    text?: string
+  }
   /**
    * @description Option to disable the display of coloured/rainbow stripes on top of promo cards
    */

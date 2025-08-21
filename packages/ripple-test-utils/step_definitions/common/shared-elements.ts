@@ -246,6 +246,12 @@ Given('the site wide quick exit is enabled', () => {
   })
 })
 
+Given('the site home page is set to {string}', (id: string) => {
+  cy.get('@siteFixture').then((response) => {
+    set(response, 'homePageId', id)
+  })
+})
+
 Given('the site section quick exit is enabled', () => {
   cy.get('@pageFixture').then((response) => {
     set(response, 'siteSection.siteOverrides.showQuickExit', true)
@@ -431,3 +437,19 @@ Then('all content images should be {string} loaded', (type: string) => {
     cy.wrap($img).should('have.attr', 'loading', type)
   })
 })
+
+Then(
+  'the site logo should be have the following attributes',
+  (dataTable: DataTable) => {
+    const table = dataTable.hashes()
+
+    cy.get('.rpl-primary-nav__secondary-logo-link').as('logo')
+
+    cy.get('@logo').should('have.attr', 'href', table[0].url)
+    cy.get('@logo')
+      .find('img')
+      .should('have.attr', 'src')
+      .and('contain', table[0].src)
+    cy.get('@logo').find('img').should('have.attr', 'alt', table[0].alt)
+  }
+)

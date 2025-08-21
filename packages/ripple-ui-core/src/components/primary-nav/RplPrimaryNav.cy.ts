@@ -1,5 +1,6 @@
 /// <reference types="cypress" />
 // @ts-expect-error vue sfc import
+import { h } from 'vue'
 import RplPrimaryNav from './RplPrimaryNav.vue'
 import { RplPrimaryNavItems } from './fixtures/sample'
 import { bpMin } from '../../lib/breakpoints'
@@ -50,15 +51,41 @@ describe('RplPrimaryNav', () => {
       cy.get('@closeMenu').click()
       cy.get('@menu').should('not.exist')
     })
+
+    it('tabs to an action when user actions are present', () => {
+      cy.mount(RplPrimaryNav, {
+        props,
+        slots: {
+          userAction: h('a', { href: '/login' }, 'Login')
+        }
+      })
+
+      cy.get('[aria-label="Open Menu"]').focus()
+
+      cy.focused().realPress('Enter')
+      cy.realPress('Tab')
+      cy.realPress('Tab')
+
+      cy.focused().should('match', 'a').should('contain.text', 'Login')
+      cy.realPress('Tab')
+      cy.realPress('Tab')
+      cy.focused()
+        .should('match', 'button')
+        .should('contain.text', 'First level A')
+
+      cy.focused().realPress(['Shift', 'Tab']).realPress(['Shift', 'Tab'])
+      cy.focused().contains('Menu')
+    })
   })
 
   context('Desktop', () => {
     beforeEach(() => {
       cy.viewport(bpMin.l, 1000)
-      cy.mount(RplPrimaryNav, { props })
     })
 
     it('toggles the menu items submenu', () => {
+      cy.mount(RplPrimaryNav, { props })
+
       cy.get(
         '.rpl-primary-nav__nav-bar-item .rpl-primary-nav__nav-bar-action--toggle'
       )
@@ -77,6 +104,8 @@ describe('RplPrimaryNav', () => {
     })
 
     it('navigates through mega menu sub levels', () => {
+      cy.mount(RplPrimaryNav, { props })
+
       const level = (val: number) =>
         `.rpl-primary-nav__mega-menu-list--level-${val}`
       const levelToggle = (val: number) =>
@@ -102,6 +131,8 @@ describe('RplPrimaryNav', () => {
     })
 
     it('toggles the display of the search form', () => {
+      cy.mount(RplPrimaryNav, { props })
+
       cy.get('[aria-label="Open Search"]').as('openSearch')
       cy.get('@openSearch').should('contain', 'Search')
       cy.get('@openSearch').should('have.attr', 'aria-expanded', 'false')
@@ -125,6 +156,8 @@ describe('RplPrimaryNav', () => {
     })
 
     it('megamenu can be navigated with the keyboard', () => {
+      cy.mount(RplPrimaryNav, { props })
+
       cy.contains('button', 'First level A').focus()
       cy.focused().should('have.attr', 'aria-expanded', 'false')
 
@@ -185,6 +218,42 @@ describe('RplPrimaryNav', () => {
         .realPress('Tab')
 
       cy.focused().should('match', 'button').should('have.text', 'Second level')
+
+      // Switching open mega menus with clicks and tabs
+      cy.contains('button', 'First level D').as('lastItem')
+      cy.get('@lastItem').click()
+      cy.focused().realPress('Tab')
+      cy.focused().realPress('Tab')
+      cy.focused().realPress('Tab')
+      cy.focused()
+        .should('match', 'button')
+        .should('contain.text', 'Second level D')
+    })
+
+    it('tabs to menu when user actions are present', () => {
+      props.items.pop()
+      cy.mount(RplPrimaryNav, {
+        props: {
+          ...props,
+          items: props.items
+        },
+        slots: {
+          userAction: h('a', { href: '/login' }, 'Login')
+        }
+      })
+
+      cy.contains('button', 'First level A').focus()
+
+      cy.focused().realPress('Enter')
+      cy.realPress('Tab')
+      cy.realPress('Tab')
+
+      cy.focused().should('match', 'a').should('contain.text', 'First level A')
+
+      cy.focused().realPress(['Shift', 'Tab'])
+      cy.focused()
+        .should('match', 'button')
+        .should('contain.text', 'First level A')
     })
   })
 })

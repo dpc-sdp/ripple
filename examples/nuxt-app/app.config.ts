@@ -130,6 +130,27 @@ export default defineAppConfig({
               filter: queryFilters
             }
           }
+        },
+        exampleQueryCurationsFunction: ({ searchTerm, curations }) => {
+          return {
+            bool: {
+              should: [
+                {
+                  multi_match: {
+                    query: searchTerm?.q,
+                    fields: ['title', 'content']
+                  }
+                },
+                {
+                  terms: {
+                    [curations.key]: [...curations.items, 999],
+                    boost: 2
+                  }
+                }
+              ],
+              minimum_should_match: 1
+            }
+          }
         }
       },
       locationDSLTransformFunctions: {

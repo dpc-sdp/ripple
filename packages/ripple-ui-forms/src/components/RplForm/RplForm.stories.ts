@@ -283,11 +283,12 @@ export const DefaultStory: Story = {
         ]
       },
       {
-        $formkit: 'RplFormDateSelect',
+        $formkit: 'RplFormDatePicker',
         multiple: true,
         id: 'birthdate',
         name: 'birthdate',
         label: 'When is your birthday?',
+        columnClasses: 'rpl-col-12 rpl-col-5-m',
         help: '<p>The date you were born</p>',
         validation: 'required|date_before:1999-12-25',
         validationMessages: {

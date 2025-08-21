@@ -12,18 +12,14 @@
     </template>
     <template #primaryNav>
       <slot name="primaryNav">
-        <RplPrimaryNav
-          :primaryLogo="{
-            altText: 'Victoria government logo',
-            href: '/'
-          }"
-          :secondaryLogo="site?.siteLogo"
-          :items="site?.menus.menuMain || []"
+        <TidePrimaryNav
+          :siteLogo="site?.siteLogo"
+          :items="site?.menus.menuMain"
           :showQuickExit="site?.showQuickExit"
           :showSearch="!featureFlags?.disablePrimaryNavSearch"
           :searchUrl="featureFlags?.primaryNavSearchUrl"
-        >
-        </RplPrimaryNav>
+          :loginLink="featureFlags?.primaryNavLogin"
+        />
       </slot>
     </template>
     <template #breadcrumbs>

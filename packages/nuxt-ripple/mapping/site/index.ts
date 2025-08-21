@@ -1,6 +1,7 @@
 import {
   getImageFromField,
   getBody,
+  getField,
   getBodyFromField,
   getMediaPath,
   getLinkFromField,
@@ -13,6 +14,7 @@ import {
   includes as siteAlertsIncludes
 } from './alerts/site-alerts-mapping.js'
 import processSiteSocialLinks from '../utils/processSiteSocialLinks.js'
+import sanitizeHtml from 'sanitize-html'
 
 export default {
   mapping: {
@@ -21,7 +23,11 @@ export default {
     _src: (src: any) =>
       process.env.NODE_ENV === 'development' ? src : undefined,
     siteAlerts: siteAlertsMapping,
-    slogan: (src) => getBodyFromField(src, 'field_site_slogan'),
+    slogan: (src) =>
+      sanitizeHtml(getBodyFromField(src, 'field_site_slogan', ''), {
+        allowedTags: [],
+        allowedAttributes: {}
+      }),
     favicon: (src) => getImageFromField(src, 'field_site_favicon'),
     appIcon: (src) => getImageFromField(src, 'field_site_app_icon'),
     siteLogo: (src) => {
@@ -29,14 +35,14 @@ export default {
         return {
           href: '/',
           src: getMediaPath(src, 'field_site_logo'),
-          altText:
-            src.field_site_logo.meta?.alt || src.field_site_name,
+          altText: src.field_site_logo.meta?.alt || src.field_site_name,
           printSrc: getMediaPath(src, 'field_print_friendly_logo')
         }
       }
 
       return null
     },
+    homePageId: (src: any) => getField(src, 'field_site_homepage.id'),
     showQuickExit: 'field_site_show_exit_site',
     acknowledgementHeader: (src: any) => {
       if (src.field_prominence_ack_to_country) {

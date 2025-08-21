@@ -52,7 +52,8 @@ export const getColorSwatches = (path: string[] | string) => {
 export const getColorSwatch = (path: string) => {
   const match = get(tokens, path)
   if (!match) return null
-  const value = getVal(match.value)
+  // If array of tokens matches, use the default _
+  const value = getVal(match.value ? match.value : match._.value)
   return {
     ...match,
     var: getVarName(path),

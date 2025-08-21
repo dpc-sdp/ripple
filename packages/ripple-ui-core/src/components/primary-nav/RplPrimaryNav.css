@@ -93,3 +93,10 @@ html {
     }
   }
 }
+
+.rpl-primary-nav__icon-link {
+  display: inline-flex;
+  gap: var(--rpl-sp-2);
+  align-items: center;
+  padding-bottom: var(--rpl-sp-1);
+}

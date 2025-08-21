@@ -20,15 +20,26 @@ export function usePrimaryNavFocus(element: Ref, key: string) {
     }
   })
 
+  const isVisible = (el) => {
+    if (!el) return false
+
+    const { display, visibility } = window.getComputedStyle(el)
+
+    return (
+      display !== 'none' && visibility !== 'hidden' && el.offsetParent !== null
+    )
+  }
+
   const forceFocus = (selector: string): boolean => {
     const element = document.querySelector<HTMLInputElement>(selector)
+    const focusable = isVisible(element)
 
-    if (element) {
+    if (focusable) {
       element?.focus()
       setFocus('')
     }
 
-    return Boolean(element)
+    return focusable
   }
 
   return {

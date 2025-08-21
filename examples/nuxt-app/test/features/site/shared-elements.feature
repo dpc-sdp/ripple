@@ -10,6 +10,15 @@ Feature: Shared site elements
     Then the page title should be "Demo Landing Page | vic.gov.au"
 
   @mockserver
+  Scenario: Site logo
+    Given the site endpoint returns fixture "/site/primary-nav-wrap" with status 200
+    And the page endpoint for path "/" returns fixture "/landingpage/home" with status 200
+    Given I visit the page "/"
+    Then the site logo should be have the following attributes
+      | url   | alt           | src                         |
+      | /home | Some alt text | https://placehold.co/140x40 |
+
+  @mockserver
   Scenario: Quick Exit (default: disabled site wide)
     Given the site endpoint returns fixture "/site/shared-elements" with status 200
     And the page endpoint for path "/" returns fixture "/landingpage/home" with status 200
@@ -77,7 +86,6 @@ Feature: Shared site elements
       | text              | url |
       | Home              | /   |
       | Demo Landing Page |     |
-
 
   @mockserver
   Scenario: Breadcrumbs (root page)

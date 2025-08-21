@@ -1,7 +1,7 @@
 {
   "name": "Test site",
   "shortName": "Testing",
-  "slogan": "<p>About my test site</p>",
+  "slogan": "About my test site",
   "acknowledgementHeader": "Test hero acknowledgement",
   "favicon": {
     "src": "/placeholders/logo.png",

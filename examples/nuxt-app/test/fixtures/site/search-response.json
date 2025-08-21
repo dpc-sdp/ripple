@@ -1,149 +1,274 @@
 {
-  "meta": {
-    "alerts": [],
-    "warnings": [],
-    "precision": 2,
-    "engine": {
-      "name": "content-vic-production",
-      "type": "elasticsearch"
-    },
-    "page": {
-      "current": 1,
-      "total_pages": 1,
-      "total_results": 5,
-      "size": 10
-    },
-    "request_id": "3940dd8bb5a8a54484a2487ffb5fa272"
+  "took": 1,
+  "timed_out": false,
+  "_shards": {
+    "total": 5,
+    "successful": 5,
+    "skipped": 0,
+    "failed": 0
   },
-  "results": [
-    {
-      "field_landing_page_summary": {
-        "snippet": "Explore local TAFE and training providers across Melbourne’s south-eastern region"
-      },
-      "title": {
-        "raw": ["TAFE and training providers in Melbourne’s south-east"]
-      },
-      "type": { "raw": ["landing_page"] },
-      "url": {
-        "raw": [
-          "/site-4/tafes-training-providers-melbourne-south-eastern-region"
-        ]
-      },
-      "changed": { "raw": ["2024-05-23T02:59:08+00:00"] },
-      "_meta": {
-        "engine": "content-vic-production",
-        "score": 1.0,
-        "id": "entity:node/37241:en"
-      },
-      "id": { "raw": "entity:node/37241:en" }
+  "hits": {
+    "total": {
+      "value": 5,
+      "relation": "eq"
     },
-    {
-      "field_landing_page_summary": {
-        "snippet": "With TAFE, it&#39;s now easier than ever to learn new skills for your chosen career or retrain to get the job of your dreams"
-      },
-      "title": { "raw": ["Time for a career change?"] },
-      "type": { "raw": ["landing_page"] },
-      "url": { "raw": ["/site-4/career-change"] },
-      "changed": { "raw": ["2024-05-23T00:06:15+00:00"] },
-      "_meta": {
-        "engine": "content-vic-production",
-        "score": 1.0,
-        "id": "entity:node/38798:en"
-      },
-      "id": { "raw": "entity:node/38798:en" }
-    },
-    {
-      "field_landing_page_summary": {
-        "snippet": "The Camps, Sports and Excursions Fund provides payments for eligible students to attend school camps, excursions, and sports and outdoor education"
-      },
-      "title": { "raw": ["Camps, Sports and Excursions Fund"] },
-      "type": { "raw": ["grant"] },
-      "url": { "raw": ["/site-4/camps-sports-and-excursions-fund"] },
-      "changed": { "raw": ["2024-05-23T04:49:38+00:00"] },
-      "_meta": {
-        "engine": "content-vic-production",
-        "score": 1.0,
-        "id": "entity:node/24023:en"
-      },
-      "id": { "raw": "entity:node/24023:en" }
-    },
-    {
-      "field_landing_page_summary": {
-        "snippet": "This program aims to enhance the quality of the movement environment in early childhood education settings"
-      },
-      "title": { "raw": ["Movement Environment Rating Scale (MOVERS)"] },
-      "type": { "raw": ["landing_page"] },
-      "url": { "raw": ["/site-4/movement-environment-rating-scale-movers"] },
-      "changed": { "raw": ["2024-03-01T08:25:05+00:00"] },
-      "_meta": {
-        "engine": "content-vic-production",
-        "score": 1.0,
-        "id": "entity:node/30713:en"
-      },
-      "id": { "raw": "entity:node/30713:en" }
-    },
-    {
-      "field_landing_page_summary": {
-        "snippet": "Learn more about our sponsors"
-      },
-      "title": { "raw": ["Sponsors of the 2024 Victorian Training Awards"] },
-      "type": { "raw": ["landing_page"] },
-      "url": { "raw": ["/site-4/2024-victorian-training-award-sponsors"] },
-      "changed": { "raw": ["2024-05-23T05:11:21+00:00"] },
-      "_meta": {
-        "engine": "content-vic-production",
-        "score": 1.0,
-        "id": "entity:node/17913:en"
-      },
-      "id": { "raw": "entity:node/17913:en" }
-    }
-  ],
-  "facets": {
-    "field_topic_name": [
+    "max_score": null,
+    "hits": [
       {
-        "type": "value",
-        "data": [
-          {
-            "value": "Education",
-            "count": 2548
-          },
-          {
-            "value": "Governance",
-            "count": 775
-          },
-          {
-            "value": "Equality",
-            "count": 740
-          },
-          {
-            "value": "Communities",
-            "count": 692
-          },
-          {
-            "value": "Health & social support",
-            "count": 600
-          },
-          {
-            "value": "Traffic & transport",
-            "count": 313
-          },
-          {
-            "value": "Environment, water & energy",
-            "count": 302
-          },
-          {
-            "value": "Law & justice",
-            "count": 263
-          },
-          {
-            "value": "Business & the workplace",
-            "count": 170
-          },
-          {
-            "value": "Jobs & careers",
-            "count": 165
-          }
-        ]
+        "_index": "a83890f7a31dea14e1ae83c6f0afacca--elasticsearch_index_develop_node",
+        "_id": "entity:node/37374:en",
+        "_score": 24.617725,
+        "_ignored": ["field_paragraph_body.keyword"],
+        "_source": {
+          "_language": "en",
+          "node_grants": ["node_access_all:0"],
+          "url": ["/site-4/tafe-teacher"],
+          "changed": ["2024-12-19T12:15:40+11:00"],
+          "created": ["2024-01-09T14:36:02+11:00"],
+          "field_content_category": [1328],
+          "field_content_category_name": ["Guide/guidance"],
+          "field_landing_page_intro_text": [
+            "Find out more about working as a TAFE teacher and the possible pathways to job opportunities."
+          ],
+          "field_landing_page_summary": [
+            "Find out more about working as a TAFE teacher and the possible pathways to job opportunities."
+          ],
+          "field_media_image_absolute_path": [
+            "https://develop.content.vic.gov.au/sites/default/files/2024-04/vsa-irp-TAFE-teacher.jpg"
+          ],
+          "field_node_primary_csite": [4],
+          "field_node_site": [4, 1910],
+          "field_paragraph_body": [
+            "TAFE teachers deliver practical and work-oriented courses at institutes, polytechnics and other training providers. What is a TAFE teacher? TAFE teachers teach vocational education training courses (VET) to students. VET courses help students to gain employment, advance their career or prepare for further study. In this role you can educate and support students to achieve their career goals. Depending on your vocation, you may teach apprentices or trainees. Find out more about TAFE teachers and these related jobs on the Victorian Skills Gateway: primary school teacher private tutor or teacher teachers’ aide training and development professional . Related training courses Explore these related TAFE and training courses on the Victorian Skills Gateway : English language teaching training and assessment training design and development vocational education and training . You may be eligible for government funding to help pay for your course. Median salary The median weekly earnings for vocational education teachers in Australia is $1,886. Source: Jobs and Skills Australia Note this salary is current as of January 2025 and is indicative only. A range of salaries apply to different roles across the industry.",
+            "Job demand in Victoria Below are the employment projections for vocational education teacher jobs in Victoria. Figures show the number of workers in 2024 and the new workers expected to enter the workforce by 2027 and 2034. ‘New workers expected’ accounts for workers adding new jobs to the economy and replacing retirees over the next 3 and 10 years. These projections are estimates only. There will be additional jobs available as people move between jobs and industries. Region Workers 2024 New workers expected by 2027 New workers expected by 2034 Victoria 9,139 1,109 4,440 Melbourne – inner metropolitan 2,093 294 1,090 Melbourne – inner south-east metropolitan 658 67 270 Melbourne – southern metropolitan 687 84 327 Melbourne – northern metropolitan 1,073 144 593 Melbourne – eastern metropolitan 1,340 142 597 Melbourne – western metropolitan 825 137 527 Ballarat and surrounds (Central Highlands) 226 27 103 Bendigo, Echuca and surrounds (Loddon Campaspe) 288 34 122 Geelong, Colac and surrounds (Barwon) 624 84 339 Gippsland 401 43 164 Horsham and surrounds (Wimmera Southern Mallee) 54 <10 18 Mildura, Swan Hill and surrounds (Mallee) 168 <10 50 Shepparton, Seymour and surrounds (Goulburn) 183 19 66 Wangaratta, Wodonga and surrounds (Ovens Murray) 362 27 123 Warrnambool, Hamilton and surrounds (Great South Coast) 158 <10 52 Source: Victorian Skills Authority Employment Projections Dashboard",
+            "Career stories",
+            "Resources to plan your next steps Visit our education and training services industry profile to find out about: what it’s like to work in education and training services , and some of the jobs you could do training and skills to work in the industry, and financial assistance to help pay for your course help getting a job in education and training services, and industry job projections for Victoria other free resources and advice to plan your training and career. Also visit our Working with children and young people working with children and young people industry profile .",
+            "Explore growing industries in your region"
+          ],
+          "field_tags": [26],
+          "field_tags_name": ["Students"],
+          "field_tags_path": ["/tags/students"],
+          "field_tags_uuid": ["3409b3d7-49ac-4ef2-a0e1-3abdbb6b7ff9"],
+          "field_topic": [15],
+          "field_topic_name": ["Jobs & careers"],
+          "field_topic_path": ["/topic/jobs-careers"],
+          "field_topic_uuid": ["a37de422-1309-4f5f-adde-59cece33c371"],
+          "langcode": ["en"],
+          "nid": [37374],
+          "status": [true],
+          "title": ["TAFE teacher"],
+          "type": ["landing_page"],
+          "uid": [11442],
+          "uuid": ["33211264-9f3d-4282-8276-2e5f60340b0b"]
+        },
+        "sort": [24.617725, 1734570940000]
+      },
+      {
+        "_index": "a83890f7a31dea14e1ae83c6f0afacca--elasticsearch_index_develop_node",
+        "_id": "entity:node/25503:en",
+        "_score": 24.299944,
+        "_ignored": ["field_paragraph_body.keyword"],
+        "_source": {
+          "_language": "en",
+          "node_grants": ["node_access_all:0"],
+          "url": ["/site-4/tafe-governance"],
+          "changed": ["2025-05-30T14:11:37+10:00"],
+          "created": ["2022-06-14T11:56:52+10:00"],
+          "field_content_category": [1309, 1311],
+          "field_content_category_name": ["Legislation", "Policy"],
+          "field_landing_page_intro_text": [
+            "Victoria’s TAFEs are established under the Education and Training Reform Act 2006."
+          ],
+          "field_landing_page_summary": [
+            "Victoria’s TAFEs are established under the Education and Training Reform Act 2006. By the Act, the Minister and the governing body of each TAFE exercise specific powers about governance."
+          ],
+          "field_node_primary_csite": [4],
+          "field_node_site": [4, 1036],
+          "field_paragraph_body": [
+            "Victoria’s TAFE institutes are established under the Education and Training Reform Act 2006 (the Act). By the Act, the Minister and the governing body of each institute exercise specific powers about governance. TAFE institutes are also subject to the Public Administration Act 2004 .",
+            "Ministerial directions Ministerial directions and guidelines may be issued by the Minister to clarify the management, reporting and other responsibilities of TAFE institute boards, and to give direction about the employment of staff, the charging of fees or other specific matters. Executive memoranda may also be issued to support the directions.",
+            "More information"
+          ],
+          "field_paragraph_summary": [
+            "An annual agreement between the Minister for Skills and TAFE and Victoria’s TAFE Network which sets out the strategic objectives, priority activities and outcomes expected of the TAFE Network for the year ahead."
+          ],
+          "field_paragraph_title": ["TAFE Network Statement of Priorities"],
+          "field_topic": [10],
+          "field_topic_name": ["Education"],
+          "field_topic_path": ["/topic/education"],
+          "field_topic_uuid": ["3764c1dc-9475-43cc-a483-96bec239c4f7"],
+          "langcode": ["en"],
+          "nid": [25503],
+          "status": [true],
+          "title": ["TAFE governance"],
+          "type": ["landing_page"],
+          "uid": [9462],
+          "uuid": ["1bbc8861-671d-46c6-9321-f653ab20c062"]
+        },
+        "sort": [24.299944, 1748578297000]
+      },
+      {
+        "_index": "a83890f7a31dea14e1ae83c6f0afacca--elasticsearch_index_develop_node",
+        "_id": "entity:node/11873:en",
+        "_score": 24.299944,
+        "_ignored": ["field_paragraph_body.keyword"],
+        "_source": {
+          "_language": "en",
+          "node_grants": ["node_access_all:0"],
+          "url": ["/site-4/tafe-toolkit"],
+          "changed": ["2024-09-19T12:24:21+10:00"],
+          "created": ["2020-05-25T09:43:20+10:00"],
+          "field_content_category": [1328],
+          "field_content_category_name": ["Guide/guidance"],
+          "field_landing_page_intro_text": [
+            "Making it easier for TAFEs to navigate funding and approval processes, procurement requirements and the delivery of infrastructure projects."
+          ],
+          "field_landing_page_summary": [
+            "The TAFE Project Management Toolkit is designed to help TAFEs navigate the funding and approval, procurement and delivery phases of their infrastructure projects."
+          ],
+          "field_node_primary_csite": [4],
+          "field_node_site": [4, 485],
+          "field_paragraph_body": [
+            "This toolkit will help you understand best practice processes and compliance requirements for TAFE infrastructure projects and guide you through the phases of a project's lifecycle – from confirming the project as an organisational priority to benefits realisation post-delivery. Starting a new project Start by identifying the project need and establishing an investment case to secure funding, before procuring and appointing a contractor to deliver the works.",
+            "Additional resources Consider the governance and resourcing requirements, applicable key government policies and project controls to help monitor the status and report on the project throughout its lifecycle.",
+            "I need to: Establish a project need Establish a case for investment Design process Develop design documentation Cost planning Prepare a cost plan Use of specialised consultants Appoint a consultant"
+          ],
+          "field_topic": [10],
+          "field_topic_name": ["Education"],
+          "field_topic_path": ["/topic/education"],
+          "field_topic_uuid": ["3764c1dc-9475-43cc-a483-96bec239c4f7"],
+          "langcode": ["en"],
+          "nid": [11873],
+          "status": [true],
+          "title": ["TAFE Toolkit"],
+          "type": ["landing_page"],
+          "uid": [7131],
+          "uuid": ["1fcb8d3f-9d71-4e43-be97-82da75689227"]
+        },
+        "sort": [24.299944, 1726712661000]
+      },
+      {
+        "_index": "a83890f7a31dea14e1ae83c6f0afacca--elasticsearch_index_develop_node",
+        "_id": "entity:node/35261:en",
+        "_score": 24.153976,
+        "_ignored": ["field_paragraph_accordion_body.keyword"],
+        "_source": {
+          "_language": "en",
+          "node_grants": ["node_access_all:0"],
+          "url": ["/site-4/find-my-local-tafe"],
+          "changed": ["2025-02-24T12:19:10+11:00"],
+          "created": ["2023-10-02T17:02:39+11:00"],
+          "field_content_category": [1420],
+          "field_content_category_name": ["Organisation profile"],
+          "field_landing_page_contact_name": [
+            "Contact the TAFE and Training Line for information about careers and courses"
+          ],
+          "field_landing_page_intro_text": [
+            "Victoria's TAFE network has campuses at over 80 locations across the state."
+          ],
+          "field_landing_page_summary": [
+            "Victoria's TAFE network has campuses at over 80 locations across the state."
+          ],
+          "field_media_image_absolute_path": [
+            "https://develop.content.vic.gov.au/sites/default/files/2024-05/find-local-tafe.png"
+          ],
+          "field_node_primary_csite": [4],
+          "field_node_site": [4, 1036],
+          "field_paragraph_accordion_body": [
+            "  Bendigo: 23 Mundy Street, Bendigo 3550 Bendigo: Charleston Road, Bendigo 3550 Castlemaine: 65 Templeton Street, Castlemaine 3450 Echuca: Cnr Hare and Darling Streets, Echuca 3564  Visit Bendigo TAFE website",
+            "  Box Hill: 465 Elgar Road, Box Hill 3128 Lilydale: Jarlo Drive, Lilydale 3140 Melbourne: 253 Flinders Lane, Melbourne 3000 Visit Box Hill Institute website",
+            "  Berwick: 25 Kangan Drive, Berwick 3806 Dandenong: 311 Lonsdale Street, Dandenong 3175 Cranbourne: New Holland Drive, Cranbourne 3977 Dandenong: 121 Stud Road, Dandenong 3175 Frankston: Fletcher Road, Frankston 3199 Rosebud: Boneo Road, Rosebud 3939 Wonthaggi: Cnr Bass Highway and South Dudley Road, Wonthaggi 3995 Visit Chisholm Institute website ",
+            "  Ballarat: University Drive, Mount Helen, Ballarat 3350 Ballarat: Lydiard Street South, Ballarat 3350 Horsham: Baillie Street, Horsham 3400 Mount Rowan: Rose Hill Road, Mount Rowan 3352 Wendouree: Gillies Street, Wendouree 3350 Visit Federation University Australia (Federation TAFE) website ",
+            "  Benalla: 57 Samaria Road, Benalla 3672 Seymour: Wallis Street, Seymour 3660 Shepparton: 290 – 300 Archer Street, Shepparton 3630 Shepparton: Wanganui Road, Shepparton 3630 Shepparton:  152 – 200 Fryers Street, Shepparton 3630 Wangaratta: Docker Street, Wangaratta 3677 Werribee: 3 Research Close, Werribee 3030  Visit Goulburn Ovens Institute of TAFE (GOTAFE) website ",
+            "  Chadstone: 41 Drummond Street, Chadstone 3148 East Malvern: 1 – 49 Batesford Road, East Malvern 3145 Glen Waverley: 595 Waverley Road, Glen Waverley 3150 Melbourne: Level 3 206 – 218 Bourke Street, Melbourne 3000 Moorabbin: 488 South Road, Moorabbin 3189 North Melbourne: 200 Arden Street, North Melbourne 3051 Southbank: 332 St Kilda Road, Southbank 3006 Visit Holmesglen Institute website ",
+            "  Broadmeadows: Pearcedale Parade, Broadmeadows 3047 Docklands: 1 Batmans Hill Drive, Docklands 3008 Essendon: 38 Buckley Street, Essendon 3040 Moonee Ponds: 21 – 31 Hall Street, Moonee Ponds 3039 Richmond: 85 Cremorne Street, Richmond 3121 Visit Kangan Institute website ",
+            "  Broadmeadows: 60 Belfast Street, Broadmeadows 3047 Collingwood: 20 Otter Street, Collingwood 3066 Epping: Cnr Cooper Street and Dalton Road, Epping 3076 Fairfield: Yarra Bend Road, Fairfield 3078 Greensborough: 61 Civic Drive, Greensborough 3088 Heidelberg West: Cnr Bell Street and Waterdale Road, Heidelberg West 3081 Prahran: 144 High Street, Prahran 3181 Preston: 77 St Georges Road, Preston 3072 Visit Melbourne Polytechnic website ",
+            "  Brunswick: 25 Dawson Street, Brunswick 3056 Bundoora: Plenty Road, Bundoora 3083 Melbourne: 124 La Trobe Street, Melbourne 3000 Visit RMIT University website",
+            "  Colac: 54A Bromfield Street, Colac 3250 Glenormiston South: 333 Glenormiston Road, Glenormiston South 3265 Hamilton: 200 Ballarat Road, Hamilton 3300 Portland: 154 Hurd Street, Portland 3305 Warrnambool: Princes Highway, Warrnambool 3280 Warrnambool: 197 – 205 Timor Street, Warrnambool 3280 Visit South West Institute of TAFE (SWTAFE) website ",
+            "  Mildura: 453 Benetook Avenue, Mildura 3500 Swan Hill: 64 Sea Lake-Swan Hill Road, Swan Hill 3585 Visit Sunraysia Institute of TAFE (SuniTAFE) website",
+            "  Croydon: 12 – 50 Norton Road, Croydon 3136 Hawthorn: John Street, Hawthorn 3122 Wantirna: 369 Stud Road, Wantirna 3140 Visit Swinburne University of Technology website",
+            "  Bairnsdale: 48 Main Street, Bairnsdale 3875 Kalimna West: 27 Scriveners Road, Kalimna West 3909 Leongatha: Nerrena Road, Leongatha 3953 Morwell: Cnr Princes Drive and Monash Way, Morwell 3840 Sale: 75 Desailly Street, Sale 3850 Traralgon: Cnr Princes Highway and Franklin Street, Traralgon 3844 Warragul: 116-118 Queen Street, Warragul 3820 Newborough: Monash Road, Newborough 3825 Visit TAFE Gippsland website  ",
+            "  Colac: 173 Queen Street, Colac 3250 East Geelong: Boundary Road, East Geelong 3219 Geelong: 2 Fenwick Street, Geelong 3220 Hoppers Crossing: 195 Old Geelong Road, Hoppers Crossing 3029 Werribee: 9 Bridge Street, Werribee 3030 Werribee: 180 Princes Campus, Werribee 3030 Werribee: 24 Watton Street, Werribee 3030 Visit The Gordon website  ",
+            "  Footscray: Ballarat Road, Footscray 3011 Footscray: Cnr Nicholson and Buckley Streets, Footscray 3011 Melbourne: 300 Flinders Street, Melbourne 3000 Melbourne: 370 Little Lonsdale Street (VU City Tower) and 295 Queen Street, Melbourne 3000 St Albans: McKechnie Street, St Albans 3021 Sunshine: 460 Ballarat Road, Sunshine 3020 Werribee: Hoppers Lane, Werribee 3030 Visit Victoria University website",
+            "  Melbourne: 555 La Trobe Street, Melbourne 3000 Visit William Angliss Institute website  ",
+            "  Barnawartha North: 45 Albertson Road, Barnawartha North 3691 West Wodonga: 87 McKoy Street, West Wodonga 3690 Visit Wodonga TAFE website  "
+          ],
+          "field_paragraph_accordion_name": [
+            "Bendigo TAFE",
+            "Box Hill Institute",
+            "Chisholm Institute",
+            "Federation University Australia (Federation TAFE)",
+            "Goulburn Ovens Institute of TAFE (GOTAFE)",
+            "Holmesglen Institute",
+            "Kangan Institute",
+            "Melbourne Polytechnic",
+            "RMIT University",
+            "South West Institute of TAFE (SWTAFE)",
+            "Sunraysia Institute of TAFE (SuniTAFE)",
+            "Swinburne University of Technology",
+            "TAFE Gippsland",
+            "The Gordon Institute of TAFE (The Gordon)",
+            "Victoria University",
+            "William Angliss Institute",
+            "Wodonga TAFE"
+          ],
+          "field_paragraph_body": ["Map of TAFE campus locations"],
+          "field_paragraph_title": ["List of TAFE campus locations (A–Z)"],
+          "field_topic": [10],
+          "field_topic_name": ["Education"],
+          "field_topic_path": ["/topic/education"],
+          "field_topic_uuid": ["3764c1dc-9475-43cc-a483-96bec239c4f7"],
+          "langcode": ["en"],
+          "nid": [35261],
+          "status": [true],
+          "title": ["Find a TAFE"],
+          "type": ["landing_page"],
+          "uid": [11343],
+          "uuid": ["d3e08061-505f-4ddc-8608-16e7de07d115"]
+        },
+        "sort": [24.153976, 1740359950000]
+      },
+      {
+        "_index": "a83890f7a31dea14e1ae83c6f0afacca--elasticsearch_index_develop_node",
+        "_id": "entity:node/35266:en",
+        "_score": 24.022497,
+        "_ignored": ["field_paragraph_body.keyword"],
+        "_source": {
+          "_language": "en",
+          "node_grants": ["node_access_all:0"],
+          "url": ["/site-4/about-tafe-victoria"],
+          "changed": ["2024-06-21T10:59:55+10:00"],
+          "created": ["2023-10-02T23:51:37+11:00"],
+          "field_content_category": [1420],
+          "field_content_category_name": ["Organisation profile"],
+          "field_landing_page_contact_name": [
+            "Contact the TAFE and Training Line for information about careers and courses."
+          ],
+          "field_landing_page_intro_text": [
+            "We help Victorians get the skills they need to kickstart their career, upskill or change career pathways."
+          ],
+          "field_landing_page_summary": [
+            "We help Victorians get the skills they need to kickstart their career, upskill or change career pathways through our network of leading training providers."
+          ],
+          "field_node_primary_csite": [4],
+          "field_node_site": [4, 1036],
+          "field_paragraph_body": [
+            "TAFE Victoria represents a network of 16 leading training providers, including 12 TAFE institutes and 4 dual-sector universities.  TAFE Victoria is managed by the Office of TAFE Coordination and Delivery, part of the Department of Jobs, Skills, Industry and Regions.",
+            "Courses, training providers and occupations Courses listed on TAFE Victoria and the Victorian Skills Gateway are either regulated qualifications under the Australian Qualifications Framework or short training programs comprising units of competency from regulated qualifications. All training providers listed on TAFE Victoria are registered under the Australian Skills Quality Authority or the Victorian Registration and Qualifications Authority. Course and provider data are sourced from the department, the Australian Course Information Register and training.gov.au. Occupations are classified based on the job title and the associated duties. The classification used for the Victorian Skills Gateway is the Australian Bureau of Statistics and Australian and New Zealand Standard Classification of Occupations. Each occupation is classified to an industry which reflects the primary activity of the organisation in the state. Classifications have been assigned according to the ABS Australian and New Zealand Standard Industrial Classification. Regions where a specific occupation is located are based on the region’s share of Victorian employment for the specified occupation. "
+          ],
+          "field_topic": [10],
+          "field_topic_name": ["Education"],
+          "field_topic_path": ["/topic/education"],
+          "field_topic_uuid": ["3764c1dc-9475-43cc-a483-96bec239c4f7"],
+          "langcode": ["en"],
+          "nid": [35266],
+          "status": [true],
+          "title": ["About TAFE Victoria"],
+          "type": ["landing_page"],
+          "uid": [11343],
+          "uuid": ["067eb23c-8622-4466-a436-b75c1443d78a"]
+        },
+        "sort": [24.022497, 1718931595000]
       }
     ]
   }

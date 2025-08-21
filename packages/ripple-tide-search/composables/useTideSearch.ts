@@ -63,12 +63,9 @@ export default ({
   const { public: config } = useRuntimeConfig()
   const route: RouteLocation = useRoute()
   const appConfig = useAppConfig()
-  const index = searchListingConfig.index || config.tide.appSearch.engineName
 
-  const searchprovider = searchListingConfig.searchProvider || 'app-search'
-  const searchEndpoint =
-    searchprovider === 'elasticsearch' ? `_search` : `elasticsearch/_search`
-  const searchUrl = `${config.apiUrl}/api/tide/${searchprovider}/${index}/${searchEndpoint}`
+  const index = searchListingConfig.index || config.tide.elasticsearch.index
+  const searchUrl = `${config.apiUrl}/api/tide/elasticsearch/${index}/_search`
 
   // Need to cache the current path on first load to check if we're navigating to another page when the route changes
   const initialPath = route.path

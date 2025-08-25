@@ -47,8 +47,16 @@
 </template>
 
 <script setup lang="ts">
-import { formatDate, useRuntimeConfig } from '#imports'
-import { computed, onMounted } from 'vue'
+import {
+  formatDate,
+  useRuntimeConfig,
+  useFetch,
+  trackError,
+  getSingleResultValue,
+  useNuxtApp,
+  stripSiteId
+} from '#imports'
+import { computed, ref } from 'vue'
 import { IContentCollectionDisplay } from '../../../mapping/components/content-collection/content-collection-mapping'
 import { stripMediaBaseUrl } from '@dpc-sdp/ripple-tide-api/utils'
 
@@ -107,21 +115,17 @@ const results = ref(null)
 const index = config.tide.elasticsearch.index
 const searchUrl = `${config.apiUrl}/api/tide/elasticsearch/${index}/_search`
 
-const getCollectionItems = async () => {
-  try {
-    const searchResponse = await $fetch(searchUrl, {
-      method: 'POST',
-      body: props.searchQuery
-    })
+const { data, error: fetchError } = await useFetch(searchUrl, {
+  method: 'POST',
+  body: props.searchQuery
+})
 
-    results.value = searchResponse?.hits?.hits?.map(searchResultsMappingFn)
-  } catch (e) {
-    trackError(e)
-    error.value = e
-  } finally {
-    searchComplete.value = true
-  }
+if (fetchError.value) {
+  trackError(fetchError.value)
+  error.value = fetchError.value
+} else {
+  results.value = data.value?.hits?.hits?.map(searchResultsMappingFn)
 }
 
-onMounted(getCollectionItems)
+searchComplete.value = true
 </script>

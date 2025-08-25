@@ -1,0 +1,114 @@
+{
+  "title": "Redirect form",
+  "changed": "2022-12-08T12:05:35+11:00",
+  "created": "2022-12-01T11:36:44+11:00",
+  "type": "landing_page",
+  "nid": "48cc390c-3952-48b4-8b61-d6eacb10a7e6",
+  "sidebar": {
+    "contacts": [],
+    "relatedLinks": [],
+    "whatsNext": [],
+    "socialShareNetworks": ["Facebook", "X", "LinkedIn"],
+    "siteSectionNav": null
+  },
+  "topicTags": [
+    {
+      "text": "Demo Topic",
+      "url": "/topic/demo-topic"
+    }
+  ],
+  "summary": "A simple form",
+  "showHeroAcknowledgement": false,
+  "showInPageNav": false,
+  "showHeroImageCaption": false,
+  "showTopicTags": true,
+  "inPageNavHeadingLevel": "h2",
+  "background": "default",
+  "header": {
+    "title": "Redirect form",
+    "summary": "",
+    "links": {
+      "title": "",
+      "items": [],
+      "more": null
+    },
+    "backgroundImageCaption": "",
+    "theme": "default",
+    "logoImage": null,
+    "backgroundImage": null,
+    "cornerTopImage": null,
+    "cornerBottomImage": null,
+    "primaryAction": null,
+    "secondaryAction": null,
+    "secondaryActionLabel": ""
+  },
+  "primaryCampaign": null,
+  "secondaryCampaign": null,
+  "headerComponents": [],
+  "bodyComponents": [
+    {
+      "uuid": "7c8c065a-7212-4b56-9869-e8e38e762457",
+      "component": "TideLandingPageWebForm",
+      "id": 1930,
+      "title": null,
+      "props": {
+        "title": "A redirecting form",
+        "formId": "redirect_form",
+        "hideFormOnSubmit": false,
+        "redirectFormUrl": "/form-submitted",
+        "successMessageTitle": "Redirecting...",
+        "successMessageHTML": "Thank you! Your response has been submitted.",
+        "errorMessageTitle": "Form not submitted",
+        "errorMessageHTML": "We are experiencing a server error. Please try again, otherwise contact us.",
+        "schema": [
+          {
+            "$formkit": "RplFormText",
+            "key": "name",
+            "name": "name",
+            "label": "Name",
+            "id": "redirect_form_name",
+            "validation": [
+              [ "length", 0, 255 ],
+              [ "required" ]
+            ],
+            "validationMessages": {
+              "required": "What is your name?",
+              "length": "You can enter a maximum of 255 characters"
+            }
+          },
+          {
+            "$formkit": "RplFormEmail",
+            "key": "email",
+            "name": "email",
+            "label": "Email",
+            "id": "redirect_form_email",
+            "validation": [["email"], ["required"]],
+            "validationMessages": {
+              "required": "Email is required",
+              "accepted": "Email is required",
+              "email": "Email must be a valid email address"
+            }
+          },
+          {
+            "$formkit": "RplFormActions",
+            "key": "actions",
+            "name": "submit",
+            "variant": "filled",
+            "id": "redirect_form_actions",
+            "displayResetButton": false,
+            "validation": [],
+            "validationMessages": {
+              "required": "Submit is required",
+              "accepted": "Submit is required"
+            }
+          }
+        ],
+        "captchaConfig": {
+          "enabled": false,
+          "siteKey": "",
+          "siteIdentifier": ""
+        }
+      }
+    }
+  ]
+}

@@ -8,6 +8,7 @@ interface Props {
   title?: string
   formId: string
   hideFormOnSubmit: boolean
+  redirectFormUrl?: string
   successMessageTitle?: string
   successMessageHTML: string
   errorMessageTitle?: string
@@ -20,12 +21,15 @@ interface Props {
 const props = withDefaults(defineProps<Props>(), {
   title: undefined,
   hideFormOnSubmit: false,
+  redirectFormUrl: undefined,
   successMessageTitle: 'Form submitted',
   errorMessageTitle: 'Form not submitted',
   schema: undefined,
   captchaConfig: null,
   hasSidebar: false
 })
+
+const { public: config } = useRuntimeConfig()
 
 const honeypotId = `${props.formId}-important-email`
 
@@ -43,13 +47,16 @@ watch(
   () => submissionState.value.status,
   async (newStatus, oldStatus) => {
     if (oldStatus === 'submitting' && newStatus === 'success') {
-      await nextTick()
-      if (serverSuccessRef.value) {
-        serverSuccessRef.value.focus()
+      if (props.redirectFormUrl) {
+        await navigateTo(props.redirectFormUrl.replace(config.siteUrl, ''))
+      } else {
+        await nextTick()
+        if (serverSuccessRef.value) {
+          serverSuccessRef.value.focus()
+        }
+        // Need to reset captcha because some captchas won't allow using the same captcha challenge token twice
+        useResetCaptcha(captchaWidgetId.value, props.captchaConfig)
       }
-
-      // Need to reset captcha because some captchas won't allow using the same captcha challenge token twice
-      useResetCaptcha(captchaWidgetId.value, props.captchaConfig)
     }
   }
 )

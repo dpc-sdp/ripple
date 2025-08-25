@@ -48,7 +48,7 @@
 
 <script setup lang="ts">
 import { formatDate, useRuntimeConfig } from '#imports'
-import { computed } from 'vue'
+import { computed, onMounted } from 'vue'
 import { IContentCollectionDisplay } from '../../../mapping/components/content-collection/content-collection-mapping'
 import { stripMediaBaseUrl } from '@dpc-sdp/ripple-tide-api/utils'
 
@@ -107,17 +107,21 @@ const results = ref(null)
 const index = config.tide.elasticsearch.index
 const searchUrl = `${config.apiUrl}/api/tide/elasticsearch/${index}/_search`
 
-try {
-  const searchResponse = await $fetch(searchUrl, {
-    method: 'POST',
-    body: props.searchQuery
-  })
+const getCollectionItems = async () => {
+  try {
+    const searchResponse = await $fetch(searchUrl, {
+      method: 'POST',
+      body: props.searchQuery
+    })
 
-  results.value = searchResponse?.hits?.hits?.map(searchResultsMappingFn)
-} catch (e) {
-  trackError(e)
-  error.value = e
-} finally {
-  searchComplete.value = true
+    results.value = searchResponse?.hits?.hits?.map(searchResultsMappingFn)
+  } catch (e) {
+    trackError(e)
+    error.value = e
+  } finally {
+    searchComplete.value = true
+  }
 }
+
+onMounted(getCollectionItems)
 </script>

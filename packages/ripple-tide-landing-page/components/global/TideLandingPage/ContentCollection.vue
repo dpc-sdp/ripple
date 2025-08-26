@@ -79,8 +79,9 @@ const cardClasses = computed(() =>
     : 'rpl-col-12 rpl-col-6-s rpl-col-4-m'
 )
 
+const { $app_origin, $config } = useNuxtApp()
+
 const searchResultsMappingFn = (item): any => {
-  const { $app_origin, $config } = useNuxtApp()
   const rawUpdated = getSingleResultValue(item._source?.changed)
   const rawImage = getSingleResultValue(
     item._source?.field_media_image_absolute_path
@@ -117,14 +118,15 @@ const searchUrl = `${config.apiUrl}/api/tide/elasticsearch/${index}/_search`
 
 const { data, error: fetchError } = await useFetch(searchUrl, {
   method: 'POST',
-  body: props.searchQuery
+  body: props.searchQuery,
+  transform: (rawData) => rawData.hits?.hits?.map(searchResultsMappingFn)
 })
 
 if (fetchError.value) {
   trackError(fetchError.value)
   error.value = fetchError.value
 } else {
-  results.value = data.value?.hits?.hits?.map(searchResultsMappingFn)
+  results.value = data.value
 }
 
 searchComplete.value = true

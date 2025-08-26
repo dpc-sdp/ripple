@@ -63,7 +63,8 @@ const searchConfig: TideSearchListingConfig = {
         'field_paragraph_body',
         'summary_processed',
         'field_paragraph_summary',
-        'field_event_details_event_locality'
+        'field_event_details_event_locality',
+        'field_paragraph_accordion_body'
       ]
     }
   },

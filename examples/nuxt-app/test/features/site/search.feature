@@ -4,8 +4,9 @@ Feature: Site search
     Given the "/api/tide/elasticsearch/**/_search" search request is stubbed with fixture "/site/search-response" and status 200 as alias "siteSearchReq"
 
   @mockserver
-  Example: Display and manage site search results
+  Example: Default search - Display and manage site search results
     Given the site endpoint returns fixture "/site/reference" with status 200
+    Given the page endpoint for path "/search" returns fixture "/errors/404" with status 404
 
     When I visit the page "/search?q=demo"
 
@@ -44,7 +45,8 @@ Feature: Site search
     And the search results heading should not be displayed
 
   @mockserver
-  Example: Overrides site search content types with feature flag
+  Example: Default search - Overrides site search content types with feature flag
+    Given the page endpoint for path "/search" returns fixture "/errors/404" with status 404
     Then I load the site fixture with "/site/reference"
     And the feature flag "search.contentTypes.grant" is set to "false"
     And the feature flag "search.contentTypes.product" is set to "true"
@@ -56,18 +58,25 @@ Feature: Site search
     Then the network request "siteSearchReq" should be called with the "/site/search-request-content-types" fixture
 
   @mockserver
-  Example: Search bar max input length
+  Example: Default search - Search bar max input length
     Given the site endpoint returns fixture "/site/reference" with status 200
+    And the page endpoint for path "/search" returns fixture "/errors/404" with status 404
     When I visit the page "/search"
     Then the search input should be have a max length of 128
     And the search results heading should not be displayed
 
   @mockserver
-  Example: View search results analytics event
+  Example: Default search - View search results analytics event
     Given the site endpoint returns fixture "/site/reference" with status 200
+    And the page endpoint for path "/search" returns fixture "/errors/404" with status 404
     When I visit the page "/search?q=testQuery123&topic=Governance"
     And the dataLayer should include the following events
       | event               | name   | component   | platform_event | index | filters          | label        |
       | view_search_results | Search | tide-search | search         | 1     | topic=Governance | testQuery123 |
 
-
+  @mockserver
+  Example: The default site search page can be overridden by a custom search listing page
+    Given the site endpoint returns fixture "/site/reference" with status 200
+    And the page endpoint for path "/search" returns fixture "/search-listing/list/page" with status 200
+    When I visit the page "/search"
+    Then the page title should be "Search listing list | Test site"

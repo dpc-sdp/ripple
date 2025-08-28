@@ -1,7 +1,7 @@
 {
   "name": "@dpc-sdp/nuxt-ripple",
   "description": "Nuxt module for integrating Ripple and Tide",
-  "version": "2.38.0",
+  "version": "2.39.0",
   "license": "Apache-2.0",
   "main": "./nuxt.config.ts",
   "repository": "https://github.com/dpc-sdp/ripple-framework",
@@ -20,6 +20,7 @@
     "@nuxtjs/robots": "^3.0.0",
     "@vueuse/core": "^9.13.0",
     "change-case": "^4.1.2",
-    "defu": "^6.1.2"
+    "defu": "^6.1.2",
+    "sanitize-html": "^2.17.0"
   }
 }

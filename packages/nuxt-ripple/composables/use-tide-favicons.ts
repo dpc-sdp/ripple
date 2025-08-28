@@ -12,7 +12,7 @@ export default (site: TideSiteData, theme: { 'rpl-clr-primary'?: string }) => {
     id: siteUrl,
     name: site?.name,
     short_name: site?.shortName || '',
-    description: site?.slogan?.replace(/<[^>]*>|<|>/g, ''),
+    description: site?.slogan || '',
     start_url: siteUrl,
     icons: site.appIcon?.src
       ? [

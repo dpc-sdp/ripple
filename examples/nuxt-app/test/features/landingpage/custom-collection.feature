@@ -4,7 +4,6 @@ Feature: Custom Collection
 
   Background:
     Given the site endpoint returns fixture "/site/reference" with status 200
-    And the search autocomplete request is stubbed with "/search-listing/suggestions/none" fixture
     Given I am using a "macbook-16" device
 
   @mockserver
@@ -238,48 +237,3 @@ Feature: Custom Collection
 
     When I visit the page "/filter-only"
     Then the custom collection component results count should be hidden
-
-  @mockserver
-  Example: Autocomplete suggestions are disabled by default
-    Given the page endpoint for path "/custom-collection-suggestions" returns fixture "/landingpage/custom-collection/page" with status 200
-    And the search network request is stubbed with fixture "/landingpage/custom-collection/response" and status 200
-
-    When I visit the page "/custom-collection-suggestions"
-    Then I type "The" into the custom collection input
-    And the search suggestions should not be displayed
-
-  @mockserver
-  Example: Autocomplete suggestions can be enabled
-    Given I load the page fixture with "/landingpage/custom-collection/page"
-    And the search autocomplete request is stubbed with "/landingpage/custom-collection/response-suggestions" fixture
-    And the custom collection config has "suggestions.enabled" set to "true"
-    And the search network request is stubbed with fixture "/landingpage/custom-collection/response" and status 200
-    Then the page endpoint for path "/custom-collection-suggestions" returns the loaded fixture
-
-    When I visit the page "/custom-collection-suggestions"
-    Then I type "gover" into the custom collection input
-    Then the search autocomplete request should be called with the "/landingpage/custom-collection/request-suggestions" fixture
-    And the search suggestions displayed should include
-      | govern            |
-      | government        |
-      | government agency |
-
-  @mockserver
-  Example: Autocomplete minimum characters can be customised
-    Given I load the page fixture with "/landingpage/custom-collection/page"
-    And the search autocomplete request is stubbed with "/landingpage/custom-collection/response-suggestions" fixture
-    And the custom collection config has "suggestions.enabled" set to "true"
-    And the custom collection config has "suggestions.minCharacters" set to "5"
-    And the search network request is stubbed with fixture "/landingpage/custom-collection/response" and status 200
-    Then the page endpoint for path "/custom-collection-suggestions" returns the loaded fixture
-
-    When I visit the page "/custom-collection-suggestions"
-    Then I type "gov" into the custom collection input
-    Then the search suggestions should not be displayed
-
-    When I type "er" into the custom collection input
-    Then the search autocomplete request should be called with the "/landingpage/custom-collection/request-suggestions" fixture
-    And the search suggestions displayed should include
-      | govern            |
-      | government        |
-      | government agency |

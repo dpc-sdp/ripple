@@ -1,10 +1,18 @@
+import {
+  standardiseLocationIndexName,
+  localityDataIndex
+} from '../utils/locationDatasets'
+
 export default async (
   query: string,
-  suggestionsIndex: string = 'vic-postcode-localities',
+  suggestionsIndex: string = localityDataIndex,
   suggestionsKey: string = 'name',
   mapResultsFnName?: string
 ) => {
-  const searchUrl = `/api/tide/app-search/${suggestionsIndex}/elasticsearch/_search`
+  const index = standardiseLocationIndexName(suggestionsIndex)
+
+  const searchUrl = `/api/tide/elasticsearch/${index}/_search`
+
   const queryDSL = {
     query: {
       bool: {

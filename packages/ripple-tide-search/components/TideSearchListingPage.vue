@@ -81,10 +81,6 @@ const props = withDefaults(defineProps<Props>(), {
         reset: 'Reset',
         placeholder: 'Enter a search term'
       },
-      suggestions: {
-        key: 'title',
-        enabled: true
-      },
       showFiltersOnLoad: false,
       showFiltersOnly: false,
       filtersInSidebar: false,
@@ -144,12 +140,9 @@ const filtersMobileClass = ref('hidden')
 const {
   isBusy,
   searchError,
-  getSuggestions,
-  clearSuggestions,
   searchTerm,
   appliedSearchTerm,
   results,
-  suggestions,
   filterForm,
   appliedFilters,
   resetFilters,
@@ -308,21 +301,7 @@ const handleFilterReset = (event: rplEventPayload) => {
 
 const handleUpdateSearchTerm = (term: string) => {
   searchTerm.value.q = term
-  getDebouncedSuggestions(term)
 }
-
-const getDebouncedSuggestions = useDebounceFn((term: string) => {
-  if (props.searchListingConfig?.suggestions?.enabled) {
-    const minCharacters =
-      props.searchListingConfig?.suggestions?.minCharacters || 3
-
-    if (term?.length >= minCharacters) {
-      getSuggestions()
-    } else if (suggestions.value?.length) {
-      clearSuggestions()
-    }
-  }
-}, 300)
 
 const handleUpdateSearch = (term: string | Record<string, any>) => {
   if (term && typeof term === 'object') {
@@ -471,7 +450,6 @@ const cornerTopGraphic = computed(() => {
               :input-label="searchListingConfig?.labels?.submit"
               :inputValue="searchTerm"
               :placeholder="searchListingConfig?.labels?.placeholder"
-              :suggestions="suggestions"
               :global-events="false"
               :handle-submit="handleSearchSubmit"
               :handle-update="handleUpdateSearch"
@@ -483,7 +461,6 @@ const cornerTopGraphic = computed(() => {
               :input-label="searchListingConfig?.labels?.submit"
               :inputValue="searchTerm.q"
               :placeholder="searchListingConfig?.labels?.placeholder"
-              :suggestions="suggestions"
               :global-events="false"
               :maxlength="128"
               @submit="handleSearchSubmit"

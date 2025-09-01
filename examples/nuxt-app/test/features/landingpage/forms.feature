@@ -199,7 +199,6 @@ Feature: Forms
       | i_accept_the_terms       | true                   |
       | site_section             | DPC                    |
 
-
   @mockserver
   Scenario: Form default values
     Given the mock server has started
@@ -213,3 +212,33 @@ Feature: Forms
     Then a hidden field named "testlocalstorage" should exist with the value "thisisalocaltest"
     Then a hidden field named "currenttime" should exist with the value "2527383845000"
 
+  @mockserver
+  Scenario: Forms can be redirected upon successful submit
+    Given the site endpoint returns fixture "/site/reference" with status 200
+    Then the page endpoint for path "/redirect-form" returns fixture "/landingpage/full-redirect" with status 200
+    And the page endpoint for path "/form-submitted" returns fixture "/landingpage/sub" with status 200
+    And posting form to endpoint "/api/tide/webform_submission/redirect_form" returns fixture "/landingpage/full-form-success-response" with status 201
+
+    When I visit the page "/redirect-form"
+    Then the landing page component "TideLandingPageWebForm" should exist
+    When I submit the form with ID "redirect_form"
+    Then the error summary should display with the following errors
+      | text               | url                  |
+      | What is your name? | #redirect_form_name  |
+      | Email is required  | #redirect_form_email |
+
+    When I type "Ben" into the input with the label "Name"
+    When I type "ben@mail.com" into the input with the label "Email"
+    Then I submit the form with ID "redirect_form"
+    And the dataLayer should include the following events
+      | event         | form_id       | form_valid | element_text | component |
+      | form_submit   | redirect_form | false      | Submit       | rpl-form  |
+      | form_submit   | redirect_form | true       | Submit       | rpl-form  |
+      | form_complete | redirect_form |            | Submit       | rpl-form  |
+    And the dataLayer form data for "form_complete" should include the following values
+      | key   | value      |
+      | email | [redacted] |
+      | name  | [redacted] |
+
+    Then the current path should be "/form-submitted"
+    And the title should be "Demo Landing Subpage"

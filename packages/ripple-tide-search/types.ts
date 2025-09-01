@@ -1,4 +1,3 @@
-import { FilterType } from '@elastic/search-ui'
 import type { TidePageBase, TideSiteData } from '@dpc-sdp/ripple-tide-api/types'
 
 export type addressResultType = {
@@ -13,14 +12,6 @@ export interface MappedSearchResult<T> {
   id: string
   component: string
   props: T
-}
-
-export interface AppSearchFilterConfigItem {
-  label: string
-  field: string
-  filterType: FilterType
-  placeholder?: string
-  topicSize?: number
 }
 
 export interface FilterConfigItem {
@@ -243,13 +234,14 @@ export type TideSearchListingConfig = {
   searchListingConfig: {
     /**
      * @description Search provider used for queries - either elasticsearch or elastic app search
-     * @default 'app-search' defaults to app-search
+     * @default 'elasticsearch' defaults to elasticsearch
+     * @deprecated app search is no longer supported, so this option is no longer in use
      */
-    searchProvider: 'elasticsearch' | 'app-search'
+    searchProvider?: 'elasticsearch'
     /**
      * @description Custom search index to use - EG for data pipelines
      */
-    index: string
+    index?: string
     /**
      * @description Set the number of results to show per page
      */
@@ -258,9 +250,9 @@ export type TideSearchListingConfig = {
      * @description Override the default labels
      */
     labels: {
-      submit: string
-      reset: string
-      placeholder: string
+      submit?: string
+      reset?: string
+      placeholder?: string
       geolocateBtn?: string
     }
     /**
@@ -280,17 +272,9 @@ export type TideSearchListingConfig = {
      */
     hideSearchForm?: boolean
     /**
-     * @description options for utilizing the auto suggestions
-     */
-    suggestions: {
-      key?: string
-      enabled: boolean
-      minCharacters?: number
-    }
-    /**
      * @description The theme to use for the display of form section and fields
      */
-    formTheme: 'default' | 'reverse'
+    formTheme?: 'default' | 'reverse'
     /**
      * @description Whether the filter dropdown options should be dynamic based on the current search results, also displays a count of results for each option
      */

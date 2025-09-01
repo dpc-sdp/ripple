@@ -33,6 +33,7 @@ export interface ApiWebForm {
   }
   settings?: {
     confirmation_type?: string
+    confirmation_url?: string
     confirmation_title?: string
     confirmation_message?: string
     submission_exception_message?: string

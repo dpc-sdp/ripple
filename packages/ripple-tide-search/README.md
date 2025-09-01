@@ -31,11 +31,6 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       tide: {
-        appSearch: {
-          searchKey: '',
-          endpointBase: '',
-          engineName: ''
-        },
         elasticsearch: {
           host: '',
           index: ''
@@ -50,12 +45,6 @@ export default defineNuxtConfig({
 They can also be set as uppercase environment variables starting with `NUXT_` and using `_` to separate keys and case changes.
 
 ```
-# App search API key
-NUXT_PUBLIC_TIDE_APP_SEARCH_SEARCH_KEY=
-# App search endpoint
-NUXT_PUBLIC_TIDE_APP_SEARCH_ENDPOINT_BASE=
-# App search engine
-NUXT_PUBLIC_TIDE_APP_SEARCH_ENGINE_NAME=
 # Elasticsearch host
 NUXT_PUBLIC_TIDE_ELASTICSEARCH_HOST=
 # Elasticsearch index

@@ -15,17 +15,25 @@ const componentMapping = async (
   page: ApiPage,
   tidePageApi: TidePageApi
 ) => {
+  const redirectUrl =
+    field.field_paragraph_webform.settings?.confirmation_type === 'url' &&
+    field.field_paragraph_webform.settings?.confirmation_url
+
   return {
     title: field.field_paragraph_title,
     formId: field.field_paragraph_webform.meta.drupal_internal__target_id,
     hideFormOnSubmit:
       field.field_paragraph_webform.settings?.confirmation_type === 'inline',
+    redirectFormUrl: redirectUrl
+      ? field.field_paragraph_webform.settings?.confirmation_url
+      : null,
     successMessageTitle:
       field.field_paragraph_webform.settings?.confirmation_title ||
       'Form submitted',
-    successMessageHTML:
-      field.field_paragraph_webform.settings?.confirmation_message ||
-      'Thank you! Your response has been submitted.',
+    successMessageHTML: redirectUrl
+      ? 'Redirecting to confirmation page...'
+      : field.field_paragraph_webform.settings?.confirmation_message ||
+        'Thank you! Your response has been submitted.',
     errorMessageTitle: 'Form not submitted',
     errorMessageHTML:
       field.field_paragraph_webform.settings?.submission_exception_message ||

@@ -135,52 +135,44 @@ Given(
 Given(
   'the search network request is stubbed with fixture {string} and status {int}',
   (fixture: string, status: number) => {
-    cy.intercept(
-      'POST',
-      `/api/tide/app-search/**/elasticsearch/_search`,
-      (req) => {
-        // Filter out the aggregation requests (they have size=1)
-        if (req.body.size === 0) {
-          req.reply({
-            statusCode: status,
-            fixture: fixture
-          })
-          return
-        }
-
-        // Only apply the alias to the actual search request
-        req.alias = 'searchReq' // assign an alias
+    cy.intercept('POST', `/api/tide/elasticsearch/**/_search`, (req) => {
+      // Filter out the aggregation requests (they have size=1)
+      if (req.body.size === 0) {
         req.reply({
           statusCode: status,
           fixture: fixture
         })
+        return
       }
-    )
+
+      // Only apply the alias to the actual search request
+      req.alias = 'searchReq' // assign an alias
+      req.reply({
+        statusCode: status,
+        fixture: fixture
+      })
+    })
   }
 )
 
 Given(
   'the search network request is stubbed with fixture {string}, status {int} and delayed by {int} milliseconds',
   (fixture: string, statusCode: number, delay: number) => {
-    cy.intercept(
-      'POST',
-      `/api/tide/app-search/**/elasticsearch/_search`,
-      (req) => {
-        if (req.body.size === 0) {
-          req.reply({
-            statusCode,
-            fixture
-          })
-        } else {
-          req.alias = 'searchReq'
-          req.reply({
-            statusCode,
-            fixture,
-            delay
-          })
-        }
+    cy.intercept('POST', `/api/tide/elasticsearch/**/_search`, (req) => {
+      if (req.body.size === 0) {
+        req.reply({
+          statusCode,
+          fixture
+        })
+      } else {
+        req.alias = 'searchReq'
+        req.reply({
+          statusCode,
+          fixture,
+          delay
+        })
       }
-    )
+    })
   }
 )
 
@@ -246,6 +238,23 @@ Given(
 )
 
 Given(
+  'the {string} search request is stubbed with fixture {string} and status {int} as alias {string}',
+  (url: string, fixture: string, status: number, alias: string) => {
+    cy.intercept('POST', url, (req) => {
+      // Filter out the aggregation requests (they have size<1)
+      if (req.body.size > 0) {
+        req.alias = alias
+        req.reply({
+          statusCode: status,
+          fixture: fixture
+        })
+        return
+      }
+    })
+  }
+)
+
+Given(
   'the {string} network request is stubbed with fixture {string}',
   (url: string, fixture: string, dataTable: DataTable) => {
     const options = dataTable.hashes()
@@ -267,27 +276,6 @@ Given(
           fixture: fixture
         })
       }
-    })
-  }
-)
-
-Given(
-  'the search autocomplete request is stubbed with {string} fixture',
-  (fixture: string) => {
-    cy.intercept('POST', `/api/tide/app-search/**/query_suggestion`, {
-      statusCode: 200,
-      fixture
-    }).as('autocompleteRequest') // assign an alias
-  }
-)
-
-Then(
-  'the search autocomplete request should be called with the {string} fixture',
-  (requestFixture: string) => {
-    cy.fixture(requestFixture).then((fixture) => {
-      cy.get(`@autocompleteRequest`)
-        .its('request.body')
-        .should('deep.equal', fixture)
     })
   }
 )

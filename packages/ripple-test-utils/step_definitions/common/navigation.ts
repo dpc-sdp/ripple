@@ -46,6 +46,10 @@ When('I click the primary nav button labelled {string}', (label: string) => {
     .click({ force: true })
 })
 
+When('I click the primary nav logo', () => {
+  cy.get('.rpl-primary-nav__logos [href="/"]').click()
+})
+
 Then('I type {string} into the primary nav search box', (text: string) => {
   cy.get('#primary-nav-search').type(text)
 })

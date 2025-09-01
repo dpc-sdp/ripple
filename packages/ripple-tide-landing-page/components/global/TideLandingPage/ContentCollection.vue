@@ -63,8 +63,16 @@
 </template>
 
 <script setup lang="ts">
-import { formatDate, useRuntimeConfig } from '#imports'
-import { computed } from 'vue'
+import {
+  formatDate,
+  useRuntimeConfig,
+  useFetch,
+  trackError,
+  getSingleResultValue,
+  useNuxtApp,
+  stripSiteId
+} from '#imports'
+import { computed, ref } from 'vue'
 import { IContentCollectionDisplay } from '../../../mapping/components/content-collection/content-collection-mapping'
 import { stripMediaBaseUrl } from '@dpc-sdp/ripple-tide-api/utils'
 
@@ -87,8 +95,9 @@ const cardClasses = computed(() =>
     : 'rpl-col-12 rpl-col-6-s rpl-col-4-m'
 )
 
+const { $app_origin, $config } = useNuxtApp()
+
 const searchResultsMappingFn = (item): any => {
-  const { $app_origin, $config } = useNuxtApp()
   const rawUpdated = getSingleResultValue(item._source?.changed)
   const rawImage = getSingleResultValue(
     item._source?.field_media_image_absolute_path
@@ -124,17 +133,18 @@ const results = ref(null)
 const index = config.tide.elasticsearch.index
 const searchUrl = `${config.apiUrl}/api/tide/elasticsearch/${index}/_search`
 
-try {
-  const searchResponse = await $fetch(searchUrl, {
-    method: 'POST',
-    body: props.searchQuery
-  })
+const { data, error: fetchError } = await useFetch(searchUrl, {
+  method: 'POST',
+  body: props.searchQuery,
+  transform: (rawData) => rawData.hits?.hits?.map(searchResultsMappingFn)
+})
 
-  results.value = searchResponse?.hits?.hits?.map(searchResultsMappingFn)
-} catch (e) {
-  trackError(e)
-  error.value = e
-} finally {
-  searchComplete.value = true
+if (fetchError.value) {
+  trackError(fetchError.value)
+  error.value = fetchError.value
+} else {
+  results.value = data.value
 }
+
+searchComplete.value = true
 </script>

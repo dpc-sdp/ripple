@@ -16,7 +16,7 @@ Then(
       )
 
     cy.get('@component').within(() => {
-      cy.get('.rpl-card').as('items')
+      cy.get('.rpl-card, .rpl-search-result').as('items')
     })
 
     table.forEach((row, i: number) => {
@@ -24,22 +24,27 @@ Then(
         .eq(i)
         .then((item) => {
           cy.wrap(item).as('item')
+          cy.get('@item').should('contain', row.content)
+          cy.get('@item').find('a').should('contain', row.title)
           cy.get('@item').find('a').should('have.attr', 'href', row.url)
-          cy.get('@item').find('.rpl-card__cta').should('contain', row.title)
-          cy.get('@item')
-            .find('.rpl-card__content')
-            .should('contain', row.content)
+
+          if (row.type) {
+            cy.get('@item').should('have.attr', 'data-type', row.type)
+          }
+          if (row.meta) {
+            cy.get('@item').find('dd').contains(row.meta)
+          }
 
           if (row.image) {
             cy.get('@item')
-              .find('.rpl-image')
+              .find('img')
               .invoke('attr', 'src')
               .should((src) => {
                 const [baseSrc] = src.split('?')
                 expect(baseSrc).to.eq(row.image)
               })
           } else {
-            cy.get('@item').find('.rpl-image').should('not.exist')
+            cy.get('@item').find('img').should('not.exist')
           }
         })
     })

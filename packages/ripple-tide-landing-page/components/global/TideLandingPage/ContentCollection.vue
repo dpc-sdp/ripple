@@ -14,9 +14,16 @@
             <RplResultListing>
               <template v-for="item in results" :key="item.id">
                 <RplResultListingItem>
+                  <TideGrantSearchResult
+                    v-if="item.props.type === 'grant'"
+                    :result="item.result"
+                    data-type="grant-result"
+                  />
                   <RplSearchResult
+                    v-else
                     v-bind="item.props"
                     :content="item.slots.default"
+                    data-type="search-result"
                   />
                 </RplResultListingItem>
               </template>
@@ -26,14 +33,23 @@
       </template>
       <template v-else>
         <ul class="rpl-grid" style="--local-grid-cols: 12">
-          <RplPromoCard
-            v-for="item in results"
-            :key="item.id"
-            :class="cardClasses"
-            v-bind="item.props"
-          >
-            {{ item.slots.default }}
-          </RplPromoCard>
+          <template v-for="item in results" :key="item.id">
+            <TideGrantSearchResultCard
+              v-if="item.props.type === 'grant'"
+              :result="item.result"
+              :display-image="display.style === 'thumbnail'"
+              :class="cardClasses"
+              data-type="grant-card"
+            />
+            <RplPromoCard
+              v-else
+              :class="cardClasses"
+              v-bind="item.props"
+              data-type="promo-card"
+            >
+              {{ item.slots.default }}
+            </RplPromoCard>
+          </template>
         </ul>
       </template>
       <div
@@ -89,6 +105,7 @@ const searchResultsMappingFn = (item): any => {
 
   return {
     id: item._id,
+    result: item._source,
     props: {
       el: 'li',
       title: getSingleResultValue(item._source?.title),

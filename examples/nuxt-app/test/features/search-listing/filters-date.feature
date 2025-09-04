@@ -3,7 +3,6 @@ Feature: Search listing - Filter
 
   Background:
     Given the site endpoint returns fixture "/site/reference" with status 200
-    And the search autocomplete request is stubbed with "/search-listing/suggestions/none" fixture
     And I am using a "macbook-16" device
 
   @mockserver

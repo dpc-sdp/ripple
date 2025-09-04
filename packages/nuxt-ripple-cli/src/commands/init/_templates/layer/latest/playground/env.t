@@ -12,12 +12,6 @@ NUXT_PUBLIC_TIDE_SITE=8888
 # Set the desired log level
 LOG_LEVEL=debug
 
-# App search API key
-NUXT_PUBLIC_TIDE_APP_SEARCH_SEARCH_KEY=
-# App search endpoint
-NUXT_PUBLIC_TIDE_APP_SEARCH_ENDPOINT_BASE=
-# App search engine
-NUXT_PUBLIC_TIDE_APP_SEARCH_ENGINE_NAME=
 # Elasticsearch host
 NUXT_PUBLIC_TIDE_ELASTICSEARCH_HOST=
 # Elasticsearch index

@@ -2,7 +2,6 @@ Feature: Search listing - Sidebar filters
 
   Background:
     Given the site endpoint returns fixture "/site/reference" with status 200
-    And the search autocomplete request is stubbed with "/search-listing/suggestions/none" fixture
 
   @mockserver
   Example: Sidebar filters are visible open on page load (desktop)

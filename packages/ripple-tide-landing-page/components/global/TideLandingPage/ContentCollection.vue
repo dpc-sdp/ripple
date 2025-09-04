@@ -14,9 +14,16 @@
             <RplResultListing>
               <template v-for="item in results" :key="item.id">
                 <RplResultListingItem>
+                  <TideGrantSearchResult
+                    v-if="item.props.type === 'grant'"
+                    :result="item.result"
+                    data-type="grant-result"
+                  />
                   <RplSearchResult
+                    v-else
                     v-bind="item.props"
                     :content="item.slots.default"
+                    data-type="search-result"
                   />
                 </RplResultListingItem>
               </template>
@@ -26,14 +33,23 @@
       </template>
       <template v-else>
         <ul class="rpl-grid" style="--local-grid-cols: 12">
-          <RplPromoCard
-            v-for="item in results"
-            :key="item.id"
-            :class="cardClasses"
-            v-bind="item.props"
-          >
-            {{ item.slots.default }}
-          </RplPromoCard>
+          <template v-for="item in results" :key="item.id">
+            <TideGrantSearchResultCard
+              v-if="item.props.type === 'grant'"
+              :result="item.result"
+              :display-image="display.style === 'thumbnail'"
+              :class="cardClasses"
+              data-type="grant-card"
+            />
+            <RplPromoCard
+              v-else
+              :class="cardClasses"
+              v-bind="item.props"
+              data-type="promo-card"
+            >
+              {{ item.slots.default }}
+            </RplPromoCard>
+          </template>
         </ul>
       </template>
       <div
@@ -47,8 +63,16 @@
 </template>
 
 <script setup lang="ts">
-import { formatDate, useRuntimeConfig } from '#imports'
-import { computed } from 'vue'
+import {
+  formatDate,
+  useRuntimeConfig,
+  useFetch,
+  trackError,
+  getSingleResultValue,
+  useNuxtApp,
+  stripSiteId
+} from '#imports'
+import { computed, ref } from 'vue'
 import { IContentCollectionDisplay } from '../../../mapping/components/content-collection/content-collection-mapping'
 import { stripMediaBaseUrl } from '@dpc-sdp/ripple-tide-api/utils'
 
@@ -71,8 +95,9 @@ const cardClasses = computed(() =>
     : 'rpl-col-12 rpl-col-6-s rpl-col-4-m'
 )
 
+const { $app_origin, $config } = useNuxtApp()
+
 const searchResultsMappingFn = (item): any => {
-  const { $app_origin, $config } = useNuxtApp()
   const rawUpdated = getSingleResultValue(item._source?.changed)
   const rawImage = getSingleResultValue(
     item._source?.field_media_image_absolute_path
@@ -80,6 +105,7 @@ const searchResultsMappingFn = (item): any => {
 
   return {
     id: item._id,
+    result: item._source,
     props: {
       el: 'li',
       title: getSingleResultValue(item._source?.title),
@@ -107,17 +133,18 @@ const results = ref(null)
 const index = config.tide.elasticsearch.index
 const searchUrl = `${config.apiUrl}/api/tide/elasticsearch/${index}/_search`
 
-try {
-  const searchResponse = await $fetch(searchUrl, {
-    method: 'POST',
-    body: props.searchQuery
-  })
+const { data, error: fetchError } = await useFetch(searchUrl, {
+  method: 'POST',
+  body: props.searchQuery,
+  transform: (rawData) => rawData.hits?.hits?.map(searchResultsMappingFn)
+})
 
-  results.value = searchResponse?.hits?.hits?.map(searchResultsMappingFn)
-} catch (e) {
-  trackError(e)
-  error.value = e
-} finally {
-  searchComplete.value = true
+if (fetchError.value) {
+  trackError(fetchError.value)
+  error.value = fetchError.value
+} else {
+  results.value = data.value
 }
+
+searchComplete.value = true
 </script>

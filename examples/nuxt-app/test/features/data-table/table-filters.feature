@@ -5,7 +5,6 @@ Feature: Custom Collection
   Background:
     Given the page endpoint for path "/" returns fixture "/map-table/ise/page" with status 200
     Given the site endpoint returns fixture "/site/reference" with status 200
-    And the search autocomplete request is stubbed with "/search-listing/suggestions/none" fixture
     Given I am using a "macbook-16" device
 
   @mockserver

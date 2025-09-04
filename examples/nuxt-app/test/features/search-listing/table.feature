@@ -5,7 +5,6 @@ Feature: Table layout
   Background:
     Given the site endpoint returns fixture "/site/reference" with status 200
     And I am using a "macbook-16" device
-    And the search autocomplete request is stubbed with "/search-listing/suggestions/none" fixture
 
   @mockserver
   Example: Results are displayed in a table with default skeleton loader

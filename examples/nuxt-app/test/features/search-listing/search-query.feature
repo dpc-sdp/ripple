@@ -123,3 +123,11 @@ Feature: Search Queries
     And I type "departments" into the search input
     And I click the search button
     Then the search network request should be called with the "/search-listing/search-query/request-curation-custom" fixture
+
+  @mockserver
+  Example: Search bar max input length
+    Given the page endpoint for path "/searchbar" returns fixture "/search-listing/list/page" with status 200
+    And the search network request is stubbed with fixture "/search-listing/list/response" and status 200
+
+    When I visit the page "/searchbar"
+    Then the search input should be have a max length of 128

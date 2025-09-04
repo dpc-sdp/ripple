@@ -1,7 +1,7 @@
 {
   "name": "ripple-storybook",
   "description": "Ripple Storybook instance",
-  "version": "2.39.0",
+  "version": "2.40.0",
   "license": "Apache-2.0",
   "private": true,
   "repository": "https://github.com/dpc-sdp/ripple-framework",

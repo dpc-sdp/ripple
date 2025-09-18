@@ -3,7 +3,11 @@ import { get } from 'lodash-es'
 import type { RplTideModuleConfig } from './../../types'
 import getHierarchicalMenu from './lib/site-menu.js'
 import getHierarchicalMenuFromLinkset from './lib/site-menu-linkset.js'
-import { ApplicationError, WrappedAxiosError } from '../errors/errors.js'
+import {
+  ApplicationError,
+  NotFoundError,
+  WrappedAxiosError
+} from '../errors/errors.js'
 import axios from 'axios'
 import { ILogger } from '../logger/logger'
 
@@ -62,7 +66,13 @@ export default class TideApiBase extends HttpClient {
       return await this.client.get(url, { ...config })
     } catch (error) {
       if (axios.isAxiosError(error)) {
-        throw new WrappedAxiosError(error.message, error)
+        if (error.status === 404) {
+          throw new NotFoundError(`"${url}" not found`, {
+            cause: error
+          })
+        } else {
+          throw new WrappedAxiosError(error.message, error)
+        }
       } else {
         throw error
       }

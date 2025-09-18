@@ -54,17 +54,40 @@ const searchConfig: TideSearchListingConfig = {
     ]
   },
   queryConfig: {
-    multi_match: {
-      query: '{{query}}',
-      fields: [
-        'title^3',
-        'field_landing_page_summary^2',
-        'body',
-        'field_paragraph_body',
-        'summary_processed',
-        'field_paragraph_summary',
-        'field_event_details_event_locality',
-        'field_paragraph_accordion_body'
+    bool: {
+      should: [
+        {
+          multi_match: {
+            query: '{{query}}',
+            fields: [
+              'title^3',
+              'field_landing_page_summary^2',
+              'body',
+              'field_paragraph_body',
+              'summary_processed',
+              'field_paragraph_summary',
+              'field_event_details_event_locality',
+              'field_paragraph_accordion_body'
+            ],
+            analyzer: 'stop'
+          }
+        },
+        {
+          multi_match: {
+            query: '{{query}}',
+            type: 'phrase',
+            fields: [
+              'title^3',
+              'field_landing_page_summary^2',
+              'body',
+              'field_paragraph_body',
+              'summary_processed',
+              'field_paragraph_summary',
+              'field_event_details_event_locality',
+              'field_paragraph_accordion_body'
+            ]
+          }
+        }
       ]
     }
   },

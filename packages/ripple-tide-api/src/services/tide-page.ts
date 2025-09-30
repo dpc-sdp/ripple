@@ -434,7 +434,10 @@ export default class TidePageApi extends TideApiBase {
       contentType = contentType.find((type) => type?.key === route.bundle)
     }
 
-    return contentType && contentType.hasOwnProperty(key) && contentType?.[key]
+    return (
+      (contentType && contentType.hasOwnProperty(key) && contentType?.[key]) ||
+      []
+    )
   }
 
   async getTaxonomy(taxonomyName: string) {

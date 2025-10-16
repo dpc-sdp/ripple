@@ -71,9 +71,11 @@ const formattedDate = computed(() => {
 })
 
 const formattedPublishDate = computed(() =>
-  new Intl.DateTimeFormat('en-AU', { month: 'long', day: 'numeric' }).format(
-    new Date(props.meta.publishDate)
-  )
+  formatDate(props.meta.publishDate, {
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric'
+  })
 )
 
 const now = new Date()

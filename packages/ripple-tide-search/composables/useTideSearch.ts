@@ -101,6 +101,7 @@ export default ({
 
   const results = ref()
   const totalResults = ref(0)
+  const maxResults = ref(searchListingConfig.maxResults || 10000)
   const userSelectedSort = ref<string | null>(null)
 
   const pagingStart = computed(() => {
@@ -1079,6 +1080,7 @@ export default ({
     page,
     pageSize,
     totalResults,
+    maxResults,
     totalPages,
     pagingStart,
     pagingEnd,

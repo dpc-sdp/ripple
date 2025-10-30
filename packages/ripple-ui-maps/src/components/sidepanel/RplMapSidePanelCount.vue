@@ -6,19 +6,32 @@
       :totalResults="totalResults"
     >
       <p class="rpl-type-label-small">
-        Displaying {{ pagingStart }}-{{ pagingEnd }} of
-        {{ totalResults }} results
+        Displaying {{ pagingStart }}-{{ pagingEnd }} of {{ totalResults
+        }}{{ maxResultsExceededMarker }} results
       </p>
     </slot>
   </div>
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'
+
 interface Props {
   pagingStart: number
   pagingEnd: number
   totalResults: number
+  maxResults?: number | null
 }
 
-defineProps<Props>()
+const props = withDefaults(defineProps<Props>(), {
+  maxResults: null
+})
+
+const maxResultsExceededMarker = computed(() => {
+  if (!props.maxResults) {
+    return ''
+  }
+
+  return props.totalResults >= props.maxResults ? '+' : ''
+})
 </script>

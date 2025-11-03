@@ -100,6 +100,11 @@ export default defineAppConfig({
         name: 'Noto Sans Ethiopic',
         url: 'https://fonts.googleapis.com/earlyaccess/notosansethiopic.css'
       },
+      apd: {
+        name: 'Noto Kufi Arabic',
+        url: 'https://fonts.googleapis.com/earlyaccess/notokufiarabic.css',
+        rtl: true
+      },
       ar: {
         name: 'Noto Kufi Arabic',
         url: 'https://fonts.googleapis.com/earlyaccess/notokufiarabic.css',

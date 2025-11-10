@@ -23,7 +23,7 @@
     "@formkit/vue": "1.6.0",
     "@nuxt/kit": "catalog:",
     "@vuepic/vue-datepicker": "11.0.1",
-    "@vueuse/core": "^10.9.0",
+    "@vueuse/core": "catalog:",
     "date-fns": "catalog:"
   },
   "devDependencies": {

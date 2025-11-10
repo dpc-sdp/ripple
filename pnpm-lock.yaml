@@ -12,6 +12,12 @@ catalogs:
     '@nuxt/schema':
       specifier: ^3.17.2
       version: 3.17.2
+    '@vueuse/core':
+      specifier: ^10.9.0
+      version: 10.11.1
+    '@vueuse/integrations':
+      specifier: ^10.9.0
+      version: 10.11.1
     cypress:
       specifier: ^13.7.3
       version: 13.7.3
@@ -361,8 +367,8 @@ importers:
         specifier: ^3.0.0
         version: 3.0.0(magicast@0.3.5)
       '@vueuse/core':
-        specifier: ^9.13.0
-        version: 9.13.0(vue@3.5.13(typescript@5.8.3))
+        specifier: 'catalog:'
+        version: 10.11.1(vue@3.5.13(typescript@5.8.3))
       change-case:
         specifier: ^4.1.2
         version: 4.1.2
@@ -787,10 +793,10 @@ importers:
         specifier: 'catalog:'
         version: 3.17.2(magicast@0.3.5)
       '@vueuse/core':
-        specifier: ^10.9.0
+        specifier: 'catalog:'
         version: 10.11.1(vue@3.5.13(typescript@5.8.3))
       '@vueuse/integrations':
-        specifier: ^10.9.0
+        specifier: 'catalog:'
         version: 10.11.1(axios@1.8.4)(change-case@4.1.2)(focus-trap@7.6.4)(vue@3.5.13(typescript@5.8.3))
       cypress-real-events:
         specifier: 'catalog:'
@@ -902,7 +908,7 @@ importers:
         specifier: 11.0.1
         version: 11.0.1(vue@3.5.13(typescript@5.8.3))
       '@vueuse/core':
-        specifier: ^10.9.0
+        specifier: 'catalog:'
         version: 10.11.1(vue@3.5.13(typescript@5.8.3))
       date-fns:
         specifier: 'catalog:'
@@ -957,10 +963,10 @@ importers:
         specifier: 'catalog:'
         version: 3.17.2(magicast@0.3.5)
       '@vueuse/core':
-        specifier: ^10.9.0
+        specifier: 'catalog:'
         version: 10.11.1(vue@3.5.13(typescript@5.8.3))
       '@vueuse/integrations':
-        specifier: ^10.9.0
+        specifier: 'catalog:'
         version: 10.11.1(axios@1.8.4)(change-case@4.1.2)(focus-trap@7.6.4)(vue@3.5.13(typescript@5.8.3))
       ol:
         specifier: ^10.5.0
@@ -2368,8 +2374,8 @@ packages:
   '@formkit/addons@1.6.0':
     resolution: {integrity: sha512-Y1IxQfAPZLpWBrVpvld2ywL1NjSrRLBFj1ZpNbArQXtYGy9jthIFqJX3khAV8caauud4Vp4+U3xXftT7xnBYLA==}
 
-  '@formkit/auto-animate@0.8.2':
-    resolution: {integrity: sha512-SwPWfeRa5veb1hOIBMdzI+73te5puUBHmqqaF1Bu7FjvxlYSz/kJcZKSa9Cg60zL0uRNeJL2SbRxV6Jp6Q1nFQ==}
+  '@formkit/auto-animate@0.9.0':
+    resolution: {integrity: sha512-VhP4zEAacXS3dfTpJpJ88QdLqMTcabMg0jwpOSxZ/VzfQVfl3GkZSCZThhGC5uhq/TxPHPzW0dzr4H9Bb1OgKA==}
 
   '@formkit/core@1.6.0':
     resolution: {integrity: sha512-YsbVLJlY+4wbBCa4Ine3BHdX4Y0LOxbrOy0GWGnPv00iLFOFs3EwK0pV6vuQr/j8KB1Q8UsfdJ0f2fGk0ufLdQ==}
@@ -4042,9 +4048,6 @@ packages:
   '@types/uuid@9.0.8':
     resolution: {integrity: sha512-jg+97EGIcY9AGHJJRaaPVgetKDsrTgbRjQ5Msgjh/DQKEFl0DtyRr/VCOyD1T2R1MNeWPK/u7JoGhlDZnKBAfA==}
 
-  '@types/web-bluetooth@0.0.16':
-    resolution: {integrity: sha512-oh8q2Zc32S6gd/j50GowEjKLoOVOwHP/bWVjKJInBwQqdOYMdPrf1oVlelTlyfFK3CKxL1uahMDAr+vy8T7yMQ==}
-
   '@types/web-bluetooth@0.0.20':
     resolution: {integrity: sha512-g9gZnnXVq7gM7v3tJCWV/qw7w+KeOlSHAhgF9RytFyifW6AF61hdT2ucrYhPq9hLs5JIryeupHV3qGk95dH9ow==}
 
@@ -4410,9 +4413,6 @@ packages:
   '@vueuse/core@10.11.1':
     resolution: {integrity: sha512-guoy26JQktXPcz+0n3GukWIy/JDNKti9v6VEMu6kV2sYBsWuGiTU8OWdg+ADfUbHg3/3DlqySDe7JmdHrktiww==}
 
-  '@vueuse/core@9.13.0':
-    resolution: {integrity: sha512-pujnclbeHWxxPRqXWmdkKV5OX4Wk4YeK7wusHqRwU0Q7EFusHoqNA/aPhB6KCh9hEqJkLAJo7bb0Lh9b+OIVzw==}
-
   '@vueuse/integrations@10.11.1':
     resolution: {integrity: sha512-Y5hCGBguN+vuVYTZmdd/IMXLOdfS60zAmDmFYc4BKBcMUPZH1n4tdyDECCPjXm0bNT3ZRUy1xzTLGaUje8Xyaw==}
     peerDependencies:
@@ -4457,14 +4457,8 @@ packages:
   '@vueuse/metadata@10.11.1':
     resolution: {integrity: sha512-IGa5FXd003Ug1qAZmyE8wF3sJ81xGLSqTqtQ6jaVfkeZ4i5kS2mwQF61yhVqojRnenVew5PldLyRgvdl4YYuSw==}
 
-  '@vueuse/metadata@9.13.0':
-    resolution: {integrity: sha512-gdU7TKNAUVlXXLbaF+ZCfte8BjRJQWPCa2J55+7/h+yDtzw3vOoGQDRXzI6pyKyo6bXFT5/QoPE4hAknExjRLQ==}
-
   '@vueuse/shared@10.11.1':
     resolution: {integrity: sha512-LHpC8711VFZlDaYUXEBbFBCQ7GS3dVU9mjOhhMhXP6txTV4EhYQg/KGnQuvt/sPAtoUKq7VVUnL6mVtFoL42sA==}
-
-  '@vueuse/shared@9.13.0':
-    resolution: {integrity: sha512-UrnhU+Cnufu4S6JLCPZnkWh0WwZGUp72ktOF2DFptMlOs3TOdVv8xJN53zhHGARmVOsz5KqOls09+J1NR6sBKw==}
 
   '@webassemblyjs/ast@1.14.1':
     resolution: {integrity: sha512-nuBEDgQfm1ccRp/8bCQrx1frohyufl4JlbMMZ4P1wpeOfDhF6FQkxZJ1b/e+PLwr6X1Nhw6OLme5usuBWYBvuQ==}
@@ -12189,8 +12183,8 @@ packages:
   vue-component-type-helpers@2.2.10:
     resolution: {integrity: sha512-iDUO7uQK+Sab2tYuiP9D1oLujCWlhHELHMgV/cB13cuGbG4qwkLHvtfWb6FzvxrIOPDnU0oHsz2MlQjhYDeaHA==}
 
-  vue-component-type-helpers@3.0.6:
-    resolution: {integrity: sha512-6CRM8X7EJqWCJOiKPvSLQG+hJPb/Oy2gyJx3pLjUEhY7PuaCthQu3e0zAGI1lqUBobrrk9IT0K8sG2GsCluxoQ==}
+  vue-component-type-helpers@3.1.3:
+    resolution: {integrity: sha512-V1dOD8XYfstOKCnXbWyEJIrhTBMwSyNjv271L1Jlx9ExpNlCSuqOs3OdWrGJ0V544zXufKbcYabi/o+gK8lyfQ==}
 
   vue-demi@0.14.10:
     resolution: {integrity: sha512-nMZBOwuzabUO0nLgIcc6rycZEebF6eeUfaiQx9+WSk8e29IbLvPU9feI6tqW4kTo3hvoYAJkMh8n8D0fuISphg==}
@@ -14093,12 +14087,12 @@ snapshots:
 
   '@formkit/addons@1.6.0':
     dependencies:
-      '@formkit/auto-animate': 0.8.2
+      '@formkit/auto-animate': 0.9.0
       '@formkit/core': 1.6.0
       '@formkit/inputs': 1.6.0
       '@formkit/utils': 1.6.0
 
-  '@formkit/auto-animate@0.8.2': {}
+  '@formkit/auto-animate@0.9.0': {}
 
   '@formkit/core@1.6.0':
     dependencies:
@@ -16015,7 +16009,7 @@ snapshots:
       storybook: 9.0.10(@testing-library/dom@10.4.0)(prettier@3.5.3)
       type-fest: 2.19.0
       vue: 3.5.13(typescript@5.8.3)
-      vue-component-type-helpers: 3.0.6
+      vue-component-type-helpers: 3.1.3
 
   '@swc/core-darwin-arm64@1.11.11':
     optional: true
@@ -16313,8 +16307,6 @@ snapshots:
   '@types/uuid@9.0.1': {}
 
   '@types/uuid@9.0.8': {}
-
-  '@types/web-bluetooth@0.0.16': {}
 
   '@types/web-bluetooth@0.0.20': {}
 
@@ -17024,16 +17016,6 @@ snapshots:
       - '@vue/composition-api'
       - vue
 
-  '@vueuse/core@9.13.0(vue@3.5.13(typescript@5.8.3))':
-    dependencies:
-      '@types/web-bluetooth': 0.0.16
-      '@vueuse/metadata': 9.13.0
-      '@vueuse/shared': 9.13.0(vue@3.5.13(typescript@5.8.3))
-      vue-demi: 0.14.10(vue@3.5.13(typescript@5.8.3))
-    transitivePeerDependencies:
-      - '@vue/composition-api'
-      - vue
-
   '@vueuse/integrations@10.11.1(axios@1.8.4)(change-case@4.1.2)(focus-trap@7.6.4)(vue@3.5.13(typescript@5.8.3))':
     dependencies:
       '@vueuse/core': 10.11.1(vue@3.5.13(typescript@5.8.3))
@@ -17049,16 +17031,7 @@ snapshots:
 
   '@vueuse/metadata@10.11.1': {}
 
-  '@vueuse/metadata@9.13.0': {}
-
   '@vueuse/shared@10.11.1(vue@3.5.13(typescript@5.8.3))':
-    dependencies:
-      vue-demi: 0.14.10(vue@3.5.13(typescript@5.8.3))
-    transitivePeerDependencies:
-      - '@vue/composition-api'
-      - vue
-
-  '@vueuse/shared@9.13.0(vue@3.5.13(typescript@5.8.3))':
     dependencies:
       vue-demi: 0.14.10(vue@3.5.13(typescript@5.8.3))
     transitivePeerDependencies:
@@ -26479,7 +26452,7 @@ snapshots:
 
   vue-component-type-helpers@2.2.10: {}
 
-  vue-component-type-helpers@3.0.6: {}
+  vue-component-type-helpers@3.1.3: {}
 
   vue-demi@0.14.10(vue@3.5.13(typescript@5.8.3)):
     dependencies:

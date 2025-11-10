@@ -31,7 +31,7 @@ const getLGASuggestions = async (query, args) => {
           },
           {
             match_phrase_prefix: {
-              'name.stem': {
+              name: {
                 query,
                 max_expansions: 150
               }
@@ -102,7 +102,7 @@ const getSuburbSuggestions = async (query, args) => {
           },
           {
             match_phrase_prefix: {
-              'name.stem': {
+              name: {
                 query,
                 max_expansions: 150
               }

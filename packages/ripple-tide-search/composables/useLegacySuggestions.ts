@@ -35,7 +35,7 @@ export default async (
           },
           {
             match_phrase_prefix: {
-              [`${suggestionsKey}.stem`]: {
+              [suggestionsKey]: {
                 query,
                 max_expansions: 150
               }

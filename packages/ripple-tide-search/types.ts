@@ -247,6 +247,13 @@ export type TideSearchListingConfig = {
      */
     resultsPerPage?: number
     /**
+     * @description The maximum number of results the data source can return.
+     *  This is used to allow us to display the results count as '10000+' to indicate there may
+     *  be more results
+     * @default 10000
+     */
+    maxResults?: number
+    /**
      * @description Override the default labels
      */
     labels: {

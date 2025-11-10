@@ -154,6 +154,7 @@ const {
   userSelectedSort,
   changeSortOrder,
   totalResults,
+  maxResults,
   totalPages,
   pagingStart,
   pagingEnd,
@@ -551,6 +552,7 @@ const cornerTopGraphic = computed(() => {
             :pageSize="pageSize"
             :totalPages="totalPages"
             :totalResults="totalResults"
+            :maxResults="maxResults"
           >
             <div data-component-type="search-listing-result-count">
               <TideSearchResultsCount
@@ -558,6 +560,7 @@ const cornerTopGraphic = computed(() => {
                 :pagingStart="pagingStart + 1"
                 :pagingEnd="pagingEnd + 1"
                 :totalResults="totalResults"
+                :maxResults="maxResults"
                 :results="results"
                 :loading="isBusy"
               />

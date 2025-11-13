@@ -1,7 +1,7 @@
 {
   "name": "@dpc-sdp/ripple-ui-maps",
   "description": "Ripple UI Core component library",
-  "version": "2.43.0",
+  "version": "2.44.0",
   "license": "Apache-2.0",
   "repository": "https://github.com/dpc-sdp/ripple-framework",
   "files": [
@@ -40,8 +40,8 @@
   },
   "dependencies": {
     "@nuxt/kit": "catalog:",
-    "@vueuse/core": "^10.9.0",
-    "@vueuse/integrations": "^10.9.0",
+    "@vueuse/core": "catalog:",
+    "@vueuse/integrations": "catalog:",
     "ol": "^10.5.0",
     "ol-contextmenu": "^5.5.0",
     "ol-ext": "^4.0.31",

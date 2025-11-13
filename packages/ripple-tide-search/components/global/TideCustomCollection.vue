@@ -11,7 +11,7 @@ import {
   toRaw
 } from '#imports'
 import { submitForm } from '@formkit/vue'
-import { useBreakpoints, useDebounceFn } from '@vueuse/core'
+import { useBreakpoints } from '@vueuse/core'
 import useTideSearch from './../../composables/useTideSearch'
 import type {
   TideSearchListingResultItem,
@@ -213,6 +213,7 @@ const {
   userSelectedSort,
   changeSortOrder,
   totalResults,
+  maxResults,
   totalPages,
   pagingStart,
   pagingEnd,
@@ -752,6 +753,7 @@ watch(baseEvent, (newBaseEvent) => {
               :pagingStart="pagingStart + 1"
               :pagingEnd="pagingEnd + 1"
               :totalResults="totalResults"
+              :maxResults="maxResults"
               :results="results"
               :loading="isBusy"
             />

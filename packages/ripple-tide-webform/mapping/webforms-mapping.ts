@@ -377,17 +377,18 @@ export const getFormSchemaFromMapping = async (
           )
         } else {
           // For unsupported fields, render a message to users when previewing a draft page
-          mappedField = isDraftMode
-            ? {
-                $el: 'div',
-                attrs: {
-                  class: 'rpl-form__outer rpl-form__input--unsupported'
-                },
-                children: [
-                  `The "${field['#type']}" field is not supported (this message will only show in draft mode).`
-                ]
-              }
-            : null
+          mappedField =
+            field['#type'] && isDraftMode
+              ? {
+                  $el: 'div',
+                  attrs: {
+                    class: 'rpl-form__outer rpl-form__input--unsupported'
+                  },
+                  children: [
+                    `The "${field['#type']}" field is not supported (this message will only show in draft mode).`
+                  ]
+                }
+              : null
         }
     }
 

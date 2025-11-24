@@ -7,6 +7,10 @@ Then(
   }
 )
 
+Then('the news page should not display the featured image', () => {
+  cy.get('[data-cy="featured-image"]').should('not.exist')
+})
+
 Then(
   'the news page featured image aspect ratio is {string}',
   (ratio: string) => {

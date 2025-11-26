@@ -39,7 +39,7 @@ Feature: News page
     When I visit the page "/sample-news"
     Then the news page featured image aspect ratio is "square"
 
-  @only @mockserver
+  @mockserver
   Scenario: Feature image can be disabled via a field in the backend
     Given the site endpoint returns fixture "/site/reference" with status 200
     And the page endpoint for path "/no-image" returns fixture "/news/no-image" with status 200

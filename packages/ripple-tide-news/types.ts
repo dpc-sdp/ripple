@@ -17,6 +17,7 @@ export type TideNewsDetails = {
 
 export type TideNewsBody = {
   image: TideImageField
+  showImage: boolean
   caption: string
   content: string
 }

@@ -2,7 +2,10 @@
   <div v-if="details" class="tide-news__details rpl-page-component rpl-content">
     <RplDescriptionList :items="detailsList" data-cy="details" />
   </div>
-  <figure v-if="body.image" class="tide-news__image rpl-u-margin-none">
+  <figure
+    v-if="body.image && body.showImage"
+    class="tide-news__image rpl-u-margin-none"
+  >
     <RplImage
       v-if="body.image"
       :src="body.image.src"

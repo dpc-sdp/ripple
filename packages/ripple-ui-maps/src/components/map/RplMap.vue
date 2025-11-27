@@ -88,7 +88,7 @@ const props = withDefaults(defineProps<Props>(), {
   clusteringDistance: 120,
   layerList: undefined,
   selectedLayers: () => [],
-  useFastClustering: true
+  useFastClustering: false
 })
 
 const emit = defineEmits<{

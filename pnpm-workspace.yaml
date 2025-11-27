@@ -13,8 +13,8 @@ catalog:
   rimraf: "^6.0.1"
   vitest: "^3.2.3"
   "date-fns": "^2.29.3"
-  "@vueuse/core": "^10.9.0"
-  "@vueuse/integrations": "^10.9.0"
+  "@vueuse/core": "^13.9.0"
+  "@vueuse/integrations": "^13.9.0"
 onlyBuiltDependencies:
 - "@badeball/cypress-cucumber-preprocessor"
 - "@parcel/watcher"

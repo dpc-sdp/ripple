@@ -29,6 +29,7 @@ const tideNewsModule: IRplTideModuleMapping = {
     body: {
       image: (src) =>
         getImageFromField(src, 'field_featured_image.field_media_image'),
+      showImage: 'field_show_feature_image',
       caption: (src) =>
         getField(src, 'field_featured_image.field_media_caption'),
       content: (src) => getBodyFromField(src, 'body')

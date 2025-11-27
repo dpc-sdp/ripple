@@ -83,7 +83,6 @@ const defaultOptionId = '__default-option'
 const containerRef = ref(null)
 const inputRef = ref(null)
 const menuRef = ref(null)
-const optionRefs = ref([])
 const searchCache = ref('')
 const searchRef = ref<Ref<HTMLInputElement | null>>(null)
 const searchValue = ref('')
@@ -453,9 +452,7 @@ const isOptionSelected = (optionValue) => {
 }
 
 const focusOption = (optionId) => {
-  const optionEl = optionRefs.value.find((r) => {
-    return r.dataset.optionId === optionId
-  })
+  const optionEl = document.getElementById(getUniqueOptionId(optionId))
   const menu = menuRef.value
 
   // This makes the scrolling much nicer when using the arrow keys
@@ -650,7 +647,6 @@ const hasValue = computed((): boolean => {
         v-for="option in processedOptions"
         :id="getUniqueOptionId(option.id)"
         :key="option.id"
-        ref="optionRefs"
         :data-option-id="option.id"
         role="option"
         :class="{

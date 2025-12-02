@@ -18,7 +18,7 @@
       :maxZoom="maxZoom"
       :layerList="layerList"
       :selectedLayers="selectedLayers"
-      :useFastClustering="useFastClustering"
+      :animateClusters="animateClusters"
       @updateSelectedLayers="handleUpdateSelectedLayers"
     >
       <template #noresults>
@@ -117,7 +117,7 @@ interface Props {
   height?: number
   defaultSelectedLayers?: string[]
   layerList?: any
-  useFastClustering?: boolean
+  animateClusters?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -137,7 +137,7 @@ const props = withDefaults(defineProps<Props>(), {
   height: 550,
   defaultSelectedLayers: () => [],
   layerList: undefined,
-  useFastClustering: false
+  animateClusters: true
 })
 
 const appConfig = useAppConfig()

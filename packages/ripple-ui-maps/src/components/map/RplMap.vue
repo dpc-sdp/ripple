@@ -55,7 +55,7 @@ interface Props {
   clusteringDistance?: number
   layerList?: IRplMapLayer[]
   selectedLayers?: string[]
-  useFastClustering?: boolean
+  animateClusters?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -88,7 +88,7 @@ const props = withDefaults(defineProps<Props>(), {
   clusteringDistance: 120,
   layerList: undefined,
   selectedLayers: () => [],
-  useFastClustering: false
+  animateClusters: true
 })
 
 const emit = defineEmits<{
@@ -471,21 +471,7 @@ const trackMapPosition = ({ target }) => {
       </ol-vector-layer>
 
       <ol-vector-layer
-        v-if="useFastClustering && mapFeatures && mapFeatures.length > 0"
-        title="clusterLayer"
-        :zIndex="4"
-      >
-        <slot name="features" :features="mapFeatures">
-          <ol-source-cluster :distance="clusteringDistance">
-            <ol-source-vector :features="mapFeatures"></ol-source-vector>
-            <slot name="pin">
-              <RplMapCluster :pinStyle="pinStyle"></RplMapCluster>
-            </slot>
-          </ol-source-cluster>
-        </slot>
-      </ol-vector-layer>
-      <ol-vector-layer
-        v-if="!useFastClustering && mapFeatures && mapFeatures.length > 0"
+        v-if="animateClusters && mapFeatures && mapFeatures.length > 0"
       >
         <slot name="features" :features="mapFeatures">
           <ol-animated-clusterlayer
@@ -499,6 +485,20 @@ const trackMapPosition = ({ target }) => {
               <RplMapCluster :pinStyle="pinStyle"></RplMapCluster>
             </slot>
           </ol-animated-clusterlayer>
+        </slot>
+      </ol-vector-layer>
+      <ol-vector-layer
+        v-if="!animateClusters && mapFeatures && mapFeatures.length > 0"
+        title="clusterLayer"
+        :zIndex="4"
+      >
+        <slot name="features" :features="mapFeatures">
+          <ol-source-cluster :distance="clusteringDistance">
+            <ol-source-vector :features="mapFeatures"></ol-source-vector>
+            <slot name="pin">
+              <RplMapCluster :pinStyle="pinStyle"></RplMapCluster>
+            </slot>
+          </ol-source-cluster>
         </slot>
       </ol-vector-layer>
 

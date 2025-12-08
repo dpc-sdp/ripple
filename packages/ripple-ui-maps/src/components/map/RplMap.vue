@@ -55,6 +55,7 @@ interface Props {
   clusteringDistance?: number
   layerList?: IRplMapLayer[]
   selectedLayers?: string[]
+  animateClusters?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -86,7 +87,8 @@ const props = withDefaults(defineProps<Props>(), {
   getFeatureTitle: (feature: any) => (feature ? feature.title : ''),
   clusteringDistance: 120,
   layerList: undefined,
-  selectedLayers: () => []
+  selectedLayers: () => [],
+  animateClusters: true
 })
 
 const emit = defineEmits<{
@@ -468,7 +470,9 @@ const trackMapPosition = ({ target }) => {
         </ol-source-vector>
       </ol-vector-layer>
 
-      <ol-vector-layer v-if="mapFeatures && mapFeatures.length > 0">
+      <ol-vector-layer
+        v-if="animateClusters && mapFeatures && mapFeatures.length > 0"
+      >
         <slot name="features" :features="mapFeatures">
           <ol-animated-clusterlayer
             title="clusterLayer"
@@ -481,6 +485,20 @@ const trackMapPosition = ({ target }) => {
               <RplMapCluster :pinStyle="pinStyle"></RplMapCluster>
             </slot>
           </ol-animated-clusterlayer>
+        </slot>
+      </ol-vector-layer>
+      <ol-vector-layer
+        v-if="!animateClusters && mapFeatures && mapFeatures.length > 0"
+        title="clusterLayer"
+        :zIndex="4"
+      >
+        <slot name="features" :features="mapFeatures">
+          <ol-source-cluster :distance="clusteringDistance">
+            <ol-source-vector :features="mapFeatures"></ol-source-vector>
+            <slot name="pin">
+              <RplMapCluster :pinStyle="pinStyle"></RplMapCluster>
+            </slot>
+          </ol-source-cluster>
         </slot>
       </ol-vector-layer>
 

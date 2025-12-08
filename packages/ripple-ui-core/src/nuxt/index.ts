@@ -3,12 +3,13 @@ import {
   createResolver,
   addComponentsDir,
   addPlugin,
-  addTemplate
+  addTemplate,
+  addVitePlugin
 } from '@nuxt/kit'
 import vitePlugins from '../vite.plugins'
 import { getIcons } from './lib/icons'
 
-export default <any>defineNuxtModule({
+export default defineNuxtModule({
   meta: {
     name: 'ripple-ui-core',
     configKey: 'ripple'
@@ -18,12 +19,6 @@ export default <any>defineNuxtModule({
   },
   hooks: {
     'vite:extendConfig'(viteInlineConfig) {
-      // Add vite plugins
-      if (Array.isArray(viteInlineConfig.plugins)) {
-        viteInlineConfig.plugins?.push(vitePlugins)
-      } else {
-        viteInlineConfig.plugins = vitePlugins
-      }
       // Add external assets
       if (viteInlineConfig.build?.rollupOptions) {
         if (Array.isArray(viteInlineConfig.build.rollupOptions?.external)) {
@@ -58,6 +53,10 @@ export default <any>defineNuxtModule({
       // precedence over nuxt-ripple-core components
       priority: 0
     })
+
+    // Add vite plugins
+    addVitePlugin(vitePlugins)
+
     console.info('Added ripple-ui-core components')
     // Plugin adds runtime setup tasks, eg: event bus
     addPlugin(resolve('./runtime/plugin'))

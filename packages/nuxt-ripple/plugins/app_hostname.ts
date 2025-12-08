@@ -1,4 +1,5 @@
 import { defineNuxtPlugin } from '#app'
+import { useRuntimeConfig } from '#imports'
 
 export default defineNuxtPlugin((nuxtApp) => {
   let host = ''
@@ -15,7 +16,10 @@ export default defineNuxtPlugin((nuxtApp) => {
     host = window.location.host
   }
 
-  if (process.env.NODE_ENV === 'development' && host.startsWith('localhost')) {
+  if (
+    process.env.NODE_ENV === 'development' &&
+    ['localhost', '[::1]'].includes(host)
+  ) {
     protocol = 'http'
   }
 

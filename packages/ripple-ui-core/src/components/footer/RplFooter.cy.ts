@@ -20,7 +20,7 @@ describe('RplFooter', () => {
     cy.get('@button')
       .invoke('attr', 'aria-controls')
       .then((id) => {
-        cy.get(`#${id}`).as('menu')
+        cy.get(`#${id} .rpl-expandable`).as('menu')
       })
 
     cy.get('@button').click()

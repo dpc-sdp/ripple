@@ -57,7 +57,7 @@ export default () => {
     new BrowserAgent(options)
   }
 
-  if (process.client) {
+  if (import.meta.client) {
     initBrowserAgent()
   }
 }

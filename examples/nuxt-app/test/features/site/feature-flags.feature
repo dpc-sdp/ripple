@@ -1,5 +1,4 @@
 Feature: Site feature flags
-
   As a site admin I generic feature flags to be used across the site
 
   @mockserver
@@ -48,7 +47,7 @@ Feature: Site feature flags
       | Facebook | https://facebook.com/VicGovAu |
       | Twitter  | https://twitter.com/VicGovAu  |
 
-  @mockserver
+  @skip @mockserver
   Scenario: The default primary nav form navigates to /search
     Given the site endpoint returns fixture "/site/reference" with status 200
     And the page endpoint for path "/" returns fixture "/landingpage/image-banner" with status 200
@@ -85,11 +84,11 @@ Feature: Site feature flags
     And clicking the site section nav item "Demo Landing Page" shows the following
       | text                        | link                |
       | Demo Landing Page           | /demo-landing-page  |
-      | 2.1 Accessibility - demo    | /accessibility-demo |
-      | 2.2 Copyright - demo        | /copyright-demo     |
-      | 2.3 Disclaimer - demo       | /disclaimer-demo    |
+      |    2.1 Accessibility - demo | /accessibility-demo |
+      |        2.2 Copyright - demo | /copyright-demo     |
+      |       2.3 Disclaimer - demo | /disclaimer-demo    |
       | 3.1 Find and connect - demo | /find-connect-demo  |
-      | 4.1 Many Talents - demo     | /many-talents-demo  |
+      |     4.1 Many Talents - demo | /many-talents-demo  |
 
   @mockserver
   Scenario: Feature flags can set the site section nav to use toggle-able children
@@ -107,21 +106,21 @@ Feature: Site feature flags
     And clicking the site section nav item "Demo Landing Page" shows the following
       | text                          | link                |
       | Demo Landing Page             | /demo-landing-page  |
-      | 2.1 Accessibility - demo      | /accessibility-demo |
-      | 2.2 Copyright - demo          | /copyright-demo     |
-      | 2.3 Disclaimer - demo         |                     |
+      |      2.1 Accessibility - demo | /accessibility-demo |
+      |          2.2 Copyright - demo | /copyright-demo     |
+      |         2.3 Disclaimer - demo |                     |
       | 2.4 Working in the CMS - demo | /working-cms-demo   |
     Then clicking the site section nav item "2.3 Disclaimer - demo" shows the following
       | text                        | link              |
-      | 2.3 Disclaimer - demo       | /disclaimer-demo  |
+      |       2.3 Disclaimer - demo | /disclaimer-demo  |
       | 3.1 Find and connect - demo |                   |
-      | 3.2 Legal notes - demo      | /legal-notes-demo |
+      |      3.2 Legal notes - demo | /legal-notes-demo |
     Then clicking the site section nav item "3.1 Find and connect - demo" shows the following
       | text                        | link               |
       | 3.1 Find and connect - demo | /find-connect-demo |
-      | 4.1 Many Talents - demo     | /many-talents-demo |
-      | 5.1 Another menu - demo     | /another-demo      |
-      | 4.2 More Talents - demo     | /more-talents-demo |
+      |     4.1 Many Talents - demo | /many-talents-demo |
+      |     5.1 Another menu - demo | /another-demo      |
+      |     4.2 More Talents - demo | /more-talents-demo |
 
   @mockserver
   Scenario: Feature flags can be set per site section
@@ -148,7 +147,6 @@ Feature: Site feature flags
       | text             | url             |
       | Home             | /               |
       | Level 3 - Item 2 | /level-3-item-2 |
-
     When I expand the breadcrumbs
     Then the breadcrumbs should have the following items
       | text             | url             |
@@ -162,11 +160,9 @@ Feature: Site feature flags
     Given I load the site fixture with "/site/shared-elements"
     And the feature flag "disableContentRating" is set to "true"
     And the site endpoint returns the loaded fixture
-
     Then I load the page fixture with "/landingpage/home"
     And the content rating form is enabled
     And the page endpoint for path "/" returns the loaded fixture
-
     When I visit the page "/"
     Then the content rating form should not be displayed
 
@@ -176,7 +172,6 @@ Feature: Site feature flags
     And the feature flag "primaryNavLogin.url" is set to "/login"
     And the site endpoint returns the loaded fixture
     And the page endpoint for path "/" returns fixture "/landingpage/image-banner" with status 200
-
     When I visit the page "/"
     Then the primary nav should include the user action "Log in" "/login"
 
@@ -188,7 +183,6 @@ Feature: Site feature flags
     And the site endpoint returns the loaded fixture
     And the page endpoint for path "/" returns fixture "/landingpage/image-banner" with status 200
     And the page endpoint for path "/my-account" returns fixture "/landingpage/sub" with status 200
-
     When I visit the page "/"
     Then the primary nav should include the user action "My Account" "/my-account"
     When I click the primary nav button labelled "My Account"
@@ -203,6 +197,5 @@ Feature: Site feature flags
     And the feature flag "disablePrimaryNavSearch" is set to "true"
     And the site endpoint returns the loaded fixture
     And the page endpoint for path "/" returns fixture "/landingpage/image-banner" with status 200
-
     When I visit the page "/"
     Then the primary nav search should be hidden

@@ -1,0 +1,65 @@
+{
+  "title": "Content Collection Landing Page",
+  "changed": "2022-11-02T12:47:29+11:00",
+  "created": "2022-11-02T12:47:29+11:00",
+  "type": "landing_page",
+  "status": "published",
+  "nid": "11dede11-10c0-111e1-1100-000000000330",
+  "showTopicTags": false,
+  "topicTags": [],
+  "sidebar": {},
+  "summary": "Summary",
+  "background": "default",
+  "header": {
+    "title": "Test Content Collection",
+    "backgroundImage": null
+  },
+  "bodyComponents": [
+    {
+      "uuid": "b10133a8-a599-4b60-8313-a6d143cb0bd6",
+      "component": "TideLandingPageContentCollection",
+      "id": "2195",
+      "title": "Content Collection - Grants List",
+      "props": {
+        "searchQuery": {},
+        "filters": [
+          {
+            "type": "any",
+            "field": "type",
+            "values": ["grant"]
+          },
+          {
+            "type": "any",
+            "field": "field_node_site",
+            "values": [8888]
+          }
+        ],
+        "sortBy": [
+          {
+            "field": "created",
+            "direction": "desc"
+          }
+        ],
+        "perPage": 6,
+        "display": {
+          "type": "list"
+        }
+      }
+    }
+  ],
+  "meta": {
+    "url": "/demo-landing-page",
+    "langcode": "en",
+    "description": "Nulla ultricies dignissim leo, posuere vestibulum erat cursus vitae",
+    "additional": [],
+    "keywords": "",
+    "image": {
+      "src": "/placeholders/medium.png",
+      "alt": "Demo: Melbourne tram",
+      "title": "Demo: Melbourne tram",
+      "width": 1413,
+      "height": 785,
+      "drupal_internal__target_id": 46
+    }
+  }
+}

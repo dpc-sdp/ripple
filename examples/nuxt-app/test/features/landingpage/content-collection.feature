@@ -3,11 +3,11 @@ Feature: Content collection
   Background:
     Given the site endpoint returns fixture "/site/reference" with status 200
     And the page endpoint for path "/home" returns fixture "/landingpage/home" with status 200
-    And the page endpoint for path "/" returns fixture "/landingpage/content-collection" with status 200
 
   @mockserver
   Scenario: Page component - Content collection - Cards
-    Given the "/**/_search" network request is stubbed with fixture "/landingpage/content-collection-response-elasticsearch" and status 200 as alias "ccReq"
+    Given the "/**/_search" network request is stubbed with fixture "/landingpage/content-collection/response-elasticsearch" and status 200 as alias "ccReq"
+    And the page endpoint for path "/" returns fixture "/landingpage/content-collection/cards" with status 200
     When I visit the page "/home"
     # Need to render in the browser to properly mock the elasticsearch call
     When I click the primary nav logo
@@ -18,7 +18,8 @@ Feature: Content collection
 
   @mockserver
   Scenario: Page component - Content collection - List
-    Given the "/**/_search" network request is stubbed with fixture "/landingpage/content-collection-response-elasticsearch" and status 200 as alias "ccReq"
+    Given the "/**/_search" network request is stubbed with fixture "/landingpage/content-collection/response-elasticsearch" and status 200 as alias "ccReq"
+    And the page endpoint for path "/" returns fixture "/landingpage/content-collection/list" with status 200
     When I visit the page "/home"
     Then I click the primary nav logo
     Then the content collection with ID "2193" exist with the following cards
@@ -28,7 +29,8 @@ Feature: Content collection
 
   @mockserver
   Scenario: Page component - Content collection - Grants Cards
-    Given the "/**/_search" network request is stubbed with fixture "/landingpage/content-collection-response-grants" and status 200 as alias "ccReq"
+    Given the "/**/_search" network request is stubbed with fixture "/landingpage/content-collection/response-elasticsearch-grants" and status 200 as alias "ccReq"
+    And the page endpoint for path "/" returns fixture "/landingpage/content-collection/grants-cards" with status 200
     When I visit the page "/home"
     Then I click the primary nav logo
     Then the content collection with ID "2194" exist with the following cards
@@ -40,7 +42,8 @@ Feature: Content collection
 
   @mockserver
   Scenario: Page component - Content collection - Grants List
-    Given the "/**/_search" network request is stubbed with fixture "/landingpage/content-collection-response-grants" and status 200 as alias "ccReq"
+    Given the "/**/_search" network request is stubbed with fixture "/landingpage/content-collection/response-elasticsearch-grants" and status 200 as alias "ccReq"
+    And the page endpoint for path "/" returns fixture "/landingpage/content-collection/grants-list" with status 200
     When I visit the page "/home"
     Then I click the primary nav logo
     Then the content collection with ID "2195" exist with the following cards

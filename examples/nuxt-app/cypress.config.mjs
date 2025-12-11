@@ -14,6 +14,7 @@ export default defineConfig({
     supportFile: false,
     downloadsFolder: './test/downloads',
     fixturesFolder: './test/fixtures',
+    numTestsKeptInMemory: 10,
     videosFolder: './test/videos',
     screenshotsFolder: './test/screenshots',
     async setupNodeEvents(on, config) {

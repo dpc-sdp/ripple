@@ -18,7 +18,7 @@ describe('RplMediaEmbed', () => {
     cy.mount(RplMediaEmbed, { props })
 
     cy.get('.rpl-media-embed__view-data-toggle').as('toggle')
-    cy.get('.rpl-media-embed__view-data-content').as('content')
+    cy.get('.rpl-media-embed__view-data-content .rpl-expandable').as('content')
 
     cy.get('@toggle').should('contain.text', "View 'Media title' data")
     cy.get('@content').should('be.hidden')

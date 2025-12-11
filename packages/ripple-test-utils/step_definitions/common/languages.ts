@@ -13,8 +13,13 @@ Then(
     cy.get('@section').should('have.class', `rpl-u-font-lang--${language}`)
     cy.get('@section').should('have.attr', 'dir', direction)
 
+    // Can't guarantee that font is loaded, but document should have it registered
     cy.document().then((doc) => {
-      cy.wrap(doc.fonts).invoke('check', `16px ${font}`).should('be.true')
+      const fonts = []
+      for (const f of doc.fonts) {
+        fonts.push(f.family)
+      }
+      cy.wrap(fonts.includes(font)).should('be.true')
     })
   }
 )

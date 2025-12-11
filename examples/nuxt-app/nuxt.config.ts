@@ -34,7 +34,7 @@ export default defineNuxtConfig({
   sourcemap: true,
 
   devtools: {
-    enabled: false
+    enabled: !(process.env.NODE_ENV === 'test')
   },
 
   // Vite HMR temporary fix - see https://github.com/nuxt/nuxt/discussions/27779

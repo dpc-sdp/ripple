@@ -349,13 +349,20 @@ Then('I should jump to the targeted section {string}', (heading: string) => {
   cy.get('#rpl-main [data-cy="page-component-title"]')
     .contains(heading)
     .parents('.rpl-page-component')
-    .then(($el) => {
-      cy.window().then((win) => {
-        const elementTop = $el.offset().top
-        expect($el.get(0).matches(':target')).to.be.true
-        expect(win.scrollY).to.be.closeTo(elementTop, 100)
-      })
+    .as('target')
+  // Check scroll position
+  cy.window().then((win) => {
+    cy.get('@target').should(($el) => {
+      expect(win.scrollY).to.be.closeTo($el.offset().top, 100)
     })
+  })
+  // Check url fragment
+  cy.url().then((url) => {
+    cy.get('@target').should(($el) => {
+      const fragment = url.split('#')[1]
+      expect($el.get(0).id).to.equal(fragment)
+    })
+  })
 })
 
 Given('I click on the document {string}', (label: string) => {

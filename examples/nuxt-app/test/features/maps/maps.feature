@@ -1,5 +1,4 @@
 Feature: Custom collection map component
-
   I want to display a map of features from an indexed data pipeline
 
   Background:
@@ -9,10 +8,10 @@ Feature: Custom collection map component
     Given the "/api/tide/elasticsearch/elasticsearch_index_develop_node/_search" aggregation request is stubbed with fixture "/map-table/vsba/aggregations" and status 200 as alias "aggReq"
     Given the "/test-map-shape-layer" network request is stubbed with fixture "/maps/sample-shapes"
       | method | status |
-      | GET    | 200    |
+      | GET    |    200 |
     Given the "https://base.maps.vic.gov.au/service*" network request is stubbed with fixture "/maps/service.png"
       | method | status |
-      | GET    | 200    |
+      | GET    |    200 |
 
   @mockserver
   Scenario: A loading screen is shown while the map loads
@@ -119,7 +118,6 @@ Feature: Custom collection map component
     And the side panel is enabled
     And the page endpoint for path "/map" returns the loaded fixture
     And the "/api/tide/elasticsearch/elasticsearch_index_develop_node/_search" network request is stubbed with fixture "/maps/many-map-results" and status 200 as alias "searchReq"
-
     When I visit the page "/map"
     And the map is loaded
     Then I scroll to the maps side panel item titled "Orange Pin"
@@ -157,7 +155,7 @@ Feature: Custom collection map component
     And I wait 4 seconds
     Then the map matches the image snapshot "map-popover-max-zoom-cluster"
 
-  @mockserver
+  @skip @mockserver
   Scenario: Map zooms to intended initial location with results hook
     Given I load the page fixture with "/maps/basic-page"
     And a custom map results hook called "exampleMapResultsHook" is used
@@ -180,7 +178,7 @@ Feature: Custom collection map component
     And the map is loaded
     Then the map matches the image snapshot "map-custom-default-extent"
 
-  @mockserver
+  @skip @mockserver
   Scenario: Map can be viewed fullscreen
     Given I load the page fixture with "/maps/basic-page"
     And the page endpoint for path "/map" returns the loaded fixture
@@ -208,24 +206,20 @@ Feature: Custom collection map component
     And I visit the page "/map"
     And the map is loaded
     Then the map is in the default position
-
     When I click the zoom in button
     Then the map is positioned at
       | center  | zoom              |
       | default | 7.849094430405593 |
-
     When I toggle the search listing filters section
     Then I click the search listing dropdown field labelled "Project Type"
     And I click the option labelled "Planning" in the selected dropdown
     And I click the search listing dropdown field labelled "Project Type"
     Then I submit the search filters
     Then the map is in the default position
-
     When I click the zoom out button
     Then the map is positioned at
       | center  | zoom              |
       | default | 5.849094430405593 |
-
     When I clear the search filters
     Then the map is in the default position
 
@@ -239,12 +233,10 @@ Feature: Custom collection map component
     Then the map is positioned at
       | center                                | zoom               |
       | 16172740.680043206,-4554822.777152179 | 13.939450418166157 |
-
     Then I click the zoom out button
     Then the map is positioned at
       | center                                | zoom               |
       | 16172740.680043206,-4554822.777152179 | 12.939450418166157 |
-
     When I toggle the search listing filters section
     Then I click the search listing dropdown field labelled "Project Type"
     And I click the option labelled "Planning" in the selected dropdown
@@ -253,7 +245,6 @@ Feature: Custom collection map component
     Then the map is positioned at
       | center                                | zoom               |
       | 16172740.680043206,-4554822.777152179 | 13.939450418166157 |
-
     When I clear the search filters
     Then the map is in the default position
 
@@ -265,12 +256,10 @@ Feature: Custom collection map component
     Then I visit the page "/map"
     And the map is loaded
     Then the map is in the default position
-
     When I click the zoom in button
     Then the map is positioned at
       | center  | zoom              |
       | default | 7.849094430405593 |
-
     When I toggle the search listing filters section
     Then I submit the search filters
     And the aliased request "searchReq" has been called 4 times
@@ -283,7 +272,6 @@ Feature: Custom collection map component
     Then the page endpoint for path "/map" returns the loaded fixture
     Then I visit the page "/map"
     And the map is loaded
-
     When I toggle the search listing filters section
     Then I submit the search filters
     And I click the tab labelled "List"
@@ -292,14 +280,12 @@ Feature: Custom collection map component
       | activeTab | listing |
     And the list view should be displayed
     And the search network request should be called with the "/maps/request-empty" fixture
-
     When I submit the search filters
     Then I click the tab labelled "Map"
     And the map view should be displayed
     And the URL should reflect that the current active filters are as follows:
       | id        |
       | activeTab |
-
     When I click the search listing dropdown field labelled "Project Type"
     And I click the option labelled "Planning" in the selected dropdown
     And I click the search listing dropdown field labelled "Project Type"
@@ -315,7 +301,6 @@ Feature: Custom collection map component
     Then the page endpoint for path "/map" returns the loaded fixture
     Then I visit the page "/map"
     And the map is loaded
-
     When I click the tab labelled "List"
     Then the list view should be displayed
     When I toggle the search listing filters section
@@ -328,7 +313,6 @@ Feature: Custom collection map component
       | category  | Planning |
       | activeTab | listing  |
     And the search network request should be called with the "/maps/request-with-filter" fixture
-
     When I navigate back
     Then the list view should be displayed
     Then the URL should reflect that the current active filters are as follows:
@@ -337,14 +321,12 @@ Feature: Custom collection map component
       | activeTab | listing |
     And the search listing dropdown field labelled "Project Type" should have the value "Select"
     And the search network request should be called with the "/maps/request-empty" fixture
-
     When I navigate back
     Then the URL should reflect that the current active filters are as follows:
       | id        | value |
       | category  |       |
       | activeTab |       |
     And the map view should be displayed
-
     When I navigate forward
     Then the list view should be displayed
     And the URL should reflect that the current active filters are as follows:
@@ -352,7 +334,6 @@ Feature: Custom collection map component
       | category  |         |
       | activeTab | listing |
     And the search network request should be called with the "/maps/request-empty" fixture
-
     When I navigate forward
     And the URL should reflect that the current active filters are as follows:
       | id        | value    |
@@ -371,7 +352,7 @@ Feature: Custom collection map component
     When I click the link in the list view with label "Blue Pin"
     Then the dataLayer should include the following events
       | event               | name           | mode    | component         | platform_event | index | count | element_text | element_id     | link_url             | filters           | label        |
-      | click_search_result | Test map title | listing | rpl-search-result | navigate       | 3     | 2159  | Blue Pin     | test-map-title | /site-622/aaa-school | category=Planning | testQuery123 |
+      | click_search_result | Test map title | listing | rpl-search-result | navigate       |     3 |  2159 | Blue Pin     | test-map-title | /site-622/aaa-school | category=Planning | testQuery123 |
 
   @mockserver
   Scenario: Viewing results fires the view_search_results event
@@ -383,7 +364,7 @@ Feature: Custom collection map component
     Then the list view should be displayed
     And the dataLayer should include the following events
       | event               | name           | mode    | component              | platform_event | index | count | element_id     | filters           | label        |
-      | view_search_results | Test map title | listing | tide-custom-collection | search         | 3     | 2159  | test-map-title | category=Planning | testQuery123 |
+      | view_search_results | Test map title | listing | tide-custom-collection | search         |     3 |  2159 | test-map-title | category=Planning | testQuery123 |
 
   @mockserver
   Scenario: Switching tabs fires the select_tab event

@@ -15,11 +15,7 @@ export default (site) => {
   const style = formatThemeStyle(siteTheme)
   if (style) {
     useHead({
-      style: [
-        {
-          children: `:root, body { ${style} }`
-        }
-      ]
+      style: `:root, body { ${style} }`
     })
   }
 

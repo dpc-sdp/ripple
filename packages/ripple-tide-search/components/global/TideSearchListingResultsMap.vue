@@ -18,6 +18,7 @@
       :maxZoom="maxZoom"
       :layerList="layerList"
       :selectedLayers="selectedLayers"
+      :animateClusters="animateClusters"
       @updateSelectedLayers="handleUpdateSelectedLayers"
     >
       <template #noresults>
@@ -116,6 +117,7 @@ interface Props {
   height?: number
   defaultSelectedLayers?: string[]
   layerList?: any
+  animateClusters?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -134,7 +136,8 @@ const props = withDefaults(defineProps<Props>(), {
   maxZoom: undefined,
   height: 550,
   defaultSelectedLayers: () => [],
-  layerList: undefined
+  layerList: undefined,
+  animateClusters: true
 })
 
 const appConfig = useAppConfig()

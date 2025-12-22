@@ -19,7 +19,7 @@ import {
   useRippleEvent,
   rplEventPayload
 } from '../../composables/useRippleEvent'
-import type { IRplFeatureFlags } from '@dpc-sdp/ripple-tide-api/types'
+import type { IRplFeatureFlags } from './../../index'
 
 interface Props {
   variant?: (typeof RplFooterVariants)[number]

@@ -8,7 +8,7 @@ import type {
 } from './constants'
 import type { RplIconNames } from '../icon/constants'
 import RplIcon from '../icon/RplIcon.vue'
-import type { IRplFeatureFlags } from '@dpc-sdp/ripple-tide-api/types'
+import type { IRplFeatureFlags } from './../../index'
 import RplSpinner from '../spinner/RplSpinner.vue'
 
 const featureFlags: IRplFeatureFlags = inject('featureFlags', {

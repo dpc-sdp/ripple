@@ -14,7 +14,7 @@ import {
 } from '../../../../composables/useRippleEvent'
 import useEmptySlotCheck from '../../../../composables/useEmptySlotCheck'
 import VicGovLogo from './../../../../assets/logos/logo-vic-gov.svg?component'
-import type { IRplFeatureFlags } from '@dpc-sdp/ripple-tide-api/types'
+import type { IRplFeatureFlags } from './../../../../index'
 
 const { disablePrimaryLogo, primaryNavNowrap }: IRplFeatureFlags = inject(
   'featureFlags',

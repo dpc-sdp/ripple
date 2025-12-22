@@ -8,7 +8,6 @@
   "scripts": {
     "example": "wrap () { pnpm -F example-\"$*\" dev | cat; }; wrap",
     "storybook": "pnpm -F ripple-storybook start",
-    "dev": "pnpm -F nuxt-app dev:mock",
     "clean": "git clean -dfx && git reset --hard && pnpm",
     "build": "pnpm -F !docs -F !ripple-storybook -F !nuxt-app -F !vue-app -F !webcomponents build",
     "build:ripple": "pnpm -F \"@dpc-sdp/ripple-ui-*\" -F \"@dpc-sdp/ripple-tide-api\" build",
@@ -30,12 +29,8 @@
     "test:components-forms": "pnpm -F @dpc-sdp/ripple-ui-forms test:components",
     "test:storybook": "pnpm -F ripple-storybook test",
     "test:storybook-ci": "pnpm -F ripple-storybook test:ci",
-    "test:nuxt-app": "pnpm -F nuxt-app test:integration",
-    "ci:nuxt-app": "pnpm -F nuxt-app test:ci",
-    "start:nuxt": "pnpm -F nuxt-app start",
     "start:vue": "pnpm -F vue-app start",
     "start:wc": "pnpm -F webcomponents start",
-    "dev:nuxt": "pnpm -F nuxt-app dev",
     "dev:vue": "pnpm -F vue-app dev",
     "dev:wc": "pnpm -F webcomponents dev",
     "dev:docs": "pnpm -F docs dev",
@@ -101,7 +96,6 @@
       "tough-cookie@<4.1.3": ">=4.1.3",
       "vite@>=5.1.0 <=5.1.6": ">=5.1.7",
       "parse5": "7.1.2",
-      "parse5-htmlparser2-tree-adapter": "7.0.0",
       "parse5-parser-stream": "7.1.2",
       "chokidar": "^3.6.0",
       "esbuild@<=0.24.2": ">=0.25.0",
@@ -109,9 +103,7 @@
     },
     "patchedDependencies": {
       "@vitejs/plugin-vue@5.0.4": "patches/@vitejs__plugin-vue@5.0.4.patch",
-      "parse5@7.1.2": "patches/parse5@7.1.2.patch",
-      "parse5-htmlparser2-tree-adapter@7.0.0": "patches/parse5-htmlparser2-tree-adapter@7.0.0.patch",
-      "parse5-parser-stream@7.1.2": "patches/parse5-parser-stream@7.1.2.patch"
+      "parse5@7.1.2": "patches/parse5@7.1.2.patch"
     }
   }
 }

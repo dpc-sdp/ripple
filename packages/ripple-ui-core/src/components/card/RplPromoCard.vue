@@ -6,7 +6,7 @@ import RplImage from '../image/RplImage.vue'
 import RplCard from './RplCard.vue'
 import RplTextLink from '../text-link/RplTextLink.vue'
 import { IRplImageType } from '../image/constants'
-import type { IRplFeatureFlags } from '@dpc-sdp/ripple-tide-api/types'
+import type { IRplFeatureFlags } from './../../index'
 import {
   useRippleEvent,
   rplEventPayload

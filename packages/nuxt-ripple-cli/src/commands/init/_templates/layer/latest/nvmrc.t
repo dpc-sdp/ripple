@@ -1,4 +1,0 @@
----
-to: .nvmrc
----
-lts/hydrogen

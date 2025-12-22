@@ -1,7 +1,0 @@
-{
-  "stepDefinitions": [
-    "test/features/[filepath]/**/*.{js,ts}",
-    "test/features/[filepath].{js,ts}",
-    "test/support/step_definitions/**/*.{js,ts}"
-  ]
-}

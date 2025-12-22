@@ -1,3 +1,0 @@
----
-to: cypress/fixtures/.gitkeep
----

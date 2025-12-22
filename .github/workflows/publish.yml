@@ -20,10 +20,10 @@ jobs:
       - name: Install Node
         uses: actions/setup-node@v4
         with:
-          registry-url: 'https://npm.pkg.github.com/'
+          registry-url: "https://npm.pkg.github.com/"
           node-version: 20
-          cache: 'pnpm'
-          scope: '@dpc-sdp'
+          cache: "pnpm"
+          scope: "@dpc-sdp"
       - name: Install Dependencies
         env:
           CYPRESS_INSTALL_BINARY: 0
@@ -37,10 +37,6 @@ jobs:
       - name: Run release:changelog script for proper release
         if: ${{ !github.event.release.prerelease  }}
         run: npm run release:changelog
-
-      - name: Set lib version for ripple cli
-        if: ${{ !github.event.release.prerelease  }}
-        run: pnpm -F @dpc-sdp/nuxt-ripple-cli preinstall
 
       - name: Configure Git
         if: ${{ !github.event.release.prerelease  }}

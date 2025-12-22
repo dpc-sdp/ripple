@@ -1,3 +1,0 @@
----
-to: cypress/support/.gitkeep
----

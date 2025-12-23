@@ -31,12 +31,12 @@
     "test:storybook-ci": "pnpm -F ripple-storybook test:ci",
     "start:vue": "pnpm -F vue-app start",
     "start:wc": "pnpm -F webcomponents start",
+    "dev:nuxt": "pnpm -F nuxt dev",
     "dev:vue": "pnpm -F vue-app dev",
     "dev:wc": "pnpm -F webcomponents dev",
     "dev:docs": "pnpm -F docs dev",
     "cypress": "cypress open --global",
-    "chromatic": "npx chromatic --storybook-build-dir ./packages/ripple-storybook/storybook-static --storybook-base-dir ./packages/ripple-ui-core --storybook-config-dir ./packages/ripple-ui-core",
-    "generate:component": "nuxt-ripple add component ./packages/ripple-ui-core/src/components"
+    "chromatic": "npx chromatic --storybook-build-dir ./packages/ripple-storybook/storybook-static --storybook-base-dir ./packages/ripple-ui-core --storybook-config-dir ./packages/ripple-ui-core"
   },
   "devDependencies": {
     "@awmottaz/prettier-plugin-void-html": "^1.5.0",

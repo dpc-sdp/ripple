@@ -1,7 +1,7 @@
 import { inject, ref, onMounted } from 'vue'
 import { useEventListener } from '@vueuse/core'
 import { easeOut } from 'ol/easing'
-import { fitDefaultExtent } from './../components/map/utils.ts'
+import { fitDefaultExtent } from './../components/map/utils'
 
 export default (mapRef) => {
   const { deadSpace, defaultExtent } = inject('rplMapInstance')

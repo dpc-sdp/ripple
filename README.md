@@ -20,44 +20,35 @@
 
 <!-- TABLE OF CONTENTS -->
 **Table of Contents**
-- [About the project](#about-the-project)
-  - [Ripple Framework](#ripple-framework)
+- [Ripple 2.0](#ripple-20)
+  - [About the project](#about-the-project)
   - [Usage](#usage)
-  - [Availability](#availability)
-- [Documentation](#documentation)
-- [Contributing](#contributing)
-- [License](#license)
+    - [Availability](#availability)
+  - [Documentation](#documentation)
+  - [Contributing](#contributing)
+  - [License](#license)
 
 ## About the project
 
 Ripple is the design system for Victorian government digital products.
 
-Ripple is a system of reusable styles, components, patterns and tools for building brand Victoria digital products. Developed by the Single Digital Presence (SDP) team within the Department of Government Services, Ripple strives to:
+Ripple is a system of reusable styles, components, patterns and tools for building brand Victoria digital products. Ripple strives to:
 
 - make it easier for citizens to find, understand and use government information
 - ensure users can easily navigate sites regardless of technical ability, location or device
 - allow designers and developers to create consistent Brand Victoria digital products
 - increase the speed of delivery for digital products and services
 
-Over 50 government websites use Ripple to date, including our main vic.gov.au platform. These sites attract the visitation of millions of views per month.
+Over 50 government websites use Ripple to date, including our main vic.gov.au platform.
 
-### Ripple Framework
+Ripple 2 is a complete re-write of the Ripple design system and was developed and maintained by the [Single Digital Presence](https://www.vic.gov.au/single-digital-presence) team within the Department of Government Services.
 
-The Ripple design system consists of the design elements and components used to build websites using the Victorian government brand and Ripple _framework_, a collection of [Nuxt](https://www.ripple.sdp.vic.gov.au/framework/key-concepts/nuxt/) modules and [layers](https://www.ripple.sdp.vic.gov.au/framework/key-concepts/nuxt-layers) primarily used to create headless SDP websites using the [Tide Drupal CMS](https://github.com/dpc-sdp/tide).
 
-Ripple components are built using Vue 3 and [TypeScript](https://github.com/dpc-sdp/ripple-framework/blob/develop/tsconfig.json).
+## Usage
 
-The monorepo is managed with pnpm [workspaces](https://github.com/dpc-sdp/ripple-framework/blob/develop/pnpm-workspace.yaml), using [Node.js](.nvmrc).
+Ripple is specifically designed to meet the purposes of Victoria Government websites meeting [Brand Victoria](https://www.vic.gov.au/brand-victoria-guidelines) guidelines. 
+Usage on non Victorian Government approved websites is not recommended and is unsupported.
 
-Tests use [Jest](https://github.com/dpc-sdp/ripple-framework/blob/develop/jest.config.js), [Axe-core](https://github.com/dpc-sdp/ripple-framework/blob/develop/packages/ripple-ui-core/stories/interactions.js) and [Cypress](packages/ripple-test-utils).
-
-We use custom rules for [ESLint](https://github.com/dpc-sdp/ripple-framework/blob/develop/packages/eslint-config-ripple/index.js) and [Stylelint](https://github.com/dpc-sdp/ripple-framework/blob/develop/packages/stylelint-config-ripple/index.js).
-
-### Usage
-
-Ripple was built as a whole to implement front end sites for SDP using a framework of Vue 3 and Nuxt 3, but parts of the modular architecture can be used independently: `ripple-ui-core` can be used as UI component libraries for any Vue 3 project.
-
-There is also an experimental web components implementation, and a standalone export of all Ripple design system CSS. See the [relevant section](https://ripple.sdp.vic.gov.au/design-system/develop/usage/) on the Ripple documentation site for more details.
 
 ### Availability
 

@@ -73,6 +73,7 @@
     "chromatic": "^6.17.2",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-storybook": "^0.6.13",
+    "lodash-es": "^4.17.22",
     "pathe": "^1.1.0",
     "rimraf": "catalog:",
     "style-dictionary": "3.7.2",

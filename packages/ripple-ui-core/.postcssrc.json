@@ -1,0 +1,12 @@
+{
+  "plugins": {
+    "postcss-normalize": {},
+    "postcss-nested": {},
+    "postcss-preset-env": {
+      "features": {
+        "custom-properties": false
+      }
+    },
+    "postcss-each": {}
+  }
+}

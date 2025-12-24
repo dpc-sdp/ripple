@@ -4,6 +4,10 @@
   "version": "2.46.0",
   "license": "Apache-2.0",
   "repository": "https://github.com/dpc-sdp/ripple",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
+    "access": "public"
+  },
   "main": "./dist/rpl-forms.umd.js",
   "module": "./dist/rpl-forms.es.js",
   "types": "./dist/index.d.ts",

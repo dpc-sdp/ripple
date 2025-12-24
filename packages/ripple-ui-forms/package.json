@@ -1,7 +1,7 @@
 {
   "name": "@dpc-sdp/ripple-ui-forms",
   "description": "A form component library built with Formkit",
-  "version": "2.46.0",
+  "version": "2.47.0",
   "license": "Apache-2.0",
   "repository": "https://github.com/dpc-sdp/ripple",
   "publishConfig": {

@@ -2,26 +2,28 @@ name: Docs
 on:
   push:
     paths:
-      - '.github/workflows/docs.yml'
-      - 'docs'
-      - 'packages/ripple-ui-core/**'
-      - 'packages/ripple-ui-forms/**'
-      - 'pnpm-lock.yaml'
+      - ".github/workflows/docs.yml"
+      - "docs"
+      - "packages/ripple-ui-core/**"
+      - "packages/ripple-ui-forms/**"
+      - "pnpm-lock.yaml"
 jobs:
   Docs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - name: Install pnpm
-        uses: pnpm/action-setup@v3
+        uses: pnpm/action-setup@v4
         with:
           version: 10.10.0
           run_install: false
       - name: Install Node
         uses: actions/setup-node@v4
         with:
+          always-auth: true
+          registry-url: https://npm.pkg.github.com/
           node-version: 20
-          cache: 'pnpm'
+          scope: "@dpc-sdp"
       - name: Install Dependencies
         env:
           PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1

@@ -15,17 +15,18 @@ jobs:
           fetch-depth: 0
       - run: git fetch --depth=1 origin +refs/tags/*:refs/tags/*
       - name: Install pnpm
-        uses: pnpm/action-setup@v3
+        uses: pnpm/action-setup@v4
         with:
           version: 10.10.0
           run_install: false
       - name: Install Node
         uses: actions/setup-node@v4
         with:
-          registry-url: 'https://npm.pkg.github.com/'
+          always-auth: true
+          registry-url: https://npm.pkg.github.com/
           node-version: 20
-          cache: 'pnpm'
-          scope: '@dpc-sdp'
+          scope: "@dpc-sdp"
+          cache: "pnpm"
       - name: Install Dependencies
         env:
           CYPRESS_INSTALL_BINARY: 0

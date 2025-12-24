@@ -2,23 +2,29 @@ name: UI Libraries
 on:
   push:
     paths:
-      - '.github/workflows/components.yml'
-      - 'packages/ripple-storybook/**'
-      - 'packages/ripple-ui-core/**'
-      - 'packages/ripple-ui-forms/**'
-      - 'pnpm-lock.yaml'
+      - ".github/workflows/components.yml"
+      - "packages/ripple-storybook/**"
+      - "packages/ripple-ui-core/**"
+      - "packages/ripple-ui-forms/**"
+      - "pnpm-lock.yaml"
 jobs:
   Storybook:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
+      - uses: actions/checkout@v4
       - name: Install pnpm
-        uses: pnpm/action-setup@v3
+        uses: pnpm/action-setup@v4
         with:
           version: 10.10.0
+          run_install: false
+      - name: Install Node
+        uses: actions/setup-node@v4
+        with:
+          always-auth: true
+          registry-url: https://npm.pkg.github.com/
+          node-version: 20
+          scope: "@dpc-sdp"
+          cache: "pnpm"
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
       - name: Install Playwright Browsers
@@ -31,9 +37,9 @@ jobs:
         uses: chromaui/action@v1
         with:
           workingDir: packages/ripple-storybook
-          storybookBuildDir: 'storybook-static'
+          storybookBuildDir: "storybook-static"
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-          skip: 'gh-readonly-queue/**'
+          skip: "gh-readonly-queue/**"
           exitOnceUploaded: true
   Component-Core:
     runs-on: ubuntu-latest
@@ -51,7 +57,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'pnpm'
+          cache: "pnpm"
       - name: Cypress component tests
         uses: cypress-io/github-action@v6
         with:
@@ -74,7 +80,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'pnpm'
+          cache: "pnpm"
 
       - name: Cypress component tests
         uses: cypress-io/github-action@v6

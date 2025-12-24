@@ -4,7 +4,7 @@
   "version": "2.46.0",
   "license": "Apache-2.0",
   "private": true,
-  "repository": "https://github.com/dpc-sdp/ripple-framework",
+  "repository": "https://github.com/dpc-sdp/ripple",
   "scripts": {
     "start": "storybook dev -p 6006",
     "static:build": "storybook build",

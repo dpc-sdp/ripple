@@ -16,8 +16,11 @@ jobs:
         with:
           fetch-depth: 0
 
-      - uses: pnpm/action-setup@v2
-
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.10.0
+          run_install: false
       - uses: actions/setup-node@v4
         with:
           node-version: "20"
@@ -31,15 +34,9 @@ jobs:
       - name: Build packages
         run: pnpm build:ripple
 
-      - name: Calculate git hash
-        id: git-hash
-        run: |
-          GIT_HASH=$(git rev-parse --short HEAD)
-          echo "git_hash=$GIT_HASH" >> $GITHUB_OUTPUT
-
       - name: Bump versions for alpha
         run: |
-          pnpm -r --filter './packages/**' exec sh -c 'CURRENT_VERSION=$(node -p "require(\"./package.json\").version") && NEW_VERSION="${CURRENT_VERSION}-alpha.${{ steps.git-hash.outputs.git_hash }}" && pnpm version "$NEW_VERSION" --no-git-tag-version'
+          pnpm -r --filter './packages/**' --filter '!ripple-storybook' exec sh -c 'CURRENT_VERSION=$(node -p "require(\"./package.json\").version") && NEW_VERSION="${CURRENT_VERSION}-alpha.$(git rev-parse --short HEAD)" && pnpm version "$NEW_VERSION" --no-git-tag-version'
 
       - name: Publish alpha to GitHub Package Registry
         run: pnpm -r --filter './packages/**' --filter '!ripple-storybook' publish --tag alpha --no-git-checks

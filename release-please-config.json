@@ -16,6 +16,8 @@
     { "type": "build", "section": "Build System" },
     { "type": "ci", "section": "CI/CD", "hidden": true }
   ],
+  "pull-request-title-pattern": "release: ${component} ${version}",
+  "pull-request-header": ":bookmark: Ripple release version ${version}",
   "packages": {
     "packages/ripple-ui-core": {},
     "packages/ripple-ui-forms": {},

@@ -127,7 +127,7 @@ pnpm run test:components-forms
 
 ### End-to-end tests
 
-End-to-end tests are handled by [Cypress](https://www.cypress.io/), and run using the example nuxt app `examples/nuxt-app`, these test focus on testing the Tide (Drupal) integrations. 
+End-to-end tests are handled by [Cypress](https://www.cypress.io/), and run using the example nuxt app `examples/nuxt`
 
 The e2e tests can be run in a headless mode using:
 
@@ -140,11 +140,6 @@ Or in an interactive mode using:
 ```bash
 pnpm run test:nuxt-app
 ```
-
-## Releases
-
-Releases are powered by `lerna` and automated using Circle CI.
-
 ## Ripple Framework directory structure
 
 The core Ripple Framework directory structure is as follows:
@@ -155,3 +150,89 @@ The core Ripple Framework directory structure is as follows:
   - nuxt-ripple
   - ripple-ui-core
   - etc...
+
+
+
+## Releases
+
+Ripple uses [release-please](https://github.com/googleapis/release-please) to automate releases based on [Conventional Commits](#conventional-commits). The release process is handled entirely through GitHub Actions.
+
+### Release Types
+
+#### Standard Releases (main branch)
+
+When changes are merged to the `main` branch, release-please automatically:
+
+1. **Creates or updates a release PR** containing:
+   - Version bumps for all affected packages based on conventional commits
+   - Updated CHANGELOG.md files
+   - Updated package.json versions
+
+2. **When you merge the release PR**, the workflow automatically:
+   - Publishes all packages to GitHub Package Registry with the `latest` tag
+   - Creates GitHub Releases with auto-generated release notes
+
+**Version bumping rules:**
+- `feat:` commits → minor version bump (e.g., 2.46.0 → 2.47.0)
+- `fix:`, `perf:` commits → patch version bump (e.g., 2.46.0 → 2.46.1)
+- `BREAKING CHANGE:` or `!` in commit → major version bump (e.g., 2.46.0 → 3.0.0)
+
+#### Alpha Releases (release branches)
+
+Alpha releases are automatically published when changes are pushed to `release/*` branches. These are pre-release versions for testing:
+
+1. Each push to a `release/*` branch automatically:
+   - Builds all packages
+   - Bumps versions to `{current-version}-alpha.{git-hash}` (e.g., `2.46.0-alpha.abc1234`)
+   - Publishes to GitHub Package Registry with the `alpha` tag
+
+2. Alpha releases:
+   - Do not create GitHub Releases
+   - Do not update CHANGELOGs
+   - Are tagged as `alpha` in npm (install with `npm install @dpc-sdp/package@alpha`)
+
+### Backporting Changes
+
+Ripple uses automated backporting to help maintain release branches. To backport a merged PR:
+
+1. Add a label to the merged PR in the format: `backport release/X.Y`
+   - Example: `backport release/2.46` will backport to the `release/2.46` branch
+
+2. The backport workflow will automatically:
+   - Create a new PR targeting the specified branch
+   - Cherry-pick the commits from the original PR
+   - Link back to the original PR
+
+3. Review and merge the backport PR as normal
+
+If the backport fails due to conflicts, you'll need to manually create the backport PR and resolve conflicts.
+
+### Patch Releases
+
+After backporting fixes to a release branch, you can publish a patch release without merging back to main:
+
+1. **Merge the backport PR** to the release branch (e.g., `release/2.46`)
+   - This automatically publishes alpha versions for testing (e.g., `2.46.0-alpha.abc1234`)
+
+2. **Trigger the Patch Release workflow** when ready to publish:
+   - Go to Actions → "Patch Release" → "Run workflow"
+   - Enter the release branch name (e.g., `release/2.46`)
+   - Click "Run workflow"
+
+3. **Review and merge the release PR**:
+   - Release-please creates a PR on the release branch with version bump (e.g., `2.46.0` → `2.46.1`)
+   - Review the PR to verify the changes and version
+   - Merge the PR to publish the patch release
+
+4. **Packages are published**:
+   - All packages published to GitHub Package Registry with the `latest` tag
+   - GitHub Release created with patch version (e.g., `2.46.1`)
+   - Release branch maintains its own version history separate from main
+
+This allows you to maintain multiple release lines simultaneously. For example:
+- `main` branch continues with new features (2.47.0, 2.48.0, etc.)
+- `release/2.46` can receive bug fixes (2.46.1, 2.46.2, etc.)
+- `release/2.45` can receive critical security patches (2.45.3, 2.45.4, etc.)
+
+```
+

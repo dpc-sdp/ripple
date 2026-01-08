@@ -5,7 +5,7 @@
     :disabled="disabled"
     type="multi-step"
     tab-style="progress"
-    :allow-incomplete="false"
+    :allow-incomplete="true"
     :before-step-change="handleStepChange"
   >
     <template #tabs="{ steps, activeStep }">

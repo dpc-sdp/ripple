@@ -774,6 +774,93 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * **@dpc-sdp/ripple-ui-forms:** :building_construction: move storybook to project root, add forms ([578f8c9](https://github.com/dpc-sdp/ripple-framework/commit/578f8c92904e5f05f24ec1d8cb0646af13a32a43))
 * **@dpc-sdp/ripple-ui-forms:** :sparkles: change form validation to be on submit ([eedc937](https://github.com/dpc-sdp/ripple-framework/commit/eedc9373cb04817c94fd095d2c564e56140064c1))
 
+## [2.47.0](https://github.com/dpc-sdp/ripple/compare/ripple-ui-forms-v2.46.1...ripple-ui-forms-v2.47.0) (2026-01-08)
+
+
+### Features
+
+* :lipstick: style fixes ([276aab9](https://github.com/dpc-sdp/ripple/commit/276aab9bec2bf588299d783d03a1bc833c1e955f))
+* :mute: remove log ([8c4dd6c](https://github.com/dpc-sdp/ripple/commit/8c4dd6cdbacc8d9741d117afa2d8cef8444b6f94))
+* :recycle: add state handler for range ([9ce07ae](https://github.com/dpc-sdp/ripple/commit/9ce07aeb74103c22513eec9c370b63a742017d37))
+* :recycle: design updates, rework range highlight ([8b0e60d](https://github.com/dpc-sdp/ripple/commit/8b0e60d147a1749c9bc3529ff56f13b21a2609b3))
+* :recycle: refactor to support single control ([09f31be](https://github.com/dpc-sdp/ripple/commit/09f31be455c685e7cdac8f889916ef5dc01a5c37))
+* :recycle: rework keyboard accessibility ([9118546](https://github.com/dpc-sdp/ripple/commit/9118546365b937d51fb7292c48783ede97a6c9e8))
+* :recycle: rewrite stories for storybook 9 ([ad488cd](https://github.com/dpc-sdp/ripple/commit/ad488cd7773b7d310ecbd5f63a6ca754c852901f))
+* :sparkles: add 3rd party date picker ([d982fc7](https://github.com/dpc-sdp/ripple/commit/d982fc7438df58d73d985216101f14876b1a9de6))
+* :sparkles: add date range control ([a34b4b8](https://github.com/dpc-sdp/ripple/commit/a34b4b824d71dbba4615d4984ca3f67aa0b4fdd8))
+* :sparkles: enable prefill, add new token ([3fd8d7e](https://github.com/dpc-sdp/ripple/commit/3fd8d7eb52f5a3f658eddb1101a32980c9666e0a))
+* :sparkles: enforce date format ([5f5e456](https://github.com/dpc-sdp/ripple/commit/5f5e45620c6009bf733c1704acc60a6b931a0981))
+* :sparkles: minimal upgrade to nuxt 4 ([3fcdcc3](https://github.com/dpc-sdp/ripple/commit/3fcdcc336ddea700d5e231e38159f704b459e04c))
+* :test_tube: rework cypress search filter test ([6ec3fc1](https://github.com/dpc-sdp/ripple/commit/6ec3fc1631620f671ed9f135a1caeb6091e0928c))
+* :wheelchair: add descriptive labels, fieldset ([b232a0e](https://github.com/dpc-sdp/ripple/commit/b232a0e919f04cd5bb085887f353cb90663db41b))
+* :white_check_mark: transpile vue-datepicker ([62a68c2](https://github.com/dpc-sdp/ripple/commit/62a68c21115d98d7a0191a2eaa6c2ab041f2f086))
+* **@dpc-sdp/ripple-ui-core:** add summary list component and update RplFormReview to us it ([9956c34](https://github.com/dpc-sdp/ripple/commit/9956c34165f5c1e6006bc8b8ac5c16779c5045ac))
+* **@dpc-sdp/ripple-ui-forms:** :sparkles: adds support for form utilities to set default values ([42ec15a](https://github.com/dpc-sdp/ripple/commit/42ec15aa70e50101fd69dd68e1f8f4bdba67a80e))
+* **@dpc-sdp/ripple-ui-forms:** add extra review checks ([a26b5f8](https://github.com/dpc-sdp/ripple/commit/a26b5f867dafb0420b739172f3941f97e875a4c1))
+* **@dpc-sdp/ripple-ui-forms:** add multistep events ([aff2956](https://github.com/dpc-sdp/ripple/commit/aff295693db087afc639596fe1c3986dbea8706a))
+* **@dpc-sdp/ripple-ui-forms:** add review component support ([c8f23a5](https://github.com/dpc-sdp/ripple/commit/c8f23a50cca4cfae447076b0178f1d0382aa5f4e))
+* **@dpc-sdp/ripple-ui-forms:** move privacy content to new description location instead of help ([4b2824f](https://github.com/dpc-sdp/ripple/commit/4b2824ff4680c195105d7d0b03c05e51153651a4))
+
+
+### Bug Fixes
+
+* :bug: move to deps, set as external ([3faaf14](https://github.com/dpc-sdp/ripple/commit/3faaf14e76b535decb1ad5eb78e2bff741ff3157))
+* :bug: update export path ([3b56a95](https://github.com/dpc-sdp/ripple/commit/3b56a952167acdd1930b51015396c6f005170d18))
+* :bug: update export path ([169e27e](https://github.com/dpc-sdp/ripple/commit/169e27e5f34437d1dad1c0999933c5890737c1ef))
+* :memo: update forms storybook ([cfd1449](https://github.com/dpc-sdp/ripple/commit/cfd144935382da506f5ae8f5c3e898fd2f8a487e))
+* :memo: update forms storybook ([5a6099a](https://github.com/dpc-sdp/ripple/commit/5a6099a0581e9be82612002896c7193061fdb52d))
+* :recycle: meet stricter lint ([b02b1ac](https://github.com/dpc-sdp/ripple/commit/b02b1ac989019189d35b5dcfe2520ed952d76247))
+* **@dpc-sdp/ripple-ui-forms:** fixed analytics event context for multistep forms ([a7a745e](https://github.com/dpc-sdp/ripple/commit/a7a745e8955be365f7536097c828b528d451317e))
+* **@dpc-sdp/ripple-ui-forms:** fixes for forms and map stories ([65c3dc9](https://github.com/dpc-sdp/ripple/commit/65c3dc9840637523537c15aaabe822afc5b9b835))
+* **ripple-storybook:** update story urls, improve html only source rendering ([73e0649](https://github.com/dpc-sdp/ripple/commit/73e06492e1d67d012a5d89415648985b8fae992c))
+
+
+### Performance Improvements
+
+* **@dpc-sdp/ripple-ui-forms:** improved perf of dropdowns with 1000s of options ([b25d8fa](https://github.com/dpc-sdp/ripple/commit/b25d8fa2b96af733ef6f0dc0288fbbbf79a3b094))
+
+
+### Miscellaneous
+
+* :arrow_up: upgrade all dependencies with security advisories ([6fbf3e0](https://github.com/dpc-sdp/ripple/commit/6fbf3e038c5e2042250181b488d22f49179098b4))
+* :arrow_up: upgrade to latest nuxt, use caret ([33cbc59](https://github.com/dpc-sdp/ripple/commit/33cbc59eb1813b627f5af6006051cb575e6f546f))
+* :memo: Add helptext ([3aa0274](https://github.com/dpc-sdp/ripple/commit/3aa02740c6ddd607c97754e03b712fa114341974))
+* :wrench: move nuxt/kit and nuxt/schema to catalog ([1a2e1f5](https://github.com/dpc-sdp/ripple/commit/1a2e1f51d5652dfc6539852c4ec85f50ac4f0a3a))
+* :wrench: move nuxt/kit and nuxt/schema to catalog ([1aad570](https://github.com/dpc-sdp/ripple/commit/1aad570beb5489f35e7deee087a73bca176b4a3c))
+* **@dpc-sdp/ripple-ui-core:** move id before class for linter ([128a39e](https://github.com/dpc-sdp/ripple/commit/128a39eae15af1d1587b059351dac8f358c54716))
+* adds release steps ([7d94a68](https://github.com/dpc-sdp/ripple/commit/7d94a68c06207e16b74b6fbcb6dde527a2afa5f7))
+* fix styles name due to vite update ([d518395](https://github.com/dpc-sdp/ripple/commit/d5183954b502a2af62f692c775a06bfbce5961fb))
+* moved vueuse to pnpm catalog and fix version mismatch ([934d45f](https://github.com/dpc-sdp/ripple/commit/934d45fdbf5efcd6b2203efb6fcaef9b5f42c9de))
+* moved vueuse to pnpm catalog and fix version mismatch ([334399d](https://github.com/dpc-sdp/ripple/commit/334399d34c7a93abfa40a98b98357f122a88ad9f))
+* release 2.27.0 ([8ee774e](https://github.com/dpc-sdp/ripple/commit/8ee774eb32a6461c67907eb204a0b1a3d65bf427))
+* release 2.28.0 ([314a80e](https://github.com/dpc-sdp/ripple/commit/314a80e2f90d655b4db76a735c47bccb2bfece56))
+* release 2.29.0 ([e62ebcf](https://github.com/dpc-sdp/ripple/commit/e62ebcf494fe1f87255af37df66e4971d9bf165d))
+* release 2.30.0 ([eecd9f0](https://github.com/dpc-sdp/ripple/commit/eecd9f0aca4e4bf64de03b0b754d8b97d98b330e))
+* release 2.31.0 ([d2d039a](https://github.com/dpc-sdp/ripple/commit/d2d039ad5c2604dc99f8a4eb8fe28ba1cc341ecd))
+* release 2.32.0 ([aa0131e](https://github.com/dpc-sdp/ripple/commit/aa0131e0bbb5bc08072feedb854cb86f17762e0b))
+* release 2.33.0 ([e9f41bf](https://github.com/dpc-sdp/ripple/commit/e9f41bfa057d06f1c2b55605a888707e59fbf1f2))
+* release 2.34.0 ([31671d4](https://github.com/dpc-sdp/ripple/commit/31671d43d83492305ff34caf8ced61533bdc7932))
+* release 2.35.0 ([9cc236f](https://github.com/dpc-sdp/ripple/commit/9cc236f12fa1f1436039dd47071393dc84ff80f8))
+* release 2.36.0 ([5a495f6](https://github.com/dpc-sdp/ripple/commit/5a495f6bbb9899897e6897ffc6948bb84d33dcaf))
+* release 2.37.0 ([0df3b39](https://github.com/dpc-sdp/ripple/commit/0df3b39afe4c49158ad6c6b76142203e0ec418cc))
+* release 2.38.0 ([a509106](https://github.com/dpc-sdp/ripple/commit/a509106afaab275ea29cd77101ce840faf0e4c07))
+* release 2.39.0 ([afe23ab](https://github.com/dpc-sdp/ripple/commit/afe23ab9b9d84de82b586a1ad70d4f2bc4593a7c))
+* release 2.40.0 ([5a2b5a2](https://github.com/dpc-sdp/ripple/commit/5a2b5a2e488bca5f2ec2d6b7a81640adbfaccc36))
+* release 2.41.0 ([fc93948](https://github.com/dpc-sdp/ripple/commit/fc939485b73388e9af5c5a91734f7c5ec1ed8701))
+* release 2.42.0 ([7d17376](https://github.com/dpc-sdp/ripple/commit/7d173769d40bd5f9ce49907768e009d74d065429))
+* release 2.43.0 ([f6766e0](https://github.com/dpc-sdp/ripple/commit/f6766e0c6b0bb76cbbb700db4bdd088ae7c338cd))
+* release 2.44.0 ([8809eaa](https://github.com/dpc-sdp/ripple/commit/8809eaaaf40635f1af0ba7e86dc4443db1246fef))
+* release 2.45.0 ([288cb7c](https://github.com/dpc-sdp/ripple/commit/288cb7cdd01ef6cb1ed7d9d7d1e4a3f4bc4ae1a2))
+* release 2.46.0 ([4448c7a](https://github.com/dpc-sdp/ripple/commit/4448c7af174600b26e9dfd68a055d9b71effe22d))
+* release main ([#1327](https://github.com/dpc-sdp/ripple/issues/1327)) ([fae2010](https://github.com/dpc-sdp/ripple/commit/fae2010ece60edd5c29d3dfc4976b2acd7b21e9c))
+* Release/2.47.0 ([#1331](https://github.com/dpc-sdp/ripple/issues/1331)) ([ea850c3](https://github.com/dpc-sdp/ripple/commit/ea850c3b4595524e759ddf700d9ca342f3562917))
+* update repo url in packages ([ccd2b48](https://github.com/dpc-sdp/ripple/commit/ccd2b48d95baa7a2fa4d14ab7730a06788902ac1))
+
+
+### Code Refactoring
+
+* **ripple-storybook:** upgrade to storybook 9 and CSF ([f04fe2b](https://github.com/dpc-sdp/ripple/commit/f04fe2bcbaadc8ee88a52359aa74913d7af98980))
+
 ## [2.47.0](https://github.com/dpc-sdp/ripple/compare/ripple-ui-forms-v2.46.0...ripple-ui-forms-v2.47.0) (2025-12-24)
 
 

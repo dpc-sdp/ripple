@@ -1,8 +1,8 @@
-import { boundingExtent, Extent } from 'ol/extent'
-import { transform, transformExtent } from 'ol/proj'
-import { getDistance } from 'ol/sphere'
-import { inAndOut } from 'ol/easing'
-import Map from 'ol/Map'
+import { boundingExtent, Extent } from 'ol/extent.js'
+import { transform, transformExtent } from 'ol/proj.js'
+import { getDistance } from 'ol/sphere.js'
+import { inAndOut } from 'ol/easing.js'
+import Map from 'ol/Map.js'
 
 export const haversineDistance = (coord1, coord2) => getDistance(coord1, coord2)
 

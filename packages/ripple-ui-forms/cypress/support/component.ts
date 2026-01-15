@@ -36,7 +36,7 @@ Cypress.on('uncaught:exception', (err) => {
   }
 })
 
-Cypress.Commands.add('mount', (component, options = {}) => {
+Cypress.Commands.add('mount', ((component: any, options: any = {}) => {
   return mount(
     () => {
       return h(RplFauxForm, { component, componentProps: options.props })
@@ -49,7 +49,7 @@ Cypress.Commands.add('mount', (component, options = {}) => {
       }
     }
   )
-})
+}) as typeof mount)
 
 // Example use:
 // cy.mount(MyComponent)

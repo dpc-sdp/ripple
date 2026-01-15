@@ -33,7 +33,7 @@ const RplAppWrapper = {
   </div>`
 }
 
-Cypress.Commands.add('mount', (component: any, options = {}) => {
+Cypress.Commands.add('mount', ((component: any, options: any = {}) => {
   return mount(
     () => {
       return h(RplAppWrapper, null, () =>
@@ -46,7 +46,7 @@ Cypress.Commands.add('mount', (component: any, options = {}) => {
       }
     }
   )
-})
+}) as typeof mount)
 
 // Example use:
 // cy.mount(MyComponent)

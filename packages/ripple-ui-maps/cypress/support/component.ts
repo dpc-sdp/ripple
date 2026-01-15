@@ -8,7 +8,6 @@
 // https://on.cypress.io/configuration
 // ***********************************************************
 
-
 import { mount } from 'cypress/vue'
 import { h } from 'vue'
 import { RplIconSprite } from '@dpc-sdp/ripple-ui-core/vue'
@@ -23,13 +22,13 @@ const RplAppWrapper = {
   </div>`
 }
 
-Cypress.Commands.add('mount', (component: any, options = {}) => {
+Cypress.Commands.add('mount', ((component: any, options: any = {}) => {
   return mount(() => {
     return h(RplAppWrapper, null, () =>
       h(component, { ...options.props }, { ...options.slots })
     )
   })
-})
+}) as typeof mount)
 
 // Example use:
 // cy.mount(MyComponent)

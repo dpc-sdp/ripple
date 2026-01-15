@@ -1,5 +1,4 @@
 /// <reference types="cypress" />
-// @ts-expect-error vue sfc import
 import { h } from 'vue'
 import RplPrimaryNav from './RplPrimaryNav.vue'
 import { RplPrimaryNavItems } from './fixtures/sample'

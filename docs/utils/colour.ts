@@ -13,14 +13,14 @@ export function getColourToken(name: string): string {
   return `rpl.${name}`.replaceAll('._', '').replaceAll('.', '-')
 }
 
-export function getColourByPath(path: string): RplColour | {} {
+export function getColourByPath(path: string): RplColour | null {
   let found = { ...theme, ...color }
 
   path.split('.').forEach((bit) => {
     found = found?.[bit]
   })
 
-  return found || {}
+  return found || null
 }
 
 export function getColourOptions(colour: string[]): object {
@@ -44,7 +44,7 @@ export function getColourOptions(colour: string[]): object {
   }, {})
 }
 
-export function getColourValue(path: RplColour): object {
+export function getColourValue(path: RplColour): RplColour {
   const cleanPath = path.value.replace('{', '').replace('}', '')
 
   let colour = getColourByPath(cleanPath)

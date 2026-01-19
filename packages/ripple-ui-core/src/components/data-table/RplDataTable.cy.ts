@@ -31,11 +31,11 @@ const values = [
 
 describe('RplDataTable', () => {
   it('mounts', () => {
-    cy.mount(RplDataTable, { props })
+    cy.mount(RplDataTable as any, { props })
   })
 
   it('toggles the display of more information', () => {
-    cy.mount(RplDataTable, { props })
+    cy.mount(RplDataTable as any, { props })
 
     cy.get('.rpl-data-table__row').first().as('row')
     cy.get('@row').find('.rpl-data-table-toggle').as('toggle')
@@ -52,7 +52,7 @@ describe('RplDataTable', () => {
 
   it('sets the scope correctly for horizontal headings', () => {
     cy.viewport(bpMin.l, 600)
-    cy.mount(RplDataTable, {
+    cy.mount(RplDataTable as any, {
       props: { items: RplDataTableItemsSimple, columns: RplDataTableColumns }
     })
 
@@ -63,7 +63,7 @@ describe('RplDataTable', () => {
 
   it('sets the scope correctly for vertical headings', () => {
     cy.viewport(bpMin.l, 600)
-    cy.mount(RplDataTable, {
+    cy.mount(RplDataTable as any, {
       props: {
         items: RplDataTableItemsSimple,
         columns: RplDataTableColumns,
@@ -78,7 +78,7 @@ describe('RplDataTable', () => {
 
   it('sets the scope correctly for vertical and horizontal headings', () => {
     cy.viewport(bpMin.l, 600)
-    cy.mount(RplDataTable, {
+    cy.mount(RplDataTable as any, {
       props: {
         items: RplDataTableItemsSimple,
         columns: RplDataTableColumns,
@@ -93,7 +93,7 @@ describe('RplDataTable', () => {
 
   it('handles column orientation on mobile for horizontal headings', () => {
     cy.viewport(bpMin.s, 600)
-    cy.mount(RplDataTable, {
+    cy.mount(RplDataTable as any, {
       props: {
         columns: RplDataTableColumnsCustom,
         items: RplDataTableItemsCustom,
@@ -139,7 +139,7 @@ describe('RplDataTable', () => {
 
   it('handles column orientation on mobile for vertical headings', () => {
     cy.viewport(bpMin.s, 600)
-    cy.mount(RplDataTable, {
+    cy.mount(RplDataTable as any, {
       props: {
         columns: RplDataTableMixedColumns,
         items: RplDataTableMixedItems,
@@ -169,7 +169,7 @@ describe('RplDataTable', () => {
 
   it('handles column orientation on mobile for dual headings', () => {
     cy.viewport(bpMin.s, 600)
-    cy.mount(RplDataTable, {
+    cy.mount(RplDataTable as any, {
       props: {
         columns: RplDataTableMixedColumns,
         items: RplDataTableMixedItems,

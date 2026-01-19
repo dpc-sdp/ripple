@@ -11,12 +11,13 @@ import RplHeaderLinks from './RplHeaderLinks.vue'
 import RplHeaderGraphic from './RplHeaderGraphic.vue'
 import RplHeaderActions from './RplHeaderActions.vue'
 import { RplLink } from '../../lib/constants'
-import { IRplImageType } from '../image/constants'
+import { IRplImageType, RplImageAspect } from '../image/constants'
 import useEmptySlotCheck from '../../composables/useEmptySlotCheck'
 import {
   useRippleEvent,
   rplEventPayload
 } from '../../composables/useRippleEvent'
+import { RplButtonVariants } from '../button/constants'
 
 interface Props {
   theme?: (typeof RplHeaderThemes)[number]
@@ -82,7 +83,7 @@ const contentClasses = computed(() => ({
   'rpl-type-p-large-highlight': highlight.value
 }))
 
-const backImageRatio = computed(() => {
+const backImageRatio = computed<RplImageAspect>(() => {
   return imageCta.value
     ? { xs: 'full', s: 'ultrawide', m: 'wide' }
     : { xs: 'wide', m: 'wide' }
@@ -158,7 +159,9 @@ const handleClick = (event) => {
       <RplHeaderActions
         :primary="primaryAction"
         :secondary="secondaryAction"
-        :variant="imageCta ? 'white' : 'filled'"
+        :variant="
+          (imageCta ? 'white' : 'filled') as unknown as typeof RplButtonVariants
+        "
         @item-click="handleClick"
       />
     </template>

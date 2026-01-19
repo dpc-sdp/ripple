@@ -31,7 +31,12 @@ const { emitRplEvent } = useRippleEvent('rpl-card-carousel', emit)
 
 const activeSlide = ref(0)
 
-const handleChange = ({ type, action, text, value }) => {
+const handleChange = ({
+  type,
+  action,
+  text,
+  value
+}: rplEventPayload & { action: 'prev' | 'next' }) => {
   activeSlide.value = value
 
   emitRplEvent(

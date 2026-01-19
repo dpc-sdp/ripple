@@ -58,11 +58,15 @@ const modalContentSlideUpdate = (event) => {
   handleChange(event)
 }
 
-const imageSlideUpdate = ({ value }) => {
+const imageSlideUpdate = ({
+  value
+}: rplEventPayload & { action: 'prev' | 'next' }): void => {
   activeContentSlide.value = value
 }
 
-const modalImageSlideUpdate = ({ value }) => {
+const modalImageSlideUpdate = ({
+  value
+}: rplEventPayload & { action: 'prev' | 'next' }): void => {
   activeModalContentSlide.value = value
 }
 
@@ -79,7 +83,7 @@ const handleChange = ({ type, action, text, value }) => {
   )
 }
 
-const toggleModal = ({ text }) => {
+const toggleModal = ({ text }: rplEventPayload & { action: 'click' }) => {
   showModal.value = !showModal.value
 
   if (showModal.value) {

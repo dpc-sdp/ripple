@@ -56,6 +56,7 @@ interface Props {
   layerList?: IRplMapLayer[]
   selectedLayers?: string[]
   animateClusters?: boolean
+  activatePin?: Function
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -88,7 +89,8 @@ const props = withDefaults(defineProps<Props>(), {
   clusteringDistance: 120,
   layerList: undefined,
   selectedLayers: () => [],
-  animateClusters: true
+  animateClusters: true,
+  activatePin: undefined
 })
 
 const emit = defineEmits<{
@@ -123,6 +125,18 @@ onUnmounted(() => {
 
 const activatePin = (featureProperties, coordinates, zoom, trigger = 'pin') => {
   const map = mapRef.value.map
+
+  if (props.activatePin) {
+    return props.activatePin({
+      map,
+      featureProperties,
+      coordinates,
+      zoom,
+      trigger,
+      popup,
+      pinStyle: props.pinStyle,
+    })
+  }
 
   const pinStyle = props.pinStyle(featureProperties)
   const pinColor =

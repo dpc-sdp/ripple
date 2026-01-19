@@ -5,6 +5,7 @@ let mapAccentColor: string = ''
 <script setup lang="ts">
 import { RplIcon } from '@dpc-sdp/ripple-ui-core/vue'
 import type { IRplMapFeature, IRplMapLayer } from './../../types'
+import type { MapBrowserEvent } from 'ol'
 import {
   onMounted,
   onUnmounted,
@@ -56,6 +57,8 @@ interface Props {
   layerList?: IRplMapLayer[]
   selectedLayers?: string[]
   animateClusters?: boolean
+  onMapClick?: (event: MapBrowserEvent) => void
+  onPointerMove: (event: MapBrowserEvent) => void
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -88,7 +91,9 @@ const props = withDefaults(defineProps<Props>(), {
   clusteringDistance: 120,
   layerList: undefined,
   selectedLayers: () => [],
-  animateClusters: true
+  animateClusters: true,
+  onMapClick: undefined,
+  onPointerMove: undefined
 })
 
 const emit = defineEmits<{
@@ -196,6 +201,10 @@ function onPopUpClose() {
 async function onMapSingleClick(evt) {
   onNoResultsDismiss()
 
+  if (props.onMapClick) {
+    return props.onMapClick(evt)
+  }
+
   const map = mapRef.value.map
   const point = getfeaturesAtMapPixel(map, evt.pixel)
   const largeClusterZoomAmount = 4 // Zoom levels to zoom in
@@ -258,6 +267,10 @@ async function onMapSingleClick(evt) {
 }
 
 function onMapMove(evt) {
+  if (props.onPointerMove) {
+    return props.onPointerMove(evt)
+  }
+
   const map = mapRef.value.map
   const canvas: HTMLCanvasElement | null =
     document.querySelector('.rpl-map canvas')

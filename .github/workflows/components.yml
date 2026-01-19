@@ -12,6 +12,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - name: Install pnpm
         uses: pnpm/action-setup@v4
         with:
@@ -34,7 +36,7 @@ jobs:
       - name: Run Storybook tests
         run: pnpm test:storybook-ci
       - name: Publish to Chromatic
-        uses: chromaui/action@v1
+        uses: chromaui/action@latest
         with:
           workingDir: packages/ripple-storybook
           storybookBuildDir: "storybook-static"

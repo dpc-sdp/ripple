@@ -1,12 +1,5 @@
 name: UI Libraries
-on:
-  push:
-    paths:
-      - ".github/workflows/components.yml"
-      - "packages/ripple-storybook/**"
-      - "packages/ripple-ui-core/**"
-      - "packages/ripple-ui-forms/**"
-      - "pnpm-lock.yaml"
+on: [push]
 jobs:
   Storybook:
     runs-on: ubuntu-latest

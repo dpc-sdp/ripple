@@ -4,9 +4,6 @@ on:
     paths:
       - ".github/workflows/docs.yml"
       - "docs"
-      - "packages/ripple-ui-core/**"
-      - "packages/ripple-ui-forms/**"
-      - "pnpm-lock.yaml"
 jobs:
   Docs:
     runs-on: ubuntu-latest

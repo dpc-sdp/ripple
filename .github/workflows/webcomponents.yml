@@ -1,12 +1,5 @@
 name: Webcomponents
-on:
-  push:
-    paths:
-      - '.github/workflows/webcomponents.yml'
-      - 'examples/webcomponents/**'
-      - 'packages/ripple-ui-core/**'
-      - 'packages/ripple-ui-forms/**'
-      - 'pnpm-lock.yaml'
+on: [push]
 jobs:
   Examples:
     runs-on: ubuntu-latest
@@ -23,7 +16,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'pnpm'
+          cache: "pnpm"
 
       - name: Install Dependencies
         env:

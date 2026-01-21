@@ -8,12 +8,14 @@
 // https://on.cypress.io/configuration
 // ***********************************************************
 
-
-import { mount } from 'cypress/vue'
 import { h } from 'vue'
+import { mount } from 'cypress/vue'
 import { RplIconSprite } from '@dpc-sdp/ripple-ui-core/vue'
 // Ensure global styles are loaded
 import '@dpc-sdp/ripple-ui-core/style'
+import '@dpc-sdp/ripple-ui-core/style/components'
+import registerRplMapsPlugin from '@dpc-sdp/ripple-ui-maps/plugin'
+import RplFauxMap from './components/RplFauxMap.vue'
 
 const RplAppWrapper = {
   components: { RplIconSprite },
@@ -31,5 +33,23 @@ Cypress.Commands.add('mount', (component: any, options = {}) => {
   })
 })
 
+Cypress.Commands.add('mountMap', (options = {}) => {
+  return mount(
+    () => {
+      return h(RplFauxMap, { componentProps: options.props })
+    },
+    {
+      global: {
+        plugins: [
+          {
+            install: (app) => registerRplMapsPlugin(app, {})
+          }
+        ]
+      }
+    }
+  )
+})
+
 // Example use:
 // cy.mount(MyComponent)
+// cy.mountMap(props)

@@ -37,7 +37,7 @@ export const sanitisePIIField = (
 
 // Sanitize personally identifiable for a complete form
 export const sanitisePIIFields = (
-  node: FormKitNode<unknown> | FormKitPlaceholderNode<unknown>
+  node?: FormKitNode<unknown> | FormKitPlaceholderNode<unknown>
 ) => {
   const displayFields = ['RplFormDivider', 'RplFormContent']
 

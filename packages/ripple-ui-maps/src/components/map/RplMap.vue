@@ -4,7 +4,11 @@ let mapAccentColor: string = ''
 
 <script setup lang="ts">
 import { RplIcon } from '@dpc-sdp/ripple-ui-core/vue'
-import type { IRplMapFeature, IRplMapLayer } from './../../types'
+import type {
+  IRplMapFeature,
+  IRplMapInstance,
+  IRplMapLayer
+} from './../../types'
 import {
   onMounted,
   onUnmounted,
@@ -26,7 +30,7 @@ import RplMapCluster from './../cluster/RplMapCluster.vue'
 import RplMapLayerList from './../layer-list/RplMapLayerList.vue'
 import markerIconDefaultSrc from './../feature-pin/icon-pin.svg?url'
 import markerIconSelectedSrc from './../feature-pin/icon-pin-selected.svg?url'
-import useMapControls from './../../composables/useMapControls.ts'
+import useMapControls from './../../composables/useMapControls'
 import {
   getfeaturesAtMapPixel,
   zoomToClusterExtent,
@@ -48,7 +52,7 @@ interface Props {
   initialCenter?: [number, number]
   pinStyle?: Function
   mapHeight?: number
-  popupType?: 'sidebar' | 'popover'
+  popupType?: 'sidebar' | 'popover' | 'sidepanel'
   hasSidePanel?: boolean
   noresults?: boolean
   getFeatureTitle?: (feature: any) => string
@@ -104,7 +108,7 @@ const view = ref(null)
 const mapPosition = ref({})
 
 const { setRplMapRef, popup, deadSpace, defaultExtent } =
-  inject('rplMapInstance')
+  inject<IRplMapInstance>('rplMapInstance')
 
 // Reference to ol/map instance
 const mapRef = ref<{ map: Map } | null>(null)
@@ -310,7 +314,7 @@ watch(
   () => popup.value,
   (newPopup) => {
     if (newPopup.isOpen) {
-      let title = popup.value?.title
+      let title: string | string[] = popup.value?.title
       const features = Array.isArray(popup.value?.feature)
         ? popup.value.feature
         : [popup.value.feature]

@@ -2,7 +2,7 @@
 import { RplCardElements, IRplCardItem } from './constants'
 import { useAccessibleContainer } from '../../composables/useAccessibleContainer'
 import RplCard from './RplCard.vue'
-import RplTextLink from '../text-link/RplTextLink.vue'
+import RplTextLink from '../text-link/vue/RplTextLink.vue'
 import {
   useRippleEvent,
   rplEventPayload

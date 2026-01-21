@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import RplIcon from '../icon/RplIcon.vue'
-import RplTextLink from '../text-link/RplTextLink.vue'
+import RplTextLink from '../text-link/vue/RplTextLink.vue'
 import { RplSocialShareNetworks } from './constants'
 import { usePopupWindow } from '../../composables/usePopupWindow'
 import {

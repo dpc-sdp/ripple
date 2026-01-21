@@ -9,7 +9,7 @@ import {
   useRippleEvent,
   rplEventPayload
 } from '../../composables/useRippleEvent'
-import RplTextLink from '../text-link/RplTextLink.vue'
+import RplTextLink from '../text-link/vue/RplTextLink.vue'
 
 interface Props {
   id: string

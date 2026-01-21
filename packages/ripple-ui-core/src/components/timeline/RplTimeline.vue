@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import RplTextLink from '../text-link/RplTextLink.vue'
+import RplTextLink from '../text-link/vue/RplTextLink.vue'
 import RplImage from '../image/RplImage.vue'
 import { formatDateRange } from '../../lib/helpers'
 import { IRplImageType } from '../image/constants'

@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 import RplDescriptionList from './RplDescriptionList.vue'
 import RplDescriptionListItem from './RplDescriptionListItem.vue'
-import RplTextLink from '../text-link/RplTextLink.vue'
+import RplTextLink from '../text-link/vue/RplTextLink.vue'
 
 export default {
   title: 'Core/Containers/Description list',

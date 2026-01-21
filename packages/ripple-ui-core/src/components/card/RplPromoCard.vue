@@ -4,7 +4,7 @@ import { RplCardElements, RplCardTitleClasses } from './constants'
 import { useAccessibleContainer } from '../../composables/useAccessibleContainer'
 import RplImage from '../image/RplImage.vue'
 import RplCard from './RplCard.vue'
-import RplTextLink from '../text-link/RplTextLink.vue'
+import RplTextLink from '../text-link/vue/RplTextLink.vue'
 import { IRplImageType } from '../image/constants'
 import type { IRplFeatureFlags } from './../../index'
 import {

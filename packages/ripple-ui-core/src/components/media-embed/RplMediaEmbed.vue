@@ -11,7 +11,7 @@ import RplIcon from '../icon/RplIcon.vue'
 import RplModal from '../modal/RplModal.vue'
 import RplContent from '../content/RplContent.vue'
 import RplExpandable from '../expandable/RplExpandable.vue'
-import RplTextLink from '../text-link/RplTextLink.vue'
+import RplTextLink from '../text-link/vue/RplTextLink.vue'
 import {
   useRippleEvent,
   rplEventPayload

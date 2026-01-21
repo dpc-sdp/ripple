@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { RplListTypes, IRplListItemArray } from './constants'
 import RplListContent from './RplListContent.vue'
-import RplTextLink from '../text-link/RplTextLink.vue'
+import RplTextLink from '../text-link/vue/RplTextLink.vue'
 import { RplIconPlacement } from '../icon/constants'
 import { computed } from 'vue'
 import {

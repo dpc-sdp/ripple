@@ -61,7 +61,7 @@ import { default as RplStatsGridItemCmp } from './components/stats-grid/RplStats
 import { default as RplSummaryListCmp } from './components/summary-list/RplSummaryList.vue'
 
 import { default as RplTagCmp } from './components/tag/RplTag.vue'
-import { default as RplTextLinkCmp } from './components/text-link/RplTextLink.vue'
+import { default as RplTextLinkCmp } from './components/text-link/vue/RplTextLink.vue'
 import { default as RplTimelineCmp } from './components/timeline/RplTimeline.vue'
 import { default as RplVerticalNavCmp } from './components/vertical-nav/RplVerticalNav.vue'
 

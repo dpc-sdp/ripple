@@ -62,6 +62,6 @@ export { default as RplStatsGridItem } from './components/stats-grid/RplStatsGri
 export { default as RplSummaryList } from './components/summary-list/RplSummaryList.vue'
 export { default as RplTabs } from './components/tabs/RplTabs.vue'
 export { default as RplTag } from './components/tag/RplTag.vue'
-export { default as RplTextLink } from './components/text-link/RplTextLink.vue'
+export { default as RplTextLink } from './components/text-link/vue/RplTextLink.vue'
 export { default as RplTimeline } from './components/timeline/RplTimeline.vue'
 export { default as RplVerticalNav } from './components/vertical-nav/RplVerticalNav.vue'

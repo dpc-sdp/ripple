@@ -3,7 +3,7 @@ import { useBreakpoints } from '@vueuse/core'
 import { computed, inject, onMounted, ref } from 'vue'
 import { bpMin } from '../../lib/breakpoints'
 import RplAcknowledgement from '../acknowledgement/RplAcknowledgement.vue'
-import RplTextLink from '../text-link/RplTextLink.vue'
+import RplTextLink from '../text-link/vue/RplTextLink.vue'
 import VicGovLogo from './../../assets/logos/logo-victoria-state-government.svg?component'
 import {
   ICoreLink,

@@ -5,7 +5,7 @@ import { RplAlertTypes } from './constants'
 import onResizeHeight from '../../composables/onResizeHeight'
 import { RplIconNames } from '../icon/constants'
 import RplIcon from '../icon/RplIcon.vue'
-import RplTextLink from '../text-link/RplTextLink.vue'
+import RplTextLink from '../text-link/vue/RplTextLink.vue'
 import {
   useRippleEvent,
   rplEventPayload

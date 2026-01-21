@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 import RplContent from '../src/components/content/RplContent.vue'
-import RplTextLink from '../src/components/text-link/RplTextLink.vue'
+import RplTextLink from '../src/components/text-link/vue/RplTextLink.vue'
 
 export default {
   title: 'Introduction'

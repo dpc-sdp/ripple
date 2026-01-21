@@ -2,7 +2,7 @@
 import { computed } from 'vue'
 import { useAccessibleContainer } from '../../composables/useAccessibleContainer'
 import RplCard from './RplCard.vue'
-import RplTextLink from '../text-link/RplTextLink.vue'
+import RplTextLink from '../text-link/vue/RplTextLink.vue'
 import RplImage from '../image/RplImage.vue'
 import { RplCardElements } from './constants'
 import { IRplImageType } from '../image/constants'

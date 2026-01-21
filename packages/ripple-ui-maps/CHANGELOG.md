@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.48.0](https://github.com/dpc-sdp/ripple/compare/ripple-ui-maps-v2.47.0...ripple-ui-maps-v2.48.0) (2026-01-21)
+
+
+### Features
+
+* **@dpc-sdp/ripple-ui-maps:** add centerActivePin prop ([#1338](https://github.com/dpc-sdp/ripple/issues/1338)) ([265f052](https://github.com/dpc-sdp/ripple/commit/265f052c4959b1174b13a2a99a5a0acf3e058eae))
+
 ## [2.47.0](https://github.com/dpc-sdp/ripple/compare/ripple-ui-maps-v2.46.1...ripple-ui-maps-v2.47.0) (2026-01-08)
 
 

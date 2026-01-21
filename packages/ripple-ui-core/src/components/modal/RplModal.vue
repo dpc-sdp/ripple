@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { watch, onMounted, onUnmounted } from 'vue'
-import RplButton from '../button/RplButton.vue'
+import RplButton from '../button/vue/RplButton.vue'
 import { useWindowSize } from '@vueuse/core'
 import { UseFocusTrap } from '@vueuse/integrations/useFocusTrap/component'
 import {

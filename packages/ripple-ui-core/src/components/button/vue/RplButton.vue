@@ -5,11 +5,11 @@ import type {
   RplButtonVariants,
   RplButtonThemes,
   RplButtonIconPositions
-} from './constants'
-import type { RplIconNames } from '../icon/constants'
-import RplIcon from '../icon/RplIcon.vue'
-import type { IRplFeatureFlags } from './../../index'
-import RplSpinner from '../spinner/RplSpinner.vue'
+} from './../constants'
+import type { RplIconNames } from '../../icon/constants'
+import RplIcon from '../../icon/RplIcon.vue'
+import type { IRplFeatureFlags } from './../../../index'
+import RplSpinner from '../../spinner/RplSpinner.vue'
 
 const featureFlags: IRplFeatureFlags = inject('featureFlags', {
   buttonTheme: 'default'
@@ -95,4 +95,4 @@ const isAnchor = computed(() => props.el === 'a')
   </component>
 </template>
 
-<style src="./RplButton.css" />
+<style src="./../RplButton.css" />

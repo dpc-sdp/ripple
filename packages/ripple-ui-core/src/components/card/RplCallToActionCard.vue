@@ -3,7 +3,7 @@ import { RplCardElements } from './constants'
 import { RplButtonVariants } from '../button/constants'
 import { useAccessibleContainer } from '../../composables/useAccessibleContainer'
 import RplCard from './RplCard.vue'
-import RplButton from '../button/RplButton.vue'
+import RplButton from '../button/vue/RplButton.vue'
 import RplImage from '../image/RplImage.vue'
 import { IRplImageType } from '../image/constants'
 import {

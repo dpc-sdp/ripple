@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import RplList from '../list/RplList.vue'
-import RplButton from '../button/RplButton.vue'
+import RplButton from '../button/vue/RplButton.vue'
 import RplTextLink from '../text-link/RplTextLink.vue'
 import RplIcon from '../icon/RplIcon.vue'
 import { IRplListItemArray } from '../list/constants'

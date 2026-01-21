@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import RplTextLink from '../text-link/RplTextLink.vue'
 import RplIcon from '../icon/RplIcon.vue'
-import RplButton from '../button/RplButton.vue'
+import RplButton from '../button/vue/RplButton.vue'
 import { IRplHeaderLinkExtended } from './constants'
 import { RplLink } from '../../lib/constants'
 import { RplButtonVariants } from '../button/constants'

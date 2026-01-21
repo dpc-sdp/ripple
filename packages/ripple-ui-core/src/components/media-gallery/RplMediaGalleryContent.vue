@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import RplButton from '../button/RplButton.vue'
+import RplButton from '../button/vue/RplButton.vue'
 import 'swiper/css'
 import 'swiper/css/effect-fade'
 import RplImage from '../image/RplImage.vue'

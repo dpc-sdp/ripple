@@ -6,7 +6,7 @@ import sbTokenTableRow from './components/token-row.vue'
 import sbTokenTableCol from './components/token-col.vue'
 import sbTokenTableSwatch from './components/token-swatch.vue'
 import RplIcon from './../src/components/icon/RplIcon.vue'
-import RplButton from './../src/components/button/RplButton.vue'
+import RplButton from './../src/components/button/vue/RplButton.vue'
 
 export default {
   title: 'Base Styles/Utilities',

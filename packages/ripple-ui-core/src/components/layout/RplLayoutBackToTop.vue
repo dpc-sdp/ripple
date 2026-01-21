@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import RplButton from '../button/RplButton.vue'
+import RplButton from '../button/vue/RplButton.vue'
 import { useWindowScroll, useElementBounding } from '@vueuse/core'
 import { ref, computed } from 'vue'
 import {

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import RplButton from '../../../button/RplButton.vue'
+import RplButton from '../../../button/vue/RplButton.vue'
 import { usePrimaryNavFocus } from '../../../../composables/usePrimaryNavFocus'
 import {
   useRippleEvent,

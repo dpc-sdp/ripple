@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { RplLink } from '../../lib/constants'
-import RplButton from '../button/RplButton.vue'
+import RplButton from '../button/vue/RplButton.vue'
 
 interface Props {
   title: string

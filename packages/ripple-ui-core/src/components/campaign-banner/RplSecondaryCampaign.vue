@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import RplCampaignBanner from './RplCampaignBanner.vue'
 import RplImage from '../image/RplImage.vue'
-import RplButton from '../button/RplButton.vue'
+import RplButton from '../button/vue/RplButton.vue'
 import { RplLink } from '../../lib/constants'
 import { IRplImageType } from '../image/constants'
 import {

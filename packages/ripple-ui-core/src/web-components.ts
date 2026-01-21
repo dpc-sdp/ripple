@@ -4,7 +4,7 @@ import { default as RplAccordionCmp } from './components/accordion/RplAccordion.
 import { default as RplAcknowledgementCmp } from './components/acknowledgement/RplAcknowledgement.vue'
 import { default as RplAlertCmp } from './components/alert/RplAlert.vue'
 import { default as RplBreadcrumbsCmp } from './components/breadcrumbs/RplBreadcrumbs.vue'
-import { default as RplButtonCmp } from './components/button/RplButton.vue'
+import { default as RplButtonCmp } from './components/button/vue/RplButton.vue'
 
 import { default as RplPrimaryCampaignCmp } from './components/campaign-banner/RplPrimaryCampaign.vue'
 import { default as RplSecondaryCampaignCmp } from './components/campaign-banner/RplSecondaryCampaign.vue'

@@ -1,0 +1,84 @@
+{#
+/**
+ * Ripple Button Component - Twig Template
+ *
+ * Available variables:
+ * - el: The HTML element type ('button' or 'a')
+ * - url: The URL for anchor elements
+ * - variant: Button variant ('filled', 'outlined', 'white', 'transparent', 'elevated', 'destructive', 'none')
+ * - theme: Button theme ('default' or 'neutral')
+ * - icon_name: Icon identifier (e.g., 'icon-arrow-right')
+ * - icon_position: Icon position ('left' or 'right')
+ * - label: Button text label
+ * - disabled: Boolean to disable the button
+ * - busy: Boolean to show loading state
+ */
+#}
+{% set el = el|default('button') %}
+{% set variant = variant|default('filled') %}
+{% set theme = theme|default('default') %}
+{% set icon_position = icon_position|default('right') %}
+{% set disabled = disabled|default(false) %}
+{% set busy = busy|default(false) %}
+
+{% set classes = [
+  'rpl-button',
+  'rpl-button--' ~ variant,
+  'rpl-button--' ~ theme,
+  'rpl-u-focusable-block',
+  icon_position == 'left' ? 'rpl-button--reverse' : null,
+  busy ? 'rpl-button--busy' : null,
+  variant == 'elevated' and icon_name ? 'rpl-button--icon-only-small-screens' : null
+] %}
+
+{% if el == 'a' %}
+<a
+  href="{{ url }}"
+  class="{{ classes|join(' ')|trim }}"
+  {% if disabled %}aria-disabled="true"{% endif %}
+  {% if busy %}aria-busy="true"{% endif %}
+>
+  {% if busy %}
+  <span class="rpl-button__spinner">
+    <svg class="rpl-spinner" viewBox="0 0 50 50" aria-hidden="true">
+      <circle class="rpl-spinner__path" cx="25" cy="25" r="20" fill="none" stroke-width="5"></circle>
+    </svg>
+  </span>
+  {% endif %}
+  <span class="rpl-button__label rpl-type-label rpl-type-weight-bold">
+    {{ label }}
+  </span>
+  {% if icon_name %}
+  <span class="rpl-button__icon rpl-icon rpl-icon--size-s">
+    <svg role="presentation">
+      <use xlink:href="#{{ icon_name }}"></use>
+    </svg>
+  </span>
+  {% endif %}
+</a>
+{% else %}
+<button
+  type="button"
+  class="{{ classes|join(' ')|trim }}"
+  {% if disabled %}disabled{% endif %}
+  {% if busy %}aria-busy="true"{% endif %}
+>
+  {% if busy %}
+  <span class="rpl-button__spinner">
+    <svg class="rpl-spinner" viewBox="0 0 50 50" aria-hidden="true">
+      <circle class="rpl-spinner__path" cx="25" cy="25" r="20" fill="none" stroke-width="5"></circle>
+    </svg>
+  </span>
+  {% endif %}
+  <span class="rpl-button__label rpl-type-label rpl-type-weight-bold">
+    {{ label }}
+  </span>
+  {% if icon_name %}
+  <span class="rpl-button__icon rpl-icon rpl-icon--size-s">
+    <svg role="presentation">
+      <use xlink:href="#{{ icon_name }}"></use>
+    </svg>
+  </span>
+  {% endif %}
+</button>
+{% endif %}

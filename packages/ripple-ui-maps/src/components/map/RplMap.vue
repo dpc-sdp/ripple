@@ -75,7 +75,7 @@ const props = withDefaults(defineProps<Props>(), {
   hasSidePanel: false,
   initialCenter: () => [144.9631, -36.8136], // melbourne CBD
   homeViewExtent: () => [144.9631, -36.8136], // melbourne CBD
-  pinStyle: (feature) => {
+  pinStyle: (feature: IRplMapFeature) => {
     let color = feature.color || mapAccentColor || 'red'
     const ic = new Icon({
       src: markerIconDefaultSrc,
@@ -96,7 +96,7 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 const emit = defineEmits<{
-  (e: 'updateSelectedLayers', payload: [value: string[]]): void
+  (e: 'updateSelectedLayers', value: string[]): void
   (e: 'togglePopup', payload: rplEventPayload & { action: 'open' }): void
 }>()
 
@@ -105,7 +105,13 @@ const { emitRplEvent } = useRippleEvent('rpl-map', emit)
 const zoom = ref(props.initialZoom)
 const rotation = ref(0)
 const view = ref(null)
-const mapPosition = ref({})
+const mapPosition = ref<{
+  center: number[] | undefined
+  zoom: number | undefined
+}>({
+  center: undefined,
+  zoom: undefined
+})
 
 const { setRplMapRef, popup, deadSpace, defaultExtent } =
   inject<IRplMapInstance>('rplMapInstance')

@@ -7,6 +7,7 @@ export interface IRplMapFeature {
   title?: string
   description?: string
   data?: Record<string, any>
+  color?: string
 }
 
 export interface IRplMapLayer {

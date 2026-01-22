@@ -13,12 +13,12 @@ const props = { items }
 
 describe('RplBreadcrumbs', () => {
   it('mounts', () => {
-    cy.mount(RplBreadcrumbs, { props })
+    cy.mount(RplBreadcrumbs as any, { props })
   })
 
   it('displays all breadcrumbs', () => {
     cy.viewport(bpMin.xl, 1000)
-    cy.mount(RplBreadcrumbs, { props })
+    cy.mount(RplBreadcrumbs as any, { props })
 
     cy.get(
       '.rpl-breadcrumbs__item:not(.rpl-breadcrumbs__item--collapsed)'
@@ -27,7 +27,7 @@ describe('RplBreadcrumbs', () => {
 
   it('collapsed breadcrumbs can be toggled', () => {
     cy.viewport(bpMin.xl, 1000)
-    cy.mount(RplBreadcrumbs, { props: { ...props, collapse: true } })
+    cy.mount(RplBreadcrumbs as any, { props: { ...props, collapse: true } })
 
     cy.get(
       '.rpl-breadcrumbs__item:not(.rpl-breadcrumbs__item--collapsed)'
@@ -42,7 +42,7 @@ describe('RplBreadcrumbs', () => {
 
   it(`a custom number can be set to manage collapsed breadcrumbs (won't collapse)`, () => {
     cy.viewport(bpMin.xl, 1000)
-    cy.mount(RplBreadcrumbs, {
+    cy.mount(RplBreadcrumbs as any, {
       props: {
         ...props,
         collapse: true,
@@ -59,7 +59,7 @@ describe('RplBreadcrumbs', () => {
 
   it(`a custom number can be set to manage collapsed breadcrumbs (will collapse)`, () => {
     cy.viewport(bpMin.xl, 1000)
-    cy.mount(RplBreadcrumbs, {
+    cy.mount(RplBreadcrumbs as any, {
       props: {
         ...props,
         items: [...props.items, { text: 'Another item', url: '#' }],

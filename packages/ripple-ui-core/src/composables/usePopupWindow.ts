@@ -6,7 +6,7 @@ export function usePopupWindow(content: any, key: string) {
       height: 436
     }
 
-    let popupWindow: Window | null, popupInterval: NodeJS.Timer
+    let popupWindow: Window | null, popupInterval: NodeJS.Timeout
 
     /**
      * Center the popup on multi-screens

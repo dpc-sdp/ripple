@@ -8,12 +8,12 @@ const props = {
 
 describe('RplFooter', () => {
   it('mounts', () => {
-    cy.mount(RplFooter, { props })
+    cy.mount(RplFooter as any, { props })
   })
 
   it('allows menus to be toggled on small screens', () => {
     cy.viewport(bpMin.s, 1000)
-    cy.mount(RplFooter, { props })
+    cy.mount(RplFooter as any, { props })
 
     cy.get('.rpl-footer-nav-section__header-inner-button').first().as('button')
 

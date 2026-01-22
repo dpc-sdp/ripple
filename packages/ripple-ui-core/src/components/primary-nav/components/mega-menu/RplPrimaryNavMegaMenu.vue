@@ -49,7 +49,7 @@ const hasUserActions = computed(() => {
   return slots.userAction && slots?.userAction()[0].children?.length
 })
 
-const backButtonHandler = (label: string) => {
+const backButtonHandler = (label?: string) => {
   emitRplEvent(
     'clickBackButton',
     {

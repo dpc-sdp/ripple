@@ -7,13 +7,7 @@ import {
   useRippleEvent,
   rplEventPayload
 } from '../../composables/useRippleEvent'
-
-type AccordionItem = {
-  id: string
-  title?: string
-  content: string
-  active: boolean
-}
+import type { AccordionItem } from './constants'
 
 interface Props {
   item?: AccordionItem

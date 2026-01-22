@@ -8,11 +8,11 @@ const props = {
 
 describe('RplVerticalNav', () => {
   it('mounts', () => {
-    cy.mount(RplVerticalNav, { props })
+    cy.mount(RplVerticalNav as any, { props })
   })
 
   it('displays the active menu and all children as open', () => {
-    cy.mount(RplVerticalNav, { props })
+    cy.mount(RplVerticalNav as any, { props })
 
     cy.get('.rpl-vertical-nav__list-item').first().as('item')
 
@@ -24,7 +24,7 @@ describe('RplVerticalNav', () => {
   })
 
   it('displays the active menu and direct children', () => {
-    cy.mount(RplVerticalNav, { props: { ...props, toggleLevels: 3 } })
+    cy.mount(RplVerticalNav as any, { props: { ...props, toggleLevels: 3 } })
 
     cy.get('.rpl-vertical-nav__list-item').first().as('item')
 
@@ -40,7 +40,7 @@ describe('RplVerticalNav', () => {
   })
 
   it('toggles the display of top level nav items', () => {
-    cy.mount(RplVerticalNav, { props })
+    cy.mount(RplVerticalNav as any, { props })
 
     cy.get('.rpl-vertical-nav__list-item').first().as('item')
 
@@ -52,7 +52,7 @@ describe('RplVerticalNav', () => {
   })
 
   it('toggles the display of nav items to 3 levels', () => {
-    cy.mount(RplVerticalNav, { props: { ...props, toggleLevels: 3 } })
+    cy.mount(RplVerticalNav as any, { props: { ...props, toggleLevels: 3 } })
 
     cy.get('.rpl-vertical-nav__list-item').first().as('item')
 

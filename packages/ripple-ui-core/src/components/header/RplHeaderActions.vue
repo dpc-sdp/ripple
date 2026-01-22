@@ -13,7 +13,7 @@ import {
 interface Props {
   primary?: RplLink
   secondary?: IRplHeaderLinkExtended
-  variant: RplButtonVariants
+  variant: typeof RplButtonVariants
 }
 
 withDefaults(defineProps<Props>(), {

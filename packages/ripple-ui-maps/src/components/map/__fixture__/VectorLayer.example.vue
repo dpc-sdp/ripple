@@ -12,6 +12,7 @@
 <script setup lang="ts">
 import { GeoJSON } from 'ol/format'
 import { Style, Fill, Stroke } from 'ol/style'
+import { IRplMapInstance } from '../../../types'
 import { computed, inject, onMounted, nextTick } from 'vue'
 interface Props {
   results: any[]
@@ -47,7 +48,7 @@ const areaUrl = computed(() => {
 
   return arcGISURL
 })
-const { rplMapRef, popup } = inject('rplMapInstance')
+const { rplMapRef, popup } = inject<IRplMapInstance>('rplMapInstance')
 
 const defaultStyleFn = new Style({
   fill: new Fill({

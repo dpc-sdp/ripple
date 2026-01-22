@@ -28,7 +28,7 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  perView: 1,
+  perView: () => 1 as RplSlidesPerView,
   showPagination: true,
   showTally: false,
   effect: undefined,

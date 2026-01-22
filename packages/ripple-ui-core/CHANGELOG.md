@@ -1303,6 +1303,19 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * **@dpc-sdp/ripple-ui-core:** removed the unneeded 1px margin from the file icon ([f25b39e](https://github.com/dpc-sdp/ripple-framework/commit/f25b39ee9b586094a0e40d77b4cc565e99c68eaf))
 * **@dpc-sdp/ripple-ui-core:** revert content prop ([c79b30c](https://github.com/dpc-sdp/ripple-framework/commit/c79b30cf5cc665113458c59884e27719bf561726))
 
+## [2.48.0](https://github.com/dpc-sdp/ripple/compare/ripple-ui-core-v2.47.0...ripple-ui-core-v2.48.0) (2026-01-21)
+
+
+### Features
+
+* **@dpc-sdp/ripple-ui-core:** allow using any card in RplCardCarousel ([#1339](https://github.com/dpc-sdp/ripple/issues/1339)) ([a4034e5](https://github.com/dpc-sdp/ripple/commit/a4034e5bc8cb295c4ea525067a4c2b870b04d30a))
+* **@dpc-sdp/ripple-ui-maps:** add centerActivePin prop ([#1338](https://github.com/dpc-sdp/ripple/issues/1338)) ([265f052](https://github.com/dpc-sdp/ripple/commit/265f052c4959b1174b13a2a99a5a0acf3e058eae))
+
+
+### Miscellaneous
+
+* **@dpc-sdp/ripple-ui-core:** :memo: add contributing guide for ripple ui core ([#1341](https://github.com/dpc-sdp/ripple/issues/1341)) ([84ba5e1](https://github.com/dpc-sdp/ripple/commit/84ba5e15169ff751948586ec45f4c09b986baefb))
+
 ## [2.47.0](https://github.com/dpc-sdp/ripple/compare/ripple-ui-core-v2.46.1...ripple-ui-core-v2.47.0) (2026-01-08)
 
 

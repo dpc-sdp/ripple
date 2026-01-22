@@ -10,6 +10,7 @@ import { useDebounceFn } from '@vueuse/core'
 import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
 import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
 import { sanitisePIIField } from '../../lib/sanitisePII'
+import { IRplFormProvidedState } from '../../types'
 
 interface Props {
   id: string
@@ -65,7 +66,7 @@ const emit = defineEmits<{
 
 const { emitRplEvent } = useRippleEvent('rpl-form-input', emit)
 
-const form: object = inject('form')
+const form: IRplFormProvidedState | undefined = inject('form')
 
 const classes = computed(() => {
   return {

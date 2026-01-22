@@ -1,4 +1,4 @@
-import { FormKitNode } from '@formkit/core'
+import { FormKitNode, FormKitPlaceholderNode } from '@formkit/core'
 
 // Get field labels instead of values
 const getFieldLabel = (
@@ -36,10 +36,14 @@ export const sanitisePIIField = (
 }
 
 // Sanitize personally identifiable for a complete form
-export const sanitisePIIFields = (node: FormKitNode) => {
+export const sanitisePIIFields = (
+  node?: FormKitNode<unknown> | FormKitPlaceholderNode<unknown>
+) => {
   const displayFields = ['RplFormDivider', 'RplFormContent']
 
-  const getChildValues = (children: FormKitNode[]) => {
+  const getChildValues = (
+    children: (FormKitNode<unknown> | FormKitPlaceholderNode<unknown>)[]
+  ) => {
     return children.reduce((acc, curr: FormKitNode) => {
       if (displayFields.includes(curr?.props?.type)) return acc
 

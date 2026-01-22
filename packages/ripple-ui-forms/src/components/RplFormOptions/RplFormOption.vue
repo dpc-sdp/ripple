@@ -10,6 +10,7 @@ import useFormkitFriendlyEventEmitter from '../../composables/useFormkitFriendly
 import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
 import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
 import { sanitisePIIField } from '../../lib/sanitisePII'
+import { IRplFormProvidedState } from '../../types'
 
 export interface RplFormOptionProps {
   type?: 'radio' | 'checkbox'
@@ -49,7 +50,7 @@ const emit = defineEmits<{
 }>()
 
 const isMounted = ref(false)
-const form: object = inject('form')
+const form: IRplFormProvidedState | undefined = inject('form')
 const { emitRplEvent } = useRippleEvent('rpl-form-option', emit)
 
 const classes = computed(() => {

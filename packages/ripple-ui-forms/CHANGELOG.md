@@ -774,6 +774,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * **@dpc-sdp/ripple-ui-forms:** :building_construction: move storybook to project root, add forms ([578f8c9](https://github.com/dpc-sdp/ripple-framework/commit/578f8c92904e5f05f24ec1d8cb0646af13a32a43))
 * **@dpc-sdp/ripple-ui-forms:** :sparkles: change form validation to be on submit ([eedc937](https://github.com/dpc-sdp/ripple-framework/commit/eedc9373cb04817c94fd095d2c564e56140064c1))
 
+## [2.48.0](https://github.com/dpc-sdp/ripple/compare/ripple-ui-forms-v2.47.0...ripple-ui-forms-v2.48.0) (2026-01-21)
+
+
+### Features
+
+* **@dpc-sdp/ripple-ui-maps:** add centerActivePin prop ([#1338](https://github.com/dpc-sdp/ripple/issues/1338)) ([265f052](https://github.com/dpc-sdp/ripple/commit/265f052c4959b1174b13a2a99a5a0acf3e058eae))
+
 ## [2.47.0](https://github.com/dpc-sdp/ripple/compare/ripple-ui-forms-v2.46.1...ripple-ui-forms-v2.47.0) (2026-01-08)
 
 

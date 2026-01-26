@@ -47,6 +47,7 @@ interface Props {
   maxZoom?: number
   initialCenter?: [number, number]
   pinStyle?: Function
+  centerActivePin?: boolean
   mapHeight?: number
   popupType?: 'sidebar' | 'popover'
   hasSidePanel?: boolean
@@ -68,6 +69,7 @@ const props = withDefaults(defineProps<Props>(), {
   maxZoom: undefined,
   mapHeight: 600,
   popupType: 'sidebar',
+  centerActivePin: true,
   hasSidePanel: false,
   initialCenter: () => [144.9631, -36.8136], // melbourne CBD
   homeViewExtent: () => [144.9631, -36.8136], // melbourne CBD
@@ -136,7 +138,9 @@ const activatePin = (featureProperties, coordinates, zoom, trigger = 'pin') => {
 
   popup.value.position = coordinates
 
-  centerMap(map, coordinates, zoom, deadSpace.value, props.popupType)
+  if (props.centerActivePin) {
+    centerMap(map, coordinates, zoom, deadSpace.value, props.popupType)
+  }
 }
 
 defineExpose({

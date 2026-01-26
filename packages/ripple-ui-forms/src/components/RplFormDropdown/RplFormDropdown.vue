@@ -91,6 +91,7 @@ const searchValue = ref('')
 const searchFocused = ref(false)
 const filtering = ref(false)
 const toggleRef = ref<HTMLElement | null>(null)
+// @ts-expect-error tagListRef *is* used in the template as a ref
 const tagListRef = ref(null)
 const focusTag = ref(0)
 

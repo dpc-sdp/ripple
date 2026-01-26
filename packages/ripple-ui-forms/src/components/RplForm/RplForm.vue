@@ -192,8 +192,15 @@ provide('isFormSubmitting', isFormSubmitting)
 provide('submitCounter', submitCounter)
 provide('onFormReset', onFormReset)
 
-const submitLabel =
-  props.schema?.find((field) => field?.key === 'actions')?.label || 'Submit'
+const submitLabel = computed(() => {
+  if (!props.schema || !Array.isArray(props.schema)) return 'Submit'
+
+  const actionsField = props.schema?.find(
+    (field: any) => field?.key === 'actions'
+  ) as unknown as RplFormKitStepNode | undefined
+
+  return actionsField?.label || 'Submit'
+})
 
 const getErrorMessages = (node?: FormKitNode) => {
   if (!node) return {}
@@ -245,7 +252,7 @@ const submitHandler = (form: any, node: FormKitNode) => {
       id: props.id,
       name: props.title,
       action: 'submit',
-      text: submitLabel,
+      text: submitLabel.value,
       value: sanitisePIIFields(node),
       ...getStepEventData()
     } as rplEventPayload,
@@ -270,7 +277,7 @@ const submitInvalidHandler = async (node: FormKitNode) => {
       id: props.id,
       action: 'submit',
       name: props.title,
-      text: submitLabel,
+      text: submitLabel.value,
       value: sanitisePIIFields(getFormNode(node)),
       ...getStepEventData()
     } as rplEventPayload,
@@ -328,7 +335,7 @@ watch(
             id: props.id,
             action: 'complete',
             name: props.title,
-            text: submitLabel,
+            text: submitLabel.value,
             value: sanitisePIIFields(getFormNode()),
             ...getStepEventData()
           } as rplEventPayload,

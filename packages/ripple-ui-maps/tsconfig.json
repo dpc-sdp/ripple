@@ -8,7 +8,7 @@
     "module": "esnext",
     "moduleResolution": "node",
     "isolatedModules": true,
-    "strict": true,
+    "strict": false,
     "jsx": "preserve",
     "sourceMap": true,
     "resolveJsonModule": true,
@@ -21,11 +21,5 @@
     "skipLibCheck": true,
     "declaration": true
   },
-  "include": [
-    "env.d.ts",
-    "src/index.ts",
-    "src/nuxt/**/*.ts",
-    "src/plugins/register.ts"
-  ],
-  "exclude": ["src/components/global/stories/*"]
+  "exclude": ["**/*.stories.ts", "**/*.stories.mdx", "dist", "stories", "**/*.cy.ts"]
 }

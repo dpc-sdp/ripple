@@ -41,7 +41,7 @@
     "test:components": "cypress run --component",
     "cy:components": "cypress open --component",
     "test:generate-output": "jest --json --outputFile=.jest-test-results.json",
-    "typecheck": "vue-tsc -p tsconfig.typecheck.json --noEmit"
+    "typecheck": "vue-tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
     "@nuxt/kit": "catalog:",

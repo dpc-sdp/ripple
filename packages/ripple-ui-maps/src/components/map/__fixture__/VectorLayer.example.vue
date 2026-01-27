@@ -14,10 +14,13 @@ import { GeoJSON } from 'ol/format'
 import { Style, Fill, Stroke } from 'ol/style'
 import { IRplMapInstance } from '../../../types'
 import { computed, inject, onMounted, nextTick } from 'vue'
+import type { Map } from 'ol'
+import type VectorLayer from 'ol/layer/Vector'
+import type { Vector } from 'ol/source'
 interface Props {
   results: any[]
-  lineColor?: string | Number[]
-  fillColor?: string | Number[]
+  lineColor?: string | number[]
+  fillColor?: string | number[]
   areaDataKey?: string
 }
 
@@ -88,13 +91,13 @@ const centerOnPopup = (map, popup, offset = { y: -100, x: 0 }) => {
 onMounted(async () => {
   await nextTick()
   if (rplMapRef.value) {
-    const map = rplMapRef.value
+    const map: Map = rplMapRef.value
 
     // Get reference to shapeLayer by title identifier
     const allLayers = map.getLayers().getArray()
     const shapeLayer = Array.from(allLayers).find(
       (layer) => layer.get('title') === layerIdentifier
-    )
+    ) as VectorLayer<Vector>
     // define filter for getting only shapeLayer
     const layerFilter = (feature, layer) => {
       if (layer.get('title') === layerIdentifier) {

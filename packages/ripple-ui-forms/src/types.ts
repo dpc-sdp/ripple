@@ -18,6 +18,7 @@ export type RplFormKitStepNode = {
   key: string
   name: string
   title: string
+  label: string
   nextButton: string
   prevButton: string
   schema: FormKitSchemaNode[]

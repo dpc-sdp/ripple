@@ -61,5 +61,5 @@ export const sanitisePIIFields = (
     }, {})
   }
 
-  return getChildValues(node?.children || [])
+  return getChildValues((node as any)?.children || [])
 }

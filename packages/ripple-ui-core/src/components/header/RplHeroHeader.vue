@@ -160,7 +160,7 @@ const handleClick = (event) => {
         :primary="primaryAction"
         :secondary="secondaryAction"
         :variant="
-          (imageCta ? 'white' : 'filled') as unknown as typeof RplButtonVariants
+          (imageCta ? 'white' : 'filled') as (typeof RplButtonVariants)[number]
         "
         @item-click="handleClick"
       />

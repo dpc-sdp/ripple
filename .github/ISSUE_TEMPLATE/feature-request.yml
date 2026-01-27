@@ -71,5 +71,5 @@ body:
       options:
         - label: I have read the [contribution guide](https://ripple.sdp.vic.gov.au/design-system/about/contributing) for information on submitting a feature request.
           required: true
-        - label: I have checked the [discussions](https://github.com/dpc-sdp/ripple-framework/discussions) and [issues](https://github.com/dpc-sdp/ripple-framework/issues) for duplicate feature requests.
+        - label: I have checked the [discussions](https://github.com/dpc-sdp/ripple/discussions) and [issues](https://github.com/dpc-sdp/ripple/issues) for duplicate feature requests.
           required: true

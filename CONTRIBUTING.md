@@ -7,14 +7,14 @@ This repository is a mono repo that utilises `pnpm` workspaces, meaning multiple
 
 ## Pre-requisites
 
-- [Node.js](https://nodejs.org/en/) (lts/gallium i.e v16)
-- [PNPM](https://pnpm.io/) (v8)
+- [Node.js](https://nodejs.org/en/) (lts/iron i.e v20)
+- [PNPM](https://pnpm.io/) (v10)
 
 It is recommended to also use [NVM](https://github.com/nvm-sh/nvm) to manage node versions. NVM will use the correct version set in `.nvmrc` by running `nvm use`
 
 ## Getting started
 
-Clone the repository `git clone git@github.com:dpc-sdp/ripple-framework.git` then run `pnpm install` to install all dependencies.
+Clone the repository `git clone git@github.com:dpc-sdp/ripple.git` then run `pnpm install` to install all dependencies.
 
 ### Development
 
@@ -22,13 +22,13 @@ There are three main ways to develop within Ripple Framework; working on isolate
 
 #### Working on the Ripple component library 
 
-Development for the core ui components (`@dpc-sdp/ripple-ui-core`) and form ui components (`@dpc-sdp/ripple-ui-forms`) is done within storybook. To get started just run: 
+Development for the core ui components (`@dpc-sdp/ripple-ui-core`), form ui components (`@dpc-sdp/ripple-ui-forms`) and maps ui components (`@dpc-sdp/ripple-ui-maps`) is done within storybook. To get started just run:
 
 ```bash
 pnpm run storybook
 ```
 
-This will open a browser window with the storybook instance running. All UI components within these packages have an accompanying storybook stories.  For a good example component that contains stories and cypress component tests please see [RplAccordion](https://github.com/dpc-sdp/ripple-framework/tree/develop/packages/ripple-ui-core/src/components/accordion).
+This will open a browser window with the storybook instance running. All UI components within these packages have an accompanying storybook story.  For a good example component that contains stories and cypress component tests please see [RplAccordion](https://github.com/dpc-sdp/ripple/tree/main/packages/ripple-ui-core/src/components/accordion).
 
 New components can be scaffolded using the CLI tool, for example:
 
@@ -40,24 +40,7 @@ For more information on using the CLI please see [@dpc-sdp/nuxt-ripple-cli](http
 
 #### Working on Tide integration packages
 
-These integration packages are [Nuxt layers](https://nuxt.com/docs/getting-started/layers) that are added to a sites `nuxt.config.js` for an example see [examples/nuxt-app/nuxt.config.ts](https://github.com/dpc-sdp/ripple-framework/blob/develop/examples/nuxt-app/nuxt.config.ts). They cover functionality like, analytics, search, content types and more. 
-
-Development for the Tide integration packages is done within the example nuxt app `examples/nuxt-app`. You'll need to make sure a populated `.env` file exists within the `examples/nuxt-app` directory, just copy `examples/nuxt-app/.example.env` to `examples/nuxt-app/.env` to get started.
-
-Then run the nuxt app using:
-
-```bash
-pnpm run dev:nuxt
-```
-
-New layers and content types can be scaffolded using the CLI tool, for example:
-
-```
-npx @dpc-sdp/nuxt-ripple-cli init layer [DIRECTORY] --name {NAME}
-npx @dpc-sdp/nuxt-ripple-cli add content-type [DIRECTORY] --name {NAME} --createTests --cypressPath {CYPRESSPATH}
-```
-
-For more information on using the CLI please see [@dpc-sdp/nuxt-ripple-cli](https://github.com/dpc-sdp/ripple-framework/blob/develop/packages/nuxt-ripple-cli/README.md)
+For more on contributing to Tide packages, please see [Ripple Framework](https://github.com/dpc-sdp/ripple-framework/blob/develop/CONTRIBUTING.md).
 
 ## Coding standards
 
@@ -103,7 +86,7 @@ pnpm run lint
 
 Unit tests are important as they help us secure our processes, ensuring that the most critical parts of our projects are protected from accidental mistakes or oversights in development.
 
-All unit tests are handled by [Jest](https://jestjs.io/), and can be run with:
+All unit tests are handled by [Vitest](https://vitest.dev/), and can be run with:
 
 ```bash
 pnpm run test:unit
@@ -119,39 +102,24 @@ The core component tests `@dpc-sdp/ripple-ui-core` can be run using:
 pnpm run test:components-core
 ```
 
-We also have component testing for the `@dpc-sdp/ripple-ui-forms` package:
+We also have component testing for the `@dpc-sdp/ripple-ui-forms` and `@dpc-sdp/ripple-ui-maps` packages:
 
 ```bash
 pnpm run test:components-forms
+pnpm run test:components-maps
 ```
 
-### End-to-end tests
+## Ripple directory structure
 
-End-to-end tests are handled by [Cypress](https://www.cypress.io/), and run using the example nuxt app `examples/nuxt`
-
-The e2e tests can be run in a headless mode using:
-
-```bash
-pnpm run ci:nuxt-app
-```
-
-Or in an interactive mode using:
-
-```bash
-pnpm run test:nuxt-app
-```
-## Ripple Framework directory structure
-
-The core Ripple Framework directory structure is as follows:
+The core Ripple directory structure is as follows:
 
 - docs (the documentation site)
 - examples (example applications)
 - packages (this is where all npm packages are stored)
-  - nuxt-ripple
   - ripple-ui-core
-  - etc...
-
-
+  - ripple-ui-forms
+  - ripple-ui-maps
+  - etc
 
 ## Releases
 
@@ -235,4 +203,3 @@ This allows you to maintain multiple release lines simultaneously. For example:
 - `release/2.45` can receive critical security patches (2.45.3, 2.45.4, etc.)
 
 ```
-

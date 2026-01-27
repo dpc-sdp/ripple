@@ -106,6 +106,7 @@ const { emitRplEvent } = useRippleEvent('rpl-map', emit)
 
 const zoom = ref(props.initialZoom)
 const rotation = ref(0)
+// @ts-expect-error view *is* used in the template as a ref
 const view = ref(null)
 const mapPosition = ref<{
   center: number[] | undefined
@@ -358,9 +359,10 @@ onMounted(() => {
       }
     })
   }
-  fitDefaultExtent(mapRef.value.map, deadSpace.value, defaultExtent)
+  fitDefaultExtent(mapRef.value.map as Map, deadSpace.value, defaultExtent)
 })
 
+// @ts-expect-error noResultsRef *is* used in the template as a ref
 const noResultsRef = ref(null)
 
 const fullScreenLabel = computed(() =>

@@ -8,3 +8,4 @@ declare module '*.vue' {
 }
 
 declare module '@dpc-sdp/ripple-ui-core/vue'
+declare module '@dpc-sdp/ripple-ui-maps/plugin'

@@ -27,7 +27,7 @@
       <RplTextLink
         class="rpl-u-margin-t-12 rpl-type-p"
         style="display: inline-flex; align-items: center"
-        :url="`https://github.com/dpc-sdp/ripple-framework/edit/develop/docs/${page.id}`"
+        :url="`https://github.com/dpc-sdp/ripple/edit/develop/docs/${page.id}`"
         ><svg
           xmlns="http://www.w3.org/2000/svg"
           aria-hidden="true"

@@ -52,11 +52,14 @@ const getClusteredFeatures = (itms) => {
   <RplIconSprite style="display: none" />
   <RplMap projection="EPSG:3857" v-bind="componentProps">
     <template #map-provider>
-      <RplMapProviderEsri v-if="componentProps.provider === 'esri'" />
+      <RplMapProviderEsri
+        v-if="componentProps.provider === 'esri'"
+        id="__rplfauxmapid"
+      />
       <rpl-map-provider-vic-map v-if="componentProps.provider === 'vicmap'" />
     </template>
     <template v-if="componentProps.vectorLayers" #shapes="{ mapFeatures }">
-      <ExampleVectorLayer :results="mapFeatures" />
+      <ExampleVectorLayer :results="mapFeatures as any" />
     </template>
     <template #popupTitle="{ selectedFeatures }">
       <span v-if="selectedFeatures.length === 1">

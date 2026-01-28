@@ -9,7 +9,7 @@ export default {
 import { ImgHTMLAttributes, StyleValue } from 'vue'
 
 // Verbose declaration due to disabled inheritance
-interface Props extends ImgHTMLAttributes {
+interface Props extends /* @vue-ignore */ ImgHTMLAttributes {
   class: string
   src: string
   alt: string

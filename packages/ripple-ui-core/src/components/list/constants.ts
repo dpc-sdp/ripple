@@ -3,6 +3,7 @@ import { RplColorThemes } from '../../lib/constants'
 export type RplListTypes = 'ul' | 'ol'
 
 export interface IRplListItemArray {
+  id?: string | number
   text: string
   icon?: string
   iconColour?: (typeof RplColorThemes)[number]

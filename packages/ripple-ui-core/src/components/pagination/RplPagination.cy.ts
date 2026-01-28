@@ -12,11 +12,11 @@ const prev = `[aria-label="Go to previous ${baseProps.contentType}"]`
 
 describe('RplPagination', () => {
   it('mounts', () => {
-    cy.mount(RplPagination, { props: baseProps })
+    cy.mount(RplPagination as any, { props: baseProps })
   })
 
   it('navigate to the next page', () => {
-    cy.mount(RplPagination, { props: baseProps })
+    cy.mount(RplPagination as any, { props: baseProps })
 
     cy.get(current).should('contain', 1)
     cy.get(next).click()
@@ -24,7 +24,7 @@ describe('RplPagination', () => {
   })
 
   it('navigate to the previous page', () => {
-    cy.mount(RplPagination, { props: { ...baseProps, currentPage: 3 } })
+    cy.mount(RplPagination as any, { props: { ...baseProps, currentPage: 3 } })
 
     cy.get(current).should('contain', 3)
     cy.get(prev).click()
@@ -32,7 +32,7 @@ describe('RplPagination', () => {
   })
 
   it('hide and show next/prev buttons', () => {
-    cy.mount(RplPagination, { props: { ...baseProps, totalPages: 2 } })
+    cy.mount(RplPagination as any, { props: { ...baseProps, totalPages: 2 } })
 
     cy.get(next).should('exist')
     cy.get(prev).should('not.exist')

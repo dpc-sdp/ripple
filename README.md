@@ -3,15 +3,15 @@
 
 
 <a href="https://www.ripple.sdp.vic.gov.au/">
-  <img src="https://img.shields.io/badge/ripple_framework-docs-ef4b5e" alt="ripple docs">
+  <img src="https://img.shields.io/badge/ripple-docs-0052c2" alt="ripple docs">
 </a>
 
 <a href="https://www.ripple.sdp.vic.gov.au/storybook">
-  <img src="https://img.shields.io/badge/ripple_framework-storybook-ef4b5e" alt="ripple storybook">
+  <img src="https://img.shields.io/badge/ripple-storybook-ff4785" alt="ripple storybook">
 </a>
 
-<a href="https://github.com/dpc-sdp/ripple-framework/actions/workflows/components.yml">
-  <img src="https://img.shields.io/github/actions/workflow/status/dpc-sdp/ripple-framework/main.yml" alt="build status">
+<a href="https://github.com/dpc-sdp/ripple/actions/workflows/components.yml">
+  <img src="https://img.shields.io/github/actions/workflow/status/dpc-sdp/ripple/components.yml" alt="build status">
 </a>
 
 

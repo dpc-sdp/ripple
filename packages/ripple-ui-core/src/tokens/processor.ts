@@ -1,6 +1,6 @@
 import StyleDictionary from 'style-dictionary'
 import yaml from 'yaml'
-import baseConfig from './config.json' assert { type: 'json' }
+import baseConfig from './config.json' with { type: 'json' }
 
 StyleDictionary.registerTransform({
   name: 'size/pixels',

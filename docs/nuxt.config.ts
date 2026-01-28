@@ -1,5 +1,6 @@
-import { defineNuxtConfig } from 'nuxt/config'
 import ViteYaml from '@modyfi/vite-plugin-yaml'
+import { defineNuxtConfig } from 'nuxt/config'
+import type { PluginOption } from 'vite'
 
 // https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
 export default defineNuxtConfig({
@@ -19,10 +20,11 @@ export default defineNuxtConfig({
           langs: ['css', 'vue', 'js', 'bash', 'markdown']
         }
       }
-    }
+    },
+    experimental: { sqliteConnector: 'native' }
   },
   vite: {
-    plugins: [ViteYaml()]
+    plugins: [ViteYaml() as PluginOption]
   },
   nitro: {
     prerender: {

@@ -69,8 +69,8 @@
     "vitest": "catalog:"
   },
   "engines": {
-    "node": "^18.15.0 || ^20.9.0",
-    "pnpm": "^10.0.0"
+    "node": "^20.9.0 || ^24.12.0",
+    "pnpm": "^10.10.0"
   },
   "dependencies": {
     "rimraf": "catalog:",

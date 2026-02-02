@@ -15,9 +15,9 @@ jobs:
         with:
           always-auth: true
           registry-url: https://npm.pkg.github.com/
-          node-version: 20
-          scope: '@dpc-sdp'
-          cache: 'pnpm'
+          node-version: 24
+          scope: "@dpc-sdp"
+          cache: "pnpm"
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
       - run: pnpm run lint

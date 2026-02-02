@@ -1,4 +1,4 @@
-import { IRplVerticalNavItem } from '~~/../packages/ripple-ui-core/src/components/vertical-nav/constants'
+import { IRplVerticalNavItem } from '@@/../packages/ripple-ui-core/src/components/vertical-nav/constants'
 
 export const useModulesNavigation = async (): Promise<
   IRplVerticalNavItem[] | []

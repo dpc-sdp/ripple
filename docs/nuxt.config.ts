@@ -1,5 +1,6 @@
 import { defineNuxtConfig } from 'nuxt/config'
 import ViteYaml from '@modyfi/vite-plugin-yaml'
+import { PluginOption } from 'vite'
 
 // https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
 export default defineNuxtConfig({
@@ -22,7 +23,7 @@ export default defineNuxtConfig({
     }
   },
   vite: {
-    plugins: [ViteYaml()]
+    plugins: [ViteYaml() as unknown as PluginOption]
   },
   nitro: {
     prerender: {

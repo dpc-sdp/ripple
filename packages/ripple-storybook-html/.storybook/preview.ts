@@ -3,6 +3,8 @@ import '@dpc-sdp/ripple-ui-core/style'
 import '@dpc-sdp/ripple-ui-core/style/components'
 import themes from './themes.js'
 import './storybook.css'
+// Import and register all web components
+import './web-components'
 
 const preview: Preview = {
   parameters: {

@@ -1,15 +1,15 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import type { Ref } from 'vue'
-import { RplAlertTypes } from './constants'
-import onResizeHeight from '../../composables/onResizeHeight'
-import { RplIconNames } from '../icon/constants'
-import RplIcon from '../icon/RplIcon.vue'
-import RplTextLink from '../text-link/vue/RplTextLink.vue'
+import { RplAlertTypes } from './../constants'
+import onResizeHeight from '../../../composables/onResizeHeight'
+import { RplIconNames } from '../../icon/constants'
+import RplIcon from '../../icon/RplIcon.vue'
+import RplTextLink from '../../text-link/vue/RplTextLink.vue'
 import {
   useRippleEvent,
   rplEventPayload
-} from '../../composables/useRippleEvent'
+} from '../../../composables/useRippleEvent'
 
 interface Props {
   variant?: RplAlertTypes
@@ -111,4 +111,4 @@ onResizeHeight(alertRef, (height) => {
   </div>
 </template>
 
-<style src="./RplAlert.css" />
+<style src="./../RplAlert.css" />

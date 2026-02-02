@@ -20,4 +20,4 @@ const openInNewWindow = computed(() => useAttrs()['target'] === '_blank')
   </RplLink>
 </template>
 
-<style src="./RplTextLink.css" />
+<style src="./../RplTextLink.css" />

@@ -1,6 +1,6 @@
 export { default as RplAccordion } from './components/accordion/RplAccordion.vue'
 export { default as RplAcknowledgement } from './components/acknowledgement/RplAcknowledgement.vue'
-export { default as RplAlert } from './components/alert/RplAlert.vue'
+export { default as RplAlert } from './components/alert/vue/RplAlert.vue'
 export { default as RplAlertsContainer } from './components/alert/RplAlertsContainer.vue'
 export { default as RplAvatarCard } from './components/card/RplAvatarCard.vue'
 export { default as RplBreadcrumbs } from './components/breadcrumbs/RplBreadcrumbs.vue'

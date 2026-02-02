@@ -1,5 +1,5 @@
 import RplTextLink from './RplTextLink.vue'
-import RplIcon from '../icon/RplIcon.vue'
+import RplIcon from '../../icon/RplIcon.vue'
 import type { Meta, StoryObj } from '@storybook/vue3'
 
 export default {

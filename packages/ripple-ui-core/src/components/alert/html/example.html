@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RplAlert Web Component Example</title>
+    <link rel="stylesheet" href="../../RplAlert.css">
+    <style>
+      body {
+        font-family:
+          system-ui,
+          -apple-system,
+          sans-serif;
+        padding: 2rem;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      h1 {
+        margin-bottom: 2rem;
+      }
+      .example {
+        margin-bottom: 2rem;
+      }
+      .log {
+        background: #f5f5f5;
+        padding: 1rem;
+        border-radius: 4px;
+        margin-top: 2rem;
+        font-family: monospace;
+        font-size: 0.875rem;
+      }
+      .log-item {
+        padding: 0.25rem 0;
+        border-bottom: 1px solid #ddd;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>RplAlert Web Component Examples</h1>
+
+    <div class="example">
+      <h2>Information Alert</h2>
+      <rpl-alert
+        class="rpl-alert rpl-alert--information rpl-u-screen-only"
+        data-alert-id="alert-info"
+        data-message="This is an information alert"
+      >
+        <div
+          class="rpl-alert__inner"
+          role="region"
+          aria-labelledby="alert-message-info"
+        >
+          <span class="rpl-alert__icon-info rpl-icon rpl-icon--size-m">ℹ️</span>
+          <div class="rpl-alert__message-wrap">
+            <div
+              id="alert-message-info"
+              class="rpl-alert__message rpl-type-label rpl-type-weight-bold"
+            >
+              This is an information alert that can be dismissed
+            </div>
+          </div>
+          <button
+            class="rpl-alert__btn-close rpl-u-focusable-inline"
+            data-dismiss="true"
+            aria-label="Dismiss alert"
+          >
+            ✕
+          </button>
+        </div>
+      </rpl-alert>
+    </div>
+
+    <div class="example">
+      <h2>Warning Alert</h2>
+      <rpl-alert
+        class="rpl-alert rpl-alert--warning rpl-u-screen-only"
+        data-alert-id="alert-warning"
+        data-message="This is a warning alert"
+      >
+        <div
+          class="rpl-alert__inner"
+          role="region"
+          aria-labelledby="alert-message-warning"
+        >
+          <span class="rpl-alert__icon-info rpl-icon rpl-icon--size-m">⚠️</span>
+          <div class="rpl-alert__message-wrap">
+            <div
+              id="alert-message-warning"
+              class="rpl-alert__message rpl-type-label rpl-type-weight-bold"
+            >
+              This is a warning alert that requires your attention
+            </div>
+          </div>
+          <button
+            class="rpl-alert__btn-close rpl-u-focusable-inline"
+            data-dismiss="true"
+            aria-label="Dismiss alert"
+          >
+            ✕
+          </button>
+        </div>
+      </rpl-alert>
+    </div>
+
+    <div class="example">
+      <h2>Error Alert</h2>
+      <rpl-alert
+        class="rpl-alert rpl-alert--error rpl-u-screen-only"
+        data-alert-id="alert-error"
+        data-message="This is an error alert"
+      >
+        <div
+          class="rpl-alert__inner"
+          role="region"
+          aria-labelledby="alert-message-error"
+        >
+          <span class="rpl-alert__icon-info rpl-icon rpl-icon--size-m">❌</span>
+          <div class="rpl-alert__message-wrap">
+            <div
+              id="alert-message-error"
+              class="rpl-alert__message rpl-type-label rpl-type-weight-bold"
+            >
+              This is an error alert indicating a problem
+            </div>
+          </div>
+          <button
+            class="rpl-alert__btn-close rpl-u-focusable-inline"
+            data-dismiss="true"
+            aria-label="Dismiss alert"
+          >
+            ✕
+          </button>
+        </div>
+      </rpl-alert>
+    </div>
+
+    <div class="example">
+      <h2>Programmatic Control</h2>
+      <button onclick="dismissAll()">Dismiss All Alerts</button>
+      <button onclick="checkDismissed()">Check Dismissed Status</button>
+    </div>
+
+    <div class="log">
+      <h3>Event Log:</h3>
+      <div id="log"></div>
+    </div>
+
+    <script type="module">
+      // Import and register the web component
+      import { RplAlert } from './RplAlert.js'
+
+      // Listen for dismiss events
+      document.addEventListener('rpl-alert:dismiss', (e) => {
+        logEvent(`Alert dismissed: ${e.detail.id}`, e.detail)
+      })
+
+      // Helper functions
+      window.dismissAll = function () {
+        document.querySelectorAll('rpl-alert').forEach((alert) => {
+          if (!alert.dismissed) {
+            alert.dismiss()
+          }
+        })
+      }
+
+      window.checkDismissed = function () {
+        document.querySelectorAll('rpl-alert').forEach((alert) => {
+          const id = alert.dataset.alertId
+          const status = alert.dismissed ? 'dismissed' : 'visible'
+          logEvent(`Alert ${id}: ${status}`)
+        })
+      }
+
+      function logEvent(message, detail = null) {
+        const log = document.getElementById('log')
+        const item = document.createElement('div')
+        item.className = 'log-item'
+        item.textContent = `[${new Date().toLocaleTimeString()}] ${message}`
+        if (detail) {
+          item.textContent += ` - ${JSON.stringify(detail)}`
+        }
+        log.insertBefore(item, log.firstChild)
+      }
+
+      logEvent('Web Component loaded and registered')
+    </script>
+  </body>
+</html>

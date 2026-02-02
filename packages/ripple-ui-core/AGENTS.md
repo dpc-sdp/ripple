@@ -989,6 +989,125 @@ This utility:
 6. **Update imports** if the component is exported:
    - Update index files to point to `vue/` subdirectory
 
+### Interactive HTML Components with Web Components
+
+For components requiring JavaScript interactivity (dismiss, toggle, animation, etc.), use Web Components:
+
+**Architecture:**
+```
+alert/
+├── RplAlert.css              # Shared CSS
+├── constants.ts              # Shared types
+├── vue/                      # Vue implementation
+│   ├── RplAlert.vue
+│   └── RplAlert.stories.ts
+└── html/                     # HTML/Twig + Web Component
+    ├── RplAlert.twig         # Static HTML template
+    ├── RplAlert.ts           # Web Component (JavaScript behavior)
+    ├── RplAlert.d.ts         # TypeScript definitions
+    └── RplAlert.stories.ts   # HTML Storybook stories
+```
+
+**Web Component Pattern:**
+
+````typescript
+// RplAlert.ts
+export class RplAlert extends HTMLElement {
+  private closeButton: HTMLButtonElement | null = null
+  
+  connectedCallback() {
+    this.closeButton = this.querySelector('[data-dismiss]')
+    
+    if (this.closeButton) {
+      this.closeButton.addEventListener('click', this.handleDismiss)
+    }
+    
+    this.updateHeight()
+  }
+  
+  disconnectedCallback() {
+    if (this.closeButton) {
+      this.closeButton.removeEventListener('click', this.handleDismiss)
+    }
+  }
+  
+  private handleDismiss = () => {
+    // Emit custom event for tracking
+    this.dispatchEvent(
+      new CustomEvent('rpl-alert:dismiss', {
+        bubbles: true,
+        composed: true,
+        detail: { id: this.dataset.alertId }
+      })
+    )
+    
+    // Apply CSS class for animation
+    this.classList.add('rpl-alert--closed')
+  }
+}
+
+// Auto-register if in browser
+if (typeof window !== 'undefined' && typeof customElements !== 'undefined') {
+  if (!customElements.get('rpl-alert')) {
+    customElements.define('rpl-alert', RplAlert)
+  }
+}
+````
+
+**Key Web Component Principles:**
+
+1. **Progressive Enhancement**: HTML works without JavaScript
+2. **Light DOM**: Don't use Shadow DOM (for CSS sharing)
+3. **Data Attributes**: Use for configuration (`data-alert-id`, `data-message`)
+4. **Custom Events**: Emit events for tracking (`rpl-alert:dismiss`)
+5. **Clean up**: Remove listeners in `disconnectedCallback()`
+6. **TypeScript**: Write in TS, compile to vanilla JS
+7. **Auto-register**: Define custom element automatically in browser
+8. **Selective queries**: Use `data-*` attributes for interactive elements
+
+**Twig Template for Web Components:**
+
+````twig
+<rpl-alert 
+  class="rpl-alert rpl-alert--{{ variant }}"
+  data-alert-id="{{ alert_id }}"
+  data-message="{{ message }}"
+>
+  <div class="rpl-alert__inner">
+    <!-- Static HTML content -->
+    <button data-dismiss="true">Close</button>
+  </div>
+</rpl-alert>
+````
+
+**HTML Storybook with Web Components:**
+
+````typescript
+// Import the web component to register it
+import './RplAlert'
+
+export const Default: Story = {
+  render: (args) => {
+    const html = renderTwig(template, args)
+    
+    // Optional: Add event listeners in story
+    setTimeout(() => {
+      const alert = document.querySelector('[data-alert-id]')
+      alert?.addEventListener('rpl-alert:dismiss', (e) => {
+        console.log('Dismissed:', e.detail)
+      })
+    }, 100)
+    
+    return html
+  }
+}
+````
+
+**When to Use Web Components vs Static HTML:**
+
+- ✅ **Use Web Components**: Dismiss/close, expand/collapse, show/hide, animations, form validation, dynamic updates
+- ✅ **Use Static HTML**: Links, text, images, layout, cards, simple buttons (without interactions)
+
 ### HTML/Twig Best Practices
 
 **✅ DO:**
@@ -998,15 +1117,19 @@ This utility:
 - Use Twig's `|default()` filter for all variables
 - Import shared constants from parent directory
 - Test in HTML Storybook to verify rendering
-- Focus on static HTML output only
+- Use Web Components for interactivity (dismiss, toggle, etc.)
+- Clean up event listeners in `disconnectedCallback()`
+- Use `data-*` attributes to mark interactive elements
 
 **❌ DON'T:**
 - Don't duplicate CSS files between targets
 - Don't use different class names in Twig than Vue
-- Don't add JavaScript/interactivity to Twig templates
+- Don't add inline JavaScript to Twig templates
 - Don't forget to document Twig variables
 - Don't hardcode values that should be variables
 - Don't skip Storybook stories for HTML components
+- Don't use Shadow DOM (breaks shared CSS)
+- Don't forget to auto-register custom elements
 
 ### Drupal Integration Notes
 

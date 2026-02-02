@@ -1,5 +1,5 @@
 import type { ContentNavigationItem } from '@nuxt/content'
-import { IRplVerticalNavItem } from '~~/../packages/ripple-ui-core/src/components/vertical-nav/constants'
+import { IRplVerticalNavItem } from '@@/../packages/ripple-ui-core/src/components/vertical-nav/constants'
 
 export const useDocsNavigation = async (
   slug: string[]

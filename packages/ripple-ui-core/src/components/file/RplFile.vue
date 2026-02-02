@@ -34,7 +34,10 @@ const emit = defineEmits<{
 
 const { emitRplEvent } = useRippleEvent('rpl-file', emit)
 
-const onDownload = ({ action, value }) => {
+const onDownload = ({
+  action,
+  value
+}: rplEventPayload & { action: 'download' }) => {
   emitRplEvent(
     'download',
     {

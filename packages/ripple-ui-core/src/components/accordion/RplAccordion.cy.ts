@@ -9,13 +9,13 @@ const baseProps = {
 
 describe('RplAccordion', () => {
   it('mounts', () => {
-    cy.mount(RplAccordion, { props: { ...baseProps } })
+    cy.mount(RplAccordion as any, { props: { ...baseProps } })
 
     cy.get('.rpl-accordion__toggle-all').should('contains.text', 'Open all')
   })
 
   it('allows individual accordion items to be toggled', () => {
-    cy.mount(RplAccordion, { props: { ...baseProps } })
+    cy.mount(RplAccordion as any, { props: { ...baseProps } })
 
     cy.get('.rpl-accordion__item').first().as('item')
 
@@ -30,7 +30,7 @@ describe('RplAccordion', () => {
   })
 
   it('toggles all accordions when open/close all button is clicked', () => {
-    cy.mount(RplAccordion, { props: { ...baseProps } })
+    cy.mount(RplAccordion as any, { props: { ...baseProps } })
 
     cy.get('.rpl-accordion__toggle-all').contains('Open all').click()
     cy.get('.rpl-accordion__item-content-inner:visible').should(
@@ -46,7 +46,7 @@ describe('RplAccordion', () => {
   })
 
   it('toggles the open/close all text when all items have been individually toggled', () => {
-    cy.mount(RplAccordion, { props: { ...baseProps } })
+    cy.mount(RplAccordion as any, { props: { ...baseProps } })
 
     cy.get('.rpl-accordion__item-toggle').click({ multiple: true })
     cy.get('.rpl-accordion__toggle-all').should('contains.text', 'Close all')
@@ -56,7 +56,7 @@ describe('RplAccordion', () => {
   })
 
   it('shows numbered accordions', () => {
-    cy.mount(RplAccordion, {
+    cy.mount(RplAccordion as any, {
       props: {
         ...baseProps,
         numbered: true

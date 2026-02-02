@@ -5,7 +5,7 @@ import { ref, onMounted } from 'vue'
 
 interface Props {
   showQuickExit: boolean
-  searchUrl: boolean
+  searchUrl: string
   maxLength?: number
 }
 

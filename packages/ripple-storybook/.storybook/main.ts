@@ -41,7 +41,7 @@ const config: StorybookConfig = {
   addons: ['@storybook/addon-a11y', '@storybook/addon-vitest'],
   framework: {
     name: '@storybook/vue3-vite',
-    options: {}
+    options: { docgen: 'vue-component-meta' }
   },
   staticDirs: ['./public'],
   previewHead: (head) => `

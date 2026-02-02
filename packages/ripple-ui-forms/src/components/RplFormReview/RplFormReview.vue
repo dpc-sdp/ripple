@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { computed, inject, Ref } from 'vue'
+import { computed, inject } from 'vue'
 import { FormKitSchemaNode } from '@formkit/core'
 import { isValid, parse } from 'date-fns'
 import { formatDate } from '@dpc-sdp/ripple-ui-core'
+import { IRplFormProvidedState, RplFormKitStepNode } from '../../types'
 
 interface Props {
   title?: string
@@ -29,13 +30,7 @@ const props = withDefaults(defineProps<Props>(), {
   omitFinalStep: true
 })
 
-const form: {
-  schema: any[]
-  values: Ref<object>
-  multiStep: boolean
-  goToField: Function
-  stepsId: string
-} = inject('form', {})
+const form: IRplFormProvidedState = inject('form', {})
 
 const shouldDisplayField = (field: any, values: any) => {
   return (
@@ -104,24 +99,30 @@ const items = computed<FormReviewItem[]>(() => {
   }
 
   if (form.multiStep) {
-    values = values[form.stepsId] || values
+    values = form.stepsId ? values[form.stepsId] || values : values
 
-    const stepItems = form.schema
-      .filter((i) => i.$step)
-      .map((step) => ({
+    const stepItems = (form?.schema || []).filter(
+      (item) => (<RplFormKitStepNode>item).$step
+    ) as RplFormKitStepNode[]
+
+    const stepItemsProcessed = stepItems.map((step) => {
+      return {
         key: step.key,
         step: step.key,
         name: step.title,
         items: processSchemaItems(step.schema, values[step.key])
-      }))
+      }
+    })
 
-    return props.omitFinalStep ? stepItems.slice(0, -1) : stepItems
+    return props.omitFinalStep
+      ? stepItemsProcessed.slice(0, -1)
+      : stepItemsProcessed
   }
 
   return [
     {
       key: 'default',
-      items: processSchemaItems(form.schema, values)
+      items: processSchemaItems(form.schema as FormKitSchemaNode[], values)
     }
   ]
 })

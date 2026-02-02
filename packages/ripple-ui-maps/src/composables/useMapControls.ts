@@ -2,9 +2,10 @@ import { inject, ref, onMounted } from 'vue'
 import { useEventListener } from '@vueuse/core'
 import { easeOut } from 'ol/easing'
 import { fitDefaultExtent } from './../components/map/utils'
+import { IRplMapInstance } from '../types'
 
 export default (mapRef) => {
-  const { deadSpace, defaultExtent } = inject('rplMapInstance')
+  const { deadSpace, defaultExtent } = inject<IRplMapInstance>('rplMapInstance')
 
   const isFullScreen = ref(false)
   const supportsFullScreen = ref(false)

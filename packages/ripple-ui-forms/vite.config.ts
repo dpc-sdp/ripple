@@ -19,8 +19,7 @@ export default defineConfig({
           src: 'src/components/**/*.vue',
           dest: '.'
         }
-      ],
-      flatten: false
+      ]
     })
   ],
   server: {

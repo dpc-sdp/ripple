@@ -22,7 +22,7 @@
       <DocsCardGrid>
         <RplPromoCard
           v-for="mod in filteredModules"
-          :key="mod.path"
+          :key="mod.meta.path"
           :title="mod.name"
           :url="`${mod.meta.path?.replace(/\/module$/, '')}`"
         >

@@ -5,6 +5,7 @@ import { inject } from 'vue'
 import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
 import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
 import { sanitisePIIField } from '../../lib/sanitisePII'
+import { IRplFormProvidedState } from '../../types'
 
 export interface RplFormRadioProps {
   id: string
@@ -39,7 +40,7 @@ const emit = defineEmits<{
   (e: 'update', payload: rplEventPayload & { action: 'update' }): void
 }>()
 
-const form: object = inject('form')
+const form: IRplFormProvidedState | undefined = inject('form')
 const { emitRplEvent } = useRippleEvent('rpl-form-radio-group', emit)
 
 const handleChange = (selectedValue: string) => {

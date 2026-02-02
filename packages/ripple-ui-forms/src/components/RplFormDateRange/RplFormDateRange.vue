@@ -48,7 +48,7 @@ const props = withDefaults(defineProps<Props>(), {
   value: undefined,
   variant: 'default',
   display: 'inline',
-  dateFormat: 'yyyy-mm-dd',
+  dateFormat: 'yyyy-MM-dd',
   min: '',
   max: '',
   ariaDescribedby: '',
@@ -62,20 +62,23 @@ const emit = defineEmits<{
 
 const { emitRplEvent } = useRippleEvent('rpl-form-date-range', emit)
 
-// Check the incoming value and format to yyyy-mm-dd if supplied in another format
-const ingestValue = (range?: InternalDate): InternalDate | null => {
-  if (!range) {
-    return { from: '', to: '' }
+const INPUT_FORMAT = 'yyyy-MM-dd'
+
+// Check the incoming value and format to yyyy-MM-dd if supplied in another format
+const parseIncomingValue = (value?: string): string => {
+  if (typeof value !== 'string' || value === '') {
+    return ''
   }
 
-  const dateFrom = parse(range.from, props.dateFormat, new Date())
-  const dateTo = parse(range.to, props.dateFormat, new Date())
+  const parsedValue = parse(value, props.dateFormat, new Date())
 
-  return {
-    from: range.from && isValid(dateFrom) ? format(dateFrom, 'yyyy-mm-dd') : '',
-    to: range.to && isValid(dateTo) ? format(dateTo, 'yyyy-mm-dd') : ''
-  }
+  return isValid(parsedValue) ? format(parsedValue, INPUT_FORMAT) : ''
 }
+
+const ingestValue = (range?: InternalDate): InternalDate => ({
+  from: parseIncomingValue(range?.from),
+  to: parseIncomingValue(range?.to)
+})
 
 const ingestedValue = ingestValue(props.value)
 
@@ -94,22 +97,35 @@ watch(
   }
 )
 
-const handleChangeFrom = (e) => {
-  internalFrom.value = e.target.value
-  commitValue(e.target.value, internalTo.value)
+function isValidDateValue(value: string): boolean {
+  if (typeof value !== 'string' || value === '') {
+    return true
+  }
+  return isValid(parse(value, INPUT_FORMAT, new Date()))
 }
 
-const handleChangeTo = (e) => {
-  internalTo.value = e.target.value
-  commitValue(internalFrom.value, e.target.value)
+const handleChangeFrom = (e: Event) => {
+  const value = (e.target as HTMLInputElement).value
+  if (isValidDateValue(value)) {
+    internalFrom.value = value
+    commitValue(value, internalTo.value)
+  }
+}
+
+const handleChangeTo = (e: Event) => {
+  const value = (e.target as HTMLInputElement).value
+  if (isValidDateValue(value)) {
+    internalTo.value = value
+    commitValue(internalFrom.value, value)
+  }
 }
 
 const commitValue = (from: string, to: string) => {
   if (from && !isMatch(from, props.dateFormat)) {
-    from = format(parse(from, 'yyyy-mm-dd', new Date()), props.dateFormat)
+    from = format(parse(from, INPUT_FORMAT, new Date()), props.dateFormat)
   }
   if (to && !isMatch(to, props.dateFormat)) {
-    to = format(parse(to, 'yyyy-mm-dd', new Date()), props.dateFormat)
+    to = format(parse(to, INPUT_FORMAT, new Date()), props.dateFormat)
   }
 
   useFormkitFriendlyEventEmitter(props, emit, 'onChange', { from, to })

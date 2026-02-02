@@ -64,6 +64,7 @@ import {
 } from '@formkit/core'
 import useFormFocus from '../../composables/useFormFocus'
 import { useEventContext } from '@dpc-sdp/ripple-ui-core'
+import { IRplFormProvidedState } from '../../types'
 
 interface Props {
   form: string
@@ -92,10 +93,11 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 const { focusFormElement } = useFormFocus()
-const formEl: { focusStepField: Ref<string> } = inject('form')
+const formEl: IRplFormProvidedState | undefined = inject('form')
 
 const stepErrorsRef = ref(null)
-const inputErrors: Ref<Record<string, string>> = inject('inputErrors')
+const inputErrors: Ref<Record<string, string[]>> | undefined =
+  inject('inputErrors')
 
 const handleBack = () => getNode(props.form)?.previous()
 
@@ -120,7 +122,7 @@ watch(
 watch(
   () => props.activeStep,
   async (newStep) => {
-    if (newStep === props.name && formEl.focusStepField.value) {
+    if (newStep === props.name && formEl?.focusStepField.value) {
       await nextTick()
 
       focusFormElement(formEl.focusStepField.value)

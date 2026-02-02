@@ -46,28 +46,21 @@
 </template>
 
 <script setup lang="ts">
-import { FormKitSchemaNode } from '@formkit/core'
 import { ref } from 'vue'
 import { useMediaQuery } from '@vueuse/core'
+import type { BeforeStepChange } from '@formkit/addons'
+import { RplFormKitStepNode } from '../../types'
 
 interface Props {
   id: string
   data?: object
-  schema?: {
-    id: string
-    key: string
-    name: string
-    title: string
-    nextButton: string
-    prevButton: string
-    schema: FormKitSchemaNode
-  }[]
+  schema?: RplFormKitStepNode[]
   errors?: {
     fieldId: string
     text: string
   }[]
   disabled?: boolean
-  handleStepChange: (step: FormKitSchemaNode) => boolean
+  handleStepChange: BeforeStepChange
   layout?: 'default' | 'compact'
 }
 

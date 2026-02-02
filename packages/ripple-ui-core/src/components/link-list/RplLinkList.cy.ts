@@ -3,11 +3,11 @@ import RplLinkListItem from './RplLinkListItem.vue'
 
 describe('RplLinkList', () => {
   it('mounts when empty', () => {
-    cy.mount(RplLinkList)
+    cy.mount(RplLinkList as any)
   })
 
   it('mounts with slot contents', () => {
-    cy.mount(RplLinkList, {
+    cy.mount(RplLinkList as any, {
       slots: { default: 'testSlotContents' }
     })
 
@@ -17,7 +17,7 @@ describe('RplLinkList', () => {
 
 describe('RplLinkListItem', () => {
   it('mounts', () => {
-    cy.mount(RplLinkListItem, {
+    cy.mount(RplLinkListItem as any, {
       props: { url: '/test/url' },
       slots: { default: 'testSlotContents' }
     })

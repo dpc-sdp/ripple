@@ -29,7 +29,8 @@ const emit = defineEmits<{
 
 const { emitRplEvent } = useRippleEvent('rpl-search-result', emit)
 
-const { container, trigger } = useAccessibleContainer()
+// Underscore prefixes to avoid unused variable typescript error, as these are only used in template refs.
+const { container: _container, trigger: _trigger } = useAccessibleContainer()
 
 const displayUrl = computed(() => props.url.replace('https://', ''))
 
@@ -51,10 +52,10 @@ const handleClick = () => {
     <div v-if="$slots.meta" class="rpl-search-result__meta rpl-type-p-small">
       <slot name="meta"></slot>
     </div>
-    <div ref="container" class="rpl-search-result__heading">
+    <div ref="_container" class="rpl-search-result__heading">
       <h2 class="rpl-search-result__title rpl-type-h3">
         <RplTextLink
-          ref="trigger"
+          ref="_trigger"
           :url="url"
           class="rpl-u-link-visited"
           @click="handleClick"

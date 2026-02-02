@@ -28,7 +28,7 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  perView: 1,
+  perView: () => 1 as RplSlidesPerView,
   showPagination: true,
   showTally: false,
   effect: undefined,
@@ -64,6 +64,8 @@ const slides = computed(
   () => slots?.default?.()?.[0].children || slots?.default?.() || []
 )
 
+const totalSlides = computed<number>(() => (slides.value.length || 0) as number)
+
 const slidesInView = computed(() => {
   let bp = null
 
@@ -71,23 +73,25 @@ const slidesInView = computed(() => {
     return props.perView
   }
 
-  if (isXLargeScreen.value && props.perView?.xl) {
-    bp = 'xl'
-  } else if (isLargeScreen.value && props.perView?.l) {
-    bp = 'l'
-  } else if (isMediumScreen.value && props.perView?.m) {
-    bp = 'm'
-  } else if (isSmallScreen.value && props.perView?.s) {
-    bp = 's'
-  } else if (isXSmallScreen.value && props.perView?.xs) {
-    bp = 'xs'
+  if (typeof props.perView === 'object') {
+    if (isXLargeScreen.value && props.perView?.xl) {
+      bp = 'xl'
+    } else if (isLargeScreen.value && props.perView?.l) {
+      bp = 'l'
+    } else if (isMediumScreen.value && props.perView?.m) {
+      bp = 'm'
+    } else if (isSmallScreen.value && props.perView?.s) {
+      bp = 's'
+    } else if (isXSmallScreen.value && props.perView?.xs) {
+      bp = 'xs'
+    }
   }
 
   return props.perView?.[bp] || 1
 })
 
 const totalPages = computed(() => {
-  return slides.value.length - slidesInView.value + 1
+  return totalSlides.value - slidesInView.value + 1
 })
 
 const breakpoints = computed(() => {
@@ -121,7 +125,11 @@ watch(
 
 onMounted(() => (mounted.value = true))
 
-const paginationClick = ({ action, text, value }) => {
+const paginationClick = ({
+  action,
+  text,
+  value
+}: rplEventPayload & { action: 'prev' | 'next' | 'page' }) => {
   paginate.value = true
   swiper.value.$el.swiper.slideTo(value - 1)
 
@@ -163,7 +171,7 @@ const slideChangeNotice = computed(() => {
       ? `${activePage.value} to ${activePage.value + (slidesInView.value - 1)}`
       : `${activePage.value}`
 
-  let notice = `Showing ${props.contentType} ${items} of ${slides.value.length}`
+  let notice = `Showing ${props.contentType} ${items} of ${totalSlides.value}`
 
   return typeof props.changeNotice === 'string'
     ? `${notice}, ${props.changeNotice}`
@@ -174,7 +182,7 @@ const slideChangeNotice = computed(() => {
 <template>
   <div ref="container" class="rpl-slider">
     <RplPagination
-      v-if="showPagination && slides.length > 1 && totalPages > 1"
+      v-if="showPagination && totalSlides > 1 && totalPages > 1"
       variant="simple"
       :current-page="activePage"
       :total-pages="totalPages"

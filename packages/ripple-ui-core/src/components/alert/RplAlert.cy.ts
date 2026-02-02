@@ -12,7 +12,7 @@ const baseProps = {
 
 describe('RplAlert', () => {
   it('mounts', () => {
-    cy.mount(RplAlert, {
+    cy.mount(RplAlert as any, {
       props: baseProps
     })
   })
@@ -21,7 +21,7 @@ describe('RplAlert', () => {
     let dismissed = false
     const onDismiss = () => (dismissed = true)
 
-    cy.mount(RplAlert, {
+    cy.mount(RplAlert as any, {
       props: {
         ...baseProps,
         onDismiss

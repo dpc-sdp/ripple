@@ -8,7 +8,7 @@ const baseProps = {
 
 describe('RplSearchBar', () => {
   it('opens', () => {
-    cy.mount(RplSearchBar, {
+    cy.mount(RplSearchBar as any, {
       props: {
         ...baseProps
       }
@@ -19,7 +19,7 @@ describe('RplSearchBar', () => {
   })
 
   it('suggestion slot', () => {
-    cy.mount(RplSearchBar, {
+    cy.mount(RplSearchBar as any, {
       props: {
         ...baseProps
       },
@@ -33,7 +33,7 @@ describe('RplSearchBar', () => {
 
   it('updates', () => {
     const onChangeSpy = cy.spy().as('onChangeSpy')
-    cy.mount(RplSearchBar, {
+    cy.mount(RplSearchBar as any, {
       props: {
         ...baseProps,
         [`onUpdate:inputValue`]: onChangeSpy
@@ -48,7 +48,7 @@ describe('RplSearchBar', () => {
 
   it('submits when enter is pressed', () => {
     const onSubmitSpy = cy.spy().as('onSubmitSpy')
-    cy.mount(RplSearchBar, {
+    cy.mount(RplSearchBar as any, {
       props: {
         ...baseProps,
         onSubmit: onSubmitSpy
@@ -64,7 +64,7 @@ describe('RplSearchBar', () => {
 
   it('submits when submit button is clicked', () => {
     const onSubmitSpy = cy.spy().as('onSubmitSpy')
-    cy.mount(RplSearchBar, {
+    cy.mount(RplSearchBar as any, {
       props: {
         ...baseProps,
         onSubmit: onSubmitSpy
@@ -81,7 +81,7 @@ describe('RplSearchBar', () => {
 
   it('does not submit if suggestion selection is required and there are no suggestions', () => {
     const onSubmitSpy = cy.spy().as('onSubmitSpy')
-    cy.mount(RplSearchBar, {
+    cy.mount(RplSearchBar as any, {
       props: {
         ...baseProps,
         submitOnSuggestionOnly: true,
@@ -99,7 +99,7 @@ describe('RplSearchBar', () => {
 
   it('auto submits with first suggestion when a suggestion selection is required', () => {
     const onSubmitSpy = cy.spy().as('onSubmitSpy')
-    cy.mount(RplSearchBar, {
+    cy.mount(RplSearchBar as any, {
       props: {
         ...baseProps,
         submitOnSuggestionOnly: true,

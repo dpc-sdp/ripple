@@ -6,7 +6,7 @@ import RplButton from './components/button/RplButton.vue'
 
 <template>
   <img alt="Vue logo" src="./assets/logo.png" />
-  <RplButton label="Hello Vue 3 + TypeScript + Vite" theme="tertiary" />
+  <RplButton label="Hello Vue 3 + TypeScript + Vite" />
 </template>
 
 <style>

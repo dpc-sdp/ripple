@@ -32,7 +32,8 @@ const { emitRplEvent } = useRippleEvent('rpl-card', emit)
 
 const titleClasses = computed(() => RplCardTitleClasses)
 
-const { container, trigger } = useAccessibleContainer()
+// Underscore prefixes to avoid unused variable typescript error, as these are only used in template refs.
+const { container: _container, trigger: _trigger } = useAccessibleContainer()
 
 const handleClick = () => {
   emitRplEvent(
@@ -50,7 +51,7 @@ const handleClick = () => {
 
 <template>
   <RplCard
-    ref="container"
+    ref="_container"
     :link="url"
     :el="el"
     :highlight="false"
@@ -69,7 +70,7 @@ const handleClick = () => {
     </template>
     <template #title>
       <h3 :class="titleClasses">
-        <RplTextLink ref="trigger" :url="url" @click="handleClick">
+        <RplTextLink ref="_trigger" :url="url" @click="handleClick">
           {{ title }}
         </RplTextLink>
       </h3>

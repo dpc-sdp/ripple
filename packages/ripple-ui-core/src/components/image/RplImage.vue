@@ -1,25 +1,9 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { distanceAsPercentage } from '../../lib/helpers'
-import {
-  RplImagePriority,
-  RplImageFit,
-  IRplImageFocalPoint,
-  RplImageAspect
-} from './constants'
+import { IRplImageType } from './constants'
 
-interface Props {
-  src: string
-  alt: string
-  width?: number
-  height?: number
-  sizes?: string
-  circle?: boolean
-  focalPoint?: IRplImageFocalPoint
-  aspect?: RplImageAspect
-  fit?: (typeof RplImageFit)[number]
-  priority?: (typeof RplImagePriority)[number]
-}
+interface Props extends IRplImageType {}
 
 const props = withDefaults(defineProps<Props>(), {
   height: undefined,

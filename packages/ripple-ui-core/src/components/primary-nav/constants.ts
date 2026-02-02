@@ -22,7 +22,7 @@ export interface IRplPrimaryNavActiveItems {
 }
 
 export type RplPrimaryNavToggleItemOptions = [
-  level: 1 | 2 | 3,
+  level: number,
   item: IRplPrimaryNavItem,
   open?: boolean
 ]

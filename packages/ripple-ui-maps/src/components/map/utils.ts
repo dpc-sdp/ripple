@@ -3,6 +3,7 @@ import { transform, transformExtent } from 'ol/proj.js'
 import { getDistance } from 'ol/sphere.js'
 import { inAndOut } from 'ol/easing.js'
 import Map from 'ol/Map.js'
+import { MapDeadSpace } from '../../types'
 
 export const haversineDistance = (coord1, coord2) => getDistance(coord1, coord2)
 
@@ -184,13 +185,6 @@ export const centerMap = (
     easing: inAndOut,
     zoom: zoom || view.getZoom()
   })
-}
-
-type MapDeadSpace = {
-  top?: number
-  bottom?: number
-  left?: number
-  right?: number
 }
 
 type MapDefaultExtent = [number, number, number, number]

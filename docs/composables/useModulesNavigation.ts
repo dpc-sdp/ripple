@@ -1,4 +1,6 @@
-import { IRplVerticalNavItem } from '@@/../packages/ripple-ui-core/src/components/vertical-nav/constants'
+// @ts-expect-error TS2307 using relative path
+import type { IRplVerticalNavItem } from '@@/../packages/ripple-ui-core/src/components/vertical-nav/constants'
+import { queryCollection, useAsyncData, useRoute } from '#imports'
 
 export const useModulesNavigation = async (): Promise<
   IRplVerticalNavItem[] | []
@@ -6,7 +8,7 @@ export const useModulesNavigation = async (): Promise<
   const route = useRoute()
 
   const { data: nav } = await useAsyncData('modules-navigation', () => {
-    return queryCollection('modules').all()
+    return queryCollection('modules' as never).all()
   })
 
   return (nav.value || []).map(

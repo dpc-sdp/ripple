@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import { useRoute, useAppConfig } from '#imports'
 const route = useRoute()
 const { sections } = useAppConfig()
 

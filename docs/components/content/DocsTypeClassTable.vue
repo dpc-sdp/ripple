@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { computed } from '#imports'
+
 type DocsTypeClassType = {
   style: [string, { values: object[] }, string]
 }

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { RplIconGroups } from '@dpc-sdp/ripple-ui-core'
+import { computed } from '#imports'
 
 interface Props {
   group: 'alert' | 'social' | 'standard'

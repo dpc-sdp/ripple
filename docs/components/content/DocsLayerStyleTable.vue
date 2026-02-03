@@ -1,5 +1,7 @@
 <script setup lang="ts">
+// @ts-expect-error TS2307 using relative path
 import layers from '@@/../packages/ripple-ui-core/src/tokens/settings/layers.yaml'
+import { computed } from '#imports'
 
 interface Props {
   type: 'border' | 'border.radius' | 'elevation'

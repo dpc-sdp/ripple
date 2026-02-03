@@ -116,10 +116,10 @@
 
     <DocsHomeSection>
       <ContentRenderer
-        tag="DocsContent"
-        class="content-full"
-        v-if="page.body.value.length"
+        v-if="page.body"
         :key="page.id"
+        class="content-full"
+        tag="DocsContent"
         :value="page"
       />
     </DocsHomeSection>
@@ -139,8 +139,11 @@
 </template>
 
 <script setup lang="ts">
+import { useAppConfig } from '#imports'
+// @ts-expect-error TS2614 import from local augment
 import type { ContentCollectionItem } from '@nuxt/content'
-import { IRplImageType } from '~/../packages/ripple-ui-core/src/components/image/constants'
+// @ts-expect-error TS2307 using relative path
+import type { IRplImageType } from '~/../packages/ripple-ui-core/src/components/image/constants'
 
 type HomeCard = {
   title: string

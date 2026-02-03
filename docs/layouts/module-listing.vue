@@ -36,6 +36,14 @@
 </template>
 
 <script setup lang="ts">
+import {
+  computed,
+  queryCollection,
+  ref,
+  useAsyncData,
+  useRoute
+} from '#imports'
+// @ts-expect-error TS2614 import from local augment
 import type { ContentCollectionItem } from '@nuxt/content'
 
 interface Props {
@@ -49,7 +57,7 @@ const sectionSlug = route.params.slug[0]
 const isModuleSection = sectionSlug === 'framework'
 
 const { data: modules } = await useAsyncData(`module-listing`, async () => {
-  return queryCollection('modules').all()
+  return queryCollection('modules' as never).all()
 })
 
 const searchTerm = ref('')

@@ -1,5 +1,13 @@
 <script lang="ts" setup>
-import { LayoutKey } from '#build/types/layouts'
+import type { LayoutKey } from '#build/types/layouts'
+import {
+  computed,
+  createError,
+  queryCollection,
+  useAsyncData,
+  useRoute,
+  useSeoMeta
+} from '#imports'
 
 const route = useRoute()
 
@@ -8,7 +16,9 @@ const routePath = computed(() => {
 })
 
 const { data: page } = await useAsyncData(routePath.value, () => {
-  return queryCollection('content').path(routePath.value).first()
+  return queryCollection('content' as never)
+    .path(routePath.value)
+    .first()
 })
 
 if (!page.value) {

@@ -1,5 +1,14 @@
 <script lang="ts" setup>
+// @ts-expect-error TS2307 can't resolve under esnext
 import { useFocusTrap } from '@vueuse/integrations/useFocusTrap'
+import {
+  onMounted,
+  onUnmounted,
+  ref,
+  useAppConfig,
+  useRoute,
+  watch
+} from '#imports'
 
 const headerRef = ref()
 const { activate: activateFocusTrap, deactivate: deactivateFocusTrap } =

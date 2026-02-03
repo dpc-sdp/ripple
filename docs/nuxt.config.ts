@@ -12,6 +12,7 @@ export default defineNuxtConfig({
     '@nuxt/content'
   ],
   // https://content.nuxtjs.org
+  // @ts-expect-error TS2353 content not specified in type
   content: {
     build: {
       markdown: {

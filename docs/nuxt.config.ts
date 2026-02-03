@@ -24,7 +24,7 @@ export default defineNuxtConfig({
     experimental: { sqliteConnector: 'native' }
   },
   vite: {
-    plugins: [ViteYaml() as PluginOption]
+    plugins: [ViteYaml() as unknown as PluginOption]
   },
   nitro: {
     prerender: {

@@ -4,6 +4,7 @@ import { computed, inject, onMounted } from 'vue'
 import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
 import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
 import { getCaptchaElementId } from '../../utils/getCaptchaElementId'
+import { IRplFormProvidedState } from '../../types'
 
 interface Props {
   id: string
@@ -49,7 +50,7 @@ const iconPosition = computed(() => {
   return undefined
 })
 
-const form: object = inject('form')
+const form: IRplFormProvidedState | undefined = inject('form')
 const onCaptchaElementReady: (() => void) | undefined = inject(
   'onCaptchaElementReady'
 )

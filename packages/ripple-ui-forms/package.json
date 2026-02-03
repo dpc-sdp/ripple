@@ -44,7 +44,8 @@
     "vite": "catalog:",
     "vite-plugin-static-copy": "^2.3.1",
     "vite-svg-loader": "catalog:",
-    "vue-loader": "^17.0.0"
+    "vue-loader": "^17.0.0",
+    "vue-tsc": "catalog:"
   },
   "scripts": {
     "build": "pnpm clean && pnpm build:vite && pnpm build:types",
@@ -52,6 +53,7 @@
     "build:types": "tsc -p tsconfig.json",
     "clean": "(rimraf dist* && rimraf tsconfig.tsbuildinfo) | true",
     "test:components": "cypress run --component",
-    "cy:components": "cypress open --component"
+    "cy:components": "cypress open --component",
+    "typecheck": "vue-tsc -p tsconfig.typecheck.json --noEmit"
   }
 }

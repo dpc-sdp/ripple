@@ -11,11 +11,11 @@ const props = {
 
 describe('RplMediaEmbed', () => {
   it('mounts', () => {
-    cy.mount(RplMediaEmbed, { props })
+    cy.mount(RplMediaEmbed as any, { props })
   })
 
   it('toggles the display of more information', () => {
-    cy.mount(RplMediaEmbed, { props })
+    cy.mount(RplMediaEmbed as any, { props })
 
     cy.get('.rpl-media-embed__view-data-toggle').as('toggle')
     cy.get('.rpl-media-embed__view-data-content .rpl-expandable').as('content')
@@ -30,7 +30,7 @@ describe('RplMediaEmbed', () => {
   })
 
   it('display an image fullscreen', () => {
-    cy.mount(RplMediaEmbed, { props })
+    cy.mount(RplMediaEmbed as any, { props })
 
     cy.get('.rpl-media-embed__fullscreen-button').click()
     cy.get('.rpl-media-embed__modal').should('be.visible')

@@ -11,7 +11,13 @@ const props = defineProps<Props>()
 
 const mappedTypes = computed(() => {
   return props.type.map(({ style }) => {
-    const [name, value, selector] = Object.values(style)
+    const [name, value, selector] = Object.values(style) as [
+      string,
+      {
+        values: string[]
+      },
+      string
+    ]
 
     return {
       name,

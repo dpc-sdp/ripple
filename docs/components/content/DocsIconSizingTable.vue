@@ -26,7 +26,11 @@ const mappedSizes = computed(() =>
       <tbody>
         <tr v-for="size in mappedSizes" :key="size.size">
           <td>
-            <RplIcon name="icon-search" colour="default" :size="size.size" />
+            <RplIcon
+              name="icon-search"
+              colour="default"
+              :size="size.size as 'xs' | 's' | 'm' | 'l'"
+            />
           </td>
           <td>{{ size.value }}</td>
           <td>{{ size.size }}</td>

@@ -16,6 +16,7 @@ import {
   useRippleEvent,
   rplEventPayload
 } from '../../composables/useRippleEvent'
+import { RplImageAspectOptions } from '../image/constants'
 
 interface Props {
   type: RplMediaEmbedTypes
@@ -69,7 +70,7 @@ const { emitRplEvent } = useRippleEvent('rpl-media-embed', emit)
 const isFullScreenOpen = ref(false)
 const isDataContentOpen = ref(false)
 
-const imageAspect = computed(() => {
+const imageAspect = computed<RplImageAspectOptions>(() => {
   if (props.type != 'image') {
     return undefined
   }

@@ -21,4 +21,5 @@ jobs:
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
       - run: pnpm run lint
+      - run: pnpm run -r --no-bail typecheck
       - run: pnpm run test:unit

@@ -7,7 +7,8 @@
     "build:docs-storybook": "STATIC_BASE_PATH=\"/storybook/\" pnpm -F ripple-storybook static:build --output-dir ../../docs/public/storybook",
     "dev": "nuxt dev",
     "generate": "pnpm build:docs-storybook && nuxt generate",
-    "preview": "nuxt preview"
+    "preview": "nuxt preview",
+    "typecheck": "nuxt prepare && nuxt typecheck"
   },
   "dependencies": {
     "@dpc-sdp/ripple-ui-core": "workspace:*",

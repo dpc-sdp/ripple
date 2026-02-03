@@ -27,7 +27,7 @@ interface Props {
   autoFocus?: boolean
   inputLabel?: string
   inputValue?: string | Record<string, any>
-  submitLabel?: string | boolean
+  submitLabel?: string
   suggestions?: any[]
   maxSuggestionsDisplayed?: number
   placeholder?: string

@@ -21,7 +21,7 @@ export type extraRowContentItem = {
 
 export type extraRowContent = {
   component?: string
-  props?: string
+  props?: object
   html?: string
   items?: extraRowContentItem[]
 }

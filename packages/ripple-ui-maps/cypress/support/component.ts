@@ -17,6 +17,19 @@ import '@dpc-sdp/ripple-ui-core/style/components'
 import registerRplMapsPlugin from '@dpc-sdp/ripple-ui-maps/plugin'
 import RplFauxMap from './components/RplFauxMap.vue'
 
+declare global {
+  namespace Cypress {
+    interface Chainable {
+      /**
+       * Custom command to mount a Vue component.
+       * @example cy.mount(MyComponent)
+       */
+      mount: typeof mount
+      mountMap: (options?: any) => Chainable<any>
+    }
+  }
+}
+
 const RplAppWrapper = {
   components: { RplIconSprite },
   template: `<div style="margin: 1rem;">
@@ -25,15 +38,15 @@ const RplAppWrapper = {
   </div>`
 }
 
-Cypress.Commands.add('mount', (component: any, options = {}) => {
+Cypress.Commands.add('mount', ((component: any, options: any = {}) => {
   return mount(() => {
     return h(RplAppWrapper, null, () =>
       h(component, { ...options.props }, { ...options.slots })
     )
   })
-})
+}) as typeof mount)
 
-Cypress.Commands.add('mountMap', (options = {}) => {
+Cypress.Commands.add('mountMap', (options: any = {}) => {
   return mount(
     () => {
       return h(RplFauxMap, { componentProps: options.props })

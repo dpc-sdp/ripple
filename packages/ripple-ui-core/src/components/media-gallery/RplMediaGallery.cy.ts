@@ -23,11 +23,11 @@ const props = { items }
 
 describe('RplMediaGallery', () => {
   it('mounts', () => {
-    cy.mount(RplMediaGallery, { props })
+    cy.mount(RplMediaGallery as any, { props })
   })
 
   it('display a gallery fullscreen', () => {
-    cy.mount(RplMediaGallery, { props })
+    cy.mount(RplMediaGallery as any, { props })
 
     cy.get('.rpl-media-gallery__primary-content .rpl-slider__slide')
       .first()
@@ -37,7 +37,7 @@ describe('RplMediaGallery', () => {
   })
 
   it('navigates to through items with pagination', () => {
-    cy.mount(RplMediaGallery, { props })
+    cy.mount(RplMediaGallery as any, { props })
 
     cy.get('[aria-label="Go to next item"]').click()
     cy.get('.rpl-media-gallery__primary-content .swiper-slide-active').should(
@@ -59,7 +59,7 @@ describe('RplMediaGallery', () => {
   })
 
   it('displays the item navigated too fullscreen', () => {
-    cy.mount(RplMediaGallery, { props })
+    cy.mount(RplMediaGallery as any, { props })
 
     cy.get('[aria-label="Go to next item"]').click()
 
@@ -79,7 +79,7 @@ describe('RplMediaGallery', () => {
   })
 
   it('allows navigating through items in fullscreen gallery', () => {
-    cy.mount(RplMediaGallery, { props })
+    cy.mount(RplMediaGallery as any, { props })
 
     cy.get('.rpl-media-gallery__primary-content .rpl-media-gallery__button')
       .first()

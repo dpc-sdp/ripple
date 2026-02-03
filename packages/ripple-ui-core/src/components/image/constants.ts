@@ -9,12 +9,13 @@ export interface IRplImageFocalPoint {
   y: number
 }
 
-type RplImageAspectOptions =
+export type RplImageAspectOptions =
   | 'square'
   | 'full'
   | 'wide'
   | 'ultrawide'
   | 'panorama'
+  | 'portrait'
 
 type RplImageAspectBreakpointsMap<Type> = {
   [Property in keyof Type as string]: RplImageAspectOptions

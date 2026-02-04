@@ -1,5 +1,11 @@
+import type { IRplVerticalNavItem } from '@@/../packages/ripple-ui-core/src/components/vertical-nav/constants'
 import type { ContentNavigationItem } from '@nuxt/content'
-import { IRplVerticalNavItem } from '@@/../packages/ripple-ui-core/src/components/vertical-nav/constants'
+import {
+  computed,
+  queryCollectionNavigation,
+  useAsyncData,
+  useRoute
+} from '#imports'
 
 export const useDocsNavigation = async (
   slug: string[]
@@ -37,7 +43,7 @@ export const useDocsNavigation = async (
   const { data: nav } = await useAsyncData(
     `navigation-${slug.join('-')}`,
     () => {
-      const query = queryCollectionNavigation('content')
+      const query = queryCollectionNavigation('content' as never)
       if (!import.meta.dev) {
         query.where('published', '=', true)
       }

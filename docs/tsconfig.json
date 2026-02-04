@@ -4,5 +4,6 @@
   "compilerOptions": {
     "strict": false,
     "types": ["@modyfi/vite-plugin-yaml/modules"]
-  }
+  },
+  "include": ["./**/*.ts", "./**/*.vue"]
 }

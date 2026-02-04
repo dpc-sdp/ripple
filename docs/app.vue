@@ -5,6 +5,7 @@
 </template>
 
 <script setup lang="ts">
+// @ts-expect-error TS2304 nuxt auto import
 useHead({
   script: [
     {

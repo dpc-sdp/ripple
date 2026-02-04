@@ -49,6 +49,8 @@
 </template>
 
 <script setup lang="ts">
+import { useRoute } from '#imports'
+// @ts-expect-error TS2614 import from local augment
 import type { ContentCollectionItem } from '@nuxt/content'
 
 interface Props {

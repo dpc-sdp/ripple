@@ -1,6 +1,6 @@
-import { defineNuxtConfig } from 'nuxt/config'
 import ViteYaml from '@modyfi/vite-plugin-yaml'
-import { PluginOption } from 'vite'
+import { defineNuxtConfig } from 'nuxt/config'
+import type { PluginOption } from 'vite'
 
 // https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
 export default defineNuxtConfig({
@@ -12,6 +12,7 @@ export default defineNuxtConfig({
     '@nuxt/content'
   ],
   // https://content.nuxtjs.org
+  // @ts-expect-error TS2353 content not specified in type
   content: {
     build: {
       markdown: {
@@ -20,7 +21,8 @@ export default defineNuxtConfig({
           langs: ['css', 'vue', 'js', 'bash', 'markdown']
         }
       }
-    }
+    },
+    experimental: { sqliteConnector: 'native' }
   },
   vite: {
     plugins: [ViteYaml() as unknown as PluginOption]

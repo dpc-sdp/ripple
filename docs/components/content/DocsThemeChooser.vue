@@ -29,6 +29,8 @@
 </template>
 
 <script lang="ts" setup>
+import { provide, ref } from '#imports'
+
 const theme = ref('docsTheme1')
 
 const handleThemeChange = (val: string) => {

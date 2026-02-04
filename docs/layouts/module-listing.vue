@@ -63,10 +63,10 @@ const { data: modules } = await useAsyncData(`module-listing`, async () => {
 const searchTerm = ref('')
 
 const filteredModules = computed(() => {
-  return (modules.value || []).filter((module) => {
+  return (modules.value || []).filter((module: any) => {
     const moduleName = module.name.toLowerCase()
     const term = searchTerm.value.toLowerCase()
     return moduleName.includes(term)
-  })
+  }) as any
 })
 </script>

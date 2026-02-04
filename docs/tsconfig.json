@@ -1,26 +1,9 @@
 {
+  // https://v3.nuxtjs.org/concepts/typescript
+  "extends": "./.nuxt/tsconfig.json",
   "compilerOptions": {
-    "noImplicitAny": false,
-    "outDir": "dist",
-    "baseUrl": "./",
-    "target": "esnext",
-    "useDefineForClassFields": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "isolatedModules": true,
     "strict": false,
-    "jsx": "preserve",
-    "sourceMap": true,
-    "resolveJsonModule": true,
-    "esModuleInterop": true,
-    "types": ["vite/client", "cypress", "@nuxt/content"],
-    "lib": ["esnext", "dom", "dom.iterable", "scripthost"],
-    "skipLibCheck": true,
-    "declaration": true,
-    "paths": {
-      "#build/types/layouts": [".nuxt/types/layouts.d.ts"],
-      "#content": [".nuxt/content/types"],
-      "#imports": [".nuxt/imports"]
-    }
-  }
+    "types": ["@modyfi/vite-plugin-yaml/modules"]
+  },
+  "include": ["./**/*.ts", "./**/*.vue"]
 }

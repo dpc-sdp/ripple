@@ -4,7 +4,7 @@ const route = useRoute()
 const { sections } = useAppConfig()
 
 const sectionSlug = route.params.slug[0]
-const sectionConfig = sections[sectionSlug as keyof typeof sections]
+const sectionConfig: any = sections[sectionSlug as keyof typeof sections]
 const footerVariant = sectionConfig?.neutralFooter ? 'neutral' : 'default'
 </script>
 

@@ -1,6 +1,4 @@
-// @ts-expect-error TS2307 using relative path
 import color from '@@/../packages/ripple-ui-core/src/tokens/settings/color.yaml'
-// @ts-expect-error TS2307 using relative path
 import theme from '@@/../packages/ripple-ui-core/src/tokens/settings/theme.yaml'
 
 interface RplColour {

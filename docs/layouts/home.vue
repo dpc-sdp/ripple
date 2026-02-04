@@ -142,7 +142,6 @@
 import { useAppConfig } from '#imports'
 // @ts-expect-error TS2614 import from local augment
 import type { ContentCollectionItem } from '@nuxt/content'
-// @ts-expect-error TS2307 using relative path
 import type { IRplImageType } from '~/../packages/ripple-ui-core/src/components/image/constants'
 
 type HomeCard = {

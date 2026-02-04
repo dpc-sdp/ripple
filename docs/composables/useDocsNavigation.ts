@@ -1,4 +1,3 @@
-// @ts-expect-error TS2307 using relative path
 import type { IRplVerticalNavItem } from '@@/../packages/ripple-ui-core/src/components/vertical-nav/constants'
 import type { ContentNavigationItem } from '@nuxt/content'
 import {

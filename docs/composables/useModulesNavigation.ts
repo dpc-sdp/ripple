@@ -1,4 +1,3 @@
-// @ts-expect-error TS2307 using relative path
 import type { IRplVerticalNavItem } from '@@/../packages/ripple-ui-core/src/components/vertical-nav/constants'
 import { queryCollection, useAsyncData, useRoute } from '#imports'
 
@@ -12,7 +11,7 @@ export const useModulesNavigation = async (): Promise<
   })
 
   return (nav.value || []).map(
-    (item): IRplVerticalNavItem => ({
+    (item: any): IRplVerticalNavItem => ({
       id: item.id,
       text: item.name,
       url: item.meta.path?.replace(/\/module$/, ''),

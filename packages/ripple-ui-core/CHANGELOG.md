@@ -1303,6 +1303,18 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * **@dpc-sdp/ripple-ui-core:** removed the unneeded 1px margin from the file icon ([f25b39e](https://github.com/dpc-sdp/ripple-framework/commit/f25b39ee9b586094a0e40d77b4cc565e99c68eaf))
 * **@dpc-sdp/ripple-ui-core:** revert content prop ([c79b30c](https://github.com/dpc-sdp/ripple-framework/commit/c79b30cf5cc665113458c59884e27719bf561726))
 
+## [2.49.0](https://github.com/dpc-sdp/ripple/compare/ripple-ui-core-v2.48.0...ripple-ui-core-v2.49.0) (2026-02-04)
+
+
+### Features
+
+* ✨ update to node 24 [SD-1246] ([#1349](https://github.com/dpc-sdp/ripple/issues/1349)) ([e645077](https://github.com/dpc-sdp/ripple/commit/e6450777f508d5f14a5bc09c38d7378ebf8a6eb7))
+
+
+### Miscellaneous
+
+* [SD-1526] - Setup typecheck scripts for each ui package ([#1335](https://github.com/dpc-sdp/ripple/issues/1335)) ([3c2dd13](https://github.com/dpc-sdp/ripple/commit/3c2dd13e11235df0e910eba79bd6b91463e479dc))
+
 ## [2.48.0](https://github.com/dpc-sdp/ripple/compare/ripple-ui-core-v2.47.0...ripple-ui-core-v2.48.0) (2026-01-21)
 
 

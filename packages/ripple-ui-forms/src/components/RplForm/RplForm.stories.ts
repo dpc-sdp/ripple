@@ -313,6 +313,24 @@ export const DefaultStory: Story = {
         }
       },
       {
+        $formkit: 'RplFormFile',
+        name: 'file',
+        label: 'Files',
+        id: 'files',
+        help: '<p>Attach files</p>',
+        maxFiles: 3,
+        maxSize: 2,
+        allowedTypes: [{ mimeType: 'image/jpeg', extension: 'jpg' }],
+        handleUpload: async (id: string) =>
+          Promise.resolve({ id, status: 'success' }),
+        value: [],
+        validation: 'required|length:1,3',
+        validationMessages: {
+          required: 'Please upload a file',
+          length: 'Please upload between 1 and 3 files'
+        }
+      },
+      {
         $formkit: 'RplFormCheckbox',
         key: 'privacy_statement',
         id: 'connect_with_us_privacy_statement',

@@ -9,6 +9,7 @@ interface Props {
   label?: string
   labelId?: string
   fieldId?: string
+  value?: string | string[]
 }
 
 withDefaults(defineProps<Props>(), {
@@ -16,7 +17,8 @@ withDefaults(defineProps<Props>(), {
   invalid: false,
   label: 'Label',
   labelId: null,
-  fieldId: null
+  fieldId: null,
+  value: null
 })
 
 const fakeError = { test: { value: 'Field is invalid' } }
@@ -53,4 +55,13 @@ provide('form', {
       </div>
     </div>
   </form>
+  <div v-if="value">
+    <div class="rpl-type-p rpl-u-margin-t-8">
+      <h4 class="rpl-type-h4">Output value</h4>
+      <p v-if="typeof value === 'string'">{{ value }}</p>
+      <ul v-else>
+        <li v-for="(item, index) in value" :key="index">{{ item }}</li>
+      </ul>
+    </div>
+  </div>
 </template>

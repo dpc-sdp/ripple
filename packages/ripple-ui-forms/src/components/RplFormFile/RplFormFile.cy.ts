@@ -18,10 +18,14 @@ const _ = {
   requirements: '.rpl-form-file__requirements',
   errors: '.rpl-form-file__errors',
   items: '.rpl-form-file__item',
-  itemRetry: '.rpl-form-file__item-retry',
-  itemRemove: '.rpl-form-file__item-remove',
-  progress: '.rpl-form-file__item-progress'
+  itemRetry: (label: string) => `[aria-label="Retry ${label}"]`,
+  itemRemove: (label: string) => `[aria-label="Remove ${label}"]`,
+  itemDelete: (label: string) => `[aria-label="Delete ${label}"]`,
+  itemProgress: (label: string) => `[aria-label="Uploading ${label}"]`
 }
+
+const itemStatus = (status: string) =>
+  `.rpl-form-file__item[data-status="${status}"]`
 
 const file = (
   fileName: string,
@@ -53,9 +57,9 @@ const upload = (options?: {
   let { ref = null, status = 'success', error = null } = options || {}
 
   return cy.stub().callsFake((id: string, file: File) => {
-    const _id = ref ? `${ref}-${file.name.toLowerCase()}` : id
+    const _ref = ref ? `${ref}-${file.name.toLowerCase()}` : id
 
-    return Promise.resolve({ id: _id, status, error })
+    return Promise.resolve({ ref: _ref, status, error })
   })
 }
 
@@ -104,13 +108,11 @@ describe('RplFormFile', () => {
     cy.get(_.input).should('have.attr', 'accept', 'image/jpeg,image/png')
     cy.get(_.requirements).should('contain', 'Accepted file types: JPG, PNG')
 
-    drop([
-      file('Test 1.png', 'image/png'),
-      file('Test 2.txt', 'text/plain')]
-    )
+    select([file('Test 1.png', 'image/png'), file('Test 2.txt', 'text/plain')])
 
     cy.get(_.items).should('have.length', 2)
-    cy.get(_.items).eq(0)
+    cy.get(_.items)
+      .eq(0)
       .should('contain', 'Test 1.png')
       .should('have.attr', 'data-status', 'success')
 
@@ -150,21 +152,29 @@ describe('RplFormFile', () => {
   it('files to be uploaded with drag and drop', () => {
     const handleUpload = upload()
 
-    mount({ handleUpload })
+    mount({ handleUpload, multiple: true })
 
-    drop(file('Drop.txt'))
+    drop([
+      file('Drop.txt'),
+      file('Another Drop.txt'),
+      file('Yet Another Drop.txt')
+    ])
 
-    cy.get(_.items).should('have.length', 1)
+    cy.get(_.items).should('have.length', 3)
     cy.get(_.items)
-      .eq(0)
       .should('contain', 'Drop.txt')
+      .should('contain', 'Another Drop.txt')
+      .should('contain', 'Yet Another Drop.txt')
       .should('have.attr', 'data-status', 'success')
 
-    cy.then(() => expect(handleUpload).to.have.been.calledOnce)
+    cy.then(() => expect(handleUpload).to.have.callCount(3))
   })
 
   it('displays an error message next to the individual file when upload fails', () => {
-    const handleUpload = upload({ status: 'error', error: 'Sorry, upload failed!' })
+    const handleUpload = upload({
+      status: 'error',
+      error: 'Sorry, upload failed!'
+    })
 
     mount({ handleUpload })
 
@@ -176,7 +186,7 @@ describe('RplFormFile', () => {
       .should('have.attr', 'data-status', 'error')
   })
 
-  it('displays an error message next to the individual file when it\'s invalid', () => {
+  it("displays an error message next to the individual file when it's invalid", () => {
     const handleUpload = upload()
 
     mount({
@@ -196,25 +206,6 @@ describe('RplFormFile', () => {
     cy.then(() => expect(handleUpload).not.to.have.been.called)
   })
 
-  it('calls onChange function with uploaded file ids', () => {
-    const onChange = cy.stub()
-    const handleUpload = upload({ ref: 'ref' })
-
-    mount({ onChange, handleUpload, multiple: true })
-
-    select(file('Test.txt'))
-
-    cy.then(() =>
-      expect(onChange).to.have.been.calledWith(['ref-test.txt'])
-    )
-
-    select(file('Another.txt'))
-
-    cy.then(() =>
-      expect(onChange).to.have.been.calledWith(['ref-test.txt', 'ref-another.txt'])
-    )
-  })
-
   it('shows an error when trying to upload more files than maxFiles', () => {
     const handleUpload = upload()
 
@@ -223,21 +214,14 @@ describe('RplFormFile', () => {
     cy.get(_.input).should('have.attr', 'multiple')
     cy.get(_.requirements).should('contain', 'Maximum files: 2')
 
-    select([
-      file('Test-1.txt'),
-      file('Test-2.txt'),
-      file('Test-3.txt')
-    ])
+    select([file('Test-1.txt'), file('Test-2.txt'), file('Test-3.txt')])
 
     cy.get(_.items).should('have.length', 0)
     cy.get(_.errors).should('contain', 'There is a limit of 2 files')
 
     cy.then(() => expect(handleUpload).not.to.have.been.called)
 
-    select([
-      file('Test-1.txt'),
-      file('Test-2.txt')
-    ])
+    select([file('Test-1.txt'), file('Test-2.txt')])
 
     cy.get(_.items).should('have.length', 2)
     cy.get(_.errors).should('not.exist')
@@ -259,7 +243,10 @@ describe('RplFormFile', () => {
       file(
         'Large-file.txt',
         'text/plain',
-        Array.from({ length: 10000 }, () => 'Some test content that is larger than 0.001MB').join(',')
+        Array.from(
+          { length: 10000 },
+          () => 'Some test content that is larger than 0.001MB'
+        ).join(',')
       )
     )
 
@@ -272,12 +259,12 @@ describe('RplFormFile', () => {
     const handleUpload = cy
       .stub()
       .callsFake(
-        (id: string, file: File, onProgress: (progress: number) => void) => {
-          onProgress(50)
+        (id: string, file: File, onUpdate: (complete: number) => void) => {
+          setTimeout(() => onUpdate(50), 100)
           return new Promise((resolve) => {
             setTimeout(() => {
-              onProgress(100)
-              resolve({ id: 'file-1', status: 'success' })
+              onUpdate(100)
+              resolve({ ref: 'file-1-sever-ref', status: 'success' })
             }, 200)
           })
         }
@@ -287,10 +274,12 @@ describe('RplFormFile', () => {
 
     select(file('Test.txt'))
 
-    cy.get(_.progress).should('exist').should('contain', '50%')
+    cy.get(_.itemProgress('Test.txt'))
+      .should('exist')
+      .should('have.attr', 'value', '50')
 
-    cy.wait(400).then(() => {
-      cy.get(_.progress).should('not.exist')
+    cy.wait(300).then(() => {
+      cy.get(_.itemProgress('Test.txt')).should('not.exist')
     })
   })
 
@@ -300,11 +289,11 @@ describe('RplFormFile', () => {
       callCount++
       if (callCount === 1) {
         return Promise.resolve({
-          id: 'file-1',
+          ref: 'file-1',
           status: 'error'
         })
       }
-      return Promise.resolve({ id: 'file-1', status: 'success' })
+      return Promise.resolve({ ref: 'file-1', status: 'success' })
     })
 
     mount({ handleUpload })
@@ -313,15 +302,15 @@ describe('RplFormFile', () => {
 
     cy.get(_.items).eq(0).should('have.attr', 'data-status', 'error')
 
-    cy.get(_.itemRetry).click()
+    cy.get(_.itemRetry('File-1.txt')).click()
 
     cy.get(_.items).eq(0).should('have.attr', 'data-status', 'success')
 
     cy.then(() => expect(handleUpload).to.have.been.calledTwice)
   })
 
-  it('allows users to removing files', () => {
-    const onChange = cy.stub()
+  it('allows users to removing successful files', () => {
+    const onChange = cy.spy()
     const handleUpload = upload({ ref: 'server-id' })
 
     mount({ onChange, handleUpload, multiple: true })
@@ -330,17 +319,114 @@ describe('RplFormFile', () => {
 
     cy.get(_.items).should('have.length', 2)
 
-    cy.get(_.itemRemove).eq(0).click()
-
-    cy.then(() => expect(onChange).to.have.been.calledWith(['server-id-test-2.txt']))
+    cy.get(_.itemDelete('Test-1.txt')).click()
 
     cy.get(_.items).should('have.length', 1).should('contain', 'Test-2.txt')
 
-    cy.get(_.itemRemove).eq(0).click()
+    cy.get(_.itemDelete('Test-2.txt')).click()
 
     cy.get(_.items).should('have.length', 0)
 
     cy.then(() => expect(onChange).to.have.been.calledWith([]))
+  })
+
+  it('allows users to upload, remove, retry and mix actions', () => {
+    let callCount = 0
+    const onChange = cy.spy()
+    const handleUpload = cy.stub().callsFake(() => {
+      callCount++
+      if (callCount === 1) {
+        return Promise.resolve({
+          status: 'error'
+        })
+      }
+      return Promise.resolve({ status: 'success' })
+    })
+
+    mount({
+      onChange,
+      handleUpload,
+      multiple: true,
+      allowedTypes: [{ mimeType: 'image/png', extension: 'png' }]
+    })
+
+    select([
+      file('Test-1.txt'),
+      file('Test-2.png', 'image/png'),
+      file('Test-3.png', 'image/png')
+    ])
+
+    cy.get(_.items).should('have.length', 3)
+
+    cy.get(itemStatus('invalid'))
+      .should('have.length', 1)
+      .should('contain', 'Test-1.txt')
+
+    cy.get(itemStatus('error'))
+      .should('have.length', 1)
+      .should('contain', 'Test-2.png')
+
+    cy.get(itemStatus('success'))
+      .should('have.length', 1)
+      .should('contain', 'Test-3.png')
+
+    drop([file('Test-5.png', 'image/png'), file('Test-6.txt')])
+
+    cy.get(_.items).should('have.length', 5)
+
+    cy.get(itemStatus('invalid')).should('have.length', 2)
+    cy.get(itemStatus('error')).should('have.length', 1)
+    cy.get(itemStatus('success')).should('have.length', 2)
+
+    cy.get(_.itemRemove('Test-1.txt')).click()
+    cy.get(_.itemRetry('Test-2.png')).click()
+    cy.get(_.itemDelete('Test-6.txt')).click()
+
+    cy.get(_.items).should('have.length', 3)
+    cy.get(itemStatus('success'))
+      .should('have.length', 3)
+      .should('contain', 'Test-2.png')
+      .should('contain', 'Test-3.png')
+      .should('contain', 'Test-5.png')
+
+    cy.get(_.itemDelete('Test-3.png')).click()
+
+    cy.get(_.items).should('have.length', 2)
+    cy.get(itemStatus('success'))
+      .should('have.length', 2)
+      .should('contain', 'Test-2.png')
+      .should('contain', 'Test-5.png')
+  })
+
+  it('clears the display when the value prop is reset', () => {
+    const handleUpload = upload({ ref: 'server-id' })
+
+    mount({ handleUpload, multiple: true })
+
+    cy.mountComponent(RplFormFile, {
+      props: {
+        ...baseProps,
+        onChange: (files: any) => {
+          cy.get('@vue').then((wrapper: any) =>
+            wrapper.setProps({ value: files })
+          )
+        },
+        handleUpload,
+        multiple: true
+      }
+    })
+
+    select([file('Test-1.txt'), file('Test-2.txt')])
+
+    cy.get(_.items).should('have.length', 2)
+    cy.get(_.items).eq(0).should('have.attr', 'data-status', 'success')
+    cy.get(_.items).eq(1).should('have.attr', 'data-status', 'success')
+
+    cy.get('@vue').then((wrapper: any) => {
+      wrapper.setProps({ value: null })
+    })
+
+    cy.get(_.items).should('have.length', 0)
   })
 
   it('updates the internal files list when the value prop changes', () => {
@@ -353,22 +439,48 @@ describe('RplFormFile', () => {
         onChange,
         handleUpload,
         multiple: true,
-        value: []
+        value: [
+          {
+            ref: 'ref-id-1',
+            file: {
+              name: 'Test-1.jpg',
+              type: 'image/jpeg',
+              size: 100000
+            }
+          }
+        ]
       }
     })
 
+    cy.get(_.items).should('have.length', 1)
+    cy.get(_.items).eq(0).should('have.attr', 'data-status', 'success')
+
     drop([file('Test-1.txt'), file('Test-2.txt')])
 
-    cy.get(_.items).should('have.length', 2)
-    cy.get(_.items).eq(0).should('have.attr', 'data-status', 'success')
+    cy.get(_.items).should('have.length', 3)
     cy.get(_.items).eq(1).should('have.attr', 'data-status', 'success')
+    cy.get(_.items).eq(2).should('have.attr', 'data-status', 'success')
 
     cy.get('@vue').then((wrapper: any) => {
-      wrapper
-        .setProps({
-          value: ['ref-id-test-1.txt', 'ref-id-test-2.txt']
-        })
-        .then(() => wrapper.setProps({ value: null }))
+      wrapper.setProps({
+        value: [
+          {
+            ref: 'ref-id-4',
+            file: {
+              name: 'Test-4.jpg',
+              type: 'image/jpeg',
+              size: 100000
+            }
+          }
+        ]
+      })
+    })
+
+    cy.get(_.items).should('have.length', 4)
+    cy.get(_.items).eq(3).should('have.attr', 'data-status', 'success')
+
+    cy.get('@vue').then((wrapper: any) => {
+      wrapper.setProps({ value: null })
     })
 
     cy.get(_.items).should('have.length', 0)

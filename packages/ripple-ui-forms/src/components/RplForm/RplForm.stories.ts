@@ -324,10 +324,10 @@ export const DefaultStory: Story = {
         handleUpload: async (id: string) =>
           Promise.resolve({ id, status: 'success' }),
         value: [],
-        validation: 'required|length:1,3',
+        validation: 'required|length:2,3',
         validationMessages: {
           required: 'Please upload a file',
-          length: 'Please upload between 1 and 3 files'
+          length: 'Please upload between 2 and 3 files'
         }
       },
       {

@@ -21,7 +21,8 @@ enum FileStatus {
 
 interface FileUpload {
   id: string
-  status: keyof typeof FileStatus
+  ref?: string
+  status: FileStatus
   error?: string | null
 }
 
@@ -33,7 +34,7 @@ interface FileItem extends FileUpload {
 interface Props {
   id: string
   name: string
-  value?: string[]
+  value?: FileItem[]
   label?: string
   disabled?: boolean
   invalid?: boolean
@@ -45,16 +46,16 @@ interface Props {
   maxSize?: number
   allowedTypes?: { mimeType: string; extension: string }[]
   placeholder?: string
-  onChange?: (value: string | string[]) => void
+  onChange?: (value: FileItem[]) => void
   handleUpload?: (
     id: string,
     file: File,
-    onProgress: (progress: number) => void
+    onUpdate: (complete: number | boolean) => void
   ) => Promise<{ id: string; status: FileStatus; error?: string }>
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  value: () => [],
+  value: undefined,
   label: undefined,
   invalid: false,
   disabled: false,
@@ -73,7 +74,7 @@ const props = withDefaults(defineProps<Props>(), {
 const attrs = useAttrs()
 
 const emit = defineEmits<{
-  (e: 'onChange', value: string[]): void
+  (e: 'onChange', value: FileItem[]): void
   (e: 'update', payload: rplEventPayload & { action: 'update' }): void
 }>()
 
@@ -84,7 +85,15 @@ const form: IRplFormProvidedState | undefined = inject('form')
 const emitUpdate = () => {
   const uploadedFiles = internalFiles.value
     .filter((file) => file.status === FileStatus.success)
-    .map((file) => file.id)
+    .map((file) => ({
+      id: file.id || file.ref,
+      ref: file.ref,
+      file: {
+        name: file.file?.name,
+        type: file.file?.type,
+        size: file.file?.size
+      }
+    }))
 
   useFormkitFriendlyEventEmitter(props, emit, 'onChange', uploadedFiles)
 
@@ -96,7 +105,10 @@ const emitUpdate = () => {
       label: props?.label,
       contextId: form?.id,
       contextName: form?.name,
-      value: sanitisePIIField(props.pii, uploadedFiles)
+      value: sanitisePIIField(
+        props.pii,
+        uploadedFiles.map((file) => file.file.name)
+      )
     },
     { global: props.globalEvents }
   )
@@ -111,7 +123,7 @@ const internalFiles = ref<FileItem[]>([])
 
 // Computed
 const acceptMultiple = computed(() => {
-  return props.multiple || props.maxFiles > 1
+  return props.multiple || (props.maxFiles && props.maxFiles > 1)
 })
 const fileLimit = computed(() => {
   if (!acceptMultiple.value) return 1
@@ -146,7 +158,7 @@ const getFileSize = (size: number) => {
   return Math.ceil(size * 0.000001 * 100) / 100
 }
 
-const getStatusIcon = (status: string) => {
+const getStatusIcon = (status: FileStatus) => {
   if (status === FileStatus.error || status === FileStatus.invalid) {
     return 'icon-exclamation-circle-filled'
   }
@@ -154,7 +166,7 @@ const getStatusIcon = (status: string) => {
   return status === FileStatus.pending ? 'icon-loading' : 'icon-document-lined'
 }
 
-const getStatusColour = (status: string) => {
+const getStatusColour = (status: FileStatus) => {
   if (status === FileStatus.error || status === FileStatus.invalid) {
     return 'error'
   }
@@ -178,17 +190,25 @@ const getStatusText = (item: FileItem) => {
 }
 
 const isValidType = (file: File): boolean => {
-  const fileExtension = file.name.toLowerCase().split('.').pop()
-  const allowedMimeTypes = props.allowedTypes?.map((type) => type.mimeType)
-  const allowedExtensions = props.allowedTypes?.map((type) => type.extension)
+  if (!file?.name) return false
+
+  const fileExtension = file.name.toLowerCase()?.split('.')?.pop()
+  const allowedMimeTypes = props.allowedTypes?.map((type) =>
+    type.mimeType?.toLowerCase()
+  )
+  const allowedExtensions = props.allowedTypes?.map((type) =>
+    type.extension?.toLowerCase()
+  )
 
   if (!allowedMimeTypes?.length && !allowedExtensions?.length) {
     return true
   }
 
-  const validMimeType = allowedMimeTypes.includes(file.type)
+  const validMimeType = allowedMimeTypes.includes(file.type.toLowerCase())
   const validExtension = allowedExtensions.includes(fileExtension)
 
+  // Are the mime type and extension both valid?
+  // We may want to make this more lenient i.e, pass if either is valid
   return validMimeType && validExtension
 }
 
@@ -217,11 +237,11 @@ const uploadFile = async (item: FileItem): Promise<FileUpload> => {
   }
 
   try {
-    return await props.handleUpload(item.id, item.file, (progress: number) => {
+    return await props.handleUpload(item.id, item.file, (complete: number) => {
       const index = internalFiles.value.findIndex((f) => f.id === item.id)
 
       if (index !== -1) {
-        internalFiles.value[index].progress = progress
+        internalFiles.value[index].progress = complete
       }
     })
   } catch (e) {
@@ -238,8 +258,7 @@ const uploadFiles = async (files: FileItem[]) => {
     const response = await uploadFile(file)
 
     internalFiles.value = internalFiles.value.map((item: FileItem) => {
-      if (item.id !== file.id) return item
-      return { ...item, ...response }
+      return item.id !== file.id ? item : { ...item, ...response }
     })
 
     if (response.status === FileStatus.success) {
@@ -265,12 +284,8 @@ const prepareFiles = (newFiles: FileList) => {
   })
 }
 
-const processFiles = (files: FileList) => {
-  errors.value = null
-
-  if (!files?.length) return
-
-  // Check if adding new files would exceed the limit
+const processFiles = async (files: FileList) => {
+  // Check if adding new files would exceed the file limit
   if (
     fileLimit.value &&
     files.length + internalFiles.value.length > fileLimit.value
@@ -279,21 +294,21 @@ const processFiles = (files: FileList) => {
     return
   }
 
-  // Update internal state
-  const preparedFiles = prepareFiles(files)
+  const newFiles = prepareFiles(files)
 
-  internalFiles.value = [...internalFiles.value, ...preparedFiles]
+  internalFiles.value = [...internalFiles.value, ...newFiles]
 
-  // Get the pending files that need to be uploaded
-  const pendingFiles = preparedFiles.filter(
+  const pendingFiles = newFiles.filter(
     (file) => file.status === FileStatus.pending
   )
 
-  uploadFiles(pendingFiles)
+  await uploadFiles(pendingFiles)
 }
 
 const handleChange = (e: Event) => {
   const input = e.target as HTMLInputElement
+
+  errors.value = null
 
   if (input.files?.length) {
     processFiles(input.files)
@@ -313,11 +328,15 @@ const retryFile = (index: number) => {
 }
 
 const removeFile = (index: number) => {
+  const item = internalFiles.value[index]
+
   errors.value = null
 
   internalFiles.value = internalFiles.value.filter((_, i) => i !== index)
 
-  emitUpdate()
+  if (item.status === FileStatus.success) {
+    emitUpdate()
+  }
 }
 
 const replaceFile = (index: number) => {
@@ -339,16 +358,40 @@ const ariaDescribedByIds = computed(() => {
   if (errors.value) {
     ids.push(`${props.id}-file-errors`)
   }
+  if (internalFiles.value?.length) {
+    ids.push(`${props.id}-file-status`)
+  }
 
   return ids.join(' ')
 })
 
+// Watch for changes in props.value to see if we need to reset or seed the internal files array
 watch(
   () => props.value,
-  (newFiles, oldFiles) => {
-    if (Array.isArray(oldFiles) && oldFiles.length && newFiles === null) {
+  (newFiles: FileItem[]) => {
+    if (!newFiles) {
+      errors.value = null
       internalFiles.value = []
+    } else if (Array.isArray(newFiles) && newFiles.length) {
+      const existing = internalFiles.value.map((file) => file.id)
+      const appendFiles = newFiles.filter((file) => !existing.includes(file.id))
+
+      // If new files come from an external source, they are valid/complete
+      // these are added for presentational purposes only
+      if (appendFiles.length) {
+        internalFiles.value = [
+          ...internalFiles.value,
+          ...appendFiles.map((file: FileItem) => ({
+            ...file,
+            id: file.id || file.ref,
+            status: 'success'
+          }))
+        ] as FileItem[]
+      }
     }
+  },
+  {
+    immediate: true
   }
 )
 </script>
@@ -437,8 +480,10 @@ watch(
       <span>{{ errors }}</span>
     </div>
     <div
+      :id="`${id}-file-status`"
       class="rpl-form-file__status-updates rpl-u-visually-hidden"
       aria-live="polite"
+      role="status"
     >
       <p v-for="file in internalFiles" :key="file.id">
         {{ getStatusText(file) }}
@@ -472,8 +517,10 @@ watch(
               {{ item.file.name }}
             </span>
             <span class="rpl-form-file__item-meta rpl-type-label-small">
-              {{ getFileType(item.file.name) }} |
-              {{ getFileSize(item.file.size) }} MB
+              {{ getFileType(item.file.name) }}
+              <span v-if="item.file.size">
+                | {{ getFileSize(item.file.size) }} MB
+              </span>
             </span>
             <div
               v-if="
@@ -518,7 +565,7 @@ watch(
           <button
             type="button"
             class="rpl-form-file__item-remove rpl-u-focusable-block"
-            :aria-label="`Remove ${item.file.name}`"
+            :aria-label="`Delete ${item.file.name}`"
             @click.prevent="removeFile(index)"
           >
             <RplIcon name="icon-cancel" class="rpl-form-file__icon" />

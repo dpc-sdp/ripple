@@ -14,27 +14,26 @@ const createMockUploadHandler = (
   return (
     id: string,
     file: File,
-    onProgress: (progress: number) => void
-  ): Promise<{ id: string; status: string; error?: string }> => {
+    onUpdate: (complete: number) => void
+  ): Promise<{ ref?: string; status: string; error?: string }> => {
     const randomSpeed = Math.random() * 15 + 1
 
     return new Promise((resolve) => {
-      let progress = 0
+      let complete = 0
 
       const uploadInterval = setInterval(() => {
-        progress += 10
+        complete += 10
 
-        if (progress === 100) {
+        if (complete === 100) {
           clearInterval(uploadInterval)
 
           const statuses = {
             error: {
-              id: id + '_error',
               status: 'error',
               error: 'Failed to upload file to server, try again?'
             },
             success: {
-              id: id + '_success',
+              ref: id + '_success',
               status: 'success'
             }
           }
@@ -49,7 +48,7 @@ const createMockUploadHandler = (
           }
         }
 
-        onProgress(progress)
+        onUpdate(complete)
       }, uploadDuration / randomSpeed)
     })
   }
@@ -58,7 +57,7 @@ const createMockUploadHandler = (
 const Template = (args: any) => ({
   components: { RplFormFile, StorybookInputFixture },
   setup() {
-    const currentValue = ref('')
+    const currentValue = ref(args.value || [])
 
     const uploadHandler = args.createHandler || createMockUploadHandler()
     const handleChange = (value: any) => (currentValue.value = value)
@@ -67,7 +66,7 @@ const Template = (args: any) => ({
   },
   template: `
     <StorybookInputFixture :invalid="args.invalid" :labelId="args.labelId" :fieldId="args.id" :value="currentValue">
-      <RplFormFile v-bind="args" :handle-upload="uploadHandler" :on-change="handleChange" />
+      <RplFormFile v-bind="args" :value="currentValue" :handle-upload="uploadHandler" :on-change="handleChange" />
     </StorybookInputFixture>`
 })
 
@@ -148,13 +147,8 @@ export const UploadError: Story = {
 export const RandomSuccess: Story = {
   args: {
     multiple: true,
+    allowedTypes: [{ mimeType: 'image/jpeg', extension: 'jpg' }],
     createHandler: createMockUploadHandler(2000, 'both')
-  }
-}
-
-export const Disabled: Story = {
-  args: {
-    disabled: true
   }
 }
 
@@ -175,5 +169,26 @@ export const MobileView: Story = {
     multiple: true,
     maxFiles: 5,
     allowedTypes: [{ mimeType: 'image/jpeg', extension: 'jpg' }]
+  }
+}
+
+export const WithPreUploadedFiles: Story = {
+  args: {
+    multiple: true,
+    value: [
+      {
+        ref: 'ref-id-1',
+        file: {
+          name: 'Test-1.jpg',
+          size: 100000
+        }
+      },
+      {
+        ref: 'ref-id-2',
+        file: {
+          name: 'Test-2.jpg'
+        }
+      }
+    ]
   }
 }

@@ -136,7 +136,8 @@
 }
 
 .rpl-form-file--invalid {
-  .rpl-form-file__item--invalid {
+  .rpl-form-file__item--invalid,
+  .rpl-form-file__item--error {
     margin-left: calc(var(--local-error-padding-left) * -1 - var(--local-error-border-width));
   }
 }

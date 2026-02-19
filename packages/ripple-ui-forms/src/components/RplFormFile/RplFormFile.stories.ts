@@ -172,6 +172,12 @@ export const MobileView: Story = {
   }
 }
 
+export const WithPlaceholder: Story = {
+  args: {
+    placeholder: 'Drop <em>files</em> here'
+  }
+}
+
 export const WithPreUploadedFiles: Story = {
   args: {
     multiple: true,

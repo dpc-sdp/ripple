@@ -434,9 +434,8 @@ watch(
       >
         <span
           class="rpl-form-file__placeholder rpl-type-weight-bold rpl-type-p"
-        >
-          {{ placeholderText }}
-        </span>
+          v-html="placeholderText"
+        />
         <span class="rpl-form-file__or rpl-type-p-small">OR</span>
         <RplButton
           variant="outlined"
@@ -501,6 +500,7 @@ watch(
       >
         <div class="rpl-form-file__item-inner rpl-type-p">
           <RplIcon
+            :key="item.status"
             class="rpl-form-file__icon rpl-form-file__icon-status"
             :name="getStatusIcon(item.status)"
             :colour="getStatusColour(item.status)"

@@ -93,19 +93,23 @@ describe('RplFormFile', () => {
     expect(handleUpload).to.not.have.been.called
   })
 
-  it('limit allowed files types to allowedTypes', () => {
+  it('limit allowed files types to allowedTypes using mimeType and extension', () => {
     const handleUpload = upload()
 
     mount({
       handleUpload,
       multiple: true,
-      allowedTypes: [
-        { mimeType: 'image/jpeg', extension: 'jpg' },
-        { mimeType: 'image/png', extension: 'png' }
-      ]
+      allowedTypes: {
+        mimeType: 'image/jpeg,image/png',
+        extension: 'jpg,png'
+      }
     })
 
-    cy.get(_.input).should('have.attr', 'accept', 'image/jpeg,image/png')
+    cy.get(_.input).should(
+      'have.attr',
+      'accept',
+      'image/jpeg,image/png,.jpg,.png'
+    )
     cy.get(_.requirements).should('contain', 'Accepted file types: JPG, PNG')
 
     select([file('Test 1.png', 'image/png'), file('Test 2.txt', 'text/plain')])
@@ -125,6 +129,46 @@ describe('RplFormFile', () => {
       .should('have.attr', 'data-status', 'invalid')
 
     expect(handleUpload).to.not.have.been.calledOnce
+  })
+
+  it('limit allowed files types to allowedTypes using only extension', () => {
+    const handleUpload = upload()
+
+    mount({
+      handleUpload,
+      multiple: true,
+      allowedTypes: { extension: 'jpg,png,gif' }
+    })
+
+    cy.get(_.input).should('have.attr', 'accept', '.jpg,.png,.gif')
+    cy.get(_.requirements).should(
+      'contain',
+      'Accepted file types: JPG, PNG, GIF'
+    )
+
+    select([
+      file('Test 1.png', 'image/png'),
+      file('Test 2.jpg', 'image/jpg'),
+      file('Test 3.txt', 'text/plain'),
+      file('Test 4.webp', 'image/webp')
+    ])
+
+    cy.get(_.items).should('have.length', 4)
+    cy.get(itemStatus('success'))
+      .should('have.length', 2)
+      .should('contain', 'Test 1.png')
+      .should('contain', 'Test 2.jpg')
+
+    cy.get(itemStatus('invalid'))
+      .should('have.length', 2)
+      .should('contain', 'Test 3.txt')
+      .should('contain', 'Test 4.webp')
+      .should(
+        'contain',
+        'File is not in a supported format, please remove this file and select a JPG, PNG, GIF'
+      )
+
+    expect(handleUpload).to.not.have.been.calledTwice
   })
 
   it('allows customisation of the placeholder text', () => {
@@ -191,7 +235,10 @@ describe('RplFormFile', () => {
 
     mount({
       handleUpload,
-      allowedTypes: [{ mimeType: 'image/png', extension: 'png' }]
+      allowedTypes: {
+        mimeType: 'image/png',
+        extension: 'png'
+      }
     })
 
     select(file('Test.txt'))
@@ -347,7 +394,10 @@ describe('RplFormFile', () => {
       onChange,
       handleUpload,
       multiple: true,
-      allowedTypes: [{ mimeType: 'image/png', extension: 'png' }]
+      allowedTypes: {
+        mimeType: 'image/png',
+        extension: 'png'
+      }
     })
 
     select([

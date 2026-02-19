@@ -44,7 +44,7 @@ interface Props {
   multiple?: boolean
   maxFiles?: number
   maxSize?: number
-  allowedTypes?: { mimeType: string; extension: string }[]
+  allowedTypes?: { mimeType: string; extension: string }
   placeholder?: string
   onChange?: (value: FileItem[]) => void
   handleUpload?: (
@@ -65,7 +65,7 @@ const props = withDefaults(defineProps<Props>(), {
   multiple: false,
   maxFiles: undefined,
   maxSize: undefined,
-  allowedTypes: () => [],
+  allowedTypes: () => ({ mimeType: '', extension: '' }),
   placeholder: undefined,
   onChange: undefined,
   handleUpload: undefined
@@ -135,18 +135,34 @@ const placeholderText = computed(
   () => props.placeholder ?? `Drag and drop your ${filePlural.value} to upload`
 )
 
-const acceptedTypes = computed(() => {
-  if (!props.allowedTypes?.length) return null
+const parsedAllowedTypes = computed(() => {
+  const mimeTypes = props.allowedTypes?.mimeType
+    ? props.allowedTypes.mimeType.toLowerCase().split(',')
+    : []
 
-  return props.allowedTypes.map((type) => type.mimeType).join(',')
+  const extensions = props.allowedTypes?.extension
+    ? props.allowedTypes.extension.toLowerCase().split(',')
+    : []
+
+  return { mimeTypes, extensions }
 })
 
-const extensions = computed(() => {
-  if (!props.allowedTypes?.length) return null
+const acceptedTypes = computed(() => {
+  const { mimeTypes, extensions } = parsedAllowedTypes.value
 
-  return props.allowedTypes
-    .map((type) => type.extension.toUpperCase())
-    .join(', ')
+  if (!mimeTypes.length && !extensions.length) {
+    return null
+  }
+
+  return [...mimeTypes, ...extensions.map((ext) => `.${ext}`)].join(',')
+})
+
+const acceptedExtensions = computed(() => {
+  const { extensions } = parsedAllowedTypes.value
+
+  return extensions.length
+    ? extensions.map((ext) => ext.toUpperCase()).join(', ')
+    : null
 })
 
 // Helpers
@@ -190,31 +206,28 @@ const getStatusText = (item: FileItem) => {
 }
 
 const isValidType = (file: File): boolean => {
-  if (!file?.name) return false
+  const { mimeTypes, extensions } = parsedAllowedTypes.value
 
-  const fileExtension = file.name.toLowerCase()?.split('.')?.pop()
-  const allowedMimeTypes = props.allowedTypes?.map((type) =>
-    type.mimeType?.toLowerCase()
-  )
-  const allowedExtensions = props.allowedTypes?.map((type) =>
-    type.extension?.toLowerCase()
-  )
-
-  if (!allowedMimeTypes?.length && !allowedExtensions?.length) {
+  if (!mimeTypes.length && !extensions.length) {
     return true
   }
 
-  const validMimeType = allowedMimeTypes.includes(file.type.toLowerCase())
-  const validExtension = allowedExtensions.includes(fileExtension)
+  const fileMimeType = file.type?.toLowerCase()
+  const fileExtension = file.name?.toLowerCase()?.split('.')?.pop()
 
-  // Are the mime type and extension both valid?
-  // We may want to make this more lenient i.e, pass if either is valid
-  return validMimeType && validExtension
+  const validMimeType = fileMimeType ? mimeTypes.includes(fileMimeType) : false
+  const validExtension = fileExtension
+    ? extensions.includes(fileExtension)
+    : false
+
+  // Mime type determination is not reliable across platforms,
+  // so we accept either MIME or extension match
+  return validMimeType || validExtension
 }
 
 const validateFile = (file: File) => {
   if (!isValidType(file)) {
-    return `File is not in a supported format, please remove this file and select a ${extensions.value}`
+    return `File is not in a supported format, please remove this file and select a ${acceptedExtensions.value}`
   }
 
   if (props.maxSize && getFileSize(file.size) > props.maxSize) {
@@ -352,7 +365,7 @@ const ariaDescribedByIds = computed(() => {
       : ''
   const ids = describedby.trim().split(' ')
 
-  if (props.allowedTypes?.length || props.maxFiles) {
+  if (acceptedExtensions.value || props.maxFiles) {
     ids.push(`${props.id}-file-requirements`)
   }
   if (errors.value) {
@@ -376,8 +389,8 @@ watch(
       const existing = internalFiles.value.map((file) => file.id)
       const appendFiles = newFiles.filter((file) => !existing.includes(file.id))
 
-      // If new files come from an external source, they are valid/complete
-      // these are added for presentational purposes only
+      // New files are assumed to be uploaded
+      // these are added for presentational purposes
       if (appendFiles.length) {
         internalFiles.value = [
           ...internalFiles.value,
@@ -455,11 +468,8 @@ watch(
       :id="`${id}-file-requirements`"
       class="rpl-form-file__requirements rpl-type-label-small rpl-u-margin-t-2"
     >
-      <span
-        v-if="allowedTypes?.length"
-        class="rpl-form-file__requirements-types"
-      >
-        Accepted file types: {{ extensions }}
+      <span v-if="acceptedExtensions" class="rpl-form-file__requirements-types">
+        Accepted file types: {{ acceptedExtensions }}
       </span>
       <span v-if="fileLimit" class="rpl-form-file__requirements-limit">
         Maximum files: {{ fileLimit }}

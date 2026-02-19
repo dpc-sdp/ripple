@@ -109,11 +109,10 @@ export const WithFileRestrictions: Story = {
   args: {
     multiple: true,
     maxFiles: 5,
-    allowedTypes: [
-      { mimeType: 'image/jpeg', extension: 'jpg' },
-      { mimeType: 'image/png', extension: 'png' },
-      { mimeType: 'application/pdf', extension: 'pdf' }
-    ]
+    allowedTypes: {
+      mimeType: 'image/jpeg,image/png,application/pdf',
+      extension: 'jpg,png,pdf'
+    }
   }
 }
 
@@ -122,11 +121,10 @@ export const WithSizeLimit: Story = {
     multiple: true,
     maxFiles: 5,
     maxSize: 2,
-    allowedTypes: [
-      { mimeType: 'image/jpeg', extension: 'jpg' },
-      { mimeType: 'image/png', extension: 'png' },
-      { mimeType: 'application/pdf', extension: 'pdf' }
-    ]
+    allowedTypes: {
+      mimeType: 'image/jpeg,image/png,application/pdf',
+      extension: 'jpg,png,pdf'
+    }
   }
 }
 
@@ -147,15 +145,17 @@ export const UploadError: Story = {
 export const RandomSuccess: Story = {
   args: {
     multiple: true,
-    allowedTypes: [{ mimeType: 'image/jpeg', extension: 'jpg' }],
+    allowedTypes: {
+      mimeType: 'image/jpeg',
+      extension: 'jpg'
+    },
     createHandler: createMockUploadHandler(2000, 'both')
   }
 }
 
 export const Invalid: Story = {
   args: {
-    invalid: true,
-    allowedTypes: [{ mimeType: 'image/jpeg', extension: 'jpg' }]
+    invalid: true
   }
 }
 
@@ -168,13 +168,19 @@ export const MobileView: Story = {
   args: {
     multiple: true,
     maxFiles: 5,
-    allowedTypes: [{ mimeType: 'image/jpeg', extension: 'jpg' }]
+    allowedTypes: {
+      mimeType: 'image/jpeg',
+      extension: 'jpg'
+    }
   }
 }
 
 export const WithPlaceholder: Story = {
   args: {
-    placeholder: 'Drop <em>files</em> here'
+    multiple: true,
+    maxFiles: 5,
+    placeholder: 'Drop <em>files</em> here',
+    allowedTypes: { extension: 'jpg,jpeg,png,webp' }
   }
 }
 

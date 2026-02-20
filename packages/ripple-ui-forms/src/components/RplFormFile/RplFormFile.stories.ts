@@ -155,23 +155,8 @@ export const RandomSuccess: Story = {
 
 export const Invalid: Story = {
   args: {
-    invalid: true
-  }
-}
-
-export const MobileView: Story = {
-  parameters: {
-    chromatic: {
-      viewports: [bpMin.s, bpMin.l]
-    }
-  },
-  args: {
-    multiple: true,
-    maxFiles: 5,
-    allowedTypes: {
-      mimeType: 'image/jpeg',
-      extension: 'jpg'
-    }
+    invalid: true,
+    multiple: true
   }
 }
 
@@ -185,8 +170,15 @@ export const WithPlaceholder: Story = {
 }
 
 export const WithPreUploadedFiles: Story = {
+  parameters: {
+    chromatic: {
+      viewports: [bpMin.s, bpMin.l]
+    }
+  },
   args: {
     multiple: true,
+    maxFiles: 3,
+    allowedTypes: { extension: 'jpg,jpeg,png,webp' },
     value: [
       {
         ref: 'ref-id-1',

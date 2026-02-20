@@ -365,7 +365,7 @@ const ariaDescribedByIds = computed(() => {
       : ''
   const ids = describedby.trim().split(' ')
 
-  if (acceptedExtensions.value || props.maxFiles) {
+  if (acceptedExtensions.value || fileLimit.value) {
     ids.push(`${props.id}-file-requirements`)
   }
   if (errors.value) {
@@ -465,6 +465,7 @@ watch(
       </div>
     </div>
     <div
+      v-if="acceptedExtensions || fileLimit"
       :id="`${id}-file-requirements`"
       class="rpl-form-file__requirements rpl-type-label-small rpl-u-margin-t-2"
     >
@@ -543,6 +544,7 @@ watch(
                 <button
                   type="button"
                   class="rpl-form-file__item-link rpl-u-focusable-block"
+                  :disabled="disabled"
                   :aria-label="`Replace ${item.file.name}`"
                   @click.prevent="replaceFile(index)"
                 >
@@ -552,6 +554,7 @@ watch(
                 <button
                   type="button"
                   class="rpl-form-file__item-link rpl-u-focusable-block"
+                  :disabled="disabled"
                   :aria-label="`Remove ${item.file.name}`"
                   @click.prevent="removeFile(index)"
                 >
@@ -562,6 +565,7 @@ watch(
                 <button
                   type="button"
                   class="rpl-form-file__item-retry rpl-form-file__item-link"
+                  :disabled="disabled"
                   :aria-label="`Retry ${item.file.name}`"
                   @click.prevent="retryFile(index)"
                 >
@@ -575,6 +579,7 @@ watch(
           <button
             type="button"
             class="rpl-form-file__item-remove rpl-u-focusable-block"
+            :disabled="disabled"
             :aria-label="`Delete ${item.file.name}`"
             @click.prevent="removeFile(index)"
           >

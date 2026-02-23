@@ -3,6 +3,12 @@ import svgLoader from 'vite-svg-loader'
 import viteYamlLoader from '@modyfi/vite-plugin-yaml'
 import nodeResolve from '@rollup/plugin-node-resolve'
 import path from 'path'
+import { fileURLToPath } from 'url'
+
+const dirname =
+  typeof __dirname !== 'undefined'
+    ? __dirname
+    : path.dirname(fileURLToPath(import.meta.url))
 
 const vitePlugins = [
   viteYamlLoader(),
@@ -63,7 +69,7 @@ const config: StorybookConfig = {
     if (config.resolve) {
       config.resolve.alias = {
         ...config.resolve.alias,
-        '~/storybook': path.resolve(__dirname, './')
+        '~/storybook': path.resolve(dirname, './')
       }
     }
 

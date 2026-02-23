@@ -320,7 +320,10 @@ export const DefaultStory: Story = {
         help: '<p>Attach files</p>',
         maxFiles: 3,
         maxSize: 2,
-        allowedTypes: [{ mimeType: 'image/jpeg', extension: 'jpg' }],
+        allowedTypes: {
+          mimeType: 'image/jpeg,image/png',
+          extension: 'jpg,png'
+        },
         handleUpload: async (id: string) =>
           Promise.resolve({ id, status: 'success' }),
         value: [],

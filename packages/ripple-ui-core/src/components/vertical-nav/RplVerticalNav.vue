@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import RplVerticalNavList from './RplVerticalNavList.vue'
 import { useExpandableState } from '../../composables/useExpandableState'
-import { IRplVerticalNavItem, IRplVerticalNavProcessed } from './constants'
+import { IRplVerticalNavItem } from './constants'
 import { computed } from 'vue'
 import {
   useRippleEvent,

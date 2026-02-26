@@ -12,6 +12,14 @@
 
 .rpl-form-file__wrapper {
   position: relative;
+
+  @media (--rpl-bp-s) {
+    width: fit-content;
+  }
+
+  @media (--rpl-bp-m) {
+    width: 100%;
+  }
 }
 
 .rpl-form-file__input {

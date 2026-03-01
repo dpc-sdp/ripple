@@ -379,7 +379,6 @@ describe('RplFormFile', () => {
 
   it('allows users to upload, remove, retry and mix actions', () => {
     let callCount = 0
-    const onChange = cy.spy()
     const handleUpload = cy.stub().callsFake(() => {
       callCount++
       if (callCount === 1) {
@@ -391,7 +390,6 @@ describe('RplFormFile', () => {
     })
 
     mount({
-      onChange,
       handleUpload,
       multiple: true,
       allowedTypes: {
@@ -446,6 +444,62 @@ describe('RplFormFile', () => {
       .should('have.length', 2)
       .should('contain', 'Test-2.png')
       .should('contain', 'Test-5.png')
+  })
+
+  it('emits the onChange event with successful files', () => {
+    const onChange = cy.spy().as('onChange')
+    const handleUpload = upload({ ref: 'server-id' })
+
+    mount({
+      onChange,
+      handleUpload,
+      multiple: true,
+      allowedTypes: {
+        mimeType: 'application/pdf',
+        extension: 'pdf'
+      }
+    })
+
+    select([file('Test-1.pdf'), file('Test-2.txt')])
+
+    cy.then(() => {
+      expect(onChange).to.have.been.calledWithMatch([
+        {
+          id: Cypress.sinon.match.string,
+          ref: 'server-id-test-1.pdf',
+          file: {
+            name: 'Test-1.pdf',
+            type: 'text/plain',
+            size: 0
+          }
+        }
+      ])
+    })
+
+    select([file('Test-3.pdf')])
+
+    cy.then(() =>
+      expect(onChange).to.have.been.calledWithMatch([
+        {
+          id: Cypress.sinon.match.string,
+          ref: 'server-id-test-1.pdf',
+          file: {
+            name: 'Test-1.pdf',
+            type: 'text/plain',
+            size: 0
+          }
+        },
+        {
+          id: Cypress.sinon.match.string,
+          ref: 'server-id-test-3.pdf',
+          file: {
+            name: 'Test-3.pdf',
+            type: 'text/plain',
+            size: 0
+          }
+        }
+      ])
+    )
   })
 
   it('clears the display when the value prop is reset', () => {

@@ -22,4 +22,5 @@ export type RplFormKitStepNode = {
   nextButton: string
   prevButton: string
   schema: FormKitSchemaNode[]
+  parentStep?: string
 } & FormKitSchemaProps

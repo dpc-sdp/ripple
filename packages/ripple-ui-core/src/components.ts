@@ -45,6 +45,7 @@ export { default as RplPrimaryCampaign } from './components/campaign-banner/RplP
 export { default as RplPrimaryNav } from './components/primary-nav/RplPrimaryNav.vue'
 export { default as RplProfile } from './components/profile/RplProfile.vue'
 export { default as RplPromoCard } from './components/card/RplPromoCard.vue'
+export { default as RplProgress } from './components/progress/RplProgress.vue'
 export { default as RplRelatedLinks } from './components/related-links/RplRelatedLinks.vue'
 export { default as RplResultListing } from './components/result-listing/RplResultListing.vue'
 export { default as RplResultListingItem } from './components/result-listing/RplResultListingItem.vue'

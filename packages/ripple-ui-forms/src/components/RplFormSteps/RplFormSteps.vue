@@ -8,14 +8,14 @@
     :allow-incomplete="true"
     :before-step-change="handleStepChange"
   >
-    <template #tabs="{ steps, activeStep }">
+    <template #tabs="{ activeStep }">
       <RplProgress
         v-if="layout === 'default'"
         :id="`${id}-progress`"
         class="rpl-form__progress rpl-col-4-m rpl-col-12"
-        :current-step-id="activeStep"
+        :current-step-id="getActiveStep(activeStep)"
         :auto-expandable="true"
-        :steps="getProgress(steps)"
+        :steps="progressSteps"
       />
     </template>
     <template #steps="{ activeStep }">
@@ -39,6 +39,7 @@
           :nextButton="step.nextButton"
           :prevButton="step.prevButton"
           :activeStep="activeStep"
+          :beforeStepChange="step.beforeStepChange"
         />
       </div>
     </template>
@@ -50,6 +51,8 @@ import { ref } from 'vue'
 import { useMediaQuery } from '@vueuse/core'
 import type { BeforeStepChange } from '@formkit/addons'
 import { RplFormKitStepNode } from '../../types'
+import RplFormStep from './../RplFormStep/RplFormStep.vue'
+import { RplProgress } from '@dpc-sdp/ripple-ui-core/vue'
 
 interface Props {
   id: string
@@ -64,7 +67,7 @@ interface Props {
   layout?: 'default' | 'compact'
 }
 
-withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<Props>(), {
   schema: undefined,
   data: () => ({}),
   errors: () => [],
@@ -74,11 +77,22 @@ withDefaults(defineProps<Props>(), {
 const formStepsRef = ref<HTMLElement>()
 const prefersReducedMotion = useMediaQuery('(prefers-reduced-motion: reduce)')
 
-const getProgress = (steps = []) => {
-  return (steps || []).map(({ id, stepName }) => ({
-    id,
-    label: stepName
-  }))
+const progressSteps =
+  props.schema &&
+  props.schema
+    .filter((item: RplFormKitStepNode) => item.$step && !item.parentStep)
+    .map(({ id, title }) => ({ id, label: title }))
+
+const getActiveStep = (activeStep: string) => {
+  const currentStep = props.schema?.find(
+    (step) => step.key === activeStep || step.name === activeStep
+  )
+
+  if (!currentStep?.parentStep) {
+    return activeStep
+  }
+
+  return currentStep.parentStep
 }
 
 const focus = () => {

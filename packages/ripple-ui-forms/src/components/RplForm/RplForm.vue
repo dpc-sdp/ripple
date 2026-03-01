@@ -421,7 +421,7 @@ const handleStepChange = async ({
 
   // Get the current steps errors when it's invalid, and we're trying to proceed
   if (!currentStep.isValid && forwards) {
-    cachedErrors.value = getErrorMessages(getNode(currentStep.id))
+    cachedErrors.value = getErrorMessages(currentStep.node)
   }
 
   if (isStepValid) {

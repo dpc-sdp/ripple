@@ -1,5 +1,4 @@
 import type { StepChangeData } from '@formkit/addons'
-
 export const handleEligibilityStepChange = async ({
   currentStep,
   targetStep,
@@ -54,9 +53,9 @@ export const handleEligibilityStepChange = async ({
   }
 
   if (currentStep.node.name === 'eligibility') {
-    const organization =
-      currentStep.value?.address?.organization ??
-      currentStep.value?.address?.orginisation
+    const value = currentStep.value ?? {}
+    const address = (value as any).address ?? {}
+    const organization = address.organization
 
     const desiredStep = organization === 'test' ? 'eligible' : 'not-eligible'
 

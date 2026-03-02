@@ -46,6 +46,7 @@ interface Props {
   maxSize?: number
   allowedTypes?: { mimeType: string; extension: string }
   placeholder?: string
+  placeholderOver?: string
   onChange?: (value: FileItem[]) => void
   handleUpload?: (
     id: string,
@@ -67,6 +68,7 @@ const props = withDefaults(defineProps<Props>(), {
   maxSize: undefined,
   allowedTypes: () => ({ mimeType: '', extension: '' }),
   placeholder: undefined,
+  placeholderOver: undefined,
   onChange: undefined,
   handleUpload: undefined
 })
@@ -133,6 +135,9 @@ const fileLimit = computed(() => {
 const filePlural = computed(() => (acceptMultiple.value ? 'files' : 'file'))
 const placeholderText = computed(
   () => props.placeholder ?? `Drag and drop your ${filePlural.value} to upload`
+)
+const placeholderOverText = computed(
+  () => props.placeholderOver ?? `Drop your ${filePlural.value} here`
 )
 
 const parsedAllowedTypes = computed(() => {
@@ -298,12 +303,16 @@ const prepareFiles = (newFiles: FileList) => {
 }
 
 const processFiles = async (files: FileList) => {
+  // Are we replacing a single existing file?
+  if (fileLimit.value === 1 && internalFiles.value.length) {
+    removeFile(0)
+  }
   // Check if adding new files would exceed the file limit
   if (
     fileLimit.value &&
     files.length + internalFiles.value.length > fileLimit.value
   ) {
-    errors.value = `There is a limit of ${fileLimit.value} ${filePlural.value}. Please remove a file before adding another.`
+    errors.value = `There is a limit of ${fileLimit.value} ${filePlural.value}.`
     return
   }
 
@@ -416,6 +425,7 @@ watch(
       ['rpl-form-file--disabled']: disabled,
       ['rpl-form-file--invalid']: invalid
     }"
+    :aria-disabled="disabled"
   >
     <div class="rpl-form-file__wrapper">
       <input
@@ -447,7 +457,7 @@ watch(
       >
         <span
           class="rpl-form-file__placeholder rpl-type-weight-bold rpl-type-p"
-          v-html="placeholderText"
+          v-html="dragging ? placeholderOverText : placeholderText"
         />
         <span class="rpl-form-file__or rpl-type-p-small">OR</span>
         <RplButton
@@ -471,9 +481,6 @@ watch(
     >
       <span v-if="acceptedExtensions" class="rpl-form-file__requirements-types">
         Accepted file types: {{ acceptedExtensions }}
-      </span>
-      <span v-if="fileLimit" class="rpl-form-file__requirements-limit">
-        Maximum files: {{ fileLimit }}
       </span>
     </div>
     <div
@@ -540,40 +547,36 @@ watch(
               "
               class="rpl-form-file__item-actions"
             >
-              <template v-if="item.status === FileStatus.invalid">
-                <button
-                  type="button"
-                  class="rpl-form-file__item-link rpl-u-focusable-block"
-                  :disabled="disabled"
-                  :aria-label="`Replace ${item.file.name}`"
-                  @click.prevent="replaceFile(index)"
-                >
-                  Replace
-                </button>
-                <span>or</span>
-                <button
-                  type="button"
-                  class="rpl-form-file__item-link rpl-u-focusable-block"
-                  :disabled="disabled"
-                  :aria-label="`Remove ${item.file.name}`"
-                  @click.prevent="removeFile(index)"
-                >
-                  Remove
-                </button>
-              </template>
-              <template v-if="item.status === FileStatus.error">
-                <button
-                  type="button"
-                  class="rpl-form-file__item-retry rpl-form-file__item-link"
-                  :disabled="disabled"
-                  :aria-label="`Retry ${item.file.name}`"
-                  @click.prevent="retryFile(index)"
-                >
-                  {{
-                    item.error || 'File failed to upload, click here to retry'
-                  }}
-                </button>
-              </template>
+              <button
+                v-if="item.status === FileStatus.error"
+                type="button"
+                class="rpl-form-file__item-retry rpl-type-p rpl-form-file__item-link"
+                :disabled="disabled"
+                :aria-label="`Retry ${item.file.name}`"
+                @click.prevent="retryFile(index)"
+              >
+                Retry
+              </button>
+              <button
+                v-else
+                type="button"
+                class="rpl-form-file__item-link rpl-type-p rpl-u-focusable-block"
+                :disabled="disabled"
+                :aria-label="`Replace ${item.file.name}`"
+                @click.prevent="replaceFile(index)"
+              >
+                Replace
+              </button>
+              <span>or</span>
+              <button
+                type="button"
+                class="rpl-form-file__item-link rpl-type-p rpl-u-focusable-block"
+                :disabled="disabled"
+                :aria-label="`Remove ${item.file.name}`"
+                @click.prevent="removeFile(index)"
+              >
+                Remove
+              </button>
             </div>
           </div>
           <button

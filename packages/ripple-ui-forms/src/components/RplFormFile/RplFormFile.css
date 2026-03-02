@@ -6,6 +6,7 @@
   --local-text-color: var(--rpl-clr-type-default);
   --local-meta-text-color: var(--rpl-clr-neutral-600);
   --local-border-color: var(--rpl-clr-neutral-600);
+  --local-dropzone-height: 160px;
 
   color: var(--local-text-color);
 }
@@ -43,7 +44,7 @@
     gap: var(--rpl-sp-4);
     border-radius: var(--rpl-border-radius-2);
     background-color: var(--rpl-clr-light);
-    min-height: 140px;
+    min-height: var(--local-dropzone-height);
     padding-inline: var(--rpl-sp-5);
     padding-block: var(--rpl-sp-4);
     border: var(--rpl-border-1) dashed var(--local-border-color);
@@ -82,6 +83,8 @@
   outline: none;
 
   @media (--rpl-bp-m) {
+    --local-border-color: var(--rpl-clr-dark);
+
     border-style: solid;
     border-radius: 0;
     box-shadow: 0 0 0 var(--rpl-border-1) var(--rpl-clr-dark) inset,
@@ -89,6 +92,14 @@
   }
 }
 
+.rpl-form-file__dropzone--over {
+  @media (--rpl-bp-m) {
+    .rpl-form-file__or,
+    .rpl-form-file__button {
+      display: none;
+    }
+  }
+}
 
 .rpl-form-file__dropzone--over,
 .rpl-form-file__input:not(:disabled):hover + .rpl-form-file__dropzone {
@@ -141,7 +152,7 @@
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: var(--rpl-sp-4);
+  gap: var(--rpl-sp-3);
 }
 
 .rpl-form-file__item {
@@ -185,6 +196,7 @@
 
 .rpl-form-file__item-remove {
   margin-left: auto;
+  color: var(--rpl-clr-neutral-600);
 }
 
 .rpl-form-file__item-meta {
@@ -201,21 +213,19 @@
     flex-grow: 1;
     height: 4px;
     border: none;
-    background-color: var(--rpl-clr-neutral-200);
+    background-color: var(--rpl-clr-neutral-300);
 
     &::-webkit-progress-bar {
-      background-color: var(--rpl-clr-neutral-200);
-      border-radius: 2px;
-    }
-
-    &::-webkit-progress-value {
-      background-color: var(--rpl-clr-primary);
-      transition: width 0.3s ease;
+      background-color: var(--rpl-clr-neutral-300);
     }
 
     &::-moz-progress-bar {
-      background-color: var(--rpl-clr-primary);
-      transition: width 0.3s ease;
+      background-color: var(--rpl-clr-link);
+    }
+
+    &::-webkit-progress-value {
+      background-color: var(--rpl-clr-link);
+      transition: width var(--rpl-motion-speed-6) ease-in-out;
     }
   }
 }

@@ -80,7 +80,6 @@ describe('RplFormFile', () => {
     mount({ handleUpload })
 
     cy.get(_.input).should('not.have.attr', 'multiple')
-    cy.get(_.requirements).should('contain', 'Maximum files: 1')
 
     select([
       file('test1.txt', 'test content 1'),
@@ -91,6 +90,22 @@ describe('RplFormFile', () => {
     cy.get(_.items).should('have.length', 0)
 
     expect(handleUpload).to.not.have.been.called
+  })
+
+  it('choosing a single single file will replace the first', () => {
+    const handleUpload = upload()
+
+    mount({ handleUpload })
+
+    cy.get(_.input).should('not.have.attr', 'multiple')
+
+    select(file('test1.txt', 'test content 1'))
+
+    cy.get(_.items).should('have.length', 1).should('contain', 'test1.txt')
+
+    select(file('test2.txt', 'test content 2'))
+
+    cy.get(_.items).should('have.length', 1).should('contain', 'test2.txt')
   })
 
   it('limit allowed files types to allowedTypes using mimeType and extension', () => {
@@ -259,7 +274,6 @@ describe('RplFormFile', () => {
     mount({ handleUpload, maxFiles: 2 })
 
     cy.get(_.input).should('have.attr', 'multiple')
-    cy.get(_.requirements).should('contain', 'Maximum files: 2')
 
     select([file('Test-1.txt'), file('Test-2.txt'), file('Test-3.txt')])
 

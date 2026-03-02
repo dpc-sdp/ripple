@@ -317,7 +317,7 @@ export const DefaultStory: Story = {
         name: 'file',
         label: 'Files',
         id: 'files',
-        help: '<p>Attach files</p>',
+        help: '<p>Please select between 2 and 3 files</p>',
         maxFiles: 3,
         maxSize: 2,
         allowedTypes: {

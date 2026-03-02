@@ -30,7 +30,7 @@ const createMockUploadHandler = (
           const statuses = {
             error: {
               status: 'error',
-              error: 'Failed to upload file to server, try again?'
+              error: 'Failed to upload file to server'
             },
             success: {
               ref: id + '_success',
@@ -89,6 +89,13 @@ type Story = StoryObj<ExtendedFormFile>
 export const DefaultStory: Story = {
   name: 'Default',
   args: {}
+}
+
+export const Inactive: Story = {
+  args: {
+    disabled: true,
+    multiple: true
+  }
 }
 
 export const SingleFileOnly: Story = {

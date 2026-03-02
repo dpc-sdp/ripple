@@ -11,7 +11,7 @@
     @node="setStepNode"
   >
     <button
-      v-if="number > 1"
+      v-if="number > 1 && prevButton"
       type="button"
       class="rpl-form__step-prev rpl-u-focusable-block rpl-type-p rpl-u-margin-b-8"
       @click="handleBack"
@@ -46,7 +46,7 @@
     <template #stepPrevious></template>
     <template #stepNext="{ handlers, node }">
       <RplButton
-        v-if="!node.context.isLastStep"
+        v-if="!node.context.isLastStep && nextButton"
         class="rpl-form__step-next"
         variant="filled"
         @click="handlers.next"

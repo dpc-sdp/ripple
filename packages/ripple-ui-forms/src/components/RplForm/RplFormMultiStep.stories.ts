@@ -180,7 +180,7 @@ export const DefaultStory: Story = {
         key: 'not-eligible',
         name: 'not-eligible',
         title: 'Not eligible',
-        nextButton: 'Exit',
+        nextButton: false,
         prevButton: 'Go backwards',
         beforeStepChange: handleEligibilityStepChange,
         parentStep: 'eligibility',

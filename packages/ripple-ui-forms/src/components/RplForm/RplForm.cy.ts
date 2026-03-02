@@ -55,6 +55,112 @@ const multiStepSchema: any[] = [
   }
 ]
 
+const multiStepSchemaNoPrevButton: any[] = [
+  {
+    $step: true,
+    id: 'step-one',
+    key: 'step-one',
+    name: 'step-one',
+    title: 'Step one',
+    nextButton: 'Next',
+    schema: [
+      {
+        $formkit: 'RplFormText',
+        id: 'first_name',
+        name: 'first_name',
+        label: 'First name',
+        value: ''
+      }
+    ]
+  },
+  {
+    $step: true,
+    id: 'step-two',
+    key: 'step-two',
+    name: 'step-two',
+    title: 'Step two',
+    nextButton: 'Continue',
+    prevButton: false,
+    schema: [
+      {
+        $formkit: 'RplFormText',
+        id: 'email',
+        name: 'email',
+        label: 'Email',
+        value: ''
+      }
+    ]
+  },
+  {
+    $step: true,
+    id: 'review',
+    key: 'review',
+    name: 'review',
+    title: 'Review',
+    nextButton: 'Submit',
+    prevButton: 'Back',
+    schema: [
+      {
+        $formkit: 'RplFormReview',
+        key: 'review_component'
+      }
+    ]
+  }
+]
+
+const multiStepSchemaNoNextButton: any[] = [
+  {
+    $step: true,
+    id: 'step-one',
+    key: 'step-one',
+    name: 'step-one',
+    title: 'Step one',
+    nextButton: 'Next',
+    schema: [
+      {
+        $formkit: 'RplFormText',
+        id: 'first_name_no_next',
+        name: 'first_name_no_next',
+        label: 'First name',
+        value: ''
+      }
+    ]
+  },
+  {
+    $step: true,
+    id: 'step-two',
+    key: 'step-two',
+    name: 'step-two',
+    title: 'Step two',
+    nextButton: false,
+    prevButton: 'Back',
+    schema: [
+      {
+        $formkit: 'RplFormText',
+        id: 'email_no_next',
+        name: 'email_no_next',
+        label: 'Email',
+        value: ''
+      }
+    ]
+  },
+  {
+    $step: true,
+    id: 'review',
+    key: 'review',
+    name: 'review',
+    title: 'Review',
+    nextButton: 'Submit',
+    prevButton: 'Back',
+    schema: [
+      {
+        $formkit: 'RplFormReview',
+        key: 'review_component'
+      }
+    ]
+  }
+]
+
 describe('<RplForm />', () => {
   it('renders', () => {
     // see: https://test-utils.vuejs.org/guide/
@@ -137,5 +243,35 @@ describe('<RplForm />', () => {
     cy.contains('Step one').should('be.visible')
     cy.contains('Step two').should('be.visible')
     cy.contains('Change').should('be.visible')
+  })
+
+  it('hides previous step button when prevButton is disabled', () => {
+    cy.viewport('macbook-13')
+    cy.mount(RplForm, {
+      props: {
+        id: 'test-multi-step-no-prev-button',
+        schema: multiStepSchemaNoPrevButton
+      }
+    })
+
+    cy.contains('button', 'Next').click()
+    cy.contains('Step 2 of 3').should('be.visible')
+    cy.get('.rpl-form__step-prev').should('not.be.visible')
+    cy.contains('button', 'Continue').should('be.visible')
+  })
+
+  it('hides next step button when nextButton is disabled', () => {
+    cy.viewport('macbook-13')
+    cy.mount(RplForm, {
+      props: {
+        id: 'test-multi-step-no-next-button',
+        schema: multiStepSchemaNoNextButton
+      }
+    })
+
+    cy.contains('button', 'Next').click()
+    cy.contains('Step 2 of 3').should('be.visible')
+    cy.get('.rpl-form__step-next').should('not.be.visible')
+    cy.contains('button', 'Back').should('be.visible')
   })
 })

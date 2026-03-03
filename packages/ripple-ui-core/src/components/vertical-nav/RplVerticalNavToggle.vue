@@ -11,9 +11,8 @@ defineProps<Props>()
   <button
     type="button"
     :aria-label="`Toggle ${text} menu`"
-    class="rpl-vertical-nav__item rpl-vertical-nav__toggle rpl-u-focusable-block"
+    class="rpl-vertical-nav__toggle rpl-u-focusable-block"
   >
-    <span class="rpl-vertical-nav__toggle-text">{{ text }}</span>
     <span class="rpl-vertical-nav__toggle-icon" aria-hidden="true">
       <RplIcon name="icon-chevron-down" size="xs"></RplIcon>
     </span>

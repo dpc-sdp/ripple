@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import RplVerticalNavList from './RplVerticalNavList.vue'
 import { useExpandableState } from '../../composables/useExpandableState'
-import { IRplVerticalNavItem, IRplVerticalNavProcessed } from './constants'
+import { IRplVerticalNavItem } from './constants'
 import { computed } from 'vue'
 import {
   useRippleEvent,
@@ -29,53 +29,68 @@ const emit = defineEmits<{
 
 const { emitRplEvent } = useRippleEvent('rpl-vertical-nav', emit)
 
-// Because toggle-able item aren't actually links,
-// we need to ensure that the first child of each toggle is a link to that page
-// we also need to recursively get a flat array of active indexes for useExpandableState
-const processedItems = computed<IRplVerticalNavProcessed>(
-  (): IRplVerticalNavProcessed => {
-    let active = []
+const getActiveItems = (
+  items: IRplVerticalNavItem[],
+  activeChain: string[] = []
+): string[] => {
+  let active: string[] = []
 
-    const processItem = (
-      item: IRplVerticalNavItem,
-      repeat = false,
-      depth = 1
-    ): IRplVerticalNavItem => {
-      const nextLevel = depth + 1
+  for (const item of items) {
+    if (item.active) {
+      active.push(item.id)
+    }
+    if (item.items) {
+      active = active.concat(
+        getActiveItems(item.items, [...activeChain, item.id])
+      )
+    }
+  }
 
-      if (item.active) {
-        active.push(item.id)
+  return active
+}
+
+const initiallyExpandedItems = computed<string[]>((): string[] => {
+  if (!props.items?.length) {
+    return []
+  }
+
+  const activeItems = getActiveItems(props.items)
+
+  // There can be multiple active items, but only one used for determining the expanded state of the menu, so we take the first one
+  const mainActiveItem = activeItems.length ? activeItems[0] : null
+
+  // This function recursively searches the items to find the chain of parent IDs for the active item, which needs to be fed into the 'useExpandableState' composable to ensure the correct items are expanded on initial render
+  // For example, if item '4' is active, which is a child of '3', which is a child of '1', then we need to return ['4', '3', '1'] as the active chain so that when we render the menu, items 1 and 3 are expanded to reveal item 4 as active
+  const getParentChain = (
+    itemId: string,
+    items: IRplVerticalNavItem[],
+    chain: string[] = []
+  ): string[] | null => {
+    for (const item of items) {
+      if (item.id === itemId) {
+        return [...chain]
       }
-
-      if (item.url && item.items?.length && repeat) {
-        return {
-          ...item,
-          items: [
-            {
-              id: item.id,
-              text: item.text,
-              url: item.url,
-              active: item.active && !item.items.some((i) => i.active)
-            },
-            ...(item.items || []).map((child) =>
-              processItem(child, nextLevel <= props.toggleLevels, nextLevel)
-            )
-          ]
+      if (item.items) {
+        const result = getParentChain(itemId, item.items, [...chain, item.id])
+        if (result) {
+          return result
         }
       }
-
-      return item
     }
 
-    const items = (props.items || []).map((item) => processItem(item, true))
-
-    return { active, items }
+    return null
   }
-)
+
+  const expandedItemChain = mainActiveItem
+    ? getParentChain(mainActiveItem, props.items)
+    : []
+
+  return expandedItemChain || []
+})
 
 const { isItemExpanded, toggleItem } = useExpandableState(
-  processedItems.value.active,
-  processedItems.value.items.length
+  initiallyExpandedItems.value,
+  props.items?.length || 0
 )
 
 const toggleID = (itemId) => `rpl-vertical-nav-${itemId}-toggle`
@@ -113,7 +128,7 @@ const handleClick = (event) => {
       {{ title }}
     </h3>
     <RplVerticalNavList
-      :items="processedItems.items"
+      :items="items"
       :level="1"
       :toggle-levels="toggleLevels"
       :is-expanded="isItemExpanded"

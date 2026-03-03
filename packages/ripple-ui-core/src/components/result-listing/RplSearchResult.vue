@@ -14,13 +14,15 @@ interface Props {
   updated?: string
   dateLabel?: string
   showUrl?: boolean
+  globalEvents?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
   content: undefined,
   updated: undefined,
   dateLabel: 'Updated',
-  showUrl: true
+  showUrl: true,
+  globalEvents: true
 })
 
 const emit = defineEmits<{
@@ -42,7 +44,7 @@ const handleClick = () => {
       value: props?.url,
       text: props.title
     },
-    { global: true }
+    { global: props.globalEvents }
   )
 }
 </script>

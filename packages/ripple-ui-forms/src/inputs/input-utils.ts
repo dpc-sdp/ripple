@@ -31,6 +31,7 @@ import RplFormCheckboxGroup from './../components/RplFormOptions/RplFormCheckbox
 import RplFormRadioGroup from './../components/RplFormOptions/RplFormRadioGroup.vue'
 import RplFormOptionButtons from './../components/RplFormOptionButtons/RplFormOptionButtons.vue'
 import RplFormDropdown from './../components/RplFormDropdown/RplFormDropdown.vue'
+import RplFormAutocomplete from '../components/RplFormAutocomplete/RplFormAutocomplete.vue'
 import RplFormDate from './../components/RplFormDate/RplFormDate.vue'
 import RplFormDateRange from './../components/RplFormDateRange/RplFormDateRange.vue'
 import RplFormDateSelect from '../components/RplFormDateSelect/RplFormDateSelect.vue'
@@ -58,6 +59,7 @@ export const inputLibrary = {
   RplFormRadioGroup: markRaw(RplFormRadioGroup),
   RplFormOptionButtons: markRaw(RplFormOptionButtons),
   RplFormDropdown: markRaw(RplFormDropdown),
+  RplFormAutocomplete: markRaw(RplFormAutocomplete),
   RplFormDate: markRaw(RplFormDate),
   RplFormDateRange: markRaw(RplFormDateRange),
   RplFormDateSelect: markRaw(RplFormDateSelect),

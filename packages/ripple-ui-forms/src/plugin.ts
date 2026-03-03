@@ -19,6 +19,7 @@ import {
   datePicker,
   dateRange,
   optionButtons,
+  file,
   fieldset,
   hidden,
   review,
@@ -65,6 +66,8 @@ rplFormInputs.library = (node) => {
       return node.define(dateSelect)
     case 'RplFormDateSelectRange':
       return node.define(dateSelectRange)
+    case 'RplFormFile':
+      return node.define(file)
     case 'RplFormContent':
       return node.define(content)
     case 'RplFormLabel':

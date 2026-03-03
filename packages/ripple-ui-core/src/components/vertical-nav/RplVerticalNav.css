@@ -2,6 +2,14 @@
 @import '@dpc-sdp/ripple-ui-core/style/breakpoints';
 
 .rpl-vertical-nav {
+  /* stylelint-disable-next-line length-zero-no-unit */
+  --local-left-indentation: 0px;
+  --local-v-nav-gutter: var(--local-vertical-nav-item-gutter, var(--rpl-sp-6));
+  --local-v-nav-hover: var(
+    --local-vertical-nav-hover-bg,
+    var(--rpl-clr-neutral-300)
+  );
+
   background-color: var(
     --local-vertical-nav-background,
     var(--rpl-clr-neutral-200)
@@ -28,14 +36,6 @@
 
 /* Item */
 .rpl-vertical-nav__item {
-  /* stylelint-disable-next-line length-zero-no-unit */
-  --local-left-indentation: 0px;
-  --local-v-nav-gutter: var(--local-vertical-nav-item-gutter, var(--rpl-sp-6));
-  --local-v-nav-hover: var(
-    --local-vertical-nav-hover-bg,
-    var(--rpl-clr-neutral-300)
-  );
-
   position: relative;
   text-align: left;
   padding-top: var(--rpl-sp-3);
@@ -117,18 +117,47 @@
   }
 }
 
+.rpl-vertical-nav__header {
+  position: relative;
+
+  .rpl-vertical-nav__item {
+    span {
+      padding-right: calc(12px + var(--rpl-sp-4));
+    }
+  }
+}
+
 /* Toggles */
 .rpl-vertical-nav__toggle {
+  /* important is needed to override the position on focus state added by .rpl-u-focusable-block */
+  position: absolute !important;
+  top: 0;
+  right: 0;
   display: flex;
   align-items: flex-start;
   line-height: inherit;
   letter-spacing: inherit;
+  padding-top: var(--rpl-sp-3);
+  padding-right: var(--local-v-nav-gutter);
+  padding-bottom: var(--rpl-sp-3);
+  padding-left: var(--rpl-sp-3);
 
-  &:focus-visible .rpl-vertical-nav__toggle-icon {
-    color: var(--rpl-clr-type-focus-contrast);
+  &:hover {
+    background-color: var(--local-v-nav-hover);
+    text-decoration: underline;
   }
 
-  .rpl-vertical-nav__list-item--expanded > & .rpl-icon  {
+  &:active {
+    background-color: var(--local-v-nav-hover);
+  }
+
+  &:focus-visible {
+    .rpl-vertical-nav__toggle-icon {
+      color: var(--rpl-clr-type-focus-contrast);
+    }
+  }
+
+  .rpl-vertical-nav__list-item--expanded > & .rpl-icon {
     transform: rotate(-180deg);
   }
 }

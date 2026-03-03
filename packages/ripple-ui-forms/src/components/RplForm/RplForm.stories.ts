@@ -341,6 +341,27 @@ export const DefaultStory: Story = {
         }
       },
       {
+        $formkit: 'RplFormFile',
+        name: 'file',
+        label: 'Files',
+        id: 'files',
+        help: '<p>Please select between 2 and 3 files</p>',
+        maxFiles: 3,
+        maxSize: 2,
+        allowedTypes: {
+          mimeType: 'image/jpeg,image/png',
+          extension: 'jpg,png'
+        },
+        handleUpload: async (id: string) =>
+          Promise.resolve({ id, status: 'success' }),
+        value: [],
+        validation: 'required|length:2,3',
+        validationMessages: {
+          required: 'Please upload a file',
+          length: 'Please upload between 2 and 3 files'
+        }
+      },
+      {
         $formkit: 'RplFormCheckbox',
         key: 'privacy_statement',
         id: 'connect_with_us_privacy_statement',

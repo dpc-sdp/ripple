@@ -36,6 +36,7 @@ import RplFormDate from './../components/RplFormDate/RplFormDate.vue'
 import RplFormDateRange from './../components/RplFormDateRange/RplFormDateRange.vue'
 import RplFormDateSelect from '../components/RplFormDateSelect/RplFormDateSelect.vue'
 import RplFormDateSelectRange from '../components/RplFormDateSelectRange/RplFormDateSelectRange.vue'
+import RplFormFile from '../components/RplFormFile/RplFormFile.vue'
 import RplFormValidationError from './../components/RplFormValidationError/RplFormValidationError.vue'
 import RplFormDescription from './../components/RplFormDescription/RplFormDescription.vue'
 import RplFormHelpText from './../components/RplFormHelpText/RplFormHelpText.vue'
@@ -64,6 +65,7 @@ export const inputLibrary = {
   RplFormDateRange: markRaw(RplFormDateRange),
   RplFormDateSelect: markRaw(RplFormDateSelect),
   RplFormDateSelectRange: markRaw(RplFormDateSelectRange),
+  RplFormFile: markRaw(RplFormFile),
   RplFormValidationError: markRaw(RplFormValidationError),
   RplFormHelpText: markRaw(RplFormHelpText),
   RplFormDescription: markRaw(RplFormDescription),

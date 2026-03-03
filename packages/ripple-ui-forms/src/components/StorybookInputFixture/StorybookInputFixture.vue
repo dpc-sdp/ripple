@@ -9,7 +9,7 @@ interface Props {
   label?: string
   labelId?: string
   fieldId?: string
-  value?: string | string[]
+  value?: any
   showFormValue?: boolean
 }
 

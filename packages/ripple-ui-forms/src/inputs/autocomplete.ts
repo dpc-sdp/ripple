@@ -32,7 +32,10 @@ export const autocomplete: FormKitTypeDefinition = {
       isOptionSelectable: '$node.props.isOptionSelectable',
       renderSuggestionLabel: '$node.props.renderSuggestionLabel',
       renderValueLabel: '$node.props.renderValueLabel',
-      maxItemsDisplayed: '$node.props.maxItemsDisplayed'
+      maxItemsDisplayed: '$node.props.maxItemsDisplayed',
+      showAction: '$node.props.showAction',
+      actionLabel: '$node.props.actionLabel',
+      onActionClick: '$node.props.onActionClick'
     }
   })),
   library: inputLibrary,
@@ -59,7 +62,10 @@ export const autocomplete: FormKitTypeDefinition = {
     'isOptionSelectable',
     'renderSuggestionLabel',
     'renderValueLabel',
-    'maxItemsDisplayed'
+    'maxItemsDisplayed',
+    'showAction',
+    'actionLabel',
+    'onActionClick'
   ],
   /**
    * Additional features that should be added to your input

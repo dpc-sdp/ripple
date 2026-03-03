@@ -1,4 +1,5 @@
 import { ref } from 'vue'
+import { action } from 'storybook/actions'
 import type { Meta, StoryObj } from '@storybook/vue3'
 import RplFormAutocomplete from './RplFormAutocomplete.vue'
 import { RplButton } from '@dpc-sdp/ripple-ui-core/vue'
@@ -109,11 +110,9 @@ const Template = (args: any) => ({
           @onChange="handleChange"
           :getSuggestions="getSuggestionsHandler"
           :getSuggestionValue="getSuggestionValueHandler"
-        >
-          <template #belowInput>
-            <button type="button" class="rpl-u-margin-t-2 rpl-text-link rpl-type-p">A button below the autocomplete input</button>
-          </template>
-        </RplFormAutocomplete>
+          actionLabel="Do something"
+          :showAction="true"
+        />
       </StorybookInputFixture>
       <RplButton class="rpl-u-margin-t-6">Button below to test keyboard behaviour (not part of autocomplete)</RplButton>
     `

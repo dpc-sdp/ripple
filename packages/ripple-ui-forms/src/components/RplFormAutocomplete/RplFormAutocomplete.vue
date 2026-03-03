@@ -30,6 +30,10 @@ interface Props {
   getSuggestionValue?: (suggestion: any) => Promise<any>
   renderSuggestionLabel?: (item: any) => string
   renderValueLabel?: (item: any) => string
+  showAction?: boolean
+  actionLabel?: string
+  onActionClick?: () => void
+  onSelectOption?: (optionValue: any) => void
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -46,11 +50,17 @@ const props = withDefaults(defineProps<Props>(), {
   getSuggestions: () => Promise.resolve([]),
   getSuggestionValue: (option) => Promise.resolve(option),
   renderSuggestionLabel: (item) => item?.label,
-  renderValueLabel: (item) => item?.label
+  renderValueLabel: (item) => item?.label,
+  showAction: false,
+  actionLabel: 'Action',
+  onActionClick: () => undefined,
+  onSelectOption: () => undefined
 })
 
 const emit = defineEmits<{
   (e: 'onChange', value: string | null): void
+  (e: 'onActionClick'): void
+  (e: 'onSelectOption', value: any): void
 }>()
 
 const { emitRplEvent } = useRippleEvent('rpl-form-autocomplete', emit)
@@ -99,6 +109,8 @@ const handleSelectOption = async (
   internalInputValue.value = optionLabel
 
   isOpen.value = false
+
+  useFormkitFriendlyEventEmitter(props, emit, 'onSelectOption', fullValue)
 
   if (props.isFreeText) {
     useFormkitFriendlyEventEmitter(props, emit, 'onChange', optionLabel)
@@ -255,6 +267,10 @@ const getSuggestions = async (input: string): Promise<any[]> => {
     return []
   }
 }
+
+const handleActionClick = () => {
+  useFormkitFriendlyEventEmitter(props, emit, 'onActionClick')
+}
 </script>
 
 <template>
@@ -392,7 +408,16 @@ const getSuggestions = async (input: string): Promise<any[]> => {
       </div>
     </div>
 
-    <slot name="belowInput" />
+    <slot name="belowInput">
+      <button
+        v-if="showAction"
+        type="button"
+        class="rpl-form-autocomplete__below-input-button rpl-text-link rpl-type-p rpl-u-margin-t-4"
+        @click="handleActionClick"
+      >
+        {{ actionLabel }}
+      </button>
+    </slot>
   </div>
 </template>
 

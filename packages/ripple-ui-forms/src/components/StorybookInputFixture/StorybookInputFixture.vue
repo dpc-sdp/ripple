@@ -64,7 +64,7 @@ const jsonValue = computed(() => {
   <div v-if="showFormValue">
     <div class="rpl-type-p rpl-u-margin-t-8">
       <h4 class="rpl-type-h4">Output value</h4>
-      <pre v-if="typeof value !== 'string'">{{ jsonValue }}</pre>
+      <pre>{{ jsonValue }}</pre>
     </div>
   </div>
 </template>

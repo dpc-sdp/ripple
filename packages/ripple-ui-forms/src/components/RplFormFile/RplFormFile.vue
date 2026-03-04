@@ -556,7 +556,7 @@ watch(
               <button
                 v-if="item.status === FileStatus.error"
                 type="button"
-                class="rpl-form-file__item-retry rpl-type-p rpl-form-file__item-link"
+                class="rpl-form-file__item-retry rpl-type-p rpl-form-file__item-link rpl-u-focusable-block"
                 :disabled="disabled"
                 :aria-label="`Retry ${item.file.name}`"
                 @click.prevent="retryFile(index)"

@@ -175,7 +175,7 @@
 }
 
 .rpl-form-file__item--pending .rpl-form-file__icon-status {
-  animation: rpl-file-spin calc(var(--rpl-motion-speed-10) * 2) linear infinite;
+  animation: rpl-file-spin calc(var(--rpl-motion-speed-10) * 3) linear infinite;
 }
 
 .rpl-form-file__item-error {

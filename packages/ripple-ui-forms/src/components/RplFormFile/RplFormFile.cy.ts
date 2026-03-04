@@ -56,8 +56,8 @@ const upload = (options?: {
 }) => {
   let { ref = null, status = 'success', error = null } = options || {}
 
-  return cy.stub().callsFake((id: string, file: File) => {
-    const _ref = ref ? `${ref}-${file.name.toLowerCase()}` : id
+  return cy.stub().callsFake((file: File, options: { id: string }) => {
+    const _ref = ref ? `${ref}-${file.name.toLowerCase()}` : options.id
 
     return Promise.resolve({ ref: _ref, status, error })
   })

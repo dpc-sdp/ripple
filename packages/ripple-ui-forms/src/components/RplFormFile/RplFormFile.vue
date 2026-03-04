@@ -49,8 +49,8 @@ interface Props {
   placeholderOver?: string
   onChange?: (value: FileItem[]) => void
   handleUpload?: (
-    id: string,
     file: File,
+    options: { id: string; fieldId: string; formId: string },
     onUpdate: (complete: number | boolean) => void
   ) => Promise<{ id: string; status: FileStatus; error?: string }>
 }
@@ -255,7 +255,13 @@ const uploadFile = async (item: FileItem): Promise<FileUpload> => {
   }
 
   try {
-    return await props.handleUpload(item.id, item.file, (complete: number) => {
+    const options = {
+      id: item.id,
+      formId: form?.id,
+      fieldId: props.id
+    }
+
+    return await props.handleUpload(item.file, options, (complete: number) => {
       const index = internalFiles.value.findIndex((f) => f.id === item.id)
 
       if (index !== -1) {

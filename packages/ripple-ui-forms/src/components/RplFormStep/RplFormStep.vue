@@ -11,7 +11,7 @@
     @node="setStepNode"
   >
     <button
-      v-if="number > 1 && prevButton"
+      v-if="(number > 1 || hasParentStep) && prevButton"
       type="button"
       class="rpl-form__step-prev rpl-u-focusable-block rpl-type-p rpl-u-margin-b-8"
       @click="handleBack"
@@ -79,6 +79,7 @@ interface Props {
   data?: object
   prevButton?: string
   nextButton?: string
+  hasParentStep?: boolean
   schema?: FormKitSchemaCondition | FormKitSchemaNode[] | undefined
   errors?: {
     fieldId: string
@@ -92,6 +93,7 @@ const props = withDefaults(defineProps<Props>(), {
   schema: undefined,
   nextButton: 'Continue',
   prevButton: 'Back',
+  hasParentStep: false,
   data: () => ({}),
   errors: () => [],
   beforeStepChange: undefined

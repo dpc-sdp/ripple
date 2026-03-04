@@ -161,6 +161,57 @@ const multiStepSchemaNoNextButton: any[] = [
   }
 ]
 
+const multiStepSchemaWithParentStep: any[] = [
+  {
+    $step: true,
+    id: 'eligibility',
+    key: 'eligibility',
+    name: 'eligibility',
+    title: 'Eligibility',
+    nextButton: 'Next',
+    schema: [
+      {
+        $formkit: 'RplFormText',
+        id: 'eligibility_name',
+        name: 'eligibility_name',
+        label: 'Name',
+        value: ''
+      }
+    ]
+  },
+  {
+    $step: true,
+    id: 'eligible',
+    key: 'eligible',
+    name: 'eligible',
+    title: 'Eligible',
+    parentStep: 'eligibility',
+    nextButton: 'Review',
+    prevButton: 'Back',
+    schema: [
+      {
+        $el: 'p',
+        children: 'You are eligible'
+      }
+    ]
+  },
+  {
+    $step: true,
+    id: 'review',
+    key: 'review',
+    name: 'review',
+    title: 'Review',
+    nextButton: 'Submit',
+    prevButton: 'Back',
+    schema: [
+      {
+        $formkit: 'RplFormReview',
+        key: 'review_component'
+      }
+    ]
+  }
+]
+
 describe('<RplForm />', () => {
   it('renders', () => {
     // see: https://test-utils.vuejs.org/guide/
@@ -273,5 +324,27 @@ describe('<RplForm />', () => {
     cy.contains('Step 2 of 3').should('be.visible')
     cy.get('.rpl-form__step-next').should('not.be.visible')
     cy.contains('button', 'Back').should('be.visible')
+  })
+
+  it('shows step count based on progress steps when using parentStep', () => {
+    cy.viewport('macbook-13')
+    cy.mount(RplForm, {
+      props: {
+        id: 'test-multi-step-parent-step-count',
+        schema: multiStepSchemaWithParentStep
+      }
+    })
+
+    cy.contains('h3', 'Eligibility').should('be.visible')
+    cy.contains('Step 1 of 2').should('be.visible')
+
+    cy.contains('button', 'Next').click()
+    cy.contains('h3', 'Eligible').should('be.visible')
+    cy.contains('Step 1 of 2').should('be.visible')
+    cy.contains('button', 'Back').should('be.visible')
+
+    cy.contains('button', 'Review').click()
+    cy.contains('h3', 'Review').should('be.visible')
+    cy.contains('Step 2 of 2').should('be.visible')
   })
 })

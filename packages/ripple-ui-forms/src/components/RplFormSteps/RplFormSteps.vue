@@ -25,19 +25,20 @@
         class="rpl-form__steps rpl-col-7-m rpl-col-start-6-m rpl-col-12"
       >
         <RplFormStep
-          v-for="(step, index) in schema"
+          v-for="step in schema"
           :id="step.key"
           :key="step.key"
           :form="id"
           :data="data"
-          :number="index + 1"
-          :total="schema.length"
+          :number="getStepNumber(step)"
+          :total="progressSteps.length"
           :name="step.key"
           :title="step.title"
           :schema="step.schema"
           :errors="errors"
           :nextButton="step.nextButton"
           :prevButton="step.prevButton"
+          :hasParentStep="!!step.parentStep"
           :activeStep="activeStep"
           :beforeStepChange="step.beforeStepChange"
         />
@@ -47,7 +48,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import { useMediaQuery } from '@vueuse/core'
 import type { BeforeStepChange } from '@formkit/addons'
 import { RplFormKitStepNode } from '../../types'
@@ -77,11 +78,20 @@ const props = withDefaults(defineProps<Props>(), {
 const formStepsRef = ref<HTMLElement>()
 const prefersReducedMotion = useMediaQuery('(prefers-reduced-motion: reduce)')
 
-const progressSteps =
-  props.schema &&
-  props.schema
+const progressSteps = computed(() => {
+  return (props.schema || [])
     .filter((item: RplFormKitStepNode) => item.$step && !item.parentStep)
     .map(({ id, title }) => ({ id, label: title }))
+})
+
+const getStepNumber = (step: RplFormKitStepNode) => {
+  const targetStepId = step.parentStep || step.id
+  const stepIndex = progressSteps.value.findIndex(
+    ({ id }) => id === targetStepId
+  )
+
+  return stepIndex >= 0 ? stepIndex + 1 : 1
+}
 
 const getActiveStep = (activeStep: string) => {
   const currentStep = props.schema?.find(

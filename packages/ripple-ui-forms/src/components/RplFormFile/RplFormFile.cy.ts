@@ -125,7 +125,7 @@ describe('RplFormFile', () => {
       'accept',
       'image/jpeg,image/png,.jpg,.png'
     )
-    cy.get(_.requirements).should('contain', 'Accepted file types: JPG, PNG')
+    cy.get(_.requirements).should('contain', 'Accepted file types: JPG or PNG')
 
     select([file('Test 1.png', 'image/png'), file('Test 2.txt', 'text/plain')])
 
@@ -137,10 +137,7 @@ describe('RplFormFile', () => {
 
     cy.get(_.items)
       .eq(1)
-      .should(
-        'contain',
-        'File is not in a supported format, please remove this file and select a JPG, PNG'
-      )
+      .should('contain', 'The selected file must be a JPG or PNG')
       .should('have.attr', 'data-status', 'invalid')
 
     expect(handleUpload).to.not.have.been.calledOnce
@@ -158,7 +155,7 @@ describe('RplFormFile', () => {
     cy.get(_.input).should('have.attr', 'accept', '.jpg,.png,.gif')
     cy.get(_.requirements).should(
       'contain',
-      'Accepted file types: JPG, PNG, GIF'
+      'Accepted file types: JPG, PNG or GIF'
     )
 
     select([
@@ -178,10 +175,7 @@ describe('RplFormFile', () => {
       .should('have.length', 2)
       .should('contain', 'Test 3.txt')
       .should('contain', 'Test 4.webp')
-      .should(
-        'contain',
-        'File is not in a supported format, please remove this file and select a JPG, PNG, GIF'
-      )
+      .should('contain', 'The selected file must be a JPG, PNG or GIF')
 
     expect(handleUpload).to.not.have.been.calledTwice
   })
@@ -258,12 +252,7 @@ describe('RplFormFile', () => {
 
     select(file('Test.txt'))
 
-    cy.get(_.items)
-      .eq(0)
-      .should(
-        'contain',
-        'File is not in a supported format, please remove this file and select a PNG'
-      )
+    cy.get(_.items).eq(0).should('contain', 'The selected file must be a PNG')
 
     cy.then(() => expect(handleUpload).not.to.have.been.called)
   })
@@ -311,7 +300,7 @@ describe('RplFormFile', () => {
       )
     )
 
-    cy.get(_.items).eq(0).should('contain', 'File is too large')
+    cy.get(_.items).eq(0).should('contain', 'The selected file must be smaller')
 
     cy.then(() => expect(handleUpload).not.to.have.been.called)
   })

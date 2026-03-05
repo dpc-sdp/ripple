@@ -165,9 +165,14 @@ const acceptedTypes = computed(() => {
 const acceptedExtensions = computed(() => {
   const { extensions } = parsedAllowedTypes.value
 
-  return extensions.length
-    ? extensions.map((ext) => ext.toUpperCase()).join(', ')
-    : null
+  if (!extensions.length) {
+    return null
+  }
+
+  return new Intl.ListFormat('en-AU', {
+    style: 'long',
+    type: 'disjunction'
+  }).format(extensions.map((ext) => ext.toUpperCase()))
 })
 
 // Helpers
@@ -232,11 +237,11 @@ const isValidType = (file: File): boolean => {
 
 const validateFile = (file: File) => {
   if (!isValidType(file)) {
-    return `File is not in a supported format, please remove this file and select a ${acceptedExtensions.value}`
+    return `The selected file must be a ${acceptedExtensions.value}`
   }
 
   if (props.maxSize && getFileSize(file.size) > props.maxSize) {
-    return `File is too large, please remove this file and select a file less than ${props.maxSize} MB`
+    return `The selected file must be smaller than ${props.maxSize} MB`
   }
 
   return null
@@ -250,7 +255,7 @@ const uploadFile = async (item: FileItem): Promise<FileUpload> => {
     return {
       id: item.id,
       status: FileStatus.error,
-      error: 'Sorry file cannot be uploaded at this time.'
+      error: 'Sorry file cannot be uploaded at this time'
     }
   }
 
@@ -272,7 +277,7 @@ const uploadFile = async (item: FileItem): Promise<FileUpload> => {
     return {
       id: item.id,
       status: FileStatus.error,
-      error: 'Error uploading file'
+      error: 'The selected file could not be uploaded – try again'
     }
   }
 }

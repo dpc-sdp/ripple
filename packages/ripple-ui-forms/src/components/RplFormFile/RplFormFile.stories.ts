@@ -30,7 +30,7 @@ const createMockUploadHandler = (
           const statuses = {
             error: {
               status: 'error',
-              error: 'Failed to upload file to server'
+              error: 'The selected file could not be uploaded – try again'
             },
             success: {
               ref: `${options.id}_success`,

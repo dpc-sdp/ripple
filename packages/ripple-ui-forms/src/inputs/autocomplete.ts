@@ -35,7 +35,8 @@ export const autocomplete: FormKitTypeDefinition = {
       maxItemsDisplayed: '$node.props.maxItemsDisplayed',
       showAction: '$node.props.showAction',
       actionLabel: '$node.props.actionLabel',
-      onActionClick: '$node.props.onActionClick'
+      onActionClick: '$node.props.onActionClick',
+      onSelectOption: '$node.props.onSelectOption'
     }
   })),
   library: inputLibrary,
@@ -65,7 +66,8 @@ export const autocomplete: FormKitTypeDefinition = {
     'maxItemsDisplayed',
     'showAction',
     'actionLabel',
-    'onActionClick'
+    'onActionClick',
+    'onSelectOption'
   ],
   /**
    * Additional features that should be added to your input

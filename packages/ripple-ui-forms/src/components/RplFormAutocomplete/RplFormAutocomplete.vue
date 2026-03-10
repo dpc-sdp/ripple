@@ -10,13 +10,11 @@ import useFormkitFriendlyEventEmitter from '../../composables/useFormkitFriendly
 
 interface Props {
   id: string
-  label?: string
   labelId: string
   value?: string | string[]
   onChange?: (value: string | null) => void
   disabled?: boolean
   variant?: 'default' | 'reverse'
-  multiple?: boolean
   placeholder?: string
   required?: boolean
   invalid?: boolean
@@ -37,9 +35,9 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
+  value: undefined,
   variant: 'default',
   showNoResults: false,
-  label: 'Search',
   onChange: () => undefined,
   maxItemsDisplayed: 6,
   placeholder: '',
@@ -65,7 +63,7 @@ const emit = defineEmits<{
 
 const { emitRplEvent } = useRippleEvent('rpl-form-autocomplete', emit)
 
-const internalInputValue = ref('')
+const internalInputValue = ref<string | string[]>('')
 const containerRef = ref(null)
 const inputRef: Ref<HTMLInputElement | null> = ref(null)
 const menuRef = ref(null)
@@ -278,6 +276,7 @@ const handleActionClick = () => {
     :class="{
       'rpl-form-autocomplete': true,
       [`rpl-form-autocomplete--${variant}`]: !!variant,
+      [`rpl-form-autocomplete--disabled`]: disabled,
       'rpl-form-autocomplete--with-clear-btn': !!value || !!internalInputValue,
       [`rpl-form-autocomplete--icon-${iconPosition}`]: true
     }"
@@ -322,6 +321,7 @@ const handleActionClick = () => {
           ref="inputRef"
           v-model="internalInputValue"
           :aria-owns="menuId"
+          :disabled="disabled"
           autocomplete="off"
           aria-autocomplete="list"
           :aria-labelledby="labelId"

@@ -1,5 +1,4 @@
 import { ref } from 'vue'
-import { action } from 'storybook/actions'
 import type { Meta, StoryObj } from '@storybook/vue3'
 import RplFormAutocomplete from './RplFormAutocomplete.vue'
 import { RplButton } from '@dpc-sdp/ripple-ui-core/vue'
@@ -22,6 +21,9 @@ const mockSuggestionsHandler = async (inputValue: string) => {
   if (!inputValue) {
     return []
   }
+
+  // simulate delay
+  await new Promise((resolve) => setTimeout(resolve, 250))
 
   return sports.filter((sport) =>
     sport.label.toLowerCase().includes(inputValue.toLowerCase())
@@ -123,6 +125,7 @@ export default {
   component: RplFormAutocomplete,
   render: Template,
   args: {
+    id: 'example-id',
     placeholder: 'Select',
     labelId: 'example-label-id'
   }
@@ -131,7 +134,7 @@ export default {
 type Story = StoryObj<typeof RplFormAutocomplete>
 
 export const FreeTextStory: Story = {
-  name: 'free text',
+  name: 'Free text',
   args: {
     id: 'free-text',
     isFreeText: true
@@ -139,9 +142,16 @@ export const FreeTextStory: Story = {
 }
 
 export const ObjectStory: Story = {
-  name: 'object value',
+  name: 'Object value',
   args: {
     id: 'object-value',
     isFreeText: false
+  }
+}
+
+export const Inactive: Story = {
+  args: {
+    disabled: true,
+    iconPosition: 'left'
   }
 }

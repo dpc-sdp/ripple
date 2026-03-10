@@ -52,7 +52,7 @@ import { useMediaQuery } from '@vueuse/core'
 import type { BeforeStepChange } from '@formkit/addons'
 import { RplFormKitStepNode } from '../../types'
 import RplFormStep from './../RplFormStep/RplFormStep.vue'
-import { RplProgress } from '@dpc-sdp/ripple-ui-core/vue'
+import RplProgress from '@dpc-sdp/ripple-ui-core/components/progress/RplProgress.vue'
 
 interface Props {
   id: string

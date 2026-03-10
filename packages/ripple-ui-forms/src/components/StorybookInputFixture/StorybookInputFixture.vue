@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import RplFormLabel from './../RplFormLabel/RplFormLabel.vue'
 import RplFormValidationError from './../RplFormValidationError/RplFormValidationError.vue'
-import { provide } from 'vue'
+import { computed, provide } from 'vue'
 
 interface Props {
   useFieldset?: boolean
@@ -9,14 +9,18 @@ interface Props {
   label?: string
   labelId?: string
   fieldId?: string
+  value?: any
+  showFormValue?: boolean
 }
 
-withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<Props>(), {
   useFieldset: false,
   invalid: false,
   label: 'Label',
   labelId: null,
-  fieldId: null
+  fieldId: null,
+  value: null,
+  showFormValue: false
 })
 
 const fakeError = { test: { value: 'Field is invalid' } }
@@ -24,6 +28,10 @@ const fakeError = { test: { value: 'Field is invalid' } }
 provide('form', {
   id: 'sb-form',
   name: 'SB Form'
+})
+
+const jsonValue = computed(() => {
+  return JSON.stringify(props.value, null, 2)
 })
 </script>
 
@@ -53,4 +61,10 @@ provide('form', {
       </div>
     </div>
   </form>
+  <div v-if="showFormValue">
+    <div class="rpl-type-p rpl-u-margin-t-8">
+      <h4 class="rpl-type-h4">Output value</h4>
+      <pre>{{ jsonValue }}</pre>
+    </div>
+  </div>
 </template>

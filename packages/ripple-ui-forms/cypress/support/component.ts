@@ -36,6 +36,7 @@ declare global {
        * @example cy.mount(MyComponent)
        */
       mount: typeof mount
+      mountComponent: typeof mount
     }
   }
 }
@@ -62,5 +63,13 @@ Cypress.Commands.add('mount', ((component: any, options: any = {}) => {
   )
 }) as typeof mount)
 
+// Useful when you don't want the extra form wrapper
+Cypress.Commands.add('mountComponent', ((...args: Parameters<typeof mount>) => {
+  return mount(...args).then(({ wrapper }) => {
+    return cy.wrap(wrapper).as('vue')
+  })
+}) as any)
+
 // Example use:
 // cy.mount(MyComponent)
+// cy.mountComponent(MyComponent)

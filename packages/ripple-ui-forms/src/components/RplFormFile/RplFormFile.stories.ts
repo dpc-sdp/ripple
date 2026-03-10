@@ -12,8 +12,8 @@ const createMockUploadHandler = (
   status: string = 'success'
 ) => {
   return (
-    id: string,
     file: File,
+    options: { id: string },
     onUpdate: (complete: number) => void
   ): Promise<{ ref?: string; status: string; error?: string }> => {
     const randomSpeed = Math.random() * 15 + 1
@@ -30,10 +30,10 @@ const createMockUploadHandler = (
           const statuses = {
             error: {
               status: 'error',
-              error: 'Failed to upload file to server'
+              error: 'The selected file could not be uploaded – try again'
             },
             success: {
-              ref: id + '_success',
+              ref: `${options.id}_success`,
               status: 'success'
             }
           }

@@ -54,38 +54,7 @@ const initiallyExpandedItems = computed<string[]>((): string[] => {
     return []
   }
 
-  const activeItems = getActiveItems(props.items)
-
-  // There can be multiple active items, but only one used for determining the expanded state of the menu, so we take the first one
-  const mainActiveItem = activeItems.length ? activeItems[0] : null
-
-  // This function recursively searches the items to find the chain of parent IDs for the active item, which needs to be fed into the 'useExpandableState' composable to ensure the correct items are expanded on initial render
-  // For example, if item '4' is active, which is a child of '3', which is a child of '1', then we need to return ['4', '3', '1'] as the active chain so that when we render the menu, items 1 and 3 are expanded to reveal item 4 as active
-  const getParentChain = (
-    itemId: string,
-    items: IRplVerticalNavItem[],
-    chain: string[] = []
-  ): string[] | null => {
-    for (const item of items) {
-      if (item.id === itemId) {
-        return [...chain]
-      }
-      if (item.items) {
-        const result = getParentChain(itemId, item.items, [...chain, item.id])
-        if (result) {
-          return result
-        }
-      }
-    }
-
-    return null
-  }
-
-  const expandedItemChain = mainActiveItem
-    ? getParentChain(mainActiveItem, props.items)
-    : []
-
-  return expandedItemChain || []
+  return getActiveItems(props.items)
 })
 
 const { isItemExpanded, toggleItem } = useExpandableState(

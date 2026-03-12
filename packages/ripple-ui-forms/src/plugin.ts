@@ -22,7 +22,8 @@ import {
   file,
   fieldset,
   hidden,
-  review
+  review,
+  autocomplete
 } from './inputs/index'
 
 const rplFormInputs = () => {
@@ -53,6 +54,8 @@ rplFormInputs.library = (node) => {
       return node.define(optionButtons)
     case 'RplFormDropdown':
       return node.define(dropdown)
+    case 'RplFormAutocomplete':
+      return node.define(autocomplete)
     case 'RplFormDate':
       return node.define(date)
     case 'RplFormDatePicker':

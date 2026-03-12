@@ -283,6 +283,34 @@ export const DefaultStory: Story = {
         ]
       },
       {
+        $formkit: 'RplFormAutocomplete',
+        name: 'autocomplete-free-text',
+        label: 'Autocomplete with free text',
+        id: 'autocomplete-free-text',
+        help: '<p>Enter a value</p>',
+        getSuggestions: () =>
+          Promise.resolve([
+            { id: 'thing-1', label: 'Thing 1' },
+            { id: 'thing-2', label: 'Thing 2' },
+            { id: 'thing-3', label: 'Thing 3' }
+          ]),
+        isFreeText: true
+      },
+      {
+        $formkit: 'RplFormAutocomplete',
+        name: 'autocomplete-object-value',
+        label: 'Autocomplete with object value',
+        id: 'autocomplete-object-value',
+        help: '<p>Enter a value</p>',
+        getSuggestions: () =>
+          Promise.resolve([
+            { id: 'thing-1', label: 'Thing 1' },
+            { id: 'thing-2', label: 'Thing 2' },
+            { id: 'thing-3', label: 'Thing 3' }
+          ]),
+        isFreeText: false
+      },
+      {
         $formkit: 'RplFormDatePicker',
         multiple: true,
         id: 'birthdate',

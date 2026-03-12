@@ -9,7 +9,7 @@ interface Props {
   label?: string
   labelId?: string
   fieldId?: string
-  value?: string | string[]
+  value?: any
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -29,10 +29,17 @@ provide('form', {
 })
 
 const hasValue = computed(() => {
-  return (
-    (Array.isArray(props.value) && props.value.length) ||
-    (typeof props.value === 'string' && props.value)
-  )
+  if (props.value === null) {
+    return false
+  }
+  if (Array.isArray(props.value)) {
+    return props.value.length > 0
+  }
+  if (typeof props.value === 'object') {
+    return Object.keys(props.value).length > 0
+  }
+
+  return props.value ?? false
 })
 </script>
 
@@ -65,10 +72,7 @@ const hasValue = computed(() => {
   <div v-if="hasValue">
     <div class="rpl-type-p rpl-u-margin-t-8">
       <h4 class="rpl-type-h4">Output value</h4>
-      <p v-if="typeof value === 'string'">{{ value }}</p>
-      <ul v-else>
-        <li v-for="(item, index) in value" :key="index">{{ item }}</li>
-      </ul>
+      <pre>{{ value }}</pre>
     </div>
   </div>
 </template>

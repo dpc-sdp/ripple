@@ -3,13 +3,16 @@ export default { inheritAttrs: false }
 </script>
 
 <script setup lang="ts">
-import { ref, watch, nextTick, computed, Ref } from 'vue'
+import { ref, watch, nextTick, computed, Ref, inject } from 'vue'
 import { onClickOutside } from '@vueuse/core'
-import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
+import { type rplEventPayload, useRippleEvent } from '@dpc-sdp/ripple-ui-core'
 import useFormkitFriendlyEventEmitter from '../../composables/useFormkitFriendlyEventEmitter'
+import { sanitisePIIField } from '../../lib/sanitisePII'
+import { IRplFormProvidedState } from '../../types'
 
 interface Props {
   id: string
+  label?: string
   labelId: string
   value?: string | string[]
   onChange?: (value: string | null) => void
@@ -32,10 +35,13 @@ interface Props {
   actionLabel?: string
   onActionClick?: () => void
   onSelectOption?: (optionValue: any) => void
+  globalEvents?: boolean
+  pii?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
   value: undefined,
+  label: undefined,
   variant: 'default',
   showNoResults: false,
   onChange: () => undefined,
@@ -52,16 +58,21 @@ const props = withDefaults(defineProps<Props>(), {
   showAction: false,
   actionLabel: 'Action',
   onActionClick: () => undefined,
-  onSelectOption: () => undefined
+  onSelectOption: () => undefined,
+  globalEvents: true,
+  pii: true
 })
 
 const emit = defineEmits<{
   (e: 'onChange', value: string | null): void
   (e: 'onActionClick'): void
   (e: 'onSelectOption', value: any): void
+  (e: 'update', payload: rplEventPayload & { action: 'update' }): void
 }>()
 
 const { emitRplEvent } = useRippleEvent('rpl-form-autocomplete', emit)
+
+const form: IRplFormProvidedState | undefined = inject('form')
 
 const internalInputValue = ref<string | string[]>('')
 const containerRef = ref(null)
@@ -77,6 +88,7 @@ const activeOptionId = ref<string | null>(null)
 const isInputFocused = ref(false)
 
 const suggestions = ref<any[]>([])
+const gettingSuggestions = ref(false)
 
 onClickOutside(containerRef, () => {
   handleClose(false)
@@ -115,6 +127,19 @@ const handleSelectOption = async (
   } else {
     useFormkitFriendlyEventEmitter(props, emit, 'onChange', fullValue)
   }
+
+  emitRplEvent(
+    'update',
+    {
+      action: 'update',
+      id: props.id,
+      label: props?.label,
+      contextId: form?.id,
+      contextName: form?.name,
+      value: sanitisePIIField(props.pii, optionLabel)
+    },
+    { global: props.globalEvents }
+  )
 }
 
 const getDefaultActiveId = (): string => {
@@ -233,9 +258,10 @@ const focusOption = (optionId) => {
 watch(
   () => props.value,
   (newModelValue) => {
-    internalInputValue.value = props.isFreeText
-      ? newModelValue
-      : props.renderSuggestionLabel(newModelValue)
+    internalInputValue.value =
+      props.isFreeText || !newModelValue
+        ? newModelValue
+        : props.renderSuggestionLabel(newModelValue)
   },
   { immediate: true }
 )
@@ -259,10 +285,14 @@ const getSuggestions = async (input: string): Promise<any[]> => {
     return []
   }
 
+  gettingSuggestions.value = true
+
   try {
     return await props.getSuggestions(input)
   } catch (e) {
     return []
+  } finally {
+    gettingSuggestions.value = false
   }
 }
 
@@ -288,7 +318,6 @@ const handleActionClick = () => {
       :class="{
         'rpl-form-autocomplete__inner': true,
         'rpl-u-focusable-outline': true,
-        'rpl-u-focusable-outline--no-border': true,
         'rpl-u-focusable--force-on': isOpen
       }"
       @keydown.up.prevent="handleArrowUp"
@@ -301,7 +330,7 @@ const handleActionClick = () => {
         <RplIcon
           v-if="iconPosition === 'left'"
           name="icon-search"
-          size="m"
+          size="s"
           role="presentation"
           class="rpl-form-autocomplete__icon rpl-form-autocomplete__icon--left"
         />
@@ -354,6 +383,7 @@ const handleActionClick = () => {
         v-if="
           showNoResults &&
           suggestions.length === 0 &&
+          !gettingSuggestions &&
           !!internalInputValue &&
           isOpen
         "
@@ -412,7 +442,7 @@ const handleActionClick = () => {
       <button
         v-if="showAction"
         type="button"
-        class="rpl-form-autocomplete__below-input-button rpl-text-link rpl-type-p rpl-u-margin-t-4"
+        class="rpl-form-autocomplete__below-input-button rpl-u-focusable-block rpl-text-link rpl-type-label rpl-u-margin-t-3"
         @click="handleActionClick"
       >
         {{ actionLabel }}

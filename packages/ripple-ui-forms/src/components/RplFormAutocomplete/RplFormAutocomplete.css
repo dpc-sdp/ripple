@@ -125,8 +125,8 @@
 
   .rpl-form-autocomplete--icon-left & {
     padding-left: calc(
-      var(--local-autocomplete-inline-padding) + var(--rpl-sp-9) -
-        var(--rpl-sp-1)
+      var(--local-autocomplete-inline-padding) + var(--rpl-sp-4) +
+        var(--rpl-sp-2) /* default padding plus icon width plus icon margin */
     );
   }
 }

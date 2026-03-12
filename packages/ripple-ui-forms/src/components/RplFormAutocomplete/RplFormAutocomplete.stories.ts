@@ -22,8 +22,9 @@ const mockSuggestionsHandler = async (inputValue: string) => {
     return []
   }
 
-  // simulate delay
-  await new Promise((resolve) => setTimeout(resolve, 250))
+  // Simulate delay
+  const randomDelay = Math.floor(Math.random() * 500)
+  await new Promise((resolve) => setTimeout(resolve, randomDelay))
 
   return sports.filter((sport) =>
     sport.label.toLowerCase().includes(inputValue.toLowerCase())
@@ -89,31 +90,36 @@ const Template = (args: any) => ({
   components: { RplFormAutocomplete, RplButton, StorybookInputFixture },
   setup() {
     const currentValue = ref(args.value || null)
+    const showAction = ref(args.showAction || false)
 
     const getSuggestionsHandler = mockSuggestionsHandler
     const getSuggestionValueHandler = mockSuggestionValueHandler
 
     const handleChange = (value: any) => (currentValue.value = value)
+    const handleActionClick = () => (currentValue.value = null)
 
     return {
       args,
       getSuggestionsHandler,
       getSuggestionValueHandler,
       handleChange,
-      currentValue
+      currentValue,
+      showAction,
+      handleActionClick
     }
   },
   template: `
       <RplButton class="rpl-u-margin-b-6">Button above to test keyboard behaviour (not part of autocomplete)</RplButton>
-       <StorybookInputFixture :showFormValue="true" :invalid="args.invalid" :labelId="args.labelId" :fieldId="args.id" :value="currentValue">
+       <StorybookInputFixture :invalid="args.invalid" :labelId="args.labelId" :fieldId="args.id" :value="currentValue">
         <RplFormAutocomplete
           v-bind="args"
           :value="currentValue"
           @onChange="handleChange"
           :getSuggestions="getSuggestionsHandler"
           :getSuggestionValue="getSuggestionValueHandler"
-          actionLabel="Do something"
-          :showAction="true"
+          actionLabel="Clear value"
+          :showAction="showAction"
+          @onActionClick="handleActionClick"
         />
       </StorybookInputFixture>
       <RplButton class="rpl-u-margin-t-6">Button below to test keyboard behaviour (not part of autocomplete)</RplButton>
@@ -153,5 +159,23 @@ export const Inactive: Story = {
   args: {
     disabled: true,
     iconPosition: 'left'
+  }
+}
+
+export const WithSearchIcon: Story = {
+  args: {
+    iconPosition: 'left'
+  }
+}
+
+export const WithNoResultsMessage: Story = {
+  args: {
+    showNoResults: true
+  }
+}
+
+export const WithCustomAction: Story = {
+  args: {
+    showAction: true
   }
 }

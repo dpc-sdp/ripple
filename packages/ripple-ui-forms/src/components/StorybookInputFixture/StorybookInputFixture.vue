@@ -10,7 +10,6 @@ interface Props {
   labelId?: string
   fieldId?: string
   value?: any
-  showFormValue?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -19,8 +18,7 @@ const props = withDefaults(defineProps<Props>(), {
   label: 'Label',
   labelId: null,
   fieldId: null,
-  value: null,
-  showFormValue: false
+  value: null
 })
 
 const fakeError = { test: { value: 'Field is invalid' } }
@@ -30,8 +28,18 @@ provide('form', {
   name: 'SB Form'
 })
 
-const jsonValue = computed(() => {
-  return JSON.stringify(props.value, null, 2)
+const hasValue = computed(() => {
+  if (props.value === null) {
+    return false
+  }
+  if (Array.isArray(props.value)) {
+    return props.value.length > 0
+  }
+  if (typeof props.value === 'object') {
+    return Object.keys(props.value).length > 0
+  }
+
+  return props.value ?? false
 })
 </script>
 
@@ -61,10 +69,10 @@ const jsonValue = computed(() => {
       </div>
     </div>
   </form>
-  <div v-if="showFormValue">
+  <div v-if="hasValue">
     <div class="rpl-type-p rpl-u-margin-t-8">
       <h4 class="rpl-type-h4">Output value</h4>
-      <pre>{{ jsonValue }}</pre>
+      <pre>{{ value }}</pre>
     </div>
   </div>
 </template>

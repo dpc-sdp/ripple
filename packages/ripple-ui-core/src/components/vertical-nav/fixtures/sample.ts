@@ -81,7 +81,6 @@ export const verticalNavExample2 = [
     id: '1',
     text: 'First level',
     url: '#',
-    active: true,
     items: [
       {
         id: '3',
@@ -135,11 +134,13 @@ export const verticalNavExample3 = [
     id: '1',
     text: 'First level',
     url: '#',
+    active: true,
     items: [
       {
         id: '3',
         text: 'Second level',
         url: '#',
+        active: true,
         items: [
           {
             id: '4',

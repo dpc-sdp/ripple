@@ -15,27 +15,24 @@ describe('RplVerticalNav', () => {
     cy.mount(RplVerticalNav as any, { props })
   })
 
-  it('top level items are highlighted and closed when active', () => {
-    console.log('verticalNavExample2', verticalNavExample2)
-    cy.mount(RplVerticalNav as any, {
-      props: { ...props, items: verticalNavExample2 }
-    })
+  it('top level items are highlighted when active and child items are displayed', () => {
+    cy.mount(RplVerticalNav as any, { props })
 
     cy.get('.rpl-vertical-nav__list-item').first().as('item')
     cy.get('@item').find('.rpl-vertical-nav__toggle').as('toggle')
     cy.get('@item').find('.rpl-vertical-nav__item').as('link')
 
     cy.get('@link').should('have.class', 'rpl-vertical-nav__item--active')
-    cy.get('@toggle').should('have.attr', 'aria-expanded', 'false')
+    cy.get('@toggle').should('have.attr', 'aria-expanded', 'true')
 
     cy.get('@item')
       .find(
         '.rpl-vertical-nav__list--level-2, .rpl-vertical-nav__list--level-3, .rpl-vertical-nav__list--level-4, .rpl-vertical-nav__list--level-5'
       )
-      .should('be.not.be.visible')
+      .should('be.visible')
   })
 
-  it('a deeply nested item is highlighted when active, and the parent items are expanded (toggleLevels: 3)', () => {
+  it('deeply nested item is highlighted when active, and the parent items are expanded (toggleLevels: 3)', () => {
     cy.mount(RplVerticalNav as any, {
       props: { ...props, items: verticalNavExample3, toggleLevels: 3 }
     })
@@ -44,14 +41,17 @@ describe('RplVerticalNav', () => {
       .contains('NESTED_ACTIVE_TEST')
       .parent()
       .as('item')
+    cy.get('@item').should('be.visible')
     cy.get('@item').find('.rpl-vertical-nav__toggle').as('toggle')
     cy.get('@item').find('.rpl-vertical-nav__item').as('link')
 
     cy.get('@link').should('have.class', 'rpl-vertical-nav__item--active')
-    cy.get('@toggle').should('have.attr', 'aria-expanded', 'false')
+    cy.get('@toggle').should('have.attr', 'aria-expanded', 'true')
+
+    cy.get('.rpl-vertical-nav__list--level-5').should('be.visible')
   })
 
-  it('a deeply nested item is highlighted when active, and the parent items are expanded (toggleLevels: 2)', () => {
+  it('deeply nested item is highlighted when active, and the parent items are expanded (toggleLevels: 2)', () => {
     cy.mount(RplVerticalNav as any, {
       props: { ...props, items: verticalNavExample3, toggleLevels: 2 }
     })
@@ -60,10 +60,13 @@ describe('RplVerticalNav', () => {
       .contains('NESTED_ACTIVE_TEST')
       .parent()
       .as('item')
+    cy.get('@item').should('be.visible')
     cy.get('@item').find('.rpl-vertical-nav__toggle').should('not.exist')
     cy.get('@item').find('.rpl-vertical-nav__item').as('link')
 
     cy.get('@link').should('have.class', 'rpl-vertical-nav__item--active')
+
+    cy.get('.rpl-vertical-nav__list--level-5').should('be.visible')
   })
 
   it('a deeply nested item is highlighted when active, and the parent items are expanded (toggleLevels: 1)', () => {
@@ -75,10 +78,13 @@ describe('RplVerticalNav', () => {
       .contains('NESTED_ACTIVE_TEST')
       .parent()
       .as('item')
+    cy.get('@item').should('be.visible')
     cy.get('@item').find('.rpl-vertical-nav__toggle').should('not.exist')
     cy.get('@item').find('.rpl-vertical-nav__item').as('link')
 
     cy.get('@link').should('have.class', 'rpl-vertical-nav__item--active')
+
+    cy.get('.rpl-vertical-nav__list--level-5').should('be.visible')
   })
 
   it('a deeply nested item is highlighted when active, and the parent items are expanded (toggleLevels: 0)', () => {
@@ -97,7 +103,9 @@ describe('RplVerticalNav', () => {
   })
 
   it('toggles the display of top level nav items', () => {
-    cy.mount(RplVerticalNav as any, { props })
+    cy.mount(RplVerticalNav as any, {
+      props: { ...props, items: verticalNavExample2 }
+    })
 
     cy.get('.rpl-vertical-nav__list-item').first().as('item')
 
@@ -105,10 +113,16 @@ describe('RplVerticalNav', () => {
 
     cy.get('@item').find('.rpl-vertical-nav__toggle').click()
     cy.get('@item').find('.rpl-expandable').should('be.visible')
+
+    cy.get('@item')
+      .find('.rpl-vertical-nav__list--level-5')
+      .should('be.visible')
   })
 
-  it.only('toggles the display of nav items to 3 levels', () => {
-    cy.mount(RplVerticalNav as any, { props: { ...props, toggleLevels: 3 } })
+  it('toggles the display of nav items to 3 levels', () => {
+    cy.mount(RplVerticalNav as any, {
+      props: { ...props, items: verticalNavExample2, toggleLevels: 3 }
+    })
 
     cy.get('.rpl-vertical-nav__list-item').first().as('item')
 
@@ -129,6 +143,11 @@ describe('RplVerticalNav', () => {
       cy.get(
         '.rpl-vertical-nav__list--level-4, .rpl-vertical-nav__list--level-5'
       ).should('be.visible')
+
+      cy.get('[aria-label="Toggle First level menu"]').click()
+      cy.get('@item')
+        .find('.rpl-vertical-nav__list--level-2')
+        .should('be.hidden')
     })
   })
 })

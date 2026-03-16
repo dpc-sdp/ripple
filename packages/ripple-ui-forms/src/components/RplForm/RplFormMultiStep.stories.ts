@@ -234,10 +234,27 @@ export const DefaultStory: Story = {
         title: 'Review',
         nextButton: 'Submit',
         prevButton: 'Go backwards',
+        beforeStepChange: handleEligibilityStepChange,
         schema: [
           {
             $formkit: 'RplFormReview',
             key: 'review_component'
+          },
+          {
+            $formkit: 'RplFormCheckbox',
+            id: 'terms',
+            name: 'terms',
+            label: 'Terms',
+            checkboxLabel: 'I accept the terms',
+            validation: [['required']]
+          },
+          {
+            $formkit: 'RplFormActions',
+            name: 'submit',
+            variant: 'filled',
+            label: 'Submit',
+            id: 'actions',
+            displayResetButton: true
           }
         ]
       }

@@ -103,7 +103,7 @@ const items = computed<FormReviewItem[]>(() => {
     values = form.stepsId ? values[form.stepsId] || values : values
 
     const stepItems = (form?.schema || []).filter(
-      (item) => (<RplFormKitStepNode>item).$step
+      (item: RplFormKitStepNode) => item.$step && item.inReview !== false
     ) as RplFormKitStepNode[]
 
     const stepItemsProcessed = stepItems.map((step) => {

@@ -24,4 +24,5 @@ export type RplFormKitStepNode = {
   schema: FormKitSchemaNode[]
   parentStep?: string
   beforeStepChange?: (data: any) => Promise<boolean> | boolean
+  inReview?: boolean
 } & FormKitSchemaProps

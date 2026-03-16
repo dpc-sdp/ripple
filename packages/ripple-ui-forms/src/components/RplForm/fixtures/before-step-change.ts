@@ -4,27 +4,6 @@ export const handleEligibilityStepChange = async ({
   targetStep,
   delta
 }: StepChangeData) => {
-  console.log('beforeStepChange', { currentStep, targetStep, delta })
-
-  const parentBeforeStepChange =
-    currentStep.node.parent?.props?.beforeStepChange
-
-  if (typeof parentBeforeStepChange === 'function') {
-    const isParentAllowed = await parentBeforeStepChange({
-      currentStep,
-      targetStep,
-      delta
-    })
-
-    if (!isParentAllowed) {
-      return false
-    }
-  }
-
-  if (delta > 0 && !currentStep.isValid) {
-    return false
-  }
-
   // Delta < 0 indicates navigating backwards.
   // We want to allow users to navigate back to the eligibility step, but prevent navigating back to the branch steps once they've moved past them.
   if (delta < 0) {

@@ -68,6 +68,7 @@ import useFormFocus from '../../composables/useFormFocus'
 import { useEventContext } from '@dpc-sdp/ripple-ui-core'
 import RplFormAlert from './../RplFormAlert/RplFormAlert.vue'
 import { IRplFormProvidedState } from '../../types'
+import type { BeforeStepChange } from '@formkit/addons'
 
 interface Props {
   form: string
@@ -85,7 +86,7 @@ interface Props {
     text: string
   }[]
   activeStep: string | undefined
-  beforeStepChange?: (prev: any, next: any) => {} | undefined
+  beforeStepChange?: BeforeStepChange
 }
 
 const props = withDefaults(defineProps<Props>(), {

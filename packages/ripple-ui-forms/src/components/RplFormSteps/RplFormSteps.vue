@@ -6,7 +6,6 @@
     type="multi-step"
     tab-style="progress"
     :allow-incomplete="true"
-    :before-step-change="handleStepChange"
   >
     <template #tabs="{ activeStep }">
       <RplProgress
@@ -25,13 +24,13 @@
         class="rpl-form__steps rpl-col-7-m rpl-col-start-6-m rpl-col-12"
       >
         <RplFormStep
-          v-for="(step, index) in schema"
+          v-for="step in schema"
           :id="step.key"
           :key="step.key"
           :form="id"
           :data="data"
-          :number="index + 1"
-          :total="schema.length"
+          :number="getStepNumber(step)"
+          :total="progressSteps.length"
           :name="step.key"
           :title="step.title"
           :schema="step.schema"
@@ -39,7 +38,7 @@
           :nextButton="step.nextButton"
           :prevButton="step.prevButton"
           :activeStep="activeStep"
-          :beforeStepChange="step.beforeStepChange"
+          :beforeStepChange="(data: StepChangeData) => handleStep(data, step)"
         />
       </div>
     </template>
@@ -47,9 +46,9 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import { useMediaQuery } from '@vueuse/core'
-import type { BeforeStepChange } from '@formkit/addons'
+import type { BeforeStepChange, StepChangeData } from '@formkit/addons'
 import { RplFormKitStepNode } from '../../types'
 import RplFormStep from './../RplFormStep/RplFormStep.vue'
 import RplProgress from '@dpc-sdp/ripple-ui-core/components/progress/RplProgress.vue'
@@ -77,22 +76,47 @@ const props = withDefaults(defineProps<Props>(), {
 const formStepsRef = ref<HTMLElement>()
 const prefersReducedMotion = useMediaQuery('(prefers-reduced-motion: reduce)')
 
-const progressSteps =
-  props.schema &&
-  props.schema
-    .filter((item: RplFormKitStepNode) => item.$step && !item.parentStep)
-    .map(({ id, title }) => ({ id, label: title }))
+// Runs the primary step change check i.e., check for error messages
+// followed by an optional custom step change check
+const handleStep = async (data: StepChangeData, step: RplFormKitStepNode) => {
+  const isStepAllowed = await props.handleStepChange(data)
 
-const getActiveStep = (activeStep: string) => {
-  const currentStep = props.schema?.find(
-    (step) => step.key === activeStep || step.name === activeStep
-  )
-
-  if (!currentStep?.parentStep) {
-    return activeStep
+  if (!isStepAllowed) {
+    return false
   }
 
-  return currentStep.parentStep
+  if (typeof step?.beforeStepChange === 'function') {
+    return step.beforeStepChange(data)
+  }
+
+  return true
+}
+
+const progressSteps = computed(() => {
+  return (props.schema || [])
+    .filter((item: RplFormKitStepNode) => item.$step && !item.parentStep)
+    .map(({ id, title }) => ({ id, label: title }))
+})
+
+// Returns either the active step id or the parent step id if present
+const getActiveStep = (activeStep: string) => {
+  const schema = props.schema || []
+  let index = schema.findIndex(
+    (item: RplFormKitStepNode) => item.id === activeStep
+  )
+
+  if (schema[index]?.parentStep) {
+    return schema[index].parentStep
+  }
+
+  return activeStep
+}
+
+// Returns the current step number, this maybe the parent step number if present
+const getStepNumber = (step: RplFormKitStepNode) => {
+  const id = step.parentStep || step.id
+
+  return progressSteps.value.findIndex((item) => item.id === id) + 1
 }
 
 const focus = () => {

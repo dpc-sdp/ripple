@@ -7,6 +7,7 @@
     :input-errors="inputErrors"
     :previous-label="prevButton"
     :next-label="nextButton"
+    @node="setStepNode"
   >
     <button
       v-if="number > 1"
@@ -60,10 +61,11 @@ import { inject, nextTick, type Ref, ref, watch } from 'vue'
 import {
   type FormKitSchemaCondition,
   type FormKitSchemaNode,
-  getNode
+  type FormKitNode
 } from '@formkit/core'
 import useFormFocus from '../../composables/useFormFocus'
 import { useEventContext } from '@dpc-sdp/ripple-ui-core'
+import RplFormAlert from './../RplFormAlert/RplFormAlert.vue'
 import { IRplFormProvidedState } from '../../types'
 
 interface Props {
@@ -96,10 +98,28 @@ const { focusFormElement } = useFormFocus()
 const formEl: IRplFormProvidedState | undefined = inject('form')
 
 const stepErrorsRef = ref(null)
+const stepNodeRef = ref<FormKitNode | null>(null)
 const inputErrors: Ref<Record<string, string[]>> | undefined =
   inject('inputErrors')
 
-const handleBack = () => getNode(props.form)?.previous()
+const setStepNode = (node: FormKitNode) => {
+  stepNodeRef.value = node
+}
+
+const handleBack = () => {
+  const stepsNode = stepNodeRef.value?.parent
+
+  if (!stepsNode) {
+    return
+  }
+
+  if (typeof (stepsNode as any).previous === 'function') {
+    ;(stepsNode as any).previous()
+    return
+  }
+
+  stepsNode.context?.handlers?.previous?.()
+}
 
 useEventContext({
   contextStep: props.title,

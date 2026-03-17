@@ -8,7 +8,10 @@ import type {
   IRplPrimaryNavActiveItems,
   RplPrimaryNavToggleItemOptions
 } from '../../constants'
-import { type rplEventPayload, useRippleEvent } from '@dpc-sdp/ripple-ui-core'
+import {
+  type rplEventPayload,
+  useRippleEvent
+} from '../../../../composables/useRippleEvent'
 
 interface Props {
   items: IRplPrimaryNavItem[]

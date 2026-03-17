@@ -18,10 +18,17 @@
   "module": "./dist/rpl-lib.es.js",
   "types": "./dist/index.d.ts",
   "exports": {
-    ".": "./dist/rpl-lib.es.js",
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/rpl-lib.es.js"
+    },
     "./nuxt": "./src/nuxt/index.ts",
     "./vue": "./dist/rpl-vue.es.js",
     "./webcomponents": "./dist/web-components/rpl-wc.es.js",
+    "./components": {
+      "types": "./src/components.ts",
+      "default": "./src/components.ts"
+    },
     "./style": "./dist/global.css",
     "./style/breakpoints": "./src/styles/_breakpoints.css",
     "./style/components": "./dist/ripple-ui-core.css"

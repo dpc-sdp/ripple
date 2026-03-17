@@ -21,5 +21,14 @@ export type RplFormKitStepNode = {
   label: string
   nextButton: string
   prevButton: string
+  visible: (values: any) => boolean
+  conditionals: {
+    type: 'all' | 'any'
+    conditions: {
+      type: 'isEqual' | 'isNotEqual' | 'isGreaterThan' | 'isLessThan'
+      field: string
+      value: any
+    }[]
+  }
   schema: FormKitSchemaNode[]
 } & FormKitSchemaProps

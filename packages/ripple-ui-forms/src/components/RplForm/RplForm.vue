@@ -100,6 +100,43 @@ const { emitRplEvent } = useRippleEvent('rpl-form', emit)
 
 const { focusFormElement } = useFormFocus()
 
+const utils = reactive({
+  isFilled: (val) =>
+    typeof val === 'number'
+      ? !isNaN(val)
+      : !(val === undefined || val === null || val === ''),
+  isChecked: (targetValue, triggerValue) => {
+    if (Array.isArray(targetValue)) {
+      return targetValue.includes(triggerValue)
+    }
+    return !!targetValue
+  },
+  negate: (val) => !val,
+  isEqual: (targetValue, triggerValue) => {
+    if (Array.isArray(targetValue)) {
+      return targetValue.includes(triggerValue)
+    }
+    if (typeof targetValue === 'number') {
+      return targetValue === parseFloat(triggerValue)
+    }
+
+    return targetValue === triggerValue
+  },
+  xor: (...args: boolean[]) => {
+    return (args || []).filter((arg) => arg === true).length === 1
+  },
+  difference: (targetValue, triggerValue) => {
+    const intTargetValue = parseFloat(targetValue)
+    const intTriggerValue = parseFloat(triggerValue)
+    return intTargetValue - intTriggerValue
+  },
+  isPatternMatch: (val, pattern) => {
+    const matches = val ? `${val}`.match(new RegExp(pattern)) : null
+    return matches && matches.length > 0
+  },
+  ...props.utils
+})
+
 const isFormSubmitting = computed(() => {
   return props.submissionState.status === 'submitting'
 })
@@ -117,10 +154,35 @@ const stepsId = `${props.id}-steps`
 const formSteps = computed<RplFormKitStepNode[]>(() => {
   if (!props.schema || !Array.isArray(props.schema)) return []
 
-  return props.schema.filter((item: unknown) => {
+  let allSteps = props.schema.filter((item: unknown) => {
     return (<RplFormKitStepNode>item)['$step']
   }) as unknown as RplFormKitStepNode[]
+
+  const flatSteps = Object.values(formValues.value?.[stepsId] || {}).reduce(
+    (acc: object, step: object) => ({ ...acc, ...step }),
+    {}
+  )
+
+  return allSteps.filter((step) => {
+    if (typeof step.visible === 'function') {
+      return step.visible(flatSteps)
+    }
+    if (step.conditionals) {
+      if (step.conditionals.type === 'any') {
+        return step.conditionals.conditions.some((cond) => {
+          return utils[cond.type](flatSteps[cond.field], cond.value)
+        })
+      }
+      if (step.conditionals.type === 'all') {
+        return step.conditionals.conditions.every((cond) => {
+          return utils[cond.type](flatSteps[cond.field], cond.value)
+        })
+      }
+    }
+    return true
+  })
 })
+
 const isLastStep = () => {
   const currentNode = getNode(stepsId)
   const steps = (currentNode?.context?.steps || []) as StepSlotData[]
@@ -421,7 +483,7 @@ const handleStepChange = async ({
 
   // Get the current steps errors when it's invalid, and we're trying to proceed
   if (!currentStep.isValid && forwards) {
-    cachedErrors.value = getErrorMessages(getNode(currentStep.id))
+    cachedErrors.value = getErrorMessages(currentStep.node)
   }
 
   if (isStepValid) {
@@ -433,43 +495,6 @@ const handleStepChange = async ({
 
 onBeforeUnmount(() => {
   tryAbandonForm()
-})
-
-const utils = reactive({
-  isFilled: (val) =>
-    typeof val === 'number'
-      ? !isNaN(val)
-      : !(val === undefined || val === null || val === ''),
-  isChecked: (targetValue, triggerValue) => {
-    if (Array.isArray(targetValue)) {
-      return targetValue.includes(triggerValue)
-    }
-    return !!targetValue
-  },
-  negate: (val) => !val,
-  isEqual: (targetValue, triggerValue) => {
-    if (Array.isArray(targetValue)) {
-      return targetValue.includes(triggerValue)
-    }
-    if (typeof targetValue === 'number') {
-      return targetValue === parseFloat(triggerValue)
-    }
-
-    return targetValue === triggerValue
-  },
-  xor: (...args: boolean[]) => {
-    return (args || []).filter((arg) => arg === true).length === 1
-  },
-  difference: (targetValue, triggerValue) => {
-    const intTargetValue = parseFloat(targetValue)
-    const intTriggerValue = parseFloat(triggerValue)
-    return intTargetValue - intTriggerValue
-  },
-  isPatternMatch: (val, pattern) => {
-    const matches = val ? `${val}`.match(new RegExp(pattern)) : null
-    return matches && matches.length > 0
-  },
-  ...props.utils
 })
 
 const plugins = computed(

@@ -1,6 +1,9 @@
 {
   // https://v3.nuxtjs.org/concepts/typescript
   "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "moduleResolution": "bundler"
+  },
   "exclude": [
     "**/*.stories.ts",
     "**/*.stories.mdx",

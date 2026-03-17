@@ -4,6 +4,7 @@ import { FormKitSchemaNode } from '@formkit/core'
 import { isValid, parse } from 'date-fns'
 import { formatDate } from '@dpc-sdp/ripple-ui-core'
 import { IRplFormProvidedState, RplFormKitStepNode } from '../../types'
+import { RplSummaryList } from '@dpc-sdp/ripple-ui-core/components'
 
 interface Props {
   title?: string
@@ -105,14 +106,19 @@ const items = computed<FormReviewItem[]>(() => {
       (item) => (<RplFormKitStepNode>item).$step
     ) as RplFormKitStepNode[]
 
-    const stepItemsProcessed = stepItems.map((step) => {
-      return {
-        key: step.key,
-        step: step.key,
-        name: step.title,
-        items: processSchemaItems(step.schema, values[step.key])
-      }
-    })
+    const stepItemsProcessed = stepItems
+      .map((step) => {
+        if (!values.hasOwnProperty(step.key)) {
+          return false
+        }
+        return {
+          key: step.key,
+          step: step.key,
+          name: step.title,
+          items: processSchemaItems(step.schema, values[step.key])
+        }
+      })
+      .filter((step) => step !== false && step.items.length) as FormReviewItem[]
 
     return props.omitFinalStep
       ? stepItemsProcessed.slice(0, -1)

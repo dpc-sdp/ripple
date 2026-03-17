@@ -48,6 +48,8 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useMediaQuery } from '@vueuse/core'
+import RplFormStep from '../RplFormStep/RplFormStep.vue'
+import { RplProgress } from '@dpc-sdp/ripple-ui-core/components'
 import type { BeforeStepChange } from '@formkit/addons'
 import { RplFormKitStepNode } from '../../types'
 

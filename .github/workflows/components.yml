@@ -29,7 +29,6 @@ jobs:
       - name: Run Storybook tests
         run: pnpm test:storybook-ci
       - name: Publish to Chromatic
-        if: ${{ github.ref == 'refs/heads/main' || github.event_name == 'pull_request' }}
         uses: chromaui/action@latest
         with:
           workingDir: packages/ripple-storybook

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import RplFormLabel from './../RplFormLabel/RplFormLabel.vue'
 import RplFormValidationError from './../RplFormValidationError/RplFormValidationError.vue'
-import { provide } from 'vue'
+import { computed, provide } from 'vue'
 
 interface Props {
   useFieldset?: boolean
@@ -9,14 +9,16 @@ interface Props {
   label?: string
   labelId?: string
   fieldId?: string
+  value?: any
 }
 
-withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<Props>(), {
   useFieldset: false,
   invalid: false,
   label: 'Label',
   labelId: null,
-  fieldId: null
+  fieldId: null,
+  value: null
 })
 
 const fakeError = { test: { value: 'Field is invalid' } }
@@ -24,6 +26,20 @@ const fakeError = { test: { value: 'Field is invalid' } }
 provide('form', {
   id: 'sb-form',
   name: 'SB Form'
+})
+
+const hasValue = computed(() => {
+  if (props.value === null) {
+    return false
+  }
+  if (Array.isArray(props.value)) {
+    return props.value.length > 0
+  }
+  if (typeof props.value === 'object') {
+    return Object.keys(props.value).length > 0
+  }
+
+  return props.value ?? false
 })
 </script>
 
@@ -53,4 +69,10 @@ provide('form', {
       </div>
     </div>
   </form>
+  <div v-if="hasValue">
+    <div class="rpl-type-p rpl-u-margin-t-8">
+      <h4 class="rpl-type-h4">Output value</h4>
+      <pre>{{ value }}</pre>
+    </div>
+  </div>
 </template>

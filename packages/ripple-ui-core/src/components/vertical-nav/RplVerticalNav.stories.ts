@@ -1,6 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 import RplVerticalNav from './RplVerticalNav.vue'
-import { RplVerticalNavItems } from './fixtures/sample'
+import {
+  verticalNavExample1,
+  verticalNavExample3,
+  verticalNavExample4
+} from './fixtures/sample'
 
 export default {
   title: 'Core/Navigation/Vertical navigation',
@@ -24,6 +28,37 @@ type Story = StoryObj<typeof RplVerticalNav>
 export const VerticalNavigation: Story = {
   args: {
     title: 'Section name',
-    items: RplVerticalNavItems
+    items: verticalNavExample1
+  }
+}
+
+export const VerticalNavigationWithToggleLevel1: Story = {
+  args: {
+    title: 'Section name',
+    items: verticalNavExample3,
+    toggleLevels: 1
+  }
+}
+
+export const VerticalNavigationWithToggleLevel2: Story = {
+  args: {
+    title: 'Section name',
+    items: verticalNavExample3,
+    toggleLevels: 2
+  }
+}
+
+export const VerticalNavigationWithToggleLevel3: Story = {
+  args: {
+    title: 'Section name',
+    items: verticalNavExample3,
+    toggleLevels: 3
+  }
+}
+
+export const VerticalNavigationWithNoChildren: Story = {
+  args: {
+    title: 'Section name',
+    items: verticalNavExample4
   }
 }

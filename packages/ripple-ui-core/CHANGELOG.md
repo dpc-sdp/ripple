@@ -1303,6 +1303,25 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * **@dpc-sdp/ripple-ui-core:** removed the unneeded 1px margin from the file icon ([f25b39e](https://github.com/dpc-sdp/ripple-framework/commit/f25b39ee9b586094a0e40d77b4cc565e99c68eaf))
 * **@dpc-sdp/ripple-ui-core:** revert content prop ([c79b30c](https://github.com/dpc-sdp/ripple-framework/commit/c79b30cf5cc665113458c59884e27719bf561726))
 
+## [2.50.0](https://github.com/dpc-sdp/ripple/compare/ripple-ui-core-v2.49.1...ripple-ui-core-v2.50.0) (2026-03-19)
+
+
+### Features
+
+* [SD-1412] - Updated design of vertical nav component ([#1357](https://github.com/dpc-sdp/ripple/issues/1357)) ([d6f3a9e](https://github.com/dpc-sdp/ripple/commit/d6f3a9e170f43bb0facb598b1be732cc21fb1141))
+* **@dpc-sdp/ripple-ui-core:** add prop to control global events on RplSearchResult ([#1359](https://github.com/dpc-sdp/ripple/issues/1359)) ([0b5784c](https://github.com/dpc-sdp/ripple/commit/0b5784c7c640536ca5c34837d9e7d94a0266cd4b))
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** vertical nav feedback ([#1362](https://github.com/dpc-sdp/ripple/issues/1362)) ([bcac16b](https://github.com/dpc-sdp/ripple/commit/bcac16b3c6e2d215e9f065468d956c29eaa7678b))
+
+
+### Miscellaneous
+
+* misc repo updates ([#1365](https://github.com/dpc-sdp/ripple/issues/1365)) ([3a5483e](https://github.com/dpc-sdp/ripple/commit/3a5483e90a2a896252a63773b3b688c9778b4b27))
+* update storybook and related deps ([#1355](https://github.com/dpc-sdp/ripple/issues/1355)) ([25645d7](https://github.com/dpc-sdp/ripple/commit/25645d7eb0d28459c270fefcfdc8b7ee986a6123))
+
 ## [2.49.1](https://github.com/dpc-sdp/ripple/compare/ripple-ui-core-v2.49.0...ripple-ui-core-v2.49.1) (2026-02-09)
 
 

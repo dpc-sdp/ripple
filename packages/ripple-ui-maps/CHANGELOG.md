@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.48.2](https://github.com/dpc-sdp/ripple/compare/ripple-ui-maps-v2.48.1...ripple-ui-maps-v2.48.2) (2026-03-19)
+
+
+### Miscellaneous
+
+* misc repo updates ([#1365](https://github.com/dpc-sdp/ripple/issues/1365)) ([3a5483e](https://github.com/dpc-sdp/ripple/commit/3a5483e90a2a896252a63773b3b688c9778b4b27))
+* update storybook and related deps ([#1355](https://github.com/dpc-sdp/ripple/issues/1355)) ([25645d7](https://github.com/dpc-sdp/ripple/commit/25645d7eb0d28459c270fefcfdc8b7ee986a6123))
+
 ## [2.48.1](https://github.com/dpc-sdp/ripple/compare/ripple-ui-maps-v2.48.0...ripple-ui-maps-v2.48.1) (2026-02-04)
 
 

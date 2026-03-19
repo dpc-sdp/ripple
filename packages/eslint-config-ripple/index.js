@@ -42,6 +42,20 @@ module.exports = {
         'vue/multiline-html-element-content-newline': 'off',
         'vue/singleline-html-element-content-newline': 'off'
       }
+    },
+    {
+      files: ['*.test.{ts,js}', '*.cy.{ts,js}'],
+      rules: {
+        'no-restricted-syntax': [
+          'error',
+          {
+            selector:
+              ':matches(MemberExpression[object.name="it"], MemberExpression[object.name="test"], MemberExpression[object.name="describe"])[property.name="only"]',
+            message:
+              'Do not commit .only in test files, this prevents other tests from running.'
+          }
+        ]
+      }
     }
   ]
 }

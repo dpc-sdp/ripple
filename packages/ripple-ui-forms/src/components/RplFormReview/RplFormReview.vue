@@ -3,7 +3,7 @@ import { computed, inject } from 'vue'
 import { FormKitSchemaNode } from '@formkit/core'
 import { isValid, parse } from 'date-fns'
 import { formatDate } from '@dpc-sdp/ripple-ui-core'
-import RplSummaryList from '@dpc-sdp/ripple-ui-core/components/summary-list/RplSummaryList.vue'
+import { RplSummaryList } from '@dpc-sdp/ripple-ui-core/components'
 import { IRplFormProvidedState, RplFormKitStepNode } from '../../types'
 
 interface Props {

@@ -21,12 +21,16 @@
     ".": "./dist/rpl-lib.es.js",
     "./nuxt": "./src/nuxt/index.ts",
     "./components": "./src/components.ts",
-    "./components/*": "./src/components/*",
     "./vue": "./dist/rpl-vue.es.js",
     "./webcomponents": "./dist/web-components/rpl-wc.es.js",
     "./style": "./dist/global.css",
     "./style/breakpoints": "./src/styles/_breakpoints.css",
     "./style/components": "./dist/ripple-ui-core.css"
+  },
+  "typesVersions": {
+    "*": {
+      "components": ["./src/components.ts"]
+    }
   },
   "scripts": {
     "build": "pnpm clean && pnpm build:types && pnpm build:tokens && pnpm build:utils && pnpm build:styles && pnpm build:lib && pnpm build:vue && pnpm build:wc",

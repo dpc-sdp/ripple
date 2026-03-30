@@ -19,7 +19,7 @@ const baseProps = {
   ]
 }
 
-describe.only('RplProgress', () => {
+describe('RplProgress', () => {
   it('mounts', () => {
     cy.mount(RplProgress as any, { props: { ...baseProps } })
 

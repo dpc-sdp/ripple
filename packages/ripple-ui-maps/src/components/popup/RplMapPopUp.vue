@@ -82,6 +82,7 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
+  featureId: undefined,
   isOpen: false,
   isArea: false,
   pinColor: 'green',

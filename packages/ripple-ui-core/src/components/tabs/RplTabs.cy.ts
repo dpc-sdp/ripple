@@ -19,7 +19,7 @@ describe('RplTabs', () => {
     cy.mount(RplTabs as any, { props: baseProps })
   })
 
-  it.only('switches tabs when clicked', () => {
+  it('switches tabs when clicked', () => {
     const onChangeSpy = cy.spy().as('onChangeSpy')
 
     cy.mount(RplTabs as any, {

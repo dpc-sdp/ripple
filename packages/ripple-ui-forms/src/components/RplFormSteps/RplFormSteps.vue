@@ -38,6 +38,7 @@
           :nextButton="step.nextButton"
           :prevButton="step.prevButton"
           :activeStep="activeStep"
+          :parentStep="step.parentStep"
           :beforeStepChange="(data: StepChangeData) => handleStep(data, step)"
         />
       </div>
@@ -55,7 +56,7 @@ import { RplProgress } from '@dpc-sdp/ripple-ui-core/components'
 
 interface Props {
   id: string
-  data?: object
+  data?: Record<string, unknown>
   schema?: RplFormKitStepNode[]
   errors?: {
     fieldId: string
@@ -85,8 +86,16 @@ const handleStep = async (data: StepChangeData, step: RplFormKitStepNode) => {
     return false
   }
 
-  if (typeof step?.beforeStepChange === 'function') {
-    return step.beforeStepChange(data)
+  if (step?.beforeStepChange) {
+    if (typeof step.beforeStepChange === 'function') {
+      return step.beforeStepChange(data)
+    }
+
+    const fn = props.data?.[step.beforeStepChange]
+
+    if (typeof fn === 'function') {
+      return fn(data)
+    }
   }
 
   return true

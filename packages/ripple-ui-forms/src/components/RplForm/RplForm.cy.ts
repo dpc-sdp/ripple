@@ -237,19 +237,24 @@ describe('<RplForm />', () => {
     it('hides previous step button when prevButton is disabled', () => {
       mountForm(multiStepSchemaNoPrevButton)
 
+      step().get('.rpl-form__step-prev').should('not.be.visible')
+
       next()
       assertStep('Step two', 'Step 2 of 3')
-
       step().get('.rpl-form__step-prev').should('not.be.visible')
-      step().contains('button', 'Continue').should('be.visible')
+
+      next('Continue')
+      step().get('.rpl-form__step-prev').should('be.visible')
+      step().get('.rpl-form__step-next').should('not.be.visible')
     })
 
     it('hides next step button when nextButton is disabled', () => {
       mountForm(multiStepSchemaNoNextButton)
 
+      step().get('.rpl-form__step-prev').should('not.be.visible')
+
       next()
       assertStep('Step two', 'Step 2 of 3')
-
       step().get('.rpl-form__step-next').should('not.be.visible')
       step().contains('button', 'Back').should('be.visible')
     })
@@ -258,6 +263,7 @@ describe('<RplForm />', () => {
       mountForm(multiStepSchemaSubSteps)
 
       assertStep('Step one', 'Step 1 of 3')
+      step().get('.rpl-form__step-prev').should('not.be.visible')
 
       next()
       assertError(true)
@@ -268,6 +274,7 @@ describe('<RplForm />', () => {
       next()
       assertStep('Step one point one', 'Step 1 of 3')
       assertError(false)
+      step().get('.rpl-form__step-prev').should('be.visible')
 
       next()
       assertError(true)

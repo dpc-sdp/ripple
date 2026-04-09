@@ -1,8 +1,8 @@
 <script setup lang="ts">
 // @ts-expect-error TS2307 import is an asset
-import aboriginalFlag from './../../assets/flags/flag-aboriginal.svg?data'
+import aboriginalFlag from './../../../assets/flags/flag-aboriginal.svg?data'
 // @ts-expect-error TS2307 import is an asset
-import torresStraitIslanderFlag from './../../assets/flags/flag-torres-strait-islander.svg?data'
+import torresStraitIslanderFlag from './../../../assets/flags/flag-torres-strait-islander.svg?data'
 
 interface Props {
   message?: string
@@ -42,4 +42,4 @@ withDefaults(defineProps<Props>(), {
   </div>
 </template>
 
-<style src="./RplAcknowledgement.css" />
+<style src="../RplAcknowledgement.css" />

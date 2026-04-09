@@ -1,0 +1,45 @@
+{#
+/**
+ * Ripple Acknowledgement Component - Twig Template
+ *
+ * Displays an acknowledgement statement with flags for Aboriginal and Torres Strait Islander peoples.
+ *
+ * @param {string} message - The acknowledgement message to display
+ * @param {string} aboriginalFlagUrl - URL/path to Aboriginal flag image
+ * @param {string} torresStraitIslanderFlagUrl - URL/path to Torres Strait Islander flag image
+ */
+#}
+{% set message = message|default('The Victorian Government acknowledges Aboriginal and Torres Strait Islander people as the Traditional Custodians of the land and acknowledges and pays respect to their Elders, past and present.') %}
+{% set aboriginalFlagUrl = aboriginalFlagUrl|default('/assets/flags/flag-aboriginal.svg') %}
+{% set torresStraitIslanderFlagUrl = torresStraitIslanderFlagUrl|default('/assets/flags/flag-torres-strait-islander.svg') %}
+
+{% set classes = [
+  'rpl-acknowledgement',
+  'rpl-u-screen-only'
+] %}
+
+<div class="{{ classes|join(' ')|trim }}">
+  <div class="rpl-acknowledgement__flags">
+    <img
+      src="{{ aboriginalFlagUrl }}"
+      alt="Aboriginal flag"
+      width="55"
+      height="38"
+      class="rpl-image rpl-image--cover rpl-acknowledgement__flag"
+      loading="lazy"
+      fetchpriority="auto"
+    />
+    <img
+      src="{{ torresStraitIslanderFlagUrl }}"
+      alt="Torres Strait Islander flag"
+      width="55"
+      height="38"
+      class="rpl-image rpl-image--cover rpl-acknowledgement__flag"
+      loading="lazy"
+      fetchpriority="auto"
+    />
+  </div>
+  <p class="rpl-acknowledgement__message rpl-type-p rpl-type-weight-bold">
+    {{ message }}
+  </p>
+</div>

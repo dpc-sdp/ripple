@@ -10,18 +10,15 @@
       :options="[
         {
           id: 'docsTheme1',
-          label: 'Alt 1',
-          value: 'light'
+          label: 'Alt 1'
         },
         {
           id: 'docsTheme2',
-          label: 'Alt 2',
-          value: 'dark'
+          label: 'Alt 2'
         },
         {
           id: 'docsThemeDefault',
-          label: 'vic.gov.au',
-          value: 'docsThemeDefault'
+          label: 'vic.gov.au'
         }
       ]"
     />
@@ -32,6 +29,8 @@
 </template>
 
 <script lang="ts" setup>
+import { provide, ref } from '#imports'
+
 const theme = ref('docsTheme1')
 
 const handleThemeChange = (val: string) => {

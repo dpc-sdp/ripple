@@ -37,6 +37,8 @@
 </template>
 
 <script setup lang="ts">
+import { queryCollection, useAsyncData, useRoute } from '#imports'
+// @ts-expect-error TS2614 import from local augment
 import type { ContentCollectionItem } from '@nuxt/content'
 
 interface Props {
@@ -53,7 +55,7 @@ const packageName = route.params.slug[2].replace('@dpc-sdp-', '@dpc-sdp/')
 const { data: module } = await useAsyncData(
   `module-info-${packageName}`,
   async () => {
-    return queryCollection('modules')
+    return queryCollection('modules' as never)
       .where('packageName', '=', packageName)
       .first()
   }

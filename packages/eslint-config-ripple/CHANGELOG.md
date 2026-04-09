@@ -1,5 +1,19 @@
 # Changelog
 
+## [2.46.4](https://github.com/dpc-sdp/ripple/compare/eslint-config-ripple-v2.46.3...eslint-config-ripple-v2.46.4) (2026-03-19)
+
+
+### Miscellaneous
+
+* misc repo updates ([#1365](https://github.com/dpc-sdp/ripple/issues/1365)) ([3a5483e](https://github.com/dpc-sdp/ripple/commit/3a5483e90a2a896252a63773b3b688c9778b4b27))
+
+## [2.46.3](https://github.com/dpc-sdp/ripple/compare/eslint-config-ripple-v2.46.2...eslint-config-ripple-v2.46.3) (2026-02-04)
+
+
+### Miscellaneous
+
+* [SD-1526] - Setup typecheck scripts for each ui package ([#1335](https://github.com/dpc-sdp/ripple/issues/1335)) ([3c2dd13](https://github.com/dpc-sdp/ripple/commit/3c2dd13e11235df0e910eba79bd6b91463e479dc))
+
 ## [2.46.2](https://github.com/dpc-sdp/ripple/compare/eslint-config-ripple-v2.46.1...eslint-config-ripple-v2.46.2) (2026-01-08)
 
 

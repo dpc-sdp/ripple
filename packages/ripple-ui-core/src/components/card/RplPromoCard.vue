@@ -35,7 +35,8 @@ const { emitRplEvent } = useRippleEvent('rpl-card', emit)
 
 const titleClasses = computed(() => RplCardTitleClasses)
 
-const { container, trigger } = useAccessibleContainer()
+// Underscore prefixes to avoid unused variable typescript error, as these are only used in template refs.
+const { container: _container, trigger: _trigger } = useAccessibleContainer()
 
 // In SDP sites, the rainbow stripe can be toggled on/off globally via a feature flag.
 // This setting will override the highlight prop.
@@ -59,7 +60,7 @@ const handleClick = () => {
 
 <template>
   <RplCard
-    ref="container"
+    ref="_container"
     type="promo"
     :highlight="hidePromoCardStripe ? false : highlight"
     :link="url"
@@ -85,7 +86,7 @@ const handleClick = () => {
     </template>
     <template #title>
       <h3 :class="titleClasses" data-cy="title">
-        <RplTextLink ref="trigger" :url="url" @click="handleClick">
+        <RplTextLink ref="_trigger" :url="url" @click="handleClick">
           {{ title }}
         </RplTextLink>
       </h3>

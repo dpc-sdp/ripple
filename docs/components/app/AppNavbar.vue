@@ -1,5 +1,13 @@
 <script lang="ts" setup>
 import { useFocusTrap } from '@vueuse/integrations/useFocusTrap'
+import {
+  onMounted,
+  onUnmounted,
+  ref,
+  useAppConfig,
+  useRoute,
+  watch
+} from '#imports'
 
 const headerRef = ref()
 const { activate: activateFocusTrap, deactivate: deactivateFocusTrap } =
@@ -9,7 +17,7 @@ const route = useRoute()
 const { title, sections } = useAppConfig()
 
 const sectionSlug = route.params.slug[0]
-const sectionConfig = sections[sectionSlug as keyof typeof sections]
+const sectionConfig: any = sections[sectionSlug as keyof typeof sections]
 
 const sectionTitle = sectionConfig?.title || title
 const sectionColor = sectionConfig?.color || undefined

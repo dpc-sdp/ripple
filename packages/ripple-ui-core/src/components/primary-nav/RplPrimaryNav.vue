@@ -10,7 +10,7 @@ import {
 } from 'vue'
 import type { Ref } from 'vue'
 import { useBreakpoints, useElementBounding } from '@vueuse/core'
-import { useFocusTrap } from '@vueuse/integrations/useFocusTrap'
+import { useFocusTrap } from '@vueuse/integrations/useFocusTrap.mjs'
 import RplPrimaryNavBar from './components/nav-bar/RplPrimaryNavBar.vue'
 import RplPrimaryNavMegaMenu from './components/mega-menu/RplPrimaryNavMegaMenu.vue'
 import RplPrimaryNavSearchForm from './components/search-form/RplPrimaryNavSearchForm.vue'

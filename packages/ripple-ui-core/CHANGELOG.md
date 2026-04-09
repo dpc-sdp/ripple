@@ -1303,6 +1303,57 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * **@dpc-sdp/ripple-ui-core:** removed the unneeded 1px margin from the file icon ([f25b39e](https://github.com/dpc-sdp/ripple-framework/commit/f25b39ee9b586094a0e40d77b4cc565e99c68eaf))
 * **@dpc-sdp/ripple-ui-core:** revert content prop ([c79b30c](https://github.com/dpc-sdp/ripple-framework/commit/c79b30cf5cc665113458c59884e27719bf561726))
 
+## [2.50.0](https://github.com/dpc-sdp/ripple/compare/ripple-ui-core-v2.49.1...ripple-ui-core-v2.50.0) (2026-03-19)
+
+
+### Features
+
+* [SD-1412] - Updated design of vertical nav component ([#1357](https://github.com/dpc-sdp/ripple/issues/1357)) ([d6f3a9e](https://github.com/dpc-sdp/ripple/commit/d6f3a9e170f43bb0facb598b1be732cc21fb1141))
+* **@dpc-sdp/ripple-ui-core:** add prop to control global events on RplSearchResult ([#1359](https://github.com/dpc-sdp/ripple/issues/1359)) ([0b5784c](https://github.com/dpc-sdp/ripple/commit/0b5784c7c640536ca5c34837d9e7d94a0266cd4b))
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** vertical nav feedback ([#1362](https://github.com/dpc-sdp/ripple/issues/1362)) ([bcac16b](https://github.com/dpc-sdp/ripple/commit/bcac16b3c6e2d215e9f065468d956c29eaa7678b))
+
+
+### Miscellaneous
+
+* misc repo updates ([#1365](https://github.com/dpc-sdp/ripple/issues/1365)) ([3a5483e](https://github.com/dpc-sdp/ripple/commit/3a5483e90a2a896252a63773b3b688c9778b4b27))
+* update storybook and related deps ([#1355](https://github.com/dpc-sdp/ripple/issues/1355)) ([25645d7](https://github.com/dpc-sdp/ripple/commit/25645d7eb0d28459c270fefcfdc8b7ee986a6123))
+
+## [2.49.1](https://github.com/dpc-sdp/ripple/compare/ripple-ui-core-v2.49.0...ripple-ui-core-v2.49.1) (2026-02-09)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** fixed in page nav heading level to meet a11y requirements ([#1352](https://github.com/dpc-sdp/ripple/issues/1352)) ([3285375](https://github.com/dpc-sdp/ripple/commit/3285375ffa75865f0273544dd03860b07b9b1f38))
+
+## [2.49.0](https://github.com/dpc-sdp/ripple/compare/ripple-ui-core-v2.48.0...ripple-ui-core-v2.49.0) (2026-02-04)
+
+
+### Features
+
+* ✨ update to node 24 [SD-1246] ([#1349](https://github.com/dpc-sdp/ripple/issues/1349)) ([e645077](https://github.com/dpc-sdp/ripple/commit/e6450777f508d5f14a5bc09c38d7378ebf8a6eb7))
+
+
+### Miscellaneous
+
+* [SD-1526] - Setup typecheck scripts for each ui package ([#1335](https://github.com/dpc-sdp/ripple/issues/1335)) ([3c2dd13](https://github.com/dpc-sdp/ripple/commit/3c2dd13e11235df0e910eba79bd6b91463e479dc))
+
+## [2.48.0](https://github.com/dpc-sdp/ripple/compare/ripple-ui-core-v2.47.0...ripple-ui-core-v2.48.0) (2026-01-21)
+
+
+### Features
+
+* **@dpc-sdp/ripple-ui-core:** allow using any card in RplCardCarousel ([#1339](https://github.com/dpc-sdp/ripple/issues/1339)) ([a4034e5](https://github.com/dpc-sdp/ripple/commit/a4034e5bc8cb295c4ea525067a4c2b870b04d30a))
+* **@dpc-sdp/ripple-ui-maps:** add centerActivePin prop ([#1338](https://github.com/dpc-sdp/ripple/issues/1338)) ([265f052](https://github.com/dpc-sdp/ripple/commit/265f052c4959b1174b13a2a99a5a0acf3e058eae))
+
+
+### Miscellaneous
+
+* **@dpc-sdp/ripple-ui-core:** :memo: add contributing guide for ripple ui core ([#1341](https://github.com/dpc-sdp/ripple/issues/1341)) ([84ba5e1](https://github.com/dpc-sdp/ripple/commit/84ba5e15169ff751948586ec45f4c09b986baefb))
+
 ## [2.47.0](https://github.com/dpc-sdp/ripple/compare/ripple-ui-core-v2.46.1...ripple-ui-core-v2.47.0) (2026-01-08)
 
 

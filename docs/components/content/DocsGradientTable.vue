@@ -1,5 +1,11 @@
 <script setup lang="ts">
-import { getColourValue, getColourName, getColourToken } from '#imports'
+import {
+  computed,
+  getColourName,
+  getColourOptions,
+  getColourToken,
+  getColourValue
+} from '#imports'
 
 const gradients = computed(() => {
   const options = getColourOptions(['clr.gradient'])

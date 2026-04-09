@@ -22,7 +22,7 @@
       <DocsCardGrid>
         <RplPromoCard
           v-for="mod in filteredModules"
-          :key="mod.path"
+          :key="mod.meta.path"
           :title="mod.name"
           :url="`${mod.meta.path?.replace(/\/module$/, '')}`"
         >
@@ -36,6 +36,14 @@
 </template>
 
 <script setup lang="ts">
+import {
+  computed,
+  queryCollection,
+  ref,
+  useAsyncData,
+  useRoute
+} from '#imports'
+// @ts-expect-error TS2614 import from local augment
 import type { ContentCollectionItem } from '@nuxt/content'
 
 interface Props {
@@ -49,16 +57,16 @@ const sectionSlug = route.params.slug[0]
 const isModuleSection = sectionSlug === 'framework'
 
 const { data: modules } = await useAsyncData(`module-listing`, async () => {
-  return queryCollection('modules').all()
+  return queryCollection('modules' as never).all()
 })
 
 const searchTerm = ref('')
 
 const filteredModules = computed(() => {
-  return (modules.value || []).filter((module) => {
+  return (modules.value || []).filter((module: any) => {
     const moduleName = module.name.toLowerCase()
     const term = searchTerm.value.toLowerCase()
     return moduleName.includes(term)
-  })
+  }) as any
 })
 </script>

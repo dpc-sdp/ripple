@@ -9,11 +9,13 @@ import {
 interface Props {
   title?: string
   items?: IRplListItemArray[]
+  titleTag?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
   title: 'On this page',
-  items: () => []
+  items: () => [],
+  titleTag: 'h2'
 })
 
 const emit = defineEmits<{
@@ -36,9 +38,9 @@ const handleClick = (event) => {
 
 <template>
   <div class="rpl-in-page-navigation">
-    <h3 class="rpl-in-page-navigation__title rpl-type-h3">
+    <component :is="titleTag" class="rpl-in-page-navigation__title rpl-type-h3">
       {{ title }}
-    </h3>
+    </component>
     <RplList
       :items="items"
       item-class="rpl-type-p-small"

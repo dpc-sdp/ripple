@@ -1,6 +1,10 @@
+import { readFileSync } from 'node:fs'
 import StyleDictionary from 'style-dictionary'
 import yaml from 'yaml'
-import baseConfig from './config.json' assert { type: 'json' }
+
+const baseConfig = JSON.parse(
+  readFileSync(new URL('./config.json', import.meta.url), 'utf-8')
+)
 
 StyleDictionary.registerTransform({
   name: 'size/pixels',

@@ -4,12 +4,12 @@
   "version": "2.0.0",
   "packageManager": "pnpm@10.10.0",
   "license": "Apache-2.0",
-  "repository": "https://github.com/dpc-sdp/ripple-framework",
+  "repository": "https://github.com/dpc-sdp/ripple",
   "scripts": {
     "example": "wrap () { pnpm -F example-\"$*\" dev | cat; }; wrap",
     "storybook": "pnpm -F ripple-storybook start",
     "clean": "git clean -dfx && git reset --hard && pnpm",
-    "build": "pnpm -F !docs -F !ripple-storybook -F !nuxt-app -F !vue-app -F !webcomponents build",
+    "build": "pnpm -F !docs -F !ripple-storybook -F !nuxt -F !vue-app -F !webcomponents build",
     "build:ripple": "pnpm -F \"@dpc-sdp/ripple-ui-*\" build",
     "build:examples": "pnpm -F \"./examples/**\" build",
     "build:docs": "pnpm -F docs build",
@@ -22,6 +22,7 @@
     "test:unit-watch": "vitest watch",
     "test:components-core": "pnpm -F @dpc-sdp/ripple-ui-core test:components",
     "test:components-forms": "pnpm -F @dpc-sdp/ripple-ui-forms test:components",
+    "test:components-maps": "pnpm -F @dpc-sdp/ripple-ui-maps test:components",
     "test:storybook": "pnpm -F ripple-storybook test",
     "test:storybook-ci": "pnpm -F ripple-storybook test:ci",
     "start:vue": "pnpm -F vue-app start",
@@ -31,13 +32,11 @@
     "dev:wc": "pnpm -F webcomponents dev",
     "dev:docs": "pnpm -F docs dev",
     "cypress": "cypress open --global",
-    "chromatic": "npx chromatic --storybook-build-dir ./packages/ripple-storybook/storybook-static --storybook-base-dir ./packages/ripple-ui-core --storybook-config-dir ./packages/ripple-ui-core"
+    "chromatic": "npx chromatic --storybook-build-dir ./packages/ripple-storybook/storybook-static --storybook-base-dir ./packages/ripple-ui-core --storybook-config-dir ./packages/ripple-ui-core",
+    "typecheck": "pnpm -F \"@dpc-sdp/ripple-ui-*\" typecheck"
   },
   "devDependencies": {
     "@awmottaz/prettier-plugin-void-html": "^1.5.0",
-    "@babel/core": "^7.23.2",
-    "@babel/plugin-transform-runtime": "^7.23.2",
-    "@babel/preset-env": "^7.23.2",
     "@bahmutov/cypress-esbuild-preprocessor": "^2.2.0",
     "@commitlint/cli": "^17.4.4",
     "@commitlint/config-conventional": "^17.4.4",
@@ -46,20 +45,10 @@
     "@dpc-sdp/ripple-ui-core": "workspace:*",
     "@dpc-sdp/ripple-ui-forms": "workspace:*",
     "@dpc-sdp/stylelint-config-ripple": "workspace:*",
-    "@lerna-lite/cli": "^4.1.1",
-    "@lerna-lite/publish": "^4.1.1",
-    "@lerna-lite/version": "^4.1.1",
-    "babel-core": "7.0.0-bridge.0",
-    "babel-loader": "^9.1.2",
-    "babel-plugin-dynamic-import-node": "^2.3.3",
-    "babel-plugin-require-context-hook": "^1.0.0",
-    "babel-plugin-syntax-jsx": "^6.18.0",
-    "babel-plugin-transform-vue-jsx": "^3.7.0",
     "changelogen": "^0.5.3",
     "cypress": "catalog:",
     "eslint": "^8.36.0",
     "husky": "^8.0.3",
-    "hygen": "^6.2.11",
     "postcss-nested": "^6.0.1",
     "postcss-normalize": "^10.0.1",
     "postcss-preset-env": "^8.1.0",
@@ -68,8 +57,8 @@
     "vitest": "catalog:"
   },
   "engines": {
-    "node": "^18.15.0 || ^20.9.0",
-    "pnpm": "^10.0.0"
+    "node": "^20.9.0 || ^24.12.0",
+    "pnpm": "^10.10.0"
   },
   "dependencies": {
     "rimraf": "catalog:",

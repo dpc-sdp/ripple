@@ -140,7 +140,7 @@ const handleChangeYear = (e) => {
 //     this could cause strange bugs without realising (e.g. 'asd-2-23' will successfully
 //     parse as 'Fri Feb 23 2001')
 //   - Including the raw user inputted values in the string allows error messages to
-//     to target specific fields if neccasary.
+//     to target specific fields if necessary.
 const commitValue = (dayStr, monthStr, yearStr) => {
   const commitInvalid = () => {
     useFormkitFriendlyEventEmitter(

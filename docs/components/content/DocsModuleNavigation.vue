@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { useModulesNavigation } from '#imports'
+
 const navigation = await useModulesNavigation()
 </script>
 

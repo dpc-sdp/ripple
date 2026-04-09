@@ -51,6 +51,15 @@
 </template>
 
 <script lang="ts" setup>
+import {
+  computed,
+  getCurrentInstance,
+  inject,
+  onMounted,
+  ref,
+  useAppConfig,
+  watch
+} from '#imports'
 import { useElementVisibility } from '@vueuse/core'
 import 'highlight.js/styles/github.css'
 import hljs from 'highlight.js/lib/core'

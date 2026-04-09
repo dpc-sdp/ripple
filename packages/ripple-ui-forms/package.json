@@ -1,7 +1,7 @@
 {
   "name": "@dpc-sdp/ripple-ui-forms",
   "description": "A form component library built with Formkit",
-  "version": "2.47.0",
+  "version": "2.49.0",
   "license": "Apache-2.0",
   "repository": "https://github.com/dpc-sdp/ripple",
   "publishConfig": {
@@ -31,10 +31,8 @@
     "date-fns": "catalog:"
   },
   "devDependencies": {
-    "@babel/core": "^7.23.2",
-    "@types/node": "^18.15.10",
+    "@types/node": "catalog:",
     "@vitejs/plugin-vue": "5.0.4",
-    "babel-loader": "^9.1.2",
     "pathe": "^1.1.0",
     "postcss-nested": "^6.0.1",
     "postcss-normalize": "^10.0.1",
@@ -44,7 +42,8 @@
     "vite": "catalog:",
     "vite-plugin-static-copy": "^2.3.1",
     "vite-svg-loader": "catalog:",
-    "vue-loader": "^17.0.0"
+    "vue-loader": "^17.0.0",
+    "vue-tsc": "catalog:"
   },
   "scripts": {
     "build": "pnpm clean && pnpm build:vite && pnpm build:types",
@@ -52,6 +51,7 @@
     "build:types": "tsc -p tsconfig.json",
     "clean": "(rimraf dist* && rimraf tsconfig.tsbuildinfo) | true",
     "test:components": "cypress run --component",
-    "cy:components": "cypress open --component"
+    "cy:components": "cypress open --component",
+    "typecheck": "vue-tsc -p tsconfig.typecheck.json --noEmit"
   }
 }

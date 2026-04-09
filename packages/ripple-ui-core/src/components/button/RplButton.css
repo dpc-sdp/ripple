@@ -18,6 +18,7 @@
     calc(var(--rpl-sp-5) - var(--local-border-width));
   width: 100%;
   appearance: none;
+  text-align: center;
 
   &:hover {
     cursor: pointer;

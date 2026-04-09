@@ -17,7 +17,7 @@ jobs:
         with:
           always-auth: true
           registry-url: https://npm.pkg.github.com/
-          node-version: 20
+          node-version: 24
           scope: "@dpc-sdp"
           cache: "pnpm"
       - name: Install Dependencies
@@ -51,7 +51,7 @@ jobs:
       - name: Install Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24
           cache: "pnpm"
       - name: Cypress component tests
         uses: cypress-io/github-action@v6
@@ -74,12 +74,34 @@ jobs:
       - name: Install Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24
           cache: "pnpm"
-
       - name: Cypress component tests
         uses: cypress-io/github-action@v6
         with:
           working-directory: packages/ripple-ui-forms
+          install: false
+          component: true
+  Component-Maps:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install pnpm
+        uses: pnpm/action-setup@v3
+        env:
+          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
+        with:
+          version: 10.10.0
+          run_install: true
+      - name: Install Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: "pnpm"
+      - name: Cypress component tests
+        uses: cypress-io/github-action@v6
+        with:
+          working-directory: packages/ripple-ui-maps
           install: false
           component: true

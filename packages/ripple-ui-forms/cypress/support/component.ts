@@ -28,6 +28,18 @@ import { mount } from 'cypress/vue'
 import { h } from 'vue'
 import RplFauxForm from './components/RplFauxForm.vue'
 import { RplButton, RplIcon } from '@dpc-sdp/ripple-ui-core/vue'
+declare global {
+  namespace Cypress {
+    interface Chainable {
+      /**
+       * Custom command to mount a Vue component.
+       * @example cy.mount(MyComponent)
+       */
+      mount: typeof mount
+      mountComponent: typeof mount
+    }
+  }
+}
 
 Cypress.on('uncaught:exception', (err) => {
   // https://stackoverflow.com/a/50387233 Ignore Resize observer loop
@@ -36,7 +48,7 @@ Cypress.on('uncaught:exception', (err) => {
   }
 })
 
-Cypress.Commands.add('mount', (component, options = {}) => {
+Cypress.Commands.add('mount', ((component: any, options: any = {}) => {
   return mount(
     () => {
       return h(RplFauxForm, { component, componentProps: options.props })
@@ -49,7 +61,15 @@ Cypress.Commands.add('mount', (component, options = {}) => {
       }
     }
   )
-})
+}) as typeof mount)
+
+// Useful when you don't want the extra form wrapper
+Cypress.Commands.add('mountComponent', ((...args: Parameters<typeof mount>) => {
+  return mount(...args).then(({ wrapper }) => {
+    return cy.wrap(wrapper).as('vue')
+  })
+}) as any)
 
 // Example use:
 // cy.mount(MyComponent)
+// cy.mountComponent(MyComponent)

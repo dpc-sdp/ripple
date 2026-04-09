@@ -1,4 +1,6 @@
+import { defineAppConfig } from 'nuxt/app'
 import pkg from './package.json'
+
 export default defineAppConfig({
   title: 'Ripple Design System',
   subheader: `Ripple is the design system for Victorian government digital products`,
@@ -18,7 +20,7 @@ export default defineAppConfig({
   description:
     'Make your service consistent with vic.gov.au digital branding. Learn from the research and experience of other service teams and avoid repeating work that’s already been done.',
   socials: {
-    github: 'dpc-sdp/ripple-framework'
+    github: 'dpc-sdp/ripple'
   },
   storybookBaseUrl: '/storybook',
   hideModulesSection: false

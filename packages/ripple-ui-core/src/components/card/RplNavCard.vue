@@ -48,7 +48,8 @@ const imgClasses = computed(() => [
   props.inset ? 'rpl-card__media--inset' : null
 ])
 
-const { container, trigger } = useAccessibleContainer()
+// Underscore prefixes to avoid unused variable typescript error, as these are only used in template refs.
+const { container: _container, trigger: _trigger } = useAccessibleContainer()
 
 const handleClick = () => {
   emitRplEvent(
@@ -65,7 +66,13 @@ const handleClick = () => {
 </script>
 
 <template>
-  <RplCard ref="container" type="nav" :el="el" :link="url" :class="cardClasses">
+  <RplCard
+    ref="_container"
+    type="nav"
+    :el="el"
+    :link="url"
+    :class="cardClasses"
+  >
     <template v-if="image" #upper>
       <RplImage
         v-bind="image"
@@ -87,7 +94,7 @@ const handleClick = () => {
     </template>
     <template #title>
       <h3 :class="titleClasses" data-cy="title">
-        <RplTextLink ref="trigger" :url="url" @click="handleClick">
+        <RplTextLink ref="_trigger" :url="url" @click="handleClick">
           {{ title }}
         </RplTextLink>
       </h3>

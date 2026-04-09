@@ -12,7 +12,7 @@ import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
 import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
 import { sanitisePIIField } from '../../lib/sanitisePII'
 
-import VueDatePicker from '@vuepic/vue-datepicker'
+import VueDatePicker, { VueDatePickerProps } from '@vuepic/vue-datepicker'
 import '@vuepic/vue-datepicker/dist/main.css'
 
 interface Props {
@@ -177,43 +177,45 @@ watch(
 )
 
 // Vue-datepicker config
-const params = computed(() => ({
-  enableTimePicker: false,
-  disabled: props.disabled,
-  name: props.name,
-  id: props.id,
-  format: 'd/MM/yyyy',
-  placeholder: 'dd/mm/yyyy',
-  dayNames: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
-  locale: 'en-AU',
-  offset: '0',
-  hideOffsetDates: false,
-  arrowNavigation: true,
-  highlight:
-    highlightedRange?.value?.length > 1 ? highlightedRange.value : undefined,
-  markers: highlightedRange?.value?.length > 1 ? markers?.value : undefined,
-  minDate:
-    highlightedRange.value?.length > 0 &&
-    props.minDate !== '' &&
-    props.minDate !== undefined
-      ? parse(props.minDate, props.dateFormat, new Date())
-      : null,
-  maxDate:
-    highlightedRange.value?.length > 0 &&
-    props.maxDate !== '' &&
-    props.maxDate !== undefined
-      ? parse(props.maxDate, props.dateFormat, new Date())
-      : null,
-  startDate: internalDate.value ? internalDate.value : undefined,
-  autoApply: true,
-  textInput: {
-    format: 'd/M/yyyy',
-    selectOnFocus: true
-  },
-  actionRow: {
-    showPreview: false
-  }
-}))
+const params = computed<VueDatePickerProps>(() => {
+  return {
+    enableTimePicker: false,
+    disabled: props.disabled,
+    name: props.name,
+    id: props.id,
+    format: 'd/MM/yyyy',
+    placeholder: 'dd/mm/yyyy',
+    dayNames: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
+    locale: 'en-AU',
+    offset: '0',
+    hideOffsetDates: false,
+    arrowNavigation: true,
+    highlight:
+      highlightedRange?.value?.length > 1 ? highlightedRange.value : undefined,
+    markers: highlightedRange?.value?.length > 1 ? markers?.value : undefined,
+    minDate:
+      highlightedRange.value?.length > 0 &&
+      props.minDate !== '' &&
+      props.minDate !== undefined
+        ? parse(props.minDate, props.dateFormat, new Date())
+        : null,
+    maxDate:
+      highlightedRange.value?.length > 0 &&
+      props.maxDate !== '' &&
+      props.maxDate !== undefined
+        ? parse(props.maxDate, props.dateFormat, new Date())
+        : null,
+    startDate: internalDate.value ? internalDate.value : undefined,
+    autoApply: true,
+    textInput: {
+      format: 'd/M/yyyy',
+      selectOnFocus: true
+    },
+    actionRow: {
+      showPreview: false
+    }
+  } as VueDatePickerProps
+})
 
 watch(internalDate, (updated) => {
   if (updated) {

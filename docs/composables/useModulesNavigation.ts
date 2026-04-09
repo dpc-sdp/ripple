@@ -1,4 +1,5 @@
-import { IRplVerticalNavItem } from '~~/../packages/ripple-ui-core/src/components/vertical-nav/constants'
+import type { IRplVerticalNavItem } from '@@/../packages/ripple-ui-core/src/components/vertical-nav/constants'
+import { queryCollection, useAsyncData, useRoute } from '#imports'
 
 export const useModulesNavigation = async (): Promise<
   IRplVerticalNavItem[] | []
@@ -6,11 +7,11 @@ export const useModulesNavigation = async (): Promise<
   const route = useRoute()
 
   const { data: nav } = await useAsyncData('modules-navigation', () => {
-    return queryCollection('modules').all()
+    return queryCollection('modules' as never).all()
   })
 
   return (nav.value || []).map(
-    (item): IRplVerticalNavItem => ({
+    (item: any): IRplVerticalNavItem => ({
       id: item.id,
       text: item.name,
       url: item.meta.path?.replace(/\/module$/, ''),

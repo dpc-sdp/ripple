@@ -1,7 +1,7 @@
 {
   "name": "@dpc-sdp/ripple-ui-core",
   "description": "Ripple UI Core component library",
-  "version": "2.47.0",
+  "version": "2.50.0",
   "license": "Apache-2.0",
   "repository": "https://github.com/dpc-sdp/ripple",
   "publishConfig": {
@@ -44,10 +44,12 @@
     "storybook:build": "build-storybook",
     "test:components": "cypress run --component",
     "cy:components": "cypress open --component",
-    "test:generate-output": "jest --json --outputFile=.jest-test-results.json"
+    "test:generate-output": "jest --json --outputFile=.jest-test-results.json",
+    "typecheck": "vue-tsc -p tsconfig.typecheck.json --noEmit"
   },
   "dependencies": {
     "@nuxt/kit": "catalog:",
+    "@types/node": "catalog:",
     "@vueuse/core": "catalog:",
     "@vueuse/integrations": "catalog:",
     "cypress-real-events": "catalog:",
@@ -70,7 +72,6 @@
     "@vitejs/plugin-vue": "5.0.4",
     "@vue/compiler-sfc": "^3.2.47",
     "autoprefixer": "^10.4.14",
-    "chromatic": "^6.17.2",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-storybook": "^0.6.13",
     "lodash-es": "^4.17.22",
@@ -80,6 +81,7 @@
     "vite": "catalog:",
     "vite-plugin-copy": "^0.1.6",
     "vite-plugin-dts": "^2.1.0",
-    "yaml": "^2.2.2"
+    "yaml": "^2.2.2",
+    "vue-tsc": "catalog:"
   }
 }

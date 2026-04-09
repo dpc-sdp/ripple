@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { computed, ref, type Ref, provide, useSlots } from 'vue'
-import { useExpandableState } from '../../composables/useExpandableState'
+import { useExpandableState } from '../../../composables/useExpandableState'
 import {
   useRippleEvent,
   rplEventPayload
-} from '../../composables/useRippleEvent'
+} from '../../../composables/useRippleEvent'
 import RplAccordionItem from './RplAccordionItem.vue'
-import type { AccordionItem } from './constants'
+import type { AccordionItem } from '../constants'
 
 interface Props {
   id: string
@@ -40,7 +40,6 @@ const itemise = (inputId: string): string => `accordion-${props.id}-${inputId}`
 
 const sharedActiveItems: Ref<string[]> = ref([])
 
-// Prop based items
 sharedActiveItems.value.push(
   ...props.items.reduce(
     (result: string[], current: AccordionItem): string[] => {
@@ -54,7 +53,6 @@ sharedActiveItems.value.push(
   )
 )
 
-// Slot based items
 sharedActiveItems.value.push(
   ...(slots.default
     ? slots.default().reduce((result: string[], current): string[] => {
@@ -95,9 +93,7 @@ const toggleAll = () => {
     { global: true }
   )
 
-  // Make all items active
   if (!isAllExpanded()) {
-    // If the item is not expanded, make it expanded
     props.items.forEach((item) => {
       if (!isItemExpanded(itemise(item.id))) {
         toggleItem(itemise(item.id))
@@ -108,11 +104,7 @@ const toggleAll = () => {
         toggleItem(itemise(item.props!.id))
       }
     })
-  }
-
-  // Make all items inactive
-  else {
-    // If the item is expanded, make it not expanded
+  } else {
     props.items.forEach((item) => {
       if (isItemExpanded(itemise(item.id))) {
         toggleItem(itemise(item.id))
@@ -133,7 +125,6 @@ const toggleAllLabel = computed(
 
 <template>
   <div :id="`accordion-${id}`" class="rpl-accordion">
-    <!-- Toggle all -->
     <div
       v-if="displayToggleAll && itemLength > 1"
       class="rpl-accordion__toggle-all-wrapper rpl-u-screen-only"
@@ -146,7 +137,6 @@ const toggleAllLabel = computed(
       </button>
     </div>
 
-    <!-- Items -->
     <component
       :is="numbered ? 'ol' : 'ul'"
       v-if="itemLength > 0"
@@ -164,4 +154,4 @@ const toggleAllLabel = computed(
   </div>
 </template>
 
-<style src="./RplAccordion.css" />
+<style src="../RplAccordion.css" />

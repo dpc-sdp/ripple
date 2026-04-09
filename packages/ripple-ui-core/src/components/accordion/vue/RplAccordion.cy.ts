@@ -1,5 +1,5 @@
 import RplAccordion from './RplAccordion.vue'
-import defaultItemsFixture from './fixtures/default'
+import defaultItemsFixture from '../fixtures/default'
 
 const baseProps = {
   title: 'Title',

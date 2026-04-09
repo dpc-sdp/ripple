@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 import RplAccordion from './RplAccordion.vue'
 import RplAccordionItem from './RplAccordionItem.vue'
-import SAMPLE from './fixtures/default.js'
+import SAMPLE from '../fixtures/default.js'
 
 type ExtendedAccordionProps = Partial<typeof RplAccordion> & {
   item: Partial<typeof RplAccordionItem>

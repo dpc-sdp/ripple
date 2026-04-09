@@ -1,6 +1,6 @@
 import { defineCustomElement } from 'vue'
 
-import { default as RplAccordionCmp } from './components/accordion/RplAccordion.vue'
+import { default as RplAccordionCmp } from './components/accordion/vue/RplAccordion.vue'
 import { default as RplAcknowledgementCmp } from './components/acknowledgement/RplAcknowledgement.vue'
 import { default as RplAlertCmp } from './components/alert/vue/RplAlert.vue'
 import { default as RplBreadcrumbsCmp } from './components/breadcrumbs/RplBreadcrumbs.vue'

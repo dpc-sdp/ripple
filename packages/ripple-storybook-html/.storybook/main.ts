@@ -1,6 +1,9 @@
 import type { StorybookConfig } from '@storybook/html-vite'
+import { fileURLToPath } from 'url'
 import path from 'path'
-import twigPlugin from './vite-plugin-twig'
+import twigPlugin from './vite-plugin-twig.ts'
+
+const storybookDir = path.dirname(fileURLToPath(import.meta.url))
 
 const config: StorybookConfig = {
   stories: [
@@ -25,7 +28,7 @@ const config: StorybookConfig = {
     if (config.resolve) {
       config.resolve.alias = {
         ...config.resolve.alias,
-        '~/storybook': path.resolve(__dirname, './')
+        '~/storybook': path.resolve(storybookDir, './')
       }
     }
 

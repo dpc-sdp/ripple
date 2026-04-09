@@ -1,4 +1,4 @@
-export { default as RplAccordion } from './components/accordion/RplAccordion.vue'
+export { default as RplAccordion } from './components/accordion/vue/RplAccordion.vue'
 export { default as RplAcknowledgement } from './components/acknowledgement/RplAcknowledgement.vue'
 export { default as RplAlert } from './components/alert/vue/RplAlert.vue'
 export { default as RplAlertsContainer } from './components/alert/RplAlertsContainer.vue'

@@ -1,13 +1,13 @@
 <script lang="ts" setup>
 import { inject, ref, computed, useSlots, type Ref } from 'vue'
-import RplIcon from '../icon/RplIcon.vue'
-import RplExpandable from '../expandable/RplExpandable.vue'
-import { useExpandableState } from '../../composables/useExpandableState'
+import RplIcon from '../../icon/RplIcon.vue'
+import RplExpandable from '../../expandable/RplExpandable.vue'
+import { useExpandableState } from '../../../composables/useExpandableState'
 import {
   useRippleEvent,
   rplEventPayload
-} from '../../composables/useRippleEvent'
-import type { AccordionItem } from './constants'
+} from '../../../composables/useRippleEvent'
+import type { AccordionItem } from '../constants'
 
 interface Props {
   item?: AccordionItem

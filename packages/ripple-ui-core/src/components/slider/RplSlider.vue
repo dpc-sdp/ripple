@@ -4,7 +4,7 @@ import RplPagination from '../pagination/RplPagination.vue'
 import { bpMin } from '../../lib/breakpoints'
 import { RplSlidesPerView } from './constants'
 import { Swiper, SwiperSlide } from 'swiper/vue'
-import { EffectFade } from 'swiper'
+import { EffectFade } from 'swiper/modules'
 import { useBreakpoints } from '@vueuse/core'
 import 'swiper/css'
 import 'swiper/css/effect-fade'
@@ -158,7 +158,7 @@ const slideUpdate = ({ activeIndex, slides }) => {
 }
 
 const setInert = ({ activeIndex, slides }) =>
-  slides.each((slide, index) =>
+  slides.forEach((slide, index) =>
     slide.toggleAttribute(
       'inert',
       index < activeIndex || index >= activeIndex + slidesInView.value

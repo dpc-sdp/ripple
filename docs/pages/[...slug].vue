@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import type { LayoutKey } from '#build/types/layouts'
 import {
   computed,
   createError,
@@ -42,8 +41,8 @@ useSeoMeta({
   description: page.value.seo?.description
 })
 
-const layout = computed((): LayoutKey => {
-  return (page.value.layout as LayoutKey) ?? 'page'
+const layout = computed((): string => {
+  return (page.value.layout as string) ?? 'page'
 })
 </script>
 

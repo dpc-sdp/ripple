@@ -1,7 +1,7 @@
 import { expect, describe, it, beforeEach } from 'vitest'
 import { RplDateRange } from './constants.js'
 
-import { formatDateRange } from './formatDateRange.js'
+import { formatDateRange } from './helpers.js'
 
 describe('Formatting a date range', () => {
   let showTime: boolean

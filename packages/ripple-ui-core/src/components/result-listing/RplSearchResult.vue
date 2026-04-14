@@ -81,6 +81,7 @@ const handleClick = () => {
       class="rpl-search-result__body rpl-type-p"
       v-html="content"
     />
+    <slot />
     <p v-if="updated" class="rpl-search-result__date rpl-type-p-small">
       {{ dateLabel ? `${dateLabel}: ` : '' }}{{ updated }}
     </p>

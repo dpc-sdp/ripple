@@ -29,6 +29,9 @@ const Template = (args: any) => ({
             <template v-if="args.details" #details>
               ${args.details}
             </template>
+            <template v-if="args.default">
+              ${args.default}
+            </template>
           </RplSearchResult>
         </RplResultListingItem>
       </RplResultListing>
@@ -100,5 +103,13 @@ export const WithNoDateLabel: Story = {
   args: {
     dateLabel: null,
     updated: 'Some custom text'
+  }
+}
+
+export const WithDefaultSlot: Story = {
+  args: {
+    content: null,
+    default:
+      '<p class="rpl-type-h3-highlight">Content rendered via the default slot.</p>'
   }
 }

@@ -30,14 +30,6 @@ pnpm run storybook
 
 This will open a browser window with the storybook instance running. All UI components within these packages have an accompanying storybook story.  For a good example component that contains stories and cypress component tests please see [RplAccordion](https://github.com/dpc-sdp/ripple/tree/main/packages/ripple-ui-core/src/components/accordion).
 
-New components can be scaffolded using the CLI tool, for example:
-
-```
-npx @dpc-sdp/nuxt-ripple-cli add component [DIRECTORY] --name {NAME} --prefix {PREFIX}
-```
-
-For more information on using the CLI please see [@dpc-sdp/nuxt-ripple-cli](https://github.com/dpc-sdp/ripple-framework/blob/develop/packages/nuxt-ripple-cli/README.md)
-
 #### Working on Tide integration packages
 
 For more on contributing to Tide packages, please see [Ripple Framework](https://github.com/dpc-sdp/ripple-framework/blob/develop/CONTRIBUTING.md).

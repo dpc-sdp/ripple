@@ -6,31 +6,15 @@
     "postcss": "css"
   },
   "conventionalCommits.scopes": [
-    "@dpc-sdp/ripple-tide-api",
-    "@dpc-sdp/ripple-ui-core",
-    "nuxt-app",
-    "webcomponents",
-    "nuxt-app",
     "docs",
-    "@dpc-sdp/ripple-tide-landing-page",
-    "@dpc-sdp/ripple-ui-forms",
-    "@dpc-sdp/ripple-tide-grant",
-    "@dpc-sdp/ripple-tide-publication",
+    "nuxt",
     "vue-app",
-    "@dpc-sdp/ripple-tide-search",
-    "@dpc-sdp/ripple-tide-event",
-    "@dpc-sdp/ripple-tide-topic",
-    "@dpc-sdp/nuxt-ripple-preview",
-    "@dpc-sdp/nuxt-ripple",
-    "@dpc-sdp/ripple-tide-media",
-    "@dpc-sdp/ripple-tide-news",
-    "nuxt-ripple",
-    "@dpc-sdp/nuxt-ripple-cli",
-    "@dpc-sdp/ripple-test-utils",
-    "@dpc-sdp/nuxt-ripple-analytics",
-    "eslint-config-ripple",
+    "webcomponents",
+    "@dpc-sdp/eslint-config-ripple",
+    "@dpc-sdp/ripple-ui-core",
+    "@dpc-sdp/ripple-ui-forms",
     "@dpc-sdp/ripple-ui-maps",
-    "@dpc-sdp/ripple-tide-webform",
+    "@dpc-sdp/stylelint-config-ripple",
     "ripple-storybook"
   ],
   "cSpell.words": [
@@ -50,10 +34,5 @@
     "vite",
     "vitejs",
     "Webform"
-  ],
-  "cucumberautocomplete.steps": [
-    "./packages/ripple-test-utils/step_definitions/**/*.ts",
-    "./examples/**/test/support/step_definitions/**/*.ts",
-    "./examples/**/test/features/**/*.ts"
   ]
 }

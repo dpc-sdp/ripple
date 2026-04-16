@@ -1303,6 +1303,24 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * **@dpc-sdp/ripple-ui-core:** removed the unneeded 1px margin from the file icon ([f25b39e](https://github.com/dpc-sdp/ripple-framework/commit/f25b39ee9b586094a0e40d77b4cc565e99c68eaf))
 * **@dpc-sdp/ripple-ui-core:** revert content prop ([c79b30c](https://github.com/dpc-sdp/ripple-framework/commit/c79b30cf5cc665113458c59884e27719bf561726))
 
+## [2.51.0](https://github.com/dpc-sdp/ripple/compare/ripple-ui-core-v2.50.0...ripple-ui-core-v2.51.0) (2026-04-16)
+
+
+### Features
+
+* :recycle: refactor formateDateRange into helpers ([#1371](https://github.com/dpc-sdp/ripple/issues/1371)) ([69c35b0](https://github.com/dpc-sdp/ripple/commit/69c35b0dd597f5ac252d5707d178b4b3852f9f6b))
+* **@dpc-sdp/ripple-ui-core:** add default slot to RplSearchResult component ([#1372](https://github.com/dpc-sdp/ripple/issues/1372)) ([a602c8b](https://github.com/dpc-sdp/ripple/commit/a602c8b8b1cc81309825f658ccb1bd7011fafb0f))
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** fix button styling when anchor tag used ([#1366](https://github.com/dpc-sdp/ripple/issues/1366)) ([12ee0d7](https://github.com/dpc-sdp/ripple/commit/12ee0d75d429f113e3f9fdb20a0fd3a310aea115))
+
+
+### Miscellaneous
+
+* package updates ([#1370](https://github.com/dpc-sdp/ripple/issues/1370)) ([e827529](https://github.com/dpc-sdp/ripple/commit/e8275299dd7c14f3203c1e48772b0cb8df8fb933))
+
 ## [2.50.0](https://github.com/dpc-sdp/ripple/compare/ripple-ui-core-v2.49.1...ripple-ui-core-v2.50.0) (2026-03-19)
 
 

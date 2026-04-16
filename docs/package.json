@@ -20,6 +20,6 @@
   },
   "devDependencies": {
     "@iconify/vue": "^5.0.0",
-    "@nuxt/content": "^3.11.0"
+    "@nuxt/content": "^3.12.0"
   }
 }

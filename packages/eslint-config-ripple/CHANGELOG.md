@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.46.5](https://github.com/dpc-sdp/ripple/compare/eslint-config-ripple-v2.46.4...eslint-config-ripple-v2.46.5) (2026-04-17)
+
+
+### Bug Fixes
+
+* trigger releases ([#1374](https://github.com/dpc-sdp/ripple/issues/1374)) ([9f76446](https://github.com/dpc-sdp/ripple/commit/9f764466b65723c87914afdaa922b94add9cadd5))
+
 ## [2.46.4](https://github.com/dpc-sdp/ripple/compare/eslint-config-ripple-v2.46.3...eslint-config-ripple-v2.46.4) (2026-03-19)
 
 

@@ -295,6 +295,15 @@
   /* stylelint-enable no-descending-specificity */
 }
 
+.rpl-card__icon-text {
+  display: flex;
+  gap: var(--rpl-sp-2);
+
+  .rpl-icon {
+    margin-top: -1px;
+  }
+}
+
 .rpl-card--key-dates {
   display: flex;
   flex-direction: column;
@@ -312,5 +321,20 @@
 
   .rpl-card__content {
     margin-top: var(--rpl-sp-3);
+  }
+}
+
+.rpl-card--promo .rpl-card__lower {
+  padding-top: 0;
+  border-top: none;
+}
+
+.rpl-card--promo:has(.rpl-card__lower) {
+  display: flex;
+  flex-direction: column;
+
+  .rpl-card__body {
+    flex-grow: 1;
+    margin-bottom: var(--rpl-sp-3);
   }
 }

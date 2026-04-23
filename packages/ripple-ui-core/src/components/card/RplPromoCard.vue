@@ -92,5 +92,10 @@ const handleClick = () => {
       </h3>
     </template>
     <slot></slot>
+    <template v-if="$slots.lower" #lower>
+      <div class="rpl-type-label-small">
+        <slot name="lower"></slot>
+      </div>
+    </template>
   </RplCard>
 </template>

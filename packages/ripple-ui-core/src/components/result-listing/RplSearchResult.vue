@@ -51,7 +51,10 @@ const handleClick = () => {
 
 <template>
   <div class="rpl-search-result">
-    <div v-if="$slots.meta" class="rpl-search-result__meta rpl-type-p-small">
+    <div
+      v-if="$slots.meta"
+      class="rpl-search-result__meta rpl-type-label-small"
+    >
       <slot name="meta"></slot>
     </div>
     <div ref="_container" class="rpl-search-result__heading">

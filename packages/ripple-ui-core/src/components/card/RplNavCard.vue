@@ -100,5 +100,10 @@ const handleClick = () => {
       </h3>
     </template>
     <slot></slot>
+    <template v-if="$slots.contentBottom" #contentBottom>
+      <div class="rpl-type-label-small">
+        <slot name="contentBottom"></slot>
+      </div>
+    </template>
   </RplCard>
 </template>

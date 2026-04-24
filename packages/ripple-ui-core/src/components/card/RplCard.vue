@@ -35,6 +35,9 @@ const containerClasses = computed(() => [
       <slot name="title"></slot>
       <div class="rpl-card__content" data-cy="content">
         <slot></slot>
+        <div v-if="$slots.contentBottom" class="rpl-card__content-bottom">
+          <slot name="contentBottom"></slot>
+        </div>
       </div>
     </div>
     <div v-if="$slots.lower" class="rpl-card__lower">

@@ -338,3 +338,27 @@
     margin-bottom: var(--rpl-sp-3);
   }
 }
+
+.rpl-card--nav .rpl-card__content-bottom {
+  margin-top: auto;
+  padding-top: var(--rpl-sp-3);
+
+  @media (--rpl-bp-l) {
+    padding-top: var(--rpl-sp-4);
+  }
+}
+
+.rpl-card--nav.rpl-card--inset:has(.rpl-card__content-bottom) {
+  @media (--rpl-bp-l) {
+    .rpl-card__body {
+      align-self: stretch;
+    }
+
+    .rpl-card__body,
+    .rpl-card__content {
+      display: flex;
+      flex-grow: 1;
+      flex-direction: column;
+    }
+  }
+}

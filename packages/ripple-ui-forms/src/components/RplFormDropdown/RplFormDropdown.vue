@@ -45,6 +45,7 @@ export interface RplFormDropdownProps {
    */
   preventDeselect?: boolean
   searchable?: boolean
+  clearSearchOnSelect?: boolean
   noResultsLabel?: string
 }
 
@@ -64,6 +65,7 @@ const props = withDefaults(defineProps<RplFormDropdownProps>(), {
   unselectedValue: undefined,
   preventDeselect: false,
   searchable: false,
+  clearSearchOnSelect: false,
   noResultsLabel: 'No results found'
 })
 
@@ -423,6 +425,11 @@ const handleSelectOption = (option: RplFormDropdownOption) => {
       newValue = [...props.value, optionValue]
     }
     useFormkitFriendlyEventEmitter(props, emit, 'onChange', newValue)
+
+    if (props.searchable && searchValue.value && props.clearSearchOnSelect) {
+      searchValue.value = ''
+      focusSearch()
+    }
   } else {
     if (props.searchable) {
       searchValue.value = option.label

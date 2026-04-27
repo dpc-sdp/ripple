@@ -258,9 +258,13 @@ describe('RplFormDropDown', () => {
 
     cy.get(search).type('be')
     cy.get(option).should('have.length', 2)
-    cy.get(option).each(($el) => {
+    cy.get(option).each(($el, i) => {
       expect($el.text().toLowerCase()).to.contain('be')
+      cy.get(option).eq(i).click()
     })
+    cy.get(tagItem).contains('Blueberries')
+    cy.get(tagItem).contains('Strawberry')
+    cy.get(search).should('have.value', 'be')
     cy.get(toggle).click()
 
     cy.get(toggle).click()
@@ -321,6 +325,28 @@ describe('RplFormDropDown', () => {
     cy.get(input).click()
     cy.focused().type('Gra{enter}')
     cy.get(tagItem).contains('Grapes')
+    cy.get(search).should('have.value', '')
+  })
+
+  it('the search input can be cleared selecting an option', () => {
+    cy.mount(RplFormDropDown, {
+      props: {
+        ...props,
+        multiple: true,
+        searchable: true,
+        clearSearchOnSelect: true
+      }
+    })
+
+    cy.get(input).click()
+    cy.focused().type('an')
+    cy.get(option).contains('Orange').click()
+    cy.get(tagItem).contains('Orange')
+    cy.get(search).should('have.value', '')
+
+    cy.focused().type('be')
+    cy.get(option).contains('Blueberries').click()
+    cy.get(tagItem).contains('Blueberries')
     cy.get(search).should('have.value', '')
   })
 

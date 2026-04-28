@@ -26,7 +26,6 @@
     "@formkit/validation": "1.6.9",
     "@formkit/vue": "1.6.9",
     "@nuxt/kit": "catalog:",
-    "@vuepic/vue-datepicker": "11.0.1",
     "@vueuse/core": "catalog:",
     "date-fns": "catalog:"
   },

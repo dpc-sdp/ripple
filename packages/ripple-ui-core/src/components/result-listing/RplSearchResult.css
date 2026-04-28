@@ -12,6 +12,7 @@
 
 .rpl-search-result__meta {
   display: flex;
+  align-items: center;
   gap: var(--rpl-sp-3);
   margin-bottom: var(--rpl-sp-3);
 }

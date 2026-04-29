@@ -9,8 +9,6 @@ updates:
       interval: "weekly"
       time: "02:00"
       timezone: "Australia/Melbourne"
-    commit-message:
-      prefix: "deps"
     cooldown:
       default-days: 3
     groups:

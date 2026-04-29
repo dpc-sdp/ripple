@@ -28,7 +28,7 @@
     "chromatic": "^15.1.1",
     "http-server": "^14.1.1",
     "playwright": "^1.58.2",
-    "storybook": "^10.2.10",
+    "storybook": "^10.3.5",
     "vitest": "catalog:"
   },
   "dependencies": {

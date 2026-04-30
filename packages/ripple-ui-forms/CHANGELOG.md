@@ -774,6 +774,18 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * **@dpc-sdp/ripple-ui-forms:** :building_construction: move storybook to project root, add forms ([578f8c9](https://github.com/dpc-sdp/ripple-framework/commit/578f8c92904e5f05f24ec1d8cb0646af13a32a43))
 * **@dpc-sdp/ripple-ui-forms:** :sparkles: change form validation to be on submit ([eedc937](https://github.com/dpc-sdp/ripple-framework/commit/eedc9373cb04817c94fd095d2c564e56140064c1))
 
+## [2.50.0](https://github.com/dpc-sdp/ripple/compare/ripple-ui-forms-v2.49.1...ripple-ui-forms-v2.50.0) (2026-04-30)
+
+
+### Features
+
+* **@dpc-sdp/ripple-ui-forms:** add option to clear search on option selection ([#1379](https://github.com/dpc-sdp/ripple/issues/1379)) ([01955c1](https://github.com/dpc-sdp/ripple/commit/01955c12767a9567ea10326c53e0a9c3ed8338eb))
+
+
+### Reverts
+
+* **@dpc-sdp/ripple-ui-forms:** remove date select powered by @vuepic/vue-datepicker ([#1380](https://github.com/dpc-sdp/ripple/issues/1380)) ([16ddea3](https://github.com/dpc-sdp/ripple/commit/16ddea31d1d0ce7177d719a27a64ca42c51b3da2))
+
 ## [2.49.1](https://github.com/dpc-sdp/ripple/compare/ripple-ui-forms-v2.49.0...ripple-ui-forms-v2.49.1) (2026-04-17)
 
 

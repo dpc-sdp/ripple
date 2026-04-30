@@ -1,7 +1,7 @@
 {
-  "packages/ripple-ui-core": "2.51.1",
-  "packages/ripple-ui-forms": "2.49.1",
-  "packages/ripple-ui-maps": "2.48.4",
+  "packages/ripple-ui-core": "2.52.0",
+  "packages/ripple-ui-forms": "2.50.0",
+  "packages/ripple-ui-maps": "2.49.0",
   "packages/eslint-config-ripple": "2.46.5",
   "packages/stylelint-config-ripple": "2.46.3"
 }

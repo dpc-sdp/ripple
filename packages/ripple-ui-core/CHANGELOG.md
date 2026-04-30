@@ -1303,6 +1303,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * **@dpc-sdp/ripple-ui-core:** removed the unneeded 1px margin from the file icon ([f25b39e](https://github.com/dpc-sdp/ripple-framework/commit/f25b39ee9b586094a0e40d77b4cc565e99c68eaf))
 * **@dpc-sdp/ripple-ui-core:** revert content prop ([c79b30c](https://github.com/dpc-sdp/ripple-framework/commit/c79b30cf5cc665113458c59884e27719bf561726))
 
+## [2.52.0](https://github.com/dpc-sdp/ripple/compare/ripple-ui-core-v2.51.1...ripple-ui-core-v2.52.0) (2026-04-30)
+
+
+### Features
+
+* **@dpc-sdp/ripple-ui-core:** search result promo data ([#1378](https://github.com/dpc-sdp/ripple/issues/1378)) ([0dca372](https://github.com/dpc-sdp/ripple/commit/0dca37227c2d4b3bf8ab50af939bd2ab4425c294))
+
 ## [2.51.1](https://github.com/dpc-sdp/ripple/compare/ripple-ui-core-v2.51.0...ripple-ui-core-v2.51.1) (2026-04-17)
 
 

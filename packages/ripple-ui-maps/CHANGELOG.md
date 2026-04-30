@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.49.0](https://github.com/dpc-sdp/ripple/compare/ripple-ui-maps-v2.48.4...ripple-ui-maps-v2.49.0) (2026-04-30)
+
+
+### Features
+
+* **@dpc-sdp/ripple-ui-maps:** add excessResults prop to sidepanel ([#1383](https://github.com/dpc-sdp/ripple/issues/1383)) ([7e49c69](https://github.com/dpc-sdp/ripple/commit/7e49c69a49a92169f28e3bb9878e4c49d8dd4be5))
+
 ## [2.48.4](https://github.com/dpc-sdp/ripple/compare/ripple-ui-maps-v2.48.3...ripple-ui-maps-v2.48.4) (2026-04-17)
 
 

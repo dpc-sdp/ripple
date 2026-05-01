@@ -55,3 +55,16 @@ jobs:
         run: pnpm -r --filter './packages/**' --filter '!ripple-storybook' publish --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  update-ripple-framework:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    needs: publish
+    steps:
+      - name: Trigger Ripple Framework workflow
+        uses: peter-evans/repository-dispatch@v4
+        with:
+          token: ${{ secrets.RIPPLE_FRAMEWORK_WORKFLOW_TOKEN }}
+          repository: dpc-sdp/ripple-framework
+          event-type: update-ripple

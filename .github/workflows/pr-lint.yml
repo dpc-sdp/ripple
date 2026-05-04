@@ -27,6 +27,4 @@ jobs:
             chore
           requireScope: false
           scopes: |
-            @dpc-sdp/ripple-ui-core
-            @dpc-sdp/ripple-ui-maps
-            @dpc-sdp/ripple-ui-forms
+            @dpc-sdp/*

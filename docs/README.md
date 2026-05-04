@@ -1,2 +1,0 @@
-# Ripple documentation website
-

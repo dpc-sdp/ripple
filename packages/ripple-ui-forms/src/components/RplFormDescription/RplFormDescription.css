@@ -1,7 +1,0 @@
-.rpl-form-description {
-  margin-bottom: var(--rpl-sp-4);
-
-  .rpl-form-label + & {
-    margin-top: calc(var(--rpl-sp-3) * -1);
-  }
-}

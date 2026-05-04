@@ -1,5 +1,0 @@
-@custom-media --rpl-bp-xs (max-width: 575px);
-@custom-media --rpl-bp-s (min-width: 576px);
-@custom-media --rpl-bp-m (min-width: 768px);
-@custom-media --rpl-bp-l (min-width: 992px);
-@custom-media --rpl-bp-xl (min-width: 1200px);

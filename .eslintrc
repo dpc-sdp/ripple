@@ -1,4 +1,0 @@
-{
-  "root": true,
-  "extends": ["@dpc-sdp/eslint-config-ripple"]
-}

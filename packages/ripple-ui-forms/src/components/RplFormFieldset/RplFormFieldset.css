@@ -1,9 +1,0 @@
-.rpl-form-fieldset {
-  border: 0;
-  padding: 0;
-  margin: 0;
-
-  legend {
-    margin-bottom: var(--rpl-sp-8);
-  }
-}

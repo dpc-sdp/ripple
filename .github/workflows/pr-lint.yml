@@ -25,6 +25,13 @@ jobs:
             feat
             fix
             chore
+            deps
           requireScope: false
           scopes: |
+<<<<<<< HEAD
             @dpc-sdp/*
+=======
+            @dpc-sdp/ripple-ui-core
+            @dpc-sdp/ripple-ui-maps
+            @dpc-sdp/ripple-ui-forms
+>>>>>>> 12ab3b3294966af528ea7f7efa945b9589833045

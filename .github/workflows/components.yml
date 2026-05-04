@@ -1,0 +1,107 @@
+name: UI Libraries
+on: [push]
+jobs:
+  Storybook:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.33.0
+          run_install: false
+      - name: Install Node
+        uses: actions/setup-node@v4
+        with:
+          always-auth: true
+          registry-url: https://npm.pkg.github.com/
+          node-version: 24
+          scope: "@dpc-sdp"
+          cache: "pnpm"
+      - name: Install Dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Install Playwright Browsers
+        run: pnpm exec playwright install
+      - name: Build Storybook
+        run: pnpm build:storybook
+      - name: Run Storybook tests
+        run: pnpm test:storybook-ci
+      - name: Publish to Chromatic
+        uses: chromaui/action@latest
+        with:
+          workingDir: packages/ripple-storybook
+          storybookBuildDir: "storybook-static"
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          skip: "gh-readonly-queue/**"
+          exitOnceUploaded: true
+  Component-Core:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install pnpm
+        uses: pnpm/action-setup@v3
+        env:
+          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
+        with:
+          version: 10.33.0
+          run_install: true
+      - name: Install Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: "pnpm"
+      - name: Cypress component tests
+        uses: cypress-io/github-action@v6
+        with:
+          working-directory: packages/ripple-ui-core
+          install: false
+          component: true
+  Component-Forms:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install pnpm
+        uses: pnpm/action-setup@v3
+        env:
+          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
+        with:
+          version: 10.33.0
+          run_install: true
+      - name: Install Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: "pnpm"
+      - name: Cypress component tests
+        uses: cypress-io/github-action@v6
+        with:
+          working-directory: packages/ripple-ui-forms
+          install: false
+          component: true
+  Component-Maps:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install pnpm
+        uses: pnpm/action-setup@v3
+        env:
+          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
+        with:
+          version: 10.33.0
+          run_install: true
+      - name: Install Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: "pnpm"
+      - name: Cypress component tests
+        uses: cypress-io/github-action@v6
+        with:
+          working-directory: packages/ripple-ui-maps
+          install: false
+          component: true

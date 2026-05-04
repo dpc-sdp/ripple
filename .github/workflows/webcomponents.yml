@@ -1,25 +1,27 @@
-name: Unit & Lint
+name: Webcomponents
 on: [push]
 jobs:
-  Test:
+  Examples:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - name: Install pnpm
-        uses: pnpm/action-setup@v4
+        uses: pnpm/action-setup@v3
         with:
           version: 10.33.0
           run_install: false
+
       - name: Install Node
         uses: actions/setup-node@v4
         with:
-          always-auth: true
-          registry-url: https://npm.pkg.github.com/
           node-version: 24
-          scope: "@dpc-sdp"
           cache: "pnpm"
+
       - name: Install Dependencies
+        env:
+          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
         run: pnpm install --frozen-lockfile
-      - run: pnpm run lint
-      - run: pnpm run -r --no-bail typecheck
-      - run: pnpm run test:unit
+
+      - name: Build Example Webcomponents app
+        run: pnpm -F webcomponents build

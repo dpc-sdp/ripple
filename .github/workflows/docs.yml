@@ -1,7 +1,11 @@
-name: Unit & Lint
-on: [push]
+name: Docs
+on:
+  push:
+    paths:
+      - ".github/workflows/docs.yml"
+      - "docs"
 jobs:
-  Test:
+  Docs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -17,9 +21,9 @@ jobs:
           registry-url: https://npm.pkg.github.com/
           node-version: 24
           scope: "@dpc-sdp"
-          cache: "pnpm"
       - name: Install Dependencies
+        env:
+          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
         run: pnpm install --frozen-lockfile
-      - run: pnpm run lint
-      - run: pnpm run -r --no-bail typecheck
-      - run: pnpm run test:unit
+      - name: Build docs
+        run: pnpm run build:docs

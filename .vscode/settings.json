@@ -1,0 +1,38 @@
+{
+  "editor.formatOnSave": true,
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "emmet.includeLanguages": {
+    "postcss": "css"
+  },
+  "conventionalCommits.scopes": [
+    "docs",
+    "nuxt",
+    "vue-app",
+    "webcomponents",
+    "@dpc-sdp/eslint-config-ripple",
+    "@dpc-sdp/ripple-ui-core",
+    "@dpc-sdp/ripple-ui-forms",
+    "@dpc-sdp/ripple-ui-maps",
+    "@dpc-sdp/stylelint-config-ripple",
+    "ripple-storybook"
+  ],
+  "cSpell.words": [
+    "colour",
+    "composables",
+    "customisation",
+    "customising",
+    "familiarise",
+    "formkit",
+    "jsonapi",
+    "maxlength",
+    "mockserver",
+    "nuxt",
+    "pathe",
+    "scripthost",
+    "stylelint",
+    "vite",
+    "vitejs",
+    "Webform"
+  ]
+}

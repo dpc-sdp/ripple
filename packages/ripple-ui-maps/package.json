@@ -62,7 +62,7 @@
   "devDependencies": {
     "@dpc-sdp/ripple-ui-core": "workspace:*",
     "@vitejs/plugin-vue": "5.0.4",
-    "@vue/compiler-sfc": "^3.2.47",
+    "@vue/compiler-sfc": "^3.5.33",
     "autoprefixer": "^10.4.14",
     "rimraf": "catalog:",
     "vite": "catalog:",

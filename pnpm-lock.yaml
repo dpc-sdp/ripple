@@ -392,8 +392,8 @@ importers:
         specifier: '>=3.3.3'
         version: 4.0.1
       swiper:
-        specifier: ^12.1.2
-        version: 12.1.3
+        specifier: ^12.1.4
+        version: 12.1.4
       vite-svg-loader:
         specifier: 'catalog:'
         version: 5.1.1(vue@3.5.32(typescript@5.9.3))
@@ -7808,8 +7808,8 @@ packages:
     engines: {node: '>=16'}
     hasBin: true
 
-  swiper@12.1.3:
-    resolution: {integrity: sha512-XcWlVmkHFICI4fuoJKgbp8PscDcS4i7pBH8nwJRBi3dpQvhCySwsWRYm4bOf/BzKVWkHOYaFw7qz9uBSrY3oug==}
+  swiper@12.1.4:
+    resolution: {integrity: sha512-bihiwoKMOQwW8FfdUbo1DgkVH25E+4ZELIq0oopL1KTKBteLuaTMi/wwFjMxtlhTkk45k3XQ89D1Fvv0spSqBA==}
     engines: {node: '>= 4.7.0'}
 
   synckit@0.11.11:
@@ -17435,7 +17435,7 @@ snapshots:
       picocolors: 1.1.1
       sax: 1.6.0
 
-  swiper@12.1.3: {}
+  swiper@12.1.4: {}
 
   synckit@0.11.11:
     dependencies:

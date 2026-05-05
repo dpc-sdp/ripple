@@ -22,7 +22,7 @@
   "devDependencies": {
     "@cypress/vite-dev-server": "^5.0.5",
     "@cypress/vue": "^5.0.5",
-    "@rushstack/eslint-patch": "^1.2.0",
+    "@rushstack/eslint-patch": "^1.16.1",
     "@types/node": "catalog:",
     "@vitejs/plugin-vue": "5.0.4",
     "@vue/eslint-config-prettier": "^9.0.0",

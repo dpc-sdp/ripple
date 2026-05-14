@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.49.1](https://github.com/dpc-sdp/ripple/compare/ripple-ui-maps-v2.49.0...ripple-ui-maps-v2.49.1) (2026-05-14)
+
+
+### Bug Fixes
+
+* trigger releases ([#1395](https://github.com/dpc-sdp/ripple/issues/1395)) ([7a64d63](https://github.com/dpc-sdp/ripple/commit/7a64d63a6d4907ccb20d491aedc52283d410fd04))
+
 ## [2.49.0](https://github.com/dpc-sdp/ripple/compare/ripple-ui-maps-v2.48.4...ripple-ui-maps-v2.49.0) (2026-04-30)
 
 

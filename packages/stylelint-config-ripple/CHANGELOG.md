@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.46.4](https://github.com/dpc-sdp/ripple/compare/stylelint-config-ripple-v2.46.3...stylelint-config-ripple-v2.46.4) (2026-05-14)
+
+
+### Bug Fixes
+
+* trigger releases ([#1395](https://github.com/dpc-sdp/ripple/issues/1395)) ([7a64d63](https://github.com/dpc-sdp/ripple/commit/7a64d63a6d4907ccb20d491aedc52283d410fd04))
+
 ## [2.46.3](https://github.com/dpc-sdp/ripple/compare/stylelint-config-ripple-v2.46.2...stylelint-config-ripple-v2.46.3) (2026-04-17)
 
 

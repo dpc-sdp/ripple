@@ -6,3 +6,6 @@
 **/.storybook/storybook.css
 **/storybook-static
 **/stories/components/**/*.vue
+**/playwright
+**/playwright-report
+**/blob-report

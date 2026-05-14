@@ -11,8 +11,8 @@ export interface IRplCardCarouselMeta {
 export interface IRplCardCarouselItem {
   type?: 'promo' | 'keydates'
   title: string
-  url: string
-  image: IRplImageType
+  url?: string
+  image?: IRplImageType
   summary: string
   meta?: IRplCardCarouselMeta
   keyDates?: IRplCardItem[]

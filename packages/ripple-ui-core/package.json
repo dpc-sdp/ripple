@@ -42,8 +42,8 @@
     "preview": "vite preview",
     "storybook": "start-storybook -p 6006",
     "storybook:build": "build-storybook",
-    "test:components": "cypress run --component",
-    "cy:components": "cypress open --component",
+    "test:components": "playwright test -c playwright-ct.config.ts",
+    "ui:components": "playwright test -c playwright-ct.config.ts --ui",
     "test:generate-output": "jest --json --outputFile=.jest-test-results.json",
     "typecheck": "vue-tsc -p tsconfig.typecheck.json --noEmit"
   },
@@ -69,6 +69,7 @@
     "vue": "^3.5.32"
   },
   "devDependencies": {
+    "@playwright/experimental-ct-vue": "catalog:",
     "@vitejs/plugin-vue": "5.0.4",
     "@vue/compiler-sfc": "^3.5.33",
     "autoprefixer": "^10.4.14",

@@ -20,6 +20,13 @@ packages/**/cypress/screenshots/*
 packages/**/cypress/results/*
 .unlighthouse
 
+# Playwright
+test-results
+playwright-report
+blob-report
+playwright/.cache
+playwright/.auth
+
 # Typescript
 tsconfig.tsbuildinfo
 

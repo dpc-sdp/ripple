@@ -54,7 +54,7 @@
     "@vueuse/integrations": "catalog:",
     "cypress-real-events": "catalog:",
     "date-fns": "catalog:",
-    "focus-trap": "^7.4.0",
+    "focus-trap": "^8.2.0",
     "mitt": "^3.0.0",
     "normalize.css": "^8.0.1",
     "postcss-each": "^1.1.0",

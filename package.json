@@ -48,7 +48,7 @@
     "changelogen": "^0.6.2",
     "cypress": "catalog:",
     "eslint": "^8.36.0",
-    "husky": "^8.0.3",
+    "husky": "^9.1.7",
     "postcss-nested": "^6.0.1",
     "postcss-normalize": "^10.0.1",
     "postcss-preset-env": "^8.1.0",

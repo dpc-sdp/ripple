@@ -453,8 +453,8 @@ importers:
         specifier: 1.6.9
         version: 1.6.9
       '@formkit/inputs':
-        specifier: 1.6.9
-        version: 1.6.9
+        specifier: 2.0.0
+        version: 2.0.0
       '@formkit/nuxt':
         specifier: 2.0.0
         version: 2.0.0(@nuxt/kit@4.4.2(magicast@0.5.2))(esbuild@0.27.7)(vite@6.4.2(@types/node@20.19.30)(jiti@2.6.1)(terser@5.47.1)(yaml@2.8.2))(vue@3.5.32(typescript@5.9.3))(webpack@5.104.1(esbuild@0.27.7)(postcss@8.5.14))

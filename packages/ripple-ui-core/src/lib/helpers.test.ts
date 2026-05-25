@@ -15,7 +15,7 @@ describe('Formatting a date', () => {
 
   it('accepts summary level Intl.DateTimeFormatOptions', () => {
     expect(formatDate(raw, { dateStyle: 'full' })).toEqual(
-      'Friday 2 August 2024 at 9:00 am'
+      'Friday 2 August 2024'
     )
   })
 
@@ -50,19 +50,20 @@ describe('Formatting a date', () => {
     ).toEqual('2 Aug 2024, 8:00 am')
   })
 
-  it('outputs the full date as per the news component', () => {
-    const props = {
-      details: {
-        published: '2022-11-11T11:11:00+10:00'
-      }
-    }
-    const flags = {
-      hidePublishedTime: false
-    }
+  it('outputs the full date without time', () => {
     expect(
-      formatDate(props.details?.published, {
+      formatDate('2022-11-11T11:11:00+10:00', {
         dateStyle: 'full',
-        timeStyle: flags?.hidePublishedTime ? undefined : 'short'
+        timeStyle: undefined
+      })
+    ).toEqual('Friday 11 November 2022')
+  })
+
+  it('outputs the full date as per the news component', () => {
+    expect(
+      formatDate('2022-11-11T11:11:00+10:00', {
+        dateStyle: 'full',
+        timeStyle: 'short'
       })
     ).toEqual('Friday 11 November 2022 at 12:11 pm')
   })

@@ -31,7 +31,7 @@ export const formatDate = (
   } else if (options?.dateStyle === 'full') {
     tokens.push('EEEE d MMMM yyyy')
 
-    if (options?.timeStyle === undefined || options?.timeStyle === 'short') {
+    if (options?.timeStyle === 'short') {
       tokens.push("'at' h:mm aaa")
     }
   } else {

@@ -80,7 +80,7 @@
     "style-dictionary": "3.7.2",
     "vite": "catalog:",
     "vite-plugin-copy": "^0.1.6",
-    "vite-plugin-dts": "^2.1.0",
+    "vite-plugin-dts": "^5.0.1",
     "yaml": "^2.2.2",
     "vue-tsc": "catalog:"
   }

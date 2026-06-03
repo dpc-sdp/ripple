@@ -5,6 +5,7 @@
   "packageManager": "pnpm@10.33.0",
   "license": "Apache-2.0",
   "repository": "https://github.com/dpc-sdp/ripple",
+  "type": "module",
   "scripts": {
     "example": "wrap () { pnpm -F example-\"$*\" dev | cat; }; wrap",
     "storybook": "pnpm -F ripple-storybook start",
@@ -33,7 +34,8 @@
     "dev:docs": "pnpm -F docs dev",
     "cypress": "cypress open --global",
     "chromatic": "npx chromatic --storybook-build-dir ./packages/ripple-storybook/storybook-static --storybook-base-dir ./packages/ripple-ui-core --storybook-config-dir ./packages/ripple-ui-core",
-    "typecheck": "pnpm -F \"@dpc-sdp/ripple-ui-*\" typecheck"
+    "typecheck": "pnpm -F \"@dpc-sdp/ripple-ui-*\" typecheck",
+    "test-ct": "playwright test -c playwright-ct.config.ts"
   },
   "devDependencies": {
     "@awmottaz/prettier-plugin-void-html": "^1.5.0",
@@ -45,6 +47,8 @@
     "@dpc-sdp/ripple-ui-core": "workspace:*",
     "@dpc-sdp/ripple-ui-forms": "workspace:*",
     "@dpc-sdp/stylelint-config-ripple": "workspace:*",
+    "@playwright/experimental-ct-vue": "^1.60.0",
+    "@types/node": "catalog:",
     "changelogen": "^0.6.2",
     "cypress": "catalog:",
     "eslint": "^8.36.0",

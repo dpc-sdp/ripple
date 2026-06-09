@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import { IRplVerticalNavItem } from './constants'
 import RplVerticalNavLink from './RplVerticalNavLink.vue'
 import RplVerticalNavToggle from './RplVerticalNavToggle.vue'
@@ -25,15 +26,9 @@ const emit = defineEmits<{
 
 const { emitRplEvent } = useRippleEvent('rpl-vertical-nav', emit)
 
-const showIcon = (index: number) => {
-  const hasIcon = props.level > Math.max(props.toggleLevels, 2)
-
-  if (index === 0 && props.level - 1 <= props.toggleLevels) {
-    return false
-  }
-
-  return hasIcon
-}
+const showIcon = computed(() => {
+  return props.level > props.toggleLevels + 1
+})
 
 const isExpandable = (item: IRplVerticalNavItem) => {
   return item.items && props.level <= props.toggleLevels
@@ -69,7 +64,7 @@ const handleClick = (event) => {
             :text="item.text"
             :href="item.url"
             :active="item?.active && !item.items?.some((i) => i.active)"
-            :show-child-icon="showIcon(index)"
+            :show-child-icon="showIcon"
             @item-click="(event) => handleClick(event)"
           />
           <RplVerticalNavToggle
@@ -98,7 +93,7 @@ const handleClick = (event) => {
           :text="item.text"
           :href="item.url"
           :active="item?.active && !item.items?.some((i) => i.active)"
-          :show-child-icon="showIcon(index)"
+          :show-child-icon="showIcon"
           @item-click="(event) => handleClick(event)"
         />
         <RplVerticalNavList

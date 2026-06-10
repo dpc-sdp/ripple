@@ -27,7 +27,7 @@ const emit = defineEmits<{
 const { emitRplEvent } = useRippleEvent('rpl-vertical-nav', emit)
 
 const showIcon = computed(() => {
-  return props.level > props.toggleLevels + 1
+  return props.level > Math.max(1, props.toggleLevels) + 1
 })
 
 const isExpandable = (item: IRplVerticalNavItem) => {

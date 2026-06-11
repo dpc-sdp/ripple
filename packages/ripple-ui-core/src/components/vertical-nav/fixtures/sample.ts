@@ -16,12 +16,27 @@ export const verticalNavExample1 = [
             url: '#',
             items: [
               {
-                id: '5',
+                id: '41',
                 text: 'Fourth level',
                 url: '#',
                 items: [{ id: '51', text: 'Fifth level', url: '#' }]
+              },
+              {
+                id: '42',
+                text: 'Fourth level item 2',
+                url: '#'
               }
             ]
+          },
+          {
+            id: '5',
+            text: 'Third level item 2',
+            url: '#'
+          },
+          {
+            id: '6',
+            text: 'Third level item 3',
+            url: '#'
           }
         ]
       },
@@ -153,6 +168,11 @@ export const verticalNavExample3 = [
                 text: 'Fourth level',
                 url: '#',
                 items: [{ id: '51', text: 'Fifth level', url: '#' }]
+              },
+              {
+                id: '6',
+                text: 'Fourth level item 2',
+                url: '#'
               }
             ]
           }

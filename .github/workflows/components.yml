@@ -23,7 +23,7 @@ jobs:
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
       - name: Install Playwright Browsers
-        run: pnpm exec playwright install
+        run: pnpm exec playwright install --with-deps chromium
       - name: Build Storybook
         run: pnpm build:storybook
       - name: Run Storybook tests

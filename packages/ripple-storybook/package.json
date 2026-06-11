@@ -23,13 +23,13 @@
     "@storybook/vue3": "^10.2.10",
     "@storybook/vue3-vite": "^10.2.10",
     "@vitejs/plugin-vue": "^5.2.3",
-    "@vitest/browser-playwright":  "^4.0.18",
-    "@vitest/coverage-v8": "^4.0.18",
+    "@vitest/browser-playwright":  "^4.1.8",
+    "@vitest/coverage-v8": "^4.1.8",
     "chromatic": "^15.1.1",
     "http-server": "^14.1.1",
-    "playwright": "^1.58.2",
-    "storybook": "^10.3.5",
-    "vitest": "catalog:"
+    "playwright": "^1.60.0",
+    "storybook": "^10.3.6",
+    "vitest": "^4.1.8"
   },
   "dependencies": {
     "@dpc-sdp/ripple-ui-core": "workspace:*",

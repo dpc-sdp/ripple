@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "@dpc-sdp/ripple-ui-core": "workspace:*",
-    "@formkit/addons": "1.6.9",
+    "@formkit/addons": "2.1.0",
     "@formkit/inputs": "2.0.0",
     "@formkit/nuxt": "2.0.0",
     "@formkit/validation": "1.6.9",

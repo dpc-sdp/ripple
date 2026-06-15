@@ -16,12 +16,12 @@
     "index.js"
   ],
   "devDependencies": {
-    "stylelint": "^15.10.2",
+    "stylelint": "^17.13.0",
     "stylelint-config-html": "^1.1.0",
     "stylelint-config-prettier": "^9.0.5",
     "stylelint-config-standard": "^34.0.0"
   },
   "peerDependencies": {
-    "stylelint": "^15.10.2"
+    "stylelint": "^17.13.0"
   }
 }

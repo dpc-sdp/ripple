@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/experimental-ct-vue'
 import RplAlert from '../../ripple-ui-core/src/components/alert/RplAlert.vue'
 
-const baseProps = {
+const props = {
   variant: 'information',
   iconName: 'icon-fire',
   message: 'This is a test alert, be alert but not alarmed',
@@ -9,31 +9,25 @@ const baseProps = {
   linkUrl: '/',
   dismissed: false,
   alertId: '1234'
-}
+} as any
 
 test.describe(() => {
   test('mounts', async ({ mount }) => {
     const component = await mount(RplAlert, {
-      props: { ...baseProps }
+      props
     })
     await expect(component).toBeVisible()
   })
 
-  // test('fires dismiss event when cleared', async ({ mount }) => {
-  //   let dismissed = false
-  //   const onDismiss = () => (dismissed = true)
+  test('fires dismiss event when cleared', async ({ mount }) => {
+    let dismissed = false
+    const onDismiss = () => (dismissed = true)
 
-  //   cy.mount(RplAlert as any, {
-  //     props: {
-  //       ...baseProps,
-  //       onDismiss
-  //     }
-  //   })
+    const component = await mount(RplAlert, {
+      props: { ...props, onDismiss } as any
+    })
 
-  //   cy.get('.rpl-alert__btn-close').click()
-
-  //   cy.wait(50).then(() => {
-  //     cy.wrap(dismissed).should('be.true')
-  //   })
-  // })
+    await component.locator('.rpl-alert__btn-close').click()
+    expect(dismissed).toBeTruthy()
+  })
 })

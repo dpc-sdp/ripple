@@ -9,7 +9,8 @@ import {
   RplIcon,
   RplButton,
   RplContent,
-  RplTextLink
+  RplTextLink,
+  RplPromoCard
 } from '../packages/ripple-ui-core/src/components'
 import MapWrapper from './MapWrapper.vue'
 import Wrapper from './Wrapper.vue'
@@ -31,6 +32,7 @@ beforeMount(async ({ app }: { app: App }) => {
   app.component('RplButton', RplButton)
   app.component('RplContent', RplContent)
   app.component('RplTextLink', RplTextLink)
+  app.component('RplPromoCard', RplPromoCard)
   registerRplFormPlugin(app)
 
   // Maps setup

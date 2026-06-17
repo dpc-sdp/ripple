@@ -29,7 +29,8 @@
     "http-server": "^14.1.1",
     "playwright": "^1.60.0",
     "storybook": "^10.3.6",
-    "vitest": "^4.1.8"
+    "vitest": "^4.1.8",
+    "lodash.kebabcase": "^4.1.1"
   },
   "dependencies": {
     "@dpc-sdp/ripple-ui-core": "workspace:*",

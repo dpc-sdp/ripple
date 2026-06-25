@@ -1,4 +1,4 @@
-import { defineAppConfig } from 'nuxt/app'
+import { defineAppConfig } from '#imports'
 import pkg from './package.json'
 
 export default defineAppConfig({

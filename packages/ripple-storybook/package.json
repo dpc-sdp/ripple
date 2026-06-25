@@ -18,17 +18,17 @@
   "devDependencies": {
     "@modyfi/vite-plugin-yaml": "^1.0.4",
     "@rollup/plugin-node-resolve": "^15.2.1",
-    "@storybook/addon-a11y": "^10.2.10",
-    "@storybook/addon-vitest": "^10.2.10",
-    "@storybook/vue3": "^10.2.10",
-    "@storybook/vue3-vite": "^10.2.10",
+    "@storybook/addon-a11y": "^10.4.5",
+    "@storybook/addon-vitest": "^10.4.5",
+    "@storybook/vue3": "^10.4.5",
+    "@storybook/vue3-vite": "^10.4.5",
     "@vitejs/plugin-vue": "^5.2.3",
     "@vitest/browser-playwright":  "^4.1.8",
     "@vitest/coverage-v8": "^4.1.8",
     "chromatic": "^15.1.1",
     "http-server": "^14.1.1",
     "playwright": "^1.60.0",
-    "storybook": "^10.3.6",
+    "storybook": "^10.4.5",
     "vitest": "^4.1.8"
   },
   "dependencies": {

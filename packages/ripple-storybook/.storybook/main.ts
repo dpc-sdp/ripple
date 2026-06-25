@@ -46,8 +46,7 @@ const config: StorybookConfig = {
   stories: ['./../../ripple-ui*/!(node_modules)/**/*.stories.@(js|jsx|ts|tsx)'],
   addons: ['@storybook/addon-a11y', '@storybook/addon-vitest'],
   framework: {
-    name: '@storybook/vue3-vite',
-    options: { docgen: 'vue-component-meta' }
+    name: '@storybook/vue3-vite'
   },
   staticDirs: ['./public'],
   previewHead: (head) => `

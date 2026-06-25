@@ -9,11 +9,6 @@ export default defineAppConfig({
       title: 'Ripple Design System',
       color: 'var(--rpl-clr-primary)',
       neutralFooter: false
-    },
-    framework: {
-      title: 'Ripple Framework',
-      color: 'var(--rpl-clr-dark)',
-      neutralFooter: true
     }
   },
   version: pkg.version,

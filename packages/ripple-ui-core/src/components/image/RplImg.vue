@@ -6,10 +6,10 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { StyleValue } from 'vue'
+import { ImgHTMLAttributes, StyleValue } from 'vue'
 
 // Verbose declaration due to disabled inheritance
-interface Props {
+interface Props extends /* @vue-ignore */ ImgHTMLAttributes {
   class: string
   src: string
   alt: string
@@ -17,8 +17,8 @@ interface Props {
   height: number | undefined
   srcset?: string
   sizes?: any
-  loading: string
-  fetchpriority: string
+  loading: 'lazy' | 'eager' | undefined
+  fetchpriority: 'auto' | 'high' | 'low' | undefined
   style: StyleValue
 }
 

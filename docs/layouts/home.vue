@@ -22,7 +22,11 @@
                 v-if="page.content?.primaryCTA"
                 class="rpl-col-12 rpl-col-6-m"
               >
-                <RplPromoCard v-bind="page.content.primaryCTA">
+                <RplPromoCard
+                  :title="page.content.primaryCTA.title"
+                  :url="page.content.primaryCTA.url"
+                  :image="page.content.primaryCTA.image"
+                >
                   <p>{{ page.content.primaryCTA.description }}</p>
                 </RplPromoCard>
               </div>
@@ -30,7 +34,11 @@
                 v-if="page.content?.secondaryCTA"
                 class="rpl-col-12 rpl-col-6-m"
               >
-                <RplPromoCard v-bind="page.content.secondaryCTA">
+                <RplPromoCard
+                  :title="page.content.secondaryCTA.title"
+                  :url="page.content.secondaryCTA.url"
+                  :image="page.content.secondaryCTA.image"
+                >
                   <p>{{ page.content.secondaryCTA.description }}</p>
                 </RplPromoCard>
               </div>
@@ -46,7 +54,10 @@
           v-if="page.content?.quickLink1"
           class="rpl-col-12 rpl-col-6-m rpl-col-4-l docs-home-col-fill"
         >
-          <RplPromoCard v-bind="page.content.quickLink1">
+          <RplPromoCard
+            :title="page.content.quickLink1.title"
+            :url="page.content.quickLink1.url"
+          >
             <p>
               {{ page.content.quickLink1.description }}
             </p>
@@ -56,7 +67,10 @@
           v-if="page.content?.quickLink2"
           class="rpl-col-12 rpl-col-6-m rpl-col-4-l docs-home-col-fill"
         >
-          <RplPromoCard v-bind="page.content.quickLink2">
+          <RplPromoCard
+            :title="page.content.quickLink2.title"
+            :url="page.content.quickLink2.url"
+          >
             <p>
               {{ page.content.quickLink2.description }}
             </p>
@@ -66,7 +80,10 @@
           v-if="page.content?.quickLink3"
           class="rpl-col-12 rpl-col-12-m rpl-col-4-l docs-home-col-fill"
         >
-          <RplPromoCard v-bind="page.content.quickLink3">
+          <RplPromoCard
+            :title="page.content.quickLink3.title"
+            :url="page.content.quickLink3.url"
+          >
             <p>
               {{ page.content.quickLink3.description }}
             </p>
@@ -84,7 +101,11 @@
         :style="{ '--rpl-clr-gradient-horizontal': 'var(--rpl-clr-dark)' }"
       >
         <div class="rpl-col-12">
-          <RplPromoCard v-bind="page.content.framework" highlight>
+          <RplPromoCard
+            :title="page.content.framework.title"
+            :url="page.content.framework.url"
+            highlight
+          >
             <p>
               {{ page.content.framework.description }}
             </p>
@@ -95,10 +116,10 @@
 
     <DocsHomeSection>
       <ContentRenderer
-        tag="DocsContent"
-        class="content-full"
-        v-if="page.body.value.length"
+        v-if="page.body"
         :key="page.id"
+        class="content-full"
+        tag="DocsContent"
         :value="page"
       />
     </DocsHomeSection>
@@ -118,13 +139,16 @@
 </template>
 
 <script setup lang="ts">
+import { useAppConfig } from '#imports'
+// @ts-expect-error TS2614 import from local augment
 import type { ContentCollectionItem } from '@nuxt/content'
+import type { IRplImageType } from '~/../packages/ripple-ui-core/src/components/image/constants'
 
 type HomeCard = {
   title: string
   description: string
   url: string
-  image?: string
+  image?: IRplImageType
   links?: {
     text: string
     url: string

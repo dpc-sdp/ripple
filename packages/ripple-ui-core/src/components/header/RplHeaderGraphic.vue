@@ -27,7 +27,7 @@ const classes = computed(() => ({
 
 <template>
   <div :class="classes">
-    <RplImage v-if="suppliedImage" :src="image" alt="" />
+    <RplImage v-if="suppliedImage" :src="image as string" alt="" />
     <RplTrianglesTop
       v-else-if="placement === 'top'"
       class="rpl-header-graphic__top"

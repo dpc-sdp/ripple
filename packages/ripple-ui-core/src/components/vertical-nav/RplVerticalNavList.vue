@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import { IRplVerticalNavItem } from './constants'
 import RplVerticalNavLink from './RplVerticalNavLink.vue'
 import RplVerticalNavToggle from './RplVerticalNavToggle.vue'
@@ -25,15 +26,9 @@ const emit = defineEmits<{
 
 const { emitRplEvent } = useRippleEvent('rpl-vertical-nav', emit)
 
-const showIcon = (index: number) => {
-  const hasIcon = props.level > Math.max(props.toggleLevels, 2)
-
-  if (index === 0 && props.level - 1 <= props.toggleLevels) {
-    return false
-  }
-
-  return hasIcon
-}
+const showIcon = computed(() => {
+  return props.level > Math.max(1, props.toggleLevels) + 1
+})
 
 const isExpandable = (item: IRplVerticalNavItem) => {
   return item.items && props.level <= props.toggleLevels
@@ -64,11 +59,21 @@ const handleClick = (event) => {
       }"
     >
       <template v-if="isExpandable(item)">
-        <RplVerticalNavToggle
-          :id="toggleId(item.id)"
-          :text="item.text"
-          @click="toggleItem(item)"
-        />
+        <div class="rpl-vertical-nav__header">
+          <RplVerticalNavLink
+            :text="item.text"
+            :href="item.url"
+            :active="item?.active && !item.items?.some((i) => i.active)"
+            :show-child-icon="showIcon"
+            @item-click="(event) => handleClick(event)"
+          />
+          <RplVerticalNavToggle
+            :id="toggleId(item.id)"
+            :text="item.text"
+            :aria-expanded="isExpanded(item.id)"
+            @click="toggleItem(item)"
+          />
+        </div>
         <RplExpandable
           :aria-labelledby="`rpl-vertical-nav-${item.id}-toggle`"
           :aria-hidden="!isExpanded(item.id)"
@@ -88,7 +93,7 @@ const handleClick = (event) => {
           :text="item.text"
           :href="item.url"
           :active="item?.active && !item.items?.some((i) => i.active)"
-          :show-child-icon="showIcon(index)"
+          :show-child-icon="showIcon"
           @item-click="(event) => handleClick(event)"
         />
         <RplVerticalNavList

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import {
+  computed,
   getColourName,
   getColourOptions,
   getColourToken,

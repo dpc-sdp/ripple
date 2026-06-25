@@ -16,13 +16,13 @@ const baseProps = {
 
 describe('RplTabs', () => {
   it('mounts', () => {
-    cy.mount(RplTabs, { props: baseProps })
+    cy.mount(RplTabs as any, { props: baseProps })
   })
 
-  it.only('switches tabs when clicked', () => {
+  it('switches tabs when clicked', () => {
     const onChangeSpy = cy.spy().as('onChangeSpy')
 
-    cy.mount(RplTabs, {
+    cy.mount(RplTabs as any, {
       props: { ...baseProps, activeTab: 'one', [`onToggleTab`]: onChangeSpy }
     })
 
@@ -37,7 +37,7 @@ describe('RplTabs', () => {
   })
 
   it('sets the correct default tab', () => {
-    cy.mount(RplTabs, { props: { ...baseProps, activeTab: 'two' } })
+    cy.mount(RplTabs as any, { props: { ...baseProps, activeTab: 'two' } })
 
     cy.get('.rpl-tab--active').should('contain', 'Two')
   })

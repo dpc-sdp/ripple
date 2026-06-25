@@ -283,6 +283,34 @@ export const DefaultStory: Story = {
         ]
       },
       {
+        $formkit: 'RplFormAutocomplete',
+        name: 'autocomplete-free-text',
+        label: 'Autocomplete with free text',
+        id: 'autocomplete-free-text',
+        help: '<p>Enter a value</p>',
+        getSuggestions: () =>
+          Promise.resolve([
+            { id: 'thing-1', label: 'Thing 1' },
+            { id: 'thing-2', label: 'Thing 2' },
+            { id: 'thing-3', label: 'Thing 3' }
+          ]),
+        isFreeText: true
+      },
+      {
+        $formkit: 'RplFormAutocomplete',
+        name: 'autocomplete-object-value',
+        label: 'Autocomplete with object value',
+        id: 'autocomplete-object-value',
+        help: '<p>Enter a value</p>',
+        getSuggestions: () =>
+          Promise.resolve([
+            { id: 'thing-1', label: 'Thing 1' },
+            { id: 'thing-2', label: 'Thing 2' },
+            { id: 'thing-3', label: 'Thing 3' }
+          ]),
+        isFreeText: false
+      },
+      {
         $formkit: 'RplFormDatePicker',
         multiple: true,
         id: 'birthdate',
@@ -310,6 +338,27 @@ export const DefaultStory: Story = {
         validation: 'between:0,5',
         validationMessages: {
           between: 'Please choose between 0 and 5'
+        }
+      },
+      {
+        $formkit: 'RplFormFile',
+        name: 'file',
+        label: 'Files',
+        id: 'files',
+        help: '<p>Please select between 2 and 3 files</p>',
+        maxFiles: 3,
+        maxSize: 2,
+        allowedTypes: {
+          mimeType: 'image/jpeg,image/png',
+          extension: 'jpg,png'
+        },
+        handleUpload: async (id: string) =>
+          Promise.resolve({ id, status: 'success' }),
+        value: [],
+        validation: 'required|length:2,3',
+        validationMessages: {
+          required: 'Please upload a file',
+          length: 'Please upload between 2 and 3 files'
         }
       },
       {

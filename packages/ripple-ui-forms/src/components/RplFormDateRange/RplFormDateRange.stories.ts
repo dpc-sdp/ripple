@@ -9,9 +9,9 @@ const Template = (args) => ({
   setup() {
     return { args }
   },
-  data: () => ({ currentValue: {} }),
+  data: () => ({ currentValue: args.value || {} }),
   methods: {
-    onChange: function (val) {
+    onChange: function(val) {
       this.currentValue = val
     }
   },
@@ -69,7 +69,11 @@ export const Invalid: Story = {
 export const CustomDateFormat: Story = {
   args: {
     variant: 'default',
-    dateFormat: 'yyyy/mm/dd'
+    dateFormat: 'dd/MM/yyyy',
+    value: {
+      from: '14/01/2025',
+      to: '21/02/2025'
+    }
   }
 }
 

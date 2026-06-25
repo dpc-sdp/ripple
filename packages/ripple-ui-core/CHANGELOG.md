@@ -1303,6 +1303,90 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * **@dpc-sdp/ripple-ui-core:** removed the unneeded 1px margin from the file icon ([f25b39e](https://github.com/dpc-sdp/ripple-framework/commit/f25b39ee9b586094a0e40d77b4cc565e99c68eaf))
 * **@dpc-sdp/ripple-ui-core:** revert content prop ([c79b30c](https://github.com/dpc-sdp/ripple-framework/commit/c79b30cf5cc665113458c59884e27719bf561726))
 
+## [2.52.2](https://github.com/dpc-sdp/ripple/compare/ripple-ui-core-v2.52.1...ripple-ui-core-v2.52.2) (2026-06-11)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** vertical nav indentation ([#1409](https://github.com/dpc-sdp/ripple/issues/1409)) ([d3c0573](https://github.com/dpc-sdp/ripple/commit/d3c05734b35095697240045bc3a793b1c403609b))
+
+## [2.52.1](https://github.com/dpc-sdp/ripple/compare/ripple-ui-core-v2.52.0...ripple-ui-core-v2.52.1) (2026-05-14)
+
+
+### Bug Fixes
+
+* trigger releases ([#1395](https://github.com/dpc-sdp/ripple/issues/1395)) ([7a64d63](https://github.com/dpc-sdp/ripple/commit/7a64d63a6d4907ccb20d491aedc52283d410fd04))
+
+## [2.52.0](https://github.com/dpc-sdp/ripple/compare/ripple-ui-core-v2.51.1...ripple-ui-core-v2.52.0) (2026-04-30)
+
+
+### Features
+
+* **@dpc-sdp/ripple-ui-core:** search result promo data ([#1378](https://github.com/dpc-sdp/ripple/issues/1378)) ([0dca372](https://github.com/dpc-sdp/ripple/commit/0dca37227c2d4b3bf8ab50af939bd2ab4425c294))
+
+## [2.51.1](https://github.com/dpc-sdp/ripple/compare/ripple-ui-core-v2.51.0...ripple-ui-core-v2.51.1) (2026-04-17)
+
+
+### Bug Fixes
+
+* trigger releases ([#1374](https://github.com/dpc-sdp/ripple/issues/1374)) ([9f76446](https://github.com/dpc-sdp/ripple/commit/9f764466b65723c87914afdaa922b94add9cadd5))
+
+## [2.51.0](https://github.com/dpc-sdp/ripple/compare/ripple-ui-core-v2.50.0...ripple-ui-core-v2.51.0) (2026-04-16)
+
+
+### Features
+
+* :recycle: refactor formateDateRange into helpers ([#1371](https://github.com/dpc-sdp/ripple/issues/1371)) ([69c35b0](https://github.com/dpc-sdp/ripple/commit/69c35b0dd597f5ac252d5707d178b4b3852f9f6b))
+* **@dpc-sdp/ripple-ui-core:** add default slot to RplSearchResult component ([#1372](https://github.com/dpc-sdp/ripple/issues/1372)) ([a602c8b](https://github.com/dpc-sdp/ripple/commit/a602c8b8b1cc81309825f658ccb1bd7011fafb0f))
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** fix button styling when anchor tag used ([#1366](https://github.com/dpc-sdp/ripple/issues/1366)) ([12ee0d7](https://github.com/dpc-sdp/ripple/commit/12ee0d75d429f113e3f9fdb20a0fd3a310aea115))
+
+
+### Miscellaneous
+
+* package updates ([#1370](https://github.com/dpc-sdp/ripple/issues/1370)) ([e827529](https://github.com/dpc-sdp/ripple/commit/e8275299dd7c14f3203c1e48772b0cb8df8fb933))
+
+## [2.50.0](https://github.com/dpc-sdp/ripple/compare/ripple-ui-core-v2.49.1...ripple-ui-core-v2.50.0) (2026-03-19)
+
+
+### Features
+
+* [SD-1412] - Updated design of vertical nav component ([#1357](https://github.com/dpc-sdp/ripple/issues/1357)) ([d6f3a9e](https://github.com/dpc-sdp/ripple/commit/d6f3a9e170f43bb0facb598b1be732cc21fb1141))
+* **@dpc-sdp/ripple-ui-core:** add prop to control global events on RplSearchResult ([#1359](https://github.com/dpc-sdp/ripple/issues/1359)) ([0b5784c](https://github.com/dpc-sdp/ripple/commit/0b5784c7c640536ca5c34837d9e7d94a0266cd4b))
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** vertical nav feedback ([#1362](https://github.com/dpc-sdp/ripple/issues/1362)) ([bcac16b](https://github.com/dpc-sdp/ripple/commit/bcac16b3c6e2d215e9f065468d956c29eaa7678b))
+
+
+### Miscellaneous
+
+* misc repo updates ([#1365](https://github.com/dpc-sdp/ripple/issues/1365)) ([3a5483e](https://github.com/dpc-sdp/ripple/commit/3a5483e90a2a896252a63773b3b688c9778b4b27))
+* update storybook and related deps ([#1355](https://github.com/dpc-sdp/ripple/issues/1355)) ([25645d7](https://github.com/dpc-sdp/ripple/commit/25645d7eb0d28459c270fefcfdc8b7ee986a6123))
+
+## [2.49.1](https://github.com/dpc-sdp/ripple/compare/ripple-ui-core-v2.49.0...ripple-ui-core-v2.49.1) (2026-02-09)
+
+
+### Bug Fixes
+
+* **@dpc-sdp/ripple-ui-core:** fixed in page nav heading level to meet a11y requirements ([#1352](https://github.com/dpc-sdp/ripple/issues/1352)) ([3285375](https://github.com/dpc-sdp/ripple/commit/3285375ffa75865f0273544dd03860b07b9b1f38))
+
+## [2.49.0](https://github.com/dpc-sdp/ripple/compare/ripple-ui-core-v2.48.0...ripple-ui-core-v2.49.0) (2026-02-04)
+
+
+### Features
+
+* ✨ update to node 24 [SD-1246] ([#1349](https://github.com/dpc-sdp/ripple/issues/1349)) ([e645077](https://github.com/dpc-sdp/ripple/commit/e6450777f508d5f14a5bc09c38d7378ebf8a6eb7))
+
+
+### Miscellaneous
+
+* [SD-1526] - Setup typecheck scripts for each ui package ([#1335](https://github.com/dpc-sdp/ripple/issues/1335)) ([3c2dd13](https://github.com/dpc-sdp/ripple/commit/3c2dd13e11235df0e910eba79bd6b91463e479dc))
+
 ## [2.48.0](https://github.com/dpc-sdp/ripple/compare/ripple-ui-core-v2.47.0...ripple-ui-core-v2.48.0) (2026-01-21)
 
 

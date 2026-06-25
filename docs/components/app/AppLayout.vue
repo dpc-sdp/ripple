@@ -27,6 +27,8 @@
 </template>
 
 <script lang="ts" setup>
+import { provide } from '#imports'
+
 interface Props {
   background?: 'default' | 'alt'
   theme?: 'default' | 'module'

@@ -774,6 +774,55 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * **@dpc-sdp/ripple-ui-forms:** :building_construction: move storybook to project root, add forms ([578f8c9](https://github.com/dpc-sdp/ripple-framework/commit/578f8c92904e5f05f24ec1d8cb0646af13a32a43))
 * **@dpc-sdp/ripple-ui-forms:** :sparkles: change form validation to be on submit ([eedc937](https://github.com/dpc-sdp/ripple-framework/commit/eedc9373cb04817c94fd095d2c564e56140064c1))
 
+## [2.50.1](https://github.com/dpc-sdp/ripple/compare/ripple-ui-forms-v2.50.0...ripple-ui-forms-v2.50.1) (2026-05-14)
+
+
+### Bug Fixes
+
+* trigger releases ([#1395](https://github.com/dpc-sdp/ripple/issues/1395)) ([7a64d63](https://github.com/dpc-sdp/ripple/commit/7a64d63a6d4907ccb20d491aedc52283d410fd04))
+
+## [2.50.0](https://github.com/dpc-sdp/ripple/compare/ripple-ui-forms-v2.49.1...ripple-ui-forms-v2.50.0) (2026-04-30)
+
+
+### Features
+
+* **@dpc-sdp/ripple-ui-forms:** add option to clear search on option selection ([#1379](https://github.com/dpc-sdp/ripple/issues/1379)) ([01955c1](https://github.com/dpc-sdp/ripple/commit/01955c12767a9567ea10326c53e0a9c3ed8338eb))
+
+
+### Reverts
+
+* **@dpc-sdp/ripple-ui-forms:** remove date select powered by @vuepic/vue-datepicker ([#1380](https://github.com/dpc-sdp/ripple/issues/1380)) ([16ddea3](https://github.com/dpc-sdp/ripple/commit/16ddea31d1d0ce7177d719a27a64ca42c51b3da2))
+
+## [2.49.1](https://github.com/dpc-sdp/ripple/compare/ripple-ui-forms-v2.49.0...ripple-ui-forms-v2.49.1) (2026-04-17)
+
+
+### Bug Fixes
+
+* trigger releases ([#1374](https://github.com/dpc-sdp/ripple/issues/1374)) ([9f76446](https://github.com/dpc-sdp/ripple/commit/9f764466b65723c87914afdaa922b94add9cadd5))
+
+## [2.49.0](https://github.com/dpc-sdp/ripple/compare/ripple-ui-forms-v2.48.1...ripple-ui-forms-v2.49.0) (2026-03-19)
+
+
+### Features
+
+* **@dpc-sdp/ripple-ui-forms:** add fieldId and formId to handleUpload ([#1360](https://github.com/dpc-sdp/ripple/issues/1360)) ([36dcd31](https://github.com/dpc-sdp/ripple/commit/36dcd314d2890700084c564ef18f1befa2c5df81))
+* **@dpc-sdp/ripple-ui-forms:** Adding RplFromFile component ([#1354](https://github.com/dpc-sdp/ripple/issues/1354)) ([6d011d8](https://github.com/dpc-sdp/ripple/commit/6d011d863e672940363595860d85238dc2c3b93a))
+* added generic autocomplete form element ([#1361](https://github.com/dpc-sdp/ripple/issues/1361)) ([3b6fb91](https://github.com/dpc-sdp/ripple/commit/3b6fb916bb47bd6a5ed14b4c2762cb0efc9ca12f))
+
+
+### Miscellaneous
+
+* misc repo updates ([#1365](https://github.com/dpc-sdp/ripple/issues/1365)) ([3a5483e](https://github.com/dpc-sdp/ripple/commit/3a5483e90a2a896252a63773b3b688c9778b4b27))
+* update storybook and related deps ([#1355](https://github.com/dpc-sdp/ripple/issues/1355)) ([25645d7](https://github.com/dpc-sdp/ripple/commit/25645d7eb0d28459c270fefcfdc8b7ee986a6123))
+
+## [2.48.1](https://github.com/dpc-sdp/ripple/compare/ripple-ui-forms-v2.48.0...ripple-ui-forms-v2.48.1) (2026-02-04)
+
+
+### Miscellaneous
+
+* [SD-1526] - Setup typecheck scripts for each ui package ([#1335](https://github.com/dpc-sdp/ripple/issues/1335)) ([3c2dd13](https://github.com/dpc-sdp/ripple/commit/3c2dd13e11235df0e910eba79bd6b91463e479dc))
+* update date-fns version, improve date range date checks ([#1350](https://github.com/dpc-sdp/ripple/issues/1350)) ([19950e3](https://github.com/dpc-sdp/ripple/commit/19950e322ae61aca0b4bf17248e73fd4d25a6069))
+
 ## [2.48.0](https://github.com/dpc-sdp/ripple/compare/ripple-ui-forms-v2.47.0...ripple-ui-forms-v2.48.0) (2026-01-21)
 
 

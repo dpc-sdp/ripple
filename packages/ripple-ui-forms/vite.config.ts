@@ -19,8 +19,7 @@ export default defineConfig({
           src: 'src/components/**/*.vue',
           dest: '.'
         }
-      ],
-      flatten: false
+      ]
     })
   ],
   server: {
@@ -42,11 +41,7 @@ export default defineConfig({
     // Leave minification for now whilst we are non prod
     minify: false,
     rollupOptions: {
-      external: [
-        'vue',
-        '@dpc-sdp/ripple-ui-core/vue',
-        '@vuepic/vue-datepicker'
-      ],
+      external: ['vue', '@dpc-sdp/ripple-ui-core/vue'],
       output: {
         inlineDynamicImports: true,
         globals: {

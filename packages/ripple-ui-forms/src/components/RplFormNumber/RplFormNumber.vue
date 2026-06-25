@@ -11,6 +11,7 @@ import useFormkitFriendlyEventEmitter from '../../composables/useFormkitFriendly
 import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
 import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
 import { sanitisePIIField } from '../../lib/sanitisePII'
+import { IRplFormProvidedState } from '../../types.js'
 
 interface Props {
   id: string
@@ -63,7 +64,7 @@ const emit = defineEmits<{
 
 const { emitRplEvent } = useRippleEvent('rpl-form-number', emit)
 
-const form: any = inject('form')
+const form: IRplFormProvidedState | undefined = inject('form')
 
 const classes = computed(() => {
   return {

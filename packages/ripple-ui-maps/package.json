@@ -1,7 +1,7 @@
 {
   "name": "@dpc-sdp/ripple-ui-maps",
   "description": "Ripple UI Core component library",
-  "version": "2.48.0",
+  "version": "2.49.1",
   "license": "Apache-2.0",
   "repository": "https://github.com/dpc-sdp/ripple",
   "publishConfig": {
@@ -40,7 +40,8 @@
     "storybook:build": "build-storybook",
     "test:components": "cypress run --component",
     "cy:components": "cypress open --component",
-    "test:generate-output": "jest --json --outputFile=.jest-test-results.json"
+    "test:generate-output": "jest --json --outputFile=.jest-test-results.json",
+    "typecheck": "vue-tsc -p tsconfig.typecheck.json --noEmit"
   },
   "dependencies": {
     "@nuxt/kit": "catalog:",
@@ -56,18 +57,19 @@
     "vue3-openlayers": "^11.6.0"
   },
   "peerDependencies": {
-    "vue": "^3.4.21"
+    "vue": "^3.5.32"
   },
   "devDependencies": {
     "@dpc-sdp/ripple-ui-core": "workspace:*",
     "@vitejs/plugin-vue": "5.0.4",
-    "@vue/compiler-sfc": "^3.2.47",
+    "@vue/compiler-sfc": "^3.5.33",
     "autoprefixer": "^10.4.14",
     "rimraf": "catalog:",
     "vite": "catalog:",
     "vite-plugin-copy": "^0.1.6",
     "vite-plugin-dts": "^2.1.0",
-    "vite-svg-loader": "catalog:"
+    "vite-svg-loader": "catalog:",
+    "vue-tsc": "catalog:"
   },
   "overrides": {
     "ol-contextmenu": {

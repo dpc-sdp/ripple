@@ -1,58 +1,60 @@
-import type { FormKitTypeDefinition } from '@formkit/core'
+import { FormKitTypeDefinition } from '@formkit/core'
 import { createRplFormInput, inputLibrary, rplFeatures } from './input-utils'
 
 /**
- * Input definition for Ripple text input.
+ * Input definition for a checkbox(ess).
  * @public
  */
-export const dateSelect: FormKitTypeDefinition = {
+export const file: FormKitTypeDefinition = {
   /**
    * The actual schema of the input, or a function that returns the schema.
    */
   schema: createRplFormInput(() => ({
-    $cmp: 'RplFormDateSelect',
+    $cmp: 'RplFormFile',
     props: {
       id: `$id`,
-      name: '$node.name',
       label: '$label',
+      'aria-describedby': '$fns.getAriaDescribedBy()',
+      name: '$node.name',
       value: '$_value',
+      placeholder: '$node.props.placeholder',
       onChange: '$node.input',
-      dateFormat: '$node.props.dateFormat',
       disabled: '$node.context.disabled',
-      invalid: '$fns.isFieldInvalid()',
       required: '$fns.isFieldRequired()',
-      pii: '$node.props.pii',
-      'aria-describedby': '$fns.getAriaDescribedBy()'
+      invalid: '$fns.isFieldInvalid()',
+      multiple: '$node.props.multiple',
+      maxFiles: '$node.props.maxFiles',
+      maxSize: '$node.props.maxSize',
+      allowedTypes: '$node.props.allowedTypes',
+      handleUpload: '$node.props.handleUpload',
+      validationMeta: '$node.props.validationMeta',
+      columnClasses: '$node.props.columnClasses',
+      pii: '$node.props.pii'
     }
   })),
   library: inputLibrary,
   /**
-   * The type of node, can be a list, group, or input.
+   * The type of node can be a list, group, or input.
    */
   type: 'input',
   /**
    * The family of inputs this one belongs too. For example "text" and "email"
    * are both part of the "text" family. This is primary used for styling.
    */
-  family: 'text',
+  family: 'box',
   /**
    * An array of extra props to accept for this input.
    */
   props: [
-    'validationMeta',
+    'placeholder',
+    'multiple',
+    'maxFiles',
+    'maxSize',
+    'allowedTypes',
+    'handleUpload',
     'columnClasses',
-    'dateFormat',
-    'minDate',
-    'maxDate',
-    'range',
-    'rangedMode',
-    'sublabel',
     'pii'
   ],
-  /**
-   * Forces node.props.type to be this explicit value.
-   */
-  forceTypeProp: 'date',
   /**
    * Additional features that should be added to your input
    */

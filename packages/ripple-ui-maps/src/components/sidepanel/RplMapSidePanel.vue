@@ -15,6 +15,7 @@
             :pagingStart="pagingStart"
             :pagingEnd="pagingEnd"
             :totalResults="totalResults"
+            :excessResults="excessResults"
           />
         </slot>
       </div>
@@ -71,6 +72,7 @@ interface Props {
   totalPages: number
   currentPage: number
   listLabel?: string
+  excessResults?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -78,7 +80,8 @@ const props = withDefaults(defineProps<Props>(), {
   panelLocation: 'left',
   isStandalone: false,
   showToggle: false,
-  listLabel: 'Map search results'
+  listLabel: 'Map search results',
+  excessResults: false
 })
 
 const isOpen = ref(true)

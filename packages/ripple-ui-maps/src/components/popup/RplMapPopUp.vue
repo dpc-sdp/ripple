@@ -71,7 +71,7 @@ import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
 import LargePinIcon from './../../assets/icons/icon-pin-large.svg?component'
 
 interface Props {
-  featureId: string
+  featureId?: string
   isOpen: boolean
   isArea?: boolean
   pinColor?: string
@@ -82,6 +82,7 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
+  featureId: undefined,
   isOpen: false,
   isArea: false,
   pinColor: 'green',
@@ -146,7 +147,7 @@ const bodyHeight = computed(() => {
   return Math.min(maxPopupHeight, availablePopupHeight) - headerHeight.value
 })
 
-// Watch the featureId and isOpen to know when the popup is opened or has updated with new data.
+// Watch the featureId? and isOpen to know when the popup is opened or has updated with new data.
 // Anytime this happens we want to bring focus to the popup and remember the previously focused element
 // so that we can return there when the popup is closed.
 watch([() => props.isOpen, () => props.featureId], async (newIsOpen) => {

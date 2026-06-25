@@ -6,8 +6,6 @@ import {
   actions,
   checkbox,
   checkboxGroup,
-  dateSelect,
-  dateSelectRange,
   dropdown,
   number,
   url,
@@ -19,9 +17,11 @@ import {
   datePicker,
   dateRange,
   optionButtons,
+  file,
   fieldset,
   hidden,
-  review
+  review,
+  autocomplete
 } from './inputs/index'
 
 const rplFormInputs = () => {
@@ -52,16 +52,16 @@ rplFormInputs.library = (node) => {
       return node.define(optionButtons)
     case 'RplFormDropdown':
       return node.define(dropdown)
+    case 'RplFormAutocomplete':
+      return node.define(autocomplete)
     case 'RplFormDate':
       return node.define(date)
     case 'RplFormDatePicker':
       return node.define(datePicker)
     case 'RplFormDateRange':
       return node.define(dateRange)
-    case 'RplFormDateSelect':
-      return node.define(dateSelect)
-    case 'RplFormDateSelectRange':
-      return node.define(dateSelectRange)
+    case 'RplFormFile':
+      return node.define(file)
     case 'RplFormContent':
       return node.define(content)
     case 'RplFormLabel':

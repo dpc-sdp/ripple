@@ -1,0 +1,12 @@
+{
+  // https://v3.nuxtjs.org/concepts/typescript
+  "extends": "../../tsconfig.json",
+  "exclude": [
+    "**/*.stories.ts",
+    "**/*.stories.mdx",
+    "dist",
+    "stories",
+    "**/*.cy.ts",
+    "**/*.play.ts"
+  ]
+}

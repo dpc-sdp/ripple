@@ -17,7 +17,11 @@ import {
   type FormKitPlugin
 } from '@formkit/core'
 import { getValidationMessages } from '@formkit/validation'
-import { createMultiStepPlugin } from '@formkit/addons'
+import {
+  type StepChangeData,
+  type StepSlotData,
+  createMultiStepPlugin
+} from '@formkit/addons'
 import rplFormInputs from '../../plugin'
 import RplFormAlert from '../RplFormAlert/RplFormAlert.vue'
 import RplFormSteps from '../RplFormSteps/RplFormSteps.vue'
@@ -26,6 +30,7 @@ import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
 import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
 import { sanitisePIIFields } from '../../lib/sanitisePII'
 import useFormFocus from '../../composables/useFormFocus'
+import { RplFormKitStepNode } from '../../types'
 
 interface Props {
   id: string
@@ -104,32 +109,29 @@ const stepsRef = ref(null)
 const serverMessageRef = ref(null)
 const errorSummaryRef = ref(null)
 const cachedErrors = ref<Record<string, CachedError>>({})
-const submitCounter = ref(0)
-const focusStepField = ref(null)
-const focusStepFromLabel = ref(null)
+const submitCounter = ref<number>(0)
+const focusStepField = ref<string | null>(null)
+const focusStepFromLabel = ref<string | null>(null)
 const stepsId = `${props.id}-steps`
 
-const formSteps = computed(() => {
+const formSteps = computed<RplFormKitStepNode[]>(() => {
   if (!props.schema || !Array.isArray(props.schema)) return []
 
-  return props.schema.filter((i) => i['$step'])
+  return props.schema.filter((item: unknown) => {
+    return (<RplFormKitStepNode>item)['$step']
+  }) as unknown as RplFormKitStepNode[]
 })
 const isLastStep = () => {
-  return getNode(stepsId)?.context?.steps?.find((s) => s?.isActiveStep)
-    ?.isLastStep
+  const currentNode = getNode(stepsId)
+  const steps = (currentNode?.context?.steps || []) as StepSlotData[]
+  return steps?.find((s) => s?.isActiveStep)?.isLastStep
 }
 const getFormNode = (node?: FormKitNode) => {
   return formSteps.value.length ? getNode(stepsId) : node || getNode(props.id)
 }
-interface Steps {
-  findIndex: (arg0) => string
-  find: (arg0) => { stepName: string }
-}
-const getStepEventData = (
-  step: { stepIndex: number; stepName: string } = null
-) => {
+const getStepEventData = (step: StepSlotData | null = null) => {
   if (!formSteps.value.length) return {}
-  const steps: Steps = getFormNode()?.context?.steps as Steps
+  const steps: StepSlotData[] = getFormNode()?.context?.steps as StepSlotData[]
 
   return {
     index: step
@@ -190,10 +192,19 @@ provide('isFormSubmitting', isFormSubmitting)
 provide('submitCounter', submitCounter)
 provide('onFormReset', onFormReset)
 
-const submitLabel =
-  props.schema?.find((field) => field?.key === 'actions')?.label || 'Submit'
+const submitLabel = computed(() => {
+  if (!props.schema || !Array.isArray(props.schema)) return 'Submit'
 
-const getErrorMessages = (node: FormKitNode) => {
+  const actionsField = props.schema?.find(
+    (field: any) => field?.key === 'actions'
+  ) as unknown as RplFormKitStepNode | undefined
+
+  return actionsField?.label || 'Submit'
+})
+
+const getErrorMessages = (node?: FormKitNode) => {
+  if (!node) return {}
+
   const validations = getValidationMessages(node)
 
   const cachedErrorsMap = {}
@@ -211,7 +222,7 @@ const getErrorMessages = (node: FormKitNode) => {
   return cachedErrorsMap
 }
 
-const submitHandler = (form, node: FormKitNode) => {
+const submitHandler = (form: any, node: FormKitNode) => {
   // If a user hits enter within a form field in a multistep form
   // we check if in there's a next step and if so navigate to that instead of submitting
   if (formSteps.value.length && !isLastStep()) {
@@ -241,7 +252,7 @@ const submitHandler = (form, node: FormKitNode) => {
       id: props.id,
       name: props.title,
       action: 'submit',
-      text: submitLabel,
+      text: submitLabel.value,
       value: sanitisePIIFields(node),
       ...getStepEventData()
     } as rplEventPayload,
@@ -266,7 +277,7 @@ const submitInvalidHandler = async (node: FormKitNode) => {
       id: props.id,
       action: 'submit',
       name: props.title,
-      text: submitLabel,
+      text: submitLabel.value,
       value: sanitisePIIFields(getFormNode(node)),
       ...getStepEventData()
     } as rplEventPayload,
@@ -296,7 +307,7 @@ const errorSummaryMessages = computed(() => {
 })
 
 const rplFormConfig = ref({
-  rootClasses: function (sectionKey) {
+  rootClasses: function (sectionKey: string) {
     return {
       [`rpl-form__${sectionKey}`]: true
     }
@@ -324,7 +335,7 @@ watch(
             id: props.id,
             action: 'complete',
             name: props.title,
-            text: submitLabel,
+            text: submitLabel.value,
             value: sanitisePIIFields(getFormNode()),
             ...getStepEventData()
           } as rplEventPayload,
@@ -383,7 +394,11 @@ const emitStepChange = (currentStep, targetStep, forwards) => {
   focusStepFromLabel.value = null
 }
 
-const handleStepChange = async ({ currentStep, delta, targetStep }) => {
+const handleStepChange = async ({
+  currentStep,
+  delta,
+  targetStep
+}: StepChangeData) => {
   const forwards = delta > 0
   let isStepValid = currentStep.isValid
 

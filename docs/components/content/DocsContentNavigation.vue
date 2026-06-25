@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { useAppConfig, useDocsNavigation, useRoute } from '#imports'
+
 const route = useRoute()
 const { sections, hideModulesSection } = useAppConfig()
 

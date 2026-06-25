@@ -1,0 +1,25 @@
+# Please see the documentation for all configuration options:
+# https://docs.github.com/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
+
+# Please see the documentation for all configuration options:
+# https://docs.github.com/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
+
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      time: "02:00"
+      timezone: "Australia/Melbourne"
+    commit-message:
+      prefix: "deps"
+    cooldown:
+      default-days: 3
+    groups:
+      security-updates:
+        applies-to: "security-updates"
+        patterns:
+          - "*"
+    labels:
+      - "dependencies"

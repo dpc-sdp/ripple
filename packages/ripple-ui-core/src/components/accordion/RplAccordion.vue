@@ -6,13 +6,7 @@ import {
   rplEventPayload
 } from '../../composables/useRippleEvent'
 import RplAccordionItem from './RplAccordionItem.vue'
-
-type AccordionItem = {
-  id: string
-  title?: string
-  content: string
-  active?: boolean
-}
+import type { AccordionItem } from './constants'
 
 interface Props {
   id: string

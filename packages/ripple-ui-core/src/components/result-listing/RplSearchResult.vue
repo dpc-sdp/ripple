@@ -14,13 +14,15 @@ interface Props {
   updated?: string
   dateLabel?: string
   showUrl?: boolean
+  globalEvents?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
   content: undefined,
   updated: undefined,
   dateLabel: 'Updated',
-  showUrl: true
+  showUrl: true,
+  globalEvents: true
 })
 
 const emit = defineEmits<{
@@ -29,7 +31,8 @@ const emit = defineEmits<{
 
 const { emitRplEvent } = useRippleEvent('rpl-search-result', emit)
 
-const { container, trigger } = useAccessibleContainer()
+// Underscore prefixes to avoid unused variable typescript error, as these are only used in template refs.
+const { container: _container, trigger: _trigger } = useAccessibleContainer()
 
 const displayUrl = computed(() => props.url.replace('https://', ''))
 
@@ -41,20 +44,23 @@ const handleClick = () => {
       value: props?.url,
       text: props.title
     },
-    { global: true }
+    { global: props.globalEvents }
   )
 }
 </script>
 
 <template>
   <div class="rpl-search-result">
-    <div v-if="$slots.meta" class="rpl-search-result__meta rpl-type-p-small">
+    <div
+      v-if="$slots.meta"
+      class="rpl-search-result__meta rpl-type-label-small"
+    >
       <slot name="meta"></slot>
     </div>
-    <div ref="container" class="rpl-search-result__heading">
+    <div ref="_container" class="rpl-search-result__heading">
       <h2 class="rpl-search-result__title rpl-type-h3">
         <RplTextLink
-          ref="trigger"
+          ref="_trigger"
           :url="url"
           class="rpl-u-link-visited"
           @click="handleClick"
@@ -78,6 +84,7 @@ const handleClick = () => {
       class="rpl-search-result__body rpl-type-p"
       v-html="content"
     />
+    <slot />
     <p v-if="updated" class="rpl-search-result__date rpl-type-p-small">
       {{ dateLabel ? `${dateLabel}: ` : '' }}{{ updated }}
     </p>

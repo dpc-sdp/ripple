@@ -5,7 +5,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { computed, ref, watch, nextTick, inject, type Ref } from 'vue'
+import { computed, ref, watch, nextTick, inject } from 'vue'
 import { onClickOutside, useDebounceFn } from '@vueuse/core'
 import useFormkitFriendlyEventEmitter from '../../composables/useFormkitFriendlyEventEmitter'
 import MultiValueLabel from './MultiValueLabel.vue'
@@ -13,6 +13,7 @@ import MultiValueTagList from './MultiValueTagList.vue'
 import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
 import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
 import { sanitisePIIField } from '../../lib/sanitisePII'
+import { IRplFormProvidedState } from '../../types'
 
 export interface RplFormDropdownOption {
   id: string
@@ -44,6 +45,7 @@ export interface RplFormDropdownProps {
    */
   preventDeselect?: boolean
   searchable?: boolean
+  clearSearchOnSelect?: boolean
   noResultsLabel?: string
 }
 
@@ -63,6 +65,7 @@ const props = withDefaults(defineProps<RplFormDropdownProps>(), {
   unselectedValue: undefined,
   preventDeselect: false,
   searchable: false,
+  clearSearchOnSelect: false,
   noResultsLabel: 'No results found'
 })
 
@@ -75,7 +78,8 @@ const emit = defineEmits<{
   ): void
 }>()
 
-const form: object = inject('form', undefined)
+const form: IRplFormProvidedState | undefined = inject('form')
+
 const { emitRplEvent } = useRippleEvent('rpl-form-dropdown', emit)
 
 const defaultOptionId = '__default-option'
@@ -84,11 +88,12 @@ const containerRef = ref(null)
 const inputRef = ref(null)
 const menuRef = ref(null)
 const searchCache = ref('')
-const searchRef = ref<Ref<HTMLInputElement | null>>(null)
+const searchRef = ref<HTMLInputElement | null>(null)
 const searchValue = ref('')
 const searchFocused = ref(false)
 const filtering = ref(false)
-const toggleRef = ref<Ref<HTMLElement>>(null)
+const toggleRef = ref<HTMLElement | null>(null)
+// @ts-expect-error tagListRef *is* used in the template as a ref
 const tagListRef = ref(null)
 const focusTag = ref(0)
 
@@ -231,11 +236,15 @@ const handleSearchLeft = () => {
   }
 }
 
-const handleSearchUpdate = (event: Event) => {
+const handleSearchUpdate = (event: InputEvent) => {
   filtering.value = true
 
   // If the single search value is cleared the selected option should be cleared
-  if (singleSearch.value && props.value && event.target?.value === '') {
+  if (
+    singleSearch.value &&
+    props.value &&
+    (<HTMLInputElement>event.target)?.value === ''
+  ) {
     useFormkitFriendlyEventEmitter(props, emit, 'onChange', null)
   }
 }
@@ -416,6 +425,11 @@ const handleSelectOption = (option: RplFormDropdownOption) => {
       newValue = [...props.value, optionValue]
     }
     useFormkitFriendlyEventEmitter(props, emit, 'onChange', newValue)
+
+    if (props.searchable && searchValue.value && props.clearSearchOnSelect) {
+      searchValue.value = ''
+      focusSearch()
+    }
   } else {
     if (props.searchable) {
       searchValue.value = option.label

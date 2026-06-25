@@ -7,7 +7,7 @@
     >
       <p class="rpl-type-label-small">
         Displaying {{ pagingStart }}-{{ pagingEnd }} of {{ totalResults
-        }}{{ maxResultsExceededMarker }} results
+        }}{{ excessResultsMarker }} results
       </p>
     </slot>
   </div>
@@ -20,18 +20,12 @@ interface Props {
   pagingStart: number
   pagingEnd: number
   totalResults: number
-  maxResults?: number | null
+  excessResults?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  maxResults: null
+  excessResults: false
 })
 
-const maxResultsExceededMarker = computed(() => {
-  if (!props.maxResults) {
-    return ''
-  }
-
-  return props.totalResults >= props.maxResults ? '+' : ''
-})
+const excessResultsMarker = computed(() => (props.excessResults ? '+' : ''))
 </script>

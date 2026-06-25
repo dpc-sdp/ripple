@@ -19,15 +19,17 @@ const baseProps = {
   ]
 }
 
-describe.only('RplProgress', () => {
+describe('RplProgress', () => {
   it('mounts', () => {
-    cy.mount(RplProgress, { props: { ...baseProps } })
+    cy.mount(RplProgress as any, { props: { ...baseProps } })
 
     cy.get('.rpl-progress__title').should('contains.text', 'Test title')
   })
 
   it('allows a step to be set as the current step', () => {
-    cy.mount(RplProgress, { props: { ...baseProps, currentStepId: 'test2' } })
+    cy.mount(RplProgress as any, {
+      props: { ...baseProps, currentStepId: 'test2' }
+    })
 
     cy.get('.rpl-progress-step').as('steps')
 
@@ -51,7 +53,7 @@ describe.only('RplProgress', () => {
   })
 
   it('can be exanded/collapsed', () => {
-    cy.mount(RplProgress, {
+    cy.mount(RplProgress as any, {
       props: { ...baseProps, currentStepId: 'test1', expandable: true }
     })
     cy.get('.rpl-progress__header').as('toggle')

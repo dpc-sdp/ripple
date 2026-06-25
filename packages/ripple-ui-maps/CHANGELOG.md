@@ -1,5 +1,48 @@
 # Changelog
 
+## [2.49.1](https://github.com/dpc-sdp/ripple/compare/ripple-ui-maps-v2.49.0...ripple-ui-maps-v2.49.1) (2026-05-14)
+
+
+### Bug Fixes
+
+* trigger releases ([#1395](https://github.com/dpc-sdp/ripple/issues/1395)) ([7a64d63](https://github.com/dpc-sdp/ripple/commit/7a64d63a6d4907ccb20d491aedc52283d410fd04))
+
+## [2.49.0](https://github.com/dpc-sdp/ripple/compare/ripple-ui-maps-v2.48.4...ripple-ui-maps-v2.49.0) (2026-04-30)
+
+
+### Features
+
+* **@dpc-sdp/ripple-ui-maps:** add excessResults prop to sidepanel ([#1383](https://github.com/dpc-sdp/ripple/issues/1383)) ([7e49c69](https://github.com/dpc-sdp/ripple/commit/7e49c69a49a92169f28e3bb9878e4c49d8dd4be5))
+
+## [2.48.4](https://github.com/dpc-sdp/ripple/compare/ripple-ui-maps-v2.48.3...ripple-ui-maps-v2.48.4) (2026-04-17)
+
+
+### Bug Fixes
+
+* trigger releases ([#1374](https://github.com/dpc-sdp/ripple/issues/1374)) ([9f76446](https://github.com/dpc-sdp/ripple/commit/9f764466b65723c87914afdaa922b94add9cadd5))
+
+## [2.48.3](https://github.com/dpc-sdp/ripple/compare/ripple-ui-maps-v2.48.2...ripple-ui-maps-v2.48.3) (2026-04-16)
+
+
+### Miscellaneous
+
+* package updates ([#1370](https://github.com/dpc-sdp/ripple/issues/1370)) ([e827529](https://github.com/dpc-sdp/ripple/commit/e8275299dd7c14f3203c1e48772b0cb8df8fb933))
+
+## [2.48.2](https://github.com/dpc-sdp/ripple/compare/ripple-ui-maps-v2.48.1...ripple-ui-maps-v2.48.2) (2026-03-19)
+
+
+### Miscellaneous
+
+* misc repo updates ([#1365](https://github.com/dpc-sdp/ripple/issues/1365)) ([3a5483e](https://github.com/dpc-sdp/ripple/commit/3a5483e90a2a896252a63773b3b688c9778b4b27))
+* update storybook and related deps ([#1355](https://github.com/dpc-sdp/ripple/issues/1355)) ([25645d7](https://github.com/dpc-sdp/ripple/commit/25645d7eb0d28459c270fefcfdc8b7ee986a6123))
+
+## [2.48.1](https://github.com/dpc-sdp/ripple/compare/ripple-ui-maps-v2.48.0...ripple-ui-maps-v2.48.1) (2026-02-04)
+
+
+### Miscellaneous
+
+* [SD-1526] - Setup typecheck scripts for each ui package ([#1335](https://github.com/dpc-sdp/ripple/issues/1335)) ([3c2dd13](https://github.com/dpc-sdp/ripple/commit/3c2dd13e11235df0e910eba79bd6b91463e479dc))
+
 ## [2.48.0](https://github.com/dpc-sdp/ripple/compare/ripple-ui-maps-v2.47.0...ripple-ui-maps-v2.48.0) (2026-01-21)
 
 

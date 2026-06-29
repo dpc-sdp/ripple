@@ -58,8 +58,6 @@ Note: Ripple 2 will only be hosted on Github Packages, any packages still publis
 
 See https://www.ripple.sdp.vic.gov.au/ for more information about the Ripple design system.
 
-For information about using Ripple in SDP websites see the [Ripple Framework](https://www.ripple.sdp.vic.gov.au/framework) section.
-
 ## Contributing
 
 Please see [CONTRIBUTING.md](CONTRIBUTING.md) as well as https://www.ripple.sdp.vic.gov.au/design-system/develop/contributing/ for information about how to submit changes to Ripple.

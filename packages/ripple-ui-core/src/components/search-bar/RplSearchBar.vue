@@ -132,7 +132,7 @@ const handleSubmit = (type: 'button' | 'enter') => {
 
 const handleInputChange = (e) => {
   // It was requested in SD-1817 that the search bar immediately "submits" if a user clears the field through any means (backspace etc.)
-  if (e.target.value === '') {
+  if (props.submitOnClear && e.target.value === '') {
     handleClear()
     return
   }

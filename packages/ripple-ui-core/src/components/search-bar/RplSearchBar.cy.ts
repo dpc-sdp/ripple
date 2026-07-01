@@ -79,6 +79,70 @@ describe('RplSearchBar', () => {
     })
   })
 
+  it("by default, doesn't submit when clear button is clicked", () => {
+    const onSubmitSpy = cy.spy().as('onSubmitSpy')
+    cy.mount(RplSearchBar as any, {
+      props: {
+        ...baseProps,
+        onSubmit: onSubmitSpy
+      }
+    })
+
+    cy.get('#search-bar').type('ripp')
+    cy.get('.rpl-search-bar__clear').click()
+    cy.get('@onSubmitSpy').should('not.have.been.called')
+  })
+
+  it("by default, doesn't submit when input is cleared", () => {
+    const onSubmitSpy = cy.spy().as('onSubmitSpy')
+    cy.mount(RplSearchBar as any, {
+      props: {
+        ...baseProps,
+        onSubmit: onSubmitSpy
+      }
+    })
+
+    cy.get('#search-bar').type('ripp')
+    cy.get('#search-bar').clear()
+    cy.get('@onSubmitSpy').should('not.have.been.called')
+  })
+
+  it('submitOnClear - submits when clear button is clicked', () => {
+    const onSubmitSpy = cy.spy().as('onSubmitSpy')
+    cy.mount(RplSearchBar as any, {
+      props: {
+        ...baseProps,
+        submitOnClear: true,
+        onSubmit: onSubmitSpy
+      }
+    })
+
+    cy.get('#search-bar').type('ripp')
+    cy.get('.rpl-search-bar__clear').click()
+    cy.get('@onSubmitSpy').should('have.been.called')
+    cy.get('@onSubmitSpy').should('have.been.calledWithMatch', {
+      value: ''
+    })
+  })
+
+  it('submitOnClear - submits when text is cleared', () => {
+    const onSubmitSpy = cy.spy().as('onSubmitSpy')
+    cy.mount(RplSearchBar as any, {
+      props: {
+        ...baseProps,
+        submitOnClear: true,
+        onSubmit: onSubmitSpy
+      }
+    })
+
+    cy.get('#search-bar').type('ripp')
+    cy.get('#search-bar').clear()
+    cy.get('@onSubmitSpy').should('have.been.called')
+    cy.get('@onSubmitSpy').should('have.been.calledWithMatch', {
+      value: ''
+    })
+  })
+
   it('does not submit if suggestion selection is required and there are no suggestions', () => {
     const onSubmitSpy = cy.spy().as('onSubmitSpy')
     cy.mount(RplSearchBar as any, {

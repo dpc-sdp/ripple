@@ -1303,6 +1303,18 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * **@dpc-sdp/ripple-ui-core:** removed the unneeded 1px margin from the file icon ([f25b39e](https://github.com/dpc-sdp/ripple-framework/commit/f25b39ee9b586094a0e40d77b4cc565e99c68eaf))
 * **@dpc-sdp/ripple-ui-core:** revert content prop ([c79b30c](https://github.com/dpc-sdp/ripple-framework/commit/c79b30cf5cc665113458c59884e27719bf561726))
 
+## [2.53.0](https://github.com/dpc-sdp/ripple/compare/ripple-ui-core-v2.52.2...ripple-ui-core-v2.53.0) (2026-07-02)
+
+
+### Features
+
+* **@dpc-sdp/ripple-ui-core:** [SD-1817] update search bar clear behaviour  ([#1416](https://github.com/dpc-sdp/ripple/issues/1416)) ([e712c33](https://github.com/dpc-sdp/ripple/commit/e712c33d9ac63802cfd6283d6e04c5db555f864f))
+
+
+### Miscellaneous
+
+* dependency updates ([#1412](https://github.com/dpc-sdp/ripple/issues/1412)) ([8bf4af1](https://github.com/dpc-sdp/ripple/commit/8bf4af12e60a7b42ddc5c0500fb9785990deef7a))
+
 ## [2.52.2](https://github.com/dpc-sdp/ripple/compare/ripple-ui-core-v2.52.1...ripple-ui-core-v2.52.2) (2026-06-11)
 
 

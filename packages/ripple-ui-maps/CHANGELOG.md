@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.49.2](https://github.com/dpc-sdp/ripple/compare/ripple-ui-maps-v2.49.1...ripple-ui-maps-v2.49.2) (2026-07-02)
+
+
+### Miscellaneous
+
+* dependency updates ([#1412](https://github.com/dpc-sdp/ripple/issues/1412)) ([8bf4af1](https://github.com/dpc-sdp/ripple/commit/8bf4af12e60a7b42ddc5c0500fb9785990deef7a))
+
 ## [2.49.1](https://github.com/dpc-sdp/ripple/compare/ripple-ui-maps-v2.49.0...ripple-ui-maps-v2.49.1) (2026-05-14)
 
 

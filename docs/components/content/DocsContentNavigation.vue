@@ -21,23 +21,6 @@ const processedNav = navigation?.map((item) => {
 <template>
   <div>
     <RplVerticalNav :items="processedNav" />
-    <DocsNavLink
-      v-if="!hideModulesSection"
-      :url="
-        sectionSlug === 'framework'
-          ? '/design-system/about/what-is-ripple'
-          : '/framework'
-      "
-      icon="icon-link-external-square-filled"
-      iconPosition="end"
-      class="docs-section-link"
-    >
-      {{
-        sectionSlug === 'framework'
-          ? sections['design-system'].title
-          : sections['framework'].title
-      }}
-    </DocsNavLink>
   </div>
 </template>
 

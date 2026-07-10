@@ -8,6 +8,7 @@ import {
 } from './constants'
 import { RplIconNames } from '../icon/constants'
 import { buttonFocusState } from './RplButton.play'
+import { bpMin } from '../../lib/breakpoints'
 
 export default {
   title: 'Core/Navigation/Button',
@@ -153,4 +154,18 @@ export const BusyState: Story = {
     iconName: 'icon-exclamation-circle-filled',
     busy: true
   }
+}
+
+export const LongContent: Story = {
+  name: 'Example/Long content',
+  parameters: {
+    chromatic: {
+      viewports: [bpMin.s - 100, bpMin.l]
+    }
+  },
+  render: () => ({
+    template: `<div style="max-width: 576px">
+      <RplButton>This is certainly a lot of text for a little button, some might say too much</RplButton>
+    </div>`
+  })
 }

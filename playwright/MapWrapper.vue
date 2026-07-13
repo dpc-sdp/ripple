@@ -65,7 +65,7 @@ const getClusteredFeatures = (itms) => {
 
 <template>
   <RplIconSprite style="display: none" />
-  <RplMap v-bind="mapProps">
+  <RplMap v-bind="mapProps as any">
     <template #map-provider>
       <RplMapProviderVicMap v-if="provider === 'vicmap'" id="vicmap" />
       <RplMapProviderEsri v-if="provider === 'esri'" id="esri" />

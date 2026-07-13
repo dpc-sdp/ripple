@@ -64,7 +64,7 @@ const emit = defineEmits<{
 
 const { emitRplEvent } = useRippleEvent('rpl-form-number', emit)
 
-const form: IRplFormProvidedState | undefined = inject('form')
+const form: IRplFormProvidedState = inject('form', {})
 
 const classes = computed(() => {
   return {

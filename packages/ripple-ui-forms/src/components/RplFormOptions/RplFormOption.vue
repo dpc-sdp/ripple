@@ -50,7 +50,7 @@ const emit = defineEmits<{
 }>()
 
 const isMounted = ref(false)
-const form: IRplFormProvidedState | undefined = inject('form')
+const form: IRplFormProvidedState = inject('form', {})
 const { emitRplEvent } = useRippleEvent('rpl-form-option', emit)
 
 const classes = computed(() => {

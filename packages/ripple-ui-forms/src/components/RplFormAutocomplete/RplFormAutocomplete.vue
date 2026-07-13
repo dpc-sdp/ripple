@@ -72,7 +72,7 @@ const emit = defineEmits<{
 
 const { emitRplEvent } = useRippleEvent('rpl-form-autocomplete', emit)
 
-const form: IRplFormProvidedState | undefined = inject('form')
+const form: IRplFormProvidedState = inject('form', {})
 
 const internalInputValue = ref<string | string[]>('')
 const containerRef = ref(null)

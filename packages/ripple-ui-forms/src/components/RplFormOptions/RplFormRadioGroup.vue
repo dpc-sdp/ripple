@@ -40,7 +40,7 @@ const emit = defineEmits<{
   (e: 'update', payload: rplEventPayload & { action: 'update' }): void
 }>()
 
-const form: IRplFormProvidedState | undefined = inject('form')
+const form: IRplFormProvidedState = inject('form', {})
 const { emitRplEvent } = useRippleEvent('rpl-form-radio-group', emit)
 
 const handleChange = (selectedValue: string) => {

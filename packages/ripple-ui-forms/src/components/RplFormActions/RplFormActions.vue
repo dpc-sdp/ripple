@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { reset } from '@formkit/vue'
-import { computed, inject, onMounted } from 'vue'
+import { computed, inject, onMounted, ref } from 'vue'
 import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
 import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
 import { getCaptchaElementId } from '../../utils/getCaptchaElementId'
@@ -50,12 +50,13 @@ const iconPosition = computed(() => {
   return undefined
 })
 
-const form: IRplFormProvidedState | undefined = inject('form')
+const form: IRplFormProvidedState = inject('form', {})
 const onCaptchaElementReady: (() => void) | undefined = inject(
-  'onCaptchaElementReady'
+  'onCaptchaElementReady',
+  undefined
 )
-const isFormSubmitting: any = inject('isFormSubmitting')
-const onFormReset = inject('onFormReset')
+const isFormSubmitting: any = inject('isFormSubmitting', ref(false))
+const onFormReset = inject('onFormReset', undefined)
 
 const handleReset = () => {
   if (typeof onFormReset === 'function') {

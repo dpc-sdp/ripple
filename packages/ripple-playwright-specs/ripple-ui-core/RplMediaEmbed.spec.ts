@@ -27,7 +27,7 @@ test.describe(() => {
     await expect(toggle).toContainText("View 'Media title' data")
     await expect(content).toBeHidden()
 
-    toggle.click()
+    await toggle.click()
 
     await expect(toggle).toContainText("Close 'Media title' data")
     await expect(content).toBeVisible()
@@ -38,7 +38,7 @@ test.describe(() => {
 
     await component.locator('.rpl-media-embed__fullscreen-button').click()
     await expect(page.locator('.rpl-media-embed__modal')).toBeVisible()
-    page.locator('.rpl-media-embed__modal button').click()
+    await page.locator('.rpl-media-embed__modal button').click()
     await expect(page.locator('.rpl-media-embed__modal')).not.toBeAttached()
   })
 })

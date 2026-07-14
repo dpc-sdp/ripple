@@ -21,7 +21,7 @@ test.describe(() => {
     const component = await mount(RplPagination as any, { props })
 
     await expect(component.locator(current)).toContainText('1')
-    component.getByLabel(next).click()
+    await component.getByLabel(next).click()
     await expect(component.locator(current)).toContainText('2')
   })
 
@@ -31,7 +31,7 @@ test.describe(() => {
     })
 
     await expect(component.locator(current)).toContainText('3')
-    component.getByLabel(prev).click()
+    await component.getByLabel(prev).click()
     await expect(component.locator(current)).toContainText('2')
   })
 
@@ -43,7 +43,7 @@ test.describe(() => {
     await expect(component.getByLabel(next)).toBeAttached()
     await expect(component.getByLabel(prev)).not.toBeAttached()
 
-    component.getByLabel(next).click()
+    await component.getByLabel(next).click()
 
     await expect(component.getByLabel(next)).not.toBeAttached()
     await expect(component.getByLabel(prev)).toBeAttached()

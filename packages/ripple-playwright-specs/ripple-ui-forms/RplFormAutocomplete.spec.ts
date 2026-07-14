@@ -213,7 +213,6 @@ test.describe(() => {
         ...baseProps,
         isFreeText: true,
         onChange: (val) => {
-          console.log('typed', val)
           changeCalls.push(val)
         }
       } as any

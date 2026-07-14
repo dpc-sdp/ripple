@@ -23,12 +23,12 @@ test.describe(() => {
   test('navigates through cards with pagination', async ({ mount }) => {
     const component = await mount(RplCardCarousel, { props: { items } })
 
-    component.getByLabel('Go to next item').click()
+    await component.getByLabel('Go to next item').click()
     await expect(component.locator('.swiper-slide-active')).toHaveText(
       items[1].title
     )
 
-    component.getByLabel('Go to previous item').click()
+    await component.getByLabel('Go to previous item').click()
     await expect(component.locator('.swiper-slide-active')).toHaveText(
       items[0].title
     )
@@ -50,12 +50,12 @@ test.describe(() => {
 
     await expect(component).toBeAttached()
 
-    component.getByLabel('Go to next item').click()
+    await component.getByLabel('Go to next item').click()
     await expect(component.locator('.swiper-slide-active')).toHaveText(
       `${items[1].title} slot`
     )
 
-    component.getByLabel('Go to previous item').click()
+    await component.getByLabel('Go to previous item').click()
     await expect(component.locator('.swiper-slide-active')).toHaveText(
       `${items[0].title} slot`
     )

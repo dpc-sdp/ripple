@@ -31,7 +31,6 @@ export default defineConfig({
       publicDir: path.join(process.cwd(), 'playwright/public'),
       resolve: {
         alias: {
-          // '@': path.resolve(__dirname, './src'),
           vue: 'vue/dist/vue.esm-bundler.js'
         }
       }

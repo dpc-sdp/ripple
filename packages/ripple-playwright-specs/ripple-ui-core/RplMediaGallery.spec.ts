@@ -31,7 +31,7 @@ test.describe(() => {
   test('display a gallery fullscreen', async ({ mount, page }) => {
     const component = await mount(RplMediaGallery, { props })
 
-    component
+    await component
       .locator('.rpl-media-gallery__primary-content .rpl-slider__slide')
       .first()
       .locator('.rpl-media-gallery__button')
@@ -42,7 +42,7 @@ test.describe(() => {
   test('navigates to through items with pagination', async ({ mount }) => {
     const component = await mount(RplMediaGallery, { props })
 
-    component.getByLabel('Go to next item').click()
+    await component.getByLabel('Go to next item').click()
     const active = component.locator(
       '.rpl-media-gallery__primary-content .swiper-slide-active'
     )
@@ -53,7 +53,7 @@ test.describe(() => {
     )
     await expect(img).toHaveAttribute('src', props.items[1].thumbnail)
 
-    component.getByLabel('Go to previous item').click()
+    await component.getByLabel('Go to previous item').click()
     await expect(active).toContainText(props.items[0].title)
     await expect(img).toHaveAttribute('src', props.items[0].thumbnail)
   })
@@ -91,7 +91,7 @@ test.describe(() => {
   }) => {
     const component = await mount(RplMediaGallery, { props })
 
-    component
+    await component
       .locator('.rpl-media-gallery__primary-content .rpl-media-gallery__button')
       .first()
       .click()

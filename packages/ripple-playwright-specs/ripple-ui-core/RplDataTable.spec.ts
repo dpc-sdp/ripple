@@ -150,21 +150,22 @@ test.describe(() => {
         }
       ]
 
-      expected.forEach(async (item, index) => {
+      for (const [index, item] of expected.entries()) {
         const matched = component.locator(`tbody:nth-of-type(${index + 1})`)
         for (let i = 0; i <= (await matched.count()) - 1; i++) {
           const th = matched.nth(i).locator('th')
           await expect(th).toHaveAttribute('scope', 'row')
           await expect(th).toContainText(expected[index].heading)
         }
-        item.content.forEach(async (content, j) => {
+
+        for (const [j, content] of item.content.entries()) {
           for (let i = 0; i <= (await matched.count()) - 1; i++) {
             await expect(
               matched.nth(i).locator(`td:nth-of-type(${j + 1})`)
             ).toContainText(content)
           }
-        })
-      })
+        }
+      }
     })
 
     test('handles column orientation on mobile for vertical headings', async ({
@@ -182,19 +183,19 @@ test.describe(() => {
         }
       })
 
-      values.forEach(async (item, index) => {
+      for (const [index, item] of values.entries()) {
         const matched = component.locator(`tbody:nth-of-type(${index + 1})`)
         for (let i = 0; i <= (await matched.count()) - 1; i++) {
           const th = matched.nth(i).locator('th')
           await expect(th).not.toBeAttached()
 
-          item.forEach(async (content, j) => {
+          for (const [j, content] of item.entries()) {
             const cell = matched.nth(i).locator(`td:nth-child(${j + 1})`)
             await expect(cell).toContainText(headings[j])
             await expect(cell).toContainText(content)
-          })
+          }
         }
-      })
+      }
     })
 
     test('handles column orientation on mobile for dual headings', async ({
@@ -212,20 +213,20 @@ test.describe(() => {
         }
       })
 
-      values.forEach(async (item, index) => {
+      for (const [index, item] of values.entries()) {
         const matched = component.locator(`tbody:nth-of-type(${index + 1})`)
         for (let i = 0; i <= (await matched.count()) - 1; i++) {
           const th = matched.nth(i).locator('th')
           await expect(th).toHaveAttribute('scope', 'row')
           await expect(th).toContainText(title[index])
 
-          item.forEach(async (content, j) => {
+          for (const [j, content] of item.entries()) {
             const cell = matched.nth(i).locator(`td:nth-of-type(${j + 1})`)
             await expect(cell).toContainText(headings[j])
             await expect(cell).toContainText(content)
-          })
+          }
         }
-      })
+      }
     })
   })
 })

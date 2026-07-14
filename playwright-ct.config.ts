@@ -1,9 +1,7 @@
 import { defineConfig, devices } from '@playwright/experimental-ct-vue'
 import vue from '@vitejs/plugin-vue'
 import path from 'node:path'
-import { fileURLToPath } from 'node:url'
 import vitePlugins from './packages/ripple-ui-core/src/vite.plugins'
-const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 export default defineConfig({
   testDir: './packages',

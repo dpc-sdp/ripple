@@ -1,7 +1,6 @@
 import { PluginOption, defineConfig } from 'vite'
 import path from 'path'
 import vue from '@vitejs/plugin-vue'
-import dts from 'vite-plugin-dts'
 import vitePlugins from './src/vite.plugins'
 
 // https://vitejs.dev/config/
@@ -13,7 +12,7 @@ export default defineConfig({
       vue: 'vue/dist/vue.esm-bundler.js'
     }
   },
-  plugins: [vue(), dts(), ...(vitePlugins as unknown as PluginOption[])],
+  plugins: [vue(), ...(vitePlugins as unknown as PluginOption[])],
   build: {
     emptyOutDir: false,
     lib: {

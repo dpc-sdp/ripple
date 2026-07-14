@@ -19,7 +19,7 @@
     "nuxt": "catalog:"
   },
   "devDependencies": {
-    "@iconify/vue": "^5.0.0",
+    "@iconify/vue": "^5.0.1",
     "@nuxt/content": "^3.12.0"
   }
 }

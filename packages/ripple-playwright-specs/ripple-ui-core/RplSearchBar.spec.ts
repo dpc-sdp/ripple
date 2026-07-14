@@ -52,7 +52,7 @@ test.describe(() => {
     await expect(component.locator('.rpl-search-bar__clear')).toBeAttached()
   })
 
-  test('submits when enter is pressed', async ({ mount, page }) => {
+  test('submits when enter is pressed', async ({ mount }) => {
     const calls: any[] = []
 
     const component = await mount(RplSearchBar, {

@@ -56,6 +56,10 @@ module.exports = {
           }
         ]
       }
+    },
+    {
+      files: ['*.spec.ts'],
+      parser: undefined // Will need to upgrade to eslint 10.x
     }
   ]
 }

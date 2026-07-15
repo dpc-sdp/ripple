@@ -78,7 +78,7 @@ const emit = defineEmits<{
   ): void
 }>()
 
-const form: IRplFormProvidedState | undefined = inject('form')
+const form: IRplFormProvidedState = inject('form', {})
 
 const { emitRplEvent } = useRippleEvent('rpl-form-dropdown', emit)
 

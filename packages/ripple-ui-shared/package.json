@@ -1,0 +1,49 @@
+{
+  "name": "@dpc-sdp/ripple-ui-shared",
+  "version": "0.0.0",
+  "type": "module",
+  "types": "./dist/index.d.ts",
+  "files": ["dist", "src"],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./contracts": {
+      "types": "./dist/contracts/index.d.ts",
+      "import": "./dist/contracts/index.js",
+      "default": "./dist/contracts/index.js"
+    },
+    "./event-bus": {
+      "types": "./dist/event-bus.d.ts",
+      "import": "./dist/event-bus.js",
+      "default": "./dist/event-bus.js"
+    },
+    "./utils": {
+      "types": "./dist/utils/index.d.ts",
+      "import": "./dist/utils/index.js",
+      "default": "./dist/utils/index.js"
+    },
+    "./assets/*": "./src/assets/*"
+  },
+  "scripts": {
+    "build": "pnpm clean && pnpm build:types",
+    "build:types": "tsc -p tsconfig.json",
+    "clean": "(rimraf dist* && rimraf tsconfig.tsbuildinfo) | true",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "typesVersions": {
+    "*": {
+      "contracts": ["dist/contracts/index.d.ts"],
+      "event-bus": ["dist/event-bus.d.ts"],
+      "*": ["dist/index.d.ts"]
+    }
+  },
+  "dependencies": {
+    "mitt": "^3.0.1"
+  },
+  "devDependencies": {
+    "rimraf": "catalog:"
+  }
+}

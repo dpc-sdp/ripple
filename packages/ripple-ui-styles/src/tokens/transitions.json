@@ -1,0 +1,46 @@
+{
+  "motion": {
+    "speed": {
+      "1": {
+        "$type": "duration",
+        "$value": "60ms"
+      },
+      "2": {
+        "$type": "duration",
+        "$value": "80ms"
+      },
+      "3": {
+        "$type": "duration",
+        "$value": "120ms"
+      },
+      "4": {
+        "$type": "duration",
+        "$value": "160ms"
+      },
+      "5": {
+        "$type": "duration",
+        "$value": "200ms"
+      },
+      "6": {
+        "$type": "duration",
+        "$value": "240ms"
+      },
+      "7": {
+        "$type": "duration",
+        "$value": "300ms"
+      },
+      "8": {
+        "$type": "duration",
+        "$value": "360ms"
+      },
+      "9": {
+        "$type": "duration",
+        "$value": "420ms"
+      },
+      "10": {
+        "$type": "duration",
+        "$value": "500ms"
+      }
+    }
+  }
+}

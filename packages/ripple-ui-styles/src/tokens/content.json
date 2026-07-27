@@ -1,0 +1,10 @@
+{
+  "content": {
+    "max-width": {
+      "_": {
+        "$type": "dimension",
+        "$value": "615px"
+      }
+    }
+  }
+}

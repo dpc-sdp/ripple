@@ -1,0 +1,90 @@
+{
+  "name": "@dpc-sdp/ripple-ui-react",
+  "version": "0.0.0",
+  "type": "module",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "peerDependencies": {
+    "react": "^18.0.0 || ^19.0.0",
+    "react-dom": "^18.0.0 || ^19.0.0"
+  },
+  "dependencies": {
+    "@dpc-sdp/ripple-ui-shared": "workspace:*",
+    "@dpc-sdp/ripple-ui-styles": "workspace:*",
+    "clsx": "^2.1.1"
+  },
+  "devDependencies": {
+    "@svgr/cli": "^8.1.0",
+    "@chromatic-com/storybook": "^5.2.1",
+    "@storybook/addon-mcp": "^0.6.0",
+    "@storybook/addon-vitest": "^10.4.2",
+    "@storybook/react-vite": "^10.4.2",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^4.3.4",
+    "@vitest/browser-playwright": "catalog:",
+    "@vitest/coverage-v8": "catalog:",
+    "eslint-plugin-storybook": "^10.4.2",
+    "playwright": "^1.60.0",
+    "react": "^18.0.0 || ^19.0.0",
+    "react-dom": "^18.0.0 || ^19.0.0",
+    "rimraf": "catalog:",
+    "storybook": "^10.4.2",
+    "vite": "catalog:",
+    "vite-plugin-dts": "^2.1.0",
+    "vite-plugin-svgr": "^5.2.0"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./button": {
+      "types": "dist/components/button/RplButton.d.ts",
+      "import": "dist/components/button/RplButton.js",
+      "default": "dist/components/button/RplButton.js"
+    },
+    "./alert": {
+      "types": "dist/components/alert/RplAlert.d.ts",
+      "import": "dist/components/alert/RplAlert.js",
+      "default": "dist/components/alert/RplAlert.js"
+    },
+    "./icon": {
+      "types": "dist/components/icon/RplIcon.d.ts",
+      "import": "dist/components/icon/RplIcon.js",
+      "default": "dist/components/icon/RplIcon.js"
+    },
+    "./layout": {
+      "types": "dist/components/layout/RplLayout.d.ts",
+      "import": "dist/components/layout/RplLayout.js",
+      "default": "dist/components/layout/RplLayout.js"
+    },
+    "./content": {
+      "types": "dist/components/content/RplContent.d.ts",
+      "import": "dist/components/content/RplContent.js",
+      "default": "dist/components/content/RplContent.js"
+    }
+  },
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "scripts": {
+    "generate:icons": "rimraf src/components/icon/generated && svgr --typescript --ext tsx --filename-case pascal --out-dir src/components/icon/generated --index-template ./scripts/svgr-index-template.cjs ./../ripple-ui-shared/src/assets/icons/custom",
+    "prebuild": "pnpm run generate:icons && node scripts/sync-exports.mjs",
+    "build": "vite build",
+    "build:watch": "vite build --watch",
+    "clean": "(rimraf dist* && rimraf tsconfig.tsbuildinfo) | true",
+    "typecheck": "echo 'typecheck placeholder'",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+  "eslintConfig": {
+    "extends": [
+      "plugin:storybook/recommended"
+    ]
+  }
+}
